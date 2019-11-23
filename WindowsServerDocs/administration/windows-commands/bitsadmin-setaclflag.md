@@ -22,7 +22,7 @@ ms.locfileid: "71380758"
 ---
 # <a name="bitsadmin-setaclflag"></a>bitsadmin setaclflag
 
-Legt die weitergabesteuerungsflags für die Zugriffs Steuerungs Liste (ACL) für den Auftrag fest. Die Flags geben an, dass Sie den Besitzer und die ACL-Informationen mit der heruntergeladenen Datei verwalten möchten. Um z. b. den Besitzer und die Gruppe mit der Datei beizubehalten, legen Sie **Flags** Auf `OG` fest.
+Legt die weitergabesteuerungsflags für die Zugriffs Steuerungs Liste (ACL) für den Auftrag fest. Die Flags geben an, dass Sie den Besitzer und die ACL-Informationen mit der heruntergeladenen Datei verwalten möchten. Um z. b. den Besitzer und die Gruppe mit der Datei beizubehalten, legen Sie **Flags** auf `OG`fest.
 
 ## <a name="syntax"></a>Syntax
 
@@ -35,7 +35,7 @@ bitsadmin /SetAclFlags <Job> <Flags>
 |Parameter|Beschreibung|
 |---------|-----------|
 |Auftrag|Der Anzeige Name oder GUID des Auftrags.|
-|Flags|Geben Sie mindestens einen der folgenden Flagwerte an:</br>' Besitzer Informationen in Datei kopieren.</br>SELBST Kopieren Sie Gruppeninformationen mit der Datei.</br>D Kopieren Sie DACL-Informationen mit der Datei.</br>-S: Kopieren Sie SACL-Informationen mit der Datei.|
+|Flags|Geben Sie mindestens einen der folgenden Flagwerte an:</br>-O: Besitzer Informationen in Datei kopieren.</br>-G: Kopieren von Gruppeninformationen mit der Datei.</br>-D: DACL-Informationen werden mit der Datei kopiert.</br>-S: Kopieren Sie SACL-Informationen mit der Datei.|
 
 ## <a name="remarks"></a>Hinweise
 

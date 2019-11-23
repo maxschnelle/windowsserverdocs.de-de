@@ -43,11 +43,11 @@ shift [/n <N>]
 
 ## <a name="remarks"></a>Hinweise
 
-- Der **Shift** -Befehl ändert die Werte der Batch Parameter **% 0** bis **% 9** durch Kopieren jedes Parameters in den vorherigen – der Wert von **% 1** wird in **% 0**kopiert, der Wert von **% 2** wird in **% 1**kopiert usw. Dies ist hilfreich beim Schreiben einer Batchdatei, die denselben Vorgang für eine beliebige Anzahl von Parametern ausführt.
-- Wenn Befehls Erweiterungen aktiviert sind, unterstützt der Befehl **Shift** die Befehlszeilenoption **/n** . Die **/n** -Option gibt an, dass die Verschiebung beim n-ten Argument gestartet werden soll, wobei **n** ein beliebiger Wert zwischen 0 und 8 ist. Beispielsweise würde **Shift/2** " **% 3** " in **"% 2**", " **% 4** " in " **% 3**" usw. verschieben und " **% 0** " und " **% 1** " nicht beeinträchtigt. Befehls Erweiterungen werden standardmäßig aktiviert.
-- Mit dem Befehl **Shift** können Sie eine Batchdatei erstellen, die mehr als 10 Batch Parameter annehmen kann. Wenn Sie mehr als 10 Parameter in der Befehlszeile angeben, werden diejenigen, die nach dem zehnten ( **% 9**) angezeigt werden, nacheinander in **% 9**verschoben.
-- Der **Shift** -Befehl hat keine Auswirkung auf den Parameter **% @ no__t-3*** Batch.
-- Es ist kein rückwärts **Verschiebungs** Befehl vorhanden. Nachdem Sie den Befehl **Shift** implementiert haben, können Sie den Batch Parameter ( **% 0**), der vor der Verschiebung vorhanden war, nicht wiederherstellen.
+- Der **Shift** -Befehl ändert die Werte der Batch Parameter **%0** bis **%9** durch Kopieren jedes Parameters in den vorherigen – der Wert von **%1** wird in **%0**kopiert, der Wert von **%2** wird in **%1**kopiert usw. Dies ist hilfreich beim Schreiben einer Batchdatei, die denselben Vorgang für eine beliebige Anzahl von Parametern ausführt.
+- Wenn Befehls Erweiterungen aktiviert sind, unterstützt der Befehl **Shift** die Befehlszeilenoption **/n** . Die **/n** -Option gibt an, dass die Verschiebung beim n-ten Argument gestartet werden soll, wobei **n** ein beliebiger Wert zwischen 0 und 8 ist. Beispielsweise würde **Shift/2** " **%3** " in **"%2**", " **%4** " in " **%3**" usw. verschieben und " **%0** " und " **%1** " nicht beeinträchtigt. Befehls Erweiterungen werden standardmäßig aktiviert.
+- Mit dem Befehl **Shift** können Sie eine Batchdatei erstellen, die mehr als 10 Batch Parameter annehmen kann. Wenn Sie mehr als 10 Parameter in der Befehlszeile angeben, werden diejenigen, die nach dem zehnten ( **%9**) angezeigt werden, nacheinander in **%9**verschoben.
+- Der **Shift** -Befehl hat keine Auswirkung auf den **%\\** * Batch-Parameter.
+- Es ist kein rückwärts **Verschiebungs** Befehl vorhanden. Nachdem Sie den Befehl **Shift** implementiert haben, können Sie den Batch Parameter ( **%0**), der vor der Verschiebung vorhanden war, nicht wiederherstellen.
 
 ## <a name="BKMK_examples"></a>Beispiele
 

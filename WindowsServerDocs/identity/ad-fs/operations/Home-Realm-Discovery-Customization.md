@@ -30,22 +30,22 @@ Wenn der AD FS Client zuerst eine Ressource anfordert, hat der Ressourcen Verbun
 
 
 ## <a name="configure-identity-provider-to-use-certain-email-suffixes"></a>Konfigurieren des Identitätsanbieters für die Verwendung bestimmter E-Mail-Suffixe  
-Eine Organisation kann einen Verbund mit mehreren Anspruchsanbietern eingehen. AD FS bietet Administratoren nun die Funktion "in @ no__t-0box", die es Administratoren ermöglicht, die Suffixe aufzulisten, z. b. @us.contoso.com, @eu.contoso.com, die von einem Anspruchs Anbieter unterstützt wird, und aktivieren Sie Sie für Suffix @ no__t-3based Discovery. Mit dieser Konfiguration können Endbenutzer Ihr Organisations Konto eingeben, und AD FS wählt automatisch den entsprechenden Anspruchs Anbieter aus.  
+Eine Organisation kann einen Verbund mit mehreren Anspruchsanbietern eingehen. AD FS bietet Administratoren nun\-die Möglichkeit, die Suffixe aufzulisten, z. b. @us.contoso.com@eu.contoso.com, die von einem Anspruchs Anbieter unterstützt wird, und aktivieren Sie Sie für die Suffix-\-basierte Ermittlung. Mit dieser Konfiguration können Endbenutzer Ihr Organisations Konto eingeben, und AD FS wählt automatisch den entsprechenden Anspruchs Anbieter aus.  
   
-Verwenden Sie das folgende Windows PowerShell-Cmdlet und die folgende Syntax, um einen Identitäts Anbieter \(idp @ no__t-1 (z. b. `fabrikam`) für die Verwendung bestimmter e-Mail-Suffixe zu konfigurieren.  
+Verwenden Sie das folgende Windows PowerShell-Cmdlet und die folgende Syntax, um einen Identitäts Anbieter \(IDP\)wie `fabrikam`zu konfigurieren, um bestimmte e-Mail-Suffixe zu verwenden.  
   
 
 `Set-AdfsClaimsProviderTrust -TargetName fabrikam -OrganizationalAccountSuffix @("fabrikam.com";"fabrikam2.com") ` 
  
 >[!NOTE]
-> Legen Sie beim Verbund zwischen zwei AD FS Servern die promptloginfederation-Eigenschaft für die Anspruchs Anbieter-Vertrauensstellung auf forwardpromptandhintsoverwsfederation fest.  Dies ist der Fall, wenn AD FS den login_hint und die Eingabeaufforderung an den IDP weiterleiten.  Dies kann durch Ausführen des folgenden PowerShell-Cmdlets erreicht werden:
+> Legen Sie beim Verbund zwischen zwei AD FS Servern die promptloginfederation-Eigenschaft für die Anspruchs Anbieter-Vertrauensstellung auf forwardpromptandhintsoverwsfederation fest.  Dadurch wird AD FS die login_hint und die Eingabeaufforderung an den IDP weiterleiten.  Dies kann durch Ausführen des folgenden PowerShell-Cmdlets erreicht werden:
 >
 >`Set-AdfsclaimsProviderTrust -PromptLoginFederation ForwardPromptAndHintsOverWsFederation`
 
 ## <a name="configure-an-identity-provider-list-per-relying-party"></a>Konfigurieren einer Identitätsanbieterliste pro vertrauender Seite  
 In einigen Szenarios möchte eine Organisation möglicherweise, dass Endbenutzern nur die Anspruchsanbieter angezeigt werden, die für eine Anwendung spezifisch sind, sodass nur eine Untersammlung von Anspruchsanbietern auf der Seite zur Startbereichsermittlung angezeigt wird.  
   
-Verwenden Sie zum Konfigurieren einer IDP-Liste pro Vertrauender Seite \(rp @ no__t-1 das folgende Windows PowerShell-Cmdlet und die folgende Syntax.  
+Verwenden Sie zum Konfigurieren einer IDP-Liste pro Vertrauender Seite \(RP-\)das folgende Windows PowerShell-Cmdlet und die folgende Syntax.  
   
  
 `Set-AdfsRelyingPartyTrust -TargetName claimapp -ClaimsProviderName @("Fabrikam","Active Directory") ` 
@@ -61,7 +61,7 @@ Verwenden Sie das folgende Windows PowerShell-Cmdlet und die folgende Syntax, um
  
   
 > [!IMPORTANT]  
-> Beachten Sie Folgendes: Wenn eine Identitäts Anbieterliste für eine vertrauende Seite konfiguriert wurde, zeigt AD FS weiterhin die Seite \(hrd @ no__t-1 der Startbereichs Ermittlung an, obwohl die vorherige Einstellung aktiviert wurde und der Benutzer auf das Intranet zugreift. Zum Umgehen der Startbereichsermittlung in diesem Fall müssen Sie sicherstellen, dass Active Directory ebenfalls zur Identitätsanbieterliste für diese vertrauende Seite hinzugefügt wird.  
+> Beachten Sie Folgendes: Wenn eine Identitäts Anbieterliste für eine vertrauende Seite konfiguriert wurde, zeigt AD FS weiterhin die Seite "Startbereichs Ermittlung" \(HRD-\) Seite an, obwohl die vorherige Einstellung aktiviert wurde und der Benutzer vom Intranet aus zugreift. Zum Umgehen der Startbereichsermittlung in diesem Fall müssen Sie sicherstellen, dass Active Directory ebenfalls zur Identitätsanbieterliste für diese vertrauende Seite hinzugefügt wird.  
 
 ## <a name="additional-references"></a>Weitere Verweise 
 [AD FS Anpassung der Benutzeranmeldung](AD-FS-user-sign-in-customization.md)  

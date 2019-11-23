@@ -76,31 +76,31 @@ Beachten Sie beim Erstellen einer Datei "Unattend. xml" für abgeschirmte VMS di
 
     | Ersetzbares Element | Ersatz Zeichenfolge |
     |-----------|-----------|
-    | ComputerName        | @ComputerName @      |
-    | Zeitzone            | @TimeZone @          |
-    | ProductKey          | @ProductKey @        |
-    | IPAddr4-1           | @IP4Addr-1 @         |
-    | IPAddr6-1           | @IP6Addr-1 @         |
-    | MACADDR-1           | @MACAddr-1 @         |
-    | Präfix-1-1          | @Prefix-1-1 @        |
-    | Nexthop-1-1         | @NextHop-1-1 @       |
-    | Präfix-1-2          | @Prefix-1-2 @        |
-    | Nexthop-1-2         | @NextHop-1-2 @       |
+    | ComputerName        | @ComputerName@      |
+    | Zeitzone            | @TimeZone@          |
+    | ProductKey          | @ProductKey@        |
+    | IPAddr4-1           | @IP4Addr-1@         |
+    | IPAddr6-1           | @IP6Addr-1@         |
+    | MACADDR-1           | @MACAddr-1@         |
+    | Präfix-1-1          | @Prefix-1-1@        |
+    | Nexthop-1-1         | @NextHop-1-1@       |
+    | Präfix-1-2          | @Prefix-1-2@        |
+    | Nexthop-1-2         | @NextHop-1-2@       |
 
     Wenn Sie über mehr als eine NIC verfügen, können Sie mehrere Ersatz Zeichenfolgen für die IP-Konfiguration hinzufügen, indem Sie die erste Ziffer erhöhen. Wenn Sie z. b. die IPv4-Adresse, das Subnetz und das Gateway für zwei NICs festlegen möchten, verwenden Sie die folgenden Ersetzungs Zeichenfolgen:
 
     | Ersatz Zeichenfolge | Beispiel Ersetzung |
     |---------------------|----------------------|
-    | @IP4Addr-1 @         | 192.168.1.10         |
-    | @MACAddr-1 @         | Ethernet             |
-    | @Prefix-1-1 @        | 192.168.1.0/24       |
-    | @NextHop-1-1 @       | 192.168.1.254        |
-    | @IP4Addr-2 @         | 10.0.20.30           |
-    | @MACAddr-2 @         | Ethernet 2           |
-    | @Prefix-2-1 @        | 10.0.20.0/24         |
-    | @NextHop-2-1 @       | 10.0.20.1            |
+    | @IP4Addr-1@         | 192.168.1.10         |
+    | @MACAddr-1@         | Ethernet             |
+    | @Prefix-1-1@        | 192.168.1.0/24       |
+    | @NextHop-1-1@       | 192.168.1.254        |
+    | @IP4Addr-2@         | 10.0.20.30           |
+    | @MACAddr-2@         | Ethernet 2           |
+    | @Prefix-2-1@        | 10.0.20.0/24         |
+    | @NextHop-2-1@       | 10.0.20.1            |
 
-Bei der Verwendung von Ersetzungs Zeichenfolgen müssen Sie sicherstellen, dass die Zeichen folgen während des VM-Bereitstellungs Prozesses aufgefüllt werden. Wenn eine Zeichenfolge wie @ProductKey @ zum Zeitpunkt der Bereitstellung nicht angegeben wird und der Knoten "&lt;productkey @ no__t-2" in der Datei für die unbeaufsichtigte Installation leer bleibt, schlägt der Spezialisierungsprozess fehl, und Sie können keine Verbindung mit dem virtuellen Computer herstellen.
+Bei der Verwendung von Ersetzungs Zeichenfolgen müssen Sie sicherstellen, dass die Zeichen folgen während des VM-Bereitstellungs Prozesses aufgefüllt werden. Wenn eine Zeichenfolge wie @ProductKey@ zum Zeitpunkt der Bereitstellung nicht angegeben wird, während der &lt;ProductKey-&gt; Knoten in der Datei für die unbeaufsichtigte Installation leer bleibt, schlägt der Spezialisierungsprozess fehl, und Sie können keine Verbindung mit dem virtuellen Computer herstellen.
 
 Beachten Sie außerdem, dass die netzwerkbezogenen Ersetzungs Zeichenfolgen für das Ende der Tabelle nur verwendet werden, wenn Sie statische VMM-IP-Adress Pools nutzen. Ihr hostingdienstanbieter sollte Ihnen mitteilen können, ob diese Ersetzungs Zeichenfolgen erforderlich sind. Weitere Informationen zu statischen IP-Adressen in VMM-Vorlagen finden Sie in der folgenden Dokumentation in der VMM-Dokumentation:
 
@@ -161,13 +161,13 @@ Rufen Sie die Überwachungs Metadatendateien für jedes geschützte Fabric ab, f
 
 Führen Sie den Assistenten für die Schutz Datendatei aus, um eine Datei mit geschützten Daten (PDK) zu erstellen. Hier fügen Sie das RDP-Zertifikat, die Datei für die unbeaufsichtigte Installation, volumesignaturkataloge, den Besitzer Wächter und die heruntergeladenen Überwachungs Metadaten hinzu, die im vorherigen Schritt abgerufen wurden.
 
-1. Installieren Sie mit Server-Manager oder dem folgenden Windows PowerShell **-Befehl Remoteserver-Verwaltungstools &gt;-Feature-Verwaltungs Tools &gt; abgeschirmte VM-Tools** auf Ihrem Computer:
+1. Installieren Sie mithilfe Server-Manager oder des folgenden Windows PowerShell-Befehls **Remoteserver-Verwaltungstools &gt; Feature-Verwaltungs Tools &gt; abgeschirmte VM-Tools** auf Ihrem Computer:
 
     ```powershell
     Install-WindowsFeature RSAT-Shielded-VM-Tools
     ```
 
-2. Öffnen Sie den Assistenten zum Schützen von Datendateien über den Abschnitt "Administrator Tools" im Startmenü, oder führen Sie die folgende ausführbare Datei " **C: \\Windows @ no__t-2System32\\ShieldingDataFileWizard.exe**" aus.
+2. Öffnen Sie den Assistenten zum Schützen von Datendateien über den Abschnitt "Administrator Tools" im Startmenü, oder führen Sie die folgende ausführbare Datei " **C:\\Windows\\System32\\shieldingdatafilewizard. exe**" aus.
 
 3. Verwenden Sie auf der ersten Seite das zweite Feld für die Auswahl von Dateien, um einen Speicherort und Dateinamen für die geschützte Datendatei auszuwählen. Normalerweise würden Sie eine geschützte Datendatei nach der Entität benennen, die virtuelle Computer besitzt, die mit den geschützten Daten (z. b. hr, IT, Finance) erstellt wurden, und die von ihr ausgestellte workloadrolle (z. b. Dateiserver, Webserver oder etwas anderes, das von der Datei für die unbeaufsichtigte Installation konfiguriert wurde). Lassen Sie das Optionsfeld auf **geschützte Daten für geschützte Vorlagen**fest.
 
@@ -200,7 +200,7 @@ Führen Sie den Assistenten für die Schutz Datendatei aus, um eine Datei mit ge
 
 6. Klicken Sie auf der Seite " **Spezialisierungs Werte** " auf **Durchsuchen** , um die Datei "Unattend. xml" auszuwählen, die für die Spezialisierung ihrer VMS verwendet wird.
 
-    Verwenden Sie die Schaltfläche **Hinzufügen** am unteren Rand, um dem PDK weitere Dateien hinzuzufügen, die während des Spezialisierungs Vorgangs benötigt werden. Wenn die Datei für die unbeaufsichtigte Installation z. b. ein RDP-Zertifikat auf dem virtuellen Computer installiert (wie unter [Generieren einer Antwortdatei mithilfe der New-shieldingdatabeantworungsfile-Funktion](guarded-fabric-sample-unattend-xml-file.md)beschrieben), müssen Sie die PFX-Datei des RDP-Zertifikats und rdpcertifikateconfig. ps1 hinzufügen. Skript hier erstellen. Beachten Sie, dass alle Dateien, die Sie hier angeben, automatisch nach C: \\temp @ no__t-1 auf dem virtuellen Computer kopiert werden, der erstellt wird. Die Datei für die unbeaufsichtigte Installation sollte erwarten, dass sich die Dateien in diesem Ordner befinden, wenn Sie über den Pfad referenziert werden.
+    Verwenden Sie die Schaltfläche **Hinzufügen** am unteren Rand, um dem PDK weitere Dateien hinzuzufügen, die während des Spezialisierungs Vorgangs benötigt werden. Wenn die Datei für die unbeaufsichtigte Installation z. b. ein RDP-Zertifikat auf dem virtuellen Computer installiert (wie unter [Generieren einer Antwortdatei mithilfe der New-shieldingdatabeantworungsfile-Funktion](guarded-fabric-sample-unattend-xml-file.md)beschrieben), sollten Sie hier die PFX-Datei des RDP-Zertifikats und das Skript "rdpcertifipteconfig. ps1" hinzufügen. Beachten Sie, dass alle Dateien, die Sie hier angeben, automatisch nach C:\\Temp\\ auf dem virtuellen Computer kopiert werden, der erstellt wird. Die Datei für die unbeaufsichtigte Installation sollte erwarten, dass sich die Dateien in diesem Ordner befinden, wenn Sie über den Pfad referenziert werden.
 
 7. Überprüfen Sie Ihre Auswahl auf der nächsten Seite, und klicken Sie dann auf **generieren**.
 
@@ -230,11 +230,11 @@ Import-HgsGuardian -Name 'EAST-US Datacenter' -Path '.\EastUSGuardian.xml'
 ```
 
 > [!TIP]
-> Wenn Sie selbst signierte Zertifikate verwendet haben oder die Zertifikate, die bei HGS registriert sind, abgelaufen sind, müssen Sie möglicherweise die Flags "`-AllowUntrustedRoot`" und/oder "`-AllowExpired`" mit dem Befehl Import-hgsguardian verwenden, um die Sicherheitsüberprüfungen zu umgehen.
+> Wenn Sie selbst signierte Zertifikate verwendet haben oder die Zertifikate, die bei HGS registriert sind, abgelaufen sind, müssen Sie möglicherweise die `-AllowUntrustedRoot`-und/oder `-AllowExpired`-Flags mit dem Befehl "Import-hgsguardian" verwenden, um die Sicherheitsüberprüfungen zu umgehen.
 
 Sie müssen auch [einen volumesignaturkatalog](#get-the-volume-signature-catalog-file) für jeden Vorlagen Datenträger abrufen, den Sie mit dieser Schutz Datendatei verwenden möchten, und eine [Antwortdatei](#create-an-answer-file) für die Schutz Daten, damit das Betriebssystem seine Spezialisierungs Aufgaben automatisch ausführen kann.
 Entscheiden Sie abschließend, ob Sie möchten, dass Ihr virtueller Computer vollständig abgeschirmt oder nur vtpm aktiviert ist.
-Verwenden Sie `-Policy Shielded` für eine vollständig abgeschirmte VM oder `-Policy EncryptionSupported` für einen vtpm-fähigen virtuellen Computer, der grundlegende Konsolen Verbindungen und PowerShell Direct zulässt.
+Verwenden Sie `-Policy Shielded` für eine vollständig abgeschirmte VM oder `-Policy EncryptionSupported` für eine vtpm-aktivierte VM, die einfache Konsolen Verbindungen und PowerShell Direct zulässt.
 
 Nachdem Sie alles vorbereitet haben, führen Sie den folgenden Befehl aus, um die geschützte Datendatei zu erstellen:
 
@@ -244,18 +244,18 @@ New-ShieldingDataFile -ShieldingDataFilePath "C:\temp\Marketing-LBI.pdk" -Policy
 ```
 
 > [!TIP]
-> Wenn Sie ein benutzerdefiniertes RDP-Zertifikat, SSH-Schlüssel oder andere Dateien verwenden, die in die geschützte Datendatei eingeschlossen werden müssen, verwenden Sie den `-OtherFile`-Parameter, um die Daten einzuschließen. Sie können eine durch Trennzeichen getrennte Liste mit Dateipfaden angeben, wie z. b. `-OtherFile "C:\source\myRDPCert.pfx", "C:\source\RDPCertificateConfig.ps1"`
+> Wenn Sie ein benutzerdefiniertes RDP-Zertifikat, SSH-Schlüssel oder andere Dateien verwenden, die in die geschützte Datendatei eingeschlossen werden müssen, verwenden Sie den `-OtherFile`-Parameter, um diese einzuschließen. Sie können eine durch Trennzeichen getrennte Liste mit Dateipfaden angeben, z. b. `-OtherFile "C:\source\myRDPCert.pfx", "C:\source\RDPCertificateConfig.ps1"`
 
 Im obigen Befehl kann der Wächter mit dem Namen "Owner" (abgerufen von Get-hgsguardian) die Sicherheitskonfiguration des virtuellen Computers in Zukunft ändern, während "East-US Datacenter" den virtuellen Computer ausführen, aber seine Einstellungen nicht ändern kann.
 Wenn Sie über mehr als einen Wächter verfügen, trennen Sie die Namen der Wächter durch Kommas wie `'EAST-US Datacenter', 'EMEA Datacenter'`.
 Der Lautstärke-ID-Qualifizierer gibt an, ob Sie nur der exakten Version (gleich) des Vorlagen Datenträgers oder zukünftigen Versionen (greaterthanorgleich) Vertrauen.
 Der Datenträger Name und das Signaturzertifikat müssen exakt mit dem Versionsvergleich übereinstimmen, der zum Zeitpunkt der Bereitstellung berücksichtigt wird.
-Sie können mehr als einen Vorlagen Datenträger als vertrauenswürdig einstufen, indem Sie eine durch Trennzeichen getrennte Liste mit Volumen-ID-Qualifizierern für den @no__t
-Wenn Sie weitere Dateien haben, die die Antwortdatei mit dem virtuellen Computer begleiten müssen, verwenden Sie den Parameter "`-OtherFile`", und stellen Sie eine durch Trennzeichen getrennte Liste mit Dateipfaden bereit.
+Sie können mehr als einem Vorlagen Datenträger Vertrauen, indem Sie eine durch Trennzeichen getrennte Liste mit Volumen-ID-Qualifizierern für den `-VolumeIDQualifier`-Parameter
+Wenn Sie weitere Dateien haben, die die Antwortdatei mit dem virtuellen Computer begleiten müssen, verwenden Sie den `-OtherFile`-Parameter, und geben Sie eine durch Trennzeichen getrennte Liste mit Dateipfaden an.
 
 Weitere Informationen zu weiteren Möglichkeiten zum Konfigurieren ihrer geschützten Datendatei finden Sie in der Cmdlet-Dokumentation für [New-shieldingdatafile](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-ShieldingDataFile?view=win10-ps) und [New-volumeidqualifizierer](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-VolumeIDQualifier?view=win10-ps) .
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Bereitstellen von abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

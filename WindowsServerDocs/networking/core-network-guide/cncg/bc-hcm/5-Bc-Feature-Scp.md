@@ -17,9 +17,9 @@ ms.locfileid: "71356347"
 ---
 # <a name="install-the-branchcache-feature-and-configure-the-hosted-cache-server-by-service-connection-point"></a>Installieren des BranchCache-Features und Konfigurieren des gehosteten Cacheservers nach Dienstverbindungspunkt
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Mit diesem Verfahren können Sie die BranchCache-Funktion auf dem gehosteten Cache Server, HCS1, installieren und den Server so konfigurieren, dass ein Dienst Verbindungspunkt \(scp @ no__t-1 in Active Directory Domain Services \(AD DS @ no__t-3 registriert wird.
+Mit diesem Verfahren können Sie die BranchCache-Funktion auf dem gehosteten Cache Server, HCS1, installieren und den Server so konfigurieren, dass ein Dienst Verbindungspunkt \(SCP\) in Active Directory Domain Services \(AD DS\)registriert wird.
 
 Wenn Sie gehostete Cache Server bei einem Dienst Verbindungspunkt in AD DS registrieren, gestattet der Dienst Verbindungspunkt, dass Client Computer, die für die automatische Ermittlung von gehosteten Cache Servern konfiguriert sind, durch Abfragen von AD DS für den SCP- Anweisungen zum Konfigurieren von Client Computern für die Durchführung dieser Aktion finden Sie weiter unten in diesem Handbuch.
 
@@ -50,11 +50,11 @@ Um dieses Verfahren auszuführen, müssen Sie Mitglied der Gruppe "Administrator
   
     Mit den Ergebnissen des Befehls wird der Status für alle Aspekte der BranchCache-Installation angezeigt. Im folgenden sind einige der BranchCache-Einstellungen und der richtige Wert für jedes Element aufgeführt:  
   
-    -   Branchcacheisenabled: True
+    -   Branchcacheisenabled: true
 
-    -   "Hustedcacheserverisaktivierte": True
+    -   "Hustedcacheserverisaktivierte": "true"
 
-    -   "Hustedcachescpregistrationaktiviert": True
+    -   "Hustedcachescpregistrationaktivierte": "true"
 
 4. Wenn Sie die Schritte zum Kopieren der Datenpakete von ihren Inhalts Servern auf die gehosteten Cache Server vorbereiten möchten, identifizieren Sie entweder eine vorhandene Freigabe auf dem gehosteten Cache Server, oder erstellen Sie einen neuen Ordner, und geben Sie den Ordner frei, sodass er von ihren Inhalts Servern zugänglich ist. Nachdem Sie die Datenpakete auf Ihren Inhalts Servern erstellt haben, kopieren Sie die Datenpakete in diesen freigegebenen Ordner auf dem gehosteten Cache Server.
   

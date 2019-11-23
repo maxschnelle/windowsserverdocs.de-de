@@ -171,7 +171,7 @@ Diese Synchronisierungs Typen werden im folgenden Abschnitt erläutert.
 Bei der Synchronisierung, die auf einer Domänen Hierarchie basiert, wird in der AD DS Domänen Hierarchie eine zuverlässige Quelle gefunden, mit der die Zeit synchronisiert werden Basierend auf der Domänen Hierarchie bestimmt der Windows-Zeit Dienst die Genauigkeit jedes Zeit Servers. In einer Windows Server 2003-Gesamtstruktur enthält der Computer, der die Betriebs Master Rolle des primären Domänen Controllers (PDC) in der Stamm Domäne der Gesamtstruktur enthält, die Position der besten Zeit Quelle, es sei denn, es wurde eine andere zuverlässige Zeit Quelle konfiguriert. In der folgenden Abbildung wird ein Pfad zur Zeitsynchronisierung zwischen Computern in einer Domänen Hierarchie veranschaulicht.  
   
 **Zeitsynchronisierung in einer AD DS Hierarchie**  
-![windows-Zeit @ no__t-1
+![Windows-Zeit](../media/Windows-Time-Service/How-the-Windows-Time-Service-Works/trnt_ntw_adhc.gif)
   
 #### <a name="reliable-time-source-configuration"></a>Zuverlässige Zeit Quell Konfiguration  
 Ein Computer, der als zuverlässige Zeit Quelle konfiguriert ist, wird als Stamm des Zeit dienstanzdienstanzen identifiziert. Der Stamm des Zeit dienstanzdienstanzen ist der autorisierende Server für die Domäne und wird in der Regel so konfiguriert, dass er von einem externen NTP-Server oder einem Hardware Gerät Zeit Ein Zeitserver kann als zuverlässige Zeit Quelle konfiguriert werden, um zu optimieren, wie die Zeit in der gesamten Domänen Hierarchie übertragen wird. Wenn ein Domänen Controller als zuverlässige Zeit Quelle konfiguriert ist, kündigt der Anmeldedienst den Domänen Controller als zuverlässige Zeit Quelle an, wenn er sich am Netzwerk anmeldet. Wenn andere Domänen Controller nach einer Zeit Quelle suchen, mit der synchronisiert werden soll, wählen Sie zuerst eine zuverlässige Quelle aus, sofern eine verfügbar ist.  
@@ -259,10 +259,10 @@ Der Windows-Zeit Dienst kommuniziert in einem Netzwerk, um zuverlässige Zeitque
   
 |Dienstname|UDP|TCP|  
 |----------------|-------|-------|  
-|NTP|123|Nicht zutreffend|  
-|SNTP|123|Nicht zutreffend|  
+|NTP|123|N/V|  
+|SNTP|123|N/V|  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Technische Referenz für den Windows-Zeit Dienst](windows-time-service-tech-ref.md)
 [Windows-Zeit Dienst Tools und-Einstellungen](Windows-Time-Service-Tools-and-Settings.md)
 [Microsoft Knowledge Base-Artikel 902229](https://go.microsoft.com/fwlink/?LinkId=186066)

@@ -38,16 +38,16 @@ reg unload <KeyName>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<keyname >|Gibt den vollständigen Pfad des zu entladenden unter Schlüssels an. Wenn Sie Remote Computer angeben, schließen Sie den Computernamen (im Format \\ @ no__t-1computername @ no__t-2 als Teil des *keyName*-Steuerelement ein. Wenn \\ @ no__t-1computername \ weggelassen wird, wird der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind "HKLM", "HKCU", "HKCR", "HKU" und "HKCC". Wenn ein Remote Computer angegeben wird, lauten gültige Stamm Schlüssel HKLM und HKU.|
+|\<KeyName >|Gibt den vollständigen Pfad des zu entladenden unter Schlüssels an. Zum Angeben von Remote Computern müssen Sie den Computernamen (im Format \\\\Computername als Teil des *keyName*-\) einschließen. Wenn \\\\Computername \ weggelassen wird, wird der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind "HKLM", "HKCU", "HKCR", "HKU" und "HKCC". Wenn ein Remote Computer angegeben wird, lauten gültige Stamm Schlüssel HKLM und HKU.|
 |/?|Zeigt die Hilfe zum **Entladen von reg** an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
 
 In der folgenden Tabelle sind die Rückgabewerte für die Option zum **Entladen von reg** aufgeführt.
 
-|Wert|Description|
+|Wert|Beschreibung|
 |-----|-----------|
-|0|Erfolgreich|
+|0|Möglich|
 |1|Nicht möglich|
 
 ## <a name="BKMK_examples"></a>Beispiele

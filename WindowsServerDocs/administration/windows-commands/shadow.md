@@ -22,7 +22,7 @@ ms.locfileid: "71383962"
 ---
 # <a name="shadow"></a>shadow
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ermöglicht die Remote Steuerung einer aktiven Sitzung eines anderen Benutzers auf einem Remotedesktop-Sitzungshost Server (RD-Sitzungs Host).
 Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
@@ -35,9 +35,9 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 ### <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|\<sessionname >|Gibt den Namen der Sitzung an, die Sie remote steuern möchten.|
-|\<sessionid >|Gibt die ID der Sitzung an, die Sie remote steuern möchten. Verwenden Sie den **Abfrage Benutzer** , um die Liste der Sitzungen und ihre Sitzungs-IDs anzuzeigen.|
-|/Server: \<servername >|Gibt den Remote Desktop-Sitzungs Host Server mit der Sitzung an, die Sie remote steuern möchten. Standardmäßig wird der aktuelle RD-Sitzung Host4-Server verwendet.|
+|\<Sessionname >|Gibt den Namen der Sitzung an, die Sie remote steuern möchten.|
+|\<SessionID >|Gibt die ID der Sitzung an, die Sie remote steuern möchten. Verwenden Sie den **Abfrage Benutzer** , um die Liste der Sitzungen und ihre Sitzungs-IDs anzuzeigen.|
+|/Server:\<Servername >|Gibt den Remote Desktop-Sitzungs Host Server mit der Sitzung an, die Sie remote steuern möchten. Standardmäßig wird der aktuelle RD-Sitzung Host4-Server verwendet.|
 |/v|Zeigt Informationen zu den Aktionen an, die ausgeführt werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
@@ -48,7 +48,7 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 -   Vor Beginn der Überwachung warnt der Server den Benutzer, dass die Sitzung remote gesteuert wird, es sei denn, diese Warnung ist deaktiviert. Die Sitzung scheint einige Sekunden lang eingefroren zu sein, während Sie auf eine Antwort des Benutzers wartet. Verwenden Sie zum Konfigurieren der Remote Steuerung für Benutzer und Sitzungen das Remotedesktopdienste-Konfigurationstool oder die Remotedesktopdienste Erweiterungen für lokale Benutzer und Gruppen sowie für Active Directory-Benutzer und-Computer.
 -   Ihre Sitzung muss in der Lage sein, die Videoauflösung zu unterstützen, die in der Sitzung verwendet wird, für die Sie eine Remote Steuerung durchführt.
 -   Die Konsolen Sitzung kann keine Remote Steuerung einer anderen Sitzung durchführt, und Sie kann nicht von einer anderen Sitzung remote gesteuert werden.
--   Wenn Sie die Remote Steuerung beenden möchten (Shadowing), drücken Sie STRG + \* (nur mit \* von der numerischen Tastatur).
+-   Wenn Sie die Remote Steuerung beenden möchten (Shadowing), drücken Sie STRG +\* (indem Sie nur \* von der numerischen Tastatur verwenden).
 
 ## <a name="BKMK_examples"></a>Beispiele
 -   Zum Schatten der Sitzung 93 geben Sie Folgendes ein:
@@ -62,4 +62,4 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 
 #### <a name="additional-references"></a>Weitere Verweise
 [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[Remotedesktopdienste &#40;Befehlsreferenz&#41; für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)
+[Remotedesktopdienste &#40;Terminal Dienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

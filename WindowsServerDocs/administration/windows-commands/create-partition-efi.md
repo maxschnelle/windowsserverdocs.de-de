@@ -22,9 +22,9 @@ ms.locfileid: "71379009"
 ---
 # <a name="create-partition-efi"></a>Erstellen von EFI-Partitionen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Erstellt auf Itanium @ no__t-0based Computers eine Extensible Firmware Interface \(efi @ no__t-2-Systempartition in einer GUID-Partitionstabelle \(gpt @ no__t-4-Datenträger.  
+Erstellt auf Itanium-\-basierten Computern einen Extensible Firmware Interface \(EFI-\) Systempartition in einer GUID-Partitionstabelle \(GPT-\) Datenträger.  
   
   
   
@@ -38,9 +38,9 @@ create partition efi [size=<n>] [offset=<n>] [noerr]
   
 |  Parameter  |                                                                                             Beschreibung                                                                                              |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  Size @ no__t-0 @ no__t-1  |                         Die Größe der Partition in Megabyte \(MB @ no__t-1. Wenn keine Größe angegeben wird, wird die Partition so lange fortgesetzt, bis in der aktuellen Region kein freier Speicherplatz mehr verfügbar ist.                         |
-| Offset @ no__t-0 @ no__t-1 |             Der Offset in Kilobyte \(KB @ no__t-1, bei dem die Partition erstellt wird. Wenn kein Offset angegeben wird, wird die Partition in den ersten Datenträger Block eingefügt, der groß genug ist, um Sie zu speichern.              |
-|    Noerr    | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
+|  Größe\=<n>  |                         Die Größe der Partition in Megabyte \(MB\). Wenn keine Größe angegeben wird, wird die Partition so lange fortgesetzt, bis in der aktuellen Region kein freier Speicherplatz mehr verfügbar ist.                         |
+| Offset\=<n> |             Der Offset in Kilobyte \(KB\), bei dem die Partition erstellt wird. Wenn kein Offset angegeben wird, wird die Partition in den ersten Datenträger Block eingefügt, der groß genug ist, um Sie zu speichern.              |
+|    Noerr    | nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
   
 ## <a name="remarks"></a>Hinweise  
   

@@ -26,8 +26,8 @@ ms.locfileid: "71388071"
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Vorher** Schritt 7 Optionale Bedingter Zugriff für VPN-Konnektivität mithilfe von Azure AD](ad-ca-vpn-connectivity-windows10.md)
-- [**Weiter** Schritt 7.2. Erstellen von Stammzertifikaten für die VPN-Authentifizierung mit Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
+- [**Vorheriges:** Schritt 7: Optionale Bedingter Zugriff für VPN-Konnektivität mithilfe von Azure AD](ad-ca-vpn-connectivity-windows10.md)
+- [**Weiter:** Schritt 7,2. Stamm Zertifikate für die VPN-Authentifizierung mit Azure AD erstellen](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
 
 >[!IMPORTANT]
 >Wenn diese Registrierungs Änderung nicht implementiert wird, treten bei IKEv2-Verbindungen mit cloudzertifikaten mit PEAP Fehler auf, aber IKEv2-Verbindungen mit Client Authentifizierungs Zertifikaten, die von der lokalen Zertifizierungsstelle ausgestellt werden, funktionieren weiterhin.
@@ -45,7 +45,7 @@ Da die Authentifizierungsmethode EAP-TLS ist, wird dieser Registrierungs Wert nu
 
 1. Öffnen Sie " **Regedit. exe** " auf dem NPS-Server.
 
-2. Navigieren Sie zu **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\13**.
+2. Navigieren Sie zu **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\rasman\ppp\eap\13**.
 
 3. Wählen Sie **Edit > New** , und wählen Sie **DWORD-Wert (32-Bit)** aus, und geben Sie **IgnoreNoRevocationCheck**ein.
 
@@ -64,4 +64,4 @@ Weitere Informationen finden Sie unter [Aktivieren oder Deaktivieren der Zertifi
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Schritt 7.2: Erstellen Sie Stamm Zertifikate für die VPN-Authentifizierung mit Azure AD @ no__t-0: In diesem Schritt konfigurieren Sie Stamm Zertifikate für den bedingten Zugriff für die VPN-Authentifizierung mit Azure AD, wodurch automatisch eine VPN-Server-Cloud-App im Mandanten erstellt wird.
+[Schritt 7,2. Erstellen von Stamm Zertifikaten für die VPN-Authentifizierung mit Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md): in diesem Schritt konfigurieren Sie Stamm Zertifikate für den bedingten Zugriff für die VPN-Authentifizierung mit Azure AD, bei der automatisch eine VPN-Server-Cloud-App im Mandanten erstellt wird.

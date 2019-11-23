@@ -17,7 +17,7 @@ ms.locfileid: "71405176"
 ---
 # <a name="how-qos-policy-works"></a>Funktionsweise der QoS-Richtlinie
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Beim Starten oder Abrufen aktualisierter Benutzer-oder Computer Konfigurations Gruppenrichtlinie Einstellungen für QoS erfolgt der folgende Vorgang.
 
@@ -29,7 +29,7 @@ Beim Starten oder Abrufen aktualisierter Benutzer-oder Computer Konfigurations G
 
 4. Das QoS-Inspektions Modul ruft die QoS-Richtlinien für Benutzer oder Computer ab und speichert Sie.
 
-Wenn ein neuer Transport Schicht Endpunkt \(tcp-Verbindung oder UDP-Datenverkehr @ no__t-1 erstellt wird, tritt der folgende Vorgang auf.
+Wenn ein neuer Transport Schicht-Endpunkt \(TCP-Verbindung oder UDP-Datenverkehr\) erstellt wird, wird der folgende Vorgang ausgeführt.
 
 1. Die Transport Schicht Komponente des TCP/IP-Stapels informiert das QoS-Inspektions Modul.
 
@@ -59,7 +59,7 @@ Wenn ein Paket gesendet wird, das einem mit einer Fluss Nummer markierten Transp
 
 7. Pacer. sys verwendet die Fluss Nummer des Pakets, um zu bestimmen, ob das Paket gedrosselt werden muss, und plant, wenn dies der Fall ist, das Paket zum Senden.
 
-8. Pacer. sys übergibt das Paket entweder sofort \(, wenn keine Datenverkehrs Drosselung @ no__t-1 oder wie geplant \(, wenn die Datenverkehrs Drosselung @ no__t-3 auf NDIS 6. x zur Übertragung über die entsprechende Netzwerkkarte vorhanden ist.
+8. Pacer. sys übergibt das Paket entweder sofort \(, wenn keine Datenverkehrs Drosselung\) oder wie geplant \(, wenn die Datenverkehrs Drosselung auf NDIS 6. x zur Übertragung über den entsprechenden Netzwerkadapter\).
 
 Diese Prozesse von Richtlinien basiertem QoS bieten die folgenden Vorteile.
 

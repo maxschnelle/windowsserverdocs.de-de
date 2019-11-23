@@ -17,7 +17,7 @@ ms.locfileid: "71402965"
 ---
 # <a name="stretch-cluster-replication-using-shared-storage"></a>Replikation eines Stretched Clusters mithilfe von freigegebenem Speicher
 
->Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
+>Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (Semi-Annual Channel)
 
 In diesem Evaluierungsbeispiel konfigurieren Sie die entsprechenden Computer und den zugehörigen Speicher so, dass ein einheitlicher Stretched Cluster entsteht. Dabei nutzen zwei Knoten eine Speichergruppe gemeinsam, und zwei weitere Knoten nutzen eine andere Speichergruppe gemeinsam. Durch die Replikation werden die beiden Speichergruppen im Cluster gespiegelt, sodass ein sofortiges Failover möglich wird. Diese Knoten und der zugehörige Speicher sollten sich an unterschiedlichen physischen Standorten befinden. Dies ist jedoch keine Voraussetzung. Das Erstellen von Hyper-V-Clustern und Dateiserverclustern wird separat mit den entsprechenden Schritten anhand von Beispielszenarios erklärt.  
 
@@ -36,9 +36,9 @@ Für diese exemplarische Vorgehensweise wird die folgende Beispielumgebung verwe
 
 ![Diagramm mit zwei Knoten in Redmond und der Replikation mit zwei Knoten desselben Clusters am Standort Bellevue](./media/Stretch-Cluster-Replication-Using-Shared-Storage/Storage_SR_StretchClusterExample.png)  
 
-**ABBILDUNG 1:  Speicher Replikation in einem Stretch-Cluster @ no__t-0  
+**Abbildung 1: Speicher Replikation in einem Stretch-Cluster**  
 
-## <a name="prerequisites"></a>Erforderliche Komponenten  
+## <a name="prerequisites"></a>Voraussetzungen  
 -   Active Directory Domain Services-Gesamtstruktur (in dieser Gesamtstruktur muss nicht Windows Server 2016 ausgeführt werden).  
 -   2-64-Server, auf denen Windows Server 2019 oder Windows Server 2016, Datacenter Edition ausgeführt wird. Wenn Sie Windows Server 2019 ausführen, können Sie stattdessen die Standard Edition verwenden, wenn Sie nur ein einzelnes Volume mit einer Größe von bis zu 2 TB replizieren möchten. 
 -   Zwei Gruppen von freigegebenem Speicher, die SAS-JBODs (z. B. mit Speicherplätzen), Fibre Channel-SAN, freigegebene VHDX oder iSCSI-Ziel verwenden. Der Speicher muss aus einer Mischung aus Festplatten- und SSD-Medien bestehen und die permanente Reservierung unterstützen. Jede Speichergruppe darf nur für zwei der Server (asymmetrisch) verfügbar gemacht werden.  
@@ -55,7 +55,7 @@ Das Vorliegen vieler dieser Voraussetzungen lässt sich mit dem `Test-SRTopology
 
 1.  Installieren Sie Windows Server auf allen Server Knoten, und verwenden Sie dabei die Installationsoptionen Server Core oder Server mit Desktop Darstellung.  
     > [!IMPORTANT]
-    > Melden Sie sich ab jetzt stets als Domänenbenutzer an, der Mitglied der integrierten Administratorengruppe auf allen Servern ist. Denken Sie von nun an immer daran, erhöhte Rechte für Ihre PowerShell- und Eingabeaufforderungen festzulegen, wenn Sie die Features auf einer graphischen Serverinstallation oder auf einem Windows10-Computer ausführen.
+    > Melden Sie sich anschließend stets als Domänenbenutzer an, der Mitglied der integrierten Administratorengruppe auf allen Servern ist. Denken Sie anschließend immer daran, erhöhte Rechte für Ihre PowerShell- und Eingabeaufforderungen festzulegen, wenn Sie die Features auf einer graphischen Serverinstallation oder auf einem Windows 10-Computer ausführen.
 
 2.  Fügen Sie Netzwerkinformationen hinzu, konfigurieren Sie den Beitritt der Knoten zur Domäne, und starten Sie die Serverknoten neu.  
     > [!NOTE]
@@ -114,7 +114,7 @@ Das Vorliegen vieler dieser Voraussetzungen lässt sich mit dem `Test-SRTopology
 
         1.  Stellen Sie sicher, dass jede Gruppe von Serverpaaren nur die Speicherserver des jeweiligen Standorts erkennen kann (d.h. asymmetrischer Speicher) und dass die SAS-Verbindungen ordnungsgemäß konfiguriert sind.  
 
-        2.  Stellen Sie den Speicher mithilfe von Speicherplätzen bereit. Führen Sie dazu die unter [Bereitstellen von Speicherplätzen auf einem eigenständigen Server](../storage-spaces/deploy-standalone-storage-spaces.md) beschriebenen **Schritte 1-3** mithilfe von Windows PowerShell oder über den Server-Manager aus.  
+        2.  Stellen Sie den Speicher mithilfe von Speicherplätzen bereit. Führen Sie dazu die unter **Bereitstellen von Speicherplätzen auf einem eigenständigen Server** beschriebenen [Schritte 1-3](../storage-spaces/deploy-standalone-storage-spaces.md) mithilfe von Windows PowerShell oder über den Server-Manager aus.  
 
     -   **Für iSCSI-Speicher:**  
 
@@ -220,7 +220,7 @@ Im Folgenden erstellen Sie einen normalen Failovercluster. Nach der Konfiguratio
 
 14. **(Optional)** Konfigurieren Sie das Clusternetzwerk und Active Directory, um ein schnelleres DNS-Standortfailover zu ermöglichen. Sie können Software-Defined Networking mit Hyper-V, Stretched VLANs, Netzwerkabstraktionsgeräte, verringerte DNS-TTL und andere übliche Techniken verwenden.
 
-    Weitere Informationen finden Sie in der Microsoft Ignite-Sitzung: [Erweitern von Failoverclustern und Verwenden des Speicher Replikats in Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) und dem Blogbeitrag [Aktivieren von Änderungs Benachrichtigungen Zwischenstand Orten-wie und warum?](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx)  
+    Weitere Informationen finden Sie in der Microsoft Ignite-Sitzung: [Stretching Failover Clusters and Using Storage Replica in Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) und dem Blogbeitrag [Enable Change Notifications between Sites - How and Why?](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx)  
 
 15. **(Optional)** Konfigurieren Sie die VM-Resilienz so, dass Gäste bei Knotenausfällen nicht für längere Zeit angehalten werden. Anstelle dessen soll innerhalb von 10Sekunden ein Failover auf den neuen Quellspeicher für die Replikation ausgeführt werden.  
 
@@ -287,7 +287,7 @@ Im Folgenden erstellen Sie einen normalen Failovercluster. Nach der Konfiguratio
 
 9. **(Optional)** Konfigurieren Sie das Clusternetzwerk und Active Directory, um ein schnelleres DNS-Standortfailover zu ermöglichen. Sie können Software-Defined Networking mit Hyper-V, Stretched VLANs, Netzwerkabstraktionsgeräte, verringerte DNS-TTL und andere übliche Techniken verwenden.  
 
-   Weitere Informationen finden Sie in der Microsoft Ignite-Sitzung: [Stretching von Failoverclustern und Verwenden des Speicher Replikats in Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) und [Aktivieren von Änderungs Benachrichtigungen Zwischenstand Orten: wie und warum](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx).  
+   Weitere Informationen finden Sie in der Microsoft Ignite-Sitzung: [Stretching Failover Clusters and Using Storage Replica in Windows Server vNext](http://channel9.msdn.com/Events/Ignite/2015/BRK3487) und dem Blogbeitrag [Enable Change Notifications between Sites - How and Why?](http://blogs.technet.com/b/qzaidi/archive/2010/09/23/enable-change-notifications-between-sites-how-and-why.aspx)  
 
 10. **(Optional)** Konfigurieren Sie die VM-Resilienz so, dass Gäste bei Knotenausfällen nicht für einen längeren Zeitraum angehalten werden. Anstelle dessen soll innerhalb von 10Sekunden ein Failover auf den neuen Quellspeicher für die Replikation ausgeführt werden.  
 
@@ -344,7 +344,7 @@ Im Folgenden erstellen Sie einen normalen Failovercluster. Nach der Konfiguratio
 
 13. Klicken Sie mit der rechten Maustaste auf die neue Dateiserverrolle, und klicken Sie auf **Dateifreigabe hinzufügen**. Führen Sie im Assistenten die Schritte zum Konfigurieren von Freigaben aus.  
 
-14. Optional: Fügen Sie eine weitere Datei Server Rolle hinzu, die den anderen Speicher an diesem Standort verwendet.  
+14. Optional: Fügen Sie eine weitere Rolle „Dateiserver“ hinzu, die den anderen Speicher an diesem Standort verwendet.  
 
 15. Konfigurieren Sie die Standortinformationen für den Stretched Cluster so, dass sich die Server SR-SRV01 und SR-SRV02 am Standort Redmond befinden, die Server SR-SRV03 und SR-SRV04 dem Standort Bellevue zugeordnet sind und Redmond als bevorzugter Standort für den Knotenbesitz des Quellspeichers und der virtuellen Computer festgelegt ist:  
 
@@ -664,7 +664,7 @@ Nun verwalten und betreiben Sie den Stretched Cluster. Sie können alle unten au
         > In Windows Server 2016 müssen Sie unter Umständen den Failovercluster-Manager oder „Move-ClusterGroup“ verwenden, um die Zieldatenträger manuell wieder zurück zum anderen Standort zu verschieben, nachdem diese Knoten wieder online geschaltet wurden.  
 
         > [!NOTE]
-        > Das Speicherreplikatfeature hebt die Bereitstellung der Zielvolumes auf. Dies ist beabsichtigt.  
+        > Das Speicherreplikatfeature hebt die Bereitstellung der Zielvolumes auf. Dies ist entwurfsbedingt.  
 
 4.  Um die Protokoll Größe von 8 GB zu ändern, klicken Sie mit der rechten Maustaste auf die Quell-und Ziel Protokoll Datenträger, klicken Sie auf die Registerkarte **Replikations Protokoll** , und ändern Sie dann die Größe der Datenträger entsprechend.  
 
@@ -699,23 +699,23 @@ Nun verwalten und betreiben Sie den Stretched Cluster. Sie können alle unten au
 
     -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Anzahl von Anforderungen für letzten Schreibvorgang im Protokoll  
 
-    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschn. Länge der Warteschlange zum Leeren  
+    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschnittl. Länge der Warteschlange zum Leeren  
 
     -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Aktuelle Länge der Warteschlange zum Leeren  
 
     -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Anzahl von Anwendungsschreibanforderungen  
 
-    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschn. Anzahl von Anforderungen pro Protokollschreibvorgang  
+    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Anzahl Durchschnittl. Anforderungen pro Schreibvorgang im Protokoll  
 
-    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschn. Wartezeit für App-Schreibvorgang  
+    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschnittl. Wartezeit für App-Schreibvorgang  
 
-    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschn. Wartezeit für App-Lesevorgang  
+    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschnittl. Wartezeit für App-Lesevorgang  
 
     -   \Speicherreplikatstatistik(*)\Ziel-RPO  
 
     -   \Speicherreplikatstatistik(*)\Aktuelle RPO  
 
-    -   \Speicherreplikatstatistik(*)\Durchschn. Länge der Protokollwarteschlange  
+    -   \Speicherreplikatstatistik(*)\Durchschnittl. Länge der Protokollwarteschlange  
 
     -   \Speicherreplikatstatistik(*)\Aktuelle Länge der Protokollwarteschlange  
 
@@ -723,11 +723,11 @@ Nun verwalten und betreiben Sie den Stretched Cluster. Sie können alle unten au
 
     -   \Speicherreplikatstatistik(*)\Gesamtanzahl gesendeter Bytes  
 
-    -   \Speicherreplikatstatistik(*)\Durchschn. Wartezeit beim Senden über das Netzwerk  
+    -   \Speicherreplikatstatistik (*) \Durchschnittl. Wartezeit beim Senden über das Netzwerk  
 
     -   \Speicherreplikatstatistik(*)\Replikationszustand  
 
-    -   \Speicherreplikatstatistik(*)\Durchschn. Wartezeit bei Nachrichtenroundtrip  
+    -   \Speicherreplikatstatistik (*) \Durchschnittl. Wartezeit bei Nachrichtenroundtrip  
 
     -   \Speicherreplikatstatistik(*)\Verstrichene Zeit bei letzter Wiederherstellung  
 
@@ -768,7 +768,7 @@ Nun verwalten und betreiben Sie den Stretched Cluster. Sie können alle unten au
     3.  Um ein ungeplantes Failovers in der Replikationsrichtung von einem Standort zum anderen auszuführen, unterbrechen Sie die Stromversorgung für die beiden Knoten an einem Standort.  
 
         > [!NOTE]  
-        > Das Speicherreplikatfeature hebt die Bereitstellung der Zielvolumes auf. Dies ist beabsichtigt.  
+        > Das Speicherreplikatfeature hebt die Bereitstellung der Zielvolumes auf. Dies ist entwurfsbedingt.  
 
 4.  Um die Protokoll Größe aus den standardmäßigen 8 GB zu ändern, verwenden Sie **Set-srgroup** für die Quell-und Zielspeicher Replikat Gruppen.   Legen Sie z.B. für alle Protokolle wie folgt 2GB fest:  
 
@@ -796,9 +796,9 @@ Nun verwalten und betreiben Sie den Stretched Cluster. Sie können alle unten au
 - [Speicher Replikat](storage-replica-overview.md)  
 - [Replikation von Server zu Server Speicher](server-to-server-storage-replication.md)  
 - [Cluster-zu-Cluster Speicher Replikation](cluster-to-cluster-storage-replication.md)  
-- [Speicherreplikat: Bekannte Probleme](storage-replica-known-issues.md) 
-- [Speicherreplikat: Häufig gestellte Fragen](storage-replica-frequently-asked-questions.md)  
+- [Speicher Replikat: bekannte Probleme](storage-replica-known-issues.md) 
+- [Speicher Replikat: häufig gestellte Fragen](storage-replica-frequently-asked-questions.md)  
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 - [Windows Server 2016](../../get-started/windows-server-2016.md)  
 - [Direkte Speicherplätze in Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)

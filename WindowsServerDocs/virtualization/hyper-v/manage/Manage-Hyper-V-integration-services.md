@@ -137,7 +137,7 @@ Damit ein Integrations Dienst voll funktionsfähig ist, muss der zugehörige Die
 
 ## <a name="start-and-stop-an-integration-service-from-a-linux-guest"></a>Starten und Beenden eines Integrations Diensts von einem Linux-Gast 
 
-Linux-Integrationsdienste werden in der Regel über den Linux-Kernel bereitgestellt. Der Linux Integration Services-Treiber hat den Namen " **hv_utils**".
+Linux-Integrationsdienste werden in der Regel über den Linux-Kernel bereitgestellt. Der Treiber für Linux-Integrationsdienste hat den Namen **hv_utils**.
 
 1. Um herauszufinden, ob **hv_utils** geladen ist, verwenden Sie den folgenden Befehl:
 
@@ -196,15 +196,15 @@ Linux-Integrationsdienste werden in der Regel über den Linux-Kernel bereitgeste
 
 ### <a name="examples"></a>Beispiele
 
-Diese Beispiele veranschaulichen das Beenden und Starten des KVP-Daemons mit dem Namen "`hv_kvp_daemon`".
+Diese Beispiele veranschaulichen das Beenden und Starten des KVP-Daemons mit dem Namen `hv_kvp_daemon`.
 
-1. Verwenden Sie die Prozess-ID \(pid @ no__t-1, um den Prozess des Daemons zu verhindern. Wenn Sie die PID finden möchten, sehen Sie sich die zweite Spalte der Ausgabe an, oder verwenden Sie `pidof`. Hyper-V-Daemons werden als root-Vorgänge ausgeführt, sodass Sie Root-Berechtigungen benötigen.
+1. Verwenden Sie die Prozess-ID \(PID-\), um den Prozess des Daemons zu verhindern. Wenn Sie die PID finden möchten, sehen Sie sich die zweite Spalte der Ausgabe an, oder verwenden Sie `pidof`. Hyper-V-Daemons werden als root-Vorgänge ausgeführt, sodass Sie Root-Berechtigungen benötigen.
 
     ``` BASH
     sudo kill -15 `pidof hv_kvp_daemon`
     ```
 
-1. Führen Sie Folgendes aus, um zu überprüfen, ob alle `hv_kvp_daemon`-Prozesse nicht mehr
+1. Führen Sie Folgendes aus, um zu überprüfen, ob alle `hv_kvp_daemon` Prozesse nicht mehr
 
     ```
     ps -ef | hv
@@ -216,7 +216,7 @@ Diese Beispiele veranschaulichen das Beenden und Starten des KVP-Daemons mit dem
     sudo hv_kvp_daemon
     ``` 
 
-1. Führen Sie Folgendes aus, um sicherzustellen, dass der `hv_kvp_daemon`-Prozess mit einer neuen Prozess-ID aufgelistet ist:
+1. Führen Sie Folgendes aus, um zu überprüfen, ob der `hv_kvp_daemon` Prozess mit einer neuen Prozess-ID aufgelistet ist:
 
     ```
     ps -ef | hv
@@ -231,7 +231,7 @@ Es wird empfohlen, Integration Services auf dem neuesten Stand zu halten, um die
 > [!NOTE]
 > Die Image Datei "vmguest. ISO" ist nicht in Hyper-V unter Windows 10 enthalten, da Sie nicht mehr benötigt wird.
 
-| Gast  | Updatemechanismus | Hinweise |
+| Gast  | Updatemechanismus | Anmerkungen |
 |:---------|:---------|:---------|
 | Windows 10 | Windows Update | |
 | Windows 8.1 | Windows Update | |
@@ -254,7 +254,7 @@ Es wird empfohlen, Integration Services auf dem neuesten Stand zu halten, um die
 
 **Für auf Windows 8.1-Hosts ausgeführte virtuelle Computer:**
 
-| Gast  | Updatemechanismus | Hinweise |
+| Gast  | Updatemechanismus | Anmerkungen |
 |:---------|:---------|:---------|
 | Windows 10 | Windows Update | |
 | Windows 8.1 | Windows Update | |
@@ -279,7 +279,7 @@ Es wird empfohlen, Integration Services auf dem neuesten Stand zu halten, um die
 
 **Für auf Windows 8-Hosts ausgeführte virtuelle Computer:**
 
-| Gast  | Updatemechanismus | Hinweise |
+| Gast  | Updatemechanismus | Anmerkungen |
 |:---------|:---------|:---------|
 | Windows 8.1 | Windows Update | |
 | Windows 8 | Integrationsdienste-Datenträger | Weitere [Informationen](#install-or-update-integration-services)finden Sie unten unter. |

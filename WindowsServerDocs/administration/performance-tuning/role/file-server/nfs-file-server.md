@@ -33,7 +33,7 @@ Die folgende Abbildung zeigt das Kommunikationsmodell für NFS.
 
 ### <a name="tuning-parameters-for-nfs-file-servers"></a>Optimieren von Parametern für NFS-Dateiserver
 
-Die folgenden Registrierungs Einstellungen für reg @ no__t-0dword können sich auf die Leistung von NFS-Dateiservern auswirken:
+Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leistung von NFS-Dateiservern auswirken:
 
 -   **Optimalreads**
 
@@ -41,7 +41,7 @@ Die folgenden Registrierungs Einstellungen für reg @ no__t-0dword können sich 
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\OptimalReads
     ```
 
-    Die Standardeinstellung ist 0. Dieser Parameter bestimmt, ob Dateien für die Datei @ no__t-0random @ no__t-1access oder for File @ no__t-2sequential @ no__t-3only geöffnet werden, abhängig von den e/a-Merkmalen der Arbeitsauslastung. Legen Sie diesen Wert auf 1 fest, um zu erzwingen, dass Dateien für die Datei @ no__t-0random @ no__t-1access geöffnet werden. Die Datei @ no__t-0random @ no__t-1access verhindert, dass das Dateisystem und der Cache-Manager vorab abgerufen werden.
+    Der Standardwert ist 0. Dieser Parameter bestimmt, ob Dateien für Datei\_zufälligen\_Zugriff oder nur für Datei\_sequenzieller\_geöffnet werden, abhängig von den e/a-Merkmalen der Arbeitsauslastung. Legen Sie diesen Wert auf 1 fest, um zu erzwingen, dass Dateien für die Datei\_zufälligen\_Zugriff geöffnet werden. Datei\_Random\_Access verhindert, dass das Dateisystem und der Cache-Manager vorab abgerufen werden.
 
     >[!NOTE]
     > Diese Einstellung muss sorgfältig ausgewertet werden, da Sie möglicherweise Auswirkungen auf die Vergrößerung des Systemdatei Caches hat.
@@ -85,7 +85,7 @@ Die folgenden Registrierungs Einstellungen für reg @ no__t-0dword können sich 
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\FileHandleCacheSizeinMB
     ```
 
-    Der Standardwert ist 4. Dieser Parameter gibt den maximalen Arbeitsspeicher an, der von Datei Handle-Cache Einträgen beansprucht werden soll. Der Minimalwert ist 1, und der Höchstwert ist 1 @ no__t-01024 @ no__t-11024 @ no__t-21024 (1073741824).
+    Der Standardwert ist 4. Dieser Parameter gibt den maximalen Arbeitsspeicher an, der von Datei Handle-Cache Einträgen beansprucht werden soll. Der Minimalwert ist 1, und der Höchstwert beträgt 1\*1024\*1024\*1024 (1073741824).
 
 -   **Lockfilehandlecachein Memory**
 
@@ -93,7 +93,7 @@ Die folgenden Registrierungs Einstellungen für reg @ no__t-0dword können sich 
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\LockFileHandleCacheInMemory
     ```
 
-    Die Standardeinstellung ist 0. Dieser Parameter gibt an, ob die physischen Seiten, die für die durch filehandlecachesizeinmb angegebene Cache Größe zugeordnet sind, im Arbeitsspeicher gesperrt sind. Wenn dieser Wert auf 1 festgelegt wird, wird diese Aktivität aktiviert. Seiten werden im Arbeitsspeicher gesperrt (nicht auf den Datenträger ausgelagert), was die Leistung der Auflösung von Datei Handles verbessert, aber den für Anwendungen verfügbaren Arbeitsspeicher reduziert.
+    Der Standardwert ist 0. Dieser Parameter gibt an, ob die physischen Seiten, die für die durch filehandlecachesizeinmb angegebene Cache Größe zugeordnet sind, im Arbeitsspeicher gesperrt sind. Wenn dieser Wert auf 1 festgelegt wird, wird diese Aktivität aktiviert. Seiten werden im Arbeitsspeicher gesperrt (nicht auf den Datenträger ausgelagert), was die Leistung der Auflösung von Datei Handles verbessert, aber den für Anwendungen verfügbaren Arbeitsspeicher reduziert.
 
 -   **Maxicbnfsleserrehandscachesize**
 

@@ -45,10 +45,10 @@ Der Sammelcomputer muss Windows Server 2016 ausführen (es kann ein Server mit D
   
 |Virtualisierungshost|Virtuelle Sammelcomputer|Virtuelle Zielcomputer|  
 |-----------------------|-----------------------------|--------------------------|  
-|Windows 8.1|ja|ja|  
-|Windows 10|ja|ja|  
-|Windows Server 2016|ja|ja|  
-|Windows Server 2012 R2|ja|nein|  
+|Windows 8.1|Ja|Ja|  
+|Windows 10|Ja|Ja|  
+|Windows Server 2016|Ja|Ja|  
+|Windows Server 2012 R2|Ja|nein|  
   
 ## <a name="installing-the-collector-service"></a>Installieren des Sammeldiensts  
 Ab Windows Server 2016 ist der Ereignissammlungsdienst eine optionale Funktion. In dieser Version können Sie ihn mit DISM.exe mit diesem Befehl an einer Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten installieren:  
@@ -86,16 +86,16 @@ Sie können den Ereignistransport (mit Windows PowerShell) remote oder lokal akt
   
 3.  Führen Sie auf dem Sammelcomputer einen der folgenden Befehle aus:  
   
-    -   An einer Windows PowerShell-Eingabeaufforderung: `Set-Item -Force WSMan:\localhost\Client\TrustedHosts "<target1>,<target2>,..."`, gefolgt von `Set-Item -Force WSMan:\localhost\Client\AllowUnencrypted true`, wobei \<target1-> usw. die Namen oder IP-Adressen der Zielcomputer sind.  
+    -   An einer Windows PowerShell-Eingabeaufforderung: `Set-Item -Force WSMan:\localhost\Client\TrustedHosts "<target1>,<target2>,..."`, gefolgt von `Set-Item -Force WSMan:\localhost\Client\AllowUnencrypted true`, wo \<target1 > usw. die Namen oder IP-Adressen der Zielcomputer sind.  
   
-    -   Oder an einer Eingabeaufforderung: **WinRM Set WinRM/config/Client @ {Treuhänder dhosts = "\<target1 >, \<target2 >,..."; "Zuweisung" = "true"}**  
+    -   Oder an einer Eingabeaufforderung: **WinRM Set WinRM/config/Client @ {Treuhänder dhosts = "\<target1 >,\<TARGET2 >,..."; "Zuweisung" = "true"}**  
   
         > [!IMPORTANT]  
         > Dies richtet eine unverschlüsselte Kommunikation ein, führen Sie dies also nicht außerhalb einer Lab-Umgebung durch.  
   
 4.  Testen Sie die Verbindung auf dem Sammelcomputer mit einem der folgenden Windows PowerShell-Befehle:  
   
-    Wenn sich der Zielcomputer in derselben Domäne wie der Collector-Computer befindet, führen Sie `New-PSSession -Computer <target> | Remove-PSSession` aus.  
+    Wenn sich der Zielcomputer in derselben Domäne wie der Collector-Computer befindet, führen Sie `New-PSSession -Computer <target> | Remove-PSSession`  
   
     Wenn der Zielcomputer nicht in derselben Domäne ist, führen Sie `New-PSSession -Computer  <target>  -Credential Administrator | Remove-PSSession` aus, was die Anmeldeinformationen aufruft.  
   
@@ -105,7 +105,7 @@ Sie können den Ereignistransport (mit Windows PowerShell) remote oder lokal akt
   
     `Enable-SbecBcd -ComputerName <target_name> -CollectorIP <ip> -CollectorPort <port> -Key <a.b.c.d>`  
   
-    Hier < target_name > der Name des Ziel Computers ist \<ip > die IP-Adresse des Collector-Computers. \<port > ist die Portnummer, an der der Collector ausgeführt wird. Der Schlüssel <a.b.c.d> ist ein erforderlicher Verschlüsselungsschlüssel für die Kommunikation mit vier alphanumerischen Zeichenfolgen, die durch Punkte getrennt sind. Dieser Schlüssel wird auf dem Sammelcomputer verwendet. Wenn Sie einen Schlüssel eingeben, wird ein zufälliger Schlüssel generiert; Sie benötigen diesen für den Sammelcomputer, notieren Sie diese.  
+    Hier < target_name > der Name des Ziel Computers ist \<IP-> die IP-Adresse des Collector-Computers. \<Port > ist die Portnummer, an der der Collector ausgeführt wird. Der Schlüssel <a.b.c.d> ist ein erforderlicher Verschlüsselungsschlüssel für die Kommunikation mit vier alphanumerischen Zeichenfolgen, die durch Punkte getrennt sind. Dieser Schlüssel wird auf dem Sammelcomputer verwendet. Wenn Sie einen Schlüssel eingeben, wird ein zufälliger Schlüssel generiert; Sie benötigen diesen für den Sammelcomputer, notieren Sie diese.  
   
 6.  Wenn Sie bereits einen Sammelcomputer eingerichtet haben, aktualisieren Sie die Konfigurationsdatei auf dem Sammelcomputer mit den Informationen für den neuen Zielcomputer. Informationen finden Sie im Abschnitt "Konfigurieren des Sammelcomputers".  
   
@@ -150,7 +150,7 @@ Wenn auf dem Zielcomputer mehr als ein Netzwerkadapter vorhanden ist, wählt der
   
 1.  Öffnen Sie auf dem Zielcomputer den Geräte-Manager, erweitern Sie **Netzwerkadapter**, suchen Sie nach dem Netzwerkadapter, den Sie verwenden möchten und klicken Sie mit der rechten Maustaste darauf.  
   
-2.  Klicken Sie im geöffneten Menü auf **Eigenschaften**, und klicken Sie dann auf die Registerkarte **Details** . Erweitern Sie das Menü im **Eigenschaften** Feld, Scrollen Sie nach **Standortinformationen** (die Liste ist wahrscheinlich nicht in alphabetischer Reihenfolge), und klicken Sie dann auf die Datei. Der Wert ist eine Zeichenfolge der Form **PCI Bus X, Gerät Y, Function Z**. Notieren Sie sich X. Y. Z; Dies sind die Busparameter, die Sie für den folgenden Befehl benötigen.  
+2.  Klicken Sie im Menü, das geöffnet wird auf **Eigenschaften**, und klicken Sie dann auf die Registerkarte **Details**, erweitern Sie im Menü das Feld **Eigenschaft** und scrollen Sie zu **Standortinformationen** (die Liste ist wahrscheinlich nicht in alphabetischer Reihenfolge), und klicken Sie dann auf. Der Wert ist eine Zeichenfolge des Formulars **PCI-Bus X, Y, Funktion Z Gerät**sein. Notieren Sie sich X.Y.Z; Dies sind die Bus-Parameter, die Sie für den folgenden Befehl benötigen.  
   
 3.  Führen Sie einen der folgenden Befehle aus:  
   
@@ -161,13 +161,13 @@ Wenn auf dem Zielcomputer mehr als ein Netzwerkadapter vorhanden ist, wählt der
 ### <a name="validate-target-computer-configuration"></a>Überprüfen der Konfiguration des Zielcomputers  
 Zum Überprüfen der Einstellungen auf dem Zielcomputer: Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und führen Sie **bcdedit /enum** aus. Wenn dieser Schritt abgeschlossen ist, führen Sie **bcdedit /eventsettings** aus. Überprüfen Sie die folgenden Werte:  
   
--   Key  
+-   Schlüssel  
   
 -   Debugtyp = NET  
   
--   HostIP = \<ip-Adresse des Sammlers >  
+-   HostIP = \<IP-Adresse des Sammlers >  
   
--   Port = \<port Nummer, die Sie für den zu verwendenden Collector angegeben haben >  
+-   Port = \<Portnummer, die Sie für den zu verwendenden Collector angegeben haben >  
   
 -   DHCP = Ja  
   
@@ -251,17 +251,17 @@ Hier sind einige wichtige Punkte bezüglich der Konfigurationsdatei:
     ```  
   
     > [!NOTE]  
-    > Der Stamm Knoten ist \<collector >. Dessen Attribute geben die Version der Syntax für die Konfiguration und den Namen der Statusprotokolldatei an.  
+    > Der Stamm Knoten ist \<Collector >. Dessen Attribute geben die Version der Syntax für die Konfiguration und den Namen der Statusprotokolldatei an.  
     >   
     > Das \<common >-Element gruppiert mehrere Ziele und gibt dabei die allgemeinen Konfigurationselemente an. ähnlich wie eine Benutzergruppe kann verwendet werden, um die allgemeinen Berechtigungen für mehrere Benutzer anzugeben.  
     >   
     > Das \<collectorport-> Element definiert die UDP-Portnummer, an der der Collector auf eingehende Daten lauscht. Dies ist der Port, der im Zielkonfigurationsschritt für Bcdedit angegeben wurde. Die Sammlung unterstützt nur einen Port, und alle Ziele müssen zu demselben Port eine Verbindung herstellen.  
     >   
-    > Das >-Element \<forwarder gibt an, wie ETW-Ereignisse, die von den Ziel Computern empfangen werden, weitergeleitet werden. Es gibt nur eine Weiterleitungsart, die in ETL-Dateien schreibt. Die Parameter geben das Dateinamensmuster, die maximale Größe für jede Datei im Ring und die Größe des Rings für jeden Computer an. Die Einstellung "toxml" gibt an, dass die ETW-Ereignisse im binären Form geschrieben werden sollen, als ob sie ohne Konvertierung in XML empfangen werden. Siehe Abschnitt "XML-Konvertierung" für Informationen zur Entscheidung, ob die Ereignisse in XML erteilt werden oder nicht. Das Dateinamenmuster enthält diese Platzhalter: {Computer} für den Namen des Computers und {#3} für den Index der Datei im Ring.  
+    > Das \<Weiterleitungs >-Element gibt an, wie ETW-Ereignisse, die von den Ziel Computern empfangen werden, weitergeleitet werden. Es gibt nur eine Weiterleitungsart, die in ETL-Dateien schreibt. Die Parameter geben das Dateinamensmuster, die maximale Größe für jede Datei im Ring und die Größe des Rings für jeden Computer an. Die Einstellung "toxml" gibt an, dass die ETW-Ereignisse im binären Form geschrieben werden sollen, als ob sie ohne Konvertierung in XML empfangen werden. Siehe Abschnitt "XML-Konvertierung" für Informationen zur Entscheidung, ob die Ereignisse in XML erteilt werden oder nicht. Das Dateinamenmuster enthält diese Platzhalter: {Computer} für den Namen des Computers und {#3} für den Index der Datei im Ring.  
     >   
-    > In dieser Beispieldatei werden zwei Zielcomputer mit dem \<target >-Element definiert. Jede Definition gibt die IP-Adresse mit \<ipv4-> an. Sie können jedoch auch die Mac-Adresse verwenden (z. b. < Mac-Wert = "11:22:33:44:55:66" \/ > oder < Mac Value = "11-22-33-44-55-66" \/ >) oder SMBIOS GUID (z. b. < GUID). Value = "{269076f9-4b77-46e1-b03b-ca5003775b88}" \/ >), um den Zielcomputer zu identifizieren. Beachten Sie außerdem den Verschlüsselungsschlüssel (identisch mit Bcdedit auf dem Zielcomputer) und den Namen des Computers.  
+    > In dieser Beispieldatei werden zwei Zielcomputer mit dem \<Target >-Element definiert. Jede Definition gibt die IP-Adresse mit \<IPv4-> an, Sie können jedoch auch die Mac-Adresse verwenden (z. b. < Mac-Wert = "11:22:33:44:55:66"\/> oder < Mac Value = "11-22-33-44-55-66"\/>) oder SMBIOS GUID (z. b. < GUID value = "{269076f9-4b77-46e1-b03b-ca5003775b88}"\/>), um den Zielcomputer zu identifizieren. Beachten Sie außerdem den Verschlüsselungsschlüssel (identisch mit Bcdedit auf dem Zielcomputer) und den Namen des Computers.  
   
-4.  Geben Sie die Details für jeden Bereitstellungs Zielcomputer als separates \<target >-Element in der Konfigurationsdatei ein, und speichern Sie dann newconfig. XML, und schließen Sie Notepad.  
+4.  Geben Sie die Details für jeden Bereitstellungs Zielcomputer als separates \<Ziel > Element in der Konfigurationsdatei ein, und speichern Sie dann newconfig. XML, und schließen Sie den Editor.  
   
 5.  Wenden Sie die neue Konfiguration mit `$result = (Get-Content .\newconfig.xml | Set-SbecActiveConfig); $result` an. Die Ausgabe sollte mit dem Erfolgsfeld "True" zurückgegeben. Wenn Sie ein anderes Ergebnis erzielen, lesen Sie den Abschnitt Problembehandlung in diesem Thema.  
   
@@ -312,7 +312,7 @@ Das Protokoll für den Collector-Dienst selbst (die sich von Setup und Start des
 ||Fehler|Beschreibung des Fehlers|Symptom|Mögliche Probleme|  
 |-|---------|---------------------|-----------|---------------------|  
 |Dism.exe|87|Die Featurenamenoption wird in diesem Kontext nicht erkannt.||-   Dies kann vorkommen, wenn Sie den Featurenamen falsch schreiben. Stellen Sie sicher, dass die richtige Schreibweise verwenden und versuchen Sie es erneut.<br />-   Vergewissern Sie sich, dass dieses Feature mit der Version des Betriebssystems verfügbar ist, die Sie verwenden. Führen Sie in Windows PowerShell **dism /online /get-features &#124; ?{$_ -match "boot"}** aus. Wenn keine Übereinstimmung zurückgegeben wird, wird wahrscheinlich eine Version ausgeführt, die dieses Feature nicht unterstützt.|  
-|Dism.exe|0x800f080c|Das Feature \<name > ist unbekannt.||Wie oben|  
+|Dism.exe|0x800f080c|Der Name > der Funktions \<ist unbekannt.||Wie oben|  
   
 ### <a name="troubleshooting-the-collector"></a>Problembehandlung bei der Sammlung  
   
@@ -325,13 +325,13 @@ In einer Windows PowerShell-Eingabeaufforderung: `Get-WinEvent -LogName Microsof
   
 Sie können die Detailebene in den Protokollen von "Error" durch "Warnung" anpassen, "Info" (Standardwert), "ausführlich" und "debug". Ausführlichere Ebenen als "Info" eignen sich für die Diagnose von Problemen mit Zielcomputern, die keine Verbindung haben und möglicherweise eine große Menge Daten generieren und daher vorsichtig verwendet werden sollten.  
   
-Sie legen den mindestprotokolliergrad im \<collector >-Element der Konfigurationsdatei fest. Beispiel: < Collector configversionmajor = "1" minlog @ no__t-0 "Verbose" >.  
+Sie legen den mindestprotokolliergrad im \<Collector > Element der Konfigurationsdatei fest. Beispiel: < Collector configversionmajor = "1" minlog\="Verbose" >.  
   
 Die Ebene "ausführlich" protokolliert einen Eintrag für jedes Paket, das sie verarbeitet. Die Debugebene fügt ausführliche Verarbeitungsdetails hinzu und sichert den Inhalt aller empfangenen ETW-Pakete.  
   
-Auf der Debugebene kann es hilfreich sein, eine Datei zu protokollieren, anstatt sie im üblichen Protokollierungssystem anzuzeigen. Fügen Sie zu diesem Zweck ein zusätzliches Element im \<collector >-Element der Konfigurationsdatei hinzu:  
+Auf der Debugebene kann es hilfreich sein, eine Datei zu protokollieren, anstatt sie im üblichen Protokollierungssystem anzuzeigen. Fügen Sie zu diesem Zweck im \<Collector > Element der Konfigurationsdatei ein zusätzliches Element hinzu:  
   
-< Collector configversionmajor = "1" minlog = "Debug" Log @ no__t-0 "c:\programdata\microsoft\booteventcollector\logs\log.txt" >  
+< Collector configversionmajor = "1" minlog = "Debug" Log\="c:\programdata\microsoft\booteventcollector\logs\log.txt" >  
       
  **Eine empfohlene Vorgehensweise bei der Problembehandlung für den Collector:**  
    
@@ -341,11 +341,11 @@ Auf der Debugebene kann es hilfreich sein, eine Datei zu protokollieren, anstatt
    ```  
    Wenn er zurückgibt, dass eine Verbindung von diesem Ziel besteht, liegt das Problem möglicherweise in den Einstellungen des Autologgers. Wenn nichts zurückgegeben wird, ist das Problem die KDNET-Verbindung. Versuchen Sie zur Diagnose von Problemen mit KDNET die Verbindung an beiden Enden zu überprüfen (d. h., von der Sammlung und dem Ziel).  
   
-2. Fügen Sie dem \<collector >-Element der Konfigurationsdatei Folgendes hinzu, um die erweiterte Diagnose aus dem Collector anzuzeigen:  
-   \<collector... minlog = "Verbose" >  
+2. Um die erweiterte Diagnose aus dem Collector anzuzeigen, fügen Sie diese dem \<Collector > Element der Konfigurationsdatei hinzu:  
+   \<Collector... minlog = "Verbose" >  
    Dadurch werden Nachrichten über jedes empfangene Paket aktiviert.  
-3. Überprüfen Sie, ob alle Pakete empfangen werden. Sie können optional das Protokoll im ausführlichen Modus über ETW statt direkt in eine Datei schreiben. Fügen Sie hierzu dem \<collector >-Element der Konfigurationsdatei Folgendes hinzu:  
-   \<collector... minlog = "Verbose" log = "c:\programdata\microsoft\booteventcollector \logs\log.txt" >  
+3. Überprüfen Sie, ob alle Pakete empfangen werden. Sie können optional das Protokoll im ausführlichen Modus über ETW statt direkt in eine Datei schreiben. Fügen Sie hierzu dem \<Collector > Element der Konfigurationsdatei hinzu:  
+   \<Collector... minlog = "Verbose" log = "c:\programdata\microsoft\booteventcollector \logs\log.txt" >  
       
 4. Überprüfen Sie die Ereignisprotokolle für Nachrichten über die empfangenen Pakete. Überprüfen Sie, ob alle Pakete empfangen werden. Wenn die Pakete empfangen, aber falsch sind, überprüfen Sie Ereignisnachrichten für Details.  
 5. Von der Zielseite gibt KDNET Diagnoseinformationen an die Registrierung. Suchen in   
@@ -382,5 +382,5 @@ Wenn Sie das Ergebnis nicht in einer Variablen speichern möchten, können Sie `
 |-|---------|---------------------|-----------|---------------------|  
 |Bereitstellungszielcomputer||Ziel kann nicht mit der Sammlung verbunden werden||-   Der Zielcomputer wurde nicht neu gestartet, nachdem er konfiguriert wurde. Starten Sie den Zielcomputer neu.<br />-Der Zielcomputer verfügt über falsche BCD-Einstellungen. Überprüfen Sie die Einstellungen im Abschnitt "Validate Target Computer Settings". Korrigieren Sie nach Bedarf, und starten Sie dann den Zielcomputer neu.<br />-   Der KDNET/EVENT-NET-Treiber konnte nicht an einen Netzwerkadapter verbunden werden oder wurde mit dem falschen Netzwerkadapter verbunden. Führen Sie in Windows PowerShell `gwmi Win32_NetworkAdapter` aus, und überprüfen Sie die Ausgabe für eine mit dem ServiceName **Kdnic**. Wenn der falsche Netzwerkadapter ausgewählt wurde, führen Sie erneut die Schritte unter "Angabe des Netzwerkadapters" durch. Wenn der Netzwerkadapter überhaupt nicht angezeigt wird, ist es möglich, dass der Treiber den Netzwerkadapter nicht unterstützt.<br>**Siehe auch** "Ein vorgeschlagener Ansatz für die Problembehandlung der Sammlung" oben, insbesondere die Schritte 5 bis 8.|  
 |Sammlung||Ich kann keine Ereignisse sehen, nach der Migration des VMs, auf dem meine Sammlung gehostet wird.||Stellen Sie sicher, dass die IP-Adresse des Sammelcomputers nicht geändert wurde. Wenn dies der Fall, lesen Sie "So aktivieren Sie das Sendens von ETW-Ereignissen durch den Transport Remote".|  
-|Sammlung||ETL-Dateien werden nicht erstellt.|`Get-SbecForwarding` zeigt an, dass das Ziel ohne Fehler verbunden ist, aber die ETL-Dateien nicht erstellt werden.|Der Zielcomputer hat wahrscheinlich nicht noch keine Daten gesendet werden. ETL-Dateien werden nur erstellt, wenn Daten empfangen werden.|  
+|Sammlung||ETL-Dateien werden nicht erstellt.|`Get-SbecForwarding` zeigt an, dass das Ziel ohne Fehler verbunden ist, die ETL-Dateien aber nicht erstellt werden.|Der Zielcomputer hat wahrscheinlich nicht noch keine Daten gesendet werden. ETL-Dateien werden nur erstellt, wenn Daten empfangen werden.|  
 |Sammlung||Ein Ereignis wird nicht in der ETL-Datei angezeigt.|Der Zielcomputer hat das Ereignis gesendet, aber beim Lesen der ETL-Datei mit der Ereignisanzeige des Message Analyzer ist das Ereignis nicht vorhanden.|-   Das Ereignis ist möglicherweise noch im Puffer. Ereignisse werden nicht in die ETL-Datei geschrieben, bis ein vollständiger 64 KB Puffer erfasst wird oder ein Timeout von etwa 10-15 Sekunden ohne neuen Ereignisse auftritt. Warten Sie, bis das Timeout abläuft oder leeren Sie den Puffer mit `Save-SbecInstance`.<br />-   Das Manifest-Ereignis ist nicht auf dem Sammelcomputer oder dem Computer verfügbar, auf dem die Ereignisanzeige oder der Message Analyzer ausgeführt wird.  In diesem Fall kann die Sammlung möglicherweise das Ereignis nicht verarbeiten (überprüfen Sie das Sammlungsprotokoll) oder der Viewer kann es möglicherweise nicht anzeigen.  Es ist ratsam, alle Manifeste auf dem Sammelcomputer installiert zu haben, und Updates auf dem Sammelcomputer vor deren Installation auf den Zielcomputern zu installieren.|

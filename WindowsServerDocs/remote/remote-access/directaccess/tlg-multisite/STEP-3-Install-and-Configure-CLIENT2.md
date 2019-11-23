@@ -21,11 +21,11 @@ ms.locfileid: "71388319"
 ---
 # <a name="step-3-install-and-configure-client2"></a>Schritt 3 installieren und Konfigurieren von client2
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-CLIENT2 ist ein Windows 7 @ no__t-0-Computer, der verwendet wird, um die Abwärtskompatibilität des Remote Zugriffs auf Windows Server 2016-Servern zu veranschaulichen.  
+CLIENT2 ist ein Windows 7-&reg; Computer, der verwendet wird, um die Abwärtskompatibilität des Remote Zugriffs zu veranschaulichen, der auf Windows Server 2016-Servern ausgeführt wird.  
   
-1. So installieren Sie das Betriebssystem auf CLIENT2 Installieren Sie Windows @ no__t-0 7 Enterprise oder Windows @ no__t-1 7 Ultimate auf client2.  
+1. So installieren Sie das Betriebssystem auf CLIENT2 Installieren Sie Windows&reg; 7 Enterprise oder Windows&reg; 7 Ultimate auf client2.  
   
 2. Um CLIENT2 der Corp-Domäne beizutreten. Fügen Sie CLIENT2 der Corp.contoso.com-Domäne hinzu.  
   

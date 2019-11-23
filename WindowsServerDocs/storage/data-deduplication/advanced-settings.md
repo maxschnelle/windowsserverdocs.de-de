@@ -26,10 +26,10 @@ Die [standardmäßigen Auftragszeitpläne für die Datendeduplizierung](understa
 
 ### <a id="modifying-job-schedules-change-schedule"></a>Ändern eines Zeitplans für die Datendeduplizierung
 Datendeduplizierungsaufträge können über den Windows-Aufgabenplanungsdienst geplant und im Pfad „Microsoft\Windows\Deduplication“ angezeigt und bearbeitet werden. Zur Datendeduplizierung gehören mehrere Cmdlets, die die Planung erleichtern.
-* in [`Get-DedupSchedule`](https://technet.microsoft.com/library/hh848446.aspx) werden die aktuellen geplanten Aufträge angezeigt.
+* [`Get-DedupSchedule`](https://technet.microsoft.com/library/hh848446.aspx) zeigt die aktuell geplanten Aufträge an.
 * [`New-DedupSchedule`](https://technet.microsoft.com/library/hh848445.aspx) erstellt einen neuen geplanten Auftrag.
-* [`Set-DedupSchedule`](https://technet.microsoft.com/library/hh848447.aspx) ändert einen vorhandenen geplanten Auftrag.
-* mit [`Remove-DedupSchedule`](https://technet.microsoft.com/library/hh848451.aspx) wird ein geplanter Auftrag entfernt.
+* [`Set-DedupSchedule`](https://technet.microsoft.com/library/hh848447.aspx) einen vorhandenen geplanten Auftrag ändern.
+* [`Remove-DedupSchedule`](https://technet.microsoft.com/library/hh848451.aspx) entfernt einen geplanten Auftrag.
 
 Am häufigsten wird der Zeitpunkt der Ausführung von Datendeduplizierungsaufträgen geändert, um sicherzustellen, dass Aufträge außerhalb der Geschäftszeiten ausgeführt werden. Im folgenden Beispiel wird Schritt für Schritt gezeigt, wie Sie den Zeitplan für die Datendeduplizierung in einem *einfachen* Szenario ändern: ein hyperkonvergenter Hyper-V-Host, der an Wochenenden und wochentags ab 19:00 Uhr im Leerlauf ist. Um den Zeitplan zu ändern, führen Sie die folgenden PowerShell-Cmdlets im Kontext eines Administrators aus.
 
@@ -165,7 +165,7 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
             <td>Beginn</td>
             <td>Gibt die Startzeit des Auftrags an</td>
             <td><code>System.DateTime</code></td>
-            <td>Der <em>Datums</em> Teil der <code>System.Datetime</code>, der zum <em>starten</em> von bereitgestellt wird, ist irrelevant&#39;(solange er in der Vergangenheit liegt), aber der <em>Zeit</em> Teil gibt an, wann der Auftrag gestartet werden soll.</td>
+            <td>Der <em>Datums</em> Teil der <code>System.Datetime</code>, der für den <em>Start</em> bereitgestellt wird, ist irrelevant&#39;(solange er in der Vergangenheit liegt), aber der <em>Zeit</em> Teil gibt an, wann der Auftrag gestartet werden soll.</td>
         </tr>
         <tr>
             <td>StopWhenSystemBusy</td>
@@ -208,7 +208,7 @@ Die Hauptgründe für das Ändern der Volumeeinstellungen für den ausgewählten
     <tbody>
         <tr>
             <td>ChunkRedundancyThreshold</td>
-            <td>Gibt an, wie häufig ein Block referenziert wird, bevor ein Block in den Abschnitt „Hotspot“ des Blockspeichers dupliziert wird. Der Wert des Hotspot Abschnitts ist, dass so genannte &quot;hot @ no__t-1-Blöcke, auf die häufig verwiesen wird, mehrere Zugriffs Pfade aufweisen, um die Zugriffszeit zu verbessern.</td>
+            <td>Gibt an, wie häufig ein Block referenziert wird, bevor ein Block in den Abschnitt „Hotspot“ des Blockspeichers dupliziert wird. Der Wert des Hotspot Abschnitts ist, dass so genannte &quot;Hot&quot; Blöcke, auf die häufig verwiesen wird, über mehrere Zugriffs Pfade verfügen, um die Zugriffszeit zu verbessern.</td>
             <td>Positive ganze Zahlen</td>
             <td>Der Hauptgrund zum Ändern dieses Werts ist das Erhöhen der Einsparungsrate für Volumes mit hoher Duplizierung. Im Allgemeinen ist der Standardwert (100) die empfohlene Einstellung, und Sie&#39;müssen ihn nicht ändern.</td>
         </tr>
@@ -318,7 +318,7 @@ Angenommen, Sie möchten die vollständige Garbage Collection deaktivieren. Weit
 </table>
 
 ## <a id="faq"></a>Häufig gestellte Fragen
-<a id="faq-use-responsibly"></a>**i hat eine datendeduplizierungseinstellung geändert, und Aufträge sind jetzt langsam oder nicht fertig, oder die workloadleistung wurde verringert. Warum?**  
+<a id="faq-use-responsibly"></a>**Ich habe eine datendeduplizierungseinstellung geändert, und jetzt sind Aufträge langsam oder nicht fertig, oder die Arbeitsauslastung hat sich verringert. Dafür?**  
 Diese Einstellungen bieten Ihnen viele Möglichkeiten zum Steuern der Ausführung der Datendeduplizierung. Nutzen Sie sie überlegt, und [überwachen Sie die Leistung](run.md#monitoring-dedup).
 
 <a id="faq-running-dedup-jobs-manually"></a>**Ich möchte momentan einen datendeduplizierungsauftrag ausführen, aber ich möchte keinen neuen Zeitplan erstellen.**  

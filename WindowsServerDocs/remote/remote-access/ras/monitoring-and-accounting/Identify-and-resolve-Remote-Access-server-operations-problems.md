@@ -21,9 +21,9 @@ ms.locfileid: "71404565"
 ---
 # <a name="identify-and-resolve-remote-access-server-operations-problems"></a>Identifizieren und Beheben von Betriebsproblemen auf dem Remotezugriffsserver
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-**Hinweis**: Durch Windows Server 2013 werden DirectAccess und RRAS (Routing and Remote Access Service, Routing- und RAS-Dienst) zu einer einzigen Remotezugriffsrolle zusammengefasst.  
+**Hinweis:** Durch Windows Server 2012 werden DirectAccess und RRAS (Routing and Remote Access Service, Routing- und RAS-Dienst) zu einer einzigen Remotezugriffsrolle zusammengefasst.  
   
 Mithilfe der folgenden Verfahren können Sie Probleme bei RAS-Server Vorgängen, ihre Hauptursachen und die Lösung ermitteln, die zum Beheben der Probleme erforderlich ist.  
   
@@ -74,7 +74,7 @@ Das Ausschalten des IP-Hilfsobjekts führt zu einem schwerwiegenden Fehler auf d
   
     2.  Der IP-Hilfsdienst antwortet nicht.  
   
-    **Auflösung**  
+    **Lösung**  
   
     1.  Um sicherzustellen, dass der Dienst ausgeführt wird, geben **Sie Get-Service iphlpsc** an einer Windows PowerShell-Eingabeaufforderung ein.  
   
@@ -91,7 +91,7 @@ Um den IP-Hilfsdienst auf Ihrem RAS-Server wiederherzustellen, können Sie die o
   
 2.  Scrollen Sie in der Liste der **Dienste**nach unten, **und klicken Sie**mit der rechten Maustaste auf **IP**-Hilfsobjekt.  
   
-](../../../media/Identify-and-resolve-Remote-Access-server-operations-problems/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
+![der entsprechenden Windows PowerShell-](../../../media/Identify-and-resolve-Remote-Access-server-operations-problems/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   

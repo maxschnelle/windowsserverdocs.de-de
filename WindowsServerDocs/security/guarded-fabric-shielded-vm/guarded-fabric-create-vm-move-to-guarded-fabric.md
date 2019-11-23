@@ -34,7 +34,7 @@ Informationen dazu, wie sich dieses Thema in den Gesamtprozess der Bereitstellun
 
     - Features
 
-        - Remoteserver-Verwaltungstools @ no__t-0Feature-Verwaltungs Tools @ no__t-1abgeschirmte VM-Tools
+        - Remoteserver-Verwaltungstools\\Features-Verwaltungs Tools\\abgeschirmte VM-Tools
 
     > [!NOTE]
     > Der hier verwendete Host sollte *kein* Host im geschützten Fabric sein. Dabei handelt es sich um einen separaten Host, auf dem VMS vorbereitet werden, bevor Sie in das geschützte Fabric verschoben werden.
@@ -51,9 +51,9 @@ Informationen dazu, wie sich dieses Thema in den Gesamtprozess der Bereitstellun
 
 4.  Führen Sie den folgenden Befehl aus, um den Überwachungs Schlüssel zu importieren, den Sie in einem späteren Verfahren benötigen.
 
-    Ersetzen Sie für &lt;path @ no__t-1 @ no__t-2filename @ no__t-3 den Pfad und den Dateinamen der XML-Datei, die Sie im vorherigen Schritt gespeichert haben, z. b.: **C: @no__t -1temp\\GuardianKey.XML**
+    Geben Sie für &lt;Pfad&gt;&lt;filename-&gt;den Pfad und den Dateinamen der XML-Datei ein, die Sie im vorherigen Schritt gespeichert haben, z. b.: **C:\\Temp\\guardiankey. XML**
 
-    Geben Sie für &lt;guardianname @ no__t-1 einen Namen für den Hostinganbieter oder das Unternehmens Rechenzentrum ein, z. b. **HostingProvider1**. Notieren Sie sich den Namen für das nächste Verfahren.
+    Geben Sie für den&gt;&lt;guardianname einen Namen für den Hostinganbieter oder das Unternehmens Rechenzentrum ein, z. b. **HostingProvider1**. Notieren Sie sich den Namen für das nächste Verfahren.
 
     Include **-zuordnertreuhändroot** nur, wenn der HGS-Server mit selbst signierten Zertifikaten eingerichtet wurde. (Diese Zertifikate sind Teil des Schlüsselschutz Dienstanbieter in HGS.)
 
@@ -65,19 +65,19 @@ In diesem Verfahren erstellen Sie eine virtuelle Maschine auf dem Hyper-V-Host u
 
 Im Rahmen des Verfahrens erstellen Sie eine Schlüssel Schutzvorrichtung, die zwei wichtige Elemente enthält:
 
--   **Besitzer**: In der Schlüssel Schutzvorrichtung sind Sie oder wahrscheinlicher, dass die Gruppe, in der Sie arbeiten, die Sicherheitselemente wie Zertifikate verwendet, als "Besitzer" des virtuellen Computers bezeichnet wird. Ihre Identität als Besitzer wird durch ein Zertifikat dargestellt, das, wenn Sie die Befehle wie dargestellt ausführen, als selbst signiertes Zertifikat generiert wird. Optional können Sie stattdessen ein Zertifikat verwenden, das von der PKI-Infrastruktur unterstützt wird, und den Parameter " **-Zuweisung wuntreudroot** " in den Befehlen weglassen.
+-   **Besitzer**: in der Schlüssel Schutzvorrichtung sind Sie oder wahrscheinlicher, dass die Gruppe, in der Sie arbeiten, die Sicherheitselemente wie Zertifikate verwendet, als "Besitzer" des virtuellen Computers bezeichnet wird. Ihre Identität als Besitzer wird durch ein Zertifikat dargestellt, das, wenn Sie die Befehle wie dargestellt ausführen, als selbst signiertes Zertifikat generiert wird. Optional können Sie stattdessen ein Zertifikat verwenden, das von der PKI-Infrastruktur unterstützt wird, und den Parameter " **-Zuweisung wuntreudroot** " in den Befehlen weglassen.
 
--   **Wächter**: Außerdem wird in der Schlüssel Schutzvorrichtung Ihr Hostinganbieter oder Unternehmens Rechenzentrum (das HGS und geschützte Hosts ausführt) als "Wächter" bezeichnet. Der Wächter wird durch den in der vorherigen Prozedur importierten Überwachungs Schlüssel dargestellt. importieren Sie [die Überwachungskonfiguration auf dem Hyper-V-Mandanten Server](#import-the-guardian-configuration-on-the-tenant-hyper-v-server).
+-   **Wächter**: in der Schlüssel Schutzvorrichtung wird auch der Hostinganbieter oder das Unternehmens Rechenzentrum (das HGS und geschützte Hosts ausführt) als "Wächter" bezeichnet. Der Wächter wird durch den in der vorherigen Prozedur importierten Überwachungs Schlüssel dargestellt. importieren Sie [die Überwachungskonfiguration auf dem Hyper-V-Mandanten Server](#import-the-guardian-configuration-on-the-tenant-hyper-v-server).
 
 Eine Abbildung der Schlüssel Schutzvorrichtung, bei der es sich um ein Element in einer Schutz Datendatei handelt, finden [Sie unter Was sind geschützte Daten und warum ist es erforderlich?](guarded-fabric-and-shielded-vms.md#what-is-shielding-data-and-why-is-it-necessary).
 
 1. Führen Sie auf einem Mandanten-Hyper-V-Host den folgenden Befehl aus, um einen neuen virtuellen Computer der Generation 2 zu erstellen.
 
-   Geben Sie für &lt;shieldebug-Name @ no__t-1 einen Namen für den virtuellen Computer an, z. b.: **ShieldVM1**
+   Geben Sie für &lt;shieldebug Name&gt;einen Namen für den virtuellen Computer an, z. b.: **ShieldVM1**
     
-   Geben Sie für &lt;vhdpath @ no__t-1 einen Speicherort zum Speichern der vhdx-Datei des virtuellen Computers an, z. b.: **C: \\vms @ no__t-2ShieldVM1\\ShieldVM1.vhdx**
+   Geben Sie für &lt;vhdpath-&gt;einen Speicherort zum Speichern der vhdx-Datei des virtuellen Computers an, z. b.: **C:\\VMS\\ShieldVM1\\ShieldVM1. vhdx**
     
-   Geben Sie für &lt;nngb @ no__t-1 eine Größe für die vhdx-Datei an, z. b.: **60 GB**
+   Geben Sie für &lt;nngb-&gt;eine Größe für die vhdx-Datei an, z. b. **60 GB** .
 
        New-VM -Generation 2 -Name "<ShieldedVMname>" -NewVHDPath <VHDPath>.vhdx -NewVHDSizeBytes <nnGB>
 
@@ -87,7 +87,7 @@ Eine Abbildung der Schlüssel Schutzvorrichtung, bei der es sich um ein Element 
 
 4. Führen Sie den folgenden Befehl aus, um eine neue Schlüssel Schutzvorrichtung zu erstellen (die am Anfang dieses Abschnitts beschrieben wird).
 
-   Verwenden Sie für &lt;guardianname @ no__t-1 den Namen, den Sie im vorherigen Verfahren angegeben haben, z. b.: **HostingProvider1**
+   Verwenden Sie für &lt;guardianname&gt;den Namen, den Sie im vorherigen Verfahren angegeben haben, z. b.: **HostingProvider1**
 
    Include **-zusorwuntreuhändroot** , um selbst signierte Zertifikate zuzulassen.
 
@@ -99,7 +99,7 @@ Eine Abbildung der Schlüssel Schutzvorrichtung, bei der es sich um ein Element 
 
    Wenn Sie möchten, dass mehr als ein Rechenzentrum Ihre abgeschirmte VM ausführen kann (z. b. ein Standort für die Notfall Wiederherstellung und ein Public Cloud Anbieter), können Sie dem **-Wächter-** Parameter eine Liste von Erziehungsberechtigten bereitstellen. Weitere Informationen finden Sie unter [New-hgskeyprotector] (https://docs.microsoft.com/powershell/module/hgsclient/new-hgskeyprotector?view=win10-ps.
 
-5. Um das vtpm mithilfe der Schlüssel Schutzvorrichtung zu aktivieren, führen Sie den folgenden Befehl aus. Verwenden Sie für &lt;shieldedvmname @ no__t-1 denselben VM-Namen, der in den vorherigen Schritten verwendet wurde.
+5. Um das vtpm mithilfe der Schlüssel Schutzvorrichtung zu aktivieren, führen Sie den folgenden Befehl aus. Verwenden Sie für &lt;shieldedvmname-&gt;denselben VM-Namen, den Sie in den vorherigen Schritten verwendet haben.
 
        $VMName="<ShieldedVMname>"
 
@@ -130,7 +130,7 @@ Eine Abbildung der Schlüssel Schutzvorrichtung, bei der es sich um ein Element 
 
     Importieren Sie den abgeschirmten virtuellen Computer mit dem Hyper-V-Manager oder mit Windows PowerShell. Sie müssen die VM-Konfigurationsdatei vom Besitzer der VM importieren, um den virtuellen Computer zu starten. Dies liegt daran, dass die Schlüssel Schutzvorrichtung und das virtuelle TPM des virtuellen Computers in der Konfigurationsdatei gespeichert werden. Wenn der virtuelle Computer für die Durchführung auf dem geschützten Fabric konfiguriert ist, sollte er erfolgreich gestartet werden können.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Konfigurationsschritte des hostingdienstanbieters für geschützte Hosts und abgeschirmte VMS](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

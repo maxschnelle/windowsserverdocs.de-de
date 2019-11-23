@@ -17,11 +17,11 @@ ms.locfileid: "71406223"
 ---
 # <a name="dns-policy-scenario-guide"></a>Handbuch zu DNS-Gruppenrichtlinienszenarien
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Handbuch ist für die Verwendung durch DNS-, Netzwerk-und Systemadministratoren vorgesehen.  
   
-Die DNS-Richtlinie ist ein neues Feature für DNS in Windows Server @ no__t-0 2016. In dieser Anleitung erfahren Sie, wie Sie mithilfe der DNS-Richtlinie steuern, wie ein DNS-Server namens Auflösungs Abfragen basierend auf anderen Parametern verarbeitet, die Sie in Richtlinien definieren.   
+Die DNS-Richtlinie ist ein neues Feature für DNS in Windows Server&reg; 2016. In dieser Anleitung erfahren Sie, wie Sie mithilfe der DNS-Richtlinie steuern, wie ein DNS-Server namens Auflösungs Abfragen basierend auf anderen Parametern verarbeitet, die Sie in Richtlinien definieren.   
   
 Dieser Leitfaden enthält eine Übersicht über die DNS-Richtlinien sowie spezifische DNS-Richtlinien Szenarien, in denen Sie Anweisungen zum Konfigurieren des DNS-Server Verhaltens zum Erreichen ihrer Ziele finden, einschließlich der georeduntbasierten Datenverkehrs Verwaltung für primäre und sekundäre DNS-Server, Hochverfügbarkeit von Anwendungen, Split-Brain-DNS und mehr.  
   

@@ -52,11 +52,11 @@ Zu den Windows-Features und-Anwendungen, die VSS verwenden, gehören die folgend
 
 Für eine vollständige VSS-Lösung sind alle der folgenden grundlegenden Komponenten erforderlich:
 
-**VSS-Dienst**   Teil des Windows-Betriebssystems, mit dem sichergestellt wird, dass die anderen Komponenten ordnungsgemäß miteinander kommunizieren können und zusammenarbeiten.
+Der **VSS-Dienst**   Teil des Windows-Betriebssystems, mit dem sichergestellt wird, dass die anderen Komponenten ordnungsgemäß miteinander kommunizieren können und zusammenarbeiten.
 
-**VSS-Anforderer**   die Software, die die tatsächliche Erstellung von Schatten Kopien (oder andere allgemeine Vorgänge wie importieren oder löschen) anfordert. In der Regel handelt es sich hierbei um die Sicherungs Anwendung. Das Windows Server-Sicherung-Hilfsprogramm und die System Center Data Protection Manager-Anwendung sind VSS-Anforderer. Nicht-Microsoft-® VSS-Anforderer enthält fast alle Sicherungssoftware, die unter Windows ausgeführt wird.
+**VSS-Anforderer**   die Software, die die tatsächliche Erstellung von Schatten Kopien (oder andere allgemeine Vorgänge wie das Importieren oder löschen) anfordert. In der Regel handelt es sich hierbei um die Sicherungs Anwendung. Das Windows Server-Sicherung-Hilfsprogramm und die System Center Data Protection Manager-Anwendung sind VSS-Anforderer. Nicht-Microsoft-® VSS-Anforderer enthält fast alle Sicherungssoftware, die unter Windows ausgeführt wird.
 
-**VSS Writer der Komponente**, die garantiert, dass ein konsistentes Dataset für die Sicherungskopie vorhanden ist.    Dies wird in der Regel als Teil einer Branchen Anwendung (z. b. SQL Server® oder Exchange Server) bereitgestellt. VSS-Writer für verschiedene Windows-Komponenten, z. b. die Registrierung, sind im Windows-Betriebssystem enthalten. Nicht von Microsoft stammenden VSS-Writer sind in vielen Anwendungen für Windows enthalten, die die Datenkonsistenz während der Sicherung gewährleisten müssen.
+**VSS Writer**   der Komponente, die garantiert, dass ein konsistentes Dataset für die Sicherungskopie vorhanden ist. Dies wird in der Regel als Teil einer Branchen Anwendung (z. b. SQL Server® oder Exchange Server) bereitgestellt. VSS-Writer für verschiedene Windows-Komponenten, z. b. die Registrierung, sind im Windows-Betriebssystem enthalten. Nicht von Microsoft stammenden VSS-Writer sind in vielen Anwendungen für Windows enthalten, die die Datenkonsistenz während der Sicherung gewährleisten müssen.
 
 **VSS-Anbieter**   die Komponente, von der die Schatten Kopien erstellt und verwaltet werden. Dies kann in der Software oder der Hardware vorkommen. Das Windows-Betriebssystem enthält einen VSS-Anbieter, der Copy-on-Write-Vorgänge verwendet. Wenn Sie ein Storage Area Network (San) verwenden, ist es wichtig, dass Sie den VSS-Hardware Anbieter für das San installieren, sofern eine vorhanden ist. Ein Hardware Anbieter verlagert das Erstellen und Verwalten einer Schatten Kopie vom Host Betriebssystem.
 
@@ -64,7 +64,7 @@ Im folgenden Diagramm wird veranschaulicht, wie der VSS-Dienst mit Anforderern, 
 
 ![](media/volume-shadow-copy-service/Ee923636.94dfb91e-8fc9-47c6-abc6-b96077196741(WS.10).jpg)
 
-**Abbildung 1**   Architektur Diagramm der Volumeschattenkopie-Dienst
+**Abbildung 1**   Architektur Diagramm Volumeschattenkopie-Dienst
 
 ### <a name="how-a-shadow-copy-is-created"></a>Erstellen einer Schatten Kopie
 
@@ -106,11 +106,11 @@ Zum Erstellen einer Schatten Kopie führen die Anforderer, der Writer und der An
 
 Ein Hardware-oder Software Schatten Kopie-Anbieter verwendet zum Erstellen einer Schatten Kopie eine der folgenden Methoden:
 
-**Vollständiges Kopieren**   diese Methode erstellt zu einem bestimmten Zeitpunkt eine vollständige Kopie (als "Vollversion" oder "Klon" bezeichnet) des ursprünglichen Volumes. Diese Kopie ist schreibgeschützt.
+**Vollständige Kopie**   diese Methode erstellt zu einem bestimmten Zeitpunkt eine vollständige Kopie (als "Vollversion" oder "Klon" bezeichnet) des ursprünglichen Volumes. Diese Kopie ist schreibgeschützt.
 
-**Copy-on-Write**   diese Methode kopiert das ursprüngliche Volume nicht. Stattdessen wird eine differenzielle Kopie erstellt, indem alle Änderungen (abgeschlossene Schreib-e/a-Anforderungen) kopiert werden, die nach einem bestimmten Zeitpunkt auf dem Volume vorgenommen werden.
+**Copy-on-Write-**    diese Methode kopiert das ursprüngliche Volume nicht. Stattdessen wird eine differenzielle Kopie erstellt, indem alle Änderungen (abgeschlossene Schreib-e/a-Anforderungen) kopiert werden, die nach einem bestimmten Zeitpunkt auf dem Volume vorgenommen werden.
 
-**Umleitung-bei-schreiben**   diese Methode kopiert nicht das ursprüngliche Volume und führt nach einem bestimmten Zeitpunkt keine Änderungen am ursprünglichen Volume durch. Stattdessen wird eine differenzielle Kopie erstellt, indem alle Änderungen an ein anderes Volume umgeleitet werden.
+**Umleitung-beim Schreiben**   diese Methode das ursprüngliche Volume nicht kopiert und keine Änderungen am ursprünglichen Volume nach einem bestimmten Zeitpunkt vorgenommen werden. Stattdessen wird eine differenzielle Kopie erstellt, indem alle Änderungen an ein anderes Volume umgeleitet werden.
 
 ## <a name="complete-copy"></a>Kopie vervollständigen
 
@@ -136,7 +136,7 @@ Wenn bei der Copy-on-Write-Methode eine Änderung am ursprünglichen Volume stat
 </colgroup>
 <thead>
 <tr class="header">
-<th>Uhrzeit</th>
+<th>Zeit</th>
 <th>Quelldaten (Status und Daten)</th>
 <th>Schatten Kopie (Status und Daten)</th>
 </tr>
@@ -149,18 +149,18 @@ Wenn bei der Copy-on-Write-Methode eine Änderung am ursprünglichen Volume stat
 </tr>
 <tr class="even">
 <td><p>T1</p></td>
-<td><p>Geänderte Daten im Cache: 3 bis 3 '</p></td>
+<td><p>Geänderte Daten im Cache: 3 bis 3 "</p></td>
 <td><p>Schatten Kopie erstellt (nur Unterschiede): 3</p></td>
 </tr>
 <tr class="odd">
 <td><p>T2</p></td>
-<td><p>Ursprüngliche Daten überschrieben: 1 2 3 ' 4 5</p></td>
-<td><p>Unterschiede und Index werden auf der Schatten Kopie gespeichert: 3</p></td>
+<td><p>Die ursprünglichen Daten wurden überschrieben: 1 2 3 "4 5</p></td>
+<td><p>Unterschiede und Index, die auf der Schatten Kopie gespeichert sind: 3</p></td>
 </tr>
 </tbody>
 </table>
 
-**Tabelle 1**   : die Copy-on-Write-Methode zum Erstellen von Schatten Kopien
+**Tabelle 1**   die Copy-on-Write-Methode zum Erstellen von Schatten Kopien
 
 Die Copy-on-Write-Methode ist eine schnelle Methode zum Erstellen einer Schatten Kopie, da nur geänderte Daten kopiert werden. Die kopierten Blöcke im Vergleichs Bereich können mit den geänderten Daten auf dem ursprünglichen Volume kombiniert werden, um das Volume in seinem Zustand wiederherzustellen, bevor Änderungen vorgenommen wurden. Wenn viele Änderungen vorhanden sind, kann die Copy-on-Write-Methode kostspielig werden.
 
@@ -177,7 +177,7 @@ Bei der Redirect-on-Write-Methode wird die Änderung nicht auf das ursprünglich
 </colgroup>
 <thead>
 <tr class="header">
-<th>Uhrzeit</th>
+<th>Zeit</th>
 <th>Quelldaten (Status und Daten)</th>
 <th>Schatten Kopie (Status und Daten)</th>
 </tr>
@@ -190,18 +190,18 @@ Bei der Redirect-on-Write-Methode wird die Änderung nicht auf das ursprünglich
 </tr>
 <tr class="even">
 <td><p>T1</p></td>
-<td><p>Geänderte Daten im Cache: 3 bis 3 '</p></td>
-<td><p>Schatten Kopie erstellt (nur Unterschiede): €</p></td>
+<td><p>Geänderte Daten im Cache: 3 bis 3 "</p></td>
+<td><p>Schatten Kopie erstellt (nur Unterschiede): 3 "</p></td>
 </tr>
 <tr class="odd">
 <td><p>T2</p></td>
-<td><p>Die ursprünglichen Daten sind unverändert: 1 2 3 4 5</p></td>
-<td><p>Unterschiede und Index werden auf der Schatten Kopie gespeichert: €</p></td>
+<td><p>Unveränderte ursprüngliche Daten: 1 2 3 4 5</p></td>
+<td><p>Unterschiede und in Schatten Kopie gespeicherte Indizes: 3 '</p></td>
 </tr>
 </tbody>
 </table>
 
-**Tabelle 2**   : die Redirect-on-Write-Methode zum Erstellen von Schatten Kopien
+**Tabelle 2**   der Redirect-on-Write-Methode zum Erstellen von Schatten Kopien
 
 Wie bei der Copy-on-Write-Methode ist die Redirect-on-Write-Methode eine schnelle Methode zum Erstellen einer Schatten Kopie, da nur die Änderungen an den Daten kopiert werden. Die kopierten Blöcke im Vergleichs Bereich können mit den unverändert Daten auf dem ursprünglichen Volume kombiniert werden, um eine komplette, aktuelle Kopie der Daten zu erstellen. Wenn viele Lese-e/a-Anforderungen vorliegen, kann die Redirect-on-Write-Methode kostspielig werden.
 
@@ -298,7 +298,7 @@ Die LUN-Neusynchronisierung unterscheidet sich vom LUN-Austausch. Ein LUN-Swap i
 
 Schattenkopien für freigegebene Ordner verwendet die Volumeschattenkopie-Dienst, um Zeit Punkt Kopien von Dateien bereitzustellen, die sich auf einer freigegebenen Netzwerkressource befinden, z. b. auf einem Dateiserver. Mit Schattenkopien für freigegebene Ordner können Benutzer gelöschte oder geänderte Dateien, die im Netzwerk gespeichert sind, schnell wiederherstellen. Da dies ohne Administrator Unterstützung möglich ist, können Schattenkopien für freigegebene Ordner die Produktivität steigern und die Verwaltungskosten senken.
 
-Weitere Informationen zu Schattenkopien für freigegebene Ordner finden Sie unter [Schattenkopien für freigegebene Ordner](http://go.microsoft.com/fwlink/?linkid=180898) (http://go.microsoft.com/fwlink/?LinkId=180898) auf TechNet).
+Weitere Informationen zu Schattenkopien für freigegebene Ordner finden Sie unter [Schattenkopien für freigegebene Ordner](http://go.microsoft.com/fwlink/?linkid=180898) (http://go.microsoft.com/fwlink/?LinkId=180898) auf TechNet.
 
 ### <a name="data-mining-by-using-transportable-shadow-copies"></a>Data Mining mithilfe von austauschen-Schatten Kopien
 
@@ -371,7 +371,7 @@ Weitere Informationen finden Sie auf den folgenden Microsoft TechNet-Websites:
 
 VSS dient zum Erstellen von Schatten Kopien ganzer Volumes. Temporäre Dateien, z. b. Auslagerungs Dateien, werden automatisch aus Schatten Kopien weggelassen, um Speicherplatz zu sparen.
 
-Um bestimmte Dateien aus Schatten Kopien auszuschließen, verwenden Sie den folgenden Registrierungsschlüssel: " **Filesnotto Snapshot**".
+Um bestimmte Dateien aus Schatten Kopien auszuschließen, verwenden Sie den folgenden Registrierungsschlüssel: " **filesnottosnapshot**".
 
 
 > [!NOTE]
@@ -384,7 +384,7 @@ Um bestimmte Dateien aus Schatten Kopien auszuschließen, verwenden Sie den folg
 > <LI>Dateien werden auf der Grundlage der besten Leistung aus einer Schatten Kopie gelöscht. Dies bedeutet, dass Sie nicht unbedingt gelöscht werden.<BR><BR></LI></UL>
 
 
-Weitere Informationen finden Sie unter [Ausschließen von Dateien aus Schatten Kopien](http://go.microsoft.com/fwlink/?linkid=180904) (http://go.microsoft.com/fwlink/?LinkId=180904) auf MSDN).
+Weitere Informationen finden Sie unter [Ausschließen von Dateien aus Schatten Kopien](http://go.microsoft.com/fwlink/?linkid=180904) (http://go.microsoft.com/fwlink/?LinkId=180904) auf MSDN.
 
 ### <a name="my-non-microsoft-backup-program-failed-with-a-vss-error-what-can-i-do"></a>VSS-Fehler bei meinem nicht-Microsoft-Sicherungsprogramm. Was kann ich tun?
 
@@ -392,7 +392,7 @@ Weitere Informationen finden Sie unter [Ausschließen von Dateien aus Schatten K
 
 System Administratoren können die VSS-Informationen zur Problembehandlung auf der folgenden Microsoft TechNet Library-Website verwenden, um Diagnoseinformationen zu VSS-bezogenen Problemen zu sammeln.
 
-Weitere Informationen finden Sie unter [Volumeschattenkopie-Dienst](http://go.microsoft.com/fwlink/?linkid=180905) (http://go.microsoft.com/fwlink/?LinkId=180905) auf TechNet).
+Weitere Informationen finden Sie unter [Volumeschattenkopie-Dienst](http://go.microsoft.com/fwlink/?linkid=180905) (http://go.microsoft.com/fwlink/?LinkId=180905) auf TechNet.
 
 ### <a name="what-is-the-diff-area"></a>Was ist der "diff-Bereich"?
 
@@ -425,13 +425,13 @@ Die maximale Anzahl von schattenkopierten Volumes in einem einzelnen Schattenkop
 
 ### <a name="whats-the-maximum-number-of-software-shadow-copies-created-by-the-system-provider-that-i-can-maintain-for-a-volume"></a>Wie hoch ist die maximale Anzahl von Software Schatten Kopien, die vom Systemanbieter für ein Volume erstellt werden können?
 
-Der Wert für die maximale Anzahl von Software Schatten Kopien beträgt 512. Standardmäßig können Sie jedoch nur 64 Schatten Kopien verwalten, die von der Funktion "Schatten Kopien der freigegebenen Ordner" verwendet werden. Verwenden Sie den folgenden Registrierungsschlüssel, um das Limit für die Funktion "Schatten Kopien von freigegebenen Ordnern" zu ändern: **Maxshadowkopien**.
+Der Wert für die maximale Anzahl von Software Schatten Kopien beträgt 512. Standardmäßig können Sie jedoch nur 64 Schatten Kopien verwalten, die von der Funktion "Schatten Kopien der freigegebenen Ordner" verwendet werden. Verwenden Sie den folgenden Registrierungsschlüssel, um das Limit für die Funktion "Schatten Kopien von freigegebenen Ordnern" zu ändern: **maxshadowkopien**.
 
 ### <a name="how-can-i-control-the-space-that-is-used-for-shadow-copy-storage-space"></a>Wie kann ich den Speicherplatz steuern, der für den Speicherplatz für Schatten Kopien verwendet wird?
 
 Geben Sie den Befehl **vssadmin Größe ShadowStorage** ein.
 
-Weitere Informationen finden Sie unter [vssadmin Größe ShadowStorage](http://go.microsoft.com/fwlink/?linkid=180906) (http://go.microsoft.com/fwlink/?LinkId=180906) auf TechNet).
+Weitere Informationen finden Sie unter [vssadmin Größe ShadowStorage](http://go.microsoft.com/fwlink/?linkid=180906) (http://go.microsoft.com/fwlink/?LinkId=180906) auf TechNet.
 
 ### <a name="what-happens-when-i-run-out-of-space"></a>Was geschieht, wenn kein Speicherplatz mehr verfügbar ist?
 
@@ -450,15 +450,15 @@ Das Windows-Betriebssystem stellt die folgenden Tools zum Arbeiten mit VSS berei
 
 DiskShadow ist ein VSS-Anforderer, mit dem Sie alle Hardware-und Software Momentaufnahmen verwalten können, die Sie auf einem System haben können. DiskShadow umfasst Befehle wie die folgenden:
 
-  - **Liste**: Listet VSS-Writer, VSS-Anbieter und Schatten Kopien auf.  
+  - **List**: Listet VSS-Writer, VSS-Anbieter und Schatten Kopien auf  
       
-  - **Erstellen**Sie Folgendes: Erstellt eine neue Schatten Kopie.  
+  - **Erstellen**: erstellt eine neue Schatten Kopie.  
       
-  - **importieren**: Importiert eine austauschen-Schatten Kopie.  
+  - **Import**: importiert eine austauschen-Schatten Kopie.  
       
-  - verfügbar **machen:** Macht eine persistente Schatten Kopie (z. b. als Laufwerk Buchstabe) verfügbar.  
+  - verfügbar **machen: macht**eine persistente Schatten Kopie (z. b. als Laufwerk Buchstaben) verfügbar.  
       
-  - wieder **herstellen:** Setzt ein Volume auf eine angegebene Schatten Kopie zurück.  
+  - **Revert**: setzt ein Volume auf eine angegebene Schatten Kopie zurück.  
       
 
 Dieses Tool ist für die Verwendung durch IT-Experten vorgesehen, aber Entwickler können es auch beim Testen eines VSS Writer-oder VSS-Anbieters nützlich finden.
@@ -471,15 +471,15 @@ Vssadmin dient zum Erstellen, löschen und Auflisten von Informationen zu Schatt
 
 Vssadmin umfasst Befehle wie die folgenden:
 
-  - **Schatten erstellen**: Erstellt eine neue Schatten Kopie.  
+  - **Schatten erstellen**: erstellt eine neue Schatten Kopie.  
       
-  - **Schatten löschen**: Löscht Schatten Kopien.  
+  - **Schatten Kopien löschen**: löscht Schatten Kopien.  
       
   - **Anbieter auflisten**: Listet alle registrierten VSS-Anbieter auf.  
       
-  - **Writer auflisten**: Listet alle abonnierten VSS Writer auf.  
+  - **Writer auflisten**: Listet alle abonnierten VSS-Writer auf.  
       
-  - **Ändern Sie die Größe von ShadowStorage**: Ändert die maximale Größe des Speicherbereichs für Schatten Kopien.  
+  - **Größe ShadowStorage**: ändert die maximale Größe des Speicherbereichs für Schatten Kopien.  
       
 
 Vssadmin kann nur zum Verwalten von Schatten Kopien verwendet werden, die vom Systemsoftware Anbieter erstellt werden.
@@ -505,7 +505,7 @@ Weitere Informationen finden Sie auf der MSDN-Website in den folgenden Einträge
 
   - [Sicherheitsüberlegungen für Writer](http://go.microsoft.com/fwlink/?linkid=157739) (http://go.microsoft.com/fwlink/?LinkId=157739)  
       
-  - [Sicherheitsüberlegungen für](http://go.microsoft.com/fwlink/?linkid=180908) anfordernde Personen (http://go.microsoft.com/fwlink/?LinkId=180908)  
+  - [Sicherheitsüberlegungen für](http://go.microsoft.com/fwlink/?linkid=180908) Anforderer (http://go.microsoft.com/fwlink/?LinkId=180908)  
       
 
 ### <a name="maxshadowcopies"></a>Maxshadowkopien
@@ -524,7 +524,7 @@ Weitere Informationen finden Sie auf der MSDN-Website im folgenden Eintrag:
 
 **MinDiffAreaFileSize** unter [Registrierungs Schlüsseln für die Sicherung und Wiederherstellung](http://go.microsoft.com/fwlink/?linkid=180910) (http://go.microsoft.com/fwlink/?LinkId=180910)
 
-`##`# "Unterstützte Betriebs System Versionen
+`##`# "unterstützte Betriebs System Versionen
 
 In der folgenden Tabelle sind die unterstützten Betriebssystemversionen für VSS-Funktionen aufgeführt.
 
@@ -582,7 +582,7 @@ In der folgenden Tabelle sind die unterstützten Betriebssystemversionen für VS
 </colgroup>
 <thead>
 <tr class="header">
-<th><img src="media/volume-shadow-copy-service/Dd560667.note(WS.10).gif" />Hinweis</th>
+<th><img src="media/volume-shadow-copy-service/Dd560667.note(WS.10).gif" />Hinweis:</th>
 </tr>
 </thead>
 <tbody>
@@ -625,6 +625,6 @@ In der folgenden Tabelle sind die unterstützten Betriebssystemversionen für VS
 </tbody>
 </table>
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 [Volumeschattenkopie-Dienst im Windows Developer Center](https://docs.microsoft.com/windows/desktop/vss/volume-shadow-copy-service-overview)

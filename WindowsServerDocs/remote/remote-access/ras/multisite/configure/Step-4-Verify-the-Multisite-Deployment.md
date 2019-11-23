@@ -21,7 +21,7 @@ ms.locfileid: "71367127"
 ---
 # <a name="step-4-verify-the-multisite-deployment"></a>Schritt 4 Überprüfen der Bereitstellung für mehrere Standorte
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema wird beschrieben, wie Sie überprüfen, ob Sie die Bereitstellung für den Remote Zugriff auf mehrere Standorte ordnungsgemäß  
   
@@ -37,7 +37,7 @@ In diesem Thema wird beschrieben, wie Sie überprüfen, ob Sie die Bereitstellun
   
     Sie sollten in der Lage sein, über jeden Server mit mehreren Standorten auf alle Unternehmensressourcen zuzugreifen.  
   
-4.  Verbinden Sie einen Windows 7 @ no__t-0-Client Computer mit dem Unternehmensnetzwerk, und rufen Sie die Gruppenrichtlinie ab.  
+4.  Verbinden Sie einen Windows 7-&reg; Client Computer mit dem Unternehmensnetzwerk, und rufen Sie die Gruppenrichtlinie ab.  
   
 5.  Verbinden Sie den Windows 7-Client Computer mit dem externen Netzwerk, und versuchen Sie, auf interne Ressourcen zuzugreifen.  
   

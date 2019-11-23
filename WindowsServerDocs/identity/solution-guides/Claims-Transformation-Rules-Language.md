@@ -18,7 +18,7 @@ ms.locfileid: "71357578"
 ---
 # <a name="claims-transformation-rules-language"></a>Sprache zum Schreiben von Regeln für die Transformation von Ansprüchen
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Die Gesamtstruktur übergreifende Anspruchs Transformations Funktion ermöglicht es Ihnen, Ansprüche für dynamische Access Control über Gesamtstruktur Grenzen hinweg durch Festlegen von Anspruchs Transformations Richtlinien auf Gesamtstruktur übergreifende Vertrauens Stellungen zu überbrücken. Die primäre Komponente aller Richtlinien sind Regeln, die in der Sprache der Anspruchs Transformationsregeln geschrieben sind. Dieses Thema enthält ausführliche Informationen zu dieser Sprache und enthält Anleitungen zum Erstellen von Anspruchs Transformationsregeln.  
   
@@ -67,11 +67,11 @@ ISSUE (TYPE= "EmpType", VALUE = C1.VALUE, VALUETYPE = C1.VALUETYPE) == Rule Acti
 ### <a name="runtime-operation"></a>Lauf Zeit Vorgang  
 Es ist wichtig, den Lauf Zeit Vorgang von Anspruchs Transformationen zu verstehen, um die Regeln effektiv zu verfassen. Der Lauf Zeit Vorgang verwendet drei Sätze von Ansprüchen:  
   
-1.  **Eingabe Anspruchssatz**: Der Eingabe Satz der Ansprüche, die an den Anspruchs Transformations Vorgang übergeben werden.  
+1.  **Eingabe Anspruchssatz**: der Eingabe Satz der Ansprüche, die an den Anspruchs Transformations Vorgang übergeben werden.  
   
-2.  **Arbeits Anspruchssatz**: Zwischen Ansprüche, die während der Anspruchs Transformation gelesen und geschrieben werden.  
+2.  **Funktionierender Anspruchssatz**: zwischen Ansprüche, die während der Anspruchs Transformation gelesen und geschrieben werden.  
   
-3.  **Ausgabeforderungs Satz**: Ausgabe des Anspruchs Transformations Vorgangs.  
+3.  **Ausgabe Anspruchssatz**: Ausgabe des Anspruchs Transformations Vorgangs.  
   
 Im folgenden finden Sie eine kurze Übersicht über den Vorgang der Transformation für Lauf Zeit Ansprüche:  
   
@@ -91,7 +91,7 @@ Im folgenden finden Sie eine kurze Übersicht über den Vorgang der Transformati
   
 Komplexe Anspruchs Transformationen können basierend auf dem vorherigen Laufzeitverhalten geschrieben werden.  
   
-**Beispiel Lauf Zeit Operation @ no__t-0  
+**Beispiel: Lauf Zeit Vorgang**  
   
 Dieses Beispiel zeigt den Lauf Zeit Vorgang einer Anspruchs Transformation, die zwei Regeln verwendet.  
   
@@ -135,7 +135,7 @@ Im folgenden finden Sie eine spezielle Syntax für Regeln:
   
 2.  Leere Auswahl Bedingungs Liste = = jeder Anspruch stimmt mit der Liste der SELECT-Bedingungen überein.  
   
-    **Beispiel Leere Auswahl Bedingungs Liste @ no__t-0  
+    **Beispiel: leere Auswahl Bedingungs Liste**  
   
     Die folgende Regel gleicht jeden Anspruch im Workingset ab.  
   
@@ -145,7 +145,7 @@ Im folgenden finden Sie eine spezielle Syntax für Regeln:
   
 3.  Leere SELECT Match List = = jeder Anspruch stimmt mit der Liste der ausgewählten Bedingungen überein  
   
-    **Beispiel Leere übereinstimmende Bedingungen @ no__t-0  
+    **Beispiel: leere übereinstimmende Bedingungen**  
   
     Die folgende Regel gleicht jeden Anspruch im Workingset ab. Dies ist die grundlegende "allow-all"-Regel, wenn Sie allein verwendet wird.  
   
@@ -184,7 +184,7 @@ Active Directory kann die Absicht in diesem Fall nicht ermitteln und wechselt in
   
 4.  Wenn eine Regel Aktion auf einen Bezeichner verweist, der nicht im Abschnitt Select Condition List der Regel verwendet wurde, handelt es sich um eine ungültige Verwendung. Dies würde einen Syntax Fehler verursachen.  
   
-    **Beispiel Falscher bezeichnerverweis @ no__t-0  
+    **Beispiel: falscher bezeichnerverweis**  
     Die folgende Regel veranschaulicht einen falschen Bezeichner, der in der Regel Aktion verwendet wird.  
   
     ```  
@@ -233,9 +233,9 @@ In diesem Abschnitt werden einige Beispiele für Regeln veranschaulicht, die mit
   
    In diesem Beispiel ist ein Semikolon anstelle eines Doppelpunkts falsch verwendet.   
    **Fehlermeldung:**  
-   *POLICY0002: Richtlinien Daten konnten nicht analysiert werden.*  
-   *zeilennummer: 1, Spaltennummer: 2, Fehler Token:;. Zeile: ' C1; [] = > Problem (Claim = C1); '.*  
-   *parser-Fehler: 'POLICY0030: Syntax Fehler, unerwartetes '; ', erwartet wird eine der folgenden: ': '. '*  
+   *POLICY0002: die Richtlinien Daten konnten nicht analysiert werden.*  
+   *Zeilennummer: 1, Spaltennummer: 2, Fehler Token:;. Zeile: ' C1; [] = > Problem (Claim = C1); '.*  
+   *Parserfehler: ' POLICY0030: Syntax Fehler, unerwartetes '; ', es wird eine der folgenden voraussichtlich erwartet: ': '. '*  
   
 2. Beispiel:  
   
@@ -245,7 +245,7 @@ In diesem Abschnitt werden einige Beispiele für Regeln veranschaulicht, die mit
   
    In diesem Beispiel ist das bezeichnertag in der Copy-Ausstellungs Anweisung nicht definiert.   
    **Fehlermeldung**:   
-   *POLICY0011: Keine Bedingungen in der Anspruchs Regel entsprechen dem Bedingungs Tag, das in copyissuancestatement: ' C2 ' angegeben ist.*  
+   *POLICY0011: keine Bedingungen in der Anspruchs Regel entsprechen dem Bedingungs Tag, das in der copyissuancestatement: ' C2 ' angegeben ist.*  
   
 3. Beispiel:  
   
@@ -255,9 +255,9 @@ In diesem Abschnitt werden einige Beispiele für Regeln veranschaulicht, die mit
   
    "bool" ist kein Terminal in der Sprache und kein gültiger ValueType. Gültige Terminals sind in der folgenden Fehlermeldung aufgeführt.   
    **Fehlermeldung:**  
-   *POLICY0002: Richtlinien Daten konnten nicht analysiert werden.*  
+   *POLICY0002: die Richtlinien Daten konnten nicht analysiert werden.*  
    Zeilennummer: 1, Spaltennummer: 39, Fehler Token: "bool". Zeile: ' C1: [Type = = "x1", Value = = "1", ValueType = = "bool"] = > Issue (Claim = C1); ".   
-   *parser-Fehler: 'POLICY0030: Syntax Fehler, unerwartetes Zeichen "String". es wird eine der folgenden Punkte erwartet: ' INT64_TYPE ' ' UINT64_TYPE ' ' STRING_TYPE ' ' BOOLEAN_TYPE ' ' IDENTIFIER '*  
+   *Parserfehler: ' POLICY0030: Syntax Fehler, unerwartete ' Zeichenfolge ', erwartet wurde eine der folgenden Elemente: ' INT64_TYPE ' ' UINT64_TYPE ' ' STRING_TYPE ' ' BOOLEAN_TYPE ' ' Bezeichner '*  
   
 4. Beispiel:  
   
@@ -267,8 +267,8 @@ In diesem Abschnitt werden einige Beispiele für Regeln veranschaulicht, die mit
   
    Die Ziffer **1** in diesem Beispiel ist kein gültiges Token in der Sprache, und eine solche Verwendung ist in einer übereinstimmenden Bedingung nicht zulässig. Er muss in doppelte Anführungszeichen eingeschlossen werden, um ihn zu einer Zeichenfolge zu machen.   
    **Fehlermeldung:**  
-   *POLICY0002: Richtlinien Daten konnten nicht analysiert werden.*  
-   *zeilennummer: 1, Spaltennummer: 23, Fehler Token: 1. Zeile: ' C1: [Type = = "x1", Value = = 1, ValueType = = "bool"] = > Issue (Claim = C1); ".*  @ no__t-1parser-Fehler: 'POLICY0029: Unerwartete Eingabe. </em>  
+   *POLICY0002: die Richtlinien Daten konnten nicht analysiert werden.*  
+   *Zeilennummer: 1, Spaltennummer: 23, Fehler Token: 1. Zeile: ' C1: [Type = = ' x1 ', Value = = 1, ValueType = = "bool"] = > Issue (Claim = C1); ".* <em>Parserfehler: ' POLICY0029: unerwartete Eingabe.</em>  
   
 5. Beispiel:  
   
@@ -280,10 +280,10 @@ In diesem Abschnitt werden einige Beispiele für Regeln veranschaulicht, die mit
   
    In diesem Beispiel wurde ein doppeltes Gleichheitszeichen (= =) anstelle eines einzelnen Gleichheitszeichens (=) verwendet.   
    **Fehlermeldung:**  
-   *POLICY0002: Richtlinien Daten konnten nicht analysiert werden.*  
-   *zeilennummer: 1, Spaltennummer: 91, Fehler Token: = =. Zeile: ' C1: [Type = = ' x1 ', value = = ' 1 ',*  
+   *POLICY0002: die Richtlinien Daten konnten nicht analysiert werden.*  
+   *Zeilennummer: 1, Spaltennummer: 91, Fehler Token: = =. Zeile: ' C1: [Type = = ' x1 ', value = = ' 1 ',*  
    *ValueType = = "Boolean"] = > Issue (Type = C1. Type, Value = "0", ValueType = = "Boolean"); ".*  
-   *parser-Fehler: 'POLICY0030: Syntax Fehler, unerwartetes ' = = ', erwartet wird eine der folgenden Elemente: ' = '*  
+   *Parserfehler: ' POLICY0030: Syntax Fehler, unerwartetes ' = = ', erwartet wurde eines der folgenden Elemente: ' = '*  
   
 6. Beispiel:  
   
@@ -300,28 +300,28 @@ In der folgenden Tabelle sind die kompletten Terminal Zeichenfolgen und die zuge
   
 |Zeichenfolge|Vergütungen|  
 |----------|------------|  
-|"= >"|BEIN|  
-|";"|SEMIKOLON|  
-|":"|DOPPELPUNKT|  
-|","|KOMMA|  
-|"."|GEWINN|  
+|"= >"|Bein|  
+|";"|Semikolon|  
+|":"|Doppelpunkt|  
+|","|Komma|  
+|"."|Gewinn|  
 |"["|O_SQ_BRACKET|  
 |"]"|C_SQ_BRACKET|  
 |"("|O_BRACKET|  
 |")"|C_BRACKET|  
-|"=="|STECKEN|  
+|"=="|Stecken|  
 |"!="|NEQ|  
 |"=~"|REGEXP_MATCH|  
 |"!~"|REGEXP_NOT_MATCH|  
-|"="|EINRÄUMEN|  
+|"="|Einräumen|  
 |"& &"|AND|  
 |betrifft|PROBLEM|  
 |Sorte|TYPE|  
-|Wert|WERT|  
+|Wert|Wert|  
 |ValueType|VALUE_TYPE|  
-|erheben|ERHEBEN|  
-|"[_A-za-z] [_a-zA-Z0-9] *"|FIGUR|  
-|"\\" [^ \\ "\n] * \\" "|SCHNÜR|  
+|erheben|Erheben|  
+|"[_A-za-z] [_a-zA-Z0-9] *"|Figur|  
+|"\\" [^\\"\n] *\\" "|Schnür|  
 |UInt64|UINT64_TYPE|  
 |Int64|INT64_TYPE|  
 |Schnür|STRING_TYPE|  

@@ -15,7 +15,7 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71401918"
 ---
-# <a name="network-shell-netsh-example-batch-file"></a>Netzwerkshell \(netsh @ no__t-1 Beispiel einer Batch Datei
+# <a name="network-shell-netsh-example-batch-file"></a>Netzwerkshell \(Netsh\) Beispiel Batch Datei
 
 Gilt für: Windows Server 2016
 
@@ -23,17 +23,17 @@ In diesem Thema erfahren Sie, wie Sie mithilfe von Netsh in Windows Server 2016 
 
 ## <a name="example-batch-file-overview"></a>Beispiel für eine Batch Datei Übersicht
 
-Sie können Netsh-Befehle für den Windows Internet Name Service \(wins @ no__t-1 in Batch Dateien und anderen Skripts verwenden, um Aufgaben zu automatisieren. Im folgenden Beispiel für eine Batchdatei wird veranschaulicht, wie Netsh-Befehle für WINS verwendet werden, um eine Reihe verwandter Aufgaben auszuführen.
+Sie können Netsh-Befehle für den Windows Internet Name Service \(WINS-\) in Batch Dateien und anderen Skripts verwenden, um Aufgaben zu automatisieren. Im folgenden Beispiel für eine Batchdatei wird veranschaulicht, wie Netsh-Befehle für WINS verwendet werden, um eine Reihe verwandter Aufgaben auszuführen.
 
-In dieser Beispiel Batchdatei ist WINS @ no__t-0A ein WINS-Server mit der IP-Adresse 192.168.125.30 und WINS @ no__t-1B ist ein WINS-Server mit der IP-Adresse 192.168.0.189.
+In dieser Beispiel Batchdatei ist WINS\-a ein WINS-Server mit der IP-Adresse 192.168.125.30 und WINS\-B ist ein WINS-Server mit der IP-Adresse 192.168.0.189.
 
 Die Beispiel Batchdatei führt die folgenden Aufgaben aus.
 
-- Fügt einen dynamischen namens Daten Satz mit der IP-Adresse 192.168.0.205, My @ no__t-0record \[04h @ no__t-2, zu WINS @ no__t-3a hinzu.
-- Legt WINS @ no__t-0B als Push/Pull Replication Partner von WINS @ no__t-1a fest.
-- Stellt eine Verbindung mit WINS @ no__t-0B her und legt dann WINS @ no__t-1a als Push/Pull Replication Partner von WINS @ no__t-2B fest.
-- Initiiert eine pushreplikation von WINS @ no__t-0A zu WINS @ no__t-1B.
-- Stellt eine Verbindung zu WINS @ no__t-0B her, um zu überprüfen, ob der neue Datensatz "My @ no__t-1record" erfolgreich repliziert wurde.
+- Fügt einen dynamischen namens Daten Satz mit der IP-Adresse 192.168.0.205, My\_Record \[04h\], zu WINS\-a
+- Legt\-B als Push/Pull-Replikations Partner von WINS\-a fest.
+- Stellt eine Verbindung mit WINS\-B her und legt dann WINS\-a als Push/Pull Replication Partner of WINS\-B fest.
+- Initiiert eine pushreplikation von WINS\-a zu WINS\-B
+- Stellt eine Verbindung zu WINS\-B her, um zu überprüfen, ob der neue Datensatz, mein\_Datensatz, erfolgreich repliziert wurde
 
 ## <a name="netsh-example-batch-file"></a>Netsh-Beispiel Batchdatei
 
@@ -73,7 +73,7 @@ In der folgenden Beispiel Batchdatei werden Zeilen, die Kommentare enthalten, al
 
 Der folgende Abschnitt listet die **Netsh WINS** -Befehle auf, die in diesem Beispiel Verfahren verwendet werden.
 
-- **Server**. Verschiebt den aktuellen WINS-Befehl @ no__t-0line-Kontext auf den Server, der durch den Namen oder die IP-Adresse angegeben wird.
+- **Server**. Verschiebt den aktuellen WINS-Befehl\-Zeilen Kontext auf den Server, der durch den Namen oder die IP-Adresse angegeben wird.
 - **Name hinzufügen**. Registriert einen Namen auf dem WINS-Server.
 - **Partner hinzufügen**. Fügt einen Replikations Partner auf dem WINS-Server hinzu.
 - **Init Push**. Initiiert einen Push-triggerserver und sendet ihn an einen WINS-Server.

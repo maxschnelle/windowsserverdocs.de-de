@@ -90,7 +90,7 @@ Hyper-V verfügt auch über Tools für Verwaltung und Konnektivität. Sie könne
 
 - Hyper-V-Manager
 - [Hyper-V-Modul für Windows PowerShell](https://docs.microsoft.com/powershell/module/hyper-v/index)
-- [Verbindung mit virtuellen](https://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/hyper-v-virtual-machine-connect) Computern \(manchmal als VMConnect @ no__t-2 bezeichnet
+- Die [Verbindung des virtuellen](https://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/hyper-v-virtual-machine-connect) Computers \(manchmal als "VMConnect" bezeichnet\)
 - [Windows PowerShell Direct](manage/Manage-Windows-virtual-machines-with-PowerShell-Direct.md)
 
 ## <a name="related-technologies"></a>Verwandte Technologien
@@ -98,7 +98,7 @@ Hyper-V verfügt auch über Tools für Verwaltung und Konnektivität. Sie könne
 Dabei handelt es sich um einige Technologien von Microsoft, die häufig mit Hyper-V verwendet werden:
 
 - [Failoverclustering](../../failover-clustering/whats-new-in-failover-clustering.md)
-- [Remotedesktopdienste](../../remote/remote-desktop-services/Host-desktops-and-apps-in-Remote-Desktop-Services.md)
+- [Remotedesktopdienste (RDS)](../../remote/remote-desktop-services/Host-desktops-and-apps-in-Remote-Desktop-Services.md)
 - [System Center Virtual Machine Manager](https://docs.microsoft.com/system-center/vmm/overview)
 
 Verschiedene Speichertechnologien: freigegebene Clustervolumes, SMB 3,0, direkte Speicherplätze

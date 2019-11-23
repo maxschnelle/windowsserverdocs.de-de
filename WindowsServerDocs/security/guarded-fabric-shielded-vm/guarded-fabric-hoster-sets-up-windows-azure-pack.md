@@ -50,9 +50,9 @@ Installieren und konfigurieren Sie Windows Azure Pack (WAP) auf dem Computer, au
 
 2.  Herunterladen und Installieren des [Webplattform-Installers](https://www.microsoft.com/web/downloads/platform.aspx). Wenn der Computer nicht mit dem Internet verbunden ist, befolgen Sie die [Anweisungen zur Offline Installation](http://www.iis.net/learn/install/web-platform-installer/web-platform-installer-v4-command-line-webpicmdexe-rtw-release).
 
-3.  Öffnen Sie den Webplattform-Installer, und suchen Sie nach **windows Azure Pack: Portal und API Express @ no__t-0 auf der Registerkarte **Produkte** . Klicken Sie auf **Hinzufügen**, und **Installieren** Sie dann am unteren Rand des Fensters.
+3.  Öffnen Sie den Webplattform-Installer, und suchen Sie nach **Windows Azure Pack: Portal und API Express** auf der Registerkarte **Produkte** . Klicken Sie auf **Hinzufügen**, und **Installieren** Sie dann am unteren Rand des Fensters.
 
-4.  Führen Sie die weiteren Schritte der Installation aus. Nachdem die Installation abgeschlossen ist, wird die Konfigurations Website (*https://&lt;wapserver @ no__t-2:30101/* ) in Ihrem Webbrowser geöffnet. Geben Sie auf dieser Website Informationen zu Ihrem SQL-Server an, und schließen Sie die Konfiguration von WAP ab.
+4.  Führen Sie die weiteren Schritte der Installation aus. Nachdem die Installation abgeschlossen ist, wird die Konfigurations Website (*https://&lt;wapserver&gt;: 30101/* ) in Ihrem Webbrowser geöffnet. Geben Sie auf dieser Website Informationen zu Ihrem SQL-Server an, und schließen Sie die Konfiguration von WAP ab.
 
 Hilfe zum Einrichten von Windows Azure Pack finden Sie unter [Installieren einer Express-Bereitstellung Windows Azure Pack](https://technet.microsoft.com/dn296439.aspx).
 
@@ -63,7 +63,7 @@ Hilfe zum Einrichten von Windows Azure Pack finden Sie unter [Installieren einer
 
 Bevor Sie Windows Azure Pack verwenden, sollten Sie es bereits installiert und für Ihre Infrastruktur konfiguriert haben.
 
-1.  Navigieren Sie zum Windows Azure Pack Admin-Portal unter *https://&lt;wapserver @ no__t-2:30091*, und melden Sie sich dann mit Ihren Administrator Anmelde Informationen an.
+1.  Navigieren Sie zum Windows Azure Pack Admin-Portal unter *https://&lt;wapserver&gt;: 30091*, und melden Sie sich dann mit Ihren Administrator Anmelde Informationen an.
 
 2.  Klicken Sie im linken Bereich auf **VM-Clouds**.
 
@@ -77,7 +77,7 @@ Bevor Sie Windows Azure Pack verwenden, sollten Sie es bereits installiert und f
 
 Damit Mandanten VMs in WAP erstellen können, müssen Sie zuerst einen Hostingplan erstellen, den Mandanten abonnieren können. Pläne definieren die zulässigen VM-Clouds,-Vorlagen,-Netzwerke und-Abrechnungs Entitäten für Ihre Mandanten.
 
-1. Klicken Sie im unteren Bereich des Portals auf **+ neu** &gt; **Plan** &gt; **Create Plan**.
+1. Klicken Sie im unteren Bereich des Portals auf **+ neu** &gt; **Plan** &gt; Plan **Erstellen**.
 
 2. Wählen Sie im ersten Schritt des Assistenten einen Namen für den Plan aus. Dies ist der Name, den Ihre Mandanten beim Abonnieren sehen.
 
@@ -113,7 +113,7 @@ Damit Mandanten VMs in WAP erstellen können, müssen Sie zuerst einen Hostingpl
 
     An diesem Punkt ist Windows Azure Pack konfiguriert, und Mandanten können den soeben erstellten Plan abonnieren und abgeschirmte VMS bereitstellen. Weitere Schritte, die Mandanten ausführen müssen, finden Sie unter [abgeschirmte VMs für Mandanten: Bereitstellen einer abgeschirmten VM mithilfe von Windows Azure Pack](guarded-fabric-shielded-vm-windows-azure-pack.md).
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Konfigurationsschritte des hostingdienstanbieters für geschützte Hosts und abgeschirmte VMS](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

@@ -18,9 +18,9 @@ ms.locfileid: "71390029"
 ---
 # <a name="spn-and-upn-uniqueness"></a>SPN- und UPN-Eindeutigkeit
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-**Autor**: Justin Turner, Senior Support Eskalations Ingenieur bei der Windows-Gruppe  
+**Autor**: Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe  
   
 > [!NOTE]  
 > Dieser Inhalt wurde von einem Mitarbeiter des Microsoft-Kundendiensts geschrieben und richtet sich an erfahrene Administratoren und Systemarchitekten, die einen tieferen technischen Einblick in die Funktionen und Lösungen von Windows Server 2012 R2 suchen, als Ihnen die Themen im TechNet bieten können. Allerdings wurde er nicht mit der gleichen linguistischen Sorgfalt überprüft wie für die Artikel des TechNet üblich, so dass die Sprache gelegentlich holprig klingen mag.  
@@ -35,7 +35,7 @@ Doppelte UPN-Werte unterbrechen die Synchronisierung zwischen lokalem AD und Off
   
 \* Setspn. exe wird häufig verwendet, um neue Dienst Prinzipal Namen zu erstellen, und funktionell wurde in die Version integriert, die mit Windows Server 2008 veröffentlicht wurde und eine Überprüfung auf Duplikate hinzufügt.  
   
-Tabelle "**table Tabelle" \\ @ no__t-2 Arabisch 1: UPN-und SPN-Eindeutigkeit @ no__t-0  
+**Table-Tabelle \\\* Arabisch 1: UPN-und SPN-Eindeutigkeit**  
   
 |Feature|Kommentar|  
 |-----------|-----------|  
@@ -49,12 +49,12 @@ Fehlercodes 8467 oder 8468 oder Ihre hexadezimalen, symbolischen oder Zeichen fo
   
 -   Der Schreibvorgang wird von einem Windows Server 2012 R2-DC verarbeitet.  
   
-Tabelle "**table Tabelle" \\ @ no__t-2 Arabisch 2: UPN-und SPN-Eindeutigkeits Fehlercodes @ no__t-0  
+**Table-Tabelle \\\* Arabisch 2: Fehlercodes für die UPN-und SPN-Eindeutigkeit**  
   
-|mierte|Hex|Trächtigsten|Zeichenfolge|  
+|Mierte|Hex|Trächtigsten|Zeichenfolge|  
 |-----------|-------|------------|----------|  
-|8467|21C7|ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST|Der Vorgang ist fehlgeschlagen, weil der für Addition/Änderung angegebene SPN-Wert nicht eindeutig Gesamtstruktur weit ist.|  
-|8648|21C8|ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST|Der Vorgang ist fehlgeschlagen, weil der für Addition/Änderung angegebene UPN-Wert nicht eindeutig Gesamtstruktur weit ist.|  
+|8467|21c7|ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST|Der Vorgang ist fehlgeschlagen, weil der für Addition/Änderung angegebene SPN-Wert nicht eindeutig Gesamtstruktur weit ist.|  
+|8648|21c8|ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST|Der Vorgang ist fehlgeschlagen, weil der für Addition/Änderung angegebene UPN-Wert nicht eindeutig Gesamtstruktur weit ist.|  
   
 ## <a name="new-user-creation-fails-if-upn-is-not-unique"></a>Fehler beim Erstellen eines neuen Benutzers, wenn der UPN nicht eindeutig ist.  
   
@@ -74,18 +74,18 @@ Der Versuch, einen neuen Benutzer in Active Directory-Verwaltungscenter mit eine
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig03_DupUPNADAC.gif)  
   
-**Abbildung * Abbildung \\ @ no__t-2 Arabisch 1 Fehler wird im AD-Verwaltungs Center angezeigt, wenn die Erstellung eines neuen Benutzers aufgrund eines doppelten UPN fehlschlägt**  
+**Abbildung * Abbildung \\\* Arabisch 1-Fehler, der im AD-Verwaltungs Center angezeigt wird, wenn die Erstellung eines neuen Benutzers aufgrund eines doppelten UPN fehlschlägt**  
   
 ### <a name="event-2974-source-activedirectory_domainservice"></a>Ereignis 2974 Quelle: ActiveDirectory_DomainService  
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig04_Event2974.gif)  
   
-**Abbildung * Abbildung \\ @ no__t-2 Arabisch 2 Ereignis-ID 2974 mit Fehler 8648**  
+**Abbildung * Abbildung \\\* Arabisch 2 Ereignis-ID 2974 mit Fehler 8648**  
   
 Das Ereignis 2974 listet den Wert auf, der blockiert wurde, und eine Liste mit einem oder mehreren Objekten (bis zu 10), die diesen Wert bereits enthalten.  In der folgenden Abbildung sehen Sie, dass der UPN-Attribut Wert **<em>dhunt@blue.contoso.com</em>** bereits in vier anderen Objekten vorhanden ist.  Da es sich hierbei um ein neues Feature in Windows Server 2012 R2 handelt, treten die versehentliche Erstellung doppelter UPN und SPNs in einer gemischten Umgebung weiterhin auf, wenn der Schreib Versuch von DCS der untergeordneten Ebene verarbeitet wird.  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig05_Event2974ShowAllDups.gif)  
   
-**Abbildung SEQ Abbildung \\ @ no__t-2 Arabisch 3 Ereignis 2974 mit allen Objekten, die den doppelten UPN enthalten**  
+**Abbildung SEQ Abbildung \\\* Arabisch 3-Ereignis 2974 mit allen Objekten, die den doppelten UPN enthalten**  
   
 > [!TIP]  
 > Ereignis-ID 2974s regelmäßig überprüfen für:  
@@ -96,9 +96,9 @@ Das Ereignis 2974 listet den Wert auf, der blockiert wurde, und eine Liste mit e
 8648 = "der Vorgang ist fehlgeschlagen, weil der für Addition/Änderung angegebene UPN-Wert nicht eindeutig Gesamtstruktur weit ist."  
   
 ### <a name="setspn"></a>Setspn  
-In "Setspn. exe" war seit der Verwendung der Option **"-S"** eine doppelte SPN-Erkennung in die Version von Windows Server 2008 integriert.  Sie können den doppelten SPN-Erkennungsdienst mit der Option **"-A"** umgehen.  Die Erstellung eines doppelten SPN wird blockiert, wenn ein Windows Server 2012 R2-DC mithilfe von Setspn mit der Option-a als Ziel verwendet wird.  Die angezeigte Fehlermeldung ist identisch mit der Anzeige, die bei Verwendung der Option-S angezeigt wird: "Es wurde ein doppelter SPN gefunden, der Vorgang wird abgebrochen!"  
+In "Setspn. exe" war seit der Verwendung der Option **"-S"** eine doppelte SPN-Erkennung in die Version von Windows Server 2008 integriert.  Sie können den doppelten SPN-Erkennungsdienst mit der Option **"-A"** umgehen.  Die Erstellung eines doppelten SPN wird blockiert, wenn ein Windows Server 2012 R2-DC mithilfe von Setspn mit der Option-a als Ziel verwendet wird.  Die angezeigte Fehlermeldung ist identisch mit der Option, die bei Verwendung der Option "-S" angezeigt wird: "doppelter SPN gefunden, Vorgang wird abgebrochen!"  
   
-### <a name="adsiedit"></a>ADSIEDIT  
+### <a name="adsiedit"></a>ADSIEdit  
   
 ```  
 Operation failed. Error code: 0x21c8  
@@ -108,7 +108,7 @@ The operation failed because UPN value provided for addition/modification is not
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig06_ADSI21c8.gif)  
   
-**Abbildung * Abbildung \\ @ no__t-2 Arabisch 4-Fehlermeldung in ADSIEdit angezeigt, wenn das Hinzufügen eines doppelten UPN blockiert ist**  
+**Abbildung * Abbildung \\\* Arabisch 4-Fehlermeldung, die in ADSIEdit angezeigt wird, wenn das Hinzufügen eines doppelten UPN blockiert ist.**  
   
 ### <a name="windows-powershell"></a>Windows PowerShell  
 Windows Server 2012 R2:  
@@ -123,11 +123,11 @@ Dsac. exe unter Windows Server 2012, das auf einen Windows Server 2012 R2-DC abz
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig09_UserCreateError.gif)  
   
-**Abbildung * Abbildung \\ @ no__t-2 Arabisch 5 Dsac-Benutzer Erstellungs Fehler auf nicht-Windows Server 2012 R2 bei Windows Server 2012 R2 DC**  
+**Abbildung * Abbildung \\\* Arabisch 5 Dsac-Benutzer Erstellungs Fehler auf nicht-Windows Server 2012 R2 bei Windows Server 2012 R2 DC**  
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig10_UserModError.gif)  
   
-**Abbildung * Abbildung \\ @ no__t-2 Arabisch 6 Dsac-Benutzer Änderungs Fehler auf nicht-Windows Server 2012 R2 bei Windows Server 2012 R2 DC**  
+**Abbildung * Abbildung \\\* Arabisch 6 Dsac-Benutzer Änderungs Fehler auf nicht-Windows Server 2012 R2 bei Windows Server 2012 R2 DC**  
   
 ### <a name="restore-of-an-object-that-would-result-in-a-duplicate-upn-fails"></a>Beim Wiederherstellen eines Objekts, das zu einem doppelten UPN führt, tritt ein Fehler auf:  
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig11_RestoreDupUPN.gif)  
@@ -210,9 +210,9 @@ So legen Sie das userPrincipalName-Attribut mithilfe von Windows PowerShell auf 
 ### <a name="duplicate-spn"></a>Doppelter SPN  
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig16_DupSPN.gif)  
   
-**Abbildung * Abbildung \\ @ no__t-2 Arabisch 8-Fehlermeldung, die in ADSIEdit angezeigt wird, wenn das Hinzufügen eines doppelten SPNs blockiert wird**  
+**Abbildung * Abbildung \\\* Arabisch 8-Fehlermeldung, die in ADSIEdit angezeigt wird, wenn das Hinzufügen eines doppelten SPNs blockiert wird.**  
   
-Im Verzeichnisdienste-Ereignisprotokoll protokolliert wird eine **ActiveDirectory_DomainService** -Ereignis-ID **2974**.  
+Im Verzeichnisdienst-Ereignisprotokoll ist eine **ActiveDirectory_DomainService** Ereignis-ID **2974**. protokolliert.  
   
 ```  
 Operation failed. Error code: 0x21c7  
@@ -224,7 +224,7 @@ servicePrincipalName Value=<SPN>
   
 ![SPN- und UPN-Eindeutigkeit](media/SPN-and-UPN-uniqueness/GTR_ADDS_Fig17_DupSPN2974.gif)  
   
-**Abbildung * Abbildung \\ @ no__t-2 Arabisch 9 Fehler protokolliert, wenn die Erstellung eines doppelten SPNs blockiert ist**  
+**Abbildung * Abbildung \\\* Arabisch 9-Fehler protokolliert, wenn die Erstellung eines doppelten SPN blockiert ist.**  
   
 ### <a name="workflow"></a>Workflow  
   
@@ -320,7 +320,7 @@ Wenn gelöschte Objekte erneut animiert werden, werden die SPN-oder UPN-Werte au
   
     -   ATT_USER_ACCOUNT_CONTROL  
   
-Wenn einer der neuen SPN-Werte ein Duplikat ist, tritt bei der Änderung ein Fehler auf. In der obigen Liste sind die wichtigen Attribute ATT_DNS_HOST_NAME (Computer Name) und ATT_SAM_ACCOUNT_NAME (Sam Account Name).  
+Wenn einer der neuen SPN-Werte ein Duplikat ist, tritt bei der Änderung ein Fehler auf. In der obigen Liste sind die wichtigen Attribute ATT_DNS_HOST_NAME (Computername) und ATT_SAM_ACCOUNT_NAME (SAM-Kontoname).  
   
 ### <a name="try-this-exploring-spn-and-upn-uniqueness"></a>Versuchen Sie Folgendes: Untersuchen von SPN und UPN-Eindeutigkeit  
 Dies ist die erste von mehreren "**try this**"-Aktivitäten im Modul.  Es gibt keine separate Lab-Anleitung für dieses Modul.  Die **try this** -Aktivitäten sind im Wesentlichen frei Form Aktivitäten, mit denen Sie die Lektion in der Lab-Umgebung untersuchen können.  Sie haben die Möglichkeit, die Eingabeaufforderung zu befolgen oder das Skript zu erstellen und ihre eigene Aktivität zu erstellen.  

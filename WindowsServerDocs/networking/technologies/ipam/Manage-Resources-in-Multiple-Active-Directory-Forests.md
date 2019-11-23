@@ -21,7 +21,7 @@ ms.locfileid: "71355230"
 ---
 # <a name="manage-resources-in-multiple-active-directory-forests"></a>Verwalten von Ressourcen in mehreren ActiveDirectory-Gesamtstrukturen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie mit IPAM Domänen Controller, DHCP-Server und DNS-Server in mehreren Active Directory Gesamtstrukturen verwalten.  
   
@@ -32,7 +32,7 @@ Wenn Sie IPAM zur Verwaltung von Ressourcen in Remote Active Directory-Gesamtstr
 ![Konfigurieren der Serverermittlung](../../media/Manage-Resources-in-Multiple-Active-Directory-Forests/ipam_serverdiscovery.jpg)  
 
 >[!NOTE]
->Stellen Sie sicher, dass Sie das folgende Windows PowerShell-Cmdlet auf dem IPAM-Server und nicht auf den vertrauenden Domänen Domänen Controllern ausführen, um Gruppenrichtlinie @ no__t-0basierten Bereitstellung für ein Active Directory-Gesamtstruktur Szenario auszuführen. Wenn der IPAM-Server z. b. mit der Gesamtstruktur verbunden ist Corp.contoso.com und die vertrauende Gesamtstruktur Fabrikam.com ist, können Sie das folgende Windows PowerShell-Cmdlet auf dem IPAM-Server in Corp.contoso.com ausführen, um Gruppenrichtlinie @ no__t-0basierte Bereitstellung auf dem fabrikam.com-Gesamtstruktur. Zum Ausführen dieses Cmdlets müssen Sie Mitglied der Gruppe "Domänen-Admins" in der Fabrikam.com-Gesamtstruktur sein.
+>Stellen Sie sicher, dass Sie das folgende Windows PowerShell-Cmdlet auf dem IPAM-Server und nicht auf den vertrauenden Domänen Domänen Controllern ausführen, um Gruppenrichtlinie\-basierten Bereitstellung für ein Active Directory Gesamtstruktur übergreifende Szenario auszuführen. Wenn der IPAM-Server z. b. mit der Gesamtstruktur verbunden ist Corp.contoso.com und die vertrauende Gesamtstruktur Fabrikam.com ist, können Sie das folgende Windows PowerShell-Cmdlet auf dem IPAM-Server in Corp.contoso.com für Gruppenrichtlinie\-basierte Bereitstellung in der Fabrikam.com-Gesamtstruktur ausführen. Zum Ausführen dieses Cmdlets müssen Sie Mitglied der Gruppe "Domänen-Admins" in der Fabrikam.com-Gesamtstruktur sein.
 
     
     Invoke-IpamGpoProvisioning -Domain fabrikam.COM -GpoPrefixName IPAMSERVER -IpamServerFqdn IPAM.CORP.CONTOSO.COM

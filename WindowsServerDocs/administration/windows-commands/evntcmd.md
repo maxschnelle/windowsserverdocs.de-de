@@ -22,7 +22,7 @@ ms.locfileid: "71377436"
 ---
 # <a name="evntcmd"></a>evntcmd
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Konfiguriert die Übersetzung von Ereignissen in Traps, Trap Ziele oder beides basierend auf Informationen in einer Konfigurationsdatei.   
 ## <a name="syntax"></a>Syntax  
@@ -42,27 +42,27 @@ evntcmd [/s <computerName>] [/v <verbosityLevel>] [/n] <FileName>
 ## <a name="remarks"></a>Hinweise  
 - Wenn Sie Traps, aber keine Trap Ziele konfigurieren möchten, können Sie eine gültige Konfigurationsdatei erstellen, indem Sie das-Ereignis verwenden, um den Konvertierer zu verwenden, der ein grafisches Hilfsprogramm ist. Wenn Sie den SNMP-Dienst installiert haben, können Sie das Ereignis starten, um den Konvertierer abzufangen, indem Sie an einer Eingabeaufforderung **evntwin** eingeben. Nachdem Sie die gewünschten Traps definiert haben, klicken Sie auf exportieren, um eine Datei zu erstellen, die für die Verwendung mit **evntcmd**geeignet ist. Sie können das Ereignis verwenden, um den Konvertierer zu verwenden, um problemlos eine Konfigurationsdatei zu erstellen, und dann die Konfigurationsdatei mit **evntcmd** an der Eingabeaufforderung verwenden, um auf mehreren Computern schnell Traps zu konfigurieren.  
 - Die Syntax für die Konfiguration eines Trap lautet wie folgt:  
-  **#pragma Add**<em> @ no__t-2 <EventSource> <EventID> [<Count> [<Period>]] </em>  
+  #pragma<em><EventLogFile> <EventSource> <EventID> [<Count> [<Period>]] **Hinzufügen**</em>  
   -   Der Text **#pragma** muss am Anfang jedes Eintrags in der Datei angezeigt werden.  
   -   Der Parameter **Add** gibt an, dass Sie der Trap-Konfiguration ein Ereignis hinzufügen möchten.  
   -   Die Parameter " *EventLogFile*", " *eventSource*" und " *EventID* " sind erforderlich. Der *EventLogFile* -Parameter gibt die Datei an, in der das Ereignis aufgezeichnet wird. Der *eventSource* -Parameter gibt die Anwendung an, die das Ereignis generiert. Der *EventID-* Parameter gibt die eindeutige Zahl an, durch die die einzelnen Ereignisse identifiziert werden. Um herauszufinden, welche Werte bestimmten Ereignissen entsprechen, starten Sie das Ereignis, um den Konvertierer zu starten, indem Sie an einer Eingabeaufforderung **evntwin** eingeben. Klicken Sie auf **Benutzer**definiert und dann auf **Bearbeiten**. Durchsuchen Sie unter **Ereignis Quellen**die Ordner, bis Sie das Ereignis finden, das Sie konfigurieren möchten, klicken Sie auf das Ereignis, und klicken Sie dann auf **Hinzufügen**. Informationen zur Ereignis Quelle, der Ereignisprotokoll Datei und der Ereignis-ID werden unter **Quell-, Protokoll**-bzw. **Trap spezifische ID**angezeigt.  
   -   Der *count* -Parameter ist optional und gibt an, wie oft das Ereignis auftreten muss, bevor eine Trap-Nachricht gesendet wird. Wenn Sie den *count* -Parameter nicht verwenden, wird die Trap-Nachricht gesendet, nachdem das Ereignis einmal auftritt.  
   -   Der *Period* -Parameter ist optional, erfordert jedoch die Verwendung des *count* -Parameters. Der *Period* -Parameter gibt eine Zeitspanne (in Sekunden) an, während der das Ereignis mit dem count-Parameter angegeben werden muss, bevor eine Trap-Nachricht gesendet wird. Wenn Sie den *Period* -Parameter nicht verwenden, wird eine Trap-Nachricht gesendet, nachdem das Ereignis so oft wie angegeben mit dem *count* -Parameter auftritt, unabhängig davon, wie viel Zeit zwischen den vorkommen abläuft.  
 - Die Syntax zum Entfernen eines Trap lautet wie folgt:  
-  **#pragma DELETE**<em> @ no__t-2 <EventSource> <EventID> @ no__t-5  
+  **#pragma löschen**<em><EventLogFile> <EventSource> <EventID></em>  
   -   Der Text **#pragma** muss am Anfang jedes Eintrags in der Datei angezeigt werden.  
   -   Der Parameter *Delete* gibt an, dass Sie ein Ereignis zur Trap-Konfiguration entfernen möchten.  
   -   Die Parameter " *EventLogFile*", " *eventSource*" und " *EventID* " sind erforderlich. Der Parameter *EventLogFile* gibt das Protokoll an, in dem das Ereignis aufgezeichnet wird. Der *eventSource* -Parameter gibt die Anwendung an, die das Ereignis generiert. Der *EventID-* Parameter gibt die eindeutige Zahl an, durch die die einzelnen Ereignisse identifiziert werden.  
 - Die Syntax zum Konfigurieren eines Trap-Ziels lautet wie folgt:  
-  **#pragma add_TRAP_DEST**<em> @ no__t-2 <HostID> @ no__t-4  
+  **#pragma add_TRAP_DEST**<em><CommunityName> <HostID></em>  
   -   Der Text **#pragma** muss am Anfang jedes Eintrags in der Datei angezeigt werden.  
   -   Der Parameter **add_TRAP_DEST** gibt an, dass Trap-Nachrichten an einen angegebenen Host innerhalb einer Community gesendet werden sollen.  
   -   Der *Communityname* -Parameter gibt die Community, in der Trap-Nachrichten gesendet werden, anhand des Namens an.  
   -   Der *-Parameter Hostid* gibt den Host, an den Trap-Nachrichten gesendet werden sollen, anhand des Namens oder der IP-Adresse an.  
 - Die Syntax zum Entfernen eines Trap-Ziels lautet wie folgt:  
-  **#pragma delete_TRAP_DEST**<em> @ no__t-2 <HostID> @ no__t-4  
+  **#pragma delete_TRAP_DEST**<em><CommunityName> <HostID></em>  
   - Der Text **#pragma** muss am Anfang jedes Eintrags in der Datei angezeigt werden.  
-  - Der Parameter *delete_TRAP_DEST* gibt an, dass Trap-Nachrichten nicht an einen angegebenen Host innerhalb einer Community gesendet werden sollen.  
+  - Der-Parameter *delete_TRAP_DEST* gibt an, dass Trap-Nachrichten nicht an einen angegebenen Host innerhalb einer Community gesendet werden sollen.  
   - Der *Communityname* -Parameter gibt die Community, in der Trap-Nachrichten gesendet werden, anhand des Namens an.  
   - Der *-Parameter Hostid* gibt anhand des Namens oder der IP-Adresse den Host an, an den keine Trap-Nachrichten gesendet werden sollen.  
     ## <a name="BKMK_Examples"></a>Beispiele  

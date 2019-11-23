@@ -51,7 +51,7 @@ Sie können die zugriffsbasierte Aufzählung für einen Namespace mithilfe der W
 
 1.  Öffnen Sie ein Eingabeaufforderungsfenster auf einem Server, auf dem der Rollendienst **Verteiltes Dateisystem** oder die Funktion **DFS-Tools** installiert ist.
 
-2.  Geben Sie den folgenden Befehl ein, wobei *< Namespace @ no__t-1root >* der Stamm des-Namespace ist:
+2.  Geben Sie den folgenden Befehl ein, wobei *< Namespace\_root >* der Stamm des-Namespace ist:
 
     ```  
     dfsutil property abe enable \\ <namespace_root>
@@ -80,13 +80,13 @@ Sie können steuern, welche Benutzer und Gruppen einzelne DFS-Ordner mithilfe de
 
 1. Öffnen Sie ein Eingabeaufforderungsfenster auf einem Server, auf dem der Rollendienst **Verteiltes Dateisystem** oder die Funktion **DFS-Tools** installiert ist.
 
-2. Geben Sie den folgenden Befehl ein, wobei *&lt;dfspath @ no__t-2* der Pfad des DFS-Ordners (Link), *< Domäne @ no__t-4account >* der Name der Gruppe bzw. des Benutzerkontos ist, und *(...)* durch zusätzliche Access Control Einträge ersetzt wird ( ACEs):
+2. Geben Sie den folgenden Befehl ein, wobei *&lt;dfspath&gt;* der Pfad des DFS-Ordners (Link), *< Domänen\\Kontos >* der Name der Gruppe bzw. des Benutzerkontos ist, und *(...)* durch zusätzliche Access Control Einträge (ACEs) ersetzt wird:
 
    ```
    dfsutil property sd grant <DFSPath> DOMAIN\Account:R (...) Protect Replace
    ```
 
-   Geben Sie beispielsweise den folgenden Befehl ein, um vorhandene Berechtigungen durch Berechtigungen zu ersetzen, die dem Ordner Domänen-Admins und den "no__t-0trainers"-Gruppen Zugriff auf den Ordner "\\".
+   Wenn Sie z. b. vorhandene Berechtigungen durch Berechtigungen ersetzen möchten, die dem Ordner Domänen-Admins und der Gruppe "Azure-\\-Trainer" Lesezugriff (R) auf den Ordner "\\Ordner" "" von "Azure".
 
    ```
    dfsutil property sd grant \\contoso.office\public\training "CONTOSO\Domain Admins":R CONTOSO\Trainers:R Protect Replace 
@@ -101,7 +101,7 @@ Sie können steuern, welche Benutzer und Gruppen einzelne DFS-Ordner mithilfe de
 |[Dfsutil-Eigenschaft SD Reset](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx) |Entfernt sämtliche Berechtigungen aus dem Ordner.|
 |[Dfsutil-Eigenschaft, SD-Widerruf](https://msdn.microsoft.com/library/dd759150(v=ws.11).aspx)| Entfernt den ACE einer Gruppe oder eines Benutzers aus dem Ordner. |
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 -   [Erstellen eines DFS-Namespaces](create-a-dfs-namespace.md)
 -   [Delegieren von Verwaltungsberechtigungen für DFS-Namespaces](delegate-management-permissions-for-dfs-namespaces.md)

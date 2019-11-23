@@ -21,11 +21,11 @@ ms.locfileid: "71405965"
 ---
 # <a name="internal-dns-service-idns-for-sdn"></a>Interner DNS-Dienst (iDNS) für SDN
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Wenn Sie für einen clouddienstanbieter arbeiten \(csp @ no__t-1 oder Enterprise, der die Bereitstellung von Software-Defined Networking \(sdn @ no__t-3 in Windows Server 2016 plant, können Sie mithilfe interner DNS-Dienste DNS-Dienste für Ihre gehosteten Mandanten-Workloads bereitstellen @no__ t-4idns @ no__t-5, das in Sdn integriert ist.
+Wenn Sie für einen clouddienstanbieter \(CSP\) oder Enterprise arbeiten, der die Bereitstellung von Software-Defined Networking \(Sdn-\) in Windows Server 2016 plant, können Sie mithilfe interner DNS-\(IDNs-\), die in Sdn integriert ist, DNS-Dienste für Ihre gehosteten mandantenworkloads bereitstellen.
 
-Gehostete virtuelle Computer \(vms @ no__t-1 und Anwendungen erfordern DNS, um in ihren eigenen Netzwerken und externen Ressourcen im Internet kommunizieren zu können. Mit IDNs können Sie Mandanten DNS-Namens Auflösungs Diensten für Ihren isolierten lokalen Namespace und für Internet Ressourcen bereitstellen.
+Gehostete virtuelle Computer \(VMS\) und Anwendungen erfordern DNS, um in ihren eigenen Netzwerken und externen Ressourcen im Internet kommunizieren zu können. Mit IDNs können Sie Mandanten DNS-Namens Auflösungs Diensten für Ihren isolierten lokalen Namespace und für Internet Ressourcen bereitstellen.
 
 Da auf den IDNs-Dienst nicht über den IDNs-Proxy von virtuellen Mandanten Netzwerken aus zugegriffen werden kann, ist der Server nicht anfällig für böswillige Aktivitäten in Mandanten Netzwerken.
 
@@ -54,7 +54,7 @@ IDNs-Server sind die autorisierenden Server für Ihre internen DNS-Zonen und fun
 
 Alle Hostnamen für virtuelle Computer in virtuellen Netzwerken werden als DNS-Ressourcen Einträge in derselben Zone gespeichert. Wenn Sie z. b. IDNs für eine Zone mit dem Namen "" "" "" "" "" "" "" "" ".
 
-Voll qualifizierte Domänen Namen für Mandanten-VMS \(fqdns @ no__t-1 bestehen aus dem Computernamen und der DNS-Suffixzeichenfolge für die Virtual Network im GUID-Format. Wenn Sie z. b. über eine Mandanten-VM mit dem Namen TENANT1 verfügen, die sich auf dem Virtual Network lokalen Computer (lokal) befindet, lautet der voll qualifizierte Name des virtuellen Computers TENANT1. *VN-GUID*. Configuration. local, wobei *VN-GUID* die DNS-Suffixzeichenfolge für die Virtual Network ist.
+Voll qualifizierte Domänen Namen des Mandanten-VMS \(FQDNs\) bestehen aus dem Computernamen und der DNS-Suffixzeichenfolge für die Virtual Network im GUID-Format. Wenn Sie z. b. über eine Mandanten-VM mit dem Namen TENANT1 verfügen, die sich auf dem Virtual Network lokalen Computer (lokal) befindet, lautet der voll qualifizierte Name des virtuellen Computers TENANT1. *VN-GUID*. Configuration. local, wobei *VN-GUID* die DNS-Suffixzeichenfolge für die Virtual Network ist.
 
 >[!NOTE]
 >Wenn Sie ein Fabric-Administrator sind, können Sie Ihre CSP-oder Enterprise-DNS-Infrastruktur als IDNs-Server verwenden, anstatt neue DNS-Server speziell für die Verwendung als IDNs-Server bereitzustellen. Unabhängig davon, ob Sie neue Server für IDNs bereitstellen oder Ihre vorhandene Infrastruktur verwenden, nutzt IDNs Active Directory, um Hochverfügbarkeit bereitzustellen. Daher müssen ihre IDNs-Server in Active Directory integriert werden.
@@ -82,7 +82,7 @@ Im folgenden finden Sie eine Zusammenfassung der zum Bereitstellen von IDNs erfo
 >[!NOTE]
 >Wenn Sie Sdn mithilfe von Skripts bereitgestellt haben, müssen Sie diese Schritte nicht ausführen. Die Schritte dienen nur zu Informationszwecken und zur Problembehandlung.
 
-### <a name="step-1-deploy-dns"></a>Schritt 1: Bereitstellen von DNS
+### <a name="step-1-deploy-dns"></a>Schritt 1: Bereitstellen von DNS
 Sie können einen DNS-Server bereitstellen, indem Sie den folgenden Windows PowerShell-Beispiel Befehl verwenden.
     
     Install-WindowsFeature DNS -IncludeManagementTools
@@ -114,7 +114,7 @@ Method: PUT
 >[!NOTE]
 >Dies ist ein Auszug aus dem Abschnitt **Configuration configureidns** in sdnexpress. ps1. Weitere Informationen finden Sie unter Bereitstellen [einer Software definierten Netzwerkinfrastruktur mithilfe von Skripts](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
 
-### <a name="step-3-configure-the-idns-proxy-service"></a>Schritt 3: Konfigurieren des IDNs-Proxy Dienstanbieter
+### <a name="step-3-configure-the-idns-proxy-service"></a>Schritt 3: Konfigurieren Sie den IDNs-Proxy Dienst.
 Der IDNs-Proxy Dienst wird auf allen Hyper-V-Hosts ausgeführt und stellt die Brücke zwischen den virtuellen Netzwerken der Mandanten und dem physischen Netzwerk bereit, in dem sich die IDNs-Server befinden. Die folgenden Registrierungsschlüssel müssen auf jedem Hyper-V-Host erstellt werden.
 
 
@@ -141,7 +141,7 @@ Der IDNs-Proxy Dienst wird auf allen Hyper-V-Hosts ausgeführt und stellt die Br
 - ValueType = "Zeichenfolge"
 
         
-**Mac-Adresse:** Medien Access Control Adresse des DNS-Servers
+**MAC-Adresse:** Medien Access Control Adresse des DNS-Servers
 
 - Registrierungsschlüssel = hklm\system\currentcontrolset\services\nchostagent\parameters\plugins\vnet\infraservices\dnsproxyservice
 - ValueName = "Mac"
@@ -150,7 +150,7 @@ Der IDNs-Proxy Dienst wird auf allen Hyper-V-Hosts ausgeführt und stellt die Br
 
 **IDNs-Server Adresse:** Eine durch Kommas getrennte Liste von IDNs-Servern.
 
-- Registrierungsschlüssel: Hklm\system\currentcontrolset\services\dnsproxy\parameters
+- Registrierungsschlüssel: hklm\system\currentcontrolset\services\dnsproxy\parameters
 - ValueName = "Weiterleitungen"
 - Valuedata = "10.0.0.9"
 - ValueType = "Zeichenfolge"
@@ -160,7 +160,7 @@ Der IDNs-Proxy Dienst wird auf allen Hyper-V-Hosts ausgeführt und stellt die Br
 >[!NOTE]
 >Dies ist ein Auszug aus dem Abschnitt **Configuration configureidnsproxy** in sdnexpress. ps1. Weitere Informationen finden Sie unter Bereitstellen [einer Software definierten Netzwerkinfrastruktur mithilfe von Skripts](https://technet.microsoft.com/windows-server-docs/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts).
 
-### <a name="step-4-restart-the-network-controller-host-agent-service"></a>Schritt 4: Netzwerk Controller-Host-Agent-Dienst neu starten
+### <a name="step-4-restart-the-network-controller-host-agent-service"></a>Schritt 4: Neustarten des Netzwerk Controller-Host-Agent-Diensts
 Sie können den folgenden Windows PowerShell-Befehl verwenden, um den Netzwerk Controller-Host-Agent-Dienst neu zu starten.
     
     Restart-Service nchostagent -Force

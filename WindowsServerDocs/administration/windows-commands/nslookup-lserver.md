@@ -22,7 +22,7 @@ ms.locfileid: "71373079"
 ---
 # <a name="nslookup-lserver"></a>nslookup lserver
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ändert den Standard Server in die angegebene Domain Name System Domäne (DNS).
 ## <a name="syntax"></a>Syntax

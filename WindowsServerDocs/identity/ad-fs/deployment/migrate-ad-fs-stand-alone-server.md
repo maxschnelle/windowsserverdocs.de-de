@@ -38,7 +38,7 @@ Verwenden Sie die beim Vorbereiten der Migration des AD FS-Verbundservers erfas
  |**Eingabeoption für den Verbund Server-Konfigurations-Assistenten**|**Folgenden Wert verwenden**| 
 |-----|-----| 
 |**SSL-Zertifikat** auf der Seite **Angeben eines Verbunddienstnamens**|Wählen Sie das SSL-Zertifikat aus, dessen Antragstellername und Fingerabdruck Sie beim Vorbereiten der AD FS-Verbundservermigration notiert haben.|  
-|**Dienstkonto** und **Kennwort** auf der Seite **Angeben eines Dienstkontos**|Geben Sie die Dienstkontoinformationen ein, die Sie beim Vorbereiten der AD FS-Verbundservermigration notiert haben. **Hinweis**:  Wenn Sie auf der zweiten Seite des Assistenten den eigenständigen Verbundserver auswählen, wird automatisch NETZWERKDIENST als Dienstkonto verwendet.|  
+|**Dienstkonto** und **Kennwort** auf der Seite **Angeben eines Dienstkontos**|Geben Sie die Dienstkontoinformationen ein, die Sie beim Vorbereiten der AD FS-Verbundservermigration notiert haben. **Hinweis:**  Wenn Sie auf der zweiten Seite des Assistenten die Option eigenständiger Verbund Server auswählen, wird der Netzwerkdienst automatisch als Dienst Konto verwendet.|  
   
 > [!IMPORTANT] 
 > Sie können diese Methode nur verwenden, wenn Sie die interne Windows-Datenbank (WID) verwenden, um die AD FS Konfigurations Datenbank für ihren eigenständigen Verbund Server oder eine AD FS Farm mit einem einzelnen Knoten zu speichern.  
@@ -57,7 +57,7 @@ Im folgenden finden Sie ein Beispiel für die Verwendung von Windows PowerShell 
 > [!NOTE]
 >  Dieser Schritt ist nur erforderlich, wenn Sie einen eigenständigen Verbundserver oder eine interne Windows-Datenbankfarm mit einzelnem Knoten migrieren.  Wenn der Verbundserver eine SQL Server-Datenbank als Konfigurationsspeicher verwendet, bleiben die Diensteinstellungen und die Vertrauensstellungen in der Datenbank erhalten.  
   
-5. Aktualisieren Sie Ihre AD FS Webseiten. Dies ist ein manueller Schritt. Wenn Sie Ihre angepassten AD FS Webseiten beim Vorbereiten der Migration gesichert haben, verwenden Sie Ihre Sicherungsdaten, um die standardmäßigen AD FS Webseiten zu überschreiben, die standardmäßig im Verzeichnis **%systemdrive%\inetpub\adfs\ls** als Ergebnis des AD FS Konfiguration auf Windows Server 2012.  
+5. Aktualisieren Sie Ihre AD FS Webseiten. Dies ist ein manueller Schritt. Wenn Sie die benutzerdefinierten AD FS Webseiten beim Vorbereiten der Migration gesichert haben, verwenden Sie Ihre Sicherungsdaten, um die standardmäßigen AD FS Webseiten zu überschreiben, die standardmäßig im Verzeichnis **%systemdrive%\inetpub\adfs\ls** erstellt wurden, als Ergebnis der AD FS Konfiguration auf Windows Server 2012.  
   
 6. Stellen Sie alle verbleibenden AD FS-Anpassungen wieder her, z. B. benutzerdefinierte Attributspeicher.  
   
@@ -87,10 +87,10 @@ Wenn Sie die Tokenverschlüsselungs- oder Tokensignaturzertifikate von den stand
 -   Wählen Sie in der AD FS-Verwaltungskonsole **Vertrauensstellungen der vertrauenden Seite** aus. Sie müssen jede Vertrauensstellung der vertrauenden Seite mithilfe des **Assistenten zum Hinzufügen von Vertrauensstellungen der vertrauenden Seite** manuell neu erstellen. Verwenden Sie die Liste der Vertrauensstellungen der vertrauenden Seite, die Sie beim Vorbereiten der AD FS-Migration exportiert und notiert haben. Weitere Informationen zum Erstellen von Vertrauensstellungen der vertrauenden Seite finden Sie unter [Erstellen einer Vertrauensstellung der vertrauenden Seite mit Verbundmetadaten](../operations/create-a-relying-party-trust.md#to-create-a-claims-aware-relying-party-trust-using-federation-metadata) oder [Manuelles Erstellen einer Vertrauensstellung der vertrauenden Seite](../operations/create-a-relying-party-trust.md#to-create-a-claims-aware-relying-party-trust-manually). 
 
 ## <a name="next-steps"></a>Nächste Schritte
- [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md)-Verbund Servers    
+ [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md) -Verbund Servers   
  [Vorbereiten der Migration des AD FS 2,0-Verbund Server Proxys](prepare-to-migrate-ad-fs-fed-proxy.md)   
- [Migrieren Sie den AD FS 2,0](migrate-the-ad-fs-fed-server.md)-Verbund Server  .  
- [Migrieren Sie den AD FS 2,0-Verbund Server Proxy](migrate-the-ad-fs-2-fed-server-proxy.md) .  
+ [Migrieren Sie den AD FS 2,0](migrate-the-ad-fs-fed-server.md) -Verbund Server   
+ [Migrieren Sie den AD FS 2,0-Verbund Server Proxy](migrate-the-ad-fs-2-fed-server-proxy.md)   
  [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)
 
 

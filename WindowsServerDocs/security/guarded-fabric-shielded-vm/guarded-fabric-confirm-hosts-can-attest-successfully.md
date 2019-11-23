@@ -31,7 +31,7 @@ Ein fabricadministrator muss bestätigen, dass Hyper-V-Hosts als geschützte Hos
 
 3. Konfigurieren Sie die Schlüsselschutz-und Nachweis-URLs des Hosts:
 
-    - **Über Windows PowerShell**: Sie können die Schlüsselschutz-und Nachweis-URLs konfigurieren, indem Sie den folgenden Befehl in einer Windows PowerShell-Konsole mit erhöhten Rechten ausführen. Verwenden Sie für &lt;fqdn @ no__t-1 den voll qualifizierten Domänen Namen (Fully Qualified Domain Name, FQDN) Ihres HGS-Clusters (z. b. HGS. Bastion. local), oder bitten Sie den HGS-Administrator, das Cmdlet **Get-hgsserver** auf dem HGS-Server auszuführen, um die URLs abzurufen.
+    - **Über Windows PowerShell**: Sie können die Schlüsselschutz-und Nachweis-URLs konfigurieren, indem Sie den folgenden Befehl in einer Windows PowerShell-Konsole mit erhöhten Rechten ausführen. Verwenden Sie für &lt;FQDN&gt;den voll qualifizierten Domänen Namen (Fully Qualified Domain Name, FQDN) Ihres HGS-Clusters (z. b. HGS. Bastion. local), oder bitten Sie den HGS-Administrator, das Cmdlet **Get-hgsserver** auf dem HGS-Server auszuführen, um die URLs abzurufen.
 
         ```PowerShell
         Set-HgsClientConfiguration -AttestationServerUrl 'http://<FQDN>/Attestation' -KeyProtectionServerUrl 'http://<FQDN>/KeyProtection'
@@ -41,8 +41,8 @@ Ein fabricadministrator muss bestätigen, dass Hyper-V-Hosts als geschützte Hos
 
     - **Über VMM**: Wenn Sie System Center 2016-Virtual Machine Manager (VMM) verwenden, können Sie die URLs für den Nachweis und den Schlüsselschutz in VMM konfigurieren. Weitere Informationen finden Sie unter [Konfigurieren globaler HGS-Einstellungen](https://technet.microsoft.com/system-center-docs/vmm/scenario/guarded-hosts#configure-global-hgs-settings) in Bereitstellen von über **wachten Hosts in VMM**.
 
-    >**Notizen**
-    > - Wenn der HGS-Administrator [https auf dem HGS-Server aktiviert](guarded-fabric-configure-hgs-https.md)hat, beginnen Sie die URLs mit `https://`.
+    >**Hinweise**
+    > - Wenn der HGS-Administrator [https auf dem HGS-Server aktiviert](guarded-fabric-configure-hgs-https.md)hat, starten Sie die URLs mit `https://`.
     > - Wenn der HGS-Administrator HTTPS auf dem HGS-Server aktiviert und ein selbst signiertes Zertifikat verwendet hat, müssen Sie das Zertifikat in den Speicher vertrauenswürdiger Stamm Zertifizierungsstellen auf jedem Host importieren. Führen Sie hierzu den folgenden Befehl auf jedem Host aus:
        ```PowerShell
        Import-Certificate -FilePath "C:\temp\HttpsCertificate.cer" -CertStoreLocation Cert:\LocalMachine\Root
@@ -55,14 +55,14 @@ Ein fabricadministrator muss bestätigen, dass Hyper-V-Hosts als geschützte Hos
     Get-HgsClientConfiguration
     ```
 
-    Die Ausgabe des Befehls gibt an, ob der Host den Nachweis überschritten hat und nun geschützt ist. Wenn `IsHostGuarded` nicht den Wert **true**zurückgibt, können Sie das HGS-Diagnosetool [Get-hgstrace](https://technet.microsoft.com/library/mt718831.aspx)ausführen, um dies zu untersuchen. Um die Diagnose auszuführen, geben Sie den folgenden Befehl in einer Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten auf dem Host ein:
+    Die Ausgabe des Befehls gibt an, ob der Host den Nachweis überschritten hat und nun geschützt ist. Wenn `IsHostGuarded` nicht " **true**" zurückgibt, können Sie das HGS-Diagnosetool " [Get-hgstrace](https://technet.microsoft.com/library/mt718831.aspx)" ausführen, um dies zu untersuchen. Um die Diagnose auszuführen, geben Sie den folgenden Befehl in einer Windows PowerShell-Eingabeaufforderung mit erhöhten Rechten auf dem Host ein:
 
     ```powershell
     Get-HgsTrace -RunDiagnostics -Detailed
     ```
 
     > [!IMPORTANT]
-    > Wenn Sie Windows Server 2019 oder Windows 10, Version 1809, verwenden und Code Integritäts Richtlinien verwenden, wird von `Get-HgsTrace` ein Fehler für die aktive Diagnose der **Code Integritätsrichtlinie** zurückgegeben.
+    > Wenn Sie Windows Server 2019 oder Windows 10, Version 1809, verwenden und Code Integritäts Richtlinien verwenden, wird `Get-HgsTrace` einen Fehler für die **aktive Diagnose der Code Integritätsrichtlinie** zurückgeben.
     > Sie können dieses Ergebnis gefahrlos ignorieren, wenn es die einzige Fehlerdiagnose ist.
 
 ## <a name="next-step"></a>Nächster Schritt
@@ -70,7 +70,7 @@ Ein fabricadministrator muss bestätigen, dass Hyper-V-Hosts als geschützte Hos
 > [!div class="nextstepaction"]
 > [Bereitstellen von abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Bereitstellen des Host-Überwachungs Diensts (HGS)](guarded-fabric-deploying-hgs-overview.md)
 - [Bereitstellen von abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)

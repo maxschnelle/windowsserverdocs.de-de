@@ -116,7 +116,7 @@ Zum Zeitpunkt der Erstellung des Cluster Satzes hat der Administrator die Mögli
 
 ## <a name="creating-a-cluster-set"></a>Erstellen eines Cluster Satzes
 
-### <a name="prerequisites"></a>Erforderliche Komponenten
+### <a name="prerequisites"></a>Voraussetzungen
 
 Wenn Sie einen Cluster Satz erstellen, werden die folgenden Voraussetzungen empfohlen:
 
@@ -131,9 +131,9 @@ Wenn Sie einen Cluster Satz erstellen, werden die folgenden Voraussetzungen empf
 
    | Clustername               | Der später zu verwendende Infrastruktur-sofs-Name | 
    |----------------------------|-------------------------------------------|
-   | SET-CLUSTER                | SOFS-CLUSTERSET                           |
-   | CLUSTER1                   | SOFS-CLUSTER1                             |
-   | CLUSTER2                   | SOFS-CLUSTER2                             |
+   | Set-Cluster                | sofs-clusterset                           |
+   | CLUSTER1                   | Sofs-CLUSTER1                             |
+   | CLUSTER2                   | Sofs-CLUSTER2                             |
 
 2. Nachdem Sie alle Cluster erstellt haben, verwenden Sie die folgenden Befehle, um den Cluster Satz Master zu erstellen.
 
@@ -325,55 +325,55 @@ Beispielsweise wäre der Befehl zum Entfernen des CLUSTER1-Clusters aus Cluster 
 
 ## <a name="frequently-asked-questions-faq"></a>Häufig gestellte Fragen
 
-**Betreffenden** Kann ich in meinem Cluster Satz nur hyperkonvergierte Cluster verwenden? <br>
-**Te** Nein.  Sie können direkte Speicherplätze mit herkömmlichen Clustern kombinieren.
+**Frage:** Kann ich in meinem Cluster Satz nur hyperkonvergierte Cluster verwenden? <br>
+**Antwort:** Nein.  Sie können direkte Speicherplätze mit herkömmlichen Clustern kombinieren.
 
-**Betreffenden** Kann ich meinen Cluster Satz über System Center Virtual Machine Manager verwalten? <br>
-**Te** System Center Virtual Machine Manager unterstützt derzeit keine Cluster Sätze. <br><br> **Betreffenden** Können Windows Server 2012 R2-oder 2016-Cluster gemeinsam im gleichen Cluster Satz vorhanden sein? <br>
-**Betreffenden** Kann ich Workloads von Windows Server 2012 R2-oder 2016-Clustern migrieren, indem diese Cluster einfach demselben Cluster Satz beitreten? <br>
-**Te** Bei Cluster Sätzen handelt es sich um eine neue Technologie, die in Windows Server 2019 eingeführt wird und daher in früheren Versionen nicht vorhanden ist. Betriebssystem basierte Cluster auf Betriebssystemebene können keinem Cluster Satz beitreten. Die Technologie für parallele Upgrades des Cluster Betriebssystems sollte jedoch die Migrations Funktionalität bereitstellen, nach der Sie suchen, indem Sie diese Cluster auf Windows Server 2019 aktualisieren.
+**Frage:** Kann ich meinen Cluster Satz über System Center Virtual Machine Manager verwalten? <br>
+**Antwort:** System Center Virtual Machine Manager unterstützt derzeit keine Cluster Sätze. <br><br> **Frage:** Können Windows Server 2012 R2-oder 2016-Cluster gemeinsam im gleichen Cluster Satz vorhanden sein? <br>
+**Frage:** Kann ich Workloads von Windows Server 2012 R2-oder 2016-Clustern migrieren, indem diese Cluster einfach demselben Cluster Satz beitreten? <br>
+**Antwort:** Bei Cluster Sätzen handelt es sich um eine neue Technologie, die in Windows Server 2019 eingeführt wird und daher in früheren Versionen nicht vorhanden ist. Betriebssystem basierte Cluster auf Betriebssystemebene können keinem Cluster Satz beitreten. Die Technologie für parallele Upgrades des Cluster Betriebssystems sollte jedoch die Migrations Funktionalität bereitstellen, nach der Sie suchen, indem Sie diese Cluster auf Windows Server 2019 aktualisieren.
 
-**Betreffenden** Kann ich mit Cluster Sätzen Speicher oder COMPUTE (allein) Skalieren? <br>
-**Te** Ja, durch einfaches Hinzufügen eines Speicherplatzes direkt oder eines herkömmlichen Hyper-V-Clusters. Bei Cluster Sätzen ist es eine einfache Änderung des Compute-zu-Speicher-Verhältnisses, auch in einem hyperkonvergenten Cluster Satz.
+**Frage:** Kann ich mit Cluster Sätzen Speicher oder COMPUTE (allein) Skalieren? <br>
+**Antwort:** Ja, durch einfaches Hinzufügen eines Speicherplatzes direkt oder eines herkömmlichen Hyper-V-Clusters. Bei Cluster Sätzen ist es eine einfache Änderung des Compute-zu-Speicher-Verhältnisses, auch in einem hyperkonvergenten Cluster Satz.
 
-**Betreffenden** Was sind die Verwaltungs Tools für Cluster Sätze? <br>
-**Te** PowerShell oder WMI in dieser Version.
+**Frage:** Was sind die Verwaltungs Tools für Cluster Sätze? <br>
+**Antwort:** PowerShell oder WMI in dieser Version.
 
-**Betreffenden** Wie funktioniert die Cluster übergreifende Live Migration mit Prozessoren unterschiedlicher Generationen?  <br>
-**Te** Cluster Sätze können nicht um Prozessor Unterschiede umgehen und ersetzen, was Hyper-V derzeit unterstützt.  Daher muss der Prozessor Kompatibilitätsmodus bei schnellen Migrationen verwendet werden.  Die Empfehlung für Cluster Sätze besteht darin, die gleiche Prozessor Hardware in jedem einzelnen Cluster und den gesamten Cluster Satz für Live Migrationen zwischen Clustern zu verwenden.
+**Frage:** Wie funktioniert die Cluster übergreifende Live Migration mit Prozessoren unterschiedlicher Generationen?  <br>
+**Antwort:** Cluster Sätze können nicht um Prozessor Unterschiede umgehen und ersetzen, was Hyper-V derzeit unterstützt.  Daher muss der Prozessor Kompatibilitätsmodus bei schnellen Migrationen verwendet werden.  Die Empfehlung für Cluster Sätze besteht darin, die gleiche Prozessor Hardware in jedem einzelnen Cluster und den gesamten Cluster Satz für Live Migrationen zwischen Clustern zu verwenden.
 
-**Betreffenden** Kann bei einem Cluster Fehler ein automatisches Failover für virtuelle Computer festgelegt werden?  <br>
-**Te** In dieser Version können virtuelle Computer für Clustergruppen nur manuell zwischen Clustern Live migriert werden. ein automatisches Failover ist jedoch nicht möglich. 
+**Frage:** Kann bei einem Cluster Fehler ein automatisches Failover für virtuelle Computer festgelegt werden?  <br>
+**Antwort:** In dieser Version können virtuelle Computer für Clustergruppen nur manuell zwischen Clustern Live migriert werden. ein automatisches Failover ist jedoch nicht möglich. 
 
-**Betreffenden** Wie stellen wir sicher, dass der Speicher anfällig für Cluster Ausfälle ist? <br>
-**Te** Verwenden Sie die Cluster-Cluster Speicher Replikat Lösung (SR) für Mitglieder Cluster, um die speicherresilienz bei Cluster Fehlern zu erkennen.
+**Frage:** Wie stellen wir sicher, dass der Speicher anfällig für Cluster Ausfälle ist? <br>
+**Antwort:** Verwenden Sie die Cluster-Cluster Speicher Replikat Lösung (SR) für Mitglieder Cluster, um die speicherresilienz bei Cluster Fehlern zu erkennen.
 
-**Betreffenden** Ich verwende Speicher Replikat (SR) für die Replikation über Mitglieder Cluster. Ändern sich die UNC-Pfade für Cluster Satz-Namespace Speicher bei einem SR-Failover auf das Replikat Ziel direkte Speicherplätze Cluster? <br>
-**Te** In dieser Version erfolgt eine solche Änderung des Cluster Satz-Namespace Verweises nicht bei einem SR-Failover. Bitte informieren Sie Microsoft, ob dieses Szenario für Sie von entscheidender Bedeutung ist und wie Sie es verwenden möchten.
+**Frage:** Ich verwende Speicher Replikat (SR) für die Replikation über Mitglieder Cluster. Ändern sich die UNC-Pfade für Cluster Satz-Namespace Speicher bei einem SR-Failover auf das Replikat Ziel direkte Speicherplätze Cluster? <br>
+**Antwort:** In dieser Version erfolgt eine solche Änderung des Cluster Satz-Namespace Verweises nicht bei einem SR-Failover. Bitte informieren Sie Microsoft, ob dieses Szenario für Sie von entscheidender Bedeutung ist und wie Sie es verwenden möchten.
 
-**Betreffenden** Ist es möglich, bei einer Notfall Wiederherstellung ein Failover für virtuelle Computer auf Fehler Domänen durchzusetzen (z. h. die gesamte Fehler Domäne ist ausgefallen)? <br>
-**Te** Nein, beachten Sie, dass das Cluster übergreifende Failover innerhalb einer logischen Fehler Domäne noch nicht unterstützt wird. 
+**Frage:** Ist es möglich, bei einer Notfall Wiederherstellung ein Failover für virtuelle Computer auf Fehler Domänen durchzusetzen (z. h. die gesamte Fehler Domäne ist ausgefallen)? <br>
+**Antwort:** Nein, beachten Sie, dass das Cluster übergreifende Failover innerhalb einer logischen Fehler Domäne noch nicht unterstützt wird. 
 
-**Betreffenden** Kann ein Cluster Satz Cluster an mehreren Standorten (oder DNS-Domänen) umfassen? <br> 
-**Te** Hierbei handelt es sich um ein nicht getesteter Szenario, das nicht sofort für die Produktion vorgesehen ist. Bitte informieren Sie Microsoft, ob dieses Szenario für Sie von entscheidender Bedeutung ist und wie Sie es verwenden möchten.
+**Frage:** Kann ein Cluster Satz Cluster an mehreren Standorten (oder DNS-Domänen) umfassen? <br> 
+**Antwort:** hierbei handelt es sich um ein nicht getesteter Szenario, das nicht sofort für den Produktions Support geplant ist. Bitte informieren Sie Microsoft, ob dieses Szenario für Sie von entscheidender Bedeutung ist und wie Sie es verwenden möchten.
 
-**Betreffenden** Funktioniert der Cluster Satz mit IPv6? <br>
-**Te** Sowohl IPv4 als auch IPv6 werden bei Cluster Sätzen wie bei Failoverclustern unterstützt.
+**Frage:** Funktioniert der Cluster Satz mit IPv6? <br>
+**Antwort:** Sowohl IPv4 als auch IPv6 werden bei Cluster Sätzen wie bei Failoverclustern unterstützt.
 
-**Betreffenden** Was sind die Active Directory Gesamtstruktur Anforderungen für Cluster Sätze? <br>
-**Te** Alle Mitglieds Cluster müssen sich in derselben AD-Gesamtstruktur befinden.
+**Frage:** Was sind die Active Directory Gesamtstruktur Anforderungen für Cluster Sätze? <br>
+**Antwort:** Alle Mitglieds Cluster müssen sich in derselben AD-Gesamtstruktur befinden.
 
-**Betreffenden** Wie viele Cluster oder Knoten können Teil eines einzelnen Cluster Satzes sein? <br>
-**Te** In Windows Server 2019 wurden Clustergruppen getestet und bis zu 64 Gesamtzahl der Cluster Knoten unterstützt. Die Architektur von Cluster Sätzen skaliert jedoch auf wesentlich größere Grenzwerte und ist nicht für eine Beschränkung hart codiert. Teilen Sie Microsoft mit, ob größere Skalierbarkeit für Sie von entscheidender Bedeutung ist und wie Sie die Verwendung planen.
+**Frage:** Wie viele Cluster oder Knoten können Teil eines einzelnen Cluster Satzes sein? <br>
+**Antwort:** In Windows Server 2019 wurden Clustergruppen getestet und bis zu 64 Gesamtzahl der Cluster Knoten unterstützt. Die Architektur von Cluster Sätzen skaliert jedoch auf wesentlich größere Grenzwerte und ist nicht für eine Beschränkung hart codiert. Teilen Sie Microsoft mit, ob größere Skalierbarkeit für Sie von entscheidender Bedeutung ist und wie Sie die Verwendung planen.
 
-**Betreffenden** Bilden alle direkte Speicherplätze Cluster in einem Cluster Satz einen einzelnen Speicherpool? <br>
-**Te** Nein. Direkte Speicherplätze Technologie wird immer noch innerhalb eines einzelnen Clusters und nicht über Mitglieder Cluster in einem Cluster Satz hinweg betrieben.
+**Frage:** Bilden alle direkte Speicherplätze Cluster in einem Cluster Satz einen einzelnen Speicherpool? <br>
+**Antwort:** Nein. Direkte Speicherplätze Technologie wird immer noch innerhalb eines einzelnen Clusters und nicht über Mitglieder Cluster in einem Cluster Satz hinweg betrieben.
 
-**Betreffenden** Ist der Cluster Satz Namespace hoch verfügbar? <br>
-**Te** Ja, der Cluster Satz-Namespace wird über einen fortlaufend verfügbaren verweisverweisnamespace Server (ca) bereitgestellt, der auf dem Verwaltungs Cluster ausgeführt wird. Microsoft empfiehlt, dass Sie über eine ausreichende Anzahl von virtuellen Computern aus Mitglieds Clustern verfügen, damit Sie sich gegen lokalisierte Cluster weite Ausfälle anfällig machen. Um jedoch unvorhergesehene schwerwiegende Fehler zu berücksichtigen – z. b. alle virtuellen Computer im Verwaltungs Cluster gleichzeitig heruntergefahren werden – werden die Verweis Informationen zusätzlich in jedem Cluster Satz Knoten dauerhaft zwischengespeichert, auch bei Neustarts.
+**Frage:** Ist der Cluster Satz Namespace hoch verfügbar? <br>
+**Antwort:** Ja, der Cluster Satz-Namespace wird über einen fortlaufend verfügbaren verweisverweisnamespace Server (ca) bereitgestellt, der auf dem Verwaltungs Cluster ausgeführt wird. Microsoft empfiehlt, dass Sie über eine ausreichende Anzahl von virtuellen Computern aus Mitglieds Clustern verfügen, damit Sie sich gegen lokalisierte Cluster weite Ausfälle anfällig machen. Um jedoch unvorhergesehene schwerwiegende Fehler zu berücksichtigen – z. b. alle virtuellen Computer im Verwaltungs Cluster gleichzeitig heruntergefahren werden – werden die Verweis Informationen zusätzlich in jedem Cluster Satz Knoten dauerhaft zwischengespeichert, auch bei Neustarts.
  
-**Betreffenden** Verlangsamt der auf dem Cluster festgelegte Namespace basierte Speicherzugriff die Speicherleistung in einem Cluster Satz. <br>
-**Te** Nein. Der clusterset-Namespace bietet einen Überlagerungs-Referenz Namespace in einem Cluster Satz – konzeptionell wie verteiltes Dateisystem Namespaces (DFSN). Und im Gegensatz zu DFSN werden alle clusterset-Namespace-Verweis Metadaten automatisch aufgefüllt und automatisch auf allen Knoten aktualisiert, ohne dass ein Administrator Eingriff ausgeführt wird, sodass der Speicherzugriffs Pfad fast keinen zusätzlichen Leistungs Aufwand erfordert. 
+**Frage:** Verlangsamt der auf dem Cluster festgelegte Namespace basierte Speicherzugriff die Speicherleistung in einem Cluster Satz. <br>
+**Antwort:** Nein. Der clusterset-Namespace bietet einen Überlagerungs-Referenz Namespace in einem Cluster Satz – konzeptionell wie verteiltes Dateisystem Namespaces (DFSN). Und im Gegensatz zu DFSN werden alle clusterset-Namespace-Verweis Metadaten automatisch aufgefüllt und automatisch auf allen Knoten aktualisiert, ohne dass ein Administrator Eingriff ausgeführt wird, sodass der Speicherzugriffs Pfad fast keinen zusätzlichen Leistungs Aufwand erfordert. 
 
-**Betreffenden** Wie kann ich Cluster Satz Metadaten sichern? <br>
-**Te** Diese Anleitung ist identisch mit der des Failoverclusters. Mit der System Status Sicherung wird auch der Cluster Status gesichert.  Durch Windows Server-Sicherung können Sie eine Wiederherstellung der Cluster Datenbank eines Knotens durchführen (was nie benötigt wird, weil eine Reihe von Selbstkorrektur Logik vorhanden ist) oder eine autorisierende Wiederherstellung durchführen, um ein Rollback für die gesamte Cluster Datenbank über alle Knoten auszuführen. Im Fall von Cluster Sätzen empfiehlt Microsoft, eine solche autorisierende Wiederherstellung zunächst auf dem Mitglieds Cluster und dann auf den Verwaltungs Cluster durchgeführt werden.
+**Frage:** Wie kann ich Cluster Satz Metadaten sichern? <br>
+**Antwort:** Diese Anleitung ist identisch mit der des Failoverclusters. Mit der System Status Sicherung wird auch der Cluster Status gesichert.  Durch Windows Server-Sicherung können Sie eine Wiederherstellung der Cluster Datenbank eines Knotens durchführen (was nie benötigt wird, weil eine Reihe von Selbstkorrektur Logik vorhanden ist) oder eine autorisierende Wiederherstellung durchführen, um ein Rollback für die gesamte Cluster Datenbank über alle Knoten auszuführen. Im Fall von Cluster Sätzen empfiehlt Microsoft, eine solche autorisierende Wiederherstellung zunächst auf dem Mitglieds Cluster und dann auf den Verwaltungs Cluster durchgeführt werden.

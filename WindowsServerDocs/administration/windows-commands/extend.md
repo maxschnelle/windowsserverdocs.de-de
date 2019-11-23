@@ -22,9 +22,9 @@ ms.locfileid: "71377310"
 ---
 # <a name="extend"></a>Erweitern
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-erweitert das Volume oder die Partition mit dem Fokus und dem zugehörigen Dateisystem in den freien \(nicht zugeordneten @ no__t-1-Speicherplatz auf einem Datenträger.  
+erweitert das Volume oder die Partition mit dem Fokus und dem zugehörigen Dateisystem in freien \(nicht zugeordneten\) Speicherplatz auf einem Datenträger.  
   
   
   
@@ -39,16 +39,16 @@ extend filesystem [noerr]
   
 | Parameter  |                                                                                             Beschreibung                                                                                              |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Size @ no__t-0 @ no__t-1  |      Gibt die Größe des Speicherplatzes in Megabyte \(MB @ no__t-1 an, die dem aktuellen Volume oder der aktuellen Partition hinzugefügt werden sollen. Wenn keine Größe angegeben wird, wird der gesamte zusammenhängende freie Speicherplatz verwendet, der auf dem Datenträger verfügbar ist.       |
-| Disk @ no__t-0 @ no__t-1  |                          Gibt den Datenträger an, auf dem das Volume oder die Partition erweitert wird. Wenn kein Datenträger angegeben ist, wird das Volume oder die Partition auf dem aktuellen Datenträger erweitert.                          |
+| Größe\=<n>  |      Gibt die Größe des Speicherplatzes in Megabyte \(MB an\) der dem aktuellen Volume oder der Partition hinzugefügt werden soll. Wenn keine Größe angegeben wird, wird der gesamte zusammenhängende freie Speicherplatz verwendet, der auf dem Datenträger verfügbar ist.       |
+| Datenträger\=<n>  |                          Gibt den Datenträger an, auf dem das Volume oder die Partition erweitert wird. Wenn kein Datenträger angegeben ist, wird das Volume oder die Partition auf dem aktuellen Datenträger erweitert.                          |
 | verwendet |                                   erweitert das Dateisystem des Volumes mit dem Fokus. Zur Verwendung nur auf Datenträgern, auf denen das Dateisystem nicht mit dem Volume erweitert wurde.                                    |
-|   Noerr    | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
+|   Noerr    | nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
   
 ## <a name="remarks"></a>Hinweise  
   
--   Auf Basis Datenträgern muss sich der freie Speicherplatz auf demselben Datenträger wie das Volume oder die Partition mit dem Fokus befinden. Sie muss auch direkt auf das Volume oder die Partition mit dem Fokus \(folgen, d. h., Sie muss beim nächsten sektoroffset @ no__t-1 beginnen.  
+-   Auf Basis Datenträgern muss sich der freie Speicherplatz auf demselben Datenträger wie das Volume oder die Partition mit dem Fokus befinden. Er muss auch unmittelbar auf das Volume oder die Partition mit dem Fokus \(, d. h., er muss beim nächsten sektoroffset\)beginnen.  
   
--   Auf dynamischen Datenträgern mit einfachen oder übergreifenden Volumes kann ein Volume auf einen beliebigen freien Speicherplatz auf jedem dynamischen Datenträger erweitert werden. Mit diesem Befehl können Sie ein einfaches dynamisches Volume in ein übergreifendes dynamisches Volume konvertieren. Gespiegelte, RAID @ no__t-05-und Stripesetvolumes können nicht erweitert werden.  
+-   Auf dynamischen Datenträgern mit einfachen oder übergreifenden Volumes kann ein Volume auf einen beliebigen freien Speicherplatz auf jedem dynamischen Datenträger erweitert werden. Mit diesem Befehl können Sie ein einfaches dynamisches Volume in ein übergreifendes dynamisches Volume konvertieren. Gespiegelte RAID-\-5-und Stripesetvolumes können nicht erweitert werden.  
   
 -   Wenn die Partition zuvor mit dem NTFS-Dateisystem formatiert wurde, wird das Dateisystem automatisch erweitert, um die größere Partition auszufüllen, und es tritt kein Datenverlust auf.  
   

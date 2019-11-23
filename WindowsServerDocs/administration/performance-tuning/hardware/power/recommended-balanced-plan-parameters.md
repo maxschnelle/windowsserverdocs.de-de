@@ -45,7 +45,7 @@ Diese Änderung basiert auf der Leistungs-und Leistungsanalyse Analyse mithilfe 
 
 ## <a name="specpower--java-workload"></a>Specpower – Java-Arbeitsauslastung
 
-[Specpower @ no__t-1ssj2008](http://spec.org/power_ssj2008/), der beliebteste standardmäßige Spezifikations Benchmark für Serverleistung und Leistungsmerkmale, wird verwendet, um die Auswirkungen auf die Leistung zu überprüfen. Da es nur einen **Durchsatz** als Leistungs Metrik verwendet, bietet der standardmäßige **ausgeglichene** Energie Sparplan die beste Energieeffizienz.
+[Specpower\_ssj2008](http://spec.org/power_ssj2008/), der beliebteste Industriestandard-Spezifikations Benchmark für Serverleistung und Leistungsmerkmale, wird verwendet, um die Auswirkungen auf die Leistung zu überprüfen. Da es nur einen **Durchsatz** als Leistungs Metrik verwendet, bietet der standardmäßige **ausgeglichene** Energie Sparplan die beste Energieeffizienz.
 
 Die vorgeschlagene Parameter Änderung verbraucht etwas höhere Stromversorgung (d. h. < = 20%). Lade Ebenen. Mit der höheren Auslastung erhöht sich der Unterschied, und es wird damit begonnen, die gleiche Leistung wie der **High Performance** -Energie Sparplan nach der Auslastung von 60% zu verbrauchen. Um die vorgeschlagenen Änderungs Parameter zu verwenden, sollten die Benutzer während der Planung der Gestell-Kapazität die Stromkosten bei mittelgroßen bis hohen Lade Graden berücksichtigen.
 
@@ -64,7 +64,7 @@ Wir haben einen [Failovercluster] eingerichtet und mithilfe von diskspd zufälli
 >[!Important]
 >Ab Intel [Broadwell]-Prozessoren, die Windows Server 2016 ausführen, werden die meisten Verwaltungsentscheidungen für die Prozessorleistung im Prozessor statt auf der Betriebssystemebene vorgenommen, um eine schnellere Anpassung an die Änderungen an der Arbeitsauslastung zu erzielen. Die vom Betriebssystem verwendeten älteren ppm-Parameter wirken sich nur minimal auf die tatsächlichen Häufigkeits Entscheidungen aus, mit dem Unterschied, dass der Prozessor eine Stromversorgung oder Leistungsfähigkeit bevorzugen oder die minimalen und maximalen Frequenzen umrechnen muss. Daher ist die vorgeschlagene Änderung von ppm-Parametern nur für die Pre-Broadwell-Systeme ausgelegt.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 - [Überlegungen zur Server Hardware Leistung](../index.md)
 - [Server Hardware Power Considerations](../power.md) (Überlegungen zum Energiebedarf von Serverhardware)
 - [Power and Performance Tuning](power-performance-tuning.md) (Leistungs- und Energieoptimierung)

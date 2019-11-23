@@ -27,7 +27,7 @@ ms.locfileid: "72252350"
 > Das Unterbrechen von **chkdsk** wird nicht empfohlen. Das Abbrechen oder Unterbrechen von **chkdsk** sollte das Volume jedoch nicht vor dem Ausführen von **chkdsk** beschädigen. Durch erneutes Ausführen von **chkdsk** werden alle verbleibenden Beschädigungen auf dem Volume überprüft und repariert.
 
 > [!IMPORTANT]
-> **Hinweis**: CHKDSK kann nur für lokale Datenträger verwendet werden. Der Befehl kann nicht mit einem lokalen Laufwerk Buchstaben verwendet werden, der über das Netzwerk umgeleitet wurde.
+> **Hinweis:** CHKDSK kann nur für lokale Datenträger verwendet werden. Der Befehl kann nicht mit einem lokalen Laufwerk Buchstaben verwendet werden, der über das Netzwerk umgeleitet wurde.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#examples).
 
@@ -41,24 +41,24 @@ chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]
 
 |      Parameter       |                  Beschreibung                                    |
 | -------------------- | ------------------------------------------------------------------------ |
-|      \<volume >      | Gibt den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt), einen Einfügepunkt oder einen Volumenamen an.  |
-| [\<path >] <FileName> | Verwenden Sie nur mit der Datei Zuordnungs Tabelle (FAT) und FAT32. Gibt den Speicherort und den Namen einer Datei oder einer Gruppe von Dateien an, die von **chkdsk** auf Fragmentierung überprüft werden soll. Sie können den **?** und **&#42;** Platzhalter Zeichen zum Angeben mehrerer Dateien. |
+|      \<Volume >      | Gibt den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt), einen Einfügepunkt oder einen Volumenamen an.  |
+| [\<Pfad >]<FileName> | Verwenden Sie nur mit der Datei Zuordnungs Tabelle (FAT) und FAT32. Gibt den Speicherort und den Namen einer Datei oder einer Gruppe von Dateien an, die von **chkdsk** auf Fragmentierung überprüft werden soll. Sie können den **?** und **&#42;** Platzhalter Zeichen zum Angeben mehrerer Dateien. |
 |         /f          | Korrigiert Fehler auf dem Datenträger. Der Datenträger muss gesperrt sein. Wenn **chkdsk** das Laufwerk nicht sperren kann, wird eine Meldung angezeigt, in der Sie gefragt werden, ob Sie das Laufwerk beim nächsten Neustart des Computers überprüfen möchten. |
 |         /v          | Zeigt den Namen der einzelnen Dateien in jedem Verzeichnis an, während der Datenträger aktiviert ist.     |
 |         /r          | Gibt fehlerhafte Sektoren an und stellt lesbare Informationen wieder her. Der Datenträger muss gesperrt sein. **/r** enthält die Funktionalität von **/f**mit der zusätzlichen Analyse von Fehlern bei physischen Datenträgern.                                   |
 |         /x          | Erzwingt, dass das Volume bei Bedarf zuerst entfernt wird. Alle geöffneten Handles für das Laufwerk werden für ungültig erklärt. **/x** umfasst auch die Funktionalität von **/f**.  |
 |         /i          | Nur mit NTFS verwenden. Führt eine weniger kräftige Überprüfung der Indexeinträge durch, wodurch die für das Ausführen von **chkdsk**erforderliche Zeit reduziert wird.  |
 |         /c          | Nur mit NTFS verwenden. Überprüft keine Zyklen innerhalb der Ordnerstruktur, wodurch die für das Ausführen von **chkdsk**erforderliche Zeit reduziert wird.  |
-|    /l [: \<size >]     | Nur mit NTFS verwenden. Ändert die Größe der Protokolldatei in die Größe, die Sie eingeben. Wenn Sie den size-Parameter weglassen, wird von **/l** die aktuelle Größe angezeigt. |
-|         /b          | Nur NTFS: Löscht die Liste der fehlerhaften Cluster auf dem Volume und stellt für Fehler alle zugeordneten und freien Cluster wieder her. **/b** schließt die Funktionalität von **/r**ein. Verwenden Sie diesen Parameter, nachdem Sie ein Volume auf einem neuen Festplattenlaufwerk Abbild gespeichert haben.            |
-| /Scan               | Nur NTFS: Führt eine Online Überprüfung auf dem Volume aus. |
-| /forceofflinefix    | Nur NTFS: (Muss mit "/Scan" verwendet werden). Alle Online Reparaturen umgehen alle gefundenen Fehler werden in die Warteschlange für die Offline Reparatur eingereiht (d.h. "Chkdsk/spotfix"). |
-| /perf               | Nur NTFS: (Muss mit "/Scan" verwendet werden). Verwendet mehr Systemressourcen, um eine Überprüfung so schnell wie möglich abzuschließen. Dies hat möglicherweise eine negative Auswirkung auf die Leistung bei anderen Tasks, die auf dem System ausgeführt werden.|
-| /spotfix            | Nur NTFS: Führt die Fehlerbehebungen auf dem Volume aus. |
-| /sdcleanup          | Nur NTFS: Garbage Collect nicht benötigte Sicherheits deskriptordaten (impliziert/F). |
+|    /l [:\<Größe >]     | Nur mit NTFS verwenden. Ändert die Größe der Protokolldatei in die Größe, die Sie eingeben. Wenn Sie den size-Parameter weglassen, wird von **/l** die aktuelle Größe angezeigt. |
+|         /b          | Nur NTFS: Löscht die Liste der fehlerhaften Cluster auf dem Volume und stellt alle zugeordneten und freien Cluster für Fehler wieder her. **/b** schließt die Funktionalität von **/r**ein. Verwenden Sie diesen Parameter, nachdem Sie ein Volume auf einem neuen Festplattenlaufwerk Abbild gespeichert haben.            |
+| /Scan               | Nur NTFS: führt eine Online Überprüfung auf dem Volume aus. |
+| /forceofflinefix    | Nur NTFS: (muss mit "/Scan" verwendet werden). Alle Online Reparaturen umgehen alle gefundenen Fehler werden in die Warteschlange für die Offline Reparatur eingereiht (d.h. "Chkdsk/spotfix"). |
+| /perf               | Nur NTFS: (muss mit "/Scan" verwendet werden). Verwendet mehr Systemressourcen, um eine Überprüfung so schnell wie möglich abzuschließen. Dies hat möglicherweise eine negative Auswirkung auf die Leistung bei anderen Tasks, die auf dem System ausgeführt werden.|
+| /spotfix            | Nur NTFS: führt die Fehlerbehebungen auf dem Volume aus. |
+| /sdcleanup          | Nur NTFS: Garbage Collection nicht benötigte Sicherheits deskriptordaten (impliziert/F). |
 | /offlinescanandfix  | Führt eine Offline Überprüfung und-Behebung auf dem Volume aus. |
-| /freeorphanedchains | Nur FAT/FAT32/exFAT: Gibt alle verwaisten Cluster Ketten frei, anstatt ihren Inhalt wiederherzustellen. |
-| /markclean          | Nur FAT/FAT32/exFAT: Markiert das Volume bereinigt, wenn keine Beschädigung erkannt wurde, auch wenn/F nicht angegeben wurde. |
+| /freeorphanedchains | Nur FAT/FAT32/exFAT: gibt alle verwaisten Cluster Ketten frei, anstatt ihren Inhalt wiederherzustellen. |
+| /markclean          | Nur FAT/FAT32/exFAT: markiert das Volume bereinigt, wenn keine Beschädigung erkannt wurde, auch wenn/F nicht angegeben wurde. |
 |         /?          | Zeigt die Hilfe an der Eingabeaufforderung an.                       |
 
 ## <a name="remarks"></a>Hinweise
@@ -91,7 +91,7 @@ chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]
   Convert lost chains to files?  
   ``` 
 
-  Wenn Sie **Y**drücken, speichert Windows jede verlorene Kette im Stammverzeichnis als Datei mit einem Namen im Format file @ no__t-1nnnn >. chk. Wenn **chkdsk** abgeschlossen ist, können Sie diese Dateien überprüfen, um festzustellen, ob Sie Daten enthalten, die Sie benötigen. Wenn Sie " **N**" drücken, wird der Datenträger von Windows korrigiert, aber der Inhalt der verlorenen Zuordnungs Einheiten wird nicht gespeichert.
+  Wenn Sie **Y**drücken, speichert Windows jede verlorene Kette im Stammverzeichnis als Datei mit einem Namen in der Format Datei\<nnnn >. chk. Wenn **chkdsk** abgeschlossen ist, können Sie diese Dateien überprüfen, um festzustellen, ob Sie Daten enthalten, die Sie benötigen. Wenn Sie " **N**" drücken, wird der Datenträger von Windows korrigiert, aber der Inhalt der verlorenen Zuordnungs Einheiten wird nicht gespeichert.
 
   Wenn Sie den **/f** -Parameter nicht verwenden, zeigt **chkdsk** eine Meldung an, dass die Datei korrigiert werden muss, aber keine Fehler behoben werden.
 

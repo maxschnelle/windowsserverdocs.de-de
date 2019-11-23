@@ -17,21 +17,21 @@ ms.locfileid: "71356028"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-in-active-directory"></a>Verwenden von DNS-Richtlinien für Split Brain-DNS in Active Directory
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-In diesem Thema können Sie die Datenverkehrs Verwaltungsfunktionen von DNS-Richtlinien für Split @ no__t-0brain-bereit Stellungen mit Active Directory integrierten DNS-Zonen in Windows Server 2016 nutzen.
+Sie können dieses Thema verwenden, um die Datenverkehrs Verwaltungsfunktionen von DNS-Richtlinien für die Aufteilung von\--Brain-bereit Stellungen mit Active Directory integrierten DNS-Zonen in Windows Server 2016 zu nutzen.
 
-In Windows Server 2016 wird die Unterstützung von DNS-Richtlinien auf Active Directory integrierte DNS-Zonen erweitert. Active Directory Integration bietet dem DNS-Server multiverfügbarkeits Funktionen mit mehreren @ no__t-0master. 
+In Windows Server 2016 wird die Unterstützung von DNS-Richtlinien auf Active Directory integrierte DNS-Zonen erweitert. Active Directory Integration bietet dem DNS-Server Multi\-Master-Funktionen für hohe Verfügbarkeit. 
 
-Bisher war es für dieses Szenario erforderlich, dass DNS-Administratoren zwei verschiedene DNS-Server verwalten, die jeweils Dienste für jede Gruppe von Benutzern bereitstellen, intern und extern. Wenn nur einige wenige Datensätze in der Zone Split @ no__t-0geschweiften oder beide Instanzen der Zone (intern und extern) an dieselbe übergeordnete Domäne delegiert wurden, wurde dies zu einer Verwaltungs-rückgängig gemacht.
+Bisher war es für dieses Szenario erforderlich, dass DNS-Administratoren zwei verschiedene DNS-Server verwalten, die jeweils Dienste für jede Gruppe von Benutzern bereitstellen, intern und extern. Wenn nur einige wenige Datensätze in der Zone aufgeteilt werden,\-geschweiften Klammern oder beide Instanzen der Zone (intern und extern) an dieselbe übergeordnete Domäne delegiert wurden, wurde dies zu einer Verwaltungs-rückgängig gemacht.
 
 > [!NOTE]
-> - DNS-bereit Stellungen sind unterteilt @ no__t-0brain, wenn zwei Versionen einer einzelnen Zone, eine Version für interne Benutzer im Unternehmens Intranet und eine Version für externe Benutzer –, die üblicherweise Benutzer im Internet sind, vorhanden sind.
-> - Das Thema [Verwenden der DNS-Richtlinie für Split-Brain-DNS-Bereitstellung](split-brain-DNS-deployment.md) erläutert, wie Sie DNS-Richtlinien und Zonen Bereiche zum Bereitstellen eines Split @ no__t-1brain-DNS-Systems auf einem einzelnen Windows Server 2016-DNS-Server verwenden können
+> - DNS-bereit Stellungen werden\-Brain aufgeteilt, wenn zwei Versionen einer einzelnen Zone, eine Version für interne Benutzer im Intranet der Organisation und eine Version für externe Benutzer vorhanden sind – die normalerweise Benutzer im Internet sind.
+> - Im Thema [Verwenden der DNS-Richtlinie für die Split-Brain-DNS-Bereitstellung](split-brain-DNS-deployment.md) wird erläutert, wie Sie DNS-Richtlinien und Zonen Bereiche zum Bereitstellen eines Split-\--Brain-DNS-Systems auf einem einzelnen Windows Server 2016-
 
 
 
-##  <a name="example-split-brain-dns-in-active-directory"></a>Beispiel: Split @ no__t-0brain DNS in Active Directory
+##  <a name="example-split-brain-dns-in-active-directory"></a>Beispiel: aufteilen\-Brain-DNS in Active Directory
 
 In diesem Beispiel wird ein fiktives Unternehmen ("") verwendet, das eine karrierewebsite unter www.Career.contoso.com verwaltet.
 
@@ -43,7 +43,7 @@ Wenn keine DNS-Richtlinie vorhanden ist, muss der Administrator diese beiden Zon
 
 Mithilfe von DNS-Richtlinien können diese Zonen jetzt auf demselben DNS-Server gehostet werden.
 
-Wenn der DNS-Server für contoso.com Active Directory integriert ist und an zwei Netzwerkschnittstellen lauscht, kann der Configuration Manager-Administrator die Schritte in diesem Thema befolgen, um eine Split @ no__t-0brain-Bereitstellung zu erreichen.
+Wenn der DNS-Server für contoso.com Active Directory integriert ist und zwei Netzwerkschnittstellen überwacht, kann der Configuration Manager-Administrator die Schritte in diesem Thema befolgen, um eine Split\-Brain-Bereitstellung zu erreichen.
 
 Der DNS-Administrator konfiguriert die DNS-Server Schnittstellen mit den folgenden IP-Adressen.
 
@@ -54,7 +54,7 @@ In der folgenden Abbildung ist dieses Szenario dargestellt.
 
 ![Integrierte DNS-Bereitstellung mit Split-Brain AD](../../media/DNS-SB-AD/DNS-SB-AD.jpg)
 
-## <a name="how-dns-policy-for-split-brain-dns-in-active-directory-works"></a>Funktionsweise der DNS-Richtlinie für Split @ no__t-0brain-DNS in Active Directory
+## <a name="how-dns-policy-for-split-brain-dns-in-active-directory-works"></a>Funktionsweise der DNS-Richtlinie für das Aufteilen\-Brain-DNS in Active Directory
 
 Wenn der DNS-Server mit den erforderlichen DNS-Richtlinien konfiguriert ist, wird jede Anforderung zur Namensauflösung mit den Richtlinien auf dem DNS-Server ausgewertet.
 
@@ -64,7 +64,7 @@ Wenn die Server Schnittstelle, auf der die Abfrage empfangen wird, mit einer der
 
 In unserem Beispiel erhalten die DNS-Abfragen für www.Career.contoso.com, die auf der privaten IP-Adresse (10.0.0.56) empfangen werden, eine DNS-Antwort, die eine interne IP-Adresse enthält. und die DNS-Abfragen, die an der öffentlichen Netzwerkschnittstelle empfangen werden, erhalten eine DNS-Antwort, die die öffentliche IP-Adresse im Standard Zonen Bereich enthält (entspricht der normalen Abfrage Auflösung).  
 
-Die Unterstützung für dynamische DNS-\(ddns @ no__t-1 Updates und Bereinigung wird nur im Standard Zonen Bereich unterstützt. Da die internen Clients vom Standard Zonen Bereich bedient werden, können die DNS-Administratoren von Administratoren die vorhandenen Mechanismen (Dynamic DNS oder static) weiterhin verwenden, um die Datensätze in contoso.com zu aktualisieren. Für nicht-@ no__t-0default-Zonen Bereiche \(, wie z. b. der externe Bereich in diesem Beispiel, ist @ no__t, DDNS oder die Unterstützung von Bereinigung nicht verfügbar.
+Die Unterstützung für dynamische DNS-\(DDNS\) Updates und das Bereinigung werden nur im Standard Zonen Bereich unterstützt. Da die internen Clients vom Standard Zonen Bereich bedient werden, können die DNS-Administratoren von Administratoren die vorhandenen Mechanismen (Dynamic DNS oder static) weiterhin verwenden, um die Datensätze in contoso.com zu aktualisieren. Bei nicht\-Standard Zonen Bereichen \(wie z. b. der externe Bereich in diesem Beispiel\), ist DDNS oder die Unterstützung für Bereinigung nicht verfügbar.
 
 ### <a name="high-availability-of-policies"></a>Hohe Verfügbarkeit von Richtlinien
 
@@ -82,7 +82,7 @@ Weitere Informationen finden Sie in den folgenden Windows PowerShell-Referenz Th
 - [Add-dnsserverqueryresolutionpolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps)
 
 
-## <a name="how-to-configure-dns-policy-for-split-brain-dns-in-active-directory"></a>Konfigurieren der DNS-Richtlinie für Split @ no__t-0brain DNS in Active Directory
+## <a name="how-to-configure-dns-policy-for-split-brain-dns-in-active-directory"></a>Konfigurieren der DNS-Richtlinie für das Teilen von\--Brain-DNS in Active Directory
 
 Zum Konfigurieren der DNS Split-Brain-Bereitstellung mithilfe der DNS-Richtlinie müssen Sie die folgenden Abschnitte verwenden, die ausführliche Konfigurations Anweisungen bereitstellen.
 
@@ -112,11 +112,11 @@ Weitere Informationen finden Sie unter [Add-dnsserverzonescope](https://docs.mic
 
 ### <a name="add-records-to-the-zone-scopes"></a>Hinzufügen von Datensätzen zu den Zonen Bereichen
 
-Der nächste Schritt besteht darin, die Datensätze, die den Webserver Host darstellen, in die beiden Zonen Bereiche "extern" und "Standard" \(für interne Clients @ no__t-1 hinzuzufügen. 
+Der nächste Schritt besteht darin, die Datensätze, die den Webserver Host darstellen, in die beiden Zonen Bereiche "extern" und "Standard" \(für interne Clients\)hinzuzufügen. 
 
-Im Standardbereich der internen Zone wird der Datensatz www.Career.contoso.com mit der IP-Adresse 10.0.0.39 hinzugefügt. Dies ist eine private IP-Adresse. im Bereich der externen Zone wird der gleiche Datensatz @no__t -0www. Karriere. "no__t-1" mit der öffentlichen IP-Adresse 65.55.39.10 hinzugefügt. 
+Im Standardbereich der internen Zone wird der Datensatz www.Career.contoso.com mit der IP-Adresse 10.0.0.39 hinzugefügt. Dies ist eine private IP-Adresse. im Bereich der externen Zone wird der gleiche Datensatz \(www.Career.contoso.com-\) mit der öffentlichen IP-Adresse 65.55.39.10 hinzugefügt. 
 
-Die Datensätze \(im internen Standard Zonen Bereich und der externe Zonen Bereich @ no__t-1 werden automatisch über die Domäne mit ihren jeweiligen Zonen Bereichen repliziert.
+Die Datensätze \(sowohl im Standardbereich der internen Zone als auch im Bereich der externen Zone.\) werden automatisch über die gesamte Domäne mit ihren jeweiligen Zonen Bereichen repliziert.
 
 Sie können den folgenden Beispiel Befehl verwenden, um Datensätze zu den Zonen Bereichen auf dem DNS-Server hinzuzufügen.
 
@@ -134,7 +134,7 @@ Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](https://doc
 Nachdem Sie die Server Schnittstellen für das externe Netzwerk und das interne Netzwerk ermittelt und die Zonen Bereiche erstellt haben, müssen Sie DNS-Richtlinien erstellen, mit denen die internen und externen Zonen Bereiche verbunden werden.
 
 > [!NOTE]
-> In diesem Beispiel wird die Server Schnittstelle \(the-serverInterface-Parameter im Beispiel Befehl unten @ no__t-1 als Kriterium für die Unterscheidung zwischen den internen und externen Clients verwendet. Eine andere Methode zur Unterscheidung zwischen externen und internen Clients besteht darin, Clientsubnetze als Kriterium zu verwenden. Wenn Sie die Subnetze ermitteln können, zu denen die internen Clients gehören, können Sie die DNS-Richtlinie so konfigurieren, dass Sie basierend auf dem clientsubnetz unterschieden wird Informationen zum Konfigurieren der Datenverkehrs Verwaltung mithilfe von clientsubnetzkriterien finden Sie unter [Verwenden der DNS-Richtlinie für die georedundanzbasierte Datenverkehrs Verwaltung mit primären Servern](primary-geo-location.md).
+> In diesem Beispiel wird die Server Schnittstelle \(den Parameter-serverInterface im folgenden Beispiel Befehl\) als Kriterium für die Unterscheidung zwischen den internen und externen Clients verwendet. Eine andere Methode zur Unterscheidung zwischen externen und internen Clients besteht darin, Clientsubnetze als Kriterium zu verwenden. Wenn Sie die Subnetze ermitteln können, zu denen die internen Clients gehören, können Sie die DNS-Richtlinie so konfigurieren, dass Sie basierend auf dem clientsubnetz unterschieden wird Informationen zum Konfigurieren der Datenverkehrs Verwaltung mithilfe von clientsubnetzkriterien finden Sie unter [Verwenden der DNS-Richtlinie für die georedundanzbasierte Datenverkehrs Verwaltung mit primären Servern](primary-geo-location.md).
 
 Nachdem Sie Richtlinien konfiguriert haben, wird die Antwort vom externen Bereich der Zone zurückgegeben, wenn eine DNS-Abfrage an der öffentlichen Schnittstelle empfangen wird. 
 

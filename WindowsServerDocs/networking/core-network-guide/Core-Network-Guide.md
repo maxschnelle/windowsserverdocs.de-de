@@ -17,7 +17,7 @@ ms.locfileid: "71356414"
 ---
 # <a name="core-network-components"></a>Kernkomponenten
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Handbuch enthält Anweisungen zum Planen und Bereitstellen der Kernkomponenten, die für ein voll funktionsfähiges Netzwerk und eine neue Active Directory Domäne in einer neuen Gesamtstruktur erforderlich sind.
 
@@ -224,7 +224,7 @@ Weitere Informationen finden Sie unter [Planen der Bereitstellung von DHCP1](#bk
 Für jeden Server im Hauptnetzwerk müssen Sie den Computer umbenennen und eine statische IPv4-Adresse sowie andere TCP/IP-Eigenschaften für den Computer zuweisen und konfigurieren.
 
 #### <a name="planning-naming-conventions-for-computers-and-devices"></a>Planen von Namenskonventionen für Computer und Geräte
-Aus Konsistenzgründen sollten Sie in Ihrem Netzwerk konsistente Namen für Server, Drucker und sonstige Geräte verwenden. Computernamen können verwendet werden, damit Benutzer und Administratoren den Zweck und den Standort eines Servers, Druckers oder sonstigen Geräts einfacher feststellen können. Wenn Sie z. b. über drei DNS-Server verfügen, eine in San Francisco, eine in Los Angeles und eine in Chicago, können Sie die Benennungs Konvention- *Server Funktion*-*Location*--*Nummer*verwenden:
+Aus Konsistenzgründen sollten Sie in Ihrem Netzwerk konsistente Namen für Server, Drucker und sonstige Geräte verwenden. Computernamen können verwendet werden, damit Benutzer und Administratoren den Zweck und den Standort eines Servers, Druckers oder sonstigen Geräts einfacher feststellen können. Wenn Sie z. b. über drei DNS-Server verfügen, eine in San Francisco, eine in Los Angeles und eine in Chicago, können Sie die Benennungs Konvention- *Server Funktion*-*Location*-*Number*verwenden:
 
 -   DNS-DEN-01. Dieser Name steht für den DNS-Server in Denver, Colorado. Wenn in Denver weitere DNS-Server hinzukommen, kann der numerische Wert des Namens erhöht werden, beispielsweise DNS-DEN-02 und DNS-DEN-03.
 
@@ -285,11 +285,11 @@ Beispiel Konfigurationselemente für AD DS werden in der folgenden Tabelle berei
 |------------------------|-------------------|
 |Vollständiger DNS-Name|Beispiele:<br /><br />-Corp.contoso.com<br />-example.com|
 |Gesamtstrukturfunktionsebene|-Windows Server 2008 <br />-Windows Server 2008 R2 <br />-Windows Server 2012 <br />-Windows Server 2012 R2 <br />-Windows Server 2016|
-|Speicherort des AD DS-Datenbankordners|E:\configuration @ no__t-0<br /><br />Oder übernehmen Sie den Standardspeicherort.|
-|Speicherort des AD DS-Protokolldateiordners|E:\configuration @ no__t-0<br /><br />Oder übernehmen Sie den Standardspeicherort.|
-|Speicherort des AD DS-SYSVOL-Ordners|E:\configuration @ no__t-0<br /><br />Oder übernehmen Sie den Standardspeicherort.|
-|Administratorkennwort für den Verzeichnisdienst-Wiederherstellungsmodus|**J @ no__t-1p2leo4 $ F**|
-|Name der Antwortdatei (optional)|**AD DS_AnswerFile**|
+|Speicherort des AD DS-Datenbankordners|E:\konfigurations\\<br /><br />Oder übernehmen Sie den Standardspeicherort.|
+|Speicherort des AD DS-Protokolldateiordners|E:\konfigurations\\<br /><br />Oder übernehmen Sie den Standardspeicherort.|
+|Speicherort des AD DS-SYSVOL-Ordners|E:\konfigurations\\<br /><br />Oder übernehmen Sie den Standardspeicherort.|
+|Administratorkennwort für den Verzeichnisdienst-Wiederherstellungsmodus|**J\*p2leO4 $ F**|
+|Name der Antwortdatei (optional)|**AD-DS_AnswerFile**|
 
 #### <a name="planning-dns-zones"></a>Planen von DNS-Zonen
 Bei primären Active Directory-integrierten DNS-Servern wird bei der Installation der DNS-Serverrolle standardmäßig eine Forward-Lookupzone erstellt. Eine Forward-Lookupzone ermöglicht es Computern und Geräten, die IP-Adresse anderer Computer oder Geräte auf der Grundlage ihres DNS-Namens abzufragen. Zusätzlich zu einer Forward-Lookupzone sollten Sie eine DNS-Reverse-Lookupzone erstellen. Mithilfe einer DNS-Reverse-Lookupabfrage kann ein Computer oder ein Gerät den Namen eines anderen Computers oder Geräts anhand seiner IP-Adresse ermitteln. Die Bereitstellung einer Reverse-Lookupzone verbessert üblicherweise die DNS-Leistung und führt zu wesentlich erfolgreicheren DNS-Abfragen.
@@ -401,7 +401,7 @@ Es wird empfohlen, den Ausschlussbereich mit zusätzlichen Adressen zu konfiguri
 #### <a name="planning-tcpip-static-configuration"></a>Planen einer statischen TCP/IP-Konfiguration
 Einige Geräte wie Router, DHCP-Server und DNS-Server müssen mit einer statischen IP-Adresse konfiguriert werden. Möglicherweise haben Sie auch weitere Geräte wie Drucker, für die Sie sicherstellen möchten, dass sie immer die gleiche IP-Adresse besitzen. Listen Sie die Geräte für jedes Subnetz auf, die Sie statisch konfigurieren möchten, und planen Sie dann den Ausschlussbereich, den Sie auf dem DHCP-Server verwenden möchten, um sicherzustellen, dass der DHCP-Server nicht die IP-Adresse eines statisch konfigurierten Geräts least. Ein Ausschlussbereich ist eine begrenzte Abfolge von IP-Adressen innerhalb eines Bereichs, der von der Verarbeitung durch den DHCP-Dienst ausgeschlossen wird. Ausschlussbereiche stellen sicher, dass die Adressen in diesen Bereichen vom Server nicht für DHCP-Clients im Netzwerk bereitgestellt werden.
 
-Wenn der IP-Adressbereich für ein Subnetz beispielsweise 192.168.0.1 über 192.168.0.254 lautet und Sie über zehn Geräte verfügen, die Sie mit einer statischen IP-Adresse konfigurieren möchten, können Sie einen Ausschluss Bereich für 192.168.0 erstellen. *x* -Bereich, der zehn oder mehr IP-Adressen umfasst: 192.168.0.1 bis 192.168.0.15.
+Wenn der IP-Adressbereich eines Subnetzes beispielsweise 192.168.0.1 bis 192.168.0.254 ist, und Sie zehn Geräte besitzen, die Sie mit einer statischen IP-Adresse konfigurieren möchten, können Sie einen Ausschlussbereich für den Bereich 192.168.0.*x* festlegen, der zehn oder mehr IP-Adressen enthält: 192.168.0.1 bis 192.168.0.15.
 
 In diesem Beispiel werden zehn der ausgeschlossenen IP-Adressen verwendet, um Server und andere Geräte mit statischen IP-Adressen zu konfigurieren, und fünf weitere IP-Adressen bleiben für die Konfiguration neuer Geräte verfügbar, die zukünftig hinzugefügt werden können. Mit diesem Ausschlussbereich verfügt der DHCP-Server noch über einen Adresspool von 192.168.0.16 bis 192.168.0.254.
 
@@ -412,7 +412,7 @@ Weitere Beispiel Konfigurationselemente für AD DS und DNS finden Sie in der fol
 |Bindungen für die Netzwerkverbindung|Ethernet|
 |DNS-Servereinstellungen|DC1.corp.contoso.com|
 |Bevorzugte IP-Adresse des DNS-Servers|10.0.0.2|
-|Werte für das Dialogfeld %%amp;quot;Bereich hinzufügen%%amp;quot;<br /><br />1.  Bereichsname<br />2.  Start-IP-Adresse<br />3.  End-IP-Adresse:<br />4.  Subnetzmaske<br />5.  Standardgateway (optional)<br />6.  Leasedauer|1.  Primäres Subnetz<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6.8 Tage|
+|Werte für das Dialogfeld %%amp;quot;Bereich hinzufügen%%amp;quot;<br /><br />1. Bereichs Name<br />2. Start-IP-Adresse<br />3. IP-Endadresse<br />4. Subnetzmaske<br />5. Standard Gateway (optional)<br />6. Leasedauer|1. primäres Subnetz<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6.8 Tage|
 |Betriebsmodus des IPv6-DHCP-Servers|Nicht aktiviert|
 
 ## <a name="BKMK_deployment"></a>Kern Netzwerk Bereitstellung
@@ -671,7 +671,7 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entspr
 
     **Was?**
 
-    -   Active Directory Benutzer und Computer/*Domänen Knoten*/-*Ordner*
+    -   Active Directory Benutzer und Computer/*Domänen Knoten*/*Ordners*
 
 3.  Zeigen Sie auf **Neu**, und klicken Sie dann auf **Benutzer**. Das Dialogfeld **Neues Objekt-Benutzer** wird geöffnet.
 
@@ -702,7 +702,7 @@ Für dieses Verfahren müssen Sie mindestens Mitglied der Gruppe **Domänen-Admi
 
     Position
 
-    -   **Active Directory Benutzer und Computer**/*Domänen Knoten*/-*Ordner, der die Gruppe enthält*
+    -   **Active Directory von Benutzern und Computern**/*Domänen Knoten*/*Ordner, der die Gruppe enthält*
 
 3.  Klicken Sie im Detailbereich mit der rechten Maustaste auf das Objekt, das Sie einer Gruppe hinzufügen möchten, z. B. einen Benutzer oder einen Computer, und klicken Sie dann auf **Eigenschaften**. Das Dialogfeld **Eigenschaften** des-Objekts wird geöffnet. Klicken Sie auf die Registerkarte **Mitglied von**.
 
@@ -1050,7 +1050,7 @@ Im Anschluss finden Sie die wichtigsten Planungsschritte vor der Installation vo
 Mithilfe dieses Verfahrens können Sie den Netzwerk Richtlinien Server (Network Policy Server, NPS) mithilfe des Assistenten zum Hinzufügen von Rollen und Features installieren. NPS ist ein Rollendienst der Serverrolle Netzwerkrichtlinien- und Zugriffsdienste.
 
 > [!NOTE]
-> Standardmäßig überwacht NPS RADIUS-Datenverkehr auf den Ports 1812, 1813, 1645 und 1646 für alle installierten Netzwerkadapter. Wenn die Windows-Firewall mit erweiterter Sicherheit bei der Installation von NPS aktiviert ist, werden während des Installationsvorgangs automatisch Firewallausnahmen für diese Ports für die Internet Protokollversion 6 \(ipv6 @ no__t-1 und IPv4-Verkehr erstellt. Wenn Ihre Netzwerk Zugriffs Server für das Senden von RADIUS-Datenverkehr über andere Ports als diese Standardeinstellungen konfiguriert sind, entfernen Sie die Ausnahmen, die bei der NPS-Installation unter Windows-Firewall mit erweiterter Sicherheit erstellt wurden, und erstellen Sie Ausnahmen für die Ports, die Sie für RADIUS-Datenverkehr.
+> Standardmäßig überwacht NPS RADIUS-Datenverkehr auf den Ports 1812, 1813, 1645 und 1646 für alle installierten Netzwerkadapter. Wenn die Windows-Firewall mit erweiterter Sicherheit bei der Installation von NPS aktiviert ist, werden während des Installationsvorgangs automatisch Firewallausnahmen für diese Ports für die Internet Protokollversion 6 \(IPv6-\) und IPv4-Verkehr erstellt. Wenn Ihre Netzwerk Zugriffs Server für das Senden von RADIUS-Datenverkehr über andere Ports als diese Standardeinstellungen konfiguriert sind, entfernen Sie die Ausnahmen, die bei der NPS-Installation unter Windows-Firewall mit erweiterter Sicherheit erstellt wurden, und erstellen Sie Ausnahmen für die Ports, die Sie für RADIUS-Datenverkehr.
 
 **Administrator Anmelde Informationen**
 
@@ -1162,17 +1162,17 @@ Weitere Informationen zu den Technologien in diesem Handbuch finden Sie in den f
 
 -   [Neues in Active Directory Domain Services (AD DS) unter Windows Server 2016](https://technet.microsoft.com/library/mt163897.aspx)
 
--   [Active Directory Domain Services Übersicht](https://technet.microsoft.com/library/hh831484.aspx) bei https://technet.microsoft.com/library/hh831484.aspx.
+-   [Active Directory Domain Services Übersicht](https://technet.microsoft.com/library/hh831484.aspx) unter https://technet.microsoft.com/library/hh831484.aspx.
 
--   [Domain Name System (DNS)-Übersicht](https://technet.microsoft.com/library/hh831667.aspx) bei https://technet.microsoft.com/library/hh831667.aspx.
+-   [Übersicht über Domain Name System (DNS)](https://technet.microsoft.com/library/hh831667.aspx) unter https://technet.microsoft.com/library/hh831667.aspx.
 
 -   [Implementieren der Rolle "DNS-Administratoren"](https://technet.microsoft.com/library/cc756152(WS.10).aspx)
 
--   [Übersicht über das Dynamic Host Configuration-Protokoll (DHCP)](https://technet.microsoft.com/library/hh831825.aspx) finden Sie unter https://technet.microsoft.com/library/hh831825.aspx.
+-   [Übersicht über das Dynamic Host Configuration-Protokoll (DHCP)](https://technet.microsoft.com/library/hh831825.aspx) unter https://technet.microsoft.com/library/hh831825.aspx.
 
--   [Übersicht über Netzwerk Richtlinien-und Zugriffs Dienste](https://technet.microsoft.com/library/hh831683.aspx) bei https://technet.microsoft.com/library/hh831683.aspx.
+-   [Übersicht über Netzwerk Richtlinien-und Zugriffs Dienste](https://technet.microsoft.com/library/hh831683.aspx) unter https://technet.microsoft.com/library/hh831683.aspx.
 
--   [Webserver (IIS): Übersicht](https://technet.microsoft.com/library/hh831725.aspx) bei https://technet.microsoft.com/library/hh831725.aspx.
+-   [Übersicht über Webserver (IIS)](https://technet.microsoft.com/library/hh831725.aspx) unter https://technet.microsoft.com/library/hh831725.aspx.
 
 ## <a name="BKMK_appendix"></a>Fügt A durch E ein.
 Die folgenden Abschnitte enthalten zusätzliche Konfigurationsinformationen für Computer, auf denen andere Betriebssysteme als Windows Server 2016, Windows 10, Windows Server 2012 und Windows 8 ausgeführt werden. Außerdem wird ein Arbeitsblatt für die netzwerkvorbereitung bereitgestellt, um Sie bei der Bereitstellung zu unterstützen.
@@ -1437,11 +1437,11 @@ Konfigurationselemente für das Bereitstellungsverfahren für das Windows Serve
 |-----------------------|------------------|----------|
 |Vollständiger DNS-Name|corp.contoso.com||
 |Gesamtstrukturfunktionsebene|Windows Server 2003||
-|Speicherort des AD DS-Datenbankordners|E:\configuration @ no__t-0<br /><br />Oder übernehmen Sie den Standardspeicherort.||
-|Speicherort des AD DS-Protokolldateiordners|E:\configuration @ no__t-0<br /><br />Oder übernehmen Sie den Standardspeicherort.||
-|Speicherort des AD DS-SYSVOL-Ordners|E:\configuration @ no__t-0<br /><br />Oder übernehmen Sie den Standardspeicherort.||
+|Speicherort des AD DS-Datenbankordners|E:\konfigurations\\<br /><br />Oder übernehmen Sie den Standardspeicherort.||
+|Speicherort des AD DS-Protokolldateiordners|E:\konfigurations\\<br /><br />Oder übernehmen Sie den Standardspeicherort.||
+|Speicherort des AD DS-SYSVOL-Ordners|E:\konfigurations\\<br /><br />Oder übernehmen Sie den Standardspeicherort.||
 |Administratorkennwort für den Verzeichnisdienst-Wiederherstellungsmodus|J*p2leO4$F||
-|Name der Antwortdatei (optional)|AD DS_AnswerFile||
+|Name der Antwortdatei (optional)|AD-DS_AnswerFile||
 
 #### <a name="BKMK_FndtnPrep_DNSRevrsLook"></a>Konfigurieren einer DNS-Reverse-Lookupzone
 

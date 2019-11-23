@@ -38,7 +38,7 @@ Dieses Dokument enthält ausführliche Informationen zum Migrieren einer AD FS 2
 
   - Öffnen Sie Windows PowerShell, und führen Sie den folgenden Befehl aus: `$fscredential = Get-Credential`.  
   - Geben Sie den Namen und das Kennwort des Dienstkontos ein, die Sie beim Vorbereiten der SQL Server-Farm auf die Migration notiert haben.  
-  - Führen Sie den folgenden Befehl aus: `Add-AdfsFarmNode -ServiceAccountCredential $fscredential -SQLConnectionString "Data Source=<Data Source>;Integrated Security=True"`, wobei `Data Source` der Wert der Datenquelle im Wert der Verbindungs Zeichenfolge für den Richtlinien Speicher in der folgenden Datei ist: `%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config`.  
+  - Führen Sie den folgenden Befehl aus: `Add-AdfsFarmNode -ServiceAccountCredential $fscredential -SQLConnectionString "Data Source=<Data Source>;Integrated Security=True"`, wobei `Data Source` der Wert der Datenquelle in der Verbindungs Zeichenfolge für den Richtlinien Speicher in der folgenden Datei ist: `%programfiles%\Active Directory Federation Services 2.0\Microsoft.IdentityServer.Servicehost.exe.config`.  
   
 5. Fügen Sie den Server, den Sie soeben für Windows Server 2012 aktualisiert haben, dem Load Balancer hinzu.  
   
@@ -47,10 +47,10 @@ Dieses Dokument enthält ausführliche Informationen zum Migrieren einer AD FS 2
 7. Wenn alle Server in Ihrer SQL Server Farm auf Windows Server 2012 aktualisiert werden, stellen Sie alle verbleibenden AD FS Anpassungen wieder her, z. b. benutzerdefinierte Attribut Speicher.  
 
 ## <a name="next-steps"></a>Nächste Schritte
- [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md)-Verbund Servers    
+ [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md) -Verbund Servers   
  [Vorbereiten der Migration des AD FS 2,0-Verbund Server Proxys](prepare-to-migrate-ad-fs-fed-proxy.md)   
- [Migrieren Sie den AD FS 2,0](migrate-the-ad-fs-fed-server.md)-Verbund Server  .  
- [Migrieren Sie den AD FS 2,0-Verbund Server Proxy](migrate-the-ad-fs-2-fed-server-proxy.md) .  
+ [Migrieren Sie den AD FS 2,0](migrate-the-ad-fs-fed-server.md) -Verbund Server   
+ [Migrieren Sie den AD FS 2,0-Verbund Server Proxy](migrate-the-ad-fs-2-fed-server-proxy.md)   
  [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)
 
 

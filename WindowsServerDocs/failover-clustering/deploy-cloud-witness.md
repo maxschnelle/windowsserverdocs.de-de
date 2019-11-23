@@ -27,7 +27,7 @@ Der cloudzeuge ist ein Failovercluster-Quorum Zeugen, der Microsoft Azure verwen
 Abbildung 1 zeigt eine Konfiguration eines Failoverclusters mit mehreren Standorten mit Windows Server 2016. In dieser Beispielkonfiguration (Abbildung 1) gibt es zwei Knoten in zwei Rechenzentren (als Standorte bezeichnet). Beachten Sie, dass sich ein Cluster über mehr als 2 Rechenzentren erstrecken kann. Außerdem kann jedes Rechenzentrum mehr als zwei Knoten aufweisen. Durch eine typische Cluster Quorum Konfiguration in diesem Setup (automatisches Failover-SLA) erhält jeder Knoten eine Stimme. Der Quorum Zeuge erhält eine zusätzliche Stimme, damit der Cluster weiterhin ausgeführt werden kann, selbst wenn eines der Rechenzentren einen Stromausfall hat. Die Mathematik ist einfach: Es sind insgesamt 5 Stimmen vorhanden, und Sie benötigen 3 Stimmen, damit der Cluster weiterhin ausgeführt wird.  
 
 ![Dateifreigabe Zeuge an einem dritten separaten Standort mit 2 Knoten in 2 anderen Standorten](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_1.png "Dateifreigabe Zeuge")  
-**Abbildung 1: Verwenden eines Dateifreigabe Zeugen als Quorum Zeuge @ no__t-0  
+**Abbildung 1: Verwenden eines Dateifreigabe Zeugen als Quorum Zeugen**  
 
 Bei einem Stromausfall in einem Rechenzentrum wird empfohlen, den Quorum Zeugen an einem anderen Speicherort als den beiden Rechenzentren zu hosten, um dem Cluster in einem anderen Rechenzentrum die gleiche Chance zu geben. Dies bedeutet in der Regel, dass ein drittes separates Daten Center (Standort) zum Hosten eines Dateiservers erforderlich ist, der die Dateifreigabe unterstützt, die als Quorum Zeuge (Dateifreigabe Zeuge) verwendet wird.  
 
@@ -42,12 +42,12 @@ Diese Vorgehensweise hat bedeutende Vorteile:
 4. Sehr niedriger $cost zum Speicherkonto (sehr kleine Daten, die pro BLOB-Datei geschrieben werden, BLOB-Dateien werden nur einmal aktualisiert, wenn sich der Status der Cluster Knoten ändert).  
 5. Integrierter cloudzeugen-Ressourcentyp.  
 
-![-Diagramm, das einen Stretch-Cluster mit mehreren Standorten mit dem cloudzeugen als Quorum Zeugen @ no__t-1 veranschaulicht  
-**Abbildung 2: Stretch-Cluster mit mehreren Standorten mit dem cloudzeugen als Quorum Zeuge @ no__t-0  
+![Diagramm, das einen gestreckten Cluster mit mehreren Standorten mit dem cloudzeugen als Quorum Zeugen veranschaulicht](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_2.png)  
+**Abbildung 2: Stretch-Cluster mit mehreren Standorten mit dem cloudzeugen als Quorum Zeugen**  
 
 Wie in Abbildung 2 dargestellt, gibt es keine dritte separate Site, die erforderlich ist. Der cloudzeuge erhält, wie jeder andere Quorum Zeuge, eine Stimme und kann an Quorum Berechnungen teilnehmen.  
 
-## <a name="CloudWitnessSupportedScenarios"></a>Cloudzeuge: Unterstützte Szenarien für einen einzelnen Zeugen Typen
+## <a name="CloudWitnessSupportedScenarios"></a>Cloudzeuge: unterstützte Szenarien für einen einzelnen Zeugen Typen
 Wenn Sie über eine failoverclusterbereitstellung verfügen, bei der alle Knoten das Internet erreichen können (durch Erweiterung von Azure), empfiehlt es sich, einen cloudzeugen als Quorum Zeugen Ressource zu konfigurieren.  
 
 Folgende Szenarien werden von einem cloudzeugen als Quorum Zeuge unterstützt:  
@@ -96,8 +96,8 @@ Wenn Sie ein Microsoft Azure Storage Konto erstellen, ist es zwei Zugriffs Schl�
 
 Navigieren Sie im Azure-Portal zu Ihrem Speicherkonto, klicken Sie auf **alle Einstellungen** , und klicken Sie dann auf **Zugriffsschlüssel** , um Ihre Konto Zugriffsschlüssel anzuzeigen, zu kopieren und neu zu generieren. Das Blatt Zugriffsschlüssel enthält auch vorkonfigurierte Verbindungs Zeichenfolgen, die ihre primären und sekundären Schlüssel verwenden, die Sie zur Verwendung in Ihren Anwendungen kopieren können (siehe Abbildung 4).
 
-![snapshot des Dialog Felds Zugriffsschlüssel verwalten in Microsoft Azure @ no__t-1  
-**Abbildung 4: Speicherzugriffs Schlüssel @ no__t-0
+![Momentaufnahme des Dialog Felds Zugriffsschlüssel verwalten in Microsoft Azure](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_4.png)  
+**Abbildung 4: Speicherzugriffs Schlüssel**
 
 ### <a name="view-and-copy-endpoint-url-links"></a>Anzeigen und Kopieren von Endpunkt-URL-Links  
 Wenn Sie ein Speicherkonto erstellen, werden die folgenden URLs im folgenden Format generiert: `https://<Storage Account Name>.<Storage Type>.<Endpoint>`  
@@ -110,8 +110,8 @@ Der cloudzeuge verwendet immer **BLOB** als Speichertyp. Azure verwendet **. Cor
 #### <a name="to-view-and-copy-endpoint-url-links"></a>So können Sie Endpunkt-URL-Links anzeigen und kopieren
 Navigieren Sie im Azure-Portal zu Ihrem Speicherkonto, klicken Sie auf **alle Einstellungen** , und klicken Sie dann auf **Eigenschaften** , um Ihre Endpunkt-URLs anzuzeigen und zu kopieren (siehe Abbildung 5).  
 
-![snapshot der cloudzeugen-Endpunkt Verknüpfungen @ no__t-1  
-**abbildung 5: URL-Links für Cloud-Zeugen Endpunkt @ no__t-0
+![Momentaufnahme der cloudzeugen-Endpunkt Verknüpfungen](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_5.png)  
+**Abbildung 5: Verknüpfungen der Cloud-Zeugen Endpunkt-URL**
 
 Weitere Informationen zum Erstellen und Verwalten von Azure Storage Konten finden Sie unter [Informationen zu Azure Storage Konten](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/) .
 
@@ -121,17 +121,17 @@ Die cloudzeugen Konfiguration ist innerhalb des vorhandenen Quorum Konfiguration
 ### <a name="to-configure-cloud-witness-as-a-quorum-witness"></a>So konfigurieren Sie einen cloudzeugen als Quorum Zeugen
 1. Starten Sie Failovercluster-Manager.
 2. Klicken Sie mit der rechten Maustaste auf den Cluster, > **Weitere Aktionen** -> **Konfigurieren der Cluster Quorum Einstellungen** (siehe Abbildung 6). Der Assistent zum Konfigurieren des Cluster Quorums wird gestartet.  
-    ![snapshot des Menü Pfads zu den Einstellungen des Systempfad für den configue-Cluster in der Failovercluster-Manager UI @ no__t-1 **figure 6. Cluster Quorum Einstellungen @ no__t-0
+    ![Momentaufnahme des Menü Pfads zu den Einstellungen für den Systempfad des-Clusters in der Failovercluster-Manager-Benutzeroberfläche](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_7.png) **Abbildung 6. Cluster Quorum Einstellungen**
 
 3. Wählen Sie auf der Seite **Quorum Konfigurationen auswählen** **die Option Quorum Zeugen auswählen** (siehe Abbildung 7).  
 
-    ![snapshot des Options Felds "quotrum Witness" im Clusterquorum-Assistenten @ no__t-1  
-    **abbildung 7. Wählen Sie die Quorum Konfiguration @ no__t-0 aus.
+    ![Momentaufnahme des Options Felds "quotrum Witness" im Clusterquorum-Assistenten](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_8.png)  
+    **Abbildung 7: Wählen Sie die Quorum Konfiguration aus.**
 
 4. Wählen Sie auf der Seite **Quorum Zeugen auswählen** die Option **cloudzeuge konfigurieren** (siehe Abbildung 8).  
 
-    ![snapshot des entsprechenden Options Felds zum Auswählen eines cloudzeugen @ no__t-1  
-    **figure 8. Wählen Sie den Quorum Zeugen @ no__t-0 aus.  
+    ![Momentaufnahme des entsprechenden Options Felds, um einen cloudzeugen auszuwählen](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_9.png)  
+    **Abbildung 8. Wählen Sie den Quorum Zeugen aus.**  
 
 5. Geben Sie auf der Seite **Cloud-Zeuge konfigurieren** die folgenden Informationen ein:  
    1. (Erforderlicher Parameter) Azure Storage Kontoname.  
@@ -140,13 +140,13 @@ Die cloudzeugen Konfiguration ist innerhalb des vorhandenen Quorum Konfiguration
        2. Wenn Sie den primären Zugriffsschlüssel rotieren, verwenden Sie den sekundären Zugriffsschlüssel (siehe Abbildung 5).  
    3. (Optionaler Parameter) Wenn Sie beabsichtigen, einen anderen Azure-Dienst Endpunkt (z. b. den Microsoft Azure-Dienst in China) zu verwenden, aktualisieren Sie den Endpunkt Servernamen.  
 
-      ![snapshot des cloudzeugen-Konfigurations Bereichs im Clusterquorum-Assistenten @ no__t-1  
-      **abbildung 9: Konfigurieren des cloudzeugen @ no__t-0
+      ![Momentaufnahme des cloudzeugen-Konfigurations Bereichs im Assistenten für Cluster Quorum](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_10.png)  
+      **Abbildung 9: Konfigurieren des cloudzeugen**
 
 6. Nach erfolgreicher Konfiguration des cloudzeugen können Sie die neu erstellte Zeugen Ressource im Failovercluster-Manager-Snap-in anzeigen (siehe Abbildung 10).
 
-    ![erfolgreiche Konfiguration des cloudzeugen @ no__t-1  
-    **abbildung 10: Erfolgreiche Konfiguration des cloudzeugen @ no__t-0
+    ![erfolgreiche Konfiguration des cloudzeugen](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_11.png)  
+    **Abbildung 10: erfolgreiche Konfiguration des cloudzeugen**
 
 ### <a name="configuring-cloud-witness-using-powershell"></a>Konfigurieren eines cloudzeugen mithilfe von PowerShell  
 Der vorhandene PowerShell-Befehl "Set-Clusterquorum" verfügt über neue zusätzliche Parameter, die dem cloudzeugen entsprechen.  
@@ -172,5 +172,5 @@ Beachten Sie Folgendes, wenn Sie einen cloudzeugen als Quorum Zeugen für Ihren 
 ### <a name="proxy-considerations-with-cloud-witness"></a>Überlegungen zum Proxy mit dem cloudzeugen  
 Der cloudzeuge verwendet HTTPS (Standardport 443), um die Kommunikation mit dem Azure-BLOB-Dienst herzustellen. Stellen Sie sicher, dass der HTTPS-Port über den Netzwerk Proxy zugänglich ist
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 - [Neues beim Failoverclustering unter Windows Server](whats-new-in-failover-clustering.md)

@@ -18,7 +18,7 @@ ms.locfileid: "71357501"
 ---
 # <a name="deploy-a-central-access-policy-demonstration-steps"></a>Bereitstellen einer zentralen Zugriffsrichtlinie (Demonstrationsschritte)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Szenario werden die Finanzabteilungs-Sicherheitsvorgänge zusammen mit der zentralen Informationssicherheit verwendet, um die Notwendigkeit für eine zentrale Zugriffsrichtlinie anzugeben, sodass sie auf Dateiservern archivierte Finanzinformationen schützen kann. Die archivierten Finanzinformationen jedes Lands kann durch alle Finanzmitarbeiter aus demselben Land mit Lesezugriff aufgerufen werden. Eine zentrale Finanzadministratorgruppe kann auf die Finanzinformationen aus allen Ländern zugreifen.  
 
@@ -26,15 +26,15 @@ Das Bereitstellen einer zentralen Zugriffsrichtlinie beinhaltet die folgenden Ph
 
 |Phase|Beschreibung  
 |---------|---------------  
-|[plan: Identifizieren Sie die Notwendigkeit der Richtlinie und die erforderliche Konfiguration für die Bereitstellung @ no__t-0|Bestimmen der Richtliniennotwendigkeit und der für die Bereitstellung erforderlichen Konfiguration. 
-|[implementieren: Konfigurieren der Komponenten und Richtlinie @ no__t-0|Konfigurieren der Komponenten und Richtlinie.  
+|[Plan: Ermitteln der Notwendigkeit der Richtlinie und der Konfiguration, die für die Bereitstellung erforderlich ist](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.2)|Bestimmen der Richtliniennotwendigkeit und der für die Bereitstellung erforderlichen Konfiguration. 
+|[Implementieren: Konfigurieren der Komponenten und Richtlinie](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.3)|Konfigurieren der Komponenten und Richtlinie.  
 |[Stellen Sie die zentrale Zugriffs Richtlinie bereit.](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.4)|Stellen Sie die Richtlinie bereit.  
-|[maintain: Ändern und Bereitstellen der Richtlinie @ no__t-0|Richtlinien Änderungen und Staging. 
+|[Warten: ändern und Bereitstellen der Richtlinie](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md#BKMK_1.5)|Richtlinien Änderungen und Staging. 
 
 ## <a name="BKMK_1.1"></a>Einrichten einer Testumgebung  
-Bevor Sie beginnen, müssen Sie ein Labor zum Testen dieses Szenarios einrichten. Die Schritte zum Einrichten des Labs werden ausführlich in [anhang B erläutert: Einrichten der Test Umgebung @ no__t-0.  
+Bevor Sie beginnen, müssen Sie ein Labor zum Testen dieses Szenarios einrichten. Die Schritte zum Einrichten des Labs werden ausführlich in [Anhang B: Einrichten der Test Umgebung](Appendix-B--Setting-Up-the-Test-Environment.md)erläutert.  
 
-## <a name="BKMK_1.2"></a>Vor Bestimmen der Richtliniennotwendigkeit und der für die Bereitstellung erforderlichen Konfiguration  
+## <a name="BKMK_1.2"></a>Plan: Ermitteln der Notwendigkeit der Richtlinie und der Konfiguration, die für die Bereitstellung erforderlich ist  
 In diesem Abschnitt werden eine Reihe allgemeiner Schritte erläutert, die Sie in der Planungsphase Ihrer Bereitstellung unterstützen.  
 
 ||Schritt|Beispiel|  
@@ -46,7 +46,7 @@ In diesem Abschnitt werden eine Reihe allgemeiner Schritte erläutert, die Sie i
 |1.5|Bestimmen der für die Richtlinie erforderlichen Anspruchstypen und -gruppen|Anspruchstypen:<br /><br />- Land<br />- Abteilung<br /><br />Benutzergruppen:<br /><br />-Financeadmin<br />-Financeexception|  
 |1.6|Bestimmen der Server, auf denen diese Richtlinie angewendet werden soll|Wenden Sie die Richtlinie auf alle Finanzdateiserver an.|  
 
-## <a name="BKMK_1.3"></a>Umsetzt Konfigurieren der Komponenten und Richtlinie  
+## <a name="BKMK_1.3"></a>Implementieren: Konfigurieren der Komponenten und Richtlinie  
 In diesem Abschnitt ist ein Beispiel vorhanden, in dem eine zentrale Zugriffsrichtlinie für Finanzdokumente bereitgestellt wird.  
 
 |Nein|Schritt|Beispiel|  
@@ -58,7 +58,7 @@ In diesem Abschnitt ist ein Beispiel vorhanden, in dem eine zentrale Zugriffsric
 |2.5|Vorgeben einer zentralen Zugriffsrichtlinie für die Dateiserver|Veröffentlichen der zentrale Zugriffsrichtlinie „Finance Policy“ auf den Dateiservern.|  
 |2.6|Ermöglichen der KDC-Unterstützung für Ansprüche, Verbundauthentifizierung und Kerberos Armoring.|Ermöglichen der KDC-Unterstützung für Ansprüche, Verbundauthentifizierung und Kerberos Armoring für „contoso.com“.|  
 
-Im folgenden Verfahren erstellen Sie zwei Anspruchstypen: „Country“ und „Department“.  
+Im folgenden Verfahren erstellen Sie zwei Anspruchs Typen: Country und Department.  
 
 #### <a name="to-create-claim-types"></a>So erstellen Sie Anspruchstypen:  
 
@@ -85,7 +85,7 @@ Im folgenden Verfahren erstellen Sie zwei Anspruchstypen: „Country“ und „D
 
 9. Wiederholen Sie den obigen Schritt. Geben Sie im Dialogfeld **Vorgeschlagenen Wert hinzufügen** **JP** in die Felder **Wert** und **Anzeigename** ein, und klicken Sie dann auf **OK**.  
 
-![solution Guides](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
+![projektmappenanleitung für](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
 
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
 
@@ -121,7 +121,7 @@ Im nächsten Schritt werden Ressourceneigenschaften erstellt. Im folgenden Verfa
 
     -   Department  
 
-![solution Guides](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
+![projektmappenanleitung für](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
 
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
 
@@ -147,7 +147,7 @@ Im nächsten Schritt erstellen Sie die zentralen Zugriffsregeln, in denen defini
 
 Oder zum Ausdrücken der Regeln mit Windows Server 2012-Konstrukten:  
 
-Ziel: „Resource.Department“ enthält „Finance“  
+Ziel: Ressource. Department enthält Finanzen  
 
 Zugriffsregeln:  
 
@@ -171,7 +171,7 @@ Zugriffsregeln:
 5. Wählen Sie im Abschnitt **Berechtigungen** die Option **Folgende Berechtigungen als aktuelle Berechtigungen verwenden** aus, klicken Sie auf **Bearbeiten**, und klicken Sie im Dialogfeld **Erweiterte Sicherheitseinstellungen für Berechtigungen** auf **Hinzufügen**.  
 
    > [!NOTE]  
-   > Mit der Option **Folgende Berechtigungen als vorgesehene Berechtigungen verwenden** können Sie die Richtlinie in Staging erstellen. Weitere Informationen darüber, wie Sie dies umsetzen können, finden Sie im Abschnitt „Warten: Ändern und Staging der Richtlinie“ in diesem Thema.  
+   > Mit der Option **Folgende Berechtigungen als vorgesehene Berechtigungen verwenden** können Sie die Richtlinie in Staging erstellen. Weitere Informationen hierzu finden Sie im Abschnitt warten: ändern und Bereitstellen der Richtlinie in diesem Thema.  
 
 6. Klicken Sie im Dialogfeld **Berechtigungseintrag für Berechtigungen**, klicken Sie auf **Prinzipal auswählen**, geben Sie **Authentifizierte Benutzer** ein, und klicken Sie dann auf **OK**.  
 
@@ -189,7 +189,7 @@ Zugriffsregeln:
 
 11. Klicken Sie dreimal auf **OK** zum Abschließen des Vorgangs, und kehren Sie zum Active Directory-Verwaltungscenter zurück.  
 
-    ![solution Guides](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
+    ![projektmappenanleitung für](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
 
     Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
 
@@ -206,7 +206,7 @@ New-ADCentralAccessRule "Finance Documents Rule" -CurrentAcl $currentAcl -Resour
 
 
 > [!IMPORTANT]  
-> Im obigen Cmdlet-Beispiel werden die Sicherheits-IDs für die Gruppe „FinanceAdmin“ und Benutzer zur Erstellungszeit bestimmt, und sie unterscheiden sich in Ihrem Beispiel. Beispielsweise muss der angegebene Sicherheits-ID-Wert (S-1-5-21-1787166779-1215870801-2157059049-1113) für „FinanceAdmins“ durch die tatsächliche Sicherheits-ID für die Gruppe „FinanceAdmin“ ersetzt werden, die Sie zum Erstellen in Ihrer Bereitstellung bräuchten. Sie können Windows PowerShell verwenden, um den SID-Wert dieser Gruppe zu suchen, diesen Wert einer Variablen zuzuweisen und die Variable dann hier zu verwenden. Weitere Informationen finden Sie unter [windows PowerShell Tip: Arbeiten mit SIDs @ no__t-0.  
+> Im obigen Cmdlet-Beispiel werden die Sicherheits-IDs für die Gruppe „FinanceAdmin“ und Benutzer zur Erstellungszeit bestimmt, und sie unterscheiden sich in Ihrem Beispiel. Beispielsweise muss der angegebene Sicherheits-ID-Wert (S-1-5-21-1787166779-1215870801-2157059049-1113) für „FinanceAdmins“ durch die tatsächliche Sicherheits-ID für die Gruppe „FinanceAdmin“ ersetzt werden, die Sie zum Erstellen in Ihrer Bereitstellung bräuchten. Sie können Windows PowerShell verwenden, um den SID-Wert dieser Gruppe zu suchen, diesen Wert einer Variablen zuzuweisen und die Variable dann hier zu verwenden. Weitere Informationen finden Sie unter [Windows PowerShell Tip: Working with SIDs](https://go.microsoft.com/fwlink/?LinkId=253545).  
 
 Sie sollten nun über eine zentrale Zugriffsregel verfügen, die Personen erlaubt, auf Dokumente aus demselben Land und derselben Abteilung zuzugreifen. Die Regel ermöglicht der Gruppe „FinanceAdmin“ die Bearbeitung der Dokumente, und sie ermöglicht der Gruppe „FinanceException“, die Dokumente zu lesen. Diese Regel zielt nur auf Dokumente ab, die als „Finance“ klassifiziert wurden.  
 
@@ -224,7 +224,7 @@ Sie sollten nun über eine zentrale Zugriffsregel verfügen, die Personen erlaub
 
 6. Klicken Sie auf **OK**, um den Vorgang abzuschließen. Sie sollten nun über eine zentrale Zugriffsrichtlinie namens „Finance Policy“ verfügen.  
 
-   ![solution Guides](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
+   ![projektmappenanleitung für](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
 
    Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
 
@@ -245,7 +245,7 @@ Sie sollten nun über eine zentrale Zugriffsregel verfügen, die Personen erlaub
     > [!TIP]  
     > In Ihrer Produktionsumgebung sollten Sie eine Dateiserver-Organisationseinheit erstellen und dieser Organisationseinheit alle Ihre Dateiserver hinzufügen, auf die Sie diese Richtlinie anwenden möchten. Sie können eine Gruppenrichtlinie erstellen und dieser Richtlinie diese Organisationseinheit hinzufügen.  
 
-2.  In diesem Schritt bearbeiten Sie das im Abschnitt für das [Erstellen des Domänencontrollers](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_Build) in der Testumgebung erstellte Gruppenrichtlinienobjekt, um die von Ihnen erstellte zentrale Zugriffsrichtlinie einzubeziehen. Navigieren Sie im Gruppenrichtlinienverwaltungs-Editor zur Organisationseinheit in der Domäne (in diesem Beispiel „contoso.com“), und wählen Sie sie aus: **Gruppenrichtlinienverwaltung**, **Gesamtstruktur: contoso.com**, **Domänen**, **contoso.com**, **Contoso**, **FileServerOU**.  
+2.  In diesem Schritt bearbeiten Sie das im Abschnitt für das [Erstellen des Domänencontrollers](Appendix-B--Setting-Up-the-Test-Environment.md#BKMK_Build) in der Testumgebung erstellte Gruppenrichtlinienobjekt, um die von Ihnen erstellte zentrale Zugriffsrichtlinie einzubeziehen. Navigieren Sie in der Gruppenrichtlinienverwaltungs-Editor zu der Organisationseinheit in der Domäne (in diesem Beispiel contoso.com), und wählen Sie Sie aus: **Gruppenrichtlinie Management**, **Forest: contoso.com**, **Domains**, **contoso.com** **, Configuration**Manager, **fileserverou**.  
 
 3.  Klicken Sie mit der rechten Maustaste auf **FlexibleAccessGPO**, und klicken Sie dann auf **Bearbeiten**.  
 
@@ -292,7 +292,7 @@ In diesem Schritt weisen Sie die zentrale Zugriffsrichtlinie zu einem Dateiserve
 
 #### <a name="to-assign-a-central-access-policy-to-a-file-server"></a>So weisen Sie einem Dateiserver eine zentrale Zugriffsrichtlinie zu  
 
-1. Stellen Sie im Hyper-V-Manager eine Verbindung mit dem Server „FILE1“ her. Melden Sie sich am Server mit dem Kennwort "CONTOSO\Administrator" an: <strong>pass@word1</strong>.  
+1. Stellen Sie im Hyper-V-Manager eine Verbindung mit dem Server „FILE1“ her. Melden Sie sich mit "CONTOSO\Administrator" am Server mit dem Kennwort an: <strong>pass@word1</strong>.  
 
 2. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und geben Sie Folgendes ein: **gpupdate /force**. Dadurch wird sichergestellt, dass Ihre Gruppenrichtlinienänderungen auf Ihrem Server wirksam werden.  
 
@@ -340,7 +340,7 @@ Im nächsten Schritt stellen Sie sicher, dass der Zugriff richtig konfiguriert w
 
     Beachten Sie die letzte Spalte namens **Zugriff eingeschränkt durch** im Fenster für den effektiven Zugriff. Diese Spalte gibt Aufschluss darüber, welche Gates die Berechtigungen der Person beeinflussen. In diesem Fall ermöglichen die Berechtigungen „Share“ und „NTFS“ allen Benutzern den vollständigen Zugriff. Die zentrale Zugriffsrichtlinie schränkt jedoch den Zugriff anhand der von Ihnen zuvor konfigurierten Regeln ein.  
 
-## <a name="BKMK_1.5"></a>Verwalten Ändern und Staging der Richtlinie  
+## <a name="BKMK_1.5"></a>Warten: ändern und Bereitstellen der Richtlinie  
 
 ||||  
 |-|-|-|  
@@ -392,7 +392,7 @@ Im nächsten Schritt wird eine Staging-Richtlinienregel erstellt. Staging-Richtl
 
 8. Klicken Sie erneut auf **Bedingung hinzufügen**, und fügen Sie die folgende Bedingung hinzu.  
    Immer   
-    [**Benutzer**] [**Gruppe**] [**Member eines beliebigen**] [**Wert**] \(**financeexception**)  
+    [**Benutzer**] [**Gruppe**] [**Member eines beliebigen**] [**Wert**]\(**financeexception**)  
 
 9. Klicken Sie zum Festlegen der Gruppe „FinanceException“ auf **Add items**, und geben Sie **FinanceException** in das Fenster **Benutzer, Computer, Dienstkonto oder Gruppe auswählen** ein.  
 
@@ -402,7 +402,7 @@ Im nächsten Schritt wird eine Staging-Richtlinienregel erstellt. Staging-Richtl
 
 12. Klicken Sie zweimal auf **OK**, um den Vorgang abzuschließen.  
 
-![solution Guides](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
+![projektmappenanleitung für](media/Deploy-a-Central-Access-Policy--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
 
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
 
@@ -423,13 +423,13 @@ Im nächsten Verfahren stellen Sie die Ergebnisse der Staging-Richtlinie sicher.
 
 #### <a name="to-verify-the-results-of-the-staging-policy"></a>So überprüfen Sie die Ergebnisse der Staging-Richtlinie  
 
-1. Stellen Sie eine Verbindung mit dem Datei Server file1 im Hyper-V-Manager her, und melden Sie sich als CONTOSO\Administrator mit dem Kennwort <strong>pass@word1</strong>an.  
+1. Stellen Sie eine Verbindung mit dem Datei Server file1 im Hyper-V-Manager her, und melden Sie sich als CONTOSO\Administrator mit dem Kennwort an <strong>pass@word1</strong>.  
 
 2. Öffnen Sie ein Eingabeaufforderungsfenster, und geben Sie **gpupdate /force** ein. Dadurch wird sichergestellt, dass Ihre Gruppenrichtlinienänderungen auf Ihrem Server wirksam werden.  
 
-3. Stellen Sie im Hyper-V-Manager eine Verbindung mit dem Server „CLIENT1“ her. Melden Sie den derzeit angemeldeten Benutzer ab. Starten Sie den virtuellen Computer „CLIENT1“ neu. Melden Sie sich dann mithilfe von contoso\evalle pass@word1 am Computer an.  
+3. Stellen Sie im Hyper-V-Manager eine Verbindung mit dem Server „CLIENT1“ her. Melden Sie den derzeit angemeldeten Benutzer ab. Starten Sie den virtuellen Computer „CLIENT1“ neu. Melden Sie sich dann mithilfe von contoso\evalle pass@word1am Computer an.  
 
-4. Doppelklicken Sie auf die Desktop Verknüpfung zum \\ \ FILE1\Finance Dokumente. EValle sollte weiterhin auf die Dateien zugreifen können. Wechseln Sie zurück zu „FILE1“.  
+4. Doppelklicken Sie auf die Desktop Verknüpfung, um zu \\\file1\finance Documents. EValle sollte weiterhin auf die Dateien zugreifen können. Wechseln Sie zurück zu „FILE1“.  
 
 5. Öffnen Sie die Ereignisanzeige über die Verknüpfung auf dem Desktop. Erweitern Sie **Windows-Protokolle**, und wählen Sie dann **Sicherheit** aus. Öffnen Sie die Einträge mit der **Ereignis-ID 4818**unter der Kategorie stagingaufgabe für **zentrale Zugriffsrichtlinien** . Sie werden sehen, dass EValle der Zugriff gewährt wurde. Entsprechend der Staging-Richtlinie würde dem Benutzer jedoch der Zugriff verweigert werden.  
 

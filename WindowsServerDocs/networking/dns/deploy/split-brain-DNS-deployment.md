@@ -15,16 +15,16 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71356015"
 ---
-# <a name="use-dns-policy-for-split-brain-dns-deployment"></a>Verwenden der DNS-Richtlinie für Split @ no__t-0brain-DNS-Bereitstellung
+# <a name="use-dns-policy-for-split-brain-dns-deployment"></a>Verwenden der DNS-Richtlinie für das Aufteilen\-DNS-Bereitstellung
 
 >Gilt für: Windows Server 2016
 
-In diesem Thema erfahren Sie, wie Sie die DNS-Richtlinie in Windows Server @ no__t-0 2016 für Split-Brain-DNS-bereit Stellungen konfigurieren. dabei gibt es zwei Versionen einer einzelnen Zone: eine für die internen Benutzer in Ihrem Unternehmens Intranet und eine für externe Benutzer, die in der Regel Benutzer im Internet.
+In diesem Thema erfahren Sie, wie Sie die DNS-Richtlinie in Windows Server&reg; 2016 für Split-Brain-DNS-bereit Stellungen konfigurieren. dabei gibt es zwei Versionen einer einzelnen Zone: eine für die internen Benutzer in Ihrem Unternehmens Intranet und eine für externe Benutzer, die in der Regel Benutzer im Internet sind.
 
 >[!NOTE]
->Informationen zur Verwendung der DNS-Richtlinie für die DNS-Bereitstellung mit Split @ no__t-0brain mit Active Directory integrierter DNS-Zonen finden Sie unter [Verwenden der DNS-Richtlinie für Split-Brain-DNS in Active Directory](dns-sb-with-ad.md).
+>Weitere Informationen zum Verwenden der DNS-Richtlinie für die Aufteilung\-DNS-Bereitstellung mit Active Directory integrierter DNS-Zonen finden Sie unter [Verwenden der DNS-Richtlinie für Split-Brain-DNS in Active Directory](dns-sb-with-ad.md).
 
-Bisher war es für dieses Szenario erforderlich, dass DNS-Administratoren zwei verschiedene DNS-Server verwalten, die jeweils Dienste für jede Gruppe von Benutzern bereitstellen, intern und extern. Wenn nur einige wenige Datensätze in der Zone Split @ no__t-0geschweiften oder beide Instanzen der Zone (intern und extern) an dieselbe übergeordnete Domäne delegiert wurden, wurde dies zu einer Verwaltungs-rückgängig gemacht. 
+Bisher war es für dieses Szenario erforderlich, dass DNS-Administratoren zwei verschiedene DNS-Server verwalten, die jeweils Dienste für jede Gruppe von Benutzern bereitstellen, intern und extern. Wenn nur einige wenige Datensätze in der Zone aufgeteilt werden,\-geschweiften Klammern oder beide Instanzen der Zone (intern und extern) an dieselbe übergeordnete Domäne delegiert wurden, wurde dies zu einer Verwaltungs-rückgängig gemacht. 
 
 Ein weiteres Konfigurations Szenario für die Split-Brain-Bereitstellung ist die selektive Rekursions Steuerung für die DNS-Namensauflösung Unter bestimmten Umständen wird erwartet, dass die DNS-Server des Unternehmens für die internen Benutzer eine rekursive Auflösung über das Internet durchführen, während Sie auch als autorisierende Namen Server für externe Benutzer fungieren und die Rekursion für Sie blockieren müssen. 
 
@@ -158,7 +158,7 @@ In der folgenden Abbildung ist dieses Szenario dargestellt.
 
 Wenn eine Abfrage empfangen wird, für die der DNS-Server des Configuration Manager-Servers nicht autoritativ ist (z. b. für www.Microsoft.com), wird die namens Auflösungs Anforderung anhand der Richtlinien auf dem DNS-Server ausgewertet. 
 
-Da diese Abfragen nicht in einer Zone liegen, werden die Richtlinien auf Zonenebene \(gemäß der Definition im Split-Brain-Beispiel @ no__t-1 nicht ausgewertet. 
+Da diese Abfragen nicht in eine Zone fallen, werden die Richtlinien auf Zonenebene, die im Split-Brain-Beispiel definiert \(, nicht ausgewertet\). 
 
 Der DNS-Server wertet die Rekursions Richtlinien aus, und die Abfragen, die auf der privaten Schnittstelle empfangen werden, entsprechen den **splitbrainrecursionpolicy**. Diese Richtlinie verweist auf einen Rekursions Bereich, in dem Rekursion aktiviert ist.
 
@@ -179,7 +179,7 @@ Führen Sie die folgenden Schritte aus, um das selektive DNS-Rekursions Steuerel
 
 Rekursions Bereiche sind eindeutige Instanzen einer Gruppe von Einstellungen, die die Rekursion auf einem DNS-Server steuern. Ein Rekursions Bereich enthält eine Liste von Weiterleitungen und gibt an, ob die Rekursion aktiviert ist. Ein DNS-Server kann über viele Rekursions Bereiche verfügen. 
 
-Die Legacy-Rekursions Einstellung und die Liste der Weiterleitungen werden als Standard Rekursions Bereich bezeichnet. Sie können den standardmäßigen Rekursions Bereich, der durch den namens Punkt \( "gekennzeichnet ist, nicht hinzufügen oder entfernen. \).
+Die Legacy-Rekursions Einstellung und die Liste der Weiterleitungen werden als Standard Rekursions Bereich bezeichnet. Der standardmäßige Rekursions Bereich, der durch den Namen Punkt \("."\)identifiziert wird, kann nicht hinzugefügt oder entfernt werden.
 
 In diesem Beispiel ist die Standardeinstellung für die Rekursion deaktiviert, während ein neuer Rekursions Bereich für interne Clients erstellt wird, wobei Rekursion aktiviert ist.
 

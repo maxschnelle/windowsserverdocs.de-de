@@ -1,6 +1,6 @@
 ---
 title: nslookup set root
-description: 'Windows-Befehls Thema für * * * *- '
+description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server
 ms.reviewer: na
@@ -39,5 +39,5 @@ set root=<RootServer>
 ## <a name="remarks"></a>Hinweise
 - Der untergeordnete Stamm Befehl **festlegen** wirkt sich auf den **root** -Unterbefehl aus.
   ## <a name="additional-references"></a>Weitere Verweise
-  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
   [nslookup](nslookup-root.md) -Stamm

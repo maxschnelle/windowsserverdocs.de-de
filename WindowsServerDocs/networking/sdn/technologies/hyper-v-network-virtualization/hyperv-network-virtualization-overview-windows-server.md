@@ -21,7 +21,7 @@ ms.locfileid: "71405951"
 ---
 # <a name="hyper-v-network-virtualization-overview-in-windows-server-2016"></a>Übersicht über die Hyper-V-Netzwerkvirtualisierung unter Windows Server 2016
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In Windows Server 2016 und Virtual Machine Manager bietet Microsoft eine End-to-End-Lösung für die Netzwerkvirtualisierung.  Es gibt fünf Hauptkomponenten, die die netzwerkvirtualisierungslösung von Microsoft umfasst:  
 
@@ -141,7 +141,7 @@ Weitere Informationen zur Hyper-V-Netzwerkvirtualisierung unter Windows Server 2
 
 |       Inhaltstyp       |                                                                                                                                Verweise                                                                                                                                |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Communityressourcen**  |     [Blog zur Architektur der privaten Cloud](https://blogs.technet.com/b/privatecloud/archive/2012/03/19/cloud-datacenter-network-architecture-in-the-windows-server-8-era.aspx) -   <br />-Stellen Sie Fragen: [cloudnetfb@microsoft.com](mailto:%20cloudnetfb@microsoft.com)     |
-|         **RFC**          |                                                                                                     -VXLAN: [RFC 7348](https://www.rfc-editor.org/info/rfc7348)                                                                                                      |
-| **Verwandte Technologien** | -   -[Netzwerk Controller](../../../sdn/technologies/network-controller/../../../sdn/technologies/network-controller/Network-Controller.md)<br />[Übersicht über die Hyper-V-Netzwerkvirtualisierung](assetId:///bf1dba9d-1960-4dd2-a5e2-99466a02044b) mit @no__t 0 (Windows Server 2012 R2) |
+| **Communityressourcen**  |     Blog zur -   [Private Cloud-Architektur](https://blogs.technet.com/b/privatecloud/archive/2012/03/19/cloud-datacenter-network-architecture-in-the-windows-server-8-era.aspx)<br />-Stellen Sie Fragen: [cloudnetfb@microsoft.com](mailto:%20cloudnetfb@microsoft.com)     |
+|         **RFC**          |                                                                                                     -Vxlan: [RFC 7348](https://www.rfc-editor.org/info/rfc7348)                                                                                                      |
+| **Verwandte Technologien** | [Netzwerk Controller](../../../sdn/technologies/network-controller/../../../sdn/technologies/network-controller/Network-Controller.md) -   <br />-   [Übersicht über die Hyper-V-Netzwerkvirtualisierung](assetId:///bf1dba9d-1960-4dd2-a5e2-99466a02044b) (Windows Server 2012 R2) |
 

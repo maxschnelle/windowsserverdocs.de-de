@@ -18,7 +18,7 @@ ms.locfileid: "71409082"
 ---
 # <a name="introduction-to-active-directory-replication-and-topology-management-using-windows-powershell-level-100"></a>Einführung in die Active Directory-Replikation und Topologieverwaltung mithilfe von Windows PowerShell (Stufe 100)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Windows PowerShell für Active Directory bietet die Möglichkeit zum Verwalten von Replikationen, Standorten, Domänen und Gesamtstrukturen, Domänencontrollern und Partitionen. Benutzer älterer Verwaltungstools, wie des Active Directory-Standorte und -Dienste-Snap-Ins und „repadmin.exe“, werden bemerken, dass eine ähnliche Funktionalität jetzt innerhalb des Windows PowerShell für Active Directory-Kontextes verfügbar ist. Außerdem sind diese Cmdlets kompatibel mit den vorhandenen Windows PowerShell für Active Directory-Cmdlets und sorgen so für eine optimale Erfahrung. Außerdem können Kunden problemlos Automatisierungsskripts erstellen.
 
@@ -27,10 +27,10 @@ Windows PowerShell für Active Directory bietet die Möglichkeit zum Verwalten v
 > 
 > -    Windows Server 2012-Domänen Controller
 > -    Windows Server 2012 mit der Remoteserver-Verwaltungstools für AD DS und AD LDS installiert.
-> -   Windows @ no__t-0 8 mit der Remoteserver-Verwaltungstools für AD DS und AD LDS installiert.
+> -   Windows&reg; 8 mit der Remoteserver-Verwaltungstools für AD DS und AD LDS installiert.
 
 ## <a name="installing-the-active-directory-module-for-windows-powershell"></a>Installieren des Active Directory-Moduls für Windows PowerShell
-Das Active Directory-Modul für Windows PowerShell wird standardmäßig installiert, wenn die AD DS Server Rolle auf einem Server installiert ist, auf dem Windows Server 2012 ausgeführt wird. Es sind keine weiteren Schritte neben dem Hinzufügen der Serverrolle erforderlich. Sie können das Active Directory-Modul auch auf einem Server installieren, auf dem Windows Server 2012 ausgeführt wird, indem Sie die Remoteserver-Verwaltungstools installieren, und Sie können das Active Directory-Modul auf einem Computer mit Windows 8 installieren, indem Sie den [herunterladen und installieren. Remote Server-Verwaltungs Tools (RSAT)](https://www.microsoft.com/download/details.aspx?id=28972). Die Installationsschritte finden Sie unter [Instructions](https://www.microsoft.com/download/details.aspx?id=28972).
+Das Active Directory-Modul für Windows PowerShell wird standardmäßig installiert, wenn die AD DS Server Rolle auf einem Server installiert ist, auf dem Windows Server 2012 ausgeführt wird. Es sind keine weiteren Schritte neben dem Hinzufügen der Serverrolle erforderlich. Sie können auch das Active Directory Modul auf einem Server installieren, auf dem Windows Server 2012 ausgeführt wird, indem Sie die Remoteserver-Verwaltungstools installieren. Sie können das Modul Active Directory auf einem Computer installieren, auf dem Windows 8 ausgeführt wird, indem Sie die [Remote Server-Verwaltungs Tools (RSAT)](https://www.microsoft.com/download/details.aspx?id=28972)herunterladen und installieren. Die Installationsschritte finden Sie unter [Instructions](https://www.microsoft.com/download/details.aspx?id=28972).
 
 ## <a name="scenarios-for-testing-windows-powershell-for-active-directory-replication-and-topology-management-cmdlets"></a>Szenarios zum Testen der Windows PowerShell für Active Directory-Replikations- und -Topologieverwaltungs-Cmdlets
 Die folgenden Szenarios wurden für Administratoren entwickelt, um sich mit den neuen Verwaltungs-Cmdlets vertraut zu machen:
@@ -43,7 +43,7 @@ Die folgenden Szenarios wurden für Administratoren entwickelt, um sich mit den 
 
 ## <a name="lab-requirements"></a>Testumgebungsanforderungen
 
--   Zwei Windows Server 2012-Domänen Controller: **DC1** und **DC2**, die der Domäne „contoso.com“ angehören und sich am Standort „CORPORATE“ innerhalb der Domäne befinden.
+-   Zwei Windows Server 2012-Domänen Controller: **DC1** und **DC2** , die Teil der contoso.com-Domäne sind und sich auf der Unternehmenswebsite innerhalb dieser Domäne befinden.
 
 ## <a name="view-domain-controllers-and-their-sites"></a>Anzeigen der Domänencontroller und ihrer Standorte
 In diesem Schritt verwenden Sie das Active Directory-Modul für Windows PowerShell zum Anzeigen der vorhandenen Domänencontroller und der Replikationstopologie für die Domäne.
@@ -63,9 +63,9 @@ Damit Sie die Schritte in den folgenden Verfahren ausführen können, müssen Si
     > [!TIP]
     > Sie können die Tab-Taste verwenden, um Befehle in Windows PowerShell automatisch zu vervollständigen.
     > 
-    > Beispiel: Geben Sie `Get-ADRep` ein, und blättern Sie durch mehrmaliges Drücken der TAB-TASTE durch die passenden Befehle, bis Sie `Get-ADReplicationSite` erreichen. AutoVervollständigen kann auch für Parameternamen wie `Filter` verwendet werden.
+    > Beispiel: Geben Sie `Get-ADRep` ein, und blättern Sie durch mehrmaliges Drücken der TAB-TASTE durch die passenden Befehle, bis Sie `Get-ADReplicationSite`erreichen. AutoVervollständigen kann auch für Parameternamen wie `Filter` verwendet werden.
 
-    Wenn Sie die Ausgabe des Befehls "`Get-ADReplicationSite`" als Tabelle formatieren und die Anzeige auf bestimmte Felder beschränken möchten, können Sie die Ausgabe an den Befehl "`Format-Table`" (oder "`ft`" kurz) übergeben:
+    Wenn Sie die Ausgabe des Befehls `Get-ADReplicationSite` als Tabelle formatieren und die Anzeige auf bestimmte Felder beschränken möchten, können Sie die Ausgabe an den `Format-Table`-Befehl übergeben (oder kurz "`ft`"):
 
     `Get-ADReplicationSite -Filter * | ft Name`
 
@@ -154,7 +154,7 @@ Damit Sie die Schritte in den folgenden Verfahren ausführen können, müssen Si
 
     Durch die Sortierung können Sie den letzten USN, der von den einzelnen Domänencontrollern für einen angegebenen Replikationspartner erfasst wurde, einfach vergleichen. Dies ist eine schnelle Möglichkeit, um zu überprüfen, ob die Replikation in der gesamten Umgebung stattfindet. Wenn die Replikation ordnungsgemäß funktioniert, sollten die %%amp;quot;UsnFilter%%amp;quot;- Werte, die für einen angegebenen Replikationspartner gemeldet werden, auf allen Domänencontrollern ähnlich sein.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [Erweiterte Active Directory Replikation und Topologieverwaltung mithilfe &#40;der Windows PowerShell-Ebene 200&#41;](Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md)
 
 

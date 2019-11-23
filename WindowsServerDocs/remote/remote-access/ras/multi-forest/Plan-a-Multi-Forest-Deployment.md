@@ -21,11 +21,11 @@ ms.locfileid: "71404515"
 ---
 # <a name="plan-a-multi-forest-deployment"></a>Planen einer Bereitstellung mit mehreren Gesamtstrukturen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema werden die zum Konfigurieren des Remotezugriffs für eine Bereitstellung mit mehreren Gesamtstrukturen erforderlichen Planungsschritte beschrieben.  
   
-## <a name="prerequisites"></a>Erforderliche Komponenten  
+## <a name="prerequisites"></a>Voraussetzungen  
 Bevor Sie mit der Bereitstellung dieses Szenarios beginnen, sollten Sie die Liste der wichtigen Anforderungen lesen:  
   
 -   Eine bidirektionale Vertrauensstellung ist erforderlich.  
@@ -42,8 +42,8 @@ Darüber hinaus muss es sich beim Remotezugriffsadministrator um einen lokalen A
 Sie müssen mindestens eine Sicherheitsgruppe in der neuen Gesamtstruktur für DirectAccess-Clientcomputer in der neuen Gesamtstruktur konfigurieren. Eine einzelne Sicherheitsgruppe kann keine Konten aus verschiedenen Gesamtstrukturen enthalten.  
   
 > [!NOTE]  
-> -   Für DirectAccess ist mindestens eine Windows 10 @ no__t-0-oder Windows @ no__t-1 8-Client Sicherheitsgruppe für jede Gesamtstruktur erforderlich. Es wird jedoch empfohlen, eine Windows 10-oder Windows 8-Client Sicherheitsgruppe für jede Domäne zu haben, die Windows 10-oder Windows 8-Clients enthält.  
-> -   Wenn mehrere Standorte aktiviert sind, ist für DirectAccess mindestens eine Windows 7 @ no__t-0-Client Sicherheitsgruppe pro Gesamtstruktur für jeden DirectAccess-Einstiegspunkt erforderlich, auf dem Windows 7-Client Computer unterstützt werden. Es wird jedoch empfohlen, eine separate Windows 7-Client Sicherheitsgruppe für jeden Einstiegspunkt für jede Domäne zu haben, die Windows 7-Clients enthält.  
+> -   Für DirectAccess ist mindestens eine Windows 10-&reg;-oder Windows&reg; 8-Client Sicherheitsgruppe für jede Gesamtstruktur erforderlich. Es wird jedoch empfohlen, eine Windows 10-oder Windows 8-Client Sicherheitsgruppe für jede Domäne zu haben, die Windows 10-oder Windows 8-Clients enthält.  
+> -   Wenn mehrere Standorte aktiviert sind, ist für DirectAccess mindestens eine Windows 7-&reg; Client Sicherheitsgruppe pro Gesamtstruktur für jeden DirectAccess-Einstiegspunkt erforderlich, auf dem Windows 7-Client Computer unterstützt werden. Es wird jedoch empfohlen, eine separate Windows 7-Client Sicherheitsgruppe für jeden Einstiegspunkt für jede Domäne zu haben, die Windows 7-Clients enthält.  
 >   
 > Damit DirectAccess auf Clientcomputer in zusätzlichen Domänen angewendet wird, müssen Client-Gruppenrichtlinienobjekte in diesen Domänen erstellt werden. Durch das Hinzufügen von Sicherheitsgruppen wird das Schreiben neuer Client-Gruppenrichtlinienobjekte für die neuen Domänen ausgelöst. Wenn Sie der Liste der Sicherheitsgruppen für DirectAccess-Clients eine neue Sicherheitsgruppe aus einer neuen Domäne hinzufügen, wird daher automatisch ein Client-Gruppenrichtlinienobjekt in der neuen Domäne erstellt. Clientcomputer in der neuen Domäne erhalten die DirectAccess-Einstellungen über das Client-Gruppenrichtlinienobjekt.  
 >   

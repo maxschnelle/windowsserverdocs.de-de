@@ -23,14 +23,14 @@ Zum Abschließen dieses Verfahrens ist mindestens die Mitgliedschaft in der Grup
   
 ### <a name="to-verify-that-a-federation-server-is-operational"></a>So überprüfen Sie, ob ein Verbundserver betriebsbereit ist  
   
-1.  Öffnen Sie ein Browserfenster, und geben Sie in der Adressleiste den Namen der Verbund Server ein, und fügen `federationmetadata/2007-06/federationmetadata.xml` Sie ihn dann an, um zum Endpunkt der Verbund Dienst Metadaten zu navigieren. Beispiel: `https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml` .  
+1.  Öffnen Sie ein Browserfenster, geben Sie in der Adressleiste den Namen der Verbund Server ein, und fügen Sie ihn dann mit `federationmetadata/2007-06/federationmetadata.xml` an, um zum Endpunkt der Verbund Dienst Metadaten zu navigieren. Beispielsweise `https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`.  
   
 Werden im Browserfenster die Verbundservermetadaten ohne SSL-Fehler oder -Warnungen angezeigt, ist der Verbundserver betriebsbereit.  
   
 2. Sie können auch zur AD FS-Anmeldeseite (Ihr Verbunddienstname, an den `adfs/ls/idpinitiatedsignon.htm` angehängt wird, z. B. `https://fs.contoso.com/adfs/ls/idpinitiatedsignon.htm`) navigieren.  Dadurch wird die AD FS-Anmeldeseite angezeigt, auf der Sie sich mit Domänenadministrator-Anmeldeinformationen anmelden können.  
   
 > [!IMPORTANT]
->  Stellen Sie sicher, dass Sie die Browsereinstellungen so konfigurieren, dass der Verbund Server Rolle vertraut wird, indem Sie den `https://fs.contoso.com`Verbund Dienstnamen (z. b.) der lokalen Intranetzone des Browsers hinzufügen.  
+>  Stellen Sie sicher, dass Sie die Browsereinstellungen so konfigurieren, dass Sie der Verbund Server Rolle Vertrauen, indem Sie Ihren Verbund Dienstnamen (z. b. `https://fs.contoso.com`) der lokalen Intranetzone des Browsers hinzufügen.  
   
 ## <a name="next-steps"></a>Nächste Schritte
  [Migrieren Active Directory-Verbunddienste (AD FS) Rollen Dienste zu Windows Server 2012 R2](migrate-ad-fs-service-role-to-windows-server-r2.md)   

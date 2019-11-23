@@ -18,12 +18,12 @@ ms.locfileid: "71407992"
 ---
 # <a name="planning-your-deployment"></a>Planen Ihrer Bereitstellung
 
-Wenn Sie die Cross @ no__t-0organization \(federation @ no__t-2based @ no__t-3-Zusammenarbeit mithilfe Active Directory-Verbunddienste (AD FS) \(AD FS @ no__t-5 planen, ermitteln Sie zunächst, ob Ihre Organisation eine Webressource hostet, auf die ein anderer zugreifen kann. Organisationen über das Internet oder, wenn Sie Zugriff auf die Webressourcen für Mitarbeiter in Ihrer Organisation bereitstellen. Diese Bestimmung wirkt sich darauf aus, wie Sie AD FS bereitstellen, und ist für die Planung Ihrer AD FS-Infrastruktur von grundlegender Bedeutung.  
+Wenn Sie für Cross\-Organization \(Verbund\-basierend\) Zusammenarbeit mithilfe Active Directory-Verbunddienste (AD FS) \(AD FS\)planen, müssen Sie zunächst feststellen, ob Ihre Organisation eine Webressource hostet, auf die von anderen Organisationen über das Internet zugegriffen werden soll, oder ob Sie Zugriff auf die Webressourcen für Mitarbeiter in Ihrer Organisation bereitstellen. Diese Bestimmung wirkt sich darauf aus, wie Sie AD FS bereitstellen, und ist für die Planung Ihrer AD FS-Infrastruktur von grundlegender Bedeutung.  
   
 > [!NOTE]  
 > Stellen Sie sicher, dass alle Parteien eindeutig verstehen, welche Rolle die Organisation in der Verbundvereinbarung spielt.  
   
-Für den [Federated-Web-SSO-Entwurf](Federated-Web-SSO-Design.md)verwendet AD FS Bedingungen wie z. b. *Account Partner* \(auch als *Identitäts Anbieter* bezeichnet im AD FS Management-Snap @ no__t-4in @ no__t-5 und *Resource Partner* \(auch als *bezeichnet.* vertrauende Seite im AD FS Verwaltungs-Snap @ no__t-9in @ no__t-10, um die Organisation, die die Konten hostet, zu unterscheiden 1Der Konto Partner @ no__t-12 von der Organisation, die die Web @ no__t-13basierten Ressourcen 4the-Ressource hostet. Partner @ no__t-15.  
+Für den [Federated-Web-SSO-Entwurf](Federated-Web-SSO-Design.md)verwendet AD FS Bedingungen wie z. b. den *Konto Partner* \(auch als *Identitäts Anbieter* im AD FS Verwaltungs-Snap\-in\) und *Ressourcen Partner* \(auch als vertrauende *Seite* im AD FS Verwaltungs-Snap-in\-bezeichnet, um die Organisation zu unterscheiden, die die Konten\) dem Konto Partner \(der Organisation hostet\) der Ressourcen Partner\).\-\(  
   
 Beim [Web SSO Design](Web-SSO-Design.md)übernimmt die Organisation sowohl die Kontopartnerrolle als auch die Ressourcenpartnerrolle, da die Organisation den eigenen Benutzern Zugriff auf ihre Anwendungen gewährt.  
   
@@ -41,7 +41,7 @@ In den folgenden Themen werden einige der AD FS Partner Organisationskonzepte er
   
 -   [Bereitstellen von AD FS in der Ressourcenpartnerorganisation](Deploying-AD-FS-in-the-Resource-Partner-Organization-2012.md)  
   
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
 
 

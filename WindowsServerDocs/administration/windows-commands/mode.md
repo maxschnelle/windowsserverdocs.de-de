@@ -46,17 +46,17 @@ mode com<M>[:] [baud=<B>] [parity=<P>] [data=<D>] [stop=<S>] [to={on|off}] [xon=
 
 |  Parameter  |                                                                                                                                                                                     Beschreibung                                                                                                                                                                                     |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Com @ no__t-0M > [:]  |                                                                                                                                                      Gibt die Nummer des asynchronen prncnfg. vbshrton-Kommunikationsports an.                                                                                                                                                      |
-|  Baudrate = \<B >  | Gibt die Übertragungsrate in Bits pro Sekunde an. In der folgenden Tabelle sind die gültigen Abkürzungen für *B* und ihre zugehörigen Sätze aufgeführt.</br>-   **11** = 110 Baudrate</br>-   **15** = 150 Baudrate</br>-   **30** = 300 Baudrate</br>-   **60** = 600 Baudrate</br>-   **12** = 1200 Baudrate</br>-   **24** = 2400 Baudrate</br>-   **48** = 4800 Baudrate</br>-   **96** = 9600 Baudrate</br>-   **19** = 19.200 Baudrate |
-| Parität = \<p > |                              Gibt an, wie das System das Paritäts Bit zum Überprüfen von Übertragungsfehlern verwendet. In der folgenden Tabelle sind gültige Werte für *P*aufgeführt. Der Standardwert ist **e**. Nicht alle Computer unterstützen die Werte **m** und **s**.</br>-   **n** = None</br>-   **e** = auch</br>-   **o** = ungerade</br>-   **m** = Markierung</br>-   **s** = Speicherplatz                              |
-|  Data = \<d >  |                                                                                                    Gibt die Anzahl der Datenbits in einem Zeichen an. Gültige Werte für **d** liegen im Bereich von 5 bis 8. Der Standardwert ist 7. Die Werte 5 und 6 werden nicht von allen Computern unterstützt.                                                                                                     |
-|  halte = \<s >  |                                                                                  Gibt die Anzahl von Stoppbits an, die das Ende eines Zeichens definieren: 1, 1,5 oder 2. Wenn die Baudrate 110 beträgt, ist der Standardwert 2. Andernfalls ist der Standardwert 1. Der Wert 1,5 wird nicht von allen Computern unterstützt.                                                                                   |
+| Com-\<M > [:]  |                                                                                                                                                      Gibt die Nummer des asynchronen prncnfg. vbshrton-Kommunikationsports an.                                                                                                                                                      |
+|  Baud =\<B >  | Gibt die Übertragungsrate in Bits pro Sekunde an. In der folgenden Tabelle sind die gültigen Abkürzungen für *B* und ihre zugehörigen Sätze aufgeführt.</br>-   **11** = 110 Baudrate</br>-   **15** = 150 Baudrate</br>-   **30** = 300 Baudrate</br>-   **60** = 600 Baudrate</br>-   **12** = 1200 Baudrate</br>-   **24** = 2400 Baudrate</br>-   **48** = 4800 Baudrate</br>-   **96** = 9600 Baudrate</br>-   **19** = 19.200 Baudrate |
+| Parität =\<P > |                              Gibt an, wie das System das Paritäts Bit zum Überprüfen von Übertragungsfehlern verwendet. In der folgenden Tabelle sind gültige Werte für *P*aufgeführt. Der Standardwert ist **e**. Nicht alle Computer unterstützen die Werte **m** und **s**.</br>-   **n** = None</br>-   **e** = auch</br>-   **o** = ungerade</br>-   **m** = Markierung</br>-   **s** = Leerraum                              |
+|  Data =\<D >  |                                                                                                    Gibt die Anzahl der Datenbits in einem Zeichen an. Gültige Werte für **d** liegen im Bereich von 5 bis 8. Der Standardwert ist 7. Die Werte 5 und 6 werden nicht von allen Computern unterstützt.                                                                                                     |
+|  beendet =\<S >  |                                                                                  Gibt die Anzahl von Stoppbits an, die das Ende eines Zeichens definieren: 1, 1,5 oder 2. Wenn die Baudrate 110 beträgt, ist der Standardwert 2. Andernfalls ist der Standardwert 1. Der Wert 1,5 wird nicht von allen Computern unterstützt.                                                                                   |
 |   in = {on    |                                                                                                                                                                                        abgeschrieben                                                                                                                                                                                         |
 |   XOn = {on   |                                                                                                                                                                                        abgeschrieben                                                                                                                                                                                         |
 |  odsr = {on   |                                                                                                                                                                                        abgeschrieben                                                                                                                                                                                         |
 |  OCTs = {on   |                                                                                                                                                                                        abgeschrieben                                                                                                                                                                                         |
-|   DTR = {on   |                                                                                                                                                                                         off                                                                                                                                                                                         |
-|   RTS = {on   |                                                                                                                                                                                         off                                                                                                                                                                                         |
+|   DTR = {on   |                                                                                                                                                                                         Ortung erlauben                                                                                                                                                                                         |
+|   RTS = {on   |                                                                                                                                                                                         Ortung erlauben                                                                                                                                                                                         |
 |  idsr = {on   |                                                                                                                                                                                        abgeschrieben                                                                                                                                                                                         |
 |     /?      |                                                                                                                                                                        Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                         |
 
@@ -72,7 +72,7 @@ mode [<Device>] [/status]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<gerät >|Gibt den Namen des Geräts an, für das der Status angezeigt werden soll.|
+|\<Gerät >|Gibt den Namen des Geräts an, für das der Status angezeigt werden soll.|
 |/status|Fordert den Status sämtlicher umgeleiteter paralleler Drucker an. Sie können die Befehlszeilenoption **/Status** als **/STA**abkürzen.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
@@ -92,8 +92,8 @@ mode lpt<N>[:]=com<M>[:]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|LPT @ no__t-0n > [:]|Erforderlich. Gibt den parallelen Port an. Gültige Werte für *N* liegen im Bereich von 1 bis 3.|
-|com @ no__t-0M > [:]|Erforderlich. Gibt den seriellen Anschluss an. Gültige Werte für *M* liegen im Bereich von 1 bis 4.|
+|LPT\<N > [:]|Erforderlich. Gibt den parallelen Port an. Gültige Werte für *N* liegen im Bereich von 1 bis 3.|
+|com-\<M > [:]|Erforderlich. Gibt den seriellen Anschluss an. Gültige Werte für *M* liegen im Bereich von 1 bis 4.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ### <a name="remarks"></a>Hinweise
@@ -128,9 +128,9 @@ mode <Device> codepage [/status]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<gerät >|Erforderlich. Gibt das Gerät an, für das Sie eine Codepage auswählen möchten. CON ist der einzige gültige Name für ein Gerät.|
+|\<Gerät >|Erforderlich. Gibt das Gerät an, für das Sie eine Codepage auswählen möchten. CON ist der einzige gültige Name für ein Gerät.|
 |Codepage SELECT =|Erforderlich. Gibt an, welche Codepage mit dem angegebenen Gerät verwendet werden soll. Sie können die **Codepage** **Select** als **CP** **SEL**abkürzen.|
-|\<YYY >|Erforderlich. Gibt die Nummer der zu ausgewäfenden Codepage an. In der folgenden Liste werden die einzelnen Codepages, die unterstützt werden, sowie Ihr Land/Ihre Region oder Sprache angezeigt</br>437: USA</br>850: Mehrsprachig (lateinisch I)</br>852: Slawisch (Lateinisch II)</br>855: Kyrillisch (Russisch)</br>857: Türkisch</br>860: Portugiesisch</br>861: Isländisch</br>863: Französisch (Kanada)</br>865: Nordischen</br>866: Russisch</br>869: Modernes Griechisch|
+|\<yyy >|Erforderlich. Gibt die Nummer der zu ausgewäfenden Codepage an. In der folgenden Liste werden die einzelnen Codepages, die unterstützt werden, sowie Ihr Land/Ihre Region oder Sprache angezeigt</br>437: USA</br>850: mehrsprachig (lateinisch I)</br>852: slawisch (Lateinisch II)</br>855: Kyrillisch (Russisch)</br>857: Türkisch</br>860: Portugiesisch</br>861: Isländisch</br>863: Französisch (Kanada)</br>865: Nordisch</br>866: Russisch</br>869: modernes Griechisch|
 |Codepage|Erforderlich. Zeigt die Anzahl der Codepages (sofern vorhanden) an, die für das angegebene Gerät ausgewählt wurden.|
 |/status|Zeigt die Anzahl der aktuellen Codepages an, die für das angegebene Gerät ausgewählt wurden. Sie können **/Status** auf **/STA**abkürzen. Unabhängig davon, ob Sie **/Status**angeben, wird im **Modus "Codepage** " die Anzahl der Codepages angezeigt, die für das angegebene Gerät ausgewählt wurden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
@@ -148,8 +148,8 @@ mode con[:] [cols=<C>] [lines=<N>]
 |Parameter|Beschreibung|
 |---------|-----------|
 |con [:]|Erforderlich. Gibt an, dass die Änderung für das Eingabe Aufforderungs Fenster gilt.|
-|cols = \<C >|Gibt die Anzahl der Spalten im Bildschirm Puffer der Eingabeaufforderung an.|
-|Lines = \<n >|Gibt die Anzahl der Zeilen im Bildschirm Puffer der Eingabeaufforderung an.|
+|cols =\<C >|Gibt die Anzahl der Spalten im Bildschirm Puffer der Eingabeaufforderung an.|
+|Lines =\<N >|Gibt die Anzahl der Zeilen im Bildschirm Puffer der Eingabeaufforderung an.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="BKMK_6"></a>So legen Sie die typematische Tastatur Rate fest
@@ -165,8 +165,8 @@ mode con[:] [rate=<R> delay=<D>]
 |Parameter|Beschreibung|
 |---------|-----------|
 |con [:]|Erforderlich. Verweist auf die Tastatur.|
-|Rate = \<R >|Gibt die Rate an, mit der ein Zeichen auf dem Bildschirm wiederholt wird, wenn Sie eine Taste gedrückt halten.|
-|Delay = \<d >|Gibt die Zeitspanne an, die verbleibt, nachdem Sie eine Taste gedrückt halten, bevor die Zeichenausgabe wiederholt wird.|
+|Rate =\<R >|Gibt die Rate an, mit der ein Zeichen auf dem Bildschirm wiederholt wird, wenn Sie eine Taste gedrückt halten.|
+|Delay =\<D >|Gibt die Zeitspanne an, die verbleibt, nachdem Sie eine Taste gedrückt halten, bevor die Zeichenausgabe wiederholt wird.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ### <a name="remarks"></a>Hinweise

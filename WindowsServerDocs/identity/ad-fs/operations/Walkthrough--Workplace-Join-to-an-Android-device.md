@@ -29,8 +29,8 @@ ms.locfileid: "71407471"
 
 1.  Sie müssen Azure Authenticator Anwendung auf Ihrem Gerät installieren, um ein Geschäftskonto zu erstellen, mit dem Ihr Gerät mit dem Arbeitsplatz Beitritt verknüpft wird. Die folgende URL enthält Anweisungen zum Installieren der Azure Authenticator-App auf Ihrem Android-Gerät und zum Hinzufügen eines Geschäfts Kontos. Das Geschäftskonto macht Ihr Android-Gerät in ein vertrauenswürdiges Gerät und bietet einmaliges Anmelden (Single Sign-on, SSO) für die Anwendungen auf dem Gerät. Sie können das vertrauenswürdige Gerät verwenden, um auf Webanwendungen und moderne Branchen Anwendungen zuzugreifen, wie Sie vom IT-Administrator empfohlen werden. Weitere Informationen finden Sie unter [Azure Authenticator für Android](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to).
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [Arbeitsplatz Beitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
- Einrichten des lokalen[bedingten Zugriffs mithilfe Azure Active Directory Device Registration Dienstanbieter](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)
+[Einrichten des lokalen bedingten Zugriffs mithilfe Azure Active Directory Device Registration Dienstanbieter](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)
 
 

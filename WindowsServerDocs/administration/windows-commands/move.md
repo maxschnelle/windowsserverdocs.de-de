@@ -40,8 +40,8 @@ move [{/y | /-y}] [<Source>] [<Target>]
 |---------|-----------|
 |/y|Unterdrückt die Eingabeaufforderung, um zu bestätigen, dass Sie eine vorhandene Zieldatei überschreiben möchten.|
 |/-y|Bewirkt, dass die Aufforderung bestätigt, dass Sie eine vorhandene Zieldatei überschreiben möchten.|
-|> der @no__t 0quelle|Gibt den Pfad und den Namen der zu verschiebenden Dateien an. Wenn Sie ein Verzeichnis verschieben oder umbenennen möchten, sollte *Quelle* der aktuelle Verzeichnispfad und-Name sein.|
-|\<target >|Gibt den Pfad und den Namen zum Verschieben von Dateien an. Wenn Sie ein Verzeichnis verschieben oder umbenennen möchten, sollte *Ziel* der gewünschte Verzeichnispfad und-Name sein.|
+|> der \<Quelle|Gibt den Pfad und den Namen der zu verschiebenden Dateien an. Wenn Sie ein Verzeichnis verschieben oder umbenennen möchten, sollte *Quelle* der aktuelle Verzeichnispfad und-Name sein.|
+|\<Ziel >|Gibt den Pfad und den Namen zum Verschieben von Dateien an. Wenn Sie ein Verzeichnis verschieben oder umbenennen möchten, sollte *Ziel* der gewünschte Verzeichnispfad und-Name sein.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
@@ -51,7 +51,7 @@ move [{/y | /-y}] [<Source>] [<Target>]
 
 ## <a name="BKMK_examples"></a>Beispiele
 
-Wenn Sie alle Dateien mit der Erweiterung. xls aus dem Verzeichnis \Data in das Verzeichnis \Second_Q\Reports verschieben möchten, geben Sie Folgendes ein:
+Wenn Sie alle Dateien mit der Erweiterung. xls aus dem Verzeichnis \Data in das Verzeichnis \ Second_Q \Reports verschieben möchten, geben Sie Folgendes ein:
 ```
 move \data\*.xls \second_q\reports\ 
 ```

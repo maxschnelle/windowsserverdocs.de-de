@@ -118,7 +118,7 @@ Suchen Sie nach Ereignissen aus der Quelle RasClient. Alle Fehlermeldungen geben
 
 ## <a name="nps-logs"></a>NPS-Protokolle
 
-NPS erstellt und speichert die NPS-Buchhaltungs Protokolle. Standardmäßig werden diese in "% SystemRoot% \\system32 @ no__t-1logfiles @ no__t-2" in einer Datei namens "*xxxx*. txt" gespeichert, wobei *xxxx* das Datum ist, an dem die Datei erstellt wurde.
+NPS erstellt und speichert die NPS-Buchhaltungs Protokolle. Standardmäßig werden diese in% SystemRoot%\\System32\\Logfiles\\ in einer Datei namens in*xxxx*. txt gespeichert, wobei *xxxx* das Datum ist, an dem die Datei erstellt wurde.
 
 Standardmäßig sind diese Protokolle im Format für durch Trennzeichen getrennte Werte enthalten, Sie enthalten jedoch keine Überschriften Zeile. Die Überschriften Zeile lautet:
 
@@ -132,7 +132,7 @@ Die NPS-Protokolle können bei der Diagnose von Richtlinien bezogenen Problemen 
 
 ## <a name="vpn_profileps1-script-issues"></a>VPN_Profile. ps1-Skript Probleme
 
-Die häufigsten Probleme beim manuellen Ausführen des VPN_ Profile. ps1-Skripts sind:
+Die häufigsten Probleme beim manuellen Ausführen des VPN_ Profile. ps1-Skripts umfassen Folgendes:
 
 - Verwenden Sie ein Remote Verbindungs Tool?  Stellen Sie sicher, dass Sie RDP oder eine andere Remote Verbindungsmethode nicht verwenden, da Sie mit der Erkennung von Benutzer Anmelde Informationen verwendet wird.
 
@@ -170,14 +170,14 @@ Eine geringfügige Fehlkonfiguration kann dazu führen, dass die Client Verbindu
 
   - Der Benutzer verfügt über ein gültiges Client Authentifizierungszertifikat im persönlichen Zertifikat Speicher, das nicht von Azure AD ausgestellt wurde.
 
-  - Der Abschnitt " \<VPN-Profil\> tlsextensions" fehlt oder enthält nicht den **\<ekuname\>Aad Conditional Access\</EKUName\>\<ekuoid.\>1.3.6.1.4.1.311.87 </EKUOID\>\> \<\>\>ekuname > Aad Conditional Access </EKUName ekuoid 1.3.6.1.4.1.311.87 </EKUOID\<** Einträge. Die \<> Einträge von ekuname > und \<ekuoid geben dem VPN-Client an, welches Zertifikat aus dem Zertifikat Speicher des Benutzers abgerufen werden soll, wenn das Zertifikat an den VPN-Server übergeben wird. Ohne diesen Vorgang verwendet der VPN-Client ein gültiges Client Authentifizierungszertifikat, das sich im Zertifikat Speicher des Benutzers befindet, und die Authentifizierung ist erfolgreich. 
+  - Der Abschnitt VPN-Profil \<tlsextensions\> ist entweder nicht vorhanden oder enthält nicht den **\<ekuname\>Aad Conditional Access\</EKUName\>\<ekuoid\>1.3.6.1.4.1.311.87 </EKUOID\>\<ekuname > Aad Conditional Access </EKUName\>\<ekuoid\>1.3.6.1.4.1.311.87 </EKUOID\>** Einträge. Mit den \<ekuname > und \<ekuoid-> Einträgen wird dem VPN-Client mitgeteilt, welches Zertifikat aus dem Zertifikat Speicher des Benutzers abgerufen werden soll, wenn das Zertifikat an den VPN-Server übergeben wird. Ohne diesen Vorgang verwendet der VPN-Client ein gültiges Client Authentifizierungszertifikat, das sich im Zertifikat Speicher des Benutzers befindet, und die Authentifizierung ist erfolgreich. 
 
   - Der RADIUS-Server (NPS) wurde nicht so konfiguriert, dass nur Client Zertifikate akzeptiert werden, die die ID des **bedingten Aad-Zugriffs** enthalten.
 
 - **Mögliche Lösung.** Gehen Sie folgendermaßen vor, um diese Schleife zu verwenden:
 
   1. Führen Sie in Windows PowerShell das Cmdlet **Get-WMIObject** zum Sichern der VPN-Profil Konfiguration aus. 
-  2. Überprüfen Sie, ob die  **\<Abschnitte tlsextensions >** ,  **\<ekuname >** und  **\<ekuoid >** vorhanden sind, und zeigen Sie den richtigen Namen und die OID an.
+  2. Vergewissern Sie sich, dass die Abschnitte **\<tlsextensions >** , **\<ekuname >** und **\<ekuoid >** vorhanden sind, und zeigen Sie den richtigen Namen und die OID an.
       
       ```powershell
       PS C:\> Get-WmiObject -Class MDM_VPNv2_01 -Namespace root\cimv2\mdm\dmmap
@@ -277,9 +277,9 @@ Eine geringfügige Fehlkonfiguration kann dazu führen, dass die Client Verbindu
       Encryption test passed
      ```
      >[!NOTE]
-     >Wenn ein Zertifikat vom Aussteller **CN = Microsoft VPN Root CA Gen 1** im persönlichen Speicher des Benutzers vorhanden ist, der Benutzer aber durch Auswählen von **X** zum Schließen der oops-Nachricht Zugriff erhalten hat, erfassen Sie CAPI2-Ereignisprotokolle, um zu überprüfen, ob das Zertifikat, das zum Authentifizieren verwendet wurde, ein ein gültiges Client Authentifizierungszertifikat, das nicht von der Microsoft-VPN-Stamm Zertifizierungsstelle ausgestellt wurde.
+     >Wenn ein Zertifikat vom Aussteller **CN = Microsoft VPN Root CA Gen 1** im persönlichen Speicher des Benutzers vorhanden ist, der Benutzer aber durch Auswählen von **X** zum Schließen der oops-Nachricht Zugriff erhalten hat, erfassen Sie CAPI2-Ereignisprotokolle, um zu überprüfen, ob das Zertifikat, das für die Authentifizierung verwendet wurde, ein gültiges Client Authentifizierungszertifikat war, das von der Microsoft-VPN-Stamm Zertifizierungsstelle
 
-  4. Wenn ein gültiges Client Authentifizierungszertifikat im persönlichen Speicher des Benutzers vorhanden ist, tritt bei der Verbindung ein Fehler auf (wie), nachdem der Benutzer das **X** ausgewählt hat, und wenn die  **\<tlsextensions->** ,  **\<ekuname >** und  **\<Ekuoid->** Abschnitte vorhanden sind und die richtigen Informationen enthalten.
+  4. Wenn ein gültiges Client Authentifizierungszertifikat im persönlichen Speicher des Benutzers vorhanden ist, tritt bei der Verbindung ein Fehler auf (wie), nachdem der Benutzer das **X** ausgewählt hat, und wenn die **\<tlsextensions >** , **\<ekuname >** und **\<ekuoid >** Abschnitte vorhanden sind und die richtigen Informationen enthalten.
    
      Es wird eine Fehlermeldung angezeigt, die besagt, dass ein Zertifikat nicht gefunden werden kann, das mit dem Extensible Authenticate-Protokoll verwendet werden kann.
 

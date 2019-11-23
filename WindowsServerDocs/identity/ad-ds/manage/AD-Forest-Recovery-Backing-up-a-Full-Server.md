@@ -38,8 +38,8 @@ Schritte zur Installation in Windows Server 2008 und Windows Server 2008 R2 find
 3. Belassen Sie auf dem Bildschirm **Installationstyp** die Standard **rollenbasierte oder featurebasierte Installation** , und klicken Sie auf **weiter**.
 4. Klicken Sie auf dem Bildschirm **Server Auswahl** auf **weiter**.
 5. Klicken Sie auf dem Bildschirm **Server Rollen** auf **weiter**.
-6. Wählen Sie auf dem Bildschirm **Features** **Windows Server-Sicherung** aus, und klicken Sie auf **weiter**
-    @ no__t-4Install Backup @ no__t-5
+6. Wählen Sie auf dem Bildschirm **Features** die Option **Windows Server-Sicherung** aus, und klicken Sie auf **weiter**
+   ![Sicherung installieren](media/AD-Forest-Recovery-Backing-up-a-Full-Server/fullbackup2.png)
 7. Klicken Sie auf **Installieren**.
 8. Klicken Sie nach Abschluss der Installation auf **Schließen**.
 

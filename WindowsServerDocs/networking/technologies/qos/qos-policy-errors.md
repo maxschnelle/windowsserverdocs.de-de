@@ -17,7 +17,7 @@ ms.locfileid: "71405328"
 ---
 # <a name="qos-policy-error-and-event-messages"></a>Fehler-und Ereignismeldungen der QoS-Richtlinie
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Im folgenden finden Sie die Fehler-und Ereignismeldungen, die der QoS-Richtlinie zugeordnet sind.  
   
@@ -139,7 +139,7 @@ Im folgenden finden Sie eine Liste der Warnmeldungen der QoS-Richtlinie.
 |**Zunehmen**|Warnung|  
 |**SymbolicName**|EVENT_EQOS_WARNING_TEST_1|  
 |**Sprache**|Englisch|  
-|**Nachricht**|EQoS: * * * Tests @ no__t-0 @ no__t-1 @ no__t-2 [, mit einer Zeichenfolge] "% 2".|  
+|**Nachricht**|EQoS: * * * Testen\*\*\*[, mit einer Zeichenfolge] "%2".|  
   
 |||  
 |-|-|  
@@ -147,7 +147,7 @@ Im folgenden finden Sie eine Liste der Warnmeldungen der QoS-Richtlinie.
 |**Zunehmen**|Warnung|  
 |**SymbolicName**|EVENT_EQOS_WARNING_TEST_2|  
 |**Sprache**|Englisch|  
-|**Nachricht**|EQoS: * * * Tests @ no__t-0 @ no__t-1 @ no__t-2 [, mit zwei Zeichen folgen, Zeichenfolge1 ist] "% 2" [, Zeichenfolge2 ist] "% 3".|  
+|**Nachricht**|EQoS: * * * Testen von\*\*\*[, mit zwei Zeichen folgen, Zeichenfolge1 ist] "%2" [, Zeichenfolge2 ist] "%3".|  
   
 |||  
 |-|-|  
@@ -155,7 +155,7 @@ Im folgenden finden Sie eine Liste der Warnmeldungen der QoS-Richtlinie.
 |**Zunehmen**|Warnung|  
 |**SymbolicName**|EVENT_EQOS_WARNING_MACHINE_POLICY_VERSION|  
 |**Sprache**|Englisch|  
-|**Nachricht**|Die Computer-QoS-Richtlinie "% 2" weist eine ungültige Versionsnummer auf. Diese Richtlinie wird nicht angewendet.|  
+|**Nachricht**|Die Computer-QoS-Richtlinie "%2" weist eine ungültige Versionsnummer auf. Diese Richtlinie wird nicht angewendet.|  
   
 |||  
 |-|-|  
@@ -163,7 +163,7 @@ Im folgenden finden Sie eine Liste der Warnmeldungen der QoS-Richtlinie.
 |**Zunehmen**|Warnung|  
 |**SymbolicName**|EVENT_EQOS_WARNING_USER_POLICY_VERSION|  
 |**Sprache**|Englisch|  
-|**Nachricht**|Die Benutzer-QoS-Richtlinie "% 2" weist eine ungültige Versionsnummer auf. Diese Richtlinie wird nicht angewendet.|  
+|**Nachricht**|Die Benutzer-QoS-Richtlinie "%2" weist eine ungültige Versionsnummer auf. Diese Richtlinie wird nicht angewendet.|  
   
 |||  
 |-|-|  
@@ -171,7 +171,7 @@ Im folgenden finden Sie eine Liste der Warnmeldungen der QoS-Richtlinie.
 |**Zunehmen**|Warnung|  
 |**SymbolicName**|EVENT_EQOS_WARNING_MACHINE_POLICY_PROFILE_NOT_SPECIFIED|  
 |**Sprache**|Englisch|  
-|**Nachricht**|In der Computer-QoS-Richtlinie "% 2" ist kein DSCP-Wert oder eine Drosselungs Rate angegeben. Diese Richtlinie wird nicht angewendet.|  
+|**Nachricht**|In der Computer-QoS-Richtlinie "%2" ist kein DSCP-Wert oder eine Drosselungs Rate angegeben. Diese Richtlinie wird nicht angewendet.|  
   
 |||  
 |-|-|  
@@ -179,7 +179,7 @@ Im folgenden finden Sie eine Liste der Warnmeldungen der QoS-Richtlinie.
 |**Zunehmen**|Warnung|  
 |**SymbolicName**|EVENT_EQOS_WARNING_USER_POLICY_PROFILE_NOT_SPECIFIED|  
 |**Sprache**|Englisch|  
-|**Nachricht**|In der Benutzer-QoS-Richtlinie "% 2" ist kein DSCP-Wert oder eine Drosselungs Rate angegeben. Diese Richtlinie wird nicht angewendet.|  
+|**Nachricht**|In der Benutzer-QoS-Richtlinie "%2" ist kein DSCP-Wert oder eine Drosselungs Rate angegeben. Diese Richtlinie wird nicht angewendet.|  
   
 |||  
 |-|-|  
@@ -187,7 +187,7 @@ Im folgenden finden Sie eine Liste der Warnmeldungen der QoS-Richtlinie.
 |**Zunehmen**|Warnung|  
 |**SymbolicName**|EVENT_EQOS_WARNING_MACHINE_POLICY_QUOTA_EXCEEDED|  
 |**Sprache**|Englisch|  
-|**Nachricht**|Die maximale Anzahl von QoS-Richtlinien für Computer wurde überschritten. Die QoS-Richtlinie "% 2" und die nachfolgenden Computer-QoS-Richtlinien werden nicht angewendet.|  
+|**Nachricht**|Die maximale Anzahl von QoS-Richtlinien für Computer wurde überschritten. Die QoS-Richtlinie "%2" und die nachfolgenden Computer-QoS-Richtlinien werden nicht angewendet.|  
   
 |||  
 |-|-|  
@@ -195,7 +195,7 @@ Im folgenden finden Sie eine Liste der Warnmeldungen der QoS-Richtlinie.
 |**Zunehmen**|Warnung|  
 |**SymbolicName**|EVENT_EQOS_WARNING_USER_POLICY_QUOTA_EXCEEDED|  
 |**Sprache**|Englisch|  
-|**Nachricht**|Die maximale Anzahl von Benutzer-QoS-Richtlinien wurde überschritten. Die QoS-Richtlinie "% 2" und die nachfolgenden Benutzer-QoS-Richtlinien werden nicht angewendet.|  
+|**Nachricht**|Die maximale Anzahl von Benutzer-QoS-Richtlinien wurde überschritten. Die QoS-Richtlinie "%2" und die nachfolgenden Benutzer-QoS-Richtlinien werden nicht angewendet.|  
   
 |||  
 |-|-|  
@@ -203,7 +203,7 @@ Im folgenden finden Sie eine Liste der Warnmeldungen der QoS-Richtlinie.
 |**Zunehmen**|Warnung|  
 |**SymbolicName**|EVENT_EQOS_WARNING_MACHINE_POLICY_CONFLICT|  
 |**Sprache**|Englisch|  
-|**Nachricht**|Die Computer-QoS-Richtlinie "% 2" steht potenziell in Konflikt mit anderen QoS-Richtlinien. Regeln zur Anwendung der Richtlinie finden Sie in der Dokumentation.|  
+|**Nachricht**|Die Computer-QoS-Richtlinie "%2" steht potenziell in Konflikt mit anderen QoS-Richtlinien. Regeln zur Anwendung der Richtlinie finden Sie in der Dokumentation.|  
   
 |||  
 |-|-|  
@@ -211,7 +211,7 @@ Im folgenden finden Sie eine Liste der Warnmeldungen der QoS-Richtlinie.
 |**Zunehmen**|Warnung|  
 |**SymbolicName**|EVENT_EQOS_WARNING_USER_POLICY_CONFLICT|  
 |**Sprache**|Englisch|  
-|**Nachricht**|Die Benutzer-QoS-Richtlinie "% 2" steht potenziell in Konflikt mit anderen QoS-Richtlinien. Regeln zur Anwendung der Richtlinie finden Sie in der Dokumentation.|  
+|**Nachricht**|Die Benutzer-QoS-Richtlinie "%2" steht potenziell in Konflikt mit anderen QoS-Richtlinien. Regeln zur Anwendung der Richtlinie finden Sie in der Dokumentation.|  
   
 |||  
 |-|-|  
@@ -219,7 +219,7 @@ Im folgenden finden Sie eine Liste der Warnmeldungen der QoS-Richtlinie.
 |**Zunehmen**|Warnung|  
 |**SymbolicName**|EVENT_EQOS_WARNING_MACHINE_POLICY_NO_FULLPATH_APPNAME|  
 |**Sprache**|Englisch|  
-|**Nachricht**|Die Computer-QoS-Richtlinie "% 2" wurde ignoriert, da der Anwendungspfad nicht verarbeitet werden kann. Der Anwendungspfad ist möglicherweise ungültig, enthält einen ungültigen Laufwerk Buchstaben oder enthält ein zugeordnetes Netzwerklaufwerk.|  
+|**Nachricht**|Die Computer-QoS-Richtlinie "%2" wurde ignoriert, da der Anwendungspfad nicht verarbeitet werden kann. Der Anwendungspfad ist möglicherweise ungültig, enthält einen ungültigen Laufwerk Buchstaben oder enthält ein zugeordnetes Netzwerklaufwerk.|  
   
 |||  
 |-|-|  
@@ -227,7 +227,7 @@ Im folgenden finden Sie eine Liste der Warnmeldungen der QoS-Richtlinie.
 |**Zunehmen**|Warnung|  
 |**SymbolicName**|EVENT_EQOS_WARNING_USER_POLICY_NO_FULLPATH_APPNAME|  
 |**Sprache**|Englisch|  
-|**Nachricht**|Die Benutzer-QoS-Richtlinie "% 2" wurde ignoriert, da der Anwendungspfad nicht verarbeitet werden kann. Der Anwendungspfad ist möglicherweise ungültig, enthält einen ungültigen Laufwerk Buchstaben oder enthält ein zugeordnetes Netzwerklaufwerk.|  
+|**Nachricht**|Die Benutzer-QoS-Richtlinie "%2" wurde ignoriert, da der Anwendungspfad nicht verarbeitet werden kann. Der Anwendungspfad ist möglicherweise ungültig, enthält einen ungültigen Laufwerk Buchstaben oder enthält ein zugeordnetes Netzwerklaufwerk.|  
   
 ## <a name="error-messages"></a>Fehlermeldungen  
 
@@ -239,7 +239,7 @@ Im folgenden finden Sie eine Liste der QoS-Richtlinien-Fehlermeldungen.
 |**Zunehmen**|Fehler|  
 |**SymbolicName**|EVENT_EQOS_ERROR_MACHINE_POLICY_REFERESH|  
 |**Sprache**|Englisch|  
-|**Nachricht**|Fehler beim Aktualisieren der QoS-Richtlinien des Computers. Fehlercode: "% 2".|  
+|**Nachricht**|Fehler beim Aktualisieren der QoS-Richtlinien des Computers. Fehlercode: "%2".|  
   
 |||  
 |-|-|  
@@ -247,7 +247,7 @@ Im folgenden finden Sie eine Liste der QoS-Richtlinien-Fehlermeldungen.
 |**Zunehmen**|Fehler|  
 |**SymbolicName**|EVENT_EQOS_ERROR_USER_POLICY_REFERESH|  
 |**Sprache**|Englisch|  
-|**Nachricht**|Fehler beim Aktualisieren der Benutzer-QoS-Richtlinien. Fehlercode: "% 2".|  
+|**Nachricht**|Fehler beim Aktualisieren der Benutzer-QoS-Richtlinien. Fehlercode: "%2".|  
   
 |||  
 |-|-|  
@@ -255,7 +255,7 @@ Im folgenden finden Sie eine Liste der QoS-Richtlinien-Fehlermeldungen.
 |**Zunehmen**|Fehler|  
 |**SymbolicName**|EVENT_EQOS_ERROR_OPENING_MACHINE_POLICY_ROOT_KEY|  
 |**Sprache**|Englisch|  
-|**Nachricht**|QoS konnte den Stamm Schlüssel auf Computer Ebene für QoS-Richtlinien nicht öffnen. Fehlercode: "% 2".|  
+|**Nachricht**|QoS konnte den Stamm Schlüssel auf Computer Ebene für QoS-Richtlinien nicht öffnen. Fehlercode: "%2".|  
   
 |||  
 |-|-|  
@@ -263,7 +263,7 @@ Im folgenden finden Sie eine Liste der QoS-Richtlinien-Fehlermeldungen.
 |**Zunehmen**|Fehler|  
 |**SymbolicName**|EVENT_EQOS_ERROR_OPENING_USER_POLICY_ROOT_KEY|  
 |**Sprache**|Englisch|  
-|**Nachricht**|QoS konnte den Stamm Schlüssel auf Benutzerebene für QoS-Richtlinien nicht öffnen. Fehlercode: "% 2".|  
+|**Nachricht**|QoS konnte den Stamm Schlüssel auf Benutzerebene für QoS-Richtlinien nicht öffnen. Fehlercode: "%2".|  
   
 |||  
 |-|-|  
@@ -271,7 +271,7 @@ Im folgenden finden Sie eine Liste der QoS-Richtlinien-Fehlermeldungen.
 |**Zunehmen**|Fehler|  
 |**SymbolicName**|EVENT_EQOS_ERROR_MACHINE_POLICY_KEYNAME_TOO_LONG|  
 |**Sprache**|Englisch|  
-|**Nachricht**|Eine Computer-QoS-Richtlinie überschreitet die maximal zulässige namens Länge. Die Richtlinie für die Beschädigung wird unter dem Schlüssel der QoS-Richtlinie auf Computer Ebene mit dem Index "% 2" aufgeführt.|  
+|**Nachricht**|Eine Computer-QoS-Richtlinie überschreitet die maximal zulässige namens Länge. Die Richtlinie für die Beschädigung wird unter dem Schlüssel der QoS-Richtlinie auf Computer Ebene mit dem Index "%2" aufgeführt.|  
   
 |||  
 |-|-|  
@@ -279,7 +279,7 @@ Im folgenden finden Sie eine Liste der QoS-Richtlinien-Fehlermeldungen.
 |**Zunehmen**|Fehler|  
 |**SymbolicName**|EVENT_EQOS_ERROR_USER_POLICY_KEYNAME_TOO_LONG|  
 |**Sprache**|Englisch|  
-|**Nachricht**|Eine Benutzer-QoS-Richtlinie überschreitet die maximal zulässige namens Länge. Die Richtlinie für die Beschädigung wird unter dem Schlüssel der QoS-Richtlinie auf Benutzerebene mit dem Index "% 2" aufgeführt.|  
+|**Nachricht**|Eine Benutzer-QoS-Richtlinie überschreitet die maximal zulässige namens Länge. Die Richtlinie für die Beschädigung wird unter dem Schlüssel der QoS-Richtlinie auf Benutzerebene mit dem Index "%2" aufgeführt.|  
   
 |||  
 |-|-|  
@@ -287,7 +287,7 @@ Im folgenden finden Sie eine Liste der QoS-Richtlinien-Fehlermeldungen.
 |**Zunehmen**|Fehler|  
 |**SymbolicName**|EVENT_EQOS_ERROR_MACHINE_POLICY_KEYNAME_SIZE_ZERO|  
 |**Sprache**|Englisch|  
-|**Nachricht**|Eine Computer-QoS-Richtlinie hat einen Namen mit der Länge Null. Die Richtlinie für die Beschädigung wird unter dem Schlüssel der QoS-Richtlinie auf Computer Ebene mit dem Index "% 2" aufgeführt.|  
+|**Nachricht**|Eine Computer-QoS-Richtlinie hat einen Namen mit der Länge Null. Die Richtlinie für die Beschädigung wird unter dem Schlüssel der QoS-Richtlinie auf Computer Ebene mit dem Index "%2" aufgeführt.|  
   
 |||  
 |-|-|  
@@ -295,7 +295,7 @@ Im folgenden finden Sie eine Liste der QoS-Richtlinien-Fehlermeldungen.
 |**Zunehmen**|Fehler|  
 |**SymbolicName**|EVENT_EQOS_ERROR_USER_POLICY_KEYNAME_SIZE_ZERO|  
 |**Sprache**|Englisch|  
-|**Nachricht**|Eine Benutzer-QoS-Richtlinie hat einen Namen mit der Länge Null. Die Richtlinie für die Beschädigung wird unter dem Schlüssel der QoS-Richtlinie auf Benutzerebene mit dem Index "% 2" aufgeführt.|  
+|**Nachricht**|Eine Benutzer-QoS-Richtlinie hat einen Namen mit der Länge Null. Die Richtlinie für die Beschädigung wird unter dem Schlüssel der QoS-Richtlinie auf Benutzerebene mit dem Index "%2" aufgeführt.|  
   
 |||  
 |-|-|  
@@ -303,7 +303,7 @@ Im folgenden finden Sie eine Liste der QoS-Richtlinien-Fehlermeldungen.
 |**Zunehmen**|Fehler|  
 |**SymbolicName**|EVENT_EQOS_ERROR_OPENING_MACHINE_POLICY_SUBKEY|  
 |**Sprache**|Englisch|  
-|**Nachricht**|QoS konnte den Registrierungs Unterschlüssel für eine Computer-QoS-Richtlinie nicht öffnen. Die Richtlinie wird unter dem Schlüssel der QoS-Richtlinie auf Computer Ebene mit dem Index "% 2" aufgeführt.|  
+|**Nachricht**|QoS konnte den Registrierungs Unterschlüssel für eine Computer-QoS-Richtlinie nicht öffnen. Die Richtlinie wird unter dem Schlüssel der QoS-Richtlinie auf Computer Ebene mit dem Index "%2" aufgeführt.|  
   
 |||  
 |-|-|  
@@ -311,7 +311,7 @@ Im folgenden finden Sie eine Liste der QoS-Richtlinien-Fehlermeldungen.
 |**Zunehmen**|Fehler|  
 |**SymbolicName**|EVENT_EQOS_ERROR_OPENING_USER_POLICY_SUBKEY|  
 |**Sprache**|Englisch|  
-|**Nachricht**|QoS konnte den Registrierungs Unterschlüssel für eine Benutzer-QoS-Richtlinie nicht öffnen. Die Richtlinie wird unter dem Schlüssel der QoS-Richtlinie auf Benutzerebene mit dem Index "% 2" aufgeführt.|  
+|**Nachricht**|QoS konnte den Registrierungs Unterschlüssel für eine Benutzer-QoS-Richtlinie nicht öffnen. Die Richtlinie wird unter dem Schlüssel der QoS-Richtlinie auf Benutzerebene mit dem Index "%2" aufgeführt.|  
   
 |||  
 |-|-|  
@@ -319,7 +319,7 @@ Im folgenden finden Sie eine Liste der QoS-Richtlinien-Fehlermeldungen.
 |**Zunehmen**|Fehler|  
 |**SymbolicName**|EVENT_EQOS_ERROR_PROCESSING_MACHINE_POLICY_FIELD|  
 |**Sprache**|Englisch|  
-|**Nachricht**|QoS konnte das Feld "% 2" für die Computer-QoS-Richtlinie "% 3" nicht lesen oder überprüfen.|  
+|**Nachricht**|QoS konnte das Feld "%2" für die Computer-QoS-Richtlinie "%3" nicht lesen oder überprüfen.|  
   
 |||  
 |-|-|  
@@ -327,7 +327,7 @@ Im folgenden finden Sie eine Liste der QoS-Richtlinien-Fehlermeldungen.
 |**Zunehmen**|Fehler|  
 |**SymbolicName**|EVENT_EQOS_ERROR_PROCESSING_USER_POLICY_FIELD|  
 |**Sprache**|Englisch|  
-|**Nachricht**|QoS konnte das Feld "% 2" für die Benutzer-QoS-Richtlinie "% 3" nicht lesen oder überprüfen.|  
+|**Nachricht**|QoS konnte das Feld "%2" für die Benutzer-QoS-Richtlinie "%3" nicht lesen oder überprüfen.|  
   
 |||  
 |-|-|  
@@ -335,7 +335,7 @@ Im folgenden finden Sie eine Liste der QoS-Richtlinien-Fehlermeldungen.
 |**Zunehmen**|Fehler|  
 |**SymbolicName**|EVENT_EQOS_ERROR_SETTING_TCP_AUTOTUNING|  
 |**Sprache**|Englisch|  
-|**Nachricht**|QoS konnte die eingehende TCP-Durchsatz Ebene nicht lesen oder festlegen. Fehlercode: "% 2".|  
+|**Nachricht**|QoS konnte die eingehende TCP-Durchsatz Ebene nicht lesen oder festlegen. Fehlercode: "%2".|  
   
 |||  
 |-|-|  
@@ -343,7 +343,7 @@ Im folgenden finden Sie eine Liste der QoS-Richtlinien-Fehlermeldungen.
 |**Zunehmen**|Fehler|  
 |**SymbolicName**|EVENT_EQOS_ERROR_SETTING_APP_MARKING|  
 |**Sprache**|Englisch|  
-|**Nachricht**|QoS konnte die Außerkraftsetzungs Einstellung der DSCP-Markierung nicht lesen oder festlegen. Fehlercode: "% 2".|  
+|**Nachricht**|QoS konnte die Außerkraftsetzungs Einstellung der DSCP-Markierung nicht lesen oder festlegen. Fehlercode: "%2".|  
 
 Das nächste Thema dieses Handbuchs finden Sie unter [häufig gestellte Fragen zur QoS-Richtlinie](qos-policy-faq.md).
 

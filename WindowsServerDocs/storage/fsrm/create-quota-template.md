@@ -17,7 +17,7 @@ ms.locfileid: "71394155"
 ---
 # <a name="create-a-quota-template"></a>Erstellen einer Kontingentvorlage
 
-> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Eine *Kontingentvorlage* dient zum Definieren einer Speicherplatzbeschränkung, des Kontingenttyps (weich oder hart) und einer Gruppe von Benachrichtigungen, die automatisch generiert werden, wenn der Kontingentbedarf die definierten Schwellenwerte erreicht.
 
@@ -27,7 +27,7 @@ Wenn Sie Kontingente ausschließlich auf der Grundlage von Vorlagen erstellen, k
 
 1.  Klicken Sie unter **Kontingentverwaltung** auf den Knoten **Kontingentvorlagen**.
 
-2.  Klicken Sie mit der rechten Maustaste auf **Kontingentvorlagen**, und klicken Sie anschließend auf **Kontingentvorlage erstellen** (oder wählen Sie im **Aktionsbereich** die Option **Kontingentvorlage erstellen** aus). Das Dialogfeld **Kontingentvorlage erstellen** wird geöffnet.
+2.  Klicken Sie mit der rechten Maustaste auf **Kontingentvorlagen**, und klicken Sie anschließend auf **Kontingentvorlage erstellen** (oder wählen Sie im Aktionsbereich die Option **Kontingentvorlage erstellen** aus). Das Dialogfeld **Kontingentvorlage erstellen** wird geöffnet.
 
 3.  Wenn Sie die Eigenschaften einer vorhandenen Vorlage als Grundlage für eine neue Vorlage kopieren und verwenden möchten, wählen Sie in der Dropdownliste **Eigenschaften aus Kontingentvorlage kopieren** eine Vorlage aus, und klicken Sie anschließend auf Kopieren. Klicken Sie anschließend auf **Kopieren**.
 
@@ -67,7 +67,7 @@ Beispielsweise können Sie Schwellenwerte konfigurieren, um eine E-Mail-Nachrich
 
    - Um Administratoren zu benachrichtigen, wenn ein Schwellenwert erreicht wird, aktivieren Sie das Kontrollkästchen **E-Mail an die folgenden Administratoren senden** und geben Sie die Namen der administrativen Konten ein, die die Benachrichtigungen erhalten sollen. Verwenden Sie das Format <em>account@domain</em>, und verwenden Sie Semikolons zum Trennen mehrerer Konten.
    - Aktivieren Sie zum Senden der E-Mail an die Person, deren gespeicherte Datei den Kontingentschwelle erreicht hat, das Kontrollkästchen **E-Mail an den Benutzer senden, der den Schwellenwert überschritten hat**.
-   - Um die Nachricht zu konfigurieren, ändern Sie den vorgegebenen standardmäßigen Betreff und Textkörper. Der Text in Klammern fügt die Variableninformationen über das Kontingent-Ereignis ein, das die Benachrichtigung verursacht hat. Beispielsweise fügt die Variable **\[source IO Owner @ no__t-2** den Namen des Benutzers ein, der die Datei gespeichert hat, die den Kontingent Schwellenwert erreicht hat. Um zusätzliche Variablen in den Text einzufügen, klicken Sie auf **Variable einfügen**.
+   - Um die Nachricht zu konfigurieren, ändern Sie den vorgegebenen standardmäßigen Betreff und Textkörper. Der Text in Klammern fügt die Variableninformationen über das Kontingent-Ereignis ein, das die Benachrichtigung verursacht hat. Beispielsweise fügt die Variable **\[Quelle IO Owner\]** den Namen des Benutzers ein, der die Datei gespeichert hat, die den Kontingent Schwellenwert erreicht hat. Um zusätzliche Variablen in den Text einzufügen, klicken Sie auf **Variable einfügen**.
    - Wenn Sie weitere Header konfigurieren möchten (einschließlich Von, Cc, Bcc und Antwort an), klicken Sie auf **Weitere E-Mail-Kopfzeilen**.
 
 4. So protokollieren Sie ein Ereignis:
@@ -88,7 +88,7 @@ Beispielsweise können Sie Schwellenwerte konfigurieren, um eine E-Mail-Nachrich
 
 8. Wiederholen Sie diese Schritte aus, wenn Sie zusätzliche Benachrichtigungsschwellenwerte für die Kontingentvorlage konfigurieren möchten.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 -   [Kontingentverwaltung](quota-management.md)
 -    [Festlegen der Optionen des Ressourcen-Managers für Dateiserver](setting-file-server-resource-manager-options.md)

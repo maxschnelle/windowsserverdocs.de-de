@@ -23,7 +23,7 @@ Beim Überprüfen der SQL-Konnektivität ist das erste zu testende, wenn AD FS �
 
 ### <a name="to-acquire-the-sql-connection-string"></a>So erhalten Sie die SQL-Verbindungs Zeichenfolge
 1.  Öffnen von Windows PowerShell
-2. Geben Sie Folgendes ein: `$adfs = gwmi -Namespace root/ADFS -Class SecurityTokenService` und drücken Sie die EINGABETASTE.
+2. Geben Sie Folgendes ein: `$adfs = gwmi -Namespace root/ADFS -Class SecurityTokenService` und drücken Sie die EINGABETASTE
 3. Geben Sie Folgendes ein: `$adfs.ConfigurationDatabaseConnectionString` und drücken Sie die EINGABETASTE.
 4. Die Informationen zur Verbindungs Zeichenfolge sollten angezeigt werden.
 ![](media/ad-fs-tshoot-sql/sql2.png)
@@ -36,10 +36,10 @@ Eine Universal Data Link Datei oder eine UDL-Datei ist im Grunde eine Textdatei,
 1. Öffnen Sie Editor, und speichern Sie die Datei als Test. udl.  Stellen Sie sicher, dass **alle Dateien** in der Dropdown-Datei für den **Dateityp "Speichern**unter" ausgewählt sind.
 2. Doppelklicken Sie auf "Test. udl".
 3. Geben Sie die folgenden Informationen ein: a. **Servernamen auswählen oder eingeben:**  Verwenden Sie die Datenquelle aus der Verbindungs Zeichenfolge oberhalb von b. **Geben Sie Informationen zum Anmelden am Server ein:**  Verwenden Sie das AD FS-Dienst Konto oder ein Konto, das über Berechtigungen zum Remote anmelden verfügt.  Wenn es sich bei dem Konto um ein Windows-Konto handelt, verwenden Sie die integrierte Authentifizierung.
-    c. **Wählen Sie die Datenbank auf dem Server aus:** Verwenden Sie den Anfangs Katalog aus der obigen Zeichenfolge.  Beispiel:  AdfsConfigurationV3.
-   ![test Connection @ no__t-1
+    c. **Wählen Sie die Datenbank auf dem Server aus:** Verwenden Sie den Anfangs Katalog aus der obigen Zeichenfolge.  Beispiel: AdfsConfigurationV3.
+   ![Verbindung testen](media/ad-fs-tshoot-sql/sql4.png)
 1. Klicken Sie auf **Verbindung testen**.</br>
-![success @ no__t-1
+![Erfolg](media/ad-fs-tshoot-sql/sql3.png)
 
 ## <a name="use-sql-server-management-studio-to-test-connectivity"></a>Verwenden von SQL Server Management Studio zum Testen der Konnektivität
 Sie können SSMS auch [herunterladen](https://go.microsoft.com/fwlink/?linkid=864329) und installieren, um die Datenbankkonnektivität zu testen.
@@ -49,9 +49,9 @@ Sie können SSMS auch [herunterladen](https://go.microsoft.com/fwlink/?linkid=86
 ![Installieren](media/ad-fs-tshoot-sql/sql5.png)
 1. Öffnen Sie SSMS, und geben Sie den Server Namen ein.  Die oben angegebene Datenquelle.
 2. Verwenden Sie das AD FS-Dienst Konto oder ein Konto, das über Berechtigungen zum Remote anmelden verfügt.  Wenn es sich bei dem Konto um ein Windows-Konto handelt, verwenden Sie die integrierte Authentifizierung.
-![connect @ no__t-1
+![Connect](media/ad-fs-tshoot-sql/sql6.png)
 1. Es sollte angezeigt werden, dass die linke Seite aufgefüllt ist.  Erweitern Sie Datenbanken, und vergewissern Sie sich, dass die AD FS Datenbanken angezeigt werden
-![ad FS-Datenbanken @ no__t-1
+![AD FS-Datenbanken](media/ad-fs-tshoot-sql/sql7.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

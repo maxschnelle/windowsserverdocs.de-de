@@ -39,13 +39,13 @@ Führen Sie die folgenden Schritte zur Installation und Konfiguration aus.
 5. Wählen Sie auf dem Bildschirm **Server Rollen** die Option **DNS-Server**aus, und **Klicken Sie**bei entsprechender Aufforderung auf **Features hinzufügen**
 6. Klicken Sie auf dem Bildschirm **Features** auf **weiter**.
 7. Lesen Sie die Informationen auf der Seite **DNS-Server** , und klicken Sie dann auf **weiter**.
-   ![dns-Server @ no__t-1  
+   ![DNS-Server](media/AD-Forest-Recovery-Configure-DNS/dns1.png)  
 8. Überprüfen Sie auf der Seite **Bestätigung** , ob die DNS-Server Rolle installiert wird, und klicken Sie dann auf **Installieren**. 
 
 ### <a name="to-configure-the-dns-server-service"></a>So konfigurieren Sie den DNS-Server Dienst
 
 1. Öffnen Sie Server-Manager, klicken Sie auf **Extras und dann auf** **DNS**.
-   ![dns-Server @ no__t-1
+   ![DNS-Server](media/AD-Forest-Recovery-Configure-DNS/dns2.png)
 2. Erstellen Sie DNS-Zonen für die gleichen DNS-Domänen Namen, die vor dem kritischen Funktionsfehler auf den DNS-Servern gehostet wurden. Weitere Informationen finden Sie unter Hinzufügen einer Forward-Lookupzone ([https://go.microsoft.com/fwlink/?LinkId=74574](https://go.microsoft.com/fwlink/?LinkId=74574)).
 3. Konfigurieren Sie die DNS-Daten so, wie Sie vor den kritischen Fehlern vorhanden waren. Zum Beispiel:  
 

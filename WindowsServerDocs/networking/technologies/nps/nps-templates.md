@@ -17,9 +17,9 @@ ms.locfileid: "71405312"
 ---
 # <a name="nps-templates"></a>NPS-Vorlagen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Mit dem Netzwerk Richtlinien Server-\(nps @ no__t-1-Vorlagen können Sie Konfigurationselemente erstellen, z. b. Remote Authentication Dial-in User Service \(radius @ no__t-3-Clients oder gemeinsame geheime Schlüssel, die Sie auf dem lokalen NPS wieder verwenden und für die Verwendung auf anderen NPSS.
+Mithilfe von Netzwerk Richtlinien Server-\(NPS-\) Vorlagen können Sie Konfigurationselemente erstellen, z. b. Remote Authentication Dial-in User Service \(RADIUS\) Clients oder gemeinsame geheime Schlüssel, die Sie auf dem lokalen NPS wieder verwenden und für die Verwendung auf anderen NPSS verwenden können.
 
 NPS-Vorlagen sind so konzipiert, dass der Zeit-und Kostenaufwand für die Konfiguration von NPS auf einem oder mehreren Servern reduziert wird. Die folgenden NPS-Vorlagen Typen sind für die Konfiguration in der Vorlagen Verwaltung verfügbar:
 
@@ -31,7 +31,7 @@ NPS-Vorlagen sind so konzipiert, dass der Zeit-und Kostenaufwand für die Konfig
 
 Das Konfigurieren einer Vorlage unterscheidet sich von der direkten Konfiguration des NPS. Das Erstellen einer Vorlage wirkt sich nicht auf die Funktionalität von NPS aus. Dies ist nur der Fall, wenn Sie die Vorlage an der entsprechenden Stelle in der NPS-Konsole auswählen, dass die Vorlage die NPS-Funktionalität beeinträchtigt. 
 
-Wenn Sie z. b. einen RADIUS-Client in der NPS-Konsole unter RADIUS-Clients und-Server konfigurieren, haben Sie die NPS-Konfiguration geändert und einen Schritt zur Konfiguration von NPS für die Kommunikation mit einem Ihrer Netzwerk Zugriffs Server durchgeführt, \(nases @ no__t-1. \(der nächste Schritt besteht darin, den NAS für die Kommunikation mit NPS zu konfigurieren. \) Wenn Sie jedoch eine neue RADIUS-Client Vorlage in der NPS-Konsole unter **Vorlagen Verwaltung** konfigurieren, anstatt einen neuen RADIUS-Client unter **RADIUS-Clients und-Server zu**erstellen, haben Sie eine Vorlage erstellt, aber Sie haben die NPS nicht geändert. Funktionen sind noch verfügbar. Um die NPS-Funktionalität zu ändern, müssen Sie die Vorlage am richtigen Speicherort in der NPS-Konsole auswählen.
+Wenn Sie z. b. einen RADIUS-Client in der NPS-Konsole unter RADIUS-Clients und-Server konfigurieren, haben Sie die NPS-Konfiguration geändert und einen Schritt zum Konfigurieren von NPS für die Kommunikation mit einem Ihrer Netzwerk Zugriffs Server \(NAS-\)vorgenommen. \(der nächste Schritt besteht darin, den NAS für die Kommunikation mit NPS zu konfigurieren. Wenn Sie jedoch eine neue RADIUS-Client Vorlage in der NPS-Konsole unter **Vorlagen Verwaltung** konfigurieren, anstatt einen neuen RADIUS-Client unter **RADIUS-Clients und-Server zu**erstellen, haben Sie eine Vorlage erstellt, aber Sie haben die NPS-Funktionalität noch nicht geändert.\) Um die NPS-Funktionalität zu ändern, müssen Sie die Vorlage am richtigen Speicherort in der NPS-Konsole auswählen.
 
 ## <a name="creating-templates"></a>Erstellen von Vorlagen
 

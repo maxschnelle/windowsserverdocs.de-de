@@ -15,13 +15,13 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71406352"
 ---
-# <a name="move-and-resize-the-hosted-cache-optional"></a>Verschieben und Ändern der Größe des gehosteten Caches \(optional @ no__t-1
+# <a name="move-and-resize-the-hosted-cache-optional"></a>Verschieben und Ändern der Größe des gehosteten Caches \(optional\)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Mit diesem Verfahren können Sie den gehosteten Cache auf das gewünschte Laufwerk und den gewünschten Ordner verschieben und den Speicherplatz angeben, der vom gehosteten Cache Server für den gehosteten Cache verwendet werden kann.
 
-Dieses Verfahren ist optional. Wenn der Standard Cache Speicherort \(% windir% \\serviceprofiles @ no__t-2networkservice @ no__t-3appdata @ no__t-4local @ no__t-5peerdistpub @ no__t-6 und Size –, 5% des gesamten Festplatten Speicherplatzes – für Ihre Bereitstellung geeignet ist, ist dies nicht der Fall. Sie müssen diese ändern.
+Dieses Verfahren ist optional. Wenn der Standard Cache Speicherort \(% windir%\\Service Profiles\\Network Service\\APPDATA\\local\\peerdistpub\) und Size – 5% des gesamten Festplatten Speicherplatzes – für Ihre Bereitstellung geeignet ist, müssen Sie Sie nicht ändern.
 
 Sie müssen Mitglied der Gruppe Administratoren sein, um dieses Verfahren auszuführen.
 
@@ -38,10 +38,10 @@ Sie müssen Mitglied der Gruppe Administratoren sein, um dieses Verfahren auszuf
     Set-BCCache -Path C:\datacache –MoveTo D:\datacache
     ``` 
 
-3.  Geben Sie den folgenden Befehl ein, um die Größe des gehosteten Caches zu ändern – insbesondere die datacache \- auf dem lokalen Computer. Drücken Sie die EINGABETASTE.
+3.  Geben Sie den folgenden Befehl ein, um die Größe des gehosteten Caches zu ändern – insbesondere die datacache-\- auf dem lokalen Computer. Drücken Sie die EINGABETASTE.
 
     > [!IMPORTANT]
-    > Ersetzen Sie vor dem Ausführen des folgenden Befehlsparameter Werte (z. b. \-prozentsatz) durch Werte, die für Ihre Bereitstellung geeignet sind.  
+    > Ersetzen Sie vor dem Ausführen des folgenden Befehlsparameter Werte (z. b. \-Prozentsatz) durch Werte, die für Ihre Bereitstellung geeignet sind.  
 
     ``` 
     Set-BCCache -Percentage 20
@@ -55,8 +55,8 @@ Sie müssen Mitglied der Gruppe Administratoren sein, um dieses Verfahren auszuf
 
     Mit den Ergebnissen des Befehls wird der Status für alle Aspekte der BranchCache-Installation angezeigt. Im folgenden sind einige der BranchCache-Einstellungen und der richtige Wert für jedes Element aufgeführt:
 
-    -   Datacache | Cachefiledirectoriypath: Zeigt den Speicherort der Festplatte an, der dem Wert entspricht, den Sie mit dem Parameter "–" des Befehls "setbccache" angegeben haben. Wenn Sie z. b. den Wert D: \\datacache angegeben haben, wird dieser Wert in der Befehlsausgabe angezeigt.
+    -   Datacache | Cachefiledirectorypath: zeigt den Speicherort der Festplatte an, der dem Wert entspricht, den Sie mit dem Parameter "–" des Befehls "setbccache" angegeben haben. Wenn Sie z. b. den Wert D:\\datacache angegeben haben, wird dieser Wert in der Befehlsausgabe angezeigt.
 
-    -   Datacache | Maxcachesizeasprozageofdiskvolume: Zeigt die Zahl an, die mit dem Wert übereinstimmt, den Sie mit dem Parameter – Prozent des Befehls setbccache angegeben haben. Wenn Sie z. b. den Wert 20 angegeben haben, wird dieser Wert in der Befehlsausgabe angezeigt.
+    -   Datacache | Maxcachesizeasprozageofdiskvolume: zeigt die Zahl an, die mit dem Wert übereinstimmt, den Sie mit dem Parameter – Prozent des Befehls setbccache angegeben haben. Wenn Sie z. b. den Wert 20 angegeben haben, wird dieser Wert in der Befehlsausgabe angezeigt.
 
 Informationen zum Fortsetzen dieses Handbuchs finden Sie unter " [vorab Hash und vorab Laden von Inhalt auf &#40;dem&#41;gehosteten Cache Server](7-Bc-Prehash-Preload.md)".

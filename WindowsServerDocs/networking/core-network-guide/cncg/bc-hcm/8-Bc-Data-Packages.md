@@ -17,7 +17,7 @@ ms.locfileid: "71406383"
 ---
 # <a name="create-content-server-data-packages-for-web-and-file-content-optional"></a>Erstellen von Inhaltsserver-Datenpaketen für Web- und Dateiinhalte (optional)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Verwenden Sie dieses Verfahren, um Inhalt auf Web-und Dateiservern vorzuführen und anschließend Datenpakete zu erstellen, die auf ihren gehosteten Cache Server importiert werden sollen. 
 
@@ -26,7 +26,7 @@ Dieses Verfahren ist optional, weil Sie den Inhalt auf ihren gehosteten Cache Se
 Diese Prozedur enthält Anweisungen für das vorab Hashen von Inhalten auf Dateiservern und Webservern. Wenn Sie nicht über einen dieser Inhalts Server Typen verfügen, müssen Sie die Anweisungen für den betreffenden inhaltsservertyp nicht ausführen.
 
 >[!IMPORTANT]
->Bevor Sie dieses Verfahren ausführen, müssen Sie BranchCache auf Ihren Inhalts Servern installieren und konfigurieren. Wenn Sie das Server Geheimnis auf einem Inhalts Server ändern möchten, sollten Sie dies vor @ no__t-0hash-Inhalt tun – wenn Sie das Server Geheimnis ändern, werden zuvor @ no__t-1generierte Hashes ungültig.
+>Bevor Sie dieses Verfahren ausführen, müssen Sie BranchCache auf Ihren Inhalts Servern installieren und konfigurieren. Wenn Sie das Server Geheimnis auf einem Inhalts Server ändern möchten, können Sie dies auch vor dem\-Hashs-Inhalt tun – durch das Ändern des Server Geheimnisses werden zuvor\-generierte Hashes ungültig.
 
 Um dieses Verfahren auszuführen, müssen Sie Mitglied der Gruppe "Administratoren" sein.
 
@@ -53,7 +53,7 @@ Um dieses Verfahren auszuführen, müssen Sie Mitglied der Gruppe "Administrator
         Publish-BCWebContent –Path D:\inetpub\wwwroot -StageData
         ```  
 
-4. Erstellen Sie das Datenpaket, indem Sie den folgenden Befehl auf jedem ihrer Inhalts Server ausführen. Ersetzen Sie den Beispiel Wert \(d: \\temp @ no__t-2 für den – Destination-Parameter durch den Speicherort, den Sie am Anfang dieses Verfahrens identifiziert oder erstellt haben.
+4. Erstellen Sie das Datenpaket, indem Sie den folgenden Befehl auf jedem ihrer Inhalts Server ausführen. Ersetzen Sie den Beispiel Wert \(D:\\Temp\) für den – Destination-Parameter durch den Speicherort, den Sie am Anfang dieses Verfahrens identifiziert oder erstellt haben.
 
     ```  
     Export-BCDataPackage –Destination D:\temp

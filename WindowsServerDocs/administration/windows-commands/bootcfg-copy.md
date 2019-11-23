@@ -22,7 +22,7 @@ ms.locfileid: "71380119"
 ---
 # <a name="bootcfg-copy"></a>bootcfg copy
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Erstellt eine Kopie eines vorhandenen Start Eintrags, dem Sie Befehlszeilenoptionen hinzufügen können.
 
@@ -35,14 +35,14 @@ bootcfg /copy [/s <computer> [/u <Domain>\<User> /p <Password>]] [/d <Descriptio
 |      Parameter       |                                                                                             Beschreibung                                                                                             |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    /s <computer>     |                                         Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer.                                          |
-| /u <Domain> @ no__t-1 @ no__t-2  | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch <User>oder <Domain> @ no__t-2 @ no__t-3 angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |
+| /u <Domain>\\<User>  | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch <User>oder <Domain>\\<User>angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |
 |    /p <Password>     |                                                        Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                        |
 |   /d <Description>   |                                                                    Gibt die Beschreibung für den neuen Betriebssystem Eintrag an.                                                                    |
 | /ID <OSEntryLineNum> |         Gibt die Betriebssystem-Eintrags Zeilennummer im Abschnitt [Betriebssysteme] der zu kopierenden Datei Boot. ini an. Die erste Zeile nach der Abschnitts Kopfzeile [Betriebssystem] ist 1.         |
 |          /?          |                                                                                Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                 |
 
 ## <a name="BKMK_examples"></a>Beispiele
-In den folgenden Beispielen wird veranschaulicht, wie Sie den Befehl **bootcfg/Copy** verwenden können, um Boot Entry 1 zu kopieren, und geben Sie "\abc Server @ no__t-1" als Beschreibung ein:
+In den folgenden Beispielen wird veranschaulicht, wie Sie den Befehl **bootcfg/Copy** verwenden können, um Boot Entry 1 zu kopieren und "\abc Server\\" als Beschreibung einzugeben:
 ```
 bootcfg /copy /d "\ABC Server\" /id 1
 ```

@@ -21,7 +21,7 @@ ms.locfileid: "71404340"
 ---
 # <a name="step-3-configure-the-remote-access-server-for-otp"></a>Schritt 3 Konfigurieren des Remote Zugriffs Servers für OTP
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Nachdem der RADIUS-Server mit Software Verteilungs Token konfiguriert wurde, sind die Kommunikationsports geöffnet, ein gemeinsamer geheimer Schlüssel wurde erstellt, Benutzerkonten, die Active Directory entsprechen, wurden auf dem RADIUS-Server erstellt, und der RAS-Server hat der RAS-Server muss für die Unterstützung von OTP konfiguriert werden, wenn er als RADIUS-Authentifizierungs-Agent konfiguriert wurde.  
   
@@ -63,7 +63,7 @@ Führen Sie die folgenden Schritte aus, um den Remote Zugriff für die Verwendun
     > [!NOTE]  
     > Wenn Sie OTP auf dem RAS-Server aktiviert haben, werden die ISAPI-und CGI-Erweiterungen auf dem Server deinstalliert, wenn Sie OTP durch Deaktivieren der **Verwendung von OTP**deaktivieren.  
   
-4.  Wenn Windows 7-Unterstützung erforderlich ist, aktivieren Sie das Kontrollkästchen **Windows 7-Client Computer zum Herstellen einer Verbindung über DirectAccess aktivieren** . Hinweis: Wie im Abschnitt zur Planung erläutert, muss auf den Windows 7-Clients DCA 2,0 installiert sein, damit DirectAccess mit OTP unterstützt werden kann.  
+4.  Wenn Windows 7-Unterstützung erforderlich ist, aktivieren Sie das Kontrollkästchen **Windows 7-Client Computer zum Herstellen einer Verbindung über DirectAccess aktivieren** . Hinweis: wie im Abschnitt zur Planung erläutert, muss für Windows 7-Clients DCA 2,0 installiert sein, damit DirectAccess mit OTP unterstützt werden kann.  
   
 5.  Klicken Sie auf **Weiter**.  
   
@@ -105,7 +105,7 @@ Führen Sie die folgenden Schritte aus, um den Remote Zugriff für die Verwendun
   
 So konfigurieren Sie den Remote Zugriff für OTP mithilfe von PowerShell-Befehlen:  
   
-](../../../../media/Step-3-Configure-the-Remote-Access-Server-for-OTP/PowerShellLogoSmall.gif)**äquivalente Windows PowerShell-Befehle** mit @no__t 0shell  
+![der entsprechenden Windows PowerShell-](../../../../media/Step-3-Configure-the-Remote-Access-Server-for-OTP/PowerShellLogoSmall.gif)**Befehle in Windows PowerShell**  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -150,7 +150,7 @@ Gehen Sie wie folgt vor, um Benutzern mit unbrauchbaren Smartcards temporären Z
   
 Um einem Benutzer, der seine Smartcard nicht verwenden kann, Zugriff zu gewähren, fügen Sie der Active Directory-Sicherheitsgruppe vorübergehend sein Benutzerkonto hinzu. Entfernen Sie das Benutzerkonto aus der Gruppe, sobald die Smartcard wieder verwendbar ist.  
   
-### <a name="under-the-covers-smart-card-authorization"></a>Hintergrundinformationen: Smartcard-Autorisierung  
+### <a name="under-the-covers-smart-card-authorization"></a>Im folgenden Abschnitt: Smartcard-Autorisierung  
 Die Smartcard-Autorisierung funktioniert, indem die Tunnelmodusautorisierung der Verbindungssicherheitsregel für den Intranettunnel zum DirectAccess-Server für eine bestimmte Kerberos-basierte Sicherheits-ID (SID) aktiviert wird. Bei der Smartcardautorisierung ist dies die bekannte SID (S-1-5-65-1), die smartcardbasierten Anmeldungen zuordnet ist. Diese SID ist im Kerberos-Token eines DirectAccess-Clients vorhanden und wird als "dieses Organisations Zertifikat" bezeichnet, wenn Sie in den globalen IPsec-tunnelmodusautorisierungs-Einstellungen konfiguriert ist.  
   
 Wenn Sie die Smartcard-Autorisierung in Schritt 2 des DirectAccess-Setup-Assistenten aktivieren, konfiguriert der DirectAccess-Setup-Assistent die globale IPsec-tunnelmodusautorisierungseinstellung mit dieser sid für das Gruppenrichtlinie Objekt des DirectAccess-Servers. Führen Sie die folgenden Schritte aus, um diese Konfiguration im Snap-in "Windows-Firewall mit erweiterter Sicherheit" für das Objekt "DirectAccess-Server Gruppenrichtlinie" anzuzeigen:  

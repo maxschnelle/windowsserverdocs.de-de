@@ -15,15 +15,15 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71356200"
 ---
-# <a name="import-data-packages-on-the-hosted-cache-server-optional"></a>Importieren von Datenpaketen auf dem gehosteten Cache Server \(optional @ no__t-1
+# <a name="import-data-packages-on-the-hosted-cache-server-optional"></a>Importieren Sie Datenpakete auf dem gehosteten Cache Server \(optional\)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Mit diesem Verfahren können Sie Datenpakete importieren und Inhalte vorab auf ihren gehosteten Cache Servern laden.
 
 Dieses Verfahren ist optional, weil Sie den Inhalt auf ihren gehosteten Cache Servern nicht vorab in den Hash laden und vorab laden müssen.
 
-Wenn Sie den Inhalt nicht vor @ no__t-0 laden, werden die Daten automatisch dem gehosteten Cache hinzugefügt, wenn Sie von Clients über die WAN-Verbindung heruntergeladen werden.
+Wenn Sie den Inhalt nicht vorab\-laden, werden die Daten automatisch dem gehosteten Cache hinzugefügt, wenn Sie von Clients über die WAN-Verbindung heruntergeladen werden.
 
 Sie müssen Mitglied der Gruppe Administratoren sein, um dieses Verfahren auszuführen.
 

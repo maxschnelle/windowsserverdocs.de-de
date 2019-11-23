@@ -22,14 +22,14 @@ ms.locfileid: "71406034"
 ---
 # <a name="guest-clustering-in-a-virtual-network"></a>Gastclustering in einem virtuellen Netzwerk
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Virtuelle Computer, die mit einem virtuellen Netzwerk verbunden sind, dürfen nur die IP-Adressen verwenden, die der Netzwerk Controller für die Kommunikation im Netzwerk zugewiesen hat.  Clustering-Technologien, die eine Floating IP-Adresse erfordern, z. b. Microsoft-Failoverclustering, erfordern einige zusätzliche Schritte, um ordnungsgemäß zu funktionieren
 
-Die Methode zum Erreichen der gleitenden IP-Adresse ist die Verwendung eines Software Load Balancer \(slb @ no__t-1 virtuelle IP-Adresse \(vip @ no__t-3.  Der Software Load Balancer muss mit einem Integritätstest an einem Port auf dieser IP-Adresse konfiguriert werden, damit der SLB Datenverkehr an den Computer weiterleitet, der diese IP-Adresse zurzeit besitzt.
+Die Methode zum Erreichen der gleitenden IP-Adresse ist die Verwendung eines Software Load Balancer \(SLB\) virtuellen IP-\(VIP-\).  Der Software Load Balancer muss mit einem Integritätstest an einem Port auf dieser IP-Adresse konfiguriert werden, damit der SLB Datenverkehr an den Computer weiterleitet, der diese IP-Adresse zurzeit besitzt.
 
 
-## <a name="example-load-balancer-configuration"></a>Beispiel: Konfiguration des Lasten Ausgleichs Moduls
+## <a name="example-load-balancer-configuration"></a>Beispiel: Konfiguration des Load Balancers
 
 In diesem Beispiel wird davon ausgegangen, dass Sie bereits die virtuellen Computer erstellt haben, die zu Cluster Knoten werden, und diese an eine Virtual Network anfügen.  Anleitungen finden Sie unter [Erstellen eines virtuellen Computers und Herstellen einer Verbindung mit einem Mandanten Virtual Network oder VLAN](https://technet.microsoft.com/windows-server-docs/networking/sdn/manage/create-a-tenant-vm).  
 
@@ -50,7 +50,7 @@ In diesem Beispiel erstellen Sie eine virtuelle IP-Adresse (192.168.2.100), die 
    $LoadBalancerProperties = new-object Microsoft.Windows.NetworkController.LoadBalancerProperties
    ```
 
-3. Erstellen Sie eine Front-End-IP-Adresse no__t-0end.
+3. Erstellen Sie eine Front\-End-IP-Adresse.
 
    ```PowerShell
    $LoadBalancerProperties.frontendipconfigurations += $FrontEnd = new-object Microsoft.Windows.NetworkController.LoadBalancerFrontendIpConfiguration
@@ -63,7 +63,7 @@ In diesem Beispiel erstellen Sie eine virtuelle IP-Adresse (192.168.2.100), die 
    $FrontEnd.properties.privateIPAllocationMethod = "Static"
    ```
 
-4. Erstellen Sie einen Back-End-@ no__t-0end-Pool, der die Cluster Knoten enthalten soll.
+4. Erstellen Sie einen Back\-End-Pool, der die Cluster Knoten enthalten soll.
 
    ```PowerShell
    $BackEnd = new-object Microsoft.Windows.NetworkController.LoadBalancerBackendAddressPool

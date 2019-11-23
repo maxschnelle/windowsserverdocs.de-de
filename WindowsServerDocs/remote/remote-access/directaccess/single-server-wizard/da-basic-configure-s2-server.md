@@ -21,7 +21,7 @@ ms.locfileid: "71404921"
 ---
 # <a name="step-2-configure-the-basic-directaccess-server"></a>Schritt 2 Konfigurieren des grundlegenden DirectAccess-Servers
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema wird die Konfiguration der Client- und Servereinstellungen erläutert, die für einen einfachen DirectAccess erforderlich sind. Vergewissern Sie sich vor Beginn der Bereitstellungs Schritte, dass Sie die in [Planen einer einfachen DirectAccess-Bereitstellung](Plan-a-Basic-DirectAccess-Deployment.md)beschriebenen Planungsschritte abgeschlossen haben.  
   
@@ -53,7 +53,7 @@ Um den Remotezugriff bereitzustellen, müssen Sie die Remotezugriffsrolle auf ei
   
 7.  Überprüfen Sie im Dialogfeld **Installationsstatus**, ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
   
-](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
+![der entsprechenden Windows PowerShell-](../../../media/Step-2-Configure-the-DirectAccess-Server/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
 Mit dem folgenden Windows PowerShell-Cmdlet oder den folgenden Cmdlets wird die Remote Zugriffs Rolle installiert: 
 
@@ -111,17 +111,17 @@ Mit dem folgenden Windows PowerShell-Cmdlet oder den folgenden Cmdlets wird die 
   
 3.  Warten Sie, bis die Computerrichtlinien erfolgreich aktualisiert wurden.  
   
-4.  Geben Sie **Get-DnsClientNrptPolicy** ein, und drücken Sie die **EINGABETASTE**.  
+4.  Geben Sie **Get-DnsClientNrptPolicy** ein, und drücken Sie die EINGABETASTE.  
   
     Die Einträge in der Richtlinientabelle für die Namensauflösung (Name Resolution Policy Table, NRPT) für Direct Access werden angezeigt. Beachten Sie, dass die NLS-Serverausnahme angezeigt wird. Der Assistent für erste Schritte hat diesen DNS-Eintrag für den DirectAccess-Server automatisch erstellt und ein zugehöriges selbstsigniertes Zertifikat bereitgestellt, sodass der DirectAccess-Server als Netzwerkadressenserver fungieren kann.  
   
-5.  Geben Sie **Get-NCSIPolicyConfiguration** ein, und drücken Sie dann die **EINGABETASTE**. Die vom Assistenten bereitgestellten Einstellungen für die Statusanzeige der Netzwerkkonnektivität werden angezeigt. Achten Sie auf den Wert von %%amp;quot;DomainLocationDeterminationURL%%amp;quot;. Sobald auf diese Netzwerkadressenserver-URL zugegriffen werden kann, ermittelt der Client, dass sie sich innerhalb des Unternehmensnetzwerks befindet, und die NRPT-Einstellungen werden nicht angewendet.  
+5.  Geben Sie **Get-NCSIPolicyConfiguration** ein, und drücken Sie dann die EINGABETASTE. Die vom Assistenten bereitgestellten Einstellungen für die Statusanzeige der Netzwerkkonnektivität werden angezeigt. Achten Sie auf den Wert von %%amp;quot;DomainLocationDeterminationURL%%amp;quot;. Sobald auf diese Netzwerkadressenserver-URL zugegriffen werden kann, ermittelt der Client, dass sie sich innerhalb des Unternehmensnetzwerks befindet, und die NRPT-Einstellungen werden nicht angewendet.  
   
-6.  Geben Sie **Get-DAConnectionStatus**, und drücken Sie dann die **EINGABETASTE**. Da der Client die Netzwerkadressenserver-URL erreichen kann, wird der Status **Lokal verbunden** angezeigt.  
+6.  Geben Sie **Get-DAConnectionStatus**, und drücken Sie dann die EINGABETASTE. Da der Client die Netzwerkadressenserver-URL erreichen kann, wird der Status **Lokal verbunden** angezeigt.  
   
 ## <a name="BKMK_Links"></a>Vorheriger Schritt  
   
--   [Schritt 1: Konfigurieren der DirectAccess-Infrastruktur](Step-1-Configure-the-DirectAccess-Infrastructure.md)  
+-   [Schritt 1: Konfigurieren der DirectAccess-Infrastruktur](Step-1-Configure-the-DirectAccess-Infrastructure.md)  
   
 ## <a name="next-step"></a>Nächster Schritt  
   

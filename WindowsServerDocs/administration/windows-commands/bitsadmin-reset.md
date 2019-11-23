@@ -24,7 +24,7 @@ ms.locfileid: "71380809"
 
 Bricht alle Aufträge in der Übertragungs Warteschlange ab, die der aktuelle Benutzer besitzt.
 
-**Bikadmin 1,5 und früher**: Wenn Sie über Administratorrechte verfügen, **setzen**Sie  abbrechen alle Aufträge in der Warteschlange ab. Die/ALLUSERS-Option wird nicht unterstützt.
+**Bitzadmin 1,5 und früher**: Wenn Sie Administratorrechte haben, **setzen** Sie alle Aufträge in der Warteschlange ab. Die/ALLUSERS-Option wird nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 

@@ -18,7 +18,7 @@ ms.locfileid: "71407731"
 ---
 # <a name="change-the-company-name-on-the-ad-fs-sign-in-page"></a>Ändern des Unternehmens namens auf der AD FS-Anmeldeseite
  
-Zum Ändern des Namens des Unternehmens, das auf der Seite Sign @ no__t-0in angezeigt wird, verwenden Sie das folgende Windows PowerShell-Cmdlet und die folgende Syntax. Dieser Wert wird standardmäßig festgelegt, indem der Wert des Verbunddienst-Anzeigenamens verwendet wird, den Sie während des Setups eingegeben haben.  
+Verwenden Sie zum Ändern des Namens des Unternehmens, das auf der Seite Sign\-in angezeigt wird, das folgende Windows PowerShell-Cmdlet und die folgende Syntax. Dieser Wert wird standardmäßig festgelegt, indem der Wert des Verbunddienst-Anzeigenamens verwendet wird, den Sie während des Setups eingegeben haben.  
 
 ![Name ändern](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom1.png)
   
@@ -27,7 +27,7 @@ Zum Ändern des Namens des Unternehmens, das auf der Seite Sign @ no__t-0in ange
  
   
 > [!NOTE]  
-> Sie können auch den Windows PowerShell Integrated Scripting Environment \(ise @ no__t-1 verwenden, um den Namen des Unternehmens zu ändern. Mithilfe der Windows PowerShell ISE können Sie Inhalte in einer Unicode-Umgebung mit dem Format "@ no__t-0" anzeigen. Weitere Informationen finden Sie unter [Introducing the Windows PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx).  
+> Sie können auch die Windows PowerShell Integrated Scripting Environment \(ISE-\) verwenden, um den Namen des Unternehmens zu ändern. Mithilfe der Windows PowerShell ISE können Sie Inhalte in einer Unicode-\-kompatiblen Umgebung anzeigen. Weitere Informationen finden Sie unter [Introducing the Windows PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx).  
 
 ## <a name="additional-references"></a>Weitere Verweise 
 [AD FS Anpassung der Benutzeranmeldung](AD-FS-user-sign-in-customization.md)  

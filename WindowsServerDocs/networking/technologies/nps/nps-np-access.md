@@ -17,7 +17,7 @@ ms.locfileid: "71405365"
 ---
 # <a name="access-permission"></a>Zugriffsberechtigung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Die Zugriffsberechtigung wird auf der Registerkarte " **Übersicht** " jeder Netzwerk Richtlinie auf dem Netzwerk Richtlinien Server (Network Policy Server, NPS) konfiguriert. 
 
@@ -31,7 +31,7 @@ Zugriffs Berechtigungseinstellungen haben folgende Auswirkungen:
 Die Zugriffsberechtigung wird auch basierend auf Ihrer Konfiguration der DFÜ-Eigenschaften der einzelnen Benutzerkonten gewährt oder verweigert.
 
 >[!NOTE]
->Benutzerkonten und deren Eigenschaften, z. b. Einwähleigenschaften, werden entweder in den Active Directory Benutzer und Computer oder in den lokalen Benutzern und Gruppen der Microsoft Management Console \(mmc @ no__t-1-Snap-in konfiguriert, je nachdem, ob Sie aktiv sind. Verzeichnis @ no__t-2 Domänen Dienste (AD DS) installiert.
+>Benutzerkonten und deren Eigenschaften, wie z. b. Einwähleigenschaften, werden entweder in der Active Directory Benutzer und Computer oder in der Microsoft-Verwaltungskonsole \(MMC-\)-Snap-in konfiguriert, je nachdem, ob Active Directory&reg; Domänen Dienste (AD DS) installiert sind.
 
 Die Benutzerkonto Einstellung **Netzwerk Zugriffsberechtigung**, die in den Einwähleigenschaften von Benutzerkonten konfiguriert ist, überschreibt die Einstellung für die Zugriffsberechtigung für Netzwerk Richtlinien. Wenn die Netzwerk Zugriffsberechtigung für ein Benutzerkonto auf die **Netzwerk Richtlinien Option Zugriff über NPS Steuern** festgelegt ist, legt die Zugriffs Berechtigungseinstellung für Netzwerk Richtlinien fest, ob dem Benutzer der Zugriff gewährt oder verweigert wird.
 
@@ -61,11 +61,11 @@ Die Eigenschaften der einwählenden Benutzerkonten enthalten Folgendes:
 
 Um mehrere Typen von Verbindungen zu unterstützen, für die NPS Authentifizierung und Autorisierung bereitstellt, kann es erforderlich sein, die Verarbeitung der Einwähleigenschaften des Benutzerkontos zu deaktivieren. Dies kann dazu dienen, Szenarios zu unterstützen, in denen bestimmte Einwähleigenschaften nicht erforderlich sind.
 
-Die Eigenschaften "Aufrufer-ID", "Rückruf", "statische IP-Adresse" und "statische Routen" sind z. b. für einen Client konzipiert, der sich in einem Netzwerk Zugriffs Server befindet \(nas @ no__t-1, nicht für Clients, die eine Verbindung mit drahtlos Zugriffs Punkten herstellen. Ein drahtloser Zugriffspunkt, der diese Einstellungen in einer RADIUS-Nachricht von NPS empfängt, kann diese möglicherweise nicht verarbeiten, was dazu führen kann, dass der drahtlose Client getrennt wird.
+Die Eigenschaften "Aufrufer-ID", "Rückruf", "statische IP-Adresse" und "statische Routen" sind z. b. für einen Client konzipiert, der sich in einem Netzwerk Zugriffs Server \(NAS\)befindet, nicht für Clients, die eine Verbindung mit drahtlos Zugriffs Punkten herstellen. Ein drahtloser Zugriffspunkt, der diese Einstellungen in einer RADIUS-Nachricht von NPS empfängt, kann diese möglicherweise nicht verarbeiten, was dazu führen kann, dass der drahtlose Client getrennt wird.
 
-Wenn NPS Authentifizierung und Autorisierung für Benutzer bereitstellt, die sich auf Ihr Unternehmensnetzwerk über drahtlos Zugriffspunkte einwählen und auf Ihr Unternehmensnetzwerk zugreifen möchten, müssen Sie die DFÜ-Eigenschaften so konfigurieren, dass entweder DFÜ-Verbindungen \(by-Einstellung unterstützt werden. DFÜ-Eigenschaften @ no__t-1 oder drahtlos Verbindungen \(BY Festlegen der DFÜ-Eigenschaften @ no__t-3.
+Wenn NPS Authentifizierung und Autorisierung für Benutzer bereitstellt, die sich auf Ihr Unternehmensnetzwerk über drahtlos Zugriffspunkte einwählen und auf Ihr Unternehmensnetzwerk zugreifen möchten, müssen Sie die DFÜ-Eigenschaften so konfigurieren, dass die DFÜ-Verbindungen unterstützt werden \(indem Sie die Einwähleigenschaften\) oder drahtlos Verbindungen \(festlegen, indem Sie die DFÜ-Eigenschaften nicht\).
 
-Sie können NPS verwenden, um die Verarbeitung der DFÜ-Eigenschaften für das Benutzerkonto in einigen Szenarios zu aktivieren \(wie z. b. DFÜ @ no__t-1 und zum Deaktivieren der DFÜ-Eigenschaften Verarbeitung in anderen Szenarien \(Z. b. "802.1 x Wireless" und Authentifizieren von Switch @ no__t-3.
+Sie können NPS verwenden, um die Verarbeitung der DFÜ-Eigenschaften für das Benutzerkonto in einigen Szenarios zu aktivieren \(z. b. das Einwähl\) und die Verarbeitung der DFÜ-Eigenschaften in anderen Szenarien \(wie z. b. 802.1 x drahtlos und Authentifizieren von Switch\).
 
 Sie können auch die DFÜ **-Eigenschaften Benutzerkonto ignorieren** verwenden, um die Netzwerk Zugriffs Steuerung über Gruppen und die Zugriffs Berechtigungseinstellung für die Netzwerk Richtlinie zu verwalten. Wenn Sie das Kontrollkästchen **Benutzerkonto-Einwähleigenschaften ignorieren** aktivieren, wird die Netzwerk Zugriffsberechtigung für das Benutzerkonto ignoriert.
 

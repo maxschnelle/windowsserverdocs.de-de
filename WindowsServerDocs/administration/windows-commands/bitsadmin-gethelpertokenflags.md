@@ -23,7 +23,7 @@ ms.locfileid: "71381570"
 
 Gibt die nutzungsflags für ein [Hilfsobjekt](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs) zurück, das einem Bits-Übertragungs Auftrag zugeordnet ist.
 
-**Bits 3,0 und früher**: Nicht unterstützt.
+**Bits 3,0 und früher**: nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 

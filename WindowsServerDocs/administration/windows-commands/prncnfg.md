@@ -22,7 +22,7 @@ ms.locfileid: "71372139"
 ---
 # <a name="prncnfg"></a>prncnfg
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Konfiguriert oder zeigt Konfigurationsinformationen zu einem Drucker an.
 
@@ -37,20 +37,20 @@ cscript Prncnfg {-g | -t | -x | -?} [-S <ServerName>] [-P <printerName>] [-z <Ne
 |-g|Zeigt Konfigurationsinformationen zu einem Drucker an.|
 |-t|Konfiguriert einen Drucker.|
 |-x|benennt einen Drucker um.|
-|-S \<Server Name @ no__t-1|Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet.|
-|-P \<printername @ no__t-1|Gibt den Namen des Druckers an, den Sie verwalten möchten. Erforderlich.|
-|-z \<newprintername @ no__t-1|Gibt den neuen Drucker Namen an. Erfordert die Parameter **-x** und **-P** .|
-|-u \<username @ no__t-1-w \<password @ no__t-3|Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert.|
-|-r \<portname @ no__t-1|Gibt den Port an, mit dem der Drucker verbunden ist. Wenn es sich um einen parallelen oder seriellen Anschluss handelt, verwenden Sie die ID des Ports (z. b. LPT1 oder COM1). Wenn dies ein TCP/IP-Port ist, verwenden Sie den Portnamen, der beim Hinzufügen des Ports angegeben wurde.|
-|-l \<location @ no__t-1|Gibt den Drucker Speicherort an, z. b. "Raum kopieren".|
-|-h \<sharename @ no__t-1|Gibt den Freigabe Namen des Druckers an.|
-|-m \<comment @ no__t-1|Gibt die Kommentar Zeichenfolge des Druckers an.|
-|-f \<separatorfilename @ no__t-1|Gibt eine Datei an, die den Text enthält, der auf der Trenn Seite angezeigt wird.|
-|-y \<datatype @ no__t-1|Gibt die Datentypen an, die der Drucker annehmen kann.|
-|-St \<starttime @ no__t-1|Konfiguriert den Drucker für eingeschränkte Verfügbarkeit. Gibt die Uhrzeit an, zu der der Drucker verfügbar ist. Wenn Sie ein Dokument an einen Drucker senden, wenn es nicht verfügbar ist, wird das Dokument gespeichert (Spoolvorgang), bis der Drucker verfügbar ist. Sie müssen die Uhrzeit als 24-Stunden-Format angeben. Wenn Sie z. b. 11:00 Uhr angeben möchten, geben Sie **2300**ein.|
-|-UT \<endtime @ no__t-1|Konfiguriert den Drucker für eingeschränkte Verfügbarkeit. Gibt die Uhrzeit an, zu der der Drucker nicht mehr verfügbar ist. Wenn Sie ein Dokument an einen Drucker senden, wenn es nicht verfügbar ist, wird das Dokument gespeichert (Spoolvorgang), bis der Drucker verfügbar ist. Sie müssen die Uhrzeit als 24-Stunden-Format angeben. Wenn Sie z. b. 11:00 Uhr angeben möchten, geben Sie **2300**ein.|
-|-o \<priority @ no__t-1|Gibt eine Priorität an, die der Spooler zum Weiterleiten von Druckaufträgen in der Druck Warteschlange verwendet. Eine Druck Warteschlange mit höherer Priorität empfängt alle zugehörigen Aufträge vor jeder Warteschlange mit niedrigerer Priorität.|
-|-i \<defaultpriority @ no__t-1|Gibt die Standardpriorität an, die jedem Druckauftrag zugewiesen ist.|
+|-S \<Servername\>|Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet.|
+|-P \<PrinterName\>|Gibt den Namen des Druckers an, den Sie verwalten möchten. Erforderlich.|
+|-z \<NewPrinterName\>|Gibt den neuen Drucker Namen an. Erfordert die Parameter **-x** und **-P** .|
+|-u \<Benutzername\>-w \<Kennwort ein\>|Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert.|
+|-r \<Portname\>|Gibt den Port an, mit dem der Drucker verbunden ist. Wenn es sich um einen parallelen oder seriellen Anschluss handelt, verwenden Sie die ID des Ports (z. b. LPT1 oder COM1). Wenn dies ein TCP/IP-Port ist, verwenden Sie den Portnamen, der beim Hinzufügen des Ports angegeben wurde.|
+|-l \<Speicherort\>|Gibt den Drucker Speicherort an, z. b. "Raum kopieren".|
+|-h \<ShareName\>|Gibt den Freigabe Namen des Druckers an.|
+|-m \<Kommentar\>|Gibt die Kommentar Zeichenfolge des Druckers an.|
+|-f \<separatorfilename\>|Gibt eine Datei an, die den Text enthält, der auf der Trenn Seite angezeigt wird.|
+|-y \<DataType\>|Gibt die Datentypen an, die der Drucker annehmen kann.|
+|-St \<StartTime\>|Konfiguriert den Drucker für eingeschränkte Verfügbarkeit. Gibt die Uhrzeit an, zu der der Drucker verfügbar ist. Wenn Sie ein Dokument an einen Drucker senden, wenn es nicht verfügbar ist, wird das Dokument gespeichert (Spoolvorgang), bis der Drucker verfügbar ist. Sie müssen die Uhrzeit als 24-Stunden-Format angeben. Wenn Sie z. b. 11:00 Uhr angeben möchten, geben Sie **2300**ein.|
+|-UT \<EndTime\>|Konfiguriert den Drucker für eingeschränkte Verfügbarkeit. Gibt die Uhrzeit an, zu der der Drucker nicht mehr verfügbar ist. Wenn Sie ein Dokument an einen Drucker senden, wenn es nicht verfügbar ist, wird das Dokument gespeichert (Spoolvorgang), bis der Drucker verfügbar ist. Sie müssen die Uhrzeit als 24-Stunden-Format angeben. Wenn Sie z. b. 11:00 Uhr angeben möchten, geben Sie **2300**ein.|
+|-o \<Priorität\>|Gibt eine Priorität an, die der Spooler zum Weiterleiten von Druckaufträgen in der Druck Warteschlange verwendet. Eine Druck Warteschlange mit höherer Priorität empfängt alle zugehörigen Aufträge vor jeder Warteschlange mit niedrigerer Priorität.|
+|-i \<DefaultPriority\>|Gibt die Standardpriorität an, die jedem Druckauftrag zugewiesen ist.|
 |{+&#124;-} freigegeben|Gibt an, ob dieser Drucker im Netzwerk freigegeben ist.|
 |{+&#124;-} direkt|Gibt an, ob das Dokument direkt an den Drucker gesendet werden soll, ohne dass es gespoolte ist.|
 |{+&#124;-} veröffentlicht|Gibt an, ob dieser Drucker in Active Directory veröffentlicht werden soll. Wenn Sie den Drucker veröffentlichen, können andere Benutzer basierend auf dem Speicherort und den Funktionen (z. b. Farb Druck und Heftung) danach suchen.|
@@ -65,28 +65,28 @@ cscript Prncnfg {-g | -t | -x | -?} [-S <ServerName>] [-P <printerName>] [-z <Ne
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
--   Der **prncnfg** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2 befindet. Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** ein, gefolgt vom vollständigen Pfad zur Datei prncnfg, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Zum Beispiel:
+-   Der **prncnfg** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis "%windir%\SYSTEM32\ printing_Admin_Scripts\\<language>" befindet. Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** ein, gefolgt vom vollständigen Pfad zur Datei prncnfg, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Zum Beispiel:
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prncnfg
     ```
 -   Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. `"computer Name"`).
 
 ## <a name="BKMK_examples"></a>Beispiele
-Wenn Sie Konfigurationsinformationen für den Drucker namens colorprinter_2 mit einer Druck Warteschlange anzeigen möchten, die vom Remote Computer namens HRServer gehostet wird, geben Sie Folgendes ein:
+Zum Anzeigen von Konfigurationsinformationen für den Drucker mit dem Namen colorprinter_2 mit einer Druck Warteschlange, die vom Remote Computer mit dem Namen HRServer gehostet wird, geben Sie
 ```
 cscript prncnfg -g -S HRServer -P colorprinter_2 
 ```
 
-Geben Sie Folgendes ein, um einen Drucker mit dem Namen colorprinter_2 zu konfigurieren, damit der Spooler auf dem Remote Computer mit dem Namen HRServer Druckaufträge nach dem Drucken beibehält:
+Wenn Sie einen Drucker mit dem Namen colorprinter_2 konfigurieren möchten, damit der Spooler auf dem Remote Computer mit dem Namen HRServer Druckaufträge nach dem Drucken beibehält, geben Sie Folgendes ein:
 ```
 cscript prncnfg -t -S HRServer -P colorprinter_2 +keepprintedjobs 
 ```
 
-Wenn Sie den Namen eines Druckers auf dem Remote Computer mit dem Namen HRServer von colorprinter_2 auf COLORPRINTER 3 ändern möchten, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um den Namen eines Druckers auf dem Remote Computer mit dem Namen HRServer von colorprinter_2 auf COLORPRINTER 3 zu ändern:
 ```
 cscript prncnfg -x -S HRServer -P colorprinter_2 -z "colorprinter 3" 
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[Druck Befehlsreferenz](print-command-reference.md)
+[Print-Befehlsreferenz](print-command-reference.md)

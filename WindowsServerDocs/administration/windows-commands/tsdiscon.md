@@ -22,7 +22,7 @@ ms.locfileid: "71369868"
 ---
 # <a name="tsdiscon"></a>tsdiscon
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Trennt eine Sitzung von einem Remotedesktop-Sitzungshost Server (RD-Sitzungs Host).
 Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
@@ -39,9 +39,9 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
 
 |Parameter|Beschreibung|
 |-------|--------|
-|\<sessionid >|Gibt die ID der Sitzung an, die getrennt werden soll.|
-|\<sessionname >|Gibt den Namen der Sitzung an, die getrennt werden soll.|
-|/Server: \<servername >|Gibt den Terminal Server an, der die Sitzung enthält, die Sie trennen möchten. Andernfalls wird der aktuelle RD-Sitzungs Host Server verwendet.|
+|\<SessionID >|Gibt die ID der Sitzung an, die getrennt werden soll.|
+|\<Sessionname >|Gibt den Namen der Sitzung an, die getrennt werden soll.|
+|/Server:\<Servername >|Gibt den Terminal Server an, der die Sitzung enthält, die Sie trennen möchten. Andernfalls wird der aktuelle RD-Sitzungs Host Server verwendet.|
 |/v|Zeigt Informationen zu den Aktionen an, die ausgeführt werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
@@ -67,4 +67,4 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
   ```
   #### <a name="additional-references"></a>Weitere Verweise
   [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-  [Remotedesktopdienste &#40;Befehlsreferenz&#41; für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)
+  [Remotedesktopdienste &#40;Terminal Dienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

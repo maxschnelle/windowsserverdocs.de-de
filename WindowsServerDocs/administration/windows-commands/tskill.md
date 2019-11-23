@@ -22,7 +22,7 @@ ms.locfileid: "71392332"
 ---
 # <a name="tskill"></a>tskill
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Beendet einen Prozess, der in einer Sitzung auf einem Remotedesktop-Sitzungshost Server (RD-Sitzungs Host) ausgeführt wird.
 Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
@@ -39,10 +39,10 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
 
 |Parameter|Beschreibung|
 |-------|--------|
-|\<processid >|Gibt die ID des Prozesses an, den Sie beenden möchten.|
-|\<processname >|Gibt den Namen des Prozesses an, den Sie beenden möchten. Dieser Parameter kann Platzhalter Zeichen enthalten.|
-|/Server: \<servername >|Gibt den Terminal Server an, der den Prozess enthält, den Sie beenden möchten. Wenn **/Server** nicht angegeben ist, wird der aktuelle RD-Sitzungshost Server verwendet.|
-|/ID: \<sessionid >|Beendet den Prozess, der in der angegebenen Sitzung ausgeführt wird.|
+|\<ProcessID >|Gibt die ID des Prozesses an, den Sie beenden möchten.|
+|\<ProcessName >|Gibt den Namen des Prozesses an, den Sie beenden möchten. Dieser Parameter kann Platzhalter Zeichen enthalten.|
+|/Server:\<Servername >|Gibt den Terminal Server an, der den Prozess enthält, den Sie beenden möchten. Wenn **/Server** nicht angegeben ist, wird der aktuelle RD-Sitzungshost Server verwendet.|
+|/ID:\<SessionID >|Beendet den Prozess, der in der angegebenen Sitzung ausgeführt wird.|
 |/a|Beendet den Prozess, der in allen Sitzungen ausgeführt wird.|
 |/v|Zeigt Informationen zu den Aktionen an, die ausgeführt werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
@@ -63,4 +63,4 @@ tskill {<ProcessID> | <ProcessName>} [/server:<ServerName>] [/id:<SessionID> | /
   ```
   #### <a name="additional-references"></a>Weitere Verweise
   [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-  [Remotedesktopdienste &#40;Befehlsreferenz&#41; für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)
+  [Remotedesktopdienste &#40;Terminal Dienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

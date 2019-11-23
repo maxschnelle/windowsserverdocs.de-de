@@ -21,7 +21,7 @@ ms.locfileid: "71394513"
 ---
 # <a name="directaccess"></a>DirectAccess
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema finden Sie eine kurze Übersicht über DirectAccess, einschließlich Server-und Client Betriebssystemen, die DirectAccess unterstützen, sowie Links zu weiteren DirectAccess-Dokumentationen für Windows Server 2016.  
   
@@ -43,7 +43,7 @@ In diesem Thema finden Sie eine kurze Übersicht über DirectAccess, einschließ
 DirectAccess ermöglicht Remote Benutzern die Konnektivität von Netzwerkressourcen, ohne herkömmliche VPN-Verbindungen (virtuelles privates Netzwerk) zu benötigen. Bei DirectAccess-Verbindungen sind Remote Client Computer immer mit Ihrer Organisation verbunden. Remote Benutzer müssen keine Verbindungen starten und Abbrechen, wie dies bei VPN-Verbindungen erforderlich ist. Außerdem können Ihre IT-Administratoren DirectAccess-Client Computer verwalten, wenn Sie ausgeführt werden und eine Internet Verbindung besteht.
 
 >[!IMPORTANT]
->Versuchen Sie nicht, den Remote Zugriff auf einem virtuellen Computer \(vm @ no__t-1 in Microsoft Azure bereitzustellen. Die Verwendung des Remote Zugriffs in Microsoft Azure wird nicht unterstützt. Sie können den Remote Zugriff auf einem virtuellen Azure-Computer nicht verwenden, um VPN, DirectAccess oder andere Remote Zugriffs Funktionen in Windows Server 2016 oder früheren Versionen von Windows Server bereitzustellen. Weitere Informationen finden Sie [unter Microsoft Server Software Support for Microsoft Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
+>Versuchen Sie nicht, den Remote Zugriff auf einem virtuellen Computer \(VM-\) in Microsoft Azure bereitzustellen. Die Verwendung des Remote Zugriffs in Microsoft Azure wird nicht unterstützt. Sie können den Remote Zugriff auf einem virtuellen Azure-Computer nicht verwenden, um VPN, DirectAccess oder andere Remote Zugriffs Funktionen in Windows Server 2016 oder früheren Versionen von Windows Server bereitzustellen. Weitere Informationen finden Sie [unter Microsoft Server Software Support for Microsoft Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
   
 DirectAccess bietet Unterstützung nur für in die Domäne eingebundenen Clients, die die Betriebssystemunterstützung für DirectAccess einschließen.  
   

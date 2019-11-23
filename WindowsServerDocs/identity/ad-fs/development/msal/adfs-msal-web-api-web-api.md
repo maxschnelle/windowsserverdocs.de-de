@@ -20,13 +20,13 @@ ms.locfileid: "71407806"
  
 Erfahren Sie, wie Sie eine Web-API erstellen, die eine andere Web-API im Auftrag des Benutzers aufruft.  
  
-Bevor Sie diesen Artikel lesen, sollten Sie mit den [AD FS Konzepten](../ad-fs-openid-connect-oauth-concepts.md) und [on-Behalf_Of Flow](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md#on-behalf-of-flow) vertraut sein.
+Bevor Sie diesen Artikel lesen, sollten Sie sich mit den [AD FS Konzepten](../ad-fs-openid-connect-oauth-concepts.md) und dem [Behalf_Of Flow](../../overview/ad-fs-openid-connect-oauth-flows-scenarios.md#on-behalf-of-flow) vertraut machen.
 
 ## <a name="overview"></a>Übersicht 
 
 
 - Ein Client (Web-App), der im folgenden Diagramm nicht dargestellt wird: Ruft eine geschützte Web-API auf und stellt ein JWT-bearertoken im "Authorization"-http-Header bereit. 
-- Die geschützte Web-API überprüft das Token und verwendet die msal [acquiretokenonbehalfof](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync?view=azure-dotnet#Microsoft_IdentityModel_Clients_ActiveDirectory_AuthenticationContext_AcquireTokenAsync_System_String_Microsoft_IdentityModel_Clients_ActiveDirectory_ClientCredential_Microsoft_IdentityModel_Clients_ActiveDirectory_UserAssertion_) - method, um ein anderes Token anzufordern (von AD FS), damit es selbst eine zweite Web-API (mit dem Namen "Downstream Web API") im Namen des Benutzers aufrufen kann. 
+- Die geschützte Web-API überprüft das Token und verwendet die msal [acquiretokenonbehalfof](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync?view=azure-dotnet#Microsoft_IdentityModel_Clients_ActiveDirectory_AuthenticationContext_AcquireTokenAsync_System_String_Microsoft_IdentityModel_Clients_ActiveDirectory_ClientCredential_Microsoft_IdentityModel_Clients_ActiveDirectory_UserAssertion_) - -Methode, um ein anderes Token anzufordern (von AD FS), damit es selbst eine zweite Web-API (mit dem Namen "Downstream Web API") im Namen des Benutzers aufrufen kann. 
 - Die geschützte Web-API verwendet dieses Token, um eine Downstream-API aufzurufen. Sie kann auch acquiretokensilentlater aufrufen, um Token für andere downstreamapis anzufordern (aber immer noch im Namen desselben Benutzers). Acquiretokensilent aktualisiert das Token bei Bedarf.  
  
      ![Übersicht](media/adfs-msal-web-api-web-api/webapi1.png)
@@ -49,11 +49,11 @@ In diesem Abschnitt wird gezeigt, wie Sie die native App als öffentliche Client
 
       ![App-Registrierung](media/adfs-msal-web-api-web-api/webapi2.png)
 
-  3. Kopieren Sie den Wert für den **Client Bezeichner** . Sie wird später als Wert für **ClientID** in der **app. config** -Datei der Anwendung verwendet. Geben Sie Folgendes für den **Umleitungs-URI ein:**  -  https://ToDoListClient. Klicken Sie auf **Add**. Klicken Sie auf **Weiter**. 
+  3. Kopieren Sie den Wert für den **Client Bezeichner** . Sie wird später als Wert für **ClientID** in der **app. config** -Datei der Anwendung verwendet. Geben Sie Folgendes für den **Umleitungs-URI ein:**  - https://ToDoListClient. Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**. 
   
       ![App-Registrierung](media/adfs-msal-web-api-web-api/webapi3.png)
   
-  4. Geben Sie auf dem Bildschirm Web-API konfigurieren den **Bezeichner:** https://localhost:44321/ ein. Klicken Sie auf **Add**. Klicken Sie auf **Weiter**. Dieser Wert wird später in den Dateien " **app. config** " und " **Web. config** " der Anwendung verwendet.  
+  4. Geben Sie auf dem Bildschirm Web-API konfigurieren den **Bezeichner:** https://localhost:44321/ein. Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**. Dieser Wert wird später in den Dateien " **app. config** " und " **Web. config** " der Anwendung verwendet.  
  
       ![App-Registrierung](media/adfs-msal-web-api-web-api/webapi4.png)
 
@@ -143,11 +143,11 @@ In diesem Abschnitt wird gezeigt, wie Sie die native App als öffentliche Client
   29. Klicken Sie auf der Seite webapiin WebAPI – Web-API-Eigenschaften auf OK.
 
   30. Wählen Sie auf dem Bildschirm WebAPI-WebAPI-Eigenschaften die Option webapito WebAPI – Web-API 2 aus, und klicken Sie auf Bearbeiten...</br> 
-   ![App reg ](media/adfs-msal-web-api-web-api/webapi22.png)
+  ![App-reg](media/adfs-msal-web-api-web-api/webapi22.png)
 
   31. Wählen Sie auf der Seite webapitowebapi – Web-API 2-Eigenschaften die Registerkarte Ausstellungs Transformationsregeln aus, und klicken Sie auf Regel hinzufügen. 
 
-  32. Wählen Sie im Assistenten zum Hinzufügen von Transformations Anspruchs Regeln die Option Ansprüche mithilfe einer benutzerdefinierten Regel senden aus, und klicken Sie auf weiter ![App reg ](media/adfs-msal-web-api-web-api/webapi23.png)
+  32. Wählen Sie im Assistenten zum Hinzufügen von Transformations Anspruchs Regeln die Option Ansprüche mithilfe einer benutzerdefinierten Regel senden aus, und klicken Sie auf weiter ![App-reg](media/adfs-msal-web-api-web-api/webapi23.png)
 
   33. Geben Sie passallclaims in Name der Anspruchs Regel ein: Feld und **x: [] = > Issue (Claim = x);** Anspruchs Regel in **benutzerdefinierter Regel:** Feld, und klicken Sie auf **Fertig**stellen.  
    

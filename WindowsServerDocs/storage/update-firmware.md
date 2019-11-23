@@ -30,11 +30,11 @@ Sie müssen über unterstützte Laufwerke verfügen, um Windows Server zum Aktua
 Wenden Sie sich an Ihren Lösungsanbieter, um Informationen darüber zu erhalten, ob Ihre Hardware unterstützt, dass Windows die Laufwerkfirmware aktualisiert.
 Im Folgenden sind Links zu den verschiedenen Anforderungen aufgelistet:
 
--   SATA [Device. Storage. HD. SATA](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsata) -im Abschnitt **[if implementierter @ no__t-2 Firmware Download & Aktivierungs** Abschnitt
+-   SATA: [Device.Storage.Hd.Sata](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsata) – im Abschnitt **[falls implementiert\] Firmware Download & Activate (Download und Aktivierung der Firmware)**
     
--   SAS [Device. Storage. HD. SAS](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsas) : im Abschnitt **[if implementierter @ no__t-2 Firmware Download & Aktivierungs** Abschnitt
+-   SAS: [Device.Storage.Hd.Sas](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsas) – im Abschnitt **[falls implementiert\]Firmware Download & Activate (Download und Aktivierung der Firmware)**
 
--   NVMe [Device. Storage. controllerdrive. nvme](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragecontrollerdrivenvme) -in den Abschnitten **5,7** und **5,8**.
+-   NVMe: [Device.Storage.ControllerDrive.NVMe](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragecontrollerdrivenvme) – in den Abschnitten **5.7** und **5.8**
 
 ## <a name="powershell-cmdlets"></a>PowerShell-Cmdlets
 
@@ -43,7 +43,7 @@ Die beiden Windows hinzugefügten Cmdlets sind:
 -   Get-StorageFirmwareInformation
 -   Update-StorageFirmware
 
-Das erste Cmdlet bietet ausführliche Informationen über die Funktionen des Geräts, Firmwareimages und Revisionen. In diesem Fall enthält der Computer nur ein einzelnes SATA-SSD mit einem Firmwareslot. Im Folgenden ein Beispiel:
+Das erste Cmdlet bietet ausführliche Informationen über die Funktionen des Geräts, Firmwareimages und Revisionen. In diesem Fall enthält der Computer nur ein einzelnes SATA-SSD mit einem Firmwareslot. Beispiel:
 
    ```powershell
    Get-PhysicalDisk | Get-StorageFirmwareInformation

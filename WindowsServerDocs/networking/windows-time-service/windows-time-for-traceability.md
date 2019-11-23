@@ -51,7 +51,7 @@ Dieses Ereignis wird protokolliert, wenn der Windows-Zeit Dienst (W32Time) gesta
 |Protokollierte Daten |<ul><li>Aktuelle Uhrzeit in UTC</li><li>Aktuelle Tick-Anzahl</li><li>W32Time-Konfiguration</li><li>Zeit Anbieter Konfiguration</li><li>Taktfrequenz</li></ul> |
 |Drosselungs Mechanismus  |Keine Dieses Ereignis wird jedes Mal ausgelöst, wenn der Dienst gestartet wird. |
 
-**Beispiel**
+**Beispiel:**
 ```
 W32time service has started at 2018-02-27T04:25:17.156Z (UTC), System Tick Count 3132937.
 ```
@@ -102,7 +102,7 @@ Server1. fabrikam. com, 0x8 (NTP. m | 0x8 | [::]: 123-> [IPAddress]: 123) Server
 
 **Befehl** Diese Informationen können auch mithilfe der folgenden Befehle abgefragt werden:
 
-*Identifizieren von Peers*
+*Identifizieren der Peers*
 `w32tm.exe /query /peers`
 
 # <a name="260tab260"></a>[260](#tab/260)
@@ -110,7 +110,7 @@ Server1. fabrikam. com, 0x8 (NTP. m | 0x8 | [::]: 123-> [IPAddress]: 123) Server
 |||
 |---|---|
 |Ereignisbeschreibung |Zeit Dienst Konfiguration und-Status |
-|Details |W32Time protokolliert die Konfiguration und den Status in regelmäßigen Abständen. Dies entspricht dem Aufruf von:<br><br>`w32tm /query /configuration /verbose`<br>oder<br>`w32tm /query /status /verbose` |
+|Details |W32Time protokolliert die Konfiguration und den Status in regelmäßigen Abständen. Dies entspricht dem Aufruf von:<br><br>`w32tm /query /configuration /verbose`<br>ODER<br>`w32tm /query /status /verbose` |
 |Drosselungs Mechanismus  |Wird alle 8 Stunden protokolliert. |
 
 # <a name="261tab261"></a>[261](#tab/261)

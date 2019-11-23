@@ -21,7 +21,7 @@ ms.locfileid: "71361491"
 ---
 # <a name="viewing-and-managing-updates"></a>Anzeigen und Verwalten von Updates
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Sie können die WSUS-Konsole verwenden, um Updates anzuzeigen und zu verwalten.
 
@@ -52,7 +52,7 @@ Auf der Seite **Updates** können Sie folgende Aufgaben ausführen:
 
 1.  Erweitern Sie in der WSUS-Verwaltungskonsole den Knoten **Updates**, und klicken Sie dann auf **alle Updates**.
 
-2.  Wählen Sie im mittleren Bereich neben **Genehmigung**den gewünschten Genehmigungs Status aus, und wählen Sie neben **Status** den gewünschten Installationsstatus aus. Klicken Sie auf **Aktualisieren**.
+2.  Wählen Sie im mittleren Bereich neben **Genehmigung**den gewünschten Genehmigungs Status aus, und wählen Sie neben **Status** den gewünschten Installationsstatus aus. Klicken Sie auf **Refresh**.
 
 #### <a name="to-create-a-new-update-view-on-wsus"></a>So erstellen Sie eine neue Update Ansicht in WSUS
 
@@ -74,7 +74,7 @@ Auf der Seite **Updates** können Sie folgende Aufgaben ausführen:
 
 4.  Klicken Sie unter **Schritt 2: Bearbeiten der Eigenschaften**auf die unterstrichenen Wörter, um die gewünschten Werte auszuwählen.
 
-5.  Unter **Schritt 3: Geben Sie den Namen @ no__t-0 an, und geben Sie der neuen Ansicht einen Namen.
+5.  Geben Sie unter **Schritt 3: Namen angeben**einen Namen für die neue Sicht ein.
 
 6.  Klicken Sie auf **OK**.
 
@@ -123,11 +123,11 @@ Beachten Sie, dass Sie diese Prozedur nur auf jeweils einem Update ausführen k�
 ## <a name="managing-updates-with-wsus"></a>Verwalten von Updates mit WSUS
 Updates werden für die Aktualisierung oder die Bereitstellung einer vollständigen Datei Ersetzung für Software verwendet, die auf einem Computer installiert ist. Jedes Update, das auf Microsoft Update verfügbar ist, besteht aus zwei Komponenten:
 
--   Benötigten Stellt Informationen zum Update bereit. Metadaten liefern z. b. Informationen für die Eigenschaften eines Updates, sodass Sie ermitteln können, was das Update nützlich ist. Metadaten enthalten auch die Microsoft-Software-Lizenzbedingungen. Das für ein Update heruntergeladene Metadatenpaket ist in der Regel viel kleiner als das tatsächliche Update Dateipaket.
+-   Metadaten: stellt Informationen zum Update bereit. Metadaten liefern z. b. Informationen für die Eigenschaften eines Updates, sodass Sie ermitteln können, was das Update nützlich ist. Metadaten enthalten auch die Microsoft-Software-Lizenzbedingungen. Das für ein Update heruntergeladene Metadatenpaket ist in der Regel viel kleiner als das tatsächliche Update Dateipaket.
 
--   Aktualisieren von Dateien: Die eigentlichen Dateien, die zum Installieren eines Updates auf einem Computer erforderlich sind.
+-   Update Dateien: die eigentlichen Dateien, die zum Installieren eines Updates auf einem Computer erforderlich sind.
 
-Beim Synchronisieren von Updates auf den WSUS-Server werden die Metadaten- und Updatedateien an zwei separaten Speicherorten gespeichert. Metadaten werden in der WSUS-Datenbank gespeichert. Update Dateien können entweder auf dem WSUS-Server oder auf Microsoft Update Servern gespeichert werden, je nachdem, wie Sie die Synchronisierungs Optionen konfiguriert haben. Wenn Sie Update Dateien auf Microsoft Update Servern speichern möchten, werden zum Zeitpunkt der Synchronisierung nur Metadaten heruntergeladen. die Updates werden über die WSUS-Konsole genehmigt, und die Update Dateien werden von den Client Computern zum Zeitpunkt der Installation direkt aus dem Microsoft Update. Weitere Informationen zu den Optionen zum Speichern von Updates finden Sie im Abschnitt [1,3. Wählen Sie eine WSUS-Speicherstrategie @ no__t-0 von Schritt 1: Vorbereiten der WSUS-Bereitstellung im WSUS-Bereitstellungs Handbuch.
+Beim Synchronisieren von Updates auf den WSUS-Server werden die Metadaten- und Updatedateien an zwei separaten Speicherorten gespeichert. Metadaten werden in der WSUS-Datenbank gespeichert. Update Dateien können entweder auf dem WSUS-Server oder auf Microsoft Update Servern gespeichert werden, je nachdem, wie Sie die Synchronisierungs Optionen konfiguriert haben. Wenn Sie Update Dateien auf Microsoft Update Servern speichern möchten, werden zum Zeitpunkt der Synchronisierung nur Metadaten heruntergeladen. die Updates werden über die WSUS-Konsole genehmigt, und die Update Dateien werden von den Client Computern zum Zeitpunkt der Installation direkt aus dem Microsoft Update. Weitere Informationen zu den Optionen zum Speichern von Updates finden Sie im Abschnitt [1,3. Wählen Sie](../plan/plan-your-wsus-deployment.md#13-choose-a-wsus-storage-strategy) im WSUS-Bereitstellungs Handbuch eine WSUS-Speicherstrategie von Schritt 1: Vorbereiten der WSUS-Bereitstellung aus.
 
 Sie werden die Synchronisierung einrichten und ausführen, Computer und Computer Gruppen hinzufügen und Updates regelmäßig bereitstellen. Die folgende Liste enthält Beispiele für allgemeine Aufgaben, die Sie beim Aktualisieren von Computern mit WSUS durchführen können.
 

@@ -34,9 +34,9 @@ Im folgenden finden Sie eine kurze Zusammenfassung der Änderungen an geschützt
 Die folgenden zusätzlichen Sicherheitsverbesserungen sind in AD FS 2019 verfügbar:
 - **Remote-PSH mithilfe der Smartcard-Anmeldung** : Kunden können nun mithilfe von Smartcards per PSH eine Remote Verbindung mit AD FS herstellen und diese zum Verwalten aller PSH-Funktionen verwenden, die PSH-Cmdlets mit mehreren Knoten enthalten.
 - **Http-Header Anpassung** : Kunden können nun HTTP-Header anpassen, die während der ADFS-Antworten ausgegeben werden. Dies schließt die folgenden Header ein.
-     - HSTS Dies stellt dar, dass ADFS-Endpunkte nur für HTTPS-Endpunkte verwendet werden können, damit ein kompatibler Browser
-     - x-Frame-Optionen: Ermöglicht ADFS-Administratoren das Einbetten von iframes für interaktive ADFS-Anmelde Seiten. Dies sollte nur mit Sorgfalt und nur auf HTTPS-Hosts verwendet werden. 
-     - Zukünftiger Header: Weitere zukünftige Header können ebenfalls konfiguriert werden. 
+     - Hsts: Dies stellt dar, dass ADFS-Endpunkte nur für HTTPS-Endpunkte verwendet werden können, damit ein kompatibler Browser
+     - x-Frame-Options: ermöglicht ADFS-Administratoren das Einbetten von iframes für interaktive ADFS-Anmelde Seiten. Dies sollte nur mit Sorgfalt und nur auf HTTPS-Hosts verwendet werden. 
+     - Zukünftiger Header: weitere zukünftige Header können ebenfalls konfiguriert werden. 
 
 Weitere Informationen finden Sie [unter Anpassen von http-Sicherheits Antwort Headern mit AD FS 2019](../../ad-fs/operations/customize-http-security-headers-ad-fs.md) 
 
@@ -52,7 +52,7 @@ Die folgenden Authentifizierungs-/Richtlinienfunktionen sind in AD FS 2019:
 Die folgenden Verbesserungen bei der SSO-Anmeldung wurden in AD FS 2019 vorgenommen:
 
 - [Paginierte UX mit zentriertem](../operations/AD-FS-paginated-sign-in.md) Design: ADFS wurde nun in einen paginierten UX-Flow verlagert, der es AD FS ermöglicht, eine optimierte Anmelde Erfahrung zu gewährleisten. ADFS verwendet jetzt eine zentrierte Benutzeroberfläche (anstelle der rechten Seite des Bildschirms). Möglicherweise benötigen Sie neuere Logo-und Hintergrundbilder, um sich an dieser Erfahrung anzupassen. Dadurch wird auch die in Azure AD angebotene Funktionalität widerspiegeln.
-- **bug Fix: Persistenter SSO-Status für Win10-Geräte bei der PRT-Authentifizierung @ no__t-0: Dies ist ein Problem, bei dem der MFA-Status bei Verwendung der PRT-Authentifizierung für Windows 10-Geräte nicht beibehalten wurde. Das Ergebnis dieses Problems war, dass Endbenutzer häufig zur Eingabe von 2. Factor Anmelde Informationen (MFA) aufgefordert werden. Durch die Behebung ist die Leistung auch dann konsistent, wenn die Geräte Authentifizierung über Client TLS und über den PRT-Mechanismus erfolgreich durchgeführt wurde. 
+- Programm **Fehlerbehebung: persistentes SSO-Status für Win10-Geräte bei der PRT** -Authentifizierung.   Dadurch wird ein Problem behoben, bei dem der MFA-Status bei Verwendung der PRT-Authentifizierung für Windows 10-Geräte nicht beibehalten wurde. Das Ergebnis dieses Problems war, dass Endbenutzer häufig zur Eingabe von 2. Factor Anmelde Informationen (MFA) aufgefordert werden. Durch die Behebung ist die Leistung auch dann konsistent, wenn die Geräte Authentifizierung über Client TLS und über den PRT-Mechanismus erfolgreich durchgeführt wurde. 
 
 
 ### <a name="suppport-for-building-modern-line-of-business-apps"></a>Suppport zum Entwickeln moderner Branchen-apps
@@ -60,9 +60,9 @@ Die folgende Unterstützung für das Entwickeln von modernen Lob-Apps wurde AD F
 
  - **OAuth-Geräte Fluss/-Profil** -AD FS unterstützt jetzt das OAuth-Geräte Fluss Profil zum Ausführen von Anmeldungen auf Geräten, die nicht über eine Oberfläche für die Benutzeroberfläche verfügen. Dadurch kann der Benutzer die Anmeldung auf einem anderen Gerät durchführen. Diese Funktion ist für die Azure CLI-Funktionalität in Azure Stack erforderlich und kann in anderen Fällen verwendet werden. 
  - Beim **Entfernen des "Resource"-Parameters** -AD FS wurde nun die Anforderung zum Angeben eines Ressourcen Parameters, der mit den aktuellen OAuth-Spezifikationen übereinstimmt, entfernt. Clients können nun den Bezeichner für die Vertrauensstellung der vertrauenden Seite zusätzlich zu den angeforderten Berechtigungen als Bereichs Parameter bereitstellen. 
- - **Cors-Header in AD FS Antworten** : Kunden können nun einseitige Anwendungen erstellen, mit denen Client seitige js-Bibliotheken die Signatur der ID validieren können, indem Sie die Signatur Schlüssel aus dem oidc Discovery-Dokument auf AD FS Abfragen. 
+ - **Cors-Header in AD FS Antworten** : Kunden können jetzt einseitige Anwendungen erstellen, mit denen Client seitige js-Bibliotheken die Signatur der id_token validieren können, indem Sie die Signatur Schlüssel aus dem oidc Discovery-Dokument auf AD FS Abfragen. 
  - **Pkce-Unterstützung** : AD FS fügt pkce-Unterstützung hinzu, um einen sicheren Authentifizierungscode Fluss innerhalb von OAuth bereitzustellen. Dadurch wird diesem Flow eine zusätzliche Sicherheitsebene hinzugefügt, um zu verhindern, dass der Code von einem anderen Client wiedergegeben wird. 
- - **bug Fix: Send x5t und Kid Claim @ no__t-0: Dies ist eine kleine Fehlerbehebung. AD FS jetzt zusätzlich den "Kid"-Anspruch an, um den Schlüssel-ID-Hinweis zum Überprüfen der Signatur anzugeben. Zuvor AD FS als Anspruch "x5t" gesendet.
+ - Programm **Fehlerbehebung: Send x5t und Kid Claim:** Dies ist eine geringfügige Fehlerbehebung. AD FS jetzt zusätzlich den "Kid"-Anspruch an, um den Schlüssel-ID-Hinweis zum Überprüfen der Signatur anzugeben. Zuvor AD FS als Anspruch "x5t" gesendet.
 
 ### <a name="supportability-improvements"></a>Unterstützungs Verbesserungen
 Die folgenden Verbesserungen der unter Stütz barkeit sind nicht Teil AD FS 2019:
@@ -76,18 +76,18 @@ Die folgenden Bereitstellungs Updates sind jetzt in AD FS 2019 enthalten:
 
 ### <a name="saml-updates"></a>SAML-Updates
 Das folgende SAML-Update befindet sich in AD FS 2019:
-- **bug Fix: Beheben von Fehlern im aggregierten Verbund @ no__t-0: Es gibt zahlreiche Fehlerbehebungen für die aggregierte Verbund Unterstützung (z. b. "InCommon"). Die Fehlerbehebungen liegen in etwa wie folgt: 
-  - Verbesserte Skalierung für große Anzahl von Entitäten im aggregierten Verbund Metadaten-Dokument. Zuvor hat dies den Fehler "ADMIN0017" verursacht. 
+- Programm **Fehlerbehebung: Beheben von Fehlern im aggregierten Verbund:** es gibt zahlreiche Fehlerbehebungen für die aggregierte Verbund Unterstützung (z. b. "InCommon"). Die Fehlerbehebungen liegen in etwa wie folgt: 
+  - Verbesserte Skalierung für große Anzahl von Entitäten im aggregierten Verbund Metadaten-Dokument. zuvor konnte der Fehler "ADMIN0017" auftreten. 
   - Abfragen mithilfe des Parameters "scopegroupid" über das Get-adfsrelyingpartytrustsgroup PSH-Cmdlet. 
   - Behandeln von Fehlerbedingungen im Zusammenhang mit doppelter EntityID
 
 
 ### <a name="azure-ad-style-resource-specification-in-scope-parameter"></a>Azure AD-Stil Ressourcen Spezifikation im scope-Parameter 
-Zuvor mussten AD FS, dass die gewünschte Ressource und der gewünschte Bereich in einer beliebigen Authentifizierungsanforderung in einem separaten Parameter vorhanden waren. Beispielsweise sieht eine typische OAuth-Anforderung wie folgt aus: 7 **https:&#47;&#47;FS.contoso.com/ADFS/oauth2/Authorize? </br>response_type = Code & client_id = claimsxrayclient & Resource = urn: Microsoft: </br>adfs: claimsxray & Scope = OAuth & redirect_uri = https:&#47; &#47; adfshelp.Microsoft.com/</br> claimsxray/tokenresponse & prompt = Login**
+Zuvor mussten AD FS, dass die gewünschte Ressource und der gewünschte Bereich in einer beliebigen Authentifizierungsanforderung in einem separaten Parameter vorhanden waren. Beispielsweise sieht eine typische OAuth-Anforderung wie folgt aus: 7 **https:&#47;&#47;FS.contoso.com/ADFS/oauth2/Authorize?</br>response_type = Code & client_id = claimsxrayclient & Resource = urn: Microsoft:</br>ADFS: claimsxray & Scope = OAuth & redirect_uri = https:&#47;&#47;adfshelp.Microsoft.com/</br> claimsxray/tokenresponse & prompt = Login**
  
 Mit AD FS auf Server 2019 können Sie nun den Ressourcen Wert übergeben, der in den Scope-Parameter eingebettet ist. Dies entspricht der Art und Weise, wie eine Authentifizierung gegen Azure AD durchführen kann. 
 
-Der Bereichs Parameter kann nun als durch Leerzeichen getrennte Liste organisiert werden, wobei jeder Eintrag als Ressource/Bereich strukturiert ist. Zum Beispiel  
+Der Bereichs Parameter kann nun als durch Leerzeichen getrennte Liste organisiert werden, wobei jeder Eintrag als Ressource/Bereich strukturiert ist. Beispiel:  
 
 **< eine gültige Beispiel Anforderung erstellen >**
 > [!NOTE]
@@ -108,13 +108,13 @@ C. Der Client sendet dann den Autorisierungs Code in der zugriffstokenanforderun
 
 D. Der AD FS transformiert "code_verifier" und vergleicht ihn mit "t (code_verifier)" von (B).  Der Zugriff wird verweigert, wenn Sie nicht gleich sind. 
 
-#### <a name="faq"></a>FAQ 
+#### <a name="faq"></a>Häufig gestellte Fragen 
 **Q1.** Kann ich den Ressourcen Wert als Teil des Bereichs Werts übergeben, wie z. b. wie Anforderungen gegen Azure AD durchgeführt werden? 
-</br>**EIN.** Mit AD FS auf Server 2019 können Sie nun den Ressourcen Wert übergeben, der in den Scope-Parameter eingebettet ist. Der Bereichs Parameter kann nun als durch Leerzeichen getrennte Liste organisiert werden, wobei jeder Eintrag als Ressource/Bereich strukturiert ist. Zum Beispiel  
+</br>**Ein.** Mit AD FS auf Server 2019 können Sie nun den Ressourcen Wert übergeben, der in den Scope-Parameter eingebettet ist. Der Bereichs Parameter kann nun als durch Leerzeichen getrennte Liste organisiert werden, wobei jeder Eintrag als Ressource/Bereich strukturiert ist. Beispiel:  
 **< eine gültige Beispiel Anforderung erstellen >**
 
 **Q1.** Unterstützt AD FS die pkce-Erweiterung?
-</br>**EIN.** AD FS in Server 2019 unterstützt den Prüfschlüssel für Code Austausch (pkce) für den OAuth-Autorisierungs Code Grant-Flow. 
+</br>**Ein.** AD FS in Server 2019 unterstützt den Prüfschlüssel für Code Austausch (pkce) für den OAuth-Autorisierungs Code Grant-Flow. 
 
 ## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2016"></a>Neuerungen in Active Directory-Verbunddienste für Windows Server 2016   
 Informationen zu früheren Versionen von AD FS finden Sie in den folgenden Artikeln:  

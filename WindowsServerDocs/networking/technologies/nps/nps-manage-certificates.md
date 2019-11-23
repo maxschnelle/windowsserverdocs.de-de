@@ -17,19 +17,19 @@ ms.locfileid: "71396197"
 ---
 # <a name="manage-certificates-used-with-nps"></a>Verwalten von mit NPS verwendeten Zertifikaten
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Wenn Sie eine Zertifikat basierte Authentifizierungsmethode bereitstellen, z. b. Extensible Authentication Protocol @ no__t-0transport Layer Security \(eap @ no__t-2tls @ no__t-3, Protected Extensible Authentication Protocol @ no__t-4transport Layer Security @no__ t-5peer @ no__t-6tls @ no__t-7 und PAP @ no__t-8Microsoft Challenge Handshake Authentication-Protokollversion 2 \(ms @ no__t-10chap v2 @ no__t-11. Sie müssen ein Serverzertifikat für alle Ihre NPSS registrieren. Das Serverzertifikat muss folgende Aktionen ausführen:
+Wenn Sie eine Zertifikat basierte Authentifizierungsmethode wie Extensible Authentication Protocol\-Transport Layer Security \(EAP\-TLS\), Protected Extensible Authentication Protocol\-Transport Layer Security \(PEAP\-TLS\)und PEAP\-Microsoft Challenge Handshake Authentication Protocol Version 2 \(MS\-CHAP v2\)bereitstellen, müssen Sie ein Serverzertifikat für alle Ihre NPSS registrieren. Das Serverzertifikat muss folgende Aktionen ausführen:
 
 - Erfüllen der Mindestanforderungen an das Serverzertifikat, wie unter [Konfigurieren von Zertifikat Vorlagen für PEAP und EAP-Anforderungen](nps-manage-cert-requirements.md) beschrieben
 
-- Sie werden von einer Zertifizierungsstelle \(ca @ no__t-1 ausgestellt, die von Client Computern als vertrauenswürdig eingestuft wird. Eine Zertifizierungsstelle ist vertrauenswürdig, wenn Ihr Zertifikat im Zertifikat Speicher für vertrauenswürdige Stamm Zertifizierungsstellen für den aktuellen Benutzer und den lokalen Computer vorhanden ist.
+- Sie werden von einer Zertifizierungsstelle \(Zertifizierungsstelle\) ausgestellt, die von Client Computern als vertrauenswürdig eingestuft wird. Eine Zertifizierungsstelle ist vertrauenswürdig, wenn Ihr Zertifikat im Zertifikat Speicher für vertrauenswürdige Stamm Zertifizierungsstellen für den aktuellen Benutzer und den lokalen Computer vorhanden ist.
 
-Die folgenden Anweisungen unterstützen die Verwaltung von NPS-Zertifikaten in bereit Stellungen, bei denen die vertrauenswürdige Stamm Zertifizierungsstelle eine Drittanbieter-Zertifizierungsstelle ist, z. b. VeriSign, oder eine Zertifizierungsstelle, die Sie für Ihre Public Key-Infrastruktur bereitgestellt haben \(pki @ no__t-1 mithilfe Active Directory Zertifikat Dienste \(AD CS @ no__t-3.
+Die folgenden Anweisungen unterstützen die Verwaltung von NPS-Zertifikaten in bereit Stellungen, bei denen die vertrauenswürdige Stamm Zertifizierungsstelle eine Drittanbieter-Zertifizierungsstelle ist, z. b. VeriSign, oder eine Zertifizierungsstelle, die Sie für Ihre Public Key-Infrastruktur \(PKI-\) mithilfe Active Directory Zertifikat Dienste \(AD CS-\)bereitgestellt haben.
 
 ## <a name="change-the-cached-tls-handle-expiry"></a>Ändern des zwischengespeicherten TLS-Handle-Ablaufs
 
-Während der anfänglichen Authentifizierungsprozesse für EAP @ no__t-0tls, PEAP @ no__t-1tls und PEAP @ no__t-2ms @ no__t-3chap v2 speichert das NPS einen Teil der TLS-Verbindungs Eigenschaften des Verbindungs Clients zwischen. Der Client speichert außerdem einen Teil der TLS-Verbindungs Eigenschaften des NPS zwischen.
+Während der anfänglichen Authentifizierungsprozesse für EAP\-TLS, PEAP\-TLS und PEAP\-MS\-CHAP v2 speichert das NPS einen Teil der TLS-Verbindungs Eigenschaften des Verbindungs Clients zwischen. Der Client speichert außerdem einen Teil der TLS-Verbindungs Eigenschaften des NPS zwischen.
 
 Jede einzelne Sammlung dieser TLS-Verbindungs Eigenschaften wird als TLS-Handle bezeichnet.
 
@@ -50,7 +50,7 @@ Beispielsweise können Sie die Ablaufzeit des TLS-Handles in Fällen verringern,
 
 ## <a name="configure-the-tls-handle-expiry-time-on-client-computers"></a>Konfigurieren Sie die Ablaufzeit des TLS-Handles auf Client Computern.
 
-Mit diesem Verfahren können Sie die Zeitspanne ändern, in der Client Computer das TLS-Handle eines NPS Zwischenspeichern. Nachdem ein NPS erfolgreich authentifiziert wurde, werden die TLS-Verbindungs Eigenschaften des NPS von Client Computern als TLS-Handle zwischengespeichert. Das TLS-Handle hat eine Standarddauer von 10 Stunden \(36.000.000 Millisekunden @ no__t-1. Mithilfe des folgenden Verfahrens können Sie die Ablaufzeit des TLS-Handles erhöhen oder verringern.
+Mit diesem Verfahren können Sie die Zeitspanne ändern, in der Client Computer das TLS-Handle eines NPS Zwischenspeichern. Nachdem ein NPS erfolgreich authentifiziert wurde, werden die TLS-Verbindungs Eigenschaften des NPS von Client Computern als TLS-Handle zwischengespeichert. Das TLS-Handle hat eine Standarddauer von 10 Stunden \(36 Millionen Millisekunden\). Mithilfe des folgenden Verfahrens können Sie die Ablaufzeit des TLS-Handles erhöhen oder verringern.
 
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren durchführen können.
 
@@ -61,7 +61,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 1. Öffnen Sie auf einem NPS den Registrierungs-Editor.
 
-2. Navigieren Sie zum Registrierungsschlüssel **HKEY @ no__t-1local @ no__t-2MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL**
+2. Navigieren Sie zum Registrierungsschlüssel **HKEY\_local\_machine\system\currentcontrolset\control\securityproviders\schannel**
 
 3. Klicken Sie im Menü **Bearbeiten** auf **neu**, und klicken Sie dann auf **Schlüssel**.
 
@@ -73,7 +73,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 ## <a name="configure-the-tls-handle-expiry-time-on-npss"></a>Konfigurieren Sie die Ablaufzeit des TLS-Handles auf dem NPSS.
 
-Verwenden Sie dieses Verfahren, um den Zeitraum zu ändern, in dem der NPSS den TLS-Handle von Client Computern zwischenspeichert. Nach der erfolgreichen Authentifizierung eines Zugriffs Clients, werden die TLS-Verbindungs Eigenschaften des Client Computers als TLS-Handle für den NPSS-Cache verwendet. Das TLS-Handle hat eine Standarddauer von 10 Stunden \(36.000.000 Millisekunden @ no__t-1. Mithilfe des folgenden Verfahrens können Sie die Ablaufzeit des TLS-Handles erhöhen oder verringern.
+Verwenden Sie dieses Verfahren, um den Zeitraum zu ändern, in dem der NPSS den TLS-Handle von Client Computern zwischenspeichert. Nach der erfolgreichen Authentifizierung eines Zugriffs Clients, werden die TLS-Verbindungs Eigenschaften des Client Computers als TLS-Handle für den NPSS-Cache verwendet. Das TLS-Handle hat eine Standarddauer von 10 Stunden \(36 Millionen Millisekunden\). Mithilfe des folgenden Verfahrens können Sie die Ablaufzeit des TLS-Handles erhöhen oder verringern.
 
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren durchführen können.
 
@@ -84,7 +84,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 1. Öffnen Sie auf einem NPS den Registrierungs-Editor.
 
-2. Navigieren Sie zum Registrierungsschlüssel **HKEY @ no__t-1local @ no__t-2MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL**
+2. Navigieren Sie zum Registrierungsschlüssel **HKEY\_local\_machine\system\currentcontrolset\control\securityproviders\schannel**
 
 3. Klicken Sie im Menü **Bearbeiten** auf **neu**, und klicken Sie dann auf **Schlüssel**.
 
@@ -106,7 +106,7 @@ Um dieses Verfahren abzuschließen, müssen Sie Mitglied der Gruppe " **Benutzer
 
 ### <a name="to-obtain-the-sha-1-hash-of-a-trusted-root-ca-certificate"></a>So rufen Sie den SHA-1-Hash eines vertrauenswürdigen Zertifikats der Stamm Zertifizierungsstelle ab
 
-1. Geben Sie im Dialogfeld Ausführen oder in Windows PowerShell **MMC**ein, und drücken Sie dann die EINGABETASTE. Die Microsoft Management Console \(mmc @ no__t-1 wird geöffnet. Klicken Sie in der MMC auf **Datei**, und klicken Sie dann auf **snap\in hinzufügen/entfernen**. Das Dialogfeld **Snap-Ins hinzufügen bzw. entfernen** wird geöffnet.
+1. Geben Sie im Dialogfeld Ausführen oder in Windows PowerShell **MMC**ein, und drücken Sie dann die EINGABETASTE. Die Microsoft Management Console \(MMC\) wird geöffnet. Klicken Sie in der MMC auf **Datei**, und klicken Sie dann auf **snap\in hinzufügen/entfernen**. Das Dialogfeld **Snap-Ins hinzufügen bzw. entfernen** wird geöffnet.
 
 2. Doppelklicken Sie im Dialogfeld **Snap-Ins hinzufügen bzw. entfernen** unter **Verfügbare Snap-Ins** auf **Zertifikate**. Der Assistent für Zertifikate-Snap-in wird geöffnet. Klicken Sie auf **Computerkonto** und dann auf **Weiter**.
 
@@ -122,9 +122,9 @@ Um dieses Verfahren abzuschließen, müssen Sie Mitglied der Gruppe " **Benutzer
 
 8. Scrollen Sie in der Liste der Felder zu, und wählen Sie Finger **Abdruck**aus.
 
-9. Im unteren Bereich wird die Hexadezimalzeichenfolge angezeigt, die den SHA-1-Hash Ihres Zertifikats darstellt. Wählen Sie den SHA-1-Hash aus, und drücken Sie dann die Windows-Tastenkombination für den Kopier Befehl \(strg @ no__t-1C @ no__t-2, um den Hash in die Windows-Zwischenablage zu kopieren.
+9. Im unteren Bereich wird die Hexadezimalzeichenfolge angezeigt, die den SHA-1-Hash Ihres Zertifikats darstellt. Wählen Sie den SHA-1-Hash aus, und drücken Sie dann die Windows-Tastenkombination für den Kopier Befehl \(STRG\+C\), um den Hash in die Windows-Zwischenablage zu kopieren.
 
-10. Öffnen Sie den Speicherort, an den Sie den SHA-1-Hash einfügen möchten, platzieren Sie den Cursor ordnungsgemäß, und drücken Sie dann die Windows-Tastenkombination für den Befehl Einfügen \(strg @ no__t-1V @ no__t-2. 
+10. Öffnen Sie den Speicherort, an den Sie den SHA-1-Hash einfügen möchten, platzieren Sie den Cursor ordnungsgemäß, und drücken Sie dann die Windows-Tastenkombination für den Befehl einfügen, \(STRG\+V\). 
 
 Weitere Informationen zu Zertifikaten und NPS finden Sie unter [Konfigurieren von Zertifikat Vorlagen für PEAP-und EAP-Anforderungen](nps-manage-cert-requirements.md).
 

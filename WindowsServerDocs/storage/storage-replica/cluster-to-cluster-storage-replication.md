@@ -18,7 +18,7 @@ ms.locfileid: "71393792"
 ---
 # <a name="cluster-to-cluster-storage-replication"></a>Cluster-zu-Cluster-Speicherreplikation
 
-> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (Semi-Annual Channel)
 
 Das Speicher Replikat kann Volumes zwischen Clustern replizieren, einschließlich der Replikation von Clustern mithilfe direkte Speicherplätze. Die Verwaltung und Konfiguration ähnelt derjenigen der Server-zu-Server-Replikation.  
 
@@ -39,9 +39,9 @@ Für diese exemplarische Vorgehensweise wird die folgende Beispielumgebung verwe
 
 ![Diagramm, das eine Beispielumgebung mit einer Replikation zwischen einem Cluster am Standort Redmond und einem Cluster am Standort Bellevue anzeigt](./media/Cluster-to-Cluster-Storage-Replication/SR_ClustertoCluster.png)  
 
-**ABBILDUNG 1: Cluster-zu-Cluster-Replikation @ no__t-0  
+**Abbildung 1: Cluster-zu-Cluster-Replikation**  
 
-## <a name="prerequisites"></a>Erforderliche Komponenten  
+## <a name="prerequisites"></a>Voraussetzungen  
 
 * Active Directory Domain Services-Gesamtstruktur (in dieser Gesamtstruktur muss nicht Windows Server 2016 ausgeführt werden).  
 * 4-128-Server (zwei Cluster mit 2-64 Servern), auf denen Windows Server 2019 oder Windows Server 2016, Datacenter Edition ausgeführt wird. Wenn Sie Windows Server 2019 ausführen, können Sie stattdessen die Standard Edition verwenden, wenn Sie nur ein einzelnes Volume mit einer Größe von bis zu 2 TB replizieren möchten.  
@@ -62,7 +62,7 @@ Das Vorliegen vieler dieser Voraussetzungen lässt sich mit dem `Test-SRTopology
 2.  Fügen Sie Netzwerkinformationen hinzu, konfigurieren Sie den Domänenbeitritt, und starten Sie die Serverknoten neu.  
 
     > [!IMPORTANT]  
-    > Melden Sie sich ab jetzt stets als Domänenbenutzer an, der Mitglied der integrierten Administratorengruppe auf allen Servern ist. Denken Sie anschließend immer daran, erhöhte Rechte für Ihre Windows PowerShell- und CMD-Eingabeaufforderungen festzulegen, wenn Sie die Features auf einer graphischen Serverinstallation oder auf einem Windows 10-Computer ausführen.  
+    > Melden Sie sich anschließend stets als Domänenbenutzer an, der Mitglied der integrierten Administratorengruppe auf allen Servern ist. Denken Sie anschließend immer daran, erhöhte Rechte für Ihre Windows PowerShell- und CMD-Eingabeaufforderungen festzulegen, wenn Sie die Features auf einer graphischen Serverinstallation oder auf einem Windows 10-Computer ausführen.  
 
 3.  Verbinden Sie die erste Gruppe aus JBOD-Speichergehäusen, iSCSI-Zielen, FC-SAN- oder lokalem DAS-Speicher mit dem Server am Standort **Redmond**.  
 
@@ -119,7 +119,7 @@ Das Vorliegen vieler dieser Voraussetzungen lässt sich mit dem `Test-SRTopology
 
 1. Stellen Sie sicher, dass jedem Cluster nur die Speichergehäuse des jeweiligen Standorts angezeigt werden und die SAS-Verbindungen ordnungsgemäß konfiguriert sind.  
 
-2. Stellen Sie den Speicher mithilfe von Speicherplätzen bereit. Führen Sie dazu die unter [Bereitstellen von Speicherplätzen auf einem eigenständigen Server](../storage-spaces/deploy-standalone-storage-spaces.md) beschriebenen **Schritte 1-3** mithilfe von Windows PowerShell oder über den Server-Manager aus.  
+2. Stellen Sie den Speicher mithilfe von Speicherplätzen bereit. Führen Sie dazu die unter **Bereitstellen von Speicherplätzen auf einem eigenständigen Server** beschriebenen [Schritte 1-3](../storage-spaces/deploy-standalone-storage-spaces.md) mithilfe von Windows PowerShell oder über den Server-Manager aus.  
 
 -   **Für iSCSI-Zielspeicher:**  
 
@@ -140,7 +140,7 @@ Das Vorliegen vieler dieser Voraussetzungen lässt sich mit dem `Test-SRTopology
 2. Stellen Sie sicher, dass die SR-Protokollvolumes sich immer auf dem schnellsten Flash-Speicher und die Datenvolumes sich in einem langsameren Speicher mit hoher Kapazität befinden.
 
 3. Starten Sie Windows PowerShell, und überprüfen Sie mithilfe des Cmdlets `Test-SRTopology`, ob alle Anforderungen für das Speicherreplikatfeature erfüllt sind. Für einen schnellen Test können Sie das Cmdlet in einem Modus zur ausschließlichen Überprüfung der Anforderungen ausführen, oder Sie wählen einen Modus mit langer Ausführungsdauer, um die Leistung auszuwerten.  
-   Beispiel:  
+   Ein auf ein Objekt angewendeter  
 
    ```PowerShell
    MD c:\temp
@@ -156,7 +156,7 @@ Das Vorliegen vieler dieser Voraussetzungen lässt sich mit dem `Test-SRTopology
 
    ![Bildschirm, der die Replikationstopologie der Berichtsergebnisse darstellt](./media/Cluster-to-Cluster-Storage-Replication/SRTestSRTopologyReport.png)      
 
-## <a name="step-2-configure-two-scale-out-file-server-failover-clusters"></a>Schritt 2: Konfigurieren von zwei Failoverclustern mit horizontaler Skalierung  
+## <a name="step-2-configure-two-scale-out-file-server-failover-clusters"></a>Schritt 2: Konfigurieren von zwei Failoverclustern mit horizontaler Skalierung  
 Im Folgenden erstellen Sie zwei normale Failovercluster. Nach der Konfiguration, der Überprüfung und dem Testen replizieren Sie diese mithilfe des Speicherreplikatfeatures. Sie können alle unten aufgeführten Schritte auf den Cluster Knoten direkt oder über einen Remote Verwaltungs Computer ausführen, der den Windows Server-Remoteserver-Verwaltungstools enthält.  
 
 ### <a name="graphical-method"></a>Grafische Methode  
@@ -209,7 +209,7 @@ Im Folgenden erstellen Sie zwei normale Failovercluster. Nach der Konfiguration,
 
 4.  Erstellen Sie die gruppierten Dateiserver mit horizontaler Skalierung in beiden Clustern mithilfe der Anweisungen in [Konfigurieren des Dateiservers mit horizontaler Skalierung](https://technet.microsoft.com/library/hh831718.aspx).  
 
-## <a name="step-3-set-up-cluster-to-cluster-replication-using-windows-powershell"></a>Schritt 3: Einrichten der Cluster-zu-Cluster-Replikation mithilfe von Windows PowerShell  
+## <a name="step-3-set-up-cluster-to-cluster-replication-using-windows-powershell"></a>Schritt 3: Konfigurieren der Cluster-zu-Cluster-Replikation mit Windows PowerShell  
 Jetzt richten Sie die Cluster-zu-Cluster-Replikation mit Windows PowerShell ein. Sie können alle nachfolgenden Schritte direkt auf den Knoten oder über einen Remote Verwaltungs Computer ausführen, der den Windows-Server enthält Remoteserver-Verwaltungstools  
 
 1. Gewähren Sie dem ersten Cluster Vollzugriff auf den anderen Cluster, indem Sie das Cmdlet **Grant-sraccess** auf einem beliebigen Knoten im ersten Cluster oder Remote ausführen.  Windows Server-Remoteserver-Verwaltungstools
@@ -296,7 +296,7 @@ Jetzt richten Sie die Cluster-zu-Cluster-Replikation mit Windows PowerShell ein.
    > [!NOTE]
    > Der Zielcluster-Datenträger wird bei der Replikation immer als **Online (kein Zugriff)** angezeigt.  
 
-## <a name="step-4-manage-replication"></a>Schritt 4: Verwalten der Replikation
+## <a name="step-4-manage-replication"></a>Schritt 4: Verwalten der Replikation
 
 Jetzt können Sie Ihre Cluster-zu-Cluster-Replikation verwalten und betreiben. Sie können alle unten aufgeführten Schritte auf den Cluster Knoten direkt oder über einen Remote Verwaltungs Computer ausführen, der den Windows Server-Remoteserver-Verwaltungstools enthält.  
 
@@ -310,23 +310,23 @@ Jetzt können Sie Ihre Cluster-zu-Cluster-Replikation verwalten und betreiben. S
 
     -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Anzahl von Anforderungen für letzten Schreibvorgang im Protokoll  
 
-    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschn. Länge der Warteschlange zum Leeren  
+    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschnittl. Länge der Warteschlange zum Leeren  
 
     -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Aktuelle Länge der Warteschlange zum Leeren  
 
     -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Anzahl von Anwendungsschreibanforderungen  
 
-    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschn. Anzahl von Anforderungen pro Protokollschreibvorgang  
+    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Anzahl Durchschnittl. Anforderungen pro Schreibvorgang im Protokoll  
 
-    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschn. Wartezeit für App-Schreibvorgang  
+    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschnittl. Wartezeit für App-Schreibvorgang  
 
-    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschn. Wartezeit für App-Lesevorgang  
+    -   \Statistik zur Partitions-E/A des Speicherreplikats(*)\Durchschnittl. Wartezeit für App-Lesevorgang  
 
     -   \Speicherreplikatstatistik(*)\Ziel-RPO  
 
     -   \Speicherreplikatstatistik(*)\Aktuelle RPO  
 
-    -   \Speicherreplikatstatistik(*)\Durchschn. Länge der Protokollwarteschlange  
+    -   \Speicherreplikatstatistik(*)\Durchschnittl. Länge der Protokollwarteschlange  
 
     -   \Speicherreplikatstatistik(*)\Aktuelle Länge der Protokollwarteschlange  
 
@@ -334,11 +334,11 @@ Jetzt können Sie Ihre Cluster-zu-Cluster-Replikation verwalten und betreiben. S
 
     -   \Speicherreplikatstatistik(*)\Gesamtanzahl gesendeter Bytes  
 
-    -   \Speicherreplikatstatistik(*)\Durchschn. Wartezeit beim Senden über das Netzwerk  
+    -   \Speicherreplikatstatistik (*) \Durchschnittl. Wartezeit beim Senden über das Netzwerk  
 
     -   \Speicherreplikatstatistik(*)\Replikationszustand  
 
-    -   \Speicherreplikatstatistik(*)\Durchschn. Wartezeit bei Nachrichtenroundtrip  
+    -   \Speicherreplikatstatistik (*) \Durchschnittl. Wartezeit bei Nachrichtenroundtrip  
 
     -   \Speicherreplikatstatistik(*)\Verstrichene Zeit bei letzter Wiederherstellung  
 
@@ -385,13 +385,13 @@ Jetzt können Sie Ihre Cluster-zu-Cluster-Replikation verwalten und betreiben. S
     ```  
 
     > [!NOTE]  
-    > Das Speicherreplikatfeature hebt die Bereitstellung der Zielvolumes auf. Dies ist beabsichtigt.
+    > Das Speicherreplikatfeature hebt die Bereitstellung der Zielvolumes auf. Dies ist entwurfsbedingt.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 -   [Speicher Replikat](storage-replica-overview.md) 
 -   [Stretch-Cluster Replikation mit frei gegebenem Speicher](stretch-cluster-replication-using-shared-storage.md)  
 -   [Replikation von Server zu Server Speicher](server-to-server-storage-replication.md)  
--   [Speicherreplikat: Bekannte Probleme](storage-replica-known-issues.md)  
--   [Speicherreplikat: Häufig gestellte Fragen](storage-replica-frequently-asked-questions.md)  
+-   [Speicher Replikat: bekannte Probleme](storage-replica-known-issues.md)  
+-   [Speicher Replikat: häufig gestellte Fragen](storage-replica-frequently-asked-questions.md)  
 -   [Direkte Speicherplätze in Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  

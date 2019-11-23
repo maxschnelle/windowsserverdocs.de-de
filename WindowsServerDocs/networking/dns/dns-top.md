@@ -17,7 +17,7 @@ ms.locfileid: "71406166"
 ---
 # <a name="domain-name-system-dns"></a>Domain Name System (DNS)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Domain Name System (DNS) ist eine der branchenüblichen Protokolle von Protokollen, aus denen TCP/IP besteht. der DNS-Client und der DNS-Server stellen zusammen mit dem DNS-Client und dem DNS-Server Computername-zu-IP-Adress Dienste für Computer und Benutzer bereit.  
   
@@ -27,7 +27,7 @@ Domain Name System (DNS) ist eine der branchenüblichen Protokolle von Protokoll
 > -   [Neues im DNS-Client](What-s-New-in-DNS-Client.md)  
 > -   [Neues in DNS-Server](What-s-New-in-DNS-Server.md)  
 > -   [Leitfaden für das DNS-Richtlinien Szenario](deploy/DNS-Policy-Scenario-Guide.md)  
-> -   Video: [windows Server 2016: DNS-Verwaltung in IPAM @ no__t-0  
+> -   Video: [Windows Server 2016: DNS-Verwaltung in IPAM](https://channel9.msdn.com/Blogs/windowsserver/Windows-Server-2016-DNS-management-in-IPAM)  
   
 In Windows Server 2016 ist DNS eine Server Rolle, die Sie mithilfe von Server-Manager oder Windows PowerShell-Befehlen installieren können. Wenn Sie eine neue Active Directory Gesamtstruktur und Domäne installieren, wird DNS automatisch mit Active Directory als globaler Katalogserver für die Gesamtstruktur und Domäne installiert.  
   

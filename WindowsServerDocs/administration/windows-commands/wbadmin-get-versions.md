@@ -55,7 +55,7 @@ Geben Sie Folgendes ein, um eine Liste der verfügbaren Sicherungen anzuzeigen, 
 ```
 wbadmin get versions -backupTarget:h:
 ```
-Wenn Sie eine Liste der verfügbaren Sicherungen anzeigen möchten, die im freigegebenen Remote Ordner \\ @ no__t-1servername\share für den Computer Server01 gespeichert sind, geben Sie Folgendes ein:
+Wenn Sie eine Liste der verfügbaren Sicherungen anzeigen möchten, die im freigegebenen Remote Ordner \\\\servername\share für den Computer Server01 gespeichert sind, geben Sie Folgendes ein:
 ```
 wbadmin get versions -backupTarget:\\servername\share -machine:server01
 ```

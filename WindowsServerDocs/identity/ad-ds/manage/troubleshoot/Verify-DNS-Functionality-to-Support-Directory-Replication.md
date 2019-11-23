@@ -20,7 +20,7 @@ ms.locfileid: "71409058"
 ---
 # <a name="verify-dns-functionality-to-support-directory-replication"></a>Überprüfen der DNS-Funktionalität zur Unterstützung der Verzeichnisreplikation
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
  Um Domain Name System (DNS)-Einstellungen zu überprüfen, die möglicherweise die Active Directory Replikation beeinträchtigen, können Sie zunächst den grundlegenden Test ausführen, mit dem sichergestellt wird, dass DNS für Ihre Domäne ordnungsgemäß funktioniert. Nachdem Sie den grundlegenden Test ausgeführt haben, können Sie andere Aspekte der DNS-Funktionalität testen, einschließlich der Registrierung des Ressourceneinsatzes und des dynamischen Updates.
 
@@ -28,17 +28,17 @@ Obwohl Sie diesen Test der grundlegenden DNS-Funktionalität auf allen Domänen 
 
 
 
-## <a name="running-the-domain-controller-basic-dns-testtitle"></a>Ausführen des DNS-Basis Domänen Controllers @ no__t-0
+## <a name="running-the-domain-controller-basic-dns-testtitle"></a>Ausführen des DNS-Test</title> für den Domänen Controller
 
 Der grundlegende DNS-Test überprüft die folgenden Aspekte der DNS-Funktionalität:
 
 
-- **Stech** Der Test bestimmt, ob Domänen Controller in DNS registriert sind, kann mit dem <system>Ping</system> -Befehl kontaktiert werden und über eine LDAP/RPC-Verbindung (Lightweight Directory Access Protocol/Remote Prozedur Aufruf) verfügen. Wenn der Konnektivitätstest auf einem Domänen Controller fehlschlägt, werden keine anderen Tests für diesen Domänen Controller ausgeführt. Der Konnektivitätstest wird automatisch ausgeführt, bevor ein anderer DNS-Test ausgeführt wird.
+- **Konnektivität:** Der Test bestimmt, ob Domänen Controller in DNS registriert sind, kann mit dem <system>Ping</system> -Befehl kontaktiert werden und über eine LDAP/RPC-Verbindung (Lightweight Directory Access Protocol/Remote Prozedur Aufruf) verfügen. Wenn der Konnektivitätstest auf einem Domänen Controller fehlschlägt, werden keine anderen Tests für diesen Domänen Controller ausgeführt. Der Konnektivitätstest wird automatisch ausgeführt, bevor ein anderer DNS-Test ausgeführt wird.
 - **Wichtige Dienste:** Der Test bestätigt, dass die folgenden Dienste ausgeführt werden und auf dem getesteten Domänen Controller verfügbar sind: DNS-Client Dienst, Net Logon Service, Schlüsselverteilungscenter (KDC)-Dienst und DNS-Server Dienst (wenn DNS auf dem Domänen Controller installiert ist).
 - **DNS-Client Konfiguration:**  Der Test bestätigt, dass die DNS-Server auf allen Netzwerkadaptern des DNS-Client Computers erreichbar sind.
 - **Registrierungen von Ressourcen Einträgen:** Der Test bestätigt, dass der Host (A)-Ressourcen Datensatz jedes Domänen Controllers auf mindestens einem der DNS-Server registriert ist, die auf dem Client Computer konfiguriert sind.
 - **Zone und Autoritäts Anfang (SOA):** Wenn auf dem Domänen Controller der DNS-Server Dienst ausgeführt wird, wird im Test bestätigt, dass die Active Directory Domänen Zone und der Ressourcen Daten Satz für den Start der Zertifizierungsstelle (SOA) für die Active Directory Domänen Zone vorhanden sind
-- **Stamm Zone:** Überprüft, ob die Stamm Zone (.) vorhanden ist.
+- Stamm **Zone:** Überprüft, ob die Stamm Zone (.) vorhanden ist.
 
 Sie müssen mindestens Mitglied der Gruppe Organisations-Admins oder einer entsprechenden Gruppe sein, um diese Verfahren ausführen zu können.
 
@@ -51,11 +51,11 @@ Mithilfe des folgenden Verfahrens können Sie grundlegende DNS-Funktionen überp
 2. Geben Sie in Suche starten die Eingabeaufforderung ein. 
 3. Klicken Sie oben im Startmenü mit der rechten Maustaste auf Eingabeaufforderung, und klicken Sie dann auf als Administrator ausführen. Wenn das Dialogfeld Benutzerkontensteuerung angezeigt wird, vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf Weiter.
 4. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE: `dcdiag /test:dns /v /s:<DCName> /DnsBasic /f:dcdiagreport.txt`
-</br></br>Ersetzen Sie den tatsächlichen Distinguished Name, den NetBIOS-Namen oder den DNS-Namen des Domänen Controllers für &lt;dcname @ no__t-1. Als Alternative können Sie alle Domänen Controller in der Gesamtstruktur testen, indem Sie/e: anstelle von/s: eingeben. Der/f-Schalter gibt einen Dateinamen an, der im vorherigen Befehl dcdiagreport. txt ist. Wenn Sie die Datei an einem anderen Speicherort als dem aktuellen Arbeitsverzeichnis platzieren möchten, können Sie einen Dateipfad angeben, z. b./f: c:reportsdcdiagreport.txt.
+</br></br>Ersetzen Sie durch den tatsächlichen Distinguished Name, den NetBIOS-Namen oder den DNS-Namen des Domänen Controllers &lt;DCNAME-&gt;. Als Alternative können Sie alle Domänen Controller in der Gesamtstruktur testen, indem Sie/e: anstelle von/s: eingeben. Der/f-Schalter gibt einen Dateinamen an, der im vorherigen Befehl dcdiagreport. txt ist. Wenn Sie die Datei an einem anderen Speicherort als dem aktuellen Arbeitsverzeichnis platzieren möchten, können Sie einen Dateipfad angeben, z. b./f: c:reportsdcdiagreport.txt.
 
 5. Öffnen Sie die Datei dcdiagreport. txt in Notepad oder einem ähnlichen Text-Editor. Wenn Sie die Datei im Editor öffnen möchten, geben Sie an der Eingabeaufforderung Editor dcdiagreport. txt ein, und drücken Sie dann die EINGABETASTE. Wenn Sie die Datei in einem anderen Arbeitsverzeichnis abgelegt haben, schließen Sie den Pfad der Datei ein. Wenn Sie die Datei z. b. in c:Reports abgelegt haben, geben Sie Editor c:reportsdcdiagreport.txt ein, und drücken Sie dann die EINGABETASTE.
 6. Scrollen Sie zu der Zusammenfassungs Tabelle am Ende der Datei. 
-</br></br>Notieren Sie sich die Namen aller Domänen Controller, die den Status "Warnung" oder "fehlgeschlagen" in der Zusammenfassungs Tabelle melden.  Versuchen Sie zu bestimmen, ob ein Problem Domänen Controller vorhanden ist, indem Sie nach der Zeichenfolge "DC: DCNAME: "Where DCNAME ist der tatsächliche Name des Domänen Controllers.
+</br></br>Notieren Sie sich die Namen aller Domänen Controller, die den Status "Warnung" oder "fehlgeschlagen" in der Zusammenfassungs Tabelle melden.  Versuchen Sie zu bestimmen, ob ein Problem Domänen Controller vorhanden ist, indem Sie nach der Zeichenfolge "DC: DCNAME" suchen, wobei DCNAME der tatsächliche Name des Domänen Controllers ist.
 
 Wenn Sie offensichtliche Konfigurationsänderungen sehen, die erforderlich sind, machen Sie Sie entsprechend. Wenn Sie z. b. feststellen, dass einer ihrer Domänen Controller über eine offensichtlich falsche IP-Adresse verfügt, können Sie Sie korrigieren. Führen Sie den Test dann erneut aus.
 
@@ -67,11 +67,11 @@ Der Zieldomänen Controller verwendet den DNS-Alias Ressourcen-Datensatz (CNAME)
       
 Mithilfe des folgenden Verfahrens können Sie die Registrierung von Ressourcen Einträgen einschließlich der Registrierung des Ressourceneinsatzes von Alias (CNAME) überprüfen.
       
-### <a name="to-verify-resource-record-registrationtitle"></a>So überprüfen Sie die Registrierung des Ressourceneinsatzes @ no__t-0
+### <a name="to-verify-resource-record-registrationtitle"></a>So überprüfen Sie die Registrierung von Ressourcen Einträgen</title>
 
 
 1. Öffnen Sie eine Eingabeaufforderung mit Administratorrechten. Klicken Sie zum Öffnen einer Eingabeaufforderung als Administrator auf Start. Geben Sie in Suche starten die Eingabeaufforderung ein. 
-2. Klicken Sie oben im Startmenü mit der rechten Maustaste auf Eingabeaufforderung, und klicken Sie dann auf als Administrator ausführen. Wenn das Dialogfeld Benutzerkontensteuerung angezeigt wird, vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf Weiter.  </br></br>Sie können das DCDiag-Tool verwenden, um die Registrierung aller Ressourcen Datensätze zu überprüfen, die für den Speicherort des Domänen Controllers erforderlich sind, indem Sie den Befehl `dcdiag /test:dns /DnsRecordRegistration` ausführen
+2. Klicken Sie oben im Startmenü mit der rechten Maustaste auf Eingabeaufforderung, und klicken Sie dann auf als Administrator ausführen. Wenn das Dialogfeld Benutzerkontensteuerung angezeigt wird, vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf Weiter.  </br></br>Sie können das DCDiag-Tool verwenden, um die Registrierung aller Ressourcen Datensätze zu überprüfen, die für den Domänen Controller Standort unverzichtbar sind, indem Sie den Befehl `dcdiag /test:dns /DnsRecordRegistration` ausführen.
 
 Mit diesem Befehl wird die Registrierung der folgenden Ressourcen Einträge in DNS überprüft:
 
@@ -97,12 +97,12 @@ Wenn der Alias Ressourcen Daten Satz (CNAME) nicht registriert ist, überprüfen
     
 Wenn der grundlegende DNS-Test anzeigt, dass Ressourcen Einträge in DNS nicht vorhanden sind, verwenden Sie den Test für dynamisches Update, um zu ermitteln, warum der Anmeldedienst die Ressourcen Einträge nicht automatisch registriert hat. Verwenden Sie das folgende Verfahren, um zu überprüfen, ob die Active Directory Domänen Zone für das akzeptieren sicherer dynamischer Updates und das Ausführen der Registrierung eines Test Datensatzes (_dcdiag_test_record) konfiguriert ist. Der Testdatensatz wird nach dem Test automatisch gelöscht.
 
-### <a name="to-verify-dynamic-updatetitle"></a>So überprüfen Sie das dynamische Update @ no__t-0
+### <a name="to-verify-dynamic-updatetitle"></a>So überprüfen Sie das dynamische Update</title>
 
 
 1. Öffnen Sie eine Eingabeaufforderung mit Administratorrechten. Klicken Sie zum Öffnen einer Eingabeaufforderung als Administrator auf Start. Geben Sie in Suche starten die Eingabeaufforderung ein. Klicken Sie oben im Startmenü mit der rechten Maustaste auf Eingabeaufforderung, und klicken Sie dann auf als Administrator ausführen. Wenn das Dialogfeld Benutzerkontensteuerung angezeigt wird, vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf Weiter.
 2. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE: `dcdiag /test:dns /v /s:<DCName> /DnsDynamicUpdate`
-   </br></br>Ersetzen Sie durch den Distinguished Name, den NetBIOS-Namen oder den DNS-Namen des Domänen Controllers &lt;dcname @ no__t-1. Als Alternative können Sie alle Domänen Controller in der Gesamtstruktur testen, indem Sie/e: anstelle von/s: eingeben. Wenn Sie IPv6 auf dem Domänen Controller nicht aktiviert haben, sollten Sie davon ausgehen, dass der Teil des Tests des Host (AAAA)-Ressourcen Satzes fehlschlägt. Dies ist ein normaler Zustand, wenn IPv6 nicht aktiviert ist.
+   </br></br>Ersetzen Sie durch den Distinguished Name, den NetBIOS-Namen oder den DNS-Namen des Domänen Controllers &lt;DCNAME-&gt;. Als Alternative können Sie alle Domänen Controller in der Gesamtstruktur testen, indem Sie/e: anstelle von/s: eingeben. Wenn Sie IPv6 auf dem Domänen Controller nicht aktiviert haben, sollten Sie davon ausgehen, dass der Teil des Tests des Host (AAAA)-Ressourcen Satzes fehlschlägt. Dies ist ein normaler Zustand, wenn IPv6 nicht aktiviert ist.
 
 Wenn sichere dynamische Updates nicht konfiguriert sind, können Sie das folgende Verfahren verwenden, um Sie zu konfigurieren.
 
@@ -119,7 +119,7 @@ Wenn sichere dynamische Updates nicht konfiguriert sind, können Sie das folgend
     
 Wenn DNS-Ressourcen Einträge nicht in DNS für den Quell Domänen Controller angezeigt werden und Sie die DNS-Ressourcen Einträge sofort registrieren möchten, können Sie die Registrierung mithilfe des folgenden Verfahrens manuell erzwingen. Der Anmeldedienst auf einem Domänen Controller registriert die DNS-Ressourcen Einträge, die für die Suche des Domänen Controllers im Netzwerk erforderlich sind. Der DNS-Client Dienst registriert den Host (A)-Ressourcen Daten Satz, auf den der Alias (CNAME)-Datensatz verweist.
 
-### <a name="to-register-dns-resource-records-manuallytitle"></a>So registrieren Sie DNS-Ressourcen Einträge manuell @ no__t-0
+### <a name="to-register-dns-resource-records-manuallytitle"></a>So registrieren Sie DNS-Ressourcen Einträge manuell</title>
 
 
 1. Öffnen Sie eine Eingabeaufforderung mit Administratorrechten. Klicken Sie zum Öffnen einer Eingabeaufforderung als Administrator auf Start. 
@@ -127,4 +127,4 @@ Wenn DNS-Ressourcen Einträge nicht in DNS für den Quell Domänen Controller an
 3. Klicken Sie oben im Startmenü mit der rechten Maustaste auf Eingabeaufforderung, und klicken Sie dann auf als Administrator ausführen. Wenn das Dialogfeld Benutzerkontensteuerung angezeigt wird, vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf Weiter.
 4. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE, um die Registrierung der Ressourcen Einträge für Domänen Controller-Serverlocatorpunkt manuell auf dem Quell Domänen Controller zu initiieren: `net stop netlogon && net start netlogon`
 5. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE, um die Registrierung des Host Ressourceneinsatzes (A) manuell zu initiieren: `ipconfig /flushdns && ipconfig /registerdns`
-6. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE: `dcdiag /test:dns /v /s:<DCName>` </br></br>Ersetzen Sie durch den Distinguished Name, den NetBIOS-Namen oder den DNS-Namen des Domänen Controllers &lt;dcname @ no__t-1. Überprüfen Sie die Ausgabe des Tests, um sicherzustellen, dass die DNS-Tests bestanden wurden. Wenn Sie IPv6 auf dem Domänen Controller nicht aktiviert haben, sollten Sie davon ausgehen, dass der Teil des Tests des Host (AAAA)-Ressourcen Satzes fehlschlägt. Dies ist ein normaler Zustand, wenn IPv6 nicht aktiviert ist.
+6. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE: `dcdiag /test:dns /v /s:<DCName>` </br></br>Ersetzen Sie durch den Distinguished Name, den NetBIOS-Namen oder den DNS-Namen des Domänen Controllers &lt;DCNAME-&gt;. Überprüfen Sie die Ausgabe des Tests, um sicherzustellen, dass die DNS-Tests bestanden wurden. Wenn Sie IPv6 auf dem Domänen Controller nicht aktiviert haben, sollten Sie davon ausgehen, dass der Teil des Tests des Host (AAAA)-Ressourcen Satzes fehlschlägt. Dies ist ein normaler Zustand, wenn IPv6 nicht aktiviert ist.

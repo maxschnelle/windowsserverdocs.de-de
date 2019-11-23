@@ -17,7 +17,7 @@ ms.locfileid: "71396367"
 ---
 # <a name="connection-request-policies"></a>Verbindungsanforderungsrichtlinien
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie NPS-Verbindungs Anforderungs Richtlinien verwenden, um den NPS als RADIUS-Server, RADIUS-Proxy oder beides zu konfigurieren.
 
@@ -121,7 +121,7 @@ Die Benutzernamen-Attribut Gruppe enthält das User Name-Attribut. Mithilfe dies
 
 Verbindungs Anforderungs Richtlinien-Einstellungen sind ein Satz von Eigenschaften, die auf eine eingehende RADIUS-Nachricht angewendet werden. Die Einstellungen bestehen aus den folgenden Eigenschaften Gruppen.
 
-- Authentifizierung
+- Authentication
 - Kontoführung
 - Attribut Bearbeitung
 - Weiterleitungs Anforderung
@@ -129,12 +129,12 @@ Verbindungs Anforderungs Richtlinien-Einstellungen sind ein Satz von Eigenschaft
 
 In den folgenden Abschnitten finden Sie weitere Details zu diesen Einstellungen.
 
-### <a name="authentication"></a>Authentifizierung
+### <a name="authentication"></a>Authentication
 
 Mit dieser Einstellung können Sie die Authentifizierungs Einstellungen außer Kraft setzen, die in allen Netzwerk Richtlinien konfiguriert sind, und Sie können die Authentifizierungsmethoden und-Typen festlegen, die für die Verbindung mit dem Netzwerk erforderlich sind.
 
 >[!IMPORTANT]
->Wenn Sie eine Authentifizierungsmethode in einer Verbindungs Anforderungs Richtlinie konfigurieren, die weniger sicher ist als die Authentifizierungsmethode, die Sie in der Netzwerk Richtlinie konfigurieren, wird die sicherere Authentifizierungsmethode, die Sie in der Netzwerk Richtlinie konfigurieren, überschrieben. Angenommen, Sie verfügen über eine Netzwerk Richtlinie, die die Verwendung von Protected Extensible Authentication Protocol-Microsoft Challenge Handshake Authentication Protocol Version 2 \(peer-MS-CHAP v2 @ no__t-1 erfordert, bei dem es sich um eine Kenn Wort basierte Authentifizierung handelt. Methode für sicheres Drahtlos Netzwerk, und Sie konfigurieren auch eine Verbindungs Anforderungs Richtlinie, um nicht authentifizierten Zugriff zuzulassen. Dies hat zur Folge, dass keine Clients für die Authentifizierung mithilfe von "Peer-MS-CHAP v2" erforderlich sind. In diesem Beispiel erhalten alle Clients, die eine Verbindung mit Ihrem Netzwerk herstellen, nicht authentifizierten Zugriff.
+>Wenn Sie eine Authentifizierungsmethode in einer Verbindungs Anforderungs Richtlinie konfigurieren, die weniger sicher ist als die Authentifizierungsmethode, die Sie in der Netzwerk Richtlinie konfigurieren, wird die sicherere Authentifizierungsmethode, die Sie in der Netzwerk Richtlinie konfigurieren, überschrieben. Wenn Sie z. b. über eine Netzwerk Richtlinie verfügen, die die Verwendung des geschützten Extensible Authentication Protocol erfordert, ist das Microsoft Challenge Handshake Authentication-Protokollversion 2 \("Peer-MS-CHAP v2"\). dabei handelt es sich um eine Kenn Wort basierte Authentifizierungsmethode für Secure Wireless. außerdem konfigurieren Sie eine Verbindungs Anforderungs Richtlinie, um nicht authentifizierten Zugriff zuzulassen. das Ergebnis ist, dass keine Clients für die Authentifizierung mithilfe von "PAP-MS-CHAP v2" erforderlich sind. In diesem Beispiel erhalten alle Clients, die eine Verbindung mit Ihrem Netzwerk herstellen, nicht authentifizierten Zugriff.
 
 ### <a name="accounting"></a>Kontoführung
 
@@ -158,7 +158,7 @@ Sie können eine Reihe von Such-und Ersetzungs Regeln konfigurieren, mit denen d
 Die Verarbeitung von "suchen und ersetzen"-Regeln tritt für eines der vorangehenden Attribute ein, bevor die RADIUS-Nachricht den Authentifizierungs-und Kontoführungs Einstellungen unterliegt. Attribut Bearbeitungs Regeln gelten nur für ein einzelnes Attribut. Sie können für jedes Attribut keine Regeln für die Attribut Bearbeitung konfigurieren. Außerdem ist die Liste der Attribute, die Sie bearbeiten können, eine statische Liste. der Liste der zur Bearbeitung verfügbaren Attribute kann nicht hinzugefügt werden.
 
 >[!NOTE]
->Wenn Sie das MS-CHAP v2-Authentifizierungsprotokoll verwenden, können Sie das User Name-Attribut nicht bearbeiten, wenn die Verbindungs Anforderungs Richtlinie zum Weiterleiten der RADIUS-Nachricht verwendet wird. Die einzige Ausnahme tritt auf, wenn ein umgekehrter Schrägstrich (\)-Zeichen verwendet wird, und die Bearbeitung wirkt sich nur auf die Informationen auf der linken Seite aus. Ein umgekehrter Schrägstrich wird normalerweise verwendet, um einen Domänen Namen (die Informationen auf der linken Seite des umgekehrten Schrägstrichs) und einen Benutzerkonto Namen innerhalb der Domäne (die Informationen auf der rechten Seite des umgekehrten Schrägstrichs) anzugeben. In diesem Fall sind nur Attribut Bearbeitungs Regeln zulässig, die den Domänen Namen ändern oder ersetzen.
+>Wenn Sie das MS-CHAP v2-Authentifizierungsprotokoll verwenden, können Sie das User Name-Attribut nicht bearbeiten, wenn die Verbindungs Anforderungs Richtlinie zum Weiterleiten der RADIUS-Nachricht verwendet wird. Die einzige Ausnahme tritt auf, wenn ein umgekehrter Schrägstrich (\) Zeichen verwendet wird, und die Bearbeitung wirkt sich nur auf die Informationen auf der linken Seite aus. Ein umgekehrter Schrägstrich wird normalerweise verwendet, um einen Domänen Namen (die Informationen auf der linken Seite des umgekehrten Schrägstrichs) und einen Benutzerkonto Namen innerhalb der Domäne (die Informationen auf der rechten Seite des umgekehrten Schrägstrichs) anzugeben. In diesem Fall sind nur Attribut Bearbeitungs Regeln zulässig, die den Domänen Namen ändern oder ersetzen.
 
 Beispiele zum Bearbeiten des Bereichs namens im User Name-Attribut finden Sie im Abschnitt "Beispiele für die Bearbeitung des Bereichs namens im User Name-Attribut" im Thema [Verwenden von regulären Ausdrücken in NPS](nps-crp-reg-expressions.md).
 
@@ -175,7 +175,7 @@ Sie können die folgenden Weiterleitungs Anforderungs Optionen festlegen, die f�
 >[!NOTE]
 >Diese Authentifizierungs Option kann nicht verwendet werden, wenn das Authentifizierungsprotokoll des Zugriffs Clients MS-CHAP v2 oder Extensible Authentication Protocol-Transport Layer Security (EAP-TLS) ist, die beide gegenseitige Authentifizierung bereitstellen. Bei gegenseitiger Authentifizierung stellt der Zugriffs Client fest, dass es sich um einen gültigen Zugriffs Client für den authentifizier enden Server (NPS) handelt und der authentifizier Ende Server bestätigt, dass es sich um einen gültigen authentifizier enden Server beim Zugriffs Client handelt. Wenn diese Authentifizierungs Option verwendet wird, wird die Access-Accept-Nachricht zurückgegeben. Der authentifizier Ende Server stellt jedoch keine Validierung für den Zugriffs Client bereit, und die gegenseitige Authentifizierung schlägt fehl.
 
-Beispiele für die Verwendung von regulären Ausdrücken zum Erstellen von Routing Regeln, die RADIUS-Nachrichten mit einem bestimmten Bereichs Namen an eine Remote-RADIUS-Server Gruppe weiterleiten, finden Sie im Abschnitt "Beispiel für die RADIUS-Nachrichten Weiterleitung durch einen Proxy Server" im Thema [use Regular Ausdrücke in NPS](nps-crp-reg-expressions.md).
+Beispiele für die Verwendung von regulären Ausdrücken zum Erstellen von Routing Regeln, die RADIUS-Nachrichten mit einem bestimmten Bereichs Namen an eine Remote-RADIUS-Server Gruppe weiterleiten, finden Sie im Abschnitt "Beispiel für RADIUS-Nachrichten Weiterleitung durch einen Proxy Server" im Thema [Verwenden von regulären Ausdrücken in NPS](nps-crp-reg-expressions.md).
 
 ### <a name="advanced"></a>Erweitert
 

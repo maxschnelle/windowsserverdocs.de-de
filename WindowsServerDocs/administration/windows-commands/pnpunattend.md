@@ -47,8 +47,8 @@ Vorläufige Vorbereitung ist erforderlich. Vor der Verwendung dieses Befehls mü
 2. Laden Sie das Treiber Paket für Ihr Gerät herunter, und extrahieren Sie es. Kopieren Sie den Inhalt des unter Ordners, der die INF-Datei für Ihre Version des Betriebssystems enthält, und alle Unterordner in den von Ihnen erstellten Videoordner. Kopieren Sie z. b. die Videotreiber Dateien nach c:\drivers\video.
 3. Fügen Sie dem Ordner, den Sie in Schritt 1 erstellt haben, eine System Umgebungs Pfad-Variable hinzu. Beispiel: **c:\drivers\video**.
 4. Erstellen Sie den folgenden Registrierungsschlüssel, und legen Sie dann für den von Ihnen erstellten **DriverPath** -Schlüssel die **Wertdaten** auf **1**fest.
-5. Navigieren Sie für Windows® 7 zum Registrierungs Pfad: **HKEY_LOCAL_Machine\Software\Microsoft\Windows NT\CurrentVersion @ no__t-1**, und erstellen Sie dann die Schlüssel: **Unattendsettings\pnpunattend\driverpath @ no__t-1**
-6. Navigieren Sie für Windows Vista zum Registrierungs Pfad: **HK_LM\Software\Microsoft\Windows NT\CurrentVersion @ no__t-1**, und erstellen Sie dann die Schlüssel = **\unattendsettings\pnpunattend\driverpath**.
+5. Navigieren Sie für Windows® 7 in den Registrierungs Pfad: **HKEY_LOCAL_Machine \SOFTWARE\Microsoft\Windows NT\CurrentVersion\\** , und erstellen Sie dann die Schlüssel: **unattendsettings\pnpunattend\driverpath\\**
+6. Navigieren Sie für Windows Vista zum Registrierungs Pfad: **HK_LM \SOFTWARE\Microsoft\Windows NT\CurrentVersion\\** , und erstellen Sie dann die Schlüssel = **\unattendsettings\pnpunattend\driverpath**.
 
 ## <a name="examples"></a>Beispiele
 

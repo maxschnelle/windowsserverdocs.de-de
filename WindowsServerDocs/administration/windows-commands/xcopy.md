@@ -36,8 +36,8 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|> der @no__t 0quelle|Erforderlich. Gibt den Speicherort und die Namen der Dateien an, die Sie kopieren möchten. Dieser Parameter muss entweder ein Laufwerk oder einen Pfad enthalten.|
-|[\<destination >]|Gibt das Ziel der Dateien an, die Sie kopieren möchten. Dieser Parameter kann einen Laufwerk Buchstaben, einen Doppelpunkt, einen Verzeichnisnamen, einen Dateinamen oder eine Kombination dieser Parameter enthalten.|
+|> der \<Quelle|Erforderlich. Gibt den Speicherort und die Namen der Dateien an, die Sie kopieren möchten. Dieser Parameter muss entweder ein Laufwerk oder einen Pfad enthalten.|
+|[\<Ziel >]|Gibt das Ziel der Dateien an, die Sie kopieren möchten. Dieser Parameter kann einen Laufwerk Buchstaben, einen Doppelpunkt, einen Verzeichnisnamen, einen Dateinamen oder eine Kombination dieser Parameter enthalten.|
 |/w|Zeigt die folgende Meldung an und wartet auf die Antwort, bevor mit dem Kopieren von Dateien begonnen wird:</br>**Drücken Sie eine beliebige Taste, um mit dem Kopieren von Dateien zu beginnen.**|
 |/p|Sie werden aufgefordert, zu bestätigen, ob Sie die einzelnen Zieldateien erstellen möchten.|
 |/c|Ignoriert Fehler.|
@@ -123,31 +123,31 @@ Drücken Sie F, wenn Sie möchten, dass die Dateien in eine Datei kopiert werden
 
 ## <a name="examples"></a>Beispiele
 
-**1.** Wenn Sie alle Dateien und Unterverzeichnisse (einschließlich leerer Unterverzeichnisse) von Laufwerk A auf Laufwerk B kopieren möchten, geben Sie Folgendes ein:
+**1.** geben Sie Folgendes ein, um alle Dateien und Unterverzeichnisse (einschließlich aller leeren Unterverzeichnisse) von Laufwerk A auf Laufwerk B zu kopieren:
 
 ```
 xcopy a: b: /s /e 
 ```
 
-**2.** Fügen Sie die Befehlszeilenoption<strong>/h</strong> wie folgt hinzu, um im vorherigen Beispiel System-oder ausgeblendete Dateien einzuschließen:
+**2.** um im vorherigen Beispiel System-oder ausgeblendete Dateien einzuschließen, fügen Sie die Befehlszeilenoption<strong>/h</strong> wie folgt hinzu:
 
 ```
 xcopy a: b: /s /e /h
 ```
 
-**3.** Um Dateien im Verzeichnis "\Reports" mit den Dateien im Verzeichnis "\rawdata" zu aktualisieren, die seit dem 29. Dezember 1993 geändert wurden, geben Sie Folgendes ein:
+**3.** geben Sie Folgendes ein, um Dateien im Verzeichnis "\Reports" mit den Dateien im Verzeichnis "\rawdata" zu aktualisieren, die seit dem 29. Dezember 1993 geändert wurden:
 
 ```
 xcopy \rawdata \reports /d:12-29-1993
 ```
 
-**4.** Um alle Dateien zu aktualisieren, die im vorherigen Beispiel in \Reports vorhanden sind, geben Sie Folgendes ein:
+**4.** geben Sie Folgendes ein, um alle Dateien zu aktualisieren, die im vorherigen Beispiel in \Reports vorhanden sind:
 
 ```
 xcopy \rawdata \reports /u
 ```
 
-**5.** Zum Abrufen einer Liste der Dateien, die mit dem vorherigen Befehl kopiert werden sollen (d. h., ohne die Dateien tatsächlich zu kopieren), geben Sie Folgendes ein:
+**5.** geben Sie Folgendes ein, um eine Liste der Dateien abzurufen, die mit dem vorherigen Befehl kopiert werden sollen (d. h., ohne die Dateien tatsächlich zu kopieren):
 
 ```
 xcopy \rawdata \reports /d:12-29-1993 /l > xcopy.out
@@ -155,13 +155,13 @@ xcopy \rawdata \reports /d:12-29-1993 /l > xcopy.out
 
 Die Datei Xcopy. out listet alle Dateien auf, die kopiert werden sollen.
 
-**6.** Um das Verzeichnis "\customer" und alle Unterverzeichnisse in das Verzeichnis \\ @ no__t-1Public\Address auf dem Netzwerklaufwerk H: zu kopieren, behalten Sie das Attribut "schreibgeschützt" bei, und Sie werden beim Erstellen einer neuen Datei auf "h:" aufgefordert, Folgendes einzugeben:
+**6.** um das Verzeichnis "\customer" und alle Unterverzeichnisse in das Verzeichnis \\\\public\address auf dem Netzwerklaufwerk H: zu kopieren, behalten Sie das Attribut "schreibgeschützt" bei, und Sie werden aufgefordert, wenn eine neue Datei auf "h:" erstellt wird. Geben Sie Folgendes ein:
 
 ```
 xcopy \customer h:\public\address /s /e /k /p
 ```
 
-**7.** Um den vorherigen Befehl auszugeben, stellen Sie sicher, dass **xcopy** das Verzeichnis \address erstellt, wenn es nicht vorhanden ist, und unterdrücken Sie die Meldung, die beim Erstellen eines neuen Verzeichnisses angezeigt wird, indem Sie die Befehlszeilenoption **/i** wie folgt hinzufügen:
+**7.** um den vorherigen Befehl auszugeben, stellen Sie sicher, dass **xcopy** das Verzeichnis \address erstellt, wenn es nicht vorhanden ist, und unterdrücken Sie die Meldung, die beim Erstellen eines neuen Verzeichnisses angezeigt wird, indem Sie die Befehlszeilenoption **/i** wie folgt hinzufügen:
 
 ```
 xcopy \customer h:\public\address /s /e /k /p /i
@@ -194,9 +194,9 @@ Wenn Sie das vorherige Batch Programm verwenden möchten, um alle Dateien im Ver
 copyit c:\prgmcode b:
 ```
 
-Der Befehls Interpreter ersetzt " **c:\Prgmcode** " für " *% 1* " und " **B":** für " *% 2*" verwendet " **xcopy** " mit den Befehlszeilenoptionen " **/e** " und " **/s** ". Wenn **xcopy** einen Fehler feststellt, liest das Batch Programm den Exitcode und wechselt zu der Bezeichnung, die in der entsprechenden **IF ERRORLEVEL** -Anweisung angegeben wird. Anschließend wird die entsprechende Meldung angezeigt, und das Batch Programm wird beendet.
+Der Befehls Interpreter ersetzt " **c:\Prgmcode** " für " *%1* " und " **B":** für " *%2*" verwendet " **xcopy** " mit den Befehlszeilenoptionen " **/e** " und " **/s** ". Wenn **xcopy** einen Fehler feststellt, liest das Batch Programm den Exitcode und wechselt zu der Bezeichnung, die in der entsprechenden **IF ERRORLEVEL** -Anweisung angegeben wird. Anschließend wird die entsprechende Meldung angezeigt, und das Batch Programm wird beendet.
 
-**9.** In diesem Beispiel werden alle nicht leeren Verzeichnisse sowie Dateien, deren Name dem Muster entspricht, das mit dem Sternchen-Symbol angegeben wird.
+**9.** in diesem Beispiel werden alle nicht leeren Verzeichnisse sowie Dateien, deren Name dem mit dem Sternchen-Symbol angegebenen Muster entspricht.
 
 ```
 xcopy .\toc*.yml ..\..\Copy-To\ /S /Y
@@ -208,7 +208,7 @@ rem  .\d2\toc.yml
 rem  3 File(s) copied
 ```
 
-Im vorherigen Beispiel wird dieser bestimmte Quellparameter Wert **. @no__t -1toc\*.yml** die gleichen 3 Dateien kopieren, auch wenn die beiden Pfad Zeichen **. \\** entfernt wurden. Es werden jedoch keine Dateien kopiert, wenn der Platzhalter Platzhalter aus dem Quellparameter entfernt wurde **. @no__t -1"Dec. yml**".
+Im vorangehenden Beispiel Kopieren dieser bestimmte Quellparameter Wert **.\\Inhalts\*. yml** dieselben drei Dateien, auch wenn die beiden Pfad Zeichen **.\\** entfernt wurden. Es werden jedoch keine Dateien kopiert, wenn der Platzhalter Platzhalter aus dem Quellparameter entfernt wurde, sodass nur **.\\** ".
 
 #### <a name="additional-references"></a>Weitere Verweise
 

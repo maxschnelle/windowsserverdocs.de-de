@@ -64,8 +64,8 @@ Einausdrucks Bedingungen werden in der folgenden Tabelle beschrieben. Sie sind s
 
 |                                                                                                                   Beschreibung der Bedingung                                                                                                                    |                           Syntaxbeispiel der Bedingung                            |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-|               Diese Regel besteht aus einer Bedingung zum Überprüfen eines Eingabe Anspruchs mit einem angegebenen Anspruchstyp (<http://test/name>""). Wenn ein passender Anspruch in den Eingabeansprüchen vorhanden ist, kopiert die Regel den passenden Anspruch bzw. die Ansprüche in die Menge der Ausgabeansprüche.               |         ``` c: [type == "http://test/name"] => issue(claim = c );```          |
-| Diese Regel weist eine Bedingung auf, um einen Eingabe Anspruch mit einem angegebenen Anspruchstyp ("<http://test/name>") und einem Anspruchs Wert ("Terry") zu überprüfen. Wenn ein passender Anspruch in den Eingabeansprüchen vorhanden ist, kopiert die Regel den passenden Anspruch bzw. die Ansprüche in die Menge der Ausgabeansprüche. | ``` c: [type == "http://test/name", value == "Terry"] => issue(claim = c);``` |
+|               Diese Regel weist eine Bedingung auf, um einen Eingabe Anspruch mit einem angegebenen Anspruchstyp ("<http://test/name>") zu überprüfen. Wenn ein passender Anspruch in den Eingabeansprüchen vorhanden ist, kopiert die Regel den passenden Anspruch bzw. die Ansprüche in die Menge der Ausgabeansprüche.               |         ``` c: [type == "http://test/name"] => issue(claim = c );```          |
+| Diese Regel weist eine Bedingung auf, um nach einem Eingabe Anspruch mit einem angegebenen Anspruchstyp ("<http://test/name>") und einem Anspruchs Wert ("Terry") zu suchen. Wenn ein passender Anspruch in den Eingabeansprüchen vorhanden ist, kopiert die Regel den passenden Anspruch bzw. die Ansprüche in die Menge der Ausgabeansprüche. | ``` c: [type == "http://test/name", value == "Terry"] => issue(claim = c);``` |
 
 Komplexere Bedingungen werden im nächsten Abschnitt angezeigt, einschließlich Bedingungen zum Überprüfen auf mehrere Ansprüche, Bedingungen zum Überprüfen des Ausstellers eines Anspruchs und Bedingungen zum Überprüfen von Werten, die mit einem Muster für reguläre Ausdrücke zu vergleichen sind.  
 
@@ -82,23 +82,23 @@ In der folgenden Tabelle finden Sie ein Beispiel für eine reguläre, Ausdrucks 
 
 |Beschreibung der Bedingung|Syntaxbeispiel der Bedingung|  
 |-------------------------|----------------------------|  
-|Diese Regel weist eine Bedingung auf, die einen regulären Ausdruck verwendet, um nach einem e-Mail-Anspruch@fabrikam.comzu suchen, der auf "" endet. Wenn ein übereinstimmender Anspruch in den Eingabeansprüchen gefunden wird, kopiert die Regel den übereinstimmenden Anspruch in den Ausgabeanspruchssatz.|```c: [type  == "http://test/email", value  =~ "^. +@fabrikam.com$" ] => issue (claim  = c );```|  
+|Diese Regel weist eine Bedingung auf, die einen regulären Ausdruck verwendet, um nach einem e-Mail-Anspruch zu suchen, der auf "@fabrikam.com" endet. Wenn ein übereinstimmender Anspruch in den Eingabeansprüchen gefunden wird, kopiert die Regel den übereinstimmenden Anspruch in den Ausgabeanspruchssatz.|```c: [type  == "http://test/email", value  =~ "^. +@fabrikam.com$" ] => issue (claim  = c );```|  
 
 ### <a name="issuance-statements"></a>Ausstellungsanweisungen  
 Benutzerdefinierte Regeln werden basierend auf den Ausstellungs Anweisungen (*Problem* oder *Hinzufügen* ) verarbeitet, die Sie in der Anspruchs Regel programmieren. Abhängig vom gewünschten Ergebnis kann entweder die „issue“-Anweisung (Ausgeben) oder die „add“-Anweisung (Hinzufügen) in die Regel geschrieben werden, um den Eingabeanspruchssatz oder den Ausgabeanspruchssatz zu besetzen. Eine benutzerdefinierte Regel, die explizit die „add“-Anweisung verwendet, fügt Anspruchswerte nur in den Eingabeanspruchssatz ein, während eine benutzerdefinierte Regel, die explizit die „issue“-Anweisung verwendet, Anspruchswerte sowohl in den Eingabeanspruchssatz als auch in den Ausgabeanspruchssatz einfügt. Dies kann nützlich sein, wenn ein Anspruchswert nur von darauffolgenden Regeln in den Anspruchsregelsätzen verwendet werden soll.  
 
-In der folgenden Abbildung wird beispielsweise der eingehende Anspruch durch das Anspruchsausgabemodul dem Eingabeanspruchssatz hinzugefügt. Wenn die erste benutzerdefinierte Anspruchs Regel ausgeführt wird und die Kriterien des Domänen Benutzers erfüllt sind, verarbeitet das Anspruchs Ausstellungs Modul die Logik in der Regel mithilfe der Add-Anweisung, und der Wert des **Editors** wird dem Eingangs Anspruchssatz hinzugefügt. Da der Wert des Editors im Eingangs Anspruchssatz vorhanden ist, kann Regel 2 die Issue-Anweisung in der Logik verarbeiten und den neuen Wert **Hello**generieren, der dem Ausgangs Anspruchssatz und dem Eingangs Anspruchssatz zur Verwendung durch die nächste Regel in der hinzugefügt wird. Regelsatz. In Regel 3 können jetzt alle Werte, die im Eingangs Anspruchssatz vorhanden sind, als Eingabe für die Verarbeitung der Logik verwendet werden.  
+In der folgenden Abbildung wird beispielsweise der eingehende Anspruch durch das Anspruchsausgabemodul dem Eingabeanspruchssatz hinzugefügt. Wenn die erste benutzerdefinierte Anspruchs Regel ausgeführt wird und die Kriterien des Domänen Benutzers erfüllt sind, verarbeitet das Anspruchs Ausstellungs Modul die Logik in der Regel mithilfe der Add-Anweisung, und der Wert des **Editors** wird dem Eingangs Anspruchssatz hinzugefügt. Da der Wert des Editors im Eingangs Anspruchssatz vorhanden ist, kann Regel 2 die Issue-Anweisung in der Logik verarbeiten und den neuen Wert **Hello**generieren, der dem Ausgangs Anspruchssatz und dem Eingangs Anspruchssatz zur Verwendung durch die nächste Regel im Regelsatz hinzugefügt wird. In Regel 3 können jetzt alle Werte, die im Eingangs Anspruchssatz vorhanden sind, als Eingabe für die Verarbeitung der Logik verwendet werden.  
 
 ![Rollen AD FS](media/adfs2_customrule.gif)  
 
 #### <a name="claim-issuance-actions"></a>Anspruchsausstellungsaktionen  
 Der Hauptteil der Regel stellt eine Anspruchsausstellungsaktion dar. Die Sprache erkennt zwei Anspruchsausstellungsaktionen:  
 
--   **„issue“-Anweisung:** Die „issue“-Anweisung erstellt einen Anspruch, der sowohl in den Eingabeanspruchssatz als auch in den Ausgabeanspruchssatz kopiert wird. Die folgende Anweisung stellt beispielsweise eine neue Anforderung anhand ihres Eingabeanspruchssatzes aus.  
+-   **„issue“-Anweisung**: Die „issue“-Anweisung erstellt einen Anspruch, der sowohl in den Eingabeanspruchssatz als auch in den Ausgabeanspruchssatz kopiert wird. Die folgende Anweisung stellt beispielsweise eine neue Anforderung anhand ihres Eingabeanspruchssatzes aus.  
 
     ```c:[type == "Name"] => issue(type = "Greeting", value = "Hello " + c.value);```  
 
--   **„add“-Anweisung:** Die „add“-Anweisung erstellt eine neue Anforderung, die nur dem Eingabeanspruchssatz hinzugefügt wird. Die folgende Anweisung fügt z. B. dem Eingabeanspruchssatz einen neuen Anspruch hinzu:  
+-   **„add“-Anweisung**: Die „add“-Anweisung erstellt eine neue Anforderung, die nur dem Eingabeanspruchssatz hinzugefügt wird. Die folgende Anweisung fügt z. B. dem Eingabeanspruchssatz einen neuen Anspruch hinzu:  
 
     ```c:[type == "Name", value == "domain user"] => add(type = "Role", value = "Editor");``` 
 
@@ -108,9 +108,9 @@ Die „issue“-Anweisung definiert, welche Ansprüche durch die Regel ausgegebe
 
     -   *Anspruchskopie*: Bei der Anspruchskopie wird eine Kopie des vorhandenen Anspruchs in den Ausgabeanspruchssatz kopiert. Diese Form der Ausstellung ist nur in Kombination mit der Ausstellungsanweisung „issue“ sinnvoll. In Kombination mit der Ausstellungsanweisung „add“ hat sie keinerlei Auswirkung.  
 
-    -   *Neuer Anspruch*: In diesem Format wird ein neuer Anspruch erstellt, wobei die Werte für verschiedene Anspruchs Eigenschaften angegeben werden. „Claim.Type“ muss angegeben werden, alle anderen Anspruchseigenschaften sind optional. Die Reihenfolge der Argumente wird in dieser Form ignoriert.  
+    -   *Neuer Anspruch*: in diesem Format wird ein neuer Anspruch erstellt, wobei die Werte für verschiedene Anspruchs Eigenschaften angegeben werden. „Claim.Type“ muss angegeben werden, alle anderen Anspruchseigenschaften sind optional. Die Reihenfolge der Argumente wird in dieser Form ignoriert.  
 
--   **Attributspeicher**: Bei dieser Form werden Ansprüche mit Werten erstellt, die von einem Attributspeicher abgerufen werden. Es ist möglich, mehrere Anspruchs Typen mit einer einzelnen Ausstellungs Anweisung zu erstellen, was für Attribut Speicher wichtig ist, die während des Attribut Abrufs Netzwerk-oder Datenträger-e/a-Vorgänge (e/a-Vorgänge) durchführen. Daher ist es wünschenswert, die Anzahl der Roundtrips zwischen dem Richtlinienmodul und dem Attributspeicher zu begrenzen. Es ist auch zulässig, für einen Anspruchstyp jeweils mehrere Ansprüche zu erstellen. Wenn der Attributspeicher mehrere Werte für einen Anspruchstyp zurückliefert, erstellt die Ausstellungsanweisung automatisch einen Anspruch für jeden Anspruchswert. Ein Mechanismus des Attributspeichers ersetzt die Platzhalter im Abfrageargument durch die Parameterargumente. Die Platzhalter verwenden dieselbe Syntax wie die .net String. Format ()-Funktion (z {1} {2}. b., usw.). Die Reihenfolge der Argumente für diese Art der Ausstellung ist wichtig, und es muss die in der folgenden Grammatik vorgeschriebene Reihenfolge sein.  
+-   **Attributspeicher**: Bei dieser Form werden Ansprüche mit Werten erstellt, die von einem Attributspeicher abgerufen werden. Es ist möglich, mehrere Anspruchs Typen mit einer einzelnen Ausstellungs Anweisung zu erstellen, was für Attribut Speicher wichtig ist, die während des Attribut Abrufs Netzwerk-oder Datenträger-e/a-Vorgänge (e/a-Vorgänge) durchführen. Daher ist es wünschenswert, die Anzahl der Roundtrips zwischen dem Richtlinienmodul und dem Attributspeicher zu begrenzen. Es ist auch zulässig, für einen Anspruchstyp jeweils mehrere Ansprüche zu erstellen. Wenn der Attributspeicher mehrere Werte für einen Anspruchstyp zurückliefert, erstellt die Ausstellungsanweisung automatisch einen Anspruch für jeden Anspruchswert. Ein Mechanismus des Attributspeichers ersetzt die Platzhalter im Abfrageargument durch die Parameterargumente. Die Platzhalter verwenden dieselbe Syntax wie die .net String. Format ()-Funktion (z. b. {1}, {2}usw.). Die Reihenfolge der Argumente für diese Art der Ausstellung ist wichtig, und es muss die in der folgenden Grammatik vorgeschriebene Reihenfolge sein.  
 
 Die folgende Tabelle beschreibt einige allgemeine Syntaxkonstruktionen für beide Ausstellungsanweisungen in Anspruchsregeln.  
 
@@ -124,13 +124,13 @@ Die folgende Tabelle beschreibt einige allgemeine Syntaxkonstruktionen für beid
 #### <a name="expressions"></a>Ausdrücke  
 Ausdrücke werden auf der rechten Seite sowohl für Anspruchsselektorbeschränkungen als auch für Parameter für Ausstellungsanweisungen verwendet. Es gibt verschiedene Arten von Ausdrücken, die die Sprache unterstützt. Alle Ausdrücke in der Sprache operieren auf Zeichenfolgen, d. h., dass Zeichenfolgen als Eingabe angenommen und als Ausgabe erzeugt werden. Zahlen und andere Datentypen wie beispielsweise Datum/Uhrzeit werden in Ausdrücken nicht unterstützt. Die Sprache unterstützt folgende Arten von Ausdrücken:  
 
--   Zeichenfolgenliteral: Zeichen folgen Wert, begrenzt durch das Anführungszeichen (") auf beiden Seiten.  
+-   Zeichenfolgenliterale: Zeichen folgen Wert, getrennt durch das Anführungszeichen (") auf beiden Seiten.  
 
 -   Verkettung von Ausdrücken als Zeichenfolgen: Das Ergebnis ist eine Zeichenfolge, die durch Verkettung der linken und rechten Werte erzeugt wird.  
 
--   Funktionsaufruf: Die-Funktion wird durch einen Bezeichner identifiziert, und die Parameter werden als durch Trennzeichen getrennte Liste von Ausdrücken, die in Klammern eingeschlossen sind ("()"), übermittelt.  
+-   Funktionsaufrufe: die Funktion wird durch einen Bezeichner identifiziert, und die Parameter werden als durch Trennzeichen getrennte Liste von Ausdrücken, die in Klammern eingeschlossen sind ("()").  
 
--   Der Anspruch der Anspruchs Eigenschaft in Form eines Variablen namens Punkt-Eigenschaftsnamen: Das Ergebnis des Werts der-Eigenschaft des identifizierten Anspruchs für eine bestimmte Variablen Bewertung. Die Variable muss zunächst an einen Anspruchsselektor gebunden werden, bevor sie in dieser Weise verwendet werden kann. Es ist nicht zulässig, die an einen Anspruchsselektor gebundene Variable in den Beschränkungen für denselben Anspruchsselektor zu verwenden.  
+-   Eigenschaft des Anspruchs in Form eines Variablen namens Punkt-Eigenschaften namens: das Ergebnis des Werts der Eigenschaft des identifizierten Anspruchs für eine bestimmte Variablen Bewertung. Die Variable muss zunächst an einen Anspruchsselektor gebunden werden, bevor sie in dieser Weise verwendet werden kann. Es ist nicht zulässig, die an einen Anspruchsselektor gebundene Variable in den Beschränkungen für denselben Anspruchsselektor zu verwenden.  
 
 Die folgenden Anspruchseigenschaften sind verfügbar:  
 
@@ -144,7 +144,7 @@ Die folgenden Anspruchseigenschaften sind verfügbar:
 
 -   Claim.ValueType  
 
--   Claim. Properties @ no__t-0property @ no__t-1name @ no__t-2 (diese Eigenschaft gibt eine leere Zeichenfolge zurück, wenn die Eigenschaft _name in der Properties-Auflistung des Anspruchs nicht gefunden werden kann. )  
+-   Claim. Properties\[Eigenschaften\_Name\] (diese Eigenschaft gibt eine leere Zeichenfolge zurück, wenn die Eigenschaft _name in der Eigenschaften Auflistung des Anspruchs nicht gefunden werden kann. )  
 
 Die RegexReplace-Funktion kann innerhalb eines Ausdrucks für Aufrufe verwendet werden. Diese Funktion übernimmt einen Eingabeausdruck und vergleicht ihn mit dem angegebenen Muster. Wenn das Muster übereinstimmt, wird die Ausgabe der Übereinstimmung durch den Ersatzwert ersetzt.  
 

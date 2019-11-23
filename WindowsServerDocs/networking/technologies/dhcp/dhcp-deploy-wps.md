@@ -17,9 +17,9 @@ ms.locfileid: "71405766"
 ---
 # <a name="deploy-dhcp-using-windows-powershell"></a>Bereitstellung von DHCP mit Windows PowerShell
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Dieses Handbuch enthält Anweisungen zur Verwendung von Windows PowerShell zur Bereitstellung eines IP-Protokolls (IP) Version 4 Dynamic Host Configuration-Protokoll \(dhcp @ no__t-1 Server, von dem IPv4-DHCP-Clients automatisch IP-Adressen und DHCP-Optionen zugewiesen werden. Verbindung mit einem oder mehreren Subnetzen in Ihrem Netzwerk.
+Dieses Handbuch enthält Anweisungen zur Verwendung von Windows PowerShell zum Bereitstellen eines IP-Protokolls (IP) Version 4 Dynamic Host Configuration-Protokoll \(DHCP-\) Server, von dem IPv4-DHCP-Clients, die mit einem oder mehreren Subnetzen in Ihrem Netzwerk verbunden sind, automatisch IP-Adressen und DHCP-Optionen zugewiesen werden.
 
 >[!NOTE]
 >Informationen zum Herunterladen dieses Dokuments im Word-Format aus der TechNet Gallery finden Sie unter Bereitstellen von [DHCP mithilfe von Windows PowerShell unter Windows Server 2016](https://gallery.technet.microsoft.com/Deploy-DHCP-Using-Windows-246dd293).
@@ -63,7 +63,7 @@ Bei TCP/IP-basierten Netzwerken verringert DHCP die Komplexität und die Menge a
 
 Standardmäßig verfügen alle Versionen von Windows Server-und Windows-Client Betriebssystemen über TCP/IP-Einstellungen für IP-Version 4-Netzwerkverbindungen, die so konfiguriert sind, dass automatisch eine IP-Adresse und andere Informationen, sogenannte DHCP-Optionen, von einem DHCP-Server Daher müssen Sie die TCP/IP-Einstellungen nicht manuell konfigurieren, es sei denn, der Computer ist ein Server Computer oder ein anderes Gerät, für das eine manuell konfigurierte statische IP-Adresse erforderlich ist. 
 
-Es wird z. b. empfohlen, die IP-Adresse des DHCP-Servers und die IP-Adressen von DNS-Servern und Domänen Controllern, auf denen Active Directory Domain Services \(ad DS @ no__t-1 ausgeführt wird, manuell zu konfigurieren.
+Es wird z. b. empfohlen, die IP-Adresse des DHCP-Servers und die IP-Adressen von DNS-Servern und Domänen Controllern, auf denen Active Directory Domain Services \(AD DS\)ausgeführt wird, manuell zu konfigurieren.
 
 TCP/IP in Windows Server 2016 lautet wie folgt:
 
@@ -196,7 +196,7 @@ Es wird empfohlen, den Ausschlussbereich mit zusätzlichen Adressen zu konfiguri
 
 Einige Geräte wie Router, DHCP-Server und DNS-Server müssen mit einer statischen IP-Adresse konfiguriert werden. Möglicherweise haben Sie auch weitere Geräte wie Drucker, für die Sie sicherstellen möchten, dass sie immer die gleiche IP-Adresse besitzen. Listen Sie die Geräte für jedes Subnetz auf, die Sie statisch konfigurieren möchten, und planen Sie dann den Ausschlussbereich, den Sie auf dem DHCP-Server verwenden möchten, um sicherzustellen, dass der DHCP-Server nicht die IP-Adresse eines statisch konfigurierten Geräts least. Ein Ausschlussbereich ist eine begrenzte Abfolge von IP-Adressen innerhalb eines Bereichs, der von der Verarbeitung durch den DHCP-Dienst ausgeschlossen wird. Ausschlussbereiche stellen sicher, dass die Adressen in diesen Bereichen vom Server nicht für DHCP-Clients im Netzwerk bereitgestellt werden.
 
-Wenn der IP-Adressbereich für ein Subnetz beispielsweise 192.168.0.1 über 192.168.0.254 lautet und Sie über zehn Geräte verfügen, die Sie mit einer statischen IP-Adresse konfigurieren möchten, können Sie einen Ausschluss Bereich für 192.168.0 erstellen. *x* -Bereich, der zehn oder mehr IP-Adressen umfasst: 192.168.0.1 bis 192.168.0.15.
+Wenn der IP-Adressbereich eines Subnetzes beispielsweise 192.168.0.1 bis 192.168.0.254 ist, und Sie zehn Geräte besitzen, die Sie mit einer statischen IP-Adresse konfigurieren möchten, können Sie einen Ausschlussbereich für den Bereich 192.168.0.*x* festlegen, der zehn oder mehr IP-Adressen enthält: 192.168.0.1 bis 192.168.0.15.
 
 In diesem Beispiel werden zehn der ausgeschlossenen IP-Adressen verwendet, um Server und andere Geräte mit statischen IP-Adressen zu konfigurieren, und fünf weitere IP-Adressen bleiben für die Konfiguration neuer Geräte verfügbar, die zukünftig hinzugefügt werden können. Mit diesem Ausschlussbereich verfügt der DHCP-Server noch über einen Adresspool von 192.168.0.16 bis 192.168.0.254.
 
@@ -207,7 +207,7 @@ Weitere Beispiel Konfigurationselemente für AD DS und DNS finden Sie in der fol
 |Bindungen für die Netzwerkverbindung|Ethernet|
 |DNS-Servereinstellungen|DC1.corp.contoso.com|
 |Bevorzugte IP-Adresse des DNS-Servers|10.0.0.2|
-|Bereichs Werte<br /><br />1.  Bereichsname<br />2.  Start-IP-Adresse<br />3.  End-IP-Adresse:<br />4.  Subnetzmaske<br />5.  Standardgateway (optional)<br />6.  Leasedauer|1.  Primäres Subnetz<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6.8 Tage|
+|Bereichs Werte<br /><br />1. Bereichs Name<br />2. Start-IP-Adresse<br />3. IP-Endadresse<br />4. Subnetzmaske<br />5. Standard Gateway (optional)<br />6. Leasedauer|1. primäres Subnetz<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6.8 Tage|
 |Betriebsmodus des IPv6-DHCP-Servers|Nicht aktiviert|
 
 ## <a name="bkmk_lab"></a>Verwenden dieses Handbuchs in einer Test Umgebung
@@ -217,7 +217,7 @@ Mit dieser Anleitung können Sie DHCP in einer Testumgebung bereitstellen, bevor
 >[!NOTE]
 >Wenn Sie DHCP nicht in einer Testumgebung bereitstellen möchten, können Sie mit dem Abschnitt Bereitstellen von [DHCP](#bkmk_deploy)fortfahren.
 
-Die Anforderungen für das Lab unterscheiden sich abhängig davon, ob Sie physische Server oder virtuelle Computer \(vms @ no__t-1 verwenden und ob Sie eine Active Directory Domäne verwenden oder einen eigenständigen DHCP-Server bereitstellen.
+Die Anforderungen für das Lab unterscheiden sich abhängig davon, ob Sie physische Server oder virtuelle Computer \(VMS\)verwenden und ob Sie eine Active Directory Domäne verwenden oder einen eigenständigen DHCP-Server bereitstellen.
 
 Mithilfe der folgenden Informationen können Sie die minimalen Ressourcen ermitteln, die Sie zum Testen der DHCP-Bereitstellung in diesem Handbuch benötigen.
 
@@ -225,7 +225,7 @@ Mithilfe der folgenden Informationen können Sie die minimalen Ressourcen ermitt
 
 Zum Bereitstellen von DHCP in einer Testumgebung mit virtuellen Computern benötigen Sie die folgenden Ressourcen.
 
-Bei der Domänen Bereitstellung oder der eigenständigen Bereitstellung benötigen Sie einen Server, der als Hyper @ no__t-0V-Host konfiguriert ist.
+Bei der Domänen Bereitstellung oder der eigenständigen Bereitstellung benötigen Sie einen Server, der als Hyper\-V-Host konfiguriert ist.
 
 **Domänen Bereitstellung**
 
@@ -233,7 +233,7 @@ Diese Bereitstellung erfordert einen physischen Server, einen virtuellen Switch,
 
 Erstellen Sie auf dem physischen Server im Hyper-V-Manager die folgenden Elemente:
 
-1. Ein **interner** virtueller Switch. Erstellen Sie keinen **externen** virtuellen Switch, denn wenn sich der Hyper @ no__t-1V-Host in einem Subnetz befindet, das einen DHCP-Server enthält, erhalten die virtuellen Testcomputer eine IP-Adresse vom DHCP-Server. Außerdem kann der von Ihnen bereitgestellte DHCP-Testserver anderen Computern im Subnetz, auf dem der Hyper @ no__t-0V-Host installiert ist, IP-Adressen zuweisen.
+1. Ein **interner** virtueller Switch. Erstellen Sie keinen **externen** virtuellen Switch, denn wenn sich der Hyper\-V-Host in einem Subnetz befindet, das einen DHCP-Server enthält, erhalten die virtuellen Testcomputer eine IP-Adresse vom DHCP-Server. Außerdem kann der von Ihnen bereitgestellte DHCP-Testserver anderen Computern im Subnetz, auf dem der Hyper\-V-Host installiert ist, IP-Adressen zuweisen.
 1. Ein virtueller Computer unter Windows Server 2016, der als Domänen Controller mit Active Directory Domain Services konfiguriert ist, der mit dem von Ihnen erstellten internen virtuellen Switch verbunden ist. Dieser Server muss über eine statisch konfigurierte IP-Adresse von 10.0.0.2 verfügen, damit er diesem Leitfaden entspricht. Weitere Informationen zum Bereitstellen von AD DS finden Sie im Abschnitt Bereitstellen von **DC1** im Windows Server 2016- [Kern Netzwerk Handbuch](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide#BKMK_deployADDNS01).
 1. Einen virtuellen Computer unter Windows Server 2016, den Sie als DHCP-Server konfigurieren, indem Sie diesen Leitfaden verwenden, der mit dem von Ihnen erstellten internen virtuellen Switch verbunden ist. 
 1. Ein virtueller Computer, auf dem ein Windows-Client Betriebssystem ausgeführt wird, das mit dem von Ihnen erstellten internen virtuellen Switch verbunden ist und den Sie verwenden, um zu überprüfen, ob der DHCP-Server DHCP-Clients dynamisch IP-Adressen und DHCP-Optionen zuordnet
@@ -244,7 +244,7 @@ Diese Bereitstellung erfordert einen physischen Server, einen virtuellen Switch,
 
 Erstellen Sie auf dem physischen Server im Hyper-V-Manager die folgenden Elemente:
 
-1. Ein **interner** virtueller Switch. Erstellen Sie keinen **externen** virtuellen Switch, denn wenn sich der Hyper @ no__t-1V-Host in einem Subnetz befindet, das einen DHCP-Server enthält, erhalten die virtuellen Testcomputer eine IP-Adresse vom DHCP-Server. Außerdem kann der von Ihnen bereitgestellte DHCP-Testserver anderen Computern im Subnetz, auf dem der Hyper @ no__t-0V-Host installiert ist, IP-Adressen zuweisen.
+1. Ein **interner** virtueller Switch. Erstellen Sie keinen **externen** virtuellen Switch, denn wenn sich der Hyper\-V-Host in einem Subnetz befindet, das einen DHCP-Server enthält, erhalten die virtuellen Testcomputer eine IP-Adresse vom DHCP-Server. Außerdem kann der von Ihnen bereitgestellte DHCP-Testserver anderen Computern im Subnetz, auf dem der Hyper\-V-Host installiert ist, IP-Adressen zuweisen.
 2. Einen virtuellen Computer unter Windows Server 2016, den Sie als DHCP-Server konfigurieren, indem Sie diesen Leitfaden verwenden, der mit dem von Ihnen erstellten internen virtuellen Switch verbunden ist.
 3. Ein virtueller Computer, auf dem ein Windows-Client Betriebssystem ausgeführt wird, das mit dem von Ihnen erstellten internen virtuellen Switch verbunden ist und den Sie verwenden, um zu überprüfen, ob der DHCP-Server DHCP-Clients dynamisch IP-Adressen und DHCP-Optionen zuordnet
 
@@ -292,7 +292,7 @@ Vor dem Ausführen der Befehle sollten Sie z. b. die Beispiel Werte in den Befeh
 
 ### <a name="where-to-install-dhcp---on-a-physical-computer-or-a-vm"></a>Installationsort von DHCP auf einem physischen Computer oder einem virtuellen Computer?
 
-Sie können die DHCP-Server Rolle auf einem physischen Computer oder auf einem virtuellen Computer \(vm @ no__t-1 installieren, der auf einem Hyper @ no__t-2V-Host installiert ist. Wenn Sie DHCP auf einem virtuellen Computer installieren und möchten, dass der DHCP-Server IP-Adress Zuweisungen für Computer in dem physischen Netzwerk bereitstellt, mit dem der Hyper-v-Host verbunden ist, müssen Sie den virtuellen VM-Netzwerkadapter mit einem externen virtuellen Hyper-v-Switch verbinden.  **/C0.**
+Sie können die DHCP-Server Rolle auf einem physischen Computer oder auf einem virtuellen Computer \(VM-\) installieren, der auf einem Hyper\-V-Host installiert ist. Wenn Sie DHCP auf einem virtuellen Computer installieren und möchten, dass der DHCP-Server IP-Adress Zuweisungen für Computer in dem physischen Netzwerk bereitstellt, mit dem der Hyper-v-Host verbunden ist, müssen Sie den virtuellen VM-Netzwerkadapter mit einem **externen**virtuellen Hyper-v-Switch verbinden.
 
 Weitere Informationen finden Sie im Abschnitt **Erstellen eines virtuellen Switches mit dem Hyper-V-Manager** im Thema [Erstellen eines virtuellen Netzwerks](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network).
 
@@ -338,7 +338,7 @@ Weitere Informationen zu diesen Befehlen finden Sie in den folgenden Themen.
 - [Umbenennen-Computer](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.management/rename-computer)
 - [Restart-Computer](https://msdn.microsoft.com/powershell/reference/4.0/microsoft.powershell.management/restart-computer)
 
-### <a name="join-the-computer-to-the-domain-optional"></a>Fügen Sie den Computer der Domäne hinzu \(optional @ no__t-1
+### <a name="join-the-computer-to-the-domain-optional"></a>Fügen Sie den Computer der Domäne hinzu, \(optional\)
 
 Wenn Sie den DHCP-Server in einer Active Directory Domänen Umgebung installieren, müssen Sie den Computer der Domäne hinzufügen. Öffnen Sie Windows PowerShell mit Administrator Rechten, und führen Sie dann den folgenden Befehl aus, nachdem Sie den NetBIOS-Domänen Namen **Corp** mit einem Wert ersetzt haben, der für Ihre Umgebung geeignet ist.
 
@@ -370,7 +370,7 @@ Weitere Informationen zu diesem Befehl finden Sie im folgenden Thema.
 
 ### <a name="create-dhcp-security-groups"></a>Erstellen von DHCP-Sicherheitsgruppen
 
-Zum Erstellen von Sicherheitsgruppen müssen Sie eine Netzwerkshell \(netsh @ no__t-1-Befehl in Windows PowerShell ausführen und dann den DHCP-Dienst neu starten, damit die neuen Gruppen aktiv werden.
+Zum Erstellen von Sicherheitsgruppen müssen Sie eine Netzwerkshell \(Netsh\)-Befehl in Windows PowerShell ausführen und dann den DHCP-Dienst neu starten, damit die neuen Gruppen aktiv werden.
 
 Wenn Sie den folgenden Netsh-Befehl auf dem DHCP-Server ausführen, werden die Sicherheitsgruppen **DHCP-Administratoren** und **DHCP-Benutzer** in **lokale Benutzer und Gruppen** auf dem DHCP-Server erstellt.
 
@@ -389,7 +389,7 @@ Weitere Informationen zu diesen Befehlen finden Sie in den folgenden Themen.
 - [Network Shell (Netsh)](../netsh/netsh.md)
 - [Neu starten: Dienst](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.management/restart-service)
 
-### <a name="authorize-the-dhcp-server-in-active-directory-optional"></a>Autorisieren Sie den DHCP-Server in Active Directory \(optional @ no__t-1
+### <a name="authorize-the-dhcp-server-in-active-directory-optional"></a>Autorisieren Sie den DHCP-Server in Active Directory \(optional\)
 
 Wenn Sie DHCP in einer Domänen Umgebung installieren, müssen Sie die folgenden Schritte ausführen, um den DHCP-Server für den Betrieb in der Domäne zu autorisieren.
 
@@ -424,11 +424,11 @@ Weitere Informationen zu diesen Befehlen finden Sie in den folgenden Themen.
 - [Add-dhcpserverindc](https://technet.microsoft.com/itpro/powershell/windows/dhcp-server/add-dhcpserverindc)
 - [Get-dhcpserverindc](https://technet.microsoft.com/itpro/powershell/windows/dhcp-server/get-dhcpserverindc)
 
-### <a name="notify-server-manager-that-post-install-dhcp-configuration-is-complete-optional"></a>Benachrichtigen Sie Server-Manager, dass der Beitrag @ no__t-0install DHCP Configuration fertig ist \(optional @ no__t-2
+### <a name="notify-server-manager-that-post-install-dhcp-configuration-is-complete-optional"></a>Benachrichtigen Sie Server-Manager, dass nach\-Installation der DHCP-Konfiguration \(optional\)
 
-Nachdem Sie die Aufgaben zur Installation von @ no__t-0abgeschlossen haben, z. b. das Erstellen von Sicherheitsgruppen und das autorialisieren des DHCP-Servers in Active Directory Server-Manager, wird auf der Benutzeroberfläche möglicherweise weiterhin eine Warnung angezeigt, die darauf hinweist, dass die folgenden Schritte ausgeführt werden müssen. abgeschlossen mit dem Konfigurations-Assistenten für die DHCP-nach Installation.
+Nachdem Sie die Aufgaben nach der\-Installation abgeschlossen haben, z. b. das Erstellen von Sicherheitsgruppen und das autorialisieren des DHCP-Servers in Active Directory Server-Manager, wird auf der Benutzeroberfläche möglicherweise weiterhin eine Warnung angezeigt, die darauf hinweist, dass die Installationsschritte\-nach der Installation mithilfe des DHCP-Konfigurations-Assistenten nach der Installation
 
-Mit diesem Windows PowerShell-Befehl können Sie verhindern, dass die Meldung "jetzt @ no__t-0unnötig und ungenau" in Server-Manager angezeigt wird.
+Sie können verhindern, dass diese Meldung jetzt\-unnötige und ungenaue Nachricht in Server-Manager angezeigt wird, indem Sie den folgenden Registrierungsschlüssel mit diesem Windows PowerShell-Befehl konfigurieren.
 
 ```
 Set-ItemProperty –Path registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager\Roles\12 –Name ConfigurationState –Value 2
@@ -438,7 +438,7 @@ Weitere Informationen zu diesem Befehl finden Sie im folgenden Thema.
 
 - [Set-ItemProperty](https://msdn.microsoft.com/powershell/reference/4.0/microsoft.powershell.management/set-itemproperty?f=255&MSPPError=-2147217396)
 
-### <a name="set-server-level-dns-dynamic-update-configuration-settings-optional"></a>Konfigurationseinstellungen für dynamische DNS-Updates auf Serverebene festlegen \(optional @ no__t-1
+### <a name="set-server-level-dns-dynamic-update-configuration-settings-optional"></a>Festlegen der Konfigurationseinstellungen für dynamische DNS-Updates auf Serverebene \(optional\)
 
 Wenn der DHCP-Server dynamische DNS-Updates für DHCP-Client Computer ausführen soll, können Sie den folgenden Befehl ausführen, um diese Einstellung zu konfigurieren. Dabei handelt es sich um eine Einstellung auf Serverebene, nicht um eine Bereichs Ebene, sodass Sie sich auf alle Bereiche auswirkt, die Sie auf dem Server konfigurieren. Mit diesem Beispiel Befehl wird auch der DHCP-Server konfiguriert, um DNS-Ressourcen Einträge für Clients zu löschen, wenn der Client am wenigsten abläuft.
 
@@ -475,9 +475,9 @@ Weitere Informationen zu diesen Befehlen finden Sie in den folgenden Themen.
 - [Add-DhcpServerv4ExclusionRange](https://technet.microsoft.com/itpro/powershell/windows/dhcp-server/add-dhcpserverv4exclusionrange)
 - [Set-DhcpServerv4OptionValue](https://technet.microsoft.com/itpro/powershell/windows/dhcp-server/set-dhcpserverv4optionvalue)
 
-### <a name="configure-the-corpnet2-scope-optional"></a>Corpnet2 Scope konfigurieren \(optional @ no__t-1
+### <a name="configure-the-corpnet2-scope-optional"></a>Konfigurieren Sie den Corpnet2-Bereich \(optional\)
 
-Wenn Sie über ein zweites Subnetz verfügen, das mit dem ersten Subnetz mit einem Router verbunden ist, bei dem die DHCP-Weiterleitung aktiviert ist, können Sie die folgenden Befehle verwenden, um einen zweiten Bereich namens Corpnet2 für dieses Beispiel hinzuzufügen. In diesem Beispiel werden auch ein Ausschluss Bereich und die IP-Adresse für das Standard Gateway konfiguriert \(Die IP-Adresse des Routers im Subnetz @ no__t-1 des Corpnet2-Subnetzes.
+Wenn Sie über ein zweites Subnetz verfügen, das mit dem ersten Subnetz mit einem Router verbunden ist, bei dem die DHCP-Weiterleitung aktiviert ist, können Sie die folgenden Befehle verwenden, um einen zweiten Bereich namens Corpnet2 für dieses Beispiel hinzuzufügen. In diesem Beispiel werden auch ein Ausschluss Bereich und die IP-Adresse für das Standard Gateway konfiguriert, \(die routerip-Adresse im Subnetz\) des Corpnet2-Subnetzes.
 
 ```
 Add-DhcpServerv4Scope -name "Corpnet2" -StartRange 10.0.1.1 -EndRange 10.0.1.254 -SubnetMask 255.255.255.0 -State Active
@@ -492,14 +492,14 @@ Wenn Sie über zusätzliche Subnetze verfügen, die von diesem DHCP-Server gewar
 
 ## <a name="bkmk_verify"></a>Überprüfen der Server Funktionalität
 
-Um zu überprüfen, ob der DHCP-Server DHCP-Clients eine dynamische Zuordnung von IP-Adressen bereitstellt, können Sie einen anderen Computer mit einem Serviced Subnetz verbinden. Nach dem Verbinden des Ethernet-Kabels mit dem Netzwerkadapter und dem Einschalten des Computers wird vom DHCP-Server eine IP-Adresse angefordert. Sie können die erfolgreiche Konfiguration überprüfen, indem Sie den Befehl **ipconfig/all** verwenden und die Ergebnisse überprüfen, oder indem Sie Konnektivitätstests durchführen, z. b. den Zugriff auf Webressourcen mit Ihrem Browser oder Dateifreigaben mit Windows-Explorer Bereich.
+Um zu überprüfen, ob der DHCP-Server DHCP-Clients eine dynamische Zuordnung von IP-Adressen bereitstellt, können Sie einen anderen Computer mit einem Serviced Subnetz verbinden. Nach dem Verbinden des Ethernet-Kabels mit dem Netzwerkadapter und dem Einschalten des Computers wird vom DHCP-Server eine IP-Adresse angefordert. Sie können die erfolgreiche Konfiguration überprüfen, indem Sie den Befehl **ipconfig/all** verwenden und die Ergebnisse überprüfen, oder indem Sie Konnektivitätstests durchführen, z. b. den Zugriff auf Webressourcen mit Ihrem Browser oder Dateifreigaben mit Windows Explorer oder anderen Anwendungen
 
 Wenn der Client keine IP-Adresse vom DHCP-Server empfängt, führen Sie die folgenden Schritte zur Problembehandlung aus.
 
 1. Stellen Sie sicher, dass das Ethernet-Kabel sowohl an den Computer als auch an den Ethernet-Switch,-Hub oder-Router angeschlossen ist.
 2. Wenn Sie den Client Computer in einem Netzwerksegment angeschlossen haben, das von einem Router vom DHCP-Server getrennt ist, stellen Sie sicher, dass der Router für das Weiterleiten von DHCP-Nachrichten konfiguriert ist.
 3. Stellen Sie sicher, dass der DHCP-Server in Active Directory autorisiert ist, indem Sie den folgenden Befehl ausführen, um die Liste der autorisierten DHCP-Server von Active Directory abzurufen. [Get-dhcpserverindc](https://technet.microsoft.com/itpro/powershell/windows/dhcp-server/get-dhcpserverindc).
-4. Stellen Sie sicher, dass ihre Bereiche aktiviert sind, indem Sie die DHCP-Konsole öffnen \(Server-Manager, **Tools**, **DHCP**\), erweitern Sie die Serverstruktur, um Bereiche zu überprüfen, und klicken Sie dann mit der rechten @ no__t-4 Wenn das resultierende Menü die Auswahl **aktivieren**enthält, klicken Sie auf **aktivieren**. \(wenn der Bereich bereits aktiviert ist, liest die Menü Auswahl die Option **Deaktivieren**. \)
+4. Stellen Sie sicher, dass ihre Bereiche aktiviert sind, indem Sie die DHCP-Konsole öffnen \(Server-Manager, **Tools**, **DHCP**\), erweitern Sie die Server Struktur, um Bereiche zu überprüfen, und klicken Sie dann mit der rechten\- Wenn das resultierende Menü die Auswahl **aktivieren**enthält, klicken Sie auf **aktivieren**. \(wenn der Bereich bereits aktiviert ist, liest die Menü Auswahl die Option **Deaktivieren**.\)
 
 ## <a name="bkmk_dhcpwps"></a>Windows PowerShell-Befehle für DHCP
 

@@ -17,11 +17,11 @@ ms.locfileid: "71366872"
 ---
 # <a name="configure-and-view-vlan-settings-on-hyper-v-virtual-switch-ports"></a>Konfigurieren und Anzeigen von VLAN-Einstellungen für virtuelle Hyper-V-Switchports
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema finden Sie bewährte Methoden zum Konfigurieren und Anzeigen von Einstellungen für virtuelle lokale Netzwerke (VLAN) auf einem virtuellen Hyper-V-Switchport.
 
-Wenn Sie VLAN-Einstellungen auf virtuellen Hyper-v-Switchports konfigurieren möchten, können Sie entweder Windows @ no__t-0 Server 2016 Hyper-V-Manager oder System Center Virtual Machine Manager (VMM) verwenden.
+Wenn Sie VLAN-Einstellungen auf virtuellen Hyper-v-Switchports konfigurieren möchten, können Sie entweder Windows&reg; Server 2016 Hyper-V-Manager oder System Center Virtual Machine Manager (VMM) verwenden.
 
 Wenn Sie VMM verwenden, verwendet VMM den folgenden Windows PowerShell-Befehl, um den Switchport zu konfigurieren.
 
@@ -48,8 +48,8 @@ Gehen Sie folgendermaßen vor, um die Port Einstellungen für den VLAN-Switch zu
 
 Wenn Sie diese Richtlinien nicht befolgen, stoßen Sie möglicherweise auf die folgenden Probleme.
 
-- In Fällen, in denen Sie Sdn bereitgestellt haben und VMM, den Netzwerk Controller oder die **vmnetworkadapterisolation** -Cmdlets verwenden, um VLAN-Einstellungen auf einem virtuellen Hyper-V-Switchport zu konfigurieren: Wenn Sie den Hyper-V-Manager verwenden oder **vmnetworkadaptervlan** zum Anzeigen der Konfigurationseinstellungen verwenden, werden die VLAN-Einstellungen in der Befehlsausgabe nicht angezeigt. Stattdessen müssen Sie das Cmdlet **Get-vmnetworkisolation** verwenden, um die VLAN-Einstellungen anzuzeigen.
-- In Fällen, in denen Sie Sdn noch nicht bereitgestellt haben, verwenden Sie stattdessen Hyper-V-Manager oder die **vmnetworkadaptervlan** -Cmdlets, um VLAN-Einstellungen auf einem virtuellen Hyper-V-Switchport zu konfigurieren: Wenn Sie das **Get-vmnetworkisolation** -Cmdlet zum Anzeigen der Konfigurationseinstellungen verwenden, werden die VLAN-Einstellungen in der Befehlsausgabe nicht angezeigt. Stattdessen müssen Sie das Cmdlet **Get vmnetworkadaptervlan** verwenden, um die VLAN-Einstellungen anzuzeigen.
+- In Fällen, in denen Sie Sdn bereitgestellt haben und VMM, Network Controller oder die **vmnetworkadapterisolation** -Cmdlets verwenden, um VLAN-Einstellungen auf einem virtuellen Hyper-v-Switchport zu konfigurieren: Wenn Sie den Hyper-v-Manager verwenden oder **vmnetworkadaptervlan** zum Anzeigen der Konfigurationseinstellungen verwenden, werden die VLAN-Einstellungen in der Stattdessen müssen Sie das Cmdlet **Get-vmnetworkisolation** verwenden, um die VLAN-Einstellungen anzuzeigen.
+- In Fällen, in denen Sie keinen Sdn bereitgestellt haben und stattdessen die VLAN-Einstellungen mithilfe des Hyper-v-Managers oder der **vmnetworkadaptervlan** -Cmdlets auf einem virtuellen Hyper-V-Switchport konfigurieren: Wenn Sie das **Get-vmnetworkisolation** -Cmdlet zum Anzeigen der Konfigurationseinstellungen verwenden, werden die VLAN-Einstellungen in der Befehlsausgabe Stattdessen müssen Sie das Cmdlet **Get vmnetworkadaptervlan** verwenden, um die VLAN-Einstellungen anzuzeigen.
 
 Es ist auch wichtig, nicht zu versuchen, dieselben VLAN-Einstellungen für den Switchport mithilfe beider Konfigurations Methoden zu konfigurieren. Wenn Sie dies tun, ist der Switchport falsch konfiguriert, und das Ergebnis ist möglicherweise ein Fehler bei der Netzwerkkommunikation.
 

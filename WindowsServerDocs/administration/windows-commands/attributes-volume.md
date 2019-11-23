@@ -22,7 +22,7 @@ ms.locfileid: "71382585"
 ---
 # <a name="attributes-volume"></a>Attribut Volume
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Hiermit werden die Attribute eines Volumes angezeigt, festgelegt oder gelöscht.  
   
@@ -40,17 +40,17 @@ attributes volume [{set | clear}] [{hidden | readonly | nodefaultdriveletter | s
 |-------|--------|  
 |set|Legt das angegebene Attribut des Volumes mit dem Fokus fest.|  
 |clear|Löscht das angegebene Attribut des Volumes mit dem Fokus.|  
-|ReadOnly|Gibt an, dass das Volume schreibgeschützt ist @ no__t-0.|  
+|ReadOnly|Gibt an, dass das Volume nur\-gelesen wird.|  
 |verbirgt|Gibt an, dass das Volume ausgeblendet ist.|  
 |nodefaultdriveletter|Gibt an, dass das Volume standardmäßig keinen Laufwerk Buchstaben erhält.|  
 |"Shadowcopy|Gibt an, dass das Volume ein Schattenkopievolume ist.|  
-|Noerr|Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|  
+|Noerr|nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|  
   
 ## <a name="remarks"></a>Hinweise  
   
--   Auf den Datenträgern Basic Master Boot Record \(mbr @ no__t-1 gelten die Parameter **Hidden**, Read **only**und **nodefaultdriveletter** für alle Volumes auf dem Datenträger.  
+-   Auf Basis Master Boot Record \(MBR\)-Datenträgern gelten die Parameter **Hidden**, Read **only**und **nodefaultdriveletter** für alle Volumes auf dem Datenträger.  
   
--   Bei der grundlegenden GUID-Partitionstabelle \(gpt @ no__t-1-Datenträgern und auf dynamischen MBR-und GPT-Datenträgern gelten die Parameter **Hidden**, Read **only**und **nodefaultdriveletter** nur für das ausgewählte Volume.  
+-   Bei der grundlegenden GUID-Partitionstabelle \(GPT-\) Datenträgern und auf dynamischen MBR-und GPT-Datenträgern gelten die Parameter **Hidden**, Read **only**und **nodefaultdriveletter** nur für das ausgewählte Volume.  
   
 -   Es muss ein Volume ausgewählt werden, damit der **Attribut Volume** -Befehl erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Volume auswählen** ein Volume aus, und verschieben Sie den Fokus auf das Volume.  
   
@@ -61,13 +61,13 @@ Wenn Sie die aktuellen Attribute auf dem ausgewählten Volume anzeigen möchten,
 attributes volume  
 ```  
   
-Um das ausgewählte Volume als ausgeblendet festzulegen und @ no__t-0nur zu lesen, geben Sie Folgendes ein:  
+Wenn Sie das ausgewählte Volume als ausgeblendet festlegen und nur\-lesen möchten, geben Sie Folgendes ein:  
   
 ```  
 attributes volume set hidden readonly  
 ```  
   
-Wenn Sie die Attribute Hidden und Read @ no__t-0only auf dem ausgewählten Volume entfernen möchten, geben Sie Folgendes ein:  
+Um die ausgeblendeten und Lese\-nur Attribute auf dem ausgewählten Volume zu entfernen, geben Sie Folgendes ein:  
   
 ```  
 attributes volume clear hidden readonly  

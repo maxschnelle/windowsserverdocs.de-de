@@ -22,7 +22,7 @@ ms.locfileid: "71380180"
 ---
 # <a name="bootcfg-addsw"></a>bootcfg addsw
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Fügt Optionen für das Laden von Betriebssystemen für einen angegebenen Betriebssystem Eintrag hinzu.
 
@@ -35,12 +35,12 @@ bootcfg /addsw [/s <computer> [/u <Domain>\<User> /p <Password>]] [/mm <MaximumR
 |         Begriff         |                                                                                                            Definition                                                                                                            |
 |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    /s <computer>     |                                                        Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer.                                                        |
-| /u <Domain> @ no__t-1 @ no__t-2  |               Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch <User> oder <Domain> @ no__t-2 @ no__t-3 angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird.               |
+| /u <Domain>\\<User>  |               Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch <User> oder <Domain>\\<User>angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird.               |
 |    /p <Password>     |                                                                      Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                                       |
 |   /mm <MaximumRAM>   |                                          Gibt die maximale RAM-Größe (in Megabyte) an, die vom Betriebssystem verwendet werden kann. Der Wert muss größer oder gleich 32 Megabyte sein.                                          |
-|         /bv          |                                    Fügt dem angegebenen <OSEntryLineNum> die **/basevideo** -Option hinzu und leitet das Betriebssystem zur Verwendung des standardmäßigen VGA-Modus für den installierten Videotreiber um.                                     |
+|         /bv          |                                    Fügt dem angegebenen <OSEntryLineNum>die Option **/basevideo** hinzu und leitet das Betriebssystem zur Verwendung des standardmäßigen VGA-Modus für den installierten Videotreiber um.                                     |
 |         /so          |                                      Fügt dem angegebenen *osentrylinenum*die **/SOS** -Option hinzu und leitet das Betriebssystem so um, dass Gerätetreiber Namen angezeigt werden, während Sie geladen werden.                                      |
-|         /ng          |                                         Fügt dem angegebenen <OSEntryLineNum> die **/noguiboot** -Option hinzu und deaktiviert die Statusanzeige, die vor der Eingabeaufforderung von STRG + ALT + ENTF angezeigt wird.                                          |
+|         /ng          |                                         Fügt dem angegebenen <OSEntryLineNum>die Option **/noguiboot** hinzu und deaktiviert die Statusanzeige, die vor der Eingabeaufforderung von STRG + ALT + ENTF angezeigt wird.                                          |
 | /ID <OSEntryLineNum> | Gibt die Betriebssystem-Eintrags Zeilennummer im Abschnitt [Betriebssysteme] der Datei Boot. ini an, der die Betriebssystem-Lade Optionen hinzugefügt werden. Die erste Zeile nach der Abschnitts Kopfzeile [Betriebssystem] ist 1. |
 |          /?          |                                                                                               Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                               |
 

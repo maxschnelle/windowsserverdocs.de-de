@@ -19,15 +19,15 @@ ms.locfileid: "71403639"
 > Gilt für: Windows Server 2019
 > 
 > [!div class="step-by-step"]
-> [«Installieren von HGS in einer neuen](guarded-fabric-install-hgs-in-a-bastion-forest.md)Gesamtstruktur 
-> [Create Host Key»](guarded-fabric-create-host-key.md)
+> [«Installieren von HGS in einer neuen](guarded-fabric-install-hgs-in-a-bastion-forest.md) Gesamtstruktur
+> [Erstellen eines Host Schlüssels»](guarded-fabric-create-host-key.md)
 
 Active Directory Domain Services wird auf dem Computer installiert, sollte jedoch nicht konfiguriert bleiben.
 
 [!INCLUDE [Obtain certificates for HGS](../../../includes/guarded-fabric-initialize-hgs-default-step-two.md)] 
 
 Bevor Sie fortfahren, stellen Sie sicher, dass Sie die Cluster Objekte für den Host-Überwachungsdienst vorab bereitgestellt haben, und gewähren Sie dem angemeldeten Benutzer die **vollständige Kontrolle** über die VCO-und CNO-Objekte in Active Directory.
-Der Name des virtuellen Computer Objekts muss an den Parameter "`-HgsServiceName`" und der Cluster Name an den Parameter "`-ClusterName`" übergeben werden.
+Der Name des virtuellen Computer Objekts muss an den `-HgsServiceName`-Parameter übergeben werden, und der Cluster Name muss an den `-ClusterName`-Parameter übergeben werden.
 
 > [!TIP]
 > Überprüfen Sie die AD-Domänen Controller, um sicherzustellen, dass Ihre Cluster Objekte auf alle DCS repliziert wurden

@@ -18,7 +18,7 @@ ms.locfileid: "71357540"
 ---
 # <a name="deploy-implementing-retention-of-information-on-file-servers-demonstration-steps"></a>Deploy Implementing Retention of Information on File Servers (Demonstration Steps)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Mithilfe der Dateiklassifizierungsinfrastruktur und dem Ressourcen-Manager für Dateiserver können Sie die Aufbewahrungsdauer für Ordner festlegen und Dateien eine rechtliche Aufbewahrungspflicht zuweisen.  
   
@@ -26,21 +26,21 @@ Mithilfe der Dateiklassifizierungsinfrastruktur und dem Ressourcen-Manager für 
   
 -   [Voraussetzungen](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Prereqs)  
   
--   [Schritt 1: Erstellen von Ressourcen Eigenschafts Definitionen @ no__t-0  
+-   [Schritt 1: Erstellen von Ressourcen Eigenschafts Definitionen](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step1)  
   
--   [Schritt 2: Konfigurieren von Benachrichtigungen @ no__t-0  
+-   [Schritt 2: Konfigurieren von Benachrichtigungen](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step2)  
   
--   [Schritt 3: Erstellen einer Datei Verwaltungsaufgabe @ no__t-0  
+-   [Schritt 3: Erstellen einer Datei Verwaltungsaufgabe](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_Step3)  
   
--   [Schritt 4: Manuelles klassifizieren einer Datei @ no__t-0  
+-   [Schritt 4: Manuelles klassifizieren einer Datei](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step4)  
   
 > [!NOTE]  
 > Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="prerequisites"></a>Erforderliche Komponenten  
+## <a name="prerequisites"></a>Voraussetzungen  
 Für die Schritte in diesem Thema wird angenommen, dass Sie einen SMTP-Server für Dateiablaufbenachrichtigungen konfiguriert haben.  
   
-## <a name="BKMK_Step1"></a>Schritt 1: Erstellen von Ressourceneigenschaftsdefinitionen  
+## <a name="BKMK_Step1"></a>Schritt 1: Erstellen von Ressourcen Eigenschafts Definitionen  
 In diesem Schritt werden die Ressourceneigenschaften für Aufbewahrungsdauer und Erkennbarkeit aktiviert, sodass diese Ressourceneigenschaften von der Dateiklassifizierungsinfrastruktur zum Kennzeichnen von Dateien verwendet werden können, die in einem freigegebenen Netzwerkordner gescannt werden.  
   
 [Führen Sie diesen Schritt mithilfe von Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1)  
@@ -57,7 +57,7 @@ In diesem Schritt werden die Ressourceneigenschaften für Aufbewahrungsdauer und
   
 5.  Klicken Sie mit der rechten Maustaste auf **Erkennbarkeit**, und klicken Sie dann auf **Aktivieren**.  
   
-![solution Guides](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
+![projektmappenanleitung für](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -91,7 +91,7 @@ In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver 
   
 6.  Klicken Sie auf **OK**.  
   
-![solution Guides](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
+![projektmappenanleitung für](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -99,7 +99,7 @@ Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vor
 Set-FsrmSetting -SmtpServer IP address of SMTP server -FromEmailAddress "FromEmailAddress" -AdminEmailAddress "AdministratorEmailAddress"  
 ```  
   
-## <a name="BKMK_Step3"></a>Schritt 3: Erstellen einer Dateiverwaltungsaufgabe  
+## <a name="BKMK_Step3"></a>Schritt 3: Erstellen einer Datei Verwaltungsaufgabe  
 In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver zum Erstellen einer Dateiverwaltungsaufgabe verwendet, die am letzten Tag im Monat ausgeführt wird und alle Dateien mit den folgenden Kriterien als abgelaufen kennzeichnet:  
   
 -   Die Datei ist nicht mit zugewiesener rechtlicher Aufbewahrungspflicht klassifiziert.  
@@ -142,7 +142,7 @@ In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver 
   
 11. Klicken Sie auf **OK**.  
   
-![solution Guides](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
+![projektmappenanleitung für](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -158,7 +158,7 @@ $schedule = New-FsrmScheduledTask -Time $date -Monthly @(-1)
 $fmj1=New-FSRMFileManagementJob -Name "Retention Task" -Namespace @('D:\Finance Documents') -Action $fmjexpiration -Schedule $schedule -Notification @($fmjNotification) -Condition @( $fmjCondition1, $fmjCondition2, $fmjCondition3)  
 ```  
   
-## <a name="BKMK_Step4"></a>Schritt 4: Manuelles Klassifizieren einer Datei  
+## <a name="BKMK_Step4"></a>Schritt 4: Manuelles klassifizieren einer Datei  
 In diesem Schritt wird eine Datei mit zugewiesener rechtlicher Aufbewahrungspflicht klassifiziert. Der übergeordnete Ordner dieser Datei wird mit einer langfristigen Aufbewahrungsdauer klassifiziert.  
   
 #### <a name="to-manually-classify-a-file"></a>So klassifizieren Sie eine Datei manuell  
@@ -189,6 +189,6 @@ In diesem Schritt wird eine Datei mit zugewiesener rechtlicher Aufbewahrungspfli
   
 -   [Planen der Aufbewahrung von Informationen auf Dateiservern](assetId:///edf13190-7077-455a-ac01-f534064a9e0c)  
   
--   [Dynamische Zugriffsteuerung: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Dynamisches Access Control: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
   
 

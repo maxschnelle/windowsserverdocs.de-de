@@ -34,19 +34,19 @@ In der folgenden Abbildung ist der Speicherplatz-Workflow dargestellt.
 
 ![Speicherplätze – Workflow](media/deploy-standalone-storage-spaces/storage-spaces-workflow.png)
 
-**Abbildung 1: Speicherplätze Workflow @ no__t-0
+**Abbildung 1: Speicherplätze-Workflow**
 
 >[!NOTE]
 >Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6).
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 
 Wenn Sie Speicherplätze auf einem eigenständigen Windows Server 2012-basierten Server verwenden möchten, stellen Sie sicher, dass die physischen Datenträger, die Sie verwenden möchten, die folgenden Voraussetzungen erfüllen.
 
 > [!IMPORTANT]
 > Weitere Informationen zum Bereitstellen von Speicherplätzen auf einem Failovercluster finden Sie unter Bereitstellen [eines Speicherplätze-Clusters unter Windows Server 2012 R2](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt270997(v%3dws.11)>). Für eine failoverclusterbereitstellung gelten andere Voraussetzungen, z. b. unterstützte Daten trägerbus Typen, unterstützte resilienztypen und die erforderliche Mindestanzahl von Datenträgern
 
-|Bereich|Anforderung|Hinweise|
+|Bereich|Anforderung|Anmerkungen|
 |---|---|---|
 |Datenträgerbustypen|-Serial Attached SCSI (SAS)<br>-Serial Advanced Technology Attachment (SATA)<br>-iSCSI-und Fibre Channel Controller. |Sie können auch USB-Laufwerke verwenden. Es ist jedoch nicht optimal, USB-Laufwerke in einer Serverumgebung zu verwenden.<br>Speicherplätze werden auf iSCSI-und Fibre Channel (FC)-Controllern unterstützt, solange die darauf erstellten virtuellen Datenträger nicht stabil sind (einfach mit einer beliebigen Anzahl von Spalten).<br>|
 |Datenträgerkonfiguration|-Der physische Datenträger muss mindestens 4 GB groß sein.<br>-Datenträger müssen leer und nicht formatiert sein. Erstellen Sie keine Volumes||
@@ -61,7 +61,7 @@ Bei der Planung der Anzahl der physischen Datenträger und des gewünschten Resi
 |**Spiegel**<br><br>-Speichert zwei oder drei Kopien der Daten auf der Gruppe physischer Datenträger.<br>-Erhöht die Zuverlässigkeit, verringert jedoch die Kapazität. Bei jedem Schreibvorgang wird dupliziert. Außerdem verteilt ein Spiegelspeicherplatz die Daten über mehrere physische Datenträger.<br>-Größerer Datendurchsatz und geringere Zugriffs Latenz als Parität<br>-Verwendet die Änderungs Bereichs Überwachung (Dirty Region Tracking, DRT), um Änderungen an den Datenträgern im Pool nachzuverfolgen. Wenn das System ungeplant heruntergefahren wurde und dann den Betrieb wieder aufnimmt und die Speicherplätze wieder online geschaltet werden, stimmt DRT die Datenträger im Pool erneut aufeinander ab.|Erfordert mindestens zwei physische Datenträger, um vor dem Ausfall einzelner Datenträger geschützt zu sein.<br><br>Erfordert mindestens fünf physische Datenträger, um vor dem gleichzeitigen Ausfall zweier Datenträger geschützt zu sein.|Wird für die meisten Bereitstellungen verwendet. Spiegelspeicherplätze sind beispielsweise für eine allgemeine Dateifreigabe oder eine virtuelle Festplattenbibliothek (Virtual Hard Disk, VHD) geeignet.|
 |**Parity**<br><br>-Streifen Daten und Paritätsinformationen auf physischen Datenträgern<br>-Erhöht die Zuverlässigkeit beim Vergleich mit einem einfachen Raum, verringert jedoch die Kapazität etwas<br>-Erhöht die Resilienz durch Journale. Dadurch kann eine Beschädigung der Daten verhindert werden, wenn das System unplanmäßig heruntergefahren wird.|Erfordert mindestens drei physische Datenträger, um vor dem Ausfall einzelner Datenträger geschützt zu sein.|Geeignet für stark sequenzielle Arbeitsauslastungen, z. B. bei Archiven oder Backups.|
 
-## <a name="step-1-create-a-storage-pool"></a>Schritt 1: Erstellen eines Speicherpools
+## <a name="step-1-create-a-storage-pool"></a>Schritt 1: Erstellen eines Speicherpools
 
 Zuerst müssen Sie die verfügbaren physischen Datenträger in einzelne oder mehrere Speicherpools zusammenfassen.
 

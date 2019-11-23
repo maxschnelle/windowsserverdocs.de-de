@@ -29,7 +29,7 @@ Beim Erstellen eines Failoverclusters mit dem Clustererstellungs-Assistenten ode
 
 Für die automatische Erstellung des CNOs benötigt der Benutzer, der den Failovercluster erstellt, die Berechtigung **Computerobjekte erstellen** für die Organisationseinheit (Organizational Unit, OU) oder den Container, in dem sich die Server befinden, aus denen der Cluster gebildet werden soll. Ein Benutzer mit entsprechenden Berechtigungen in AD DS (normalerweise ein Domänenadministrator) kann das CNO vorab in AD DS bereitstellen, damit ein Benutzer oder eine Gruppe ohne diese Berechtigung einen Cluster erstellen kann. Dadurch hat der Domänenadministrator außerdem mehr Kontrolle über die für den Cluster verwendete Benennungskonvention sowie darüber, in welcher Organisationseinheit die Clusterobjekte erstellt werden.
 
-## <a name="step-1-prestage-the-cno-in-ad-ds"></a>Schritt 1: CNO in AD DS vorab bereitstellen
+## <a name="step-1-prestage-the-cno-in-ad-ds"></a>Schritt 1: Vorabbereitstellen des CNOs in AD DS
 
 Bevor Sie beginnen, sollten Sie sicherstellen, dass folgende Informationen vorhanden sind:
 
@@ -59,7 +59,7 @@ Als bewährte Methode wird empfohlen, eine Organisationseinheit für die Cluster
 
 ![Deaktiviertes CNO in der Beispielorganisationseinheit %%amp;quot;Cluster%%amp;quot;](media/prestage-cluster-adds/disabled-cno-in-the-example-clusters-ou.png)
 
-**abbildung 1. Deaktiviertes CNO in den Beispiel Clustern ou @ no__t-0
+**Abbildung 1. Deaktiviertes CNO in der Organisationseinheit für Beispiel Cluster**
 
 ## <a name="step-2-grant-the-user-permissions-to-create-the-cluster"></a>Schritt 2: Erteilen der Benutzerberechtigungen zum Erstellen des Clusters
 
@@ -77,26 +77,26 @@ So erteilen Sie dem Benutzerberechtigungen zum Erstellen des Clusters:
   
    ![Erteilen der Benutzer- oder Gruppenberechtigungen zum Erstellen des Clusters](media/prestage-cluster-adds/granting-full-control-to-the-user-create-the-cluster.png)
   
-   **figure 2. Gewähren der vollständigen Kontrolle für den Benutzer oder die Gruppe, der den Cluster erstellt, @ no__t-0
-6. Wählen Sie **OK**.
+   **Abbildung 2. Gewähren der vollständigen Kontrolle für den Benutzer oder die Gruppe, der den Cluster erstellt**
+6. Wählen Sie **OK** aus.
 
 Nach Abschluss dieses Schritts kann der Benutzer, dem Sie Berechtigungen erteilt haben, den Failovercluster erstellen. Wenn sich das CNO jedoch in einer Organisationseinheit befindet, kann der Benutzer erst dann Clusterrollen erstellen, für die ein Clientzugriffspunkt erforderlich ist, wenn Sie Schritt 3 abgeschlossen haben.
 
 >[!NOTE]
 >Wenn sich das CNO im Standardcontainer %%amp;quot;Computer%%amp;quot; befindet, kann ein Clusteradministrator bis zu zehn VCOs ohne zusätzliche Konfiguration erstellen. Zum Hinzufügen von mehr als zehn VCOs müssen Sie explizit die Berechtigung **Computerobjekte erstellen** für das CNO für den Container %%amp;quot;Computer%%amp;quot; erteilen.
 
-## <a name="step-3-grant-the-cno-permissions-to-the-ou-or-prestage-vcos-for-clustered-roles"></a>Schritt 3: Erteilen der CNO-Berechtigungen für die Organisationseinheit oder vorab Bereitstellen von VCOs für Cluster Rollen
+## <a name="step-3-grant-the-cno-permissions-to-the-ou-or-prestage-vcos-for-clustered-roles"></a>Schritt 3: Erteilen der CNO-Berechtigungen für die Organisationseinheit oder Vorabbereitstellen von VCOs für Clusterrollen
 
 Wenn Sie eine Clusterrolle mit einem Clientzugriffspunkt erstellen, wird vom Cluster ein VCO in der gleichen Organisationseinheit erstellt, in der sich das CNO befindet. Damit dies automatisch geschieht, muss das CNO über Berechtigungen zum Erstellen von Computerobjekten in der Organisationseinheit verfügen.
 
 Wenn Sie das CNO vorab in AD DS bereitgestellt haben, können Sie eine der folgenden Aktionen ausführen, um VCOs zu erstellen:
 
-- Option 1: [Erteilen Sie die CNO-Berechtigungen für die](#grant-the-cno-permissions-to-the-ou)Organisationseinheit. Wenn Sie diese Option verwenden, können vom Cluster automatisch VCOs in AD DS erstellt werden. Daher kann ein Administrator für den Failovercluster Clusterrollen erstellen und muss Sie dazu nicht bitten, VCOs vorab in AD DS bereitstellen.
+- Option 1: [Erteilen der CNO-Berechtigungen für die Organisationseinheit](#grant-the-cno-permissions-to-the-ou). Wenn Sie diese Option verwenden, können vom Cluster automatisch VCOs in AD DS erstellt werden. Daher kann ein Administrator für den Failovercluster Clusterrollen erstellen und muss Sie dazu nicht bitten, VCOs vorab in AD DS bereitstellen.
 
 >[!NOTE]
 >Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entsprechenden Gruppe sein, um die Schritte für diese Option ausführen zu können.
 
-- Option 2: [Vorab Bereitstellen eines VCO für eine Cluster Rolle](#prestage-a-vco-for-a-clustered-role). Verwenden Sie diese Option, wenn aufgrund von Anforderungen in der Organisation Konten für Clusterrollen vorab bereitgestellt werden müssen. Beispielsweise kann es sein, dass Sie die Benennungskonvention steuern möchten, oder steuern möchten, welche Clusterrollen erstellt werden.
+- Option 2: [vorab Bereitstellen eines VCO für eine Cluster Rolle](#prestage-a-vco-for-a-clustered-role). Verwenden Sie diese Option, wenn aufgrund von Anforderungen in der Organisation Konten für Clusterrollen vorab bereitgestellt werden müssen. Beispielsweise kann es sein, dass Sie die Benennungskonvention steuern möchten, oder steuern möchten, welche Clusterrollen erstellt werden.
 
 >[!NOTE]
 >Sie müssen mindestens Mitglied der Gruppe **Konten-Operatoren** oder einer entsprechenden Gruppe sein, um die Schritte für diese Option ausführen zu können.
@@ -104,7 +104,7 @@ Wenn Sie das CNO vorab in AD DS bereitgestellt haben, können Sie eine der folge
 ### <a name="grant-the-cno-permissions-to-the-ou"></a>Erteilen der CNO-Berechtigungen für die Organisationseinheit
 
 1. Stellen Sie in %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot; sicher, dass im Menü **Ansicht** die Option **Erweiterte Features** ausgewählt ist.
-2. Klicken Sie mit der rechten Maustaste auf die Organisationseinheit, in der Sie das CNO erstellt haben [Schritt 1: Stellen Sie das CNO vorab in AD DS @ no__t-0 bereit, und wählen Sie dann **Eigenschaften**aus.
+2. Klicken Sie mit der rechten Maustaste auf die Organisationseinheit, in der Sie das CNO in [Schritt 1: vorab Bereitstellen des CNO in AD DS](#step-1-prestage-the-cno-in-ad-ds)erstellt haben, und wählen Sie dann **Eigenschaften**.
 3. Wählen Sie auf der Registerkarte **Sicherheit** die Option **erweitert**aus.
 4. Wählen Sie im Dialogfeld **Erweiterte Sicherheitseinstellungen** die Option **Hinzufügen**aus.
 5. Klicken Sie neben **Prinzipal**auf **Prinzipal auswählen**.
@@ -115,7 +115,7 @@ Wenn Sie das CNO vorab in AD DS bereitgestellt haben, können Sie eine der folge
 
    ![Erteilen der Berechtigung zum Erstellen von Computerobjekten für das CNO](media/prestage-cluster-adds/granting-create-computer-objects-permission-to-the-cno.png)
 
-   **abbildung 3. Erteilen der Berechtigung zum Erstellen von Computer Objekten für das CNO @ no__t-0
+   **Abbildung 3. Erteilen der Berechtigung zum Erstellen von Computer Objekten für das CNO**
 10. Wählen Sie **OK** , bis Sie zum Active Directory Benutzer-und Computer-Snap-in zurückkehren.
 
 Ein Administrator des Failoverclusters kann jetzt Clusterrollen mit Clientzugriffspunkten erstellen und die Ressourcen online schalten.
@@ -132,7 +132,7 @@ Ein Administrator des Failoverclusters kann jetzt Clusterrollen mit Clientzugrif
 8. Wählen Sie im Dialogfeld **Benutzer, Computer, Dienst Konto oder Gruppen auswählen** die **Objekttypen**aus, aktivieren Sie das Kontrollkästchen **Computer** , und klicken Sie dann auf **OK**.
 9. Geben Sie unter **Geben Sie die zu ausgewäfenden Objektnamen**ein den Namen des CNO ein, wählen Sie **Namen überprüfen**aus, und klicken Sie dann auf **OK**. Wenn Sie eine Warnmeldung erhalten, die besagt, dass Sie im Begriff sind, ein deaktiviertes Objekt hinzuzufügen, klicken Sie auf **OK**.
 10. Stellen Sie sicher, dass das CNO ausgewählt ist, und aktivieren Sie dann neben **Vollzugriff** das Kontrollkästchen **Zulassen**.
-11. Wählen Sie **OK**.
+11. Wählen Sie **OK** aus.
 
 Ein Administrator des Failoverclusters kann jetzt die Clusterrolle mit einem Clientzugriffspunkt erstellen, die dem vorab bereitgestellten VCO-Namen entspricht, und die Ressource online schalten.
 

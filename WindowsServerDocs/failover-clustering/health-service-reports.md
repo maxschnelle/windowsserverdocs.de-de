@@ -48,7 +48,7 @@ Get-StorageNode -Name <Name> | Get-StorageHealthReport -Count <Count>
 
 ### <a name="connect"></a>Verbinden
 
-Um den Integritätsdienst abzufragen, müssen Sie eine **cimsession** mit dem Cluster einrichten. Zu diesem Zweck benötigen Sie einige Dinge, die nur in der Vollversion von .net verfügbar sind, was bedeutet, dass Sie dies nicht direkt über ein Web oder Mobile App durchführen können. Diese Codebeispiele verwenden C @ no__t-0, die einfachste Wahl für diese Datenzugriffs Schicht.
+Um den Integritätsdienst abzufragen, müssen Sie eine **cimsession** mit dem Cluster einrichten. Zu diesem Zweck benötigen Sie einige Dinge, die nur in der Vollversion von .net verfügbar sind, was bedeutet, dass Sie dies nicht direkt über ein Web oder Mobile App durchführen können. Diese Codebeispiele verwenden C\#, die einfachste Wahl für diese Datenzugriffs Schicht.
 
 ``` 
 ...
@@ -80,7 +80,7 @@ Es wird empfohlen, dass Sie das Kennwort **SecureString** direkt aus Benutzerein
 
 Nachdem die **cimsession** eingerichtet wurde, können Sie Windows-Verwaltungsinstrumentation (WMI) im Cluster Abfragen.
 
-Bevor Sie Fehler oder Metriken erhalten können, müssen Sie Instanzen von mehreren relevanten Objekten erhalten. Zuerst das **MSFT @ no__t-1storagesubsystem** , das direkte Speicherplätze im Cluster darstellt. Dabei können Sie alle **MSFT @ no__t-1storagenode** im Cluster und alle **MSFT @ no__t-3volume**-Datenmengen erhalten. Schließlich benötigen Sie auch **MSFT @ no__t-1storagehealth**, den Integritätsdienst selbst.
+Bevor Sie Fehler oder Metriken erhalten können, müssen Sie Instanzen von mehreren relevanten Objekten erhalten. Zuerst ist das **MSFT-\_storagesubsystem** , das direkte Speicherplätze auf dem Cluster darstellt. Mit diesem können Sie alle **MSFT-\_storagenode** im Cluster und jedes **MSFT-\_Volume**, die Datenvolumes, erhalten. Schließlich benötigen Sie den **MSFT-\_storagehealth**, den Integritätsdienst selbst.
 
 ```
 CimInstance Cluster;
@@ -209,7 +209,7 @@ Natürlich können diese Metriken visualisiert, in einer Datenbank gespeichert o
 
 Jede Stichprobe von Metriken ist ein "Bericht", der viele "Datensätze" enthält, die einzelnen Metriken entsprechen.
 
-Überprüfen Sie für das vollständige Schema die Klassen **MSFT @ no__t-1storagehealthreport** und **MSFT @ no__t-3healthrecord** in " *storagewmi. MOF*".
+Überprüfen Sie für das vollständige Schema die Klassen **MSFT\_storagehealthreport** und **MSFT\_healthrecord** in *storagewmi. MOF*.
 
 Jede Metrik hat pro dieser Tabelle nur drei Eigenschaften.
 
@@ -282,6 +282,6 @@ Im folgenden finden Sie die verfügbaren Metriken für jeden Bereich in Windows 
 | Iodurchlauf puttotal   | 1         |
 | Iothrough putwrite   | 1         |
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Integritätsdienst in Windows Server 2016](health-service-overview.md)

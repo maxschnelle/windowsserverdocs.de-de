@@ -22,7 +22,7 @@ ms.locfileid: "71377033"
 ---
 # <a name="freedisk"></a>freedisk
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Prüft, ob die angegebene Menge an Speicherplatz verfügbar ist, bevor der Installationsvorgang fortgesetzt wird.
 
@@ -35,7 +35,7 @@ freedisk [/s <computer> [/u [<Domain>\]<User> [/p [<Password>]]]] [/d <Drive>] [
 |       Parameter       |                                                                                         Beschreibung                                                                                          |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     /s <computer>     | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
-| /u [<Domain> @ no__t-1] <User> |                                            Führt das Skript mit den Berechtigungen des angegebenen Benutzerkontos aus. Der Standardwert sind System Berechtigungen.                                            |
+| /u [<Domain>\\]<User> |                                            Führt das Skript mit den Berechtigungen des angegebenen Benutzerkontos aus. Der Standardwert sind System Berechtigungen.                                            |
 |    /p [<Password>]    |                                                           Gibt das Kennwort des Benutzerkontos an, das in **/u**angegeben ist.                                                            |
 |      /d <Drive>       |                              Gibt das Laufwerk an, für das Sie die Verfügbarkeit von freiem Speicherplatz ermitteln möchten. Sie müssen <Drive>für einen Remote Computer angeben.                               |
 |        <Value>        |                                     Prüft, ob eine bestimmte Menge an freiem Speicherplatz verfügbar ist. Sie können <Value>in Bytes, KB, MB, GB, TB, PB, EB, zB oder YB.                                      |

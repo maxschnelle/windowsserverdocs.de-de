@@ -22,7 +22,7 @@ ms.locfileid: "71377979"
 ---
 # <a name="dfsutil"></a>Dfsutil
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Der Dfsutil-Befehl verwaltet DFS-Namespaces,-Server und-Clients. Dfsutil-Befehle verwenden die ursprüngliche verteiltes Dateisystem Terminologie, wobei die aktualisierte Terminologie für DFS-Namespaces als Erklärung für die meisten Befehle bereitgestellt wird.
 
@@ -39,27 +39,27 @@ command </parameter> </param2>
 |Parameter|Beschreibung|
 |-------|--------|
 |[Dfsutil-Stamm](dfsutil-root.md)|Zeigt, erstellt, entfernt, importiert und exportiert Namespace Stämme.|
-|[Dfsutil-Link](dfsutil-link.md)|Zeigt Ordner an, erstellt, entfernt oder verschiebt \(links @ no__t-1.|
+|[Dfsutil-Link](dfsutil-link.md)|Hiermit werden Ordner \(Verknüpfungen\)angezeigt, erstellt, entfernt oder verschoben.|
 |[Dfsutil-Ziel](dfsutil-target.md)|Zeigt, erstellt oder entfernt den Ordner Ziel-oder Namespace Server.|
 |[Dfsutil (Eigenschaft)](dfsutil-property.md)|Zeigt ein Ordner Ziel oder einen Namespace Server an oder ändert ihn.|
 |[Dfsutil-Client](dfsutil-client.md)|Zeigt Client Informationen oder Registrierungsschlüssel an oder ändert Sie.|
 |[Dfsutil-Server](dfsutil-server.md)|Dient zum Anzeigen oder Ändern der Namespace Konfiguration.|
-|[Dfsutil Diag](dfsutil-diag.md)|Ausführen von Diagnosen oder Anzeigen von dfsdirs @ no__t-0dfspath.|
-|[Dfsutil-Domäne](dfsutil-domain.md)|Zeigt alle Domänen @ no__t-0based-Namespaces in einer Domäne an.|
+|[Dfsutil Diag](dfsutil-diag.md)|Ausführen von Diagnosen oder Anzeigen von dfsdirs\/dfspath.|
+|[Dfsutil-Domäne](dfsutil-domain.md)|Zeigt alle Domänen\-basierten Namespaces in einer Domäne an.|
 |[Dfsutil-Cache](dfsutil-cache.md)|Zeigt den Client Cache an oder leert ihn.|
 |[Dfsutil oldcli](dfsutil-oldcli.md)|Verwenden Sie den Befehl Dfsutil \/oldcli, um die ursprüngliche Dfsutil-Syntax zu verwenden.|
 
 ## <a name="remarks-optional-section"></a>Hinweise <optional section>
-Wenn Sie ein Objekt \(z. b. einen Namespace Server @ no__t-1 am Ende eines Befehls angeben, werden die meisten Befehle Informationen über das Objekt anzeigen, ohne weitere Parameter oder Befehle zu erfordern. Wenn Sie z. b. den Befehl Dfsutil root verwenden, können Sie einen Namespace Stamm an den Befehl anfügen, um Informationen zum Stamm anzuzeigen.
+Wenn Sie ein Objekt \(z. b. einen Namespace Server\) am Ende eines Befehls festlegen, werden die meisten Befehle Informationen über das Objekt anzeigen, ohne weitere Parameter oder Befehle zu erfordern. Wenn Sie z. b. den Befehl Dfsutil root verwenden, können Sie einen Namespace Stamm an den Befehl anfügen, um Informationen zum Stamm anzuzeigen.
 
 ## <a name="BKMK_Examples"></a>Beispiele
-&lt;hier finden Sie eine ausführliche Beschreibung ihres Beispiels. &gt;
+&lt;hier finden Sie eine ausführliche Beschreibung ihres Beispiels.&gt;
 
 ```
 This /is /the /example /of /calling /command /with /parameters
 ```
 
-&lt;hier ist der Speicherort, an dem Sie eine ausführliche Beschreibung eines anderen Beispiels einfügen. &gt;
+&lt;hier finden Sie eine ausführliche Beschreibung eines anderen Beispiels.&gt;
 
 ```
 This /is /a:different /example

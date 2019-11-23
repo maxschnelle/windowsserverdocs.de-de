@@ -23,7 +23,7 @@ ms.locfileid: "71380584"
 
 Legt die nutzungsflags für ein [Hilfsobjekt](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs) fest, das einem Bits-Übertragungs Auftrag zugeordnet ist.
 
-**Bits 3,0 und früher**: Nicht unterstützt.
+**Bits 3,0 und früher**: nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,7 +36,7 @@ bitsadmin /SetHelperTokenFlags <Job> <Flags>
 |Parameter|Beschreibung|
 |---------|-----------|
 |Auftrag|Der Anzeige Name oder GUID des Auftrags.|
-|Flags|Folgende Werte sind möglich: 0x0001 @ no__t-0Das Hilfsobjekt wird verwendet, um die lokale Datei eines uploadauftrags zu öffnen, um die temporäre Datei eines Download Auftrags zu erstellen oder umzubenennen oder um die Antwortdatei eines Upload-Antwort-Auftrags zu erstellen oder umzubenennen. 0x0002 @ no__t-0Das Hilfsobjekt wird zum Öffnen der Remote Datei eines Server Message Block (SMB) Upload-oder Download Auftrags oder als Reaktion auf eine HTTP-Server-oder Proxy-Aufforderung für implizite NTLM-oder Kerberos-Anmelde Informationen verwendet. Sie müssen @ no__t-0 @ no__t-1anrufen, um zuzulassen, dass die Anmelde Informationen über HTTP gesendet werden.|
+|Flags|Folgende Werte sind möglich: 0x0001&mdash;das Hilfsobjekt wird verwendet, um die lokale Datei eines uploadauftrags zu öffnen, um die temporäre Datei eines Download Auftrags zu erstellen oder umzubenennen oder um die Antwortdatei eines Upload-Antwort-Auftrags zu erstellen oder umzubenennen. 0x0002&mdash;das Hilfsobjekt wird zum Öffnen der Remote Datei eines Server Message Block (SMB) Upload-oder Download Auftrags oder als Reaktion auf eine HTTP-Server-oder Proxy Aufforderung für implizite NTLM-oder Kerberos-Anmelde Informationen verwendet. Sie müssen `/SetCredentialsJob TargetScheme NULL NULL` aufgerufen werden, damit die Anmelde Informationen über HTTP gesendet werden können.|
 
 #### <a name="additional-references"></a>Weitere Verweise
 

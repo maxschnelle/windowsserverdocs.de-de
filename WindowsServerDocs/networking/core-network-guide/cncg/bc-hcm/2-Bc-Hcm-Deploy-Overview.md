@@ -17,7 +17,7 @@ ms.locfileid: "71406375"
 ---
 # <a name="branchcache-hosted-cache-mode-deployment-overview"></a>Übersicht über den BranchCache-Modus „Gehosteter Cache“
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Mit dieser Anleitung können Sie einen gehosteten BranchCache-Cache Server in einer Zweigstelle bereitstellen, in der Computer einer Domäne hinzugefügt werden. In diesem Thema erhalten Sie einen Überblick über den BranchCache-Bereitstellungs Prozess für gehostete Caches.
 
@@ -25,7 +25,7 @@ Diese Übersicht enthält die BranchCache-Infrastruktur, die Sie benötigen, sow
 
 ## <a name="bkmk_components"></a>Gehostete Cache Server-Bereitstellungs Infrastruktur
 
-In dieser Bereitstellung wird der gehostete Cache Server mithilfe von Dienst Verbindungs Punkten in Active Directory Domain Services \(ad DS @ no__t-1 bereitgestellt, und Sie haben die Option BranchCache in Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012. um den freigegebenen Inhalt auf Web-und dateibasierten Inhalts Servern vorzuspeichern, laden Sie den Inhalt vorab auf gehosteten Cache Servern.
+In dieser Bereitstellung wird der gehostete Cache Server mithilfe von Dienst Verbindungs Punkten in Active Directory Domain Services \(AD DS\)bereitgestellt, und Sie haben die Möglichkeit, mit BranchCache in Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012 einen prähash für den freigegebenen Inhalt auf Web-und dateibasierten Inhalts Servern durchzusetzen und den Inhalt auf gehosteten Cache Servern vorab zu laden.
 
 Die folgende Abbildung zeigt die Infrastruktur, die zum Bereitstellen eines gehosteten BranchCache-Cache Servers erforderlich ist.
 
@@ -40,11 +40,11 @@ Sie müssen diesen Computer als gehosteten Cache Server konfigurieren. Wenn Sie 
 
 ### <a name="web1-in-the-cloud-data-center"></a>WEB1 im cloudrechenzentrum
 
-WEB1 ist ein mit BranchCache @ no__t-0aktivierter Inhalts Server. Wenn Sie sich für das vorab Hash der Inhalts Serverdaten entscheiden, sodass Sie den Inhalt auf den gehosteten Cache Servern vorab laden können, können Sie den freigegebenen Inhalt auf WEB1 vorab mit einem Hash versehen und dann ein Datenpaket erstellen, das Sie in HCS1 kopieren.
+WEB1 ist ein\-aktivierter BranchCache-Inhalts Server. Wenn Sie sich für das vorab Hash der Inhalts Serverdaten entscheiden, sodass Sie den Inhalt auf den gehosteten Cache Servern vorab laden können, können Sie den freigegebenen Inhalt auf WEB1 vorab mit einem Hash versehen und dann ein Datenpaket erstellen, das Sie in HCS1 kopieren.
 
 ### <a name="file1-in-the-cloud-data-center"></a>File1 im cloudrechenzentrum
 
-File1 ist ein mit BranchCache @ no__t-0aktivierter Inhalts Server. Wenn Sie sich für das vorab Hash der Inhalts Serverdaten entscheiden, sodass Sie den Inhalt auf den gehosteten Cache Servern vorab laden können, können Sie den freigegebenen Inhalt auf file1 vorab mit einem Hash versehen und dann ein Datenpaket erstellen, das Sie in HCS1 kopieren.
+File1 ist ein\-aktivierter BranchCache-Inhalts Server. Wenn Sie sich für das vorab Hash der Inhalts Serverdaten entscheiden, sodass Sie den Inhalt auf den gehosteten Cache Servern vorab laden können, können Sie den freigegebenen Inhalt auf file1 vorab mit einem Hash versehen und dann ein Datenpaket erstellen, das Sie in HCS1 kopieren.
   
 ### <a name="dc1-in-the-main-office"></a>DC1 in der zentrale
 
@@ -68,12 +68,12 @@ Der Prozess der Bereitstellung eines gehosteten BranchCache-Cache Servers erfolg
 
 1. Verwenden Sie auf HCS1 Windows PowerShell-Befehle, um den Computer als gehosteten Cache Server zu konfigurieren und einen Dienst Verbindungspunkt in Active Directory zu registrieren.
 
-2. \(optional @ no__t-1 auf HCS1, wenn die BranchCache-Standardwerte nicht mit ihren Bereitstellungs Zielen für den Server und den gehosteten Cache identisch sind, konfigurieren Sie die Menge des Speicherplatzes, den Sie für den gehosteten Cache zuordnen möchten. Konfigurieren Sie auch den Speicherort des Datenträgers, den Sie für den gehosteten Cache bevorzugen.
+2. \(optionale\) auf HCS1, wenn die BranchCache-Standardwerte nicht mit ihren Bereitstellungs Zielen für den Server und den gehosteten Cache identisch sind, konfigurieren Sie die Menge des Speicherplatzes, den Sie für den gehosteten Cache zuordnen möchten. Konfigurieren Sie auch den Speicherort des Datenträgers, den Sie für den gehosteten Cache bevorzugen.
 
-3. \(Optionaler @ no__t-1-prähashinhalt auf Inhalts Servern, Erstellen von Datenpaketen und vorab Laden von Inhalt auf dem gehosteten Cache Server.
+3. \(optional\) prähashinhalt von Inhalts Servern, Erstellen von Datenpaketen und vorab Laden von Inhalt auf dem gehosteten Cache Server.
 
     > [!NOTE]
-    > Das vorab Hashing und vorab Laden von Inhalt auf dem gehosteten Cache Server ist optional. Wenn Sie sich jedoch für den Hashes und den vorab Ladevorgang entscheiden, müssen Sie alle nachfolgenden Schritte ausführen, die für Ihre Bereitstellung gelten. \(z. b. Wenn Sie nicht über Webserver verfügen, müssen Sie keine der Schritte im Zusammenhang mit dem vorab hashten und vorab Laden von Webserver Inhalten ausführen. \)
+    > Das vorab Hashing und vorab Laden von Inhalt auf dem gehosteten Cache Server ist optional. Wenn Sie sich jedoch für den Hashes und den vorab Ladevorgang entscheiden, müssen Sie alle nachfolgenden Schritte ausführen, die für Ihre Bereitstellung gelten. Wenn Sie z. b. nicht über Webserver verfügen, müssen Sie keine der Schritte im Zusammenhang mit dem vorab hashten und vorab Laden von Webserver Inhalten ausführen. \(\)
 
     1. Führen Sie auf WEB1 einen Hashes für Webserver Inhalt aus, und erstellen Sie ein Datenpaket.
 

@@ -17,18 +17,18 @@ ms.locfileid: "71356051"
 ---
 # <a name="dns-policies-overview"></a>DNS-Richtlinien (Übersicht)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-In diesem Thema erfahren Sie mehr über die DNS-Richtlinie, die in Windows Server 2016 neu ist. Sie können die DNS-Richtlinie für die georeduntbasierte Datenverkehrs Verwaltung, intelligente DNS-Antworten basierend auf der Tageszeit, die Verwaltung eines einzelnen DNS-Servers, der für die Split @ no__t-0brain-Bereitstellung konfiguriert ist, das Anwenden von Filtern auf DNS-Abfragen usw. verwenden. Die folgenden Elemente bieten weitere Details zu diesen Funktionen.
+In diesem Thema erfahren Sie mehr über die DNS-Richtlinie, die in Windows Server 2016 neu ist. Sie können die DNS-Richtlinie für die georeduntbasierte Datenverkehrs Verwaltung, intelligente DNS-Antworten basierend auf der Tageszeit, die Verwaltung eines einzelnen DNS-Servers, der für die Split-\--Brain-Bereitstellung konfiguriert ist, das Anwenden von Filtern auf DNS-Abfragen und Die folgenden Elemente bieten weitere Details zu diesen Funktionen.
 
 -   **Anwendungs Lastenausgleich.** Wenn Sie mehrere Instanzen einer Anwendung an verschiedenen Speicherorten bereitgestellt haben, können Sie die DNS-Richtlinie verwenden, um die Auslastung des Datenverkehrs zwischen den verschiedenen Anwendungs Instanzen auszugleichen und die Datenverkehrs Last für die Anwendung dynamisch zuzuweisen.
 
--   **Geor@ no__t-1 Location based Traffic Management.** Mithilfe der DNS-Richtlinie können primäre und sekundäre DNS-Server auf DNS-Client Abfragen basierend auf dem geografischen Standort des Clients und der Ressource, mit der der Client eine Verbindung herzustellen versucht, Antworten, und dem Client wird die IP-Adresse des nächstgelegenen Ressource. 
+-   **\-standortbasierte Datenverkehrs Verwaltung.** Mithilfe der DNS-Richtlinie können primäre und sekundäre DNS-Server auf DNS-Client Abfragen basierend auf dem geografischen Standort des Clients und der Ressource, mit der der Client eine Verbindung herzustellen versucht, Antworten, und dem Client wird die IP-Adresse des nächstgelegenen Ressource. 
 
--   **Teilen Sie das Hirn-DNS.** Mit Split @ no__t-0brain-DNS werden DNS-Einträge in verschiedene Zonen Bereiche auf demselben DNS-Server aufgeteilt, und DNS-Clients erhalten eine Antwort, je nachdem, ob es sich bei den Clients um interne oder externe Clients handelt. Sie können Split @ no__t-0brain-DNS für Active Directory integrierte Zonen oder Zonen auf eigenständigen DNS-Servern konfigurieren.
+-   **Teilen Sie das Hirn-DNS.** Mit Split\-Brain-DNS werden DNS-Einträge in verschiedene Zonen Bereiche auf demselben DNS-Server aufgeteilt, und DNS-Clients erhalten eine Antwort, je nachdem, ob es sich bei den Clients um interne oder externe Clients handelt. Sie können\--Brain-DNS für Active Directory integrierte Zonen oder Zonen auf eigenständigen DNS-Servern aufteilen.
 
 -   **Filterung.** Sie können die DNS-Richtlinie konfigurieren, um Abfrage Filter basierend auf den von Ihnen angegebenen Kriterien zu erstellen. Mithilfe von Abfrage Filtern in der DNS-Richtlinie können Sie den DNS-Server so konfigurieren, dass er basierend auf der DNS-Abfrage und dem DNS-Client, der die DNS-Abfrage sendet, Benutzer definiert reagiert 
--   **Forensik.** Sie können DNS-Richtlinien verwenden, um böswillige DNS-Clients an eine nicht-@ no__t-0vorhandene IP-Adresse umzuleiten, anstatt Sie an den Computer weiterzuleiten, den Sie zu erreichen versuchen.
+-   **Forensik.** Sie können DNS-Richtlinien verwenden, um böswillige DNS-Clients an eine nicht\-vorhandene IP-Adresse umzuleiten, anstatt Sie an den Computer weiterzuleiten, den Sie zu erreichen versuchen.
 
 -   **Uhrzeit der täglichen Umleitung.** Mithilfe der DNS-Richtlinie können Sie den Anwendungs Datenverkehr mithilfe von DNS-Richtlinien, die auf der Tageszeit basieren, über verschiedene geografisch verteilte Instanzen einer Anwendung verteilen.
 
@@ -52,7 +52,7 @@ Sie können DNS-Abfrage Auflösungs Richtlinien verwenden, um anzugeben, wie ein
 |Feld|Beschreibung|Mögliche Werte|  
 |---------|---------------|-------------------|  
 |**Name**|Richtlinienname|Bis zu 256 Zeichen<br />-Kann beliebige Zeichen enthalten, die für einen Dateinamen gültig sind.|  
-|**Zustand**|Richtlinien Status|-Enable (Standard)<br />-Deaktiviert|  
+|**State**|Richtlinien Status|-Enable (Standard)<br />-Deaktiviert|  
 |**Level**|Richtlinien Ebene|-Server<br />-Zone|  
 |**Verarbeitungsreihenfolge**|Nachdem eine Abfrage nach Ebene klassifiziert und angewendet wurde, ermittelt der Server die erste Richtlinie, für die die Abfrage den Kriterien entspricht, und wendet Sie auf die Abfrage an.|-Numerischer Wert<br />-Eindeutiger Wert pro Richtlinie, die dieselbe Ebene enthält und für den Wert gilt.|  
 |**Aktion**|Aktion, die vom DNS-Server ausgeführt werden soll|-Allow (Standard für die Zonenebene)<br />-DENY (Standard auf Serverebene)<br />-Ignorieren|  
@@ -71,11 +71,11 @@ Das Feld DNS-Richtlinien Kriterien besteht aus zwei Elementen:
 |     **Transport Protokoll**      |        Das Transport Protokoll, das in der Abfrage verwendet wird. Mögliche Einträge sind **UDP** und **TCP** .        |                                                                                                                    -   **EQ, TCP**<br />-   **EQ, UDP**                                                                                                                     |
 |      **Internet Protokoll**      |        In der Abfrage verwendetes Netzwerkprotokoll. Mögliche Einträge sind **IPv4** und **IPv6** .        |                                                                                                                   -   **EQ, IPv4**<br />-   **EQ, IPv6**                                                                                                                    |
 | **IP-Adresse der Server Schnittstelle** |                   IP-Adresse für die Netzwerkschnittstelle des eingehenden DNS-Servers                   |                                                                                                              -   **EQ, 10.0.0.1**<br />-   **EQ, 192.168.1.1**                                                                                                              |
-|            **FQDN**             |            Der voll qualifizierte Daten Satz in der Abfrage mit der Möglichkeit, eine Platzhalter Karte zu verwenden.            | Wenn die Abfrage versucht, den <em>www.contoso.com</em> -FQDN aufzulösen, -   **EQ, www.** ".<br />-   **EQ, \*.contoso.com, \*.Woodgrove.com** -aufgelöst zu true, wenn die Abfrage für einen Datensatz gilt, der in *contoso.com***oder***Woodgrove.com* endet |
+|            **FQDN**             |            Der voll qualifizierte Daten Satz in der Abfrage mit der Möglichkeit, eine Platzhalter Karte zu verwenden.            | -   **EQ, www. Configuration. com** -löst nur in true aus, wenn die Abfrage versucht, den <em>www.contoso.com</em> -FQDN aufzulösen.<br />-   **EQ,\*. contoso.com,\*. Woodgrove.com** -aufgelöst in true, wenn die Abfrage für einen Datensatz gilt, der in *contoso.com***oder***Woodgrove.com* endet. |
 |         **Abfragetyp**          |                          Typ des Datensatzes, der abgefragt wird (A, SRV, txt)                          |                                                  -   **EQ, txt, SRV** -wird zu "true" aufgelöst, wenn die Abfrage einen txt- **oder** SRV-Datensatz anfordert.<br />-   **EQ, MX** : wird zu true aufgelöst, wenn die Abfrage einen MX-Datensatz anfordert.                                                   |
 |         **Tageszeit**         |                              Tageszeit, zu der die Abfrage empfangen wird                               |                                                                    -   **EQ, 10:00-12:00, 22:00-23:00** -wird zu true aufgelöst, wenn die Abfrage zwischen 10 Uhr und Mittag **oder** zwischen 10PM und 11Uhr empfangen wird.                                                                    |
 
-Mithilfe der obigen Tabelle als Ausgangspunkt könnte die folgende Tabelle verwendet werden, um ein Kriterium zu definieren, das zum Abgleichen von Abfragen für beliebige Daten Satz Typen verwendet wird, aber SRV-Einträge in der contoso.com-Domäne, die von einem Client im 10.0.0.0/24-Subnetz über TCP zwischen 8 und 10 Uhr bis i stammt. Schnittstellen 10.0.0.3:  
+Mithilfe der obigen Tabelle als Ausgangspunkt könnte die folgende Tabelle verwendet werden, um ein Kriterium zu definieren, das zum Abgleichen von Abfragen für beliebige Daten Satz Typen verwendet wird, aber SRV-Einträge in der contoso.com-Domäne, die von einem Client im 10.0.0.0/24-Subnetz über TCP zwischen 8 und 10 Uhr über die Schnittstelle 10.0.0.3 stammen:  
 
 |Name|Wert|  
 |--------|---------|  

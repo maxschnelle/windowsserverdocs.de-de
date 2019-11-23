@@ -18,9 +18,9 @@ ms.locfileid: "71408349"
 ---
 # <a name="join-a-computer-to-a-domain"></a>Hinzufügen eines Computers zu einer Domäne
 
-Damit Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 funktioniert, muss jeder Computer, der als Verbund Server fungiert, einer Domäne hinzugefügt werden. Verbund Server Proxys können einer Domäne hinzugefügt werden, dies ist jedoch nicht zwingend erforderlich.  
+Damit Active Directory-Verbunddienste (AD FS) \(AD FS\) funktioniert, muss jeder Computer, der als Verbund Server fungiert, einer Domäne hinzugefügt werden. Verbund Server Proxys können einer Domäne hinzugefügt werden, dies ist jedoch nicht zwingend erforderlich.  
   
-Sie müssen einen Webserver nicht zu einer Domäne hinzufügen, wenn der Webserver nur Ansprüche @ no__t-abhängige Anwendungen gehostet.  
+Sie müssen einen Webserver nicht zu einer Domäne hinzufügen, wenn der Webserver nur Ansprüche\-fähigen Anwendungen unterstützt.  
   
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
@@ -39,8 +39,8 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 6.  Klicken Sie auf **OK**, und starten Sie dann den Computer erneut.  
   
 ## <a name="additional-references"></a>Weitere Verweise  
-[Prüfliste: Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  
+[Prüfliste: Einrichten eines Verbund Servers](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[Prüfliste: Einrichten eines Verbundserverproxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Prüfliste: Einrichten eines Verbund Server Proxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 

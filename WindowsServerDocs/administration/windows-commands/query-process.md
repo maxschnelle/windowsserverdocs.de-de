@@ -22,7 +22,7 @@ ms.locfileid: "71371913"
 ---
 # <a name="query-process"></a>Abfrageprozess
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt Informationen zu Prozessen an, die auf einem Remotedesktop-Sitzungshost Server (RD-Sitzungs Host) ausgeführt werden.
 Mit diesem Befehl können Sie herausfinden, welche Programme von einem bestimmten Benutzer ausgeführt werden und welche Benutzer ein bestimmtes Programm ausführen.
@@ -41,14 +41,14 @@ Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_
 > |     <ProcessID>      |                                   Gibt die numerische ID an, die den Prozess identifiziert, den Sie Abfragen möchten.                                   |
 > |      <UserName>      |                                       Gibt den Namen des Benutzers an, dessen Prozesse Sie auflisten möchten.                                       |
 > |    <SessionName>     |                                     Gibt den Namen der Sitzung an, deren Prozesse Sie auflisten möchten.                                      |
-> |       /ID: <nn>       |                                      Gibt die ID der Sitzung an, deren Prozesse Sie auflisten möchten.                                       |
+> |       /ID:<nn>       |                                      Gibt die ID der Sitzung an, deren Prozesse Sie auflisten möchten.                                       |
 > |    <ProgramName>     |                     Gibt den Namen des Programms an, dessen Prozesse Sie Abfragen möchten. Die Erweiterung ". exe" ist erforderlich.                     |
 > | /server:<ServerName> | Gibt den Remote Desktop-Sitzungs Host Server an, dessen Prozesse Sie auflisten möchten. Wenn keine Angabe erfolgt, wird der Server verwendet, auf dem Sie zurzeit angemeldet sind. |
 > |          /?          |                                                     Zeigt die Hilfe an der Eingabeaufforderung an.                                                     |
 > 
 > ## <a name="remarks"></a>Hinweise
 > - Administratoren haben Vollzugriff auf alle **Abfrageprozess** Funktionen.
-> - Wenn Sie die Parameter <*username*>, <*Sessionname*>, **/ID:** <*NN*>, <*Program Name*> oder **\\** * nicht angeben, zeigt der **Abfrageprozess** nur die Prozesse an, die gehört zum aktuellen Benutzer.
+> - Wenn Sie die <*username*>, <*Sessionname*>, **/ID:** <*NN*>, <*Programmname*> oder **\\** *-Parametern nicht angeben, zeigt der **Abfrageprozess** nur die Prozesse an, die zum aktuellen Benutzer gehören.
 > - Wenn eine Sitzung angegeben wird, muss eine aktive Sitzung identifiziert werden.
 > - der **Abfrageprozess** gibt die folgenden Informationen zurück:
 >   -   Der Benutzer, der den Prozess besitzt.
@@ -68,4 +68,5 @@ Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_
 >   ```
 >   #### <a name="additional-references"></a>Weitere Verweise
 >   [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
->   -[Abfrage](query.md)@no__t-[3 &#40;Remotedesktopdienste Befehls&#41; Referenz für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)
+>   [Abfrage](query.md)
+>   [Remotedesktopdienste &#40;Befehlsreferenz&#41; für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)

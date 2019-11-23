@@ -20,7 +20,7 @@ ms.locfileid: "71358464"
 
 
 ## <a name="to-add-a-help-desk-link"></a>So fügen Sie einen Helpdesk-Link hinzu  
-Zum Hinzufügen des helpdesklinks, der auf der Seite Sign @ no__t-0in angezeigt wird, verwenden Sie das folgende Windows PowerShell-Cmdlet und die folgende Syntax.  
+Zum Hinzufügen des helpdesklinks, der auf der Seite Sign\-in angezeigt wird, verwenden Sie das folgende Windows PowerShell-Cmdlet und die folgende Syntax.  
 
 ![Helpdesk hinzufügen](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
   

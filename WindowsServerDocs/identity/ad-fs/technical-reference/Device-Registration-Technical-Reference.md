@@ -17,13 +17,13 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71407354"
 ---
 # <a name="device-registration-technical-reference"></a>Technische Referenz zur Geräteregistrierung
-Der Geräte Registrierungsdienst \(drs @ no__t-1 ist ein neuer Windows-Dienst, der in der Active Directory Verbunddienst-Rolle unter Windows Server 2012 R2 enthalten ist.  Der DRS muss auf allen Verbundservern der AD FS-Farm installiert und konfiguriert sein.  Informationen zum Bereitstellen des DRS finden Sie unter [Konfigurieren eines Verbundservers mit dem Geräteregistrierungsdienst](https://technet.microsoft.com/library/dn486831.aspx).  
+Der Geräte Registrierungsdienst \(DRS\) ist ein neuer Windows-Dienst, der in der Active Directory Verbunddienst-Rolle unter Windows Server 2012 R2 enthalten ist.  Der DRS muss auf allen Verbundservern der AD FS-Farm installiert und konfiguriert sein.  Informationen zum Bereitstellen des DRS finden Sie unter [Konfigurieren eines Verbundservers mit dem Geräteregistrierungsdienst](https://technet.microsoft.com/library/dn486831.aspx).  
   
 ## <a name="active-directory-objects-created-when-a-device-is-registered"></a>Bei Registrierung eines Geräts erstellte Active Directory-Objekte  
 Die folgenden Active Directory-Objekte werden als Teil des Geräteregistrierungsdiensts erstellt.  
   
 ### <a name="device-registration-configuration"></a>Geräteregistrierungskonfiguration  
-Die Geräteregistrierungskonfiguration wird im Konfigurationsnamenskontext der Active Directory-Gesamtstruktur gespeichert. \(z. b. **CN @ no__t-2device Registration Configuration, CN @ no__t-3services, < Configuration @ no__t-4naming @ no__t-5context >** \). Dieses Objekt wird erstellt, wenn die Active Directory-Gesamtstruktur für die Geräteregistrierung initialisiert wird.  
+Die Geräteregistrierungskonfiguration wird im Konfigurationsnamenskontext der Active Directory-Gesamtstruktur gespeichert. \(z. b. **CN\=Device Registration Configuration, CN\=Services, < Configuration\-Naming\-Context >** \). Dieses Objekt wird erstellt, wenn die Active Directory-Gesamtstruktur für die Geräteregistrierung initialisiert wird.  
   
 Die Geräteregistrierungskonfiguration umfasst die folgenden Elemente:  
   
@@ -38,7 +38,7 @@ Die Geräteregistrierungskonfiguration umfasst die folgenden Elemente:
 ### <a name="registered-devices-container"></a>Container für registrierte Geräte  
 Der Geräte-Objektcontainer wird unter einer der Domänen in der Active Directory-Gesamtstruktur erstellt.  Dieser Objektcontainer enthält alle Geräteobjekte für die Active Directory-Gesamtstruktur.  
   
-Standardmäßig wird der Container in derselben Domäne wie AD FS erstellt.  \(z. b. **CN @ no__t-2registereddevices, DC @ no__t-3 < Standardwert @ no__t-4naming @ no__t-5context >** \). Dieses Objekt wird erstellt, wenn die Active Directory-Gesamtstruktur für die Geräteregistrierung initialisiert wird.  
+Standardmäßig wird der Container in derselben Domäne wie AD FS erstellt.  \(z. b. " **CN\=registereddevices, DC\=< Standard\-Naming\--Kontext >** \). Dieses Objekt wird erstellt, wenn die Active Directory-Gesamtstruktur für die Geräteregistrierung initialisiert wird.  
   
 ### <a name="registered-devices"></a>Registrierte Geräte  
 Geräteobjekte sind neue Lightweight-Objekte in Active Directory.  Sie werden verwendet, um die Beziehung zwischen einem Benutzer, einem Gerät und dem Unternehmen darzustellen.  Geräteobjekte verwenden ein von AD FS signiertes Zertifikat, um das physische Gerät am logischen Geräteobjekt in Active Directory zu verankern.  
@@ -75,12 +75,12 @@ Registrierte Geräte umfassen die folgenden Elemente:
   
 -   **Registrierter Besitzer**  
   
-    Die Sicherheitsidentität \(sid @ no__t-1 des Benutzers, der dieses Gerät dem Arbeitsplatz hinzugefügt hat.  
+    Die Sicherheitsidentität \(sid\) des Benutzers, der dieses Gerät mit dem Arbeitsplatz verknüpft hat.  
   
-## <a name="ad-fsdrs-server-ssl-certificate-revocation-checking"></a>AD FS @ no__t-0drs Server SSL-Zertifikats Sperr Überprüfung  
-Der Client für den Arbeitsplatzbeitritt überprüft die Gültigkeit des SSL-Zertifikats des AD FS-Servers.  Wenn das SSL-Zertifikat des AD FS Servers eine Zertifikat Sperr Liste \(crl @ no__t-1-Endpunkt enthält, muss der Client in der Lage sein, den Endpunkt zu erreichen, der zum Überprüfen des Zertifikats angegeben wurde.  
+## <a name="ad-fsdrs-server-ssl-certificate-revocation-checking"></a>AD FS\/DRS Server-SSL-Zertifikat Sperr Überprüfung  
+Der Client für den Arbeitsplatzbeitritt überprüft die Gültigkeit des SSL-Zertifikats des AD FS-Servers.  Wenn das SSL-Zertifikat des AD FS Servers eine Zertifikat Sperr Liste \(CRL\)-Endpunkt enthält, muss der Client in der Lage sein, den zum Überprüfen des Zertifikats angegebenen Endpunkt zu erreichen.  
   
-Wenn Sie eine Testumgebung und eine Test Zertifizierungsstelle \(ca @ no__t-1 verwenden, um Ihre Server-SSL-Zertifikate auszustellen, können Sie festlegen, dass der CRL-Endpunkt nicht in den von Ihrer Zertifizierungsstelle ausgestellten Server Zertifikaten enthalten sein soll.  Auf diese Weise kann der Client für den Arbeitsplatzbeitritt die CRL-Prüfung umgehen.  
+Wenn Sie eine Testumgebung und eine Test Zertifizierungsstelle verwenden \(ca\), um Ihre Server-SSL-Zertifikate auszustellen, können Sie festlegen, dass der CRL-Endpunkt nicht in den von Ihrer Zertifizierungsstelle ausgestellten Server Zertifikaten enthalten sein soll.  Auf diese Weise kann der Client für den Arbeitsplatzbeitritt die CRL-Prüfung umgehen.  
   
 > [!CAUTION]  
 > Dies wird nicht für Produktionssysteme empfohlen.  

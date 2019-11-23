@@ -24,7 +24,7 @@ ms.locfileid: "71377276"
 
 
 
-macht eine persistente Schatten Kopie als Laufwerk Buchstaben, Freigabe oder Einfügepunkt verfügbar.
+Macht eine persistente Schatten Kopie als Laufwerk Buchstaben, Freigabe oder Einfügepunkt verfügbar.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -39,9 +39,9 @@ expose <ShadowID> {<Drive:> | <Share> | <MountPoint>}
 |Parameter|Beschreibung|
 |---------|-----------|
 |Shadowid|Gibt die Schatten-ID der Schatten Kopie an, die Sie verfügbar machen möchten.|
-|\<laufwerk: >|Macht die angegebene Schatten Kopie als Laufwerk Buchstaben (z. b. P:) verfügbar.|
-|\<freigabe >|Macht die angegebene Schatten Kopie in einer Freigabe verfügbar (z. b. \\ @ no__t-1*MachineName*\).|
-|\<mountpoint >|Macht die angegebene Schatten Kopie für einen Einstellungspunkt verfügbar (z. b. c:\shadowcopy @ no__t-0.|
+|\<Laufwerk: >|Macht die angegebene Schatten Kopie als Laufwerk Buchstaben (z. b. P:) verfügbar.|
+|\<Freigabe >|Macht die angegebene Schatten Kopie in einer Freigabe verfügbar (z. b. \\\\*MachineName*\).|
+|\<Mountpoint >|Macht die angegebene Schatten Kopie für einen Einstellungspunkt verfügbar (z. b. c:\shadowcopy\).|
 
 ## <a name="remarks"></a>Hinweise
 
@@ -49,7 +49,7 @@ expose <ShadowID> {<Drive:> | <Share> | <MountPoint>}
 
 ## <a name="BKMK_examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um die der VSS_SHADOW_1-Umgebungsvariablen zugeordnete persistente Schatten Kopie als Laufwerk X verfügbar zu machen:
+Geben Sie Folgendes ein, um die dem VSS_SHADOW_1-Umgebungsvariable zugeordnete persistente Schatten Kopie als Laufwerk X verfügbar zu machen:
 ```
 expose %vss_shadow_1% x:
 ```

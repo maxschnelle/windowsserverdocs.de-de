@@ -17,18 +17,18 @@ ms.locfileid: "71405936"
 ---
 # <a name="network-controller-high-availability"></a>Netzwerkcontroller – Hohe Verfügbarkeit
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-In diesem Thema erfahren Sie mehr über die Netzwerk Controller-Hochverfügbarkeit und Skalierbarkeits Konfiguration für Software-Defined Networking \(sdn @ no__t-1.
+In diesem Thema erfahren Sie mehr über die Netzwerk Controller-Hochverfügbarkeit und Skalierbarkeits Konfiguration für Software-Defined Networking \(Sdn-\).
 
-Wenn Sie einen Sdn in Ihrem Rechenzentrum bereitstellen, können Sie mithilfe des Netzwerk Controllers viele Netzwerkelemente zentral bereitstellen, überwachen und verwalten, darunter RAS-Gateways, Software-Lasten Ausgleichs Module, Richtlinien für virtuelle Netzwerke für die Mandanten Kommunikation und Rechenzentrums Firewall. Richtlinien, Quality of Service \(qos @ no__t-1 für Sdn-Richtlinien, Hybrid Netzwerk Richtlinien und mehr.
+Wenn Sie Sdn in Ihrem Rechenzentrum bereitstellen, können Sie mithilfe des Netzwerk Controllers viele Netzwerkelemente zentral bereitstellen, überwachen und verwalten, darunter RAS-Gateways, Software Lastenausgleich, Richtlinien für virtuelle Netzwerke für Mandanten Kommunikation, Datacenter Firewall-Richtlinien, Quality of Service \(QoS\) für Sdn-Richtlinien, Hybrid Netzwerk Richtlinien usw.
 
 Da der Netzwerk Controller der Eckpfeiler der Sdn-Verwaltung ist, ist es wichtig, dass Netzwerk Controller Bereitstellungen Hochverfügbarkeit bereitstellen und die Netzwerk Controller Knoten problemlos zentral hoch-oder herunterskaliert werden können.
 
 Obwohl Sie den Netzwerk Controller als Cluster mit einem einzelnen Computer bereitstellen können, müssen Sie für Hochverfügbarkeit und Failover den Netzwerk Controller in einem Cluster mit mehreren Computern mit mindestens drei Computern bereitstellen.
 
 >[!NOTE]
->Sie können den Netzwerk Controller entweder auf Server Computern oder auf virtuellen Maschinen \(vms @ no__t-1 bereitstellen, auf denen Windows Server 2016 Datacenter Edition ausgeführt wird. Wenn Sie einen Netzwerk Controller auf virtuellen Computern bereitstellen, müssen die VMs auf Hyper-V-Hosts ausgeführt werden, auf denen auch die Datacenter Edition ausgeführt wird. Der Netzwerk Controller ist unter Windows Server 2016 Standard Edition nicht verfügbar.
+>Sie können den Netzwerk Controller entweder auf Server Computern oder auf virtuellen Computern \(VMS\) bereitstellen, auf denen Windows Server 2016 Datacenter Edition ausgeführt wird. Wenn Sie einen Netzwerk Controller auf virtuellen Computern bereitstellen, müssen die VMs auf Hyper-V-Hosts ausgeführt werden, auf denen auch die Datacenter Edition ausgeführt wird. Der Netzwerk Controller ist unter Windows Server 2016 Standard Edition nicht verfügbar.
 
 ## <a name="network-controller-as-a-service-fabric-application"></a>Netzwerk Controller als Service Fabric Anwendung
 
@@ -45,7 +45,7 @@ Die Netzwerk Controller Anwendung besteht aus mehreren Zustands behafteten Servi
 
 Jeder Service Fabric Dienst verfügt über ein primäres Replikat und zwei sekundäre Replikate. Das primäre Dienst Replikat verarbeitet Anforderungen, während die beiden sekundären Dienst Replikate Hochverfügbarkeit bieten, wenn das primäre Replikat aus irgendeinem Grund deaktiviert oder nicht verfügbar ist.
 
-In der folgenden Abbildung wird ein Netzwerk Controller Service Fabric Cluster mit fünf Computern dargestellt. Vier Dienste werden auf die fünf Computer verteilt: Firewalldienst, Gatewaydienst, Software Lastenausgleich \(slb @ no__t-1-Dienst und virtuelles Netzwerk \(vnet @ no__t-3-Dienst.  Jeder der vier Dienste umfasst ein primäres Dienst Replikat und zwei sekundäre Dienst Replikate.
+In der folgenden Abbildung wird ein Netzwerk Controller Service Fabric Cluster mit fünf Computern dargestellt. Vier Dienste werden auf die fünf Computer verteilt: Firewalldienst, Gatewaydienst, Software Lastenausgleich \(SLB-\) Dienst und virtuelles Netzwerk \(vnet\)-Dienst.  Jeder der vier Dienste umfasst ein primäres Dienst Replikat und zwei sekundäre Dienst Replikate.
 
 ![Netzwerk Controller Service Fabric-Cluster](../../../media/Network-Controller-HA/Network-Controller-HA.jpg)
 
@@ -62,11 +62,11 @@ Da der Netzwerk Controller das Kernstück eines Rechenzentrums Netzwerks ist, mu
 
 ### <a name="persistent-storage"></a>Persistenter Speicher
 
-Die Netzwerk Controller Anwendung hat große Speicheranforderungen für die Konfiguration und den Status. Die Anwendung muss auch für geplante und ungeplante Ausfälle verwendbar sein. Zu diesem Zweck stellt Service Fabric einen Schlüssel-Wert-Speicher \(kvs @ no__t-1 bereit, bei dem es sich um einen replizierten, transaktionalen und beibehaltenen Speicher handelt.
+Die Netzwerk Controller Anwendung hat große Speicheranforderungen für die Konfiguration und den Status. Die Anwendung muss auch für geplante und ungeplante Ausfälle verwendbar sein. Zu diesem Zweck stellt Service Fabric einen Schlüssel-Wert-Speicher \(KVS\) dar, bei dem es sich um einen replizierten, transaktionalen und beibehaltenen Speicher handelt.
 
 ### <a name="modularity"></a>Modularität
 
-Der Netzwerk Controller wurde mit einer modularen Architektur entworfen, wobei jeder der Netzwerkdienste, wie z. b. der Dienst für virtuelle Netzwerke und der Firewalldienst, mit dem @ no__t-0in als einzelne Dienste erstellt wurden. 
+Der Netzwerk Controller wurde mit einer modularen Architektur entworfen, wobei jeder der Netzwerkdienste (z. b. der Dienst für virtuelle Netzwerke) und der Firewalldienst, der in als einzelner Dienst\-erstellt wurde. 
 
 Diese Anwendungsarchitektur bietet die folgenden Vorteile:
 
@@ -80,7 +80,7 @@ Service Fabric modulität verwendet Dienstmodell Schemas, um die einfache Entwic
 
 ## <a name="network-controller-deployment-options"></a>Optionen für die Netzwerk Controller Bereitstellung
 
-Informationen zum Bereitstellen des Netzwerk Controllers mithilfe System Center Virtual Machine Manager \(vmm @ no__t-1 finden Sie unter [Einrichten eines Sdn-Netzwerk Controllers im VMM-Fabric](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
+Informationen zum Bereitstellen eines Netzwerk Controllers mithilfe System Center Virtual Machine Manager \(VMM-\)finden Sie unter [Einrichten eines Sdn-Netzwerk Controllers im VMM-Fabric](https://technet.microsoft.com/system-center-docs/vmm/scenario/sdn-network-controller).
 
 Informationen zum Bereitstellen eines Netzwerk Controllers mithilfe von Skripts finden Sie unter Bereitstellen [einer Software definierten Netzwerkinfrastruktur mit Skripts](../../deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)
 

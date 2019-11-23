@@ -22,15 +22,15 @@ ms.locfileid: "71378427"
 ---
 # <a name="dfsdiag-testdfsintegrity"></a>Dfsdiag testdfsintegrity
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Überprüft die Integrität des verteiltes Dateisystem \(dfs @ no__t-1-Namespace, indem die folgenden Tests durchgeführt werden:  
+Überprüft die Integrität der verteiltes Dateisystem \(DFS-\) Namespace, indem die folgenden Tests durchgeführt werden:  
   
 -   Sucht nach DFS-metadatenbeschädigungen  
   
--   Überprüft die Konfiguration der Access @ no__t-0based-Enumeration, um sicherzustellen, dass Sie zwischen den DFS-Metadaten und der Namespace-Server Freigabe konsistent ist.  
+-   Überprüft die Konfiguration der Access\-basierten Enumeration, um sicherzustellen, dass Sie zwischen den DFS-Metadaten und der Namespace-Server Freigabe konsistent ist.  
   
--   Erkennt überlappende DFS-Ordner \(links @ no__t-1, doppelte Ordner und Ordner mit überlappenden Ordner Zielen.  
+-   Erkennt überlappende DFS-Ordner \(Verknüpfungen\), doppelte Ordner und Ordner mit überlappenden Ordner Zielen.  
   
   
   
@@ -44,9 +44,9 @@ dfsdiag /TestDFSIntegrity /DFSRoot:<DFS root path> [/Recurse] [/Full]
   
 |Parameter|Beschreibung|  
 |-------|--------|  
-|\/dfsroot: <DFS root path>|Der zu diagnostizieren DFS-Namespace.|  
+|\/dfsroot:<DFS root path>|Der zu diagnostizieren DFS-Namespace.|  
 |\/recurse|Führt die Tests einschließlich der Namespace-Interlinks aus.|  
-|\/full|überprüft die Konsistenz von Freigabe-und NTFS-ACLs und Client seitiger Konfiguration für alle Ordner Ziele. Außerdem wird überprüft, ob die Online-Eigenschaft festgelegt ist.|  
+|\/voll|überprüft die Konsistenz von Freigabe-und NTFS-ACLs und Client seitiger Konfiguration für alle Ordner Ziele. Außerdem wird überprüft, ob die Online-Eigenschaft festgelegt ist.|  
   
 ## <a name="BKMK_Examples"></a>Beispiele  
 Geben Sie in TBD Folgendes ein:  

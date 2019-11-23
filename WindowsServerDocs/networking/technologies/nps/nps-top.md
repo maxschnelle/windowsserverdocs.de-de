@@ -45,7 +45,7 @@ Mit NPS können Sie die Authentifizierung, Autorisierung und Kontoführung für 
 - **RADIUS**-Kontoführung. Sie können NPS so konfigurieren, dass Ereignisse in einer lokalen Protokolldatei oder in einer lokalen oder Remote Instanz von Microsoft SQL Server protokolliert werden. Weitere Informationen finden Sie unter [NPS-Protokollierung](#nps-logging).
 
 > [!IMPORTANT]
-> Der Netzwerk Zugriffsschutz \(nap @ no__t-1, die Integritäts Registrierungsstelle \(hra @ no__t-3 und das Host Credential Authorization Protocol \(hcap @ no__t-5 wurden in Windows Server 2012 R2 als veraltet eingestuft und sind in Windows Server 2016 nicht verfügbar. Wenn Sie über eine NAP-Bereitstellung mit älteren Betriebssystemen als Windows Server 2016 verfügen, können Sie die NAP-Bereitstellung nicht zu Windows Server 2016 migrieren.
+> Der Netzwerk Zugriffsschutz \(NAP-\), die Integritäts Registrierungsstelle \(HRA\)und das Host Credential Authorization-Protokoll \(HCAP-\) wurden in Windows Server 2012 R2 als veraltet eingestuft und sind in Windows Server 2016 nicht verfügbar. Wenn Sie über eine NAP-Bereitstellung mit älteren Betriebssystemen als Windows Server 2016 verfügen, können Sie die NAP-Bereitstellung nicht zu Windows Server 2016 migrieren.
 
 Sie können NPS mit einer beliebigen Kombination dieser Features konfigurieren. Sie können z. b. einen NPS als RADIUS-Server für VPN-Verbindungen und auch als RADIUS-Proxy für die weiterleiten einiger Verbindungsanforderungen an Mitglieder einer RADIUS-Remote Server Gruppe für die Authentifizierung und Autorisierung in einer anderen Domäne konfigurieren.
 
@@ -68,19 +68,19 @@ Sie können NPS als RADIUS-Server, RADIUS-Proxy oder beides verwenden.
 
 ### <a name="radius-server"></a>RADIUS-Server
 
-NPS ist die Microsoft-Implementierung des RADIUS-Standards, der durch die Internet Engineering Task Force \(ietf @ no__t-1 in den RFCs 2865 und 2866 angegeben wird. Als RADIUS-Server führt NPS eine zentralisierte Verbindungs Authentifizierung, Autorisierung und Kontoführung für viele Arten von Netzwerk Zugriff aus. dazu gehören drahtlose, authentifizier Ende Switches, DFÜ und virtuelles privates Netzwerk \(vpn @ no__t-1 Remote Access und Router-zu-Router-Verbindungen.
+NPS ist die Microsoft-Implementierung des RADIUS-Standards, der durch die Internet Engineering Task Force \(IETF\) in RFCs 2865 und 2866 angegeben wird. Als RADIUS-Server führt NPS eine zentralisierte Verbindungs Authentifizierung, Autorisierung und Kontoführung für viele Arten von Netzwerk Zugriff aus. Hierzu zählen beispielsweise drahtlose, authentifizier Ende Switches, DFÜ-und virtuelle private Netzwerke \(VPN\) Remote Zugriff und Router-zu-Router-Verbindungen.
 
 > [!NOTE]
 > Informationen zum Bereitstellen von NPS als RADIUS-Server finden Sie unter Bereitstellen des [Netzwerk Richtlinien Servers](nps-deploy.md).
 
 NPS ermöglicht die Verwendung einer heterogenen Gruppe von drahtlos-, Switch-, Remote-oder VPN-Geräten. Sie können NPS mit dem Remote Zugriffs Dienst verwenden, der in Windows Server 2016 verfügbar ist.
 
-NPS verwendet eine Active Directory Domain Services \(ad DS @ no__t-1-Domäne oder die SAM-Benutzerkonten Datenbank (Local Security Accounts Manager), um Benutzer Anmelde Informationen für Verbindungsversuche zu authentifizieren. Wenn ein Server, auf dem NPS ausgeführt wird, Mitglied einer AD DS Domäne ist, verwendet NPS den Verzeichnisdienst als Benutzerkonten Datenbank und ist Teil einer Single Sign-On Lösung. Der gleiche Satz von Anmelde Informationen wird für die Netzwerk Zugriffs Steuerung verwendet \(authentifiziert und autorisiert den Zugriff auf ein Netzwerk @ no__t-1 und für die Anmeldung bei einer AD DS Domäne.
+NPS verwendet eine Active Directory Domain Services \(AD DS\) Domäne oder die SAM-Benutzerkonten Datenbank (Local Security Accounts Manager), um Benutzer Anmelde Informationen für Verbindungsversuche zu authentifizieren. Wenn ein Server, auf dem NPS ausgeführt wird, Mitglied einer AD DS Domäne ist, verwendet NPS den Verzeichnisdienst als Benutzerkonten Datenbank und ist Teil einer Single Sign-On Lösung. Der gleiche Satz von Anmelde Informationen wird für die Netzwerk Zugriffs \(Steuerung verwendet, um den Zugriff auf ein Netzwerk\) zu authentifizieren und zu autorialisieren und sich bei einer AD DS Domäne anzumelden.
 
 > [!NOTE]
 > NPS verwendet die DFÜ-Eigenschaften des Benutzerkontos und der Netzwerk Richtlinien, um eine Verbindung zu autorisieren.
 
-Internet Dienstanbieter \(isps @ no__t-1 und Unternehmen, die den Netzwerk Zugriff aufrechterhalten, haben eine größere Herausforderung, alle Arten von Netzwerk Zugriff von einem einzigen Verwaltungspunkt aus zu verwalten, unabhängig von der Art der verwendeten Netzwerk Zugriffs Ausrüstung. Der RADIUS-Standard unterstützt diese Funktionalität sowohl in homogenen als auch heterogenen Umgebungen. RADIUS ist ein Client/Server-Protokoll, mit dem Netzwerk Zugriffs Ausrüstung (als RADIUS-Clients verwendet) zum Übermitteln von Authentifizierungs-und Buchhaltungs Anforderungen an einen RADIUS-Server aktiviert wird.
+Internet Dienstanbieter \(ISPs\) und Organisationen, die den Netzwerk Zugriff aufrechterhalten, haben eine größere Herausforderung, alle Arten von Netzwerk Zugriff von einem einzigen Verwaltungspunkt aus zu verwalten, unabhängig davon, welche Art von Netzwerk Zugriffs Geräten verwendet wird. Der RADIUS-Standard unterstützt diese Funktionalität sowohl in homogenen als auch heterogenen Umgebungen. RADIUS ist ein Client/Server-Protokoll, mit dem Netzwerk Zugriffs Ausrüstung (als RADIUS-Clients verwendet) zum Übermitteln von Authentifizierungs-und Buchhaltungs Anforderungen an einen RADIUS-Server aktiviert wird.
 
 Ein RADIUS-Server hat Zugriff auf Benutzerkontoinformationen und kann Anmelde Informationen für die Netzwerk Zugriffs Authentifizierung überprüfen. Wenn Benutzer Anmelde Informationen authentifiziert werden und der Verbindungsversuch autorisiert ist, autorisiert der RADIUS-Server den Benutzer Zugriff auf Grundlage der angegebenen Bedingungen und protokolliert dann die Netzwerk Zugriffs Verbindung in einem Buchhaltungs Protokoll. Durch die Verwendung von RADIUS können Benutzerauthentifizierung, Autorisierung und Kontoführungs Daten für den Netzwerk Zugriff an einem zentralen Ort und nicht auf jedem Zugriffs Server gesammelt und verwaltet werden.
 
@@ -99,7 +99,7 @@ Die folgende Abbildung zeigt NPS als RADIUS-Server für eine Vielzahl von Zugrif
 
 ### <a name="radius-proxy"></a>RADIUS-Proxy
 
-Als RADIUS-Proxy leitet NPS Authentifizierungs-und Buchhaltungs Nachrichten an NPS und andere RADIUS-Server weiter. Sie können NPS als RADIUS-Proxy verwenden, um das Routing von RADIUS-Nachrichten zwischen RADIUS-Clients \(auch Netzwerk Zugriffs Server no__t-1 und RADIUS-Server, die Benutzerauthentifizierung, Autorisierung und Kontoführung für den Verbindungsversuch durchführen, bereitzustellen. 
+Als RADIUS-Proxy leitet NPS Authentifizierungs-und Buchhaltungs Nachrichten an NPS und andere RADIUS-Server weiter. Sie können NPS als RADIUS-Proxy verwenden, um das Routing von RADIUS-Nachrichten zwischen RADIUS-Clients \(auch als Netzwerk Zugriffs Server bezeichnet\) und RADIUS-Servern bereitzustellen, die Benutzerauthentifizierung, Autorisierung und Kontoführung für den Verbindungsversuch durchführen. 
 
 Wenn NPS als RADIUS-Proxy verwendet wird, handelt es sich um einen zentralen Wechsel-bzw. Routing Punkt, über den RADIUS-Zugriffs-und Buchhaltungs Nachrichten fließen. NPS zeichnet Informationen zu den weitergeleiteten Nachrichten in einem Buchhaltungs Protokoll auf.
 
@@ -139,7 +139,7 @@ Die folgenden Konfigurationsbeispiele veranschaulichen, wie Sie NPS als RADIUS-S
 
 **NPS als RADIUS-Server mit Remote Buchhaltungs Servern**. In diesem Beispiel ist der lokale NPS nicht für die Kontoführung konfiguriert, und die standardmäßige Verbindungs Anforderungs Richtlinie wird so überarbeitet, dass RADIUS-Buchhaltungs Nachrichten an einen NPS oder einen anderen RADIUS-Server in einer RADIUS-Remote Server Gruppe weitergeleitet werden. Obwohl Buchhaltungs Nachrichten weitergeleitet werden, werden Authentifizierungs-und Autorisierungs Nachrichten nicht weitergeleitet, und der lokale NPS führt diese Funktionen für die lokale Domäne und alle vertrauenswürdigen Domänen aus.
 
-**NPS mit Remote RADIUS-zu-Windows-Benutzer Zuordnung**. In diesem Beispiel fungiert NPS sowohl als RADIUS-Server als auch als RADIUS-Proxy für jede einzelne Verbindungsanforderung, indem die Authentifizierungsanforderung an einen RADIUS-Remote Server weitergeleitet wird, während ein lokales Windows-Benutzerkonto für die Autorisierung verwendet wird. Diese Konfiguration wird implementiert, indem das Attribut Remote RADIUS für Windows-Benutzer Zuordnung als Bedingung der Verbindungs Anforderungs Richtlinie konfiguriert wird. \(zusätzlich muss ein Benutzerkonto lokal auf dem RADIUS-Server erstellt werden, das denselben Namen wie das Remote Benutzerkonto hat, mit dem die Authentifizierung vom RADIUS-Remote Server durchgeführt wird. \)
+**NPS mit Remote RADIUS-zu-Windows-Benutzer Zuordnung**. In diesem Beispiel fungiert NPS sowohl als RADIUS-Server als auch als RADIUS-Proxy für jede einzelne Verbindungsanforderung, indem die Authentifizierungsanforderung an einen RADIUS-Remote Server weitergeleitet wird, während ein lokales Windows-Benutzerkonto für die Autorisierung verwendet wird. Diese Konfiguration wird implementiert, indem das Attribut Remote RADIUS für Windows-Benutzer Zuordnung als Bedingung der Verbindungs Anforderungs Richtlinie konfiguriert wird. \(zusätzlich muss ein Benutzerkonto lokal auf dem RADIUS-Server erstellt werden, das den gleichen Namen wie das Remote Benutzerkonto hat, mit dem die Authentifizierung vom RADIUS-Remote Server durchgeführt wird.\)
 
 ## <a name="configuration"></a>Konfiguration
 

@@ -43,7 +43,7 @@ comp [<Data1>] [<Data2>] [/d] [/a] [/l] [/n=<Number>] [/c]
 |/d|Zeigt Unterschiede im Dezimal Format an. (Das Standardformat ist hexadezimal.)|
 |/a|Zeigt Unterschiede als Zeichen an.|
 |/l|Zeigt die Nummer der Zeile an, in der ein Unterschied auftritt, anstatt den Byte Offset anzuzeigen.|
-|/n = \<number >|Vergleicht nur die Anzahl der Zeilen, die für jede Datei angegeben werden, auch wenn die Dateien unterschiedlich groß sind.|
+|/n =\<Anzahl >|Vergleicht nur die Anzahl der Zeilen, die für jede Datei angegeben werden, auch wenn die Dateien unterschiedlich groß sind.|
 |/c|Führt einen Vergleich aus, bei dem keine Groß-/Kleinschreibung beachtet wird|
 |/Off [Zeile]|Verarbeitet Dateien mit dem Offline-Attribut Satz.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
@@ -93,7 +93,7 @@ comp [<Data1>] [<Data2>] [/d] [/a] [/l] [/n=<Number>] [/c]
 
 ## <a name="BKMK_examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um den Inhalt des Verzeichnisses c:\Reports mit dem Sicherungs Verzeichnis \\ @ no__t-1Sales\Backup\April zu vergleichen:
+Geben Sie Folgendes ein, um den Inhalt des Verzeichnisses c:\Reports mit dem Sicherungs Verzeichnis \\\\sales\backup\april zu vergleichen:
 ```
 comp c:\reports \\sales\backup\april
 ```

@@ -21,9 +21,9 @@ ms.locfileid: "71367253"
 ---
 # <a name="generate-a-usage-report-for-remote-clients-using-historical-data"></a>Erstellen eines Nutzungsberichts für Remoteclients mithilfe von Verlaufsdaten
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-**Hinweis**: Durch Windows Server 2013 werden DirectAccess und RRAS (Routing and Remote Access Service, Routing- und RAS-Dienst) zu einer einzigen Remotezugriffsrolle zusammengefasst.  
+**Hinweis:** Durch Windows Server 2012 werden DirectAccess und RRAS (Routing and Remote Access Service, Routing- und RAS-Dienst) zu einer einzigen Remotezugriffsrolle zusammengefasst.  
   
 Mithilfe der-Verwaltungskonsole auf dem Remote Zugriffs Server kann ein Verwendungs Bericht für die Remote Clients generiert werden, die auf den Server zugreifen. Um einen Verwendungs Bericht für Remote Clients zu generieren, aktivieren Sie zunächst die Kontoführung auf dem RAS-Server. Nachdem Sie den Bericht generiert haben, können Sie das Überwachungs Dashboard verwenden, das in der-Verwaltungskonsole auf dem RAS-Server verfügbar ist, um die Auslastungs Statistiken auf dem Server anzuzeigen.  
   
@@ -59,7 +59,7 @@ Mithilfe der-Verwaltungskonsole auf dem Remote Zugriffs Server kann ein Verwendu
 >   
 > Die Kontoführung für den Remote Zugriff basiert auf dem Konzept der **Sitzungen**. Im Gegensatz zu einer **Verbindung**wird eine **Sitzung** durch eine Kombination aus Remote Client-IP-Adresse und Benutzername eindeutig identifiziert. Wenn z. b. ein Computer Tunnel vom Remote Client mit dem Namen CLIENT1 gebildet wird, wird eine Sitzung erstellt und in der Buchhaltungs Datenbank gespeichert. Wenn ein Benutzer mit dem Namen user1 nach einiger Zeit eine Verbindung mit diesem Client herstellt (der Computer Tunnel ist jedoch noch aktiv), wird die Sitzung als separate Sitzung aufgezeichnet. Der Unterschied zwischen den verschiedenen Sitzungen besteht darin, den Unterschied zwischen Computer Tunnel und Benutzer Tunnel beizubehalten.  
   
-](../../../media/Generate-a-usage-report-for-remote-clients-using-historical-data/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
+![der entsprechenden Windows PowerShell-](../../../media/Generate-a-usage-report-for-remote-clients-using-historical-data/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   

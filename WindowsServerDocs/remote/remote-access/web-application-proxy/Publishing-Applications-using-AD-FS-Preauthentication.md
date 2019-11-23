@@ -19,7 +19,7 @@ ms.locfileid: "71404263"
 
 >Gilt für: Windows Server 2016
 
-**dieser Inhalt ist für die lokale Version des webanwendungsproxys relevant. Informationen zum Aktivieren des sicheren Zugriffs auf lokale Anwendungen über die Cloud finden Sie in den [Azure AD Anwendungs Proxy-Inhalt](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
+**Diese Inhalte sind für die lokale Version des webanwendungsproxys relevant. Informationen zum Aktivieren des sicheren Zugriffs auf lokale Anwendungen über die Cloud finden Sie in den [Azure AD Anwendungs Proxy-Inhalt](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
   
 In diesem Thema wird beschrieben, wie Sie Anwendungen über den webanwendungsproxy mithilfe der Vorauthentifizierung Active Directory-Verbunddienste (AD FS) (AD FS) veröffentlichen.  
   
@@ -122,13 +122,13 @@ In diesem Verfahren wird beschrieben, wie Sie eine anspruchsbasierte Anwendung v
     -   Geben Sie im Feld **URL des Back-End-Servers** die URL des Back-End-Servers ein. Beachten Sie, dass dieser Wert automatisch eingegeben wird, wenn Sie die externe URL eingeben. Sie sollten Sie nur ändern, wenn sich die URL des Back-End-Servers unterscheidet. beispielsweise https://sp/app1/.  
   
         > [!NOTE]  
-        > Der webanwendungsproxy kann Hostnamen in URLs übersetzen, aber keine Pfadnamen übersetzen. Daher können Sie unterschiedliche Hostnamen eingeben, während der Pfadname gleich sein muss. Sie können z. b. eine externe URL https://apps.contoso.com/app1/ und eine Back-End-Server-URL https://app-server/app1/ eingeben. Sie können jedoch nicht die externe URL https://apps.contoso.com/app1/ und die URL des Back-End-Servers https://apps.contoso.com/internal-app1/ eingeben.  
+        > Der webanwendungsproxy kann Hostnamen in URLs übersetzen, aber keine Pfadnamen übersetzen. Daher können Sie unterschiedliche Hostnamen eingeben, während der Pfadname gleich sein muss. Beispielsweise können Sie eine externe URL https://apps.contoso.com/app1/ und eine Back-End-Server-URL https://app-server/app1/eingeben. Es ist jedoch nicht möglich, eine externe URL https://apps.contoso.com/app1/ und eine Back-End-Server-URL https://apps.contoso.com/internal-app1/einzugeben.  
   
 7.  Überprüfen Sie auf der Seite **Bestätigung** die Einstellungen, und klicken Sie dann auf **Veröffentlichen**. Sie können den PowerShell-Befehl kopieren, um weitere veröffentlichte Anwendungen einzurichten.  
   
 8.  Überprüfen Sie auf der Seite **Ergebnisse**, ob die Anwendung veröffentlicht wurde, und klicken Sie dann auf **Schließen**.  
   
-@no__t 0***<em>äquivalente Windows PowerShell-Befehle</em>***  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)von  ***<em>entsprechenden Windows PowerShell-Befehlen</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -202,7 +202,7 @@ In diesem Verfahren wird beschrieben, wie Sie eine Anwendung mit integrierter Wi
     -   Geben Sie im Feld **URL des Back-End-Servers** die URL des Back-End-Servers ein. Beachten Sie, dass dieser Wert automatisch eingegeben wird, wenn Sie die externe URL eingeben. Sie sollten Sie nur ändern, wenn sich die URL des Back-End-Servers unterscheidet. beispielsweise https://owa/.  
   
         > [!NOTE]  
-        > Der webanwendungsproxy kann Hostnamen in URLs übersetzen, aber keine Pfadnamen übersetzen. Daher können Sie unterschiedliche Hostnamen eingeben, während der Pfadname gleich sein muss. Sie können z. b. eine externe URL https://apps.contoso.com/app1/ und eine Back-End-Server-URL https://app-server/app1/ eingeben. Sie können jedoch nicht die externe URL https://apps.contoso.com/app1/ und die URL des Back-End-Servers https://apps.contoso.com/internal-app1/ eingeben.  
+        > Der webanwendungsproxy kann Hostnamen in URLs übersetzen, aber keine Pfadnamen übersetzen. Daher können Sie unterschiedliche Hostnamen eingeben, während der Pfadname gleich sein muss. Beispielsweise können Sie eine externe URL https://apps.contoso.com/app1/ und eine Back-End-Server-URL https://app-server/app1/eingeben. Es ist jedoch nicht möglich, eine externe URL https://apps.contoso.com/app1/ und eine Back-End-Server-URL https://apps.contoso.com/internal-app1/einzugeben.  
   
     -   Geben Sie im Feld **Dienstprinzipalname des Back-End-Servers** den Dienstprinzipalnamen für den Back-End-Server ein, %%amp;quot;z. B. HTTP/owa.contoso.com%%amp;quot;.  
   
@@ -210,7 +210,7 @@ In diesem Verfahren wird beschrieben, wie Sie eine Anwendung mit integrierter Wi
   
 8.  Überprüfen Sie auf der Seite **Ergebnisse**, ob die Anwendung veröffentlicht wurde, und klicken Sie dann auf **Schließen**.  
   
-@no__t 0***<em>äquivalente Windows PowerShell-Befehle</em>***  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)von  ***<em>entsprechenden Windows PowerShell-Befehlen</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -310,7 +310,7 @@ Im folgenden Verfahren wird erläutert, wie http-Basisanwendungen veröffentlich
   
 8.  Überprüfen Sie auf der Seite **Ergebnisse**, ob die Anwendung veröffentlicht wurde, und klicken Sie dann auf **Schließen**.  
   
-@no__t 0***<em>äquivalente Windows PowerShell-Befehle</em>***  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)von  ***<em>entsprechenden Windows PowerShell-Befehlen</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -412,7 +412,7 @@ Hier wird beschrieben, wie Sie eine Anwendung für OAuth2 veröffentlichen. Dies
     -   Geben Sie im Feld **URL des Back-End-Servers** die URL des Back-End-Servers ein. Beachten Sie, dass dieser Wert automatisch eingegeben wird, wenn Sie die externe URL eingeben. Sie sollten Sie nur ändern, wenn sich die URL des Back-End-Servers unterscheidet. beispielsweise https://sp/app1/.  
   
         > [!NOTE]  
-        > Der webanwendungsproxy kann Hostnamen in URLs übersetzen, aber keine Pfadnamen übersetzen. Daher können Sie unterschiedliche Hostnamen eingeben, während der Pfadname gleich sein muss. Sie können z. b. eine externe URL https://apps.contoso.com/app1/ und eine Back-End-Server-URL https://app-server/app1/ eingeben. Sie können jedoch nicht die externe URL https://apps.contoso.com/app1/ und die URL des Back-End-Servers https://apps.contoso.com/internal-app1/ eingeben.  
+        > Der webanwendungsproxy kann Hostnamen in URLs übersetzen, aber keine Pfadnamen übersetzen. Daher können Sie unterschiedliche Hostnamen eingeben, während der Pfadname gleich sein muss. Beispielsweise können Sie eine externe URL https://apps.contoso.com/app1/ und eine Back-End-Server-URL https://app-server/app1/eingeben. Es ist jedoch nicht möglich, eine externe URL https://apps.contoso.com/app1/ und eine Back-End-Server-URL https://apps.contoso.com/internal-app1/einzugeben.  
   
 7.  Überprüfen Sie auf der Seite **Bestätigung** die Einstellungen, und klicken Sie dann auf **Veröffentlichen**. Sie können den PowerShell-Befehl kopieren, um weitere veröffentlichte Anwendungen einzurichten.  
   

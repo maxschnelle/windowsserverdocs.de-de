@@ -21,7 +21,7 @@ ms.locfileid: "71358289"
 ## <a name="change-the-illustration"></a>Ändern der Abbildung  
 
 
-Zum Ändern der Abbildung wird in der Grafik auf der linken Seite, die auf der Seite Sign @ no__t-0in angezeigt wird, das folgende Windows PowerShell-Cmdlet und die folgende Syntax verwendet.  
+Zum Ändern der Abbildung wird in der Grafik auf der linken Seite, die auf der Seite Sign\-in angezeigt wird, das folgende Windows PowerShell-Cmdlet und die folgende Syntax verwendet.  
 
 ![Abbildung ändern](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png)
   

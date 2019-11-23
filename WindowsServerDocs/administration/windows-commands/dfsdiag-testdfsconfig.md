@@ -22,9 +22,9 @@ ms.locfileid: "71378421"
 ---
 # <a name="dfsdiag-testdfsconfig"></a>Dfsdiag testdfsconfig
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Überprüft die Konfiguration einer verteiltes Dateisystem \(dfs @ no__t-1-Namespace, indem die folgenden Aktionen durchgeführt werden:  
+Überprüft die Konfiguration einer verteiltes Dateisystem \(DFS-\) Namespace, indem die folgenden Aktionen durchgeführt werden:  
   
 -   überprüft, ob der DFS-Namespace-Dienst ausgeführt wird und ob der Starttyp auf allen Namespace Servern auf "automatisch" festgelegt ist.  
   
@@ -50,7 +50,7 @@ dfsdiag /TestDFSConfig /DFSRoot:<namespace>
   
 |       Parameter       |               Beschreibung               |
 |-----------------------|-----------------------------------------|
-| \/dfsroot: <namespace> | Der Namespace \(dfs-Stamm @ no__t-1 für die Diagnose. |
+| \/dfsroot:<namespace> | Der Namespace \(DFS-Stamm\) zur Diagnose. |
   
 ## <a name="BKMK_Examples"></a>Beispiele  
 Geben Sie in TBD Folgendes ein:  

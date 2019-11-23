@@ -22,7 +22,7 @@ ms.locfileid: "71373510"
 ---
 # <a name="mqbkup"></a>mqbkup
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Sichert MSMQ-Nachrichten Dateien und Registrierungs Einstellungen auf einem Speichergerät und stellt zuvor gespeicherte Nachrichten und Einstellungen wieder her.   
 Der lokale MSMQ-Dienst wird durch die Sicherung und den Wiederherstellungs Vorgang beendet. Wenn der MSMQ-Dienst zuvor gestartet wurde, versucht das Hilfsprogramm, den MSMQ-Dienst am Ende der Sicherung oder des Wiederherstellungs Vorgangs neu zu starten. Wenn der Dienst vor der Ausführung des Hilfsprogramms bereits beendet wurde, wird nicht versucht, den Dienst neu zu starten.  
@@ -36,7 +36,7 @@ mqbkup {/b | /r} <folder path_to_storage_device>
 |-------|--------|  
 |/b|Gibt den Sicherungs Vorgang an|  
 |/r|Gibt Wiederherstellungs Vorgang an|  
-|< Ordner path_to_storage @ no__t-0device >|Gibt den Pfad an, in dem die MSMQ-Nachrichten Dateien und Registrierungs Einstellungen gespeichert werden.|  
+|< Ordner path_to_storage\_Gerät >|Gibt den Pfad an, in dem die MSMQ-Nachrichten Dateien und Registrierungs Einstellungen gespeichert werden.|  
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|  
 ## <a name="BKMK_Examples"></a>Beispiele  
 So sichern Sie alle MSMQ-Nachrichten Dateien und-Registrierungs Einstellungen und speichern Sie im Ordner " *msmqbkup* " auf Laufwerk "C:".  

@@ -38,7 +38,7 @@ reg save <KeyName> <FileName> [/y]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<keyname >|Gibt den vollständigen Pfad des unter Schlüssels an. Wenn Sie Remote Computer angeben, schließen Sie den Computernamen (im Format \\ @ no__t-1computername @ no__t-2 als Teil des *keyName*-Steuerelement ein. Wenn \\ @ no__t-1computername \ weggelassen wird, wird der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: "HKLM", "HKCU", "HKCR", "HKU" und "HKCC" Wenn ein Remote Computer angegeben wird, sind gültige Stamm Schlüssel: HKLM und HKU.|
+|\<KeyName >|Gibt den vollständigen Pfad des unter Schlüssels an. Zum Angeben von Remote Computern müssen Sie den Computernamen (im Format \\\\Computername als Teil des *keyName*-\) einschließen. Wenn \\\\Computername \ weggelassen wird, wird der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: HKLM, HKCU, HKCR, HKU und HKCC. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: HKLM und HKU.|
 |\<Dateiname >|Gibt den Namen und Pfad der Datei an, die erstellt wird. Wenn kein Pfad angegeben ist, wird der aktuelle Pfad verwendet.|
 |/y|Überschreibt eine vorhandene Datei mit dem Namen *filename* , ohne zur Bestätigung aufzufordern.|
 |/?|Zeigt die Hilfe für den **reg Save** -Befehl an der Eingabeaufforderung an.|
@@ -47,9 +47,9 @@ reg save <KeyName> <FileName> [/y]
 
 -   In der folgenden Tabelle sind die Rückgabewerte für den **reg-Speicher** Vorgang aufgeführt.
 
-|Wert|Description|
+|Wert|Beschreibung|
 |-----|-----------|
-|0|Erfolgreich|
+|0|Möglich|
 |1|Nicht möglich|
 -   Bevor Sie Registrierungseinträge bearbeiten, speichern Sie den übergeordneten Unterschlüssel mit dem **reg-Speicher** Vorgang. Wenn die Bearbeitung fehlschlägt, stellen Sie den ursprünglichen Unterschlüssel mit dem **reg Restore** -Vorgang wieder her.
 

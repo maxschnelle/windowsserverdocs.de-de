@@ -22,9 +22,9 @@ ms.locfileid: "71372097"
 ---
 # <a name="prnjobs"></a>prnjobs
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-hält Druckaufträge an, setzt Sie fort, bricht Sie ab und listet Sie auf.
+Hält Druckaufträge an, setzt Sie fort, bricht Sie ab und listet Sie auf.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -40,14 +40,14 @@ cscript Prnjobs {-z | -m | -x | -l | -?} [-s <ServerName>]
 |              -m              |                                                                                                                                                                Setzt den mit dem **-j-** Parameter angegebenen Druckauftrag fort.                                                                                                                                                                 |
 |              -x              |                                                                                                                                                                Bricht den mit dem **-j-** Parameter angegebenen Druckauftrag ab.                                                                                                                                                                 |
 |              -l              |                                                                                                                                                                        Listet alle Druckaufträge in einer Druck Warteschlange auf.                                                                                                                                                                         |
-|       -s \<servername >       |                                                                                                                  Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet.                                                                                                                  |
-|      -p \<printername >       |                                                                                                                                                           Gibt den Namen des Druckers an, den Sie verwalten möchten. Erforderlich.                                                                                                                                                            |
-|         -j \<jobid >          |                                                                                                                                                                Gibt (nach ID-Nummer) den Druckauftrag an, den Sie abbrechen möchten.                                                                                                                                                                 |
-| -u \<username >-w <Password> | Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert. |
+|       -s \<Servername >       |                                                                                                                  Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet.                                                                                                                  |
+|      -p \<PrinterName >       |                                                                                                                                                           Gibt den Namen des Druckers an, den Sie verwalten möchten. Erforderlich.                                                                                                                                                            |
+|         -j \<JobID >          |                                                                                                                                                                Gibt (nach ID-Nummer) den Druckauftrag an, den Sie abbrechen möchten.                                                                                                                                                                 |
+| -u \<Benutzername >-w <Password> | Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert. |
 |              /?              |                                                                                                                                                                           Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                            |
 
 ## <a name="remarks"></a>Hinweise
--   Der **prnjobs** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2 befindet. Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** gefolgt vom vollständigen Pfad zur Datei prnjobs ein, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Zum Beispiel:
+-   Der **prnjobs** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis "%windir%\SYSTEM32\ printing_Admin_Scripts\\<language>" befindet. Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** gefolgt vom vollständigen Pfad zur Datei prnjobs ein, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Zum Beispiel:
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnjobs.vbs
     ```
@@ -58,7 +58,7 @@ Geben Sie Folgendes ein, um einen Druckauftrag mit der Auftrags-ID 27 anzuhalten
 ```
 cscript prnjobs.vbs -z -s HRServer -p colorprinter -j 27
 ```
-Um alle aktuellen Druckaufträge in der Warteschlange für den lokalen Drucker mit dem Namen colorprinter_2 aufzulisten, geben Sie Folgendes ein:
+Um alle aktuellen Druckaufträge in der Warteschlange für den lokalen Drucker namens colorprinter_2 aufzulisten, geben Sie Folgendes ein:
 ```
 cscript prnjobs.vbs -l -p colorprinter_2
 ```

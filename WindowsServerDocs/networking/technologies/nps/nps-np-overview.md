@@ -17,7 +17,7 @@ ms.locfileid: "71405349"
 ---
 # <a name="network-policies"></a>Netzwerkrichtlinien
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema finden Sie einen Überblick über die Netzwerk Richtlinien in NPS.
 
@@ -30,7 +30,7 @@ Netzwerk Richtlinien sind Sätze von Bedingungen, Einschränkungen und Einstellu
 
 Beim Verarbeiten von Verbindungsanforderungen als Remote Authentication Dial-in User Service Server (RADIUS) führt NPS sowohl die Authentifizierung als auch die Autorisierung für die Verbindungsanforderung aus. Während des Authentifizierungs Vorgangs überprüft NPS die Identität des Benutzers oder Computers, der eine Verbindung mit dem Netzwerk herstellt. Während des Autorisierungs Vorgangs bestimmt NPS, ob der Benutzer oder der Computer auf das Netzwerk zugreifen darf.
 
-Um diese Determinationen vorzunehmen, verwendet NPS Netzwerk Richtlinien, die in der NPS-Konsole konfiguriert sind. NPS überprüft auch die DFÜ-Eigenschaften des Benutzerkontos in Active Directory @ no__t-0 Domain Services \(AD DS @ no__t-2, um die Autorisierung auszuführen.
+Um diese Determinationen vorzunehmen, verwendet NPS Netzwerk Richtlinien, die in der NPS-Konsole konfiguriert sind. NPS überprüft auch die DFÜ-Eigenschaften des Benutzerkontos in Active Directory&reg; Domänen Diensten \(AD DS\), um die Autorisierung auszuführen.
 
 ## <a name="network-policies---an-ordered-set-of-rules"></a>Netzwerk Richtlinien: eine geordnete Gruppe von Regeln
 

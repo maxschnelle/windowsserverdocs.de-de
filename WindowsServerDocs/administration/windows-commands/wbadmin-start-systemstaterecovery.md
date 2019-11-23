@@ -78,7 +78,7 @@ wbadmin start systemstaterecovery
   ```
   wbadmin start systemstaterecovery -version:03/31/2013-09:00
   ```  
-- So führen Sie eine Wiederherstellung des Systemstatus der Sicherung von 04/30/2013 um 9:00 Uhr aus der für die freigegebene Ressource \\ @ no__t-1servername\share für Server01 gespeichert wird, geben Sie Folgendes ein:  
+- So führen Sie eine Wiederherstellung des Systemstatus der Sicherung von 04/30/2013 um 9:00 Uhr aus der auf dem freigegebenen Ressourcen \\\\servername\share für Server01 gespeichert ist, geben Sie Folgendes ein:  
   ```
   wbadmin start systemstaterecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
   ```

@@ -22,18 +22,18 @@ Mithilfe der AD FS Anmeldeseite können Sie überprüfen, ob die Authentifizieru
 Standardmäßig ist für AD FS in Windows 2016 die Anmeldeseite nicht aktiviert.  Um es zu aktivieren, können Sie den PowerShell-Befehl Set-adfsproperties verwenden.  Verwenden Sie das folgende Verfahren, um die Seite zu aktivieren:
 
 1.  Öffnen von Windows PowerShell
-2.  Eingabe: `Get-AdfsProperties` und drücken Sie die EINGABETASTE
-3.  Vergewissern Sie sich, dass **enableidpinitiatedsignonpage** auf false festgelegt ist ![false @ no__t-2
+2.  Eingabe: `Get-AdfsProperties` und drücken der EINGABETASTE
+3.  Vergewissern Sie sich, dass **enableidpinitiatedsignonpage** auf false festgelegt ist ![false](media/ad-fs-tshoot-initiatedsignon/idp2.png)
 4.  Geben Sie in PowerShell Folgendes ein: `Set-AdfsProperties -EnableIdpInitiatedSignonPage $true`
 5.  Es wird keine Bestätigung angezeigt. Geben Sie daher Get-adfsproperties erneut ein, und überprüfen Sie, ob **enableidpinitatedsignonpage** auf true festgelegt ist.
-![true @ no__t-1
+![true](media/ad-fs-tshoot-initiatedsignon/idp4.png)
 
 ## <a name="test-authentication"></a>Authentifizierung testen
 Verwenden Sie das folgende Verfahren, um AD FS Authentifizierung mit der IDP-initiierten Anmeldeseite zu testen.
 
 1.  Öffnen Sie einen Webbrowser, und navigieren Sie zur IDP-Anmeldeseite.  Beispiel: https://sts.contoso.com/adfs/ls/idpinitiatedsignon.htm
 2.  Sie sollten aufgefordert werden, sich anzumelden.  Geben Sie Ihre Anmelde Informationen ein.
-![sign-on @ no__t-1
+![Anmeldung](media/ad-fs-tshoot-initiatedsignon/idp5.png)
 3.  Wenn dies erfolgreich war, sollten Sie angemeldet sein.
 
 
@@ -42,14 +42,14 @@ Sie können die nahtlose Anmeldung testen, indem Sie sicherstellen, dass die URL
 
 1.  Klicken Sie auf einem Windows 10-Client auf Start, geben Sie Internetoptionen ein, und wählen Sie Internetoptionen aus.
 2.   Klicken Sie auf die Registerkarte Sicherheit, klicken Sie auf Lokales Intranet, und klicken Sie auf die Schaltfläche Sites.
-![nahtlos @ no__t-1
+![nahtlose](media/ad-fs-tshoot-initiatedsignon/idp8.png)
 1.  Klicken Sie auf „Erweitert“.
 2.  Geben Sie die URL ein, und klicken Sie auf Hinzufügen  Klicken Sie auf schließen.
-![add URL @ no__t-1
+![URL hinzufügen](media/ad-fs-tshoot-initiatedsignon/idp9.png)
 1.  Klicken Sie auf OK.  Klicken Sie auf OK.  Dadurch sollten die Internetoptionen geschlossen werden.
 2.  Öffnen Sie einen Webbrowser, und navigieren Sie zur IDP-Anmeldeseite.  Beispiel: https://sts.contoso.com/adfs/ls/idpinitiatedsignon.htm
 3.  Klicken Sie auf die Schaltfläche anmelden.  Sie sollten sich automatisch anmelden und nicht zur Eingabe von Anmelde Informationen aufgefordert werden.
-![nahtlos @ no__t-1
+![nahtlose](media/ad-fs-tshoot-initiatedsignon/idp6.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

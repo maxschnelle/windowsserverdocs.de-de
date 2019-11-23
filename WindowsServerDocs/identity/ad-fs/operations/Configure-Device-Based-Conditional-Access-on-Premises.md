@@ -21,7 +21,7 @@ ms.locfileid: "71358148"
 
 Das folgende Dokument führt Sie durch die Installation und Konfiguration des lokalen bedingten Zugriffs mit registrierten Geräten.
 
-![Bedingter Zugriff](media/Using-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
+![bedingter Zugriff](media/Using-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
 
 ## <a name="infrastructure-pre-requisites"></a>Voraussetzungen für die Infrastruktur
 Die folgenden erforderlichen Komponenten sind erforderlich, bevor Sie mit dem lokalen bedingten Zugriff beginnen können. 
@@ -51,7 +51,7 @@ Um den lokalen bedingten Zugriff mit registrierten Geräten zu verwenden, müsse
 Gehen Sie folgendermaßen vor, um die Schema Ebene zu überprüfen:
 
 1.  Sie können ADSIEdit oder LDP verwenden und eine Verbindung mit dem Schema namens Kontext herstellen.  
-2.  Klicken Sie mit ADSIEdit mit der rechten Maustaste auf "CN = Schema, CN = Configuration, DC = <domain>, DC = <com>, und wählen Sie Eigenschaften aus.  Die Domäne und die com-Teile mit den Gesamtstruktur Informationen.
+2.  Klicken Sie mit ADSIEdit mit der rechten Maustaste auf "CN = Schema, CN = Configuration, DC =<domain>, DC =<com>, und wählen Sie Eigenschaften aus.  Die Domäne und die com-Teile mit den Gesamtstruktur Informationen.
 3.  Suchen Sie im Attribut-Editor nach dem objectVersion-Attribut, und geben Sie Ihnen Ihre Version.  
 
 ![ADSI-Editor](media/Configure-Device-Based-Conditional-Access-on-Premises/adsiedit.png)  
@@ -86,7 +86,7 @@ Sollte die AD FS-Farm noch nicht für die Geräteauthentifizierung konfiguriert 
 
 ![Geräteregistrierung](media/Configure-Device-Based-Conditional-Access-on-Premises/device1.png)
 
->Hinweis: Die folgenden Befehle erfordern Active Directory-Verwaltungstools. Ist Ihr Verbundserver nicht auch ein Domänencontroller, müssen Sie zunächst die Tools installieren, wie unten in Schritt 1 angegeben.  Andernfalls können Sie Schritt 1 überspringen.  
+>Hinweis: für die unten aufgeführten Befehle sind Active Directory Verwaltungs Tools erforderlich. wenn der Verbund Server nicht auch ein Domänen Controller ist, installieren Sie zunächst die Tools mithilfe von Schritt 1.  Andernfalls können Sie Schritt 1 überspringen.  
 
 1.  Führen Sie den Assistenten **Hinzufügen von Rollen und Features** aus, und wählen Sie **Remoteserver-Verwaltungstools** -> **Rollenverwaltungstools** -> **AD DS und AD LDS-Tools** -> Wählen Sie sowohl **Active Directory-Modul für Windows PowerShell** als auch **AD DS-Tools**.
 
@@ -98,7 +98,7 @@ Sollte die AD FS-Farm noch nicht für die Geräteauthentifizierung konfiguriert 
    `PS C:\> Initialize-ADDeviceRegistration -ServiceAccountName "<your service account>" ` 
 3. Öffnen Sie im Popup Fenster ja.
 
->Hinweis: Wenn Ihr AD FS-Dienst ein GMSA-Konto verwenden kann, geben Sie den Kontonamen im Format „Domäne\Kontoname$” ein.
+>Hinweis: Wenn Ihr AD FS Dienst für die Verwendung eines GMSA-Kontos konfiguriert ist, geben Sie den Kontonamen im Format "Domäne \ Accountname $" ein.
 
 ![Geräteregistrierung](media/Configure-Device-Based-Conditional-Access-on-Premises/device3.png)  
 
@@ -211,7 +211,7 @@ Informationen zum Aktivieren von Windows 10 mit Microsoft Passport for Work find
 Um die automatische MDM-Registrierung registrierter Geräte so zu aktivieren, dass Sie den iscompliance-Anspruch in ihrer Zugriffs Steuerungs Richtlinie verwenden können, führen Sie die hier beschriebenen Schritte aus [.](https://blogs.technet.microsoft.com/ad/2015/08/14/windows-10-azure-ad-and-microsoft-intune-automatic-mdm-enrollment-powered-by-the-cloud/)  
 
 ## <a name="troubleshooting"></a>Problembehandlung  
-1.  Wenn bei `Initialize-ADDeviceRegistration` ein Fehler auftritt, der sich über ein bereits im falschen Zustand vorhandenes Objekt beschwert (z. b. "das DRS-Dienst Objekt wurde ohne alle erforderlichen Attribute gefunden"), haben Sie möglicherweise zuvor Azure AD Connect PowerShell-Befehle ausgeführt und verfügen über eine Teil Konfiguration in AD DS.  Versuchen Sie, die Objekte unter " **CN = Device Registration Configuration, CN = Services, CN = Configuration, DC = &lt;domain @ no__t-2** " manuell zu löschen, und versuchen Sie es noch mal.  
+1.  Wenn Sie eine Fehler `Initialize-ADDeviceRegistration` Meldung erhalten, die ein bereits im falschen Zustand vorhandenes Objekt meldet (z. b. "das DRS-Dienst Objekt wurde ohne alle erforderlichen Attribute gefunden"), haben Sie möglicherweise zuvor Azure AD Connect PowerShell-Befehle ausgeführt und verfügen über eine partielle Konfiguration in AD DS.  Versuchen Sie, die Objekte unter **CN = Device Registration Configuration, CN = Services, CN = Configuration, DC =&lt;Domain&gt;** manuell zu löschen, und versuchen Sie es erneut.  
 2.  Für mit der Domäne verbundene Windows 10-Clients  
     1. Um zu überprüfen, ob die Geräte Authentifizierung funktioniert, melden Sie sich beim in die Domäne eingebundener Client als Test Benutzerkonto an. Zum schnellen lösen der Bereitstellung Sperren und Entsperren Sie den Desktop mindestens einmal.   
     2. Anweisungen zum Überprüfen des Links "generiertes-Schlüssel Anmelde Informationen" auf AD DS Objekt (Synchronisierung muss immer noch zweimal ausgeführt werden?)  

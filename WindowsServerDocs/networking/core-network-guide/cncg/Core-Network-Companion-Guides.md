@@ -17,19 +17,19 @@ ms.locfileid: "71406302"
 ---
 # <a name="core-network-companion-guidance"></a>Core-Netzwerk-Begleithandbuch
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Im Windows Server 2016- [Kern Netzwerk Handbuch](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide) finden Sie Anweisungen zum Bereitstellen einer neuen Active Directory @ no__t-1-Gesamtstruktur mit einer neuen Stamm Domäne und der unterstützenden Netzwerkinfrastruktur. Begleit Handbücher bieten Ihnen jedoch die Möglichkeit, Funktionen für Ihr Netzwerk.
+Im Windows Server 2016- [Kern Netzwerk Handbuch](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/core-network-guide) finden Sie Anweisungen zum Bereitstellen einer neuen Active Directory&reg;-Gesamtstruktur mit einer neuen Stamm Domäne und der unterstützenden Netzwerkinfrastruktur. Begleit Handbücher bieten Ihnen jedoch die Möglichkeit, dem Netzwerk Features hinzuzufügen.
 
 Mit den einzelnen Handbüchern können Sie nach dem Bereitstellen des Hauptnetzwerks jeweils ein bestimmtes Ziel erreichen. In einigen Fällen gibt es mehrere Begleithandbücher, mit deren Hilfe Sie sehr komplexe Ziele auf wohlüberlegte, kostengünstige und sinnvolle Weise erreichen können, sofern Sie die Handbücher zusammen und in der richtigen Reihenfolge anwenden.
 
 Wenn Sie die Active Directory-Domäne und das Hauptnetzwerk ohne das Handbuch zum Hauptnetzwerk bereitgestellt haben, können Sie dennoch mithilfe der Begleithandbücher dem Netzwerk Features hinzuzufügen. Verwenden Sie das Handbuch zum Hauptnetzwerk einfach als Liste mit Voraussetzungen, und denken Sie daran, dass das Netzwerk zum Hinzufügen weiterer Features mit den Begleithandbüchern die im Handbuch zum Hauptnetzwerk genannten Voraussetzungen erfüllen muss.
 
-## <a name="core-network-companion-guide-deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>Core Network Companion Guide: Bereitstellen von Serverzertifikaten für drahtgebundene und drahtlose 802.1X-Bereitstellungen 
+## <a name="core-network-companion-guide-deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>Begleit Handbuch zum Hauptnetzwerk: Bereitstellen von Server Zertifikaten für drahtlose und drahtlose 802.1 x-bereit Stellungen 
 
-In diesem Begleit Handbuch wird erläutert, wie Sie das zentrale Netzwerk durch Bereitstellen von Server Zertifikaten für Computer, auf denen der Netzwerk Richtlinien Server \(nps @ no__t-1, RAS-Dienst \(ras @ no__t-3 oder beides ausgeführt wird, erstellen.
+In diesem Begleit Handbuch wird erläutert, wie Sie das zentrale Netzwerk durch Bereitstellen von Server Zertifikaten für Computer, auf denen der Netzwerk Richtlinien Server \(NPS-\), RAS-Dienst \(RAS-\)oder beides erstellt wird, erstellen.
 
-Server Zertifikate sind erforderlich, wenn Sie Zertifikat basierte Authentifizierungsmethoden mit dem Extensible Authentication-Protokoll \(eap @ no__t-1 und Protected EAP \(peap @ no__t-3 für die Netzwerk Zugriffs Authentifizierung bereitstellen. Das Bereitstellen von Server Zertifikaten mit Active Directory Zertifikat Diensten \(ad CS @ no__t-1 für EAP-und PEAP-Zertifikat basierte Authentifizierungsmethoden bietet die folgenden Vorteile:
+Server Zertifikate sind erforderlich, wenn Sie Zertifikat basierte Authentifizierungsmethoden mit Extensible Authentication Protocol \(EAP\) und geschützten EAP-\(PEAP-\) für die Netzwerk Zugriffs Authentifizierung bereitstellen. Das Bereitstellen von Server Zertifikaten mit Active Directory Zertifikat Diensten \(AD CS\) für EAP-und PEAP-Zertifikat basierte Authentifizierungsmethoden bietet die folgenden Vorteile:
 
 - Binden der Identität des NPS-oder RAS-Servers an einen privaten Schlüssel
 - Eine kosteneffiziente und sichere Methode zum automatischen Anmelden von Zertifikaten für NPS-und RAS-Server in Domänen Mitgliedern
@@ -38,22 +38,22 @@ Server Zertifikate sind erforderlich, wenn Sie Zertifikat basierte Authentifizie
 - Möglichkeit zum Erweitern der Verwendung von Zertifikaten für weitere Zwecke
   
 Anweisungen zum Bereitstellen von Server Zertifikaten finden Sie unter Bereitstellen von [Server Zertifikaten für drahtlose und drahtlose 802.1 x-bereit Stellungen](server-certs/Deploy-Server-Certificates-for-802.1X-Wired-and-Wireless-Deployments.md).  
-## <a name="core-network-companion-guide-deploy-password-based-8021x-authenticated-wireless-access"></a>Core Network Companion Guide: Bereitstellung des kennwortbasierten authentifizierten 802.1X-Funkzugriffs
+## <a name="core-network-companion-guide-deploy-password-based-8021x-authenticated-wireless-access"></a>Begleit Handbuch zum Hauptnetzwerk: Bereitstellen von Kenn Wort basiertem 802.1 x-authentifizierten drahtlosen Zugriff
 
-In diesem Begleit Handbuch wird erläutert, wie Sie auf dem Kern Netzwerk aufbauen, indem Sie Anweisungen zum Bereitstellen von Technikern von Elektro-und Elektronik Technikern \(ieee @ no__t-1 802.1 x @ no__t-2authenticated IEEE 802,11-drahtlos Zugriff mithilfe von geschützt bereitstellen. Extensible Authentication Protocol \ – Microsoft Challenge Handshake Authentication Protocol Version 2 \(pap @ no__t-4ms @ no__t-5chap v2 @ no__t-6.
+In diesem Begleit Handbuch wird erläutert, wie Sie auf dem Kern Netzwerk aufbauen, indem Sie Anweisungen zur Bereitstellung von Technikern von Elektro-und Elektronik Technikern \(IEEE\) 802.1 x\-authentifizierten IEEE 802,11-drahtlos Zugriff mithilfe von Protected Extensible Authentication Protocol \ – Microsoft Challenge Handshake Authentication Protocol Version 2 \(PAP\-MS\-CHAP v2\)bereitstellen.
 
-Die Authentifizierungsmethode "ETAP @ no__t-0ms @ no__t-1chap V2" erfordert, dass für die Authentifizierung von Servern, auf denen der Netzwerk Richtlinien Server \(nps @ no__t-3 ausgeführt wird, drahtlose Clients mit einem Server Zertifikat vorhanden sind, um die NPS-Identität für den Client zu beweisen, aber Benutzer die Authentifizierung erfolgt nicht mithilfe eines Zertifikats. stattdessen geben Benutzer ihren Domänen Benutzernamen und das zugehörige Kennwort an.
+Die Authentifizierungsmethode "Peer-\-MS\-CHAP v2" erfordert, dass die Authentifizierung von Servern, auf denen der Netzwerk Richtlinien Server ausgeführt wird, \(NPS\) drahtlose Clients mit einem Server Zertifikat bereitstellen, um die NPS-Identität an den Client zu übermitteln. die Benutzerauthentifizierung wird jedoch nicht mithilfe eines Zertifikats durchgeführt.
 
-Da für PEAP @ no__t-0ms @ no__t-1chap v2 die Angabe von Kenn Wort basierten Anmelde Informationen anstelle eines Zertifikats während des Authentifizierungsprozesses erforderlich ist, ist es in der Regel einfacher und kostengünstiger, als EAP @ no__t-2tls oder PEAP @ no__t-3tls bereitzustellen.
+Da der PEAP-\-MS\-CHAP v2 erfordert, dass Benutzer während des Authentifizierungs Vorgangs Kenn Wort basierte Anmelde Informationen anstelle eines Zertifikats angeben, ist die Bereitstellung in der Regel einfacher und kostengünstiger als EAP\-TLS oder PEAP\-TLS.
 
-Vor der Verwendung dieses Handbuchs zum Bereitstellen des drahtlosen Zugriffs mit der Authentifizierungsmethode "ETAP @ no__t-0ms @ no__t-1chap V2" müssen Sie die folgenden Schritte ausführen:
+Bevor Sie dieses Handbuch verwenden, um drahtlosen Zugriff mit der Peer-\-MS\-CHAP v2-Authentifizierungsmethode bereitzustellen, müssen Sie die folgenden Schritte ausführen:
 
 1. Befolgen Sie die Anweisungen im Handbuch zum Hauptnetzwerk, um Ihre zentrale Netzwerkinfrastruktur bereitzustellen, oder stellen Sie die in diesem Handbuch bereitgestellten Technologien bereits in Ihrem Netzwerk bereit.
 2. Befolgen Sie die Anweisungen im Begleit Handbuch zum Hauptnetzwerk Bereitstellen von Server Zertifikaten für Kabel-und drahtlos Bereitstellungen mit 802.1 x, oder verfügen Sie bereits über die Technologien, die in diesem Handbuch in Ihrem Netzwerk bereitgestellt werden.
 
-Anweisungen zum Bereitstellen des drahtlosen Zugriffs mit "Peer-no__t-0ms @ no__t-1chap V2" finden Sie unter Bereitstellen von Kenn [Wort basiertem 802.1 x-authentifizierten drahtlosen Zugriff](wireless/a-deploy-8021X-wireless-access.md).
+Anweisungen zum Bereitstellen des drahtlosen Zugriffs mit dem Peer-\-MS\-CHAP v2 finden Sie unter Bereitstellen von Kenn [Wort basiertem 802.1 x-authentifizierten drahtlosen Zugriff](wireless/a-deploy-8021X-wireless-access.md).
 
-## <a name="core-network-companion-guide-deploy-branchcache-hosted-cache-mode"></a>Core Network Companion Guide: Bereitstellen des BranchCache-Modus „Gehosteter Cache“
+## <a name="core-network-companion-guide-deploy-branchcache-hosted-cache-mode"></a>Begleit Handbuch zum Hauptnetzwerk: Bereitstellen von BranchCache-Modus für gehostete Caches
 
 In diesem Begleit Handbuch wird erläutert, wie Sie BranchCache im Modus "gehosteter Cache" in einer oder mehreren Zweigstellen bereitstellen.
 

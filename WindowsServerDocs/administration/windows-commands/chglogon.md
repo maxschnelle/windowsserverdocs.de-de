@@ -21,7 +21,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71379509"
 ---
 # <a name="chglogon"></a>chglogon
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
 Aktiviert oder deaktiviert Anmeldungen von Client Sitzungen auf einem Remote Desktop-Sitzungs Host Server oder zeigt den aktuellen Anmeldestatus an.
@@ -30,5 +30,6 @@ Aktiviert oder deaktiviert Anmeldungen von Client Sitzungen auf einem Remote Des
 > ## <a name="remarks"></a>Hinweise
 > Dieser Befehl ist mit dem Befehl zum **Ändern der Anmeldung** identisch.
 > #### <a name="additional-references"></a>Weitere Verweise
-> [Ändern des Anmelde](change-logon.md)
-> [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)@no__t-[3 &#40;Remotedesktopdienste Befehls&#41; Referenz für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)
+> [ändern](change-logon.md) des [Befehlszeilen-Syntax Schlüssels](command-line-syntax-key.md) für die Anmeldung
+> 
+> [Remotedesktopdienste &#40;Befehlsreferenz für Terminal Dienste&#41; ](remote-desktop-services-terminal-services-command-reference.md)

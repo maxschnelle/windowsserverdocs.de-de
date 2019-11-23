@@ -31,7 +31,7 @@ ms.locfileid: "71370749"
 > 
 > |          Parameter          |                                                                                                                                                                                             Beschreibung                                                                                                                                                                                             |
 > |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | /Namespace: <Namespace name> | Gibt den Namen des Namespaces an. Beachten Sie, dass dies nicht der Anzeige Name ist und eindeutig sein muss.<br /><br />-   -**Bereitstellungs Server**: Die Syntax für den Namespace Namen lautet/Namspace: WDS: <Image group> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Zum Beispiel: **WDS: ImageGroup1/install. wim/1**<br />-   -**Transport Server**: Dieser Name muss dem Namen entsprechen, der für den Namespace angegeben wurde, als er auf dem Server erstellt wurde. |
+> | /Namespace:<Namespace name> | Gibt den Namen des Namespaces an. Beachten Sie, dass dies nicht der Anzeige Name ist und eindeutig sein muss.<br /><br />-   **Bereitstellungs Server**: die Syntax für den Namespace Namen lautet/Namspace: WDS:<Image group>/<Image name>/<Index>. Beispiel: **WDS: ImageGroup1/install. wim/1**<br />-   **Transport Server**: dieser Name muss dem Namen entsprechen, der dem Namespace bei der Erstellung auf dem Server zugewiesen wurde. |
 > |   [/Server:<Server name>]   |                                                                                                           Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.                                                                                                           |
 > 
 > ## <a name="BKMK_examples"></a>Beispiele
@@ -41,7 +41,7 @@ ms.locfileid: "71370749"
 > wdsutil /start-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1"
 > ```
 > #### <a name="additional-references"></a>Weitere Verweise
-> [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-> [mithilfe des Befehls get-allnamespaces](using-the-get-allnamespaces-command.md)
->  mit dem Befehl[New-Namespace](using-the-new-namespace-command.md)
->  mit[dem Befehl Remove-Namespace](using-the-remove-namespace-command.md) .
+> Der [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+> [mithilfe des Befehls "get-allnamespaces](using-the-get-allnamespaces-command.md) "
+> [mithilfe des Befehls "New-Namespace](using-the-new-namespace-command.md) "
+> [mit dem Befehl "Remove-Namespace](using-the-remove-namespace-command.md) " verwendet.

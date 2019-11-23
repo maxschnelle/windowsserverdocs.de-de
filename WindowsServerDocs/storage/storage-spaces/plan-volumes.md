@@ -22,7 +22,7 @@ ms.locfileid: "71366887"
 
 Dieses Thema enthält Informationen zum Planen von Volumes in Direkte Speicherplätze, um die Leistungs- und Kapazitätsanforderungen Ihrer Workloads zu erfüllen, einschließlich der Auswahl des Dateisystems, Resilienztyps und der Größe.
 
-## <a name="review-what-are-volumes"></a>Berichts Was sind Volumes?
+## <a name="review-what-are-volumes"></a>Lesen Sie: Was sind Volumes?
 
 In Volumes platzieren Sie die Dateien, die ihre Workloads benötigen, z. b. VHD-oder vhdx-Dateien für virtuelle Hyper-V-Computer. Volumes kombinieren die Laufwerke im Speicherpool, um die Fehlertoleranz, Skalierbarkeit und Leistungsvorteile von Direkte Speicherplätze einzuführen.
 
@@ -31,7 +31,7 @@ In Volumes platzieren Sie die Dateien, die ihre Workloads benötigen, z. b. VHD-
 
 ![what-are-volumes](media/plan-volumes/what-are-volumes.png)
 
-Alle Volumes sind für alle Server im Cluster gleichzeitig zugänglich. Nach der Erstellung werden Sie auf allen Servern unter " **c:\ClusterStorage @ no__t-1** " angezeigt.
+Alle Volumes sind für alle Server im Cluster gleichzeitig zugänglich. Nach der Erstellung werden Sie auf allen Servern unter **c:\ClusterStorage\\** angezeigt.
 
 ![csv-folder-screenshot](media/plan-volumes/csv-folder-screenshot.png)
 
@@ -91,9 +91,9 @@ Welcher Resilienztyp verwendet werden sollte, hängt von den Anforderungen Ihrer
 
 | Resilienztyp | Kapazitäts Effizienz | Geschwindigkeit | Arbeitsauslastungen |
 | ------------------- | ----------------------  | --------- | ------------- |
-| **Spiegel**         | ![Speichereffizienz, die 33% anzeigt](media/plan-volumes/3-way-mirror-storage-efficiency.png)<br>Drei-Wege-Spiegelung: 33% <br>Zwei-Wege-Spiegelung: 50 %     |![Leistungsanzeige 100%](media/plan-volumes/three-way-mirror-perf.png)<br> Höchste Leistung  | Virtualisierte Arbeits Auslastungen<br> Datenbanken<br>Andere hochleistungsfähige Workloads |
+| **Spiegel**         | ![Speichereffizienz, die 33% anzeigt](media/plan-volumes/3-way-mirror-storage-efficiency.png)<br>Drei-Wege-Spiegelung: 33% <br>Zwei-Wege-Spiegelung: 50%     |![Leistungsanzeige 100%](media/plan-volumes/three-way-mirror-perf.png)<br> Höchste Leistung  | Virtualisierte Arbeits Auslastungen<br> Datenbanken<br>Andere hochleistungsfähige Workloads |
 | **Durch Spiegelung beschleunigte Parität** |![Speichereffizienz mit ungefähr 50%](media/plan-volumes/mirror-accelerated-parity-storage-efficiency.png)<br> Hängt von einem Anteil von Spiegelung und Parität ab | ![Leistungsanzeige ungefähr 20%](media/plan-volumes/mirror-accelerated-parity-perf.png)<br>Viel langsamer als die Spiegelung, aber bis zu doppelt so schnell wie die duale Parität<br> Beste für große sequenzielle Schreib-und Lesevorgänge | Archivierung und Sicherung<br> Virtualisierte Desktop Infrastruktur     |
-| **Duale Parität**               | ![Speichereffizienz mit ungefähr 80%](media/plan-volumes/dual-parity-storage-efficiency.png)<br>4 Server: 50 % <br>16 Server: bis zu 80% | ![Leistungsanzeige ungefähr 10%](media/plan-volumes/dual-parity-perf.png)<br>Höchste e/a-Latenz & CPU-Auslastung bei Schreibvorgängen<br> Beste für große sequenzielle Schreib-und Lesevorgänge | Archivierung und Sicherung<br> Virtualisierte Desktop Infrastruktur  |
+| **Duale Parität**               | ![Speichereffizienz mit ungefähr 80%](media/plan-volumes/dual-parity-storage-efficiency.png)<br>4 Server: 50% <br>16 Server: bis zu 80% | ![Leistungsanzeige ungefähr 10%](media/plan-volumes/dual-parity-perf.png)<br>Höchste e/a-Latenz & CPU-Auslastung bei Schreibvorgängen<br> Beste für große sequenzielle Schreib-und Lesevorgänge | Archivierung und Sicherung<br> Virtualisierte Desktop Infrastruktur  |
 
 #### <a name="when-performance-matters-most"></a>Wenn Leistung am wichtigsten ist
 
@@ -195,11 +195,11 @@ Die vier Volumes passen genau für die in unserem Pool verfügbare physische Spe
 
 Der Einfachheit halber werden in diesem Beispiel durchgehend Dezimaleinheiten (Basis 10) verwendet, d. h. 1 TB = 1,000,000,000,000 Bytes. Speichermengen in Windows werden jedoch in Binäreinheiten (Basis 2) angezeigt. Beispiel: Alle 2-TB-Laufwerke werden in Windows als 1,82 TiB angezeigt. Ebenso wird der 128-TB-Speicherpool als 116.41 TiB angezeigt. Dies ist das erwartungsgemäße Verhalten.
 
-## <a name="usage"></a>Verwendung
+## <a name="usage"></a>Verwendungszweck
 
 Siehe [Erstellen von Volumes in Direkte Speicherplätze](create-volumes.md).
 
-### <a name="see-also"></a>Siehe auch
+### <a name="see-also"></a>Weitere Informationen
 
 - [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
 - [Auswählen von Laufwerken für direkte Speicherplätze](choosing-drives.md)

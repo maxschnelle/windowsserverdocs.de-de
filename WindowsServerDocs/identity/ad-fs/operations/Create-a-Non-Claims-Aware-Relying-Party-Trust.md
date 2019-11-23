@@ -19,11 +19,11 @@ ms.locfileid: "71358113"
 # <a name="create-a-non-claims-aware-relying-party-trust"></a>Erstellen einer Ansprüche nicht unterstützenden Vertrauensstellung der vertrauenden Seite
 
 
-Im AD FS Management-Snap @ no__t-0in sind nicht @ no__t-1claims @ no__t-2aware-Vertrauens Stellungen der vertrauenden Seite Objekte, die erstellt werden, um die Vertrauensstellung zwischen dem Verbund Dienst und einer einzelnen Web @ no__t-3based-Anwendung darzustellen, die keine Ansprüche @ no__t-4aware hat und die der Zugriff erfolgt über den webanwendungsproxy.  
+Im\-Snap-in "AD FS-Verwaltung" in werden nicht\-Ansprüche\-die Vertrauens Stellungen der vertrauenden Seite sind Objekte, die erstellt werden, um die Vertrauensstellung zwischen dem Verbund Dienst und einer einzelnen Web\-basierten Anwendung darzustellen, die nicht von Ansprüchen\-fähig ist und auf die über den webanwendungsproxy zugegriffen wird  
   
-Eine Non @ no__t-0claims @ no__t-1aware-Vertrauensstellung der vertrauenden Seite ist eine Vertrauensstellung der vertrauenden Seite, die aus bezeichnerwerten, Namen und Regeln für die Authentifizierung und Autorisierung besteht, wenn auf die Vertrauensstellung der vertrauenden Seite über den Webanwendung Diese auf Web @ no__t basierenden Anwendungen, die sich nicht auf Ansprüche stützen, d. h. diese integrierten Windows-Authentifizierung @ no__t-1based-Anwendungen, können Autorisierungs Regeln aufweisen, die den Zugriff erzwingen, der auf Ansprüchen basiert, wenn der Zugriff außerhalb des Unternehmensnetzwerk über den webanwendungsproxy.  
+Ein nicht\-Ansprüche\-die Vertrauensstellung der vertrauenden Seite ist eine Vertrauensstellung der vertrauenden Seite, die aus bezeichnerwerten, Namen und Regeln zur Authentifizierung und Autorisierung besteht, wenn auf die Vertrauensstellung der vertrauenden Seite über den webanwendungsproxy Diese auf Web\-basierenden Anwendungen, die sich nicht auf Ansprüche stützen, d. h. diese integrierten Windows-Authentifizierungs\-basierten Anwendungen, können Autorisierungs Regeln aufweisen, die den Zugriff erzwingen, der auf Ansprüchen basiert, wenn der Zugriff auf das Unternehmensnetzwerk über den webanwendungsproxy erfolgt.  
   
-Führen Sie das folgende Verfahren aus, um eine neue nicht-@ no__t-0claims @ no__t-1aware-Vertrauensstellung AD FS der vertrauenden Seite hinzuzufügen.  
+Führen Sie das folgende Verfahren aus, um eine neue, nicht\-Ansprüche\-\-AD FS die Vertrauensstellung der vertrauenden Seite in der Vertrauensstellung der vertrauenden Seite hinzuzufügen.  
   
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
@@ -31,25 +31,25 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 1. Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
   
 2.  Klicken Sie unter **Aktionen**auf Vertrauensstellung der **vertrauenden Seite hinzufügen**.  
-![vertrauende Seite @ no__t-1   
+![der vertrauenden Seite](media/Create-a-Relying-Party-Trust/addtrust1.PNG)   
 
 3.  Wählen Sie auf der Seite **Willkommen** die Option **nicht Anspruchs** fähig aus, und klicken Sie auf **starten**.  
-![vertrauende Seite @ no__t-1 
+![der vertrauenden Seite](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon1.PNG) 
   
 4.  Geben Sie auf der Seite **Anzeige Name angeben** einen Namen in das Feld **Anzeige Name**ein, geben Sie unter **Hinweise** eine Beschreibung für diese Vertrauensstellung der vertrauenden Seite ein, und klicken Sie dann auf **weiter**.  
-![vertrauende Seite @ no__t-1
+![der vertrauenden Seite](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon2.PNG)
 
 5. Geben Sie auf der Seite **Konfigurieren von Bezeichnern** einen oder mehrere Bezeichner für diese vertrauende Seite an, klicken Sie auf **Hinzufügen**, um diese der Liste hinzufügen, und klicken Sie dann auf **Weiter**.  
-![vertrauende Seite @ no__t-1
+![der vertrauenden Seite](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon3.PNG)
 
 6.  Wählen Sie unter **Access Control Richtlinie auswählen** eine Richtlinie aus, und klicken Sie auf **weiter**.  Weitere Informationen zu Access Control Richtlinien finden Sie unter [Access Control Policies in AD FS](Access-Control-Policies-in-AD-FS.md). 
-![vertrauende Seite @ no__t-1
+![der vertrauenden Seite](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon4.PNG)
 
 7. Überprüfen Sie auf der Seite **Bereit zum Hinzufügen der Vertrauensstellung** die Einstellungen, und klicken Sie dann auf **Weiter**, um die Informationen zur Vertrauensstellung der vertrauenden Seite zu speichern.  
-   ![vertrauende Seite @ no__t-1 
+   ![der vertrauenden Seite](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon5.PNG) 
 
 8. Klicken Sie auf der Seite **Fertig stellen** auf **Schließen**. Dadurch wird automatisch das Dialogfeld **Anspruchsregeln bearbeiten** angezeigt.  
-![vertrauende Seite @ no__t-1  
+![der vertrauenden Seite](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon6.PNG)  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md) 

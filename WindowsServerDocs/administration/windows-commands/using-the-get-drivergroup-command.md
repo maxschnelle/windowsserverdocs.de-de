@@ -22,7 +22,7 @@ ms.locfileid: "71363178"
 ---
 # <a name="using-the-get-drivergroup-command"></a>Verwenden des Befehls Get-drivergroup
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt Informationen zu den Treiber Gruppen auf einem Server an.
 ## <a name="syntax"></a>Syntax
@@ -32,7 +32,7 @@ wdsutil /Get-DriverGroup /DriverGroup:<Group Name> [/Server:<Server name>]
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|/DriverGroup: <Group Name>|Gibt den Namen der Treiber Gruppe an.|
+|/DriverGroup:<Group Name>|Gibt den Namen der Treiber Gruppe an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln.  Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |[/Show: {packagemetadata &#124; Filters &#124; all}]|Zeigt die Metadaten für alle Treiber Pakete in der angegebenen Gruppe an. **Packagemetadata** zeigt Informationen zu allen Filtern für die Treiber Gruppe an. **Filter** zeigt die Metadaten für alle Treiber Pakete und Filter für die Gruppe an.|
 ## <a name="BKMK_examples"></a>Beispiele
@@ -45,4 +45,4 @@ wdsutil /Get-DriverGroup /DriverGroup:printerdrivers /Server:MyWdsServer /Show:F
 ```
 #### <a name="additional-references"></a>Weitere Verweise
 [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[mithilfe des Befehls Get-alldrivergroups](using-the-get-alldrivergroups-command.md)
+[mithilfe des Befehls "Get-alldrivergroups](using-the-get-alldrivergroups-command.md) "

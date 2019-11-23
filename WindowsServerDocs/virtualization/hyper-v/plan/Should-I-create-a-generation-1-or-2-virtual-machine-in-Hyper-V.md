@@ -57,7 +57,7 @@ Virtuelle Computer der Generation 1 unterstützen die meisten Gast Betriebssyste
 
 In der folgenden Tabelle wird gezeigt, welche 64-Bit-Versionen von Windows als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwendet werden können.  
 
-|64-Bit-Versionen von Windows|Erste Generation|Zweite Generation|  
+|64-Bit-Versionen von Windows|Generation 1|Zweite Generation|  
 |-------------------------------|----------------|----------------|  
 | Windows Server 2019 |&#10004;|&#10004;|  
 | Windows Server 2016 |&#10004;|&#10004;|  
@@ -72,7 +72,7 @@ In der folgenden Tabelle wird gezeigt, welche 64-Bit-Versionen von Windows als G
 
 In der folgenden Tabelle wird gezeigt, welche 32-Bit-Versionen von Windows als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwendet werden können.
 
-|32-Bit-Versionen von Windows|Erste Generation|Zweite Generation|  
+|32-Bit-Versionen von Windows|Generation 1|Zweite Generation|  
 |-------------------------------|----------------|----------------|  
 |Windows 10|&#10004;| &#10006;|  
 |Windows 8.1|&#10004;| &#10006;|  
@@ -81,12 +81,12 @@ In der folgenden Tabelle wird gezeigt, welche 32-Bit-Versionen von Windows als G
 
 ### <a name="centos-and-red-hat-enterprise-linux-guest-operating-system-support"></a>Unterstützung von CentOS und Red Hat Enterprise Linux Gastbetriebssystemen
 
-Die folgende Tabelle zeigt, welche Versionen von Red Hat Enterprise Linux \(rhel @ no__t-1 und CentOS als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwendet werden können.
+Die folgende Tabelle zeigt, welche Versionen von Red Hat Enterprise Linux \(RHEL\) und CentOS als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwendet werden können.
 
-|Betriebssystemversionen|Erste Generation|Zweite Generation|  
+|Betriebssystemversionen|Generation 1|Zweite Generation|  
 |-----------------------------|----------------|----------------|  
 |RHEL/CentOS 7. x-Serie|&#10004;|&#10004;|  
-|RHEL/CentOS 6. x-Reihe|&#10004;|&#10004;<br />**Hinweis**: Wird nur unter Windows Server 2016 und höher unterstützt.|  
+|RHEL/CentOS 6. x-Reihe|&#10004;|&#10004;<br />**Hinweis:** Wird nur unter Windows Server 2016 und höher unterstützt.|  
 |RHEL/CentOS 5. x-Reihe|&#10004;| &#10006;|  
 
 Weitere Informationen finden Sie unter [CentOS und Red Hat Enterprise Linux von virtuellen Computern auf Hyper-V](../Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md).  
@@ -95,7 +95,7 @@ Weitere Informationen finden Sie unter [CentOS und Red Hat Enterprise Linux von 
 
 Die folgende Tabelle zeigt, welche Versionen von Debian als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwendet werden können.
 
-|Betriebssystemversionen|Erste Generation|Zweite Generation|  
+|Betriebssystemversionen|Generation 1|Zweite Generation|  
 |-----------------------------|----------------|----------------|  
 |Debian 7. x-Reihe|&#10004;| &#10006;|  
 |Debian 8. x-Reihe|&#10004;|&#10004;|  
@@ -106,7 +106,7 @@ Weitere Informationen finden Sie unter [virtuelle Debian-Computer auf Hyper-V](.
 
 In der folgenden Tabelle sind die Versionen von FreeBSD aufgeführt, die Sie als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwenden können.  
 
-|Betriebssystemversionen|Erste Generation|Zweite Generation|  
+|Betriebssystemversionen|Generation 1|Zweite Generation|  
 |-----------------------------|----------------|----------------|  
 |FreeBSD 10 und 10,1|&#10004;| &#10006;|  
 |FreeBSD 9,1 und 9,3|&#10004;| &#10006;|  
@@ -118,14 +118,14 @@ Weitere Informationen finden Sie unter [FreeBSD Virtual Machines on Hyper-V](../
 
 In der folgenden Tabelle ist aufgeführt, welche Versionen der red hat-kompatiblen Kernel Serie Sie als Gast Betriebssystem für virtuelle Computer der Generation 1 und Generation 2 verwenden können.  
 
-|Red hat-kompatible Kernel Reihen Versionen|Erste Generation|Zweite Generation|  
+|Red hat-kompatible Kernel Reihen Versionen|Generation 1|Zweite Generation|  
 |---------------------------------------------|----------------|----------------|  
 |Oracle Linux 7. x-Serie|&#10004;|&#10004;|
 |Oracle Linux 6. x-Reihe|&#10004;| &#10006;|  
 
 Die folgende Tabelle zeigt, welche Versionen von nicht breakable Enterprise Kernel Sie als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwenden können.
 
-|Nicht breakable Enterprise Kernel (UEK)-Versionen|Erste Generation|Zweite Generation|  
+|Nicht breakable Enterprise Kernel (UEK)-Versionen|Generation 1|Zweite Generation|  
 |--------------------------------------------------|----------------|----------------|  
 |Oracle Linux UEK R3 QU3|&#10004;| &#10006;|  
 |Oracle Linux UEK R3 QU2|&#10004;| &#10006;|  
@@ -137,7 +137,7 @@ Weitere Informationen finden Sie unter [Oracle Linux Virtual Machines on Hyper-V
 
 Die folgende Tabelle zeigt, welche SUSE-Versionen Sie als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwenden können.
 
-|Betriebssystemversionen|Erste Generation|Zweite Generation|  
+|Betriebssystemversionen|Generation 1|Zweite Generation|  
 |-----------------------------|----------------|----------------|  
 |SUSE Linux Enterprise Server 12-Serie|&#10004;|&#10004;|  
 |SUSE Linux Enterprise Server 11-Serie|&#10004;| &#10006;|  
@@ -149,7 +149,7 @@ Weitere Informationen finden Sie unter [SUSE Virtual Machines on Hyper-V](../Sup
 
 Die folgende Tabelle zeigt, welche Versionen von Ubuntu Sie als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwenden können.
 
-|Betriebssystemversionen|Erste Generation|Zweite Generation|  
+|Betriebssystemversionen|Generation 1|Zweite Generation|  
 |-----------------------------|----------------|----------------|  
 |Ubuntu 14,04 und höhere Versionen|&#10004;|&#10004;|  
 |Ubuntu 12.04|&#10004;| &#10006;|  
@@ -160,7 +160,7 @@ Weitere Informationen finden Sie unter [Ubuntu Virtual Machines on Hyper-V](../S
 
 Die folgende Tabelle zeigt, welche Startmethoden von virtuellen Maschinen der Generation 1 und der Generation 2 unterstützt werden.  
 
-|Start Methode|Erste Generation|Zweite Generation|  
+|Start Methode|Generation 1|Zweite Generation|  
 |---------------|----------------|----------------|  
 |PXE-Start mithilfe einer standardmäßigen Netzwerkkarte| &#10006;|&#10004;|  
 |PXE-Start mithilfe eines Legacy-Netzwerkadapters|&#10004;| &#10006;|  
@@ -189,16 +189,16 @@ In der folgenden Tabelle werden die verfügbaren Geräte zwischen virtuellen Mas
 |IDE-CD-ROM|Virtuelle SCSI-CD-ROM|Unterstützung für bis zu 64 SCSI-DVD-Geräte pro SCSI-Controller.|  
 |Legacy-BIOS|UEFI-Firmware|Sicherer Start|  
 |Ältere Netzwerkkarte|Synthetische Netzwerkkarte|Netzwerkstart mit IPv4 und IPv6|  
-|Disketten- und DMA-Controller|Keine Diskettencontrollerunterstützung|Nicht zutreffend|  
+|Disketten- und DMA-Controller|Keine Diskettencontrollerunterstützung|N/V|  
 |UART (Universal Asynchronous Receiver/Transmitter, universeller asynchroner Empfänger/Übermittler) für COM-Ports|Optionaler UART zwecks Debugging|Schneller und zuverlässiger|  
 |i8042-Tastaturcontroller|Softwarebasierte Eingabe|Beansprucht aufgrund der nicht vorhandenen Emulation weniger Ressourcen. Verkleinert zudem die Angriffsfläche vom Gastbetriebssystem.|  
 |PS/2-Tastatur|Softwarebasierte Tastatur|Beansprucht aufgrund der nicht vorhandenen Emulation weniger Ressourcen. Verkleinert zudem die Angriffsfläche vom Gastbetriebssystem.|  
 |PS/2-Maus|Softwarebasierte Maus|Beansprucht aufgrund der nicht vorhandenen Emulation weniger Ressourcen. Verkleinert zudem die Angriffsfläche vom Gastbetriebssystem.|  
 |S3-Video|Softwarebasiertes Video|Beansprucht aufgrund der nicht vorhandenen Emulation weniger Ressourcen. Verkleinert zudem die Angriffsfläche vom Gastbetriebssystem.|  
-|PCI-Bus|Nicht mehr erforderlich|Nicht zutreffend|  
-|Programmierbarer Interruptcontroller (Programmable interrupt controller, PIC)|Nicht mehr erforderlich|Nicht zutreffend|  
-|Programmierbarer Intervallzeitgeber (Programmable interval timer, PIT)|Nicht mehr erforderlich|Nicht zutreffend|  
-|Super-E/A-Gerät|Nicht mehr erforderlich|Nicht zutreffend|  
+|PCI-Bus|Nicht mehr erforderlich|N/V|  
+|Programmierbarer Interruptcontroller (Programmable interrupt controller, PIC)|Nicht mehr erforderlich|N/V|  
+|Programmierbarer Intervallzeitgeber (Programmable interval timer, PIT)|Nicht mehr erforderlich|N/V|  
+|Super-E/A-Gerät|Nicht mehr erforderlich|N/V|  
 
 ## <a name="more-about-generation-2-virtual-machines"></a>Weitere Informationen zu virtuellen Maschinen der Generation 2
 
@@ -251,7 +251,7 @@ So fügen Sie einen COM-Port hinzu:
 > [!NOTE]  
 > Konfigurierte COM-Ports sind nicht in den Einstellungen eines virtuellen Computers im Hyper-V-Manager aufgeführt.
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 
 - [Linux-und FreeBSD-Virtual Machines unter Hyper-V](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
 - [Lokale Ressourcen auf dem virtuellen Hyper-V-Computer mit VMConnect verwenden](../learn-more/Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md)

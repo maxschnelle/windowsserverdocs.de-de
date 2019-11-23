@@ -22,7 +22,7 @@ ms.locfileid: "71372765"
 ---
 # <a name="nslookup-set-timeout"></a>nslookup set timeout
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 ändert die anfängliche Anzahl von Sekunden, die auf eine Antwort auf eine Such Anforderung gewartet werden soll.
 ## <a name="syntax"></a>Syntax
@@ -45,4 +45,4 @@ set timeout=<Number>
   ```
   ## <a name="additional-references"></a>Weitere Verweise
   [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-  [nslookup Set Wiederholen Sie](nslookup-set-retry.md)
+  [nslookup-Satz Wiederholung](nslookup-set-retry.md)

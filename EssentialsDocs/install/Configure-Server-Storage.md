@@ -31,7 +31,7 @@ ms.locfileid: "70865042"
   
 |Serverebene|Datenträgerkonfiguration|  
 |------------------|------------------------|  
-|Eingabe|-Zwei physische Datenträger<br /><br /> : Konfiguriert als RAID 1-Spiegel Satz, der Folgendes enthält:<br /><br /> -C: Volume? 60 GB<br /><br /> -D: Volume? 1000 GB|  
+|Eintrag|-Zwei physische Datenträger<br /><br /> : Konfiguriert als RAID 1-Spiegel Satz, der Folgendes enthält:<br /><br /> -C: Volume? 60 GB<br /><br /> -D: Volume? 1000 GB|  
 |Mittel|-Drei physische Datenträger<br /><br /> : Konfiguriert als RAID 5-Gruppe, die Folgendes enthält:<br /><br /> -C: Volume? 60 GB<br /><br /> -D: Volume? 1500 GB|  
 |Hoch|-Mindestens fünf physische Datenträger insgesamt<br /><br /> -Zwei Datenträger in einem RAID 1-Spiegel Satz, der das Volume "C:" enthält? 100 GB<br /><br /> -Alle verbleibenden Datenträger in einem RAID 5-Satz, der Folgendes enthält:<br /><br /> -D: Volume? 1500 GB<br /><br /> -E: Volume? 1500 GB|  
   
@@ -43,17 +43,17 @@ ms.locfileid: "70865042"
 ## <a name="partition-configuration"></a>Partitionskonfiguration  
  Während der Erstkonfiguration des Servers wird in der größten Datenpartition auf Datenträger 0 eine Reihe von Standardordnern erstellt, zu denen freigegebene Ordner und Ordner für die Clientcomputersicherung gehören.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 
- [Einführung in das Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
- [Erstellen und Anpassen des Bilds](Creating-and-Customizing-the-Image.md)   
+ [Die ersten Schritte mit dem Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md) -   
+ [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
  [Weitere Anpassungen](Additional-Customizations.md)   
- [Vorbereiten des Images für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
+ [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)
 
- [Einführung in das Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
- [Erstellen und Anpassen des Bilds](../install/Creating-and-Customizing-the-Image.md)   
+ [Die ersten Schritte mit dem Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md) -   
+ [Erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
  [Weitere Anpassungen](../install/Additional-Customizations.md)   
- [Vorbereiten des Images für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
+ [Vorbereiten des Abbilds für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)
 

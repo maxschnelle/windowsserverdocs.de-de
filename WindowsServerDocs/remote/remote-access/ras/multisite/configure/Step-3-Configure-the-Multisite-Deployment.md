@@ -21,7 +21,7 @@ ms.locfileid: "71404505"
 ---
 # <a name="step-3-configure-the-multisite-deployment"></a>Schritt 3 Konfigurieren der Bereitstellung für mehrere Standorte
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Führen Sie nach dem Konfigurieren der Infrastruktur für mehrere Standorte die folgenden Schritte aus, um die Bereitstellung des Remote Zugriffs für mehrere Standorte einzurichten.  
   
@@ -66,7 +66,7 @@ Führen Sie nach dem Konfigurieren der Infrastruktur für mehrere Standorte die 
 11.  Überprüfen Sie im Dialogfeld **Installationsstatus**, ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
   
   
-](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
+![der entsprechenden Windows PowerShell-](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
 
   
 Die Schritte 1-3 müssen manuell ausgeführt werden und werden nicht mithilfe dieses Windows PowerShell-Cmdlets ausgeführt.  
@@ -81,7 +81,7 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 #### <a name="to-grant-administrator-permissions"></a>So erteilen Sie Administrator Berechtigungen  
   
-1.  Auf dem Remote Zugriffs Server im zusätzlichen Einstiegspunkt: Geben Sie auf dem **Start** Bildschirm **Computer Verwaltung**ein, und drücken Sie dann die EINGABETASTE.  
+1.  Geben Sie auf dem Remote Zugriffs Server im zusätzlichen Einstiegspunkt Folgendes ein: **Computer Verwaltung**, und drücken Sie **dann die Eingabe** Taste.  
   
 2.  Klicken Sie im linken Bereich auf **lokale Benutzer und Gruppen**.  
   
@@ -104,7 +104,7 @@ Auf jedem Remote Zugriffs Server, der der Bereitstellung für mehrere Standorte 
   
 #### <a name="to-obtain-an-ip-https-certificate"></a>So erhalten Sie ein IP-HTTPS-Zertifikat  
   
-1.  Auf jedem Remote Zugriffs Server: Geben Sie auf dem **Start** Bildschirm **MMC**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Auf jedem RAS-Server: Geben Sie auf dem **Start** Bildschirm **MMC**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie im Menü **Datei** auf **Snap-Ins hinzufügen bzw. entfernen**.  
   
@@ -142,7 +142,7 @@ Wenn Sie beim Einrichten des ersten Servers die Netzwerkadressen Server-Website 
   
 #### <a name="to-install-a-certificate-for-network-location"></a>So installieren Sie ein Zertifikat für den Netzwerk Speicherort  
   
-1.  Gehen Sie auf dem Remotezugriffsserver wie folgt vor: Geben Sie auf dem **Start** Bildschirm **MMC**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Auf dem Remote Zugriffs Server: Geben Sie auf dem **Start** Bildschirm **MMC**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie im Menü **Datei** auf **Snap-Ins hinzufügen bzw. entfernen**.  
   
@@ -180,7 +180,7 @@ Wenn Sie beim Einrichten des ersten Servers die Netzwerkadressen Server-Website 
   
 ### <a name="NLS"></a>So erstellen Sie DNS-Einträge für den Netzwerkadressen Server  
   
-1.  Auf dem DNS-Server: Geben Sie auf der **Start** Seite **dnsmgmt. msc**ein, und drücken Sie dann die EINGABETASTE.  
+1.  Auf dem DNS-Server: Geben Sie auf dem **Start** Bildschirm **dnsmgmt. msc**ein, und drücken Sie dann die EINGABETASTE.  
   
 2.  Öffnen Sie im linken Bereich der **DNS-Manager** -Konsole die Forward-Lookupzone für das interne Netzwerk. Klicken Sie mit der rechten Maustaste auf die relevante Zone, und klicken Sie auf **neuer Host (A oder AAAA)**  
   
@@ -195,13 +195,13 @@ Wenn Sie beim Einrichten des ersten Servers die Netzwerkadressen Server-Website 
 7.  Wiederholen Sie dieses Verfahren, bevor Sie Server als zusätzliche Einstiegspunkte in der Bereitstellung hinzufügen.  
   
 ## <a name="BKMK_Client"></a>3,5. Konfigurieren von DirectAccess-Clients für eine Bereitstellung mit mehreren Standorten  
-DirectAccess-Windows-Client Computer müssen Mitglieder der Sicherheitsgruppe (n) sein, die ihre DirectAccess-Zuordnung definieren. Vor der Aktivierung mehrerer Standorte können diese Sicherheitsgruppen sowohl Windows 8-Clients als auch Windows 7-Clients enthalten (sofern der entsprechende Modus "Downlevel" ausgewählt wurde). Wenn die Funktion für mehrere Standorte aktiviert ist, werden vorhandene Client Sicherheitsgruppen im Einzel Server Modus nur für Windows 8 in die Sicherheitsgruppe (n) konvertiert. Nachdem Multisite aktiviert ist, müssen DirectAccess-Windows 7-Client Computer in die entsprechenden dedizierten Windows 7-Client Sicherheitsgruppen (die bestimmten Einstiegspunkten zugeordnet sind) verschoben werden, oder Sie können keine Verbindung über DirectAccess herstellen. Die Windows 7-Clients müssen zunächst aus den vorhandenen Sicherheitsgruppen entfernt werden, die jetzt Windows 8-Sicherheitsgruppen sind. Vorsicht:  Windows 7-Client Computer, die Mitglieder von Windows 7-und Windows 8-Client Sicherheitsgruppen sind, verlieren die Remote Konnektivität, und Windows 7-Clients ohne installiertes SP1 verlieren auch die Unternehmens Konnektivität. Daher müssen alle Windows 7-Client Computer aus Windows 8-Sicherheitsgruppen entfernt werden.  
+DirectAccess-Windows-Client Computer müssen Mitglieder der Sicherheitsgruppe (n) sein, die ihre DirectAccess-Zuordnung definieren. Vor der Aktivierung mehrerer Standorte können diese Sicherheitsgruppen sowohl Windows 8-Clients als auch Windows 7-Clients enthalten (sofern der entsprechende Modus "Downlevel" ausgewählt wurde). Wenn die Funktion für mehrere Standorte aktiviert ist, werden vorhandene Client Sicherheitsgruppen im Einzel Server Modus nur für Windows 8 in die Sicherheitsgruppe (n) konvertiert. Nachdem Multisite aktiviert ist, müssen DirectAccess-Windows 7-Client Computer in die entsprechenden dedizierten Windows 7-Client Sicherheitsgruppen (die bestimmten Einstiegspunkten zugeordnet sind) verschoben werden, oder Sie können keine Verbindung über DirectAccess herstellen. Die Windows 7-Clients müssen zunächst aus den vorhandenen Sicherheitsgruppen entfernt werden, die jetzt Windows 8-Sicherheitsgruppen sind. Vorsicht: Windows 7-Client Computer, die Mitglieder von Windows 7-und Windows 8-Client Sicherheitsgruppen sind, verlieren die Remote Konnektivität, und Windows 7-Clients ohne installiertes SP1 verlieren auch die Unternehmens Konnektivität. Daher müssen alle Windows 7-Client Computer aus Windows 8-Sicherheitsgruppen entfernt werden.  
   
 #### <a name="remove--windows-7--clients-from-windows-8-security-groups"></a>Entfernen von Windows 7-Clients aus Windows 8-Sicherheitsgruppen  
   
 1.  Klicken Sie auf dem primären Domänen Controller auf **Start**, und klicken Sie dann auf **Active Directory Benutzer und Computer**.  
   
-2.  Wenn Sie Computer aus der Sicherheitsgruppe entfernen möchten, doppelklicken Sie auf die Sicherheitsgruppe, und klicken Sie im Dialogfeld **Eigenschaften von < Gruppenname >** auf die Registerkarte **Mitglieder** .  
+2.  Wenn Sie Computer aus der Sicherheitsgruppe entfernen möchten, doppelklicken Sie auf die Sicherheitsgruppe, und klicken Sie im Dialogfeld **Eigenschaften von < Group_Name >** auf die Registerkarte **Mitglieder** .  
   
 3.  Wählen Sie den Windows 7-Client Computer aus, und klicken Sie auf **Entfernen**.  
   
@@ -221,7 +221,7 @@ Um eine Bereitstellung für mehrere Standorte zu konfigurieren, aktivieren Sie d
   
 ### <a name="EnabledMultisite"></a>So aktivieren Sie eine Konfiguration für mehrere Standorte  
   
-1.  Auf dem vorhandenen Remote Zugriffs Server: Geben Sie auf dem **Start** Bildschirm **ramgmtui. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Auf dem vorhandenen RAS-Server: Geben Sie auf dem **Start** Bildschirm **ramgmtui. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der Remote Zugriffs-Verwaltungskonsole auf **Konfiguration**, und klicken Sie dann im Bereich **Tasks** auf **Multisite aktivieren**.  
   
@@ -242,7 +242,7 @@ Um eine Bereitstellung für mehrere Standorte zu konfigurieren, aktivieren Sie d
         > [!NOTE]  
         > Wenn Sie diese Option auswählen, wird automatisch eine Verbindung mit dem nächstgelegenen Einstiegspunkt hergestellt.  
   
-    -   Klicken Sie auf **Ja, globalen Lastenausgleich verwenden,** Wenn Sie den Datenverkehr Global zwischen allen Einstiegspunkten gleichmäßig verteilen möchten. Geben Sie unter Geben Sie den **globalen Lastenausgleich-FQDN ein, der von allen Einstiegspunkten verwendet werden soll**, den globalen Lastenausgleich-FQDN ein, und geben Sie in **Geben Sie die globale Lasten Ausgleichs-IP-Adresse für diesen Einstiegspunkt ein** , der den ersten RAS-Server enthält. Lasten Ausgleichs-IP-Adresse für diesen Einstiegspunkt, und klicken Sie dann auf **weiter**.  
+    -   Klicken Sie auf **Ja, globalen Lastenausgleich verwenden,** Wenn Sie den Datenverkehr Global zwischen allen Einstiegspunkten gleichmäßig verteilen möchten. Geben Sie unter Geben Sie den globalen Lastenausgleich- **FQDN ein, der von allen Einstiegspunkten verwendet werden soll**, den globalen Lasten Ausgleichs-FQDN ein, und geben Sie unter **Geben Sie die globale Lasten Ausgleichs-IP-Adresse für diesen Einstiegspunkt ein** , der den ersten RAS-Server enthält, und klicken Sie dann auf **weiter**.  
   
 7.  Führen Sie auf der Seite **Client Unterstützung** einen der folgenden Schritte aus:  
   
@@ -250,7 +250,7 @@ Um eine Bereitstellung für mehrere Standorte zu konfigurieren, aktivieren Sie d
   
     -   Damit Client Computer mit Windows 7 auf diesen Einstiegspunkt zugreifen können, klicken Sie auf **Client Computern, auf denen Windows 7 ausgeführt wird, auf diesen Einstiegspunkt zugreifen**, und klicken Sie auf **Hinzufügen**. Wählen Sie im Dialogfeld **Gruppen auswählen** die Sicherheitsgruppen aus, die die Windows 7-Client Computer enthalten, klicken Sie auf **OK**, und klicken Sie dann auf **weiter**.  
   
-8.  Akzeptieren Sie auf der Seite Client-Gruppenrichtlinien Objekt- **Einstellungen** das Standard-Gruppenrichtlinien Objekt für Windows 7-Client Computer für diesen Einstiegspunkt, geben Sie den Namen des Gruppenrichtlinien Objekts ein, das automatisch erstellt werden soll, oder klicken Sie auf **Durchsuchen** , um das Gruppenrichtlinien Objekt für Windows 7-Client Computer zu suchen. und klicken Sie dann auf **weiter**.  
+8.  Akzeptieren Sie auf der Seite Client-Gruppenrichtlinien Objekt- **Einstellungen** das Standard-Gruppenrichtlinien Objekt für Windows 7-Client Computer für diesen Einstiegspunkt, geben Sie den Namen des Gruppenrichtlinien Objekts ein, das automatisch erstellt werden soll, oder klicken Sie auf **Durchsuchen** , um das Gruppenrichtlinien Objekt für Windows 7-Client Computer zu suchen, und klicken Sie auf **weiter**.  
   
     > [!NOTE]  
     > -   Die Seite Einstellungen für das **Client** -Gruppenrichtlinien Objekt wird nur angezeigt, wenn Sie den Einstiegspunkt so konfigurieren, dass Windows 7-Client Computer auf den Einstiegspunkt zugreifen können.  
@@ -260,7 +260,7 @@ Um eine Bereitstellung für mehrere Standorte zu konfigurieren, aktivieren Sie d
   
 10. Klicken Sie im Dialogfeld **Bereitstellung für mehrere Standorte** aktivieren auf **Schließen** , und klicken Sie dann im Assistenten zum Aktivieren der Bereitstellung für mehrere Standorte auf **Schließen**.  
   
-](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
+![der entsprechenden Windows PowerShell-](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -270,7 +270,7 @@ So aktivieren Sie eine Bereitstellung mit mehreren Standorten mit dem Namen "Con
 Enable-DAMultiSite -Name 'Contoso' -EntryPointName 'Edge1-US' -ManualEntryPointSelectionAllowed 'Enabled'  
 ```  
   
-, Um Windows 7-Client Computern den Zugriff über den ersten Einstiegspunkt über die Sicherheitsgruppe DA_Clients_US und die Verwendung des Gruppenrichtlinien Objekts DA_W7_Clients_GPO_US zuzulassen.  
+Um Windows 7-Client Computern den Zugriff über den ersten Einstiegspunkt über die Sicherheitsgruppe zu gestatten, DA_Clients_US und die Verwendung des GPO-DA_W7_Clients_GPO_US.  
   
 ```  
 Add-DAClient -EntrypointName 'Edge1-US' -DownlevelSecurityGroupNameList @('corp.contoso.com\DA_Clients_US') -DownlevelGpoName @('corp.contoso.com\DA_W7_Clients_GPO_US)  
@@ -289,7 +289,7 @@ Nachdem Sie mehrere Standorte in der Bereitstellung aktiviert haben, können Sie
   
 ### <a name="AddEP"></a>So fügen Sie Ihrer Bereitstellung für mehrere Standorte Einstiegspunkte hinzu  
   
-1.  Auf dem vorhandenen Remote Zugriffs Server: Geben Sie auf dem **Start** Bildschirm **ramgmtui. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Auf dem vorhandenen RAS-Server: Geben Sie auf dem **Start** Bildschirm **ramgmtui. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der Remote Zugriffs-Verwaltungskonsole auf **Konfiguration**, und klicken Sie dann im Bereich **Tasks** auf **Einstiegspunkt hinzufügen**.  
   
@@ -320,7 +320,7 @@ Nachdem Sie mehrere Standorte in der Bereitstellung aktiviert haben, können Sie
   
     -   Damit Client Computer mit Windows 7 auf diesen Einstiegspunkt zugreifen können, klicken Sie auf **Client Computern, auf denen Windows 7 ausgeführt wird, auf diesen Einstiegspunkt zugreifen**, und klicken Sie auf **Hinzufügen**. Wählen Sie im Dialogfeld **Gruppen auswählen** die Sicherheitsgruppen aus, die die Windows 7-Client Computer enthalten, von denen eine Verbindung mit diesem Einstiegspunkt hergestellt werden soll, klicken Sie auf **OK**, und klicken Sie **dann auf weiter**.  
   
-11. Akzeptieren Sie auf der Seite **Client-GPO-Einstellungen** das Standard-Gruppenrichtlinien Objekt für Windows 7-Client Computer für diesen Einstiegspunkt, geben Sie den Namen des Gruppenrichtlinien Objekts ein, das Sie automatisch erstellen möchten, oder klicken Sie auf **Durchsuchen** , um das Gruppenrichtlinien Objekt für Windows 7-Client Computer zu suchen. , und klicken Sie auf **weiter**.  
+11. Akzeptieren Sie auf der Seite Client-Gruppenrichtlinien Objekt- **Einstellungen** das Standard-Gruppenrichtlinien Objekt für Windows 7-Client Computer für diesen Einstiegspunkt, geben Sie den Namen des GPO ein, das Sie automatisch erstellen möchten, oder klicken Sie auf **Durchsuchen** , um das Gruppenrichtlinien Objekt für Windows 7-Client Computer zu suchen, und klicken Sie auf **weiter**.  
   
     > [!NOTE]  
     > -   Die Seite Einstellungen für das **Client** -Gruppenrichtlinien Objekt wird nur angezeigt, wenn Sie den Einstiegspunkt so konfigurieren, dass Windows 7-Client Computer auf den Einstiegspunkt zugreifen können.  
@@ -338,21 +338,21 @@ Nachdem Sie mehrere Standorte in der Bereitstellung aktiviert haben, können Sie
 15. Klicken Sie im Dialogfeld **Einstiegspunkt hinzufügen** auf **Schließen** , und klicken Sie dann im Assistenten zum Hinzufügen von Einstiegspunkten auf **Schließen**.  
   
     > [!NOTE]  
-    > Wenn sich der hinzugefügte Einstiegspunkt in einer anderen Gesamtstruktur als die vorhandenen Einstiegspunkte oder Client Computer befindet, müssen Sie im Bereich **Tasks** auf **Verwaltungs Server aktualisieren** klicken, um die Domänen Controller und System Center zu ermitteln. Configuration Manager in der neuen Gesamtstruktur.  
+    > Wenn sich der hinzugefügte Einstiegspunkt in einer anderen Gesamtstruktur als die vorhandenen Einstiegspunkte oder Client Computer befindet, müssen Sie im Bereich **Tasks** auf **Verwaltungs Server aktualisieren** klicken, um die Domänen Controller und System Center Configuration Manager in der neuen Gesamtstruktur zu ermitteln.  
   
 16. Wiederholen Sie dieses Verfahren aus Schritt 2 für jeden Einstiegspunkt, den Sie der Bereitstellung für mehrere Standorte hinzufügen möchten.  
   
-](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
+![der entsprechenden Windows PowerShell-](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
-Um den Computer edge2 aus der corp2-Domäne als zweiten Einstiegspunkt mit dem Namen edge2-Europe hinzuzufügen. Die Einstiegspunkt Konfiguration lautet wie folgt: ein Client-IPv6-Präfix "2001: db8:2: 2000::/64", eine Connect to-Adresse (das IP-HTTPS-Zertifikat auf dem edge2-Computer) "edge2.contoso.com", ein Server-Gruppenrichtlinien Objekt mit dem Namen "DirectAccess-Servereinstellungen-edge2-Europa" und die internen und externe Schnittstellen mit dem Namen Internet und Corpnet2:  
+Um den Computer edge2 aus der corp2-Domäne als zweiten Einstiegspunkt mit dem Namen edge2-Europe hinzuzufügen. Die Einstiegspunkt Konfiguration lautet wie folgt: ein Client-IPv6-Präfix "2001: db8:2: 2000::/64", eine Connect to-Adresse (das IP-HTTPS-Zertifikat auf dem edge2-Computer) "edge2.contoso.com", ein Server-Gruppenrichtlinien Objekt mit dem Namen "DirectAccess-Servereinstellungen-edge2-Europa" und die internen und externen Schnittstellen mit  
   
 ```  
 Add-DAEntryPoint -RemoteAccessServer 'edge2.corp2.corp.contoso.com' -Name 'Edge2-Europe' -ClientIPv6Prefix '2001:db8:2:2000::/64' -ConnectToAddress 'Europe.contoso.com' -ServerGpoName 'corp2.corp.contoso.com\DirectAccess Server Settings - Edge2-Europe' -InternetInterface 'Internet' -InternalInterface 'Corpnet2'  
 ```  
   
-Um Windows 7-Client Computern den Zugriff auf den zweiten Einstiegspunkt über die Sicherheitsgruppe DA_Clients_Europe und die Verwendung des Gruppenrichtlinien Objekts DA_W7_Clients_GPO_Europe zuzulassen.  
+Um Windows 7-Client Computern den Zugriff auf den zweiten Einstiegspunkt über die Sicherheitsgruppe zu gestatten, DA_Clients_Europe und die Verwendung des GPO-DA_W7_Clients_GPO_Europe.  
   
 ```  
 Add-DAClient -EntrypointName 'Edge2-Europe' -DownlevelGpoName @('corp.contoso.com\ DA_W7_Clients_GPO_Europe') -DownlevelSecurityGroupNameList @('corp.contoso.com\DA_Clients_Europe')  
@@ -360,4 +360,4 @@ Add-DAClient -EntrypointName 'Edge2-Europe' -DownlevelGpoName @('corp.contoso.co
   
 ## <a name="BKMK_Links"></a>Siehe auch  
   
--   [Schritt 2: Konfigurieren der Infrastruktur für mehrere Standorte @ no__t-0
+-   [Schritt 2: Konfigurieren der Infrastruktur für mehrere Standorte](Step-2-Configure-the-Multisite-Infrastructure.md)

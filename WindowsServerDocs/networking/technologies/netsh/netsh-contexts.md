@@ -17,7 +17,7 @@ ms.locfileid: "71405573"
 ---
 # <a name="netsh-command-syntax-contexts-and-formatting"></a>Netsh-Befehlssyntax, Kontexte und Formatierung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie netsh-Kontexte und-unter Kontexte eingeben, die Netsh-Syntax und Befehls Formatierung verstehen und Netsh-Befehle auf lokalen Computern und Remote Computern ausführen.
 
@@ -27,7 +27,7 @@ Netsh bietet auch eine Skriptingfunktion, mit der Sie eine Gruppe von Befehlen i
 
 ## <a name="netsh-contexts"></a>Netsh-Kontexte
 
-Netsh interagiert mit anderen Betriebssystemkomponenten, indem dynamische @ no__t-0link Library \(dll @ no__t-2-Dateien verwendet wird. 
+Netsh interagiert mit anderen Betriebssystemkomponenten mithilfe von Dynamic\-Link Library \(dll\) Dateien. 
 
 Jede Netsh Helper-DLL bietet einen umfangreichen Satz von Features, die als *Kontext*bezeichnet werden. Dies ist eine Gruppe von Befehlen, die für eine Netzwerkserver Rolle oder ein Feature spezifisch sind. Diese Kontexte erweitern die Funktionalität von Netsh, indem Sie Konfigurations-und Überwachungs Unterstützung für einen oder mehrere Dienste, Hilfsprogramme oder Protokolle bereitstellen. Dhcpmon. dll bietet beispielsweise Netsh mit dem Kontext und dem Satz von Befehlen, die zum Konfigurieren und Verwalten von DHCP-Servern erforderlich sind.
 
@@ -94,7 +94,7 @@ Im folgenden finden Sie eine Beispielausgabe für diese Befehle auf einem Comput
 
 Netsh-Kontexte können sowohl Befehle als auch zusätzliche Kontexte enthalten, die als *unter Kontexte*bezeichnet werden. Beispielsweise können Sie im Routing Kontext zu den unter Kontexten IP und IPv6 wechseln.
 
-Wenn Sie eine Liste der Befehle und unter Kontexte anzeigen möchten, die Sie in einem Kontext verwenden können, geben Sie an der netsh-Eingabeaufforderung den Kontext Namen ein, und geben Sie dann entweder **/?** ein. oder **Hilfe**. Wenn Sie z. b. eine Liste von unter Kontexten und Befehlen anzeigen möchten, die Sie im Routing Kontext verwenden können, geben Sie an der netsh-Eingabeaufforderung \(, d. h. **netsh @ no__t-2**\), eine der folgenden Informationen ein:
+Wenn Sie eine Liste der Befehle und unter Kontexte anzeigen möchten, die Sie in einem Kontext verwenden können, geben Sie an der netsh-Eingabeaufforderung den Kontext Namen ein, und geben Sie dann entweder **/?** ein. oder **Hilfe**. Wenn Sie z. b. eine Liste von unter Kontexten und Befehlen anzeigen möchten, die Sie im Routing Kontext verwenden können, geben Sie an der netsh-Eingabeaufforderung \(das heißt, **netsh&gt;** \)eine der folgenden Informationen ein:
 
 **Routing/?**
 
@@ -116,9 +116,9 @@ Sie können die folgende Formatierungs Legende verwenden, um die richtige Netsh-
 
 - Text in *kursiv* Schrift sind Informationen, die Sie beim Eingeben des Befehls angeben müssen. Wenn ein Befehl z. b. einen Parameter mit dem Namen-*username*hat, müssen Sie den tatsächlichen Benutzernamen eingeben.
 - **Fett** formatierter Text sind Informationen, die Sie genau wie angezeigt eingeben müssen, wenn Sie den Befehl eingeben.
-- Text gefolgt von einem Ellipsen \(... \) ist ein Parameter, der mehrmals in einer Befehlszeile wiederholt werden kann.
+- Text gefolgt von einem Ellipsen \(...\) ist ein Parameter, der mehrmals in einer Befehlszeile wiederholt werden kann.
 - Text zwischen eckigen Klammern [&nbsp;] ist ein optionales Element.
-- Text zwischen geschweiften Klammern {&nbsp;}, wobei die Auswahl durch eine Pipe getrennt ist, stellt eine Reihe von Optionen bereit, von denen Sie nur eine auswählen müssen, z. b. `{enable|disable}`.
+- Text zwischen geschweiften Klammern {&nbsp;}, wobei Auswahlmöglichkeiten durch eine Pipe getrennt sind, stellen eine Reihe von Optionen bereit, von denen Sie nur eine auswählen müssen, z. b. `{enable|disable}`.
 - Text, der mit Courier Font formatiert wird, ist die Code-oder Programmausgabe.
 
 ## <a name="running-netsh-commands-from-the-command-prompt-or-windows-powershell"></a>Ausführen von Netsh-Befehlen über die Eingabeaufforderung oder Windows PowerShell
@@ -127,11 +127,11 @@ Um die Netzwerkshell zu starten und netsh an der Eingabeaufforderung oder in Win
 
 ### <a name="netsh"></a>netsh
 
-Netsh ist ein Befehlszeilen-Skript Hilfsprogramm, mit dem Sie die Netzwerkkonfiguration eines derzeit ausgelaufenden Computers entweder lokal oder Remote anzeigen oder ändern können. **Netsh** wird ohne Parameter verwendet und öffnet die Eingabeaufforderung "Netsh. exe" \(Das heißt: **netsh @ no__t-3**\).
+Netsh ist ein Befehlszeilen-Skript Hilfsprogramm, mit dem Sie die Netzwerkkonfiguration eines derzeit ausgelaufenden Computers entweder lokal oder Remote anzeigen oder ändern können. Wenn Sie ohne Parameter verwendet wird, öffnet **netsh** die Eingabeaufforderung netsh. exe \(das heißt, **netsh&gt;** \).
 
 #### <a name="syntax"></a>Syntax
 
-**netsh**\[ **-a**&nbsp;*aliasfile*\] \[ **-c**&nbsp;-*Kontext* 0 1 **-r**3*Remotecomputer*5 6 **-u** 8  *Domain Name @ no__t-20* 1 *username* 3 4 **-p**6*Password*8 @ no__t-29 @ no__t-30 1 {*netshcommand*3 **-f**5*scriptfile*} 7
+**netsh**\[ **-a**&nbsp;*aliasfile*\] \[ **-c**&nbsp;*Kontext* \] \[ **-r**&nbsp;*Remotecomputer*\] \[ **-u** \[ *Domain Name\\* \] *username* \] \[ **-p**&nbsp;*Password* | \*\] \[{*netshcommand* |  **-f**&nbsp; *Scriptfile*}\]
 
 #### <a name="parameters"></a>Parameter
 
@@ -168,7 +168,7 @@ Optional. Gibt an, dass Sie den Netsh-Befehl unter einem Benutzerkonto ausführe
 
 ***`DomainName\\`***
 
-Optional. Gibt die Domäne an, in der sich das Benutzerkonto befindet. Der Standardwert ist die lokale Domäne, wenn *Domain Name @ no__t-1* nicht angegeben ist.
+Optional. Gibt die Domäne an, in der sich das Benutzerkonto befindet. Der Standardwert ist die lokale Domäne, wenn *Domain Name\\* nicht angegeben ist.
 
 ***`UserName`***
 

@@ -83,7 +83,7 @@ Die Vorlage wird in einem separaten Fenster geöffnet, und es werden zusätzlich
     Die Erstellung der virtuellen Desktopstation kann einige Minuten dauern.  
   
     > [!NOTE]  
-    > Wenn eine der lokalen Stationen derzeit mit einem no__t-basierten virtuellen Desktop der Sitzung verbunden ist, müssen Sie sich von diesen Stationen abmelden, damit Sie eine Verbindung mit einer der neu erstellten virtuellen Desktop Stationen herstellen können.  
+    > Wenn eine der lokalen Stationen derzeit mit einem Sitzungs\-basierten virtuellen Desktop verbunden ist, müssen Sie sich von diesen Stationen abmelden, damit Sie eine Verbindung mit einer der neu erstellten virtuellen Desktop Stationen herstellen können.  
   
 ### <a name="validate-the-newly-created-customized-virtual-station-desktops"></a>Überprüfen der neu erstellten angepassten virtuellen Desktopstationen  
   

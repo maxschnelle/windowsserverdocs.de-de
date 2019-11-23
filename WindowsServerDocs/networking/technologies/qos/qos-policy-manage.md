@@ -17,7 +17,7 @@ ms.locfileid: "71395878"
 ---
 # <a name="manage-qos-policy"></a>Verwalten der QoS-Richtlinie
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie den QoS-Richtlinien-Assistenten zum Erstellen, bearbeiten oder Löschen einer QoS-Richtlinie verwenden.
 
@@ -80,7 +80,7 @@ Auf der ersten Seite des Assistenten für QoS-Richtlinien können Sie einen Rich
 
 2. Verwenden Sie optional **DSCP-Wert angeben** , um die DSCP-Markierung zu aktivieren, und konfigurieren Sie dann einen DSCP-Wert zwischen 0 und 63.
 
-3. Verwenden Sie optional **Drosselungsrate angeben**, um die Datenverkehrsdrosselung zu aktivieren und die Drosselungsrate zu konfigurieren. Der Wert für die Drosselungs Rate muss größer als 1 sein, und Sie können Einheiten von \(Kilobyte pro Sekunde Kbit\) / \(s\)oder Megabyte pro Sekunde Mbit/s angeben.
+3. Verwenden Sie optional **Drosselungsrate angeben**, um die Datenverkehrsdrosselung zu aktivieren und die Drosselungsrate zu konfigurieren. Der Wert für die Drosselungs Rate muss größer als 1 sein, und Sie können Einheiten von Kilobyte pro Sekunde \(Kbit/s\) oder Megabyte pro Sekunde \(Mbit/s\)angeben.
 
 4. Klicken Sie auf **Weiter**.
 
@@ -99,11 +99,11 @@ Optional können Sie den Anwendungspfad eingeben. Zum Angeben des Anwendungspfad
 >[!NOTE]
 >Der Anwendungspfad darf keinen Pfad enthalten, der zu einer symbolischen Verknüpfung aufgelöst wird.
 
-Die URL muss in Form von `http[s]://<hostname\>:<port\>/<url-path>` [RFC 1738](https://tools.ietf.org/html/rfc1738)entsprechen. Sie können einen Platzhalter, `‘*'`, für `<hostname>` und/oder `<port>`verwenden, z `https://training.\*/, https://\*.\*`. b., aber der Platzhalter darf keine Teil `<hostname>` Zeichenfolge von oder `<port>`bezeichnen.
+Die URL muss in Form von `http[s]://<hostname\>:<port\>/<url-path>`[RFC 1738](https://tools.ietf.org/html/rfc1738)entsprechen. Sie können einen Platzhalter, `‘*'`für `<hostname>` und/oder `<port>`verwenden, z. b. `https://training.\*/, https://\*.\*`, aber der Platzhalter darf keine Teil Zeichenfolge `<hostname>` oder `<port>`bezeichnen.
 
 Anders ausgedrückt: weder `https://my\*site/` noch `https://\*training\*/` ist gültig. 
 
-Optional können Sie **Unterverzeichnisse und Dateien einschließen** aktivieren, um den Abgleich für alle Unterverzeichnisse und Dateien nach einer URL auszuführen. Wenn diese Option beispielsweise aktiviert ist und die URL lautet `https://training`, werden Anforderungen für` https://training/video` eine gute Entsprechung von der QoS-Richtlinie berücksichtigt.
+Optional können Sie **Unterverzeichnisse und Dateien einschließen** aktivieren, um den Abgleich für alle Unterverzeichnisse und Dateien nach einer URL auszuführen. Wenn diese Option z. b. aktiviert ist und die URL `https://training`ist, werden Anforderungen von der QoS-Richtlinie` https://training/video` eine gute Entsprechung berücksichtigt.
 
 #### <a name="to-configure-the-application-name-page-of-the-qos-policy-wizard"></a>So konfigurieren Sie die Seite "Anwendungs Name" des Assistenten für QoS-Richtlinien
 
@@ -123,13 +123,13 @@ Auf der dritten Seite des Assistenten für QoS-Richtlinien können Sie IP-Adress
 
 Wenn Sie **Nur für die folgende Quell-IP-Adresse** oder **Nur für die folgende Ziel-IP-Adresse** auswählen, müssen Sie eines der folgenden Elemente eingeben:
 
-- Eine IPv4-Adresse, z. b.`192.168.1.1`
+- Eine IPv4-Adresse, z. b. `192.168.1.1`
 
-- Ein IPv4-Adress Präfix mit Netzwerk Präfix-Längen Notation, z. b.`192.168.1.0/24`
+- Ein IPv4-Adress Präfix mit Netzwerk Präfix-Längen Notation, z. b. `192.168.1.0/24`
 
-- Eine IPv6-Adresse, z. b.`3ffe:ffff::1`
+- Eine IPv6-Adresse, z. b. `3ffe:ffff::1`
 
-- Ein IPv6-Adress Präfix, z. b.`3ffe:ffff::/48`
+- Ein IPv6-Adress Präfix, z. b. `3ffe:ffff::/48`
 
 Wenn Sie **nur für die folgende Quell-IP-Adresse** und **nur für die folgende Ziel-IP-Adresse**auswählen, müssen beide Adressen oder Adress Präfixe entweder IPv4-oder IPv6-basiert sein.
 
@@ -240,7 +240,7 @@ Erweiterte QoS-Einstellungen bieten IT-Administratoren zusätzliche Steuerungsme
   
 2.  Klicken Sie mit der rechten Maustaste auf **QoS Policy**, und klicken Sie dann auf **Erweiterte QoS-Einstellungen**.
 
-     Die folgende Abbildung zeigt die beiden erweiterten QoS-Einstellungs Registerkarten: **Eingehender TCP-Datenverkehr** und **DSCP-Markierungs Überschreibung**.
+     In der folgenden Abbildung werden die beiden erweiterten Registerkarten für die QoS-Einstellungen gezeigt: **eingehender TCP-Datenverkehr** und **außer Kraft**setzung der d
   
 > [!NOTE]
 >  Erweiterte QoS-Einstellungen sind Gruppenrichtlinie Einstellungen auf Computer Ebene.
@@ -270,7 +270,7 @@ Die tatsächliche Fenstergröße kann je nach Netzwerkbedingungen ein Wert sein,
 
 3.  Verknüpfen Sie das GPO mit der Organisationseinheit.
 
-#### <a name="advanced-qos-settings-dscp-marking-override"></a>Erweiterte QoS-Einstellungen: DSCP-Markierungs Überschreibung
+#### <a name="advanced-qos-settings-dscp-marking-override"></a>Erweiterte QoS-Einstellungen: außer Kraft setzung der DSCP-Markierung
 
 Die Überschreibung der DSCP-Markierung schränkt die Fähigkeit von Anwendungen ein, –-oder "Mark"-–-DSCP-Werte anzugeben, die in QoS-Richtlinien angegeben sind Wenn Sie angeben, dass Anwendungen DSCP-Werte festlegen dürfen, können Anwendungen nicht-NULL-DSCP-Werte festlegen. 
 
@@ -280,7 +280,7 @@ Standardmäßig ermöglichen Computer mit Windows Server 2016, Windows 10, Windo
 
 ##### <a name="wireless-multimedia-and-dscp-values"></a>Drahtlose Multimedia-und DSCP-Werte
 
-Die [Wi-Fi-Allianz](https://go.microsoft.com/fwlink/?LinkId=160769) hat eine Zertifizierung für Wireless Multimedia \(wmm @ no__t-2 eingerichtet, die vier Zugriffs Kategorien definiert \(WMM_AC @ no__t-4 für die Priorisierung von Netzwerk Datenverkehr, der in einem WLAN @ no__t-5fi-Drahtlos Netzwerk übertragen wird. Die Zugriffs Kategorien \(lauten in der Reihenfolge der höchsten Priorität\): sprach-, Video-, Best-und Background-Werte, die als VO, VI, be und BK abgekürzt werden. Die WMM-Spezifikation definiert, welche DSCP-Werte mit den vier Zugriffs Kategorien übereinstimmen:
+Die [Wi-Fi-Allianz](https://go.microsoft.com/fwlink/?LinkId=160769) hat eine Zertifizierung für drahtlose Multimedia-\(WMM-\) eingerichtet, die vier Zugriffs Kategorien definiert \(WMM_AC\) zum Priorisieren von Netzwerk Datenverkehr, der in einem Drahtlos Netzwerk mit Wi-\-fi übertragen wird. Die Zugriffs Kategorien enthalten \(in der Reihenfolge, in der die höchste Priorität\)ist: sprach-, Video-, Best-und Hintergrundinformationen. jeweils als VO, VI, be und BK abgekürzt. Die WMM-Spezifikation definiert, welche DSCP-Werte mit den vier Zugriffs Kategorien übereinstimmen:
   
 |DSCP-Wert|WMM-Zugriffs Kategorie|
 |----------|-------------------|
@@ -289,7 +289,7 @@ Die [Wi-Fi-Allianz](https://go.microsoft.com/fwlink/?LinkId=160769) hat eine Zer
 |24-31, 0-7|Bewährter Aufwand (ist)|
 |8-23|Hintergrund (BK)|
 
-Sie können QoS-Richtlinien erstellen, die diese DSCP-Werte verwenden, um sicher\-zustellen, dass tragbare Computer mit WLAN-zertifizierten™ für WMM-drahtlos Adapter\-eine priorisierte Behandlung erhalten, wenn Sie mit WLAN-zertifiziert für WMM-Zugriffspunkte verknüpft sind.
+Sie können QoS-Richtlinien erstellen, die diese DSCP-Werte verwenden, um sicherzustellen, dass tragbare Computer mit Wi\-Fi-zertifizierten™ für WMM-drahtlos Adapter eine priorisierte Behandlung erhalten, wenn Sie für WMM-Zugriffspunkte mit\-WLAN-Zertifizierung verknüpft sind.
   
 ### <a name="BKMK_precedencerules"></a>Rangfolge von QoS-Richtlinien
 
@@ -297,7 +297,7 @@ Sie können QoS-Richtlinien erstellen, die diese DSCP-Werte verwenden, um sicher
 
 Im allgemeinen gewinnt die QoS-Richtlinie mit den meisten übereinstimmenden Bedingungen. Wenn mehrere QoS-Richtlinien angewendet werden, können die Regeln in drei Kategorien unterteilt werden: auf Benutzerebene und auf Computer Ebene. Anwendung im Vergleich zum Netzwerk-quintupel; und unter dem Netzwerk-quintupel.
 
-Nach dem *Netzwerk-quintupel*sind die Quell-IP-Adresse, Ziel-IP-Adresse, Quellport, Zielport und TCP\)/UDP des Protokolls \(gemeint.  
+Der *Netzwerk-quintupel*bedeutet, dass die Quell-IP-Adresse, Ziel-IP-Adresse, Quellport, Zielport und Protokoll \(TCP/UDP\).  
 
  **Die QoS-Richtlinie auf Benutzerebene hat Vorrang vor der QoS-Richtlinie auf Computer Ebene.**
 
@@ -312,13 +312,13 @@ Wenn mehrere QoS-Richtlinien mit dem spezifischen Datenverkehr identisch sind, w
 
 Sie können auch mehrere QoS-Richtlinien auf denselben Datenverkehr anwenden, indem Sie nicht überlappende Bedingungen angeben. Zwischen den Bedingungen von Anwendungen und dem Netzwerk-quintupel wird die Richtlinie, die die Anwendung angibt, als spezifischere angesehen und angewendet. 
 
-Beispielsweise gibt policy_A nur einen Anwendungsnamen (app. exe) an, und policy_B gibt die Ziel-IP-Adresse 192.168.1.0/24 an. Wenn diese QoS-Richtlinien in Konflikt @no__t -0app. exe Datenverkehr an eine IP-Adresse im Bereich von 192.168.4.0/24 @ no__t-1 sendet, wird policy_A angewendet.
+Beispielsweise gibt policy_A nur einen Anwendungsnamen (app. exe) an, und policy_B gibt die Ziel-IP-Adresse 192.168.1.0/24 an. Wenn diese QoS-Richtlinien in Konflikt stehen \(app. exe Datenverkehr an eine IP-Adresse im Bereich von 192.168.4.0/24\), wird policy_A angewendet.
 
  **Weitere Besonderheiten haben Vorrang vor dem Netzwerk-quintupel.**
 
 Bei Richtlinien Konflikten im Netzwerk-quintupel hat die Richtlinie mit den meisten übereinstimmenden Bedingungen Vorrang. Angenommen, policy_C gibt die Quell-IP-Adresse "Any", die Ziel-IP-Adresse 10.0.0.1, den Quellport "Any", den Zielport "Any" und das Protokoll "TCP" an. 
 
-Angenommen, policy_D gibt die Quell-IP-Adresse "Any", die Ziel-IP-Adresse 10.0.0.1, den Quellport "Any", den Zielport 80 und das Protokoll "TCP" an. Dann stimmen policy_C und policy_D beide Verbindungen mit dem Ziel 10.0.0.1:80 ab. Da die QoS-Richtlinie die Richtlinie mit den spezifischsten übereinstimmenden Bedingungen anwendet, hat policy_D in diesem Beispiel Vorrang.  
+Nehmen wir als nächstes an, policy_D die Quell-IP-Adresse "Any", die Ziel-IP-Adresse 10.0.0.1, den Quellport "Any", den Zielport 80 und das Protokoll "TCP" angibt. Anschließend policy_C und policy_D beide Verbindungen mit dem Ziel 10.0.0.1:80. Da die QoS-Richtlinie die Richtlinie mit den spezifischsten übereinstimmenden Bedingungen anwendet, hat policy_D in diesem Beispiel Vorrang.  
   
 QoS-Richtlinien können jedoch die gleiche Anzahl von Bedingungen aufweisen. Beispielsweise können in mehreren Richtlinien jeweils nur ein Teil des Netzwerk-quintupels angegeben werden. Unter dem Netzwerk-quintupel ist die folgende Reihenfolge von einer höheren zu einer niedrigeren Rangfolge:
 

@@ -24,7 +24,7 @@ ms.locfileid: "71380281"
 
 Wenn Bits nicht gestartet werden kann, verwenden Sie diesen Schalter, um bekannte Probleme mit verschiedenen Versionen von Bits zu beheben.
 
-**Biout admin 1,5 und früher:**  Nicht unterstützt.
+**Biout admin 1,5 und früher:**  nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 

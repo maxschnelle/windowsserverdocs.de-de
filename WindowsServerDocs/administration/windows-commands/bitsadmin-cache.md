@@ -22,7 +22,7 @@ ms.locfileid: "71381863"
 ---
 # <a name="bitsadmin-cache"></a>biout admin-Cache
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 ## <a name="syntax"></a>Syntax
 
@@ -43,7 +43,7 @@ bitsadmin /Cache /SetExpirationtime
 
 |Parameter|Beschreibung|
 |-------|--------|
-|[bitsadmin cache and help](bitsadmin-cache-and-help.md)|Zeigt den Befehls @ no__t-0line-Verwendung für die \/cache-Switches an.|
+|[bitsadmin cache and help](bitsadmin-cache-and-help.md)|Zeigt den Befehl\-Zeilen Verwendung für die \/Cache Switches an.|
 |[bitsadmin cache and clear](bitsadmin-cache-clear.md)|Löscht den lokalen Cache.|
 |[bitsadmin cache and delete](bitsadmin-cache-and-delete.md)|Löscht einen Cache Eintrag.|
 |[bitsadmin cache and deleteurl](bitsadmin-cache-and-deleteurl.md)|Löscht alle Cache Einträge für die angegebene URL.|

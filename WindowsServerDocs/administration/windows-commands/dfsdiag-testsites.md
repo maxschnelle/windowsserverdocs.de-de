@@ -22,9 +22,9 @@ ms.locfileid: "71378388"
 ---
 # <a name="dfsdiag-testsites"></a>Dfsdiag Testsites
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Überprüft die Konfiguration der Active Directory-Domänen Dienste \(ad DS @ no__t-1-Standorte, indem überprüft wird, ob Server, die als Namespace Server oder Ordner \(link @ no__t-3 fungieren, die gleichen Standort Zuordnungen auf allen Domänen Controllern aufweisen.  
+Überprüft die Konfiguration der Active Directory-Domänen Dienste \(AD DS\)-Standorte, indem überprüft wird, ob Server, die als Namespace Server oder Ordner \(Link\)-Ziele fungieren, über die gleichen Standort Zuordnungen auf allen Domänen Controllern verfügen  
   
   
   
@@ -38,10 +38,10 @@ dfsdiag /TestSites </Machine:<server name>| /DFSpath:<namespace root or DFS fold
   
 |Parameter|Beschreibung|  
 |-------|--------|  
-|\/machine: <server name>|Der Name des Servers, auf dem die Standort Zuordnung überprüft werden soll.|  
-|\/dfspath: <namespace root or DFS folder>|Der Namespace Stamm oder verteiltes Dateisystem \(dfs @ no__t-1 Ordner \(link @ no__t-3 mit Zielen, für die die Standort Zuordnung überprüft werden soll.|  
+|\/Computer:<server name>|Der Name des Servers, auf dem die Standort Zuordnung überprüft werden soll.|  
+|\/dfspath:<namespace root or DFS folder>|Der Namespace Stamm oder verteiltes Dateisystem \(DFS-\) Ordners \(Link\) mit Zielen, für die die Standort Zuordnung überprüft werden soll.|  
 |\/recurse|Listet die Site Zuordnungen für alle Ordner Ziele unter dem angegebenen Namespace Stamm auf und überprüft sie.|  
-|\/full|überprüft, ob AD DS und die Registrierung des-Servers dieselben Standort Zuordnungs Informationen enthalten.|  
+|\/voll|überprüft, ob AD DS und die Registrierung des-Servers dieselben Standort Zuordnungs Informationen enthalten.|  
   
 ## <a name="BKMK_Examples"></a>Beispiele  
 Geben Sie in TBD Folgendes ein:  

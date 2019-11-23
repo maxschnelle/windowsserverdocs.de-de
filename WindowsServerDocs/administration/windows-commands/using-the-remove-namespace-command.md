@@ -22,7 +22,7 @@ ms.locfileid: "71362789"
 ---
 # <a name="using-the-remove-namespace-command"></a>Verwenden des Remove-Namespace-Befehls
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 entfernt einen benutzerdefinierten Namespace.
 ## <a name="syntax"></a>Syntax
@@ -32,7 +32,7 @@ wdsutil /remove-Namespace /Namespace:<Namespace name> [/Server:<Server name>] [/
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|/Namespace: <Namespace name>|Gibt den Namen des Namespaces an. Dies ist nicht der Anzeige Name, und er muss eindeutig sein.<br /><br />-   **Bereitstellungs Server-Rollen Dienst**: Die Syntax für den Namespace Namen lautet/Namespace: WDS: <ImageGroup> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Zum Beispiel: **WDS: ImageGroup1/install. wim/1**<br />-   **Transport Server-Rollen Dienst**: Dieser Wert muss dem Namen entsprechen, der dem Namespace bei der Erstellung auf dem Server zugewiesen wurde.|
+|/Namespace:<Namespace name>|Gibt den Namen des Namespaces an. Dies ist nicht der Anzeige Name, und er muss eindeutig sein.<br /><br />**Rollen Dienst "-   Bereitstellungs Server**": die Syntax für den Namespace Namen lautet/Namespace: WDS:<ImageGroup>/<ImageName>/<Index>. Beispiel: **WDS: ImageGroup1/install. wim/1**<br />-   **Transport Server-Rollen Dienst**: dieser Wert muss dem Namen entsprechen, der dem Namespace bei der Erstellung auf dem Server zugewiesen wurde.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |/Force|entfernt den Namespace sofort und beendet alle Clients. Beachten Sie, dass vorhandene Clients die Übertragung durchführen können, es sei denn, Sie geben **/Force**an. neue Clients können jedoch nicht beitreten.|
 ## <a name="BKMK_examples"></a>Beispiele
@@ -45,7 +45,7 @@ Wenn Sie die Beendigung aller Clients erzwingen möchten, geben Sie Folgendes ei
 wdsutil /remove-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /force
 ```
 #### <a name="additional-references"></a>Weitere Verweise
-[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+Der [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
 [mithilfe des Befehls get-allnamespaces](using-the-get-allnamespaces-command.md)
 [mit dem Befehl New-Namespace](using-the-new-namespace-command.md)
-[unter Command: Start-Namespace](subcommand-start-namespace.md)
+[Unterbefehl: Start-Namespace](subcommand-start-namespace.md)

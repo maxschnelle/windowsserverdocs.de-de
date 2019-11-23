@@ -95,7 +95,7 @@ Die Stimmenzuweisung für alle Clusterknoten kann mithilfe des Validierungstests
 
 ## <a name="general-recommendations-for-quorum-configuration"></a>„Allgemeine Empfehlungen zur Quorumkonfiguration“
 
-Die Clustersoftware konfiguriert das Quorum für einen neuen Cluster auf Basis der Anzahl der konfigurierten Knoten und der Verfügbarkeit von freigegebenen Speicher automatisch. Dies ist im Allgemeinen die am besten geeignete Quorumkonfiguration für diesen Cluster. Es ist jedoch eine gute Idee, die Quorumkonfiguration zu überprüfen, nachdem der Cluster erstellt wurde und bevor der Cluster in der Produktionsumgebung eingesetzt wird. Zum Anzeigen der detaillierten Konfiguration des Cluster Quorums können Sie den Konfigurationsüberprüfungs-Assistenten oder das Windows PowerShell-Cmdlet [Test-Cluster](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) verwenden, um den Test **Quorum Konfiguration** überprüfen auszuführen. In Failovercluster-Manager wird die grundlegende Quorum Konfiguration in den zusammenfassenden Informationen für den ausgewählten Cluster angezeigt. Sie können auch die Informationen zu den Quorum Ressourcen überprüfen, die beim Ausführen von Windows PowerShell " [Get-Clusterquorum](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterquorum?view=win10-ps) " zurückgegeben werden. Cmdlet.
+Die Clustersoftware konfiguriert das Quorum für einen neuen Cluster auf Basis der Anzahl der konfigurierten Knoten und der Verfügbarkeit von freigegebenen Speicher automatisch. Dies ist im Allgemeinen die am besten geeignete Quorumkonfiguration für diesen Cluster. Es ist jedoch eine gute Idee, die Quorumkonfiguration zu überprüfen, nachdem der Cluster erstellt wurde und bevor der Cluster in der Produktionsumgebung eingesetzt wird. Zum Anzeigen der detaillierten Konfiguration des Cluster Quorums können Sie den Konfigurationsüberprüfungs-Assistenten oder das Windows PowerShell-Cmdlet [Test-Cluster](https://docs.microsoft.com/powershell/module/failoverclusters/test-cluster?view=win10-ps) verwenden, um den Test **Quorum Konfiguration** überprüfen auszuführen. In Failovercluster-Manager wird die grundlegende Quorum Konfiguration in den zusammenfassenden Informationen für den ausgewählten Cluster angezeigt. Sie können auch die Informationen zu den Quorum Ressourcen überprüfen, die beim Ausführen des Windows PowerShell-Cmdlets [Get-Clusterquorum](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterquorum?view=win10-ps) zurückgegeben werden.
 
 Sie können den Test **Quorumkonfiguration überprüfen** jederzeit ausführen, um zu überprüfen, ob die Quorumkonfiguration für Ihren Cluster optimal geeignet ist. Die Testausgabe gibt die optimalen Einstellungen an. Zudem weist die darauf hin, ob eine Änderung an der Quorumkonfiguration empfohlen wird. Wenn eine Änderung empfohlen wird, können Sie die empfohlenen Einstellungen mithilfe des Assistenten zum Konfigurieren des Clusterquorums anwenden.
 
@@ -157,7 +157,7 @@ Die erforderlichen Mindestberechtigungen zur Ausführung dieses Vorgangs ist die
 
 4. Wählen Sie **Weiter** aus. Bestätigen Sie Ihre Auswahl auf der angezeigten Bestätigungsseite, und klicken Sie dann auf **weiter**.
 
-Wenn Sie den Assistenten ausführen und die Seite **Zusammenfassung** angezeigt wird, klicken Sie auf **Bericht anzeigen**, wenn Sie einen Bericht über die vom Assistenten durchgeführten Aufgaben anzeigen möchten. Der neueste Bericht verbleibt im Ordner <em>systemroot</em> **\\cluster @ no__t-3reports** mit dem Namen **quorenconfiguration. MHT**.
+Wenn Sie den Assistenten ausführen und die Seite **Zusammenfassung** angezeigt wird, klicken Sie auf **Bericht anzeigen**, wenn Sie einen Bericht über die vom Assistenten durchgeführten Aufgaben anzeigen möchten. Der neueste Bericht verbleibt im Ordner <em>systemroot</em> **\\Cluster\\Reports** mit dem Namen **quorenconfiguration. MHT**.
 
 > [!NOTE]
 > Nachdem Sie das Clusterquorum konfiguriert haben, wird empfohlen, dass Sie den Test **Quorumkonfiguration überprüfen** ausführen, um die aktualisierten Quorumeinstellungen zu überprüfen.
@@ -178,7 +178,7 @@ Im folgenden Beispiel wird die Quorumkonfiguration auf dem lokalen Cluster in ei
 Set-ClusterQuorum -NodeAndDiskMajority "Cluster Disk 2"
 ```
 
-Im folgenden Beispiel wird die Quorumkonfiguration auf dem lokalen Cluster in eine Knotenmehrheit mit Zeugenkonfiguration geändert. Die Dateifreigabe Ressource namens " *\\ @ no__t-2tenesso-FS @ no__t-3F* " ist als Dateifreigabe Zeuge konfiguriert.
+Im folgenden Beispiel wird die Quorumkonfiguration auf dem lokalen Cluster in eine Knotenmehrheit mit Zeugenkonfiguration geändert. Die Dateifreigabe Ressource namens " *\\" \\"\\-* Dateifreigabe Zeuge" ist als Dateifreigabe Zeuge konfiguriert.
 
 ```PowerShell
 Set-ClusterQuorum -NodeAndFileShareMajority "\\fileserver\fsw"

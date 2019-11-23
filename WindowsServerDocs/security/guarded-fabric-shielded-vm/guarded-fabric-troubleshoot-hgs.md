@@ -108,7 +108,7 @@ CSR-Eigenschaft | Erforderlicher Wert
 -------------|---------------
 Algorithmus    | RSA
 Schlüsselgröße     | Mindestens 2048 Bits
-Schlüsselverwendung    | Signatur/Vorzeichen/DigitalSignature
+Key Usage    | Signatur/Vorzeichen/DigitalSignature
 
 **Verschlüsselungs Zertifikate**
 
@@ -116,7 +116,7 @@ CSR-Eigenschaft | Erforderlicher Wert
 -------------|---------------
 Algorithmus    | RSA
 Schlüsselgröße     | Mindestens 2048 Bits
-Schlüsselverwendung    | Verschlüsselung/Verschlüsselung/DataEncipherment
+Key Usage    | Verschlüsselung/Verschlüsselung/DataEncipherment
 
 **Vorlagen für Active Directory Zertifikat Dienste**
 
@@ -126,7 +126,7 @@ ADCs-Vorlagen Eigenschaft | Erforderlicher Wert
 -----------------------|---------------
 Anbieter Kategorie      | Schlüsselspeicheranbieter
 Algorithmusname         | RSA
-Minimale Schlüsselgröße       | 2\.048
+Minimale Schlüsselgröße       | 2048
 Zweck                | Signatur und Verschlüsselung
 Schlüssel Verwendungs Erweiterung    | Digitale Signatur, Schlüssel Verschlüsselung, Datenverschlüsselung ("Verschlüsselung von Benutzerdaten zulassen")
 
@@ -143,7 +143,7 @@ Start-ScheduledTask -TaskPath \Microsoft\Windows\HGSServer -TaskName
 AttestationSignerCertRenewalTask
 ```
 
-Alternativ können Sie die geplante Aufgabe auch manuell ausführen, indem Sie **Taskplaner** (taskschd. msc) öffnen, zu **Taskplaner Bibliothek > Microsoft > Windows > hgsserver** navigieren und die Aufgabe mit dem Namen  **Attestationsignercertrenewaltask**.
+Alternativ können Sie die geplante Aufgabe auch manuell ausführen, indem Sie **Taskplaner** (taskschd. msc) öffnen, zu **Taskplaner Bibliothek > Microsoft > Windows > hgsserver** navigieren und die Aufgabe mit dem Namen **attestationsignercertrenewaltask**ausführen.
 
 ## <a name="switching-attestation-modes"></a>Wechseln der Nachweis Modi
 
@@ -161,7 +161,7 @@ Sie können den Nachweis Modus Ihres HGS-Servers durch Ausführen von [Get-hgsse
 
 ## <a name="memory-dump-encryption-policies"></a>Verschlüsselungsrichtlinien für den Speicher Abbild
 
-Wenn Sie versuchen, die Verschlüsselungsrichtlinien für das Speicher Abbild zu konfigurieren und die standardmäßigen HGS-dumprichtlinien (HGS @ no__t-0nodumps, HGS @ no__t-1dumpencryption und HGS @ no__t-2dumpverschlüsseltionkey) oder das dumprichtliniencmdlet (Add-hgsattestationdumppolicy) nicht anzuzeigen, ist dies wahrscheinlich ist das neueste kumulative Update nicht installiert.
+Wenn Sie versuchen, Speicher Abbild-Verschlüsselungsrichtlinien zu konfigurieren und die standardmäßigen HGS-dumprichtlinien (HGS\_nodumps, HGS\_dumpencryption und HGS\_dumpverschlüsselungkey) oder das dumprichtliniencmdlet (Add-hgsattestationdumppolicy) nicht zu sehen, ist es wahrscheinlich, dass das neueste kumulative Update nicht installiert ist
 [Aktualisieren Sie den HGS-Server](guarded-fabric-manage-hgs.md#patching-hgs) auf das neueste kumulative Windows Update, und [Aktivieren Sie die neuen Nachweis Richtlinien](guarded-fabric-manage-hgs.md#updates-requiring-policy-activation), um dies zu beheben.
 Stellen Sie sicher, dass Sie Ihre Hyper-V-Hosts auf das gleiche kumulative Update aktualisieren, bevor Sie die neuen Nachweis Richtlinien aktivieren, da Hosts, auf denen die neuen dumpverschlüsselungs Funktionen nicht installiert sind, möglicherweise nach dem Aktivieren der HGS-Richtlinie fehlschlagen.
 
@@ -176,8 +176,8 @@ Beim Registrieren eines TPM-Hosts wird eine Fehlermeldung angezeigt, wenn eine d
 2. Die Plattform-bezeichnerdatei enthält ein Endorsement Key-Zertifikat, aber dieses Zertifikat ist auf dem System **nicht vertrauenswürdig** .
 
 Bestimmte TPM-Hersteller enthalten keine ekcerts in ihren TPMs.
-Wenn Sie vermuten, dass dies bei Ihrem TPM der Fall ist, vergewissern Sie sich bei Ihrem OEM, dass die TPMs nicht über ein ekcert verfügen sollten, und verwenden Sie das Flag "`-Force`", um den Host manuell bei HGS zu registrieren.
+Wenn Sie vermuten, dass dies bei Ihrem TPM der Fall ist, vergewissern Sie sich bei Ihrem OEM, dass die TPMs kein ekcert aufweisen sollten, und verwenden Sie das `-Force`-Flag, um den Host manuell bei HGS zu registrieren.
 Wenn Ihr TPM über ein ekcert verfügen soll, aber in der Datei mit der Platt Form Kennung nicht gefunden wurde, stellen Sie sicher, dass Sie beim Ausführen von " [Get-platformidentifier](https://docs.microsoft.com/powershell/module/platformidentifier/get-platformidentifier) " auf dem Host eine Administrator-PowerShell-Konsole (erweitert) verwenden.
 
-Wenn Sie die Fehlermeldung erhalten, dass Ihr ekcert nicht vertrauenswürdig ist, stellen Sie sicher, dass Sie [das vertrauenswürdige TPM](guarded-fabric-install-trusted-tpm-root-certificates.md) -Stamm Zertifikat Paket auf jedem HGS-Server installiert haben und dass sich das Stamm Zertifikat für den **TPM-Hersteller auf dem lokalen Computer befindet. t-2rootca-** Speicher. Alle anwendbaren zwischen Zertifikate müssen auch im Trust **dtpm @ no__t-1intermediateca-** Speicher auf dem lokalen Computer installiert werden.
+Wenn Sie die Fehlermeldung erhalten, dass Ihr ekcert nicht vertrauenswürdig ist, stellen Sie sicher, dass Sie [das vertrauenswürdige TPM](guarded-fabric-install-trusted-tpm-root-certificates.md) -Stamm Zertifikat Paket auf jedem HGS-Server installiert haben und dass das Stamm Zertifikat für den TPM-Hersteller im Trust **dtpm-\_rootca** -Speicher des lokalen Computers vorhanden ist. Alle anwendbaren zwischen Zertifikate müssen auch im Trust **dtpm-\_intermediateca** -Speicher auf dem lokalen Computer installiert werden.
 Nachdem Sie die Stamm-und zwischen Zertifikate installiert haben, sollten Sie `Add-HgsAttestationTpmHost` erfolgreich ausführen können.

@@ -17,7 +17,7 @@ ms.locfileid: "71393818"
 ---
 # <a name="storage-replica-overview"></a>Übersicht über Speicherreplikate
 
->Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
+>Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (Semi-Annual Channel)
 
 Das Speicherreplikat ist eine Windows Server-Technologie, durch die die Replikation von Volumes zwischen Servern oder Clustern für die Notfallwiederherstellung möglich ist. Darüber hinaus ermöglicht sie Ihnen, Stretched Failovercluster zu erstellen, die sich über zwei Standorte erstrecken und bei denen alle Knoten synchron bleiben.
 
@@ -44,19 +44,19 @@ Ein **Stretched Cluster** ermöglicht die Konfiguration von Computern und Speich
 
 ![Diagramm, das zwei Clusterknoten in New York zeigt, die das Speicherreplikat verwenden, um den Speicher von New York mit zwei Knoten in New Jersey zu replizieren](./media/Storage-Replica-Overview/Storage_SR_StretchCluster.png)  
 
-**ABBILDUNG 1: Speicher Replikation in einem Stretch-Cluster mit Speicher Replikat @ no__t-0  
+**Abbildung 1: Speicher Replikation in einem Stretch-Cluster mit Speicher Replikat**  
 
 Eine **Cluster-zu-Cluster-Konfiguration** ermöglicht die Replikation zwischen zwei separaten Clustern, wobei ein Cluster synchron oder asynchron in den anderen Cluster repliziert wird. In diesem Szenario können Sie „Direkte Speicherplätze“ und Speicherplätze mit freigegebenem SAS-Speicher, SAN und an iSCSI-LUNs verwendet werden. Sie wird mit Windows Admin Center und PowerShell verwaltet und erfordert einen manuellen Eingriff für das Failover. 
 
 ![Diagramm, das einen Cluster in Los Angeles zeigt, der ein Speicherreplikat verwendet, um den Speicher mit einem anderen Speicher in Las Vegas zu replizieren](./media/Storage-Replica-Overview/Storage_SR_ClustertoCluster.png)  
 
-**ABBILDUNG 2: Cluster-zu-Cluster-Speicher Replikation unter Verwendung des Speicher Replikats @ no__t-0  
+**Abbildung 2: Cluster-zu-Cluster-Speicher Replikation unter Verwendung von Speicher Replikaten**  
 
 Eine **Server-zu-Server-Konfiguration** ermöglicht eine synchrone und asynchrone Replikation zwischen zwei eigenständigen Servern unter Verwendung von Speicherplätzen mit freigegebenem SAS-Speicher, SAN- und iSCSI-LUNs sowie lokalen Laufwerken. Sie wird mit Windows Admin Center und PowerShell verwaltet und erfordert einen manuellen Eingriff für das Failover.  
 
 ![Diagramm, das einen Server in Gebäude 5 zeigt, der mit einem Server in Gebäude 9 repliziert wird](./media/Storage-Replica-Overview/Storage_SR_ServertoServer.png)  
 
-**ABBILDUNG 3: Server-zu-Server-Speicher Replikation unter Verwendung von Speicher Replikat @ no__t-0  
+**Abbildung 3: Server-zu-Server-Speicher Replikation unter Verwendung von Speicher Replikaten**  
 
 > [!NOTE]
 > Sie können auch eine Server-to-Self-Replikation konfigurieren, bei der vier separate Volumes auf einem einzigen Computer verwendet werden. Dieses Szenario wird in diesem Leitfaden jedoch nicht abgedeckt.  
@@ -89,7 +89,7 @@ Das Speicher Replikat umfasst die folgenden Features:
 | ----------- | ----------- |  
 | Typ | Hostbasiert |
 | Synchron | Ja |
-| Asynchron | Ja |
+| Asynchrone | Ja |
 | Speicherhardwareagnostisch | Ja |
 | Replikationseinheit | Volume (Partition) |
 | Erstellung von Windows Server Stretch-Clustern | Ja |
@@ -140,7 +140,7 @@ Wenn Anwendungsschreibvorgänge für die Quelldatenkopie ausgeführt werden, bes
 
 | Modus | Diagramm | Schritte |
 | -------- | ----------- | --------- |
-| **Synchrone**<br /><br />Kein Datenverlust<br /><br />RPO | ![Diagramm das zeigt, wie das Speicherreplikat Daten in die synchrone Replikation schreibt](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  Anwendung schreibt Daten<br />2.  Protokolldaten werden geschrieben, und die Daten werden am Remotestandort repliziert<br />3.  Protokolldaten werden am Remotestandort geschrieben<br />4.  Bestätigung durch den Remotestandort<br />5.  Anwendungsschreibvorgang wird bestätigt<br /><br />t & T1: Daten, die auf das Volume geleert werden, Protokolle werden immer geschrieben. |
+| **Synchrone**<br /><br />Kein Datenverlust<br /><br />RPO | ![Diagramm das zeigt, wie das Speicherreplikat Daten in die synchrone Replikation schreibt](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  Anwendung schreibt Daten<br />2.  Protokolldaten werden geschrieben, und die Daten werden am Remotestandort repliziert<br />3.  Protokolldaten werden am Remotestandort geschrieben<br />4.  Bestätigung durch den Remotestandort<br />5.  Anwendungsschreibvorgang wird bestätigt<br /><br />t & t1: Daten werden auf das Volume geleert, Protokolle werden immer geschrieben |
 
 ### <a name="asynchronous-replication"></a>Asynchrone Replikation
 
@@ -152,7 +152,7 @@ Da der RPO-Wert bei der asynchronen Replikation größer Null ist, ist dieser Re
 
 | Modus | Diagramm | Schritte |
 | -------- | ----------- | --------- |
-| **Asynchronen**<br /><br />Praktisch keinerlei Datenverlust<br /><br />(von verschiedenen Faktoren abhängig)<br /><br />RPO | ![Diagramm das zeigt, wie das Speicherreplikat Daten in die asynchrone Replikation schreibt](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  Anwendung schreibt Daten<br />2.  Protokolldaten werden geschrieben<br />3.  Anwendungsschreibvorgang wird bestätigt<br />4.  Daten werden am Remotestandort repliziert<br />5.  Protokolldaten werden am Remotestandort geschrieben<br />6.  Bestätigung durch den Remotestandort<br /><br />t & T1: Daten, die auf das Volume geleert werden, Protokolle werden immer geschrieben. |
+| **Asynchronen**<br /><br />Praktisch keinerlei Datenverlust<br /><br />(von verschiedenen Faktoren abhängig)<br /><br />RPO | ![Diagramm das zeigt, wie das Speicherreplikat Daten in die asynchrone Replikation schreibt](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  Anwendung schreibt Daten<br />2.  Protokolldaten werden geschrieben<br />3.  Anwendungsschreibvorgang wird bestätigt<br />4.  Daten werden am Remotestandort repliziert<br />5.  Protokolldaten werden am Remotestandort geschrieben<br />6.  Bestätigung durch den Remotestandort<br /><br />t & t1: Daten werden auf das Volume geleert, Protokolle werden immer geschrieben |
 
 ### <a name="key-evaluation-points-and-behaviors"></a>Wichtige Bewertungspunkte und Verhalten  
 
@@ -188,12 +188,12 @@ In diesem Leitfaden werden folgende Begriffe häufig verwendet:
 
 Eine Liste der neuen Features im Speicher Replikat unter Windows Server 2019 finden Sie unter [What es New in Storage](../whats-new-in-storage.md#storage-replica2019) .
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Stretch-Cluster Replikation mit frei gegebenem Speicher](stretch-cluster-replication-using-shared-storage.md)  
 - [Replikation von Server zu Server Speicher](server-to-server-storage-replication.md)  
 - [Cluster-zu-Cluster Speicher Replikation](cluster-to-cluster-storage-replication.md)  
-- [Speicherreplikat: Bekannte Probleme](storage-replica-known-issues.md)  
-- [Speicherreplikat: Häufig gestellte Fragen](storage-replica-frequently-asked-questions.md)  
+- [Speicher Replikat: bekannte Probleme](storage-replica-known-issues.md)  
+- [Speicher Replikat: häufig gestellte Fragen](storage-replica-frequently-asked-questions.md)  
 - [Direkte Speicherplätze in Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)
 - [Unterstützung für Windows IT pro](https://www.microsoft.com/itpro/windows/support)

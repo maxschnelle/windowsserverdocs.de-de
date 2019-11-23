@@ -19,23 +19,23 @@ ms.locfileid: "71359619"
 # <a name="distribute-certificates-to-client-computers-by-using-group-policy"></a>Verteilen von Zertifikaten auf Client Computer mithilfe von Gruppenrichtlinie
 
 
-Sie können das folgende Verfahren verwenden, um die entsprechenden Secure Sockets Layer \(ssl @ no__t-1-Zertifikaten \(oder äquivalente Zertifikate, die mit einem vertrauenswürdigen Stammverzeichnis @ no__t-3 für Konto Verbund Server, Ressourcen Verbund Server und Webserver für jeden Client Computer in der Konto Partner-Gesamtstruktur, indem Sie Gruppenrichtlinie verwenden.  
+Mithilfe des folgenden Verfahrens können Sie die entsprechenden Secure Sockets Layer \(SSL-\) Zertifikate \(oder äquivalente Zertifikate, die mit einem vertrauenswürdigen Stamm\) für Konto Verbund Server, Ressourcen Verbund Server und Webserver verkettet sind, mithilfe von Gruppenrichtlinie an jeden Client Computer in der Konto Partner-Gesamtstruktur übertragen.  
   
-Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in **Domänen-Admins** oder Organisations- **Admins**oder einer entsprechenden Gruppe in Active Directory Domain Services \(AD DS @ no__t-3 erforderlich.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.Microsoft.com\/\/swlink? LinkId\=83477\).   
+Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in **Domänen-Admins** oder Organisations- **Admins**oder einer entsprechenden Gruppe in Active Directory Domain Services \(AD DS\) erforderlich.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.Microsoft.com\/\/. LinkId\=83477\).   
   
 ### <a name="to-distribute-certificates-to-client-computers-by-using-group-policy"></a>So verteilen Sie Zertifikate mithilfe von Gruppenrichtlinie auf Client Computer  
   
-1.  Starten Sie auf einem Domänen Controller in der Gesamtstruktur der Konto Partnerorganisation das **Gruppenrichtlinie Management** Snap @ no__t-1In.  
+1.  Starten Sie auf einem Domänen Controller in der Gesamtstruktur der Konto Partnerorganisation das Snap\-**Gruppenrichtlinie-Verwaltung** in.  
   
-2.  Suchen Sie ein vorhandenes Gruppenrichtlinie Objekt \(gpo @ no__t-1, oder erstellen Sie ein neues GPO, das die Zertifikat Einstellungen enthält. Stellen Sie sicher, dass das Gruppenrichtlinien Objekt der Domäne, dem Standort oder der Organisationseinheit \(ou @ no__t-1 zugeordnet ist, in der sich die entsprechenden Benutzer-und Computer Konten befinden.  
+2.  Suchen Sie ein vorhandenes Gruppenrichtlinie Objekt \(GPO\) oder erstellen Sie ein neues GPO, das die Zertifikat Einstellungen enthält. Stellen Sie sicher, dass das Gruppenrichtlinien Objekt der Domäne, dem Standort oder der Organisationseinheit \(OE\) zugeordnet ist, in der sich die entsprechenden Benutzer-und Computer Konten befinden.  
   
-3.  Rechts @ no__t-0klicken Sie auf das GPO, und klicken Sie dann auf **Bearbeiten**.  
+3.  Klicken Sie mit der rechten\-auf das GPO, und klicken Sie dann auf **Bearbeiten**.  
   
-4.  Öffnen Sie in der Konsolen **Struktur Computer Konfiguration @ no__t-1policies @ no__t-2Windows Settings @ no__t-3security Settings @ no__t-4public Key Policies**, Right @ no__t-5click **Vertrauenswürdige Stamm Zertifizierungs**stellen, und klicken Sie dann auf **importieren.** .  
+4.  Öffnen Sie in der Konsolen **Struktur Computer Konfiguration\\Richtlinien\\Windows-Einstellungen\\Sicherheitseinstellungen\\Public Key Policies**, klicken Sie mit der rechten\-klicken Sie auf **Vertrauenswürdige Stamm Zertifizierungs**stellen, und klicken Sie dann auf **importieren**.  
   
 5.  Klicken Sie auf der Seite **Willkommen** auf **Weiter**.  
   
-6.  Geben Sie auf der Seite **zu importierende Datei** den Pfad zu den entsprechenden Zertifikat Dateien \(Ein, z. b. \\ @ no__t-3fs1 @ no__t-4C $ @no__t -5fs1. CER @ no__t-6, und klicken Sie dann auf **weiter**.  
+6.  Geben Sie auf der Seite **zu importierende Datei** den Pfad zu den entsprechenden Zertifikat Dateien \(z. b. \\\\FS1\\c $\\FS1. CER\)ein, und klicken Sie dann auf **weiter**.  
   
 7.  Klicken Sie auf der Seite **Zertifikat Speicher** auf **alle Zertifikate in folgendem Speicher platzieren**, und klicken Sie dann auf **weiter**.  
   

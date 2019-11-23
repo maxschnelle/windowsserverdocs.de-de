@@ -18,14 +18,14 @@ ms.locfileid: "71408081"
 ---
 # <a name="federation-server-farm-using-wid-and-proxies"></a>Verbundserverfarm mit WID und Proxys
 
-Diese Bereitstellungs Topologie für Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 ist mit der Verbund Serverfarm mit der internen Windows-Datenbank \(WiD @ no__t-3-Topologie identisch, fügt jedoch Verbund Server Proxys zum Umkreis Netzwerk hinzu. externe Benutzer werden unterstützt. Die Verbund Server Proxys leiten Client Authentifizierungsanforderungen, die von außerhalb Ihres Unternehmensnetzwerks stammen, an die Verbund Serverfarm weiter.  
+Diese Bereitstellungs Topologie für Active Directory-Verbunddienste (AD FS) \(AD FS\) ist mit der Verbund Serverfarm mit der internen Windows-Datenbank \(wid\) Topologie identisch, fügt jedoch Verbund Server Proxys zum Umkreis Netzwerk hinzu, um externe Benutzer zu unterstützen. Die Verbund Server Proxys leiten Client Authentifizierungsanforderungen, die von außerhalb Ihres Unternehmensnetzwerks stammen, an die Verbund Serverfarm weiter.  
   
 ## <a name="deployment-considerations"></a>Überlegungen zur Bereitstellung  
 In diesem Abschnitt werden verschiedene Überlegungen zu den beabsichtigten Zielgruppen, Vorteilen und Einschränkungen beschrieben, die mit dieser Bereitstellungs Topologie verknüpft sind.  
   
 ### <a name="who-should-use-this-topology"></a>Wer sollte diese Topologie verwenden?  
   
--   Organisationen mit 100 oder weniger konfigurierten Vertrauens Stellungen, die sowohl interne als auch externe Benutzer \(bereit stellen müssen, die auf Computern angemeldet sind, die sich physisch außerhalb des Unternehmensnetzwerks befinden @ no__t-1 mit einmaligem Vorzeichen @ no__t-2ON \(sso @ no__t-4-Zugriff auf Verbund Anwendungen oder-Dienste  
+-   Organisationen mit 100 oder weniger konfigurierten Vertrauens Stellungen, die sowohl interne als auch externe Benutzer \(, die bei Computern angemeldet sind, die sich physisch außerhalb des Unternehmensnetzwerks befinden\) mit einmaligem\-anmelden \(SSO\) Zugriff auf Verbund Anwendungen oder-Dienste.  
   
 -   Organisationen, die sowohl internen als auch externen Benutzern SSO-Zugriff auf Microsoft Office 365 bereitstellen müssen  
   
@@ -40,13 +40,13 @@ In diesem Abschnitt werden verschiedene Überlegungen zu den beabsichtigten Ziel
 -   Die gleichen Einschränkungen wie für die Verbund [Server Farm werden mithilfe der wid](Federation-Server-Farm-Using-WID-2012.md) -Topologie aufgelistet.  
   
 ## <a name="server-placement-and-network-layout-recommendations"></a>Empfehlungen zur Server Platzierung und zum Netzwerk Layout  
-Um diese Topologie zusätzlich zum Hinzufügen von zwei Verbund Server Proxys bereitzustellen, müssen Sie sicherstellen, dass Ihr Umkreis Netzwerk auch Zugriff auf einen Domain Name System \(dns @ no__t-1-Server und auf einen zweiten Netzwerk Lastenausgleich \(nlb @ no__t-3-Host bereitstellen kann. Der zweite NLB-Host muss mit einem NLB-Cluster konfiguriert werden, der eine IP-Adresse für den Internet basierten @ no__t-IP-Cluster verwendet, und er muss die gleiche DNS-Namen Einstellung für den Cluster wie der vorherige NLB-Cluster verwenden, den Sie im Unternehmensnetzwerk @no__t -1FS. fabrikam. com @ no__t-2 konfiguriert haben. Die Verbund Server Proxys sollten auch mit Internet @ no__t-0accessible IP-Adressen konfiguriert werden.  
+Um diese Topologie zusätzlich zum Hinzufügen von zwei Verbund Server Proxys bereitzustellen, müssen Sie sicherstellen, dass Ihr Umkreis Netzwerk auch Zugriff auf eine Domain Name System \(DNS-\) Servers und auf einen zweiten Netzwerk Lastenausgleich \(NLB-\) Host bereitstellen kann. Der zweite NLB-Host muss mit einem NLB-Cluster konfiguriert werden, der eine IP-Adresse für den Internet\-zugänglichen Cluster verwendet, und er muss die gleiche DNS-Namen Einstellung des Clusters wie der vorherige NLB-Cluster verwenden, den Sie im Unternehmensnetzwerk \(FS.fabrikam.com\)konfiguriert haben. Die Verbund Server Proxys sollten auch mit Internet\-zugänglichen IP-Adressen konfiguriert werden.  
   
-Die folgende Abbildung zeigt die vorhandene Verbund Serverfarm mit der zuvor beschriebenen wid-Topologie und die Funktionsweise der fiktiven fabrikam. Inc., Unternehmen ermöglicht den Zugriff auf einen Umkreis-DNS-Server, fügt einen zweiten NLB-Host mit dem gleichen DNS-Cluster Namen @no__t -0FS. fabrikam. com @ no__t-1 hinzu und fügt dem Umkreis Netzwerk zwei Verbund Server Proxys \(fsp1 und fsp2 @ no__t-3 hinzu.  
+In der folgenden Abbildung wird die vorhandene Verbund Serverfarm mit der zuvor beschriebenen wid-Topologie gezeigt und erläutert, wie das fiktive Fabrikam, Inc. Unternehmen Zugriff auf einen DNS-Umkreis Server bereitstellt, einen zweiten NLB-Host mit dem gleichen DNS-Cluster Namen \(FS.fabrikam.com\)hinzufügt und dem Umkreis Netzwerk zwei Verbund Server Proxys \(fsp1-und fsp2-\) hinzufügt.  
   
 ![Serverfarm mit wid](media/FarmWIDProxies.gif)  
   
-Weitere Informationen zum Konfigurieren der Netzwerkumgebung für die Verwendung mit Verbund Servern oder Verbund Server Proxys finden Sie unter Anforderungen für die [Namensauflösung für Verbund Server](Name-Resolution-Requirements-for-Federation-Servers.md) oder [Anforderungen für die Namensauflösung für den Verbund. Server](Name-Resolution-Requirements-for-Federation-Server-Proxies.md)Proxys.  
+Weitere Informationen zum Konfigurieren der Netzwerkumgebung für die Verwendung mit Verbund Servern oder Verbund Server Proxys finden Sie unter Anforderungen für die [Namensauflösung für Verbund Server](Name-Resolution-Requirements-for-Federation-Servers.md) oder [Anforderungen für die Namensauflösung für Verbund Server](Name-Resolution-Requirements-for-Federation-Server-Proxies.md)Proxys.  
   
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

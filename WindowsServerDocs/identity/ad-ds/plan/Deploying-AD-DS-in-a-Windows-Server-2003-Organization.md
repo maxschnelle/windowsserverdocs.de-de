@@ -18,7 +18,7 @@ ms.locfileid: "71408904"
 ---
 # <a name="deploying-ad-ds-in-a-windows-server-2003-organization"></a>Bereitstellen von AD DS in einer Windows Server 2003-Organisation
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Wenn in Ihrer Organisation derzeit Windows Server 2003 Active Directory ausgeführt wird, können Sie Windows Server 2008 Active Directory Domain Services (AD DS) bereitstellen, indem Sie entweder ein direktes Upgrade einiger oder aller der Betriebssysteme ihrer Domänen Controller auf ausführen.  Windows Server 2008 oder durch Einführen von Domänen Controllern unter Windows Server 2008 in Ihrer Umgebung.  
   
@@ -33,7 +33,7 @@ In der folgenden Abbildung werden die Schritte zum Bereitstellen von Windows Ser
   
 Zum Konsolidieren von Ressourcen Domänen und Konto Domänen, die von einer Windows Server 2003-Umgebung im Rahmen ihrer Windows Server 2008-AD DS Bereitstellung aktualisiert werden, ist möglicherweise eine Gesamtstruktur-oder Gesamtstruktur übergreifende Domänen Umstrukturierung erforderlich Durch die Umstrukturierung AD DS Domänen zwischen Gesamtstrukturen können Sie die Komplexität der Darstellung Ihrer Organisation in AD DS verringern und so die damit verbundenen Verwaltungskosten senken. Durch die Umstrukturierung AD DS Domänen in einer Gesamtstruktur können Sie den Verwaltungsaufwand für Ihre Organisation verringern, indem Sie den Replikations Datenverkehr verringern, die erforderliche Menge an Benutzer-und Gruppenverwaltung reduzieren und die Verwaltung der Gruppe vereinfachen. Policy. Weitere Informationen finden Sie im ADMT v 3.1-Migrations Handbuch ([https://go.microsoft.com/fwlink/?LinkId=93678](https://go.microsoft.com/fwlink/?LinkId=93678)).  
   
-Eine Liste der detaillierten Aufgaben, die Sie zum Planen und Bereitstellen von AD DS in einer Organisation mit Windows Server 2003 Active Directory ausführen können, finden Sie unter [checkliste: Bereitstellen von AD DS in einer Windows Server 2003-Organisation @ no__t-0.  
+Eine Liste der detaillierten Aufgaben, die Sie zum Planen und Bereitstellen von AD DS in einer Organisation mit Windows Server 2003 Active Directory ausführen können, finden Sie unter Prüfliste: Bereitstellen von [AD DS in einer Windows Server 2003-Organisation](https://technet.microsoft.com/library/cc771407.aspx).  
   
 
 

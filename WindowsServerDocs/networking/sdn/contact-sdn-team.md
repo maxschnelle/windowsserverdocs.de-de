@@ -19,19 +19,19 @@ ms.locfileid: "71355987"
 
 > Gilt für: Windows Server 2016
 
-Microsoft **Software Defined Networking \(sdn @ no__t-2** und **Container-Netzwerk** Lösungen werden vom Rechenzentrum und cloudnetzwerkteam erstellt. Verwenden Sie diese Seite, um sich mit dem Team in Verbindung zu setzen, um Fragen zu stellen, Feedback bereitzustellen, Fehler zu melden oder Funktionsanforderungen zu stellen.
+Software- **defined Networking \(Sdn\)** und **Container Netzwerk** Lösungen von Microsoft werden vom Rechenzentrum und cloudnetzwerkteam erstellt. Verwenden Sie diese Seite, um sich mit dem Team in Verbindung zu setzen, um Fragen zu stellen, Feedback bereitzustellen, Fehler zu melden oder Funktionsanforderungen zu stellen.
 
 Es gibt zahlreiche Möglichkeiten zum Kontaktieren von Microsoft-Teams, und während wir unser Bestes Sdn-Team nutzen, um alle von unserer Community verwendeten Wege zu verfolgen, finden Sie hier eine Liste der Foren, die tendenziell die aktivsten sind. *Dabei handelt es sich um wichtige Ressourcen für unsere Benutzer. Daher handelt es sich hierbei um die Möglichkeiten, die wir am nächsten sehen.*
 
 ## <a name="twitterhttpstwittercommicrosoft_sdn"></a>[Twitter](https://twitter.com/Microsoft_SDN)
 
 Vor kurzem haben wir unsere Anwesenheit auf Twitter als [@Microsoft_SDN](https://twitter.com/Microsoft_SDN)gestartet. Sie können unser Twitter-Handle verwenden, um Fragen zu stellen, Feedback zu geben oder Feature-/Dokument-Anforderungen zu stellen.
-> Zusätzlich zu einem Ort, an dem Sie sich mit Fragen/Feedback/Anfragen beschäftigen können, sollten Sie sich Twitter an der Stelle befinden, an der Sie Ihren "Feed" auf allen Sdn-und Windows-Container Netzwerken erhalten.-Twitter ist der erste Ort, an dem wir **Neuigkeiten veröffentlichen** **, Ankündigung ankündigen. Features** und zeigen die Community auf alle **neuesten Blogs und Ressourcen**.
+> Zusätzlich zu einem Ort, an dem Sie Fragen/Feedback/Anfragen beantworten können, empfiehlt es sich, Twitter an der Stelle zu erhalten, an der Sie Ihren "Feed" auf allen Sdn-und Windows-Container-Netzwerken beziehen können. Twitter ist der erste Ort, an dem wir **Neuigkeiten veröffentlichen**, **neue Features** ankündigen und die Community auf alle unsere **neuesten Blogs und Ressourcen**verweisen.
 
 ## <a name="github-microsoftsdn-repohttpsgithubcommicrosoftsdnissues"></a>GitHub (Repository für[Microsoft/Sdn](https://github.com/Microsoft/SDN/issues))
 Wechseln Sie [hier](https://github.com/Microsoft/SDN/issues) , um über unser GitHub-Repository Probleme an das Sdn-Team zu senden. Dies ist der beste Ort, um **Hilfe bei der Problem** Behandlung zu erhalten oder **Fehler zu melden**.
 
-> GitHub ist der beste Ort, um uns über Themen zu kontaktieren, die detaillierter sind als die Arten von Dingen, die Sie problemlos in einen Tweet einfügen können. *benötigen Sie Hilfe bei der Sdn-Bereitstellung? Sie sind nicht sicher, wie unsere Features für die individuellen Anforderungen Ihrer Organisation geeignet sind? Sie werden von einem möglichen Fehler gehalten?* Alle guten Gründe, um uns durch das Einreichen eines GitHub-Problems zu kontaktieren.
+> GitHub ist der beste Ort, um uns über Themen zu kontaktieren, die detaillierter sind als die Arten von Dingen, die Sie problemlos in einen Tweet einfügen können. *Benötigen Sie Hilfe bei der Sdn-Bereitstellung? Sie sind nicht sicher, wie unsere Features für die individuellen Anforderungen Ihrer Organisation geeignet sind? Werden Sie durch einen potenziellen Fehler gehalten?* Alle guten Gründe, um uns durch das Einreichen eines GitHub-Problems zu kontaktieren.
 
 ## <a name="microsoft-docshttpsdocsmicrosoftcom"></a>[Microsoft-Dokumentation](https://docs.microsoft.com/)
 Unsere [Container-Netzwerk Dokumentation](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-networking) finden Sie auf [Microsoft-Dokumentation (docs.Microsoft.com)](https://docs.microsoft.com/), die über eine **integrierte Kommentarfunktion**verfügt. Zum verlassen oder zum Antworten auf einen Kommentar zu Microsoft-Dokumentation melden Sie sich einfach an, Scrollen Sie nach unten zum unteren Rand der Microsoft-Dokumentation Seite, auf die Sie verweisen möchten, und stellen Sie dann Ihren Kommentar dort ein.

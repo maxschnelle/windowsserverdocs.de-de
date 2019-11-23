@@ -21,9 +21,9 @@ ms.locfileid: "71367221"
 ---
 # <a name="monitor-the-existing-load-on-the-remote-access-server"></a>Überwachen der vorhandenen Last auf dem Remotezugriffsserver
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-**Hinweis**: Durch Windows Server 2013 werden DirectAccess und RRAS (Routing and Remote Access Service, Routing- und RAS-Dienst) zu einer einzigen Remotezugriffsrolle zusammengefasst.  
+**Hinweis:** Durch Windows Server 2012 werden DirectAccess und RRAS (Routing and Remote Access Service, Routing- und RAS-Dienst) zu einer einzigen Remotezugriffsrolle zusammengefasst.  
   
 Der Begriff " **Laden** " bezieht sich auf die Statistiken, die sich auf die Anzahl der Verbindungen auf dem RAS-Server beziehen. Es folgen die Schritte, die zum Nachverfolgen der Last auf dem RAS-Server erforderlich sind.  
   
@@ -58,7 +58,7 @@ Mithilfe des Überwachungs Dashboards, das in der-Verwaltungskonsole auf dem RAS
   
 Der System **Monitor** zeigt nun die ausgewählten Server Lade Statistiken grafisch an.  
   
-](../../../media/Monitor-the-existing-load-on-the-Remote-Access-server/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
+![der entsprechenden Windows PowerShell-](../../../media/Monitor-the-existing-load-on-the-Remote-Access-server/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   

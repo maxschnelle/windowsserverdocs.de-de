@@ -28,7 +28,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren**oder einer entspre
   
 2.  Klicken Sie auf der Seite **Vorbereitung** auf **Weiter**.  
   
-3.  Klicken Sie auf der Seite **Installationstyp auswählen** auf **Rolle @ no__t-2based oder Feature @ no__t-3based Installation**, und klicken Sie dann auf **weiter**.  
+3.  Klicken Sie auf der Seite **Installationstyp auswählen** auf **Rollen\-basiert oder Feature\-basierte Installation**, und klicken Sie dann auf **weiter**.  
   
 4.  Klicken Sie auf der Seite  **Zielserver auswählen** auf **Einen Server aus dem Serverpool auswählen**, überprüfen Sie, ob der Zielcomputer ausgewählt ist, und klicken Sie dann auf **Weiter**.  
   
@@ -36,7 +36,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren**oder einer entspre
   
 6.  Klicken Sie auf der Seite **Features auswählen** auf **Weiter**. Die erforderlichen Voraussetzungen sind vorab ausgewählt. Sie müssen keine anderen Features auswählen.  
   
-7.  Klicken Sie auf der Seite **Active Directory Verbunddienst \(AD FS @ no__t-2** auf **weiter**.  
+7.  Klicken Sie auf der Seite **Active Directory Verbunddienst \(AD FS\)** auf **weiter**.  
   
 8.  Nachdem Sie die Informationen auf der Seite **Installations Auswahl bestätigen** überprüft haben, klicken Sie auf **Installieren**.  
   
@@ -44,9 +44,9 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren**oder einer entspre
   
 ### <a name="to-install-the-ad-fs-server-role-via-windows-powershell"></a>So installieren Sie die AD FS-Server Rolle über Windows PowerShell  
   
-1.  Öffnen Sie auf dem Computer, den Sie als Verbund Server konfigurieren möchten, das Windows PowerShell-Befehlsfenster, und führen Sie dann den folgenden `Install-windowsfeature adfs-federation –IncludeManagementTools`Befehl aus:.  
+1.  Öffnen Sie auf dem Computer, den Sie als Verbund Server konfigurieren möchten, das Windows PowerShell-Befehlsfenster, und führen Sie dann den folgenden Befehl aus: `Install-windowsfeature adfs-federation –IncludeManagementTools`.  
   
-## <a name="see-also"></a>Siehe auch 
+## <a name="see-also"></a>Weitere Informationen 
 
 [AD FS-Bereitstellung](../../ad-fs/AD-FS-Deployment.md)  
 

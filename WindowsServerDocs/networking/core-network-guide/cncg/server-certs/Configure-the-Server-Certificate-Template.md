@@ -17,9 +17,9 @@ ms.locfileid: "71356756"
 ---
 # <a name="configure-the-server-certificate-template"></a>Konfigurieren der Serverzertifikatvorlage
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Mithilfe dieses Verfahrens können Sie die Zertifikat Vorlage konfigurieren, die Active Directory @ no__t-0-Zertifikat Dienste (AD CS) als Grundlage für Server Zertifikate verwendet, die bei Servern in Ihrem Netzwerk registriert sind.  
+Mithilfe dieses Verfahrens können Sie die Zertifikat Vorlage konfigurieren, die Active Directory&reg; Zertifikat Dienste (AD CS) als Grundlage für Server Zertifikate verwendet, die für Server in Ihrem Netzwerk registriert sind.  
   
 Beim Konfigurieren dieser Vorlage können Sie die Server Active Directory Gruppe angeben, die automatisch ein Serverzertifikat von AD CS erhalten soll.   
   

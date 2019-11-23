@@ -25,7 +25,7 @@ Sie können auch einen Active Directory getrennten Cluster bereitstellen. Mit di
 
 #### <a name="checklist-create-a-failover-cluster"></a>Prüfliste: Erstellen eines Failoverclusters
 
-| Status | Aufgabe | Referenz |
+| Status | Aufgabe | Verweis |
 | ---    | ---  | ---       |
 | ☐    | Überprüfen der Voraussetzungen | [Überprüfen der Voraussetzungen](#verify-the-prerequisites) |
 | ☐    | Installieren Sie das Failoverclusteringfeature auf jedem Server, den Sie als Clusterknoten hinzufügen möchten. | [Installieren des Failoverclustering-Features](#install-the-failover-clustering-feature) |
@@ -88,14 +88,14 @@ Vor der Erstellung des Failovercluster wird dringend empfohlen, dass Sie die Kon
 1. Starten Sie den Failovercluster-Manager auf einem Computer, auf dem die Verwaltungstools für Failovercluster über die Remoteserver-Verwaltungstools installiert wurden, oder auf einem Server, auf dem Sie das Failoverclusteringfeature installiert haben. Um dies auf einem Server zu erreichen, starten Sie Server-Manager, und wählen Sie dann **im Menü Extras** die Option **Failovercluster-Manager**aus.
 2. Klicken Sie im **Failovercluster-Manager** Bereich unter **Verwaltung**auf **Konfiguration**überprüfen.
 3. Wählen Sie **auf der Seite** Vorbereitung die Option **weiter**aus.
-4. Geben Sie auf der Seite **Server oder Cluster auswählen** in das Feld **Name eingeben** den NetBIOS-Namen oder den voll qualifizierten Domänen Namen eines Servers ein, den Sie als Failoverclusterknoten hinzufügen möchten, und klicken Sie dann auf **Hinzufügen**. Wiederholen Sie diesen Schritt für alle weiteren Server, die Sie hinzufügen möchten. Wenn Sie mehrere Server gleichzeitig hinzufügen möchten, trennen Sie die Namen durch ein Komma oder Semikolon. Geben Sie z. b. die Namen im Format `server1.contoso.com, server2.contoso.com` ein. Wenn Sie fertig sind, wählen Sie **weiter**aus.
+4. Geben Sie auf der Seite **Server oder Cluster auswählen** in das Feld **Name eingeben** den NetBIOS-Namen oder den voll qualifizierten Domänen Namen eines Servers ein, den Sie als Failoverclusterknoten hinzufügen möchten, und klicken Sie dann auf **Hinzufügen**. Wiederholen Sie diesen Schritt für alle weiteren Server, die Sie hinzufügen möchten. Wenn Sie mehrere Server gleichzeitig hinzufügen möchten, trennen Sie die Namen durch ein Komma oder Semikolon. Geben Sie z. b. die Namen im Format `server1.contoso.com, server2.contoso.com`ein. Wenn Sie fertig sind, wählen Sie **weiter**aus.
 5. Wählen Sie auf der Seite **Test Optionen die Option** **alle Tests ausführen (empfohlen)** aus, und klicken Sie dann auf **weiter**.
 6. Wählen Sie auf der Seite **Bestätigung** die Option **weiter**aus.
 
     Auf der Seite zur Ausführung der Überprüfung wird der Status der aktiven Tests angezeigt.
 7. Führen Sie auf der Seite **Zusammenfassung** eine der folgenden Aktionen aus:
     
-      - Wenn die Ergebnisse angeben, dass die Tests erfolgreich abgeschlossen wurden und die Konfiguration für das Clustering geeignet ist und Sie den Cluster sofort erstellen möchten, stellen Sie sicher, dass das Kontrollkästchen **Cluster jetzt mit den überprüften Knoten erstellen** aktiviert ist. Wählen Sie **Fertig**stellen. Fahren Sie dann mit Schritt 4 des Verfahrens [Erstellen des Failoverclusters](#create-the-failover-cluster) fort.
+      - Wenn die Ergebnisse auf eine erfolgreiche Ausführung der Tests hinweisen und die Konfiguration für das Clustering geeignet ist und Sie den Cluster sofort erstellen möchten, stellen Sie sicher, dass das Kontrollkästchen **Cluster jetzt mit den überprüften Knoten erstellen** aktiviert ist, und klicken Sie dann auf **Fertig**stellen. Fahren Sie dann mit Schritt 4 des Verfahrens [Erstellen des Failoverclusters](#create-the-failover-cluster) fort.
       - Wenn die Ergebnisse darauf hindeuten, dass Warnungen oder Fehler aufgetreten sind, wählen Sie **Bericht anzeigen** aus, um die Details anzuzeigen und zu ermitteln, welche Probleme korrigiert werden müssen. Beachten Sie, dass eine Warnung für einen bestimmten Validierungstest darauf hinweist, dass dieser Aspekt des Failoverclusters zwar unterstützt werden kann, er aber möglicherweise nicht den empfohlenen bewährten Methoden entspricht.
         
         > [!NOTE]
@@ -158,9 +158,9 @@ So erstellen Sie eine Cluster Rolle:
    | DFS-Namespaceserver     |  DHCP-Serverrolle       |
    | Distributed Transaction Coordinator (DTC)     | Keine        |
    | Dateiserver     |  Dateiserverrolle       |
-   | Allgemeine Anwendung     |  Nicht verfügbar       |
-   | Allgemeines Skript     |   Nicht verfügbar      |
-   | Allgemeiner Dienst     |   Nicht verfügbar      |
+   | Allgemeine Anwendung     |  Nicht anwendbar       |
+   | Allgemeines Skript     |   Nicht anwendbar      |
+   | Allgemeiner Dienst     |   Nicht anwendbar      |
    | Hyper-V-Replikatbroker     |   Hyper-V-Rolle      |
    | iSCSI-Zielserver     |    iSCSI-Zielserver (Teil der Dateiserverrolle)     |
    | iSNS-Server     |  iSNS-Serverdienstfeature       |
@@ -193,7 +193,7 @@ Test-Cluster –Node Server1, Server2
 ```
 
 > [!NOTE]
-> Das **Test-Cluster-** Cmdlet gibt die Ergebnisse in eine Protokolldatei im aktuellen Arbeitsverzeichnis aus. Zum Beispiel: C:\Users @ no__t-0username > \AppData\Local\Temp.
+> Das **Test-Cluster-** Cmdlet gibt die Ergebnisse in eine Protokolldatei im aktuellen Arbeitsverzeichnis aus. Beispiel: c:\Users\<username > \AppData\Local\Temp.
 
 Im folgenden Beispiel wird ein Failovercluster namens *MyCluster* mit den Knoten *Server1* und *Server2*erstellt, die statische IP-Adresse *192.168.1.12*zugewiesen und der gesamte geeignete Speicher zum Failovercluster hinzugefügt.
 

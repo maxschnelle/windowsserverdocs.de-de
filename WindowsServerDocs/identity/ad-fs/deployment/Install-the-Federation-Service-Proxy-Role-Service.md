@@ -18,7 +18,7 @@ ms.locfileid: "71359567"
 ---
 # <a name="install-the-federation-service-proxy-role-service"></a>Installieren des Verbundserverproxy-Rollendiensts
 
-Nachdem Sie einen Computer mit den erforderlichen Anwendungen und Zertifikaten konfiguriert haben, können Sie den Verbunddienstproxy-Rollen Dienst Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 installieren. Mit dem folgenden Verfahren können Sie den Verbunddienstproxy-Rollen Dienst installieren. Wenn Sie den Verbunddienstproxy-Rollen Dienst auf einem Computer installieren, wird dieser Computer zu einem Verbund Server Proxy.  
+Nachdem Sie einen Computer mit den erforderlichen Anwendungen und Zertifikaten konfiguriert haben, können Sie den Verbunddienstproxy-Rollen Dienst Active Directory-Verbunddienste (AD FS) \(AD FS\)installieren. Mit dem folgenden Verfahren können Sie den Verbunddienstproxy-Rollen Dienst installieren. Wenn Sie den Verbunddienstproxy-Rollen Dienst auf einem Computer installieren, wird dieser Computer zu einem Verbund Server Proxy.  
   
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
@@ -30,7 +30,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
   
 3.  Klicken Sie auf der Seite **Vorbereitung** auf **Weiter**.  
   
-4.  Klicken Sie auf der Seite **Installationstyp auswählen** auf **Rolle @ no__t-2based oder Feature @ no__t-3based Installation**, und klicken Sie auf **weiter**.  
+4.  Klicken Sie auf der Seite **Installationstyp auswählen** auf **Rollen\-basiert oder Feature\-basierte Installation**, und klicken Sie auf **weiter**.  
   
 5.  Klicken Sie auf der Seite **Zielserver auswählen** auf **einen Server aus dem Server Pool auswählen**, überprüfen Sie, ob der Zielcomputer hervorgehoben ist, und klicken Sie dann auf **weiter**.  
   
@@ -57,8 +57,8 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
   
 ## <a name="additional-references"></a>Weitere Verweise  
-[Prüfliste: Einrichten eines Verbundservers](Checklist--Setting-Up-a-Federation-Server.md)  
+[Prüfliste: Einrichten eines Verbund Servers](Checklist--Setting-Up-a-Federation-Server.md)  
   
-[Prüfliste: Einrichten eines Verbundserverproxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Prüfliste: Einrichten eines Verbund Server Proxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 

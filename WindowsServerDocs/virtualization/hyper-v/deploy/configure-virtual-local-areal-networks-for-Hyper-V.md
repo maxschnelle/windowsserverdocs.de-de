@@ -19,7 +19,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71364277"
 ---
 # <a name="configure-virtual-local-area-networks-for-hyper-v"></a>Konfigurieren von virtuellen lokalen Netzwerken für Hyper-V
-Virtuelle lokale Netzwerke \(vlans @ no__t-1 bieten eine Möglichkeit, den Netzwerk Datenverkehr zu isolieren. VLANs werden in Switches und Routern konfiguriert, die 802.1 q unterstützen. Wenn Sie mehrere VLANs konfigurieren und die Kommunikation zwischen Ihnen stattfinden soll, müssen Sie die Netzwerkgeräte so konfigurieren, dass Sie dies zulassen. 
+Virtuelle lokale Netzwerke \(VLANs\) eine Möglichkeit bieten, den Netzwerk Datenverkehr zu isolieren. VLANs werden in Switches und Routern konfiguriert, die 802.1 q unterstützen. Wenn Sie mehrere VLANs konfigurieren und die Kommunikation zwischen Ihnen stattfinden soll, müssen Sie die Netzwerkgeräte so konfigurieren, dass Sie dies zulassen. 
 
 Zum Konfigurieren von VLANs benötigen Sie Folgendes:  
   
@@ -30,7 +30,7 @@ Auf dem Host konfigurieren Sie den virtuellen Switch so, dass Netzwerk Datenverk
   
 #### <a name="to-allow-a-virtual-switch-to-use-a-vlan"></a>So ermöglichen Sie einem virtuellen Switch die Verwendung eines VLANs  
   
-1.  Öffnen Sie den Hyper @ no__t-0V-Manager.  
+1.  Öffnen Sie den Hyper\-V-Manager.  
   
 2.  Klicken Sie im Menü Aktionen auf **Manager für virtuelle**Switches.  
   
@@ -42,7 +42,7 @@ Auf dem Host konfigurieren Sie den virtuellen Switch so, dass Netzwerk Datenverk
   
 #### <a name="to-allow-a-virtual-machine-to-use-a-vlan"></a>So lassen Sie zu, dass ein virtueller Computer ein VLAN verwendet  
   
-1.  Öffnen Sie den Hyper @ no__t-0V-Manager.  
+1.  Öffnen Sie den Hyper\-V-Manager.  
   
 2.  Wählen Sie im Ergebnisbereich unter **Virtual Machines**den entsprechenden virtuellen Computer aus, und klicken Sie dann mit der rechten Maustaste auf **Einstellungen**.  
 
@@ -54,8 +54,8 @@ Wenn die virtuelle Maschine weitere VLANs verwenden muss, führen Sie einen der 
   
 -   Verbinden Sie weitere virtuelle Netzwerkadapter mit den entsprechenden virtuellen Switches, und weisen Sie die VLAN-IDs zu. Stellen Sie sicher, dass die IP-Adressen ordnungsgemäß konfiguriert sind und dass der Datenverkehr, den Sie über das VLAN weiterleiten möchten, auch die richtige IP-Adresse verwendet  
   
--   Konfigurieren Sie den Wort Adapter des virtuellen Netzwerks im trunk Modus mit dem [Set @ no__t-1vmnetworkadaptervlan-](https://technet.microsoft.com/library/hh848475.aspx) cmdlt.
+-   Konfigurieren Sie den Wort Adapter des virtuellen Netzwerks im trunk Modus mithilfe der [Set\-vmnetworkadaptervlan](https://technet.microsoft.com/library/hh848475.aspx) -cmdlt.
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
  
-[Virtueller Switch für Hyper @ no__t-1V](https://technet.microsoft.com/windows-server-docs/networking/technologies/hyper-v-virtual-switch/hyper-v-virtual-switch)
+[Virtueller Hyper\-V-Switch](https://technet.microsoft.com/windows-server-docs/networking/technologies/hyper-v-virtual-switch/hyper-v-virtual-switch)

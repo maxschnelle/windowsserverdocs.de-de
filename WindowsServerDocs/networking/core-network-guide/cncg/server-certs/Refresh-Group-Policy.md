@@ -17,7 +17,7 @@ ms.locfileid: "71356187"
 ---
 # <a name="refresh-group-policy"></a>Aktualisieren von Gruppenrichtlinien
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Mithilfe dieses Verfahrens können Sie die Gruppenrichtlinie auf dem lokalen Computer aktualisieren. Wenn Gruppenrichtlinie aktualisiert wird und die automatische Zertifikat Registrierung konfiguriert ist und ordnungsgemäß funktioniert, wird der lokale Computer von der Zertifizierungsstelle (Certification Authority, ca) automatisch zu einem Zertifikat registriert.  
   
@@ -28,7 +28,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
   
 ### <a name="to-refresh-group-policy-on-the-local-computer"></a>So aktualisieren Sie die Gruppenrichtlinie auf dem lokalen Computer  
   
-1.  Öffnen Sie auf dem Computer, auf dem NPS installiert ist, Windows PowerShell @ no__t-0, indem Sie das Symbol auf der Taskleiste verwenden.  
+1.  Öffnen Sie auf dem Computer, auf dem NPS installiert ist, Windows PowerShell-&reg;, indem Sie das Symbol auf der Taskleiste verwenden.  
   
 2.  Geben Sie an der Windows PowerShell-Eingabeaufforderung **gpupdate**ein, und drücken Sie dann die EINGABETASTE.  
   

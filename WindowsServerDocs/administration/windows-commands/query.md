@@ -22,7 +22,7 @@ ms.locfileid: "71371837"
 ---
 # <a name="query"></a>query
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt Informationen zu Prozessen, Sitzungen und Remotedesktop-Sitzungshost (RD-Sitzungshost)-Servern an.
 
@@ -47,4 +47,4 @@ query user
 
 #### <a name="additional-references"></a>Weitere Verweise
 [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[Remotedesktopdienste &#40;Befehlsreferenz&#41; für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)
+[Remotedesktopdienste &#40;Terminal Dienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

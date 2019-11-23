@@ -22,7 +22,7 @@ ms.locfileid: "71370842"
 ---
 # <a name="subcommand-set-drivergroup"></a>Unterbefehl: Set-drivergroup
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Legt die Eigenschaften einer vorhandenen Treiber Gruppe auf einem Server fest.
 ## <a name="syntax"></a>Syntax
@@ -32,9 +32,9 @@ wdsutil /Set-DriverGroup /DriverGroup:<Group Name> [/Server:<Server Name>] [/Nam
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|/DriverGroup: <Group Name>|Gibt den Namen der Treiber Gruppe an.|
+|/DriverGroup:<Group Name>|Gibt den Namen der Treiber Gruppe an.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
-|[/Name: <New Group Name>]|Gibt den neuen Namen für die Treiber Gruppe an.|
+|[/Name:<New Group Name>]|Gibt den neuen Namen für die Treiber Gruppe an.|
 |[/Enabled: {Yes &#124; No}|Aktiviert oder deaktiviert die Treiber Gruppe.|
 |[/Applicability: {Matching &#124; all}]|Gibt an, welche Pakete installiert werden sollen, wenn die Filterkriterien erfüllt sind. **Übereinstimmende** bedeutet, dass nur die Treiber Pakete installiert werden, die mit einer Client-e- **Alle** bedeutet, dass alle Pakete unabhängig von Ihrer Hardware auf Clients installiert werden.|
 ## <a name="BKMK_examples"></a>Beispiele

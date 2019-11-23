@@ -59,7 +59,7 @@ Die Merkmale der einzelnen Namespacetypen und Modi werden in der folgenden Tabel
 
 |Merkmal|Eigenständiger Namespace|Domänenbasierter Namespace (Windows Server 2000 Server-Modus) |Domänenbasierter Namespace (Windows Server 2008 Server Modus) | 
 |---|---|---|---|
-|Namespacepfad|\\ @ no__t-1*servername\rootname* |\\ @ no__t-1*netbiosdomainname\rootname* <br />\\ @ no__t-1*dnsdomainname\rootname*|\\ @ no__t-1*netbiosdomainname\rootname* <br /> \\ @ no__t-1*dnsdomainname\rootname*|
+|Namespacepfad|\\\ *servername\rootname* |\\\ *netbiosdomainname\rootname* <br />\\\ *dnsdomainname\rootname*|\\\ *netbiosdomainname\rootname* <br /> \\\ *dnsdomainname\rootname*|
 |Speicherort der Namespaceinformationen|In der Registrierung und in einem Speichercache auf dem Namespaceserver|In AD DS und in einem Speichercache auf jedem Namespaceserver|In AD DS und in einem Speichercache auf jedem Namespaceserver|
 |Empfehlungen für die Größe des Namespaces|Der Namespace kann mehr als 5.000 Ordner mit Zielen enthalten. Die empfohlene Grenze beträgt 50.000 Ordner mit Zielen|Die Größe des Namespace-Objekts in AD DS sollte geringer als 5 Megabyte (MB) sein, um die Kompatibilität mit Domänencontrollern aufrecht zu erhalten, die nicht unter Windows Server 2008 ausgeführt werden. Dies bedeutet nicht mehr als ca. 5.000 Ordner mit Zielen.|Der Namespace kann mehr als 5.000 Ordner mit Zielen enthalten. Die empfohlene Grenze beträgt 50.000 Ordner mit Zielen |
 |Minimale AD DS Gesamtstruktur-Funktionsebene|AD DS ist nicht erforderlich|Windows 2000|Windows Server 2003|
@@ -69,7 +69,7 @@ Die Merkmale der einzelnen Namespacetypen und Modi werden in der folgenden Tabel
 |Unterstützte Methoden zum Gewährleisten der Verfügbarkeit von Namespace|Erstellen Sie einen eigenständigen Namespace auf einem Failovercluster.|Verwenden Sie mehrerer Namespaceserver zum Hosten des Namespace. (Die Namespaceserver müssen in der gleichen Domäne sein.)|Verwenden Sie mehrerer Namespaceserver zum Hosten des Namespace. (Die Namespaceserver müssen in der gleichen Domäne sein.)|
 |Unterstützung für die Verwendung der DFS-Replikation zum Replizieren von Ordnerzielen|Unterstützt, wenn einer AD DS-Domäne beigetreten|Unterstützt|Unterstützt|
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 -   [Bereitstellen von DFS-Namespaces](deploying-dfs-namespaces.md)
 -   [Migrieren Sie einen domänenbasierten Namespace zum Windows Server 2008-Modus](migrate-a-domain-based-namespace-to-windows-server-2008-mode.md)

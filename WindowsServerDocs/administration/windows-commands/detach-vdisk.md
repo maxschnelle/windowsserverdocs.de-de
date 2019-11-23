@@ -22,9 +22,9 @@ ms.locfileid: "71378688"
 ---
 # <a name="detach-vdisk"></a>Vdisk trennen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Beendet die ausgewählte virtuelle Festplatte \(vhd @ no__t-1 als lokales Festplattenlaufwerk auf dem Host Computer. Nachdem eine virtuelle Festplatte getrennt wurde, können Sie sie verschieben.  
+Verhindert, dass die ausgewählte virtuelle Festplatte \(VHD-\) als lokales Festplattenlaufwerk auf dem Host Computer angezeigt wird. Nachdem eine virtuelle Festplatte getrennt wurde, können Sie sie verschieben.  
   
 > [!NOTE]  
 > Dieser Befehl gilt nur für Windows 7 und Windows Server 2008 R2.  

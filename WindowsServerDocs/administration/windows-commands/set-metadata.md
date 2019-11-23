@@ -36,8 +36,8 @@ set metadata [<Drive>:][<Path>]<MetaData.cab>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[\<laufwerk >:] [<Path>]|Gibt den Speicherort zum Erstellen der Metadatendatei an.|
-|@no__t -0metadata. cab >|Gibt den Namen der CAB-Datei zum Speichern von Metadaten für die Schatten Erstellung an.|
+|[\<Laufwerk >:] [<Path>]|Gibt den Speicherort zum Erstellen der Metadatendatei an.|
+|\<Metadata. cab >|Gibt den Namen der CAB-Datei zum Speichern von Metadaten für die Schatten Erstellung an.|
 
 #### <a name="additional-references"></a>Weitere Verweise
 

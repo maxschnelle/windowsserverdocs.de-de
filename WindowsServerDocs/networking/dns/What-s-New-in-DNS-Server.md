@@ -17,13 +17,13 @@ ms.locfileid: "71406235"
 ---
 # <a name="whats-new-in-dns-server-in-windows-server"></a>Neues in DNS-Server unter Windows Server
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema werden die Domain Name System (DNS)-Serverfunktionen beschrieben, die in Windows Server 2016 neu oder geändert wurden.  
   
 In Windows Server 2016 bietet der DNS-Server eine verbesserte Unterstützung in den folgenden Bereichen.  
   
-|Funktionalität|Neu oder verbessert|Beschreibung|  
+|Funktion|Neu oder verbessert|Beschreibung|  
 |-----------------|-------------------|---------------|  
 |DNS-Richtlinien|Neu|Sie können DNS-Richtlinien konfigurieren, um anzugeben, wie ein DNS-Server auf DNS-Abfragen antwortet. DNS-Antworten können auf der Client-IP-Adresse (Speicherort), der Tageszeit und mehreren anderen Parametern basieren. DNS-Richtlinien ermöglichen standortabhängige DNS, Datenverkehrs Verwaltung, Lastenausgleich, Split-Brain-DNS und andere Szenarien.|  
 |Antwortraten Begrenzung (RRL)|Neu|Sie können die Reaktionsraten Begrenzung für Ihre DNS-Server aktivieren. Auf diese Weise können Sie verhindern, dass böswillige Systeme, die Ihre DNS-Server verwenden, einen Denial-of-Service-Angriff auf einen DNS-Client initiieren.|  
@@ -34,16 +34,16 @@ In Windows Server 2016 bietet der DNS-Server eine verbesserte Unterstützung in 
   
 ## <a name="dns-policies"></a>DNS-Richtlinien
 
-Sie können die DNS-Richtlinie für die georeduntbasierte Datenverkehrs Verwaltung, intelligente DNS-Antworten basierend auf der Tageszeit, die Verwaltung eines einzelnen DNS-Servers, der für die Split @ no__t-0brain-Bereitstellung konfiguriert ist, das Anwenden von Filtern auf DNS-Abfragen usw. verwenden. Die folgenden Elemente bieten weitere Details zu diesen Funktionen.
+Sie können die DNS-Richtlinie für die georeduntbasierte Datenverkehrs Verwaltung, intelligente DNS-Antworten basierend auf der Tageszeit, die Verwaltung eines einzelnen DNS-Servers, der für die Split-\--Brain-Bereitstellung konfiguriert ist, das Anwenden von Filtern auf DNS-Abfragen und Die folgenden Elemente bieten weitere Details zu diesen Funktionen.
 
 -   **Anwendungs Lastenausgleich.** Wenn Sie mehrere Instanzen einer Anwendung an verschiedenen Speicherorten bereitgestellt haben, können Sie die DNS-Richtlinie verwenden, um die Auslastung des Datenverkehrs zwischen den verschiedenen Anwendungs Instanzen auszugleichen und die Datenverkehrs Last für die Anwendung dynamisch zuzuweisen.
 
--   **Geor@ no__t-1 Location based Traffic Management.** Mithilfe der DNS-Richtlinie können primäre und sekundäre DNS-Server auf DNS-Client Abfragen basierend auf dem geografischen Standort des Clients und der Ressource, mit der der Client eine Verbindung herzustellen versucht, Antworten, und dem Client wird die IP-Adresse des nächstgelegenen Ressource. 
+-   **\-standortbasierte Datenverkehrs Verwaltung.** Mithilfe der DNS-Richtlinie können primäre und sekundäre DNS-Server auf DNS-Client Abfragen basierend auf dem geografischen Standort des Clients und der Ressource, mit der der Client eine Verbindung herzustellen versucht, Antworten, und dem Client wird die IP-Adresse des nächstgelegenen Ressource. 
 
--   **Teilen Sie das Hirn-DNS.** Mit Split @ no__t-0brain-DNS werden DNS-Einträge in verschiedene Zonen Bereiche auf demselben DNS-Server aufgeteilt, und DNS-Clients erhalten eine Antwort, je nachdem, ob es sich bei den Clients um interne oder externe Clients handelt. Sie können Split @ no__t-0brain-DNS für Active Directory integrierte Zonen oder Zonen auf eigenständigen DNS-Servern konfigurieren.
+-   **Teilen Sie das Hirn-DNS.** Mit Split\-Brain-DNS werden DNS-Einträge in verschiedene Zonen Bereiche auf demselben DNS-Server aufgeteilt, und DNS-Clients erhalten eine Antwort, je nachdem, ob es sich bei den Clients um interne oder externe Clients handelt. Sie können\--Brain-DNS für Active Directory integrierte Zonen oder Zonen auf eigenständigen DNS-Servern aufteilen.
 
 -   **Filterung.** Sie können die DNS-Richtlinie konfigurieren, um Abfrage Filter basierend auf den von Ihnen angegebenen Kriterien zu erstellen. Mithilfe von Abfrage Filtern in der DNS-Richtlinie können Sie den DNS-Server so konfigurieren, dass er basierend auf der DNS-Abfrage und dem DNS-Client, der die DNS-Abfrage sendet, Benutzer definiert reagiert 
--   **Forensik.** Sie können DNS-Richtlinien verwenden, um böswillige DNS-Clients an eine nicht-@ no__t-0vorhandene IP-Adresse umzuleiten, anstatt Sie an den Computer weiterzuleiten, den Sie zu erreichen versuchen.
+-   **Forensik.** Sie können DNS-Richtlinien verwenden, um böswillige DNS-Clients an eine nicht\-vorhandene IP-Adresse umzuleiten, anstatt Sie an den Computer weiterzuleiten, den Sie zu erreichen versuchen.
 
 -   **Uhrzeit der täglichen Umleitung.** Mithilfe der DNS-Richtlinie können Sie den Anwendungs Datenverkehr mithilfe von DNS-Richtlinien, die auf der Tageszeit basieren, über verschiedene geografisch verteilte Instanzen einer Anwendung verteilen. 
   
@@ -75,7 +75,7 @@ Sie können die RRL-Einstellungen konfigurieren, um zu steuern, wie auf Anforder
   
 ## <a name="dane-support"></a>Unterstützung von Dane
 
-Sie können die DCS-Unterstützung \(rfc 6394 und 6698 @ no__t-1 verwenden, um für Ihre DNS-Clients anzugeben, von welcher Zertifizierungsstelle die Zertifikate für Domänen Namen, die auf Ihrem DNS-Server gehostet werden, ausgestellt werden sollen. Dies verhindert eine Art von man-in-the-Middle-Angriff, bei dem jemand einen DNS-Cache beschädigen und einen DNS-Namen auf seine eigene IP-Adresse verweisen kann.  
+Sie können die DCS-Unterstützung \(RFC 6394 und 6698\) verwenden, um Ihren DNS-Clients die Zertifizierungsstelle anzugeben, von der Zertifikate für Domänen Namen, die auf Ihrem DNS-Server gehostet werden, ausgestellt werden sollen. Dies verhindert eine Art von man-in-the-Middle-Angriff, bei dem jemand einen DNS-Cache beschädigen und einen DNS-Namen auf seine eigene IP-Adresse verweisen kann.  
   
 Stellen Sie sich beispielsweise vor, dass Sie eine sichere Website hosten, die SSL unter www.contoso.com verwendet, indem Sie ein Zertifikat von einer bekannten Autorität namens CA1 verwenden. Möglicherweise kann ein Benutzer ein Zertifikat für www.contoso.com von einer anderen, nicht so bekannten Zertifizierungsstelle mit dem Namen "Ca2" erhalten. Anschließend kann die Entität, die die Fake www.contoso.com-Website gehostet, den DNS-Cache eines Clients oder Servers beschädigen, um www.contoto.com auf die gefälschte Website zu verweisen. Dem Endbenutzer wird ein Zertifikat von "Ca2" angezeigt, und er kann es einfach bestätigen und eine Verbindung mit dem gefälschten Standort herstellen. Bei der Verwendung von "Dane" würde der Client eine Anforderung an den DNS-Server für contoso.com stellen, die den TLSA-Datensatz fragt und erfährt, dass das Zertifikat für www.contoso.com von CA1 ausgegeben wurde. Wenn ein Zertifikat von einer anderen Zertifizierungsstelle angezeigt wird, wird die Verbindung abgebrochen.  
   
@@ -150,7 +150,7 @@ Weitere Informationen finden Sie in den folgenden Windows Server 2016 Windows Po
 - [DNSServer-Modul](https://docs.microsoft.com/powershell/module/dnsserver/?view=win10-ps)
 - [Dnsclient-Modul](https://docs.microsoft.com/powershell/module/dnsclient/?view=win10-ps)
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
   
 -   [Neues im DNS-Client](What-s-New-in-DNS-Client.md)  
   

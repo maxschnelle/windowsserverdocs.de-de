@@ -74,7 +74,7 @@ Dadurch werden alle Fehler zurückgegeben, die sich nur auf das jeweilige Volume
 
 ### <a name="connect"></a>Verbinden
 
-Um den Integritätsdienst abzufragen, müssen Sie eine **cimsession** mit dem Cluster einrichten. Zu diesem Zweck benötigen Sie einige Dinge, die nur in der Vollversion von .net verfügbar sind, was bedeutet, dass Sie dies nicht direkt über ein Web oder Mobile App durchführen können. Diese Codebeispiele verwenden C @ no__t-0, die einfachste Wahl für diese Datenzugriffs Schicht.
+Um den Integritätsdienst abzufragen, müssen Sie eine **cimsession** mit dem Cluster einrichten. Zu diesem Zweck benötigen Sie einige Dinge, die nur in der Vollversion von .net verfügbar sind, was bedeutet, dass Sie dies nicht direkt über ein Web oder Mobile App durchführen können. Diese Codebeispiele verwenden C\#, die einfachste Wahl für diese Datenzugriffs Schicht.
 
 ``` 
 ...
@@ -106,7 +106,7 @@ Es wird empfohlen, dass Sie das Kennwort **SecureString** direkt aus Benutzerein
 
 Nachdem die **cimsession** eingerichtet wurde, können Sie Windows-Verwaltungsinstrumentation (WMI) im Cluster Abfragen.
 
-Bevor Sie Fehler oder Metriken erhalten können, müssen Sie Instanzen von mehreren relevanten Objekten erhalten. Zuerst das **MSFT @ no__t-1storagesubsystem** , das direkte Speicherplätze im Cluster darstellt. Dabei können Sie alle **MSFT @ no__t-1storagenode** im Cluster und alle **MSFT @ no__t-3volume**-Datenmengen erhalten. Schließlich benötigen Sie auch **MSFT @ no__t-1storagehealth**, den Integritätsdienst selbst.
+Bevor Sie Fehler oder Metriken erhalten können, müssen Sie Instanzen von mehreren relevanten Objekten erhalten. Zuerst ist das **MSFT-\_storagesubsystem** , das direkte Speicherplätze auf dem Cluster darstellt. Mit diesem können Sie alle **MSFT-\_storagenode** im Cluster und jedes **MSFT-\_Volume**, die Datenvolumes, erhalten. Schließlich benötigen Sie den **MSFT-\_storagehealth**, den Integritätsdienst selbst.
 
 ```
 CimInstance Cluster;
@@ -174,9 +174,9 @@ public void GetFaults(CimSession Session, CimInstance Target)
 }
 ```
 
-### <a name="optional-myfault-class"></a>Optional: Myfault-Klasse
+### <a name="optional-myfault-class"></a>Optional: myfault-Klasse
 
-Möglicherweise ist es sinnvoll, eine eigene Darstellung von Fehlern zu erstellen und beizubehalten. Diese **myfault** -Klasse speichert beispielsweise verschiedene wichtige Eigenschaften von Fehlern, einschließlich der **faultid**, die später verwendet werden kann, um Aktualisierungs-oder Entfernungs Benachrichtigungen zuzuordnen, oder eine Deduplizierung, falls derselbe Fehler mehrmals erkannt wird. aus irgendeinem Grund.
+Möglicherweise ist es sinnvoll, eine eigene Darstellung von Fehlern zu erstellen und beizubehalten. Diese **myfault** -Klasse speichert beispielsweise verschiedene wichtige Eigenschaften von Fehlern, einschließlich der **faultid**, die später verwendet werden kann, um Aktualisierungs-oder Entfernungs Benachrichtigungen zuzuordnen, oder um eine Deduplizierung durchzuführen, wenn derselbe Fehler mehrmals erkannt wird, aus einem beliebigen Grund.
 
 ```       
 public class MyFault {
@@ -214,7 +214,7 @@ Die komplette Liste der Eigenschaften in den einzelnen Fehlern (**diagnoseresult
 
 Wenn Fehler erstellt, entfernt oder aktualisiert werden, generiert der Integritätsdienst WMI-Ereignisse. Diese sind erforderlich, um den Anwendungs Status ohne häufige Abruf Vorgänge synchron zu halten, und können dabei helfen, wie z. b. das Festlegen von e-Mail-Benachrichtigungen. Um diese Ereignisse zu abonnieren, wird in diesem Beispielcode das Observer-Entwurfsmuster erneut verwendet.
 
-Abonnieren Sie zuerst **MSFT @ no__t-1storagefaultevent-** Ereignisse.
+Abonnieren Sie zuerst **MSFT-\_storagefaultevent** -Ereignisse.
 
 ```      
 public void ListenForFaultEvents()
@@ -285,7 +285,7 @@ In einigen Fällen können jedoch Fehler von der Integritätsdienst (z. b. nach 
 
 ### <a name="properties-of-faults"></a>Eigenschaften von Fehlern
 
-Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Objekts. Überprüfen Sie für das vollständige Schema die Klasse **MSFT @ no__t-1storagediagnoseresult** in *storagewmi. MOF*.
+Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Objekts. Überprüfen Sie für das vollständige Schema die Klasse **MSFT\_storagediagnoseresult** in *storagewmi. MOF*.
 
 | **Eigenschaft**              | **Beispiel**                                                     |
 |---------------------------|-----------------------------------------------------------------|
@@ -309,7 +309,7 @@ Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Objekts. Überp
 
 ## <a name="properties-of-fault-events"></a>Eigenschaften von Fehlerereignissen
 
-Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Ereignisses. Überprüfen Sie für das vollständige Schema die **MSFT @ no__t-1storagefaultevent-** Klasse in " *storagewmi. MOF*".
+Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Ereignisses. Überprüfen Sie für das vollständige Schema die **MSFT\_storagefaultevent** -Klasse in der Datei *storagewmi. MOF*.
 
 Beachten Sie den **ChangeType**, der angibt, ob ein Fehler erstellt, entfernt oder aktualisiert wird, und die **faultid**. Ein Ereignis enthält auch alle Eigenschaften des betroffenen Fehlers.
 
@@ -332,188 +332,188 @@ In Windows Server 2016 stellt die Integritätsdienst die folgende Fehlerabdeckun
 
 ### <a name="physicaldisk-8"></a>**PhysicalDisk (8)**
 
-#### <a name="faulttype-microsofthealthfaulttypephysicaldiskfailedmedia"></a>FaultType Microsoft. Health. faultType. PhysicalDisk. failedmedia
+#### <a name="faulttype-microsofthealthfaulttypephysicaldiskfailedmedia"></a>FaultType: Microsoft. Health. faultType. PhysicalDisk. failedmedia
 * Schweregrad: Warnung
 * Grund: *"Fehler bei der physischen Festplatte."*
-* Empfehlungs Aktion: *"Ersetzen Sie den physischen Datenträger".*
+* Empfehlungs Aktion: *"Ersetzen des physischen Datenträgers".*
 
-#### <a name="faulttype-microsofthealthfaulttypephysicaldisklostcommunication"></a>FaultType Microsoft. Health. faultType. PhysicalDisk. lostcommunication
+#### <a name="faulttype-microsofthealthfaulttypephysicaldisklostcommunication"></a>FaultType: Microsoft. Health. faultType. PhysicalDisk. lostcommunication
 * Schweregrad: Warnung
-* Grund: *"Die Verbindung mit dem physischen Datenträger ist verloren gegangen."*
+* Ursache: *"die Verbindung mit dem physischen Datenträger ist verloren gegangen".*
 * Empfehlungs Aktion: *"Überprüfen Sie, ob die physische Festplatte funktioniert und ordnungsgemäß verbunden ist."*
 
-#### <a name="faulttype-microsofthealthfaulttypephysicaldiskunresponsive"></a>FaultType Microsoft. Health. faultType. PhysicalDisk. nicht reagierend
+#### <a name="faulttype-microsofthealthfaulttypephysicaldiskunresponsive"></a>FaultType: Microsoft. Health. faultType. PhysicalDisk. nicht reagierend.
 * Schweregrad: Warnung
-* Grund: *"Der physische Datenträger stellt wiederkehrende nicht Reaktionsfähigkeit dar."*
-* Empfehlungs Aktion: *"Ersetzen Sie den physischen Datenträger".*
+* Grund: *"der physische Datenträger stellt wiederkehrende nicht Reaktionsfähigkeit dar."*
+* Empfehlungs Aktion: *"Ersetzen des physischen Datenträgers".*
 
-#### <a name="faulttype-microsofthealthfaulttypephysicaldiskpredictivefailure"></a>FaultType Microsoft. Health. faultType. PhysicalDisk. predictivefailure
+#### <a name="faulttype-microsofthealthfaulttypephysicaldiskpredictivefailure"></a>FaultType: Microsoft. Health. faultType. PhysicalDisk. predictivefailure
 * Schweregrad: Warnung
-* Grund: *"Es wird vorausgesagt, dass ein Ausfall des physischen Datenträgers bald auftritt."*
-* Empfehlungs Aktion: *"Ersetzen Sie den physischen Datenträger".*
+* Ursache: *"ein Ausfall des physischen Datenträgers ist in Kürze geplant."*
+* Empfehlungs Aktion: *"Ersetzen des physischen Datenträgers".*
 
-#### <a name="faulttype-microsofthealthfaulttypephysicaldiskunsupportedhardware"></a>FaultType Microsoft. Health. faultType. PhysicalDisk. unsupportedhardware
+#### <a name="faulttype-microsofthealthfaulttypephysicaldiskunsupportedhardware"></a>FaultType: Microsoft. Health. faultType. PhysicalDisk. unsupportedhardware
 * Schweregrad: Warnung
-* Grund: *"Der physische Datenträger wird unter Quarantäne gestellt, weil er von Ihrem Lösungsanbieter nicht unterstützt wird."*
-* Empfehlungs Aktion: *"Ersetzen Sie den physischen Datenträger durch unterstützte Hardware".*
+* Ursache: *"der physische Datenträger wird unter Quarantäne gestellt, weil er von Ihrem Lösungsanbieter nicht unterstützt wird."*
+* Empfehlungs Aktion: *"ersetzen Sie den physischen Datenträger durch unterstützte Hardware".*
 
-#### <a name="faulttype-microsofthealthfaulttypephysicaldiskunsupportedfirmware"></a>FaultType Microsoft. Health. faultType. PhysicalDisk. unsupportedfirmware
+#### <a name="faulttype-microsofthealthfaulttypephysicaldiskunsupportedfirmware"></a>FaultType: Microsoft. Health. faultType. PhysicalDisk. unsupportedfirmware
 * Schweregrad: Warnung
-* Grund: *"Der physische Datenträger wird in Quarantäne gestellt, da seine Firmwareversion von Ihrem Lösungsanbieter nicht unterstützt wird."*
+* Ursache: *"der physische Datenträger wird in Quarantäne gestellt, da seine Firmwareversion von Ihrem Lösungsanbieter nicht unterstützt wird."*
 * Empfehlungs Aktion: *"Aktualisieren Sie die Firmware auf dem physischen Datenträger auf die Zielversion."*
 
-#### <a name="faulttype-microsofthealthfaulttypephysicaldiskunrecognizedmetadata"></a>FaultType Microsoft. Health. faultType. PhysicalDisk. unerkenzedmetadata
+#### <a name="faulttype-microsofthealthfaulttypephysicaldiskunrecognizedmetadata"></a>FaultType: Microsoft. Health. faultType. PhysicalDisk. unerkenzedmetadata
 * Schweregrad: Warnung
-* Grund: *"Die physische Festplatte hat nicht erkannte Meta-Daten."*
+* Grund: *"der physische Datenträger hat nicht erkannte Meta-Daten."*
 * Empfehlungs Aktion: *"dieser Datenträger kann Daten aus einem unbekannten Speicherpool enthalten. Stellen Sie zunächst sicher, dass auf diesem Datenträger keine nützlichen Daten vorhanden sind, und setzen Sie dann den Datenträger zurück.*
 
-#### <a name="faulttype-microsofthealthfaulttypephysicaldiskfailedfirmwareupdate"></a>FaultType Microsoft. Health. faultType. PhysicalDisk. failedfirmwareupdate
+#### <a name="faulttype-microsofthealthfaulttypephysicaldiskfailedfirmwareupdate"></a>FaultType: Microsoft. Health. faultType. PhysicalDisk. failedfirmwareupdate
 * Schweregrad: Warnung
-* Grund: *"Fehler beim Versuch, die Firmware auf dem physischen Datenträger zu aktualisieren."*
-* Empfehlungs Aktion: *"Versuchen Sie, eine andere Firmware-Binärdatei zu verwenden."*
+* Ursache: *"Fehler bei der Aktualisierung der Firmware auf dem physischen Datenträger."*
+* Empfehlungs Aktion: *"versuchen Sie, eine andere Firmware-Binärdatei zu verwenden."*
 
 ### <a name="virtual-disk-2"></a>**Virtueller Datenträger (2)**
 
-#### <a name="faulttype-microsofthealthfaulttypevirtualdisksneedsrepair"></a>FaultType Microsoft. Health. faultType. virtualdisks. needsrepair
-* Schweregrad: Informationen
-* Grund: *"einige Daten auf diesem Volume sind nicht vollständig stabil. Der Zugriff ist weiterhin möglich. "*
-* Empfehlungs Aktion: *"Wiederherstellen der Resilienz der Daten."*
+#### <a name="faulttype-microsofthealthfaulttypevirtualdisksneedsrepair"></a>FaultType: Microsoft. Health. faultType. virtualdisks. needsrepair
+* Schweregrad: Information
+* Ursache: *"einige Daten auf diesem Volume sind nicht vollständig stabil. Der Zugriff ist weiterhin möglich. "*
+* Empfehlungs Maßnahme: *"Wiederherstellen der Resilienz der Daten."*
 
-#### <a name="faulttype-microsofthealthfaulttypevirtualdisksdetached"></a>FaultType Microsoft. Health. faultType. virtualdisks. getrennt
-* Schweregrad: Kritisch
+#### <a name="faulttype-microsofthealthfaulttypevirtualdisksdetached"></a>FaultType: Microsoft. Health. faultType. virtualdisks. getrennte
+* Schweregrad: kritisch
 * Grund: *"der Zugriff auf das Volume ist nicht möglich. Einige Daten können verloren gehen. "*
 * Empfehlungs Aktion: *"Überprüfen Sie die physische und/oder Netzwerk Konnektivität aller Speichergeräte. Möglicherweise müssen Sie eine Wiederherstellung aus einer Sicherung durch erstellen. "*
 
 ### <a name="pool-capacity-1"></a>**Pool Kapazität (1)**
 
-#### <a name="faulttype-microsofthealthfaulttypestoragepoolinsufficientreservecapacityfault"></a>FaultType Microsoft. Health. faultType. storagepool. insuffizientreservecapacityfault
+#### <a name="faulttype-microsofthealthfaulttypestoragepoolinsufficientreservecapacityfault"></a>FaultType: Microsoft. Health. faultType. storagepool. insuffizientreservecapacityfault
 * Schweregrad: Warnung
-* Grund: *"der Speicherpool verfügt nicht über die empfohlene Mindestreserve Kapazität. Dies kann die Fähigkeit zum Wiederherstellen von datenresilienz im Fall von Laufwerk Fehlern einschränken. "*
+* Ursache: *"der Speicherpool verfügt nicht über die empfohlene Mindestreserve Kapazität. Dies kann die Fähigkeit zum Wiederherstellen von datenresilienz im Fall von Laufwerk Fehlern einschränken. "*
 * Empfehlungs Aktion: *"zusätzliche Kapazität zum Speicherpool hinzufügen oder Kapazität freigeben. Die empfohlene Mindestreserve ist abhängig von der Bereitstellung, aber es sind ungefähr 2 Laufwerke ausgelastet. "*
 
 ### <a name="volume-capacity-2sup1sup"></a>**Volumekapazität (2)** <sup>1</sup>
 
-#### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>FaultType Microsoft. Health. faultType. Volume. Capacity
+#### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>FaultType: Microsoft. Health. faultType. Volume. Capacity
 * Schweregrad: Warnung
-* Grund: *"Auf dem Volume steht kein verfügbarer Speicherplatz mehr zur Verfügung."*
-* Empfehlungs Aktion: *"Erweitern Sie das Volume, oder migrieren Sie Arbeits Auslastungen zu anderen Volumes".*
+* Ursache: *"der verfügbare Speicherplatz auf dem Volume steht nicht mehr zur Verfügung."*
+* Empfehlungs Aktion: *"erweitern Sie das Volume, oder migrieren Sie Arbeits Auslastungen zu anderen Volumes".*
 
-#### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>FaultType Microsoft. Health. faultType. Volume. Capacity
-* Schweregrad: Kritisch
-* Grund: *"Auf dem Volume steht kein verfügbarer Speicherplatz mehr zur Verfügung."*
-* Empfehlungs Aktion: *"Erweitern Sie das Volume, oder migrieren Sie Arbeits Auslastungen zu anderen Volumes".*
+#### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>FaultType: Microsoft. Health. faultType. Volume. Capacity
+* Schweregrad: kritisch
+* Ursache: *"der verfügbare Speicherplatz auf dem Volume steht nicht mehr zur Verfügung."*
+* Empfehlungs Aktion: *"erweitern Sie das Volume, oder migrieren Sie Arbeits Auslastungen zu anderen Volumes".*
 
 ### <a name="server-3"></a>**Server (3)**
 
-#### <a name="faulttype-microsofthealthfaulttypeserverdown"></a>FaultType Microsoft. Health. faultType. Server. Down
-* Schweregrad: Kritisch
-* Grund: *"Der Server kann nicht erreicht werden."*
-* Empfehlungs Aktion: *"Server starten oder ersetzen".*
+#### <a name="faulttype-microsofthealthfaulttypeserverdown"></a>FaultType: Microsoft. Health. faultType. Server. Down
+* Schweregrad: kritisch
+* Ursache: *"der Server kann nicht erreicht werden."*
+* Empfehlungs Aktion: *"Server starten oder ersetzen"*
 
-#### <a name="faulttype-microsofthealthfaulttypeserverisolated"></a>FaultType Microsoft. Health. faultType. Server. isoliert
-* Schweregrad: Kritisch
-* Grund: *"Der Server ist aufgrund von Konnektivitätsproblemen vom Cluster isoliert."*
-* Empfehlungs Aktion: *"Wenn die Isolation weiterhin besteht, überprüfen Sie die Netzwerk (e), oder migrieren Sie Workloads zu anderen Knoten."*
+#### <a name="faulttype-microsofthealthfaulttypeserverisolated"></a>FaultType: Microsoft. Health. faultType. Server. isoliert
+* Schweregrad: kritisch
+* Ursache: *"der Server ist aufgrund von Konnektivitätsproblemen vom Cluster isoliert".*
+* Empfehlungs Aktion: *"Wenn die Isolation weiterhin besteht, überprüfen Sie die Netzwerk (e), oder migrieren Sie Arbeits Auslastungen zu anderen Knoten".*
 
-#### <a name="faulttype-microsofthealthfaulttypeserverquarantined"></a>FaultType Microsoft. Health. faultType. Server. Quarantäne
-* Schweregrad: Kritisch
-* Grund: *"Der Server wird aufgrund von wiederkehrenden Fehlern vom Cluster unter Quarantäne gestellt."*
-* Empfehlungs Aktion: *"Ersetzen Sie den Server, oder reparieren Sie das Netzwerk."*
+#### <a name="faulttype-microsofthealthfaulttypeserverquarantined"></a>FaultType: Microsoft. Health. faultType. Server. Quarantäne
+* Schweregrad: kritisch
+* Ursache: *"der Server wird aufgrund von wiederkehrenden Fehlern durch den Cluster unter Quarantäne gestellt."*
+* Empfehlungs Aktion: *"Server ersetzen oder Netzwerk reparieren".*
 
 ### <a name="cluster-1"></a>**Cluster (1)**
 
-#### <a name="faulttype-microsofthealthfaulttypeclusterquorumwitnesserror"></a>FaultType Microsoft. Health. faultType. clusterquorüberwitness. Error
-* Schweregrad: Kritisch
-* Grund: *"Der Cluster ist ein Server Fehler, der nicht mehr ausfällt."*
+#### <a name="faulttype-microsofthealthfaulttypeclusterquorumwitnesserror"></a>FaultType: Microsoft. Health. faultType. clusterquorüberwitness. Error
+* Schweregrad: kritisch
+* Ursache: *"der Cluster ist ein Server Fehler, der nicht mehr ausfällt."*
 * Empfehlungs Aktion: *"Überprüfen Sie die Zeugen Ressource, und starten Sie Sie bei Bedarf neu. Starten oder ersetzen fehlerhafter Server. "*
 
 ### <a name="network-adapterinterface-4"></a>**Netzwerk Adapter/-Schnittstelle (4)**
 
-#### <a name="faulttype-microsofthealthfaulttypenetworkadapterdisconnected"></a>FaultType Microsoft. Health. faultType. NetworkAdapter. getrennt
+#### <a name="faulttype-microsofthealthfaulttypenetworkadapterdisconnected"></a>FaultType: Microsoft. Health. faultType. NetworkAdapter. getrennte
 * Schweregrad: Warnung
-* Grund: *"Die Netzwerkschnittstelle wurde getrennt."*
-* Empfehlungs Aktion: *"Verbinden Sie das Netzwerkkabel erneut."*
+* Ursache: *"die Netzwerkschnittstelle wurde getrennt."*
+* Empfehlungs Aktion: *"Verbindung mit dem Netzwerkkabel wiederherstellen".*
 
-#### <a name="faulttype-microsofthealthfaulttypenetworkinterfacemissing"></a>FaultType Microsoft. Health. faultType. NetworkInterface. Missing
+#### <a name="faulttype-microsofthealthfaulttypenetworkinterfacemissing"></a>FaultType: Microsoft. Health. faultType. NetworkInterface. Missing
 * Schweregrad: Warnung
-* Grund: *"Der Server" {Server} "hat fehlende Netzwerkadapter, die mit dem Cluster Netzwerk" {Cluster Network} "verbunden sind.*
+* Grund: *"der Server" {Server} "verfügt über fehlende Netzwerkadapter (e), die mit dem Cluster Netzwerk" {Cluster Network} "verbunden sind.*
 * Empfehlungs Aktion: *"Verbinden Sie den Server mit dem fehlenden Cluster Netzwerk".*
 
-#### <a name="faulttype-microsofthealthfaulttypenetworkadapterhardware"></a>FaultType Microsoft. Health. faultType. NetworkAdapter. Hardware
+#### <a name="faulttype-microsofthealthfaulttypenetworkadapterhardware"></a>FaultType: Microsoft. Health. faultType. NetworkAdapter. Hardware
 * Schweregrad: Warnung
-* Grund: *"Bei der Netzwerkschnittstelle ist ein Hardwarefehler aufgetreten."*
-* Empfehlungs Aktion: *"Ersetzen Sie den Netzwerkschnittstellen Adapter."*
+* Ursache: *"bei der Netzwerkschnittstelle ist ein Hardwarefehler aufgetreten."*
+* Empfehlungs Aktion: *"ersetzt den Netzwerkschnittstellen Adapter".*
 
-#### <a name="faulttype-microsofthealthfaulttypenetworkadapterdisabled"></a>FaultType Microsoft. Health. faultType. Network Adapter. deaktiviert
+#### <a name="faulttype-microsofthealthfaulttypenetworkadapterdisabled"></a>FaultType: Microsoft. Health. faultType. NetworkAdapter. deaktiviert
 * Schweregrad: Warnung
-* Grund: *"Die Netzwerkschnittstelle" {Network Interface} "ist nicht aktiviert und wird nicht verwendet."*
-* Empfehlungs Aktion: *"Aktivieren Sie die Netzwerkschnittstelle".*
+* Ursache: *"die Netzwerkschnittstelle" {Network Interface} "ist nicht aktiviert und wird nicht verwendet."*
+* Empfehlungs Aktion: *"Netzwerkschnittstelle aktivieren".*
 
 ### <a name="enclosure-6"></a>**Gehäuse (6)**
 
-#### <a name="faulttype-microsofthealthfaulttypestorageenclosurelostcommunication"></a>FaultType Microsoft. Health. faultType. storageenclosure. lostcommunication
+#### <a name="faulttype-microsofthealthfaulttypestorageenclosurelostcommunication"></a>FaultType: Microsoft. Health. faultType. storageenclosure. lostcommunication
 * Schweregrad: Warnung
-* Grund: *"Die Kommunikation mit dem Speicher Gehäuse ist verloren gegangen."*
-* Empfehlungs Aktion: *"Starten oder ersetzen Sie das Speicher Gehäuse."*
+* Ursache: *"die Kommunikation mit dem Speicher Gehäuse ist verloren gegangen."*
+* Empfehlungs Aktion: *"das Speicher Gehäuse wird gestartet oder ersetzt."*
 
-#### <a name="faulttype-microsofthealthfaulttypestorageenclosurefanerror"></a>FaultType Microsoft. Health. faultType. storageenclosure. fanerror
+#### <a name="faulttype-microsofthealthfaulttypestorageenclosurefanerror"></a>FaultType: Microsoft. Health. faultType. storageenclosure. fanerror
 * Schweregrad: Warnung
-* Grund: *"Der Lüfter an der Position {Position} des Speicher Gehäuses ist fehlgeschlagen."*
-* Empfehlungs Aktion: *"Ersetzen Sie den Lüfter im Speicher Gehäuse."*
+* Grund: *"der Lüfter an Position {Position} des Speicher Gehäuses ist fehlgeschlagen."*
+* Empfehlungs Aktion: *"ersetzen Sie den Lüfter im Speicher Gehäuse."*
 
-#### <a name="faulttype-microsofthealthfaulttypestorageenclosurecurrentsensorerror"></a>FaultType Microsoft. Health. faultType. storageenclosure. currentsensorerror
+#### <a name="faulttype-microsofthealthfaulttypestorageenclosurecurrentsensorerror"></a>FaultType: Microsoft. Health. faultType. storageenclosure. currentsensorerror
 * Schweregrad: Warnung
-* Grund: *"Der aktuelle Sensor an der Position {Position} des Speicher Gehäuses ist fehlgeschlagen."*
-* Empfehlungs Aktion: *"Ersetzen Sie einen aktuellen Sensor im Speicher Gehäuse."*
+* Grund: *"Fehler beim aktuellen Sensor an Position {Position} des Speicher Gehäuses."*
+* Empfehlungs Aktion: *"Ersetzen eines aktuellen Sensors im Speicher Gehäuse".*
 
-#### <a name="faulttype-microsofthealthfaulttypestorageenclosurevoltagesensorerror"></a>FaultType Microsoft. Health. faultType. storageenclosure. voltagesensorerror
+#### <a name="faulttype-microsofthealthfaulttypestorageenclosurevoltagesensorerror"></a>FaultType: Microsoft. Health. faultType. storageenclosure. voltagesensorerror
 * Schweregrad: Warnung
-* Grund: *"Der Spannungssensor an Position {Position} des Speicher Gehäuses ist fehlgeschlagen."*
-* Empfehlungs Aktion: *"Ersetzen Sie einen Spannungssensor im Speicher Gehäuse."*
+* Grund: *"der Spannungssensor an Position {Position} des Speicher Gehäuses ist fehlgeschlagen."*
+* Empfehlungs Aktion: *"Ersetzen eines Spannungs Sensors im Speicher Gehäuse".*
 
-#### <a name="faulttype-microsofthealthfaulttypestorageenclosureiocontrollererror"></a>FaultType Microsoft. Health. faultType. storageenclosure. iocontrollererror
+#### <a name="faulttype-microsofthealthfaulttypestorageenclosureiocontrollererror"></a>FaultType: Microsoft. Health. faultType. storageenclosure. iocontrollererror
 * Schweregrad: Warnung
-* Grund: *"Fehler beim e/a-Controller an Position {Position} des Speicher Gehäuses."*
-* Empfehlungs Aktion: *"Ersetzen Sie einen IO-Controller im Speicher Gehäuse."*
+* Ursache: "Fehler beim e/a- *Controller an Position {Position} des Speicher Gehäuses."*
+* Empfehlungs Aktion: *"ersetzt einen IO-Controller im Speicher Gehäuse."*
 
-#### <a name="faulttype-microsofthealthfaulttypestorageenclosuretemperaturesensorerror"></a>FaultType Microsoft. Health. faultType. storageenclosure. temperaturesensorerror
+#### <a name="faulttype-microsofthealthfaulttypestorageenclosuretemperaturesensorerror"></a>FaultType: Microsoft. Health. faultType. storageenclosure. temperaturesensorerror
 * Schweregrad: Warnung
-* Grund: *"Der Temperatursensor an Position {Position} des Speicher Gehäuses ist fehlgeschlagen."*
-* Empfehlungs Aktion: *"Ersetzen Sie einen Temperatursensor im Speicher Gehäuse."*
+* Grund: *"Fehler beim Temperatursensor an Position {Position} des Speicher Gehäuses."*
+* Empfehlungs Aktion: *"Ersetzen eines Temperatursensors im Speicher Gehäuse".*
 
 ### <a name="firmware-rollout-3"></a>**Firmware-Rollout (3)**
 
-#### <a name="faulttype-microsofthealthfaulttypefaultdomainfailedmaintenancemode"></a>FaultType Microsoft. Health. faultType. fauldomain. failedmaintenancemode
+#### <a name="faulttype-microsofthealthfaulttypefaultdomainfailedmaintenancemode"></a>FaultType: Microsoft. Health. faultType. fauldomain. failedmaintenancemode
 * Schweregrad: Warnung
-* Grund: *"Aktuell kann während der firmwarerollforwardausgabe nicht fortgesetzt werden."*
-* Empfehlungs Aktion: *"Vergewissern Sie sich, dass alle Speicherplätze fehlerfrei sind und sich derzeit keine Fehler Domäne im Wartungsmodus befindet."*
+* Ursache: *"der Fortschritt während der firmwarerollout kann zurzeit nicht fortgesetzt werden."*
+* Empfehlungs Aktion: *"Überprüfen Sie, ob alle Speicherplätze fehlerfrei sind und derzeit keine Fehler Domäne im Wartungsmodus ist".*
 
-#### <a name="faulttype-microsofthealthfaulttypefaultdomainfirmwareverifyversionfaile"></a>FaultType Microsoft. Health. faultType. fauldomain. firmwareverifyversionfaile
+#### <a name="faulttype-microsofthealthfaulttypefaultdomainfirmwareverifyversionfaile"></a>FaultType: Microsoft. Health. faultType. fauldomain. firmwareverifyversionfaile
 * Schweregrad: Warnung
-* Grund: *"Der firmwarerollout wurde aufgrund von unlesbaren oder unerwarteten Firmwareversion-Informationen nach dem Anwenden eines Firmwareupdates abgebrochen*
-* Empfehlungs Aktion: *"Firmwarerollout neu starten, sobald das firmwareproblem behoben wurde."*
+* Grund: *"der firmwarerollout wurde aufgrund von unlesbaren oder unerwarteten Firmwareversion-Informationen nach dem Anwenden eines* Firmwareupdates abgebrochen"
+* Empfehlungs Aktion: *"firmwarerollout neu starten, sobald das firmwareproblem behoben wurde".*
 
-#### <a name="faulttype-microsofthealthfaulttypefaultdomaintoomanyfailedupdates"></a>FaultType Microsoft. Health. faultType. fauldomain. deomanyfailedupdates
+#### <a name="faulttype-microsofthealthfaulttypefaultdomaintoomanyfailedupdates"></a>FaultType: Microsoft. Health. faultType. fauldomain. deomanyfailedupdates
 * Schweregrad: Warnung
-* Grund: *"Das Firmwareupdate wurde abgebrochen, weil zu viele physische Datenträger bei einem Firmwareupdate nicht bestanden wurden."*
-* Empfehlungs Aktion: *"Firmwarerollout neu starten, sobald das firmwareproblem behoben wurde."*
+* Grund: *"der firmwarerollout wurde abgebrochen, weil zu viele physische* Datenträger fehlgeschlagen sind."
+* Empfehlungs Aktion: *"firmwarerollout neu starten, sobald das firmwareproblem behoben wurde".*
 
 ### <a name="storage-qos-3sup2sup"></a>**Speicher-QoS (3)** <sup>2</sup>
 
-#### <a name="faulttype-microsofthealthfaulttypestorqosinsufficientthroughput"></a>FaultType Microsoft. Health. faultType. storqos. insuffizientdurchsatz
+#### <a name="faulttype-microsofthealthfaulttypestorqosinsufficientthroughput"></a>FaultType: Microsoft. Health. faultType. storqos. insuffizientdurchsatz
 * Schweregrad: Warnung
-* Grund: *"Der Speicher Durchsatz reicht nicht aus, um Reserven zu erfüllen."*
+* Ursache: *"der Speicher Durchsatz reicht nicht aus, um Reserven zu erfüllen".*
 * Empfehlungs Aktion: *"Speicher-QoS-Richtlinien neu konfigurieren".*
 
-#### <a name="faulttype-microsofthealthfaulttypestorqoslostcommunication"></a>FaultType Microsoft. Health. faultType. storqos. lostcommunication
+#### <a name="faulttype-microsofthealthfaulttypestorqoslostcommunication"></a>FaultType: Microsoft. Health. faultType. storqos. lostcommunication
 * Schweregrad: Warnung
-* Grund: *"Der Speicher-QoS-Richtlinien-Manager hat die Kommunikation mit dem Volume verloren."*
+* Ursache: *"der Speicher-QoS-Richtlinien-Manager hat die Kommunikation mit dem Volume verloren."*
 * Empfehlungs Aktion: *"Neustart der Knoten {Nodes}"*
 
-#### <a name="faulttype-microsofthealthfaulttypestorqosmisconfiguredflow"></a>FaultType Microsoft. Health. faultType. storqos. miskonfiguriredflow
+#### <a name="faulttype-microsofthealthfaulttypestorqosmisconfiguredflow"></a>FaultType: Microsoft. Health. faultType. storqos. miskonfiguriredflow
 * Schweregrad: Warnung
-* Grund: *"Mindestens ein speicherconsumer (in der Regel Virtual Machines) verwendet eine nicht vorhandene Richtlinie mit der ID {ID}."*
-* Empfehlungs Aktion: *"Fehlende Speicher-QoS-Richtlinien neu erstellen".*
+* Ursache: *"mindestens ein speicherconsumer (in der Regel Virtual Machines) verwendet eine nicht vorhandene Richtlinie mit der ID {ID}".*
+* Empfehlungs Aktion: *"alle fehlenden Speicher-QoS-Richtlinien neu erstellen".*
 
 <sup>1</sup> gibt an, dass das Volume 80% vollständig (neben Schweregrad) oder 90% voll (Schweregrad) erreicht hat.  
 <sup>2</sup> gibt an, dass einige VHDs auf dem Volume nicht ihren minimalen IOPS-Aufwand für über 10% (neben Version), 30% (Hauptversion) oder 50% (kritisch) des parallelen 24-Stunden-Fensters erreicht haben.  
@@ -521,6 +521,6 @@ In Windows Server 2016 stellt die Integritätsdienst die folgende Fehlerabdeckun
 >[!NOTE]
 > Die Integrität von Speichergehäusekomponenten wie Lüfter, Netzteile und Sensoren wird von SES (SCSI Enclosure Services) abgeleitet. Wenn Ihr Anbieter diese Informationen nicht bereitstellt, kann der Integritätsdienst sie nicht anzeigen.  
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Integritätsdienst in Windows Server 2016](health-service-overview.md)

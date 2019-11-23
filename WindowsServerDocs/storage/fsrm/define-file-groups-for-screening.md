@@ -17,7 +17,7 @@ ms.locfileid: "71394389"
 ---
 # <a name="define-file-groups-for-screening"></a>Definieren von Dateigruppen für die Prüfung
 
-> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Eine *Dateigruppe* wird verwendet, um einen Namespace für die Dateiprüfung, Dateiprüfungsausnahme oder Speicherbericht für **Dateien nach Dateigruppen** festzulegen. Sie besteht aus einer Reihe von Dateinamenmustern, die folgendermaßen gruppiert werden:
 
@@ -41,11 +41,11 @@ Eine *Dateigruppe* wird verwendet, um einen Namespace für die Dateiprüfung, Da
 
     -   Geben Sie für jede Gruppe von Dateien, die Sie in die Dateigruppe einfügen möchten, ein Dateinamenmuster in das Feld **Einzuschließende Dateien** ein und klicken Sie dann auf **Hinzufügen**.
     -   Geben Sie für jede Gruppe von Dateien, die Sie nicht in die Dateigruppe einfügen möchten, ein Dateinamenmuster in das Feld **Auszuschließende Dateien** ein und klicken Sie dann auf **Hinzufügen**.
-        Beachten Sie, dass standardmäßige Platzhalter Regeln angewendet werden, z. b. **@no__t -1. exe** alle ausführbaren Dateien auswählt.
+        Beachten Sie, dass standardmäßige Platzhalter Regeln gelten, z. b. **\*. exe** alle ausführbaren Dateien auswählt.
 
 5.  Klicken Sie auf **OK**.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 -   [Datei Prüfungsverwaltung](file-screening-management.md)
 -   [Erstellen einer Dateiprüfung](create-file-screen.md)

@@ -77,7 +77,7 @@ Mithilfe des folgenden Verfahrens können Sie eine autoritative (auch als primä
    > [!NOTE]
    > Das Markieren der wiederhergestellten Daten als primäre Daten in der Sicherung entspricht dem Festlegen des **BurFlags** -Eintrags auf D4 unter dem folgenden Registrierungs Unterschlüssel:  
    >   
-   > **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NtFrs\Parameters\Cumulative Replikat Sätze @ no__t-1** *GUID*  
+   > **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\ntfrs\parameters\kumulative Replikat Sets\\** *GUID*  
 
 4. Wenn der Wiederherstellungs Vorgang beendet ist, starten Sie den Computer neu.  
   

@@ -48,7 +48,7 @@ Verwenden Sie als nächstes den **/AddFile** -Schalter, um dem Download Auftrag 
 
 Verwenden Sie den Schalter **/AddFile** , um dem Auftrag eine Datei hinzuzufügen. Wiederholen Sie diesen Befehl für jede Datei, die Sie hinzufügen möchten. Wenn für mehrere Aufträge mydownloadjob als Name verwendet wird, müssen Sie mydownloadjob durch die GUID des Auftrags ersetzen, um den Auftrag eindeutig zu identifizieren.
 
-**bitsadmin/AddFile mydownloadjob https://downloadsrv/10mb.zip c: @no__t -210mb. zip**
+**bitsadmin/AddFile mydownloadjob https://downloadsrv/10mb.zip c: @no__t -210mb. zip\\
 
 Verwenden Sie den Schalter **/Resume** , um den Auftrag in der Übertragungs Warteschlange zu aktivieren.
 
@@ -64,7 +64,7 @@ Um den Fortschritt des Auftrags zu ermitteln, verwenden Sie den Schalter **/List
 
 Verwenden Sie den Schalter **/Info** , um den Fortschritt eines Auftrags zu ermitteln. Wenn für mehrere Aufträge mydownloadjob als Name verwendet wird, müssen Sie mydownloadjob durch die GUID des Auftrags ersetzen, um den Auftrag eindeutig zu identifizieren.
 
-**bitsadmin/Info mydownloadjob/Verbose**
+**bigsadmin/Info mydownloadjob/Verbose**
 
 Der Schalter **/Info** gibt den Status des Auftrags und die Anzahl der übertragenen Dateien und Bytes zurück. Wenn der Status übertragen wird, hat Bits erfolgreich alle Dateien im Auftrag übertragen. Das **/verbose** -Argument stellt die gesamten Details des Auftrags bereit. Der folgende Text ist eine Beispielausgabe.
 

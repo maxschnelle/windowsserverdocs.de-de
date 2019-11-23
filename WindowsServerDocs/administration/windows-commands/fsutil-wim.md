@@ -17,7 +17,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71376659"
 ---
 # <a name="fsutil-wim"></a>Wim
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows 10
 
 Stellt Funktionen zum Ermitteln und Verwalten von Dateien mit Windows-Abbildern (WIM) bereit.
 
@@ -35,11 +35,11 @@ fsutil wim [removewim] <drive name> <data source>
 |Parameter|Beschreibung|
 |-------------|---------------|
 |EnumFiles|Listet WIM-gestützte Dateien auf.|
-|Name des \<laufwerks >|Gibt den Namen des Laufwerks an.|
-|> der @no__t 0daten Quelle|Gibt die Datenquelle an.|
+|Name des \<Laufwerks >|Gibt den Namen des Laufwerks an.|
+|\<Datenquelle >|Gibt die Datenquelle an.|
 |enumwims|Listet die unterstützten WIM-Dateien auf.|
 |QueryFile|Fragt ab, ob die Datei durch WIM unterstützt wird, und zeigt ggf. Details zur WIM-Datei an.|
-|\<filename >|Gibt den Dateinamen an.|
+|\<Dateiname >|Gibt den Dateinamen an.|
 |removewim|Entfernt eine WIM-Datei aus Unterstützungs Dateien.|
 
 

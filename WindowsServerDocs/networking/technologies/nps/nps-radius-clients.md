@@ -17,12 +17,12 @@ ms.locfileid: "71395996"
 ---
 # <a name="radius-clients"></a>RADIUS-Clients
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Ein Netzwerk Zugriffs Server \(nas @ no__t-1 ist ein Gerät, das ein gewisses Maß an Zugriff auf ein größeres Netzwerk bietet. Ein NAS, das eine RADIUS-Infrastruktur verwendet, ist auch ein RADIUS-Client, der Verbindungsanforderungen und Buchhaltungs Nachrichten an einen RADIUS-Server zur Authentifizierung, Autorisierung und Kontoführung sendet.
+Ein Netzwerk Zugriffs Server \(NAS\) ist ein Gerät, das ein gewisses Maß an Zugriff auf ein größeres Netzwerk bietet. Ein NAS, das eine RADIUS-Infrastruktur verwendet, ist auch ein RADIUS-Client, der Verbindungsanforderungen und Buchhaltungs Nachrichten an einen RADIUS-Server zur Authentifizierung, Autorisierung und Kontoführung sendet.
 
 >[!NOTE]
->Client Computer, z. b. Laptop Computer und andere Computer, auf denen Client Betriebssysteme ausgeführt werden, sind keine RADIUS-Clients. RADIUS-Clients sind Netzwerk Zugriffs Server, z. b. drahtlos Zugriffspunkte, 802.1 x-authentifizier Ende Switches, virtuelles privates Netzwerk \(vpn @ no__t-1-Server und DFÜ-Server, da Sie das RADIUS-Protokoll für die Kommunikation mit RADIUS-Servern verwenden, z. b. als Netzwerk Richtlinien Server \(nps @ no__t-3-Server.
+>Client Computer, z. b. Laptop Computer und andere Computer, auf denen Client Betriebssysteme ausgeführt werden, sind keine RADIUS-Clients. RADIUS-Clients sind Netzwerk Zugriffs Server, z. b. drahtlos Zugriffspunkte, 802.1 x-authentifizier Ende Switches, virtuelles privates Netzwerk \(VPN\) Servern und DFÜ-Server, da Sie das RADIUS-Protokoll für die Kommunikation mit RADIUS-Servern wie Netzwerk Richtlinien Server \(NPS-\) Servern verwenden.
 
 Zum Bereitstellen von NPS als RADIUS-Server oder RADIUS-Proxy müssen Sie RADIUS-Clients in NPS konfigurieren.
 
@@ -65,7 +65,7 @@ Wenn Sie einen RADIUS-Client in NPS konfigurieren, können Sie die folgenden Eig
 
 ### <a name="ip-address"></a>IP-Adresse
 
-Internet Protokollversion 4 \(ipv4 @ no__t-1-Adresse oder der Domain Name System \(dns @ no__t-3-Name des RADIUS-Clients.
+Internet Protokollversion 4 \(IPv4-\) Adresse oder der Domain Name System \(DNS-\) Name des RADIUS-Clients.
 
 ### <a name="client-vendor"></a>Client-Vendor
 
@@ -77,10 +77,10 @@ Eine Text Zeichenfolge, die als Kennwort zwischen RADIUS-Clients, RADIUS-Servern
 
 ### <a name="message-authenticator-attribute"></a>Message Authenticator-Attribut
 
-Beschrieben in RFC 2869, "RADIUS Extensions", a Message Digest 5 \(md5 @ no__t-1 Hash der gesamten RADIUS-Nachricht. Wenn das RADIUS Message Authenticator-Attribut vorhanden ist, wird es überprüft. Wenn die Überprüfung fehlschlägt, wird die RADIUS-Nachricht verworfen. Wenn die Client Einstellungen das Message Authenticator-Attribut erfordern und es nicht vorhanden ist, wird die RADIUS-Nachricht verworfen. Es wird empfohlen, das Message Authenticator-Attribut zu verwenden.
+Beschrieben in RFC 2869, "RADIUS Extensions", a Message Digest 5 \(MD5\) Hash der gesamten RADIUS-Nachricht. Wenn das RADIUS Message Authenticator-Attribut vorhanden ist, wird es überprüft. Wenn die Überprüfung fehlschlägt, wird die RADIUS-Nachricht verworfen. Wenn die Client Einstellungen das Message Authenticator-Attribut erfordern und es nicht vorhanden ist, wird die RADIUS-Nachricht verworfen. Es wird empfohlen, das Message Authenticator-Attribut zu verwenden.
 
 >[!NOTE]
->Das Message Authenticator-Attribut ist erforderlich und wird standardmäßig aktiviert, wenn Sie das Extensible Authentication-Protokoll \(eap @ no__t-1-Authentifizierung verwenden. 
+>Das Message Authenticator-Attribut ist erforderlich und wird standardmäßig aktiviert, wenn Sie das Extensible Authentication-Protokoll \(EAP-\) Authentifizierung verwenden. 
 
 Weitere Informationen zu NPS finden Sie unter [Netzwerk Richtlinien Server (Network Policy Server, NPS)](nps-top.md).
 

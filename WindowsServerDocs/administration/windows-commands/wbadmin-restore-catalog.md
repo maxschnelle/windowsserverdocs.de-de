@@ -57,7 +57,7 @@ Um einen Katalog aus einer auf Datenträger d: gespeicherten Sicherung wiederher
 ```
 wbadmin restore catalog -backupTarget:d
 ```
-Wenn Sie einen Katalog aus einer im freigegebenen Ordner gespeicherten Sicherung wiederherstellen möchten \\ @ no__t-1servername\share von Server01, geben Sie Folgendes ein:
+Wenn Sie einen Katalog aus einer Sicherung wiederherstellen möchten, die im freigegebenen Ordner \\\\servername\share von Server01 gespeichert ist, geben Sie Folgendes ein:
 ```
 wbadmin restore catalog -backupTarget:\\servername\share -machine:server01
 ```

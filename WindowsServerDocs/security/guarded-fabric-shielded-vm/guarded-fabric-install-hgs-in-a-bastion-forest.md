@@ -100,7 +100,7 @@ Das CNO stellt den Namen des Clusters dar und wird hauptsächlich intern vom Fai
 VCO stellt den HGS-Dienst dar, der sich auf dem Cluster befindet, und ist der Name, der beim DNS-Server registriert ist.
 
 > [!IMPORTANT]
-> Der Benutzer, der `Initialize-HgsServer` ausführen wird, benötigt die **vollständige Kontrolle** über die CNO-und VCO-Objekte in Active Directory.
+> Der Benutzer, der `Initialize-HgsServer` ausführen wird, muss die **vollständige Kontrolle** über die CNO-und VCO-Objekte in Active Directory haben.
 
 Wenn Sie CNO und VCO schnell vorab bereitstellen möchten, müssen Sie über einen Active Directory Administrator die folgenden PowerShell-Befehle ausführen:
 
@@ -134,15 +134,15 @@ Wenn Sie HGS in einer stark gesperrten Umgebung bereitstellen, können bestimmte
 
 **Erforderlicher Wert:** Stellen Sie sicher, dass der Wert keine Netzwerk Anmeldungen für alle lokalen Konten blockiert. Lokale Administrator Konten können jedoch problemlos blockiert werden.
 
-**Weshalb** Failoverclustering basiert auf einem lokalen Konto mit dem Namen cliusr, das nicht Administrator ist, um Cluster Knoten zu verwalten. Durch das Blockieren der Netzwerk Anmeldung für diesen Benutzer wird verhindert, dass der Cluster ordnungsgemäß funktioniert.
+**Grund:** Failoverclustering basiert auf einem lokalen Konto mit dem Namen cliusr, das nicht Administrator ist, um Cluster Knoten zu verwalten. Durch das Blockieren der Netzwerk Anmeldung für diesen Benutzer wird verhindert, dass der Cluster ordnungsgemäß funktioniert.
 
 ### <a name="kerberos-encryption"></a>Kerberos-Verschlüsselung
 
 **Richtlinien Pfad:** Computerkonfiguration\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\Sicherheitsoptionen
 
-**Richtlinien Name:** Netzwerksicherheit: Konfigurieren von für Kerberos zulässigen Verschlüsselungstypen
+**Richtlinien Name:** Netzwerksicherheit: Konfigurieren der für Kerberos zulässigen Verschlüsselungstypen
 
-**Aktion**: Wenn diese Richtlinie konfiguriert ist, müssen Sie das GMSA-Konto mit [Set-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps) aktualisieren, sodass nur die unterstützten Verschlüsselungstypen in dieser Richtlinie verwendet werden. Wenn Ihre Richtlinie beispielsweise nur AES128 @ no__t-0hmac @ no__t-1sha1 und AES256 @ no__t-2hmac @ no__t-3sha1 zulässt, sollten Sie `Set-ADServiceAccount -Identity HGSgMSA -KerberosEncryptionType AES128,AES256` ausführen.
+**Aktion**: Wenn diese Richtlinie konfiguriert ist, müssen Sie das GMSA-Konto mit " [Set-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps) " aktualisieren, sodass nur die unterstützten Verschlüsselungstypen in dieser Richtlinie verwendet werden. Wenn Ihre Richtlinie beispielsweise nur AES128\_HMAC\_SHA1 und AES256\_HMAC\_SHA1 zulässt, sollten Sie `Set-ADServiceAccount -Identity HGSgMSA -KerberosEncryptionType AES128,AES256`ausführen.
 
 
 

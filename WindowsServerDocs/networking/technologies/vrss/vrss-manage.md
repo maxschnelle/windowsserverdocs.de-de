@@ -19,7 +19,7 @@ ms.locfileid: "71405168"
 ---
 # <a name="manage-vrss"></a>Verwalten von vRSS
 
-In diesem Thema verwenden Sie die Windows PowerShell-Befehle zum Verwalten von vrss auf virtuellen Computern \(vms @ no__t-1 und auf Hyper @ no__t-2V-Hosts.
+In diesem Thema verwenden Sie die Windows PowerShell-Befehle zum Verwalten von vrss in virtuellen Computern \(VMS\) und auf Hyper\-V-Hosts.
 
 >[!NOTE]
 >Weitere Informationen zu den in diesem Thema erwähnten Befehlen finden Sie unter [Windows PowerShell-Befehle für RSS und vrss](vrss-wps.md).
@@ -43,7 +43,7 @@ Set-NetAdapterVmq
 
 ## <a name="vrss-on-hyper-v-switch-ports"></a>vrss auf Hyper-V-Switchports
 
-Auf dem Hyper-V-Host müssen Sie auch vrss auf dem virtuellen Switch-Port für Hyper-v no__t-0V aktivieren.
+Auf dem Hyper-V-Host müssen Sie auch vrss auf dem virtuellen Hyper\-V-Switch-Port aktivieren.
 
 **Anzeigen der aktuellen Einstellungen:**
 
@@ -55,13 +55,13 @@ Get-VMNetworkAdapter -ManagementOS | fl
     
 Beide der folgenden Einstellungen sollten " **true**" lauten. 
 
-- Vrssenabledrequessiert: True
-- Vrssaktivierte: True
+- Vrssenabledrequessiert: true
+- Vrssaktivierte: true
     
 >[!IMPORTANT]
->Unter einigen Ressourcen Einschränkungs Bedingungen kann dieses Feature für einen virtuellen Hyper @ no__t-0V-Switchport nicht aktiviert sein. Dies ist eine temporäre Bedingung, und die Funktion kann zu einem späteren Zeitpunkt verfügbar werden.
+>Unter einigen Ressourcen Einschränkungs Bedingungen kann es vorkommen, dass diese Funktion für einen virtuellen Hyper\-V-Switchport nicht aktiviert ist. Dies ist eine temporäre Bedingung, und die Funktion kann zu einem späteren Zeitpunkt verfügbar werden.
 >
->Wenn " **vrssaktivierte** " den Wert " **true**" hat, wird das Feature für diesen virtuellen Hyper @ no__t-2V-Switchport – für diese VM oder vNIC aktiviert.
+>Wenn " **vrssaktivierte** " den Wert " **true**" hat, wird das Feature für diesen virtuellen Hyper\-V-Switchport aktiviert, d. –. für diese VM oder vNIC.
 
 **Konfigurieren der Switchport-vrss-Einstellungen:**
 
@@ -88,7 +88,7 @@ Set-NetAdapterRss
 ```
 
 >[!NOTE]
-> Das Festlegen des Profils innerhalb der VM wirkt sich nicht auf die Planung der Arbeit aus. Hyper @ no__t-0V trifft alle Planungsentscheidungen und ignoriert das Profil innerhalb der VM.
+> Das Festlegen des Profils innerhalb der VM wirkt sich nicht auf die Planung der Arbeit aus. Hyper\-V trifft alle Planungsentscheidungen und ignoriert das Profil innerhalb der VM.
 
 ## <a name="disable-vrss"></a>Deaktivieren von vrss
 
@@ -97,21 +97,21 @@ Sie können vrss deaktivieren, um die zuvor erwähnten Einstellungen zu deaktivi
 - Deaktivieren Sie VMQ für die physische NIC oder den virtuellen Computer.
 
   >[!CAUTION]
-  >Die Deaktivierung von VMQ auf der physischen NIC wirkt sich schwerwiegend auf die Fähigkeit Ihres Hyper @ no__t-0V-Hosts aus, eingehende Pakete zu verarbeiten.
+  >Die Deaktivierung von VMQ auf der physischen NIC wirkt sich schwerwiegend auf die Fähigkeit Ihres Hyper\-V-Hosts aus, eingehende Pakete zu verarbeiten.
 
-- Deaktivieren Sie vrss für eine VM auf dem Hyper @ no__t-0V Virtual Switch-Port auf dem Hyper @ no__t-1V-Host.
+- Deaktivieren Sie vrss für einen virtuellen Computer auf dem Hyper-v-\-v-Switch auf dem Hyper\-v-Host.
 
    ```PowerShell
    Set-VMNetworkAdapter <vm-name> -VrssEnabled $FALSE
    ```
 
-- Deaktivieren Sie vrss für eine Host-vNIC auf dem Hyper @ no__t-0V Virtual Switch-Port auf dem Hyper @ no__t-1V-Host.
+- Deaktivieren Sie vrss für eine Host-vNIC auf dem Hyper\-v-Switch für virtuelle Switches auf dem Hyper\-v-Host.
 
    ```PowerShell
    Set-VMNetworkAdapter -ManagementOS -VrssEnabled $FALSE
    ```
 
-- Deaktivieren Sie RSS auf dem virtuellen Computer \(oder Host vNIC @ no__t-1 innerhalb der VM \(or auf dem Host @ no__t-3
+- Deaktivieren Sie RSS auf der VM-\(oder Host-vNIC\) innerhalb der VM \(oder auf dem Host\)
 
    ```PowerShell
    Disable-NetAdapterRSS *

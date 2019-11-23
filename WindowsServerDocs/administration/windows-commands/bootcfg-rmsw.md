@@ -22,7 +22,7 @@ ms.locfileid: "71379857"
 ---
 # <a name="bootcfg-rmsw"></a>bootcfg rmsw
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 entfernt Optionen für das Laden von Betriebssystemen für einen angegebenen Betriebssystem Eintrag.
 
@@ -35,7 +35,7 @@ bootcfg /rmsw [/s <computer> [/u <Domain>\<User> [/p <Password>]]] [/mm] [/bv] [
 |      Parameter       |                                                                                                      Beschreibung                                                                                                       |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    /s <computer>     |                                                   Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer.                                                   |
-| /u <Domain> @ no__t-1 @ no__t-2  |          Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch <User> oder <Domain> @ no__t-2 @ no__t-3 angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird.          |
+| /u <Domain>\\<User>  |          Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch <User> oder <Domain>\\<User>angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird.          |
 |    /p <Password>     |                                                                 Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                                  |
 |         /mm          |           entfernt die/Maxmem-Option und den zugehörigen maximalen Speicher Wert aus dem angegebenen <OSEntryLineNum>. Die Option/MAXMEM gibt die maximale RAM-Größe an, die vom Betriebssystem verwendet werden kann.            |
 |         /bv          |                     entfernt die/basevideo-Option aus dem angegebenen <OSEntryLineNum>. Die Option/basevideo weist das Betriebssystem an, den standardmäßigen VGA-Modus für den installierten Videotreiber zu verwenden.                     |

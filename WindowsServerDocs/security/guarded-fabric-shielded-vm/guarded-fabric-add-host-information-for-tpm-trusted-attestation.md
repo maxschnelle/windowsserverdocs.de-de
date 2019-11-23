@@ -37,11 +37,11 @@ Nachdem der Fabric-Administrator die Informationen erfasst hat, fügen Sie ihn d
     > Wenn beim Hinzufügen eines TPM-Bezeichners zu einem nicht vertrauenswürdigen Endorsement Key-Zertifikat (ekcert) ein Fehler auftritt, stellen Sie sicher, dass die [vertrauenswürdigen TPM](guarded-fabric-install-trusted-tpm-root-certificates.md) -Stamm Zertifikate dem HGS-Knoten hinzugefügt wurden.
     > Darüber hinaus verwenden einige TPM-Anbieter keine ekcerts.
     > Sie können überprüfen, ob ein ekcert fehlt, indem Sie die XML-Datei in einem Editor wie z. b. Editor öffnen und auf eine Fehlermeldung mit dem Hinweis, dass kein ekcert gefunden wurde, prüfen.
-    > Wenn dies der Fall ist und Sie darauf vertrauen, dass das TPM auf dem Computer authentisch ist, können Sie diese Sicherheitsüberprüfung mit dem `-Force`-Flag außer Kraft setzen und die Host Kennung zu HGS hinzufügen.
+    > Wenn dies der Fall ist und Sie sich darauf verlassen, dass das TPM auf dem Computer authentisch ist, können Sie das `-Force`-Flag verwenden, um diese Sicherheitsüberprüfung außer Kraft zu setzen und den Host Bezeichner zu HGS hinzuzufügen.
 
-2. Abrufen der Code Integritätsrichtlinie, die der Fabric-Administrator für die Hosts erstellt hat, im Binärformat (@no__t -0. p7b). Kopieren Sie die Datei auf einen HGS-Server. Führen Sie dann den folgenden Befehl aus.
+2. Abrufen der Code Integritätsrichtlinie, die der Fabric-Administrator für die Hosts erstellt hat, im Binärformat (\*. p7b). Kopieren Sie die Datei auf einen HGS-Server. Führen Sie dann den folgenden Befehl aus.
 
-    Geben Sie für `<PolicyName>` einen Namen für die CI-Richtlinie ein, die den Hosttyp beschreibt, auf den Sie angewendet wird. Eine bewährte Vorgehensweise besteht darin, den Namen nach dem Make/Model Ihres Computers und allen darauf laufenden speziellen Software Konfigurationen zu benennen.<br>Geben Sie für `<Path>` den Pfad und den Dateinamen der Code Integritätsrichtlinie an.
+    Geben Sie für `<PolicyName>`einen Namen für die CI-Richtlinie ein, die den Hosttyp beschreibt, auf den Sie angewendet wird. Eine bewährte Vorgehensweise besteht darin, den Namen nach dem Make/Model Ihres Computers und allen darauf laufenden speziellen Software Konfigurationen zu benennen.<br>Geben Sie für `<Path>`den Pfad und den Dateinamen der Code Integritätsrichtlinie an.
 
     ```powershell
     Add-HgsAttestationCIPolicy -Path <Path> -Name '<PolicyName>'

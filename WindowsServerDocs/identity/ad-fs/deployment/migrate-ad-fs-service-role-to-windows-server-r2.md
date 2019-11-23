@@ -59,7 +59,7 @@ ms.locfileid: "71359390"
   
 |Von|So AD FS mit Windows Server 2012 R2 installiert|  
 |----------|----------------------------------------------------------------------------------------------|  
-|AD FS 2,0-Verbund Server, installiert unter Windows Server 2008 oder Windows Server 2008 R2|Die Migration auf demselben Server wird unterstützt. Weitere Informationen finden Sie in den folgenden Themen:<br /><br /> [Vorbereiten der Migration des AD FS Verbund Servers](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [Migrieren des AD FS Verbund Servers](migrate-ad-fs-fed-server-r2.md)|  
+|AD FS 2,0-Verbund Server, installiert unter Windows Server 2008 oder Windows Server 2008 R2|Die Migration auf demselben Server wird unterstützt. Weitere Informationen finden Sie unter:<br /><br /> [Vorbereiten der Migration des AD FS Verbund Servers](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [Migrieren des AD FS Verbund Servers](migrate-ad-fs-fed-server-r2.md)|  
 |AD FS Verbund Server, installiert unter Windows Server 2012|Die Migration auf demselben Server wird unterstützt.  Weitere Informationen finden Sie unter:<br /><br /> [Vorbereiten der Migration des AD FS Verbund Servers](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [Migrieren des AD FS Verbund Servers](migrate-ad-fs-fed-server-r2.md)|  
   
 ## <a name="next-steps"></a>Nächste Schritte

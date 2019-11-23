@@ -19,7 +19,7 @@ ms.locfileid: "71358389"
 # <a name="add-an-attribute-store"></a>Attributspeicher hinzufügen
 
 
-Benutzerkonten und Computer Konten, die Zugriff auf eine Ressource benötigen, die durch Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 geschützt ist, werden in einem Attribut Speicher wie Active Directory Domain Services \(AD DS @ no__t-3 gespeichert. Das Anspruchs Ausstellungs Modul verwendet Attribut Speicher, um Daten zu sammeln, die zum Ausstellen von Ansprüchen erforderlich sind. Daten aus den Attribut speichern werden dann als Ansprüche projiziert.  
+Benutzerkonten und Computer Konten, die Zugriff auf eine Ressource benötigen, die durch Active Directory-Verbunddienste (AD FS) \(\) AD FS geschützt ist, werden in einem Attribut Speicher gespeichert, z. b. Active Directory Domain Services \(AD DS\). Das Anspruchs Ausstellungs Modul verwendet Attribut Speicher, um Daten zu sammeln, die zum Ausstellen von Ansprüchen erforderlich sind. Daten aus den Attribut speichern werden dann als Ansprüche projiziert.  
   
 Sie können das folgende Verfahren verwenden, um dem Verbunddienst einen Attribut Speicher hinzuzufügen.  
   
@@ -39,7 +39,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
   
    -   Wählen Sie unter **Attribut Speichertypen**einen unterstützten Attribut Speicher aus, entweder **Active Directory**, **LDAP**oder **SQL**.  
   
-   -   Wenn Sie in der **Verbindungs Zeichenfolge**entweder ein Lightweight Directory Access-Protokoll \(ldap @ no__t-2-Speicher oder einen strukturierte Abfragesprache \(sql @ no__t-4-Speicher ausgewählt haben, geben Sie die Zeichenfolge ein, die Sie zum Herstellen einer Verbindung mit dem Attribut verwendet haben. Speicher. Für Active Directory-Attribut Speicher ist keine Verbindungs Zeichenfolge erforderlich. Daher ist dieses Feld deaktiviert.  
+   -   Wenn Sie in der **Verbindungs Zeichenfolge**entweder ein Lightweight Directory Access-Protokoll \(LDAP\) Store oder einen strukturierte Abfragesprache \(SQL\)-Speicher ausgewählt haben, geben Sie die Zeichenfolge ein, die Sie zum Herstellen einer Verbindung mit dem Attribut Speicher verwendet haben. Für Active Directory-Attribut Speicher ist keine Verbindungs Zeichenfolge erforderlich. Daher ist dieses Feld deaktiviert.  
   
        > [!NOTE]  
        > AD FS erstellt standardmäßig automatisch einen Active Directory-Attributspeicher.  

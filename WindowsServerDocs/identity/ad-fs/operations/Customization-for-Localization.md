@@ -21,7 +21,7 @@ ms.locfileid: "71357982"
 
 Eine Lokalisierung von Webinhalten in andere Sprachen als Englisch ist möglich. Berücksichtigen bei der Lokalisierung die folgenden Überlegungen.  
   
-Nachdem die Inhalte angepasst sind, hat die Anpassung Vorrang, daher sollten Sie für alle Sprachen anpassen, die Sie unterstützen möchten. Alle angepassten Inhalte übernehmen einen Locale-Parameter. Wenn Sie lokalisierte Inhalte konfigurieren, konfigurieren Sie Sie zuerst mit einem Gebiets Schema @ no__t-0less, z. b. "en", bevor Sie ein Land und eine Region @ no__t-1spezifisches Gebiets Schema wie z. b. "en @ no__t-2US" konfigurieren.  
+Nachdem die Inhalte angepasst sind, hat die Anpassung Vorrang, daher sollten Sie für alle Sprachen anpassen, die Sie unterstützen möchten. Alle angepassten Inhalte übernehmen einen Locale-Parameter. Wenn Sie lokalisierte Inhalte konfigurieren, konfigurieren Sie Sie zuerst mit einem Land\-weniger Gebiets Schema, z. b. "en", bevor Sie ein Land und eine Region\-bestimmtes Gebiets Schema wie "en\-US" konfigurieren.  
   
 Im Folgenden sind einige weitere Codebeispiele aufgeführt.  
   

@@ -22,7 +22,7 @@ ms.locfileid: "71392319"
 ---
 # <a name="tsprof"></a>tsprof
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Kopiert die Remotedesktopdienste Benutzer Konfigurationsinformationen von einem Benutzer in einen anderen.
 Die Remotedesktopdienste Benutzer Konfigurationsinformationen werden in den Remotedesktopdienste-Erweiterungen für lokale Benutzer und Gruppen sowie für Active Directory-Benutzer und-Computer angezeigt.
@@ -45,13 +45,13 @@ tsprof /q {/domain:<DomainName> | /local} <UserName>
 |Parameter|Beschreibung|
 |-------|--------|
 |/Update|Aktualisiert Profilpfad Informationen für <*Benutzernamen*> in*Domänen*< Domain Name > auf <*ProfilePath*->.|
-|/Domain: \<domainname >|Gibt den Namen der Domäne an, in der der Vorgang angewendet wird.|
+|/Domain:\<Domain Name >|Gibt den Namen der Domäne an, in der der Vorgang angewendet wird.|
 |/local ein|Wendet den Vorgang nur auf lokale Benutzerkonten an.|
-|/Profile: \<path >|Gibt den Profilpfad an, der in den Remotedesktopdienste Erweiterungen in lokale Benutzer und Gruppen und Active Directory-Benutzer und-Computer angezeigt wird.|
-|\<username >|Gibt den Namen des Benutzers an, für den Sie den Serverprofil Pfad aktualisieren oder Abfragen möchten.|
-|/Copy|Kopiert Benutzer Konfigurationsinformationen aus \<*SOURCEUSER*> in \<*destinationuser*-> und aktualisiert die Profilpfad Informationen für \<*destinationuser*> auf \<*ProfilePath*>. Sowohl \<*SOURCEUSER*> als auch \<*destinationuser*> müssen entweder lokal oder in der Domäne \< Domain*Name*> sein.|
-|@no__t 0Src_usr >|Gibt den Namen des Benutzers an, von dem Sie die Benutzer Konfigurationsinformationen kopieren möchten.|
-|@no__t 0Dest_usr >|Gibt den Namen des Benutzers an, in den die Benutzer Konfigurationsinformationen kopiert werden sollen.|
+|/Profile:\<Pfad >|Gibt den Profilpfad an, der in den Remotedesktopdienste Erweiterungen in lokale Benutzer und Gruppen und Active Directory-Benutzer und-Computer angezeigt wird.|
+|\<Benutzername >|Gibt den Namen des Benutzers an, für den Sie den Serverprofil Pfad aktualisieren oder Abfragen möchten.|
+|/Copy|Kopiert die Benutzer Konfigurationsinformationen aus \<*SOURCEUSER*-> in \<*destinationuser*-> und aktualisiert die Profilpfad Informationen für \<*destinationuser*> auf \<*ProfilePath*->. Sowohl \<*SOURCEUSER*> als auch \<*destinationuser*> müssen entweder lokal oder in der Domäne \<Domain *Name*> sein.|
+|\<Src_usr >|Gibt den Namen des Benutzers an, von dem Sie die Benutzer Konfigurationsinformationen kopieren möchten.|
+|\<Dest_usr >|Gibt den Namen des Benutzers an, in den die Benutzer Konfigurationsinformationen kopiert werden sollen.|
 |/q|Zeigt den aktuellen Profilpfad des Benutzers an, für den Sie den Serverprofil Pfad Abfragen möchten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
@@ -70,4 +70,4 @@ tsprof /q {/domain:<DomainName> | /local} <UserName>
 
 #### <a name="additional-references"></a>Weitere Verweise
 [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[Remotedesktopdienste &#40;Befehlsreferenz&#41; für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)
+[Remotedesktopdienste &#40;Terminal Dienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

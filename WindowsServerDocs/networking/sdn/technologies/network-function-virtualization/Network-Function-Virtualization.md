@@ -21,9 +21,9 @@ ms.locfileid: "71355662"
 ---
 # <a name="network-function-virtualization"></a>Netzwerkfunktionsvirtualisierung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-In diesem Thema erfahren Sie mehr über die netzwerkfunktionsvirtualisierung, mit der Sie virtuelle Netzwerkgeräte bereitstellen können, z. b. Datacenter Firewall, mehrinstanzfähiges RAS-Gateway und Software Lastenausgleich \(slb @ no__t-1 Multiplexer \(mux @ no_ _T-3.
+In diesem Thema erfahren Sie mehr über die netzwerkfunktionsvirtualisierung, mit der Sie virtuelle Netzwerkgeräte wie Datacenter Firewall, mehrinstanzfähiges RAS-Gateway und Software Lastenausgleich \(SLB\) Multiplexer \(MUX-\)bereitstellen können.
   
 >[!NOTE]  
 >Zusätzlich zu diesem Thema ist die folgende Dokumentation zur netzwerkfunktionsvirtualisierung verfügbar.  

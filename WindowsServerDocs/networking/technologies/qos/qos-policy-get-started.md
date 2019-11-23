@@ -17,9 +17,9 @@ ms.locfileid: "71405283"
 ---
 # <a name="getting-started-with-qos-policy"></a>Die ersten Schritte mit der QoS-Richtlinie
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-In den folgenden Themen finden Sie Informationen zum Einstieg in Quality of Service \(qos @ no__t-1-Richtlinie.
+In den folgenden Themen finden Sie Informationen zu den ersten Schritten mit Quality of Service \(QoS-\)-Richtlinie.
 
 - [Funktionsweise der QoS-Richtlinie](qos-policy-works.md)
 - [Architektur der QoS-Richtlinie](qos-policy-architecture.md)

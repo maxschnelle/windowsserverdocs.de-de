@@ -19,7 +19,7 @@ ms.locfileid: "71359966"
 # <a name="verify-that-a-federation-server-proxy-is-operational"></a>Überprüfen der Betriebsbereitschaft eines Verbundserverproxys
 
 
-Mithilfe des folgenden Verfahrens können Sie überprüfen, ob der Verbund Server Proxy mit dem Verbunddienst in Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 kommunizieren kann. Sie führen dieses Verfahren aus, nachdem Sie den Assistenten zum Konfigurieren von **AD FS Verbund Server Proxy** ausgeführt haben, um den Computer für die Ausführung in der Verbund Server Proxy-Rolle zu konfigurieren. Weitere Informationen zum Ausführen dieses Assistenten finden Sie unter [Konfigurieren eines Computers für die Verbund Server Proxy-Rolle](Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
+Mithilfe des folgenden Verfahrens können Sie überprüfen, ob der Verbund Server Proxy mit dem Verbunddienst in Active Directory-Verbunddienste (AD FS) \(AD FS\)kommunizieren kann. Sie führen dieses Verfahren aus, nachdem Sie den Assistenten zum Konfigurieren von **AD FS Verbund Server Proxy** ausgeführt haben, um den Computer für die Ausführung in der Verbund Server Proxy-Rolle zu konfigurieren. Weitere Informationen zum Ausführen dieses Assistenten finden Sie unter [Konfigurieren eines Computers für die Verbund Server Proxy-Rolle](Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).  
   
 > [!IMPORTANT]  
 > Das Ergebnis dieses Tests besteht im erfolgreichen Generieren eines bestimmten Ereignisses in der Ereignisanzeige auf dem Verbundserverproxy-Computer.  
@@ -32,13 +32,13 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
   
 2.  Geben Sie auf dem **Start** Bildschirm**Ereignisanzeige**ein, und drücken Sie dann die EINGABETASTE.  
   
-3.  Doppel\-klicken Sie im Detailbereich auf **Anwendungs-und Dienst Protokolle**,\-Doppelklicken Sie auf **AD FS**Ereignis, und klicken Sie dann auf **Admin**.  
+3.  Doppel\-klicken Sie im Detailbereich auf **Anwendungs-und Dienst Protokolle**, Doppel\-klicken Sie auf **AD FS**Ereignis, und klicken Sie dann auf **Admin**.  
   
 4.  Suchen Sie in der Spalte **Ereignis-ID** nach der Ereignis-ID 198.  
   
     Wenn der Verbund Server Proxy ordnungsgemäß konfiguriert ist, wird im Anwendungsprotokoll Ereignisanzeige ein neues Ereignis mit der Ereignis-ID 198 angezeigt. Dieses Ereignis überprüft, ob der Verbund Server Proxy-Dienst erfolgreich gestartet wurde und nun online ist.  
   
 ## <a name="additional-references"></a>Weitere Verweise  
-[Prüfliste: Einrichten eines Verbundserverproxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
+[Prüfliste: Einrichten eines Verbund Server Proxys](Checklist--Setting-Up-a-Federation-Server-Proxy.md)  
   
 

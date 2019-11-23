@@ -19,9 +19,9 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71355566"
 ---
-# <a name="software-load-balancing-slb-for-sdn"></a>Software Lastenausgleich \(slb @ no__t-1 für Sdn
+# <a name="software-load-balancing-slb-for-sdn"></a>Software Lastenausgleich \(SLB-\) für Sdn
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erfahren Sie mehr über den Software Lastenausgleich für Software-Defined Networking in Windows Server 2016.  
 

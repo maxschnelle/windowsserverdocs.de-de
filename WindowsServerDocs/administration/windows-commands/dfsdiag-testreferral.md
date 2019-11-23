@@ -22,19 +22,19 @@ ms.locfileid: "71378360"
 ---
 # <a name="dfsdiag-testreferral"></a>Dfsdiag testreferral
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Prüft verteiltes Dateisystem \(dfs @ no__t-1-Verweise durch Ausführen der folgenden Tests:  
+Überprüft verteiltes Dateisystem \(DFS-\) Verweise durch Ausführen der folgenden Tests:  
   
 -   Wenn Sie den dfspath-Parameter ohne Argumente verwenden, überprüft dieser Befehl, ob die Verweis Liste alle vertrauenswürdigen Domänen enthält.  
   
--   Wenn Sie eine Domäne angeben, führt der Befehl eine Integritäts Überprüfung der Domänen Controller \(dfsdiag \/testdcs @ no__t-2 aus und testet die Site Zuordnungen und den Domänen Cache des lokalen Hosts.  
+-   Wenn Sie eine Domäne angeben, führt der Befehl eine Integritäts Überprüfung von Domänen Controllern \(Dfsdiag \/testdcs\) durch und testet die Standort Zuordnungen und den Domänen Cache des lokalen Hosts.  
   
--   Wenn Sie eine Domäne und \\sysvol oder \\netlogon angeben und die gleichen Integritätsprüfungen wie bei der Angabe einer Domäne durchführen, prüft der Befehl, dass die Gültigkeitsdauer \(ttl @ no__t-3 von SYSVOL-oder Netlogon-Referenzen mit dem Standardwert von übereinstimmt. 900 Sekunden.  
+-   Wenn Sie eine Domäne und \\SYSVOL oder \\Netlogon angeben und die gleichen Integritätsprüfungen wie bei der Angabe einer Domäne durchführen, prüft der Befehl, ob die Gültigkeitsdauer \(TTL\) der SYSVOL-oder Netlogon-Verweise mit dem Standardwert von 900 Sekunden übereinstimmt.  
   
--   Wenn Sie einen Namespace Stamm angeben und die gleichen Integritätsprüfungen wie bei der Angabe einer Domäne durchführen, führt der Befehl eine DFS-Konfigurations Überprüfung \(dfsdiag \/testdfsconfig @ no__t-2 und eine Namespace Integritäts Überprüfung \(dfsdiag aus @no__ t-4testdfsintegrity @ no__t-5.  
+-   Wenn Sie einen Namespace Stamm angeben und die gleichen Integritätsprüfungen wie bei der Angabe einer Domäne durchführen, führt der Befehl eine DFS-Konfigurations Überprüfung \(Dfsdiag \/testdfsconfig\) und eine Namespace Integritäts Überprüfung \(Dfsdiag \/testdfsintegrity-\)aus.  
   
--   Wenn Sie einen DFS-Ordner \(link @ no__t-1 angeben und die gleichen Integritätsprüfungen wie bei der Angabe eines Namespace Stamms ausführen, überprüft der Befehl die Standort Konfiguration für die Ordner Ziele \(dfsdiag \/testsites @ no__t-4 und überprüft. die Site Zuordnung des lokalen Hosts.  
+-   Wenn Sie einen DFS-Ordner \(Link\)angeben und die gleichen Integritätsprüfungen wie bei der Angabe eines Namespace Stamms ausführen, wird durch den Befehl die Standort Konfiguration für die Ordner Ziele \(Dfsdiag \/Testsites\) überprüft und die Standort Zuordnung des lokalen Hosts überprüft.  
   
   
   
@@ -48,8 +48,8 @@ dfsdiag /TestReferral /DFSpath:<DFS path for getting referrals> [/Full]
   
 |Parameter|Beschreibung|  
 |-------|--------|  
-|\/dfspath: <path for getting referrals>|Dieser DFS-Pfad kann eine der folgenden sein:<br /><br />-    @ no__t-1blank @ no__t-2: Testet vertrauenswürdige Domänen.<br />-    @ no__t-1 @ no__t-2domain: Verweise auf Domänen Controller.<br />-    @ no__t-1 @ no__t-2domain @ no__t-3sysvol: SYSVOL-Verweise.<br />-    @ no__t-1 @ no__t-2domain @ no__t-3netlogon: Anmelde Verweise.<br />-    @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5: Namespace-Stamm Verweise.<br />-    @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7: DFS-Ordner \(link @ no__t-1 referenrals.|  
-|\/full|Wird nur auf Domänen-und Stamm Verweise angewendet. überprüft die Konsistenz der Standort Zuordnungs Informationen zwischen der Registrierung und den Active Directory-Domänen Diensten \(ad DS @ no__t-1.|  
+|\/dfspath:<path for getting referrals>|Dieser DFS-Pfad kann eine der folgenden sein:<br /><br />-   \(leeres\): testet vertrauenswürdige Domänen.<br />-   \\\\Domäne: Domänen Controller Verweise.<br />-   \\\\Domänen\\SYSVOL: SYSVOL-Verweise.<br />-   \\\\Domäne\\Netlogon: Netlogon verweirals.<br />-   \\\\<Domain or server>\\<Namespace Root>: Namespace-Stamm Verweise.<br />-   \\\\<Domain or server>\\<Namespace root>\\<DFS folder>: DFS-Ordner \(Verknüpfungen\) verweisen.|  
+|\/voll|Wird nur auf Domänen-und Stamm Verweise angewendet. überprüft die Konsistenz der Standort Zuordnungs Informationen zwischen der Registrierung und den Active Directory-Domänen Diensten \(AD DS\).|  
   
 ## <a name="BKMK_Examples"></a>Beispiele  
 Geben Sie in TBD Folgendes ein:  

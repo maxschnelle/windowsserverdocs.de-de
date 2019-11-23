@@ -24,7 +24,7 @@ ms.locfileid: "71389397"
 Das erneute Zuordnen von Stationen im MultiPoint-Dashboard ermöglicht das Zuweisen von Tastaturen und Mäusen zu Monitoren. Lokale Benutzerstationen werden angehalten, während ein MultiPoint Services-System neu zugeordnet wird.  
   
 > [!CAUTION]  
-> Die Neuzuordnung wird häufig zu Problembehandlungszwecken verwendet. Stations Einstellungen, wie z. b. Name und Auto @ no__t-0logon, werden während der Neuzuordnung gelöscht.  
+> Die Neuzuordnung wird häufig zu Problembehandlungszwecken verwendet. Stations Einstellungen, wie z. b. Name und automatische\-Anmelde Informationen, werden während der Neuzuordnung gelöscht.  
   
 #### <a name="to-remap-a-multipoint-services-system"></a>So ordnen Sie ein MultiPoint Services-System neu zu  
   

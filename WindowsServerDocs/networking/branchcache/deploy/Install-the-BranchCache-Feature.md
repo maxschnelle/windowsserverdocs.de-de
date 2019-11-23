@@ -17,9 +17,9 @@ ms.locfileid: "71406434"
 ---
 # <a name="install-the-branchcache-feature"></a>Installieren der BranchCache-Funktion
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Mithilfe dieses Verfahrens können Sie die BranchCache-Funktion installieren und den BranchCache-Dienst auf einem Computer mit Windows Server @ no__t-0 2016, Windows Server 2012 R2 oder Windows Server 2012 starten.  
+Mit diesem Verfahren können Sie die BranchCache-Funktion installieren und den BranchCache-Dienst auf einem Computer unter Windows Server&reg; 2016, Windows Server 2012 R2 oder Windows Server 2012 starten.  
   
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können.  
   

@@ -24,9 +24,9 @@ ms.locfileid: "71380098"
 
 > **Gilt für**: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10
 
-bitadmin ist ein Befehlszeilen Tool, das Sie zum Erstellen von Aufträgen zum Herunterladen oder hochladen und zum Überwachen des Fortschritts verwenden können. Das bitadmin-Tool verwendet Schalter, um die auszuführende Arbeit zu identifizieren.  Sie können `bitsadmin /?` oder `bitsadmin /HELP` zum Abrufen einer Liste von Switches abrufen.
+bitadmin ist ein Befehlszeilen Tool, das Sie zum Erstellen von Aufträgen zum Herunterladen oder hochladen und zum Überwachen des Fortschritts verwenden können. Das bitadmin-Tool verwendet Schalter, um die auszuführende Arbeit zu identifizieren.  Sie können `bitsadmin /?` oder `bitsadmin /HELP` abrufen, um eine Liste der Switches abzurufen.
 
-Die meisten Schalter benötigen einen Parameter für den Parameter "\<job @ no__t-1", den Sie auf den anzeigen amen des Auftrags oder die GUID festlegen. Beachten Sie, dass der Anzeige Name eines Auftrags möglicherweise nicht eindeutig ist. Die Schalter **/Create** und **/List** geben die GUID eines Auftrags zurück.
+Die meisten Switches benötigen einen \<Job-\> Parameter, den Sie auf den anzeigen amen des Auftrags oder die GUID festlegen. Beachten Sie, dass der Anzeige Name eines Auftrags möglicherweise nicht eindeutig ist. Die Schalter **/Create** und **/List** geben die GUID eines Auftrags zurück.
 
 Standardmäßig können Sie auf Informationen zu ihren eigenen Aufträgen zugreifen. Für den Zugriff auf Informationen für die Aufträge eines anderen Benutzers müssen Sie über Administratorrechte verfügen. Wenn der Auftrag mit erhöhten Rechten erstellt wurde, müssen Sie bizadmin über ein Fenster mit erhöhten Rechten ausführen. Andernfalls haben Sie schreibgeschützten Zugriff auf den Auftrag.
 
@@ -84,8 +84,8 @@ Verwenden Sie die folgenden Schalter, um einen Auftrag zu erstellen, die Eigensc
 [bitsadmin info](bitsadmin-info.md)  
 [bitsadmin list](bitsadmin-list.md)  
 [bitsadmin listfiles](bitsadmin-listfiles.md)  
-[bipadmin makecustomheadersschreiteonly](bitsadmin-makecustomheaderswriteonly.md)
-[bitionadmin-Monitor](bitsadmin-monitor.md)  
+[bipadmin](bitsadmin-makecustomheaderswriteonly.md) -
+[bipadmin-Monitor](bitsadmin-monitor.md)  
 [bitsadmin nowrap](bitsadmin-nowrap.md)  
 [bitsadmin peercaching](bitsadmin-peercaching.md)  
 [bitsadmin peers](bitsadmin-peers.md)  
@@ -104,8 +104,8 @@ Verwenden Sie die folgenden Schalter, um einen Auftrag zu erstellen, die Eigensc
 [bitsadmin setdisplayname](bitsadmin-setdisplayname.md)  
 [bitsadmin sethelpertoken](bitsadmin-sethelpertoken.md)  
 [bitsadmin sethelpertokenflags](bitsadmin-sethelpertokenflags.md)  
-[bitadmin sethttpmethod](bitsadmin-sethttpmethod.md)
-[bizadmin setmaxdownloadtime](bitsadmin-setmaxdownloadtime.md)  
+[bizadmin sethttpmethod](bitsadmin-sethttpmethod.md)
+[bitadmin setmaxdownloadtime](bitsadmin-setmaxdownloadtime.md)  
 [bitsadmin setminretrydelay](bitsadmin-setminretrydelay.md)  
 [bitsadmin setnoprogresstimeout](bitsadmin-setnoprogresstimeout.md)  
 [bitsadmin setnotifycmdline](bitsadmin-setnotifycmdline.md)  

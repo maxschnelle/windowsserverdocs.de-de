@@ -18,17 +18,17 @@ ms.locfileid: "71407174"
 ---
 # <a name="deploy-access-denied-assistance-demonstration-steps"></a>Bereitstellen der Unterstützung nach %%amp;quot;Zugriff verweigert%%amp;quot; (Schritte zur Veranschaulichung)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema wird erläutert, wie Sie die Unterstützung nach "Zugriff verweigert" konfigurieren und überprüfen, ob diese ordnungsgemäß funktioniert.  
   
 **In diesem Dokument**  
   
--   [Schritt 1: Konfigurieren der Unterstützung nach "Zugriff verweigert" @ no__t-0  
+-   [Schritt 1: Konfigurieren der Unterstützung nach "Zugriff verweigert"](Deploy-Access-Denied-Assistance--Demonstration-Steps-.md#BKMK_1)  
   
--   [Schritt 2: Konfigurieren der e-Mail-Benachrichtigungseinstellungen @ no__t-0  
+-   [Schritt 2: Konfigurieren der e-Mail-Benachrichtigungseinstellungen](Deploy-Access-Denied-Assistance--Demonstration-Steps-.md#BKMK_2)  
   
--   [Schritt 3: Überprüfen, ob die Unterstützung nach "Zugriff verweigert" richtig konfiguriert ist @ no__t-0  
+-   [Schritt 3: überprüfen, ob die Unterstützung nach "Zugriff verweigert" richtig konfiguriert ist](Deploy-Access-Denied-Assistance--Demonstration-Steps-.md#BKMK_3)  
   
 > [!NOTE]  
 > Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
@@ -70,7 +70,7 @@ Sie können die Unterstützung nach "Zugriff verweigert" für die Domäne mithil
   
     3.  Übernehmen Sie die restlichen Standardeinstellungen.  
   
-![solution Guides](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
+![projektmappenanleitung für](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -118,7 +118,7 @@ Alternativ können Sie die Unterstützung nach "Zugriff verweigert" auch über d
   
 8.  Klicken Sie auf **OK**.  
   
-![solution Guides](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
+![projektmappenanleitung für](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
   
@@ -142,7 +142,7 @@ Nachdem Sie die Unterstützung nach "Zugriff verweigert" konfiguriert haben, mü
   
 5.  Klicken Sie auf **Aktiviert**und dann auf **OK**.  
   
-![solution Guides](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
+![projektmappenanleitung für](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind. 
   
@@ -181,7 +181,7 @@ Mithilfe der Konsole des Ressourcen-Managers für Dateiserver können Sie auch e
   
 7.  Klicken Sie auf **OK** und dann auf **Schließen**.  
   
-![solution Guides](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
+![projektmappenanleitung für](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind. 
   
@@ -189,7 +189,7 @@ Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vor
 Set-FSRMMgmtProperty -Namespace "folder path" -Name "AccessDeniedMessage_MS" -Value "Type the text that the user will see in the error message dialog box."  
 ```  
   
-## <a name="BKMK_2"></a>Schritt 2: Konfigurieren der E-Mail-Benachrichtigungseinstellungen  
+## <a name="BKMK_2"></a>Schritt 2: Konfigurieren der e-Mail-Benachrichtigungseinstellungen  
 Sie müssen die E-Mail-Benachrichtigungseinstellungen auf jedem Dateiserver konfigurieren, von dem die Meldungen für die Unterstützung nach "Zugriff verweigert" gesendet werden.  
   
 [Führen Sie diesen Schritt mithilfe von Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
@@ -210,7 +210,7 @@ Sie müssen die E-Mail-Benachrichtigungseinstellungen auf jedem Dateiserver konf
   
 6.  Klicken Sie auf **OK**.  
   
-![solution Guides](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
+![projektmappenanleitung für](media/Deploy-Access-Denied-Assistance--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
   
@@ -218,7 +218,7 @@ Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vor
 set-FSRMSetting -SMTPServer "server1" -AdminEmailAddress "fileadmin@contoso.com" -FromEmailAddress "fileadmin@contoso.com"  
 ```  
   
-## <a name="BKMK_3"></a>Schritt 3: Überprüfen der ordnungsgemäßen Konfiguration der Unterstützung nach "Zugriff verweigert"  
+## <a name="BKMK_3"></a>Schritt 3: überprüfen, ob die Unterstützung nach "Zugriff verweigert" richtig konfiguriert ist  
 Sie können überprüfen, ob die Unterstützung nach "Zugriff verweigert" ordnungsgemäß konfiguriert ist, indem Sie einen Benutzer mit Windows 8 versuchen, auf eine Freigabe oder eine Datei in dieser Freigabe zuzugreifen, auf die Sie keinen Zugriff haben. Wenn die Meldung "Zugriff verweigert" angezeigt wird, muss die Schaltfläche **Unterstützung anfordern** für den Benutzer verfügbar sein. Nach dem Klicken auf die Schaltfläche "Unterstützung anfordern" kann der Benutzer einen Grund für den Zugriff angeben und dann eine E-Mail an den Besitzer des Ordners oder an den Dateiserveradministrator senden. Der Besitzer des Ordners oder der Dateiserveradministrator kann für Sie überprüfen, ob die E-Mail angekommen ist und die entsprechenden Details enthält.  
   
 > [!IMPORTANT]  
@@ -226,10 +226,10 @@ Sie können überprüfen, ob die Unterstützung nach "Zugriff verweigert" ordnun
   
 ## <a name="BKMK_Links"></a>Siehe auch  
   
--   [Szenario: Unterstützung nach „Zugriff verweigert“](Scenario--Access-Denied-Assistance.md)  
+-   [Szenario: Unterstützung nach "Zugriff verweigert"](Scenario--Access-Denied-Assistance.md)  
   
 -   [Planen der Unterstützung nach "Zugriff verweigert"](assetId:///b169f0a4-8b97-4da8-ae4a-c8f1986d19e1)  
   
--   [Dynamische Zugriffsteuerung: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Dynamisches Access Control: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
   
 

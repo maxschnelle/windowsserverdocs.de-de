@@ -18,9 +18,9 @@ ms.locfileid: "71358137"
 ---
 # <a name="create-a-rule-to-pass-through-or-filter-an-incoming-claim"></a>Erstellen einer Regel zum durchlaufen oder Filtern eines eingehenden Anspruchs
 
-Mithilfe der Regel Vorlage zum durchlaufen oder Filtern einer eingehenden Anspruchs Regel in Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 können Sie alle eingehenden Ansprüche mit einem ausgewählten Anspruchstyp weiterleiten. Sie können auch die Werte eingehender Ansprüche mit einem ausgewählten Anspruchstyp filtern. Beispielsweise können Sie diese Regel Vorlage verwenden, um eine Regel zu erstellen, die alle eingehenden Gruppen Ansprüche sendet. Sie können diese Regel auch verwenden, um nur den Benutzer Prinzipal Namen \(upn @ no__t-1-Ansprüche zu senden, die mit @fabrikam enden.  
+Mithilfe der Regel Vorlage zum durchlaufen oder Filtern einer eingehenden Anspruchs Regel in Active Directory-Verbunddienste (AD FS) \(AD FS\)können Sie alle eingehenden Ansprüche mit einem ausgewählten Anspruchstyp weiterleiten. Sie können auch die Werte eingehender Ansprüche mit einem ausgewählten Anspruchstyp filtern. Beispielsweise können Sie diese Regel Vorlage verwenden, um eine Regel zu erstellen, die alle eingehenden Gruppen Ansprüche sendet. Sie können diese Regel auch verwenden, um nur den Benutzer Prinzipal Namen \(UPN\) Ansprüche zu senden, die mit @fabrikamenden.  
   
-Mithilfe des folgenden Verfahrens können Sie eine Anspruchs Regel mit dem Snap\--in "AD FS-Verwaltung" erstellen.  
+Mithilfe des folgenden Verfahrens können Sie eine Anspruchs Regel mit dem AD FS-Verwaltungs-Snap\-in erstellen.  
   
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
 
@@ -31,7 +31,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf Vertrauens Stellungen der vertrauenden **Seite**. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
-3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung, und klicken Sie dann auf **Richtlinie**zum
+3.  Klicken Sie mit der rechten\-auf die ausgewählte Vertrauensstellung, und klicken Sie dann auf **Anspruchs Ausstellungs Richtlinie bearbeiten**.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
   
 4.  Klicken Sie im Dialogfeld **Richtlinie für Anspruchs Ausstellung bearbeiten** unter Ausstellungs **Transformationsregeln** auf **Regel hinzufügen** , um den Regel-Assistenten zu starten. 
@@ -62,7 +62,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf **Anspruchs Anbieter**-Vertrauens Stellungen. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
   
-3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.
+3.  Klicken Sie mit der rechten\-auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
   
 4.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** unter **Akzeptanz Transformationsregeln** auf **Regel hinzufügen** , um den Regel-Assistenten zu starten.
@@ -90,12 +90,12 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
   
-2.  Klicken Sie in der Konsolen Struktur unter **AD FSAD\\FS Vertrauens**Stellungen entweder auf **Anspruchs Anbieter** -Vertrauens Stellungen oder Vertrauens Stellungen der vertrauenden **Seite**, und klicken Sie dann auf eine bestimmte Vertrauensstellung in der Liste, in der Sie diese Regel erstellen möchten.  
+2.  Klicken Sie in der Konsolen Struktur unter **AD FSAD FS\\Vertrauens**Stellungen auf **Anspruchs Anbieter** -Vertrauens Stellungen oder Vertrauens Stellungen der vertrauenden **Seite**, und klicken Sie dann auf eine bestimmte Vertrauensstellung in der Liste, in der Sie diese Regel erstellen möchten.  
   
-3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.
+3.  Klicken Sie mit der rechten\-auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG)   
   
-4.  Wählen Sie im Dialogfeld **Anspruchs Regeln bearbeiten** je nach der zu bearbeitenden Vertrauensstellung und dem Regelsatz, in dem Sie diese Regel erstellen möchten, eine der folgenden Registerkarten aus, und klicken Sie dann auf **Regel hinzufügen** , um den Regel-Assistenten zu starten, der diesem Regelsatz zugeordnet ist. :  
+4.  Wählen Sie im Dialogfeld **Anspruchs Regeln bearbeiten** je nach der zu bearbeitenden Vertrauensstellung und dem Regelsatz, in dem Sie diese Regel erstellen möchten, eine der folgenden Registerkarten aus, und klicken Sie dann auf **Regel hinzufügen** , um den Regel-Assistenten zu starten, der diesem Regelsatz zugeordnet ist:  
   
     -   **Akzeptanz Transformationsregeln**  
   

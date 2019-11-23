@@ -15,9 +15,9 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71356255"
 ---
-# <a name="prehash-and-preload-content-on-the-hosted-cache-server-optional"></a>Vorab Hash-und vorab Laden von Inhalt auf dem gehosteten Cache Server \(optional @ no__t-1
+# <a name="prehash-and-preload-content-on-the-hosted-cache-server-optional"></a>Das vorab Hash-und vorab Laden von Inhalt auf dem gehosteten Cache Server \(optional\)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Mithilfe der Prozeduren in diesem Abschnitt können Sie Inhalte auf Ihren Inhalts Servern als prähash verwenden, den Inhalt zu Datenpaketen hinzufügen und den Inhalt dann auf den gehosteten Cache Servern vorab laden. 
 

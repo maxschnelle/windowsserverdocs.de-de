@@ -18,7 +18,7 @@ ms.locfileid: "71391199"
 ---
 # <a name="ad-ds-installation-and-removal-wizard-page-descriptions"></a>Seitenbeschreibungen für den Assistenten zum Installieren und Entfernen von AD DS
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dieses Thema enthält Beschreibungen zu den Steuerelementen auf den folgenden Assistentenseiten, die die Installation und das Entfernen der AD DS-Serverrolle in Server Manager umfassen.  
   
@@ -61,7 +61,7 @@ Beim Erstellen einer neuen Gesamtstruktur werden die folgenden Optionen angezeig
   
 -   Beim Erstellen einer neuen Gesamtstruktur müssen Sie einen Namen für die Stammdomäne der Gesamtstruktur angeben. Der Name der Gesamtstruktur-Stamm Domäne kann nicht mit einer einzelnen Bezeichnung (z. b. "contoso.com" anstelle von "" in "") versehen werden. Es müssen zulässige DNS-Domänennamenskonventionen verwendet werden. Sie können einen internationalen Domänennamen (IDN) angeben. Weitere Informationen zu DNS-Domänen Namenskonventionen finden Sie in [KB 909264](https://support.microsoft.com/kb/909264).  
   
--   Erstellen Sie keine neuen Active Directory-Gesamtstrukturen, die denselben Namen haben wie Ihr externer DNS-Name. Wenn Ihre Internet-DNS-URL z. b. "http: \//TSO. com" lautet, müssen Sie für Ihre interne Gesamtstruktur einen anderen Namen auswählen, um zukünftige Kompatibilitätsprobleme zu vermeiden. Der Name sollte eindeutig und seine Verwendung für den Webdatenverkehr unwahrscheinlich sein, beispielsweise %%amp;quot;corp.contoso.com%%amp;quot;.  
+-   Erstellen Sie keine neuen Active Directory-Gesamtstrukturen, die denselben Namen haben wie Ihr externer DNS-Name. Wenn Ihre Internet-DNS-URL beispielsweise http:\//contoso.com ist, müssen Sie einen anderen Namen für die interne Gesamtstruktur auswählen, um zukünftige Kompatibilitätsprobleme zu vermeiden. Der Name sollte eindeutig und seine Verwendung für den Webdatenverkehr unwahrscheinlich sein, beispielsweise %%amp;quot;corp.contoso.com%%amp;quot;.  
   
 -   Auf dem Server, auf dem Sie eine neue Gesamtstruktur erstellen möchten, müssen Sie Mitglied der Administratorgruppe sein.  
   
@@ -160,13 +160,13 @@ Der Installationsvorgang versucht, die Delegierung zu erstellen, um sicherzustel
   
 Delegierungen zwischen der übergeordneten Domäne und der Unterdomäne, die höher gestuft wird, können vor oder nach der Installation erstellt und überprüft werden. Es besteht kein Grund zur Verzögerung der Installation eines neuen Domänencontrollers, da Sie die DNS-Delegierung nicht erstellen oder aktualisieren können.  
   
-Weitere Informationen zur Delegierung finden Sie Untergrund Legendes zur [Zonen Delegierung](https://go.microsoft.com/fwlink/?LinkId=164773) (https://go.microsoft.com/fwlink/?LinkId=164773). Wenn in der momentanen Situation keine Zonendelegierung möglich ist, können Sie ggf. andere Methoden zur Bereitstellung der Namensauflösung von anderen Domänen zu den Hosts in der Domäne in Betracht ziehen. Der DNS-Administrator einer anderen Domäne kann z. B. bedingte Weiterleitung, Stubzonen oder sekundäre Zonen konfigurieren, um Namen in der Domäne aufzulösen. Weitere Informationen finden Sie unter den folgenden Themen:  
+Weitere Informationen zur Delegierung finden Sie Untergrund Legendes zur [Zonen Delegierung](https://go.microsoft.com/fwlink/?LinkId=164773) (https://go.microsoft.com/fwlink/?LinkId=164773). Wenn in der momentanen Situation keine Zonendelegierung möglich ist, können Sie ggf. andere Methoden zur Bereitstellung der Namensauflösung von anderen Domänen zu den Hosts in der Domäne in Betracht ziehen. Der DNS-Administrator einer anderen Domäne kann z. B. bedingte Weiterleitung, Stubzonen oder sekundäre Zonen konfigurieren, um Namen in der Domäne aufzulösen. Weitere Informationen finden Sie in den folgenden Themen:  
   
 -   Grundlegendes zu [Zonen Typen](https://go.microsoft.com/fwlink/?LinkID=157399) (https://go.microsoft.com/fwlink/?LinkID=157399)  
   
 -   Grundlegendes zu [Stub-Zonen](https://go.microsoft.com/fwlink/?LinkId=164776) (https://go.microsoft.com/fwlink/?LinkId=164776)  
   
--   Grundlegendes zu weiter [Leitungen (@no__t](https://go.microsoft.com/fwlink/?LinkId=164778) -1  
+-   Grundlegendes zu weiter [Leitungen (https://go.microsoft.com/fwlink/?LinkId=164778)](https://go.microsoft.com/fwlink/?LinkId=164778)  
   
 ## <a name="BKMK_RODCOptionsPage"></a>RODC-Optionen  
 Beim Installieren eines schreibgeschützten Domänencontrollers (Read-Only Domain Controller, RODC) werden die folgenden Optionen angezeigt.  
@@ -274,9 +274,9 @@ Bevor Sie zum Fortsetzen des Vorgangs auf **Weiter** klicken können, müssen Si
   
 Wenn Sie das Entfernen eines Domänencontrollers erzwingen, gehen sämtliche Active Directory-Objektänderungen, die nicht auf andere Domänencontroller in der Domäne repliziert wurden, verloren. Falls der Domänencontroller zudem Betriebsmasterrollen, den globalen Katalog oder die DNS-Serverrolle hostet, kann sich dies wie folgt auf wichtige Vorgänge in der Domäne und Gesamtstruktur auswirken. Versuchen Sie vor dem Entfernen eines Domänencontrollers, der eine beliebige Betriebsmasterrolle hostet, die Rolle auf einen anderen Domänencontroller zu übertragen. Wenn die Rolle nicht übertragen werden kann, entfernen Sie zunächst die Active Directory-Domänendienste von diesem Computer, und übernehmen Sie dann die Rolle mithilfe von %%amp;quot;Ntdsutil.exe%%amp;quot;. Verwenden Sie Ntdsutil für den Domänencontroller, für den die Rolle übernommen werden soll. Verwenden Sie möglichst einen aktuellen Replikationspartner, der sich am gleichen Standort wie dieser Domänencontroller befindet. Weitere Informationen zum übertragen und übernehmen von Betriebs Master Rollen finden Sie im [Artikel 255504](https://go.microsoft.com/fwlink/?LinkId=80395) in der Microsoft Knowledge Base. Wenn der Assistent nicht bestimmen kann, ob der Domänencontroller eine Betriebsmasterrolle hostet, führen Sie den Befehl %%amp;quot;netdom.exe%%amp;quot; aus. Somit können Sie feststellen, ob dieser Domänencontroller Betriebsmasterrollen ausführt.  
   
--   Globaler Katalog: Benutzer haben möglicherweise Probleme bei der Anmeldung bei Domänen in der Gesamtstruktur. Stellen Sie vor dem Entfernen eines globalen Katalogservers sicher, dass sich in der jeweiligen Gesamtstruktur und an dem jeweiligen Standort genügend globale Katalogserver zum Verarbeiten der Benutzeranmeldungen befinden. Weisen Sie bei Bedarf einen weiteren globalen Katalogserver zu, und aktualisieren Sie die Clients und Anwendungen mit den neuen Informationen.  
+-   Globaler Katalog: möglicherweise haben die Benutzer Probleme mit der Anmeldung bei Domänen in der Gesamtstruktur. Stellen Sie vor dem Entfernen eines globalen Katalogservers sicher, dass sich in der jeweiligen Gesamtstruktur und an dem jeweiligen Standort genügend globale Katalogserver zum Verarbeiten der Benutzeranmeldungen befinden. Weisen Sie bei Bedarf einen weiteren globalen Katalogserver zu, und aktualisieren Sie die Clients und Anwendungen mit den neuen Informationen.  
   
--   DNS-Server: Alle DNS-Daten, die in Active Directory integrierten Zonen gespeichert werden, gehen verloren. Nachdem Sie AD DS entfernt haben, kann der jeweilige DNS-Server keine Namensauflösung für die in Active Directory integrierten DNS-Zonen ausführen. Daher wird empfohlen, für die Namensauflösung mit der IP-Adresse eines neuen DNS-Servers die DNS-Konfiguration aller Computer zu aktualisieren, die momentan auf die IP-Adresse dieses DNS-Servers verweisen.  
+-   DNS-Server: alle DNS-Daten, die in Active Directory-integrierten Zonen gespeichert werden, gehen verloren. Nachdem Sie AD DS entfernt haben, kann der jeweilige DNS-Server keine Namensauflösung für die in Active Directory integrierten DNS-Zonen ausführen. Daher wird empfohlen, für die Namensauflösung mit der IP-Adresse eines neuen DNS-Servers die DNS-Konfiguration aller Computer zu aktualisieren, die momentan auf die IP-Adresse dieses DNS-Servers verweisen.  
   
 -   Infrastrukturmaster: Clients in der Domäne haben möglicherweise Schwierigkeiten dabei, Objekte in anderen Domänen zu finden. Bevor Sie den Vorgang fortsetzen, übertragen Sie die Infrastrukturmasterrolle auf einen Domänencontroller, bei dem es sich nicht um einen globalen Katalogserver handelt.  
   

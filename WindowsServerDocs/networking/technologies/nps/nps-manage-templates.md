@@ -17,9 +17,9 @@ ms.locfileid: "71396153"
 ---
 # <a name="manage-nps-templates"></a>Verwalten von NPS-Vorlagen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Sie können Netzwerk Richtlinien Server-\(nps @ no__t-1-Vorlagen verwenden, um Konfigurationselemente zu erstellen, z. b. Remote Authentication Dial-in User Service \(radius @ no__t-3-Clients oder gemeinsame geheime Schlüssel, die Sie auf dem lokalen NPS wieder verwenden und für die Verwendung auf anderen NPSS. 
+Sie können Netzwerk Richtlinien Server-\(NPS-\) Vorlagen verwenden, um Konfigurationselemente zu erstellen, z. b. Remote Authentication Dial-in User Service \(RADIUS\) Clients oder gemeinsame geheime Schlüssel, die Sie auf dem lokalen NPS wieder verwenden und für die Verwendung auf anderen NPSS verwenden können. 
 
 Die Vorlagen Verwaltung bietet einen Knoten in der NPS-Konsole, in dem Sie die Verwendung von NPS-Vorlagen erstellen, ändern, löschen, duplizieren und anzeigen können. NPS-Vorlagen sind so konzipiert, dass der Zeit-und Kostenaufwand für die Konfiguration von NPS auf einem oder mehreren Servern reduziert wird.
 
@@ -31,15 +31,15 @@ Die folgenden NPS-Vorlagen Typen sind für die Konfiguration in der Vorlagen Ver
 
 - **Remote-RADIUS-Server**. Diese Vorlage ermöglicht es Ihnen, Remote-RADIUS-Servereinstellungen zu konfigurieren, die Sie wieder verwenden können, indem Sie die Vorlage an der entsprechenden Stelle in der NPS-Konsole auswählen. 
 
-- **IP-Filter**. Diese Vorlage ermöglicht es Ihnen, IPv4 (Internet Protocol Version 4) und Internetprotokoll Version 6 \(ipv6 @ no__t-1-Filter zu erstellen, die Sie \( wieder verwenden können, indem Sie die Vorlage am entsprechenden Speicherort in der NPS-Konsole @ no__t-3 auswählen, wenn Sie Konfigurieren von Netzwerk Richtlinien.
+- **IP-Filter**. Diese Vorlage ermöglicht es Ihnen, IPv4 (Internet Protocol Version 4) und IPv6-\) Filter (Internetprotokoll, Version 6 \(IPv6) zu erstellen, die \(wieder verwendet werden können, indem Sie die Vorlage am entsprechenden Speicherort in der NPS-\) Konsole auswählen, wenn Sie Netzwerk Richtlinien konfigurieren.
 
 ## <a name="create-an-nps-template"></a>Erstellen einer NPS-Vorlage
 
 Das Konfigurieren einer Vorlage unterscheidet sich von der direkten Konfiguration des NPS. Das Erstellen einer Vorlage wirkt sich nicht auf die Funktionalität von NPS aus. Dies ist nur der Fall, wenn Sie die Vorlage an der entsprechenden Stelle in der NPS-Konsole auswählen und die Vorlage anwenden, dass sich die Vorlage auf die NPS-Funktionalität auswirkt. 
 
-Wenn Sie z. b. einen RADIUS-Client in der NPS-Konsole unter **RADIUS-Clients und-Server**konfigurieren, ändern Sie die NPS-Konfiguration, und führen Sie einen Schritt aus, um die NPS für die Kommunikation mit einem Ihrer Netzwerk Zugriffs Server zu konfigurieren. \(der nächste Schritt ist das Konfigurieren des Netzwerk Zugriffs Servers \(nas @ no__t-2 für die Kommunikation mit NPS. \) 
+Wenn Sie z. b. einen RADIUS-Client in der NPS-Konsole unter **RADIUS-Clients und-Server**konfigurieren, ändern Sie die NPS-Konfiguration, und führen Sie einen Schritt aus, um die NPS für die Kommunikation mit einem Ihrer Netzwerk Zugriffs Server zu konfigurieren. \(der nächste Schritt besteht darin, den Netzwerk Zugriffs Server \(NAS-\) für die Kommunikation mit NPS zu konfigurieren.\) 
 
-Wenn Sie jedoch eine neue **RADIUS** -Client Vorlage in der NPS-Konsole unter **Vorlagen Verwaltung** konfigurieren, anstatt einen neuen RADIUS-Client unter **RADIUS-Clients und-Server zu**erstellen, haben Sie eine Vorlage erstellt, aber Sie haben die NPS-Funktionalität. Um die NPS-Funktionalität zu ändern, müssen Sie die Vorlage an der richtigen Stelle in der NPS-Konsole anwenden.
+Wenn Sie jedoch eine neue **RADIUS** -Client Vorlage in der NPS-Konsole unter **Vorlagen Verwaltung** konfigurieren, anstatt einen neuen RADIUS-Client unter **RADIUS-Clients und-Server zu**erstellen, haben Sie eine Vorlage erstellt, aber Sie haben die NPS-Funktionalität noch nicht geändert. Um die NPS-Funktionalität zu ändern, müssen Sie die Vorlage an der richtigen Stelle in der NPS-Konsole anwenden.
 
 Das folgende Verfahren enthält Anweisungen zum Erstellen einer neuen Vorlage.
 

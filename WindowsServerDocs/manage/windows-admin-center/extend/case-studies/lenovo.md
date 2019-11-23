@@ -35,6 +35,7 @@ Dieselben Tools sind auch bei der Verwaltung von Servern im Windows Admin Center
 
 Die Tool Erweiterung für Failovercluster und hyperkonvergierte Cluster enthält ein Dashboard, das den Gesamt Integritäts Status der Cluster Hardware, Status Warnungen, den firmwarekonsistenz-Status und-Bericht, Stromverbrauch und Temperatur sowie Lüfter und Netzteil anzeigt. Integritäts Status.
 
-![lenovo-Erweiterung @ no__t-1 @ no__t-2lenovo Extension @ no__t-3
+![Lenovo-Erweiterung](../../media/extend-case-study-lenovo/lenovo-4.png)
+![Lenovo-Erweiterung](../../media/extend-case-study-lenovo/lenovo-5.png)
 
 Weitere Informationen zu den Lenovo xclarity Integrator-angeboten für Windows Admin Center finden Sie auf der [Lenovo-Website](https://support.lenovo.com/us/en/solutions/ht507549).

@@ -35,11 +35,11 @@ Führen Sie das folgende Verfahren aus, um eine wid-Farm zu Windows Server 2012 
 Sie können die ursprüngliche AD FS Konfiguration erstellen, indem Sie mithilfe des **AD FS-Assistenten zum Konfigurieren** von Verbund Servern einen Verbund Server zu einer wid-Farm hinzufügen. Weitere Informationen finden Sie unter [Hinzufügen eines Verbundservers zu einer Verbundserverfarm](add-a-federation-server-to-a-federation-server-farm.md).  
   
 > [!NOTE]
-> Wenn Sie die Seite **primären Verbund Server und Dienst Konto angeben** des Assistenten für die **Konfiguration des AD FS**-Verbund Servers erreichen, geben Sie den Namen des primären Verbund Servers der wid-Farm ein, und stellen Sie sicher, dass Sie das Dienst Konto eingeben. Informationen, die Sie beim Vorbereiten der AD FS Migration aufgezeichnet haben. Weitere Informationen finden Sie unter [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-a-wid-farm.md)-Verbund Servers. 
+> Wenn Sie im Assistenten für die **Konfiguration des AD FS**-Verbund Servers auf die Seite primären Verbund **Server und Dienst Konto angeben** zugreifen, geben Sie den Namen des primären Verbund Servers der wid-Farm ein, und geben Sie die Dienst Kontoinformationen ein, die Sie beim Vorbereiten der AD FS Migration notiert haben. Weitere Informationen finden Sie unter [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-a-wid-farm.md)-Verbund Servers. 
 >  
 > Wenn Sie die Seite **Verbunddienst Namen angeben** erreichen, achten Sie darauf, dass Sie das gleiche SSL-Zertifikat auswählen, das Sie im Abschnitt "Vorbereiten der Migration einer wid-Farm" unter [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-a-wid-farm.md)-Verbund Servers notiert haben.  
   
-5. Aktualisieren Sie Ihre AD FS-Webseiten auf diesem Server. Wenn Sie die benutzerdefinierten AD FS Webseiten während der Vorbereitung auf die Migration gesichert haben, müssen Sie die standardmäßigen AD FS Webseiten, die standardmäßig im AD FS Verzeichnis **%systemdrive%\inetpub\adfs\ls** erstellt wurden, mithilfe der Sicherungsdaten überschreiben. Konfiguration auf Windows Server 2012.  
+5. Aktualisieren Sie Ihre AD FS-Webseiten auf diesem Server. Wenn Sie Ihre angepassten AD FS Webseiten während der Vorbereitung auf die Migration gesichert haben, müssen Sie Ihre Sicherungsdaten verwenden, um die standardmäßigen AD FS Webseiten zu überschreiben, die standardmäßig im Verzeichnis **%systemdrive%\inetpub\adfs\ls** erstellt wurden, als Ergebnis der AD FS Konfiguration auf Windows Server 2012.  
   
 6. Fügen Sie den Server, den Sie soeben für Windows Server 2012 aktualisiert haben, dem Load Balancer hinzu.  
   
@@ -65,15 +65,15 @@ Sie können die ursprüngliche AD FS Konfiguration erstellen, indem Sie mithilfe
 >  
 > Wenn Sie die Seite **Verbunddienst Namen angeben** erreichen, achten Sie darauf, dass Sie das gleiche SSL-Zertifikat auswählen, das Sie unter [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-a-wid-farm.md)-Verbund Servers notiert haben.  
   
-13. Aktualisieren Sie Ihre AD FS Webseiten auf diesem letzten Server in ihrer wid-Farm. Wenn Sie Ihre angepassten AD FS Webseiten beim Vorbereiten der Migration gesichert haben, verwenden Sie Ihre Sicherungsdaten, um die standardmäßigen AD FS Webseiten zu überschreiben, die standardmäßig im Verzeichnis **%systemdrive%\inetpub\adfs\ls** als Ergebnis des AD FS Konfiguration auf Windows Server 2012.  
+13. Aktualisieren Sie Ihre AD FS Webseiten auf diesem letzten Server in ihrer wid-Farm. Wenn Sie die benutzerdefinierten AD FS Webseiten beim Vorbereiten der Migration gesichert haben, verwenden Sie Ihre Sicherungsdaten, um die standardmäßigen AD FS Webseiten zu überschreiben, die standardmäßig im Verzeichnis **%systemdrive%\inetpub\adfs\ls** erstellt wurden, als Ergebnis der AD FS Konfiguration auf Windows Server 2012.  
   
 14. Fügen Sie den letzten Server Ihrer wid-Farm, den Sie soeben auf Windows Server 2012 aktualisiert haben, auf den Load Balancer hinzu.  
   
 15. Stellen Sie alle verbleibenden AD FS-Anpassungen wieder her, z. B. benutzerdefinierte Attributspeicher.  
   
 ## <a name="next-steps"></a>Nächste Schritte
- [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md)-Verbund Servers    
+ [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md) -Verbund Servers   
  [Vorbereiten der Migration des AD FS 2,0-Verbund Server Proxys](prepare-to-migrate-ad-fs-fed-proxy.md)   
- [Migrieren Sie den AD FS 2,0](migrate-the-ad-fs-fed-server.md)-Verbund Server  .  
- [Migrieren Sie den AD FS 2,0-Verbund Server Proxy](migrate-the-ad-fs-2-fed-server-proxy.md) .  
+ [Migrieren Sie den AD FS 2,0](migrate-the-ad-fs-fed-server.md) -Verbund Server   
+ [Migrieren Sie den AD FS 2,0-Verbund Server Proxy](migrate-the-ad-fs-2-fed-server-proxy.md)   
  [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)

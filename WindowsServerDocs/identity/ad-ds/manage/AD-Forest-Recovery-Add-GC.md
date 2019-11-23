@@ -29,7 +29,7 @@ Gehen Sie wie folgt vor, um den globalen Katalog einem DC hinzuzufügen.
 3. Erweitern Sie den Container **Server** , und erweitern Sie dann das Server Objekt für den Domänen Controller, dem Sie den globalen Katalog hinzufügen möchten.  
 4. Klicken Sie mit der rechten Maustaste auf **NTDS-Einstellungen**, und klicken Sie auf **Eigenschaften**.  
 5. Aktivieren Sie das Kontrollkästchen **globaler Katalog** .  
-![add GC @ no__t-1
+![Hinzufügen von GC-](media/AD-Forest-Recovery-Add-GC/addgc1.png)
 
 ## <a name="to-add-the-global-catalog-using-repadmin"></a>So fügen Sie den globalen Katalog mithilfe von Repadmin hinzu  
 

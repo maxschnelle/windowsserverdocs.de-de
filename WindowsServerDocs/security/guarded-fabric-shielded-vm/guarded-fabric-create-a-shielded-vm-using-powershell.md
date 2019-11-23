@@ -42,7 +42,7 @@ Save-VolumeSignatureCatalog -TemplateDiskPath "C:\temp\MyTemplateDisk.vhdx" -Vol
 Für jedes virtualisierungsfabrics, in dem Sie Ihre abgeschirmte VM ausführen möchten, müssen Sie die Überwachungs Metadaten für die HGS-Cluster des Fabrics abrufen.
 Ihr Hostinganbieter sollte diese Informationen für Sie bereitstellen können.
 
-Wenn Sie sich in einer Unternehmensumgebung befinden und mit dem HGS-Server kommunizieren können, sind die Überwachungs Metadaten unter *http://\<hgsclustername @ no__t-2/keyprotection/Service/Metadata/2014-07/Metadata. XML verfügbar.*
+Wenn Sie sich in einer Unternehmensumgebung befinden und mit dem HGS-Server kommunizieren können, finden Sie die Überwachungs Metadaten unter *http://\<hgsclustername\>/KeyProtection/Service/Metadata/2014-07/Metadata.XML*
 
 ## <a name="create-shielding-data-pdk-file"></a>Erstellen einer Datei mit geschützten Daten (PDK)
 
@@ -105,13 +105,13 @@ New-ShieldedVM -Name 'MyStaticIPVM' -TemplateDiskPath 'C:\temp\MyTemplateDisk.vh
 
 ```
 
-Wenn Ihr Vorlagen Datenträger ein Linux-basiertes Betriebssystem enthält, schließen Sie beim Ausführen des Befehls das Flag "`-Linux`" ein:
+Wenn Ihr Vorlagen Datenträger ein Linux-basiertes Betriebssystem enthält, schließen Sie beim Ausführen des Befehls das `-Linux`-Flag ein:
 
 ```powershell
 New-ShieldedVM -Name 'MyLinuxVM' -TemplateDiskPath 'C:\temp\MyTemplateDisk.vhdx' -ShieldingDataFilePath 'C:\temp\Contoso.pdk' -Wait -Linux
 ```
 
-Überprüfen Sie den Hilfe Inhalt mithilfe von `Get-Help New-ShieldedVM -Full`, um weitere Informationen zu anderen Optionen zu erhalten, die Sie an das Cmdlet übergeben können.
+Überprüfen Sie den Hilfe Inhalt mithilfe `Get-Help New-ShieldedVM -Full`, um mehr über andere Optionen zu erfahren, die Sie an das Cmdlet übergeben können.
 
 Nachdem die Bereitstellung des virtuellen Computers abgeschlossen ist, wird er in die betriebssystemspezifische Spezialisierungs Phase eingegeben, in der er zur Verwendung bereit ist.
 Stellen Sie sicher, dass Sie die VM mit einem gültigen Netzwerk verbinden, damit Sie eine Verbindung mit dem virtuellen Computer herstellen können, sobald er ausgeführt wird (mithilfe von RDP, PowerShell, SSH oder Ihrem bevorzugten Verwaltungs Tool).

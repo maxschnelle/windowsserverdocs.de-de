@@ -22,10 +22,10 @@ ms.locfileid: "71362808"
 ---
 # <a name="using-the-remove-driverpackage-command"></a>Verwenden des Remove-DriverPackage-Befehls
 
-> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 > 
 > 
-> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 entfernt ein Treiber Paket von einem Server.
 ## <a name="syntax"></a>Syntax
@@ -37,8 +37,8 @@ wdsutil /remove-DriverPackage [/Server:<Server name>] {/DriverPackage:<Package N
 |        Parameter        |                                                                            Beschreibung                                                                             |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [/Server:<Server name>] |              Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Namen handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.              |
-| [/DriverPackage: <Name>] |                                                        Gibt den Namen des zu entfernenden Treiber Pakets an.                                                         |
-|    [/PackageId: <ID>]    | Gibt die ID der Windows-Bereitstellungs Dienste des Treiber Pakets an, das entfernt werden soll. Sie müssen die ID angeben, wenn das Treiber Paket nicht anhand des Namens eindeutig identifiziert werden kann. |
+| [/DriverPackage:<Name>] |                                                        Gibt den Namen des zu entfernenden Treiber Pakets an.                                                         |
+|    [/PackageId:<ID>]    | Gibt die ID der Windows-Bereitstellungs Dienste des Treiber Pakets an, das entfernt werden soll. Sie müssen die ID angeben, wenn das Treiber Paket nicht anhand des Namens eindeutig identifiziert werden kann. |
 
 ## <a name="BKMK_examples"></a>Beispiele
 Wenn Sie Informationen zu den Bildern anzeigen möchten, geben Sie eine der folgenden Informationen ein:

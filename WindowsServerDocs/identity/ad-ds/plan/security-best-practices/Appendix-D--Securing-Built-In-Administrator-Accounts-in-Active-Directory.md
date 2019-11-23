@@ -16,12 +16,12 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71367837"
 ---
-# <a name="appendix-d-securing-built-in-administrator-accounts-in-active-directory"></a>Anhang D: Sichern integrierter Administrator Konten in Active Directory
+# <a name="appendix-d-securing-built-in-administrator-accounts-in-active-directory"></a>Anhang D: Schützen integrierter Administratorkonten in Active Directory
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-## <a name="appendix-d-securing-built-in-administrator-accounts-in-active-directory"></a>Anhang D: Sichern integrierter Administrator Konten in Active Directory  
+## <a name="appendix-d-securing-built-in-administrator-accounts-in-active-directory"></a>Anhang D: Schützen integrierter Administratorkonten in Active Directory  
 In jeder Domäne in Active Directory wird ein Administrator Konto im Rahmen der Erstellung der Domäne erstellt. Dieses Konto ist standardmäßig Mitglied der Gruppe "Domänen-Admins" und "Administratoren" in der Domäne. wenn es sich bei der Domäne um die Stamm Domäne der Gesamtstruktur handelt, ist das Konto auch Mitglied der Gruppe "Organisations-Admins".
 
 Die Verwendung des Administrator Kontos einer Domäne sollte nur für anfängliche buildaktivitäten und möglicherweise für Notfall Wiederherstellungs Szenarien reserviert werden. Um sicherzustellen, dass ein Administrator Konto verwendet werden kann, um Reparaturen zu beeinflussen, wenn keine anderen Konten verwendet werden können, sollten Sie die Standardmitgliedschaft des Administrator Kontos in keiner Domäne in der Gesamtstruktur ändern. Stattdessen sollten Sie das Administrator Konto in jeder Domäne in der Gesamtstruktur schützen, wie im folgenden Abschnitt beschrieben und in den folgenden Schritt-für-Schritt-Anleitungen ausführlich erläutert. 
@@ -39,7 +39,7 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 
 -   Konfigurieren Sie Gruppenrichtlinien Objekte, um die Verwendung des Administrator Kontos für mit der Domäne verbundene Systeme einzuschränken:  
 
-    -   Fügen Sie in einer oder mehreren Gruppenrichtlinien Objekten, die Sie erstellen und mit Arbeitsstationen und Mitglied Server Organisationseinheiten verknüpft sind, in jeder Domäne das Administrator Konto jeder Domäne den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien \ Zuweisungen von Benutzerrechten**:  
+    -   Fügen Sie in einer oder mehreren Gruppenrichtlinien Objekten, die Sie erstellen und mit der Arbeitsstation und dem Mitglieds Server Organisationseinheiten verknüpft sind, in jeder Domäne das Administrator Konto jeder Domäne den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale**Richtlinien\Zuweisen von Benutzer  
 
         -   Zugriff vom Netzwerk auf diesen Computer verweigern  
 
@@ -58,7 +58,7 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_23.gif)  
 
 -   Konfigurieren von Gruppenrichtlinien Objekten zum Einschränken von Administrator Konten auf Domänen Controllern  
-    -   In jeder Domäne in der Gesamtstruktur sollte das Standard Domänen Controller-Gruppenrichtlinien Objekt oder eine Richtlinie, die mit der Domänen Controller-Organisationseinheit verknüpft ist, geändert werden, um das Administrator Konto jeder Domäne den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen \ Sicherheitseinstellungen\Lokale Richtlinien\Zuweisen von Benutzerrechten**:   
+    -   In jeder Domäne in der Gesamtstruktur sollte das Standard Domänen Controller-Gruppenrichtlinien Objekt oder eine Richtlinie, die mit der Domänen Controller-Organisationseinheit verknüpft ist, geändert werden, um das Administrator Konto jeder Domäne den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale**Richtlinien\Zuweisen   
         -   Zugriff vom Netzwerk auf diesen Computer verweigern  
 
         -   Anmelden als Batchauftrag verweigern  
@@ -105,13 +105,13 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 
 1.  KlickenSie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
 
-2.  Erweitern Sie in der Konsolen Struktur <Forest> \ Domänen @ no__t-1 @ no__t-2, und **Gruppenrichtlinie** Sie dann Objekte (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie erstellen möchten).  
+2.  Erweitern Sie in der Konsolen Struktur <Forest>\domains\\<Domain>, und klicken Sie dann auf **Gruppenrichtlinie Objekte** (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie erstellen möchten).  
 
 3.  Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Gruppenrichtlinie Objekte**, und klicken Sie dann auf **neu**.  
 
     ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_27.gif)  
 
-4.  Geben Sie im Dialogfeld **Neues** Gruppenrichtlinien Objekt <GPO Name> ein, und klicken Sie auf **OK** (wobei <GPO Name> der Name dieses GPO ist), wie im folgenden Screenshot zu sehen.  
+4.  Geben Sie im Dialogfeld **Neues** Gruppenrichtlinien Objekt <GPO Name>ein, und klicken Sie auf **OK** (wobei <GPO Name> der Name dieses Gruppenrichtlinien Objekts ist), wie im folgenden Screenshot gezeigt.  
 
     ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_28.gif)  
 
@@ -127,7 +127,7 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 
     2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen**.  
 
-    3.  Geben Sie **Administrator**ein, klicken Sie auf **Namen überprüfen**und dann auf **OK**. Vergewissern Sie sich, dass das Konto im Format <DomainName> \ Benutzername angezeigt wird, wie im folgenden Screenshot gezeigt.  
+    3.  Geben Sie **Administrator**ein, klicken Sie auf **Namen überprüfen**und dann auf **OK**. Vergewissern Sie sich, dass das Konto im Format <DomainName>\UserName angezeigt wird, wie im folgenden Screenshot gezeigt.  
 
         ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_30.gif)  
 
@@ -139,7 +139,7 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 
     2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen**.  
 
-    3.  Geben Sie **Administrator**ein, klicken Sie auf **Namen überprüfen**und dann auf **OK**. Vergewissern Sie sich, dass das Konto im Format <DomainName> \ Benutzername angezeigt wird, wie im folgenden Screenshot gezeigt.  
+    3.  Geben Sie **Administrator**ein, klicken Sie auf **Namen überprüfen**und dann auf **OK**. Vergewissern Sie sich, dass das Konto im Format <DomainName>\UserName angezeigt wird, wie im folgenden Screenshot gezeigt.  
 
         ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_31.gif)  
 
@@ -151,7 +151,7 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 
     2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen**.  
 
-    3.  Geben Sie **Administrator**ein, klicken Sie auf **Namen überprüfen**und dann auf **OK**. Vergewissern Sie sich, dass das Konto im Format <DomainName> \ Benutzername angezeigt wird, wie im folgenden Screenshot gezeigt.  
+    3.  Geben Sie **Administrator**ein, klicken Sie auf **Namen überprüfen**und dann auf **OK**. Vergewissern Sie sich, dass das Konto im Format <DomainName>\UserName angezeigt wird, wie im folgenden Screenshot gezeigt.  
 
         ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_32.gif)  
 
@@ -163,7 +163,7 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 
     2.  Klicken Sie auf **Benutzer oder Gruppe hinzufügen** und dann auf **Durchsuchen**.  
 
-    3.  Geben Sie **Administrator**ein, klicken Sie auf **Namen überprüfen**und dann auf **OK**. Vergewissern Sie sich, dass das Konto im Format <DomainName> \ Benutzername angezeigt wird, wie im folgenden Screenshot gezeigt.  
+    3.  Geben Sie **Administrator**ein, klicken Sie auf **Namen überprüfen**und dann auf **OK**. Vergewissern Sie sich, dass das Konto im Format <DomainName>\UserName angezeigt wird, wie im folgenden Screenshot gezeigt.  
 
         ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_33.gif)  
 
@@ -173,7 +173,7 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 
 12. Verknüpfen Sie das Gruppenrichtlinien Objekt in **Gruppenrichtlinie Management**mit dem Mitglieds Server und Arbeitsstations Organisationseinheiten, indem Sie die folgenden Schritte ausführen:  
 
-    1.  Navigieren Sie zum <Forest> \ Domänen @ no__t-1 @ no__t-2 (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
+    1.  Navigieren Sie zum <Forest>\domains\\<Domain> (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
 
     2.  Klicken Sie mit der rechten Maustaste auf die Organisationseinheit, auf die das Gruppenrichtlinien Objekt angewendet wird, und klicken Sie auf **vorhandenes GPO verknüpfen**  
 
@@ -218,7 +218,7 @@ Versuchen Sie auf einem Mitglieds Server oder einer Arbeitsstation, der nicht vo
 
     ![Sichern integrierter Administrator Konten](media/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory/SAD_38.gif)  
 
-5.  Geben Sie im **Eingabe** Aufforderungs Fenster **net use \\ @ no__t-3 @ no__t-4server Name @ no__t-5\c $** ein, wobei \<server Name @ no__t-7 der Name des Mitglieds Servers oder der Arbeitsstation ist, auf den Sie über das Netzwerk zuzugreifen versuchen.  
+5.  Geben Sie im **Eingabe** Aufforderungs Fenster **net use \\\\\<Server Name\>\c $** ein, wobei \<Servername\> der Name des Mitglieds Servers oder der Arbeitsstation ist, auf den Sie über das Netzwerk zuzugreifen versuchen.  
 
 6.  Der folgende Screenshot zeigt die Fehlermeldung, die angezeigt werden soll.  
 
@@ -238,7 +238,7 @@ Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die 
 
 4.  Klicken Sie auf **Datei** und dann auf **Speichern**unter.  
 
-5.  Geben Sie im Feld **Dateiname** **@no__t -2. bat** ein (wobei <Filename> der Name der neuen Batchdatei ist).  
+5.  Geben Sie im Feld **Dateiname** **<Filename>. bat** ein (wobei <Filename> der Name der neuen Batchdatei ist).  
 
 ###### <a name="schedule-a-task"></a>Planen einer Aufgabe  
 

@@ -67,7 +67,7 @@ Wenn keine Verbindung hergestellt werden kann:
 
 Zum Verwalten von Hyper-V-Remote Hosts aktivieren Sie die Remote Verwaltung auf dem lokalen Computer und Remote Host.
 
-Öffnen Sie unter Windows Server Server-Manager \>**lokaler Server** \>**Remote Verwaltung** , und klicken Sie dann auf **Remote Verbindungen mit diesem Computer zulassen**. 
+Öffnen Sie unter Windows Server Server-Manager \>**lokalen Server** \>**Remote Verwaltung** , und klicken Sie dann auf **Remote Verbindungen mit diesem Computer zulassen**. 
 
 Oder öffnen Sie Windows PowerShell von einem der beiden Betriebssysteme als Administrator, und führen Sie Folgendes aus: 
 
@@ -79,7 +79,7 @@ Enable-PSRemoting
 
 Bei Windows 8.1 und früheren Versionen funktioniert die Remote Verwaltung nur, wenn sich der Host in derselben Domäne befindet und das lokale Benutzerkonto auch auf dem Remote Host ausgeführt wird.
 
-Wählen Sie zum Hinzufügen eines Hyper-v-Remote Hosts zu Hyper-v-Manager **einen anderen Computer** im Dialogfeld **Computer auswählen** aus, und geben Sie den Hostnamen des Remote Hosts, den NetBIOS-Namen oder den voll qualifizierten Domänen Namen \(fqdn @ no__t-3 ein.
+Wählen Sie zum Hinzufügen eines Hyper-v-Remote Hosts zu Hyper-v-Manager **einen anderen Computer** im Dialogfeld **Computer auswählen** aus, und geben Sie den Hostnamen des Remote Hosts, den NetBIOS-Namen oder den voll qualifizierten Domänen Namen \(FQDN\)ein.
 
 Der Hyper-V-Manager in Windows Server 2016 und Windows 10 bietet mehr Typen von Remote Verbindungen als vorherige Versionen, die in den folgenden Abschnitten beschrieben werden.  
 
@@ -138,7 +138,7 @@ Konfigurieren Sie als nächstes den Computer, den Sie zum Verwalten des Hyper-V-
      Enable-WSManCredSSP -Role client -DelegateComputer "fqdn-of-hyper-v-host"
      ```
 1. Möglicherweise müssen Sie auch die folgende Gruppenrichtlinie konfigurieren: 
-    * **Computer Konfiguration** \> **Administrative Vorlagen** \> **System** \> **Delegierung von Anmelde** Informationen \> **zulassen, dass neue Anmelde Informationen mit nur NTLM-Server Authentifizierung delegiert** werden
+    * **Computer Konfiguration** \> **Administrative Vorlagen** \> Delegierung von **Anmelde** Informationen für den **System** \> \> **Zulassen der Delegierung von neuen Anmelde Informationen mit nur NTLM-Server Authentifizierung**
     * Klicken Sie auf **aktivieren** , und fügen Sie *WSMAN/sqdn-of-Hyper-v-Host*hinzu.
 1. Öffnen Sie den **Hyper-V-Manager**.
 1. Klicken Sie im linken Bereich mit der rechten Maustaste auf **Hyper-V-Manager**.
@@ -153,7 +153,7 @@ Informationen zu Cmdlets finden Sie unter [Set-Item](https://msdn.microsoft.com/
 
 Wenn Sie ein UI-Tool verwenden möchten, wählen Sie das geeignete für das Betriebssystem auf dem Computer aus, auf dem Sie Hyper-V-Manager ausführen möchten:
 
-Öffnen Sie unter Windows Server Server-Manager \> **Verwalten** \> **Rollen und Features hinzufügen**. Wechseln Sie zur Seite " **Features** ", und erweitern Sie **Remote Server-Verwaltungs Tools** \> **Rollen Verwaltungs Tools** \> **Hyper-V-Verwaltungs Tools**. 
+Öffnen Sie unter Windows Server Server-Manager \> **Verwalten** **Sie \> Rollen und Features hinzufügen**. Wechseln Sie zur Seite " **Features** ", und erweitern Sie **Remote Server-Verwaltungs Tools** \> **Rollen Verwaltungs Tools** \> **Hyper-V-Verwaltungs Tools**. 
 
 Unter Windows ist Hyper-v-Manager auf [jedem Windows-Betriebssystem verfügbar, das Hyper-v umfasst](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility).
 
@@ -169,7 +169,7 @@ Um Windows PowerShell zu verwenden, führen Sie den folgenden Befehl als Adminis
 add-windowsfeature rsat-hyper-v-tools
 ```
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
  
 [Installieren von Hyper-V](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md) 
 

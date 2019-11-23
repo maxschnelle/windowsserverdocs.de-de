@@ -17,7 +17,7 @@ ms.locfileid: "71406199"
 ---
 # <a name="dns-responses-based-on-time-of-day-with-an-azure-cloud-app-server"></a>Auf der Tageszeit basierende DNS-Antworten mit einem Azure-Cloud-App-Server
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie den Anwendungs Datenverkehr mithilfe von DNS-Richtlinien, die auf der Tageszeit basieren, über verschiedene geografisch verteilte Instanzen einer Anwendung verteilen. 
 
@@ -40,7 +40,7 @@ Bei einer kürzlich erfolgten Zunahme des Geschäfts hat contosogiftservices.com
 
 Die Dienstleistungen von "Configuration Manager" führen eine Standortanalyse durch und stellen fest, dass jeder Abend zwischen 6 Uhr und 9 Uhr Ortszeit eine Zunahme des Datenverkehrs zum Seattle-Webserver auftritt. Der Webserver kann nicht skaliert werden, um den zunehmenden Datenverkehr zu diesen Spitzenzeiten zu bewältigen, was zu einem Denial of Service für Kunden führt. 
 
-Um sicherzustellen, dass contosogiftservices.com-Kunden eine reaktionsfähige Umgebung von der Website erhalten, entscheidet der Dienst von "", dass der Dienst während dieser Zeit einen virtuellen Computer \(vm @ no__t-1 auf Microsoft Azure, um eine Kopie seines Webservers zu hosten.  
+Um sicherzustellen, dass contosogiftservices.com-Kunden eine reaktionsfähige Umgebung von der Website erhalten, entscheidet der Dienst von "", dass der Dienst während dieser Zeit einen virtuellen Computer \(VM-\) auf Microsoft Azure, um eine Kopie seines Webservers zu hosten.  
 
 Der Dienst von "192.68.31.44" erhält eine öffentliche IP-Adresse von Azure für den virtuellen Computer () und entwickelt die Automatisierung für die Bereitstellung des Webservers täglich in Azure zwischen 5-10 Uhr und ermöglicht so einen Zeitraum von einer Stunde.
 
@@ -100,7 +100,7 @@ Der nächste Schritt besteht darin, die Datensätze, die den Webserver Host dars
 
 In azurezonescope wird der Datensatz www.contosogiftservices.com mit der IP-Adresse 192.68.31.44 hinzugefügt, der sich im Azure-Public Cloud befindet. 
 
-Analog dazu wird im Standard Zonen Bereich @no__t -0contesogiftservices. com @ no__t-1 ein Datensatz @no__t www. contesogiftservices. com @ no__t-3 mit der IP-Adresse 192.68.30.2 des Webservers hinzugefügt, der im lokalen Rechenzentrum Seattle ausgeführt wird.
+Analog dazu wird im Standard Zonen Bereich \(contosogiftservices.com-\)ein Datensatz \(www.contosogiftservices.com-\) mit IP-Adresse 192.68.30.2 des Webservers hinzugefügt, der im lokalen Rechenzentrum von Seattle ausgeführt wird.
 
 Im zweiten Cmdlet unten ist der Parameter "– zonescope" nicht enthalten. Aus diesem Grund werden die Datensätze in der standardmäßigen zonescope hinzugefügt. 
 

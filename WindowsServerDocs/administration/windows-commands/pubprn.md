@@ -22,7 +22,7 @@ ms.locfileid: "71372009"
 ---
 # <a name="pubprn"></a>pubprn
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Veröffentlicht einen Drucker in den Active Directory-Domänen Diensten.
 
@@ -35,28 +35,28 @@ cscript pubprn {<ServerName> | <UNCprinterpath>}
 ## <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
-|\<servername >|Gibt den Namen des Windows-Servers an, der den zu veröffentlichenden Drucker hostet. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet.|
-|\<uncprinterpath >|Der UNC-Pfad (Universal Naming Convention) zu dem freigegebenen Drucker, den Sie veröffentlichen möchten.|
-|"LDAP://CN = <Container>, DC = <Container>"|Gibt den Pfad zum Container in den Active Directory-Domänen Diensten an, in dem Sie den Drucker veröffentlichen möchten.|
+|\<Servername >|Gibt den Namen des Windows-Servers an, der den zu veröffentlichenden Drucker hostet. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet.|
+|\<uncprinterpath->|Der UNC-Pfad (Universal Naming Convention) zu dem freigegebenen Drucker, den Sie veröffentlichen möchten.|
+|"LDAP://CN =<Container>, DC =<Container>"|Gibt den Pfad zum Container in den Active Directory-Domänen Diensten an, in dem Sie den Drucker veröffentlichen möchten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
--   Der **Pubprn** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis%WINdir%\System32\printing_Admin_Scripts @ no__t-1 @ no__t-2 befindet. Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** ein, gefolgt vom vollständigen Pfad der Pubprn-Datei, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Zum Beispiel:
+-   Der **Pubprn** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis "%windir%\SYSTEM32\ printing_Admin_Scripts\\<language>" befindet. Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** ein, gefolgt vom vollständigen Pfad der Pubprn-Datei, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Zum Beispiel:
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\pubprn
     ```
 -   Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. `"computer Name"`).
 
 ## <a name="BKMK_examples"></a>Beispiele
-Wenn Sie alle Drucker auf dem Computer \\ \ Server1 im Container MyContainer in der Domäne mydomain.Company.com veröffentlichen möchten, geben Sie Folgendes ein:
+Wenn Sie alle Drucker auf dem Computer \\\server1 im Container MyContainer in der Domäne mydomain.Company.com veröffentlichen möchten, geben Sie Folgendes ein:
 ```
 cscript Ppubprn Server1 "LDAP://CN=MyContainer,DC=MyDomain,DC=company,DC=Com"
 ```
-Geben Sie Folgendes ein, um den Laserprinter1-Drucker auf dem \\ \ Server1-Server im Container MyContainer in der mydomain.Company.com-Domäne zu veröffentlichen:
+Geben Sie Folgendes ein, um den Laserprinter1-Drucker auf dem \\\server1-Server im Container MyContainer in der Domäne mydomain.Company.com zu veröffentlichen:
 ```
 cscript Ppubprn \\Server1\Laserprinter1 "LDAP://CN=MyContainer,DC=MyDomain,DC=company,DC=Com"
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
 [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[Druck Befehlsreferenz](print-command-reference.md)
+[Print-Befehlsreferenz](print-command-reference.md)

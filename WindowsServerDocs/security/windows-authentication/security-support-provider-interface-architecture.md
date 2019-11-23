@@ -22,7 +22,7 @@ ms.locfileid: "71403311"
 ---
 # <a name="security-support-provider-interface-architecture"></a>Architektur der SecuritySupportProvider-Schnittstelle
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Referenz Thema für IT-Experten werden die Windows-Authentifizierungsprotokolle beschrieben, die in der SSPI-Architektur (Security Support Provider Interface) verwendet werden.
 
@@ -89,9 +89,9 @@ Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **g
 
 -   [Microsoft Kerberos (Windows)](https://msdn.microsoft.com/library/aa378747(VS.85).aspx)
 
--   [ @ NO__T-1MS-KILE @ NO__T-2: Kerberos-Protokoll Erweiterungen @ no__t-0
+-   [\[MS-kile\]: Kerberos-Protokoll Erweiterungen](https://msdn.microsoft.com/library/cc233855(PROT.10).aspx)
 
--   [ @ NO__T-1MS-SFU @ NO__T-2: Kerberos-Protokollerweiterungen: Protokollspezifikation für Dienst für Benutzer und eingeschränkte Delegierung @ no__t-0
+-   [\[MS-SFU\]: Kerberos-Protokoll Erweiterungen: Dienst für Benutzer und eingeschränkte Delegierungs Protokollspezifikation](https://msdn.microsoft.com/library/cc246071(PROT.13).aspx)
 
 -   [Kerberos SSP/AP (Windows)](https://msdn.microsoft.com/library/aa377942(VS.85).aspx)
 
@@ -114,13 +114,13 @@ Die unterstützten Windows-Betriebssysteme können den NTLM-SSP für Folgendes v
 
 -   Sicherer Remote Prozedur aufrufsdienst oder DCOM-Dienst
 
-Speicherort:%windir%\Windows\System32\msv1_0.dll
+Speicherort:%windir%\WINDOWS\system32\ Msv1_0. dll
 
 Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **gilt für** am Anfang dieses Themas angegeben sind, sowie unter Windows Server 2003 und Windows XP.
 
 **Zusätzliche Ressourcen für das NTLM-Protokoll und den NTLM-SSP**
 
--   [MSV1_0-Authentifizierungs Paket (Windows)](https://msdn.microsoft.com/library/aa378753(VS.85).aspx)
+-   [MSV1_0 Authentifizierungs Paket (Windows)](https://msdn.microsoft.com/library/aa378753(VS.85).aspx)
 
 -   [Änderungen bei der NTLM-Authentifizierung](https://technet.microsoft.com/library/dd566199(v=ws.10).aspx) in Windows 7 
 
@@ -145,7 +145,7 @@ Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **g
 
 -   [Microsoft Digest Authentifizierung (Windows)](https://msdn.microsoft.com/library/aa378745(VS.85).aspx)
 
--   [ @ NO__T-1MS-DPSP @ NO__T-2: Digest-Protokoll Erweiterungen @ no__t-0
+-   [\[MS-dpsp\]: Digest-Protokoll Erweiterungen](https://msdn.microsoft.com/library/cc227906(PROT.13).aspx)
 
 ### <a name="BKMK_SchannelSSP"></a>SChannel Security Support Provider
 Der sichere Kanal (SChannel) wird für die webbasierte Server Authentifizierung verwendet, z. b. Wenn ein Benutzer versucht, auf einen sicheren Webserver zuzugreifen.
@@ -183,7 +183,7 @@ Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **g
 
 -   [Technische Referenz zu TLS/SSL](https://technet.microsoft.com/library/cc784149(v=ws.10).aspx)
 
--   [ @ NO__T-1MS-TLSP @ NO__T-2: Transport Layer Security (TLS)-Profil @ no__t-0
+-   [\[MS-TLSP\]: Transport Layer Security (TLS)-Profil](https://msdn.microsoft.com/library/dd207968(PROT.13).aspx)
 
 ### <a name="BKMK_NegoSSP"></a>Sicherheits Unterstützungs Anbieter aushandeln
 Der einfache und geschützte GSS-API-Aushandlungs Mechanismus (spnetgo) bildet die Grundlage für den Aushandlungs-SSP, der zum Aushandeln eines bestimmten Authentifizierungs Protokolls verwendet werden kann. Wenn eine Anwendung SSPI aufruft, um sich bei einem Netzwerk anzumelden, kann ein SSP zum Verarbeiten der Anforderung angegeben werden. Wenn die Anwendung den Aushandlungs-SSP angibt, analysiert Sie die Anforderung und wählt den entsprechenden Anbieter für die Verarbeitung der Anforderung auf der Grundlage der vom Kunden konfigurierten Sicherheitsrichtlinien aus.
@@ -200,9 +200,9 @@ Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **g
 
 -   [Microsoft aushandeln (Windows)](https://msdn.microsoft.com/library/aa378748(VS.85).aspx)
 
--   [ @ NO__T-1MS-SPNG @ NO__T-2: Simple und Protected GSS-API-Aushandlungs Mechanismus (spnetgo)-Erweiterungen @ no__t-0
+-   [\[MS-SPNG\]: Simple und Protected GSS-API-Aushandlungs Mechanismus-Erweiterungen (spnetgo)](https://msdn.microsoft.com/library/cc247021(PROT.13).aspx)
 
--   [ @ NO__T-1MS-N2HT @ NO__T-2: Aushandeln und Nego2 HTTP Authentication Protocol Specification @ no__t-0
+-   [\[MS-N2HT\]: Aushandlungs-und Nego2 http-Authentifizierungsprotokoll Spezifikation](https://msdn.microsoft.com/library/dd303576(PROT.13).aspx)
 
 ### <a name="BKMK_CredSSP"></a>Anmelde Informationsanbieter für Sicherheitsunterstützung
 Der Anmelde Informations Sicherheits-Dienstanbieter (Credential Security Service Provider, shdssp) stellt beim Starten neuer terminaldienstedienste und Remotedesktopdienste Sitzungen eine Single Sign-on Benutzer Darstellung (SSO) bereit. Mit "andssp" können Anwendungen die Anmelde Informationen des Benutzers vom Client Computer (mithilfe des Client seitigen SSP) an den Zielserver (über den serverseitigen SSP) delegieren, basierend auf den Richtlinien des Clients. Die Richtlinien für die aufwärtssp werden mithilfe von Gruppenrichtlinie konfiguriert. die Delegierung von Anmelde Informationen ist standardmäßig deaktiviert.
@@ -213,7 +213,7 @@ Dieser Anbieter ist standardmäßig in Versionen enthalten, die in der Liste **g
 
 **Weitere Ressourcen für die Anmelde Informationen SSP**
 
--   [ @ NO__T-1MS-CSSP @ NO__T-2: Credential Security Support Provider (erstellsp)-Protokollspezifikation @ no__t-0
+-   [\[MS-CSSp\]: die Anmelde Informationsanbieter-Protokollspezifikation (Security Support Provider, fidssp)](https://msdn.microsoft.com/library/cc226764(PROT.13).aspx)
 
 -   [Anmelde Informationen Sicherheits Dienstanbieter und SSO für Terminaldiensteanmeldung](https://technet.microsoft.com/library/cc749211(v=ws.10).aspx)
 
@@ -284,7 +284,7 @@ Die Option aushandeln kann verwendet werden, um dem Client und dem Server zu erm
 
     -   Wenn der Client Computer keines der aufgelisteten Protokolle unterstützt, schlägt der Authentifizierungs Austausch fehl.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [Architektur der Windows-Authentifizierung](https://technet.microsoft.com/library/dn169024(v=ws.10).aspx)
 
 
