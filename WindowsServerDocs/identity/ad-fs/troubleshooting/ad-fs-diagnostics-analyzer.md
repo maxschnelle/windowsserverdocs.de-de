@@ -30,7 +30,7 @@ Wechseln Sie zu [AD FS Help Diagnostics Analyzer (https://aka.ms/adfsdiagnostics
 
 ![AD FS Diagnostics Analyzer-Tool auf AD FS Hilfe](media/ad-fs-diagonostics-analyzer/home.png)
 
-## <a name="step-1-setup-the-adfstoolbox-module-on-ad-fs-server"></a>Schritt 1: Einrichten des adfstoolbox-Moduls auf AD FS Server
+## <a name="step-1-setup-the-adfstoolbox-module-on-ad-fs-server"></a>Schritt 1: Einrichten des adfstoolbox-Moduls auf AD FS Server
 
 Zum Ausführen der [Diagnose Analyse](https://aka.ms/adfsdiagnosticsanalyzer)müssen Sie das adfstoolbox-PowerShell-Modul installieren. Wenn der AD FS Server über eine Internetverbindung verfügt, können Sie das Modul adfstoolbox direkt aus dem PowerShell-Katalog installieren. Wenn keine Internetverbindung besteht, können Sie diese manuell installieren. 
 
@@ -58,7 +58,7 @@ Das Modul adfstoolbox muss manuell auf die AD FS-oder WAP-Server kopiert werden.
     ```powershell
     Install-Module -Name ADFSToolbox -Force
     ```
-3. Kopieren Sie den Ordner "adfstoolbox", der sich `%SYSTEMDRIVE%\Program Files\WindowsPowerShell\Modules\` auf dem lokalen Computer befindet, an denselben Speicherort auf Ihrem AD FS oder WAP-Computer.
+3. Kopieren Sie den Ordner adfstoolbox, der sich auf dem lokalen Computer `%SYSTEMDRIVE%\Program Files\WindowsPowerShell\Modules\` befindet, an denselben Speicherort auf Ihrem AD FS oder WAP-Computer.
 
 4. Starten Sie auf dem AD FS Computer ein PowerShell-Fenster mit erhöhten Rechten, und führen Sie das folgende Cmdlet aus, um das Modul zu importieren
 
@@ -82,11 +82,11 @@ Auf einem Server 2016 oder höher AD FS Farm liest der Befehl die Liste der AD F
     Export-AdfsDiagnosticsFile -ServerNames @("adfs1.contoso.com", "adfs2.contoso.com")
 ```
 
-Das Ergebnis ist eine JSON-Datei, die in demselben Verzeichnis erstellt wird, in dem der Befehl ausgeführt wurde. Der Name der Datei lautet adfsdiagnosticsfile-\<timestamp @ no__t-1. Ein Beispiel Dateiname lautet adfsdiagnosticsfile-07312019-184201. JSON.
+Das Ergebnis ist eine JSON-Datei, die in demselben Verzeichnis erstellt wird, in dem der Befehl ausgeführt wurde. Der Name der Datei ist adfsdiagnosticsfile-\<Zeitstempel\>. Ein Beispiel Dateiname lautet adfsdiagnosticsfile-07312019-184201. JSON.
 
-## <a name="step-3-upload-the-diagnostics-file"></a>Schritt 3: Diagnose Datei hochladen
+## <a name="step-3-upload-the-diagnostics-file"></a>Schritt 3: Hochladen der Diagnose Datei
 
-Verwenden Sie in Schritt 3 auf [https://aka.ms/adfsdiagnosticsanalyzer](https://aka.ms/adfsdiagnosticsanalyzer) den Dateibrowser, um die hoch zuladende Ergebnisdatei auszuwählen.
+Wählen Sie in Schritt 3 auf [https://aka.ms/adfsdiagnosticsanalyzer](https://aka.ms/adfsdiagnosticsanalyzer) verwenden Sie den Dateibrowser, um die hoch zuladende Ergebnisdatei auszuwählen.
 
 Klicken Sie auf **hochladen** , um den Upload abzuschließen.
 
@@ -98,18 +98,18 @@ Wenn Sie sich mit einem Microsoft-Konto anmelden, können die Diagnoseergebnisse
 
 Es gibt fünf Abschnitte der Testergebnisse:
 
-1. Fehlgeschlagen: Dieser Abschnitt enthält eine Liste der fehlgeschlagenen Tests. Jedes Ergebnis umfasst Folgendes:
+1. Failed: Dieser Abschnitt enthält eine Liste der fehlgeschlagenen Tests. Jedes Ergebnis umfasst Folgendes:
 2. Warnung: Dieser Abschnitt enthält eine Liste der Tests, die zu einer Warnung geführt haben. Diese Probleme führen nicht wahrscheinlich zu Problemen bei der Authentifizierung auf einer umfassenderen Skala, sollten aber frühestens behandelt werden.
-3. Vor Dieser Abschnitt enthält die Liste der Tests, die bestanden wurden und für die kein Aktions Element für den Benutzer vorhanden ist.
+3. Bestanden: Dieser Abschnitt enthält die Liste der Tests, die bestanden wurden und für die kein Aktions Element für den Benutzer vorhanden ist.
 4. Nicht ausgeführt: Dieser Abschnitt enthält die Liste der Tests, die aufgrund fehlender Informationen nicht ausgeführt werden konnten.
 5. Nicht zutreffend: Dieser Abschnitt enthält die Liste der Tests, die nicht ausgeführt wurden, weil Sie nicht für den jeweiligen Server anwendbar waren, auf dem der Befehl ausgeführt wurde.
 
-![ad FS Diagnostics Analyzer Tool-Testergebnis Liste @ no__t-1 jedes Testergebnis wird mit Details, die den Test beschreiben, und der Auflösung der Schritte angezeigt:
+![AD FS Diagnostics Analyzer-Tool-Testergebnis Liste](media/ad-fs-diagonostics-analyzer/step3a_v3.png) jedes Testergebnis mit Details, die den Test beschreiben, und der Auflösung der Schritte angezeigt werden:
 
-1. Testname: Der Name des Tests, der ausgeführt wurde.
-2. Beschreibung: Eine Beschreibung des Tests.
-3. Details: Die Beschreibung des gesamten Vorgangs, der während des Tests durchgeführt wurde.
-4. Schritte zur Lösung: Die vorgeschlagenen Schritte zum Beheben des Problems, das durch den Test hervorgehoben wird.
+1. Testname: der Name des Tests, der ausgeführt wurde.
+2. Beschreibung: eine Beschreibung des Tests.
+3. Details: Beschreibung des gesamten Vorgangs, der während des Tests durchgeführt wurde
+4. Lösungsschritte: die empfohlenen Schritte zum Beheben des Problems, das durch den Test hervorgehoben wird.
 
 ![AD FS Diagnostics Analyzer Tool-Fehlerbehebung](media/ad-fs-diagonostics-analyzer/step3b_v3.png)
 

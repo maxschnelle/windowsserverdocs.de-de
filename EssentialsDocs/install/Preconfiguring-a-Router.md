@@ -31,9 +31,9 @@ Normalerweise erfordert eine neue Installation des Betriebssystems einen interne
   
 |Konfigurationseinstellung|Details|  
 |---------------------------|-------------|  
-|DHCP|On|  
+|DHCP|Ein|  
 |Portweiterleitung|Sie sollten die folgenden Ports an die Adresse des Servers weiterleiten:<br /><br /> -80 (bei gehosteter Konfiguration nur 443 verwenden)<br />-443|  
-|UPnP-Unterstützung|Sie sollten die UPnP-Unterstützung aktivieren, um die einfachste Routerkonfiguration für den Kunden und die beste Kundenfreundlichkeit bei der Installation bereitzustellen.<br /><br /> **Warnung:** Die UPnP-Architektur kann ein Sicherheitsrisiko darstellen, wenn sie aktiviert bleibt.|  
+|UPnP-Unterstützung|Sie sollten die UPnP-Unterstützung aktivieren, um die einfachste Routerkonfiguration für den Kunden und die beste Kundenfreundlichkeit bei der Installation bereitzustellen.<br /><br /> **Warnung:** Die UPnP-Architektur kann ein Sicherheitsrisiko darstellen, wenn Sie aktiviert ist.|  
   
  Neben den grundlegenden Einstellungen für die Routervorkonfiguration können Sie die folgenden Aufgaben ausführen, um das Verwalten des Routers benutzerfreundlicher zu gestalten:  
   
@@ -48,9 +48,9 @@ Normalerweise erfordert eine neue Installation des Betriebssystems einen interne
 > [!NOTE]
 >  Weitere Informationen zum Konfigurieren von Funkverbindungen finden Sie unter [Configure Support for a Wireless Network](Configure-Support-for-a-Wireless-Network.md).  
   
-## <a name="see-also"></a>Siehe auch  
- [Einführung in das Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
- [Erstellen und Anpassen des Bilds](Creating-and-Customizing-the-Image.md)   
+## <a name="see-also"></a>Weitere Informationen  
+ [Die ersten Schritte mit dem Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md) -   
+ [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
  [Weitere Anpassungen](Additional-Customizations.md)   
- [Vorbereiten des Images für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
+ [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)

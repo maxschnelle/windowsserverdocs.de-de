@@ -19,11 +19,11 @@ ms.locfileid: "71405279"
 ---
 # <a name="windows-powershell-commands-for-rss-and-vrss"></a>Windows PowerShell-Befehle für RSS und vrss
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-In diesem Thema erfahren Sie, wie Sie auf schnelle Weise technische Referenzinformationen zu Windows PowerShell-Befehlen für die Empfangs seitige Skalierung \(rss @ no__t-1 und Virtual RSS \(vrss @ no__t-3 finden.
+In diesem Thema erfahren Sie, wie Sie technische Referenzinformationen zu Windows PowerShell-Befehlen für die Empfangs seitige Skalierung \(RSS\) und virtuellen RSS \(vrss-\)schnell finden.
 
-Verwenden Sie die folgenden RSS-Befehle, um RSS auf einem physischen Computer mit mehreren Prozessoren oder mehreren Kernen zu konfigurieren. Sie können die gleichen Befehle verwenden, um vrss auf einem virtuellen Computer \(vm @ no__t-1 zu konfigurieren, auf dem ein unterstütztes Betriebssystem ausgeführt wird. Weitere Informationen finden Sie unter [Netzwerk Adapter-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/netadapter/?view=win10-ps).
+Verwenden Sie die folgenden RSS-Befehle, um RSS auf einem physischen Computer mit mehreren Prozessoren oder mehreren Kernen zu konfigurieren. Sie können die gleichen Befehle zum Konfigurieren von vrss auf einem virtuellen Computer \(VM-\) verwenden, auf dem ein unterstütztes Betriebssystem ausgeführt wird. Weitere Informationen finden Sie unter [Netzwerk Adapter-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/netadapter/?view=win10-ps).
 
 ## <a name="configure-vmq"></a>Konfigurieren von VMQ
 
@@ -36,7 +36,7 @@ vrss erfordert, dass VMQ aktiviert und konfiguriert ist. Sie können die folgend
 
 ## <a name="enable-and-configure-rss-on-a-native-host"></a>Aktivieren und Konfigurieren von RSS auf einem nativen Host
 
-Verwenden Sie die folgenden PowerShell-Befehle, um RSS auf einem nativen Host zu konfigurieren und RSS auf einem virtuellen Computer oder auf einer virtuellen Host-NIC (VNIC) zu verwalten. Einige der Parameter dieser Befehle können sich auch auf Warteschlange für virtuelle Computer \(vmq @ no__t-1 auf dem Hyper-V-Host auswirken.  
+Verwenden Sie die folgenden PowerShell-Befehle, um RSS auf einem nativen Host zu konfigurieren und RSS auf einem virtuellen Computer oder auf einer virtuellen Host-NIC (VNIC) zu verwalten. Einige der Parameter dieser Befehle können sich auch auf Warteschlange für virtuelle Computer \(VMQ-\) auf dem Hyper-V-Host auswirken.  
 
 >[!IMPORTANT]
 >Das Aktivieren von RSS auf einem virtuellen Computer oder auf einer Host-vNIC ist eine Voraussetzung für die Aktivierung und Verwendung von vrss.
@@ -46,9 +46,9 @@ Verwenden Sie die folgenden PowerShell-Befehle, um RSS auf einem nativen Host zu
 - [Get-netadapterrss](https://docs.microsoft.com/powershell/module/netadapter/get-netadapterrss?view=win10-ps)
 - [Set-netadapterrss](https://docs.microsoft.com/powershell/module/netadapter/Set-NetAdapterRss?view=win10-ps)
 
-## <a name="enable-vrss-on-the-hyper-v-virtual-switch-port"></a>Aktivieren von vrss auf dem virtuellen Switch-Port für Hyper @ no__t-0V
+## <a name="enable-vrss-on-the-hyper-v-virtual-switch-port"></a>Aktivieren von vrss auf dem Port des virtuellen Hyper\-V-Switches
 
-Zusätzlich zum Aktivieren von RSS auf dem virtuellen Computer erfordert vrss, dass Sie vrss auf dem virtuellen Switch-Port von Hyper @ no__t-0V aktivieren. 
+Zusätzlich zur Aktivierung von RSS auf dem virtuellen Computer erfordert vrss, dass Sie vrss auf dem virtuellen Hyper\-V-Switchport aktivieren. 
 
 Bestimmen Sie die aktuellen Einstellungen für vrss, und aktivieren oder deaktivieren Sie die Funktion für eine VM.
 

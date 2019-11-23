@@ -21,11 +21,11 @@ ms.locfileid: "71367320"
 ---
 # <a name="step-1-configure-the-remote-access-infrastructure"></a>Schritt 1 Konfigurieren der Remote Zugriffs Infrastruktur
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-**Hinweis**: Durch Windows Server 2013 werden DirectAccess und RRAS (Routing and Remote Access Service, Routing- und RAS-Dienst) zu einer einzigen Remotezugriffsrolle zusammengefasst.  
+**Hinweis:** Durch Windows Server 2012 werden DirectAccess und RRAS (Routing and Remote Access Service, Routing- und RAS-Dienst) zu einer einzigen Remotezugriffsrolle zusammengefasst.  
   
-In diesem Thema wird beschrieben, wie Sie die Infrastruktur konfigurieren, die für eine erweiterte Remote Zugriffs Bereitstellung mit einem einzelnen Remote Zugriffs Server in einer gemischten IPv4-und IPv6-Umgebung erforderlich ist. Vergewissern Sie sich vor Beginn der Bereitstellungs Schritte, dass Sie die Planungsschritte ausgeführt haben, die in [step 1: Planen Sie die Remote Zugriffs Infrastruktur @ no__t-0.  
+In diesem Thema wird beschrieben, wie Sie die Infrastruktur konfigurieren, die für eine erweiterte Remote Zugriffs Bereitstellung mit einem einzelnen Remote Zugriffs Server in einer gemischten IPv4-und IPv6-Umgebung erforderlich ist. Vergewissern Sie sich vor Beginn der Bereitstellungs Schritte, dass Sie die in [Schritt 1: Planen der Remote Zugriffs Infrastruktur](../plan/Step-1-Plan-the-Remote-Access-Infrastructure.md)beschriebenen Planungsschritte abgeschlossen haben.  
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
@@ -118,7 +118,7 @@ Wenden Sie die folgenden Firewallausnahmen mit Internet Zugriff für RAS-Datenve
 ### <a name="remote-access-traffic"></a>RAS-Datenverkehr  
 Wenden Sie die folgenden internen netzwerkfirewallausnahmen für RAS-Datenverkehr an:  
   
--   ISATAP Protokoll 41 eingehend und ausgehend  
+-   ISATAP: eingehende und ausgehende Protokolle 41  
   
 -   TCP/UDP für den gesamten IPv4-oder IPv6-Datenverkehr  
   
@@ -198,7 +198,7 @@ Stellen Sie sicher, dass das für die IP-HTTPS-Authentifizierung verwendete Webs
   
 ##### <a name="to-install-the-ip-https-certificate-from-an-internal-ca"></a>So installieren Sie das IP-HTTPS-Zertifikat von einer internen Zertifizierungsstelle  
   
-1.  Gehen Sie auf dem Remotezugriffsserver wie folgt vor: Geben Sie auf dem **Start** Bildschirm**MMC. exe**ein, und drücken Sie dann die EINGABETASTE.  
+1.  Auf dem Remote Zugriffs Server: Geben Sie auf dem **Start** Bildschirm**MMC. exe**ein, und drücken Sie dann die EINGABETASTE.  
   
 2.  Klicken Sie in der MMC-Konsole im Menü **Datei** auf **Snap-In hinzufügen/entfernen**.  
   
@@ -231,7 +231,7 @@ Sie müssen einen DNS-Eintrag für die Netzwerkadressenserver-Website für das i
   
 ### <a name="NLS_DNS"></a>So fügen Sie den Netzwerkadressen Server und den Webtest hinzu  
   
-1.  Vorgehensweise auf dem internen Netzwerk-DNS-Server: Geben Sie auf der **Start** Seite**dnsmgmt. msc**ein, und drücken Sie dann die EINGABETASTE.  
+1.  Auf dem internen Netzwerk-DNS-Server: Geben Sie auf dem **Start** Bildschirm**dnsmgmt. msc**ein, und drücken Sie dann die EINGABETASTE.  
   
 2.  Erweitern Sie im linken Bereich der **DNS-Manager**-Konsole die Forward-Lookupzone für Ihre Domäne. Klicken Sie mit der rechten Maustaste auf die Domäne, und klicken Sie auf **neuer Host (A oder AAAA)** .  
   
@@ -243,7 +243,7 @@ Sie müssen einen DNS-Eintrag für die Netzwerkadressenserver-Website für das i
   
 6.  Klicken Sie auf **Fertig**.  
   
-](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
+![der entsprechenden Windows PowerShell-](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -315,7 +315,7 @@ Der Remotezugriffsserver und alle DirectAccess-Clientcomputer müssen zu einer A
   
 10. Klicken Sie bei Aufforderung auf **Jetzt neu starten**.  
   
-](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
+![der entsprechenden Windows PowerShell-](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -370,7 +370,7 @@ Die DirectAccess-Einstellungen, die auf dem Client Computer Gruppenrichtlinie Ob
   
 7.  Wählen Sie im Dialogfeld zum **Auswählen von Benutzern, Kontakten Computern oder Dienstkonten** die Clientcomputer aus, für die DirectAccess aktiviert werden soll, und klicken Sie anschließend auf **OK**.  
   
-](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)**äquivalente Windows PowerShell-Befehle** mit @no__t 0shell  
+![der entsprechenden Windows PowerShell-](../../../../media/Step-1-Configure-the-Remote-Access-Infrastructure/PowerShellLogoSmall.gif)**Befehle in Windows PowerShell**  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -405,7 +405,7 @@ Unabhängig davon, ob Sie ein privates Zertifikat oder ein selbst signiertes Zer
   
 #### <a name="to-install-the-network-location-server-certificate-from-an-internal-ca"></a>So installieren Sie das Netzwerkadressenserver-Zertifikat von einer internen Zertifizierungsstelle  
   
-1.  Vorgehensweise auf dem Server, der die Netzwerkadressenserver-Website hostet: Geben Sie auf dem **Start** Bildschirm**MMC. exe**ein, und drücken Sie dann die EINGABETASTE.  
+1.  Auf dem Server, auf dem die Netzwerkadressen Server-Website gehostet wird: Geben Sie auf dem **Start** Bildschirm**MMC. exe**ein, und drücken Sie dann die EINGABETASTE.  
   
 2.  Klicken Sie in der MMC-Konsole im Menü **Datei** auf **Snap-In hinzufügen/entfernen**.  
   
@@ -447,7 +447,7 @@ Unabhängig davon, ob Sie ein privates Zertifikat oder ein selbst signiertes Zer
   
     -   Webserver, die eine HTTP-basierte URL verwenden, z. b.: https://crl.corp.contoso.com/crld/corp-APP1-CA.crl  
   
-    -   Dateiserver, auf die über einen UNC-Pfad (Universal Naming Convention) zugegriffen wird, z. b. \\ \ CRL. Corp. Microsoft. com\crld\corp-App1-ca.crl  
+    -   Dateiserver, auf die über einen UNC-Pfad (Universal Naming Convention) zugegriffen wird, z. b. \\\crl.Corp.contoso.com\crld\corp-App1-ca.crl  
   
     Wenn der interne CRL-Verteilungs Punkt nur über IPv6 erreichbar ist, müssen Sie eine Verbindungs Sicherheitsregel für die Windows-Firewall mit erweiterter Sicherheit konfigurieren. Dadurch wird der IPSec-Schutz von dem IPv6-Adressraum Ihres Intranets zu den IPv6-Adressen der CRL-Verteilungs Punkte ausgenommen.  
   
@@ -455,5 +455,5 @@ Unabhängig davon, ob Sie ein privates Zertifikat oder ein selbst signiertes Zer
   
 ## <a name="BKMK_Links"></a>Siehe auch  
   
--   [Schritt 2: Konfigurieren des Remotezugriffsservers](Step-2-Configure-the-Remote-Access-Server.md)
+-   [Schritt 2: Konfigurieren des Remote Zugriffs Servers](Step-2-Configure-the-Remote-Access-Server.md)
 

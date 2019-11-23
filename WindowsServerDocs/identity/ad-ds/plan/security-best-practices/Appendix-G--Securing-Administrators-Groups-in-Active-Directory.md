@@ -16,19 +16,19 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71408641"
 ---
-# <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>Anhang G: Sichern von Administratoren Gruppen in Active Directory
+# <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>Anhang G: Schützen von Administratorgruppen in Active Directory
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-## <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>Anhang G: Sichern von Administratoren Gruppen in Active Directory  
-Wie bei den Gruppen Organisations-Admins (Enterprise Admins, EA) und Domänen-Admins muss die Mitgliedschaft in der Gruppe integrierte Administratoren (BA) nur in Build-oder Notfall Wiederherstellungs Szenarios erforderlich sein. Es dürfen keine alltäglichen Benutzerkonten in der Gruppe "Administratoren" vorhanden sein, mit Ausnahme des integrierten Administrator Kontos für die Domäne, sofern Sie wie in [anhang D beschrieben gesichert wurde: Sichern integrierter Administrator Konten in Active Directory @ no__t-0.  
+## <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>Anhang G: Schützen von Administratorgruppen in Active Directory  
+Wie bei den Gruppen Organisations-Admins (Enterprise Admins, EA) und Domänen-Admins muss die Mitgliedschaft in der Gruppe integrierte Administratoren (BA) nur in Build-oder Notfall Wiederherstellungs Szenarios erforderlich sein. Es dürfen keine alltäglichen Benutzerkonten in der Gruppe "Administratoren" vorhanden sein, mit Ausnahme des integrierten Administrator Kontos für die Domäne, sofern Sie wie in [Anhang D: schützen integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.  
 
 Administratoren sind standardmäßig Besitzer der meisten AD DS Objekte in ihren jeweiligen Domänen. Die Mitgliedschaft in dieser Gruppe ist möglicherweise in Build-oder Notfall Wiederherstellungs Szenarien erforderlich, in denen der Besitz oder die Fähigkeit, Objekte zu übernehmen, erforderlich ist. Außerdem erben das und EAS aufgrund der Standardmitgliedschaft in der Gruppe "Administratoren" eine Reihe ihrer Rechte und Berechtigungen. Die Standard Gruppen Schachtelung für privilegierte Gruppen in Active Directory sollte nicht geändert werden, und die Administratoren Gruppe jeder Domäne sollte wie in den folgenden Schritt-für-Schritt-Anweisungen beschrieben gesichert werden.  
 
 Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:  
 
-1.  Entfernen Sie alle Mitglieder aus der Gruppe Administratoren, mit der Ausnahme, dass das integrierte Administrator Konto für die Domäne verfügbar ist, vorausgesetzt, dass Sie wie in [anhang D beschrieben gesichert wurde: Sichern integrierter Administrator Konten in Active Directory @ no__t-0.  
+1.  Entfernen Sie alle Mitglieder aus der Gruppe Administratoren, mit der Ausnahme, dass das integrierte Administrator Konto für die Domäne verfügbar ist, vorausgesetzt, dass Sie wie in [Anhang D: schützen integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.  
 
 2.  In GPOs, die mit Organisationseinheiten verknüpft sind, die Mitglieds Server und Arbeitsstationen in jeder Domäne enthalten, sollte die BA-Gruppe den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien \ Zuweisen von Benutzerrechten**  
 
@@ -66,13 +66,13 @@ Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
 1.  KlickenSie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
 
-2.  Erweitern Sie in der Konsolen Struktur &lt;forest @ no__t-1\Domains @ no__t-2 @ no__t-3domain @ no__t-4, und **Gruppenrichtlinie Objekte** (wobei &lt;forest @ no__t-7 der Name der Gesamtstruktur und &lt;domäne @ no__t-9 der Name der Domäne ist, in der Sie Legen Sie den Gruppenrichtlinie) fest.  
+2.  Erweitern Sie in der Konsolen Struktur &lt;Gesamtstruktur&gt;\Domänen\\&lt;Domäne&gt;, und Gruppenrichtlinie Sie dann **Objekte** (wobei &lt;Gesamtstruktur&gt; der Name der Gesamtstruktur und &lt;Domäne&gt; der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
 
 3.  Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Gruppenrichtlinie Objekte**, und klicken Sie dann auf **neu**.  
 
     ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_80.gif)  
 
-4.  Geben Sie im Dialogfeld **Neues** Gruppenrichtlinien Objekt <GPO Name> ein, und klicken Sie auf **OK** (wobei *GPO-Name* der Name dieses GPO ist).  
+4.  Geben Sie im Dialogfeld **Neues** Gruppenrichtlinien Objekt <GPO Name>ein, und klicken Sie auf **OK** (wobei *GPO-Name* der Name dieses GPO ist).  
 
     ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_81.gif)  
 
@@ -122,7 +122,7 @@ Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
 11. Verknüpfen Sie das Gruppenrichtlinien Objekt in **Gruppenrichtlinie Management**mit dem Mitglieds Server und Arbeitsstations Organisationseinheiten, indem Sie die folgenden Schritte ausführen:  
 
-    1.  Navigieren Sie zum &lt;forest @ no__t-1 > \domains @ no__t-2 @ no__t-3domain @ no__t-4 (wobei &lt;forest @ no__t-6 der Name der Gesamtstruktur und &lt;domäne @ no__t-8 der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
+    1.  Navigieren Sie zu der &lt;Gesamtstruktur&gt;> \Domänen\\&lt;Domäne&gt; (wobei &lt;Gesamtstruktur&gt; der Name der Gesamtstruktur und &lt;Domäne&gt; der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
 
     2.  Klicken Sie mit der rechten Maustaste auf die Organisationseinheit, auf die das Gruppenrichtlinien Objekt angewendet wird, und klicken Sie auf **vorhandenes GPO verknüpfen**  
 
@@ -150,13 +150,13 @@ Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
 1.  KlickenSie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
 
-2.  Erweitern Sie in der Konsolen Struktur <Forest> \ Domänen @ no__t-1 @ no__t-2, und **Gruppenrichtlinie** Sie dann Objekte (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
+2.  Erweitern Sie in der Konsolen Struktur <Forest>\domains\\<Domain>, und klicken Sie dann auf **Gruppenrichtlinie Objekte** (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
 
 3.  Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Gruppenrichtlinie Objekte**, und klicken Sie dann auf **neu**.  
 
     ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_89.gif)  
 
-4.  Geben Sie im Dialogfeld **Neues** Gruppenrichtlinien Objekt <GPO Name> ein, und klicken Sie auf **OK** (wobei <GPO Name> der Name dieses GPO ist).  
+4.  Geben Sie im Dialogfeld **Neues** Gruppenrichtlinien Objekt <GPO Name>ein, und klicken Sie auf **OK** (wobei <GPO Name> der Name dieses Gruppenrichtlinien Objekts ist).  
 
     ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_90.gif)  
 
@@ -206,7 +206,7 @@ Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
 11. Verknüpfen Sie das Gruppenrichtlinien Objekt in **Gruppenrichtlinie Management**mit der Organisationseinheit Domänen Controller, indem Sie die folgenden Schritte ausführen:  
 
-    1.  Navigieren Sie zum <Forest> \ Domänen @ no__t-1 @ no__t-2 (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
+    1.  Navigieren Sie zum <Forest>\domains\\<Domain> (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
 
     2.  Klicken Sie mit der rechten Maustaste auf die Organisationseinheit Domänen Controller, und klicken Sie auf **vorhandenes GPO**  
 
@@ -231,7 +231,7 @@ Versuchen Sie auf einem Mitglieds Server oder einer Arbeitsstation, der nicht vo
 
     ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_97.gif)  
 
-5.  Geben Sie im **Eingabe** Aufforderungs Fenster **net use \\ @ no__t-3 @ no__t-4server Name @ no__t-5\c $** ein, wobei \<server Name @ no__t-7 der Name des Mitglieds Servers oder der Arbeitsstation ist, auf den Sie über das Netzwerk zuzugreifen versuchen.  
+5.  Geben Sie im **Eingabe** Aufforderungs Fenster **net use \\\\\<Server Name\>\c $** ein, wobei \<Servername\> der Name des Mitglieds Servers oder der Arbeitsstation ist, auf den Sie über das Netzwerk zuzugreifen versuchen.  
 
 6.  Der folgende Screenshot zeigt die Fehlermeldung, die angezeigt werden soll.  
 
@@ -250,7 +250,7 @@ Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die 
 
 4.  Klicken Sie auf **Datei**und dann auf **Speichern**unter.  
 
-5.  Geben Sie im Feld **Dateiname** **@no__t -2. bat** ein (wobei <Filename> der Name der neuen Batchdatei ist).  
+5.  Geben Sie im Feld **Dateiname** **<Filename>. bat** ein (wobei <Filename> der Name der neuen Batchdatei ist).  
 
 ###### <a name="schedule-a-task"></a>Planen einer Aufgabe  
 

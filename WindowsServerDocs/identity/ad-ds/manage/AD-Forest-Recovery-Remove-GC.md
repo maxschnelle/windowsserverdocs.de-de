@@ -31,7 +31,7 @@ ms.locfileid: "71409098"
 3. Erweitern Sie den Container **Server** , und erweitern Sie dann das *Server* Objekt für den Domänen Controller, von dem aus Sie den globalen Katalog entfernen möchten. 
 4. Klicken Sie mit der rechten Maustaste auf **NTDS-Einstellungen**, und klicken Sie auf **Eigenschaften**. 
 5. Deaktivieren Sie das Kontrollkästchen **globaler Katalog** . 
-   ![remove GC @ no__t-1
+   ![Entfernen der GC-](media/AD-Forest-Recovery-Remove-GC/removegc1.png)
 6. Klicken Sie auf **Übernehmen**.
   
 ## <a name="to-remove-the-global-catalog-using-repadmin"></a>So entfernen Sie den globalen Katalog mithilfe von "repadmin"  

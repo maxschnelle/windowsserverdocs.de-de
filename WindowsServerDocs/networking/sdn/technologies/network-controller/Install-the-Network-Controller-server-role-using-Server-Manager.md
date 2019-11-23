@@ -18,12 +18,12 @@ ms.locfileid: "71405833"
 ---
 # <a name="install-the-network-controller-server-role-using-server-manager"></a>Installieren der Server Rolle "Netzwerk Controller" mithilfe von Server-Manager
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Thema enthält Anweisungen zum Installieren der Netzwerk Controller-Server Rolle mit Server-Manager.
 
 >[!IMPORTANT]
->Stellen Sie die Netzwerk Controller-Server Rolle nicht auf physischen Hosts bereit. Zum Bereitstellen des Netzwerk Controllers müssen Sie die Netzwerk Controller-Server Rolle auf einem virtuellen Hyper-v-Computer \(vm @ no__t-1 installieren, der auf einem Hyper-v-Host installiert ist. Nachdem Sie den Netzwerk Controller auf virtuellen Computern auf drei verschiedenen Hyper @ no__t-0V-Hosts installiert haben, müssen Sie die Hyper @ no__t-1V-Hosts für die Software-Defined Networking \(sdn @ no__t-3 aktivieren, indem Sie die Hosts mithilfe von Windows PowerShell dem Netzwerk Controller hinzufügen. Befehl " **New-networkcontrollerserver**". Auf diese Weise aktivieren Sie die Load Balancer der Sdn-Software. Weitere Informationen finden Sie unter [New-networkcontrollerserver](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
+>Stellen Sie die Netzwerk Controller-Server Rolle nicht auf physischen Hosts bereit. Zum Bereitstellen des Netzwerk Controllers müssen Sie die Netzwerk Controller-Server Rolle auf einem virtuellen Hyper-v-Computer \(VM-\) installieren, der auf einem Hyper-v-Host installiert ist. Nachdem Sie den Netzwerk Controller auf virtuellen Computern auf drei verschiedenen Hyper\-V-Hosts installiert haben, müssen Sie die Hyper\-V-Hosts für Software-Defined Networking \(Sdn\) aktivieren, indem Sie die Hosts mithilfe des Windows PowerShell-Befehls **New-networkcontrollerserver**dem Netzwerk Controller hinzufügen. Auf diese Weise aktivieren Sie die Load Balancer der Sdn-Software. Weitere Informationen finden Sie unter [New-networkcontrollerserver](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
   
 Nachdem Sie den Netzwerk Controller installiert haben, müssen Sie Windows PowerShell-Befehle für die zusätzliche Netzwerk Controller Konfiguration verwenden. Weitere Informationen finden Sie unter Bereitstellen eines [Netzwerk Controllers mithilfe von Windows PowerShell](../../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md).  
   
@@ -63,7 +63,7 @@ Nachdem Sie den Netzwerk Controller installiert haben, müssen Sie Windows Power
   
     ![Server-Manager](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/nc_013.jpg)  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Netzwerkcontroller](Network-Controller.md)  
   
 

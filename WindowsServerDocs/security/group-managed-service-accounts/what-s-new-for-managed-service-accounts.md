@@ -22,7 +22,7 @@ ms.locfileid: "71403729"
 ---
 # <a name="what39s-new-for-managed-service-accounts"></a>&#39;Neues für verwaltete Dienst Konten
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema für IT-Experten werden die Funktionsänderungen für verwaltete Dienst Konten mit der Einführung des Gruppen verwalteten Dienst Kontos (Group Managed Service Account, GMSA) in Windows Server 2012 und Windows 8 beschrieben.
 
@@ -51,12 +51,12 @@ Auf Computern, auf denen Windows Server 2012 oder Windows 8 ausgeführt wird, ka
 ### <a name="interoperability"></a>Entfernte oder veraltete Funktionen
 Für Windows Server 2012 werden die Windows PowerShell-Cmdlets standardmäßig für die Verwaltung der Gruppen verwalteten Dienst Konten anstelle der Server verwalteten Dienst Konten verwendet.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 -   [Übersicht über Gruppen verwaltete Dienst Konten](group-managed-service-accounts-overview.md)
 
 -   [Übersicht über die Active Directory Domain Services](active-directory-domain-services-overview.md)
 
--   [verwaltete Dienst Konten: Grundlegendes, Implementierung, bewährte Methoden und Problembehandlung bei @ no__t-0
+-   [Verwaltete Dienst Konten: Grundlegendes, Implementierung, bewährte Methoden und Problembehandlung](http://blogs.technet.com/b/askds/archive/20../managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting.aspx)
 
 

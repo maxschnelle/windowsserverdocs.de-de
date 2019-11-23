@@ -18,11 +18,11 @@ ms.locfileid: "71407622"
 ---
 # <a name="create-a-rule-to-permit-all-users"></a>Erstellen einer Regel zum Zulassen aller Benutzer
 
-In Windows Server 2016 können Sie eine **Access Control Richtlinie** verwenden, um eine Regel zu erstellen, die allen Benutzern den Zugriff auf eine vertrauende Seite gewährt.  In Windows Server 2012 R2 können Sie mithilfe der Regel Vorlage " **alle Benutzer zulassen** " in Active Directory-Verbunddienste (AD FS) \(AD FS @ no__t-2 eine Autorisierungs Regel erstellen, die allen Benutzern den Zugriff auf die vertrauende Seite gewährt. 
+In Windows Server 2016 können Sie eine **Access Control Richtlinie** verwenden, um eine Regel zu erstellen, die allen Benutzern den Zugriff auf eine vertrauende Seite gewährt.  In Windows Server 2012 R2 können Sie mithilfe der Regel Vorlage " **alle Benutzer zulassen** " in Active Directory-Verbunddienste (AD FS) \(AD FS\)eine Autorisierungs Regel erstellen, die allen Benutzern den Zugriff auf die vertrauende Seite erteilt. 
 
 Sie können zusätzliche Autorisierungs Regeln verwenden, um den Zugriff weiter einzuschränken. Benutzern, denen der Zugriff auf die vertrauende Seite über den Verbunddienst erlaubt wird, kann der Dienst durch die vertrauende Seite dennoch verweigert werden.  
   
-Mithilfe der folgenden Verfahren können Sie eine Anspruchs Regel mit dem AD FS Management-Snap @ no__t-0in erstellen.  
+Mithilfe der folgenden Verfahren können Sie eine Anspruchs Regel mit dem AD FS-Verwaltungs-Snap\-in erstellen.  
   
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477). 
 
@@ -43,12 +43,12 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
   
 1.  Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  
   
-2.  Klicken Sie in der Konsolen Struktur **unter\\AD FS Vertrauens\\Stellungen Vertrauens Stellungen der vertrauenden Seite**auf eine bestimmte Vertrauensstellung in der Liste, in der Sie diese Regel erstellen möchten.  
+2.  Klicken Sie in der Konsolen Struktur unter **AD FS Vertrauens Stellungen\\Vertrauens Stellungen\\Vertrauens Stellungen der vertrauenden Seite**auf eine bestimmte Vertrauensstellung in der Liste, in der Sie diese Regel erstellen möchten.  
 
-3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.  
+3.  Klicken Sie mit der rechten\-auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.  
 ![Regel erstellen](media/Create-a-Rule-to-Permit-All-Users/permitall4.PNG)  
 
-4.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf die Registerkarte Ausstellungs **Autorisierungs Regeln** oder auf der Register \(Karte **Delegierungs Autorisierungs Regeln** basierend auf der\)gewünschten Autorisierungs Regel, und klicken Sie dann auf **Regel hinzufügen.** um den **Assistenten zum Hinzufügen von Autorisierungs Anspruchs Regeln**zu starten.  
+4.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf die Registerkarte Ausstellungs **Autorisierungs Regeln** oder die Registerkarte **Delegierungs Autorisierungs Regeln** \(basierend auf der Art der Autorisierungs Regel, die Sie benötigen\), und klicken Sie dann auf **Regel hinzufügen** , um den **Assistenten zum Hinzufügen von Autorisierungs Anspruchs**  
 ![Regel erstellen](media/Create-a-Rule-to-Permit-All-Users/permitall5.PNG)  
 5.  Wählen Sie auf der Seite **Regel Vorlage auswählen** unter **Anspruchs Regel Vorlage**die Option **alle Benutzer** aus der Liste zulassen aus, und klicken Sie dann auf **weiter**.  
 ![Regel erstellen](media/Create-a-Rule-to-Permit-All-Users/permitall6.PNG)    
@@ -59,7 +59,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 ## <a name="additional-references"></a>Weitere Verweise 
 [Konfigurieren von Anspruchsregeln](Configure-Claim-Rules.md)  
  
-[Prüfliste: Erstellen von Anspruchsregeln für eine Vertrauensstellung der vertrauenden Seite](https://technet.microsoft.com/library/ee913578.aspx)  
+[Prüfliste: Erstellen von Anspruchs Regeln für eine Vertrauensstellung der vertrauenden](https://technet.microsoft.com/library/ee913578.aspx)  
   
 [Wann sollte eine Autorisierungs Anspruchs Regel verwendet werden?](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 

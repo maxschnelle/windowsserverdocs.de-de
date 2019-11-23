@@ -18,7 +18,7 @@ ms.locfileid: "71408919"
 ---
 # <a name="deploying-ad-ds-in-a-windows-2000-organization"></a>Bereitstellen von AD DS in einer Windows 2000-Organisation
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Wenn in Ihrer Organisation derzeit Windows 2000 Active Directory ausgeführt wird, können Sie Windows Server 2008 Active Directory Domain Services (AD DS) bereitstellen, indem Sie entweder ein direktes Upgrade einiger oder aller der Betriebssysteme ihrer Domänen Controller auf Windows ausführen. Server 2008 oder durch Einführen von Domänen Controllern unter Windows Server 2008 in Ihrer Umgebung.  
   
@@ -36,7 +36,7 @@ In der folgenden Abbildung werden die Schritte zum Bereitstellen des Windows Ser
   
 Die Konsolidierung von Ressourcen-und Konto Domänen, die direkt aus einer Windows 2000-Umgebung im Rahmen ihrer Windows Server 2008 AD DS-Bereitstellung aktualisiert werden, erfordert möglicherweise eine Gesamtstruktur übergreifende oder Gesamtstruktur übergreifende Domänen Umstrukturierung Durch die Umstrukturierung AD DS Domänen zwischen Gesamtstrukturen können Sie die Komplexität Ihrer Organisation und die damit verbundenen administrativen Kosten reduzieren. Durch die Umstrukturierung AD DS Domänen in einer Gesamtstruktur können Sie den Verwaltungsaufwand für Ihre Organisation verringern, indem Sie den Replikations Datenverkehr verringern, die erforderliche Menge an Benutzer-und Gruppenverwaltung reduzieren und die Verwaltung von Gruppenrichtlinie. Weitere Informationen finden Sie im ADMT v 3.1-Migrations Handbuch ([https://go.microsoft.com/fwlink/?LinkId=93678](https://go.microsoft.com/fwlink/?LinkId=93678)).  
   
-Eine Liste der detaillierten Aufgaben, die Sie zum Planen und Bereitstellen von AD DS in einer Organisation verwenden können, die derzeit Windows 2000 Active Directory ausgeführt wird, finden Sie unter [checkliste: Bereitstellen von AD DS in einer Windows 2000-Organisation @ no__t-0.  
+Eine Liste der detaillierten Aufgaben, die Sie zum Planen und Bereitstellen von AD DS in einer Organisation verwenden können, die derzeit Windows 2000 Active Directory ausgeführt wird, finden Sie unter Prüfliste: Bereitstellen von [AD DS in einer Windows 2000-Organisation](https://technet.microsoft.com/library/cc732737.aspx).  
   
 
 

@@ -21,7 +21,7 @@ ms.locfileid: "71404760"
 ---
 # <a name="step-4-install-and-configure-rsa-and-edge1"></a>Schritt 4 installieren und Konfigurieren von RSA und Edge1
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 RSA ist der RADIUS-und OTP-Server und wird vor dem Konfigurieren von RADIUS und OTP installiert.  
   
@@ -255,7 +255,7 @@ Zum Konfigurieren der RSA-Bereitstellung führen Sie die folgenden Schritte aus:
   
     6.  Klicken Sie im Dialogfeld **Datei Download** auf **Speichern**, navigieren Sie zu c:\rsa-Installation, und klicken Sie auf **Speichern**. Klicken Sie im Dialogfeld **Download abgeschlossen** auf **Schließen** .  
   
-    7.  Über den RSA Authentication Manager Media Copy \auth_mgr\windows-x86_64\am\rsa-ace_nsload\win32-5.0-x86\agent_nsload.exe to c:\rsa Installation.  
+    7.  Über den RSA Authentication Manager Media Copy \ auth_mgr \Windows-x86_64 \am\rsa-ace_nsload \Win32-5.0-x86\ agent_nsload. exe zu c:\rsa Installation.  
   
 ## <a name="BKMK_DAProbeUser"></a>Erstellen von daprobeuser  
   
@@ -284,7 +284,7 @@ Verwenden Sie dieses Verfahren, um das SecurID-Software Token auf CLIENT1 zu ins
   
 8.  Klicken Sie auf **aus Datei importieren**.  
   
-9. Klicken Sie auf **Durchsuchen**, wählen Sie c:\rsa Files\User1_000031701832.SDTID, und klicken Sie auf **Öffnen**.  
+9. Klicken Sie auf **Durchsuchen**, wählen Sie c:\rsa Files \ User1_000031701832. sdtid aus, und klicken Sie auf **Öffnen**.  
   
 10. Klicken Sie zweimal auf **OK** .  
   
@@ -303,11 +303,11 @@ Verwenden Sie dieses Verfahren, um Edge1 zum Ausführen der RSA-Authentifizierun
   
    2.  C:\windows\syswow64\  
   
-4. Kopieren Sie agent_nsload. exe nach c:\windows\SysWOW64 @ no__t-0.  
+4. Kopieren Sie agent_nsload. exe nach c:\windows\SysWOW64\\.  
   
 5. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und navigieren Sie zu c:\windows\SysWOW64.  
   
-6. Geben Sie **agent_nsload. exe-f nodesecret. rec-p <password>** ein, wobei <password> das starke Kennwort ist, das Sie bei der ersten RSA-Konfiguration erstellt haben. Drücken Sie die EINGABETASTE.  
+6. Geben Sie **agent_nsload. exe-f nodesecret. rec-p ein <password>** wobei <password> das sichere Kennwort ist, das Sie während der ersten RSA-Konfiguration erstellt haben. Drücken Sie die EINGABETASTE.  
   
 7. Kopieren Sie c:\windows\syswow64\securid nach c:\Windows\System32.  
   
@@ -335,7 +335,7 @@ Verwenden Sie dieses Verfahren, um OTP für DirectAccess zu konfigurieren und di
   
 8.  Wählen Sie im Abschnitt **OTP** -Zertifizierungsstellen Server App1.Corp.contoso.com aus, und klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**.  
   
-9. Klicken Sie auf der Seite **OTP-Zertifikat Vorlagen** auf **Durchsuchen** , um eine Zertifikat Vorlage auszuwählen, die für die Registrierung von Zertifikaten verwendet wird, die für die OTP-Authentifizierung ausgestellt wurden, und wählen Sie im Dialogfeld **Zertifikat Vorlagen** die Option **daotplogon.** . Klicken Sie auf **OK**. Klicken Sie auf **Durchsuchen** , um eine Zertifikat Vorlage auszuwählen, die zum Registrieren des vom RAS-Server verwendeten Zertifikats zum Signieren von OTP-Zertifikat Registrierungsanforderungen verwendet wird, und wählen Sie im Dialogfeld **Zertifikat Vorlagen** die Option **daotpra**aus. Klicken Sie auf **OK**. Klicken Sie auf **Weiter**.  
+9. Klicken Sie auf der Seite **OTP-Zertifikat Vorlagen** auf **Durchsuchen** , um eine Zertifikat Vorlage auszuwählen, die für die Registrierung von Zertifikaten verwendet wird, die für die OTP-Authentifizierung ausgestellt wurden, und wählen Sie im Dialogfeld **Zertifikat Vorlagen** die Option **daotplogon**. Klicken Sie auf **OK**. Klicken Sie auf **Durchsuchen** , um eine Zertifikat Vorlage auszuwählen, die zum Registrieren des vom RAS-Server verwendeten Zertifikats zum Signieren von OTP-Zertifikat Registrierungsanforderungen verwendet wird, und wählen Sie im Dialogfeld **Zertifikat Vorlagen** die Option **daotpra**aus. Klicken Sie auf **OK**. Klicken Sie auf **Weiter**.  
   
 10. Klicken Sie auf der Seite **Setup des Remote Zugriffs Servers** auf **Fertig**stellen, und klicken Sie dann auf **Fertig** stellen im **Assistenten für DirectAccess-Experten**  
   

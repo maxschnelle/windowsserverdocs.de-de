@@ -32,8 +32,8 @@ Führen Sie ein direktes Upgrade des Betriebssystems des Computers aus, auf dem 
   
   
 ## <a name="next-steps"></a>Nächste Schritte
- [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md)-Verbund Servers    
+ [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md) -Verbund Servers   
  [Vorbereiten der Migration des AD FS 2,0-Verbund Server Proxys](prepare-to-migrate-ad-fs-fed-proxy.md)   
- [Migrieren Sie den AD FS 2,0](migrate-the-ad-fs-fed-server.md)-Verbund Server  .  
- [Migrieren Sie den AD FS 2,0-Verbund Server Proxy](migrate-the-ad-fs-2-fed-server-proxy.md) .  
+ [Migrieren Sie den AD FS 2,0](migrate-the-ad-fs-fed-server.md) -Verbund Server   
+ [Migrieren Sie den AD FS 2,0-Verbund Server Proxy](migrate-the-ad-fs-2-fed-server-proxy.md)   
  [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)

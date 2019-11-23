@@ -22,7 +22,7 @@ ms.locfileid: "71407015"
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) ist eine Lösung, die Telemetriedaten aus einer Vielzahl von Ressourcen sammelt, analysiert und bearbeitet, einschließlich Windows-Servern und-VMS, sowohl lokal als auch in der Cloud. Obwohl Azure Monitor Daten von Azure-VMS und anderen Azure-Ressourcen abruft, konzentriert sich dieser Artikel auf die Funktionsweise von Azure Monitor mit lokalen Servern und VMS, insbesondere mit Windows Admin Center. Wenn Sie wissen möchten, wie Sie Azure Monitor verwenden können, um e-Mail-Benachrichtigungen über Ihren hyperkonvergenten Cluster zu erhalten, informieren Sie sich über die [Verwendung Azure Monitor, um e-Mails zu Integritätsdienst Fehlern zu senden](https://docs.microsoft.com/windows-server/storage/storage-spaces/configure-azure-monitor).
 
 ## <a name="how-does-azure-monitor-work"></a>Wie funktioniert Azure Monitor?
-![img @ no__t-1-Daten, die von lokalen Windows-Servern generiert werden, werden in Azure Monitor in einem Log Analytics Arbeitsbereich erfasst. In einem Arbeitsbereich können Sie verschiedene Überwachungslösungen – Sätze von Logik zur Bereitstellung von Informationen für ein bestimmtes Szenario aktivieren. Beispielsweise sind Azure Updateverwaltung, Azure Security Center und Azure Monitor für VMS alle Überwachungslösungen, die in einem Arbeitsbereich aktiviert werden können. 
+![IMG](../media/azure-monitor-diagram.png) Daten, die von lokalen Windows-Servern generiert werden, werden in Azure Monitor in einem Log Analytics Arbeitsbereich gesammelt. In einem Arbeitsbereich können Sie verschiedene Überwachungslösungen – Sätze von Logik zur Bereitstellung von Informationen für ein bestimmtes Szenario aktivieren. Beispielsweise sind Azure Updateverwaltung, Azure Security Center und Azure Monitor für VMS alle Überwachungslösungen, die in einem Arbeitsbereich aktiviert werden können. 
 
 Wenn Sie eine Überwachungslösung in einem Log Analytics-Arbeitsbereich aktivieren, beginnen alle Server, die an diesen Arbeitsbereich Berichten, mit dem Sammeln von Daten, die für diese Lösung relevant sind, damit die Lösung Einblicke für alle Server im Arbeitsbereich generieren kann. 
 
@@ -51,7 +51,7 @@ Wenn Sie eine weitere Überwachungslösung von WAC auf demselben Server hinzufü
 Wenn Sie eine Verbindung mit einem anderen Server herstellen, aber bereits einen Log Analytics Arbeitsbereich eingerichtet haben (entweder über WAC oder manuell im Azure-Portal), können Sie auch den MMA-Agent auf dem Server installieren und ihn mit einem vorhandenen Arbeitsbereich verbinden. Wenn Sie einen Server mit einem Arbeitsbereich verbinden, beginnt er automatisch mit der Erfassung von Daten und der Berichterstellung an Lösungen, die in diesem Arbeitsbereich installiert sind
 
 ## <a name="azure-monitor-for-virtual-machines-aka-virtual-machine-insights"></a>Azure Monitor für virtuelle Computer (auch bekannt als Einblicke in Virtual Machine
->Gilt für: Windows Admin Center – Vorschau
+>Gilt für: Windows Admin Center (Vorschau)
 
 Wenn Sie Azure Monitor für VMs in den Servereinstellungen einrichten, aktiviert das Windows Admin Center die Azure Monitor für VMS Lösung, auch bekannt als Virtual Machine Insights. Mit dieser Lösung können Sie die Integrität und Ereignisse des Servers überwachen, e-Mail-Benachrichtigungen erstellen, eine konsolidierte Ansicht der Serverleistung in Ihrer Umgebung erhalten und apps, Systeme und Dienste visualisieren, die mit einem bestimmten Server verbunden sind.
 

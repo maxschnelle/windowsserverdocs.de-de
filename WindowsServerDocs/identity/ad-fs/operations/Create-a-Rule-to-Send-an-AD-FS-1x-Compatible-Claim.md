@@ -18,7 +18,7 @@ ms.locfileid: "71407597"
 ---
 # <a name="create-a-rule-to-send-an-ad-fs-1x-compatible-claim"></a>Erstellen einer Regel zum Senden eines AD FS 1. x-kompatiblen Anspruchs
 
-In Situationen, in denen Sie Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 verwenden, um Ansprüche auszugeben, die von Verbund Servern mit AD FS 1,0 \(Windows Server 2003 R2 @ no__t-3 oder AD FS 1,1 \(Windows Server 2008 oder Windows empfangen werden. Server 2008 R2 @ no__t-5: Sie müssen folgende Schritte ausführen:  
+In Fällen, in denen Sie Active Directory-Verbunddienste (AD FS) \(verwenden AD FS\) Ansprüche ausgeben, die von Verbund Servern mit AD FS 1,0 \(Windows Server 2003 R2\) oder AD FS 1,1 \(Windows Server 2008 oder Windows Server 2008 R2\)empfangen werden, müssen Sie folgende Schritte ausführen:  
   
 -   Erstellen Sie eine Regel, die einen namens-ID-Anspruchstyp mit dem Format UPN, e-Mail oder allgemeiner Name sendet.  
   
@@ -30,9 +30,9 @@ In Situationen, in denen Sie Active Directory-Verbunddienste (AD FS) \(ad FS @ n
   
     -   Allgemeiner Name  
   
-    -   Gruppieren  
+    -   Gruppe  
   
-    -   Jeder andere Anspruchstyp, der mit https://schemas.xmlsoap.org/claims/ beginnt, z. b. https://schemas.xmlsoap.org/claims/EmployeeID  
+    -   Jeder andere Anspruchstyp, der mit https://schemas.xmlsoap.org/claims/beginnt, z. b. https://schemas.xmlsoap.org/claims/EmployeeID  
   
 Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden Verfahren, um eine AD FS 1 zu erstellen. *x* -kompatibler Anspruch der NameID:  
   
@@ -50,7 +50,7 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
 2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf Vertrauens Stellungen der vertrauenden **Seite**. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
-3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung, und klicken Sie dann auf **Richtlinie**zum
+3.  Klicken Sie mit der rechten\-auf die ausgewählte Vertrauensstellung, und klicken Sie dann auf **Anspruchs Ausstellungs Richtlinie bearbeiten**.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
   
 4.  Klicken Sie im Dialogfeld **Richtlinie für Anspruchs Ausstellung bearbeiten** unter Ausstellungs **Transformationsregeln** auf **Regel hinzufügen** , um den Regel-Assistenten zu starten. 
@@ -63,11 +63,11 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
   
 7.  Wählen Sie unter **eingehender Anspruchstyp**die Option **Name ID** in der Liste aus.  
   
-8.  Wählen Sie im **Format der eingehenden namens-ID**eine der folgenden AD FS 1 aus. *x*\- kompatible Anspruchs Formate aus der Liste:  
+8.  Wählen Sie im **Format der eingehenden namens-ID**eine der folgenden AD FS 1 aus. *x*\-kompatiblen Anspruchs Formate aus der Liste:  
   
     -   **UPN**  
   
-    -   **E @ no__t-1mail**  
+    -   **E\-E-Mail**  
   
     -   **Allgemeiner Name**  
   
@@ -92,7 +92,7 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
 2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf **Anspruchs Anbieter**-Vertrauens Stellungen. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
   
-3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.
+3.  Klicken Sie mit der rechten\-auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
   
 4.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** unter **Akzeptanz Transformationsregeln** auf **Regel hinzufügen** , um den Regel-Assistenten zu starten.
@@ -105,11 +105,11 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
   
 7.  Wählen Sie unter **eingehender Anspruchstyp**die Option **Name ID** in der Liste aus.  
   
-8.  Wählen Sie im **Format der eingehenden namens-ID**eine der folgenden AD FS 1 aus. *x*\- kompatible Anspruchs Formate aus der Liste:  
+8.  Wählen Sie im **Format der eingehenden namens-ID**eine der folgenden AD FS 1 aus. *x*\-kompatiblen Anspruchs Formate aus der Liste:  
   
     -   **UPN**  
   
-    -   **E @ no__t-1mail**  
+    -   **E\-E-Mail**  
   
     -   **Allgemeiner Name**  
   
@@ -134,7 +134,7 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
 2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf Vertrauens Stellungen der vertrauenden **Seite**. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
-3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung, und klicken Sie dann auf **Richtlinie**zum
+3.  Klicken Sie mit der rechten\-auf die ausgewählte Vertrauensstellung, und klicken Sie dann auf **Anspruchs Ausstellungs Richtlinie bearbeiten**.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)
   
 4.  Klicken Sie im Dialogfeld **Richtlinie für Anspruchs Ausstellung bearbeiten** unter Ausstellungs **Transformationsregeln** auf **Regel hinzufügen** , um den Regel-Assistenten zu starten. 
@@ -149,11 +149,11 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
   
 8.  Wählen Sie unter **Typ des ausgehenden Anspruchs**die Option **Name ID** in der Liste aus.  
   
-9. Wählen Sie im **Format der ausgehenden namens-ID**eine der folgenden AD FS 1 aus. *x*\- kompatible Anspruchs Formate aus der Liste:  
+9. Wählen Sie im **Format der ausgehenden namens-ID**eine der folgenden AD FS 1 aus. *x*\-kompatiblen Anspruchs Formate aus der Liste:  
   
     -   **UPN**  
   
-    -   **E @ no__t-1mail**  
+    -   **E\-E-Mail**  
   
     -   **Allgemeiner Name**  
   
@@ -163,7 +163,7 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
   
     -   **Einen eingehenden Anspruchs Wert durch einen anderen ausgehenden Anspruchs Wert ersetzen**  
   
-    -   **Ersetzen eingehender e @ no__t-1mail-suffixansprüche durch ein neues e @ no__t-2mail-Suffix**  
+    -   **Ersetzen eingehender e\-e-Mail-suffixansprüche durch ein neues e\-Mail Suffix**  
 ![Regel erstellen](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)
 
 11. Klicken Sie auf **Fertig**stellen und dann auf **OK** , um die Regel zu speichern.  
@@ -178,7 +178,7 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
 2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf **Anspruchs Anbieter**-Vertrauens Stellungen. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
   
-3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.
+3.  Klicken Sie mit der rechten\-auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
   
 4.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** unter **Akzeptanz Transformationsregeln** auf **Regel hinzufügen** , um den Regel-Assistenten zu starten.
@@ -193,11 +193,11 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
   
 8.  Wählen Sie unter **Typ des ausgehenden Anspruchs**die Option **Name ID** in der Liste aus.  
   
-9. Wählen Sie im **Format der ausgehenden namens-ID**eine der folgenden AD FS 1 aus. *x*\- kompatible Anspruchs Formate aus der Liste:  
+9. Wählen Sie im **Format der ausgehenden namens-ID**eine der folgenden AD FS 1 aus. *x*\-kompatiblen Anspruchs Formate aus der Liste:  
   
     -   **UPN**  
   
-    -   **E @ no__t-1mail**  
+    -   **E\-E-Mail**  
   
     -   **Allgemeiner Name**  
   
@@ -207,7 +207,7 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
   
     -   **Einen eingehenden Anspruchs Wert durch einen anderen ausgehenden Anspruchs Wert ersetzen**  
   
-    -   **Ersetzen eingehender e @ no__t-1mail-suffixansprüche durch ein neues e @ no__t-2mail-Suffix**  
+    -   **Ersetzen eingehender e\-e-Mail-suffixansprüche durch ein neues e\-Mail Suffix**  
 ![Regel erstellen](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs4.PNG)    
 
 11. Klicken Sie auf **Fertig**stellen und dann auf **OK** , um die Regel zu speichern.  
@@ -229,12 +229,12 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
   
 1.  Klicken Sie in Server-Manager **auf Extras, und**klicken Sie dann auf **AD FS Verwaltung**.  
   
-2.  Klicken Sie in der Konsolen Struktur **unter\\AD FS Vertrauens**Stellungen entweder auf **Anspruchs Anbieter** -Vertrauens Stellungen oder Vertrauens Stellungen der vertrauenden **Seite**, und klicken Sie dann auf eine bestimmte Vertrauensstellung in der Liste, in der Sie diese Regel erstellen möchten.  
+2.  Klicken Sie in der Konsolen Struktur unter **AD FS Vertrauens Stellungen\\Vertrauens**Stellungen entweder auf **Anspruchs Anbieter** -Vertrauens Stellungen oder Vertrauens Stellungen der vertrauenden **Seite**, und klicken Sie dann auf eine bestimmte Vertrauensstellung in der Liste, in der Sie diese Regel erstellen möchten.  
   
-3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.  
+3.  Klicken Sie mit der rechten\-auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.  
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG) 
   
-4.  Wählen Sie im Dialogfeld **Anspruchs Regeln bearbeiten** je nach der zu bearbeitenden Vertrauensstellung und dem Regelsatz, in dem Sie diese Regel erstellen möchten, eine der folgenden Registerkarten aus, und klicken Sie dann auf **Regel hinzufügen** , um den Regel-Assistenten zu starten, der diesem Regelsatz zugeordnet ist. :  
+4.  Wählen Sie im Dialogfeld **Anspruchs Regeln bearbeiten** je nach der zu bearbeitenden Vertrauensstellung und dem Regelsatz, in dem Sie diese Regel erstellen möchten, eine der folgenden Registerkarten aus, und klicken Sie dann auf **Regel hinzufügen** , um den Regel-Assistenten zu starten, der diesem Regelsatz zugeordnet ist:  
   
     -   **Akzeptanz Transformationsregeln**  
   
@@ -252,11 +252,11 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
   
 7.  Wählen Sie unter **eingehender Anspruchstyp**die Option **Name ID** in der Liste aus.  
   
-8.  Wählen Sie im **Format der eingehenden namens-ID**eine der folgenden AD FS 1 aus. *x*\- kompatible Anspruchs Formate aus der Liste:  
+8.  Wählen Sie im **Format der eingehenden namens-ID**eine der folgenden AD FS 1 aus. *x*\-kompatiblen Anspruchs Formate aus der Liste:  
   
     -   **UPN**  
   
-    -   **E @ no__t-1mail**  
+    -   **E\-E-Mail**  
   
     -   **Allgemeiner Name**  
   
@@ -278,12 +278,12 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
   
 1.  Klicken Sie in Server-Manager **auf Extras, und**klicken Sie dann auf **AD FS Verwaltung**.  
   
-2.  Klicken Sie in der Konsolen Struktur **unter\\AD FS Vertrauens**Stellungen entweder auf **Anspruchs Anbieter** -Vertrauens Stellungen oder Vertrauens Stellungen der vertrauenden **Seite**, und klicken Sie dann auf eine bestimmte Vertrauensstellung in der Liste, in der Sie diese Regel erstellen möchten.  
+2.  Klicken Sie in der Konsolen Struktur unter **AD FS Vertrauens Stellungen\\Vertrauens**Stellungen entweder auf **Anspruchs Anbieter** -Vertrauens Stellungen oder Vertrauens Stellungen der vertrauenden **Seite**, und klicken Sie dann auf eine bestimmte Vertrauensstellung in der Liste, in der Sie diese Regel erstellen möchten.  
   
-3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.  
+3.  Klicken Sie mit der rechten\-auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.  
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG) 
   
-4.  Wählen Sie im Dialogfeld **Anspruchs Regeln bearbeiten** eine der folgenden Registerkarten aus, die von der zu bearbeitenden Vertrauensstellung und dem Regelsatz abhängt, den Sie diese Regel erstellen möchten, und klicken Sie dann auf **Regel hinzufügen** , um den Regel-Assistenten zu starten, der diesem Regelsatz zugeordnet ist. :  
+4.  Wählen Sie im Dialogfeld **Anspruchs Regeln bearbeiten** eine der folgenden Registerkarten aus, die von der zu bearbeitenden Vertrauensstellung und dem Regelsatz abhängt, den Sie diese Regel erstellen möchten, und klicken Sie dann auf **Regel hinzufügen** , um den Regel-Assistenten zu starten, der diesem Regelsatz zugeordnet ist:  
   
     -   **Akzeptanz Transformationsregeln**  
   
@@ -303,11 +303,11 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
   
 8.  Wählen Sie unter **Typ des ausgehenden Anspruchs**die Option **Name ID** in der Liste aus.  
   
-9. Wählen Sie im **Format der ausgehenden namens-ID**eine der folgenden AD FS 1 aus. *x*\- kompatible Anspruchs Formate aus der Liste:  
+9. Wählen Sie im **Format der ausgehenden namens-ID**eine der folgenden AD FS 1 aus. *x*\-kompatiblen Anspruchs Formate aus der Liste:  
   
     -   **UPN**  
   
-    -   **E @ no__t-1mail**  
+    -   **E\-E-Mail**  
   
     -   **Allgemeiner Name**  
   
@@ -317,7 +317,7 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
   
     -   **Einen eingehenden Anspruchs Wert durch einen anderen ausgehenden Anspruchs Wert ersetzen**  
   
-    -   **Ersetzen eingehender e @ no__t-1mail-suffixansprüche durch ein neues e @ no__t-2mail-Suffix**  
+    -   **Ersetzen eingehender e\-e-Mail-suffixansprüche durch ein neues e\-Mail Suffix**  
 ![Regel erstellen](media/Create-a-Rule-to-Send-an-AD-FS-1x-Compatible-Claim/adfs2.PNG)    
 
 11. Klicken Sie auf **Fertig**stellen und dann auf **OK** , um die Regel zu speichern.  
@@ -325,9 +325,9 @@ Verwenden Sie je nach den Anforderungen Ihrer Organisation eines der folgenden V
 ## <a name="additional-references"></a>Weitere Verweise 
 [Konfigurieren von Anspruchsregeln](Configure-Claim-Rules.md)  
  
-[Prüfliste: Erstellen von Anspruchsregeln für eine Vertrauensstellung der vertrauenden Seite](https://technet.microsoft.com/library/ee913578.aspx)  
+[Prüfliste: Erstellen von Anspruchs Regeln für eine Vertrauensstellung der vertrauenden](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[Prüfliste: Erstellen von Anspruchsregeln für eine Anspruchsanbieter-Vertrauensstellung](https://technet.microsoft.com/library/ee913564.aspx)  
+[Prüfliste: Erstellen von Anspruchs Regeln für eine Anspruchs Anbieter-Vertrauensstellung](https://technet.microsoft.com/library/ee913564.aspx)  
   
 [Wann sollte eine Autorisierungs Anspruchs Regel verwendet werden?](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 

@@ -15,9 +15,9 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71365925"
 ---
-# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-overview"></a>Arbeitsordner mit AD FS und webanwendungsproxy bereitstellen: Übersicht
+# <a name="deploy-work-folders-with-ad-fs-and-web-application-proxy-overview"></a>Bereitstellen von Arbeitsordnern mit AD FS und Webanwendungsproxy: Übersicht
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Die Themen in diesem Abschnitt enthalten Anweisungen für die Bereitstellung von Arbeitsordnern mit Active Directory-Verbunddiensten (AD FS) und Webanwendungsproxy. Die Anweisungen behandeln die Einrichtung von Arbeitsordnern mit Clientcomputern für die sofortige Verwendung von Arbeitsordnern entweder lokal oder über das Internet.  
   
@@ -32,12 +32,12 @@ Diese Themen enthalten folgende Informationen:
   
 -   Step-by-step Anweisungen zur Einrichtung und Bereitstellung von Arbeitsordnern mit AD FS und Webanwendungsproxy über die Benutzeroberfläche von Windows Server. Die Anweisungen beschreiben das Einrichten einer Testumgebungen mit selbstsignierten Zertifikaten. Orientieren Sie sich an dem Beispiel, um eine Produktionsumgebung zu erstellen, die öffentlich vertrauenswürdige Zertifikate verwendet.  
   
-## <a name="prerequisites"></a>Erforderliche Komponenten  
+## <a name="prerequisites"></a>Voraussetzungen  
 Um den Verfahrensweisen und Beispielen in diesen Themen zu folgen, benötigen Sie folgende Komponente:  
   
 -   Eine Active Directory®-Domänendienste-Gesamtstruktur mit Schemaerweiterungen in Windows Server 2012 R2 zum Unterstützen der automatischen Weiterleitung von Computern und Geräten an den korrekten Server, wenn mehrere Server verwendet werden. Es wird empfohlen, dass DNS in der Gesamtstruktur aktiviert ist, dies ist jedoch nicht erforderlich.  
   
--   Ein Domänen Controller: Ein Server, auf dem die AD DS-Rolle aktiviert ist und der mit einer Domäne konfiguriert ist (für das Testbeispiel contoso.com).  
+-   Domänencontroller: Ein Server, auf dem die AD DS-Rolle aktiviert ist und der mit einer Domäne (wie das Testbeispiel contoso.com) konfiguriert ist.  
   
     Es ist ein Domänencontroller erforderlich, auf dem mindestens Windows Server 2012 R2 ausgeführt wird, um die Geräteregistrierung für Workplace Join zu unterstützen. Wenn Sie Workplace Join nicht verwenden möchten, können Sie Windows Server 2012 auf dem Domänencontroller ausführen.  
   
@@ -51,7 +51,7 @@ Um den Verfahrensweisen und Beispielen in diesen Themen zu folgen, benötigen Si
   
 Für die in dieser Anleitung beschriebene Testumgebung sollten Sie über die in der folgenden Abbildung dargestellten Topologie verfügen. Bei diesen Hosts kann es sich um physische oder virtuelle Computer (VMs) handeln. 
   
-![Diagramm mit Internet, DMZ und Contoso-Netzwerksegmenten. Im Internet Segment: CLIENT2 in der DMZ: a WAP-Server; im "%"-Segment: Arbeitsordner Server, ein Domänen Controller, ein AD FS Server und CLIENT1](media/deploy-work-folders-adfs/WF_ADFS_WAP_Diagram.png)
+![Diagramm mit Internet, DMZ und Contoso-Netzwerksegmenten. Im Internetsegment: Client2; in der DMZ: ein WAP-Server; im Contoso-Segment: Server "Arbeitsordner", ein Domänencontroller, ein AD FS-Server und Client1](media/deploy-work-folders-adfs/WF_ADFS_WAP_Diagram.png)
 
 ## <a name="deployment-overview"></a>Bereitstellungsübersicht  
 In dieser Themengruppe zeigen wir Ihnen ein schrittweises Beispiel zur Einrichtung von AD FS, Webanwendungsproxy und Arbeitsordnern in einer Testumgebung. Die Komponenten werden in folgender Reihenfolge eingerichtet:  
@@ -69,17 +69,17 @@ Wir verwenden ein Windows PowerShell-Skript zur Erstellung von selbstsignierten 
 ## <a name="deployment-steps"></a>Bereitstellungsschritte  
 Führen Sie die Schritte in diesen Themen aus, um die Bereitstellung mit einer Windows Server-Benutzeroberfläche auszuführen:  
   
--   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 1: Einrichten AD FS @ no__t-0  
+-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Schritt 1, einrichten AD FS](deploy-work-folders-adfs-step1.md)  
   
--   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 2, AD FS Arbeit nach der Konfiguration @ no__t-0  
+-   [Bereitstellen von Arbeits Ordnern mit AD FS und dem webanwendungsproxy: Schritt 2 AD FS arbeiten nach der Konfiguration](deploy-work-folders-adfs-step2.md)  
   
--   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 3: Einrichten von Arbeits Ordnern @ no__t-0  
+-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Schritt 3, Einrichten von Arbeits Ordnern](deploy-work-folders-adfs-step3.md)  
   
--   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 4: Einrichten des webanwendungsproxys @ no__t-0  
+-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Schritt 4](deploy-work-folders-adfs-step4.md)  
   
--   [arbeits Ordner mit AD FS und dem webanwendungsproxy bereitstellen: Schritt 5: Einrichten von Clients @ no__t-0  
+-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy: Schritt 5: Einrichten von Clients](deploy-work-folders-adfs-step5.md)  
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Übersicht über Arbeitsordner](Work-Folders-Overview.md)  
 [Entwerfen einer Arbeitsordnerimplementierung](Plan-Work-Folders.md)  
 [Bereitstellen von Arbeitsordnern](Deploy-Work-Folders.md)  

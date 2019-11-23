@@ -16,12 +16,12 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71408631"
 ---
-# <a name="appendix-h-securing-local-administrator-accounts-and-groups"></a>Anhang H: Sichern von lokalen Administrator Konten und-Gruppen
+# <a name="appendix-h-securing-local-administrator-accounts-and-groups"></a>Anhang H: Schützen lokaler Administratorkonten und -gruppen
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-## <a name="appendix-h-securing-local-administrator-accounts-and-groups"></a>Anhang H: Sichern von lokalen Administrator Konten und-Gruppen  
+## <a name="appendix-h-securing-local-administrator-accounts-and-groups"></a>Anhang H: Schützen lokaler Administratorkonten und -gruppen  
 In allen Versionen von Windows, die derzeit unterstützt werden, ist das lokale Administrator Konto standardmäßig deaktiviert, wodurch das Konto für Pass-the-Hash-Angriffe und andere Angriffe auf Anmelde Informationen unbrauchbar wird. In Umgebungen, die ältere Betriebssysteme enthalten oder für die lokale Administrator Konten aktiviert wurden, können diese Konten jedoch wie zuvor beschrieben verwendet werden, um die Kompromittierung über Mitglieds Server und Arbeitsstationen hinweg weiterzugeben. Jedes lokale Administrator Konto und jede Gruppe sollten wie in den folgenden schrittweisen Anleitungen beschrieben gesichert werden.  
 
 Ausführliche Informationen zu den Überlegungen bei der Sicherung integrierter Administrator Gruppen finden Sie unter Implementieren von [Verwaltungs Modellen mit geringsten Rechten](../../../ad-ds/plan/security-best-practices/Implementing-Least-Privilege-Administrative-Models.md).  
@@ -30,7 +30,7 @@ Ausführliche Informationen zu den Überlegungen bei der Sicherung integrierter 
 Für das lokale Administrator Konto in jeder Domäne in der Gesamtstruktur sollten Sie die folgenden Einstellungen konfigurieren:  
 
 -   Konfigurieren von Gruppenrichtlinien Objekten, um die Verwendung des Administrator Kontos der Domäne auf in die Domäne eingebundenen Systemen einzuschränken  
-    -   Fügen Sie in einer oder mehreren Gruppenrichtlinien Objekten, die Sie erstellen und mit dem Arbeitsstations-und Mitglied Server Organisationseinheiten in jeder Domäne verknüpfen, das Administrator Konto den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale richtlinien\benutzerrechte hinzu Zuweisungen**:  
+    -   Fügen Sie in jeder Domäne in mindestens einem Gruppenrichtlinien Objekt, das Sie erstellen und mit der Arbeitsstation und den Mitglieds Server Organisationseinheiten verknüpft sind, das Administrator Konto den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale**Richtlinien\Zuweisen von Benutzerrechten  
 
         -   Zugriff vom Netzwerk auf diesen Computer verweigern  
 
@@ -46,7 +46,7 @@ Für das lokale Administrator Konto in jeder Domäne in der Gesamtstruktur sollt
 
 1.  KlickenSie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
 
-2.  Erweitern Sie in der Konsolen Struktur <Forest> \ Domänen @ no__t-1 @ no__t-2, und **Gruppenrichtlinie** Sie dann Objekte (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
+2.  Erweitern Sie in der Konsolen Struktur <Forest>\domains\\<Domain>, und klicken Sie dann auf **Gruppenrichtlinie Objekte** (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
 
 3.  Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Gruppenrichtlinie Objekte**, und klicken Sie dann auf **neu**.  
 
@@ -118,7 +118,7 @@ Für das lokale Administrator Konto in jeder Domäne in der Gesamtstruktur sollt
 
 12. Verknüpfen Sie das Gruppenrichtlinien Objekt in **Gruppenrichtlinie Management**mit dem Mitglieds Server und Arbeitsstations Organisationseinheiten, indem Sie die folgenden Schritte ausführen:  
 
-    1.  Navigieren Sie zum <Forest> \ Domänen @ no__t-1 @ no__t-2 (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
+    1.  Navigieren Sie zum <Forest>\domains\\<Domain> (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
 
     2.  Klicken Sie mit der rechten Maustaste auf die Organisationseinheit, auf die das Gruppenrichtlinien Objekt angewendet wird, und klicken Sie auf **vorhandenes GPO verknüpfen**  
 
@@ -148,7 +148,7 @@ Versuchen Sie auf einem Mitglieds Server oder einer Arbeitsstation, der nicht vo
 
     ![sichere lokale Administrator Konten und-Gruppen](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_110.png)  
 
-5.  Geben Sie im **Eingabe** Aufforderungs Fenster **net use \\ @ no__t-3 @ no__t-4\c $/User: <Server Name> \ Administrator**ein, wobei "<Server Name>" der Name des Mitglieds Servers oder der Arbeitsstation ist, auf den Sie über das Netzwerk zuzugreifen versuchen.  
+5.  Geben Sie im **Eingabe** Aufforderungs Fenster **net use \\\\<Server Name>\c $/User:<Server Name>\administrator**ein, wobei <Server Name> der Name des Mitglieds Servers oder der Arbeitsstation ist, auf den Sie über das Netzwerk zuzugreifen versuchen.  
 
     > [!NOTE]  
     > Die Anmelde Informationen des lokalen Administrators müssen sich vom gleichen System befinden, auf das Sie über das Netzwerk zugreifen.  
@@ -170,7 +170,7 @@ Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die 
 
 4.  Klicken Sie auf **Datei**und dann auf **Speichern**unter.  
 
-5.  Geben Sie im Feld **Dateiname** den Namen **@no__t -2. bat** ein (wobei <Filename> der Name der neuen Batchdatei ist).  
+5.  Geben Sie im Feld **Dateiname** **<Filename>. bat** ein (wobei <Filename> der Name der neuen Batchdatei ist).  
 
 ###### <a name="schedule-a-task"></a>Planen einer Aufgabe  
 

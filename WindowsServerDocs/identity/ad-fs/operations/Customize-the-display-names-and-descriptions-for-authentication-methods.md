@@ -19,7 +19,7 @@ ms.locfileid: "71407567"
 # <a name="customize-the-display-names-and-descriptions-for-authentication-methods"></a>Anpassen von anzeigen Amen und Beschreibungen für Authentifizierungsmethoden 
 
 
-Sie können zum Anpassen der Anzeigenamen und Beschreibungen für die Authentifizierungsmethoden das PowerShell-Cmdlet `Set-AdfsAuthenticationProviderWebContent` verwenden.  Um dieses Cmdlet verwenden zu können, benötigen Sie zunächst den Namen der Authentifizierungsmethode, die Sie anpassen möchten.  Verwenden Sie hierzu `Get-AdfsGlobalAuthenticationPolicy`.  Im folgenden Beispiel sehen Sie, dass auf der Seite Sign @ no__t-0in Folgendes angezeigt wird:  „Sign in using an X.509 certificate.“  Wir möchten dies für die Benutzer vereinfachen.  
+Sie können zum Anpassen der Anzeigenamen und Beschreibungen für die Authentifizierungsmethoden das PowerShell-Cmdlet `Set-AdfsAuthenticationProviderWebContent` verwenden.  Um dieses Cmdlet verwenden zu können, benötigen Sie zunächst den Namen der Authentifizierungsmethode, die Sie anpassen möchten.  Verwenden Sie hierzu `Get-AdfsGlobalAuthenticationPolicy`.  Im folgenden Beispiel sehen Sie, dass auf der Seite Sign\-in Folgendes angezeigt wird: "Anmelden mit einem X. 509-Zertifikat".  Wir möchten dies für die Benutzer vereinfachen.  
   
 ![Display Name anpassen](media/AD-FS-user-sign-in-customization/ADFS_Customize_Update1.PNG)  
   

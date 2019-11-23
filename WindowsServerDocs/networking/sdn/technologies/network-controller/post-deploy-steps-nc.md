@@ -19,11 +19,11 @@ ms.locfileid: "71355615"
 
 Wenn Sie den Netzwerk Controller installieren, können Sie Kerberos-oder nicht-Kerberos-bereit Stellungen auswählen.
 
-Für nicht-@ no__t-0kerberos-bereit Stellungen müssen Sie Zertifikate konfigurieren.
+Für nicht\-Kerberos-bereit Stellungen müssen Sie Zertifikate konfigurieren.
 
 ## <a name="configure-certificates-for-non-kerberos-deployments"></a>Konfigurieren von Zertifikaten für nicht-Kerberos-bereit Stellungen
 
-Wenn die Computer oder virtuellen Computer \(vms @ no__t-1 für den Netzwerk Controller und den Verwaltungs Client nicht Domäne @ no__t-2verknüpft sind, müssen Sie die Zertifikat-@ no__t-3based-Authentifizierung konfigurieren, indem Sie die folgenden Schritte ausführen.
+Wenn die Computer oder virtuellen Computer \(virtuellen Computer\) für den Netzwerk Controller und der Verwaltungs Client nicht Mitglied einer Domäne\-sind, müssen Sie die Zertifikat\-basierte Authentifizierung konfigurieren, indem Sie die folgenden Schritte ausführen.
 
 - Erstellen Sie ein Zertifikat auf dem Netzwerk Controller für die Computer Authentifizierung. Der Antragsteller Name des Zertifikats muss mit dem DNS-Namen des Netzwerk Controller Computers oder der VM identisch sein.
 
@@ -31,7 +31,7 @@ Wenn die Computer oder virtuellen Computer \(vms @ no__t-1 für den Netzwerk Con
   
 - Registrieren Sie ein Zertifikat auf dem Netzwerk Controller Computer oder der VM. Das Zertifikat muss die folgenden Anforderungen erfüllen.
   
-    -  Sowohl der Zweck der Server Authentifizierung als auch der Zweck der Client Authentifizierung müssen in der erweiterten Schlüssel Verwendung \(eku @ no__t-1 oder Anwendungsrichtlinien Erweiterungen konfiguriert werden. Der Objekt Bezeichner für die Server Authentifizierung ist 1.3.6.1.5.5.7.3.1. Der Objekt Bezeichner für die Client Authentifizierung ist 1.3.6.1.5.5.7.3.2.
+    -  Sowohl der Zweck der Server Authentifizierung als auch der Zweck der Client Authentifizierung müssen in der erweiterten Schlüssel Verwendung \(EKU-\) oder Anwendungsrichtlinien Erweiterungen konfiguriert werden. Der Objekt Bezeichner für die Server Authentifizierung ist 1.3.6.1.5.5.7.3.1. Der Objekt Bezeichner für die Client Authentifizierung ist 1.3.6.1.5.5.7.3.2.
   
     - Der Antragsteller Name des Zertifikats sollte in Folgendes aufgelöst werden:
   

@@ -17,9 +17,9 @@ ms.locfileid: "71404681"
 ---
 # <a name="gre-tunneling-in-windows-server-2016"></a>GRE-Tunneling in Windows Server 2016
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Windows Server 2016 bietet Aktualisierungen der generischen Routing Kapselung \(gre @ no__t-1-Tunnel Funktion für das RAS-Gateway.  
+Windows Server 2016 bietet Aktualisierungen der allgemeinen Routing Kapselung \(GRE-\) Tunnel Funktion für das RAS-Gateway.  
   
 GRE ist ein einfaches Tunneling-Protokoll, das eine Vielzahl von Protokollen der Vermittlungsschicht in virtuellen Point-to-Point-Links über ein IP-Internetwork kapseln kann. Die Microsoft GRE-Implementierung kann IPv4 und IPv6 Kapseln.  
   
@@ -27,11 +27,11 @@ GRE-Tunnel sind in vielen Szenarien nützlich:
   
 -   Sie sind einfach und RFC 2890 kompatibel, sodass Sie mit verschiedenen Hersteller Geräten interoperabel sind.  
   
--   Sie können Border Gateway Protocol \(bgp @ no__t-1 für dynamisches Routing verwenden.  
+-   Sie können Border Gateway Protocol \(BGP-\) für dynamisches Routing verwenden.  
   
--   Sie können mehr Instanzen fähige GRE-RAS-Gateways für die Verwendung mit Software-Defined Networking konfigurieren \(sdn @ no__t-1
+-   Sie können mehr Instanzen fähige GRE-RAS-Gateways für die Verwendung mit Software-Defined Networking \(Sdn konfigurieren\)
   
--   Sie können System Center Virtual Machine Manager zum Verwalten von GRE @ no__t-0basierten RAS-Gateways verwenden.
+-   Sie können System Center Virtual Machine Manager zum Verwalten von GRE\-basierten RAS-Gateways verwenden.
   
 -   Sie können einen Durchsatz von bis zu 2,0 Gbit/s auf einem virtuellen Computer mit 6 Kernen erzielen, der als GRE-RAS-Gateway konfiguriert ist.
   
@@ -104,7 +104,7 @@ Dieses Szenario kann verwendet werden, um Drittanbieter Geräte (z. b. Hardware-
   
 ## <a name="configuration-and-deployment"></a>Konfiguration und Bereitstellung
 
-Ein GRE-Tunnel wird als zusätzliches Protokoll innerhalb einer S2S-Schnittstelle verfügbar gemacht. Die Implementierung erfolgt auf ähnliche Weise wie ein IPSec-S2S-Tunnel, der im folgenden Netzwerk Blog beschrieben wird: [Mehr Instanzen fähige Standort-zu-Standort-VPN Gateway (S2S) mit Windows Server 2012 R2](https://blogs.technet.com/b/networking/archive/2013/09/29/multi-tenant-site-to-site-s2s-vpn-gateway-with-windows-server-2012-r2.aspx)  
+Ein GRE-Tunnel wird als zusätzliches Protokoll innerhalb einer S2S-Schnittstelle verfügbar gemacht. Die Implementierung erfolgt auf ähnliche Weise wie ein IPSec-S2S-Tunnel, der im folgenden Netzwerk Blog beschrieben wird: mehr Instanzen fähige [Site-to-Site (S2S)-VPN Gateway mit Windows Server 2012 R2](https://blogs.technet.com/b/networking/archive/2013/09/29/multi-tenant-site-to-site-s2s-vpn-gateway-with-windows-server-2012-r2.aspx)  
   
 Im folgenden Thema finden Sie ein Beispiel für die Bereitstellung von Gateways, einschließlich GRE-Tunnel Gateways:  
   
@@ -118,7 +118,7 @@ Weitere Informationen zum Bereitstellen von S2S-Gateways finden Sie in den folge
   
 -   [Border Gateway Protocol &#40;BGP&#41;](../bgp/Border-Gateway-Protocol-BGP.md)  
   
--   [new! Bereitstellungs Handbuch für das mehr Instanzen fähige Windows Server 2012 R2 RAS-Gateway @ no__t-0  
+-   [Neu! Bereitstellungs Handbuch für das mehr Instanzen fähige Windows Server 2012 R2 RAS-Gateway](https://blogs.technet.com/b/wsnetdoc/archive/2014/03/26/new-windows-server-2012-r2-RAS-multitenant-gateway-deployment-guide.aspx)  
   
 -   [Bereitstellen von Border Gateway Protocol (BGP) mit dem mehr Instanzen fähigen RAS-Gateway](https://blogs.technet.com/b/wsnetdoc/archive/2014/04/03/deploy-border-gateway-protocol-bgp-with-the-RAS-multitenant-gateway.aspx)  
   

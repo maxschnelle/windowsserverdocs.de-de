@@ -54,12 +54,12 @@ Das folgende Architektur Diagramm zeigt das Setup, das zum Überprüfen und Aufz
 1.  Installieren Sie mithilfe Server-Manager die Active Directory-Verbunddienste (AD FS) Rolle auf Windows Server 2016.  
 
 2.  Fügen Sie mit dem Konfigurations-Assistenten für AD FS den neuen Windows Server 2016-Server der vorhandenen AD FS Farm hinzu.  Klicken Sie auf der **Willkommens** Seite auf **weiter**.
- ![join-Farm @ no__t-1  
+ ![beitreten zu einer Farm](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure1.png)  
 3.  Auf dem Bildschirm **mit Active Directory Domain Services verbinden** wird**ein Administrator Konto** mit Berechtigungen zum Durchführen der Verbund Dienst Konfiguration angezeigt, und klicken Sie auf **weiter**.
 4.  Geben Sie auf dem Bildschirm **Farm angeben** den Namen des SQL-Servers und der Instanz ein, und klicken Sie dann auf **weiter**.
-![join-Farm @ no__t-1
+![beitreten zu einer Farm](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure3.png)
 5.  Geben Sie auf dem Bildschirm **SSL-Zertifikat angeben** das Zertifikat an, und klicken Sie auf **weiter**.
-![join-Farm @ no__t-1
+![beitreten zu einer Farm](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure4.png)
 6.  Geben Sie auf dem Bildschirm **Dienst Konto angeben** das Dienst Konto an, und klicken Sie auf **weiter**.
 7.  Überprüfen Sie auf dem Bildschirm **Überprüfungs Optionen** die Optionen, und klicken Sie auf **weiter**.
 8.  Vergewissern Sie sich, dass auf dem Bildschirm **Voraussetzungs Prüfungen** alle erforderlichen Überprüfungen erfolgreich waren, und klicken Sie dann auf **Konfigurieren**.
@@ -72,11 +72,11 @@ Das folgende Architektur Diagramm zeigt das Setup, das zum Überprüfen und Aufz
 >Sie müssen den primären AD FS Server nicht mithilfe von "Set-adfssyncproperties-Role" festlegen, wenn Sie SQL als Datenbank verwenden.  Dies liegt daran, dass alle Knoten in dieser Konfiguration als primär eingestuft werden.
 
 1.  Verwenden Sie auf dem Windows Server 2012 R2-AD FS Server in Server-Manager die Option **Rollen und Features** unter **Verwalten**.
-![remove Server @ no__t-1
+![Server entfernen](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/remove1.png)
 2.  Klicken Sie auf dem Bildschirm **Vorbemerkungen** auf **Weiter**.
 3.  Klicken Sie auf dem Bildschirm **Server Auswahl** auf **weiter**.
 4.  Entfernen Sie auf dem Bildschirm **Server Rollen** die Option neben **Active Directory-Verbunddienste (AD FS)** , und klicken Sie auf **weiter**.
-![remove Server @ no__t-1
+![Server entfernen](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/remove2.png)
 5.  Klicken Sie auf dem Bildschirm **Features** auf **weiter**.
 6.  Klicken Sie auf dem **Bestätigungs** Bildschirm auf **Entfernen**.
 7.  Nachdem dieser Vorgang abgeschlossen ist, starten Sie den Server neu.
@@ -89,11 +89,11 @@ Vor diesem Schritt müssen Sie sicherstellen, dass ForestPrep und DomainPrep in 
 
 1. Öffnen Sie nun auf dem Windows Server 2016-Server PowerShell, und führen Sie den folgenden Befehl aus: **$cred = Get-Credential** und drücken Sie die EINGABETASTE.
 2. Geben Sie Anmelde Informationen ein, die auf dem SQL Server über Administratorrechte verfügen.
-3. Geben Sie nun in PowerShell Folgendes ein: **Aufruf-adfsfarmverhalorlevelraise-Credential $cred**
+3. Geben Sie nun in PowerShell Folgendes ein: **aufrufen-adfsfarmverhalorlevelraise-Credential $cred**
 2. Geben Sie bei entsprechender Aufforderung **Y**ein.  Dadurch wird die Ebene erhöht.  Nachdem dieser Vorgang abgeschlossen ist, haben Sie die voll qualifizierte vollständig ausgelöst.  
-![finish Update @ no__t-1
+![Update beenden](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/finish1.png)
 3. Wenn Sie nun AD FS Verwaltung wechseln, werden die neuen Knoten angezeigt, die für AD FS in Windows Server 2016 hinzugefügt wurden.  
-4. Ebenso können Sie das PowerShell-Cmdlet verwenden:  Get-adfsfarminformation, um den aktuellen FBL anzuzeigen.  
+4. Ebenso können Sie das PowerShell-Cmdlet "Get-adfsfarminformation" verwenden, um den aktuellen FBL anzuzeigen.  
 ![Update abschließen](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/finish2.png)
 
 #### <a name="upgrade-the-configuration-version-of-existing-wap-servers"></a>Aktualisieren der Konfigurations Version vorhandener WAP-Server

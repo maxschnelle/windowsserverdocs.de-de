@@ -18,7 +18,7 @@ ms.locfileid: "71408023"
 ---
 # <a name="planning-federation-server-placement"></a>Planen der Verbundserverplatzierung
 
-Die wichtigste Komponente einer Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1-Bereitstellung ist der Verbund Server. Daher ist es wichtig, dass Sie Ihre Verbund Server-Platzierungs Strategie sorgfältig planen, einschließlich des Zeit-und Bereitstellungs Orts der Verbund Server. Die Informationen in den folgenden Themen helfen Ihnen dabei, zu bestimmen, wann und wo ein Verbund Server oder eine Verbund Serverfarm erstellt werden soll und ob dieser Verbund Server in der Konto Partner Rolle, der Ressourcen Partner Rolle oder beiden verwendet werden soll:  
+Die wichtigste Komponente einer Active Directory-Verbunddienste (AD FS) \(AD FS\) Bereitstellung ist der Verbund Server. Daher ist es wichtig, dass Sie Ihre Verbund Server-Platzierungs Strategie sorgfältig planen, einschließlich des Zeit-und Bereitstellungs Orts der Verbund Server. Die Informationen in den folgenden Themen helfen Ihnen dabei, zu bestimmen, wann und wo ein Verbund Server oder eine Verbund Serverfarm erstellt werden soll und ob dieser Verbund Server in der Konto Partner Rolle, der Ressourcen Partner Rolle oder beiden verwendet werden soll:  
   
 -   [Überprüfen der Rolle des Verbundservers beim Kontopartner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md)  
   
@@ -39,6 +39,6 @@ Die wichtigste Komponente einer Active Directory-Verbunddienste (AD FS) \(ad FS 
   
 Beispiele für die Platzierung eines Verbund Servers in einem der beiden primären AD FS Entwurfs Szenarien finden [Zuordnen der Bereitstellungsziele zu einem AD FS-Entwurf](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md).  
   
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
 

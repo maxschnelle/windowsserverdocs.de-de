@@ -20,7 +20,7 @@ ms.locfileid: "71404233"
 
 >Gilt für: Windows Server 2016
 
-**dieser Inhalt ist für die lokale Version des webanwendungsproxys relevant. Informationen zum Aktivieren des sicheren Zugriffs auf lokale Anwendungen über die Cloud finden Sie in den [Azure AD Anwendungs Proxy-Inhalt](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
+**Diese Inhalte sind für die lokale Version des webanwendungsproxys relevant. Informationen zum Aktivieren des sicheren Zugriffs auf lokale Anwendungen über die Cloud finden Sie in den [Azure AD Anwendungs Proxy-Inhalt](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
 
 In diesem Thema werden die erforderlichen Aufgaben zum Veröffentlichen von SharePoint Server, Exchange Server oder Remotedesktop Gateway (RDP) über den webanwendungsproxy beschrieben.  
 
@@ -44,9 +44,9 @@ Wenn die SharePoint-Website mithilfe alternativer Zugriffszuordnungen (AAM) oder
 In der folgenden Tabelle werden die Exchange-Dienste beschrieben, die Sie über den webanwendungsproxy veröffentlichen können, sowie die unterstützte Vorauthentifizierung für diese Dienste:  
 
 
-|    Exchange-Dienst    |                                                                            Vorauthentifizierung                                                                            |                                                                                                                                       Hinweise                                                                                                                                        |
+|    Exchange-Dienst    |                                                                            Vorauthentifizierung                                                                            |                                                                                                                                       Anmerkungen                                                                                                                                        |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    Outlook Web App     | -AD FS mit nicht Anspruchs basierter Authentifizierung<br />-Pass-Through<br />-AD FS verwenden der Anspruchs basierten Authentifizierung für lokales Exchange 2013 Service Pak 1 (SP1) |                                                                  Weitere Informationen finden Sie unter: [Verwenden AD FS Anspruchs basierten Authentifizierung mit Outlook Web App und EAC](https://go.microsoft.com/fwlink/?LinkId=393723)                                                                  |
+|    Outlook Web App     | -AD FS mit nicht Anspruchs basierter Authentifizierung<br />-Pass-Through<br />-AD FS verwenden der Anspruchs basierten Authentifizierung für lokales Exchange 2013 Service Pak 1 (SP1) |                                                                  Weitere Informationen finden Sie unter: [Verwenden anspruchsbasierter Authentifizierung von AD FS mit Outlook Web App und EAC](https://go.microsoft.com/fwlink/?LinkId=393723)                                                                  |
 | Exchange-Systemsteuerung |                                                                               Pass-Through                                                                               |                                                                                                                                                                                                                                                                                    |
 |    Outlook Anywhere    |                                                                               Pass-Through                                                                               | Zur ordnungsgemäßen Funktion müssen drei URLs für Outlook Anywhere veröffentlicht werden:<br /><br />: Die automatische Erkennung-URL.<br />-Der externe Hostname des Exchange-Servers. Das heißt, die URL, die für Clients zum Herstellen einer Verbindung konfiguriert ist.<br />: Der interne voll qualifizierte Namen des Exchange-Servers. |
 |  Exchange ActiveSync   |                                                     Pass-Through<br/> AD FS mithilfe des HTTP-Standard Autorisierungs Protokolls                                                      |                                                                                                                                                                                                                                                                                    |
@@ -66,11 +66,11 @@ Wenn Sie den Zugriff auf das Remote Zugriffs Gateway einschränken und die Vorau
 
 1. Die Installation unterscheidet sich abhängig davon, ob sich die Rollen für RD-Webzugriff (/RDWeb) und RD-Gateway (RPC) auf demselben Server oder auf unterschiedlichen Servern befinden.  
 
-2. Wenn die RD-Webzugriff und RD-Gateway Rollen auf demselben RDG-Server gehostet werden, können Sie einfach den Stamm-FQDN im webanwendungsproxy wie https://rdg.contoso.com/ veröffentlichen.  
+2. Wenn die RD-Webzugriff und RD-Gateway Rollen auf demselben RDG-Server gehostet werden, können Sie einfach den Stamm-FQDN im webanwendungsproxy wie https://rdg.contoso.com/veröffentlichen.  
 
-   Sie können die beiden virtuellen Verzeichnisse auch einzeln veröffentlichen, z. b. <https://rdg.contoso.com/rdweb/> und https://rdg.contoso.com/rpc/.  
+   Sie können die beiden virtuellen Verzeichnisse auch einzeln veröffentlichen, z. b.<https://rdg.contoso.com/rdweb/> und https://rdg.contoso.com/rpc/.  
 
-3. Wenn die RD-Webzugriff und die RD-Gateway auf separaten RDG-Servern gehostet werden, müssen Sie die beiden virtuellen Verzeichnisse einzeln veröffentlichen. Sie können den gleichen oder einen anderen externen voll qualifizierten Namen wie z. b. https://rdweb.contoso.com/rdweb/ und https://gateway.contoso.com/rpc/ verwenden.  
+3. Wenn die RD-Webzugriff und die RD-Gateway auf separaten RDG-Servern gehostet werden, müssen Sie die beiden virtuellen Verzeichnisse einzeln veröffentlichen. Sie können dieselben oder andere externe voll qualifizierte Namen (z. b. https://rdweb.contoso.com/rdweb/ und https://gateway.contoso.com/rpc/) verwenden.  
 
 4. Wenn sich der externe und interne voll qualifizierte Dateityp unterscheiden, sollten Sie die Übersetzung der Anforderungs Kopfzeile für die RDWeb-Veröffentlichungs Regel nicht deaktivieren. Dies kann durch Ausführen des folgenden PowerShell-Skripts auf dem webanwendungsproxy-Server erreicht werden, sollte jedoch standardmäßig aktiviert werden.
 
@@ -102,11 +102,11 @@ Wenn Sie den Zugriff auf das Remote Zugriffs Gateway einschränken und die Vorau
 
     3.  Akzeptieren Sie alle Standardeinstellungen.  
 
-    4.  Geben Sie für die Vertrauensstellung der vertrauenden Seite den externen voll qualifizierten Namen ein, den Sie für den RDG-Zugriff verwenden möchten, z. b. https://rdg.contoso.com/.  
+    4.  Geben Sie für den Bezeichner der vertrauenden Seite den externen voll qualifizierten Namen ein, den Sie für den RDG-Zugriff verwenden möchten, z. b. https://rdg.contoso.com/.  
 
         Dies ist die Vertrauensstellung der vertrauenden Seite, die Sie beim Veröffentlichen der APP im webanwendungsproxy verwenden.  
 
-4.  Veröffentlichen Sie den Stamm der Site (z. b. https://rdg.contoso.com/ ) im webanwendungsproxy. Legen Sie die Vorauthentifizierung auf AD FS fest, und verwenden Sie die zuvor erstellte Vertrauensstellung der vertrauenden Seite. Dies ermöglicht/RDWeb und/RPC, das gleiche webanwendungsproxy-Authentifizierungs Cookie zu verwenden.  
+4.  Veröffentlichen Sie den Stamm der Site (z. b. https://rdg.contoso.com/) im webanwendungsproxy. Legen Sie die Vorauthentifizierung auf AD FS fest, und verwenden Sie die zuvor erstellte Vertrauensstellung der vertrauenden Seite. Dies ermöglicht/RDWeb und/RPC, das gleiche webanwendungsproxy-Authentifizierungs Cookie zu verwenden.  
 
     Es ist möglich,/RDWeb und/RPC als separate Anwendungen zu veröffentlichen und sogar andere veröffentlichte Server zu verwenden. Sie müssen lediglich sicherstellen, dass Sie beide mit derselben Vertrauensstellung der vertrauenden Seite veröffentlichen, da das webanwendungsproxy-Token für die Vertrauensstellung der vertrauenden Seite ausgegeben wird  
 
@@ -118,7 +118,7 @@ Wenn Sie den Zugriff auf das Remote Zugriffs Gateway einschränken und die Vorau
 
 6.  Deaktivieren Sie die HttpOnly-Cookie-Eigenschaft im webanwendungsproxy für die veröffentlichte RDG-Anwendung. Um dem RDG-ActiveX-Steuerelement Zugriff auf das webanwendungsproxy-Authentifizierungs Cookie zu ermöglichen, müssen Sie die HttpOnly-Eigenschaft im webanwendungsproxy-Cookie deaktivieren.  
 
-    Hierfür ist Folgendes erforderlich, um den [webanwendungsproxy-Hotfix](https://support.microsoft.com/en-gb/kb/3000850) oder den [https://support.microsoft.com/en-gb/kb/3000850](https://support.microsoft.com/en-gb/kb/3000850)zu installieren.  
+    Hierfür ist Folgendes erforderlich, um den [webanwendungsproxy-Hotfix](https://support.microsoft.com/en-gb/kb/3000850) oder den [https://support.microsoft.com/en-gb/kb/3000850](https://support.microsoft.com/en-gb/kb/3000850)installieren zu können.  
 
     Führen Sie nach der Installation des Hotfixes das folgende PowerShell-Skript auf dem webanwendungsproxy-Server aus  
 
@@ -146,7 +146,7 @@ Wenn Sie den Zugriff auf das Remote Zugriffs Gateway einschränken und die Vorau
 
         1.  Melden Sie sich auf dem Terminal Server mit einem Konto an, das über Administrator Rechte verfügt.  
 
-        2.  Wechseln Sie zu **Start** >**Verwaltungs Tools** > **Terminaldienste@no__t**-5**TS RemoteApp-Manager.**  
+        2.  Wechseln Sie zu **Start** >**Verwaltungs Tools** > **Terminal Dienste** > **TS RemoteApp-Manager.**  
 
         3.  Klicken Sie im Bereich **Übersicht** von TS RemoteApp-Manager neben RDP-Einstellungen auf **ändern**.  
 

@@ -17,7 +17,7 @@ ms.locfileid: "71356041"
 ---
 # <a name="use-dns-policy-for-application-load-balancing"></a>Verwenden der DNS-Richtlinie für den Anwendungslastenausgleich
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie eine DNS-Richtlinie für den Anwendungs Lastenausgleich konfigurieren.
 
@@ -33,7 +33,7 @@ In diesem Beispiel wird ein fiktives Unternehmen mit der Bezeichnung "contosogif
 
 Die contosogiftservices.com-Website wird in mehreren Rechenzentren gehostet, die jeweils über unterschiedliche IP-Adressen verfügen.
 
-In Nordamerika, der der primäre Markt für die Dienstleistungen von "Configuration Manager" ist, wird die Website in drei Rechenzentren gehostet: Chicago, IL, Dallas, TX und Seattle, WA.
+In Nordamerika, der als primärer Markt für die Dienstleistungen von "Configuration Manager" dient, wird die Website in drei Rechenzentren gehostet: Chicago, IL, Dallas, TX und Seattle, WA.
 
 Der Seattle-Webserver verfügt über die beste Hardwarekonfiguration und kann doppelt so viel Last wie die anderen beiden Standorte verarbeiten. Der Anwendungs Datenverkehr wird von den Dienstleistungen von "Configuration Manager" wie folgt gesteuert.
 
@@ -54,7 +54,7 @@ Für alle vier Abfragen, die der DNS-Server empfängt, antwortet der DNS-Server 
 
 Ein mögliches Problem beim Lastenausgleich mit der DNS-Richtlinie ist die Zwischenspeicherung von DNS-Einträgen durch den DNS-Client und die Konflikt Löser/ldns, die den Lastenausgleich beeinträchtigen können, da der Client oder der Konflikt Löser keine Abfrage an den DNS-Server sendet.
 
-Sie können die Auswirkung dieses Verhaltens verringern, indem Sie für die DNS-Einträge, für die ein Lastenausgleich ausgeführt werden soll, einen Wert für den Wert "niedrige Zeit @ no__t-0to @ no__t-1Live \(ttl @ no__t-3" verwenden.
+Sie können die Auswirkung dieses Verhaltens verringern, indem Sie eine niedrige Zeit\-verwenden, um \(TTL-\) Wert für die DNS-Einträge zu\-, für die ein Lastenausgleich durchführen soll.
 
 ### <a name="how-to-configure-application-load-balancing"></a>Konfigurieren des Anwendungs Lastenausgleichs
 
@@ -85,9 +85,9 @@ Nun müssen Sie die Datensätze, die den Webserver Host darstellen, zu den Zonen
 
 Sie können in " **czonescope**" den Datensatz www.contosogiftservices.com mit der IP-Adresse 192.0.0.1 hinzufügen, die sich im Daten Center Seattle befindet.
 
-In " **chicagozonescope**" können Sie denselben Datensatz hinzufügen @no__t -1www. Conto sogiftservices. com @ no__t-2 with IP Address 182.0.0.1 im Chicago Datacenter.
+In " **chicagozonescope**" können Sie denselben Datensatz \(www.contosogiftservices.com\) mit IP-Adresse 182.0.0.1 im Chicago-Daten Center hinzufügen.
 
-Auf ähnliche Weise können Sie in **dallaszonescope**einen Datensatz @no__t -1www. Conto sogiftservices. com @ no__t-2 mit IP-Adresse 162.0.0.1 im Chicago-Daten Center hinzufügen.
+Ebenso können Sie in **dallaszonescope**einen Datensatz \(www.contosogiftservices.com-\) mit IP-Adresse 162.0.0.1 im Chicago-Daten Center hinzufügen.
 
 Sie können die folgenden Windows PowerShell-Befehle verwenden, um Datensätze zu den Zonen Bereichen hinzuzufügen.
     
@@ -107,7 +107,7 @@ Nachdem Sie die Partitionen (Zonen Bereiche) erstellt und Datensätze hinzugefü
 Mithilfe der folgenden Windows PowerShell-Befehle können Sie eine DNS-Richtlinie erstellen, die den Anwendungs Datenverkehr in diesen drei Rechenzentren ausgleicht.
 
 >[!NOTE]
->Im Beispiel Befehl unten ist der Ausdruck "– zonescope", 2; Chicagozonescope, 1; Dallaszonescope, 1 "konfiguriert den DNS-Server mit einem Array, das die Parameter Kombination \<zonescope @ no__t-1, \<weight @ no__t-3 enthält.
+>Im Beispiel Befehl unten ist der Ausdruck "– zonescope", 2; Chicagozonescope, 1; Dallaszonescope, 1 "konfiguriert den DNS-Server mit einem Array, das die Parameter Kombination \<zonescope\>,\<Gewichtungs\>enthält.
     
     Add-DnsServerQueryResolutionPolicy -Name "AmericaPolicy" -Action ALLOW -ZoneScope "SeattleZoneScope,2;ChicagoZoneScope,1;DallasZoneScope,1" -ZoneName "contosogiftservices.com"
     

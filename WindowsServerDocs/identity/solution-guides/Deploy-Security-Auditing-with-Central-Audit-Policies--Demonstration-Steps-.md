@@ -18,7 +18,7 @@ ms.locfileid: "71407112"
 ---
 # <a name="deploy-security-auditing-with-central-audit-policies-demonstration-steps"></a>Bereitstellen der Sicherheitsüberwachung mit zentralen Überwachungsrichtlinien (Demonstrationsschritte)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Szenario überwachen Sie den Zugriff auf Dateien im Ordner "Finance Documents" mithilfe der Finance-Richtlinie, die Sie unter Bereitstellen [einer &#40;zentralen Zugriffs&#41;Richtlinie](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md)erstellt haben. Wenn ein Benutzer, der nicht auf den Ordner zugreifen darf, dennoch versucht, darauf zuzugreifen, wird die Aktivität in der Ereignisanzeige aufgezeichnet.   
  Zum Testen dieses Szenarios sind die folgenden Schritte erforderlich.  
@@ -70,7 +70,7 @@ In diesem Schritt aktualisieren Sie die Gruppenrichtlinieneinstellungen, nachdem
   
 #### <a name="to-update-group-policy-settings"></a>So aktualisieren Sie die Gruppenrichtlinieneinstellungen  
   
-1. Melden Sie sich am Dateiserver file1 als condeso\administrator mit dem Kennwort <strong>pass@word1</strong>an.  
+1. Melden Sie sich am Dateiserver file1 als condeso\administrator mit dem Kennwort an <strong>pass@word1</strong>.  
   
 2. Drücken Sie die Windows-Taste+R, und geben Sie **cmd** ein, um ein Befehlseingabefenster zu öffnen.  
   
@@ -84,7 +84,7 @@ Nachdem die Gruppenrichtlinieneinstellungen angewendet wurden, können Sie über
   
 #### <a name="to-verify-that-the-global-object-access-policy-has-been-applied"></a>So stellen Sie sicher, dass die globale Objektzugriffsrichtlinie angewendet wurde  
   
-1.  Melden Sie sich am Clientcomputer CLIENT1 als %%amp;quot;Contoso\MReid%%amp;quot; an. Navigieren Sie zum Ordner Hyperlink "file:///\\ @ no__t-1 @ no__t-2\ID_AD_FILE1 @ no__t-3\Finance" \\ \ FILE1\Finance Dokumente, und ändern Sie Word Document 2.  
+1.  Melden Sie sich am Clientcomputer CLIENT1 als %%amp;quot;Contoso\MReid%%amp;quot; an. Navigieren Sie zum Ordner Hyperlink "file:///\\\\\\\ ID_AD_FILE1\\\Finance" \\\ FILE1\Finance Dokumente, und ändern Sie Word Document 2.  
   
 2.  Melden Sie sich am Dateiserver FILE1 als %%amp;quot;contoso\administrator%%amp;quot; an. Öffnen Sie die Ereignisanzeige, wechseln Sie zu **Windows-Protokolle**, wählen Sie **Sicherheit** aus, und vergewissern Sie sich, dass Ihre Aktivitäten zu den Überwachungsereignissen **4656** und **4663** geführt haben (obwohl sie keine expliziten Überwachungs-SACLs für die erstellten, geänderten und gelöschten Dateien oder Ordner festgelegt haben).  
   
@@ -93,10 +93,10 @@ Nachdem die Gruppenrichtlinieneinstellungen angewendet wurden, können Sie über
   
 ## <a name="BKMK_Links"></a>Siehe auch  
   
--   [Szenario: Dateizugriffsüberwachung](Scenario--File-Access-Auditing.md)  
+-   [Szenario: Datei Zugriffs Überwachung](Scenario--File-Access-Auditing.md)  
   
 -   [Planen der Dateizugriffsüberwachung](Plan-for-File-Access-Auditing.md)  
   
--   [Dynamische Zugriffsteuerung: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Dynamisches Access Control: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
   
 

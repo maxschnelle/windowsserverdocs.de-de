@@ -18,7 +18,7 @@ ms.locfileid: "71355476"
 ---
 # <a name="physical-switch-configuration-for-converged-nic"></a>Konfiguration des physischen Switches für konvergierte NIC
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erhalten Sie Richtlinien für die Konfiguration physischer Switches. 
 
@@ -28,13 +28,13 @@ Dabei handelt es sich nur um Befehle und deren Verwendung. Sie müssen die Ports
 >[!IMPORTANT]
 >Stellen Sie sicher, dass die VLAN-und die No-Drop-Richtlinie für die Priorität festgelegt ist, über die SMB konfiguriert ist
 
-## <a name="arista-switch-dcs-7050s-64-eos-4137m"></a>Arista Switch \(dcs @ no__t-17050s @ no__t-264, EOS @ no__t-34.13.7 m @ no__t-4
+## <a name="arista-switch-dcs-7050s-64-eos-4137m"></a>Arista Switch \(DCS\-7050s\-64, EOS\-4.13.7 m\)
 
-1.  en \(gehe zu Admin-Modus, fordert normalerweise ein Kennwort an (@ no__t-1).
-2.  config \(to Enter into Configuration Mode @ no__t-1
-3.  Ausführung anzeigen \(zeigt die aktuell aktive Konfiguration @ no__t-1
+1.  en \(zum Admin-Modus wechseln, in der Regel nach einem Kennwort gefragt werden\)
+2.  config \(in den Konfigurations Modus wechselt\)
+3.  Ausführung anzeigen \(zeigt die aktuell laufende Konfiguration an\)
 4.  Suchen Sie die Switchports, mit denen die NICs verbunden sind. In diesem Beispiel lauten Sie 14/1, 15/1, 16/1, 17/1.
-5.  int ETH 14/1, 15/1, 16/1, 17/1 \(enter into config Mode für diese Ports @ no__t-1
+5.  die int-ETH 14/1, 15/1, 16/1, 17/1 \(in den Konfigurations Modus für diese Ports eingegeben werden\)
 6.  dcbx-Modus IEEE
 7.  Prioritäts Fluss-Steuerungs Modus für
 8.  Switchport-trunk natives VLAN 225
@@ -42,19 +42,19 @@ Dabei handelt es sich nur um Befehle und deren Verwendung. Sie müssen die Ports
 10. switchportmodus-trunk
 11. Prioritäts Fluss-Steuerungs Priorität 3 nicht ablegen
 12. QoS Trust COS
-13. Run Show \(vergewissern Sie sich, dass die Konfiguration auf den Ports @ no__t-1 ordnungsgemäß eingerichtet ist.
-14. WR \(, damit die Einstellungen über den switchneustart @ no__t-1 beibehalten werden.
+13. ausführen anzeigen \(Vergewissern Sie sich, dass die Konfiguration auf den Ports ordnungsgemäß eingerichtet ist\)
+14. WR \(, um die Einstellungen für den Switch-Neustart fortzusetzen\)
 
 ### <a name="tips"></a>Chti
 1.  Nein #Command # negiert einen Befehl.
-2.  Vorgehensweise beim Hinzufügen eines neuen VLANs: int VLAN 100 \(if Storage Network on VLAN 100 @ no__t-1
+2.  Vorgehensweise beim Hinzufügen eines neuen VLANs: int VLAN 100 \(, wenn sich das Speicher Netzwerk auf VLAN 100\)
 3.  Überprüfen vorhandener VLANs: VLAN anzeigen
-4.  Weitere Informationen zum Konfigurieren des Arista-Schalters finden Sie online nach: Arista EOS manuell
+4.  Weitere Informationen zum Konfigurieren des Arista-Switchs finden Sie online nach: Arista EOS Manual
 5.  Verwenden Sie diesen Befehl, um die PFC-Einstellungen zu überprüfen: Details der Prioritäts Fluss-Steuerungs Zähler anzeigen
 
 --- 
 
-## <a name="dell-switch-s4810-ftos-99-00"></a>Dell Switch \(s4810, f-9,9 \(0.0 @ no__t-2 @ no__t-3
+## <a name="dell-switch-s4810-ftos-99-00"></a>Dell Switch \(S4810, f\)9,9 \(0,0 \)
 
     
     !
@@ -74,7 +74,7 @@ Dabei handelt es sich nur um Befehle und deren Verwendung. Sie müssen die Ports
     
 --- 
 
-## <a name="cisco-switch-nexus-3132-version-602u61"></a>Cisco Switch \(nexus 3132, Version 6.0 @ no__t-12 @ no__t-2u6 @ no__t-31 @ no__t-4 @ no__t-5
+## <a name="cisco-switch-nexus-3132-version-602u61"></a>Cisco Switch \(Nexus 3132, Version 6,0\(2\)U6\(1\)\)
 
 ### <a name="global"></a>Global
     

@@ -18,7 +18,7 @@ ms.locfileid: "71402416"
 ---
 # <a name="quick-start-for-guarded-fabric-deployment"></a>Schnellstart für die geschützte Fabric-Bereitstellung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema wird erläutert, was ein geschütztes Fabric ist, seine Anforderungen und eine Zusammenfassung des Bereitstellungs Prozesses. Ausführliche Informationen zur Bereitstellung finden Sie unter Bereitstellen [des Host-Überwachungs Diensts für überwachte Hosts und abgeschirmte VMS](https://technet.microsoft.com/windows-server-docs/security/guarded-fabric-shielded-vm/guarded-fabric-deploying-hgs-overview).
 
@@ -69,7 +69,7 @@ Stellen Sie sich dieses Szenario vor – Sie haben ein vorhandenes Hyper-V-Fabri
 
 ![Vorhandenes Hyper-V-Fabric](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-existing-hyper-v.png)
 
-## <a name="step-1-deploy-the-hyper-v-hosts-running-windows-server-2016"></a>Schritt 1: Bereitstellen von Hyper-V-Hosts unter Windows Server 2016 
+## <a name="step-1-deploy-the-hyper-v-hosts-running-windows-server-2016"></a>Schritt 1: Bereitstellen der Hyper-V-Hosts unter Windows Server 2016 
 
 Auf den Hyper-V-Hosts muss Windows Server 2016 Datacenter Edition oder höher ausgeführt werden. Wenn Sie Hosts aktualisieren, können Sie ein [Upgrade](https://technet.microsoft.com/windowsserver/dn527667.aspx) von der Standard Edition auf Datacenter Edition durchführen.
 
@@ -79,9 +79,9 @@ Auf den Hyper-V-Hosts muss Windows Server 2016 Datacenter Edition oder höher au
 
 Installieren Sie dann die HGS-Server Rolle, und stellen Sie Sie als Cluster mit drei Knoten bereit, wie z. b. das relecloud.com-Beispiel in der folgenden Abbildung. Hierfür sind drei PowerShell-Cmdlets erforderlich:
 
-- Verwenden Sie zum Hinzufügen der HGS-Rolle`Install-WindowsFeature` 
-- Verwenden Sie zum Installieren der HGS`Install-HgsServer` 
-- Um die HGS mit dem gewählten Nachweis Modus zu initialisieren, verwenden Sie`Initialize-HgsServer` 
+- Verwenden Sie zum Hinzufügen der HGS-Rolle `Install-WindowsFeature` 
+- Verwenden Sie zum Installieren der HGS `Install-HgsServer` 
+- Um die HGS mit dem gewählten Nachweis Modus zu initialisieren, verwenden Sie `Initialize-HgsServer` 
 
 Wenn Ihre vorhandenen Hyper-V-Server die Voraussetzungen für den TPM-Modus nicht erfüllen (z. b. Wenn Sie nicht über TPM 2,0 verfügen), können Sie HGS mit dem Administrator basierten Nachweis (AD-Modus) initialisieren, für den eine Active Directory Vertrauensstellung mit der Fabric-Domäne erforderlich ist. 
 
@@ -105,9 +105,9 @@ Anders ausgedrückt: die strengen Validierungs Schritte, die für den TPM-Modus 
 
 Für den TPM-Modus sind drei Schritte erforderlich: 
 
-1.  Einen _öffentlichen Endorsement Key_ (oder _ekpub_) von TPM 2,0 auf jedem und jedem Hyper-V-Host. Verwenden `Get-PlatformIdentifier`Sie zum Erfassen von ekpub. 
-2.  Eine _hardwarebaseline_. Wenn jeder ihrer Hyper-V-Hosts identisch ist, benötigen Sie nur eine einzige Baseline. Wenn dies nicht der Fall ist, benötigen Sie für jede Hardware Klasse einen. Die Baseline hat die Form einer Trusted Computing Group Logfile oder tcglog. Tcglog enthält alle Elemente, die der Host von der UEFI-Firmware über den Kernel verwendet hat, und zwar direkt bis zu dem Ort, an dem der Host vollständig gestartet wurde. Zum Erfassen der hardwarebaseline installieren Sie die Hyper-v-Rolle und die Hyper-v-Unterstützung `Get-HgsAttestationBaselinePolicy`des Host-Überwachungs Diensts und verwenden. 
-3.  Eine _Code Integritätsrichtlinie_. Wenn jeder ihrer Hyper-V-Hosts identisch ist, benötigen Sie nur eine einzige CI-Richtlinie. Wenn dies nicht der Fall ist, benötigen Sie für jede Hardware Klasse einen. Windows Server 2016 und Windows 10 verfügen jeweils über eine neue Form der Erzwingung für CI-Richtlinien, die als _Hypervisor-erzwungene Code Integrität (hvci)_ bezeichnet wird. Hvci bietet eine starke Erzwingung und stellt sicher, dass ein Host nur Binärdateien ausführen darf, die von einem vertrauenswürdigen Administrator ausgeführt werden dürfen. Diese Anweisungen sind in einer CI-Richtlinie umschließt, die zu HGS hinzugefügt wird. HGS misst die CI-Richtlinie jedes Hosts, bevor Sie geschützte VMS ausführen dürfen. Verwenden `New-CIPolicy`Sie zum Erfassen einer CI-Richtlinie. Die Richtlinie muss dann mithilfe `ConvertFrom-CIPolicy`von in das binäre Formular konvertiert werden.
+1.  Einen _öffentlichen Endorsement Key_ (oder _ekpub_) von TPM 2,0 auf jedem und jedem Hyper-V-Host. Verwenden Sie zum Erfassen der ekpub-`Get-PlatformIdentifier`. 
+2.  Eine _hardwarebaseline_. Wenn jeder ihrer Hyper-V-Hosts identisch ist, benötigen Sie nur eine einzige Baseline. Wenn dies nicht der Fall ist, benötigen Sie für jede Hardware Klasse einen. Die Baseline hat die Form einer Trusted Computing Group Logfile oder tcglog. Tcglog enthält alle Elemente, die der Host von der UEFI-Firmware über den Kernel verwendet hat, und zwar direkt bis zu dem Ort, an dem der Host vollständig gestartet wurde. Zum Erfassen der hardwarebaseline installieren Sie die Hyper-v-Rolle und die Hyper-v-Unterstützung des Host-Überwachungs Diensts und verwenden `Get-HgsAttestationBaselinePolicy`. 
+3.  Eine _Code Integritätsrichtlinie_. Wenn jeder ihrer Hyper-V-Hosts identisch ist, benötigen Sie nur eine einzige CI-Richtlinie. Wenn dies nicht der Fall ist, benötigen Sie für jede Hardware Klasse einen. Windows Server 2016 und Windows 10 verfügen jeweils über eine neue Form der Erzwingung für CI-Richtlinien, die als _Hypervisor-erzwungene Code Integrität (hvci)_ bezeichnet wird. Hvci bietet eine starke Erzwingung und stellt sicher, dass ein Host nur Binärdateien ausführen darf, die von einem vertrauenswürdigen Administrator ausgeführt werden dürfen. Diese Anweisungen sind in einer CI-Richtlinie umschließt, die zu HGS hinzugefügt wird. HGS misst die CI-Richtlinie jedes Hosts, bevor Sie geschützte VMS ausführen dürfen. Verwenden Sie zum Erfassen einer CI-Richtlinie `New-CIPolicy`. Die Richtlinie muss dann mithilfe von `ConvertFrom-CIPolicy`in das binäre Formular konvertiert werden.
 
 ![Extrahieren von Identitäten, Baseline und CI-Richtlinie](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-three-extract-identity-baseline-ci-policy.png)
 
@@ -118,7 +118,7 @@ Nun können Sie einen abgeschirmten VM-Vorlagen Datenträger und eine geschützt
 
 Eine geschützte VM-Vorlage schützt Vorlagen Datenträger, indem eine Signatur des Datenträgers zu einem bekannten vertrauenswürdigen Zeitpunkt erstellt wird. 
 Wenn der Vorlagen Datenträger später durch Schadsoftware infiziert wird, unterscheidet sich seine Signatur von der ursprünglichen Vorlage, die durch den sicheren abgeschirmten VM-Bereitstellungs Prozess erkannt wird. 
-Geschützte Vorlagen Datenträger werden erstellt, indem der Assistent zum Erstellen `Protect-TemplateDisk` einer **abgeschirmten Vorlage** oder eine reguläre Vorlagen Festplatte ausgeführt wird. 
+Geschützte Vorlagen Datenträger werden erstellt, indem der **Assistent zum Erstellen einer abgeschirmten Vorlage** oder eine `Protect-TemplateDisk` auf einem regulären Vorlagen Datenträger 
 
 Jede ist in der [Remoteserver-Verwaltungstools für Windows 10](https://www.microsoft.com/download/details.aspx?id=45520)in der Funktion der **abgeschirmten VM-Tools** enthalten.
 Nachdem Sie RSAT heruntergeladen haben, führen Sie den folgenden Befehl aus, um das Feature der **abgeschirmten VM-Tools**
@@ -137,7 +137,7 @@ Dies ermöglicht es Benutzern, die entsprechenden Datenträger durch Angabe der 
 
 Überprüfen Sie die [Vorlagen Anforderungen](guarded-fabric-create-a-shielded-vm-template.md) für Datenträger, bevor Sie loslegen. 
 
-## <a name="step-5-create-a-shielding-data-file"></a>Schritt 5: Erstellen einer Schutz Datendatei 
+## <a name="step-5-create-a-shielding-data-file"></a>Schritt 5: Erstellen einer Schutz Datendatei 
 
 Eine geschützte Datendatei, die auch als PDK-Datei bezeichnet wird, erfasst vertrauliche Informationen über den virtuellen Computer, z. b. das Administrator Kennwort. 
 
@@ -157,7 +157,7 @@ Die Schutz Datendatei enthält auch die Sicherheitsrichtlinien Einstellung für 
 
 Sie können optionale Verwaltungs Elemente wie VMM oder Windows Azure Pack hinzufügen. Wenn Sie einen virtuellen Computer erstellen möchten, ohne diese Komponenten zu installieren, finden Sie weitere Informationen unter [Schritt für Schritt – Erstellen von abgeschirmten VMS ohne VMM](https://blogs.technet.microsoft.com/datacentersecurity/2016/06/06/step-by-step-creating-shielded-vms-without-vmm/).
 
-## <a name="step-6-create-a-shielded-vm"></a>Schritt 6: Erstellen einer abgeschirmten VM
+## <a name="step-6-create-a-shielded-vm"></a>Schritt 6: Erstellen einer abgeschirmten VM
 
 Das Erstellen von abgeschirmten virtuellen Computern unterscheidet sich nur geringfügig von herkömmlichen virtuellen Computern. In Windows Azure Pack ist die-Funktion sogar noch einfacher als das Erstellen einer regulären VM, da Sie lediglich einen Namen, eine geschützte Datendatei (mit den restlichen Spezialisierungs Informationen) und das VM-Netzwerk angeben müssen. 
 

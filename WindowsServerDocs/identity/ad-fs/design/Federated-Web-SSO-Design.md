@@ -18,17 +18,17 @@ ms.locfileid: "71408104"
 ---
 # <a name="federated-web-sso-design"></a>Federated-Web-SSO – Entwurf
 
-Das Federated Web Single @ no__t-0sign @ no__t-1On \(sso @ no__t-3 Design in Active Directory-Verbunddienste (AD FS) \(AD FS @ no__t-5 umfasst eine sichere Kommunikation, die mehrere Firewalls, Umkreis Netzwerke und den Namen @ no__t-6resolution umfasst. Server – zusätzlich zur gesamten Internet Routing Infrastruktur.  
+Der Verbund-Web-\-Sign\-on \(SSO\) Design in Active Directory-Verbunddienste (AD FS) \(AD FS\) umfasst eine sichere Kommunikation, die mehrere Firewalls, Umkreis Netzwerke und Namen\-Auflösungs Server umfasst – zusätzlich zur gesamten Internet Routing Infrastruktur.  
   
-Dieser Entwurf wird in der Regel verwendet, wenn zwei Organisationen eine Verbund Vertrauensstellung erstellen, damit Benutzer in einer Organisation \(der Konto Partnerorganisation @ no__t-1 auf Web @ no__t-basierte Anwendungen oder Dienste zugreifen können, die durch geschützt sind. AD FS in der anderen Organisation \(the Resource Partner Organization @ no__t-4.  
+Dieser Entwurf wird in der Regel verwendet, wenn zwei Organisationen eine Verbund Vertrauensstellung erstellen, um Benutzern in einer Organisation \(der Konto Partnerorganisation\), auf auf Web\-basierende Anwendungen oder Dienste zuzugreifen, die durch AD FS gesichert sind, in der anderen Organisation \(der Ressourcen Partnerorganisation\).  
   
-Anders ausgedrückt: eine Verbund Vertrauensstellung ist die Verkörperung einer Geschäfts-@ no__t-Vereinbarung oder Partnerschaft zwischen zwei Organisationen. Wie in der folgenden Abbildung gezeigt, können Sie eine Verbund Vertrauensstellung zwischen zwei Unternehmen einrichten, die zu einem Verbund Szenario @ no__t-0to @ no__t-1End führt.  
+Anders ausgedrückt: eine Verbund Vertrauensstellung ist die Verkörperung einer Geschäfts\-Vereinbarung oder Partnerschaft zwischen zwei Organisationen. Wie in der folgenden Abbildung gezeigt, können Sie eine Verbund Vertrauensstellung zwischen zwei Unternehmen einrichten, die zu\-End-Verbund Szenarios\-führt.  
   
 ![Verbund-Web-SSO](media/adfs2_FederatedWebSSODesign.gif)  
   
-Der einen @ no__t-0way-Pfeil in der Abbildung gibt die Richtung der Verbund Vertrauensstellung an, die – wie die Richtung von Windows-Vertrauens Stellungen – immer auf die Kontoseite der Gesamtstruktur zeigt. Dies bedeutet, dass die Authentifizierung von der Kontopartnerorganisation zur Ressourcenpartnerorganisation verläuft.  
+Der einzige\-Wege Pfeil in der Abbildung gibt die Richtung der Verbund Vertrauensstellung an, die – wie die Richtung von Windows-Vertrauens Stellungen – stets auf die Kontoseite der Gesamtstruktur zeigt. Dies bedeutet, dass die Authentifizierung von der Kontopartnerorganisation zur Ressourcenpartnerorganisation verläuft.  
   
-In diesem Federated-Web-SSO-Entwurf leiten zwei Verbund Server \(one in Fabrikam und der andere in "no__t" von "-1" Authentifizierungsanforderungen von Benutzerkonten in Fabrikam an Web @ no__t-2based-Anwendungen oder-Dienste in "Configuration Manager" weiter.  
+In diesem Federated-Web-SSO-Entwurf \(zwei Verbund Server in Fabrikam und der andere in der Configuration Manager-Konfiguration von "\)" Authentifizierungsanforderungen von Benutzerkonten in Fabrikam an Web\-basierte Anwendungen oder Dienste in "Configuration Manager" weiterleiten.  
   
 > [!NOTE]  
 > Zur zusätzlichen Sicherheit können Sie Verbund Server Proxys verwenden, um Anforderungen an Verbund Server weiterzuleiten, auf die nicht direkt über das Internet zugegriffen werden kann.  
@@ -43,7 +43,7 @@ Contoso ist der Ressourcenanbieter. Der Teil "" von "Federated-Web-SSO" erreicht
   
 -   [Bereitstellen von Zugriff auf Ihre Ansprüche unterstützenden Anwendungen und Dienste für Active Directory-Benutzer](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)  
   
-Eine Liste der detaillierten Aufgaben, die Sie zum Planen und Bereitstellen des Entwurfs für Federated-Web-SSO verwenden können, finden Sie unter [checkliste: Implementieren eines Federated-Web-SSO-Entwurfs @ no__t-0.  
+Eine detaillierte Liste der Aufgaben, die Sie zum Planen und Bereitstellen des Entwurfs "Federated-Web-SSO" verwenden können, finden Sie unter [Checklist: Implementing a Federated Web SSO Design](../../ad-fs/deployment/Checklist--Implementing-a-Federated-Web-SSO-Design.md).  
   
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

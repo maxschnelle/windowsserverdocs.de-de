@@ -18,7 +18,7 @@ ms.locfileid: "71405571"
 ---
 # <a name="configure-network-policy-server-accounting"></a>Konfigurieren der Kontoführung für den Netzwerkrichtlinienserver
 
-Es gibt drei Arten der Protokollierung für den Netzwerk \(Richtlinien Server\)-NPS:
+Es gibt drei Arten der Protokollierung für den Netzwerk Richtlinien Server \(NPS-\):
 
 - **Ereignisprotokollierung**. Wird hauptsächlich für die Überwachung und Problembehandlung von Verbindungs versuchen verwendet. Sie können die NPS-Ereignisprotokollierung konfigurieren, indem Sie die NPS-Eigenschaften in der NPS-Konsole abrufen.
 
@@ -53,9 +53,9 @@ Weitere Informationen zum Interpretieren von Protokolldateien finden Sie unter [
 
 Um zu verhindern, dass die Protokolldateien die Festplatte auffüllen, wird dringend empfohlen, dass Sie Sie auf einer Partition aufbewahren, die von der Systempartition getrennt ist. Im folgenden finden Sie weitere Informationen zum Konfigurieren der Kontoführung für NPS:
 
-- Um die Protokolldatei Daten für die Sammlung von einem anderen Prozess zu senden, können Sie NPS so konfigurieren, dass er in eine Named Pipe schreibt. Um Named Pipes zu verwenden, legen Sie den Protokolldatei \\Ordner auf .\pipe oder \\computername\pipefest. Das Named Pipe Server-Programm erstellt eine Named Pipe \\mit dem Namen .\pipe\iaslog.log, um die Daten zu akzeptieren. Wählen Sie im Dialogfeld Eigenschaften der lokalen Datei in neue Protokolldatei erstellen die Option nie (unbegrenzte Dateigröße) aus, wenn Sie Named Pipes verwenden.
+- Um die Protokolldatei Daten für die Sammlung von einem anderen Prozess zu senden, können Sie NPS so konfigurieren, dass er in eine Named Pipe schreibt. Zum Verwenden von Named Pipes legen Sie den Protokolldatei Ordner auf \\.\pipe oder \\computername\pipefest. Das Named Pipe Server-Programm erstellt eine Named Pipe mit dem Namen \\.\pipe\iaslog.log, um die Daten zu akzeptieren. Wählen Sie im Dialogfeld Eigenschaften der lokalen Datei in neue Protokolldatei erstellen die Option nie (unbegrenzte Dateigröße) aus, wenn Sie Named Pipes verwenden.
 
-- Das Protokoll Dateiverzeichnis kann mithilfe von System Umgebungsvariablen (anstelle von Benutzervariablen) erstellt werden, z. b. "% System Drive%", "% SystemRoot%" und "% windir%". Beispielsweise sucht der folgende Pfad unter Verwendung der Umgebungsvariablen "% windir%" die Protokolldatei im Verzeichnis "System" im Unterordner "\System32\Logs" (d. h. "%windir%\System32\Logs @ no__t-0".
+- Das Protokoll Dateiverzeichnis kann mithilfe von System Umgebungsvariablen (anstelle von Benutzervariablen) erstellt werden, z. b. "% System Drive%", "% SystemRoot%" und "% windir%". Beispielsweise sucht der folgende Pfad unter Verwendung der Umgebungsvariablen "% windir%" die Protokolldatei im Verzeichnis "System" im Unterordner "\System32\Logs" (d. h. "%windir%\System32\Logs\)".
 
 - Das Wechseln von Protokolldatei Formaten führt nicht dazu, dass ein neues Protokoll erstellt wird. Wenn Sie die Protokolldatei Formate ändern, enthält die Datei, die zum Zeitpunkt der Änderung aktiv ist, eine Mischung der beiden Formate (Datensätze am Anfang des Protokolls haben das vorherige Format, und Datensätze am Ende des Protokolls haben das neue Format).
 
@@ -75,20 +75,20 @@ Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe
 5. Wählen Sie unter **Protokollierungs Fehler Aktion**aus, **ob die Protokollierung fehlschlägt, Verbindungsanforderungen verwerfen,** wenn die Verarbeitung von Zugriffs Anforderungs Nachrichten durch NPS beendet werden soll, wenn Protokolldateien vollständig oder nicht verfügbar sind. Wenn Sie möchten, dass der NPS die Verarbeitung von Verbindungsanforderungen fortsetzt, wenn die Protokollierung fehlschlägt, aktivieren Sie dieses Kontrollkästchen nicht.
 6. Klicken Sie im Dialogfeld **Eigenschaften der Protokolldatei** auf die Registerkarte **Protokolldatei** .
 7. Geben Sie auf der Registerkarte **Protokolldatei** unter **Verzeichnis**den Speicherort ein, an dem die NPS-Protokolldateien gespeichert werden sollen. Der Standard Speicherort ist der Ordner systemroot\System32\LogFiles.<br>Wenn Sie im **Protokoll Dateiverzeichnis**keine vollständige Pfad Anweisung angeben, wird der Standardpfad verwendet. Wenn Sie z. b. **NPSLogFile** in das **Protokoll Dateiverzeichnis**eingeben, befindet sich die Datei unter%systemroot%\System32\NPSLogFile.
-8. Klicken Sie unter **Format**auf **DTS-kompatibel**. Wenn Sie möchten, können Sie stattdessen ein Legacy Dateiformat auswählen, z. b.  **\(ODBC-\) Legacy** oder IAS  **\(-Legacy.\)**<br>**ODBC** -und **IAS** -Legacy Dateitypen enthalten eine Teilmenge der Informationen, die von NPS an die SQL Server Datenbank gesendet werden. Das XML-Format des **DTS-kompatiblen** Dateityps ist mit dem XML-Format identisch, das NPS zum Importieren von Daten in die SQL Server Datenbank verwendet. Aus diesem Grund bietet das **DTS-kompatible** Dateiformat eine effizientere und umfassende Übertragung von Daten in die Standard-SQL Server-Datenbank für NPS.
+8. Klicken Sie unter **Format**auf **DTS-kompatibel**. Wenn Sie möchten, können Sie stattdessen ein Legacy Dateiformat auswählen, z. b. **ODBC \(Legacy\)** oder **IAS \(Legacy\)** .<br>**ODBC** -und **IAS** -Legacy Dateitypen enthalten eine Teilmenge der Informationen, die von NPS an die SQL Server Datenbank gesendet werden. Das XML-Format des **DTS-kompatiblen** Dateityps ist mit dem XML-Format identisch, das NPS zum Importieren von Daten in die SQL Server Datenbank verwendet. Aus diesem Grund bietet das **DTS-kompatible** Dateiformat eine effizientere und umfassende Übertragung von Daten in die Standard-SQL Server-Datenbank für NPS.
 9. Klicken Sie in **neue Protokolldatei erstellen**, um NPS so zu konfigurieren, dass in angegebenen Intervallen neue Protokolldateien gestartet werden. Klicken Sie dann auf das gewünschte Intervall:
     - Klicken Sie bei umfangreichen Transaktionsvolumen-und Protokollierungs Aktivitäten auf **täglich**.
     - Klicken Sie für kleinere Transaktions Volumes und Protokollierungs Aktivitäten auf **wöchentlich** oder **monatlich**.
-    - Um alle Transaktionen in einer Protokolldatei zu speichern, klicken Sie auf  **\(nie\)unbegrenzte Dateigröße**.
+    - Um alle Transaktionen in einer Protokolldatei zu speichern, klicken Sie auf **nie \(unbegrenzte Dateigröße\)** .
     - Um die Größe der einzelnen Protokolldateien einzuschränken, klicken Sie auf **Wenn die Protokolldatei diese Größe erreicht**, und geben Sie dann eine Dateigröße ein, nach der ein neues Protokoll erstellt wird. Die Standardgröße ist 10 Megabyte (MB).
-10. Wenn Sie möchten, dass der NPS alte Protokolldateien löscht, um Speicherplatz für neue Protokolldateien zu erstellen, wenn die Festplatte fast ausgelastet ist, stellen Sie sicher, dass beim vollständigen Löschen der Datenträger die Option **ältere Protokolldateien löschen** ausgewählt ist Diese Option ist jedoch nicht verfügbar, wenn der Wert von **neue Protokolldatei erstellen**  **\(niemals unbegrenzt\)** ist. Auch wenn die älteste Protokolldatei die aktuelle Protokolldatei ist, wird Sie nicht gelöscht.
+10. Wenn Sie möchten, dass der NPS alte Protokolldateien löscht, um Speicherplatz für neue Protokolldateien zu erstellen, wenn die Festplatte fast ausgelastet ist, stellen Sie sicher, dass beim vollständigen Löschen der Datenträger die Option **ältere Protokolldateien löschen** ausgewählt ist Diese Option ist jedoch nicht verfügbar, wenn der Wert von **Create a new log file** **nie \(unbegrenzte Dateigröße\)** . Auch wenn die älteste Protokolldatei die aktuelle Protokolldatei ist, wird Sie nicht gelöscht.
 
 ## <a name="configure-nps-sql-server-logging"></a>Konfigurieren der NPS-SQL Server Protokollierung
 
 Mit diesem Verfahren können Sie die RADIUS-Buchhaltungsdaten in einer lokalen oder Remote Datenbank protokollieren, die Microsoft SQL Server ausgeführt wird.
 
 >[!NOTE]
->NPS formatiert Buchhaltungsdaten als XML-Dokument, das an die gespeicherte Prozedur **report_event** in der SQL Server Datenbank gesendet wird, die Sie in NPS festlegen. Damit SQL Server Protokollierung ordnungsgemäß funktioniert, müssen Sie über eine gespeicherte Prozedur mit dem Namen **report_event** in der SQL Server-Datenbank verfügen, die die XML-Dokumente von NPS empfangen und analysieren kann.
+>NPS formatiert Buchhaltungsdaten als XML-Dokument, das an die gespeicherte Prozedur **report_event** in der SQL Server-Datenbank gesendet wird, die Sie in NPS festlegen. Damit SQL Server Protokollierung ordnungsgemäß funktioniert, müssen Sie über eine gespeicherte Prozedur mit dem Namen **report_event** in der SQL Server Datenbank verfügen, die die XML-Dokumente von NPS empfangen und analysieren kann.
 
 Um dieses Verfahren auszuführen, ist mindestens die Mitgliedschaft in "Domänen-Admins" oder eine entsprechende Berechtigung erforderlich.
 
@@ -130,9 +130,9 @@ Ein Ping-Benutzername kann dem folgenden Registrierungsschlüssel als Zeichen fo
 
 `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\IAS\Parameters`
 
-- **Name**:`ping user-name`
-- **Typ**:`REG_SZ`
-- **Daten**:  *Benutzername*
+- **Name**: `ping user-name`
+- **Typ**: `REG_SZ`
+- **Daten**: *Benutzername*
 
 >[!TIP]
 >Geben Sie ein Namensmuster (z. b. einen DNS-Namen, einschließlich Platzhalter Zeichen) in **Daten**ein, um mehr als einen Benutzernamen für einen **Ping-Benutzernamen** Wert anzugeben.

@@ -19,7 +19,7 @@ ms.locfileid: "71402139"
 
 > Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-Standardmäßig werden die Berechtigungen für einen DFS-Ordner vom lokalen Dateisystem des Namespaceservers geerbt. Die Berechtigungen werden vom Stammverzeichnis des System Laufwerks geerbt und gewähren der Domäne @ no__t-0users Gruppe Leseberechtigungen. Daher bleiben auch nach der Aktivierung der zugriffsbasierten Aufzählung alle Ordner im Namespace für alle Domänenbenutzer sichtbar.
+Standardmäßig werden die Berechtigungen für einen DFS-Ordner vom lokalen Dateisystem des Namespaceservers geerbt. Die Berechtigungen werden vom Stammverzeichnis des System Laufwerks geerbt und gewähren der Domäne\\Benutzergruppe Leseberechtigungen. Daher bleiben auch nach der Aktivierung der zugriffsbasierten Aufzählung alle Ordner im Namespace für alle Domänenbenutzer sichtbar.
 
 ## <a name="advantages-and-limitations-of-inherited-permissions"></a>Vor- und Nachteile der geerbten Berechtigungen
 
@@ -58,6 +58,6 @@ Um einzuschränken, welche Benutzer einen DFS-Ordner anzeigen können, müssen S
 
 4.  Um die geerbten Berechtigungen für Ordner oder Namespacestämme in einem DFS-Namespace zu ändern, verwenden Sie Windows-Explorer oder den Befehl **ICacls**.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 -   [Erstellen eines DFS-Namespaces](create-a-dfs-namespace.md)

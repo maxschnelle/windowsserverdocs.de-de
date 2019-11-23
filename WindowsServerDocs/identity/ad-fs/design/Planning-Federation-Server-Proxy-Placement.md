@@ -18,7 +18,7 @@ ms.locfileid: "71408011"
 ---
 # <a name="planning-federation-server-proxy-placement"></a>Planen der Verbundserverproxy-Platzierung
 
-Nachdem Sie alle Informationen gesammelt haben, die Sie zum Entwerfen Ihrer Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1-Infrastruktur verwenden, und nachdem Sie den Verbund Server und die Webserver Strategie geplant haben, können Sie planen, wann und wo der Verbund Server platziert werden soll. Proxys in Ihrem neuen Design. Die Informationen in den folgenden Themen helfen Ihnen dabei, zu bestimmen, wann und wo ein Verbund Server Proxy platziert werden soll und ob er für die Konto Partner Rolle oder die Ressourcen Partner Rolle konfiguriert werden soll:  
+Nachdem Sie alle Informationen gesammelt haben, die Sie zum Entwerfen Ihrer Active Directory-Verbunddienste (AD FS) \(AD FS\) Infrastruktur verwenden, und nachdem Sie den Verbund Server und die Webserver Strategie geplant haben, können Sie planen, wann und wo Verbund Server Proxys in ihren neuen Entwurf platziert werden sollen. Die Informationen in den folgenden Themen helfen Ihnen dabei, zu bestimmen, wann und wo ein Verbund Server Proxy platziert werden soll und ob er für die Konto Partner Rolle oder die Ressourcen Partner Rolle konfiguriert werden soll:  
   
 -   [Überprüfen der Rolle des Verbundservers beim Kontopartner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md)  
   
@@ -39,7 +39,7 @@ Nachdem Sie alle Informationen gesammelt haben, die Sie zum Entwerfen Ihrer Acti
   
 Beispiele für das Platzieren eines Verbund Server Proxys in einem der beiden primären AD FS-Entwurfs Szenarien finden Sie unter [Zuordnen der Bereitstellungsziele zu einem AD FS-Entwurf](Mapping-Your-Deployment-Goals-to-an-AD-FS-Design.md).  
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)
   
 

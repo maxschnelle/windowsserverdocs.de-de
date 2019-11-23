@@ -17,7 +17,7 @@ ms.locfileid: "71403177"
 ---
 # <a name="create-a-custom-file-management-task"></a>Erstellen einer benutzerdefinierten Dateiverwaltungsaufgabe
 
-> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
 
 Ablauf ist nicht immer eine gewünschte Aktion, die auf Dateien ausgeführt werden sollte. Dateiverwaltungsaufgaben ermöglichen Ihnen, benutzerdefinierte Befehle auszuführen.
 
@@ -34,12 +34,12 @@ Ablauf ist nicht immer eine gewünschte Aktion, die auf Dateien ausgeführt werd
 
     -   **Typ**. Wählen Sie **Benutzerdefiniert** aus dem Dropdownmenü aus.
     -   **Ausführbar**. Navigieren Sie zu dem Befehl oder geben Sie den Befehl ein, wenn die Dateiverwaltungsaufgabe Dateien verarbeitet. Diese ausführbare Datei muss als schreibbar festgelegt werden, damit der Schreibzugriff nur durch Administratoren und das System erfolgen kann. Wenn andere Benutzer über Schreibzugriff auf die ausführbare Datei verfügen, wird sie nicht ordnungsgemäß ausgeführt.
-    -   **Befehlseinstellungen**. Um die Argumente zu konfigurieren, die an die ausführbare Datei übergeben werden, wenn ein Dateiverwaltungsauftrag die Dateien verarbeitet, ändern Sie das Textfeld **Argumente**. Um zusätzliche Variablen in den Text einzufügen, platzieren Sie den Cursor in den Speicherort des Textfelds, in den Sie die Variablen einfügen möchten, wählen Sie die Variable aus, die Sie einfügen möchten und klicken Sie dann auf **Variable einfügen**. Der Text in Klammern fügt Informationen über die Variable ein, der von der ausführbaren Datei empfangen werden kann. Beispielsweise fügt die Variable "\[source file path @ no__t-1" den Namen der Datei ein, die von der ausführbaren Datei verarbeitet werden soll. Optional: Klicken Sie auf die Schaltfläche **Arbeitsverzeichnis**, um den Speicherort der benutzerdefinierten ausführbaren Datei anzugeben.
+    -   **Befehlseinstellungen**. Um die Argumente zu konfigurieren, die an die ausführbare Datei übergeben werden, wenn ein Dateiverwaltungsauftrag die Dateien verarbeitet, ändern Sie das Textfeld **Argumente**. Um zusätzliche Variablen in den Text einzufügen, platzieren Sie den Cursor in den Speicherort des Textfelds, in den Sie die Variablen einfügen möchten, wählen Sie die Variable aus, die Sie einfügen möchten und klicken Sie dann auf **Variable einfügen**. Der Text in Klammern fügt Informationen über die Variable ein, der von der ausführbaren Datei empfangen werden kann. Der \[Quelldatei Pfad\] Variable fügt z. b. den Namen der Datei ein, die von der ausführbaren Datei verarbeitet werden soll. Optional: Klicken Sie auf die Schaltfläche **Arbeitsverzeichnis**, um den Speicherort der benutzerdefinierten ausführbaren Datei anzugeben.
     -   **Befehlssicherheit**. Konfigurieren Sie die Sicherheitseinstellungen für diese ausführbare Datei. Standardmäßig wird der Befehl als lokaler Dienst ausgeführt, dem restriktivsten Konto.
 
 4.  Klicken Sie auf **OK**.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 -   [Klassifizierungsverwaltung](classification-management.md)
 -   [Dateiverwaltungsaufgaben](file-management-tasks.md)

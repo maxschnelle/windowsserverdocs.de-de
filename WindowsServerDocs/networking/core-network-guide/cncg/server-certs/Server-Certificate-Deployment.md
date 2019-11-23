@@ -17,12 +17,12 @@ ms.locfileid: "71406279"
 ---
 # <a name="server-certificate-deployment"></a>Bereitstellung von Serverzertifikaten
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Führen Sie die folgenden Schritte aus, um eine Stamm Zertifizierungsstelle für Unternehmen zu installieren und Server Zertifikate für die Verwendung mit PEAP und EAP bereitzustellen.  
   
 > [!IMPORTANT]  
-> Bevor Sie Active Directory Zertifikat Dienste installieren, müssen Sie den Computer benennen, den Computer mit einer statischen IP-Adresse konfigurieren und den Computer der Domäne hinzufügen. Nachdem Sie AD CS installiert haben, können Sie den Computernamen oder die Domänen Mitgliedschaft des Computers nicht mehr ändern. Sie können die IP-Adresse bei Bedarf jedoch ändern. Weitere Informationen zum Ausführen dieser Aufgaben finden Sie im Handbuch zu Windows Server @ no__t-0 2016 [Core Network](../../Core-Network-Guide.md).  
+> Bevor Sie Active Directory Zertifikat Dienste installieren, müssen Sie den Computer benennen, den Computer mit einer statischen IP-Adresse konfigurieren und den Computer der Domäne hinzufügen. Nachdem Sie AD CS installiert haben, können Sie den Computernamen oder die Domänen Mitgliedschaft des Computers nicht mehr ändern. Sie können die IP-Adresse bei Bedarf jedoch ändern. Weitere Informationen zum Ausführen dieser Aufgaben finden Sie im Windows Server&reg; 2016- [Kern Netzwerk Handbuch](../../Core-Network-Guide.md).  
 
   
 -   [Installieren des Webservers WEB1](../../../core-network-guide/cncg/server-certs/Install-the-Web-Server-WEB1.md)  

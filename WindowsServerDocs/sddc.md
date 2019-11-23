@@ -33,9 +33,9 @@ Microsofts Implementierung der SDDC besteht aus Windows Server-Technologien, die
 
 Die in Windows Server und System Center integrierten Technologien sind die wichtigsten Bausteine der Windows Server-SDDC Erfahrung. Obwohl es sich um eine virtualisierte Plattform handelt, ist auch weiterhin die richtige Hardware darunter erforderlich. Microsoft-Partner, die an den **Windows Server Software-Defined (WSSD)-Lösungen** und den **Azure Stack HCI-Lösungs** Programmen teilnehmen, können Ihr Unternehmen dabei unterstützen, die richtige Hardware zu erwerben und auf dem ersten Tag zu starten.
 
-![](media/sddc/video.png) **[sehen Sie sich ein Video an, um mehr über den Microsoft SDDC zu erfahren](https://mva.microsoft.com/en-US/training-courses/whats-new-in-windows-server-2016-16457?l=YcsJR6sXC_1006218965) .**
+![](media/sddc/video.png) **[ein Video ansehen, um mehr über den SDDC von Microsoft zu erfahren](https://mva.microsoft.com/en-US/training-courses/whats-new-in-windows-server-2016-16457?l=YcsJR6sXC_1006218965) .**
 
-![](media/sddc/poster-ico.png) **[Laden Sie die Datei "Poster Size. pdf" auf dieser Seite herunter.](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs/media/sddc/sddc_poster_0801417_ANSI-E.pdf)**
+![](media/sddc/poster-ico.png) **[eine Datei Poster Size. PDF auf dieser Seite herunterladen.](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs/media/sddc/sddc_poster_0801417_ANSI-E.pdf)**
 
 ![](media/sddc/spacer1.png)<a href="https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs//media/sddc/sddc_poster_0801417_ANSI-E.pdf"><img src="media/sddc/poster.png"></a>
 
@@ -82,9 +82,9 @@ VHDX-Freigaben sind flexibel und sicher und nicht an die zugrunde liegenden Spei
 ![](media/sddc/spacer1.png)![](media/sddc/cluster.png)
 
 - VHDX-Freigaben können sich auf einem Volumes mit freigegebener Unterstützung (Cluster Shared Volume, CSV) im Blockspeicher oder auf SMB-dateibasiertem Speicher befinden.
-- Gebieten Freigegebene vhdx unterstützt Hyper-V-Replikat-und Hostebene-Sicherung.
+- Geschützt: VHDX-Freigaben unterstützen Hyper-V-Replikat- und Sicherung auf Hostebene.
 
-![](media/sddc/learn.png) **[Weitere Informationen zum Gastclustering mit der freigegebenen vhdx](https://technet.microsoft.com/library/dn281956(v=ws.11).aspx) -Datei**
+![](media/sddc/learn.png) **[Weitere Informationen zum Gastclustering mit frei gegebener vhdx](https://technet.microsoft.com/library/dn281956(v=ws.11).aspx) -Datei**
 
 ### <a name="hyper-v-replica"></a>Hyper-V-Replikat
 
@@ -112,7 +112,7 @@ Bietet die Möglichkeit einer zentralen, programmierbaren Automatisierung von Ve
 
 Ein Administrator verwendet ein Verwaltungstool, das direkt mit Netzwerkcontroller interagiert. Der Netzwerkcontroller übertragt Informationen über die Netzwerkinfrastruktur an das Verwaltungstool, einschließlich der virtuellen und physischen Infrastruktur.
 
-![](media/sddc/learn.png) **[Weitere Informationen zum Netzwerk Controller](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-controller/network-controller)**
+**[Weitere Informationen zum Netzwerk Controller](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-controller/network-controller) ![](media/sddc/learn.png)**
 
 ### <a name="datacenter-firewall"></a>Rechenzentrumsfirewall
 
@@ -144,7 +144,7 @@ SLB ermöglicht es Ihnen, mehrere Server zum Hosten derselben Workload zu aktivi
 
 ![](media/sddc/spacer1.png)![](media/sddc/balancer.png)
 
-![](media/sddc/learn.png) **[Weitere Informationen zum Software Lastenausgleich](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn)**
+**[Weitere ![](media/sddc/learn.png)Weitere Informationen zum Software Lastenausgleich](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn)**
 
 
 ![](media/sddc/storage.png)
@@ -155,7 +155,7 @@ SLB ermöglicht es Ihnen, mehrere Server zum Hosten derselben Workload zu aktivi
 
 „Direkte Speicherplätze“ verwendet branchenübliche Server mit lokal angeschlossenen Laufwerken, um hoch verfügbare, hoch skalierbare softwaredefinierte Speicher zu einem Bruchteil der Kosten von herkömmlichen SAN- oder NAS-Arrays zu erstellen. Die Architektur vereinfacht radikal die Beschaffung und Bereitstellung.
 
-![jeder Knoten verfügt über lokal angeschlossene Laufwerke auf Cluster Ebene, indem direkte Speicherplätze dann von virtuellen Computern über csvs @ no__t-1 aufgerufen wird.
+![für jeden Knoten lokale Laufwerke auf Cluster Ebene in einem Pool zusammengefasst werden, indem direkte Speicherplätze auf die VMs über csvs zugreifen](media/sddc/spacer1.png)![](media/sddc/ssd.png)
 
 „Direkte Speicherplätze“ führt den neuen Softwarespeicherbus ein und nutzt viele Features von Windows Server, die Sie bereits kennen, z. B. Failoverclustering, CSV (Cluster Shared Volume, freigegebenes Clustervolume), SMB3 (Server Message Block) und natürlich „Speicherplätze“.
 
@@ -190,7 +190,7 @@ Synchrone Replikation
 4. Bestätigung durch den Remotestandort
 5. Anwendungsschreibvorgang wird bestätigt
 
-t & T1: Daten, die auf das Volume geleert werden, Protokolle werden immer geschrieben.
+t & t1: Daten werden auf das Volume geleert, Protokolle werden immer geschrieben
 
 ![](media/sddc/learn.png) **[Weitere Informationen zum Speicher Replikat](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview)**
 
@@ -228,7 +228,7 @@ Host-Überwachungsdienst sind die Schlüssel zu legitimen Fabrics und zu verschl
 
 ![](media/sddc/spacer1.png)![](media/sddc/guardian.png)
 
-![](media/sddc/learn.png) **[Weitere Informationen zum Host](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-manage-hgs) -Überwachungsdienst**
+![](media/sddc/learn.png) **[erfahren Sie mehr über den Host](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-manage-hgs) -Überwachungsdienst.**
 
 ### <a name="device-health-attestation"></a>Integritätsnachweis für Geräte
 
@@ -272,12 +272,12 @@ Virtual Machine Manager ist Teil der System Center-Suite, der zum Konfigurieren,
 
 ![](media/sddc/spacer1.png)![](media/sddc/vmm.png)
 
-- Datacenter Konfigurieren und Verwalten von Datacenter-Komponenten als ein einzelnes Fabric in VMM. 
-- Virtualisierungshosts: VMM kann Hyper-V-und VMware-Virtualisierungshosts und-Cluster hinzufügen, bereitstellen und verwalten.
-- Ungs VMM bietet Netzwerkvirtualisierung, einschließlich Unterstützung für das Erstellen und Verwalten von virtuellen Netzwerken und Netzwerk Gateways. 
-- Speicher: VMM kann lokalen und Remote Speicher ermitteln, klassifizieren, bereitstellen, zuordnen und zuweisen.
+- Datacenter: Konfigurieren und Verwalten von Datacenter-Komponenten als eine einzelne Fabric in VMM. 
+- Virtualisierungshosts: VMM kann Hyper-V und VMware-Virtualisierungshosts und Cluster hinzufügen, bereitstellen und verwalten.
+- Networking: VMM bietet die Netzwerkvirtualisierung, inklusive die Unterstützung für das Erstellen und Verwalten von virtuellen Netzwerken und Netzwerkgateways. 
+- Speicher: VMM kann lokale und Remotespeicher ermitteln, klassifizieren, bereitstellen und zuweisen.
 
-![](media/sddc/learn.png) **[Weitere Informationen zu System Center VMM](https://docs.microsoft.com/system-center/vmm/)**
+**[Weitere Informationen zu System Center VMM](https://docs.microsoft.com/system-center/vmm/) ![](media/sddc/learn.png)**
 
 ### <a name="windows-admin-center"></a>Windows Admin Center
 

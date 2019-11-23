@@ -18,17 +18,17 @@ ms.locfileid: "71408385"
 ---
 # <a name="install-the-federation-service-role-service"></a>Installieren des Verbundserver-Rollendiensts
 
-Nachdem Sie einen Computer mit den erforderlichen Anwendungen und Zertifikaten ordnungsgemäß konfiguriert haben, können Sie den Verbunddienst-Rollen Dienst Active Directory-Verbunddienste (AD FS) \(ad FS @ no__t-1 installieren. Wenn Sie die Verbunddienst auf einem Computer installieren, wird dieser Computer zu einem Verbund Server.  
+Nachdem Sie einen Computer mit den erforderlichen Anwendungen und Zertifikaten ordnungsgemäß konfiguriert haben, können Sie den Verbunddienst-Rollen Dienst Active Directory-Verbunddienste (AD FS) \(AD FS\)installieren. Wenn Sie die Verbunddienst auf einem Computer installieren, wird dieser Computer zu einem Verbund Server.  
   
 > [!NOTE]  
-> Für den Entwurf "Federated Web Single @ no__t-0sign @ no__t-1On \(sso @ no__t-3" müssen Sie mindestens einen Verbund Server in der Konto Partnerorganisation und mindestens einen Verbund Server in der Ressourcen Partnerorganisation besitzen. Weitere Informationen finden Sie unter [Platzierung eines Verbundservers](https://technet.microsoft.com/library/dd807127.aspx).  
+> Für den Verbund-SSO-\-Sign\-on \(SSO\) Design müssen Sie mindestens einen Verbund Server in der Konto Partnerorganisation und mindestens einen Verbund Server in der Ressourcen Partnerorganisation besitzen. Weitere Informationen finden Sie unter [Platzierung eines Verbundservers](https://technet.microsoft.com/library/dd807127.aspx).  
   
 Mithilfe des folgenden Verfahrens können Sie den Verbunddienst-Rollen Dienst von AD FS auf einem Computer installieren, der als erster Verbund Server oder auf einem Computer, der als Verbund Server für eine vorhandene Verbund Serverfarm verwendet wird, verwendet werden soll.  
   
-## <a name="prerequisites"></a>Erforderliche Komponenten  
-Vergewissern Sie sich, dass ein SSL-Zertifikat mit dem privaten Schlüssel bereits installiert oder in den lokalen Zertifikat Speicher \(personal-Speicher @ no__t-1 importiert wurde, bevor Sie mit diesem Verfahren beginnen. Wenn Sie ein Token @ no__t-0signaturzertifikat verwenden, das von einer Zertifizierungsstelle \(CA @ no__t-2 ausgegeben wird, überprüfen Sie, ob ein Token @ no__t-3signing-Zertifikat mit dem privaten Schlüssel bereits installiert oder in den lokalen Zertifikat Speicher importiert wurde. \(personal-Speicher @ no__t-5, bevor Sie mit diesem Verfahren beginnen. Als Alternative können Sie mithilfe des Assistenten zum Hinzufügen von Rollen mit dem Assistenten zum Hinzufügen von Rollen ein selbst @ no__t-0signiertes, Token @ no__t-1-Signaturzertifikat erstellen, wie in diesem Verfahren beschrieben. Weitere Informationen zu Token @ no__t-0signing-Zertifikaten finden Sie unter [Zertifikat Anforderungen für Verbund Server](https://technet.microsoft.com/library/dd807040.aspx).  
+## <a name="prerequisites"></a>Voraussetzungen  
+Vergewissern Sie sich, dass ein SSL-Zertifikat mit dem privaten Schlüssel bereits installiert oder in den lokalen Zertifikat Speicher \(persönlichen Speicher\) importiert wurde, bevor Sie mit diesem Verfahren beginnen. Wenn Sie ein Token\-Signaturzertifikat verwenden, das von einer Zertifizierungsstelle \(ca-\)ausgestellt wird, überprüfen Sie, ob ein Token\-Signaturzertifikat mit dem privaten Schlüssel bereits installiert oder in den lokalen Zertifikat Speicher \(persönlichen Speicher importiert wurde, bevor Sie mit diesem Verfahren beginnen.\) Als Alternative können Sie mithilfe des Assistenten zum Hinzufügen von Rollen ein selbst\-signiertes Token\-Signaturzertifikat erstellen, wie in diesem Verfahren beschrieben. Weitere Informationen zu Token\-Signatur Zertifikaten finden Sie unter [Zertifikat Anforderungen für Verbund Server](https://technet.microsoft.com/library/dd807040.aspx).  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.Microsoft.com\/\/swlink? LinkId\=83477\).   
+Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.Microsoft.com\/\/. LinkId\=83477\).   
   
 #### <a name="to-install-the-federation-service-role-service"></a>So installieren Sie den Verbunddienst-Rollendienst  
   
@@ -38,7 +38,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
   
 3.  Klicken Sie auf der Seite **Vorbereitung** auf **Weiter**.  
   
-4.  Klicken Sie auf der Seite **Installationstyp auswählen** auf **Rolle @ no__t-2based oder Feature @ no__t-3based Installation**, und klicken Sie auf **weiter**.  
+4.  Klicken Sie auf der Seite **Installationstyp auswählen** auf **Rollen\-basiert oder Feature\-basierte Installation**, und klicken Sie auf **weiter**.  
   
 5.  Klicken Sie auf der Seite **Zielserver auswählen** auf **einen Server aus dem Server Pool auswählen**, überprüfen Sie, ob der Zielcomputer hervorgehoben ist, und klicken Sie dann auf **weiter**.  
   
@@ -49,11 +49,11 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
   
 7.  Überprüfen Sie auf der Seite **Features auswählen** , ob die Features festgelegt sind, und klicken Sie dann auf **weiter**.  
   
-8.  Klicken Sie auf der Seite **Active Directory Verbunddienst \(AD FS @ no__t-2** auf **weiter**.  
+8.  Klicken Sie auf der Seite **Active Directory Verbunddienst \(AD FS\)** auf **weiter**.  
   
 9. Aktivieren Sie auf der Seite **Rollen Dienste auswählen** das Kontrollkästchen **Verbunddienst** , und klicken Sie dann auf **weiter**.  
   
-10. Klicken Sie auf der Seite **Webserver Rolle \(iis @ no__t-2** auf **weiter**.  
+10. Klicken Sie auf der Seite **Webserver Rolle \(IIS-\)** auf **weiter**.  
   
 11. Klicken Sie auf der Seite **Rollendienste auswählen** auf **Weiter**.  
   
