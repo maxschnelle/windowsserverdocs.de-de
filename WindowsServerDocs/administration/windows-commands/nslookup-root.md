@@ -22,7 +22,7 @@ ms.locfileid: "71373388"
 ---
 # <a name="nslookup-root"></a>nslookup root
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 ändert den Standard Server für den Stamm Domain Name System des DNS-Domänen Namen-Speicherplatzes auf den Server.
 ## <a name="syntax"></a>Syntax

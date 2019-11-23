@@ -22,7 +22,7 @@ ms.locfileid: "71379910"
 ---
 # <a name="bootcfg-query"></a>bootcfg query
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Abfragen und Anzeigen der Abschnitts Einträge [Boot Loader] und [Betriebssysteme] aus der Datei "Boot. ini".
 
@@ -35,7 +35,7 @@ bootcfg /query [/s <computer> [/u <Domain>\<User> /p <Password>]]
 |        Begriff         |                                                                                             Definition                                                                                              |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    /s <computer>    |                                         Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer.                                          |
-| /u <Domain> @ no__t-1 @ no__t-2 | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch <User>oder <Domain> @ no__t-2 @ no__t-3 angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |
+| /u <Domain>\\<User> | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch <User>oder <Domain>\\<User>angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird. |
 |    /p <Password>    |                                                        Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                        |
 |         /?          |                                                                                Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                 |
 
@@ -54,7 +54,7 @@ bootcfg /query [/s <computer> [/u <Domain>\<User> /p <Password>]]
   OS Load Options: /fastdetect /debug /debugport=com1:
   ```
 - Der Teil des Start Lade Programms in der **bootcfg-Abfrage** Ausgabe zeigt jeden Eintrag im Abschnitt [Boot Loader] von Boot. ini an.
-- Der Teil "Start Einträge" der **bootcfg-Abfrage** Ausgabe zeigt die folgenden Details für jeden Betriebssystem Eintrag im Abschnitt [Betriebssysteme] in der Datei "Boot. ini" an: Optionen für Start Eintrags-ID, Anzeige Name, Pfad und Betriebssystem Ladevorgang.
+- Der Teil "Start Einträge" der **bootcfg-Abfrage** Ausgabe zeigt die folgenden Details für jeden Betriebssystem Eintrag im Abschnitt [Betriebssysteme] der Datei Boot. ini: Start Eintrag-ID, Anzeige Name, Pfad und lade Optionen für das Betriebssystem an.
   ## <a name="BKMK_examples"></a>Beispiele
   In den folgenden Beispielen wird gezeigt, wie Sie den Befehl **bootcfg/query "aus** verwenden können:
   ```

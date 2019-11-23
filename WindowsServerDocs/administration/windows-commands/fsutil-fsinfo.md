@@ -41,7 +41,7 @@ fsutil fsinfo [volumeinfo] <RootPath>
 |DriveType|Fragt ein Laufwerk ab und listet seinen Typ auf, z. b. CD-ROM-Laufwerk.|
 |NTFSInfo|Listet die NTFS-spezifischen Volumeinformationen für das angegebene Volume auf, z. b. die Anzahl der Sektoren, Cluster Gesamt, freie Cluster und den Anfang und das Ende der MFT-Zone.|
 |sectoriinfo|Listet Informationen über die Sektorgröße und die Ausrichtung der Hardware auf.|
-|Kam|Listet die Dateisystem Statistiken für das angegebene Volume, z. b. Metadaten, Protokolldateien und MFT-Lese-und Schreibvorgänge.|
+|kam|Listet die Dateisystem Statistiken für das angegebene Volume, z. b. Metadaten, Protokolldateien und MFT-Lese-und Schreibvorgänge.|
 |volumeingefo|Listet Informationen für das angegebene Volume, wie z. b. das Dateisystem, und gibt an, ob das Volume die Groß-/Kleinschreibung beachtet, Unicode in Dateinamen oder Datenträger Kontingente oder ein DirectAccess (DAX)-Volume unterstützt.|
 |< "volumepath" >|Gibt den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt) an.|
 |< "rootpathname" >|Gibt den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt) des Stamm Laufwerks an.|
@@ -154,6 +154,7 @@ LogFileWriteBytes :    180936704
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise
-[Befehlszeilen-Syntax Schlüssel](Command-Line-Syntax-Key.md)@no__t[-1-](Fsutil.md) Datei
+[Befehlszeilen-Syntax Schlüssel](Command-Line-Syntax-Key.md)
+" [f](Fsutil.md) "
 
 

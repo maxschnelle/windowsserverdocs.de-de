@@ -36,7 +36,7 @@ WDSUTIL [Options] /Get-ImageFile /ImageFile:<wim file path> [/Detailed]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/ImageFile: @no__t 0wim-Dateipfad >|Gibt den vollständigen Pfad und den Dateinamen der WIM-Datei an.|
+|/ImageFile:\<WIM-Dateipfad >|Gibt den vollständigen Pfad und den Dateinamen der WIM-Datei an.|
 |/Detailed|Gibt alle Bild Metadaten aus jedem Bild zurück. Wenn diese Option nicht verwendet wird, besteht das Standardverhalten darin, nur den Bildnamen, die Beschreibung und den Dateinamen zurückzugeben.|
 
 ## <a name="BKMK_examples"></a>Beispiele

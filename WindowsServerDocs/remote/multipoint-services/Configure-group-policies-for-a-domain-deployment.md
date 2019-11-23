@@ -32,24 +32,24 @@ Beim wmsshell-Benutzerkonto handelt es sich um ein Systemkonto, das von Multipoi
 > [!NOTE]  
 > Informationen zum Aktualisieren von Gruppenrichtlinien finden Sie unter [Editor für lokale Gruppenrichtlinien](https://technet.microsoft.com/library/dn265982.aspx).  
   
-**POLICY** Benutzerkonfiguration > Administrative Vorlagen > Systemsteuerung > **Personalisierung**  
+**Richtlinie:** Benutzerkonfiguration > Administrative Vorlagen > Systemsteuerung > **Personalisierung**  
   
 Weisen Sie die folgenden Werte zu:  
   
 |Einstellung|Werte|  
 |-----------|----------|  
-|Bildschirmschoner aktivieren|Disabled|  
-|Zeitlimit für Bildschirmschoner|Disabled<br /><br />Sekunden: xxx|  
-|Kennwortschutz für den Bildschirmschoner verwenden|Disabled|  
+|Bildschirmschoner aktivieren|Deaktiviert|  
+|Zeitlimit für Bildschirmschoner|Deaktiviert<br /><br />Sekunden: xxx|  
+|Kennwortschutz für den Bildschirmschoner verwenden|Deaktiviert|  
   
-**POLICY** Computer Konfiguration > Windows-Einstellungen > Sicherheitseinstellungen > Lokale Richtlinien > Zuweisen von Benutzerrechten > **Lokal anmelden zulassen**  
+**Richtlinie:** Computer Konfiguration > Windows-Einstellungen > Sicherheitseinstellungen > Lokale Richtlinien > Zuweisen von Benutzerrechten > **Lokal anmelden zulassen**  
   
 |Einstellung|Werte|  
 |-----------|----------|  
-|Lokale Anmeldung zulassen|Stellen Sie sicher, dass die Liste der Konten das wmsshell-Konto enthält.<br /><br />**Hinweis**: Standardmäßig ist das wmsshell-Konto Mitglied der Gruppe "Benutzer". Wenn die Gruppe "Benutzer" in der Liste enthalten ist und wmsshell Mitglied der Gruppe "Benutzer" ist, müssen Sie das wmsshell-Konto nicht zur Liste hinzufügen.|  
+|Lokale Anmeldung zulassen|Stellen Sie sicher, dass die Liste der Konten das wmsshell-Konto enthält.<br /><br />**Hinweis:** Standardmäßig ist das wmsshell-Konto Mitglied der Gruppe "Benutzer". Wenn die Gruppe "Benutzer" in der Liste enthalten ist und wmsshell Mitglied der Gruppe "Benutzer" ist, müssen Sie das wmsshell-Konto nicht zur Liste hinzufügen.|  
   
 > [!IMPORTANT]  
-> Wenn Sie Gruppenrichtlinien festlegen, stellen Sie sicher, dass die Richtlinien die automatischen Updates und die Fehlerberichterstattung für Fehlerberichte auf dem Multipoint-Server nicht beeinträchtigen. Diese werden von den Einstellungen **Updates automatisch installieren** und automatisch **Windows-Fehlerberichterstattung** festgelegt, die bei der Installation von Windows MultiPoint Server ausgewählt, in Multipoint Manager mithilfe von " **Server Einstellungen bearbeiten**" konfiguriert wurden. konfiguriert in geplanten Updates für den Datenträger Schutz.  
+> Wenn Sie Gruppenrichtlinien festlegen, stellen Sie sicher, dass die Richtlinien die automatischen Updates und die Fehlerberichterstattung für Fehlerberichte auf dem Multipoint-Server nicht beeinträchtigen. Diese werden von den Einstellungen **Updates automatisch installieren** und automatisch **Windows-Fehlerberichterstattung** festgelegt, die bei der Installation von Windows MultiPoint Server ausgewählt, in Multipoint Manager mithilfe von **Server Einstellungen bearbeiten**oder in geplanten Updates für den Datenträger Schutz konfiguriert wurden.  
   
 ## <a name="update-the-registry"></a>Aktualisieren der Registrierung  
 Für eine Domänen Bereitstellung von Multipoint Services sollten Sie die folgenden Registrierungs Unterschlüssel aktualisieren.  
@@ -63,9 +63,9 @@ Für eine Domänen Bereitstellung von Multipoint Services sollten Sie die folgen
   
 2.  Suchen Sie im linken Bereich den folgenden Registrierungs Unterschlüssel, und wählen Sie ihn aus:  
   
-    HKEY_USERS @ no__t-0sidoswmsshell > \software\policies\microsoft\windows\systemsteuerung\desktop  
+    HKEY_USERS\<sidoswmsshell > \software\policies\microsoft\windows\control Panel\Desktop  
   
-    Dabei ist<SIDofWMSshell>"" die Sicherheits-ID (SID) für das wmsshell-Konto. Informationen dazu, wie Sie die SID identifizieren, finden Sie unter [Zuordnen eines Benutzernamens zu einer Sicherheits-ID (SID)](https://support.microsoft.com/kb/154599).  
+    Dabei ist "<SIDofWMSshell>" die Sicherheits-ID (SID) für das wmsshell-Konto. Informationen dazu, wie Sie die SID identifizieren, finden Sie unter [Zuordnen eines Benutzernamens zu einer Sicherheits-ID (SID)](https://support.microsoft.com/kb/154599).  
   
 3.  Aktualisieren Sie in der Liste auf der rechten Seite die folgenden Unterschlüssel.  
   

@@ -24,7 +24,7 @@ ms.locfileid: "71392263"
 
 
 
-macht eine Schatten Kopie verfügbar **, die mit dem verfügbar** gemachten Befehl verfügbar gemacht wurde. Die verfügbar gemachte Schatten Kopie kann durch die Schatten-ID, den Laufwerk Buchstaben, die Freigabe oder den Einfügepunkt angegeben werden.
+Macht eine Schatten Kopie verfügbar **, die mit dem verfügbar** gemachten Befehl verfügbar gemacht wurde. Die verfügbar gemachte Schatten Kopie kann durch die Schatten-ID, den Laufwerk Buchstaben, die Freigabe oder den Einfügepunkt angegeben werden.
 
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
@@ -39,9 +39,9 @@ unexpose {<ShadowID> | <Drive:> | <Share> | <MountPoint>}
 |Parameter|Beschreibung|
 |---------|-----------|
 |\<shadowid >|Macht die von der angegebenen Schatten-ID angegebene Schatten Kopie nicht verfügbar.|
-|\<laufwerk: >|Macht die Schatten Kopie verfügbar, die dem angegebenen Laufwerk Buchstaben zugeordnet ist (z. b. Laufwerk P).|
-|\<freigabe >|Macht die der angegebenen Freigabe zugeordnete Schatten Kopie (z. b. \\ @ no__t-1*MachineName*\) verfügbar.|
-|\<mountpoint >|Macht die Schatten Kopie verfügbar, die dem angegebenen Einstellungspunkt zugeordnet ist (z. b. c:\shadowcopy @ no__t-0.|
+|\<Laufwerk: >|Macht die Schatten Kopie verfügbar, die dem angegebenen Laufwerk Buchstaben zugeordnet ist (z. b. Laufwerk P).|
+|\<Freigabe >|Macht die der angegebenen Freigabe zugeordnete Schatten Kopie (z. b. \\\\*MachineName*\)nicht verfügbar.|
+|\<Mountpoint >|Macht die für den angegebenen Einstellungspunkt zugeordnete Schatten Kopie (z. b. c:\shadowcopy\)nicht verfügbar.|
 
 ## <a name="remarks"></a>Hinweise
 

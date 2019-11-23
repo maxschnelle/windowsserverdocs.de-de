@@ -46,7 +46,7 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <Source> [/a | /b] [+<Source> [/a 
 |"/z|Kopiert vernetzte Dateien im neu startbaren Modus.|
 |/a|Gibt eine ASCII-Textdatei an.|
 |/b|Gibt eine Binärdatei an.|
-|> der @no__t 0quelle|Erforderlich. Gibt den Speicherort an, von dem Sie eine Datei oder einen Satz von Dateien kopieren möchten. Die *Quelle* kann aus einem Laufwerk Buchstaben und einem Doppelpunkt, einem Verzeichnisnamen, einem Dateinamen oder einer Kombination aus diesen bestehen.|
+|> der \<Quelle|Erforderlich. Gibt den Speicherort an, von dem Sie eine Datei oder einen Satz von Dateien kopieren möchten. Die *Quelle* kann aus einem Laufwerk Buchstaben und einem Doppelpunkt, einem Verzeichnisnamen, einem Dateinamen oder einer Kombination aus diesen bestehen.|
 |\<Ziel >|Erforderlich. Gibt den Speicherort an, an den Sie eine Datei oder einen Satz von Dateien kopieren möchten. Das *Ziel* kann aus einem Laufwerk Buchstaben und einem Doppelpunkt, einem Verzeichnisnamen, einem Dateinamen oder einer Kombination aus diesen bestehen.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
@@ -77,7 +77,7 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <Source> [/a | /b] [+<Source> [/a 
     Wenn **/y** in der COPYCMD-Umgebungsvariablen voreingestellt ist, können Sie diese Einstellung mithilfe von **/-y** in der Befehlszeile überschreiben. Standardmäßig werden Sie aufgefordert, wenn Sie diese Einstellung ersetzen, es sei denn, der **Copy** -Befehl wird in einem Batch Skript ausgeführt.
 -   Anhängen von Dateien
 
-    Um Dateien anzufügen, geben Sie eine einzelne Datei für das *Ziel*an, aber mehrere Dateien für die *Quelle* (verwenden Sie Platzhalter Zeichen oder *file1*+*file2*+*datei3* Format).
+    Um Dateien anzufügen, geben Sie eine einzelne Datei für das *Ziel*an, aber mehrere Dateien für die *Quelle* (verwenden Sie Platzhalter Zeichen oder *file1*+*file2*+*datei3* -Format).
 -   Verwenden von **"/z**
 
     Wenn die Verbindung während der Kopier Phase unterbrochen wird (z. b. wenn der Server, der offline geschaltet wird, die Verbindung unterbrochen), wird **Copy "/z** fortgesetzt, nachdem die Verbindung wieder hergestellt wurde. **"/z** zeigt auch den Prozentsatz des Kopiervorgangs an, der für jede Datei abgeschlossen ist.

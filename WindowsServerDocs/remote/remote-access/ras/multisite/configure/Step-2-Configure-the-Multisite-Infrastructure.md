@@ -60,7 +60,7 @@ Weitere Informationen finden Sie unter [Hinzufügen einer Site zur](https://tech
   
 8.  Schließen Sie Active Directory Websites und Dienste.  
   
-](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
+![der entsprechenden Windows PowerShell-](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -161,7 +161,7 @@ Für eine Bereitstellung mit mehreren Standorten ist eine zusätzliche Sicherhei
   
 4.  Klicken Sie unter **Gruppenbereich**auf **universell**, klicken Sie unter **Gruppentyp**auf **Sicherheit**, und klicken Sie dann auf **OK**.  
   
-5.  Wenn Sie der neuen Sicherheitsgruppe Computer hinzufügen möchten, doppelklicken Sie auf die Sicherheitsgruppe, und klicken Sie im Dialogfeld **Eigenschaften von < Gruppenname >** auf die Registerkarte **Mitglieder** .  
+5.  Wenn Sie der neuen Sicherheitsgruppe Computer hinzufügen möchten, doppelklicken Sie auf die Sicherheitsgruppe, und klicken Sie im Dialogfeld **Eigenschaften von < Group_Name >** auf die Registerkarte **Mitglieder** .  
   
 6.  Auf der Registerkarte **Mitglieder** klicken Sie auf **Hinzufügen**.  
   
@@ -169,7 +169,7 @@ Für eine Bereitstellung mit mehreren Standorten ist eine zusätzliche Sicherhei
   
 8.  Wiederholen Sie dieses Verfahren, um eine Sicherheitsgruppe für jeden Einstiegspunkt nach Bedarf zu erstellen.  
   
-](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
+![der entsprechenden Windows PowerShell-](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -187,7 +187,7 @@ Wenn Sie die folgenden Cmdlets unter Windows 7 oder Windows Server 2008 R2 ausf�
 Import-Module ActiveDirectory  
 ```  
   
-So konfigurieren Sie eine Sicherheitsgruppe mit dem Namen Win7_Clients_Entrypoint1 und zum Hinzufügen eines Client Computers namens CLIENT2:  
+So konfigurieren Sie eine Sicherheitsgruppe mit dem Namen Win7_Clients_Entrypoint1 und zum Hinzufügen eines Client Computers mit dem Namen CLIENT2:  
   
 ```  
 New-ADGroup -GroupScope universal -Name Win7_Clients_Entrypoint1  
@@ -289,7 +289,7 @@ Domänen Controller-Zuordnungs Informationen werden sowohl in der Registrierung 
   
     ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssoc3.png)  
   
-3.  Um die Domänen Controller Zuordnung für das Server-Gruppenrichtlinien Objekt "Entry Point 2" im Server-Gruppenrichtlinien Objekt "Einstiegspunkt 1" zu synchronisieren, führen Sie den Befehl aus, um "DC2" durch "DC3" zu ersetzen, und geben Sie den RAS-Server an, dessen Server-GPO nicht synchronisiert ist, in diesem Fall "da1", für das  *Computername* -Parameter.  
+3.  Um die Domänen Controller Zuordnung für das Server-Gruppenrichtlinien Objekt "Entry Point 2" im Server-Gruppenrichtlinien Objekt "Einstiegspunkt 1" zu synchronisieren, führen Sie den Befehl aus, um "DC2" durch "DC3" zu ersetzen, und geben Sie den Remote Zugriffs Server an, dessen Server-GPO nicht synchronisiert ist, in diesem Fall "da1" für den *Computername* -Parameter  
   
     ```  
     Set-DAEntryPointDC "ExistingDC 'DC2' "NewDC 'DC3' "ComputerName 'DA1' "ErrorAction Continue  
@@ -300,7 +300,7 @@ Domänen Controller-Zuordnungs Informationen werden sowohl in der Registrierung 
     ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssocFinal.png)  
   
 ### <a name="ConfigDistOptimization"></a>Optimierung der Konfigurations Verteilung  
-Wenn Sie Konfigurationsänderungen vornehmen, werden die Änderungen erst angewendet, nachdem die Server-Gruppenrichtlinien Objekte an die RAS-Server weitergegeben wurden. Um die Konfigurations Verteilung zu verkürzen, wählt der Remote Zugriff automatisch einen beschreibbaren Domänen Controller aus, der dem RAS-Server am nächsten liegt, wenn das zugehörige Server-Gruppenrichtlinien Objekt erstellt @no__t wird.  
+Wenn Sie Konfigurationsänderungen vornehmen, werden die Änderungen erst angewendet, nachdem die Server-Gruppenrichtlinien Objekte an die RAS-Server weitergegeben wurden. Um die Konfigurations Verteilung zu verkürzen, wählt der Remote Zugriff automatisch einen beschreibbaren Domänen Controller aus, der dem RAS-Server am nächsten liegt, wenn das zugehörige Server-Gruppenrichtlinien Objekt erstellt<https://technet.microsoft.com/library/cc978016.aspx>wird.  
   
 In einigen Szenarien kann es erforderlich sein, den Domänen Controller, von dem ein Server-Gruppenrichtlinien Objekt verwaltet wird, manuell zu ändern, um die Konfigurationszeit für die Verteilung zu optimieren:  
   
@@ -334,6 +334,6 @@ Führen Sie einen der folgenden Schritte aus, um die Konfigurations Verteilung z
   
 ## <a name="BKMK_Links"></a>Siehe auch  
   
--   [Schritt 3: Konfigurieren der Bereitstellung für mehrere Standorte @ no__t-0  
--   [Schritt 1: Implementieren einer Remote Zugriffs Bereitstellung für einen einzelnen Server @ no__t-0  
+-   [Schritt 3: Konfigurieren der Bereitstellung für mehrere Standorte](Step-3-Configure-the-Multisite-Deployment.md)  
+-   [Schritt 1: Implementieren einer Remote Zugriffs Bereitstellung für einen einzelnen Server](Step-1-Implement-a-Single-Server-Remote-Access-Deployment.md)  
 

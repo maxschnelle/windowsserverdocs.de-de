@@ -17,13 +17,13 @@ ms.locfileid: "71396361"
 ---
 # <a name="configure-network-policies"></a>Konfigurieren von Netzwerkrichtlinien
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema können Sie Netzwerk Richtlinien in NPS konfigurieren.
 
 ## <a name="add-a-network-policy"></a>Netzwerk Richtlinie hinzufügen
 
-Der Netzwerk Richtlinien Server \(nps @ no__t-1 verwendet Netzwerk Richtlinien und die Einwähleigenschaften von Benutzerkonten, um zu bestimmen, ob eine Verbindungsanforderung zum Herstellen einer Verbindung mit dem Netzwerk autorisiert ist.
+Der Netzwerk Richtlinien Server \(NPS-\) verwendet Netzwerk Richtlinien und die Einwähleigenschaften von Benutzerkonten, um zu bestimmen, ob eine Verbindungsanforderung zum Herstellen einer Verbindung mit dem Netzwerk autorisiert ist.
 
 Mit diesem Verfahren können Sie eine neue Netzwerk Richtlinie in der NPS-Konsole oder der Remote Zugriffs Konsole konfigurieren.
 
@@ -44,7 +44,7 @@ Wenn Sie den Assistenten für neue Netzwerk Richtlinien verwenden, um eine Netzw
 
 Auf der Seite **Zugriffsberechtigung** müssen Sie **Zugriff gewährt** auswählen, wenn die Richtlinie Benutzern das Herstellen einer Verbindung mit Ihrem Netzwerk gestatten soll. Wenn Sie verhindern möchten, dass Benutzer eine Verbindung mit Ihrem Netzwerk herstellen, wählen Sie **Zugriff verweigert**aus. 
 
-Wenn Sie möchten, dass die Zugriffsberechtigung mithilfe der DFÜ-Eigenschaften des Benutzerkontos in Active Directory @ no__t-0 Domänen Dienste \(AD DS @ no__t-2 festgelegt wird, können Sie das Kontrollkästchen **Zugriff wird durch Benutzer-DFÜ-Eigenschaften bestimmt** auswählen.
+Wenn Sie möchten, dass die Zugriffsberechtigung durch Benutzerkonto-Einwähleigenschaften in Active Directory&reg; Domänen Diensten \(AD DS\)festgelegt wird, können Sie das Kontrollkästchen **Zugriff wird durch Benutzer-DFÜ-Eigenschaften bestimmt** .
 
 Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft in **Domänen-Admins** oder einer gleichwertigen Gruppe.
 
@@ -58,10 +58,10 @@ Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft i
 
 ## <a name="create-network-policies-for-dial-up-or-vpn-with-a-wizard"></a>Erstellen von Netzwerk Richtlinien für die DFÜ-oder VPN-Verbindung mit einem Assistenten
 
-Mithilfe dieses Verfahrens können Sie die Verbindungs Anforderungs Richtlinien und Netzwerk Richtlinien erstellen, die erforderlich sind, um DFÜ-Server oder ein virtuelles privates Netzwerk \(vpn @ no__t-1-Server als Remote Authentication Dial-in User Service \(radius @ no__t-3 bereitzustellen. Clients auf dem NPS-RADIUS-Server.
+Mithilfe dieses Verfahrens können Sie die Verbindungs Anforderungs Richtlinien und Netzwerk Richtlinien erstellen, die erforderlich sind, um DFÜ-Server oder ein virtuelles privates Netzwerk \(VPN\)-Servern als Remote Authentication Dial-in User Service \(RADIUS\) Clients dem NPS-RADIUS-Server bereitzustellen.
 
 >[!NOTE]
->Client Computer, z. b. Laptop Computer und andere Computer, auf denen Client Betriebssysteme ausgeführt werden, sind keine RADIUS-Clients. RADIUS-Clients sind Netzwerk Zugriffs Server – z. b. drahtlos Zugriffspunkte, 802.1 x-authentifizierende Switches, virtuelles privates Netzwerk \(vpn @ no__t-1-Server und DFÜ-Server – da diese Geräte das RADIUS-Protokoll für die Kommunikation mit RADIUS verwenden. Server, wie z. b. NPSS.
+>Client Computer, z. b. Laptop Computer und andere Computer, auf denen Client Betriebssysteme ausgeführt werden, sind keine RADIUS-Clients. RADIUS-Clients sind Netzwerk Zugriffs Server – z. b. drahtlos Zugriffspunkte, 802.1 x-authentifizier Ende Switches, virtuelles privates Netzwerk \(VPN\) Servern und DFÜ-Server – da diese Geräte das RADIUS-Protokoll für die Kommunikation mit RADIUS-Servern wie NPSS verwenden.
 
 In diesem Verfahren wird erläutert, wie der Assistent für neue DFÜ-oder virtuelle private Netzwerkverbindungen in NPS geöffnet wird.
 
@@ -78,7 +78,7 @@ Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft i
 
 ### <a name="to-create-policies-for-dial-up-or-vpn-with-a-wizard"></a>So erstellen Sie Richtlinien für die DFÜ-oder VPN-Richtlinie mit einem Assistenten
 
-1. Öffnen Sie die NPS-Konsole. Wenn Sie nicht bereits ausgewählt ist, klicken Sie auf  **\(NPS local\)** . Wenn Sie Richtlinien für eine Remote-NPS erstellen möchten, wählen Sie den Server aus.
+1. Öffnen Sie die NPS-Konsole. Wenn Sie nicht bereits ausgewählt ist, klicken Sie auf **NPS \(lokalen\)** . Wenn Sie Richtlinien für eine Remote-NPS erstellen möchten, wählen Sie den Server aus.
 
 2. Wählen Sie unter " **Start** " und " **Standard Konfiguration**" die Option **RADIUS-Server für DFÜ-oder VPN-Verbindungen**. Der Text und die Links unter dem Text ändern sich, um die Auswahl widerzuspiegeln.
 
@@ -107,7 +107,7 @@ Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft i
 
 1. Klicken Sie auf dem NPS in Server-Manager auf **Extras, und klicken Sie dann**auf **Netzwerk Richtlinien Server**. Die NPS-Konsole wird geöffnet. 
 
-2. Wenn Sie nicht bereits ausgewählt ist, klicken Sie auf  **\(NPS local\)** . Wenn Sie Richtlinien für eine Remote-NPS erstellen möchten, wählen Sie den Server aus.
+2. Wenn Sie nicht bereits ausgewählt ist, klicken Sie auf **NPS \(lokalen\)** . Wenn Sie Richtlinien für eine Remote-NPS erstellen möchten, wählen Sie den Server aus.
 
 3. Wählen Sie unter " **Start** " und " **Standard Konfiguration**" **RADIUS-Server für drahtlose oder verkabelte 802.1 x-Verbindungen aus**. Der Text und die Links unter dem Text ändern sich, um die Auswahl widerzuspiegeln.
 
@@ -117,7 +117,7 @@ Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft i
 
 ## <a name="configure-nps-to-ignore-user-account-dial-in-properties"></a>Konfigurieren von NPS zum Ignorieren von Benutzerkonto-DFÜ-Eigenschaften
 
-Verwenden Sie dieses Verfahren, um eine NPS-Netzwerk Richtlinie so zu konfigurieren, dass die DFÜ-Eigenschaften von Benutzerkonten in Active Directory während des Autorisierungs Vorgangs ignoriert werden. Benutzerkonten in Active Directory Benutzern und Computern verfügen über DFÜ-Eigenschaften, die NPS während der Autorisierung auswertet, es sei denn, die Eigenschaft **Netzwerk Zugriffsberechtigung** des Benutzerkontos ist so festgelegt, dass der **Zugriff über NPS-Netzwerk Richtlinie gesteuert wird** . 
+Verwenden Sie dieses Verfahren, um eine NPS-Netzwerk Richtlinie so zu konfigurieren, dass die DFÜ-Eigenschaften von Benutzerkonten in Active Directory während des Autorisierungs Vorgangs ignoriert werden. Benutzerkonten in Active Directory Benutzern und Computern verfügen über DFÜ-Eigenschaften, die NPS während der Autorisierung auswertet, es sei denn, die Eigenschaft **Netzwerk Zugriffsberechtigung** des Benutzerkontos ist so festgelegt, dass der **Zugriff über die NPS-Netzwerk Richtlinie gesteuert**wird. 
 
 Es gibt zwei Situationen, in denen Sie NPS so konfigurieren möchten, dass die DFÜ-Eigenschaften von Benutzerkonten in Active Directory ignoriert werden:
 
@@ -171,7 +171,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 6. Scrollen Sie unter **Standard-RADIUS-Attribut hinzufügen**in Attribute zu, und fügen Sie die folgenden Attribute hinzu:
 
-    - **Tunnel-Mittel--Typ**. Wählen Sie einen Wert aus, der der vorherigen Auswahl entspricht, die Sie für die Richtlinie vorgenommen haben. Wenn beispielsweise die Netzwerk Richtlinie, die Sie konfigurieren, eine drahtlos Richtlinie ist, wählen Sie **wert aus: 802 (enthält alle 802 Medien und das kanonische Ethernet-Format)** .
+    - **Tunnel-Mittel--Typ**. Wählen Sie einen Wert aus, der der vorherigen Auswahl entspricht, die Sie für die Richtlinie vorgenommen haben. Wenn z. b. die Netzwerk Richtlinie, die Sie konfigurieren, eine drahtlos Richtlinie ist, wählen Sie **Wert: 802 (enthält alle 802-Medien und kanonische Ethernet-Format)** .
 
     - **Tunnel-Pvt-Group-ID**. Geben Sie die ganze Zahl ein, die die VLAN-Nummer darstellt, der Gruppenmitglieder zugewiesen werden. 
 
@@ -194,7 +194,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 In einigen Fällen werden von Routern oder Firewalls Pakete gelöscht, da Sie so konfiguriert sind, dass Sie Pakete verwerfen, die Fragmentierungen erfordern.
 
-Wenn Sie NPS mit Netzwerk Richtlinien bereitstellen, die das Extensible Authentication-Protokoll \(eap @ no__t-1 mit Transport Layer Security \(tls @ no__t-3 oder EAP-TLS als Authentifizierungsmethode verwenden, wird die standardmäßige maximale Übertragungseinheit \(mtu @ no_ _T-5, die NPS für EAP-Nutzlasten verwendet, beträgt 1500 Bytes. 
+Wenn Sie NPS mit Netzwerk Richtlinien bereitstellen, die das Extensible Authentication-Protokoll \(EAP-\) mit Transport Layer Security \(TLS\)oder EAP-TLS als Authentifizierungsmethode verwenden, ist die standardmäßige maximale Übertragungseinheit \(MTU\), die NPS für EAP-Nutzlasten verwendet, 1500 Bytes. 
 
 Diese maximale Größe für die EAP-Nutzlast kann RADIUS-Nachrichten erstellen, die eine Fragmentierung von einem Router oder einer Firewall zwischen dem NPS und einem RADIUS-Client erfordern. Wenn dies der Fall ist, werden von einem Router oder einer Firewall, der zwischen dem RADIUS-Client und dem NPS positioniert ist, möglicherweise einige Fragmente verworfen, was zu einem Authentifizierungsfehler und zum Ausfall der Verbindungs Herstellung mit dem Netzwerk führen kann.
 

@@ -53,7 +53,7 @@ Zum Auflisten von Elementen aus der Sicherung, die am 31. März 2013 um 9:00 Uhr
 ```
 wbadmin get items -version:03/31/2013-09:00
 ```
-So Listen Sie Elemente aus der Sicherung von Server01 auf, die am 2013 30. April um 9:00 Uhr ausgeführt wurde und auf \\ @ no__t-1servername\share gespeichert wird, geben Sie Folgendes ein:
+So Listen Sie Elemente aus der Sicherung von Server01 auf, die am 2013 30. April um 9:00 Uhr ausgeführt wurde und auf \\\\servername\share gespeichert wird, geben Sie Folgendes ein:
 ```
 wbadmin get items -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```

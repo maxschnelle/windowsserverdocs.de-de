@@ -23,7 +23,7 @@ ms.locfileid: "71383259"
 ---
 # <a name="add-servers-to-server-manager"></a>Hinzufügen von Servern zu Server-Manager
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In Windows Server können Sie mehrere Remoteserver mit einer einzigen Server-Manager-Konsole verwalten. Server, die Sie mithilfe von Server-Manager verwalten möchten, können Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008 ausführen. Beachten Sie, dass eine neuere Version von Windows Server nicht mit einer älteren Version des Server-Manager verwaltet werden kann.
 
@@ -85,9 +85,9 @@ Sie können Server-Manager zu verwaltende Server hinzufügen, indem Sie eine der
 
 3.  Führen Sie eine der folgenden Aktionen aus.
 
-    -   Wählen Sie auf der Registerkarte **Active Directory** die Server aus, die sich in der aktuellen Domäne befinden. Halten Sie die **STRG**-Taste gedrückt, um mehrere Server auszuwählen. Klicken Sie auf die Schaltfläche mit dem Pfeil nach rechts, um die ausgewählten Server in die Liste **ausgewählt** zu verschieben.
+    -   Wählen Sie auf der Registerkarte **Active Directory** die Server aus, die sich in der aktuellen Domäne befinden. Halten Sie die STRG-Taste gedrückt, um mehrere Server auszuwählen. Klicken Sie auf die Schaltfläche mit dem Pfeil nach rechts, um die ausgewählten Server in die Liste **ausgewählt** zu verschieben.
 
-    -   Geben Sie auf der Registerkarte **DNS** die ersten Zeichen eines Computernamens oder einer IP-Adresse ein, und drücken Sie dann die **EINGABETASTE** ,oder klicken Sie auf **Suchen**. Wählen Sie die hinzuzufügenden Server aus, und klicken Sie dann auf die Schaltfläche mit dem Pfeil nach rechts.
+    -   Geben Sie auf der Registerkarte **DNS** die ersten Zeichen eines Computernamens oder einer IP-Adresse ein, und drücken Sie dann die EINGABETASTE , oder klicken Sie auf **Suchen**. Wählen Sie die hinzuzufügenden Server aus, und klicken Sie dann auf die Schaltfläche mit dem Pfeil nach rechts.
 
     -   Suchen Sie auf der Registerkarte **Import** nach einer Textdatei mit den DNS-Namen oder IP-Adressen der Computer, die Sie hinzufügen möchten (die Datei enthält jeweils einen Namen oder eine IP-Adresse pro Zeile).
 
@@ -176,6 +176,6 @@ Sie können den Server-Manager zur Verwaltung von Servern verwenden, die sich in
 
 -   Sie können auf einem gruppierten virtuellen Server keine Rollen und Features installieren.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [Server-Manager](server-manager.md)
 [Erstellen und Verwalten von Servergruppen](create-and-manage-server-groups.md)

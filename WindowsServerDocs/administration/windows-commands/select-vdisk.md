@@ -22,9 +22,9 @@ ms.locfileid: "71384189"
 ---
 # <a name="select-vdisk"></a>Vdisk auswählen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-wählt die angegebene virtuelle Festplatte \(vhd @ no__t-1 aus und verschiebt den Fokus darauf.  
+wählt die angegebene virtuelle Festplatte \(VHD-\) aus und verschiebt den Fokus darauf.  
   
 > [!NOTE]  
 > Dieser Befehl gilt nur für Windows 7 und Windows Server 2008 R2.  
@@ -39,7 +39,7 @@ select vdisk file=<full path> [noerr]
   
 |Parameter|Beschreibung|  
 |-------|--------|  
-|file @ no__t-0 @ no__t-1|Gibt den vollständigen Pfad und den Dateinamen einer vorhandenen VHD-Datei an.|  
+|Datei\=<full path>|Gibt den vollständigen Pfad und den Dateinamen einer vorhandenen VHD-Datei an.|  
 |Noerr|Wird nur für die Skripterstellung verwendet. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|  
   
 ## <a name="BKMK_examples"></a>Beispiele  

@@ -22,9 +22,9 @@ ms.locfileid: "71378556"
 ---
 # <a name="detail-vdisk"></a>Detail-Vdisk
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt die Eigenschaften der ausgewählten virtuellen Festplatte \(vhd @ no__t-1 an.  
+Zeigt die Eigenschaften der ausgewählten virtuellen Festplatte \(VHD-\)an.  
   
 ## <a name="syntax"></a>Syntax  
   

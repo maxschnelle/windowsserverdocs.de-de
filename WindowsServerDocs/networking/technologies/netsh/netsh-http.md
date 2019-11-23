@@ -23,7 +23,7 @@ Verwenden Sie **netsh http** zum Abfragen und Konfigurieren von http. sys-Einste
 >[!TIP]
 >Wenn Sie Windows PowerShell auf einem Computer verwenden, auf dem Windows Server 2016 oder Windows 10 ausgeführt wird, geben Sie **netsh** ein, und drücken Sie die EINGABETASTE. Geben Sie an der netsh-Eingabeaufforderung **http** ein, und drücken Sie die EINGABETASTE, um die netsh http-Eingabeaufforderung
 >
->&nbsp; @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6netsh http @ no__t-7
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;netsh http\>
 
 Die folgenden netsh http-Befehle sind verfügbar:
 
@@ -156,8 +156,8 @@ add urlacl [ url= ] URL [ [user=] User [ [ listen= ] yes | no [ delegate= ] yes 
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 |   **url**    |                                          Gibt den voll qualifizierten Uniform Resource Locator (URL) an.                                           | Erforderlich |
 |   **user**   |                                                      Gibt den Namen des Benutzers oder der Benutzergruppe an.                                                       | Erforderlich |
-|  **hin**  | Gibt einen der folgenden Werte an: Ja: Ermöglicht dem Benutzer das Registrieren von URLs. Dies ist der Standardwert. Nein: Verweigern des Benutzers beim Registrieren von URLs. | Optional |
-| **Führers** |  Gibt einen der folgenden Werte an: Ja: Benutzern das Delegieren von URLs gestatten: Verweigern Sie dem Benutzer die Delegierung von URLs. Dies ist der Standardwert.  | Optional |
+|  **hin**  | Gibt einen der folgenden Werte an: Ja: erlauben Sie dem Benutzer das Registrieren von URLs. Dies ist der Standardwert. Nein: verweigert dem Benutzer das Registrieren von URLs. | Optional |
+| **Führers** |  Gibt einen der folgenden Werte an: Ja: dem Benutzer gestatten, URLs zu delegieren Nein: verweigert dem Benutzer die Delegierung von URLs. Dies ist der Standardwert.  | Optional |
 |   **SDDL**   |                                                Gibt eine SDDL-Zeichenfolge an, die die DACL beschreibt.                                                 | Optional |
 
 ---
@@ -166,10 +166,10 @@ add urlacl [ url= ] URL [ [user=] User [ [ listen= ] yes | no [ delegate= ] yes 
 
 Im folgenden sind vier Beispiele für den Befehl " **urlacl hinzufügen** " aufgeführt.
 
-- add urlacl URL = https://+:80/MyUri User = Domäne @ no__t-1User
-- add urlacl URL = <https://www.contoso.com:80/MyUri> User = Domäne @ no__t-1User lauschen = Yes
-- add urlacl URL = <https://www.contoso.com:80/MyUri> User = Domain @ no__t-1User Delegat = No
-- add urlacl URL = https://+:80/MyUri SDDL =...
+- add urlacl URL =https://+:80/MyUri User = Domäne\\Benutzer
+- add urlacl URL =<https://www.contoso.com:80/MyUri> User = Domain\\User lauschen = Yes
+- add urlacl URL =<https://www.contoso.com:80/MyUri> User = Domain\\User Delegat = No
+- add urlacl URL =https://+:80/MyUri SDDL =...
 
 ---
 
@@ -196,7 +196,7 @@ delete cache [ [ url= ] URL [ [recursive= ] yes | no ]
 
 Im folgenden finden Sie zwei Beispiele für den Befehl **Cache löschen** .
 
-- Cache-URL löschen = <https://www.contoso.com:80/myresource/> rekursiv = ja
+- Cache-URL löschen =<https://www.contoso.com:80/myresource/> rekursiv = ja
 - Cache löschen
 
 ---
@@ -312,8 +312,8 @@ delete urlacl [ url= ] URL
 
 Im folgenden sind zwei Beispiele für den Befehl " **urlacl löschen** " aufgeführt.
 
-- urlacl-URL löschen = https://+:80/MyUri
-- urlacl-URL löschen = <https://www.contoso.com:80/MyUri>
+- urlacl-URL löschen =https://+:80/MyUri
+- urlacl-URL löschen =<https://www.contoso.com:80/MyUri>
 
 ---
 
@@ -352,7 +352,7 @@ show cachestate [ [url= ] URL]
 
 Im folgenden sind zwei Beispiele für den Befehl " **cachestate anzeigen** " aufgeführt:
 
-- Cache Estate URL anzeigen = <https://www.contoso.com:80/myresource>
+- Cache Estate URL anzeigen =<https://www.contoso.com:80/myresource>
 - cachestate anzeigen
 
 ---
@@ -462,8 +462,8 @@ show urlacl [ [url= ] URL]
 
 Im folgenden sind drei Beispiele für den Befehl **show urlacl** aufgeführt.
 
-- urlacl-URL anzeigen = https://+:80/MyUri
-- urlacl-URL anzeigen = <https://www.contoso.com:80/MyUri>
+- urlacl-URL anzeigen =https://+:80/MyUri
+- urlacl-URL anzeigen =<https://www.contoso.com:80/MyUri>
 - urlacl anzeigen
 
 ---

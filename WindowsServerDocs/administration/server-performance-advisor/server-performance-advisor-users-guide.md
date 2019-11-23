@@ -173,7 +173,7 @@ Da Benutzerdaten Banken mit Spa erstellen und verwalten können, muss das Benutz
 
 ### <a href="" id="bkmk-setupspa"></a>Einrichten von Spa
 
-Spa ist als CAB-Datei verpackt, die alle Binärdateien für das Spa-Framework, die Windows PowerShell-Cmdlets, die in erweiterten Szenarien verwendet werden, und die folgenden Advisor-Pakete umfasst: Core-Betriebssystem, Hyper-V, Active Directory und IIS. Nachdem Sie die CAB-Datei in einen Ordner extrahiert haben, ist keine weitere Installation erforderlich. Zum Ausführen von Spa müssen Sie die Datensammlung auf den Ziel Servern jedoch wie folgt aktivieren:
+Spa ist als CAB-Datei verpackt, die alle Binärdateien für das Spa-Framework, die Windows PowerShell-Cmdlets, die in erweiterten Szenarien verwendet werden, und die folgenden Advisor-Pakete enthält: Core OS, Hyper-V, Active Directory und IIS. Nachdem Sie die CAB-Datei in einen Ordner extrahiert haben, ist keine weitere Installation erforderlich. Zum Ausführen von Spa müssen Sie die Datensammlung auf den Ziel Servern jedoch wie folgt aktivieren:
 
 * Zum Ausführen der Pla-Datensammlung muss das Benutzerkonto, das Sie zum Ausführen der Spa-Konsole verwenden, der Sicherheitsgruppe "Administratoren" auf dem Zielserver angehören. Wenn sich der Zielserver und die-Konsole in derselben Domäne befinden, muss das Domänen Benutzerkonto Teil der Sicherheitsgruppe Administratoren auf dem Zielserver sein. Wenn sich der Zielserver und die-Konsole nicht in derselben Domäne befinden, erstellen Sie ein Administrator Konto auf dem Zielserver mit demselben Benutzernamen und Kennwort wie das Benutzerkonto, das Sie zum Ausführen der Spa-Konsole verwenden.
 
@@ -196,7 +196,7 @@ Die Spa-Konsole verwendet dasselbe Konto, um Protokolle zu lesen und in die-Date
 
 * Aktivieren Sie die Netzwerk Ermittlung in der-Konsole und auf jedem der Zielserver.
 
-* Wenn der Zielserver keiner Domäne hinzugefügt wurde, aktivieren Sie die folgende Registrierungs Einstellung: **HKLM @ no__t-1Software @ no__t-2microsoft @ no__t-3Windows @ no__t-4currentversion @ no__t-5policies @ no__t-6system @ no__t-7localaccountdekenfilterpolicy**.
+* Wenn der Zielserver keiner Domäne hinzugefügt wird, aktivieren Sie die folgende Registrierungs Einstellung: **HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\localaccountdekenfilterpolicy**.
 
 **Hinweis** Standardmäßig schreibt Spa Diagnoseprotokolle in den Ordner, in dem sich "spaconsole. exe" befindet. Wenn die Spa im Ordner "Programme" installiert ist, kann die Spa nur das Protokoll schreiben, wenn "spaconsole. exe" als Administrator ausgeführt wird.
 
@@ -222,9 +222,9 @@ Nachdem alles eingerichtet wurde, können Sie Ihr erstes Spa-Projekt erstellen. 
 
     * Hinzufügen von Servern zur Zielserver Liste
 
-3.  Klicken Sie auf **Weiter**. Auf der Seite **Projektdatenbank erstellen** werden Sie aufgefordert, den Namen der Microsoft SQL Server Instanz anzugeben, in der Sie die Datenbank erstellen möchten. Wenn Sie sich z. b. auf demselben Computer wie die-Konsole befindet, können Sie **localhost @ no__t-1 @ no__t-2your SQL Servername @ no__t-3**verwenden.
+3.  Klicken Sie auf **Weiter**. Auf der Seite **Projektdatenbank erstellen** werden Sie aufgefordert, den Namen der Microsoft SQL Server Instanz anzugeben, in der Sie die Datenbank erstellen möchten. Wenn Sie sich z. b. auf dem gleichen Computer wie die-Konsole befindet, können Sie **localhost\\&lt;den SQL Server-Namen&gt;** verwenden.
 
-    **Hinweis** Der Standardinstanzname für eine SQL Server 2008 R2 Express-Installation lautet SQLExpress. Bei einer Instanz von SQL Server 2008 R2 Express, die auf dem lokalen Computer installiert ist, wird in der Regel standardmäßig **localhost @ no__t-1sqlexpress**angezeigt. Es wurde jedoch möglicherweise während SQL Server Installation geändert, daher müssen Sie sicherstellen, dass Sie den richtigen SQL Server Instanznamen verwenden.
+    **Hinweis** Der Standardinstanzname für eine SQL Server 2008 R2 Express-Installation lautet SQLExpress. Für eine Instanz von SQL Server 2008 R2 Express, die auf dem lokalen Computer installiert ist, wird die Datenbank in der Regel standardmäßig **localhost\\SQLExpress**. Es wurde jedoch möglicherweise während SQL Server Installation geändert, daher müssen Sie sicherstellen, dass Sie den richtigen SQL Server Instanznamen verwenden.
 
      
 
@@ -238,7 +238,7 @@ Nachdem alles eingerichtet wurde, können Sie Ihr erstes Spa-Projekt erstellen. 
 
 6.  Klicken Sie auf der Seite " **Projektdatenbank erstellen** " auf " **weiter**". Beim ersten Mal erstellt der Assistent eine Datenbank und generiert alle Spa-bezogenen Datenbankschemas, Funktionen und gespeicherten Prozeduren in der Datenbank. Dieser Schritt kann je nach Hardware-und Netzwerkgeschwindigkeit einige Sekunden in Anspruch nehmen.
 
-    **Hinweis** wenn dieser Schritt fehlschlägt, wird eine Fehlermeldung angezeigt. Einige häufige Probleme sind: Die-Konsole kann keine Verbindung mit der SQL Server Instanz, unzureichende Berechtigungen zum Erstellen einer Datenbank herstellen, oder der Datenbankname ist bereits vorhanden.
+    **Hinweis** wenn dieser Schritt fehlschlägt, wird eine Fehlermeldung angezeigt. Einige häufige Probleme sind: die-Konsole kann keine Verbindung mit der SQL Server-Instanz herstellen, unzureichende Berechtigungen zum Erstellen einer Datenbank, oder der Datenbankname ist bereits vorhanden.
 
      
 
@@ -254,7 +254,7 @@ Nachdem alles eingerichtet wurde, können Sie Ihr erstes Spa-Projekt erstellen. 
 
      
 
-9.  Auf der Seite **Server hinzufügen** müssen Sie für jeden Server, der der Liste Zielserver hinzugefügt werden soll, zwei Pflichtfelder ausfüllen: Der **Name des Servers und der** **Dateifreigabe**.
+9.  Auf der Seite **Server hinzufügen** müssen für jeden Server, der der Liste Zielserver hinzugefügt werden soll, zwei Pflichtfelder ausgefüllt werden: **Name des Servers und der** **Dateifreigabe**.
 
     **Hinweis** Es gibt auch ein Feld für die **Anmerkung** , das hauptsächlich zum Klassifizieren oder Suchen des Servers verwendet wird. In Fällen, in denen Sie viele Server haben, können Sie eine Datei mit Komma getrennten Werten (CSV-Datei) importieren, die den Servernamen, den Ergebnis Ordner und das optionale Feld für die Anmerkung enthält. Das Feld " **Anmerkung** " wird verwendet, um den Server zu beschreiben, und der Begriff kann zum Filtern von Servern für die Datensammlung verwendet werden. Wenn Sie die Server über die CSV-Datei initialisieren, werden die Server durch einen Fehler beim fehl geschachtelungs Fehler in der Datei nicht geladen.
 
@@ -302,7 +302,7 @@ Wenn Sie die Leistungsanalyse auf Ziel Servern ausführen möchten, wählen Sie 
 ## <a href="" id="bkmk-viewingreports"></a>Anzeigen von Berichten
 
 
-In Spa gibt es drei Arten von Leistungsanalyse Berichten: Einzelner Bericht, paralleler Bericht und Trend-und Verlaufs Diagramme.
+In Spa gibt es drei Typen von Leistungsanalyse Berichten: einzelner Bericht, paralleler Bericht und Trend-und Verlaufs Diagramme.
 
 Nach dem Ausführen der Leistungsanalyse wird für jedes Advisor-Paket, das auf dem Bereitstellungs Zielcomputer ausgeführt wird, ein Bericht generiert. Aus der Serverliste im Hauptfenster können Sie das **Analyseergebnis** erweitern, um alle Advisor-Pakete anzuzeigen, die auf dem jeweiligen Server ausgeführt wurden. Sie können auf einen Berichts Namen klicken, um einen einzelnen Bericht anzuzeigen.
 
@@ -372,7 +372,7 @@ Das Core OS Spa Advisor Pack und das IIS Spa Advisor Pack enthalten einen Abschn
 
 * **Obere Liste** Enthält normalerweise die häufigsten Consumer einer bestimmten Ressource oder die obersten Entitäten, für die bestimmte Ereignisse auftreten. Die **10 wichtigsten Prozesse in Bezug auf die durchschnittliche CPU-Auslastung** umfassen beispielsweise die zehn wichtigsten Prozesse mit der höchsten durchschnittlichen CPU-Auslastung während der Datensammlung. Da die CPU-Auslastung auch ein dynamischer numerischer Datenpunkt ist, sind andere Statistiken wie Maximum, minimal und 90% ebenfalls in der Liste enthalten, um dem Benutzer ein ausführlichere Bild der CPU-Auslastung zu verschaffen.
 
-Wie in den vorherigen Abschnitten erwähnt, baut Spa auf der Erstellung der etw-Ablauf Verfolgung, WMI-Abfragen, Leistungsindikatoren, Registrierungsschlüssel und Konfigurationsdateien auf, um den Bericht zu generieren. Es ist wichtig, dass Sie die Datenquelle hinter den einzelnen Datenpunkten im Bericht verstehen. Spa stellt Informationen über Quick Infos bereit. Sie können mit dem Mauszeiger auf die Schlüssel Spalten oder Zeilen zeigen, um die QuickInfo für die Datenquelle anzuzeigen. **WMI: Win32 @ no__t-1disdrive: Caption** bedeutet beispielsweise, dass die Datenquelle aus einer WMI-Abfrage, der WMI-Klassenname Win32 @ no__t-2diskdrive und die-Eigenschaft **Beschriftung**ist.
+Wie in den vorherigen Abschnitten erwähnt, baut Spa auf der Erstellung der etw-Ablauf Verfolgung, WMI-Abfragen, Leistungsindikatoren, Registrierungsschlüssel und Konfigurationsdateien auf, um den Bericht zu generieren. Es ist wichtig, dass Sie die Datenquelle hinter den einzelnen Datenpunkten im Bericht verstehen. Spa stellt Informationen über Quick Infos bereit. Sie können mit dem Mauszeiger auf die Schlüssel Spalten oder Zeilen zeigen, um die QuickInfo für die Datenquelle anzuzeigen. **WMI: Win32\_disdrive: Caption** bedeutet beispielsweise, dass die Datenquelle aus einer WMI-Abfrage, der WMI-Klassenname Win32\_diskdrive und die-Eigenschaft **Beschriftung**ist.
 
 ### <a href="" id="side-by-side-report-"></a>Paralleler Bericht
 
@@ -464,7 +464,7 @@ Neue Ratgeber Pakete können von Microsoft oder von Entwicklern, die nicht von M
 
 **So stellen Sie ein neues Advisor Pack bereit**
 
-1.  Kopieren Sie den gesamten Inhalt des Advisor-Pakets unter dem Verzeichnis *% sparoot%* \\aps.
+1.  Kopieren Sie den gesamten Inhalt des Advisor-Pakets unter dem Verzeichnis *% sparoot%* \\APS.
 
 2.  Klicken Sie im Hauptfenster auf **Konfiguration**, und klicken Sie dann auf **Advisor Packs konfigurieren**. Das Dialogfeld **Advisor-Pakete konfigurieren** wird geöffnet.
 
@@ -590,8 +590,8 @@ In der folgenden Tabelle werden die Windows PowerShell-Cmdlets für Spa beschrie
 | ------ | ------- | ------ |
 | Start-spaanalysis | **-Servername** Der Name des Zielservers.<br>**-Advisorpackname** Vollständiger Name des Advisor-Pakets, das auf dem Server in die Warteschlange gestellt werden soll Wenn mehrere Pakete zur gleichen Zeit ausgeführt werden sollen, muss der Wert des-Parameters als AP1name, AP2name formatiert werden.<br>**-Dauer** Dauer für die Datensammlung.<br>**-Credential** Benutzer Anmelde Informationen für das Konto, mit dem die Datensammlung auf dem Zielserver ausgeführt wird.<br>**-SqlInstanceName** Der Name der SQL Server Instanz.<br>**-SQLDatabaseName** Der Name der Spa-Projektdatenbank. | Startet eine Spa-Daten Sammlungs Sitzung auf dem angegebenen Server. |
 | "Ende-spaanalysis" | **-SqlInstanceName** Der Name der SQL Server Instanz.<br>**-SQLDatabaseName** Der Name der Spa-Projektdatenbank.<br>**-Servername** Der Name des Zielservers. | Versucht, eine laufende Spa-Sitzung zu verhindern. Wenn eine Sitzung bereits beendet ist, wird Sie zurückgegeben, ohne etwas zu tun. |
-| Get-spaserver | **-SqlInstanceName** Der Name der SQL Server Instanz.<br>**-SQLDatabaseName** Der Name der Spa-Projektdatenbank. | Ruft die Serverliste in der Datenbank ab. Es wird eine Liste von-Objekten zurückgegeben, einschließlich der folgenden Eigenschaften: Name, Status, Dateifreigabe und Hinweis. |
-| Get-spaadvisorpacks | **-SqlInstanceName** Name der SQL Server Instanz<br>**-SQLDatabaseName** Name der Spa-Projektdatenbank | Ruft die Advisor Pack-Liste in der Datenbank ab. Es wird eine Liste von-Objekten zurückgegeben, einschließlich der folgenden Eigenschaften: Name, Display Name, Author und Version. |
+| Get-spaserver | **-SqlInstanceName** Der Name der SQL Server Instanz.<br>**-SQLDatabaseName** Der Name der Spa-Projektdatenbank. | Ruft die Serverliste in der Datenbank ab. Sie gibt eine Liste von-Objekten zurück, einschließlich der folgenden Eigenschaften: Name, Status, Dateifreigabe und Anmerkung. |
+| Get-spaadvisorpacks | **-SqlInstanceName** Name der SQL Server Instanz<br>**-SQLDatabaseName** Name der Spa-Projektdatenbank | Ruft die Advisor Pack-Liste in der Datenbank ab. Sie gibt eine Liste von-Objekten zurück, einschließlich der folgenden Eigenschaften: Name, Display Name, Author und Version. |
 
 Windows PowerShell bietet die Möglichkeit, Anmelde Informationen über verschlüsselte Dateien zu übergeben, um Automatisierungs Szenarios zu ermöglichen. Weitere Informationen zur Verwendung verschlüsselter Dateien zum Übergeben von Anmelde Informationen an ein Cmdlet finden Sie unter [Erstellen von Windows PowerShell-Skripts, die Anmelde Informationen akzeptieren](https://technet.microsoft.com/magazine/ff714574.aspx).
 
@@ -717,7 +717,7 @@ SQL Server Express hat für eine Benutzerdatenbank eine Größenbeschränkung vo
 
 ### <a name="sql-server-express-log-size-and-disk-capacity"></a>SQL Server Express Protokoll Größe und Datenträger Kapazität
 
-Wenn Sie SQL Server Express verwenden, ist die Benutzerdatenbank auf 10 GB beschränkt, aber die zugehörige Protokolldatei kann 70 GB überschreiten. Aus diesen Gründen empfehlen wir 100 GB oder mehr freien Speicherplatz für SQL Server Express. Dieser Speicherplatz muss ausreichen, um ca. 20.000 bis 30.000 Berichte zu speichern. Diese Protokolldatei hat den Namen "SPADB\_log.ldf" und befindet sich unter **% Program Files% \\microsoft SQL Server @ no__t-3mssql10. SQLExpress @ no__t-4mssql @ no__t-5data**.
+Wenn Sie SQL Server Express verwenden, ist die Benutzerdatenbank auf 10 GB beschränkt, aber die zugehörige Protokolldatei kann 70 GB überschreiten. Aus diesen Gründen empfehlen wir 100 GB oder mehr freien Speicherplatz für SQL Server Express. Dieser Speicherplatz muss ausreichen, um ca. 20.000 bis 30.000 Berichte zu speichern. Diese Protokolldatei hat den Namen spadb\_Log. ldf und befindet sich unter **% Program Files%\\Microsoft SQL Server\\MSSQL10. SQLExpress\\MSSQL-\\Daten**.
 
 ### <a name="failure-to-connect-to-target-server"></a>Fehler beim Herstellen einer Verbindung mit dem Zielserver.
 
@@ -729,7 +729,7 @@ Wenn Sie die Meldung zum Erstellen eines Daten Sammlungs Satzes auf dem Zielserv
 
 * Stellen Sie sicher, dass die **Leistungs Protokolle &** Warnungs Dienst ausgeführt werden.
 
-* Die Sicherheitseinstellung **network Access: Speichern von Kenn Wörtern und Anmelde Informationen für die Netzwerk Authentifizierung nicht zulassen @ no__t-0 ist deaktiviert. Die Sicherheitseinstellung muss deaktiviert werden, da Spa die Benutzer Anmelde Informationen verwenden muss, um den Daten Sammlungs Satz auf dem Zielserver zu erstellen.
+* Die Sicherheitseinstellung **Netzwerk Zugriff: keine Speicherung von Kenn Wörtern und Anmelde Informationen für die Netzwerk Authentifizierung zulassen** ist deaktiviert. Die Sicherheitseinstellung muss deaktiviert werden, da Spa die Benutzer Anmelde Informationen verwenden muss, um den Daten Sammlungs Satz auf dem Zielserver zu erstellen.
 
 ### <a href="" id="running-spa-against-the-console-"></a>Ausführen von Spa mit der Konsole
 

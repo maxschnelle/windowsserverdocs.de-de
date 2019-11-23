@@ -21,7 +21,7 @@ ms.locfileid: "71388630"
 ---
 # <a name="step-2-configure-advanced-directaccess-servers"></a>Schritt 2 Konfigurieren von erweiterten DirectAccess-Servern
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema wird die Konfiguration der Client- und Servereinstellungen erläutert, die für eine erweiterte Remotezugriffsbereitstellung erforderlich sind, die einen einzelnen Remotezugriffsserver in einer gemischten IPv4- und IPv6-Umgebung verwendet. Bevor Sie mit den Bereitstellungs Schritten beginnen, stellen Sie sicher, dass Sie die in [Planen einer erweiterten DirectAccess-Bereitstellung](Plan-an-Advanced-DirectAccess-Deployment.md)beschriebenen Planungsschritte abgeschlossen haben.  
   
@@ -56,7 +56,7 @@ Um den Remotezugriff bereitzustellen, müssen Sie die Remotezugriffsrolle auf ei
   
 6.  Überprüfen Sie im Dialogfeld **Installationsstatus**, ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
   
-![-Installationsfortschritt erfolgreich](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
+![Installationsfortschritt erfolgreich](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)***<em>Windows PowerShell äquivalente Befehle</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -77,7 +77,7 @@ In dieser Anleitung wird in den Beispielverfahren eine Nur-DirectAccess-Bereitst
   
 #### <a name="to-configure-the-deployment-type"></a>So konfigurieren Sie den Bereitstellungstypen  
   
-1.  Öffnen Sie auf einem Remotezugriffsserver die Remotezugriffs-Verwaltungskonsole: Geben Sie auf dem **Start** Bildschirm**ramgmtui. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Öffnen Sie auf dem Remote Zugriffs Server die Remote Zugriffs-Verwaltungskonsole: Geben Sie auf dem **Start** Bildschirm**ramgmtui. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole im mittleren Bereich auf **Remotezugriffs-Setup-Assistenten ausführen**.  
   
@@ -186,7 +186,7 @@ Bei einer Remotezugriffsbereitstellung ist das Konfigurieren von Anwendungsserve
   
 3.  Um den Zugriff nur auf Server in der Sicherheitsgruppe des Anwendungsservers zu beschränken, müssen Sie das Kontrollkästchen **Zugriff nur für Server in den Sicherheitsgruppen zulassen** aktivieren.  
   
-4.  Wenn Sie die Authentifizierung ohne Verschlüsselung verwenden möchten, wählen Sie die **daten Verkehr nicht verschlüsseln aus. Kontrollkästchen nur Authentifizierung verwenden @ no__t-0.  
+4.  Wenn Sie die Authentifizierung ohne Verschlüsselung verwenden möchten, wählen Sie den **Datenverkehr nicht verschlüsseln aus. Kontrollkästchen nur Authentifizierung verwenden** .  
   
 5.  Klicken Sie auf **Fertig stellen**.  
   
@@ -197,18 +197,18 @@ Wenn die Konfiguration des Remotezugriffs abgeschlossen ist, wird das Dialogfeld
   
 2.  **Remoteclients**: Hier wird die DirectAccess-Clientkonfiguration angezeigt, einschließlich der Sicherheitsgruppe, des Status der Tunnelerzwingung, der Verbindungsprüfer und des DirectAccess-Verbindungsnamens.  
   
-3.  **Remotezugriffsserver**: Hier wird die DirectAccess-Konfiguration angezeigt, einschließlich des öffentlichen Namens/Adresse, der Netzwerkadapterkonfiguration, der Zertifikatinformationen und der OTP-Informationen, falls konfiguriert.  
+3.  **RAS-Server**: Hier wird die DirectAccess-Konfiguration angezeigt, einschließlich des öffentlichen Namens/Adresse, der Netzwerkadapterkonfiguration, der Zertifikatinformationen und der OTP-Informationen, falls konfiguriert.  
   
 4.  **Infrastrukturserver**: Diese Liste enthält die Netzwerkadressenserver-URL, DNS-Suffixe, die von DirectAcccess-Clients verwendet werden sowie Verwaltungsserverinformationen.  
   
 5.  **Anwendungsserver**: Hier wird zusätzlich zum Status der End-to-End-Authentifizierung bestimmter Anwendungsserver der DirectAccess-Remoteverwaltungsstatus angezeigt.  
   
 ## <a name="BKMK_PS"></a>2,8. Konfiguration des Remotezugriffsservers mithilfe von Windows PowerShell  
-](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)**äquivalente Windows PowerShell-Befehle** mit @no__t 0shell  
+![der entsprechenden Windows PowerShell-](../../../media/Step-2-Configuring-DirectAccess-Servers/PowerShellLogoSmall.gif)**Befehle in Windows PowerShell**  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
-So führen Sie eine vollständige Installation des Remotezugriffs nur für DirectAccess mit dem Stamm **corp.contoso.com** und folgenden Parametern durch: Server-Gruppenrichtlinienobjekt: **DirectAccess Server Settings**, Client-Gruppenrichtlinienobjekt: DirectAccess-Clienteinstellungen, interner Netzwerkadapter: **Corpnet**, externer Netzwerkadapter: **Internet**, connecttto Address: **Edge1.contoso.com**und Network Location Server: **nls.Corp.contoso.com**:  
+So führen Sie eine vollständige Installation in einer Edge-Topologie des Remote Zugriffs für DirectAccess nur in einer Domäne mit dem Stamm **Corp.contoso.com** und mithilfe der folgenden Parameter aus: Server-Gruppenrichtlinien Objekt: **DirectAccess-Servereinstellungen**, Client-GPO: DirectAccess-Client Einstellungen, interner Netzwerkadapter: **Corpnet**, externer Netzwerk **Adapter:** **Internet**, Verbindungs Adresse: **Edge1.contoso.com**  
   
 ```  
 Install-RemoteAccess -Force -PassThru -ServerGpoName 'corp.contoso.com\DirectAccess Server Settings' -ClientGpoName 'corp.contoso.com\DirectAccess Client Settings' -DAInstallType 'FullInstall' -InternetInterface 'Internet' -InternalInterface 'Corpnet' -ConnectToAddress 'edge1.contoso.com' -NlsUrl 'https://nls.corp.contoso.com/'  
@@ -243,7 +243,7 @@ Set-DAClientExperienceConfiguration -FriendlyName 'Contoso DirectAccess Connecti
   
 ## <a name="BKMK_Links"></a>Vorheriger Schritt  
   
--   [Schritt 1: Konfigurieren der erweiterten DirectAccess-Infrastruktur](da-adv-configure-s1-infrastructure.md)  
+-   [Schritt 1: Konfigurieren der erweiterten DirectAccess-Infrastruktur](da-adv-configure-s1-infrastructure.md)  
   
 ## <a name="next-step"></a>Nächster Schritt  
   

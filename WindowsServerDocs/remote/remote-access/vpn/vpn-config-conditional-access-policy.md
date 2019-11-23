@@ -26,8 +26,8 @@ ms.locfileid: "71404347"
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Vorher** Schritt 7.2. Erstellen von Stammzertifikaten für die VPN-Authentifizierung mit Azure AD](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
-- [**Weiter** Schritt 7.4. Bereitstellen von Stamm Zertifikaten für den bedingten Zugriff auf lokale Ad @ no__t-0
+- [**Vorheriges:** Schritt 7,2. Stamm Zertifikate für die VPN-Authentifizierung mit Azure AD erstellen](vpn-create-root-cert-for-vpn-auth-azure-ad.md)
+- [**Weiter:** Schritt 7,4. Bereitstellen von Stamm Zertifikaten für den bedingten Zugriff im lokalen AD](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md)
 
 In diesem Schritt konfigurieren Sie die Richtlinie für bedingten Zugriff für VPN-Konnektivität. Wenn das erste Stamm Zertifikat auf dem Blatt "VPN-Konnektivität" erstellt wird, wird automatisch eine "VPN Server"-cloudanwendung im Mandanten erstellt.
 
@@ -37,7 +37,7 @@ Erstellen Sie eine Richtlinie für bedingten Zugriff, die der Gruppe "VPN-Benutz
 - **Cloud-App**: VPN-Server
 - **Grant (Zugriffs Steuerung)** : "Multi-Factor Authentication erforderlich". Andere Steuerelemente können bei Bedarf verwendet werden.
 
-**Dringlichkeit** In diesem Schritt wird die Erstellung der grundlegendsten Richtlinie für den bedingten Zugriff behandelt.  Wenn gewünscht, können zusätzliche Bedingungen und Steuerelemente verwendet werden.
+**Prozedur:** In diesem Schritt wird die Erstellung der grundlegendsten Richtlinie für den bedingten Zugriff behandelt.  Wenn gewünscht, können zusätzliche Bedingungen und Steuerelemente verwendet werden.
 
 
 1. Wählen Sie auf der Seite **bedingter Zugriff** auf der Symbolleiste am oberen Rand die Option **Hinzufügen**aus.
@@ -94,4 +94,4 @@ Erstellen Sie eine Richtlinie für bedingten Zugriff, die der Gruppe "VPN-Benutz
 
 
 ## <a name="next-steps"></a>Nächste Schritte
-[Schritt 7.4: Bereitstellen von Stamm Zertifikaten für den bedingten Zugriff für lokale Ad @ no__t-0: In diesem Schritt stellen Sie das Stamm Zertifikat für den bedingten Zugriff als vertrauenswürdiges Stamm Zertifikat für die VPN-Authentifizierung in Ihrem lokalen AD bereit.
+[Schritt 7,4. ](vpn-deploy-cond-access-root-cert-to-on-premise-ad.md)Bereitstellen von Stamm Zertifikaten für den bedingten Zugriff im lokalen AD: in diesem Schritt stellen Sie das Stamm Zertifikat für den bedingten Zugriff als vertrauenswürdiges Stamm Zertifikat für die VPN-Authentifizierung in Ihrem lokalen AD bereit.

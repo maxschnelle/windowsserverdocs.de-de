@@ -22,7 +22,7 @@ ms.locfileid: "71363376"
 ---
 # <a name="using-the-get-alldrivergroups-command"></a>Verwenden des Befehls Get-alldrivergroups
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt Informationen zu allen Treiber Gruppen auf einem Server an.
 ## <a name="syntax"></a>Syntax
@@ -44,4 +44,4 @@ wdsutil /Get-AllDriverGroups [/Show:PackageMetaData]
 ```
 #### <a name="additional-references"></a>Weitere Verweise
 [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[mithilfe des Befehls Get-drivergroup](using-the-get-drivergroup-command.md)
+[mithilfe des Befehls "Get-drivergroup](using-the-get-drivergroup-command.md) "

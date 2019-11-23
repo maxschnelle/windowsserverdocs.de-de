@@ -22,9 +22,9 @@ ms.locfileid: "71402331"
 ---
 # <a name="winlogon-automatic-restart-sign-on-arso"></a>Winlogon-Anmeldung nach einem automatischen Neustart
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-**Autor**: Justin Turner, Senior Support Eskalations Ingenieur bei der Windows-Gruppe  
+**Autor**: Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe  
   
 > [!NOTE]  
 > Dieser Inhalt wurde von einem Mitarbeiter des Microsoft-Kundendiensts geschrieben und richtet sich an erfahrene Administratoren und Systemarchitekten, die einen tieferen technischen Einblick in die Funktionen und Lösungen von Windows Server 2012 R2 suchen, als Ihnen die Themen im TechNet bieten können. Allerdings wurde er nicht mit der gleichen linguistischen Sorgfalt überprüft wie für die Artikel des TechNet üblich, so dass die Sprache gelegentlich holprig klingen mag.  
@@ -95,7 +95,7 @@ Wenn Sie diese Richtlinien Einstellung deaktivieren, speichert das Gerät die An
   
 |Wertname|Typ|Daten|  
 |-------|----|----|  
-|Disableautomatikrestartsignon|DWORD|0<br /><br />**Beispiel**<br /><br />0 (aktiviert)<br /><br />1 (deaktiviert)|  
+|Disableautomatikrestartsignon|DWORD|0<br /><br />**Beispiel:**<br /><br />0 (aktiviert)<br /><br />1 (deaktiviert)|  
   
 **Registrierungs Speicherort der Richtlinie:** Hklm\software\microsoft\windows\currentversion\policies\system  
   
@@ -142,8 +142,8 @@ Eine vorhandene Benutzersitzung kann auch dann beibehalten werden, wenn Sie deak
 ### <a name="logon-hours-and-parental-controls"></a>Anmeldezeiten und Eltern Kontrollen  
 Die Anmeldezeiten und die Steuerelement-Steuerelemente können verhindern, dass eine neue Benutzersitzung erstellt wird.  Wenn während dieses Fensters ein Neustart stattfindet, ist der Benutzer nicht berechtigt, sich anzumelden.  Es gibt zusätzliche Richtlinien, die eine Sperr-oder Abmelde Aktion als Konformitäts Aktion verursachen.  Dies könnte für viele untergeordnete Fälle problematisch sein, bei denen eine Kontosperrung zwischen der Zeit des Abrufs und der Reaktivierung auftreten kann, insbesondere, wenn das Wartungsfenster in der Regel während dieser Zeit liegt.  
   
-## <a name="additional-resources"></a>Zusätzliche Ressourcen  
-Tabelle "**table Tabelle" \\ @ no__t-2 Arabisch 3: ARSO Glossar @ no__t-0  
+## <a name="additional-resources"></a>Weitere Ressourcen  
+**Tabelle \\\* Arabisch 3: ARSO Glossar**  
   
 |Begriff|Definition|  
 |----|-------|  

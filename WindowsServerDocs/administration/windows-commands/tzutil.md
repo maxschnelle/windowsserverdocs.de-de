@@ -22,7 +22,7 @@ ms.locfileid: "71392303"
 ---
 # <a name="tzutil"></a>tzutil
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt das Windows-Zeit Zonen Dienstprogramm an. 
 ## <a name="syntax"></a>Syntax
@@ -34,8 +34,8 @@ tzutil [/?] [/g] [/s <timeZoneID>[_dstoff]] [/l]
 |-------|--------|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 |/g|Zeigt die aktuelle Zeit Zonen-ID an.|
-|/s \<timezoneid > [_dstoff]|Legt die aktuelle Zeitzone mithilfe der angegebenen Zeit Zonen-ID fest. Das Suffix **_dstoff** deaktiviert die Sommerzeit Anpassungen für die Zeitzone (falls zutreffend).|
-|/l|Listet alle gültigen Zeit Zonen-IDs und anzeigen Amen auf. Die Ausgabe lautet wie folgt:<br /><br />-    @ no__t-1anzeige Name ><br />-    @ no__t-1 Zeit Zonen-ID >|
+|/s \<TimeZoneId > [_dstoff]|Legt die aktuelle Zeitzone mithilfe der angegebenen Zeit Zonen-ID fest. Mit dem **_dstoff** Suffix werden die Anpassungen der Sommerzeit für die Zeitzone deaktiviert (falls zutreffend).|
+|/l|Listet alle gültigen Zeit Zonen-IDs und anzeigen Amen auf. Die Ausgabe lautet wie folgt:<br /><br />-   \<anzeigen Amen ><br />-   \<Zeit Zonen-ID >|
 
 ## <a name="remarks"></a>Hinweise
 Der Exitcode **0** gibt an, dass der Befehl erfolgreich abgeschlossen wurde.

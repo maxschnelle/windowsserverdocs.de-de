@@ -22,7 +22,7 @@ ms.locfileid: "71383912"
 ---
 # <a name="showmount"></a>showmount
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Sie können " **showmount** " verwenden, um eingebundene Verzeichnisse anzuzeigen.  
   
@@ -32,13 +32,13 @@ showmount {-e|-a|-d} <Server>
 ```
 
 ## <a name="description"></a>Beschreibung  
-Das Hilfsprogramm **showmount** Command @ no__t-1line zeigt Informationen zu bereitgestellten Dateisystemen an, die vom Server für NFS auf dem vom *Server*angegebenen Computer exportiert wurden. Wenn kein *Server* bereitgestellt wird, zeigt **showmount** Informationen zu dem Computer an, auf dem der Befehl **showmount** ausgeführt wird.  
+Das\-Befehlszeilen-Hilfsprogramm " **showmount** " zeigt Informationen zu bereitgestellten Dateisystemen an, die vom Server für NFS auf dem vom *Server*angegebenen Computer exportiert wurden. Wenn kein *Server* bereitgestellt wird, zeigt **showmount** Informationen zu dem Computer an, auf dem der Befehl **showmount** ausgeführt wird.  
   
 Sie müssen eine der folgenden Optionen angeben:  
   
-- **\-E** : zeigt alle auf dem Server exportierten Dateisysteme an.  
-- **\-a** : zeigt alle \(nfs @ no__t-3-Clients des Netzwerkdatei Systems und die Verzeichnisse auf dem Server an, die jeweils bereitgestellt wurden.  
-- **\-D** : zeigt alle Verzeichnisse auf dem Server an, die zurzeit von NFS-Clients bereitgestellt werden.  
+- **\-e** -zeigt alle auf dem Server exportierten Dateisysteme an.  
+- **\-a** : zeigt alle \(NFS-\) Clients und die Verzeichnisse auf dem Server an, die auf dem Server bereitgestellt wurden.  
+- **\-d** : zeigt alle Verzeichnisse auf dem Server an, die zurzeit von NFS-Clients bereitgestellt werden.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Dienste für Network File System-Befehlsreferenz](services-for-network-file-system-command-reference.md)  

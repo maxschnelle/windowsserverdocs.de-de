@@ -36,9 +36,9 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 *Einige virtuelle Switches sind an eine Team Schnittstelle gebunden, aber die Team Schnittstelle übergibt nicht den Datenverkehr für alle VLANs an die virtuellen Switches.*  
   
 ## <a name="impact"></a>**Auswirkt**  
-*Die folgenden virtuellen Switches können nicht auf alle VLANs zugreifen: \n @ no__t-1*  
+*Die folgenden virtuellen Switches können nicht auf alle VLANs zugreifen: \n{0}*  
   
-## <a name="resolution"></a>**Auflösung**  
+## <a name="resolution"></a>**Lösung**  
 *Verwenden Sie Server-Manager oder das Windows PowerShell-Cmdlet Set-netlbfoteamnic, um die Team Schnittstelle auf den Standardmodus zurückzusetzen.*  
   
 

@@ -23,7 +23,7 @@ ms.locfileid: "71380567"
 
 Legt das primäre Token der aktuellen Eingabeaufforderung (oder ggf. ein beliebiges Token eines beliebigen lokalen Benutzerkontos) als [Hilfsobjekt](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs)des Bits-Übertragungs Auftrags fest.
 
-**Bits 3,0 und früher**: Nicht unterstützt.
+**Bits 3,0 und früher**: nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,7 +36,7 @@ bitsadmin /SetHelperToken <Job> [\<username@domain\> \<password\>]
 |Parameter|Beschreibung|
 |---------|-----------|
 |Auftrag|Der Anzeige Name oder GUID des Auftrags.|
-|\< @ no__t-1 @ no__t-2 \<password @ no__t-4|Optionales @ no__t-0Die Anmelde Informationen eines lokalen Benutzerkontos, dessen Token verwendet werden soll.|
+|\<username@domain\> \<Kennwort\>|Optional&mdash;die Anmelde Informationen eines lokalen Benutzerkontos, dessen Token verwendet werden soll.|
 
 #### <a name="additional-references"></a>Weitere Verweise
 

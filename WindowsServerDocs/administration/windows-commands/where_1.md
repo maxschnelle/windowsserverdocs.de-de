@@ -1,5 +1,5 @@
 ---
-title: enthalten, wobei
+title: where
 description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server
@@ -20,7 +20,7 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71362156"
 ---
-# <a name="where"></a>enthalten, wobei
+# <a name="where"></a>where
 
 
 
@@ -42,7 +42,7 @@ where [/r <Dir>] [/q] [/f] [/t] [$<ENV>:|<Path>:]<Pattern>[ ...]
 |/q|Gibt einen Exitcode zurück (**0** für Erfolg, **1** für Fehler), ohne die Liste der übereinstimmenden Dateien anzuzeigen.|
 |/f|Zeigt die Ergebnisse des Befehls **Where** in Anführungszeichen an.|
 |/t|Zeigt die Dateigröße und das Datum und die Uhrzeit der letzten Änderung für jede übereinstimmende Datei an.|
-|[$ \<erv >: \| @ no__t-2path >:] \<pattern > [...]|Gibt das Suchmuster für die Dateien an, die abgeglichen werden sollen. Mindestens ein Muster ist erforderlich, und das Muster kann Platzhalter Zeichen ( **&#42;** und **?** ) enthalten. Standardmäßig durchsucht, **wobei** das aktuelle Verzeichnis und die Pfade durchsucht, die in der PATH-Umgebungsvariablen angegeben sind. Sie können einen anderen Suchpfad angeben, indem Sie das Format $*env*:*Pattern* (wobei *env* eine vorhandene Umgebungsvariable mit einem oder mehreren Pfaden ist) oder den Format *Pfad*:*Pattern* ( *Pfad* ist) verwenden. der Verzeichnispfad, den Sie durchsuchen möchten.) Diese optionalen Formate sollten nicht mit der Befehlszeilenoption **/r** verwendet werden.|
+|[$\<>:\|\<Pfad >:]\<Muster > [...]|Gibt das Suchmuster für die Dateien an, die abgeglichen werden sollen. Mindestens ein Muster ist erforderlich, und das Muster kann Platzhalter Zeichen ( **&#42;** und **?** ) enthalten. Standardmäßig durchsucht, **wobei** das aktuelle Verzeichnis und die Pfade durchsucht, die in der PATH-Umgebungsvariablen angegeben sind. Sie können einen anderen Suchpfad angeben, indem Sie das Format $*env*:*Pattern* (wobei *env* eine vorhandene Umgebungsvariable mit einem oder mehreren Pfaden ist) oder das Format *path*:*Pattern* ( *Pfad* ist der Verzeichnispfad, den Sie suchen möchten) verwenden. Diese optionalen Formate sollten nicht mit der Befehlszeilenoption **/r** verwendet werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise

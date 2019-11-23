@@ -22,9 +22,9 @@ ms.locfileid: "71378899"
 ---
 # <a name="create-partition-msr"></a>Erstellen einer Partition MSR
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-erstellt eine reservierte Microsoft-\(msr @ no__t-1-Partition für eine GUID-Partitionstabelle \(gpt @ no__t-3-Datenträger.  
+erstellt eine reservierte Microsoft-\(MSR-\) Partition für eine GUID-Partitionstabelle \(GPT\) Datenträger.  
   
 > [!CAUTION]  
 > Gehen Sie bei der Verwendung dieses Befehls sehr vorsichtig vor. Da GPT-Datenträger ein bestimmtes Partitionslayout erfordern, kann das Erstellen von reservierten Microsoft-Partitionen dazu führen, dass der Datenträger nicht mehr lesbar ist.  
@@ -41,13 +41,13 @@ create partition msr [size=<n>] [offset=<n>] [noerr]
   
 |  Parameter  |                                                                                                                         Beschreibung                                                                                                                         |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  Size @ no__t-0 @ no__t-1  |               Die Größe der Partition in Megabyte \(MB @ no__t-1. Die Partition ist mindestens so lang wie die Zahl, die durch <n> angegeben wird. Wenn keine Größe angegeben wird, wird die Partition so lange fortgesetzt, bis in der aktuellen Region kein freier Speicherplatz mehr verfügbar ist.               |
-| Offset @ no__t-0 @ no__t-1 | Gibt den Offset in Kilobyte \(KB @ no__t-1 an, bei dem die Partition erstellt wird. Der Offset wird aufgerundet, um alle verwendeten Sektorgrößen vollständig auszufüllen. Wenn kein Offset angegeben wird, wird die Partition in den ersten Datenträger Block eingefügt, der groß genug ist, um Sie zu speichern. |
-|    Noerr    |                            Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.                             |
+|  Größe\=<n>  |               Die Größe der Partition in Megabyte \(MB\). Die Partition ist mindestens so lang wie die Zahl, die durch <n>angegeben wird. Wenn keine Größe angegeben wird, wird die Partition so lange fortgesetzt, bis in der aktuellen Region kein freier Speicherplatz mehr verfügbar ist.               |
+| Offset\=<n> | Gibt den Offset in Kilobyte \(KB-\)an, bei dem die Partition erstellt wird. Der Offset wird aufgerundet, um alle verwendeten Sektorgrößen vollständig auszufüllen. Wenn kein Offset angegeben wird, wird die Partition in den ersten Datenträger Block eingefügt, der groß genug ist, um Sie zu speichern. |
+|    Noerr    |                            nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.                             |
   
 ## <a name="remarks"></a>Hinweise  
   
--   Auf GPT-Datenträgern, die zum Starten des Windows-Betriebssystems verwendet werden, ist die Extensible Firmware Interface \(efi @ no__t-1-Systempartition die erste Partition auf dem Datenträger, gefolgt von der reservierten Microsoft-Partition. GPT-Datenträger, die nur für die Datenspeicherung verwendet werden, verfügen über keine EFI-Systempartition. in diesem Fall ist die reservierte Microsoft-Partition die erste Partition.  
+-   Auf GPT-Datenträgern, die zum Starten des Windows-Betriebssystems verwendet werden, ist die Extensible Firmware Interface \(EFI-\) Systempartition die erste Partition auf dem Datenträger, gefolgt von der reservierten Microsoft-Partition. GPT-Datenträger, die nur für die Datenspeicherung verwendet werden, verfügen über keine EFI-Systempartition. in diesem Fall ist die reservierte Microsoft-Partition die erste Partition.  
   
 -   Von Windows werden keine reservierten Partitionen in Microsoft einbinden. Sie können keine Daten auf den Daten speichern, und Sie können Sie nicht löschen.  
   

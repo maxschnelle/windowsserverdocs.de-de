@@ -32,12 +32,12 @@ Um das neue Webdesign zu aktivieren, verwenden Sie das folgende Verfahren:
 
 ### <a name="to-enable-the-new-azure-ad-ux-web-theme-in-ad-fs"></a>So aktivieren Sie das neue Azure AD UX-Webdesign in AD FS
 1. Starten Sie PowerShell als Administrator.
-2. Erstellen Sie ein neues Webdesign mithilfe von PowerShell:`New-AdfsWebTheme –Name custom –StyleSheet @{path="c:\NewTheme.css"}`
-3. Legen Sie das neue Design mithilfe von PowerShell als aktives Design fest:  `Set-AdfsWebConfig -ActiveThemeName custom`
+2. Erstellen Sie ein neues Webdesign mithilfe von PowerShell: `New-AdfsWebTheme –Name custom –StyleSheet @{path="c:\NewTheme.css"}`
+3. Legen Sie das neue Design mithilfe von PowerShell als aktives Design fest: `Set-AdfsWebConfig -ActiveThemeName custom`
    ![PowerShell](media/Azure-UX-Web-Theme-in-AD-FS/two.png)
-4. Testen Sie die Anmeldung, indem Sie zu https://<AD FS name.domain>/adfs/ls/idpinitiatedsignon.htm ![Sign-on wechseln.](media/Azure-UX-Web-Theme-in-AD-FS/three.png)
+4. Testen Sie die Anmeldung, indem Sie zu https://<AD FS name.domain>/adfs/ls/idpinitiatedsignon.htm ![anmelden wechseln](media/Azure-UX-Web-Theme-in-AD-FS/three.png)
 
-> ! Nebenbei Sie müssen sicherstellen, dass "idpinitiatedsignon aktiviert ist.  Er ist standardmäßig nicht aktiviert.  Verwenden Sie den folgenden PowerShell-Befehl, um "idpinitiatedsignon zu aktivieren:`Set-AdfsProperties –EnableIdpInitiatedSignonPage $True`
+> ! Nebenbei Sie müssen sicherstellen, dass "idpinitiatedsignon aktiviert ist.  Er ist standardmäßig nicht aktiviert.  Um "idpinitiatedsignon zu aktivieren, verwenden Sie den folgenden PowerShell-Befehl: `Set-AdfsProperties –EnableIdpInitiatedSignonPage $True`
 
 ## <a name="image-recommendations"></a>Bild Empfehlungen
 Wenn Sie die zentrierte Benutzeroberfläche aktivieren, können Sie die gleichen Images für Hintergrund und Logo verwenden, die Sie möglicherweise bereits für Azure Active Directory Unternehmens Branding besitzen. Im Allgemeinen gelten die gleichen Empfehlungen für Größe, Verhältnis und Format.
@@ -52,7 +52,7 @@ Das Logo wird oben im Anmelde Panel angezeigt. | Transparentes JPG oder PNG<br>M
 
 Beschreibung | Einschränkungen | Empfehlungen
 ------- | ------- | ----------
-Diese Option wird im Hintergrund der Anmeldeseite angezeigt, ist in der Mitte des sichtbaren Bereichs verankert, und skaliert und mit dem Bildschirm, um das Browserfenster auszufüllen.    <br>Auf schmalen Bildschirmen, wie z. b. Mobiltelefonen, wird dieses Bild nicht angezeigt.<br>Beim Laden der Seite wird auf dieses Bild eine schwarze Maske mit 0,55 Deckkraft angewendet. | JPG oder PNG<br>Bild Dimensionen: 1920 x 1080 px<br>Dateigröße: &lt;300 KB | <br>Verwenden Sie Bilder, bei denen es keinen starken Fokus hat. Das nicht transparente Anmeldeformular wird über dem Mittelpunkt dieses Bilds angezeigt und kann abhängig von der Größe des Browserfensters einen beliebigen Teil des Bilds abdecken.<br>Halten Sie die Dateigröße gering, um schnelle Ladezeiten sicherzustellen.
+Diese Option wird im Hintergrund der Anmeldeseite angezeigt, ist in der Mitte des sichtbaren Bereichs verankert, und skaliert und mit dem Bildschirm, um das Browserfenster auszufüllen.    <br>Auf schmalen Bildschirmen, wie z. b. Mobiltelefonen, wird dieses Bild nicht angezeigt.<br>Beim Laden der Seite wird auf dieses Bild eine schwarze Maske mit 0,55 Deckkraft angewendet. | JPG oder PNG<br>Bild Dimensionen: 1920 x 1080 px<br>Dateigröße: &lt; 300 KB | <br>Verwenden Sie Bilder, bei denen es keinen starken Fokus hat. Das nicht transparente Anmeldeformular wird über dem Mittelpunkt dieses Bilds angezeigt und kann abhängig von der Größe des Browserfensters einen beliebigen Teil des Bilds abdecken.<br>Halten Sie die Dateigröße gering, um schnelle Ladezeiten sicherzustellen.
 
 ## <a name="next-steps"></a>Nächste Schritte
 - [AD FS Anpassung in Windows Server 2016](AD-FS-Customization-in-Windows-Server-2016.md)

@@ -38,8 +38,8 @@ reg copy <KeyName1> <KeyName2> [/s] [/f]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<keyname1 >|Gibt den vollständigen Pfad des zu kopierenden unter Schlüssels an. Wenn Sie einen Remote Computer angeben möchten, fügen Sie den Computernamen (im Format \\ @ no__t-1computername @ no__t-2 als Teil des *keyName*-Steuerelement ein. Wenn \\ @ no__t-1computername \ weggelassen wird, wird der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: "HKLM", "HKCU", "HKCR", "HKU" und "HKCC" Wenn ein Remote Computer angegeben wird, sind gültige Stamm Schlüssel: HKLM und HKU.|
-|\<keyname2 >|Gibt den vollständigen Pfad des Unterschlüssel Ziels an. Wenn Sie einen Remote Computer angeben möchten, fügen Sie den Computernamen (im Format \\ @ no__t-1computername @ no__t-2 als Teil des *keyName*-Steuerelement ein. Wenn \\ @ no__t-1computername \ weggelassen wird, wird der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: "HKLM", "HKCU", "HKCR", "HKU" und "HKCC" Wenn ein Remote Computer angegeben wird, sind gültige Stamm Schlüssel: HKLM und HKU.|
+|\<KeyName1 >|Gibt den vollständigen Pfad des zu kopierenden unter Schlüssels an. Zum Angeben eines Remote Computers fügen Sie den Computernamen (im Format \\\\Computername als Teil des *keyName*-\) ein. Wenn \\\\Computername \ weggelassen wird, wird der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: HKLM, HKCU, HKCR, HKU und HKCC. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: HKLM und HKU.|
+|\<KeyName2 >|Gibt den vollständigen Pfad des Unterschlüssel Ziels an. Zum Angeben eines Remote Computers fügen Sie den Computernamen (im Format \\\\Computername als Teil des *keyName*-\) ein. Wenn \\\\Computername \ weggelassen wird, wird der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: HKLM, HKCU, HKCR, HKU und HKCC. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: HKLM und HKU.|
 |/s|Kopiert alle Unterschlüssel und Einträge unter den angegebenen Unterschlüssel.|
 |/f|Kopiert den Unterschlüssel, ohne zur Bestätigung aufzufordern.|
 |/?|Zeigt die Hilfe für die **reg** -Kopie an der Eingabeaufforderung an.|
@@ -49,9 +49,9 @@ reg copy <KeyName1> <KeyName2> [/s] [/f]
 -   Reg fordert beim Kopieren eines unter Schlüssels keine Bestätigung an.
 -   In der folgenden Tabelle sind die Rückgabewerte für den **reg-Kopier** Vorgang aufgeführt.
 
-|Wert|Description|
+|Wert|Beschreibung|
 |-----|-----------|
-|0|Erfolgreich|
+|0|Möglich|
 |1|Nicht möglich|
 
 ## <a name="BKMK_examples"></a>Beispiele

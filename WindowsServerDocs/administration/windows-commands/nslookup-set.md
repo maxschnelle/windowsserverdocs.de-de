@@ -22,7 +22,7 @@ ms.locfileid: "71372733"
 ---
 # <a name="nslookup-set"></a>nslookup set
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ändert die Konfigurationseinstellungen, die die Funktionsweise von suchen beeinflussen.
 ## <a name="syntax"></a>Syntax

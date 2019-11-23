@@ -22,7 +22,7 @@ ms.locfileid: "71379896"
 ---
 # <a name="bootcfg-raw"></a>bootcfg raw
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Fügt einem Betriebssystem Eintrag im Abschnitt **[Betriebssysteme]** der Datei "Boot. ini" die Optionen für das Betriebssystem laden hinzu, die als Zeichenfolge angegeben sind.
 
@@ -35,9 +35,9 @@ bootcfg /raw [/s <computer> [/u <Domain>\<User> /p <Password>]] <OSLoadOptionsSt
 |         Begriff          |                                                                                                            Definition                                                                                                             |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     /s <computer>     |                                                        Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer.                                                         |
-| /u <Domain> \\ @ no__t-2  |               Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch <User> oder <Domain> @ no__t-2 @ no__t-3 angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird.                |
+| /u <Domain> \\<User>  |               Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch <User> oder <Domain>\\<User>angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird.                |
 |     /p <Password>     |                                                                       Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                                       |
-| <OSLoadOptionsString> | Gibt die Betriebssystem-Lade Optionen an, die dem Betriebssystem Eintrag hinzugefügt werden sollen. Mit diesen Lade Optionen werden alle vorhandenen, dem Betriebssystem Eintrag zugeordneten Lade Optionen ersetzt. Es wird keine Überprüfung <OSLoadOptions> ausgeführt. |
+| <OSLoadOptionsString> | Gibt die Betriebssystem-Lade Optionen an, die dem Betriebssystem Eintrag hinzugefügt werden sollen. Mit diesen Lade Optionen werden alle vorhandenen, dem Betriebssystem Eintrag zugeordneten Lade Optionen ersetzt. Es erfolgt keine Überprüfung <OSLoadOptions>. |
 | /ID <OSEntryLineNum>  |                       Gibt die Betriebssystem-Eintrags Zeilennummer im Abschnitt [Betriebssysteme] der zu aktualisierenden Datei "Boot. ini" an. Die erste Zeile nach der Abschnitts Kopfzeile [Betriebssystem] ist 1.                       |
 |          /a           |                                                       Gibt an, dass die hinzugefügten Betriebssystem Optionen an alle vorhandenen Betriebssystem Optionen angefügt werden sollen.                                                        |
 |          /?           |                                                                                               Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                |

@@ -46,7 +46,7 @@ Erfahren Sie, wie Sie einen virtuellen Computer mit dem Hyper-v-Manager und Wind
 
 2. Klicken Sie mit der rechten Maustaste auf **Windows PowerShell** , und wählen Sie **als Administrator ausführen**.  
 
-3. Holen Sie sich den Namen des virtuellen Switches, den der virtuelle Computer verwenden soll, mithilfe von [Get-VMSwitch](https://technet.microsoft.com/library/hh848499.aspx).  Beispiel:  
+3. Holen Sie sich den Namen des virtuellen Switches, den der virtuelle Computer verwenden soll, mithilfe von [Get-VMSwitch](https://technet.microsoft.com/library/hh848499.aspx).  Ein auf ein Objekt angewendeter  
 
    ```  
    Get-VMSwitch  * | Format-Table Name  
@@ -78,7 +78,7 @@ Erfahren Sie, wie Sie einen virtuellen Computer mit dem Hyper-v-Manager und Wind
 
        Dadurch wird ein virtueller Computer der Generation 2 mit dem Namen Win10VM und 4 GB Arbeitsspeicher erstellt. Er startet aus dem Ordner "vms\win10.vhdx" im aktuellen Verzeichnis und verwendet den virtuellen Switch "externalswitch". Die Konfigurationsdateien der virtuellen Maschine werden im Ordner vmdata gespeichert.  
 
-   - **Neue virtuelle Festplatte** : um einen virtuellen Computer mit einer neuen virtuellen Festplatte zu erstellen, ersetzen Sie den Parameter " **-vhdpath** " aus dem obigen Beispiel durch " **-newvhdpath** ", und fügen Sie den Parameter " **-newvhdsizebytes** " hinzu. Beispiel:  
+   - **Neue virtuelle Festplatte** : um einen virtuellen Computer mit einer neuen virtuellen Festplatte zu erstellen, ersetzen Sie den Parameter " **-vhdpath** " aus dem obigen Beispiel durch " **-newvhdpath** ", und fügen Sie den Parameter " **-newvhdsizebytes** " hinzu. Ein auf ein Objekt angewendeter  
 
      ```  
      New-VM -Name Win10VM -MemoryStartupBytes 4GB -BootDevice VHD -NewVHDPath .\VMs\Win10.vhdx -Path .\VMData -NewVHDSizeBytes 20GB -Generation 2 -Switch ExternalSwitch  
@@ -109,15 +109,15 @@ In der folgenden Tabelle sind die Optionen aufgeführt, die Sie auswählen könn
 
 |Page|Standard für Windows Server 2016 und Windows 10|Weitere Optionen|  
 |--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|  
-|**Name und Pfad angeben**|Name:  Neuer virtueller Computer.<br /><br />Speicherort:  **C:\ProgramData\Microsoft\Windows\Hyper-v @ no__t-1**.|Sie können auch einen eigenen Namen eingeben und einen anderen Speicherort für den virtuellen Computer auswählen.<br /><br />Hier werden die Konfigurationsdateien für den virtuellen Computer gespeichert.|  
-|**Generation angeben**|Erste Generation|Sie können auch einen virtuellen Computer der Generation 2 erstellen. Weitere Informationen finden Sie unter [sollte ich einen virtuellen Computer der Generation 1 oder 2 in Hyper-V erstellen?.](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)|  
+|**Name und Pfad angeben**|Name: neuer virtueller Computer.<br /><br />Speicherort: **c:\ProgramData\Microsoft\Windows\Hyper-v\\** .|Sie können auch einen eigenen Namen eingeben und einen anderen Speicherort für den virtuellen Computer auswählen.<br /><br />Hier werden die Konfigurationsdateien für den virtuellen Computer gespeichert.|  
+|**Generation angeben**|Generation 1|Sie können auch einen virtuellen Computer der Generation 2 erstellen. Weitere Informationen finden Sie unter [sollte ich einen virtuellen Computer der Generation 1 oder 2 in Hyper-V erstellen?.](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md)|  
 |**Speicher zuweisen**|Start Speicher: 1024 MB<br /><br />Dynamischer Arbeitsspeicher: **nicht ausgewählt**|Sie können den Start Speicher von 32 MB auf 5902mb festlegen.<br /><br />Sie können auch dynamischer Arbeitsspeicher verwenden. Weitere Informationen finden Sie unter [Übersicht über Hyper-V-dynamischer Arbeitsspeicher](https://technet.microsoft.com/library/hh831766.aspx).|  
 |**Netzwerk konfigurieren**|Nicht verbunden|Sie können eine Netzwerkverbindung für die virtuelle Maschine aus einer Liste vorhandener virtueller Switches auswählen. Weitere Informationen finden Sie unter [Erstellen eines virtuellen Switches für virtuelle Hyper-V-](Create-a-virtual-switch-for-Hyper-V-virtual-machines.md)Computer.|  
-|**Virtuelle Festplatte verbinden**|Erstellen einer virtuellen Festplatte<br /><br />Name: <*VMName*>. vhdx<br /><br />**Speicherort**: **C:\Users\Public\Documents\Hyper-v\virtuelle Festplatten @ no__t-1**<br /><br />**Größe**: 127 GB|Sie können auch eine vorhandene virtuelle Festplatte verwenden oder warten und eine virtuelle Festplatte später anfügen.|  
+|**Virtuelle Festplatte verbinden**|Erstellen einer virtuellen Festplatte<br /><br />Name: <*VMName*>. vhdx<br /><br />**Speicherort**: **c:\Users\Public\Documents\Hyper-v\virtuelle Festplatten\\**<br /><br />**Größe**: 127 GB|Sie können auch eine vorhandene virtuelle Festplatte verwenden oder warten und eine virtuelle Festplatte später anfügen.|  
 |**Installationsoptionen**|Betriebssystem später installieren|Mit diesen Optionen wird die Start Reihenfolge des virtuellen Computers geändert, sodass Sie die Installation über eine ISO-Datei, eine startbare Diskette oder einen netzwerkinstallationsdienst wie die Windows-Bereitstellungs Dienste (WDS) Durchführung können.|  
 |**Zusammenfassung**|Zeigt die Optionen an, die Sie ausgewählt haben, damit Sie sicherstellen können, dass Sie korrekt sind.<br /><br />-Name<br />-Generierung<br />-Arbeitsspeicher<br />-Netzwerk<br />-Festplatte<br />-Betriebs System|**Tipp:** Sie können die Zusammenfassung von der Seite kopieren und in e-Mail oder an einer anderen Stelle einfügen, um die Nachverfolgung der virtuellen Computer zu unterstützen.|  
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 
 - [New-VM](https://technet.microsoft.com/library/hh848537.aspx)  
 

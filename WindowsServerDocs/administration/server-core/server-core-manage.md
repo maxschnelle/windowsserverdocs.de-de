@@ -30,7 +30,7 @@ Sie können auch Hardware hinzufügen und Treiber lokal verwalten, solange Sie d
 
 Beim Arbeiten mit Server Core sind einige wichtige Einschränkungen und Tipps zu beachten:
 
-- Wenn Sie alle Eingabe Aufforderungs Fenster schließen und ein neues Eingabe Aufforderungs Fenster öffnen möchten, können Sie dies über den Task-Manager tun. Drücken Sie **STRG @ no__t-1alt @ no__t-2delete**, klicken Sie auf **Task-Manager starten**, klicken Sie auf **Weitere Details > Datei > Ausführen**, und geben Sie dann **cmd. exe**ein. (Geben Sie " **PowerShell. exe** " ein, um ein PowerShell-Befehlsfenster zu öffnen.) Alternativ können Sie sich abmelden und dann wieder anmelden.
+- Wenn Sie alle Eingabe Aufforderungs Fenster schließen und ein neues Eingabe Aufforderungs Fenster öffnen möchten, können Sie dies über den Task-Manager tun. Drücken Sie **STRG\+alt,\+löschen**, klicken Sie auf **Task-Manager starten**, klicken Sie auf **Weitere Details > Datei > Ausführen**, und geben Sie dann **cmd. exe**ein. (Geben Sie " **PowerShell. exe** " ein, um ein PowerShell-Befehlsfenster zu öffnen.) Alternativ können Sie sich abmelden und dann wieder anmelden.
 - Befehle oder Tools, die versuchen, Windows Explorer zu öffnen, funktionieren nicht. Beispiel: Ausführung von **starten.** an einer Eingabeaufforderung funktioniert nicht.
 - Das HTML-Rendering oder die HTML-Hilfe in Server Core wird nicht unterstützt.
 - Server Core unterstützt Windows Installer im stillen Modus, sodass Sie Tools und Hilfsprogramme aus Windows Installer Dateien installieren können. Verwenden Sie bei der Installation von Windows Installer-Paketen auf Server Core die **/qb** -Option, um die grundlegende Benutzeroberfläche anzuzeigen.

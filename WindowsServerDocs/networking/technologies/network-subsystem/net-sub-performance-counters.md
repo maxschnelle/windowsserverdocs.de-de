@@ -17,7 +17,7 @@ ms.locfileid: "71401844"
 ---
 # <a name="network-related-performance-counters"></a>Netzwerkbezogene Leistungsindikatoren
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema werden die Leistungsindikatoren aufgelistet, die für die Verwaltung der Netzwerkleistung relevant sind, und die folgenden Abschnitte sind enthalten.  
   
@@ -57,7 +57,7 @@ Die folgenden Leistungsindikatoren sind für die Verwendung von Netzwerkressourc
   
   - Ausgabewarteschlangenlänge  
   
-    Dieser Leistungs Bewert ist die Länge der Ausgabe Paket Warteschlange \(in den Paketen @ no__t-1. Wenn dieser Wert länger als 2 ist, treten Verzögerungen auf. Sie sollten den Engpass ermitteln und ihn ggf. entfernen. Da NDIS die Anforderungen in die Warteschlange eingereiht, sollte diese Länge immer 0 sein.  
+    Dabei handelt es sich um die Länge der Ausgabe Paket Warteschlange \(in den Paketen\). Wenn dieser Wert länger als 2 ist, treten Verzögerungen auf. Sie sollten den Engpass ermitteln und ihn ggf. entfernen. Da NDIS die Anforderungen in die Warteschlange eingereiht, sollte diese Länge immer 0 sein.  
   
 - Prozessor Informationen  
   

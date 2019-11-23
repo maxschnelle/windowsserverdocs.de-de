@@ -18,11 +18,11 @@ ms.locfileid: "71395698"
 ---
 # <a name="windows-server-supported-networking-scenarios"></a>Windows Server unterstützte Netzwerkszenarios
 
->Gilt für: Windows Server \(halbjährlicher Kanal @ no__t-1, Windows Server 2016
+>Gilt für: Windows Server \(halbjährlicher Kanal\), Windows Server 2016
 
 Dieses Thema enthält Informationen zu unterstützten und nicht unterstützten Szenarien, die Sie in dieser Version von Windows Server 2016 nicht ausführen können.  
 >[!IMPORTANT]
->Verwenden Sie für alle Produktionsszenarien die neuesten signierten Hardwaretreiber Ihres Originalgeräte Herstellers \(oem @ no__t-1 oder unabhängiger Hardwarehersteller \(ihv @ no__t-3.
+>Verwenden Sie für alle Produktionsszenarien die neuesten signierten Hardwaretreiber Ihres ursprünglichen Geräteherstellers \(OEM\) oder unabhängigen Hardwarehersteller \(IHV\).
   
 ## <a name="bkmk_supp"></a>Unterstützte Netzwerkszenarien
 
@@ -38,7 +38,7 @@ Dieser Abschnitt enthält Informationen zu den unterstützten Netzwerkszenarien 
   
 -   [Nic-Team Vorgangs Szenarios](#bkmk_nicteam)
 
-- [Switch Embedded Teaming \(Set @ no__t-2 Szenarios](#bkmk_set)
+- [Switch Embedded Teaming \(Set\) Szenarios](#bkmk_set)
   
 ### <a name="bkmk_sdn"></a>Software-Defined Networking (SDN)-Szenarios
  
@@ -86,7 +86,7 @@ Weitere Informationen finden Sie unter [netzwerkfunktionsvirtualisierung](sdn/te
   
 ### <a name="bkmk_netp"></a>Szenarios der Netzwerkplattform
 
-In den Szenarien in diesem Abschnitt unterstützt das Windows Server-Netzwerkteam die Verwendung eines beliebigen Windows Server 2016 Certified-Treibers. Überprüfen Sie die Netzwerkschnittstellenkarte \(nic @ no__t-1-Hersteller, um sicherzustellen, dass Sie über die neuesten Treiber Updates verfügen.
+In den Szenarien in diesem Abschnitt unterstützt das Windows Server-Netzwerkteam die Verwendung eines beliebigen Windows Server 2016 Certified-Treibers. Überprüfen Sie die Netzwerkschnittstellenkarte \(NIC\) Hersteller, um sicherzustellen, dass Sie über die neuesten Treiber Updates verfügen.
   
 Die Szenarien für die Netzwerkplattform ermöglichen Folgendes:  
   
@@ -169,7 +169,7 @@ Mit den NIC-Team Vorgangs Szenarien können Sie folgende Aktionen ausführen:
 
 Weitere Informationen finden Sie unter [NIC](technologies/nic-teaming/NIC-Teaming.md)-Team Vorgang. 
 
-### <a name="bkmk_set"></a>Switch Embedded Teaming \(Set @ no__t-2 Szenarios
+### <a name="bkmk_set"></a>Switch Embedded Teaming \(Set\) Szenarios
 
 Set ist eine Alternative NIC-Team Vorgangs Lösung, die Sie in Umgebungen verwenden können, die Hyper-V und den Sdn-Stapel (Software Defined Networking) in Windows Server 2016 enthalten. Set integriert einige NIC-Team Vorgangs Funktionen in den virtuellen Hyper-V-Switch. 
 

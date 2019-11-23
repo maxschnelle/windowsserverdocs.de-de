@@ -22,7 +22,7 @@ ms.locfileid: "71379953"
 ---
 # <a name="cacls"></a>cacls
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Hiermit werden freigegebene Zugriffs Steuerungs Listen (DACL) für angegebene Dateien angezeigt oder geändert.  
 ## <a name="syntax"></a>Syntax  
@@ -40,9 +40,9 @@ cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user 
 |         /s: SDDL         |                                       ersetzt die ACLs durch die in der SDDL-Zeichenfolge angegebenen (ungültig durch **/e**, **/g**, **/r**, **/p**oder **/d**).                                        |
 |           /e            |                                                                                 Bearbeiten Sie die ACL, anstatt Sie zu ersetzen.                                                                                  |
 |           /c            |                                                                                 Fortfahren bei Fehlern beim Zugriff verweigert.                                                                                  |
-|    /g Benutzer: \<perm @ no__t-1     |   Erteilen Sie angegebene Benutzer Zugriffsrechte.<br /><br />Gültige Werte für die Berechtigung:<br /><br />-n-None<br />-r-lesen<br />-w-schreiben<br />-c-ändern (schreiben)<br />-f-Vollzugriff   |
+|    /g User:\<Perm\>     |   Erteilen Sie angegebene Benutzer Zugriffsrechte.<br /><br />Gültige Werte für die Berechtigung:<br /><br />-n-None<br />-r-lesen<br />-w-schreiben<br />-c-ändern (schreiben)<br />-f-Vollzugriff   |
 |      /r Benutzer [...]      |                                                                  Widerrufen Sie die Zugriffsrechte des angegebenen Benutzers (nur gültig mit **/e**).                                                                   |
-| [/p User: \<perm @ no__t-1 [...] | ersetzt die Zugriffsrechte für den angegebenen Benutzer.<br /><br />Gültige Werte für die Berechtigung:<br /><br />-n-None<br />-r-lesen<br />-w-schreiben<br />-c-ändern (schreiben)<br />-f-Vollzugriff |
+| [/p User:\<Perm\> [...] | ersetzt die Zugriffsrechte für den angegebenen Benutzer.<br /><br />Gültige Werte für die Berechtigung:<br /><br />-n-None<br />-r-lesen<br />-w-schreiben<br />-c-ändern (schreiben)<br />-f-Vollzugriff |
 |     [/d User [...]      |                                                                                    Der angegebene Benutzer Zugriff wird verweigert.                                                                                     |
 |           /?            |                                                                                Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                |
 
@@ -53,17 +53,17 @@ cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user 
 
   |      Ausgabe       |                Zugriffs Steuerungs Eintrag (ACE) gilt für                |
   |-------------------|---------------------------------------------------------------------|
-  |        ZÄHLEN         |               Objekt erben. Dieser Ordner und die Dateien.                |
+  |        Zählen         |               Objekt erben. Dieser Ordner und die Dateien.                |
   |        CI         |           Der Container erbt. Dieser Ordner und Unterordner.            |
   |        IO         | Nur erben. Der ACE gilt nicht für die aktuelle Datei bzw. das aktuelle Verzeichnis. |
   | Keine Ausgabe Meldung |                          Nur dieser Ordner.                          |
-  |     ZÄHLEN RKI      |                 Dieser Ordner, die Unterordner und die Dateien.                 |
-  |   ZÄHLEN RKI BRASILIANER    |                     Nur Unterordner und Dateien.                      |
-  |     RKI BRASILIANER      |                          Nur Unterordner.                           |
-  |     ZÄHLEN BRASILIANER      |                             Nur Dateien.                             |
+  |     Zählen RKI      |                 Dieser Ordner, die Unterordner und die Dateien.                 |
+  |   Zählen RKI Brasilianer    |                     Nur Unterordner und Dateien.                      |
+  |     RKI Brasilianer      |                          Nur Unterordner.                           |
+  |     Zählen Brasilianer      |                             Nur Dateien.                             |
 
 
-- Sie können Platzhalter verwenden ( **?** und **\\ @ no__t-2**), um mehrere Dateien anzugeben.  
+- Sie können Platzhalter verwenden ( **?** und **\\\*** ), um mehrere Dateien anzugeben.  
 - Sie können mehr als einen Benutzer angeben.  
 
 #### <a name="additional-references"></a>Weitere Verweise  

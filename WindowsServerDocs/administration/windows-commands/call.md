@@ -41,50 +41,50 @@ call [Drive:][Path]<FileName> [<BatchParameters>] [:<Label> [<Arguments>]]
 
 |           Parameter           |                                                                         Beschreibung                                                                          |
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [\<laufwerk >:] [\< Pfad >] <FileName> | Gibt den Speicherort und den Namen des aufzurufenden Batch Programms an. Der *filename* -Parameter ist erforderlich und muss über die Erweiterung ". bat" oder ". cmd" verfügen. |
-|      \<batchparameters >       |                                            Gibt alle Befehlszeilen Informationen an, die vom Batch Programm benötigt werden.                                             |
-|           : \<bezeichnung >           |                                            Gibt die Bezeichnung an, zu der ein Batch Programm-Steuerelement springen soll.                                             |
-|         \<arguments >          |                     Gibt die Befehlszeilen Informationen an, die an die neue Instanz des Batch-Programms, beginnend bei *: Label* , übermittelt werden.                     |
+| [\<Laufwerk >:] [\<Pfad >]<FileName> | Gibt den Speicherort und den Namen des aufzurufenden Batch Programms an. Der *filename* -Parameter ist erforderlich und muss über die Erweiterung ". bat" oder ". cmd" verfügen. |
+|      \<Batchparameters >       |                                            Gibt alle Befehlszeilen Informationen an, die vom Batch Programm benötigt werden.                                             |
+|           :\<Bezeichnung >           |                                            Gibt die Bezeichnung an, zu der ein Batch Programm-Steuerelement springen soll.                                             |
+|         \<Argumente >          |                     Gibt die Befehlszeilen Informationen an, die an die neue Instanz des Batch-Programms, beginnend bei *: Label* , übermittelt werden.                     |
 |              /?               |                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                             |
 
 ## <a name="batch-parameters"></a>Batch Parameter
 
-Die Batch Skript-Argument Verweise ( **% 0**, **% 1**,...) sind in den folgenden Tabellen aufgeführt.
+Die Batch Skript-Argument Verweise ( **%0**, **%1**,...) sind in den folgenden Tabellen aufgeführt.
 
-**% @ no__t-2** in einem Batch Skript bezieht sich auf alle Argumente (z. b. **% 1**, **% 2**, **% 3**...).
+**%\*** in einem Batch Skript bezieht sich auf alle Argumente (z. b. **%1**, **%2**, **%3**...).
 
 Sie können die folgenden optionalen Syntaxen als Ersatz für Batch Parameter ( **% n**) verwenden:
 
 |Batch-Parameter|Beschreibung|
 |---------------|-----------|
-|% ~ 1|Erweitert **% 1** und entfernt die umgebenden Anführungszeichen ("").|
-|% ~ F1|" **% 1** " wird in einen voll qualifizierten Pfad erweitert.|
-|% ~ D1|" **% 1** " wird nur auf einen Laufwerk Buchstaben erweitert.|
-|% ~ P1|" **% 1** " wird nur in einen Pfad erweitert.|
-|% ~ N1|" **% 1** " wird nur in einen Dateinamen erweitert.|
-|% ~ x1|" **% 1** " wird nur zu einer Dateinamenerweiterung erweitert.|
-|% ~ S1|**% 1** wird auf einen voll qualifizierten Pfad erweitert, der nur Kurznamen enthält.|
-|% ~ a1|**% 1** wird auf die Dateiattribute erweitert.|
-|% ~ T1|Erweitert **% 1** auf das Datum und die Uhrzeit der Datei.|
-|% ~ Z1|Erweitert **% 1** auf die Größe der Datei.|
-|% ~ $PATH: 1|Durchsucht die Verzeichnisse, die in der PATH-Umgebungsvariablen aufgelistet sind, und erweitert **% 1** auf den voll qualifizierten Namen des ersten gefundenen Verzeichnisses. Wenn der Name der Umgebungsvariablen nicht definiert ist oder die Datei von der Suche nicht gefunden wird, wird dieser Modifizierer auf die leere Zeichenfolge erweitert.|
+|% ~ 1|Erweitert **%1** und entfernt die umgebenden Anführungszeichen ("").|
+|% ~ F1|" **%1** " wird in einen voll qualifizierten Pfad erweitert.|
+|% ~ D1|" **%1** " wird nur auf einen Laufwerk Buchstaben erweitert.|
+|% ~ P1|" **%1** " wird nur in einen Pfad erweitert.|
+|% ~ N1|" **%1** " wird nur in einen Dateinamen erweitert.|
+|% ~ x1|" **%1** " wird nur zu einer Dateinamenerweiterung erweitert.|
+|% ~ S1|**%1** wird auf einen voll qualifizierten Pfad erweitert, der nur Kurznamen enthält.|
+|% ~ a1|**%1** wird auf die Dateiattribute erweitert.|
+|% ~ T1|Erweitert **%1** auf das Datum und die Uhrzeit der Datei.|
+|% ~ Z1|Erweitert **%1** auf die Größe der Datei.|
+|% ~ $Path: 1|Durchsucht die Verzeichnisse, die in der PATH-Umgebungsvariablen aufgelistet sind, und erweitert **%1** auf den voll qualifizierten Namen des ersten gefundenen Verzeichnisses. Wenn der Name der Umgebungsvariablen nicht definiert ist oder die Datei von der Suche nicht gefunden wird, wird dieser Modifizierer auf die leere Zeichenfolge erweitert.|
 
 In der folgenden Tabelle wird gezeigt, wie Modifizierern mit den Batch Parametern für Verbund Ergebnisse kombiniert werden können:
 
 |Batch-Parameter mit Modifizierer|Beschreibung|
 |-----------------------------|-----------|
-|% ~ DP1|" **% 1** " wird nur auf einen Laufwerk Buchstaben und einen Pfad erweitert.|
-|% ~ NX1|" **% 1** " wird nur in einen Dateinamen und eine Erweiterung erweitert.|
-|% ~ DP $ Pfad: 1|Durchsucht die Verzeichnisse, die in der PATH-Umgebungsvariablen für **% 1**aufgelistet sind, und wird dann auf den Laufwerk Buchstaben und den Pfad des ersten gefundenen Verzeichnisses erweitert.|
-|% ~ ftza1|Erweitert **% 1** , um eine Ausgabe ähnlich dem **dir** -Befehl anzuzeigen.|
+|% ~ DP1|" **%1** " wird nur auf einen Laufwerk Buchstaben und einen Pfad erweitert.|
+|% ~ NX1|" **%1** " wird nur in einen Dateinamen und eine Erweiterung erweitert.|
+|% ~ DP $ Pfad: 1|Durchsucht die Verzeichnisse, die in der PATH-Umgebungsvariablen für **%1**aufgelistet sind, und wird dann auf den Laufwerk Buchstaben und den Pfad des ersten gefundenen Verzeichnisses erweitert.|
+|% ~ ftza1|Erweitert **%1** , um eine Ausgabe ähnlich dem **dir** -Befehl anzuzeigen.|
 
-In den obigen Beispielen können **% 1** und path durch andere gültige Werte ersetzt werden. Die <strong>%~-</strong> Syntax wird mit einer gültigen Argument Nummer beendet. Die <strong>%~-</strong> modifiziererer können nicht mit **% @ no__t-4 @ no__t-5**verwendet werden.
+In den obigen Beispielen können **%1** und path durch andere gültige Werte ersetzt werden. Die <strong>%~</strong> -Syntax wird mit einer gültigen Argument Nummer beendet. Die <strong>%~</strong> modifiziererer können nicht mit **%\\\*** verwendet werden.
 
 ## <a name="remarks"></a>Hinweise
 
 -   Verwenden von Batch Parametern
 
-    Batch Parameter können alle Informationen enthalten, die an ein Batch-Programm übergeben werden können, einschließlich Befehlszeilenoptionen, Dateinamen, Batch Parameter **% 0** bis **% 9**und Variablen (z. b. **% Baud%** ).
+    Batch Parameter können alle Informationen enthalten, die an ein Batch-Programm übergeben werden können, einschließlich Befehlszeilenoptionen, Dateinamen, Batch Parameter **%0** bis **%9**und Variablen (z. b. **% Baud%** ).
 -   Verwenden des *Label* -Parameters
 
     Wenn Sie den-Befehl mit dem *Label* - **Parameter verwenden,** erstellen Sie einen neuen Batchdatei Kontext und übergeben die Steuerung an die Anweisung nach der angegebenen Bezeichnung. Wenn das Ende der Batchdatei das erste Mal erreicht wird (d. h. nach dem Springen zur Bezeichnung), wird die Steuerung an die Anweisung nach der **Aufruf** Anweisung zurückgegeben. Das zweite Mal, wenn das Ende der Batchdatei gefunden wird, wird das Batch Skript beendet.

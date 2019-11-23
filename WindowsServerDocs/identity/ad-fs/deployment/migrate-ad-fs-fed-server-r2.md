@@ -43,7 +43,7 @@ Zum Migrieren eines AD FS Verbund Servers, der zu einer AD FS Farm mit einem ein
 Sie müssen das vom Verbunddienst verwendete SSL-Zertifikat und seinen privaten Schlüssel in eine PFX-Datei exportieren. Weitere Informationen finden Sie unter [Exportieren des Bereichs mit dem privaten Schlüssel eines Serverauthentifizierungszertifikats](export-the-private-key-portion-of-a-server-authentication-certificate.md).  
   
 > [!NOTE]
->  Wenn Sie den Geräte Registrierungsdienst im Rahmen der Ausführung Ihrer AD FS in Windows Server 2012 R2 bereitstellen möchten, müssen Sie ein neues SSL-Zertifikat abrufen. Weitere Informationen finden Sie unter [Registrieren eines SSL-Zertifikats für AD FS](enroll-an-ssl-certificate-for-ad-fs.md) und [Konfigurieren eines Verbundservers mit Device Registration Service](configure-a-federation-server-with-device-registration-service.md).  
+>  Wenn Sie den Geräte Registrierungsdienst im Rahmen der Ausführung Ihrer AD FS in Windows Server 2012 R2 bereitstellen möchten, müssen Sie ein neues SSL-Zertifikat abrufen. Weitere Informationen finden Sie unter [Registrieren eines SSL-Zertifikats für AD FS](enroll-an-ssl-certificate-for-ad-fs.md) und [Konfigurieren eines Verbund Servers mit dem Geräte Registrierungsdienst](configure-a-federation-server-with-device-registration-service.md).  
   
 Führen Sie zum Anzeigen der verwendeten Tokensignatur-, Tokenentschlüsselungs- und Dienstkommunikationszertifikate den folgenden Windows PowerShell-Befehl aus, um eine Liste aller verwendeten Zertifikate in einer Datei zu erstellen:  
   
@@ -103,14 +103,14 @@ Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.
   
 ###  <a name="to-export-claims-provider-trusts-and-relying-party-trusts"></a>So exportieren Sie Anspruchsanbieter-Vertrauensstellungen und Vertrauensstellungen der vertrauenden Seite  
   
-1.  Wenn Sie AD FS Anspruchs Anbieter-Vertrauens Stellungen und Vertrauens Stellungen der vertrauenden Seite exportieren möchten, müssen Sie sich als Administrator (jedoch nicht als Domänen Administrator) auf dem Verbund Server anmelden und das folgende Windows PowerShell-Skript ausführen, das sich im **Medium "Media/server_support" befindet.** Ordner "/ADFS" der Windows Server 2012 R2-Installations-CD: `export-federationconfiguration.ps1`.  
+1.  Wenn Sie AD FS Anspruchs Anbieter-Vertrauens Stellungen und Vertrauens Stellungen der vertrauenden Seite exportieren möchten, müssen Sie sich als Administrator (jedoch nicht als Domänen Administrator) auf dem Verbund Server anmelden und das folgende Windows PowerShell-Skript ausführen, das sich im Ordner " **Media/server_support/ADFS** " der Windows Server 2012 R2-Installations-CD befindet: `export-federationconfiguration.ps1`.  
   
 > [!IMPORTANT]
 >  Das Exportskript enthält die folgenden Parameter:  
 > 
-> - Export-FederationConfiguration. ps1-Path < String @ no__t-0 [-Computername < String @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-Certifi-epassword < SecureString @ no__t-3]  
->   -   Export-FederationConfiguration. ps1-Path < String @ no__t-0 [-Computername < String @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-Certifi-epassword < SecureString @ no__t-3] [-relyingpartytrustidentifier < String [] >] [-claimsprovidertrustidentifier < String [] >]  
->   -   Export-FederationConfiguration. ps1-Path < String @ no__t-0 [-Computername < String @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-Certifi-epassword < SecureString @ no__t-3] [-relyingpartytrustname < String [] >] [- Claimsprovidertrustname < Zeichenfolge [] >]  
+> - Export-FederationConfiguration. ps1-Path < Zeichenfolge\> [-Computername < String\>] [-Credential < PSCredential\>] [-Force] [-certifierepassword < SecureString\>]  
+>   -   Export-FederationConfiguration. ps1-Path < Zeichenfolge\> [-Computername < String\>] [-Credential < PSCredential\>] [-Force] [-certifikatepassword < SecureString\>] [-relyingpartytrustidentifier < String [] >] [-claimsprovidertrustidentifier < String [] >]  
+>   -   Export-FederationConfiguration. ps1-Path < Zeichenfolge\> [-Computername < String\>] [-Credential < PSCredential\>] [-Force] [-certifikatepassword < SecureString\>] [-relyingpartytrustname < String [] >] [-claimsprovidertrustname < String [] >]  
 > 
 >   **-Relyingpartytrustidentifier < String [] >** : das Cmdlet exportiert nur Vertrauens Stellungen der vertrauenden Seite, deren Bezeichner im Zeichen folgen Array angegeben sind. Standardmäßig werden KEINE Vertrauensstellungen der vertrauenden Seite exportiert. Wenn weder %%amp;quot;RelyingPartyTrustIdentifier%%amp;quot;, %%amp;quot;ClaimsProviderTrustIdentifier%%amp;quot;, %%amp;quot;RelyingPartyTrustName%%amp;quot; noch %%amp;quot;ClaimsProviderTrustName%%amp;quot; angegeben ist, werden vom Skript alle Vertrauensstellungen der vertrauenden Seite und Anspruchsanbieter-Vertrauensstellungen exportiert.  
 > 
@@ -120,17 +120,17 @@ Get-ADFSClaimDescription | Out-File “.\claimtypes.txt”`.
 > 
 >   **-Claimsprovidertrustname < String [] >** -das Cmdlet exportiert nur Anspruchs Anbieter-Vertrauens Stellungen, deren Namen im Zeichen folgen Array angegeben sind. Standardmäßig werden KEINE Anspruchsanbieter-Vertrauensstellungen exportiert.  
 > 
->   **-Path < Zeichen\> Folge** : der Pfad zu einem Ordner, der die exportierten Dateien enthält.  
+>   **-Pfad < Zeichenfolge\>** : der Pfad zu einem Ordner, der die exportierten Dateien enthält.  
 > 
->   **-Computername < Zeichen\> Folge** : gibt den STS-Server Hostnamen an. Der Standardwert ist der lokale Computer. Bei der Migration von AD FS 2.0 oder AD FS unter Windows Server 2012 zu AD FS unter Windows Server 2012 R2 ist dies der Hostname des AD FS-Legacyservers.  
+>   **-Computername < Zeichenfolge\>** : gibt den STS-Server Hostnamen an. Der Standardwert ist der lokale Computer. Bei der Migration von AD FS 2.0 oder AD FS unter Windows Server 2012 zu AD FS unter Windows Server 2012 R2 ist dies der Hostname des AD FS-Legacyservers.  
 > 
->   **-Credential < PSCredential\>**  : gibt ein Benutzerkonto an, das über die Berechtigung zum Ausführen dieser Aktion verfügt. Der Standardwert ist der aktuelle Benutzer.  
+>   **-Credential < PSCredential\>** : gibt ein Benutzerkonto an, das über die Berechtigung zum Ausführen dieser Aktion verfügt. Der Standardwert ist der aktuelle Benutzer.  
 > 
 >   **-Force** – Gibt an, dass keine Benutzerbestätigung angefordert wird.  
 > 
->   **-Certifi-epassword < SecureString\>**  : gibt ein Kennwort zum Exportieren der privaten Schlüssel AD FS Zertifikate an. Wird dieser Parameter nicht angegeben, wird vom Skript ein Kennwort angefordert, wenn ein AD FS-Zertifikat mit privatem Schlüssel exportiert werden muss.  
+>   **-Certifi-epassword < SecureString\>** : gibt ein Kennwort zum Exportieren der privaten Schlüssel der AD FS Zertifikate an. Wird dieser Parameter nicht angegeben, wird vom Skript ein Kennwort angefordert, wenn ein AD FS-Zertifikat mit privatem Schlüssel exportiert werden muss.  
 > 
->   **Eingaben**: Keine  
+>   **Inputs**: Keine  
 > 
 >   Zeichenfolge **Outputs**: – Dieses Cmdlet gibt den Ordnerpfad für den Export an. Sie können das zurückgegebene Objekt über die Pipeline an %%amp;quot;Import-FederationConfiguration%%amp;quot; übergeben.  
   
@@ -193,9 +193,9 @@ import-federationconfiguration.ps1
 > [!IMPORTANT]
 >  Das Importskript enthält die folgenden Parameter:  
 > 
-> - Import-FederationConfiguration. ps1-Path < String @ no__t-0 [-Computername < String @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-logPath < String @ no__t-3] [-Certifi-epassword < SecureString @ no__t-4]  
->   -   Import-FederationConfiguration. ps1-Path < String @ no__t-0 [-Computername < String @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-logPath < String @ no__t-3] [-Certifi-epassword < SecureString @ no__t-4] [- Relyingpartytrustidentifier < String [] >] [-claimsprovidertrustidentifier < String [] >  
->   -   Import-FederationConfiguration. ps1-Path < String @ no__t-0 [-Computername < String @ no__t-1] [-Credential < PSCredential @ no__t-2] [-Force] [-logPath < String @ no__t-3] [-Certifi-epassword < SecureString @ no__t-4] [- Relyingpartytrustname < String [] >] [-claimsprovidertrustname < String [] >]  
+> - Import-FederationConfiguration. ps1-Path < Zeichenfolge\> [-Computername < String\>] [-Credential < PSCredential\>] [-Force] [-logPath < String\>] [-certifiassepassword < SecureString\>]  
+>   -   Import-FederationConfiguration. ps1-Path < Zeichenfolge\> [-Computername < Zeichenfolge\>] [-Credential < PSCredential\>] [-Force] [-logPath < String\>] [-certifiassepassword < SecureString\>] [-relyingpartytrustidentifier < String [] >] [-claimsprovidertrustidentifier < String [] >  
+>   -   Import-FederationConfiguration. ps1-Path < Zeichenfolge\> [-Computername < Zeichenfolge\>] [-Credential < PSCredential\>] [-Force] [-logPath < String\>] [-certifi' ' ' ' ' '\>' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' "< < > <  
 > 
 >   **-Relyingpartytrustidentifier < String [] >** : das Cmdlet importiert nur Vertrauens Stellungen der vertrauenden Seite, deren Bezeichner im Zeichen folgen Array angegeben sind. Standardmäßig werden KEINE Vertrauensstellungen der vertrauenden Seite importiert. Wenn weder %%amp;quot;RelyingPartyTrustIdentifier%%amp;quot;, %%amp;quot;ClaimsProviderTrustIdentifier%%amp;quot;, %%amp;quot;RelyingPartyTrustName%%amp;quot; noch %%amp;quot;ClaimsProviderTrustName%%amp;quot; angegeben ist, werden vom Skript alle Vertrauensstellungen der vertrauenden Seite und Anspruchsanbieter-Vertrauensstellungen importiert.  
 > 
@@ -205,21 +205,21 @@ import-federationconfiguration.ps1
 > 
 >   **-Claimsprovidertrustname < String [] >** -das Cmdlet importiert nur Anspruchs Anbieter-Vertrauens Stellungen, deren Namen im Zeichen folgen Array angegeben sind. Standardmäßig werden KEINE Anspruchsanbieter-Vertrauensstellungen importiert.  
 > 
->   **-Path < Zeichen\> Folge** : der Pfad zu einem Ordner, der die zu importierenden Konfigurationsdateien enthält.  
+>   **-Pfad < Zeichenfolge\>** : der Pfad zu einem Ordner, der die zu importierenden Konfigurationsdateien enthält.  
 > 
->   **-LogPath < Zeichen\> Folge** : der Pfad zu einem Ordner, der die Import Protokolldatei enthält. In diesem Ordner wird eine Protokolldatei mit dem Namen %%amp;quot;import.log%%amp;quot; erstellt.  
+>   **-LogPath < Zeichenfolge\>** : der Pfad zu einem Ordner, der die Import Protokolldatei enthält. In diesem Ordner wird eine Protokolldatei mit dem Namen %%amp;quot;import.log%%amp;quot; erstellt.  
 > 
->   **-Computername < Zeichen\> Folge** : gibt den Hostnamen des STS-Servers an. Der Standardwert ist der lokale Computer. Bei der Migration von AD FS 2.0 oder AD FS unter Windows Server 2012 zu AD FS unter Windows Server 2012 R2 muss für diesen Parameter der Hostname des AD FS-Legacyservers angegeben werden.  
+>   **-Computername < Zeichenfolge\>** : gibt den Hostnamen des STS-Servers an. Der Standardwert ist der lokale Computer. Bei der Migration von AD FS 2.0 oder AD FS unter Windows Server 2012 zu AD FS unter Windows Server 2012 R2 muss für diesen Parameter der Hostname des AD FS-Legacyservers angegeben werden.  
 > 
 >   **-Credential < PSCredential\>** : gibt ein Benutzerkonto an, das über die Berechtigung zum Ausführen dieser Aktion verfügt. Der Standardwert ist der aktuelle Benutzer.  
 > 
 >   **-Force** – Gibt an, dass keine Benutzerbestätigung angefordert wird.  
 > 
->   **-Certifi-epassword < SecureString\>**  : gibt ein Kennwort zum Importieren der privaten Schlüssel der AD FS Zertifikate an. Wird dieser Parameter nicht angegeben, wird vom Skript ein Kennwort angefordert, wenn ein AD FS-Zertifikat mit privatem Schlüssel importiert werden muss.  
+>   **-Certifi-epassword < SecureString\>** : gibt ein Kennwort zum Importieren der privaten Schlüssel der AD FS Zertifikate an. Wird dieser Parameter nicht angegeben, wird vom Skript ein Kennwort angefordert, wenn ein AD FS-Zertifikat mit privatem Schlüssel importiert werden muss.  
 > 
 >   Zeichenfolge **Inputs:** – Dieser Befehl verwendet den Importordnerpfad als Eingabe. Sie können %%amp;quot;Export-FederationConfiguration%%amp;quot; über die Pipeline an diesen Befehl übergeben.  
 > 
->   **Ausgaben** Keine  
+>   **Ausgaben:** Keine.  
   
 Nachgestellte Leerzeichen in der WSFedEndpoint-Eigenschaft einer Vertrauensstellung der vertrauenden Seite können Fehler im Importskript verursachen. Entfernen Sie in diesem Fall vor dem Import die Leerzeichen manuell aus der Datei. Die folgenden Einträge können beispielsweise Fehler verursachen:  
   
@@ -245,7 +245,7 @@ Nachgestellte Leerzeichen in der WSFedEndpoint-Eigenschaft einer Vertrauensstell
   
 4. Konfigurieren Sie alle benutzerdefinierten AD FS-Endpunkteinstellungen. Wählen Sie in der AD FS-Verwaltungskonsole **Endpunkte** aus. Vergleichen Sie die aktivierten AD FS-Endpunkte mit der Liste der aktivierten AD FS-Endpunkte, die Sie beim Vorbereiten der AD FS-Migration in eine Datei exportiert haben.  
   
-    \-Immer  
+    \- und-  
   
     Konfigurieren Sie alle benutzerdefinierten Anspruchbeschreibungen. Wählen Sie in der AD FS-Verwaltungskonsole **Anspruchbeschreibungen**aus. Vergleichen Sie die Liste der AD FS-Anspruchsbeschreibungen mit der Liste der Anspruchsbeschreibungen, die Sie beim Vorbereiten der AD FS-Migration in eine Datei exportiert haben. Fügen Sie alle benutzerdefinierten Anspruchbeschreibungen hinzu, die in der Datei, aber nicht in der Standardliste in AD FS enthalten sind. Der Claim-Bezeichner in der Verwaltungskonsole ist %%amp;quot;ClaimType%%amp;quot; in der Datei zugeordnet.  
   
@@ -255,13 +255,13 @@ Nachgestellte Leerzeichen in der WSFedEndpoint-Eigenschaft einer Vertrauensstell
   
    -   Wenn **userelaystateforidpinitiatedsignon** der Datei " **Web. config** " in Ihrer AD FS 2,0 oder AD FS in der Windows Server 2012-Farm hinzugefügt wurde, müssen Sie die folgenden Dienst Eigenschaften in Ihrem AD FS in der Windows Server 2012 R2-Farm konfigurieren:  
   
-       -   AD FS in Windows Server 2012 R2 enthält eine **%systemroot%\ADFS\Microsoft.IdentityServer.ServiceHost.exe.config** -Datei. Erstellen Sie ein Element mit derselben Syntax wie das **Web. config** -Datei Element `<useRelayStateForIdpInitiatedSignOn enabled="true" />`:. Fügen Sie dieses Element als Teil **< Microsoft. identityserver. Web >** -Abschnitts der Datei **Microsoft. identityserver. ServiceHost. exe. config** ein.  
+       -   AD FS in Windows Server 2012 R2 enthält eine **%systemroot%\ADFS\Microsoft.IdentityServer.ServiceHost.exe.config** -Datei. Erstellen Sie ein Element mit derselben Syntax wie das **Web. config** -Datei Element: `<useRelayStateForIdpInitiatedSignOn enabled="true" />`. Fügen Sie dieses Element als Teil **< Microsoft. identityserver. Web >** -Abschnitts der Datei **Microsoft. identityserver. ServiceHost. exe. config** ein.  
   
-   -   Wenn **< persistidentityproviderinformation aktiviert = "true&#124;false" lifetimeindays = "90" enablewhrpersistenz = "&#124;true false"\> /** wurde der Datei "Web. config" in der Datei " **Web. config** " in Ihrem AD FS 2,0 oder AD FS in Windows Server hinzugefügt. 2012-Farm, dann müssen Sie die folgenden Dienst Eigenschaften in Ihrem AD FS in der Windows Server 2012 R2-Farm konfigurieren:  
+   -   Wenn **< persistidentityproviderinformation aktiviert = "true&#124;false" lifetimeindays = "90" enablewhrpersistenz = "&#124;true false"/\>** der Datei " **Web. config** " in Ihrer AD FS 2,0 oder AD FS in der Windows Server 2012-Farm hinzugefügt wurde, müssen Sie die folgenden Dienst Eigenschaften in Ihrer AD FS in der Windows Server 2012 R2-Farm konfigurieren:  
   
-       1.  Führen Sie in AD FS in Windows Server 2012 R2 den folgenden Windows PowerShell-Befehl `Set-AdfsWebConfig –HRDCookieEnabled –HRDCookieLifetime`aus:.  
+       1.  Führen Sie in AD FS in Windows Server 2012 R2 den folgenden Windows PowerShell-Befehl aus: `Set-AdfsWebConfig –HRDCookieEnabled –HRDCookieLifetime`.  
   
-   -   Wenn **< SingleSignOn-fähig = "&#124;true false"\> /** wurde der Datei " **Web. config** " in Ihrer AD FS 2,0 oder AD FS in der Windows Server 2012-Farm hinzugefügt wurde, müssen Sie keine zusätzlichen Dienst Eigenschaften in Ihrem AD FS in Windows Server 2012 festlegen. R2-Farm. Das einmalige Anmelden ist standardmäßig in AD FS in der Windows Server 2012 R2-Farm aktiviert.  
+   -   Wenn **< SingleSignOn-fähig = "&#124;true false"/\>** der Datei " **Web. config** " in Ihrer AD FS 2,0 oder AD FS in der Windows Server 2012-Farm hinzugefügt wurde, müssen Sie keine zusätzlichen Dienst Eigenschaften in Ihrer AD FS in der Windows Server 2012 R2-Farm festlegen. Das einmalige Anmelden ist standardmäßig in AD FS in der Windows Server 2012 R2-Farm aktiviert.  
   
    -   Wenn die localauthenticationtypes-Einstellungen der Datei " **Web. config** " in Ihrer AD FS 2,0 oder AD FS in der Windows Server 2012-Farm hinzugefügt wurden, müssen Sie die folgenden Dienst Eigenschaften in Ihrem AD FS in der Windows Server 2012 R2-Farm konfigurieren:  
   

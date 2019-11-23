@@ -21,7 +21,7 @@ ms.locfileid: "71388737"
 ---
 #  <a name="step-2-configure-the-directaccess-vpn-server"></a>Schritt 2: Konfigurieren des DirectAccess-VPN-Servers
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema wird die Konfiguration der Client- und Servereinstellungen erläutert, die für eine einfache Remotezugriffsbereitstellung mit dem Assistenten zum Aktivieren von DirectAccess erforderlich sind.
 
@@ -70,7 +70,7 @@ Für DNS-Clients können Sie eine Suchliste für ein DNS-Domänensuffixe konfigu
 
 2. Geben Sie in **Neues Suffix** einen neuen Suffix ein, und klicken Sie dann auf **Hinzufügen**. Außerdem können Sie die Such Reihenfolge ändern und Suffixe aus **Domänen Suffixen entfernen, um Sie zu verwenden**.
 
->Nebenbei In einem Zusammenhang losen Namespace-Szenario \(, bei dem ein oder mehrere Domänen Computer ein DNS-Suffix aufweisen, das nicht mit der Active Directory Domäne identisch ist, zu der die Computer gehören @ no__t-1, sollten Sie sicherstellen, dass die Suchliste so angepasst ist, dass Sie alle erforderlichen Suffixe. Der RAS-Assistent konfiguriert den Active Directory-DNS-Namen standardmäßig als primäres DNS-Suffix auf dem Client. Der Administrator sollte sicherstellen, dass er das von den Clients zur Namensauflösung verwendete DNS-Suffix hinzufügt.
+>Nebenbei In einem Zusammenhang losen Namespace-Szenario \(bei dem ein oder mehrere Domänen Computer ein DNS-Suffix aufweisen, das nicht mit der Active Directory Domäne identisch ist, zu der die Computer gehören\), sollten Sie sicherstellen, dass die Suchliste so angepasst ist, dass Sie alle erforderlichen Suffixe enthält. Der RAS-Assistent konfiguriert den Active Directory-DNS-Namen standardmäßig als primäres DNS-Suffix auf dem Client. Der Administrator sollte sicherstellen, dass er das von den Clients zur Namensauflösung verwendete DNS-Suffix hinzufügt.
 
 Für Computer und Server ist das folgende standardmäßige DNS-Suchverhalten vorgegeben und wird verwendet, wenn kurze, nicht qualifizierte Namen vervollständigt und aufgelöst werden. Wenn die Suffixsuchliste leer oder nicht angegeben ist, wird das primäre DNS-Suffix des Computers an kurze, nicht qualifizierte Namen angehängt, und eine DNS-Abfrage wird verwendet, um den resultierenden FQDN aufzulösen. 
 

@@ -38,7 +38,7 @@ Wenn der Export abgeschlossen ist, werden alle exportierten Dateien am Export Sp
 
 ### <a name="using-powershell"></a>Mithilfe der PowerShell
 
-Öffnen Sie eine Sitzung als Administrator, und führen Sie einen Befehl wie den folgenden aus, nachdem Sie \<vm-Name @ no__t-1 und \<path @ no__t-3 ersetzt haben:
+Öffnen Sie eine Sitzung als Administrator, und führen Sie einen Befehl wie den folgenden aus, nachdem Sie \<VM-Namen\> und \<Pfad\>ersetzt haben:
 
 ```powershell
 Export-VM -Name \<vm name\> -Path \<path\>

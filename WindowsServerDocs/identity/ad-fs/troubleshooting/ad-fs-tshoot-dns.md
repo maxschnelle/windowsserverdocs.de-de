@@ -29,7 +29,7 @@ Im restlichen Teil dieses Dokuments erfahren Sie, wie Sie mithilfe von Befehlsze
 
 ### <a name="to-use-a-ping-test"></a>So verwenden Sie einen Pingtest
 1.  Öffnen Sie eine Eingabeaufforderung.
-2. Geben Sie Ping <name of adfs server> a ein. Beispiel:  Ping-STS.contoso.com
+2. Geben Sie Ping <name of adfs server> a ein. Beispiel: Ping STS.contoso.com
 3. Es sollte eine Antwort vom Server angezeigt werden.
 
 ![Ping](media/ad-fs-tshoot-dns/dns1.png)
@@ -40,7 +40,7 @@ Zeigt Informationen an, die Sie verwenden können, um Domain Name System (DNS)-I
 ### <a name="to-use-a-nslookup"></a>So verwenden Sie ein nslookup
 1.  Öffnen Sie eine Eingabeaufforderung.
 2. Geben Sie Ping <name of adfs server> a ein. Beispiel: nslookup STS.contoso.com
-3. Die DNS-Informationen für den Server ![nslookup @ no__t-1 werden angezeigt.
+3. Die DNS-Informationen für den Server ![nslookup werden angezeigt](media/ad-fs-tshoot-dns/dns2.png)
 
 ## <a name="tracert"></a>Tracert
 Bestimmt den Pfad zu einem Ziel, indem ICMP-Echo Anforderungen (Internet Control Message Protocol) oder ICMPv6-Nachrichten an das Ziel gesendet werden, wobei die Werte für die Gültigkeitsdauer (TTL) inkrementell erhöht werden.   Weitere Informationen finden Sie unter [tracert](https://technet.microsoft.com/library/ff961507.aspx).
@@ -49,7 +49,7 @@ Bestimmt den Pfad zu einem Ziel, indem ICMP-Echo Anforderungen (Internet Control
 ### <a name="to-use-tracert"></a>So verwenden Sie tracert
 1.  Öffnen Sie eine Eingabeaufforderung.
 2. Geben Sie tracert <name of adfs server> a ein. Beispiel: tracert STS.contoso.com
-3. Der Zielpfad, der zum Erreichen des Servers verwendet wird, wird angezeigt ![tracert @ no__t-1
+3. Es sollte der Zielpfad angezeigt werden, der zum Erreichen des Servers ![tracert verwendet wird](media/ad-fs-tshoot-dns/dns3.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 

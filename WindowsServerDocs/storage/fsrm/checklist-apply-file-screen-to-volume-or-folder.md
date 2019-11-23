@@ -25,7 +25,7 @@ Um eine Dateiprüfung auf ein Volume oder einen Ordner anzuwenden, verwenden Sie
 2. Aktivieren Sie die Aufzeichnung der Dateiprüfungsereignisse in der Überwachungsdatenbank, wenn Sie Dateiprüfungsberichte erstellen möchten.
 [Dateiprüfungsberichte konfigurieren](configure-file-screen-audit.md)
 
-3. Bewerten Sie gespeicherten Dateitypen, die als Prüfungsregeln geeignet sind. Sie können Berichte der **Speicherberichtmanagement**-Knoten verwenden, um Daten bereitzustellen. (Führen Sie z. b. einen Dateien nach Dateigruppe Bericht oder einen große Dateien Bericht Bedarfs gesteuert aus, um Dateien zu identifizieren, die große Mengen an Speicherplatz belegen.) [Berichte nach Bedarf erstellen](generate-reports-on-demand.md) 
+3. Bewerten Sie gespeicherten Dateitypen, die als Prüfungsregeln geeignet sind. Sie können Berichte der **Speicherberichtmanagement**-Knoten verwenden, um Daten bereitzustellen. (Führen Sie beispielsweise bei Bedarf einen Bericht „Dateien nach Dateigruppe” oder für große Dateien aus, um Dateien zu identifizieren, die große Mengen an Speicherplatz belegen.) [Berichte bei Bedarf erstellen](generate-reports-on-demand.md) 
 
 4. Überprüfen Sie die vorkonfigurierten Dateigruppen oder erstellen Sie eine neue Dateigruppe, um eine bestimmte Prüfungsrichtlinie in Ihrer Organisation zu erzwingen. [Definieren von Dateigruppen für die Prüfung](define-file-groups-for-screening.md)  
 
@@ -44,4 +44,4 @@ Um eine Dateiprüfung auf ein Volume oder einen Ordner anzuwenden, verwenden Sie
 
 
 > [!NOTE]
-> Informationen zum Einschränken des Speichers für ein Volume oder einen Ordner finden Sie unter [checkliste: Anwenden eines Kontingents auf ein Volume oder einen Ordner](checklist-apply-file-screen-to-volume-or-folder.md)
+> Informationen zum Beschränken des Speichers auf einem Volume oder einen Ordner finden Sie unter [Prüfliste: Anwenden eines Kontingents auf ein Volume oder einen Ordner](checklist-apply-file-screen-to-volume-or-folder.md)

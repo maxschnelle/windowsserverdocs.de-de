@@ -1,5 +1,5 @@
 ---
-title: time
+title: Zeit
 description: Erfahren Sie, wie Sie die Systemzeit festlegen und anzeigen.
 ms.custom: na
 ms.prod: windows-server
@@ -20,7 +20,7 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71369953"
 ---
-# <a name="time"></a>time
+# <a name="time"></a>Zeit
 
 
 
@@ -38,7 +38,7 @@ time [/t | [<HH>[:<MM>[:<SS>]] [am|pm]]]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<HH > [: \<mm > [: \<SS > [. \<NN >]]] [am @ no__t-4pm]|Legt die Systemzeit auf die neue angegebene Uhrzeit fest, wobei *HH* in Stunden (erforderlich), *mm* in Minuten und *SS* in Sekunden angegeben wird. *NN* kann verwendet werden, um Hundertstel Sekunden anzugeben. Wenn **am** oder **pm** nicht angegeben ist, verwendet die **Zeit** standardmäßig das 24-Stunden-Format.|
+|\<HH > [:\<mm > [:\<SS > [.\<NN >]]] [am\|pm]|Legt die Systemzeit auf die neue angegebene Uhrzeit fest, wobei *HH* in Stunden (erforderlich), *mm* in Minuten und *SS* in Sekunden angegeben wird. *NN* kann verwendet werden, um Hundertstel Sekunden anzugeben. Wenn **am** oder **pm** nicht angegeben ist, verwendet die **Zeit** standardmäßig das 24-Stunden-Format.|
 |/t|Zeigt die aktuelle Zeit an, ohne Sie zur Eingabe eines neuen Zeitraums aufzufordern.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 

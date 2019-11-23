@@ -19,7 +19,7 @@ ms.locfileid: "71358420"
 # <a name="add-privacy-link"></a>Hinzufügen eines Datenschutzlinks 
 
 
-Zum Hinzufügen des Datenschutz Links, der auf der Seite Sign @ no__t-0in angezeigt wird, verwenden Sie das folgende Windows PowerShell-Cmdlet und die folgende Syntax.  
+Verwenden Sie zum Hinzufügen des Datenschutz Links, der auf der Seite Sign\-in angezeigt wird, das folgende Windows PowerShell-Cmdlet und die folgende Syntax.  
 
 ![Datenschutz Link hinzufügen](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png) 
   
@@ -28,7 +28,7 @@ Zum Hinzufügen des Datenschutz Links, der auf der Seite Sign @ no__t-0in angeze
  
   
 > [!IMPORTANT]  
-> Der `linkText` -Parameter in diesem Cmdlet ist nur erforderlich, wenn Sie einen anderen Wert als den Standardwert *Privacy*verwenden. Der Vorteil des Standardwerts ist, dass die Seiten für alle Clientgebietsschemata lokalisiert sind. Nachdem die Seite Sign @ no__t-0in angepasst ist, hat die Anpassung Vorrang. Daher sollten Sie für alle Sprachen anpassen, die Sie unterstützen möchten. Alle angepassten Inhalte übernehmen einen Locale-Parameter. Wenn Sie lokalisierte Inhalte konfigurieren, sollten Sie diese zunächst mit einem Gebiets Schema (@ no__t-0less) konfigurieren, z. b. "en", bevor Sie das Gebiets Schema für Land und Region @ no__t-1spezifisches Gebiets Schema wie "en @ no__t-2US" konfigurieren.  
+> Der `linkText` -Parameter in diesem Cmdlet ist nur erforderlich, wenn Sie einen anderen Wert als den Standardwert *Privacy*verwenden. Der Vorteil des Standardwerts ist, dass die Seiten für alle Clientgebietsschemata lokalisiert sind. Nachdem die Seite Sign\-in angepasst ist, hat die Anpassung Vorrang. Daher sollten Sie für alle Sprachen anpassen, die Sie unterstützen möchten. Alle angepassten Inhalte übernehmen einen Locale-Parameter. Wenn Sie lokalisierte Inhalte konfigurieren, sollten Sie diese zunächst mit einem Land\-weniger Gebiets Schema konfigurieren, z. b. "en", bevor Sie Land und Region\-bestimmtes Gebiets Schema konfigurieren, wie z. b. "en\-US".  
 
 ## <a name="additional-references"></a>Weitere Verweise 
 [AD FS Anpassung der Benutzeranmeldung](AD-FS-user-sign-in-customization.md)  

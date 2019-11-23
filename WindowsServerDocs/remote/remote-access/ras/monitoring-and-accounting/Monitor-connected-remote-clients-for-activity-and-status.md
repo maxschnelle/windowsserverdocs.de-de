@@ -21,9 +21,9 @@ ms.locfileid: "71367258"
 ---
 # <a name="monitor-connected-remote-clients-for-activity-and-status"></a>Überwachen der Aktivitäten und des Status von verbundenen Remoteclients
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-**Hinweis**: Windows Server 2012 kombiniert DirectAccess und RAS-Dienst (RAS) zu einer einzigen Remote Zugriffs Rolle.  
+**Hinweis:** Windows Server 2012 kombiniert DirectAccess und RAS-Dienst (RAS) zu einer einzigen Remote Zugriffs Rolle.  
   
 Sie können die-Verwaltungskonsole auf dem Remote Zugriffs Server verwenden, um die Remote Client Aktivität und den Status zu überwachen.  
   
@@ -40,7 +40,7 @@ Sie können die-Verwaltungskonsole auf dem Remote Zugriffs Server verwenden, um 
   
 4.  Es wird eine Liste der Benutzer angezeigt, die mit dem RAS-Server verbunden sind, sowie ausführliche Statistiken zu diesen. Klicken Sie auf die erste Zeile in der Liste, die einem Client entspricht. Wenn Sie eine Zeile auswählen, wird die Remote Benutzeraktivität im Vorschaubereich angezeigt.  
   
-](../../../media/Monitor-connected-remote-clients-for-activity-and-status/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
+![der entsprechenden Windows PowerShell-](../../../media/Monitor-connected-remote-clients-for-activity-and-status/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -52,7 +52,7 @@ Die Benutzerstatistiken können mithilfe der Felder in der folgenden Tabelle gef
   
 |Feldname|Wert|  
 |-------|-----|  
-|Benutzername|Der Benutzername oder das Alias des Remotebenutzers. Platzhalter Zeichen können verwendet werden, um eine Gruppe von Benutzern auszuwählen, z. b. "no__t-0 *" oder "\* \ Administrator".|  
+|Benutzername|Der Benutzername oder das Alias des Remotebenutzers. Platzhalter Zeichen können verwendet werden, um eine Gruppe von Benutzern auszuwählen,\\wie z. b. "\*" von "\administrator" ".|  
 |Hostname|Der Name des Computerkontos des Remotebenutzers. Außerdem kann eine IPv4-oder IPv6-Adresse angegeben werden.|  
 |Typ|DirectAccess oder VPN. Wenn DirectAccess ausgewählt ist, werden alle Remote Benutzer, die über DirectAccess verbunden sind, aufgeführt. Wenn VPN ausgewählt wird, werden alle Remote Benutzer aufgelistet, die über VPN verbunden sind.|  
 |ISP-Adresse|Die IPv4- oder IPv6-Adresse des Remotebenutzers.|  

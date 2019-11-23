@@ -40,32 +40,32 @@ more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 
 |           Parameter            |                               Beschreibung                               |
 |--------------------------------|-------------------------------------------------------------------------|
-|           \<-Befehl >           |      Gibt einen Befehl an, für den die Ausgabe angezeigt werden soll.      |
+|           \<Befehl >           |      Gibt einen Befehl an, für den die Ausgabe angezeigt werden soll.      |
 |               /c               |               Löscht den Bildschirm, bevor eine Seite angezeigt wird.               |
 |               /p               |                      Erweitert Formular-Feed-Zeichen.                      |
 |               /s               |          Zeigt mehrere leere Zeilen als einzelne Leerzeile an.          |
-|             /t @ no__t-0n >             |         Zeigt Registerkarten als Anzahl von Leerzeichen an, die durch *N*angegeben werden.         |
-|             + @ NO__T-1N >              |     Zeigt die erste Datei an, die in der durch *N*angegebenen Zeile beginnt.     |
-| [\<laufwerk >:] [\< Pfad >] \<filename > |          Gibt den Speicherort und den Namen einer Datei an, die angezeigt werden soll.          |
-|            \<files >            | Gibt eine Liste der anzuzeigenden Dateien an. Trennen Sie die Dateinamen durch ein Leerzeichen. |
+|             /t\<N >             |         Zeigt Registerkarten als Anzahl von Leerzeichen an, die durch *N*angegeben werden.         |
+|             +\<N >              |     Zeigt die erste Datei an, die in der durch *N*angegebenen Zeile beginnt.     |
+| [\<Laufwerk >:] [\<Pfad >]\<Dateiname > |          Gibt den Speicherort und den Namen einer Datei an, die angezeigt werden soll.          |
+|            \<Dateien >            | Gibt eine Liste der anzuzeigenden Dateien an. Trennen Sie die Dateinamen durch ein Leerzeichen. |
 |               /?               |                  Zeigt die Hilfe an der Eingabeaufforderung an.                   |
 
 ## <a name="remarks"></a>Hinweise
 
 -   Die folgenden Unterbefehle werden an **der Eingabeaufforderung** (`-- More --`) akzeptiert. 
 
-    | Key | Aktion |
+    | Schlüssel | Aktion |
     | --- | ------ |
-    | LEERTASTE | Zeigt die nächste Seite an. |
+    | Leertaste | Zeigt die nächste Seite an. |
     | EINGABETASTE | Zeigt die nächste Zeile an. |
     | f | Zeigt die nächste Datei an. |
     | q | Beendet den **weiteren** Befehl. |
     | = | Zeigt die Zeilennummer an. |
-    | p \<n > | Zeigt die nächsten *N* Zeilen an. |
-    | s \<n > |S kippt die nächsten *N* Zeilen. |
+    | p \<N > | Zeigt die nächsten *N* Zeilen an. |
+    | s \<N > |S kippt die nächsten *N* Zeilen. |
     | ? | Zeigt die Befehle an, die an der **ausführlicheren** Eingabeaufforderung verfügbar sind.| 
     
--   Bei Verwendung des-Umleitungs Zeichens ( **<** ) müssen Sie einen Dateinamen als Quelle angeben. Bei Verwendung der Pipe ( **\|** ) können Sie solche Befehle wie **dir**, **Sort**und **Type**verwenden.
+-   Bei Verwendung des-Umleitungs Zeichens ( **<** ) müssen Sie einen Dateinamen als Quelle angeben. Wenn Sie die Pipe ( **\|** ) verwenden, können Sie diese Befehle wie **dir**, **Sort**und **Type**verwenden.
 -   Der **Weitere** Befehl mit unterschiedlichen Parametern ist über die Wiederherstellungskonsole verfügbar.
 
 ## <a name="BKMK_examples"></a>Beispiele
@@ -99,7 +99,7 @@ Die folgenden Beispiele können an **der Eingabeaufforderung** (`-- More --`) ve
 - Wenn Sie die nächste Datei anzeigen möchten, die in der Befehlszeile aufgelistet ist, geben Sie **f** **an der Eingabe** Aufforderung ein.
 - **Geben Sie** ein, um die verfügbaren Befehle anzuzeigen. an der **ausführlicheren** Aufforderung.
 - Um **Weitere Informationen**zu erhalten, geben Sie **q** **an der Eingabe** Aufforderung ein.
-- Geben Sie **=** an der Eingabeaufforderung ein, **um die aktuelle** Zeilennummer anzuzeigen. Die aktuelle Zeilennummer wird wie folgt der **weiteren** Eingabeaufforderung hinzugefügt:  
+- Geben Sie **=** an der **Eingabeaufforderung ein, um die aktuelle** Zeilennummer anzuzeigen. Die aktuelle Zeilennummer wird wie folgt der **weiteren** Eingabeaufforderung hinzugefügt:  
   ```
   -- More [Line: 24] --
   ```  

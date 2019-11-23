@@ -18,7 +18,7 @@ ms.locfileid: "71390698"
 ---
 # <a name="virtualized-domain-controller-deployment-and-configuration"></a>Bereitstellung und Konfiguration virtualisierter Domänencontroller
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema werden folgende Inhalte behandelt:  
   
@@ -91,14 +91,14 @@ Keiner dieser Vorgänge ist unter der Semantik der VM-Generations-ID abgedeckt, 
 >   
 > Nach der Wiederherstellung einer Momentaufnahme gehen die Deltas von zuvor nicht replizierten Änderungen, die nach der Momentaufnahme von diesem Domänencontroller stammen, gehen dauerhaft verloren. Die sichere Wiederherstellung implementiert eine automatisierte nicht autoritative Wiederherstellung, *nur* um eine versehentliche Domänencontrollerquarantäne zu vermeiden.  
   
-Weitere Informationen zu-Daten Blasen und veralteten Objekten finden Sie unter [troubleshooting Active Directory Vorgänge, die mit Fehler 8606 fehlschlagen: "Für die Erstellung eines Objekts wurden unzureichende Attribute angegeben" ](https://support.microsoft.com/kb/2028495).  
+Weitere Informationen zu USN-Blasen und veralteten Objekten finden Sie unter [Problembehandlung für Active Directory-Vorgänge, bei denen der Fehler 8606 „Es wurden nicht genügend Attribute übergeben, um ein Objekt zu erstellen“ auftritt](https://support.microsoft.com/kb/2028495).  
   
 ## <a name="BKMK_VDCCloning"></a>Klonen von virtualisierten Domänen Controllern  
 Es gibt eine Reihe von Phasen und Schritten für das Klonen eines virtualisierten Domänencontrollers, unabhängig von der Verwendung grafischer Tools oder der Windows PowerShell. Allgemein gesagt, gibt es die drei folgenden Phasen:  
   
 **Vorbereiten der Umgebung**  
   
--   Schritt 1: Vergewissern Sie sich, dass der Hypervisor die VM-Generations-ID und damit das Klonen unterstützt.  
+-   Schritt 1: Vergewissern Sie sich, dass der Hypervisor die VM-Generations-ID und damit das Klonen unterstützt.  
   
 -   Schritt 2: Überprüfen Sie, ob die PDC-Emulatorrolle von einem Domänen Controller gehostet wird, auf dem Windows Server 2012 ausgeführt wird und der während des Klonens Online und erreichbar ist.  
   
@@ -108,17 +108,17 @@ Es gibt eine Reihe von Phasen und Schritten für das Klonen eines virtualisierte
   
 -   Schritt 4: Entfernen Sie inkompatible Dienste oder Programme, oder fügen Sie diese zur Datei CustomDCCloneAllowList.xml hinzu.  
   
--   Schritt 5: Erstellen Sie DCCloneConfig.xml.  
+-   Schritt 5: Erstellen Sie die Datei „DCCloneConfig.xml“  
   
--   Schritt 6: Bringen Sie den Quelldomänencontroller offline.  
+-   Schritt 6: Nehmen Sie den Quelldomänencontroller offline.  
   
 **Erstellen des geklonten Domänen Controllers**  
   
--   Schritt 7: Kopieren oder exportieren Sie den virtuellen Quellcomputer, und fügen Sie die XML hinzu, wenn sie nicht bereits kopiert wurde.  
+-   Schritt 7: Kopieren oder exportieren Sie den virtuellen Quellcomputer, und fügen Sie die XML hinzu, wenn sie nicht bereits kopiert wurde.  
   
 -   Schritt 8: Erstellen Sie einen neuen virtuellen Computer aus der Kopie.  
   
--   Schritt 9: Starten Sie den neuen virtuellen Computer, um das Klonen zu beginnen.  
+-   Schritt 9: Starten Sie den neuen virtuellen Computer, um das Klonen zu beginnen.  
   
 Da es keine Unterschiede bei der Vorgehensweise gibt, wenn Sie grafische Tools wie die Hyper-V-Verwaltungskonsole oder Befehlszeilentools wie Windows PowerShell verwenden, werden die Schritte nur einmal mit beiden Oberflächen dargestellt. In diesem Thema werden Windows PowerShell-Beispiele bereitgestellt, mit denen Sie die End-to-End-Automatisierung des Klonprozesses erkunden können. Für die einzelnen Schritte sind die Beispiele nicht erforderlich. In Windows Server 2012 ist kein grafisches Verwaltungstool für virtualisierte Domänencontroller enthalten.  
   
@@ -427,7 +427,7 @@ So exportieren Sie beispielsweise einen virtuellen Computer namens DC2-SOURCECLO
 > Windows Server 2012 Hyper-V unterstützt neue Export- und Importfunktionen, die über den Rahmen dieses Trainings hinausgehen. Weitere Informationen finden Sie auf der TechNet-Website.  
   
 #### <a name="exporting-merged-disks-using-hyper-v"></a>Exportieren der zusammengeführten Datenträger mithilfe von Hyper-V  
-Die letzte Option besteht darin, die Datenträgerzusammenführungs- und Konvertierungsoptionen in Hyper-V zu verwenden. Damit können Sie eine Kopie einer vorhanden Datenträgerstruktur auf einem einzigen neue Datenträger erstellen, selbst wenn AVHD-/AVHDX-Momentaufnahmendateien enthalten sind. Wie beim manuellen Datenträger Kopier Szenario ist dies hauptsächlich für einfachere virtuelle Computer vorgesehen, die nur ein einziges Laufwerk verwenden, wie z. b. C: \\. Der einzige Vorteil ist, dass Sie hier im Gegensatz zum manuellen Kopieren nicht erst Momentaufnahmen löschen müssen. Dieser Vorgang ist natürlich langsamer als das einfache Löschen der Momentaufnahmen und das Kopieren von Datenträgern.  
+Die letzte Option besteht darin, die Datenträgerzusammenführungs- und Konvertierungsoptionen in Hyper-V zu verwenden. Damit können Sie eine Kopie einer vorhanden Datenträgerstruktur auf einem einzigen neue Datenträger erstellen, selbst wenn AVHD-/AVHDX-Momentaufnahmendateien enthalten sind. Wie beim manuellen Datenträger Kopier Szenario ist dies hauptsächlich für einfachere virtuelle Computer vorgesehen, die nur ein einziges Laufwerk verwenden, wie z. b. C:\\. Der einzige Vorteil ist, dass Sie hier im Gegensatz zum manuellen Kopieren nicht erst Momentaufnahmen löschen müssen. Dieser Vorgang ist natürlich langsamer als das einfache Löschen der Momentaufnahmen und das Kopieren von Datenträgern.  
   
 ##### <a name="hyper-v-manager-method"></a>Methode mit dem Hyper-V-Manager  
 So erstellen Sie einen zusammengeführten Datenträger mit Hyper-V-Manager:  
@@ -648,7 +648,7 @@ Zum Beispiel:
 > Stellen Sie sicher, dass dem Quelldomänencontroller beim Importieren des Computers keine statischen MAC-Adressen zugewiesen wurden. Wenn ein Quellcomputer mit einer statischen MAC-Adresse geklont wird, können diese kopierten Computer Netzwerkdatenverkehr nicht ordnungsgemäß senden oder empfangen. Legen Sie in diesem Fall eine neue eindeutige statische oder dynamische MAC-Adresse fest. Sie können mit dem folgenden Befehl anzeigen, ob ein virtueller Computer eine statische MAC-Adresse verwendet:  
 > 
 > **Get-VM-VMName**   
->  ***Test-VM* | Get-vmnetworkadapter | FL \\** *  
+>  ***Test-VM* | Get-vmnetworkadapter | FL-\\** *  
   
 ### <a name="step-9---clone-the-new-virtual-machine"></a>Schritt 9: Klonen des neuen virtuellen Computers  
 Starten Sie optional vor Beginn des Klonprozesses den geklonten Offline-Quelldomänencontroller neu. Stellen Sie sicher, dass der PDC-Emulator unabhängig davon online ist.  

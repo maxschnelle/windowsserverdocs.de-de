@@ -22,13 +22,13 @@ ms.locfileid: "71378438"
 ---
 # <a name="dfsdiag-testdcs"></a>Dfsdiag-testdcs
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Überprüft die Konfiguration von Domänen Controllern, indem die folgenden Tests auf den einzelnen Domänen Controllern in der angegebenen Domäne durchgeführt werden:  
   
--   überprüft, ob die verteiltes Dateisystem \(dfs @ no__t-1-Namespace Dienst ausgeführt wird und ob der Starttyp auf "automatisch" festgelegt ist.  
+-   überprüft, ob die verteiltes Dateisystem \(DFS-\) Namespace-Dienst ausgeführt wird und ob der Starttyp auf "automatisch" festgelegt ist.  
   
--   Hiermit wird die Unterstützung von "Site @ no__t-0costed Verweise" für "Netlogon" und "SYSVOL" überprüft.  
+-   Hiermit wird die Unterstützung von Standort\-bei-Verweise für Netlogon und SYSVOL überprüft.  
   
 -   überprüft die Konsistenz der Site Zuordnung nach Hostname und IP-Adresse.  
   
@@ -44,10 +44,10 @@ dfsdiag /TestDCs [/Domain:<Domain name>]
   
 |Parameter|Beschreibung|  
 |-------|--------|  
-|\/domäne: <Domain name>|Die Domäne, die Sie überprüfen möchten.|  
+|\/Domäne:<Domain name>|Die Domäne, die Sie überprüfen möchten.|  
   
 ## <a name="remarks"></a>Hinweise  
-\/domäne ist ein optionaler Parameter. Der Standardwert ist die lokale Domäne, mit der der lokale Host verknüpft ist.  
+\/Domäne ist ein optionaler Parameter. Der Standardwert ist die lokale Domäne, mit der der lokale Host verknüpft ist.  
   
 ## <a name="BKMK_Examples"></a>Beispiele  
 Zum Überprüfen der Konfiguration von Domänen Controllern in der Domäne contoso.com geben Sie Folgendes ein:  

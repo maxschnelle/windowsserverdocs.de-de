@@ -38,10 +38,10 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|{%% \|%} \<Variable >|Erforderlich. Stellt einen austauschbaren Parameter dar. Verwenden Sie ein einzelnes Prozentzeichen ( **%** ), um den **for** -Befehl an der Eingabeaufforderung auszuführen. Verwenden Sie doppelte Prozentzeichen ( **%%** ), um den **for** -Befehl in einer Batchdatei auszuführen. Bei Variablen wird die Groß-/Kleinschreibung beachtet, und Sie müssen mit einem alphabetischen Wert wie **% A**, **% B**oder **% C**dargestellt werden.|
-|(\<set >)|Erforderlich. Gibt eine oder mehrere Dateien, Verzeichnisse oder Text Zeichenfolgen oder einen Wertebereich an, für den der Befehl ausgeführt werden soll. Die Klammern sind erforderlich.|
-|\<-Befehl >|Erforderlich. Gibt den Befehl an, den Sie für jede Datei, jedes Verzeichnis oder jede Text *Zeichenfolge*ausführen möchten, oder für den Wertebereich, der in Set enthalten ist.|
-|\<commandlineoptions >|Gibt alle Befehlszeilenoptionen an, die Sie mit dem angegebenen Befehl verwenden möchten.|
+|{%%\|%}\<Variable >|Erforderlich. Stellt einen austauschbaren Parameter dar. Verwenden Sie ein einzelnes Prozentzeichen ( **%** ), um den **for** -Befehl an der Eingabeaufforderung auszuführen. Verwenden Sie doppelte Prozentzeichen ( **%%** ), um den **for** -Befehl in einer Batchdatei auszuführen. Bei Variablen wird die Groß-/Kleinschreibung beachtet, und Sie müssen mit einem alphabetischen Wert wie **% A**, **% B**oder **% C**dargestellt werden.|
+|(\<festgelegte >)|Erforderlich. Gibt eine oder mehrere Dateien, Verzeichnisse oder Text Zeichenfolgen oder einen Wertebereich an, für den der Befehl ausgeführt werden soll. Die Klammern sind erforderlich.|
+|\<Befehl >|Erforderlich. Gibt den Befehl an, den Sie für jede Datei, jedes Verzeichnis oder jede Text *Zeichenfolge*ausführen möchten, oder für den Wertebereich, der in Set enthalten ist.|
+|\<commandLineOptions >|Gibt alle Befehlszeilenoptionen an, die Sie mit dem angegebenen Befehl verwenden möchten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
@@ -52,9 +52,9 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 - Verwenden von Batch Parametern
 
   Die folgenden Attribute gelten für den **for** -Befehl:  
-  - Der **for** -Befehl ersetzt **%-** <em>Variable</em> oder **%%-** <em>Variable</em> durch jede Text Zeichenfolge in der angegebenen Menge, bis der angegebene Befehl alle Dateien verarbeitet.
+  - Der **for** -Befehl ersetzt **%** <em>Variable</em> oder **%%** <em>Variable</em> durch jede Text Zeichenfolge in der angegebenen Menge, bis der angegebene Befehl alle Dateien verarbeitet.
   - Bei Variablennamen wird die Groß-/Kleinschreibung beachtet, Global und höchstens 52 kann gleichzeitig aktiv sein.
-  - Um Verwechslungen mit den Batch Parametern **% 0** bis **% 9**zu vermeiden, können Sie ein beliebiges Zeichen für die *Variable* verwenden, mit Ausnahme der Ziffern 0 bis 9. Bei einfachen Batch Dateien funktioniert ein einzelnes Zeichen, z. **b.%% f** .
+  - Um Verwechslungen mit den Batch Parametern **%0** bis **%9**zu vermeiden, können Sie ein beliebiges Zeichen für die *Variable* verwenden, mit Ausnahme der Ziffern 0 bis 9. Bei einfachen Batch Dateien funktioniert ein einzelnes Zeichen, z. **b .%% f** .
   - Sie können mehrere Werte für *Variable* in komplexen Batch Dateien verwenden, um unterschiedliche ersetzbare Variablen zu unterscheiden.
 - Angeben einer Gruppe von Dateien
 
@@ -65,7 +65,7 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
   (jan*.doc jan*.rpt feb*.doc feb*.rpt)
   (ar??1991.* ap??1991.*)
   ```  
-  Wenn Sie den **for** -Befehl verwenden, ersetzt der erste Wert in *set* **%-** <em>Variable</em> oder **%%** -<em>Variablen</em>, und der angegebene Befehl verarbeitet diesen Wert. Dies wird so lange fortgesetzt, bis alle Dateien (oder Dateigruppen), die dem *Satz* Wert entsprechen, verarbeitet werden.
+  Wenn Sie den **for** -Befehl verwenden, ersetzt der erste Wert in *set* **%** <em>Variable</em> oder **%%** <em>Variable</em>. der angegebene Befehl verarbeitet diesen Wert dann. Dies wird so lange fortgesetzt, bis alle Dateien (oder Dateigruppen), die dem *Satz* Wert entsprechen, verarbeitet werden.
 - Verwenden der **in** -und **do** -Schlüsselwörter
 
   **In** und **sind keine Parameter** , aber Sie müssen Sie mit **for**verwenden. Wenn Sie keines dieser Schlüsselwörter weglassen, wird eine Fehlermeldung angezeigt.
@@ -120,11 +120,11 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 
     |      Schlüsselwort      |                                                                                                                                                                                                          Beschreibung                                                                                                                                                                                                          |
     |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    |     EOL = \<C >      |                                                                                                                                                                                   Gibt ein Zeilenendezeichen an (nur ein Zeichen).                                                                                                                                                                                    |
-    |     Skip = \<n >     |                                                                                                                                                                              Gibt die Anzahl der Zeilen an, die am Anfang der Datei übersprungen werden sollen.                                                                                                                                                                              |
-    |   Delta = \<xxx >   |                                                                                                                                                                     Gibt einen Trenn Zeichensatz an. Dadurch wird das Standard Trennzeichen Set von Space und Tab ersetzt.                                                                                                                                                                      |
-    | Tokens = \<x, Y, M – N > | Gibt an, welche Token aus den einzelnen Zeilen an die **for** -Schleife für jede Iterationen übermittelt werden sollen. Folglich werden zusätzliche Variablennamen zugeordnet. *M*–*N* gibt einen Bereich an, vom *m*-bis zum *n*-ten Token. Wenn das letzte Zeichen in **Token =** String ein Sternchen ( **&#42;** ) ist, wird eine zusätzliche Variable zugeordnet, und Sie empfängt den verbleibenden Text in der Zeile nach dem letzten analysierten Token. |
-    |     usebackq      |                                                                                             Gibt an: führen Sie eine Zeichenfolge in einer Zeichenfolge mit einer Zeichenfolge in Anführungszeichen als Literalzeichenfolge aus, oder verwenden Sie für lange Dateinamen, die Leerzeichen enthalten, die Angabe von Dateinamen in *\<Set @ no__t-2*in doppelte Anführungszeichen.                                                                                              |
+    |     EOL =\<c >      |                                                                                                                                                                                   Gibt ein Zeilenendezeichen an (nur ein Zeichen).                                                                                                                                                                                    |
+    |     Skip =\<N >     |                                                                                                                                                                              Gibt die Anzahl der Zeilen an, die am Anfang der Datei übersprungen werden sollen.                                                                                                                                                                              |
+    |   Delta =\<xxx >   |                                                                                                                                                                     Gibt einen Trenn Zeichensatz an. Dadurch wird das Standard Trennzeichen Set von Space und Tab ersetzt.                                                                                                                                                                      |
+    | Tokens =\<X, Y, M – N > | Gibt an, welche Token aus den einzelnen Zeilen an die **for** -Schleife für jede Iterationen übermittelt werden sollen. Folglich werden zusätzliche Variablennamen zugeordnet. *M*–*N* gibt einen Bereich an, vom *m*-bis zum *n*-ten Token. Wenn das letzte Zeichen in **Token =** String ein Sternchen ( **&#42;** ) ist, wird eine zusätzliche Variable zugeordnet, und Sie empfängt den verbleibenden Text in der Zeile nach dem letzten analysierten Token. |
+    |     usebackq      |                                                                                             Gibt an: führen Sie eine Zeichenfolge in einer Zeichenfolge in einer Zeichenfolge als eine Literalzeichenfolge aus, oder verwenden Sie für lange Dateinamen, die Leerzeichen enthalten, die Angabe von Dateinamen in *\<festgelegten\>* in doppelte Anführungszeichen.                                                                                              |
 
 
   - Variablen Ersetzung
@@ -143,7 +143,7 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
     |% ~ Ai|Erweitert **% I** zu den Dateiattributen der Datei.|
     |% ~ TI|Erweitert **% I** in das Datum und die Uhrzeit der Datei.|
     |% ~ Zi|Erweitert **% I** in die Größe der Datei.|
-    |% ~ $PATH: I|Durchsucht die Verzeichnisse, die in der PATH-Umgebungsvariablen aufgelistet sind, und erweitert **% I** auf den voll qualifizierten Namen des ersten gefundenen Verzeichnisses. Wenn der Name der Umgebungsvariablen nicht definiert ist oder die Datei von der Suche nicht gefunden wird, wird dieser Modifizierer auf die leere Zeichenfolge erweitert.|
+    |% ~ $Path: I|Durchsucht die Verzeichnisse, die in der PATH-Umgebungsvariablen aufgelistet sind, und erweitert **% I** auf den voll qualifizierten Namen des ersten gefundenen Verzeichnisses. Wenn der Name der Umgebungsvariablen nicht definiert ist oder die Datei von der Suche nicht gefunden wird, wird dieser Modifizierer auf die leere Zeichenfolge erweitert.|
 
     In der folgenden Tabelle sind Modifiziererkombinationen aufgelistet, die Sie verwenden können, um zusammengesetzte Ergebnisse zu erhalten.  
 
@@ -155,15 +155,15 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
     |% ~ DP $ Pfad: I|Durchsucht die Verzeichnisse, die in der PATH-Umgebungsvariablen für **% I** aufgelistet sind, und erweitert den Laufwerk Buchstaben und den Pfad des ersten gefundenen Verzeichnisses.|
     |% ~ "f"|Erweitert **% I** in eine Ausgabezeile, die wie **dir**aussieht.|
 
-    In den obigen Beispielen können Sie " **% I** " und "Path" durch andere gültige Werte ersetzen. Ein gültiger **für** Variablenname beendet die **%~-** Syntax.
+    In den obigen Beispielen können Sie " **% I** " und "Path" durch andere gültige Werte ersetzen. Ein gültiger **für** Variablenname beendet die **%~** -Syntax.
 
     Durch die Verwendung von Großbuchstaben (z. b. **% I**) können Sie den Code besser lesbar machen und Verwirrung mit den Modifizierer vermeiden, bei denen die Groß-/Kleinschreibung nicht beachtet wird.
 - Eine Zeichenfolge wird verarbeitet.
 
-  Sie können die **for/f** -parameterlogik in einer unmittelbaren Zeichenfolge verwenden, indem Sie *\<literalstring @ no__t-3* in doppelte Anführungszeichen (*ohne* "usebackq") oder in einfache Anführungszeichen (*mit* "usebackq") einschließen, z. b. ("myString") oder (" MyString '). *\<literalstring @ no__t-2* wird als einzelne Zeile der Eingabe aus einer Datei behandelt. Beim *\<literalstring @ no__t-2* in doppelten Anführungszeichen werden Befehls Symbole (z. b. **\\ \& \| \> \< \^** ) als normale Zeichen behandelt.
+  Sie können die **for/f** -parameterlogik in einer unmittelbaren Zeichenfolge verwenden, indem Sie *\<Literalstring-\>* in doppelte Anführungszeichen (*ohne* "usebackq") oder in einfache Anführungszeichen (*mit* "usebackq") einschließen, z. b. ("myString") oder ("myString"). *\<Literalstring-\>* wird als eine einzelne Zeile der Eingabe aus einer Datei behandelt. Wenn *\<Literalstring* in doppelte Anführungszeichen\>werden, werden Befehls Symbole (z. b. **\\ \& \|** \> \< \^) als normale Zeichen behandelt.
 - Ausgabe wird verarbeitet
 
-  Sie können den **for/f** -Befehl verwenden, um die Ausgabe eines Befehls zu analysieren, indem Sie die *\<command @ no__t-3* der Klammern zwischen den Klammern platzieren. Sie wird als Befehlszeile behandelt, die an eine untergeordnete Datei "cmd. exe" übergeben wird. Die Ausgabe wird im Arbeitsspeicher aufgezeichnet und so analysiert, als ob es sich um eine Datei handelt.
+  Sie können den **for/f** -Befehl verwenden, um die Ausgabe eines Befehls zu analysieren, indem Sie einen *\<Befehl* in der backanführungs Zeichen\>zwischen den Klammern platzieren. Sie wird als Befehlszeile behandelt, die an eine untergeordnete Datei "cmd. exe" übergeben wird. Die Ausgabe wird im Arbeitsspeicher aufgezeichnet und so analysiert, als ob es sich um eine Datei handelt.
 
 ## <a name="BKMK_examples"></a>Beispiele
 

@@ -18,7 +18,7 @@ ms.locfileid: "71359696"
 ---
 # <a name="configuring-claim-rules"></a>Konfigurieren von Anspruchsregeln
 
-In einem Anspruchs @ no__t-0basierten Identitäts Modell besteht die Funktion von Active Directory-Verbunddienste (AD FS) \(AD FS @ no__t-2 als Verbund Dienste darin, ein Token auszugeben, das einen Satz von Ansprüchen enthält. Anspruchs Regeln steuern die Entscheidung hinsichtlich der Ansprüche, die Probleme AD FS. Anspruchs Regeln und alle Server Konfigurationsdaten werden in der AD FS Konfigurations Datenbank gespeichert.  
+In einem Anspruchs\-basierten Identitäts Modell ist die Funktion von Active Directory-Verbunddienste (AD FS) \(AD FS\) als Verbund Dienste, ein Token auszugeben, das einen Satz von Ansprüchen enthält. Anspruchs Regeln steuern die Entscheidung hinsichtlich der Ansprüche, die Probleme AD FS. Anspruchs Regeln und alle Server Konfigurationsdaten werden in der AD FS Konfigurations Datenbank gespeichert.  
   
 AD FS trifft Ausstellungs Entscheidungen, die auf Identitätsinformationen basieren, die ihm in Form von Ansprüchen und anderen Kontextinformationen bereitgestellt werden. Auf hoher Ebene wird AD FS als Regel Prozessor betrieben, indem ein Satz von Ansprüchen als Eingabe übernommen wird, eine Reihe von Transformationen durchführt und dann eine andere Gruppe von Ansprüchen als Ausgabe zurückgegeben wird.  
   

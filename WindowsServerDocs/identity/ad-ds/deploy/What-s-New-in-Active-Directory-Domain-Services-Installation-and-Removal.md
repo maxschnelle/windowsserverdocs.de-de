@@ -18,7 +18,7 @@ ms.locfileid: "71369564"
 ---
 # <a name="whats-new-in-active-directory-domain-services-installation-and-removal"></a>Neues beim Installieren und Entfernen der Active Directory-Domänendienste
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Die Bereitstellung von Active Directory Domain Services (AD DS) in Windows Server 2012 ist einfacher und schneller als in früheren Versionen von Windows Server. Der AD DS-Installationsprozess basiert von nun an auf Windows PowerShell, und er ist in Server-Manager integriert. Die Anzahl der zum Einfügen von Domänencontrollern in eine vorhandene Active Directory-Umgebung erforderlichen Schritte wurde reduziert. Dadurch wird der Prozess zum Erstellen einer neuen Active Directory-Umgebung einfacher und effizienter. Durch den neuen AD DS-Bereitstellungsprozess werden potenzielle Fehler, die anderenfalls zum Blockieren der Installation geführt hätten, minimiert.  
   
@@ -43,7 +43,7 @@ Ab Windows Server 2012 ersetzt der Konfigurations-Assistent für Active Director
 > [!WARNING]  
 > Der Legacy-Assistent zum Installieren von Active Directory Domain Services (Dcpromo. exe) ist ab Windows Server 2012 veraltet.  
 
-In der [Installations &#40;Active Directory Domain Services Ebene&#41;100](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md)zeigen die UI-Prozeduren, wie der Assistent zum Hinzufügen von Rollen gestartet wird, um die AD DS Server-Rollen Binärdateien zu installieren, und anschließend den Active Directory Domain Services Konfigurations-Assistenten auszuführen. die Domänen Controller Installation. Die Windows PowerShell-Beispiele zeigen, wie beide Schritte mithilfe eines Cmdlets für die AD DS-Bereitstellung abgeschlossen werden.  
+In der [Installations &#40;Active Directory Domain Services Ebene&#41;100](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md)zeigen die UI-Prozeduren, wie der Assistent zum Hinzufügen von Rollen gestartet wird, um die AD DS Server-Rollen Binärdateien zu installieren, und anschließend den Active Directory Domain Services Konfigurations-Assistenten auszuführen, um die Domänen Controller Installation Die Windows PowerShell-Beispiele zeigen, wie beide Schritte mithilfe eines Cmdlets für die AD DS-Bereitstellung abgeschlossen werden.  
   
 ## <a name="BKMK_NewAdprep"></a>Integration von Adprep. exe
 
@@ -110,17 +110,17 @@ Vor Beginn der Installation überprüft der Installations-Assistent für AD DS, 
   
 Die Adprep-bezogenen Voraussetzungen beinhalten beispielsweise Folgendes:  
 
-- Überprüfung der Adprep-Anmeldeinformationen: Wenn Adprep ausgeführt werden muss, überprüft der Installations-Assistent, ob der Benutzer über die ausreichenden Rechte zum Ausführen der erforderlichen Adprep-Vorgänge verfügt.  
-- Schemamaster-Verfügbarkeitsprüfung: Wenn der Installations-Assistent feststellt, dass „adprep /forestprep“ ausgeführt werden muss, überprüft er, ob der Schemamaster online ist. Andernfalls schlägt der Assistent fehl.  
-- Infrastrukturmaster-Verfügbarkeitsprüfung: Wenn der Installations-Assistent feststellt, dass „adprep /domainprep“ ausgeführt werden muss, überprüft er, ob der Infrastrukturmaster online ist. Andernfalls schlägt der Assistent fehl.
+- Überprüfung der Adprep-Anmeldeinformationen: wenn Adprep ausgeführt werden muss, überprüft der Installations-Assistent, ob der Benutzer über die ausreichenden Rechte zum Ausführen der erforderlichen Adprep-Vorgänge verfügt.  
+- Schemamaster-Verfügbarkeitsprüfung: wenn der Installations-Assistent feststellt, dass %%amp;quot;adprep /forestprep%%amp;quot; ausgeführt werden muss, überprüft er, ob der Schemamaster online ist. Andernfalls schlägt der Assistent fehl.  
+- Infrastrukturmaster-Verfügbarkeitsprüfung: wenn der Installations-Assistent feststellt, dass %%amp;quot;adprep /domainprep%%amp;quot; ausgeführt werden muss, überprüft er, ob der Infrastrukturmaster online ist. Andernfalls schlägt der Assistent fehl.
 
 Weitere Voraussetzungsprüfungen, die aus dem alten Installations-Assistenten für Active Directory (%%amp;quot;dcpromo.exe%%amp;quot;) übernommen wurden, beinhalten Folgendes:  
 
-- Überprüfung des Gesamtstrukturnamens: Stellt sicher, dass der Gesamtstrukturname gültig und derzeit nicht vorhanden ist.  
-- Überprüfung des NetBIOS-Namens: Überprüft, ob der angegebene NetBIOS-Name gültig ist und nicht mit vorhandenen Namen in Konflikt steht.  
-- Überprüfung des Komponentenpfads: Überprüft, ob die Pfade für die Active Directory-Datenbanken und -Protokolle und für SYSVOL gültig sind und ob genügend Speicherplatz zur Verfügung steht.  
-- Überprüfung der untergeordneten Domänennamen: Stellt sicher, dass die Namen der übergeordneten und neuen untergeordneten Domäne gültig sind und dass sie nicht mit vorhandenen Domänen in Konflikt stehen.  
-- Überprüfung der Strukturdomänennamen: Stellt sicher, dass der angegebene Strukturname gültig und derzeit nicht vorhanden ist.  
+- Überprüfung des Gesamtstrukturnamens: stellt sicher, dass der Gesamtstrukturname gültig und derzeit nicht vorhanden ist.  
+- NetBIOS-Namensüberprüfung: überprüft, ob der angegebene NetBIOS-Name gültig ist und nicht mit vorhandenen Namen in Konflikt steht.  
+- Überprüfung des Komponentenpfads: überprüft, ob die Pfade für die Active Directory-Datenbanken, -Protokolle und für SYSVOL gültig sind und ob genügend Speicherplatz zur Verfügung steht.  
+- Überprüfung des Namens der untergeordneten Domäne: stellt sicher, dass die Namen der übergeordneten und neuen untergeordneten Domäne gültig sind und dass sie nicht mit vorhandenen Domänen in Konflikt stehen.  
+- Überprüfung des Strukturdomänennamens: stellt sicher, dass der angegebene Strukturname gültig und derzeit nicht vorhanden ist.  
 
 ## <a name="BKMK_SystemReqs"></a>System Anforderungen
 
@@ -176,7 +176,7 @@ In diesem Abschnitt werden einige bekannte Probleme aufgeführt, die sich auf di
 
    In diesem Fall müssen Sie das Cmdlet %%amp;quot;ADDSDeployment%%amp;quot; getrennt von dem Cmdlet ausführen, das keine systemeigenen 64-Bit-Prozesse unterstützt.  
 
-- In Windows Server 2012 ist ein neues Dateisystem mit dem Namen "robustes Dateisystem" vorhanden. Speichern Sie auf einem mit dem robusten Dateisystem (Resilient File System, ReFS) formatierten Datenvolume keinesfalls die Active Directory-Datenbanken, -Protokolldateien oder SYSVOL. Weitere Informationen zu Refs finden Sie unter [building The Next Generation File System for Windows: Refs @ no__t-0.  
+- In Windows Server 2012 ist ein neues Dateisystem mit dem Namen "robustes Dateisystem" vorhanden. Speichern Sie auf einem mit dem robusten Dateisystem (Resilient File System, ReFS) formatierten Datenvolume keinesfalls die Active Directory-Datenbanken, -Protokolldateien oder SYSVOL. Weitere Informationen zu ReFS finden Sie unter [Erstellen der nächsten Dateisystemgeneration für Windows: ReFS](http://blogs.msdn.com/b/b8/archive/2012/01/16/building-the-next-generation-file-system-for-windows-refs.aspx).  
 - In Server-Manager kann auf Servern, auf denen AD DS oder andere Server Rollen in einer Server Core-Installation ausgeführt werden und die auf Windows Server 2012 aktualisiert wurden, die Server Rolle mit dem Status "rot" angezeigt werden, obwohl Ereignisse und Status erwartungsgemäß erfasst werden. Server, auf denen eine Server Core-Installation einer vorläufigen Version von Windows Server 2012 ausgeführt wird, können ebenfalls beeinträchtigt werden.  
 
 ### <a name="active-directory-domain-services-installation-hangs-if-an-error-prevents-critical-replication"></a>Die Installation der Active Directory-Domänendienste hängt, wenn eine kritische Replikation durch einen Fehler verhindert wird

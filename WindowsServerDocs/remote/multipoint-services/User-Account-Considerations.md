@@ -38,9 +38,9 @@ Administratoren können Aufgaben ausführen, die sich auf alle anderen Benutzer 
 Ein wichtiger Aspekt von Benutzerkonten ist, dass jedem Benutzerkonto eine eindeutige **Dokumente**-Bibliothek in Windows-Explorer zugeordnet wird, die den Ordner **Eigene Dokumente** umfasst. Wenn die Standardbenutzer Ihres MultiPoint Services-Systems private Dokumente in ihrer jeweiligen **Dokumente**-Bibliothek in Windows-Explorer speichern, sollten sie sich beim MultiPoint Services-System ebenfalls mit einem eindeutigen Benutzernamen und Kennwort anmelden, das nur ihnen bekannt ist. Weitere Informationen zum Speichern von Dokumenten in Windows-Explorer finden Sie im Thema [Verwalten von Benutzerdateien](Manage-User-Files.md).  
   
 > [!TIP]  
-> Um die Systemsicherheit zu verstärken, sollten alle Benutzer Kennwörter sichere Kenn Wörter sein. Ein sicheres Kennwort ist ein Kennwort, das nicht leicht erraten oder geknackt werden kann, mindestens acht Zeichen lang ist, den Kontonamen des Benutzers weder ganz noch teilweise enthält und mindestens drei der vier folgenden Zeichen Kategorien enthält: Großbuchstaben, Kleinbuchstaben Zeichen, Zahlen und Symbole, die auf einer Tastatur gefunden werden (z. b.!, @, #).  
+> Um die Systemsicherheit zu verstärken, sollten alle Benutzer Kennwörter sichere Kenn Wörter sein. Ein sicheres Kennwort ist ein sicheres Kennwort, das nicht leicht erraten oder geknackt werden kann, mindestens acht Zeichen lang ist, den Kontonamen des Benutzers nicht ganz oder teilweise enthält und mindestens drei der vier folgenden Zeichen Kategorien enthält: Großbuchstaben, Kleinbuchstaben, Ziffern und Symbole, die auf einer Tastatur gefunden werden (z. b.!, @, #).  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Erstellen eines Administratorkontos](Create-an-Administrative-User-Account.md)  
 [Erstellen eines Standardbenutzerkontos](Create-a-Standard-User-Account.md)  
 [Verwalten von Benutzer Dateien](Manage-User-Files.md)

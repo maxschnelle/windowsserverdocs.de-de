@@ -21,7 +21,7 @@ ms.lasthandoff: 09/27/2019
 ms.locfileid: "71389307"
 ---
 # <a name="show-all-stations"></a>Anzeigen aller Stationen
-Als Administrator des Multipoint Services-Systems möchten Sie möglicherweise alle Stationen anzeigen, die mit dem System verbunden sind, einschließlich nicht-no__t-oder abangemeldeter Stationen. Beispielsweise müssen Sie gemäß Ihrem Lizenzvertrag möglicherweise die Anzahl der Stationen überprüfen, die mit dem Multipoint Services-System verbunden sind. Diese Informationen können Sie mithilfe des Multipoint-Managers anzeigen.  
+Als Administrator des Multipoint Services-Systems möchten Sie möglicherweise alle Stationen anzeigen, die mit dem System verbunden sind, einschließlich nicht\-aktiver oder abgeschlossener Stationen. Beispielsweise müssen Sie gemäß Ihrem Lizenzvertrag möglicherweise die Anzahl der Stationen überprüfen, die mit dem Multipoint Services-System verbunden sind. Diese Informationen können Sie mithilfe des Multipoint-Managers anzeigen.  
   
 1.  Klicken Sie im Normalmodus auf die Registerkarte **Desktops**.  
   

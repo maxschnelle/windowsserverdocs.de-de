@@ -23,11 +23,11 @@ Mit den Client Zugriffsrichtlinien in Active Directory-Verbunddienste (AD FS) 2,
 
 Führen Sie die folgenden Schritte aus, um die Client Zugriffs Richtlinie zu aktivieren.
 
-### <a name="step-1-install-the-update-rollup-2-for-ad-fs-20-package-on-your-ad-fs-servers"></a>Schritt 1: Installieren Sie das Paket Updaterollup 2 für AD FS 2,0 auf Ihren AD FS Servern.
+### <a name="step-1-install-the-update-rollup-2-for-ad-fs-20-package-on-your-ad-fs-servers"></a>Schritt 1: Installieren des Updaterollup 2 für AD FS 2,0-Paket auf Ihren AD FS Servern
 
 Laden Sie das Paket [Updaterollup 2 für Active Directory-Verbunddienste (AD FS) (AD FS) 2,0](https://support.microsoft.com/en-us/help/2681584/description-of-update-rollup-2-for-active-directory-federation-services-ad-fs-2.0) herunter, und installieren Sie es auf allen Verbund Servern und Verbund Server Proxys.
 
-### <a name="step-2-add-five-claim-rules-to-the-active-directory-claims-provider-trust"></a>Schritt 2: Fügen Sie der Active Directory Anspruchs Anbieter-Vertrauensstellung fünf Anspruchs Regeln hinzu.
+### <a name="step-2-add-five-claim-rules-to-the-active-directory-claims-provider-trust"></a>Schritt 2: Hinzufügen von fünf Anspruchs Regeln zur Active Directory Anspruchs Anbieter-Vertrauensstellung
 
 Nachdem Updaterollup 2 auf allen AD FS Servern und Proxys installiert wurde, gehen Sie folgendermaßen vor, um einen Satz von Anspruchs Regeln hinzuzufügen, die die neuen Anspruchs Typen für die Richtlinien-Engine verfügbar machen.
 
@@ -44,7 +44,7 @@ Erstellen Sie auf der Active Directory Anspruchs Anbieter-Vertrauensstellung ein
 4. Wählen Sie auf der Seite Regel Vorlage auswählen unter Anspruchs Regel Vorlage die Option Pass-Through oder einen eingehenden Anspruch Filtern aus der Liste aus, und klicken Sie dann auf Weiter.
 5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben Sie unter Typ des eingehenden Anspruchs die folgende Anspruchstyp-URL ein, und wählen Sie dann alle Anspruchs Werte durchlaufen aus.</br>
         `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`</br>
-6. Um die Regel zu überprüfen, wählen Sie Sie in der Liste aus, klicken Sie auf Regel bearbeiten und dann auf Regel Sprache anzeigen. Die Anspruchs Regel Sprache sollte wie folgt aussehen:`c:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip"] => issue(claim = c);`
+6. Um die Regel zu überprüfen, wählen Sie Sie in der Liste aus, klicken Sie auf Regel bearbeiten und dann auf Regel Sprache anzeigen. Die Anspruchs Regel Sprache sollte wie folgt aussehen: `c:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip"] => issue(claim = c);`
 7. Klicken Sie auf Finish.
 8. Klicken Sie im Dialogfeld Anspruchs Regeln bearbeiten auf OK, um die Regeln zu speichern.
 9. Wiederholen Sie die Schritte 2 bis 6, um eine zusätzliche Anspruchs Regel für jeden der verbleibenden vier Anspruchs Typen zu erstellen, bis alle fünf Regeln erstellt wurden.
@@ -60,14 +60,14 @@ Erstellen Sie auf der Active Directory Anspruchs Anbieter-Vertrauensstellung ein
 `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`
 ~~~
 
-### <a name="step-3-update-the-microsoft-office-365-identity-platform-relying-party-trust"></a>Schritt 3: Aktualisieren der Microsoft Office 365-Identitäts Plattform-Vertrauensstellung der vertrauenden Seite
+### <a name="step-3-update-the-microsoft-office-365-identity-platform-relying-party-trust"></a>Schritt 3: Aktualisieren der Microsoft Office 365 Identity Platform-Vertrauensstellung der vertrauenden Seite
 
 Wählen Sie eines der unten aufgeführten Beispielszenarien aus, um die Anspruchs Regeln für die Microsoft Office 365-Identitäts Plattform-Vertrauensstellung der vertrauenden Seite zu konfigurieren, die den Anforderungen Ihrer Organisation am besten entspricht.
 
 ## <a name="client-access-policy-scenarios-for-ad-fs-20"></a>Szenarien für die Client Zugriffs Richtlinie für AD FS 2,0
 In den folgenden Abschnitten werden die Szenarien beschrieben, die für AD FS 2,0
 
-### <a name="scenario-1-block-all-external-access-to-office-365"></a>Szenario 1: Den gesamten externen Zugriff auf Office 365 blockieren
+### <a name="scenario-1-block-all-external-access-to-office-365"></a>Szenario 1: Blockieren des gesamten externen Zugriffs auf Office 365
 
 Dieses Client Zugriffsrichtlinien-Szenario ermöglicht den Zugriff von allen internen Clients und blockiert alle externen Clients basierend auf der IP-Adresse des externen Clients. Der Regelsatz basiert auf der standardmäßigen Ausstellungs Autorisierungs Regel, die den Zugriff auf alle Benutzer zulässt. Mithilfe des folgenden Verfahrens können Sie eine Ausstellungs Autorisierungs Regel zur Office 365-Vertrauensstellung der vertrauenden Seite hinzufügen.
 
@@ -79,7 +79,7 @@ Dieses Client Zugriffsrichtlinien-Szenario ermöglicht den Zugriff von allen int
 2. Klicken Sie in der Konsolen Struktur unter AD FS 2.0 \ Vertrauens Stellungen auf Vertrauens Stellungen der vertrauenden Seite, klicken Sie mit der rechten Maustaste auf die Microsoft Office 365 Identity Platform-Vertrauensstellung, und klicken Sie dann auf Anspruchs Regeln bearbeiten. 
 3. Wählen Sie im Dialogfeld Anspruchs Regeln bearbeiten die Registerkarte Ausstellungs Autorisierungs Regeln aus, und klicken Sie dann auf Regel hinzufügen, um den Anspruchs Regel-Assistenten zu starten.
 4. Wählen Sie auf der Seite Regel Vorlage auswählen unter Anspruchs Regel Vorlage die Option Ansprüche mithilfe einer benutzerdefinierten Regel senden aus, und klicken Sie dann auf Weiter.
-5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben oder fügen Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein:`exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
+5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein, oder fügen Sie Sie ein: `exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");` 
@@ -90,7 +90,7 @@ Dieses Client Zugriffsrichtlinien-Szenario ermöglicht den Zugriff von allen int
 >Sie müssen den obigen Wert für "öffentliche IP-Adresse-Regex" durch einen gültigen IP-Ausdruck ersetzen. Weitere Informationen finden Sie unter Building the IP Address Range Expression.
 
 
-### <a name="scenario-2-block-all-external-access-to-office-365-except-exchange-activesync"></a>Szenario 2: Den gesamten externen Zugriff auf Office 365 mit Ausnahme von Exchange ActiveSync blockieren
+### <a name="scenario-2-block-all-external-access-to-office-365-except-exchange-activesync"></a>Szenario 2: Blockieren des gesamten externen Zugriffs auf Office 365 mit Ausnahme von Exchange ActiveSync
 
 Im folgenden Beispiel wird der Zugriff auf alle Office 365-Anwendungen einschließlich Exchange Online von internen Clients einschließlich Outlook ermöglicht. Der Zugriff von Clients, die sich außerhalb des Unternehmensnetzwerks befinden, wird durch die Client-IP-Adresse, mit Ausnahme von Exchange ActiveSync-Clients wie Smartphones, blockiert. Der Regelsatz basiert auf der standardmäßigen Ausstellungs Autorisierungs Regel mit dem Titel zulassen des Zugriffs für alle Benutzer. Führen Sie die folgenden Schritte aus, um mithilfe des Anspruchs Regel-Assistenten eine Ausstellungs Autorisierungs Regel zur Office 365-Vertrauensstellung der vertrauenden Seite hinzuzufügen:
 
@@ -102,7 +102,7 @@ Im folgenden Beispiel wird der Zugriff auf alle Office 365-Anwendungen einschlie
 2. Klicken Sie in der Konsolen Struktur unter AD FS 2.0 \ Vertrauens Stellungen auf Vertrauens Stellungen der vertrauenden Seite, klicken Sie mit der rechten Maustaste auf die Microsoft Office 365 Identity Platform-Vertrauensstellung, und klicken Sie dann auf Anspruchs Regeln bearbeiten. 
 3. Wählen Sie im Dialogfeld Anspruchs Regeln bearbeiten die Registerkarte Ausstellungs Autorisierungs Regeln aus, und klicken Sie dann auf Regel hinzufügen, um den Anspruchs Regel-Assistenten zu starten.
 4. Wählen Sie auf der Seite Regel Vorlage auswählen unter Anspruchs Regel Vorlage die Option Ansprüche mithilfe einer benutzerdefinierten Regel senden aus, und klicken Sie dann auf Weiter.
-5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben oder fügen Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein:`exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
+5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein, oder fügen Sie Sie ein: `exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application",
     Value=="Microsoft.Exchange.Autodiscover"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application",
@@ -116,7 +116,7 @@ Im folgenden Beispiel wird der Zugriff auf alle Office 365-Anwendungen einschlie
 >[!NOTE]
 >Sie müssen den obigen Wert für "öffentliche IP-Adresse-Regex" durch einen gültigen IP-Ausdruck ersetzen. Weitere Informationen finden Sie unter Building the IP Address Range Expression.
 
-### <a name="scenario-3-block-all-external-access-to-office-365-except-browser-based-applications"></a>Szenario 3: Blockieren Sie den gesamten externen Zugriff auf Office 365 außer browserbasierten Anwendungen.
+### <a name="scenario-3-block-all-external-access-to-office-365-except-browser-based-applications"></a>Szenario 3: Blockieren des gesamten externen Zugriffs auf Office 365 außer auf browserbasierten Anwendungen
 
 Der Regelsatz basiert auf der standardmäßigen Ausstellungs Autorisierungs Regel mit dem Titel zulassen des Zugriffs für alle Benutzer. Gehen Sie folgendermaßen vor, um der Microsoft Office 365 Identity Platform-Vertrauensstellung der vertrauenden Seite mithilfe des Anspruchs Regel-Assistenten eine Ausstellungs Autorisierungs Regel hinzuzufügen:
 
@@ -131,7 +131,7 @@ Der Regelsatz basiert auf der standardmäßigen Ausstellungs Autorisierungs Rege
 2. Klicken Sie in der Konsolen Struktur unter AD FS 2.0 \ Vertrauens Stellungen auf Vertrauens Stellungen der vertrauenden Seite, klicken Sie mit der rechten Maustaste auf die Microsoft Office 365 Identity Platform-Vertrauensstellung, und klicken Sie dann auf Anspruchs Regeln bearbeiten. 
 3. Wählen Sie im Dialogfeld Anspruchs Regeln bearbeiten die Registerkarte Ausstellungs Autorisierungs Regeln aus, und klicken Sie dann auf Regel hinzufügen, um den Anspruchs Regel-Assistenten zu starten.
 4. Wählen Sie auf der Seite Regel Vorlage auswählen unter Anspruchs Regel Vorlage die Option Ansprüche mithilfe einer benutzerdefinierten Regel senden aus, und klicken Sie dann auf Weiter.
-5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben oder fügen Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein:`exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
+5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein, oder fügen Sie Sie ein: `exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value == "/adfs/ls/"])
@@ -139,7 +139,7 @@ Der Regelsatz basiert auf der standardmäßigen Ausstellungs Autorisierungs Rege
 6. Klicken Sie auf Finish. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
 7. Um die Regel zu speichern, klicken Sie im Dialogfeld Anspruchs Regeln bearbeiten auf OK.
 
-### <a name="scenario-4-block-all-external-access-to-office-365-for-designated-active-directory-groups"></a>Szenario 4: Den gesamten externen Zugriff auf Office 365 für bestimmte Active Directory Gruppen blockieren
+### <a name="scenario-4-block-all-external-access-to-office-365-for-designated-active-directory-groups"></a>Szenario 4: Blockieren des gesamten externen Zugriffs auf Office 365 für bestimmte Active Directory Gruppen
 
 Im folgenden Beispiel wird der Zugriff von internen Clients basierend auf der IP-Adresse ermöglicht. Der Zugriff von Clients außerhalb des Unternehmensnetzwerks, die über eine externe Client-IP-Adresse verfügen, wird blockiert, mit Ausnahme der Einzelpersonen in einer angegebenen Active Directory Gruppe. der Regelsatz basiert auf der standardmäßigen Ausstellungs Autorisierungs Regel mit dem Titel zulassen des Zugriffs auf Alle Benutzer. Gehen Sie folgendermaßen vor, um der Microsoft Office 365 Identity Platform-Vertrauensstellung der vertrauenden Seite mithilfe des Anspruchs Regel-Assistenten eine Ausstellungs Autorisierungs Regel hinzuzufügen:
 
@@ -151,7 +151,7 @@ Im folgenden Beispiel wird der Zugriff von internen Clients basierend auf der IP
 2. Klicken Sie in der Konsolen Struktur unter AD FS 2.0 \ Vertrauens Stellungen auf Vertrauens Stellungen der vertrauenden Seite, klicken Sie mit der rechten Maustaste auf die Microsoft Office 365 Identity Platform-Vertrauensstellung, und klicken Sie dann auf Anspruchs Regeln bearbeiten. 
 3. Wählen Sie im Dialogfeld Anspruchs Regeln bearbeiten die Registerkarte Ausstellungs Autorisierungs Regeln aus, und klicken Sie dann auf Regel hinzufügen, um den Anspruchs Regel-Assistenten zu starten.
 4. Wählen Sie auf der Seite Regel Vorlage auswählen unter Anspruchs Regel Vorlage die Option Ansprüche mithilfe einer benutzerdefinierten Regel senden aus, und klicken Sie dann auf Weiter.
-5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben oder fügen Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein:`exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
+5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben Sie unter benutzerdefinierte Regel die folgende Syntax der Anspruchs Regel Sprache ein, oder fügen Sie Sie ein: `exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy"]) &&
     exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "Group SID value of allowed AD group"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
@@ -180,14 +180,14 @@ Der "x-ms-weitergeleitete Client-IP"-Anspruch wird mit einem HTTP-Header aufgef�
 >[!Note] 
 >Exchange Online unterstützt derzeit nur IPv4-und nicht IPv6-Adressen.
 
-Eine einzelne IP-Adresse: Die IP-Adresse des Clients, der direkt mit Exchange Online verbunden ist
+Eine einzelne IP-Adresse: die IP-Adresse des Clients, der direkt mit Exchange Online verbunden ist
 
 >[!Note] 
 >Die IP-Adresse eines Clients im Unternehmensnetzwerk wird als IP-Adresse der externen Schnittstelle des ausgehenden Proxys oder Gateways der Organisation angezeigt.
 
 Clients, die über ein VPN oder Microsoft DirectAccess (da) mit dem Unternehmensnetzwerk verbunden sind, werden je nach Konfiguration von VPN oder da möglicherweise als interne Unternehmens Clients oder als externe Clients angezeigt.
 
-Mindestens eine IP-Adresse: Wenn Exchange Online die IP-Adresse des Clients, der die Verbindung herstellt, nicht ermitteln kann, wird der Wert auf Grundlage des Werts des x-weitergeleiteten-for-Headers festgelegt, ein nicht standardmäßiger Header, der in http-basierten Anforderungen eingeschlossen werden kann und von vielen Clients unterstützt wird, Load Balancer, und Proxys auf dem Markt.
+Mindestens eine IP-Adresse: Wenn Exchange Online die IP-Adresse des Clients, der die Verbindung herstellt, nicht ermitteln kann, wird der Wert basierend auf dem Wert des x-weitergeleiteten für-Headers festgelegt, einem nicht standardmäßigen Header, der in http-basierten Anforderungen eingeschlossen werden kann und von vielen unterstützt wird. Clients, Lasten Ausgleichs Module und Proxys auf dem Markt.
 
 >[!Note]
 >Mehrere IP-Adressen, die die Client-IP-Adresse und die Adresse der einzelnen Proxys angeben, die die Anforderung übermittelt haben, werden durch Kommas getrennt.
@@ -203,19 +203,19 @@ Wenn Sie einen Bereich von IP-Adressen zuordnen müssen, ist es erforderlich, ei
 - 192.168.1.1 – 192.168.1.25
 - 10.0.0.1 – 10.0.0.14
 
-Zuerst lautet das grundlegende Muster, das einer einzelnen IP-Adresse entspricht, wie folgt: \b #\.# #######\.\.# # # \b
+Zuerst lautet das grundlegende Muster, das einer einzelnen IP-Adresse entspricht, wie folgt: \b # # #\.###\.###\.# # # \b
 
-Dadurch können wir zwei unterschiedliche IP-Adressen wie folgt mit einem or-Ausdruck vergleichen: \b # #\.#\. \.\. ######\.# # # \b | \b #### ########\b \.
+Durch die Erweiterung können wir zwei unterschiedliche IP-Adressen wie folgt mit einem or-Ausdruck vergleichen: \b # # #\.###\.###\.# # # \b | \b # # #\.###\.###\.# # # \b
 
-Ein Beispiel für die Anpassung von nur zwei Adressen (z. b. 192.168.1.1 oder 10.0.0.1) lautet\.: \b192\.168\.1 1 \ b | \b10\.\.0\.0 1 \ b
+Ein Beispiel für die Anpassung von nur zwei Adressen (z. b. 192.168.1.1 oder 10.0.0.1) lautet: \b192\.168\.1\.1 \ b | \b10\.0\.0\.1 \ b
 
-Auf diese Weise können Sie eine beliebige Anzahl von Adressen eingeben. Wenn ein Adressbereich zulässig sein muss, z. b. 192.168.1.1 – 192.168.1.25, muss der Abgleich Zeichen nach Zeichen durchgeführt werden: \b192 @ no__t-0168 @ no__t-11 @ no__t-2 ([1-9] | 1 [0-9] | 2 [0-5]) \b
+Auf diese Weise können Sie eine beliebige Anzahl von Adressen eingeben. Wenn ein Adressbereich zulässig sein muss, z. b. 192.168.1.1 – 192.168.1.25, muss der Abgleich Zeichen nach Zeichen durchgeführt werden: \b192\.168\.1\.([1-9] | 1 [0-9] | 2 [0-5]) \b
 
 >[!Note] 
 >Die IP-Adresse wird als Zeichenfolge und nicht als Zahl behandelt.
 
 
-Die Regel wird wie folgt aufgegliedert: \b192\.168\.1\.
+Die Regel wird wie folgt aufgeschlüsselt: \b192\.168\.1\.
 
 Dies entspricht einem beliebigen Wert, der mit 192.168.1 beginnt.
 
@@ -229,9 +229,9 @@ Folgendes entspricht den Bereichen, die für den Teil der Adresse nach dem letzt
 >[!Note]
 >Die Klammern müssen ordnungsgemäß positioniert werden, damit Sie nicht mit anderen Teilen von IP-Adressen übereinstimmen.
 
-Wenn der 192-Block übereinstimmt, können wir einen ähnlichen Ausdruck für den 10-Block schreiben: \b10 @ no__t-00 @ no__t-10 @ no__t-2 ([1-9] | 1 [0-4]) \b
+Wenn der 192-Block übereinstimmt, können wir einen ähnlichen Ausdruck für den 10-Block schreiben: \b10\.0\.0\.([1-9] | 1 [0-4]) \b
 
-Wenn Sie diese zusammenstellen, sollte der folgende Ausdruck mit allen Adressen für "192.168.1.1 ~ 25" und "10.0.0.1 ~ 14" identisch sein: \b192 @ no__t-0168 @ no__t-11 @ no__t-2 ([1-9] | 1 [0-9] | 2 [0-5]) \b | \b10 @ no__t-30 @ no__t-40 @ no__t-5 ([1-9] | 1 [0-4]) \b
+Und der folgende Ausdruck sollte mit allen Adressen für "192.168.1.1 ~ 25" und "10.0.0.1 ~ 14": \b192\.168\.1\.([1-9] | 1 [0-9] | 2 [0-5]) \b | \b10\.0\.0\.([1-9] | 1 [0-4]) \b verglichen werden.
 
 #### <a name="testing-the-expression"></a>Testen des Ausdrucks
 

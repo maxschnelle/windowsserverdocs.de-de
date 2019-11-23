@@ -22,9 +22,9 @@ ms.locfileid: "71378913"
 ---
 # <a name="create-partition-extended"></a>Erstellen einer Partition erweitert
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-erstellt eine erweiterte Partition auf dem Datenträger mit dem Fokus. Dieser Befehl kann nur für den Master Boot Record \(mbr @ no__t-1-Datenträger verwendet werden.  
+erstellt eine erweiterte Partition auf dem Datenträger mit dem Fokus. Sie können diesen Befehl nur für die Master Boot Record-\(MBR\) Disks verwenden.  
   
   
   
@@ -38,10 +38,10 @@ create partition extended [size=<n>] [offset=<n>] [align=<n>] [noerr]
   
 |  Parameter  |                                                                                                                             Beschreibung                                                                                                                              |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  Size @ no__t-0 @ no__t-1  |                                                  Gibt die Größe der Partition in Megabyte \(MB @ no__t-1 an. Wenn keine Größe angegeben wird, wird die Partition so lange fortgesetzt, bis der freie Speicherplatz in der erweiterten Partition nicht mehr verfügbar ist.                                                  |
-| Offset @ no__t-0 @ no__t-1 |                     Gibt den Offset in Kilobyte \(KB @ no__t-1 an, bei dem die Partition erstellt wird. Wenn kein Offset angegeben wird, wird die Partition am Anfang des freien Speicherplatzes auf dem Datenträger gestartet, der groß genug ist, um die neue Partition zu speichern.                      |
-| align @ no__t-0 @ no__t-1  | Richtet alle Partitions Blöcke an die nächstgelegene Ausrichtungs Grenze aus. Wird in der Regel mit der Hardware-RAID-Nummer \(lun @ no__t-1 verwendet, um die Leistung zu verbessern. <n> ist die Anzahl der Kilobyte \( KB @ no__t-2 vom Anfang des Datenträgers bis zur nächstgelegenen Ausrichtungs Grenze. |
-|    Noerr    |                                 Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.                                 |
+|  Größe\=<n>  |                                                  Gibt die Größe der Partition in Megabyte \(MB\)an. Wenn keine Größe angegeben wird, wird die Partition so lange fortgesetzt, bis der freie Speicherplatz in der erweiterten Partition nicht mehr verfügbar ist.                                                  |
+| Offset\=<n> |                     Gibt den Offset in Kilobyte \(KB-\)an, bei dem die Partition erstellt wird. Wenn kein Offset angegeben wird, wird die Partition am Anfang des freien Speicherplatzes auf dem Datenträger gestartet, der groß genug ist, um die neue Partition zu speichern.                      |
+| \=<n> ausrichten  | Richtet alle Partitions Blöcke an die nächstgelegene Ausrichtungs Grenze aus. Wird in der Regel mit der logischen Gerätenummer des Hardware-RAID-\(LUN\) Arrays verwendet, um die Leistung <n> ist die Anzahl von Kilobyte \(KB\) vom Anfang des Datenträgers bis zur nächstgelegenen Ausrichtungs Grenze. |
+|    Noerr    |                                 nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.                                 |
   
 ## <a name="remarks"></a>Hinweise  
   

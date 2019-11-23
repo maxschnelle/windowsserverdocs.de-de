@@ -22,7 +22,7 @@ ms.locfileid: "71363081"
 ---
 # <a name="using-the-get-namespace-command"></a>Verwenden des Befehls Get-Namespace
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt Informationen zu einem benutzerdefinierten Namespace an.
 ## <a name="syntax"></a>Syntax
@@ -38,7 +38,7 @@ wdsutil /Get-Namespace /Namespace:<Namespace name> [/Server:<Server name>] [/det
 
 |               Parameter               |                                                                                                                                                                                         Beschreibung                                                                                                                                                                                          |
 |---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      /Namespace: <Namespace name>      | Gibt den Namen des Namespaces an. Beachten Sie, dass dies nicht der Anzeige Name ist und eindeutig sein muss.<br /><br />-Bereitstellungs Server: Die Syntax für den Namespace Namen lautet/Namspace: WDS: <ImageGroup> @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4. Zum Beispiel: **WDS: ImageGroup1/install. wim/1**<br />-Transport Server: Dieser Wert sollte dem Namen entsprechen, der dem Namespace bei der Erstellung auf dem Server zugewiesen wurde. |
+|      /Namespace:<Namespace name>      | Gibt den Namen des Namespaces an. Beachten Sie, dass dies nicht der Anzeige Name ist und eindeutig sein muss.<br /><br />-Bereitstellungs Server: die Syntax für den Namespace Namen lautet/Namspace: WDS:<ImageGroup>/<ImageName>/<Index>. Beispiel: **WDS: ImageGroup1/install. wim/1**<br />-Transport Server: dieser Wert sollte dem Namen entsprechen, der dem Namespace bei der Erstellung auf dem Server zugewiesen wurde. |
 |        [/Server:<Server name>]        |                                                                                                             Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.                                                                                                              |
 | [/Show: Clients] oder [/Details: Clients] |                                                                                                                                                  Hiermit werden Informationen zu Client Computern angezeigt, die mit dem angegebenen Namespace verbunden sind.                                                                                                                                                  |
 
@@ -51,8 +51,8 @@ Zum Anzeigen von Informationen zu einem Namespace und den Clients, die verbunden
 - Windows Server 2008: `wdsutil /Get-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /Show:Clients`
 - Windows Server 2008 R2: `wdsutil /Get-Namespace /Server:MyWDSServer /Namespace:"Custom Auto 1" /details:Clients`
   #### <a name="additional-references"></a>Weitere Verweise
-  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-  [mithilfe des Befehls get-allnamespaces](using-the-get-allnamespaces-command.md)
-   mithilfe[des New-Namespace](using-the-new-namespace-command.md)-Befehls 
-   mithilfe des[Remove-Namespace](using-the-remove-namespace-command.md)-Befehls 
+  Der [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+  [mithilfe des Befehls "get-allnamespaces](using-the-get-allnamespaces-command.md) "
+  [mithilfe des Befehls "New-Namespace](using-the-new-namespace-command.md) "
+  [mithilfe des Remove-Namespace](using-the-remove-namespace-command.md) -Befehls
   [Unterbefehl: Start-Namespace](subcommand-start-namespace.md)

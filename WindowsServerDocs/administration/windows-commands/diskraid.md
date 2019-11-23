@@ -26,7 +26,7 @@ ms.locfileid: "71377801"
 
 Diskraid ist ein Befehlszeilen Tool, mit dem Sie redundante Arrays unabhängiger (oder kostengünstiger) Speicher Subsysteme (oder kostengünstiger) konfigurieren und verwalten können.
 
-RAID ist eine Methode, mit der fehlertolerante Datenträger Systeme standardisiert und kategorisiert werden. RAID-Stufen bieten verschiedene Mischung aus Leistung, Zuverlässigkeit und Kosten. RAID wird in der Regel auf Servern verwendet. Einige Server stellen drei der RAID-Stufen bereit: Ebene 0 (Striping), Ebene 1 (Spiegelung) und Ebene 5 (Striping mit Parität).
+RAID ist eine Methode, mit der fehlertolerante Datenträger Systeme standardisiert und kategorisiert werden. RAID-Stufen bieten verschiedene Mischung aus Leistung, Zuverlässigkeit und Kosten. RAID wird in der Regel auf Servern verwendet. Einige Server stellen drei RAID-Stufen bereit: Ebene 0 (Striping), Ebene 1 (Spiegelung) und Ebene 5 (Striping mit Parität).
 
 Ein Hardware-RAID-Subsystem unterscheidet physisch adressierbare Speichereinheiten mithilfe einer logischen Gerätenummer (Logical Unit Number, LUN) voneinander. Ein LUN-Objekt muss mindestens einen Plex aufweisen und kann über eine beliebige Anzahl zusätzlicher plexes verfügen. Jeder Plex enthält eine Kopie der Daten auf dem LUN-Objekt. Plexes können einem LUN-Objekt hinzugefügt und daraus entfernt werden.
 
@@ -195,17 +195,17 @@ Flags werden durch aus drei Buchstaben bestehende Akronyme identifiziert.
 |MXD|Maximale Laufwerke|
 |MXS|Maximale Größe erwartet|
 |AS|Optimale Lese Ausrichtung|
-|KANZLER|Optimale Lese Größe|
+|Kanzler|Optimale Lese Größe|
 |OSR|Bei sequenziellen Lesevorgängen optimieren|
 |OSW|Bei sequenziellen Schreibvorgängen optimieren|
 |OWA|Optimale Schreib Ausrichtung|
-|WINDEN|Optimale Schreibgröße|
+|Winden|Optimale Schreibgröße|
 |RBP|Priorität neu erstellen|
 |RBV|Read-Back-Überprüfung aktiviert|
 |RMP|Neuzuordnung aktiviert|
-|WESTE|Stripe-Größe|
+|Weste|Stripe-Größe|
 |WTC|Write-Through-Caching aktiviert|
-|YNK|Ab|
+|Ynk|Ab|
 
 ### <a name="BKMK_4"></a>Umbruch
 
@@ -307,7 +307,7 @@ Erstellt eine einfache LUN.
 
 Erstellt eine stripesetlun.
 
-**RAZZIEN**
+**Razzien**
 
 Erstellt eine stripesetlun mit Parität.
 
@@ -319,7 +319,7 @@ Erstellt eine gespiegelte LUN.
 
 Erstellt eine LUN mithilfe der zurzeit gültigen *automagandeutungen* . Weitere Informationen finden Sie unter dem Unterbefehl **AUTOMAGIC** .
 
-**Größe**=
+**Größen**=
 
 Gibt die Gesamtgröße der LUN in Megabyte an. Wenn der **size =** -Parameter nicht angegeben wird, ist die LUN, die für alle angegebenen Laufwerke zulässig ist, die größtmögliche Größe.
 
@@ -333,11 +333,11 @@ Um die Größe mit anderen Einheiten anzugeben, verwenden Sie eines der folgende
 -   **TB** für Terabyte.
 -   **PB** für "Peer".
 
-**Master**=
+**Laufwerke**=
 
-Gibt den *drive_number* für die Laufwerke an, die zum Erstellen einer LUN verwendet werden sollen. Wenn der **size =** -Parameter nicht angegeben wird, ist die LUN, die für alle angegebenen Laufwerke zulässig ist, die größtmögliche Größe. Wenn der **size =** -Parameter angegeben wird, wählen die Anbieter Laufwerke aus der angegebenen Laufwerks Liste aus, um die LUN zu erstellen. Anbieter versuchen, die Laufwerke nach Möglichkeit in der angegebenen Reihenfolge zu verwenden.
+Gibt die *drive_number* für die Laufwerke an, die zum Erstellen einer LUN verwendet werden sollen. Wenn der **size =** -Parameter nicht angegeben wird, ist die LUN, die für alle angegebenen Laufwerke zulässig ist, die größtmögliche Größe. Wenn der **size =** -Parameter angegeben wird, wählen die Anbieter Laufwerke aus der angegebenen Laufwerks Liste aus, um die LUN zu erstellen. Anbieter versuchen, die Laufwerke nach Möglichkeit in der angegebenen Reihenfolge zu verwenden.
 
-**stripesize**=
+**stripesize** -=
 
 Gibt die Größe für eine *Stripe* -oder *RAID* -LUN in Megabyte an. Die stripesize kann nicht geändert werden, nachdem die LUN erstellt wurde.
 
@@ -561,7 +561,7 @@ Um die Größe mit anderen Einheiten anzugeben, verwenden Sie eines der folgende
 
 **Laufwerke =**
 
-Gibt die @no__t 0drive_number-> für die Laufwerke an, die beim Erstellen einer LUN verwendet werden sollen. Wenn der **size =** -Parameter nicht angegeben wird, ist die LUN, die für alle angegebenen Laufwerke zulässig ist, die größtmögliche Größe. Anbieter verwenden die Laufwerke in der angegebenen Reihenfolge, wenn möglich.
+Gibt die \<drive_number > für die Laufwerke an, die beim Erstellen einer LUN verwendet werden sollen. Wenn der **size =** -Parameter nicht angegeben wird, ist die LUN, die für alle angegebenen Laufwerke zulässig ist, die größtmögliche Größe. Anbieter verwenden die Laufwerke in der angegebenen Reihenfolge, wenn möglich.
 
 **Noerr**
 
@@ -569,7 +569,7 @@ Gibt an, dass alle Fehler, die während der Ausführung dieses Vorgangs auftrete
 
 #### <a name="remarks"></a>Hinweise
 
-Es muss entweder die Größe \<oder das Laufwerk >-Parameters angegeben werden. Sie können auch gleichzeitig verwendet werden.
+Es muss entweder die *Größe* oder die \<Laufwerk > Parameters angegeben werden. Sie können auch gleichzeitig verwendet werden.
 
 ### <a name="BKMK_12"></a>flushcache
 
@@ -644,23 +644,23 @@ lbpolicy set lun paths=<path>-{primary | <weight>}[,<path>-{primary | <weight>}[
 
 Gibt die Richtlinie für den Lastenausgleich an. Wenn der Typ nicht angegeben wird, muss der **path** -Parameter angegeben werden. Der Typ kann eines der folgenden sein:
 
-**FAILOVER**: Verwendet einen primären Pfad mit anderen Pfaden, die Sicherungs Pfade sind.
+**Failover**: verwendet einen primären Pfad mit anderen Pfaden, die Sicherungs Pfade sind.
 
-**ROUNDROBIN**: Verwendet alle Pfade im Roundrobin-Verfahren, wobei jeder Pfad nacheinander ausprobiert wird.
+**Roundrobin**: verwendet alle Pfade im Roundrobin-Verfahren, wobei jeder Pfad nacheinander ausprobiert wird.
 
-**SUBNETZTROUNDROBIN**: Verwendet alle primären Pfade im Roundrobin-Verfahren. Sicherungs Pfade werden nur verwendet, wenn alle primären Pfade fehlschlagen.
+**Subnetztroundrobin**: verwendet alle primären Pfade im Roundrobin-Verfahren. Sicherungs Pfade werden nur verwendet, wenn alle primären Pfade fehlschlagen.
 
-**DYNLQD**: Verwendet den Pfad mit der geringsten Anzahl aktiver Anforderungen.
+**Dynlqd**: verwendet den Pfad mit der geringsten Anzahl aktiver Anforderungen.
 
-**GEWICHTET**: Verwendet den Pfad mit dem geringsten Gewicht (jedem Pfad muss eine Gewichtung zugewiesen werden).
+**Gewichtet**: verwendet den Pfad mit dem geringsten Gewicht (jedem Pfad muss eine Gewichtung zugewiesen werden).
 
-**LEASTBLOCKS**: Verwendet den Pfad mit den geringsten Blöcken.
+**Leastblocks**: verwendet den Pfad mit den geringsten Blöcken.
 
-**VENDORSPECIFIC**: Verwendet eine herstellerspezifische Richtlinie.
+**Vendorspecific**: verwendet eine herstellerspezifische Richtlinie.
 
 **Tramp**
 
-Gibt an, ob ein Pfad **primär** ist oder über \<ein bestimmtes Gewichtungs > verfügt. Alle Pfade, die nicht angegeben sind, werden implizit als Sicherung festgelegt. Alle aufgelisteten Pfade müssen einer der aktuell ausgewählten Pfade der LUN sein.
+Gibt an, ob ein Pfad **primär** ist oder ob eine bestimmte \<Gewichtung >. Alle Pfade, die nicht angegeben sind, werden implizit als Sicherung festgelegt. Alle aufgelisteten Pfade müssen einer der aktuell ausgewählten Pfade der LUN sein.
 
 ### <a name="BKMK_19"></a>List
 
@@ -760,7 +760,7 @@ Gibt ein optionales Initiatorportal im angegebenen Initiator-Adapter an, das fü
 
 Identifiziert durch drei Buchstaben von Akronymen:
 
-**IP**-ADRESSEN: IPSec erforderlich
+**IP**-Adressen: IPSec erforderlich
 
 **EMP**: Multipfad aktivieren
 
@@ -800,7 +800,7 @@ maintenance <object operation> [count=<iteration>]
 
 Gibt den Objekttyp an, für den der Vorgang durchgeführt werden soll. Der *Objekttyp* kann ein **Subsystem**, ein **Controller**, ein **Port, ein Laufwerk** oder eine **LUN**sein.
 
-\<Vorgangs >
+\<Vorgang >
 
 Gibt den auszuführenden Wartungs Vorgang an. Der Vorgangstyp kann **SpinUp**, **Spindown**, **Blink**, **Signal Tons** oder **Ping**sein. Es muss ein *Vorgang* angegeben werden.
 
@@ -922,7 +922,7 @@ remove tpgroup tportal=<tportal> [noerr]
 
 #### <a name="parameter"></a>Parameter
 
-**TPGROUP TPORTAL =** \<TPORTAL->
+**TPGROUP TPORTAL =** \<TPORTAL >
 
 Gibt das zu entfernende iSCSI-Zielportal an.
 
@@ -944,7 +944,7 @@ replace drive=<drive_number>
 
 **Laufwerk =**
 
-Gibt die @no__t 0drive_number-> für das zu ersetzende Laufwerk an.
+Gibt die \<drive_number > für das zu ersetzende Laufwerk an.
 
 #### <a name="remarks"></a>Hinweise
 
@@ -984,59 +984,59 @@ Select {hbaport | iadapter | iportal | provider | subsystem | controller | port 
 
 **Objekt**
 
-Gibt den Typ des ausgewählten Objekts an. Beim \<Objekt > Typ kann es sich um **Anbieter**, **Subsystem**, **Controller**, **Laufwerk**oder **LUN**handeln.
+Gibt den Typ des ausgewählten Objekts an. Der \<Objekt > Typ kann ein **Anbieter**, **Subsystem**, **Controller**, **Laufwerk**oder **LUN**sein.
 
-**HBAPORT** [\<N >]
+**HBAPORT** [\<n >]
 
 Legt den Fokus auf den angegebenen lokalen HBA-Port fest. Wenn kein HBA-Port angegeben wird, zeigt der Befehl den aktuell ausgewählten HBA-Port an (sofern vorhanden). Das Angeben eines ungültigen HBA-Port Indexes führt zu keinem in-Focus-HBA-Port. Wenn Sie einen HBA-Port auswählen, werden alle ausgewählten Initiatoradapter und Initiator-Portale deaktiviert.
 
-**IADAPTER** [\<N >]
+**IADAPTER** [\<n >]
 
 Legt den Fokus auf den angegebenen lokalen iSCSI-Initiator-Adapter fest. Wenn kein Initiator-Adapter angegeben ist, zeigt der Befehl den aktuell ausgewählten Initiatoradapter (sofern vorhanden) an. Das Angeben eines ungültigen initiatoradapteradapters führt zu keinem in-Focus-Initiator-Adapter. Wenn Sie einen Initiatoradapter auswählen, werden alle ausgewählten HBA-Ports und Initiator-Portale deaktiviert.
 
-**IPORTAL** [\<N >]
+**IPORTAL** [\<n >]
 
 Legt den Fokus auf das angegebene lokale iSCSI-Initiatorportal innerhalb des ausgewählten iSCSI-Initiator-Adapters fest. Wenn kein Initiator-Portal angegeben ist, zeigt der Befehl das aktuell ausgewählte Initiatorportal (sofern vorhanden) an. Wenn Sie einen ungültigen Initiator-Portal Index angeben, wird kein Initiatorportal ausgewählt.
 
-**Anbieter** [\<N >]
+**Anbieter** [\<n >]
 
 Legt den Fokus auf den angegebenen Anbieter fest. Wenn kein Anbieter angegeben ist, zeigt der Befehl den aktuell ausgewählten Anbieter (sofern vorhanden) an. Das Angeben eines ungültigen Anbieter Indexes führt zu keinem in-Focus-Anbieter.
 
-**Subsystem** [\<N >]
+**Subsystem** [\<n >]
 
 Legt den Fokus auf das angegebene Subsystem fest. Wenn kein Subsystem angegeben ist, zeigt der Befehl das Subsystem mit dem Fokus an (sofern vorhanden). Das Angeben eines ungültigen subsystemindexes führt zu keinem in-Focus-Subsystem. Bei Auswahl eines Subsystems wird der zugehörige Anbieter implizit ausgewählt.
 
-**Controller** [\<N >]
+**Controller** [\<n >]
 
 Legt den Fokus auf den angegebenen Controller innerhalb des derzeit ausgewählten Subsystems fest. Wenn kein Controller angegeben ist, zeigt der Befehl den aktuell ausgewählten Controller an (sofern vorhanden). Das Angeben eines ungültigen Controller Indexes führt nicht zu einem Fokus Controller. Bei Auswahl eines Controllers werden alle ausgewählten Controller Anschlüsse, Laufwerke, LUNs, Ziel Portale, Ziele und Zielportal Gruppen deaktiviert.
 
-**Port** [\<N >]
+**Port** [\<n >]
 
 Legt den Fokus auf den angegebenen Controller Anschluss innerhalb des aktuell ausgewählten Controllers fest. Wenn kein Port angegeben ist, zeigt der Befehl den aktuell ausgewählten Port (sofern vorhanden) an. Das Angeben eines ungültigen Port Indexes führt zu keinem ausgewählten Port.
 
-**Laufwerk** [\<N >]
+**Laufwerk** [\<n >]
 
 Legt den Fokus auf das angegebene Laufwerk bzw. die physische Spindel innerhalb des derzeit ausgewählten Subsystems fest. Wenn kein Laufwerk angegeben wird, zeigt der Befehl das aktuell ausgewählte Laufwerk an (sofern vorhanden). Das Angeben eines ungültigen Laufwerks Indexes führt zu keinem Fokus Laufwerk. Wenn Sie ein Laufwerk auswählen, werden ausgewählte Controller, Controller Anschlüsse, LUNs, Ziel Portale, Ziele und Zielportal Gruppen deaktiviert.
 
-**LUN** [\<N >]
+**LUN** [\<n >]
 
 Legt den Fokus auf die angegebene LUN innerhalb des derzeit ausgewählten Subsystems fest. Wenn keine LUN angegeben ist, zeigt der Befehl die aktuell ausgewählte LUN (sofern vorhanden) an. Wenn Sie einen ungültigen LUN-Index angeben, wird keine LUN ausgewählt. Wenn Sie eine LUN auswählen, werden ausgewählte Controller, Controller Anschlüsse, Laufwerke, Ziel Portale, Ziele und Zielportal Gruppen deaktiviert.
 
-**Portal – Entitäten** [\<N >]
+**Portal – Entitäten** [\<n >]
 
 Legt den Fokus auf das angegebene iSCSI-Zielportal innerhalb des derzeit ausgewählten Subsystems fest. Wenn kein Zielportal angegeben ist, zeigt der Befehl das aktuell ausgewählte Zielportal (sofern vorhanden) an. Wenn ein ungültiger Zielportal Index angegeben wird, wird kein Zielportal ausgewählt. Wenn Sie ein Zielportal auswählen, werden alle Controller, Controller Anschlüsse, Laufwerke, LUNs, Ziele und Zielportal Gruppen deaktiviert.
 
-**Ziel** [\<N >]
+**Ziel** [\<n >]
 
 Legt den Fokus auf das angegebene iSCSI-Ziel innerhalb des derzeit ausgewählten Subsystems fest. Wenn kein Ziel angegeben ist, zeigt der Befehl das aktuell ausgewählte Ziel an (sofern vorhanden). Wenn ein Ungültiger Zielindex angegeben wird, wird kein Ziel ausgewählt. Wenn Sie ein Ziel auswählen, werden alle Controller, Controller Anschlüsse, Laufwerke, LUNs, Ziel Portale und Zielportal Gruppen deaktiviert.
 
-**TPGROUP** [\<N >]
+**TPGROUP** [\<n >]
 
 Legt den Fokus auf die angegebene iSCSI-Zielportal Gruppe innerhalb des aktuell ausgewählten iSCSI-Ziels fest. Wenn keine Zielportal Gruppe angegeben ist, zeigt der Befehl die aktuell ausgewählte Zielportal Gruppe (sofern vorhanden) an. Das Angeben eines ungültigen Zielportal-Gruppen Indexes führt zu keiner Zielportal Gruppe im Fokus.
 
 [\<n >]
 
-Gibt die \<Objekt Nummer an, die > ausgewählt werden soll. Wenn das <object number> angegebene nicht gültig ist, werden alle vorhandenen Auswahlen für Objekte des angegebenen Typs gelöscht. Wenn kein <object number> angegeben wird, wird das aktuelle-Objekt angezeigt.
+Gibt die \<Objekt Nummer an, die > ausgewählt werden soll. Wenn die angegebene <object number> nicht gültig ist, werden alle vorhandenen Auswahlen für Objekte des angegebenen Typs gelöscht. Wenn keine <object number> angegeben wird, wird das aktuelle-Objekt angezeigt.
 
 ### <a name="BKMK_34"></a>setflag
 
@@ -1152,14 +1152,14 @@ Standardmäßig beendet Diskraid die Verarbeitung von Befehlen und gibt einen Fe
 
 |Fehlercode|Fehlerbeschreibung|
 |----------|-----------------|
-|0|Es ist kein Fehler aufgetreten. Das gesamte Skript wurde ohne Fehler ausgeführt.|
+|0|Kein Fehler aufgetreten. Das gesamte Skript wurde ohne Fehler ausgeführt.|
 |1|Es ist eine schwerwiegende Ausnahme aufgetreten.|
 |2|Die in einer Diskraid-Befehlszeile angegebenen Argumente waren falsch.|
 |3|Das angegebene Skript oder die angegebene Ausgabedatei konnte von Diskraid nicht geöffnet werden.|
 |4|Einer der Dienste von Diskraid hat einen Fehler zurückgegeben.|
 |5|Befehlssyntax Fehler. Fehler beim Skript, weil ein Objekt nicht ordnungsgemäß ausgewählt wurde oder für die Verwendung mit diesem Befehl ungültig war.|
 
-## <a name="example-interactively-view-status-of-subsystem"></a>Beispiel: Interaktiv Status des Subsystems anzeigen
+## <a name="example-interactively-view-status-of-subsystem"></a>Beispiel: interaktiv anzeigen des Status des Subsystems
 
 Wenn Sie den Status von Subsystem 0 auf dem Computer anzeigen möchten, geben Sie Folgendes in der Befehlszeile ein:
 ```

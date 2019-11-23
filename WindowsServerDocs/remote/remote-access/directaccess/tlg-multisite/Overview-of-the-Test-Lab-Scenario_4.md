@@ -21,7 +21,7 @@ ms.locfileid: "71388409"
 ---
 # <a name="overview-of-the-test-lab-scenario"></a>Übersicht über das Testumgebungsszenario
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Test Labor Szenario wird DirectAccess mit folgenden Aufgaben bereitgestellt:  
   
@@ -41,7 +41,7 @@ In diesem Test Labor Szenario wird DirectAccess mit folgenden Aufgaben bereitges
   
 -   **NAT1**-ein Client Computer, der als NAT-Gerät (Network Address Translator) mithilfe der Freigabe von Internet Verbindungen konfiguriert ist.  
   
--   **CLIENT1 und CLIENT2**: zwei Client Computer, die als DirectAccess-Clients konfiguriert sind und zum Testen der DirectAccess-Konnektivität bei der Umstellung zwischen dem internen Netzwerk, dem simulierten Internet und einem Heimnetzwerk verwendet werden. **Client2** ist ein Windows 7 @ no__t-1-Client.  
+-   **CLIENT1 und CLIENT2**: zwei Client Computer, die als DirectAccess-Clients konfiguriert sind und zum Testen der DirectAccess-Konnektivität bei der Umstellung zwischen dem internen Netzwerk, dem simulierten Internet und einem Heimnetzwerk verwendet werden. **Client2** ist ein Windows 7-&reg; Client.  
   
 Die Testumgebung besteht aus vier Subnetzen, die Folgendes simulieren:  
   

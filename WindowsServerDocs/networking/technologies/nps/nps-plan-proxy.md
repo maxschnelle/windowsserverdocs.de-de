@@ -17,9 +17,9 @@ ms.locfileid: "71396023"
 ---
 # <a name="plan-nps-as-a-radius-proxy"></a>Planen eines NPS als RADIUS-Proxy
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Wenn Sie den Netzwerk Richtlinien Server (Network Policy Server, NPS) als Remote Authentication Dial-in User Service \(radius @ no__t-1-Proxy bereitstellen, empfängt NPS Verbindungsanforderungen von RADIUS-Clients, wie z. b. Netzwerk Zugriffs Server oder anderen RADIUS-Proxys, und leitet diese Verbindungsanforderungen an Server, auf denen NPS oder andere RADIUS-Server ausgeführt werden. Sie können diese Planungsrichtlinien verwenden, um die RADIUS-Bereitstellung zu vereinfachen.
+Wenn Sie den Netzwerk Richtlinien Server (Network Policy Server, NPS) als Remote Authentication Dial-in User Service \(RADIUS\) Proxy bereitstellen, empfängt NPS Verbindungsanforderungen von RADIUS-Clients, wie z. b. Netzwerk Zugriffs Server oder anderen RADIUS-Proxys, und leitet diese Verbindungsanforderungen an Server weiter, auf denen NPS oder andere RADIUS-Server Sie können diese Planungsrichtlinien verwenden, um die RADIUS-Bereitstellung zu vereinfachen.
 
 Diese Planungsrichtlinien enthalten keine Umstände, in denen Sie NPS als RADIUS-Server bereitstellen möchten. Wenn Sie NPS als RADIUS-Server bereitstellen, führt NPS Authentifizierung, Autorisierung und Kontoführung für Verbindungsanforderungen für die lokale Domäne und Domänen aus, die der lokalen Domäne vertrauen.
 
@@ -39,7 +39,7 @@ Bevor Sie NPS als RADIUS-Proxy in Ihrem Netzwerk bereitstellen, verwenden Sie di
 
 ## <a name="plan-nps-configuration"></a>Planen der NPS-Konfiguration
 
-Wenn Sie NPS als RADIUS-Proxy verwenden, leitet NPS Verbindungsanforderungen zur Verarbeitung an einen NPS-oder einen anderen RADIUS-Server weiter. Aus diesem Grund ist die Domänen Mitgliedschaft des NPS-Proxys irrelevant. Der Proxy muss nicht in Active Directory Domain Services \(ad DS @ no__t-1 registriert werden, da er keinen Zugriff auf die Einwähleigenschaften von Benutzerkonten benötigt. Außerdem müssen Sie keine Netzwerk Richtlinien auf einem NPS-Proxy konfigurieren, da der Proxy keine Autorisierung für Verbindungsanforderungen ausführt. Der NPS-Proxy kann ein Domänen Mitglied sein, oder es kann sich um einen eigenständigen Server ohne Domänen Mitgliedschaft handeln.
+Wenn Sie NPS als RADIUS-Proxy verwenden, leitet NPS Verbindungsanforderungen zur Verarbeitung an einen NPS-oder einen anderen RADIUS-Server weiter. Aus diesem Grund ist die Domänen Mitgliedschaft des NPS-Proxys irrelevant. Der Proxy muss nicht in Active Directory Domain Services \(AD DS\) registriert werden, da er keinen Zugriff auf die Einwähleigenschaften von Benutzerkonten benötigt. Außerdem müssen Sie keine Netzwerk Richtlinien auf einem NPS-Proxy konfigurieren, da der Proxy keine Autorisierung für Verbindungsanforderungen ausführt. Der NPS-Proxy kann ein Domänen Mitglied sein, oder es kann sich um einen eigenständigen Server ohne Domänen Mitgliedschaft handeln.
 
 NPS muss mit dem RADIUS-Protokoll für die Kommunikation mit RADIUS-Clients konfiguriert werden, die auch als Netzwerk Zugriffs Server bezeichnet werden. Außerdem können Sie die Typen von Ereignissen konfigurieren, die von NPS im Ereignisprotokoll aufgezeichnet werden, und Sie können eine Beschreibung für den Server eingeben.
 
@@ -59,7 +59,7 @@ Bei der Planung der NPS-Proxykonfiguration können Sie die folgenden Schritte au
 
 ## <a name="plan-radius-clients"></a>Planen von RADIUS-Clients
 
-RADIUS-Clients sind Netzwerk Zugriffs Server, z. b. drahtlos Zugriffspunkte, virtuelle private Netzwerke \(vpn @ no__t-1-Server, 802.1 x-fähige Switches und DFÜ-Server. RADIUS-Proxys, die Verbindungs Anforderungs Nachrichten an RADIUS-Server weiterleiten, sind ebenfalls RADIUS-Clients. NPS unterstützt alle Netzwerk Zugriffs Server und RADIUS-Proxys, die dem RADIUS-Protokoll entsprechen, wie in RFC 2865, "Remote Authentication Dial-in User Service \(radius @ no__t-1" und RFC 2866, "RADIUS Accounting" beschrieben.
+RADIUS-Clients sind Netzwerk Zugriffs Server, z. b. drahtlos Zugriffspunkte, virtuelle private Netzwerke \(VPN-\) Servern, 802.1 x-fähige Switches und DFÜ-Server. RADIUS-Proxys, die Verbindungs Anforderungs Nachrichten an RADIUS-Server weiterleiten, sind ebenfalls RADIUS-Clients. NPS unterstützt alle Netzwerk Zugriffs Server und RADIUS-Proxys, die dem RADIUS-Protokoll entsprechen, wie in RFC 2865, "Remote Authentication Dial-in User Service \(RADIUS\)" und RFC 2866, "RADIUS Accounting" beschrieben.
 
 Außerdem müssen sowohl drahtlos Zugriffspunkte als auch Switches in der 802.1 x-Authentifizierung aktiviert sein. Wenn Sie das Extensible Authentication Protocol (EAP) oder das Protected Extensible Authentication Protocol (PEAP) bereitstellen möchten, müssen Zugriffspunkte und Switches die Verwendung von EAP unterstützen.
 
@@ -155,7 +155,7 @@ Bei der Planung der NPS-Buchhaltung können Sie die folgenden Schritte ausführe
 
 - Planen von Konfigurationsschritten für die Verbindungs Anforderungs Richtlinie, wenn Sie Buchhaltungs Nachrichten an andere Server weiterleiten möchten. Wenn Sie die lokale Kontoführung für den NPS-Proxy deaktivieren, muss jede Verbindungs Anforderungs Richtlinie, die Sie auf diesem Proxy konfigurieren, die Überführung der Nachrichten Weiterleitung aktiviert und ordnungsgemäß konfiguriert haben.
 
-- Bestimmen Sie das zu verwendende Protokollierungs Format: Die IAS-Format Protokolldateien, Daten Bank kompatible Format Protokolldateien oder NPS-SQL Server Protokollierung.
+- Bestimmen Sie das zu verwendende Protokollierungs Format: die IAS-Format Protokolldateien, Daten Bank kompatible Format Protokolldateien oder die NPS-SQL Server Protokollierung.
 
 Informationen zum Konfigurieren des Lasten Ausgleichs für NPS als RADIUS-Proxy finden Sie unter [NPS-Proxy Server-Lastenausgleich](nps-manage-proxy-lb.md).
 

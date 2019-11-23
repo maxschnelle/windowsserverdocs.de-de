@@ -22,7 +22,7 @@ ms.locfileid: "71355665"
 ---
 # <a name="whats-new-in-hyper-v-network-virtualization-in-windows-server-2016"></a>Neuerungen bei der Hyper-V-Netzwerkvirtualisierung unter Windows Server 2016
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema werden die Funktionen der Hyper-v-Netzwerkvirtualisierung (HNV) beschrieben, die in Windows Server 2016 neu oder geändert wurden.  
   
@@ -41,7 +41,7 @@ HNV ist ein grundlegender Baustein der aktualisierten Software Defined Networkin
   
 Der neue Netzwerk Controller von Microsoft überträgt die HNV-Richtlinien mithilfe von Open Vswitch Database Management Protocol (ovsdb) als Southbound Interface (SBI) auf einen Host-Agent, der auf jedem Host ausgeführt wird. Der Host-Agent speichert diese Richtlinie mithilfe einer Anpassung des [vtep-Schemas](https://github.com/openvswitch/ovs/blob/master/vtep/vtep.ovsschema) und Programm komplexe Fluss Regeln in eine leistungsstarke Fluss-Engine im Hyper-V-Switch.  
   
-Die Flow-Engine innerhalb des Hyper-V-Switches ist das gleiche Modul, das in Microsoft Azure @ no__t-0 verwendet wird, das sich in der Microsoft Azure Public Cloud nach dem hyperskalieren bewährt hat. Darüber hinaus ist der gesamte Sdn-Stapel über den Netzwerk Controller und der Netzwerkressourcen Anbieter (Details in Kürze verfügbar) mit Microsoft Azure konsistent, sodass die Leistungsfähigkeit der Microsoft Azure Public Cloud an den Unternehmens-und Hostingdienst gebracht wird. Anbieter Kunden.  
+Die Flow-Engine innerhalb des Hyper-V-Switches ist das gleiche Modul, das in Microsoft Azure&trade;verwendet wird, das sich in der Microsoft Azure Public Cloud als hyperskaliert erwiesen hat. Darüber hinaus ist der gesamte Sdn-Stapel über den Netzwerk Controller und der Netzwerkressourcen Anbieter (Details in Kürze verfügbar) mit Microsoft Azure konsistent, sodass die Leistungsfähigkeit der Microsoft Azure Public Cloud an den Unternehmens-und Hostingdienst gebracht wird. Anbieter Kunden.  
   
 > [!NOTE]  
 > Weitere Informationen zu ovsdb finden Sie unter [RFC 7047](https://www.rfc-editor.org/info/rfc7047).  
@@ -59,7 +59,7 @@ Windows Server 2016 umfasst einen Software Lastenausgleich (Software Load Balanc
 ### <a name="L2"></a>Kompatible IEEE-Ethernet-Header  
 HNV implementiert korrekte L2-Ethernet-Header, um die Interoperabilität mit virtuellen und physischen Geräten von Drittanbietern zu gewährleisten, die von branchenüblichen Protokollen abhängen. Microsoft stellt sicher, dass alle übertragenen Pakete über kompatible Werte in allen Feldern verfügen, um diese Interoperabilität zu gewährleisten. Darüber hinaus muss die Unterstützung für groß Rahmen (MTU > 1780) im physischen L2-Netzwerk den Paket Overhead berücksichtigen, der durch Kapselungs Protokolle (nvgre, vxlan) eingeführt wurde, und gleichzeitig sicherstellen, dass der Gast Virtual Machines an einen HNV angeschlossen ist Virtual Network 1514 MTU.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
   
 -   [Hyper-V-Netzwerkvirtualisierung – Übersicht](hyperv-network-virtualization-overview-windows-server.md)  
   

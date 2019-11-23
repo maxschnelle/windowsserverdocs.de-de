@@ -30,9 +30,9 @@ In diesem Thema wird erläutert, wie Sie [Datendeduplizierung](overview.md) inst
 
 ### <a id="install-dedup-via-server-manager"></a>Installieren der Datendeduplizierung mithilfe von Server-Manager
 1. Wählen Sie im Assistenten zum Hinzufügen von Rollen und Features **Serverrollen** aus, und wählen sie dann **Datendeduplizierung** aus.  
-![installationsdatendeduplizierung über Server-Manager: Wählen Sie Datendeduplizierung von Server Rollen @ no__t-1 aus.
+![installieren Sie die Datendeduplizierung über Server-Manager: Wählen Sie Datendeduplizierung von Server Rollen aus](media/install-dedup-via-server-manager-1.png)
 2. Klicken Sie auf **Weiter** , bis die Schaltfläche **Installieren** aktiviert wird, und klicken Sie dann auf **Installieren**.  
-![installation der Datendeduplizierung über Server-Manager: Klicken Sie auf Installieren @ no__t-1.
+![die Datendeduplizierung über Server-Manager installieren: Klicken Sie auf Installieren](media/install-dedup-via-server-manager-2.png)
 
 ### <a id="install-dedup-via-powershell"></a>Installieren der Datendeduplizierung mithilfe von PowerShell
 Um die Datendeduplizierung zu installieren, führen Sie den folgenden PowerShell-Befehl als Administrator aus:  
@@ -46,8 +46,8 @@ So installieren Sie die Datendeduplizierung in einer Nano Server-Installation
     Install-WindowsFeature -ComputerName <MyNanoServer> -Name FS-Data-Deduplication
     ```  
     <br />
-    <strong>--ODER--</strong>
-    @ NO__T-2<br />
+    <strong>--Oder--</strong>
+    <br />
     Stellen Sie mithilfe von PowerShell-Remoting eine Remoteverbindung mit der Nano Server-Instanz her, und installieren Sie die Datendeduplizierung, indem Sie DISM verwenden:  
     
     ```PowerShell
@@ -95,7 +95,7 @@ Um zu bestimmen, ob sich eine Workload gut für die Deduplizierung eignet, beant
     `Files excluded by policy: 20`  
     `Files excluded by error: 0`  
 
-2. **wie sehen die e/a-Muster meiner Arbeitsauslastung dem DataSet aus? Welche Leistung hat ich für meine Arbeitsauslastung?**  
+2. **Wie sehen die e/a-Muster meiner Arbeitsauslastung für das DataSet aus? Welche Leistung habe ich für meine Arbeitsauslastung?**  
      Die Datendeduplizierung optimiert die Daten im Rahmen eines regelmäßigen Auftrags, anstatt sie zu optimieren, wenn eine Datei auf einen Datenträger geschrieben wird. Deshalb ist es zunächst wichtig, dass die erwarteten Lesemuster einer Workload auf dem deduplizierten Volume untersucht werden. Da bei der Datendeduplizierung Dateiinhalte in den Blockspeicher verschoben werden und versucht wird, den Blockspeicher so umfassend wie möglich dateibezogen zu organisieren, liefern Lesevorgänge die beste Leistung, wenn sie entsprechend sequenziellen Bereichen einer Datei angewendet werden.  
 
     Datenbankähnliche Workloads weisen zumeist eher Lesemuster nach dem Zufallsprinzip als sequenzielle Lesemuster auf, da Datenbanken in der Regel nicht gewährleisten, dass das Datenbanklayout für alle möglicherweise ausgeführten Abfragen optimal ist. Da sich die Abschnitte des Blockspeichers auf dem gesamten Volume befinden können, kann es beim Zugriff auf Datenbereiche im Blockspeicher für Datenbankabfragen zu zusätzlicher Latenz kommen. Hochleistungsworkloads sind besonders empfindlich für diese zusätzliche Latenz, andere datenbankähnliche Workloads jedoch möglicherweise nicht.
@@ -115,13 +115,13 @@ Sie müssen vor dem Aktivieren der Datendeduplizierung den [Verwendungstyp](unde
 
 #### <a id="enable-dedup-via-server-manager"></a>Aktivieren der Datendeduplizierung mithilfe von Server-Manager
 1. Wählen Sie **Datei- und Speicherdienste** im Server-Manager aus.  
-![click Datei-und Speicherdienste @ no__t-1
+![klicken Sie auf Datei-und Speicherdienste](media/enable-dedup-via-server-manager-1.PNG)
 2. Wählen Sie **Volumes** im Menü **Datei- und Speicherdienste** aus.  
-![click Volumes @ no__t-1
+![klicken Sie auf Volumes](media/enable-dedup-via-server-manager-2.png)
 3. Klicken Sie mit der rechten Maustaste auf das gewünschte Volume, und wählen Sie **Datendeduplizierung konfigurieren** aus.  
-![click Datendeduplizierung konfigurieren @ no__t-1
+![klicken Sie auf Datendeduplizierung konfigurieren](media/enable-dedup-via-server-manager-3.png)
 4. Wählen Sie im Dropdownfeld den gewünschten **Verwendungstyp** aus, und klicken Sie auf **OK**.  
-![wählen Sie den gewünschten Verwendungstyp aus der Dropdown-Option @ no__t-1 aus.
+![wählen Sie den gewünschten Verwendungstyp aus der Dropdown-](media/enable-dedup-via-server-manager-4.png)
 5. Wenn Sie eine empfohlene Workload ausführen, sind Sie fertig. Sehen Sie sich für andere Workloads die [weiteren Aspekte](#enable-dedup-sometimes-considerations) an.
 
 > [!Note]  
@@ -147,7 +147,7 @@ Sie müssen vor dem Aktivieren der Datendeduplizierung den [Verwendungstyp](unde
 * Wenn Ihre Workload keinen hohen Ressourcenbedarf hat oder es wichtiger ist, Optimierungsaufträge auszuführen anstatt Workloadanforderungen zu erfüllen, [können Sie den Arbeitsspeicher, die CPU-Leistung und Priorität der Datendeduplizierungsaufträge anpassen](advanced-settings.md#modifying-job-schedules).
 
 ## <a id="faq"></a>Häufig gestellte Fragen (FAQ)
-**ich möchte die Datendeduplizierung für das Dataset für die X-Arbeitsauslastung ausführen. Wird dies unterstützt?**  
+**Ich möchte die Datendeduplizierung für das Dataset für die X-Arbeitsauslastung ausführen. Wird dies unterstützt?**  
 Abgesehen von Workloads, die [ bekanntermaßen nicht mit der Datendeduplizierung zusammenarbeiten](interop.md), unterstützen wir die Datenintegrität der Datendeduplizierung für alle Workloads. Empfohlene Workloads werden auch hinsichtlich Leistung von Microsoft unterstützt. Die Leistung anderer Workloads hängt erheblich davon ab, was diese auf dem Server ausführen. Sie müssen bestimmen, welche Leistungsbeeinträchtigungen die Datendeduplizierung auf Ihre Workload ausübt, und ob dies für diese Workload zulässig ist.
 
 **Welche Anforderungen an die Volumegröße gelten für deduplizierte Volumes?**  
@@ -159,7 +159,7 @@ Nein, die bereitgestellten [Verwendungstypen](understand.md#usage-type) sind so 
 **Welche Arbeitsspeicher Anforderungen gelten für die Datendeduplizierung?**  
 Für den Minimalfall sollten für die Datendeduplizierung 300 MB + 50 MB für jedes TB logischer Daten vorgesehen werden. Wenn Sie beispielsweise ein 10-TB-Volume optimieren, benötigen Sie für die Deduplizierung mindestens 800 MB Arbeitsspeicher (`300 MB + 50 MB * 10 = 300 MB + 500 MB = 800 MB`). Während die Datendeduplizierung ein Volume mit diesem niedrigen Umfang an Arbeitsspeicher optimieren kann, werden Datendeduplizierungsaufträge durch solch einschränkte Ressourcen verlangsamt.
 
-Im optimalen Fall sollte die Datendeduplizierung über 1 GB Arbeitsspeicher pro 1 TB logischer Daten verfügen. Wenn Sie beispielsweise ein 10-TB-Volume optimieren, benötigen Sie im Optimalfall für die Deduplizierung mindestens 10 GB Arbeitsspeicher (`1 GB * 10`). Dieses Verhältnis stellt die maximale Leistung für Datendeduplizierungsaufträge sicher.
+Im optimalen Fall sollte die Datendeduplizierung über 1 GB Arbeitsspeicher pro 1 TB logischer Daten verfügen. Wenn Sie beispielsweise ein 10-TB-Volume optimieren, benötigen Sie im Optimalfall für die Deduplizierung mindestens 10GB Arbeitsspeicher (`1 GB * 10`). Dieses Verhältnis stellt die maximale Leistung für Datendeduplizierungsaufträge sicher.
 
 **Welche Speicheranforderungen gelten für die Datendeduplizierung?**  
 Unter Windows Server 2016 unterstützt die Datendeduplizierung Volumegrößen bis zu 64 TB. Weitere Informationen finden Sie unter [Neuigkeiten bei der Datendeduplizierung](whats-new.md#large-volume-support).

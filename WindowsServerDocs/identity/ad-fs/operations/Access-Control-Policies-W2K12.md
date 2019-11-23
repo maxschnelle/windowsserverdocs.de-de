@@ -25,7 +25,7 @@ Die in diesem Artikel beschriebenen Richtlinien nutzen zwei Arten von Ansprüche
 
 2.  Anspruchs AD FS erstellt basierend auf Informationen, die vom Client als HTTP-Header an AD FS weitergeleitet werden.  
 
->**Wichtig**: Die unten beschriebenen Richtlinien blockieren Windows 10-Domänen Beitritt und-Anmelde Szenarien, die Zugriff auf die folgenden zusätzlichen Endpunkte erfordern.
+>**Wichtig**: die unten aufgeführten Richtlinien blockieren Windows 10-Domänen Beitritt und-Anmelde Szenarien, die Zugriff auf die folgenden zusätzlichen Endpunkte erfordern.
 
 AD FS Endpunkte, die für das beitreten und Anmelden von Windows 10-Domänen erforderlich sind
 - [Verbund Dienst Name]/ADFS/Services/Trust/2005/windowstransport
@@ -56,17 +56,17 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 ## <a name="client-access-policies-scenarios"></a>Szenarios für Client Zugriffsrichtlinien  
 
-|**En**|**Beschreibung**| 
+|**Szenario**|**Beschreibung**| 
 | --- | --- | 
-|Szenario 1: Den gesamten externen Zugriff auf Office 365 blockieren|Der Zugriff auf Office 365 ist für alle Clients im internen Unternehmensnetzwerk zulässig, Anforderungen externer Clients werden jedoch basierend auf der IP-Adresse des externen Clients verweigert.|  
-|Szenario 2: Den gesamten externen Zugriff auf Office 365 mit Ausnahme von Exchange ActiveSync blockieren|Der Zugriff auf Office 365 ist von allen Clients im internen Unternehmensnetzwerk sowie von externen Client Geräten (z. b. Smartphones) zulässig, die Exchange ActiveSync nutzen. Alle anderen externen Clients, z. b. solche, die Outlook verwenden, werden blockiert.|  
-|Szenario 3: Blockieren Sie den gesamten externen Zugriff auf Office 365 außer browserbasierten Anwendungen.|Blockiert den externen Zugriff auf Office 365, mit Ausnahme von passiven (browserbasierten) Anwendungen wie Outlook Webzugriff oder SharePoint Online.|  
-|Szenario 4: Den gesamten externen Zugriff auf Office 365 mit Ausnahme der vorgesehenen Active Directory Gruppen blockieren|Dieses Szenario wird zum Testen und Überprüfen der Bereitstellung der Client Zugriffs Richtlinie verwendet. Der externe Zugriff auf Office 365 wird nur für Mitglieder einer oder mehrerer Active Directory Gruppe blockiert. Sie kann auch verwendet werden, um nur den Mitgliedern einer Gruppe externen Zugriff zu gewähren.|  
+|Szenario 1: Blockieren des gesamten externen Zugriffs auf Office 365|Der Zugriff auf Office 365 ist für alle Clients im internen Unternehmensnetzwerk zulässig, Anforderungen externer Clients werden jedoch basierend auf der IP-Adresse des externen Clients verweigert.|  
+|Szenario 2: Blockieren des gesamten externen Zugriffs auf Office 365 mit Ausnahme von Exchange ActiveSync|Der Zugriff auf Office 365 ist von allen Clients im internen Unternehmensnetzwerk sowie von externen Client Geräten (z. b. Smartphones) zulässig, die Exchange ActiveSync nutzen. Alle anderen externen Clients, z. b. solche, die Outlook verwenden, werden blockiert.|  
+|Szenario 3: Blockieren des gesamten externen Zugriffs auf Office 365 außer auf browserbasierten Anwendungen|Blockiert den externen Zugriff auf Office 365, mit Ausnahme von passiven (browserbasierten) Anwendungen wie Outlook Webzugriff oder SharePoint Online.|  
+|Szenario 4: Blockieren des gesamten externen Zugriffs auf Office 365 mit Ausnahme der vorgesehenen Active Directory Gruppen|Dieses Szenario wird zum Testen und Überprüfen der Bereitstellung der Client Zugriffs Richtlinie verwendet. Der externe Zugriff auf Office 365 wird nur für Mitglieder einer oder mehrerer Active Directory Gruppe blockiert. Sie kann auch verwendet werden, um nur den Mitgliedern einer Gruppe externen Zugriff zu gewähren.|  
 
 ## <a name="enabling-client-access-policy"></a>Aktivieren der Client Zugriffs Richtlinie  
  Um die Client Zugriffs Richtlinie in AD FS in Windows Server 2012 R2 zu aktivieren, müssen Sie die Vertrauensstellung der vertrauenden Seite Microsoft Office 365 Identity Platform aktualisieren. Wählen Sie eines der unten aufgeführten Beispielszenarien aus, um die Anspruchs Regeln für die **Microsoft Office 365-Identitäts Plattform** -Vertrauensstellung der vertrauenden Seite zu konfigurieren, die den Anforderungen Ihrer Organisation am besten entspricht.  
 
-###  <a name="scenario1"></a>Szenario 1: Den gesamten externen Zugriff auf Office 365 blockieren  
+###  <a name="scenario1"></a>Szenario 1: Blockieren des gesamten externen Zugriffs auf Office 365  
  Dieses Client Zugriffsrichtlinien-Szenario ermöglicht den Zugriff von allen internen Clients und blockiert alle externen Clients basierend auf der IP-Adresse des externen Clients. Mithilfe der folgenden Verfahren können Sie die richtigen Ausstellungs Autorisierungs Regeln zur Office 365-Vertrauensstellung der vertrauenden Seite für Ihr ausgewähltes Szenario hinzufügen.  
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365"></a>So erstellen Sie Regeln, die den gesamten externen Zugriff auf Office 365 blockieren  
@@ -87,9 +87,9 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 7.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf **OK**, um die neuen Regeln zu speichern. Die resultierende Liste sollte wie folgt aussehen.  
 
-     Ausstellungs Authentifizierungs ![Regeln](media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1")  
+     ![Regeln]für Ausstellungs Authentifizierung(media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1")  
 
-###  <a name="scenario2"></a>Szenario 2: Den gesamten externen Zugriff auf Office 365 mit Ausnahme von Exchange ActiveSync blockieren  
+###  <a name="scenario2"></a>Szenario 2: Blockieren des gesamten externen Zugriffs auf Office 365 mit Ausnahme von Exchange ActiveSync  
  Im folgenden Beispiel wird der Zugriff auf alle Office 365-Anwendungen einschließlich Exchange Online von internen Clients einschließlich Outlook ermöglicht. Der Zugriff von Clients, die sich außerhalb des Unternehmensnetzwerks befinden, wird durch die Client-IP-Adresse, mit Ausnahme von Exchange ActiveSync-Clients wie Smartphones, blockiert.  
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-exchange-activesync"></a>So erstellen Sie Regeln, um den gesamten externen Zugriff auf Office 365 mit Ausnahme von Exchange ActiveSync zu blockieren  
@@ -145,7 +145,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
     ![Ausstellungsautorisierungsregeln](media/Access-Control-Policies-W2K12/clientaccess2.png )  
 
-###  <a name="scenario3"></a>Szenario 3: Blockieren Sie den gesamten externen Zugriff auf Office 365 außer browserbasierten Anwendungen.  
+###  <a name="scenario3"></a>Szenario 3: Blockieren des gesamten externen Zugriffs auf Office 365 außer auf browserbasierten Anwendungen  
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-browser-based-applications"></a>So erstellen Sie Regeln, um den gesamten externen Zugriff auf Office 365 außer browserbasierten Anwendungen zu blockieren  
 
@@ -180,8 +180,8 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
     ![Ausstellung](media/Access-Control-Policies-W2K12/clientaccess3.png)  
 
-###  <a name="scenario4"></a>Szenario 4: Den gesamten externen Zugriff auf Office 365 mit Ausnahme der vorgesehenen Active Directory Gruppen blockieren  
- Im folgenden Beispiel wird der Zugriff von internen Clients basierend auf der IP-Adresse ermöglicht. Der Zugriff von Clients außerhalb des Unternehmensnetzwerks, die über eine externe Client-IP-Adresse verfügen, wird blockiert, mit Ausnahme der Einzelpersonen in einer angegebenen Active Directory Gruppe. führen Sie die folgenden Schritte aus, um die richtigen Ausstellungs Autorisierungs Regeln **hinzuzufügen: Microsoft Office** die Vertrauensstellung der vertrauenden Seite 365 der Identitäts Plattform mithilfe des Anspruchs Regel-Assistenten:  
+###  <a name="scenario4"></a>Szenario 4: Blockieren des gesamten externen Zugriffs auf Office 365 mit Ausnahme der vorgesehenen Active Directory Gruppen  
+ Im folgenden Beispiel wird der Zugriff von internen Clients basierend auf der IP-Adresse ermöglicht. Der Zugriff von Clients außerhalb des Unternehmensnetzwerks, die über eine externe Client-IP-Adresse verfügen, wird blockiert, mit Ausnahme der Einzelpersonen in einer angegebenen Active Directory Gruppe. führen Sie die folgenden Schritte aus, um die richtigen Ausstellungs Autorisierungs Regeln mithilfe des Anspruchs Regel-Assistenten der **Microsoft Office 365 Identity Platform** -Vertrauensstellung der vertrauenden Seite hinzuzufügen:  
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-for-designated-active-directory-groups"></a>So erstellen Sie Regeln, die den gesamten externen Zugriff auf Office 365 blockieren, mit Ausnahme der vorgesehenen Active Directory Gruppen  
 
@@ -234,13 +234,13 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 > [!NOTE]
 >  Exchange Online unterstützt derzeit nur IPv4-und nicht IPv6-Adressen.  
 
--   Eine einzelne IP-Adresse: Die IP-Adresse des Clients, der direkt mit Exchange Online verbunden ist  
+-   Eine einzelne IP-Adresse: die IP-Adresse des Clients, der direkt mit Exchange Online verbunden ist  
 
 > [!NOTE]
 > - Die IP-Adresse eines Clients im Unternehmensnetzwerk wird als IP-Adresse der externen Schnittstelle des ausgehenden Proxys oder Gateways der Organisation angezeigt.  
 >   -   Clients, die über ein VPN oder Microsoft DirectAccess (da) mit dem Unternehmensnetzwerk verbunden sind, werden je nach Konfiguration von VPN oder da möglicherweise als interne Unternehmens Clients oder als externe Clients angezeigt.  
 
--   Mindestens eine IP-Adresse: Wenn Exchange Online die IP-Adresse des Clients, der die Verbindung herstellt, nicht ermitteln kann, wird der Wert auf Grundlage des Werts des x-weitergeleiteten-for-Headers festgelegt, ein nicht standardmäßiger Header, der in http-basierten Anforderungen eingeschlossen werden kann und von vielen Clients unterstützt wird, Load Balancer, und Proxys auf dem Markt.  
+-   Mindestens eine IP-Adresse: Wenn Exchange Online die IP-Adresse des Clients, der die Verbindung herstellt, nicht ermitteln kann, wird der Wert basierend auf dem Wert des x-weitergeleiteten für-Headers festgelegt, einem nicht standardmäßigen Header, der in http-basierten Anforderungen eingeschlossen werden kann und von vielen unterstützt wird. Clients, Lasten Ausgleichs Module und Proxys auf dem Markt.  
 
 > [!NOTE]
 > 1. Mehrere IP-Adressen, die die Client-IP-Adresse und die Adresse der einzelnen Proxys angeben, die die Anforderung übermittelt haben, werden durch Kommas getrennt.  
@@ -253,19 +253,19 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 - 10.0.0.1 – 10.0.0.14  
 
-  Zuerst lautet das grundlegende Muster, das einer einzelnen IP-Adresse entspricht, wie folgt: \b #\\# #. #\\# #. #\\# #. # # # \b  
+  Zuerst lautet das grundlegende Muster, das mit einer einzelnen IP-Adresse abgeglichen wird, wie folgt: \b # # #\\. # # #\\. # # #\\. # # # \b  
 
-  Dadurch können wir zwei unterschiedliche IP-Adressen wie folgt mit einem or-Ausdruck vergleichen: \b # #\\#. # #\\#. # #\\#. # # # \b&#124;\b # #\\#. # #\\#. # #\\#. # # # \b  
+  Dadurch können wir zwei unterschiedliche IP-Adressen wie folgt mit einem or-Ausdruck vergleichen: \b # # #\\. # # #\\. # # #\\. # # # \b&#124;\b # # #\\. # # #\\. # # #\\. # # # \b  
 
-  Ein Beispiel für die Anpassung von nur zwei Adressen (z. b. 192.168.1.1 oder 10.0.0.1)\\lautet: \b192.\\\\168.1 \&#124;b\\\b10\\0\\0.1 \ b  
+  Ein Beispiel für die Anpassung von nur zwei Adressen (z. b. 192.168.1.1 oder 10.0.0.1) lautet: \b192\\. 168\\1\\. \&#124;b \b10\\0\\. 0\\. 1 \ b  
 
-  Auf diese Weise können Sie eine beliebige Anzahl von Adressen eingeben. Wenn ein Adressbereich zulässig sein muss, z. b. 192.168.1.1 – 192.168.1.25, muss der Abgleich Zeichen nach Zeichen durchgeführt werden: \b192 @ no__t-0.168 @ no__t-1.1 @ no__t-2. ([1-9]&#124;1 [0-9]&#124;2 [0-5]) \b  
+  Auf diese Weise können Sie eine beliebige Anzahl von Adressen eingeben. Wenn ein Adressbereich zulässig sein muss, z. b. 192.168.1.1 – 192.168.1.25, muss der Abgleich Zeichen nach Zeichen durchgeführt werden: \b192\\. 168\\. 1\\. ([1-9]&#124;1 [0-9]&#124;2 [0-5]) \b  
 
   Bitte beachten Sie Folgendes:  
 
 - Die IP-Adresse wird als Zeichenfolge und nicht als Zahl behandelt.  
 
-- Die Regel wird wie folgt untergliedert: \b192\\.\\168\\1.  
+- Die Regel wird wie folgt aufgeschlüsselt: \b192\\. 168\\. 1\\.  
 
 - Dies entspricht einem beliebigen Wert, der mit 192.168.1 beginnt.  
 
@@ -279,9 +279,9 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 - Beachten Sie, dass die Klammern ordnungsgemäß positioniert werden müssen, damit Sie nicht mit anderen Teilen von IP-Adressen übereinstimmen.  
 
-- Wenn der 192-Block übereinstimmt, können wir einen ähnlichen Ausdruck für den 10-Block schreiben: \b10 @ no__t-0,0 @ no__t-1.0 @ no__t-2. ([1-9]&#124;1 [0-4]) \b  
+- Wenn der 192-Block übereinstimmt, können wir einen ähnlichen Ausdruck für den 10-Block schreiben: \b10\\0\\. 0\\. ([1-9]&#124;1 [0-4]) \b  
 
-- Der folgende Ausdruck muss alle Adressen für "192.168.1.1 ~ 25" und "10.0.0.1 ~ 14": \b192 @ no__t-0.168 @ no__t-1.1 @ no__t-2 erfüllen. ([1-9]&#124;1 [0-9]&#124;2 [0-5]) \b&#124;\b10 @ no__t-6.0 @ no__t-7.0 @ no__t-8. ([1-9]&#124;1 [0-4]) \b  
+- Der folgende Ausdruck muss alle Adressen für "192.168.1.1 ~ 25" und "10.0.0.1 ~ 14": \b192\\. 168\\. 1\\entsprechen. ([1-9]&#124;1 [0-9]&#124;2 [0-5]) \b&#124;\b10\\0\\. 0\\. ([1-9]&#124;1 [0-4]) \b  
 
 ### <a name="testing-the-expression"></a>Testen des Ausdrucks  
  Regex-Ausdrücke können recht kompliziert werden, daher wird dringend empfohlen, ein Regex-Überprüfungs Tool zu verwenden. Wenn Sie eine Internetsuche nach "Online-Regex Expression Builder" durchführen, finden Sie mehrere gute Online Dienstprogramme, mit denen Sie Ihre Ausdrücke anhand von Beispiel Daten ausprobieren können.  
@@ -296,7 +296,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
  AD FS in Windows Server 2012 R2 bietet Anforderungs Kontextinformationen mithilfe der folgenden Anspruchs Typen:  
 
 ### <a name="x-ms-forwarded-client-ip"></a>X-MS-weitergeleitete Client-IP  
- Anspruchstyp:`http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`  
+ Anspruchstyp: `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`  
 
  Dieser AD FS Anspruch stellt einen "besten Versuch" dar, die IP-Adresse des Benutzers (z. b. den Outlook-Client) zu ermitteln, der die Anforderung sendet. Dieser Anspruch kann mehrere IP-Adressen enthalten, einschließlich der Adresse jedes Proxys, von dem die Anforderung weitergeleitet wurde.  Dieser Anspruch wird mit einem http-Wert aufgefüllt. Der Wert des Anspruchs kann eines der folgenden sein:  
 
@@ -318,7 +318,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 >  Exchange Online unterstützt zurzeit nur IPv4-Adressen. IPv6-Adressen werden nicht unterstützt.  
 
 ### <a name="x-ms-client-application"></a>X-MS-Client-Anwendung  
- Anspruchstyp:`http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`  
+ Anspruchstyp: `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`  
 
  Dieser AD FS Anspruch stellt das vom Endclient verwendete Protokoll dar, das der verwendeten Anwendung lose entspricht.  Dieser Anspruch wird mit einem HTTP-Header aufgefüllt, der derzeit nur von Exchange Online festgelegt wird, der den-Header auffüllt, wenn die Authentifizierungsanforderung an AD FS übergeben wird. Abhängig von der Anwendung ist der Wert dieses Anspruchs einer der folgenden:  
 
@@ -345,7 +345,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
     -   Microsoft. Exchange. IMAP  
 
 ### <a name="x-ms-client-user-agent"></a>X-MS-Client-User-Agent  
- Anspruchstyp:`http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`  
+ Anspruchstyp: `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`  
 
  Dieser AD FS Anspruch stellt eine Zeichenfolge bereit, die den Gerätetyp darstellt, der vom Client für den Zugriff auf den Dienst verwendet wird. Dies kann verwendet werden, wenn Kunden den Zugriff für bestimmte Geräte (z. b. bestimmte Arten von Smartphones) verhindern möchten.  Beispiel Werte für diesen Anspruch sind die unten aufgeführten Werte (aber nicht beschränkt auf).  
 
@@ -368,23 +368,23 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
   Es ist auch möglich, dass dieser Wert leer ist.  
 
 ### <a name="x-ms-proxy"></a>X-MS-Proxy  
- Anspruchstyp:`http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`  
+ Anspruchstyp: `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`  
 
  Dieser AD FS Anspruch gibt an, dass die Anforderung den webanwendungsproxy übermittelt hat.  Dieser Anspruch wird durch den webanwendungsproxy aufgefüllt, der den-Header auffüllt, wenn die Authentifizierungsanforderung an das Back-End-Verbunddienst übergeben wird. AD FS dann in einen Anspruch konvertiert.  
 
  Der Wert des Anspruchs ist der DNS-Name des webanwendungsproxys, der die Anforderung übermittelt hat.  
 
 ### <a name="insidecorporatenetwork"></a>Insizercorporatenetwork  
- Anspruchstyp:`http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork`  
+ Anspruchstyp: `http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork`  
 
  Ähnlich wie bei dem obigen Anspruchstyp "x-ms-Proxy" gibt dieser Anspruchstyp an, ob die Anforderung den webanwendungsproxy übermittelt hat. Anders als bei x-ms-Proxy ist insidecorporatenetwork ein boolescher Wert mit true, der eine Anforderung direkt an den Verbund Dienst innerhalb des Unternehmensnetzwerks anzeigt.  
 
 ### <a name="x-ms-endpoint-absolute-path-active-vs-passive"></a>X-MS-Endpoint-absolute-path (aktiv/passiv)  
- Anspruchstyp:`http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`  
+ Anspruchstyp: `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`  
 
  Dieser Anspruchstyp kann zum Bestimmen von Anforderungen verwendet werden, die von "aktiven" (Rich) Clients und "passiven" (Webbrowser basierten) Clients stammen. Dadurch können externe Anforderungen von browserbasierten Anwendungen wie Outlook Webzugriff, SharePoint Online oder dem Office 365-Portal zugelassen werden, während Anforderungen, die von Rich-Clients wie Microsoft Outlook stammen, blockiert werden.  
 
  Der Wert des Anspruchs ist der Name des AD FS Dienstanbieter, der die Anforderung empfangen hat.  
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
  [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)

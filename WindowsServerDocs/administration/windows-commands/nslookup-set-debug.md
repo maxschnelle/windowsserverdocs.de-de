@@ -38,7 +38,7 @@ set [no]debug
 |-------------|--------------------------------------------------------------|
 | **NoDebug** | Deaktiviert den Debugmodus. Die Standard Syntax ist **NoDebug**. |
 |  **debug**  |                   Schaltet den Debugmodus um.                   |
-|  \* @ no__t-1 {Hilfe  |                            ?} \* @ no__t-1                            |
+|  \*\*{Help  |                            ?}\*\*                            |
 
 ## <a name="remarks"></a>Hinweise
 

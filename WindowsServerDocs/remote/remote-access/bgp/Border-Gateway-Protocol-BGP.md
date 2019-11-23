@@ -21,7 +21,7 @@ ms.locfileid: "71388981"
 ---
 # <a name="border-gateway-protocol-bgp"></a>Border Gateway Protocol (BGP)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erhalten Sie Informationen zum Verständnis des Border Gateway Protocol (BGP), einschließlich Bereitstellungstopologien mit BGP-Unterstützung und BGP-Features sowie -Funktionen.  
   
@@ -36,13 +36,13 @@ Dieses Thema enthält die folgenden Abschnitte:
   
 -   [BGP-Funktionen](#bkmk_features)  
   
-Wenn Sie auf einem Windows Server 2016-RAS-Dienst \(ras @ no__t-1 Gateway im mehr Instanzen Modus konfiguriert werden, bietet Border Gateway Protocol (BGP) die Möglichkeit, das Routing von Netzwerk Datenverkehr zwischen den VM-Netzwerken Ihrer Mandanten und deren Remote- Websites. Sie können BGP auch für RAS-Gateway-bereit Stellungen mit einem Mandanten und bei der Bereitstellung des Remote Zugriffs als lokales Netzwerk \(lan @ no__t-1-Router verwenden.  
+Wenn Sie auf einem Windows Server 2016-RAS-Dienst \(RAS\) Gateway im mehr Instanzen Modus konfiguriert werden, bietet Border Gateway Protocol (BGP) die Möglichkeit, das Routing von Netzwerk Datenverkehr zwischen den VM-Netzwerken Ihrer Mandanten und den zugehörigen Remote Standorten zu verwalten. Sie können BGP auch für RAS-Gateway-bereit Stellungen mit einem Mandanten verwenden und wenn Sie den Remote Zugriff als lokales Netzwerk \(LAN-\) Router bereitstellen.  
   
 BGP verringert den Bedarf an manueller Routingkonfiguration auf Routern, da es ein dynamisches Routingprotokoll ist, das automatisch Routen zwischen Standorten lernt, die über die Standort-zu-Standort-VPN-Verbindungen verbunden sind.  
   
-Um das BGP-Routing verwenden zu können, müssen Sie den RAS **-Dienst \(ras @ no__t-2** und/oder den **Routing** Rollen Dienst der RAS-Server Rolle auf einem Computer oder virtuellen Computer installieren \(vm @ no__t-5-der von Ihnen verwendete Systemtyp hängt von ab. unabhängig davon, ob Sie über eine mehr Instanzen fähige Bereitstellung verfügen:  
+Wenn Sie das BGP-Routing verwenden möchten, müssen Sie den **RAS-Dienst \(RAS-\)** und/oder den **Routing** Rollen Dienst der RAS-Server Rolle auf einem Computer oder virtuellen Computer \(VM-\) installieren. abhängig davon, ob Sie über eine mehr Instanzen fähige Bereitstellung verfügen, ist die Verwendung des verwendeten Systems abhängig davon:  
   
--   Bei einer mehr Instanzen fähigen Bereitstellung wird empfohlen, das RAS-Gateway auf einem oder mehreren virtuellen Computern zu installieren. Die Verwendung mehrerer virtueller Computer bietet hohe Verfügbarkeit. Das RAS-Gateway kann mehrere Verbindungen von mehreren Mandanten verarbeiten und besteht aus einem Hyper-V-Host und einem virtuellen Computer, der tatsächlich als Gateway konfiguriert ist. Dieses Gateway ist mit Standort-zu-Standort-VPN-Verbindungen als mehr Instanzen fähiger BGP-Router für Exchange-Mandanten und clouddienstanbieter \(csp @ no__t-1-Subnetzrouten konfiguriert.  
+-   Bei einer mehr Instanzen fähigen Bereitstellung wird empfohlen, das RAS-Gateway auf einem oder mehreren virtuellen Computern zu installieren. Die Verwendung mehrerer virtueller Computer bietet hohe Verfügbarkeit. Das RAS-Gateway kann mehrere Verbindungen von mehreren Mandanten verarbeiten und besteht aus einem Hyper-V-Host und einem virtuellen Computer, der tatsächlich als Gateway konfiguriert ist. Dieses Gateway ist mit Standort-zu-Standort-VPN-Verbindungen als mehr Instanzen fähiger BGP-Router für Exchange-Mandanten und clouddienstanbieter \(CSP\) Subnetzrouten konfiguriert.  
   
 -   Für eine Bereitstellung eines Edge-Gateways mit einem einzelnen Mandanten oder eine LAN-routerbereitstellung können Sie das RAS-Gateway entweder auf einem physischen Computer oder auf einem virtuellen Computer installieren.  
   

@@ -38,8 +38,8 @@ Reg delete <KeyName> [{/v ValueName | /ve | /va}] [/f]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<keyname >|Gibt den vollständigen Pfad des zu löschenden unter Schlüssels oder Eintrags an. Wenn Sie einen Remote Computer angeben möchten, fügen Sie den Computernamen (im Format \\ @ no__t-1computername @ no__t-2 als Teil des *keyName*-Steuerelement ein. Wenn \\ @ no__t-1computername \ weggelassen wird, wird der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: "HKLM", "HKCU", "HKCR", "HKU" und "HKCC" Wenn ein Remote Computer angegeben wird, sind gültige Stamm Schlüssel: HKLM und HKU.|
-|/v \<valuename >|Löscht einen bestimmten Eintrag unter dem Unterschlüssel. Wenn kein Eintrag angegeben wird, werden alle Einträge und Unterschlüssel unter dem Unterschlüssel gelöscht.|
+|\<KeyName >|Gibt den vollständigen Pfad des zu löschenden unter Schlüssels oder Eintrags an. Zum Angeben eines Remote Computers fügen Sie den Computernamen (im Format \\\\Computername als Teil des *keyName*-\) ein. Wenn \\\\Computername \ weggelassen wird, wird der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: HKLM, HKCU, HKCR, HKU und HKCC. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: HKLM und HKU.|
+|/v \<valueName >|Löscht einen bestimmten Eintrag unter dem Unterschlüssel. Wenn kein Eintrag angegeben wird, werden alle Einträge und Unterschlüssel unter dem Unterschlüssel gelöscht.|
 |/ve|Gibt an, dass nur Einträge, für die kein Wert vorhanden ist, gelöscht werden.|
 |/va|Löscht alle Einträge unter dem angegebenen Unterschlüssel. Unterschlüssel unter dem angegebenen Unterschlüssel werden nicht gelöscht.|
 |/f|Löscht den vorhandenen Registrierungs Unterschlüssel oder Eintrag, ohne zur Bestätigung aufzufordern.|
@@ -49,9 +49,9 @@ Reg delete <KeyName> [{/v ValueName | /ve | /va}] [/f]
 
 In der folgenden Tabelle sind die Rückgabewerte für den **reg-Lösch** Vorgang aufgeführt.
 
-|Wert|Description|
+|Wert|Beschreibung|
 |-----|-----------|
-|0|Erfolgreich|
+|0|Möglich|
 |1|Nicht möglich|
 
 ## <a name="BKMK_examples"></a>Beispiele

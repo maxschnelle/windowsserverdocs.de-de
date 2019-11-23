@@ -18,7 +18,7 @@ ms.locfileid: "71390719"
 ---
 # <a name="advanced-ad-ds-management-using-active-directory-administrative-center-level-200"></a>Erweiterte ADDS-Verwaltung mit dem ActiveDirectory-Verwaltungscenter (Stufe200)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dieser Artikel behandelt das aktualisierte Active Directory-Verwaltungscenter mit dem neuen Active Directory-Papierkorb, differenzierten Kennwortrichtlinien und der Windows PowerShell-Verlaufsanzeige im Detail, inklusive Architektur, Beispielen für gängige Aufgaben und Informationen zur Problembehandlung. Eine Einführung finden Sie unter [Introduction to Active Directory-Verwaltungscenter Verbesserungen &#40;Level 100&#41;](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md).  
   
@@ -98,7 +98,7 @@ Der Active Directory-Papierkorb bewahrt alle in der Gesamtstruktur gelöschten O
   
 Der **Deleted Objects** -Container enthält alle wiederherstellbaren Objekte der jeweiligen Domänenpartition. Gelöschte Objekte, die älter als **msDS-deletedObjectLifetime** sind, werden auch als wiederverwendete Objekte bezeichnet. Wiederverwendete Objekte werden im Active Directory-Verwaltungscenter nicht angezeigt und können von dort nicht wiederhergestellt werden.  
   
-Eine genauere Erläuterung der Architektur-und Verarbeitungs Regeln des Papierkorbs finden Sie unter [der AD-Papierkorb: Grundlegendes, Implementierung, bewährte Methoden und Problembehandlung bei @ no__t-0.  
+Eine detailliertere Beschreibung von Architektur und Verarbeitungsregeln des Papierkorbs finden Sie unter [The AD Recycle Bin: Understanding, Implementing, Best Practices, and Troubleshooting](http://blogs.technet.com/b/askds/archive/2009/08/27/the-ad-recycle-bin-understanding-implementing-best-practices-and-troubleshooting.aspx).  
   
 Das Active Directory-Verwaltungscenter beschränkt die Standardanzahl der pro Container zurückgegebenen Objekte auf 20.000. Sie können dieses Limit auf maximal 100.000 anheben, indem Sie im Menü **Verwalten** auf **Verwaltungslistenoptionen** klicken.  
   
@@ -202,7 +202,7 @@ Filtern Sie nach allen "Sales"-Benutzern. Drücken Sie STRG + A, um alle gelösc
   
 Wenn die OU **Sales** eigene untergeordnete OUs enthält, müssten Sie diese untergeordneten OUs wiederherstellen, bevor Sie deren untergeordnete Elemente wiederherstellen, und so weiter.  
   
-Informationen zum Wiederherstellen aller in der Tabelle gelöschten Objekte durch Angabe eines gelöschten übergeordneten Containers finden Sie unter [anhang B: Stellen Sie mehrere gelöschte Active Directory Objekte (Beispielskript) ](https://technet.microsoft.com/library/dd379504(WS.10).aspx) wieder her.  
+Informationen zum Wiederherstellen aller verschachtelten Objekte durch Angabe eines gelöschten übergeordneten Containers finden Sie im [Anhang B: Wiederherstellen mehrerer gelöschter Active Directory-Objekte (Beispielskript)](https://technet.microsoft.com/library/dd379504(WS.10).aspx).  
   
 Das Active Directory Windows PowerShell-Cmdlet zum Wiederherstellen gelöschter Objekte ist:  
 
@@ -450,7 +450,7 @@ Wenn keine Active Directory Webdienste-Instanzen installiert sind, werden die fo
 |Fehler|Vorgang|
 | --- | --- |  
 |"Es kann keine Verbindung zu irgendeiner Domäne hergestellt werden. Aktualisieren Sie, oder wiederholen Sie den Vorgang, wenn eine Verbindung verfügbar ist"|Angezeigt beim Start der Active Directory-Verwaltungscenter-Anwendung|
-|"In der *<NetBIOS domain name>-* Domäne, in der der Active Directory-Webdienst (ADWS) ausgeführt wird, wurde kein verfügbarer Server gefunden."|Angezeigt beim Versuch, einen Domänenknoten in der Active Directory-Verwaltungscenter-Anwendung auszuwählen|
+|"In der *<NetBIOS domain name>* Domäne, auf der der Active Directory-Webdienst (ADWS) ausgeführt wird, wurde kein verfügbarer Server gefunden."|Angezeigt beim Versuch, einen Domänenknoten in der Active Directory-Verwaltungscenter-Anwendung auszuwählen|
   
 Führen Sie zur Problembehandlung die folgenden Schritte aus:  
   
@@ -484,6 +484,6 @@ Führen Sie zur Problembehandlung die folgenden Schritte aus:
   
 4. Installieren Sie NetMon oder ein anderes Netzwerkerfassungs-Tool auf dem Computer, auf dem das Active Directory-Verwaltungscenter ausgeführt wird und auf dem von NLTEST zurückgegebenen Domänencontroller. Erstellen Sie parallele Netzwerkerfassungen auf beiden Computern während Sie das Active Directory-Verwaltungscenter starten und der Fehler angezeigt wird, bevor Sie die Erfassungen anhalten. Vergewissern Sie sich, dass der Client vom und zum Domänencontroller auf dem TCP-Port 9389 senden bzw. empfangen kann. Falls Pakete gesendet werden und nicht ankommen, oder ankommen und die Antwort des Domänencontrollers den Client nicht erreicht, liegt vermutlich eine Firewall zwischen den Computern im Netzwerk, die die Pakete auf diesem Port abfängt. Dies kann eine Software- oder Hardware-Firewall sein, die möglicherweise zu einem Endpunktschutz eines Drittanbieters (Virenschutz) gehört.  
   
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 [AD-Papierkorb, differenzierte Kennwortrichtlinie und PowerShell-Verlauf](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md)  

@@ -38,10 +38,10 @@ Print [/d:<PrinterName>] [<Drive>:][<Path>]<FileName>[ ...]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/d: \<printername >|Gibt den Drucker an, den Sie den Auftrag drucken möchten. Geben Sie den Port auf dem Computer an, auf dem der Drucker angeschlossen ist, um auf einem lokal verbundenen Drucker zu drucken.</br>-Gültige Werte für parallele Ports sind LPT1, LPT2 und LPT3.</br>-Gültige Werte für serielle Ports sind COM1, COM2, COM3 und COM4.</br>Sie können auch einen Netzwerkdrucker angeben, indem Sie den Warteschlangen Namen (\\ @ no__t-1*Servername*\*printername *) verwenden. Wenn Sie keinen Drucker angeben, wird der Druckauftrag standardmäßig an LPT1 gesendet.|
-|> \<drive:|Gibt das logische oder physische Laufwerk an, auf dem sich die Datei befindet, die Sie drucken möchten. Dieser Parameter ist nicht erforderlich, wenn sich die Datei, die Sie drucken möchten, auf dem aktuellen Laufwerk befindet.|
-|\<path >|Gibt den Speicherort der Datei an, die gedruckt werden soll. Dieser Parameter ist nicht erforderlich, wenn sich die Datei, die Sie drucken möchten, im aktuellen Verzeichnis befindet.|
-|\<filename > [...]|Erforderlich. Gibt die Datei an, die Sie drucken möchten. Sie können mehrere Dateien in einem Befehl einschließen.|
+|/d:\<PrinterName >|Gibt den Drucker an, den Sie den Auftrag drucken möchten. Geben Sie den Port auf dem Computer an, auf dem der Drucker angeschlossen ist, um auf einem lokal verbundenen Drucker zu drucken.</br>-Gültige Werte für parallele Ports sind LPT1, LPT2 und LPT3.</br>-Gültige Werte für serielle Ports sind COM1, COM2, COM3 und COM4.</br>Sie können einen Netzwerkdrucker auch angeben, indem Sie den Warteschlangen Namen (\\\\*Server* Name\*PrinterName *) verwenden. Wenn Sie keinen Drucker angeben, wird der Druckauftrag standardmäßig an LPT1 gesendet.|
+|\<Laufwerk >:|Gibt das logische oder physische Laufwerk an, auf dem sich die Datei befindet, die Sie drucken möchten. Dieser Parameter ist nicht erforderlich, wenn sich die Datei, die Sie drucken möchten, auf dem aktuellen Laufwerk befindet.|
+|\<Pfad >|Gibt den Speicherort der Datei an, die gedruckt werden soll. Dieser Parameter ist nicht erforderlich, wenn sich die Datei, die Sie drucken möchten, im aktuellen Verzeichnis befindet.|
+|\<Dateiname > [...]|Erforderlich. Gibt die Datei an, die Sie drucken möchten. Sie können mehrere Dateien in einem Befehl einschließen.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
@@ -61,7 +61,7 @@ Um die Datei "Report. txt" im aktuellen Verzeichnis an einen Drucker zu senden, 
 ```
 print /d:lpt2 report.txt
 ```
-Geben Sie Folgendes ein, um die Datei "Report. txt" im Verzeichnis "c:\Accounting" an die printer1-Druck Warteschlange auf dem \\ @ no__t-1copyroom-Server zu senden:
+Geben Sie Folgendes ein, um die Datei "Report. txt" im Verzeichnis "c:\Accounting" an die printer1-Warteschlange auf der \\\\copyroom-Server zu senden:
 ```
 print /d:\\copyroom\printer1 c:\accounting\report.txt 
 ```

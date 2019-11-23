@@ -117,7 +117,7 @@ Ausführliche Informationen zu Anforderungen und bewährten Methoden für die Ve
   
 1.  Starten Sie den Server-Manager.  
   
-2.  Führen Sie eines der folgenden Verfahren aus:  
+2.  Führen Sie eine der folgenden Aktionen aus:  
   
     -   Klicken Sie **im Menü Extras** auf **Cluster\-fähiges aktualisieren**.  
   

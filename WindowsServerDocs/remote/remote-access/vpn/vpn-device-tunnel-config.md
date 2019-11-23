@@ -100,7 +100,7 @@ Abhängig von den Anforderungen der einzelnen Bereitstellungs Szenarios ist ein 
 
 Sie können Geräte Tunnel mithilfe eines Windows PowerShell-Skripts und mithilfe der Windows-Verwaltungsinstrumentation (WMI)-Bridge konfigurieren. Der Always on VPN-Geräte Tunnel muss im Kontext des **lokalen System** Kontos konfiguriert werden. Um dies zu erreichen, muss [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec)verwendet werden, eines der in der [Sysinternals](https://docs.microsoft.com/sysinternals/) -Dienstprogramme enthaltenen [phocker](https://docs.microsoft.com/sysinternals/downloads/pstools) .
 
-Richtlinien für die Bereitstellung eines pro-Gerät `(.\Device)` im Vergleich zu einem pro-Benutzer-`(.\User)`-Profil finden [Sie unter Verwenden von PowerShell-Skripts mit dem WMI-Bridge Anbieter](https://docs.microsoft.com/windows/client-management/mdm/using-powershell-scripting-with-the-wmi-bridge-provider).
+Richtlinien für die Bereitstellung einer pro-Gerät-`(.\Device)` im Vergleich zu einer pro-Benutzer-`(.\User)` Profil finden [Sie unter Verwenden von PowerShell-Skripts mit dem WMI-Bridge Anbieter](https://docs.microsoft.com/windows/client-management/mdm/using-powershell-scripting-with-the-wmi-bridge-provider).
 
 Führen Sie den folgenden Windows PowerShell-Befehl aus, um zu überprüfen, ob ein Geräte Profil erfolgreich bereitgestellt wurde:
 
@@ -108,7 +108,7 @@ Führen Sie den folgenden Windows PowerShell-Befehl aus, um zu überprüfen, ob 
   Get-VpnConnection -AllUserConnection
   ```
 
-In der Ausgabe wird eine Liste der auf dem Gerät bereitgestellten no__t-0wide-VPN-Profile angezeigt.
+In der Ausgabe wird eine Liste der Geräte\-Wide VPN-Profile angezeigt, die auf dem Gerät bereitgestellt werden.
 
 ### <a name="example-windows-powershell-script"></a>Windows PowerShell-Beispielskript
 
@@ -165,7 +165,7 @@ $Message = "Complete."
 Write-Host "$Message"
 ```
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="additional-resources"></a>Weitere Ressourcen
 
 Im folgenden finden Sie weitere Ressourcen zur Unterstützung Ihrer VPN-Bereitstellung.
 
@@ -186,5 +186,5 @@ Im folgenden finden Sie RAS-gatewayressourcen (Remote Access Server).
 - [Konfigurieren des IKEv2-basierten Remote Zugriffs](https://technet.microsoft.com/library/ff687731.aspx)
 
 >[!IMPORTANT]
->Wenn Sie den Geräte Tunnel mit einem Microsoft RAS-Gateway verwenden, müssen Sie den RRAS-Server für die Unterstützung der IKEv2-Computer Zertifikat Authentifizierung konfigurieren, indem Sie die Authentifizierungsmethode " **Computer Zertifikat Authentifizierung für IKEv2 zulassen** " wie beschrieben aktivieren. [hier](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee922682%28v=ws.10%29). Wenn diese Einstellung aktiviert ist, wird dringend empfohlen, dass das PowerShell-Cmdlet **Set-vpnauthprotocol** zusammen mit dem optionalen Parameter **rootcertifigatenametoaccept** verwendet wird, um sicherzustellen, dass RRAS-IKEv2-Verbindungen nur für zulässig sind. VPN-Client Zertifikate, die zu einer explizit definierten internen/privaten Stamm Zertifizierungsstelle verkettet sind. Alternativ dazu sollte der Speicher für **Vertrauenswürdige Stamm Zertifizierungs** stellen auf dem RRAS-Server geändert werden, um sicherzustellen, dass er keine öffentlichen Zertifizierungsstellen enthält, wie [hier](https://blogs.technet.microsoft.com/rrasblog/2009/06/10/what-type-of-certificate-to-install-on-the-vpn-server/)erläutert. Ähnliche Methoden müssen möglicherweise auch für andere VPN-Gateways in Erwägung gezogen werden.
+>Wenn Sie den Geräte Tunnel mit einem Microsoft RAS-Gateway verwenden, müssen Sie den RRAS-Server für die Unterstützung der IKEv2-Computer Zertifikat Authentifizierung konfigurieren, indem Sie die Authentifizierungsmethode " **Computer Zertifikat Authentifizierung für IKEv2 zulassen** " aktivieren, wie [hier](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee922682%28v=ws.10%29)beschrieben. Wenn diese Einstellung aktiviert ist, wird dringend empfohlen, dass das PowerShell-Cmdlet **Set-vpnauthprotocol** zusammen mit dem optionalen Parameter **rootcertifikatenametoaccept** verwendet wird, um sicherzustellen, dass RRAS-IKEv2-Verbindungen nur für VPN-Client Zertifikate zulässig sind, die mit einer explizit definierten internen/privaten Stamm Zertifizierungsstelle verkettet sind. Alternativ dazu sollte der Speicher für **Vertrauenswürdige Stamm Zertifizierungs** stellen auf dem RRAS-Server geändert werden, um sicherzustellen, dass er keine öffentlichen Zertifizierungsstellen enthält, wie [hier](https://blogs.technet.microsoft.com/rrasblog/2009/06/10/what-type-of-certificate-to-install-on-the-vpn-server/)erläutert. Ähnliche Methoden müssen möglicherweise auch für andere VPN-Gateways in Erwägung gezogen werden.
 

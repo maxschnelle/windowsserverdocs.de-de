@@ -16,9 +16,9 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71369212"
 ---
-# <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Anhang I: Erstellen von Verwaltungs Konten für geschützte Konten und Gruppen in Active Directory
+# <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Anhang I: Erstellen von Verwaltungskonten für geschützte Konten und Gruppen in Active Directory
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Eine der Herausforderungen bei der Implementierung eines Active Directory Modells, das sich nicht auf die permanente Mitgliedschaft in sehr privilegierten Gruppen stützt, besteht darin, dass es einen Mechanismus zum Auffüllen dieser Gruppen geben muss, wenn eine temporäre Mitgliedschaft in den Gruppen erforderlich ist. Einige privilegierte Identitäts Verwaltungslösungen erfordern, dass den Dienst Konten der Software permanente Mitgliedschaft in Gruppen wie z. b. da oder Administratoren in jeder Domäne in der Gesamtstruktur gewährt wird. Es ist jedoch technisch nicht erforderlich, dass Privileged Identity Management (PIM)-Lösungen ihre Dienste in solch hoch privilegierten Kontexten ausführen.  
   
@@ -42,7 +42,7 @@ Das Erstellen von Konten, die zum Verwalten der Mitgliedschaft privilegierter Gr
 Sie sollten alle diese Prozeduren gründlich testen und Sie nach Bedarf für Ihre Umgebung ändern, bevor Sie Sie in einer Produktionsumgebung implementieren. Sie sollten außerdem überprüfen, ob alle Einstellungen erwartungsgemäß funktionieren (einige Testverfahren werden in diesem Anhang bereitgestellt), und Sie sollten ein Notfall Wiederherstellungs Szenario testen, in dem die Verwaltungs Konten nicht zur Verwendung zum Auffüllen geschützter Gruppen für die Wiederherstellung verfügbar sind. verwendet. Weitere Informationen zum Sichern und Wiederherstellen Active Directory finden Sie in der [schrittweisen Anleitung zur AD DS Sicherung und](https://technet.microsoft.com/library/cc771290(v=ws.10).aspx)Wiederherstellung.  
   
 > [!NOTE]  
-> Durch die Implementierung der in diesem Anhang beschriebenen Schritte erstellen Sie Konten, die in der Lage sind, die Mitgliedschaft aller geschützten Gruppen in den einzelnen Domänen zu verwalten, nicht nur die Active Directory Gruppen mit den höchsten Berechtigungen wie EAS, das und Bas. Weitere Informationen zu geschützten Gruppen in Active Directory finden Sie unter [anhang C: Geschützte Konten und Gruppen in Active Directory @ no__t-0.  
+> Durch die Implementierung der in diesem Anhang beschriebenen Schritte erstellen Sie Konten, die in der Lage sind, die Mitgliedschaft aller geschützten Gruppen in den einzelnen Domänen zu verwalten, nicht nur die Active Directory Gruppen mit den höchsten Berechtigungen wie EAS, das und Bas. Weitere Informationen zu geschützten Gruppen in Active Directory finden Sie unter [Anhang C: geschützte Konten und Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md).  
   
 ### <a name="step-by-step-instructions-for-creating-management-accounts-for-protected-groups"></a>Schritt-für-Schritt-Anleitung zum Erstellen von Verwaltungs Konten für geschützte Gruppen  
   
@@ -60,7 +60,7 @@ Führen Sie die folgenden Schritte aus, um eine Gruppe zum Aktivieren und Deakti
   
     ![Erstellen von Verwaltungs Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_116.png)  
   
-3.  Klicken Sie mit der rechten Maustaste auf die Gruppe, die Sie gerade erstellt haben, klicken Sie auf **Eigenschaften**, und klicken Sie dann auf die Registerkarte **Objekt** . Wählen Sie im Dialogfeld **Objekt Eigenschaft** der Gruppe die Option **Objekt vor versehentlichem Löschen schützen**aus, was nicht nur verhindert, dass anderweitig autorisierte Benutzer die Gruppe löschen, sondern auch, dass Sie in eine andere Organisationseinheit verschoben wird, es sei denn, das Attribut ist das erste. deaktiviert.  
+3.  Klicken Sie mit der rechten Maustaste auf die soeben erstellte Gruppe, klicken Sie auf **Eigenschaften**und dann auf die Registerkarte **Objekt** . Wählen Sie im Dialogfeld **Objekt Eigenschaft** der Gruppe die Option **Objekt vor versehentlichem Löschen schützen**aus, was nicht nur verhindert, dass anderweitig autorisierte Benutzer die Gruppe löschen, sondern auch, dass Sie in eine andere Organisationseinheit verschoben wird, es sei denn, das Attribut wird zuerst deaktiviert.  
   
     ![Erstellen von Verwaltungs Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_117.png)  
   
@@ -71,7 +71,7 @@ Führen Sie die folgenden Schritte aus, um eine Gruppe zum Aktivieren und Deakti
   
     ![Erstellen von Verwaltungs Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_118.png)  
   
-5.  Wenn Sie dies noch nicht getan haben, klicken Sie in der Konsole **Active Directory-Benutzer und-Computer** auf **anzeigen** , und wählen Sie **Erweiterte Features**aus. Klicken Sie mit der rechten Maustaste auf die soeben erstellte Gruppe, klicken Sie auf **Eigenschaften**und dann auf die Registerkarte **Sicherheit** . Klicken Sie auf der Registerkarte **Sicherheit** auf **Erweitert**.  
+5.  Wenn Sie dies noch nicht getan haben, klicken Sie in der Konsole **Active Directory-Benutzer und-Computer** auf **anzeigen** , und wählen Sie **Erweiterte Features**aus. Klicken Sie mit der rechten Maustaste auf die soeben erstellte Gruppe, klicken Sie auf **Eigenschaften**und dann auf die Registerkarte **Sicherheit** . Klicken Sie auf der Registerkarte **Sicherheit** auf **erweitert**.  
   
     ![Erstellen von Verwaltungs Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_119.png)  
   
@@ -81,9 +81,9 @@ Führen Sie die folgenden Schritte aus, um eine Gruppe zum Aktivieren und Deakti
   
 7.  Entfernen Sie auf der Registerkarte **Sicherheit** Gruppen, denen der Zugriff auf diese Gruppe nicht gestattet werden soll. Wenn Sie z. b. nicht möchten, dass authentifizierte Benutzer den Namen der Gruppe und allgemeine Eigenschaften lesen können, können Sie diesen ACE entfernen. Sie können auch ACEs entfernen, wie z. b. Konten für Konto-und Windows Server-kompatible Zugriffe vor Windows 2000. Sie sollten jedoch einen minimalen Satz von Objekt Berechtigungen überlassen. Behalten Sie die folgenden ACEs bei:  
   
-    -   SELBSTBEDIENUNGS  
+    -   Selbstbedienungs  
   
-    -   ANLAGE  
+    -   Anlage  
   
     -   Domänen-Admins  
   
@@ -93,7 +93,7 @@ Führen Sie die folgenden Schritte aus, um eine Gruppe zum Aktivieren und Deakti
   
     -   Windows-Autorisierungs Zugriffs Gruppe (falls zutreffend)  
   
-    -   UNTERNEHMENS DOMÄNEN CONTROLLER  
+    -   Unternehmens Domänen Controller  
   
     Obwohl es möglicherweise intuitiv erscheint, dass die Gruppen mit den höchsten Berechtigungen in Active Directory diese Gruppe verwalten können, besteht das Ziel der Implementierung dieser Einstellungen nicht darin, dass Mitglieder dieser Gruppen autorisierte Änderungen vornehmen. Vielmehr soll sichergestellt werden, dass bei einer Zeit, in der eine sehr hohe Berechtigungsstufe erforderlich ist, autorisierte Änderungen erfolgreich ausgeführt werden. Der Grund hierfür ist, dass das Ändern der standardmäßigen privilegierten Gruppen Schachtelung, der Rechte und der Berechtigungen in diesem Dokument nicht empfehlenswert ist. Wenn Sie die Standard Strukturen intakt lassen und die Mitgliedschaft der Gruppen mit den höchsten Berechtigungen im Verzeichnis leeren, können Sie eine sicherere Umgebung erstellen, die weiterhin erwartungsgemäß funktioniert.  
   
@@ -135,12 +135,12 @@ Führen Sie die folgenden Schritte aus, um die Verwaltungs Konten zu erstellen:
 
 8. Klicken Sie auf die Registerkarte **Konto** .  
 
-9. Wählen Sie im Feld **Konto Optionen** das Flag **Konto ist vertraulich und kann nicht delegiert werden** aus, wählen Sie das **Konto unterstützt Kerberos AES 128 Bit Encryption** und/oder das von **diesem Konto unterstützt Kerberos AES 256 encryption** -Flag aus. und klicken Sie auf **OK**.  
+9. Wählen Sie im Feld **Konto Optionen** das Flag **Konto ist vertraulich und kann nicht delegiert werden** aus, wählen Sie das **Konto unterstützt Kerberos AES 128 Bit Encryption** und/oder das kennflag **dieses Konto unterstützt Kerberos AES 256 encryption** aus, und klicken Sie auf **OK**.  
 
    ![Erstellen von Verwaltungs Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_124.png)  
 
    > [!NOTE]  
-   > Da dieses Konto, wie andere Konten, eine begrenzte, aber leistungsstarke Funktion haben, sollte das Konto nur auf sicheren administrativen Hosts verwendet werden. Für alle sicheren administrativen Hosts in Ihrer Umgebung sollten Sie die Implementierung der Gruppenrichtlinie Einstellung **network Security in Erwägung gezogen werden: Konfigurieren Sie für Kerberos @ no__t-0 zugelassene Verschlüsselungstypen, damit nur die sichersten Verschlüsselungstypen zulässig sind, die für sichere Hosts implementiert werden können.  
+   > Da dieses Konto, wie andere Konten, eine begrenzte, aber leistungsstarke Funktion haben, sollte das Konto nur auf sicheren administrativen Hosts verwendet werden. Für alle sicheren administrativen Hosts in Ihrer Umgebung sollten Sie die Implementierung der Gruppenrichtlinie Einstellung **Netzwerksicherheit: Konfigurieren von Verschlüsselungstypen, die für Kerberos zulässig** sind, in Erwägung gezogen werden, um nur die sichersten Verschlüsselungstypen zuzulassen, die für sichere Hosts implementiert werden können.  
    >
    > Obwohl das Implementieren von sichereren Verschlüsselungstypen für die Hosts keine Angriffe auf Diebstahl von Anmelde Informationen durchführt, erfolgt die geeignete Verwendung und Konfiguration der sicheren Hosts. Das Festlegen stärkerer Verschlüsselungstypen für Hosts, die nur von privilegierten Konten verwendet werden, reduziert einfach die Gesamt Angriffsfläche der Computer.  
    >
@@ -233,7 +233,7 @@ Sie können zusätzliche Verwaltungs Konten erstellen, indem Sie die vorherigen 
   
 Stattdessen können Sie eine Gruppe erstellen, der Sie Rechte zum Auffüllen und Auffüllen geschützter Gruppen delegieren, aber Sie müssen die Gruppe und die Konten, die Sie darin platzieren, sichern. Da in Ihrem Verzeichnis nur wenige Konten vorhanden sein sollten, denen die Verwaltung der Mitglieder geschützter Gruppen gewährt werden kann, ist das Erstellen einzelner Konten möglicherweise der einfachste Ansatz.  
   
-Unabhängig davon, wie Sie eine Gruppe erstellen, in die Sie die Verwaltungs Konten platzieren, sollten Sie sicherstellen, dass jedes Konto wie zuvor beschrieben geschützt wird. Sie sollten auch die Implementierung von GPO-Einschränkungen in Erwägung gezogen, ähnlich wie in [anhang D: Sichern integrierter Administrator Konten in Active Directory @ no__t-0.  
+Unabhängig davon, wie Sie eine Gruppe erstellen, in die Sie die Verwaltungs Konten platzieren, sollten Sie sicherstellen, dass jedes Konto wie zuvor beschrieben geschützt wird. Sie sollten auch die Implementierung von GPO-Einschränkungen in Erwägung gezogen, ähnlich wie in [Anhang D: sichern integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md).  
   
 ##### <a name="auditing-management-accounts"></a>Überwachen von Verwaltungs Konten
 
@@ -247,7 +247,7 @@ Weitere Informationen zu empfohlenen Überwachungs Konfigurationseinstellungen f
 
 In diesem Verfahren konfigurieren Sie die Berechtigungen für das AdminSDHolder-Objekt der Domäne, damit die neu erstellten Verwaltungs Konten die Mitgliedschaft geschützter Gruppen in der Domäne ändern können. Dieses Verfahren kann nicht über eine grafische Benutzeroberfläche (GUI) ausgeführt werden.  
   
-Wie in [anhang C beschrieben: Geschützte Konten und Gruppen in Active Directory @ no__t-0 wird die ACL für das AdminSDHolder-Objekt einer Domäne beim Ausführen der SDPROP-Aufgabe effektiv in geschützte Objekte kopiert. Geschützte Gruppen und Konten erben nicht Ihre Berechtigungen vom AdminSDHolder-Objekt. Ihre Berechtigungen werden explizit so festgelegt, dass Sie mit den Berechtigungen im AdminSDHolder-Objekt übereinstimmen. Wenn Sie also Berechtigungen für das AdminSDHolder-Objekt ändern, müssen Sie diese für Attribute ändern, die für den Typ des geschützten Objekts geeignet sind, das Sie als Ziel haben.  
+Wie in [Anhang C: geschützte Konten und Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md)erläutert, wird die ACL für das AdminSDHolder-Objekt einer Domäne beim Ausführen der SDPROP-Aufgabe effektiv in geschützte Objekte kopiert. Geschützte Gruppen und Konten erben nicht Ihre Berechtigungen vom AdminSDHolder-Objekt. Ihre Berechtigungen werden explizit so festgelegt, dass Sie mit den Berechtigungen im AdminSDHolder-Objekt übereinstimmen. Wenn Sie also Berechtigungen für das AdminSDHolder-Objekt ändern, müssen Sie diese für Attribute ändern, die für den Typ des geschützten Objekts geeignet sind, das Sie als Ziel haben.  
   
 In diesem Fall erteilen Sie die neu erstellten Verwaltungs Konten, damit Sie das Members-Attribut für Gruppen Objekte lesen und schreiben können. Das AdminSDHolder-Objekt ist jedoch kein Gruppen Objekt, und Gruppen Attribute werden im grafischen ACL-Editor nicht verfügbar gemacht. Aus diesem Grund müssen Sie die Berechtigungs Änderungen über das Befehlszeilen-Hilfsprogramm DSACLS implementieren. Führen Sie die folgenden Schritte aus, um den (deaktivierten) Verwaltungs Konten Berechtigungen zum Ändern der Mitgliedschaft geschützter Gruppen zu erteilen:  
   
@@ -286,7 +286,7 @@ In diesem Fall erteilen Sie die neu erstellten Verwaltungs Konten, damit Sie das
   
    Weitere Informationen zur Verwendung von **DSACLS**erhalten Sie, wenn Sie an einer Eingabeaufforderung DSACLS ohne Parameter eingeben.  
   
-   Wenn Sie mehrere Verwaltungs Konten für die Domäne erstellt haben, sollten Sie für jedes Konto den DSACLS-Befehl ausführen. Wenn Sie die ACL-Konfiguration für das AdminSDHolder-Objekt abgeschlossen haben, sollten Sie die Ausführung von SDPROP erzwingen oder warten, bis die geplante Ausführung abgeschlossen ist. Informationen zum Erzwingen der Ausführung von SDPROP finden Sie unter "Manuelles Ausführen von SDPROP" in [anhang C: Geschützte Konten und Gruppen in Active Directory @ no__t-0.  
+   Wenn Sie mehrere Verwaltungs Konten für die Domäne erstellt haben, sollten Sie für jedes Konto den DSACLS-Befehl ausführen. Wenn Sie die ACL-Konfiguration für das AdminSDHolder-Objekt abgeschlossen haben, sollten Sie die Ausführung von SDPROP erzwingen oder warten, bis die geplante Ausführung abgeschlossen ist. Informationen zum Erzwingen der Ausführung von SDPROP finden Sie unter "Manuelles Ausführen von SDPROP" in [Anhang C: geschützte Konten und Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md).  
   
    Wenn SDPROP ausgeführt wurde, können Sie überprüfen, ob die Änderungen, die Sie am AdminSDHolder-Objekt vorgenommen haben, auf geschützte Gruppen in der Domäne angewendet wurden. Sie können dies nicht überprüfen, indem Sie die ACL für das AdminSDHolder-Objekt aus den oben beschriebenen Gründen anzeigen, aber Sie können überprüfen, ob die Berechtigungen angewendet wurden, indem Sie die ACLs für geschützte Gruppen anzeigen.  
   
@@ -317,7 +317,7 @@ Nachdem Sie nun Verwaltungs Konten erstellt und konfiguriert haben, mit denen di
   
 ##### <a name="test-the-group-that-will-enable-and-disable-management-accounts"></a>Testen Sie die Gruppe, die Verwaltungs Konten aktivieren und deaktivieren soll.
   
-1.  Um das Aktivieren eines Verwaltungs Kontos und das Zurücksetzen des Kennworts zu testen, melden Sie sich bei einer sicheren administrativen Arbeitsstation mit einem Konto an, das Mitglied der Gruppe ist, die Sie in [anhang I erstellt haben: Erstellen von Verwaltungs Konten für geschützte Konten und Gruppen in Active Directory @ no__t-0.  
+1.  Wenn Sie das Aktivieren eines Verwaltungs Kontos und das Zurücksetzen des Kennworts testen möchten, melden Sie sich bei einer sicheren administrativen Arbeitsstation mit einem Konto an, das Mitglied der Gruppe ist, die Sie in [Anhang I: Erstellen von Verwaltungs Konten für geschützte Konten und Gruppen in Active Directory](../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md)erstellt haben.  
   
     ![Erstellen von Verwaltungs Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_142.gif)  
   

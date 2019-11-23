@@ -18,7 +18,7 @@ ms.locfileid: "71369427"
 ---
 # <a name="changes-made-by-adprepexe"></a>Changes Made by Adprep.exe
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema werden die Änderungen beschrieben, die Adprep. exe in Windows Server 2012 R2 und Windows Server 2012 vornimmt.  
   
@@ -30,9 +30,9 @@ In diesem Thema werden die Änderungen beschrieben, die Adprep. exe in Windows S
   
 -   [Schemaupdates](../../../ad-ds/deploy/Schema-Updates.md)  
   
-## <a name="see-also"></a>Siehe auch  
-[windows Server 2008 R2: Anhang der Änderungen an "Adprep. exe" zur Unterstützung von AD DS @ no__t-0  
-[windows Server 2008: Anhang der Änderungen an "Adprep. exe" zur Unterstützung von AD DS @ no__t-0  
+## <a name="see-also"></a>Weitere Informationen  
+[Windows Server 2008 R2: Anhang der Änderungen an "Adprep. exe" zur Unterstützung von AD DS](https://technet.microsoft.com/library/dd378876.aspx)  
+[Windows Server 2008: Anhang der Änderungen an "Adprep. exe" zur Unterstützung von AD DS](https://technet.microsoft.com/library/cc770703.aspx)  
   
 
 

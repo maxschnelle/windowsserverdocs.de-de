@@ -19,9 +19,9 @@ ms.locfileid: "71407575"
 # <a name="create-a-rule-to-transform-an-incoming-claim"></a>Erstellen einer Regel zum Transformieren eines eingehenden Anspruchs
 
 
-Mithilfe der Regel Vorlage zum **Transformieren eines eingehenden Anspruchs** in Active Directory-Verbunddienste (AD FS) \(AD FS @ no__t-2 können Sie einen eingehenden Anspruch auswählen, seinen Anspruchstyp ändern und seinen Anspruchs Wert ändern. Beispielsweise können Sie diese Regel Vorlage verwenden, um eine Regel zu erstellen, die einen Rollen Anspruch mit dem gleichen Anspruchs Wert eines eingehenden Gruppen Anspruchs sendet. Sie können diese Regel auch verwenden, um einen Gruppen Anspruch mit dem Anspruchs Wert "Käufer" zu senden, wenn ein eingehender Gruppen Anspruch mit dem Wert "Admins" vorhanden ist, oder Sie können nur den Benutzer Prinzipal Namen \(upn @ no__t-1-Ansprüche senden, die mit @fabrikam enden.  
+Mithilfe der Regel Vorlage zum **Transformieren eines eingehenden Anspruchs** in Active Directory-Verbunddienste (AD FS) \(AD FS\)können Sie einen eingehenden Anspruch auswählen, seinen Anspruchstyp ändern und seinen Anspruchs Wert ändern. Beispielsweise können Sie diese Regel Vorlage verwenden, um eine Regel zu erstellen, die einen Rollen Anspruch mit dem gleichen Anspruchs Wert eines eingehenden Gruppen Anspruchs sendet. Sie können diese Regel auch verwenden, um einen Gruppen Anspruch mit dem Anspruchs Wert "Käufer" zu senden, wenn ein eingehender Gruppen Anspruch mit dem Wert "Admins" vorhanden ist. Sie können auch nur den Benutzer Prinzipal Namen \(UPN\) Ansprüche, die mit @fabrikamenden, senden.  
   
-Mithilfe des folgenden Verfahrens können Sie eine Anspruchs Regel mit dem Snap\--in "AD FS-Verwaltung" erstellen.  
+Mithilfe des folgenden Verfahrens können Sie eine Anspruchs Regel mit dem AD FS-Verwaltungs-Snap\-in erstellen.  
   
 Sie müssen mindestens Mitglied der Gruppe **Administratoren**oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477). 
 
@@ -32,7 +32,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren**oder einer entspre
 2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf Vertrauens Stellungen der vertrauenden **Seite**. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule9.PNG)  
   
-3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung, und klicken Sie dann auf **Richtlinie**zum
+3.  Klicken Sie mit der rechten\-auf die ausgewählte Vertrauensstellung, und klicken Sie dann auf **Anspruchs Ausstellungs Richtlinie bearbeiten**.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule10.PNG)   
   
 4.  Klicken Sie im Dialogfeld **Richtlinie für Anspruchs Ausstellung bearbeiten** unter Ausstellungs **Transformationsregeln** auf **Regel hinzufügen** , um den Regel-Assistenten zu starten. 
@@ -47,7 +47,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren**oder einer entspre
   
     -   **Einen eingehenden Anspruchs Wert durch einen anderen ausgehenden Anspruchs Wert ersetzen**  
   
-    -   **Ersetzen eingehender e @ no__t-1mail-suffixansprüche durch ein neues e @ no__t-2mail-Suffix**  
+    -   **Ersetzen eingehender e\-e-Mail-suffixansprüche durch ein neues e\-Mail Suffix**  
 ![Regel erstellen](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform4.PNG)   
 
 7.  Klicken Sie auf **Fertig** stellen.  
@@ -55,7 +55,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren**oder einer entspre
 8.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf **OK** , um die Regel zu speichern.
   
 > [!NOTE]  
-> Wenn Sie das dynamische Access Control Szenario einrichten, das AD FS @ no__t-0ausgestellte Ansprüche verwendet, erstellen Sie zunächst eine Transformations Regel für die Anspruchs Anbieter-Vertrauensstellung, und geben Sie unter **eingehender Anspruchstyp**den Namen des eingehenden Anspruchs ein, oder, wenn eine Anspruchs Beschreibung Wählen Sie das zuvor erstellte aus der Liste aus. Wählen Sie anschließend unter **Typ des ausgehenden Anspruchs**die gewünschte Anspruchs-URL aus, und erstellen Sie dann eine Transformations Regel für die Vertrauensstellung der vertrauenden Seite, um den geräteanspruch auszugeben.  
+> Wenn Sie das dynamische Access Control Szenario einrichten, in dem AD FS von\-ausgestellte Ansprüche verwendet werden, erstellen Sie zunächst eine Transformations Regel für die Anspruchs Anbieter-Vertrauensstellung, und geben Sie in **eingehender Anspruchstyp**den Namen des eingehenden Anspruchs ein. Wenn Sie zuvor eine Anspruchs Beschreibung erstellt haben, wählen Sie Sie aus der Liste aus. Wählen Sie anschließend unter **Typ des ausgehenden Anspruchs**die gewünschte Anspruchs-URL aus, und erstellen Sie dann eine Transformations Regel für die Vertrauensstellung der vertrauenden Seite, um den geräteanspruch auszugeben.  
 >   
 > Weitere Informationen zu dynamischen Access Control Szenarien finden Sie unter [dynamische Access Control Inhalts Roadmap](../../solution-guides/dynamic-access-control--scenario-overview.md) oder [Verwenden von AD DS Ansprüchen mit AD FS](https://technet.microsoft.com/library/hh831504.aspx). 
 
@@ -66,7 +66,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren**oder einer entspre
 2.  Klicken Sie in der Konsolen Struktur unter **AD FS**auf **Anspruchs Anbieter**-Vertrauens Stellungen. 
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule1.PNG)  
   
-3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.
+3.  Klicken Sie mit der rechten\-auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule2.PNG)   
   
 4.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** unter **Akzeptanz Transformationsregeln** auf **Regel hinzufügen** , um den Regel-Assistenten zu starten.
@@ -81,7 +81,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren**oder einer entspre
   
     -   **Einen eingehenden Anspruchs Wert durch einen anderen ausgehenden Anspruchs Wert ersetzen**  
   
-    -   **Ersetzen eingehender e @ no__t-1mail-suffixansprüche durch ein neues e @ no__t-2mail-Suffix**  
+    -   **Ersetzen eingehender e\-e-Mail-suffixansprüche durch ein neues e\-Mail Suffix**  
 ![Regel erstellen](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform4.PNG)       
 
 7.  Klicken Sie auf **Fertig** stellen.  
@@ -89,7 +89,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren**oder einer entspre
 8.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf **OK** , um die Regel zu speichern.  
 
 > [!NOTE]  
-> Wenn Sie das dynamische Access Control Szenario einrichten, das AD FS @ no__t-0ausgestellte Ansprüche verwendet, erstellen Sie zunächst eine Transformations Regel für die Anspruchs Anbieter-Vertrauensstellung, und geben Sie unter **eingehender Anspruchstyp**den Namen des eingehenden Anspruchs ein, oder, wenn eine Anspruchs Beschreibung Wählen Sie das zuvor erstellte aus der Liste aus. Wählen Sie anschließend unter **Typ des ausgehenden Anspruchs**die gewünschte Anspruchs-URL aus, und erstellen Sie dann eine Transformations Regel für die Vertrauensstellung der vertrauenden Seite, um den geräteanspruch auszugeben.  
+> Wenn Sie das dynamische Access Control Szenario einrichten, in dem AD FS von\-ausgestellte Ansprüche verwendet werden, erstellen Sie zunächst eine Transformations Regel für die Anspruchs Anbieter-Vertrauensstellung, und geben Sie in **eingehender Anspruchstyp**den Namen des eingehenden Anspruchs ein. Wenn Sie zuvor eine Anspruchs Beschreibung erstellt haben, wählen Sie Sie aus der Liste aus. Wählen Sie anschließend unter **Typ des ausgehenden Anspruchs**die gewünschte Anspruchs-URL aus, und erstellen Sie dann eine Transformations Regel für die Vertrauensstellung der vertrauenden Seite, um den geräteanspruch auszugeben.  
 >   
 > Weitere Informationen zu dynamischen Access Control Szenarien finden Sie unter [dynamische Access Control Inhalts Roadmap](../../solution-guides/dynamic-access-control--scenario-overview.md) oder [Verwenden von AD DS Ansprüchen mit AD FS](https://technet.microsoft.com/library/hh831504.aspx).   
   
@@ -97,12 +97,12 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren**oder einer entspre
   
 1.  Klicken Sie in Server-Manager **auf Extras, und**klicken Sie dann auf **AD FS Verwaltung**.  
   
-2.  Klicken Sie in der Konsolen Struktur **unter\\AD FS Vertrauens**Stellungen entweder auf **Anspruchs Anbieter** -Vertrauens Stellungen oder Vertrauens Stellungen der vertrauenden **Seite**, und klicken Sie dann auf eine bestimmte Vertrauensstellung in der Liste, in der Sie diese Regel erstellen möchten.  
+2.  Klicken Sie in der Konsolen Struktur unter **AD FS Vertrauens Stellungen\\Vertrauens**Stellungen entweder auf **Anspruchs Anbieter** -Vertrauens Stellungen oder Vertrauens Stellungen der vertrauenden **Seite**, und klicken Sie dann auf eine bestimmte Vertrauensstellung in der Liste, in der Sie diese Regel erstellen möchten.  
   
-3.  Klicken\-Sie mit der rechten Maustaste auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.  
+3.  Klicken Sie mit der rechten\-auf die ausgewählte Vertrauensstellung und dann auf **Anspruchs Regeln bearbeiten**.  
 ![Regel erstellen](media/Create-a-Rule-to-Pass-Through-or-Filter-an-Incoming-Claim/claimrule6.PNG) 
   
-4.  Wählen Sie im Dialogfeld **Anspruchs Regeln bearbeiten** eine der folgenden Registerkarten aus, die von der zu bearbeitenden Vertrauensstellung und dem Regelsatz abhängt, den Sie diese Regel erstellen möchten, und klicken Sie dann auf **Regel hinzufügen** , um den Regel-Assistenten zu starten, der diesem Regelsatz zugeordnet ist. :  
+4.  Wählen Sie im Dialogfeld **Anspruchs Regeln bearbeiten** eine der folgenden Registerkarten aus, die von der zu bearbeitenden Vertrauensstellung und dem Regelsatz abhängt, den Sie diese Regel erstellen möchten, und klicken Sie dann auf **Regel hinzufügen** , um den Regel-Assistenten zu starten, der diesem Regelsatz zugeordnet ist:  
   
     -   **Akzeptanz Transformationsregeln**  
   
@@ -122,11 +122,11 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren**oder einer entspre
   
     -   **Einen eingehenden Anspruchs Wert durch einen anderen ausgehenden Anspruchs Wert ersetzen**  
   
-    -   **Ersetzen eingehender e @ no__t-1mail-suffixansprüche durch ein neues e @ no__t-2mail-Suffix**  
+    -   **Ersetzen eingehender e\-e-Mail-suffixansprüche durch ein neues e\-Mail Suffix**  
 ![Regel erstellen](media/Create-a-Rule-to-Transform-an-Incoming-Claim/transform2.PNG)  
 
 > [!NOTE]  
-> Wenn Sie das dynamische Access Control Szenario einrichten, das AD FS @ no__t-0ausgestellte Ansprüche verwendet, erstellen Sie zunächst eine Transformations Regel für die Anspruchs Anbieter-Vertrauensstellung, und geben Sie unter **eingehender Anspruchstyp**den Namen des eingehenden Anspruchs ein, oder, wenn eine Anspruchs Beschreibung Wählen Sie das zuvor erstellte aus der Liste aus. Wählen Sie anschließend unter **Typ des ausgehenden Anspruchs**die gewünschte Anspruchs-URL aus, und erstellen Sie dann eine Transformations Regel für die Vertrauensstellung der vertrauenden Seite, um den geräteanspruch auszugeben.  
+> Wenn Sie das dynamische Access Control Szenario einrichten, in dem AD FS von\-ausgestellte Ansprüche verwendet werden, erstellen Sie zunächst eine Transformations Regel für die Anspruchs Anbieter-Vertrauensstellung, und geben Sie in **eingehender Anspruchstyp**den Namen des eingehenden Anspruchs ein. Wenn Sie zuvor eine Anspruchs Beschreibung erstellt haben, wählen Sie Sie aus der Liste aus. Wählen Sie anschließend unter **Typ des ausgehenden Anspruchs**die gewünschte Anspruchs-URL aus, und erstellen Sie dann eine Transformations Regel für die Vertrauensstellung der vertrauenden Seite, um den geräteanspruch auszugeben.  
 >   
 > Weitere Informationen zu dynamischen Access Control Szenarien finden Sie unter [dynamische Access Control Inhalts Roadmap](../../solution-guides/dynamic-access-control--scenario-overview.md) oder [Verwenden von AD DS Ansprüchen mit AD FS](https://technet.microsoft.com/library/hh831504.aspx).  
   
@@ -137,9 +137,9 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren**oder einer entspre
 ## <a name="additional-references"></a>Weitere Verweise 
 [Konfigurieren von Anspruchsregeln](Configure-Claim-Rules.md)  
  
-[Prüfliste: Erstellen von Anspruchsregeln für eine Vertrauensstellung der vertrauenden Seite](https://technet.microsoft.com/library/ee913578.aspx)  
+[Prüfliste: Erstellen von Anspruchs Regeln für eine Vertrauensstellung der vertrauenden](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[Prüfliste: Erstellen von Anspruchsregeln für eine Anspruchsanbieter-Vertrauensstellung](https://technet.microsoft.com/library/ee913564.aspx)  
+[Prüfliste: Erstellen von Anspruchs Regeln für eine Anspruchs Anbieter-Vertrauensstellung](https://technet.microsoft.com/library/ee913564.aspx)  
   
 [Wann sollte eine Autorisierungs Anspruchs Regel verwendet werden?](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 

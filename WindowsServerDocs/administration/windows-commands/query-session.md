@@ -22,7 +22,7 @@ ms.locfileid: "71384909"
 ---
 # <a name="query-session"></a>Abfrage Sitzung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt Informationen zu Sitzungen auf einem Remotedesktop-Sitzungshost Server (RD-Sitzungs Host) an.
 Die Liste enthält nicht nur Informationen zu aktiven Sitzungen, sondern auch zu anderen Sitzungen, die vom Server ausgeführt werden.
@@ -72,4 +72,5 @@ Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_
 >   ```
 >   #### <a name="additional-references"></a>Weitere Verweise
 >   [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
->   -[Abfrage](query.md)@no__t-[3 &#40;Remotedesktopdienste Befehls&#41; Referenz für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)
+>   [Abfrage](query.md)
+>   [Remotedesktopdienste &#40;Befehlsreferenz&#41; für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)

@@ -19,9 +19,9 @@ ms.locfileid: "71404242"
 ---
 # <a name="web-application-proxy-in-windows-server"></a>Web Application Proxy in Windows Server
 
->Gilt für: Windows Server @ no__t-0 2016
+>Gilt für: Windows Server&reg; 2016
 
-**dieser Inhalt ist für die lokale Version des webanwendungsproxys relevant. Informationen zum Aktivieren des sicheren Zugriffs auf lokale Anwendungen über die Cloud finden Sie in den [Azure AD Anwendungs Proxy-Inhalt](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
+**Diese Inhalte sind für die lokale Version des webanwendungsproxys relevant. Informationen zum Aktivieren des sicheren Zugriffs auf lokale Anwendungen über die Cloud finden Sie in den [Azure AD Anwendungs Proxy-Inhalt](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
   
 In diesem Abschnitt werden die Neuerungen und Änderungen im webanwendungsproxy für Windows Server 2016 beschrieben. Die hier aufgeführten neuen Features und Änderungen haben bei der Arbeit mit der Vorschau wahrscheinlich die größten Auswirkungen.  
   
@@ -57,7 +57,7 @@ In diesem Abschnitt werden die Neuerungen und Änderungen im webanwendungsproxy 
   
 - Weitergabe von Client-IP-Adressen an Back-End  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
   
 -   [Neuerungen in Windows Server 2016](https://technet.microsoft.com/library/dn765472.aspx)  
   

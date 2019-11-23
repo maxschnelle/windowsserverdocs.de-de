@@ -49,13 +49,13 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 |/o|Druckt den Zeichen Offset vor jeder übereinstimmenden Zeile.|
 |/p|Überspringt Dateien mit nicht druckbaren Zeichen.|
 |/Off [Zeile]|Überspringt keine Dateien, für die das Offline-Attribut festgelegt ist.|
-|/f: @no__t 0datei >|Ruft eine Datei Liste aus der angegebenen Datei ab.|
-|/c: \<string >|Verwendet den angegebenen Text als Literale Such Zeichenfolge.|
-|/g: @no__t 0datei >|Ruft Such Zeichenfolgen aus der angegebenen Datei ab.|
-|/d: \<dirlist >|Durchsucht die angegebene Liste von Verzeichnissen. Jedes Verzeichnis muss durch ein Semikolon (z. b.;) `dir1;dir2;dir3`) getrennt werden.|
-|/a: \<colorattribute >|Gibt Farb Attribute mit zwei hexadezimal Ziffern an. Geben Sie für weitere Informationen `color /?` ein.|
-|\<strings >|Gibt den Text an, nach dem in *filename*gesucht werden soll. Erforderlich.|
-|[\<laufwerk >:] [<Path>] <FileName> [...]|Gibt den Speicherort und die Datei an, die durchsucht werden sollen. Mindestens ein Dateiname ist erforderlich.|
+|/f:\<Datei >|Ruft eine Datei Liste aus der angegebenen Datei ab.|
+|/c:\<Zeichenfolge >|Verwendet den angegebenen Text als Literale Such Zeichenfolge.|
+|/g:\<Datei >|Ruft Such Zeichenfolgen aus der angegebenen Datei ab.|
+|/d:\<dirlist->|Durchsucht die angegebene Liste von Verzeichnissen. Jedes Verzeichnis muss durch ein Semikolon (z. b.;) `dir1;dir2;dir3`getrennt werden.|
+|/a:\<ColorAttribute >|Gibt Farb Attribute mit zwei hexadezimal Ziffern an. Geben Sie `color /?` für weitere Informationen ein.|
+|\<Zeichen folgen >|Gibt den Text an, nach dem in *filename*gesucht werden soll. Erforderlich.|
+|[\<Laufwerk >:] [<Path>]<FileName>[...]|Gibt den Speicherort und die Datei an, die durchsucht werden sollen. Mindestens ein Dateiname ist erforderlich.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
@@ -75,8 +75,8 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
   |[^-Klasse]|Inverse Klasse: ein beliebiges Zeichen, das nicht in einer Menge vorhanden ist|
   |[x-y]|Range: beliebige Zeichen innerhalb des angegebenen Bereichs|
   |\x|Escape: Literale Verwendung eines Metazeichens x|
-  |\\ < Zeichenfolge|Word-Position: Anfang des Worts|
-  |Zeichenfolge @ no__t-0|Word-Position: Ende des Worts|
+  |\\< Zeichenfolge|Word-Position: Anfang des Worts|
+  |Zeichen folgen\>|Word-Position: Ende des Worts|
 
   Die Sonderzeichen in der Syntax regulärer Ausdrücke haben die größte Potenz, wenn Sie Sie gleichzeitig verwenden. Verwenden Sie beispielsweise die folgende Kombination aus dem Platzhalter Zeichen (.) und dem Wiederholungs Zeichen (*), um eine beliebige Zeichenfolge abzugleichen:
 

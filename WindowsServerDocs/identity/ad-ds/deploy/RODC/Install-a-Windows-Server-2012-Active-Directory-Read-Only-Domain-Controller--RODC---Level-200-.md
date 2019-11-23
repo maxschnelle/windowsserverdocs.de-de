@@ -18,7 +18,7 @@ ms.locfileid: "71391109"
 ---
 # <a name="install-a-windows-server-2012-active-directory-read-only-domain-controller-rodc-level-200"></a>Installieren eines schreibgeschützten Active Directory-Domänencontrollers (RODC) in Windows Server 2012 (Stufe 200)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema erfahren Sie, wie Sie ein gestaffeltes RODC-Konto erstellen und anschließend bei der RODC-Installation einen Server an dieses Konto anfügen können. Außerdem wird die Installation eines RODC ohne gestaffelte Installation beschrieben.  
   
@@ -63,7 +63,7 @@ Das folgende Diagramm zeigt den Konfigurationsprozess für die Active Directory-
   
 Sie führen die Staffelung eines schreibgeschützten Domänencontrollers aus, indem Sie das Active Directory-Verwaltungscenter (**Dsac.exe**) öffnen. Klicken Sie im Navigationsbereich auf den Namen der Domäne. Doppelklicken Sie in der Liste Verwaltung auf **Domänencontroller**. Klicken Sie im Taskbereich auf **Konto für schreibgeschützten Domänencontroller vorab erstellen**.  
   
-Weitere Informationen zum Active Directory-Verwaltungscenter finden [Sie unter Advanced AD DS Management Using Active Directory-Verwaltungscenter &#40;Level 200&#41; ](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md) und Review [active Directory Administrative Center: Getting Started @ no__t-0.  
+Weitere Informationen zum Active Directory-Verwaltungscenter finden [Sie unter Advanced AD DS Management Using Active Directory-Verwaltungscenter &#40;Level 200&#41; ](../../../ad-ds/get-started/adac/Advanced-AD-DS-Management-Using-Active-Directory-Administrative-Center--Level-200-.md) und Review [Active Directory-Verwaltungscenter: Getting Started](https://technet.microsoft.com/library/dd560651(WS.10).aspx).  
   
 Falls Sie keine Erfahrung mit der Erstellung schreibgeschützter Domänencontroller haben, werden Sie feststellen, dass der Installations-Assistent dieselbe grafische Oberfläche wie das ältere Snap-In "Active Directory-Benutzer und -Computer" unter Windows Server 2008 hat und denselben Code verwendet, inklusive Export und Konfiguration der Datei für unbeaufsichtigte Installation über das veraltete dcpromo.  
   
@@ -229,7 +229,7 @@ Install-AddsDomainController
 ### <a name="domain-controller-options"></a>Domänencontrolleroptionen  
 ![RODC installieren](media/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-/ADDS_SMI_TR_Stage2DCOptions.png)  
   
-Die Seite **Domänencontrolleroptionen** enthält die Domänencontrolleroptionen für den neuen Domänencontroller. Beim Laden dieser Seite schickt der Konfigurations-Assistent für Active Directory-Domänendienste eine LDAP-Anfrage an einen existierenden Domänencontroller, um nach nicht verwendeten Konten zu suchen. Wenn bei der Abfrage ein nicht belegtes Domänen Controller-Computer Konto gefunden wird, das denselben Namen wie der aktuelle Computer aufweist, zeigt der Assistent am oberen Rand der Seite eine Informations Meldung mit dem Namen "**A vorab erstellte RODC-Konto an, das mit dem Namen der übereinstimmt. der Zielserver ist im Verzeichnis vorhanden. Wählen Sie aus, ob Sie dieses vorhandene RODC-Konto verwenden oder diesen Domänen Controller erneut installieren möchten @ no__t-0. " Der Assistent verwendet **Vorhandenes RODC-Konto verwenden** als Standardkonfiguration.  
+Die Seite **Domänencontrolleroptionen** enthält die Domänencontrolleroptionen für den neuen Domänencontroller. Beim Laden dieser Seite schickt der Konfigurations-Assistent für Active Directory-Domänendienste eine LDAP-Anfrage an einen existierenden Domänencontroller, um nach nicht verwendeten Konten zu suchen. Wenn bei der Abfrage ein nicht belegtes Domänen Controller-Computer Konto gefunden wird, das denselben Namen wie der aktuelle Computer hat, zeigt der Assistent am oberen Rand der Seite eine Informations Meldung mit dem**Namen "ein vorab erstelltes RODC-Konto, das dem Namen des Zielservers entspricht, ist im Verzeichnis vorhanden. Wählen Sie aus, ob Sie dieses vorhandene RODC-Konto verwenden oder diesen Domänen Controller neu installieren möchten**. " Der Assistent verwendet **Vorhandenes RODC-Konto verwenden** als Standardkonfiguration.  
   
 > [!IMPORTANT]  
 > Verwenden Sie die Option **Diesen Domänencontroller neu installieren** , wenn ein physisches Problem in einem Domänencontroller aufgetreten ist und dieser nicht mehr betriebsbereit ist. Dies spart Zeit bei der Konfiguration des Ersatz-Domänencontrollers, da das Domänencontroller-Computerkonto und die Objekt-Metadaten in Active Directory verbleiben. Installieren Sie den Computer mit dem *gleichen Namen*und stufen Sie ihn als Domänencontroller für die Domäne herauf. Die Option **diesen Domänen Controller neu installieren** ist nicht verfügbar, wenn Sie die Metadaten des Domänen Controller Objekts aus Active Directory entfernt haben (Metadatenbereinigung).  
