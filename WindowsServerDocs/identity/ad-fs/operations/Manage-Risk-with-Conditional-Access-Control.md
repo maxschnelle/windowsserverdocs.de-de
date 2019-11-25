@@ -97,7 +97,7 @@ In der folgenden Tabelle sind alle in AD FS in Windows Server 2012 R2 verfügbar
 |Erweiterte Schlüsselverwendung|Beschreibt eine der erweiterten Schlüsselverwendungen des Zertifikats|
 |Aussteller|Der Name der Zertifizierungsstelle, die das X.509-Zertifikat ausgestellt hat|
 |Ausstellername|Definierter Name des Zertifikatausstellers|
-|Schlüsselverwendung|Eine der Schlüsselverwendungen des Zertifikats|
+|Key Usage|Eine der Schlüsselverwendungen des Zertifikats|
 |Nicht nach|Datum (lokale Zeit), nach dem ein Zertifikat nicht mehr gültig ist|
 |Nicht vor|Datum (lokale Zeit), ab dem ein Zertifikat gültig ist|
 |Zertifikatrichtlinien|Die bei der Zertifikatausstellung gültigen Richtlinien|

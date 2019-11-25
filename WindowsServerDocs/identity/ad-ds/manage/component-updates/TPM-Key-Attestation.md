@@ -18,9 +18,9 @@ ms.locfileid: "71389859"
 ---
 # <a name="tpm-key-attestation"></a>TPM-Schlüsselnachweis
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-**Autor**: Justin Turner, Senior Support Eskalations Ingenieur bei der Windows-Gruppe  
+**Autor**: Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe  
   
 > [!NOTE]  
 > Dieser Inhalt wurde von einem Mitarbeiter des Microsoft-Kundendiensts geschrieben und richtet sich an erfahrene Administratoren und Systemarchitekten, die einen tieferen technischen Einblick in die Funktionen und Lösungen von Windows Server 2012 R2 suchen, als Ihnen die Themen im TechNet bieten können. Allerdings wurde er nicht mit der gleichen linguistischen Sorgfalt überprüft wie für die Artikel des TechNet üblich, so dass die Sprache gelegentlich holprig klingen mag.  
@@ -29,7 +29,7 @@ ms.locfileid: "71389859"
 Obwohl seit Windows 8 die Unterstützung für TPM-geschützte Schlüssel vorhanden war, gab es keine Mechanismen für Zertifizierungsstellen, die kryptografisch überzeugen, dass der private Schlüssel für die Zertifikat Anforderer tatsächlich durch einen Trusted Platform Module (TPM) geschützt ist. Diese Aktualisierung ermöglicht es einer Zertifizierungsstelle, diesen Nachweis auszuführen und diesen Nachweis im ausgestellten Zertifikat widerzuspiegeln.  
   
 > [!NOTE]  
-> In diesem Artikel wird davon ausgegangen, dass der Reader mit dem Zertifikat Vorlagen Konzept vertraut ist (Weitere Informationen finden Sie unter [Zertifikat Vorlagen](https://technet.microsoft.com/library/cc730705.aspx)). Außerdem wird davon ausgegangen, dass der Reader mit der Konfiguration von Unternehmens Zertifizierungsstellen zum Ausstellen von Zertifikaten auf der Grundlage von Zertifikat Vorlagen vertraut ist (Weitere Informationen finden Sie unter [checkliste: Konfigurieren von CAS zum Ausstellen und Verwalten von Zertifikaten @ no__t-0).  
+> In diesem Artikel wird davon ausgegangen, dass der Reader mit dem Zertifikat Vorlagen Konzept vertraut ist (Weitere Informationen finden Sie unter [Zertifikat Vorlagen](https://technet.microsoft.com/library/cc730705.aspx)). Außerdem wird davon ausgegangen, dass der Reader mit der Konfiguration von Unternehmens Zertifizierungsstellen zum Ausstellen von Zertifikaten auf der Grundlage von Zertifikat Vorlagen vertraut ist (Weitere Informationen finden Sie unter Prüfliste: Konfigurieren von Zertifizierungsstellen [zum Ausstellen und Verwalten von Zertifikaten](https://technet.microsoft.com/library/cc771533.aspx)).  
   
 ### <a name="terminology"></a>Terminologie  
   
@@ -54,7 +54,7 @@ Mit dem TPM-Schlüssel Nachweis kann die Entität, die ein Zertifikat anfordert,
 ### <a name="why-is-tpm-key-attestation-important"></a>Warum ist der TPM-Schlüssel Nachweis wichtig?  
 Ein Benutzerzertifikat mit einem TPM-geprüften Schlüssel bietet eine höhere Sicherheitsgarantie, die durch nicht Exportierbarkeit, antihammerung und Isolation von Schlüsseln, die vom TPM bereitgestellt werden, gesichert wird.  
   
-Mit dem TPM-Schlüssel Nachweis kann nun ein neues Verwaltungs Paradigma erreicht werden: Ein Administrator kann die Gruppe von Geräten definieren, die Benutzer für den Zugriff auf Unternehmensressourcen (z. b. VPN oder drahtlos Zugriffspunkt) verwenden können, **und sicherstellen** , dass keine anderen Geräte verwendet werden können, um darauf zuzugreifen. Dieses neue Zugriffs Steuerungs Paradigma ist **stark** , da es an eine *Hardware gebundene* Benutzeridentität gebunden ist, die stärker als softwarebasierte Anmelde Informationen ist.
+Mit dem TPM-Schlüssel Nachweis ist nun ein neues Verwaltungs Paradigma möglich: ein Administrator kann die Gruppe von Geräten definieren, die Benutzer für den Zugriff auf Unternehmensressourcen verwenden können (z. b. VPN-oder drahtlos Zugriffspunkt) **und sicherstellen** , dass für den Zugriff auf diese Geräte keine anderen Geräte verwendet werden können. Dieses neue Zugriffs Steuerungs Paradigma ist **stark** , da es an eine *Hardware gebundene* Benutzeridentität gebunden ist, die stärker als softwarebasierte Anmelde Informationen ist.
   
 ### <a name="how-does-tpm-key-attestation-work"></a>Wie funktioniert der TPM-Schlüssel Nachweis?  
 Im allgemeinen basiert der TPM-Schlüssel Nachweis auf folgenden Säulen:  
@@ -74,7 +74,7 @@ Zum Bereitstellen eines TPM-Schlüssel Attestation sind drei Schritte erforderli
   
 1.  **Planen Sie das TPM-Vertrauensstellungs Modell:** Der erste Schritt besteht darin, zu entscheiden, welches TPM-Vertrauens Modell verwendet werden soll. Hierfür gibt es drei Möglichkeiten:  
   
-    -   **Vertrauensstellung basierend auf den Benutzer Anmelde Informationen:** Die Unternehmens Zertifizierungsstelle vertraut dem vom Benutzer bereitgestellten ekpub als Teil der Zertifikat Anforderung, und außer den Domänen Anmelde Informationen des Benutzers wird keine Validierung ausgeführt.  
+    -   **Vertrauensstellung basierend auf den Benutzer** Anmelde Informationen: Die Unternehmens Zertifizierungsstelle vertraut dem vom Benutzer bereitgestellten ekpub als Teil der Zertifikat Anforderung, und außer den Domänen Anmelde Informationen des Benutzers wird keine Validierung ausgeführt.  
   
     -   **Vertrauensstellung basierend auf ekcert:** Die Unternehmens Zertifizierungsstelle überprüft die ekcert-Kette, die als Teil der Zertifikat Anforderung bereitgestellt wird, an eine vom Administrator verwaltete Liste zulässiger EK-Zertifikat *Ketten*. Die zulässigen Ketten werden pro Hersteller definiert und über zwei benutzerdefinierte Zertifikat Speicher auf der ausstellenden Zertifizierungsstelle ausgedrückt (ein Speicher für die zwischengeschaltete und eine für Zertifikate der Stamm Zertifizierungsstelle). Dieser Vertrauensstellungs Modus bedeutet, dass **alle** TPMs eines bestimmten Herstellers vertrauenswürdig sind. Beachten Sie, dass in diesem Modus TPMs, die in der Umgebung verwendet werden, ekcerts enthalten müssen.
   
@@ -84,11 +84,11 @@ Zum Bereitstellen eines TPM-Schlüssel Attestation sind drei Schritte erforderli
   
     Beachten Sie, dass es möglich ist, eine Kombination aus TPM-Vertrauensstellungs Modellen auszuwählen. In diesem Fall akzeptiert die Zertifizierungsstelle jede der Nachweismethoden, und die Ausstellungs Richtlinie OIDs reflektiert alle erfolgreichen Nachweismethoden.  
   
-2.  **Konfigurieren Sie die Zertifikat Vorlage:** Die Konfiguration der Zertifikat Vorlage wird im Abschnitt " [Bereitstellungs Details](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md#BKMK_DeploymentDetails) " in diesem Thema beschrieben. In diesem Artikel wird nicht erläutert, wie diese Zertifikat Vorlage der Unternehmens Zertifizierungsstelle zugewiesen wird oder wie der Registrierungs Zugriff für eine Benutzergruppe gewährt wird. Weitere Informationen finden Sie unter [checkliste: Konfigurieren Sie CAS zum Ausstellen und Verwalten von Zertifikaten @ no__t-0.  
+2.  **Konfigurieren Sie die Zertifikat Vorlage:** Die Konfiguration der Zertifikat Vorlage wird im Abschnitt " [Bereitstellungs Details](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md#BKMK_DeploymentDetails) " in diesem Thema beschrieben. In diesem Artikel wird nicht erläutert, wie diese Zertifikat Vorlage der Unternehmens Zertifizierungsstelle zugewiesen wird oder wie der Registrierungs Zugriff für eine Benutzergruppe gewährt wird. Weitere Informationen finden Sie unter Prüfliste [: Konfigurieren von CAS zum Ausstellen und Verwalten von Zertifikaten](https://technet.microsoft.com/library/cc771533.aspx).  
   
 3.  **Konfigurieren der Zertifizierungsstelle für das TPM-Vertrauensstellungs Modell**  
   
-    1.  **Vertrauensstellung basierend auf den Benutzer Anmelde Informationen:** Eine bestimmte Konfiguration ist nicht erforderlich.  
+    1.  **Vertrauensstellung basierend auf den Benutzer** Anmelde Informationen: Eine bestimmte Konfiguration ist nicht erforderlich.  
   
     2.  **Vertrauensstellung basierend auf ekcert:** Der Administrator muss die ekcert-Ketten Zertifikate von TPM-Herstellern abrufen und in zwei neue vom Administrator erstellte Zertifikat Speicher auf der Zertifizierungsstelle importieren, die den TPM-Schlüssel Nachweis durchführt. Weitere Informationen finden Sie im Abschnitt [ca Configuration](../../../ad-ds/manage/component-updates/TPM-Key-Attestation.md#BKMK_CAConfig) in diesem Thema.  
   
@@ -132,7 +132,7 @@ Führen Sie die folgenden Konfigurationsschritte aus, um die Zertifikat Vorlage 
   
     ![TPM-Schlüsselnachweis](media/TPM-Key-Attestation/GTR_ADDS_KeyModes.gif)  
   
-    -   **Gar** Impliziert, dass der Schlüssel Nachweis nicht verwendet werden darf.  
+    -   **Keine:** Impliziert, dass der Schlüssel Nachweis nicht verwendet werden darf.  
   
     -   **Erforderlich, wenn der Client fähig ist:** Ermöglicht Benutzern auf einem Gerät, das den TPM-Schlüssel Nachweis nicht unterstützt, die Anmeldung für dieses Zertifikat fortzusetzen. Benutzer, die den Nachweis durchführen können, werden mit einer speziellen Ausstellungs Richtlinien-OID unterschieden. Einige Geräte sind möglicherweise nicht in der Lage, den Nachweis aufgrund eines alten TPM auszuführen, das keinen Schlüssel Nachweis unterstützt, oder wenn das Gerät nicht über ein TPM verfügt.
   
@@ -154,9 +154,9 @@ Führen Sie die folgenden Konfigurationsschritte aus, um die Zertifikat Vorlage 
   
     |OID|Typ des Schlüssel Nachweis|Beschreibung|Zuverlässigkeits Stufe|  
     |-------|------------------------|---------------|-------------------|  
-    |1.3.6.1.4.1.311.21.30|'|"EK verifiziert":   Für von Administratoren verwaltete Liste von EK|Hoch|  
+    |1.3.6.1.4.1.311.21.30|'|"EK verifiziert": für die vom Administrator verwaltete Liste von EK|Hoch|  
     |1.3.6.1.4.1.311.21.31|Endorsement Certificate|"EK-Zertifikat überprüft": Wenn die EK-Zertifikat Kette überprüft wird|Mittel|  
-    |1.3.6.1.4.1.311.21.32|Benutzeranmeldeinformationen|"EK vertrauenswürdig bei Verwendung": Für vom Benutzer getestete EK|Niedrig|  
+    |1.3.6.1.4.1.311.21.32|Benutzeranmeldeinformationen|"Bei Verwendung von EK vertrauenswürdig": für Benutzer attetestek|Niedrig|  
   
     Die OIDs werden in das ausgestellte Zertifikat eingefügt, wenn die Option Ausstellungs **Richtlinien einschließen** ausgewählt ist (die Standardkonfiguration).  
   
@@ -201,9 +201,9 @@ Führen Sie die folgenden Konfigurationsschritte aus, um die Zertifikat Vorlage 
   
         |Wertname|Typ|Daten|  
         |--------------|--------|--------|  
-        |Endoranmentkeylistdirectories|REG_MULTI_SZ|< lokalen oder UNC-Pfad zu ekpub-Zulassungs Listen ><br /><br />Beispiel:<br /><br />*\\ \ blueca. Configuration. com\ekpub*<br /><br />*\\ \ bluecluster1. ".*<br /><br />D:\ekpub|  
+        |Endoranmentkeylistdirectories|REG_MULTI_SZ|< lokalen oder UNC-Pfad zu ekpub-Zulassungs Listen ><br /><br />Beispiel:<br /><br />*\\\blueCA.contoso.com\ekpub*<br /><br />*\\\bluecluster1.contoso.com\ekpub*<br /><br />D:\ekpub|  
   
-        Hklm\system\currentcontrolset\services\certvc\configuration @ no__t-0 @ no__t-1  
+        Hklm\system\currentcontrolset\services\cerzvc\configuration\\<CA Sanitized Name>  
   
         *Endortskeylistdirectories* enthält eine Liste der UNC-oder lokalen Dateisystem Pfade, von denen jedes auf einen Ordner zeigt, für den die Zertifizierungsstelle über Lesezugriff verfügt. Jeder Ordner kann 0 (null) oder mehr Zulassungs Listeneinträge enthalten. jeder Eintrag ist eine Datei mit einem Namen, der der SHA-2-Hash eines vertrauenswürdigen ekpub ist, ohne Dateierweiterung. 
         Das Erstellen oder Bearbeiten dieser Registrierungsschlüssel Konfiguration erfordert einen Neustart der Zertifizierungsstelle, ebenso wie vorhandene Konfigurationseinstellungen der Zertifizierungsstellen Registrierung. Änderungen an der Konfigurationseinstellung werden jedoch sofort wirksam, und es ist nicht erforderlich, dass die Zertifizierungsstelle neu gestartet wird.  
@@ -225,7 +225,7 @@ Die Felder für den Schlüssel Nachweis sind nicht verfügbar, wenn die Vorlagen
   
 1.  Die Kompatibilitäts Einstellungen sind nicht ordnungsgemäß konfiguriert. Stellen Sie sicher, dass Sie wie folgt konfiguriert werden:  
   
-    1.  **Zertifizierungsstelle**: **Windows Server 2012 R2**  
+    1.  **Zertifizierungs**Stelle: **Windows Server 2012 R2**  
   
     2.  **Zertifikat Empfänger**: **Windows 8.1/Windows Server 2012 R2**  
   
@@ -235,7 +235,7 @@ Die Felder für den Schlüssel Nachweis sind nicht verfügbar, wenn die Vorlagen
   
     2.  **Algorithmusname**: **RSA**  
   
-    3.  **Anbieter**: **Kryptografieanbieter von Microsoft Platform**  
+    3.  **Anbieter**: **Kryptografieanbieter für Microsoft-Plattform**  
   
 3.  Die Einstellungen für die Anforderungs Behandlung sind nicht ordnungsgemäß konfiguriert. Stellen Sie sicher, dass Sie wie folgt konfiguriert werden:  
   
@@ -254,7 +254,7 @@ Verwenden Sie das Windows PowerShell-Cmdlet **Confirm-caendorsementkeyinfo**, um
         PS C:>\$a=Get-TpmEndorsementKeyInfo -hashalgorithm sha256  
         ```  
   
-    2.  **Überprüfen Sie die Vertrauenswürdigkeit eines ekcert auf einem Zertifizierungsstellen Computer:** Kopieren Sie die extrahierte Zeichenfolge (SHA-2-Hash der ekpub-Datei) auf den Server (z. b. per e-Mail), und übergeben Sie Sie an das Cmdlet Confirm-caendorcmentkeyinfo. Beachten Sie, dass dieser Parameter aus 64 Zeichen bestehen muss.  
+    2.  Über **prüfen Sie die Vertrauenswürdigkeit eines ekcert auf einem Zertifizierungsstellen Computer:** Kopieren Sie die extrahierte Zeichenfolge (SHA-2-Hash der ekpub-Datei) auf den Server (z. b. per e-Mail), und übergeben Sie Sie an das Cmdlet Confirm-caendorcmentkeyinfo. Beachten Sie, dass dieser Parameter aus 64 Zeichen bestehen muss.  
   
         ```  
         Confirm-CAEndorsementKeyInfo [-PublicKeyHash] <string>  
@@ -269,12 +269,12 @@ Verwenden Sie das Windows PowerShell-Cmdlet **Confirm-caendorsementkeyinfo**, um
         PS C:>\$a.manufacturerCertificates|Export-Certificate -filepath c:\myEkcert.cer
         ```  
   
-    2.  **Überprüfen Sie die Vertrauenswürdigkeit eines ekcert auf einem Zertifizierungsstellen Computer:** Kopieren Sie das extrahierte ekcert (ekcert. cer) in die Zertifizierungsstelle (z. b. per e-Mail oder xcopy). Wenn Sie z. b. die Zertifikatsdatei in den Ordner "c:\diagnose" auf dem Zertifizierungsstellen Server kopieren, führen Sie Folgendes aus, um die Überprüfung abzuschließen:  
+    2.  Über **prüfen Sie die Vertrauenswürdigkeit eines ekcert auf einem Zertifizierungsstellen Computer:** Kopieren Sie das extrahierte ekcert (ekcert. cer) in die Zertifizierungsstelle (z. b. per e-Mail oder xcopy). Wenn Sie z. b. die Zertifikatsdatei in den Ordner "c:\diagnose" auf dem Zertifizierungsstellen Server kopieren, führen Sie Folgendes aus, um die Überprüfung abzuschließen:  
   
         ```  
         PS C:>new-object System.Security.Cryptography.X509Certificates.X509Certificate2 "c:\diagnose\myEKcert.cer" | Confirm-CAEndorsementKeyInfo  
         ```  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Übersicht über Trusted Platform Module-Technologie](https://technet.microsoft.com/library/jj131725.aspx)  
-externe [ressource: Trusted Platform Module @ no__t-0  
+[Externe Ressource: Trusted Platform Module](http://www.cs.unh.edu/~it666/reading_list/Hardware/tpm_fundamentals.pdf)  

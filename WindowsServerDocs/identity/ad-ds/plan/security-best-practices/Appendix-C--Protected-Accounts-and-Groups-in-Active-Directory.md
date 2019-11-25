@@ -18,7 +18,7 @@ ms.locfileid: "71408724"
 ---
 # <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>Anhang C: Geschützte Konten und Gruppen in Active Directory
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 ## <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>Anhang C: Geschützte Konten und Gruppen in Active Directory
 
@@ -40,7 +40,7 @@ In der folgenden Tabelle sind die geschützten Gruppen in Active Directory aufge
 |Sicherungsoperatoren|Sicherungsoperatoren|Sicherungsoperatoren|Sicherungsoperatoren|
 |Zertifikatherausgeber|||
 |Domänen-Admins|Domänen-Admins|Domänen-Admins|Domänen-Admins|
-|Domänencontroller|Domänencontroller|Domänencontroller|Domänencontroller|
+|{1}Domänencontroller{2}|{1}Domänencontroller{2}|{1}Domänencontroller{2}|{1}Domänencontroller{2}|
 |Organisations-Admins|Organisations-Admins|Organisations-Admins|Organisations-Admins|
 ||||Enterprise Key-Administratoren|
 ||||Haupt Administratoren|
@@ -53,7 +53,7 @@ In der folgenden Tabelle sind die geschützten Gruppen in Active Directory aufge
 
 #### <a name="adminsdholder"></a>AdminSDHolder
 
-Das AdminSDHolder-Objekt dient zum Bereitstellen von "Template"-Berechtigungen für die geschützten Konten und Gruppen in der Domäne. "AdminSDHolder" wird automatisch als Objekt im System Container jeder Active Directory Domäne erstellt. Der Pfad lautet wie folgt: **CN = AdminSDHolder, CN = System, DC = < domain_component >, DC = < domain_component >?.**  
+Das AdminSDHolder-Objekt dient zum Bereitstellen von "Template"-Berechtigungen für die geschützten Konten und Gruppen in der Domäne. "AdminSDHolder" wird automatisch als Objekt im System Container jeder Active Directory Domäne erstellt. Der Pfad lautet: **CN = AdminSDHolder, CN = System, DC = < domain_component >, DC = < domain_component >?.**  
 
 Im Gegensatz zu den meisten Objekten in der Active Directory Domäne, die sich im Besitz der Gruppe "Administratoren" befinden, gehört "AdminSDHolder" der Gruppe "Domänen-Admins". Standardmäßig kann EAS Änderungen an den AdminSDHolder-Objekten beliebiger Domänen vornehmen, wie die Domänen-Admins und Administratoren der Domäne. Obwohl der Standard Besitzer von AdminSDHolder die Gruppe der Domänen-Admins der Domäne ist, können Mitglieder von Administratoren oder Organisations Administratoren den Besitz des Objekts übernehmen.  
 
@@ -88,7 +88,7 @@ Sie können die Ausführung von SDPROP erzwingen, indem Sie "Ldp. exe" oder ein 
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_10.png)  
 
-4. Vergewissern Sie sich, dass die Verbindung erfolgreich hergestellt wurde, wie durch **dn angegeben: (RootDSE)**  im folgenden Screenshot, klicken Sie auf **Verbindung** , und klicken Sie dann auf **binden**.  
+4. Vergewissern Sie sich, dass die Verbindung erfolgreich hergestellt wurde, wie von **DN: (RootDSE)** im folgenden Screenshot angegeben, klicken Sie auf **Verbindung** , und klicken Sie dann auf **binden**.  
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_11.png)  
 
@@ -107,7 +107,7 @@ Sie können die Ausführung von SDPROP erzwingen, indem Sie "Ldp. exe" oder ein 
 8. Klicken Sie im Dialogfeld aufgefüllt ändern auf Ausführen, und überprüfen Sie, ob die Änderungen, die Sie am Objekt AdminSDHolder vorgenommen haben, in diesem Objekt angezeigt wurden.  
 
 > [!NOTE]  
-> Informationen zum Ändern von AdminSDHolder, damit bestimmte nicht privilegierte Konten die Mitgliedschaft geschützter Gruppen ändern können, finden Sie unter [anhang I: Erstellen von Verwaltungs Konten für geschützte Konten und Gruppen in Active Directory @ no__t-0.  
+> Informationen zum Ändern von AdminSDHolder, sodass bestimmte nicht privilegierte Konten die Mitgliedschaft geschützter Gruppen ändern können, finden Sie [unter Anhang I: Erstellen von Verwaltungs Konten für geschützte Konten und Gruppen in Active Directory](../../../ad-ds/manage/component-updates/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory.md).  
 
 Wenn Sie SDPROP lieber manuell über LDIFDE oder ein Skript ausführen möchten, können Sie einen Änderungs Eintrag erstellen, wie hier gezeigt:  
 
@@ -127,7 +127,7 @@ Sie können auch erzwingen, dass SDPROP mithilfe von "Ldp. exe" oder durch Ausf�
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_17.gif)  
 
-4. Vergewissern Sie sich, dass die Verbindung erfolgreich hergestellt wurde, wie durch **dn angegeben: (RootDSE)**  im folgenden Screenshot, klicken Sie auf **Verbindung** , und klicken Sie dann auf **binden**.  
+4. Vergewissern Sie sich, dass die Verbindung erfolgreich hergestellt wurde, wie von **DN: (RootDSE)** im folgenden Screenshot angegeben, klicken Sie auf **Verbindung** , und klicken Sie dann auf **binden**.  
 
    ![geschützte Konten und Gruppen](media/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory/SAD_18.gif)  
 

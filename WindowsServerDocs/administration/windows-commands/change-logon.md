@@ -20,7 +20,7 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71379644"
 ---
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 # <a name="change-logon"></a>change logon
 Aktiviert oder deaktiviert Anmeldungen von Client Sitzungen oder zeigt den aktuellen Anmeldestatus an.
@@ -61,4 +61,5 @@ Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_
 >   ```
 >   #### <a name="additional-references"></a>Weitere Verweise
 >   [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
->   -[Änderung](change.md)@no__t-[3 &#40;Remotedesktopdienste Befehls&#41; Referenz für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)
+>   [ändern](change.md)
+>   [Remotedesktopdienste &#40;Befehlsreferenz&#41; für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)

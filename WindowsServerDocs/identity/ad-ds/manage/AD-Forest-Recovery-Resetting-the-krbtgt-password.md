@@ -23,7 +23,7 @@ ms.locfileid: "71390305"
 Verwenden Sie das folgende Verfahren, um das krbtgt-Kennwort für die Domäne zurückzusetzen. Im folgenden Verfahren werden beschreibbare DCS, aber keine schreibgeschützten Domänen Controller (Read-Only Domain Controllers, RODCs) angewendet.
   
 > [!IMPORTANT]
-> Wenn Sie RODCs während der Wiederherstellung der Gesamtstruktur Online wiederherstellen möchten, löschen Sie die krbtgt-Konten für die RODCs nicht. Das krbtgt-Konto für einen RODC ist im Format krbtgt_*Number*aufgeführt.
+> Wenn Sie RODCs während der Wiederherstellung der Gesamtstruktur Online wiederherstellen möchten, löschen Sie die krbtgt-Konten für die RODCs nicht. Das krbtgt-Konto für einen RODC ist im Format krbtgt_*Nummer*aufgeführt.
 >
 > Wenn Sie einen angepassten Kenn Wortfilter (z. b. "passflt. dll") auf einem Domänen Controller verwenden, erhalten Sie möglicherweise eine Fehlermeldung, wenn Sie versuchen, das krbtgt-Kennwort zurückzusetzen. Weitere Informationen, einschließlich einer Problem Umgehung, finden Sie im Microsoft Knowledge Base- [Artikel 2549833](https://support.microsoft.com/kb/2549833) (https://support.microsoft.com/kb/2549833).
   
@@ -33,7 +33,7 @@ Verwenden Sie das folgende Verfahren, um das krbtgt-Kennwort für die Domäne zu
 2. Klicken Sie auf **Ansicht** und dann auf **Erweiterte Funktionen**.
 3. Doppelklicken Sie in der Konsolen Struktur auf den Domänen Container, und klicken Sie dann auf **Benutzer**.
 4. Klicken Sie im Detailfenster mit der rechten Maustaste auf das Benutzerkonto **krbtgt** , und klicken Sie dann auf **Kennwort zurücksetzen**.
-   ![reset Password @ no__t-1
+   ![Kennwort zurücksetzen](media/AD-Forest-Recovery-Resetting-the-krbtgt-password/resetpass1.png)
 5. Geben Sie unter **Neues Kennwort**ein neues Kennwort ein, geben Sie das Kennwort unter **Kennwort bestätigen**erneut ein, und klicken Sie auf **OK**. Das angegebene Kennwort ist nicht signifikant, weil das System automatisch unabhängig vom angegebenen Kennwort ein sicheres Kennwort generiert.
   
 > [!NOTE]

@@ -41,28 +41,28 @@ cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<B><F>|<F>}] [/e:{on|off}] [/f:{on|off}]
 |/d|Deaktiviert die Ausführung von Autorun-Befehlen.|
 |/a|Formatiert die Ausgabe eines internen Befehls in eine Pipe oder eine Datei als American National Standards Institute (ANSI).|
 |/u|Formatiert die interne Befehlsausgabe in eine Pipe oder eine Datei als Unicode.|
-|/t: {\<B @ no__t-1 @ no__t-2F @ no__t-3 @ no__t-4 @ no__t-5F @ no__t-6}|Legt die Hintergrundfarben (*B*) und Vordergrund Farben (*F*) fest.|
+|/t: {\<B\>\<f\>\|\<f\>}|Legt die Hintergrundfarben (*B*) und Vordergrund Farben (*F*) fest.|
 |/e: ein|Aktiviert Befehls Erweiterungen.|
 |/e: Off|Deaktiviert Befehls Erweiterungen.|
 |/f: ein|Ermöglicht das Abschließen von Datei-und Verzeichnisnamen.|
 |/f: Off|Deaktiviert den Abschluss von Datei-und Verzeichnisnamen.|
 |/v: ein|Ermöglicht die verzögerte Erweiterung der Umgebungsvariablen.|
 |/v: Off|Deaktiviert die Erweiterung der verzögerten Umgebungsvariablen.|
-|\<string >|Gibt den Befehl an, den Sie ausführen möchten.|
+|\<Zeichenfolge >|Gibt den Befehl an, den Sie ausführen möchten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die Sie als Werte für \<B @ no__t-1 und \<F @ no__t-3 verwenden können.
+In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die Sie als Werte für \<B\> und \<F verwenden können\>
 
 |Wert|Farbe|
 |-----|-----|
-|0|Schwarz|
+|0|Black|
 |1|Blau|
 |2|Grün|
 |3|CE|
 |4|Rot|
 |5|Viol|
 |6|Gelb|
-|7|Weiß|
+|7|White|
 |8|Grau|
 |9|Hellblau|
 |a|Hellgrün|
@@ -76,7 +76,7 @@ In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die S
 
 -   Verwenden mehrerer Befehle
 
-    Wenn Sie mehrere Befehle für \<string-> verwenden möchten, trennen Sie diese durch das Befehls Trennzeichen **&&** , und schließen Sie Sie in Anführungszeichen ein. Zum Beispiel:
+    Wenn Sie mehrere Befehle für \<Zeichenfolge > verwenden möchten, trennen Sie diese durch das Befehls Trennzeichen **&&** und schließen Sie Sie in Anführungszeichen ein. Zum Beispiel:
 
     ```
     "<Command>&&<Command>&&<Command>"
@@ -96,9 +96,9 @@ In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die S
 
     Wenn Sie **/d** nicht in der *Zeichenfolge*angeben, sucht cmd. exe nach den folgenden Registrierungs unter Schlüsseln:
 
-    **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\AutoRun\REG_SZ**
+    **HKEY_LOCAL_MACHINE \software\microsoft\command processor\autorun\ REG_SZ**
 
-    **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\AutoRun\REG_EXPAND_SZ**
+    **HKEY_CURRENT_USER \software\microsoft\command processor\autorun\ REG_EXPAND_SZ**
 
     Wenn ein oder beide Registrierungs Unterschlüssel vorhanden sind, werden diese vor allen anderen Variablen ausgeführt.
 
@@ -107,11 +107,11 @@ In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die S
 
 -   Aktivieren und Deaktivieren von Befehls Erweiterungen
 
-    Befehls Erweiterungen sind in Windows XP standardmäßig aktiviert. Sie können Sie für einen bestimmten Prozess mithilfe von **/e: Off**deaktivieren. Sie können Erweiterungen für alle **cmd** -Befehlszeilenoptionen auf einem Computer oder in einer Benutzersitzung aktivieren oder deaktivieren, indem Sie die folgenden **REG_DWORD** -Werte festlegen:
+    Befehls Erweiterungen sind in Windows XP standardmäßig aktiviert. Sie können Sie für einen bestimmten Prozess mithilfe von **/e: Off**deaktivieren. Sie können Erweiterungen für alle **cmd** -Befehlszeilenoptionen auf einem Computer oder in einer Benutzersitzung aktivieren oder deaktivieren, indem Sie die folgenden **REG_DWORD** Werte festlegen:
 
-    **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\EnableExtensions\REG_DWORD**
+    **HKEY_LOCAL_MACHINE \software\microsoft\command processor\enableextensions\ REG_DWORD**
 
-    **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\EnableExtensions\REG_DWORD**
+    **HKEY_CURRENT_USER \software\microsoft\command processor\enableextensions\ REG_DWORD**
 
     Legen Sie den **REG_DWORD** -Wert in der Registrierung mithilfe von regedit. exe entweder auf **0 × 1** (aktiviert) oder auf **0 × 0** (deaktiviert) fest. Benutzerdefinierte Einstellungen haben Vorrang vor Computereinstellungen, und Befehlszeilenoptionen haben Vorrang vor den Registrierungs Einstellungen.
 
@@ -143,17 +143,17 @@ In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die S
     Wenn Sie die verzögerte Erweiterung der Umgebungsvariablen aktivieren, können Sie das Ausrufezeichen verwenden, um den Wert einer Umgebungsvariablen zur Laufzeit zu ersetzen.
 -   Aktivieren der Datei-und Verzeichnisnamen Vervollständigung
 
-    Die Vervollständigung von Datei-und Verzeichnisnamen ist standardmäßig nicht aktiviert. Sie können den Abschluss des Datei namens für einen bestimmten Prozess des **cmd** -Befehls mit **/f:** {**on**|**Off**} aktivieren oder deaktivieren. Sie können den Abschluss von Datei-und Verzeichnisnamen für alle Prozesse des Befehls " **cmd** " auf einem Computer oder für eine Benutzer Anmelde Sitzung aktivieren bzw. deaktivieren, indem Sie die folgenden **REG_DWORD** -Werte festlegen:
+    Die Vervollständigung von Datei-und Verzeichnisnamen ist standardmäßig nicht aktiviert. Sie können den Abschluss des Datei namens für einen bestimmten Prozess des Befehls **cmd** mit **/f:** {**on**|**Off**} aktivieren oder deaktivieren. Sie können den Abschluss von Datei-und Verzeichnisnamen für alle Prozesse des Befehls " **cmd** " auf einem Computer oder für eine Benutzer Anmelde Sitzung aktivieren bzw. deaktivieren, indem Sie die folgenden **REG_DWORD** Werte festlegen:
 
-    **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\CompletionChar\REG_DWORD**
+    **HKEY_LOCAL_MACHINE \software\microsoft\command processor\completionchar\ REG_DWORD**
 
-    **HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\PathCompletionChar\REG_DWORD**
+    **HKEY_LOCAL_MACHINE \software\microsoft\command processor\pathcompletionchar\ REG_DWORD**
 
-    **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\CompletionChar\REG_DWORD**
+    **HKEY_CURRENT_USER \software\microsoft\command processor\completionchar\ REG_DWORD**
 
-    **HKEY_CURRENT_USER\Software\Microsoft\Command Processor\PathCompletionChar\REG_DWORD**
+    **HKEY_CURRENT_USER \software\microsoft\command processor\pathcompletionchar\ REG_DWORD**
 
-    Um den **REG_DWORD** -Wert festzulegen, führen Sie regedit. exe aus, und verwenden Sie den Hexadezimalwert eines Steuer Zeichens für eine bestimmte Funktion (z. b. **0 × 9** ist Tab, und **0 × 08** ist RÜCKTASTE). Benutzerdefinierte Einstellungen haben Vorrang vor Computereinstellungen, und Befehlszeilenoptionen haben Vorrang vor den Registrierungs Einstellungen.
+    Wenn Sie den **REG_DWORD** Wert festlegen möchten, führen Sie regedit. exe aus, und verwenden Sie den Hexadezimalwert eines Steuer Zeichens für eine bestimmte Funktion (z. b. **0 × 9** ist Tab, und **0 × 08** ist RÜCKTASTE). Benutzerdefinierte Einstellungen haben Vorrang vor Computereinstellungen, und Befehlszeilenoptionen haben Vorrang vor den Registrierungs Einstellungen.
 
 > [!CAUTION]
 > Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.

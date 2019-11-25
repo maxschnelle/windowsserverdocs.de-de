@@ -19,13 +19,13 @@ ms.locfileid: "71405431"
 
 Gilt für: Windows Server 2016
 
-RADIUS-Clients (Remote Authentication Dial-in User Service), die Netzwerk Zugriffs Server wie VPN-Server (virtuelles privates Netzwerk) und drahtlos Zugriffspunkte sind, erstellen Verbindungsanforderungen und senden Sie an RADIUS-Server wie z. b. NPS. In einigen Fällen kann ein NPS zu viele Verbindungsanforderungen gleichzeitig empfangen, was zu einer Beeinträchtigung der Leistung oder einer Überlastung führt. Wenn ein NPS überladen ist, empfiehlt es sich, dem Netzwerk weitere NPSS hinzuzufügen und den Lastenausgleich zu konfigurieren. Wenn Sie eingehende Verbindungsanforderungen gleichmäßig auf mehrere NPSS verteilen, um zu verhindern, dass ein oder mehrere NPSS überladen werden, wird dies als Lastenausgleich bezeichnet.
+Remote Authentication Dial-in User Service (RADIUS)-Clients, bei denen es sich um Netzwerk Zugriffs Server wie VPN-Server (virtuelles privates Netzwerk) und drahtlos Zugriffspunkte handelt, werden Verbindungsanforderungen erstellt und an RADIUS-Server wie NPS gesendet. In einigen Fällen kann ein NPS zu viele Verbindungsanforderungen gleichzeitig empfangen, was zu einer Beeinträchtigung der Leistung oder einer Überlastung führt. Wenn ein NPS überladen ist, empfiehlt es sich, dem Netzwerk weitere NPSS hinzuzufügen und den Lastenausgleich zu konfigurieren. Wenn Sie eingehende Verbindungsanforderungen gleichmäßig auf mehrere NPSS verteilen, um zu verhindern, dass ein oder mehrere NPSS überladen werden, wird dies als Lastenausgleich bezeichnet.
 
 Der Lastenausgleich ist besonders nützlich für:
 
-- Organisationen, die das Extensible Authentication-Protokoll Transport Layer Security \(eap-TLS @ no__t-1 oder Protected Extensible Authentication Protocol \(peap @ no__t-3-TLS für die Authentifizierung verwenden. Da diese Authentifizierungsmethoden Zertifikate für die Server Authentifizierung und entweder für die Authentifizierung von Benutzern oder Client Computern verwenden, ist die Auslastung von RADIUS-Proxys und-Servern schwerer als bei der Verwendung von Kenn Wort basierten Authentifizierungsmethoden.
+- Organisationen, die das Extensible Authentication Protocol-Transport Layer Security \(EAP-TLS\) oder das Protected Extensible Authentication Protocol \(PEAP\)-TLS für die Authentifizierung verwenden. Da diese Authentifizierungsmethoden Zertifikate für die Server Authentifizierung und entweder für die Authentifizierung von Benutzern oder Client Computern verwenden, ist die Auslastung von RADIUS-Proxys und-Servern schwerer als bei der Verwendung von Kenn Wort basierten Authentifizierungsmethoden.
 - Organisationen, die die fortlaufende Dienst Verfügbarkeit aufrechterhalten müssen.
-- Internet Dienstanbieter \(isps @ no__t-1, die den VPN-Zugriff für andere Organisationen auslagern. Die ausgelagerten VPN-Dienste können eine große Menge an Authentifizierungs Datenverkehr generieren.
+- Internet Dienstanbieter \(ISPs\), die den VPN-Zugriff für andere Organisationen auslagern. Die ausgelagerten VPN-Dienste können eine große Menge an Authentifizierungs Datenverkehr generieren.
 
 Es gibt zwei Methoden, mit denen Sie die Last von Verbindungsanforderungen, die an Ihren NPSS gesendet werden, ausgleichen können:
 
@@ -53,7 +53,7 @@ Erstellen Sie vor dem Konfigurieren des Lasten Ausgleichs einen Bereitstellungs 
 
 Wenn Sie NPS als Proxy Server konfigurieren und Verbindungsanforderungen von RADIUS-Clients an Remote-RADIUS-Server weiterleiten möchten, müssen Sie die folgenden Aktionen ausführen:
 
-1. Stellen Sie Ihre RADIUS-Clients \(vpn-Server, DFÜ-Server, Terminal Dienste-Gatewayservern, 802.1 x-authentifizier enden Switches und 802.1 x-drahtlos Zugriffs Punkten @ no__t-1 bereit, und konfigurieren Sie Sie so, dass Verbindungsanforderungen an Ihre NPS-Proxy Server gesendet werden.
+1. Stellen Sie Ihre RADIUS-Clients \(VPN-Server, DFÜ-Server, Terminal Dienste-Gatewayservern, 802.1 x-authentifizier enden Switches und drahtlose 802.1 x-Zugriffspunkte bereit\) und konfigurieren Sie Sie so, dass Verbindungsanforderungen an Ihre NPS-Proxy Server gesendet werden.
 
 2. Konfigurieren Sie auf dem NPS-Proxy die Netzwerk Zugriffs Server als RADIUS-Clients. Weitere Informationen finden Sie unter [Konfigurieren von RADIUS-Clients](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-radius-clients-configure).
 

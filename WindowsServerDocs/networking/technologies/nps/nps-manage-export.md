@@ -76,7 +76,7 @@ Weitere Informationen finden Sie unter [Import-npsconfiguration](https://technet
 
 ## <a name="export-and-import-the-nps-configuration-by-using-netsh"></a>Exportieren und Importieren der NPS-Konfiguration mithilfe von Netsh
 
-Mithilfe des Netzwerkshell-\(netsh @ no__t-1 können Sie die NPS-Konfiguration mit dem Befehl **netsh NPS Export** exportieren.
+Mithilfe des Netzwerkshell-\(Netsh\) können Sie die NPS-Konfiguration mit dem Befehl **netsh NPS Export** exportieren.
 
 Wenn der Befehl " **netsh NPS Import** " ausgeführt wird, wird NPS automatisch mit den aktualisierten Konfigurationseinstellungen aktualisiert. Es ist nicht erforderlich, NPS auf dem Zielcomputer zu starten, um den Befehl **netsh NPS Import** auszuführen. wenn die NPS-Konsole oder das NPS-MMC-Snap-in während des Konfigurations Imports geöffnet ist, werden die Änderungen an der Serverkonfiguration erst angezeigt, wenn Sie die Ansicht aktualisieren. 
 
@@ -93,9 +93,9 @@ Um dieses Verfahren abzuschließen, müssen Sie Mitglied der Gruppe "Administrat
 
 2. Geben Sie an der **netsh** -Eingabeaufforderung **NPS**ein, und drücken Sie dann die EINGABETASTE. 
 
-3. Geben Sie an der **netsh NPS** -Eingabeaufforderung **Export filename =** "*path\file.XML*" **exportpsk = Yes**ein, wobei *path* der Speicherort des Ordners ist, in dem Sie die NPS-Konfigurationsdatei speichern möchten, und *File* der Name der XML-Datei, die Sie möchten speichern. Drücken Sie die EINGABETASTE. 
+3. Geben Sie an der **netsh NPS** -Eingabeaufforderung **Export filename =** "*path\file.XML*" **exportpsk = Yes**ein, wobei *path* der Speicherort des Ordners ist, in dem Sie die NPS-Konfigurationsdatei speichern möchten, und *File* der Name der XML-Datei ist, die Sie speichern möchten. Drücken Sie die EINGABETASTE. 
 
-Dies speichert die Konfigurationseinstellungen \(einschließlich der Registrierungs Einstellungen @ no__t-1 in einer XML-Datei. Der Pfad kann relativ oder absolut sein, oder es kann sich um einen Universal Naming Convention \(unc @ no__t-1-Pfad handeln. Nachdem Sie die EINGABETASTE gedrückt haben, wird eine Meldung angezeigt, die angibt, ob der Export in die Datei erfolgreich war
+Dies speichert Konfigurationseinstellungen \(einschließlich der in einer XML-Datei\) Registrierungs Einstellungen. Der Pfad kann relativ oder absolut sein, oder es kann sich um einen Universal Naming Convention \(UNC-\) Pfad handeln. Nachdem Sie die EINGABETASTE gedrückt haben, wird eine Meldung angezeigt, die angibt, ob der Export in die Datei erfolgreich war
 
 4. Kopieren Sie die erstellte Datei in das Ziel-NPS.
 

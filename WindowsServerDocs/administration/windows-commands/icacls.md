@@ -38,7 +38,7 @@ icacls <Directory> [/substitute <SidOld> <SidNew> [...]] [/restore <ACLfile> [/c
 |Parameter|Beschreibung|
 |---------|-----------|
 |\<Dateiname >|Gibt die Datei an, für die DACLs angezeigt werden sollen.|
-|\<directory >|Gibt das Verzeichnis an, für das DACLs angezeigt werden sollen.|
+|\<Verzeichnis >|Gibt das Verzeichnis an, für das DACLs angezeigt werden sollen.|
 |/t|Führt den Vorgang für alle angegebenen Dateien im aktuellen Verzeichnis und seinen Unterverzeichnissen aus.|
 |/c|Der Vorgang wird trotz aller Datei Fehler fortgesetzt. Fehlermeldungen werden weiterhin angezeigt.|
 |/l|Führt den Vorgang für eine symbolische Verknüpfung im Vergleich zum Ziel aus.|
@@ -48,13 +48,13 @@ icacls <Directory> [/substitute <SidOld> <SidNew> [...]] [/restore <ACLfile> [/c
 |[/findSID \<sid > [/t] [/c] [/l] [/q]]|Sucht alle übereinstimmenden Dateien, die eine DACL enthalten, die explizit die angegebene Sicherheits-ID (SID) erwähnt.|
 |[/verify [/t] [/c] [/l] [/q]]|Findet alle Dateien mit ACLs, die nicht kanonisch sind oder Längen inkonsistent mit ACE (Access Control Entry)-Anzahlen aufweisen.|
 |[/Reset [/t] [/c] [/l] [/q]]|Ersetzt ACLs durch geerbte Standard-ACLs für alle übereinstimmenden Dateien.|
-|[/Grant [: r] \<sid >: <Perm> [...]]|Erteilt angegebene Benutzer Zugriffsrechte. Berechtigungen ersetzen zuvor erteilte explizite Berechtigungen.</br>Ohne **: r**werden Berechtigungen zu allen zuvor erteilten expliziten Berechtigungen hinzugefügt.|
-|[/Deny \<sid >: <Perm> [...]]|Verweigert explizit angegebene Benutzer Zugriffsrechte. Für die angegebenen Berechtigungen wird ein expliziter Verweigerungs-ACE hinzugefügt, und die gleichen Berechtigungen in expliziten Berechtigungen werden entfernt.|
-|[/remove [: g @ no__t-0: d]] \<sid > [...]] /t /c /l /q|Entfernt alle Vorkommen der angegebenen SID aus der DACL.</br>**: g** entfernt alle Vorkommen der gewährten Rechte für die angegebene SID.</br>**:d** entfernt alle Vorkommen abgelehnter Rechte für die angegebene SID.|
-|[/setintegritylevel [(CI) (OI)] \<level >: <Policy> [...]]|Fügt allen übereinstimmenden Dateien explizit einen Integritäts-ACE hinzu. Die *Ebene* wird wie folgt angegeben:</br>-   **L**[OW]</br>-   **M**[edium]</br>-   **H**[IGH]</br>Vererbungs Optionen für den Integritäts-ACE können der Ebene vorangestellt werden und werden nur auf Verzeichnisse angewendet.|
+|[/Grant [: r] \<sid >:<Perm>[...]]|Erteilt angegebene Benutzer Zugriffsrechte. Berechtigungen ersetzen zuvor erteilte explizite Berechtigungen.</br>Ohne **: r**werden Berechtigungen zu allen zuvor erteilten expliziten Berechtigungen hinzugefügt.|
+|[/Deny \<sid >:<Perm>[...]]|Verweigert explizit angegebene Benutzer Zugriffsrechte. Für die angegebenen Berechtigungen wird ein expliziter Verweigerungs-ACE hinzugefügt, und die gleichen Berechtigungen in expliziten Berechtigungen werden entfernt.|
+|[/remove [: g\|:d]] \<sid > [...]] /t /c /l /q|Entfernt alle Vorkommen der angegebenen SID aus der DACL.</br>**: g** entfernt alle Vorkommen der gewährten Rechte für die angegebene SID.</br>**:d** entfernt alle Vorkommen abgelehnter Rechte für die angegebene SID.|
+|[/setintegritylevel [(CI) (OI)]\<Ebene >:<Policy>[...]]|Fügt allen übereinstimmenden Dateien explizit einen Integritäts-ACE hinzu. Die *Ebene* wird wie folgt angegeben:</br>-   **L**[OW]</br>-   **M**[edium]</br>-   **H**[IGH]</br>Vererbungs Optionen für den Integritäts-ACE können der Ebene vorangestellt werden und werden nur auf Verzeichnisse angewendet.|
 |[/Substitute \<sidold > <SidNew> [...]]|Ersetzt eine vorhandene sid (*sidold*) durch eine neue sid (*sidnew*). Erfordert den *Directory* -Parameter.|
 |/Restore \<aclfile > [/c] [/l] [/q]|Wendet gespeicherte DACLs aus *aclfile* auf Dateien im angegebenen Verzeichnis an. Erfordert den *Directory* -Parameter.|
-|/InheritanceLevel: [e @ no__t-0d @ no__t-1R]|Legt die Vererbungs Ebene fest: <br>  **e** -Aktivierung der Einschreibung <br>**d** : Deaktivieren der Vererbung und Kopieren der ACEs <br>**r** -entfernt alle geerbten ACEs
+|/InheritanceLevel: [e\|d\|r]|Legt die Vererbungs Ebene fest: <br>  **e** -Aktivierung der Einschreibung <br>**d** : Deaktivieren der Vererbung und Kopieren der ACEs <br>**r** -entfernt alle geerbten ACEs
 
 ## <a name="remarks"></a>Hinweise
 

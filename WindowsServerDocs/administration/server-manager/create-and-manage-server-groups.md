@@ -22,7 +22,7 @@ ms.locfileid: "71383217"
 ---
 # <a name="create-and-manage-server-groups"></a>Erstellen und Verwalten von Server Gruppen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema wird beschrieben, wie benutzerdefinierte benutzerdefinierte Server Gruppen in Server-Manager in Windows Server erstellt werden.
 
@@ -71,9 +71,9 @@ Server können mehreren Gruppen angehören.
 
 3.  Klicken Sie nach dem Ändern der Gruppe auf **OK**.
 
-## <a name="see-also"></a>Siehe auch
-[fügen Sie Server-Manager](add-servers-to-server-manager.md)
- Server hinzu[Server-Manager](server-manager.md)
+## <a name="see-also"></a>Weitere Informationen
+[fügen Sie Server-Manager
+Server hinzu](add-servers-to-server-manager.md) [Server-Manager](server-manager.md)
 
 
 

@@ -21,7 +21,7 @@ ms.locfileid: "71404560"
 ---
 # <a name="step-2-configure-the-remote-access-server"></a>Schritt 2 Konfigurieren des Remote Zugriffs Servers
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema wird beschrieben, wie Sie die Client-und Servereinstellungen konfigurieren, die für die Remote Verwaltung von DirectAccess-Clients erforderlich sind. Stellen Sie vor Beginn der Bereitstellungs Schritte sicher, dass Sie die in [Schritt 2 Planen der Remote Zugriffs Bereitstellung](../plan/Step-2-Plan-the-Remote-Access-Deployment.md)beschriebenen Planungsschritte abgeschlossen haben.  
   
@@ -61,7 +61,7 @@ Sie müssen die Remote Zugriffs Rolle auf einem Server in Ihrer Organisation ins
   
 8.  Überprüfen Sie im Dialogfeld **Installationsstatus**, ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
   
-](../../../../media/Step-2-Configure-the-Remote-Access-Server/PowerShellLogoSmall.gif)***<em>äquivalente Windows PowerShell-Befehle</em> mit @no__t 0shell***  
+![der entsprechenden Windows PowerShell-](../../../../media/Step-2-Configure-the-Remote-Access-Server/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
@@ -83,7 +83,7 @@ Es gibt drei Optionen, die Sie zum Bereitstellen des Remote Zugriffs über die R
   
 #### <a name="to-configure-the-deployment-type"></a>So konfigurieren Sie den Bereitstellungstypen  
   
-1.  Öffnen Sie auf einem Remotezugriffsserver die Remotezugriffs-Verwaltungskonsole: Geben Sie auf dem **Start** Bildschirm ein, geben Sie **Remote Zugriffs-Verwaltungskonsole**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Öffnen Sie auf dem Remote Zugriffs Server die Remote Zugriffs-Verwaltungskonsole: Geben Sie auf dem **Start** Bildschirm ein, geben Sie **Remote Zugriffs-Verwaltungskonsole**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole im mittleren Bereich auf **Remotezugriffs-Setup-Assistenten ausführen**.  
   

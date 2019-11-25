@@ -16,19 +16,19 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71408715"
 ---
-# <a name="appendix-e-securing-enterprise-admins-groups-in-active-directory"></a>Anhang E: Sichern von Organisations-Admins-Gruppen in Active Directory
+# <a name="appendix-e-securing-enterprise-admins-groups-in-active-directory"></a>Anhang E: Schützen von Organisationsadministratorgruppen in Active Directory
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-## <a name="appendix-e-securing-enterprise-admins-groups-in-active-directory"></a>Anhang E: Sichern von Organisations-Admins-Gruppen in Active Directory  
-Die Enterprise Admins-Gruppe (EA), die in der Stamm Domäne der Gesamtstruktur enthalten ist, sollte täglich keine Benutzer enthalten, mit der Ausnahme, dass das Administrator Konto der Stamm Domäne verfügbar ist, vorausgesetzt, Sie ist wie in [anhang D beschrieben geschützt: Sichern integrierter Administrator Konten in Active Directory @ no__t-0.  
+## <a name="appendix-e-securing-enterprise-admins-groups-in-active-directory"></a>Anhang E: Schützen von Organisationsadministratorgruppen in Active Directory  
+Die Enterprise Admins-Gruppe (EA), die in der Stamm Domäne der Gesamtstruktur enthalten ist, sollte täglich keine Benutzer enthalten, mit der Ausnahme, dass das Administrator Konto der Stamm Domäne verfügbar ist, vorausgesetzt, Sie ist wie in [Anhang D: sichern integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben geschützt.  
 
 Organisations-Admins sind standardmäßig Mitglieder der Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur. Sie sollten die EA-Gruppe nicht aus den Administratoren Gruppen in jeder Domäne entfernen, da im Falle eines Notfall Wiederherstellungs Szenarios wahrscheinlich EA-Rechte erforderlich sind. Die Gruppe "Organisations-Admins" der Gesamtstruktur sollte wie in den folgenden Schritt-für-Schritt-Anweisungen beschrieben geschützt werden.  
 
 Für die Gruppe "Organisations-Admins" in der Gesamtstruktur:  
 
-1.  In Gruppenrichtlinien Objekten, die mit Organisationseinheiten verknüpft sind, die Mitglieds Server und Arbeitsstationen in jeder Domäne enthalten, sollte die Gruppe Organisations-Admins den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale richtlinien\benutzerrechte Zuweisungen**:  
+1.  In Gruppenrichtlinien Objekten, die mit Organisationseinheiten verknüpft sind, die Mitglieds Server und Arbeitsstationen in jeder Domäne enthalten, sollte die Gruppe Organisations-Admins den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien\Zuweisen von Benutzerrechten**  
 
     -   Zugriff vom Netzwerk auf diesen Computer verweigern  
 
@@ -68,7 +68,7 @@ Für die Gruppe "Organisations-Admins" in der Gesamtstruktur:
 
 1.  KlickenSie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
 
-2.  Erweitern Sie in der Konsolen Struktur <Forest> \ Domänen @ no__t-1 @ no__t-2, und **Gruppenrichtlinie** Sie dann Objekte (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
+2.  Erweitern Sie in der Konsolen Struktur <Forest>\domains\\<Domain>, und klicken Sie dann auf **Gruppenrichtlinie Objekte** (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
 
     > [!NOTE]  
     > In einer Gesamtstruktur, die mehrere Domänen enthält, sollte in jeder Domäne ein ähnliches GPO erstellt werden, in dem die Gruppe Organisations-Admins gesichert werden muss.  
@@ -77,7 +77,7 @@ Für die Gruppe "Organisations-Admins" in der Gesamtstruktur:
 
     ![sichere Unternehmens Administratoren Gruppen](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_46.gif)  
 
-4.  Geben Sie im Dialogfeld **Neues** Gruppenrichtlinien Objekt <GPO Name> ein, und klicken Sie auf **OK** (wobei <GPO Name> der Name dieses GPO ist).  
+4.  Geben Sie im Dialogfeld **Neues** Gruppenrichtlinien Objekt <GPO Name>ein, und klicken Sie auf **OK** (wobei <GPO Name> der Name dieses Gruppenrichtlinien Objekts ist).  
 
     ![sichere Unternehmens Administratoren Gruppen](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_47.gif)  
 
@@ -163,7 +163,7 @@ Für die Gruppe "Organisations-Admins" in der Gesamtstruktur:
 
 13. Verknüpfen Sie das Gruppenrichtlinien Objekt in **Gruppenrichtlinie Management**mit dem Mitglieds Server und Arbeitsstations Organisationseinheiten, indem Sie die folgenden Schritte ausführen:  
 
-    1.  Navigieren Sie zum <Forest> \ Domänen @ no__t-1 @ no__t-2 (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
+    1.  Navigieren Sie zum <Forest>\domains\\<Domain> (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
 
     2.  Klicken Sie mit der rechten Maustaste auf die Organisationseinheit, auf die das Gruppenrichtlinien Objekt angewendet wird, und klicken Sie auf **vorhandenes GPO verknüpfen**  
 
@@ -197,7 +197,7 @@ Versuchen Sie auf einem Mitglieds Server oder einer Arbeitsstation, der nicht vo
 
     ![sichere Unternehmens Administratoren Gruppen](media/Appendix-E--Securing-Enterprise-Admins-Groups-in-Active-Directory/SAD_56.gif)  
 
-5.  Geben Sie im **Eingabe** Aufforderungs Fenster **net use \\ @ no__t-3 @ no__t-4server Name @ no__t-5\c $** ein, wobei \<server Name @ no__t-7 der Name des Mitglieds Servers oder der Arbeitsstation ist, auf den Sie über das Netzwerk zuzugreifen versuchen.  
+5.  Geben Sie im **Eingabe** Aufforderungs Fenster **net use \\\\\<Server Name\>\c $** ein, wobei \<Servername\> der Name des Mitglieds Servers oder der Arbeitsstation ist, auf den Sie über das Netzwerk zuzugreifen versuchen.  
 
 6.  Der folgende Screenshot zeigt die Fehlermeldung, die angezeigt werden soll.  
 
@@ -217,7 +217,7 @@ Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die 
 
 4.  Klicken Sie auf **Datei**und dann auf **Speichern**unter.  
 
-5.  Geben Sie im Feld **Dateiname** den Namen **@no__t -2. bat** ein (wobei <Filename> der Name der neuen Batchdatei ist).  
+5.  Geben Sie im Feld Dateiname **<Filename>. bat** ein (wobei <Filename> der Name der neuen Batchdatei ist).  
 
 ##### <a name="schedule-a-task"></a>Planen einer Aufgabe  
 

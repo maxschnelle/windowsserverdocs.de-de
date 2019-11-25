@@ -9,20 +9,20 @@ ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: 6ae7bd9ed7aee5835ac1f53b9e10879ad8824f52
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71406942"
 ---
 # <a name="deploy-windows-admin-center-with-high-availability"></a>Bereitstellen des Windows Admin Centers mit hoher Verfügbarkeit
 
->Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center Vorschau
 
 Sie können das Windows Admin Center in einem Failovercluster bereitstellen, um Hochverfügbarkeit für Ihren Windows Admin Center-Gatewaydienst bereitzustellen. Die bereitgestellte Lösung ist eine Aktiv/Passiv-Lösung, bei der nur eine Instanz von Windows Admin Center aktiv ist. Wenn einer der Knoten im Cluster ausfällt, führt das Windows Admin Center ein ordnungsgemäßes Failover zu einem anderen Knoten durch, sodass Sie die Server in Ihrer Umgebung nahtlos weiter verwalten können. 
 
 [Erfahren Sie mehr über andere Bereitstellungs Optionen für Windows Admin Center.](../plan/installation-options.md)
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 
 - Ein Failovercluster mit mindestens zwei Knoten unter Windows Server 2016 oder 2019. [Erfahren Sie mehr über das Bereitstellen eines Failoverclusters](../../../failover-clustering/failover-clustering-overview.md).
 - Ein frei gegebenes Cluster Volume (CSV) für Windows Admin Center zum Speichern von persistenten Daten, auf die von allen Knoten im Cluster zugegriffen werden kann. 10 GB sind für Ihr CSV ausreichend.
@@ -31,19 +31,19 @@ Sie können das Windows Admin Center in einem Failovercluster bereitstellen, um 
 
 ## <a name="install-windows-admin-center-on-a-failover-cluster"></a>Installieren des Windows Admin Centers auf einem Failovercluster
 
-1. Kopieren Sie das Skript ```Install-WindowsAdminCenterHA.ps1``` auf einen Knoten in Ihrem Cluster. Laden Sie die MSI-Datei des Windows Admin Centers herunter, oder kopieren Sie Sie auf denselben Knoten.
-2. Stellen Sie über RDP eine Verbindung mit dem Knoten her, und führen Sie das Skript ```Install-WindowsAdminCenterHA.ps1``` von diesem Knoten mit den folgenden Parametern aus:
-    - `-clusterStorage`: der lokale Pfad des freigegebenes Clustervolume, in dem die Daten des Windows Admin Centers gespeichert werden sollen.
-    - `-clientAccessPoint`: Wählen Sie einen Namen aus, den Sie für den Zugriff auf das Windows Admin Center verwenden werden. Wenn Sie z. b. das Skript mit dem Parameter `-clientAccessPoint contosoWindowsAdminCenter` ausführen, greifen Sie auf den Windows Admin Center-Dienst zu, indem Sie `https://contosoWindowsAdminCenter.<domain>.com` besuchen.
-    - `-staticAddress`: Optional. Eine oder mehrere statische Adressen für den generischen Cluster Dienst. 
-    - `-msiPath`: Der Pfad für die MSI-Datei des Windows Admin Centers.
-    - `-certPath`: Optional. Der Pfad für eine PFX-Zertifikat Datei.
-    - `-certPassword`: Optional. Ein SecureString-Kennwort für das in `-certPath` angegebene Zertifikat. pfx
-    - `-generateSslCert`: Optional. Wenn Sie kein signiertes Zertifikat angeben möchten, fügen Sie dieses parameterflag ein, um ein selbst signiertes Zertifikat zu generieren. Beachten Sie, dass das selbst signierte Zertifikat in 60 Tagen abläuft.
-    - `-portNumber`: Optional. Wenn Sie keinen Port angeben, wird der Gatewaydienst über Port 443 (HTTPS) bereitgestellt. Wenn Sie einen anderen Port verwenden möchten, geben Sie in diesem Parameter an. Beachten Sie Folgendes: Wenn Sie einen benutzerdefinierten Port verwenden (alles außer 443), greifen Sie auf das Windows Admin Center zu, indem Sie zu https://\<clientaccesspoint @ no__t-1: \<Port @ no__t-3 wechseln.
+1. Kopieren Sie das ```Install-WindowsAdminCenterHA.ps1``` Skript auf einen Knoten in Ihrem Cluster. Laden Sie die MSI-Datei des Windows Admin Centers herunter, oder kopieren Sie Sie auf denselben Knoten.
+2. Stellen Sie über RDP eine Verbindung mit dem Knoten her, und führen Sie das ```Install-WindowsAdminCenterHA.ps1``` Skript von diesem Knoten mit den folgenden Parametern aus:
+    - `-clusterStorage`: der lokale Pfad des freigegebenes Clustervolume zum Speichern der Daten des Windows Admin Centers.
+    - `-clientAccessPoint`: Wählen Sie einen Namen aus, den Sie für den Zugriff auf das Windows Admin Center verwenden werden. Wenn Sie z. b. das Skript mit dem Parameter `-clientAccessPoint contosoWindowsAdminCenter`ausführen, greifen Sie auf den Dienst des Windows Admin Centers zu, indem Sie `https://contosoWindowsAdminCenter.<domain>.com`
+    - `-staticAddress`: optional. Eine oder mehrere statische Adressen für den generischen Cluster Dienst. 
+    - `-msiPath`: der Pfad für die MSI-Datei des Windows Admin Centers.
+    - `-certPath`: optional. Der Pfad für eine PFX-Zertifikat Datei.
+    - `-certPassword`: optional. Ein SecureString-Kennwort für die in angegebene Zertifikat. pfx-`-certPath`
+    - `-generateSslCert`: optional. Wenn Sie kein signiertes Zertifikat angeben möchten, fügen Sie dieses parameterflag ein, um ein selbst signiertes Zertifikat zu generieren. Beachten Sie, dass das selbst signierte Zertifikat in 60 Tagen abläuft.
+    - `-portNumber`: optional. Wenn Sie keinen Port angeben, wird der Gatewaydienst über Port 443 (HTTPS) bereitgestellt. Wenn Sie einen anderen Port verwenden möchten, geben Sie in diesem Parameter an. Beachten Sie Folgendes: Wenn Sie einen benutzerdefinierten Port verwenden (alles außer 443), greifen Sie auf das Windows Admin Center zu, indem Sie zu https://\<clientaccesspoint\>:\<Port\>.
 
 > [!NOTE]
-> Das Skript "```Install-WindowsAdminCenterHA.ps1```" unterstützt ```-WhatIf ```-und ```-Verbose```-Parameter.
+> Das ```Install-WindowsAdminCenterHA.ps1``` Skript unterstützt ```-WhatIf ```-und ```-Verbose```-Parameter.
 
 ### <a name="examples"></a>Beispiele
 
@@ -62,11 +62,11 @@ $certPassword = Read-Host -AsSecureString
 
 ## <a name="update-an-existing-high-availability-installation"></a>Aktualisieren einer vorhandenen hoch Verfügbarkeits Installation
 
-Verwenden Sie das gleiche ```Install-WindowsAdminCenterHA.ps1```-Skript, um Ihre ha-Bereitstellung zu aktualisieren, ohne die Verbindungsdaten zu verlieren.
+Verwenden Sie das gleiche ```Install-WindowsAdminCenterHA.ps1``` Skript, um Ihre ha-Bereitstellung zu aktualisieren, ohne die Verbindungsdaten zu verlieren.
 
 ### <a name="update-to-a-new-version-of-windows-admin-center"></a>Aktualisieren auf eine neue Version von Windows Admin Center
 
-Wenn eine neue Version von Windows Admin Center veröffentlicht wird, führen Sie das Skript ```Install-WindowsAdminCenterHA.ps1``` einfach erneut mit dem Parameter "```msiPath```" aus:
+Wenn eine neue Version von Windows Admin Center veröffentlicht wird, führen Sie das ```Install-WindowsAdminCenterHA.ps1``` Skript nur mit dem Parameter ```msiPath``` erneut aus:
 
 ```powershell
 .\Install-WindowsAdminCenterHA.ps1 -msiPath '.\WindowsAdminCenter.msi' -Verbose
@@ -90,7 +90,7 @@ $certPassword = Read-Host -AsSecureString
 
 ## <a name="uninstall"></a>Deinstallieren
 
-Wenn Sie die ha-Bereitstellung von Windows Admin Center aus Ihrem Failovercluster deinstallieren möchten, übergeben Sie den ```-Uninstall```-Parameter an das ```Install-WindowsAdminCenterHA.ps1```-Skript.
+Wenn Sie die ha-Bereitstellung von Windows Admin Center aus Ihrem Failovercluster deinstallieren möchten, übergeben Sie den ```-Uninstall``` Parameter an das ```Install-WindowsAdminCenterHA.ps1``` Skript.
 
 ```powershell
 .\Install-WindowsAdminCenterHA.ps1 -Uninstall -Verbose

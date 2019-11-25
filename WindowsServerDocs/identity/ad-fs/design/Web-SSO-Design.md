@@ -18,17 +18,17 @@ ms.locfileid: "71407838"
 ---
 # <a name="web-sso-design"></a>Web-SSO-Entwurf
 
-Im Web Single @ no__t-0sign @ no__t-1On \(sso @ no__t-3 Design in Active Directory-Verbunddienste (AD FS) \(AD FS @ no__t-5 müssen Benutzer sich nur einmal authentifizieren, um auf mehrere AD FS geschützte Anwendungen oder Dienste zugreifen zu können. Bei diesem Entwurf sind alle Benutzer extern, und es gibt keine Verbundvertrauensstellung, da keine Partnerorganisationen vorhanden sind. In der Regel stellen Sie diesen Entwurf bereit, wenn Sie einzelnen Consumer oder Kunden Zugriff auf eine oder mehrere AD FS – gesicherte Dienste oder Anwendungen über das Internet bereitstellen möchten, wie in der folgenden Abbildung dargestellt.  
+Im Web-SSO-\-Sign\-on \(SSO\) Design in Active Directory-Verbunddienste (AD FS) \(AD FS\)müssen Benutzer sich nur einmal authentifizieren, um auf mehrere AD FS\-gesicherten Anwendungen oder Dienste zuzugreifen. Bei diesem Entwurf sind alle Benutzer extern, und es gibt keine Verbundvertrauensstellung, da keine Partnerorganisationen vorhanden sind. In der Regel stellen Sie diesen Entwurf bereit, wenn Sie einzelnen Consumer oder Kunden Zugriff auf eine oder mehrere AD FS – gesicherte Dienste oder Anwendungen über das Internet bereitstellen möchten, wie in der folgenden Abbildung dargestellt.  
   
 ![Web-SSO-Entwurf](media/adfs2_WebSSODesign.gif)  
   
-Beim Web-SSO-Entwurf kann eine Organisation, die in der Regel eine AD FS @ no__t-0gesicherte Anwendung oder einen gesicherten Dienst in einem Umkreis Netzwerk hostet, einen separaten Speicher mit Kundenkonten im Umkreis Netzwerk verwalten, was das Isolieren von Kundenkonten von Mitarbeiter Konten.  
+Beim Web-SSO-Entwurf kann eine Organisation, die in der Regel eine AD FS\-gesicherten Anwendung oder einen Dienst in einem Umkreis Netzwerk hostet, einen separaten Speicher von Kundenkonten im Umkreis Netzwerk verwalten, was das Isolieren von Kundenkonten von Mitarbeiter Konten vereinfacht.  
   
-Sie können die lokalen Konten für Kunden im Umkreis Netzwerk verwalten, indem Sie entweder Active Directory Domain Services \(ad DS @ no__t-1, SQL Server oder einen benutzerdefinierten Attribut Speicher verwenden.  
+Sie können die lokalen Konten für Kunden im Umkreis Netzwerk verwalten, indem Sie entweder Active Directory Domain Services \(AD DS\), SQL Server oder einen benutzerdefinierten Attribut Speicher verwenden.  
   
 Dieser Entwurf stimmt mit dem Bereitstellungsziel in [Provide Your Active Directory Users Access to Your Claims-Aware Applications and Services](Provide-Your-Active-Directory-Users-Access-to-Your-Claims-Aware-Applications-and-Services.md)überein.  
   
-Eine Liste der detaillierten Aufgaben, die Sie zum Planen und Bereitstellen Ihres Web-SSO-Entwurfs verwenden können, finden Sie unter [checkliste: Implementieren eines Web-SSO-Entwurfs @ no__t-0.  
+Eine detaillierte Liste der Aufgaben, die Sie zum Planen und Bereitstellen Ihres Web-SSO-Entwurfs verwenden können, finden Sie unter [Checklist: Implementing a Web SSO Design](../../ad-fs/deployment/Checklist--Implementing-a-Web-SSO-Design.md).  
   
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

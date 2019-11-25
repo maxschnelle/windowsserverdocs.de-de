@@ -17,7 +17,7 @@ ms.locfileid: "71401901"
 ---
 # <a name="network-subsystem-performance-tuning"></a>Leistungsoptimierung für das Netzwerksubsystem
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema finden Sie eine Übersicht über das Netzwerk Subsystem und Links zu anderen Themen in diesem Handbuch.
 
@@ -37,7 +37,7 @@ Die Leistungsoptimierung des Netzwerk Subsystems, insbesondere für Netzwerk int
   
 3. **Protokollstapel**. Der Protokollstapel implementiert Protokolle wie TCP/IP und UDP/IP. Diese Ebenen machen die Transportschicht Schnittstelle für Ebenen oberhalb verfügbar.
   
-4. **System Treiber**. Dabei handelt es sich in der Regel um Clients, die eine Schnittstelle für Transportdaten Erweiterung (TDX) oder Winsock Kernel (WSK) verwenden, um Schnittstellen für Benutzermodusanwendungen bereitzustellen Die WSK-Schnittstelle wurde in Windows Server 2008 und Windows @ no__t-0 Vista eingeführt und wird von Afd. sys bereitgestellt. Die-Schnittstelle verbessert die Leistung, indem der Wechsel zwischen Benutzermodus und Kernel Modus entfällt.
+4. **System Treiber**. Dabei handelt es sich in der Regel um Clients, die eine Schnittstelle für Transportdaten Erweiterung (TDX) oder Winsock Kernel (WSK) verwenden, um Schnittstellen für Benutzermodusanwendungen bereitzustellen Die WSK-Schnittstelle wurde in Windows Server 2008 und Windows&reg; Vista eingeführt und wird von Afd. sys bereitgestellt. Die-Schnittstelle verbessert die Leistung, indem der Wechsel zwischen Benutzermodus und Kernel Modus entfällt.
   
 5. **Benutzermodusanwendungen**. Dies sind in der Regel Microsoft-Lösungen oder benutzerdefinierte Anwendungen.
 

@@ -44,10 +44,10 @@ Die Softwareinventurprotokollierung kann Serveradministratoren beim Ausführen f
 
 -   Aggregierte Software-und Server Inventur Informationen für eine Vielzahl von Software Asset Management-Szenarien durch Aktivieren der Protokollierungsfunktion des Software Bestands für jedes Server und Auswählen eines Ziel-URIs für den Webserver und des Zertifikat Fingerabdrucks für die Authentifizierung.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [Aggregator der Protokollierung des Softwarebestands](https://technet.microsoft.com/library/mt572043.aspx)<br>
 [Verwaltung der Protokollierung des Softwarebestands](manage-software-inventory-logging.md)<br>
 [Cmdlets für die Protokollierung des Software Bestands in Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)<br>
 [Microsoft Assessment and Planning Toolkit](https://www.microsoft.com/download/en/details.aspx?id=7826)
-[Volume Activation Management-Tool](http://blogs.technet.com/b/volume-licensing/)
+[Tool für die Volumen Aktivierungs Verwaltung](http://blogs.technet.com/b/volume-licensing/)
 

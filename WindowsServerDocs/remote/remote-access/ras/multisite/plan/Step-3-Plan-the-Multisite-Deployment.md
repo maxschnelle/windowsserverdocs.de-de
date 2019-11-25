@@ -21,7 +21,7 @@ ms.locfileid: "71404461"
 ---
 # <a name="step-3-plan-the-multisite-deployment"></a>Schritt 3 Planen der Bereitstellung für mehrere Standorte
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Planen Sie nach dem Planen der Infrastruktur für mehrere Standorte alle zusätzlichen Zertifikat Anforderungen, die Auswahl von Einstiegspunkten durch Client Computer und die in der Bereitstellung zugewiesenen IPv6-Adressen.  
 
@@ -79,7 +79,7 @@ Beachten Sie Folgendes, wenn Sie das für den Netzwerkadressen Server zu verwend
 3.  Verwenden Sie für das Feld CRL-Verteilungs Punkte einen Zertifikat Sperr Listen-Verteilungs Punkt, auf den DirectAccess-Clients, die mit dem Intranet verbunden sind, zugreifen können.  
   
 ### <a name="322dns-for-the-network-location-server"></a>3.2.2 DNS für den Netzwerkadressen Server  
-Wenn Sie den Netzwerkadressen Server auf dem Remote Zugriffs Server hosten, müssen Sie für jeden Einstiegspunkt in der Bereitstellung einen DNS-Eintrag für die Netzwerkadressen Server-Website hinzufügen. Beachten Sie Folgendes:  
+Wenn Sie den Netzwerkadressen Server auf dem Remote Zugriffs Server hosten, müssen Sie für jeden Einstiegspunkt in der Bereitstellung einen DNS-Eintrag für die Netzwerkadressen Server-Website hinzufügen. Hinweis:  
   
 -   Der Antragsteller Name des ersten Netzwerkadressen Server-Zertifikats in der Bereitstellung für mehrere Standorte wird als Netzwerkadressen Server-URL für alle Einstiegspunkte verwendet. Daher dürfen der Antragsteller Name und die Netzwerkadressen Server-URL nicht mit dem Computernamen des der erste RAS-Server in der Bereitstellung. Dabei muss es sich um einen für den Netzwerkadressen Server dedizierten voll qualifizierten Namen handeln.  
   
@@ -162,11 +162,11 @@ Bei einer Bereitstellung mit mehreren Standorten wird das symmetrische Routing m
   
    3. Teredo-Präfix (optional). Dieses Präfix ist nur relevant, wenn der RAS-Server mit zwei aufeinander folgenden öffentlichen IPv4-Adressen auf dem externen Adapter konfiguriert ist. Das Präfix basiert auf der ersten öffentlichen IPv4-Adresse des Adress Paars. Angenommen, die externen Adressen lauten wie folgt:  
   
-      1. www\.xxx.yyy.zzz  
+      1. www\.xxx. yyy. zzz  
   
-      2. www\.xxx.yyy.zzz + 1  
+      2. www\.xxx. yyy. zzz + 1  
   
-      Dann ist das zu konfigurierenden Teredo-Präfix 2001:0: WWXX: YYZZ::/64, wobei WWXX: YYZZ die hexadezimale Darstellung der IPv4-Adresse www\.xxx.yyy.zzz ist.  
+      Dann ist das zu konfigurierende Teredo-Präfix 2001:0: WWXX: YYZZ::/64, wobei WWXX: YYZZ die hexadezimale Darstellung der IPv4-Adresse www\.xxx. yyy. zzz ist.  
   
       Beachten Sie, dass Sie das folgende Skript verwenden können, um das Teredo-Präfix zu berechnen:  
   
@@ -247,7 +247,7 @@ Der Übergang von einem reinen IPv4-zu einem reinen IPv6-Unternehmensnetzwerk ka
     > [!NOTE]  
     > Stellen Sie beim Installieren einer zusätzlichen DirectAccess-Bereitstellung neben einer aktuellen Bereitstellung sicher, dass keine zwei Einstiegspunkte dasselbe Client Präfix verwenden.  
     >   
-    > Wenn Sie DirectAccess mithilfe des Assistenten für erste Schritte oder mit dem Cmdlet `Install-RemoteAccess` installieren, legt der Remote Zugriff das Client Präfix des ersten Einstiegs Punkts in der Bereitstellung automatisch auf den Standardwert < IPv6-Subnetz @ no__t-1prefix >: 1000::/64 fest. Bei Bedarf müssen Sie das Präfix ändern.  
+    > Wenn Sie DirectAccess mithilfe des Assistenten für erste Schritte oder mit dem-Cmdlet `Install-RemoteAccess`installieren, legt der Remote Zugriff das Client Präfix des ersten Einstiegs Punkts in der Bereitstellung automatisch auf einen Standardwert < IPv6-Subnetz\_Präfix >: 1000::/64 fest. Bei Bedarf müssen Sie das Präfix ändern.  
   
 2.  Entfernen Sie die ausgewählten Client Sicherheitsgruppen aus der ersten Bereitstellung.  
   

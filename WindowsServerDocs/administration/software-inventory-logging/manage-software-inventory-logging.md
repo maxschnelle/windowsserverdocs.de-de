@@ -33,7 +33,7 @@ Die Protokollierung des Software Bestands kann auch zu zwei Versionen von Window
 > [!NOTE] 
 > Vergewissern Sie sich, dass [WMF 4,0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) installiert ist, bevor Sie das Update Paket unten anwenden.
 
--  WMF 4,0-Update Paket für Windows Server 2012: [KB 3119938](https://support.microsoft.com/en-us/kb/3119938)
+-  WMF 4.0-Updatepaket für Windows Server 2012: [KB 3119938](https://support.microsoft.com/en-us/kb/3119938)
 
 - **Windows Server 2008 R2 SP1**
 
@@ -44,7 +44,7 @@ Die Protokollierung des Software Bestands kann auch zu zwei Versionen von Window
 - Erfordert [.NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653)
 
 
-- WMF 4,0-Update Paket für Windows Server 2008 R2: [KB 3109118](https://support.microsoft.com/en-us/kb/3109118)
+- WMF 4.0-Updatepaket für Windows Server 2008 R2: [KB 3109118](https://support.microsoft.com/en-us/kb/3109118)
 
 
 Es gibt bei der Nutzung dieser Funktion zwei primäre Methoden für die Inventur:  
@@ -140,17 +140,17 @@ Wenn die Protokollierung des Softwarebestands von einem Administrator gestartet 
 ## <a name="BKMK_Step3"></a>Anzeigen der Protokollierungs Daten des Software Bestands  
 Neben den im vorherigen Abschnitt beschriebenen PowerShell-Cmdlets stehen Ihnen in sechs weitere Cmdlets zum Sammeln von Daten der Protokollierung des Softwarebestands zur Verfügung:  
   
--   **[Get-silcomputer](https://technet.microsoft.com/library/dn283392.aspx)** : Zeigt sowohl den zeitlichen Verlauf der Werte für bestimmte Server und betriebssystembezogene Daten an, als auch den FQDN oder Hostnamen des physischen Hosts, falls verfügbar.  
+-   **[Get-silcomputer](https://technet.microsoft.com/library/dn283392.aspx)** : zeigt die Zeit Punktwerte für bestimmte Server-und betriebssystembezogene Daten sowie den voll qualifizierten Namen oder den Hostnamen des physischen Hosts an, falls verfügbar.  
   
--   **[Get-silcomputeridentity (KB 3000850)](https://technet.microsoft.com/library/dn858074.aspx)** : Zeigt die von SIL verwendeten Bezeichner für einzelne Server an.  
+-   **[Get-silcomputeridentity (KB 3000850)](https://technet.microsoft.com/library/dn858074.aspx)** : zeigt die von SIL verwendeten Bezeichner für einzelne Server an.  
   
--   **[Get-sildata](https://technet.microsoft.com/library/dn283388.aspx)** : Zeigt den gesammelten zeitlichen Verlauf aller Daten der Protokollierung des Softwarebestands an.  
+-   **[Get-sildata](https://technet.microsoft.com/library/dn283388.aspx)** : zeigt eine Zeit Punkt Sammlung aller Protokollierungs Daten des Software Bestands an.  
   
--   **[Get-silsoftware](https://technet.microsoft.com/library/dn283397.aspx)** : Zeigt die Identität im zeitlichen Verlauf der gesamten auf dem Computer installierten Software an.  
+-   **[Get-silsoftware](https://technet.microsoft.com/library/dn283397.aspx)** : zeigt die Identität des Zeitpunkts für die gesamte auf dem Computer installierte Software an.  
   
--   **[Get-silualaccess](https://technet.microsoft.com/library/dn283389.aspx)** : Zeigt für die vergangenen zwei Tage die Gesamtzahl der eindeutigen Clientanforderungen für Geräte und Benutzer an.  
+-   **[Get-silualaccess](https://technet.microsoft.com/library/dn283389.aspx)** : zeigt die Gesamtanzahl der eindeutigen Client Geräteanforderungen und Client Benutzer Anforderungen des Servers ab zwei Tagen an.  
   
--   **[Get-silwindowsupdate](https://technet.microsoft.com/library/dn283393.aspx)** : Zeigt den zeitlichen Verlauf der Liste aller auf dem Computer installierten Windows-Updates an.  
+-   **[Get-silwindowsupdate](https://technet.microsoft.com/library/dn283393.aspx)** : zeigt den Zeit Punkt der Liste aller auf dem Computer installierten Windows-Updates an.  
   
 Ein typischer Anwendungsfall für Cmdlets zur Protokollierung des Softwarebestands wäre das Abfragen der Protokollierung des Softwarebestands für einen bestimmten Zeitpunkt der gesamten Protokollierung durch einen Administrator mithilfe von [Get-SilSoftware](https://technet.microsoft.com/library/dn283397.aspx).  
   
@@ -210,7 +210,7 @@ Die Protokollierung des Softwarebestands wurde nicht als unternehmenskritische K
   
 2. Öffnen Sie Windows-Explorer.  
   
-3. Wechseln Sie zu " **\windows\system32\logfiles\sil\\**  ".  
+3. Wechseln Sie zu **\windows\system32\logfiles\sil\\**  
   
 4. Löschen Sie alle Dateien im Ordner.  
   
@@ -218,10 +218,10 @@ Die Protokollierung des Softwarebestands wurde nicht als unternehmenskritische K
 Die Protokollierung des Softwarebestands speichert vorübergehend eine stündliche Datenerfassung, wenn die Weiterleitung über das Netzwerk fehlschlägt. Die Protokolldateien werden im Verzeichnis „\Windows\System32\LogFiles\SIL\“ gespeichert. Mit der regelmäßigen Server-Sicherung können auch diese Daten der Protokollierung des Softwarebestands gesichert werden.  
   
 > [!IMPORTANT]  
-> Wenn aus irgendeinem Grund eine Reparaturinstallation oder ein Upgrade des Betriebssystems erforderlich ist, gehen alle lokal gespeicherten Protokolldateien verloren.  Wenn diese Daten wichtig für betriebliche Vorgänge sind, wird empfohlen, sie vor der Installation eines neuen Betriebssystems zu sichern. Führen Sie nach der Reparatur oder Aktualisierung einfach die Wiederherstellung am gleichen Speicherort durch.  
+> Wenn aus irgendeinem Grund eine Reparaturinstallation oder ein Upgrade des Betriebssystems erforderlich ist, gehen alle lokal gespeicherten Protokolldateien verloren.  Wenn diese Daten für Vorgänge wichtig sind, sollten Sie vor der Installation eines neuen Betriebssystems gesichert werden. Führen Sie nach der Reparatur oder Aktualisierung einfach die Wiederherstellung am gleichen Speicherort durch.  
   
 > [!NOTE]  
-> Wenn aus irgendeinem Grund die Verwaltung der Beibehaltungs Dauer von Daten, die lokal von SIL protokolliert werden, wichtig ist, kann dies durch Ändern des Registrierungs Werts hier konfiguriert werden: \HKEY_LOCAL_MACHINE @ no__t-0SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging. Der Standardwert ist "30" für 30 Tage.  
+> Wenn aus irgendeinem Grund die Verwaltung der Beibehaltungs Dauer von Daten, die von SIL lokal protokolliert werden, wichtig ist, kann dies durch Ändern des folgenden Registrierungs Werts konfiguriert werden: \ HKEY_LOCAL_MACHINE\\software\microsoft\windows\softwareinventorylogging. Der Standardwert ist "30" für 30 Tage.  
   
 ## <a name="BKMK_Step6"></a>Lesen und Veröffentlichen von Daten, die von der Protokollierung des Software Bestands  
 Daten, die von SIL protokolliert, aber lokal gespeichert werden (wenn der Forward zum Ziel-URI fehlschlägt), oder Daten, die erfolgreich an den Ziel Aggregations Server weitergeleitet werden, werden in einer Binärdatei gespeichert (für die Daten der einzelnen Tage). Um diese Daten in PowerShell anzuzeigen, verwenden Sie das Cmdlet [Import-BinaryMiLog](https://technet.microsoft.com/library/dn262592.aspx) .  
@@ -235,16 +235,16 @@ Auf alle Daten, die lokal auf einem Windows-Server gespeichert sind (tritt nur a
   
 ## <a name="BKMK_Step8"></a>Arbeiten mit Datums-und Uhrzeit Einstellungen in der Windows Server 2012 R2-Protokollierung des Software Bestands  
   
--   Bei Verwendung von „ [Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) - TimeOfDay“ zum Festlegen des Ausführungszeitpunkts für die SIL-Protokollierung müssen Sie ein Datum und eine Uhrzeit angeben. Das Kalenderdatum wird festgelegt, und die Protokollierung erfolgt erst, wenn das betreffende Datum in der lokalen Systemzeit erreicht wird.  
+-   Bei Verwendung von „ [Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) - TimeOfDay“ zum Festlegen des Ausführungszeitpunkts für die SIL-Protokollierung müssen Sie ein Datum und eine Uhrzeit angeben. Das Kalenderdatum wird festgelegt, und die Protokollierung erfolgt erst, wenn das Datum in der lokalen Systemzeit erreicht ist.  
   
 -   Bei Verwendung von [Get-silsoftware](https://technet.microsoft.com/library/dn283397.aspx)oder [Get-silwindowsupdate](https://technet.microsoft.com/library/dn283393.aspx)zeigt "InstallDate" immer den bedeutungslosen Wert "12:00:00AM" an.  
   
--   Bei Verwendung von [Get-silualaccess](https://technet.microsoft.com/library/dn283389.aspx)zeigt "Sample Date" immer den bedeutungslosen Wert "11:59:00PM" an.  Für diese Cmdlet-Abfragen ist „Date“ entscheidend.  
+-   Bei Verwendung von [Get-silualaccess](https://technet.microsoft.com/library/dn283389.aspx)zeigt "Sample Date" immer den bedeutungslosen Wert "11:59:00PM" an.  Date sind die relevanten Daten für diese Cmdlet-Abfragen.  
   
 ## <a name="BKMK_Step10"></a>Aktivieren und Konfigurieren der Protokollierung des Software Bestands auf einer bereitgestellten virtuellen Festplatte  
 Die Protokollierung des Softwarebestands unterstützt auch das Konfigurieren und Aktivieren auf offline geschalteten virtuellen Computern. Die praktische Verwendung hierfür ist das Einrichten der "Gold Image"-Einrichtung für die weite Bereitstellung in Rechenzentren sowie das Konfigurieren von Endbenutzer Images, die von einem lokalen Standort zu einer cloudbereitstellung ausgehen.  
   
-Um diese Einsatzbereiche zu unterstützen, sind der Protokollierung des Softwarebestands Registrierungseinträge für jede konfigurierbare Option zugeordnet.  Diese Registrierungs Werte finden Sie unter \HKEY_LOCAL_MACHINE @ no__t-0SOFTWARE\Microsoft\Windows\SoftwareInventoryLogging.  
+Um diese Einsatzbereiche zu unterstützen, sind der Protokollierung des Softwarebestands Registrierungseinträge für jede konfigurierbare Option zugeordnet.  Diese Registrierungs Werte finden Sie unter \ HKEY_LOCAL_MACHINE\\software\microsoft\windows\softwareinventorylogging.  
   
 |||||  
 |-|-|-|-|  
@@ -252,7 +252,7 @@ Um diese Einsatzbereiche zu unterstützen, sind der Protokollierung des Software
 |Start/Stopp-Feature|CollectionState|1 oder 0|[Start-SilLogging](https://technet.microsoft.com/library/dn283391.aspx), [Stop-SilLogging](https://technet.microsoft.com/library/dn283394.aspx)|  
 |Legt den Aggregationszielpunkt im Netzwerk fest|TargetUri|String|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TargetURI|  
 |Legt den Zertifikatfingerabdruck oder Hash des Zertifikats für die SSL-Authentifizierung für den Ziel-Webserver fest|CertificateThumbprint|String|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -CertificateThumbprint|  
-|Legt das Datum und die Uhrzeit für den Startzeitpunkt der Funktion fest (sofern der angegebene Wert in der lokalen Systemzeit in der Zukunft liegt)|CollectionTime|Standardwert:  2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
+|Legt das Datum und die Uhrzeit für den Startzeitpunkt der Funktion fest (sofern der angegebene Wert in der lokalen Systemzeit in der Zukunft liegt)|CollectionTime|Standard: 2000-01-01T03:00:00|[Set-SilLogging](https://technet.microsoft.com/library/dn283387.aspx) -TimeOfDay|  
   
 Um diese Werte auf einer offline geschalteten virtuellen Festplatte (VM-Betriebssystem wird nicht ausgeführt) zu ändern, muss die VHD zunächst bereitgestellt werden, und dann können die folgenden Befehle verwendet werden, um Änderungen vorzunehmen.  
   
@@ -280,12 +280,12 @@ Die folgenden Änderungen am Umfang der Protokollierung des Softwarebestands und
 > [!NOTE]  
 > Diese Funktion wird bei Installation des [KB 3000850](https://support.microsoft.com/kb/3000850) -Updates entfernt.  
   
-Wenn Sie die Protokollierung des Software Bestands auf einem Hyper-V-Host unter Windows Server 2012 R2 verwenden, ist es möglich, SIL-Daten von Windows Server 2012 R2-Gast Computern abzurufen, die lokal ausgeführt werden, wenn die SIL-Protokollierung in den Gastbetriebssystemen gestartet wurde. Dies ist jedoch nur bei Verwendung der PowerShell-Cmdlets Get-sildata und Publish-sildata möglich und nur mit Windows Server 2012 R2 sowohl auf dem Host als auch auf dem Gast möglich.  Diese Funktion ermöglicht Administratoren im Rechenzentrum, die Gast-VMs für ihre Mandanten bzw. andere Teilbereiche von Großunternehmen bereitstellen, das Erfassen von Softwarebestandsdaten auf dem Hypervisorhost und das anschließende Weiterleiten dieser Daten an einen Aggregator (oder Ziel-URI).  
+Wenn Sie die Protokollierung des Software Bestands auf einem Hyper-V-Host unter Windows Server 2012 R2 verwenden, ist es möglich, SIL-Daten von Windows Server 2012 R2-Gast Computern abzurufen, die lokal ausgeführt werden, wenn die SIL-Protokollierung in den Gastbetriebssystemen gestartet wurde. Dies ist jedoch nur bei Verwendung der PowerShell-Cmdlets Get-sildata und Publish-sildata möglich und nur mit Windows Server 2012 R2 sowohl auf dem Host als auch auf dem Gast möglich.  Der Zweck dieser Funktion besteht darin, Administratoren von Rechenzentren, die Gast-VMs für Mandanten oder andere Entitäten eines großen Unternehmens bereitstellen, das Erfassen von Software Inventur Daten auf dem Hypervisor-Host und das anschließende Weiterleiten dieser Daten an einen Aggregator (oder Ziel-URI).  
   
-Im folgenden finden Sie zwei Beispiele dafür, wie die Ausgabe in der PowerShell-Konsole auf einem Windows Server 2012 R2 Hyper-V-Host, auf dem eine Windows Server 2012 R2-Gast-VM ausgeführt wird, mit der SIL-Protokollierung gestartet wird.  Im ersten Beispiel, in dem nur Get-SilData verwendet wird, werden erwartungsgemäß alle Daten vom Host ausgegeben.  Ebenfalls enthalten sind alle SIL-Daten des Gasts, jedoch in einem reduzierten Format.  Um diese Daten vom Gast zu erweitern und anzuzeigen, verwenden Sie einfach per Ausschneiden und Einfügen das unten im zweiten Beispiel gezeigte Fragment.  SDl-Datenobjekte des Gasts besitzen immer die mit dem Objekt verknüpfte VM-GUID.  
+Im folgenden finden Sie zwei Beispiele dafür, wie die Ausgabe in der PowerShell-Konsole auf einem Windows Server 2012 R2 Hyper-V-Host, auf dem eine Windows Server 2012 R2-Gast-VM ausgeführt wird, mit der SIL-Protokollierung gestartet wird.  Sie werden feststellen, dass im ersten Beispiel, in dem "Get-sildata" allein verwendet wird, alle Daten von dem Host wie erwartet ausgegeben werden.  Ebenfalls enthalten sind alle SIL-Daten des Gasts, jedoch in einem reduzierten Format.  Um diese Daten vom Gast zu erweitern und anzuzeigen, schneiden Sie einfach den im zweiten Beispiel verwendeten Ausschnitt aus, und fügen Sie ihn ein.  SIL-Datenobjekte vom Gast verfügen immer über die VM-GUID, die dem Objekt zugeordnet ist.  
   
 > [!NOTE]  
-> Da SIL-Daten auf der Konsole ausgegeben werden, werden bei Verwendung des Get-SilData-Cmdlets mit Datenströmen die Objekte nicht immer in vorhersehbarer Reihenfolge ausgegeben.  In beiden folgenden Beispielen wurde der Text nur zur Veranschaulichung farblich gekennzeichnet (Daten physischer Hosts in Blau, Daten virtueller Gäste in Grün).  
+> Da SIL-Daten auf der Konsole ausgegeben werden, werden bei Verwendung des Get-SilData-Cmdlets mit Datenströmen die Objekte nicht immer in vorhersehbarer Reihenfolge ausgegeben.  In den beiden folgenden Beispielen wurde der Text farblich (blau für physische Hostdaten und grün für virtuelle Gastdaten) als Illustrations Tool für dieses Dokument codiert.  
   
 **Ausgabe Beispiel 1**  
   
@@ -295,7 +295,7 @@ Im folgenden finden Sie zwei Beispiele dafür, wie die Ausgabe in der PowerShell
   
 ![](../media/software-inventory-logging/SILHyper-VExample2.png)  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Beginnen Sie mit der Protokollierung des Software Bestands](get-started-with-software-inventory-logging.md)  
 [Aggregator der Protokollierung des Softwarebestands](software-inventory-logging-aggregator.md)  
 [Cmdlets für die Protokollierung des Software Bestands in Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)  

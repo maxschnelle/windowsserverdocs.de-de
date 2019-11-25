@@ -17,7 +17,7 @@ ms.locfileid: "71405459"
 ---
 # <a name="configure-remote-radius-server-groups"></a>Konfigurieren von RADIUS-Remoteservergruppen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Sie können dieses Thema verwenden, um RADIUS-Remote Server Gruppen zu konfigurieren, wenn Sie NPS so konfigurieren möchten, dass Sie als Proxy Server fungieren und Verbindungsanforderungen zur Verarbeitung an andere NPSS weiterleiten.
 
@@ -37,11 +37,11 @@ Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft i
 1. Klicken Sie in Server-Manager auf **Extras, und**klicken Sie dann auf **Netzwerk Richtlinien Server** , um die NPS-Konsole zu öffnen.
 2. Doppelklicken Sie in der Konsolen Struktur auf **RADIUS-Clients und-Server**, klicken Sie mit der rechten Maustaste auf RADIUS- **Remote Server Gruppen**, und klicken Sie dann auf **neu**.
 3. Das Dialogfeld **neue Remote-RADIUS-Server Gruppe** wird geöffnet. Geben Sie unter **Gruppenname**einen Namen für die Remote-RADIUS-Server Gruppe ein.
-4. Klicken Sie **in RADIUS-Server**auf **Hinzufügen**. Das Dialogfeld **RADIUS-Server hinzufügen** wird geöffnet. Geben Sie die IP-Adresse des RADIUS-Servers ein, den Sie der Gruppe hinzufügen möchten, oder geben Sie den voll qualifizierten Domänen Namen \(fqdn @ no__t-1 des RADIUS-Servers ein, und klicken Sie dann auf **überprüfen**.
-5. Klicken Sie im Dialogfeld **RADIUS-Server hinzufügen** auf die Registerkarte **Authentifizierung/Kontoführung**. Geben Sie unter **gemeinsames Geheimnis** und **gemeinsames Geheimnis bestätigen**den gemeinsamen geheimen Schlüssel ein. Sie müssen den gleichen gemeinsamen geheimen Schlüssel verwenden, wenn Sie den lokalen Computer als RADIUS-Client auf dem RADIUS-Remote Server konfigurieren.
+4. Klicken Sie **in RADIUS-Server**auf **Hinzufügen**. Das Dialogfeld **RADIUS-Server hinzufügen** wird geöffnet. Geben Sie die IP-Adresse des RADIUS-Servers ein, den Sie der Gruppe hinzufügen möchten, oder geben Sie den voll qualifizierten Domänen Namen \(FQDN\) des RADIUS-Servers ein, und klicken Sie dann auf **überprüfen**.
+5. Klicken Sie in **RADIUS-Server hinzufügen**auf die Registerkarte **Authentifizierung/Kontoführung** . Geben Sie unter **gemeinsames Geheimnis** und **gemeinsames Geheimnis bestätigen**den gemeinsamen geheimen Schlüssel ein. Sie müssen den gleichen gemeinsamen geheimen Schlüssel verwenden, wenn Sie den lokalen Computer als RADIUS-Client auf dem RADIUS-Remote Server konfigurieren.
 6. Wenn Sie das Extensible Authentication Protocol (EAP) nicht für die Authentifizierung verwenden, **muss die Click-Anforderung das Message Authenticator-Attribut enthalten**. EAP verwendet standardmäßig das Message-Authenticator-Attribut.
 7. Vergewissern Sie sich, dass die Portnummern für Authentifizierung und Buchhaltung für Ihre Bereitstellung korrekt sind.
-8. Wenn Sie für die Kontoführung einen anderen gemeinsamen geheimen Schlüssel verwenden, deaktivieren Sie das Kontrollkästchen **dasselbe gemeinsame Geheimnis für Authentifizierung und Kontoführung verwenden** , und geben Sie dann den gemeinsamen geheimen Schlüssel der **Buchhaltung in** **gemeinsames Geheimnis** ein, und **bestätigen Sie Shared. geheimer**Schlüssel.
+8. Wenn Sie für die Kontoführung einen anderen gemeinsamen geheimen Schlüssel verwenden, deaktivieren Sie das Kontrollkästchen **dasselbe gemeinsame Geheimnis für Authentifizierung und Kontoführung verwenden** , und geben Sie dann den gemein **Samen geheimen Schlüssel**für die **Buchhaltung im** **gemeinsamen geheimen** Schlüssel ein.
 9. Wenn Sie keine Nachrichten zum Starten und Beenden des Netzwerk Zugriffs Servers an den Remote-RADIUS-Server weiterleiten möchten, deaktivieren Sie das Kontrollkästchen **Netzwerk Zugriffs Server-Benachrichtigungen an diesen Server starten und beenden** .
 
 Weitere Informationen zum Verwalten von NPS finden Sie unter [Verwalten des Netzwerk Richtlinien Servers](nps-manage-top.md).

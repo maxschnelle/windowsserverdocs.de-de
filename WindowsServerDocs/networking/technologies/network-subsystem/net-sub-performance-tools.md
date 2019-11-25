@@ -18,7 +18,7 @@ ms.locfileid: "71405516"
 ---
 # <a name="performance-tools-for-network-workloads"></a>Leistungstools für Netzwerkauslastungen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema finden Sie Informationen zu Leistungs Tools.
 
@@ -26,13 +26,13 @@ Dieses Thema enthält Abschnitte zum Tool "Client-zu-Server-Datenverkehr", "TCP/
 
 ##  <a name="bkmk_tuning"></a>Client-zu-Server-Traffic Tool
 
-Der Client-zu-Server-Datenverkehr \(ctstraffic @ no__t-1-Tool bietet die Möglichkeit, Netzwerk Datenverkehr zu erstellen und zu überprüfen.
+Der Client-zu-Server-Datenverkehr \(ctstraffic\) Tool bietet Ihnen die Möglichkeit, Netzwerk Datenverkehr zu erstellen und zu überprüfen.
 
 Weitere Informationen und zum Herunterladen des Tools finden Sie unter [ctstraffic (Client-zu-Server-Datenverkehr)](https://github.com/Microsoft/ctsTraffic).
   
 ##  <a name="bkmk_size"></a>Größe des TCP/IP-Fensters
 
-Bei 1-GB-Adaptern sollten die in der vorherigen Tabelle gezeigten Einstellungen einen guten Durchsatz bereitstellen, da ntttcp für die Verbindung die standardmäßige TCP-Fenstergröße auf 64 K durch eine bestimmte logische Prozessor Option \(SO_RCVBUF @ no__t-1 festlegt. Dies ermöglicht eine gute Leistung in einem Netzwerk mit geringer Latenz.  
+Bei 1-GB-Adaptern sollten die in der vorherigen Tabelle gezeigten Einstellungen einen guten Durchsatz bereitstellen, da ntttcp die standardmäßige TCP-Fenstergröße durch eine bestimmte logische Prozessor Option \(SO_RCVBUF\) für die Verbindung auf 64 K festlegt. Dies ermöglicht eine gute Leistung in einem Netzwerk mit geringer Latenz.  
 
 Im Gegensatz dazu ergibt bei Netzwerken mit hoher Latenz oder bei 10-GB-Adaptern der Standardwert für die TCP-Fenstergröße für ntttcp eine geringere Leistung als die optimale Leistung. In beiden Fällen müssen Sie die TCP-Fenstergröße anpassen, um das größere Bandbreiten Verzögerungs Produkt zuzulassen.  
 
@@ -40,7 +40,7 @@ Sie können die TCP-Fenstergröße mit der Option **-RB** statisch auf einen gro
 
 ##  <a name="bkmk_advisor"></a>Microsoft Server Performance Advisor
 
-Microsoft Server Performance Advisor \(spa @ no__t-1 unterstützt IT-Administratoren bei der Erfassung von Metriken zum identifizieren, vergleichen und diagnostizieren potenzieller Leistungsprobleme in Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008-Bereitstellung. 
+Microsoft Server Performance Advisor \(Spa\) unterstützt IT-Administratoren beim Sammeln von Metriken, um potenzielle Leistungsprobleme in einer Windows Server 2016-, Windows Server 2012 R2-, Windows Server 2012-, Windows Server 2008 R2-oder Windows Server 2008-Bereitstellung zu identifizieren, zu vergleichen und zu diagnostizieren. 
 
 Spa generiert umfassende Diagnose Berichte und Diagramme und bietet Empfehlungen, mit denen Sie Probleme schnell analysieren und Korrekturmaßnahmen entwickeln können.  
   

@@ -41,30 +41,30 @@ typeperf -qx [object] [options]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<counter [Counter [...]] >|Gibt die zu überwachenden Leistungsindikatoren an.|
+|\<Counter [...]] >|Gibt die zu überwachenden Leistungsindikatoren an.|
 
 > [!NOTE]
-> **\< Counter >** ist der vollständige Name eines Leistungs Zählers im *\\ @ no__t-4Computer\Object (Instance) \Counter* -Format, z. b. **\\ @ no__t-7Server1\Processor (0) \%-Benutzer Zeit**.
+> **\<Counter >** ist der vollständige Name eines Leistungs Zählers im *\\\\computer\object (Instance) \Counter* -Format, z. b. **\\\\Server1\Processor (0)\% Benutzer Zeit**.
 
 ## <a name="options"></a>Optionen
 
 |                   Option                   |                                                         Beschreibung                                                          |
 |--------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 |                     -?                     |                                               Zeigt die kontextbezogene Hilfe an.                                               |
-| -f \<csv @ no__t-1tsv @ no__t-2bin @ no__t-3sql > |                                    Gibt das Format der Ausgabedatei an. Der Standardwert ist CSV.                                     |
-|              -CF \<filename >               |              Gibt eine Datei an, die eine Liste der zu überwachenden Leistungsindikatoren mit einem Zähler pro Zeile enthält.               |
+| -f \<CSV&verbar;TSV&verbar;bin&verbar;SQL > |                                    Gibt das Format der Ausgabedatei an. Der Standardwert ist CSV.                                     |
+|              -CF \<Dateiname >               |              Gibt eine Datei an, die eine Liste der zu überwachenden Leistungsindikatoren mit einem Zähler pro Zeile enthält.               |
 |             -Si < [[hh:] mm:] SS >             |                                  Gibt das Stichproben Intervall an. Der Standardwert ist 1 Sekunde.                                   |
-|               -o \<filename >               |     Gibt den Pfad für die Ausgabedatei oder die SQL-Datenbank an. Der Standardwert ist stdout (in das Befehlsfenster geschrieben).      |
-|                -q [Objekt]                 | Zeigt eine Liste installierter Leistungsindikatoren (keine Instanzen) an. Zum Auflisten der Zähler für ein Objekt fügen Sie den Objektnamen ein. \* @ NO__T-1 @ NO__T-2EXAMPLE |
+|               -o \<Dateiname >               |     Gibt den Pfad für die Ausgabedatei oder die SQL-Datenbank an. Der Standardwert ist stdout (in das Befehlsfenster geschrieben).      |
+|                -q [Objekt]                 | Zeigt eine Liste installierter Leistungsindikatoren (keine Instanzen) an. Zum Auflisten der Zähler für ein Objekt fügen Sie den Objektnamen ein. \*\*\*Beispiel |
 |                -QX [Objekt]                |        Zeigt eine Liste installierter Leistungsindikatoren mit Instanzen an. Zum Auflisten der Zähler für ein Objekt fügen Sie den Objektnamen ein.        |
-|               -SC \<samples >               |             Gibt die Anzahl der zu sammelnden Stichproben an. Der Standardwert ist das Sammeln von Daten, bis STRG + C gedrückt wird.              |
-|            -Konfigurations \<Dateiname >             |                                    Gibt eine Einstellungsdatei an, die Befehlsoptionen enthält.                                     |
+|               -SC \<Beispiele >               |             Gibt die Anzahl der zu sammelnden Stichproben an. Der Standardwert ist das Sammeln von Daten, bis STRG + C gedrückt wird.              |
+|            -config \<filename >             |                                    Gibt eine Einstellungsdatei an, die Befehlsoptionen enthält.                                     |
 |            -s \<computer_name >             |                   Gibt einen Remote Computer an, der überwacht werden soll, wenn im Verbindungs Pfad kein Computer angegeben ist.                    |
 |                     -y                     |                                        Antworten Sie auf Ja, um alle Fragen zu beantworten.                                        |
 
 ## <a name="BKMK_EXAMPLES"></a>Beispiele
 
-- Im folgenden Beispiel werden die Werte für den Leistungsdaten Bereich des lokalen Computers **\\ @ no__t-2processor (_Total) \%-Prozessorzeit** in das Befehlsfenster in einem standardmäßigen Stichproben Intervall von 1 Sekunde geschrieben, bis STRG + C gedrückt wird.  
+- Im folgenden Beispiel werden die Werte für den Leistungsdaten Bereich des lokalen Computers **\\\\Prozessorzeit (_Total)\% Prozessorzeit** in das Befehlsfenster in einem standardmäßigen Stichproben Intervall von 1 Sekunde geschrieben, bis STRG + C gedrückt wird.  
   ```
   typeperf "\Processor(_Total)\% Processor Time"
   ```  

@@ -38,17 +38,17 @@ reg query <KeyName> [{/v <ValueName> | /ve}] [/s] [/se <Separator>] [/f <Data>] 
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<keyname >|Gibt den vollständigen Pfad des unter Schlüssels an. Wenn Sie Remote Computer angeben, schließen Sie den Computernamen (im Format \\ @ no__t-1computername @ no__t-2 als Teil des *keyName*-Steuerelement ein. Wenn \\ @ no__t-1computername \ weggelassen wird, wird der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: "HKLM", "HKCU", "HKCR", "HKU" und "HKCC" Wenn ein Remote Computer angegeben wird, sind gültige Stamm Schlüssel: HKLM und HKU.|
-|/v \<valuename >|Gibt den Namen des Registrierungs Werts an, der abgefragt werden soll. Wenn der Wert nicht ausgelassen wird, werden alle Wert Namen für *keyName* zurückgegeben. *ValueName* für diesen Parameter ist optional, wenn auch die Option **/f** verwendet wird.|
+|\<KeyName >|Gibt den vollständigen Pfad des unter Schlüssels an. Zum Angeben von Remote Computern müssen Sie den Computernamen (im Format \\\\Computername als Teil des *keyName*-\) einschließen. Wenn \\\\Computername \ weggelassen wird, wird der Vorgang standardmäßig auf dem lokalen Computer durchgesetzt. Der *keyName* muss einen gültigen Stamm Schlüssel enthalten. Gültige Stamm Schlüssel für den lokalen Computer sind: HKLM, HKCU, HKCR, HKU und HKCC. Wenn ein Remote Computer angegeben ist, lauten gültige Stamm Schlüssel: HKLM und HKU.|
+|/v \<valueName >|Gibt den Namen des Registrierungs Werts an, der abgefragt werden soll. Wenn der Wert nicht ausgelassen wird, werden alle Wert Namen für *keyName* zurückgegeben. *ValueName* für diesen Parameter ist optional, wenn auch die Option **/f** verwendet wird.|
 |/ve|Führt eine Abfrage für Werte Namen aus, die leer sind.|
 |/s|Gibt an, dass alle Unterschlüssel und Wertnamen rekursiv abgefragt werden sollen.|
-|/SE \<trennzeichen >|Gibt das einzelne Wert Trennzeichen an, nach dem im wertnamenstyp REG_MULTI_SZ gesucht werden soll. Wenn *Separator* nicht angegeben wird, wird **\ 0** verwendet.|
-|/f \<data >|Gibt die zu suchenden Daten oder Muster an. Verwenden Sie doppelte Anführungszeichen, wenn eine Zeichenfolge Leerzeichen enthält. Wenn kein Wert angegeben wird, wird **&#42;** ein Platzhalter Zeichen () als Suchmuster verwendet.|
+|/SE \<Trennzeichen >|Gibt das einzelne Wert Trennzeichen an, nach dem in der wertnamensart REG_MULTI_SZ gesucht werden soll. Wenn *Separator* nicht angegeben wird, wird **\ 0** verwendet.|
+|/f \<Daten >|Gibt die zu suchenden Daten oder Muster an. Verwenden Sie doppelte Anführungszeichen, wenn eine Zeichenfolge Leerzeichen enthält. Wenn kein Wert angegeben wird, wird **&#42;** ein Platzhalter Zeichen () als Suchmuster verwendet.|
 |/k|Gibt an, dass nur in Schlüsselnamen gesucht werden soll.|
 |/d|Gibt an, dass nur Daten durchsucht werden sollen.|
 |/c|Gibt an, dass bei der Abfrage groß-und Kleinschreibung Standardmäßig wird bei Abfragen die Groß-/Kleinschreibung nicht beachtet.|
 |/e|Gibt an, dass nur genaue Übereinstimmungen zurückgegeben werden. Standardmäßig werden alle Übereinstimmungen zurückgegeben.|
-|/t \<type >|Gibt die zu durchsuchenden Registrierungs Typen an. Gültige Typen: REG_SZ, REG_MULTI_SZ, REG_EXPAND_SZ, REG_DWORD, REG_BINARY, REG_NONE. Wenn nicht angegeben, werden alle Typen durchsucht.|
+|/t \<Typ >|Gibt die zu durchsuchenden Registrierungs Typen an. Gültige Typen sind: REG_SZ, REG_MULTI_SZ, REG_EXPAND_SZ, REG_DWORD, REG_BINARY REG_NONE. Wenn nicht angegeben, werden alle Typen durchsucht.|
 |"/z|Gibt an, dass die numerische Entsprechung für den Registrierungstyp in den Suchergebnissen enthalten soll.|
 |/?|Zeigt die Hilfe für die **reg-Abfrage** an der Eingabeaufforderung an.|
 
@@ -56,9 +56,9 @@ reg query <KeyName> [{/v <ValueName> | /ve}] [/s] [/se <Separator>] [/f <Data>] 
 
 In der folgenden Tabelle sind die Rückgabewerte für den **reg-Abfrage** Vorgang aufgeführt.
 
-|Wert|Description|
+|Wert|Beschreibung|
 |-----|-----------|
-|0|Erfolgreich|
+|0|Möglich|
 |1|Nicht möglich|
 
 ## <a name="BKMK_examples"></a>Beispiele
@@ -71,7 +71,7 @@ Wenn Sie alle untergeordneten Schlüssel und Werte unter dem Schlüssel HKLM\Sof
 ```
 REG QUERY \\ABC\HKLM\Software\Microsoft\ResKit\Nt\Setup /s
 ```
-Wenn Sie alle Unterschlüssel und Werte des Typs REG_MULTI_SZ mit **#** als Trennzeichen anzeigen möchten, geben Sie Folgendes ein:
+Wenn Sie alle Unterschlüssel und Werte des Typs REG_MULTI_SZ mithilfe **#** als Trennzeichen anzeigen möchten, geben Sie Folgendes ein:
 ```
 REG QUERY HKLM\Software\Microsoft\ResKit\Nt\Setup /se #
 ```
@@ -79,7 +79,7 @@ Geben Sie Folgendes ein, um den Schlüssel, den Wert und die Daten für exakte u
 ```
 REG QUERY HKLM /f SYSTEM /t REG_SZ /c /e
 ```
-Um den Schlüssel, den Wert und die Daten anzuzeigen, die mit **0F** in den Daten unter dem HKCU-Stamm Schlüssel des Datentyps REG_BINARY identisch sind.
+Um den Schlüssel, den Wert und die Daten anzuzeigen, die mit **0F** in den Daten unter dem HKCU-Stamm Schlüssel des Datentyps identisch sind, REG_BINARY.
 ```
 REG QUERY HKCU /f 0F /d /t REG_BINARY
 ```

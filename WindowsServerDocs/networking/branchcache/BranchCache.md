@@ -21,7 +21,7 @@ ms.locfileid: "71406767"
 ---
 # <a name="branchcache"></a>BranchCache
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Thema, das sich an IT-Spezialisten richtet, bietet eine Übersicht über BranchCache, einschließlich der Modi, Features und Funktionen von BranchCache sowie der BranchCache-Funktionalität, die auf unterschiedlichen Betriebssystemen verfügbar ist.
 
@@ -45,7 +45,7 @@ BranchCache kann für Systemadministratoren, Netzwerk- oder Speicherlösungsarch
 
 - Auf den Client Computern in ihren Zweigstellen wird Windows 10, Windows 8.1, Windows 8 oder Windows 7 ausgeführt.
 
-Dieses Thema enthält die folgenden Abschnitte:
+Das Thema umfasst die folgenden Abschnitte:
 
 -   [Was ist BranchCache?](#bkmk_what)
 
@@ -188,13 +188,13 @@ Der die geänderte Datei durch einen anderen Client in einer Zweigstelle angefor
 
 Sie können Server-Manager in Windows Server 2016 verwenden, um entweder das BranchCache-Feature oder den Rollen Dienst "BranchCache für Netzwerkdateien" der Server Rolle "Dateidienste" zu installieren. Anhand der folgenden Tabelle können Sie feststellen, ob Sie den Rollendienst oder das Feature installieren sollten.
 
-|Funktionalität|Computerstandort|Zu installierendes BranchCache-Element|
+|Funktion|Computerstandort|Zu installierendes BranchCache-Element|
 |-----------------|---------------------|------------------------------------|
-|Inhalts Server \(bits-basierter Anwendungsserver @ no__t-1|Zentrale oder Cloudrechenzentrum|BranchCache-Feature|
-|Inhalts Server \(web Server @ no__t-1|Zentrale oder Cloudrechenzentrum|BranchCache-Feature|
-|Inhalts Server \(file-Server unter Verwendung des SMB-Protokolls @ no__t-1|Zentrale oder Cloudrechenzentrum|Rollendienst %%amp;quot;BranchCache für Netzwerkdateien%%amp;quot; der Serverrolle %%amp;quot;Dateidienste%%amp;quot;|
+|Inhalts Server \(Bits-basierter Anwendungsserver\)|Zentrale oder Cloudrechenzentrum|BranchCache-Feature|
+|Inhalts Server \(Webserver\)|Zentrale oder Cloudrechenzentrum|BranchCache-Feature|
+|Inhalts Server \(Dateiserver mit dem SMB-Protokoll\)|Zentrale oder Cloudrechenzentrum|Rollendienst %%amp;quot;BranchCache für Netzwerkdateien%%amp;quot; der Serverrolle %%amp;quot;Dateidienste%%amp;quot;|
 |Gehosteter Cacheserver|Filiale|BranchCache-Feature mit aktiviertem gehostetem Cacheservermodus|
-|BranchCache-fähiger Clientcomputer|Filiale|Keine Installation erforderlich. Aktivieren Sie einfach BranchCache und einen BranchCache-Modus \(verteiltes oder gehosteter @ no__t-1 auf dem Client.|
+|BranchCache-fähiger Clientcomputer|Filiale|Keine Installation erforderlich. Aktivieren Sie einfach BranchCache und einen BranchCache-Modus \(verteilten oder gehosteten\) auf dem Client.|
 
 Öffnen Sie zum Installieren des Rollendiensts oder des Features den Server-Manager, und wählen Sie die Computer aus, für die die BranchCache-Funktion aktiviert werden soll. Klicken Sie im Server-Manager auf **Verwalten**und dann auf **Rollen und Features hinzufügen**. Der **Assistent zum Hinzufügen von Rollen und Features** wird geöffnet. Wählen Sie im Assistenten die folgenden Optionen aus:
 
@@ -322,19 +322,19 @@ Darüber hinaus werden in BranchCache Inhaltsinformationen mit demselben Sicherh
 
 Der Fluss der Inhaltsinformationen und des tatsächlichen Inhalts ist in vier Phasen unterteilt:
 
-1.  [branchcache-Prozesse: Anforderungs Inhalt @ no__t-0
+1.  [BranchCache-Prozesse: Inhalt anfordern](#BKMK_8)
 
-2.  [branchcache-Prozesse: Inhalt suchen @ no__t-0
+2.  [BranchCache-Prozesse: Inhalt suchen](#BKMK_9)
 
-3.  [branchcache-Prozesse: Inhalt abrufen @ no__t-0
+3.  [BranchCache-Prozesse: Inhalt abrufen](#BKMK_10)
 
-4.  [branchcache-Prozesse: Cache Inhalt @ no__t-0
+4.  [BranchCache-Prozesse: Cache Inhalt](#BKMK_11)
 
 Diese Phasen werden in den folgenden Abschnitten beschrieben.
 
 ## <a name="BKMK_8"></a>BranchCache-Prozesse: Inhalt anfordern
 
-In der ersten Phase wird durch den Clientcomputer in der Filiale Inhalt, z. B. eine Datei oder eine Webseite, von einem Inhaltsserver an einem Remotestandort, wie der Zentrale, angefordert. Durch den Inhaltsserver wird überprüft, ob der Clientcomputer für den Empfang des angeforderten Inhalts autorisiert ist. Wenn der Client Computer autorisiert ist und sowohl der Inhalts Server als auch der Client den BranchCache @ no__t-0aktiviert haben, generiert der Inhalts Server Inhaltsinformationen.
+In der ersten Phase wird durch den Clientcomputer in der Filiale Inhalt, z. B. eine Datei oder eine Webseite, von einem Inhaltsserver an einem Remotestandort, wie der Zentrale, angefordert. Durch den Inhaltsserver wird überprüft, ob der Clientcomputer für den Empfang des angeforderten Inhalts autorisiert ist. Wenn der Client Computer autorisiert ist und sowohl der Inhalts Server als auch der Client den BranchCache-\-aktiviert sind, generiert der Inhalts Server Inhaltsinformationen.
 
 Die Inhaltsinformationen werden dann vom Inhaltsserver an den Clientcomputer gesendet und zwar mit demselben Protokoll, das für den tatsächlichen Inhalt verwendet werden würde. 
 
@@ -352,7 +352,7 @@ Die Hauptbedrohung auf dieser Ebene ist die Gefährdung des Segmentschlüssels, 
 
 Durch dieses Vorgehen wird sichergestellt, dass der tatsächliche Inhalt in einem Datenblock nur durch eine Entität, die im Besitz des Serverschlüssels ist, gefunden werden kann. Der Segmentschlüssel wird mit demselben Sicherheitsgrad wie das Klartextsegment behandelt, weil mit dem Segmentschlüssel für ein gegebenes Segment dieses Segment durch eine Entität von Peers abgerufen und dann entschlüsselt werden kann. Über den Serverschlüssel wird nicht unmittelbar ein bestimmter Klartext preisgegeben, aber damit können bestimmte Datentypen aus dem Verschlüsselungstext abgeleitet und dann möglicherweise teilweise bekannte Daten für einen Brute-Force-Angriff verfügbar gemacht werden. Der Serverschlüssel sollte deshalb vertraulich behandelt werden.
   
-## <a name="BKMK_9"></a>BranchCache-Prozesse: Inhalte suchen
+## <a name="BKMK_9"></a>BranchCache-Prozesse: Inhalt suchen
 
 Nach dem Empfang der Inhaltsinformationen wird durch den Clientcomputer anhand der Segment-ID der angeforderte Inhalt im lokalen Cache der Filiale gesucht. Dieser Cache kann dabei über mehrere Clientcomputer verteilt sein oder sich auf einem gehosteten Cacheserver befinden.
 
@@ -376,7 +376,7 @@ Der empfangene Inhalt wird dem lokalen Cache hinzugefügt, entweder auf dem Clie
 
 Nachdem der gewünschte Inhalt auf dem Inhaltshost - entweder einem gehosteten Cacheserver oder einem Clientcomputer im verteilten Cachemodus - gefunden wurde, beginnt das Abrufen des Inhalts.
 
-Zuerst wird durch den Clientcomputer eine Anforderung für den ersten erforderlichen Block an den Inhaltshost gesendet. Die Anforderung enthält die Segment-ID und den Blockbereich zur Identifizierung des gewünschten Inhalts. Da nur ein Block zurückgegeben wird, enthält der Blockbereich nur einen einzelnen Block. (Anforderungen für mehrere Blöcke werden derzeit nicht unterstützt.) Die Anforderung wird durch den Client auch in der lokalen Liste der ausstehenden Anforderungen gespeichert.  
+Zuerst wird durch den Clientcomputer eine Anforderung für den ersten erforderlichen Block an den Inhaltshost gesendet. Die Anforderung enthält die Segment-ID und den Blockbereich zur Identifizierung des gewünschten Inhalts. Da nur ein Block zurückgegeben wird, enthält der Blockbereich nur einen einzelnen Block. (Anforderungen für mehrere Blöcke werden zurzeit nicht unterstützt.) Der Client speichert die Anforderung auch in der Liste der lokalen ausstehenden Anforderungen.  
 
 Beim Empfang einer gültigen Anforderungs Nachricht von einem Client überprüft der Inhalts Host, ob der in der Anforderung angegebene Block im Inhalts Cache des Inhalts Hosts vorhanden ist.
 
@@ -421,7 +421,7 @@ Zu den Hauptbedrohungen auf dieser Ebene zählen:
 
     *Ein Client ist überlastet, weil zu viele Datenanforderungen an ihn gesendet wurden*. BranchCache-Protokolle enthalten Zähler und Zeitgeber für die Warteschlangenverwaltung, um die Überlastung von Clients zu verhindern.
 
-## <a name="BKMK_11"></a>BranchCache-Prozesse: Inhalt zwischenspeichern
+## <a name="BKMK_11"></a>BranchCache-Prozesse: Cache Inhalt
 
 Auf Clientcomputern im verteilten Cachemodus und gehosteten Cacheservern in Filialen werden Inhaltscaches im Laufe der Zeit mit dem Abrufen von Inhalt über WAN-Verbindungen aufgebaut.
 
@@ -448,7 +448,7 @@ Damit der gehostete Cacheserver mit dem Protokoll für gehostete Caches aktualis
 
 ### <a name="hosted-cache-mode-cache-population"></a>Auffüllen des Caches im gehosteten Cachemodus
 
-Der Vorgang zum Hinzufügen von Inhalt zum Cache des gehosteten Cache Servers in einer Zweigniederlassung beginnt, wenn der Client eine INITIAL_OFFER_MESSAGE sendet, die die Segment-ID enthält. Die Segment-ID in der INITIAL_OFFER_MESSAGE-Anforderung wird verwendet, um den entsprechenden Segment Hash von Daten, die Liste der Blockhashes und das Segment Geheimnis aus dem Block Cache des gehosteten Cache Servers abzurufen. Wenn auf dem gehosteten Cacheserver bereits die Inhaltsinformationen für ein bestimmtes Segment vorhanden sind, lautet die Antwort auf die „INITIAL_OFFER_MESSAGE“-Anforderung „OK“, und es erfolgt keine Anforderung zum Herunterladen von Blöcken.
+Der Vorgang zum Hinzufügen von Inhalt zum Cache des gehosteten Cache Servers in einer Zweigniederlassung beginnt, wenn der Client eine INITIAL_OFFER_MESSAGE sendet, die die Segment-ID enthält. Die Segment-ID in der INITIAL_OFFER_MESSAGE Anforderung wird verwendet, um den entsprechenden Segment Hash von Daten, die Liste der Blockhashes und das Segment Geheimnis aus dem Block Cache des gehosteten Cache Servers abzurufen. Wenn auf dem gehosteten Cacheserver bereits die Inhaltsinformationen für ein bestimmtes Segment vorhanden sind, lautet die Antwort auf die „INITIAL_OFFER_MESSAGE“-Anforderung „OK“, und es erfolgt keine Anforderung zum Herunterladen von Blöcken.
 
 Wenn auf dem gehosteten Cacheserver nicht alle angebotenen Datenblöcke vorhanden sind, die den Blockhashes in dem Segment zugeordnet sind, lautet die Antwort auf die „INITIAL_OFFER_MESSAGE“-Anforderung „INTERESTED“. Der Client sendet dann die %%amp;quot;SEGMENT_INFO_MESSAGE%%amp;quot;-Anforderung, in der das einzelne angebotene Segment beschrieben ist. Als Antwort wird durch den gehosteten Cacheserver eine %%amp;quot;OK%%amp;quot;-Nachricht gesendet und das Herunterladen der fehlenden Blöcke vom anbietenden Clientcomputer initiiert.
 

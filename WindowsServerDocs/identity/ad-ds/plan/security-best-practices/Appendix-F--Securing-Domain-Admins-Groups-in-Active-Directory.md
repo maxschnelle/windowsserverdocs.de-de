@@ -16,21 +16,21 @@ ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71408695"
 ---
-# <a name="appendix-f-securing-domain-admins-groups-in-active-directory"></a>Anhang F: Sichern von Domänen-Admins-Gruppen in Active Directory
+# <a name="appendix-f-securing-domain-admins-groups-in-active-directory"></a>Anhang F: Schützen von Domänenadministratorgruppen in Active Directory
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-## <a name="appendix-f-securing-domain-admins-groups-in-active-directory"></a>Anhang F: Sichern von Domänen-Admins-Gruppen in Active Directory  
-Wie bei der Gruppe der Organisations-Admins (Enterprise Admins, EA) sollte die Mitgliedschaft in der Gruppe Domänen-Admins (da) nur bei Build-oder Notfall Wiederherstellungs Szenarios erforderlich sein. Es dürfen keine alltäglichen Benutzerkonten in der Gruppe "da" vorhanden sein, mit Ausnahme des integrierten Administrator Kontos für die Domäne, sofern Sie wie in [anhang D beschrieben gesichert wurde: Sichern integrierter Administrator Konten in Active Directory @ no__t-0.  
+## <a name="appendix-f-securing-domain-admins-groups-in-active-directory"></a>Anhang F: Schützen von Domänenadministratorgruppen in Active Directory  
+Wie bei der Gruppe der Organisations-Admins (Enterprise Admins, EA) sollte die Mitgliedschaft in der Gruppe Domänen-Admins (da) nur bei Build-oder Notfall Wiederherstellungs Szenarios erforderlich sein. Es dürfen keine alltäglichen Benutzerkonten in der Gruppe "da" vorhanden sein, mit Ausnahme des integrierten Administrator Kontos für die Domäne, sofern Sie wie in [Anhang D: schützen integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.  
 
 Domänen-Admins sind standardmäßig Mitglieder der lokalen Administratoren Gruppen auf allen Mitglieds Servern und Arbeitsstationen in ihren jeweiligen Domänen. Diese Standard Schachtelung sollte nicht für Unterstützungs-und Notfall Wiederherstellungs Zwecke geändert werden. Wenn Domänen-Admins aus den lokalen Administratoren Gruppen auf dem Mitglieds Server entfernt wurden, sollte die Gruppe der Gruppe "Administratoren" auf jedem Mitglieds Server und jeder Arbeitsstation in der Domäne hinzugefügt werden. Die Gruppe "Domänen-Admins" jeder Domäne sollte wie in den folgenden Schritt-für-Schritt-Anweisungen beschrieben gesichert werden.  
 
 Für die Gruppe "Domänen-Admins" in jeder Domäne in der Gesamtstruktur:  
 
-1.  Entfernen Sie alle Mitglieder aus der Gruppe, mit der Ausnahme, dass das integrierte Administrator Konto für die Domäne verfügbar ist, vorausgesetzt, dass Sie wie in [anhang D beschrieben gesichert wurde: Sichern integrierter Administrator Konten in Active Directory @ no__t-0.  
+1.  Entfernen Sie alle Mitglieder aus der Gruppe, mit der Ausnahme, dass das integrierte Administrator Konto für die Domäne verfügbar ist, vorausgesetzt, dass Sie wie in [Anhang D: sichern integrierter Administrator Konten in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-D--Securing-Built-In-Administrator-Accounts-in-Active-Directory.md)beschrieben gesichert wurde.  
 
-2.  In Gruppenrichtlinien Objekten, die mit Organisationseinheiten verknüpft sind, die Mitglieds Server und Arbeitsstationen in jeder Domäne enthalten, sollte die Gruppe "da" den folgenden Benutzerrechten in **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale richtlinien\benutzer** :  
+2.  In Gruppenrichtlinien Objekten, die mit Organisationseinheiten verknüpft sind, die Mitglieds Server und Arbeitsstationen in jeder Domäne enthalten, sollte die Gruppe "da" den folgenden Benutzerrechten unter **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale**Richtlinien\Zuweisen von Benutzerrechten  
 
     -   Zugriff vom Netzwerk auf diesen Computer verweigern  
 
@@ -62,17 +62,17 @@ Für die Gruppe "Domänen-Admins" in jeder Domäne in der Gesamtstruktur:
 
 1.  KlickenSie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
 
-2.  Erweitern Sie in der Konsolen Struktur \<forest @ no__t-1 @ no__t-2domains @ no__t-3 @ no__t-4domain @ no__t-5, und **Gruppenrichtlinie Objekte** (wobei \<forest @ no__t-8 der Name der Gesamtstruktur und \<domäne @ no__t-10 der Name der Domäne ist, in der Sie möchten den Gruppenrichtlinie festlegen).  
+2.  Erweitern Sie in der Konsolen Struktur \<Gesamtstruktur\>\\Domänen\\\<Domäne\>, und Gruppenrichtlinie Sie dann **Objekte** (wobei \<Gesamtstruktur\> der Name der Gesamtstruktur und \<Domäne\> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
 
 3.  Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Gruppenrichtlinie Objekte**, und klicken Sie dann auf **neu**.  
 
     ![sichere Domänen Administrator Gruppen](media/Appendix-F--Securing-Domain-Admins-Groups-in-Active-Directory/SAD_63.gif)  
 
-4.  Geben Sie im Dialogfeld **Neues** Gruppenrichtlinien Objekt \<gpo-Name @ no__t-2 ein, und klicken Sie auf **OK** (wobei \<gpo-Name @ no__t-5 der Name dieses Gruppenrichtlinien Objekts ist).  
+4.  Geben Sie im Dialogfeld **Neues** Gruppenrichtlinien Objekt \<GPO-Namen\>ein, und klicken Sie auf **OK** (wobei \<GPO-Name\> der Name dieses Gruppenrichtlinien Objekts ist).  
 
     ![sichere Domänen Administrator Gruppen](media/Appendix-F--Securing-Domain-Admins-Groups-in-Active-Directory/SAD_64.gif)  
 
-5.  Klicken Sie im Detailfenster mit der rechten Maustaste auf \<gpo Name @ no__t-1, und klicken Sie dann auf **Bearbeiten**.  
+5.  Klicken Sie im Detailbereich mit der rechten Maustaste auf \<GPO-Namen\>, und klicken Sie dann auf **Bearbeiten**.  
 
 6.  Navigieren Sie zu **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien**, **und klicken Sie**auf Zuweisen von  
 
@@ -142,7 +142,7 @@ Für die Gruppe "Domänen-Admins" in jeder Domäne in der Gesamtstruktur:
 
 13. Verknüpfen Sie das Gruppenrichtlinien Objekt in Gruppenrichtlinie Management mit dem Mitglieds Server und Arbeitsstations Organisationseinheiten, indem Sie die folgenden Schritte ausführen:  
 
-    1.  Navigieren Sie zum \<forest @ no__t-1\Domains @ no__t-2 @ no__t-3domain @ no__t-4 (wobei \<forest @ no__t-6 der Name der Gesamtstruktur und \<domäne @ no__t-8 der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
+    1.  Navigieren Sie zur \<Gesamtstruktur\>\Domänen\\\<Domänen\> (wobei \<Gesamtstruktur\> der Name der Gesamtstruktur und \<Domäne\> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
 
     2.  Klicken Sie mit der rechten Maustaste auf die Organisationseinheit, auf die das Gruppenrichtlinien Objekt angewendet wird, und klicken Sie auf **vorhandenes GPO verknüpfen**  
 
@@ -174,7 +174,7 @@ Versuchen Sie auf einem Mitglieds Server oder einer Arbeitsstation, der nicht vo
 
     ![sichere Domänen Administrator Gruppen](media/Appendix-F--Securing-Domain-Admins-Groups-in-Active-Directory/SAD_73.gif)  
 
-5.  Geben Sie im **Eingabe** Aufforderungs Fenster **net use \\ @ no__t-3 @ no__t-4server Name @ no__t-5\c $** ein, wobei \<server Name @ no__t-7 der Name des Mitglieds Servers oder der Arbeitsstation ist, auf den Sie über das Netzwerk zuzugreifen versuchen.  
+5.  Geben Sie im **Eingabe** Aufforderungs Fenster **net use \\\\\<Server Name\>\c $** ein, wobei \<Servername\> der Name des Mitglieds Servers oder der Arbeitsstation ist, auf den Sie über das Netzwerk zuzugreifen versuchen.  
 
 6.  Der folgende Screenshot zeigt die Fehlermeldung, die angezeigt werden soll.  
 
@@ -194,7 +194,7 @@ Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die 
 
 4.  Klicken Sie auf **Datei**und dann auf **Speichern**unter.  
 
-5.  Geben Sie im Feld Dateiname **@no__t -2Filename\>.bat** ein (wobei \<filename @ no__t-5 der Name der neuen Batchdatei ist).  
+5.  Geben Sie im Feld Dateiname **\<filename\>. bat** ein (wobei \<filename\> der Name der neuen Batchdatei ist).  
 
 ###### <a name="schedule-a-task"></a>Planen einer Aufgabe  
 
@@ -207,7 +207,7 @@ Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die 
 
 3.  Klicken Sie in der Menüleiste **Taskplaner** auf **Aktion**, und klicken Sie auf **Task erstellen**.  
 
-4.  Geben Sie im Dialogfeld **Task erstellen** **\<task Name @ no__t-3** ein (wobei \<task Name @ no__t-5 der Name der neuen Aufgabe ist).  
+4.  Geben Sie im Dialogfeld **Task erstellen** **\<Aufgaben Name\>** ein (wobei \<Aufgaben Name\> der Name der neuen Aufgabe ist).  
 
 5.  Klicken Sie auf die Registerkarte **Aktionen** , und klicken Sie auf **neu**.  
 

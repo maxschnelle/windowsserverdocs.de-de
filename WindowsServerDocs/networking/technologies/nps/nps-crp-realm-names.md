@@ -17,16 +17,16 @@ ms.locfileid: "71405471"
 ---
 # <a name="realm-names"></a>Bereichsnamen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 
 In diesem Thema finden Sie eine Übersicht über die Verwendung von Bereichs Namen in der Verbindungs Anforderungs Verarbeitung für Netzwerk Richtlinien Server.
 
 Das RADIUS-Attribut für den Benutzernamen ist eine Zeichenfolge, die in der Regel einen Benutzerkonto Speicherort und einen Benutzerkonto Namen enthält. Der Speicherort des Benutzerkontos wird auch als Bereichs-oder Bereichs Name bezeichnet und ist mit dem Konzept der Domäne, einschließlich DNS-Domänen, Active Directory® Domänen und Windows NT 4,0-Domänen, gleichbedeutend. Wenn sich beispielsweise ein Benutzerkonto in der Benutzerkonten Datenbank für eine Domäne mit dem Namen example.com befindet, ist example.com der Bereichs Name.
 
-Wenn das RADIUS-Attribut für den Benutzernamen z. b. den Benutzernamen user1@example.com enthält, ist user1 der Name des Benutzerkontos, und example.com ist der Bereichs Name. Bereichs Namen können als Präfix oder als Suffix im Benutzernamen angezeigt werden:
+Wenn das RADIUS-Attribut für den Benutzernamen beispielsweise den Benutzernamen user1@example.comenthält, ist user1 der Name des Benutzerkontos, und example.com ist der Bereichs Name. Bereichs Namen können als Präfix oder als Suffix im Benutzernamen angezeigt werden:
 
-- " **Example\user1**". In diesem Beispiel ist das **Beispiel** für den Bereichs Namen ein Präfix. Außerdem handelt es sich um den Namen eines Active Directory @ no__t-1-Domänen Dienste \(AD DS @ no__t-3-Domäne.
+- " **Example\user1**". In diesem Beispiel ist das **Beispiel** für den Bereichs Namen ein Präfix. Außerdem handelt es sich um den Namen einer Active Directory&reg; Domänen Diensten \(AD DS\) Domäne.
 
 - <strong>user1@example.com</strong>. In diesem Beispiel ist der Bereichs Name **example.com** ein Suffix. Dabei handelt es sich entweder um einen DNS-Domänen Namen oder den Namen einer AD DS Domäne.
 
@@ -58,9 +58,9 @@ Bevor die RADIUS-Nachricht entweder lokal verarbeitet wird (wenn NPS als RADIUS-
 
 Sie können Regeln für die Attribut Bearbeitung für das User-Name-Attribut konfigurieren, um Folgendes zu ändern:
 
-- Entfernen Sie den Bereichs Namen aus dem Benutzernamen \(auch als Bereichs Entfernungs @ no__t-1 bezeichnet. Beispielsweise wird der Benutzername user1@example.com in user1 geändert.
+- Entfernen Sie den Bereichs Namen aus dem Benutzernamen \(auch als Bereichs Entfernungs\)bezeichnet. Beispielsweise wird der Benutzername user1@example.com in user1 geändert.
 
-- Ändern Sie den Bereichs Namen, aber nicht die Syntax. Beispielsweise wird der Benutzername user1@example.com in user1@wcoast.example.com geändert.
+- Ändern Sie den Bereichs Namen, aber nicht die Syntax. Beispielsweise wird der Benutzername user1@example.com in user1@wcoast.example.comgeändert.
 
 - Ändern Sie die Syntax des Bereichs namens. Beispielsweise wird der Benutzername "example\user1" in "user1@example.com" geändert.
 

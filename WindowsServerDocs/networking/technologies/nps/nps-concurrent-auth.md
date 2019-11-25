@@ -17,11 +17,11 @@ ms.locfileid: "71396429"
 ---
 # <a name="increase-concurrent-authentications-processed-by-nps"></a>Erhöhen der durch NPS verarbeiteten gleichzeitigen Authentifizierungen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema finden Sie Anweisungen zum Konfigurieren der gleichzeitigen Authentifizierungen von Netzwerk Richtlinien Servern.
 
-Wenn Sie den Netzwerk Richtlinien Server \(nps @ no__t-1 auf einem anderen Computer als einem Domänen Controller installiert haben und der NPS eine große Anzahl von Authentifizierungsanforderungen pro Sekunde empfängt, können Sie die NPS-Leistung verbessern, indem Sie die Anzahl der gleichzeitigen Authentifizierungen zwischen dem NPS und dem Domänen Controller sind zulässig.
+Wenn Sie den Netzwerk Richtlinien Server \(NPS-\) auf einem anderen Computer als einem Domänen Controller installiert haben und der NPS eine große Anzahl von Authentifizierungsanforderungen pro Sekunde empfängt, können Sie die NPS-Leistung verbessern, indem Sie die Anzahl der gleichzeitigen Authentifizierungen erhöhen, die zwischen dem NPS und dem Domänen Controller zulässig sind.
 
 Zu diesem Zweck müssen Sie den folgenden Registrierungsschlüssel bearbeiten: 
 

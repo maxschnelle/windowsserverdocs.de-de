@@ -17,11 +17,11 @@ ms.locfileid: "71405477"
 ---
 # <a name="configure-connection-request-policies"></a>Konfigurieren von Verbindungsanforderungsrichtlinien
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Sie können dieses Thema verwenden, um Verbindungs Anforderungs Richtlinien zu erstellen und zu konfigurieren, die festlegen, ob das lokale NPS Verbindungsanforderungen verarbeitet oder Sie zur Verarbeitung an den Remote-RADIUS-Server weiterleitet.
 
-Verbindungs Anforderungs Richtlinien sind Sätze von Bedingungen und Einstellungen, mit denen Netzwerkadministratoren festlegen können, welche Remote Authentication Dial-in User Service (RADIUS)-Server die Authentifizierung und Autorisierung von Verbindungsanforderungen durchführen, die von der der Server, auf dem der Netzwerk Richtlinien Server ausgeführt wird \(nps @ no__t-1 wird von RADIUS-Clients empfangen.
+Verbindungs Anforderungs Richtlinien sind Sätze von Bedingungen und Einstellungen, mit denen Netzwerkadministratoren festlegen können, welche Remote Authentication Dial-in User Service (RADIUS)-Server die Authentifizierung und Autorisierung von Verbindungsanforderungen durchführen, die vom Server ausgeführt werden, der den Netzwerk Richtlinien Server \(NPS\) von RADIUS-Clients empfängt.
 
 Die Standard-Verbindungs Anforderungs Richtlinie verwendet NPS als RADIUS-Server und verarbeitet alle Authentifizierungsanforderungen lokal.
 

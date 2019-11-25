@@ -19,9 +19,9 @@ ms.locfileid: "71405258"
 ---
 # <a name="enable-vrss-on-a-virtual-network-adapter"></a>Aktivieren von vrss auf einem Virtual Network Adapter
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Der virtuelle RSS-\(vrss @ no__t-1 erfordert Warteschlange für virtuelle Computer \(vmq @ no__t-3-Unterstützung vom physischen Adapter. Wenn VMQ deaktiviert ist oder nicht unterstützt wird, ist die virtuelle Empfangs seitige Skalierung deaktiviert. 
+Virtuelle RSS-\(vrss-\) erfordert Warteschlange für virtuelle Computer \(VMQ-\)-Unterstützung vom physischen Adapter. Wenn VMQ deaktiviert ist oder nicht unterstützt wird, ist die virtuelle Empfangs seitige Skalierung deaktiviert. 
 
 Weitere Informationen finden Sie unter [Planen der Verwendung von vrss](vrss-plan.md).
 

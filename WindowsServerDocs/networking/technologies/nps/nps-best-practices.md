@@ -17,9 +17,9 @@ ms.locfileid: "71405495"
 ---
 # <a name="network-policy-server-best-practices"></a>Bewährte Methoden: Netzwerkrichtlinienserver
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-In diesem Thema erfahren Sie mehr über bewährte Methoden für die Bereitstellung und Verwaltung des Netzwerk Richtlinien Servers \(nps @ no__t-1.
+In diesem Thema erfahren Sie mehr über bewährte Methoden für die Bereitstellung und Verwaltung von Netzwerk Richtlinien Servern \(NPS\).
 
 Die folgenden Abschnitte enthalten bewährte Methoden für verschiedene Aspekte ihrer NPS-Bereitstellung.
 
@@ -35,7 +35,7 @@ Es gibt zwei Arten von Buchhaltung oder Protokollierung in NPS:
 
 So nutzen Sie die NPS-Protokollierung am effektivsten:
 
-- Aktivieren Sie die Protokollierung \(anfänglich @ no__t-1 für die Authentifizierung und für Buchhaltungsdaten Sätze. Ändern Sie diese Auswahl, nachdem Sie festgelegt haben, was für Ihre Umgebung geeignet ist.
+- Aktivieren Sie die Protokollierung \(anfänglich\) sowohl für Authentifizierung als auch für Buchhaltungsdaten Sätze. Ändern Sie diese Auswahl, nachdem Sie festgelegt haben, was für Ihre Umgebung geeignet ist.
 
 - Stellen Sie sicher, dass die Ereignisprotokollierung mit einer Kapazität konfiguriert ist, die für die Beibehaltung der Protokolle ausreicht.
 
@@ -51,12 +51,12 @@ Weitere Informationen finden Sie unter [Konfigurieren der Netzwerk Richtlinien S
 
 - Zum Bereitstellen von Failover und Redundanz mit SQL Server Protokollierung platzieren Sie zwei Computer, auf denen SQL Server ausgeführt wird, in verschiedenen Subnetzen Mit dem **Assistenten zum Erstellen einer Veröffentlichung** von SQL Server können Sie die Daten Bank Replikation zwischen den beiden Servern einrichten. Weitere Informationen finden Sie unter [SQL Server technische Dokumentation](https://msdn.microsoft.com/library/ms130214.aspx) und [SQL Server-Replikation](https://msdn.microsoft.com/library/ms151198.aspx).
 
-## <a name="authentication"></a>Authentifizierung
+## <a name="authentication"></a>Authentication
 
 Im folgenden finden Sie die bewährten Methoden für die Authentifizierung.
 
-- Verwenden Sie Zertifikat basierte Authentifizierungsmethoden, wie z. b. Protected Extensible Authentication Protocol \(peap @ no__t-1 und Extensible Authentication Protocol \(eap @ no__t-3 für eine starke Authentifizierung. Verwenden Sie keine Authentifizierungsmethoden für das Kennwort, da Sie für eine Vielzahl von Angriffen anfällig sind und nicht sicher sind. Zur sicheren drahtlosen Authentifizierung wird die Verwendung von "Peer AP @ no__t-0ms @ no__t-1chap V2" empfohlen, da der NPS seine Identität für drahtlose Clients mithilfe eines Serverzertifikats nachweisen kann, während die Benutzer ihre Identität mit Ihrem Benutzernamen und Kennwort belegen.  Weitere Informationen zur Verwendung von NPS in Ihrer drahtlosen Bereitstellung finden Sie unter Bereitstellen von Kenn [Wort basiertem 802.1 x-authentifizierten drahtlosen Zugriff](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/wireless/a-deploy-8021x-wireless-access).
-- Stellen Sie Ihre eigene Zertifizierungsstelle \(ca @ no__t-1 mit Active Directory @ no__t-2 Certificate Services \(ad CS @ no__t-4 bereit, wenn Sie starke Zertifikat basierte Authentifizierungsmethoden verwenden, z. b. PEAP und EAP, die die Verwendung eines Servers erfordern. Zertifikat auf dem NPSS. Sie können auch die Zertifizierungsstelle zum Registrieren von Computer Zertifikaten und Benutzer Zertifikaten verwenden. Weitere Informationen zum Bereitstellen von Server Zertifikaten für NPS und RAS-Server finden Sie unter Bereitstellen [von Server Zertifikaten für drahtlose und drahtlose 802.1 x](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments)-bereit Stellungen.
+- Verwenden Sie Zertifikat basierte Authentifizierungsmethoden, wie z. b. das geschützte Extensible Authentication Protocol \(PEAP\) und das Extensible Authentication Protocol \(EAP-\) für eine strenge Authentifizierung. Verwenden Sie keine Authentifizierungsmethoden für das Kennwort, da Sie für eine Vielzahl von Angriffen anfällig sind und nicht sicher sind. Bei einer sicheren drahtlosen Authentifizierung wird die Verwendung von Peer-\-MS\-CHAP v2 empfohlen, da der NPS seine Identität für drahtlose Clients mithilfe eines Serverzertifikats nach weist, während die Benutzer ihre Identität mit Ihrem Benutzernamen und Kennwort belegen.  Weitere Informationen zur Verwendung von NPS in Ihrer drahtlosen Bereitstellung finden Sie unter Bereitstellen von Kenn [Wort basiertem 802.1 x-authentifizierten drahtlosen Zugriff](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/wireless/a-deploy-8021x-wireless-access).
+- Stellen Sie Ihre eigene Zertifizierungsstelle \(ca-\) mit Active Directory&reg; Zertifikat Dienste \(AD CS\) bereit, wenn Sie sichere Zertifikat basierte Authentifizierungsmethoden verwenden, z. b. PEAP und EAP, die die Verwendung eines Serverzertifikats auf NPSS erfordern. Sie können auch die Zertifizierungsstelle zum Registrieren von Computer Zertifikaten und Benutzer Zertifikaten verwenden. Weitere Informationen zum Bereitstellen von Server Zertifikaten für NPS und RAS-Server finden Sie unter Bereitstellen [von Server Zertifikaten für drahtlose und drahtlose 802.1 x](https://technet.microsoft.com/windows-server-docs/networking/core-network-guide/cncg/server-certs/deploy-server-certificates-for-802.1x-wired-and-wireless-deployments)-bereit Stellungen.
 
 > [!IMPORTANT]
 > Der Netzwerk Richtlinien Server (Network Policy Server, NPS) unterstützt die Verwendung der erweiterten ASCII-Zeichen in Kenn Wörtern nicht.
@@ -85,9 +85,9 @@ Im folgenden werden die bewährten Methoden für die Leistungsoptimierung von NP
 
 - Installieren Sie NPS auf einem Domänen Controller, um die Antwortzeiten für die NPS-Authentifizierung und-Autorisierung zu optimieren und den Netzwerkverkehr
 
-- Wenn universelle Prinzipal Namen \(upns @ no__t-1 oder Windows Server 2008 und Windows Server 2003 verwendet werden, verwendet NPS den globalen Katalog, um Benutzer zu authentifizieren. Um die benötigte Zeit zu minimieren, installieren Sie NPS entweder auf einem globalen Katalogserver oder auf einem Server, der sich im gleichen Subnetz wie der globale Katalogserver befindet.
+- Wenn universelle Prinzipal Namen \(UPNs\) oder Windows Server 2008 und Windows Server 2003 verwendet werden, verwendet NPS den globalen Katalog, um Benutzer zu authentifizieren. Um die benötigte Zeit zu minimieren, installieren Sie NPS entweder auf einem globalen Katalogserver oder auf einem Server, der sich im gleichen Subnetz wie der globale Katalogserver befindet.
 
-- Wenn Sie Remote-RADIUS-Server Gruppen konfiguriert haben und Sie in NPS-Verbindungs Anforderungs Richtlinien das Kontrollkästchen **Aufzeichnen von Buchhaltungsinformationen auf den Servern in der folgenden Remote-RADIUS-Server Gruppe** deaktivieren, werden diese Gruppen weiterhin Netzwerk Zugriff gesendet. Server \(nas @ no__t-2 starten und Abbrechen von Benachrichtigungs Meldungen. Dadurch wird unnötiger Netzwerk Datenverkehr erstellt. Deaktivieren Sie die NAS-Benachrichtigungs Weiterleitung für einzelne Server in jeder RADIUS-Remote Server Gruppe, indem Sie das Kontrollkästchen **Netzwerkstart und-Benachrichtigungen an diesen Server weiterleiten** deaktivieren, um diesen Datenverkehr auszuschließen.
+- Wenn Sie Remote-RADIUS-Server Gruppen konfiguriert haben und Sie in NPS-Verbindungs Anforderungs Richtlinien das Kontrollkästchen **Aufzeichnen von Buchhaltungsinformationen auf den Servern in der folgenden Remote-RADIUS-Server Gruppe** deaktivieren, werden diese Gruppen weiterhin an den Netzwerk Zugriffs Server \(NAS gesendet\) um Benachrichtigungs Meldungen zu starten und zu beenden. Dadurch wird unnötiger Netzwerk Datenverkehr erstellt. Deaktivieren Sie die NAS-Benachrichtigungs Weiterleitung für einzelne Server in jeder RADIUS-Remote Server Gruppe, indem Sie das Kontrollkästchen **Netzwerkstart und-Benachrichtigungen an diesen Server weiterleiten** deaktivieren, um diesen Datenverkehr auszuschließen.
 
 ## <a name="using-nps-in-large-organizations"></a>Verwenden von NPS in großen Organisationen
 
@@ -97,7 +97,7 @@ Im folgenden finden Sie die bewährten Methoden für die Verwendung von NPS in g
 
 - Verwenden Sie einen Benutzer Prinzipal Namen, um nach Möglichkeit auf Benutzer zu verweisen. Ein Benutzer kann unabhängig von der Domänen Mitgliedschaft denselben Benutzer Prinzipal Namen haben. Diese Vorgehensweise bietet Skalierbarkeit, die möglicherweise in Organisationen mit einer großen Anzahl von Domänen erforderlich ist.
 
-- Wenn Sie den Netzwerk Richtlinien Server \(nps @ no__t-1 auf einem anderen Computer als einem Domänen Controller installiert haben und der NPS eine große Anzahl von Authentifizierungsanforderungen pro Sekunde empfängt, können Sie die NPS-Leistung verbessern, indem Sie die Anzahl der gleichzeitigen Authentifizierungen zwischen dem NPS und dem Domänen Controller sind zulässig. Weitere Informationen finden Sie unter 
+- Wenn Sie den Netzwerk Richtlinien Server \(NPS-\) auf einem anderen Computer als einem Domänen Controller installiert haben und der NPS eine große Anzahl von Authentifizierungsanforderungen pro Sekunde empfängt, können Sie die NPS-Leistung verbessern, indem Sie die Anzahl der gleichzeitigen Authentifizierungen erhöhen, die zwischen dem NPS und dem Domänen Controller zulässig sind. Weitere Informationen finden Sie unter 
 
 ## <a name="security-issues"></a>Sicherheitsprobleme
 
@@ -105,7 +105,7 @@ Im folgenden finden Sie die bewährten Methoden zum Reduzieren von Sicherheitspr
 
 Wenn Sie ein NPS remote verwalten, sollten Sie keine sensiblen oder vertraulichen Daten (z. b. gemeinsame geheime Schlüssel oder Kenn Wörter) über das Netzwerk im Klartext senden. Es gibt zwei empfohlene Methoden für die Remote Verwaltung von NPSS:
 
-- Verwenden Sie Remotedesktopdienste, um auf den NPS zuzugreifen. Wenn Sie Remotedesktopdienste verwenden, werden keine Daten zwischen dem Client und dem Server gesendet. Nur die Benutzeroberfläche des Servers (z. b. das Betriebssystem Desktop-und NPS-Konsolen Image) wird an den Remotedesktopdienste-Client gesendet, der in Windows @ no__t-0 10 als Remotedesktopverbindung bezeichnet wird. Der Client sendet Tastatur-und Maus Eingaben, die lokal von dem Server verarbeitet werden, auf dem Remotedesktopdienste aktiviert ist. Wenn sich Remotedesktopdienste Benutzer anmelden, können Sie nur die einzelnen Client Sitzungen anzeigen, die vom Server verwaltet werden und voneinander unabhängig sind. Außerdem bietet Remotedesktopverbindung eine 128-Bit-Verschlüsselung zwischen Client und Server.
+- Verwenden Sie Remotedesktopdienste, um auf den NPS zuzugreifen. Wenn Sie Remotedesktopdienste verwenden, werden keine Daten zwischen dem Client und dem Server gesendet. Nur die Benutzeroberfläche des Servers (z. b. das Betriebssystem Desktop-und NPS-Konsolen Image) wird an den Remotedesktopdienste-Client gesendet, der in Windows&reg; 10 Remotedesktopverbindung heißt. Der Client sendet Tastatur-und Maus Eingaben, die lokal von dem Server verarbeitet werden, auf dem Remotedesktopdienste aktiviert ist. Wenn sich Remotedesktopdienste Benutzer anmelden, können Sie nur die einzelnen Client Sitzungen anzeigen, die vom Server verwaltet werden und voneinander unabhängig sind. Außerdem bietet Remotedesktopverbindung eine 128-Bit-Verschlüsselung zwischen Client und Server.
 
 - Verwenden Sie IPSec (Internet Protocol Security), um vertrauliche Daten zu verschlüsseln. Sie können IPSec verwenden, um die Kommunikation zwischen dem NPS und dem Remote Client Computer zu verschlüsseln, den Sie zum Verwalten von NPS verwenden. Wenn Sie den Server remote verwalten möchten, können Sie die [Remoteserver-Verwaltungstools für Windows 10](https://www.microsoft.com/download/details.aspx?id=45520) auf dem Client Computer installieren. Verwenden Sie nach der Installation die Microsoft Management Console (MMC), um der-Konsole das NPS-Snap-in hinzuzufügen.
 

@@ -36,14 +36,14 @@ eventcreate [/s <Computer> [/u <Domain\User> [/p <Password>]] {[/l {APPLICATION|
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/s \<computer >|Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer.|
-|/u \<domäne \ Benutzer >|Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch \<User > oder < Domäne \ Benutzer > angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird.|
-|/p \<Password >|Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.|
-|/l {Anwendung @ no__t-0system}|Gibt den Namen des Ereignis Protokolls an, in dem das Ereignis erstellt wird. Gültige Protokollnamen sind Application und System.|
-|/so \<srcname >|Gibt die Quelle an, die für das Ereignis verwendet werden soll. Eine gültige Quelle kann eine beliebige Zeichenfolge sein und die Anwendung oder Komponente darstellen, die das Ereignis erzeugt.|
-|/t {Error @ no__t-0warning @ no__t-1Information @ no__t-2</br>ERFOLGREICH AUDIT @ NO__T-0FAILUREAUDIT}|Gibt den Typ des zu erstellenden Ereignisses an. Gültige Typen sind "Error", "Warning", "Information", "Success Audit" und "FAILUREAUDIT".|
-|/ID \<eventid >|Gibt die Ereignis-ID für das Ereignis an. Eine gültige ID ist eine beliebige Zahl zwischen 1 und 1000.|
-|/d \<description >|Gibt die Beschreibung an, die für das neu erstellte Ereignis verwendet werden soll.|
+|/s \<Computer >|Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer.|
+|/u \<Domäne \ Benutzer >|Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch \<Benutzer > oder < Domäne \ Benutzer > angegeben wird. Der Standardwert sind die Berechtigungen des aktuell angemeldeten Benutzers auf dem Computer, von dem der Befehl ausgegeben wird.|
+|/p \<Kennwort >|Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.|
+|/l {Application\|System}|Gibt den Namen des Ereignis Protokolls an, in dem das Ereignis erstellt wird. Gültige Protokollnamen sind Application und System.|
+|/so \<SrcName >|Gibt die Quelle an, die für das Ereignis verwendet werden soll. Eine gültige Quelle kann eine beliebige Zeichenfolge sein und die Anwendung oder Komponente darstellen, die das Ereignis erzeugt.|
+|/t {Fehler\|Warnung\|Informationen\|</br>Erfolgreiches Audit\|FAILUREAUDIT}|Gibt den Typ des zu erstellenden Ereignisses an. Gültige Typen sind "Error", "Warning", "Information", "Success Audit" und "FAILUREAUDIT".|
+|/ID \<EventID >|Gibt die Ereignis-ID für das Ereignis an. Eine gültige ID ist eine beliebige Zahl zwischen 1 und 1000.|
+|/d \<Beschreibung >|Gibt die Beschreibung an, die für das neu erstellte Ereignis verwendet werden soll.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise

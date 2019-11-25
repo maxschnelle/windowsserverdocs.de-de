@@ -18,7 +18,7 @@ ms.locfileid: "71407774"
 ---
 # <a name="add-home-link"></a>Hinzufügen eines Startseitenlinks 
 
-Verwenden Sie das folgende Windows PowerShell-Cmdlet und die folgende Syntax, um den Link "Home" hinzuzufügen, der auf der Seite "Sign @ no__t-0in" angezeigt wird. 
+Verwenden Sie das folgende Windows PowerShell-Cmdlet und die folgende Syntax, um den Home-Link hinzuzufügen, der auf der Seite Sign\-in angezeigt wird. 
 
 
 ![Start Link hinzufügen](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom2.png) 
@@ -28,7 +28,7 @@ Verwenden Sie das folgende Windows PowerShell-Cmdlet und die folgende Syntax, um
  
   
 > [!IMPORTANT]  
-> Der `linkText` -Parameter in diesem Cmdlet ist nur erforderlich, wenn Sie einen anderen Wert als den Standardwert *Home*verwenden. Der Vorteil des Standardwerts ist, dass er für alle Clientgebietsschemata lokalisiert ist. Nachdem die Seite Sign @ no__t-0in angepasst ist, hat die Anpassung Vorrang. Daher sollten Sie für alle Sprachen anpassen, die Sie unterstützen möchten.
+> Der `linkText` -Parameter in diesem Cmdlet ist nur erforderlich, wenn Sie einen anderen Wert als den Standardwert *Home*verwenden. Der Vorteil des Standardwerts ist, dass er für alle Clientgebietsschemata lokalisiert ist. Nachdem die Seite Sign\-in angepasst ist, hat die Anpassung Vorrang. Daher sollten Sie für alle Sprachen anpassen, die Sie unterstützen möchten.
 
 ## <a name="additional-references"></a>Weitere Verweise 
 [AD FS Anpassung der Benutzeranmeldung](AD-FS-user-sign-in-customization.md)  

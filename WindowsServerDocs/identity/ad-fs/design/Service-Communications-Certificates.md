@@ -23,24 +23,24 @@ Ein Verbund Server erfordert die Verwendung von Dienst Kommunikations Zertifikat
 ## <a name="service-communication-certificate-requirements"></a>Zertifikat Anforderungen für die Dienst Kommunikation  
 Dienst Kommunikations Zertifikate müssen die folgenden Anforderungen erfüllen, um mit AD FS arbeiten zu können:  
   
--   Das Dienst Kommunikations Zertifikat muss die erweiterte Schlüssel Verwendung der Server Authentifizierung \(eku @ no__t-1-Erweiterung enthalten.  
+-   Das Dienst Kommunikations Zertifikat muss die erweiterte Schlüssel Verwendung der Server Authentifizierung \(EKU\) Erweiterung enthalten.  
   
--   Die Zertifikat Sperr Listen \(crls @ no__t-1 müssen für alle Zertifikate in der Kette vom Dienst Kommunikations Zertifikat zum Zertifikat der Stamm Zertifizierungsstelle zugänglich sein. Die Stamm Zertifizierungsstelle muss auch von allen Verbund Server Proxys und Webservern, die diesem Verbund Server Vertrauen, als vertrauenswürdig eingestuft werden.  
+-   Die Zertifikat Sperr Liste \(CRLs\) muss für alle Zertifikate in der Kette vom Dienst Kommunikations Zertifikat zum Stamm Zertifizierungsstellen-Zertifikat zugänglich sein. Die Stamm Zertifizierungsstelle muss auch von allen Verbund Server Proxys und Webservern, die diesem Verbund Server Vertrauen, als vertrauenswürdig eingestuft werden.  
   
 -   Der Antragsteller Name, der im Dienst Kommunikations Zertifikat verwendet wird, muss mit dem Verbunddienst Namen in den Eigenschaften des Verbunddienst identisch sein.  
   
 ## <a name="deployment-considerations-for-service-communication-certificates"></a>Überlegungen zur Bereitstellung für Dienst Kommunikations Zertifikate  
-Konfigurieren Sie Dienst Kommunikations Zertifikate, sodass alle Verbund Server das gleiche Zertifikat verwenden. Wenn Sie das Federated Web Single @ no__t-0sign @ no__t-1On \(sso @ no__t-3 Design bereitstellen, wird empfohlen, dass das Dienst Kommunikations Zertifikat von einer öffentlichen Zertifizierungsstelle ausgestellt wird. Sie können diese Zertifikate über den IIS-Manager-Snap @ no__t-0in anfordern und installieren.  
+Konfigurieren Sie Dienst Kommunikations Zertifikate, sodass alle Verbund Server das gleiche Zertifikat verwenden. Wenn Sie die Verbund-Web-\-Sign\-on \(SSO\) Design bereitstellen, empfiehlt es sich, dass das Dienst Kommunikations Zertifikat von einer öffentlichen Zertifizierungsstelle ausgestellt wird. Sie können diese Zertifikate über die IIS-Manager-Snap\-in anfordern und installieren.  
   
-Sie können selbst @ no__t-0signierte Dienst Kommunikations Zertifikate erfolgreich auf Verbund Servern in einer Testumgebung verwenden. Für eine Produktionsumgebung wird jedoch empfohlen, dass Sie Dienst Kommunikations Zertifikate von einer öffentlichen Zertifizierungsstelle abrufen. Im folgenden finden Sie Gründe, warum Sie selbst @ no__t-0signierte Dienst Kommunikations Zertifikate nicht für eine Live Bereitstellung verwenden sollten:  
+Sie können selbst\-signierte Dienst Kommunikations Zertifikate erfolgreich auf Verbund Servern in einer Testumgebung verwenden. Für eine Produktionsumgebung wird jedoch empfohlen, dass Sie Dienst Kommunikations Zertifikate von einer öffentlichen Zertifizierungsstelle abrufen. Aus folgenden Gründen sollten Sie keine selbst\-signierten Dienst Kommunikations Zertifikate für eine Live Bereitstellung verwenden:  
   
--   Dem vertrauenswürdigen Stamm Speicher auf jedem der Verbund Server in der Ressourcen Partnerorganisation muss ein selbst @ no__t-0signiertes SSL-Zertifikat hinzugefügt werden. Dies bedeutet, dass ein Angreifer nicht in der Lage ist, einen Ressourcen Verbund Server zu kompromittieren. durch vertrauende selbst @ no__t-0signierte Zertifikate wird die Angriffsfläche eines Computers vergrößert, und er kann zu Sicherheitsrisiken führen, wenn der Zertifikat Signatur Geber nicht zuverlässigen.  
+-   Ein selbst\-signiertes SSL-Zertifikat muss dem vertrauenswürdigen Stamm Speicher auf jedem der Verbund Server in der Ressourcen Partnerorganisation hinzugefügt werden. Dies bedeutet, dass ein Angreifer nicht in der Lage ist, einen Ressourcen Verbund Server zu kompromittieren. das Vertrauen von selbst\-signierten Zertifikaten erhöht die Angriffsfläche eines Computers und kann zu Sicherheitsrisiken führen, wenn der Zertifikat Signatur Geber nicht vertrauenswürdig ist.  
   
--   Dadurch entsteht eine schlechte Benutzer Leistung. Wenn Sie versuchen, auf Verbund Ressourcen zuzugreifen, in denen die folgende Meldung angezeigt wird, erhalten die Clients Sicherheitswarnungen: "Das Sicherheitszertifikat wurde von einem Unternehmen ausgestellt, das Sie nicht als vertrauenswürdig eingestuft haben." Dies ist das erwartete Verhalten, da das selbst @ no__t-0 signierte Zertifikat nicht vertrauenswürdig ist.  
+-   Dadurch entsteht eine schlechte Benutzer Leistung. Wenn Sie versuchen, auf Verbund Ressourcen zuzugreifen, die die folgende Meldung anzeigen, erhalten die Clients Sicherheitswarnungen: "das Sicherheitszertifikat wurde von einem Unternehmen ausgestellt, das Sie nicht als vertrauenswürdig eingestuft haben." Dies ist das erwartete Verhalten, da das selbst\-signierte Zertifikat nicht vertrauenswürdig ist.  
   
     > [!NOTE]  
-    > Falls erforderlich, können Sie diese Bedingung umgehen, indem Sie Gruppenrichtlinie verwenden, um das selbst @ no__t-0 signierte Zertifikat manuell in den vertrauenswürdigen Stamm Speicher auf jedem Client Computer zu überführen, der versucht, auf einen AD FS-Standort zuzugreifen.  
+    > Bei Bedarf können Sie diese Bedingung umgehen, indem Sie Gruppenrichtlinie verwenden, um das selbst\-signierte Zertifikat manuell in den vertrauenswürdigen Stamm Speicher auf jedem Client Computer zu überführen, der versucht, auf einen AD FS-Standort zuzugreifen.  
   
--   CAS stellen zusätzliche @ no__t-0based-Funktionen bereit, die nicht von selbst @ no__t-1 signierten Zertifikaten bereitgestellt werden, z. b. die Archivierung von privaten Schlüsseln, die Erneuerung und die Sperrung.  
+-   CAS bieten zusätzliche Funktionen für Zertifikat\-, wie z. b. private Schlüssel Archivierung, Erneuerung und Sperrung, die nicht von selbst\-signierten Zertifikaten bereitgestellt werden.  
   
 
