@@ -1,6 +1,6 @@
 ---
 title: Sicherheit für SDN
-description: In den Themen in diesem Abschnitt erfahren Sie mehr über die Sicherheit in Software-Defined Networking \(sdn @ no__t-1 in Windows Server 2016 Datacenter.
+description: In den Themen in diesem Abschnitt erfahren Sie mehr über die Sicherheit in Software definierten Netzwerken \(Sdn-\) in Windows Server 2016 Datacenter.
 manager: brianlic
 ms.prod: windows-server
 ms.technology: networking-sdn
@@ -17,9 +17,9 @@ ms.locfileid: "71355717"
 ---
 # <a name="security-for-sdn"></a>Sicherheit für SDN
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-In den Themen in diesem Abschnitt erfahren Sie mehr über die Sicherheit in Software-Defined Networking \(sdn @ no__t-1.
+In den Themen in diesem Abschnitt erfahren Sie mehr über die Sicherheit in Software-Defined Networking \(Sdn\).
 
 >[!Note]
 >Weitere Informationen zur Software-Defined Networking-Dokumentation finden Sie in den folgenden Bibliotheks Abschnitten.
