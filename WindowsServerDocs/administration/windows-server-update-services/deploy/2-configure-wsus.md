@@ -1,6 +1,6 @@
 ---
-title: 'Schritt 2: Konfigurieren von WSUS'
-description: 'Thema zu Windows Server Update Service (WSUS): Konfigurieren von WSUS in einem vierstufigen Verfahren zum Bereitstellen von WSUS'
+title: 'Schritt 2: Konfigurieren von WSUS'
+description: 'WSUS-Thema (Windows Server Update Services): Konfigurieren von WSUS – Zweiter Schritt eines Prozesses mit vier Schritten für die Bereitstellung von WSUS'
 ms.prod: windows-server
 ms.reviewer: na
 ms.technology: manage-wsus
@@ -12,24 +12,24 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: d1a78d2006a45bb2af8f87a91d7bb888964ddbcb
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71361673"
 ---
 # <a name="step-2-configure-wsus"></a>Schritt 2: Konfigurieren von WSUS
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Nachdem Sie die WSUS-Serverrolle auf dem Server installiert haben, müssen Sie sie korrekt konfigurieren. In der folgenden Prüfliste werden die Schritte zusammengefasst, die bei der Erstkonfiguration des WSUS-Servers erforderlich sind.
+Nachdem Sie die WSUS-Serverrolle auf dem Server installiert haben, müssen Sie sie korrekt konfigurieren. In der folgenden Prüfliste sind die Schritte für die Erstkonfiguration des WSUS-Servers zusammengefasst.
 
 |Aufgabe|Beschreibung|
 |----|--------|
-|[2,1. Konfigurieren von Netzwerkverbindungen](#21-configure-network-connections)|Konfigurieren Sie das Clusternetzwerk mithilfe des Netzwerkkonfigurations-Assistenten.|
-|[2,2. Konfigurieren von WSUS mit dem WSUS-Konfigurations-Assistenten](#22-configure-wsus-by-using-the-wsus-configuration-wizard)|Verwenden Sie den WSUS-Konfigurations-Assistenten, um die WSUS-Basiskonfiguration auszuführen.|
-|[2,3. Konfigurieren von WSUS-Computer Gruppen](#23-configure-wsus-computer-groups)|Erstellen Sie Computergruppen in der WSUS-Verwaltungskonsole zum Verwalten von Updates in Ihrer Organisation.|
-|[2,4. Konfigurieren von Client Updates](#24-configure-client-updates)|Geben Sie an, wie und wann automatische Updates auf Clientcomputern angewendet werden.|
-|[2,5. schützen von WSUS mit dem Secure Sockets Layer Protokoll](#25-secure-wsus-with-the-secure-sockets-layer-protocol)|Konfigurieren Sie das Secure Sockets Layer (SSL)-Protokoll zum Schutz von Windows Server Update Services (WSUS).|
+|[2.1. Konfigurieren der Netzwerkverbindungen](#21-configure-network-connections)|Konfigurieren Sie das Clusternetzwerk mithilfe des Netzwerkkonfigurations-Assistenten.|
+|[2.2. Konfigurieren von WSUS mit dem WSUS-Konfigurations-Assistenten](#22-configure-wsus-by-using-the-wsus-configuration-wizard)|Verwenden Sie den WSUS-Konfigurations-Assistenten, um die WSUS-Basiskonfiguration auszuführen.|
+|[2.3. Konfigurieren von WSUS-Computergruppen](#23-configure-wsus-computer-groups)|Erstellen Sie Computergruppen in der WSUS-Verwaltungskonsole zum Verwalten von Updates in Ihrer Organisation.|
+|[2.4. Konfigurieren von Clientupdates](#24-configure-client-updates)|Geben Sie an, wie und wann automatische Updates auf Clientcomputern angewendet werden.|
+|[2.5. Schützen von WSUS mit dem Secure Sockets Layer-Protokoll](#25-secure-wsus-with-the-secure-sockets-layer-protocol)|Konfigurieren Sie das Secure Sockets Layer (SSL)-Protokoll zum Schutz von Windows Server Update Services (WSUS).|
 
 ## <a name="21-configure-network-connections"></a>2.1. Konfigurieren der Netzwerkverbindungen
 Bevor Sie mit der Konfiguration beginnen, müssen Sie sich die folgenden Fragen beantworten:
@@ -40,7 +40,7 @@ Bevor Sie mit der Konfiguration beginnen, müssen Sie sich die folgenden Fragen 
 
 3.  Kennen Sie den Namen des Proxyservers und die Benutzeranmeldeinformationen für den Proxyserver, falls Sie sie benötigen?
 
-In der Standardkonfiguration ruft WSUS Updates von Microsoft Update ab. Wenn Sie über einen Proxy Server im Netzwerk verfügen, können Sie WSUS für die Verwendung des Proxy Servers konfigurieren. Wenn eine Unternehmens Firewall zwischen WSUS und dem Internet vorhanden ist, müssen Sie möglicherweise die Firewall konfigurieren, um sicherzustellen, dass WSUS Updates abrufen kann.
+In der Standardkonfiguration ruft WSUS Updates von Microsoft Update ab. Wenn du über einen Proxyserver im Netzwerk verfügst, kannst du WSUS für die Verwendung des Proxyservers konfigurieren. Falls eine Unternehmensfirewall zwischen WSUS und dem Internet vorhanden ist, musst du sie ggf. konfigurieren, um sicherzustellen, dass WSUS Updates abrufen kann.
 
 > [!TIP]
 > Obwohl Internetkonnektivität erforderlich ist, um Updates von Microsoft Update herunterzuladen, bietet WSUS die Möglichkeit, Updates in Netzwerke zu importieren, die nicht mit dem Internet verbunden sind.
@@ -49,52 +49,52 @@ Wenn Sie die Antworten auf diese Fragen kennen, können Sie mit der Konfiguratio
 
 -   **Updates** Geben Sie an, wie dieser Server Updates abruft (von Microsoft Update oder von einem anderen WSUS-Server).
 
--   **Proxy** wenn WSUS einen Proxy Server für den Internet Zugriff verwenden muss, müssen Sie die Proxy Einstellungen auf dem WSUS-Server konfigurieren.
+-   **Proxy** Wenn WSUS einen Proxyserver für den Internetzugriff verwenden muss, musst du Proxyeinstellungen im WSUS-Server konfigurieren.
 
--   **Firewall** Wenn Sie ermittelt haben, dass sich WSUS hinter einer Unternehmens Firewall befindet, müssen einige zusätzliche Schritte auf dem Edgegerät ausgeführt werden, um den WSUS-Datenverkehr ordnungsgemäß zuzulassen.
+-   **Firewall** Wenn sich WSUS hinter einer Unternehmensfirewall befindet, müssen einige zusätzliche Schritte auf dem Edgegerät ausgeführt werden, um den WSUS-Datenverkehr auf richtige Weise zuzulassen.
 
 ### <a name="211-connection-from-the-wsus-server-to-the-internet"></a>2.1.1. Verbindung zwischen WSUS-Server und Internet
-Falls eine Unternehmensfirewall zwischen WSUS und dem Internet vorhanden ist, müssen Sie sie ggf. konfigurieren, um sicherzustellen, dass WSUS Updates abrufen kann. Der WSUS-Server verwendet den Port 443 für das HTTPS-Protokoll, um Updates von Microsoft Update herunterzuladen. Obwohl die meisten Unternehmens Firewalls diese Art von Datenverkehr zulassen, gibt es einige Unternehmen, die den Internet Zugriff von den Servern aufgrund der Sicherheitsrichtlinien des Unternehmens einschränken. Wenn Ihr Unternehmen den Zugriff einschränkt, benötigen Sie eine Autorisierung, um den Internet Zugriff von WSUS auf die folgende Liste von URLs zuzulassen:
+Falls eine Unternehmensfirewall zwischen WSUS und dem Internet vorhanden ist, müssen Sie sie ggf. konfigurieren, um sicherzustellen, dass WSUS Updates abrufen kann. Der WSUS-Server verwendet den Port 443 für das HTTPS-Protokoll, um Updates von Microsoft Update herunterzuladen. Die meisten Unternehmensfirewalls lassen diese Art von Datenverkehr zu. In einigen Unternehmen ist der Zugriff der Server aber aufgrund der unternehmensspezifischen Sicherheitsrichtlinien eingeschränkt. Falls dein Unternehmen den Zugriff einschränkt, benötigst du die Autorisierung zum Zulassen des Internetzugriffs von WSUS auf die folgenden URLs:
 
-- http-\://windowsupdate.Microsoft.com
+- http\://windowsupdate.microsoft.com
 
-- http\://\*. windowsupdate.Microsoft.com
+- http\://\*.windowsupdate.microsoft.com
 
-- HTTPS-\://\*. windowsupdate.Microsoft.com
+- https\://\*.windowsupdate.microsoft.com
 
-- http\://\*. Update.Microsoft.com
+- http\://\*.update.microsoft.com
 
-- HTTPS-\://\*. Update.Microsoft.com
+- https\://\*.update.microsoft.com
 
-- http\://\*. windowsupdate.com
+- http\://\*.windowsupdate.com
 
-- http-\://Download.windowsupdate.com
+- http\://download.windowsupdate.com
 
-- HTTPS-\://Download.Microsoft.com
+- https\://download.microsoft.com
 
-- http\://\*. Download.windowsupdate.com
+- http\://\*.download.windowsupdate.com
 
-- http-\://wustat.Windows.com
+- http\://wustat.windows.com
 
-- http-\://NtServicePack.Microsoft.com
+- http\://ntservicepack.microsoft.com
 
-- http-\://go.Microsoft.com
+- http\://go.microsoft.com
 
-- http-\://DL.Delivery.MP.Microsoft.com
+- http\://dl.delivery.mp.microsoft.com
 
-- HTTPS-\://DL.Delivery.MP.Microsoft.com
+- https\://dl.delivery.mp.microsoft.com
 
 > [!IMPORTANT]
-> Ein Szenario, in dem WSUS aufgrund von Firewallkonfigurationen keine Updates abrufen kann, finden Sie im [Artikel 885819](https://support.microsoft.com/kb/885819) in der Microsoft Knowledge Base.
+> Informationen zu einem Szenario, bei dem über WSUS aufgrund von Firewallkonfigurationen keine Updates abgerufen werden können, findest du in der Microsoft Knowledge Base unter [Artikel 885819](https://support.microsoft.com/kb/885819).
 
-Im folgenden Abschnitt wird beschrieben, wie eine Unternehmensfirewall zwischen WSUS und dem Internet konfiguriert wird. Da WSUS den gesamten Netzwerk Datenverkehr initiiert, ist es nicht erforderlich, die Windows-Firewall auf dem WSUS-Server zu konfigurieren. Obwohl die Verbindung zwischen Microsoft Update und WSUS erfordert, dass die Ports 80 und 443 geöffnet sind, können Sie mehrere WSUS-Server zur Synchronisierung mit einem benutzerdefinierten Port konfigurieren.
+Im folgenden Abschnitt wird beschrieben, wie eine Unternehmensfirewall zwischen WSUS und dem Internet konfiguriert wird. Da WSUS den gesamten Netzwerkdatenverkehr initiiert, ist es nicht erforderlich, die Windows-Firewall auf dem WSUS-Server zu konfigurieren. Obwohl die Verbindung zwischen Microsoft Update und WSUS erfordert, dass die Ports 80 und 443 geöffnet sind, können Sie mehrere WSUS-Server zur Synchronisierung mit einem benutzerdefinierten Port konfigurieren.
 
 ### <a name="212-connection-between-wsus-servers"></a>2.1.2. Verbindung zwischen WSUS-Servern
 Upstream- und Downstream-WSUS-Server werden auf dem Port synchronisiert, der vom WSUS-Administrator konfiguriert wurde. Diese Ports sind standardmäßig folgendermaßen konfiguriert:
 
 -   Bei WSUS 3.2 und früher: Port 80 für HTTP und 443 für HTTPS
 
--   Unter WSUS 6,2 und höher (mindestens Windows Server 2012) wird Port 8530 für http und 8531 für HTTPS verwendet.
+-   Unter WSUS 6.2 und höher (mindestens Windows Server 2012) werden Port 8530 für HTTP und 8531 für HTTPS verwendet.
 
 Die Firewall auf dem WSUS-Server muss für das Zulassen von eingehendem Datenverkehr auf diesen Ports konfiguriert werden.
 
@@ -119,17 +119,17 @@ Verwenden Sie zum Einrichten von zwei Proxyservern, von denen jeder ein Protokol
 
 2.  Installieren Sie die WSUS-Serverrolle. Geben Sie während der Ausführung des WSUS-Konfigurations-Assistenten (im nächsten Abschnitt erläutert) keinen Proxyserver an.
 
-3.  Öffnen Sie eine Eingabeaufforderung (Cmd.exe) als Administrator. Wählen Sie zum Öffnen einer Eingabeaufforderung als Administrator **Start**aus. Geben Sie in **Suche starten**die **Eingabeaufforderung**ein. Klicken Sie oben im Startmenü mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**. Wenn das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, geben Sie die entsprechenden Anmelde Informationen ein (falls angefordert), vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf **weiter**.
+3.  Öffnen Sie eine Eingabeaufforderung (Cmd.exe) als Administrator. Wählen Sie zum Öffnen einer Eingabeaufforderung als Administrator **Start**aus. Gib in **Suche starten** den Suchbegriff **Eingabeaufforderung** ein. Klicke am oberen Rand des Menüs „Start“ mit der rechten Maustaste auf **Eingabeaufforderung**, und klicke dann auf **Als Administrator ausführen**. Gehe wie folgt vor, wenn das Dialogfeld **Benutzerkontensteuerung** angezeigt wird: Gib die entsprechenden Anmeldeinformationen ein (falls angefordert), vergewissere dich, dass die gewünschte Aktion angezeigt wird, und klicke dann auf **Weiter**.
 
-4.  Wechseln Sie im Eingabe Aufforderungs Fenster zum Ordner "c:\Programme\Update Services\Tools". Geben Sie den folgenden Befehl ein:
+4.  Wechsele im Eingabeaufforderungsfenster zum Ordner „C:\Programme\Update Services\Tools“. Gib den folgenden Befehl ein:
 
-    **WSUSutil Konfigurations Proxy [< proxy_server proxy_port >]-enable**, wobei:
+    **wsusutil ConfigureSSlproxy [<Proxyserver Proxyport>] -enable**, wobei:
 
     1.  Proxyserver für den Namen des Proxyservers steht, der HTTPS unterstützt.
 
     2.  Proxyport die Portnummer des Proxyservers ist.
 
-5.  Schließen Sie das Eingabe Aufforderungs Fenster.
+5.  Schließe das Eingabeaufforderungsfenster.
 
 Führen Sie das folgende Verfahren aus, um den Proxyserver hinzuzufügen, der das HTTP-Protokoll für die WSUS-Konfiguration verwendet:
 
@@ -139,7 +139,7 @@ Führen Sie das folgende Verfahren aus, um den Proxyserver hinzuzufügen, der da
 
 2.  Erweitern Sie im linken Bereich den Servernamen, und klicken Sie dann auf **Optionen**.
 
-3.  Klicken Sie im Bereich **Optionen** auf **Updatequelle und Proxyserver** und anschließend auf die Registerkarte **Proxyserver**.
+3.  Klicken Sie im Bereich **Optionen** auf **Updatequelle und Proxyserver**und anschließend auf die Registerkarte **Proxyserver** .
 
 4.  Verwenden Sie die folgenden Optionen, um die vorhandene Proxyserverkonfiguration zu ändern:
 
@@ -151,7 +151,7 @@ Führen Sie das folgende Verfahren aus, um den Proxyserver hinzuzufügen, der da
 
     3.  Geben Sie im Textfeld **Proxyportnummer** die Portnummer des Proxyservers ein. Die Standardportnummer ist 80.
 
-    4.  FF der Proxy Server erfordert, dass Sie ein bestimmtes Benutzerkonto verwenden, aktivieren Sie das Kontrollkästchen **Benutzer Anmelde Informationen zum Herstellen einer Verbindung mit dem Proxy Server verwenden** . Geben Sie den erforderlichen Benutzernamen, die Domäne und das Kennwort in die entsprechenden Textfelder ein.
+    4.  Wenn der Proxyserver erfordert, dass du ein bestimmtes Benutzerkonto verwendest, aktivierst du das Kontrollkästchen **Benutzeranmeldeinformationen für die Verbindungsherstellung mit dem Proxyserver verwenden**. Gib den erforderlichen Benutzernamen, die Domäne und das Kennwort in die entsprechenden Textfelder ein.
 
     5.  Falls der Proxyserver Standardauthentifizierung unterstützt, aktivieren Sie das Kontrollkästchen **Standardauthentifizierung zulassen (Kennwort wird in Klartext gesendet)** .
 
@@ -171,11 +171,11 @@ Dieses Verfahren setzt voraus, dass Sie den WSUS-Konfigurations-Assistenten verw
 1.  Klicken Sie im Navigationsbereich des Server-Managers auf **Dashboard**, auf **Tools** und dann auf **Windows Server Update Services**.
 
     > [!NOTE]
-    > Wenn das Dialogfeld **WSUS-Installation vervollständigen** angezeigt wird, klicken Sie auf **Ausführen**. Klicken Sie im Dialogfeld **WSUS-Installation abschließen** auf **Schließen** , wenn die Installation erfolgreich abgeschlossen wurde.
+    > Klicke auf **Ausführen**, wenn das Dialogfeld **WSUS-Installation abschließen** angezeigt wird. Klicke im Dialogfeld **WSUS-Installation abschließen** auf **Schließen**, wenn die Installation erfolgreich abgeschlossen wurde.
 
 2.  Der WSUS-Konfigurations-Assistent wird geöffnet. Lesen Sie die Informationen auf der Seite **Vorbemerkungen** , und klicken Sie dann auf **Weiter**.
 
-3.  Lesen Sie die Anweisungen auf der Seite **Am Programm zur Verbesserung von Microsoft Update teilnehmen**, und entscheiden Sie, ob Sie am Programm teilnehmen möchten. Wenn Sie am Programm teilnehmen möchten. behalten Sie die Standardauswahl bei, oder deaktivieren Sie das Kontrollkästchen, und klicken Sie dann auf **weiter**.
+3.  Lesen Sie die Anweisungen auf der Seite **Am Programm zur Verbesserung von Microsoft Update teilnehmen** , und entscheiden Sie, ob Sie am Programm teilnehmen möchten. Wenn Sie am Programm teilnehmen möchten. Behalte die Standardauswahl bei, oder deaktiviere das Kontrollkästchen, und klicke dann auf **Weiter**.
 
 4.  Auf der Seite **Upstreamserver auswählen** stehen Ihnen zwei Optionen zur Verfügung:
 
@@ -183,11 +183,11 @@ Dieses Verfahren setzt voraus, dass Sie den WSUS-Konfigurations-Assistenten verw
 
     2.  Von einem anderen Windows Server Update Services-Server synchronisieren
 
-        -   Wenn Sie sich für die Synchronisierung von einem anderen WSUS-Server entscheiden, geben Sie den Servernamen und den Port an, auf dem dieser Server mit dem Upstreamserver kommunizieren soll.
+        -   Wenn du dich für die Synchronisierung mit einem anderen WSUS-Server entscheidest, gibst du den Servernamen und den Port an, über den der Server mit dem Upstreamserver kommuniziert.
 
         -   Wenn Sie SSL verwenden möchten, aktivieren Sie das Kontrollkästchen **SSL beim Synchronisieren der Updateinformationen verwenden** . Die Server verwenden den Port 443 für die Synchronisierung. (Stellen Sie sicher, dass dieser Server und der Upstreamserver SSL unterstützen).
 
-        -   Wenn es sich um einen Replikat Server handelt, aktivieren Sie das Kontrollkästchen **Dies ist ein Replikat des Upstreamservers** .
+        -   Falls es sich um einen Replikatserver handelt, aktivierst du das Kontrollkästchen **Dies ist ein Replikat des Upstreamservers**.
 
 5.  Nachdem Sie die entsprechenden Optionen für Ihre Bereitstellung ausgewählt haben, klicken Sie auf **Weiter**, um fortzufahren.
 
@@ -196,43 +196,43 @@ Dieses Verfahren setzt voraus, dass Sie den WSUS-Konfigurations-Assistenten verw
     > [!IMPORTANT]
     > Dieser Schritt muss ausgeführt werden, wenn WSUS einen Proxyserver für den Internetzugriff benötigt.
 
-7.  Wenn Sie mithilfe bestimmter Benutzer Anmelde Informationen eine Verbindung mit dem Proxy Server herstellen möchten, aktivieren Sie das Kontrollkästchen **Benutzer Anmelde Informationen zum Herstellen einer Verbindung mit dem Proxy Server verwenden** , und geben Sie dann den Benutzernamen, die Domäne und das Kennwort des Benutzers in die entsprechenden Felder ein. Wenn Sie für den Benutzer, der eine Verbindung mit dem Proxy Server herstellt, die Standard Authentifizierung aktivieren möchten, aktivieren Sie das Kontrollkästchen Standard **Authentifizierung zulassen (Kennwort wird in Klartext gesendet)** .
+7.  Wenn für die Verbindung mit dem Proxyserver bestimmte Benutzeranmeldeinformationen verwendet werden sollen, aktivierst du das Kontrollkästchen **Benutzeranmeldeinformationen verwenden, um Verbindung mit dem Proxyserver herzustellen**. Gib anschließend den Benutzernamen, die Domäne und das Kennwort des Benutzers in die entsprechenden Felder ein. Falls du für den Benutzer, der die Verbindung mit dem Proxyserver herstellt, die Standardauthentifizierung aktivieren möchtest, aktivierst du das Kontrollkästchen **Standardauthentifizierung zulassen (Kennwort wird in Klartext gesendet)** .
 
-8.  Klicken Sie auf **Weiter**. Klicken Sie auf der Seite **mit Upstreamserver verbinden** auf **Verbindung starten**.
+8.  Klicken Sie auf **Weiter**. Klicke auf der Seite **Mit Upstreamserver verbinden** auf **Verbindung starten**.
 
 9. Wenn die Verbindung hergestellt wurde, klicken Sie auf **Weiter** , um fortzufahren.
 
-10. Auf der Seite **Sprachen auswählen** können Sie die Sprachen auswählen, von denen WSUS Updates empfängt, alle Sprachen oder eine Teilmenge von Sprachen. Wenn Sie eine Teilmenge von Sprachen auswählen, sparen Sie Speicherplatz. es ist jedoch wichtig, alle Sprachen auszuwählen, die für alle Clients dieses WSUS-Servers erforderlich sind. Wenn Sie Updates nur für bestimmte Sprachen herunterladen möchten, wählen Sie **Updates nur in diesen Sprachen herunterladen**aus, und wählen Sie dann die gewünschten Sprachen aus. überlassen Sie andernfalls die Standardauswahl.
+10. Auf der Seite **Sprachen auswählen** kannst du die Sprachen auswählen, für die WSUS Updates empfängt (alle Sprachen oder eine Teilmenge von Sprachen). Wenn du eine Teilmenge von Sprachen auswählst, sparst du Speicherplatz. Es ist aber WICHTIG, alle Sprachen auszuwählen, die für sämtliche Clients des WSUS-Servers erforderlich sind. Falls du nur für bestimmte Sprachen Updates abrufen möchtest, aktivierst du **Updates nur in folgenden Sprachen herunterladen**. Wähle anschließend die gewünschten Sprachen aus. Andernfalls kannst du die Standardeinstellung übernehmen.
 
     > [!WARNING]
     > Wenn Sie die Option **Updates nur in folgenden Sprachen herunterladen** auswählen und ein WSUS-Downstreamserver mit dem Server verbunden ist, werden für den Downstreamserver ebenfalls nur die ausgewählten Sprachen verwendet.
 
 11. Nachdem Sie die entsprechenden Sprachoptionen für Ihre Bereitstellung ausgewählt haben, klicken Sie auf **Weiter** , um fortzufahren.
 
-12. Auf der Seite **Produkte auswählen** können Sie die Produkte angeben, für die Sie Updates herunterladen möchten. Wählen Sie Produktkategorien wie Windows oder bestimmte Produkte wie Windows Server 2008 aus. durch die Auswahl einer Produktkategorie werden alle Produkte in dieser Kategorie ausgewählt.
+12. Auf der Seite **Produkte auswählen** können Sie die Produkte angeben, für die Sie Updates herunterladen möchten. Wähle Produktkategorien wie Windows oder bestimmte Produkte wie Windows Server 2008 aus. Durch die Auswahl einer Produktkategorie werden alle Produkte in der Kategorie ausgewählt.
 
-13. Wählen Sie die entsprechenden Produktoptionen für Ihre Bereitstellung aus, und klicken Sie dann auf **weiter**.
+13. Wähle die entsprechenden Produktoptionen für deine Bereitstellung aus, und klicke dann auf **Weiter**.
 
 14. Wählen Sie auf der Seite **Klassifizierungen auswählen** die gewünschten Updateklassifizierungen aus. Sie können alle Klassifizierungen oder eine Teilmenge auswählen. Klicken Sie anschließend auf **Weiter**.
 
 15. Auf der Seite **Synchronisierungszeitplan festlegen** können Sie auswählen, ob die Synchronisierung manuell oder automatisch ausgeführt werden soll.
 
-    -   Wenn Sie **manuell synchronisieren**auswählen, müssen Sie den Synchronisierungs Prozess über die WSUS-Verwaltungskonsole starten.
+    -   Bei Auswahl von **Manuell synchronisieren** musst du die Synchronisierung über die WSUS-Verwaltungskonsole starten.
 
-    -   Wenn Sie **automatisch synchronisieren**auswählen, wird der WSUS-Server in festgelegten Intervallen synchronisiert.
+    -   Bei Auswahl von **Automatisch synchronisieren** führt der WSUS-Server die Synchronisierung in festgelegten Intervallen aus.
 
-    Legen Sie die Zeit für **Erste Synchronisierung**fest, und geben Sie die Anzahl von **Synchronisierungen pro Tag** an, die dieser Server ausführen soll. Wenn Sie z. B. vier Synchronisierungen pro Tag mit der ersten Synchronisierung um 3:00 Uhr festlegen, finden um 3:00 Uhr, 9:00 Uhr, 15:00 Uhr und 21:00 Uhr Synchronisierungen statt
+    Legen Sie die Zeit für **Erste Synchronisierung**fest, und geben Sie die Anzahl von **Synchronisierungen pro Tag** an, die dieser Server ausführen soll. Wenn Sie z. B. vier Synchronisierungen pro Tag mit der ersten Synchronisierung um 3:00 Uhr festlegen, finden um 3:00 Uhr, 9:00 Uhr, 15:00 Uhr und 21:00 Uhr Synchronisierungen statt
 
 16. Nachdem Sie die entsprechenden Synchronisierungsoptionen für Ihre Bereitstellung ausgewählt haben, klicken Sie auf **Weiter** , um fortzufahren.
 
-17. Auf der Seite **Fertig gestellt** haben Sie die Möglichkeit, die Synchronisierung direkt zu starten, indem Sie das Kontrollkästchen **Erstsynchronisierung starten** aktivieren. Wenn Sie diese Option nicht auswählen, müssen Sie die WSUS-Verwaltungskonsole verwenden, um die erst Synchronisierung auszuführen. Klicken Sie auf **Weiter** , wenn Sie mehr über zusätzliche Einstellungen erfahren möchten, oder auf **Fertig stellen** , um den Assistenten zu beenden und die WSUS-Erstkonfiguration abzuschließen.
+17. Auf der Seite **Fertig gestellt** haben Sie die Möglichkeit, die Synchronisierung direkt zu starten, indem Sie das Kontrollkästchen **Erstsynchronisierung starten** aktivieren. Wenn du diese Option nicht auswählst, musst du die Erstsynchronisierung über die WSUS-Verwaltungskonsole ausführen. Klicken Sie auf **Weiter** , wenn Sie mehr über zusätzliche Einstellungen erfahren möchten, oder auf **Fertig stellen** , um den Assistenten zu beenden und die WSUS-Erstkonfiguration abzuschließen.
 
 18. Nach dem Klicken auf **Fertig stellen**wird die WSUS-Verwaltungskonsole angezeigt.
 
 Damit ist die grundlegende WSUS-Konfiguration abgeschlossen. Lesen Sie jetzt die nächsten Abschnitte, um mehr über das Ändern der Einstellungen mithilfe der WSUS-Verwaltungskonsole zu erfahren.
 
-## <a name="23-configure-wsus-computer-groups"></a>2.3. Konfigurieren von WSUS-Computer Gruppen
-Computer Gruppen sind ein wichtiger Bestandteil von Windows Server Update Services (WSUS)-bereit Stellungen. Mithilfe von Computergruppen können Sie Updates testen und gezielt für bestimmte Computer anwenden. Zwei Standard Computer Gruppen sind verfügbar: alle Computer und nicht zugewiesene Computer. Standardmäßig fügt der WSUS-Server jeden Clientcomputer bei der ersten Verbindungsherstellung mit dem Server einer dieser beiden Gruppen hinzu.
+## <a name="23-configure-wsus-computer-groups"></a>2.3. Konfigurieren von WSUS-Computergruppen
+Computergruppen sind ein WICHTIGER Bestandteil von WSUS-Bereitstellungen (Windows Server Update Services). Mithilfe von Computergruppen können Sie Updates testen und gezielt für bestimmte Computer anwenden. Es gibt die folgenden zwei Standardcomputergruppen: „Alle Computer“ und „Nicht zugewiesene Computer“. Standardmäßig fügt der WSUS-Server jeden Clientcomputer bei der ersten Verbindungsherstellung mit dem Server einer dieser beiden Gruppen hinzu.
 
 Sie können beliebig viele benutzerdefinierte Computergruppen erstellen, um Updates in Ihrer Organisation zu verwalten. Es wird empfohlen, mindestens eine Computergruppe zu erstellen, mit der Updates getestet werden können, bevor sie auf anderen Computern in der Organisation bereitgestellt werden.
 
@@ -240,43 +240,43 @@ Gehen Sie wie im Folgenden beschrieben vor, um eine neue Gruppe zu erstellen und
 
 #### <a name="to-create-a-computer-group"></a>So erstellen Sie eine Computergruppe
 
-1.  Erweitern Sie in der WSUS-Verwaltungskonsole unter **Update Services**den WSUS-Server, erweitern Sie **Computer**, klicken Sie mit der rechten Maustaste auf **alle Computer**, und klicken Sie dann auf **Computergruppe hinzufügen**.
+1.  Erweitere in der WSUS-Verwaltungskonsole unter **Update Services**den Eintrag **Computer**, klicke mit der rechten Maustaste auf **Alle Computer**, und klicke dann auf **Computergruppe hinzufügen**.
 
-2.  Geben Sie im Dialogfeld **Computergruppe hinzufügen** unter **Name**den Namen der neuen Gruppe an, und klicken Sie dann auf **Hinzufügen**.
+2.  Gib im Dialogfeld **Computergruppe hinzufügen** den Namen der neuen Gruppe in das Feld **Name** ein, und klicke dann auf **Hinzufügen**.
 
-3.  Klicken Sie auf **Computer**, und wählen Sie dann die Computer aus, die Sie dieser neuen Gruppe zuweisen möchten.
+3.  Klicke auf **Computer**, und wähle anschließend die Computer aus, die du der neuen Gruppe zuweisen möchtest.
 
-4.  Klicken Sie mit der rechten Maustaste auf die Computernamen, die Sie im vorherigen Schritt ausgewählt haben, und klicken Sie dann auf **Mitgliedschaft ändern**.
+4.  Klicke mit der rechten Maustaste auf die im vorherigen Schritt ausgewählten Computernamen, und klicke dann auf **Mitgliedschaft ändern**.
 
-5.  Wählen Sie im Dialogfeld **Computer Gruppenmitgliedschaft festlegen** die erstellte Testgruppe aus, und klicken Sie dann auf **OK**.
+5.  Wähle im Dialogfeld **Gruppenmitgliedschaft für Computer festlegen** die erstellte Testgruppe aus, und klicke dann auf **OK**.
 
 ## <a name="24-configure-client-updates"></a>2.4. Konfigurieren von Clientupdates
 Beim WSUS-Setup wird IIS automatisch so konfiguriert, dass die aktuelle Version von %%amp;quot;Automatische Updates%%amp;quot; an jeden Clientcomputer verteilt wird, der eine Verbindung mit dem WSUS-Server herstellt. Die für %%amp;quot;Automatische Updates%%amp;quot; am besten geeignete Konfiguration hängt von der Netzwerkumgebung ab.
 
--   In einer Umgebung, die den Active Directory-Verzeichnisdienst verwendet, können Sie ein vorhandenes domänenbasiertes Gruppenrichtlinie Objekt (GPO) verwenden oder ein neues GPO erstellen.
+-   In einer Umgebung, in der der Active Directory-Verzeichnisdienst verwendet wird, kannst du ein vorhandenes domänenbasiertes Gruppenrichtlinienobjekt (Group Policy Object, GPO) verwenden oder ein neues GPO erstellen.
 
--   Verwenden Sie in einer Umgebung ohne Active Directory den Editor für lokale Gruppenrichtlinie, um automatische Updates zu konfigurieren und die Client Computer dann auf den WSUS-Server zu verweisen.
+-   In einer Umgebung ohne Active Directory konfigurierst du „Automatische Updates“ mit dem Editor für lokale Gruppenrichtlinien und verweist anschließend auf den Clientcomputern auf den WSUS-Server.
 
 > [!IMPORTANT]
-> Bei den folgenden Verfahren wird davon ausgegangen, dass Ihr Netzwerk Active Directory ausführt. Zudem wird vorausgesetzt, dass Sie mit dem Feature %%amp;quot;Gruppenrichtlinie%%amp;quot; vertraut sind und es zum Verwalten des Netzwerks verwenden.
+> Die folgenden Verfahren gelten für Netzwerke, in denen Active Directory ausgeführt wird. Zudem wird vorausgesetzt, dass Sie mit dem Feature %%amp;quot;Gruppenrichtlinie%%amp;quot; vertraut sind und es zum Verwalten des Netzwerks verwenden.
 
 Verwenden Sie die folgenden Verfahren, um %%amp;quot;Automatische Updates%%amp;quot; für Clientcomputer zu konfigurieren:
 
--   [Schritt 4: Konfigurieren von Gruppenrichtlinie Einstellungen für automatische Updates](4-configure-group-policy-settings-for-automatic-updates.md)
+-   [Schritt 4: Konfigurieren von Gruppenrichtlinien für automatische Updates](4-configure-group-policy-settings-for-automatic-updates.md)
 
--   [2,3. Konfigurieren von Computer Gruppen](#23-configure-wsus-computer-groups) in diesem Thema
+-   [2.3. Konfigurieren von Computergruppen](#23-configure-wsus-computer-groups) in diesem Thema
 
 ### <a name="configure-automatic-updates-in-group-policy"></a>Konfigurieren von %%amp;quot;Automatische Updates%%amp;quot; in %%amp;quot;Gruppenrichtlinie%%amp;quot;
 
-Wenn Sie Active Directory in Ihrem Netzwerk eingerichtet haben, können Sie einen oder mehrere Computer gleichzeitig konfigurieren, indem Sie Sie in ein Gruppenrichtlinie Objekt (GPO) einschließen und dieses GPO anschließend mit WSUS-Einstellungen konfigurieren. Es wird empfohlen, ein neues GPO zu erstellen, das nur WSUS-Einstellungen enthält.
+Wenn du Active Directory in deinem Netzwerk eingerichtet hast, kannst du mehrere Computer gleichzeitig konfigurieren, indem du sie in ein GPO einfügst und dieses GPO anschließend mit WSUS-Einstellungen konfigurierst. Es wird empfohlen, ein neues GPO zu erstellen, das nur WSUS-Einstellungen enthält.
 
-Verknüpfen Sie dieses WSUS-GPO mit einem Active Directory-Container, der für Ihre Umgebung geeignet ist. In einer einfachen Umgebung reicht es u. U. aus, ein WSUS-GPO mit der Domäne zu verknüpfen. In einer komplexeren Umgebung müssen Sie möglicherweise mehrere WSUS-GPOs mit mehreren Organisationseinheiten (Organizational Unit, OU) verknüpfen, sodass Sie unterschiedliche WSUS-Richtlinieneinstellungen für verschiedene Computertypen anwenden können.
+Verknüpfe dieses WSUS-GPO mit einem für die Umgebung geeigneten Active Directory-Container. In einer einfachen Umgebung reicht es u. U. aus, ein WSUS-GPO mit der Domäne zu verknüpfen. In einer komplexeren Umgebung müssen Sie möglicherweise mehrere WSUS-GPOs mit mehreren Organisationseinheiten (Organizational Unit, OU) verknüpfen, sodass Sie unterschiedliche WSUS-Richtlinieneinstellungen für verschiedene Computertypen anwenden können.
 
 ##### <a name="to-enable-wsus-through-a-domain-gpo"></a>So aktivieren Sie WSUS über ein Domänen-GPO
 
-1.  Navigieren Sie in der Gruppenrichtlinien-Verwaltungskonsole (GPMC) zu dem GPO, in dem Sie WSUS konfigurieren möchten, und klicken Sie dann auf **Bearbeiten**.
+1.  Navigiere in der Gruppenrichtlinien-Verwaltungskonsole (Group Policy Management Console, GPMC) zu dem GPO, in dem du WSUS konfigurieren möchtest, und klicke dann auf **Bearbeiten**.
 
-2.  Erweitern Sie in der GPMC nacheinander **Computerkonfiguration**, **Richtlinien**, **Administrative Vorlagen**und **Windows-Komponenten**, und klicken Sie dann auf **Windows Update**.
+2.  Erweitere in der GPMC nacheinander **Computerkonfiguration**, **Richtlinien**, **Administrative Vorlagen** und **Windows-Komponenten**, und klicke dann auf **Windows Update**.
 
 3.  Doppelklicken Sie im Detailbereich auf **Automatische Updates konfigurieren**. Die Richtlinie **Automatische Updates konfigurieren** wird geöffnet.
 
@@ -288,37 +288,37 @@ Verknüpfen Sie dieses WSUS-GPO mit einem Active Directory-Container, der für I
 
     -   **Autom. Herunterladen und laut Zeitplan installieren**. Bei Auswahl dieser Option wird der Download von Updates automatisch gestartet, und anschließend werden die Updates zu dem von Ihnen angegebenen Zeitpunkt installiert.
 
-    -   **Lokalen Administrator ermöglichen, Einstellung auszuwählen**. Bei Auswahl dieser Option können lokale Administratoren den Bereich %%amp;quot;Automatische Updates%%amp;quot; in der Systemsteuerung verwenden, um eine Konfigurationsoption auszuwählen. Sie können z. B. einen geplanten Installationszeitpunkt auswählen. Lokale Administratoren können %%amp;quot;Automatische Updates%%amp;quot; nicht deaktivieren.
+    -   **Lokalen Administrator ermöglichen, Einstellung auszuwählen**. Bei Auswahl dieser Option können lokale Administratoren den Bereich %%amp;quot;Automatische Updates%%amp;quot; in der Systemsteuerung verwenden, um eine Konfigurationsoption auszuwählen. Sie können z. B. einen geplanten Installationszeitpunkt auswählen. Lokale Administratoren können %%amp;quot;Automatische Updates%%amp;quot; nicht deaktivieren.
 
-5.  Wählen Sie **Client seitige Zielgruppen Steuerung aktivieren**und dann **aktiviert**aus, und geben Sie dann den Namen der WSUS-Computergruppe, der Sie diesen Computer hinzufügen möchten, in das Feld **Zielgruppen Name für diesen Computer** ein.
+5.  Wähle **Clientseitige Zielzuordnung aktivieren** und dann **Aktiviert** aus. Gib anschließend den Namen der WSUS-Computergruppe, der du diesen Computer hinzufügen möchtest, im Feld **Zielgruppenname für diesen Computer** ein.
 
     > [!NOTE]
-    > Durch die Option **Clientseitige Zielzuordnung aktivieren** können Clientcomputer sich selbst Zielcomputergruppen auf dem WSUS-Server hinzufügen, wenn automatische Updates auf einen WSUS-Server umgeleitet werden. Wenn der Status auf Aktiviert festgelegt ist, wird dieser Computer sich selbst als Mitglied einer bestimmten Computergruppe identifizieren, wenn er Informationen an den WSUS-Server sendet, der ihn verwendet, um zu bestimmen, welche Updates auf diesem Computer bereitgestellt werden. Diese Einstellung zeigt dem WSUS-Server an, welche Gruppe der Clientcomputer verwendet. Sie müssen die Gruppe auf dem WSUS-Server erstellen und ihr Domänenmitgliedscomputer hinzufügen.
+    > Durch die Option **Clientseitige Zielzuordnung aktivieren** können Clientcomputer sich selbst Zielcomputergruppen auf dem WSUS-Server hinzufügen, wenn automatische Updates auf einen WSUS-Server umgeleitet werden. Falls der Status „Aktiviert“ lautet, identifiziert sich dieser Computer selbst als Mitglied einer bestimmten Computergruppe, wenn er Informationen an den WSUS-Server sendet, mit denen ermittelt wird, welche Updates auf diesem Computer bereitgestellt werden. Diese Einstellung zeigt dem WSUS-Server an, welche Gruppe der Clientcomputer verwendet. Sie müssen die Gruppe auf dem WSUS-Server erstellen und ihr Domänenmitgliedscomputer hinzufügen.
 
-6.  Klicken Sie auf **OK**, um die Richtlinie **Clientseitige Zielzuordnung aktivieren** zu schließen und zum Detailfenster „Windows Update“ zurückzukehren.
+6.  Klicken Sie auf **OK** , um die Richtlinie **Clientseitige Zielzuordnung aktivieren** zu schließen und zum Detailfenster „Windows Update“ zurückzukehren.
 
-7.  Klicken Sie auf **OK**, um die Richtlinie **Automatische Updates konfigurieren** zu schließen und zum Detailfenster „Windows Update“ zurückzukehren.
+7.  Klicken Sie auf **OK** , um die Richtlinie **Automatische Updates konfigurieren** zu schließen und zum Detailfenster „Windows Update“ zurückzukehren.
 
 8.  Doppelklicken Sie im Detailbereich **Windows Update** auf **Internen Pfad für den Microsoft Updatedienst angeben**.
 
-9. Klicken Sie auf **Aktiviert**, und geben Sie dann die URL des gleichen WSUS-Servers in die Felder **Interner Updatedienst zum Ermitteln von Updates** und **Intranetserver für die Statistik** ein. Geben Sie z. b. *http://servername* in beide Felder ein (wobei *Server* Name der Name des WSUS-Servers ist).
+9. Klicken Sie auf **Aktiviert**, und geben Sie dann die URL des gleichen WSUS-Servers in die Felder **Interner Updatedienst zum Ermitteln von Updates** und **Intranetserver für die Statistik** ein. Gib beispielsweise *http://servername* in beide Felder ein (wobei *servername* der Name des WSUS-Servers ist).
 
     > [!WARNING]
-    > Beim Eingeben der Intranetadresse des WSUS-Servers muss der zu verwendende Port angegeben werden. Standardmäßig verwendet WSUS den Port 8530 für HTTP und den Port 8531 für HTTPS. Wenn Sie z. b. http verwenden, müssen Sie **http://servername:8530** eingeben.
+    > Beim Eingeben der Intranetadresse des WSUS-Servers muss der zu verwendende Port angegeben werden. Standardmäßig verwendet WSUS den Port 8530 für HTTP und den Port 8531 für HTTPS. Wenn du HTTP verwendest, musst du beispielsweise **http://servername:8530** eingeben.
 
 10. Klicken Sie auf **OK**.
 
-Nach dem Einrichten eines Client Computers dauert es einige Minuten, bis der Computer auf der Seite **Computer** in der WSUS-Verwaltungskonsole angezeigt wird. Bei Clientcomputern, die mit einem domänenbasierten GPO konfiguriert werden, kann es bis zu 20 Minuten dauern, bis die neuen Richtlinieneinstellungen von der Gruppenrichtlinie auf den Clientcomputer angewendet werden. Standardmäßig Gruppenrichtlinie Updates im Hintergrund alle 90 Minuten mit einem zufälligen Offset von 0-30 Minuten. Wenn Sie Gruppenrichtlinie früher aktualisieren möchten, können Sie auf dem Client Computer ein Eingabe Aufforderungs Fenster öffnen und gpupdate/force. eingeben.
+Nach dem Einrichten eines Clientcomputers dauert es einige Minuten, bis der Computer auf der Seite **Computer** in der WSUS-Verwaltungskonsole angezeigt wird. Bei Clientcomputern, die mit einem domänenbasierten GPO konfiguriert werden, kann es bis zu 20 Minuten dauern, bis die neuen Richtlinieneinstellungen von der Gruppenrichtlinie auf den Clientcomputer angewendet werden. Standardmäßig wird die Gruppenrichtlinienaktualisierung alle 90 Minuten mit einer Verschiebung von 0 bis 30 Minuten im Hintergrund ausgeführt. Wenn du die Gruppenrichtlinienaktualisierung früher ausführen möchtest, kannst du auf dem Clientcomputer ein Eingabeaufforderungsfenster öffnen und „gpupdate /force“ eingeben.
 
-bei Client Computern, die mit dem Editor für lokale Gruppenrichtlinie konfiguriert werden, wird das GPO sofort angewendet, und das Update dauert ungefähr 20 Minuten. Wenn Sie die Ermittlung manuell starten, müssen Sie nicht 20 Minuten warten, bis der Client Computer eine Verbindung mit WSUS hergestellt hat.
+Bei Clientcomputern, die mit dem Editor für lokale Gruppenrichtlinien konfiguriert werden, wird das GPO direkt angewendet, und die Aktualisierung dauert ca. 20 Minuten. Wenn du die Ermittlung manuell startest, musst du nicht 20 Minuten warten, bis der Clientcomputer eine Verbindung mit WSUS herstellt.
 
 Da das Warten auf den Start der Ermittlung zeitaufwändig sein kann, können Sie ggf. das folgende Verfahren verwenden, um die Ermittlung sofort zu initiieren.
 
 ##### <a name="to-initiate-wsus-detection"></a>So starten Sie die WSUS-Ermittlung
 
-1.  Öffnen Sie auf dem Client Computer ein Eingabe Aufforderungs Fenster mit erhöhten Rechten.
+1.  Öffne auf dem Clientcomputer ein Eingabeaufforderungsfenster mit erhöhten Rechten.
 
-2.  Geben Sie wuauclt. exe/detectnow ein, und drücken Sie dann die EINGABETASTE.
+2.  Gib „wuauclt.exe /detectnow“ ein, und drücke dann die EINGABETASTE.
 
 ## <a name="25-secure-wsus-with-the-secure-sockets-layer-protocol"></a>2.5. Schützen von WSUS mit dem Secure Sockets Layer-Protokoll
 
@@ -336,50 +336,50 @@ Berücksichtigen Sie bei Verwendung von SSL zum Sichern der WSUS-Bereitstellung 
 
 2.  Wenn Sie WSUS mit einer SQL Server-Remotedatenbank verwenden, wird die Verbindung zwischen dem WSUS-Server und dem Datenbankserver nicht durch SSL gesichert. Wenn die Verbindung mit der Datenbank gesichert werden muss, sollten Sie folgende Empfehlungen berücksichtigen:
 
--   Verschieben Sie die WSUS-Datenbank auf den WSUS-Server.
+-   Verschiebe die WSUS-Datenbank auf den WSUS-Server.
 
--   Verschieben Sie den Remote-Datenbankserver und den WSUS-Server in ein privates Netzwerk.
+-   Verschiebe den Remotedatenbankserver und den WSUS-Server in ein privates Netzwerk.
 
--   Stellen Sie die Internet Protokoll Sicherheit (IPSec) bereit, um den Netzwerk Datenverkehr zu sichern. Weitere Informationen zu IPsec finden Sie unter [Creating and Using IPsec Policies](https://go.microsoft.com/fwlink/?LinkID=203841).
+-   Stelle Internet Protocol Security (IPsec) bereit, um den Netzwerkverkehr zu schützen. Weitere Informationen zu IPsec finden Sie unter [Creating and Using IPsec Policies](https://go.microsoft.com/fwlink/?LinkID=203841).
 
 ### <a name="configure-ssl-on-the-wsus-server"></a>Konfigurieren von SSL auf dem WSUS-Server
 WSUS erfordert zwei Ports für SSL: einen Port, der HTTPS für das Senden verschlüsselter Metadaten verwendet, und einen Port, der HTTP für das Senden der Updates verwendet. Beachten Sie beim Konfigurieren von WSUS für SSL Folgendes:
 
--   Sie können nicht die gesamte WSUS-Website so konfigurieren, dass SSL erforderlich ist, da der gesamte Datenverkehr an die WSUS-Website verschlüsselt werden müsste. WSUS verschlüsselt nur Updatemetadaten. Wenn ein Computer versucht, Update Dateien auf dem HTTPS-Port abzurufen, schlägt die Übertragung fehl.
+-   Sie können nicht die gesamte WSUS-Website so konfigurieren, dass SSL erforderlich ist, da der gesamte Datenverkehr an die WSUS-Website verschlüsselt werden müsste. WSUS verschlüsselt nur Updatemetadaten. Wenn ein Computer versucht, Updatedateien auf dem HTTPS-Port abzurufen, schlägt die Übertragung fehl.
 
     Sie sollten SSL nur für die folgenden virtuellen Stammverzeichnisse erfordern:
 
     -   **SimpleAuthWebService**
 
-    -   **DssAuthWebService**
+    -   **DSSAuthWebService**
 
     -   **ServerSyncWebService**
 
     -   **APIremoting30**
 
-    -   **Clientweb Service**
+    -   **ClientWebService**
 
     Sie sollten SSL nicht für die folgenden virtuellen Stammverzeichnisse erfordern:
 
     -   **Inhalt**
 
-    -   **Lager**
+    -   **Inventory**
 
-    -   **Berichterstattungsweb Diensts**
+    -   **ReportingWebService**
 
-    -   **Selbst Aktualisierungs**
+    -   **SelfUpdate**
 
 -   Das Zertifikat der Zertifizierungsstelle (CA) muss in den vertrauenswürdigen Stamm-CA-Speicher des lokalen Computerspeichers oder in den vertrauenswürdigen Stamm-CA-Speicher von Windows Server Update Service auf WSUS-Downstreamservern importiert werden. Wenn das Zertifikat nur in den vertrauenswürdigen Stamm-CA-Speicher des lokalen Benutzers importiert wird, wird der Downstream-WSUS-Server nicht auf dem Upstreamserver authentifiziert.
 
-    Weitere Informationen zur Verwendung von SSL-Zertifikaten in IIS finden Sie unter [erforderliche Secure Sockets Layer (IIS 7)](https://go.microsoft.com/fwlink/?LinkID=203846).
+    Weitere Informationen zur Verwendung von SSL-Zertifikaten in IIS findest du unter [Require Secure Sockets Layer (IIS 7)](https://go.microsoft.com/fwlink/?LinkID=203846).
 
 -   Sie müssen das Zertifikat auf allen Computern importieren, die mit dem WSUS-Server kommunizieren. Dies umfasst alle Clientcomputer, Downstreamserver und Computer, auf denen die WSUS-Verwaltungskonsole ausgeführt wird. Das Zertifikat sollte in den vertrauenswürdigen Stamm-CA-Speicher des lokalen Computers oder in den vertrauenswürdigen Stamm-CA-Speicher von Windows Server Update Service importiert werden.
 
 -   Sie können einen beliebigen Port für SSL verwenden. Der Port, den Sie für SSL eingerichtet haben, bestimmt jedoch auch den Port, über den WSUS unverschlüsselt den HTTP-Datenverkehr sendet. Beachten Sie folgende Beispiele:
 
-    -   Wenn Sie den Branchen Standardport 443 für HTTPS-Datenverkehr verwenden, verwendet WSUS den Industriestandard-Port 80 für den HTTP-Datenverkehr.
+    -   Bei Verwendung des Branchenstandardports 443 für HTTPS-Datenverkehr verwendet WSUS den Branchenstandardport 80 für unverschlüsselten HTTP-Datenverkehr.
 
-    -   Wenn Sie einen anderen Port als 443 für HTTPS-Datenverkehr verwenden, sendet WSUS unverschlüsselten HTTP-Datenverkehr über den Port, der numerisch vor dem Port für HTTPS steht. Wenn Sie beispielsweise Port 8531 für HTTPS verwenden, wird WSUS Port 8530 für HTTP verwendet.
+    -   Wenn du einen anderen Port als 443 für HTTPS-Datenverkehr verwendest, sendet WSUS unverschlüsselten HTTP-Datenverkehr über den Port, der von der Zahl gesehen vor dem Port für HTTPS liegt. Wenn Sie beispielsweise Port 8531 für HTTPS verwenden, wird WSUS Port 8530 für HTTP verwendet.
 
 -   Sie müssen *ClientServicingProxy* erneut initialisieren, wenn der Servername, die SSL-Konfiguration oder die Portnummer geändert wird.
 
@@ -387,11 +387,11 @@ WSUS erfordert zwei Ports für SSL: einen Port, der HTTPS für das Senden versch
 
 1.  Melden Sie sich bei dem WSUS-Server mit einem Konto an, das Mitglied der WSUS-Administratorgruppe oder der lokalen Administratorgruppe ist.
 
-2.  Wechseln Sie zu **Start**, geben Sie **cmd**ein, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**
+2.  Wechsele zu **Start**, gib **CMD** ein, klicke mit der rechten Maustaste auf **Eingabeaufforderung**, und klicke dann auf **Als Administrator ausführen**.
 
-3.  Navigieren Sie zum Ordner " _% Program Files%_ **\\Update Services\\Tools\\** ".
+3.  Navigiere zum Ordner _%ProgramFiles%_ **\\Update Services\\Tools\\** .
 
-4.  Geben Sie im Eingabe Aufforderungs Fenster den folgenden Befehl ein:
+4.  Gib in der Eingabeaufforderung den folgenden Befehl ein:
 
     **Wsusutil configuressl**_certificateName_
 
@@ -402,9 +402,9 @@ WSUS erfordert zwei Ports für SSL: einen Port, der HTTPS für das Senden versch
 ### <a name="configure-ssl-on-client-computers"></a>Konfigurieren von SSL auf Clientcomputern
 Wenn Sie SSL auf Clientcomputern konfigurieren, sollten Sie Folgendes berücksichtigen:
 
--   Sie müssen eine URL für einen sicheren Port auf dem WSUS-Server einschließen. Da SSL auf dem Server nicht erzwungen werden kann, können Sie nur sicherstellen, dass der Clientcomputer einen sicheren Kanal verwenden kann, indem eine URL genutzt wird, die HTTPS angibt. Wenn Sie einen anderen Port als 443 für SSL verwenden, müssen Sie auch diesen Port in die URL einschließen.
+-   Sie müssen eine URL für einen sicheren Port auf dem WSUS-Server einschließen. Da SSL auf dem Server nicht erzwungen werden kann, können Sie nur sicherstellen, dass der Clientcomputer einen sicheren Kanal verwenden kann, indem eine URL genutzt wird, die HTTPS angibt. Wenn du einen anderen Port als 443 für SSL verwendest, musst du auch diesen Port in die URL einfügen.
 
--   Das Zertifikat auf einem Client Computer muss in den vertrauenswürdigen Stamm-CA-Speicher des lokalen Computers oder in den vertrauenswürdigen Stamm-CA-Speicher des lokalen Computers importiert werden. Wenn das Zertifikat nur in den vertrauenswürdigen Stamm-CA-Speicher des lokalen Benutzers importiert wird, schlägt die Server Authentifizierung automatische Updates fehl.
+-   Das Zertifikat muss in den vertrauenswürdigen Stamm-CA-Speicher des lokalen Computers oder in den vertrauenswürdigen Stamm-CA-Speicher des Diensts für automatische Updates importiert werden. Wenn das Zertifikat nur in den vertrauenswürdigen Stamm-CA-Speicher des lokalen Benutzers importiert wird, schlägt die Serverauthentifizierung für automatische Updates fehl.
 
 -   Die Clientcomputer müssen dem Zertifikat vertrauen, das Sie an den WSUS-Server binden. Je nach verwendetem Zertifikattyp müssen Sie möglicherweise einen Dienst einrichten, sodass die Clientcomputer dem an den WSUS-Server gebundenen Zertifikat vertrauen.
 
@@ -415,7 +415,7 @@ Die folgenden Anweisungen dienen der Konfiguration der Synchronisierung eines Do
 
 1.  Melden Sie sich mit einem Konto beim Computer an, das Mitglied der WSUS-Administratorgruppe oder der lokalen Administratorgruppe ist.
 
-2.  Klicken Sie im **Startmenü**auf **Alle Programme**, klicken Sie auf **Verwaltung**, und klicken Sie dann auf **Windows Server Update Service**.
+2.  Klicke auf **Start**, **Alle Programme**, **Verwaltung** und dann auf **Windows Server Update Service**.
 
 3.  Erweitern Sie im rechten Bereich den Namen des Servers.
 
@@ -423,23 +423,23 @@ Die folgenden Anweisungen dienen der Konfiguration der Synchronisierung eines Do
 
 5.  Wählen Sie auf der Seite **Updatequelle** die Option **Von einem Windows Server Update Services-Server synchronisieren**aus.
 
-6.  Geben Sie den Namen des Upstreamservers in das Textfeld **Servername** ein. Geben Sie die Portnummer ein, die vom Server für SSL-Verbindungen in das Textfeld **Portnummer** verwendet wird.
+6.  Gib den Namen des Upstreamservers in das Textfeld **Servername** ein. Gib die Portnummer, die der Server für SSL-Verbindungen verwendet, in das Textfeld **Portnummer** ein.
 
-7.  Aktivieren Sie das Kontrollkästchen **SSL beim Synchronisieren der Update Informationen verwenden** , und klicken Sie dann auf **OK**.
+7.  Aktiviere das Kontrollkästchen **SSL beim Synchronisieren der Updateinformationen verwenden**, und klicke auf **OK**.
 
 ### <a name="additional-ssl-resources"></a>Zusätzliche SSL-Ressourcen
 Die Schritte zum Einrichten einer Zertifizierungsstelle, zum Binden des Zertifikats an die WSUS-Website und zum Einrichten einer Vertrauensstellung zwischen Clientcomputern und Zertifikat gehen über den Rahmen dieses Handbuchs hinaus. Weitere Informationen und eine Anleitung zum Installieren von Zertifikaten sowie zum Einrichten der Umgebung finden Sie in den folgenden Themen:
 
--   [Schritt-für-Schritt-Anleitung für Suite B PKI](https://go.microsoft.com/fwlink/?LinkID=203858)
+-   [Suite B-PKI: Schritt-für-Schritt-Anleitung](https://go.microsoft.com/fwlink/?LinkID=203858)
 
--   [Implementieren und Verwalten von Zertifikat Vorlagen](https://go.microsoft.com/fwlink/?LinkID=203859)
+-   [Implementieren und Verwalten von Zertifikatvorlagen](https://go.microsoft.com/fwlink/?LinkID=203859)
 
--   [Handbuch für die Aktualisierung und Migration von Active Directory-Zertifikat Diensten](https://go.microsoft.com/fwlink/?LinkID=203860)
+-   [Active Directory-Zertifikatdienste: Leitfaden zu Upgrades und zur Migration](https://go.microsoft.com/fwlink/?LinkID=203860)
 
 -   [Konfigurieren der automatischen Registrierung von Zertifikaten](https://go.microsoft.com/fwlink/?LinkID=203861)
 
 ### <a name="26-complete-iis-configuration"></a>2.6. Abschluss der IIS-Konfiguration
-Standardmäßig ist der anonyme Lesezugriff für die Standardwebsite und alle neuen IIS-Websites aktiviert. Einige Programme, vor allem Windows SharePoint Services, können den anonymen Zugriff entfernen. Wenn dies der Fall ist, müssen Sie den anonymen Lesezugriff erneut aktivieren, bevor Sie WSUS erfolgreich installieren und ausführen können.
+Standardmäßig ist der anonyme Lesezugriff für die Standardwebsite und alle neuen IIS-Websites aktiviert. Einige Programme, vor allem Windows SharePoint Services, können den anonymen Zugriff entfernen. Ist dies der Fall, musst du den anonymen Lesezugriff erneut aktivieren, bevor du WSUS erfolgreich installieren und ausführen kannst.
 
 Führen Sie die Schritte für die entsprechende Version von IIS aus, um anonymen Lesezugriff zu aktivieren:
 
@@ -454,6 +454,6 @@ WSUS bietet die Möglichkeit, benutzerdefinierte Updatepakete für Produkte von 
 
 2.  **Ablaufdatum**. Wenn das selbstsignierte Zertifikat abläuft oder sich das Ablaufdatum nähert, protokolliert WSUS entsprechende Ereignisse im Ereignisprotokoll.
 
-3.  **Zertifikatupdates/Zertifikatsperre**. Wenn Sie ein Zertifikat aktualisieren oder widerrufen möchten (d. h. Nachdem Sie festgestellt haben, dass es abgelaufen ist), hat WSUS keine Funktionalität angeboten, um dies zu ermöglichen. Dafür mussten manuelle Aufgaben ausgeführt werden, die entweder sehr schwierig manuell auszuführen waren oder sich schlecht automatisieren ließen.
+3.  **Zertifikatupdates/Zertifikatsperre**. Wenn du versucht hast, ein Zertifikat zu aktualisieren oder zu sperren (d. h. nach Erkennung des Ablaufdatums), hat WSUS keine Funktionalität zur Ermöglichung dieses Vorgangs angeboten. Dafür mussten manuelle Aufgaben ausgeführt werden, die entweder sehr schwierig manuell auszuführen waren oder sich schlecht automatisieren ließen.
 
 

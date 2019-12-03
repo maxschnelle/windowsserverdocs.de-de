@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: c925c7eb-6880-411f-8e59-bd0f57cc5fc3
 author: lizap
 manager: dongill
-ms.openlocfilehash: 7d4641e2bb40a9a70264c68d0268208a30f36a69
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: e501d550e5371c668f7e243f00106a0b79f694dc
+ms.sourcegitcommit: 214847318401cebdcb7f1924a731b4439c9d8a24
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812300"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74187881"
 ---
 # <a name="supported-configurations-for-remote-desktop-services"></a>Unterstützte Konfigurationen für Remotedesktopdienste
 
@@ -55,9 +55,9 @@ Windows Server 2016 hebt die Beschränkung für die Anzahl der Verbindungsbroker
 
 ## <a name="support-for-graphics-processing-unit-gpu-acceleration"></a>Unterstützung für GPU-Beschleunigung (Graphics Processing Unit)
 
-Remotedesktopdienste unterstützen Systeme, die mit GPUs ausgestattet sind. Anwendungen, die GPU erfordern, können über die Remoteverbindung verwendet werden. Darüber hinaus können Sie das GPU-beschleunigte Rendering und die Codierung aktivieren, um die Leistung und Skalierbarkeit der App zu verbessern.
+Remotedesktopdienste unterstützen Systeme, die mit GPUs ausgestattet sind. Anwendungen, die eine GPU erfordern, können über die Remoteverbindung verwendet werden. Darüber hinaus können Sie das GPU-beschleunigte Rendering und die Codierung aktivieren, um die Leistung und Skalierbarkeit der App zu verbessern.
 
-Remotedesktopdienste-Sitzungshost und Betriebssysteme von Einzelsitzungsclients können die Vorteile eines physischen oder virtuellen GPU nutzen, die dem Betriebssystem auf vielfältige Weise präsentiert wird, einschließlich [für Azure-GPU optimierte VM-Größen](/en-us/azure/virtual-machines/windows/sizes-gpu), für den physischen RDSH-Server verfügbare GPUs, RemoteFX vGPUs (nur auf Windows Server 2016) und GPUs, die den VMs von unterstützten Hypervisoren präsentiert werden.
+Remotedesktopdienste-Sitzungshosts und Betriebssysteme von Einzelsitzungsclients können die Vorteile von physischen oder virtuellen GPUs nutzen, die auf vielfältige Weise für das Betriebssystem bereitgestellt werden, z. B. [für Azure-GPU optimierte VM-Größen](/en-us/azure/virtual-machines/windows/sizes-gpu), für den physischen RDSH-Server verfügbare GPUs, RemoteFX vGPUs (nur unter Windows Server 2016) und GPUs, die für VMs über unterstützte Hypervisoren bereitgestellt werden.
 
 Hilfe zum Ermitteln Ihrer Anforderungen finden Sie unter [Welche Grafikvirtualisierungstechnologie ist für Sie geeignet?](rds-graphics-virtualization.md). Spezielle Informationen zu DDA finden Sie unter [Planen der Bereitstellung der diskreten Gerätezuweisung](../../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md).
 

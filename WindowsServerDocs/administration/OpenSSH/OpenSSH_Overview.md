@@ -7,30 +7,30 @@ title: OpenSSH in Windows
 ms.product: w10
 ms.openlocfilehash: c6563fbe4fe69acad4d295a3f7fe166e92d38444
 ms.sourcegitcommit: afb0602767de64a76aaf9ce6a60d2f0e78efb78b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 06/20/2019
 ms.locfileid: "67280052"
 ---
 # <a name="openssh-in-windows"></a>OpenSSH in Windows
 
-OpenSSH ist, die Open-Source-Version der Secure Shell (SSH)-Tools, die Administratoren von Linux und anderen nicht-Windows für die plattformübergreifende Verwaltung von remote-Systemen verwendet wird. OpenSSH zu Windows ab Herbst 2018 hinzugefügt wurde, und befindet sich im Windows 10 und Windows Server-2019. 
+OpenSSH ist die Open-Source-Version der SSH-Tools (Secure Shell), die von Administratoren von Linux- und anderen Windows-fremden Produkten für die plattformübergreifende Verwaltung von Remotesystemen verwendet wird. OpenSSH wurde Windows im Herbst 2018 hinzugefügt und ist in Windows 10 und Windows Server 2019 enthalten. 
 
-SSH basiert auf einer Client / Server-Architektur, in denen das System, dem der Benutzer gerade arbeitet der Client und das remote System verwaltet wird, ist der Server. OpenSSH umfasst eine Reihe von Komponenten und Tools zum Bereitstellen eines sicheren und unkomplizierten Ansatzes Remotesystem-Verwaltung, einschließlich:
+SSH basiert auf einer Client/Server-Architektur, bei der das System, auf dem der Benutzer arbeitet, der Client und das verwaltete Remotesystem der Server ist. OpenSSH umfasst verschiedene Komponenten und Tools, die einen sicheren und einfachen Ansatz für die Remotesystemverwaltung ermöglichen, z. B.:
 
-* sshd.exe, d.h. die SSH-Serverkomponente, die auf dem System, die Remoteverwaltung ausgeführt werden müssen 
-* SSH.exe, wird die SSH-Client-Komponente, die auf dem lokalen System des Benutzers ausgeführt wird.
-* SSH-keygen.exe generiert, verwaltet und SSH-Authentifizierungsschlüssel konvertiert 
-* SSH-agent.exe speichert die privaten Schlüssel für die Authentifizierung des öffentlichen Schlüssels verwendet
-* SSH-add.exe fügt der private Schlüssel in die Liste der Server zulässt
-* SSH-keyscan.exe Hilfsmittel zum Sammeln von den öffentlichen SSH-Hostschlüssel aus einer Reihe von hosts
-* SFTP.exe ist der Dienst, der das Secure File Transfer Protocol und führt über SSH
-* SCP.exe ist ein kopierhilfsprogramm, der auf SSH ausgeführt wird.
+* „sshd.exe“: Dies ist die SSH-Serverkomponente, die auf dem remote verwalteten System ausgeführt werden muss. 
+* „ssh.exe“: Dies ist die SSH-Clientkomponente, die auf dem lokalen System des Benutzers ausgeführt wird.
+* „ssh-keygen.exe“: Dient zum Generieren, Verwalten und Konvertieren von Authentifizierungsschlüsseln für SSH. 
+* „ssh-agent.exe“: Dient zum Speichern von privaten Schlüsseln für die Authentifizierung mit öffentlichem Schlüssel.
+* „ssh-add.exe“: Fügt der Liste mit den zulässigen Elementen des Servers private Schlüssel hinzu.
+* „ssh-keyscan.exe“: Dient als Hilfe beim Erfassen der öffentlichen SSH-Hostschlüssel für eine Reihe von Hosts.
+* „sftp.exe“: Der Dienst, der das Secure File Transfer Protocol bereitstellt und per SSH ausgeführt wird.
+* „scp.exe“: Ein Hilfsprogramm zum Kopieren von Dateien, das unter SSH ausgeführt wird.
 
-Dokumentation in diesem Abschnitt konzentriert sich auf wie OpenSSH für Windows, einschließlich Installation und die Windows-spezifischen Konfiguration und Anwendungsfällen verwendet wird. Hier sind die Themen:
-* Installieren und deinstallieren OpenSSH für WindowsServer 2019 und Windows 10
+In der Dokumentation in diesem Abschnitt geht es darum, wie OpenSSH unter Windows verwendet wird (einschließlich der Installation), und um Windows-spezifische Konfigurationen und Anwendungsfälle. Hier sind die Themen angegeben:
+* Installieren und Deinstallieren von OpenSSH für Windows Server 2019 und Windows 10
 
-Zusätzliche ausführliche Dokumentation hinsichtlich allgemeinen OpenSSH-Funktionen steht online im [OpenSSH.com](https://www.openssh.com/manual.html). 
+Eine zusätzliche ausführliche Dokumentation zu häufig verwendeten OpenSSH-Features ist unter [OpenSSH.com](https://www.openssh.com/manual.html) online verfügbar. 
 
-Der Master [OpenSSH-öffnen-Source-Projekt](https://www.openssh.com) wird von Entwicklern am des OpenBSD-Projekts verwaltet. Die Microsoft-Verzweigung dieses Projekts befindet sich in [GitHub](https://github.com/PowerShell/openssh-portable).
-Feedback zu Windows OpenSSH ist willkommene und kann angegeben werden, durch das Erstellen von GitHub-Probleme in unseren [OpenSSH-GitHub-Repository](https://github.com/PowerShell/openssh-portable). 
+Das [Open-Source-Hauptprojekt von OpenSSH](https://www.openssh.com) wird von Entwicklern unter dem „OpenBSD Project“ verwaltet. Die Microsoft-Verzweigung dieses Projekts findest du auf [GitHub](https://github.com/PowerShell/openssh-portable).
+Feedback zu Windows OpenSSH ist willkommen und kann bereitgestellt werden, indem in unserem [OpenSSH-GitHub-Repository](https://github.com/PowerShell/openssh-portable) Anfragen zu GitHub-Problemen erstellt werden. 
