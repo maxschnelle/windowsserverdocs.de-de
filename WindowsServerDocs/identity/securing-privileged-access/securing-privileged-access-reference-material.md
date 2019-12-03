@@ -1,6 +1,6 @@
 ---
 title: Schützen des privilegierten Zugriffs – Referenzmaterial
-description: Betriebs Sicherheits Steuerungen für Windows Server-Active Directory Domänen
+description: Funktionale Sicherheitskontrollen für Windows Server Active Directory-Domänen
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 22ee9a77-4872-4c54-82d9-98fc73a378c0
@@ -11,7 +11,7 @@ manager: daveba
 ms.reviewer: mas
 ms.openlocfilehash: 56e1c028a9b18db7b23e8f04e943e4113837b66b
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71407224"
@@ -111,7 +111,7 @@ Die Quelle der Software sollte über eine der folgenden Methoden überprüft wer
 - Software wird aus dem Internet bezogen und mit Dateihashes überprüft, die vom Anbieter bereitgestellt werden.
 - Software wird aus dem Internet bezogen und durch den Download und Vergleich von zwei unabhängigen Kopien überprüft:
    - Laden Sie die beiden Kopien auf zwei Hosts ohne Sicherheitsbeziehung herunter (die sich nicht innerhalb derselben Domäne befinden und nicht über dieselben Tools verwaltet werden), vorzugsweise über getrennte Internetverbindungen.
-   - Vergleichen Sie die heruntergeladenen Dateien mit einem Hilfsprogramm wie Certutil: `certutil -hashfile <filename>`
+   - Vergleichen Sie die heruntergeladenen Dateien mithilfe eines Hilfsprogramms wie certutil: `certutil -hashfile <filename>`
 
 Wenn möglich, sollte Anwendungssoftware wie Anwendungsinstallationsprogramme und -tools immer digital signiert und unter Verwendung von Windows Authenticode überprüft werden. Verwenden Sie dabei das Tool [Windows Sysinternals](https://www.microsoft.com/sysinternals), *sigcheck.exe*, mit Sperrüberprüfung. Möglicherweise sind auch Softwareprogramme erforderlich, bei denen der Anbieter diese Art von digitaler Signatur nicht bereitstellt.
 
@@ -189,12 +189,12 @@ Die einzelnen Standards in diesem Dokument sind danach untergliedert, wie wichti
 
 ![Diagramm des Standards für angegebenen Ebenen](../media/securing-privileged-access-reference-material/PAW_RM_Fig12.JPG)
 
-Alle Ausnahmen für erforderliche Elemente (gekennzeichnet mit rotem oder orangefarbenem Dreieck in diesem Dokument) werden als temporär betrachtet und müssen vom CAB genehmigt werden. Die Richtlinien umfassen:
+Alle Ausnahmen für erforderliche Elemente (in diesem Dokument mit einem roten Achteck oder orangefarbenen Dreieck gekennzeichnet) werden als vorübergehend betrachtet und müssen vom CAB genehmigt werden. Die Richtlinien umfassen:
 
 - Die Begründung und das Risiko der ersten Anforderung müssen vom unmittelbaren Vorgesetzten des Mitarbeiters abgezeichnet werden. Die Anforderung läuft nach sechs Monaten ab.
 - Bei einer Erneuerung der Anforderung müssen die Begründung und das Risiko vom Leiter der Unternehmenseinheit abgezeichnet werden. Auch hier gilt ein Ablaufzeitraum von sechs Monaten.
 
-Alle Ausnahmen für empfohlene Elemente (in diesem Dokument mit einem gelben Kreis gekennzeichnet) werden als temporär betrachtet und müssen vom CAB genehmigt werden. Die Richtlinien umfassen:
+Alle Ausnahmen für empfohlene Elemente (in diesem Dokument mit einem gelben Kreis gekennzeichnet) werden als vorübergehend betrachtet und müssen vom CAB genehmigt werden. Die Richtlinien umfassen:
 
 - Die Begründung und das Risiko der ersten Anforderung müssen vom unmittelbaren Vorgesetzten des Mitarbeiters abgezeichnet werden. Die Anforderung läuft nach 12 Monaten ab.
 - Bei einer Erneuerung der Anforderung müssen die Begründung und das Risiko vom Leiter der Unternehmenseinheit abgezeichnet werden. Auch hier gilt ein Ablaufzeitraum von 12 Monaten.
@@ -379,7 +379,7 @@ Helpdesk- und Benutzersupportorganisationen bieten Support für Endbenutzer (kei
 
 ###### <a name="no-browsing-the-public-internet-with-admin-accounts-or-from-admin-workstations"></a>Kein Browsen im öffentlichen Internet über Administratorkonten oder auf Administratorarbeitsstationen
 
-Administrative Mitarbeiter dürfen nicht im öffentlichen Internet browsen, während sie mit einem Administratorkonto oder bei einer Administratorarbeitsstation angemeldet sind. Die einzigen autorisierten Ausnahmen sind die Verwendung eines Webbrowsers zur Verwaltung eines cloudbasierten Diensts.
+Administrative Mitarbeiter dürfen nicht im öffentlichen Internet browsen, während sie mit einem Administratorkonto oder bei einer Administratorarbeitsstation angemeldet sind. Die einzige genehmigte Ausnahme ist die Verwendung eines Webbrowsers zum Verwalten eines cloudbasierten Diensts.
 
 ###### <a name="no-accessing-email-with-admin-accounts-or-from-admin-workstations"></a>Kein Zugriff auf E-Mails über Administratorkonten oder auf Administratorarbeitsstationen
 
@@ -439,10 +439,10 @@ Für jede Verwendung von Notfallzugriffskonten gilt Folgendes:
   - Problembehandlung und Behebung technischer Probleme, die eine Verwendung der richtigen Administratorkonten verhindern.
   - Durchführen seltener Aufgaben, wie z. B.:
     - Schemaverwaltung
-    - Gesamtstruktur weite Aufgaben, für die Unternehmens Administratorrechte erforderlich sind
+    - Aufgaben, die die Gesamtstruktur betreffen und Administratorrechte auf Unternehmensebene erfordern
 
       > [!NOTE]
-      > Die Topologieverwaltung einschließlich Active Directory Site und subnetzverwaltung wird delegiert, um die Verwendung dieser Berechtigungen einzuschränken.
+      > Die Topologieverwaltung, einschließlich der Verwaltung von Active Directory-Standorten und -Subnetzen, wird delegiert, um die Nutzung dieser Rechte einzuschränken.
 
 - Für jede Verwendung dieser Konten sollte eine schriftliche Genehmigung vom Leiter der Sicherheitsgruppe vorliegen
 - Das im Dokument zur Nachverfolgung für jedes Notfallzugriffskonto festgelegte Verfahren sieht vor, dass das Kennwort nach jeder Verwendung geändert wird. Ein Mitglied des Sicherheitsteams sollte überprüfen, ob dieser Schritt ordnungsgemäß ausgeführt wurde.
@@ -481,7 +481,7 @@ Beim Entwurf einer administrativen Gesamtstruktur sollte Folgendes berücksichti
    - Gegen die Verwendung dieser Gruppe zum Erteilen von Rechten spricht, dass standardmäßig kein Administratorzugriff auf neue Gruppenrichtlinienobjekte zugewiesen wird. Diese Standardberechtigungen für Schemas können über die in [diesem Knowledge Base-Artikel](https://support.microsoft.com/kb/321476) beschriebenen Schritte geändert werden.
    - Konten in der administrativen Gesamtstruktur, die für die Verwaltung der Produktionsumgebung verwendet werden, sollten keine Administratorberechtigungen für die administrative Gesamtstruktur oder die enthaltenen Domänen oder Arbeitsstationen erhalten.
    - Administratorrechte für die administrative Gesamtstruktur sollten über ein Offlineverfahren streng kontrolliert werden, um das Löschen von Überwachungsprotokollen durch Angreifer oder böswillige Mitarbeiter zu erschweren. Dies trägt auch dazu bei, dass Mitarbeiter mit Administratorkonten für die Produktion die Einschränkungen ihrer Konten nicht lockern und damit das Risiko für die Organisation steigern können.
-   - Die administrative Gesamtstruktur sollte die Microsoft-SCB-Konfigurationen (Security Compliance Baseline) für die Domäne befolgen, einschließlich sicherer Konfigurationen für Authentifizierungsprotokolle.
+   - Die administrative Gesamtstruktur sollte die Microsoft Security Compliance Baseline-Konfigurationen für die Domäne befolgen und sichere Konfigurationen für Authentifizierungsprotokolle aufweisen.
    - Alle Hosts in der administrativen Gesamtstruktur sollten automatisch mit Sicherheitsupdates aktualisiert werden. Dies birgt zwar das Risiko einer Unterbrechung des Domänencontroller-Wartungsbetriebs, bietet jedoch eine erhebliche Verringerung von Sicherheitsrisiken durch nicht behobene Schwachstellen.
 
       > [!NOTE]
@@ -499,7 +499,7 @@ Beim Entwurf einer administrativen Gesamtstruktur sollte Folgendes berücksichti
    - Sicherheitsbaselines sollten als Ausgangskonfiguration verwendet werden.
 
       > [!NOTE]
-      > Kunden können das Microsoft Security Compliance Toolkit (SCT) zum Konfigurieren der Basis Linien auf den administrativen Hosts verwenden.
+      > Kunden können das Microsoft Security Compliance Toolkit (SCT) zum Konfigurieren von Baselines auf den administrativen Hosts verwenden.
 
    - Sicherer Start zur Abhilfe gegen Angreifer oder Schadsoftware, die versuchen, während des Startvorgangs nicht signierten Code zu laden.
 
@@ -539,7 +539,7 @@ Weitere Informationen zu Microsoft-Diensten für den Entwurf und die Bereitstell
 
 ## <a name="tier-0-equivalency"></a>Äquivalenz zur Ebene 0
 
-Die meisten Organisationen kontrollieren die Mitgliedschaft wichtiger Active Directory-Gruppen der Ebene 0 (z. B. Administratoren, Domänen-Admins und Unternehmensadministratoren).  Dabei übersehen viele Organisationen jedoch das Risiko anderer Gruppen, die in einer typischen Active Directory-Umgebung effektiv über äquivalente Berechtigungen verfügen. Diese Gruppen bieten einen relativ einfachen Eskalations Pfad für einen Angreifer, der die gleichen expliziten Berechtigungen der Ebene 0 und verschiedene Angriffsmethoden verwendet.
+Die meisten Organisationen kontrollieren die Mitgliedschaft wichtiger Active Directory-Gruppen der Ebene 0 (z. B. Administratoren, Domänen-Admins und Unternehmensadministratoren).  Dabei übersehen viele Organisationen jedoch das Risiko anderer Gruppen, die in einer typischen Active Directory-Umgebung effektiv über äquivalente Berechtigungen verfügen. Diese Gruppen bieten einen recht einfachen Eskalationspfad für Angreifer, um über verschiedene Angriffsmethoden auf dieselben expliziten Berechtigungen der Ebene 0 zuzugreifen.
 
 Ein Serveroperator könnte z. B. Zugang zum Sicherungsmedium eines Domänencontrollers erhalten und alle Anmeldeinformationen aus den Dateien auf diesem Medium abrufen, um diese zur Ausweitung von Berechtigungen zu nutzen.
 
@@ -558,7 +558,7 @@ Organisationen sollten die Mitgliedschaft in allen Gruppen der Ebene 0 (einschl
 - Gruppenrichtlinienersteller-Besitzer
 - Kryptografie-Operatoren
 - Distributed COM-Benutzer
-- Andere Delegierte Gruppen: benutzerdefinierte Gruppen, die von Ihrer Organisation für die Verwaltung von Verzeichnis Vorgängen erstellt werden können, die auch über einen effektiven Zugriff auf Ebene 0 verfügen.
+- Andere delegierte Gruppen: benutzerdefinierte Gruppen, die von Ihrer Organisation zum Verwalten von Verzeichnisvorgängen erstellt werden und möglicherweise ebenfalls über effektiven Zugriff der Ebene 0 verfügen.
 
 ## <a name="administrative-tools-and-logon-types"></a>Verwaltungstools und Anmeldetypen
 
@@ -568,7 +568,7 @@ In einem Remoteverwaltungsszenario werden die Anmeldeinformationen auf dem Quell
 
 Diese Tabelle umfasst Informationen zu den meisten gängigen Verwaltungstools und Verbindungsmethoden:
 
-|Verbindungsmethode|Anmeldetyp|Wiederverwendbare Anmeldeinformationen auf dem Ziel|Kommentare|
+|Verbindungsmethode|Anmeldetyp|Wiederverwendbare Anmeldeinformationen auf dem Ziel|Anmerkungen|
 |-----------|-------|--------------------|------|
 |Anmeldung bei der Konsole|Interactive (Interaktiv)|v|Umfasst Remotehardwarezugriff/Lights-out-Karten und Netzwerk-KVMs.|
 |RUNAS|Interactive (Interaktiv)|v||
@@ -577,10 +577,10 @@ Diese Tabelle umfasst Informationen zu den meisten gängigen Verwaltungstools un
 |Remotedesktop (Fehler – Anmeldetyp verweigert)|RemoteInteractive|-|Wenn bei der Anmeldung über RDP ein Fehler auftritt, werden die Anmeldeinformationen standardmäßig nur sehr kurz gespeichert. Wenn der Computer gefährdet ist, ist dies möglicherweise nicht der Fall.|
 |Net use * \\\SERVER|Network|-||
 |Net use * \\\SERVER /u:user|Network|-||
-|MMC-Snap-Ins für Remotecomputer|Network|-|Beispiel: Computer Verwaltung, Ereignisanzeige, Geräte-Manager, Dienste|
-|PowerShell WinRM|Network|-|Beispiel: Enter-PSSession-Server|
+|MMC-Snap-Ins für Remotecomputer|Network|-|Beispiel: Computerverwaltung, Ereignisanzeige, Geräte-Manager, Dienste|
+|PowerShell WinRM|Network|-|Beispiel: Enter-PSSession Server|
 |PowerShell WinRM mit CredSSP|NetworkClearText|v|New-PSSession server<br />-Authentication Credssp<br />-Credential cred|
-|PsExec ohne explizite Anmeldeinformationen|Network|-|Beispiel: PsExec-\\ \ Server-cmd|
+|PsExec ohne explizite Anmeldeinformationen|Network|-|Beispiel: PsExec \\\server cmd|
 |PsExec mit expliziten Anmeldeinformationen|Netzwerk und interaktiv|v|PsExec \\\server -u user -p pwd cmd<br />Erstellt mehrere Anmeldesitzungen.|
 |Remoteregistrierung|Network|-||
 |Remotedesktopgateway|Network|-|Authentifizierung gegenüber Remotedesktopgateway.|
@@ -625,7 +625,7 @@ Auf Windows-basierten Computern werden alle Authentifizierungen als einer von me
 Spaltendefinitionen:
 
 - **Anmeldetyp** ist der Typ der angeforderten Anmeldung.
-- **#** ist der numerische Bezeichner für den Anmeldetyp, der in Überwachungs Ereignissen im Sicherheits Ereignisprotokoll gemeldet wird.
+- **#** ist der numerische Bezeichner für den Anmeldetyp, der in Überwachungsereignissen des Sicherheitsereignisprotokolls aufgeführt wird.
 - **Akzeptierte Authenticators** gibt an, welche Typen von Authenticators eine Anmeldung dieses Typs initiieren können.
 - **Wiederverwendbare Anmeldeinformationen in einer LSA-Sitzung** gibt an, ob der Anmeldetyp zur Folge hat, dass die LSA-Sitzung die Anmeldeinformationen (z. B. Nur-Text-Kennwörter, NT-Hashes oder Kerberos-Tickets) speichert, sodass diese gegebenenfalls für die Authentifizierung gegenüber anderer Netzwerkressourcen verwendet werden können.
 - Unter **Beispiele** sind gängige Szenarien aufgeführt, in denen der Anmeldetyp verwendet wird.

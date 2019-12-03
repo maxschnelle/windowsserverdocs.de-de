@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 10/18/2019
+ms.date: 11/15/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: bcbd3292bcd4653a4568492a996d53c17f465aa8
-ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
+ms.openlocfilehash: 41f5bd7be03e61471683d5fc04df9ee10bc09e58
+ms.sourcegitcommit: 89aea00fe0e00fc8b1a6e20af36ad04df8c9fe5b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72591043"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74189477"
 ---
 # <a name="whats-new-in-the-web-client"></a>Neues beim Webclient
 
@@ -26,6 +26,14 @@ Der [Remotedesktop-Webclient](remote-desktop-web-client.md) wird regelmäßig mi
 
 > [!NOTE]
 > Wir haben das Versionsverwaltungssystem für den Webclient geändert. Ab Version 1.0.18.0 enthalten alle Releaseversionen des Webclients Zahlen (im Format „W.X.Y.Z“). Releasenummern für den Remotedesktop-Webclient enden immer mit einer Null (Beispiel: W.X.Y.0). Mit jedem Windows Virtual Desktop-Webclientrelease ändert sich die letzte Stelle bis zum nächsten Remotedesktop-Webclientrelease (Beispiel: 1.0.18.1).
+
+## <a name="updates-for-version-10210"></a>Updates für Version 1.0.21.0
+*Veröffentlicht am: 15.11.2019*
+
+- Unterstützung für die Verwendung eines Eingabemethoden-Editors (IME) in der Remotesitzung zum Hinzufügen komplexer Zeichen.
+- Eine Regression wurde behoben, durch die Benutzer von macOS-Geräten keine Kopier- und Einfügevorgänge in der Remotesitzung durchführen konnten.
+- Eine Regression wurde behoben, durch die ein lokaler Tastendruck der Windows-Taste in Firefox an die Remotesitzung gesendet wurde.
+- Ein Link zum Ändern des RDWeb-Kennworts wurde hinzugefügt, der von Ihrem Administrator aktiviert werden kann.
 
 ## <a name="updates-for-version-10200"></a>Updates für Version 1.0.20.0
 *Veröffentlicht am: 18.10.2019*

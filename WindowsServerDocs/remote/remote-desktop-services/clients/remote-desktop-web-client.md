@@ -8,12 +8,12 @@ ms.date: 08/27/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 69beba2c59617da5b501dc55e2509e41ce4ee3fd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6c37c28fded08ba68e46a10a534ee0269c714938
+ms.sourcegitcommit: 89aea00fe0e00fc8b1a6e20af36ad04df8c9fe5b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404120"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74189470"
 ---
 # <a name="get-started-with-the-web-client"></a>Erste Schritte mit dem Webclient
 
@@ -58,6 +58,10 @@ So druckst du über den Webclient:
 ## <a name="copy-and-paste-from-the-remote-desktop-web-client"></a>Kopieren und Einfügen über den Remotedesktop-Webclient
 
 Der Webclient unterstützt derzeit nur das Kopieren und Einfügen von Text. Dateien können über den Webclient nicht kopiert oder eingefügt werden. Außerdem kannst du nur mit **STRG+C** und **STRG+V** Text kopieren und einfügen.
+
+## <a name="use-an-input-method-editor-ime-in-the-remote-session"></a>Verwenden eines Eingabemethoden-Editors in der Remotesitzung
+
+Zur Verwendung eines Eingabemethoden-Editors (IME), um komplexe Zeichen in der Remotesitzung einzugeben, klicken Sie auf das Zahnradsymbol in der Navigationsleiste, um die Seitenleiste **Einstellungen** zu öffnen, und legen Sie die Option **Enable Input Method Editor** (Eingabemethoden-Editor aktivieren) auf **Ein** fest. Sie müssen den Eingabemethoden-Editor in der Remotesitzung installiert und aktiviert haben. 
 
 ## <a name="get-help-with-the-web-client"></a>Anfordern von Hilfe zum Webclient
 

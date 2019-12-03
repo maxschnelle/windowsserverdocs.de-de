@@ -1,6 +1,6 @@
 ---
 title: Bereitstellen von Windows Server Update Services
-description: 'Thema zu Windows Server Update Service (WSUS): eine Übersicht über den Bereitstellungs Prozess mit Links zu den vier Schritten, um dies zu erreichen.'
+description: 'Artikel zu Windows Server Update Services (WSUS): Übersicht über den Bereitstellungsprozess mit Links zu den vier Schritten der Vorgehensweise'
 ms.prod: windows-server
 ms.reviewer: na
 ms.technology: manage-wsus
@@ -12,20 +12,20 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: e3e6bcd5f90d1a7df2a35dda45b4bf8951940815
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71361679"
 ---
 # <a name="deploy-windows-server-update-services"></a>Bereitstellen von Windows Server Update Services
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Windows Server Update Services (WSUS) ermöglicht IT-Administratoren das Bereitstellen der aktuellen Microsoft-Produktupdates. WSUS ist eine Windows Server-Serverrolle, die zum Verwalten und Verteilen von Updates installiert werden kann. Ein WSUS-Server kann als Updatequelle für andere WSUS-Server in der Organisation dienen. Der als Updatequelle eingesetzte WSUS-Server wird als Upstreamserver bezeichnet.  
 
-In einer WSUS-Implementierung muss mindestens ein WSUS-Server im Netzwerk eine Verbindung mit Microsoft Update herstellen, um verfügbare Updateinformationen herunterzuladen. Basierend auf der Netzwerksicherheit und-Konfiguration können Sie feststellen, wie viele andere Server eine direkte Verbindung mit Microsoft Update herstellen.  
+In einer WSUS-Implementierung muss mindestens ein WSUS-Server im Netzwerk eine Verbindung mit Microsoft Update herstellen, um verfügbare Updateinformationen herunterzuladen. Sie können basierend auf der Netzwerksicherheit und -konfiguration festlegen, wie viele weitere Server eine direkte Verbindung mit Microsoft Update herstellen.  
 
-Dieses Handbuch enthält konzeptionelle Informationen zum Planen und Bereitstellen von Windows Server Update Service.  
+In diesem Leitfaden erhalten Sie grundlegende Informationen zur Planung und Bereitstellung von Windows Server Update Services.  
 
 -   [Planen der WSUS-Bereitstellung](../plan/plan-your-wsus-deployment.md)  
 
