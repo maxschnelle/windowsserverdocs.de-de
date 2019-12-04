@@ -8,6 +8,8 @@
 ## [Planen und Entwerfen](rds-plan-and-design.md)
 ### [RDS – überall erstellen](rds-plan-build-anywhere.md)
 ### [Zusatzaufwand für andere Arten von Benutzern](rds-plan-cater-to-users.md)
+### [Arbeitsauslastung des Remotedesktops](remote-desktop-workloads.md)
+### [Größenanpassung der virtuellen Maschine](virtual-machine-recs.md)
 ### [Zugriff von jedem beliebigen Standort](rds-plan-access-from-anywhere.md)
 ### [Hohe Verfügbarkeit](rds-plan-high-availability.md)
 ### [Multi-Factor Authentication](rds-plan-mfa.md)
