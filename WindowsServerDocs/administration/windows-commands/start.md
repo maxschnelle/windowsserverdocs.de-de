@@ -1,6 +1,6 @@
 ---
 title: start
-description: 'Windows-Befehle Thema ****- '
+description: 'Windows-Befehls Thema für * * * *- '
 ms.custom: na
 ms.prod: windows-server
 ms.reviewer: na
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1fb0875c972f8259b47f48ef84ed486fc678d8b0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3e481048c23e634869b0238188d4a0ef8b49cb3e
+ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370887"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74781307"
 ---
 # <a name="start"></a>start
 
@@ -31,24 +31,25 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 ## <a name="syntax"></a>Syntax
 
 ```
-start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/low | /normal | /high | /realtime | /abovenormal | belownormal}] [/affinity <HexAffinity>] [/wait] [/b {<Command> | <Program>} [<Parameters>]]
+start ["<Title>"] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/low | /normal | /high | /realtime | /abovenormal | belownormal}] [/affinity <HexAffinity>] [/wait] [/elevate] [/b {<Command> | <Program>} [<Parameters>]]
 ```
 
 ## <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|"\<title >"|Gibt den Titel an, der in der Titelleiste des Eingabe Aufforderungs Fensters angezeigt werden soll.|
-|/d \<path >|Gibt das Start Verzeichnis an.|
+|"\<Titel >"|Gibt den Titel an, der in der Titelleiste des Eingabe Aufforderungs Fensters angezeigt werden soll.|
+|/d \<Pfad >|Gibt das Start Verzeichnis an.|
 |/i|Übergibt die Start Umgebung "cmd. exe" an das neue Eingabe Aufforderungs Fenster. Wenn **/i** nicht angegeben ist, wird die aktuelle Umgebung verwendet.|
 |/min \|/Max|Gibt an, dass das neue Eingabe Aufforderungs Fenster minimiert ( **/Min**) oder maximiert ( **/Max**) werden soll.|
 |/separate \|/Shared|Startet 16-Bit-Programme in einem separaten Speicherbereich ( **/separate**) oder gemeinsam genutzten Speicherplatz ( **/Shared**). Diese Optionen werden auf 64-Bit-Plattformen nicht unterstützt.|
 |/Low \|/normal \|/High \|/Realtime \|/AboveNormal \|/BelowNormal|Startet eine Anwendung in der angegebenen Prioritäts Klasse. Gültige Werte für die Prioritäts Klasse sind **/Low**, **/Normal**, **/High**, **/Realtime**, **/AboveNormal**und **/BelowNormal**.|
 |/Affinity \<hexaffinitäts >|Wendet die angegebene Prozessor Affinitäts Maske (als hexadezimal Zahl ausgedrückt) auf die neue Anwendung an.|
 |/Wait|Startet eine Anwendung und wartet darauf, dass Sie beendet wird.|
+|/elevate|Führt die Anwendung als Administrator aus.|
 |/b|Startet eine Anwendung, ohne ein neues Eingabe Aufforderungs Fenster zu öffnen. Strg + c-Behandlung wird ignoriert, es sei denn, die Anwendung aktiviert die Strg + c-Verarbeitung. Verwenden Sie Strg + Pause, um die Anwendung zu unterbrechen.|
-|/b \<command > \| \<program >|Gibt den zu Startbefehl oder das Programm an.|
-|\<parameter >|Gibt Parameter an, die an den Befehl oder das Programm übergeben werden sollen.|
+|/b \<-Befehl > \| \<Programm >|Gibt den zu Startbefehl oder das Programm an.|
+|\<Parameter >|Gibt Parameter an, die an den Befehl oder das Programm übergeben werden sollen.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise

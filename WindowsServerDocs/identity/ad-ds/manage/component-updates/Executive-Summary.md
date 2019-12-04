@@ -9,16 +9,16 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a24c88f5469890f12f821b9f729c7d283b687f43
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 53f51d3a7a777ae378ce733ea9e66de66da5351a
+ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389902"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74781337"
 ---
 # <a name="executive-summary"></a>Kurzfassung
 
->Gilt für: Windows Server 2012
+>Gilt für: Windows Server 2012
 
 >[!IMPORTANT] 
 >Die folgende Dokumentation wurde in 2013 geschrieben und wird nur zu historischen Zwecken bereitgestellt.  Zurzeit überprüfen wir diese Dokumentation und unterliegen Änderungen.  Die aktuellen bewährten Methoden werden möglicherweise nicht angezeigt.
@@ -56,10 +56,10 @@ Die folgenden Themen sind enthalten:
   
     -   Fehlende sichere Anwendungs Entwicklungsverfahren  
   
--   **Attraktive Konten für den Diebstahl** von Anmelde Informationen: Angriffe durch Diebstahl von Anmelde Informationen sind solche, bei denen ein Angreifer anfänglich privilegierten Zugriff auf einen Computer in einem Netzwerk erhält und dann frei verfügbare Tools verwendet, um Anmelde Informationen aus den Sitzungen anderer Benutzer zu extrahieren. angemeldete Konten   
+-   **Attraktive Konten für den Diebstahl** von Anmelde Informationen: Angriffe durch Diebstahl von Anmelde Informationen sind solche, bei denen ein Angreifer anfänglich privilegierten Zugriff auf einen Computer in einem Netzwerk erhält und dann frei verfügbare Tools verwendet, um Anmelde Informationen aus den Sitzungen anderer angemeldeter Konten zu extrahieren.   
     Dieser Abschnitt enthält die folgenden Punkte:  
   
-    -   **Aktivitäten, die die Wahrscheinlichkeit einer Gefährdung erhöhen** : da das Ziel des Diebstahls von Anmelde Informationen in der Regel sehr privilegierte Domänen Konten und "sehr wichtige Personen"-Konten (VIP) ist, ist es für Administratoren wichtig, sich mit Aktivitäten vertraut zu machen. Dadurch wird die Wahrscheinlichkeit erhöht, dass ein Angriff durch einen Anmelde Informationsdiebstahl erfolgreich war. Diese Aktivitäten sind:  
+    -   **Aktivitäten, die die Wahrscheinlichkeit einer Gefährdung erhöhen** : da das Ziel des Diebstahls von Anmelde Informationen in der Regel sehr privilegierte Domänen Konten und "sehr wichtige Personen"-Konten (VIP) ist, ist es für Administratoren wichtig, sich mit Aktivitäten vertraut zu machen, die die Wahrscheinlichkeit eines Erfolgs bei einem Diebstahl von Anmelde Informationen erhöhen. Diese Aktivitäten sind:  
   
         -   Anmelden bei ungesicherten Computern mit privilegierten Konten  
   
@@ -114,7 +114,7 @@ Dieser Abschnitt enthält die folgenden Punkte:
   
     -   Vergessen Sie nicht, die physische Sicherheit beim Entwerfen und Implementieren sicherer administrativer Hosts zu vergessen.  
   
--   **Sichern von Domänen Controllern gegen Angriffe** : Wenn ein böswilliger Benutzer privilegierten Zugriff auf einen Domänen Controller erhält, kann dieser Benutzer die Active Directory Datenbank und durch Erweiterung alle verwalteten Systeme und Konten ändern, beschädigen und zerstören. nach Active Directory.  
+-   **Sichern von Domänen Controllern gegen Angriffe** : Wenn ein böswilliger Benutzer privilegierten Zugriff auf einen Domänen Controller erhält, kann dieser Benutzer die Active Directory Datenbank und durch Erweiterung sämtliche Systeme und Konten, die von Active Directory verwaltet werden, ändern, beschädigen und zerstören.  
   
 Dieser Abschnitt enthält die folgenden Themen:  
   
@@ -131,7 +131,7 @@ Dieser Abschnitt enthält die folgenden Themen:
   
 -   **Windows** -Überwachungsrichtlinie: Windows-Sicherheits Ereignisprotokolle enthalten Kategorien und Unterkategorien, die bestimmen, welche Sicherheitsereignisse nachverfolgt und aufgezeichnet werden.  
   
--   **Empfehlungen** zu Überwachungs Richtlinien: in diesem Abschnitt werden die Standardeinstellungen für die Überwachungsrichtlinie von Windows, die Überwachungs Richtlinien Einstellungen, die von Microsoft empfohlen werden, sowie aggressivere Empfehlungen für Organisationen zum Überwachen kritischer Server und Arbeitsstationen.  
+-   **Empfehlungen** zu Überwachungs Richtlinien: in diesem Abschnitt werden die Standardeinstellungen für die Überwachungsrichtlinie von Windows, die Überwachungs Richtlinien Einstellungen, die von Microsoft empfohlen werden, sowie aggressivere Empfehlungen für Organisationen zum Überwachen kritischer Server und Arbeitsstationen beschrieben.  
   
 ## <a name="planning-for-compromise"></a>Planen der Gefährdung  
 Dieser Abschnitt enthält Empfehlungen, die Organisationen dabei unterstützen, sich vor dem Eintreten auf eine Kompromittierung vorzubereiten, Steuerelemente zu implementieren, die ein Kompromittierung-Ereignis erkennen können, bevor eine vollständige Sicherheitsverletzung aufgetreten ist, und Richtlinien zur Reaktion und Wiederherstellung für Fälle eine komplette Gefährdung des Verzeichnisses wird von Angreifern erreicht. Dieser Abschnitt enthält die folgenden Themen:  
@@ -160,7 +160,7 @@ Dieser Abschnitt enthält Empfehlungen, die Organisationen dabei unterstützen, 
   
         -   **Klassifizieren Sie alle Active Directory Daten** : Geschäftsinhaber sollten die Klassifizierung für Daten in Active Directory bereitstellen. Innerhalb des Daten Klassifizierungs Modells sollte die Klassifizierung für die folgenden Active Directory Daten eingeschlossen werden:  
   
-            -   **Systeme** : klassifizieren der Server Population, Ihres Betriebssystems, der Anwendungen, die auf Ihnen ausgeführt werden, und der IT-und Geschäftsinhaber von Datensätzen.  
+            -   **Systeme** : klassifizieren der Server Population, Ihres Betriebssystems, ihrer Rolle, der Anwendungen, die auf Ihnen ausgeführt werden, und der IT-und Geschäftsinhaber von Datensätzen.  
   
             -   **Anwendungen** : klassifizieren Sie Anwendungen nach Funktionalität, Benutzerbasis und Betriebssystem.  
   
@@ -194,8 +194,8 @@ Die Vorgehensweise wird in der ungefähren Reihenfolge der Priorität aufgeführ
 |18|Vereinfachen Sie die Sicherheit für Endbenutzer.|Strategisch|Vorbeugende|  
 |19|Verwenden Sie Host basierte Firewalls zum Steuern und Sichern der Kommunikation.|Taktisch|Vorbeugende|  
 |20|Patchen von Geräten.|Taktisch|Vorbeugende|  
-|21|Implementieren Sie die geschäftsorientierte Lebenszyklus Verwaltung für IT-Ressourcen.|Strategisch|Nicht zutreffend|  
-|22|Erstellen oder aktualisieren Sie Wiederherstellungs Pläne für Vorfälle.|Strategisch|Nicht zutreffend|  
+|21|Implementieren Sie die geschäftsorientierte Lebenszyklus Verwaltung für IT-Ressourcen.|Strategisch|n. v.|  
+|22|Erstellen oder aktualisieren Sie Wiederherstellungs Pläne für Vorfälle.|Strategisch|n. v.|  
   
 
 

@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 0cbec876ebf8a3ce27bf0d6f099ade6a5d6bc032
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 826769c1405648f37c86f97b4b9134871f4d30ed
+ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403779"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791186"
 ---
 # <a name="protected-users-security-group"></a>Sicherheitsgruppe „Geschützte Benutzer“
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Thema für IT-Experten beschreibt die Active Directory-Sicherheitsgruppe „Geschützte Benutzer“ und erklärt deren Funktionsweise. Diese Gruppe wurde in Windows Server 2012 R2-Domänen Controllern eingeführt.
 
@@ -36,7 +36,6 @@ Diese Sicherheitsgruppe ist als Teil einer Strategie zum Verwalten der Gefährdu
 Diese Domänen bezogene globale Gruppe löst nicht konfigurierbaren Schutz auf Geräten und Host Computern aus, auf denen Windows Server 2012 R2 ausgeführt wird, und Windows 8.1 oder höher für Benutzer in Domänen mit einem primären Domänen Controller, auf dem Windows Server 2012 R2 ausgeführt wird. Dadurch wird der Standard Speicherbedarf von Anmelde Informationen erheblich reduziert, wenn Benutzer sich mit diesen Schutzvorrichtungen bei Computern anmelden.
 
 Weitere Informationen finden Sie unter [Funktionsweise der Gruppe "geschützte Benutzer](#BKMK_HowItWorks) " in diesem Thema.
-
 
 
 ## <a name="BKMK_Requirements"></a>Anforderungen der Gruppe "geschützte Benutzer"
@@ -63,59 +62,59 @@ Die Gruppe "geschützte Benutzer" kann erstellt werden, indem [die Rolle "primä
 
 Die folgende Tabelle zeigt die Eigenschaften der Gruppe der geschützten Benutzer.
 
-|Attribut|Wert|
+|Attribut|Value|
 |-------|-----|
 |Gut bekannte SID/RID|S-1-5-21-<domain>-525|
-|Typ|Globale Domäne|
+|Geben Sie in das Suchfeld auf der Taskleiste|Globale Domäne|
 |Standardcontainer|CN=Benutzer, DC=<domain>, DC=|
 |Standardmitglieder|Keine|
 |Standardmitglied von|Keine|
-|Geschützt durch ADMINSDHOLDER?|nein|
-|Speichern, um aus Standardcontainer zu entfernen?|Ja|
-|Speichern, um die Verwaltung dieser Gruppe zu Nicht-Dienstadministratoren zu delegieren?|nein|
+|Geschützt durch ADMINSDHOLDER?|Nein|
+|Speichern, um aus Standardcontainer zu entfernen?|„Ja“|
+|Speichern, um die Verwaltung dieser Gruppe zu Nicht-Dienstadministratoren zu delegieren?|Nein|
 |Standardbenutzerrechte|Keine Standardbenutzerrechte.|
 
 ## <a name="BKMK_HowItWorks"></a>Funktionsweise der Gruppe "geschützte Benutzer"
 In diesem Abschnitt wird erklärt, wie die Gruppe der geschützten Benutzer funktioniert, wenn folgende Voraussetzungen erfüllt sind:
 
--   Signiert in einem Windows-Gerät
+- Signiert in einem Windows-Gerät
 
--   Die Benutzerkonto Domäne befindet sich in einer Windows Server 2012 R2-oder einer höheren Domänen Funktionsebene.
+- Die Benutzerkonto Domäne befindet sich in einer Windows Server 2012 R2-oder einer höheren Domänen Funktionsebene.
 
 ### <a name="device-protections-for-signed-in-protected-users"></a>Geräteschutz für signierte geschützte Benutzer
 Wenn der angemeldete Benutzer ein Mitglied der Gruppe "geschützte Benutzer" ist, werden die folgenden Schutzmaßnahmen angewendet:
 
--   Bei der Delegierung von Gruppenrichtlinie Anmelde Informationen (aufwärtssp) werden die nur-Text-Anmelde Informationen des Benutzers nicht zwischengespeichert, auch wenn die Einstellung **Delegieren von Standard Anmelde Informationen zulassen** aktiviert ist.
+- Bei der Delegierung von Gruppenrichtlinie Anmelde Informationen (aufwärtssp) werden die nur-Text-Anmelde Informationen des Benutzers nicht zwischengespeichert, auch wenn die Einstellung **Delegieren von Standard Anmelde Informationen zulassen** aktiviert ist.
 
--   Ab Windows 8.1 und Windows Server 2012 R2 werden die nur-Text-Anmelde Informationen des Benutzers von Windows Digest nicht zwischengespeichert, selbst wenn Windows Digest aktiviert ist.
+- Ab Windows 8.1 und Windows Server 2012 R2 werden die nur-Text-Anmelde Informationen des Benutzers von Windows Digest nicht zwischengespeichert, selbst wenn Windows Digest aktiviert ist.
 
 > [!Note]
 > Nach der Installation der [Microsoft-Sicherheitsempfehlung 2871997](https://technet.microsoft.com/library/security/2871997) werden die Anmelde Informationen von Windows Digest weiterhin zwischengespeichert, bis der Registrierungsschlüssel konfiguriert wurde. Weitere Informationen finden [Sie unter Microsoft-Sicherheitsempfehlung: Update zum Verbessern von Anmelde Informationen Schutz und Verwaltung: 13. Mai 2014](https://support.microsoft.com/en-us/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a) .
 
--   NTLM speichert nicht die nur-Text-Anmelde Informationen des Benutzers oder die unidirektionale NT-Funktion (ntowf).
+- NTLM speichert nicht die nur-Text-Anmelde Informationen des Benutzers oder die unidirektionale NT-Funktion (ntowf).
 
--   Kerberos erstellt nicht mehr den-oder RC4-Schlüssel. Außerdem werden die nur-Text-Anmelde Informationen des Benutzers oder langfristige Schlüssel nicht zwischengespeichert, nachdem das erste TGT abgerufen wurde.
+- Kerberos erstellt nicht mehr den-oder RC4-Schlüssel. Außerdem werden die nur-Text-Anmelde Informationen des Benutzers oder langfristige Schlüssel nicht zwischengespeichert, nachdem das erste TGT abgerufen wurde.
 
--   Bei der Anmeldung oder beim Entsperren wird keine zwischengespeicherte Überprüfung erstellt, sodass die Offline Anmeldung nicht mehr unterstützt wird.
+- Bei der Anmeldung oder beim Entsperren wird keine zwischengespeicherte Überprüfung erstellt, sodass die Offline Anmeldung nicht mehr unterstützt wird.
 
 Nachdem das Benutzerkonto der Gruppe der geschützten Benutzer hinzugefügt wurde, beginnt der Schutz, wenn sich der Benutzer beim Gerät anmeldet.
 
 ### <a name="domain-controller-protections-for-protected-users"></a>Schutz von Domänen Controllern für geschützte Benutzer
 Konten, die Mitglieder der Gruppe der geschützten Benutzer sind, die sich bei einer Windows Server 2012 R2-Domäne authentifizieren, können folgende Aktionen nicht ausführen:
 
--   Authentifizieren mit NTLM-Authentifizierung.
+- Authentifizieren mit NTLM-Authentifizierung.
 
--   Verwenden von DES- oder RC4-Verschlüsselungstypen in Kerberos-Vorauthentifizierung.
+- Verwenden von DES- oder RC4-Verschlüsselungstypen in Kerberos-Vorauthentifizierung.
 
--   Delegierung mit eingeschränkter oder nicht eingeschränkter Delegierung.
+- Delegierung mit eingeschränkter oder nicht eingeschränkter Delegierung.
 
--   Erneuern der Kerberos-TGTs außerhalb der ursprünglichen Lebensdauer von vier Stunden.
+- Erneuern der Kerberos-TGTs außerhalb der ursprünglichen Lebensdauer von vier Stunden.
 
 Nicht konfigurierbare Einstellungen zum Ablauf von TGTs werden für jedes Konto in der Gruppe der geschützten Benutzer eingerichtet. Normalerweise legt der Domänencontroller die Lebensdauer und Erneuerung der TGTs basierend auf den Domänenrichtlinien fest, **Max. Gültigkeitsdauer des Benutzertickets** und **Max. Zeitraum, in dem ein Benutzerticket erneuert werden kann**. Für die Gruppe der geschützten Benutzer ist 600 Minuten für diese Domänenrichtlinien eingestellt.
 
 Weitere Informationen finden Sie unter [Konfigurieren geschützter Konten](how-to-configure-protected-accounts.md).
 
-## <a name="troubleshooting"></a>Problembehandlung
+## <a name="troubleshooting"></a>Fehlerbehebung
 Es gibt zwei betriebliche Administrativprotokolle für die Fehlerbehebung von Ereignissen hinsichtlich geschützter Benutzer. Diese neuen Protokolle befinden sich in der Ereignisanzeige und sind standardmäßig deaktiviert. Sie finden Sie unter **Anwendungs- und Dienstprotokolle\Microsoft\Windows\Microsoft\Authentifizierung**.
 
 |Ereignis-ID und Protokoll|Beschreibung|
@@ -127,13 +126,10 @@ Es gibt zwei betriebliche Administrativprotokolle für die Fehlerbehebung von Er
 |303<br /><br />**ProtectedUserSuccesses-DomainController**|Grund: Ein Kerberos-Ticket-Granting-Ticket (TGT) wurde erfolgreich für ein Mitglied der Gruppe der geschützten Benutzer ausgegeben.|
 
 
+## <a name="additional-resources"></a>Weitere Ressourcen
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+- [Schutz und Verwaltung von Anmeldeinformationen](credentials-protection-and-management.md)
 
--   [Schutz und Verwaltung von Anmeldeinformationen](credentials-protection-and-management.md)
+- [Authentifizierungsrichtlinien und Authentifizierungsrichtliniensilos](authentication-policies-and-authentication-policy-silos.md)
 
--   [Authentifizierungsrichtlinien und Authentifizierungsrichtliniensilos](authentication-policies-and-authentication-policy-silos.md)
-
--   [Konfigurieren geschützter Konten](how-to-configure-protected-accounts.md)
-
-
+- [Konfigurieren geschützter Konten](how-to-configure-protected-accounts.md)

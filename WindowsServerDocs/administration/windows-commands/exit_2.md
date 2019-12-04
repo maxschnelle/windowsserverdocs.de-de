@@ -1,6 +1,6 @@
 ---
 title: exit
-description: 'Windows-Befehle Thema ****- '
+description: 'Windows-Befehls Thema für * * * *- '
 ms.custom: na
 ms.prod: windows-server
 ms.reviewer: na
@@ -13,19 +13,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 105bf572c1ebeb37ea59ff8bc5c04121d2442341
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d6d3a4d0bfc74644f6fda43abe57e0e4e7c1264a
+ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377350"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791228"
 ---
 # <a name="exit"></a>exit
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-beendet das Programm "cmd. exe" (der Befehls Interpreter) oder das aktuelle Batch Skript.  
-Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).  
+Beendet das Programm "cmd. exe" (der Befehls Interpreter) oder das aktuelle Batch Skript.  
+Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).  
 ## <a name="syntax"></a>Syntax  
 ```  
 exit [/b] [<exitCode>]  
@@ -34,8 +34,8 @@ exit [/b] [<exitCode>]
 
 | Parameter  |                                                                                         Beschreibung                                                                                          |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     /b     |                                      beendet das aktuelle Batch Skript, anstatt "cmd. exe" zu beenden. Wenn die Ausführung von außerhalb eines Batch Skripts erfolgt, wird "cmd. exe" beendet.                                      |
-| <exitCode> | Gibt eine numerische Zahl an. Wenn **/b** angegeben wird, wird die ERRORLEVEL-Umgebungsvariable auf diese Zahl festgelegt. Wenn Sie " **cmd. exe**" beenden, wird der Prozessexitcode auf diese Zahl festgelegt. |
+|     /b     |                                      Beendet das aktuelle Batch Skript, anstatt "cmd. exe" zu beenden. Wenn die Ausführung von außerhalb eines Batch Skripts erfolgt, wird "cmd. exe" beendet.                                      |
+| `<exitCode>` | Gibt eine numerische Zahl an. Wenn **/b** angegeben wird, wird die ERRORLEVEL-Umgebungsvariable auf diese Zahl festgelegt. Wenn Sie " **cmd. exe**" beenden, wird der Prozessexitcode auf diese Zahl festgelegt. |
 |     /?     |                                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                                             |
 
 ## <a name="BKMK_examples"></a>Beispiele  

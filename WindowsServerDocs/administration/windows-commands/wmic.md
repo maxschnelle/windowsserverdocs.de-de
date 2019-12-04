@@ -1,6 +1,6 @@
 ---
 title: wmic
-description: 'Windows-Befehle Thema ****- '
+description: 'Windows-Befehls Thema für * * * *- '
 ms.custom: na
 ms.prod: windows-server
 ms.reviewer: na
@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e9840bc20ddf6193241fe36055698e2bd3222496
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f5096ab82ebbd01cb4f3a7dc0cf0b15e4b9fae8e
+ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361878"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74781327"
 ---
 # <a name="wmic"></a>wmic
 
@@ -31,7 +31,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 ## <a name="syntax"></a>Syntax
 
 ```
-command </parameter>
+wmic </parameter>
 ```
 
 ## <a name="sub-commands"></a>Unterbefehle
@@ -44,14 +44,6 @@ Die folgenden Unterbefehle sind jederzeit verfügbar:
 |path|Gibt einen Escapezeichen aus dem Standardalias Modus von WMIC für den direkten Zugriff auf Instanzen im WMI-Schema aus.|
 |Kontext|Zeigt die aktuellen Werte aller globalen Switches an.|
 |[beenden \| beenden]|Beendet die WMIC-Befehlsshell.|
-
-## <a name="parameters"></a>Parameter
-
-|Parameter|Beschreibung|
-|---------|-----------|
-|</parameter>|\<concise Description, beginnt mit einem Verb. >|
-|</param2>|\<eine kurze Kurzbeschreibung, beginnt mit einem Verb. >|
-
 
 ## <a name="BKMK_examples"></a>Beispiele
 
