@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: eaebac19119525b659c09b5506c497afdbd9a263
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 40e489089fc0c15c3e6ebf7b654377f4d6f7e482
+ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386987"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74829628"
 ---
 # <a name="configuring-additional-lsa-protection"></a>Konfigurieren von zusätzlichem LSA-Schutz
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema für IT-Spezialisten erfahren Sie, wie Sie den zusätzlichen Schutz für den Prozess der lokalen Sicherheitsautorität (Local Security Authority, LSA) konfigurieren, um eine Codeinjizierung mit einer möglichen Beeinträchtigung der Anmeldeinformationen zu verhindern.
 
@@ -71,7 +71,7 @@ Mithilfe des Überwachungsmodus können Sie LSA-Plug-Ins und -Treiber identifizi
 
 ##### <a name="to-enable-the-audit-mode-for-lsassexe-on-a-single-computer-by-editing-the-registry"></a>So aktivieren Sie den Überwachungsmodus für %%amp;quot;Lsass.exe%%amp;quot; auf einem einzelnen Computer per Bearbeitung der Registrierung
 
-1.  Öffnen Sie den Registrierungs-Editor (RegEdit.exe), und navigieren Sie zum Registrierungsschlüssel unter: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LSASS.exe.
+1.  Öffnen Sie den Registrierungs-Editor (RegEdit.exe), und navigieren Sie zum Registrierungsschlüssel unter %%amp;quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LSASS.exe%%amp;quot;.
 
 2.  Legen Sie den Wert des Registrierungsschlüssels wie folgt fest: **AuditLevel=dword:00000008**.
 
@@ -81,9 +81,9 @@ Analysieren Sie die Ergebnisse von Ereignis 3065 und Ereignis 3066.
 
 Anschließend werden diese Ereignisse möglicherweise in Ereignisanzeige angezeigt: Microsoft-Windows-codeintegrity/Operational:
 
--   **Ereignis 3065**: Mit diesem Ereignis wird aufgezeichnet, dass bei einer Codeintegritätsprüfung ermittelt wurde, dass ein Prozess (normalerweise "lsass.exe") einen bestimmten Treiber zu laden versucht hat, der die Sicherheitsanforderungen für freigegebene Abschnitte nicht erfüllt. Aufgrund der festgelegten Systemrichtlinie wurde das Laden des Images jedoch zugelassen.
+-   **Ereignis 3065:** Mit diesem Ereignis wird aufgezeichnet, dass bei einer Codeintegritätsprüfung ermittelt wurde, dass ein Prozess (normalerweise %%amp;quot;lsass.exe%%amp;quot;) einen bestimmten Treiber zu laden versucht hat, der die Sicherheitsanforderungen für freigegebene Abschnitte nicht erfüllt. Aufgrund der festgelegten Systemrichtlinie wurde das Laden des Images jedoch zugelassen.
 
--   **Ereignis 3066**: Mit diesem Ereignis wird aufgezeichnet, dass bei einer Codeintegritätsprüfung ermittelt wurde, dass ein Prozess (normalerweise "lsass.exe") einen bestimmten Treiber zu laden versucht hat, der die Anforderungen an die Microsoft-Signaturebene nicht erfüllt. Aufgrund der festgelegten Systemrichtlinie wurde das Laden des Images jedoch zugelassen.
+-   **Ereignis 3066:** Mit diesem Ereignis wird aufgezeichnet, dass bei einer Codeintegritätsprüfung ermittelt wurde, dass ein Prozess (normalerweise %%amp;quot;lsass.exe%%amp;quot;) einen bestimmten Treiber zu laden versucht hat, der die Anforderungen an die Microsoft-Signaturebene nicht erfüllt. Aufgrund der festgelegten Systemrichtlinie wurde das Laden des Images jedoch zugelassen.
 
 > [!IMPORTANT]
 > Diese Betriebsereignisse werden nicht generiert, wenn auf einem System ein Kerneldebugger angefügt und aktiviert ist.
@@ -128,9 +128,9 @@ Analysieren Sie die Ergebnisse von Ereignis 3033 und Ereignis 3063.
 
 Anschließend werden diese Ereignisse möglicherweise in Ereignisanzeige angezeigt: Microsoft-Windows-codeintegrity/Operational:
 
--   **Ereignis 3033**: Mit diesem Ereignis wird aufgezeichnet, dass bei einer Codeintegritätsprüfung ermittelt wurde, dass ein Prozess (normalerweise "lsass.exe") einen Treiber zu laden versucht hat, der die Anforderungen an die Microsoft-Signaturebene nicht erfüllt.
+-   **Ereignis 3033:** Mit diesem Ereignis wird aufgezeichnet, dass bei einer Codeintegritätsprüfung ermittelt wurde, dass ein Prozess (normalerweise %%amp;quot;lsass.exe%%amp;quot;) einen Treiber zu laden versucht hat, der die Anforderungen an die Microsoft-Signaturebene nicht erfüllt.
 
--   **Ereignis 3063**: Mit diesem Ereignis wird aufgezeichnet, dass bei einer Codeintegritätsprüfung ermittelt wurde, dass ein Prozess (normalerweise "lsass.exe") einen Treiber zu laden versucht hat, der die Sicherheitsanforderungen für freigegebene Abschnitte nicht erfüllt.
+-   **Ereignis 3063:** Mit diesem Ereignis wird aufgezeichnet, dass bei einer Codeintegritätsprüfung ermittelt wurde, dass ein Prozess (normalerweise %%amp;quot;lsass.exe%%amp;quot;) einen Treiber zu laden versucht hat, der die Sicherheitsanforderungen für freigegebene Abschnitte nicht erfüllt.
 
 Freigegebene Abschnitte sind in der Regel das Ergebnis von Programmiertechniken, bei denen Instanzdaten mit anderen Prozessen interagieren können, für die der gleiche Sicherheitskontext verwendet wird. Dies kann zu Sicherheitsrisiken führen.
 
@@ -138,7 +138,7 @@ Freigegebene Abschnitte sind in der Regel das Ergebnis von Programmiertechniken,
 Auf Geräten mit Windows 8.1 (mit oder ohne sicheren Start oder UEFI) ist die Konfiguration möglich, indem die in diesem Abschnitt beschriebenen Verfahren ausgeführt werden. Bei Geräten, auf denen Windows RT 8,1 ausgeführt wird, ist der Schutz von LSASS. exe immer aktiviert und kann nicht deaktiviert werden.
 
 ### <a name="on-x86-based-or-x64-based-devices-using-secure-boot-and-uefi-or-not"></a>Auf x86-basierten oder x64-basierten Geräten mit oder ohne %%amp;quot;Sicherer Start%%amp;quot; und UEFI
-Auf x86-basierten oder x64-basierten Geräten, für die %%amp;quot;Sicherer Start%%amp;quot; und UEFI verwendet wird, wird in der UEFI-Firmware eine UEFI-Variable festgelegt, wenn der LSA-Schutz mithilfe des Registrierungsschlüssels aktiviert wird. Wenn die Einstellung in der Firmware gespeichert wird, kann die UEFI-Variable im Registrierungsschlüssel nicht gelöscht oder geändert werden. Die UEFI-Variable muss zurückgesetzt werden.
+Auf x86-oder x64-basierten Geräten, von denen der sichere Start oder UEFI verwendet wird, wird in der UEFI-Firmware eine UEFI-Variable festgelegt, wenn der LSA-Schutz mithilfe des Registrierungsschlüssels aktiviert wird. Wenn die Einstellung in der Firmware gespeichert wird, kann die UEFI-Variable im Registrierungsschlüssel nicht gelöscht oder geändert werden. Die UEFI-Variable muss zurückgesetzt werden.
 
 x86-basierte oder x64-basierte Geräte, die UEFI oder %%amp;quot;Sicherer Start%%amp;quot; nicht unterstützen, werden deaktiviert, können die Konfiguration für den LSA-Schutz in der Firmware nicht speichern und sind vollständig vom Vorhandensein des Registrierungsschlüssels abhängig. In diesem Fall ist es möglich, den LSA-Schutz zu deaktivieren, indem der Remotezugriff auf das Gerät genutzt wird.
 
@@ -146,7 +146,7 @@ Sie können die folgenden Verfahren verwenden, um den LSA-Schutz zu aktivieren o
 
 ##### <a name="to-enable-lsa-protection-on-a-single-computer"></a>So aktivieren Sie den LSA-Schutz auf einem einzelnen Computer
 
-1.  Öffnen Sie den Registrierungs-Editor (RegEdit.exe), und navigieren Sie zum Registrierungsschlüssel unter: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa.
+1.  Öffnen Sie den Registrierungs-Editor (RegEdit.exe), und navigieren Sie zum Registrierungsschlüssel unter %%amp;quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa%%amp;quot;.
 
 2.  Legen Sie den Wert des Registrierungsschlüssels wie folgt fest: "RunAsPPL"=dword:00000001.
 
@@ -178,7 +178,7 @@ Sie können die folgenden Verfahren verwenden, um den LSA-Schutz zu aktivieren o
 
 ##### <a name="to-disable-lsa-protection"></a>So deaktivieren Sie den LSA-Schutz
 
-1.  Öffnen Sie den Registrierungs-Editor (RegEdit.exe), und navigieren Sie zum Registrierungsschlüssel unter: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa.
+1.  Öffnen Sie den Registrierungs-Editor (RegEdit.exe), und navigieren Sie zum Registrierungsschlüssel unter %%amp;quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa%%amp;quot;.
 
 2.  Löschen Sie den folgenden Wert aus dem Registrierungsschlüssel: "RunAsPPL"=dword:00000001.
 
@@ -194,9 +194,9 @@ Sie können die folgenden Verfahren verwenden, um den LSA-Schutz zu aktivieren o
 ### <a name="verifying-lsa-protection"></a>Überprüfen des LSA-Schutzes
 Wenn Sie ermitteln möchten, ob LSA beim Starten von Windows im geschützten Modus gestartet wurde, können Sie im Protokoll **System** unter **Windows-Protokolle** nach dem folgenden WinInit-Ereignis suchen:
 
--   12: "LSASS.exe" wurde als geschützter Prozess mit folgender Stufe gestartet: 4
+-   12: LSASS.exe wurde als geschützter Prozess mit folgender Stufe gestartet: 4
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="additional-resources"></a>Weitere Ressourcen
 [Schutz und Verwaltung von Anmeldeinformationen](credentials-protection-and-management.md)
 
 [Datei Signatur Dienst für LSA](https://go.microsoft.com/fwlink/?LinkId=392590)

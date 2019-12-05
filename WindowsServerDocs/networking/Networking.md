@@ -10,12 +10,12 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: ac6d9abf96348a596fbd2f886cb67b5d97f686e2
-ms.sourcegitcommit: cbf0c7c37797c22af989639fac82fc0eee94497f
+ms.openlocfilehash: f3b580b108677b391065ad83f61e52504fe9ac91
+ms.sourcegitcommit: 68483ee9284285f5643dd67dce06f5a102cb9469
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74700153"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74823845"
 ---
 # <a name="networking"></a>-Netzwerk
 
@@ -252,7 +252,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
             </div>
         </div>
     </li>
-    <hr />
+   <hr />
     <li>
         <div class="cardSize">
             <div class="cardPadding">
@@ -263,7 +263,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3><a href="dns/dns-top.md">Domain Name System (DNS)&quot;&gt;</a></h3>
+                        <h3><a href="dns/dns-top.md">Domain Name System (DNS)</a></h3>
                         <hr />
                         <p>Domain Name System (DNS) ist eine der branchenüblichen Protokolle von Protokollen, aus denen TCP/IP besteht. der DNS-Client und der DNS-Server stellen zusammen mit dem DNS-Client und dem DNS-Server Computername-zu-IP-Adress Dienste für Computer und Benutzer bereit.</p>
                     </div>
@@ -382,7 +382,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                         <p>Netzwerk-Offload- und Optimierungstechnologien in Windows Server 2016 umfassen Software Only (SO)-Features und -Technologien, integrierte Software- und Hardware (SH)-Features und -Technologien sowie Hardware Only (HO)-Features und -Technologien.</p>
                         <p>Die folgende Dokumentation der Offload- und -Technologie ist auch verfügbar:<p>
                         <hr />
-                        <a href="technologies/conv-nic/cnic-top.md">Leistungsstarke Netzwerk</a>
+                        <a href="technologies/conv-nic/cnic-top.md">Konvergierte Netzwerkschnittstellenkarte (NIC)</a>
                         <hr />
                         <a href="technologies/dcb/dcb-top.md">Data Center Bridging (DCB)</a> -
                         <hr />
