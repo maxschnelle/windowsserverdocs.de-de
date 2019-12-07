@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.date: 04/12/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 42216375d1784a5bc853994a9de7cff72920088d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1da4df284febbf18b5796322868451c45ab247ab
+ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357325"
+ms.lasthandoff: 12/07/2019
+ms.locfileid: "74903932"
 ---
 # <a name="deploy-windows-admin-center-in-azure"></a>Bereitstellen des Windows Admin Centers in Azure
 
@@ -23,17 +23,17 @@ Sie können [Deploy-WACAzVM. ps1](https://aka.ms/deploy-wacazvm) herunterladen, 
 
 [Wechseln Sie zu manuelle Bereitstellungs Schritte.](#deploy-manually-on-an-existing-azure-virtual-machine)
 
-### <a name="prerequisites"></a>Erforderliche Komponenten
+### <a name="prerequisites"></a>Voraussetzungen
 
 * Richten Sie Ihr Konto in [Azure Cloud Shell](https://shell.azure.com)ein. Wenn Sie Cloud Shell zum ersten Mal verwenden, werden Sie aufgefordert, ein Azure Storage-Konto mit Cloud Shell zuzuordnen oder zu erstellen.
-* Navigieren Sie in einem **PowerShell** -Cloud Shell zu Ihrem Basisverzeichnis:```PS Azure:\> cd ~```
-* Um die ```Deploy-WACAzVM.ps1``` Datei hochzuladen, ziehen Sie Sie per Drag & amp; Drop vom lokalen Computer an eine beliebige Stelle im Cloud Shell Fenster.
+* Navigieren Sie in einem **PowerShell** -Cloud Shell zu Ihrem Basisverzeichnis: ```PS Azure:\> cd ~```
+* Wenn Sie die ```Deploy-WACAzVM.ps1``` Datei hochladen möchten, ziehen Sie Sie per Drag & amp; Drop vom lokalen Computer an eine beliebige Stelle im Cloud Shell Fenster.
 
 Wenn Sie Ihr eigenes Zertifikat angeben:
 
 * Laden Sie das Zertifikat in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)hoch. Erstellen Sie zunächst einen Schlüssel Tresor im Azure-Portal, und laden Sie dann das Zertifikat in den Schlüssel Tresor hoch. Alternativ können Sie das Azure-Portal verwenden, um ein Zertifikat für Sie zu generieren.
 
-### <a name="script-parameters"></a>Skript Parameter
+### <a name="script-parameters"></a>Skriptparameter
 
 * **Resourcegroupname** -[Zeichenfolge] gibt den Namen der Ressourcengruppe an, in der die VM erstellt wird.
 
@@ -41,7 +41,7 @@ Wenn Sie Ihr eigenes Zertifikat angeben:
 
 * **Credential** -[PSCredential] gibt die Anmelde Informationen für den virtuellen Computer an.
 
-* **Msipath** -[Zeichenfolge] gibt den lokalen Pfad der MSI-Datei des Windows Admin Centers an, wenn Windows Admin Center auf einer vorhandenen VM bereitgestellt wird. Der Standardwert ist die http://aka.ms/WACDownload Version von, wenn nicht ausgelassen.
+* **Msipath** -[Zeichenfolge] gibt den lokalen Pfad der MSI-Datei des Windows Admin Centers an, wenn Windows Admin Center auf einer vorhandenen VM bereitgestellt wird. Standardmäßig wird die Version von https://aka.ms/WACDownload, sofern nicht ausgelassen.
 
 * **Vaultname** -[String] gibt den Namen des Schlüssel Tresors an, der das Zertifikat enthält.
 
@@ -89,7 +89,7 @@ $Image = "Win2016Datacenter"
 $Credential = Get-Credential
 ```
 
-#### <a name="example-1-use-the-script-to-deploy-wac-gateway-on-a-new-vm-in-a-new-virtual-network-and-resource-group-use-the-msi-from-akamswacdownload-and-a-self-signed-cert-from-the-msi"></a>Beispiel 1: Verwenden Sie das Skript zum Bereitstellen eines WAC-Gateways auf einer neuen VM in einem neuen virtuellen Netzwerk und einer neuen Ressourcengruppe. Verwenden Sie die MSI aus aka.ms/WACDownload und ein selbst signiertes Zertifikat aus der MSI.
+#### <a name="example-1-use-the-script-to-deploy-wac-gateway-on-a-new-vm-in-a-new-virtual-network-and-resource-group-use-the-msi-from-akamswacdownload-and-a-self-signed-cert-from-the-msi"></a>Beispiel 1: Verwenden Sie das Skript zum Bereitstellen eines WAC-Gateways auf einem neuen virtuellen Computer in einem neuen virtuellen Netzwerk und einer neuen Ressourcengruppe. Verwenden Sie die MSI aus aka.ms/WACDownload und ein selbst signiertes Zertifikat aus der MSI.
 
 ```PowerShell
 $scriptParams = @{
@@ -103,7 +103,7 @@ $scriptParams = @{
 ./Deploy-WACAzVM.ps1 @scriptParams
 ```
 
-#### <a name="example-2-same-as-1-but-using-a-certificate-from-azure-key-vault"></a>Beispiel 2: Identisch mit #1, aber die Verwendung eines Zertifikats aus Azure Key Vault.
+#### <a name="example-2-same-as-1-but-using-a-certificate-from-azure-key-vault"></a>Beispiel 2: wie #1, aber das Verwenden eines Zertifikats aus Azure Key Vault.
 
 ```PowerShell
 $scriptParams = @{
@@ -147,7 +147,7 @@ Set-AzNetworkSecurityGroup -NetworkSecurityGroup $newNSG
 ### <a name="requirements-for-managed-azure-vms"></a>Anforderungen an verwaltete Azure-VMS
 
 Port 5985 (WinRM über HTTP) muss geöffnet sein und über einen aktiven Listener verfügen.
-Sie können den Code unten in Azure Cloud Shell verwenden, um die verwalteten Knoten zu aktualisieren. ```$ResourceGroupName```und ```$Name``` verwenden dieselben Variablen wie das Bereitstellungs Skript, aber Sie müssen die ```$Credential``` spezifische für den virtuellen Computer verwenden, den Sie verwalten.
+Sie können den Code unten in Azure Cloud Shell verwenden, um die verwalteten Knoten zu aktualisieren. ```$ResourceGroupName``` und ```$Name``` verwenden dieselben Variablen wie das Bereitstellungs Skript, aber Sie müssen die ```$Credential``` verwenden, die für die von Ihnen verwaltete VM spezifisch sind.
 
 ```powershell
 Enable-AzVMPSRemoting -ResourceGroupName $ResourceGroupName -Name $Name
@@ -166,7 +166,7 @@ Installieren Sie vor der Installation des Windows Admin Centers auf der gewünsc
 
 2. Stellen Sie eine Remote Desktop Verbindung mit dem virtuellen Computer her, kopieren Sie die MSI von Ihrem lokalen Computer, und fügen Sie Sie in die VM ein.
 
-3. Doppelklicken Sie auf die MSI-Installation, um die Installation zu starten, und befolgen Sie die Anweisungen im Assistenten. Beachten Sie Folgendes:
+3. Doppelklicken Sie auf die MSI-Installation, um die Installation zu starten, und befolgen Sie die Anweisungen im Assistenten. Bedenken Sie dabei Folgendes:
 
    - Standardmäßig verwendet das Installationsprogramm den empfohlenen Port 443 (HTTPS). Wenn Sie einen anderen Port auswählen möchten, müssen Sie auch diesen Port in der Firewall öffnen. 
 
@@ -190,10 +190,10 @@ Installieren Sie vor der Installation des Windows Admin Centers auf der gewünsc
 An diesem Punkt sollten Sie in der Lage sein, über einen modernen Browser (Edge oder Chrome) auf dem lokalen Computer auf das Windows Admin Center zuzugreifen, indem Sie zum DNS-Namen Ihrer Gateway-VM navigieren. 
 
 > [!NOTE]
-> Wenn Sie einen anderen Port als 443 ausgewählt haben, können Sie auf\<\>das Windows Admin Center zugreifen, indem Sie zu https://DNS Name\<Ihres virtuellen Computers navigieren: benutzerdefinierter Port.\>
+> Wenn Sie einen anderen Port als 443 ausgewählt haben, können Sie auf das Windows Admin Center zugreifen, indem Sie zu https://\<DNS-Namen Ihres virtuellen Computers\>:\<benutzerdefinierter Port\>
 
 Wenn Sie versuchen, auf Windows Admin Center zuzugreifen, werden Sie vom Browser zur Eingabe von Anmelde Informationen aufgefordert, um auf den virtuellen Computer zuzugreifen, auf dem Windows Admin Center installiert ist. Hier müssen Sie die Anmelde Informationen eingeben, die sich in der lokalen Benutzergruppe oder der lokalen Gruppe "Administratoren" des virtuellen Computers befinden. 
 
-Um andere virtuelle Computer im vnet hinzuzufügen, stellen Sie sicher, dass WinRM auf den virtuellen Ziel Computern ausgeführt wird, indem Sie Folgendes in PowerShell oder über die Eingabeaufforderung auf der Ziel-VM ausführen:`winrm quickconfig`
+Um andere virtuelle Computer im vnet hinzuzufügen, stellen Sie sicher, dass WinRM auf den virtuellen Ziel Computern ausgeführt wird, indem Sie Folgendes in PowerShell oder über die Eingabeaufforderung auf der Ziel-VM ausführen: `winrm quickconfig`
 
 Wenn Sie nicht der Azure-VM angehören, verhält sich der virtuelle Computer wie ein Server in der Arbeitsgruppe. Daher müssen Sie sicherstellen, dass Sie das [Windows Admin Center in einer Arbeitsgruppe verwenden](../support/troubleshooting.md#using-windows-admin-center-in-a-workgroup).

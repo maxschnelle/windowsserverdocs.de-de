@@ -1,6 +1,6 @@
 ---
 title: Installieren des Windows Server Essentials-Protokollsammlers
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -12,25 +12,25 @@ ms.assetid: d271c54f-1ffa-464e-afa5-27b8df61854e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ade18cec590392f35e7ad6b30d9a22ccdce44dcd
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: a1b1a5492a6e5dbc48899b3918314676884e0454
+ms.sourcegitcommit: 39244de670f712857a5fdd56630e95d57b7001a5
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59837031"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74897676"
 ---
 # <a name="install-the-windows-server-essentials-log-collector"></a>Installieren des Windows Server Essentials-Protokollsammlers
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Der Windows Server Essentials Log Collector-Installations-Assistent installiert den Log Collector als ein Launchpad-Add-in. Sie können den Log Collector auf Computern im Netzwerk oder dem Server oder beidem installieren und verwenden. Nach der Installation wird der Log Collector auf dem Dashboard angezeigt.  
+Der Installations-Assistent für den Windows Server Essentials Log Collector installiert den Log Collector als Launchpad-Add-in. Sie können den Log Collector auf Computern im Netzwerk oder dem Server oder beidem installieren und verwenden. Nach der Installation wird der Log Collector auf dem Dashboard angezeigt.  
   
-###  <a name="BKMK_ToInstall"></a> So installieren Sie den Log Collector  
+###  <a name="BKMK_ToInstall"></a>So installieren Sie den Log Collector  
   
 1.  Laden Sie das Log Collector -Installationspaket auf einen beliebigen Server oder einen Computer im Netzwerk herunter.  
   
     > [!NOTE]
-    >  Von der Microsoft- Website können Sie [das Installationspaket für den Log Collector herunterladen](https://go.microsoft.com/fwlink/p/?LinkId=255470) .  
+    > [Herunterladen des Windows Server Essentials Log Collector-Installationspakets](https://www.microsoft.com/download/details.aspx?id=34821).  
   
 2.  Doppelklicken Sie auf das Log Collector-Symbol.  
   
@@ -42,7 +42,7 @@ Der Windows Server Essentials Log Collector-Installations-Assistent installiert 
   
 6.  Klicken Sie auf **Add-in installieren**.  
   
-###  <a name="BKMK_Reinstall"></a> Neuinstallation des Log Collectors  
+###  <a name="BKMK_Reinstall"></a>Erneutes Installieren des Protokoll Sammlers  
  Wenn der Log Collector neu installiert werden muss, müssen Sie den Log Collector auf dem Server und den Netzwerkcomputern im Netzwerk deinstallieren und neu installieren. Durch Deinstallieren des Log Collectors auf dem Server über das Dashboard, wird der Log Collector auf allen Netzwerk-Computern automatisch deinstalliert.  
   
 ##### <a name="to-uninstall-and-reinstall-the-log-collector"></a>So deinstallieren Sie den Log Collector und installieren ihn neu  
@@ -62,12 +62,12 @@ Der Windows Server Essentials Log Collector-Installations-Assistent installiert 
   
 ##### <a name="to-manually-install-the-log-collector"></a>So installieren Sie den Log Collector manuell  
   
-1.  Benennen Sie die Erweiterung der heruntergeladenen Installationsdatei von wssx in .cab.  
+1.  Benennen Sie die Erweiterung der heruntergeladenen Installationsdatei von ". wssx" in ". cab" um.  
   
 2.  Doppelklicken Sie auf den Dateinamen der Installationsdatei.  
   
 3.  Klicken Sie auf **OK** , wenn Sie dazu aufgefordert werden.  
   
-4.  Doppelklicken Sie auf den Dateinamen mit ˜.msi endet, und wählen Sie einen Ordner, in dem er extrahiert werden sollen.  
+4.  Doppelklicken Sie auf den Namen der Datei mit dem Namen ". msi", und wählen Sie einen Ordner aus, in dem Sie extrahiert werden soll.  
   
 5.  Navigieren Sie zu dem Ordner mit der extrahierten Datei und doppelklicken Sie auf die Installationsdatei, um den Assistenten zum Abschluss der Installation zu verwenden.

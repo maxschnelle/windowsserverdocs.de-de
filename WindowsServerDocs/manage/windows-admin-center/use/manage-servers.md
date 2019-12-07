@@ -5,25 +5,25 @@ ms.technology: manage
 ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
-ms.date: 03/07/2019
+ms.date: 11/21/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: c7f436ea9b2baa00294ccef52a5d7a27c7247e4a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9a116cc9d86dfe0bb4450efa0f18580a062af722
+ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406789"
+ms.lasthandoff: 12/07/2019
+ms.locfileid: "74903719"
 ---
 # <a name="manage-servers-with-windows-admin-center"></a>Verwalten von Servern mit dem Windows Admin Center
 
->Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center Vorschau
 
 > [!Tip]
 > Neu bei Windows Admin Center?
 > [Erfahren Sie mehr über Windows Admin Center](../understand/windows-admin-center.md) oder [jetzt herunterladen](https://aka.ms/windowsadmincenter).
 
-## <a name="managing-windows-server-machines"></a>Verwalten von Windows Server-Computern
+## <a name="managing-windows-server-machines"></a>Verwalten von Windows Server-Maschinen
 
 Sie können dem Windows Admin Center einzelne Server unter Windows Server 2012 oder höher hinzufügen, um den Server mit einem umfassenden Satz von Tools wie Zertifikaten, Geräten, Ereignissen, Prozessen, Rollen und Features, Updates, Virtual Machines und mehr zu verwalten.
 
@@ -51,21 +51,23 @@ Die folgenden Tools sind für Serververbindungen verfügbar:
 | ---- | ----------- |
 | [Übersicht](#overview) | Anzeigen von Server Details und Steuern des Serverstatus |
 | [Active Directory](#active-directory-preview) | Verwalten von Active Directory |
-| [Mindestsicherung](#backup) | Azure Backup anzeigen und konfigurieren |  
+| [Backup](#backup) | Azure Backup anzeigen und konfigurieren |  
 | [Zertifikate](#certificates) | Anzeigen und Ändern von Zertifikaten |
 | [Container](#containers) | Container anzeigen |
 | [Geräte](#devices) | Anzeigen und Ändern von Geräten |
-| [KONFIGURIERT](#dhcp) | Anzeigen und Verwalten der DHCP-Serverkonfiguration |
+| [DHCP](#dhcp) | Anzeigen und Verwalten der DHCP-Serverkonfiguration |
 | [DNS](#dns) | Anzeigen und Verwalten der DNS-Serverkonfiguration |
-| [Ereignisse](#events) | Ereignisse anzeigen |
-| [Dateien](#files) | Dateien und Ordner durchsuchen |
+| [Ereignisse](#events) | Veranstaltungen anzeigen |
+| [Dateien](#files) | Durchsuchen von Dateien und Ordnern |
 | [Firewall](#firewall) | Anzeigen und Ändern von Firewallregeln |
 | [Installierte apps](#installed-apps) | Anzeigen und Entfernen installierter apps |
 | [Lokale Benutzer und Gruppen](#local-users-and-groups) | Anzeigen und ändern lokaler Benutzer und Gruppen |
 | [Network](#network) | Anzeigen und Ändern von Netzwerkgeräten |
+| [Paket Überwachung](https://aka.ms/wac1908) | Überwachen von Netzwerk Paketen |
+| [System Monitor](https://aka.ms/perfmon-blog) | Anzeigen von Leistungsindikatoren und Berichten |
 | [PowerShell](#powershell) | Interagieren mit dem Server über PowerShell |
 | [Prozesse](#processes) | Anzeigen und Ändern von laufenden Prozessen |
-| [Registrierungs](#registry) | Anzeigen und Ändern von Registrierungs Einträgen |
+| [Registry](#registry) | Anzeigen und Ändern von Registrierungs Einträgen |
 | [Remotedesktop](#remote-desktop) | Interagieren mit dem Server über Remotedesktop |
 | [Rollen und Features](#roles-and-features) | Anzeigen und Ändern von Rollen und Features |
 | [Geplante Aufgaben](#scheduled-tasks) | Anzeigen und Ändern geplanter Aufgaben |
@@ -91,7 +93,7 @@ Die folgenden Funktionen werden in Server-Manager Übersicht unterstützt:
 - Anzeigen der CPU-Aktivität
 - Arbeitsspeicher Aktivität anzeigen
 - Netzwerkaktivität anzeigen
-- Server neu starten
+- Neustarten des Servers
 - Server herunterfahren
 - Datenträger auf dem Server aktivieren
 - Computer-ID auf Server bearbeiten
@@ -135,7 +137,7 @@ Die folgenden Funktionen werden bei der Sicherung unterstützt:
 - Starten oder Abbrechen eines Sicherungsauftrags
 - Verlauf und Status des Sicherungsauftrags anzeigen
 - Anzeigen von Wiederherstellungs Punkten und Wiederherstellen von Daten
-- Löschen von Sicherungsdaten
+- Sicherungsdaten löschen
 
 ## <a name="certificates"></a>Zertifikate
 
@@ -148,7 +150,7 @@ Die folgenden Funktionen werden in Zertifikaten unterstützt:
 - Durchsuchen und Durchsuchen vorhandener Zertifikate
 - Anzeigen von Zertifikat Details
 - Exportieren von Zertifikaten
-- Zertifikate erneuern
+- Erneuern von Zertifikaten
 - Neue Zertifikate anfordern
 - Löschen von Zertifikaten
 
@@ -169,7 +171,7 @@ Mithilfe von **Geräten** können Sie verbundene Geräte auf einem Computer oder
 Die folgenden Funktionen werden von Geräten unterstützt:
 
 - Suchen und suchen von Geräten
-- Anzeigen von Geräte Details
+- Anzeigen von Gerätedetails
 - Deaktivieren eines Geräts
 - Aktualisieren eines Treibers auf einem Gerät
 
@@ -202,7 +204,7 @@ Mithilfe von **DNS** können Sie verbundene Geräte auf einem Computer oder Serv
 
 [**Anzeigen von Feedback und vorgeschlagenen Features für DHCP**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BDNS%5D).
 
-## <a name="events"></a>Ereignisse
+## <a name="events"></a>Veranstaltungen
 
 **Ereignisse** ermöglichen es Ihnen, Ereignisprotokolle auf einem Computer oder Server zu verwalten.
 
@@ -211,7 +213,7 @@ Mithilfe von **DNS** können Sie verbundene Geräte auf einem Computer oder Serv
 Die folgenden Funktionen werden in Ereignissen unterstützt:
 
 - Durchsuchen und Durchsuchen von Ereignissen
-- Anzeigen von Ereignis Details
+- Anzeigen von Ereignisdetails
 - Ereignisse aus dem Protokoll löschen
 - Ereignisse aus dem Protokoll exportieren
 
@@ -225,12 +227,12 @@ Mithilfe von **Dateien** können Sie Dateien und Ordner auf einem Computer oder 
 
 Die folgenden Funktionen werden in Dateien unterstützt:
 
-- Dateien und Ordner durchsuchen
+- Durchsuchen von Dateien und Ordnern
 - Nach einer Datei oder einem Ordner suchen
-- Neuen Ordner erstellen
+- Erstellen eines neuen Ordners
 - Löschen einer Datei oder eines Ordners
 - Herunterladen einer Datei oder eines Ordners
-- Hochladen einer Datei oder eines Ordners
+- Hochladen von Dateien oder Ordnern
 - Umbenennen einer Datei oder eines Ordners
 - Extrahieren einer ZIP-Datei
 - Anzeigen von Datei-oder Ordnereigenschaften
@@ -259,7 +261,7 @@ Die folgenden Funktionen werden in der Firewall unterstützt:
 
 [**Anzeigen von Feedback und vorgeschlagenen Features für die Firewall**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BFirewall%5D).
 
-## <a name="installed-apps"></a>Installierte apps
+## <a name="installed-apps"></a>Installierte Apps
 
 Mithilfe **installierter apps** können Sie installierte Anwendungen auflisten und deinstallieren.
 
@@ -282,7 +284,7 @@ Die folgenden Funktionen werden in lokalen Benutzern und Gruppen unterstützt:
 
 [**Feedback und vorgeschlagene Features für lokale Benutzer und Gruppen anzeigen**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BLocal%20users%20and%20Groups%5D)
 
-## <a name="network"></a>Network
+## <a name="network"></a>Netzwerk
 
 Mit dem **Netzwerk** können Sie Netzwerkgeräte und-Einstellungen auf einem Computer oder Server verwalten.
 
@@ -386,7 +388,7 @@ Die folgenden Funktionen werden in geplanten Tasks unterstützt:
 
 [**Anzeigen von Feedback und vorgeschlagenen Features für geplante Aufgaben**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BScheduled%20Tasks%5D).
 
-## <a name="services"></a>Dienste
+## <a name="services"></a>„Dienste“
 
 **Dienste** ermöglichen es Ihnen, Dienste auf einem Computer oder Server zu verwalten.
 
@@ -402,7 +404,7 @@ Die folgenden Funktionen werden in-Diensten unterstützt:
 
 [**Anzeigen von Feedback und vorgeschlagenen Features für Dienste**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BServices%5D).
 
-## <a name="settings"></a>Einstellungen
+## <a name="settings"></a>„Einstellungen“
 
 **Einstellungen** ist ein zentraler Ort zum Verwalten von Einstellungen auf einem Computer oder Server.
 
@@ -432,7 +434,7 @@ Die folgenden Funktionen werden im Speicher unterstützt:
 - Formatieren eines Volumes
 - Ändern der Größe eines Volumes
 - Volumeeigenschaften bearbeiten
-- Löschen eines Volumes
+- Löschen von Volumes
 - Installieren der Kontingent Verwaltung
 - Verwalten von Dateiservern Ressourcen-Manager Kontingente [Storage-> Create/Update-Kontingent](https://docs.microsoft.com/windows-server/storage/fsrm/quota-management)
 
@@ -454,7 +456,7 @@ Verwenden Sie **Speicher** Replikate zum Verwalten der Server-zu-Server-Speicher
 ## <a name="system-insights"></a>Systemdaten
 
 **System Insights** führt Predictive Analytics nativ in Windows Server ein, um Ihnen einen besseren Einblick in die Funktionsweise des Servers zu bieten.
-[Verschaffen Sie sich einen Überblick über System Einblicke](http://aka.ms/systeminsights)
+[Verschaffen Sie sich einen Überblick über System Einblicke](https://aka.ms/systeminsights)
 
 >[!NOTE]
 >System Insights erfordert Windows Server 2019.
