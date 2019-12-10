@@ -1,6 +1,5 @@
 # [Sicherheit und Zuverlässigkeit](security-and-assurance.md)
 ## [Ihre Reise in die Datenschutz-Grundverordnung (DSGVO) für Windows Server 2016](gdpr/gdpr-winserver-whitepaper.md)
-## [Einrichten des Host-Überwachungsdiensts (HGS) für Always Encrypted in SQL Server](set-up-hgs-for-always-encrypted-in-sql-server.md)
 ## [Einrichten des Host-Überwachungsdiensts (HGS) für eine geschützte Fabric und abgeschirmte VMs](guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms-top-node.md)
 ### [Übersicht](guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms.md)
 ### [Planen](guarded-fabric-shielded-vm/guarded-fabric-plan-overview.md)
