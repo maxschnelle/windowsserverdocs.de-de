@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 46a1e2aa8c116f79c164448ab5644a7dda9607c8
-ms.sourcegitcommit: ac9946deb4fa70203a9b05e0386deb4244b8ca55
+ms.openlocfilehash: 9abe199399e577eb06044377c30d5a2dc0e35dd1
+ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310370"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74945226"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -64,7 +64,7 @@ Dieses Problem wurde in einem späteren Release von Windows Server behoben.
 
 Wenn Sie das Windows Admin Center oder PowerShell verwenden, um das CSV-Protokoll mit ausführlichen Fehlern bei der Übertragungs Operation herunterzuladen, erhalten Sie folgende Fehlermeldung:
 
- >   Übertragungsprotokoll: Überprüfen Sie, ob die Dateifreigabe in der Firewall zulässig ist. : Dieser Anforderungs Vorgang, der an net. TCP://localhost: 28940/SMS/Service/1/Transfer gesendet wurde, hat innerhalb des konfigurierten Timeouts (00:01:00) keine Antwort empfangen. Der für diesen Vorgang zugewiesene Zeitraum war möglicherweise ein Teil eines längeren Timeouts. Dies liegt möglicherweise daran, dass der Dienst den Vorgang noch verarbeitet oder der Dienst keine Antwortnachricht senden konnte. Erhöhen Sie das Timeout für den Vorgang (indem Sie den Kanal/Proxy in IContextChannel umwandeln und die Eigenschaft OperationTimeout festlegen), und stellen Sie sicher, dass der Dienst eine Verbindung mit dem Client herstellen kann.
+ >   Übertragungsprotokoll: Überprüfen Sie, ob die Dateifreigabe in der Firewall zulässig ist. : Dieser Anforderungs Vorgang, der an net. TCP://localhost: 28940/SMS/Service/1/Transfer gesendet wurde, hat innerhalb des konfigurierten Timeouts (00:01:00) keine Antwort empfangen. Die für diesen Vorgang vorgesehene Zeit war möglicherweise Teil eines längeren Timeouts. Die Ursache dafür könnte sein, dass der Dienst den Vorgang immer noch verarbeitet oder dass der Dienst keine Antwortmeldung senden konnte. Erhöhen Sie das Timeout für den Vorgang (indem Sie den Kanal/Proxy in IContextChannel umwandeln und die Eigenschaft OperationTimeout festlegen), und stellen Sie sicher, dass der Dienst eine Verbindung mit dem Client herstellen kann.
 
 Dieses Problem wird durch eine extrem große Anzahl übertragener Dateien verursacht, die nicht in dem vom Speicher Migrationsdienst zulässigen Standard Timeout von einer Minute gefiltert werden können. 
 
@@ -314,6 +314,13 @@ Dieses Problem wird durch eine Regression in der [KB4512534](https://support.mic
   
 Wenn beide Problem Umgehungen abgeschlossen sind, können Sie nach Abschluss des Ausschnitts eine statische IP-Adresse auf dem alten Quellcomputer festlegen, und Sie können DHCP nicht mehr verwenden.   
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="slower-than-expected-re-transfer-performance"></a>Langsamer als erwartete erneute Übertragungsleistung
+
+Nachdem Sie eine Übertragung abgeschlossen und dann eine nachfolgende erneute Übertragung derselben Daten ausgeführt haben, wird die Übertragungszeit möglicherweise nicht wesentlich verbessert, auch wenn sich in der Zwischenzeit nur wenige Daten auf dem Quell Server geändert haben.
+
+Dies ist das erwartete Verhalten beim Übertragen einer sehr großen Anzahl von Dateien und von untergeordneten Ordnern. Die Größe der Daten ist nicht relevant. Wir haben zunächst Verbesserungen an diesem Verhalten in [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) vorgenommen und optimieren weiterhin die Übertragungsleistung. Um die Leistung weiter zu optimieren, lesen Sie [Optimieren von Inventur-und Übertragungsleistung](https://docs.microsoft.com/windows-server/storage/storage-migration-service/faq#optimizing-inventory-and-transfer-performance).
+
+
+## <a name="see-also"></a>Weitere Informationen:
 
 - [Übersicht über den Speicher Migrationsdienst](overview.md)

@@ -5,24 +5,24 @@ ms.assetid: 51a1ee61-3ffe-4f65-b8de-ff21903e1e74
 ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
-ms.date: 07/24/19
+ms.date: 07/24/2019
 ms.author: pashort, v-tea
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: aee2f14d0d99fd453fa6fb1f3147a515ca57abb1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d186946c0d4490201b7989ba8d418f9c667aa6e4
+ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366911"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74945320"
 ---
 # <a name="advanced-features-of-always-on-vpn"></a>Erweiterte Features von Always on-VPN
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Vorher** Erfahren Sie mehr über die Always on VPN-Technologie](../always-on-vpn-technology-overview.md)
-- [**Weiter** Beginnen der Planung der Always on-VPN-Bereitstellung](always-on-vpn-deploy-planning.md)
+- [**Vorheriges:** Erfahren Sie mehr über die Always on VPN-Technologie](../always-on-vpn-technology-overview.md)
+- [**Weiter:** Beginnen der Planung der Always on-VPN-Bereitstellung](always-on-vpn-deploy-planning.md)
 
 Neben den bereitgestellten Bereitstellungs Szenarien können Sie weitere erweiterte VPN-Features hinzufügen, um die Sicherheit und Verfügbarkeit Ihrer VPN-Verbindung zu verbessern. Beispielsweise kann der VPN-Server diese Features verwenden, um sicherzustellen, dass der Verbindungs Client fehlerfrei ist, bevor er eine Verbindung zulässt.
 
@@ -33,7 +33,7 @@ Im folgenden finden Sie zusätzliche Optionen für hohe Verfügbarkeit.
 |Option  |Beschreibung  |
 |---------|---------|
 |Server Resilienz und Lastenausgleich     |In Umgebungen, die Hochverfügbarkeit erfordern oder eine große Anzahl von Anforderungen unterstützen, können Sie die Leistung und Resilienz des Remote Zugriffs steigern, indem Sie den Lastenausgleich zwischen mehreren Servern verwenden, auf denen der Netzwerk Richtlinien Server (Network Policy Server, NPS) ausgeführt wird. Remote Zugriffs Server-Clustering.<p>Verwandte Dokumente:<ul><li>[NPS-Proxy Server-Lastenausgleich](../../../../../networking/technologies/nps/nps-manage-proxy-lb.md)</li><li>[Bereitstellen des Remotezugriffs in einem Cluster](https://docs.microsoft.com/windows-server/remote/remote-access/ras/cluster/deploy-remote-access-in-cluster)</li></ul>        |
-|Stabilität des geografischen Standorts     |Für die IP-basierte geolozierung können Sie globale Traffic Manager mit DNS in Windows Server 2016 verwenden. Um einen stabileren geografischen Lastenausgleich zu erreichen, können Sie Lösungen für den Lastenausgleich auf globaler Server wie Microsoft Azure Traffic Manager verwenden.<p>Verwandte Dokumente:<ul><li>[Übersicht über Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)</li><li>[Microsoft Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager)</li></ul>         |
+|Stabilität des geografischen Standorts     |Für die IP-basierte geolozierung können Sie globale Traffic Manager mit DNS in Windows Server 2016 verwenden. Um einen stabileren geografischen Lastenausgleich zu erreichen, können Sie Lösungen für den Lastenausgleich auf globaler Server wie Microsoft Azure Traffic Manager verwenden.<p>Verwandte Dokumente:<ul><li>[Was ist Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)</li><li>[Was ist Traffic Manager?](https://azure.microsoft.com/services/traffic-manager)</li></ul>         |
 
 ## <a name="advanced-authentication"></a>Erweiterte Authentifizierung
 
@@ -42,7 +42,7 @@ Im folgenden finden Sie zusätzliche Authentifizierungs Optionen.
 |Option  |Beschreibung  |
 |---------|---------|
 |Windows Hello for Business     |In Windows 10 ersetzt Windows Hello for Business Kenn Wörter durch eine starke zweistufige Authentifizierung auf PCs und mobilen Geräten. Diese Authentifizierung besteht aus einem neuen Typ von Benutzer Anmelde Informationen, der an ein Gerät gebunden ist und eine biometrische oder persönliche Identifikationsnummer (PIN) verwendet.<p>Der Windows 10-VPN-Client ist kompatibel mit Windows Hello for Business. Nachdem sich der Benutzer mit einer Geste anmeldet, verwendet die VPN-Verbindung das Windows Hello for Business-Zertifikat für die Zertifikat basierte Authentifizierung.<p>Verwandte Dokumente:<ul><li>[Windows Hello for Business](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)</li><li>Technische Fallstudie: [Aktivieren des Remote Zugriffs mit Windows Hello for Business in Windows 10](https://msdn.microsoft.com/library/mt728163.aspx)</li></ul>         |
-|Azure Multi-Factor Authentication (MFA)     |Azure MFA verfügt über Cloud-und lokale Versionen, die Sie in den Windows-VPN-Authentifizierungsmechanismus integrieren können.<p>Weitere Informationen zur Funktionsweise dieses Mechanismus finden Sie unter [integrieren der RADIUS-Authentifizierung mit dem Azure Multi-Factor Authentication-Server](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server-radius).         |
+|Azure Multi-Factor Authentication (MFA)     |Azure MFA verfügt über Cloud-und lokale Versionen, die Sie in den Windows-VPN-Authentifizierungsmechanismus integrieren können.<p>Weitere Informationen zur Funktionsweise dieses Mechanismus finden Sie unter [integrieren der RADIUS-Authentifizierung in Azure Multi-Factor Authentication-Server](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server-radius).         |
 
 ## <a name="advanced-vpn-features"></a>Erweiterte VPN-Features
 
@@ -64,12 +64,12 @@ Nachdem Sie Updates installiert haben, kann der RRAS-Server die Zertifikat Sperr
 
 In der folgenden Tabelle sind die Versionen aufgeführt, die die Fixes für jede Windows-Version enthalten.
 
-|Version des Betriebssystems |Version  |
+|Betriebssystemversion |Version  |
 |---------|---------|
 |Windows Server, Version 1903  |[KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375) |
 |Windows Server 2019<br />Windows Server, Version 1809  |[KB4505658](https://support.microsoft.com/help/4505658/windows-10-update-kb4505658)  |
 |Windows Server, Version 1803  |[KB4507466](https://support.microsoft.com/help/4507466/windows-10-update-kb4507466)  |
-|Windows Server, Version 1709  |[KB4507465](https://support.microsoft.com/help/4507465/windows-10-update-kb4507465)  |
+|Windows Server, Version 1709  |[KB4507465](https://support.microsoft.com/help/4507465/windows-10-update-kb4507465)  |
 |Windows Server 2016, Version 1607  |[KB4503294](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) |
 
 **Vorgehensweise beim Konfigurieren der Voraussetzungen** 
@@ -113,7 +113,7 @@ Um die Zertifikat Sperrung für diese VPN-Verbindungen zu deaktivieren, legen Si
    * Ereignis-ID: **41** 
    * Das Ereignis enthält den folgenden Text: **Subject = "*Client FQDN*"** (*Client-FQDN* steht für den voll qualifizierten Domänen Namen des Clients, der über das gesperrte Zertifikat verfügt). 
 
-   Das-Feld der Ereignisdaten sollte einschließen, dass **das Zertifikat gesperrt ist.** **<Result>** Sehen Sie sich beispielsweise die folgenden Ausschnitte eines Ereignisses an:
+   Das **<Result>** -Feld der Ereignisdaten sollte einschließen, dass **das Zertifikat gesperrt ist**. Sehen Sie sich beispielsweise die folgenden Ausschnitte eines Ereignisses an:
    ```xml
    Log Name:      Microsoft-Windows-CAPI2/Operational Microsoft-Windows-CAPI2/Operational  
    Source:        Microsoft-Windows-CAPI2  
@@ -144,23 +144,23 @@ Weitere Informationen zum TPM-Schlüssel Nachweis in Windows 10 finden Sie unter
 
 ## <a name="next-step"></a>Nächster Schritt
 
-[Beginnen Sie mit der Planung der Always on VPN-Bereitstellung](always-on-vpn-deploy-planning.md): Bevor Sie die Remote Zugriffs-Server Rolle auf dem Computer installieren, den Sie als VPN-Server verwenden möchten, führen Sie die folgenden Aufgaben aus. Nach der entsprechenden Planung können Sie Always on VPN bereitstellen und optional den bedingten Zugriff für VPN-Konnektivität mithilfe Azure AD konfigurieren.  
+[Planen der Always on-VPN-Bereitstellung](always-on-vpn-deploy-planning.md): führen Sie vor der Installation der Remote Zugriffs-Server Rolle auf dem Computer, den Sie als VPN-Server verwenden möchten, die folgenden Aufgaben aus. Nach der entsprechenden Planung können Sie Always on VPN bereitstellen und optional den bedingten Zugriff für VPN-Konnektivität mithilfe Azure AD konfigurieren.  
 
 ## <a name="related-topics"></a>Verwandte Themen
-- [NPS-Proxy Server-Lastenausgleich](../../../../../networking/technologies/nps/nps-manage-proxy-lb.md): RADIUS-Clients (Remote Authentication Dial-in User Service), die Netzwerk Zugriffs Server wie VPN-Server (virtuelles privates Netzwerk) und drahtlos Zugriffspunkte sind, erstellen Verbindungsanforderungen und senden Sie an RADIUS-Server wie z. b. NPS. In einigen Fällen kann ein NPS-Server zu viele Verbindungsanforderungen gleichzeitig empfangen, was zu einer Beeinträchtigung der Leistung oder einer Überlastung führt.
+- [NPS-Proxy Server-Lastenausgleich](../../../../../networking/technologies/nps/nps-manage-proxy-lb.md): Remote Authentication Dial-in User Service (RADIUS)-Clients, bei denen es sich um Netzwerk Zugriffs Server wie VPN-Server (virtuelles privates Netzwerk) und drahtlos Zugriffspunkte handelt, erstellen Sie Verbindungsanforderungen und senden diese an RADIUS-Server wie z. b. NPS. In einigen Fällen kann ein NPS-Server zu viele Verbindungsanforderungen gleichzeitig empfangen, was zu einer Beeinträchtigung der Leistung oder einer Überlastung führt.
 
-- [Übersicht über Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview): Dieses Thema bietet einen Überblick über Azure Traffic Manager, mit dem Sie die Verteilung von Benutzer Datenverkehr für Dienst Endpunkte steuern können. Traffic Manager verwendet die Domain Name System (DNS), um Client Anforderungen auf der Grundlage einer Datenverkehrs Routing-Methode und der Integrität der Endpunkte an den am besten geeigneten Endpunkt weiterzuleiten. 
+- [Übersicht über Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview): dieses Thema bietet einen Überblick über Azure Traffic Manager, mit dem Sie die Verteilung von Benutzer Datenverkehr für Dienst Endpunkte steuern können. Traffic Manager verwendet das Domain Name System (DNS), um Clientanforderungen auf der Grundlage einer Datenverkehrsrouting-Methode und der Integrität der Endpunkte an den optimalen Endpunkt weiterzuleiten. 
 
-- [Windows Hello for Business](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification): Dieses Thema enthält die Voraussetzungen, z. b. reine Cloud-bereit Stellungen und Hybrid Bereitstellungen.  Außerdem werden in diesem Thema häufig gestellte Fragen zu Windows Hello for Business aufgeführt.
+- [Windows Hello for Business](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification): dieses Thema enthält die Voraussetzungen, wie z. b. reine Cloud-bereit Stellungen und Hybrid Bereitstellungen.  Außerdem werden in diesem Thema häufig gestellte Fragen zu Windows Hello for Business aufgeführt.
 
-- [Technische Fallstudie: Aktivieren des Remote Zugriffs mit Windows Hello for Business in Windows](https://msdn.microsoft.com/library/mt728163.aspx)10: In dieser technischen Fallstudie erfahren Sie, wie Microsoft den Remote Zugriff mit Windows Hello for Business implementiert.  Bei Windows Hello for Business handelt es sich um einen privaten/öffentlichen oder Zertifikat basierten Authentifizierungs Ansatz für Unternehmen und Consumer, die über die Kenn Wörter hinausgehen. Diese Form der Authentifizierung basiert auf Schlüsselpaar-Anmelde Informationen, die Kenn Wörter ersetzen können und gegen Verstöße, Dieb zierungen und Phishing verstoßen. 
+- [Technische Fallstudie: Aktivieren des Remote Zugriffs mit Windows Hello for Business in Windows 10](https://msdn.microsoft.com/library/mt728163.aspx): in dieser technischen Fallstudie erfahren Sie, wie Microsoft den Remote Zugriff mit Windows Hello for Business implementiert.  Windows Hello for Business ist ein Authentifizierungsansatz für Unternehmen und Endkunden, der auf privaten/öffentlichen Schlüsseln oder Zertifikaten basiert und weit über den Gebrauch von Kennwörtern hinausgeht. Bei dieser Form der Authentifizierung werden Schlüsselpaar-Anmeldeinformationen verwendet, die Kennwörter ersetzen können und Verstößen, Diebstahl und Phishing gegenüber resistent sind. 
 
-- [Integrieren der RADIUS-Authentifizierung mit dem Azure Multi-Factor Authentication-Server](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server-radius): Dieses Thema führt Sie durch das Hinzufügen und Konfigurieren einer RADIUS-Client Authentifizierung mit dem Azure Multi-Factor Authentication-Server. RADIUS ist ein Standardprotokoll zum Annehmen und Verarbeiten von Authentifizierungsanforderungen. Der Azure Multi-Factor Authentication-Server kann als RADIUS-Server fungieren. 
+- [Integrieren der RADIUS-Authentifizierung in Azure Multi-Factor Authentication-Server](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server-radius): in diesem Thema wird schrittweise erläutert, wie Sie eine RADIUS-Client Authentifizierung mit Azure Multi-Factor Authentication-Server hinzufügen und konfigurieren. RADIUS ist ein Standardprotokoll zum Annehmen und Verarbeiten von Authentifizierungsanforderungen. Der Azure Multi-Factor Authentication-Server kann als RADIUS-Server fungieren. 
 
-- [VPN-Sicherheitsfeatures](https://docs.microsoft.com/windows/access-protection/vpn/vpn-security-features): Dieses Thema enthält Richtlinien für VPN-Sicherheit für das Sperren von VPN, Windows Information Protection-Integration (WIP) mit VPN und Datenverkehrs Filter. 
+- [VPN-Sicherheitsfeatures](https://docs.microsoft.com/windows/access-protection/vpn/vpn-security-features): in diesem Thema finden Sie VPN-Sicherheitsrichtlinien für das Sperren von VPN, die WIP-Integration (Windows Information Protection) mit VPN und Datenverkehrs Filter. 
 
-- [Automatisch ausgelöste VPN-Profil Optionen](https://docs.microsoft.com/windows/access-protection/vpn/vpn-auto-trigger-profile): Dieses Thema enthält die automatisch ausgelösten VPN-Profil Optionen, z. b. app-Trigger, namensbasierte Trigger und Always on.
+- [Automatisch ausgelöste VPN-Profil Optionen](https://docs.microsoft.com/windows/access-protection/vpn/vpn-auto-trigger-profile): dieses Thema bietet Ihnen automatisch ausgelöste VPN-Profil Optionen, z. b. app-Trigger, namensbasierte Trigger und Always on.
 
-- [VPN und bedingter Zugriff](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access): Dieses Thema bietet einen Überblick über die cloudbasierte Plattform für den bedingten Zugriff, mit der Sie eine Geräte Kompatibilitäts Option für Remote Clients bereitstellen können. Beim bedingten Zugriff handelt es sich um ein richtlinienbasiertes Auswertungsmodul, mit dem Sie Zugriffsregeln für alle mit Azure Active Directory (Azure AD) verknüpften Anwendungen erstellen können. 
+- [VPN und bedingter Zugriff](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access): in diesem Thema erhalten Sie einen Überblick über die cloudbasierte Plattform für den bedingten Zugriff, die eine Geräte Kompatibilitäts Option für Remote Clients bereitstellt. Beim bedingten Zugriff handelt es sich um ein richtlinienbasiertes Auswertungsmodul, mit dem Sie Zugriffsregeln für alle mit Azure Active Directory (Azure AD) verknüpften Anwendungen erstellen können. 
 
-- [TPM-Schlüssel](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation)Nachweis: In diesem Thema erhalten Sie einen Überblick über Trusted Platform Module (TPM) und die Schritte zum Bereitstellen von TPM-Schlüssel Nachweis. Außerdem finden Sie Informationen zur Problembehandlung und zu den Schritten, um Probleme zu beheben.
+- [TPM-Schlüssel](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation)Nachweis: in diesem Thema erhalten Sie einen Überblick über Trusted Platform Module (TPM) und die Schritte zum Bereitstellen von TPM-Schlüssel Nachweis. Außerdem finden Sie Informationen zur Problembehandlung und zu den Schritten, um Probleme zu beheben.
