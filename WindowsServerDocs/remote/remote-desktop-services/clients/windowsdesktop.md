@@ -11,18 +11,18 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 11/12/2019
+ms.date: 11/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2f786a1db0854ae89c1ceb23942793deb7f608e1
-ms.sourcegitcommit: 315f015102c42c6fa7694e76adecdfb448390391
+ms.openlocfilehash: e71aa2b1cccda85e0bf6f8a80ad68013346b30d4
+ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74019601"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74829622"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Erste Schritte mit dem Windows-Desktopclient
 
->Gilt für: Windows 10 und Windows 7
+>Gilt für: Windows 10, Windows 10 IoT Enterprise und Windows 7
 
 Du kannst den Remotedesktopclient für Windows-Desktop verwenden, um Windows-Apps und -Desktops über ein anderes Windows-Gerät per Remotezugriff zu nutzen.
 
@@ -33,7 +33,7 @@ Du kannst den Remotedesktopclient für Windows-Desktop verwenden, um Windows-App
 
 ## <a name="install-the-client"></a>Installieren des Clients
 
-Wähle den Client aus, der deiner Windows-Version entspricht:
+Wähle den Client aus, der der Windows-Version entspricht. Der neue Remotedesktopclient (MSRDC) unterstützt Windows 10-, Windows 10 IoT Enterprise- und Windows 7-Clientgeräte. 
 
 - [Windows 64-Bit](https://go.microsoft.com/fwlink/?linkid=2068602)
 - [Windows 32-Bit](https://go.microsoft.com/fwlink/?linkid=2098960)

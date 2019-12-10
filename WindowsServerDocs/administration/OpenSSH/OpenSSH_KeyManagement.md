@@ -6,12 +6,12 @@ contributor: maertendMSFT
 author: maertendMSFT
 title: Konfiguration des OpenSSH-Servers für Windows
 ms.product: w10
-ms.openlocfilehash: ed9f3653c79f1329b1334f52fe14c1184bc99539
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: fa3d40617a04c092403d9d2e018bd2eb82d20cd9
+ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70866866"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74781317"
 ---
 # <a name="openssh-key-management"></a>OpenSSH-Schlüsselverwaltung
 
@@ -135,7 +135,7 @@ Nachdem Sie diese Schritte ausgeführt haben, ruft „ssh-agent“ immer automat
 
 ## <a name="deploying-the-public-key"></a>Bereitstellen des öffentlichen Schlüssels
 
-Der öffentliche Schlüssel muss auf dem Server in einer Textdatei namens *authorized_keys* unter „Benutzer\Benutzername\ssh“ platziert werden, um den oben erstellten Schlüssel zu verwenden. Das OpenSSH-Tool umfasst mit scp ein sicheres Dienstprogramm für den Dateitransfer.
+Der öffentliche Schlüssel muss auf dem Server in einer Textdatei namens *authorized_keys* unter „Benutzer\Benutzername\\.ssh\.“ platziert werden, um den oben erstellten Schlüssel zu verwenden. Das OpenSSH-Tool umfasst mit scp ein sicheres Dienstprogramm für den Dateitransfer.
 
 Auf diese Weise verschieben Sie den Inhalt Ihres öffentlichen Schlüssels (~\.ssh\id_ed25519.pub) in eine Textdatei namens „authorized_keys“ in „~\.ssh\“ auf Ihrem Server/Host.
 

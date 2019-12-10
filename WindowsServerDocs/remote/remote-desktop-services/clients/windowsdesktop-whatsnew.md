@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 11/20/2019
+ms.date: 12/04/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 54994aad08c2f428b429082ed450235ed8bbe7e7
-ms.sourcegitcommit: 244b89505c5131dfdb90628857cc7e31741c84c2
+ms.openlocfilehash: 5526d401ba26cabcaccfc0b88df9b0e69f8149a5
+ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74265916"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74829611"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -30,17 +30,21 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 
 |Benutzergruppe |Version  |
 |-----------|---------|
-|Public     |1.2.431  |
-|Insider    |1.2.524  |
+|Public     |1.2.535  |
+|Insider    |1.2.535  |
 
-## <a name="updates-for-version-12524"></a>Updates für Version 1.2.524
+## <a name="updates-for-version-12535"></a>Updates für Version 1.2.535
 
-*Veröffentlicht am: 20.11.2019*
+*Veröffentlicht am: 04.12.2019*
 
-Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4e7Nj), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4dZCo), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4dX1s)
+Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k7jH), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k7jL), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4k27O)
 
 - Sie können jetzt direkt über die Schaltfläche „Weitere Optionen“ in der Befehlsleiste am oberen Rand des Clients auf Informationen über Updates zugreifen.
 - Außerdem können Sie nun Feedback über die Befehlsleiste des Clients mitteilen.
+- Die Feedbackoption wird jetzt nur angezeigt, wenn der Feedback-Hub verfügbar ist.
+- Gewährleistet, dass die Updatebenachrichtigung nicht angezeigt wird, wenn Benachrichtigungen per Richtlinie deaktiviert sind.
+- Es wurde ein Problem behoben, das das Starten einiger RDP-Dateien verhindert hat.
+- Es wurde ein Absturz beim Starten des Clients behoben, der durch die Beschädigung einiger persistenter Einstellungen verursacht wurde.
 
 ## <a name="updates-for-version-12431"></a>Updates für Version 1.2.431
 

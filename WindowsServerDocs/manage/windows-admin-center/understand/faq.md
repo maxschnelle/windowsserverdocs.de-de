@@ -6,14 +6,14 @@ ms.topic: article
 author: nwashburn-ms
 ms.author: niwashbu
 ms.localizationpriority: medium
-ms.date: 06/07/2019
+ms.date: 12/02/2019
 ms.prod: windows-server
-ms.openlocfilehash: e443616b4fcae3e84cfd00b3c20a4ebbf72749ea
-ms.sourcegitcommit: 1da993bbb7d578a542e224dde07f93adfcd2f489
+ms.openlocfilehash: 6d04b641c56e9461f0134bfc4734fea36955106c
+ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73567117"
+ms.lasthandoff: 12/07/2019
+ms.locfileid: "74904064"
 ---
 # <a name="windows-admin-center-frequently-asked-questions"></a>Häufig gestellte Fragen zu Windows Admin Center
 
@@ -94,7 +94,7 @@ Aufgrund der Nachfrage von Kundenseite untersuchen wir das, es gibt aber zurzeit
 
 ## <a name="which-web-browsers-are-supported-by-windows-admin-center"></a>Welche Webbrowser werden von Windows Admin Center unterstützt?
 
-Die aktuellen Versionen der Browser Microsoft Edge (Windows 10, Version 1709 oder höher) und Google Chrome wurden unter Windows 10 getestet und werden unterstützt. [Browserspezifische bekannte Probleme anzeigen](../support/known-issues.md#browser-specific-issues). Andere moderne Webbrowser oder andere Plattformen sind derzeit nicht Bestandteil unserer Testmatrix und werden daher nicht *offiziell* unterstützt.
+Die aktuellen Versionen von Microsoft Edge (Windows 10, Version 1709 oder höher), Google Chrome und [Microsoft Edge Insider](https://microsoftedgeinsider.com) wurden unter Windows 10 getestet und werden unterstützt. [Browserspezifische bekannte Probleme anzeigen](../support/known-issues.md#browser-specific-issues). Andere moderne Webbrowser oder andere Plattformen sind derzeit nicht Bestandteil unserer Testmatrix und werden daher nicht *offiziell* unterstützt.
 
 ## <a name="how-does-windows-admin-center-handle-security"></a>Wie behandelt Windows Admin Center Sicherheit?
 
