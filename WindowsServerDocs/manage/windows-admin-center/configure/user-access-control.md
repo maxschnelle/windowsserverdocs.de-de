@@ -1,6 +1,6 @@
 ---
-title: Konfigurieren von Benutzer Zugriffs Steuerung und Berechtigungen
-description: Erfahren Sie, wie Sie die Benutzer Zugriffs Steuerung und Berechtigungen mithilfe von Active Directory oder Azure AD (Project Honolulu) konfigurieren.
+title: Konfigurieren der Benutzerzugriffssteuerung und von Berechtigungen
+description: Erfahre, wie du die Benutzerzugriffssteuerung und Berechtigungen mithilfe von Active Directory oder Azure AD (Project Honolulu) konfigurierst.
 ms.technology: manage
 ms.topic: article
 author: haley-rowland
@@ -8,232 +8,226 @@ ms.author: harowl
 ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 20b311e9330880c2b26e2494aabe27bb04891868
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.openlocfilehash: 96e47a94cb0139e42960baac6d07dbcb61750555
+ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407032"
+ms.lasthandoff: 12/07/2019
+ms.locfileid: "74903912"
 ---
-# <a name="configure-user-access-control-and-permissions"></a>Konfigurieren von Benutzer Access Control und Berechtigungen
+# <a name="configure-user-access-control-and-permissions"></a>Konfigurieren der Benutzerzugriffssteuerung und von Berechtigungen
 
 > Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-Wenn Sie dies noch nicht getan haben, machen Sie sich mit den [Benutzer Zugriffs Steuerungs Optionen im Windows Admin Center](../plan/user-access-options.md) vertraut.
+Wenn du dies noch nicht getan haben, mache dich mit den [Benutzerzugriffssteuerungs-Optionen im Windows Admin Center](../plan/user-access-options.md) vertraut.
 
 > [!NOTE]
-> Gruppen basierter Zugriff im Windows Admin Center wird in Arbeitsgruppen Umgebungen oder in nicht vertrauenswürdigen Domänen nicht unterstützt.
+> Gruppenbasierter Zugriff im Windows Admin Center wird in Arbeitsgruppenumgebungen oder über vertrauenswürdige Domänen hinweg nicht unterstützt.
 
-## <a name="gateway-access-role-definitions"></a>Gateway-Zugriffs Rollen Definitionen
+## <a name="gateway-access-role-definitions"></a>Rollendefinitionen für Gatewayzugriff
 
-Es gibt zwei Rollen für den Zugriff auf den Gateway-Dienst von Windows Admin Center:
+Es gibt zwei Rollen für den Zugriff auf den Gatewaydienst von Windows Admin Center:
 
-**Gatewaybenutzer** können eine Verbindung mit dem Windows Admin Center Gateway-Dienst herstellen, um Server über dieses Gateway zu verwalten. Sie können jedoch weder die Zugriffsberechtigungen noch den Authentifizierungsmechanismus ändern, der für die Authentifizierung beim Gateway verwendet wird.
+**Gatewaybenutzer** können eine Verbindung mit dem Windows Admin Center-Gateway herstellen, um Servern über dieses Gateway zu verwalten, aber sie können weder die Zugriffsberechtigungen noch den Authentifizierungsmechanismus ändern, der zum Authentifizieren des Gateways verwendet wird.
 
-**Gatewayadministratoren** können konfigurieren, wer Zugriff erhält und wie sich Benutzer beim Gateway authentifizieren. Nur gatewayadministratoren können die Zugriffs Einstellungen im Windows Admin Center anzeigen und konfigurieren. Lokale Administratoren auf dem Gatewaycomputer sind immer Administratoren des Windows Admin Center-Gatewaydiensts.
+**Gatewayadministratoren** können konfigurieren, wer Zugriff erhält und wie sich Benutzer beim Gateway authentifizieren. Nur Gatewayadministratoren können die Zugriffseinstellungen im Windows Admin Center anzeigen und konfigurieren. Lokale Administratoren auf dem Gatewaycomputer sind immer Administratoren des Windows Admin Center-Gatewaydiensts.
 
 > [!NOTE]
-> Der Zugriff auf das Gateway impliziert nicht den Zugriff auf verwaltete Server, die durch das Gateway sichtbar sind. Um einen Zielserver zu verwalten, muss der Benutzer, der die Verbindung herstellt, Anmelde Informationen verwenden (entweder über die Pass-Through-Windows-Anmelde Informationen oder über die Anmelde Informationen, die in der Windows Admin Center-Sitzung mithilfe von " **verwalten als** " bereitgestellt werden auf diesen Zielserver.
+> Der Zugriff auf das Gateway impliziert nicht den Zugriff auf verwaltete Server, die durch das Gateway sichtbar sind. Um einen Zielserver zu verwalten, muss der sich verbindende Benutzer Anmeldeinformationen verwenden (entweder über seine weitergeleiteten Windows-Anmeldeinformationen oder über Anmeldeinformationen, die in der Windows Admin Center-Sitzung mit der Aktion **Verwalten als** bereitgestellt werden), die über Administratorzugriff auf diesen Zielserver verfügen.
 
-## <a name="active-directory-or-local-machine-groups"></a>Active Directory oder lokale Computer Gruppen
+## <a name="active-directory-or-local-machine-groups"></a>Active Directory- oder lokale Computergruppen
 
-Standardmäßig werden Active Directory oder lokale Computer Gruppen verwendet, um den Gatewayzugriff zu steuern. Wenn Sie über eine Active Directory Domäne verfügen, können Sie den gatewaybenutzer-und Administrator Zugriff über die Windows Admin Center-Schnittstelle verwalten.
+Standardmäßig werden Active Directory- oder lokale Computergruppen verwendet, um den Gatewayzugriff zu steuern. Wenn du über eine Active Directory-Domäne verfügst, kannst du den Gatewaybenutzer- und Administratorzugriff über die Windows Admin Center-Schnittstelle verwalten.
 
-Auf der Registerkarte **Benutzer** können Sie steuern, wer auf das Windows Admin Center als gatewaybenutzer zugreifen kann. Wenn Sie keine Sicherheitsgruppe angeben, hat jeder Benutzer, der auf die Gateway-URL zugreift, standardmäßig Zugriff. Nachdem Sie der Liste Benutzer eine oder mehrere Sicherheitsgruppen hinzugefügt haben, ist der Zugriff auf die Mitglieder dieser Gruppen beschränkt.
+Auf der Registerkarte **Benutzer** kannst du steuern, wer als Gatewaybenutzer auf das Windows Admin Center zugreifen kann. Standardmäßig, und wenn du keine Sicherheitsgruppe angibst, hat jeder Benutzer, der auf die Gateway-URL zugreift, Zugriff. Nachdem du der Benutzerliste eine oder mehrere Sicherheitsgruppen hinzugefügt hast, ist der Zugriff auf die Mitglieder dieser Gruppen beschränkt.
 
-Wenn Sie in Ihrer Umgebung keine Active Directory Domäne verwenden, wird der Zugriff durch die lokalen Gruppen `Users` und `Administrators` auf dem Windows Admin Center-Gatewaycomputer gesteuert.
+Wenn du in deiner Umgebung keine Active Directory-Domäne verwendest, wird der Zugriff durch die lokalen Gruppen `Users` und `Administrators` auf dem Windows Admin Center-Gatewaycomputer gesteuert.
 
-### <a name="smartcard-authentication"></a>Smartcardauthentifizierung
+### <a name="smartcard-authentication"></a>Smartcard-Authentifizierung
 
-Sie können die **Smartcard-Authentifizierung** erzwingen, indem Sie eine zusätzliche _erforderliche_ Gruppe für Smartcard-basierte Sicherheitsgruppen angeben. Nachdem Sie eine smartcardbasierte Sicherheitsgruppe hinzugefügt haben, kann ein Benutzer nur auf den Windows Admin Center-Dienst zugreifen, wenn er Mitglied einer Sicherheitsgruppe und einer Smartcard-Gruppe in der Benutzerliste ist.
+Du kannst **Smartcard-Authentifizierung** erzwingen, indem du eine zusätzliche, für Smartcard-basierte Sicherheitsgruppen _erforderliche Gruppe_ angibst. Nachdem du eine Smartcard-basierte Sicherheitsgruppe hinzugefügt hast, kann ein Benutzer nur auf den Windows Admin Center-Dienst zugreifen, wenn er Mitglied einer beliebigen Sicherheitsgruppe UND einer in der Benutzerliste enthaltenen Smartcard-Gruppe ist.
 
-Auf der Registerkarte " **Administratoren** " können Sie steuern, wer auf das Windows Admin Center als gatewayadministrator zugreifen kann. Die lokale Gruppe "Administratoren" auf dem Computer hat immer vollen Administrator Zugriff und kann nicht aus der Liste entfernt werden. Durch das Hinzufügen von Sicherheitsgruppen erhalten Mitglieder dieser Gruppenberechtigungen zum Ändern der Einstellungen des Windows Admin Center-Gateways. Die Liste der Administratoren unterstützt die Smartcard-Authentifizierung auf die gleiche Weise wie die Benutzerliste: mit der and-Bedingung für eine Sicherheitsgruppe und eine smartcardgruppe.
+Auf der Registerkarte **Administratoren** kannst du steuern, wer als Gatewaybenutzer auf das Windows Admin Center zugreifen kann. Die lokale Gruppe „Administratoren“" auf dem Computer hat immer vollständigen Administratorzugriff und kann nicht aus der Liste entfernt werden. Durch das Hinzufügen von Sicherheitsgruppen erteilst du Mitgliedern dieser Gruppen Berechtigungen zum Ändern der Einstellungen des Windows Admin Center-Gateways. Die Liste der Administratoren unterstützt Smartcard-Authentifizierung auf dieselbe Weise wie die Benutzerliste: mit der UND-Bedingung für eine Sicherheitsgruppe und eine Smartcard-Gruppe.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
-Wenn Ihre Organisation Azure Active Directory (Azure AD) verwendet, können Sie eine **zusätzliche** Sicherheitsebene zum Windows Admin Center hinzufügen, indem Sie für den Zugriff auf das Gateway Azure AD Authentifizierung benötigen. Um auf das Windows Admin Center zugreifen zu können, muss das **Windows-Konto** des Benutzers auch über Zugriff auf den Gatewayserver verfügen (auch wenn Azure AD Authentifizierung verwendet wird). Wenn Sie Azure AD verwenden, verwalten Sie die Zugriffsberechtigungen für Benutzer und Administratoren von Windows Admin Center über das Azure-Portal und nicht über die Benutzeroberfläche von Windows Admin Center.
+Wenn deine Organisation Azure Active Directory (Azure AD) verwendet, kannst du dich dafür entscheiden, Windows Admin Center eine **zusätzliche** Sicherheitsschicht hinzuzufügen, indem du für den Zugriff auf das Gateway die Azure AD-Authentifizierung verlangst. Um auf das Windows Admin Center zuzugreifen muss das **Windows-Konto** des Benutzers auch Zugriff auf den Gatewayserver haben (selbst wenn Azure AD-Authentifizierung verwendet wird). Wenn du Azure AD verwendest, verwaltest du die Windows Admin Center-Zugriffsberechtigungen für Benutzer und Administratoren über das Azure-Portal, anstatt über die Windows Admin Center-Benutzeroberfläche.
 
-### <a name="accessing-windows-admin-center-when-azure-ad-authentication-is-enabled"></a>Zugreifen auf das Windows Admin Center, wenn Azure AD Authentifizierung aktiviert ist
+### <a name="accessing-windows-admin-center-when-azure-ad-authentication-is-enabled"></a>Zugreifen auf das Windows Admin Center bei aktivierter Azure AD-Authentifizierung
 
-Abhängig vom verwendeten Browser erhalten einige Benutzer, die mit Azure AD Authentifizierung auf Windows Admin Center zugreifen, eine zusätzliche Eingabeaufforderung **vom Browser** , in der die Anmelde Informationen Ihres Windows-Kontos für den Computer bereitgestellt werden müssen, auf dem Windows Admin Center ist installiert. Nachdem Sie diese Informationen eingegeben haben, erhalten die Benutzer die zusätzliche Azure Active Directory Authentifizierungs Aufforderung, die die Anmelde Informationen eines Azure-Kontos erfordert, dem Zugriff in der Azure AD-Anwendung in Azure gewährt wurde.
+Abhängig vom verwendeten Browser erhalten einige Benutzer, die mit konfigurierter Azure AD-Authentifizierung auf Windows Admin Center zugreifen, eine zusätzliche Eingabeaufforderung **aus dem Browser**, in der sie die Anmeldeinformationen ihres Windows-Kontos für den Computer angeben müssen, auf dem Windows Admin Center installiert ist. Nachdem du diese Informationen eingegeben hast, erhalten die Benutzer die zusätzliche Azure Active Directory-Authentifizierungsaufforderung, für die die Anmeldeinformationen eines Azure-Kontos erforderlich sind, dem Zugriff in der Azure AD-Anwendung in Azure gewährt wurde.
 
 > [!NOTE]
-> Benutzer, die über **Administrator Rechte** auf dem Gatewaycomputer verfügen, werden nicht zur Azure AD Authentifizierung aufgefordert.
+> Benutzer, deren Windows-Konto auf dem Gatewaycomputer **Administratorrechte** besitzt, werden nicht zur Azure AD-Authentifizierung aufgefordert.
 
-### <a name="configuring-azure-active-directory-authentication-for-windows-admin-center-preview"></a>Konfigurieren der Azure Active Directory Authentifizierung für das Windows Admin Center (Vorschau)
+### <a name="configuring-azure-active-directory-authentication-for-windows-admin-center-preview"></a>Konfigurieren der Azure Active Directory-Authentifizierung für Windows Admin Center Preview
 
-Wechseln Sie zu den **Einstellungen**des Windows Admin Centers  > **Access** , und schalten Sie mithilfe der UMSCHALT Fläche "verwenden Sie Azure Active Directory, um dem Gateway eine Sicherheitsebene hinzuzufügen". Wenn Sie das Gateway nicht bei Azure registriert haben, werden Sie zu diesem Zeitpunkt dazu geführt.
+Wechsle im Windows Admin Center zu **Einstellungen** > **Zugriff**, und aktiviere über die Umschaltfläche „Verwenden von Azure Active Directory, um dem Gateway eine Sicherheitsschicht hinzuzufügen“. Wenn du das Gateway nicht bei Azure registriert hast, wirst du zu diesem Zeitpunkt dazu angeleitet.
 
-Standardmäßig verfügen alle Mitglieder des Azure AD Mandanten über Benutzer Zugriff auf den Gateway-Dienst von Windows Admin Center. Nur lokale Administratoren auf dem Gatewaycomputer verfügen über Administrator Zugriff auf das Windows Admin Center-Gateway. Beachten Sie, dass die Rechte lokaler Administratoren auf dem Gatewaycomputer nicht eingeschränkt werden können. lokale Administratoren können sämtliche Aktionen ausführen, unabhängig davon, ob Azure AD für die Authentifizierung verwendet wird.
+Standardmäßig verfügen alle Mitglieder des Azure AD-Mandanten über Benutzerzugriff auf den Gatewaydienst von Windows Admin Center. Nur lokale Administratoren auf dem Gatewaycomputer besitzen Administratorzugriff auf das Windows Admin Center-Gateway. Beachte, dass die Rechte lokaler Administratoren auf dem Gatewaycomputer nicht eingeschränkt werden können. Lokale Administratoren können sämtliche Aktionen ausführen, unabhängig davon, ob Azure AD für die Authentifizierung verwendet wird.
 
-Wenn Sie bestimmten Azure AD Benutzern oder Gruppen gatewaybenutzer oder gatewayadministrator Zugriff auf den Windows Admin Center-Dienst einräumen möchten, gehen Sie wie folgt vor:
+Wenn du bestimmten Azure AD-Benutzern oder -Gruppen Gatewaybenutzer- oder Gatewayadministratorzugriff auf den Windows Admin Center-Dienst erteilen möchtest, gehe wie folgt vor:
 
-1.  Navigieren Sie in der Azure-Portal zu Ihrem Windows Admin Center Azure AD Anwendung, indem Sie den in Zugriffs Einstellungen bereitgestellten Link verwenden. Beachten Sie, dass dieser Link nur verfügbar ist, wenn Azure Active Directory Authentifizierung aktiviert ist. 
-    -   Sie können Ihre Anwendung auch im Azure-Portal finden, indem Sie zu **Azure Active Directory** > **Unternehmensanwendungen** > **alle Anwendungen** wechseln und **windowsadmincenter** suchen (die Azure AD App wird benannt Windowsadmincenter-<gateway name>). Wenn keine Suchergebnisse angezeigt werden, stellen Sie sicher, dass **alle Anwendungen** **anzeigen** , **Anwendungs Status** auf **beliebig** festgelegt ist, klicken Sie auf übernehmen, und versuchen Sie dann, die Suche auszuführen. Wenn Sie die Anwendung gefunden haben, wechseln Sie zu **Benutzer und Gruppen** .
-2.  Legen Sie auf der Registerkarte Eigenschaften die **Benutzer Zuweisung erforderlich** auf Ja fest.
-    Nachdem Sie dies getan haben, können nur Mitglieder, die auf der Registerkarte **Benutzer und Gruppen** aufgelistet sind, auf das Windows Admin Center-Gateway zugreifen.
-3.  Wählen Sie auf der Registerkarte Benutzer und Gruppen die Option **Benutzer hinzufügen**aus. Sie müssen für jeden hinzugefügten Benutzer bzw. jede Gruppe eine gatewaybenutzerrolle oder Gateway-Administrator Rolle zuweisen
+1.  Wechsel zu deiner Windows Admin Center Azure AD-Anwendung im Azure-Portal, indem du den in den Zugriffseinstellungen bereitgestellten Link verwendest. Beachte, dass dieser Link nur verfügbar ist, wenn Azure Active Directory-Authentifizierung aktiviert ist. 
+    -   Du kannst deine Anwendung auch im Azure-Portal finden, indem du zu **Azure Active Directory** > **Unternehmensanwendungen** > **Alle Anwendungen** wechselst und **WindowsAdminCenter** suchst (die Azure AD-App heißt „WindowsAdminCenter“<gateway name>). Wenn du keine Suchergebnisse erhältst, vergewissere dich, dass **Anzeigen** auf **Alle Anwendungen** festgelegt ist, dass **Anwendungsstatus** auf **Beliebig** festgelegt ist, klicke dann auf „Anwenden“, und versuche, deine Suche auszuführen. Nachdem du die Anwendung gefunden hast, wechsle zu **Benutzer und Gruppen**.
+2.  Lege auf der Registerkarte „Eigenschaften“ **Benutzerzuweisung erforderlich** auf „Ja“ fest.
+    Nachdem du dies getan hast, können nur Mitglieder, die auf der Registerkarte **Benutzer und Gruppen** aufgelistet sind, auf das Windows Admin Center-Gateway zugreifen.
+3.  Wähle auf der Registerkarte „Benutzer und Gruppen“ **Benutzer hinzufügen** aus. Du musst für jede/n hinzugefügte/n Benutzer/Gruppe eine Gatewaybenutzer- oder Gatewayadministratorrolle zuweisen.
 
-Wenn Sie Azure AD Authentifizierung aktivieren, wird der Gatewaydienst neu gestartet, und Sie müssen Ihren Browser aktualisieren. Sie können den Benutzer Zugriff für die Azure AD Anwendung für die KMU in der Azure-Portal jederzeit aktualisieren.
+Sobald du Azure AD-Authentifizierung aktiviert hast, wird der Gatewaydienst neu gestartet, und du musst deinen Browser aktualisieren. Du kannst den Benutzerzugriff für die Azure AD-Anwendung SME jederzeit im Azure-Portal aktualisieren.
 
-Benutzer werden aufgefordert, sich mit ihrer Azure Active Directory Identität anzumelden, wenn Sie versuchen, auf die Gateway-URL des Windows Admin Centers zuzugreifen. Beachten Sie, dass Benutzer auch Mitglied der lokalen Benutzer auf dem Gatewayserver sein müssen, um auf das Windows Admin Center zugreifen zu können.
+Benutzer werden aufgefordert, sich mit ihrer Azure Active Directory-Identität anzumelden, wenn sie versuchen, auf die Gateway-URL des Windows Admin Centers zuzugreifen. Denke daran, dass Benutzer ebenfalls Mitglied der lokalen Benutzergruppe auf dem Gatewayserver sein müssen, um auf das Windows Admin Center zugreifen zu können.
 
-Benutzer und Administratoren können das aktuell angemeldete Konto sowie die Abmeldung von diesem Azure AD Konto auf der Registerkarte **Konto** der Windows Admin Center-Einstellungen anzeigen.
+Benutzer und Administratoren können auf der Registerkarte **Konto** in den Windows Admin Center-Einstellungen sowohl ihr aktuell angemeldetes Konto anzeigen als auch sich bei diesem Azure AD-Konto abmelden.
 
-### <a name="configuring-azure-active-directory-authentication-for-windows-admin-center"></a>Konfigurieren der Azure Active Directory Authentifizierung für das Windows Admin Center
+### <a name="configuring-azure-active-directory-authentication-for-windows-admin-center"></a>Konfigurieren der Azure Active Directory-Authentifizierung für Windows Admin Center
 
-Wenn [Sie Azure AD Authentifizierung einrichten möchten, müssen Sie Ihr Gateway zuerst bei Azure registrieren](azure-integration.md) (Sie müssen dies nur einmal für Ihr Windows Admin Center-Gateway durchführen). In diesem Schritt wird eine Azure AD Anwendung erstellt, mit der Sie den gatewaybenutzer-und Gateway-Administrator Zugriff verwalten können.
+[Um Azure AD-Authentifizierung einzurichten, musst du zuerst dein Gateway bei Azure registrieren](azure-integration.md) (du musst dies nur einmal für dein Windows Admin Center-Gateway durchführen). In diesem Schritt wird eine Azure AD Anwendung erstellt, mit der du den Gatewaybenutzer- und Gatewayadministratorzugriff verwalten kannst.
 
-Wenn Sie bestimmten Azure AD Benutzern oder Gruppen gatewaybenutzer oder gatewayadministrator Zugriff auf den Windows Admin Center-Dienst einräumen möchten, gehen Sie wie folgt vor:
+Wenn du bestimmten Azure AD-Benutzern oder -Gruppen Gatewaybenutzer- oder Gatewayadministratorzugriff auf den Windows Admin Center-Dienst erteilen möchtest, gehe wie folgt vor:
 
-1.  Wechseln Sie in der Azure-Portal zu ihrer Azure AD Anwendung für die KMU. 
-    -   Wenn Sie auf **Zugriffs Steuerung ändern** klicken und dann in den Zugriffs Einstellungen des Windows Admin Centers **Azure Active Directory** auswählen, können Sie den in der Benutzeroberfläche bereitgestellten Link verwenden, um auf die Azure AD Anwendung im Azure-Portal zuzugreifen. Dieser Link ist auch in den Zugriffs Einstellungen verfügbar, nachdem Sie auf Speichern klicken und Azure AD als Identitäts Anbieter für die Zugriffs Steuerung ausgewählt haben.
-    -   Sie können Ihre Anwendung auch im Azure-Portal finden, indem Sie zu **Azure Active Directory** > **Unternehmensanwendungen** > **alle Anwendungen** wechseln und nach **KMU** suchen (die Azure AD-App wird als "SME-<gateway>" bezeichnet). Wenn keine Suchergebnisse angezeigt werden, stellen Sie sicher, dass **alle Anwendungen** **anzeigen** , **Anwendungs Status** auf **beliebig** festgelegt ist, klicken Sie auf übernehmen, und versuchen Sie dann, die Suche auszuführen. Wenn Sie die Anwendung gefunden haben, wechseln Sie zu **Benutzer und Gruppen** .
-2.  Legen Sie auf der Registerkarte Eigenschaften die **Benutzer Zuweisung erforderlich** auf Ja fest.
-    Nachdem Sie dies getan haben, können nur Mitglieder, die auf der Registerkarte **Benutzer und Gruppen** aufgelistet sind, auf das Windows Admin Center-Gateway zugreifen.
-3.  Wählen Sie auf der Registerkarte Benutzer und Gruppen die Option **Benutzer hinzufügen**aus. Sie müssen für jeden hinzugefügten Benutzer bzw. jede Gruppe eine gatewaybenutzerrolle oder Gateway-Administrator Rolle zuweisen
+1.  Wechsle im Azure-Portal zu deiner Azure AD-Anwendung SME. 
+    -   Wenn du auf **Zugriffssteuerung ändern** klickst und dann in den Zugriffseinstellungen des Windows Admin Centers **Azure Active Directory** auswählst, kannst du den in der Benutzeroberfläche bereitgestellten Link verwenden, um auf deine Azure AD-Anwendung im Azure-Portal zuzugreifen. Dieser Link ist auch in den Zugriffseinstellungen verfügbar, nachdem du auf „Speichern“ geklickt und Azure AD als Identitätsanbieter für die Zugriffssteuerung ausgewählt hast.
+    -   Du kannst deine Anwendung auch im Azure-Portal finden, indem du zu **Azure Active Directory** > **Unternehmensanwendungen** > **Alle Anwendungen** wechselst und **SME** suchst (die Azure AD-App heißt „SME“<gateway>). Wenn du keine Suchergebnisse erhältst, vergewissere dich, dass **Anzeigen** auf **Alle Anwendungen** festgelegt ist, dass **Anwendungsstatus** auf **Beliebig** festgelegt ist, klicke dann auf „Anwenden“, und versuche, deine Suche auszuführen. Nachdem du die Anwendung gefunden hast, wechsle zu **Benutzer und Gruppen**.
+2.  Lege auf der Registerkarte „Eigenschaften“ **Benutzerzuweisung erforderlich** auf „Ja“ fest.
+    Nachdem du dies getan hast, können nur Mitglieder, die auf der Registerkarte **Benutzer und Gruppen** aufgelistet sind, auf das Windows Admin Center-Gateway zugreifen.
+3.  Wähle auf der Registerkarte „Benutzer und Gruppen“ **Benutzer hinzufügen** aus. Du musst für jede/n hinzugefügte/n Benutzer/Gruppe eine Gatewaybenutzer- oder Gatewayadministratorrolle zuweisen.
 
-Nachdem Sie die Azure AD Access Control im Bereich " **Zugriffs Steuerung ändern** " gespeichert haben, wird der Gatewaydienst neu gestartet, und Sie müssen Ihren Browser aktualisieren. Sie können den Benutzer Zugriff für das Windows Admin Center Azure AD Anwendung jederzeit in der Azure-Portal aktualisieren. 
+Sobald du die Azure AD-Zugriffssteuerung im Bereich **Zugriffssteuerung ändern** gespeichert hast, wird der Gatewaydienst neu gestartet, und du musst deinen Browser aktualisieren. Du kannst den Benutzerzugriff für die Windows Admin Center Azure AD-Anwendung jederzeit im Azure-Portal aktualisieren. 
 
-Benutzer werden aufgefordert, sich mit ihrer Azure Active Directory Identität anzumelden, wenn Sie versuchen, auf die Gateway-URL des Windows Admin Centers zuzugreifen. Beachten Sie, dass Benutzer auch Mitglied der lokalen Benutzer auf dem Gatewayserver sein müssen, um auf das Windows Admin Center zugreifen zu können. 
+Benutzer werden aufgefordert, sich mit ihrer Azure Active Directory-Identität anzumelden, wenn sie versuchen, auf die Gateway-URL des Windows Admin Centers zuzugreifen. Denke daran, dass Benutzer ebenfalls Mitglied der lokalen Benutzergruppe auf dem Gatewayserver sein müssen, um auf das Windows Admin Center zugreifen zu können. 
 
-Mithilfe der Registerkarte **Azure** in den allgemeinen Einstellungen des Windows Admin Centers können Benutzer und Administratoren ihr aktuell angemeldetes Konto anzeigen und sich bei diesem Azure AD Konto abmelden.
+Auf der Registerkarte **Azure** in den allgemeinen Windows Admin Center-Einstellungen können Benutzer und Administratoren sowohl ihr aktuell angemeldetes Konto anzeigen als auch sich bei diesem Azure AD-Konto abmelden.
 
-### <a name="conditional-access-and-multi-factor-authentication"></a>Bedingter Zugriff und Multi-Factor Authentication
+### <a name="conditional-access-and-multi-factor-authentication"></a>Bedingter Zugriff und mehrstufige Authentifizierung
 
-Einer der Vorteile der Verwendung von Azure AD als zusätzliche Sicherheitsebene zum Steuern des Zugriffs auf das Windows Admin Center-Gateway besteht darin, dass Sie die leistungsstarken Sicherheitsfeatures von Azure AD nutzen können, wie z. b. bedingter Zugriff und Multi-Factor Authentication. 
+Einer der Vorteile der Verwendung von Azure AD als zusätzliche Sicherheitsschicht zum Steuern des Zugriffs auf das Windows Admin Center-Gateway besteht darin, dass du die leistungsstarken Sicherheitsfeatures von Azure AD nutzen kannst wie bedingten Zugriff und mehrstufige Authentifizierung. 
 
-[Weitere Informationen zum Konfigurieren des bedingten Zugriffs mit Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal-get-started)
+[Weitere Informationen zum Konfigurieren des bedingten Zugriffs mit Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal-get-started).
 
 ## <a name="configure-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens
 
 **Einmaliges Anmelden bei Bereitstellung als Dienst unter Windows Server**
 
-Wenn Sie Windows Admin Center unter Windows 10 installieren, ist es für die Verwendung Single Sign-on bereit. Wenn Sie Windows Admin Center auf Windows Server verwenden möchten, müssen Sie jedoch eine Form der Kerberos-Delegierung in Ihrer Umgebung einrichten, bevor Sie Single Sign-on verwenden können. Die Delegierung konfiguriert den Gatewaycomputer als vertrauenswürdig für die Delegierung an den Zielknoten. 
+Wenn du Windows Admin Center unter Windows 10 installierst, ist es bereit für die Verwendung der einmaligen Anmeldung. Wenn du Windows Admin Center unter Windows Server verwenden möchtest, musst du jedoch eine Form der Kerberos-Delegierung in deiner Umgebung einrichten, bevor du einmaliges Anmelden verwenden kannst. Die Delegierung konfiguriert den Gatewaycomputer als vertrauenswürdig für die Delegierung an den Zielknoten. 
 
-Führen Sie die folgenden PowerShell-Cmdlets aus, um die [ressourcenbasierte eingeschränkte Delegierung](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-constrained-delegation-overview) in Ihrer Umgebung zu konfigurieren. (Beachten Sie, dass dies einen Domänen Controller mit Windows Server 2012 oder höher erfordert).
+Um [ressourcenbasierte eingeschränkte Delegierung](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-constrained-delegation-overview) in deiner Umgebung zu konfigurieren, verwendest du folgendes PowerShell-Beispiel. Dieses Beispiel zeigt, wie du einen Windows-Server [node01.contoso.com] so konfigurierst, dass die Delegierung von deinem Windows Admin Center-Gateway [wac.contoso.com] in der Domäne „contoso.com“ akzeptiert wird.
 
 ```powershell
-     $gateway = "WindowsAdminCenterGW" # Machine where Windows Admin Center is installed
-     $node = "ManagedNode" # Machine that you want to manage
-     $gatewayObject = Get-ADComputer -Identity $gateway
-     $nodeObject = Get-ADComputer -Identity $node
-     Set-ADComputer -Identity $nodeObject -PrincipalsAllowedToDelegateToAccount $gatewayObject
+Set-ADComputer -Identity (Get-ADComputer node01) -PrincipalsAllowedToDelegateToAccount (Get-ADComputer wac)
 ```
 
-In diesem Beispiel wird das Windows Admin Center-Gateway auf dem Server **windowsadmincentergw**installiert, und der Name des Ziel Knotens lautet **managednode**.
-
-Um diese Beziehung zu entfernen, führen Sie das folgende Cmdlet aus:
+Um diese Beziehung zu entfernen, führst du das folgende Cmdlet aus:
 
 ```powershell
-Set-ADComputer -Identity $nodeObject -PrincipalsAllowedToDelegateToAccount $null
+Set-ADComputer -Identity (Get-ADComputer node01) -PrincipalsAllowedToDelegateToAccount $null
 ```
 
 ## <a name="role-based-access-control"></a>Rollenbasierte Zugriffsteuerung
 
-Mit der rollenbasierten Zugriffs Steuerung können Sie Benutzern eingeschränkten Zugriff auf den Computer gewähren, anstatt sie vollständig als lokale Administratoren zu erstellen.
-[Weitere Informationen finden Sie unter Rollenbasierte Zugriffs Steuerung und verfügbare Rollen.](../plan/user-access-options.md#role-based-access-control)
+Mit der rollenbasierten Zugriffssteuerung (Role-Based Access Control, RBAC) kannst du Benutzern eingeschränkten Zugriff auf den Computer gewähren, anstatt sie zu vollständigen lokalen Administratoren zu machen.
+[Weitere Informationen zur rollenbasierten Zugriffssteuerung und den verfügbaren Rollen](../plan/user-access-options.md#role-based-access-control).
 
-Das Einrichten von RBAC besteht aus zwei Schritten: Aktivieren der Unterstützung auf den Ziel Computern und Zuweisen von Benutzern zu den relevanten Rollen.
+Das Einrichten von RBAC besteht aus 2 Schritten: Aktivieren der Unterstützung auf den Zielcomputern und Zuweisen von Benutzern zu den relevanten Rollen.
 
 > [!TIP]
-> Stellen Sie sicher, dass Sie über lokale Administratorrechte auf den Computern verfügen, auf denen Sie die Unterstützung für die rollenbasierte Zugriffs Steuerung konfigurieren.
+> Stelle sicher, dass du über lokale Administratorrechte auf den Computern verfügst, auf denen du die Unterstützung für die rollenbasierte Zugriffssteuerung konfigurierst.
 
-### <a name="apply-role-based-access-control-to-a-single-machine"></a>Anwenden der rollenbasierten Zugriffs Steuerung auf einen einzelnen Computer
+### <a name="apply-role-based-access-control-to-a-single-machine"></a>Anwenden der rollenbasierten Zugriffssteuerung auf einen einzelnen Computer
 
-Das Bereitstellungs Modell mit einem einzelnen Computer eignet sich ideal für einfache Umgebungen, in denen nur wenige Computer verwaltet werden können.
-Wenn Sie einen Computer mit Unterstützung für die rollenbasierte Zugriffs Steuerung konfigurieren, werden folgende Änderungen vorgenommen:
+Das Modell für die Bereitstellung auf einem einzelnen Computer eignet sich ideal für einfache Umgebungen, in denen nur wenige Computer verwaltet werden.
+Die Konfiguration eines Computers mit Unterstützung für die rollenbasierte Zugriffssteuerung führt zu folgenden Änderungen:
 
--   PowerShell-Module mit Funktionen, die für das Windows Admin Center erforderlich sind, werden auf dem Systemlaufwerk unter `C:\Program Files\WindowsPowerShell\Modules` installiert. Alle Module werden mit **Microsoft. SME gestartet.**
--   Die Konfiguration des gewünschten Zustands führt eine einmalige Konfiguration aus, um einen gerade ausreichenden Verwaltungs Endpunkt auf dem Computer mit dem Namen " **Microsoft. SME. PowerShell**" zu konfigurieren. Dieser Endpunkt definiert die drei von Windows Admin Center verwendeten Rollen und wird als temporärer lokaler Administrator ausgeführt, wenn ein Benutzer eine Verbindung mit dem Endpunkt herstellt.
--   drei neue lokale Gruppen werden erstellt, um zu steuern, welchen Benutzern der Zugriff auf welche Rollen zugewiesen wird:
-    -   Administratoren des Windows Admin Centers
-    -   Hyper-V-Administratoren für Windows Admin Center
-    -   Leser des Windows Admin Centers
+-   PowerShell-Module mit Funktionen, die für das Windows Admin Center erforderlich sind, werden auf deinem Systemlaufwerk unter `C:\Program Files\WindowsPowerShell\Modules` installiert. Alle Module beginnen mit **Microsoft.Sme**.
+-   Die Desired State Configuration (Konfiguration des gewünschten Zustands, DSC) führt eine einmalige Konfiguration aus, um einen „Just Enough Administration“-Endpunkt (JEA) namens **Microsoft.Sme.PowerShell** auf dem Computer zu konfigurieren. Dieser Endpunkt definiert die 3 von Windows Admin Center verwendeten Rollen und wird als temporärer lokaler Administrator ausgeführt, wenn ein Benutzer eine Verbindung damit herstellt.
+-   3 neue lokale Gruppen werden erstellt, um zu steuern, welchen Benutzern der Zugriff auf welche Rollen zugewiesen wird:
+    -   Windows Admin Center-Administratoren
+    -   Windows Admin Center Hyper-V-Administratoren
+    -   Windows Admin Center-Leser
 
-Führen Sie die folgenden Schritte aus, um die Unterstützung für die rollenbasierte Zugriffs Steuerung auf einem einzelnen Computer zu aktivieren:
+Um die Unterstützung für die rollenbasierte Zugriffssteuerung auf einem einzelnen Computer zu aktivieren, führe diese folgenden Schritte durch:
 
-1.  Öffnen Sie das Windows Admin Center, und stellen Sie eine Verbindung mit dem Computer her, den Sie mit der rollenbasierten Zugriffs Steuerung mit einem Konto mit lokalen Administratorrechten auf dem Zielcomputer konfigurieren möchten.
-2.  Klicken Sie im **Übersichts** Tool auf **Einstellungen** > **rollenbasierte Zugriffs Steuerung**.
-3.  Klicken Sie unten auf der Seite auf **anwenden** , um die Unterstützung für die rollenbasierte Zugriffs Steuerung auf dem Bereitstellungs Zielcomputer zu aktivieren. Der Anwendungsprozess umfasst das Kopieren von PowerShell-Skripts und das Aufrufen einer Konfiguration (mithilfe von PowerShell DSC) auf dem Zielcomputer. Es kann bis zu 10 Minuten dauern, bis WinRM neu gestartet wird. Dadurch werden Windows Admin Center, PowerShell und WMI-Benutzer vorübergehend getrennt.
-4.  Aktualisieren Sie die Seite, um den Status der rollenbasierten Zugriffs Steuerung zu überprüfen. Wenn Sie einsatzbereit ist, ändert sich der Status in **angewendet**.
+1.  Öffne das Windows Admin Center, und stelle mit einem Konto mit lokalen Administratorrechten auf dem Zielcomputer eine Verbindung mit dem Computer her, den du mit der rollenbasierten Zugriffssteuerung konfigurieren möchtest.
+2.  Klicke im Tool **Übersicht** auf **Einstellungen** > **Rollenbasierte Zugriffssteuerung**.
+3.  Klicke unten auf der Seite auf **Anwenden**, um die Unterstützung für die rollenbasierte Zugriffssteuerung auf dem Zielcomputer zu aktivieren. Der Anwendungsprozess umfasst das Kopieren von PowerShell-Skripts sowie das Aufrufen einer Konfiguration (mithilfe von PowerShell DSC) auf dem Zielcomputer. Bis zum Abschluss des Vorgangs kann es bis zu 10 Minuten dauern, und anschließend wird WinRM neu gestartet. Hierdurch werden Windows Admin Center-, PowerShell- und WMI-Benutzer vorübergehend getrennt.
+4.  Aktualisiere die Seite, um den Status der rollenbasierten Zugriffssteuerung zu überprüfen. Wenn sie einsatzbereit ist, ändert sich der Status in **Angewendet**.
 
-Nach dem Anwenden der Konfiguration können Sie den Rollen Benutzer zuweisen:
+Nach dem Anwenden der Konfiguration kannst du den Rollen Benutzer zuweisen:
 
-1.  Öffnen Sie das Tool **lokale Benutzer und Gruppen** , und navigieren Sie zur Registerkarte **Gruppen** .
-2.  Wählen Sie die Gruppe **Leser des Windows Admin Centers** aus.
-3.  Klicken Sie im *Detail* Bereich unten auf **Benutzer hinzufügen** , und geben Sie den Namen eines Benutzers oder einer Sicherheitsgruppe ein, der über das Windows Admin Center Lesezugriff auf den Server haben soll. Die Benutzer und Gruppen können von dem lokalen Computer oder Ihrer Active Directory Domäne stammen.
-4.  Wiederholen Sie die Schritte 2-3 für die Gruppen **Windows Admin Center Hyper-V-Administratoren** und **Windows Admin Center-Administratoren** .
+1.  Öffne das Tool **Lokale Benutzer und Gruppen**, und navigiere zur Registerkarte **Gruppen**.
+2.  Wähle die Gruppe **Windows Admin Center-Leser** aus.
+3.  Klicke im Bereich *Details* am unteren Rand auf **Benutzer hinzufügen**, und gib den Namen eines Benutzers oder einer Sicherheitsgruppe ein, der/die schreibgeschützten Zugriff über das Windows Admin Center auf den Server erhalten soll. Die Benutzer und Gruppen können von dem lokalen Computer oder aus deiner Active Directory-Domäne stammen.
+4.  Wiederhole die Schritte 2 bis 3 für die Gruppen **Windows Admin Center Hyper-V-Administratoren** und **Windows Admin Center-Administratoren**.
 
-Sie können diese Gruppen auch einheitlich in Ihrer Domäne auffüllen, indem Sie ein Gruppenrichtlinie-Objekt mit der [Richtlinien Einstellung eingeschränkte Gruppen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc756802%28v=ws.10%29)konfigurieren.
+Du kannst diese Gruppen auch konsistent in deiner ganzen Domäne auffüllen, indem du ein Gruppenrichtlinienobjekt mit der [Richtlinieneinstellung für eingeschränkte Gruppen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc756802%28v=ws.10%29) konfigurierst.
 
-### <a name="apply-role-based-access-control-to-multiple-machines"></a>Anwenden der rollenbasierten Zugriffs Steuerung auf mehrere Computer
+### <a name="apply-role-based-access-control-to-multiple-machines"></a>Anwenden der rollenbasierten Zugriffssteuerung auf mehrere Computer
 
-In einer großen Unternehmens Bereitstellung können Sie Ihre vorhandenen Automation-Tools verwenden, um das Feature der rollenbasierten Zugriffs Steuerung an Ihre Computer zu übermitteln, indem Sie das Konfigurations Paket vom Windows Admin Center-Gateway herunterladen.
-Das Konfigurations Paket ist für die Verwendung mit der PowerShell-Konfiguration für den gewünschten Zustand konzipiert, aber Sie können es für Ihre bevorzugte Automatisierungslösung anpassen.
+In einer großen Unternehmensbereitstellung kannst du deine vorhandenen Automatisierungstools verwenden, um die Funktion für rollenbasierte Zugriffssteuerung auf deine Computer zu übertragen, indem du das Konfigurationspaket vom Windows Admin Center-Gateway herunterlädst.
+Das Konfigurationspaket ist für die Verwendung mit PowerShell DSC gedacht, aber du kannst es so anpassen, dass es mit deiner bevorzugten Automatisierungslösung arbeitet.
 
-#### <a name="download-the-role-based-access-control-configuration"></a>Herunterladen der rollenbasierten Zugriffs Steuerungs Konfiguration
+#### <a name="download-the-role-based-access-control-configuration"></a>Herunterladen der Konfiguration für die rollenbasierte Zugriffssteuerung
 
-Um das rollenbasierte Zugriffs Steuerungs Paket herunterzuladen, benötigen Sie Zugriff auf das Windows Admin Center und eine PowerShell-Eingabeaufforderung.
+Um das Konfigurationspaket für die rollenbasierte Zugriffssteuerung herunterzuladen, benötigst du Zugriff auf das Windows Admin Center und eine PowerShell-Eingabeaufforderung.
 
-Wenn Sie das Windows Admin Center-Gateway im Dienst Modus unter Windows Server ausführen, verwenden Sie den folgenden Befehl, um das Konfigurations Paket herunterzuladen.
-Stellen Sie sicher, dass Sie die Gatewayadresse mit der richtigen für Ihre Umgebung aktualisieren.
+Wenn du das Windows Admin Center-Gateway im Wartungsmodus unter Windows Server ausführst, verwende den folgenden Befehl, um das Konfigurationspaket herunterzuladen.
+Stelle sicher, dass du die Gatewayadresse mit der richtigen für deine Umgebung aktualisierst.
 
 ```powershell
 $WindowsAdminCenterGateway = 'https://windowsadmincenter.contoso.com'
 Invoke-RestMethod -Uri "$WindowsAdminCenterGateway/api/nodes/all/features/jea/endpoint/export" -Method POST -UseDefaultCredentials -OutFile "~\Desktop\WindowsAdminCenter_RBAC.zip"
 ```
 
-Wenn Sie das Windows Admin Center-Gateway auf Ihrem Windows 10-Computer ausführen, führen Sie stattdessen den folgenden Befehl aus:
+Wenn du das Windows Admin Center-Gateway auf deinem Windows 10-Computer ausführst, führe stattdessen den folgenden Befehl aus:
 
 ```powershell
 $cert = Get-ChildItem Cert:\CurrentUser\My | Where-Object Subject -eq 'CN=Windows Admin Center Client' | Select-Object -First 1
 Invoke-RestMethod -Uri "https://localhost:6516/api/nodes/all/features/jea/endpoint/export" -Method POST -Certificate $cert -OutFile "~\Desktop\WindowsAdminCenter_RBAC.zip"
 ```
 
-Wenn Sie das ZIP-Archiv erweitern, sehen Sie die folgende Ordnerstruktur:
+Wenn du das ZIP-Archiv erweiterst, wird folgende Ordnerstruktur angezeigt:
 
-- Installjeafeaturen. ps1
-- Justenoughadministration (Verzeichnis)
+- InstallJeaFeatures.ps1
+- JustEnoughAdministration (Verzeichnis)
 - Module (Verzeichnis)
-    - Microsoft. SME. \* (Verzeichnisse)
-    - Windowsadmincenter. Jea (Verzeichnis)
+    - Microsoft.SME.\* (Verzeichnisse)
+    - WindowsAdminCenter.Jea (Verzeichnis)
 
-Zum Konfigurieren der Unterstützung für die rollenbasierte Zugriffs Steuerung auf einem Knoten müssen Sie die folgenden Aktionen ausführen:
+Um die Unterstützung für rollenbasierte Zugriffssteuerung auf einem Knoten zu konfigurieren, musst du die folgenden Aktionen ausführen:
 
-1.  Kopieren Sie die Module justenoughadministration, Microsoft. SME. \* und windowsadmincenter. Jea in das PowerShell-Modul Verzeichnis auf dem Zielcomputer. Dies befindet sich in der Regel auf `C:\Program Files\WindowsPowerShell\Modules`.
-2.  Aktualisieren Sie die Datei " **installjeafeatur. ps1** " entsprechend der gewünschten Konfiguration für den RBAC-Endpunkt.
-3.  Führen Sie installjeafekl. ps1 aus, um die DSC-Ressource zu kompilieren.
-4.  Stellen Sie die DSC-Konfiguration auf allen ihren Computern bereit, um die Konfiguration anzuwenden.
+1.  Kopiere die JustEnoughAdministration-, Microsoft.SME.\*- und WindowsAdminCenter.Jea-Module in das PowerShell-Modulverzeichnis auf dem Zielcomputer. Normalerweise befindet sich dieses in `C:\Program Files\WindowsPowerShell\Modules`.
+2.  Aktualisiere die Datei **InstallJeaFeature.ps1** so, dass sie deiner gewünschten Konfiguration für den RBAC-Endpunkt entspricht.
+3.  Führe InstallJeaFeature.ps1 aus, um die DSC-Ressource zu kompilieren.
+4.  Stelle die DSC-Konfiguration auf allen deinen Computern bereit, um die Konfiguration anzuwenden.
 
 Im folgenden Abschnitt wird erläutert, wie dies mithilfe von PowerShell-Remoting durchzuführen ist.
 
-#### <a name="deploy-on-multiple-machines"></a>Auf mehreren Computern bereitstellen
+#### <a name="deploy-on-multiple-machines"></a>Bereitstellen auf mehreren Computern
 
-Zum Bereitstellen der Konfiguration, die Sie auf mehrere Computer heruntergeladen haben, müssen Sie das Skript " **installjeafeaturen. ps1** " aktualisieren, um die entsprechenden Sicherheitsgruppen für Ihre Umgebung aufzunehmen, die Dateien auf jeden Computer kopieren und das Konfigurations Skripts.
-Hierfür können Sie Ihre bevorzugten Automatisierungstools verwenden. dieser Artikel konzentriert sich jedoch auf einen reinen PowerShell-basierten Ansatz.
+Um die heruntergeladene Konfiguration auf mehreren Computern bereitzustellen, musst du das Skript **InstallJeaFeatures.ps1** so aktualisieren, dass es die entsprechenden Sicherheitsgruppen für deine Umgebung enthält, die Dateien auf jeden deiner Computer kopieren und die Konfigurationsskripts aufrufen.
+Hierfür kannst du deine bevorzugten Automatisierungstools verwenden. Dieser Artikel konzentriert sich jedoch auf einen reinen PowerShell-basierten Ansatz.
 
-Standardmäßig werden vom Konfigurationsskript lokale Sicherheitsgruppen auf dem Computer erstellt, um den Zugriff auf die einzelnen Rollen zu steuern.
-Dies eignet sich für Arbeitsgruppen und in die Domäne eingebundenen Computern. Wenn Sie jedoch in einer reinen Domänen Umgebung bereitstellen, möchten Sie möglicherweise jeder Rolle eine Domänen Sicherheitsgruppe direkt zuordnen.
-Um die Konfiguration für die Verwendung von Domänen Sicherheitsgruppen zu aktualisieren, öffnen Sie **installjeafeaturen. ps1** , und nehmen Sie die folgenden Änderungen vor:
+Standardmäßig erstellt das Konfigurationsskript lokale Sicherheitsgruppen auf dem Computer, um den Zugriff auf die einzelnen Rollen zu steuern.
+Dies eignet sich für Arbeitsgruppen- und einer Domäne beigetretene Computer. Wenn du jedoch in einer reinen Domänenumgebung bereitstellst, solltest du eventuell jeder Rolle direkt eine Domänensicherheitsgruppe zuordnen.
+Um die Konfiguration auf die Verwendung von Domänensicherheitsgruppen zu aktualisieren, öffne **InstallJeaFeatures.ps1**, und nimm die folgenden Änderungen vor:
 
-1.  Entfernen Sie die drei **Gruppen** Ressourcen aus der Datei:
-    1.  "Gruppe MS-Readers-Group"
-    2.  "Gruppe MS-Hyper-V-Administrators-Gruppe"
-    3.  "Gruppe MS-Administratoren-Gruppe"
-2.  Entfernen Sie die drei Gruppen Ressourcen aus der jeaendpoint **DependsOn** -Eigenschaft.
-    1.  "[Gruppe] MS-Readers-Group"
-    2.  "[Gruppe] MS-Hyper-V-Administrators-Gruppe"
-    3.  "[Gruppe] MS-Administrators-Gruppe"
-3.  Ändern Sie die Gruppennamen in der jeaendpoint **roledefinitions** -Eigenschaft in die gewünschten Sicherheitsgruppen. Wenn Sie z. b. die Sicherheitsgruppe *condeso\meinetretsdadmins* haben, denen der Zugriff auf die Administrator Rolle des Windows Admin Centers zugewiesen werden soll, ändern Sie `'$env:COMPUTERNAME\Windows Admin Center Administrators'` in `'CONTOSO\MyTrustedAdmins'`. Die drei Zeichen folgen, die Sie aktualisieren müssen, lauten wie folgt:
-    1.  "$ENV: computername\windows Admin Center-Administratoren"
-    2.  "$ENV: computername\windows Admin Center Hyper-V-Administratoren"
-    3.  "$ENV: computername\windows Admin Center Readers"
+1.  Entferne die 3 **Group**-Ressourcen aus der Datei:
+    1.  "Group MS-Readers-Group"
+    2.  "Group MS-Hyper-V-Administrators-Group"
+    3.  "Group MS-Administrators-Group"
+2.  Entferne die 3 Group-Ressourcen aus der JeaEndpoint-Eigenschaft **DependsOn**.
+    1.  "[Group]MS-Readers-Group"
+    2.  "[Group]MS-Hyper-V-Administrators-Group"
+    3.  "[Group]MS-Administrators-Group"
+3.  Ändere die Gruppennamen in der JeaEndpoint-Eigenschaft **RoleDefinitions** in deine gewünschten Sicherheitsgruppen. Wenn du z. B. über eine Sicherheitsgruppe *CONTOSO\MyTrustedAdmins* verfügst, der Zugriff auf die Rolle „Windows Admin Center-Administratoren“ zugewiesen werden soll, ändere `'$env:COMPUTERNAME\Windows Admin Center Administrators'` in `'CONTOSO\MyTrustedAdmins'`. Die drei Zeichen folgen, die du aktualisieren musst, lauten wie folgt:
+    1.  '$env:COMPUTERNAME\Windows Admin Center Administrators'
+    2.  '$env:COMPUTERNAME\Windows Admin Center Hyper-V Administrators'
+    3.  '$env:COMPUTERNAME\Windows Admin Center Readers'
 
 > [!NOTE]
-> Stellen Sie sicher, dass Sie für jede Rolle eindeutige Sicherheitsgruppen verwenden. Die Konfiguration schlägt fehl, wenn der gleichen Sicherheitsgruppe mehrere Rollen zugewiesen sind.
+> Achte darauf, dass du eindeutige Sicherheitsgruppen für jede Rolle verwendest. Die Konfiguration schlägt fehl, wenn dieselbe Sicherheitsgruppe mehreren Rollen zugewiesen wird.
 
-Fügen Sie dann am Ende der Datei " **installjeafeaturen. ps1** " am Ende des Skripts die folgenden PowerShell-Zeilen hinzu:
+Füge als Nächstes die folgenden PowerShell-Zeilen am Ende der Datei **InstallJeaFeatures.ps1** am Ende des Skripts hinzu:
 
 ```powershell
 Copy-Item "$PSScriptRoot\JustEnoughAdministration" "$env:ProgramFiles\WindowsPowerShell\Modules" -Recurse -Force
@@ -248,8 +242,8 @@ InstallJeaFeature -ConfigurationData $ConfigData | Out-Null
 Start-DscConfiguration -Path "$PSScriptRoot\InstallJeaFeature" -JobName "Installing JEA for Windows Admin Center" -Force
 ```
 
-Schließlich können Sie den Ordner, der die Module, die DSC-Ressource und die Konfiguration enthält, auf jeden Zielknoten kopieren und das Skript " **installjeafeatur. ps1** " ausführen.
-Um dies Remote von ihrer admin-Arbeitsstation aus auszuführen, können Sie die folgenden Befehle ausführen:
+Schließlich kannst du den Ordner, der die Module, die DSC-Ressource und die Konfiguration enthält, auf jeden Zielknoten kopieren und das Skript **InstallJeaFeature.ps1** ausführen.
+Um dies remote von ihrer Administrator-Workstation aus auszuführen, kannst du die folgenden Befehle ausführen:
 
 ```powershell
 $ComputersToConfigure = 'MyServer01', 'MyServer02'
