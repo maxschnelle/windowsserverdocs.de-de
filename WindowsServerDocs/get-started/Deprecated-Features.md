@@ -10,12 +10,12 @@ author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: b3f531325c338224d7ac69e46a9d16c9d236ee87
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5e13886395040619a7509c3cf896112288c48115
+ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360356"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74945206"
 ---
 # <a name="features-removed-or-deprecated-in--windows-server-2016"></a>In Windows Server 2016 entfernte oder veraltete Features
 
@@ -79,7 +79,7 @@ Die folgenden Features und Funktionen sind ab dieser Version veraltet. Zu einem 
 
 -   **Scregedit.exe** ist veraltet. Wenn Sie Skripts haben, die von „Scregedit.exe“ abhängen, passen Sie sie mithilfe von „Reg.exe“ oder Windows PowerShell-Methoden an.  
 
--   **Sconfig.exe** ist veraltet. Verwenden Sie stattdessen Windows PowerShell.  
+-   **Sconfig.exe** ist veraltet. Verwenden Sie stattdessen [SCONFIG. cmd-](https://docs.microsoft.com/windows-server/get-started/sconfig-on-ws2016). 
 
 ### <a name="netcfg-custom-apis"></a>Benutzerdefinierte APIs für NetCfg
 
