@@ -8,12 +8,12 @@ ms.date: 10/25/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 5963035846814f2ec3fd3417e629f71b146cc73e
-ms.sourcegitcommit: ac9946deb4fa70203a9b05e0386deb4244b8ca55
+ms.openlocfilehash: 968122612845a9be105ca7d3231edc0faa039e76
+ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310382"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352686"
 ---
 # <a name="storage-migration-service-overview"></a>Übersicht über den Speicher Migrationsdienst
 
@@ -66,7 +66,7 @@ Es wird dringend empfohlen, dass Orchestrator-und Zielcomputer über mindestens 
 - Auf den Quell-und Ziel Computern müssen die folgenden Firewallregeln in *eingehender* Richtung aktiviert sein (obwohl Sie diese möglicherweise bereits aktiviert haben):
   - Datei- und Druckerfreigabe (SMB eingehend)
   - Anmeldedienst (NP-in)
-  - Windows-Verwaltungsinstrumentation (DCOM-in)
+  - Windows Management Instrumentation (DCOM-In)
   - Windows-Verwaltungsinstrumentation (WMI-In)
   
   > [!TIP]
@@ -83,21 +83,21 @@ Auf dem Quell Server muss eines der folgenden Betriebssysteme ausgeführt werden
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012 R2
-- Windows Server 2012
+- WindowsServer 2012
 - Windows Server 2008 R2
-- WindowsServer 2008
-- Windows Server 2003 R2
+- Windows Server 2008
+- Windows Server 2003 R2
 - Windows Server 2003
-- Windows Small Business Server 2003 R2
+- Windows Small Business Server 2003 R2
 - Windows Small Business Server 2008
 - Windows Small Business Server 2011
-- Windows Server 2012 Essentials
+- Windows Server 2012 Essentials
 - Windows Server 2012 R2 Essentials
 - Windows Server 2016 Essentials
 - Windows Server 2019 Essentials
 - Windows Storage Server 2008
 - Windows Storage Server 2008 R2
-- Windows Storage Server 2012
+- Windows Storage Server 2012
 - Windows Storage Server 2012 R2
 - Windows Storage Server 2016
 
@@ -105,7 +105,7 @@ Hinweis: Windows Small Business Server und Windows Server Essentials sind Domän
 
 Sie können die folgenden zusätzlichen Quell Typen migrieren, wenn der Orchestrator unter Windows Server, Version 1903 oder höher, ausgeführt wird, oder wenn der Orchestrator eine frühere Version von Windows Server mit installiertem [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) ausgeführt hat:
 
-- Failovercluster
+- Failovercluster unter Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2019
 - Linux-Server, die Samba verwenden. Wir haben Folgendes getestet:
     - CentOS 7
     - Debian GNU/Linux 8
@@ -136,7 +136,7 @@ Die folgenden neuen Funktionen sind verfügbar, wenn Sie den Speicher Migrations
 - Vereinfachte Synchronisierung von migrierten Freigaben zu Azure mithilfe von Azure-Dateisynchronisierung
 - Migrieren zu neuen Netzwerken wie etwa Azure
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Weitere Informationen:
 
 - [Migrieren eines Dateiservers mithilfe von Storage Migration Service](migrate-data.md)
 - [Häufig gestellte Fragen (FAQ) zu Storage Migration Services](faq.md)

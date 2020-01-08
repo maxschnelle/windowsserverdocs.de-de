@@ -7,24 +7,33 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.date: 08/19/2019
+ms.date: 12/20/2019
 description: Neue und aktualisierte Themen in der Dokumentation zu lokalem Speicher für Windows Server für IT-Experten.
-ms.openlocfilehash: ce937dfb5c6c0b46c8085cbb202590567ea829d3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d50d4ca5b49b7f895fad3d3866226f95c55ae485
+ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393927"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352774"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Änderungsverlauf für Speicher-Themen in Windows Server
 
-> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (Semi-Annual Channel)
 
 In diesem Thema werden neue und aktualisierte Themen in der [Speicher](storage.md) Dokumentation für Windows Server aufgeführt.
 
 > Wenn Sie den Update Verlauf für Windows Server suchen, finden Sie weitere Informationen unter [Windows 10 und Windows Server 2019 Update History](https://support.microsoft.com/help/4464619) oder [Windows Server 2016 Update](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history)History.
 
-## <a name="august-2019"></a>2019. August
+## <a name="december-2019"></a>Dezember 2019
+
+| Neues oder geändertes Thema                                        | Beschreibung |
+| ---                                                         | ---           |
+| [Datenträgerverwaltung: Problembehandlung](disk-management/troubleshooting-disk-management.md)| Wird bearbeitet, um die Anleitung basierend auf Kundenanforderungen weiter zu verfeinern.|
+| [Erweitern eines Volumes in der Datenträgerverwaltung](disk-management/extend-a-basic-volume.md) | Es wurde ein Leitfaden als Reaktion auf Kundenfeedback hinzugefügt. |
+| [Zurückkonvertieren eines dynamischen Datenträgers in einer Basisfestplatte](disk-management/change-a-dynamic-disk-back-to-a-basic-disk.md) | Es wurde ein Fehler in der Befehlszeile korrigiert und einige Informationen auf der Grundlage von Kundenfeedback hinzugefügt. |
+
+
+## <a name="august-2019"></a>August 2019
 
 | Neues oder geändertes Thema                                        | Beschreibung |
 | ---                                                         | ---           |
@@ -41,17 +50,17 @@ In diesem Thema werden neue und aktualisierte Themen in der [Speicher](storage.m
 
 |Neues oder geändertes Thema                                        |Beschreibung|
 |---                                                         |---           |
-|[Löschen von Volumes](storage-spaces/delete-volumes.md)| Neu        |
+|[Löschen von Volumes](storage-spaces/delete-volumes.md)| „Neu“,        |
 |[Erstellen von Volumes](storage-spaces/create-volumes.md)| Es wurden Schritte und Videos zum Erstellen eines Volumes im Windows Admin Center hinzugefügt.|
 |[Erweitern von Volumes](storage-spaces/resize-volumes.md)| Es wurden Schritte und Videos zum Ändern der Größe eines Volumes im Windows Admin Center hinzugefügt.|
 
-## <a name="march-2019"></a>2019. März
+## <a name="march-2019"></a>März 2019
 
 |Neues oder geändertes Thema                                        |Beschreibung|
 |---                                                         |---           |
-| [Verwenden von Azure Monitor zum Senden von E-Mails für Integritätsdienstfehler](storage-spaces/configure-azure-monitor.md) | Neu |
-| [Grundlagen und Bereitstellung des persistenten Speichers](storage-spaces/deploy-pmem.md) | Neu |
-| [Upgrade eines „Direkte Speicherplätze“-Clusters auf Windows Server 2019](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)| Neu        |
+| [Verwenden von Azure Monitor zum Senden von E-Mails für Integritätsdienstfehler](storage-spaces/configure-azure-monitor.md) | „Neu“, |
+| [Grundlagen und Bereitstellung des persistenten Speichers](storage-spaces/deploy-pmem.md) | „Neu“, |
+| [Upgrade eines „Direkte Speicherplätze“-Clusters auf Windows Server 2019](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)| „Neu“,        |
 | [DFS-Replikation](dfs-replication/dfsr-overview.md)        | Migriert von der [früheren Version](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770278(v%3dws.11)) der Bibliothek|
 
 ## <a name="february-2019"></a>Februar 2019
@@ -60,13 +69,13 @@ In diesem Thema werden neue und aktualisierte Themen in der [Speicher](storage.m
 |---                                                         |---           |
 |[Bekannte Probleme bei Storage Migration Service](storage-migration-service/known-issues.md)   | Problem hinzugefügt    |
 
-## <a name="january-2019"></a>2019. Januar
+## <a name="january-2019"></a>Januar 2019
 
 |Neues oder geändertes Thema                                        |Beschreibung|
 |---                                                         |---           |
 |[Grundlagen und Überwachung der Neusynchronisierung des Speichers](storage-spaces/understand-storage-resync.md)|Neues Thema|
 
-## <a name="december-2018"></a>Dezember 2018
+## <a name="december-2018"></a>Dezember 2018
 
 |Neues oder geändertes Thema                                        |Beschreibung|
 |---                                                         |---           |
@@ -81,9 +90,9 @@ In diesem Thema werden neue und aktualisierte Themen in der [Speicher](storage.m
 |---                                                         |---           |
 |[Geschachtelte Resilienz](storage-spaces/nested-resiliency.md)    | Neues Thema    |
 |[Bekannte Probleme bei Storage Migration Service](storage-migration-service/known-issues.md)   | Neues Thema    |
-|[DFS-Replikation: Häufig gestellte Fragen](dfs-replication/dfsr-faq.md)|Migriert von der [früheren Version](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/) der Bibliothek|
+|[DFS-Replikation: häufig gestellte Fragen (FAQ)](dfs-replication/dfsr-faq.md)|Migriert von der [früheren Version](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/) der Bibliothek|
 |[Migrieren der SYSVOL-Replikation zur DFS-Replikation](dfs-replication/migrate-sysvol-to-dfsr.md)|Migriert von der [früheren Version](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/) der Bibliothek|
-|[SMB: Ports für Datei- und Druckerfreigaben sollten offen sein](file-server/best-practices-analyzer/smb-open-file-sharing-ports.md)|Migriert von der [früheren Version](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/) der Bibliothek|
+|[SMB: die Ports für die Datei-und Druckerfreigabe müssen geöffnet sein.](file-server/best-practices-analyzer/smb-open-file-sharing-ports.md)|Migriert von der [früheren Version](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/) der Bibliothek|
 |[Volumeschattenkopie-Dienst](file-server/volume-shadow-copy-service.md)|Migriert von der [früheren Version](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/) der Bibliothek|
 
 ## <a name="october-2018"></a>Oktober 2018
@@ -103,7 +112,7 @@ In diesem Thema werden neue und aktualisierte Themen in der [Speicher](storage.m
 | [iSCSI-Zielserver](iscsi/iscsi-target-server.md) | Migriert von der [vorherigen Versions](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) Bibliothek.|
 | [Skalierbarkeitsgrenzen des iSCSI-Zielservers](iscsi/iscsi-target-server-limits.md) |Migriert von der [vorherigen Versions](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) Bibliothek.|
 
-## <a name="june-2018"></a>2018. Juni
+## <a name="june-2018"></a>Juni 2018
 
 |Neues oder geändertes Thema|Beschreibung|
 |---|---|
@@ -164,7 +173,7 @@ In diesem Thema werden neue und aktualisierte Themen in der [Speicher](storage.m
 |Neues oder geändertes Thema|Beschreibung|
 |---|---|
 |[Ändern eines Laufwerkbuchstabens](disk-management/change-a-drive-letter.md)|Neues Thema.|
-|[Datenträgerverwaltung: Problembehandlung](disk-management/troubleshooting-disk-management.md)|Der Status eines Datenträgers wurde neu geschrieben [ist nicht initialisiert, oder der Datenträger ist nicht vollständig](disk-management/troubleshooting-disk-management.md#a-disks-status-is-not-initialized-or-the-disk-is-missing) im Abschnitt vorhanden, um basierend auf Kundenanforderungen umfassende Schritte zur Problembehandlung hinzuzufügen.|
+|[Datenträgerverwaltung: Problembehandlung](disk-management/troubleshooting-disk-management.md)|Der Status eines Datenträgers wurde neu geschrieben [ist nicht initialisiert, oder der Datenträger ist nicht vollständig](disk-management/troubleshooting-disk-management.md#disks-that-are-missing-or-not-initialized-plus-general-troubleshooting-steps) im Abschnitt vorhanden, um basierend auf Kundenanforderungen umfassende Schritte zur Problembehandlung hinzuzufügen.|
 |[Initialisieren neuer Datenträger](disk-management/initialize-new-disks.md)|Umgeschrieben, um zu versuchen, die Kunden Fragen leichter zu verstehen und zu beheben.|
 |[Planen von Volumes in direkte Speicherplätze](storage-spaces/plan-volumes.md)|Es wurde eine Tabelle hinzugefügt, in der die für vier Knoten und größere Cluster verfügbaren resilienztypen zusammengefasst werden.|
 |[Übersicht über Refs](refs/refs-overview.md)|Die empfohlenen Arbeits Auslastungen für die Spiegelungs Beschleunigung wurden erläutert und die unterstützten Datei-und Volumegrößen für Refs und NTFS wurden korrigiert.|

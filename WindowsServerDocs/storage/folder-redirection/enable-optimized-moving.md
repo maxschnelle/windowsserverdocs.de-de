@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 6c54fee98247b1ce0aa3ef3a2502cf18f314e763
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: edf714bc0d6b39dbe7c5e800e953d7820fe9abc5
+ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394367"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352608"
 ---
 # <a name="enable-optimized-moves-of-redirected-folders"></a>Optimierte Verschiebungen von umgeleiteten Ordnern aktivieren
 
@@ -23,14 +23,14 @@ In diesem Thema wird beschrieben, wie ein optimiertes verschieben umgeleiteter O
 
 Zuvor konnten Administratoren den Zielpfad der umgeleiteten Ordner in Gruppenrichtlinie ändern und den Client Computern die Dateien bei der nächsten Anmeldung des betroffenen Benutzers kopieren. Dies führt zu einer verzögerten Anmeldung. Alternativ dazu können Administratoren die Dateifreigabe verschieben und den Zielpfad der umgeleiteten Ordner in Gruppenrichtlinie aktualisieren. Alle Änderungen, die zwischen dem Start des Verschiebens und der ersten Synchronisierung nach dem Verschieben lokal auf den Client Computern vorgenommen wurden, gehen jedoch verloren.
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 
 Für das optimierte verschieben gelten die folgenden Anforderungen:
 
 - Die Ordner Umleitung muss eingerichtet werden. Weitere Informationen finden Sie unter Bereitstellen der [Ordner Umleitung mit Offlinedateien](deploy-folder-redirection.md).
 - Auf Client Computern muss Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows Server (halbjährlicher Kanal) ausgeführt werden.
 
-## <a name="step-1-enable-optimized-move-in-group-policy"></a>Schritt 1: Optimierte Verschiebung in Gruppenrichtlinie aktivieren
+## <a name="step-1-enable-optimized-move-in-group-policy"></a>Schritt 1: Aktivieren von optimiertem verschieben in Gruppenrichtlinie
 
 Um die Verschiebung von Ordner Umleitungs Daten zu optimieren, verwenden Sie Gruppenrichtlinie, um die Richtlinien Einstellung **optimiertes Verschieben von Inhalten in Offlinedateien Cache auf Ordner Umleitung Serverpfad ändern** für das entsprechende Gruppenrichtlinie Objekt (GPO) zu aktivieren. Wenn Sie diese Richtlinien Einstellung auf **deaktiviert** oder **nicht konfiguriert** konfigurieren, kopiert der Client den gesamten Ordner Umleitungs Inhalt an den neuen Speicherort und löscht dann den Inhalt aus dem alten Speicherort, wenn sich der Serverpfad ändert.
 
@@ -43,7 +43,7 @@ So aktivieren Sie das optimierte verschieben umgeleiteter Ordner:
 
 ## <a name="step-2-relocate-the-file-share-for-redirected-folders"></a>Schritt 2: Verschieben der Dateifreigabe für umgeleitete Ordner
 
-Beim Verschieben der Dateifreigabe, die umgeleitete Ordner der Benutzer enthält, wird der Import Vorgang durchführen, um sicherzustellen, dass die Ordner ordnungsgemäß verschoben werden.
+Wenn Sie die Dateifreigabe verschieben, die umgeleitete Ordner der Benutzer enthält, ist es wichtig, Vorkehrungen zu treffen, um sicherzustellen, dass die Ordner ordnungsgemäß verschoben werden.
 
 >[!IMPORTANT]
 >Wenn die Dateien der Benutzer verwendet werden oder der vollständige Dateistatus beim Verschieben nicht beibehalten wird, treten bei den Benutzern möglicherweise schlechte Leistung auf, wenn die Dateien über das Netzwerk kopiert werden, durch Offlinedateien generierte Synchronisierungs Konflikte oder sogar Datenverluste.
@@ -59,7 +59,7 @@ Beim Verschieben der Dateifreigabe, die umgeleitete Ordner der Benutzer enthält
 
     Benutzer arbeiten mit Offlinedateien offline, bis die Verschiebung beendet ist, und Sie erhalten die aktualisierten Ordner Umleitungseinstellungen von Gruppenrichtlinie.
 
-3. Verschieben Sie den Inhalt der Dateifreigabe mithilfe eines Kontos mit Sicherungsrechten an den neuen Speicherort, indem Sie eine Methode verwenden, die Datei Zeitstempel beibehält, z. b. ein Sicherungs-und Wiederherstellungs Hilfsprogramm. Um den **Robocopy** -Befehl zu verwenden, öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und geben Sie ```<Source>``` dann den folgenden Befehl ein, wobei der aktuelle Speicherort der Dateifreigabe und ```<Destination>``` der neue Speicherort ist:
+3. Verschieben Sie den Inhalt der Dateifreigabe mithilfe eines Kontos mit Sicherungsrechten an den neuen Speicherort, indem Sie eine Methode verwenden, die Datei Zeitstempel beibehält, z. b. ein Sicherungs-und Wiederherstellungs Hilfsprogramm. Um den **Robocopy** -Befehl zu verwenden, öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und geben Sie dann den folgenden Befehl ein, wobei ```<Source>``` der aktuelle Speicherort der Dateifreigabe und ```<Destination>``` der neue Speicherort ist:
 
     ```PowerShell
     Robocopy /B <Source> <Destination> /Copyall /MIR /EFSRAW
