@@ -10,12 +10,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 06/06/2019
   ms.author: lizross
-  ms.openlocfilehash: b16b9235cbcb149ec7f10ce76b0cf594e9bb2a29
-  ms.sourcegitcommit: 30de12eebeb0fc79567d6bb6ab513692ea2415d3
+  ms.openlocfilehash: 77f017388af44a0365113e890b2ae04a9185a2c8
+  ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
   ms.translationtype: HT
   ms.contentlocale: de-DE
-  ms.lasthandoff: 12/05/2019
-  ms.locfileid: "74853575"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75351573"
 highlightedContent:
   items:
   - title: Neues in Windows Server 2019
@@ -36,9 +36,9 @@ highlightedContent:
   - title: Erste Schritte mit Windows Server 2016
     itemType: how-to-guide
     url: /windows-server/get-started/server-basics
-  - title: Dienstende für Windows Server 2008 R2 und Windows Server 2008
-    itemType: overview
-    url: /windows-server/get-started/modernize-windows-server-2008
+  - title: Erweiterte Sicherheitsupdates für Windows Server 2008 und 2008 R2
+    itemType: how-to-guide
+    url: /windows-server/get-started/extended-security-updates
   - title: Windows-Insider-Programm für Server
     itemType: overview
     url: /windows-insider/at-work/
@@ -68,14 +68,14 @@ conceptualContent:
       text: Erste Schritte mit Active Directory Domain Services (AD DS)
     - url: /windows-server/identity/active-directory-federation-services
       itemType: overview
-      text: Active Directory-Verbunddienste (Active Directory Federation Services, AD FS)
+      text: Active Directory-Verbunddienste (Active Directory Federation Services, AD FS)
     - url: /windows-server/identity/securing-privileged-access/securing-privileged-access
       itemType: concept
       text: Schützen des privilegierten Zugriffs
     footerLink:
       url: /windows-server/identity/identity-and-access
       text: Weitere Informationen
-  - title: Failoverclustering
+  - title: Failoverclusterunterstützung
     links:
     - url: /windows-server/failover-clustering/whats-new-in-failover-clustering
       itemType: whats-new
@@ -89,7 +89,7 @@ conceptualContent:
     footerLink:
       url: /windows-server/failover-clustering/failover-clustering-overview
       text: Weitere Informationen
-  - title: Management
+  - title: Verwaltung
     links:
     - url: /windows-server/manage/windows-admin-center/overview
       itemType: overview
@@ -117,7 +117,7 @@ conceptualContent:
     footerLink:
       url: /windows-server/networking/networking
       text: Weitere Informationen
-  - title: Fernbedienung
+  - title: Remote
     links:
     - url: /windows-server/remote/remote-desktop-services/welcome-to-rds
       itemType: overview
@@ -183,7 +183,7 @@ conceptualContent:
       text: Hyper-V unter Windows Server
     - url: /windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch
       itemType: overview
-      text: Virtueller Hyper-V-Switch (Übersicht)
+      text: 'Virtueller Hyper-V-Switch: Übersicht'
     footerLink:
       url: /windows-server/virtualization/virtualization
       text: Weitere Informationen
@@ -193,7 +193,7 @@ additionalContent:
     - title: Windows Server 2012 R2 und Windows Server 2012
       summary: Technische Inhalte für IT-Experten, die Windows Server 2012 R2 und Windows Server 2012 verwalten.
       url: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh801901(v=ws.11)
-    - title: Windows Server 2008 R2 und Windows Server 2008
+    - title: Windows Server 2008 R2 und Windows Server 2008
       summary: Technische Inhalte für IT-Experten, die Windows Server 2008 R2 und Windows Server 2008 verwalten.
       url: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349801(v=ws.10)
     - title: Windows Server 2008 Developer-Geschichte

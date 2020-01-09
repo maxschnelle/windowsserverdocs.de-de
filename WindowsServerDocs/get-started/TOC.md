@@ -8,6 +8,7 @@
 ## [Vergleich von Servicing Channels](..\get-started-19\servicing-channels-19.md)
 ## [Installation und Upgrade von Windows Server-Versionen](Installation-and-Upgrade.md)
 ## [Aktualisieren von Windows Server 2008 und Windows Server 2008 R2](modernize-windows-server-2008.md)
+### [Erweiterte Sicherheitsupdates für Windows Server 2008/2008 R2](extended-security-updates.md)
 ### [Hochladen eines spezialisierten Windows Server 2008/2008 R2-Images in Azure](uploading-specialized-WS08-image-to-azure.md)
 ## [Migration von Windows Server-Rollen und -Features](Migrate-Roles-and-Features.md)
 ## [Windows Server 2016-Systemanforderungen](System-Requirements.md)

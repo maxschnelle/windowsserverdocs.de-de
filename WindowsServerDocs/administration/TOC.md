@@ -2,8 +2,7 @@
 ## [Verwenden des Windows Admin Centers zur Verwaltung der Umgebung (neu!)](../manage/windows-admin-center/overview.md)
 ## Verwalten von Windows Server-Systemen und -Umgebungen
 ### [Verwalten von Windows Server Hybrid Cloud Print](hybrid-cloud-print/hybrid-cloud-print-overview.md)
-#### [Bereitstellen von Windows Server Hybrid Cloud Print mit Vorauthentifizierung](hybrid-cloud-print/hybrid-cloud-print-deploy.md)
-#### [Bereitstellen von Windows Server Hybrid Cloud Print mit Pass-Through-Authentifizierung](hybrid-cloud-print/hybrid-cloud-print-deploy-passthrough.md)
+#### [Bereitstellen von Windows Server Hybrid Cloud Print](hybrid-cloud-print/hybrid-cloud-print-deploy.md)
 ### [Was ist die Server Core-Installationsoption?](server-core/what-is-server-core.md)
 #### [Was ist in der Server Core-Installationsoption enthalten?](server-core/server-core-roles-and-services.md)
 #### [Grundlegende Verwaltungsaufgaben in Server Core](server-core/server-core-administer.md)
@@ -30,7 +29,7 @@
 ### [Windows Server Update Services (WSUS) 3.0](windows-server-update-services/get-started/windows-server-update-services-wsus.md)
 #### [Bereitstellen von Windows Server Update Services](windows-server-update-services/deploy/deploy-windows-server-update-services.md)
 ##### [Planen der WSUS-Bereitstellung](windows-server-update-services/plan/plan-your-wsus-deployment.md)
-##### [Schritt 1: Installieren Sie die WSUS-Serverrolle](windows-server-update-services/deploy/1-install-the-wsus-server-role.md)
+##### [Schritt 1: Installieren Sie die WSUS-Serverrolle](windows-server-update-services/deploy/1-install-the-wsus-server-role.md)
 ##### [Schritt 2: Konfigurieren von WSUS](windows-server-update-services/deploy/2-configure-wsus.md)
 ##### [Schritt 3: Genehmigen und Bereitstellen von Updates in WSUS](windows-server-update-services/deploy/3-approve-and-deploy-updates-in-wsus.md)
 ##### [Schritt 4: Konfigurieren von Gruppenrichtlinien für automatische Updates](windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates.md)

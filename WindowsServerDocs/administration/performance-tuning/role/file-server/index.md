@@ -5,14 +5,19 @@ ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 author: phstee
-ms.author: NedPyle; Danlo; DKruse
-ms.date: 4/14/2017
-ms.openlocfilehash: 5f772d2333acb2d48bf27168aca42754013dd8be
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: NedPyle; Danlo; DKruse; v-tea
+ms.date: 12/12/2019
+ms.custom:
+- CI ID 111495
+- CSSTroubleshoot
+manager: dcscontentpm
+audience: Admin
+ms.openlocfilehash: 2e37282abd246c8f2da387deda5e8bf4b400a3d8
+ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370223"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351639"
 ---
 # <a name="performance-tuning-for-file-servers"></a>Leistungsoptimierung für Dateiserver
 
@@ -93,10 +98,24 @@ Die folgenden REG\_DWORD-Registrierungseinstellungen können sich auf die Leistu
 
     Die Standardeinstellung beträgt 10 Sekunden. Dies ist der Timeout für den Verzeichniscache.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Mit diesem Parameter wird die Zwischenspeicherung von Verzeichnismetadaten gesteuert, wenn keine Verzeichnisleases vorhanden sind.
      
-
+     > [!NOTE]  
+     > Ein bekanntes Problem in Windows 10, Version 1803, wirkt sich auf die Fähigkeit von Windows 10 aus, große Verzeichnisse zwischenzuspeichern. Nachdem Sie einen Computer auf Windows 10, Version 1803, aktualisiert haben, greifen Sie auf eine Netzwerkfreigabe zu, die Tausende von Dateien und Ordnern enthält, und öffnen ein Dokument, das sich auf dieser Freigabe befindet. Bei beiden Vorgängen treten erhebliche Verzögerungen auf.
+     >  
+     > Um dieses Problem zu beheben, installieren Sie Windows 10, Version 1809 oder eine höhere Version.
+     >  
+     > Um dieses Problem zu umgehen, legen Sie **DirectoryCacheLifetime** auf **0** fest.
+     >  
+     > Dieses Problem tritt in den folgenden Editionen von Windows 10 auf:  
+     > - Windows 10 Enterprise, Version 1803
+     > - Windows 10 Pro for Workstations, Version 1803
+     > - Windows 10 Pro Education, Version 1803
+     > - Windows 10 Professional, Version 1803
+     > - Windows 10 Education, Version 1803
+     > - Windows 10 Home, Version 1803
+   
 -   **DirectoryCacheEntrySizeMax**
 
     ```
@@ -213,7 +232,7 @@ Die folgenden REG\_DWORD-Registrierungseinstellungen können sich auf die Leistu
 
 Mit den allgemeinen Optimierungsparametern für Clientcomputer kann ein Computer für den Zugriff auf Remotedateifreigaben optimiert werden Dies gilt vor allem für einige Netzwerke mit hoher Latenz (z. B. Filialen, rechenzentrumsübergreifende Kommunikation, Telearbeit und mobiles Breitband). Die Einstellungen sind nicht für alle Computer optimal bzw. geeignet. Sie sollten die Auswirkungen der einzelnen Einstellungen vor dem Anwenden überprüfen.
 
-| Parameter                   | Wert | Standard |
+| Parameter                   | Value | Standardwert |
 |-----------------------------|-------|---------|
 | DisableBandwidthThrottling  | 1     | 0       |
 | FileInfoCacheEntriesMax     | 32.768 | 64      |
