@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: ba4de2a4-f237-4b14-a8a7-0b06bfcd89ad
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 2cd84949dddf75730aca6302f1244f784b5933d0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b6b8ebfe0a6b42fe174d4b376b981641f043cf58
+ms.sourcegitcommit: 3d5a8357491b6bbd180d1238ea98f23bfc544ac7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388575"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75827677"
 ---
 # <a name="step-1-configure-the-basic-directaccess-infrastructure"></a>Schritt 1 Konfigurieren der grundlegenden DirectAccess-Infrastruktur
 
@@ -151,7 +151,7 @@ Der Remotezugriffsserver und alle DirectAccess-Clientcomputer müssen zu einer A
   
 2.  Klicken Sie im Dialogfeld **System Eigenschaften** auf die Registerkarte **Computer Name** . Klicken Sie auf der Registerkarte **Computer Name** auf **ändern**.  
   
-3.  Geben Sie unter **Computername**den Namen des Computers ein, falls Sie beim Beitritt des Servers zur Domäne auch den Computernamen ändern. Klicken Sie unter **Mitglied von** auf **Domäne**, und geben Sie dann den Namen der Domäne ein, für die der Beitritt des Servers durchgeführt werden soll, z. B. %%amp;quot;corp.contoso.com%%amp;quot;, und klicken Sie dann auf **OK**.  
+3.  Geben Sie unter **Computername**den Namen des Computers ein, falls Sie beim Beitritt des Servers zur Domäne auch den Computernamen ändern. Klicken Sie unter **Mitglied von**auf **Domäne**, und geben Sie dann den Namen der Domäne ein, für die der Beitritt des Servers durchgeführt werden soll, z. B. %%amp;quot;corp.contoso.com%%amp;quot;, und klicken Sie dann auf **OK**.  
   
 4.  Wenn Sie zur Eingabe eines Benutzernamens und Kennworts aufgefordert werden, geben Sie den Benutzernamen und das Kennwort eines Benutzers ein, der über die Berechtigung zum Durchführen des Beitritts von Computern zur Domäne verfügt. Klicken Sie anschließend auf **OK**.  
   
@@ -173,7 +173,7 @@ Der Remotezugriffsserver und alle DirectAccess-Clientcomputer müssen zu einer A
   
 4.  Klicken Sie auf der Registerkarte **Computername** im Dialogfeld **Systemeigenschaften** auf **Ändern**.  
   
-5.  Geben Sie unter **Computername** den Namen des Computers ein, falls Sie beim Beitritt des Servers zur Domäne auch den Computernamen ändern. Klicken Sie unter **Mitglied von** auf **Domäne**, und geben Sie dann den Namen der Domäne ein, für die der Beitritt des Servers durchgeführt werden soll, z. B. %%amp;quot;corp.contoso.com%%amp;quot;, und klicken Sie dann auf **OK**.  
+5.  Geben Sie unter **Computername** den Namen des Computers ein, falls Sie beim Beitritt des Servers zur Domäne auch den Computernamen ändern. Klicken Sie unter **Mitglied von**auf **Domäne**, und geben Sie dann den Namen der Domäne ein, für die der Beitritt des Servers durchgeführt werden soll, z. B. %%amp;quot;corp.contoso.com%%amp;quot;, und klicken Sie dann auf **OK**.  
   
 6.  Wenn Sie zur Eingabe eines Benutzernamens und Kennworts aufgefordert werden, geben Sie den Benutzernamen und das Kennwort eines Benutzers ein, der über die Berechtigung zum Durchführen des Beitritts von Computern zur Domäne verfügt. Klicken Sie anschließend auf **OK**.  
   
@@ -187,7 +187,7 @@ Der Remotezugriffsserver und alle DirectAccess-Clientcomputer müssen zu einer A
   
 Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
   
-Beachten Sie, dass Sie nach der Eingabe des unten angegebenen Befehls %%amp;quot;Add-Computer%%amp;quot; die Domänenanmeldeinformationen bereitstellen müssen.  
+Beachten Sie, dass Sie die Domänenanmeldeinformationen nach der Eingabe des nachfolgenden Befehls %%amp;quot;Add-Computer%%amp;quot; bereitstellen müssen.  
   
 ```  
 Add-Computer -DomainName <domain_name>  
@@ -208,7 +208,10 @@ Informationen zum Erstellen eines Gruppenrichtlinien Objekts finden Sie unter [E
 > 4.  Wenn Sie vor dem Ausführen des DirectAccess-Assistenten keine Verknüpfung zur Organisationseinheit hinzugefügt haben, kann der Administrator die DirectAccess-Gruppenrichtlinienobjekte nach Abschluss der Konfiguration mit den erforderlichen Organisationseinheiten verknüpfen. Die Verknüpfung zur Domäne kann entfernt werden. Die Schritte zum Verknüpfen eines Gruppenrichtlinien Objekts mit einer Organisationseinheit finden Sie [hier](https://technet.microsoft.com/library/cc732979.aspx) .  
   
 > [!NOTE]  
-> Wenn ein Gruppenrichtlinien Objekt manuell erstellt wurde, kann es während der DirectAccess-Konfiguration vorkommen, dass das Gruppenrichtlinien Objekt nicht verfügbar ist. Das Gruppenrichtlinien Objekt wurde möglicherweise nicht auf den nächstgelegenen Domänen Controller des Verwaltungs Computers repliziert. In diesem Fall kann der Administrator warten, bis die Replikation abgeschlossen ist oder er kann die Replikation erzwingen.  
+> Wenn ein Gruppenrichtlinien Objekt manuell erstellt wurde, kann es während der DirectAccess-Konfiguration vorkommen, dass das Gruppenrichtlinien Objekt nicht verfügbar ist. Das Gruppenrichtlinien Objekt wurde möglicherweise nicht auf den nächstgelegenen Domänen Controller des Verwaltungs Computers repliziert. In diesem Fall kann der Administrator warten, bis die Replikation abgeschlossen ist oder er kann die Replikation erzwingen.
+
+> [!Warning]
+> Die Verwendung einer anderen Methode als dem DirectAccess-Setup-Assistenten zum Konfigurieren von DirectAccess, wie z. b. das direkte Ändern von DirectAccess-Gruppenrichtlinie Objekten oder das manuelle Ändern der Standardrichtlinien Einstellungen auf dem Server oder Client, wird nicht unterstützt.
   
 ## <a name="ConfigSGs"></a>Konfigurieren von Sicherheitsgruppen  
 Die DirectAccess-Einstellungen, die in den Gruppenrichtlinien Objekten des Client Computers enthalten sind, werden nur auf Computer angewendet, die Mitglieder der Sicherheitsgruppe sind, die Sie beim Konfigurieren des Remote Zugriffs angeben.  
