@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 11/18/2019
+ms.date: 01/04/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e71aa2b1cccda85e0bf6f8a80ad68013346b30d4
-ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
+ms.openlocfilehash: 09010878e2381e8f1f00d6883a6871fcd69a48be
+ms.sourcegitcommit: 28b71d779386cd31e1511217aa1a6f3ab186bf9b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74829622"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75682441"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Erste Schritte mit dem Windows-Desktopclient
 
@@ -33,7 +33,7 @@ Du kannst den Remotedesktopclient für Windows-Desktop verwenden, um Windows-App
 
 ## <a name="install-the-client"></a>Installieren des Clients
 
-Wähle den Client aus, der der Windows-Version entspricht. Der neue Remotedesktopclient (MSRDC) unterstützt Windows 10-, Windows 10 IoT Enterprise- und Windows 7-Clientgeräte. 
+Wähle den Client aus, der der Windows-Version entspricht. Der neue Remotedesktopclient (MSRDC) unterstützt Windows 10-, Windows 10 IoT Enterprise- und Windows 7-Clientgeräte.
 
 - [Windows 64-Bit](https://go.microsoft.com/fwlink/?linkid=2068602)
 - [Windows 32-Bit](https://go.microsoft.com/fwlink/?linkid=2098960)
@@ -118,9 +118,24 @@ Der Client verwendet die von deinem Administrator konfigurierten Einstellungen, 
 - **Größe von Text und Apps ändern** gibt die Größe der Inhalte der Sitzung an. Diese Einstellung gilt nur für Verbindungen mit Windows 8.1 und höher oder Windows Server 2012 R2 und höher. Diese Einstellung wird automatisch deaktiviert, wenn für die Auflösung Aktualisierung beim Ändern der Größe festgelegt wird.
 - **Sitzung an Fenster anpassen** bestimmt, wie die Sitzung angezeigt wird, wenn die Auflösung des Remotedesktops von der Größe des lokalen Fensters abweicht. Wenn die Option aktiviert ist, wird die Größe der Sitzungsinhalte innerhalb des Fensters passend geändert, wobei das Seitenverhältnis der Sitzung beibehalten wird. Ist sie deaktiviert, werden Scrollleisten oder schwarze Bereiche angezeigt, wenn Auflösung und Fenstergröße nicht übereinstimmen.
 
-## <a name="provide-feedback"></a>Feedback bereitstellen
+## <a name="provide-feedback"></a>Senden von Feedback
 
-Hast du einen Vorschlag für eine Funktion, oder möchtest du ein Problem melden? Teile uns den Vorschlag über den [Feedback-Hub](feedback-hub://?tabid=2&contextid=883) mit. Du kannst über deinen Client auch auf den Feedback-Hub zugreifen:
+Hast du einen Vorschlag für eine Funktion, oder möchtest du ein Problem melden? Teile uns den Vorschlag über den [Feedback-Hub](feedback-hub://?tabid=2&contextid=883) mit. Du kannst über den Client auch auf den Feedback-Hub zugreifen:
 
-1. Tippe im Connection Center auf das Überlaufmenü ( **...** ) in der Befehlsleiste am oberen Rand des Clients.
-2. Wähle im Dropdownmenü **Feedback** aus, um den Feedback-Hub zu öffnen.
+1. Tippe im Connection Center auf die Option **Feedback senden** in der Befehlsleiste oben im Client, um die Feedback-Hub-App zu öffnen.
+2. Gib die erforderlichen Informationen in die Felder **Zusammenfassung** und **Details** ein. Tippe auf **Weiter**, wenn du fertig bist.
+3. Wähle aus, ob es sich um ein **Problem** oder einen **Vorschlag** handelt.
+4. Überprüfe, ob sich die Kategorie unter **Apps** > **Remotedesktop** befindet. Wenn dies der Fall ist, tippe auf **Weiter**.
+5. Schaue die vorhandenen Feedbackthemen durch, um festzustellen, ob das Problem bereits von einem anderen Benutzer gemeldet wurde. Wenn dies nicht der Fall ist, wähle **Neuen Fehler melden** aus, und tippe dann auf **Weiter**.
+6. Auf der nächsten Seite kannst du weitere Informationen geben, damit wir dir helfen können, das Problem zu beheben. Du kannst detailliertere Informationen schreiben, Screenshots senden und sogar eine Aufnahme des Problems erstellen, um uns zu zeigen, was passiert ist. Um eine Aufnahme zu erstellen, wähle **Aufnahme starten** aus, und führe dann die Schritte aus, die zu dem Problem geführt haben. Wenn du fertig bist, kehre zum Feedback-Hub zurück, und wähle **Aufnahme beenden** aus.
+7. Wenn du mit den Informationen zufrieden bist, tippe auf **Senden**.
+8. Tippe auf der Seite „Danke für Ihr Feedback!“ auf **Feedback teilen**, um einen Link zu deinem Feedback zu generieren, den du bei Bedarf mit anderen teilen kannst.
+
+### <a name="access-client-logs"></a>Zugreifen auf Clientprotokolle
+
+Möglicherweise benötigst du die Clientprotokolle, wenn du ein Problem untersuchst.
+
+So rufst du die Clientprotokolle ab:
+
+1. Öffne den **Datei-Explorer**.
+2. Navigiere zum Ordner **%temp%\DiagOutputDir\RdClientAutoTrace**.

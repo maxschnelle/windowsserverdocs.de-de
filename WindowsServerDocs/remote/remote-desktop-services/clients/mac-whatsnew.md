@@ -11,20 +11,53 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 11/18/2019
+ms.date: 01/06/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: b44f7c14dce8a8c319f9240c24ebcd8e2d4f7202
-ms.sourcegitcommit: b60fdd2efa57ff23834a324b75de8fe245a7631f
+ms.openlocfilehash: 614962cacbc29a26b0db246812ad17e24fc9859e
+ms.sourcegitcommit: fdb3412a6139ca62913606fa18036a91c093cd51
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166165"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75688115"
 ---
 # <a name="whats-new-in-the-macos-client"></a>Neues beim macOS-Client
 
 Der [Remotedesktopclient für macOS](remote-desktop-mac.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Hier findest du die neuesten Updates.
 
 Bei Problemen kannst du dich jederzeit gern über **Hilfe** > **Problem melden** an uns wenden.
+
+## <a name="updates-for-version-1037"></a>Updates für Version 10.3.7
+
+*Veröffentlicht am: 6.1.20*
+
+In unserem letzten Update des Jahres haben wir einigen Code verfeinert und die folgenden Verhaltensweisen korrigiert:
+
+- Beim Kopieren von Elementen aus der Remotesitzung in eine Netzwerkfreigabe oder auf ein USB-Laufwerk werden keine leeren Dateien mehr erzeugt.
+- Die Angabe eines leeren Kennworts in einem Benutzerkonto führt nicht mehr zu einer doppelten Zertifikatsabfrage.
+
+## <a name="updates-for-version-1036"></a>Updates für Version 10.3.6
+
+*Veröffentlicht am: 6.1.20*
+
+In diesem Release wurde ein Problem behoben, bei dem beim Kopieren eines Ordners aus der Remotesitzung mittels Kopieren und Einfügen der Datei auf den lokalen Computer Dateien mit einer Länge von Null erstellt wurden.
+
+## <a name="updates-for-version-1035"></a>Updates für Version 10.3.5
+
+*Veröffentlicht am: 6.1.20*
+
+Dieses Update wurde mit der Hilfe von allen Benutzern erstellt, die Probleme gemeldet haben. In dieser Version haben wir die folgenden Änderungen vorgenommen:
+
+- Umgeleitete Ordner können jetzt als schreibgeschützt markiert werden, um zu verhindern, dass ihr Inhalt in der Remotesitzung geändert wird.
+- Wir haben einen 0x607-Fehler behoben, der bei der Verbindung mit RPC über HTTPS RD-Gateway-Szenarien auftrat.
+- Es wurden Fälle behoben, in denen Benutzer doppelt nach Anmeldeinformationen gefragt wurden.
+- Es wurden Fälle behoben, in denen Benutzer die Zertifikatswarnmeldung zweimal erhalten haben.
+- Es wurden Heuristiken hinzugefügt, um den Trackpad-basierten Bildlauf zu verbessern.
+- Der Client zeigt die Gruppe „Gespeicherte Desktops“ nicht mehr an, wenn es keine vom Benutzer angelegten Gruppen gibt.
+- Aktualisierte Benutzeroberfläche für die Kacheln in der PC-Ansicht.
+- Korrekturen zum Beheben von Adressabstürzen, die uns per Anwendungstelemetrie übermittelt wurden.
+
+> [!NOTE]
+> In diesem Release nehmen wir Feedback für den Mac-Client jetzt nur noch über [UserVoice](https://remotedesktop.uservoice.com/forums/287834-remote-desktop-for-mac) entgegen.
 
 ## <a name="updates-for-version-1034"></a>Updates für Version 10.3.4
 

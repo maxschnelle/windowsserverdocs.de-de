@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b7d8158c-aee1-4c60-8a46-40ce5595b8e8
 author: HeidiLohr
-manager: dougkim
+manager: daveba
 ms.author: helohr
-ms.date: 05/07/2018
+ms.date: 01/07/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: b96ec92fea067d6482baeb54f19a1ec07e2229a8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b0b44eac6d76fb6d49c00dae0c0abe9450861026
+ms.sourcegitcommit: 28b71d779386cd31e1511217aa1a6f3ab186bf9b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404153"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75682431"
 ---
 # <a name="remote-desktop-clients"></a>Remotedesktopclients
 
@@ -31,12 +31,13 @@ Bevor du beginnst, lies den Artikel [unterstützte Konfiguration](remote-desktop
 
 Die folgenden Client-Apps sind verfügbar:
 
-| Gerät   | Erwerben der App                                                                                                     | Setupanleitung                                                                |
-|----------|-----------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| Windows  | [Windows 10-Client im Microsoft Store](https://go.microsoft.com/fwlink/?LinkID=616709)                      | [Erste Schritte mit dem Remotedesktopclient auf Windows-Systemen](windows.md)                |
-| Android  | [Android-Client in Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android)        | [Erste Schritte mit dem Remotedesktopclient auf Android-Systemen](remote-desktop-android.md) |
-| iOS      | [iOS-Client im iTunes Store](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8)     | [Erste Schritte mit dem Remotedesktopclient auf iOS-Systemen](remote-desktop-ios.md)         |
-| macOS    | [macOS-Client im iTunes Store](https://itunes.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) | [Erste Schritte mit dem Remotedesktopclient auf Mac-Systemen](remote-desktop-mac.md)         |
+| Gerät          | Abrufen der App                                                                                                  | Setupanleitung                                                                |
+|-----------------|-----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| Windows Desktop | [Windows Desktop-Client](windowsdesktop.md#install-the-client)                                               | [Erste Schritte mit dem Windows-Desktop-Client](windowsdesktop.md) |
+| Windows Store   | [Windows 10-Client im Microsoft Store](https://go.microsoft.com/fwlink/?LinkID=616709)                   | [Erste Schritte mit dem Windows Store-Client](windows.md)          |
+| Android         | [Android-Client in Google Play](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android)     | [Erste Schritte mit dem Android-Client](remote-desktop-android.md) |
+| iOS             | [iOS-Client im iTunes Store](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8)     | [Erste Schritte mit dem iOS-Client](remote-desktop-ios.md)         |
+| macOS           | [macOS-Client im iTunes Store](https://itunes.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) | [Erste Schritte mit dem macOS-Client](remote-desktop-mac.md)       |
 
 ## <a name="configuring-the-remote-pc"></a>Konfigurieren des Remote-PC
 

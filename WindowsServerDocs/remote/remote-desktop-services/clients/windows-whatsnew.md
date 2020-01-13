@@ -11,18 +11,27 @@ ms.topic: article
 author: heidilohr
 manager: daveba
 ms.author: helohr
-ms.date: 09/11/2019
+ms.date: 01/02/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: e6d57f2feb5b21385cf247856be05f752ddee0cd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8b97b7a22d59727bedd6bdbd67a19087612ebfa0
+ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404084"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75653045"
 ---
 # <a name="whats-new-in-the-windows-store-client"></a>Neuigkeiten zum Windows Store-Client
 
 Der [Windows-Store-Client](windows.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Hier findest du die neuesten Updates.
+
+## <a name="updates-for-version-1011107"></a>Updates für Version 10.1.1107
+
+*Veröffentlicht am: 04.09.2019*
+
+- Du kannst nun Dateien zwischen lokalen und entfernten PCs kopieren.
+- Du kannst nun deine E-Mail-Adresse verwenden, um auf Remoteressourcen zuzugreifen (falls von deinem Administrator aktiviert).
+- Du kannst nun die Benutzerkontozuweisungen für Remoteressourcenfeeds ändern.
+- Die App zeigt nun anstelle eines leeren Standardsymbols das richtige Symbol für RDP-Dateien an, die dieser App im Datei-Explorer zugeordnet sind.
 
 ## <a name="updates-for-version-1011098"></a>Updates für Version 10.1.1098
 
@@ -65,5 +74,5 @@ Der [Windows-Store-Client](windows.md) wird regelmäßig mit neuen Features und 
 
 *Veröffentlicht am: 02.04.2018*
 
-- Aktualisierungen für die in CVE-2018-0886 beschriebene CredSSP-Encryption Oracle-Abwehr
+- Updates für die in CVE-2018-0886 beschriebene CredSSP-Encryption Oracle-Abwehr.
 - Zusätzliche Fehlerbehebungen
