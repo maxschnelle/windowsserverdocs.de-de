@@ -3,20 +3,18 @@ title: Verstehen und Konfigurieren von Azure Monitor
 description: Ausführliche Informationen zur Einrichtung der Azure Monitor und zum Konfigurieren von e-Mail-und SMS-Warnungen für den Cluster "direkte Speicherplätze" in Windows Server 2016 und 2019.
 keywords: Direkte Speicherplätze, Azure Monitor, Benachrichtigungen, e-Mail, SMS
 ms.assetid: ''
-ms.prod: ''
+ms.prod: windows-server-threshold
 ms.author: adagashe
 ms.technology: storage-spaces
 ms.topic: article
 author: adagashe
-ms.date: 3/26/2019
-ms.localizationpriority: ''
-ms.openlocfilehash: 4a11ad670bdd26cdc771bb5ae357db4928995bb8
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.date: 01/10/2020
+ms.openlocfilehash: 933a22dad76f80b8ff76f604089bfd7c9bf3e207
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352651"
----
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919980"
 ---
 # <a name="use-azure-monitor-to-send-emails-for-health-service-faults"></a>Verwenden Sie Azure Monitor, um e-Mails zu Integritätsdienst Fehlern zu senden.
 
@@ -26,6 +24,14 @@ Azure Monitor maximiert die Verfügbarkeit und Leistung Ihrer Anwendungen durch 
 
 Dies ist besonders hilfreich für Ihren lokalen hyperkonvergierten Cluster. Wenn Azure Monitor integriert ist, können Sie e-Mail, Text (SMS) und andere Warnungen konfigurieren, um Sie zu pingen, wenn ein Fehler in Ihrem Cluster vorliegt (oder wenn Sie andere Aktivitäten basierend auf den gesammelten Daten markieren möchten). Im folgenden wird kurz erläutert, wie Azure Monitor funktioniert, wie Sie Azure Monitor installieren und wie Sie diese konfigurieren, um Benachrichtigungen zu senden.
 
+Wenn Sie System Center verwenden, sehen Sie sich die [direkte Speicherplätze Management Pack](https://www.microsoft.com/download/details.aspx?id=100782) an, die sowohl Windows Server 2019-als auch Windows Server 2016 direkte Speicherplätze-Cluster überwacht.
+
+Diese Management Pack umfasst Folgendes:
+
+* Integritäts-und Leistungsüberwachung für physische Datenträger
+* Integritäts-und Leistungsüberwachung für Speicher Knoten
+* Integritäts-und Leistungsüberwachung für den Speicher Pool
+* Volumeresilienztyp und deduplizierungsstatus
 
 ## <a name="understanding-azure-monitor"></a>Grundlegendes zu Azure Monitor
 
@@ -234,11 +240,11 @@ Sehen wir uns nun ein Beispiel für das Erstellen einer Warnung an.
 10. Klicken Sie auf **OK**, um die Aktionsgruppe zu erstellen. 
 11. Klicken Sie auf **Warnungsregel erstellen**, um die Warnungsregel fertig zu stellen. Die Ausführung beginnt sofort.<br><br> ![Abschließen der Erstellung der neuen Warnungsregel](media/configure-azure-monitor/alert-rule-01.png)<br> 
 
-## <a name="see-alerts"></a>Anzeigen von Warnungen
+### <a name="example-alert"></a>Beispiel für Warnung
 
 Als Referenz sehen Sie eine Beispiel Warnung in Azure.
 
-![GIF of Alert in Azure "](media/configure-azure-monitor/alert.gif)
+![GIF of Alert in Azure](media/configure-azure-monitor/alert.gif)
 
 Im folgenden finden Sie ein Beispiel für die e-Mail, die Sie Azure Monitor senden:
 
