@@ -1,12 +1,10 @@
 # [Windows Admin Center](overview.md)
 
 ## Grundlegende Informationen
-### [Hello, Windows Admin Center!](understand/windows-admin-center.md)
 ### [Was ist Windows Admin Center?](understand/what-is.md)
 ### [Häufig gestellte Fragen](understand/faq.md)
 ### [Fallstudien](understand/case-studies.md)
 ### [Verwandte Verwaltungsprodukte](understand/related-management.md)
-### [Videos](understand/videos.md)
 
 ## Planen
 ### [Welche Art von Installation ist für Sie geeignet?](plan/installation-options.md)
@@ -34,7 +32,6 @@
 ### [Verwalten von Hyper-V-Computern](use/manage-virtual-machines.md)
 ### [Protokollierung](use/logging.md)
 
-
 ## Herstellen einer Verbindung mit Azure
 ### [Azure-Hybriddienste](azure/index.md)
 #### [Azure Backup](azure/azure-backup.md)
@@ -47,6 +44,7 @@
 ### [Verwalten von Azure-VMs mit Windows Admin Center](azure/manage-azure-vms.md)
 
 ## Support
+### [Versionsverlauf](support/release-history.md)
 ### [Unterstützungsrichtlinie](support/index.md)
 ### [Allgemeine Schritte zur Problembehandlung](support/troubleshooting.md)
 ### [Bekannte Probleme](support/known-issues.md)

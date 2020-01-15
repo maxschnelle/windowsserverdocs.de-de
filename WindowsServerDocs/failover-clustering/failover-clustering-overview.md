@@ -1,6 +1,6 @@
 ---
 ms.assetid: c9844427-27cf-4d76-b5bb-e06368b092f7
-title: Failoverclustering
+title: Failoverclusterunterstützung
 ms.prod: windows-server
 layout: LandingPage
 ms.topic: landing-page
@@ -10,12 +10,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 06/06/2019
 ms.localizationpriority: high
-ms.openlocfilehash: 116627059856f5815ec0d89ce63094a0852913ab
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fdb840aed4d78578edf8383e703a6786a5dc15c7
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361120"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948043"
 ---
 # <a name="failover-clustering-in-windows-server"></a>Failoverclustering in Windows Server
 
@@ -46,6 +46,6 @@ Für Failoverclustering gibt es viele praktische Anwendungsfälle, einschließli
 |**Verwalten**  |  **Tools und Einstellungen**  |  **Communityressourcen**       |
 | ------------- |  -------------- | --------------------- |
 | [Clusterfähiges Aktualisieren](cluster-aware-updating.md)    |   [PowerShell-Cmdlets für Failoverclustering](https://docs.microsoft.com/powershell/module/failoverclusters/?view=win10-ps)      |  [Forum für hohe Verfügbarkeit (Clustering)](https://go.microsoft.com/fwlink/p/?LinkId=230641)       |
-|  [Integritätsdienst](health-service-overview.md)   |   [PowerShell-Cmdlets für das clusterfähige Aktualisieren](https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps)      | [Teamblog zu Failoverclustering und Netzwerklastenausgleich](http://blogs.msdn.com/b/clustering/)        |
+|  [Integritätsdienst](health-service-overview.md)   |   [PowerShell-Cmdlets für das clusterfähige Aktualisieren](https://docs.microsoft.com/powershell/module/clusterawareupdating/?view=win10-ps)      | [Teamblog zu Failoverclustering und Netzwerklastenausgleich](https://blogs.msdn.com/b/clustering/)        |
 |  [Clusterdomänenmigration](cluster-domain-migration.md)   |         |         |
 |  [Problembehandlung mit der Windows-Fehlerberichterstattung](troubleshooting-using-wer-reports.md)   |         |         |
