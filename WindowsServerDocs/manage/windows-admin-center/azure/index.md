@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 05/31/2019
-ms.openlocfilehash: e76d1205c22d6ce484abc86ed5e3c74ac1010f29
-ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
+ms.openlocfilehash: b82d2eaa9283d99993102f1656262e2eda86cfff
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74945294"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950126"
 ---
 # <a name="connecting-windows-server-to-azure-hybrid-services"></a>Verbinden von Windows Server mit Azure Hybriddiensten
 
@@ -31,7 +31,7 @@ Zwar können die meisten hybriden Azure-Dienste durch Herunterladen einer App un
 
 ## <a name="discover-integrated-services-in-the-azure-hybrid-services-tool"></a>Entdecken der integrierten Dienste im Azure-Hybriddienstetool
 
-Das Azure-Hybriddienstetool in [Windows Admin Center](../understand/windows-admin-center.md) konsolidiert alle integrierten Azure-Dienste in einem zentralen Hub, in dem du mühelos alle verfügbaren Azure-Dienste erkennen kannst, die einen Mehrwert für Ihre lokale oder hybride Umgebung bieten.  
+Das Azure-Hybriddienstetool in [Windows Admin Center](../overview.md) konsolidiert alle integrierten Azure-Dienste in einem zentralen Hub, in dem du mühelos alle verfügbaren Azure-Dienste erkennen kannst, die einen Mehrwert für Ihre lokale oder hybride Umgebung bieten.  
 
 ![Screenshot von Windows Admin Center mit dem Azure-Hybriddienstetool](../media/azure-services/ahs-discover.png)
 
@@ -155,7 +155,7 @@ Nutzen von Azure Cloud Shell zum Abrufen einer Bash- oder PowerShell-Benutzerobe
 Weitere Informationen findest du unter [Übersicht zu Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 - [Verbinden von Windows Admin Center mit Azure](azure-integration.md)
 - [Bereitstellen von Windows Admin Center in Azure](deploy-wac-in-azure.md)

@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ae1b23244f141cd0806ee14d3c40117ba72aeebb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a7c37638e25fc0d16447ab57bf369255dab9c859
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402060"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950257"
 ---
 # <a name="folder-redirection-offline-files-and-roaming-user-profiles-overview"></a>Ordnerumleitung, Offlinedateien und Roamingbenutzerprofile – Übersicht
 
@@ -33,7 +33,7 @@ Die Ordnerumleitung und Offlinedateien werden gemeinsam verwendet, um den Pfad l
   - Der Benutzer wechselt mithilfe der Schaltfläche **Offlinebetrieb** im Windows-Explorer manuell in den Offlinemodus.
 - **Roamingbenutzerprofile** die Benutzerprofile an eine Dateifreigabe umgeleitet, damit Benutzer auf mehreren Computern dieselben Betriebssystem-und Anwendungseinstellungen erhalten. Wenn ein Benutzer sich mithilfe eines Kontos, das mit einer Dateifreigabe als Profilpfad eingerichtet ist, bei einem Computer anmeldet, wird das Profil des Benutzers auf den lokalen Computer heruntergeladen und mit dem lokalen Profil (falls vorhanden) zusammengeführt. Wenn sich der Benutzer vom Computer abmeldet, wird die lokale Kopie seines Profils, einschließlich aller Änderungen, mit der Serverkopie des Profils zusammengeführt. In der Regel aktiviert ein Netzwerkadministrator Roamingbenutzerprofile auf Domänen Konten.
 
-## <a name="practical-applications"></a>Praktische Anwendungsfälle
+## <a name="practical-applications"></a>Praktische Anwendungen
 
 Administratoren können die Ordnerumleitung, Offlinedateien und Roamingbenutzerprofile verwenden, um den Speicher für Benutzerdaten und -einstellungen zu zentralisieren und Benutzern die Möglichkeit zu bieten, im Offlinemodus oder im Falle eines Netzwerk- oder Serverausfalls auf ihre Daten zuzugreifen. Einige spezielle Anwendungsfälle umfassen Folgendes:
 
@@ -48,9 +48,9 @@ In der folgenden Tabelle sind einige wichtige Änderungen an der Ordnerumleitung
 
 | Feature/Funktionalität | Neu oder aktualisiert? | Beschreibung |
 | --- | --- | --- |
-| Immer im Offlinemodus | Neu | Bietet schnelleren Zugriff auf Dateien und geringere Bandbreitenverwendung, selbst wenn eine Hochgeschwindigkeits-Netzwerkverbindung besteht. |
-| Sparsame Synchronisation | Neu | Hilft Benutzern, hohe Daten Nutzungskosten durch Synchronisierung zu vermeiden, indem getaktete Verbindungen mit Nutzungs Limits verwendet werden oder das Roaming im Netzwerk eines anderen Anbieters durchlaufen wird. |
-| Unterstützung von Hauptcomputern | Neu | Ermöglicht es Ihnen, die Verwendung der Ordner Umleitung, Roamingbenutzerprofile oder beides auf die primären Computer eines Benutzers zu beschränken. |
+| Immer im Offlinemodus | „Neu“, | Bietet schnelleren Zugriff auf Dateien und geringere Bandbreitenverwendung, selbst wenn eine Hochgeschwindigkeits-Netzwerkverbindung besteht. |
+| Sparsame Synchronisation | „Neu“, | Hilft Benutzern, hohe Daten Nutzungskosten durch Synchronisierung zu vermeiden, indem getaktete Verbindungen mit Nutzungs Limits verwendet werden oder das Roaming im Netzwerk eines anderen Anbieters durchlaufen wird. |
+| Unterstützung von Hauptcomputern | „Neu“, | Ermöglicht es Ihnen, die Verwendung der Ordner Umleitung, Roamingbenutzerprofile oder beides auf die primären Computer eines Benutzers zu beschränken. |
 
 ## <a name="always-offline-mode"></a>Immer im Offlinemodus
 
@@ -67,7 +67,7 @@ Der Modus "Immer offline" bietet die folgenden Vorteile:
 
 Vor Windows 8, Windows Server 2012, wechselten Benutzer je nach Netzwerkverfügbarkeit und-Bedingungen zwischen dem Online-und Offline Modus, selbst wenn der Modus für langsame Verbindungen aktiviert und auf einen Wert von 1 Millisekunde festgelegt wurde. Latenz Schwellenwert.
 
-Im Modus "immer offline" wechseln Computer nie in den Online Modus, wenn der **Modus für langsame Verbindungen konfigurieren** Gruppenrichtlinie konfiguriert ist und der Schwellenwert für die **Latenz** Zeit auf 1 Millisekunde festgelegt ist. Änderungen werden standardmäßig alle 120 Minuten im Hintergrund synchronisiert, aber die Synchronisierung kann mithilfe der Gruppenrichtlinieneinstellung **Hintergrundsynchronisierung konfigurieren** konfiguriert werden.
+Im Modus "immer offline" wechseln Computer nie in den Online Modus, wenn der **Modus für langsame Verbindungen konfigurieren** Gruppenrichtlinie konfiguriert ist und der Schwellenwert für die **Latenz** Zeit auf 1 Millisekunde festgelegt ist. Änderungen werden standardmäßig alle 120 Minuten im Hintergrund synchronisiert, aber die Synchronisierung kann mithilfe der Gruppenrichtlinieneinstellung **Configure Background Sync** konfiguriert werden.
 
 Weitere Informationen finden Sie unter [Enable the Always Offline Mode to Provide Faster Access to Files](enable-always-offline.md).
 
@@ -112,7 +112,7 @@ Wenn Sie das Herunterladen privater Benutzerdaten auf Hauptcomputer beschränken
     1. Wenn es sich bei dem Computer um einen der primären Computer des Benutzers handelt, wendet Windows die Roamingbenutzerprofile und Ordner Umleitungseinstellungen an.
     2. Wenn es sich bei dem Computer nicht um einen der primären Computer des Benutzers handelt, lädt Windows das zwischengespeicherte lokale Profil des Benutzers, sofern vorhanden, oder erstellt ein neues lokales Profil. Von Windows werden gemäß der Entfernungsaktion, die in der zuvor angewendeten Gruppenrichtlinieneinstellung angegeben ist, auch alle vorhandenen Ordnerumleitungen entfernt. Diese Einstellung wird in der lokalen Konfiguration für die Ordnerumleitung beibehalten.
 
-Weitere Informationen finden Sie unter [Bereitstellen von Hauptcomputern für Ordnerumleitung und Roamingbenutzerprofile](deploy-primary-computers.md)
+Weitere Informationen finden Sie unter [Deploy Primary Computers for Folder Redirection and Roaming User Profiles](deploy-primary-computers.md)
 
 ## <a name="hardware-requirements"></a>Hardwareanforderungen
 
@@ -132,7 +132,7 @@ Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:
 | Inhaltstyp | Verweise |
 | --- | --- |
 | Produktbewertung | [Unterstützung von Information-Workern mit zuverlässigen Datei Diensten und Speicher](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831495(v%3dws.11)>)<br>[Neues in Offlinedateien](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff183315(v=ws.10)>) (Windows 7 und Windows Server 2008 R2)<br>[Neues in Offlinedateien für Windows Vista](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc749449(v=ws.10)>)<br>[Änderungen an Offlinedateien in Windows Vista](<https://technet.microsoft.com/library/2007.11.offline.aspx>) (TechNet Magazine) |
-| Bereitstellung | [Bereitstellen von Ordner Umleitung, Offlinedateien und Roamingbenutzerprofilen](deploy-folder-redirection.md)<br>[Implementieren einer Lösung für die Daten Zentralisierung durch Endbenutzer: Ordner Umleitung und Überprüfung und Bereitstellung von Offlinedateien-Technologie](http://download.microsoft.com/download/3/0/1/3019A3DA-2F41-4F2D-BBC9-A6D24C4C68C4/Implementing%20an%20End-User%20Data%20Centralization%20Solution.docx)<br>[Handbuch zur Verwaltung von roamingbenutzerdaten](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10)>)<br>[Schrittweise Anleitung: Konfigurieren von neuen Offlinedateifunktionen für Windows 7-Computer](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff633429(v=ws.10)>)<br>[Verwenden der Ordner Umleitung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753996(v=ws.11)>)<br>[Implementieren der Ordner Umleitung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc737434(v=ws.10)>) (Windows Server 2003) |
+| Bereitstellung | [Bereitstellen von Ordner Umleitung, Offlinedateien und Roamingbenutzerprofilen](deploy-folder-redirection.md)<br>[Implementieren einer Lösung für die Daten Zentralisierung durch Endbenutzer: Ordner Umleitung und Überprüfung und Bereitstellung von Offlinedateien-Technologie](https://download.microsoft.com/download/3/0/1/3019A3DA-2F41-4F2D-BBC9-A6D24C4C68C4/Implementing%20an%20End-User%20Data%20Centralization%20Solution.docx)<br>[Handbuch zur Verwaltung von roamingbenutzerdaten](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc766489(v=ws.10)>)<br>[Schrittweise Anleitung: Konfigurieren von neuen Offlinedateifunktionen für Windows 7-Computer](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff633429(v=ws.10)>)<br>[Verwenden der Ordner Umleitung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753996(v=ws.11)>)<br>[Implementieren der Ordner Umleitung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc737434(v=ws.10)>) (Windows Server 2003) |
 | Tools und Einstellungen | [Offline Dateien auf MSDN](https://msdn.microsoft.com/library/cc296092.aspx)<br>[Offlinedateien Gruppenrichtlinie Referenz](https://msdn.microsoft.com/library/ms878937.aspx) (Windows 2000) |
 | Communityressourcen | [Forum zu Datei Diensten und Speicher](https://social.technet.microsoft.com/forums/windowsserver/home?forum=winserverfiles)<br>[Hallo, Scripting Guy! Wie kann ich mit dem Offlinedateien Feature in Windows arbeiten?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>)<br>[Hallo, Scripting Guy! Wie kann ich Offlinedateien aktivieren und deaktivieren?](<https://blogs.technet.microsoft.com/heyscriptingguy/2009/06/02/hey-scripting-guy-how-can-i-enable-and-disable-offline-files/>) |
 | Verwandte Technologien|[Identität und Zugriff in Windows Server](../../identity/identity-and-access.md)<br>[Speicher](../storage.md)<br>[Remote Zugriff und Serververwaltung](../../remote/index.md) |

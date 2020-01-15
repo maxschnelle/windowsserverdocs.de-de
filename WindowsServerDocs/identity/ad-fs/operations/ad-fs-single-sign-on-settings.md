@@ -9,12 +9,12 @@ ms.date: 08/17/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 311789fdec160faeeeba0ecf26491d1e0cd6105d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 76c34dc518f4578b4ae2ead3459f1d79c191b3d7
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407394"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949189"
 ---
 # <a name="ad-fs-single-sign-on-settings"></a>AD FS Einstellungen für einmaliges Anmelden
 
@@ -46,7 +46,7 @@ Wenn das Gerät nicht registriert ist, aber ein Benutzer die Option "angemeldet 
   
  Wie bereits erwähnt, erhalten Benutzer auf registrierten Geräten immer ein dauerhaftes SSO, es sei denn, das permanente einmalige Anmelden ist deaktiviert. Bei nicht registrierten Geräten kann das permanente einmalige Anmelden erreicht werden, indem die Funktion "angemeldet bleiben" aktiviert wird. 
  
- Für Windows Server 2012 R2 müssen Sie diesen Hotfix installieren, um PSSO für das Szenario "angemeldet bleiben" zu aktivieren. dieser [Hotfix](https://support.microsoft.com/en-us/kb/2958298/) ist auch Bestandteil des Updaterollup vom [August 2014 für Windows RT 8,1, Windows 8.1 und Windows Server 2012 R2](https://support.microsoft.com/en-us/kb/2975719).   
+ Für Windows Server 2012 R2 müssen Sie diesen Hotfix installieren, um PSSO für das Szenario "angemeldet bleiben" zu aktivieren. dieser [Hotfix](https://support.microsoft.com/kb/2958298/) ist auch Bestandteil des Updaterollup vom [August 2014 für Windows RT 8,1, Windows 8.1 und Windows Server 2012 R2](https://support.microsoft.com/kb/2975719).   
 
 Aufgabe | PowerShell | Beschreibung
 ------------ | ------------- | -------------
@@ -103,7 +103,7 @@ Es ist wichtig zu beachten, dass bei einer relativ langen Zeitspanne für das ei
 ## <a name="psso-revocation"></a>PSSO-Sperrung  
  Um die Sicherheit zu schützen, lehnt AD FS alle permanenten SSO-Cookies ab, die zuvor ausgegeben wurden, wenn die folgenden Bedingungen erfüllt sind. Dies erfordert, dass der Benutzer seine Anmelde Informationen bereitstellt, um sich erneut bei AD FS zu authentifizieren. 
   
-- Kennwort für Benutzer Änderungen  
+- Änderung des Kennworts durch den Benutzer  
   
 - Die Einstellung für persistentes SSO ist in AD FS deaktiviert.  
   
@@ -127,18 +127,18 @@ Set-AdfsProperties -PersistentSsoCutoffTime <DateTime>
 ```
   
 ## <a name="enable-psso-for-office-365-users-to-access-sharepoint-online"></a>Aktivieren von PSSO für Office 365-Benutzer für den Zugriff auf SharePoint Online  
- Nachdem PSSO in AD FS aktiviert und konfiguriert wurde, wird AD FS ein dauerhaftes Cookie schreiben, nachdem ein Benutzer authentifiziert wurde. Wenn der Benutzer das nächste Mal kommt und ein dauerhaftes Cookie noch gültig ist, muss ein Benutzer keine Anmelde Informationen zur erneuten Authentifizierung angeben. Sie können auch die zusätzliche Authentifizierungs Aufforderung für Office 365-und SharePoint Online-Benutzer vermeiden, indem Sie die folgenden beiden Anspruchs Regeln in AD FS konfigurieren, um die Persistenz bei Microsoft Azure AD und SharePoint Online zu auslösen.  Um PSSO für Office 365-Benutzer für den Zugriff auf SharePoint Online zu aktivieren, müssen Sie diesen [Hotfix](https://support.microsoft.com/en-us/kb/2958298/) installieren, der auch Bestandteil des Updaterollup vom [August 2014 für Windows RT 8,1, Windows 8.1 und Windows Server 2012 R2](https://support.microsoft.com/en-us/kb/2975719)ist.  
+ Nachdem PSSO in AD FS aktiviert und konfiguriert wurde, wird AD FS ein dauerhaftes Cookie schreiben, nachdem ein Benutzer authentifiziert wurde. Wenn der Benutzer das nächste Mal kommt und ein dauerhaftes Cookie noch gültig ist, muss ein Benutzer keine Anmelde Informationen zur erneuten Authentifizierung angeben. Sie können auch die zusätzliche Authentifizierungs Aufforderung für Office 365-und SharePoint Online-Benutzer vermeiden, indem Sie die folgenden beiden Anspruchs Regeln in AD FS konfigurieren, um die Persistenz bei Microsoft Azure AD und SharePoint Online zu auslösen.  Um PSSO für Office 365-Benutzer für den Zugriff auf SharePoint Online zu aktivieren, müssen Sie diesen [Hotfix](https://support.microsoft.com/kb/2958298/) installieren, der auch Bestandteil des Updaterollup vom [August 2014 für Windows RT 8,1, Windows 8.1 und Windows Server 2012 R2](https://support.microsoft.com/kb/2975719)ist.  
   
  Eine Ausstellungs Transformations Regel zum Durchlaufen des insiencorporatenetwork-Anspruchs.  
   
 ```  
 @RuleTemplate = "PassThroughClaims"  
 @RuleName = "Pass through claim - InsideCorporateNetwork"  
-c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"]  
+c:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"]  
 => issue(claim = c);   
 A custom Issuance Transform rule to pass through the persistent SSO claim  
 @RuleName = "Pass Through Claim - Psso"  
-c:[Type == "http://schemas.microsoft.com/2014/03/psso"]  
+c:[Type == "https://schemas.microsoft.com/2014/03/psso"]  
 => issue(claim = c);  
   
 ```
@@ -163,29 +163,29 @@ Zusammenfassung:
     <th>JA</th>
   </tr>
  <tr align="center">
-    <td>SSO =&gt;Aktualisierungs Token festlegen =&gt;</td>
+    <td>SSO =&gt;Set Refresh Token =&gt;</td>
     <td>8 Std.</td>
-    <td>Nicht zutreffend</td>
-    <td>Nicht zutreffend</td>
+    <td>NICHT ZUTREFFEND</td>
+    <td>NICHT ZUTREFFEND</td>
     <th></th>
     <td>8 Std.</td>
-    <td>Nicht zutreffend</td>
-    <td>Nicht zutreffend</td>
+    <td>NICHT ZUTREFFEND</td>
+    <td>NICHT ZUTREFFEND</td>
   </tr>
 
  <tr align="center">
-    <td>PSSO =&gt;Aktualisierungs Token festlegen =&gt;</td>
-    <td>Nicht zutreffend</td>
+    <td>PSSO =&gt;Set Refresh Token =&gt;</td>
+    <td>NICHT ZUTREFFEND</td>
     <td>24 Stunden</td>
     <td>7 Tage</td>
     <th></th>
-    <td>Nicht zutreffend</td>
+    <td>NICHT ZUTREFFEND</td>
     <td>24 Stunden</td>
     <td>Max. 90 Tage mit 14 Tagen (Fenster)</td>
   </tr>
 
  <tr align="center">
-    <td>Lebensdauer von Token</td>
+    <td>Tokengültigkeitsdauer</td>
     <td>1 Std.</td>
     <td>1 Std.</td>
     <td>1 Std.</td>
@@ -199,7 +199,7 @@ Zusammenfassung:
 **Registriertes Gerät?** Sie erhalten das einmalige Anmelden (PSSO/persistent). <br>
 **Nicht registriertes Gerät?** Sie erhalten ein SSO <br>
 **Nicht registriertes Gerät, aber kmsi?** Sie erhalten das einmalige Anmelden (PSSO/persistent). <p>
-SEI
+Sei
  - [x] Administrator hat die kmsi-Funktion aktiviert [und]
  - [x] Benutzer klickt auf der Formular Anmeldeseite auf das Kontrollkästchen "kmsi".
  

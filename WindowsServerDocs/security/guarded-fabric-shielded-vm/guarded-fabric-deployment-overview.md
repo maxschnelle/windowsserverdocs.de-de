@@ -9,12 +9,12 @@ author: justinha
 ms.author: justinha
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: 8359532113e04e2247b4af34effc7f5b89d36f34
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e2b8400fc7b7f0e01e000fcb2f6472bdb4059ac8
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402416"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949803"
 ---
 # <a name="quick-start-for-guarded-fabric-deployment"></a>Schnellstart für die geschützte Fabric-Bereitstellung
 
@@ -22,7 +22,7 @@ ms.locfileid: "71402416"
 
 In diesem Thema wird erläutert, was ein geschütztes Fabric ist, seine Anforderungen und eine Zusammenfassung des Bereitstellungs Prozesses. Ausführliche Informationen zur Bereitstellung finden Sie unter Bereitstellen [des Host-Überwachungs Diensts für überwachte Hosts und abgeschirmte VMS](https://technet.microsoft.com/windows-server-docs/security/guarded-fabric-shielded-vm/guarded-fabric-deploying-hgs-overview).
 
-Lieber ein Video ansehen? Weitere Informationen finden Sie im Microsoft Virtual Academy-Kurs bereitstellen [von abgeschirmten VMS und einem geschützten Fabric mit Windows Server 2016](https://mva.microsoft.com/en-US/training-courses/deploying-shielded-vms-and-a-guarded-fabric-with-windows-server-2016-17131?l=WFLef7vUD_4604300474).
+Lieber ein Video ansehen? Weitere Informationen finden Sie im Microsoft Virtual Academy-Kurs bereitstellen [von abgeschirmten VMS und einem geschützten Fabric mit Windows Server 2016](https://mva.microsoft.com/training-courses/deploying-shielded-vms-and-a-guarded-fabric-with-windows-server-2016-17131?l=WFLef7vUD_4604300474).
 
 ## <a name="what-is-a-guarded-fabric"></a>Was ist ein geschütztes Fabric?
 

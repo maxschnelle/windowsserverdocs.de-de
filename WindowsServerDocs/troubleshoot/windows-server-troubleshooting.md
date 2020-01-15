@@ -10,19 +10,19 @@ ms.date: 10/17/2019
 ms.topic: landing-page
 author: kaushika-msft
 ms.author: kaushika
-ms.openlocfilehash: 829ae15495d54aca8c476909988ea5a44ea487e7
-ms.sourcegitcommit: 8a017624682fe0172076f9169a9fa17aa972907f
+ms.openlocfilehash: 5e6312075fffd62b599fb62f39cc94ca1f309a44
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852627"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950162"
 ---
 # <a name="troubleshooting-windows-server-components"></a>Problembehandlung bei Windows Server-Komponenten
 
 >- [!TIP]
 > Suchen Sie nach Informationen zu älteren Versionen von Windows Server? Sehen Sie sich unsere anderen [Windows Server-Bibliotheken](/previous-versions/windows/) auf docs.Microsoft.com an. Sie können [diese Website auch durchsuchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) , um nach bestimmten Informationen zu suchen.
 
-Microsoft veröffentlicht regelmäßig beide Updates für Windows Server. Um sicherzustellen, dass Ihre Server zukünftige Updates einschließlich der Sicherheitsupdates erhalten können, ist es wichtig, sie auf dem neuesten Stand zu halten. Eine komplette Liste der veröffentlichten Updates finden Sie im [Update Verlauf von Windows 10 und Windows Server 2016](https://support.microsoft.com/en-us/help/4000825/windows-10-windows-server-2016-update-history) .
+Microsoft veröffentlicht regelmäßig beide Updates für Windows Server. Um sicherzustellen, dass Ihre Server zukünftige Updates einschließlich der Sicherheitsupdates erhalten können, ist es wichtig, sie auf dem neuesten Stand zu halten. Eine komplette Liste der veröffentlichten Updates finden Sie im [Update Verlauf von Windows 10 und Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history) .
 
 Dieser Abschnitt enthält erweiterte Themen zur Problembehandlung und Links, die Ihnen helfen, Probleme mit Windows Server zu beheben. Weitere Themen werden hinzugefügt, sobald Sie verfügbar werden.
 

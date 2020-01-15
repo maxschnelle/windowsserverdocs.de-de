@@ -1,5 +1,5 @@
 ---
-title: Speicher
+title: „Speicher“.
 description: ''
 author: JasonGerend
 manager: elizapo
@@ -11,19 +11,19 @@ ms.topic: landing-page
 ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 03/08/2019
-ms.openlocfilehash: eadac31cb623a15dd308f7e33f984fe1fb46ffe5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7e7fbd6ce3fcef6b0f8da88927d83f28d3fff0a8
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365930"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950228"
 ---
-# <a name="storage"></a>Speicher
+# <a name="storage"></a>„Speicher“.
 
->Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
+>Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (Semi-Annual Channel)
 
 >[!TIP]
-> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
+> Suchen Sie nach Informationen zu älteren Versionen von Windows Server? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
 <hr />
 Der Speicher in Windows Server bietet neue und verbesserte Funktionen für Kunden des softwaredefinierten Rechenzentrums (software-defined datacenter, SDDC), die sich auf virtualisierte Workloads konzentrieren. Windows Server bietet außerdem umfassende Unterstützung für Unternehmenskunden, die Dateiserver mit vorhandenen Workloads verwenden.
@@ -124,7 +124,7 @@ Der Speicher in Windows Server bietet neue und verbesserte Funktionen für Kunde
 <HR />
                         <p><h3><a href="refs/refs-overview.md">ReFS</a></h3> Ein robustes Dateisystem, das die Datenverfügbarkeit maximiert, effizient für sehr große Datasets in verschiedenen Workloads skaliert und Datenintegrität durch Resilienz gegenüber Beschädigungen (unabhängig von Software-oder Hardwarefehlern) bereitstellt.<p>
 <HR />
-                        <p><h3><a href="file-server/file-server-smb-overview.md">SMB-Protokoll (Server Message Block)</a></h3> Ein Netzwerkdatei Freigabe Protokoll, das es Anwendungen auf einem Computer ermöglicht, Dateien zu lesen und in Dateien zu schreiben sowie Dienste von Serverprogrammen in einem Computernetzwerk anzufordern. Das SMB-Protokoll kann zusätzlich zu den TCP/IP-Protokollen oder anderen Netzwerkprotokollen verwendet werden. Mit dem SMB-Protokoll kann eine Anwendung (oder der Benutzer einer Anwendung) auf Dateien oder andere Ressourcen auf einem Remoteserver zugreifen. Dadurch wird es Anwendungen ermöglicht, Dateien auf dem Remoteserver zu lesen, zu erstellen und zu aktualisieren. Anwendungen können zudem mit jedem beliebigen Serverprogramm kommunizieren, das für den Empfang einer SMB-Clientanforderung eingerichtet ist.<p>
+                        <p><h3><a href="file-server/file-server-smb-overview.md">Server Message Block-Protokoll (SMB)</a></h3> Ein Netzwerkdatei Freigabe Protokoll, das es Anwendungen auf einem Computer ermöglicht, Dateien zu lesen und in Dateien zu schreiben sowie Dienste von Serverprogrammen in einem Computernetzwerk anzufordern. Das SMB-Protokoll kann zusätzlich zu den TCP/IP-Protokollen oder anderen Netzwerkprotokollen verwendet werden. Mit dem SMB-Protokoll kann eine Anwendung (oder der Benutzer einer Anwendung) auf Dateien oder andere Ressourcen auf einem Remoteserver zugreifen. Dadurch wird es Anwendungen ermöglicht, Dateien auf dem Remoteserver zu lesen, zu erstellen und zu aktualisieren. Anwendungen können zudem mit jedem beliebigen Serverprogramm kommunizieren, das für den Empfang einer SMB-Clientanforderung eingerichtet ist.<p>
 <HR />
                         <p><h3><a href="storage-spaces/Storage-class-memory-health.md">Speicher Klassen Speicher</a></h3> Bietet eine ähnliche Leistung wie der Computer Arbeitsspeicher (sehr schnell), jedoch mit der Daten Persistenz normaler Speicher Laufwerke. Windows behandelt Speicherklassenspeicher ähnlich wie normale Laufwerke (nur schneller), doch es gibt einige Unterschiede in der Verwaltung der Geräteintegrität.<p>
 <HR />
@@ -146,4 +146,4 @@ Der Speicher in Windows Server bietet neue und verbesserte Funktionen für Kunde
 ## <a name="in-azure"></a>In Azure
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-* [Azure storsimple](https://www.microsoft.com/en-us/cloud-platform/azure-storsimple)
+* [Azure storsimple](https://www.microsoft.com/cloud-platform/azure-storsimple)

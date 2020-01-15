@@ -7,12 +7,12 @@ ms.assetid: 392af37f-a02d-4d40-a25d-384211cbbfdd
 manager: dongill
 author: nirb-ms
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: c439a53abea07041e69e50d5d5148dae95243265
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 255429960735d70ff3a4d260bd9090b95882b6bd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386427"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949769"
 ---
 # <a name="guarded-fabric-and-shielded-vm-planning-guide-for-tenants"></a>Planungs Handbuch für geschütztes Fabric und abgeschirmte VMs für Mandanten
 
@@ -74,7 +74,7 @@ Wenn Sie einen geschützten oder Verschlüsselungs gestützten virtuellen Comput
 
 **Wie viele geschützte Datendateien benötige ich?** Sie können eine einzelne geschützte Datendatei zum Erstellen jeder abgeschirmten VM verwenden. Wenn eine bestimmte abgeschirmte VM jedoch erfordert, dass eines der vier Elemente anders ist, ist eine zusätzliche Schutz Datendatei erforderlich. Angenommen, Sie verfügen über eine Schutz Datendatei für Ihre IT-Abteilung und eine andere Schutz Datendatei für die Personalabteilung, da Ihr anfängliches Administrator Kennwort und RDP-Zertifikate voneinander abweichen.
 
-Die Verwendung separater Schutz Datendateien für jede abgeschirmte VM ist zwar möglich, ist aber nicht unbedingt die optimale Wahl und sollte aus den richtigen Gründen erfolgen. Wenn z. b. jeder geschützte virtuelle Computer über ein anderes Administrator Kennwort verfügen muss, sollten Sie stattdessen einen Kenn Wort Verwaltungsdienst oder ein Tool wie [die lokale Administrator Kennwort-Lösung (Runden) von Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=46899)verwenden.
+Die Verwendung separater Schutz Datendateien für jede abgeschirmte VM ist zwar möglich, ist aber nicht unbedingt die optimale Wahl und sollte aus den richtigen Gründen erfolgen. Wenn z. b. jeder geschützte virtuelle Computer über ein anderes Administrator Kennwort verfügen muss, sollten Sie stattdessen einen Kenn Wort Verwaltungsdienst oder ein Tool wie [die lokale Administrator Kennwort-Lösung (Runden) von Microsoft](https://www.microsoft.com/download/details.aspx?id=46899)verwenden.
 
 ## <a name="creating-a-shielded-vm-on-a-virtualization-fabric"></a>Erstellen einer abgeschirmten VM in einem virtualisierungsfabric
 

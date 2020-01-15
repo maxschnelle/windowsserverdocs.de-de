@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 01/29/2019
-ms.openlocfilehash: 70014c04bbb4425fe3c3fd0379f10cf00abe00ee
-ms.sourcegitcommit: 4b4ff8d9e18b2ddcd1916ffa2cd58fffbed8e7ef
+ms.openlocfilehash: 04fdd52544b69d2c41abcbee00dd00b31bf5f21c
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72986446"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949786"
 ---
 # <a name="create-a-windows-shielded-vm-template-disk"></a>Erstellen eines Datenträgers für eine geschützte Windows-VM-Vorlage
 
@@ -59,7 +59,7 @@ Führen Sie die folgenden Schritte auf einem Computer aus, auf dem Windows Serve
 
         Install-WindowsFeature RSAT-Shielded-VM-Tools -Restart
         
-    Sie können den Server auch über einen Client Computer verwalten, auf dem Sie die [Windows 10-Remoteserver-Verwaltungstools](https://www.microsoft.com/en-us/download/details.aspx?id=45520)installiert haben.
+    Sie können den Server auch über einen Client Computer verwalten, auf dem Sie die [Windows 10-Remoteserver-Verwaltungstools](https://www.microsoft.com/download/details.aspx?id=45520)installiert haben.
 
 3. Abrufen oder Erstellen eines Zertifikats zum Signieren des VSC für die vhdx-Datei, die als Vorlagen Datenträger für neue abgeschirmte VMS verwendet wird. Details zu diesem Zertifikat werden den Mandanten angezeigt, wenn Sie Ihre geschützten Datendateien erstellen und die Datenträger autorisierst, denen Sie vertrauen. Daher ist es wichtig, dass Sie dieses Zertifikat von einer Zertifizierungsstelle abrufen, die von Ihnen und ihren Mandanten als nicht vertrauenswürdig eingestuft wird. In Unternehmens Szenarios, in denen Sie sowohl der Host als auch der Mandant sind, sollten Sie das Zertifikat aus Ihrer PKI ausgeben.
 
@@ -99,7 +99,7 @@ Wenn Sie VMM verwenden, müssen Sie nach dem Erstellen eines Vorlagen Datenträg
 
 3. Als Nächstes stellen Sie VMM Informationen zum Betriebssystem bereit, das auf dem Vorlagen Datenträger installiert ist:
 
-    a. Suchen Sie den neu importierten Vorlagen Datenträger auf dem Bibliothek Server im Arbeitsbereich **Bibliothek** .
+    ein. Suchen Sie den neu importierten Vorlagen Datenträger auf dem Bibliothek Server im Arbeitsbereich **Bibliothek** .
 
     b. Klicken Sie mit der rechten Maustaste auf den Datenträger und dann auf **Eigenschaften**.
 

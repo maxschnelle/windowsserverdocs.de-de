@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.assetid: 8dcb8cf9-0e08-4fdd-9d7e-ec577ce8d8a0
 author: kumudd
 ms.date: 10/10/2016
-ms.openlocfilehash: 0e848260dd4ba3b37d1351fba7c24dd3cd283e69
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 11d8abfc23cb0f192ed74a1082e83c8e0c8e87e9
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393943"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950096"
 ---
 # <a name="storage-quality-of-service"></a>Quality of Service für Speicher
 
@@ -31,7 +31,7 @@ Sie können QoS für Speicher in Windows Server 2016 nutzen, um folgende Ziele z
 
 In diesem Dokument wird beschrieben, wie Ihr Unternehmen von der neuen Speicher-QoS-Funktionalität profitieren kann. Es wird davon ausgegangen, dass Sie bereits mit Windows Server, mit Windows Server-Failoverclustering, mit Dateiservern mit horizontaler Skalierung, mit Hyper-V sowie mit Windows PowerShell vertraut sind.
 
-## <a name="BKMK_Overview"></a>Übersicht über  
+## <a name="BKMK_Overview"></a>Übersicht  
 In diesem Abschnitt werden die Anforderungen für die Verwendung von Speicher-QoS beschrieben. Außerdem finden Sie eine Übersicht über eine softwaredefinierte Lösung unter Verwendung von Speicher-QoS sowie eine Terminologieliste zu Speicher-QoS.  
 
 ### <a name="BKMK_Requirements"></a>QoS-Speicheranforderungen  
@@ -45,7 +45,7 @@ Speicher-QoS unterstützt zwei Bereitstellungsszenarien:
 
     Für Speicher-QoS wird der Failovercluster auf Speicherservern benötigt, die Computeserver müssen sich jedoch nicht in einem Failovercluster befinden. Auf allen Servern (sowohl für Speicher als auch für Compute) muss Windows Server 2016 ausgeführt werden.  
 
-    Wenn Sie keinen Dateiservercluster mit horizontaler Skalierung zu Testzwecken bereitgestellt haben, finden Sie unter [Windows Server 2012 R2 Storage: Step-by-step with Storage Spaces, SMB Scale-Out and Shared VHDX (Physical)](http://blogs.technet.com/b/josebda/archive/2013/07/31/windows-server-2012-r2-storage-step-by-step-with-storage-spaces-smb-scale-out-and-shared-vhdx-physical.aspx) (Windows Server 2012 R2-Speicher: Schrittanleitungen für Speicherplätze, SMB Scale-Out und VHDX-Freigabe [physisch]) Schrittanleitungen zum Erstellen eines solchen Servers mit vorhandenen Servern oder virtuellen Computern.  
+    Wenn Sie keinen Dateiservercluster mit horizontaler Skalierung zu Testzwecken bereitgestellt haben, finden Sie unter [Windows Server 2012 R2 Storage: Step-by-step with Storage Spaces, SMB Scale-Out and Shared VHDX (Physical)](https://blogs.technet.com/b/josebda/archive/2013/07/31/windows-server-2012-r2-storage-step-by-step-with-storage-spaces-smb-scale-out-and-shared-vhdx-physical.aspx) (Windows Server 2012 R2-Speicher: Schrittanleitungen für Speicherplätze, SMB Scale-Out und VHDX-Freigabe [physisch]) Schrittanleitungen zum Erstellen eines solchen Servers mit vorhandenen Servern oder virtuellen Computern.  
 
 -   **Hyper-V mit freigegebenen Clustervolumes.** Für dieses Szenario sind die beiden folgenden Komponenten erforderlich:  
 
@@ -74,7 +74,7 @@ Bei Änderungen der Speicher-QoS-Richtlinien oder der Leistungsanforderungen vir
 |Fluss|Jedes Dateihandle, das von einem Hyper-V-Server für eine VHD- oder VHDX-Datei geöffnet wird, wird als „Fluss“ betrachtet. Wenn ein virtueller Computer mit zwei virtuellen Festplatten verknüpft ist, verfügt er für jede Datei über einen Fluss zum Dateiservercluster. Wenn ein VHDX-Datenträger für mehrere virtuelle Computer freigegeben ist, verfügt er über einen Fluss pro VM.|  
 |InitiatorName|Der Name des virtuellen Computers, der dem Dateiserver mit horizontaler Skalierung für jeden Fluss gemeldet wird.|  
 |InitiatorID|Ein Bezeichner, der der VM-ID entspricht.  Dieser Bezeichner kann immer zur eindeutigen Identifizierung einzelner VM-Flüsse verwendet werden (selbst dann, wenn die VMs denselben InitiatorName-Wert aufweisen).|  
-|Richtlinie|Speicher-QoS-Richtlinien werden in der Clusterdatenbank gespeichert und weisen die folgenden Eigenschaften auf: PolicyId, MinimumIOPs, MaximumIOPs, ParentPolicy und PolicyType.|  
+|-Richtlinie|Speicher-QoS-Richtlinien werden in der Clusterdatenbank gespeichert und weisen die folgenden Eigenschaften auf: PolicyId, MinimumIOPs, MaximumIOPs, ParentPolicy und PolicyType.|  
 |PolicyId|Eindeutiger Bezeichner für eine Richtlinie.  Dieser Wert wird standardmäßig generiert, kann bei Bedarf jedoch auch festgelegt werden.|  
 |MinimumIOPs|Mindestwert für normalisierte IOPS, die von einer Richtlinie bereitgestellt werden.  Auch als „Reservierung“ bezeichnet.|  
 |MaximumIOPs|Höchstwert für normalisierte IOPS, die von einer Richtlinie eingeschränkt werden.  Auch als „Grenzwert“ bezeichnet.|  
@@ -122,7 +122,7 @@ Das optionale Feature **RSAT-Hyper-V-Tools** umfasst das Windows PowerShell-Modu
 -   Windows PowerShell: Add-WindowsFeature RSAT-Hyper-V-Tools  
 
 #### <a name="deploy-virtual-machines-to-run-workloads-for-testing"></a>Bereitstellen von virtuellen Computern, um Workloads zu Testzwecken auszuführen  
-Sie benötigen virtuelle Computer auf dem Dateiserver mit horizontaler Skalierung, auf denen relevante Workloads ausgeführt werden.  Tipps zum Simulieren von Last und Ausführen von Belastungstests finden Sie auf der folgenden Seite, auf der ein empfohlenes Tool (DiskSpd) und Verwendungsbeispiele beschrieben werden: [DiskSpd, PowerShell and storage performance: measuring IOPs, throughput and latency for both local disks and SMB file shares](http://blogs.technet.com/b/josebda/archive/2014/10/13/diskspd-powershell-and-storage-performance-measuring-iops-throughput-and-latency-for-both-local-disks-and-smb-file-shares.aspx) (DiskSpd, PowerShell und Speicherleistung: Messen von IOPS, Durchsatz und Latenz für lokale Datenträger und SMB-Dateifreigaben).  
+Sie benötigen virtuelle Computer auf dem Dateiserver mit horizontaler Skalierung, auf denen relevante Workloads ausgeführt werden.  Tipps zum Simulieren von Last und Ausführen von Belastungstests finden Sie auf der folgenden Seite, auf der ein empfohlenes Tool (DiskSpd) und Verwendungsbeispiele beschrieben werden: [DiskSpd, PowerShell and storage performance: measuring IOPs, throughput and latency for both local disks and SMB file shares](https://blogs.technet.com/b/josebda/archive/2014/10/13/diskspd-powershell-and-storage-performance-measuring-iops-throughput-and-latency-for-both-local-disks-and-smb-file-shares.aspx) (DiskSpd, PowerShell und Speicherleistung: Messen von IOPS, Durchsatz und Latenz für lokale Datenträger und SMB-Dateifreigaben).  
 
 Die Beispielszenarien in diesem Leitfaden umfassen fünf virtuelle Computer. BuildVM1, BuildVM2, BuildVM3 und BuildVM4 führen eine Desktopworkload mit geringen bis mittleren Speicheranforderungen aus. TestVm1 führt einen Onlinetransaktionsverarbeitungs-Benchmark mit hohen Speicheranforderungen aus.  
 
@@ -885,7 +885,7 @@ IOPSNormalizationSize
 32768  
 ```    
 
-## <a name="see-also"></a>Weitere Informationen  
+## <a name="see-also"></a>Siehe auch  
 - [Windows Server 2016](../../get-started/windows-server-2016.md)  
 - [Speicher Replikat in Windows Server 2016](../storage-replica/storage-replica-overview.md)  
 - [Direkte Speicherplätze in Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  

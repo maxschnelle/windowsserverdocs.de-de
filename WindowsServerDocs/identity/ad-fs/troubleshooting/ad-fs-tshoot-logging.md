@@ -8,15 +8,15 @@ ms.date: 02/21/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 5985fc022a084e0e36e12ea60f18d1650c8c6b51
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e42c5b6d53cd3985fefc2c93ab10b59383a35af0
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366199"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950179"
 ---
 # <a name="ad-fs-troubleshooting---events-and-logging"></a>AD FS Problembehandlung: Ereignisse und Protokollierung
-In AD FS werden zwei primäre Protokolle bereitgestellt, die bei der Problembehandlung verwendet werden können.  Die Überladungen sind:
+In AD FS werden zwei primäre Protokolle bereitgestellt, die bei der Problembehandlung verwendet werden können.  Diese Berichte sind:
 
 - das Administrator Protokoll
 - Das Ablauf Verfolgungs Protokoll  
@@ -61,15 +61,15 @@ In der folgenden Tabelle werden die verfügbaren Überwachungs Stufen erläutert
 |Basic (Standard)|Set-ADF sproperties-AuditLevel Basic|Für eine einzelne Anforderung werden höchstens 5 Ereignisse protokolliert.|  
 |Ausführlich|Set-ADF sproperties-AuditLevel Verbose|Alle Ereignisse werden protokolliert.  Dadurch wird eine beträchtliche Menge an Informationen pro Anforderung protokolliert.|  
   
-Zum Anzeigen der aktuellen Überwachungs Ebene können Sie das PowerShell-Cmdlet verwenden:  Get-ADF sproperties.  
+Zum Anzeigen der aktuellen Überwachungs Ebene können Sie das PowerShell-Cmdlet "Get-adfsproperties" verwenden.  
   
 ![Überwachungs Erweiterungen](media/ad-fs-tshoot-logging/ADFS_Audit_1.PNG)  
   
-Die Überwachungs Ebene kann mithilfe des PowerShell-cmdlt ausgelöst oder verringert werden:  Set-ADF sproperties-AuditLevel.  
+Die Überwachungs Ebene kann mithilfe von PowerShell-cmdlt: Set-adtsproperties-AuditLevel ausgelöst oder gesenkt werden.  
   
 ![Überwachungs Erweiterungen](media/ad-fs-tshoot-logging/ADFS_Audit_2.png)  
   
-## <a name="types-of-events"></a>Ereignis Typen  
+## <a name="types-of-events"></a>Ereignistypen  
 AD FS Ereignisse können unterschiedliche Typen aufweisen, basierend auf den verschiedenen Typen von Anforderungen, die von AD FS verarbeitet werden. Jedem Ereignistyp sind bestimmte Daten zugeordnet.  Der Ereignistyp kann zwischen Anmelde Anforderungen (d. h. Tokenanforderungen) und Systemanforderungen (Server-Server-Aufrufe einschließlich Abrufen von Konfigurationsinformationen) unterscheiden.    
 
 In der folgenden Tabelle werden die grundlegenden Ereignis Typen beschrieben.  
@@ -91,21 +91,21 @@ Die Sicherheitsüberwachung des AD FS-Dienst Kontos kann manchmal hilfreich sein
 ### <a name="to-enable-security-auditing"></a>So aktivieren Sie die Sicherheitsüberwachung
 1. Klicken Sie auf Start, zeigen Sie auf **Programme**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **lokale Sicherheitsrichtlinie**.
 2. Navigieren Sie zum Ordner **Sicherheitseinstellungen\Lokale Richtlinien\User Rights Management** und doppelklicken dann auf **Generieren von Sicherheitsüberwachungen**.
-3. Überprüfen Sie auf der Registerkarte **lokale Sicherheitseinstellung** , ob das AD FS-Dienst Konto aufgeführt ist. Wenn Sie nicht vorhanden ist, klicken Sie auf Benutzer oder Gruppe hinzufügen, fügen Sie Sie der Liste hinzu, und klicken Sie dann auf OK.
+3. Vergewissern Sie sich auf der Registerkarte **Lokale Sicherheitseinstellung**, dass das AD FS-Dienstkonto aufgeführt wird. Wenn es nicht vorhanden ist, klicken Sie auf Benutzer oder Gruppe hinzufügen und fügen es der Liste hinzu. Klicken Sie dann auf OK.
 4. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, und führen Sie den folgenden Befehl aus, um die Überwachung Auditpol. exe/Set/SubCategory: "Application generated"/Failure: enable/Success: enable zu aktivieren.
 5. Schließen Sie **lokale Sicherheitsrichtlinie**, und öffnen Sie dann das Snap-in "AD FS-Verwaltung".
  
 Klicken Sie zum Öffnen des Snap-Ins "AD FS-Verwaltung" auf Start, zeigen Sie auf Programme, zeigen Sie auf Verwaltung, und klicken Sie dann auf AD FS Verwaltung.
  
 6. Klicken Sie im Aktionsbereich auf Verbunddienst Eigenschaften bearbeiten.
-7. Klicken Sie im Dialogfeld Verbunddienst Eigenschaften auf die Registerkarte Ereignisse.
-8. Aktivieren Sie die Kontrollkästchen **Erfolgs** Überwachungen und **Fehler** Überwachungen.
+7. Klicken Sie im Dialogfeld Verbunddiensteigenschaften auf die Registerkarte Ereignisse.
+8. Aktivieren Sie die Kontrollkästchen **Erfolgreiche Überprüfungen** und **Fehlerüberprüfungen**.
 9. Klicken Sie auf „OK“.
 
 ![Überwachungs Erweiterungen](media/ad-fs-tshoot-logging/event4.PNG)  
  
 >[!NOTE]
->Die obigen Anweisungen werden nur verwendet, wenn AD FS auf einem eigenständigen Mitglieds Server ist.  Wenn AD FS auf einem Domänen Controller ausgeführt wird, anstelle der lokalen Sicherheitsrichtlinie, verwenden Sie die **Standard Domänen Controller Richtlinie** in **Gruppenrichtlinie Verwaltung/Gesamtstruktur/Domänen/** Domänen Controller.  Klicken Sie auf Bearbeiten, und navigieren Sie zu Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richt **Linien \ Benutzer Rights Management**
+>Die obigen Anweisungen werden nur verwendet, wenn AD FS auf einem eigenständigen Mitglieds Server ist.  Wenn AD FS auf einem Domänen Controller ausgeführt wird, anstelle der lokalen Sicherheitsrichtlinie, verwenden Sie die **Standard Domänen Controller Richtlinie** in **Gruppenrichtlinie Verwaltung/Gesamtstruktur/Domänen/** Domänen Controller.  Klicken Sie auf Bearbeiten, und navigieren Sie zu **Computerkonfiguration\Richtlinien\Windows-Einstellungen\Sicherheitseinstellungen\Lokale Richtlinien \ Benutzer Rights Management**
 
 ## <a name="windows-communication-foundation-and-windows-identity-foundation-messages"></a>Windows Communication Foundation-und Windows Identity Foundation-Meldungen
 Zusätzlich zur Ablauf Verfolgungs Protokollierung müssen Sie möglicherweise Windows Communication Foundation (WCF) und Windows Identity Foundation (WIF)-Nachrichten anzeigen, um ein Problem zu beheben. Dies kann durch Ändern der Datei " **Microsoft. identityserver. ServiceHost. exe. config** " auf dem AD FS-Server erreicht werden. 
@@ -139,16 +139,16 @@ Diese Aktivitäts-ID bleibt für die gesamte Dauer der Anforderung gleich und wi
 ![ActivityId](media/ad-fs-tshoot-logging/activityid2.png)
 
 Zur Unterstützung des Problem Behandlungsprozesses protokolliert AD FS auch immer dann das Aufrufer-ID-Ereignis, wenn der tokenausstellungs-Prozess auf einem AD FS Server fehlschlägt. Dieses Ereignis enthält den Anspruchstyp und den Wert eines der folgenden Anspruchs Typen, wobei angenommen wird, dass diese Informationen als Teil einer Tokenanforderung an die Verbunddienst übermittelt wurden:
-- http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountnameh
+- https://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountnameh
 - http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier
 - http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upnh
-- http://schemas.microsoft.com/ws/2008/06/identity/claims/upn
+- https://schemas.microsoft.com/ws/2008/06/identity/claims/upn
 - http://schemas.xmlsoap.org/claims/UPN
 - http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddressh
-- http://schemas.microsoft.com/ws/2008/06/identity/claims/emailaddress 
+- https://schemas.microsoft.com/ws/2008/06/identity/claims/emailaddress 
 - http://schemas.xmlsoap.org/claims/EmailAddress
 - http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name
-- http://schemas.microsoft.com/ws/2008/06/identity/claims/name
+- https://schemas.microsoft.com/ws/2008/06/identity/claims/name
 - http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier 
 
 Das Ereignis Aufruferkennung protokolliert auch die Aktivitäts-ID, damit Sie die Ereignisprotokolle mithilfe dieser Aktivitäts-ID filtern oder nach einer bestimmten Anforderung durchsuchen können.

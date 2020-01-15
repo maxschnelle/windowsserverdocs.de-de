@@ -8,22 +8,22 @@ ms.date: 01/12/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 416d9a68326927fcdf5884ef794a74e24a25bb8b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5fc5c2384a6d8d13f807a1ce99c5db78bee5b108
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366103"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950132"
 ---
 # <a name="troubleshooting-ad-fs"></a>Problembehandlung für AD FS
-AD FS eine Menge beweglicher Teile hat, werden viele verschiedene Dinge behandelt, und es gibt viele verschiedene Abhängigkeiten.  Natürlich kann dies zu unterschiedlichen Problemen führen.  Dieses Dokument soll Ihnen den Einstieg in die Behebung dieser Probleme erleichtern.  In diesem Dokument werden die typischen Bereiche vorgestellt, auf die Sie sich konzentrieren sollten, das Aktivieren von Features für zusätzliche Informationen und verschiedene Tools, die zum Nachverfolgen von Problemen verwendet werden können.  
+AD FS eine Menge beweglicher Teile hat, werden viele verschiedene Dinge behandelt, und es gibt viele verschiedene Abhängigkeiten.  Naturgemäß kann dies zu diversen Problemen führen.  Dieses Dokument soll Ihnen den Einstieg in die Behebung dieser Probleme erleichtern.  In diesem Dokument werden die typischen Bereiche vorgestellt, auf die Sie sich konzentrieren sollten, das Aktivieren von Features für zusätzliche Informationen und verschiedene Tools, die zum Nachverfolgen von Problemen verwendet werden können.  
 
 >[!NOTE]
->Weitere Informationen finden Sie in der [ADFS-Hilfe](http://adfshelp.microsoft.com) , die effektive Tools an einem Ort bereitstellt, die es Benutzern und Administratoren erleichtern, Authentifizierungs Probleme schneller zu lösen. 
+>Weitere Informationen finden Sie in der [ADFS-Hilfe](https://adfshelp.microsoft.com) , die effektive Tools an einem Ort bereitstellt, die es Benutzern und Administratoren erleichtern, Authentifizierungs Probleme schneller zu lösen. 
 
 
 ## <a name="what-to-check-first"></a>Was zuerst überprüft werden muss
-Bevor Sie sich mit der detaillierten Problembehandlung befassen, sollten Sie zunächst einige Punkte überprüfen.  Die Überladungen sind:
+Bevor Sie sich mit der detaillierten Problembehandlung befassen, sollten Sie zunächst einige Punkte überprüfen.  Diese Berichte sind:
 - **DNS-Konfiguration** : können Sie den Namen des Verbund Dienstanbieter auflösen?  Dies sollte entweder in die IP-Adresse des Load Balancers oder die IP-Adresse eines der AD FS Server in der Farm aufgelöst werden.  Weitere Informationen finden Sie unter [AD FS Problembehandlung: DNS](ad-fs-tshoot-dns.md).
 - **AD FS Endpunkte** : können Sie zu den AD FS Endpunkten navigieren?  Durch das Durchsuchen können Sie feststellen, ob Ihr AD FS Webserver auf Anforderungen antwortet.  Wenn Sie diese Datei erhalten, wissen Sie, dass AD FS Anforderungen genau über 443 verarbeitet.  Weitere Informationen finden Sie unter [AD FS Problembehandlung-Endpunkte](ad-fs-tshoot-endpoints.md).
 - **IDP-initiierte Anmeldung** : können Sie sich über die IDP-initiierte Anmeldeseite anmelden und authentifizieren?  Sie müssen sicherstellen, dass diese Seite aktiviert wurde, da Sie standardmäßig deaktiviert ist.  Verwenden Sie `Set-AdfsProperties -EnableIdPInitiatedSignOn $true`, um die Seite zu aktivieren.  Wenn Sie sich anmelden und authentifizieren können, wissen Sie, dass AD FS in diesem Bereich funktioniert.  Weitere Informationen finden Sie unter [AD FS Troubleshooting-SignOn](ad-fs-tshoot-initiatedsignon.md).

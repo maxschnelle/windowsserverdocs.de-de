@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bd8a26d158f53121074881ac8ff204287f9a19ad
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a14233e01c19df650d1059e1b60cd5398b05709a
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71382974"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75946996"
 ---
 # <a name="manage-software-inventory-logging"></a>Verwaltung der Protokollierung des Softwarebestands
 
@@ -31,20 +31,20 @@ Die Protokollierung des Software Bestands kann auch zu zwei Versionen von Window
 - **Windows Server 2012 (Standard oder Datacenter Edition)** 
 
 > [!NOTE] 
-> Vergewissern Sie sich, dass [WMF 4,0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) installiert ist, bevor Sie das Update Paket unten anwenden.
+> Vergewissern Sie sich, dass [WMF 4,0](https://www.microsoft.com/download/details.aspx?id=40855) installiert ist, bevor Sie das Update Paket unten anwenden.
 
--  WMF 4.0-Updatepaket für Windows Server 2012: [KB 3119938](https://support.microsoft.com/en-us/kb/3119938)
+-  WMF 4.0-Updatepaket für Windows Server 2012: [KB 3119938](https://support.microsoft.com/kb/3119938)
 
 - **Windows Server 2008 R2 SP1**
 
 > [!NOTE] 
-> Vergewissern Sie sich, dass [WMF 4,0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) installiert ist, bevor Sie das Update Paket unten anwenden.
+> Vergewissern Sie sich, dass [WMF 4,0](https://www.microsoft.com/download/details.aspx?id=40855) installiert ist, bevor Sie das Update Paket unten anwenden.
 
 
-- Erfordert [.NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653)
+- Erfordert [.NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)
 
 
-- WMF 4.0-Updatepaket für Windows Server 2008 R2: [KB 3109118](https://support.microsoft.com/en-us/kb/3109118)
+- WMF 4.0-Updatepaket für Windows Server 2008 R2: [KB 3109118](https://support.microsoft.com/kb/3109118)
 
 
 Es gibt bei der Nutzung dieser Funktion zwei primäre Methoden für die Inventur:  
@@ -108,7 +108,7 @@ Die tägliche Erfassung der Software Inventur Protokollierung und die Weiterleit
 3.  Geben Sie an der PowerShell-Eingabeaufforderung **[Start SilLogging](https://technet.microsoft.com/library/dn283391.aspx)**  
   
 > [!NOTE]  
-> Es ist möglich, das Ziel festzulegen, ohne einen Fingerabdruck des Zertifikats einzurichten. Ein solches Vorgehen führt jedoch dazu, dass Weiterleitungen fehlschlagen und Daten lokal bis zu 30 Tage lang vorgehalten werden. (Nach Ablauf dieser Zeit werden sie gelöscht.) Sobald ein gültiges Zertifikat-Hash für das Ziel festgelegt (und das entsprechende gültige Zertifikat im LocalMachine/Personal Speicher installiert) wurde, werden lokal gespeicherte Daten an das Ziel weitergeleitet, sofern das Ziel so konfiguriert wurde, dass diese Daten mit diesem Zertifikat akzeptiert werden (weitere Informationen finden Sie unter [Software Inventory Logging Aggregator](Software-Inventory-Logging-Aggregator.md) ).  
+> Es ist möglich, das Ziel festzulegen, ohne einen Fingerabdruck des Zertifikats einzurichten. Ein solches Vorgehen führt jedoch dazu, dass Weiterleitungen fehlschlagen und Daten lokal bis zu 30 Tage lang vorgehalten werden. (Nach Ablauf dieser Zeit werden sie gelöscht.) Sobald ein gültiges Zertifikat-Hash für das Ziel festgelegt (und das entsprechende gültige Zertifikat im LocalMachine/Personal Speicher installiert) wurde, werden lokal gespeicherte Daten an das Ziel weitergeleitet, sofern das Ziel so konfiguriert wurde, dass diese Daten mit diesem Zertifikat akzeptiert werden (weitere Informationen finden Sie unter [Software Inventory Logging Aggregator](Software-Inventory-Logging-Aggregator.md) ).  
   
 #### <a name="to-stop-software-inventory-logging"></a>So beenden Sie die Protokollierung des Softwarebestands  
   
@@ -127,7 +127,7 @@ Sie führen drei Schritte aus, um die Protokollierung des Softwarebestands so zu
   
 3.  Installieren Sie ein gültiges SSL-Zertifikat (für Ihr Netzwerk) im **LocalMachine/Personal-Speicher** (bzw. **/LocalMachine/MY**) des lokalen Servers, von dem aus die Daten weitergeleitet werden sollen.  
   
-Es empfiehlt sich, die Schritte vor der Verwendung von **Start-SilLogging**auszuführen.  Wenn Sie die Schritte nach der Verwendung von **Start-SilLogging** ausführen möchten, müssen Sie SIL nur beenden und erneut starten.  Sie können auch mit dem Cmdlet Publish-SilData sicherstellen, dass der Aggregationsserver über eine vollständige Ergänzung der Daten für diesen Server verfügt.  
+Es empfiehlt sich, die Schritte vor der Verwendung von **Start-SilLogging**auszuführen.  Wenn Sie die Schritte nach der Verwendung von **Start-SilLogging**ausführen möchten, müssen Sie SIL nur beenden und erneut starten.  Sie können auch mit dem Cmdlet Publish-SilData sicherstellen, dass der Aggregationsserver über eine vollständige Ergänzung der Daten für diesen Server verfügt.  
   
 Eine umfassende Anleitung zum Einrichten des SIL-Frameworks als Ganzes finden Sie unter [Software Inventory Logging Aggregator](software-inventory-logging-aggregator.md).  Insbesondere sollten Sie den Abschnitt über die Problembehandlung zurate ziehen, wenn bei **Publish-SilData** ein Fehler auftritt oder wenn die SIL-Protokollierung auf andere Weise fehlschlägt.  
   
@@ -199,7 +199,7 @@ SystemManufacturer        : Microsoft Corporation
 > [!NOTE]  
 > Die Ausgabe dieses Cmdlets ist identisch mit der kombinierten Ausgabe aller anderen **Get-Sil** -Cmdlets, wobei sich durch die asynchrone Ausgabe auf der Konsole möglicherweise eine unterschiedliche Reihenfolge der Objekte ergibt.  
 >   
-> Die Protokollierung des Softwarebestands muss nicht gestartet sein, um die **Get-Sil**-Cmdlets verwenden zu können.  
+> Die Protokollierung des Softwarebestands muss nicht gestartet sein, um die **Get-Sil** -Cmdlets verwenden zu können.  
   
 ## <a name="BKMK_Step4"></a>Löschen der von der Software Inventur Protokollierung protokollierten Daten  
 Die Protokollierung des Softwarebestands wurde nicht als unternehmenskritische Komponente beabsichtigt. Sie ist so konzipiert, dass ihre Auswirkungen auf lokale Systemvorgänge so gering wie möglich sind und gleichzeitig eine hohe Zuverlässigkeit gewahrt wird. Dadurch kann der Administrator die Software Inventur Protokollierungs Datenbank und die unterstützenden Dateien (jede Datei im Verzeichnis "\windows\system32\logfiles\sil") auch manuell löschen, um betriebliche Anforderungen zu erfüllen.  
@@ -295,7 +295,7 @@ Im folgenden finden Sie zwei Beispiele dafür, wie die Ausgabe in der PowerShell
   
 ![](../media/software-inventory-logging/SILHyper-VExample2.png)  
   
-## <a name="see-also"></a>Weitere Informationen  
+## <a name="see-also"></a>Siehe auch  
 [Beginnen Sie mit der Protokollierung des Software Bestands](get-started-with-software-inventory-logging.md)  
 [Aggregator der Protokollierung des Softwarebestands](software-inventory-logging-aggregator.md)  
 [Cmdlets für die Protokollierung des Software Bestands in Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)  

@@ -12,12 +12,12 @@ ms.author: coreyp
 manager: dongill
 ms.date: 06/04/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 75a565eb9e26e03c1aad221059b327943485c81c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6490bd9a6cb7b305ba9746a357a8c909c7b84555
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403892"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950464"
 ---
 # <a name="windows-server-software-defined-datacenter"></a>Windows Server-Software-Defined Datacenter
 
@@ -33,13 +33,13 @@ Microsofts Implementierung der SDDC besteht aus Windows Server-Technologien, die
 
 Die in Windows Server und System Center integrierten Technologien sind die wichtigsten Bausteine der Windows Server-SDDC Erfahrung. Obwohl es sich um eine virtualisierte Plattform handelt, ist auch weiterhin die richtige Hardware darunter erforderlich. Microsoft-Partner, die an den **Windows Server Software-Defined (WSSD)-Lösungen** und den **Azure Stack HCI-Lösungs** Programmen teilnehmen, können Ihr Unternehmen dabei unterstützen, die richtige Hardware zu erwerben und auf dem ersten Tag zu starten.
 
-![](media/sddc/video.png) **[ein Video ansehen, um mehr über den SDDC von Microsoft zu erfahren](https://mva.microsoft.com/en-US/training-courses/whats-new-in-windows-server-2016-16457?l=YcsJR6sXC_1006218965) .**
+![](media/sddc/video.png) **[ein Video ansehen, um mehr über den SDDC von Microsoft zu erfahren](https://mva.microsoft.com/training-courses/whats-new-in-windows-server-2016-16457?l=YcsJR6sXC_1006218965) .**
 
 ![](media/sddc/poster-ico.png) **[eine Datei Poster Size. PDF auf dieser Seite herunterladen.](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs/media/sddc/sddc_poster_0801417_ANSI-E.pdf)**
 
 ![](media/sddc/spacer1.png)<a href="https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs//media/sddc/sddc_poster_0801417_ANSI-E.pdf"><img src="media/sddc/poster.png"></a>
 
-## <a name="azure-stack-hci-solutions"></a>Azure Stack HCI-Lösungen
+## <a name="azure-stack-hci-solutions"></a>Azure Stack-HCI-Lösungen
 
 Das Entwickeln eines Software definierten Windows Server-Rechenzentrums in der richtigen Hardware Infrastruktur ist ein wichtiger erster Schritt für den Erfolg. Aus diesem Grund haben wir mit 15 Partnern zusammengearbeitet, um von Microsoft validierte SDDC-Entwürfe und bewährte Methoden für die Bereitstellung zu erstellen.
 
@@ -47,7 +47,7 @@ Microsoft-Partner bieten eine Reihe von Lösungen, die mit Windows Server 2019 �
 
 ![](media/sddc/learn.png) **[erfahren Sie mehr über Azure Stack HCI-Lösungen](https://azure.microsoft.com/overview/azure-stack/hci)**
 
-![](media/sddc/learn.png) **[Weitere Informationen zu WSSD-Lösungen](https://www.microsoft.com/en-us/cloud-platform/software-defined-datacenter)**
+![](media/sddc/learn.png) **[Weitere Informationen zu WSSD-Lösungen](https://www.microsoft.com/cloud-platform/software-defined-datacenter)**
 
 ## <a name="windows-server-virtualized-technologies"></a>Virtuelle Technologien in Windows Server ##
 
@@ -71,7 +71,7 @@ Hyper-V ist eine hypervisorbasierte Virtualisierungstechnologie für Windows. De
 
 ![](media/sddc/spacer1.png)![](media/sddc/hypervisor.png)
 
-![](media/sddc/learn.png) **[Weitere Informationen zum Hyper-V-Hypervisor](https://www.microsoft.com/en-us/cloud-platform/server-virtualization)**
+![](media/sddc/learn.png) **[Weitere Informationen zum Hyper-V-Hypervisor](https://www.microsoft.com/cloud-platform/server-virtualization)**
 
 ### <a name="guest-clustering-with-shared-vhdx"></a>Gastclustering mit frei gegebener vhdx-Datei
 
@@ -149,7 +149,7 @@ SLB ermöglicht es Ihnen, mehrere Server zum Hosten derselben Workload zu aktivi
 
 ![](media/sddc/storage.png)
 
-### <a name="storage-spaces-direct"></a>Direkte Speicherplätze
+### <a name="storage-spaces-direct"></a>Speicherplätze DAS
 
 ![](media/sddc/storage-line.png)
 
@@ -200,7 +200,7 @@ t & t1: Daten werden auf das Volume geleert, Protokolle werden immer geschrieben
 
 ![](media/sddc/security-line.png)
 
-Als Cloud-Dienstanbieter oder privater Cloud-Administrator in Unternehmen können Sie eine geschützte Fabric verwenden, um eine sicherere Umgebung für VMs bereitzustellen. Ein geschütztes Fabric besteht aus einem Host Guardian Service (Host-Überwachungsdienst) – in der Regel ein Cluster mit drei Knoten – sowie einem oder mehreren geschützten Hosts und einer Reihe von abgeschirmten virtuellen Computern (VMs).
+Als Cloud-Dienstanbieter oder privater Cloud-Administrator im Unternehmen können Sie ein geschütztes Fabric verwenden, um eine sicherere Umgebung für VMs bereitzustellen. Ein geschütztes Fabric besteht aus einem Host Guardian Service (Host-Überwachungsdienst) – in der Regel ein Cluster mit drei Knoten – sowie einem oder mehreren geschützten Hosts und einer Reihe von abgeschirmten virtuellen Computern (VMs).
 
 ![](media/sddc/spacer1.png)![](media/sddc/guarded-fabric.png)
 
@@ -247,7 +247,7 @@ Der vertrauenswürdige Modus für Hardware, wie oben angezeigt, bietet mit dem T
 
 ![](media/sddc/management.png)
 
-### <a name="powershell-desired-state-configuration"></a>PowerShell-Konfiguration für den gewünschten Zustand
+### <a name="powershell-desired-state-configuration"></a>PowerShell Desired State Configuration
 
 ![](media/sddc/management-line.png)
 

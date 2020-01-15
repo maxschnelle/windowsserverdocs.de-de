@@ -12,12 +12,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dougkim
 ms.date: 07/25/2018
-ms.openlocfilehash: 0977aa1fd9a6848bd7b85bb592b6a82556277e72
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 594c20cbfea521006de6d1ec69763669298376e6
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361578"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948522"
 ---
 >Gilt für: Windows Server 2012, Windows Server 2012 R2, Windows Server 2016
 
@@ -49,7 +49,7 @@ Führen Sie in PowerShell (mit erhöhten Rechten) Folgendes aus:
 
 1. Klicken Sie mit der rechten Maustaste auf **SUSDB** -&gt; **Tasks** -&gt; klicken Sie auf **trennen**: ![image1](images/image1.png)
 2. Aktivieren Sie **vorhandene Verbindungen löschen** , und klicken Sie auf **OK** (optional, wenn aktive Verbindungen vorhanden sind).
-    ![Image2](images/image2.png)
+    ![Abbildung 2](images/image2.png)
 
 #### <a name="using-command-prompt"></a>Verwenden der Eingabeaufforderung
 
@@ -105,7 +105,7 @@ Führen Sie in PowerShell (mit erhöhten Rechten) Folgendes aus:
 
 1. Gehe zu SQL Server Management Studio
 2. Öffnen der Instanz
-3. Klicken Sie auf **Sicherheit**
+3. Klicken Sie auf **Sicherheit**.
 4. Klicken Sie auf **Anmeldungen** .
 
 Das Konto **NT-Autorität \ Netzwerkdienst** sollte aufgeführt werden. Wenn dies nicht der Fall ist, müssen Sie diese hinzufügen, indem Sie einen neuen Anmelde Namen hinzufügen.
@@ -116,11 +116,11 @@ Das Konto **NT-Autorität \ Netzwerkdienst** sollte aufgeführt werden. Wenn die
 ##### <a name="adding-nt-authoritynetwork-service-and-granting-it-rights"></a>Hinzufügen von NT-Autorität \ Netzwerkdienst und erteilen von Berechtigungen
 
 1. Klicken Sie mit der rechten Maustaste auf **Anmeldungen** , und klicken Sie auf **neue Anmeldung.**
-    ![image6](images/image6.png)
+    ![Abbildung 6](images/image6.png)
 2. Geben Sie auf der Seite **Allgemein** den **Anmelde Namen** (**NT-Autorität \ Netzwerkdienst**) ein, und legen Sie die **Standarddatenbank** auf SUSDB fest.
-    ![image7](images/image7.png)
+    ![Bild7](images/image7.png)
 3. Vergewissern Sie sich, dass auf der Seite **Server Rollen** die Option **Public** und **sysadmin** ausgewählt ist.
-    ![image8](images/image8.png)
+    ![Bild8](images/image8.png)
 4. Auf der Seite **Benutzer Zuordnung** :
     - Unter **Benutzer, die dieser Anmeldung zugeordnet**sind: Wählen Sie **SUSDB** aus.
     - Stellen Sie sicher, dass unter **Mitgliedschaft in Daten Bank Rolle für: SUSDB**Folgendes aktiviert ist:
@@ -129,9 +129,9 @@ Das Konto **NT-Autorität \ Netzwerkdienst** sollte aufgeführt werden. Wenn die
 5. Klicken Sie auf **OK**.
 
 Nun sollte NT- **Autorität \ Netzwerkdienst** unter Anmeldungen angezeigt werden.
-![image10](images/image10.png)
+![Bild10](images/image10.png)
 
-#### <a name="database-permissions"></a>Daten Bank Berechtigungen
+#### <a name="database-permissions"></a>Datenbankberechtigungen
 
 1. Klicken Sie mit der rechten Maustaste auf die SUSDB.
 2. **Eigenschaften** auswählen
@@ -147,7 +147,7 @@ Das Konto **NT-Autorität \ Netzwerkdienst** sollte aufgeführt werden.
     > [!TIP]
     > Im folgenden Beispiel lautet der FQDN " **Contosto.com** ", und der WSUS-Computername lautet " **wsusmachine**":
     >
-    > ![image11](images/image11.png)
+    > ![Bild11](images/image11.png)
 
 4. Wählen Sie auf der Seite **Benutzer Zuordnung** unter **"Benutzer, die dieser Anmeldung zugeordnet sind"** die **SUSDB** -Datenbank aus.
 5. Überprüfen Sie den **Webdienst** unter **"Mitgliedschaft in Daten Bank Rolle für: SUSDB"** : ![image12](images/image12.png)
@@ -158,7 +158,7 @@ Das Konto **NT-Autorität \ Netzwerkdienst** sollte aufgeführt werden.
 ### <a name="edit-the-registry-to-point-wsus-to-the-sql-server-instance"></a>Bearbeiten Sie die Registrierung, um WSUS auf die SQL Server Instanz zu verweisen.
 
 > [!IMPORTANT]
-> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/en-us/help/322756) für den Fall, dass Probleme auftreten.
+> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/help/322756) für den Fall, dass Probleme auftreten.
 
 1. Klicken Sie auf **Start** und **Ausführen**, geben Sie **regedit** ein, und klicken Sie dann auf **OK**.
 2. Suchen Sie den folgenden Schlüssel: **HKEY_LOCAL_MACHINE \software\microsoft\updateservices\server\setup\sqlservername**

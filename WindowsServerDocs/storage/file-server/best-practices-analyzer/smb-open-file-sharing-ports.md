@@ -7,12 +7,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 22cd926fdb873538631a6f6850157dceb5a020d7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 80cc75f983d4593e4ee98309d1fa39c024b7b379
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385831"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950297"
 ---
 # <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB: Datei- und Ports sollte geöffnet sein
 
@@ -21,7 +21,7 @@ Aktualisiert: 2. Februar 2011
 
 Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012, Windows Server 2008 R2
 
-*Dieses Thema dient der Behebung eines bestimmten Problems, das durch einen Best Practices Analyzer Scan identifiziert wird. Die Informationen in diesem Thema sollten nur auf Computer angewendet werden, auf denen die Dateidienste Best Practices Analyzer ausgeführt wurden und die in diesem Thema behandelt werden. Weitere Informationen zu bewährten Methoden und Scans finden Sie unter* [Best Practices Analyzer](http://go.microsoft.com/fwlink/?linkid=122786%0d%0a).
+*Dieses Thema dient der Behebung eines bestimmten Problems, das durch einen Best Practices Analyzer Scan identifiziert wird. Die Informationen in diesem Thema sollten nur auf Computer angewendet werden, auf denen die Dateidienste Best Practices Analyzer ausgeführt wurden und die in diesem Thema behandelt werden. Weitere Informationen zu bewährten Methoden und Scans finden Sie unter* [Best Practices Analyzer](https://go.microsoft.com/fwlink/?linkid=122786%0d%0a).
 
 
 <table>
@@ -39,8 +39,8 @@ Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 und 
 <td><p>Dateidienste</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>Zunehmen</strong></p></td>
-<td><p>Fehler</p></td>
+<td><p><strong>Schweregrad</strong></p></td>
+<td><p>Error</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Kategorie</strong></p></td>
@@ -71,7 +71,7 @@ Zum Ausführen dieser Prozedur müssen Sie Mitglied der Gruppe **Administratoren
 
 3.  Suchen Sie unter **Eingehende Regeln**die Regel **Datei und die Druckerfreigabe (NB-Session-in)** und **Datei-und Druckerfreigabe (SMB-in)** .
 
-4.  Klicken Sie für jede Regel mit der rechten Maustaste auf die Regel, und klicken Sie dann auf **Regel aktivieren**.
+4.  Klicken Sie mit der rechten Maustaste auf jede Regel, und klicken Sie dann auf **Regel aktivieren**.
 
 ## <a name="additional-references"></a>Weitere Verweise
 

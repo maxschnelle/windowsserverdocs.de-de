@@ -8,12 +8,12 @@ ms.date: 08/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 6895c4b5f74beb237378060f82135d6f578986b7
-ms.sourcegitcommit: e92a78f8d307200e64617431a701b9112a9b4e48
+ms.openlocfilehash: b7a6dd37cfc054ead153d274ffa7f0d13844305e
+ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973865"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75953033"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ) zu Storage Migration Service
 
@@ -42,7 +42,7 @@ Der Storage Migration Service unterstützt die Migration lokaler Benutzer und Gr
 
 ## <a name="is-domain-controller-migration-supported"></a>Wird die Migration des Domänen Controllers unterstützt?
 
-Der Speicher Migrationsdienst migriert zurzeit keine Domänen Controller in Windows Server 2019. Wenn Sie mehr als einen Domänen Controller in der Active Directory Domäne haben, sollten Sie den Domänen Controller vor der Migration herabstufen und dann das Ziel herauf Stufen, nachdem der Vorgang abgeschlossen wurde.
+Der Speicher Migrationsdienst migriert zurzeit keine Domänen Controller in Windows Server 2019. Wenn Sie mehr als einen Domänen Controller in der Active Directory Domäne haben, sollten Sie den Domänen Controller vor der Migration herabstufen und dann das Ziel herauf Stufen, nachdem der Vorgang abgeschlossen wurde. Wenn Sie eine Domänen Controller-Quelle oder ein Domänen Controller migrieren möchten, können Sie Sie nicht überschneiden. Bei der Migration von oder zu einem Domänen Controller dürfen Sie keine Benutzer und Gruppen migrieren.
 
 ## <a name="what-attributes-are-migrated-by-the-storage-migration-service"></a>Welche Attribute werden vom Speicher Migrationsdienst migriert?
 
@@ -59,17 +59,17 @@ Der Speicher Migrationsdienst migriert alle Flags, Einstellungen und die Sicherh
     - Limit für gleichzeitige Benutzer
     - Fortlaufend verfügbar
     - Beschreibung           
-    - Verschlüsseln von Daten
+    - Daten verschlüsseln
     - Identitäts-Remoting
     - Infrastruktur
     - Name
     - Pfad
-    - Bereich
+    - Bereichsbezogen
     - Bereichsname
     - Sicherheitsbeschreibung
-    - Schatten Kopie
-    - Spezielle
-    - Zeitwei
+    - Schattenkopie
+    - Sonderformat
+    - Temporärer
 
 ## <a name="can-i-consolidate-multiple-servers-into-one-server"></a>Kann ich mehrere Server auf einem Server konsolidieren?
 
@@ -89,9 +89,9 @@ Der Speicher Migrationsdienst enthält eine Multithread-Lese-und-Kopier-Engine, 
 
 - **Verwenden Sie Windows Server 2019 für das Ziel Betriebssystem.** Windows Server 2019 enthält den Proxy Dienst für den Speicher Migrationsdienst. Wenn Sie dieses Feature installieren und zu Windows Server 2019-Zielen migrieren, werden alle Übertragungen als direkte Linie zwischen Quelle und Ziel ausgeführt. Dieser Dienst wird während der Übertragung auf dem Orchestrator ausgeführt, wenn es sich bei den Ziel Computern um Windows Server 2012 R2 oder Windows Server 2016 handelt, was bedeutet, dass der Double-Hop übertragen wird und viel langsamer ist. Wenn mehrere Aufträge mit Windows Server 2012 R2-oder Windows Server 2016-Zielen ausgeführt werden, wird der Orchestrator zu einem Engpass. 
 
-- **Standard Übertragungs Threads ändern.** Der Speicher Migrationsdienst-Proxy Dienst kopiert 8 Dateien gleichzeitig in einem bestimmten Auftrag. Sie können die Anzahl der gleichzeitigen kopierthreads erhöhen, indem Sie den folgenden Registrierungs REG_DWORD Wert für jeden Knoten, auf dem der Storage Migration Service-Proxy ausgeführt wird, in Dezimalform anpassen:
+- **Standard Übertragungs Threads ändern.** Der Speicher Migrationsdienst-Proxy Dienst kopiert 8 Dateien gleichzeitig in einem bestimmten Auftrag. Sie können die Anzahl der gleichzeitigen kopierthreads erhöhen, indem Sie den folgenden Registrierungs REG_DWORD Wert Name in Decimal auf jedem Knoten mit dem Speicher Migrationsdienst-Proxy anpassen:
 
-    HKEY_Local_Machine\Software\Microsoft\SMSProxy
+    HKEY_LOCAL_MACHINE \software\microsoft\smsproxy
     
     Filetransferthreadcount
 
@@ -110,9 +110,9 @@ Der Speicher Migrationsdienst enthält eine Multithread-Lese-und-Kopier-Engine, 
    - Einer von mehreren Netzwerkadaptern, die mithilfe des NIC-Team Vorgangs konfiguriert werden
    - Ein oder mehrere Netzwerkadapter, die RDMA unterstützen
 
-- **Aktualisieren von Treibern.** Installieren Sie ggf. den aktuellen Hersteller Speicher und die Gehäuse Firmware und-Treiber, die neuesten Hersteller-HBA-Treiber, den neuesten Hersteller-BIOS/UEFI-Firmware, die neuesten Netzwerktreiber des Anbieters und die aktuellen Haupt Hersteller-Chipsatz Treiber für Quelle, Ziel und Orchestrator Webserver. Starten Sie die Knoten gegebenenfalls neu. Konfigurieren Sie die Hardware für freigegebenen Speicher und Netzwerk gemäß der Dokumentation des jeweiligen Herstellers.
+- **Aktualisieren von Treibern.** Installieren Sie ggf. den aktuellen Hersteller Speicher und die Gehäuse Firmware und-Treiber, die neuesten Hersteller-HBA-Treiber, die neueste BIOS-/UEP-Firmwareversion, die neuesten Netzwerktreiber des Anbieters und die neuesten Server für die Hauptschlüssel-Chipsätze auf den Quell-, Ziel Starten Sie die Knoten gegebenenfalls neu. Konfigurieren Sie die Hardware für freigegebenen Speicher und Netzwerk gemäß der Dokumentation des jeweiligen Herstellers.
 
-- **Aktivieren Sie die Verarbeitung mit hoher Leistung.** Stellen Sie sicher, dass die BIOS/UEFI-Einstellungen für Server eine hohe Leistung ermöglichen (z. B. Deaktivieren des C-Status, Festlegen der QPI-Geschwindigkeit, Aktivieren von NUMA und Festlegen der höchsten Speicherfrequenz). Stellen Sie sicher, dass die Energie Verwaltung in Windows Server auf hohe Leistung festgelegt ist. Führen Sie gegebenenfalls einen Neustart aus. Vergessen Sie nicht, diese nach Abschluss der Migration an die entsprechenden Zustände zurückzugeben. 
+- **Aktivieren Sie die Verarbeitung mit hoher Leistung.** Stellen Sie sicher, dass die BIOS/UEFI-Einstellungen für Server eine hohe Leistung ermöglichen (z.B. Deaktivieren des C-Status, Festlegen der QPI-Geschwindigkeit, Aktivieren von NUMA und Festlegen der höchsten Speicherfrequenz). Stellen Sie sicher, dass die Energie Verwaltung in Windows Server auf hohe Leistung festgelegt ist. Führen Sie gegebenenfalls einen Neustart aus. Vergessen Sie nicht, diese nach Abschluss der Migration an die entsprechenden Zustände zurückzugeben. 
 
 - **Optimieren der Hardware** Lesen Sie die [Richtlinien zur Leistungsoptimierung für Windows Server 2016](https://docs.microsoft.com/windows-server/administration/performance-tuning/) zur Optimierung von Orchestrator und Ziel Computern unter Windows Server 2019 und Windows Server 2016. Der Abschnitt zur Optimierung der [Leistung des Netzwerk Subsystems](https://docs.microsoft.com/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics) enthält besonders wertvolle Informationen.
 
@@ -129,12 +129,12 @@ Die in Windows Server 2019 enthaltene Version des Speicher Migrations Dienstanbi
 Der Speicher Migrationsdienst verwendet eine ESE (Extensible Storage Engine)-Datenbank, die standardmäßig im Ordner "Hidden c:\programdata\microsoft\storagemigrationservice" installiert wird. Diese Datenbank wächst, wenn Aufträge hinzugefügt und Übertragungen abgeschlossen werden, und kann nach der Migration von Millionen von Dateien einen erheblichen Speicherplatz beanspruchen, wenn Sie keine Aufträge löschen. Wenn die Datenbank verschoben werden muss, führen Sie die folgenden Schritte aus:
 
 1. Beendet den Dienst "Storage Migration Service" auf dem Orchestrator-Computer.
-2. Besitz des Ordners "`%programdata%/Microsoft/StorageMigrationService`" übernehmen
+2. Besitz des `%programdata%/Microsoft/StorageMigrationService` Ordners übernehmen
 3. Fügen Sie Ihr Benutzerkonto hinzu, um die vollständige Kontrolle über diese Freigabe und alle Dateien und Unterordner zu haben.
 4. Verschieben Sie den Ordner auf ein anderes Laufwerk auf dem Orchestrator-Computer.
 5. Legen Sie den folgenden Registrierungs REG_SZ Wert fest:
 
-    HKEY_Local_Machine\Software\Microsoft\SMS DatabasePath = *Pfad zum neuen Daten Bank Ordner auf einem anderen Volume* . 
+    HKEY_LOCAL_MACHINE \software\microsoft\sms DatabasePath = *Pfad zum neuen Daten Bank Ordner auf einem anderen Volume* . 
 6. Stellen Sie sicher, dass das System über Vollzugriff auf alle Dateien und Unterordner des Ordners verfügt.
 7. Entfernen Sie Ihre eigenen Konten Berechtigungen.
 8. Starten Sie den Dienst "Storage Migration Service".
@@ -145,7 +145,7 @@ So geben Sie Feedback zum Speicher Migrationsdienst an:
 
 - Verwenden Sie das in Windows 10 enthaltene Feedback-Hub-Tool, klicken Sie auf "Feature vorschlagen", und geben Sie die Kategorie "Windows Server" und die Unterkategorie "Speicher Migration" an.
 - Verwenden der [Windows Server UserVoice](https://windowsserver.uservoice.com) -Website
-- E-Mail-smsfeed@microsoft.com
+- E-Mail an smsfeed@microsoft.com
 
 So melden Sie Fehler:
 
@@ -158,6 +158,6 @@ So erhalten Sie Support:
  - Beitrag im [TechNet-Forum zu Windows Server 2019](https://social.technet.microsoft.com/Forums/en-US/home?forum=ws2019&filter=alltypes&sort=lastpostdesc) 
  - Öffnen Sie eine Supportanfrage über [Microsoft-Support](https://support.microsoft.com)
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen:
 
 - [Übersicht über den Speicher Migrationsdienst](overview.md)

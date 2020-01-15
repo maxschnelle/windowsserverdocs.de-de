@@ -8,12 +8,12 @@ ms.author: jgerend
 manager: daveba
 ms.technology: storage-spaces
 ms.date: 06/20/2019
-ms.openlocfilehash: 2de3452a3528122beb26f403fb0c73d7ff13efd7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bb93ec15fd138ee65797c9d27413552c3a1759a6
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402113"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949673"
 ---
 # <a name="using-disk-cleanup-on-windows-server"></a>Verwenden der Datenträger Bereinigung unter Windows Server
 
@@ -37,11 +37,11 @@ Führen Sie diese Schritte aus, um den Assistenten zum Hinzufügen von Rollen un
 
 1. Wählen Sie im Menü **Verwalten** die Option **Rollen und Features**hinzufügen aus.
 
-1. Überprüfen Sie auf der Seite **Vorbemerkungen** , ob der Zielserver und die Netzwerkumgebung für das Feature vorbereitet sind, das Sie installieren möchten. Wählen Sie **Weiter** aus.
+1. Überprüfen Sie auf der Seite **Vorbemerkungen** , ob der Zielserver und die Netzwerkumgebung für das Feature vorbereitet sind, das Sie installieren möchten. Klicken Sie auf **Weiter**.
 
-1. Wählen Sie auf der Seite **Installationstyp auswählen** die Option **rollenbasierte oder featurebasierte Installation** aus, um alle Teile Features auf einem einzelnen Server zu installieren. Wählen Sie **Weiter** aus.
+1. Wählen Sie auf der Seite **Installationstyp auswählen** die Option **rollenbasierte oder featurebasierte Installation** aus, um alle Teile Features auf einem einzelnen Server zu installieren. Klicken Sie auf **Weiter**.
 
-1. Wählen Sie auf der Seite **Zielserver auswählen** einen Server aus dem Serverpool aus, oder wählen Sie eine Offline-VHD aus. Wählen Sie **Weiter** aus.
+1. Wählen Sie auf der Seite **Zielserver auswählen** einen Server aus dem Serverpool aus, oder wählen Sie eine Offline-VHD aus. Klicken Sie auf **Weiter**.
 
 1. Wählen Sie auf der Seite **Server Rollen auswählen** die Option **weiter**aus.
 
@@ -61,10 +61,10 @@ Das Tool für die Datenträger Bereinigung (cleanmgr. exe) ist auf Windows Serve
 
 Um "cleanmgr. exe" zu verwenden, installieren Sie die Desktop Darstellung wie zuvor beschrieben, oder kopieren Sie zwei Dateien, die bereits auf dem Server vorhanden sind, "cleanmgr. exe" und "cleanmgr. exe. MUI". Verwenden Sie die folgende Tabelle, um die Dateien für das Betriebssystem zu suchen.
 
-| Betriebssystem  | Architektur  | Speicherort  |
+| Betriebssystem  | Architecture  | Speicherort  |
 | ----------------- | -------------- | --------------- |
-| Windows Server 2008 R2 | 64 Bit | C:\Windows\winsxs\amd64_microsoft-windows-cleanmgr_31bf3856ad364e35_6.1.7600.16385_none_c9392808773cd7da\cleanmgr.exe 
-| Windows Server 2008 R2 | 64 Bit | C:\Windows\winsxs\amd64_microsoft-windows-cleanmgr.resources_31bf3856ad364e35_6.1.7600.16385_en-us_b9cb6194b257cc63\cleanmgr.exe.mui |
+| Windows Server 2008 R2 | 64 Bit | C:\windows\winsxs\ Amd64_microsoft-Windows-cleanmgr_31bf3856ad364e35_6.1.7600.16385_none_c9392808773cd7da \cleanmgr.exe 
+| Windows Server 2008 R2 | 64 Bit | C:\windows\winsxs\ Amd64_microsoft-Windows-cleanmgr. resources_31bf3856ad364e35_6.1.7600.16385_en-us_b9cb6194b257cc63 \cleanmgr.exe.MUI |
 
 Suchen Sie "cleanmgr. exe", und verschieben Sie die Datei in " **%SystemRoot%\System32**".
 
@@ -76,6 +76,6 @@ Damit die Schaltfläche Datenträger Bereinigung im Eigenschaften Dialogfeld ein
 
 ## <a name="additional-references"></a>Weitere Verweise
 
-[Freigeben von Laufwerk Speicher in Windows 10](https://support.microsoft.com/en-us/help/12425/windows-10-free-up-drive-space)
+[Freigeben von Laufwerk Speicher in Windows 10](https://support.microsoft.com/help/12425/windows-10-free-up-drive-space)
 
 [cleanmgr](../../administration/windows-commands/cleanmgr.md)

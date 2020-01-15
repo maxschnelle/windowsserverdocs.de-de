@@ -10,14 +10,14 @@ manager: dougkim
 ms.author: pashort
 author: shortpatti
 ms.date: 09/04/2018
-ms.openlocfilehash: 850aa376e8cd0060992573561a0c32af563b88ad
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3bbb70657cb009ce760ccfe273b24c6df17d3ca7
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405160"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949902"
 ---
-## <a name="resolve-vrss-issues"></a>Probleme mit vRSS
+# <a name="resolve-vrss-issues"></a>Probleme mit vRSS
 
 Wenn Sie alle Vorbereitungsschritte abgeschlossen haben und der vrss-Lasten Ausgleichs-Datenverkehr für die VM-LPs noch immer nicht angezeigt wird, sind unterschiedliche mögliche Probleme aufgetreten.
 
@@ -34,7 +34,7 @@ Wenn Sie alle Vorbereitungsschritte abgeschlossen haben und der vrss-Lasten Ausg
 
    **Anzeigen der aktuellen Einstellungen:** 
 
-   Führen Sie das folgende PowerShell-Cmdlet auf\(dem virtuellen Computer für vrss\) auf einem virtuellen Computer \(oder auf dem Host für Host\)-vNIC-vrss aus.
+   Führen Sie das folgende PowerShell-Cmdlet auf der VM-\(für vrss auf einem virtuellen Computer\) oder auf dem Host \(für vrss-\)für Host-vNIC aus.
 
    ```PowerShell
    Get-NetAdapterRss
@@ -48,7 +48,7 @@ Wenn Sie alle Vorbereitungsschritte abgeschlossen haben und der vrss-Lasten Ausg
    Enable-NetAdapterRss *
    ```
    
-   Eine weitere systemweite Methode zum Konfigurieren von RSS ist die Verwendung von Netsh. Verwendung 
+   Eine weitere systemweite Methode zum Konfigurieren von RSS ist die Verwendung von Netsh. Mit 
    
     ```cmd
    netsh int tcp show global

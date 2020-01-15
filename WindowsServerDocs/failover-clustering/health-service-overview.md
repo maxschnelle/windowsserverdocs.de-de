@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: 5bc71e71-920e-454f-8195-afebd2a23725
 author: cosmosdarwin
 ms.date: 02/09/2018
-ms.openlocfilehash: df455dfb0d2936192a3c2d7825e2d6d031cfe892
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 158681e2038e3d8015933771d06d3bfb24d31586
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361070"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948470"
 ---
 # <a name="health-service-in-windows-server"></a>Integritätsdienst in Windows Server
 
@@ -21,7 +21,7 @@ ms.locfileid: "71361070"
 
 Der Integritätsdienst ist ein neues Feature in Windows Server 2016, das die tägliche Überwachung und Betriebsbereitschaft für Cluster mit direkte Speicherplätze verbessert.
 
-## <a name="prerequisites"></a>Erforderliche Komponenten  
+## <a name="prerequisites"></a>Voraussetzungen  
 
 Für „Direkte Speicherplätze“ ist der Integritätsdienst standardmäßig aktiviert. Für seine Einrichtung und seinen Start sind keine weiteren Aktionen erforderlich. Weitere Informationen zu direkte Speicherplätze finden Sie unter [direkte Speicherplätze in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md).  
 
@@ -33,7 +33,7 @@ Siehe [Integritätsdienst Berichte](health-service-reports.md).
 
 Siehe [Integritätsdienst Fehler](health-service-faults.md).
 
-## <a name="actions"></a>Aktionen
+## <a name="actions"></a>„Aktionen“
 
 Siehe [Integritätsdienst Aktionen](health-service-actions.md).
 
@@ -90,17 +90,17 @@ Falls zulässig, wird der Austauschdatenträger automatisch dem Pool seines Vorg
 
 Der Integritätsdienst stellt einen Erzwingungs Mechanismus bereit, mit dem die von direkte Speicherplätze verwendeten Komponenten auf die von dem Administrator oder dem Lösungs Hersteller bereitgestellten Komponenten beschränkt werden. Diese kann verwendet werden, um eine versehentliche Nutzung nicht unterstützter Hardware durch Sie oder andere zu verhindern, sodass Garantie- und Supportvertragsbedingungen besser eingehalten werden. Diese Funktion ist zurzeit auf physische Festplattengeräte beschränkt, einschließlich SSDs, HDDs und nvme-Laufwerke. Das Dokument "Unterstützte Komponenten" kann für das Modell, den Hersteller (optional) und die Firmwareversion (optional) eingeschränkt werden.
 
-### <a name="usage"></a>Verwendung  
+### <a name="usage"></a>Usage  
 
-Im Dokument "Unterstützte Komponenten" wird eine XML-inspirierte Syntax verwendet. Es wird empfohlen, Ihren bevorzugten Text-Editor, z. b. die kostenlose [Visual Studio Code](http://code.visualstudio.com/) oder den Editor, zum Erstellen eines XML-Dokuments zu verwenden, das Sie speichern und wieder verwenden können.
+Im Dokument "Unterstützte Komponenten" wird eine XML-inspirierte Syntax verwendet. Es wird empfohlen, Ihren bevorzugten Text-Editor, z. b. die kostenlose [Visual Studio Code](https://code.visualstudio.com/) oder den Editor, zum Erstellen eines XML-Dokuments zu verwenden, das Sie speichern und wieder verwenden können.
 
-#### <a name="sections"></a>Strecken
+#### <a name="sections"></a>Abschnitten
 
 Das Dokument weist zwei unabhängige Abschnitte auf: `Disks` und `Cache`.
 
-Wenn der `Disks`-Abschnitt angegeben ist, können nur die aufgeführten Laufwerke (als `Disk`) Pools beitreten. Nicht aufgelistete Laufwerke werden daran gehindert, Pools beizutreten, was die Verwendung in der Produktion praktisch ausschließt. Wenn dieser Abschnitt leer bleibt, wird jedem Laufwerk das beitreten zu Pools gestattet.
+Wenn der `Disks` Abschnitt angegeben ist, können nur die aufgeführten Laufwerke (wie `Disk`) mit Pools verknüpft werden. Nicht aufgelistete Laufwerke werden daran gehindert, Pools beizutreten, was die Verwendung in der Produktion praktisch ausschließt. Wenn dieser Abschnitt leer bleibt, wird jedem Laufwerk das beitreten zu Pools gestattet.
 
-Wenn der Abschnitt "`Cache`" angegeben wird, werden nur die aufgeführten Laufwerke (wie `CacheDisk`) für die Zwischenspeicherung verwendet. Wenn dieser Abschnitt leer bleibt, versucht direkte Speicherplätze, [basierend auf Medientyp und Bustyp zu erraten](../storage/storage-spaces/understand-the-cache.md#cache-drives-are-selected-automatically). Die hier aufgeführten Laufwerke sollten auch in `Disks` aufgeführt werden.
+Wenn der `Cache` Abschnitt angegeben wird, werden nur die aufgeführten Laufwerke (wie `CacheDisk`) für die Zwischenspeicherung verwendet. Wenn dieser Abschnitt leer bleibt, versucht direkte Speicherplätze, [basierend auf Medientyp und Bustyp zu erraten](../storage/storage-spaces/understand-the-cache.md#cache-drives-are-selected-automatically). Die hier aufgeführten Laufwerke sollten auch unter `Disks`aufgeführt werden.
 
 >[!IMPORTANT]
 > Das Dokument "Unterstützte Komponenten" gilt nicht rückwirkend für bereits in einem Pool zusammengefasste und verwendete Laufwerke.  
@@ -141,9 +141,9 @@ Wenn der Abschnitt "`Cache`" angegeben wird, werden nur die aufgeführten Laufwe
 
 ```
 
-Fügen Sie zum Auflisten mehrerer Laufwerke einfach zusätzliche `<Disk>`-oder `<CacheDisk>`-Tags hinzu.
+Fügen Sie zum Auflisten mehrerer Laufwerke einfach zusätzliche `<Disk>` oder `<CacheDisk>` Tags hinzu.
 
-Um diese XML-Datei beim Bereitstellen von direkte Speicherplätze einzufügen, verwenden Sie den Parameter "`-XML`":
+Um diese XML-Datei beim Bereitstellen von direkte Speicherplätze einzufügen, verwenden Sie den Parameter `-XML`:
 
 ```PowerShell
 $MyXML = Get-Content <Filepath> | Out-String  
@@ -166,11 +166,11 @@ Sie können dies mit dem folgenden PowerShell-Cmdlet überprüfen:
 Get-PhysicalDisk | Select Model, Manufacturer, FirmwareVersion  
 ```
 
-## <a name="settings"></a>Einstellungen
+## <a name="settings"></a>„Einstellungen“
 
 Siehe [Integritätsdienst Einstellungen](health-service-settings.md).
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen:
 
 - [Integritätsdienst Berichte](health-service-reports.md)
 - [Integritätsdienst Fehler](health-service-faults.md)

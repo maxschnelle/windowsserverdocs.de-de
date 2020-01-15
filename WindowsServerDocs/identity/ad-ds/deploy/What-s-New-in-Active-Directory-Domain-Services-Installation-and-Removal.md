@@ -1,6 +1,6 @@
 ---
 ms.assetid: ba7f2b9f-7351-4680-b7d8-a5f270614f1c
-title: Neues beim Installieren und Entfernen der Active Directory-Domänendienste
+title: Neues beim Installieren und Entfernen der Active Directory Domain Services
 description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -9,14 +9,14 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 286d3ee6e9c2b9959a4cc60a710b1cb078612201
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1f24615491391d932609d7f80549985818ced8c1
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369564"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947905"
 ---
-# <a name="whats-new-in-active-directory-domain-services-installation-and-removal"></a>Neues beim Installieren und Entfernen der Active Directory-Domänendienste
+# <a name="whats-new-in-active-directory-domain-services-installation-and-removal"></a>Neues beim Installieren und Entfernen der Active Directory Domain Services
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -30,7 +30,7 @@ Die AD DS-Installation umfasst die folgenden Features:
 
    In Umgebungen, in denen die Ausführung der adprep.exe-Befehle im Vorfeld der Installation eines neuen Domänencontrollers zu bevorzugen ist, können Sie die adprep.exe-Befehle weiterhin gesondert von der AD DS-Installation ausführen. Die Windows Server 2012-Version von Adprep. exe wird Remote ausgeführt, sodass Sie alle notwendigen Befehle von einem Server ausführen können, auf dem eine 64-Bit-Version von Windows Server 2008 oder höher ausgeführt wird.  
 
-- **Die neue AD DS-Installation basiert auf Windows PowerShell und kann per Remoteverbindung aufgerufen werden.** Die neue AD DS-Installation ist in Server-Manager integriert, sodass Sie zum Installieren von AD DS dieselbe Schnittstelle wie zum Installieren anderer Serverrollen verwenden können. Für Windows PowerShell-Benutzer bieten die Cmdlets für die AD DS-Bereitstellung eine umfangreichere Funktionalität und mehr Flexibilität. Zwischen den Installationsoptionen auf Befehlszeilenebene und auf der grafischen Benutzeroberfläche herrscht funktionale Gleichwertigkeit.  
+- **Die neue AD DS-Installation basiert auf Windows PowerShell und kann per Remoteverbindung aufgerufen werden.** Die neue AD DS-Installation ist in Server-Manager integriert, sodass Sie zum Installieren von AD DS dieselbe Schnittstelle wie zum Installieren anderer Serverrollen verwenden können. Für Windows PowerShell-Benutzer bieten die Cmdlets für die AD DS-Bereitstellung eine umfangreichere Funktionalität und mehr Flexibilität. Zwischen den Installationsoptionen auf Befehlszeilenebene und auf der grafischen Benutzeroberfläche herrscht funktionale Gleichwertigkeit.  
 - **Die neue AD DS-Installation umfasst eine Überprüfung der Voraussetzungen.** Potenzielle Fehler werden bereits vor Beginn der Installation identifiziert. Sie können Fehlerzustände noch vor deren Eintreten korrigieren und müssen sich keine Sorgen um Probleme machen, die aus einem teilweise abgeschlossenen Upgrade resultieren. Wenn beispielsweise %%amp;quot;adprep/domainprep%%amp;quot; ausgeführt werden muss, überprüft der Installations-Assistent, ob der Benutzer über die ausreichenden Rechte zum Ausführen des Vorgangs verfügt.  
 - **Konfigurationsseiten werden in einer Reihenfolge gruppiert, die die Anforderungen der am häufigsten verwendeten Heraufstufungsoptionen mit verwandten Optionen widerspiegelt, die auf weniger Assistentenseiten gruppiert sind.** Dies sorgt bei der Wahl von Installationsoptionen für mehr Überblick.  
 - **Es kann ein Windows PowerShell-Skript mit allen Optionen exportiert werden, die während der grafischen Installation angegeben wurden.** Am Ende einer Installation oder Deinstallation können Sie die Einstellungen in ein Windows PowerShell-Skript exportieren, um denselben Vorgang zu automatisieren.  
@@ -80,9 +80,9 @@ Adprep was unable to check the specified user's group membership. This could hap
 
 Wenn Sie %%amp;quot;Adprep.exe%%amp;quot; ohne Angabe der Parameter %%amp;quot;/user%%amp;quot; und %%amp;quot;/userdomain%%amp;quot; ausführen und wenn auf dem Betriebsmaster Windows Server 2003 ausgeführt wird, kontaktiert %%amp;quot;Adprep.exe%%amp;quot; einen Domänencontroller in der Domäne des momentan angemeldeten Benutzers. Wenn es sich bei dem derzeit angemeldeten Benutzer nicht um ein Domänenkonto handelt, kann %%amp;quot;Adprep.exe%%amp;quot; die Gruppenmitgliedschaftsüberprüfung nicht ausführen. %%amp;quot;Adprep.exe%%amp;quot; kann diese Gruppenmitgliedschaftsüberprüfung auch dann nicht ausführen, wenn Smartcard-Anmeldeinformationen verwendet werden. Dies ist selbst dann der Fall, wenn Sie die beiden Parameter %%amp;quot;/user%%amp;quot; und %%amp;quot;/userdomain%%amp;quot; angeben.  
   
-Wenn Adprep erfolgreich beendet wird, ist keine Aktion erforderlich. Falls Adprep während der Ausführung aufgrund von Zugriffsfehlern erfolglos bleibt, geben Sie ein Konto mit der richtigen Mitgliedschaft an. Weitere Informationen finden Sie unter [Anforderungen an die Anmeldeinformationen für die Ausführung von %%amp;quot;Adprep.exe%%amp;quot; und die Installation der Active Directory-Domänendienste](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_Creds).  
+Wenn Adprep erfolgreich beendet wird, ist keine Aktion erforderlich. Falls Adprep während der Ausführung aufgrund von Zugriffsfehlern erfolglos bleibt, geben Sie ein Konto mit der richtigen Mitgliedschaft an. Weitere Informationen finden Sie unter [Credential requirements to run Adprep.exe and install Active Directory Domain Services](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_Creds).  
   
-### <a name="syntax-for-adprep-in-windows-server-2012"></a>Syntax für Adprep in Windows Server 2012
+### <a name="syntax-for-adprep-in-windows-server-2012"></a>Syntax für Adprep in Windows Server 2012
 
 Verwenden Sie die folgende Syntax, um Adprep separat von einer AD DS-Installation auszuführen:  
 
@@ -94,7 +94,7 @@ Verwenden Sie %%amp;quot;/logdsid%%amp;quot; in dem Befehl, um eine detaillierte
 
 ### <a name="running-adprep-using-smartcard"></a>Ausführen von Adprep mit Smartcard
 
-Die Windows Server 2012-Version von Adprep. exe verwendet die Smartcard als Anmelde Informationen, es gibt jedoch keine einfache Möglichkeit, die Smartcard-Anmelde Informationen über die Befehlszeile anzugeben. Eine Methode besteht darin, die Smartcard-Anmeldeinformationen über das PowerShell-Cmdlet %%amp;quot;Get-Credential%%amp;quot; abzurufen. Verwenden Sie anschließend den Benutzernamen des zurückgegebenen PSCredential-Objekts, das als `@@...`angezeigt wird. Das Kennwort entspricht der PIN der Smartcard.  
+Die Windows Server 2012-Version von Adprep. exe verwendet die Smartcard als Anmelde Informationen, es gibt jedoch keine einfache Möglichkeit, die Smartcard-Anmelde Informationen über die Befehlszeile anzugeben. Eine Methode besteht darin, die Smartcard-Anmeldeinformationen über das PowerShell-Cmdlet %%amp;quot;Get-Credential%%amp;quot; abzurufen. Verwenden Sie anschließend den Benutzernamen des zurückgegebenen PSCredential-Objekts, das als `@@...` angezeigt wird. Das Kennwort entspricht der PIN der Smartcard.  
 
 Für %%amp;quot;Adprep.exe%%amp;quot; ist der Parameter %%amp;quot;/userdomain%%amp;quot; erforderlich, wenn %%amp;quot;/user%%amp;quot; angegeben wurde. Bei Smartcard-Anmeldeinformationen sollte der Parameter %%amp;quot;/userdomain%%amp;quot; der Domäne des zugrunde liegenden Benutzerkontos entsprechen, das durch die Smartcard repräsentiert wird.  
 
@@ -176,14 +176,14 @@ In diesem Abschnitt werden einige bekannte Probleme aufgeführt, die sich auf di
 
    In diesem Fall müssen Sie das Cmdlet %%amp;quot;ADDSDeployment%%amp;quot; getrennt von dem Cmdlet ausführen, das keine systemeigenen 64-Bit-Prozesse unterstützt.  
 
-- In Windows Server 2012 ist ein neues Dateisystem mit dem Namen "robustes Dateisystem" vorhanden. Speichern Sie auf einem mit dem robusten Dateisystem (Resilient File System, ReFS) formatierten Datenvolume keinesfalls die Active Directory-Datenbanken, -Protokolldateien oder SYSVOL. Weitere Informationen zu ReFS finden Sie unter [Erstellen der nächsten Dateisystemgeneration für Windows: ReFS](http://blogs.msdn.com/b/b8/archive/2012/01/16/building-the-next-generation-file-system-for-windows-refs.aspx).  
+- In Windows Server 2012 ist ein neues Dateisystem mit dem Namen "robustes Dateisystem" vorhanden. Speichern Sie auf einem mit dem robusten Dateisystem (Resilient File System, ReFS) formatierten Datenvolume keinesfalls die Active Directory-Datenbanken, -Protokolldateien oder SYSVOL. Weitere Informationen zu ReFS finden Sie unter [Erstellen der nächsten Dateisystemgeneration für Windows: ReFS](https://blogs.msdn.com/b/b8/archive/2012/01/16/building-the-next-generation-file-system-for-windows-refs.aspx).  
 - In Server-Manager kann auf Servern, auf denen AD DS oder andere Server Rollen in einer Server Core-Installation ausgeführt werden und die auf Windows Server 2012 aktualisiert wurden, die Server Rolle mit dem Status "rot" angezeigt werden, obwohl Ereignisse und Status erwartungsgemäß erfasst werden. Server, auf denen eine Server Core-Installation einer vorläufigen Version von Windows Server 2012 ausgeführt wird, können ebenfalls beeinträchtigt werden.  
 
 ### <a name="active-directory-domain-services-installation-hangs-if-an-error-prevents-critical-replication"></a>Die Installation der Active Directory-Domänendienste hängt, wenn eine kritische Replikation durch einen Fehler verhindert wird
 
 Wenn die AD DS-Installation während der kritischen Replikationsphase einen Fehler erkennt, kann die Installation für unbestimmte Zeit hängen. Wird beispielsweise der Abschluss der kritischen Replikation durch Netzwerkfehler verhindert, wird die Installation nicht fortgesetzt.  
   
-Wenn Sie die Installation mithilfe von Server-Manager vornehmen, bleibt die Seite für den Installationsfortschritt möglicherweise geöffnet. Zudem erscheint auf dem Bildschirm keine Fehlermeldung, und der Fortschritt ändert sich möglicherweise 15 Minuten lang nicht. Wenn Sie Windows PowerShell verwenden, ändert sich der im Windows PowerShell-Fenster angezeigte Fortschritt 15 Minuten lang nicht.  
+Wenn Sie die Installation mithilfe von Server-Manager vornehmen, bleibt die Seite für den Installationsfortschritt möglicherweise geöffnet. Zudem erscheint auf dem Bildschirm keine Fehlermeldung, und der Fortschritt ändert sich möglicherweise 15 Minuten lang nicht. Wenn Sie Windows PowerShell verwenden, ändert sich der im Windows PowerShell-Fenster angezeigte Fortschritt 15 Minuten lang nicht.  
   
 Wenn dieses Problem bei Ihnen auftritt, überprüfen Sie die Datei %%amp;quot;dcpromo.log%%amp;quot; im Ordner %%amp;quot;%systemroot%/debug%%amp;quot; des Zielservers. In der Protokolldatei werden normalerweise wiederholte Fehler für die Replikation angegeben. Einige bekannte Ursachen für dieses Problem lauten wie folgt:  
 
@@ -228,7 +228,7 @@ Wenn dieses Problem bei Ihnen auftritt, überprüfen Sie die Datei %%amp;quot;dc
    DC2.contoso.com  
    ```  
 
-   Wird der Fehler durch Angabe eines lokalen Administratorkontos und Kennworts verursacht, müssen Sie zur Wiederherstellung das Betriebssystem neu installieren, [eine Metadatenbereinigung des Kontos für den Domänencontroller ausführen](https://technet.microsoft.com/library/cc816907(WS.10).aspx) , für den die Installation nicht abgeschlossen werden konnte, und anschließend die AD DS-Installation mit den Anmeldeinformationen für den Domänenadministrator wiederholen. Durch einen Neustart des Servers wird dieser Fehlerzustand nicht behoben, da der Server angibt, dass AD DS installiert ist, auch wenn die Installation nicht erfolgreich abgeschlossen wurde.  
+   Wird der Fehler durch Angabe eines lokalen Administratorkontos und Kennworts verursacht, müssen Sie zur Wiederherstellung das Betriebssystem neu installieren, [eine Metadatenbereinigung des Kontos für den Domänencontroller ausführen](https://technet.microsoft.com/library/cc816907(WS.10).aspx) , für den die Installation nicht abgeschlossen werden konnte, und anschließend die AD DS-Installation mit den Anmeldeinformationen für den Domänenadministrator wiederholen. Durch einen Neustart des Servers wird dieser Fehlerzustand nicht behoben, da der Server angibt, dass AD DS installiert ist, auch wenn die Installation nicht erfolgreich abgeschlossen wurde.  
 
 ### <a name="BKMK_nonnormalDNSNameWarning"></a>Active Directory Domain Services Konfigurations-Assistent warnt, wenn ein nicht normalisierter DNS-Name angegeben wird
 
@@ -245,6 +245,6 @@ Im folgenden Beispiel wird eines der Probleme erläutert, das bei Verwendung ein
 5. Aufgrund der Normalisierung wird der Name in %%amp;quot;nps.füssball.com%%amp;quot; konvertiert und über die Leitung %%amp;quot;nps.füßball.com%%amp;quot; abgefragt.  
 6. Die Clientanwendung kann den Namen nicht auflösen, da der registrierte Name %%amp;quot;nps.füßball.com%%amp;quot; lautet.  
 
-Wenn die Warnung auf der Seite %%amp;quot;Voraussetzungsüberprüfung%%amp;quot; des Konfigurations-Assistenten für die Active Directory-Domänendienste angezeigt wird, wechseln Sie zur Seite %%amp;quot;Bereitstellungskonfiguration%%amp;quot; zurück, und geben Sie einen normalisierten DNS-Domänennamen an. Wenn Sie eine neue Domäne mit Windows PowerShell installieren, geben Sie für die Option %%amp;quot;-DomainName%%amp;quot; einen normalisierten DNS-Namen an.  
+Wenn die Warnung auf der Seite %%amp;quot;Voraussetzungsüberprüfung%%amp;quot; des Konfigurations-Assistenten für die Active Directory-Domänendienste angezeigt wird, wechseln Sie zur Seite %%amp;quot;Bereitstellungskonfiguration%%amp;quot; zurück, und geben Sie einen normalisierten DNS-Domänennamen an. Wenn Sie eine neue Domäne mit Windows PowerShell installieren, geben Sie für die Option %%amp;quot;-DomainName%%amp;quot; einen normalisierten DNS-Namen an.  
 
 Weitere Informationen zu IDNs finden Sie unter [Handling Internationalized Domain Names (IDNs)](https://msdn.microsoft.com/library/windows/desktop/dd318142(v=vs.85).aspx).  

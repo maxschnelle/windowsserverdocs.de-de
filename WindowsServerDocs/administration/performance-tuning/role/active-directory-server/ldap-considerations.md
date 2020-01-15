@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: f6670c8cfd718360518869f0551461c45e5aed27
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5e407f9f32339e3f9c75e3722ad218228b608b9d
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370283"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947114"
 ---
 # <a name="ldap-considerations-in-adds-performance-tuning"></a>Überlegungen zu LDAP in Hinzufügen von Leistungsoptimierungen
 
@@ -60,7 +60,7 @@ Diese Szenarien können mithilfe eines oder mehrerer der folgenden Ansätze erka
 
 -   [Nachverfolgen von teuren und ineffizienten suchen](https://msdn.microsoft.com/library/ms808539.aspx)
 
--   Active Directory Diagnosedaten Sammler Satz im System Monitor ([Son of Spa: AD Data Collector Sets in Win2008 und Beyond](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx))
+-   Active Directory Diagnosedaten Sammler Satz im System Monitor ([Son of Spa: AD Data Collector Sets in Win2008 und Beyond](https://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx))
 
 -   [Microsoft Server Performance Advisor](../../../server-performance-advisor/microsoft-server-performance-advisor.md) Active Directory Advisor-Paket
 
@@ -98,10 +98,10 @@ Weitere Informationen finden Sie in den folgenden Bereichen:
 
 -   [Indizierte Attribute](https://msdn.microsoft.com/library/windows/desktop/ms677112.aspx)
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Weitere Informationen:
 
 - [Leistungsoptimierung Active Directory Server](index.md)
-- [Überlegungen zur Hardware](hardware-considerations.md)
+- [Hardwareaspekte](hardware-considerations.md)
 - [Ordnungsgemäße Platzierung von Domänencontrollern und Überlegungen zum Standort](site-definition-considerations.md)
 - [Problembehandlung bezüglich der ADDS-Leistung](troubleshoot.md) 
 - [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566)

@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ee1416a00fc0d347b7e05cb12c83f3d3532d693f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d3d08e954b7a2a9ce58eb61dec54f2848ab68c12
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360138"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949162"
 ---
 # <a name="planning-for-compromise"></a>Planen der Gefährdung
 
@@ -108,7 +108,7 @@ Bei einer herkömmlichen Active Directory Migration von einer Gesamtstruktur zu 
   
 Das Verwalten des SID-Verlaufs ist in einigen Umgebungen jedoch bereits problematisch, da das Auffüllen der Zugriffs Token von Benutzern mit aktuellen und historischen SIDs das tokenbloat zur Folge haben kann. Tokenbloat ist ein Problem, bei dem die Anzahl der SIDs, die im Zugriffs Token eines Benutzers gespeichert werden müssen, die im Token verfügbare Menge an Speicherplatz verwendet oder überschreitet.  
   
-Obwohl die Größe von tokengrößen auf einen begrenzten Block erweitert werden kann, besteht die ultimative Lösung für tokenbloat darin, die Anzahl der mit Benutzerkonten verknüpften SIDs zu reduzieren, ob durch das rationalisieren von Gruppenmitgliedschaften, das Eliminieren des SID-Verlaufs oder eine Kombination aus beidem. Weitere Informationen zum tokenbloat finden Sie unter [MaxTokenSize und Kerberos Token Bloat](http://blogs.technet.com/b/shanecothran/archive/2010/07/16/maxtokensize-and-kerberos-token-bloat.aspx).  
+Obwohl die Größe von tokengrößen auf einen begrenzten Block erweitert werden kann, besteht die ultimative Lösung für tokenbloat darin, die Anzahl der mit Benutzerkonten verknüpften SIDs zu reduzieren, ob durch das rationalisieren von Gruppenmitgliedschaften, das Eliminieren des SID-Verlaufs oder eine Kombination aus beidem. Weitere Informationen zum tokenbloat finden Sie unter [MaxTokenSize und Kerberos Token Bloat](https://blogs.technet.com/b/shanecothran/archive/2010/07/16/maxtokensize-and-kerberos-token-bloat.aspx).  
   
 Anstatt Benutzer aus einer Legacy Umgebung (insbesondere eine, in der Gruppenmitgliedschaften und SID-Verläufe kompromittiert werden können) mithilfe des SID-Verlaufs zu migrieren, sollten Sie die Verwendung von metaverzeichnisanwendungen zum Migrieren von Benutzern, ohne die SID-Verläufe in der neuen Gesamtstruktur. Wenn Benutzerkonten in der neuen Gesamtstruktur erstellt werden, können Sie eine metaverzeichnisanwendung verwenden, um die Konten den entsprechenden Konten in der Legacy-Gesamtstruktur zuzuordnen.  
   
@@ -144,7 +144,7 @@ In den meisten Organisationen haben Benutzer, die Zugriff auf die vertraulichste
   
 Beispielsweise können Sie eine Richtlinie definieren, in der Führungskräfte und andere VIPs für den Zugriff auf sensible Daten und Systeme sichere Arbeitsstationen benötigen, sodass Sie Ihre anderen Geräte für den Zugriff auf weniger sensible Daten verwenden können. Dies ist ein einfaches Prinzip, das Benutzer merken können, aber Sie können eine Reihe von Back-End-Steuerelementen implementieren, um den Ansatz zu erzwingen.  
 
-Mithilfe der [Assurance-Authentifizierung](https://technet.microsoft.com/library/dd391847(v=WS.10).aspx) können Sie Benutzern nur den Zugriff auf sensible Daten gestatten, wenn Sie sich mit ihren Smartcards bei ihren sicheren Systemen angemeldet haben. Außerdem können Sie mithilfe von IPSec und Einschränkungen für Benutzerrechte die Systeme steuern, von denen aus Sie eine Verbindung mit sensiblen Daten Depots herstellen können. Sie können das [Microsoft-Toolkit zur Datenklassifizierung](https://www.microsoft.com/download/details.aspx?id=27123) verwenden, um eine robuste Datei Klassifizierungs Infrastruktur zu erstellen, und Sie können [dynamische Access Control](http://blogs.technet.com/b/windowsserver/archive/2012/05/22/introduction-to-windows-server-2012-dynamic-access-control.aspx) implementieren, um den Zugriff auf Daten auf der Grundlage von Merkmalen eines Zugriffs Versuchs einzuschränken und Geschäftsregeln in technische Steuerelemente zu übersetzen.  
+Mithilfe der [Assurance-Authentifizierung](https://technet.microsoft.com/library/dd391847(v=WS.10).aspx) können Sie Benutzern nur den Zugriff auf sensible Daten gestatten, wenn Sie sich mit ihren Smartcards bei ihren sicheren Systemen angemeldet haben. Außerdem können Sie mithilfe von IPSec und Einschränkungen für Benutzerrechte die Systeme steuern, von denen aus Sie eine Verbindung mit sensiblen Daten Depots herstellen können. Sie können das [Microsoft-Toolkit zur Datenklassifizierung](https://www.microsoft.com/download/details.aspx?id=27123) verwenden, um eine robuste Datei Klassifizierungs Infrastruktur zu erstellen, und Sie können [dynamische Access Control](https://blogs.technet.com/b/windowsserver/archive/2012/05/22/introduction-to-windows-server-2012-dynamic-access-control.aspx) implementieren, um den Zugriff auf Daten auf der Grundlage von Merkmalen eines Zugriffs Versuchs einzuschränken und Geschäftsregeln in technische Steuerelemente zu übersetzen.  
   
 Aus Sicht des Benutzers ist der Zugriff auf sensible Daten von einem gesicherten System "funktioniert einfach", und es wird versucht, dies über ein ungesichertes System zu tun. Aus Sicht der Überwachung und Verwaltung Ihrer Umgebung helfen Sie jedoch dabei, identifizierbare Muster in der Art und Weise zu erstellen, in der Benutzer auf sensible Daten und Systeme zugreifen. so können Sie anormale Zugriffsversuche leichter erkennen.  
   

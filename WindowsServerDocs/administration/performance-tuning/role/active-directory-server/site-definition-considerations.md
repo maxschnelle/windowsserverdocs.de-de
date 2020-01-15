@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: ba3c9e8792b425fd24d01ab997a5f7c2ac573814
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 66c6f94f1f3fee924ba0d9a3bfa0c712d62bb095
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370250"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947105"
 ---
 # <a name="proper-placement-of-domain-controllers-and-site-considerations"></a>Ordnungsgemäße Platzierung von Domänen Controllern und Standort Überlegungen
 
@@ -34,7 +34,7 @@ Verweise sind die Art und Weise, wie LDAP-Abfragen umgeleitet werden, wenn der D
 
 ## <a name="optimization-considerations-for-trusts"></a>Überlegungen zur Optimierung für Vertrauens Stellungen
 
-In einem Szenario innerhalb der Gesamtstruktur werden Vertrauens Stellungen gemäß der folgenden Domänen Hierarchie verarbeitet: Untergeordnete Domäne-&gt; untergeordnete Domäne &gt; Gesamtstruktur Stamm Domäne-&gt; untergeordnete Domäne-&gt;-untergeordnete Domäne. Dies bedeutet, dass sichere Kanäle im Gesamtstruktur Stamm und jedes übergeordnete Element aufgrund der Aggregation von Authentifizierungsanforderungen, die die DCS in der Vertrauens Hierarchie übertragen, überlastet werden können. Dies kann auch Verzögerungen in aktiven Verzeichnissen großer geografischer Datenmengen verursachen, wenn die Authentifizierung auch sehr latente Verknüpfungen übertragen muss, um den oben genannten Flow zu beeinflussen. Über Ladungen können in Gesamtstruktur-und untergeordneten Vertrauens Szenarien auftreten. Die folgenden Empfehlungen gelten für alle Szenarien:
+In einem Szenario innerhalb der Gesamtstruktur werden Vertrauens Stellungen gemäß der folgenden Domänen Hierarchie verarbeitet: untergeordnete Domänen&gt; Domäne&gt; Gesamtstruktur Stamm Domäne-&gt; untergeordnete Domäne&gt; untergeordnete Domäne. Dies bedeutet, dass sichere Kanäle im Gesamtstruktur Stamm und jedes übergeordnete Element aufgrund der Aggregation von Authentifizierungsanforderungen, die die DCS in der Vertrauens Hierarchie übertragen, überlastet werden können. Dies kann auch Verzögerungen in aktiven Verzeichnissen großer geografischer Datenmengen verursachen, wenn die Authentifizierung auch sehr latente Verknüpfungen übertragen muss, um den oben genannten Flow zu beeinflussen. Über Ladungen können in Gesamtstruktur-und untergeordneten Vertrauens Szenarien auftreten. Die folgenden Empfehlungen gelten für alle Szenarien:
 
 -   Optimieren Sie MaxConcurrentApi ordnungsgemäß, um die Last über den sicheren Kanal zu unterstützen. Weitere Informationen finden Sie unter [Verwenden der "MaxConcurrentApi"-Einstellung zur Leistungsoptimierung für die NTLM-Authentifizierung](https://support.microsoft.com/kb/2688798/EN-US).
 
@@ -58,7 +58,7 @@ Domänen Übergreifende Vertrauensstellungs Szenarien sind ein Bereich, der für
 
     -   Weitere Informationen zur Funktionsweise von DCLOCATOR finden Sie untersuchen [eines Domänen Controllers am nächstgelegenen Standort](https://technet.microsoft.com/library/cc978016.aspx).
 
-    -   Konvergiert Standortnamen zwischen vertrauenswürdigen und vertrauenden Domänen, um den Domänen Controller am selben Standort widerzuspiegeln. Stellen Sie sicher, dass Subnetz-und IP-Adress Zuordnungen ordnungsgemäß mit Standorten in beiden Gesamtstrukturen verknüpft Weitere Informationen finden Sie unter [Domänen Locator über eine](http://blogs.technet.com/b/askds/archive/2008/09/24/domain-locator-across-a-forest-trust.aspx)Gesamtstruktur-Vertrauensstellung hinweg.
+    -   Konvergiert Standortnamen zwischen vertrauenswürdigen und vertrauenden Domänen, um den Domänen Controller am selben Standort widerzuspiegeln. Stellen Sie sicher, dass Subnetz-und IP-Adress Zuordnungen ordnungsgemäß mit Standorten in beiden Gesamtstrukturen verknüpft Weitere Informationen finden Sie unter [Domänen Locator über eine](https://blogs.technet.com/b/askds/archive/2008/09/24/domain-locator-across-a-forest-trust.aspx)Gesamtstruktur-Vertrauensstellung hinweg.
 
     -   Stellen Sie sicher, dass Ports gemäß den Anforderungen an den Domänen Controller für den Standort des Domänen Controllers offen sind. Wenn zwischen den Domänen Firewalls vorhanden sind, stellen Sie sicher, dass die Firewalls für alle Vertrauens Stellungen ordnungsgemäß konfiguriert sind. Wenn Firewalls nicht geöffnet sind, versucht der vertrauende Domänen Controller weiterhin, auf die vertrauenswürdige Domäne zuzugreifen. Wenn die Kommunikation aus irgendeinem Grund fehlschlägt, führt der vertrauende Domänen Controller die Anforderung an den vertrauenswürdigen Domänen Controller aus. Diese Timeouts können jedoch mehrere Sekunden pro Anforderung dauern und die Netzwerkports auf dem vertrauenden Domänen Controller überschreiten, wenn die Menge der eingehenden Anforderungen hoch ist. Der Client kann den Timeout Vorgang auf dem Domänen Controller als nicht reagierende Threads feststellen, was zu nicht reagierenden Anwendungen führen könnte (wenn die Anwendung die Anforderung im Vordergrund Thread ausführt). Weitere Informationen finden Sie unter [Konfigurieren einer Firewall für Domänen und](https://support.microsoft.com/kb/179442)Vertrauens Stellungen.
 
@@ -76,7 +76,7 @@ Für alle Vertrauensstellungs Szenarien werden Anmelde Informationen entsprechen
 
 -   Hiermit deaktivieren Sie das Übergeben von Authentifizierungsanforderungen mit einer NULL-Domäne, die für alle verfügbaren [Der LSASS. exe-Prozess reagiert möglicherweise nicht mehr, wenn Sie über viele externe Vertrauens Stellungen auf einem Active Directory Domänen Controller verfügen.](https://support.microsoft.com/kb/923241/EN-US)
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen:
 - [Leistungsoptimierung Active Directory Server](index.md)
 - [Hardwareaspekte](hardware-considerations.md)
 - [Überlegungen zu LDAP](ldap-considerations.md)

@@ -10,12 +10,12 @@ author: stevenek
 ms.date: 06/07/2019
 description: Eine Schritt-für-Schritt-Anleitung zum Bereitstellen von Software definiertem Speicher mit direkte Speicherplätze in Windows Server als hyperkonvergierte Infrastruktur oder konvergierte Infrastruktur (auch als disaggiert bezeichnet).
 ms.localizationpriority: medium
-ms.openlocfilehash: 0ab96f737f7700e202c9d0382c06859c4ea84118
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 60b29cbebb19cd8f1ce364d1eb7e920759375285
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402815"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950020"
 ---
 # <a name="deploy-storage-spaces-direct"></a>Bereitstellen von direkte Speicherplätze
 
@@ -102,7 +102,7 @@ Um direkte Speicherplätze zu verwalten, müssen Sie die Server einer Domäne hi
 Add-Computer -NewName "Server01" -DomainName "contoso.com" -Credential "CONTOSO\User" -Restart -Force  
 ```
 
-Wenn Ihr Speicher Administrator Konto kein Mitglied der Gruppe "Domänen-Admins" ist, fügen Sie das Speicher Administrator Konto der lokalen Gruppe "Administratoren" auf jedem Knoten hinzu, oder fügen Sie die Gruppe, die Sie für Speicher Administratoren verwenden, hinzu. Sie können den folgenden Befehl verwenden (oder eine Windows PowerShell-Funktion schreiben, um weitere Informationen zu erhalten. Weitere Informationen finden Sie unter [Verwenden von PowerShell zum Hinzufügen von Domänen Benutzern zu einer lokalen Gruppe](http://blogs.technet.com/b/heyscriptingguy/archive/2010/08/19/use-powershell-to-add-domain-users-to-a-local-group.aspx) ):
+Wenn Ihr Speicher Administrator Konto kein Mitglied der Gruppe "Domänen-Admins" ist, fügen Sie das Speicher Administrator Konto der lokalen Gruppe "Administratoren" auf jedem Knoten hinzu, oder fügen Sie die Gruppe, die Sie für Speicher Administratoren verwenden, hinzu. Sie können den folgenden Befehl verwenden (oder eine Windows PowerShell-Funktion schreiben, um weitere Informationen zu erhalten. Weitere Informationen finden Sie unter [Verwenden von PowerShell zum Hinzufügen von Domänen Benutzern zu einer lokalen Gruppe](https://blogs.technet.com/b/heyscriptingguy/archive/2010/08/19/use-powershell-to-add-domain-users-to-a-local-group.aspx) ):
 
 ```
 Net localgroup Administrators <Domain\Account> /add
@@ -112,7 +112,7 @@ Net localgroup Administrators <Domain\Account> /add
 
 Der nächste Schritt besteht darin, Server Rollen auf jedem Server zu installieren. Hierfür können Sie das [Windows Admin Center](../../manage/windows-admin-center/use/manage-servers.md), [Server-Manager](../../administration/server-manager/install-or-uninstall-roles-role-services-or-features.md)) oder PowerShell verwenden. Folgende Rollen müssen installiert werden:
 
-- Failoverclustering
+- Failoverclusterunterstützung
 - Hyper-V
 - Datei Server (wenn Sie Dateifreigaben hosten möchten, z. b. für eine konvergierte Bereitstellung)
 - Daten-Center-Bridging (Wenn Sie RoCEv2 anstelle von iWARP Netzwerkadaptern verwenden)
@@ -225,7 +225,7 @@ Beim Erstellen des Clusters erhalten Sie eine Warnung mit dem Hinweis, dass beim
 > New-Cluster –Name <ClusterName> –Node <MachineName1,MachineName2,MachineName3,MachineName4> –NoStorage
 > ```
 
-Nach der Erstellung des Clusters kann es einige Zeit dauern, bis der DNS-Eintrag für den Clusternamen repliziert wurde. Wie lange, hängt von der Umgebung und der Konfiguration der DNS-Replikation ab. Wird der Clusters nicht erfolgreich aufgelöst, können Sie den Vorgang in den meisten Fällen erfolgreich ausführen, indem Sie anstelle des Clusternamens den Computernamen eines Knotens verwenden, der ein aktives Mitglied des Clusters ist.
+Nach der Erstellung des Clusters kann es einige Zeit dauern, bis der DNS-Eintrag für den Clusternamen repliziert wurde. Wie lange, hängt von der Umgebung und der Konfiguration der DNS-Replikation ab. Wird der Cluster nicht erfolgreich aufgelöst, können Sie den Vorgang in den meisten Fällen erfolgreich ausführen, indem Sie anstelle des Clusternamens den Computernamen eines Knotens verwenden, der ein aktives Mitglied des Clusters ist.
 
 ### <a name="step-34-configure-a-cluster-witness"></a>Schritt 3,4: Konfigurieren eines Cluster Zeugen
 
@@ -307,7 +307,7 @@ Der nächste Schritt beim Einrichten der Cluster Dienste für den Dateiserver is
 4. Geben Sie auf der Seite **Client Zugriffspunkt** einen Namen für das Dateiserver mit horizontaler Skalierung ein.
 5. Überprüfen Sie, ob die Rolle erfolgreich eingerichtet wurde, indem Sie zu **Rollen** wechseln und sicherstellen, dass in der Spalte **Status** neben der erstellten Cluster Dateiserver-Rolle **ausgeführt** wird, wie in Abbildung 1 dargestellt.
 
-   ![Screenshot der Failovercluster-Manager, die die Dateiserver mit horizontaler Skalierung](media/Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016/SOFS_in_FCM.png "Failovercluster-Manager anzeigt, die die Dateiserver mit horizontaler Skalierung")
+   ![Screenshot der Failovercluster-Manager, die die Dateiserver mit horizontaler Skalierung anzeigt](media/Hyper-converged-solution-using-Storage-Spaces-Direct-in-Windows-Server-2016/SOFS_in_FCM.png "Failovercluster-Manager, der die Dateiserver mit horizontaler Skalierung anzeigt")
 
     **Abbildung 1** Failovercluster-Manager mit dem Status "wird ausgeführt" Dateiserver mit horizontaler Skalierung angezeigt
 
@@ -329,14 +329,14 @@ Add-ClusterScaleOutFileServerRole -Name SOFS -Cluster FSCLUSTER
 
 Nachdem Sie die virtuellen Datenträger erstellt und den csvs hinzugefügt haben, ist es an der Zeit, Dateifreigaben auf diesen zu erstellen, eine Dateifreigabe pro CSV und virtuellem Datenträger. System Center Virtual Machine Manager (VMM) ist wahrscheinlich die schwierigste Methode, da Sie die Berechtigungen für Sie erledigt, aber wenn Sie Sie nicht in Ihrer Umgebung haben, können Sie die Bereitstellung mithilfe von Windows PowerShell teilweise automatisieren.
 
-Verwenden Sie die Skripts in der [SMB-Freigabe Konfiguration für Hyper-V-Arbeits Auslastungs](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) Skripts, die den Prozess zum Erstellen von Gruppen und Freigaben teilweise automatisiert. Sie wird für Hyper-V-Arbeits Auslastungen geschrieben. Wenn Sie also andere Workloads bereitstellen, müssen Sie möglicherweise die Einstellungen ändern oder weitere Schritte ausführen, nachdem Sie die Freigaben erstellt haben. Wenn Sie z. b. Microsoft SQL Server verwenden, muss dem SQL Server-Dienst Konto Vollzugriff auf die Freigabe und das Dateisystem gewährt werden.
+Verwenden Sie die Skripts in der [SMB-Freigabe Konfiguration für Hyper-V-Arbeits Auslastungs](https://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) Skripts, die den Prozess zum Erstellen von Gruppen und Freigaben teilweise automatisiert. Sie wird für Hyper-V-Arbeits Auslastungen geschrieben. Wenn Sie also andere Workloads bereitstellen, müssen Sie möglicherweise die Einstellungen ändern oder weitere Schritte ausführen, nachdem Sie die Freigaben erstellt haben. Wenn Sie z. b. Microsoft SQL Server verwenden, muss dem SQL Server-Dienst Konto Vollzugriff auf die Freigabe und das Dateisystem gewährt werden.
 
 > [!NOTE]
 >  Sie müssen die Gruppenmitgliedschaft aktualisieren, wenn Sie Cluster Knoten hinzufügen, es sei denn, Sie verwenden System Center Virtual Machine Manager, um Ihre Freigaben zu erstellen.
 
 Gehen Sie folgendermaßen vor, um Dateifreigaben mithilfe von PowerShell-Skripts zu erstellen:
 
-1. Laden Sie die in der [SMB-Freigabe Konfiguration für Hyper-V-Arbeits Auslastungen](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) enthaltenen Skripts auf einen der Knoten des Dateiserver Clusters herunter.
+1. Laden Sie die in der [SMB-Freigabe Konfiguration für Hyper-V-Arbeits Auslastungen](https://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a) enthaltenen Skripts auf einen der Knoten des Dateiserver Clusters herunter.
 2. Öffnen Sie eine Windows PowerShell-Sitzung mit Anmelde Informationen des Domänen Administrators auf dem Verwaltungssystem, und erstellen Sie dann mit dem folgenden Skript eine Active Directory Gruppe für die Hyper-V-Computer Objekte. ändern Sie die Werte für die Variablen entsprechend Ihren Umgebung
 
     ```PowerShell
@@ -371,7 +371,7 @@ Gehen Sie folgendermaßen vor, um Dateifreigaben mithilfe von PowerShell-Skripts
 
 ### <a name="step-43-enable-kerberos-constrained-delegation"></a>Schritt 4,3 Aktivieren der eingeschränkten Kerberos-Delegierung
 
-Wenn Sie die eingeschränkte Kerberos-Delegierung für die Remote szenarioverwaltung einrichten und die Livemigration Sicherheit erhöhen möchten, verwenden Sie auf einem der Speicher Cluster Knoten das in der [SMB-Freigabe Konfiguration für Hyper-V-Arbeits Auslastungen](http://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a)enthaltene Skript kcdsetup. ps1. Hier ist ein kleines Wrapper für das Skript:
+Wenn Sie die eingeschränkte Kerberos-Delegierung für die Remote szenarioverwaltung einrichten und die Livemigration Sicherheit erhöhen möchten, verwenden Sie auf einem der Speicher Cluster Knoten das in der [SMB-Freigabe Konfiguration für Hyper-V-Arbeits Auslastungen](https://gallery.technet.microsoft.com/SMB-Share-Configuration-4a36272a)enthaltene Skript kcdsetup. ps1. Hier ist ein kleines Wrapper für das Skript:
 
 ```PowerShell
 $HyperVClusterName = "Compute01"
@@ -386,7 +386,7 @@ CD $ScriptFolder
 
 Nachdem Sie den Cluster Dateiserver bereitgestellt haben, empfiehlt es sich, die Leistung Ihrer Lösung mithilfe synthetischer Workloads zu testen, bevor Sie echte Workloads bereitstellen. Auf diese Weise können Sie überprüfen, ob die Lösung ordnungsgemäß funktioniert, und alle veralteten Probleme beheben, bevor Sie die Komplexität von Workloads hinzufügen. Weitere Informationen finden Sie unter [Testen der Leistung von Speicherplätzen mithilfe synthetischer Workloads](https://technet.microsoft.com/library/dn894707.aspx).
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Weitere Informationen:
 
 -   [Direkte Speicherplätze in Windows Server 2016](storage-spaces-direct-overview.md)
 -   [Grundlegendes zum Cache in direkte Speicherplätze](understand-the-cache.md)

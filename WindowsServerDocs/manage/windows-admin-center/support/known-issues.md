@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: c05987360256f7b7ed58911c1ded86586fc8b3aa
-ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
+ms.openlocfilehash: 59c659041c7553d8e97a3bfbefbc3bde24098ef2
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2019
-ms.locfileid: "74903902"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949937"
 ---
 # <a name="windows-admin-center-known-issues"></a>Windows Admin Center – bekannte Probleme
 
@@ -80,7 +80,7 @@ Remotedesktop, PowerShell und Ereignismodule im Windows Admin Center nutzen das 
 
 Geben Sie `$PSVersiontable` in PowerShell ein, um zu prüfen, ob WMF 5.1 oder einen neuere Version installiert ist.
 
-Wenn dies nicht der Fall ist, können Sie [herunterladen und WMF 5.1 installieren](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
+Wenn dies nicht der Fall ist, können Sie [herunterladen und WMF 5.1 installieren](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ## <a name="role-based-access-control-rbac"></a>Rollenbasierte Zugriffssteuerung (role-based access control, RBAC)
 
@@ -152,7 +152,7 @@ Wenn dies nicht der Fall ist, können Sie [herunterladen und WMF 5.1 installiere
 
 - Wenn Sie automatisch neu starten auswählen, wird der Neustart erfolgen, bevor der Status auf 100 % aktualisiert wird. [13098852]
 
-### <a name="storage"></a>Speicher
+### <a name="storage"></a>„Speicher“.
 
 - Älter: DVD/CD/Diskettenlaufwerke werden nicht als Volumes angezeigt.
 

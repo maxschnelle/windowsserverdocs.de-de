@@ -1,5 +1,5 @@
 ---
-title: Verwenden von DNS-Richtlinien für die Split Brain-DNS-Bereitstellung
+title: Verwenden von DNS-Richtlinien für Split-Brain-DNS-Bereitstellung
 description: Dieses Thema ist Teil des DNS-Richtlinien szenariohandbuchs für Windows Server 2016.
 manager: brianlic
 ms.prod: windows-server
@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: a255a4a5-c1a0-4edc-b41a-211bae397e3c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 5449c9e96a5a9ecd08ca35e703a76927f4e27158
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9f611f61150508d9170a6fe6757844bc29759886
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356015"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950471"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-deployment"></a>Verwenden der DNS-Richtlinie für das Aufteilen\-DNS-Bereitstellung
 
@@ -36,7 +36,7 @@ Dieses Thema enthält die folgenden Abschnitte:
 ## <a name="bkmk_sbexample"></a>Beispiel für eine DNS-Split-Brain-Bereitstellung
 Im folgenden finden Sie ein Beispiel für die Verwendung der DNS-Richtlinie, um das zuvor beschriebene Szenario mit Split-Brain-DNS auszuführen.
 
-In diesem Abschnitt werden die folgenden Themen behandelt:
+In diesem Abschnitt werden die folgenden Themen behandelt.
 
 - [Funktionsweise der DNS Split-Brain-Bereitstellung](#bkmk_sbhow)
 - [Konfigurieren der DNS-Split-Brain-Bereitstellung](#bkmk_sbconfigure)
@@ -132,7 +132,7 @@ Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](http
 
 Im folgenden finden Sie ein Beispiel für die Verwendung der DNS-Richtlinie, um das zuvor beschriebene Szenario der selektiven Rekursions Steuerung von DNS auszuführen.
 
-In diesem Abschnitt werden die folgenden Themen behandelt:
+In diesem Abschnitt werden die folgenden Themen behandelt.
 
 - [Funktionsweise der selektiven DNS-Rekursions Steuerung](#bkmk_recursionhow)
 - [Konfigurieren der selektiven DNS-Rekursions Steuerung](#bkmk_recursionconfigure)
@@ -156,13 +156,13 @@ In der folgenden Abbildung ist dieses Szenario dargestellt.
 
 ### <a name="bkmk_recursionhow"></a>Funktionsweise der selektiven DNS-Rekursions Steuerung
 
-Wenn eine Abfrage empfangen wird, für die der DNS-Server des Configuration Manager-Servers nicht autoritativ ist (z. b. für www.Microsoft.com), wird die namens Auflösungs Anforderung anhand der Richtlinien auf dem DNS-Server ausgewertet. 
+Wenn eine Abfrage empfangen wird, für die der DNS-Server des Configuration Manager-Servers nicht autoritativ ist, z. b. für https://www.microsoft.com, wird die namens Auflösungs Anforderung anhand der Richtlinien auf dem DNS-Server ausgewertet. 
 
 Da diese Abfragen nicht in eine Zone fallen, werden die Richtlinien auf Zonenebene, die im Split-Brain-Beispiel definiert \(, nicht ausgewertet\). 
 
 Der DNS-Server wertet die Rekursions Richtlinien aus, und die Abfragen, die auf der privaten Schnittstelle empfangen werden, entsprechen den **splitbrainrecursionpolicy**. Diese Richtlinie verweist auf einen Rekursions Bereich, in dem Rekursion aktiviert ist.
 
-Der DNS-Server führt dann eine Rekursion aus, um die Antwort für www.Microsoft.com aus dem Internet zu erhalten, und speichert die Antwort lokal zwischen. 
+Der DNS-Server führt dann eine Rekursion aus, um die Antwort für https://www.microsoft.com aus dem Internet zu erhalten, und speichert die Antwort lokal zwischen. 
 
 Wenn die Abfrage auf der externen Schnittstelle empfangen wird, Stimmen keine DNS-Richtlinien zu, und die Standardeinstellung für die Rekursion, die in diesem Fall **deaktiviert** ist, wird angewendet.
 

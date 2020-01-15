@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 7221d3ea94ff9f2d7fca8e95cee66597e2dc6270
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d7b96574dcfc2a4417aa36780d7bd87c2556f61f
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402068"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950263"
 ---
 # <a name="smb-security-enhancements"></a>SMB-Sicherheitsfunktionen
 
@@ -78,7 +78,7 @@ Mit der im nächsten Abschnitt beschriebenen sicheren Dialekt Aushandlungs Funkt
 >[!NOTE]
 >* Die SMB-Verschlüsselung verwendet den Advanced Encryption Standard (AES)-ccm-Algorithmus, um die Daten zu verschlüsseln und zu entschlüsseln. AES-CCM bietet auch eine Überprüfung der Datenintegrität (Signierung) für verschlüsselte Dateifreigaben, unabhängig von den SMB-Signierungs Einstellungen. Wenn Sie SMB-Signaturen ohne Verschlüsselung aktivieren möchten, können Sie diesen Vorgang fortsetzen. Weitere Informationen finden Sie unter [den Grundlagen von SMB-Signaturen](https://blogs.technet.microsoft.com/josebda/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2/).
 >* Wenn Sie versuchen, auf die Dateifreigabe oder den Server zuzugreifen, treten möglicherweise Probleme auf, wenn in Ihrer Organisation WAN-Beschleunigungs Geräte (Wide Area Network) verwendet werden.
->* Bei einer Standardkonfiguration (bei der kein unverschlüsselter Zugriff auf verschlüsselte Dateifreigaben zulässig ist), wenn Clients, die SMB 3,0 nicht unterstützen, versuchen, auf eine verschlüsselte Dateifreigabe zuzugreifen, wird Ereignis-ID 1003 im Ereignisprotokoll Microsoft-Windows-Smbserver/Operational protokolliert. , und der Client empfängt die Fehlermeldung " **Zugriff verweigert** ".
+>* Bei einer Standardkonfiguration (bei der kein unverschlüsselter Zugriff auf verschlüsselte Dateifreigaben zulässig ist) gilt: Wenn Clients, die SMB 3,0 nicht unterstützen, versuchen, auf eine verschlüsselte Dateifreigabe zuzugreifen, wird die Ereignis-ID 1003 im Ereignisprotokoll Microsoft-Windows-Smbserver/Operational protokolliert, und der Client erhält die Fehlermeldung " **Zugriff verweigert** ".
 >* Die SMB-Verschlüsselung und die Verschlüsselndes Dateisystem (EFS) im NTFS-Datei System sind nicht miteinander verknüpft, und die SMB-Verschlüsselung erfordert oder ist nicht mit EFS verbunden.
 >* Die SMB-Verschlüsselung und die BitLocker-Laufwerkverschlüsselung sind nicht miteinander verknüpft, und die SMB-Verschlüsselung erfordert oder ist nicht erforderlich, wenn BitLocker-Laufwerkverschlüsselung verwendet wird.
 
@@ -86,11 +86,11 @@ Mit der im nächsten Abschnitt beschriebenen sicheren Dialekt Aushandlungs Funkt
 
 SMB 3,0 ist in der Lage, man-in-the-Middle-Angriffe zu erkennen, die versuchen, ein Downgrade des SMB 2,0-oder SMB 3,0-Protokolls oder der Funktionen durchführen, die der Client und der Server aushandeln Wenn ein solcher Angriff vom Client oder Server erkannt wird, wird die Verbindung getrennt, und die Ereignis-ID 1005 wird im Ereignisprotokoll Microsoft-Windows-Smbserver/Operational protokolliert. Die sichere Dialekt Aushandlung kann keine Herabstufungen von SMB 2,0 oder 3,0 auf SMB 1,0 erkennen oder verhindern. Daher wird dringend empfohlen, den SMB 1,0-Server zu deaktivieren, um die vollständigen Funktionen der SMB-Verschlüsselung nutzen zu können. Weitere Informationen finden Sie unter [Deaktivieren von SMB 1,0](#disabling-smb-10).
 
-Mit der im nächsten Abschnitt beschriebenen sicheren Dialekt Aushandlungs Funktion wird verhindert, dass ein man-in-the-Middle-Angriff eine Verbindung von SMB 3 zu SMB 2 herabstuft (bei der unverschlüsselter Zugriff verwendet wird). Es verhindert jedoch nicht das Herabstufen von SMB 1, was ebenfalls zu unverschlüsseltem Zugriff führen würde. Weitere Informationen zu möglichen Problemen mit früheren nicht-Windows-Implementierungen von SMB finden Sie in der [Microsoft Knowledge Base](http://support.microsoft.com/kb/2686098).
+Mit der im nächsten Abschnitt beschriebenen sicheren Dialekt Aushandlungs Funktion wird verhindert, dass ein man-in-the-Middle-Angriff eine Verbindung von SMB 3 zu SMB 2 herabstuft (bei der unverschlüsselter Zugriff verwendet wird). Es verhindert jedoch nicht das Herabstufen von SMB 1, was ebenfalls zu unverschlüsseltem Zugriff führen würde. Weitere Informationen zu möglichen Problemen mit früheren nicht-Windows-Implementierungen von SMB finden Sie in der [Microsoft Knowledge Base](https://support.microsoft.com/kb/2686098).
 
 ## <a name="new-signing-algorithm"></a>Neuer Signatur Algorithmus
 
-SMB 3,0 verwendet einen neueren Verschlüsselungsalgorithmus zum Signieren: Advanced Encryption Standard (AES): verschlüsselter Nachrichten Authentifizierungscode (Message Authentication Code, CMAC). SMB 2,0 hat den älteren HMAC-SHA256-Verschlüsselungsalgorithmus verwendet. AES-CMAC und AES-CCM können die Datenverschlüsselung auf den meisten modernen CPUs mit AES-Anweisungs Unterstützung erheblich beschleunigen. Weitere Informationen finden Sie unter [den Grundlagen von SMB-Signaturen](https://blogs.technet.microsoft.com/josebda/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2/).
+SMB 3,0 verwendet einen neueren Verschlüsselungsalgorithmus zum Signieren: Advanced Encryption Standard (AES)-Verschlüsselungscode (Message Authentication Code, CMAC). SMB 2,0 hat den älteren HMAC-SHA256-Verschlüsselungsalgorithmus verwendet. AES-CMAC und AES-CCM können die Datenverschlüsselung auf den meisten modernen CPUs mit AES-Anweisungs Unterstützung erheblich beschleunigen. Weitere Informationen finden Sie unter [den Grundlagen von SMB-Signaturen](https://blogs.technet.microsoft.com/josebda/2010/12/01/the-basics-of-smb-signing-covering-both-smb1-and-smb2/).
 
 ## <a name="disabling-smb-10"></a>Deaktivieren von SMB 1,0
 

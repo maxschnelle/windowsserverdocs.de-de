@@ -10,12 +10,12 @@ ms.date: 10/11/2017
 ms.assetid: 5e1d7ecc-e22e-467f-8142-bad6d82fc5d0
 description: Eine Erläuterung der Resilienzoptionen in Direkte Speicherplätze, einschließlich Spiegelung und Parität.
 ms.localizationpriority: medium
-ms.openlocfilehash: d2220584c0021352110b27c3107d1113eb17ef59
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2e60a715ffa0097f3f5c615792da3aa0a291d6bd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393810"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950045"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-storage-spaces-direct"></a>Fehlertoleranz und Speichereffizienz in Direkte Speicherplätze
 
@@ -56,7 +56,7 @@ Die Dreiwegespiegelung kann [mindestens zwei gleichzeitige Hardwareprobleme (Lau
 
 ## <a name="parity"></a>Parität
 
-Die Paritätscodierung, häufig auch als „Erasure Coding“ bezeichnet, erzielt Fehlertoleranz durch bitweise arithmetische Operationen, die [außerordentlich kompliziert](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/LRC12-cheng20webpage.pdf) sein können. Die Funktionsweise ist weniger offensichtlich als bei der Spiegelung, und es gibt viele hilfreiche Onlineressourcen (z. B. das Dokument [Dummies Guide to Erasure Coding](http://smahesh.com/blog/2012/07/01/dummies-guide-to-erasure-coding/) eines Drittanbieter), die Ihnen einen Eindruck davon vermitteln. Hervorzuheben ist lediglich, dass diese Methode eine bessere Speichereffizienz bietet, ohne die Fehlertoleranz zu beeinträchtigen.
+Die Paritätscodierung, häufig auch als „Erasure Coding“ bezeichnet, erzielt Fehlertoleranz durch bitweise arithmetische Operationen, die [außerordentlich kompliziert](https://www.microsoft.com/research/wp-content/uploads/2016/02/LRC12-cheng20webpage.pdf) sein können. Die Funktionsweise ist weniger offensichtlich als bei der Spiegelung, und es gibt viele hilfreiche Onlineressourcen (z. B. das Dokument [Dummies Guide to Erasure Coding](http://smahesh.com/blog/2012/07/01/dummies-guide-to-erasure-coding/) eines Drittanbieter), die Ihnen einen Eindruck davon vermitteln. Hervorzuheben ist lediglich, dass diese Methode eine bessere Speichereffizienz bietet, ohne die Fehlertoleranz zu beeinträchtigen.
 
 In Windows Server 2016 bieten Speicherplätze zwei Arten von Parität – „Einzelparität“ und „duale Parität“. Die zweite Option verwendet bei umfangreicheren Vorgängen ein fortgeschrittenes Verfahren, das als „Code für die lokale Wiederherstellung“ bezeichnet wird.
 
@@ -102,13 +102,13 @@ Die Speichereffizienz einer durch Spiegelung beschleunigten Parität liegt zwisc
 > [!IMPORTANT]
 > Es wird empfohlen, für die meisten leistungsabhängigen Arbeitslasten eine Spiegelung zu verwenden. Weitere Informationen zum Ausgleich der Leistung und Kapazität je nach Ihrer Workload finden Sie unter [Volumes planen](plan-volumes.md#choosing-the-resiliency-type).
 
-## <a name="summary"></a>FAS
+## <a name="summary"></a>Zusammenfassung
 
 Dieser Abschnitt enthält die in „Direkte Speicherplätze“ verfügbaren Resilienztypen, die Mindestanforderungen für die Skalierung bei Verwendung der einzelnen Typen, die Anzahl von tolerierbaren Fehlern pro Typ und die entsprechende Speichereffizienz.
 
 ### <a name="resiliency-types"></a>Resilienztypen
 
-|    Resilienz          |    Fehlertoleranz       |    Speichereffizienz      |
+|    Ausfallsicherheit          |    Fehlertoleranz       |    Speichereffizienz      |
 |------------------------|----------------------------|----------------------------|
 |    Zwei-Wege-Spiegelung      |    1                       |    50,0 %                   |
 |    Drei-Wege-Spiegelung    |    2                       |    33,3 %                   |
@@ -117,7 +117,7 @@ Dieser Abschnitt enthält die in „Direkte Speicherplätze“ verfügbaren Resi
 
 ### <a name="minimum-scale-requirements"></a>Mindestanforderungen für Skalierung
 
-|    Resilienz          |    Mindestens erforderliche Fehlerdomänen   |
+|    Ausfallsicherheit          |    Mindestens erforderliche Fehlerdomänen   |
 |------------------------|-------------------------------------|
 |    Zwei-Wege-Spiegelung      |    2                                |
 |    Drei-Wege-Spiegelung    |    3                                |
@@ -179,18 +179,18 @@ Sofern Sie nicht nur zwei Server verwenden, empfehlen wir Ihnen die Nutzung der 
 
 Diese sechs Beispiele verdeutlichen, was bei der Drei-Wege-Spiegelung bzw. der dualen Parität toleriert werden **kann**.
 
-- **1.**    Ein Laufwerk ist verloren gegangen (schließt Cache Laufwerke ein)
-- **2.**    Ein Server geht verloren.
+- **1.**    Ausfall eines Laufwerks (einschließlich Cachelaufwerke)
+- **2.**    Ausfall eines Servers
 
 ![fault-tolerance-examples-1-and-2](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-12.png)
 
-- **3.**    Ein Server und ein Laufwerk sind verloren gegangen.
-- **4.**    Zwei Laufwerke sind auf unterschiedlichen Servern verloren
+- **3.**    Ausfall eines Servers und eines Laufwerks
+- **4.**    Ausfall von zwei Laufwerken auf unterschiedlichen Servern
 
 ![fault-tolerance-examples-3-and-4](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-34.png)
 
-- **5.**    Es sind mehr als zwei Laufwerke verloren, solange höchstens zwei Server betroffen sind.
-- **6.**    Zwei Server verloren
+- **5.**    Ausfall von mehr als zwei Laufwerken, sofern maximal zwei Server betroffen sind
+- **6.**    Ausfall von zwei Servern
 
 ![fault-tolerance-examples-5-and-6](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-56.png)
 
@@ -200,23 +200,23 @@ In all diesen Fällen bleiben alle Volumes online. (Stellen Sie sicher, dass fü
 
 Während ihrer gesamten Lebensdauer können Speicherplätze eine beliebige Anzahl von Ausfällen tolerieren, da die Resilienz nach jedem Ausfall vollständig wiederhergestellt wird, sofern genügend Zeit ist. Es können aber jeweils nur maximal zwei Fehlerdomänen von einem Fehler betroffen sein, ohne dass es zu Problemen kommt. Daher sind hier Beispiele dafür angegeben, was bei der Drei-Wege-Spiegelung bzw. der dualen Parität toleriert werden **kann**.
 
-- **7.** Laufwerke, die auf drei oder mehr Servern gleichzeitig verloren gehen
-- **8.** Drei oder mehr Server, die gleichzeitig verloren gehen
+- **7.** Gleichzeitiger Ausfall von Laufwerken auf drei oder mehr Servern
+- **8.** Gleichzeitiger Ausfall von drei oder mehr Servern
 
 ![fault-tolerance-examples-7-and-8](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-78.png)
 
-## <a name="usage"></a>Verwendung
+## <a name="usage"></a>Usage
 
 Sehen Sie sich [Erstellen von Volumes in direkten Speicherplätzen](create-volumes.md) an.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen:
 
 Alle folgenden Links sind inline im Text dieses Themas vorhanden.
 
 - [Direkte Speicherplätze in Windows Server 2016](storage-spaces-direct-overview.md)
 - [Fehler Domänen Bewusstsein in Windows Server 2016](../../failover-clustering/fault-domains.md)
-- [Erasure Coding in Azure von Microsoft Research](https://www.microsoft.com/en-us/research/publication/erasure-coding-in-windows-azure-storage/)
+- [Erasure Coding in Azure von Microsoft Research](https://www.microsoft.com/research/publication/erasure-coding-in-windows-azure-storage/)
 - [Lokale Wiederherstellungscodes und schnellere Paritäts Volumes](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)
 - [Volumes in der Speicherverwaltungs-API](https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/)
 - [Demo zur Speichereffizienz bei Microsoft Ignite 2016](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
-- [Kapazitäts Rechner Vorschau für direkte Speicherplätze](http://aka.ms/s2dcalc)
+- [Kapazitäts Rechner Vorschau für direkte Speicherplätze](https://aka.ms/s2dcalc)

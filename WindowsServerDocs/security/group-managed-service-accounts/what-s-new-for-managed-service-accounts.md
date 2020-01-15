@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: de4d64e3dbe4bc7c7cba32f066a696636632224d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 82d0ce962dfab0f7c9e5180e4b471894f507fb26
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403729"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950346"
 ---
 # <a name="what39s-new-for-managed-service-accounts"></a>&#39;Neues für verwaltete Dienst Konten
 
@@ -31,7 +31,7 @@ Das verwaltete Dienstkonto wurde entwickelt, damit Dienste und Aufgaben wie Wind
 ## <a name="versions"></a>Neues für verwaltete Dienst Konten unter Windows Server 2012 und Windows 8
 Im folgenden wird beschrieben, welche Änderungen an der Funktionalität von MSA in Windows Server 2012 und Windows 8 vorgenommen wurden.
 
-### <a name="group-managed-service-accounts"></a>Gruppenverwaltete Dienstkonten
+### <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
 Wenn ein Domänenkonto für einen Server in einer Domäne konfiguriert wird, kann sich der Clientcomputer bei diesem Gerät authentifizieren und eine Verbindung dazu herstellen. Zuvor stellen nur zwei Kontotypen eine Identität zur Verfügung, ohne dass die Kennwortverwaltung erforderlich war. Diese Kontotypen haben jedoch Einschränkungen:
 
 -   Das Computerkonto ist auf einen Domänenserver beschränkt und die Kennwörter werden vom Computer verwaltet.
@@ -51,12 +51,12 @@ Auf Computern, auf denen Windows Server 2012 oder Windows 8 ausgeführt wird, ka
 ### <a name="interoperability"></a>Entfernte oder veraltete Funktionen
 Für Windows Server 2012 werden die Windows PowerShell-Cmdlets standardmäßig für die Verwaltung der Gruppen verwalteten Dienst Konten anstelle der Server verwalteten Dienst Konten verwendet.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Weitere Informationen:
 
--   [Übersicht über Gruppen verwaltete Dienst Konten](group-managed-service-accounts-overview.md)
+-   [Gruppenverwaltete Dienstkonten: Übersicht](group-managed-service-accounts-overview.md)
 
 -   [Übersicht über die Active Directory Domain Services](active-directory-domain-services-overview.md)
 
--   [Verwaltete Dienst Konten: Grundlegendes, Implementierung, bewährte Methoden und Problembehandlung](http://blogs.technet.com/b/askds/archive/20../managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting.aspx)
+-   [Verwaltete Dienst Konten: Grundlegendes, Implementierung, bewährte Methoden und Problembehandlung](https://blogs.technet.com/b/askds/archive/20../managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting.aspx)
 
 

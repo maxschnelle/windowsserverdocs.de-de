@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 02/15/2019
-ms.openlocfilehash: 1643568cd1a0cdbb693d773a8357d2c36b701fd3
-ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
+ms.openlocfilehash: fc8e6ffa39320cfc73bf3f5bd0a5bc765ded24b4
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2019
-ms.locfileid: "74903977"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950523"
 ---
 # <a name="get-started-with-windows-admin-center"></a>Einstieg in das Windows Admin Center
 
@@ -21,7 +21,7 @@ ms.locfileid: "74903977"
 
 > [!Tip]
 > Neu bei Windows Admin Center?
-> [Erfahren Sie mehr über Windows Admin Center](../understand/windows-admin-center.md) oder [jetzt herunterladen](https://aka.ms/windowsadmincenter).
+> [Erfahren Sie mehr über Windows Admin Center](../overview.md) oder [jetzt herunterladen](https://aka.ms/windowsadmincenter).
 
 ## <a name="windows-admin-center-installed-on-windows-10"></a>Windows Admin Center auf Windows 10 installiert
 
@@ -151,7 +151,7 @@ Nachdem Tags zu einer oder mehreren Serververbindungen hinzugefügt wurden, kön
 * Sie können "or", "and" oder "Not" auswählen, um das Filter Verhalten der ausgewählten Tags zu ändern.
 ![](../media/launch/tags-8.png)
 
-## <a name="use-powershell-to-import-or-export-your-connections-with-tags"></a>Verwenden von PowerShell zum Importieren oder Exportieren von Verbindungen (mit Tags)
+## <a name="use-powershell-to-import-or-export-your-connections-with-tags"></a>Verwenden von PowerShell zum Importieren oder Exportieren deiner Verbindungen (mit Tags)
 
 [!INCLUDE [ps-connections](../includes/ps-connections.md)]
 

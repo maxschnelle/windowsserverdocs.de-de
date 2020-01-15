@@ -11,12 +11,12 @@ ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: high
-ms.openlocfilehash: a29c43a87ccb55e85b018bc1b6dfe84bc53495b9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fe2022ba3ff382d1070495b28dfdb03a34f9be42
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403446"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950318"
 ---
 # <a name="security--assurance"></a>Sicherheit | Zuverlässigkeit
 
@@ -79,14 +79,14 @@ Windows Server Security bietet in das Betriebssystem integrierte Schutzebenen, d
                                         </div>
                                         <div class="cardText">
                                             <h3>Addressing emerging threats and landscape shifts (Reaktion auf neue Bedrohungen und Änderungen der Systemlandschaft)</h3><hr />
-                                            <p>In diesem sechsminütigen Video, gibt Ihnen Anders Vinberg eine Übersicht über die Sicherheits- und Zusicherungsstrategien von Microsoft und behandelt Branchentrends sowie Änderungen der Systemlandschaft, da sich diese ebenso auf die Sicherheit beziehen.</p>
+                                            <p>In diesem sechsminütigen Video vermittelt Anders Vinberg zunächst einen Überblick über die Sicherheits- und Zusicherungsstrategien von Microsoft und spricht über Branchentrends und sicherheitsrelevante Veränderungen in der Systemlandschaft.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                           </a>
                         </li><li>
- <a href="http://blogs.technet.com/b/windowsserver/archive/2015/11/18/protecting-your-datacenter-and-cloud-november-update.aspx">
+ <a href="https://blogs.technet.com/b/windowsserver/archive/2015/11/18/protecting-your-datacenter-and-cloud-november-update.aspx">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -104,7 +104,7 @@ Windows Server Security bietet in das Betriebssystem integrierte Schutzebenen, d
                             </div>
                           </a>
                         </li><li>
- <a href="http://channel9.msdn.com/events/ignite/2015/brk2482">
+ <a href="https://channel9.msdn.com/events/ignite/2015/brk2482">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -137,15 +137,15 @@ Windows Server Security bietet in das Betriebssystem integrierte Schutzebenen, d
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Sichern der Visualisierung mit abgeschirmten VMs</h3>
+                        <h3>Sichere Virtualisierung mit abgeschirmten VMs</h3>
 <HR />
-                        <p><h3><a href="http://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016">Abgeschirmte VMs auf Channel 9</a></h3>Eine exemplarische Vorgehensweise zu geschützten VM-Technologien und Vorteilen</p>
+                        <p><h3><a href="https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016">Abgeschirmte VMs auf Channel 9</a></h3>Exemplarische Vorgehensweise zu abgeschirmten VMs und Beschreibung der Vorteile</p>
 <HR />
                         <p><h3><a href="https://www.youtube.com/watch?v=xip5Qtk-7d8">Video zu abgeschirmten VMs</a></h3>In diesem 4-minütigen Video werden der Nutzen abgeschirmter VMs sowie die Unterschiede zwischen einer abgeschirmten VM und einer nicht abgeschirmten VM erläutert.</p>
 <HR />
                         <p><h3><a href="http://microsoft-cloud.cloudguides.com/Guides/Shielded%Virtual%Machines%in%Windows%Server.htm">Video mit exemplarischer Vorgehensweise „Shielded Virtual Machines in Windows Server“</a></h3>In diesem Video mit exemplarischer Vorgehensweise wird gezeigt, wie der Host-Überwachungsdienst die Verwendung abgeschirmter virtueller Computer ermöglicht, damit sensible Daten vor einem nicht autorisierten Zugriff durch Hyper-V-Hostadministratoren geschützt werden.</p>
 <HR />
-                        <p><h3><a href="http://channel9.msdn.com/events/ignite/2015/brk3457">„Harden the Fabric: Protecting Tenant Secrets in Hyper-V“ (Absichern des Fabrics: Schützen geheimer Mandantendaten in Hyper-V) (Ignite-Video)</a></h3>Diese Ignite-Präsentation erläutert Erweiterungen in Hyper-V, Virtual Machine Manager und eine neue Host-Überwachungsdienst-Serverrolle zur Aktivierung von abgeschirmten VMs. </p>
+                        <p><h3><a href="https://channel9.msdn.com/events/ignite/2015/brk3457">„Harden the Fabric: Protecting Tenant Secrets in Hyper-V“ (Absichern des Fabrics: Schützen geheimer Mandantendaten in Hyper-V) (Ignite-Video)</a></h3>Diese Ignite-Präsentation erläutert Erweiterungen in Hyper-V, Virtual Machine Manager und eine neue Host-Überwachungsdienst-Serverrolle zur Aktivierung von abgeschirmten VMs. </p>
 <HR />
                         <p><h3><a href="guarded-fabric-shielded-vm/guarded-fabric-deploying-hgs-overview.md">Guarded Fabric Deployment Guide (Bereitstellungsleitfaden für geschütztes Fabric)</a></h3>Dieser Leitfaden umfasst Installations- und Validierungsinformationen für Windows Server und System Center Virtual Machine Manager für Hosts mit geschütztem Fabric und abgeschirmten VMs.</p>
 <HR />
@@ -197,13 +197,13 @@ Windows Server Security bietet in das Betriebssystem integrierte Schutzebenen, d
                     <div class="cardText">
                         <h3>Privileged Access Management (Schützen von Windows und Microsoft Azure Active Directory mit Privileged Access Management)</h3>
 <HR />
-                        <p><h3><a href="https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access">Schützen des privilegierten Zugriffs</a></h3>Ein Wegweiser, der Ihnen zeigt, wie Sie Ihren privilegierten Zugriff schützen können. Dieser Wegweiser basiert auf dem geballten Fachwissens des Teams für die Sicherheit von Servern, der Microsoft-IT, des Azure-Teams und Microsoft Consulting Services. </p>
+                        <p><h3><a href="https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access">Schützen des privilegierten Zugriffs</a></h3>Ein Fahrplan zum Schutz Ihres privilegierten Zugriffs. Dieser Wegweiser basiert auf dem geballten Fachwissens des Teams für die Sicherheit von Servern, der Microsoft-IT, des Azure-Teams und Microsoft Consulting Services. </p>
 <HR />
                         <p><h3><a href="https://technet.microsoft.com/library/mt150258.aspx">Just in Time Administration with Microsoft Identity Manager (Just-In-Time-Verwaltung mit Microsoft Identity Manager)</a></h3> In diesem Artikel werden Features und Funktionen von Microsoft Identity Manager beschrieben. Dazu zählt auch die Unterstützung für Just-In-Time-Privileged Access Management.</p>
 <HR />
-                        <p><h3><a href="http://channel9.msdn.com/events/ignite/2015/brk3873">Video über den Schutz von Windows und Microsoft Azure Active Directory mit privilegierter Zugriffsverwaltung</a></h3>In dieser Ignite-Präsentation wird auf die Strategie und die Investitionen von Microsoft bei Windows Server, PowerShell, Active Directory, Identity Manager und Azure Active Directory eingegangen, um mithilfe einer sichereren Authentifizierung und durch die Verwaltung des Zugriffs über Just-In-Time- und Just Enough Administration-Verfahren (JEA) dem Risiko eines Administratorzugriffs entgegenzuwirken.</p>
+                        <p><h3><a href="https://channel9.msdn.com/events/ignite/2015/brk3873">Video über den Schutz von Windows und Microsoft Azure Active Directory mit privilegierter Zugriffsverwaltung</a></h3>In dieser Ignite-Präsentation wird auf die Strategie und die Investitionen von Microsoft bei Windows Server, PowerShell, Active Directory, Identity Manager und Azure Active Directory eingegangen, um mithilfe einer sichereren Authentifizierung und durch die Verwaltung des Zugriffs über Just-In-Time- und Just Enough Administration-Verfahren (JEA) dem Risiko eines Administratorzugriffs entgegenzuwirken.</p>
 <HR />
-                        <p><h3><a href="http://aka.ms/JEA">Artikel zu Just Enough Administration</a></h3>In diesem Dokument werden die Vision und technische Details von Just Enough Administration beschrieben, einem PowerShell-Toolkit, mit dem Organisationen den Administratorzugriff auf die Aufgaben beschränken können, die der jeweilige Mitarbeiter ausführen muss.</p>
+                        <p><h3><a href="https://aka.ms/JEA">Artikel zu Just Enough Administration</a></h3>In diesem Dokument werden die Vision und technische Details von Just Enough Administration beschrieben, einem PowerShell-Toolkit, mit dem Organisationen den Administratorzugriff auf die Aufgaben beschränken können, die der jeweilige Mitarbeiter ausführen muss.</p>
 <HR />
                         <p><h3><a href="https://www.youtube.com/watch?v=xnBrbkY9P20">Demovideo zu Just Enough Administration</a></h3>Just Enough Administration – exemplarische Vorgehensweise.</p>
                     </div>
@@ -223,7 +223,7 @@ Windows Server Security bietet in das Betriebssystem integrierte Schutzebenen, d
                     <div class="cardText">
                         <h3>Schutz von Anmeldeinformationen</h3>
 <HR />
-                        <p><h3><a href="https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard">Schützen abgeleiteter Domänenanmeldeinformationen mit Credential Guard</a></h3>Credential Guard nutzt auf Virtualisierung basierende Sicherheitsverfahren, um geheime Daten zu isolieren, damit nur durch privilegierte Systemsoftware auf diese Daten zugegriffen werden kann. Ein nicht autorisierter Zugriff auf diese geheimen Schlüssel kann zu Angriffen mit dem Ziel des Diebstahls von Anmeldeinformationen, z.B. Pass-the-Hash oder Pass-The-Ticket, führen.</a> Credential Guard verhindert diese Angriffe durch den Schutz von NTLM-Kennworthashes und Kerberos-TGTs.</p>
+                        <p><h3><a href="https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard">Schützen abgeleiteter Domänenanmeldeinformationen mit Credential Guard</a></h3>Credential Guard nutzt auf Virtualisierung basierende Sicherheitsverfahren, um geheime Daten zu isolieren, damit nur durch privilegierte Systemsoftware auf diese Daten zugegriffen werden kann. Ein nicht autorisierter Zugriff auf diese geheimen Schlüssel kann zu Angriffen mit dem Ziel des Diebstahls von Anmeldeinformationen, z.B. Pass-the-Hash oder Pass-The-Ticket, führen.</a> Credential Guard verhindert diese Angriffe, indem NTLM-Kennworthashes und Kerberos Ticket Granting Tickets geschützt werden.</p>
 <HR />
                         <p><h3><a href="https://docs.microsoft.com/windows/security/identity-protection/remote-credential-guard">Schützen von Remotedesktop-Anmeldeinformationen mit Remote Credential Guard</a></h3> Mit Remote Credential Guard können Sie Ihre Anmeldeinformationen über eine Remotedesktopverbindung schützen, indem Kerberos-Anforderungen an das Gerät zurückgeleitet werden, das die Verbindung anfordert. Darüber hinaus profitieren Sie mit dieser Lösung von einer SSO-Umgebung (Single Sign-On, einmaliges Anmelden) für Remotedesktopsitzungen. </p>
 <HR />
@@ -253,7 +253,7 @@ Windows Server Security bietet in das Betriebssystem integrierte Schutzebenen, d
 <HR />
                         <p><h3><a href="https://www.youtube.com/watch?v=_SaDw1dRy2k">Microsoft Operations Management Suite (OMS) und Windows Server</a></h3>Dieses dreiminütige Video zeigt, wie OMS dabei helfen kann, potentielles böswilliges Verhalten zu erkennen, das von Windows Server blockiert wird.</p>
 <HR />
-                        <p><h3><a href="http://blogs.technet.com/b/ad/archive/2015/07/22/microsoft-advanced-threat-analytics-coming-next-month.aspx">Microsoft Advanced Threat Analytics</a></h3>In diesem Blogbeitrag wird Microsoft Advanced Threat Analytics vorgestellt, eine lokale Lösung, die anhand von Active Directory-Netzwerkdatenverkehr und SIEM-Daten potenzielle Bedrohungen ermittelt und entsprechende Warnungen generiert.</p>
+                        <p><h3><a href="https://blogs.technet.com/b/ad/archive/2015/07/22/microsoft-advanced-threat-analytics-coming-next-month.aspx">Microsoft Advanced Threat Analytics</a></h3>In diesem Blogbeitrag wird Microsoft Advanced Threat Analytics vorgestellt, eine lokale Lösung, die anhand von Active Directory-Netzwerkdatenverkehr und SIEM-Daten potenzielle Bedrohungen ermittelt und entsprechende Warnungen generiert.</p>
                     </div>
                 </div>
             </div>
@@ -289,7 +289,7 @@ Windows Server Security bietet in das Betriebssystem integrierte Schutzebenen, d
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Zuordnen von Sicherheitsfunktionen zu Kompatibilitätsbestimmungen</h3>
+                        <h3>Abbilden von Compliancebestimmungen auf Sicherheitsfunktionen</h3>
 <HR />
                         <p><a href="https://download.microsoft.com/download/6/D/0/6D06E149-B4C1-4EED-ACD5-DF6066E93CC0/Coalfire_Branded_Hyper_V_Shielded_VMs_Whitepaper_EN_US.pdf">Whitepaper zur Kompatibilitätszuordnung von abgeschirmten Hyper-V-VMs (in englischer Sprache)</a></p>
 <HR />

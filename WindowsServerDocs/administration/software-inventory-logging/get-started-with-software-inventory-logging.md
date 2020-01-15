@@ -13,12 +13,12 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a38c984b2d81fc4db980a969ef0312109950b867
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: add11bf51570e3cafa2bd03ee3585de89f3eecab
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71382997"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75946966"
 ---
 # <a name="get-started-with-software-inventory-logging"></a>Beginnen Sie mit der Protokollierung des Software Bestands
 
@@ -26,8 +26,8 @@ ms.locfileid: "71382997"
 
  Bei der Protokollierung des Software Bestands werden Microsoft-Software Inventur Daten pro Server erfasst. Bevor Sie die Protokollierung des Software Bestands mit Windows Server 2012 R2 verwenden, stellen Sie sicher, dass Windows Update [KB 3000850](https://support.microsoft.com/kb/3000850) und [KB 3060681](https://support.microsoft.com/kb/3060681) auf jedem System installiert sind, das inventarisiert wird. Für Windows Server 2016 ist keine Windows Update erforderlich. Wenn Sie die Funktion von SIL zum Weiterleiten von Daten an einen Aggregations Server verwenden möchten, stellen Sie sicher, dass Sie über SSL-Zertifikate für Ihr Netzwerk verfügen.
 
-## <a name="BKMK_OVER"></a>Funktionsbeschreibung
-Die Protokollierung des Softwarebestands in Windows Server ist ein Feature mit einer Reihe einfacher PowerShell-Cmdlets, über die Serveradministratoren eine Liste der auf Servern installierten Microsoft-Software abrufen können. Darüber hinaus bietet sie die Möglichkeit, diese Daten für die Aggregation in regelmäßigen Abständen mithilfe des HTTPS-Protokolls über das Netzwerk zu sammeln und an einen Zielwebserver weiterzuleiten. Zum Verwalten des Features – in erster Linie zum stündlichen Sammeln und Weiterleiten – werden ebenfalls PowerShell-Befehle verwendet.
+## <a name="BKMK_OVER"></a>Featurebeschreibung
+Die Protokollierung des Softwarebestands in Windows Server ist ein Feature mit einer Reihe einfacher PowerShell-Cmdlets, über die Serveradministratoren eine Liste der auf Servern installierten Microsoft-Software abrufen können. Darüber hinaus bietet das Feature die Möglichkeit, diese Daten für die Aggregation in regelmäßigen Abständen mithilfe des HTTPS-Protokolls über das Netzwerk zu sammeln und an einen Zielwebserver weiterzuleiten. Zum Verwalten des Features – in erster Linie zum stündlichen Sammeln und Weiterleiten – werden ebenfalls PowerShell-Befehle verwendet.
 
 > [!NOTE]
 > Ein Aggregationsserver, auf dem ein Webdienst ausgeführt wird, kann separat konfiguriert werden. Weitere Informationen zum [Aggregator der Protokollierung des Softwarebestands](software-inventory-logging-aggregator.md).
@@ -44,10 +44,10 @@ Die Softwareinventurprotokollierung kann Serveradministratoren beim Ausführen f
 
 -   Aggregierte Software-und Server Inventur Informationen für eine Vielzahl von Software Asset Management-Szenarien durch Aktivieren der Protokollierungsfunktion des Software Bestands für jedes Server und Auswählen eines Ziel-URIs für den Webserver und des Zertifikat Fingerabdrucks für die Authentifizierung.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 [Aggregator der Protokollierung des Softwarebestands](https://technet.microsoft.com/library/mt572043.aspx)<br>
 [Verwaltung der Protokollierung des Softwarebestands](manage-software-inventory-logging.md)<br>
 [Cmdlets für die Protokollierung des Software Bestands in Windows PowerShell](https://technet.microsoft.com/library/dn283390.aspx)<br>
 [Microsoft Assessment and Planning Toolkit](https://www.microsoft.com/download/en/details.aspx?id=7826)
-[Tool für die Volumen Aktivierungs Verwaltung](http://blogs.technet.com/b/volume-licensing/)
+[Tool für die Volumen Aktivierungs Verwaltung](https://blogs.technet.com/b/volume-licensing/)
 

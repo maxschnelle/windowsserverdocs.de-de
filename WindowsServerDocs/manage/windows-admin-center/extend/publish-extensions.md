@@ -8,20 +8,20 @@ ms.author: jol
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 24beb287aa35757e1f8057920e8fd95828baf83b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0182c4097ec3bc4432e2ba408d701a72d82a7c8d
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385203"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950084"
 ---
 # <a name="publishing-extensions"></a>Erweiterungen werden veröffentlicht.
 
->Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center Vorschau
 
 Nachdem Sie Ihre Erweiterung entwickelt haben, möchten Sie Sie veröffentlichen und anderen Benutzern zur Verfügung stellen, um Sie zu testen oder zu verwenden. Abhängig von Ihrer Zielgruppe und dem Zweck der Veröffentlichung stehen Ihnen einige Optionen zur Verfügung, die wir unten zusammen mit den Schritten und Anforderungen für die Veröffentlichung vorstellen werden.
 
-## <a name="publishing-options"></a>Veröffentlichungs Optionen
+## <a name="publishing-options"></a>Veröffentlichungsoptionen
 
 Es gibt drei primäre Optionen für konfigurierbare Paketquellen, die von Windows Admin Center unterstützt werden:
 * Der öffentliche Windows Admin Center-nuget-Feed von Microsoft
@@ -58,7 +58,7 @@ Wenn Sie eine Vorschauversion ihrer Erweiterung zu Evaluierungs Zwecken veröffe
 
 Windows Admin Center verwendet nuget-Pakete und Feeds zum Verteilen und Herunterladen von Erweiterungen.  Damit Ihr Paket ausgeliefert werden kann, müssen Sie ein nuget-Paket mit den Plug-ins und Erweiterungen generieren.  Ein einzelnes Paket kann sowohl eine Benutzeroberflächen Erweiterung als auch ein Gateway-Plug-in enthalten. im folgenden Abschnitt werden Sie durch den Prozess geführt.
 
-### <a name="1-build-your-extension"></a>1. Erweiterung erstellen
+### <a name="1-build-your-extension"></a>1. Erstellen Sie die Erweiterung.
 
 Sobald Sie bereit sind, mit dem Packen Ihrer Erweiterung zu beginnen, erstellen Sie ein neues Verzeichnis auf Ihrem Dateisystem, öffnen Sie eine Konsole, und führen Sie eine CD ein.  Dabei handelt es sich um das Stammverzeichnis, in dem alle nuspec-und Inhaltsverzeichnisse enthalten sein werden, aus denen das Paket besteht.  Dieser Ordner wird für die Dauer dieses Dokuments als "nuget-Paket" referenziert.
 
@@ -70,18 +70,18 @@ Führen Sie "Gulp Build" in Ihrem Tool aus, und stellen Sie sicher, dass der Bui
 
 Verwenden Sie Ihre buildinfrastruktur (Dies könnte so einfach sein wie das Öffnen von Visual Studio und das Klicken auf die Schaltfläche "Build"), kompilieren und erstellen Sie das  Öffnen Sie das Buildausgabeverzeichnis, und kopieren Sie die dll (s), die das Plug-in darstellen, und fügen Sie Sie in einem neuen Ordner im Verzeichnis "nuget-Paket" mit dem Namen "Package" ein.  Sie müssen die featureinterface-dll nicht kopieren, sondern nur die dll (s), die Ihren Code darstellen.
 
-### <a name="2-create-the-nuspec-file"></a>2. Erstellen der nuspec-Datei
+### <a name="2-create-the-nuspec-file"></a>2. Erstellen Sie die nuspec-Datei.
 
 Um das nuget-Paket zu erstellen, müssen Sie zunächst eine nuspec-Datei erstellen. Bei einer nuspec-Datei handelt es sich um ein XML-Manifest, das nuget-Paket Metadaten enthält. Diese Manifestdatei wird sowohl für die Erstellung des Pakets als auch zur Bereitstellung von Informationen für die Consumer verwendet.  Legen Sie diese Datei im Stammverzeichnis des Ordners "nuget-Paket" ab.
 
 Im folgenden finden Sie ein Beispiel für eine nuspec-Datei und die Liste der erforderlichen oder empfohlenen Eigenschaften. Das vollständige Schema finden Sie in der [. nuspec-Referenz](https://docs.microsoft.com/nuget/reference/nuspec). Speichern Sie die nuspec-Datei im Stamm Ordner Ihres Projekts mit einem Dateinamen Ihrer Wahl.
 
 > [!IMPORTANT]
-> Der ```<id>``` Wert in der nuspec- ```manifest.json``` Datei muss mit dem ```"name"``` Wert in der Projektdatei identisch sein, oder Ihre veröffentlichte Erweiterung wird nicht erfolgreich in das Windows Admin Center geladen.
+> Der ```<id>``` Wert in der nuspec-Datei muss dem ```"name"``` Wert in der ```manifest.json``` Datei Ihres Projekts entsprechen. andernfalls wird die veröffentlichte Erweiterung im Windows Admin Center nicht erfolgreich geladen.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+<package xmlns="https://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <packageTypes>
       <packageType name="WindowsAdminCenterExtension" />
@@ -110,31 +110,31 @@ Im folgenden finden Sie ein Beispiel für eine nuspec-Datei und die Liste der er
 
 | Eigenschaftenname | Erforderlich/empfohlen | Beschreibung |
 | ---- | ---- | ---- |
-| PackageType | Erforderlich | Verwenden Sie "windowsadmincenterextension", bei dem es sich um den nuget-Pakettyp handelt, der für Erweiterungen des Windows Admin Centers |
+| packageType | Erforderlich | Verwenden Sie "windowsadmincenterextension", bei dem es sich um den nuget-Pakettyp handelt, der für Erweiterungen des Windows Admin Centers |
 | id | Erforderlich | Eindeutiger Paket Bezeichner innerhalb des Feeds. Dieser Wert muss mit dem Wert "Name" in der Datei "Manifest. JSON" Ihres Projekts identisch sein.  Informationen finden Sie unter [Auswählen eines eindeutigen Paketbezeichners und Festlegen der Versionsnummer](https://docs.microsoft.com/nuget/create-packages/creating-a-package#choosing-a-unique-package-identifier-and-setting-the-version-number). |
 | title | Zum Veröffentlichen im Windows Admin Center-Feed erforderlich | Anzeige Name für das Paket, das im Windows Admin Center Extension Manager angezeigt wird. |
-| version | Erforderlich | Erweiterungs Version. Die Verwendung der [semantischen Versionsverwaltung (semver-Konvention)](http://semver.org/spec/v1.0.0.html) wird empfohlen, ist jedoch nicht erforderlich. |
+| -Version | Erforderlich | Erweiterungs Version. Die Verwendung der [semantischen Versionsverwaltung (semver-Konvention)](http://semver.org/spec/v1.0.0.html) wird empfohlen, ist jedoch nicht erforderlich. |
 | authors | Erforderlich | Wenn Sie im Auftrag Ihres Unternehmens veröffentlichen, verwenden Sie den Namen Ihres Unternehmens. |
-| description | Erforderlich | Geben Sie eine Beschreibung der Funktionalität der Erweiterung an. |
+| Beschreibung | Erforderlich | Geben Sie eine Beschreibung der Funktionalität der Erweiterung an. |
 | iconUrl | Empfohlen beim Veröffentlichen im Windows Admin Center-Feed | Die URL für das Symbol, das im Erweiterungs-Manager angezeigt werden soll. |
 | projectUrl | Zum Veröffentlichen im Windows Admin Center-Feed erforderlich | URL zur Website ihrer Erweiterung. Wenn Sie nicht über eine separate Website verfügen, verwenden Sie die URL für die Paket Webseite im nuget-Feed. |
 | licenseUrl | Zum Veröffentlichen im Windows Admin Center-Feed erforderlich | URL zum Endbenutzer-Lizenzvertrag ihrer Erweiterung. |
-| files | Erforderlich | Mit diesen beiden Einstellungen wird die Ordnerstruktur eingerichtet, die das Windows Admin Center für UI-Erweiterungen und Gateway-Plug-ins erwartet. |
+| Dateien | Erforderlich | Mit diesen beiden Einstellungen wird die Ordnerstruktur eingerichtet, die das Windows Admin Center für UI-Erweiterungen und Gateway-Plug-ins erwartet. |
 
-### <a name="3-build-the-extension-nuget-package"></a>3. Nuget-Paket für die Erweiterung erstellen
+### <a name="3-build-the-extension-nuget-package"></a>3. Erstellen Sie das nuget-Paket für Erweiterungen.
 
 Mithilfe der zuvor erstellten nuspec-Datei erstellen Sie jetzt die nupkg-Datei "nuget Package", die Sie hochladen und in den nuget-Feed veröffentlichen können.
 
 1. Laden Sie das CLI-Tool "nuget. exe" von der [nuget-Client Tools-Website](https://docs.microsoft.com/nuget/install-nuget-client-tools)herunter.
 2. Führen Sie "nuget. exe Pack [. nuspec Dateiname]" aus, um die nupkg-Datei zu erstellen.
 
-### <a name="4-signing-your-extension-nuget-package"></a>4. Nuget-Paket für die Erweiterung wird signiert
+### <a name="4-signing-your-extension-nuget-package"></a>4. Signieren eines nuget-Pakets für die Erweiterung
 
 Alle dll-Dateien, die in ihrer Erweiterung enthalten sind, müssen mit einem Zertifikat von einer vertrauenswürdigen Zertifizierungsstelle (Certificate Authority, ca) signiert werden. Standardmäßig wird die Ausführung von nicht signierten dll-Dateien blockiert, wenn das Windows Admin Center im Produktionsmodus ausgeführt wird.
 
 Außerdem wird dringend empfohlen, dass Sie das nuget-Paket für die Erweiterung signieren, um die Integrität des Pakets sicherzustellen. Dies ist jedoch kein erforderlicher Schritt.
 
-### <a name="5-test-your-extension-nuget-package"></a>5. Testen des nuget-Pakets für die Erweiterung
+### <a name="5-test-your-extension-nuget-package"></a>5. Testen Sie das nuget-Paket der Erweiterung.
 
 Das Erweiterungspaket ist jetzt zum Testen bereit! Laden Sie die nupkg-Datei in einen nuget-Feed hoch, oder kopieren Sie Sie in eine Dateifreigabe. Um Pakete aus einem anderen Feed oder einer anderen Dateifreigabe anzuzeigen und herunterzuladen, müssen Sie [die Feed-Konfiguration so ändern](../configure/using-extensions.md#installing-extensions-from-a-different-feed) , dass Sie auf den nuget-Feed oder die Dateifreigabe verweist. Stellen Sie beim Testen sicher, dass die Eigenschaften im Erweiterungs-Manager richtig angezeigt werden und Sie die Erweiterung erfolgreich installieren und deinstallieren können.
 
@@ -148,7 +148,7 @@ Wenn Sie anschließend ein Update für Ihre Erweiterung freigeben möchten, müs
 
 ### <a name="submit-an-extension-review-request-to-microsoft"></a>Übermitteln einer Anforderung zur Erweiterungs Überprüfung an Microsoft
 
-Geben Sie die folgenden Informationen ein, und senden Sie als e-Mail an [wacextensionrequest@microsoft.com](mailto:wacextensionrequest@microsoft.com?subject=Windows%20Admin%20Center%20Extension%20Review%20Request), um eine Anforderung zur Erweiterungs Überprüfung zu übermitteln. Wir werden innerhalb einer Woche auf Ihre e-Mail Antworten.
+Geben Sie die folgenden Informationen ein, und senden Sie eine e-Mail an [wacextensionrequest@microsoft.com](mailto:wacextensionrequest@microsoft.com?subject=Windows%20Admin%20Center%20Extension%20Review%20Request), um eine Anforderung zur Erweiterungs Überprüfung zu übermitteln. Wir werden innerhalb einer Woche auf Ihre e-Mail Antworten.
 
 ```
 Windows Admin Center Extension Review Request
@@ -167,4 +167,4 @@ Stellen Sie sicher, dass Sie die oben aufgeführten Anweisungen zum [Erstellen e
 - Ausführliche Beschreibung ihrer Erweiterung einschließlich Screenshots oder Videos
 - E-Mail-Adresse oder Website Funktion zum Empfangen von Feedback oder Fragen
 
-Wenn Sie bereit sind, ihre Erweiterung zu veröffentlichen, senden Sie eine [wacextensionrequest@microsoft.com](mailto:wacextensionrequest@microsoft.com?subject=Windows%20Admin%20Center%20Extension%20Package%20Review) e-Mail an, und wir geben Ihnen Anweisungen, wie Sie uns Ihr Erweiterungspaket senden. Sobald wir Ihr Paket erhalten haben, überprüfen wir, ob Sie im Windows Admin Center-Feed veröffentlicht werden.
+Wenn Sie bereit sind, ihre Erweiterung zu veröffentlichen, senden Sie eine e-Mail an [wacextensionrequest@microsoft.com](mailto:wacextensionrequest@microsoft.com?subject=Windows%20Admin%20Center%20Extension%20Package%20Review) , und wir geben Ihnen Anweisungen, wie Sie uns Ihr Erweiterungspaket senden. Sobald wir Ihr Paket erhalten haben, überprüfen wir, ob Sie im Windows Admin Center-Feed veröffentlicht werden.

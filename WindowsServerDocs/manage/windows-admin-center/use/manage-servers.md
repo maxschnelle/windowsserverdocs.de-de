@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 11/21/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 9a116cc9d86dfe0bb4450efa0f18580a062af722
-ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
+ms.openlocfilehash: ddc8eea67cde9d6677836af1201e169c911e77e0
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2019
-ms.locfileid: "74903719"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950479"
 ---
 # <a name="manage-servers-with-windows-admin-center"></a>Verwalten von Servern mit dem Windows Admin Center
 
@@ -21,7 +21,7 @@ ms.locfileid: "74903719"
 
 > [!Tip]
 > Neu bei Windows Admin Center?
-> [Erfahren Sie mehr über Windows Admin Center](../understand/windows-admin-center.md) oder [jetzt herunterladen](https://aka.ms/windowsadmincenter).
+> [Weitere Informationen zum Windows Admin Center finden Sie hier](../overview.md).
 
 ## <a name="managing-windows-server-machines"></a>Verwalten von Windows Server-Maschinen
 
@@ -189,7 +189,7 @@ Mit **DHCP** können Sie verbundene Geräte auf einem Computer oder Server verwa
 
 [**Anzeigen von Feedback und vorgeschlagenen Features für DHCP**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BDHCP%5D).
 
-## <a name="dns"></a>DNS
+## <a name="dns"></a>Domain Name System
 
 Mithilfe von **DNS** können Sie verbundene Geräte auf einem Computer oder Server verwalten.
 
@@ -417,7 +417,7 @@ Die folgenden Funktionen werden in-Diensten unterstützt:
 - Anzeigen und Ändern der rollenbasierten Zugriffs Steuerungseinstellungen
 - Anzeigen und Ändern von Hyper-V-Host Einstellungen (falls zutreffend)
 
-## <a name="storage"></a>Speicher
+## <a name="storage"></a>„Speicher“.
 
 Mithilfe von **Speicher** können Sie Speichergeräte auf einem Computer oder Server verwalten.
 

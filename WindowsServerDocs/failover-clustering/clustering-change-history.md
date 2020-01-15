@@ -7,14 +7,14 @@ ms.topic: article
 author: JasonGerend
 manager: daveba
 ms.author: jgerend
-ms.date: 03/08/2019
+ms.date: 01/07/2020
 description: Neue und aktualisierte Themen in der Dokumentation zu Failoverclustering für Windows Server 2016
-ms.openlocfilehash: 501ad8f63eafdeadffcf5d67646c9e85005cf329
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b29a1dd979dc5ab14684a83e549ce3e6b3c273f1
+ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361211"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75953040"
 ---
 # <a name="change-history-for-failover-clustering-topics"></a>Änderungsverlauf für Failovercluster-Themen
 
@@ -24,25 +24,31 @@ In diesem Thema werden neue und aktualisierte Themen in der Dokumentation zu [Fa
 
 > Der Updateverlauf für Windows Server 2016 befindet sich unter [Updateverlauf für Windows 10 und Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
 
-## <a name="march-2019"></a>2019. März
+## <a name="january-2020"></a>Januar 2020
 
 |Neues oder geändertes Thema                                    |Beschreibung |
 |--------------------------------------------------------|------------|
-|[Clusteraffinität](cluster-affinity.md)| Neu     |
+|[Cluster Ereignisse](system-events.md)| „Neu“,     |
+
+## <a name="march-2019"></a>März 2019
+
+|Neues oder geändertes Thema                                    |Beschreibung |
+|--------------------------------------------------------|------------|
+|[Clusteraffinität](cluster-affinity.md)| „Neu“,     |
 
 ## <a name="february-2019"></a>Februar 2019
 
 |Neues oder geändertes Thema                                    |Beschreibung |
 |--------------------------------------------------------|------------|
-| [Upgrade eines Failoverclusters auf derselben Hardware](upgrade-option-same-hardware.md)| Neu |
-|[Bereitstellen eines Dateiservers mit zwei Knoten](deploy-two-node-clustered-file-server.md)| Neu |
+| [Upgrade eines Failoverclusters auf derselben Hardware](upgrade-option-same-hardware.md)| „Neu“, |
+|[Bereitstellen eines Dateiservers mit zwei Knoten](deploy-two-node-clustered-file-server.md)| „Neu“, |
 
-## <a name="january-2019"></a>2019. Januar
+## <a name="january-2019"></a>Januar 2019
 
 |Neues oder geändertes Thema                                    |Beschreibung |
 |--------------------------------------------------------|------------|
-|[Bereitstellen eines Dateifreigabezeugen](file-share-witness.md)    | Neu        |
-|[Clusterdomänenmigration](cluster-domain-migration.md) | Neu        |
+|[Bereitstellen eines Dateifreigabezeugen](file-share-witness.md)    | „Neu“,        |
+|[Clusterdomänenmigration](cluster-domain-migration.md) | „Neu“,        |
 
 ## <a name="november-2018"></a>November 2018
 
@@ -56,7 +62,7 @@ In diesem Thema werden neue und aktualisierte Themen in der Dokumentation zu [Fa
 |---|---|
 |[Neues beim Clustering](whats-new-in-failover-clustering.md)| Updates für Windows Server 2019|
 
-## <a name="june-2018"></a>2018. Juni
+## <a name="june-2018"></a>Juni 2018
 
 |Neues oder geändertes Thema|Beschreibung|
 |---|---|

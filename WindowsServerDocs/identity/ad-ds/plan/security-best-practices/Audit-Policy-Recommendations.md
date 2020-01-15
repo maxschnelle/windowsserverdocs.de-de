@@ -1,6 +1,6 @@
 ---
 ms.assetid: 0abe0976-4b49-45d6-a7b3-81d28bdb8210
-title: Empfehlungen zu Überwachungsrichtlinien
+title: Audit Policy Recommendations
 description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
@@ -9,14 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c902f9a438afd226dfb58dbde9f3c00d57b0ed58
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6cecf2edcb834a963c706fa4a63e7d15b13f7888
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408594"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949620"
 ---
-# <a name="audit-policy-recommendations"></a>Empfehlungen zu Überwachungsrichtlinien
+# <a name="audit-policy-recommendations"></a>Audit Policy Recommendations
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8.1, Windows 7
 
@@ -36,13 +36,13 @@ Dieser Abschnitt enthält Tabellen, in denen die Empfehlungen für die Überwach
 
 -   Windows Server 2016 
 
--   Windows Server 2012  
+-   WindowsServer 2012  
 
 -   Windows Server 2012 R2  
 
--   WindowsServer 2008  
+-   Windows Server 2008  
 
--   Windows 10
+-   Windows-10
 
 -   Windows 8.1  
 
@@ -57,7 +57,7 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 |**Angabe**|**Empfehlung**|  
 |JA|In allgemeinen Szenarien aktivieren|  
 |NEIN|**Nicht** in allgemeinen Szenarien aktivieren|  
-|Sei|Aktivieren Sie bei Bedarf für ein bestimmtes Szenario oder, wenn eine Rolle oder ein Feature, für das die Überwachung gewünscht ist, auf dem Computer installiert ist.|  
+|WENN|Aktivieren Sie bei Bedarf für ein bestimmtes Szenario oder, wenn eine Rolle oder ein Feature, für das die Überwachung gewünscht ist, auf dem Computer installiert ist.|  
 |DC|Aktivieren auf Domänen Controllern|  
 |Blitz|Keine Empfehlung|  
 
@@ -72,11 +72,11 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 |Kerberos-Authentifizierungsdienst überwachen|||Ja, ja|  
 |Ticketvorgänge des Kerberos-Diensts überwachen|||Ja, ja|  
 |Andere Kontoanmeldungsereignisse überwachen|||Ja, ja|  
-|**Kontoverwaltung**||||  
+|**Kontenverwaltung**||||  
 |Anwendungsgruppenverwaltung überwachen||||  
 |Computerkontoverwaltung überwachen||Ja Nein|Ja, ja|  
 |Verteilergruppenverwaltung überwachen||||  
-|Andere Kontoverwaltungsereignisse überwachen||Ja Nein|Ja, ja|  
+|Überwachen anderer Kontoverwaltungsereignisse||Ja Nein|Ja, ja|  
 |Sicherheitsgruppenverwaltung überwachen||Ja Nein|Ja, ja|  
 |Benutzerkontenverwaltung überwachen|Ja Nein|Ja Nein|Ja, ja|  
 |**Ausführliche Nachverfolgung**||||  
@@ -120,13 +120,13 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 |Authentifizierungsrichtlinienänderung überwachen|Ja Nein|Ja Nein|Ja, ja|  
 |Autorisierungsrichtlinienänderung überwachen||||  
 |Filterplattform-Richtlinienänderung überwachen||||  
-|MPSSVC-Richtlinienänderung auf Regelebene überwachen|||Ja  |  
+|MPSSVC-Richtlinienänderung auf Regelebene überwachen|||„Ja“  |  
 |Andere Richtlinienänderungsereignisse überwachen||||  
 |**Berechtigungs Verwendung**||||  
 |Nicht sensible Verwendung von Rechten überwachen||||  
 |Andere Rechteverwendungsereignisse überwachen||||  
 |Sensible Verwendung von Rechten überwachen||||  
-|**Anlage**||||  
+|**System**||||  
 |IPsec-Treiber überwachen||Ja, ja|Ja, ja|  
 |Andere Systemereignisse überwachen|Ja, ja|||  
 |Sicherheitsstatusänderung überwachen|Ja Nein|Ja, ja|Ja, ja|  
@@ -150,11 +150,11 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 |Kerberos-Authentifizierungsdienst überwachen|||Ja, ja|  
 |Ticketvorgänge des Kerberos-Diensts überwachen|||Ja, ja|  
 |Andere Kontoanmeldungsereignisse überwachen|||Ja, ja|  
-|**Kontoverwaltung**||||  
+|**Kontenverwaltung**||||  
 |Anwendungsgruppenverwaltung überwachen||||  
 |Computerkontoverwaltung überwachen||Ja, DC|Ja, ja|  
 |Verteilergruppenverwaltung überwachen||||  
-|Andere Kontoverwaltungsereignisse überwachen||Ja, ja|Ja, ja|  
+|Überwachen anderer Kontoverwaltungsereignisse||Ja, ja|Ja, ja|  
 |Sicherheitsgruppenverwaltung überwachen||Ja, ja|Ja, ja|  
 |Benutzerkontenverwaltung überwachen|Ja Nein|Ja, ja|Ja, ja|  
 |**Ausführliche Nachverfolgung**||||  
@@ -198,13 +198,13 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 |Authentifizierungsrichtlinienänderung überwachen|Ja Nein|Ja Nein|Ja, ja|  
 |Autorisierungsrichtlinienänderung überwachen||||  
 |Filterplattform-Richtlinienänderung überwachen||||  
-|MPSSVC-Richtlinienänderung auf Regelebene überwachen|||Ja  |  
+|MPSSVC-Richtlinienänderung auf Regelebene überwachen|||„Ja“  |  
 |Andere Richtlinienänderungsereignisse überwachen||||  
 |**Berechtigungs Verwendung**||||  
 |Nicht sensible Verwendung von Rechten überwachen||||  
 |Andere Rechteverwendungsereignisse überwachen||||  
 |Sensible Verwendung von Rechten überwachen||||  
-|**Anlage**||||  
+|**System**||||  
 |IPsec-Treiber überwachen||Ja, ja|Ja, ja|  
 |Andere Systemereignisse überwachen|Ja, ja|||  
 |Sicherheitsstatusänderung überwachen|Ja Nein|Ja, ja|Ja, ja|  
@@ -285,13 +285,13 @@ Eine Liste der zu überwachenden empfohlenen Ereignisse, deren kritikitäts Bewe
 ## <a name="additional-information-for-monitoring-active-directory-domain-services"></a>Weitere Informationen zum Überwachen von Active Directory Domain Services  
 Überprüfen Sie die folgenden Links, um weitere Informationen zur Überwachungs AD DS zu finden:  
   
--   Die [globale Objekt Zugriffs Überwachung ist magisch](http://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) . Sie enthält Informationen zum Konfigurieren und Verwenden der erweiterten Überwachungs Richtlinien Konfiguration, die zu Windows 7 und Windows Server 2008 R2 hinzugefügt wurde.  
+-   Die [globale Objekt Zugriffs Überwachung ist magisch](https://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) . Sie enthält Informationen zum Konfigurieren und Verwenden der erweiterten Überwachungs Richtlinien Konfiguration, die zu Windows 7 und Windows Server 2008 R2 hinzugefügt wurde.  
 
--   [Einführung von Überwachungs Änderungen in Windows 2008](http://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : führt die in Windows 2008 vorgenommenen Überwachungs Änderungen ein.  
+-   [Einführung von Überwachungs Änderungen in Windows 2008](https://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : führt die in Windows 2008 vorgenommenen Überwachungs Änderungen ein.  
 
--   Praktische Überwachungs [Tricks in Vista und 2008](http://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : erläutert interessante neue Features der Überwachung in Windows Vista und Windows Server 2008, die für die Problembehandlung oder das Auftreten von Ereignissen in Ihrer Umgebung verwendet werden können.  
+-   Praktische Überwachungs [Tricks in Vista und 2008](https://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : erläutert interessante neue Features der Überwachung in Windows Vista und Windows Server 2008, die für die Problembehandlung oder das Auftreten von Ereignissen in Ihrer Umgebung verwendet werden können.  
 
--   [Zentrale Anlaufstelle für die Überwachung in Windows Server 2008 und Windows Vista](http://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : enthält eine Kompilierung von Überwachungs Features und Informationen, die in Windows Server 2008 und Windows Vista enthalten sind.  
+-   [Zentrale Anlaufstelle für die Überwachung in Windows Server 2008 und Windows Vista](https://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : enthält eine Kompilierung von Überwachungs Features und Informationen, die in Windows Server 2008 und Windows Vista enthalten sind.  
 
 -   [Schritt-für-Schritt-Anleitung](https://technet.microsoft.com/library/a9c25483-89e2-4202-881c-ea8e02b4b2a5.aspx) für die AD DS Überwachung: Beschreibt das neue Active Directory Domain Services (AD DS)-Überwachungs Feature in Windows Server 2008. Außerdem werden Verfahren zur Implementierung dieses neuen Features bereitstellt.  
 

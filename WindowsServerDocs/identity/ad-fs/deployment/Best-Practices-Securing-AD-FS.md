@@ -9,15 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 15b0c721b620e2891f4452fd54501f4970b7c177
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: abbc9cf76056af4ac421d9a38381bd8d8f666e4c
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360001"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949533"
 ---
-## <a name="best-practices-for-securing-active-directory-federation-services"></a>Bewährte Methoden zum Sichern von Active Directory-Verbunddienste (AD FS)
-
+# <a name="best-practices-for-securing-active-directory-federation-services"></a>Bewährte Methoden zum Sichern von Active Directory-Verbunddienste (AD FS)
 
 Dieses Dokument enthält bewährte Methoden für die sichere Planung und Bereitstellung von Active Directory-Verbunddienste (AD FS) (AD FS) und webanwendungsproxy.  Sie enthält Informationen über das Standardverhalten dieser Komponenten und Empfehlungen für zusätzliche Sicherheits Konfigurationen für eine Organisation mit spezifischen Anwendungsfällen und Sicherheitsanforderungen.
 
@@ -41,30 +40,30 @@ Das folgende Diagramm zeigt die Firewallports, die zwischen und unter den Kompon
 ### <a name="azure-ad-connect-and-federation-serverswap"></a>Azure AD Connect und Verbund Server/WAP
 In dieser Tabelle werden die Ports und Protokolle beschrieben, die für die Kommunikation zwischen dem Azure AD Connect-Server und Verbund-/WAP-Servern erforderlich sind.  
 
-Protokoll |Anschlüsse |Beschreibung
+Protokoll |Ports |Beschreibung
 --------- | --------- |---------
-HTTP|80 (TCP/UDP)|Dient zum Herunterladen von CRLs (Zertifikat Sperr Listen) zum Überprüfen von SSL-Zertifikaten.
-HTTPS|443 (TCP/UDP)|Wird für die Synchronisierung mit Azure AD verwendet.
+HTTP|80 (TCP/UDP)|Wird zum Herunterladen von Zertifikatsperrlisten zur Überprüfung von SSL-Zertifikaten verwendet
+HTTPS|443 (TCP/UDP)|Wird zum Synchronisieren mit Azure AD verwendet
 WinRM|5985| WinRM-Listener
 
 ### <a name="wap-and-federation-servers"></a>WAP-und Verbund Server
-In dieser Tabelle werden die Ports und Protokolle beschrieben, die für die Kommunikation zwischen den Verbund Servern und WAP-Servern erforderlich sind.
+In dieser Tabelle werden die Ports und Protokolle beschrieben, die für die Kommunikation zwischen den Verbundservern und WAP-Servern erforderlich sind.
 
-Protokoll |Anschlüsse |Beschreibung
+Protokoll |Ports |Beschreibung
 --------- | --------- |---------
-HTTPS|443 (TCP/UDP)|Wird für die Authentifizierung verwendet.
+HTTPS|443 (TCP/UDP)|Wird für die Authentifizierung verwendet
 
 ### <a name="wap-and-users"></a>WAP und Benutzer
 In dieser Tabelle werden die Ports und Protokolle beschrieben, die für die Kommunikation zwischen Benutzern und den WAP-Servern erforderlich sind.
 
-Protokoll |Anschlüsse |Beschreibung
+Protokoll |Ports |Beschreibung
 --------- | --------- |--------- |
-HTTPS|443 (TCP/UDP)|Wird für die Geräte Authentifizierung verwendet.
-TCP|49443 (TCP)|Wird für die Zertifikat Authentifizierung verwendet.
+HTTPS|443 (TCP/UDP)|Wird für die Geräteauthentifizierung verwendet
+TCP|49443 (TCP)|Wird für die Zertifikatauthentifizierung verwendet
 
-Weitere Informationen zu den erforderlichen Ports und Protokollen, die für Hybrid Bereitstellungen erforderlich sind, finden Sie in [diesem Dokument.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-ports/)
+Weitere Informationen zu den erforderlichen Ports und Protokollen, die für Hybrid Bereitstellungen erforderlich sind, [finden Sie in diesem Dokument.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-ports/)
 
-Ausführliche Informationen zu Ports und Protokollen, die für eine Bereitstellung von Azure AD und Office 365 erforderlich sind, finden Sie in [diesem Dokument.](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US)
+Ausführliche Informationen zu Ports und Protokollen, die für eine Bereitstellung von Azure AD und Office 365 erforderlich sind [, finden Sie in diesem Dokument.](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US)
 
 ### <a name="endpoints-enabled"></a>Aktivierte Endpunkte
 
@@ -101,15 +100,15 @@ Die Einstellung kann mithilfe des folgenden PowerShell-Cmdlets überprüft werde
     
    `PS:\>Get-ADFSProperties`
 
-Die-Eigenschaft `ExtendedProtectionTokenCheck`ist.  Die Standardeinstellung ist zulassen, sodass die Sicherheitsvorteile ohne die Kompatibilitätsprobleme mit Browsern erzielt werden können, die die Funktion nicht unterstützen.  
+Die Eigenschaft ist `ExtendedProtectionTokenCheck`.  Die Standardeinstellung ist zulassen, sodass die Sicherheitsvorteile ohne die Kompatibilitätsprobleme mit Browsern erzielt werden können, die die Funktion nicht unterstützen.  
 
 ### <a name="congestion-control-to-protect-the-federation-service"></a>Überlastungs Steuerung zum Schutz des Verbund Dienstanbieter
 Der Verbund Dienst Proxy (Teil des WAP) stellt die Überlastungs Steuerung zum Schutz des AD FS Dienstanbieter vor einer Flut von Anforderungen bereit.  Der webanwendungsproxy lehnt externe Client Authentifizierungsanforderungen ab, wenn der Verbund Server durch die Latenz zwischen dem webanwendungsproxy und dem Verbund Server erkannt wird.  Diese Funktion ist standardmäßig mit einem empfohlenen Schwellenwert für die Latenzzeit konfiguriert.
 
 #### <a name="to-verify-the-settings-you-can-do-the-following"></a>Um die Einstellungen zu überprüfen, können Sie die folgenden Schritte ausführen:
-1.  Starten Sie auf dem webanwendungsproxy-Computer ein Befehlsfenster mit erhöhten Rechten.
+1.  Öffnen Sie auf dem Webanwendungsproxy-Computer ein Befehlsfenster mit erhöhten Rechten.
 2.  Navigieren Sie zum Verzeichnis ADFS unter%windir%\adfs\config.
-3.  Ändern Sie die Einstellungen für die Überlastungs Steuerung von<congestionControl latencyThresholdInMSec="8000" minCongestionWindowSize="64" enabled="true" />den Standardwerten in "".
+3.  Ändern Sie die Einstellungen für die Überlastungs Steuerung von den Standardwerten in "<congestionControl latencyThresholdInMSec="8000" minCongestionWindowSize="64" enabled="true" />".
 4.  Speichern und schließen Sie die Datei.
 5.  Starten Sie den AD FS-Dienst neu, indem Sie "NET stoppt ADF" und dann "NET Start ADF" ausführen.
 Hinweise zu dieser Funktion finden Sie [hier](https://msdn.microsoft.com/library/azure/dn528859.aspx ).
@@ -163,9 +162,9 @@ In der Standardkonfiguration werden von den Schlüsseln, AD FS zum Signieren von
 Dabei gilt Folgendes:
 
 
-- `CertificateThumbprint`ist Ihr SSL-Zertifikat
-- `SigningCertificateThumbprint`ist Ihr Signaturzertifikat (mit HSM-geschütztem Schlüssel)
-- `DecryptionCertificateThumbprint`ist Ihr Verschlüsselungs Zertifikat (mit HSM-geschütztem Schlüssel)
+- `CertificateThumbprint` ist Ihr SSL-Zertifikat.
+- `SigningCertificateThumbprint` ist Ihr Signaturzertifikat (mit HSM-geschütztem Schlüssel).
+- `DecryptionCertificateThumbprint` ist Ihr Verschlüsselungs Zertifikat (mit HSM-geschütztem Schlüssel).
 
 
 

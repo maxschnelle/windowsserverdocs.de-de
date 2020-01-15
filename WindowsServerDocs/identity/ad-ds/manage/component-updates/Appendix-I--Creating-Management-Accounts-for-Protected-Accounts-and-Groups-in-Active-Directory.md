@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 8880f26acd8b32a4ab8a32ede067d158f2d6aed1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 834aa2611ff2b965c9184524fa6782fb4477a4cd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369212"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949137"
 ---
 # <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Anhang I: Erstellen von Verwaltungskonten für geschützte Konten und Gruppen in Active Directory
 
@@ -56,7 +56,7 @@ Führen Sie die folgenden Schritte aus, um eine Gruppe zum Aktivieren und Deakti
   
     ![Erstellen von Verwaltungs Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_115.png)  
   
-2.  Geben Sie im Dialogfeld **Neues Objekt-Gruppe** einen Namen für die Gruppe ein. Wenn Sie beabsichtigen, diese Gruppe zu verwenden, um alle Verwaltungs Konten in Ihrer Gesamtstruktur zu aktivieren, legen Sie Sie als universelle Sicherheitsgruppe fest. Wenn Sie über eine Gesamtstruktur mit einer einzelnen Domäne verfügen oder beabsichtigen, eine Gruppe in jeder Domäne zu erstellen, können Sie eine globale Sicherheitsgruppe erstellen. Klicken Sie auf **OK**, um die Gruppe zu erstellen.  
+2.  Geben Sie im Dialogfeld **Neues Objekt-Gruppe** einen Namen für die Gruppe ein. Wenn Sie beabsichtigen, diese Gruppe zu verwenden, um alle Verwaltungs Konten in Ihrer Gesamtstruktur zu aktivieren, legen Sie Sie als universelle Sicherheitsgruppe fest. Wenn Sie über eine Gesamtstruktur mit einer einzelnen Domäne verfügen oder beabsichtigen, eine Gruppe in jeder Domäne zu erstellen, können Sie eine globale Sicherheitsgruppe erstellen. Klicken Sie auf **OK** , um die Gruppe zu erstellen.  
   
     ![Erstellen von Verwaltungs Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_116.png)  
   
@@ -81,9 +81,9 @@ Führen Sie die folgenden Schritte aus, um eine Gruppe zum Aktivieren und Deakti
   
 7.  Entfernen Sie auf der Registerkarte **Sicherheit** Gruppen, denen der Zugriff auf diese Gruppe nicht gestattet werden soll. Wenn Sie z. b. nicht möchten, dass authentifizierte Benutzer den Namen der Gruppe und allgemeine Eigenschaften lesen können, können Sie diesen ACE entfernen. Sie können auch ACEs entfernen, wie z. b. Konten für Konto-und Windows Server-kompatible Zugriffe vor Windows 2000. Sie sollten jedoch einen minimalen Satz von Objekt Berechtigungen überlassen. Behalten Sie die folgenden ACEs bei:  
   
-    -   Selbstbedienungs  
+    -   SELBST  
   
-    -   Anlage  
+    -   SYSTEM  
   
     -   Domänen-Admins  
   
@@ -93,7 +93,7 @@ Führen Sie die folgenden Schritte aus, um eine Gruppe zum Aktivieren und Deakti
   
     -   Windows-Autorisierungs Zugriffs Gruppe (falls zutreffend)  
   
-    -   Unternehmens Domänen Controller  
+    -   DOMÄNENCONTROLLER DER ORGANISATION  
   
     Obwohl es möglicherweise intuitiv erscheint, dass die Gruppen mit den höchsten Berechtigungen in Active Directory diese Gruppe verwalten können, besteht das Ziel der Implementierung dieser Einstellungen nicht darin, dass Mitglieder dieser Gruppen autorisierte Änderungen vornehmen. Vielmehr soll sichergestellt werden, dass bei einer Zeit, in der eine sehr hohe Berechtigungsstufe erforderlich ist, autorisierte Änderungen erfolgreich ausgeführt werden. Der Grund hierfür ist, dass das Ändern der standardmäßigen privilegierten Gruppen Schachtelung, der Rechte und der Berechtigungen in diesem Dokument nicht empfehlenswert ist. Wenn Sie die Standard Strukturen intakt lassen und die Mitgliedschaft der Gruppen mit den höchsten Berechtigungen im Verzeichnis leeren, können Sie eine sicherere Umgebung erstellen, die weiterhin erwartungsgemäß funktioniert.  
   
@@ -133,7 +133,7 @@ Führen Sie die folgenden Schritte aus, um die Verwaltungs Konten zu erstellen:
 
 7. Klicken Sie mit der rechten Maustaste auf das soeben erstellte Benutzerobjekt, und klicken Sie auf **Eigenschaften**.  
 
-8. Klicken Sie auf die Registerkarte **Konto** .  
+8. Klicken Sie auf die Registerkarte **Konto**.  
 
 9. Wählen Sie im Feld **Konto Optionen** das Flag **Konto ist vertraulich und kann nicht delegiert werden** aus, wählen Sie das **Konto unterstützt Kerberos AES 128 Bit Encryption** und/oder das kennflag **dieses Konto unterstützt Kerberos AES 256 encryption** aus, und klicken Sie auf **OK**.  
 
@@ -144,7 +144,7 @@ Führen Sie die folgenden Schritte aus, um die Verwaltungs Konten zu erstellen:
    >
    > Obwohl das Implementieren von sichereren Verschlüsselungstypen für die Hosts keine Angriffe auf Diebstahl von Anmelde Informationen durchführt, erfolgt die geeignete Verwendung und Konfiguration der sicheren Hosts. Das Festlegen stärkerer Verschlüsselungstypen für Hosts, die nur von privilegierten Konten verwendet werden, reduziert einfach die Gesamt Angriffsfläche der Computer.  
    >
-   > Weitere Informationen zum Konfigurieren von Verschlüsselungstypen für Systeme und Konten finden Sie [unter Windows-Konfigurationen für den von Kerberos unterstützten Verschlüsselungstyp](http://blogs.msdn.com/b/openspecification/archive/2011/05/31/windows-configurations-for-kerberos-supported-encryption-type.aspx).  
+   > Weitere Informationen zum Konfigurieren von Verschlüsselungstypen für Systeme und Konten finden Sie [unter Windows-Konfigurationen für den von Kerberos unterstützten Verschlüsselungstyp](https://blogs.msdn.com/b/openspecification/archive/2011/05/31/windows-configurations-for-kerberos-supported-encryption-type.aspx).  
    >
    > Diese Einstellungen werden nur auf Computern unterstützt, auf denen Windows Server 2012, Windows Server 2008 R2, Windows 8 oder Windows 7 ausgeführt wird.  
   
@@ -182,7 +182,7 @@ Führen Sie die folgenden Schritte aus, um die Verwaltungs Konten zu erstellen:
 
 17. Klicken Sie auf die Registerkarte **Mitglied von**.  
 
-18. Klicken Sie auf **Hinzufügen**.  
+18. Klicken Sie auf **Add**.  
 
 19. Geben Sie im Dialogfeld **Benutzer, Kontakte und Computer auswählen** die Option **verweigerte RODC-Kenn Wort Replikations Gruppe ein** , und klicken Sie auf **Namen** Wenn der Name der Gruppe in der Objektauswahl unterstrichen ist, klicken Sie auf **OK** , und überprüfen Sie, ob das Konto nun Mitglied der beiden Gruppen ist, die im folgenden Screenshot angezeigt werden. Fügen Sie das Konto nicht zu geschützten Gruppen hinzu.  
 

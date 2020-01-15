@@ -9,12 +9,12 @@ ms.assetid: 9be83ed2-9e62-49e8-88e7-f52d3449aac5
 ms.author: pashort
 author: JMesser81
 ms.date: 08/14/2018
-ms.openlocfilehash: 22dcfb318a0e60bd1694496288f3e63b2780d643
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2782419f0c3d99e7ec7f4ee3389f174df400bd55
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355502"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949927"
 ---
 # <a name="troubleshoot-the-windows-server-software-defined-networking-stack"></a>Problembehandlung für die Windows Server-Software Defined Networking-Stapel
 
@@ -121,9 +121,9 @@ Message:          Host is not Connected.
 Die folgende Tabelle zeigt die Liste der Fehlercodes, Meldungen und nach Verfolgungs Aktionen, die basierend auf dem beobachteten Konfigurations Status ausgeführt werden müssen.
 
 
-| **Ordnung**| **Nachricht**| **Aktion**|  
+| **Code**| **Message**| **Aktion**|  
 |--------|-----------|----------|  
-| Unbekannt| Unbekannter Fehler.| |  
+| Unbekannt| Unbekannter Fehler| |  
 | Host nicht erreichbar                       | Der Host Computer ist nicht erreichbar. | Überprüfen Sie die Konnektivität des Verwaltungs Netzwerks zwischen Netzwerk Controller und Host. |  
 | "Pipadressssextrasted"                  | Die PA-IP-Adressen sind erschöpft | Vergrößern der IP-Pool Größe des HNV-Anbieters des logischen Subnetzes |  
 | Pamacadressssextrasted                 | Die PA-Mac-Adressen sind erschöpft | Vergrößern des Mac-Pool Bereichs |  
@@ -196,7 +196,7 @@ Die Module des Netzwerk Controller Dienstanbieter lauten wie folgt:
 - Gatewaymanager
 - Fnmservice
 - Helperservice
-- PLB
+- UpdateService
 
 Überprüfen Sie, ob replicastatus **bereit** ist und healthstate den Wert **OK**aufweist.
 
@@ -527,7 +527,7 @@ Cannot send jumbo packets to the destination. Physical switch ports may not be c
 # TODO: Success Results aftering updating MTU on physical switch ports
 ```
 
-*Erungs*
+*Wartung*
 * Passen Sie die MTU-Größe auf den physischen Switchports auf mindestens 1674b an (einschließlich 14B-Ethernet-Header und-Nachspann).
 * Wenn Ihre NIC-Karte das encapoverhead-Schlüsselwort nicht unterstützt, passen Sie das Wort "jumbopacket" auf mindestens 1674b an.
 
@@ -606,7 +606,7 @@ Fragen Sie die Netzwerk Controller-Rest-API in der Demo Umgebung unter sa18n30nc
     $uri = "https://sa18n30nc.sa18.nttest.microsoft.com"
     Get-NetworkControllerAccessControlList -ConnectionUri $uri 
 
-# <a name="look-at-ip-configuration-and-virtual-subnets-which-are-referencing-this-acl"></a>Sehen Sie sich die IP-Konfiguration und virtuelle Subnetze an, die auf diese ACL verweisen.
+## <a name="look-at-ip-configuration-and-virtual-subnets-which-are-referencing-this-acl"></a>Sehen Sie sich die IP-Konfiguration und virtuelle Subnetze an, die auf diese ACL verweisen.
 
 1. Hoster Führen Sie ``Get-ProviderAddress`` auf beiden Hyper-v-Hosts aus, die die beiden fraglichen Mandanten-VMs hosten, und führen Sie dann ``Test-LogicalNetworkConnection`` oder ``ping -c <compartment>`` vom Hyper-v-Host aus, um die Konnektivität im logischen HNV-anbieternetzwerk zu überprüfen
 2.  Hoster Stellen Sie sicher, dass die MTU-Einstellungen auf den Hyper-v-Hosts und alle Layer-2-Geräte zwischen den Hyper-v-Hosts korrekt sind. Führen Sie ``Test-EncapOverheadValue`` auf allen fraglichen Hyper-V-Hosts aus. Überprüfen Sie außerdem, ob für alle Layer-2-Switches zwischen MTU mindestens 1674 Byte festgelegt sind, um den maximalen mehr Aufwand von 160 Bytes zu berücksichtigen.  
@@ -658,7 +658,7 @@ Wenn kein Speicherort angegeben wurde, wird die lokale Protokollierung auf jedem
 - Ncapplicationlogs
 - PerfCounters
 - Sdndiagnostics
-- Verfolgt
+- Überwachungen
 
 Der Netzwerk Controller verwendet (Azure) Service Fabric. Bei der Behebung bestimmter Probleme sind möglicherweise Service Fabric Protokolle erforderlich. Diese Protokolle befinden sich auf jedem Netzwerk Controller Knoten unter "c:\programdata\microsoft\service Fabric".
 

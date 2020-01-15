@@ -9,12 +9,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 9c6c6e7d2c12b6b822989bba05370015f7cd1833
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ce000ec618d0c06ca938b21e9bc363250e1aa38f
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407811"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949613"
 ---
 # <a name="build-a-multi-tiered-application-using-on-behalf-of-obo-using-oauth-with-ad-fs-2016-or-later"></a>Erstellen einer Anwendung mit mehreren Stufen mithilfe von "on-Auftrag-of" (OBO) mithilfe von OAuth mit AD FS 2016 oder höher
 
@@ -75,9 +75,9 @@ Das Einrichten des Domänen Controllers und AD FS würde den Rahmen dieses Artik
 
 Das Beispiel basiert auf dem vorhandenen OBO-Beispiel für Azure, das von Vittorio Bertocci erstellt und [hier](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof)verfügbar ist. Befolgen Sie die Anweisungen, um das Projekt auf dem Entwicklungs Computer zu klonen, und erstellen Sie eine Kopie des Beispiels, um mit der Arbeit mit zu beginnen.
 
-## <a name="clone-or-download-this-repository"></a>Dieses Repository Klonen oder herunterladen
+## <a name="clone-or-download-this-repository"></a>Klonen oder Herunterladen des Repositorys
 
-Über Ihre Shell oder Befehlszeile:
+Verwenden Sie in Ihrer Shell oder Befehlszeile Folgendes:
 
     git clone https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof.git
 
@@ -274,14 +274,14 @@ Fahren Sie mit dem Assistenten fort, wie bei der Konfiguration der WebAPI "dedol
 * Öffnen Sie die Datei "Web. config".
 * Ändern Sie die folgenden Schlüssel.
 
-| Schlüssel                      | Wert                                                                                                                                                                                                                   |
+| Schlüssel                      | Value                                                                                                                                                                                                                   |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ida: Audience             | Die ID des TodoListService, wie AD FS beim Konfigurieren der WebAPI TodoListService angegeben wird, z. b. https://localhost:44321/                                                                                         |
 | Ida: ClientID             | Die ID des TodoListService, wie AD FS beim Konfigurieren der WebAPI TodoListService angegeben wird, z. b. <https://localhost:44321/> </br>**Es ist sehr wichtig, dass die "Ida: Audience" und "Ida: ClientID" einander entsprechen.** |
-| Ida: clientsecret         | Dies ist der geheime Schlüssel, der beim Konfigurieren des Clients "dedolistservice" in generiert AD FS AD FS                                                                                                                   |
+| ida:ClientSecret         | Dies ist der geheime Schlüssel, der beim Konfigurieren des Clients "dedolistservice" in generiert AD FS AD FS                                                                                                                   |
 | Ida: AdfsMetadataEndpoint | Dies ist die URL zu ihren AD FS-Metadaten, z. b. https://fs.anandmsft.com/federationmetadata/2007-06/federationmetadata.xml                                                                                             |
 | Ida: obowebapibase        | Dies ist die Basisadresse, die wir verwenden, um die Back-End-API aufzurufen, z. b. https://localhost:44300                                                                                                                     |
-| Ida: Authority            | Dies ist die URL für Ihren AD FS-Dienst, z. b. https://fs.anandmsft.com/adfs/                                                                                                                                          |
+| ida:Authority            | Dies ist die URL für Ihren AD FS-Dienst, z. b. https://fs.anandmsft.com/adfs/                                                                                                                                          |
 
 Alle anderen Ida: XXXXXXX-Schlüssel im Knoten " **appSettings** " können auskommentiert oder gelöscht werden.
 
@@ -359,7 +359,7 @@ Kopieren Sie den unten stehenden Code, und fügen Sie ihn in ToDoListController.
     // POST api/todolist
     public async Task Post(TodoItem todo)
     {
-      if (!ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/scope").Value.Contains("user_impersonation"))
+      if (!ClaimsPrincipal.Current.FindFirst("https://schemas.microsoft.com/identity/claims/scope").Value.Contains("user_impersonation"))
         {
             throw new HttpResponseException(new HttpResponseMessage { StatusCode = HttpStatusCode.Unauthorized, ReasonPhrase = "The Scope claim does not contain 'user_impersonation' or scope claim not found" });
         }
@@ -494,7 +494,7 @@ Bei einem erfolgreichen Vorgang sehen Sie, dass das Element der Liste mit der zu
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO27.PNG)
 
 Sie können auch die detaillierten Ablauf Verfolgungen für "fddler" sehen. Starten Sie "fddler" und aktivieren Sie die HTTPS-Entschlüsselung. Sie können sehen, dass wir zwei Anforderungen an den/ADFS/oautincludes-Endpunkt senden.
-In der ersten Interaktion präsentieren wir den Zugriffs Code für den tokenendpunkt und erhalten ein Zugriffs Token für https://localhost:44321/ ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO22.PNG)
+In der ersten Interaktion präsentieren wir den Zugriffs Code für den tokenendpunkt und erhalten ein Zugriffs Token für https://localhost:44321/ ![ AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO22.PNG)
 
 In der zweiten Interaktion mit dem tokenendpunkt sehen Sie, dass **requested_token_use** als **on_behalf_of** festgelegt ist, und wir verwenden das Zugriffs Token, das für den Webdienst der mittleren Ebene abgerufen wurde, d. h. https://localhost:44321/ als die-Bestätigung, um das Token im-Auftrag zu erhalten.
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO23.PNG)

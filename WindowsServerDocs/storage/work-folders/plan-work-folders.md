@@ -9,16 +9,16 @@ manager: dongill
 ms.author: jgerend
 ms.date: 4/5/2017
 description: So Planen Sie eine Arbeitsordnerbereitstellung, einschließlich Systemanforderungen und Vorbereitung der Netzwerkumgebung.
-ms.openlocfilehash: e62cd61350299461d725c5d84209230ce1cc41a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bf5cbc5a365dec3d34dcaa2c3bd6d27ad4f267bc
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365743"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950199"
 ---
 # <a name="planning-a-work-folders-deployment"></a>Arbeitsordnerbereitstellung planen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1, Windows 7
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1, Windows 7
 
 In diesem Thema wird der Entwurfsprozess für eine Arbeitsordnerimplementierung erläutert. Folgendes Hintergrundwissen wird vorausgesetzt:  
   
@@ -60,7 +60,7 @@ Für Arbeitsordner gelten die folgenden Softwareanforderungen für Clientcompute
   
 -   Auf den Computern muss eines der folgenden Betriebssysteme ausgeführt werden:  
   
-    -   Windows 10  
+    -   Windows-10  
   
     -   Windows 8.1  
   
@@ -74,11 +74,11 @@ Für Arbeitsordner gelten die folgenden Softwareanforderungen für Clientcompute
   
 -   Computer mit Windows 7 müssen eine der folgenden Versionen von Windows ausführen:  
   
-    -   Windows 7 Professional  
+    -   Windows 7 Professional  
   
     -   Windows 7 Ultimate  
   
-    -   Windows 7 Enterprise  
+    -   Windows 7 Enterprise  
   
 -   Computer mit Windows 7 müssen der Domäne Ihrer Organisation hinzugefügt werden (sie können keiner Arbeitsgruppe hinzugefügt werden).  
   
@@ -86,7 +86,7 @@ Für Arbeitsordner gelten die folgenden Softwareanforderungen für Clientcompute
   
      Benutzer können den Speicherort jedoch während der Installation ändern (mit dem NTFS-Dateisystem formatierte microSD-Karten und USB-Laufwerke werden als Speicherorte unterstützt, die Synchronisierung wird allerdings beendet, wenn die Laufwerke entfernt werden).  
   
-     Die maximale Größe für einzelne Dateien beträgt standardmäßig 10 GB. Es gibt keine Speicherbegrenzung pro Benutzer, Administratoren können jedoch mit der Kontingentfunktion des Ressourcen-Managers für Dateiserver Kontingente implementieren.  
+     Die maximale Größe für einzelne Dateien beträgt standardmäßig 10 GB. Es gibt keine Speicherbegrenzung pro Benutzer, Administratoren können jedoch mit der Kontingentfunktion des Resource Managers für Dateiserver Kontingente implementieren.  
   
 -   Arbeitsordner unterstützen das Zurücksetzen des Status von virtuellen Clientcomputern nicht. Führen Sie Sicherungs- und Wiederherstellungsvorgänge stattdessen innerhalb des virtuellen Clientcomputers mithilfe der Systemabbildsicherung oder einer anderen Sicherungsanwendung durch.  
   
@@ -108,7 +108,7 @@ Für Arbeitsordner gelten die folgenden Softwareanforderungen für Clientcompute
 ## <a name="deployment-technologies"></a>Bereitstellungstechnologien  
  Arbeitsordnerbereitstellungen bestehen aus einer Reihe von Technologien, die gemeinsam Dienste für Geräte in den internen und externen Netzwerken bereitstellen. Vor dem Entwerfen einer Arbeitsordnerbereitstellung sollten Kunden sich mit den Anforderungen der folgenden Technologien vertraut machen.  
   
-### <a name="active-directory-domain-services"></a>Active Directory Domain Services  
+### <a name="active-directory-domain-services"></a>Active Directory-Domänendienste (AD DS)  
  AD DS bietet zwei wichtige Dienste in einer Arbeitsordnerbereitstellung. Zum einen stellt AD DS als Back-End für die Windows-Authentifizierung die Sicherheits- und Authentifizierungsdienste bereit, mit denen der Zugriff auf Benutzerdaten gewährt wird. Wenn ein Domänencontroller nicht erreicht werden kann, kann ein Dateiserver eine eingehende Anforderung nicht authentifizieren, und das Gerät kann nicht auf Daten zugreifen, die in der Synchronisierungsfreigabe dieses Dateiservers gespeichert sind.  
   
  Zum anderen verwaltet AD DS (mit dem Windows Server 2012 R2-Schemaupdate) das msDS-SyncServerURL-Attribut für jeden Benutzer. Dieses Attribut wird verwendet, um Benutzer automatisch zum entsprechenden Synchronisierungsserver weiterzuleiten.  
@@ -125,10 +125,10 @@ Für Arbeitsordner gelten die folgenden Softwareanforderungen für Clientcompute
   
   Mit Gruppenrichtlinien können Sie auch einen Arbeitsordnerserver für Computer angeben, die einer Domäne angehören. Dies vereinfacht die Einrichtung von Arbeitsordnern ein wenig. Benutzer müssten andernfalls ihre geschäftliche E-Mail-Adresse eingeben, um nach den Einstellungen zu suchen (dies setzt voraus, dass Arbeitsordner korrekt eingerichtet sind), oder die Arbeitsordner-URL, die Sie ihnen explizit per E-Mail oder auf anderem Wege mitgeteilt haben.  
   
-  Sie können Gruppenrichtlinien auch verwenden, um die Einrichtung von Arbeitsordnern pro Benutzer oder pro Computer zu erzwingen. Dies führt jedoch dazu, dass Arbeitsordner auf jedem Computer synchronisiert werden, auf dem sich ein Benutzer anmeldet (bei der %%amp;quot;Pro Benutzer%%amp;quot;-Richtlinieneinstellung), und Benutzer keinen alternativen Speicherort für Arbeitsordner auf ihrem Computer angeben können (z. B. eine microSD-Karte, um Speicherplatz auf dem primären Laufwerk zu sparen). Wir empfehlen, die Anforderungen der Benutzer sorgfältig zu prüfen, bevor Sie eine automatische Einrichtung erzwingen.  
+  Sie können Gruppenrichtlinien auch verwenden, um die Einrichtung von Arbeitsordnern pro Benutzer oder pro Computer zu erzwingen. Dies führt jedoch dazu, dass Arbeitsordner auf jedem Computer synchronisiert werden, auf dem sich ein Benutzer anmeldet (bei der "Pro Benutzer"-Richtlinieneinstellung), und Benutzer keinen alternativen Speicherort für Arbeitsordner auf ihrem Computer angeben können (z. B. eine microSD-Karte, um Speicherplatz auf dem primären Laufwerk zu sparen). Wir empfehlen, die Anforderungen der Benutzer sorgfältig zu prüfen, bevor Sie eine automatische Einrichtung erzwingen.  
   
-### <a name="windows-intune"></a>Windows Intune  
- Windows Intune stellt eine Sicherheitsschicht bereit und ermöglicht die Verwaltung von Geräten, die keiner Domäne angehören und andernfalls nicht verwaltet werden könnten. Sie können Windows Intune zum Konfigurieren und Verwalten der persönlichen Geräte von Benutzern verwenden, z. B. Tablets, die über das Internet auf Arbeitsordner zugreifen. Windows InTune kann Geräte mit der zu verwendenden Synchronisierungs Server-URL bereitstellen – andernfalls müssen Benutzer Ihre geschäftliche e-Mail-Adresse eingeben, um die Einstellungen zu suchen (wenn Sie eine URL für öffentliche Arbeitsordner im Format https://workfolders veröffentlichen). <em>contoso.com</em>), oder geben Sie die URL für den Synchronisierungs Server direkt ein.  
+### <a name="windows-intune"></a>Windows Intune  
+ Windows Intune stellt eine Sicherheitsschicht bereit und ermöglicht die Verwaltung von Geräten, die keiner Domäne angehören und andernfalls nicht verwaltet werden könnten. Sie können Windows Intune zum Konfigurieren und Verwalten der persönlichen Geräte von Benutzern verwenden, z. B. Tablets, die über das Internet auf Arbeitsordner zugreifen. Windows InTune kann Geräte mit der zu verwendenden Synchronisierungs Server-URL bereitstellen – andernfalls müssen Benutzer Ihre geschäftliche e-Mail-Adresse eingeben, um die Einstellungen zu suchen (wenn Sie eine URL für öffentliche Arbeitsordner in Form von https://workfolders veröffentlichen. <em>contoso.com</em>), oder geben Sie die URL für den Synchronisierungs Server direkt ein.  
   
  Ohne eine Windows Intune-Bereitstellung müssen Benutzer externe Geräte manuell konfigurieren, was zu einer erhöhten Anzahl von Anfragen beim Helpdesk des Kunden führen kann.  
   
@@ -155,7 +155,7 @@ Arbeitsordner unterstützen die Verwendung von Web Application Proxy, Azure AD-A
   
 - Lastenausgleich – in großen Umgebungen, in denen Benutzerdaten auf mehreren Servern gespeichert werden, kann der Lastenausgleich die Serverleistung und -betriebszeit verbessern.  
   
-  Informationen zur Skalierung und Leistung von Arbeitsordnerservern finden Sie unter [Überlegungen zur Leistung von Arbeitsordnerbereitstellungen](http://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx).  
+  Informationen zur Skalierung und Leistung von Arbeitsordnerservern finden Sie unter [Überlegungen zur Leistung von Arbeitsordnerbereitstellungen](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx).  
   
 > [!NOTE]
 >  Bei der Verwendung mehrerer Synchronisierungsserver wird empfohlen, die automatische Serverermittlung für Benutzer einzurichten. Dieser Prozess beruht auf der Konfiguration eines Attributs in jedem Benutzerkonto in AD DS. Dieses Attribut mit dem Namen **msDS-SyncServerURL** wird in Benutzerkonten verfügbar, nachdem der Domäne ein Windows Server 2012 R2-Domänencontroller hinzugefügt wurde oder die Active Directory-Schemaupdates installiert wurden. Das Attribut sollte für alle Benutzer festgelegt werden, um sicherzustellen, dass sie eine Verbindung mit dem korrekten Synchronisierungsserver herstellen. Mithilfe der automatischen Server Ermittlung können Organisationen Arbeitsordner hinter einer "freundlichen" URL wie *https://workfolders.contoso.com* veröffentlichen, unabhängig von der Anzahl der in Betrieb befindlichen Synchronisierungs Server.  
@@ -235,7 +235,7 @@ Die folgenden Fragen zum Entwurf sollen Kunden dabei helfen, die am besten geeig
   
 -   Gerätezugriff  
   
-    -   Welche URL wird verwendet, um internetbasierten Geräten den Zugriff zu ermöglichen (*die für die E-Mail-basierte automatische Serverermittlung erforderliche Standard-URL ist %%amp;quot;workfolders.domänenname%%amp;quot;* )?  
+    -   Welche URL wird verwendet, um internetbasierten Geräten den Zugriff zu ermöglichen (*die für die E-Mail-basierte automatische Serverermittlung erforderliche Standard-URL ist "workfolders.domänenname"* )?  
   
     -   Wie wird die URL im Internet veröffentlicht?  
   
@@ -250,10 +250,10 @@ Die folgenden Fragen zum Entwurf sollen Kunden dabei helfen, die am besten geeig
 ## <a name="next-steps"></a>Nächste Schritte  
  Der nächste Schritt nach dem Entwerfen der Arbeitsordnerimplementierung ist die Bereitstellung von Arbeitsordnern. Weitere Informationen finden Sie unter [Bereitstellen von Arbeitsordnern](deploy-work-folders.md).  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen:  
  Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:  
   
 |Inhaltstyp|Verweise|  
 |------------------|----------------|  
-|**Produktbewertung**|-   [Arbeitsordner](work-folders-overview.md)<br />-   [Arbeitsordner für Windows 7](http://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) (Blogbeitrag)|  
-|**Bereitstellung**|-   [Entwerfen einer Arbeitsordner Implementierung](plan-work-folders.md)<br />-    Bereitstellen von[Arbeits Ordnern](deploy-work-folders.md)<br />-   [Bereitstellen von Arbeits Ordnern mit AD FS und webanwendungsproxy (WAP)](deploy-work-folders-adfs-overview.md)<br />-  bereitstellen[von Arbeits Ordnern mit Azure AD Anwendungs Proxy](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />[Überlegungen zur Leistung von -    für Arbeitsordner Bereitstellungen](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />-   [Arbeitsordner für Windows 7 (64-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42558)<br />-   [Arbeitsordner für Windows 7 (32-Bit-Download)](https://www.microsoft.com/download/details.aspx?id=42559)<br />-   [Arbeitsordner-Test Umgebungs Bereitstellung](http://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (Blogbeitrag)|
+|**Produktbewertung**|[Arbeitsordner](work-folders-overview.md) -   <br />[Arbeitsordner für Windows 7](https://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) -   (Blogbeitrag)|  
+|**Bereitstellung**|-   [Entwerfen einer Arbeitsordner Implementierung](plan-work-folders.md)<br />-   Bereitstellen von [Arbeits Ordnern](deploy-work-folders.md)<br />-   bereitstellen [von Arbeits Ordnern mit AD FS und webanwendungsproxy (WAP)](deploy-work-folders-adfs-overview.md)<br />- bereitstellen [von Arbeits Ordnern mit Azure AD Anwendungs Proxy](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />[Überlegungen zur -   Leistung für Arbeitsordner Bereitstellungen](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />[Arbeitsordner für Windows 7 -   (64 Bit herunterladen)](https://www.microsoft.com/download/details.aspx?id=42558)<br />[Arbeitsordner für Windows 7 -   (32 Bit herunterladen)](https://www.microsoft.com/download/details.aspx?id=42559)<br />[Arbeitsordner-Test Umgebungs Bereitstellung](https://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) -   (Blogbeitrag)|

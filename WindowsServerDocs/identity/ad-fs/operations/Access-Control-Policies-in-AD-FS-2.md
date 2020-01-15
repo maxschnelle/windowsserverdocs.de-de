@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b0d6133a6fb43b8624dc1329db632fb5dd4aa070
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4f5d2cfa8383bcf3c0813b272f8c4828473b8df9
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358452"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948608"
 ---
 # <a name="client-access-control-policies-in-ad-fs-20"></a>Client Access Control Richtlinien in AD FS 2,0
 Mit den Client Zugriffsrichtlinien in Active Directory-Verbunddienste (AD FS) 2,0 können Sie Benutzern den Zugriff auf Ressourcen einschränken oder gewähren.  In diesem Dokument wird beschrieben, wie Sie Client Zugriffsrichtlinien in AD FS 2,0 aktivieren und die gängigsten Szenarien konfigurieren.
@@ -25,7 +25,7 @@ Führen Sie die folgenden Schritte aus, um die Client Zugriffs Richtlinie zu akt
 
 ### <a name="step-1-install-the-update-rollup-2-for-ad-fs-20-package-on-your-ad-fs-servers"></a>Schritt 1: Installieren des Updaterollup 2 für AD FS 2,0-Paket auf Ihren AD FS Servern
 
-Laden Sie das Paket [Updaterollup 2 für Active Directory-Verbunddienste (AD FS) (AD FS) 2,0](https://support.microsoft.com/en-us/help/2681584/description-of-update-rollup-2-for-active-directory-federation-services-ad-fs-2.0) herunter, und installieren Sie es auf allen Verbund Servern und Verbund Server Proxys.
+Laden Sie das Paket [Updaterollup 2 für Active Directory-Verbunddienste (AD FS) (AD FS) 2,0](https://support.microsoft.com/help/2681584/description-of-update-rollup-2-for-active-directory-federation-services-ad-fs-2.0) herunter, und installieren Sie es auf allen Verbund Servern und Verbund Server Proxys.
 
 ### <a name="step-2-add-five-claim-rules-to-the-active-directory-claims-provider-trust"></a>Schritt 2: Hinzufügen von fünf Anspruchs Regeln zur Active Directory Anspruchs Anbieter-Vertrauensstellung
 
@@ -45,7 +45,7 @@ Erstellen Sie auf der Active Directory Anspruchs Anbieter-Vertrauensstellung ein
 5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben Sie unter Typ des eingehenden Anspruchs die folgende Anspruchstyp-URL ein, und wählen Sie dann alle Anspruchs Werte durchlaufen aus.</br>
         `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`</br>
 6. Um die Regel zu überprüfen, wählen Sie Sie in der Liste aus, klicken Sie auf Regel bearbeiten und dann auf Regel Sprache anzeigen. Die Anspruchs Regel Sprache sollte wie folgt aussehen: `c:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip"] => issue(claim = c);`
-7. Klicken Sie auf Finish.
+7. Klicken Sie auf Fertigstellen.
 8. Klicken Sie im Dialogfeld Anspruchs Regeln bearbeiten auf OK, um die Regeln zu speichern.
 9. Wiederholen Sie die Schritte 2 bis 6, um eine zusätzliche Anspruchs Regel für jeden der verbleibenden vier Anspruchs Typen zu erstellen, bis alle fünf Regeln erstellt wurden.
 
@@ -83,7 +83,7 @@ Dieses Client Zugriffsrichtlinien-Szenario ermöglicht den Zugriff von allen int
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");` 
-6. Klicken Sie auf Finish. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
+6. Klicken Sie auf Fertigstellen. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
 7. Um die Regel zu speichern, klicken Sie im Dialogfeld Anspruchs Regeln bearbeiten auf OK.
 
 >[!NOTE]
@@ -110,7 +110,7 @@ Im folgenden Beispiel wird der Zugriff auf alle Office 365-Anwendungen einschlie
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");`
-6. Klicken Sie auf Finish. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
+6. Klicken Sie auf Fertigstellen. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
 7. Um die Regel zu speichern, klicken Sie im Dialogfeld Anspruchs Regeln bearbeiten auf OK.
 
 >[!NOTE]
@@ -136,7 +136,7 @@ Der Regelsatz basiert auf der standardmäßigen Ausstellungs Autorisierungs Rege
     Value=~"customer-provided public ip address regex"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value == "/adfs/ls/"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");`
-6. Klicken Sie auf Finish. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
+6. Klicken Sie auf Fertigstellen. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
 7. Um die Regel zu speichern, klicken Sie im Dialogfeld Anspruchs Regeln bearbeiten auf OK.
 
 ### <a name="scenario-4-block-all-external-access-to-office-365-for-designated-active-directory-groups"></a>Szenario 4: Blockieren des gesamten externen Zugriffs auf Office 365 für bestimmte Active Directory Gruppen
@@ -156,7 +156,7 @@ Im folgenden Beispiel wird der Zugriff von internen Clients basierend auf der IP
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");`
-6. Klicken Sie auf Finish. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
+6. Klicken Sie auf Fertigstellen. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
 7. Um die Regel zu speichern, klicken Sie im Dialogfeld Anspruchs Regeln bearbeiten auf OK.
 
 

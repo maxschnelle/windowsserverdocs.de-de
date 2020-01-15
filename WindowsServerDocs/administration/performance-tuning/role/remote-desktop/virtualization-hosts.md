@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: HammadBu; VladmiS; denisgun
 author: phstee
 ms.date: 10/22/2019
-ms.openlocfilehash: dbdf211138ddcd553171f3c8ce9c2e915ccf0057
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: 1b66f6404df5debee2a4c52ffc9166c8eabb9f81
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812270"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947121"
 ---
 # <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>Leistungsoptimierung Remotedesktop Virtualisierungshosts
 
@@ -20,9 +20,9 @@ Remotedesktop-Virtualisierungshost (RD-Virtualisierungshost) ist ein Rollen Dien
 
 Windows Server unterstützt zwei Arten von virtuellen Desktops: Persönliche virtuelle Desktops und in einem Pool zusammengefasste virtuelle Desktops.
 
-## <a name="general-considerations"></a>Allgemeine Überlegungen
+## <a name="general-considerations"></a>Allgemeine Aspekte
 
-### <a name="storage"></a>Speicher
+### <a name="storage"></a>„Speicher“.
 
 Der Speicher ist der wahrscheinlichste Leistungsengpass, und es ist wichtig, die Größe Ihres Speichers so zu skaliert, dass die e/a-Auslastung ordnungsgemäß verarbeitet wird, die durch Zustandsänderungen virtueller Maschinen generiert wird. Wenn ein Pilotprojekt oder eine Simulation nicht durchführbar ist, empfiehlt es sich, eine Datenträger Spindel für vier aktive virtuelle Computer bereitzustellen. Verwenden Sie Datenträger Konfigurationen mit guter Schreibleistung (z. b. RAID 1 + 0).
 
@@ -41,7 +41,7 @@ Enable-DedupVolume <volume> -UsageType HyperV
 > [!NOTE]
 > Die datendeduplizierungsoptimierung von geöffneten Dateien wird nur für VDI-Szenarien mit Hyper-V unterstützt, die Remote Speicher über SMB 3,0 verwenden.
 
-### <a name="memory"></a>Arbeitsspeicher
+### <a name="memory"></a>Speicher
 
 Die Auslastung des Server Arbeitsspeichers wird durch drei Hauptfaktoren gesteuert:
 
@@ -81,7 +81,7 @@ Diese Bereitstellungs Konfiguration gewährleistet die kostengünstige Leistung,
 
 ### <a name="csv-cache"></a>CSV-Cache
 
-Failoverclustering in Windows Server 2012 und höher ermöglicht das Zwischenspeichern auf freigegebenen Clustervolumes (CSV). Dies ist äußerst vorteilhaft für in einem Pool zusammengefasste Sammlungen virtueller Desktops, bei denen der Großteil der Lese-e/a-Vorgänge vom Verwaltungs Betriebssystem stammt. Der CSV-Cache sorgt für eine höhere Leistung, da er Blöcke zwischenspeichert, die mehr als einmal gelesen werden, und Sie aus dem Systemspeicher übermittelt, wodurch die e/a-Vorgänge reduziert werden. Weitere Informationen zum CSV-Cache finden [Sie unter Aktivieren des CSV-Caches](http://blogs.msdn.com/b/clustering/archive/2012/03/22/10286676.aspx).
+Failoverclustering in Windows Server 2012 und höher ermöglicht das Zwischenspeichern auf freigegebenen Clustervolumes (CSV). Dies ist äußerst vorteilhaft für in einem Pool zusammengefasste Sammlungen virtueller Desktops, bei denen der Großteil der Lese-e/a-Vorgänge vom Verwaltungs Betriebssystem stammt. Der CSV-Cache sorgt für eine höhere Leistung, da er Blöcke zwischenspeichert, die mehr als einmal gelesen werden, und Sie aus dem Systemspeicher übermittelt, wodurch die e/a-Vorgänge reduziert werden. Weitere Informationen zum CSV-Cache finden [Sie unter Aktivieren des CSV-Caches](https://blogs.msdn.com/b/clustering/archive/2012/03/22/10286676.aspx).
 
 ### <a name="pooled-virtual-desktops"></a>Gepoolte virtuelle Desktops
 
@@ -95,8 +95,8 @@ Jeder bestimmte Dienst sollte vor jeder breiten Bereitstellung angemessen ausgew
 
 | Dienst                                      | Woran liegt das?                                                                                                                                                                                                      |
 |----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Automatisch aktualisieren                                  | In einem Pool zusammengefasste virtuelle Desktops werden aktualisiert, indem die Vorlage für virtuelle Desktops neu erstellt wird.                                                                                                                          |
-| Offline Dateien                                | Virtuelle Desktops sind immer online und über einen Netzwerk Ansichts Punkt verbunden.                                                                                                                         |
+| Automatische Aktualisierung                                  | In einem Pool zusammengefasste virtuelle Desktops werden aktualisiert, indem die Vorlage für virtuelle Desktops neu erstellt wird.                                                                                                                          |
+| Offlinedateien                                | Virtuelle Desktops sind immer online und über einen Netzwerk Ansichts Punkt verbunden.                                                                                                                         |
 | Hintergrund-Debug                            | Dateisystem Änderungen werden verworfen, nachdem sich ein Benutzer abgemeldet hat (aufgrund eines Rollbacks zum ursprünglichen Zustand oder Neuerstellen der Vorlage für virtuelle Desktops, was zur erneuten Erstellung aller in einem Pool zusammengefassten virtuellen Desktops führt). |
 | Ruhezustand oder Standbymodus                           | Kein solches Konzept für VDI                                                                                                                                                                                   |
 | Fehlerüberprüfung für Speicher Abbild                        | Kein solches Konzept für in einem Pool zusammengefasste virtuelle Desktops. Ein in einem Pool zusammengestellter virtueller Desktop mit Fehlerüberprüfung wird vom ursprünglichen Zustand aus gestartet.                                                                                       |
@@ -106,7 +106,7 @@ Jeder bestimmte Dienst sollte vor jeder breiten Bereitstellung angemessen ausgew
 | Freigabe der Internet Verbindung                  | Verbraucherorientierter Dienst                                                                                                                                                                                  |
 | Erweiterte Dienste von Media Center               | Verbraucherorientierter Dienst                                                                                                                                                                                  |
 > [!NOTE]
-> Diese Liste ist keine komplette Liste, da Änderungen sich auf die beabsichtigten Ziele und Szenarios auswirken. Weitere Informationen finden Sie unter [Hot Off the Backups, get it now, the Windows 8 VDI Optimization Script, courtesy of pfe!](http://blogs.technet.com/b/jeff_stokes/archive/2013/04/09/hot-off-the-presses-get-it-now-the-windows-8-vdi-optimization-script-courtesy-of-pfe.aspx).
+> Diese Liste ist keine komplette Liste, da Änderungen sich auf die beabsichtigten Ziele und Szenarios auswirken. Weitere Informationen finden Sie unter [Hot Off the Backups, get it now, the Windows 8 VDI Optimization Script, courtesy of pfe!](https://blogs.technet.com/b/jeff_stokes/archive/2013/04/09/hot-off-the-presses-get-it-now-the-windows-8-vdi-optimization-script-courtesy-of-pfe.aspx).
 
 
 > [!NOTE]

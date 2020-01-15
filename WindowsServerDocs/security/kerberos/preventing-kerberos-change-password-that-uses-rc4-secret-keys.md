@@ -8,12 +8,12 @@ manager: alanth
 author: justinha
 ms.technology: security-crdential-protection-and-management
 ms.date: 11/09/2016
-ms.openlocfilehash: 64018f7f118086f3d290cb1ffa9b8d2b3e81c27c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 21c2d3d79653bd02fea9d2ac0d09bd18690a388f
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386266"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949748"
 ---
 # <a name="preventing-kerberos-change-password-that-uses-rc4-secret-keys"></a>Verhindern, dass ein Kennwort, das geheime RC4-Schlüssel verwendet, von Kerberos geändert wird
 
@@ -31,8 +31,8 @@ In den Windows-Betriebssystemen, die in der Liste gilt für am Anfang dieses The
 
     [!NOTE]
     Es gibt ein bekanntes Problem beim Deaktivieren von RC4, das dazu führen kann, dass das System neu gestartet wird. Weitere Informationen finden Sie in den folgenden Hotfixes:
-    - [Windows Server 2012 R2](https://support.microsoft.com/en-us/kb/3038261)
-    - [Windows Server 2012](https://support.microsoft.com/en-us/kb/3086213)
+    - [Windows Server 2012 R2](https://support.microsoft.com/kb/3038261)
+    - [Windows Server 2012](https://support.microsoft.com/kb/3086213)
     - Für frühere Versionen von Windows Server ist kein Hotfix verfügbar.
 
 - Stellen Sie Domänen auf Windows Server 2012 R2-Domänen Funktionsebene oder höher bereit, und konfigurieren Sie die Benutzer als Mitglieder der Sicherheitsgruppe "geschützte Benutzer". Da dieses Feature mehr als nur die RC4-Verwendung im Kerberos-Protokoll unterbricht, finden Sie weitere Informationen unter Ressourcen [im folgenden Abschnitt](#see-also) .

@@ -12,16 +12,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1e432a962662995cf570b28d0b9496594f3e10e6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0c66e655ea6b6c44ee3ba375f75e6532fab74bfb
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369859"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948488"
 ---
 # <a name="wsus-messages-and-troubleshooting-tips"></a>WSUS-Nachrichten und Tipps zur Problembehandlung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dieses Thema enthält Informationen zu den folgenden WSUS-Meldungen:
 
@@ -29,7 +29,7 @@ Dieses Thema enthält Informationen zu den folgenden WSUS-Meldungen:
 
 -   "Nachrichten-ID 6703-Fehler bei der WSUS-Synchronisierung"
 
--   "Fehler 0x80070643: Schwerwiegender Fehler bei der Installation "
+-   "Fehler 0x80070643: Schwerwiegender Fehler während der Installation"
 
 -   "Einige Dienste werden nicht ausgeführt. Überprüfen Sie die folgenden Dienste [...] ".
 
@@ -65,16 +65,16 @@ In dieser Situation ist die wahrscheinlichste Ursache, dass sich der WsusPool-An
 
 Außerdem wird der Standardwert für das Limit für den privaten Speicher (KB) für den Anwendungs Pool wahrscheinlich auf den Standardwert von 1843200 KB festgelegt. Wenn dieses Problem auftritt, erhöhen Sie das Limit für den privaten Speicher auf 4 GB (4 Millionen KB), und starten Sie den Anwendungs Pool neu. Um das Limit für den privaten Speicher zu erhöhen, wählen Sie den Anwendungs Pool WsusPool aus, und klicken Sie unter Anwendungs Pool bearbeiten auf Erweiterte Einstellungen. Legen Sie dann das Limit für den privaten Speicher auf 4 GB (4 Millionen KB) fest. Nachdem der Anwendungs Pool neu gestartet wurde, überwachen Sie den Status der SMS_WSUS_SYNC_Manager-Komponente, "WCM. log" und "wsyncmgr. log" auf Fehler. Beachten Sie, dass es möglicherweise erforderlich ist, den Grenzwert für den privaten Arbeitsspeicher je nach Umgebung auf 8 GB (8 Millionen KB) oder höher zu erhöhen.
 
-Weitere Informationen finden Sie unter: [Die WSUS-Synchronisierung in ConfigMgr 2012 schlägt mit HTTP 503-Fehlern fehl.](http://blogs.technet.com/b/sus/archive/2015/03/23/configmgr-2012-support-tip-wsus-sync-fails-with-http-503-errors.aspx)
+Weitere Informationen finden Sie unter: die [WSUS-Synchronisierung in ConfigMgr 2012 schlägt mit HTTP 503-Fehlern fehl](https://blogs.technet.com/b/sus/archive/2015/03/23/configmgr-2012-support-tip-wsus-sync-fails-with-http-503-errors.aspx) .
 
-## <a name="error-0x80070643-fatal-error-during-installation"></a>Fehler 0x80070643: Schwerwiegender Fehler bei der Installation
+## <a name="error-0x80070643-fatal-error-during-installation"></a>Fehler 0x80070643: Schwerwiegender Fehler bei der Installation.
 Das WSUS-Setup verwendet Microsoft SQL Server, um die Installation auszuführen. Dieses Problem tritt auf, weil der Benutzer, der das WSUS-Setup ausgeführt hat, nicht über System Administrator Berechtigungen in SQL Server verfügt.
 
 Um dieses Problem zu beheben, erteilen Sie System Administrator Berechtigungen für ein Benutzerkonto oder ein Gruppenkonto in SQL Server, und führen Sie dann das WSUS-Setup erneut aus.
 
 ## <a name="some-services-are-not-running-check-the-following-services"></a>Einige Dienste werden nicht ausgeführt. Überprüfen Sie die folgenden Dienste:
 
-- **Selbst Aktualisierungs** Weitere Informationen zur Problembehandlung beim SelfUpdate-Dienst finden Sie unter [Automatische Updates muss aktualisiert werden](https://technet.microsoft.com/library/cc708554(v=ws.10).aspx) .
+- **SelfUpdate:** Weitere Informationen zur Problembehandlung beim SelfUpdate-Dienst finden Sie unter [Automatische Updates muss aktualisiert werden](https://technet.microsoft.com/library/cc708554(v=ws.10).aspx) .
 
 - **Wssuservice. exe:** Dieser Dienst vereinfacht die Synchronisierung. Wenn bei der Synchronisierung Probleme auftreten, greifen Sie auf "wsusservice. exe" zu, indem Sie auf **Start**, zeigen Sie auf **Verwaltung**, klicken Sie auf **Dienste**, und suchen Sie dann in der Liste der Dienste nach **Windows Server Update Service** . Gehen Sie wie folgt vor:
     

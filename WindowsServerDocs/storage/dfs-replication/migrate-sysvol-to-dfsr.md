@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 56877bc5ddb3ea5f24f4057051775094654d8bbf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d8d9d47ff8f14ce316d2352729247ab2dcf4acbc
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386042"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949702"
 ---
 # <a name="migrate-sysvol-replication-to-dfs-replication"></a>Migrieren der SYSVOL-Replikation zur DFS-Replikation
 
@@ -24,11 +24,11 @@ Domänen Controller verwenden einen speziellen freigegebenen Ordner mit dem Name
 
 Wenn Sie DFS-Replikation verwenden möchten, um den SYSVOL-Ordner zu replizieren, können Sie entweder eine neue Domäne erstellen, die die Domänen Funktionsebene von Windows Server 2008 verwendet, oder Sie können das in diesem Dokument beschriebene Verfahren zum Aktualisieren einer vorhandenen Domäne und zum Migrieren der Replikation zu verwenden. DFS-Replikation.
 
-In diesem Dokument wird davon ausgegangen, dass Sie über grundlegende Kenntnisse der Active Directory Domain Services (AD DS), FRS und verteiltes Dateisystem Replikation (DFS-Replikation) verfügen. Weitere Informationen finden Sie unter [Active Directory Domain Services Overview](http://go.microsoft.com/fwlink/?linkid=147787), [FRS Overview](http://go.microsoft.com/fwlink/?linkid=121763)oder [Overview of DFS-Replikation](http://go.microsoft.com/fwlink/?linkid=121762)
+In diesem Dokument wird davon ausgegangen, dass Sie über grundlegende Kenntnisse der Active Directory Domain Services (AD DS), FRS und verteiltes Dateisystem Replikation (DFS-Replikation) verfügen. Weitere Informationen finden Sie unter [Active Directory Domain Services Overview](https://go.microsoft.com/fwlink/?linkid=147787), [FRS Overview](https://go.microsoft.com/fwlink/?linkid=121763)oder [Overview of DFS-Replikation](https://go.microsoft.com/fwlink/?linkid=121762)
 
 
 > [!NOTE]
-> Informationen zum Herunterladen einer druckbaren Version dieses Handbuchs finden <a href="http://go.microsoft.com/fwlink/?linkid=150375">Sie unter SYSVOL-Migrations Handbuch für die Replikation: FRS-zu DFS-Replikation</a> (http://go.microsoft.com/fwlink/?LinkId=150375)
+> Informationen zum Herunterladen einer druckbaren Version dieses Handbuchs finden Sie unter <a href="https://go.microsoft.com/fwlink/?linkid=150375">SYSVOL Replication Migration Guide: FRS to DFS-Replikation</a> (https://go.microsoft.com/fwlink/?LinkId=150375)
 <br>
 
 
@@ -70,17 +70,17 @@ In diesem Dokument wird davon ausgegangen, dass Sie über grundlegende Kenntniss
 
 ## <a name="additional-references"></a>Weitere Verweise
 
-[SYSVOL-Migrations Reihe: Teil 1 – Einführung in den SYSVOL-Migrationsprozess](http://go.microsoft.com/fwlink/?linkid=121756)
+[SYSVOL-Migrations Reihe: Teil 1 – Einführung in den SYSVOL-Migrationsprozess](https://go.microsoft.com/fwlink/?linkid=121756)
 
-[SYSVOL-Migrations Reihe: Teil 2 – DFSRMIG. exe: Das SYSVOL-Migrationstool](http://go.microsoft.com/fwlink/?linkid=121757)
+[SYSVOL-Migrations Reihe: Teil 2 – DFSRMIG. exe: das SYSVOL-Migrationstool](https://go.microsoft.com/fwlink/?linkid=121757)
 
-[SYSVOL-Migrations Reihe: Teil 3 – Migrieren zum Zustand "vorbereitet"](http://go.microsoft.com/fwlink/?linkid=121758)
+[SYSVOL-Migrations Reihe: Teil 3 – Migrieren zum Zustand "vorbereitet"](https://go.microsoft.com/fwlink/?linkid=121758)
 
-[SYSVOL-Migrations Reihe: Teil 4 – Migrieren zum Status "umgeleitet"](http://go.microsoft.com/fwlink/?linkid=121759)
+[SYSVOL-Migrations Reihe: Teil 4 – Migrieren zum Status "umgeleitet"](https://go.microsoft.com/fwlink/?linkid=121759)
 
-[SYSVOL-Migrations Reihe: Teil 5 – Migrieren zum Zustand "gelöscht"](http://go.microsoft.com/fwlink/?linkid=121760)
+[SYSVOL-Migrations Reihe: Teil 5 – Migrieren zum Zustand "gelöscht"](https://go.microsoft.com/fwlink/?linkid=121760)
 
-[Schritt-für-Schritt-Anleitung für verteilte Dateisysteme in Windows Server 2008](http://go.microsoft.com/fwlink/?linkid=85231)
+[Schritt-für-Schritt-Anleitung für verteilte Dateisysteme in Windows Server 2008](https://go.microsoft.com/fwlink/?linkid=85231)
 
-[Technische Referenz zu FRS](http://go.microsoft.com/fwlink/?linkid=121764)
+[Technische Referenz zu FRS](https://go.microsoft.com/fwlink/?linkid=121764)
 

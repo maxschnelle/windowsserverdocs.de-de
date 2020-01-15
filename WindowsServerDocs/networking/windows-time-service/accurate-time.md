@@ -8,12 +8,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 1399ed6a50085baa37f06c09b8c3e18ca8bca98b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2e8e9e86f81596c85219c37c07d8fd2e95cc3a49
+ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395705"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75953081"
 ---
 # <a name="accurate-time-for-windows-server-2016"></a>Genaue Zeit für Windows Server 2016
 
@@ -22,7 +22,7 @@ ms.locfileid: "71395705"
 Der Windows-Zeit Dienst ist eine Komponente, die ein Plug-in-Modell für Client-und Serverzeit-Synchronisierungs Anbieter verwendet.  Es gibt zwei integrierte Client Anbieter unter Windows, und es sind Plug-ins von Drittanbietern verfügbar. Ein Anbieter verwendet [NTP (RFC 1305)](https://tools.ietf.org/html/rfc1305) oder [MS-NTP](https://msdn.microsoft.com/library/cc246877.aspx) , um die lokale Systemzeit mit einem NTP-und/oder MS-NTP-kompatiblen Referenz Server zu synchronisieren. Der andere Anbieter ist für Hyper-v und synchronisiert virtuelle Computer (Virtual Machines, VM) mit dem Hyper-v-Host.  Wenn mehrere Anbieter vorhanden sind, wählt Windows den besten Anbieter mithilfe von Stratum Level First, gefolgt von der Stamm Verzögerung, der Stamm-und der Zeit Abweichung.
 
 > [!NOTE]
-> Eine kurze Übersicht über den Windows-Zeit Dienst finden Sie in diesem [Übersichts Video](https://aka.ms/WS2016TimeVideo).
+> Eine kurze Übersicht über den Windows-Zeitdienst bietet dieses [allgemeine Übersichtsvideo](https://aka.ms/WS2016TimeVideo).
 
 In diesem Thema wird erläutert... Diese Themen beziehen sich auf die Aktivierung der exakten Zeit: 
 
@@ -39,7 +39,7 @@ In diesem Thema wird erläutert... Diese Themen beziehen sich auf die Aktivierun
 ## <a name="domain-hierarchy"></a>Domänen Hierarchie
 Domänen-und eigenständige Konfigurationen funktionieren unterschiedlich.
 
-- Domänen Mitglieder verwenden ein sicheres NTP-Protokoll, bei dem die-Authentifizierung verwendet wird, um die Sicherheit und Authentizität des Zeit Verweises sicherzustellen.  Domänen Mitglieder werden mit einer Masteruhr synchronisiert, die von der Domänen Hierarchie und einem Bewertungssystem bestimmt wird.  In einer Domäne gibt es eine hierarchische Schicht von Zeit-stratums, bei der jeder Domänen Controller auf einen übergeordneten DC mit einem präziseren Zeit-Stratum verweist.  Die Hierarchie wird in den PDC oder einen Domänen Controller in der Stamm Gesamtstruktur aufgelöst, oder es handelt sich um einen Domänen Controller mit dem domänenflag gtimeserv, das einen guten Zeit Server für die Domäne angibt.  Weitere Informationen finden Sie weiter unten im Abschnitt [Angeben eines lokalen zuverlässigen Zeit Dienstanbieter mit gtimeserv](#GTIMESERV) .
+- Domänen Mitglieder verwenden ein sicheres NTP-Protokoll, bei dem die-Authentifizierung verwendet wird, um die Sicherheit und Authentizität des Zeit Verweises sicherzustellen.  Domänen Mitglieder werden mit einer Masteruhr synchronisiert, die von der Domänen Hierarchie und einem Bewertungssystem bestimmt wird.  In einer Domäne gibt es eine hierarchische Schicht von Zeit-stratums, bei der jeder Domänen Controller auf einen übergeordneten DC mit einem präziseren Zeit-Stratum verweist.  Die Hierarchie wird in den PDC oder einen Domänen Controller in der Stamm Gesamtstruktur aufgelöst, oder es handelt sich um einen Domänen Controller mit dem domänenflag gtimeserv, das einen guten Zeit Server für die Domäne angibt.  Weitere Informationen finden Sie weiter unten im Abschnitt [angeben eines lokalen zuverlässigen Zeit Dienstanbieter mit gtimeserv.
 
 - Eigenständige Computer sind so konfiguriert, dass time.Windows.com standardmäßig verwendet wird.  Dieser Name wird von Ihrem DNS-Server aufgelöst, der auf eine Ressource im Besitz von Microsoft verweisen soll.  Wie alle Remote Verweise, die sich auf Remote Verweise beziehen, kann die Synchronisierung verhindern.  Netzwerk Datenverkehr und asymmetrische Netzwerk Pfade können die Genauigkeit der Zeitsynchronisierung beeinträchtigen.  Bei einer Genauigkeit von 1 MS können Sie nicht von Remote Zeitquellen abhängen.
 

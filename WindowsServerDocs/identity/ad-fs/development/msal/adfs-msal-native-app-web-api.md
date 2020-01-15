@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ff76a6dffd66296a02cffcbd79bc6dfadc91c14a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8b27097ac64f981343c1d455c826fa1b9004133e
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407790"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949586"
 ---
 # <a name="scenario-native-app-calling-web-api"></a>Szenario: Native APP, die Web-API aufrufen 
 >Gilt für: AD FS 2019 und höher 
@@ -26,7 +26,7 @@ Bevor Sie diesen Artikel lesen, sollten Sie sich mit den [AD FS Konzepten](../ad
  
  ![Übersicht](media/adfs-msal-native-app-web-api/native1.png)
 
-In diesem Flow fügen Sie Ihrer nativen app (öffentlicher Client) eine Authentifizierung hinzu, wodurch sich Benutzer anmelden und eine Web-API aufrufen können. Um eine Web-API aus einer nativen App aufzurufen, die Benutzer anmeldet, können Sie die [acquiretokeninteractive-tokenerwerbs](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.ipublicclientapplication.acquiretokeninteractive?view=azure-dotnet#Microsoft_Identity_Client_IPublicClientApplication_AcquireTokenInteractive_System_Collections_Generic_IEnumerable_System_String__) -Methode von msal verwenden. Um diese Interaktion zu aktivieren, nutzt msal einen Webbrowser. 
+In diesem Flow fügen Sie Ihrer nativen app (öffentlicher Client) eine Authentifizierung hinzu, wodurch sich Benutzer anmelden und eine Web-API aufrufen können. Um eine Web-API aus einer nativen App aufzurufen, die Benutzer anmeldet, können Sie die [acquiretokeninteractive-tokenerwerbs](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.ipublicclientapplication.acquiretokeninteractive?view=azure-dotnet#Microsoft_Identity_Client_IPublicClientApplication_AcquireTokenInteractive_System_Collections_Generic_IEnumerable_System_String__) -Methode von msal verwenden. MSAL nutzt einen Webbrowser, um diese Interaktion zu aktivieren. 
 
  
 Um besser zu verstehen, wie Sie eine native app in AD FS konfigurieren, um das Zugriffs Token interaktiv abzurufen, verwenden wir ein Beispiel, das [hier](https://github.com/microsoft/adfs-sample-msal-dotnet-native-to-webapi) verfügbar ist, und Exemplarische Vorgehensweise die Schritte zur APP-Registrierung und Code Konfiguration.  
@@ -37,7 +37,7 @@ Um besser zu verstehen, wie Sie eine native app in AD FS konfigurieren, um das Z
 
 - GitHub-Client Tools 
 - AD FS 2019 oder höher konfiguriert und wird ausgeführt 
-- Visual Studio 2013 oder höher 
+- Visual Studio 2013 oder höher 
  
 
 ## <a name="app-registration-in-ad-fs"></a>App-Registrierung in AD FS 
@@ -49,11 +49,11 @@ In diesem Abschnitt wird gezeigt, wie Sie die native App als einen öffentlichen
   
       ![App-reg](media/adfs-msal-native-app-web-api/native2.png)  
 
-  3. Kopieren Sie den Wert für den **Client Bezeichner** . Sie wird später als Wert für **ClientID** in der **app. config** -Datei der Anwendung verwendet. Geben Sie für **Umleitungs-URI** https://ToDoListClient Folgendes ein:. Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**.  
+  3. Kopieren Sie den Wert für den **Client Bezeichner** . Sie wird später als Wert für **ClientID** in der **app. config** -Datei der Anwendung verwendet. Geben Sie Folgendes für den **Umleitungs-URI ein:** https://ToDoListClient. Klicken Sie auf **Add**. Klicken Sie auf **Weiter**.  
  
      ![App-reg](media/adfs-msal-native-app-web-api/native3.png) 
 
-  4. Geben Sie auf dem Bildschirm Web-API konfigurieren den **Bezeichner ein:** https://localhost:44321/. Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**. Dieser Wert wird später in den Dateien " **app. config** " und " **Web. config** " der Anwendung verwendet.
+  4. Geben Sie auf dem Bildschirm Web-API konfigurieren den **Bezeichner:** https://localhost:44321/ ein. Klicken Sie auf **Add**. Klicken Sie auf **Weiter**. Dieser Wert wird später in den Dateien " **app. config** " und " **Web. config** " der Anwendung verwendet.
  
      ![App-reg](media/adfs-msal-native-app-web-api/native4.png)   
   
@@ -69,7 +69,7 @@ In diesem Abschnitt wird gezeigt, wie Sie die native App als einen öffentlichen
   
   8. Klicken Sie im Bildschirm Fertigstellen auf **Schließen**. 
   
-  9. Klicken Sie in AD FS Verwaltung auf **Anwendungs Gruppen** , und wählen Sie dann **nativeappswebapi** -Anwendungs Gruppe aus. Klicken Sie mit der rechten Maustaste, und wählen Sie **Eigenschaften** aus.
+  9. Klicken Sie in AD FS Verwaltung auf **Anwendungs Gruppen** , und wählen Sie dann **nativeappswebapi** -Anwendungs Gruppe aus. Klicken Sie mit der rechten Maustaste, und wählen Sie **Eigenschaften**aus.
   
       ![App-reg](media/adfs-msal-native-app-web-api/native7.png)
 
@@ -85,7 +85,7 @@ In diesem Abschnitt wird gezeigt, wie Sie die native App als einen öffentlichen
   
       ![App-reg](media/adfs-msal-native-app-web-api/native10.png) 
 
-  13. Geben Sie im Feld **Anspruchs Regel Name: den Namen** **NameID** ein. Wählen Sie **Name** für **Typ des eingehenden Anspruchs aus:** , Name- **ID** für **ausgehenden Anspruchstyp:** und allgemeiner **Name** für das **Format der ausgehenden namens-ID:** Klicken Sie auf **Finish**.
+  13. Geben Sie im Feld **Anspruchs Regel Name: den Namen** **NameID** ein. Wählen Sie **Name** für **Typ des eingehenden Anspruchs aus:** , Name- **ID** für **ausgehenden Anspruchstyp:** und allgemeiner **Name** für das **Format der ausgehenden namens-ID:** Klicken Sie auf **Fertig stellen**.
   
       ![App-reg](media/adfs-msal-native-app-web-api/native11.png) 
 
@@ -98,7 +98,7 @@ In diesem Abschnitt wird gezeigt, wie Sie eine native App für den Anmelde Benut
 
 2. Öffnen Sie das Beispiel mithilfe von Visual Studio. 
 
-3. Öffnen Sie die Datei "App. config". Ändern Sie Folgendes: 
+3. Öffnen Sie die Datei App.config. Ändern Sie Folgendes: 
    - Ida: Authority-Enter https://[Your AD FS Hostname]/ADFS
    - Ida: ClientID: Geben Sie den Wert für den **Client Bezeichner** aus #3 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
    - Ida: redirecturi: Geben Sie den **Umleitungs-URI** -Wert aus #3 in der APP-Registrierung in AD FS obigen Abschnitt ein.
@@ -107,9 +107,9 @@ In diesem Abschnitt wird gezeigt, wie Sie eine native App für den Anmelde Benut
  
      ![Code Konfiguration](media/adfs-msal-native-app-web-api/native12.png)
 
- 4. Öffnen Sie die Datei "Web. config". Ändern Sie Folgendes: 
+ 4. Öffnen Sie die Datei  Web.config. Ändern Sie Folgendes: 
     - Ida: Audience: Geben Sie den **Bezeichnerwert** aus #4 in der APP-Registrierung in AD FS obigen Abschnitt ein. 
-    - I AdfsMetadataEndpoint: Geben Sie https://[Your AD FS Hostname]/FederationMetadata/2007-06/FederationMetadata.XML ein. 
+    - Ida: AdfsMetadataEndpoint-Enter https://[Your AD FS Hostname]/FederationMetadata/2007-06/FederationMetadata.XML 
     
       ![Code Konfiguration](media/adfs-msal-native-app-web-api/native13.png)
  
@@ -137,7 +137,7 @@ In diesem Abschnitt wird gezeigt, wie das oben konfigurierte Beispiel getestet w
 
     Wenn der Bildschirm für die native APP nicht angezeigt wird, suchen Sie in dem Ordner, in dem das projektrepository auf Ihrem System gespeichert ist, die Datei * msalcache. bin. 
 
-  6. Sie werden auf die AD FS Anmeldeseite umgeleitet. Fahren Sie fort, und melden Sie sich an. 
+  6. Sie werden auf die AD FS Anmeldeseite umgeleitet. Melden Sie sich bei Azure an. 
   
       ![App-Test](media/adfs-msal-native-app-web-api/native18.png)
 

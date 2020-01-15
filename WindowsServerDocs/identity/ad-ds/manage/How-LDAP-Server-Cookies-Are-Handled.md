@@ -1,6 +1,6 @@
 ---
 ms.assetid: 3acaa977-ed63-4e38-ac81-229908c47208
-title: Behandlung von LDAP-Servercookies
+title: Behandlung von LDAP-Server-Cookies
 description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
@@ -9,14 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c825ae9c9b52068b58b99bc6ff597304c9643d17
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ca63fa9504765b0376eb671b4decd67de7768f15
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390081"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948891"
 ---
-# <a name="how-ldap-server-cookies-are-handled"></a>Behandlung von LDAP-Servercookies
+# <a name="how-ldap-server-cookies-are-handled"></a>Behandlung von LDAP-Server-Cookies
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -126,7 +126,7 @@ Die Ereignisse 2898 und 2899 sind der einzige sichere Hinweis darauf, dass der L
   
 Erhalten Sie auf Ihrem DC/LDAP-Server Ereignis 2898, empfiehlt sich eine Erhöhung von MaxResultSetsPerConn auf 25. Mehr als 25 parallel ausgeführte seitenweise Suchen über eine einzige LDAP-Verbindung sind ungewöhnlich. Falls Sie Ereignis 2898 weiterhin erhalten, sollten Sie die LDAP-Clientanwendung überprüfen, in der der Fehler auftritt. In diesem Fall liegt es nahe, dass die Anwendung beim Abrufen weiterer seitenweiser Ergebnisse hängen bleibt, das Cookie daraufhin im Status „Ausstehend“ belässt und eine neue Abfrage startet. Um festzustellen, ob der Anwendung an einem bestimmten Punkt für ihre Zwecke ausreichend Cookies zur Verfügung stehen, können Sie MaxResultSetsPerConn auch auf einen höheren Wert als 25 einstellen. Werden Ihren Domänencontrollern hingegen 2899-Ereignisse zurückgegeben, sähe die Strategie anders aus. Läuft Ihr DC/LDAP-Server in diesem Fall auf einem Computer mit ausreichend Arbeitsspeicher (d. h. es sind mehrere GB Arbeitsspeicher frei), sollten Sie MaxResultsetSize auf dem LDAP-Server auf einen Wert größer oder gleich 250 MB setzen. Dieser Grenzwert ist auch für große Mengen umfangreicher seitenweiser LDAP-Suchen auch in sehr großen Verzeichnissen mehr als ausreichend.  
   
-Wenn Sie bei einem Pool mit dieser Größe nach wie vor 2899-Ereignisse erhalten, ist zu vermuten, dass auf dicht aufeinander folgende Abfragen sehr vieler Clients große Mengen an Objekten in kürzester Folge zurückgegeben werden. Die Daten, die Sie mit dem [Datensammler Satz Active Directory](http://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) erfassen können, können Sie dabei unterstützen, sich wiederholende auslagerbare Abfragen zu finden, die Ihre LDAP-Server Diese Abfragen werden alle mit der Anzahl der zurückgegebenen Einträge angezeigt, die mit der Größe der verwendeten Seite übereinstimmen.  
+Wenn Sie bei einem Pool mit dieser Größe nach wie vor 2899-Ereignisse erhalten, ist zu vermuten, dass auf dicht aufeinander folgende Abfragen sehr vieler Clients große Mengen an Objekten in kürzester Folge zurückgegeben werden. Die Daten, die Sie mit dem [Datensammler Satz Active Directory](https://blogs.technet.com/b/askds/archive/2010/06/08/son-of-spa-ad-data-collector-sets-in-win2008-and-beyond.aspx) erfassen können, können Sie dabei unterstützen, sich wiederholende auslagerbare Abfragen zu finden, die Ihre LDAP-Server Diese Abfragen werden alle mit der Anzahl der zurückgegebenen Einträge angezeigt, die mit der Größe der verwendeten Seite übereinstimmen.  
   
 Überprüfen Sie nach Möglichkeit den Anwendungs Entwurf, und implementieren Sie einen anderen Ansatz mit niedrigerer Häufigkeit, Datenvolumen und/oder weniger Client Instanzen, die diese Daten Abfragen. Im Fall der Anwendungen, für die Sie über Zugriff auf den Quell Code verfügen, können Sie diese Anleitung zum [Erstellen von effizienten AD-fähigen Anwendungen](https://msdn.microsoft.com/library/ms808539.aspx) dabei unterstützen, die optimale Methode für den Zugriff auf AD-Anwendungen zu verstehen.  
   

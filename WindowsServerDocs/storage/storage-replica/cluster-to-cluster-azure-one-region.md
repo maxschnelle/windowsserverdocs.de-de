@@ -9,26 +9,26 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 55d9c600c86b6b64efdb5c7d4437697539f887ae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3e620b5597a2d25a7bb02daf80c5812d25f6a987
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402949"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950036"
 ---
 # <a name="cluster-to-cluster-storage-replica-within-the-same-region-in-azure"></a>Cluster-zu-Cluster-Speicher Replikat innerhalb derselben Region in Azure
 
-> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (Semi-Annual Channel)
 
 Sie können die Cluster-zu-Cluster-Speicher Replikation innerhalb derselben Region in Azure konfigurieren. In den folgenden Beispielen wird ein Cluster mit zwei Knoten verwendet, aber Cluster-zu-Cluster-Speicher Replikate sind nicht auf einen Cluster mit zwei Knoten beschränkt. Die folgende Abbildung zeigt einen Cluster für direkte Speicherplätze mit zwei Knoten, der miteinander kommunizieren kann, sich in derselben Domäne und innerhalb derselben Region befindet.
 
 Sehen Sie sich die folgenden Videos an, um eine umfassende Exemplarische Vorgehensweise zum Prozess zu finden.
 
 Teil 1
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE26f2Y]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE26f2Y]
 
 Teil 2
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE269Pq]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE269Pq]
 
 ![Das Architektur Diagramm, das Cluster-zu-Cluster-Speicher Replikate in Azure innerhalb derselben Region zeigt.](media/Cluster-to-cluster-azure-one-region/architecture.png)
 > [!IMPORTANT]
@@ -36,7 +36,7 @@ Teil 2
 
 1. Erstellen Sie eine [Ressourcengruppe](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) im Azure-Portal in einer Region (**SR-AZ2AZ** in **USA, Westen 2**). 
 2. Erstellen Sie in der oben erstellten Ressourcengruppe (**SR-AZ2AZ**) zwei [Verfügbarkeits Gruppen](https://ms.portal.azure.com/#create/Microsoft.AvailabilitySet-ARM) , eine für jeden Cluster. 
-    a. Verfügbarkeits Gruppe (**az2azAS1**) b. Verfügbarkeits Gruppe (**az2azAS2**)
+    ein. Verfügbarkeits Gruppe (**az2azAS1**) b. Verfügbarkeits Gruppe (**az2azAS2**)
 3. Erstellen Sie ein [virtuelles Netzwerk](https://ms.portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) (**az2az-vnet**) in der zuvor erstellten Ressourcengruppe (**SR-az2az**) mit mindestens einem Subnetz. 
 4. Erstellen Sie eine [Netzwerk Sicherheitsgruppe](https://ms.portal.azure.com/#create/Microsoft.NetworkSecurityGroup-ARM) (**az2az-NSG**), und fügen Sie eine eingehende Sicherheitsregel für RDP hinzu: 3389. Nachdem Sie die Einrichtung abgeschlossen haben, können Sie diese Regel entfernen. 
 5. Erstellen Sie [virtuelle](https://ms.portal.azure.com/#create/Microsoft.WindowsServer2016Datacenter-ARM) Windows Server-Computer in der zuvor erstellten Ressourcengruppe (**SR-AZ2AZ**). Verwenden Sie das zuvor erstellte virtuelle Netzwerk (**az2az-vnet**) und die Netzwerk Sicherheitsgruppe (**az2az-NSG**). 
@@ -79,13 +79,13 @@ Teil 2
     - azlbr1 = > Front-End-IP: 10.3.0.100 (übernehmen Sie eine nicht verwendete IP-Adresse aus dem Subnetz des virtuellen Netzwerks (**az2az-vnet**))
     - Erstellen Sie einen Back-End-Pool für jeden Load Balancer. Fügen Sie die zugeordneten Cluster Knoten hinzu.
     - Erstellen eines Integritätstests: Port 59999
-    - Lasten Ausgleichs Regel erstellen: Hochverfügbarkeitsports mit aktivierter Floating IP zulassen 
+    - Lasten Ausgleichs Regel erstellen: hochverfügbarkeitsports mit aktivierter Floating IP zulassen. 
    
     Geben Sie die Cluster-IP-Adresse als statische private IP-Adresse für den Load Balancer an.
     - azlbr2 = > Front-End-IP: 10.3.0.101 (übernehmen Sie eine nicht verwendete IP-Adresse aus dem Subnetz des virtuellen Netzwerks (**az2az-vnet**))
     - Erstellen Sie einen Back-End-Pool für jeden Load Balancer. Fügen Sie die zugeordneten Cluster Knoten hinzu.
     - Erstellen eines Integritätstests: Port 59999
-    - Lasten Ausgleichs Regel erstellen: Hochverfügbarkeitsports mit aktivierter Floating IP zulassen 
+    - Lasten Ausgleichs Regel erstellen: hochverfügbarkeitsports mit aktivierter Floating IP zulassen. 
    
 12. Öffnen Sie auf jedem Cluster Knoten Port 59999 (Integritätstest). 
    

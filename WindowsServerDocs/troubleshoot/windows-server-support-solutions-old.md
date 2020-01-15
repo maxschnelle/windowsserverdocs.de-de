@@ -9,37 +9,37 @@ ms.date: 03/16/2018
 ms.topic: article
 author: kaushika-msft
 ms.author: elizapo
-ms.openlocfilehash: 1ef9d511f8946452c5f9f05628c67c5908c53a55
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 61c10f25ac97934f73c4f393e2c91c9b36fc59fd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402767"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950173"
 ---
 # <a name="top-support-solutions-for-windows-server-2016"></a>Die wichtigsten Supportlösungen für Windows Server 2016
 
-Microsoft veröffentlicht regelmäßig Updates und Lösungen für Windows Server. Um sicherzustellen, dass Ihre Server zukünftige Updates einschließlich der Sicherheitsupdates erhalten können, ist es wichtig, sie auf dem neuesten Stand zu halten. Eine komplette Liste der veröffentlichten Updates finden Sie unter [Updateverlauf für Windows 10 und Windows Server 2016](https://support.microsoft.com/en-us/help/4000825/windows-10-windows-server-2016-update-history).
+Microsoft veröffentlicht regelmäßig Updates und Lösungen für Windows Server. Um sicherzustellen, dass Ihre Server zukünftige Updates einschließlich der Sicherheitsupdates erhalten können, ist es wichtig, sie auf dem neuesten Stand zu halten. Eine komplette Liste der veröffentlichten Updates finden Sie unter [Updateverlauf für Windows 10 und Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history).
 
 Hierbei handelt es sich um die wichtigsten Microsoft-Support-Lösungen für häufige Probleme mit Windows Server 2016. Die unten angegebenen Links enthalten Links zu KB-Artikel, Updates und Bibliotheksartikeln.
 
 >[!TIP]
-> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
+> Suchen Sie nach Informationen zu älteren Versionen von Windows Server? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
 ## <a name="solutions-for-installing-or-upgrading-windows-server"></a>Lösungen für die Installation oder das Upgrade von Windows Server
 
-- [Auflösen von Windows 10-upgradefehlern: Technische Informationen für IT-Experten](https://docs.microsoft.com/windows/deployment/upgrade/resolve-windows-10-upgrade-errors)
-- [Wartungs Stapel Update für Windows 10, Version 1607 und Windows Server 2016: 8. August 2017](https://support.microsoft.com/en-US/help/4035631)
-- [Kompatibilitäts Update für das Upgrade auf Windows 10, Version 1607 und Windows Server 2016: 3. August 2017](https://support.microsoft.com/en-US/help/4033524)
-- [Ein direktes System Upgrade wird auf Windows-basierten Azure-VMS nicht unterstützt.](https://support.microsoft.com/en-US/help/4014997)
-- [Upgrade-und Konvertierungsoptionen für Windows Server 2016](../get-started/supported-upgrade-paths.md)
+- [Auflösen von Windows 10-upgradefehlern: technische Informationen für IT-Experten](https://docs.microsoft.com/windows/deployment/upgrade/resolve-windows-10-upgrade-errors)
+- [Wartungs Stapel Update für Windows 10, Version 1607 und Windows Server 2016:8. August 2017](https://support.microsoft.com/help/4035631)
+- [Kompatibilitäts Update für das Upgrade auf Windows 10, Version 1607 und Windows Server 2016:3. August 2017](https://support.microsoft.com/help/4033524)
+- [Ein direktes System Upgrade wird auf Windows-basierten Azure-VMS nicht unterstützt.](https://support.microsoft.com/help/4014997)
+- [Upgrade and conversion options for Windows Server 2016 (Upgrade- und Konvertierungsoptionen für Windows Server 2016)](../get-started/supported-upgrade-paths.md)
 - [Server Rollen Upgrade und Migrations Matrix für Windows Server 2016](../get-started/server-role-upgradeability-table.md)
 - [Windows Server-Installation und-Upgrade](../get-started/installation-and-upgrade.md)
-- [Versionshinweise: Wichtige Probleme in Windows Server 2016](../get-started/windows-server-2016-ga-release-notes.md)
+- [Anmerkungen zu dieser Version: wichtige Probleme in Windows Server 2016](../get-started/windows-server-2016-ga-release-notes.md)
 - [Empfehlungen für die Umstellung auf Windows Server 2016](../get-started/recommendations-moving-to-server2016.md)
 
 ## <a name="solutions-for-volume-activation"></a>Lösungen zur Volumenaktivierung
 - [Windows Server 2016-Aktivierung](../get-started/server-2016-activation.md)
-- [Aktivierungsmethoden überprüfen und auswählen](https://technet.microsoft.com/library/jj134256(ws.11).aspx)
+- [Überprüfen und Auswählen von Aktivierungsmethoden](https://technet.microsoft.com/library/jj134256(ws.11).aspx)
 - [Aktivierungs Fehler Codes für die Volumen Aktivierung](https://technet.microsoft.com/library/dn502528.aspx)
 - [Behandeln von Problemen mit dem Schlüssel Verwaltungsdienst (Key Management Service, KMS)](https://technet.microsoft.com/library/ee939272.aspx)
 - [Problembehandlung bei Volumen Aktivierung](https://technet.microsoft.com/library/ff793439.aspx)
@@ -52,11 +52,11 @@ Hierbei handelt es sich um die wichtigsten Microsoft-Support-Lösungen für häu
 - [Exchange Server-Unterstützung für Windows Server 2016](https://technet.microsoft.com/library/ff728623(v=exchg.150).aspx)
 - [Verwenden von "Ntdsutil. exe" zum übertragen und übernehmen von FSMO-Rollen an einen Domänen](https://support.microsoft.com/kb/255504)
 - [Behandeln von Problemen bei der Domänencontrollerbereitstellung](../identity/ad-ds/deploy/troubleshooting-domain-controller-deployment.md)
-- [Problembehandlung bei Active Directory-Installations-Assistenten](https://msdn.microsoft.com/library/bb727058.aspx)
+- [Troubleshooting Active Directory Installation Wizard Problems](https://msdn.microsoft.com/library/bb727058.aspx) (Behandeln von Problemen mit dem Assistenten für die Active Directory-Installation)
 - [Bekannte Probleme beim Installieren und Entfernen von AD DS](https://technet.microsoft.com/library/cc754463(v=ws.10).aspx)
 
 ## <a name="solutions-for-active-directory-federation-services-ad-fs"></a>Lösungen für Active Directory-Verbunddienste (AD FS)
-- [Konfigurieren der automatischen Registrierung von in die Domäne eingebundenen Windows-Geräten mit Azure Active Directory](/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup)
+- [Es wird beschrieben, wie Sie die automatische Registrierung von in die Domäne eingebundenen Windows-Geräten mit Azure Active Directory konfigurieren.](/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup)
 - [Einrichten der Ausstellung von Ansprüchen](/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup#step-2-setup-issuance-of-claims)
 - [Konfigurieren von AD FS zum Authentifizieren von Benutzern, die in LDAP-Verzeichnissen gespeichert sind](../identity/ad-fs/operations/configure-ad-fs-to-authenticate-users-stored-in-ldap-directories.md)
 - [AD FS: Unterstützung der alternativen Hostnamenbindung für die Zertifikatauthentifizierung](../identity/ad-fs/operations/ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md)
@@ -70,9 +70,9 @@ Hierbei handelt es sich um die wichtigsten Microsoft-Support-Lösungen für häu
 
 - [Behandeln von Active Directory-Replikationsproblemen](../identity/ad-ds/manage/troubleshoot/troubleshooting-active-directory-replication-problems.md)
 - [Active Directory-Replikationsstatusmonitor Tool aus dem Microsoft Download Center herunterladen](https://www.microsoft.com/en-in/download/details.aspx?id=30005)
-- [E2E Beheben allgemeiner Active Directory Replikations Fehler](https://support.microsoft.com/kb/3108513)
-- [Problembehandlung bei AD Replication Error 8606: Zum Erstellen eines Objekts wurden unzureichende Attribute angegeben.](https://support.microsoft.com/kb/2028495)
+- [E2E: Beheben allgemeiner Active Directory Replikations Fehler](https://support.microsoft.com/kb/3108513)
+- [Problembehandlung bei AD Replication Error 8606: für das Erstellen eines Objekts wurden unzureichende Attribute angegeben.](https://support.microsoft.com/kb/2028495)
 - [Ereignis-ID 2108 und Ereignis-ID 1084 treten während der eingehenden Replikation von Active Directory in Windows 2000 Server und Windows Server 2003 auf](https://support.microsoft.com/kb/837932)
-- [Problembehandlung bei AD Replication Error 8451: Beim Replikations Vorgang ist ein Datenbankfehler aufgetreten.](https://support.microsoft.com/kb/2645996)
-- [Problembehandlung bei AD Replication Error 1127: Beim Zugriff auf die Festplatte ist ein Datenträger Vorgang auch nach Wiederholungs versuchen fehlgeschlagen.](https://support.microsoft.com/kb/2025726)
+- [Problembehandlung bei AD Replication Error 8451: beim Replikations Vorgang ist ein Datenbankfehler aufgetreten](https://support.microsoft.com/kb/2645996)
+- [Problembehandlung bei AD Replication Error 1127: beim Zugriff auf die Festplatte ist ein Datenträger Vorgang auch nach Wiederholungs versuchen fehlgeschlagen.](https://support.microsoft.com/kb/2025726)
 - [Bereinigen von Server Metadaten](https://technet.microsoft.com/library/cc816907.aspx)

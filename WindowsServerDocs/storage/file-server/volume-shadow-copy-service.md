@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 19e07504dad49c5e23cc49630015529e2a746aa7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f2e8d3bfb5ef907ffb522b5b7be31d1def3001c8
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394448"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949679"
 ---
 # <a name="volume-shadow-copy-service"></a>Volumeschattenkopie-Dienst
 
@@ -39,13 +39,13 @@ VSS koordiniert die Aktionen, die erforderlich sind, um eine konsistente Schatte
 
 Zu den Windows-Features und-Anwendungen, die VSS verwenden, gehören die folgenden:
 
-  - [Windows Server-Sicherung](http://go.microsoft.com/fwlink/?linkid=180891) (http://go.microsoft.com/fwlink/?LinkId=180891)  
+  - [Windows Server-Sicherung](https://go.microsoft.com/fwlink/?linkid=180891) (https://go.microsoft.com/fwlink/?LinkId=180891)  
       
-  - [Schatten Kopien von freigegebenen Ordnern](http://go.microsoft.com/fwlink/?linkid=142874) (http://go.microsoft.com/fwlink/?LinkId=142874)  
+  - [Schatten Kopien von freigegebenen Ordnern](https://go.microsoft.com/fwlink/?linkid=142874) (https://go.microsoft.com/fwlink/?LinkId=142874)  
       
-  - [System Center-Data Protection Manager](http://go.microsoft.com/fwlink/?linkid=180892) (http://go.microsoft.com/fwlink/?LinkId=180892)  
+  - [System Center-Data Protection Manager](https://go.microsoft.com/fwlink/?linkid=180892) (https://go.microsoft.com/fwlink/?LinkId=180892)  
       
-  - [System Wiederherstellung](http://go.microsoft.com/fwlink/?linkid=180893) (http://go.microsoft.com/fwlink/?LinkId=180893)  
+  - [System Wiederherstellung](https://go.microsoft.com/fwlink/?linkid=180893) (https://go.microsoft.com/fwlink/?LinkId=180893)  
       
 
 ## <a name="how-volume-shadow-copy-service-works"></a>Funktionsweise von Volumeschattenkopie-Dienst
@@ -227,7 +227,7 @@ Ein softwarebasierter Schattenkopieanbieter muss eine "Point-in-Time"-Ansicht ei
 
 Ein Softwareanbieter gilt für eine größere Anzahl von Speicher Plattformen als bei einem hardwarebasierten Anbieter und sollte auch mit Basis Datenträgern oder logischen Volumes gleich gut funktionieren. (Ein logisches Volume ist ein Volume, das erstellt wird, indem der freie Speicherplatz von zwei oder mehr Datenträgern kombiniert wird.) Im Gegensatz zu Hardware Schatten Kopien verbrauchen Softwareanbieter Betriebssystemressourcen, um die Schatten Kopie zu verwalten.
 
-Weitere Informationen zu Basis Datenträgern finden Sie unter [Was sind grundlegende Datenträger und Volumes?](http://go.microsoft.com/fwlink/?linkid=180894) (http://go.microsoft.com/fwlink/?LinkId=180894) auf TechNet.
+Weitere Informationen zu Basis Datenträgern finden Sie unter [Was sind grundlegende Datenträger und Volumes?](https://go.microsoft.com/fwlink/?linkid=180894) (https://go.microsoft.com/fwlink/?LinkId=180894) auf TechNet.
 
 ### <a name="system-provider"></a>System Anbieter
 
@@ -247,11 +247,11 @@ Das Windows-Betriebssystem enthält eine Reihe von VSS-Writern, die für das Auf
 
 Weitere Informationen zu diesen Writern finden Sie auf den folgenden Microsoft-Websites:
 
-  - [In-Box-VSS-Writer](http://go.microsoft.com/fwlink/?linkid=180895) (http://go.microsoft.com/fwlink/?LinkId=180895)  
+  - [In-Box-VSS-Writer](https://go.microsoft.com/fwlink/?linkid=180895) (https://go.microsoft.com/fwlink/?LinkId=180895)  
       
-  - [Neue in-Box-VSS-Writer für Windows Server 2008 und Windows Vista SP1](http://go.microsoft.com/fwlink/?linkid=180896) (http://go.microsoft.com/fwlink/?LinkId=180896)  
+  - [Neue in-Box-VSS-Writer für Windows Server 2008 und Windows Vista SP1](https://go.microsoft.com/fwlink/?linkid=180896) (https://go.microsoft.com/fwlink/?LinkId=180896)  
       
-  - [Neue in-Box-VSS-Writer für Windows Server 2008 R2 und Windows 7](http://go.microsoft.com/fwlink/?linkid=180897) (http://go.microsoft.com/fwlink/?LinkId=180897)  
+  - [Neue in-Box-VSS-Writer für Windows Server 2008 R2 und Windows 7](https://go.microsoft.com/fwlink/?linkid=180897) (https://go.microsoft.com/fwlink/?LinkId=180897)  
       
 
 ## <a name="how-shadow-copies-are-used"></a>Verwendung von Schatten Kopien
@@ -298,7 +298,7 @@ Die LUN-Neusynchronisierung unterscheidet sich vom LUN-Austausch. Ein LUN-Swap i
 
 Schattenkopien für freigegebene Ordner verwendet die Volumeschattenkopie-Dienst, um Zeit Punkt Kopien von Dateien bereitzustellen, die sich auf einer freigegebenen Netzwerkressource befinden, z. b. auf einem Dateiserver. Mit Schattenkopien für freigegebene Ordner können Benutzer gelöschte oder geänderte Dateien, die im Netzwerk gespeichert sind, schnell wiederherstellen. Da dies ohne Administrator Unterstützung möglich ist, können Schattenkopien für freigegebene Ordner die Produktivität steigern und die Verwaltungskosten senken.
 
-Weitere Informationen zu Schattenkopien für freigegebene Ordner finden Sie unter [Schattenkopien für freigegebene Ordner](http://go.microsoft.com/fwlink/?linkid=180898) (http://go.microsoft.com/fwlink/?LinkId=180898) auf TechNet.
+Weitere Informationen zu Schattenkopien für freigegebene Ordner finden Sie unter [Schattenkopien für freigegebene Ordner](https://go.microsoft.com/fwlink/?linkid=180898) (https://go.microsoft.com/fwlink/?LinkId=180898) auf TechNet.
 
 ### <a name="data-mining-by-using-transportable-shadow-copies"></a>Data Mining mithilfe von austauschen-Schatten Kopien
 
@@ -330,7 +330,7 @@ Volumeschattenkopie-Dienst Transport ist eine erweiterte Lösung auf Computern, 
 
 ## <a name="frequently-asked-questions"></a>Häufig gestellte Fragen
 
-Diese FAQ beantwortet Fragen zu Volumeschattenkopie-Dienst (VSS) für Systemadministratoren. Weitere Informationen zu VSS-Anwendungsprogrammierschnittstellen finden Sie unter [Volumeschattenkopie-Dienst](http://go.microsoft.com/fwlink/?linkid=180899) (http://go.microsoft.com/fwlink/?LinkId=180899) in der Bibliothek des Windows Developer Center).
+Diese FAQ beantwortet Fragen zu Volumeschattenkopie-Dienst (VSS) für Systemadministratoren. Weitere Informationen zu VSS-Anwendungsprogrammierschnittstellen finden Sie unter [Volumeschattenkopie-Dienst](https://go.microsoft.com/fwlink/?linkid=180899) (https://go.microsoft.com/fwlink/?LinkId=180899) in der Bibliothek des Windows Developer Center).
 
 ### <a name="when-was-volume-shadow-copy-service-introduced-on-which-windows-operating-system-versions-is-it-available"></a>Wann wurde Volumeschattenkopie-Dienst eingeführt? Auf welchen Windows-Betriebssystemversionen ist die Version verfügbar?
 
@@ -362,9 +362,9 @@ Die Volumeschattenkopie-Dienst kann mithilfe der Microsoft Management Console de
 
 Weitere Informationen finden Sie auf den folgenden Microsoft TechNet-Websites:
 
-  - [System Wiederherstellung](http://go.microsoft.com/fwlink/?linkid=157113) (http://go.microsoft.com/fwlink/?LinkID=157113)  
+  - [System Wiederherstellung](https://go.microsoft.com/fwlink/?linkid=157113) (https://go.microsoft.com/fwlink/?LinkID=157113)  
       
-  - [Windows Server-Sicherung](http://go.microsoft.com/fwlink/?linkid=180891) (http://go.microsoft.com/fwlink/?LinkID=180891)  
+  - [Windows Server-Sicherung](https://go.microsoft.com/fwlink/?linkid=180891) (https://go.microsoft.com/fwlink/?LinkID=180891)  
       
 
 ### <a name="can-i-exclude-files-from-a-shadow-copy-to-save-space"></a>Kann ich Dateien aus einer Schatten Kopie ausschließen, um Speicherplatz zu sparen?
@@ -384,15 +384,15 @@ Um bestimmte Dateien aus Schatten Kopien auszuschließen, verwenden Sie den folg
 > <LI>Dateien werden auf der Grundlage der besten Leistung aus einer Schatten Kopie gelöscht. Dies bedeutet, dass Sie nicht unbedingt gelöscht werden.<BR><BR></LI></UL>
 
 
-Weitere Informationen finden Sie unter [Ausschließen von Dateien aus Schatten Kopien](http://go.microsoft.com/fwlink/?linkid=180904) (http://go.microsoft.com/fwlink/?LinkId=180904) auf MSDN.
+Weitere Informationen finden Sie unter [Ausschließen von Dateien aus Schatten Kopien](https://go.microsoft.com/fwlink/?linkid=180904) (https://go.microsoft.com/fwlink/?LinkId=180904) auf MSDN.
 
-### <a name="my-non-microsoft-backup-program-failed-with-a-vss-error-what-can-i-do"></a>VSS-Fehler bei meinem nicht-Microsoft-Sicherungsprogramm. Was kann ich tun?
+### <a name="my-non-microsoft-backup-program-failed-with-a-vss-error-what-can-i-do"></a>VSS-Fehler bei meinem nicht-Microsoft-Sicherungsprogramm. Welche Möglichkeiten gibt es?
 
 Überprüfen Sie den Produktsupport Abschnitt der Website des Unternehmens, von dem das Sicherungsprogramm erstellt wurde. Möglicherweise gibt es ein Produkt Update, das Sie herunterladen und installieren können, um das Problem zu beheben. Falls nicht, wenden Sie sich an die Produktsupport Abteilung des Unternehmens.
 
 System Administratoren können die VSS-Informationen zur Problembehandlung auf der folgenden Microsoft TechNet Library-Website verwenden, um Diagnoseinformationen zu VSS-bezogenen Problemen zu sammeln.
 
-Weitere Informationen finden Sie unter [Volumeschattenkopie-Dienst](http://go.microsoft.com/fwlink/?linkid=180905) (http://go.microsoft.com/fwlink/?LinkId=180905) auf TechNet.
+Weitere Informationen finden Sie unter [Volumeschattenkopie-Dienst](https://go.microsoft.com/fwlink/?linkid=180905) (https://go.microsoft.com/fwlink/?LinkId=180905) auf TechNet.
 
 ### <a name="what-is-the-diff-area"></a>Was ist der "diff-Bereich"?
 
@@ -431,7 +431,7 @@ Der Wert für die maximale Anzahl von Software Schatten Kopien beträgt 512. Sta
 
 Geben Sie den Befehl **vssadmin Größe ShadowStorage** ein.
 
-Weitere Informationen finden Sie unter [vssadmin Größe ShadowStorage](http://go.microsoft.com/fwlink/?linkid=180906) (http://go.microsoft.com/fwlink/?LinkId=180906) auf TechNet.
+Weitere Informationen finden Sie unter [vssadmin Größe ShadowStorage](https://go.microsoft.com/fwlink/?linkid=180906) (https://go.microsoft.com/fwlink/?LinkId=180906) auf TechNet.
 
 ### <a name="what-happens-when-i-run-out-of-space"></a>Was geschieht, wenn kein Speicherplatz mehr verfügbar ist?
 
@@ -441,9 +441,9 @@ Schatten Kopien für das Volume werden ab der ältesten Schatten Kopie gelöscht
 
 Das Windows-Betriebssystem stellt die folgenden Tools zum Arbeiten mit VSS bereit:
 
-  - [DiskShadow](http://go.microsoft.com/fwlink/?linkid=180907) (http://go.microsoft.com/fwlink/?LinkId=180907)  
+  - [DiskShadow](https://go.microsoft.com/fwlink/?linkid=180907) (https://go.microsoft.com/fwlink/?LinkId=180907)  
       
-  - [Vssadmin](http://go.microsoft.com/fwlink/?linkid=84008) (http://go.microsoft.com/fwlink/?LinkId=84008)  
+  - [Vssadmin](https://go.microsoft.com/fwlink/?linkid=84008) (https://go.microsoft.com/fwlink/?LinkId=84008)  
       
 
 ### <a name="diskshadow"></a>DiskShadow
@@ -503,9 +503,9 @@ Dieser Schlüssel wird verwendet, um anzugeben, welche Benutzer Zugriff auf Scha
 
 Weitere Informationen finden Sie auf der MSDN-Website in den folgenden Einträgen:
 
-  - [Sicherheitsüberlegungen für Writer](http://go.microsoft.com/fwlink/?linkid=157739) (http://go.microsoft.com/fwlink/?LinkId=157739)  
+  - [Sicherheitsüberlegungen für Writer](https://go.microsoft.com/fwlink/?linkid=157739) (https://go.microsoft.com/fwlink/?LinkId=157739)  
       
-  - [Sicherheitsüberlegungen für](http://go.microsoft.com/fwlink/?linkid=180908) Anforderer (http://go.microsoft.com/fwlink/?LinkId=180908)  
+  - [Sicherheitsüberlegungen für](https://go.microsoft.com/fwlink/?linkid=180908) Anforderer (https://go.microsoft.com/fwlink/?LinkId=180908)  
       
 
 ### <a name="maxshadowcopies"></a>Maxshadowkopien
@@ -514,7 +514,7 @@ Dieser Schlüssel gibt die maximale Anzahl von Client zugänglichen Schatten Kop
 
 Weitere Informationen finden Sie auf der MSDN-Website im folgenden Eintrag:
 
-**Maxshadowkopien** unter [Registrierungs Schlüsseln für die Sicherung und Wiederherstellung](http://go.microsoft.com/fwlink/?linkid=180909) (http://go.microsoft.com/fwlink/?LinkId=180909)
+**Maxshadowkopien** unter [Registrierungs Schlüsseln für die Sicherung und Wiederherstellung](https://go.microsoft.com/fwlink/?linkid=180909) (https://go.microsoft.com/fwlink/?LinkId=180909)
 
 ### <a name="mindiffareafilesize"></a>MinDiffAreaFileSize
 
@@ -522,7 +522,7 @@ Dieser Schlüssel gibt die minimale anfängliche Größe des Schattenkopiespeich
 
 Weitere Informationen finden Sie auf der MSDN-Website im folgenden Eintrag:
 
-**MinDiffAreaFileSize** unter [Registrierungs Schlüsseln für die Sicherung und Wiederherstellung](http://go.microsoft.com/fwlink/?linkid=180910) (http://go.microsoft.com/fwlink/?LinkId=180910)
+**MinDiffAreaFileSize** unter [Registrierungs Schlüsseln für die Sicherung und Wiederherstellung](https://go.microsoft.com/fwlink/?linkid=180910) (https://go.microsoft.com/fwlink/?LinkId=180910)
 
 `##`# "unterstützte Betriebs System Versionen
 
@@ -559,7 +559,7 @@ In der folgenden Tabelle sind die unterstützten Betriebssystemversionen für VS
 <td><p>Windows Server 2003 mit SP1</p></td>
 </tr>
 <tr class="even">
-<td><p>Hardware Schatten Kopien</p></td>
+<td><p>Hardwareschattenkopien</p></td>
 <td><p>Nicht unterstützt</p></td>
 <td><p>Windows Server 2003</p></td>
 </tr>
@@ -609,7 +609,7 @@ In der folgenden Tabelle sind die unterstützten Betriebssystemversionen für VS
 </tr>
 <tr class="even">
 <td><p>Gleichzeitige Sicherungs Sitzungen (bis zu 64)</p></td>
-<td><p>Windows XP</p></td>
+<td><p>Windows XP</p></td>
 <td><p>Windows Server 2003</p></td>
 </tr>
 <tr class="odd">
@@ -625,6 +625,6 @@ In der folgenden Tabelle sind die unterstützten Betriebssystemversionen für VS
 </tbody>
 </table>
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Weitere Informationen:
 
 [Volumeschattenkopie-Dienst im Windows Developer Center](https://docs.microsoft.com/windows/desktop/vss/volume-shadow-copy-service-overview)

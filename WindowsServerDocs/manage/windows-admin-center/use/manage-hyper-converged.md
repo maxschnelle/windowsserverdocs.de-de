@@ -8,16 +8,16 @@ ms.author: jol
 ms.date: 03/01/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: d692251e1ba0fef43e4eeee6f259f26f4347f3c0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6795464bfbadd12fc220e941ad2175eb83d0f050
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356883"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949944"
 ---
 # <a name="manage-hyper-converged-infrastructure-with-windows-admin-center"></a>Verwalten der hyperkonvergierten Infrastruktur mit dem Windows Admin Center
 
->Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center Vorschau
 
 ## <a name="what-is-hyper-converged-infrastructure"></a>Was ist eine hyperkonvergierte Infrastruktur?
 
@@ -27,11 +27,11 @@ Die hyperkonvergierte Infrastruktur konsolidiert softwaredefinierte COMPUTE-, Sp
 > Sie möchten eine hyperkonvergierte Infrastruktur erwerben? Microsoft empfiehlt von unseren Partnern diese [Software definierten Lösungen von Windows Server](https://microsoft.com/wssd) . Sie wurden in unserer Referenzarchitektur entworfen, zusammengestellt und überprüft, um Kompatibilität und Zuverlässigkeit sicherzustellen, sodass Sie schnell loslegen können.
 
 > [!IMPORTANT]
-> Einige der in diesem Artikel beschriebenen Funktionen sind nur in der Vorschauversion des Windows Admin Centers verfügbar. [Gewusst wie diese Version erhalten?](http://aka.ms/windowsadmincenter)
+> Einige der in diesem Artikel beschriebenen Funktionen sind nur in der Vorschauversion des Windows Admin Centers verfügbar. [Gewusst wie diese Version erhalten?](https://aka.ms/windowsadmincenter)
 
-## <a name="what-is-windows-admin-center"></a>Was ist Windows Admin Center
+## <a name="what-is-windows-admin-center"></a>Was ist Windows Admin Center?
 
-[Windows Admin Center](../understand/windows-admin-center.md) ist das Verwaltungs Tool der nächsten Generation für Windows Server, das Nachfolger für herkömmliche "in-Box"-Tools wie Server-Manager. Es ist kostenlos und kann ohne Internet Verbindung installiert und verwendet werden. Mithilfe des Windows Admin Centers können Sie die hyperkonvergierte Infrastruktur verwalten und überwachen, die unter Windows Server 2016 oder Windows Server 2019 ausgeführt wird.
+[Windows Admin Center](../overview.md) ist das Verwaltungs Tool der nächsten Generation für Windows Server, das Nachfolger für herkömmliche "in-Box"-Tools wie Server-Manager. Es ist kostenlos und kann ohne Internet Verbindung installiert und verwendet werden. Mithilfe des Windows Admin Centers können Sie die hyperkonvergierte Infrastruktur verwalten und überwachen, die unter Windows Server 2016 oder Windows Server 2019 ausgeführt wird.
 
 ![Hyperkonvergierte Cluster-Dashboard](../media/manage-hyper-converged/hci-dashboard-v1809.png)
 
@@ -57,7 +57,7 @@ Um Ihren Cluster als hyperkonvergierte Infrastruktur im Windows Admin Center zu 
 
 Windows Admin Center für hyperkonvergierte Infrastrukturen hängt von den Verwaltungs-APIs ab, die nach der Veröffentlichung von Windows Server 2016 hinzugefügt wurden. Bevor Sie Ihren Windows Server 2016-Cluster mit Windows Admin Center verwalten können, müssen Sie die folgenden beiden Schritte ausführen:
 
-1. Vergewissern Sie sich, dass auf jedem Server im Cluster das [kumulative Update 2018-05 für Windows Server 2016 (KB4103723)](https://support.microsoft.com/help/4103723/windows-10-update-kb4103723) oder höher installiert ist. Um dieses Update herunterzuladen und zu installieren, wechseln Sie zu **Einstellungen** > **Aktualisieren & Sicherheits** > **Windows Update** , und wählen Sie **Online nach Updates suchen aus Microsoft Update aus**.
+1. Vergewissern Sie sich, dass auf jedem Server im Cluster das [kumulative Update 2018-05 für Windows Server 2016 (KB4103723)](https://support.microsoft.com/help/4103723/windows-10-update-kb4103723) oder höher installiert ist. Um dieses Update herunterzuladen und zu installieren, wechseln Sie zu **Einstellungen** > **Aktualisieren Sie & Sicherheit** > **Windows Update** , und wählen Sie **Online nach Updates von Microsoft Update suchen aus**.
 2. Führen Sie das folgende PowerShell-Cmdlet als Administrator für den Cluster aus:
 
 ```powershell
@@ -76,7 +76,7 @@ Wenn Ihr Cluster Windows Server 2019 ausführt, sind die obigen Schritte nicht e
 Sie können Ihre hyperkonvergierte Infrastruktur mit Windows Server 2016 oder 2019 so konfigurieren, dass Sie mit den folgenden Schritten Software-Defined Networking (SDN) verwendet:
 
 1. Bereiten Sie die VHD des Betriebssystems vor, bei dem es sich um das gleiche Betriebssystem handelt, das Sie auf den hyperkonvergierten Infrastruktur Hosts Diese VHD wird für alle virtuellen NC/SLB/GW-VMS verwendet.
-2. Laden Sie den gesamten Ordner und die Dateien unter sdn [https://github.com/Microsoft/SDN/tree/master/SDNExpress](https://github.com/Microsoft/SDN/tree/master/SDNExpress)Express von herunter.
+2. Laden Sie den gesamten Ordner und die Dateien unter sdn Express von [https://github.com/Microsoft/SDN/tree/master/SDNExpress](https://github.com/Microsoft/SDN/tree/master/SDNExpress)herunter.
 3. Bereiten Sie mithilfe der Bereitstellungs Konsole einen anderen virtuellen Computer vor. Diese VM sollte auf die Sdn-Hosts zugreifen können. Außerdem sollte auf dem virtuellen Computer das RSAT-Hyper-V-Tool installiert sein.
 4. Kopieren Sie alles, was Sie für Sdn Express heruntergeladen haben, in die VM der Bereitstellungs Und geben Sie diesen Ordner **sdnexpress** frei. Stellen Sie sicher, dass jeder Host auf den freigegebenen **sdnexpress** -Ordner zugreifen kann, wie in der Konfigurationsdatei Zeile 8 definiert:
    ```
@@ -92,7 +92,7 @@ Sie können Ihre hyperkonvergierte Infrastruktur mit Windows Server 2016 oder 20
 
 Die Bereitstellung dauert ca. 30 – 45 Minuten.
 
-## <a name="get-started"></a>Erste Schritte
+## <a name="get-started"></a>„Erste Schritte“
 
 Sobald Ihre hyperkonvergierte Infrastruktur bereitgestellt ist, können Sie Sie mithilfe des Windows Admin Centers verwalten.
 
@@ -147,29 +147,29 @@ Im Allgemeinen bezieht sich der Begriff "hyperkonvergiert" auf die Ausführung v
 
 - Die **failoverclusterverbindung** ist der Nachfolger der Failovercluster-Manager Desktop-App. Es bietet eine vertraute allgemeine Verwaltungsfunktion für alle Cluster, die alle Arbeits Auslastungen unterstützen, einschließlich Microsoft SQL Server. Es ist für Windows Server 2012 und höher verfügbar.
 
-- Bei der **hyperkonvergierten Cluster Verbindung** handelt es sich um eine neue, auf direkte Speicherplätze und Hyper-V zugeschnittene Version. Es bietet das Dashboard und betont Diagramme und Warnungen für die Überwachung. Es ist für Windows Server 2016 und Windows Server 2019 verfügbar.
+- Bei der **hyperkonvergierten Cluster Verbindung** handelt es sich um eine neue, auf direkte Speicherplätze und Hyper-V zugeschnittene Version. Sie konzentriert sich auf das Dashboard und legt den Schwerpunkt auf Diagramme und Benachrichtigungen zur Überwachung. Es ist für Windows Server 2016 und Windows Server 2019 verfügbar.
 
 ### <a name="why-do-i-need-the-latest-cumulative-update-for-windows-server-2016"></a>Warum benötige ich das neueste kumulative Update für Windows Server 2016?
 
 Das Windows Admin Center für hyperkonvergierte Infrastrukturen hängt von den Management-APIs ab, die seit der Veröffentlichung von Windows Server 2016 entwickelt wurden. Diese APIs werden im [kumulativen 2018-05-Update für Windows Server 2016 (KB4103723)](https://support.microsoft.com/help/4103723/windows-10-update-kb4103723)hinzugefügt, das ab dem 8. Mai 2018 verfügbar ist.
 
-### <a name="how-much-does-it-cost-to-use-windows-admin-center"></a>Wie viel kostet Windows Admin Center?
+### <a name="how-much-does-it-cost-to-use-windows-admin-center"></a>Wie viel kostet die Verwendung von Windows Admin Center?
 
-Windows Admin Center ist ohne zusätzliche Kosten über Windows erhältlich.
+Für Windows Admin Center fallen jenseits der Kosten für Windows keine zusätzlichen Kosten an.
 
 Sie können Windows Admin Center (als separater Download verfügbar) mit den gültigen Lizenzen für Windows Server oder Windows 10 ohne zusätzliche Kosten verwenden – es ist unter einer ergänzenden Windows-EULA (ENDBENUTZER-LIZENZVERTRAG) lizenziert.
 
-### <a name="does-windows-admin-center-require-system-center"></a>Erfordert Windows Admin Center das System Center?
+### <a name="does-windows-admin-center-require-system-center"></a>Ist System Center für Windows Admin Center erforderlich?
 
-Nein.
+Nein
 
 ### <a name="does-it-require-an-internet-connection"></a>Ist eine Internet Verbindung erforderlich?
 
-Nein.
+Nein
 
 Obwohl das Windows Admin Center eine leistungsstarke und bequeme Integration in die Microsoft Azure Cloud bietet, ist die zentrale Verwaltungs-und Überwachungsumgebung für hyperkonvergierte Infrastrukturen vollständig lokal. Sie kann ohne Internet Verbindung installiert und verwendet werden.
 
-## <a name="things-to-try"></a>Zu Versuchs tende Dinge
+## <a name="things-to-try"></a>Versuchen Sie Folgendes
 
 Wenn Sie gerade erst beginnen, finden Sie hier einige kurze Tutorials, die Ihnen helfen zu erfahren, wie das Windows Admin Center für die hyperkonvergierte Infrastruktur organisiert ist und funktioniert. Führen Sie ein gutes Urteil aus, und seien Sie vorsichtig mit Produktionsumgebungen. Diese Videos wurden mit Windows Admin Center, Version 1804, und einem Insider Preview-Build von Windows Server 2019 aufgezeichnet.
 
@@ -201,18 +201,18 @@ Wenn Sie gerade erst beginnen, finden Sie hier einige kurze Tutorials, die Ihnen
             <iframe width="375" height="210" src="https://www.youtube-nocookie.com/embed/j59z7ulohs4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
         </td>
         <td style="padding: 5px; border: 0;">
-            <strong>Deduplizierung und Komprimierung aktivieren</strong>
+            <strong>Deduplizierung und Komprimierung</strong> aktivieren
             <iframe width="375" height="210" src="https://www.youtube-nocookie.com/embed/PRibTacyKko" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
         </td>
     </tr>
     <tr style="border: 0;">
         <td style="padding: 5px; border: 0;">
-            <strong>Volume erweitern</strong>
+            <strong>Erweitern</strong> Sie das Volume
             <iframe width="375" height="210" src="https://www.youtube-nocookie.com/embed/hqyBzipBoTI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
         </td>
         <td style="padding: 5px; border: 0;">
-            <strong>Volume löschen</strong>
-            <iframe width="375" height="210" src="https://www.youtube-nocookie.com/embed/DbjF8r2F6Jo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+            <strong>Volume
+             löschen</strong><iframe width="375" height="210" src="https://www.youtube-nocookie.com/embed/DbjF8r2F6Jo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
         </td>
     </tr>
 </table>
@@ -227,7 +227,7 @@ Wenn Sie gerade erst beginnen, finden Sie hier einige kurze Tutorials, die Ihnen
 6. Wählen Sie die Anzahl der virtuellen Prozessoren aus, egal ob Sie die aktivierte aktivierte Virtualisierung aktivieren möchten, konfigurieren Sie Arbeitsspeicher Einstellungen, Netzwerkadapter und virtuelle Festplatten, und wählen Sie aus, ob Sie ein Betriebssystem aus einer ISO-Abbild Datei oder aus dem Netzwerk installieren möchten.
 7. Klicken Sie auf **Erstellen**, um die virtuelle Maschine zu erstellen.
 8. Nachdem der virtuelle Computer erstellt und in der Liste der virtuellen Computer angezeigt wird, können Sie den virtuellen Computer starten.
-9. Nachdem der virtuelle Computer gestartet wurde, können Sie über VMConnect eine Verbindung mit der Konsole des virtuellen Computers herstellen, um das Betriebssystem zu installieren. Wählen Sie den virtuellen Computer aus der Liste aus, klicken Sie auf **Weitere** > **Verbindung** , um die RDP-Datei herunterzuladen. Öffnen Sie die RDP-Datei in der Remotedesktopverbindung-app. Da diese Verbindung mit der Konsole des virtuellen Computers hergestellt wird, müssen Sie die Administrator Anmelde Informationen für den Hyper-V-Host eingeben.
+9. Nachdem der virtuelle Computer gestartet wurde, können Sie über VMConnect eine Verbindung mit der Konsole des virtuellen Computers herstellen, um das Betriebssystem zu installieren. Wählen Sie den virtuellen Computer aus der Liste aus, klicken Sie auf **Weitere** > **verbinden** , um die RDP-Datei herunterzuladen. Öffnen Sie die RDP-Datei in der Remotedesktopverbindung-app. Da diese Verbindung mit der Konsole des virtuellen Computers hergestellt wird, müssen Sie die Administrator Anmelde Informationen für den Hyper-V-Host eingeben.
 
 [Erfahren Sie mehr über die Verwaltung virtueller Computer mit dem Windows Admin Center](manage-virtual-machines.md).
 
@@ -284,11 +284,11 @@ Ihr Feedback ist alles! Der wichtigste Vorteil von häufigen Updates besteht dar
 
 - [Übermitteln und abstimmen von featureanfragen auf UserVoice](https://windowsserver.uservoice.com/forums/295071/category/319162?query=%5Bhci%5D)
 - [Besuchen Sie das Forum zum Windows Admin Center in der Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Windows-Server-Management/bd-p/WindowsServerManagement)
-- Tweet zu`@servermgmt`
+- Tweet zu `@servermgmt`
 
-### <a name="see-also"></a>Siehe auch
+### <a name="see-also"></a>Weitere Informationen:
 
-- [Windows Admin Center](../understand/windows-admin-center.md)
+- [Windows Admin Center](../overview.md)
 - [Direkte Speicherplätze](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
 - [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server)
 - [Software-Defined Networking](https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking)

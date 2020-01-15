@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 302e522a-fb40-43bc-bc63-83dcc87ebde5
 ms.technology: identity-adds
-ms.openlocfilehash: f65508bf8973721a09c779a52f708d6a258e2cb5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f6bee5164849d6643c1744ce121b9ce91b5e7f7f
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390230"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949041"
 ---
 # <a name="resources-to-verify-replication-is-working"></a>Ressourcen zum Überprüfen, ob die Replikation funktioniert 
 
@@ -29,10 +29,10 @@ Nachdem Sie alle Domänen Controller wieder hergestellt oder neu installiert hab
 
 Wenn der erste wiederhergestellte Domänen Controller die Ereignis-ID 4614 ("der Domänen Controller wartet auf die anfängliche Replikation) protokolliert. Der replizierte Ordner verbleibt im Status der erst Synchronisierung, bis er mit seinem DFS-Replikation Partner repliziert wurde, und die Ereignis-ID 4602 wird nicht angezeigt, und Sie müssen die folgenden manuellen Schritte ausführen, um SYSVOL wiederherzustellen, wenn es von DFSR  
 
-1. Wenn das DFSR-Ereignis 4612 auf dem ersten wiederhergestellten DC angezeigt wird, führen Sie eine manuelle autorisierende Wiederherstellung durch, wie in [2218556: Erzwingen einer autoritativen und nicht autoritativen Synchronisierung für DFSR-repliziertes SYSVOL (wie "D4/D2" für FRS) ](https://support.microsoft.com/kb/2218556) (https://support.microsoft.com/kb/2218556).  
+1. Wenn das DFSR-Ereignis 4612 auf dem ersten wiederhergestellten Domänen Controller angezeigt wird, führen Sie eine manuelle autorisierende Wiederherstellung durch, wie in [2218556: Erzwingen einer autorisierenden und nicht autoritativen Synchronisierung für DFSR-repliziertes SYSVOL (wie "D4/D2" für FRS)](https://support.microsoft.com/kb/2218556) (https://support.microsoft.com/kb/2218556).  
 2. Legen Sie das **sysvolready-Flag** manuell auf 1 fest, wie unter [947022 die Netlogon-Freigabe ist nach der Installation von Active Directory Domain Services auf einem neuen vollständigen oder schreibgeschützten Windows Server 2008-basierten Domänen Controller nicht vorhanden](https://support.microsoft.com/kb/947022).  
 
-Sie können auch einen DFS-Replikation für diagnostische Berichte erstellen. Weitere Informationen finden Sie unter [Erstellen eines Diagnose Berichts für DFS-Replikation](https://technet.microsoft.com/library/cc754227.aspx) und [DFS-Schritt-für-Schritt-Anleitung für Windows Server 2008](https://technet.microsoft.com/library/cc732863\(WS.10\).aspx). Wenn auf dem Server Windows Server 2008 R2 ausgeführt wird, können Sie den [Befehls Zeilenschalter Dfsrdiag. exe replicationstate](http://blogs.technet.com/b/filecab/archive/2009/05/28/dfsrdiag-exe-replicationstate-what-s-dfsr-up-to.aspx)verwenden.  
+Sie können auch einen DFS-Replikation für diagnostische Berichte erstellen. Weitere Informationen finden Sie unter [Erstellen eines Diagnose Berichts für DFS-Replikation](https://technet.microsoft.com/library/cc754227.aspx) und [DFS-Schritt-für-Schritt-Anleitung für Windows Server 2008](https://technet.microsoft.com/library/cc732863\(WS.10\).aspx). Wenn auf dem Server Windows Server 2008 R2 ausgeführt wird, können Sie den [Befehls Zeilenschalter Dfsrdiag. exe replicationstate](https://blogs.technet.com/b/filecab/archive/2009/05/28/dfsrdiag-exe-replicationstate-what-s-dfsr-up-to.aspx)verwenden.  
 
 Sie können den Replikations Test auch mit Dcdiag. exe ausführen, um nach Replikations Fehlern zu suchen. Weitere Informationen finden Sie im Knowledge Base- [Artikel 249256](https://support.microsoft.com/kb/249256).
 

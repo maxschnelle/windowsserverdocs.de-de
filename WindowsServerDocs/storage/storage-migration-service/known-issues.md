@@ -8,12 +8,12 @@ ms.date: 10/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 9abe199399e577eb06044377c30d5a2dc0e35dd1
-ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
+ms.openlocfilehash: dccbfd7d3ff6d95615e9efecf840a840b42d0d27
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74945226"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949647"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -320,6 +320,35 @@ Nachdem Sie eine Übertragung abgeschlossen und dann eine nachfolgende erneute �
 
 Dies ist das erwartete Verhalten beim Übertragen einer sehr großen Anzahl von Dateien und von untergeordneten Ordnern. Die Größe der Daten ist nicht relevant. Wir haben zunächst Verbesserungen an diesem Verhalten in [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) vorgenommen und optimieren weiterhin die Übertragungsleistung. Um die Leistung weiter zu optimieren, lesen Sie [Optimieren von Inventur-und Übertragungsleistung](https://docs.microsoft.com/windows-server/storage/storage-migration-service/faq#optimizing-inventory-and-transfer-performance).
 
+## <a name="data-does-not-transfer-user-renamed-when-migrating-to-or-from-a-domain-controller"></a>Die Daten werden nicht übertragen, der Benutzer wurde bei der Migration zu oder von einem Domänen Controller umbenannt.
+
+Nach dem Starten der Übertragung von oder zu einem Domänen Controller:
+
+ 1. Es werden keine Daten migriert, und auf dem Ziel werden keine Freigaben erstellt.
+ 2. Im Windows Admin Center wird ein rotes Fehler Symbol ohne Fehlermeldung angezeigt.
+ 3. Mindestens ein AD-Benutzer und eine lokale Domänen Gruppe haben den Namen und/oder das Anmelde Attribut vor Windows 2000 geändert.
+ 4. Das Ereignis 3509 wird im SMS-Orchestrator angezeigt:
+ 
+ Protokoll Name: Microsoft-Windows-storagemigrationservice/Administrator Quelle: Microsoft-Windows-storagemigrationservice Date: 1/10/2020 2:53:48 pm Ereignis-ID: 3509 Aufgaben Kategorie: keine Ebene: Fehler Schlüsselwörter:      
+ Benutzer: Netzwerkdienst Computer: orc2019-RTM.Corp.contoso.com Description: der Speicher für einen Computer konnte nicht übertragen werden.
+
+ Auftrag: dctest3 Computer: dc02-2019.Corp.contoso.com Zielcomputer: DC03-2019.Corp.contoso.com Status: Fehler: 53251 Fehlermeldung: Fehler bei der Migration lokaler Konten mit Fehler System. Ausnahme:-2147467259 bei Microsoft. storagemigration. Service. devicehelper. MigrateSecurity (idevicerecord sourcedevicerecord, idevicerecord destinationdevicerecord, transferconfiguration config, GUID proxyid, CancellationToken canceltoken)
+
+Dies ist das erwartete Verhalten, wenn Sie versucht haben, von oder zu einem Domänen Controller mit Storage Migration Service zu migrieren und die Option "Benutzer und Gruppen migrieren" zum Umbenennen oder wieder verwenden von Konten verwendet haben. anstatt "Benutzer und Gruppen übertragen" auszuwählen. Die DC-Migration wird für [Storage Migration Service nicht unterstützt](faq.md). Da ein Domänen Controller nicht über echte lokale Benutzer und Gruppen verfügt, werden diese Sicherheits Prinzipale von Storage Migration Service wie bei der Migration zwischen zwei Mitglieds Servern behandelt, und es wird versucht, ACLs als angewiesen zu ändern. Dies führt zu den Fehlern und verkopierten oder kopierten Konten. 
+
+Wenn Sie die Übertragung bereits einmal ausgeführt haben, gehen Sie wie folgt vor:
+
+ 1. Verwenden Sie den folgenden AD PowerShell-Befehl für einen Domänen Controller, um geänderte Benutzer oder Gruppen zu suchen (Ändern von searchbase entsprechend dem Domänen Namen Ihres Domänen Namens): 
+
+    ```PowerShell
+    Get-ADObject -Filter 'Description -like "*storage migration service renamed*"' -SearchBase 'DC=<domain>,DC=<TLD>' | ft name,distinguishedname
+    ```
+   
+ 2. Bearbeiten Sie für alle Benutzer, die mit Ihrem ursprünglichen Namen zurückgegeben werden, ihren "Benutzer Anmelde Namen (Pre-Windows 2000)", um das zufällige Zeichen Suffix zu entfernen, das von Storage Migration Service hinzugefügt wurde, sodass sich dieser Verlierer anmelden kann.
+ 3. Bearbeiten Sie für alle Gruppen, die mit Ihrem ursprünglichen Namen zurückgegeben werden, ihren "Gruppennamen (Pre-Windows 2000)", um das zufällige Zeichen Suffix zu entfernen, das von Storage Migration Service hinzugefügt wurde.
+ 4. Für alle deaktivierten Benutzer oder Gruppen, deren Namen jetzt ein durch Storage Migration Service hinzugefügtes Suffix enthalten, können Sie diese Konten löschen. Sie können überprüfen, ob Benutzerkonten zu einem späteren Zeitpunkt hinzugefügt wurden, da Sie nur die Gruppe "Domänen Benutzer" enthalten und ein erstelltes Datum/Uhrzeit-Wert für die Übertragungs Start Zeit des Speicher Migrations dienstan
+ 
+ Wenn Sie Storage Migration Service mit Domänen Controllern zu Übertragungszwecken verwenden möchten, stellen Sie sicher, dass Sie immer "Benutzer und Gruppen nicht übertragen" im Windows Admin Center auf der Seite "Übertragungs Einstellungen" auswählen.
 
 ## <a name="see-also"></a>Weitere Informationen:
 

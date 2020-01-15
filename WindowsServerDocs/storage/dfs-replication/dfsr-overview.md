@@ -6,18 +6,18 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: eebce26eef6eceddc064e3bb179f268ccf47c93d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 22f9e25763217cbbfdfd8a4ab099344f23138344
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386057"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949713"
 ---
 # <a name="dfs-replication-overview"></a>Übersicht über DFS-Replikation
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows Server (halbjährlicher Kanal)
 
-DFS-Replikation ist ein Rollen Dienst in Windows Server, der es Ihnen ermöglicht, Ordner (einschließlich derjenigen, auf die durch einen DFS-Namespace Pfad verwiesen wird) über mehrere Server und Standorte effizient zu replizieren. Bei der DFS-Replikation handelt es sich um ein effizientes Replikationsmodul mit mehreren Mastern, mit dem Ordner zwischen Servern über Netzwerkverbindungen mit begrenzter Bandbreite fortlaufend synchronisiert werden können. Er ersetzt den Datei Replikations Dienst (File Replication Service, FRS) als Replikations-Engine für DFS-Namespaces sowie zum Replizieren des Active Directory Domain Services (AD DS) SYSVOL-Ordners in Domänen, die die Domänen Funktionsebene Windows Server 2008 oder höher verwenden.
+DFS-Replikation ist ein Rollen Dienst in Windows Server, der es Ihnen ermöglicht, Ordner (einschließlich derjenigen, auf die durch einen DFS-Namespace Pfad verwiesen wird) über mehrere Server und Standorte effizient zu replizieren. Bei der DFS-Replikation handelt es sich um eine effiziente Replikations-Engine mit mehreren Mastern, mit der Ordner zwischen Servern über Netzwerkverbindungen mit begrenzter Bandbreite fortlaufend synchronisiert werden können. Er ersetzt den Datei Replikations Dienst (File Replication Service, FRS) als Replikations-Engine für DFS-Namespaces sowie zum Replizieren des Active Directory Domain Services (AD DS) SYSVOL-Ordners in Domänen, die die Domänen Funktionsebene Windows Server 2008 oder höher verwenden.
 
 Für die DFS-Replikation wird ein Komprimierungsalgorithmus verwendet, der als Remotedifferenzialkomprimierung (Remote Differential Compression, RDC) bezeichnet wird. Mit RDC werden Änderungen an den Daten in einer Datei erkannt, und es wird ermöglicht, dass mit der DFS-Replikation nur die geänderten Dateiblöcke repliziert werden und nicht die ganze Datei.
 
@@ -50,10 +50,10 @@ Vor dem Bereitstellen der DFS-Replikation müssen die Server wie folgt konfiguri
 
 Die Verwendung von DFS-Replikation auf einem virtuellen Computer in Azure wurde mit Windows Server getestet. Es gibt jedoch einige Einschränkungen und Anforderungen, die Sie befolgen müssen.
 
-- Wenn Sie einen Server, auf dem die DFS-Replikation nicht nur zum Replizieren des SYSVOL-Ordners verwendet wird, mithilfe von Momentaufnahmen oder gespeicherten Zuständen wiederherstellen, tritt bei der DFS-Replikation ein Fehler auf. In diesem Fall müssen spezielle Schritte zur Datenbankwiederherstellung ausgeführt werden. Ebenso sollten Sie die virtuellen Computer nicht exportieren, Klonen oder kopieren. Weitere Informationen finden Sie in Artikel [2517913](http://support.microsoft.com/kb/2517913) in der Microsoft Knowledge Base sowie unter [Safely Virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
+- Wenn Sie einen Server, auf dem die DFS-Replikation nicht nur zum Replizieren des SYSVOL-Ordners verwendet wird, mithilfe von Momentaufnahmen oder gespeicherten Zuständen wiederherstellen, tritt bei der DFS-Replikation ein Fehler auf. In diesem Fall müssen spezielle Schritte zur Datenbankwiederherstellung ausgeführt werden. Ebenso sollten Sie die virtuellen Computer nicht exportieren, Klonen oder kopieren. Weitere Informationen finden Sie in Artikel [2517913](https://support.microsoft.com/kb/2517913) in der Microsoft Knowledge Base sowie unter [Safely Virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 - Wenn Sie Daten in einem replizierten Ordner sichern, der auf einem virtuellen Computer gehostet wird, müssen Sie die Sicherungssoftware vom virtuellen Gastcomputer verwenden.
 - DFS-Replikation erfordert Zugriff auf physische oder virtuelle Domänen Controller – es ist nicht möglich, direkt mit Azure AD zu kommunizieren.
-- Die DFS-Replikation erfordert eine VPN-Verbindung zwischen Ihren lokalen Replikationsgruppenmitgliedern und allen in Azure-VMs gehosteten Mitgliedern. Sie müssen auch den lokalen Router (z. B. Forefront Threat Management Gateway) so konfigurieren, dass die VPN-Verbindung über die RPC-Endpunktzuordnung (Port 135) und einen zufällig zugewiesenen Port zwischen 49152 und 65535 weitergeleitet wird. Sie können das Cmdlet Set-dfsrmachineconfiguration oder das Befehlszeilen Tool Dfsrdiag verwenden, um anstelle des zufälligen Ports einen statischen Port anzugeben. Weitere Informationen zur Festlegung eines statischen Ports für die DFS-Replikation finden Sie unter [Set-DfsrServiceConfiguration](https://docs.microsoft.com/powershell/module/dfsr/set-dfsrserviceconfiguration). Informationen über das Öffnen verknüpfter Ports für die Verwaltung von Windows Server finden Sie im Artikel [832017](http://support.microsoft.com/kb/832017) in der Microsoft Knowledge Base.
+- Die DFS-Replikation erfordert eine VPN-Verbindung zwischen Ihren lokalen Replikationsgruppenmitgliedern und allen in Azure-VMs gehosteten Mitgliedern. Sie müssen auch den lokalen Router (z. B. Forefront Threat Management Gateway) so konfigurieren, dass die VPN-Verbindung über die RPC-Endpunktzuordnung (Port 135) und einen zufällig zugewiesenen Port zwischen 49152 und 65535 weitergeleitet wird. Sie können das Cmdlet Set-dfsrmachineconfiguration oder das Befehlszeilen Tool Dfsrdiag verwenden, um anstelle des zufälligen Ports einen statischen Port anzugeben. Weitere Informationen zur Festlegung eines statischen Ports für die DFS-Replikation finden Sie unter [Set-DfsrServiceConfiguration](https://docs.microsoft.com/powershell/module/dfsr/set-dfsrserviceconfiguration). Informationen über das Öffnen verknüpfter Ports für die Verwaltung von Windows Server finden Sie im Artikel [832017](https://support.microsoft.com/kb/832017) in der Microsoft Knowledge Base.
 
 Weitere Informationen zu den ersten Schritten mit virtuellen Azure-Computern finden Sie auf der [Microsoft Azure web site](https://docs.microsoft.com/azure/virtual-machines/).
 
@@ -65,7 +65,7 @@ Installieren Sie DFS-Replikation, indem Sie das [Windows Admin Center](../../man
 
 ### <a name="to-install-dfs-by-using-server-manager"></a>So installieren Sie DFS mithilfe des Server-Managers
 
-1. Klicken Sie im Server-Manager auf **Verwalten** und anschließend auf **Rollen und Features hinzufügen**. Der Assistent zum Hinzufügen von Rollen und Features erscheint.
+1. Klicken Sie im Server-Manager auf **Verwalten**und anschließend auf **Rollen und Features hinzufügen**. Der Assistent zum Hinzufügen von Rollen und Features erscheint.
 
 2. Wählen Sie auf der Seite **Serverauswahl** den Server oder die virtuelle Festplatte (Virtual Hard Disk, VHD) eines virtuellen Computers im Offlinemodus aus, auf dem Sie DFS installieren möchten.
 
@@ -73,13 +73,13 @@ Installieren Sie DFS-Replikation, indem Sie das [Windows Admin Center](../../man
 
     - Wählen Sie zum Installieren des DFS-Replikation Dienstanbieter auf der Seite **Server Rollen** die Option **DFS-Replikation**aus.
 
-    - Erweitern Sie auf der Seite **Features** die Option **Remoteserver-Verwaltungstools**, erweitern Sie **Rollenverwaltungstools**, erweitern Sie **Tools für Dateidienste**, und wählen Sie anschließend **DFS-Verwaltungstools** aus.
+    - Erweitern Sie auf der Seite **Features** die Option **Remoteserver-Verwaltungstools**, erweitern Sie **Rollenverwaltungstools**, erweitern Sie **Tools für Dateidienste**, und wählen Sie anschließend **DFS-Verwaltungstools**aus.
 
          Die **DFS-Verwaltungs Tools** installieren das DFS-Verwaltungs-Snap-in, die DFS-Replikation-und DFS-Namespaces-Module für Windows PowerShell sowie Befehlszeilen Tools, aber es werden keine DFS-Dienste auf dem Server installiert.
 
 ### <a name="to-install-dfs-replication-by-using-windows-powershell"></a>So installieren Sie DFS-Replikation mithilfe von Windows PowerShell
 
-Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten, und geben Sie dann den folgenden Befehl ein\> , wobei < Name der Rollen Dienst oder das Feature ist, das Sie installieren möchten (in der folgenden Tabelle finden Sie eine Liste der relevanten Rollen Dienst-oder Featurenamen):
+Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten, und geben Sie dann den folgenden Befehl ein, wobei < Name\> der Rollen Dienst oder das Feature ist, das Sie installieren möchten (in der folgenden Tabelle finden Sie eine Liste der relevanten Rollen Dienst-oder Featurenamen):
 
 ```PowerShell
 Install-WindowsFeature <name>
@@ -102,10 +102,10 @@ Geben Sie Folgendes ein, um die DFS-Replikation und die verteiltes Dateisystem T
 Install-WindowsFeature "FS-DFS-Replication", "RSAT-DFS-Mgmt-Con"
 ```
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen:
 
 - [Übersicht über DFS-Namespaces und-DFS-Replikation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v%3dws.11))
-- [Prüfliste: DFS-Replikation bereitstellen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772201(v%3dws.11))
+- [Prüfliste: Bereitstellen DFS-Replikation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772201(v%3dws.11))
 - [Prüfliste: Verwalten von DFS-Replikation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755035(v%3dws.11))
 - [Bereitstellen von DFS-Replikation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770925(v%3dws.11))
 - [Verwalten von DFS-Replikation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770925(v%3dws.11))

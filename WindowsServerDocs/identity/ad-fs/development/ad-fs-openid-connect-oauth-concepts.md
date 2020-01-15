@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0e680e07ce1ee27a73791e310a71b85ad76d6318
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 26c1635d4218c7d33377b6b8a90bc96ea4ad37b3
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358761"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948785"
 ---
 # <a name="ad-fs-openid-connectoauth-concepts"></a>AD FS OpenID Connect/OAuth-Konzepte
 Gilt für AD FS 2016 und höher
@@ -23,7 +23,7 @@ Gilt für AD FS 2016 und höher
 |Actor| Beschreibung|
 |-----|-----|
 |Endbenutzer|Dies ist der Sicherheits Prinzipal (Benutzer, Anwendungen, Dienste und Gruppen), der auf die Ressource zugreifen muss.|  
-|Client|Dies ist Ihre Webanwendung, die durch die Client-ID identifiziert wird. Der Client ist in der Regel die Partei, mit der der Endbenutzer interagiert, und fordert Token vom autorisierungsserver an.
+|client|Dies ist Ihre Webanwendung, die durch die Client-ID identifiziert wird. Der Client ist in der Regel die Partei, mit der der Endbenutzer interagiert, und fordert Token vom autorisierungsserver an.
 |Autorisierungs Server/Identitäts Anbieter (IDP)| Dies ist der AD FS Server. Er ist verantwortlich für die Überprüfung der Identität von Sicherheits Prinzipale, die im Verzeichnis einer Organisation vorhanden sind. Bei erfolgreicher Authentifizierung dieser Sicherheits Prinzipale werden Sicherheits Token (bearerzugriffstoken, ID-Token, Aktualisierungs Token) ausgegeben.
 |Ressourcen Server/Ressourcenanbieter/vertrauende Seite| Hier befindet sich die Ressource oder die Daten. Es vertraut dem Autorisierungs Server, den Client sicher zu authentifizieren und zu autorisieren, und verwendet bearerzugriffstoken, um sicherzustellen, dass Zugriff auf eine Ressource gewährt werden kann
 
@@ -31,7 +31,7 @@ Das folgende Diagramm stellt die grundlegende Beziehung zwischen den Akteuren da
 
 ![Moderne Authentifizierungs Akteure](media/adfs-modern-auth-concepts/concept1.png)
 
-## <a name="application-types"></a>Anwendungs Typen 
+## <a name="application-types"></a>Anwendungstypen 
  
 
 |Anwendungstyp|Beschreibung|Role-Eigenschaft|
@@ -44,7 +44,7 @@ Das folgende Diagramm stellt die grundlegende Beziehung zwischen den Akteuren da
  
 Jeder OAuth-Client (Native oder Web-App) oder Ressource (Web-API), der mit AD FS konfiguriert ist, muss einer Anwendungs Gruppe zugeordnet werden. Die Clients in einer Anwendungs Gruppe können für den Zugriff auf die Ressourcen in der gleichen Gruppe konfiguriert werden. Eine Anwendungs Gruppe kann mehrere Clients und Ressourcen enthalten.  
 
-## <a name="security-tokens"></a>Sicherheits Token 
+## <a name="security-tokens"></a>Sicherheitstoken 
  
 Die moderne Authentifizierung verwendet die folgenden Tokentypen: 
 - **id_token**: ein vom autorisierungsserver (AD FS) ausgestelltes JWT-Token, das vom Client verwendet wird. Ansprüche im ID-Token enthalten Informationen über den Benutzer, damit dieser vom Client verwendet werden kann.  
@@ -57,7 +57,7 @@ Beim Registrieren einer Ressource in AD FS können Bereiche so konfiguriert werd
  
 - Aza: bei Verwendung [von OAuth 2,0-Protokoll Erweiterungen für Broker Clients](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapxbc/2f7d8875-0383-4058-956d-2fb216b44706) und wenn der Bereichs Parameter den Bereich "Aza" enthält, gibt der Server ein neues primäres Aktualisierungs Token aus und legt es im refresh_token-Feld der Antwort fest. Außerdem wird das refresh_token_expires_in Feld auf die Lebensdauer des neuen primären Aktualisierungs Tokens festgelegt, wenn eines erzwungen wird. 
 - OpenID: ermöglicht es der Anwendung, die Verwendung des OpenID Connect-Autorisierungs Protokolls anzufordern. 
-- logon_cert: der logon_cert Bereich ermöglicht es einer Anwendung, Anmelde Zertifikate anzufordern, die für die interaktive Anmeldung von authentifizierten Benutzern verwendet werden können. Der AD FS Server lässt den Parameter "access_token" aus der Antwort aus und stellt stattdessen eine Base64-codierte CMS-Zertifikatskette oder eine SMTP-vollständige PKI-Antwort bereit. Weitere Informationen finden Sie [hier](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e).
+- logon_cert: der logon_cert Bereich ermöglicht es einer Anwendung, Anmelde Zertifikate anzufordern, die für die interaktive Anmeldung von authentifizierten Benutzern verwendet werden können. Der AD FS Server lässt den Parameter "access_token" aus der Antwort aus und stellt stattdessen eine Base64-codierte CMS-Zertifikatskette oder eine SMTP-vollständige PKI-Antwort bereit. Weitere Informationen finden Sie [hier](https://docs.microsoft.com/openspecs/windows_protocols/ms-oapx/32ce8878-7d33-4c02-818b-6c9164cc731e).
 - user_impersonation: der user_impersonation Bereich ist erforderlich, um erfolgreich ein Zugriffs Token von AD FS anzufordern. Ausführliche Informationen zur Verwendung dieses Bereichs finden Sie unter [Erstellen einer Anwendung mit mehreren Stufen mithilfe von "on-Auftrag-of" (OBO) mithilfe von OAuth mit AD FS 2016](ad-fs-on-behalf-of-authentication-in-windows-server.md). 
 - allatclaims – mit dem allatclaims-Bereich kann die Anwendung anfordern, dass Ansprüche im Zugriffs Token ebenfalls im ID-Token hinzugefügt werden.   
 - vpn_cert: der vpn_cert Bereich ermöglicht einer Anwendung das Anfordern von VPN-Zertifikaten, die verwendet werden können, um VPN-Verbindungen mithilfe der EAP-TLS-Authentifizierung herzustellen. Dies wird nicht mehr unterstützt. 
@@ -66,10 +66,10 @@ Beim Registrieren einer Ressource in AD FS können Bereiche so konfiguriert werd
 
 ## <a name="claims"></a>Ansprüche 
  
-Sicherheits Token (Zugriffs-und ID-Token), die von AD FS ausgegeben werden, enthalten Ansprüche oder Assertionen von Informationen über den authentifizierten Betreff. Anwendungen können Ansprüche für verschiedene Aufgaben verwenden, einschließlich: 
-- Token überprüfen 
-- Identifizieren des Verzeichnis Mandanten des Antragstellers 
-- Anzeigen von Benutzerinformationen 
+Sicherheits Token (Zugriffs-und ID-Token), die von AD FS ausgegeben werden, enthalten Ansprüche oder Assertionen von Informationen über den authentifizierten Betreff. Anwendungen können Ansprüche für verschiedene Aufgaben verwenden, z.B. für die folgenden: 
+- Überprüfen des Tokens 
+- Identifizieren des Verzeichnismandanten des Antragstellers 
+- Anzeigen der Benutzerinformationen 
 - Ermitteln der Autorisierung des Antragstellers die Ansprüche, die in einem bestimmten Sicherheits Token vorhanden sind, hängen vom Typ des Tokens, von der Art der zum Authentifizieren des Benutzers verwendeten Anmelde Informationen und von der Anwendungskonfiguration ab.  
  
 ## <a name="high-level-ad-fs-authentication-flow"></a>Allgemeine AD FS Authentifizierungs Fluss 
@@ -103,12 +103,12 @@ Sicherheits Token (Zugriffs-und ID-Token), die von AD FS ausgegeben werden, enth
     
  12. Nachdem die erforderlichen Token generiert und angepasst wurden, reagiert AD FS auf den Client, einschließlich der Token. Nur wenn die Authentifizierungsanforderung Scope = OpenID enthält, ist das ID-Token in der Antwort enthalten. Der Client kann immer das ID-Token nach der Authentifizierung über den tokenendpunkt abrufen. 
 
-## <a name="types-of-libraries"></a>Typen von Bibliotheken 
+## <a name="types-of-libraries"></a>Bibliothekstypen 
   
 Mit AD FS werden zwei Arten von Bibliotheken verwendet: 
 - **Client Bibliotheken**: native Clients und Server-Apps verwenden Client Bibliotheken zum Abrufen von Zugriffs Token zum Aufrufen einer Ressource, z. b. einer Web-API. Die Microsoft Authentication Library (msal) ist die neueste und empfohlene Client Bibliothek bei Verwendung von AD FS 2019. Active Directory-Authentifizierungsbibliothek (Adal) wird für AD FS 2016 empfohlen.  
 
-- **Server Middleware-Bibliotheken**: Web-Apps verwenden Server-middlewarebibliotheken für die Benutzeranmeldung. Web-APIs verwenden Server Middleware-Bibliotheken zum Überprüfen von Token, die von nativen Clients oder anderen Servern gesendet werden. Owin (Open Web Interface für .net) ist die empfohlene Middleware-Bibliothek. 
+- **Server Middleware-Bibliotheken**: Web-Apps verwenden Server-middlewarebibliotheken für die Benutzeranmeldung. Web-APIs nutzen die Bibliotheken der Servermiddleware zum Überprüfen von Token, die von nativen Clients oder anderen Servern gesendet werden. Owin (Open Web Interface für .net) ist die empfohlene Middleware-Bibliothek. 
 
 ## <a name="customize-id-token-additional-claims-in-id-token"></a>ID-Token anpassen (zusätzliche Ansprüche im ID-Token)
  

@@ -12,28 +12,28 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: e728265f42289aeceb22c78053f0d84f9bdb9941
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4dbcc3165a6226c60a3c6a5acf500c643c8ef4d9
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387386"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949916"
 ---
 # <a name="how-to-configure-protected-accounts"></a>Konfigurieren geschützter Benutzerkonten
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Bei Pass-the-hash (PtH)-Angriffen können Angreifer den zugrunde liegenden NTLM-Hash eines Benutzerkennworts (oder anderer Teile der Anmeldeinformationen) verwenden, um sich bei einem Remote-Server zu authentifizieren. Microsoft hat bereits eine Anleitung zur Entschärfung von Pass-the-Hash-Angriffen [veröffentlicht](https://www.microsoft.com/download/details.aspx?id=36036) .  Windows Server 2012 R2 enthält neue Features, die dazu beitragen, derartige Angriffe weiter zu verringern. Weitere Informationen zu anderen Sicherheitsfeatures, die zum Schutz vor Diebstahl von Anmelde Informationen beitragen, finden Sie unter [Schutz und Verwaltung von Anmelde](https://technet.microsoft.com/library/dn408190.aspx)Informationen. Dieser Artikel beschreibt die Konfiguration der folgenden neuen Features:  
   
 -   [Geschützte Benutzer](#protected-users)  
   
--   [Authentifizierungs Richtlinien](#authentication-policies)  
+-   [Authentifizierungsrichtlinien](#authentication-policies)  
   
 -   [Authentifizierungs Richtlinien Silos](#authentication-policy-silos)  
   
 Windows 8 und Windows Server 2012 R2 enthalten zusätzliche Schutzmaßnahmen gegen den Diebstahl von Anmeldeinformationen. Lesen Sie dazu die folgenden Artikel:  
   
--   [Eingeschränkter Administrator Modus für Remotedesktop](http://blogs.technet.com/b/kfalde/archive/20../restricted-admin-mode-for-rdp-in-windows-8-1-2012-r2.aspx)  
+-   [Eingeschränkter Administrator Modus für Remotedesktop](https://blogs.technet.com/b/kfalde/archive/20../restricted-admin-mode-for-rdp-in-windows-8-1-2012-r2.aspx)  
   
 -   [LSA-Schutz](https://technet.microsoft.com/library/dn408187)  
   
@@ -62,12 +62,12 @@ Wenn die Domänen Funktionsebene Windows Server 2012 R2 ist, können Mitglieder 
   
 -   Erneuern von Benutzertickets (TGTs) jenseits der ursprünglichen 4-stündigen Lebensdauer  
   
-Wenn Sie der Gruppe Benutzer hinzufügen möchten, können Sie Benutzeroberflächen [Tools](https://technet.microsoft.com/library/cc753515.aspx) wie Active Directory-Verwaltungscenter (ADAC) oder Active Directory Benutzer und Computer oder ein Befehlszeilen Tool wie [dsmod group](https://technet.microsoft.com/library/cc732423.aspx)oder Windows PowerShell[Add-adgroupmember](https://technet.microsoft.com/library/ee617210.aspx) verwenden. Cmdlet. Konten für Dienste und Computer *sollten nicht* Mitglieder der Benutzergruppe Geschützte Benutzer sein. Die Mitgliedschaft bietet für diese Konten keinen lokalen Schutz, da Kennwort bzw. Zertifikat auf dem Host immer verfügbar sind.  
+Wenn Sie der Gruppe Benutzer hinzufügen möchten, können Sie Benutzeroberflächen [Tools](https://technet.microsoft.com/library/cc753515.aspx) wie Active Directory-Verwaltungscenter (ADAC) oder Active Directory Benutzer und Computer oder ein Befehlszeilen Tool wie [dsmod group](https://technet.microsoft.com/library/cc732423.aspx)oder das Windows PowerShell-Cmdlet[Add-adgroupmember](https://technet.microsoft.com/library/ee617210.aspx) verwenden. Konten für Dienste und Computer *sollten nicht* Mitglieder der Benutzergruppe Geschützte Benutzer sein. Die Mitgliedschaft bietet für diese Konten keinen lokalen Schutz, da Kennwort bzw. Zertifikat auf dem Host immer verfügbar sind.  
   
 > [!WARNING]  
-> Die Authentifizierungseinschränkungen können nicht umgangen werden, d. h. Mitglieder der höher privilegierten Gruppen wie z. B. Unternehmens-Admins oder Domänen-Admins unterliegen denselben Einschränkungen wie andere Mitglieder der Gruppe Geschützte Benutzer. Wenn alle Mitglieder dieser Gruppen zur Gruppe Geschützte Benutzer hinzugefügt werden, kann es passieren, dass all diese Konten ausgesperrt werden. Sie sollten niemals alle höher privilegierten Konten zur Gruppe Geschützte Benutzer hinzufügen, ohne die möglichen Auswirkungen gründlich getestet zu haben.  
+> Die Authentifizierungseinschränkungen können nicht umgangen werden, d. h. Mitglieder der höher privilegierten Gruppen wie z. B. Unternehmens-Admins oder Domänen-Admins unterliegen denselben Einschränkungen wie andere Mitglieder der Gruppe Geschützte Benutzer. Wenn alle Mitglieder dieser Gruppen der Gruppe "geschützte Benutzer" hinzugefügt werden, können alle diese Konten gesperrt werden. Sie sollten niemals alle Konten mit hohen Berechtigungen zur Gruppe der geschützten Benutzer hinzufügen, bis Sie die möglichen Auswirkungen gründlich getestet haben.  
   
-Mitglieder der Gruppe Geschützte Benutzer müssen in der Lage sein, sich mit dem erweiterten Verschlüsselungsstandard (AES) und Kerberos anzumelden. Für diese Methode sind AES-Schlüssel in Active Directory erforderlich. Der integrierte Administrator verfügt über keinen AES-Schlüssel, es sei denn, das Kennwort wurde auf einem Domänen Controller geändert, auf dem Windows Server 2008 oder höher ausgeführt wird. Außerdem werden alle Konten mit Kennwörtern, die auf einem Domänencontroller unter älteren Windows Server-Versionen geändert wurden, ausgesperrt. Daher sollten Sie diese bewährten Methoden umsetzen:  
+Mitglieder der Gruppe Geschützte Benutzer müssen in der Lage sein, sich mit dem erweiterten Verschlüsselungsstandard (AES) und Kerberos anzumelden. Für diese Methode sind AES-Schlüssel in Active Directory erforderlich. Der integrierte Administrator verfügt über keinen AES-Schlüssel, es sei denn, das Kennwort wurde auf einem Domänen Controller geändert, auf dem Windows Server 2008 oder höher ausgeführt wird. Außerdem wird jedes Konto, das über ein Kennwort verfügt, das auf einem Domänen Controller mit einer früheren Version von Windows Server geändert wurde, gesperrt. Befolgen Sie daher die folgenden bewährten Methoden:  
   
 -   Testen Sie die Domänen nur dann, wenn auf **allen Domänen Controllern Windows Server 2008 oder höher ausgeführt**wird.  
   
@@ -86,7 +86,7 @@ Für geschützte Konten gelten die folgenden Bereitstellungsanforderungen:
 Dieser Abschnitt behandelt neue Protokollereignisse im Zusammenhang mit geschützten Benutzern und die Möglichkeiten von geschützten Benutzern für die Problembehandlung von Ticket Granting Ticket (TGT)-Ablauf und Delegierungsproblemen.  
   
 #### <a name="new-logs-for-protected-users"></a>Neue Protokolle für geschützte Benutzer  
-Zwei neue Administrationsprotokolle helfen bei der Problembehandlung von Ereignissen im Zusammenhang mit geschützten Benutzern: Geschütztes Benutzer-Client Protokoll und geschützte Benutzerfehler: Domänen Controller Protokoll. Diese neuen Protokolle befinden sich in der Ereignisanzeige und sind standardmäßig deaktiviert. Um ein Protokoll zu aktivieren, klicken Sie auf **Anwendungs- und Dienstprotokolle**, klicken Sie auf **Microsoft**, dann auf **Windows**, auf **Authentifizierung**. Klicken Sie anschließend auf den Namen des Protokolls und klicken Sie auf **Aktion** (bzw. klicken Sie mit der rechten Maustaste auf das Protokoll) und klicken Sie auf **Protokoll aktivieren**.  
+Es stehen zwei neue operative administrative Protokolle zur Verfügung, die bei der Problembehandlung bei Ereignissen im Zusammenhang mit geschützten Benutzern helfen: geschütztes Benutzer-Client Protokoll und geschützte Benutzerfehler-Domänen Controller Protokoll. Diese neuen Protokolle befinden sich in der Ereignisanzeige und sind standardmäßig deaktiviert. Um ein Protokoll zu aktivieren, klicken Sie auf **Anwendungs- und Dienstprotokolle**, klicken Sie auf **Microsoft**, dann auf **Windows**, auf **Authentifizierung**. Klicken Sie anschließend auf den Namen des Protokolls und klicken Sie auf **Aktion** (bzw. klicken Sie mit der rechten Maustaste auf das Protokoll) und klicken Sie auf **Protokoll aktivieren**.  
   
 Weitere Informationen zu Ereignissen in diesen Protokollen finden Sie unter [Authentifizierungs Richtlinien und Authentifizierungs Richtlinien Silos](https://technet.microsoft.com/library/dn486813.aspx).  
   
@@ -97,9 +97,9 @@ Normalerweise legt der Domänencontroller die TGT-Lebensdauer und -Erneuerung an
   
 Für **Geschützte Benutzer** sind die folgenden Einstellungen hartcodiert:  
   
--   Max. Gültigkeitsdauer für Benutzertickets: 240 Minuten  
+-   Maximale Lebensdauer des Benutzer Tickets: 240 Minuten  
   
--   Max. Zeitraum für die Erneuerung von Benutzertickets: 240 Minuten  
+-   Maximale Lebensdauer für die Verlängerung des Benutzer Tickets: 240 Minuten  
   
 #### <a name="troubleshoot-delegation-issues"></a>Problembehandlung für Delegierungsprobleme  
 Bislang wurde bei Fehlern in Technologien mit Kerberos-Delegierung geprüft, ob die Option **Konto ist vertraulich und kann nicht delegiert werden** für das Clientkonto gesetzt ist. Wenn das Konto jedoch Mitglied der Gruppe **Geschützte Benutzer** ist, kann es jedoch sein, dass diese Einstellung im Active Directory-Verwaltungscenter (ADAC) nicht gesetzt ist. Daher sollten Sie bei der Problembehandlung von Delegierungsproblemen diese Einstellung und die Gruppenmitgliedschaft prüfen.  
@@ -112,18 +112,18 @@ Um Authentifizierungsversuche speziell für Mitglieder der Gruppe **Geschützte 
 ### <a name="provide-dc-side-protections-for-services-and-computers"></a>Domänencontrollerseitiger Schutz für Dienste und Computer  
 Konten für Dienste und Computer dürfen nicht Mitglieder der Benutzergruppe **Geschützte Benutzer** sein. Dieser Abschnitt beschreibt die möglichen domänencontrollerseitigen Schutzmaßnahmen für diese Konten:  
   
--   Ablehnen von NTLM-Authentifizierung: Nur über [NTLM-Block Richtlinien](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx)konfigurierbar.  
+-   NTLM-Authentifizierung ablehnen: nur über [NTLM-Block Richtlinien](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx)konfigurierbar.  
   
--   Datenverschlüsselungssstandard (DES) in der Kerberos-Vorabauthentifizierung ablehnen:  Bei Windows Server 2012 R2-Domänen Controllern werden des für Computer Konten nicht akzeptiert, es sei denn, Sie sind nur für die konfiguriert, weil jede mit Kerberos freigegebene Version von Windows auch RC4 unterstützt.  
+-   Ablehnen von Daten Verschlüsselungs Standard (Data Encryption Standard, des) bei der Kerberos-Vorauthentifizierung: Windows Server 2012 R2-Domänen Controller akzeptieren des nicht für Computer Konten, es sei denn, Sie sind nur für die konfiguriert, weil jede mit Kerberos freigegebene Version von Windows auch RC4.  
   
 -   Ablehnen von RC4 für die Kerberos-Vorabauthentifizierung: nicht konfigurierbar.  
   
     > [!NOTE]  
-    > Obwohl es möglich ist, [die Konfiguration unterstützter Verschlüsselungstypen zu ändern](http://blogs.msdn.com/b/openspecification/archive/20../windows-configurations-for-kerberos-supported-encryption-type.aspx), empfiehlt es sich nicht, diese Einstellungen für Computer Konten zu ändern, ohne in der Zielumgebung zu testen.  
+    > Obwohl es möglich ist, [die Konfiguration unterstützter Verschlüsselungstypen zu ändern](https://blogs.msdn.com/b/openspecification/archive/20../windows-configurations-for-kerberos-supported-encryption-type.aspx), empfiehlt es sich nicht, diese Einstellungen für Computer Konten zu ändern, ohne in der Zielumgebung zu testen.  
   
--   Einschränken von Benutzertickets (TGTs) auf die ursprüngliche 4-stündige Lebensdauer: Verwenden Sie Authentifizierungsrichtlinien.  
+-   Beschränken Sie die Benutzer Tickets (TGTs) auf eine anfängliche Zeit von 4 Stunden: Verwenden Sie Authentifizierungs Richtlinien.  
   
--   Sperren der Delegierung per uneingeschränkter oder eingeschränkter Delegierung: Um ein Konto einzuschränken, öffnen Sie das Active Directory-Verwaltungscenter und markieren Sie das Kontrollkästchen **Konto ist vertraulich und kann nicht delegiert werden**.  
+-   Delegierung mit eingeschränkter oder eingeschränkter Delegierung verweigern: um ein Konto einzuschränken, öffnen Sie Active Directory-Verwaltungscenter (ADAC), und aktivieren Sie das Kontrollkästchen **Konto ist vertraulich und kann nicht delegiert werden** .  
   
     ![geschützte Konten](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_TshootDelegation.gif)  
   
@@ -174,7 +174,7 @@ Sie können Dienstticket-Anfragen über den Ticket-Granting Service (TGS) einsch
   
 ### <a name="requirements-for-using-authentication-policies"></a>Anforderungen für die Verwendung von Authentifizierungsrichtlinien  
   
-|Richtlinie|Anforderungen|  
+|-Richtlinie|Anforderungen|  
 |-----|--------|  
 |Benutzerdefinierte TGT-Lebensdauer| Konto Domänen auf Domänen Funktionsebene auf Windows Server 2012 R2|  
 |Benutzeranmeldung beschränken|-Windows Server 2012 R2 Domänen Funktionsebene Konto Domänen mit dynamischer Access Control Unterstützung<br />-Windows 8-, Windows 8.1-, Windows Server 2012-oder Windows Server 2012 R2-Geräte mit dynamischer Access Control Unterstützung|  
@@ -196,12 +196,12 @@ Die Konto Domäne des Benutzers muss sich auf der Windows Server 2012 R2-Domäne
 2.  Wählen Sie unter **Optionen** im Dropdown-Listenfeld den Wert **Immer Ansprüche bereitstellen** aus.  
   
     > [!NOTE]  
-    > **Unterstützt** kann auch konfiguriert werden, aber da die Domäne in Windows Server 2012 R2-DFL vorhanden ist, ermöglichen die DCS immer Ansprüche, dass Anspruchs basierte Zugriffs Überprüfungen durchgeführt werden, wenn nicht Anspruchs fähige Geräte und Hosts zum Herstellen einer Verbindung mit Ansprüchen verwendet werden. Betreuung.  
+    > **Unterstützt** kann auch konfiguriert werden, aber da die Domäne unter Windows Server 2012 R2-DFL ist, ermöglichen die DCS immer Ansprüche, dass Anspruchs basierte Zugriffs Überprüfungen durchgeführt werden, wenn Geräte und Hosts, die Ansprüche unterstützen, keine Ansprüche unterstützenden Dienste verwenden.  
   
     ![geschützte Konten](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_AlwaysProvideClaims.png)  
   
     > [!WARNING]  
-    > Das Konfigurieren von **fehlgeschlagenen Authentifizierungsanforderungen** ohne hoch Rüstung führt zu Authentifizierungs Fehlern von Betriebssystemen, die Kerberos armoring nicht unterstützen, wie z. b. Windows 7 und frühere Betriebssysteme, oder Betriebssysteme ab Windows 8, die nicht explizit für die Unterstützung konfiguriert wurden.  
+    > Das Konfigurieren von **fehlgeschlagenen Authentifizierungsanforderungen** ohne hoch Rüstung führt zu Authentifizierungs Fehlern von Betriebssystemen, die Kerberos armoring nicht unterstützen, wie z. b. Windows 7 und ältere Betriebssysteme, oder Betriebssysteme ab Windows 8, die nicht explizit für deren Unterstützung konfiguriert wurden.  
   
 #### <a name="create-a-user-account-audit-for-authentication-policy-with-adac"></a>Erstellen von Benutzerkonten-Überwachung für die Authentifizierungsrichtlinie im ADAC  
   
@@ -337,7 +337,7 @@ Im Bereich Konten für die Authentifizierungsrichtlinie werden die Konten angeze
 ![geschützte Konten](../media/how-to-configure-protected-accounts/ADDS_ProtectAcct_AccountsAssigned.gif)  
   
 #### <a name="use-the-authentication-policy-failures---domain-controller-administrative-log"></a>Verwenden des Authentifizierungs Richtlinien Fehlers-Domänen Controller-Verwaltungs Protokoll  
-Neue **Authentifizierungs Richtlinien Fehler:** das Administrator Protokoll des Domänen Controllers unter **Anwendungs-und Dienst Protokolle** > **Microsoft** > **Windows** > -**Authentifizierung** wurde erstellt, um dies zu vereinfachen. zum Ermitteln von Fehlern aufgrund von Authentifizierungs Richtlinien. Dieses Protokoll ist standardmäßig deaktiviert. Klicken Sie mit der rechten Maustaste auf das Protokoll und klicken Sie auf **Protokoll aktivieren,** um dieses Protokoll zu aktivieren. Die neuen Ereignisse sind den existierenden Ereignissen für Kerberos TGT und die Überwachung von Diensttickets inhaltlich sehr ähnlich. Weitere Informationen zu diesen Ereignissen finden Sie unter [Authentifizierungs Richtlinien und Authentifizierungs Richtlinien Silos](https://technet.microsoft.com/library/dn486813.aspx).  
+Ein neues **Authentifizierungs Richtlinien-Fehler-Domänen Controller-** Verwaltungs Protokoll unter **Anwendungs-und Dienst Protokolle** > **Microsoft** > **Windows** > - **Authentifizierung** wurde erstellt, um das Auffinden von Fehlern aufgrund von Authentifizierungs Richtlinien zu vereinfachen. Dieses Protokoll ist standardmäßig deaktiviert. Klicken Sie mit der rechten Maustaste auf das Protokoll und klicken Sie auf **Protokoll aktivieren,** um dieses Protokoll zu aktivieren. Die neuen Ereignisse sind den existierenden Ereignissen für Kerberos TGT und die Überwachung von Diensttickets inhaltlich sehr ähnlich. Weitere Informationen zu diesen Ereignissen finden Sie unter [Authentifizierungs Richtlinien und Authentifizierungs Richtlinien Silos](https://technet.microsoft.com/library/dn486813.aspx).  
   
 ### <a name="manage-authentication-policies-by-using-windows-powershell"></a>Verwalten von Authentifizierungsrichtlinien mit Windows PowerShell  
 Dieser Befehl erstellt eine Authentifizierungsrichtlinie mit dem Namen **TestAuthenticationPolicy**. Der **UserAllowedToAuthenticateFrom**-Parameter gibt die Geräte, an denen sich Benutzer anmelden können, in Form einer SDDL-Zeichenfolge in der Datei mit dem Namen someFile.txt an.  

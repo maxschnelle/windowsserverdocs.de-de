@@ -9,21 +9,21 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 26eba76c836d1157f4d4c10d7a989a3a7dcc1538
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 806857d5de067c0f4640344ed80338b474dd758e
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393828"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950062"
 ---
 # <a name="cluster-to-cluster-storage-replica-cross-region-in-azure"></a>Cluster-zu-Cluster Storage Replica cross-Bereich in Azure
 
-> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (Semi-Annual Channel)
 
 Sie können Cluster-zu-Cluster-Speicher Replikate für Regions übergreifende Anwendungen in Azure konfigurieren. In den folgenden Beispielen wird ein Cluster mit zwei Knoten verwendet, aber Cluster-zu-Cluster-Speicher Replikate sind nicht auf einen Cluster mit zwei Knoten beschränkt. Die folgende Abbildung zeigt einen Cluster für direkte Speicherplätze mit zwei Knoten, der miteinander kommunizieren kann, sich in derselben Domäne befindet und Regions übergreifend ist.
 
 Sehen Sie sich das Video unten an, um eine umfassende Exemplarische Vorgehensweise zum Prozess zu finden.
-> [!video https://www.microsoft.com/en-us/videoplayer/embed/RE26xeW]
+> [!video https://www.microsoft.com/videoplayer/embed/RE26xeW]
 
 ![Das Architektur Diagramm, in dem sich die in Azure in Azure mit der gleichen Region ausstellt.](media/Cluster-to-cluster-azure-cross-region/architecture.png)
 > [!IMPORTANT]
@@ -38,7 +38,7 @@ Sehen Sie sich das Video unten an, um eine umfassende Exemplarische Vorgehenswei
     - Verfügbarkeits Gruppe (**az2azAS1**) in (**SR-AZ2AZ**)
     - Verfügbarkeits Gruppe (**azcross-as**) in (**SR-azcross**)
 
-3. Erstellen von zwei virtuellen Netzwerken
+3. Erstellen zweier virtueller Netzwerke
    - Erstellen Sie das [virtuelle Netzwerk](https://ms.portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) (**az2az-vnet**) in der ersten Ressourcengruppe (**SR-az2az**) mit einem Subnetz und einem gatewaysubnetz.
    - Erstellen Sie das [virtuelle Netzwerk](https://ms.portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) (**azcross-vnet**) in der zweiten Ressourcengruppe (**SR-azcross**) mit einem Subnetz und einem gatewaysubnetz.
 
@@ -59,7 +59,7 @@ Sehen Sie sich das Video unten an, um eine umfassende Exemplarische Vorgehenswei
       - Hinzufügen von mindestens zwei verwalteten Datenträgern zu jedem Computer
       - Installieren des Failoverclustering und des Speicher Replikat Features
 
-   Erstellen Sie zwei virtuelle Computer **(azcross1**, **azcross2**) in der Ressourcengruppe **(SR-azcross**) mithilfe des virtuellen Netzwerks (**azcross-vnet**) und der Netzwerk Sicherheitsgruppe (**azcross-NSG**) in der Verfügbarkeits Gruppe (**azcross-as**). . Zuweisen einer öffentlichen Standard-IP-Adresse zu jedem virtuellen Computer während der Erstellung
+   Erstellen Sie zwei virtuelle Computer **(azcross1**, **azcross2**) in der Ressourcengruppe **(SR-azcross**) mithilfe des virtuellen Netzwerks (**azcross-vnet**) und der Netzwerk Sicherheitsgruppe (**azcross-NSG**) in der Verfügbarkeits Gruppe (**azcross-as**). Zuweisen einer öffentlichen Standard-IP-Adresse zu jedem virtuellen Computer während der Erstellung
       - Hinzufügen von mindestens zwei verwalteten Datenträgern zu jedem Computer
       - Installieren des Failoverclustering und des Speicher Replikat Features
 
@@ -96,13 +96,13 @@ Sehen Sie sich das Video unten an, um eine umfassende Exemplarische Vorgehenswei
       - azlbr1 = > Front-End-IP: 10.3.0.100 (übernehmen Sie eine nicht verwendete IP-Adresse aus dem Subnetz des virtuellen Netzwerks (**az2az-vnet**))
       - Erstellen Sie einen Back-End-Pool für jeden Load Balancer. Fügen Sie die zugeordneten Cluster Knoten hinzu.
       - Erstellen eines Integritätstests: Port 59999
-      - Lasten Ausgleichs Regel erstellen: Hochverfügbarkeitsports mit aktivierter Floating IP zulassen
+      - Lasten Ausgleichs Regel erstellen: hochverfügbarkeitsports mit aktivierter Floating IP zulassen.
 
    Geben Sie die Cluster-IP-Adresse als statische private IP-Adresse für den Load Balancer an. 
       - azlbazcross = > Front-End-IP: 10.0.0.10 (übernehmen Sie eine nicht verwendete IP-Adresse aus dem virtuellen Netzwerk (**azcross-vnet**) Subnetz)
       - Erstellen Sie einen Back-End-Pool für jeden Load Balancer. Fügen Sie die zugeordneten Cluster Knoten hinzu.
       - Erstellen eines Integritätstests: Port 59999
-      - Lasten Ausgleichs Regel erstellen: Hochverfügbarkeitsports mit aktivierter Floating IP zulassen 
+      - Lasten Ausgleichs Regel erstellen: hochverfügbarkeitsports mit aktivierter Floating IP zulassen. 
 
 9. Erstellen Sie ein [virtuelles Netzwerk Gateway](https://ms.portal.azure.com/#create/Microsoft.VirtualNetworkGateway-ARM) für die vnet-zu-vnet-Konnektivität.
 
@@ -190,7 +190,7 @@ Sehen Sie sich das Video unten an, um eine umfassende Exemplarische Vorgehenswei
       - Volumespeicherort:-c:\clusterstorage\datadiskcross
       - Protokoll Speicherort:-g:
 
-Führen Sie den folgenden Befehl aus:
+Führen Sie den Befehl aus:
 
 ```powershell
 PowerShell

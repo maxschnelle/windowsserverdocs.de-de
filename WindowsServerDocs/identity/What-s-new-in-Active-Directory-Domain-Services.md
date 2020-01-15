@@ -12,23 +12,23 @@ ms.topic: article
 author: Femila
 ms.author: billmath
 ms.date: 05/31/2017
-ms.openlocfilehash: e3af163855e2550383b119d504449b2b43208a78
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 064ccf80faf77bbf128351a78ea437730983bf06
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391102"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948198"
 ---
 # <a name="what39s-new-in-active-directory-domain-services"></a>&#39;Neues in Active Directory Domain Services 
 
->Gilt für: Windows Server 2016
+>Gilt für: Windows Server 2016
 
-Die folgenden neuen Features in Active Directory Domain Services (AD DS) verbessern die Fähigkeit von Organisationen, Active Directory Umgebungen zu schützen und Sie bei der Migration zu reinen cloudbereitstellungen und Hybrid Bereitstellungen zu unterstützen, bei denen einige Anwendungen und Dienste in der Cloud gehostet und andere lokal gehostet. Zu den Verbesserungen gehören:  
+Die folgenden neuen Features in Active Directory Domain Services (AD DS) verbessern die Fähigkeit von Organisationen, Active Directory Umgebungen zu schützen und Sie bei der Migration zu reinen cloudbereitstellungen und Hybrid Bereitstellungen zu unterstützen, bei denen einige Anwendungen und Dienste in der Cloud gehostet und andere lokal gehostet. Die Verbesserungen umfassen:  
   
 -   [Privilegierte Zugriffs Verwaltung](https://technet.microsoft.com/library/mt150258.aspx   
 )  
   
-- [Erweitern von cloudfunktionen auf Windows 10-Geräte über Azure Active Directory Join](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)   
+- [Erweitern von Cloudfunktionen auf Windows 10-Geräte über Azure Active Directory Join](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)   
   
 - [Verbinden von in die Domäne eingebundenen Geräten mit Azure AD für Windows 10-Umgebungen](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)   
   
@@ -55,9 +55,9 @@ Die privilegierte Zugriffs Verwaltung (privilegierte Zugriffs Verwaltung, PAM) t
   
 -   Neue Überwachungsfunktionen, mit denen Sie leicht erkennen können, wer den Zugriff angefordert hat, welchen Zugriff gewährt wurde und welche Aktivitäten ausgeführt wurden.  
   
-**Bedingungen**  
+**Requirements**  
   
--   Microsoft Identitäts-Manager  
+-   Microsoft Identity Manager  
   
 -   Active Directory Gesamtstruktur Funktionsebene von Windows Server 2012 R2 oder höher.  
   
@@ -70,7 +70,7 @@ Vorteile:
   
     -   Roaming oder Personalisierung, Barrierefreiheits Einstellungen und Anmelde Informationen  
   
-    -   Sichern und Wiederherstellen  
+    -   Sicherung und Wiederherstellung  
   
     -   Zugriff auf Microsoft Store mit Geschäftskonto  
   
@@ -80,7 +80,7 @@ Vorteile:
   
 -   **Einmaliges Anmelden** bei Office 365 und anderen Organisations-apps, Websites und Ressourcen.  
   
--   Fügen Sie **auf BYOD-Geräten**ein Geschäftskonto (aus einer lokalen Domäne oder Azure AD) einem privaten Gerät hinzu, und profitieren Sie von einmaligem Anmelden für Ressourcen, über apps und im Web, um die Konformität mit neuen Funktionen, wie z. b. bedingter Konto Kontrolle, sicherzustellen. und Integrität für Geräte Nachweis.  
+-   Fügen Sie **auf BYOD-Geräten**ein Geschäftskonto (aus einer lokalen Domäne oder Azure AD) einem privaten Gerät hinzu, und profitieren Sie von einmaligem Anmelden für Ressourcen, über apps und im Web, um die Konformität mit neuen Funktionen wie z. b. bedingter Konto Kontrolle und Integrität für Geräte Nachweis sicherzustellen.  
   
 -   Mit der **MDM-Integration** können Sie Geräte automatisch für Ihre MDM registrieren (InTune oder Drittanbieter).  
   
@@ -90,7 +90,7 @@ Vorteile:
   
 -   Mithilfe der Option " **Abbild** Erstellung" können Sie die Abbild Erstellung auswählen und Benutzern ermöglichen, unternehmenseigene Geräte direkt während der ersten Durchführung zu konfigurieren.  
   
-Weitere Informationen finden [Sie unter Windows 10 für Unternehmen: Verwendungsmöglichkeiten von Geräten für die](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-windows10-devices-overview/?rnd=1)Arbeit.  
+Weitere Informationen finden Sie unter [Windows 10 für Unternehmen: Verwendungsmöglichkeiten von Geräten für die Arbeit](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-windows10-devices-overview/?rnd=1).  
   
 ## <a name="BKMK_IDLocker"></a>Microsoft Passport  
 Microsoft Passport ist ein neuer Schlüssel basierter Authentifizierungs Ansatz für Unternehmen und Kunden, der über die Kenn Wörter hinausgeht. Diese Form der Authentifizierung basiert auf Sicherheitsverletzungen, Diebstahl und Phish-Schutz Anmelde Informationen.  
@@ -100,15 +100,15 @@ Der Benutzer meldet sich beim Gerät mit einem biometrischen oder PIN-Protokoll 
 Weitere Informationen finden Sie unter [Authentifizieren von Identitäten ohne Kenn Wörter über Microsoft Passport](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-passport/)  
   
 ## <a name="BKMK_FRSDeprecation"></a>Veraltete Funktionsebenen für den Datei Replikations Dienst (File Replication Service, FRS) und Windows Server 2003  
-Obwohl der Datei Replikations Dienst (File Replication Service, FRS) und die Funktionsebenen von Windows Server 2003 in früheren Versionen von Windows Server nicht mehr unterstützt wurden, wird das Betriebssystem Windows Server 2003 nicht mehr unterstützt. Daher sollten alle Domänen Controller, auf denen Windows Server 2003 ausgeführt wird, aus der Domäne entfernt werden. Die Domänen-und Gesamtstruktur Funktionsebene sollte auf mindestens Windows Server 2008 erhöht werden, um zu verhindern, dass ein Domänen Controller, auf dem eine frühere Version von Windows Server ausgeführt wird, der Umgebung hinzugefügt wird.  
+Obwohl der Datei Replikations Dienst (File Replication Service, FRS) und die Funktionsebenen von Windows Server 2003 in früheren Versionen von Windows Server nicht mehr unterstützt wurden, wird das Betriebssystem Windows Server 2003 nicht mehr unterstützt. Daher sollten alle Domänencontroller, die auf Windows Server 2003 ausgeführt werden, aus der Domäne entfernt werden. Die Domänen-und Gesamtstruktur Funktionsebene sollte auf mindestens Windows Server 2008 erhöht werden, um zu verhindern, dass ein Domänen Controller, auf dem eine frühere Version von Windows Server ausgeführt wird, der Umgebung hinzugefügt wird.  
   
-Auf den Domänen Funktionsebenen Windows Server 2008 und höher wird die DFS-Replikation (DFS) zum Replizieren von SYSVOL-Ordner Inhalten zwischen Domänen Controllern verwendet. Wenn Sie eine neue Domäne auf der Windows Server 2008-Domänen Funktionsebene oder höher erstellen, wird DFS-Replikation automatisch zum Replizieren von SYSVOL verwendet. Wenn Sie die Domäne auf einer niedrigeren Funktionsebene erstellt haben, müssen Sie von der Verwendung von FRS zur DFS-Replikation für SYSVOL migrieren. Für Migrations Schritte können Sie entweder die [Verfahren auf TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) ausführen oder die [optimierten Schritte im CAB-Blog der Speicher Team Datei](http://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx)lesen.  
+Bei Windows Server 2008-Domänenfunktionsebenen (und höher) wird die DFS-Replikation (Distributed File Service) zum Replizieren von SYSVOL-Ordnerinhalten zwischen Domänencontrollern verwendet. Wenn Sie auf der Windows Server 2008-Domänenfunktionsebene (oder höher) eine neue Domäne erstellen, wird die DFS-Replikation automatisch zum Replizieren von SYSVOL verwendet. Wenn Sie die Domäne auf einer niedrigeren Funktionsebene erstellt haben, müssen Sie für SYSVOL anstatt des Dateireplikationsdiensts die DFS-Replikation verwenden. Für die Migrationsschritte können Sie entweder die [Anweisungen auf TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) oder die [optimierten Schritte im Storage Team File Cabinet-Blog](https://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx) befolgen.  
   
 Die Domänen-und Gesamtstruktur Funktionsebenen von Windows Server 2003 werden weiterhin unterstützt, aber Organisationen sollten die Funktionsebene auf Windows Server 2008 (oder höher) erhöhen, um die SYSVOL-Replikations Kompatibilität und-Unterstützung in Zukunft sicherzustellen. Außerdem gibt es noch viele weitere Vorteile und Features, die auf den höheren Funktionsebenen höher verfügbar sind. Weitere Informationen finden Sie in den folgenden Ressourcen:  
   
 -   [Grundlegendes zu Active Directory Domain Services (AD DS)-Funktionsebenen](ad-ds/active-directory-functional-levels.md)  
   
--   [Erhöhen der Domänen Funktionsebene](https://technet.microsoft.com/library/cc753104.aspx)  
+-   [Heraufstufen der Domänenfunktionsebene](https://technet.microsoft.com/library/cc753104.aspx)  
   
--   [Erhöhen der Gesamtstruktur Funktionsebene](https://technet.microsoft.com/library/cc730985.aspx)  
+-   [Heraufstufen der Gesamtstrukturfunktionsebene](https://technet.microsoft.com/library/cc730985.aspx)  
   

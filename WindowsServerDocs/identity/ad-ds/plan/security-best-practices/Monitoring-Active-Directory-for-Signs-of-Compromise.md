@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ba67a5fcc127bbe6ffce9454ff98fd3bc3725e55
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e51b7ea151db1ca5d53a8cacef3b042e345175de
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367710"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949636"
 ---
 # <a name="monitoring-active-directory-for-signs-of-compromise"></a>Überwachen von Active Directory auf Anzeichen für einen Kompromiss
 
@@ -32,10 +32,10 @@ Diese fehlende Überwachung von aktiven Ereignisprotokollen bleibt in den Sicher
 
 Im folgenden finden Sie Links zum Microsoft Official Enterprise Support-Blog. Der Inhalt dieser Blogs bietet Ratschläge, Anleitungen und Empfehlungen zur Überwachung, die Sie bei der Verbesserung der Sicherheit Ihrer Active Directory Infrastruktur unterstützen und eine wertvolle Ressource beim Entwerfen einer Überwachungsrichtlinie sind.  
   
-* Die [globale Objekt Zugriffs Überwachung ist magisch](http://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) : Beschreibt einen Steuerungsmechanismus mit der Bezeichnung erweiterte Überwachungs Richtlinien Konfiguration, der Windows 7 und Windows Server 2008 R2 hinzugefügt wurde, mit der Sie festlegen können, welche Typen von Daten Sie problemlos überwachen möchten, und die Skripts und Auditpol. exe nicht jonglieren.  
-* [Einführung von Überwachungs Änderungen in Windows 2008](http://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : führt die in Windows Server 2008 vorgenommenen Überwachungs Änderungen ein.  
-* Praktische Überwachungs [Tricks in Vista und 2008](http://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : erläutert interessante Überwachungs Features von Windows Vista und Windows Server 2008, die für die Problembehandlung oder das Auftreten von Ereignissen in Ihrer Umgebung verwendet werden können.  
-* [Zentrale Anlaufstelle für die Überwachung in Windows Server 2008 und Windows Vista](http://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : enthält eine Kompilierung von Überwachungs Features und Informationen, die in Windows Server 2008 und Windows Vista enthalten sind.  
+* Die [globale Objekt Zugriffs Überwachung ist magisch](https://blogs.technet.com/b/askds/archive/2011/03/10/global-object-access-auditing-is-magic.aspx) : Beschreibt einen Steuerungsmechanismus mit der Bezeichnung erweiterte Überwachungs Richtlinien Konfiguration, der Windows 7 und Windows Server 2008 R2 hinzugefügt wurde, mit der Sie festlegen können, welche Typen von Daten Sie problemlos überwachen möchten, und die Skripts und Auditpol. exe nicht jonglieren.  
+* [Einführung von Überwachungs Änderungen in Windows 2008](https://blogs.technet.com/b/askds/archive/2007/10/19/introducing-auditing-changes-in-windows-2008.aspx) : führt die in Windows Server 2008 vorgenommenen Überwachungs Änderungen ein.  
+* Praktische Überwachungs [Tricks in Vista und 2008](https://blogs.technet.com/b/askds/archive/2007/11/16/cool-auditing-tricks-in-vista-and-2008.aspx) : erläutert interessante Überwachungs Features von Windows Vista und Windows Server 2008, die für die Problembehandlung oder das Auftreten von Ereignissen in Ihrer Umgebung verwendet werden können.  
+* [Zentrale Anlaufstelle für die Überwachung in Windows Server 2008 und Windows Vista](https://blogs.technet.com/b/askds/archive/2008/03/27/one-stop-shop-for-auditing-in-windows-server-2008-and-windows-vista.aspx) : enthält eine Kompilierung von Überwachungs Features und Informationen, die in Windows Server 2008 und Windows Vista enthalten sind.  
   
 Die folgenden Links enthalten Informationen zu Verbesserungen der Windows-Überwachung in Windows 8 und Windows Server 2012 sowie Informationen zur AD DS Überwachung in Windows Server 2008.  
   
@@ -48,7 +48,7 @@ Vor Windows Vista und Windows Server 2008 verfügte Windows nur über neun Kateg
   
 * Konto Anmelde Ereignisse  
 * Kontenverwaltung  
-* Verzeichnisdienst Zugriff  
+* Directory Service Access  
 * Anmelde Ereignisse  
 * Objektzugriff  
 * Richtlinienänderung  
@@ -114,7 +114,7 @@ Der folgende Screenshot zeigt ein Beispiel für "Auditpol. exe", das die aktuell
 ![Überwachen von AD](media/Monitoring-Active-Directory-for-Signs-of-Compromise/SAD_5.gif)  
   
 > [!NOTE]  
-> Der Status aller aktivierten Überwachungs Richtlinien wird von Gruppenrichtlinie nicht immer korrekt gemeldet, während Auditpol. exe dies tut. Weitere Informationen finden Sie [unter erhalten der effektiven Überwachungsrichtlinie in Windows 7 und 2008 R2](http://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
+> Der Status aller aktivierten Überwachungs Richtlinien wird von Gruppenrichtlinie nicht immer korrekt gemeldet, während Auditpol. exe dies tut. Weitere Informationen finden Sie [unter erhalten der effektiven Überwachungsrichtlinie in Windows 7 und 2008 R2](https://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
   
 Jede Hauptkategorie verfügt über mehrere Unterkategorien. Im folgenden finden Sie eine Liste der Kategorien, ihrer Unterkategorien und eine Beschreibung ihrer Funktionen.  
   
@@ -182,15 +182,15 @@ In dieser Unterkategorie werden Aufrufe an die DPAPI (Data Protection Applicatio
 ##### <a name="rpc-events"></a>RPC-Ereignisse  
 Diese Unterkategorie meldet Remote Prozedur Aufruf-Verbindungs Ereignisse (RPC).  
   
-#### <a name="directory-service-access"></a>Verzeichnisdienst Zugriff  
+#### <a name="directory-service-access"></a>Directory Service Access  
   
-##### <a name="directory-service-access"></a>Verzeichnisdienst Zugriff  
+##### <a name="directory-service-access"></a>Directory Service Access  
 Diese Unterkategorie meldet, wenn auf ein AD DS Objekt zugegriffen wird. Nur Objekte mit konfigurierten SACLs bewirken, dass Überwachungs Ereignisse generiert werden, und zwar nur, wenn auf Sie in einer Weise zugegriffen wird, die mit den SACL-Einträgen übereinstimmt. Diese Ereignisse ähneln den Verzeichnisdienst-Zugriffs Ereignissen in früheren Versionen von Windows Server. Diese Unterkategorie gilt nur für Domänen Controller.  
   
 ##### <a name="directory-service-changes"></a>Verzeichnisdienst Änderungen  
 Diese Unterkategorie meldet Änderungen an Objekten in AD DS. Die gemeldeten Änderungs Typen sind Create-, Modify-, Move-und Wiederherstellen-Vorgänge, die für ein-Objekt ausgeführt werden. Die Verzeichnisdienst-Änderungs Überwachung gibt ggf. die alten und neuen Werte der geänderten Eigenschaften der Objekte an, die geändert wurden. Nur Objekte mit SACLs bewirken, dass Überwachungs Ereignisse generiert werden, und zwar nur, wenn auf Sie in einer Weise darauf zugegriffen wird, dass Sie mit ihren SACL-Einträgen übereinstimmt. Einige Objekte und Eigenschaften lösen aufgrund der Einstellungen der Objektklasse im Schema keine Überwachungsereignisse aus. Diese Unterkategorie gilt nur für Domänen Controller.  
   
-##### <a name="directory-service-replication"></a>Verzeichnisdienst-Replikation  
+##### <a name="directory-service-replication"></a>Verzeichnisdienstreplikation  
 Diese Unterkategorie meldet, wenn die Replikation zwischen zwei Domänen Controllern beginnt und endet.  
   
 ##### <a name="detailed-directory-service-replication"></a>Ausführliche Verzeichnisdienst Replikation  
@@ -227,7 +227,7 @@ Diese Unterkategorie meldet, wenn eine spezielle Anmeldung verwendet wird. Eine 
   
 #### <a name="policy-change"></a>Richtlinienänderung  
   
-##### <a name="audit-policy-change"></a>Überwachen der Richtlinien Änderung  
+##### <a name="audit-policy-change"></a>Richtlinienänderungen überwachen  
 Diese Unterkategorie meldet Änderungen in der Überwachungsrichtlinie einschließlich SACL-Änderungen.  
   
 ##### <a name="authentication-policy-change"></a>Änderung der Authentifizierungs Richtlinie  
@@ -336,7 +336,7 @@ Erweiterte Überwachungs Richtlinien können mithilfe von Active Directory oder 
 
 "Auditpol. exe" (zum Festlegen der Windows-Überwachungsrichtlinie) wurde in Windows Server 2008 und Windows Vista eingeführt. Anfänglich konnte nur "Auditpol. exe" zum Festlegen der erweiterten Überwachungsrichtlinie verwendet werden, aber Gruppenrichtlinie kann in Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008, Windows 8 und Windows 7 verwendet werden.  
   
-Auditpol. exe ist ein Befehlszeilen-Hilfsprogramm. Die Syntax lautet wie folgt:  
+Auditpol. exe ist ein Befehlszeilen-Hilfsprogramm. Die Syntax sieht wie folgt aus:  
   
 `auditpol /set /<Category|Subcategory>:<audit category> /<success|failure:> /<enable|disable>`
   
@@ -355,7 +355,7 @@ Beispiele für die Auditpol. exe-Syntax:
 
 Microsoft stellt ein [Beispielskript](https://support.microsoft.com/kb/921469) für Administratoren bereit, die erweiterte Überwachungs Richtlinien mithilfe eines Skripts festlegen möchten, anstatt jeden Auditpol. exe-Befehl manuell einzugeben.  
   
-**Hinweis** Der Status aller aktivierten Überwachungs Richtlinien wird von Gruppenrichtlinie nicht immer korrekt gemeldet, während Auditpol. exe dies tut. Weitere Informationen finden Sie [unter erhalten der effektiven Überwachungsrichtlinie in Windows 7 und Windows 2008 R2](http://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
+**Hinweis** Der Status aller aktivierten Überwachungs Richtlinien wird von Gruppenrichtlinie nicht immer korrekt gemeldet, während Auditpol. exe dies tut. Weitere Informationen finden Sie [unter erhalten der effektiven Überwachungsrichtlinie in Windows 7 und Windows 2008 R2](https://blogs.technet.com/b/askds/archive/2011/03/11/getting-the-effective-audit-policy-in-windows-7-and-2008-r2.aspx) .  
   
 #### <a name="other-auditpol-commands"></a>Andere Auditpol-Befehle
 

@@ -9,12 +9,12 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 82d826d41e95be18fba689706025ce6f5195f726
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b5f2202313c225d57b29997753b090e10b9c2e6c
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407667"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949295"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Konfigurieren von AD FS für die Benutzerzertifikat Authentifizierung
 
@@ -23,7 +23,7 @@ Die Benutzerzertifikat Authentifizierung wird hauptsächlich in zwei Anwendungsf
 * Benutzer verwenden Zertifikate, die für mobile Geräte bereitgestellt werden.
 
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 1) Bestimmen Sie den Modus der AD FS Benutzerzertifikat Authentifizierung, die Sie aktivieren möchten, mithilfe eines der Modi, die in [diesem Artikel](ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md) beschrieben werden.
 2) Stellen Sie sicher, dass die Vertrauenskette des Benutzer Zertifikats installiert ist & von allen AD FS-und WAP-Servern einschließlich aller zwischen Zertifizierungsstellen als vertrauenswürdig eingestuft. Dies erfolgt in der Regel über das Gruppenrichtlinien Objekt auf AD FS/WAP-Servern.
 3)  Stellen Sie sicher, dass das Stamm Zertifikat der Vertrauenskette für ihre Benutzerzertifikate im NTAuth-Speicher in Active Directory
@@ -34,12 +34,12 @@ Die Benutzerzertifikat Authentifizierung wird hauptsächlich in zwei Anwendungsf
 
 ## <a name="configure-ad-fs-for-user-certificate-authentication"></a>Konfigurieren von AD FS für die Benutzerauthentifizierung Zertifikat  
 
-Aktivieren Sie die Authentifizierung von Benutzer Zertifikaten als Intranet-oder Extranet-Authentifizierungsmethode in AD FS mithilfe der AD FS Management Console oder des PowerShell- `Set-AdfsGlobalAuthenticationPolicy`Cmdlets.
+Aktivieren Sie die Authentifizierung von Benutzer Zertifikaten als Intranet-oder Extranet-Authentifizierungsmethode in AD FS mithilfe der AD FS Management Console oder des PowerShell-Cmdlets `Set-AdfsGlobalAuthenticationPolicy`.
 
 Wenn Sie AD FS für die Azure AD Zertifikat Authentifizierung konfigurieren, stellen Sie sicher, dass Sie die [Azure AD Einstellungen](https://docs.microsoft.com/azure/active-directory/active-directory-certificate-based-authentication-get-started#step-2-configure-the-certificate-authorities) und die [AD FS Anspruchs Regeln](https://docs.microsoft.com/azure/active-directory/active-directory-certificate-based-authentication-ios#requirements) konfiguriert haben, die für den Zertifikat Aussteller und die Seriennummer erforderlich sind.
 
 Außerdem gibt es einige optionale Aspekte.
-- Wenn Sie zusätzlich zu EKU (Anspruchstyp https://schemas.microsoft.com/2012/12/certificatecontext/extension/eku) ) Ansprüche basierend auf Zertifikat Feldern und Erweiterungen verwenden möchten, konfigurieren Sie zusätzliche Anspruchs Pass-Through-Regeln für die Active Directory Anspruchs Anbieter-Vertrauensstellung.  Im folgenden finden Sie eine umfassende Liste der verfügbaren Zertifikat Ansprüche.  
+- Wenn Sie Ansprüche zusätzlich zu EKU (Anspruchstyp https://schemas.microsoft.com/2012/12/certificatecontext/extension/eku) basierend auf Zertifikat Feldern und Erweiterungen verwenden möchten, konfigurieren Sie zusätzliche Anspruchs Pass-Through-Regeln für die Active Directory Anspruchs Anbieter-Vertrauensstellung.  Im folgenden finden Sie eine umfassende Liste der verfügbaren Zertifikat Ansprüche.  
 - Wenn Sie den Zugriff basierend auf dem Zertifikattyp einschränken müssen, können Sie die zusätzlichen Eigenschaften des Zertifikats in AD FS Ausstellungs Autorisierungs Regeln für die Anwendung verwenden. Häufige Szenarien sind "nur Zertifikate lassen, die von einem MDM-Anbieter bereitgestellt werden" oder "nur Smartcardzertifikate zulassen".
 - Konfigurieren Sie zugelassene Zertifizierungsstellen für Client Zertifikate mithilfe der Anleitung unter "Verwaltung vertrauenswürdiger Aussteller für die Client Authentifizierung" in [diesem Artikel](https://technet.microsoft.com/library/dn786429(v=ws.11).aspx).
 - Sie sollten die Anmelde Seiten ggf. so ändern, dass Sie den Anforderungen der Endbenutzer bei der Zertifikat Authentifizierung entsprechen. Häufige Fälle: (a) ändern Sie die Anmeldung mit Ihrem X509-Zertifikat, um Endbenutzer freundlicher zu werden.
@@ -54,7 +54,7 @@ Weitere Informationen zum Konfigurieren dieses für Chrome finden Sie unter dies
 Dieses Dokument konzentriert sich auf Probleme, die häufig auftreten, wenn AD FS für die Zertifikat Authentifizierung für Benutzer konfiguriert ist. 
 
 ### <a name="check-if-certificate-trusted-issuers-is-configured-properly-in-all-the-ad-fswap-servers"></a>Überprüfen Sie, ob Zertifikat vertrauenswürdige Aussteller ordnungsgemäß für alle AD FS/WAP-Server konfiguriert sind.
-*Häufiges Symptom: HTTP 204 "kein Inhalt von HTTPS\://certuath.ADFS.contoso.com"*
+*Häufiges Symptom: http 204 "kein Inhalt von HTTPS\://certuath.ADFS.contoso.com"*
 
 AD FS verwendet das zugrunde liegende Windows-Betriebssystem, um den Besitz des Benutzer Zertifikats zu belegen und sicherzustellen, dass es mit einem vertrauenswürdigen Aussteller durch Überprüfung der Zertifikats Vertrauenskette übereinstimmt. Um dem vertrauenswürdigen Aussteller zu entsprechen, müssen Sie sicherstellen, dass alle Stamm-und zwischen Zertifizierungsstellen im Speicher der lokalen Computer Zertifizierungsstellen als vertrauenswürdige Aussteller konfiguriert sind. Verwenden Sie das [AD FS Diagnostic Analyzer-Tool](https://adfshelp.microsoft.com/DiagnosticsAnalyzer/Analyze), um dies automatisch zu überprüfen. Das Tool fragt alle Server ab und stellt sicher, dass die richtigen Zertifikate ordnungsgemäß bereitgestellt werden. 
 1)  Laden Sie das Tool gemäß den Anweisungen im obigen Link herunter, und führen Sie es aus.
@@ -64,9 +64,9 @@ AD FS verwendet das zugrunde liegende Windows-Betriebssystem, um den Besitz des 
 AD FS aktiviert standardmäßig die Zertifikat Authentifizierung nicht. Informationen zum Aktivieren der Zertifikat Authentifizierung finden Sie am Anfang dieses Dokuments. 
 
 ### <a name="check-if-certificate-authentication-is-enabled-in-the-ad-fs-authentication-policy"></a>Überprüfen Sie, ob die Zertifikat Authentifizierung in der AD FS Authentifizierungs Richtlinie aktiviert ist.
-AD FS führt die Benutzerzertifikat Authentifizierung standardmäßig an Port 49443 mit dem gleichen Hostnamen wie AD FS aus ( `adfs.contoso.com`z. b.). Sie können auch AD FS für die Verwendung von Port 443 (HTTPS-Standardport) mithilfe der alternativen SSL-Bindung konfigurieren. Die in dieser Konfiguration verwendete URL ist `certauth.<adfs-farm-name>` jedoch (z. b. `certauth.contoso.com`). Weitere Informationen finden Sie unter [diesem Link](ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md) . Der häufigste Fall der Netzwerk Konnektivität besteht darin, dass eine Firewall falsch konfiguriert wurde und den Datenverkehr für die Authentifizierung von Benutzer Zertifikaten blockiert oder beeinträchtigt. Normalerweise wird ein leerer Bildschirm oder ein 500-Server Fehler angezeigt, wenn dieses Problem auftritt. 
+AD FS verwendet standardmäßig die Benutzerzertifikat Authentifizierung an Port 49443 mit dem gleichen Hostnamen wie AD FS (z. b. `adfs.contoso.com`). Sie können auch AD FS für die Verwendung von Port 443 (HTTPS-Standardport) mithilfe der alternativen SSL-Bindung konfigurieren. Die in dieser Konfiguration verwendete URL ist jedoch `certauth.<adfs-farm-name>` (z. b. `certauth.contoso.com`). Weitere Informationen finden Sie unter [diesem Link](ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md) . Der häufigste Fall der Netzwerk Konnektivität besteht darin, dass eine Firewall falsch konfiguriert wurde und den Datenverkehr für die Authentifizierung von Benutzer Zertifikaten blockiert oder beeinträchtigt. Normalerweise wird ein leerer Bildschirm oder ein 500-Server Fehler angezeigt, wenn dieses Problem auftritt. 
 1)  Beachten Sie den Hostnamen und den Port, die Sie in konfiguriert haben AD FS
-2)  Stellen Sie sicher, dass jede Firewall vor AD FS oder webanwendungsproxy (WAP) so `hostname:port` konfiguriert ist, dass Sie die Kombination für Ihre AD FS Farm zulässt. Sie müssen sich an Ihren Netzwerktechniker wenden, um diesen Schritt auszuführen. 
+2)  Stellen Sie sicher, dass jede Firewall vor AD FS oder webanwendungsproxy (WAP) so konfiguriert ist, dass Sie die Kombination von `hostname:port` für Ihre AD FS Farm zulässt. Sie müssen sich an Ihren Netzwerktechniker wenden, um diesen Schritt auszuführen. 
 
 ### <a name="check-certificate-revocation-list-connectivity"></a>Überprüfen der Konnektivität der Zertifikat Sperr Liste
 Zertifikat Sperr Listen (CRL) sind Endpunkte, die in das Benutzerzertifikat codiert werden, um Lauf Zeit Sperr Prüfungen auszuführen. Wenn beispielsweise ein Gerät gestohlen wird, das ein Zertifikat enthält, kann ein Administrator das Zertifikat der Liste der gesperrten Zertifikate hinzufügen. Bei jedem Endpunkt, der dieses Zertifikat zuvor akzeptiert hat, tritt nun die Authentifizierung ein.
@@ -76,18 +76,18 @@ Jeder AD FS-und WAP-Server muss den CRL-Endpunkt erreichen, um zu überprüfen, 
 2)  Stellen Sie auf jedem AD FS/WAP-Server sicher, dass die CRL-Endpunkte über das verwendete Protokoll (in der Regel HTTPS oder http) erreichbar sind.
 3)  Aktivieren Sie für die erweiterte Überprüfung die [CAPI2-Ereignisprotokollierung](https://blogs.msdn.microsoft.com/benjaminperkins/2013/09/30/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues/) auf jedem AD FS/WAP-Server
 4) Überprüfen Sie die Ereignis-ID 41 (Sperrung überprüfen) in den CAPI2-Betriebs Protokollen.
-5) Überprüfen auf`‘\<Result value="80092013"\>The revocation function was unable to check revocation because the revocation server was offline.\</Result\>'`
+5) Auf `‘\<Result value="80092013"\>The revocation function was unable to check revocation because the revocation server was offline.\</Result\>'` überprüfen
 
-***Tipp***: Sie können eine einzelne AD FS oder einen WAP-Server für eine einfachere Problembehandlung konfigurieren, indem Sie die DNS-Auflösung (Hostdatei unter Windows) so konfigurieren, dass Sie auf einen bestimmten Server verweist Dies ermöglicht es Ihnen, die Ablauf Verfolgung für einen Server zu aktivieren. 
+***Tipp***: Sie können eine einzelne AD FS oder einen WAP-Server für eine einfachere Problembehandlung ausrichten, indem Sie die DNS-Auflösung (Hostdatei unter Windows) so konfigurieren, dass Sie auf einen bestimmten Server verweist Dies ermöglicht es Ihnen, die Ablauf Verfolgung für einen Server zu aktivieren. 
 
 ### <a name="check-if-this-is-a-server-name-indication-sni-issue"></a>Überprüfen, ob es sich um ein Servernamensanzeige-Problem (SNI) handelt
 AD FS erfordert, dass das Client Gerät (oder die Browser) und die Load Balancer SNI unterstützen. Einige Client Geräte (in der Regel ältere Android-Versionen) unterstützen SNI möglicherweise nicht. Darüber hinaus unterstützen Lasten Ausgleichs Module ggf. keine SNI oder wurden nicht für SNI konfiguriert. In diesen Fällen werden Benutzer Zertifizierungs Fehler wahrscheinlich angezeigt. 
 1)  Arbeiten Sie mit Ihrem Netzwerktechniker zusammen, um sicherzustellen, dass die Load Balancer für AD FS/WAP SNI unterstützt.
 2)  Falls SNI nicht unterstützt werden kann AD FS eine Problem Umgehung, indem Sie die folgenden Schritte ausführen:
     *   Öffnen eines Eingabe Aufforderungs Fensters mit erhöhten Rechten auf dem primären AD FS Server
-    *   Eingeben```Netsh http show sslcert```
+    *   Geben Sie ```Netsh http show sslcert``` ein.
     *   Kopieren Sie die Anwendungs-GUID und den Zertifikat Hash des Verbund Dienstanbieter.
-    *   Eingeben`netsh http add sslcert ipport=0.0.0.0:{your_certauth_port} certhash={your_certhash} appid={your_applicaitonGUID}`
+    *   Geben Sie `netsh http add sslcert ipport=0.0.0.0:{your_certauth_port} certhash={your_certhash} appid={your_applicaitonGUID}` ein.
 
 ### <a name="check-if-the-client-device-has-been-provisioned-with-the-certificate-correctly"></a>Überprüfen Sie, ob das Client Gerät ordnungsgemäß mit dem Zertifikat bereitgestellt wurde.
 Möglicherweise stellen Sie fest, dass einige Geräte ordnungsgemäß funktionieren, aber andere Geräte nicht. In diesem Fall ist dies normalerweise darauf zurückzuführen, dass das Benutzerzertifikat auf dem Client Gerät nicht ordnungsgemäß bereitgestellt wurde. Führen Sie die folgenden Schritte aus. 
@@ -106,16 +106,16 @@ Viele Office 365-Anwendungen senden prompt = Login an Azure AD. Azure AD konvert
 
 Weitere Informationen finden Sie unter [diesem Link](ad-fs-prompt-login.md). 
 
-### <a name="additional-troubleshooting"></a>Weitere Problembehandlung
+### <a name="additional-troubleshooting"></a>Weitere Informationen zur Problembehandlung
 Dies sind seltene vorkommen.
-1)  Wenn die CRL-Liste sehr lang ist, kann es beim herunterladen zu einem Timeout kommen. In diesem Fall müssen Sie die Werte für "MaxFieldLength" und "maxrequestbyte" entsprechend aktualisieren. https://support.microsoft.com/en-us/help/820129/http-sys-registry-settings-for-windows
+1)  Wenn die CRL-Liste sehr lang ist, kann es beim herunterladen zu einem Timeout kommen. In diesem Fall müssen Sie "MaxFieldLength" und "maxrequestbyte" gemäß der https://support.microsoft.com/help/820129/http-sys-registry-settings-for-windows aktualisieren.
 
 
 
 
-## <a name="reference-complete-list-of-user-certificate-claim-types-and-example-values"></a>Referenz: Umfassende Liste der Anspruchs Typen und Beispiel Werte für Benutzerzertifikate
+## <a name="reference-complete-list-of-user-certificate-claim-types-and-example-values"></a>Verweis: eine komplette Liste der Anspruchs Typen für Benutzerzertifikate und Beispiel Werte
 
-|                                         Anspruchstyp                                         |                              Beispiel Wert                               |
+|                                         Anspruchstyp                                         |                              Beispielwert                               |
 |--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
 |         https://schemas.microsoft.com/2012/12/certificatecontext/field/x509version         |                                    3                                     |
 |     https://schemas.microsoft.com/2012/12/certificatecontext/field/signaturealgorithm      |                                sha256RSA                                 |
@@ -123,15 +123,15 @@ Dies sind seltene vorkommen.
 |         https://schemas.microsoft.com/2012/12/certificatecontext/field/issuername          |                 CN = entca, DC = Domain, DC = ca. DC = com                  |
 |          https://schemas.microsoft.com/2012/12/certificatecontext/field/notbefore          |                           12/05/2016 20:50:18                            |
 |          https://schemas.microsoft.com/2012/12/certificatecontext/field/notafter           |                           12/05/2017 20:50:18                            |
-|           https://schemas.microsoft.com/2012/12/certificatecontext/field/subject           |   E =user@contoso.com, CN = User, CN = Users, DC = Domain, DC =, DC = com   |
-|         https://schemas.microsoft.com/2012/12/certificatecontext/field/subjectname         |   E =user@contoso.com, CN = User, CN = Users, DC = Domain, DC =, DC = com   |
+|           https://schemas.microsoft.com/2012/12/certificatecontext/field/subject           |   E =user@contoso.com, CN = User, CN = Users, DC = Domain, DC =%% amp; quot; DC = com   |
+|         https://schemas.microsoft.com/2012/12/certificatecontext/field/subjectname         |   E =user@contoso.com, CN = User, CN = Users, DC = Domain, DC =%% amp; quot; DC = com   |
 |           https://schemas.microsoft.com/2012/12/certificatecontext/field/rawdata           |                {Base64-codierte digitale Zertifikat Daten}                 |
 |        https://schemas.microsoft.com/2012/12/certificatecontext/extension/keyusage         |                             DigitalSignature                             |
 |        https://schemas.microsoft.com/2012/12/certificatecontext/extension/keyusage         |                             KeyEncipherment                              |
-|  https://schemas.microsoft.com/2012/12/certificatecontext/extension/subjectkeyidentifier   |                 9D11941EC06FAKCCCB1B116B56AA97O3987D620A                 |
+|  https://schemas.microsoft.com/2012/12/certificatecontext/extension/subjectkeyidentifier   |                 9d11941ec06fakcccb1b116b56aa97o3987d620a                 |
 | https://schemas.microsoft.com/2012/12/certificatecontext/extension/authoritykeyidentifier  |    Keyid = D6 13 E3 6B BC E5 D8 15 52 0A FD 36 6a D5 0B 51 F3 0B 25 7F     |
 | https://schemas.microsoft.com/2012/12/certificatecontext/extension/certificatetemplatename |                                   Benutzer                                   |
-|           https://schemas.microsoft.com/2012/12/certificatecontext/extension/san           | Anderer Name: Prinzipal Nameuser@contoso.com=, RFC822 Name =user@contoso.com |
+|           https://schemas.microsoft.com/2012/12/certificatecontext/extension/san           | Anderer Name: Prinzipal Name =user@contoso.com, RFC822 Name =user@contoso.com |
 |           https://schemas.microsoft.com/2012/12/certificatecontext/extension/eku           |                          1.3.6.1.4.1.311.10.3.4                          |
 
 ## <a name="related-links"></a>Verwandte Links

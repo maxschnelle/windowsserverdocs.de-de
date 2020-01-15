@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 12/02/2019
-ms.openlocfilehash: d4046cc10a5e0fdc12cfb9587eef10d4263c2ddd
-ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
+ms.openlocfilehash: 503cd64cac0673829fe21bc15e8ad9d6a83bbb15
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2019
-ms.locfileid: "74904023"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950517"
 ---
 # <a name="what-type-of-installation-is-right-for-you"></a>Welche Art von Installation ist für Sie geeignet?
 
@@ -31,9 +31,9 @@ In diesem Thema werden die verschiedenen Installationsoptionen für Windows Admi
 
 Sie können Windows Admin Center unter den folgenden Windows-Betriebssystemen **Installieren** :
 
-| **Platform**                       | **Installationsmodus** |
+| **Plattform**                       | **Installationsmodus** |
 | -----------------------------------| --------------------- |
-| Windows 10                         | Lokaler Client |
+| Windows-10                         | Lokaler Client |
 | Windows Server (Semi-Annual Channel) | Gatewayserver, verwalteter Server, Failovercluster |
 | Windows Server 2016                | Gatewayserver, verwalteter Server, Failovercluster |
 | Windows Server 2019                | Gatewayserver, verwalteter Server, Failovercluster |
@@ -56,7 +56,7 @@ Mithilfe des Windows Admin Centers können Sie die folgenden Windows-Betriebssys
 
 | Version | *Knoten* "verwalten" über *Server-Manager* | Verwalten über den *Cluster-Manager* |
 | ------------------------- |--------------- | ----- |
-| Windows 10 | Ja (über Computer Verwaltung) | n. v. |
+| Windows-10 | Ja (über Computer Verwaltung) | NICHT ZUTREFFEND |
 | Windows Server (Semi-Annual Channel) | „Ja“ | „Ja“ |
 | Windows Server 2019 | „Ja“ | „Ja“ |
 | Windows Server 2016 | „Ja“ | Ja, mit dem [aktuellen kumulativen Update](../use/manage-hyper-converged.md#prepare-your-windows-server-2016-cluster-for-windows-admin-center) |
@@ -64,14 +64,14 @@ Mithilfe des Windows Admin Centers können Sie die folgenden Windows-Betriebssys
 | Windows Server 2012 R2 | „Ja“ | „Ja“ |
 | Microsoft Hyper-V Server 2012 R2 | „Ja“ | „Ja“ |
 | WindowsServer 2012 | „Ja“ | „Ja“ |
-| Windows Server 2008 R2 | Ja, eingeschränkte Funktionalität | n. v. |
+| Windows Server 2008 R2 | Ja, eingeschränkte Funktionalität | NICHT ZUTREFFEND |
 
 > [!NOTE]
 > Windows Admin Center erfordert PowerShell-Features, die nicht in Windows Server 2008 R2, 2012 und 2012 R2 enthalten sind. Wenn Sie diese mit dem Windows Admin Center verwalten, müssen Sie Windows Management Framework (WMF) Version 5,1 oder höher auf diesen Servern installieren.
 > 
 > Geben Sie `$PSVersiontable` in PowerShell ein, um zu prüfen, ob WMF 5.1 oder einen neuere Version installiert ist. 
 > 
-> Wenn WMF nicht installiert ist, können Sie [WMF 5,1 herunterladen](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
+> Wenn WMF nicht installiert ist, können Sie [WMF 5,1 herunterladen](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ## <a name="high-availability"></a>Hohe Verfügbarkeit
 

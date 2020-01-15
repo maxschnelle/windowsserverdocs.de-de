@@ -9,12 +9,12 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: df9dac8c761a83a13fb937a99cba3697dce95201
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 19dcc1c57fe7c7eea74b003553a0b0a6ab5508aa
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402801"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950230"
 ---
 # <a name="storage-spaces-direct---frequently-asked-questions-faq"></a>Direkte Speicherplätze: häufig gestellte Fragen (FAQ)
 
@@ -22,7 +22,7 @@ In diesem Artikel werden einige häufige und häufig gestellte Fragen im Zusamme
 
 ## <a name="when-you-use-storage-spaces-direct-with-3-nodes-can-you-get-both-performance-and-capacity-tiers"></a>Wenn Sie direkte Speicherplätze mit drei Knoten verwenden, können Sie sowohl Leistungs-als auch Kapazitäts Ebenen erhalten?
 
-Ja, Sie können eine Leistungs-und Kapazitäts Ebene in einer direkte Speicherplätze Konfiguration mit zwei oder drei Knoten erhalten. Sie müssen jedoch sicherstellen, dass Sie über zwei Kapazitäts Geräte verfügen. Dies bedeutet, dass Sie alle drei Arten von Geräten verwenden müssen: Nvme, SSD und HDD.
+Ja, Sie können eine Leistungs-und Kapazitäts Ebene in einer direkte Speicherplätze Konfiguration mit zwei oder drei Knoten erhalten. Sie müssen jedoch sicherstellen, dass Sie über zwei Kapazitäts Geräte verfügen. Dies bedeutet, dass Sie alle drei Arten von Geräten verwenden müssen: nvme, SSD und HDD.
  
 ## <a name="refs-file-system-provides-real-time-tiaring-with-storage-spaces-direct-does-refs-provides-the-same-functionality-with-shared-storage-spaces-in-2016"></a>Das Refs-Dateisystem ermöglicht das tiaring in Echtzeit mit direkte Speicherplätze. Bietet Refs die gleiche Funktionalität wie für freigegebene Speicherplätze in 2016?
 
@@ -42,7 +42,7 @@ Wenn Sie direkte Speicherplätze mithilfe des Cmdlets "Enable-S2D" konfigurieren
  
 ## <a name="is-it-possible-to-add-a-spinning-disk-hdd-to-the-storage-spaces-direct-pool-after-you-have-created-storage-spaces-direct-with-ssd-devices"></a>Ist es möglich, einen spindatenträger (HDD) zum direkte Speicherplätze Pool hinzuzufügen, nachdem Sie direkte Speicherplätze mit SSD-Geräten erstellt haben?
 
-Nein. Wenn Sie zum Erstellen des Pools den einzelnen Gerätetyp verwenden, werden standardmäßig keine Cache Datenträger konfiguriert, und alle Datenträger werden für die Kapazität verwendet. Sie können nvme-Datenträger zur Konfiguration hinzufügen, und nvme-Datenträger werden für den Cache konfiguriert.
+Nein Wenn Sie zum Erstellen des Pools den einzelnen Gerätetyp verwenden, werden standardmäßig keine Cache Datenträger konfiguriert, und alle Datenträger werden für die Kapazität verwendet. Sie können nvme-Datenträger zur Konfiguration hinzufügen, und nvme-Datenträger werden für den Cache konfiguriert.
  
 ## <a name="i-have-configured-a-2-rack-fault-domain-rack-1-has-2-fault-domains-rack-2-has-1-fault-domain-each-server-has-4-capacity-100-gb-devices-can-i-use-all-1200-gb-of-space-from-the-pool"></a>Ich habe eine 2-Rack-Fehler Domäne konfiguriert: Rack 1 hat zwei Fehler Domänen, Rack 2 hat eine Fehler Domäne. Jeder Server verfügt über vier Kapazität 100 GB-Geräte. Kann ich alle 1.200 GB Speicherplatz aus dem Pool verwenden?
 
@@ -58,7 +58,7 @@ Verwenden Sie das integrierte Hilfsprogramm Perfmon, um die Cache Fehler zu übe
  
 ## <a name="is-there-a-calculator-that-shows-the-exact-size-of-the-disks-that-are-being-set-aside-for-cache-capacity-and-resiliency-that-would-enable-me-to-plan-better"></a>Gibt es einen Rechner, der die genaue Größe der Datenträger anzeigt, die für den Cache, die Kapazität und die Resilienz reserviert werden, sodass ich besser planen kann?
 
-Sie können den Speicherplatz Rechner verwenden, um Sie bei der Planung zu unterstützen. Es ist unter http://aka.ms/s2dcalc verfügbar.
+Sie können den Speicherplatz Rechner verwenden, um Sie bei der Planung zu unterstützen. Es ist unter https://aka.ms/s2dcalc verfügbar.
  
 ## <a name="what-is-the-best-configuration-that-you-would-recommend-when-configuring-6-servers-and-3-racks"></a>Was ist die beste Konfiguration, die Sie beim Konfigurieren von 6 Servern und 3 Racks empfehlen sollten?
 

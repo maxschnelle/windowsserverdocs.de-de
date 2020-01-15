@@ -7,12 +7,12 @@ ms.assetid: 6e102c1f-df26-4eaa-bc7a-d0d55d3b82d5
 author: jasongerend
 ms.author: jgerend
 ms.date: 03/27/2018
-ms.openlocfilehash: f7d20a099f287d2ee05ae6e908c173e1eb3cfc66
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fc1799db76f528a599ef70eec5093da0a76206a2
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361845"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948537"
 ---
 # <a name="cluster-operating-system-rolling-upgrade"></a>Paralleles Upgrade des Cluster Betriebssystems
 
@@ -52,7 +52,7 @@ Führen Sie die folgenden Anforderungen aus, bevor Sie mit dem parallelen Upgrad
 - Das Upgrade eines direkte Speicherplätze Clusters auf Windows Server 1709 wird nicht unterstützt.
 - Wenn es sich bei der Cluster Arbeitsauslastung um virtuelle Hyper-V-Computer oder Dateiserver mit horizontaler Skalierung handelt, kann ein Upgrade ohne Ausfallzeiten erwartet werden.
 - Stellen Sie sicher, dass die Hyper-V-Knoten über CPUs verfügen, die die Adressierungs Tabelle (slat) der zweiten Ebene mithilfe einer der folgenden Methoden unterstützen:  
-        -Überprüfen [Sie, dass Sie slat-kompatibel sind? WP8 SDK Tip 01](http://blogs.msdn.com/b/devfish/archive/2012/11/06/are-you-slat-compatible-wp8-sdk-tip-01.aspx) Artikel, in dem zwei Methoden zum überprüfen beschrieben werden, ob eine CPU SLATS unterstützt  
+        -Überprüfen [Sie, dass Sie slat-kompatibel sind? WP8 SDK Tip 01](https://blogs.msdn.com/b/devfish/archive/2012/11/06/are-you-slat-compatible-wp8-sdk-tip-01.aspx) Artikel, in dem zwei Methoden zum überprüfen beschrieben werden, ob eine CPU SLATS unterstützt  
         -Laden Sie das [Coreinfo v 3,31](https://technet.microsoft.com/sysinternals/cc835722) -Tool herunter, um zu ermitteln, ob eine CPU slat unterstützt.
 
 ## <a name="cluster-transition-states-during-cluster-os-rolling-upgrade"></a>Cluster Übergangszustände beim parallelen Upgrade des Cluster Betriebssystems
@@ -254,7 +254,7 @@ Obwohl wir auf Szenarien für die Private Cloud abzielen, insbesondere Hyper-V-u
     Ja, bevor Sie mit dem parallelen Upgrade des Cluster Betriebssystems beginnen, überprüfen Sie, ob alle Cluster Knoten mit den neuesten Software Updates aktualisiert wurden.  
 
 **Kann ich das [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) -Cmdlet ausführen, während Knoten deaktiviert oder angehalten werden?**  
-    Nein. Alle Clusterknoten müssen sich in der aktiven Mitgliedschaft befinden, damit das Cmdlet " [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) " funktioniert.  
+    Nein Alle Clusterknoten müssen sich in der aktiven Mitgliedschaft befinden, damit das Cmdlet " [`Update-ClusterFunctionalLevel`](https://docs.microsoft.com/powershell/module/failoverclusters/Update-ClusterFunctionalLevel?view=win10-ps) " funktioniert.  
 
 **Funktioniert das parallele Upgrade des Cluster Betriebssystems für jede Cluster Arbeitsauslastung? Funktioniert es für SQL Server?**  
     Ja, das parallele Upgrade des Cluster Betriebssystems funktioniert für jede Cluster Arbeitsauslastung. Allerdings ist es für Hyper-V-und Datei Server Cluster mit horizontaler Skalierung nur zu Ausfallzeiten. Bei den meisten anderen Arbeits Auslastungen treten bei einem Failover einige Ausfallzeiten (in der Regel einige Minuten) auf, und ein Failover muss mindestens einmal während des parallelen Upgradevorgangs des Cluster Betriebssystems ausgeführt werden.  
@@ -277,7 +277,7 @@ Obwohl wir auf Szenarien für die Private Cloud abzielen, insbesondere Hyper-V-u
 **Kann ich System Center 2016 Virtual Machine Manager (SCVMM) verwenden, um den parallelen Upgradeprozess für Cluster Betriebssysteme zu automatisieren?**  
     Ja, Sie können das parallele Upgradeverfahren für Cluster Betriebssysteme mithilfe von VMM in System Center 2016 automatisieren.  
 
-## <a name="see-also"></a>Weitere Informationen  
+## <a name="see-also"></a>Weitere Informationen:  
 -   [Anmerkungen zu dieser Version: wichtige Probleme in Windows Server 2016](../get-started/Release-Notes--Important-Issues-in-Windows-Server-2016-Technical-Preview.md)  
 -   [Neuerungen in Windows Server 2016](../get-started/What-s-New-in-windows-server-2016.md)  
 -   [Neues beim Failoverclustering unter Windows Server](whats-new-in-failover-clustering.md)  

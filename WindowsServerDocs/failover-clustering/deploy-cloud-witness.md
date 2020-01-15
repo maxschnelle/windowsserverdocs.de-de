@@ -9,12 +9,12 @@ ms.topic: article
 author: JasonGerend
 ms.date: 01/18/2019
 description: In diesem Abschnitt wird erläutert, wie Sie den Zeugen für einen Windows Server-Failovercluster in der Cloud hosten und wie Sie einen cloudzeugen bereitstellen. Microsoft Azure
-ms.openlocfilehash: 1f38a1a436cfced8637b743817dc1b3d150f7fa6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ad5ff47a72319fee7650d1d9c0d0616cfaaa22d3
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369880"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948178"
 ---
 # <a name="deploy-a-cloud-witness-for-a-failover-cluster"></a>Bereitstellen eines Cloudzeugen für einen Failovercluster
 
@@ -26,7 +26,7 @@ Der cloudzeuge ist ein Failovercluster-Quorum Zeugen, der Microsoft Azure verwen
 
 Abbildung 1 zeigt eine Konfiguration eines Failoverclusters mit mehreren Standorten mit Windows Server 2016. In dieser Beispielkonfiguration (Abbildung 1) gibt es zwei Knoten in zwei Rechenzentren (als Standorte bezeichnet). Beachten Sie, dass sich ein Cluster über mehr als 2 Rechenzentren erstrecken kann. Außerdem kann jedes Rechenzentrum mehr als zwei Knoten aufweisen. Durch eine typische Cluster Quorum Konfiguration in diesem Setup (automatisches Failover-SLA) erhält jeder Knoten eine Stimme. Der Quorum Zeuge erhält eine zusätzliche Stimme, damit der Cluster weiterhin ausgeführt werden kann, selbst wenn eines der Rechenzentren einen Stromausfall hat. Die Mathematik ist einfach: Es sind insgesamt 5 Stimmen vorhanden, und Sie benötigen 3 Stimmen, damit der Cluster weiterhin ausgeführt wird.  
 
-![Dateifreigabe Zeuge an einem dritten separaten Standort mit 2 Knoten in 2 anderen Standorten](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_1.png "Dateifreigabe Zeuge")  
+![Datei frei gaben Zeuge an einem dritten separaten Standort mit zwei Knoten an zwei anderen Standorten](media/Deploy-a-Cloud-Witness-for-a-Failover-Cluster/CloudWitness_1.png "Dateifreigabenzeuge")  
 **Abbildung 1: Verwenden eines Dateifreigabe Zeugen als Quorum Zeugen**  
 
 Bei einem Stromausfall in einem Rechenzentrum wird empfohlen, den Quorum Zeugen an einem anderen Speicherort als den beiden Rechenzentren zu hosten, um dem Cluster in einem anderen Rechenzentrum die gleiche Chance zu geben. Dies bedeutet in der Regel, dass ein drittes separates Daten Center (Standort) zum Hosten eines Dateiservers erforderlich ist, der die Dateifreigabe unterstützt, die als Quorum Zeuge (Dateifreigabe Zeuge) verwendet wird.  
@@ -75,15 +75,15 @@ Wenn Sie das gleiche Azure Storage Konto für die Konfiguration eines cloudzeuge
 
 ### <a name="to-create-an-azure-storage-account"></a>So erstellen Sie ein Azure-Speicherkonto
 
-1. Melden Sie sich beim [Azure-Portal](http://portal.azure.com)an.
-2. Wählen Sie im Menü "Hub" die Option Neu > Daten und Speicher > Speicherkonto aus.
+1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com) an.
+2. Wählen Sie im Hubmenu Neu -> Daten und Speicher -> Speicherkonto.
 3. Gehen Sie auf der Seite Speicherkonto erstellen folgendermaßen vor:
     1. Geben Sie einen Namen für Ihr Speicherkonto ein.
-    <br>Speicherkonto Namen müssen zwischen 3 und 24 Zeichen lang sein und dürfen nur Ziffern und Kleinbuchstaben enthalten. Der Name des Speicher Kontos muss auch innerhalb von Azure eindeutig sein.
+    <br>Speicherkontonamen müssen zwischen 3 und 24 Zeichen lang sein und dürfen nur Zahlen und Kleinbuchstaben enthalten. Der Name des Speicher Kontos muss auch innerhalb von Azure eindeutig sein.
         
     2. Wählen Sie unter **Kontoart**die Option **Allgemein**aus.
     <br>Sie können kein BLOB Storage-Konto für einen cloudzeugen verwenden.
-    3. Wählen Sie für **Leistung**die Option **Standard**aus.
+    3. Wählen Sie für **Leistung** die Option **Standard** aus.
     <br>Azure Storage Premium kann nicht für einen cloudzeugen verwendet werden.
     2. Wählen Sie unter **Replikation**die Option **lokal redundanter Speicher (LRS)** aus.
     <br>Failoverclustering verwendet die BLOB-Datei als Schiedsrichter Punkt. Dies erfordert einige Konsistenz Garantien beim Lesen der Daten. Daher müssen Sie für den **Replikationstyp** den **lokal redundanten Speicher** auswählen.
@@ -172,5 +172,5 @@ Beachten Sie Folgendes, wenn Sie einen cloudzeugen als Quorum Zeugen für Ihren 
 ### <a name="proxy-considerations-with-cloud-witness"></a>Überlegungen zum Proxy mit dem cloudzeugen  
 Der cloudzeuge verwendet HTTPS (Standardport 443), um die Kommunikation mit dem Azure-BLOB-Dienst herzustellen. Stellen Sie sicher, dass der HTTPS-Port über den Netzwerk Proxy zugänglich ist
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 - [Neues beim Failoverclustering unter Windows Server](whats-new-in-failover-clustering.md)

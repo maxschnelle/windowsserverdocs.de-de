@@ -13,12 +13,12 @@ author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 0ca951c5e4c4fcdba06d0b475a7d7536a9c7f91f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4d809ab1bf2a18dff537bf63620623d576c0b25d
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395458"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949884"
 ---
 # <a name="manage-client-access-licenses"></a>Verwalten der Clientzugriffslizenzen
 Jede Station, die eine Verbindung mit einem Multipoint Services-System herstellt, einschließlich des Computers, auf dem Multipoint Services ausgeführt wird und als Station verwendet wird, muss über eine gültige benutzerspezifische Remotedesktop *Client Zugriffslizenz (CAL)* verfügen.
@@ -31,7 +31,7 @@ Wenn Sie virtuelle Station-Desktops anstelle physischer Stationen verwenden, mü
   
 3.  Klicken Sie auf die Registerkarte **Start** , und klicken Sie dann auf **Client Zugriffs Lizenzen hinzufügen**.  Dadurch wird das Verwaltungs Tool für die CAL-Lizenzierung geöffnet.
 
-# <a name="set-the-licensing-mode-manually"></a>Manuelles Festlegen des Lizenzierungs Modus
+## <a name="set-the-licensing-mode-manually"></a>Manuelles Festlegen des Lizenzierungs Modus
 Wenn diese Einstellung nicht ordnungsgemäß konfiguriert ist, wird bei der Einrichtung von Multipoint Services eine Benachrichtigung über den Ablauf der Toleranz Periode angezeigt. Führen Sie diese Schritte aus, um den Lizenzierungs Modus festzulegen:
 
 1. Starten Sie **Editor für lokale Gruppenrichtlinien** (gpeer dit. msc).
@@ -41,12 +41,12 @@ Wenn diese Einstellung nicht ordnungsgemäß konfiguriert ist, wird bei der Einr
 3. Klicken Sie im rechten Bereich mit der rechten Maustaste auf **die angegebenen Remotedesktop Lizenzserver verwenden** , und wählen Sie dann **Bearbeiten**aus:
    - Wählen Sie im Dialogfeld Gruppenrichtlinien-Editor die **Option aktiviert** aus.
    - Geben Sie im Feld **zu verwendende Lizenzserver** den Namen des lokalen Computers ein.
-   - **OK** auswählen
+   - Wählen Sie **OK** aus
   
 4. Klicken Sie im rechten Bereich mit der rechten Maustaste auf **Remotedesktop Lizenzierungs Modus festlegen** , und wählen Sie **Bearbeiten** aus.
    - Wählen Sie im Dialogfeld Gruppenrichtlinien-Editor die **Option aktiviert** aus.
    - Legen Sie den **Lizenzierungs Modus** auf pro Gerät/pro Benutzer fest.
-   - **OK** auswählen 
+   - Wählen Sie **OK** aus 
 
   
 ## <a name="see-also"></a>Siehe auch  

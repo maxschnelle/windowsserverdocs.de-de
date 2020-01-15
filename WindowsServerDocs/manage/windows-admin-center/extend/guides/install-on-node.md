@@ -8,16 +8,16 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: c5c87be882a32958946198eb6ff1b9d7000577e7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3a93a1105862ffbf4fcbd1d23b15d9bcaa6010dc
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385291"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950502"
 ---
 # <a name="install-extension-payload-on-a-managed-node"></a>Installieren der Erweiterungs Nutzlast auf einem verwalteten Knoten
 
->Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center Vorschau
 
 ## <a name="setup"></a>Setup
 > [!NOTE]
@@ -25,14 +25,14 @@ ms.locfileid: "71385291"
 
 Wenn Sie dies noch nicht getan haben, erstellen Sie eine [Tool Erweiterung](../develop-tool.md) für Windows Admin Center. Nachdem Sie dies abgeschlossen haben, notieren Sie sich die Werte, die beim Erstellen einer Erweiterung verwendet wurden:
 
-| Wert | Erläuterung | Beispiel |
+| Value | Erläuterung | Beispiel |
 | ----- | ----------- | ------- |
 | ```{!Company Name}``` | Name Ihres Unternehmens (mit Leerzeichen) | ```Contoso``` |
 | ```{!Tool Name}``` | Ihr Toolname (mit Leerzeichen) | ```InstallOnNode``` |
 
-Erstellen Sie in Ihrem Tool Erweiterungs Ordner einen Ordner "```Node```" (```{!Tool Name}\Node```). Alle Elemente, die in diesem Ordner platziert werden, werden bei Verwendung dieser API auf den verwalteten Knoten kopiert. Fügen Sie alle Dateien hinzu, die für Ihren Anwendungsfall erforderlich sind. 
+Erstellen Sie in Ihrem Tool Erweiterungs Ordner einen ```Node``` Ordner (```{!Tool Name}\Node```). Alle Elemente, die in diesem Ordner platziert werden, werden bei Verwendung dieser API auf den verwalteten Knoten kopiert. Fügen Sie alle Dateien hinzu, die für Ihren Anwendungsfall erforderlich sind. 
 
-Erstellen Sie auch ein ```{!Tool Name}\Node\installNode.ps1```-Skript. Dieses Skript wird auf dem verwalteten Knoten ausgeführt, sobald alle Dateien aus dem Ordner "```{!Tool Name}\Node```" auf den verwalteten Knoten kopiert wurden. Fügen Sie zusätzliche Logik für Ihren Anwendungsfall hinzu. Ein Beispiel ```{!Tool Name}\Node\installNode.ps1```-Datei:
+Erstellen Sie außerdem ein ```{!Tool Name}\Node\installNode.ps1``` Skript. Dieses Skript wird auf dem verwalteten Knoten ausgeführt, sobald alle Dateien aus dem Ordner ```{!Tool Name}\Node``` in den verwalteten Knoten kopiert wurden. Fügen Sie zusätzliche Logik für Ihren Anwendungsfall hinzu. Beispiel ```{!Tool Name}\Node\installNode.ps1``` Datei:
 
 ``` ps1
 # Add logic for installing payload on managed node
@@ -138,13 +138,13 @@ Der letzte Schritt ist das Entwickeln eines nuget-Pakets mit den Dateien, die wi
 
 Wenn Sie noch kein Erweiterungspaket erstellt haben, befolgen Sie das Handbuch zum [Veröffentlichen von Erweiterungen](../publish-extensions.md) . 
 > [!IMPORTANT]
-> In der nuspec-Datei für diese Erweiterung ist es wichtig, dass der ```<id>```-Wert mit dem Namen im ```manifest.json``` Ihres Projekts übereinstimmt und ```<version>``` übereinstimmt, was ```\src\app\default.component.ts``` hinzugefügt wurde. Fügen Sie außerdem einen Eintrag unter ```<files>``` hinzu: 
+> In der nuspec-Datei für diese Erweiterung ist es wichtig, dass der ```<id>``` Wert mit dem Namen in der ```manifest.json``` Ihres Projekts übereinstimmt und der ```<version>``` mit dem ```\src\app\default.component.ts```übereinstimmt. Fügen Sie außerdem einen Eintrag unter ```<files>```hinzu: 
 > 
-> ```<file src="Node\**\*.*" target="Node" />```. installiert haben.
+> ```<file src="Node\**\*.*" target="Node" />```.
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+<package xmlns="https://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>contoso.install-on-node</id>
     <version>1.0.0</version>

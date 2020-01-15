@@ -1,5 +1,5 @@
 ---
-title: Sicherheitsgruppe „Geschützte Benutzer“
+title: Sicherheitsgruppe "Geschützte Benutzer"
 description: Windows Server-Sicherheit
 ms.custom: na
 ms.prod: windows-server
@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 826769c1405648f37c86f97b4b9134871f4d30ed
-ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
+ms.openlocfilehash: 227d66dafffd67b0b2e4f67158498cf43c7b59f8
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791186"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950360"
 ---
-# <a name="protected-users-security-group"></a>Sicherheitsgruppe „Geschützte Benutzer“
+# <a name="protected-users-security-group"></a>Sicherheitsgruppe "Geschützte Benutzer"
 
 > Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Thema für IT-Experten beschreibt die Active Directory-Sicherheitsgruppe „Geschützte Benutzer“ und erklärt deren Funktionsweise. Diese Gruppe wurde in Windows Server 2012 R2-Domänen Controllern eingeführt.
 
-## <a name="BKMK_ProtectedUsers"></a>Übersicht über
+## <a name="BKMK_ProtectedUsers"></a>Übersicht
 
 Diese Sicherheitsgruppe ist als Teil einer Strategie zum Verwalten der Gefährdung von Anmelde Informationen innerhalb des Unternehmens konzipiert. Für Mitglieder dieser Gruppe gilt automatisch nicht konfigurierbarer Schutz für deren Konten. Eine Mitgliedschaft in der Gruppe der geschützten Benutzer bedeutet standardmäßig eine restriktive und proaktive Sicherheit. Die einzige Methode zum Ändern dieses Schutzes für ein Konto ist die Entfernung dieses Kontos aus der Sicherheitsgruppe.
 
@@ -89,7 +89,7 @@ Wenn der angemeldete Benutzer ein Mitglied der Gruppe "geschützte Benutzer" ist
 - Ab Windows 8.1 und Windows Server 2012 R2 werden die nur-Text-Anmelde Informationen des Benutzers von Windows Digest nicht zwischengespeichert, selbst wenn Windows Digest aktiviert ist.
 
 > [!Note]
-> Nach der Installation der [Microsoft-Sicherheitsempfehlung 2871997](https://technet.microsoft.com/library/security/2871997) werden die Anmelde Informationen von Windows Digest weiterhin zwischengespeichert, bis der Registrierungsschlüssel konfiguriert wurde. Weitere Informationen finden [Sie unter Microsoft-Sicherheitsempfehlung: Update zum Verbessern von Anmelde Informationen Schutz und Verwaltung: 13. Mai 2014](https://support.microsoft.com/en-us/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a) .
+> Nach der Installation der [Microsoft-Sicherheitsempfehlung 2871997](https://technet.microsoft.com/library/security/2871997) werden die Anmelde Informationen von Windows Digest weiterhin zwischengespeichert, bis der Registrierungsschlüssel konfiguriert wurde. Weitere Informationen finden [Sie unter Microsoft-Sicherheitsempfehlung: Update zum Verbessern von Anmelde Informationen Schutz und Verwaltung: 13. Mai 2014](https://support.microsoft.com/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a) .
 
 - NTLM speichert nicht die nur-Text-Anmelde Informationen des Benutzers oder die unidirektionale NT-Funktion (ntowf).
 
@@ -110,9 +110,9 @@ Konten, die Mitglieder der Gruppe der geschützten Benutzer sind, die sich bei e
 
 - Erneuern der Kerberos-TGTs außerhalb der ursprünglichen Lebensdauer von vier Stunden.
 
-Nicht konfigurierbare Einstellungen zum Ablauf von TGTs werden für jedes Konto in der Gruppe der geschützten Benutzer eingerichtet. Normalerweise legt der Domänencontroller die Lebensdauer und Erneuerung der TGTs basierend auf den Domänenrichtlinien fest, **Max. Gültigkeitsdauer des Benutzertickets** und **Max. Zeitraum, in dem ein Benutzerticket erneuert werden kann**. Für die Gruppe der geschützten Benutzer ist 600 Minuten für diese Domänenrichtlinien eingestellt.
+Nicht konfigurierbare Einstellungen zum Ablauf von TGTs werden für jedes Konto in der Gruppe der geschützten Benutzer eingerichtet. Normalerweise legt der Domänencontroller die Lebensdauer und Erneuerung der TGTs basierend auf den Domänenrichtlinien fest, **Max. Gültigkeitsdauer des Benutzertickets** und **Max. Zeitraum, in dem ein Benutzerticket erneuert werden kann**. Für die Gruppe der geschützten Benutzer ist 600 Minuten für diese Domänenrichtlinien eingestellt.
 
-Weitere Informationen finden Sie unter [Konfigurieren geschützter Konten](how-to-configure-protected-accounts.md).
+Weitere Informationen finden Sie unter [How to Configure Protected Accounts](how-to-configure-protected-accounts.md).
 
 ## <a name="troubleshooting"></a>Fehlerbehebung
 Es gibt zwei betriebliche Administrativprotokolle für die Fehlerbehebung von Ereignissen hinsichtlich geschützter Benutzer. Diese neuen Protokolle befinden sich in der Ereignisanzeige und sind standardmäßig deaktiviert. Sie finden Sie unter **Anwendungs- und Dienstprotokolle\Microsoft\Windows\Microsoft\Authentifizierung**.

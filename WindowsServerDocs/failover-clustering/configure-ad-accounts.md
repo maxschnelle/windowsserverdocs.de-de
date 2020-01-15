@@ -6,12 +6,12 @@ ms.technology: storage-failover-clustering
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 8a540361cdd07f6adfc1c929d77c510ef8433d6d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 47f3a515379eb79f628a0ee97ef2c7965c4d8d50
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369893"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948154"
 ---
 # <a name="configuring-cluster-accounts-in-active-directory"></a>Konfigurieren von Clusterkonten in Active Directory
 
@@ -47,19 +47,19 @@ In der folgenden Tabelle werden die erforderlichen Berechtigungen für diese Kon
 </colgroup>
 <thead>
 <tr class="header">
-<th>Konto</th>
+<th>„Konto“</th>
 <th>Details zu Berechtigungen</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><p>Konto zum Erstellen des Clusters</p></td>
-<td><p>Erfordert Administratorberechtigungen für die Server, die Clusterknoten werden. Benötigt außerdem die Berechtigung zum <strong>Erstellen von Computerobjekten</strong> und die Berechtigung zum <strong>Lesen aller Eigenschaften</strong> in dem Container, der in der Domäne für Computerkonten verwendet wird.</p></td>
+<td><p>Erfordert Administratorberechtigungen für die Server, die Clusterknoten werden. Benötigt außerdem die Berechtigung zum Erstellen von Computerobjektenund die Berechtigung zum Lesen aller Eigenschaftenin dem Container, der in der Domäne für Computerkonten verwendet wird.</p></td>
 </tr>
 <tr class="even">
 <td><p>Clusternamenkonto (Computerkonto des Clusters)</p></td>
 <td><p>Wenn der Clustererstellungs-Assistent ausgeführt wird, erstellt er das Clusternamenkonto in dem Standardcontainer, der in der Domäne für Computerkonten verwendet wird. Standardmäßig kann das Clusternamenkonto (wie andere Computerkonten) bis zu zehn Computerkonten in der Domäne erstellen.</p>
-<p>Wenn Sie das Clusternamenkonto (Clusternamenobjekt) erstellen, bevor Sie den Cluster erstellen, das Konto also vorab bereitstellen, müssen Sie diesem die Berechtigungen zum <strong>Erstellen von Computerobjekten</strong> und zum <strong>Lesen aller Eigenschaften</strong> in dem Container erteilen, der in der Domäne für Computerkonten verwendet wird. Sie müssen das Konto außerdem deaktivieren und dem Konto <strong>Vollzugriff</strong> erteilen, das von dem Administrator verwendet wird, der den Cluster installiert. Weitere Informationen finden Sie weiter unten in dieser Anleitung unter <a href="#steps-for-prestaging-the-cluster-name-account" data-raw-source="[Steps for prestaging the cluster name account](#steps-for-prestaging-the-cluster-name-account)">Schritte für die Vorabbereitstellung des Clusternamenkontos</a>.</p></td>
+<p>Wenn Sie das Clusternamenkonto (Clusternamenobjekt) erstellen, bevor Sie den Cluster erstellen, das Konto also vorab bereitstellen, müssen Sie diesem die Berechtigungen zum Erstellen von Computerobjektenund zum Lesen aller Eigenschaftenin dem Container erteilen, der in der Domäne für Computerkonten verwendet wird. Sie müssen das Konto außerdem deaktivieren und dem Konto <strong>Vollzugriff</strong> erteilen, das von dem Administrator verwendet wird, der den Cluster installiert. Weitere Informationen finden Sie weiter unten in dieser Anleitung unter <a href="#steps-for-prestaging-the-cluster-name-account" data-raw-source="[Steps for prestaging the cluster name account](#steps-for-prestaging-the-cluster-name-account)">Schritte für die Vorabbereitstellung des Clusternamenkontos</a>.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Computerkonto eines geclusterten Diensts oder einer geclusterten Anwendung</p></td>
@@ -81,7 +81,7 @@ Im folgenden Diagramm werden die Verwendung und die Erstellung von Computerkonte
 
 ![](media/configure-ad-accounts/Cc731002.e8a7686c-9ba8-4ddf-87b1-175b7b51f65d(WS.10).gif)
 
-Beachten Sie, dass im oben dargestellten Diagramm ein einzelner Administrator sowohl den Clustererstellungs-Assistenten als auch den Assistenten für hohe Verfügbarkeit ausführt. Dies können jedoch auch zwei verschiedene Administratoren sein, die zwei verschiedene Benutzerkonten verwenden, sofern beide Konten über ausreichende Berechtigungen verfügen. Die Berechtigungen werden in den Anforderungen im Zusammenhang mit Failoverclustern, Active Directory Domänen und Konten weiter unten in diesem Handbuch ausführlich beschrieben.
+Beachten Sie, dass im oben dargestellten Diagramm ein einzelner Administrator sowohl den Clustererstellungs-Assistenten als auch den Assistenten für hohe Verfügbarkeit ausführt. Dies können jedoch auch zwei verschiedene Administratoren sein, die zwei verschiedene Benutzerkonten verwenden, sofern beide Konten über ausreichende Berechtigungen verfügen. Die Berechtigungen werden weiter unten in dieser Anleitung unter Anforderungen für Failovercluster, Active Directory-Domänen und Konten ausführlicher beschrieben.
 
 ### <a name="how-problems-can-result-if-accounts-needed-by-the-cluster-are-changed"></a>Probleme, die sich durch Änderungen an den vom Cluster benötigten Konten ergeben können
 
@@ -89,7 +89,7 @@ Im folgenden Diagramm wird veranschaulicht, wie sich Probleme ergeben können, w
 
 ![](media/configure-ad-accounts/Cc731002.beecc4f7-049c-4945-8fad-2cceafd6a4a5(WS.10).gif)
 
-Wenn die im Diagramm gezeigte Art von Problem auftritt, wird ein bestimmtes Ereignis (1193, 1194, 1206 oder 1207) in der Ereignisanzeige protokolliert. Weitere Informationen zu diesen Ereignissen finden [http://go.microsoft.com/fwlink/?LinkId=118271](http://go.microsoft.com/fwlink/?linkid=118271)Sie unter.
+Wenn die im Diagramm gezeigte Art von Problem auftritt, wird ein bestimmtes Ereignis (1193, 1194, 1206 oder 1207) in der Ereignisanzeige protokolliert. Weitere Informationen zu diesen Ereignissen finden Sie unter [https://go.microsoft.com/fwlink/?LinkId=118271](https://go.microsoft.com/fwlink/?linkid=118271).
 
 Beachten Sie, dass ein ähnliches Problem mit dem Erstellen eines Kontos für einen geclusterten Dienst oder eine geclusterte Anwendung auftreten kann, wenn das domänenweite Kontingent für das Erstellen von Computerobjekten (standardmäßig 10) erreicht wurde. Wenn dies der Fall ist, könnte es sinnvoll sein, sich an den Domänenadministrator zu wenden, damit dieser das Kontingent erhöht, obwohl dies eine domänenweite Einstellung ist und nur nach gründlicher Überlegung geändert werden sollte. Außerdem sollten Sie sich erst vergewissern, dass im vorstehenden Diagramm nicht Ihre Situation beschrieben wird. Weitere Informationen finden Sie weiter unten in dieser Anleitung unter [Schritte zum Beheben von Problemen, die durch Änderungen an clusterbezogenen Active Directory-Konten verursacht wurden](#steps-for-troubleshooting-problems-caused-by-changes-in-cluster-related-active-directory-accounts).
 
@@ -97,7 +97,7 @@ Beachten Sie, dass ein ähnliches Problem mit dem Erstellen eines Kontos für ei
 
 Wie in den vorausgehenden drei Abschnitten beschrieben, müssen bestimmte Anforderungen erfüllt sein, bevor geclusterte Dienste und Anwendungen auf einem Failovercluster erfolgreich konfiguriert werden können. Die grundlegendsten Anforderungen betreffen den Speicherort von Clusterknoten (innerhalb einer einzigen Domäne) und die Berechtigungsstufe des Kontos für die Person, die den Cluster installiert. Wenn diese Anforderungen erfüllt sind, können die anderen vom Cluster benötigten Konten von den Failovercluster-Assistenten automatisch erstellt werden. In der folgenden Liste werden Details zu diesen grundlegenden Anforderungen aufgeführt.
 
-  - **Knoten** Alle Knoten müssen sich in derselben Active Directory-Domäne befinden. (Die Domäne kann nicht auf Windows NT 4.0 basieren, das kein Active Directory einschließt.)  
+  - **Knoten:** Alle Knoten müssen sich in der gleichen Active Directory Domäne befinden. (Die Domäne kann nicht auf Windows NT 4.0 basieren, das kein Active Directory einschließt.)  
       
   - **Konto der Person, die den Cluster installiert:** Die Person, die den Cluster installiert, muss ein Konto mit den folgenden Eigenschaften verwenden:  
       
@@ -105,7 +105,7 @@ Wie in den vorausgehenden drei Abschnitten beschrieben, müssen bestimmte Anford
           
       - Das Konto muss über Administratorberechtigungen für die Server verfügen, die Clusterknoten werden sollen. Die einfachste Möglichkeit, diese Bedingung zu erfüllen, besteht darin, ein Domänenbenutzerkonto zu erstellen und dieses Konto anschließend der lokalen Gruppe Administratoren auf jedem Server hinzuzufügen, der ein Clusterknoten werden soll. Weitere Informationen finden Sie weiter unten in dieser Anleitung unter [Schritte zum Konfigurieren des Kontos für die Person, die den Cluster installiert](#steps-for-configuring-the-account-for-the-person-who-installs-the-cluster).  
           
-      - Dem Konto (oder der Gruppe, deren Mitglied das Konto ist) müssen die Berechtigungen zum **Erstellen von Computerobjekten** und zum **Lesen aller Eigenschaften** in dem Container erteilt werden, der in der Domäne für Computerkonten verwendet wird. Weitere Informationen finden Sie weiter unten in dieser Anleitung unter [Schritte zum Konfigurieren des Kontos für die Person, die den Cluster installiert](#steps-for-configuring-the-account-for-the-person-who-installs-the-cluster).  
+      - Dem Konto (oder der Gruppe, deren Mitglied das Konto ist) müssen die Berechtigungen zum Erstellen von Computerobjektenund zum Lesen aller Eigenschaftenin dem Container erteilt werden, der in der Domäne für Computerkonten verwendet wird. Weitere Informationen finden Sie weiter unten in dieser Anleitung unter [Schritte zum Konfigurieren des Kontos für die Person, die den Cluster installiert](#steps-for-configuring-the-account-for-the-person-who-installs-the-cluster).  
           
       - Wenn die Organisation sich dafür entscheidet, das Clusternamenkonto (ein Computerkonto mit dem gleichen Namen wie der Cluster) vorab bereitzustellen, muss das vorab bereitgestellte Clusternamenkonto dem Konto der Person, die den Cluster installiert, die Berechtigung "Vollzugriff" erteilen. Weitere wichtige Details zur Vorabbereitstellung des Clusternamenkontos finden Sie weiter unten in dieser Anleitung unter [Schritte für die Vorabbereitstellung des Clusternamenkontos](#steps-for-prestaging-the-cluster-name-account).  
           
@@ -118,13 +118,13 @@ Die Administratoren von Failoverclustern müssen möglicherweise manchmal das Ke
 
 Das Konto der Person, die den Cluster installiert, ist wichtig, da es die Grundlage bereitstellt, auf der ein Computerkonto für den Cluster erstellt wird.
 
-Die zum Ausführen des folgenden Verfahrens minimal erforderliche Gruppenmitgliedschaft ist davon abhängig, ob Sie das Domänenkonto erstellen und ihm die erforderlichen Berechtigungen in der Domäne zuweisen oder ob Sie das (von jemand anderem erstellte) Konto lediglich der lokalen Gruppe **Administratoren** auf den Servern hinzufügen, die Knoten im Failovercluster werden sollen. Wenn die erste, die Mitgliedschaft in **Konto Operatoren** oder einer entsprechenden Gruppe, mindestens erforderlich ist, um dieses Verfahren abzuschließen. Im zweiten Fall ist lediglich die Mitgliedschaft in der lokalen Gruppe **Administratoren** auf den Servern, die Knoten im Failovercluster werden sollen, oder eine gleichwertige Mitgliedschaft erforderlich. Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden [http://go.microsoft.com/fwlink/?LinkId=83477](http://go.microsoft.com/fwlink/?linkid=83477)Sie unter.
+Die zum Ausführen des folgenden Verfahrens minimal erforderliche Gruppenmitgliedschaft ist davon abhängig, ob Sie das Domänenkonto erstellen und ihm die erforderlichen Berechtigungen in der Domäne zuweisen oder ob Sie das (von jemand anderem erstellte) Konto lediglich der lokalen Gruppe **Administratoren** auf den Servern hinzufügen, die Knoten im Failovercluster werden sollen. Wenn die erste, die Mitgliedschaft in **Konto Operatoren** oder einer entsprechenden Gruppe, mindestens erforderlich ist, um dieses Verfahren abzuschließen. Im zweiten Fall ist lediglich die Mitgliedschaft in der lokalen Gruppe **Administratoren** auf den Servern, die Knoten im Failovercluster werden sollen, oder eine gleichwertige Mitgliedschaft erforderlich. Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [https://go.microsoft.com/fwlink/?LinkId=83477](https://go.microsoft.com/fwlink/?linkid=83477).
 
 #### <a name="to-configure-the-account-for-the-person-who-installs-the-cluster"></a>So konfigurieren Sie das Konto für die Person, die den Cluster installiert
 
 1.  Erstellen Sie ein Domänenkonto für die Person, die den Cluster installiert, oder rufen Sie es ab. Bei diesem Konto kann es sich um ein Domänen Benutzerkonto oder um ein **Konto Operator** Konto handeln. Wenn Sie ein Standardbenutzer Konto verwenden, müssen Sie diesem später in diesem Verfahren einige zusätzliche Berechtigungen einräumen.
 
-2.  Wenn das in Schritt 1 erstellte oder abgerufene Konto nicht automatisch in der lokalen Gruppe **Administratoren** auf den Computern in der Domäne enthalten ist, fügen Sie das Konto der lokalen Gruppe **Administratoren** auf den Servern hinzu, die als Knoten im Failover verwendet werden sollen. Kombi
+2.  Wenn das in Schritt 1 erstellte oder abgerufene Konto nicht automatisch in der lokalen Gruppe **Administratoren** auf den Computern in der Domäne enthalten ist, fügen Sie das Konto der lokalen Gruppe **Administratoren** auf den Servern hinzu, die als Knoten im Failovercluster verwendet werden sollen:
     
     1.  Klicken Sie auf **Start**, klicken Sie auf **Verwaltung**, und klicken Sie dann auf **Server-Manager**.  
           
@@ -141,7 +141,7 @@ Die zum Ausführen des folgenden Verfahrens minimal erforderliche Gruppenmitglie
 <br>
 
 
-3. Wenn das in Schritt 1 erstellte oder abgerufene Konto ein Domänenadministratorkonto ist, überspringen Sie den Rest dieses Verfahrens. Erteilen Sie andernfalls dem Konto die Berechtigungen zum **Erstellen von Computerobjekten** und zum **Lesen aller Eigenschaften** in dem Container, der in der Domäne für Computerkonten verwendet wird:
+3. Wenn das in Schritt 1 erstellte oder abgerufene Konto ein Domänenadministratorkonto ist, überspringen Sie den Rest dieses Verfahrens. Erteilen Sie andernfalls dem Konto die Berechtigungen zum Erstellen von Computerobjektenund zum Lesen aller Eigenschaftenin dem Container, der in der Domäne für Computerkonten verwendet wird:
     
    1.  Klicken Sie auf einem Domänencontroller auf **Start**, auf **Verwaltung** und dann auf **Active Directory-Benutzer und -Computer**. Wenn das Dialogfeld **Benutzerkontensteuerung** eingeblendet wird, bestätigen Sie die angegebene Aktion und klicken dann auf **Weiter**.  
           
@@ -163,7 +163,7 @@ Die zum Ausführen des folgenden Verfahrens minimal erforderliche Gruppenmitglie
 
 Es ist normalerweise einfacher, wenn Sie das Clusternamenkonto nicht vorab bereitstellen, sondern das Konto beim Ausführen des Clustererstellungs-Assistenten automatisch erstellen und konfigurieren lassen. Wenn es jedoch aufgrund der Anforderungen in Ihrer Organisation notwendig ist, das Clusternamenkonto vorab bereitzustellen, verwenden Sie das folgende Verfahren.
 
-Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können. Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden [http://go.microsoft.com/fwlink/?LinkId=83477](http://go.microsoft.com/fwlink/?linkid=83477)Sie unter. Beachten Sie, dass Sie das gleiche Konto wie beim Erstellen des Clusters für dieses Verfahren verwenden können.
+Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können. Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [https://go.microsoft.com/fwlink/?LinkId=83477](https://go.microsoft.com/fwlink/?linkid=83477). Beachten Sie, dass Sie das gleiche Konto wie beim Erstellen des Clusters für dieses Verfahren verwenden können.
 
 #### <a name="to-prestage-a-cluster-name-account"></a>So stellen Sie ein Clusternamenkonto vorab bereit
 
@@ -179,7 +179,7 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entspr
 
 6.  Klicken Sie mit der rechten Maustaste auf das Konto, das Sie gerade erstellt haben, und klicken Sie dann auf **Konto deaktivieren**. Wenn Sie zur Bestätigung Ihrer Auswahl aufgefordert werden, klicken Sie auf **Ja**.
     
-    Das Konto muss deaktiviert werden, damit beim Ausführen des **Clustererstellungs-Assistenten** sichergestellt ist, dass das für den Cluster verwendete Konto nicht gerade von einem vorhandenen Computer oder Cluster in der Domäne verwendet wird.
+    Das Konto muss deaktiviert werden, damit beim Ausführen des Clustererstellungs-Assistenten sichergestellt ist, dass das für den Cluster verwendete Konto nicht gerade von einem vorhandenen Computer oder Cluster in der Domäne verwendet wird.
 
 7.  Stellen Sie sicher, dass im Menü **Ansicht** die Option **Erweiterte Funktionen** ausgewählt ist.
     
@@ -215,7 +215,7 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entspr
 
 Es ist normalerweise einfacher, wenn Sie das Computerkonto für einen geclusterten Dienst oder eine geclusterte Anwendung nicht vorab bereitstellen, sondern das Konto beim Ausführen des Assistenten für hohe Verfügbarkeit automatisch erstellen und konfigurieren lassen. Wenn es jedoch aufgrund der Anforderungen in Ihrer Organisation notwendig ist, Konten vorab bereitzustellen, verwenden Sie das folgende Verfahren.
 
-Sie müssen mindestens Mitglied der Gruppe **Konten-Operatoren** oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können. Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden [http://go.microsoft.com/fwlink/?LinkId=83477](http://go.microsoft.com/fwlink/?linkid=83477)Sie unter.
+Sie müssen mindestens Mitglied der Gruppe **Konten-Operatoren** oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können. Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [https://go.microsoft.com/fwlink/?LinkId=83477](https://go.microsoft.com/fwlink/?linkid=83477).
 
 #### <a name="to-prestage-an-account-for-a-clustered-service-or-application"></a>So stellen Sie ein Konto für einen geclusterten Dienst oder eine geclusterte Anwendung vorab bereit
 
@@ -260,9 +260,9 @@ Verwenden Sie dieses Verfahren, wenn eine Ereignismeldung zu Computerobjekten od
 
 Ereignismeldungen, die der vorstehenden Beschreibung entsprechen, geben an, dass das Kennwort für das Clusternamenkonto und das entsprechende von der Clustersoftware gespeicherte Kennwort nicht mehr übereinstimmen.
 
-Informationen dazu, wie Sie sicherstellen können, dass Cluster Administratoren über die erforderlichen Berechtigungen zum Ausführen des folgenden Verfahrens verfügen, finden Sie weiter oben in diesem Handbuch unter Planning Ahead for Password setzt and other Account Maintenance.
+Informationen zum Sicherstellen, dass Clusteradministratoren die erforderlichen Berechtigungen haben, das folgende Verfahren ordnungsgemäß auszuführen, finden Sie weiter oben in dieser Anleitung unter Vorausplanung für Kennwortzurücksetzungen und andere Kontowartungsmaßnahmen.
 
-Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der lokalen Gruppe **Administratoren** oder eine gleichwertige Mitgliedschaft. Außerdem muss Ihr Konto über die Berechtigung **Kennwort zurücksetzen** für das Clusternamenkonto verfügen (es sei denn, das Konto ist ein **Domänen-Admins**-Konto oder Ersteller-Besitzer des Clusternamenkontos). Das Konto, das von der Person verwendet wurde, die den Cluster installiert hat, kann für dieses Verfahren verwendet werden. Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden [http://go.microsoft.com/fwlink/?LinkId=83477](http://go.microsoft.com/fwlink/?linkid=83477)Sie unter.
+Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der lokalen Gruppe **Administratoren** oder eine gleichwertige Mitgliedschaft. Außerdem muss Ihr Konto über die Berechtigung **Kennwort zurücksetzen** für das Clusternamenkonto verfügen (es sei denn, das Konto ist ein **Domänen-Admins**-Konto oder Ersteller-Besitzer des Clusternamenkontos). Das Konto, das von der Person verwendet wurde, die den Cluster installiert hat, kann für dieses Verfahren verwendet werden. Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [https://go.microsoft.com/fwlink/?LinkId=83477](https://go.microsoft.com/fwlink/?linkid=83477).
 
 #### <a name="to-troubleshoot-password-problems-with-the-cluster-name-account"></a>So beheben Sie Kennwortprobleme mit dem Clusternamenkonto
 
@@ -276,9 +276,9 @@ Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der
 
 ### <a name="steps-for-troubleshooting-problems-caused-by-changes-in-cluster-related-active-directory-accounts"></a>Schritte zum Beheben von Problemen, die durch Änderungen an clusterbezogenen Active Directory-Konten verursacht wurden
 
-Wenn das Clusternamenkonto gelöscht wird oder dem Konto Berechtigungen entzogen werden, treten Probleme auf, wenn Sie einen neuen geclusterten Dienst oder eine neue geclusterte Anwendung konfigurieren. Sie können ein Problem, das möglicherweise auf diese Ursache zurückzuführen ist, beheben, indem Sie mithilfe des Snap-Ins "Active Directory-Benutzer und -Computer" das Clusternamenkonto und andere zugehörige Konten anzeigen bzw. ändern. Informationen zu den Ereignissen, die protokolliert werden, wenn diese Art von Problem auftritt (Ereignis 1193, 1194, 1206 oder 1207), finden [http://go.microsoft.com/fwlink/?LinkId=118271](http://go.microsoft.com/fwlink/?linkid=118271)Sie unter.
+Wenn das Clusternamenkonto gelöscht wird oder dem Konto Berechtigungen entzogen werden, treten Probleme auf, wenn Sie einen neuen geclusterten Dienst oder eine neue geclusterte Anwendung konfigurieren. Sie können ein Problem, das möglicherweise auf diese Ursache zurückzuführen ist, beheben, indem Sie mithilfe des Snap-Ins "Active Directory-Benutzer und -Computer" das Clusternamenkonto und andere zugehörige Konten anzeigen bzw. ändern. Informationen zu den Ereignissen, die protokolliert werden, wenn diese Art von Problem auftritt (Ereignis 1193, 1194, 1206 oder 1207), finden Sie unter [https://go.microsoft.com/fwlink/?LinkId=118271](https://go.microsoft.com/fwlink/?linkid=118271).
 
-Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können. Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden [http://go.microsoft.com/fwlink/?LinkId=83477](http://go.microsoft.com/fwlink/?linkid=83477)Sie unter.
+Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können. Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [https://go.microsoft.com/fwlink/?LinkId=83477](https://go.microsoft.com/fwlink/?linkid=83477).
 
 #### <a name="to-troubleshoot-problems-caused-by-changes-in-cluster-related-active-directory-accounts"></a>So beheben Sie Probleme, die durch Änderungen an clusterbezogenen Active Directory-Konten verursacht wurden
 

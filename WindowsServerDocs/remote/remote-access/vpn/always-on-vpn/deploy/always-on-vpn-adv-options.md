@@ -10,12 +10,12 @@ ms.author: pashort, v-tea
 author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: d186946c0d4490201b7989ba8d418f9c667aa6e4
-ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
+ms.openlocfilehash: 73d64cd143b7bbd13e0eb9bb5fadfbb1e7c65416
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74945320"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950445"
 ---
 # <a name="advanced-features-of-always-on-vpn"></a>Erweiterte Features von Always on-VPN
 
@@ -121,7 +121,7 @@ Um die Zertifikat Sperrung für diese VPN-Verbindungen zu deaktivieren, legen Si
    Event ID:      41  
    ...  
    Event Xml:
-   <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+   <Event xmlns="https://schemas.microsoft.com/win/2004/08/events/event">
     <UserData>  
      <CertVerifyRevocation>  
       <Certificate fileRef="C97AE73E9823E8179903E81107E089497C77A720.cer" subjectName="client01.corp.contoso.com" />  
@@ -146,7 +146,7 @@ Weitere Informationen zum TPM-Schlüssel Nachweis in Windows 10 finden Sie unter
 
 [Planen der Always on-VPN-Bereitstellung](always-on-vpn-deploy-planning.md): führen Sie vor der Installation der Remote Zugriffs-Server Rolle auf dem Computer, den Sie als VPN-Server verwenden möchten, die folgenden Aufgaben aus. Nach der entsprechenden Planung können Sie Always on VPN bereitstellen und optional den bedingten Zugriff für VPN-Konnektivität mithilfe Azure AD konfigurieren.  
 
-## <a name="related-topics"></a>Verwandte Themen
+## <a name="related-topics"></a>Zugehörige Themen
 - [NPS-Proxy Server-Lastenausgleich](../../../../../networking/technologies/nps/nps-manage-proxy-lb.md): Remote Authentication Dial-in User Service (RADIUS)-Clients, bei denen es sich um Netzwerk Zugriffs Server wie VPN-Server (virtuelles privates Netzwerk) und drahtlos Zugriffspunkte handelt, erstellen Sie Verbindungsanforderungen und senden diese an RADIUS-Server wie z. b. NPS. In einigen Fällen kann ein NPS-Server zu viele Verbindungsanforderungen gleichzeitig empfangen, was zu einer Beeinträchtigung der Leistung oder einer Überlastung führt.
 
 - [Übersicht über Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview): dieses Thema bietet einen Überblick über Azure Traffic Manager, mit dem Sie die Verteilung von Benutzer Datenverkehr für Dienst Endpunkte steuern können. Traffic Manager verwendet das Domain Name System (DNS), um Clientanforderungen auf der Grundlage einer Datenverkehrsrouting-Methode und der Integrität der Endpunkte an den optimalen Endpunkt weiterzuleiten. 

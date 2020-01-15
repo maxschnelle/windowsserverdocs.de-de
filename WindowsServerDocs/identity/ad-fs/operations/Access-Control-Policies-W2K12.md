@@ -9,12 +9,12 @@ ms.date: 06/05/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 517582661374c388d44362538da6933a916b0039
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7ae66fd47953017652ed1e753279e344e0a6c478
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407758"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949412"
 ---
 # <a name="access-control-policies-in-windows-server-2012-r2-and-windows-server-2012-ad-fs"></a>Access Control Richtlinien in Windows Server 2012 R2 und Windows Server 2012 AD FS
 
@@ -41,11 +41,11 @@ Aktualisieren Sie zum Beheben von Richtlinien, die auf Grundlage des Endpunkt An
 
 Beispielsweise die folgende Regel:
 
-`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
 
 wird aktualisiert in:
 
-`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "(/adfs/ls/)|(/adfs/services/trust/2005/windowstransport)|(/adfs/services/trust/13/windowstransport)|(/adfs/services/trust/2005/usernamemixed)|(/adfs/services/trust/13/usernamemixed)|(/adfs/services/trust/2005/certificatemixed)|(/adfs/services/trust/13/certificatemixed)"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "(/adfs/ls/)|(/adfs/services/trust/2005/windowstransport)|(/adfs/services/trust/13/windowstransport)|(/adfs/services/trust/2005/usernamemixed)|(/adfs/services/trust/13/usernamemixed)|(/adfs/services/trust/2005/certificatemixed)|(/adfs/services/trust/13/certificatemixed)"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`
 
 
 
@@ -80,14 +80,14 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 4.  Wählen Sie auf der Seite **Regel Vorlage auswählen** unter **Anspruchs Regel Vorlage**die Option **Ansprüche mithilfe einer benutzerdefinierten Regel senden**aus, und klicken Sie dann auf **weiter**.  
 
 5.  Geben Sie auf der Seite **Regel konfigurieren** unter **Anspruchs Regel Name**den anzeigen Amen für diese Regel ein, z. b. Wenn ein IP-Anspruch außerhalb des gewünschten Bereichs vorhanden ist. Geben Sie unter **benutzerdefinierte Regel**die folgende Syntax der Anspruchs Regel Sprache ein, oder fügen Sie Sie ein (ersetzen Sie den obigen Wert für "x-ms-weitergeleitete Client-IP" durch einen gültigen IP-Ausdruck):  
-`c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");` </br>
+`c1:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");` </br>
 6.  Klicken Sie auf **Fertig stellen**. Vergewissern Sie sich, dass die neue Regel in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird, bevor Sie die Standardregel **für den Zugriff auf alle Benutzer zulassen** (die Ablehnungs Regel hat Vorrang, auch wenn Sie zuvor in der Liste angezeigt wird).  Wenn Sie nicht über die Standardregel für das Zulassen von Zugriffsberechtigungen verfügen, können Sie am Ende der Liste mit der Anspruchs Regel Sprache wie folgt eine hinzufügen:  </br>
 
-    `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true"); ` 
+    `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true"); ` 
 
 7.  Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf **OK**, um die neuen Regeln zu speichern. Die resultierende Liste sollte wie folgt aussehen.  
 
-     ![Regeln]für Ausstellungs Authentifizierung(media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1")  
+     ![Regeln für die Ausstellungs Authentifizierung](media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1")  
 
 ###  <a name="scenario2"></a>Szenario 2: Blockieren des gesamten externen Zugriffs auf Office 365 mit Ausnahme von Exchange ActiveSync  
  Im folgenden Beispiel wird der Zugriff auf alle Office 365-Anwendungen einschließlich Exchange Online von internen Clients einschließlich Outlook ermöglicht. Der Zugriff von Clients, die sich außerhalb des Unternehmensnetzwerks befinden, wird durch die Client-IP-Adresse, mit Ausnahme von Exchange ActiveSync-Clients wie Smartphones, blockiert.  
@@ -104,7 +104,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 5.  Geben Sie auf der Seite **Regel konfigurieren** unter **Anspruchs Regel Name**den anzeigen Amen für diese Regel ein, z. b. Wenn ein IP-Anspruch außerhalb des gewünschten Bereichs vorhanden ist, geben Sie den ipoutsiderange-Anspruch aus. Geben Sie unter **benutzerdefinierte Regel**die folgende Syntax der Anspruchs Regel Sprache ein, oder fügen Sie Sie ein (ersetzen Sie den obigen Wert für "x-ms-weitergeleitete Client-IP" durch einen gültigen IP-Ausdruck):  
 
-    `c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
+    `c1:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
 
 6.  Klicken Sie auf **Fertig stellen**. Vergewissern Sie sich, dass die neue Regel in der Liste Ausstellungs **Autorisierungs Regeln** angezeigt wird.  
 
@@ -116,7 +116,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 
 ~~~
-`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value != "Microsoft.Exchange.ActiveSync"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value != "Microsoft.Exchange.ActiveSync"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
 ~~~
 
 10. Klicken Sie auf **Fertig stellen**. Vergewissern Sie sich, dass die neue Regel in der Liste Ausstellungs **Autorisierungs Regeln** angezeigt wird.  
@@ -128,7 +128,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 13. Geben Sie auf der Seite **Regel konfigurieren** unter **Anspruchs Regel Name**den anzeigen Amen für diese Regel ein, z. b. "überprüfen, ob Anwendungs Anspruch vorhanden ist". Geben oder fügen Sie unter **benutzerdefinierte Regel**die folgende Syntax der Anspruchs Regel Sprache ein:  
 
    ```  
-   NOT EXISTS([Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application"]) => add(Type = "http://custom/xmsapplication", Value = "fail");  
+   NOT EXISTS([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application"]) => add(Type = "http://custom/xmsapplication", Value = "fail");  
    ```  
 
 14. Klicken Sie auf **Fertig stellen**. Vergewissern Sie sich, dass die neue Regel in der Liste Ausstellungs **Autorisierungs Regeln** angezeigt wird.  
@@ -139,8 +139,8 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 17. Geben Sie auf der Seite **Regel konfigurieren** unter **Anspruchs Regel Name**den anzeigen Amen für diese Regel ein, z. b. "Benutzer mit ipoutsiderange true und Anwendungsfehler ablehnen". Geben oder fügen Sie unter **benutzerdefinierte Regel**die folgende Syntax der Anspruchs Regel Sprache ein:  
 
-`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/xmsapplication", Value == "fail"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`</br>  
-18. Klicken Sie auf **Fertig stellen**. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der vorherigen Regel und vor der Standardregel "Zugriff auf alle Benutzer zulassen" in der Liste "Ausstellungs Autorisierungs Regeln" angezeigt wird (die Ablehnungs Regel hat Vorrang, auch wenn Sie zuvor in der Liste angezeigt wird).  </br>Wenn Sie nicht über die Standardregel für das Zulassen von Zugriffsberechtigungen verfügen, können Sie am Ende der Liste mit der Anspruchs Regel Sprache wie folgt eine hinzufügen:</br></br>      `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`</br></br>
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/xmsapplication", Value == "fail"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`</br>  
+18. Klicken Sie auf **Fertig stellen**. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der vorherigen Regel und vor der Standardregel "Zugriff auf alle Benutzer zulassen" in der Liste "Ausstellungs Autorisierungs Regeln" angezeigt wird (die Ablehnungs Regel hat Vorrang, auch wenn Sie zuvor in der Liste angezeigt wird).  </br>Wenn Sie nicht über die Standardregel für das Zulassen von Zugriffsberechtigungen verfügen, können Sie am Ende der Liste mit der Anspruchs Regel Sprache wie folgt eine hinzufügen:</br></br>      `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");`</br></br>
 19. Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf OK, um die neuen Regeln zu speichern. Die resultierende Liste sollte wie folgt aussehen.  
 
     ![Ausstellungsautorisierungsregeln](media/Access-Control-Policies-W2K12/clientaccess2.png )  
@@ -158,7 +158,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 4.  Wählen Sie auf der Seite **Regel Vorlage auswählen** unter **Anspruchs Regel Vorlage**die Option **Ansprüche mithilfe einer benutzerdefinierten Regel senden**aus, und klicken Sie dann auf **weiter**.  
 
 5.  Geben Sie auf der Seite **Regel konfigurieren** unter **Anspruchs Regel Name**den anzeigen Amen für diese Regel ein, z. b. Wenn ein IP-Anspruch außerhalb des gewünschten Bereichs vorhanden ist, geben Sie den ipoutsiderange-Anspruch aus. Geben Sie unter **benutzerdefinierte Regel**die folgende Syntax der Anspruchs Regel Sprache ein, oder fügen Sie Sie ein (ersetzen Sie den obigen Wert für "x-ms-weitergeleitete Client-IP" durch einen gültigen IP-Ausdruck):  </br>
-`c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`   
+`c1:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`   
 6.  Klicken Sie auf **Fertig stellen**. Vergewissern Sie sich, dass die neue Regel in der Liste Ausstellungs **Autorisierungs Regeln** angezeigt wird.  
 
 7.  Klicken Sie anschließend im Dialogfeld **Anspruchs Regeln bearbeiten** auf der Registerkarte Ausstellungs **Autorisierungs Regeln** auf **Regel hinzufügen** , um den Anspruchs Regel-Assistenten erneut zu starten.  
@@ -169,12 +169,12 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 
 ~~~
-`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
+`c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
 ~~~
 
 10. Klicken Sie auf **Fertig stellen**. Vergewissern Sie sich, dass die neue Regel in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird, bevor Sie die Standardregel **für den Zugriff auf alle Benutzer zulassen** (die Ablehnungs Regel hat Vorrang, auch wenn Sie zuvor in der Liste angezeigt wird).  </br></br> Wenn Sie nicht über die Standardregel für das Zulassen von Zugriffsberechtigungen verfügen, können Sie am Ende der Liste mit der Anspruchs Regel Sprache wie folgt eine hinzufügen:  
 
-   `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`
+   `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");`
 
 11. Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf **OK**, um die neuen Regeln zu speichern. Die resultierende Liste sollte wie folgt aussehen.  
 
@@ -197,7 +197,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 
 ~~~
-`c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] && c2:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
+`c1:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] && c2:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
 ~~~
 
 6. Klicken Sie auf **Fertig stellen**. Vergewissern Sie sich, dass die neue Regel in der Liste Ausstellungs **Autorisierungs Regeln** angezeigt wird.  
@@ -208,7 +208,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 9. Geben Sie auf der Seite **Regel konfigurieren** unter **Anspruchs Regel Name**den anzeigen Amen für diese Regel ein, z. b. "Gruppen-SID überprüfen". Geben Sie unter **benutzerdefinierte Regel**die folgende Syntax der Anspruchs Regel Sprache ein, oder fügen Sie Sie ein (ersetzen Sie "groupsid" durch die tatsächliche SID der Ad-Gruppe, die Sie verwenden):  
 
-    `NOT EXISTS([Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == "S-1-5-32-100"]) => add(Type = "http://custom/groupsid", Value = "fail");`  
+    `NOT EXISTS([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == "S-1-5-32-100"]) => add(Type = "http://custom/groupsid", Value = "fail");`  
 
 10. Klicken Sie auf **Fertig stellen**. Vergewissern Sie sich, dass die neue Regel in der Liste Ausstellungs **Autorisierungs Regeln** angezeigt wird.  
 
@@ -218,11 +218,11 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 13. Geben Sie auf der Seite **Regel konfigurieren** unter **Anspruchs Regel Name**den anzeigen Amen für diese Regel ein, z. b. "Benutzer mit ipoutsiderange true und groupsid Fail ablehnen". Geben oder fügen Sie unter **benutzerdefinierte Regel**die folgende Syntax der Anspruchs Regel Sprache ein:  
 
-   `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/groupsid", Value == "fail"] => issue(Type = "http://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
+   `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/groupsid", Value == "fail"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
 
 14. Klicken Sie auf **Fertig stellen**. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der vorherigen Regel und vor der Standardregel "Zugriff auf alle Benutzer zulassen" in der Liste "Ausstellungs Autorisierungs Regeln" angezeigt wird (die Ablehnungs Regel hat Vorrang, auch wenn Sie zuvor in der Liste angezeigt wird).  </br></br>Wenn Sie nicht über die Standardregel für das Zulassen von Zugriffsberechtigungen verfügen, können Sie am Ende der Liste mit der Anspruchs Regel Sprache wie folgt eine hinzufügen:  
 
-   `c:[] => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");`  
+   `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");`  
 
 15. Klicken Sie im Dialogfeld **Anspruchs Regeln bearbeiten** auf OK, um die neuen Regeln zu speichern. Die resultierende Liste sollte wie folgt aussehen.  
 
@@ -296,7 +296,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
  AD FS in Windows Server 2012 R2 bietet Anforderungs Kontextinformationen mithilfe der folgenden Anspruchs Typen:  
 
 ### <a name="x-ms-forwarded-client-ip"></a>X-MS-weitergeleitete Client-IP  
- Anspruchstyp: `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`  
+ Anspruchstyp: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`  
 
  Dieser AD FS Anspruch stellt einen "besten Versuch" dar, die IP-Adresse des Benutzers (z. b. den Outlook-Client) zu ermitteln, der die Anforderung sendet. Dieser Anspruch kann mehrere IP-Adressen enthalten, einschließlich der Adresse jedes Proxys, von dem die Anforderung weitergeleitet wurde.  Dieser Anspruch wird mit einem http-Wert aufgefüllt. Der Wert des Anspruchs kann eines der folgenden sein:  
 
@@ -318,7 +318,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 >  Exchange Online unterstützt zurzeit nur IPv4-Adressen. IPv6-Adressen werden nicht unterstützt.  
 
 ### <a name="x-ms-client-application"></a>X-MS-Client-Anwendung  
- Anspruchstyp: `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`  
+ Anspruchstyp: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application`  
 
  Dieser AD FS Anspruch stellt das vom Endclient verwendete Protokoll dar, das der verwendeten Anwendung lose entspricht.  Dieser Anspruch wird mit einem HTTP-Header aufgefüllt, der derzeit nur von Exchange Online festgelegt wird, der den-Header auffüllt, wenn die Authentifizierungsanforderung an AD FS übergeben wird. Abhängig von der Anwendung ist der Wert dieses Anspruchs einer der folgenden:  
 
@@ -345,7 +345,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
     -   Microsoft. Exchange. IMAP  
 
 ### <a name="x-ms-client-user-agent"></a>X-MS-Client-User-Agent  
- Anspruchstyp: `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`  
+ Anspruchstyp: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent`  
 
  Dieser AD FS Anspruch stellt eine Zeichenfolge bereit, die den Gerätetyp darstellt, der vom Client für den Zugriff auf den Dienst verwendet wird. Dies kann verwendet werden, wenn Kunden den Zugriff für bestimmte Geräte (z. b. bestimmte Arten von Smartphones) verhindern möchten.  Beispiel Werte für diesen Anspruch sind die unten aufgeführten Werte (aber nicht beschränkt auf).  
 
@@ -368,23 +368,23 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
   Es ist auch möglich, dass dieser Wert leer ist.  
 
 ### <a name="x-ms-proxy"></a>X-MS-Proxy  
- Anspruchstyp: `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`  
+ Anspruchstyp: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy`  
 
  Dieser AD FS Anspruch gibt an, dass die Anforderung den webanwendungsproxy übermittelt hat.  Dieser Anspruch wird durch den webanwendungsproxy aufgefüllt, der den-Header auffüllt, wenn die Authentifizierungsanforderung an das Back-End-Verbunddienst übergeben wird. AD FS dann in einen Anspruch konvertiert.  
 
  Der Wert des Anspruchs ist der DNS-Name des webanwendungsproxys, der die Anforderung übermittelt hat.  
 
 ### <a name="insidecorporatenetwork"></a>Insizercorporatenetwork  
- Anspruchstyp: `http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork`  
+ Anspruchstyp: `https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork`  
 
  Ähnlich wie bei dem obigen Anspruchstyp "x-ms-Proxy" gibt dieser Anspruchstyp an, ob die Anforderung den webanwendungsproxy übermittelt hat. Anders als bei x-ms-Proxy ist insidecorporatenetwork ein boolescher Wert mit true, der eine Anforderung direkt an den Verbund Dienst innerhalb des Unternehmensnetzwerks anzeigt.  
 
 ### <a name="x-ms-endpoint-absolute-path-active-vs-passive"></a>X-MS-Endpoint-absolute-path (aktiv/passiv)  
- Anspruchstyp: `http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`  
+ Anspruchstyp: `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path`  
 
  Dieser Anspruchstyp kann zum Bestimmen von Anforderungen verwendet werden, die von "aktiven" (Rich) Clients und "passiven" (Webbrowser basierten) Clients stammen. Dadurch können externe Anforderungen von browserbasierten Anwendungen wie Outlook Webzugriff, SharePoint Online oder dem Office 365-Portal zugelassen werden, während Anforderungen, die von Rich-Clients wie Microsoft Outlook stammen, blockiert werden.  
 
  Der Wert des Anspruchs ist der Name des AD FS Dienstanbieter, der die Anforderung empfangen hat.  
 
-## <a name="see-also"></a>Weitere Informationen  
+## <a name="see-also"></a>Siehe auch  
  [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
