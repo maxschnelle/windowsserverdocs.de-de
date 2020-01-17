@@ -8,12 +8,12 @@ ms.date: 08/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: b7a6dd37cfc054ead153d274ffa7f0d13844305e
-ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
+ms.openlocfilehash: 02829919c53e3488ad7f229ad8bee0d3ead14c9a
+ms.sourcegitcommit: 3f54036c74c5a67799fbc06a8a18a078ccb327f9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75953033"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124898"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ) zu Storage Migration Service
 
@@ -138,6 +138,10 @@ Der Speicher Migrationsdienst verwendet eine ESE (Extensible Storage Engine)-Dat
 6. Stellen Sie sicher, dass das System über Vollzugriff auf alle Dateien und Unterordner des Ordners verfügt.
 7. Entfernen Sie Ihre eigenen Konten Berechtigungen.
 8. Starten Sie den Dienst "Storage Migration Service".
+
+## <a name="does-the-storage-migration-service-migrate-locally-installed-applications-from-the-source-computer"></a>Migriert der Speicher Migrationsdienst lokal installierte Anwendungen vom Quellcomputer?
+
+Nein, der Speicher Migrationsdienst migriert keine lokal installierten Anwendungen. Installieren Sie nach Abschluss der Migration alle Anwendungen auf dem Zielcomputer erneut, die auf dem Quellcomputer ausgeführt wurden. Es ist nicht erforderlich, Benutzer oder deren Anwendungen neu zu konfigurieren. der Storage Migration Service ist so konzipiert, dass die Server Änderung für Clients unsichtbar wird. 
 
 ## <a name="give-feedback"></a>Welche Optionen gibt es, um Feedback zu geben, Fehler zu melden oder Support zu erhalten?
 

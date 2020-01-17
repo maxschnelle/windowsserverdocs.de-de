@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 0ef7860250a0a3d9b14fe24224432e00ee1bba86
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 4da69087ab1df6200394b36c938cb05ec5185045
+ms.sourcegitcommit: 3f54036c74c5a67799fbc06a8a18a078ccb327f9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949654"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124888"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Verwenden von Storage Migration Service zum Migrieren eines Servers
 
@@ -57,7 +57,15 @@ In diesem Schritt geben Sie an, welche Server migriert werden sollen, und Scanne
 In diesem Schritt übertragen Sie die Daten, nachdem Sie angegeben haben, wo Sie auf den Ziel Servern abgelegt werden sollen.
 
 1. Geben Sie auf der Seite **Datenübertragung** > **Anmelde Informationen eingeben** die Administrator Anmelde Informationen ein, die auf den Ziel Servern funktionieren, zu denen Sie migrieren möchten, und klicken Sie dann auf **weiter**.
-2. Auf der Seite **Zielgerät und Zuordnungen hinzufügen** wird der erste Quell Server aufgeführt. Geben Sie den Namen des Servers oder des gruppierten Dateiservers ein, zu dem Sie migrieren möchten, und wählen Sie dann **Gerät scannen**aus. Wenn Sie von einem in die Domäne eingebundenen Quellcomputer migrieren, muss der Zielserver der gleichen Domäne beitreten.
+2. Auf der Seite **Zielgerät und Zuordnungen hinzufügen** wird der erste Quell Server aufgeführt. Geben Sie den Namen des Servers oder des gruppierten Dateiservers ein, zu dem Sie migrieren möchten, und wählen Sie dann **Gerät scannen**aus. Wenn Sie von einem in die Domäne eingebundenen Quellcomputer migrieren, muss der Zielserver der gleichen Domäne beitreten. Sie können auch auf "neuen virtuellen Azure-Computer erstellen" klicken und dann mit dem Assistenten einen neuen Zielserver in Azure bereitstellen. Dadurch wird automatisch die Größe Ihres virtuellen Computers, die Bereitstellung von Speicher, das Formatieren von Datenträgern, das beitreten zur Domäne und das Hinzufügen des Speicher Migrationsdienst-Proxy zu einem Windows Server 2019 Sie können zwischen virtuellen Computern unter Windows Server 2019 (empfohlen), Windows Server 2016 und Windows Server 2012 R2 jeder Größe auswählen und Managed Disks verwenden.   
+
+ > [!NOTE]
+   > Wenn Sie "neuen virtuellen Azure-Computer erstellen" verwenden, benötigen Sie Folgendes:
+   > - Ein gültiges Azure-Abonnement.
+   > - Eine vorhandene Azure Compute-Ressourcengruppe, für die Sie über die Berechtigung erstellen verfügen.
+   > - Eine vorhandene Azure-Virtual Network und ein Subnetz. 
+   > - Eine Azure Express Route-oder VPN-Lösung, die an die Virtual Network und das Subnetz gebunden ist, die die Konnektivität von dieser Azure-IaaS-VM mit Ihren lokalen Clients, Domänen Controllern, dem Computer mit dem Speicher Migrationsdienst Orchestrator, dem Computer mit dem Windows Admin Center, und den Quellcomputer, der migriert werden soll.
+
 3. Ordnen Sie die Quellvolumes den Zielvolumes zu, deaktivieren Sie das Kontrollkästchen **einschließen** für alle Freigaben, die Sie nicht übertragen möchten (einschließlich administrativer Freigaben im Windows-Systemordner), und klicken Sie dann auf **weiter**.
    ![Screenshot, der einen Quell Server und seine Volumes und Freigaben anzeigt und an die er auf dem Ziel](media/migrate/transfer.png) übertragen wird, **Abbildung 3: ein Quell Server, an den der Speicher übertragen wird**
 4. Fügen Sie einen Zielserver und Zuordnungen für alle weiteren Quell Server hinzu, und klicken Sie dann auf **weiter**.

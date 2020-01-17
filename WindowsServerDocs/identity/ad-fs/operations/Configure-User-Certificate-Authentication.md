@@ -9,12 +9,12 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b5f2202313c225d57b29997753b090e10b9c2e6c
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c36555a8bca7882125451b2c86a0707e3de9b2db
+ms.sourcegitcommit: 8771a9f5b37b685e49e2dd03c107a975bf174683
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949295"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145926"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Konfigurieren von AD FS für die Benutzerzertifikat Authentifizierung
 
@@ -54,7 +54,7 @@ Weitere Informationen zum Konfigurieren dieses für Chrome finden Sie unter dies
 Dieses Dokument konzentriert sich auf Probleme, die häufig auftreten, wenn AD FS für die Zertifikat Authentifizierung für Benutzer konfiguriert ist. 
 
 ### <a name="check-if-certificate-trusted-issuers-is-configured-properly-in-all-the-ad-fswap-servers"></a>Überprüfen Sie, ob Zertifikat vertrauenswürdige Aussteller ordnungsgemäß für alle AD FS/WAP-Server konfiguriert sind.
-*Häufiges Symptom: http 204 "kein Inhalt von HTTPS\://certuath.ADFS.contoso.com"*
+*Häufiges Symptom: http 204 "kein Inhalt von HTTPS\://certauth.ADFS.contoso.com"*
 
 AD FS verwendet das zugrunde liegende Windows-Betriebssystem, um den Besitz des Benutzer Zertifikats zu belegen und sicherzustellen, dass es mit einem vertrauenswürdigen Aussteller durch Überprüfung der Zertifikats Vertrauenskette übereinstimmt. Um dem vertrauenswürdigen Aussteller zu entsprechen, müssen Sie sicherstellen, dass alle Stamm-und zwischen Zertifizierungsstellen im Speicher der lokalen Computer Zertifizierungsstellen als vertrauenswürdige Aussteller konfiguriert sind. Verwenden Sie das [AD FS Diagnostic Analyzer-Tool](https://adfshelp.microsoft.com/DiagnosticsAnalyzer/Analyze), um dies automatisch zu überprüfen. Das Tool fragt alle Server ab und stellt sicher, dass die richtigen Zertifikate ordnungsgemäß bereitgestellt werden. 
 1)  Laden Sie das Tool gemäß den Anweisungen im obigen Link herunter, und führen Sie es aus.

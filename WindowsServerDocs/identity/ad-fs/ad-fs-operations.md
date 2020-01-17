@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 99167850ff9ee193aca888d34d98503ea0554c30
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2db9cd83ed08673835a38e443e90c5eb092f43ac
+ms.sourcegitcommit: b649047f161cb605df084f18b573f796a584753b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408559"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76162481"
 ---
 # <a name="ad-fs-operations"></a>AD FS-Vorgänge
 
@@ -22,17 +22,18 @@ ms.locfileid: "71408559"
 
 Dieses Dokument enthält eine Liste aller Dokumentations Vorgänge für AD FS. 
 
-## <a name="service-configuration"></a>Dienst Konfiguration
+## <a name="service-configuration"></a>Dienstkonfiguration
 - [Aktualisieren von SSL-Zertifikaten in AD FS und WAP 2016](../ad-fs/operations/Manage-SSL-Certificates-AD-FS-WAP-2016.md)
 - [AD FS: Tool für die schnelle Wiederherstellung](../ad-fs/operations/AD-FS-Rapid-Restore-Tool.md)
 - [Konfigurieren alternativer Hostname-Bindungen für die Zertifikat Authentifizierung in AD FS](../ad-fs/operations/AD-FS-support-for-alternate-hostname-binding-for-certificate-authentication.md)
 - [Hinzufügen eines Attribut Speicher](../ad-fs/operations/Add-an-Attribute-Store.md)
 - [Anpassen von http-Sicherheits Antwort Headern mit AD FS 2019](../ad-fs/operations/customize-http-security-headers-ad-fs.md)
 - [Delegieren des AD FS-PowerShell-Cmdlet-Zugriffs an Benutzer ohne Administratorrechte](../ad-fs/operations/delegate-ad-fs-pshell-access.md)
-- [Optimieren von SQL-und Adress Latenz](../ad-fs/operations/adfs-sql-latency.md) 
+- [Optimieren von SQL-und Adress Latenz](../ad-fs/operations/adfs-sql-latency.md)
+- [AlwaysOn-Verfügbarkeitsgruppen](../ad-fs/operations/ad-fs-always-on.md) 
 
 
-## <a name="authentication-configuration"></a>Authentifizierungs Konfiguration
+## <a name="authentication-configuration"></a>Authentifizierungskonfiguration
 ### <a name="strong-authentication-mfa--password-less"></a>Hohe Authentifizierung (MFA) & Kenn Wort Loses Kennwort
 - [Externe Authentifizierungs Anbieter in AD FS als primär konfigurieren (2019 oder höher)](../ad-fs/operations/Additional-Authentication-Methods-AD-FS.md)
 - [Konfigurieren von AD FS (2016 oder höher) und Azure MFA](../ad-fs/operations/Configure-AD-FS-2016-and-Azure-MFA.md)
@@ -77,15 +78,15 @@ Dieses Dokument enthält eine Liste aller Dokumentations Vorgänge für AD FS.
 - [Konfigurieren von AD FS zum Senden von Ansprüchen beim Kennwortablauf](../ad-fs/operations/Configure-AD-FS-to-Send-Password-Expiry-Claims.md)
 - [Konfigurieren der formularbasierten Intranetauthentifizierung für Geräte ohne WIA-Unterstützung](../ad-fs/operations/Configure-intranet-forms-based-authentication-for-devices-that-do-not-support-WIA.md)
 
-## <a name="other"></a>Andere
+## <a name="other"></a>Sonstige
 - [Arbeitsplatzbeitritt von einem beliebigen Gerät für SSO und die nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md)
 - [Verwalten von Risiken mit zusätzlicher mehrstufiger Authentifizierung für sensible Anwendungen](../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
 - [Verwalten von Risiken mit der bedingten Zugriffssteuerung](../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md)
 - [Einrichten einer AD FS-Laborumgebung](../ad-fs/operations/Set-up-an-AD-FS-lab-environment.md)
-- [Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
-- [Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit der bedingten Zugriffssteuerung](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
-- [Exemplarische Vorgehensweise: Arbeitsplatzbeitritt mit einem Windows-Gerät](../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
-- [Exemplarische Vorgehensweise: Arbeitsplatzbeitritt mit einem iOS-Gerät](../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
+- [Leitfaden für die exemplarische Vorgehensweise: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)
+- [Leitfaden mit exemplarischen Vorgehensweisen: Verwalten von Risiken mit bedingtem Access Control](../ad-fs/operations/Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)
+- [Exemplarische Vorgehensweise: Workplace Join mit einem Windows-Gerät](../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
+- [Exemplarische Vorgehensweise: Workplace Join mit einem IOS-Gerät](../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
 
   
 
