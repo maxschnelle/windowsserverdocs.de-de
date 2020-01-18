@@ -11,13 +11,13 @@ ms.date: 12/02/2019
 ms.tgt_pltfrm: na
 ms.topic: article
 author: Heidilohr
-manager: daveba
-ms.openlocfilehash: 964dba2fc1a3cc1cf0e9cfe2392d40b9ea8f5ece
-ms.sourcegitcommit: cbf0c7c37797c22af989639fac82fc0eee94497f
+manager: lizross
+ms.openlocfilehash: 9564643e02a0b659914736c4047a8d723816976f
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74700909"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919938"
 ---
 # <a name="virtual-machine-sizing-guidance"></a>Leitfaden zur Größenbestimmung virtueller Computer
 
@@ -29,10 +29,10 @@ In der folgenden Tabelle ist die maximal empfohlene Anzahl von Benutzern pro vCP
 
 | Workloadtyp | Maximale Anzahl von Benutzern pro vCPU | vCPU/RAM/BS-Mindestspeicher | Azure-Beispielinstanzen | Profilcontainer-Mindestspeicher |
 | --- | --- | --- | --- | --- |
-| Hell | 6 | 2 vCPUs, 8 GB RAM, 16 GB Speicher | D2s_v3, F2s_v2 | 30 GB |
-| Mittel | 4 | 4 vCPUs, 16 GB RAM, 32 GB Speicher | D4s_v3, F4s_v2 | 30 GB |
+| Leicht | 6 | 2 vCPUs, 8 GB RAM, 16 GB Speicher | D2s_v3, F2s_v2 | 30 GB |
+| Medium (Mittel) | 4 | 4 vCPUs, 16 GB RAM, 32 GB Speicher | D4s_v3, F4s_v2 | 30 GB |
 | Schwer | 2 | 4 vCPUs, 16 GB RAM, 32 GB Speicher | D4s_v3, F4s_v2 | 30 GB |
-| Stromversorgung | 1 | 6 vCPUs, 56 GB RAM, 340 GB Speicher | D4s_v3, F4s_v2, NV6 | 30 GB |
+| Leistung | 1 | 6 vCPUs, 56 GB RAM, 340 GB Speicher | D4s_v3, F4s_v2, NV6 | 30 GB |
 
 ## <a name="single-session-recommendations"></a>Empfehlungen für Einzelsitzungen
 

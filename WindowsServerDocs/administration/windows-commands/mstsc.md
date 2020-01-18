@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bf813c75c83154c76d4aeb53a259495d4ad1369e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bd68defd56f5e0b910c9505d6b159d242c95e6f0
+ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373355"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259095"
 ---
 # <a name="mstsc"></a>mstsc
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 erstellt Verbindungen mit Remotedesktop-Sitzungshost (RD-Sitzungs Host Server) oder anderen Remote Computern, bearbeitet eine vorhandene Remotedesktopverbindung (. RDP)-Konfigurationsdatei und migriert ältere Verbindungs Dateien, die mit dem Clientverbindungs-Manager erstellt wurden. in neue RDP-Verbindungs Dateien.
 Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
@@ -41,13 +41,13 @@ mstsc.exe /migrate
 |        Parameter        |                                                         Beschreibung                                                         |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 |    <Connection File>    |                                   Gibt den Namen einer RDP-Datei für die Verbindung an.                                    |
-|   /v: < Server [: <Port>]   |                Gibt den Remote Computer und optional die Portnummer an, mit der Sie eine Verbindung herstellen möchten.                 |
+|  /v: < Server\>[: < Port\>] |                Gibt den Remote Computer und optional die Portnummer an, mit der Sie eine Verbindung herstellen möchten.                 |
 |         /admin          |                                   Stellt eine Verbindung mit einer-Sitzung zur Verwaltung des-Servers her.                                   |
-|           /f            |                                    startet Remotedesktopverbindung im Vollbildmodus.                                    |
-|       /w: <Width>        |                                      Gibt die Breite des Remotedesktop Fensters an.                                      |
-|       /h: <Height>       |                                     Gibt die Höhe des Remotedesktop Fensters an.                                      |
-|         /Public         |                  Führt Remotedesktop im öffentlichen Modus aus. Im öffentlichen Modus werden Kenn Wörter und Bitmaps nicht zwischengespeichert.                  |
-|          /Span          | Entspricht der Remotedesktop Breite und-Höhe mit dem lokalen virtuellen Desktop, bei Bedarf über mehrere Monitore hinweg. |
+|           /f            |                                    Startet die Remotedesktopverbindung im Vollbildmodus.                                    |
+|       /w:<Width>        |                                      Gibt die Breite des Remotedesktop Fensters an.                                      |
+|       /h:<Height>       |                                     Gibt die Höhe des Remotedesktop Fensters an.                                      |
+|         /public         |                  Führt Remotedesktop im öffentlichen Modus aus. Im öffentlichen Modus werden Kenn Wörter und Bitmaps nicht zwischengespeichert.                  |
+|          /span          | Entspricht der Remotedesktop Breite und-Höhe mit dem lokalen virtuellen Desktop, bei Bedarf über mehrere Monitore hinweg. |
 | /Edit <Connection File> |                                         Öffnet die angegebene RDP-Datei zum Bearbeiten.                                          |
 |        /migrate         |       Migriert Legacy-Verbindungs Dateien, die mit dem Clientverbindungs-Manager erstellt wurden, in neue RDP-Verbindungs Dateien.       |
 |           /?            |                                            Zeigt die Hilfe an der Eingabeaufforderung an.                                             |

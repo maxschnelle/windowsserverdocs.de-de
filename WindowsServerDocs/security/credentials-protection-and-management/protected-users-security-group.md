@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 227d66dafffd67b0b2e4f67158498cf43c7b59f8
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 10234611904a4ed5b58939d3fd5ca341221c073c
+ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950360"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259145"
 ---
 # <a name="protected-users-security-group"></a>Sicherheitsgruppe "Geschützte Benutzer"
 
@@ -115,7 +115,7 @@ Nicht konfigurierbare Einstellungen zum Ablauf von TGTs werden für jedes Konto 
 Weitere Informationen finden Sie unter [How to Configure Protected Accounts](how-to-configure-protected-accounts.md).
 
 ## <a name="troubleshooting"></a>Fehlerbehebung
-Es gibt zwei betriebliche Administrativprotokolle für die Fehlerbehebung von Ereignissen hinsichtlich geschützter Benutzer. Diese neuen Protokolle befinden sich in der Ereignisanzeige und sind standardmäßig deaktiviert. Sie finden Sie unter **Anwendungs- und Dienstprotokolle\Microsoft\Windows\Microsoft\Authentifizierung**.
+Es gibt zwei betriebliche Administrativprotokolle für die Fehlerbehebung von Ereignissen hinsichtlich geschützter Benutzer. Diese neuen Protokolle befinden sich in Ereignisanzeige und sind standardmäßig deaktiviert und befinden sich unter **Anwendungs-und dienstprotokolle\microsoft\windows\authentication**.
 
 |Ereignis-ID und Protokoll|Beschreibung|
 |----------|--------|

@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 07/16/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 54ed455955053ebb234864f827759385ecf3d3c5
-ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
+ms.openlocfilehash: 8ab42d7781c547d516a51c89e9c8ecba0ff72ad6
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71935036"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950430"
 ---
 # <a name="frequently-asked-questions-about-the-remote-desktop-clients"></a>Häufig gestellte Fragen zu Remotedesktopclients
 
@@ -67,7 +67,7 @@ Notiere dir den Namen dieses Computers unter **Herstellen einer Verbindung mit d
 Du kannst für bestimmte Benutzer Zugriff auf diesen PC gewähren. Klicke hierzu auf **Select users that can remotely access this PC** (Benutzer auswählen, die remote auf diesen PC zugreifen können).
 Mitglieder der Gruppe „Administratoren“ verfügen automatisch über Zugriff.
 
-Befolge für Windows 8.1 die Anleitung zum Zulassen von Remoteverbindungen unter [Eine Verbindung mit einem anderen Computer mithilfe der Remotedesktopverbindung herstellen](https://support.microsoft.com/en-us/help/17463/windows-7-connect-to-another-computer-remote-desktop-connection#1TC=windows-8).
+Befolge für Windows 8.1 die Anleitung zum Zulassen von Remoteverbindungen unter [Eine Verbindung mit einem anderen Computer mithilfe der Remotedesktopverbindung herstellen](https://support.microsoft.com/help/17463/windows-7-connect-to-another-computer-remote-desktop-connection#1TC=windows-8).
 
 
 
@@ -147,11 +147,11 @@ Der Webclient unterstützt Windows, macOS, Linux und ChromeOS. Mobile Geräte we
 
 ### <a name="can-i-use-the-web-client-in-a-remote-desktop-deployment-without-a-gateway"></a>Kann ich den Webclient in einer Remotedesktopbereitstellung ohne Gateway verwenden?
 
-Nein. Der Client benötigt für die Verbindungsherstellung ein Remotedesktopgateway. Weißt du nicht, was dies bedeutet? Frage bei deinem Administrator nach.
+Nein Der Client benötigt für die Verbindungsherstellung ein Remotedesktopgateway. Weißt du nicht, was dies bedeutet? Frage bei deinem Administrator nach.
 
 ### <a name="does-the-remote-desktop-web-client-replace-the-remote-desktop-web-access-page"></a>Ersetzt der Remotedesktop-Webclient die Seite für den Remotedesktop-Webzugriff?
 
-Nein. Der Remotedesktop-Webclient wird unter einer anderen URL als die Seite für den Remotedesktop-Webzugriff gehostet. Du kannst entweder den Webclient oder die Seite für den Webzugriff verwenden, um die Remoteressourcen in einem Browser anzuzeigen.
+Nein Der Remotedesktop-Webclient wird unter einer anderen URL als die Seite für den Remotedesktop-Webzugriff gehostet. Du kannst entweder den Webclient oder die Seite für den Webzugriff verwenden, um die Remoteressourcen in einem Browser anzuzeigen.
 
 ### <a name="can-i-embed-the-web-client-in-another-web-page"></a>Kann ich den Webclient in eine andere Webseite einbetten?
 

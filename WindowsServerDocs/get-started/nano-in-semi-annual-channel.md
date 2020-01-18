@@ -11,12 +11,12 @@ ms.date: 05/21/2019
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: a270334d-42a7-46ff-8eed-d8656a276544
-ms.openlocfilehash: c12ca84826a92fa045eb84b55e7406392161280b
-ms.sourcegitcommit: 3743cf691a984e1d140a04d50924a3a0a19c3e5c
+ms.openlocfilehash: 2fb0e7f8f84addf6528fe9832735e3dd0f7b93cd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "66452804"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947615"
 ---
 # <a name="changes-to-nano-server-in-windows-server-semi-annual-channel"></a>Änderungen bei Nano Server in Windows Server (halbjährlicher Kanal)
 
@@ -33,7 +33,7 @@ Ab Windows Server, Version 1803, steht Nano Server jedoch nur als **Basis-Betrie
 - Docker kann zur Problembehandlung des neuen Nano-Containers verwendet werden.
 - Sie können jetzt Nano-Container auf IoT Core ausführen.
 
-## <a name="related-topics"></a>Verwandte Themen
+## <a name="related-topics"></a>Zugehörige Themen
 
-- [Dokumentation zu Windows-Containern](http://aka.ms/windowscontainers)
+- [Dokumentation zu Windows-Containern](https://aka.ms/windowscontainers)
 - [Übersicht: Windows Server, (halbjährlicher Kanal)](../get-started-19/servicing-channels-19.md)

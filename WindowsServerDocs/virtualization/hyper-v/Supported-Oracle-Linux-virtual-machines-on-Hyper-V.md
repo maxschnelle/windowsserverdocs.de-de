@@ -11,12 +11,12 @@ ms.assetid: c02fdb5b-62f3-43cb-a190-ab74b3ebcf77
 author: shirgall
 ms.author: kathydav
 ms.date: 06/01/2017
-ms.openlocfilehash: 4b09b8e760ce716da7f5aa6abecbead52293e77b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e932a379a46675c7ae0bf34cf27d9e0eb3d40beb
+ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365494"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259125"
 ---
 # <a name="supported-oracle-linux-virtual-machines-on-hyper-v"></a>Unterstützte Oracle Linux virtuellen Maschinen auf Hyper-V
 
@@ -26,9 +26,9 @@ Die folgende featureverteilungskarte gibt die Funktionen an, die in den einzelne
 
 In diesem Abschnitt:
 
-* [Red hat-kompatible Kernel Serie](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md#BKMK_rhc)
+* [Features von Oracle Linux Releases mit dem mit red hat kompatiblen Kernel](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md#BKMK_rhc)
 
-* [Nicht breakable-Kernel Reihe für Unternehmen](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md#BKMK_uek)
+* [Oracle Linux Releases mit dem Unbreakable Enterprise Kernel (UEK)](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md#BKMK_uek)
 
 * [Hinweise](Supported-Oracle-Linux-virtual-machines-on-Hyper-V.md#BKMK_notes)
 
@@ -40,13 +40,13 @@ In diesem Abschnitt:
 
 * (*leer*): Feature nicht verfügbar
 
-* **UEK R\*x qu\*y** -Unbreakable Enterprise Kernel (UEK), wobei *x* die Releasenummer und *y* das vierteljährliche Update ist.
+* **UEK rxuy** -Unbreakable Enterprise Kernel (UEK), wobei x die Releasenummer und y das vierteljährliche Update ist.
 
-## <a name="BKMK_rhc"></a>Red hat-kompatible Kernel Serie
+## <a name="BKMK_rhc"></a>Features von Oracle Linux Releases mit dem mit red hat kompatiblen Kernel
 
 Der 32-Bit-Kernel für die 6. x-Reihe ist "PE" aktiviert. Es gibt keine integrierte LIS-Unterstützung für Oracle Linux rhck 6.0-6.3. Oracle Linux 7. x-Kernel sind nur 64 Bit.
 
-| **Funktion**                                                                                                                                  | **Windows Server-Version**         | **7.5-7.6**        | **7,4**             | **6.4-6.8 und 7.0-7.3**                                             | **6.4-6.8 und 7.0-7.2**                                             | **Rhck 7.0-7.2**         | **Rhck 6,8**             | **Rhck 6,6, 6,7**        | **Rhck 6,5**              | **Rhck 6.4**               |
+| **Feature**                                                                                                                                  | **Windows Server-Version**         | **7.5-7.6**        | **7,4**             | **6.4-6.8 und 7.0-7.3**                                             | **6.4-6.8 und 7.0-7.2**                                             | **Rhck 7.0-7.2**         | **Rhck 6,8**             | **Rhck 6,6, 6,7**        | **Rhck 6,5**              | **Rhck 6.4**               |
 |----------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|--------------------|---------------------|---------------------------------------------------------------------|---------------------------------------------------------------------|--------------------------|--------------------------|--------------------------|---------------------------|---------------------------|
 | **Verfügbarkeit**                                                                                                                             |                                    | Integriert           | Integriert            | [LIS 4,2](https://www.microsoft.com/download/details.aspx?id=55106) | [LIS 4,1](https://www.microsoft.com/download/details.aspx?id=51612) | Integriert                 | Integriert                 | Integriert                 | Integriert                  | Integriert                  |
 | **[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**                                                   | 2019, 2016, 2012 R2, 2012, 2008 R2 | &#10004;           | &#10004;            | &#10004;                                                            | &#10004;                                                            | &#10004;                 | &#10004;                 | &#10004;                 | &#10004;                  |                           |
@@ -59,14 +59,14 @@ Der 32-Bit-Kernel für die 6. x-Reihe ist "PE" aktiviert. Es gibt keine integrie
 | vRSS                                                                                                                                         | 2019, 2016, 2012 R2                | &#10004;           | &#10004;            | &#10004;                                                            | &#10004;                                                            | &#10004;                 | &#10004;                 | &#10004;                 |                           |                           |
 | TCP-Segmentierung und Prüfsummen Offloads                                                                                                       | 2019, 2016, 2012 R2, 2012, 2008 R2 | &#10004;           | &#10004;            | &#10004;                                                            | &#10004;                                                            | &#10004;                 | &#10004;                 | &#10004;                 |                           |                           |
 | SR-IOV                                                                                                                                       | 2019, 2016                         | &#10004;           | &#10004;            |                                                                     |                                                                     |                          |                          |                          |                           |                           |
-| **[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                                             |                                    |                    |                     |                                                                     |                                                                     |                          |                          |                          |                           |                           |
+| **[Storage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                                             |                                    |                    |                     |                                                                     |                                                                     |                          |                          |                          |                           |                           |
 | Vhdx-Größe ändern                                                                                                                                  | 2019, 2016, 2012 R2                | &#10004;           | &#10004;            | &#10004;                                                            | &#10004;                                                            | &#10004;                 | &#10004;                 | &#10004;                 | &#10004;                  |                           |
 | Virtueller Fibre Channel                                                                                                                        | 2019, 2016, 2012 R2                | &#10004;Hinweis 2    | &#10004;Hinweis 2     | &#10004;Hinweis 2                                                     | &#10004;Hinweis 2                                                     | &#10004;Hinweis 2          | &#10004;Hinweis 2          | &#10004;Hinweis 2          | &#10004;Hinweis 2           |                           |
 | Sicherung virtueller Computer                                                                                                                  | 2019, 2016, 2012 R2                | &#10004;Hinweis 11, 3 | &#10004;Hinweis 11, 3 | &#10004;Hinweis 3, 4                                                  | &#10004;Hinweis 3, 4                                                  | &#10004;Hinweis 3, 4, 11   | &#10004;Hinweis 3, 4, 11   | &#10004;Hinweis 3, 4, 11   | &#10004;Hinweis 3, 4, 5, 11 | &#10004;Hinweis 3, 4, 5, 11 |
 | Trim-Unterstützung                                                                                                                                 | 2019, 2016, 2012 R2                | &#10004;           | &#10004;            | &#10004;                                                            | &#10004;                                                            | &#10004;                 | &#10004;                 |                          |                           |                           |
 | SCSI-WWN                                                                                                                                     | 2019, 2016, 2012 R2                | &#10004;           |                     | &#10004;                                                            | &#10004;                                                            |                          |                          |                          |                           |                           |
 | **[Gedenkens](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**                                               |                                    |                    |                     |                                                                     |                                                                     |                          |                          |                          |                           |                           |
-| Unterstützung für den unterstützten Kernel                                                                                                                           | 2019, 2016, 2012 R2, 2012, 2008 R2 | N/V                | N/V                 | &#10004;(nur 6. x)                                                 | &#10004;(nur 6. x)                                                 | N/V                      | &#10004;                 | &#10004;                 | &#10004;                  | &#10004;                  |
+| Unterstützung für den unterstützten Kernel                                                                                                                           | 2019, 2016, 2012 R2, 2012, 2008 R2 | NICHT ZUTREFFEND                | NICHT ZUTREFFEND                 | &#10004;(nur 6. x)                                                 | &#10004;(nur 6. x)                                                 | NICHT ZUTREFFEND                      | &#10004;                 | &#10004;                 | &#10004;                  | &#10004;                  |
 | MMIO-Lücke konfigurieren                                                                                                                    | 2019, 2016, 2012 R2                | &#10004;           | &#10004;            | &#10004;                                                            | &#10004;                                                            | &#10004;                 | &#10004;                 | &#10004;                 | &#10004;                  | &#10004;                  |
 | Dynamischer Arbeitsspeicher-Hot-Add                                                                                                                     | 2019, 2016, 2012 R2, 2012          | &#10004;Notiz 8, 9 | &#10004;Notiz 8, 9  | &#10004;Hinweis 7, 8, 9, 10 (Notiz 6 für 6.4-6.7)                      | &#10004;Hinweis 7, 8, 9, 10 (Notiz 6 für 6.4-6.7)                      | &#10004;Hinweis 6, 7, 8, 9 | &#10004;Hinweis 6, 7, 8, 9 | &#10004;Hinweis 6, 7, 8, 9 | &#10004;Hinweis 6, 7, 8, 9  |                           |
 | Dynamischer Arbeitsspeicher-Ballooning                                                                                                                  | 2019, 2016, 2012 R2, 2012          | &#10004;Notiz 8, 9 | &#10004;Notiz 8, 9  | &#10004;Hinweis 7, 9, 10 (Notiz 6 für 6.4-6.7)                         | &#10004;Hinweis 7, 9, 10 (Notiz 6 für 6.4-6.7)                         | &#10004;Hinweis 6, 8, 9    | &#10004;Hinweis 6, 8, 9    | &#10004;Hinweis 6, 8, 9    | &#10004;Hinweis 6, 8, 9     | &#10004;Hinweis 6, 8, 9, 10 |
@@ -85,11 +85,11 @@ Der 32-Bit-Kernel für die 6. x-Reihe ist "PE" aktiviert. Es gibt keine integrie
 | Sicherer Start                                                                                                                                  | 2019, 2016                         | &#10004;           | &#10004;            |                                                                     |                                                                     |                          |                          |                          |                           |                           |
 
 
-## <a name="BKMK_uek"></a>Nicht breakable-Kernel Reihe für Unternehmen
+## <a name="BKMK_uek"></a>Oracle Linux Releases mit dem Unbreakable Enterprise Kernel (UEK)
 
-Der Oracle Linux Unbreakable Enterprise Kernel (UEK) ist nur 64 Bit und verfügt über eine integrierte LIS-Unterstützung.
+Oracle Linux mit dem Unbreakable Enterprise Kernel (UEK) ist nur 64 Bit und verfügt über eine integrierte LIS-Unterstützung. 
 
-| **Funktion**                                                                                                                                  | **Windows Server-Version**         | **UEK R5**                | **UEK R4**                | **UEK R3 QU3**            | **UEK R3 QU2**            | **UEK R3 QU1**       |
+| **Feature**                                                                                                                                  | **Windows Server-Version**         | **R5**                | **R4**                | **R3 QU3**            | **R3 QU2**            | **R3 QU1**       |
 |----------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|---------------------------|---------------------------|---------------------------|---------------------------|----------------------|
 | **Verfügbarkeit**                                                                                                                             |                                    | Integriert                  | Integriert                  | Integriert                  | Integriert                  | Integriert             |
 | **[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**                                                   | 2019, 2016, 2012 R2, 2012, 2008 R2 | &#10004;                  | &#10004;                  | &#10004;                  | &#10004;                  | &#10004;             |
@@ -102,14 +102,14 @@ Der Oracle Linux Unbreakable Enterprise Kernel (UEK) ist nur 64 Bit und verfügt
 | vRSS                                                                                                                                         | 2019, 2016, 2012 R2                | &#10004;                  | &#10004;                  |                           |                           |                      |
 | TCP-Segmentierung und Prüfsummen Offloads                                                                                                       | 2019, 2016, 2012 R2, 2012, 2008 R2 | &#10004;                  | &#10004;                  |                           |                           |                      |
 | SR-IOV                                                                                                                                       | 2019, 2016                         |                           |                           |                           |                           |                      |
-| **[Speicher](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                                             |                                    |                           |                           |                           |                           |                      |
+| **[Storage](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                                             |                                    |                           |                           |                           |                           |                      |
 | Vhdx-Größe ändern                                                                                                                                  | 2019, 2016, 2012 R2                | &#10004;                  | &#10004;                  | &#10004;                  | &#10004;                  |                      |
 | Virtueller Fibre Channel                                                                                                                        | 2019, 2016, 2012 R2                | &#10004;                  | &#10004;                  | &#10004;                  | &#10004;                  |                      |
 | Sicherung virtueller Computer                                                                                                                  | 2019, 2016, 2012 R2                | &#10004;Hinweis 3, 4, 5, 11 | &#10004;Hinweis 3, 4, 5, 11 | &#10004;Hinweis 3, 4, 5, 11 | &#10004;Hinweis 3, 4, 5, 11 |                      |
 | Trim-Unterstützung                                                                                                                                 | 2019, 2016, 2012 R2                | &#10004;                  | &#10004;                  |                           |                           |                      |
 | SCSI-WWN                                                                                                                                     | 2019, 2016, 2012 R2                |                           |                           |                           |                           |                      |
 | **[Gedenkens](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**                                               |                                    |                           |                           |                           |                           |                      |
-| Unterstützung für den unterstützten Kernel                                                                                                                           | 2019, 2016, 2012 R2, 2012, 2008 R2 | N/V                       | N/V                       | N/V                       | N/V                       | N/V                  |
+| Unterstützung für den unterstützten Kernel                                                                                                                           | 2019, 2016, 2012 R2, 2012, 2008 R2 | NICHT ZUTREFFEND                       | NICHT ZUTREFFEND                       | NICHT ZUTREFFEND                       | NICHT ZUTREFFEND                       | NICHT ZUTREFFEND                  |
 | MMIO-Lücke konfigurieren                                                                                                                    | 2019, 2016, 2012 R2                | &#10004;                  | &#10004;                  | &#10004;                  | &#10004;                  | &#10004;             |
 | Dynamischer Arbeitsspeicher-Hot-Add                                                                                                                     | 2019, 2016, 2012 R2, 2012          | &#10004;                  | &#10004;                  |                           |                           |                      |
 | Dynamischer Arbeitsspeicher-Ballooning                                                                                                                  | 2019, 2016, 2012 R2, 2012          | &#10004;                  | &#10004;                  |                           |                           |                      |
@@ -127,7 +127,7 @@ Der Oracle Linux Unbreakable Enterprise Kernel (UEK) ist nur 64 Bit und verfügt
 | Starten mithilfe von UEFI                                                                                                                              | 2019, 2016, 2012 R2                | &#10004;                  | &#10004;                  |                           |                           |                      |
 | Sicherer Start                                                                                                                                  | 2019, 2016                         | &#10004;                  | &#10004;                  |                           |                           |                      |
 
-## <a name="BKMK_notes"></a>Anmerkungen
+## <a name="BKMK_notes"></a>Hinweise
 
 1. Für diese Oracle Linux Version funktioniert das VLAN-Tagging, aber VLAN-abkürzen nicht.
 
@@ -137,7 +137,7 @@ Der Oracle Linux Unbreakable Enterprise Kernel (UEK) ist nur 64 Bit und verfügt
 
 4. Bei Live Sicherungs Vorgängen kann ein Fehler auftreten, wenn der virtuelle Computer über ein angefügtes iSCSI-Gerät oder einen direkt angeschlossenen Speicher (auch als Pass-Through-Datenträger bezeichnet) verfügt.
 
-5. Die Unterstützung der Live Sicherung für Oracle Linux 6.4/6.5/UEKR3 QU2 und QU3 steht über die [Hyper-V-Sicherung Essentials für Linux](https://github.com/LIS/backupessentials/tree/1.0)zur Verfügung.
+5. Die Unterstützung der Live Sicherung für Oracle Linux 6 Update 4 und Oracle Linux 6 Update 5 mit UEK R3Q2 und UEK R3Q3 steht über die [Hyper-V-Sicherung Essentials für Linux](https://github.com/LIS/backupessentials/tree/1.0)zur Verfügung.
 
 6. Die Unterstützung dynamischer Arbeitsspeicher ist nur auf virtuellen 64-Bit-Computern verfügbar.
 
@@ -176,7 +176,7 @@ Der Oracle Linux Unbreakable Enterprise Kernel (UEK) ist nur 64 Bit und verfügt
 14. Die statische IP-Injektion funktioniert möglicherweise nicht, wenn der Netzwerk-Manager für einen bestimmten synthetischen Netzwerkadapter auf dem virtuellen Computer konfiguriert wurde. Stellen Sie für eine reibungslose Verwendung statischer IP-Einschleusung sicher, dass entweder der Netzwerk-Manager entweder vollständig ausgeschaltet ist oder für einen bestimmten Netzwerkadapter über seine ifcfg-ethX-Datei ausgeschaltet wurde.
 
 
-Weitere Informationen
+Siehe auch
 
 * [Set-vmfirmware](https://technet.microsoft.com/library/dn464287.aspx)
 

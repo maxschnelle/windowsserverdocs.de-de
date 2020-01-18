@@ -8,12 +8,12 @@ ms.date: 09/19/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 38f54548e8e68a0ee693c5d8ec80e67057b3d5b7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 864a15d7336abb56572ddc783ce41a35d6fc13bf
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387659"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950412"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Einrichten des Remotedesktop-Webclients für Ihre Benutzer
 
@@ -28,10 +28,10 @@ Beachten Sie vor dem Ausführen der ersten Schritte die folgenden Punkte:
 
 * Stellen Sie sicher, dass Ihre [Remotedesktopbereitstellung](../rds-deploy-infrastructure.md) ein Remotedesktopgateway, einen Remotedesktop-Verbindungsbroker und eine Komponente mit Web Access für Remotedesktop unter Windows Server 2016 oder 2019 umfasst.
 * Stellen Sie sicher, dass Ihre Bereitstellung für [Clientzugriffslizenzen](../rds-client-access-license.md) (Client Access Licenses, CALs) vom Typ „Pro Benutzer“ (und nicht vom Typ „Pro Gerät“) konfiguriert ist. Andernfalls werden alle Lizenzen verwendet.
-* Installieren Sie das [Windows 10-Update KB4025334](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) auf dem RD-Gateway. Spätere kumulative Updates enthalten möglicherweise bereits diese KB-Version.
+* Installieren Sie das [Windows 10-Update KB4025334](https://support.microsoft.com/help/4025334/windows-10-update-kb4025334) auf dem RD-Gateway. Spätere kumulative Updates enthalten möglicherweise bereits diese KB-Version.
 * Stellen Sie sicher, dass öffentliche vertrauenswürdige Zertifikate für die Rollen „RD-Gateway“ und „Web Access für Remotedesktop“ konfiguriert sind.
 * Stellen Sie sicher, dass alle Computer, mit denen Ihre Benutzer eine Verbindung herstellen, unter einer der folgenden Betriebssystemversionen ausgeführt werden:
-  * Windows 10
+  * Windows 10
   * Windows Server 2008 R2 oder höher
 
 Die Benutzer können eine bessere Leistung verzeichnen, wenn die Verbindung mit Windows Server 2016 (oder höher) und Windows 10 (Version 1611 oder höher) hergestellt wird.
@@ -300,7 +300,7 @@ Wenn das nicht funktioniert, stimmt der Servername in der Webclient-URL möglich
 Wenn der Benutzer meldet, dass er keine Verbindung mit dem Webclient herstellen kann, obwohl er die aufgeführten Ressourcen sehen kann, überprüfen Sie die folgenden Punkte:
 
 * Ist die Rolle „RD-Gateway“ ordnungsgemäß für die Verwendung eines öffentlichen vertrauenswürdigen Zertifikats konfiguriert?
-* Sind auf dem RD-Gatewayserver die erforderlichen Updates installiert? Stellen Sie sicher, dass das [Update KB4025334](https://support.microsoft.com/en-us/help/4025334/windows-10-update-kb4025334) auf dem Server installiert ist.
+* Sind auf dem RD-Gatewayserver die erforderlichen Updates installiert? Stellen Sie sicher, dass das [Update KB4025334](https://support.microsoft.com/help/4025334/windows-10-update-kb4025334) auf dem Server installiert ist.
 
 Wenn der Benutzer beim Versuch, eine Verbindung herzustellen, eine Fehlermeldung erhält, die besagt, dass ein unerwartetes Serverauthentifizierungszertifikat empfangen wurde, wird in der Meldung der Fingerabdruck des Zertifikats angezeigt. Durchsuchen Sie den Zertifikat-Manager des Remotedesktop-Verbindungsbrokerservers anhand dieses Fingerabdrucks, um das richtige Zertifikat zu finden. Vergewissern Sie sich auf der Seite mit den Remotedesktop-Bereitstellungseigenschaften, dass das Zertifikat für die Rolle „Remotedesktop-Verbindungsbroker“ konfiguriert ist. Nachdem Sie sichergestellt haben, dass das Zertifikat nicht abgelaufen ist, können Sie das Zertifikat im CER-Dateiformat auf den Server mit Web Access für Remotedesktop kopieren und auf dem Server mit Web Access für Remotedesktop den folgenden Befehl ausführen, wobei Sie den in Klammern stehenden Wert durch den Pfad der Zertifikatdatei ersetzen:
 

@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: abbc9cf76056af4ac421d9a38381bd8d8f666e4c
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: b96a66c9e28454752fd4999fcfe74cbb15a3ae7d
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949533"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265812"
 ---
 # <a name="best-practices-for-securing-active-directory-federation-services"></a>Bewährte Methoden zum Sichern von Active Directory-Verbunddienste (AD FS)
 
@@ -26,6 +26,9 @@ Dieses Dokument gilt für AD FS und WAP in Windows Server 2012 R2 und Windows Se
 Für die Bereitstellung in lokalen Umgebungen wird eine Standard Bereitstellungs Topologie empfohlen, die aus einem oder mehreren AD FS Servern im internen Unternehmensnetzwerk besteht. dabei wird mindestens ein webanwendungsproxy-Server (WAP) in einem DMZ-oder Extranet-Netzwerk bereitgestellt.  Auf jeder Ebene, AD FS und WAP, wird ein Hardware-oder Software Lastenausgleich vor der Serverfarm platziert und verarbeitet das Datenverkehrs Routing.  Firewalls werden nach Bedarf vor der externen IP-Adresse des Load Balancers vor jeder (FS-und Proxy-) Farm platziert.
 
 ![AD FS Standard Topologie](media/Best-Practices-Securing-AD-FS/adfssec1.png)
+
+>[!NOTE]
+> AD FS erfordert, dass ein voll Schreib geschützter Domänen Controller im Gegensatz zu einem schreibgeschützten Domänen Controller funktioniert. Wenn eine geplante Topologie einen schreibgeschützten Domänen Controller enthält, kann der schreibgeschützte Domänen Controller für die Authentifizierung verwendet werden, die LDAP-Anspruchs Verarbeitung erfordert jedoch eine Verbindung mit dem beschreibbaren Domänen Controller.
 
 ## <a name="ports-required"></a>Erforderliche Ports
 Das folgende Diagramm zeigt die Firewallports, die zwischen und unter den Komponenten der AD FS-und WAP-Bereitstellung aktiviert werden müssen.  Wenn die Bereitstellung nicht Azure AD/Office 365 umfasst, können die Synchronisierungs Anforderungen ignoriert werden.

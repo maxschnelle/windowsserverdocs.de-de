@@ -8,12 +8,12 @@ ms.date: 06/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 785ecd4de86c06dd12eb57e41efaa1103f2afdc5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e5e90119066285ae8e04b392a13ab1a38488f5ee
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357814"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265752"
 ---
 # <a name="fine-tuning-sql-and-addressing-latency-issues-with-ad-fs"></a>Optimieren von SQL und Beheben von Latenzproblemen mit AD FS
 In einem Update für [AD FS 2016](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) haben wir die folgenden Verbesserungen eingeführt, um die datenbankübergreifende Latenz zu verringern. Ein demnächst erbendes Update für AD FS 2019 umfasst diese Verbesserungen.
@@ -23,10 +23,12 @@ In früheren bereit Stellungen von AlwaysOn-Verfügbarkeit (AOA) gab es für jed
 
 Beim neuesten Update für AD FS wird eine Verringerung der Latenz durch das Hinzufügen eines Hintergrundthreads zum Aktualisieren des AD FS Konfigurations Caches und eine Einstellung zum Festlegen des Aktualisierungs Zeitraums angestrebt. Die für eine Datenbanksuche aufgewendeten Zeit wird im Anforderungs Thread erheblich reduziert, da die Daten Bank Cache Updates in den Hintergrund Thread verschoben werden.  
 
-Wenn auf true festgelegt ist,ermöglichtADFSdemHintergrundThreaddasAusführenvonCacheUpdates.`backgroundCacheRefreshEnabled` Die Häufigkeit, mit der Daten aus dem Cache abgerufen werden können, kann durch Festlegen `cacheRefreshIntervalSecs`von auf einen Zeitwert angepasst werden. Der Standardwert ist auf 300 Sekunden festgelegt `backgroundCacheRefreshEnabled` , wenn auf true festgelegt ist. Nach der festgelegten Wert Dauer beginnt AD FS mit der Aktualisierung des Caches, und während das Update ausgeführt wird, werden die alten Cache Daten weiterhin verwendet.  
+Wenn die `backgroundCacheRefreshEnabled` auf true festgelegt ist, ermöglicht AD FS dem Hintergrund Thread das Ausführen von Cache Updates. Die Häufigkeit, mit der Daten aus dem Cache abgerufen werden können, kann durch Festlegen von `cacheRefreshIntervalSecs`auf einen Zeitwert angepasst werden. Der Standardwert wird auf 300 Sekunden festgelegt, wenn `backgroundCacheRefreshEnabled` auf true festgelegt ist. Nach der festgelegten Wert Dauer beginnt AD FS mit der Aktualisierung des Caches, und während das Update ausgeführt wird, werden die alten Cache Daten weiterhin verwendet.  
+
+Wenn AD FS eine Anforderung für eine Anwendung empfängt, ruft AD FS die Anwendung aus SQL ab und fügt Sie dem Cache hinzu. Beim `cacheRefreshIntervalSecs` Wert wird die Anwendung im Cache mit dem Hintergrund Thread aktualisiert. Während ein Eintrag im Cache vorhanden ist, verwenden eingehende Anforderungen den Cache, während die Hintergrund Aktualisierung ausgeführt wird. Wenn kein Eintrag für 5 * `cacheRefreshIntervalSecs`aufgerufen wird, wird er aus dem Cache gelöscht. Der älteste Eintrag kann auch aus dem Cache gelöscht werden, sobald der konfigurierbare `maxRelyingPartyEntries` Wert erreicht wurde.
 
 >[!NOTE]
-> Die Daten des Caches werden außerhalb des `cacheRefreshIntervalSecs` Werts aktualisiert, wenn von ADFS eine Benachrichtigung von SQL empfangen wird, was bedeutet, dass in der Datenbank eine Änderung aufgetreten ist. Diese Benachrichtigung löst die Aktualisierung des Caches aus. 
+> Die Daten des Caches werden außerhalb des `cacheRefreshIntervalSecs` Werts aktualisiert, wenn ADFS eine Benachrichtigung von SQL empfängt, was bedeutet, dass in der Datenbank eine Änderung aufgetreten ist. Diese Benachrichtigung löst die Aktualisierung des Caches aus. 
 
 ### <a name="recommendations-for-setting-the-cache-refresh"></a>Empfehlungen zum Festlegen der Cache Aktualisierung 
 Der Standardwert für die Cache Aktualisierung ist **fünf Minuten**. Es wird empfohlen, den Wert auf **1 Stunde** festzulegen, um eine unnötige Datenaktualisierung durch AD FS zu vermeiden, da die Cache Daten aktualisiert werden, wenn SQL-Änderungen auftreten.  
@@ -35,19 +37,19 @@ AD FS registriert einen Rückruf für SQL-Änderungen, und bei einer Änderung e
 
 Bei einem netzwerkglitch, bei dem die SQL-Benachrichtigung AD FS fehlt, wird AD FS in dem durch den Cache Aktualisierungs Wert angegebenen Intervall aktualisiert. Wenn Konnektivitätsprobleme zwischen AD FS und SQL vermutet werden, empfiehlt es sich, den Cache Aktualisierungs Wert auf weniger als eine Stunde festzulegen.  
 
-### <a name="configuration-instructions"></a>Konfigurations Anweisungen 
+### <a name="configuration-instructions"></a>Konfigurationsanweisungen 
 Die Konfigurationsdatei unterstützt mehrere Cache Einträge. Die unten aufgeführten Angaben können je nach den Anforderungen Ihrer Organisation konfiguriert werden. 
 
 Im folgenden Beispiel wird die Aktualisierung des Hintergrund Caches aktiviert und der Cache Aktualisierungs Zeitraum auf 1800 Sekunden oder 30 Minuten festgelegt. Dies muss auf jedem AD FS-Knoten erfolgen, und der ADFS-Dienst muss danach neu gestartet werden. Die Änderungen wirken sich nicht auf andere Knoten aus und testen den ersten Knoten, bevor Sie die Änderung in allen Knoten vornehmen. 
 
   1. Navigieren Sie zur AD FS config-Datei, und fügen Sie im Abschnitt "Microsoft. identityserver. Service" den folgenden Eintrag hinzu:  
   
-  - `backgroundCacheRefreshEnabled`: Gibt an, ob die Hintergrund Cache Funktion aktiviert ist. true/false-Werte.
+  - `backgroundCacheRefreshEnabled`: gibt an, ob die Hintergrund Cache Funktion aktiviert ist. true/false-Werte.
   - `cacheRefreshIntervalSecs`-Wert in Sekunden, bei dem der Cache von ADFS aktualisiert wird. AD FS aktualisiert den Cache, wenn SQL geändert wird. AD FS wird eine SQL-Benachrichtigung empfangen und den Cache aktualisieren.  
  
  >[!NOTE]
  > Bei allen Einträgen in der Konfigurationsdatei wird die Groß-/Kleinschreibung beachtet.  
- &lt;Cache cacherefreshintervalabcs = "1800" backgroundcacherefreshaktivierte = "true"/&gt; 
+ &lt;Cache cacherefreshintervalsercs = "1800" backgroundcacherefreshaktivierte = "true"/&gt; 
  
 Weitere konfigurierbare Werte werden unterstützt: 
 
@@ -65,9 +67,9 @@ Hybrid Umgebungen werden auch mit dieser Konfiguration unterstützt.
 
 ### <a name="requirements"></a>Anforderungen: 
 Vor dem Einrichten mehrerer artefaktdatenbankunterstützung führen Sie ein Update auf allen Knoten aus, und aktualisieren Sie die Binärdateien, da die Aufrufe mehrerer Knoten über dieses Feature erfolgen. 
-  1. Generieren eines Bereitstellungs Skripts zum Erstellen der artefaktdatenbank: Zum Bereitstellen mehrerer artefaktdb-Instanzen muss ein Administrator das SQL-Bereitstellungs Skript für die artefaktdatenbank generieren. Als Teil dieses Updates wurde das vorhandene `Export-AdfsDeploymentSQLScript`Cmdlet aktualisiert und gibt optional einen Parameter an, der angibt, für welche AD FS Datenbank ein SQL-Bereitstellungs Skript generiert werden soll. 
+  1. Generieren eines Bereitstellungs Skripts zum Erstellen der artefaktdatenbank: um mehrere artefaktdb-Instanzen bereitzustellen, muss ein Administrator das SQL-Bereitstellungs Skript für die artefaktdatenbank generieren. Als Teil dieses Updates wurde das vorhandene `Export-AdfsDeploymentSQLScript`Cmdlet aktualisiert, um optional einen Parameter zu verwenden, der angibt, für welche AD FS Datenbank ein SQL-Bereitstellungs Skript generiert werden soll. 
  
- Um z. b. das Bereitstellungs Skript nur für die artefaktdatenbank zu `-DatabaseType` generieren, geben Sie den Parameter an, und übergeben Sie den Wert "artefaktname". Der optionale `-DatabaseType` -Parameter gibt den Datenbanktyp AD FS an und kann auf festgelegt werden: Alle (Standard), artefaktdatei oder Konfiguration. Wenn kein `-DatabaseType` Parameter angegeben wird, konfiguriert das Skript sowohl das artefaktkonfigurations-als auch das Konfigurationsskript.  
+ Um z. b. das Bereitstellungs Skript nur für die artefaktdatenbank zu generieren, geben Sie den `-DatabaseType` Parameter an, und übergeben Sie den Wert "artefaktname". Der optionale `-DatabaseType`-Parameter gibt den AD FS Datenbanktyp an und kann auf: all (Standard), artefaktwert oder Konfiguration festgelegt werden. Wenn kein `-DatabaseType` Parameter angegeben wird, konfiguriert das Skript sowohl das artefaktkonfigurations-als auch das Konfigurationsskript.  
 
    ```PowerShell
    PS C:\> Export-AdfsDeploymentSQLScript -DestinationFolder <script folder where scripts will be created> -ServiceAccountName <domain\serviceaccount> -DatabaseType "Artifact" 
@@ -105,11 +107,11 @@ Es wird empfohlen, failoverartefaktdatenbanken in demselben Rechenzentrum wie di
     
     Fügen Sie auf dem Master-Eintrag folgenden Eintrag hinzu. Beachten Sie, dass bei allen drei Schlüsseln zwischen Groß-und Kleinschreibung 
 
-    &lt;useractivityfarmrole masterbqdn = [voll qualifizierter Name der primären Datenbank] IsMaster = "true"/&gt;
+    &lt;useractivityfarmrole masterbqdn = [voll qualifizierter Hauptschlüssel] IsMaster = "true"/&gt;
     
     Fügen Sie auf den anderen Knoten den folgenden Eintrag hinzu:
 
-   &lt;useractivityfarmrole masterbqdn = [voll qualifizierter Name der primären Datenbank] IsMaster = "false"/&gt;
+   &lt;useractivityfarmrole masterbqdn = [voll qualifizierter Hauptschlüssel] IsMaster = "false"/&gt;
  
     >[!NOTE] 
     >Da die Daten von mehreren artefaktdatenbanken nicht synchronisiert werden, werden die ESL-Werte nicht zwischen artefaktdatenbanken synchronisiert.

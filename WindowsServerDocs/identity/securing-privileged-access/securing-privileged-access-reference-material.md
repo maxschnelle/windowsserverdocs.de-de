@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 56e1c028a9b18db7b23e8f04e943e4113837b66b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 16d711a288843163b134b0226ed4b8513d7070eb
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407224"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950057"
 ---
 # <a name="active-directory-administrative-tier-model"></a>Active Directory-Verwaltungsebenenmodell
 
@@ -139,7 +139,7 @@ Aufgrund der großen Anzahl von Assets, die von Identitätssystemen wie Active D
 
 ![Diagramm, das zeigt, dass Sie die Anzahl der Systeme minimieren sollten, von denen Ihre Active Directory und Domänencontroller abhängig sind](../media/securing-privileged-access-reference-material/PAW_RM_Fig010.JPG)
 
-Weitere Informationen zum Minimieren der wichtigsten Risiken im Zusammenhang mit Active Directory finden Sie auf [dieser Seite](http://aka.ms/hardenAD).
+Weitere Informationen zum Minimieren der wichtigsten Risiken im Zusammenhang mit Active Directory finden Sie auf [dieser Seite](https://aka.ms/hardenAD).
 
 ## <a name="operational-standards-based-on-clean-source-principle"></a>Prinzip der vertrauenswürdigen Quelle für betriebliche Standards
 
@@ -168,12 +168,12 @@ Bei den Standards in diesem Abschnitt wird davon ausgegangen, dass die Organisat
 - Auf allen zu verwaltenden Arbeitsstationen wird Windows 7 oder eine höhere Version ausgeführt, und der RDP-Modus RestrictedAdmin ist aktiviert.
 
    > [!NOTE]
-   > Informationen zum Aktivieren des RDP-Modus RestrictedAdmin finden Sie auf [dieser Seite](http://aka.ms/RDPRA).
+   > Informationen zum Aktivieren des RDP-Modus RestrictedAdmin finden Sie auf [dieser Seite](https://aka.ms/RDPRA).
 
 - Smartcards sind verfügbar und werden für alle Administratorkonten bereitgestellt.
 - Für jede Domäne wurde *Builtin\Administrator* als Konto für den Notfallzugriff festgelegt.
 - Es wurde eine Lösung zur Verwaltung von Unternehmensidentitäten bereitgestellt.
-- Zur Verwaltung des Kennworts des lokalen Administratorkontos wurde [LAPS](http://aka.ms/laps) für Server und Arbeitsstationen bereitgestellt.
+- Zur Verwaltung des Kennworts des lokalen Administratorkontos wurde [LAPS](https://aka.ms/laps) für Server und Arbeitsstationen bereitgestellt.
 - Es wurde eine Privileged Access Management-Lösung wie Microsoft Identity Manager bereitgestellt, oder die Einführung einer solchen Lösung ist geplant.
 - Es wurden Mitarbeiter zugewiesen, um Sicherheitshinweise zu überwachen und auf diese zu reagieren.
 - Es ist technisch möglich, in kürzester Zeit Microsoft-Sicherheitsupdates anzuwenden.
@@ -314,7 +314,7 @@ Administratoren können sich nur mit ihren Administratorkonten bei Administrator
 > [!NOTE]
 > Der Grund für diese Anforderung ist, dass beim Anmelden an einem Host interaktiv Kontrolle über die Anmeldeinformationen für diesen Host gewährt wird.
 >
-> Einzelheiten zu Anmeldetypen, zu gängigen Verwaltungstools und zur Offenlegung von Anmeldeinformationen finden Sie unter [Verwaltungstools und Anmeldeinformationen](http://aka.ms/admintoolsecurity).
+> Einzelheiten zu Anmeldetypen, zu gängigen Verwaltungstools und zur Offenlegung von Anmeldeinformationen finden Sie unter [Verwaltungstools und Anmeldeinformationen](https://aka.ms/admintoolsecurity).
 
 ##### <a name="use-of-approved-support-technology-and-methods"></a>Verwenden genehmigter Supporttechnologien und -methoden
 
@@ -330,7 +330,7 @@ Administratoren, die Support für Remotesysteme und -benutzer bieten, müssen di
 Stellen Sie sicher, dass für dieses Szenario die folgenden Verfahren verwendet werden:
 
 - **Remoteserversupport**: Beim Remotezugriff auf einen Server müssen Administratoren der Ebene 0 die folgenden Richtlinien befolgen:
-  - **Primär (Tool)** : Remotetools, die Netzwerkanmeldungen verwenden (Typ 3). Weitere Informationen finden Sie unter [Verwaltungstools und Anmeldetypen](http://aka.ms/admintoolsecurity).
+  - **Primär (Tool)** : Remotetools, die Netzwerkanmeldungen verwenden (Typ 3). Weitere Informationen finden Sie unter [Verwaltungstools und Anmeldetypen](https://aka.ms/admintoolsecurity).
   - **Primär (interaktiv)** : Verwenden Sie den RDP-Modus RestrictedAdmin oder eine RDP-Standardsitzung auf einer Administratorarbeitsstation mit Domänenkonto
 
     > [!NOTE]
@@ -366,7 +366,7 @@ Helpdesk- und Benutzersupportorganisationen bieten Support für Endbenutzer (kei
    - **Primär**: Für Support, der vor Ort „über die Schulter“ bereitgestellt wird, sind möglicherweise keine Tools erforderlich.
    - **Nicht zulässig**: Die Anmeldung über die Administratoranmeldeinformationen eines Domänenkontos ist in diesem Szenario nicht zulässig. Wenn Administratorrechte erforderlich sind, wählen Sie den deskseitigen Support für Arbeitsstationen.
 - **Remotebenutzersupport**: Supportmitarbeiter der Ebene 2 unterstützen den Benutzer von einem Remotestandort aus.
-   - **Primär**: Remoteunterstützung, Skype for Business oder ähnliche Tools zur Freigabe des Benutzerbildschirms können verwendet werden. Weitere Informationen finden Sie unter [What is Windows Remote Assistance?](https://windows.microsoft.com/en-us/windows/what-is-windows-remote-assistance) (Was ist die Windows-Remoteunterstützung?)
+   - **Primär**: Remoteunterstützung, Skype for Business oder ähnliche Tools zur Freigabe des Benutzerbildschirms können verwendet werden. Weitere Informationen finden Sie unter [What is Windows Remote Assistance?](https://windows.microsoft.com/windows/what-is-windows-remote-assistance) (Was ist die Windows-Remoteunterstützung?)
    - **Nicht zulässig**: Die Anmeldung über die Administratoranmeldeinformationen eines Domänenkontos ist in diesem Szenario nicht zulässig. Wenn Administratorrechte erforderlich sind, wählen Sie den Support für Arbeitsstationen.
 - **Support für Arbeitsstationen**: Die Aufgaben umfassen die Wartung von Arbeitsstationen oder eine Problembehandlung, für die Zugriff auf ein System erforderlich ist, um Protokolle anzuzeigen, Software zu installieren, Treiber zu aktualisieren usw.
    - **Deskseitiger Support für Arbeitsstationen**: Supportmitarbeiter der Ebene 2 sind physisch an der Arbeitsstation des Benutzers präsent.
@@ -489,7 +489,7 @@ Beim Entwurf einer administrativen Gesamtstruktur sollte Folgendes berücksichti
 
 - **Härten von Arbeitsstationen**: Erstellen Sie die Administratorarbeitsstationen unter Verwendung der [Arbeitsstationen mit privilegiertem Zugriff](../securing-privileged-access/privileged-access-workstations.md) (über Phase 3), ändern Sie die Domänenmitgliedschaft jedoch so, dass anstelle der Produktionsumgebung die administrative Gesamtstruktur verwendet wird.
 - **Härten von Servern und Domänencontrollern**: Für alle Domänencontroller und Server in der administrativen Gesamtstruktur gilt Folgendes:
-   - Stellen Sie sicher, dass alle Medien über die in [Vertrauenswürdige Quelle für Installationsmedien](http://aka.ms/cleansource) beschriebenen Verfahren überprüft wurden.
+   - Stellen Sie sicher, dass alle Medien über die in [Vertrauenswürdige Quelle für Installationsmedien](https://aka.ms/cleansource) beschriebenen Verfahren überprüft wurden.
    - Stellen Sie sicher, dass auf den Servern innerhalb der administrativen Gesamtstruktur aktuelle Betriebssysteme installiert sind (selbst wenn dies in der Produktionsumgebung nicht möglich ist).
    - Hosts in der administrativen Gesamtstruktur sollten automatisch mit Sicherheitsupdates aktualisiert werden.
 
@@ -523,7 +523,7 @@ Beim Entwurf einer administrativen Gesamtstruktur sollte Folgendes berücksichti
    - Analyse der Angriffsfläche zum Verhindern der Einführung neuer Angriffsvektoren auf Windows während der Installation von neuer Software.
 
       > [!NOTE]
-      > Die Verwendung von Tools wie [Attack Surface Analyzer (ASA)](https://www.microsoft.com/en-us/download/details.aspx?id=24487) trägt dazu bei, die Konfigurationseinstellungen auf einem Host auszuwerten und Angriffsvektoren zu identifizieren, die durch Software oder Konfigurationsänderungen eingeführt werden.
+      > Die Verwendung von Tools wie [Attack Surface Analyzer (ASA)](https://www.microsoft.com/download/details.aspx?id=24487) trägt dazu bei, die Konfigurationseinstellungen auf einem Host auszuwerten und Angriffsvektoren zu identifizieren, die durch Software oder Konfigurationsänderungen eingeführt werden.
 
 - Härten von Konten
    - Mit Ausnahme eines Kontos sollte die mehrstufige Authentifizierung für alle Konten in der administrativen Gesamtstruktur konfiguriert werden. Mindestens ein Administratorkonto sollte kennwortbasiert sein, um bei einem Ausfall der mehrstufigen Authentifizierung die Möglichkeit des Zugriffs sicherzustellen. Dieses Konto sollte durch strikte physische Kontrollmechanismen geschützt werden.
@@ -568,32 +568,32 @@ In einem Remoteverwaltungsszenario werden die Anmeldeinformationen auf dem Quell
 
 Diese Tabelle umfasst Informationen zu den meisten gängigen Verwaltungstools und Verbindungsmethoden:
 
-|Verbindungsmethode|Anmeldetyp|Wiederverwendbare Anmeldeinformationen auf dem Ziel|Anmerkungen|
+|Verbindungsmethode|Anmeldetyp|Wiederverwendbare Anmeldeinformationen auf dem Ziel|Kommentare|
 |-----------|-------|--------------------|------|
 |Anmeldung bei der Konsole|Interactive (Interaktiv)|v|Umfasst Remotehardwarezugriff/Lights-out-Karten und Netzwerk-KVMs.|
 |RUNAS|Interactive (Interaktiv)|v||
 |RUNAS/NETZWERK|NewCredentials|v|Klont die aktuelle LSA-Sitzung für den lokalen Zugriff, verwendet bei der Verbindung mit Netzwerkressourcen jedoch neue Anmeldeinformationen.|
 |Remotedesktop (erfolgreich)|RemoteInteractive|v|Wenn der Remotedesktopclient für die Freigabe lokaler Geräte und Ressourcen konfiguriert ist, können auch diese gefährdet sein.|
 |Remotedesktop (Fehler – Anmeldetyp verweigert)|RemoteInteractive|-|Wenn bei der Anmeldung über RDP ein Fehler auftritt, werden die Anmeldeinformationen standardmäßig nur sehr kurz gespeichert. Wenn der Computer gefährdet ist, ist dies möglicherweise nicht der Fall.|
-|Net use * \\\SERVER|Network|-||
-|Net use * \\\SERVER /u:user|Network|-||
-|MMC-Snap-Ins für Remotecomputer|Network|-|Beispiel: Computerverwaltung, Ereignisanzeige, Geräte-Manager, Dienste|
-|PowerShell WinRM|Network|-|Beispiel: Enter-PSSession Server|
+|Net use * \\\SERVER|Netzwerk|-||
+|Net use * \\\SERVER /u:user|Netzwerk|-||
+|MMC-Snap-Ins für Remotecomputer|Netzwerk|-|Beispiel: Computerverwaltung, Ereignisanzeige, Geräte-Manager, Dienste|
+|PowerShell WinRM|Netzwerk|-|Beispiel: Enter-PSSession Server|
 |PowerShell WinRM mit CredSSP|NetworkClearText|v|New-PSSession server<br />-Authentication Credssp<br />-Credential cred|
-|PsExec ohne explizite Anmeldeinformationen|Network|-|Beispiel: PsExec \\\server cmd|
+|PsExec ohne explizite Anmeldeinformationen|Netzwerk|-|Beispiel: PsExec \\\server cmd|
 |PsExec mit expliziten Anmeldeinformationen|Netzwerk und interaktiv|v|PsExec \\\server -u user -p pwd cmd<br />Erstellt mehrere Anmeldesitzungen.|
-|Remoteregistrierung|Network|-||
-|Remotedesktopgateway|Network|-|Authentifizierung gegenüber Remotedesktopgateway.|
+|Remoteregistrierung|Netzwerk|-||
+|Remotedesktopgateway|Netzwerk|-|Authentifizierung gegenüber Remotedesktopgateway.|
 |Geplanter Task|Batch (Stapel)|v|Das Kennwort wird auch als geheime LSA-Information auf dem Datenträger gespeichert.|
-|Tools als Dienst ausführen|Service|v|Das Kennwort wird auch als geheime LSA-Information auf dem Datenträger gespeichert.|
-|Überprüfung auf Sicherheitsrisiken|Network|-|Bei den meisten Überprüfungen werden Netzwerkanmeldungen verwendet. Einige Anbieter implementieren jedoch möglicherweise andere Anmeldeverfahren, die ein höheres Risiko für einen Diebstahl von Anmeldeinformationen zur Folge haben.|
+|Tools als Dienst ausführen|Dienst|v|Das Kennwort wird auch als geheime LSA-Information auf dem Datenträger gespeichert.|
+|Überprüfung auf Sicherheitsrisiken|Netzwerk|-|Bei den meisten Überprüfungen werden Netzwerkanmeldungen verwendet. Einige Anbieter implementieren jedoch möglicherweise andere Anmeldeverfahren, die ein höheres Risiko für einen Diebstahl von Anmeldeinformationen zur Folge haben.|
 
 Informationen zur Webauthentifizierung finden Sie in der Tabelle unten:
 
 |Verbindungsmethode|Anmeldetyp|Wiederverwendbare Anmeldeinformationen auf dem Ziel|Kommentare|
 |-----------|-------|--------------------|------|
 |IIS-Standardauthentifizierung|NetworkCleartext<br />(IIS 6.0 und höher)<br /><br />Interactive (Interaktiv)<br />(vor IIS 6.0)|v||
-|Integrierte Windows-Authentifizierung (IIS)|Network|-|NTLM- und Kerberos-Anbieter.|
+|Integrierte Windows-Authentifizierung (IIS)|Netzwerk|-|NTLM- und Kerberos-Anbieter.|
 
 Spaltendefinitionen:
 
@@ -615,9 +615,9 @@ Auf Windows-basierten Computern werden alle Authentifizierungen als einer von me
 |Anmeldetyp|#|Akzeptierte Authenticators|Wiederverwendbare Anmeldeinformationen in LSA-Sitzung|Beispiele|
 |-------|---|--------------|--------------------|------|
 |Interaktiv (lokale Anmeldung)|2|Kennwort, Smartcard,<br />andere|Ja|Konsolenanmeldung,<br />RUNAS,<br />Lösungen zur Remotesteuerung von Hardware (z. B. Netzwerk-KVM oder Remotezugriff/Lights-Out-Karte in Servern)<br />IIS-Standardauthentifizierung (vor IIS 6.0)|
-|Network|3|Kennwort,<br />NT-Hash,<br />Kerberos-Ticket|Nein (Ausnahme: Wenn die Delegierung aktiviert ist, sind Kerberos-Tickets vorhanden)|NET USE,<br />RPC-Aufrufe,<br />Remoteregistrierung,<br />Integrierte Windows-Authentifizierung (IIS),<br />SQL-Windows-Authentifizierung,|
+|Netzwerk|3|Kennwort,<br />NT-Hash,<br />Kerberos-Ticket|Nein (Ausnahme: Wenn die Delegierung aktiviert ist, sind Kerberos-Tickets vorhanden)|NET USE,<br />RPC-Aufrufe,<br />Remoteregistrierung,<br />Integrierte Windows-Authentifizierung (IIS),<br />SQL-Windows-Authentifizierung,|
 |Batch (Stapel)|4|Kennwort (üblicherweise als geheime LSA-Daten gespeichert)|Ja|Geplante Aufgaben|
-|Service|5|Kennwort (üblicherweise als geheime LSA-Daten gespeichert)|Ja|Windows-Dienste|
+|Dienst|5|Kennwort (üblicherweise als geheime LSA-Daten gespeichert)|Ja|Windows-Dienste|
 |NetworkCleartext|8|Kennwort|Ja|IIS-Standardauthentifizierung (IIS 6.0 und höher),<br />Windows PowerShell mit CredSSP|
 |NewCredentials|9|Kennwort|Ja|RUNAS/NETZWERK|
 |RemoteInteractive|10|Kennwort, Smartcard,<br />andere|Ja|Remotedesktop (früher „Terminaldienste“)|

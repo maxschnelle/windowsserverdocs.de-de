@@ -1,19 +1,19 @@
 ---
 title: DNS-Client seitiges Zwischenspeichern auf DNS-Clients deaktivieren
 description: In diesem Artikel wird beschrieben, wie Sie das Client seitige DNS-Zwischenspeichern auf DNS-Clients deaktivieren.
-manager: willchen
+manager: dcscontentpm
 ms.prod: ''
 ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: 3aeb7cb06f82b6f2220e42866682ce918389bf1d
-ms.sourcegitcommit: b17ccf7f81e58e8f4dd844be8acf784debbb20ae
+ms.openlocfilehash: 51a9dbfd05402a9d018aec3bfea8a5c89e9e5d5e
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69023895"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265842"
 ---
 # <a name="disable-dns-client-side-caching-on-dns-clients"></a>DNS-Client seitiges Zwischenspeichern auf DNS-Clients deaktivieren
 
@@ -47,7 +47,7 @@ Sie können das Tool ipconfig verwenden, um den DNS-Konflikt Löser-Cache anzuze
 ipconfig /displaydns 
 ```
 
-Mit diesem Befehl wird der Inhalt des DNS-resolvercaches angezeigt, einschließlich der DNS-Ressourcen Einträge, die aus der Hostdatei vorab geladen werden, und aller vor kurzem abgefragten Namen, die vom System aufgelöst wurden. Nach einiger Zeit verwirft der Konflikt Löser den Datensatz aus dem Cache. Der Zeitraum wird durch den Wert für die Gültigkeitsdauer **(Time to Live, TTL)** angegeben, der dem DNS-Ressourcen Daten Satz zugeordnet ist. Sie können den Cache auch manuell leeren. Nachdem Sie den Cache geleert haben, muss der Computer die DNS-Server erneut für alle DNS-Ressourcen Einträge Abfragen, die zuvor vom Computer aufgelöst wurden. Führen `ipconfig /flushdns` Sie an einer Eingabeaufforderung aus, um die Einträge im DNS-Konflikt Löser-Cache zu löschen.
+Mit diesem Befehl wird der Inhalt des DNS-resolvercaches angezeigt, einschließlich der DNS-Ressourcen Einträge, die aus der Hostdatei vorab geladen werden, und aller vor kurzem abgefragten Namen, die vom System aufgelöst wurden. Nach einiger Zeit verwirft der Konflikt Löser den Datensatz aus dem Cache. Der Zeitraum wird durch den Wert für die Gültigkeitsdauer **(Time to Live, TTL)** angegeben, der dem DNS-Ressourcen Daten Satz zugeordnet ist. Sie können den Cache auch manuell leeren. Nachdem Sie den Cache geleert haben, muss der Computer die DNS-Server erneut für alle DNS-Ressourcen Einträge Abfragen, die zuvor vom Computer aufgelöst wurden. Führen Sie `ipconfig /flushdns` an einer Eingabeaufforderung aus, um die Einträge im DNS-Konflikt Löser-Cache zu löschen.
 
 ## <a name="using-the-registry-to-control-the-caching-time"></a>Steuern der zwischen Speicherungs Zeit mithilfe der Registrierung
 
@@ -56,16 +56,16 @@ Mit diesem Befehl wird der Inhalt des DNS-resolvercaches angezeigt, einschließl
 
 Die Zeitspanne, für die eine positive oder negative Antwort zwischengespeichert wird, hängt von den Werten der Einträge im folgenden Registrierungsschlüssel ab:
 
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DNSCache\Parameters**
+**HKEY_LOCAL_MACHINE \system\currentcontrolset\services\dnscache\parameters**
 
-Die Gültigkeitsdauer für positive Antworten ist der kleinere der folgenden Werte: 
+Die TTL für positive Antworten ist der kleinere der folgenden Werte: 
 
-- Die Anzahl der Sekunden, die in der vom Konflikt Löser empfangenen Abfrage Antwort angegeben wurden.
+- Die Anzahl von Sekunden, die in der von der Auflösung empfangenen Antwort auf die Abfrage angegeben ist
 
 - Der Wert der **maxcachettl** -Registrierungs Einstellung.
 
 >[!Note]
->- Die Standard Gültigkeitsdauer für positive Antworten beträgt 86.400 Sekunden (1 Tag).
+>- Die Standard-TTL für positive Antworten ist 86.400 Sekunden (1 Tag).
 >- Die Gültigkeitsdauer für negative Antworten ist die Anzahl der Sekunden, die in der Registrierungs Einstellung maxnegativecachettl angegeben ist.
 >- Die Standard Gültigkeitsdauer für negative Antworten beträgt 900 Sekunden (15 Minuten).
 Wenn Sie nicht möchten, dass negative Antworten zwischengespeichert werden, legen Sie die maxnegativecachettl-Registrierungs Einstellung auf "0" fest.
@@ -76,23 +76,23 @@ So legen Sie die zwischen Speicherungs Zeit auf einem Client Computer fest:
 
 2. Suchen Sie den folgenden Schlüssel in der Registrierung, und klicken Sie darauf:
 
-   **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters**
+   **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\dnscache\parameters**
 
 3. Zeigen Sie im Menü Bearbeiten auf neu, klicken Sie auf DWORD-Wert, und fügen Sie dann die folgenden Registrierungs Werte hinzu:
 
-   - Wertname: Maxcachettl
+   - Wertname: maxcachettl
 
      Datentyp: REG_DWORD
 
-     Wert: Standardwert 86400 Sekunden. 
+     Wertdaten: Standardwert 86400 Sekunden. 
      
      Wenn Sie den maximalen TTL-Wert im DNS-Cache des Clients auf 1 Sekunde verringern, gibt dies die Darstellung an, dass der Client seitige DNS-Cache deaktiviert wurde.    
 
-   - Wertname: Maxnegativecachettl
+   - Wertname: maxnegativecachettl
 
      Datentyp: REG_DWORD
 
-     Wert: Standardwert 900 Sekunden. 
+     Wertdaten: Standardwert 900 Sekunden. 
      
      Legen Sie den Wert auf 0 fest, wenn keine negativen Antworten zwischengespeichert werden sollen.
 

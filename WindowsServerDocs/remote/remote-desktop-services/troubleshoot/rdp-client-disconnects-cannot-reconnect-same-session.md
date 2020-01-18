@@ -9,16 +9,16 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.assetid: ''
 author: kaushika-msft
-manager: ''
+manager: dcscontentpm
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 007668d1c0f8f2a6701813385b0e0bb7a09b29a0
-ms.sourcegitcommit: f6503e503d8f08ba8000db9c5eda890551d4db37
+ms.openlocfilehash: 0932bbbb87c6fcae9dc0b871bd605302acdb25cc
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68529950"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265912"
 ---
 # <a name="remote-desktop-client-disconnects-and-cant-reconnect-to-the-same-session"></a>Remotedesktopclient wird getrennt und kann keine Verbindung mit der gleichen Sitzung wiederherstellen
 
@@ -40,7 +40,7 @@ Dieses Problem kann auch behoben werden, indem Sie Ihre Authentifizierungs- und 
 
 > [!NOTE]  
 >  - Wenn für Verbindungen zwischen Clients und RD-Sitzungshostservern die höchste Verschlüsselungsstufe erforderlich ist, verwenden Sie FIPS-konforme Verschlüsselung.
->  - Alle Einstellungen zur Verschlüsselungsstufe, die Sie in Gruppenrichtlinien konfigurieren, setzen die Einstellungen außer Kraft, die Sie mithilfe des Konfigurationstools für Remotedesktopdienste konfiguriert haben. Und wenn Sie die Richtlinie [Systemkryptografie: FIPS-konforme Algorithmen für Verschlüsselung, Hashing und Signatur verwenden](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/system-cryptography-use-fips-compliant-algorithms-for-encryption-hashing-and-signing) aktivieren, setzt diese Einstellung die Richtlinie **Verschlüsselungsstufe der Clientverbindung festlegen** außer Kraft. Die Richtlinie für Systemkryptografie befindet sich im Ordner **Computerkonfiguration\\Windows-Einstellungen\\Sicherheitseinstellungen\\Lokale Richtlinien\\Sicherheitsoptionen**.
+>  - Alle Einstellungen zur Verschlüsselungsstufe, die Sie in Gruppenrichtlinien konfigurieren, setzen die Einstellungen außer Kraft, die Sie mithilfe des Konfigurationstools für Remotedesktopdienste konfiguriert haben. Und wenn Sie die Richtlinie [Systemkryptografie: FIPS-konforme Algorithmen für Verschlüsselung, Hashing und Signatur verwenden](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/system-cryptography-use-fips-compliant-algorithms-for-encryption-hashing-and-signing) aktivieren, setzt diese Einstellung die Richtlinie **Verschlüsselungsstufe der Clientverbindung festlegen** außer Kraft. Die Richtlinie für Systemkryptografie befindet sich im Ordner **Computerkonfiguration\\Windows-Einstellungen\\Sicherheitseinstellungen\\Lokale Richtlinien\\Sicherheitsoptionen**.
 >  - Wenn Sie die Verschlüsselungsstufe ändern, wird die neue Verschlüsselungsstufe wirksam, sobald sich das nächste Mal ein Benutzer anmeldet. Wenn Sie mehrere Verschlüsselungsstufen auf einem Server unterstützen müssen, installieren Sie mehrere Netzwerkadapter, und konfigurieren Sie jeden Adapter separat.
 >  - Um zu überprüfen, ob ein Zertifikat über einen entsprechenden privaten Schlüssel verfügt, klicken Sie in „Remotedesktopdienste-Konfiguration“ mit der rechten Maustaste auf die Verbindung, für die Sie das Zertifikat anzeigen möchten, wählen Sie **Allgemein** und dann **Bearbeiten**. Wählen Sie anschließend **Zertifikat anzeigen** aus. Auf der Registerkarte **Allgemein** sollte die Aussage „Sie verfügen über einen privaten Schlüssel, der diesem Zertifikat entspricht“ angezeigt werden, sofern ein Schlüssel vorhanden ist. Sie können diese Informationen auch über das Zertifikat-Snap-In abrufen.
 >  - FIPS-konforme Verschlüsselung (die Richtlinie **Systemkryptografie: FIPS-konforme Algorithmen für Verschlüsslung, Hashing und Signatur verwenden** oder die Einstellung **FIPS-konform** in der Remotedesktop-Serverkonfiguration) verschlüsselt und entschlüsselt die zwischen Server und Client ausgetauschten Daten mit Verschlüsselungsalgorithmen nach dem FIPS 140-1-Standard (Federal Information Processing Standard ) mithilfe von Microsoft-Kryptografiemodulen. Weitere Informationen finden Sie unter [FIPS 140-Überprüfung](https://docs.microsoft.com/windows/security/threat-protection/fips-140-validation).

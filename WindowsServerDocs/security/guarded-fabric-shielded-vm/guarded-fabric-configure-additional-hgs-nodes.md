@@ -7,13 +7,13 @@ ms.assetid: 227f723b-acb2-42a7-bbe3-44e82f930e35
 manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.date: 10/22/2018
-ms.openlocfilehash: 5277a97f7f58d9d7edb1457cb363cb6ddf1d8b59
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 01/14/2020
+ms.openlocfilehash: ece005617c4a2faac41c2be15967b2f43951517e
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403696"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265862"
 ---
 # <a name="configure-additional-hgs-nodes"></a>Konfigurieren zusätzlicher HGS-Knoten
 
@@ -28,7 +28,7 @@ Verwenden Sie eine dieser Methoden, um HGS-Knoten hinzuzufügen, die für Ihre U
 |Neue HGS-Gesamtstruktur  | [Verwenden von PFX-Dateien](#dedicated-hgs-forest-with-pfx-certificates) | [Verwenden von Zertifikat Fingerabdrücken](#dedicated-hgs-forest-with-certificate-thumbprints) |
 |Vorhandene geschützte Gesamtstruktur |  [Verwenden von PFX-Dateien](#existing-bastion-forest-with-pfx-certificates) | [Verwenden von Zertifikat Fingerabdrücken](#existing-bastion-forest-with-certificate-thumbprints) |
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 
 Stellen Sie sicher, dass jeder zusätzliche Knoten: 
 - Hat dieselbe Hardware-und Softwarekonfiguration wie der primäre Knoten. 
@@ -116,7 +116,7 @@ Es dauert bis zu 10 Minuten, bis die Verschlüsselungs-und Signatur Zertifikate 
 Wenn Sie HGS-Endpunkte mit einem SSL-Zertifikat sichern möchten, müssen Sie das SSL-Zertifikat auf diesem Knoten sowie alle anderen Knoten im HGS-Cluster konfigurieren.
 SSL-Zertifikate *werden nicht* von HGS repliziert und müssen nicht die gleichen Schlüssel für jeden Knoten verwenden (d. h., Sie können für jeden Knoten unterschiedliche SSL-Zertifikate verwenden).
 
-Wenn Sie ein SSL-Zertifikat anfordern, stellen Sie sicher, dass der voll qualifizierte Cluster Domänen Name `Get-HgsServer`(wie in der Ausgabe von gezeigt) entweder der allgemeine Antragsteller Name des Zertifikats ist oder als alternativer Antragsteller Name angegeben ist.
+Wenn Sie ein SSL-Zertifikat anfordern, stellen Sie sicher, dass der voll qualifizierte Cluster Domänen Name (wie in der Ausgabe von `Get-HgsServer`) entweder der allgemeine Antragsteller Name des Zertifikats ist oder als alternativer Antragsteller Name angegeben ist.
 Wenn Sie ein Zertifikat von Ihrer Zertifizierungsstelle erhalten haben, können Sie HGS so konfigurieren, dass es mit [Set-hgsserver](https://technet.microsoft.com/itpro/powershell/windows/hgsserver/set-hgsserver)verwendet wird.
 
 ```powershell
@@ -141,16 +141,8 @@ So setzen Sie einen HGS-Knoten außer Betrieb:
 
    Dadurch wird der Knoten aus dem Cluster entfernt und der Nachweis und die Schlüsselschutz Dienste deinstalliert. 
    Wenn es sich um den letzten Knoten im Cluster handelt, wird-Force benötigt, um anzugeben, dass der letzte Knoten entfernt und der Cluster in Active Directory zerstört werden soll. 
-   
+
    Wenn HGS in einer geschützten Gesamtstruktur (Standard) bereitgestellt wird, ist dies der einzige Schritt. 
    Optional können Sie den Computer aus der Domäne entfernen und das GMSA-Konto aus Active Directory entfernen.
 
-1. Wenn HGS eine eigene Domäne erstellt haben, sollten Sie auch [HGS deinstallieren](guarded-fabric-manage-hgs.md#clearing-the-hgs-configuration) , um den Beitritt zur Domäne zu entfernen und den Domänen Controller herabzusetzen.
-
-
-
-## <a name="next-step"></a>Nächster Schritt
-
-> [!div class="nextstepaction"]
-> [Überprüfen der HGS-Konfiguration](guarded-fabric-verify-hgs-configuration.md)
-
+2. Wenn HGS eine eigene Domäne erstellt haben, sollten Sie auch [HGS deinstallieren](guarded-fabric-manage-hgs.md#clearing-the-hgs-configuration) , um den Beitritt zur Domäne zu entfernen und den Domänen Controller herabzusetzen.

@@ -8,12 +8,12 @@ ms.sitesec: library
 author: jasongerend
 ms.author: jgerend
 ms.date: 10/22/2019
-ms.openlocfilehash: 68edc1f0aaa857d0342f963e19964f5c9e389ed0
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: c3c948e447d060d1ce733778c3362d83ad116708
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812319"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948200"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-with-windows-server-version-1803"></a>Features, die ab Windows Server, Version 1803,entfernt wurden oder deren Ersatz vorgesehen ist
 
@@ -33,7 +33,7 @@ Die folgenden Features und Funktionen wurden aus dem Produktimage von Windows Se
 
 | Feature    | Alternativ verwendbar |
 | ----------- | -------------------- |
-| [Dateireplikationsdienst](https://support.microsoft.com/en-us/help/4025991/windows-server-version-1709-no-longer-supports-frs)|Die in Windows Server 2003 R2 eingeführten Dateireplikationsdienste wurden durch DFS-Replikation ersetzt. Sie müssen [alle Domänencontroller migrieren, die FRS zu DFS-Replikation mit SYSVOL verwenden](https://blogs.technet.microsoft.com/filecab/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol/). |
+| [Dateireplikationsdienst](https://support.microsoft.com/help/4025991/windows-server-version-1709-no-longer-supports-frs)|Die in Windows Server 2003 R2 eingeführten Dateireplikationsdienste wurden durch DFS-Replikation ersetzt. Sie müssen [alle Domänencontroller migrieren, die FRS zu DFS-Replikation mit SYSVOL verwenden](https://blogs.technet.microsoft.com/filecab/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol/). |
 | Hyper-V-Netzwerkvirtualisierung (HNV)|[Netzwerkvirtualisierung](../networking/sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md) ist jetzt in Windows Server Teil der [Software-Defined Networking](../networking/sdn/software-defined-networking.md)-Lösung (SDN) enthalten. Dies umfasst auch Netzwerkcontroller, Softwarelastenausgleich, benutzerdefiniertes Routing und Zugriffssteuerungslisten. |
 
 ## <a name="features-were-no-longer-developing"></a>Features, die wir nicht mehr weiterentwickeln
@@ -55,5 +55,5 @@ Wenn Sie Feedback zur vorgeschlagenen Ersetzung eines dieser Features haben, kö
 | [RemoteFX 3D-Grafikkarte (vGPU)](../remote/remote-desktop-services/rds-remotefx-vgpu.md)|Wir entwickeln neue Grafikbeschleunigungsoptionen für virtualisierte Umgebungen. Sie können auch die [Diskrete Gerätezuweisung (DDA)](../virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment.md) als Alternative verwenden. |
 | [Richtlinien für die Softwareeinschränkung](../identity/software-restriction-policies/software-restriction-policies.md) in Gruppenrichtlinien|Statt der Richtlinien für die Softwareeinschränkung über Gruppenrichtlinien können Sie [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/applocker/applocker-overview) oder die [Windows Defender-Anwendungssteuerung](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control) verwenden, um festzulegen, auf welche Apps Benutzer zugreifen und welche Codes im Kernel ausgeführt werden können. |
 | Speicherplätze in einer gemeinsamen Konfiguration mit SAS-Fabric|Stellen Sie stattdessen [direkte Speicherplätze](../storage/storage-spaces/storage-spaces-direct-overview.md) (Storage Spaces Direct) bereit. „Direkte Speicherplätze“ unterstützt die Verwendung der HLK-zertifizierten SAS-Gehäuse, allerdings in einer nicht freigegebenen Konfiguration, wie in den [Hardwareanforderungen für „Direkte Speicherplätze“](../storage/storage-spaces/storage-spaces-direct-hardware-requirements.md) beschrieben. |
-| Windows Server Essentials-Umgebung|Die Essentials Experience-Rolle für Windows Server Standard- oder Windows Server Datacenter-SKUs wird nicht weiter entwickelt. Wenn Sie eine leicht zu bedienende Serverlösung für kleine bis mittlere Unternehmen benötigen, sehen Sie sich die neue [Microsoft 365 für Unternehmen](https://www.microsoft.com/microsoft-365/business)-Lösung an, oder verwenden Sie [Windows Server 2016 Essentials](https://docs.microsoft.com/windows-server-essentials/get-started/get-started). |
+| Windows Server Essentials Experience|Die Essentials Experience-Rolle für Windows Server Standard- oder Windows Server Datacenter-SKUs wird nicht weiter entwickelt. Wenn Sie eine leicht zu bedienende Serverlösung für kleine bis mittlere Unternehmen benötigen, sehen Sie sich die neue [Microsoft 365 für Unternehmen](https://www.microsoft.com/microsoft-365/business)-Lösung an, oder verwenden Sie [Windows Server 2016 Essentials](https://docs.microsoft.com/windows-server-essentials/get-started/get-started). |
 

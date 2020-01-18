@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 155e828c77670c7c489b334ec3e7c49aa0809d4d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9e8b0c04137ff3b11cdaa7aba3c7899ca6300848
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391617"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947743"
 ---
 # <a name="system-requirements"></a>Systemanforderungen
 
@@ -128,4 +128,4 @@ Detaillierte Schritte zum Installieren von Windows Server 2016 als Nano Server-V
 - [Windows-Prozessoranforderungen](https://docs.microsoft.com/windows-hardware/design/minimum/windows-processor-requirements)
 - [Vergleich der Standard- und Datacenter-Editionen von Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/2016-edition-comparison)
 - [Windows 10-Systemanforderungen](https://www.microsoft.com/windows/windows-10-specifications#system-specifications)
-- [Herunterladen des Windows Server 2016 Lizenzierungsdatenblatts](http://download.microsoft.com/download/7/2/9/7290EA05-DC56-4BED-9400-138C5701F174/WS2016LicensingDatasheet.pdf)
+- [Herunterladen des Windows Server 2016 Lizenzierungsdatenblatts](https://download.microsoft.com/download/7/2/9/7290EA05-DC56-4BED-9400-138C5701F174/WS2016LicensingDatasheet.pdf)

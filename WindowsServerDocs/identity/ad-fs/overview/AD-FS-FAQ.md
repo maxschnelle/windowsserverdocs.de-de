@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0a2bbeeb459fd364db728579dc20015a2474fd25
-ms.sourcegitcommit: e5df3fd267352528eaab5546f817d64d648b297f
+ms.openlocfilehash: 48d93f515a5f3e5f8ce2c3ff9a1b40f300ca57ed
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74163090"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265742"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS häufig gestellte Fragen (FAQ)
 
@@ -48,7 +48,7 @@ Die http/2-Unterstützung wurde in Windows Server 2016 hinzugefügt, aber http/2
 Ja, diese Konfiguration wird unterstützt, es werden jedoch keine neuen AD FS 2016-Features in dieser Konfiguration unterstützt.  Diese Konfiguration soll während der Migrationsphase von AD FS 2012 R2 zu AD FS 2016 temporär sein und sollte nicht über einen längeren Zeitraum bereitgestellt werden.
 
 ### <a name="is-it-possible-to-deploy-ad-fs-for-office-365-without-publishing-a-proxy-to-office-365"></a>Ist es möglich, AD FS für Office 365 bereitzustellen, ohne einen Proxy für Office 365 zu veröffentlichen?
-Ja, dies wird unterstützt. Als Nebeneffekt
+Ja, diese Möglichkeit wird unterstützt. Als Nebeneffekt
 
 1. Sie müssen die Aktualisierung von Tokensignaturzertifikaten manuell verwalten, da Azure AD nicht auf die Verbund Metadaten zugreifen kann. Weitere Informationen zum manuellen Aktualisieren des Tokensignaturzertifikats finden Sie unter [Erneuern von Verbund Zertifikaten für Office 365 und Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-o365-certs)
 2. Sie sind nicht in der Lage, ältere Authentifizierungs Abläufe (z. b. den Verlauf der ExO-Proxy Authentifizierung) zu nutzen.
@@ -66,7 +66,7 @@ AD FS ist ein Zustands Loses System. Daher ist der Lastenausgleich für Anmeldun
 
 ### <a name="what-multi-forest-configurations-are-supported-by-ad-fs"></a>Welche Konfigurationen mit mehreren Gesamtstrukturen werden von AD FS unterstützt?
 
-AD FS unterstützt eine Konfiguration mit mehreren Gesamtstrukturen und basiert auf dem zugrunde liegenden AD DS Vertrauensstellungs Netzwerk, um Benutzer über mehrere vertrauenswürdige Bereiche hinweg zu authentifizieren. Es wird dringend empfohlen, 2-Wege-Gesamtstrukturen Vertrauens Stellungen zu gewährleisten, da dies ein einfacheres Setup ist Verfügt
+AD FS unterstützt eine Konfiguration mit mehreren Gesamtstrukturen und basiert auf dem zugrunde liegenden AD DS Vertrauensstellungs Netzwerk, um Benutzer über mehrere vertrauenswürdige Bereiche hinweg zu authentifizieren. Es wird dringend empfohlen, 2-Wege-Gesamtstrukturen Vertrauens Stellungen zu gewährleisten, da dies ein einfacheres Setup ist Außerdem greift
 
 - Bei einer unidirektionalen Gesamtstruktur-Vertrauensstellung, z. b. einer DMZ-Gesamtstruktur, die Partner Identitäten enthält, empfiehlt es sich, ADFS in der Corp-Gesamtstruktur bereitzustellen und die DMZ-Gesamtstruktur als eine andere lokale Anspruchs Anbieter-Vertrauens In diesem Fall funktioniert die integrierte Windows-Authentifizierung für die Benutzer der DMZ-Gesamtstruktur nicht, und Sie müssen die Kenn Wort Authentifizierung durchführen, da dies der einzige unterstützte Mechanismus für LDAP ist. Wenn Sie diese Option nicht durchführen können, müssen Sie ein weiteres ADFS in der DMZ-Gesamtstruktur einrichten und dieses als Anspruchs Anbieter-Vertrauensstellung in den AD FS in der Corp-Gesamtstruktur hinzufügen. Benutzer müssen die Startbereichs Ermittlung durchführen, aber sowohl die integrierte Windows-Authentifizierung als auch die Kenn Wort Authentifizierung funktionieren. Nehmen Sie die entsprechenden Änderungen in den Ausstellungsregeln in ADFS in der DMZ-Gesamtstruktur vor, da ADFS in der Corp-Gesamtstruktur keine zusätzlichen Benutzerinformationen über den Benutzer aus der DMZ-Gesamtstruktur erhalten kann.
 - Obwohl Vertrauens Stellungen auf Domänen Ebene unterstützt werden und funktionieren können, wird dringend empfohlen, zu einem Vertrauens Modell auf Gesamtstruktur Ebene zu wechseln. Außerdem müssen Sie sicherstellen, dass das UPN-Routing und die NetBIOS-Namensauflösung von Namen genau funktionieren müssen.
@@ -126,7 +126,7 @@ Der im Zugriffs Token ausgegebene Anspruch:
     "array_in_json":{"Items":[{"Name":"Apple","Price":12.3},{"Name":"Grape","Price":3.21}],"Date":"21/11/2010"}
 
 ### <a name="can-i-pass-resource-value-as-part-of-the-scope-value-like-how-requests-are-done-against-azure-ad"></a>Kann ich den Ressourcen Wert als Teil des Bereichs Werts übergeben, wie z. b. wie Anforderungen gegen Azure AD durchgeführt werden?
-Mit AD FS auf Server 2019 können Sie nun den Ressourcen Wert übergeben, der in den Scope-Parameter eingebettet ist. Der Bereichs Parameter kann nun als durch Leerzeichen getrennte Liste organisiert werden, wobei jeder Eintrag als Ressource/Bereich strukturiert ist. Zum Beispiel  
+Mit AD FS auf Server 2019 können Sie nun den Ressourcen Wert übergeben, der in den Scope-Parameter eingebettet ist. Der Bereichs Parameter kann nun als durch Leerzeichen getrennte Liste organisiert werden, wobei jeder Eintrag als Ressource/Bereich strukturiert ist. Beispiel:  
 **< eine gültige Beispiel Anforderung erstellen >**
 
 ### <a name="does-ad-fs-support-pkce-extension"></a>Unterstützt AD FS die pkce-Erweiterung?
@@ -142,7 +142,7 @@ AD FS in Server 2019 unterstützt den Prüfschlüssel für Code Austausch (pkce)
 - Profil: ermöglicht es der Anwendung, Profil bezogene Ansprüche für den Anmelde Benutzer anzufordern. Dies wird nicht mehr unterstützt. 
 
 
-## <a name="operations"></a>Vorgänge
+## <a name="operations"></a>Betrieb
 
 ### <a name="how-do-i-replace-the-ssl-certificate-for-ad-fs"></a>Gewusst wie das SSL-Zertifikat für AD FS ersetzen?
 Das AD FS SSL-Zertifikat ist nicht mit dem AD FS Dienst Kommunikations Zertifikat identisch, das im Snap-in "AD FS-Verwaltung" gefunden wurde.  Um das AD FS SSL-Zertifikat zu ändern, müssen Sie PowerShell verwenden. Befolgen Sie die Anweisungen im folgenden Artikel:
@@ -276,11 +276,11 @@ Auf WAP-Servern können Sie weiterhin Set-webapplicationproxysslcertificate verw
 2. Importieren Sie auf den Servern, die in #1 ausgewählt sind, das neue Zertifikat per MMC.
 3. Vorhandene Zertifikate löschen
 
-    a. Netsh HTTP DELETE sslcert hostnameport = FS. Configuration. com: 443 b. Netsh HTTP DELETE sslcert hostnameport = localhost: 443 c. Netsh HTTP DELETE sslcert hostnameport = FS. Configuration. com: 49443 verwendet.
+    ein. Netsh HTTP DELETE sslcert hostnameport = FS. Configuration. com: 443 b. Netsh HTTP DELETE sslcert hostnameport = localhost: 443 c. Netsh HTTP DELETE sslcert hostnameport = FS. Configuration. com: 49443 verwendet.
 
 4.  Neues Zertifikat hinzufügen
 
-    a. netsh http Add sslcert hostnameport = FS. Configuration. com: 443 CertHash = certthumbprint AppID = {5d89a20c-beab-4389-9447-324788eb944a} certstorename = My SslCtlStoreName = adberstrusteddevices
+    ein. netsh http Add sslcert hostnameport = FS. Configuration. com: 443 CertHash = certthumbprint AppID = {5d89a20c-beab-4389-9447-324788eb944a} certstorename = My SslCtlStoreName = adberstrusteddevices
 
     b. netsh http Add sslcert hostnameport = localhost: 443 CertHash = certthumbprint AppID = {5d89a20c-beab-4389-9447-324788eb944a} certstorename = My SslCtlStoreName = adberstrusteddevices
 
@@ -291,7 +291,7 @@ Auf WAP-Servern können Sie weiterhin Set-webapplicationproxysslcertificate verw
 7. Importieren Sie das neue Zertifikat auf den ausgewählten WAP-Servern über MMC.
 8. Festlegen des neuen CERT für WAP mithilfe des Cmdlets
 
-    a. Set-webapplicationproxysslcertificate-Thumbprint "certthumbprint"
+    ein. Set-webapplicationproxysslcertificate-Thumbprint "certthumbprint"
 
 9. Dienst auf den ausgewählten WAP-Servern neu starten
 10. Versetzen Sie die ausgewählten WAP-und AD FS Server wieder in die Produktionsumgebung.
@@ -307,4 +307,7 @@ In AD FS 2016 wird die tokenbindung automatisch aktiviert, und es werden mehrere
 `Set-AdfsProperties -IgnoreTokenBinding $true`
 
 ### <a name="i-have-upgraded-my-farm-from-ad-fs-in-windows-server-2016-to-ad-fs-in-windows-server-2019-the-farm-behavior-level-for-the-ad-fs-farm-has-been-successfully-raised-to-2019-but-the-web-application-proxy-configuration-is-still-displayed-as-windows-server-2016"></a>Ich habe meine Farm von AD FS in Windows Server 2016 auf AD FS in Windows Server 2019 aktualisiert. Die Farm Verhaltensebene für die AD FS Farm wurde erfolgreich auf 2019, aber die Konfiguration des webanwendungsproxys wird weiterhin als Windows Server 2016 angezeigt?
-Nach einem Upgrade auf Windows Server 2019 wird die Konfigurations Version des webanwendungsproxys weiterhin als Windows Server 2016 angezeigt. Der webanwendungsproxy verfügt nicht über neue versionsspezifische Features für Windows Server 2019. wenn die Farm Verhalten auf AD FS erfolgreich ausgelöst wurde, wird der webanwendungsproxy nach dem Entwurf weiterhin als Windows Server 2016 angezeigt. 
+Nach einem Upgrade auf Windows Server 2019 wird die Konfigurations Version des webanwendungsproxys weiterhin als Windows Server 2016 angezeigt. Der webanwendungsproxy verfügt nicht über neue versionsspezifische Features für Windows Server 2019. wenn die Farm Verhalten auf AD FS erfolgreich ausgelöst wurde, wird der webanwendungsproxy nach dem Entwurf weiterhin als Windows Server 2016 angezeigt.
+
+### <a name="can-i-estimate-the-size-of-the-adfsartifactstore-before-enabling-esl"></a>Kann ich die Größe von adfsartifactstore vor dem Aktivieren von ESL schätzen?
+Bei aktiviertem ESL verfolgt AD FS die Kontoaktivität und die bekannten Speicherorte für Benutzer in der adfsartifactstore-Datenbank nach. Die Größe dieser Datenbank wird relativ zur Anzahl der Benutzer und bekannten Standorte skaliert. Wenn Sie die Aktivierung von ESL planen, können Sie die Größe der adfsartifactstore-Datenbank mit einer Rate von bis zu 1 GB pro 100.000 Benutzer schätzen. Wenn die AD FS-Farm die interne Windows-Datenbank (WID) verwendet, lautet der Standard Speicherort für die Datenbankdateien c:\windows\wid\data. Um das Auffüllen dieses Laufwerks zu verhindern, stellen Sie sicher, dass mindestens 5 GB freier Speicherplatz verfügbar sind, bevor Sie die ESL aktivieren. Planen Sie zusätzlich zum Datenträger Speicher den gesamten Prozess Arbeitsspeicher, der nach dem Aktivieren von ESL erweitert werden soll, um bis zu 1 GB RAM für die Benutzer Population von 500.000 oder weniger.

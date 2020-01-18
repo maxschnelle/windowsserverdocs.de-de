@@ -1,19 +1,19 @@
 ---
 title: DNS-Clients
 description: In diesem Artikel wird beschrieben, wie Sie ein DNS-Problem auf Clientseite beheben.
-manager: willchen
+manager: dcscontentpm
 ms.prod: ''
 ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: 1f18159d6232bd9e7864b13419b3648c12b9f44f
-ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
+ms.openlocfilehash: dd34fae73cdcb20a896750e20d4a28f8777a378a
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68917817"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265772"
 ---
 # <a name="troubleshooting-dns-clients"></a>DNS-Clients
 
@@ -37,7 +37,7 @@ In diesem Artikel wird erläutert, wie Sie Probleme von DNS-Clients beheben.
 
 Wenn der Client keine gültige TCP/IP-Konfiguration hat, verwenden Sie eine der folgenden Methoden:
 
-* Verwenden Sie für dynamisch konfigurierte Clients `ipconfig /renew` den Befehl, um die IP-Adress Konfiguration des Clients manuell mit dem DHCP-Server zu erneuern.
+* Verwenden Sie für dynamisch konfigurierte Clients den `ipconfig /renew` Befehl, um den Client manuell zu zwingen, seine IP-Adress Konfiguration mit dem DHCP-Server zu erneuern.
 
 * Ändern Sie für statisch konfigurierte Clients die TCP/IP-Client Eigenschaften so, dass gültige Konfigurationseinstellungen verwendet werden, oder schließen Sie die DNS-Konfiguration für das Netzwerk ab.
 
@@ -57,7 +57,7 @@ Wenn kein konfigurierter DNS-Server auf das direkte Pingen seiner IP-Adresse ant
 
 ### <a name="dns-query-tests"></a>DNS-Abfrage Tests
 
-Wenn der DNS-Client einen Ping an den DNS-Server Computer durchführen kann `nslookup` , verwenden Sie die folgenden Befehle, um zu testen, ob der Server auf DNS-Clients reagieren kann. Da nslookup nicht den DNS-Cache des Clients verwendet, wird bei der Namensauflösung der konfigurierte DNS-Server des Clients verwendet.
+Wenn der DNS-Client einen Ping-Befehl an den DNS-Server Computer senden kann, verwenden Sie die folgenden `nslookup` Befehle, um zu testen, ob der Server auf DNS-Clients reagieren kann. Da nslookup nicht den DNS-Cache des Clients verwendet, wird bei der Namensauflösung der konfigurierte DNS-Server des Clients verwendet.
 
 #### <a name="test-a-client"></a>Testen eines Clients
 
@@ -124,9 +124,9 @@ Zum Beispiel:
 nslookup bing.com
 ```
 
-Wenn alle vier Tests erfolgreich waren, führen `ipconfig /displaydns` Sie aus, und überprüfen Sie die Ausgabe auf den Namen, der fehlgeschlagen ist. Wenn der Name "Name ist nicht vorhanden" angezeigt wird, wurde eine negative Antwort von einem DNS-Server zurückgegeben und auf dem Client zwischengespeichert. 
+Wenn alle vier dieser Tests erfolgreich waren, führen Sie `ipconfig /displaydns` aus, und überprüfen Sie die Ausgabe auf den Namen, der fehlgeschlagen ist. Wenn der Name "Name ist nicht vorhanden" angezeigt wird, wurde eine negative Antwort von einem DNS-Server zurückgegeben und auf dem Client zwischengespeichert. 
 
-Um das Problem zu beheben, löschen Sie den Cache `ipconfig /flushdns`, indem Sie ausführen.
+Um das Problem zu beheben, löschen Sie den Cache, indem Sie `ipconfig /flushdns`ausführen.
 
 ## <a name="next-step"></a>Nächster Schritt
 

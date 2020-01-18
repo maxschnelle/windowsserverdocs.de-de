@@ -9,16 +9,16 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.assetid: ''
 author: kaushika-msft
-manager: ''
+manager: dcscontentpm
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 8af2b1a171a77def2bbb74cc7301e0562cb5b92c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 7dbb037e335af52dacbc56c920b1776be995e753
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70870596"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265932"
 ---
 # <a name="user-cant-authenticate-or-must-authenticate-twice"></a>Der Benutzer kann sich nicht authentifizieren oder muss sich zweimal authentifizieren
 
@@ -164,7 +164,7 @@ Um dieses Problem zu beheben, stellen Sie sicher, dass die Computer, mit denen B
   - Windows Server 2016: KB 4284880, [12. Juni 2018 – KB4284880 (Betriebssystembuild 14393.2312)](https://support.microsoft.com/help/4284880/windows-10-update-kb4284880)
   - Windows Server 2012 R2: KB 4284815, [12. Juni 2018 – KB4284815 (monatliches Rollup)](https://support.microsoft.com/help/4284815/windows-81-update-kb4284815)
   - Windows Server 2012: KB 4284855, [12. Juni 2018 – KB4284855 (monatliches Rollup)](https://support.microsoft.com/help/4284855/windows-server-2012-update-kb4284855)
-  - Windows Server 2008 R2: KB 4284826, [12. Juni 2018 – KB4284826 (monatliches Rollup)](https://support.microsoft.com/help/4284826/windows-7-update-kb4284826)
+  - Windows Server 2008 R2 KB 4284826, [12. Juni 2018 – KB4284826 (monatliches Rollup)](https://support.microsoft.com/help/4284826/windows-7-update-kb4284826)
   - Windows Server 2008 SP2: KB4056564, [Beschreibung des Sicherheitsupdates für die CredSSP-Remotecodeausführung in Windows Server 2008, und Windows Embedded POSReady 2009 und Windows Embedded Standard 2009: 13. März 2018](https://support.microsoft.com/help/4056564/security-update-for-vulnerabilities-in-windows-server-2008)
 
 ## <a name="users-are-denied-access-on-a-deployment-that-uses-remote-credential-guard-with-multiple-rd-connection-brokers"></a>Benutzern wird der Zugriff auf eine Bereitstellung verweigert, die Remote Credential Guard mit mehreren RD-Verbindungsbrokern verwendet

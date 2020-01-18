@@ -12,12 +12,12 @@ author: jaimeo
 ms.author: jaimeo
 ms.date: 09/06/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 80d6cdd3056d9c7e0a0815ce5856f961d79fcc34
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 434b79508dbf88a90348840573255c3084d6e989
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391780"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948455"
 ---
 # <a name="developing-powershell-cmdlets-for-nano-server"></a>Entwickeln von PowerShell-Cmdlets für Nano Server
 
@@ -110,7 +110,7 @@ At line:1 char:1
 Einen Schnellstart sowie detaillierte Schritte zur Installation von Nano Server auf virtuellen oder physischen Computern finden Sie im übergeordneten Thema dieses Themas: [Installieren von Nano Server](Getting-Started-with-Nano-Server.md).  
   
 > [!NOTE]  
-> Für Entwicklungen auf Nano Server könnte es hilfreich sein, Nano Server zu installieren, indem Sie den Parameter „-Development“ von New-NanoServerImage verwenden. Dadurch wird es möglich, unsignierte Treiber zu installieren, Debugger-Binärdateien zu kopieren, einen Port für das Debuggen zu öffnen, die Testsignierung zu aktivieren und die Installation von AppX-Paketen ohne Entwicklerlizenz zu aktivieren. Zum Beispiel:  
+> Für Entwicklungen auf Nano Server könnte es hilfreich sein, Nano Server zu installieren, indem Sie den Parameter „-Development“ von New-NanoServerImage verwenden. Dadurch wird es möglich, unsignierte Treiber zu installieren, Debugger-Binärdateien zu kopieren, einen Port für das Debuggen zu öffnen, die Testsignierung zu aktivieren und die Installation von AppX-Paketen ohne Entwicklerlizenz zu aktivieren. Beispiel:  
 >  
 >`New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -Development`  
   
@@ -138,7 +138,7 @@ Im Allgemeinen sollten diese Cmdlets in Nano Server funktionieren, ohne dass ein
 ### <a name="building-c-for-nano-server"></a>Erstellen von C++-Code für Nano Server  
 Damit C++-DLLs unter Nano Server funktionieren, kompilieren Sie diese für Nano Server, anstatt für eine spezifische Edition.  
   
-Erforderliche Komponenten und eine exemplarische Vorgehensweise zum Entwickeln von C++ unter Nano Server finden Sie im Blogbeitrag [Developing Native Apps on Nano Server (Entwickeln von nativen Apps unter Nano Server)](http://blogs.technet.com/b/nanoserver/archive/2016/04/27/developing-native-apps-on-nano-server.aspx).  
+Erforderliche Komponenten und eine exemplarische Vorgehensweise zum Entwickeln von C++ unter Nano Server finden Sie im Blogbeitrag [Developing Native Apps on Nano Server (Entwickeln von nativen Apps unter Nano Server)](https://blogs.technet.com/b/nanoserver/archive/2016/04/27/developing-native-apps-on-nano-server.aspx).  
   
   
 ## <a name="porting-net-cmdlets"></a>Portieren von .NET-Cmdlets  
@@ -151,7 +151,7 @@ Das Modul „Microsoft.PowerShell.NanoServer.SDK“ ist im [PowerShell-Katalog](
   
 Das PowerShell Core SDK-Modul stellt Cmdlets verfügbar, um die richtigen CoreCLR- und PowerShell Core-Referenzassemblys einzurichten, ein auf diese Referenzassemblys ausgerichtetes C#-Projekt in Visual Studio 2015 zu erstellen und den Remotedebugger auf einem Nano Server-Computer einzurichten, damit Entwickler ihre auf Nano Server ausgeführten .NET-Cmdlets remote in Visual Studio 2015 debuggen können.  
   
-Das PowerShell Core SDK-Modul erfordert Visual Studio 2015 Update 2. Wenn Sie Visual Studio 2015 nicht installiert haben, können Sie [Visual Studio Community 2015](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) installieren.  
+Das PowerShell Core SDK-Modul erfordert Visual Studio 2015 Update 2. Wenn Sie Visual Studio 2015 nicht installiert haben, können Sie [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) installieren.  
   
 Das SDK-Modul hängt auch von den folgenden Funktionen ab, die in Visual Studio 2015 installiert werden müssen:  
   

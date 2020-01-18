@@ -8,12 +8,12 @@ ms.topic: article
 author: greg-lindsay
 ms.author: greg-lindsay
 ms.localizationpriority: high
-ms.openlocfilehash: 187abe06b469abe511d4bbbfb0aac9237d3c650a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 946c1266f1c2cdc78cedac6794abb9f8d26696cd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868521"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947700"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure-Hybridvorteil für Windows Server
 
@@ -84,7 +84,7 @@ Anschließend können Sie die Ergebnisse in das **Azure Hybrid Benefit for Windo
 
 Achten Sie darauf, eine Inventur in jedem Ihrer Abonnements auszuführen, um einen umfassenden Überblick über Ihren Lizenzstatus zu generieren.
 
-[Azure Hybrid Benefit WS SA Count Tool](http://download.microsoft.com/download/7/1/2/712FEFF0-155C-4ABF-96C0-CE4EC4DB0516/Azure_Hybrid_Benefit_Windows_Server_SA_Count_Tool.xlsx)
+[Azure Hybrid Benefit WS SA Count Tool](https://download.microsoft.com/download/7/1/2/712FEFF0-155C-4ABF-96C0-CE4EC4DB0516/Azure_Hybrid_Benefit_Windows_Server_SA_Count_Tool.xlsx)
 
 Wenn Sie die oben genannten Schritte ausgeführt und bestätigt haben, dass Sie für die Anzahl der ausgeführten Azure-Hybridvorteil-Instanzen vollständig lizenziert sind, ist keine weitere Aktion erforderlich. Wenn Sie festgestellt haben, dass Sie inkrementelle VMs mit dem Vorteil abdecken können, möchten Sie Ihre Kosten vielleicht weiter optimieren, indem Sie den Vorteil auch für Instanzen verwenden, die mit vollen Kosten ausgeführt werden.
 
@@ -92,7 +92,7 @@ Wenn Sie nicht genügend berechtigte Windows Server-Lizenzen für die bereits be
 
 Windows Server Software Assurance-Lizenzen und/oder Abonnements können über einen der folgenden Microsoft-Lizenzierungskanäle erworben werden:
 
-| Kanal                      | Öffnen     | OVS      | Select oder Select Plus  | MPSA       | EA/EAS   |
+| Kanal                      | Öffnen Sie den     | OVS      | Select oder Select Plus  | MPSA       | EA/EAS   |
 |------------------------------|----------|----------|-----------------------|-----------|----------|
 | Typische Größe (Anzahl Geräte)  | 5–250    | 5–250    | >250                  | >250      | >500     |
 | Software Assurance/Abonnement            | Optional | Enthalten | Optional              | Optional  | Enthalten |

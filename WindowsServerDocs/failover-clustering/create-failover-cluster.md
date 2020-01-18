@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 496ae061d438a429ba13ee49d9da94127f308f37
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d85866284272d80727d3fdb21c6e6447bd3ded2f
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369799"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265762"
 ---
 # <a name="create-a-failover-cluster"></a>Erstellen eines Failoverclusters
 
@@ -21,13 +21,13 @@ ms.locfileid: "71369799"
 
 In diesem Thema wird gezeigt, wie ein Failovercluster mithilfe des Failovercluster-Manager-Snap-Ins oder mit Windows PowerShell erstellt wird. Das Thema behandelt eine typische Bereitstellung, bei der Computerobjekte für den Cluster und seine zugehörigen Clusterrollen in Active Directory-Domänendiensten (AD DS) erstellt werden. Wenn Sie einen direkte Speicherplätze Cluster bereitstellen, finden Sie weitere Informationen unter Bereitstellen [direkte Speicherplätze](../storage/storage-spaces/deploy-storage-spaces-direct.md).
 
-Sie können auch einen Active Directory getrennten Cluster bereitstellen. Mit dieser Bereitstellungsmethode können Sie einen Failovercluster erstellen und benötigen dazu nicht die Berechtigungen zum Erstellen von Computerobjekten in AD DS. Außerdem müssen Sie nicht die Vorabbereitstellung von Computerobjekten in AD DS anfordern. Diese Option ist nur über Windows PowerShell verfügbar und wird nur für bestimmte Szenarien empfohlen. Weitere Informationen finden Sie unter [Bereitstellen eines von Active Directory getrennten Clusters](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11)).
+Sie können auch einen Active Directory getrennten Cluster bereitstellen. Mit dieser Bereitstellungsmethode können Sie einen Failovercluster erstellen und benötigen dazu nicht die Berechtigungen zum Erstellen von Computerobjekten in AD DS. Außerdem müssen Sie nicht die Vorabbereitstellung von Computerobjekten in AD DS anfordern. Diese Option ist nur über Windows PowerShell verfügbar und wird nur für bestimmte Szenarien empfohlen. Weitere Informationen finden Sie unter [Deploy an Active Directory-Detached Cluster](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11)).
 
 #### <a name="checklist-create-a-failover-cluster"></a>Prüfliste: Erstellen eines Failoverclusters
 
-| Status | Aufgabe | Verweis |
+| Status | Aufgabe | Referenz |
 | ---    | ---  | ---       |
-| ☐    | Überprüfen der Voraussetzungen | [Überprüfen der Voraussetzungen](#verify-the-prerequisites) |
+| ☐    | Überprüfen der Voraussetzungen | [Voraussetzungen](#verify-the-prerequisites) |
 | ☐    | Installieren Sie das Failoverclusteringfeature auf jedem Server, den Sie als Clusterknoten hinzufügen möchten. | [Installieren des Failoverclustering-Features](#install-the-failover-clustering-feature) |
 | ☐    | Ausführen des Clusterüberprüfungs-Assistenten zum Überprüfen der Konfiguration | [Überprüfen der Konfiguration](#validate-the-configuration) |
 | ☐ | Ausführen des Clustererstellungs-Assistenten zum Erstellen des Failoverclusters | [Erstellen des Failoverclusters](#create-the-failover-cluster) |
@@ -38,7 +38,7 @@ Sie können auch einen Active Directory getrennten Cluster bereitstellen. Mit di
 Bevor Sie beginnen, überprüfen Sie die folgenden Voraussetzungen:
 
 - Stellen Sie sicher, dass alle Server, die Sie als Clusterknoten hinzufügen möchten, dieselbe Version von Windows Server ausführen.
-- Überprüfen Sie die Hardwareanforderungen, um sicherzustellen, dass Ihre Konfiguration unterstützt wird. Weitere Informationen finden Sie unter [Hardwareanforderungen und Speicheroptionen für Failovercluster](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj612869(v%3dws.11)). Wenn Sie einen direkte Speicherplätze Cluster erstellen, finden Sie unter [direkte Speicherplätze Hardwareanforderungen](../storage/storage-spaces/storage-spaces-direct-hardware-requirements.md)Weitere Informationen.
+- Überprüfen Sie die Hardwareanforderungen, um sicherzustellen, dass Ihre Konfiguration unterstützt wird. Weitere Informationen finden Sie unter [Failover Clustering Hardware Requirements and Storage Options](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj612869(v%3dws.11)). Wenn Sie einen direkte Speicherplätze Cluster erstellen, finden Sie unter [direkte Speicherplätze Hardwareanforderungen](../storage/storage-spaces/storage-spaces-direct-hardware-requirements.md)Weitere Informationen.
 - Um Cluster Speicher während der Cluster Erstellung hinzuzufügen, stellen Sie sicher, dass alle Server auf den Speicher zugreifen können. (Sie können Clusterspeicher auch nach der Erstellung des Clusters hinzufügen.)
 - Stellen Sie sicher, dass alle Server, die Sie als Clusterknoten hinzufügen möchten, derselben Active Directory-Domäne angehören.
 - (Optional) Erstellen Sie eine Organisationseinheit (OU), und verschieben Sie die Computerkonten für die Server, die Sie als Clusterknoten hinzufügen möchten, in die Organisationseinheit. Als bewährte Methode wird empfohlen, dass Sie Failovercluster in ihren eigenen Organisationseinheiten in AD DS bereitstellen. Auf diese Weise können Sie besser kontrollieren, welche Gruppenrichtlinieneinstellungen oder Sicherheitsvorlageneinstellungen die Clusterknoten beeinflussen. Das Isolieren der Cluster in eigenen Organisationseinheiten schützt zudem vor dem versehentlichen Löschen von Clustercomputerobjekten.
@@ -48,10 +48,10 @@ Bevor Sie beginnen, überprüfen Sie die folgenden Voraussetzungen:
 - Stellen Sie sicher, dass das Konto, das Sie zum Erstellen des Clusters verwenden möchten, einem Domänenbenutzer entspricht, der auf allen Servern, die Sie als Clusterknoten hinzufügen möchten, über Administratorrechte verfügt.
 - Stellen Sie sicher, dass eine der folgenden Optionen zutrifft:
     - Der Benutzer, der die Cluster erstellt, verfügt für die Organisationseinheit oder den Container, in dem sich die Server befinden, die den Cluster bilden, über die Berechtigung **Computerobjekte erstellen** .
-    - Wenn der Benutzer nicht über die Berechtigung **Computerobjekte erstellen** verfügt, bitten Sie einen Domänenadministrator, ein Clustercomputerobjekt für den Cluster vorab bereitzustellen. Weitere Informationen finden Sie unter [Vorabbereitstellen von Clustercomputerobjekten in Active Directory-Domänendiensten](prestage-cluster-adds.md).
+    - Wenn der Benutzer nicht über die Berechtigung **Computerobjekte erstellen** verfügt, bitten Sie einen Domänenadministrator, ein Clustercomputerobjekt für den Cluster vorab bereitzustellen. Weitere Informationen finden Sie unter [Prestage Cluster Computer Objects in Active Directory Domain Services](prestage-cluster-adds.md).
 
 > [!NOTE]
-> Diese Anforderung trifft nicht zu, wenn Sie einen Active Directory getrennten Cluster in Windows Server 2012 R2 erstellen möchten. Weitere Informationen finden Sie unter [Bereitstellen eines von Active Directory getrennten Clusters](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11)).
+> Diese Anforderung trifft nicht zu, wenn Sie einen Active Directory getrennten Cluster in Windows Server 2012 R2 erstellen möchten. Weitere Informationen finden Sie unter [Deploy an Active Directory-Detached Cluster](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265970(v=ws.11)).
 
 ## <a name="install-the-failover-clustering-feature"></a>Installieren des Failoverclusteringfeatures
 
@@ -65,7 +65,7 @@ Sie müssen das Failoverclusteringfeature auf jedem Server installieren, den Sie
 4. Wählen Sie auf der Seite **Installationstyp auswählen** die Option **rollenbasierte oder featurebasierte Installation**aus, und klicken Sie dann auf **weiter**.
 5. Wählen Sie auf der Seite **Zielserver auswählen** den Server aus, auf dem Sie das Feature installieren möchten, und klicken Sie dann auf **weiter**.
 6. Wählen Sie auf der Seite **Server Rollen auswählen** die Option **weiter**aus.
-7. Aktivieren Sie auf der Seite **Features auswählen** das Kontrollkästchen **Failoverclustering**.
+7. Aktivieren Sie auf der Seite **Features auswählen** das Kontrollkästchen **Failoverclustering** .
 8. Wählen Sie zum Installieren der Failovercluster-Verwaltungs Tools **Features hinzufügen**aus, und klicken Sie dann auf **weiter**.
 9. Wählen Sie auf der Seite **Installations Auswahl bestätigen** die Option **Installieren**aus.
 <br>Ein Neustart des Servers ist für das Failoverclusteringfeature nicht erforderlich.
@@ -87,15 +87,15 @@ Vor der Erstellung des Failovercluster wird dringend empfohlen, dass Sie die Kon
 
 1. Starten Sie den Failovercluster-Manager auf einem Computer, auf dem die Verwaltungstools für Failovercluster über die Remoteserver-Verwaltungstools installiert wurden, oder auf einem Server, auf dem Sie das Failoverclusteringfeature installiert haben. Um dies auf einem Server zu erreichen, starten Sie Server-Manager, und wählen Sie dann **im Menü Extras** die Option **Failovercluster-Manager**aus.
 2. Klicken Sie im **Failovercluster-Manager** Bereich unter **Verwaltung**auf **Konfiguration**überprüfen.
-3. Wählen Sie **auf der Seite** Vorbereitung die Option **weiter**aus.
-4. Geben Sie auf der Seite **Server oder Cluster auswählen** in das Feld **Name eingeben** den NetBIOS-Namen oder den voll qualifizierten Domänen Namen eines Servers ein, den Sie als Failoverclusterknoten hinzufügen möchten, und klicken Sie dann auf **Hinzufügen**. Wiederholen Sie diesen Schritt für alle weiteren Server, die Sie hinzufügen möchten. Wenn Sie mehrere Server gleichzeitig hinzufügen möchten, trennen Sie die Namen durch ein Komma oder Semikolon. Geben Sie z. b. die Namen im Format `server1.contoso.com, server2.contoso.com`ein. Wenn Sie fertig sind, wählen Sie **weiter**aus.
+3. Wählen Sie auf der Seite **Vorbereitung** die Option **Weiter**.
+4. Geben Sie auf der Seite **Server oder Cluster auswählen** in das Feld **Name eingeben** den NetBIOS-Namen oder den voll qualifizierten Domänen Namen eines Servers ein, den Sie als Failoverclusterknoten hinzufügen möchten, und klicken Sie dann auf **Hinzufügen**. Wiederholen Sie diesen Schritt für alle weiteren Server, die Sie hinzufügen möchten. Wenn Sie mehrere Server gleichzeitig hinzufügen möchten, trennen Sie die Namen durch ein Komma oder Semikolon. Geben Sie z. b. die Namen im Format `server1.contoso.com, server2.contoso.com`ein. Wenn Sie fertig sind, klicken Sie auf **Weiter**.
 5. Wählen Sie auf der Seite **Test Optionen die Option** **alle Tests ausführen (empfohlen)** aus, und klicken Sie dann auf **weiter**.
 6. Wählen Sie auf der Seite **Bestätigung** die Option **weiter**aus.
 
     Auf der Seite zur Ausführung der Überprüfung wird der Status der aktiven Tests angezeigt.
 7. Führen Sie auf der Seite **Zusammenfassung** eine der folgenden Aktionen aus:
     
-      - Wenn die Ergebnisse auf eine erfolgreiche Ausführung der Tests hinweisen und die Konfiguration für das Clustering geeignet ist und Sie den Cluster sofort erstellen möchten, stellen Sie sicher, dass das Kontrollkästchen **Cluster jetzt mit den überprüften Knoten erstellen** aktiviert ist, und klicken Sie dann auf **Fertig**stellen. Fahren Sie dann mit Schritt 4 des Verfahrens [Erstellen des Failoverclusters](#create-the-failover-cluster) fort.
+      - Wenn die Ergebnisse auf eine erfolgreiche Ausführung der Tests hinweisen und die Konfiguration für das Clustering geeignet ist und Sie den Cluster sofort erstellen möchten, stellen Sie sicher, dass das Kontrollkästchen **Cluster jetzt mit den überprüften Knoten erstellen** aktiviert ist, und klicken Sie dann auf **Fertig**stellen. Fahren Sie mit Schritt 4 des Verfahrens [Erstellen des Failoverclusters](#create-the-failover-cluster) fort.
       - Wenn die Ergebnisse darauf hindeuten, dass Warnungen oder Fehler aufgetreten sind, wählen Sie **Bericht anzeigen** aus, um die Details anzuzeigen und zu ermitteln, welche Probleme korrigiert werden müssen. Beachten Sie, dass eine Warnung für einen bestimmten Validierungstest darauf hinweist, dass dieser Aspekt des Failoverclusters zwar unterstützt werden kann, er aber möglicherweise nicht den empfohlenen bewährten Methoden entspricht.
         
         > [!NOTE]
@@ -112,8 +112,8 @@ Stellen Sie zum Abschließen dieses Schritts sicher, dass das Benutzerkonto, mit
 3. Klicken Sie im **Failovercluster-Manager** Bereich unter **Verwaltung**auf **Cluster erstellen**.
     
     Der Clustererstellungs-Assistent wird geöffnet.
-4. Wählen Sie **auf der Seite** Vorbereitung die Option **weiter**aus.
-5. Wenn die Seite **Server auswählen** angezeigt wird, geben Sie in das Feld **Name eingeben** den NetBIOS-Namen oder den voll qualifizierten Domänen Namen eines Servers ein, den Sie als Failoverclusterknoten hinzufügen möchten, und klicken Sie dann auf **Hinzufügen**. Wiederholen Sie diesen Schritt für alle weiteren Server, die Sie hinzufügen möchten. Wenn Sie mehrere Server gleichzeitig hinzufügen möchten, trennen Sie die Namen durch ein Komma oder Semikolon. Geben Sie die Namen z. B. im Format *server1.contoso.com; server2.contoso.com*ein. Wenn Sie fertig sind, wählen Sie **weiter**aus.
+4. Wählen Sie auf der Seite **Vorbereitung** die Option **Weiter**.
+5. Wenn die Seite **Server auswählen** angezeigt wird, geben Sie in das Feld **Name eingeben** den NetBIOS-Namen oder den voll qualifizierten Domänen Namen eines Servers ein, den Sie als Failoverclusterknoten hinzufügen möchten, und klicken Sie dann auf **Hinzufügen**. Wiederholen Sie diesen Schritt für alle weiteren Server, die Sie hinzufügen möchten. Wenn Sie mehrere Server gleichzeitig hinzufügen möchten, trennen Sie die Namen durch ein Komma oder Semikolon. Geben Sie die Namen z. B. im Format *server1.contoso.com; server2.contoso.com*ein. Wenn Sie fertig sind, klicken Sie auf **Weiter**.
     
     > [!NOTE]
     > Wenn Sie den Cluster sofort nach dem Ausführen der Überprüfung im [Konfigurations Überprüfungsverfahren](#validate-the-configuration)erstellt haben, wird die Seite **Server auswählen** nicht angezeigt. Die überprüften Knoten werden automatisch zum Clustererstellungs-Assistenten hinzugefügt, damit Sie diese nicht erneut eingeben müssen.
@@ -126,29 +126,33 @@ Stellen Sie zum Abschließen dieses Schritts sicher, dass das Benutzerkonto, mit
           - Wenn Sie einen anderen Speicherort für das CNO angeben möchten, können Sie den Distinguished Name einer Organisationseinheit im Feld **Clustername** eingeben. Zum Beispiel: *CN=ClusterName, OU=Clusters, DC=Contoso, DC=com*.
           - Wenn ein Domänenadministrator das CNO in einer anderen Organisationseinheit vorab bereitgestellt hat, in der sich die Clusterknoten nicht befinden, geben Sie den Distinguished Name an, der vom Domänenadministrator bereitgestellt wird.
     2. Wenn der Server nicht über einen für DHCP konfigurierten Netzwerkadapter verfügt, müssen Sie mindestens eine statische IP-Adresse für den Failovercluster konfigurieren. Aktivieren Sie das Kontrollkästchen neben den jeweiligen Netzwerkadaptern, die Sie für die Clusterverwaltung verwenden möchten. Wählen Sie das Feld **Adresse** neben einem ausgewählten Netzwerk aus, und geben Sie dann die IP-Adresse ein, die Sie dem Cluster zuweisen möchten. Diese IP-Adresse (oder Adressen) wird dem Clusternamen im Domain Name System zugeordnet.
-    3. Wenn Sie fertig sind, wählen Sie **weiter**aus.
+    
+      >[!NOTE]
+      > Wenn Sie Windows Server 2019 verwenden, haben Sie die Möglichkeit, einen verteilten Netzwerknamen für den Cluster zu verwenden. Ein verteilter Netzwerkname verwendet die IP-Adressen der Mitglieds Server, anstatt eine dedizierte IP-Adresse für den Cluster zu erfordern. Standardmäßig wird von Windows ein verteilter Netzwerkname verwendet, wenn erkannt wird, dass Sie den Cluster in Azure erstellen (sodass Sie keinen internen Lastenausgleich für den Cluster erstellen müssen) oder eine normale statische oder IP-Adresse, wenn Sie lokal ausgeführt werden. Weitere Informationen finden Sie unter [Name des verteilten Netzwerks](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).
+    
+    3. Wenn Sie fertig sind, klicken Sie auf **Weiter**.
 8. Überprüfen Sie auf der Seite **Bestätigung** die Einstellungen. Das Kontrollkästchen **Der gesamte geeignete Speicher soll dem Cluster hinzugefügt werden** ist standardmäßig aktiviert. Deaktivieren Sie dieses Kontrollkästchen, wenn Sie eine der folgenden Optionen ausführen möchten:
     
       - Sie möchten den Speicher später konfigurieren.
       - Sie planen die Erstellung von Clusterspeicherplätzen über den Failovercluster-Manager oder mithilfe von Windows PowerShell-Cmdlets für Failoverclustering und haben bisher keine Speicherplätze in den Datei- und Speicherdiensten erstellt. Weitere Informationen finden Sie unter [Deploy Clustered Storage Spaces](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11)>).
 9. Wählen Sie **weiter** aus, um den Failovercluster zu erstellen.
-10. Bestätigen Sie auf der Seite **Zusammenfassung** die erfolgreiche Erstellung des Failoverclusters. Wenn Warnungen oder Fehler aufgetreten sind, zeigen Sie die Ausgabe der Zusammenfassung an, oder wählen Sie **Bericht anzeigen** aus, um den vollständigen Bericht anzuzeigen. Wählen Sie **Fertig**stellen.
+10. Bestätigen Sie auf der Seite **Zusammenfassung** die erfolgreiche Erstellung des Failoverclusters. Wenn Warnungen oder Fehler aufgetreten sind, zeigen Sie die Ausgabe der Zusammenfassung an, oder wählen Sie **Bericht anzeigen** aus, um den vollständigen Bericht anzuzeigen. Wählen Sie **Fertig stellen**aus.
 11. Überprüfen Sie, ob der Clustername in der Navigationsstruktur unter **Failovercluster-Manager** aufgeführt ist, um die Erstellung des Clusters zu bestätigen. Sie können den Cluster Namen erweitern und dann unter **Knoten**, **Speicher** oder **Netzwerke** Elemente auswählen, um die zugeordneten Ressourcen anzuzeigen.
     
     Beachten Sie, dass es einen Moment dauern kann, bevor der Clustername im DNS erfolgreich repliziert wird. Wenn Sie nach der erfolgreichen DNS-Registrierung und-Replikation **alle Server** in Server-Manager ausgewählt haben, sollte der Cluster Name als Server mit dem **verwaltbarkeitsstatus** **Online**aufgeführt werden.
 
-Nach der Erstellung des Clusters können Sie z. B. die Clusterquorumkonfiguration überprüfen und optional freigegebene Clustervolumes (CSV) erstellen. Weitere Informationen finden Sie Untergrund Legendes zu [Quorums in direkte Speicherplätze](../storage/storage-spaces/understand-quorum.md) und [Verwenden von freigegebenen Clustervolumes in einem Failovercluster](failover-cluster-csvs.md).
+Nach der Erstellung des Clusters können Sie z. B. die Clusterquorumkonfiguration überprüfen und optional freigegebene Clustervolumes (CSV) erstellen. Weitere Informationen finden Sie Untergrund Legendes zu [Quorums in direkte Speicherplätze](../storage/storage-spaces/understand-quorum.md) und [Verwenden von freigegebenen Clustervolumes in einem Failovercluster](failover-cluster-csvs.md).
 
 ## <a name="create-clustered-roles"></a>Erstellen von Clusterrollen
 
 Nachdem Sie den Failovercluster erstellt haben, können Sie Clusterrollen zum Hosten der Clusterarbeitsauslastung erstellen.
 
 >[!NOTE]
->Für Clusterrollen, die einen Clientzugriffspunkt erfordern, wird ein virtuelles Computerobjekt (Virtual Computer Object, VCO) in AD DS erstellt. Standardmäßig werden alle virtuellen Computerobjekte für den Cluster in demselben Container oder in derselben Organisationseinheit wie das CNO erstellt. Beachten Sie, dass Sie das CNO nach der Erstellung eines Clusters in eine beliebige Organisationseinheit verschieben können.
+>Für Clusterrollen, die einen Clientzugriffspunkt erfordern, wird ein virtuelles Computerobjekt (Virtual Computer Object, VCO) in AD DS erstellt. Standardmäßig werden alle virtuellen Computerobjekte für den Cluster in demselben Container oder in derselben Organisationseinheit wie das CNO erstellt. Beachten Sie, dass Sie das CNO nach der Erstellung eines Clusters in eine beliebige Organisationseinheit verschieben können.
 
 So erstellen Sie eine Cluster Rolle:
 
-1. Installieren Sie die Rolle oder das Feature, die bzw. das für eine Clusterrolle erforderlich ist, mit dem Server-Manager oder Windows PowerShell auf jeden Failoverclusterknoten. Wenn Sie z. B. einen Clusterdateiserver erstellen möchten, installieren Sie die Rolle "Dateiserver" auf allen Clusterknoten.
+1. Installieren Sie die Rolle oder das Feature, die bzw. das für eine Clusterrolle erforderlich ist, mit dem Server-Manager oder Windows PowerShell auf jeden Failoverclusterknoten. Wenn Sie z. B. einen Clusterdateiserver erstellen möchten, installieren Sie die Rolle "Dateiserver" auf allen Clusterknoten.
     
     In der folgenden Tabelle werden die Clusterrollen, die Sie im Assistenten für hohe Verfügbarkeit konfigurieren sowie die zugehörige Serverrolle oder das Feature angezeigt, die Sie als Voraussetzung installieren müssen.
 
@@ -158,11 +162,11 @@ So erstellen Sie eine Cluster Rolle:
    | DFS-Namespaceserver     |  DHCP-Serverrolle       |
    | Distributed Transaction Coordinator (DTC)     | Keine        |
    | Dateiserver     |  Dateiserverrolle       |
-   | Allgemeine Anwendung     |  Nicht anwendbar       |
-   | Allgemeines Skript     |   Nicht anwendbar      |
-   | Allgemeiner Dienst     |   Nicht anwendbar      |
+   | Allgemeine Anwendung     |  Nicht zutreffend       |
+   | Allgemeines Skript     |   Nicht zutreffend      |
+   | Allgemeiner Dienst     |   Nicht zutreffend      |
    | Hyper-V-Replikatbroker     |   Hyper-V-Rolle      |
-   | iSCSI-Zielserver     |    iSCSI-Zielserver (Teil der Dateiserverrolle)     |
+   | iSCSI Target Server     |    iSCSI-Zielserver (Teil der Dateiserverrolle)     |
    | iSNS-Server     |  iSNS-Serverdienstfeature       |
    | Message Queuing     |  Message Queuing-Dienstfeature       |
    | Anderer Server     |  Keine       |

@@ -1,19 +1,19 @@
 ---
-title: DNS-Server
+title: Problembehandlung bei DNS-Servern
 description: In diesem Artikel wird beschrieben, wie Sie DNS-Probleme auf Serverseite beheben.
-manager: willchen
+manager: dcscontentpm
 ms.prod: ''
 ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: b0547436cfa0f07ba9cbc4e3dd1825f8d33bc093
-ms.sourcegitcommit: 0e3c2473a54f915d35687d30d1b4b1ac2bae4068
+ms.openlocfilehash: 23e51adafa5ab6da0a9317a1b0fad88bd3901073
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68917767"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265802"
 ---
 # <a name="troubleshooting-dns-servers"></a>DNS-Server
 
@@ -21,7 +21,7 @@ In diesem Artikel wird erläutert, wie Sie Probleme auf DNS-Servern beheben.
 
 ## <a name="check-ip-configuration"></a>IP-Konfiguration überprüfen
 
-1. Führen `ipconfig /all` Sie an einer Eingabeaufforderung aus, und überprüfen Sie die IP-Adresse, die Subnetzmaske und das Standard Gateway.
+1. Führen Sie `ipconfig /all` an einer Eingabeaufforderung aus, und überprüfen Sie die IP-Adresse, die Subnetzmaske und das Standard Gateway.
 
 2. Überprüfen Sie, ob der DNS-Server für den Namen, der gesucht wird, autorisierend ist. Wenn dies der Fall ist, finden Sie unter [Überprüfen auf Probleme mit autorisierenden](#checking-for-problems-with-authoritative-data)
 
@@ -54,7 +54,7 @@ In diesem Artikel wird erläutert, wie Sie Probleme auf DNS-Servern beheben.
 
 Überprüfen Sie die folgenden Protokolle, um festzustellen, ob aufgezeichnete Fehler aufgetreten sind:
 
-- Application
+- Anwendung
 
 - System
 
@@ -107,7 +107,7 @@ Das Problem kann durch einen Benutzerfehler verursacht werden, wenn Benutzerdate
    dnscmd /zonerefresh <zone name>
    ```
   
-   Wenn die Zone z. b. Corp.contoso.com lautet, geben `dnscmd /zonerefresh corp.contoso.com`Sie Folgendes ein:.
+   Wenn die Zone z. b. Corp.contoso.com lautet, geben Sie Folgendes ein: `dnscmd /zonerefresh corp.contoso.com`.
   
 4. Überprüfen Sie den sekundären Server erneut, um festzustellen, ob die Zone korrekt übertragen wurde Wenn dies nicht der Fall ist, liegt wahrscheinlich ein Zonen Übertragungsproblem vor. Weitere Informationen finden Sie unter [Zonen Übertragungsprobleme](#zone-transfer-problems).
 
@@ -123,13 +123,13 @@ Damit die Rekursion erfolgreich funktioniert, müssen alle DNS-Server, die im Pf
 
 - Ein Server, der während der Abfrage verwendet wird, stellt falsche Daten bereit.
 
-Starten Sie die Problembehandlung auf dem Server, der in der ursprünglichen Abfrage verwendet wurde. Überprüfen Sie, ob dieser Server Abfragen an einen anderen Server weiterleitet, indem Sie die Registerkarte Weiterleitungen in den Server Eigenschaften der DNS-Konsole untersuchen. Wenn das Kontrollkästchen **Weiterleitungen aktivieren aktiviert** ist und mindestens ein Server aufgeführt ist, leitet dieser Server Abfragen weiter.
+Starten Sie die Problembehandlung auf dem Server, der in der ursprünglichen Abfrage verwendet wurde. Überprüfen Sie, ob dieser Server Abfragen an einen anderen Server weiterleitet, indem Sie die Registerkarte Weiterleitungen in den Server Eigenschaften der DNS- **Konsole untersuchen** . Wenn das Kontrollkästchen **Weiterleitungen aktivieren aktiviert** ist und mindestens ein Server aufgeführt ist, leitet dieser Server Abfragen weiter.
 
 Wenn dieser Server Abfragen an einen anderen Server weiterleitet, überprüfen Sie auf Probleme, die den Server betreffen, an den dieser Server Abfragen weiterleitet. Informationen zu Problemen finden Sie unter [Überprüfen von DNS-Server Problemen](#check-dns-server-problems). Wenn Sie in diesem Abschnitt aufgefordert werden, eine Aufgabe auf dem Client auszuführen, führen Sie Sie stattdessen auf dem Server aus.
 
 Wenn der Server fehlerfrei ist und Abfragen weiterleiten kann, wiederholen Sie diesen Schritt, und überprüfen Sie den Server, an den dieser Server Abfragen weiterleitet.
 
-Wenn von diesem Server keine Abfragen an einen anderen Server weiterleiten werden, testen Sie, ob dieser Server einen Stamm Server Abfragen kann. Führen Sie hierzu den folgenden Befehl aus:
+Wenn von diesem Server keine Abfragen an einen anderen Server weiterleiten werden, testen Sie, ob dieser Server einen Stamm Server Abfragen kann. Geben Sie zu diesem Zweck folgenden Befehl ein:
 
 ```cmd
 nslookup

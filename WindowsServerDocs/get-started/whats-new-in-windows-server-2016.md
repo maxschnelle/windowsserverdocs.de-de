@@ -10,14 +10,14 @@ author: jasongerend
 ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 76cfd0f0cca18fb072883a9e14fae420516bd329
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: afcda1d3f94c5f6fa7524317ac21c5540c07895c
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391358"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948264"
 ---
-# <a name="whats-new-in-windows-server-2016"></a>Neuerungen in Windows Server 2016
+# <a name="whats-new-in-windows-server-2016"></a>Neuerungen in Windows Server 2016
 
 >Gilt für: Windows Server 2016
 
@@ -65,10 +65,10 @@ Mit den neuen Features für Identitäten wird die Möglichkeit verbessert, Activ
 ### <a name="active-directory-certificate-services"></a>Active Directory-Zertifikatdienste  
 Active Directory-Zertifikatdienste (AD CS) in Windows Server 2016 jetzt mit verbesserter Unterstützung für den TPM-Schlüsselnachweis: Sie können jetzt Smart Card KSP für den Schlüsselnachweis nutzen, und Geräte, die kein Domänenmitglied sind, können jetzt die NDES-Registrierung nutzen, um Zertifikate abzurufen, die als Nachweis für Schlüssel in einem TPM verwendet werden können.  
 
-### <a name="active-directory-domain-services"></a>Active Directory Domain Services  
+### <a name="active-directory-domain-services"></a>Active Directory-Domänendienste (AD DS)  
 Active Directory-Domänendienste beinhalten Verbesserungen, die Unternehmen beim Schutz Ihrer Active Directory-Umgebungen helfen und die Identitätsverwaltung für Unternehmens- und private Geräte verbessern. Weitere Informationen finden Sie unter [Neues in Active Directory Domain Services (AD DS) unter Windows Server 2016](../identity/whats-new-active-directory-domain-services.md).   
 
-### <a name="active-directory-federation-services"></a>Active Directory-Verbunddienste (AD FS)  
+### <a name="active-directory-federation-services"></a>Active Directory-Verbunddienste  
 Neuerungen in Active Directory-Verbunddienste. Active Directory-Verbunddienste (AD FS) unter Windows Server 2016 enthält neue Funktionen, die Ihnen die Konfiguration von AD FS für die Authentifizierung von Benutzern ermöglichen, die in Lightweight Directory Access Protocol-Verzeichnissen (LDAP) gespeichert sind. Weitere Informationen finden Sie unter [What's New in AD FS for Windows Server 2016](../identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server.md) (Neuerungen in AD FS für Windows Server 2016).  
 
 ### <a name="web-application-proxy"></a>Webanwendungsproxy  
@@ -125,7 +125,7 @@ Credential Guard umfasst die Unterstützung für RDP-Sitzungen, damit die Anmeld
 Device Guard bietet Codeintegrität im Kernelmodus (Kernel Mode Code Integrity, KMCI) und Codeintegrität im Benutzermodus (User Mode Code Integrity, UMCI), indem Richtlinien erstellt werden, die angeben, welcher Code auf dem Server ausgeführt werden kann. Siehe [Einführung in Windows Defender Device Guard: virtualisierungsbasierte Sicherheit und Richtlinien zur Codeintegrität](https://docs.microsoft.com/windows/device-security/device-guard/introduction-to-device-guard-virtualization-based-security-and-code-integrity-policies).
 
 
-### <a name="windows-defender"></a>Windows Defender  
+### <a name="windows-defender"></a>Windows Defender  
 [Übersicht über Windows Defender für Windows Server 2016](../security/windows-defender/windows-defender-overview-windows-server.md). Windows Server Antimalware wird in Windows Server 2016 standardmäßig installiert und aktiviert, die Benutzeroberfläche von Windows Server Antimalware wird jedoch nicht installiert. Windows Server Antimalware aktualisiert jedoch die Antischadsoftware-Definitionen und schützt Ihren Computer so auch ohne die Benutzeroberfläche. Wenn Sie die Benutzeroberfläche von Windows Server Antimalware benötigen, können Sie sie nach der Installation des Betriebssystems mit dem Assistenten zum Hinzufügen von Rollen und Features installieren.
 
 ### <a name="control-flow-guard"></a>Ablaufsteuerungsschutz
@@ -136,7 +136,7 @@ Beim Ablaufsteuerungsschutz (Control Flow Guard, CFG) handelt es sich um eine Pl
 
 Der Speicher in Windows Server 2016 umfasst neue Funktionen und Verbesserungen für den softwaredefinierten Speicher sowie für herkömmliche Dateiserver. Nachstehend werden einige der neuen Funktionen dargestellt, weitere Verbesserungen und Informationen finden Sie unter [What's New in Storage in Windows Server 2016 (Neues im Speicher in Windows Server 2016)](../storage/whats-new-in-storage.md).
 
-### <a name="storage-spaces-direct"></a>Direkte Speicherplätze
+### <a name="storage-spaces-direct"></a>Speicherplätze DAS
 
 Mit direkten Speicherplätzen kann hoch verfügbarer und skalierbarer Speicher unter Verwendung von Servern mit lokalem Speicher erstellt werden. Mit diesem Feature wird die Bereitstellung und die Verwaltung von softwaredefinierten Speichersystemen vereinfacht und auch der Weg zur Nutzung neuer Datenträgerklassen wie z. B. SATA-SSD und NVMe geebnet, was vorher bei gruppierten Speicherplätzen mit freigegebenen Datenträgern nicht möglich war.
 
@@ -195,7 +195,7 @@ In Microsoft Windows 10 und Windows Server 2016 werden drei neue Features hinzug
 
 - Der Grenzwert des DSN-Namens wurde von 256 Bytes auf 3072 Bytes heraufgesetzt. Details finden Sie unter [IDtcToXaHelperFactory::Create](https://msdn.microsoft.com/library/ms686861(v=vs.85).aspx), [IDtcToXaHelperSinglePipe::XARMCreate](https://msdn.microsoft.com/library/ms679248(v=vs.85).aspx) oder [IDtcToXaMapper::RequestNewResourceManager](https://msdn.microsoft.com/library/ms680310(v=vs.85).aspx).
 
-- Die verbesserte Ablaufverfolgung ermöglicht Ihnen das Festlegen eines Registrierungsschlüssels, um den Pfad einer Imagedatei in den Namen der Ablaufverfolgungs-Protokolldatei aufzunehmen, sodass Sie sehen können, welche Ablaufverfolgungs-Protokolldatei überprüft werden muss. Ausführliche Informationen zum Konfigurieren der Ablaufverfolgung für MSDTC finden Sie unter [Aktivieren der Diagnoseablaufverfolgung für MS DTC auf einem Windows-basierten Computer](https://support.microsoft.com/en-us/kb/926099).
+- Die verbesserte Ablaufverfolgung ermöglicht Ihnen das Festlegen eines Registrierungsschlüssels, um den Pfad einer Imagedatei in den Namen der Ablaufverfolgungs-Protokolldatei aufzunehmen, sodass Sie sehen können, welche Ablaufverfolgungs-Protokolldatei überprüft werden muss. Ausführliche Informationen zum Konfigurieren der Ablaufverfolgung für MSDTC finden Sie unter [Aktivieren der Diagnoseablaufverfolgung für MS DTC auf einem Windows-basierten Computer](https://support.microsoft.com/kb/926099).
 
 
 

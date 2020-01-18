@@ -9,12 +9,12 @@ author: Teresa-Motiv
 ms.author: v-tea
 manager: dcscontentpm
 ms.localizationpriority: medium
-ms.openlocfilehash: dab8294837a5f9116328e59364de9beb139a4b77
-ms.sourcegitcommit: 9855d6b59b1f8722f39ae74ad373ce1530da0ccf
+ms.openlocfilehash: 110e3a685293c447d03158eac57d38fedd28b0cd
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963006"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948313"
 ---
 # <a name="kms-activation-known-issues"></a>KMS-Aktivierung: bekannte Probleme
 
@@ -35,7 +35,7 @@ Wenn du System Center Operations Manager verwendest, speichert die System Center
 
 ## <a name="the-kms-client-computer-does-not-activate"></a>Der KMS-Clientcomputer wird nicht aktiviert.
 
-Überprüfe, ob der KMS-Aktivierungsschwellenwert erreicht wird. Führe auf dem KMS-Hostcomputer „Slmgr.vbs“ aus, und verwende die Befehlszeilenoption **/dli**, um die aktuelle Anzahl des Hosts zu ermitteln. Windows 7-Clientcomputer können erst aktiviert werden, wenn der KMS-Host eine Anzahl von 25 besitzt. Für die Aktivierung von Windows Server 2008 R2-KMS-Clients ist eine KMS-Anzahl von 5 erforderlich. Weitere Informationen zur KMS-Anforderungen findest du im [Bereitstellungshandbuch zur Volumenaktivierung](http://go.microsoft.com/fwlink/?linkid=155926). 
+Überprüfe, ob der KMS-Aktivierungsschwellenwert erreicht wird. Führe auf dem KMS-Hostcomputer „Slmgr.vbs“ aus, und verwende die Befehlszeilenoption **/dli**, um die aktuelle Anzahl des Hosts zu ermitteln. Windows 7-Clientcomputer können erst aktiviert werden, wenn der KMS-Host eine Anzahl von 25 besitzt. Für die Aktivierung von Windows Server 2008 R2-KMS-Clients ist eine KMS-Anzahl von 5 erforderlich. Weitere Informationen zur KMS-Anforderungen findest du im [Bereitstellungshandbuch zur Volumenaktivierung](https://go.microsoft.com/fwlink/?linkid=155926). 
 
 Suche auf dem KMS-Clientcomputer im Anwendungsereignisprotokoll nach der Ereignis-ID 12289. Überprüfe dieses Ereignis auf die folgenden Informationen:
 
@@ -86,4 +86,4 @@ KMS-Schlüssel sollten nur auf KMS-Hosts, nicht auf KMS-Clients installiert werd
 
 Wenn ein KMS-Host ausfällt, musst du einen KMS-Hostschlüssel auf einem neuen Host installieren und diesen Host dann aktivieren. Stelle sicher, dass der neue KMS-Host über eine SRV-Ressourceneintrag in der DNS-Datenbank verfügt. Wenn du den neuen KMS-Host mit demselben Computernamen und derselben IP-Adresse wie denen des ausgefallenen KMS-Hosts installierst, kann der neue KMS-Host den DNS-SRV-Eintrag des ausgefallenen Hosts verwenden. Wenn der neue Host einen anderen Computernamen hat, kannst du den DNS-SRV-Ressourceneintrag des ausgefallenen Hosts manuell entfernen oder (wenn Aufräumen im DNS aktiviert ist) das DNS diesen automatisch entfernen lassen. Wenn das Netzwerk DDNS verwendet, erstellt der neue KMS-Host automatisch einen neuen SRV-Ressourceneintrag auf dem DNS-Server. Der neue KMS-Host beginnt dann mit der Erfassung von Clienterneuerungsanforderungen und beginnt damit, Clients zu aktivieren, sobald der KMS-Aktivierungsschwellenwert erreicht ist.
 
-Wenn Ihre KMS-Clients automatische Ermittlung verwenden, wählen sie automatisch einen anderen KMS-Host aus, wenn der ursprüngliche KMS-Host nicht auf Erneuerungsanforderungen antwortet. Wenn die Clients keine automatische Ermittlung verwenden, musst du die KMS-Clientcomputer, die dem ausgefallenen KMS-Host zugewiesen waren, manuell aktualisieren, indem du **slmgr.vbs /skms** ausführst. Um dieses Szenario zu vermeiden, konfigurierst du die KMS-Clients für die Verwendung der automatischen Ermittlung. Weitere Informationen findest du im [Bereitstellungshandbuch zur Volumenaktivierung](http://go.microsoft.com/fwlink/?linkid=150083).
+Wenn Ihre KMS-Clients automatische Ermittlung verwenden, wählen sie automatisch einen anderen KMS-Host aus, wenn der ursprüngliche KMS-Host nicht auf Erneuerungsanforderungen antwortet. Wenn die Clients keine automatische Ermittlung verwenden, musst du die KMS-Clientcomputer, die dem ausgefallenen KMS-Host zugewiesen waren, manuell aktualisieren, indem du **slmgr.vbs /skms** ausführst. Um dieses Szenario zu vermeiden, konfigurierst du die KMS-Clients für die Verwendung der automatischen Ermittlung. Weitere Informationen findest du im [Bereitstellungshandbuch zur Volumenaktivierung](https://go.microsoft.com/fwlink/?linkid=150083).

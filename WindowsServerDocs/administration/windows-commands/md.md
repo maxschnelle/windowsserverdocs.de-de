@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 965a5c506535a2c52d6cc7b3557c6104182c12a5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3751b185677bfee9d0519b9a617bea1df063c1e7
+ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373689"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259075"
 ---
 # <a name="md"></a>md
 
@@ -42,8 +42,8 @@ mkdir [<Drive>:]<Path>
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|> \<drive:|Gibt das Laufwerk an, auf dem das neue Verzeichnis erstellt werden soll.|
-|\<path >|Erforderlich. Gibt den Namen und den Speicherort des neuen Verzeichnisses an. Die maximale Länge eines einzelnen Pfads wird vom Dateisystem festgelegt.|
+|\<Laufwerk >:|Gibt das Laufwerk an, auf dem das neue Verzeichnis erstellt werden soll.|
+|\<Pfad >|Erforderlich. Gibt den Namen und den Speicherort des neuen Verzeichnisses an. Die maximale Länge eines einzelnen Pfads wird vom Dateisystem festgelegt.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
@@ -63,10 +63,8 @@ md \Taxes\Property\Current
 Um die Verzeichnisstruktur taxes\property\current innerhalb des Stamm Verzeichnisses wie im vorherigen Beispiel zu erstellen, aber mit deaktivierten Befehls Erweiterungen, geben Sie die folgende Befehlssequenz ein:
 ```
 md \Taxes
-cd \Taxes 
-md Property
-cd Property
-md Current
+md \Taxes\Property
+md \Taxes\Property\Current
 ```
 
 #### <a name="additional-references"></a>Weitere Verweise

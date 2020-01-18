@@ -5,14 +5,15 @@ ms.prod: windows-server
 ms.topic: article
 ms.assetid: 07691d5b-046c-45ea-8570-a0a85c3f2d22
 manager: dongill
-author: huu
+author: rpsqrd
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 6db9ce1db139558bd1a7aa731cb12c1b227ead03
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.date: 01/14/2020
+ms.openlocfilehash: c69fc70282ff61ecce25f6413244d7ba3a5ba3bc
+ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949762"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76265822"
 ---
 # <a name="troubleshooting-using-the-guarded-fabric-diagnostic-tool"></a>Problembehandlung mithilfe des geschützten Fabric-Diagnosetools
 
@@ -20,21 +21,24 @@ ms.locfileid: "75949762"
 
 In diesem Thema wird beschrieben, wie Sie häufige Fehler bei der Bereitstellung, Konfiguration und beim laufenden Betrieb der geschützten Fabric-Infrastruktur mithilfe des geschützten Fabric-Diagnosetools identifizieren und beheben. Dies schließt den Host-Überwachungsdienst (Host Guardian Service, HGS), alle überwachten Hosts und unterstützende Dienste wie DNS und Active Directory ein. Das Diagnosetool kann verwendet werden, um einen ersten Durchlauf bei der Selektierung eines fehlerhaften geschützten Fabrics durchzuführen, sodass Administratoren einen Ausgangspunkt für die Behebung von Ausfällen und die Identifizierung falsch konfigurierter Assets erhalten. Das Tool ist kein Ersatz für einen fundierten Einblick in das Betreiben eines geschützten Fabrics und dient nur der schnellen Überprüfung der häufigsten Probleme, die bei alltäglichen Vorgängen auftreten.
 
-Die Dokumentation der in diesem Thema verwendeten Cmdlets finden Sie auf [TechNet](https://technet.microsoft.com/library/mt718834.aspx).
+Eine vollständige Dokumentation der in diesem Artikel verwendeten Cmdlets finden Sie in der [Referenz zum hgsdiagnostics-Modul](https://docs.microsoft.com/powershell/module/hgsdiagnostics/?view=win10-ps).
 
-[!INCLUDE [Guarded fabric diagnostics tool](../../../includes/guarded-fabric-diagnostics-tool.md)] 
+[!INCLUDE [Guarded fabric diagnostics tool](../../../includes/guarded-fabric-diagnostics-tool.md)]
 
 ## <a name="quick-start"></a>Schnellstart
 
 Sie können entweder einen überwachten Host oder einen HGS-Knoten diagnostizieren, indem Sie den folgenden Befehl in einer Windows PowerShell-Sitzung mit lokalen Administratorrechten aufrufen:
+
 ```PowerShell
 Get-HgsTrace -RunDiagnostics -Detailed
 ```
+
 Dadurch wird automatisch die Rolle des aktuellen Hosts erkannt und relevante Probleme, die automatisch erkannt werden können, diagnostiziert.  Alle Ergebnisse, die während dieses Vorgangs generiert werden, werden angezeigt, da der `-Detailed`-Schalter vorhanden ist.
 
 Im restlichen Teil dieses Themas finden Sie eine ausführliche Exemplarische Vorgehensweise für die Erweiterte Verwendung von `Get-HgsTrace` zum Ausführen von Aufgaben wie der gleichzeitigen Diagnose mehrerer Hosts und zum erkennen komplexer Knoten übergreifender Fehlkonfigurationen.
 
 ## <a name="diagnostics-overview"></a>Diagnose Übersicht
+
 Die geschützte Fabric-Diagnose ist auf jedem Host verfügbar, auf dem geschützte virtuelle computerbezogene Tools und Features installiert sind, einschließlich Hosts, auf denen Server Core ausgeführt wird.  Derzeit sind die Diagnosen in den folgenden Features/Paketen enthalten:
 
 1. Rolle "Host-Überwachungsdienst"
@@ -49,6 +53,7 @@ Jeder Host, der als Ziel der Diagnose dient, wird als "Ablauf Verfolgungs Ziel" 
 Administratoren können alle Diagnose Tasks starten, indem Sie `Get-HgsTrace`ausführen.  Dieser Befehl führt zwei unterschiedliche Funktionen basierend auf den Schaltern aus, die zur Laufzeit bereitgestellt werden: Ablauf Verfolgungs Sammlung und-Diagnose.  Diese beiden kombinierten bilden das gesamte geschützte Fabric-Diagnose Tool.  Obwohl Sie nicht explizit erforderlich sind, erfordern die meisten nützlichen Diagnosen Ablauf Verfolgungen, die nur mit Administrator Anmelde Informationen für das Ziel der Ablauf Verfolgung erfasst werden können.  Wenn der Benutzer, der die Ablauf Verfolgungs Sammlung ausführt, unzureichende Berechtigungen erhält, schlagen Ablauf Verfolgungen fehl, die eine Rechte Erweiterung erfordern, während alle anderen bestanden werden.  Dies ermöglicht eine partielle Diagnose in dem Fall, dass ein unterprivilegierter Operator eine selektiert durchführt. 
 
 ### <a name="trace-collection"></a>Ablauf Verfolgungs Sammlung
+
 Standardmäßig werden von `Get-HgsTrace` nur Ablauf Verfolgungen erfasst und in einem temporären Ordner gespeichert.  Ablauf Verfolgungen haben das Format eines Ordners, der nach dem Zielhost benannt ist und mit speziell formatierten Dateien gefüllt ist, die beschreiben, wie der Host konfiguriert ist.  Die Ablauf Verfolgungen enthalten außerdem Metadaten, die beschreiben, wie die Diagnose zum Erfassen der Ablauf Verfolgungen aufgerufen wurde.  Diese Daten werden von der Diagnose verwendet, um beim Ausführen der manuellen Diagnoseinformationen über den Host zu reaktivieren.
 
 Bei Bedarf können Ablauf Verfolgungen manuell überprüft werden.  Alle Formate sind entweder von Menschen lesbar (XML) oder können mithilfe von Standard Tools (z. b. x. 509-Zertifikaten und den Windows-Crypto Shell-Erweiterungen) problemlos überprüft werden.  Beachten Sie jedoch, dass Ablauf Verfolgungen nicht für die manuelle Diagnose konzipiert sind und es immer effektiver ist, die Ablauf Verfolgungen mit den Diagnosefunktionen von `Get-HgsTrace`zu verarbeiten.
@@ -58,6 +63,7 @@ Die Ergebnisse der Ausführung der Ablauf Verfolgungs Sammlung geben keine Anzei
 Mithilfe des `-Diagnostic`-Parameters können Sie die Ablauf Verfolgungs Sammlung auf die Ablauf Verfolgungen beschränken, die für den Betrieb der angegebenen Diagnose erforderlich sind.  Dadurch wird die Menge der erfassten Daten sowie die zum Aufrufen der Diagnose erforderlichen Berechtigungen reduziert.
 
 ### <a name="diagnosis"></a>Diagnose
+
 Erfasste Ablauf Verfolgungen können von bereitgestellten `Get-HgsTrace` den Speicherort der Ablauf Verfolgungen über den Parameter `-Path` und durch Angabe des `-RunDiagnostics` Schalters diagnostiziert werden.  Außerdem können `Get-HgsTrace` die Erfassung und Diagnose in einem einzigen Durchlauf durchführen, indem Sie den `-RunDiagnostics`-Schalter und eine Liste von Ablauf Verfolgungs Zielen bereitstellen.  Wenn keine Ablauf Verfolgungs Ziele bereitgestellt werden, wird der aktuelle Computer als implizites Ziel verwendet, dessen Rolle durch die Überprüfung der installierten Windows PowerShell-Module abgeleitet ist.
 
 Die Diagnose führt zu einem hierarchischen Format, das anzeigt, welche Ablauf Verfolgungs Ziele, Diagnose Sätze und die einzelnen Diagnosen für einen bestimmten Fehler verantwortlich sind.  Zu den Fehlern zählen Empfehlungen zur Wiederherstellung und Behebung, wenn eine Entscheidung getroffen werden kann, welche Aktion als nächstes ausgeführt werden soll.  Standardmäßig werden das übergeben und das irrelevante Ergebnis ausgeblendet.  Wenn Sie alle von der Diagnose getesteten Elemente anzeigen möchten, geben Sie den `-Detailed` Switch an.  Dies bewirkt, dass alle Ergebnisse unabhängig von Ihrem Status angezeigt werden.
@@ -78,13 +84,17 @@ Standardmäßig wird für `Get-HgsTrace` der localhost (d. h., wo das Cmdlet auf
 Das implizite lokale Ziel verwendet einen Rollen Rückschluss, um zu bestimmen, welche Rolle der aktuelle Host im geschützten Fabric spielt.  Dies basiert auf den installierten Windows PowerShell-Modulen, die ungefähr den Funktionen entsprechen, die auf dem System installiert wurden.  Das vorhanden sein des `HgsServer` Moduls bewirkt, dass das Ablauf Verfolgungs Ziel die Rolle übernimmt `HostGuardianService` und das vorhanden sein des Moduls `HgsClient` bewirkt, dass das Ablauf Verfolgungs Ziel die Rolle `GuardedHost`übernimmt.  Es ist möglich, dass für einen bestimmten Host beide Module vorhanden sind. in diesem Fall wird er sowohl als `HostGuardianService` als auch als `GuardedHost`behandelt.
 
 Daher ist der Standard Aufruf der Diagnose für die lokale Erfassung von Ablauf Verfolgungen:
+
 ```PowerShell
 Get-HgsTrace
 ```
+
 ... entspricht Folgendem:
+
 ```PowerShell
 New-HgsTraceTarget -Local | Get-HgsTrace
 ```
+
 > [!TIP]
 > `Get-HgsTrace` können Ziele über die Pipeline oder direkt über den Parameter `-Target` akzeptieren.  Es gibt keinen Unterschied zwischen den beiden operationalen.
 
@@ -159,6 +169,7 @@ Die Schritte zum Ausführen einer manuellen Diagnose lauten wie folgt:
    ```PowerShell
    Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
    ```
+
 2. Fordern Sie an, dass die einzelnen Host Administratoren den resultierenden Ablauf Verfolgungs Ordner Verpacken und an Sie senden.  Dieser Prozess kann über e-Mail, über Dateifreigaben oder einen anderen Mechanismus gesteuert werden, basierend auf den Betriebsrichtlinien und Verfahren, die von Ihrer Organisation festgelegt wurden.
 
 3. Alle empfangenen Ablauf Verfolgungen ohne anderen Inhalt oder Ordner in einem einzelnen Ordner zusammenführen.
@@ -197,3 +208,15 @@ Get-HgsTrace -RunDiagnostics -Target $hgs03 -Path .\FabricTraces
 ``` 
 
 Das Diagnose-Cmdlet identifiziert alle vorab gesammelten Hosts und den einen zusätzlichen Host, der weiterhin verfolgt werden muss und die erforderliche Ablauf Verfolgung ausführt.  Die Summe aller vorab gesammelten und frisch gesammelten Ablauf Verfolgungen wird dann diagnostiziert.  Der resultierende Ablauf Verfolgungs Ordner enthält sowohl die alte als auch die neue Ablauf Verfolgung.
+
+## <a name="known-issues"></a>Bekannte Probleme
+
+Bei der Ausführung unter Windows Server 2019 oder Windows 10, Version 1809 und neueren Betriebssystemversionen hat das Modul für geschützte Fabric-Diagnosen bekannte Einschränkungen.
+Die Verwendung der folgenden Funktionen kann zu fehlerhaften Ergebnissen führen:
+
+* Host Schlüssel Nachweis
+* Nur Nachweis-HGS-Konfiguration (für SQL Server Always Encrypted Szenarien)
+* Verwendung von v1-Richtlinien Artefakten auf einem HGS-Server, bei dem der Standardwert der Nachweis Richtlinie "V2" lautet
+
+Ein Fehler in `Get-HgsTrace` bei der Verwendung dieser Features weist nicht notwendigerweise darauf hin, dass der HGS-Server oder der geschützte Host falsch konfiguriert ist.
+Verwenden Sie andere Diagnosetools wie `Get-HgsClientConfiguration` auf einem überwachten Host, um zu testen, ob ein Host den Nachweis überschritten hat.

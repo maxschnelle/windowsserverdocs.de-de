@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 9a3cb426-fb39-40c5-ae07-26dbe9e3aed9
 author: lizap
 manager: dongill
-ms.openlocfilehash: 8433aa50d585300df03222b78cf0823985237aa5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4d9a6d4885566204bf9fc29cd9513d25d1b39deb
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403971"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949857"
 ---
 # <a name="remote-desktop-services-hosting-partners-and-assessment"></a>Remotedesktopdienste – Hostingpartner und Bewertung
 
@@ -29,7 +29,7 @@ Wenn du Microsoft-Partner bist und in die Liste der Partner aufgenommen werden m
 1. Werde [Microsoft-Partner](https://partner.microsoft.com/), falls du noch keiner bist.
 2. Sieh dir die Schulung [Hosting Windows Desktop and Applications using Remote Desktop Services in Azure](https://mspartnerlp.partner.microsoft.com/LearningPath/LearningPath/DLPaths?trackId=2915&rowId=3603) („Hosten von Windows-Desktops und -Anwendungen mithilfe von Remotedesktopdiensten in Azure“) an.
 3. Bewirb dich für die [technische Bewertung](https://mspartnerlp.partner.microsoft.com/LearningPath/LearningPath/DLPaths?trackId=1660&rowId=2220&trackPathId=9871).
-4. Stelle sicher, dass du die [Anforderungen an die Kompetenz für die Cloudplattform](https://partner.microsoft.com/en-us/membership/cloud-platform-competency) erfüllst.
+4. Stelle sicher, dass du die [Anforderungen an die Kompetenz für die Cloudplattform](https://partner.microsoft.com/membership/cloud-platform-competency) erfüllst.
 
 Bist du bereits Microsoft-Partner und hast Fragen? Wende dich unter dieser Adresse an das Remotedesktopteam: <rdhostingpartners@microsoft.com>.  
 
