@@ -11,12 +11,12 @@ ms.prod: windows-server
 ms.custom: it-pro
 ms.reviewer: maheshu
 ms.technology: identity-adds
-ms.openlocfilehash: 7f16d58eb6c5074c75f49ba7936c4d312a3dbda4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 53793fc62b1bc1444c567f92c9f18642245fded9
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390977"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948187"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Gesamtstruktur- und Domänenfunktionsebenen
 
@@ -28,7 +28,7 @@ Legen Sie bei der Bereitstellung von AD DS die Domänen- und Gesamtstrukturfunkt
 
 Mit dem Ende der Lebensdauer von Windows 2003 müssen Windows 2003-Domänencontrollern (DCs) auf Windows Server 2008, 2008 R2, 2012, 2012 R2, 2016 oder 2019 aktualisiert werden. Daher sollten alle Domänencontroller, die auf Windows Server 2003 ausgeführt werden, aus der Domäne entfernt werden.
 
-Bei Windows Server 2008-Domänenfunktionsebenen (und höher) wird die DFS-Replikation (Distributed File Service) zum Replizieren von SYSVOL-Ordnerinhalten zwischen Domänencontrollern verwendet. Wenn Sie auf der Windows Server 2008-Domänenfunktionsebene (oder höher) eine neue Domäne erstellen, wird die DFS-Replikation automatisch zum Replizieren von SYSVOL verwendet. Wenn Sie die Domäne auf einer niedrigeren Funktionsebene erstellt haben, müssen Sie für SYSVOL anstatt des Dateireplikationsdiensts die DFS-Replikation verwenden. Für die Migrationsschritte können Sie entweder die [Anweisungen auf TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) oder die [optimierten Schritte im Storage Team File Cabinet-Blog](http://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx) befolgen.
+Bei Windows Server 2008-Domänenfunktionsebenen (und höher) wird die DFS-Replikation (Distributed File Service) zum Replizieren von SYSVOL-Ordnerinhalten zwischen Domänencontrollern verwendet. Wenn Sie auf der Windows Server 2008-Domänenfunktionsebene (oder höher) eine neue Domäne erstellen, wird die DFS-Replikation automatisch zum Replizieren von SYSVOL verwendet. Wenn Sie die Domäne auf einer niedrigeren Funktionsebene erstellt haben, müssen Sie für SYSVOL anstatt des Dateireplikationsdiensts die DFS-Replikation verwenden. Für die Migrationsschritte können Sie entweder die [Anweisungen auf TechNet](https://technet.microsoft.com/library/dd640019(v=WS.10).aspx) oder die [optimierten Schritte im Storage Team File Cabinet-Blog](https://blogs.technet.com/b/filecab/archive/2014/06/25/streamlined-migration-of-frs-to-dfsr-sysvol.aspx) befolgen.
 
 ## <a name="windows-server-2019"></a>Windows Server 2019
 
@@ -63,7 +63,7 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 
 * Windows Server 2019
 * Windows Server 2016
-* Windows Server 2012 R2
+* Windows Server 2012 R2
 
 ### <a name="windows-server-2012r2-forest-functional-level-features"></a>Features für die Windows Server 2012 R2-Gesamtstrukturfunktionsebene
 
@@ -88,7 +88,7 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 
 * Windows Server 2019
 * Windows Server 2016
-* Windows Server 2012 R2
+* Windows Server 2012 R2
 * Windows Server 2012
 
 ### <a name="windows-server-2012-forest-functional-level-features"></a>Features für die Windows Server 2012-Gesamtstrukturfunktionsebene
@@ -106,14 +106,14 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 
 * Windows Server 2019
 * Windows Server 2016
-* Windows Server 2012 R2
+* Windows Server 2012 R2
 * Windows Server 2012
 * Windows Server 2008 R2
 
 ### <a name="windows-server-2008r2-forest-functional-level-features"></a>Features für die Windows Server 2008 R2-Gesamtstrukturfunktionsebene
 
 * Alle Features, die auf der Gesamtstrukturfunktionsebene Windows Server 2003 verfügbar sind, plus die folgenden Features:
-   * Active Directory-Papierkorb, der die Möglichkeit bietet, gelöschte Objekte in ihrer Gesamtheit wiederherzustellen, während die Active Directory-Domänendienste ausgeführt werden.
+   * Active Directory-Papierkorb, der die Möglichkeit bietet, gelöschte Objekte in ihrer Gesamtheit wiederherzustellen, während AD DS ausgeführt wird.
 
 ### <a name="windows-server-2008r2-domain-functional-level-features"></a>Features für die Windows Server 2008 R2-Domänenfunktionsebene
 
@@ -127,7 +127,7 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 
 * Windows Server 2019
 * Windows Server 2016
-* Windows Server 2012 R2
+* Windows Server 2012 R2
 * Windows Server 2012
 * Windows Server 2008 R2
 * Windows Server 2008
@@ -165,7 +165,7 @@ Unterstützte Betriebssysteme des Domänencontrollers:
 
 Unterstützte Betriebssysteme des Domänencontrollers:
 
-* Windows Server 2012 R2
+* Windows Server 2012 R2
 * Windows Server 2012
 * Windows Server 2008 R2
 * Windows Server 2008

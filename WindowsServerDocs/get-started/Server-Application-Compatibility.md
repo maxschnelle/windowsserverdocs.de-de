@@ -14,12 +14,12 @@ author: jaimeo
 ms.author: jaimeo
 manager: ''
 ms.localizationpriority: medium
-ms.openlocfilehash: 779f96d0c7f676be692425727ad6cd6ff6cc4e21
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cec3b81beaee7dab7259345c56e79c05739b5dad
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360187"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948418"
 ---
 # <a name="windows-server-2016-and-microsoft-server-application-compatibility"></a>Windows Server 2016 und Kompatibilität zu Microsoft-Serveranwendungen
 
@@ -33,7 +33,7 @@ Kunden und Partner von Softwareherstellern, die mehr Informationen zur Kompatibi
 |-------------------------------------|--------------------------------------------|-------------------|
 |Microsoft SQL Server 2012|Ja| [Hardware- und Softwareanforderungen für die Installation von SQL Server 2012](https://msdn.microsoft.com/library/ms143506(v=sql.110).aspx)|
 |Microsoft SQL Server 2014|Ja|[Hardware- und Softwareanforderungen für die Installation von SQL Server 2014](https://msdn.microsoft.com/library/ms143506(SQL.120).aspx)|
-|Microsoft SQL Server 2016| Ja|    [SQL Server 2016](https://www.microsoft.com/en-us/cloud-platform/sql-server)| 
+|Microsoft SQL Server 2016| Ja|    [SQL Server 2016](https://www.microsoft.com/cloud-platform/sql-server)| 
 |Microsoft System Center Virtual Machine Manager 2016|  Ja|    [Neuigkeiten in System Center](https://technet.microsoft.com/system-center-docs/get-started/what-s-new-in-system-center)|
 |Microsoft System Center Operations Manager 2016|   Ja|    [Neuigkeiten in System Center](https://technet.microsoft.com/system-center-docs/get-started/what-s-new-in-system-center)|
 |Microsoft System Center Data Protection Manager 2016|  Ja|    [Neuigkeiten in System Center](https://technet.microsoft.com/system-center-docs/get-started/what-s-new-in-system-center)|
@@ -41,7 +41,7 @@ Kunden und Partner von Softwareherstellern, die mehr Informationen zur Kompatibi
 |SharePoint-Server 2016|    Ja|    [Hardware- und Softwareanforderungen für SharePoint Server 2016](https://technet.microsoft.com/library/cc262485(v=office.16).aspx)|
 |Project Server 2016|   Ja|    [Softwareanforderungen für Project Server 2016](https://technet.microsoft.com/library/ee683978(v=office.16).aspx)|
 |Exchange Server 2016|  Ja|    [Updates für Exchange 2016](https://technet.microsoft.com/library/jj907309(v=exchg.160).aspx)| 
-|BizTalk Server 2016|   Ja|    [Microsoft BizTalk Server](https://www.microsoft.com/en-us/cloud-platform/biztalk)|
+|BizTalk Server 2016|   Ja|    [Microsoft BizTalk Server](https://www.microsoft.com/cloud-platform/biztalk)|
 |Host Integration Server 2016|  Ja|    [Neuigkeiten in HIS 2016](https://msdn.microsoft.com/library/mt670807.aspx)|
 |Visual Studio Team Foundation Server 2017| Ja|    [Team Foundation Server 2017](https://www.visualstudio.com/news/releasenotes/tfs2017-relnotes)| 
 |Skype for Business Server 2015|    Ja|    [Installieren von Skype for Business Server 2015 unter Windows Server 2016](https://support.microsoft.com/en-gb/help/4015888/how-to-install-skype-for-business-server-2015-on-windows-server-2016)|

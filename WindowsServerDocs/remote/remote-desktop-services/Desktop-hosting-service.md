@@ -11,17 +11,17 @@ ms.date: 07/06/2018
 ms.tgt_pltfrm: na
 ms.topic: article
 author: heidilohr
-manager: dougkim
-ms.openlocfilehash: 7ff88368c937890d3d5c4f650f6c4c08d404069f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+manager: lizross
+ms.openlocfilehash: cf189b15ca15fb556424b5e4931f19d4be356d4d
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387860"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919957"
 ---
 # <a name="desktop-hosting-service"></a>Desktophosting-Dienst
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
 In diesem Artikel erfährst du mehr über die Komponenten des Desktophostingdiensts.
 
@@ -31,7 +31,7 @@ Jede Rolle erfüllt in der Mandantenumgebung einen bestimmten Zweck, wie unter [
 
 Der Desktophostingdienst des Anbieters wird als Gruppe isolierter Mandantenumgebungen implementiert. Jede Mandantenumgebung besteht aus einem Speichercontainer, einer Gruppe von virtuellen Computern und einer Kombination von Azure-Diensten, die alle über ein isoliertes virtuelles Netzwerk miteinander kommunizieren. Jeder virtuelle Computer enthält eine oder mehrere Komponenten, die die gehostete Desktopumgebung des Mandanten bilden. In den folgenden Unterabschnitten werden die Komponenten beschrieben, aus denen sich die gehostete Desktopumgebung des jeweiligen Mandanten zusammensetzt.
 
-## <a name="active-directory-domain-services"></a>Active Directory Domain Services
+## <a name="active-directory-domain-services"></a>Active Directory-Domänendienste (AD DS)
 
 Active Directory Domain Services (AD DS) stellt die Domänen- und Gesamtstrukturinformationen bereit, damit sich die Benutzer des Mandanten bei den Desktops und Anwendungen anmelden und ihre Workloads ausführen können. Dadurch kannst du auch Dateifreigaben und Datenbanken einrichten, die ggf. für Windows-Anwendungen erforderlich sind, und eine Verbindung mit ihnen herstellen.
 
@@ -43,7 +43,7 @@ AD DS kann auf unterschiedliche Weise bereitgestellt werden:
 2. Du kannst einen eigenständigen AD DS-Server in der virtuellen Netzwerkumgebung des Mandanten einrichten. Dadurch erhältst du die vollständige Kontrolle über die auf virtuellen Computern ausgeführte AD DS-Instanz.
 3. Du kannst eine Site-to-Site-VPN-Verbindung mit einem lokalen AD DS-Server des Mandanten herstellen. Dadurch kann der Mandant eine Verbindung mit seiner vorhandenen AD DS-Instanz herstellen und die Duplizierung von Benutzern, Gruppen, Organisationseinheiten und Ähnlichem reduzieren.
 
-Weitere Informationen finden Sie in den folgenden Artikeln:
+Weitere Informationen findest du in den folgenden Artikeln:
 
 * [Dokumentation zu Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/)
 * [Handbuch zur Referenzarchitektur für das Desktophosting für Windows Server 2012 R2](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
@@ -72,7 +72,7 @@ Der virtuelle Computer, der den Dateiserver bereitstellt, muss über einen angef
 
 Bei kleinen Mandanten können der Dateiserver und die [RD-Lizenzierungsrolle](rds-roles.md#remote-desktop-licensing) auf einem einzelnen virtuellen Computer in der Mandantenumgebung zusammengefasst werden, um Kosten zu sparen.
 
-Weitere Informationen finden Sie in den folgenden Artikeln:
+Weitere Informationen findest du in den folgenden Artikeln:
 
 * [Speicher](../../storage/storage.md)
 * [Anfügen eines verwalteten Datenträgers an einen virtuellen Windows-Computer im Azure-Portal](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json)

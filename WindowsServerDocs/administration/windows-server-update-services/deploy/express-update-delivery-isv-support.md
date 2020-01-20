@@ -11,12 +11,12 @@ author: sakitong
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: a4880a1a66d9c722cfda9e194c4eff38c5058674
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 13568bb320a3d70bfd6a70d2b9731b460be6f346
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361723"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948493"
 ---
 # <a name="express-update-delivery-isv-support"></a>ISV-Unterstützung für Express-Updatebereitstellung
 
@@ -53,7 +53,7 @@ ISVs können WSUS und den WU-Client verwenden, um die Express-Updatebereitstellu
 3.  [**Einrichten eines ISV-Client-Agents zum Steuern von WU-Clientvorgängen**](#BKMK_3)
 
 >[!NOTE]
->Das kumulative Update für Windows 10 Version 1607 vom Januar 2017 ([KB3213986 (Betriebssystembuild 14393.693)](https://support.microsoft.com/en-us/help/4009938/january-10-2017-kb3213986-os-build-14393-693)) muss installiert sein.
+>Das kumulative Update für Windows 10 Version 1607 vom Januar 2017 ([KB3213986 (Betriebssystembuild 14393.693)](https://support.microsoft.com/help/4009938/january-10-2017-kb3213986-os-build-14393-693)) muss installiert sein.
     
    - Mit dem ISV-Client-Agent wird festgelegt, welche Updates genehmigt und wann Updates heruntergeladen und installiert werden.
    - Mit dem WU-Client werden die herunterzuladenden Bytebereiche ermittelt, und die Downloadanforderung wird initiiert.

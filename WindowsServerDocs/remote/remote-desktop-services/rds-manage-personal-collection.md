@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dongill
-ms.openlocfilehash: 6bf0ad3a2cd35c9794fd13631ed29df94725685c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7be6b2bfe1105357811927f5da7092e8c16c3446
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387407"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949839"
 ---
-## <a name="manage-your-personal-desktop-session-collections"></a>Verwalten deiner Sammlung mit persönlichen Desktopsitzungen
+# <a name="manage-your-personal-desktop-session-collections"></a>Verwalten deiner Sammlung mit persönlichen Desktopsitzungen
 
 Verwende die folgenden Informationen zum Verwalten einer Sammlung mit persönlichen Desktopsitzungen in den Remotedesktopdiensten.
 
-### <a name="manually-assign-a-user-to-a-personal-session-host"></a>Manuelles Zuweisen eines Benutzers zu einem persönlichen Sitzungshost
+## <a name="manually-assign-a-user-to-a-personal-session-host"></a>Manuelles Zuweisen eines Benutzers zu einem persönlichen Sitzungshost
 Verwende das Cmdlet **Set-RDPersonalSessionDesktopAssignment**, um einen Benutzer manuell einem persönlichen Sitzungshostserver in der Sammlung zuzuweisen. Das Cmdlet unterstützt die folgenden Parameter:
 
 -CollectionName \<Zeichenfolge\>
@@ -49,7 +49,7 @@ Das Cmdlet **Import-RDPersonalSessionDesktopAssignment** importiert Zuordnungen 
 
 **-Path** gibt den Pfad und den Dateinamen der Datei an, die importiert werden soll.
  
-### <a name="removing-a-user-assignment-from-a-personal-session-host"></a>Entfernen einer Benutzerzuweisung aus einem persönlichen Sitzungshost
+## <a name="removing-a-user-assignment-from-a-personal-session-host"></a>Entfernen einer Benutzerzuweisung aus einem persönlichen Sitzungshost
 Verwende das Cmdlet **Remove-RDPersonalSessionDesktopAssignment**, um die Zuordnung zwischen einem persönlichen Sitzungsdesktop und einem Benutzer zu entfernen. Das Cmdlet unterstützt die folgenden Parameter:
 
 -CollectionName \<Zeichenfolge\>
@@ -64,7 +64,7 @@ Verwende das Cmdlet **Remove-RDPersonalSessionDesktopAssignment**, um die Zuordn
 
 **-Force** erzwingt die Ausführung des Befehls ohne Aufforderung zur Bestätigung durch den Benutzer.
 
-### <a name="query-user-assignments"></a>Abfragen von Benutzerzuweisungen
+## <a name="query-user-assignments"></a>Abfragen von Benutzerzuweisungen
 Verwende das Cmdlet **Get-RDPersonalSessionDesktopAssignment**, um eine Liste mit persönlichen Sitzungsdesktops und den zugeordneten Benutzerkonten abzurufen. Das Cmdlet unterstützt die folgenden Parameter:
 
 -CollectionName \<Zeichenfolge\>
@@ -87,4 +87,4 @@ Das Cmdlet **Export-RDPersonalPersonalDesktopAssignment** exportiert die aktuell
 -Path \<Zeichenfolge\>
 
 
-Alle neuen Cmdlets unterstützen die folgenden allgemeinen Parameter: -Verbose, -Debug, -ErrorAction, -ErrorVariable, -OutBuffer und -OutVariable. Weitere Informationen finden Sie unter [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216).
+Alle neuen Cmdlets unterstützen die folgenden allgemeinen Parameter: -Verbose, -Debug, -ErrorAction, -ErrorVariable, -OutBuffer und -OutVariable. Weitere Informationen findest du unter [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216).

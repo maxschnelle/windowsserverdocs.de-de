@@ -6,12 +6,12 @@ contributor: maertendMSFT
 ms.product: w10
 author: maertendMSFT
 title: Konfiguration des OpenSSH-Servers für Windows
-ms.openlocfilehash: ed424c33c4cd2c19a9b5e985ab6083bcbcb9fbdc
-ms.sourcegitcommit: 0467b8e69de66e3184a42440dd55cccca584ba95
+ms.openlocfilehash: 5eb3d86950d169fd01512d330f0c04669beeffae
+ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69546265"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259041"
 ---
 # <a name="openssh-server-configuration-for-windows-10-1809-and-server-2019"></a>Konfiguration des OpenSSH-Servers für Windows 10 1809 und Windows Server 2019
 
@@ -27,7 +27,7 @@ Um die Standardbefehlsshell festzulegen, vergewissern Sie sich zunächst, dass s
 
 Befehlsshell | Zu verwendender Befehl
 ------------- | -------------- 
-Befehl | path
+Befehl | Pfad
 PowerShell | $env:path
 
 Die Konfiguration der standardmäßigen SSH-Shell erfolgt in der Windows-Registrierung, indem der vollständige Pfad zur ausführbaren Shell-Datei dem Zeichenfolgenwert DefaultShell in Computer\HKEY_LOCAL_MACHINE\SOFTWARE\OpenSSH hinzugefügt wird. 
@@ -84,7 +84,7 @@ Dieses Verzeichnis wird nur für sftp-Sitzungen unterstützt. Eine Remotesitzung
 
 ### <a name="hostkey"></a>HostKey
 
-Die Standardwerte sind %programdata%/ssh/ssh_host_ecdsa_key, %programdata%/ssh/ssh_host_ed25519_key und %programdata%/ssh/ssh_host_rsa_key. Wenn die Standardwerte nicht vorhanden sind, generiert sshd diese automatisch beim Start eines Diensts.
+Die Standardwerte sind %programdata%/ssh/ssh_host_ecdsa_key, %programdata%/ssh/ssh_host_ed25519_key, %programdata%/ssh/ssh_host_dsa_key und %programdata%/ssh/ssh_host_rsa_key. Wenn die Standardwerte nicht vorhanden sind, generiert sshd diese automatisch beim Start eines Diensts.
 
 ### <a name="match"></a>Übereinstimmung
 
@@ -99,7 +99,7 @@ Gilt nicht unter Windows. Um die Administratoranmeldung zu verhindern, verwenden
 Wenn Sie eine dateibasierte Protokollierung benötigen, verwenden Sie LOCAL0. Protokolle werden unter %programdata%\ssh\logs generiert.
 Jeder andere Wert, einschließlich des Standardwerts AUTH, leitet die Protokollierung an ETW. Weitere Informationen finden Sie unter „Protokollierungsmöglichkeiten unter Windows“.
 
-### <a name="not-supported"></a>Nicht unterstützt. 
+### <a name="not-supported"></a>Nicht unterstützt 
 
 Die folgenden Konfigurationsoptionen sind in der OpenSSH-Version unter Windows Server 2019 und Windows 10 1809 nicht verfügbar:
 

@@ -8,12 +8,12 @@ ms.assetid: ''
 author: Teresa-Motiv
 ms.author: v-tea
 ms.localizationpriority: medium
-ms.openlocfilehash: 3165c926c50c2f91544895e0d328f1dae7424b4a
-ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
+ms.openlocfilehash: 17d4dc0ce531327db21d660481386fcc56498ae3
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72588037"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948286"
 ---
 # <a name="guidelines-for-troubleshooting-dns-related-activation-issues"></a>Richtlinien für die Problembehandlung von Aktivierungsproblemen im Zusammenhang mit DNS
 
@@ -22,13 +22,13 @@ Möglicherweise müssen Sie einige dieser Methoden verwenden, wenn eine oder meh
 - Sie verwenden Medien mit Volumenlizenzierung und einen&nbsp;generischen Volumenlizenz-Product Key zum Installieren eines der folgenden Betriebssysteme:
    - Windows Server 2019
    - Windows Server 2016
-   - Windows Server 2012 R2
+   - Windows Server 2012 R2
    - Windows Server 2012
    - Windows Server 2008 R2
    - WindowsServer 2008
-   - Windows 10
+   - Windows 10
    - Windows 8.1
-   - Windows 8
+   - Windows 8
 - Der Aktivierungs-Assistent kann keine Verbindung mit einem KMS-Hostcomputer herstellen.
 
 Wenn Sie versuchen, ein Clientsystem zu aktivieren, verwendet der Aktivierungs-Assistent DNS, um nach einem entsprechenden Computer zu suchen, auf dem die KMS-Software ausgeführt wird. Wenn der Assistent DNS abfragt und den DNS-Eintrag für den KMS-Hostcomputer nicht findet, meldet der Assistent einen Fehler.   
@@ -88,7 +88,7 @@ Weitere Informationen zum Konfigurieren von KMS-Hosts finden Sie unter [Aktivier
 
 Überprüfen Sie die Registrierung des KMS-Hostservers, um zu bestimmen, ob er eine DNS-Registrierung durchführt. Standardmäßig registriert ein KMS-Hostserver dynamisch alle 24 Stunden einen DNS-SRV-Eintrag. 
 > [!IMPORTANT]
-> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/en-us/help/322756) für den Fall, dass Probleme auftreten.  
+> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/help/322756) für den Fall, dass Probleme auftreten.  
 
 Gehen Sie wie folgt vor, um diese Einstellung zu überprüfen:
 1. Starten Sie den Registrierungs-Editor. Klicken Sie hierzu mit der rechten Maustaste auf **Start**, wählen Sie **Ausführen** aus, geben Sie **regedit** ein, und drücken Sie die EINGABETASTE.
@@ -231,7 +231,7 @@ Sie können jedoch einen KMS-Host manuell einem bestimmten KMS-Client zuweisen. 
      >- **<KMS_FQDN>** stellt den vollqualifizierten Domänennamen (FQDN) des KMS-Hostcomputers dar.
      >- **\<IPv4Address\>** stellt die IPv4-Adresse des KMS-Hostcomputers dar.
      >- **\<IPv6Address\>** stellt die IPv6-Adresse des KMS-Hostcomputers dar.
-     >- **\<NETBIOSName\>**  steht für den NetBIOS-Namen des KMS-Hostcomputers.
+     >- **\<NETBIOSName\>** steht für den NetBIOS-Namen des KMS-Hostcomputers.
      >- **\<\>port** stellt den vom KMS verwendeten TCP-Port dar.  
 
 ## <a name="configure-the-kms-host-to-publish-in-multiple-dns-domains"></a>Konfigurieren des KMS-Hosts für die Veröffentlichung in mehreren DNS-Domänen

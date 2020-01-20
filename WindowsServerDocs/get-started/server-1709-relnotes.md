@@ -14,22 +14,22 @@ author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 7d5f899964414c10350cc22a594a959c940a1514
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dcd50b287ad0f3dd49a0df3c1fe531379bd4078e
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391522"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948235"
 ---
 # <a name="release-notes-important-issues-in-windows-server-version-1709"></a>Versionshinweise: Wichtige Probleme in Windows Server, Version 1709
 
->Gilt für: Windows Server (Semi-Annual Channel)
+>Gilt für: Windows Server (Halbjährlicher Kanal)
 
 In diesen Anmerkungen zur Version sind die wichtigsten Probleme im Betriebssystem Windows Server&reg; zusammengefasst, und Sie erfahren, wie Sie diese Probleme gegebenenfalls umgehen können. Informationen zu standardmäßigen Änderungen, neuen Features und Fixes in diesem Release finden Sie unter [Neues in Windows Server, Version 1709](whats-new-in-windows-server-1709.md) und in den Ankündigungen der zuständigen Featureteams. Sofern es nicht anders angegeben ist, gelten alle aufgeführten Probleme für alle Editionen und Installationsoptionen von Windows Server 2016.  
 
 Dieses Dokument wird ständig aktualisiert. Wenn kritische Probleme ermittelt werden, die eine Problemumgehung erfordern, werden diese genauso wie neue Problemumgehungen und Fixes hinzugefügt, sobald sie verfügbar sind.  
   
-## <a name="storage-spaces-direct"></a>Direkte Speicherplätze
+## <a name="storage-spaces-direct"></a>Speicherplätze DAS
 [comment]: # (ID: unknown; Submitter: stevenek; state: signed off)  
 „Direkte Speicherplätze“ ist in Windows Server, Version 1709 nicht enthalten. Wenn Sie *Enable-ClusterStorageSpacesDirect* oder dessen Alias *Enable-ClusterS2D* auf einem Server unter Windows Server, Version 1709, aufrufen, wird die Fehlermeldung „Der angeforderte Vorgang wird nicht unterstützt“ angezeigt.
 
@@ -41,4 +41,4 @@ Der halbjährliche Kanal von Windows Server konzentriert sich auf Container- und
 
 „Direkte Speicherplätze“ wurde in Windows Server 2016 eingeführt und ist die Grundlage für unsere hyperkonvergente Plattform. Wir haben uns über die positive Übernahme der hyperkonvergenten Microsoft-Plattform sehr gefreut, und wir engagieren uns für unsere Kunden.
 
-Wir haben Ihr Feedback berücksichtigt und arbeiten an der Bereitstellung der [nächsten Gruppe von Innovationen](https://blogs.technet.microsoft.com/windowsserver/2017/09/07/sneak-peek-2-windows-server-version-1709-hyper-converged-infrastructure/) für unsere hyperkonvergente Plattform. Diese Features stehen noch heute in den [Windows-Insider](https://insider.windows.com/for-business/)-Builds zur Verfügung, und wir würden uns freuen, wenn Sie diese ausprobieren und uns Ihr Feedback mitteilen. Kunden, die nach einer überprüften hyperkonvergenten Lösung suchen, empfehlen wir das Programm [Windows Server Software Defined](http://microsoft.com/wssd).
+Wir haben Ihr Feedback berücksichtigt und arbeiten an der Bereitstellung der [nächsten Gruppe von Innovationen](https://blogs.technet.microsoft.com/windowsserver/2017/09/07/sneak-peek-2-windows-server-version-1709-hyper-converged-infrastructure/) für unsere hyperkonvergente Plattform. Diese Features stehen noch heute in den [Windows-Insider](https://insider.windows.com/for-business/)-Builds zur Verfügung, und wir würden uns freuen, wenn Sie diese ausprobieren und uns Ihr Feedback mitteilen. Kunden, die nach einer überprüften hyperkonvergenten Lösung suchen, empfehlen wir das Programm [Windows Server Software Defined](https://microsoft.com/wssd).

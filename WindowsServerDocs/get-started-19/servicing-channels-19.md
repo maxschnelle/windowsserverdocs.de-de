@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: 814bcf3e989e9aa9b83ba447d07c45ee95309a5a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3d443ff123cc041196f59d93d156415c34bdf70f
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391973"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75947870"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Windows Server-Wartungskanäle: LTSC und SAC
 
@@ -30,13 +30,13 @@ Sie sind mit diesem Releasemodell bereits vertraut (es wurde früher „Long-Ter
 > [!Note]  
 > **Das aktuelle LTSC-Produkt ist Windows Server 2019**. Wenn Sie diesen Kanal beibehalten möchten, sollten Sie Windows Server 2019 installieren (oder weiterhin nutzen), der im Server Core-Installationsmodus oder als Server mit der Desktopdarstellungs-Installationsoption installiert werden kann.
 
-## <a name="semi-annual-channel"></a>Semi-Annual Channel
+## <a name="semi-annual-channel"></a>Halbjährlicher Kanal
 
 Der halbjährliche Kanal wurde für Kunden konzipiert, die schnell Neuerungen einführen, um von neuen Betriebssystemfunktionen frühzeitig zu profitieren, sowohl in Anwendungen – insbesondere solchen, die auf Containern und Microservices basieren – als auch in hybriden, softwaredefinierten Rechenzentren. Für Windows Server-Produkte ‫im halbjährlichen Kanal werden zweimal im Jahr neue Versionen bereitgestellt, im Frühjahr und Herbst. Jede Version in diesen Kanal wird nach der ersten Veröffentlichung 18 Monate lang unterstützt.
 
 Die meisten der im halbjährlichen Kanal eingeführten Features werden in der nächsten Long-Term Servicing Channel-Release von Windows Server zusammengefasst. Die Editionen, die Funktionen und die unterstützenden Inhalte können sich je nach Kundenfeedback von Release zu Release unterscheiden.
 
-Der halbjährliche Kanal steht Kunden mit Volumenlizenz mit [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx) zur Verfügung sowie über den Azure Marketplace oder andere Cloud/Hosting-Dienstanbieter und Treueprogramme wie z.B. Visual Studio-Abonnements.
+Der halbjährliche Kanal steht Kunden mit Volumenlizenz mit [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx) zur Verfügung sowie über den Azure Marketplace oder andere Cloud/Hosting-Dienstanbieter und Treueprogramme wie z.B. Visual Studio-Abonnements.
 
 > [!Note]  
 > **Die aktuelle Version des Semi-Annual Channel ist Windows Server, Version 1903**. Wenn Sie Server in diesen Kanal übertragen möchten, sollten Sie die Version 1903 von Windows Server installieren, die im Server Core-Modus oder als Nanoserver in einem Container installiert werden kann. Direkte Upgrades von einer Release aus dem Long-Term Servicing Channel werden nicht unterstützt, da sie sich in **verschiedenen Releasekanälen** befinden. Releases im halbjährlichen Kanal stellen keine Updates dar – bei ihnen handelt es sich um das nächste Release von Windows Server im halbjährlichen Kanal.
@@ -66,7 +66,7 @@ In der folgenden Tabelle sind die wichtigsten Unterschiede zwischen den Kanälen
 
 Sofern nichts Gegenteiliges kommuniziert wird, sind die Mindestanforderungen zum Ausführen der Releases im halbjährlichen Kanal identisch mit denen des neuesten Release von Windows Server im Long-Term Servicing Channel. Beispiel: **Die aktuelle Version im Long-Term Servicing Channel ist Windows Server 2019**. Die meisten Hardwaretreiber funktionieren auch weiterhin in diesen Versionen.
 
-## <a name="servicing"></a>Wartung
+## <a name="servicing"></a>Wird gewartet
 
 Sowohl die Releases im Long-Term Servicing Channel als auch die im halbjährlichen Kanal werden mit Sicherheitsupdates und mit nicht sicherheitsrelevanten Updates unterstützt. Der Unterschied liegt in der Dauer der Unterstützung für das Release, wie oben beschrieben.
 
@@ -84,9 +84,9 @@ Sie haben sich auf der Grundlage Ihrer Ressourcen, Ihrer Mitarbeiter und Ihrer E
 
 Releases im halbjährlichen Kanal sollten als Neuinstallation installiert werden.
 
-- Volume Licensing Service Center (VLSC) Volumenlizenz-Kunden mit [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx) können dieses Release erhalten, indem sie im [Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx) auf **Anmeldung** klicken. Klicken Sie dann auf **Downloads und Schlüssel**, und suchen Sie nach diesem Release. 
+- Volume Licensing Service Center (VLSC) Volumenlizenz-Kunden mit [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx) können dieses Release erhalten, indem sie im [Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx) auf **Anmeldung** klicken. Klicken Sie dann auf **Downloads und Schlüssel**, und suchen Sie nach diesem Release. 
 
-- Releases im halbjährlichen Kanal sind auch in [Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) verfügbar.
+- Releases im halbjährlichen Kanal sind auch in [Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview) verfügbar.
 
 - Visual Studio-Abonnements: Visual Studio-Abonnenten können Releases im halbjährlichen Kanal erhalten, indem sie sie von der [Downloadseite für Visual Studio-Abonnenten](https://my.visualstudio.com/downloads?pid=2347) herunterladen. Wenn Sie noch kein Abonnent sind, navigieren Sie zu [Visual Studio-Abonnements](https://www.visualstudio.com/subscriptions/), um sich zu registrieren, und besuchen Sie dann die [Downloadseite für Visual Studio-Abonnenten](https://my.visualstudio.com/downloads?pid=2347), wie oben beschrieben. Releases, die über Visual Studio-Abonnements bezogen werden, sind nur zu Entwicklungs- und Testzwecken bestimmt.
 
@@ -171,7 +171,7 @@ Name    :     ServerCore.AppCompatibility~~~~0.0.1.0
 State   :     Installed
 ````
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 [Änderungen bei Nano Server in Windows Server Semi-Annual Channel](../get-started/nano-in-semi-annual-channel.md)
 

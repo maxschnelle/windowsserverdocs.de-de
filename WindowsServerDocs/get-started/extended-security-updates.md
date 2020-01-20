@@ -9,12 +9,12 @@ ms.author: iainfou
 ms.topic: get-started-article
 ms.localizationpriority: high
 ms.date: 12/16/2019
-ms.openlocfilehash: a5af1ad5a730f1dc90111734a9b8b1aacc91201b
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.openlocfilehash: 83ab3663b2c03017ba1bf613a49c394be0511002
+ms.sourcegitcommit: b649047f161cb605df084f18b573f796a584753b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466343"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76162501"
 ---
 # <a name="how-to-use-windows-server-2008-and-2008-r2-extended-security-updates-esu"></a>Verwenden der erweiterten Sicherheitsupdates (ESU) für Windows Server 2008 und 2008 R2
 
@@ -49,6 +49,17 @@ Damit du erweiterte Sicherheitsupdates verwenden kannst, musst du einen Mehrfach
 
 > [!NOTE]
 > Wenn du Windows Server 2008/2008 R2-VMs in Azure ausführst, sind die folgenden Schritte nicht erforderlich. Azure-VMs werden automatisch für erweiterte Sicherheitsupdates aktiviert. Du musst keine Ressource und keinen Schlüssel für erweiterte Sicherheitsupdates erstellen, und es fallen keine zusätzlichen Kosten für die Verwendung erweiterter Sicherheitsupdates mit Azure-VMs an.
+
+> [!NOTE]
+> Bevor Sie die nachfolgenden Schritte ausführen, senden Sie eine E-Mail mit den folgenden Informationen zur Genehmigung in der Whitelist an [winsvresuchamps@microsoft.com](mailto:winsvresuchamps@microsoft.com):
+> * Kundenname:
+> * Azure-Abonnement:
+> * Enterprise Agreement (EA)-Nummer (für ESU):
+> * Anzahl der ESU-Server:
+> 
+> Das Team überprüft die bereitgestellten Informationen und fügt der Whitelist den Benutzer und das Abonnement hinzu.
+> 
+> Wenn der Antragsteller nicht in der Whitelist aufgeführt ist, kann der folgende Fehler auftreten: [Der Ressourcentyp konnte nicht im Namespace "Microsoft.WindowsESU" gefunden werden](https://social.msdn.microsoft.com/Forums/office/94b16a89-3149-43da-865d-abf7dba7b977/the-resource-type-could-not-be-found-in-the-namespace-microsoftwindowsesu-for-api-version)
 
 Führe die folgenden Schritte im Azure-Portal aus, um andere VMs als Azure-VMs für erweiterte Sicherheitsupdates zu registrieren und einen Schlüssel zu erstellen:
 

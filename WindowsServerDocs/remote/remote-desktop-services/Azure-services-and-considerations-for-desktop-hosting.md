@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0f402ae3-5391-4c7d-afea-2c5c9044de46
 author: heidilohr
-manager: dougkim
-ms.openlocfilehash: 5c3b1ef044be70002918b7ef1379513bdbfb930c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+manager: lizross
+ms.openlocfilehash: 111f96e2ed0ffb20dcd3103d1c939bc678aecd27
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387957"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919968"
 ---
 # <a name="azure-services-and-considerations-for-desktop-hosting"></a>Azure-Dienste und Überlegungen zum Desktophosting
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
 In den folgenden Abschnitten werden Azure-Infrastrukturdienste beschrieben.
   
@@ -47,13 +47,13 @@ Dieser Leitfaden zur Referenzarchitektur für das Azure-Desktophosting dient daz
 - URL, Name und Zertifikate von Web Access für Remotedesktop müssen für jeden Mandanten eindeutig und erkennbar sein, um Spoofingangriffe zu verhindern.  
 - Während des regulären Betriebs des Desktophostingdiensts müssen alle öffentlichen IP-Adressen für alle virtuellen Computer gelöscht werden – mit Ausnahme des virtuellen Computers mit der RD-Webkomponente und der RD-Gatewaykomponente, der dafür sorgt, dass Benutzer eine sichere Verbindung mit dem Desktophosting-Clouddienst des Mandanten herstellen können. Öffentliche IP-Adressen können vorübergehend hinzugefügt werden, wenn dies für Verwaltungsaufgaben erforderlich ist. Sie sollten allerdings anschließend immer gelöscht werden.  
   
-Weitere Informationen finden Sie in den folgenden Artikeln:
+Weitere Informationen findest du in den folgenden Artikeln:
 
 - [Security and Protection](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831778(v=ws.11)) (Sicherheit und Schutz)  
 - [Security Best Practices for IIS 8](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635855(v=ws.11)) (Bewährte Sicherheitsmethoden für IIS 8)  
 - [Secure Windows Server 2012 R2 and Windows Server 2012](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831360(v=ws.11)) (Schützen von Windows Server 2012 R2 und Windows Server 2012)  
   
-## <a name="design-considerations"></a>Überlegungen zum Entwurf
+## <a name="design-considerations"></a>Entwurfsüberlegungen
 
 Bei der Entwicklung eines mehrinstanzenfähigen Desktophostingdiensts müssen die Einschränkungen der Microsoft Azure-Infrastrukturdienste berücksichtigt werden. In der folgenden Liste werden Aspekte beschrieben, die der Anbieter berücksichtigen muss, um auf der Grundlage dieser Referenzarchitektur eine funktionierende und kostengünstige Desktophostinglösung zu erhalten.  
   
@@ -63,7 +63,7 @@ Bei der Entwicklung eines mehrinstanzenfähigen Desktophostingdiensts müssen di
 - Die physischen Computerressourcen im Azure-Rechenzentrum werden mithilfe von Hyper-V virtualisiert. Hyper-V-Hosts werden nicht in Hostclustern konfiguriert. Die Verfügbarkeit der virtuellen Computer hängt daher von der Verfügbarkeit der einzelnen Server ab, die in der Azure-Infrastruktur verwendet werden. Um eine höhere Verfügbarkeit zu erzielen, können mehrere Instanzen jedes virtuellen Rollendienstcomputers in einer Verfügbarkeitsgruppe erstellt werden, und für die virtuellen Computer kann dann Gastclustering implementiert werden.  
 - In einer typischen Speicherkonfiguration verfügt ein Dienstanbieter über ein einzelnes Speicherkonto mit mehreren Containern (beispielsweise einer für jeden Mandanten) sowie mit mehreren Datenträgern in jedem Container. Es gibt jedoch eine Obergrenze für den Gesamtspeicher und die Gesamtleistung eines einzelnen Speicherkontos. Dienstanbieter, die sehr viele Mandanten oder Mandanten mit hoher Speicherkapazität oder hohem Leistungsbedarf unterstützen, müssen ggf. mehrere Speicherkonten erstellen.  
   
-Weitere Informationen finden Sie in den folgenden Artikeln:
+Weitere Informationen findest du in den folgenden Artikeln:
 
 - [Größen für Clouddienste](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs)  
 - [Virtuelle Linux-Computer – Preise](https://azure.microsoft.com/pricing/details/virtual-machines/)  

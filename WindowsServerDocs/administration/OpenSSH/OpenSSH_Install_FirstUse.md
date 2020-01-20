@@ -5,12 +5,12 @@ keywords: OpenSSH, SSH, SSHD, Installation, Setup
 contributor: maertendMSFT
 author: maertendMSFT
 title: Installation von OpenSSH für Windows
-ms.openlocfilehash: 3c742e20432d20ea3c402af66f19a803ea1f3a56
-ms.sourcegitcommit: 73898afec450fb3c2f429ca373f6b48a74b19390
+ms.openlocfilehash: 9cf87229f5ebde6f0ff52a4e9b1b11b6e3ed4f0a
+ms.sourcegitcommit: 8771a9f5b37b685e49e2dd03c107a975bf174683
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71934929"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145916"
 ---
 # <a name="installation-of-openssh-for-windows-server-2019-and-windows-10"></a>Installation von OpenSSH für Windows Server 2019 und Windows 10 #
 

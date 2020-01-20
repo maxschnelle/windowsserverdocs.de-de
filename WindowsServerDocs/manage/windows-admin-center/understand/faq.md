@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 12/02/2019
 ms.prod: windows-server
-ms.openlocfilehash: 6d04b641c56e9461f0134bfc4734fea36955106c
-ms.sourcegitcommit: 7c7fc443ecd0a81bff6ed6dbeeaf4f24582ba339
+ms.openlocfilehash: 4ce42420430e9a12dd6123ec18c9ded25abc97bb
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2019
-ms.locfileid: "74904064"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949950"
 ---
 # <a name="windows-admin-center-frequently-asked-questions"></a>Häufig gestellte Fragen zu Windows Admin Center
 
@@ -41,7 +41,7 @@ Windows Admin Center ist für Windows Server 2019 optimiert, um wichtige-Themen 
 
 ## <a name="is-windows-admin-center-a-complete-replacement-for-all-traditional-in-box-and-rsat-tools"></a>Ist Windows Admin Center ein vollständiger Ersatz für alle herkömmlichen integrierten und RSAT-Tools?
 
-Nein. Zwar kann Windows Admin Center viele gängige Szenarien verwalten, es ersetzt aber nicht alle herkömmlichen MMC-Tools (Microsoft Management Console) vollständig. Eine detaillierte Aufstellung der in Windows Admin Center enthaltenen Tools finden Sie unter [Serververwaltung](../use/manage-servers.md) in unserer Dokumentation. Windows Admin Center hat die folgenden wichtigsten Funktionen in der Server-Manager-Lösung:
+Nein Zwar kann Windows Admin Center viele gängige Szenarien verwalten, es ersetzt aber nicht alle herkömmlichen MMC-Tools (Microsoft Management Console) vollständig. Eine detaillierte Aufstellung der in Windows Admin Center enthaltenen Tools finden Sie unter [Serververwaltung](../use/manage-servers.md) in unserer Dokumentation. Windows Admin Center hat die folgenden wichtigsten Funktionen in der Server-Manager-Lösung:
 
 * Anzeigen von Ressourcen und Ressourcenverwendung
 * Zertifikatverwaltung
@@ -86,7 +86,7 @@ Ja! Das [Showscript-Feature](../use/get-started.md#view-powershell-scripts-used-
 
 ## <a name="are-there-any-plans-for-windows-admin-center-to-manage-windows-server-2008-r2-or-earlier"></a>Gibt es Pläne, Windows Admin Center zum Verwalten von Windows Server 2008 R2 oder früherer Versionen nutzbar zu machen?
 
-Windows Admin Center unterstützt jetzt die Verwaltung von Windows Server 2008 R2 mit **eingeschränkter** Funktionalität. Windows Admin Center nutzt die Funktionen von PowerShell und Plattformtechnologien, die in Windows Server 2008 R2 und früheren Versionen nicht vorhanden sind, daher ist eine vollständige Unterstützung nicht realisierbar. Windows Server 2008/2008 R2 erreichen das Supportende im Januar 2020, daher empfiehlt Microsoft Kunden, [auf Azure umzusteigen oder ein Upgrade auf die aktuellste Version von Windows Server vorzunehmen](https://www.microsoft.com/en-us/cloud-platform/windows-server-2008).
+Windows Admin Center unterstützt jetzt die Verwaltung von Windows Server 2008 R2 mit **eingeschränkter** Funktionalität. Windows Admin Center nutzt die Funktionen von PowerShell und Plattformtechnologien, die in Windows Server 2008 R2 und früheren Versionen nicht vorhanden sind, daher ist eine vollständige Unterstützung nicht realisierbar. Windows Server 2008/2008 R2 erreichen das Supportende im Januar 2020, daher empfiehlt Microsoft Kunden, [auf Azure umzusteigen oder ein Upgrade auf die aktuellste Version von Windows Server vorzunehmen](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 ## <a name="are-there-any-plans-for-windows-admin-center-to-manage-linux-connections"></a>Bestehen Pläne, Windows Admin Center für die Verwaltung von Linux-Verbindungen einzusetzen?
 
@@ -131,7 +131,7 @@ Ja. Windows Admin Center unterstützt die Verwaltung von hyperkonvergenten Clust
 
 ## <a name="does-windows-admin-center-require-system-center"></a>Ist System Center für Windows Admin Center erforderlich?
 
-Nein. Windows Admin Center dient als Ergänzung zu System Center, System Center ist aber nicht erforderlich. [Weitere Informationen zu Windows Admin Center und System Center](related-management.md#system-center).
+Nein Windows Admin Center dient als Ergänzung zu System Center, System Center ist aber nicht erforderlich. [Weitere Informationen zu Windows Admin Center und System Center](related-management.md#system-center).
 
 ## <a name="can-windows-admin-center-replace-system-center-virtual-machine-manager-scvmm"></a>Kann der System Center Virtual Machine Manager (SCVMM) durch Windows Admin Center ersetzt werden?
 
@@ -150,7 +150,7 @@ Es stehen zwei Versionen von Windows Admin Center zum Download zur Verfügung:
 ### <a name="windows-admin-center-preview"></a>Windows Admin Center – Vorschau
 
 * Dies ist die richtige Version für IT-Administratoren, die die neuesten und tollsten Features in regelmäßiger Folge erhalten möchten. Es ist unser Ziel, etwa monatlich Updatereleases zur Verfügung zu stellen. Die Kernplattform ist weiterhin produktionsgeeignet, und die Lizenz erteilt Nutzungsrechte für die Produktion. Beachten Sie jedoch, dass Sie mit der Einführung neuer Tools und Funktionen rechnen müssen, die eindeutig als VORSCHAU gekennzeichnet sind und zur Bewertung und für Tests geeignet sind.
-* Um die neueste Insider Preview-Version zu erhalten, können registrierte Insider die Windows Admin Center-Vorschauversion direkt von der [Downloadseite für Windows Server Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver) über die Dropdownliste „Weitere Downloads“ herunterladen. Wenn Sie noch nicht als Insider registriert sind, lesen Sie [Erste Schritte mit Windows Server](https://insider.windows.com/en-us/for-business-getting-started-server/) auf dem Windows Insiders for Business-Portal.
+* Um die neueste Insider Preview-Version zu erhalten, können registrierte Insider die Windows Admin Center-Vorschauversion direkt von der [Downloadseite für Windows Server Insider Preview](https://www.microsoft.com/software-download/windowsinsiderpreviewserver) über die Dropdownliste „Weitere Downloads“ herunterladen. Wenn Sie noch nicht als Insider registriert sind, lesen Sie [Erste Schritte mit Windows Server](https://insider.windows.com/en-us/for-business-getting-started-server/) auf dem Windows Insiders for Business-Portal.
 
 ## <a name="why-was-windows-admin-center-chosen-as-the-final-name-for-project-honolulu"></a>Warum wurde „Windows Admin Center“ als endgültiger Name für „Projekt Honolulu“ gewählt?
 
@@ -162,7 +162,7 @@ Unsere [Startseite](https://aka.ms/WindowsAdminCenter) ist der beste Ausgangspun
 
 ## <a name="what-is-the-version-history-of-windows-admin-center"></a>Wie ist der Versionsverlauf von Windows Admin Center?
 
-[Versionsverlauf hier ansehen.](../overview.md#release-history)
+[Versionsverlauf hier ansehen.](../support/release-history.md)
 
 ## <a name="im-having-an-issue-with-windows-admin-center-where-can-i-get-help"></a>Ich habe ein Problem mit Windows Admin Center, wo erhalte ich Hilfe?
 

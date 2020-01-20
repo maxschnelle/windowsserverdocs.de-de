@@ -10,12 +10,12 @@ ms.topic: article
 author: lizap
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: b59d93d576967ee83b3efecc2630034eab919bf2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7b222104abd5b0b964bac748c3be15049075191d
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403903"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950428"
 ---
 # <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Verwenden von Leistungsindikatoren für die Diagnose von Leistungsproblemen von Anwendungen auf Remotedesktop-Sitzungshosts
 
@@ -42,7 +42,7 @@ Ein wichtiges Detail dieses Indikators besteht darin, dass er die maximale Verz�
 
 Beispielsweise würde in der folgenden Tabelle die Verzögerung der Benutzereingabe innerhalb dieses Intervalls als 1.000 ms gemeldet. Der Indikator meldet die längste Verzögerung der Benutzereingabe im Intervall, da die Wahrnehmung des Benutzers als „langsam“ durch die längste erlebte Eingabezeit (das Maximum) bestimmt wird, nicht durch die mittlere Geschwindigkeit aller Eingaben.
 
-|Number| 0 | 1 | 2 |
+|Nr.| 0 | 1 | 2 |
 |------|---|---|---|
 |Verzögerung |16 ms| 20 ms| 1\.000 ms|
 
@@ -90,7 +90,7 @@ Diese Tabelle zeigt ein visuelles Beispiel dieser Instanzen. (Sie können die gl
 |Verzögerung der Benutzereingabe pro Sitzung|1|    200|
 |Verzögerung der Benutzereingabe pro Sitzung|2|    16|
 |Verzögerung der Benutzereingabe pro Sitzung|Durchschnitt|  108|
-|Verzögerung der Benutzereingabe pro Sitzung|Max.|  200|
+|Verzögerung der Benutzereingabe pro Sitzung|Max|  200|
 
 ## <a name="counters-used-in-an-overloaded-system"></a>Einsatz der Indikatoren in einem überlasteten System
 
@@ -140,7 +140,7 @@ So sieht es aus, wenn Sie beide Schlüssel aktivieren:
 
 ## <a name="download-windows-server-insider-software"></a>Herunterladen von Windows Server Insider-Software
 
-Registrierte Insider können direkt zur [Windows Server Insider-Vorschau-Downloadseite](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver) navigieren, um die aktuellsten Insider-Softwaredownloads abzurufen.  Informationen zum Registrieren als Insider finden Sie unter [Erste Schritte mit Server](https://insider.windows.com/en-us/for-business-getting-started-server/).
+Registrierte Insider können direkt zur [Windows Server Insider-Vorschau-Downloadseite](https://www.microsoft.com/software-download/windowsinsiderpreviewserver) navigieren, um die aktuellsten Insider-Softwaredownloads abzurufen.  Informationen zum Registrieren als Insider finden Sie unter [Erste Schritte mit Server](https://insider.windows.com/en-us/for-business-getting-started-server/).
 
 ## <a name="share-your-feedback"></a>Teilen Sie Ihr Feedback mit
 

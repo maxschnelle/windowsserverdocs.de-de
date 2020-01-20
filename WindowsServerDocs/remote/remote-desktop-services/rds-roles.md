@@ -7,17 +7,17 @@ ms.author: helohr
 ms.date: 07/06/2018
 ms.topic: article
 author: heidilohr
-manager: dougkim
-ms.openlocfilehash: f26f75b8ce3f5438362c15b84aeca9339b95ebbc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+manager: lizross
+ms.openlocfilehash: 44b98b485b69720a1459f052b68d15617954bffe
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387205"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949827"
 ---
 # <a name="remote-desktop-services-roles"></a>Remotedesktopdienste: Rollen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
 In diesem Artikel werden die Rollen in einer Remotedesktopdienste-Umgebung beschrieben.
 
@@ -35,7 +35,7 @@ In den meisten Fällen wird ein RD-Sitzungshostserver von mehreren Benutzern gem
 
 Außerdem kannst du zur weiteren Desktopanpassung eine virtuelle Festplatte mit dem Windows Server-Betriebssystem erstellen, hochladen und als Vorlage für die Erstellung neuer virtueller RD-Sitzungshostcomputer verwenden.
 
-Weitere Informationen finden Sie in den folgenden Artikeln:
+Weitere Informationen findest du in den folgenden Artikeln:
 
 * [Remotedesktopdienste: Schützen von Datenspeicher mit Benutzerprofil-Datenträgern](rds-plan-secure-data-storage.md)
 * [Hochladen einer generalisierten VHD und Verwendung dieser zum Erstellen neuer VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)
@@ -51,7 +51,7 @@ Du kannst den Remotedesktop-Verbindungsbroker von Windows Server 2016 auf dem 
 
 Zuvor musst du jedoch entweder eine Azure SQL-Datenbank in der Mandantenumgebung bereitstellen oder eine SQL Server-AlwaysOn-Verfügbarkeitsgruppe erstellen.
 
-Weitere Informationen finden Sie in den folgenden Artikeln:
+Weitere Informationen findest du in den folgenden Artikeln:
 
 * [Add the RD Connection Broker server to the deployment and configure high availability](rds-connection-broker-cluster.md) (Hinzufügen des RD-Verbindungsbrokerservers zur Bereitstellung und Konfigurieren von Hochverfügbarkeit)
 * [SQL-Datenbank](desktop-hosting-service.md#sql-database) in „Desktophosting-Dienst“
@@ -66,7 +66,7 @@ Hierzu müssen auf dem Server und auf dem Client entsprechende digitale Zertifik
 
 Bei Mandanten mit weniger Benutzern können die Rollen „RD-Webzugriff“ und „RD-Gateway“ auf einem einzelnen virtuellen Computer zusammengefasst werden, um Kosten zu sparen. Du kannst aber auch weitere virtuelle RD-Gatewaycomputer zu einer RD-Gatewayfarm hinzufügen, um die Dienstverfügbarkeit zu erhöhen und eine horizontale Skalierung für mehr Benutzer durchzuführen. Virtuelle Computer in größeren RD-Gatewayfarmen sollten in einer Gruppe mit Lastenausgleich konfiguriert werden. Wenn du das RD-Gateway auf einem virtuellen Computer mit Windows Server 2016 verwendest, ist keine IP-Affinität erforderlich. Bei Verwendung eines virtuellen Computers mit Windows Server 2012 R2 dagegen schon.
 
-Weitere Informationen finden Sie in den folgenden Artikeln:
+Weitere Informationen findest du in den folgenden Artikeln:
 
 * [Add high availability to the RD Web and Gateway web front](rds-rdweb-gateway-ha.md) (Hinzufügen von Hochverfügbarkeit zu RD-Web und RD-Gateway (Webfront))
 * [Remotedesktopdienste – ortsunabhängiger Zugriff](rds-plan-access-from-anywhere.md)
@@ -96,9 +96,9 @@ Der Dienstanbieter muss über genügend RDS-Abonnentenzugriffslizenzen (Subscrib
 
 Bei kleinen Mandanten können die Dateiserver- und die RD-Lizenzierungskomponente auf einem einzelnen virtuellen Computer zusammengefasst werden, um Kosten zu sparen. Um eine höhere Dienstverfügbarkeit zu erzielen, können Mandanten zwei virtuelle RD-Lizenzservercomputer in der gleichen Verfügbarkeitsgruppe bereitstellen. Alle RD-Server in der Mandantenumgebung werden mit beiden RD-Lizenzservern verknüpft, damit Benutzer auch dann eine Verbindung mit neuen Sitzungen herstellen können, wenn einer der Server ausfällt.
 
-Weitere Informationen finden Sie in den folgenden Artikeln:
+Weitere Informationen findest du in den folgenden Artikeln:
 
 * [License your RDS deployment with client access licenses (CALs)](rds-client-access-license.md) (Lizenzieren deiner RDS-Bereitstellung mit Clientzugriffslizenzen (CALs))
 * [Aktivieren des Remotedesktopdienste-Lizenzservers](rds-activate-license-server.md)
 * [Track your Remote Desktop Services client access licenses (RDS CALs)](rds-track-cals.md) (Nachverfolgen deiner Remotedesktopdienste-Clientzugriffslizenzen (RDS-CALs))
-* [Lizenzoptionen für Service Provider](https://www.microsoft.com/en-us/Licensing/licensing-programs/spla-program.aspx)
+* [Lizenzoptionen für Service Provider](https://www.microsoft.com/Licensing/licensing-programs/spla-program.aspx)

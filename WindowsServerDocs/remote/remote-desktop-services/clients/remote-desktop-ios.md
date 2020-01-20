@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 700d419d06c0b007ed05be4f82137828f52143e1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8361d1171c2526e701a5418696761a8400c47ca3
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404142"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949874"
 ---
 # <a name="get-started-with-the-ios-client"></a>Erste Schritte mit dem iOS-Client
 
@@ -200,7 +200,7 @@ Ab Version 8.0.1 wird die Utility-Leiste durch die Befehlsleiste ersetzt. Über 
 Der Client verwendet Standardtouchgesten. Sie können auch Touchgesten verwenden, um Mausaktionen auf dem Remotedesktop zu replizieren. Die verfügbaren Mausmodi sind in der folgenden Tabelle aufgeführt.
 
 > [!NOTE]
-> Bei der Interaktion mit Windows 8 oder höher werden die nativen Touchgesten im Modus für die direkte Touchbewegung unterstützt. Weitere Informationen zu Windows 8-Gesten findest du unter [Touchbewegung: Wischen, Tippen und vieles mehr](https://windows.microsoft.com/en-US/windows-8/touch-swipe-tap-beyond).
+> Bei der Interaktion mit Windows 8 oder höher werden die nativen Touchgesten im Modus für die direkte Touchbewegung unterstützt. Weitere Informationen zu Windows 8-Gesten findest du unter [Touchbewegung: Wischen, Tippen und vieles mehr](https://windows.microsoft.com/windows-8/touch-swipe-tap-beyond).
 
 | Mausmodus    | Mausvorgang      | Geste                                                    |
 |---------------|----------------------|------------------------------------------------------------|

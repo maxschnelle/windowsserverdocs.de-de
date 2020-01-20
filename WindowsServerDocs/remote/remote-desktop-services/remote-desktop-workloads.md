@@ -11,13 +11,13 @@ ms.date: 12/02/2019
 ms.tgt_pltfrm: na
 ms.topic: article
 author: Heidilohr
-manager: daveba
-ms.openlocfilehash: 32781946ad2c49ec51e11dfe1e8af078425d35b0
-ms.sourcegitcommit: cbf0c7c37797c22af989639fac82fc0eee94497f
+manager: lizross
+ms.openlocfilehash: 693d1abd91fbfa2d44a6af42dd9f5338bd461927
+ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74700929"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75919942"
 ---
 # <a name="remote-desktop-workloads"></a>Remotedesktop-Workloads
 
@@ -27,9 +27,9 @@ In der folgenden Tabelle werden die einzelnen Workloads beschrieben. „Beispiel
 
 | Workloadtyp | Beispielbenutzer | Beispiel-Apps |
 | --- | --- | --- |
-| Hell | Benutzer, die grundlegende Dateneingabeaufgaben ausführen | Anwendungen für Datenbankeingaben, Befehlszeilenschnittstellen |
-| Mittel | Berater und Marktforscher | Anwendungen für Datenbankeingaben, Befehlszeilenschnittstellen, Microsoft Word, statische Webseiten |
+| Leicht | Benutzer, die grundlegende Dateneingabeaufgaben ausführen | Anwendungen für Datenbankeingaben, Befehlszeilenschnittstellen |
+| Medium (Mittel) | Berater und Marktforscher | Anwendungen für Datenbankeingaben, Befehlszeilenschnittstellen, Microsoft Word, statische Webseiten |
 | Schwer | Softwareentwickler, Inhaltsersteller | Anwendungen für Datenbankeingaben, Befehlszeilenschnittstellen, Microsoft Word, statische Webseiten, Microsoft Outlook, Microsoft PowerPoint, dynamische Webseiten |
-| Stromversorgung | Grafikdesigner, 3D-Modellersteller, Machine Learning-Forscher | Anwendungen für Datenbankeingaben, Befehlszeilenschnittstellen, Microsoft Word, statische Webseiten, Microsoft Outlook, Microsoft PowerPoint, dynamische Webseiten, Adobe Photoshop, Adobe Illustrator, CAD (Computer-Aided Design), CAM (Computer-Aided Manufacturing) |
+| Leistung | Grafikdesigner, 3D-Modellersteller, Machine Learning-Forscher | Anwendungen für Datenbankeingaben, Befehlszeilenschnittstellen, Microsoft Word, statische Webseiten, Microsoft Outlook, Microsoft PowerPoint, dynamische Webseiten, Adobe Photoshop, Adobe Illustrator, CAD (Computer-Aided Design), CAM (Computer-Aided Manufacturing) |
 
 Empfehlungen zur Größenbestimmung finden Sie unter [Leitfaden zur Größenbestimmung virtueller Computer](virtual-machine-recs.md).

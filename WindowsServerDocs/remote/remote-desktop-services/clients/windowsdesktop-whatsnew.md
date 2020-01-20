@@ -9,16 +9,16 @@ ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
 author: heidilohr
-manager: daveba
+manager: lizross
 ms.author: helohr
-ms.date: 12/04/2019
+ms.date: 01/14/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 5526d401ba26cabcaccfc0b88df9b0e69f8149a5
-ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
+ms.openlocfilehash: f1f4d6b32b8b7d717d2d424e0a60c5edc96f4cac
+ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74829611"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75953074"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -30,8 +30,21 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 
 |Benutzergruppe |Version  |
 |-----------|---------|
-|Public     |1.2.535  |
-|Insider    |1.2.535  |
+|Öffentlich     |1.2.535  |
+|Insider    |1.2.594  |
+
+## <a name="updates-for-version-12594"></a>Updates für Version 1.2.594
+
+*Veröffentlicht am: 14.01.2020*
+
+Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4o4cC), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4o4cI), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oh9C)
+
+- Du kannst jetzt auswählen, welche Anzeigen für Desktopverbindungen verwendet werden sollen. Zum Ändern dieser Einstellung klicke mit der rechten Maustaste auf das Symbol der Desktopverbindung, und wähle **Einstellungen** aus.
+- Es wurde ein Problem behoben, bei dem in den Verbindungseinstellungen nicht die richtigen verfügbaren Skalierungsfaktoren angezeigt wurden.
+- Es wurde ein Problem behoben, bei dem die Sprachausgabe den beim Initiieren der Verbindung gezeigten Dialog nicht lesen konnte.
+- Es wurde ein Problem behoben, bei dem der falsche Benutzername angezeigt wurde, wenn die Namen von Azure Active Directory und Active Directory nicht übereinstimmten.
+- Es wurde ein Problem behoben, durch das der Client beim Initiieren einer Verbindung nicht mehr reagierte, wenn keine Netzwerkverbindung vorlag.
+- Es wurde ein Problem behoben, das dazu führte, dass der Client beim Anschließen eines Headsets nicht mehr reagierte.
 
 ## <a name="updates-for-version-12535"></a>Updates für Version 1.2.535
 

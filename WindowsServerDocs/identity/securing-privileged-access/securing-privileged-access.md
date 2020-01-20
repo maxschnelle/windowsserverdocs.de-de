@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: e6ff22d0563fa11aa633004966b2cd2648ba5877
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d60ba6ffd661aeb284a2ade775e14b9108cbb6c9
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357702"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75950536"
 ---
 # <a name="securing-privileged-access"></a>Schützen des privilegierten Zugriffs
 
@@ -90,7 +90,7 @@ Führen Sie die Anweisungen im Artikel [Verwalten von Konten für den Notfallzug
 
 ### <a name="2-just-in-time-local-admin-passwords"></a>2. Lokale Just-In-Time-Administratorkennwörter
 
-Unternehmen sollten sicherstellen, dass jeder Computer über ein eindeutiges lokales Administratorkennwort verfügt, um das Risiko des Diebstahls eines Kennworthashs eines lokalen Administratorkontos aus der lokalen SAM-Datenbank und die Ausnutzung für den Angriff weiterer Computer durch einen Widersacher zu verhindern. Das LAPS-Tool (Local Administrator Password Solution) kann einzigartige zufällige Kennwörter für jede Workstation und jeden Server konfigurieren und diese in Active Directory mit Schutz durch eine Zugriffssteuerungsliste (ACL) speichern. Nur zulässige autorisierte Benutzer können die Zurücksetzung dieser Kennwörter für lokale Administratorkonten anzeigen oder anfordern. Das LAPS-Tool zur Verwendung auf Workstations und Server finden Sie im [Microsoft Download Center](http://Aka.ms/LAPS).
+Unternehmen sollten sicherstellen, dass jeder Computer über ein eindeutiges lokales Administratorkennwort verfügt, um das Risiko des Diebstahls eines Kennworthashs eines lokalen Administratorkontos aus der lokalen SAM-Datenbank und die Ausnutzung für den Angriff weiterer Computer durch einen Widersacher zu verhindern. Das LAPS-Tool (Local Administrator Password Solution) kann einzigartige zufällige Kennwörter für jede Workstation und jeden Server konfigurieren und diese in Active Directory mit Schutz durch eine Zugriffssteuerungsliste (ACL) speichern. Nur zulässige autorisierte Benutzer können die Zurücksetzung dieser Kennwörter für lokale Administratorkonten anzeigen oder anfordern. Das LAPS-Tool zur Verwendung auf Workstations und Server finden Sie im [Microsoft Download Center](https://aka.ms/LAPS).
 
 Weitere Anweisungen für den Betrieb einer Umgebung mit LAPS und Workstations mit privilegiertem Zugriff finden Sie im Abschnitt [Prinzip der vertrauenswürdigen Quelle für betriebliche Standards](securing-privileged-access-reference-material.md#operational-standards-based-on-clean-source-principle).
 

@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 06/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 6a875f8bddd934ac9fb70ca9c0b86772d9fa63b7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: de08101ed1d4d4527242778d657778f1a16b3dad
+ms.sourcegitcommit: 5b055fc1d73375f68149c214152f1d63396dd6ca
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404174"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76248402"
 ---
 # <a name="remote-desktop---allow-access-to-your-pc"></a>Remotedesktop – Gewähren des Zugriffs auf Ihren PC
 
@@ -28,7 +28,7 @@ ms.locfileid: "71404174"
 Sie können Remotedesktop verwenden, um Ihren PC mithilfe eines (für Windows, iOS, MacOS und Android verfügbaren) [Microsoft-Remotedesktopclients](remote-desktop-clients.md) mit einem Remotegerät zu verbinden und darüber zu steuern. Wenn Sie Remoteverbindungen mit Ihrem PC zulassen, können Sie ein anderes Gerät verwenden, um eine Verbindung mit Ihrem PC herzustellen, und Sie haben dann Zugriff auf alle Ihre Apps, Dateien und Netzwerkressourcen, als säßen Sie direkt an Ihrem Schreibtisch.  
 
 > [!NOTE]
-> Sie können Remotedesktop verwenden, um eine Verbindung mit Windows 10 Pro und Enterprise, Windows 8.1 und Windows 8 Enterprise und Pro, Windows 7 Professional, Enterprise und Ultimate sowie mit neueren Windows Server-Versionen als Windows Server 2008 herzustellen. Mit Computern, auf denen die Home-Edition (z. B. Windows 10 Home) ausgeführt wird, können Sie keine Verbindung herstellen. 
+> Sie können Remotedesktop verwenden, um eine Verbindung mit Windows 10 Pro und Enterprise, Windows 8.1 und Windows 8 Enterprise und Pro, Windows 7 Professional, Enterprise und Ultimate sowie mit neueren Windows Server-Versionen als Windows Server 2008 herzustellen. Sie können keine Verbindung mit Computern herstellen, auf denen eine Home-Edition (z. B. Windows 10 Home) ausgeführt wird. 
 
 Damit Sie eine Verbindung mit einem Remote-PC herstellen können, müssen die folgenden Voraussetzungen erfüllt sein: Der entsprechende Computer muss eingeschaltet sein, er muss über eine Netzwerkverbindung verfügen, Remotedesktop muss aktiviert sein, Sie müssen über Netzwerkzugriff auf den Remotecomputer verfügen (dies kann über das Internet erfolgen), und Sie müssen über die Berechtigung zum Herstellen einer Verbindung verfügen. Als Voraussetzung für die Berechtigung zum Herstellen einer Verbindung müssen Sie auf der Liste der Benutzer aufgeführt sein. Bevor Sie eine Verbindung starten, ist es sinnvoll, nach dem Namen des Computers zu suchen, mit dem Sie die Verbindung herstellen, und sicherzustellen, dass Remotedesktopverbindungen über die Firewall des Computers zulässig sind.
 
@@ -57,7 +57,7 @@ Um Remotedesktop mit den älteren Systemeigenschaften zu aktivieren, folgen Sie 
 
 ## <a name="should-i-enable-remote-desktop"></a>Sollte ich Remotedesktop aktivieren?
 
-Wenn Sie nur auf Ihren PC zugreifen möchten, wenn Sie direkt davor sitzen, müssen Sie Remotedesktop nicht aktivieren. Durch das Aktivieren von Remotedesktop wird auf Ihrem PC ein Port geöffnet, der für Ihr lokales Netzwerk sichtbar ist. Sie sollten Remotedesktop nur in vertrauenswürdigen Netzwerken (z. B. in Ihrem Heimnetzwerk) aktivieren. Außerdem sollten Sie Remotedesktop nicht auf Computern aktivieren, auf denen der Zugriff streng kontrolliert wird.
+Wenn Sie nur auf Ihren PC zugreifen möchten, wenn Sie beim Verwenden direkt davor sitzen, müssen Sie Remotedesktop nicht aktivieren. Durch das Aktivieren von Remotedesktop wird auf Ihrem PC ein Port geöffnet, der für Ihr lokales Netzwerk sichtbar ist. Sie sollten Remotedesktop nur in vertrauenswürdigen Netzwerken (z. B. in Ihrem Heimnetzwerk) aktivieren. Außerdem sollten Sie Remotedesktop nicht auf Computern aktivieren, auf denen der Zugriff streng kontrolliert wird.
 
 Denken Sie daran, dass Sie durch Aktivieren des Zugriffs auf Remotedesktop allen Benutzern in der Gruppe „Administratoren“ sowie allen weiteren von Ihnen ausgewählten Benutzern die Möglichkeit einräumen, remote auf ihre Konten auf dem Computer zuzugreifen.
 

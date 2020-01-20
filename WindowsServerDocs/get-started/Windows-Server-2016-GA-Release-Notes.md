@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: 134aab85-664f-4d44-87ef-9e5fd389071f
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: 4e2f7cbaed42dd1c1b1884438467cf59f1529f0c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 64c0daa8ecc2d6b196d4305e3246dadeebf7075a
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391538"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75948343"
 ---
 # <a name="release-notes-important-issues-in-windows-server-2016"></a>Versionshinweise: Wichtige Probleme in Windows Server 2016
 
@@ -42,7 +42,7 @@ Legen Sie den Druckspooler nach dem ersten Start auf „Deaktiviert“ fest, um 
 ## <a name="containers"></a>Container
 
 [comment]: # (ID: 371; Übermittler: taylorb; Status: abgemeldet)
-- Installiere vor der Verwendung von Containern das [Bereitstellungsstapel-Update für Windows 10 Version 1607: 23. August 2016](https://support.microsoft.com/en-us/kb/3176936) oder spätere Updates, die verfügbar sind. Andernfalls können verschiedene Probleme (unter anderem beim Erstellen, Starten oder Ausführen von Containern) sowie Fehler wie der folgende auftreten: „CreateProcess failed in Win32: The RPC server is unavailable“ (Fehler bei CreateProcess in Win32: Der RPC-Server ist nicht verfügbar).
+- Installiere vor der Verwendung von Containern das [Bereitstellungsstapel-Update für Windows 10 Version 1607: 23. August 2016](https://support.microsoft.com/kb/3176936) oder spätere Updates, die verfügbar sind. Andernfalls können verschiedene Probleme (unter anderem beim Erstellen, Starten oder Ausführen von Containern) sowie Fehler wie der folgende auftreten: „CreateProcess failed in Win32: The RPC server is unavailable“ (Fehler bei CreateProcess in Win32: Der RPC-Server ist nicht verfügbar).
 
 [comment]: # (ID: 373; Übermittler: plang; Status: abgemeldet)
 - Der NanoServerPackage OneGet-Anbieter funktioniert nicht in Windows-Containern. Um dieses Problem zu umgehen, verwenden Sie Find-NanoServerPackage und Save-NanoServerPackage auf einem anderen Computer (nicht auf einem Container), um das benötigte Paket herunterzuladen. Anschließend kopieren Sie die Pakete in den Container und installieren sie.
@@ -88,7 +88,7 @@ Einige Systeme besitzen unter einer neuen Installation von Windows Server 2016 
 
 Dieses Dokument wird ohne Gewähr zur Verfügung gestellt. Die in diesem Dokument enthaltenen Informationen und Ansichten, einschließlich URLs und andere Verweise auf Internetwebsites, können ohne vorherige Ankündigung geändert werden.  
 
-Dieses Dokument stellt Ihnen keinerlei Rechte am geistigen Eigentum eines beliebigen Microsoft-Produkts zur Verfügung. Dieses Dokument darf für interne Zwecke kopiert und verwendet werden.  
+Dieses Dokument stellt Ihnen keinerlei Rechte am geistigen Eigentum eines beliebigen Microsoft-Produkts zur Verfügung. Dieses Dokument darf für interne Referenzzwecke kopiert und verwendet werden.  
 
 &copy; 2016 Microsoft Corporation. Alle Rechte vorbehalten.  
 
