@@ -36,7 +36,7 @@ Die "Tags"-Metadaten in der nuspec-Datei werden verwendet, um die von der Erweit
 Nehmen wir an, ich habe eine Erweiterung entwickelt, die Server von einem Unternehmen mit dem Namen "Configuration Manager" mit dem Modellnamen "R3xx" und "R4xx" unterstützt.
 
 1. Das Tag für den Hersteller wird ``"Manufacturer_/Contoso Inc./"``. Das Tag für die Modelle kann ``"Model_/^R[34][0-9]{2}$/"``werden. Abhängig davon, wie genau die Übereinstimmungs Bedingung definiert werden soll, gibt es verschiedene Möglichkeiten zum Definieren des regulären Ausdrucks. Sie können auch die Hersteller-oder Modell Tags in mehrere Tags aufteilen, beispielsweise könnte auch das modelltag ``"Model_/R3../ Model_/R4../"``werden.
-2. Sie können den regulären Ausdruck mit der devtools-Konsole Ihres Webbrowsers testen. Drücken Sie in Edge oder Chrome F12, um das devtools-Fenster zu öffnen, und geben Sie auf der Registerkarte Konsole Folgendes ein, und drücken Sie die EINGABETASTE:
+2. Sie können den regulären Ausdruck mit der devtools-Konsole Ihres Webbrowsers testen. Drücken Sie in Microsoft Edge oder Chrome F12, um das devtools-Fenster zu öffnen, und geben Sie auf der Registerkarte Konsole Folgendes ein, und drücken Sie die EINGABETASTE:
 
    ```javascript
    var regex = /^R[34][0-9]{2}$/

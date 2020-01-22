@@ -157,7 +157,7 @@ Invoke-AzVMCommand -ResourceGroupName $ResourceGroupName -Name $Name -ScriptBloc
 
 ## <a name="deploy-manually-on-an-existing-azure-virtual-machine"></a>Manuelles Bereitstellen auf einem vorhandenen virtuellen Azure-Computer
 
-Installieren Sie vor der Installation des Windows Admin Centers auf der gewünschten Gateway-VM ein SSL-Zertifikat für die HTTPS-Kommunikation, oder Sie können ein selbst signiertes Zertifikat verwenden, das vom Windows Admin Center generiert wurde. Sie erhalten jedoch eine Warnung, wenn Sie versuchen, eine Verbindung über einen Browser herzustellen, wenn Sie die letztere Option auswählen. Sie können diese Warnung in Edge umgehen, indem Sie auf > Details klicken, um auf **der Webseite zu** navigieren, oder in Chrome auf **> Erweitert klicken, um zu [Webseite] zu**wechseln. Es wird empfohlen, nur selbst signierte Zertifikate für Testumgebungen zu verwenden.
+Installieren Sie vor der Installation des Windows Admin Centers auf der gewünschten Gateway-VM ein SSL-Zertifikat für die HTTPS-Kommunikation, oder Sie können ein selbst signiertes Zertifikat verwenden, das vom Windows Admin Center generiert wurde. Sie erhalten jedoch eine Warnung, wenn Sie versuchen, eine Verbindung über einen Browser herzustellen, wenn Sie die letztere Option auswählen. Sie können diese Warnung in Microsoft Edge umgehen, indem Sie auf > Details klicken, um auf **der Webseite zu** navigieren, oder in Chrome auf **> Erweitert klicken, um zu [Webseite] zu**wechseln. Es wird empfohlen, nur selbst signierte Zertifikate für Testumgebungen zu verwenden.
 
 > [!NOTE]
 > Diese Anweisungen gelten für die Installation von unter Windows Server mit Desktop Darstellung, nicht für eine Server Core-Installation. 
@@ -187,7 +187,7 @@ Installieren Sie vor der Installation des Windows Admin Centers auf der gewünsc
 
 ### <a name="accessing-a-windows-admin-center-gateway-installed-on-an-azure-vm"></a>Zugreifen auf ein auf einer Azure-VM installiertes Windows Admin Center-Gateway
 
-An diesem Punkt sollten Sie in der Lage sein, über einen modernen Browser (Edge oder Chrome) auf dem lokalen Computer auf das Windows Admin Center zuzugreifen, indem Sie zum DNS-Namen Ihrer Gateway-VM navigieren. 
+An diesem Punkt sollten Sie in der Lage sein, über einen modernen Browser (Microsoft Edge oder Chrome) auf dem lokalen Computer auf das Windows Admin Center zuzugreifen, indem Sie zum DNS-Namen Ihrer Gateway-VM navigieren. 
 
 > [!NOTE]
 > Wenn Sie einen anderen Port als 443 ausgewählt haben, können Sie auf das Windows Admin Center zugreifen, indem Sie zu https://\<DNS-Namen Ihres virtuellen Computers\>:\<benutzerdefinierter Port\>

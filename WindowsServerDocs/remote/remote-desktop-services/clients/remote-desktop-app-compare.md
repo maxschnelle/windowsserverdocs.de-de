@@ -39,7 +39,7 @@ Wenn Sie remote auf Ihren persönlichen Desktop zugreifen, stehen zusätzliche U
 |-------------|-------------------------------|-----------|---------|-----|-------|-------------------------------|
 |  Tastatur   |               X               |     X     |    X    |  X  |   X   |               X               |
 |    Maus    |               X               |     X     |    X    | X\* |   X   |               X               |
-|    Touch    |               X               |     X     |    X    |  X  |       | X (Edge und IE werden nicht unterstützt.) |
+|    Touch    |               X               |     X     |    X    |  X  |       | X (Microsoft Edge und IE werden nicht unterstützt.) |
 |    Andere    |              Stift              |           |         |     |       |                               |
 
 *Sehen Sie sich die Liste der [unterstützten Eingabegeräte](remote-desktop-ios.md#supported-input-devices) für den Remotedesktop-Beta-Client für iOS an.

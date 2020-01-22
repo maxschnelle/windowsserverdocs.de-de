@@ -32,7 +32,7 @@ In diesem Beispiel wird das vorhanden sein des Diensts "" von "" in der ganzen W
 
 Ähnlich wie bei Nordamerika verfügt das Unternehmen jetzt über Webserver, die in europäischen Rechenzentren gehostet werden.
 
-Die DNS-Administratoren von Administratoren von Administratoren möchten den Anwendungs Lastenausgleich für die europäischen Rechenzentren auf ähnliche Weise wie die Implementierung der DNS-Richtlinie im USA konfigurieren, wobei der Anwendungs Datenverkehr auf Webserver verteilt ist, die sich unter befinden. Dublin, Irland, Amsterdam, Holland und anderswo.
+Die DNS-Administratoren von Administratoren von Administratoren möchten den Anwendungs Lastenausgleich für die europäischen Rechenzentren auf ähnliche Weise wie die Implementierung der DNS-Richtlinie im USA konfigurieren, wobei der Anwendungs Datenverkehr auf Webserver verteilt ist, die sich unter befinden. Dublin, Irland, Amsterdam, Niederlande und anderswo.
 
 DNS-Administratoren möchten außerdem, dass alle Abfragen von anderen Standorten auf der Welt gleichmäßig zwischen allen Rechenzentren verteilt sind.
 

@@ -71,7 +71,7 @@ In der folgenden Tabelle sind die Anwendungen aufgeführt, die *lokal* auf Serve
 | Taskleiste                            | nicht verfügbar   | verfügbar                      |
 | Task leisten Benachrichtigungen              | nicht verfügbar   | verfügbar                      |
 | Von "taskmgr                            | verfügbar       | verfügbar                      |
-| Internet Explorer oder Edge          | nicht verfügbar   | verfügbar                      |
+| Internet Explorer oder Microsoft Edge          | nicht verfügbar   | verfügbar                      |
 | Integriertes Hilfesystem               | nicht verfügbar   | verfügbar                      |
 | Windows 10 Shell                   | nicht verfügbar   | verfügbar                      |
 | Windows Media Player               | nicht verfügbar   | verfügbar                      |
