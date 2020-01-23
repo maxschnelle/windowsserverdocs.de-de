@@ -39,7 +39,7 @@ list writers [metadata | detailed | status]
 |Parameter|Beschreibung|
 |---------|-----------|
 |Benötigten|Listet die Identität und den Status von Writern auf und zeigt Metadaten wie z. b. Komponenten Details und ausgeschlossene Dateien an. Dies ist der Standardparameter.|
-|Reich|Listet die gleichen Informationen wie **Metadaten**auf, aber **detailliert** enthält die vollständige Datei Liste für alle Komponenten.|
+|Detailliert|Listet die gleichen Informationen wie **Metadaten**auf, aber **detailliert** enthält die vollständige Datei Liste für alle Komponenten.|
 |status|Listet nur die Identität und den Status registrierter Writer auf.|
 
 ## <a name="BKMK_examples"></a>Beispiele

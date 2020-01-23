@@ -5,15 +5,15 @@ ms.technology: manage
 ms.topic: article
 author: jasongerend
 ms.author: jgerend
-ms.date: 10/17/2018
+ms.date: 01/17/2020
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 159202fcb8c6125134154094e67e862ce8eb12ab
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ba3cdb8dbd81ee85b0679905444f35174b8138e0
+ms.sourcegitcommit: 840d1d8851f68936db3934c80796fb8722d3c64a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357029"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519462"
 ---
 # <a name="windows-admin-center-ui-text-and-design-style-guide"></a>Windows Admin Center Text- und Designformatanleitung
 
@@ -33,7 +33,7 @@ Windows Admin Center und andere Erweiterungen sollten [Microsofts VoIP-Prinzipie
 
 Wir folgen der Microsoft-Formatvorlage für die [Großschreibung](https://docs.microsoft.com/style-guide/capitalization) - der Verwendung der Satz-Groß-/Kleinschreibung für ziemlich alles.
 
-| UI-Element              |Großschreibung|Kommentare|
+| UI-Element              |Großschreibung|Anmerkungen|
 |-------------------------|--------------|--------|
 |Badges (beispielsweise PREVIEW) |Großbuchstaben      ||
 |Alle anderen          |Satzstil|Es gibt jedoch einige Ausnahmen, bei denen Objekteigenschaften von WMI oder PowerShell in Betracht ziehen, die außerhalb unserer Steuerelement sind.|
@@ -73,24 +73,24 @@ Das ersten Mal, wenn ein Benutzer eine Seite besucht, haben Sie die Möglichkeit
 
 Hier sind einige Tipps aus unserem Styleguide für Windows:
 
-### <a name="1-be-helpful"></a>1. Seien Sie behilflich
+### <a name="1-be-helpful"></a>1. Seien Sie hilfreich
 
 - Vermeiden Sie Marketingstil und -Sprache.
 - Wenn Sie eine Demo durchführen oder etwas vorschlagen, stellen Sie sicher, dass das Endergebnis eindeutig ist. die Vorgehensweise, mit der der Kunde etwas zu tun hat, ist nicht effektiv, wenn Sie nicht wissen, warum dies der Fall ist.
 - Stellen Sie keine Tipps vor, wenn der Kunde Sie nicht benötigt.
 
-### <a name="2-show-dont-tell"></a>2. Anzeigen, nicht sagen
+### <a name="2-show-dont-tell"></a>2. Zeigen Sie Dinge, anstatt sie zu erklären
 
 Halten Sie Ihren Text so einfach wie möglich (kleine Animationen oder Videos).
 
-### <a name="3-dont-overwhelm"></a>3. Nicht überfordern
+### <a name="3-dont-overwhelm"></a>3. Bleiben Sie übersichtlich
 
 - Beschränken Sie Popups und Tipps auf 4 pro Sitzung – einschließlich Systembenachrichtigungen und Shell-Benachrichtigungen.
 - Stellen Sie sicher, dass die Popups zeitlich hilfreich sind.
 - Verhindern Sie, dass der Kunde etwas tut.
 - Stellen Sie sicher, dass Popups auf einfache Weise geschlossen werden.
 
-### <a name="4-keep-it-contextual"></a>4. Kontextbezogen beibehalten
+### <a name="4-keep-it-contextual"></a>4. Bleiben Sie Kontextbezogen
 
 - Lernphasen sind am effektivsten, wenn sie zur richtigen Zeit angezeigt werden.
 - Wenn Sie Lernprogramme oder Bildschirmpräsentationen erstellen, machen Sie die Infos konkret.
@@ -98,7 +98,7 @@ Halten Sie Ihren Text so einfach wie möglich (kleine Animationen oder Videos).
 - Bieten Sie Kunden die Möglichkeit, später zum Tutorial zurückzukehren, falls dies relevant ist (Personen, die die Informationen zum ersten Mal nicht aufbewahren, aber die Setup Anweisungen sind möglicherweise nur einmal relevant).
 - Leerstatusanzeigen sind ein natürlicher Platz zum Lernen und/oder Spass – bleiben Sie einfach und informativ.
 
-### <a name="5-minimize-painful-setup"></a>5. Minimieren Sie das mühsam
+### <a name="5-minimize-painful-setup"></a>5. Minimieren Sie mühsame Setups
 
 Wenn der Kunde zum Ausführen des vollständigen Umgebung mehr Aktionen benötigt (Anmeldung an einem Onlinedienst usw.), machen Sie es so einfach wie möglich.
 
@@ -135,8 +135,8 @@ Microsoft-Entwickler sollten einen fwlink verwenden, außer wenn es sich um eine
 - Verwenden Sie vollständige Sätze.
 - Fügen Sie keine endpunktierungen mit Ausnahme von Fragezeichen ein. 
 - Sie müssen nicht denselben Text wie den Aufgaben Titel verwenden. Verwenden Sie Text, der im Kontext der Benutzeroberfläche sinnvoll ist, aber stellen Sie sicher, dass zwischen den beiden eine logische Verbindung besteht. Zum Beispiel: 
-- Hilfelink: Welche Risiken besteht darin, Ausnahmen zuzulassen? 
-- Titel des Hilfe Themas: "Zulassen, dass ein Programm über die Windows-Firewall kommuniziert"
+- Hilfelink: welche Risiken besteht darin, Ausnahmen zuzulassen? 
+- Hilfe Thementitel: "zulassen, dass ein Programm über die Windows-Firewall kommuniziert"
 - Gehen Sie so spezifisch wie möglich zum Inhalt des Hilfe Themas. 
     - Unser Stil
         - Wie unterstützt die Windows-Firewall den Schutz meines Computers?
@@ -161,7 +161,7 @@ Das Schreiben einer guten Nachricht ist ein Gleichgewicht zwischen der Bereitste
 
 Verwenden Sie eine Nachricht pro Fehlerfall.
 
-#### <a name="headings"></a>He
+#### <a name="headings"></a>Überschriften
 
 - Informieren Sie sich darüber, was das Problem ist oder **was ideal**ist. <br>Einige Oberflächen Oberflächen verfügen möglicherweise über Überschriften, die abgeschnitten werden, anstatt Sie zu überspringen, wenn Sie zu lang sind. Achten Sie daher darauf.
 - Verwenden Sie die Projekt Mappe in der Überschrift, wenn es sich um einen einfachen Schritt handelt.
@@ -169,7 +169,7 @@ Verwenden Sie eine Nachricht pro Fehlerfall.
 - Vermeiden Sie die Verwendung von "Es gab ein Problem" in Überschriften, es sei denn, Sie haben keine andere Wahl. Spezifischere Informationen zum Problem.
 - Vermeiden Sie die Verwendung von Variablen (wie Datei-, Ordner-und APP-Namen) in Überschriften. Fügen Sie Sie in den Text ein.
 
-#### <a name="body"></a>Text
+#### <a name="body"></a>Textkörper
 
 - Wenn die Überschrift ausreichend das Problem oder die Lösung erläutert, benötigen Sie keinen Textkörper.
 - Wiederholen Sie den Titel in der Nachricht nicht mit einem etwas anderen Wortlaut.
@@ -220,24 +220,24 @@ Der Status NULL tritt auf, wenn Kundendaten oder-Inhalte nicht in einer APP oder
 - Keine Interpunktion am Ende (Punkte, Fragezeichen) für Überschriften oder unvollständigen Sätze. Eine Ausnahme ist in ein Bestätigungsdialogfeld, in dem die Überschrift die Frage ist
 - Verwenden Sie Microsoft-Styleguideanleitungen für [Punkte](https://docs.microsoft.com/style-guide/punctuation/periods) und [Fragezeichen](https://docs.microsoft.com/style-guide/punctuation/question-marks).
 
-## <a name="status-messages"></a>Statusmeldungen
+## <a name="status-messages"></a>Statusnachrichten
 
 Statusnachrichten bestehen aus Popup (Toast)-Nachrichten und Benachrichtigungen.
 
-|String-Typ         | Hinweise                               |
+|String-Typ         | Anmerkungen                               |
 |------------        |-------------------------------------|
-|Toast               |Zeichensetzung am Satzende - idealerweise mit einer Objektvariable, damit Benutzer verstehen, welches Objekt die Nachricht betrifft, für den Fall, dass sie sich vom Objekt entfernt haben|
-|Überschrift für Benachrichtigungen|Keine Zeichensetzung am Satzende (für Überschriften) - idealerweise mit einer Objektvariablen|
+|Popup               |Zeichensetzung am Satzende - idealerweise mit einer Objektvariable, damit Benutzer verstehen, welches Objekt die Nachricht betrifft, für den Fall, dass sie sich vom Objekt entfernt haben|
+|Benachrichtigungs Überschrift (Titel) |Satz Fall ohne endende Interpunktions Zeichen (eine Überschrift), idealerweise mit einer Objektvariablen|
 |Benachrichtigungsdetails|Vollständige Sätze, idealerweise mit Links zur Benutzeroberfläche, die das Objekt anzeigt|
 
 Es folgen einige detaillierten Empfehlungen für die Benachrichtigung aus:
 
-|String-Typ         | Hinweise                               |
+|String-Typ         | Anmerkungen                               |
 |------------        |-------------------------------------|
 |Started             |Sollte ausgelassen werden, wenn möglich - sie können in der Regel die Nachricht in Bearbeitung überspringen und so die Anzahl der Ablenkungen minimieren.|
-|In Bearbeitung         |Beginnen Sie mit dem Verb der Aktion, die Sie durchführen und enden Sie mit Ellipsen, um einen laufenden Vorgang anzugeben. Im Folgenden ein Beispiel:<br> *Das Volume "Kundendaten" wird erstellt...*|
-|Erfolgreich             |Beginnen Sie mit "Erfolgreich" und enden Sie mit dem Vorgang der Software. Im Folgenden ein Beispiel:<br> *Das Volume "Kundendaten" wurde erfolgreich erstellt.*|
-|Nicht möglich             |Beginnen Sie mit "Konnte nicht" und enden Sie damit, was die Software nicht konnte. Im Folgenden ein Beispiel:<br> *Das Volume "Kundendaten" konnte nicht erstellt werden.*|
+|In Bearbeitung         |Beginnen Sie mit dem Verb der Aktion, die Sie durchführen und enden Sie mit Ellipsen, um einen laufenden Vorgang anzugeben. Beispiel:<br> *Das Volume "Kundendaten" wird erstellt...* <br><br>Wenn mehrere Variablen vorhanden sind, verwenden Sie dieses Muster: <br>*Der folgende virtuelle Computer wird gelöscht: {0}; Host: {1}* |
+|Möglich             |Beginnen Sie mit "Erfolgreich" und enden Sie mit dem Vorgang der Software. Beispiel:<br> *Das Volume "Customer Data" wurde erfolgreich erstellt.*|
+|Nicht möglich             |Beginnen Sie mit "Konnte nicht" und enden Sie damit, was die Software nicht konnte. Beispiel:<br> *Das Volume "Customer Data" konnte nicht erstellt werden.*|
 
 ## <a name="tooltips"></a>QuickInfos
 
@@ -249,5 +249,5 @@ Quick Infos sollten sehr sparsam oder gar nicht verwendet werden. Dies kann eine
 |    -----------------------                 |    -------------------------    |
 |Wenn ein Steuerelement oder ein Benutzeroberflächen Element nicht beschriftet ist...|Verwenden Sie einen einfachen, beschreibenden Substantiv Ausdruck. Zum Beispiel:<br> Stift hervorheben |
 |Wenn ein Benutzeroberflächen Element gekennzeichnet ist, aber sein Zweck eine Erläuterung erfordert...|<ul><li>Beschreiben Sie kurz, was Sie mit diesem UI-Element tun können. </li><li>Verwenden Sie das imperative Verb-Formular. Beispiel: "Text in dieser Datei suchen" (nicht "sucht nach Text in dieser Datei").</li><li>Schließen Sie keine Endpunkte ein, es sei denn, es gibt mehrere vollständige Sätze.</li> </ul>|
-|Wenn eine Text Bezeichnung abgeschnitten wird oder in einigen Sprachen abgeschnitten wird...|<ul><li>Geben Sie die nicht gekürzte Bezeichnung in der QuickInfo an.</li><li>Optional: Geben Sie in einer anderen Zeile eine Beschreibungs Beschreibung ein, jedoch nur bei Bedarf.</li><li>Geben Sie keine QuickInfo an, wenn die nicht abgeschnittene Informationen an anderer Stelle auf der Seite oder im Flow bereitgestellt werden.</li></ul>|
-|Wenn eine Tastenkombination verfügbar ist...|<ul><li>Optional: Geben Sie die Tastenkombination in Klammern nach der Bezeichnung oder dem beschreibenden Ausdruck an, z. b. "Print (STRG + P)" oder "Text in dieser Datei suchen (STRG + F)"</li><li>Es ist in Ordnung, eine hilfreiche Tastenkombination zu einer QuickInfo-QuickInfo hinzuzufügen. vermeiden Sie jedoch, eine QuickInfo hinzuzufügen, um eine Tastenkombination anzuzeigen. </li></ul>|
+|Wenn eine Text Bezeichnung abgeschnitten wird oder in einigen Sprachen abgeschnitten wird...|<ul><li>Geben Sie die nicht gekürzte Bezeichnung in der QuickInfo an.</li><li>Optional: Geben Sie in einer anderen Zeile eine Beschreibungs Beschreibung an, aber nur bei Bedarf.</li><li>Geben Sie keine QuickInfo an, wenn die nicht abgeschnittene Informationen an anderer Stelle auf der Seite oder im Flow bereitgestellt werden.</li></ul>|
+|Wenn eine Tastenkombination verfügbar ist...|<ul><li>Optional: Geben Sie die Tastenkombination in Klammern nach der Bezeichnung oder dem beschreibenden Ausdruck an, z. b. "Drucken (STRG + P)" oder "Text in dieser Datei suchen (STRG + F)".</li><li>Es ist in Ordnung, eine hilfreiche Tastenkombination zu einer QuickInfo-QuickInfo hinzuzufügen. vermeiden Sie jedoch, eine QuickInfo hinzuzufügen, um eine Tastenkombination anzuzeigen. </li></ul>|

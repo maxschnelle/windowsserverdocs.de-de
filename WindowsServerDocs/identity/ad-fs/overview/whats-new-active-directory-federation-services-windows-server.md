@@ -1,40 +1,40 @@
 ---
 ms.assetid: aa892a85-f95a-4bf1-acbb-e3c36ef02b0d
-title: Neuerungen in Active Directory-Verbunddienste für Windows Server 2016
+title: Neuerungen in Active Directory-Verbunddienste (AD FS) für Windows Server 2016
 description: ''
 author: billmath
 ms.author: billmath
 manager: daveba
-ms.date: 04/23/2019
+ms.date: 01/22/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6294c7b6ead0a9fa338f8b2cc8134b750f7e3e8f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: adce37d8d06399d3a00221a12f3449244720ade7
+ms.sourcegitcommit: 840d1d8851f68936db3934c80796fb8722d3c64a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385549"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76519482"
 ---
 # <a name="whats-new-in-active-directory-federation-services"></a>Neues in Active Directory-Verbunddienste (AD FS)
 
 
-## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2019"></a>Neues in Active Directory-Verbunddienste (AD FS) für Windows Server 2019
+## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2019"></a>What's new in Active Directory Federation Services for Windows Server 2019
 
-### <a name="protected-logins"></a>Geschützte Anmeldungen
-Im folgenden finden Sie eine kurze Zusammenfassung der Änderungen an geschützten Anmeldungen, die in AD FS 2019 verfügbar sind:
-- **Externe Authentifizierungs Anbieter als primäre** Kunden können jetzt Authentifizierungs Produkte von Drittanbietern als ersten Faktor verwenden und Kenn Wörter nicht als ersten Faktor verfügbar machen. In Fällen, in denen ein externer Authentifizierungs Anbieter zwei Faktoren belegen kann, kann er MFA beanspruchen. 
-- Kenn **Wort Authentifizierung als zusätzliche Authentifizierung** : Kunden verfügen über eine vollständig unterstützte Eingangsbox Option, um das Kennwort nur für den zusätzlichen Faktor zu verwenden, wenn die Option "Kennwort weniger" als erster Faktor Dies verbessert die Kundenfreundlichkeit von ADFS 2016, bei der Kunden einen GitHub-Adapter herunterladen mussten, der unverändert unterstützt wird. 
-- **Austauschbares Risiko Bewertungs Modul** : Kunden können jetzt eigene Plug-in-Module erstellen, um bestimmte Anforderungs Typen während der Vorauthentifizierung zu blockieren. Dies erleichtert es Kunden, Cloud Intelligence wie z. b. Identity Protection zum Blockieren von Anmeldungen für riskante Benutzer oder riskante Transaktionen zu verwenden.  Weitere Informationen finden Sie [unter Erstellen von Plug-ins mit AD FS 2019-Risiko Bewertungsmodell](../../ad-fs/development/ad-fs-risk-assessment-model.md) . 
-- **ESL-Verbesserungen** : verbessert die ESL-QFE in 2016 durch Hinzufügen der folgenden Funktionen:
-    - Ermöglicht es Kunden, sich im Überwachungsmodus zu befinden, während Sie durch die "klassische" extranetsperrungsfunktionalität geschützt sind, die seit ADFS 2012r2 verfügbar ist Derzeit haben 2016 Kunden keinen Schutz im Überwachungsmodus. 
-    - Aktiviert einen unabhängigen Sperr Schwellenwert für vertraute Standorte. Dies ermöglicht es, dass mehrere Instanzen von apps, die mit einem gemeinsamen Dienst Konto ausgeführt werden, ein Rollback für Kenn Wörter mit den geringsten Auswirkungen ausführen können. 
+### <a name="protected-logins"></a>Protected Logins
+The following is a brief summary of updates to protected logins available in AD FS 2019:
+- **External Auth Providers as Primary** - Customers can now use 3rd party authentication products as the first factor and not expose passwords as the first factor. In the cases where an external auth provider can prove 2 factors it can claim MFA. 
+- **Password Authentication as additional Authentication** - Customers have a fully supported inbox option to use password only for the additional factor after a password less option is used as the first factor. This improves the customer experience from ADFS 2016 where customers had to download a github adapter which is supported as is. 
+- **Pluggable Risk Assessment Module** - Customers can now build their own plug in modules to block certain types of requests during pre-authentication stage. This makes it easier for customers to use cloud intelligence such as Identity protection to block logins for risky users or risky transactions.  For more information see [ Build Plug-ins with AD FS 2019 Risk Assessment Model](../../ad-fs/development/ad-fs-risk-assessment-model.md) 
+- **ESL improvements** - Improves on the ESL QFE in 2016 by adding the following capabilities
+    - Enables customers to be in audit mode while being protected by 'classic' extranet lockout functionality available since ADFS 2012R2. Currently 2016 customers would have no protection while in audit mode. 
+    - Enables independent lockout threshold for familiar locations. This makes it possible for multiple instances of apps running with a common service account to roll over passwords with the least amount of impact. 
 
-### <a name="additional-security-improvements"></a>Zusätzliche Sicherheitsverbesserungen
-Die folgenden zusätzlichen Sicherheitsverbesserungen sind in AD FS 2019 verfügbar:
-- **Remote-PSH mithilfe der Smartcard-Anmeldung** : Kunden können nun mithilfe von Smartcards per PSH eine Remote Verbindung mit AD FS herstellen und diese zum Verwalten aller PSH-Funktionen verwenden, die PSH-Cmdlets mit mehreren Knoten enthalten.
-- **Http-Header Anpassung** : Kunden können nun HTTP-Header anpassen, die während der ADFS-Antworten ausgegeben werden. Dies schließt die folgenden Header ein.
-     - Hsts: Dies stellt dar, dass ADFS-Endpunkte nur für HTTPS-Endpunkte verwendet werden können, damit ein kompatibler Browser
+### <a name="additional-security-improvements"></a>Additional security improvements
+The following additional security improvements are available in AD FS 2019:
+- **Remote PSH using SmartCard Login** - Customers can now use smartcards to remote connect to ADFS via PSH and use that to manage all PSH functions include multi-node PSH cmdlets.
+- **HTTP Header customization** - Customers can now customize HTTP headers emitted during ADFS responses. This includes the following headers
+     - HSTS: This conveys that ADFS endpoints can only be used on HTTPS endpoints for a compliant browser to enforce
      - x-Frame-Options: ermöglicht ADFS-Administratoren das Einbetten von iframes für interaktive ADFS-Anmelde Seiten. Dies sollte nur mit Sorgfalt und nur auf HTTPS-Hosts verwendet werden. 
      - Zukünftiger Header: weitere zukünftige Header können ebenfalls konfiguriert werden. 
 
@@ -87,9 +87,8 @@ Zuvor mussten AD FS, dass die gewünschte Ressource und der gewünschte Bereich 
  
 Mit AD FS auf Server 2019 können Sie nun den Ressourcen Wert übergeben, der in den Scope-Parameter eingebettet ist. Dies entspricht der Art und Weise, wie eine Authentifizierung gegen Azure AD durchführen kann. 
 
-Der Bereichs Parameter kann nun als durch Leerzeichen getrennte Liste organisiert werden, wobei jeder Eintrag als Ressource/Bereich strukturiert ist. Beispiel:  
+Der Bereichs Parameter kann nun als durch Leerzeichen getrennte Liste organisiert werden, wobei jeder Eintrag als Ressource/Bereich strukturiert ist. 
 
-**< eine gültige Beispiel Anforderung erstellen >**
 > [!NOTE]
 > In der Authentifizierungsanforderung kann nur eine Ressource angegeben werden. Wenn in der Anforderung mehr als eine Ressource enthalten ist, gibt AD FS einen Fehler zurück, und die Authentifizierung kann nicht erfolgreich ausgeführt werden. 
 
@@ -109,14 +108,14 @@ C. Der Client sendet dann den Autorisierungs Code in der zugriffstokenanforderun
 D. Der AD FS transformiert "code_verifier" und vergleicht ihn mit "t (code_verifier)" von (B).  Der Zugriff wird verweigert, wenn Sie nicht gleich sind. 
 
 #### <a name="faq"></a>Häufig gestellte Fragen 
-**Q1.** Kann ich den Ressourcen Wert als Teil des Bereichs Werts übergeben, wie z. b. wie Anforderungen gegen Azure AD durchgeführt werden? 
-</br>**Ein.** Mit AD FS auf Server 2019 können Sie nun den Ressourcen Wert übergeben, der in den Scope-Parameter eingebettet ist. Der Bereichs Parameter kann nun als durch Leerzeichen getrennte Liste organisiert werden, wobei jeder Eintrag als Ressource/Bereich strukturiert ist. Beispiel:  
+**F.** Kann ich den Ressourcen Wert als Teil des Bereichs Werts übergeben, wie z. b. wie Anforderungen gegen Azure AD durchgeführt werden? 
+</br>**A.** Mit AD FS auf Server 2019 können Sie nun den Ressourcen Wert übergeben, der in den Scope-Parameter eingebettet ist. Der Bereichs Parameter kann nun als durch Leerzeichen getrennte Liste organisiert werden, wobei jeder Eintrag als Ressource/Bereich strukturiert ist. Beispiel:  
 **< eine gültige Beispiel Anforderung erstellen >**
 
-**Q1.** Unterstützt AD FS die pkce-Erweiterung?
-</br>**Ein.** AD FS in Server 2019 unterstützt den Prüfschlüssel für Code Austausch (pkce) für den OAuth-Autorisierungs Code Grant-Flow. 
+**F.** Unterstützt AD FS die pkce-Erweiterung?
+</br>**A.** AD FS in Server 2019 unterstützt den Prüfschlüssel für Code Austausch (pkce) für den OAuth-Autorisierungs Code Grant-Flow. 
 
-## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2016"></a>Neuerungen in Active Directory-Verbunddienste für Windows Server 2016   
+## <a name="whats-new-in-active-directory-federation-services-for-windows-server-2016"></a>Neuerungen in Active Directory-Verbunddienste (AD FS) für Windows Server 2016   
 Informationen zu früheren Versionen von AD FS finden Sie in den folgenden Artikeln:  
  [AD FS in Windows Server 2012 oder 2012 R2](https://technet.microsoft.com/library/hh831502.aspx) und [AD FS 2,0](https://technet.microsoft.com/library/adfs2.aspx)  
 
@@ -154,13 +153,17 @@ AD FS bietet die lokale Komponente der Richtlinien für den bedingten Zugriff in
 ![Neuerungen](media/whats-new-in-active-directory-federation-services-for-windows-server-2016/ADFS_ITPRO4.png)  
 
  Weitere Informationen zur Verwendung des gerätebasierten bedingten Zugriffs in der Cloud   
- *  [Bedingter Zugriff Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/)
+ *  [Bedingter Zugriff mit Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/)
 
 Weitere Informationen zur Verwendung des gerätebasierten bedingten Zugriffs mit AD FS
 *  [Planen des gerätebasierten bedingten Zugriffs mit AD FS](../../ad-fs/deployment/Plan-Device-based-Conditional-Access-on-Premises.md)  
 * [Access Control Richtlinien in AD FS](../../ad-fs/operations/Access-Control-Policies-in-AD-FS.md)  
 
-### <a name="sign-in-with-windows-hello-for-business"></a>Mit Windows Hello for Business anmelden   
+### <a name="sign-in-with-windows-hello-for-business"></a>Mit Windows Hello for Business anmelden  
+
+> [!NOTE]
+> Zurzeit werden Google Chrome und das [neue Microsoft Edge](https://www.microsoft.com/edge?form=MB110A&OCID=MB110A) -Paket, das auf den Chroms Open Source-Projekt Browsern basiert, nicht für browserbasiertes einmaliges Anmelden (Single Sign on, SSO) mit Microsoft Windows Hello for Business unterstützt. Verwenden Sie Internet Explorer oder eine ältere Version von Microsoft Edge.  
+
 Windows 10-Geräte stellen Windows Hello und Windows Hello for Business vor und ersetzen Benutzer Kennwörter durch starke Geräte gebundene Benutzer Anmelde Informationen, die durch die Geste eines Benutzers geschützt sind (eine PIN, eine biometrische Geste wie Fingerabdruck oder Gesichtserkennung). AD FS 2016 unterstützt diese neuen Windows 10-Funktionen, damit Benutzer sich über das Intranet oder das Extranet bei AD FS Anwendungen anmelden können, ohne dass ein Kennwort bereitgestellt werden muss.
 
 Weitere Informationen zur Verwendung von Microsoft Windows Hello for Business in Ihrer Organisation
@@ -196,36 +199,36 @@ Weitere Informationen finden [Sie unter Konfigurieren von AD FS zum Authentifizi
 ### <a name="customize-sign-in-experience-for-ad-fs-applications"></a>Anpassen der Anmelde Funktion für AD FS-Anwendungen  
 Wir haben von Ihnen gehört, dass die Möglichkeit zum Anpassen der Anmelde Freundlichkeit für jede Anwendung eine gute Verbesserung der Benutzerfreundlichkeit ist, insbesondere für Organisationen, die sich für Anwendungen anmelden, die mehrere Unternehmen oder Marken darstellen.  
 
-Zuvor haben AD FS in Windows Server 2012 R2 eine gängige Anmelde Funktion für alle Anwendungen der vertrauenden Seite bereitgestellt, mit der Möglichkeit, eine Teilmenge textbasierter Inhalte pro Anwendung anzupassen. Mit Windows Server 2016 können Sie nicht nur die Nachrichten anpassen, sondern auch Bilder, Logos und das Webdesign pro Anwendung. Darüber hinaus können Sie neue, benutzerdefinierte Webdesigns erstellen und diese pro vertrauende Seite anwenden.  
+Previously, AD FS in Windows Server 2012 R2 provided a common sign on experience for all relying party applications, with the ability to customize a subset of text based content per application. With Windows Server 2016, you can customize not only the messages, but images, logo and web theme per application. Additionally, you can create new, custom web themes and apply these per relying party.  
 
-Weitere Informationen finden Sie [unter AD FS Anpassung der Benutzeranmeldung.](../../ad-fs/operations/AD-FS-user-sign-in-customization.md)  
+For more information see [AD FS user sign-in customization.](../../ad-fs/operations/AD-FS-user-sign-in-customization.md)  
 
 
 
-## <a name="manageability-and-operational-enhancements"></a>Verwaltbarkeit und betriebliche Erweiterungen  
-Im folgenden Abschnitt werden die verbesserten Betriebs Szenarios beschrieben, die mit Active Directory-Verbunddienste (AD FS) in Windows Server 2016 eingeführt werden.  
+## <a name="manageability-and-operational-enhancements"></a>Manageability and Operational Enhancements  
+The following section describes the improved operational scenarios that are introduced with Active Directory Federation Services in Windows Server 2016.  
 
-### <a name="streamlined-auditing-for-easier-administrative-management"></a>Optimierte Überwachung für eine einfachere verwaltungsverwaltung  
-In AD FS für Windows Server 2012 R2 gab es zahlreiche Überwachungs Ereignisse, die für eine einzelne Anforderung generiert wurden, und die relevanten Informationen zu einer Anmelde-oder tokenausstellungsaktivität sind entweder nicht vorhanden (in einigen Versionen von AD FS) oder auf mehrere Überwachungs Ereignisse verteilt. Standardmäßig sind die AD FS Überwachungs Ereignisse aufgrund ihrer ausführlichen Art deaktiviert.  
-Mit der Veröffentlichung von AD FS 2016 wird die Überwachung optimiert und ist weniger ausführlich.  
+### <a name="streamlined-auditing-for-easier-administrative-management"></a>Streamlined auditing for easier administrative management  
+In AD FS for Windows Server 2012 R2 there were numerous audit events generated for a single request and the relevant information about a log-in or token issuance activity is either absent (in some versions of AD FS) or spread across multiple audit events. By default the AD FS audit events are turned off due to their verbose nature.  
+With the release of AD FS 2016, auditing has become more streamlined and less verbose.  
 
-Weitere Informationen finden Sie unter Überwachen von [Verbesserungen bei der AD FS in Windows Server 2016.](../../ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server.md)  
+For more information see [Auditing enhancements to AD FS in Windows Server 2016.](../../ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server.md)  
 
-### <a name="improved-interoperability-with-saml-20-for-participation-in-confederations"></a>Verbesserte Interoperabilität mit SAML 2,0 für die Teilnahme an Verbund Verbund  
-AD FS 2016 enthält zusätzliche SAML-Protokoll Unterstützung, einschließlich der Unterstützung für den Import von Vertrauens Stellungen basierend auf Metadaten, die mehrere Entitäten enthalten. Dies ermöglicht es Ihnen, AD FS für die Teilnahme an Verbund-, wie z. b. einem gemeinsamen Verbund und anderen Implementierungen zu konfigurieren, die mit dem eGov 2,0-Standard  
+### <a name="improved-interoperability-with-saml-20-for-participation-in-confederations"></a>Improved interoperability with SAML 2.0 for participation in confederations  
+AD FS 2016 contains additional SAML protocol support, including support for importing trusts based on metadata that contains multiple entities. This enables you to configure AD FS to participate in confederations such as InCommon Federation and other implementations conforming to the eGov 2.0 standard.  
 
-Weitere Informationen finden Sie [unter verbesserte Interoperabilität mit SAML 2,0.](../../ad-fs/operations/Improved-interoperability-with-SAML-2.0.md)  
+For more information see [Improved interoperability with SAML 2.0.](../../ad-fs/operations/Improved-interoperability-with-SAML-2.0.md)  
 
-### <a name="simplified-password-management-for-federated-o365-users"></a>Vereinfachte Kenn Wort Verwaltung für Verbund O365 Benutzer  
-Sie können Active Directory-Verbunddienste (AD FS) (AD FS) konfigurieren, um Kenn Wort Ablauf Ansprüche an die Vertrauens Stellungen der vertrauenden Seite (Anwendungen) zu senden, die durch AD FS geschützt sind. Wie diese Ansprüche verwendet werden, hängt von der Anwendung ab. Beispielsweise wurden mit Office 365 als vertrauende Seite Updates in Exchange und Outlook implementiert, damit Verbund Benutzer über Ihre bald abgelaufenen Kenn Wörter benachrichtigt werden.  
+### <a name="simplified-password-management-for-federated-o365-users"></a>Simplified password management for federated O365 users  
+You can configure Active Directory Federation Services (AD FS) to send password expiry claims to the relying party trusts (applications) that are protected by AD FS. How these claims are used depends on the application. For example, with Office 365 as your relying party, updates have been implemented to Exchange and Outlook to notify federated users of their soon-to-be-expired passwords.  
 
-Weitere Informationen finden [Sie unter Konfigurieren von AD FS zum Senden von Kenn Wort Ablauf Ansprüchen.](../../ad-fs/operations/Configure-AD-FS-to-Send-Password-Expiry-Claims.md)  
+For more information see [Configure AD FS to send password expiry claims.](../../ad-fs/operations/Configure-AD-FS-to-Send-Password-Expiry-Claims.md)  
 
-### <a name="moving-from-ad-fs-in-windows-server-2012-r2-to-ad-fs-in-windows-server-2016-is-easier"></a>Die Umstellung von AD FS in Windows Server 2012 R2 auf AD FS in Windows Server 2016 ist einfacher.  
-Bisher erforderte die Migration zu einer neuen Version von AD FS das Exportieren der Konfiguration aus der alten Farm und das Importieren in eine ganz neue, parallele Farm.  
+### <a name="moving-from-ad-fs-in-windows-server-2012-r2-to-ad-fs-in-windows-server-2016-is-easier"></a>Moving from AD FS in Windows Server 2012 R2 to AD FS in Windows Server 2016 is easier  
+Previously, migrating to a new version of AD FS required exporting configuration from the old farm and importing to a brand new, parallel farm.  
 
-Die Umstellung von AD FS auf Windows Server 2012 R2 auf AD FS unter Windows Server 2016 ist nun viel einfacher geworden. Fügen Sie einfach einen neuen Windows Server 2016-Server zu einer Windows Server 2012 R2-Farm hinzu, und die Farm verhält sich auf der Windows Server 2012 R2-Farm Verhalten, sodass Sie genau wie eine Windows Server 2012 R2-Farm aussieht und verhält.  
+Now, moving from AD FS on Windows Server 2012 R2 to AD FS on Windows Server 2016 has become much easier. Simply add a new Windows Server 2016 server to a Windows Server 2012 R2 farm, and the farm will act at the Windows Server 2012 R2 farm behavior level, so it looks and behaves just like a Windows Server 2012 R2 farm.  
 
-Fügen Sie dann der Farm neue Windows Server 2016-Server hinzu, überprüfen Sie die Funktionalität, und entfernen Sie die älteren Server aus dem Load Balancer. Sobald alle Farm Knoten unter Windows Server 2016 ausgeführt werden, können Sie die Farm verhaltensstufe auf 2016 aktualisieren und die neuen Features verwenden.  
+Then, add new Windows Server 2016 servers to the farm, verify the functionality and remove the older servers from the load balancer. Once all farm nodes are running Windows Server 2016, you are ready to upgrade the farm behavior level to 2016 and begin using the new features.  
 
-Weitere Informationen finden [Sie unter Aktualisieren auf AD FS in Windows Server 2016.](../../ad-fs/deployment/Upgrading-to-AD-FS-in-Windows-Server-2016.md)  
+For more information see [Upgrading to AD FS in Windows Server 2016.](../../ad-fs/deployment/Upgrading-to-AD-FS-in-Windows-Server-2016.md)  
