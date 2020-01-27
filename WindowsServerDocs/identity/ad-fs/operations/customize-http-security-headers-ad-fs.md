@@ -9,12 +9,12 @@ ms.date: 02/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 7fd06c06a2ea7af93b87c471f77b788ac51bddac
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: b81d498c6e601fcce0a0760cb4877fcc98c8beb9
+ms.sourcegitcommit: ff0db5ca093a31034ccc5e9156f5e9b45b69bae5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949216"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76725795"
 ---
 # <a name="customize-http-security-response-headers-with-ad-fs-2019"></a>Anpassen von http-Sicherheits Antwort Headern mit AD FS 2019 
  
@@ -32,11 +32,11 @@ In diesem Dokument werden häufig verwendete Sicherheits Antwortheader erläuter
 Bevor wir Header erörtern, betrachten wir einige Szenarien, in denen die Notwendigkeit von Administratoren zum Anpassen von Sicherheits Headern erläutert wird. 
  
 ## <a name="scenarios"></a>Szenarien 
-1. Der Administrator hat [**http Strict-Transport-Security (hsts)** ](#http-strict-transport-security-hsts) aktiviert (erzwingt alle Verbindungen über die HTTPS-Verschlüsselung), um die Benutzer, die möglicherweise auf die Web-App zugreifen, über HTTP von einem öffentlichen WLAN-Zugriffspunkt zu schützen, der möglicherweise gehackt ist Sie möchte die Sicherheit durch Aktivieren von hsts für Unterdomänen weiter erhöhen.  
-2. Der Administrator hat den Antwortheader " [**X-Frame-Options**](#x-frame-options) " konfiguriert (verhindert das Rendern von Webseiten in einem IFRAME), um die Webseiten vor der klistung zu schützen. Allerdings muss Sie den Header Wert aufgrund einer neuen geschäftlichen Anforderung anpassen, um Daten (in iframe) aus einer Anwendung mit einem anderen Ursprung (Domäne) anzuzeigen.
-3. Der Administrator hat [**X-XSS-Protection**](#x-xss-protection) aktiviert (verhindert Kreuz Skript Angriffe), die Seite zu bereinigen und zu blockieren, wenn der Browser Kreuz Skript Angriffe erkennt. Allerdings muss der Header angepasst werden, damit die Seite nach dem Bereinigen geladen werden kann.  
+1. Der Administrator hat [**http Strict-Transport-Security (hsts)** ](#http-strict-transport-security-hsts) aktiviert (erzwingt alle Verbindungen über die HTTPS-Verschlüsselung), um die Benutzer, die möglicherweise auf die Web-App zugreifen, über HTTP von einem öffentlichen WLAN-Zugriffspunkt zu schützen, der möglicherweise gehackt ist Sie möchten die Sicherheit weiter erhöhen, indem Sie hsts für Unterdomänen aktivieren.  
+2. Der Administrator hat den Antwortheader " [**X-Frame-Options**](#x-frame-options) " konfiguriert (verhindert das Rendern von Webseiten in einem IFRAME), um die Webseiten vor der klistung zu schützen. Allerdings müssen Sie den Header Wert aufgrund einer neuen geschäftlichen Anforderung anpassen, um Daten (in iframe) aus einer Anwendung mit einem anderen Ursprung (Domäne) anzuzeigen.
+3. Der Administrator hat [**X-XSS-Protection**](#x-xss-protection) aktiviert (verhindert Kreuz Skript Angriffe), die Seite zu bereinigen und zu blockieren, wenn der Browser Kreuz Skript Angriffe erkennt. Allerdings müssen Sie den Header anpassen, damit die Seite nach dem Bereinigen geladen werden kann.  
 4. Der Administrator muss [**cors (Cross Origin Resource Sharing)** ](#cross-origin-resource-sharing-cors-headers) aktivieren und den Ursprung (Domäne) auf AD FS festlegen, damit eine Einzelseiten Anwendung auf eine Web-API mit einer anderen Domäne zugreifen kann.  
-5. Der Administrator hat den Header der [**Inhalts Sicherheitsrichtlinie (Content Security Policy, CSP)** ](#content-security-policy-csp) aktiviert, um Site übergreifende Skripts und Daten einschleusungs Angriffe zu verhindern. Aufgrund einer neuen geschäftlichen Anforderung muss Sie jedoch den Header so anpassen, dass die Webseite das Laden von Bildern von einem beliebigen Ursprung und das Einschränken von Medien auf vertrauenswürdige Anbieter zulässt.  
+5. Der Administrator hat den Header der [**Inhalts Sicherheitsrichtlinie (Content Security Policy, CSP)** ](#content-security-policy-csp) aktiviert, um Site übergreifende Skripts und Daten einschleusungs Angriffe zu verhindern. Aufgrund einer neuen geschäftlichen Anforderung müssen Sie jedoch den Header so anpassen, dass die Webseite das Laden von Bildern von einem beliebigen Ursprung und das Einschränken von Medien auf vertrauenswürdige Anbieter zulässt.  
 
  
 ## <a name="http-security-response-headers"></a>HTTP-Sicherheits Antwortheader 
@@ -109,7 +109,7 @@ Set-AdfsResponseHeaders -RemoveHeaders "X-Frame-Options"
 ### <a name="x-xss-protection"></a>X-XSS-Schutz 
 Dieser http-Sicherheits Antwortheader wird verwendet, um das Laden von Webseiten zu beenden, wenn XSS-Angriffe (Cross-Site Scripting) von Browsern erkannt werden. Dies wird als XSS-Filterung bezeichnet. Der Header kann auf einen der folgenden Werte festgelegt werden:
  
-- **0** – deaktiviert die XSS-Filterung. Nicht empfehlenswert.  
+- **0** – deaktiviert die XSS-Filterung. Nicht empfohlen.  
 - **1** – aktiviert das Filtern von XSS. Wenn ein XSS-Angriff erkannt wird, wird die Seite von Browser bereinigt.   
 - **1; Mode = Block** – aktiviert die XSS-Filterung. Wenn ein XSS-Angriff erkannt wird, verhindert der-Browser das Rendern der Seite. Dies ist die Standardeinstellung und die empfohlene Einstellung.  
 
@@ -133,7 +133,7 @@ Set-AdfsResponseHeaders -RemoveHeaders "X-XSS-Protection"
 ```
 
 ### <a name="cross-origin-resource-sharing-cors-headers"></a>Cross-Origin Resource Sharing (cors)-Header 
-Die Webbrowser Sicherheit verhindert, dass eine Webseite Ursprungs übergreifende Anforderungen aus Skripts initiiert. Manchmal möchten Sie jedoch möglicherweise auf Ressourcen in anderen Ursprüngen (Domänen) zugreifen. Cors ist ein W3C-Standard, der es einem Server ermöglicht, die Richtlinie für denselben Ursprung zu lockern. Mit CORS kann ein Server explizit einige ursprungsübergreifende Anforderungen zulassen und andere ablehnen.  
+Die Webbrowser Sicherheit verhindert, dass eine Webseite Ursprungs übergreifende Anforderungen aus Skripts initiiert. Manchmal möchten Sie jedoch möglicherweise auf Ressourcen in anderen Ursprüngen (Domänen) zugreifen. Cors ist ein W3C-Standard, der es einem Server ermöglicht, die Richtlinie für denselben Ursprung zu lockern. Mithilfe von cors kann ein Server einige Ursprungs übergreifende Anforderungen explizit zulassen und andere ablehnen.  
  
 Um die cors-Anforderung besser zu verstehen, betrachten wir ein Szenario, in dem eine Single-Page-Anwendung (Spa) eine Web-API mit einer anderen Domäne aufruft. Beachten Sie außerdem, dass sowohl Spa als auch API auf ADFS 2019 konfiguriert sind AD FS und dass cors aktiviert ist, d. h. AD FS cors-Header in der HTTP-Anforderung identifizieren, Header Werte validieren und entsprechende cors-Header in der Antwort einschließen (Details zum Aktivieren von und). Konfigurieren Sie cors auf AD FS 2019 in cors-Anpassungs Abschnitt weiter unten). Beispiel Fluss: 
 
@@ -231,7 +231,7 @@ Verwenden Sie die folgende Tabelle und die Links, um zu bestimmen, welche Webbro
 |HTTP Strict-Transport-Security (hsts)|[Hsts-Browserkompatibilität](https://developer.mozilla.org/docs/Web/HTTP/Headers/Strict-Transport-Security#Browser_compatibility)|
 |X-Frame-Optionen|[X-Frame-Options-Browserkompatibilität](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options#Browser_compatibility)| 
 |X-XSS-Schutz|[Browserkompatibilität mit X-XSS-Protection](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-XSS-Protection#Browser_compatibility)| 
-|Ressourcenfreigabe zwischen verschiedenen Ursprüngen (CORS)|[Cors-Browserkompatibilität](https://developer.mozilla.org/docs/Web/HTTP/CORS#Browser_compatibility) 
+|Cross-Origin Resource Sharing (cors)|[Cors-Browserkompatibilität](https://developer.mozilla.org/docs/Web/HTTP/CORS#Browser_compatibility) 
 |Inhalts Sicherheitsrichtlinie (CSP)|[Kompatibilität des CSP-Browsers](https://developer.mozilla.org/docs/Web/HTTP/CSP#Browser_compatibility) 
 
 ## <a name="next"></a>Weiter

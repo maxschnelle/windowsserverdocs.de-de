@@ -9,15 +9,14 @@ ms.date: 3/29/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 31f6c00f829569586630629d2fa18c1fb65cd1d6
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 0850145c9281c769c5a2b6532ccb56615abd11b3
+ms.sourcegitcommit: ff0db5ca093a31034ccc5e9156f5e9b45b69bae5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949464"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76725785"
 ---
 # <a name="required-updates-for-active-directory-federation-services-ad-fs-and-web-application-proxy-wap"></a>Erforderliche Updates für Active Directory-Verbunddienste (AD FS) (AD FS) und webanwendungsproxy (WAP)
-
 
 Ab Oktober 2016 werden alle Updates für alle Komponenten von Windows Server nur über Windows Update (Wu) veröffentlicht.  Es sind keine weiteren Hotfixes oder einzelnen Downloads vorhanden.
 Dies gilt für Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 und Windows Server 2008 R2 SP1.
@@ -27,10 +26,10 @@ Auf dieser Seite werden Rollup-Pakete aufgelistet, die von besonderem Interesse 
 ## <a name="updates-for-ad-fs-and-wap-in-windows-server-2016"></a>Updates für AD FS und WAP in Windows Server 2016
 Updates für Windows Server 2016 werden monatlich über Windows Update geliefert und sind kumulativ. Das unten aufgeführte Update Paket wird für alle AD FS-und WAP 2016-Server empfohlen und umfasst alle zuvor erforderlichen Updates sowie die neuesten Fehlerbehebungen.
 
-|Verarbeiten # |Beschreibung|Veröffentlichungsdatum
+|Verarbeiten # |Beschreibung|Datum der Veröffentlichung
 |----- | ----- |-----
-|[CVE-2019-1126](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1126) | Dieses Sicherheitsupdate befasst sich mit einem Sicherheitsrisiko in Active Directory-Verbunddienste (AD FS) (AD FS), das es einem Angreifer ermöglichen könnte, die extranetsperrungsrichtlinie zu umgehen. |Juli 2019|
-|[4489889 (Betriebssystem Build 14393,2879)](https://support.microsoft.com/help/4489889/windows-10-update-kb4489889) | Adressiert ein Problem in Active Directory-Verbunddienste (AD FS) (AD FS), das bewirkt, dass eine doppelte Vertrauensstellung der vertrauenden Seite in der AD FS-Verwaltungskonsole angezeigt wird. Dies tritt auf, wenn Sie Vertrauens Stellungen der vertrauenden Seite mithilfe der AD FS Management Console erstellen oder anzeigen.</br></br> Adressiert ein Problem mit der Wartezeit für ein hohes Active Directory-Verbunddienste (AD FS) (AD FS)-webanwendungsproxy (WAP) (über 10.000 ms), das auftritt, während das Extranet Smart Lockout (ESL) auf AD FS 2016 aktiviert ist. Dieses Sicherheitsupdate adressiert das in [CVE-2018-16794](https://nvd.nist.gov/vuln/detail/CVE-2018-16794)beschriebene Sicherheitsrisiko. |März 2019|
+|[CVE-2019-1126](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1126) | Dieses Sicherheitsupdate befasst sich mit einem Sicherheitsrisiko in Active Directory-Verbunddienste (AD FS) (AD FS), das es einem Angreifer ermöglichen könnte, die extranetsperrungsrichtlinie zu umgehen. |2019. Juli|
+|[4489889 (Betriebssystem Build 14393,2879)](https://support.microsoft.com/help/4489889/windows-10-update-kb4489889) | Adressiert ein Problem in Active Directory-Verbunddienste (AD FS) (AD FS), das bewirkt, dass eine doppelte Vertrauensstellung der vertrauenden Seite in der AD FS-Verwaltungskonsole angezeigt wird. Dies tritt auf, wenn Sie Vertrauens Stellungen der vertrauenden Seite mithilfe der AD FS Management Console erstellen oder anzeigen.</br></br> Adressiert ein Problem mit der Wartezeit für ein hohes Active Directory-Verbunddienste (AD FS) (AD FS)-webanwendungsproxy (WAP) (über 10.000 ms), das auftritt, während das Extranet Smart Lockout (ESL) auf AD FS 2016 aktiviert ist. Dieses Sicherheitsupdate adressiert das in [CVE-2018-16794](https://nvd.nist.gov/vuln/detail/CVE-2018-16794)beschriebene Sicherheitsrisiko. |2019. März|
 |[4487006 (Betriebssystem Build 14393,2828)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) | Adressiert ein Problem, das bewirkt, dass Updates für eine Vertrauensstellung der vertrauenden Seite bei Verwendung von PowerShell oder der Active Directory-Verbunddienste (AD FS) (AD FS)-Verwaltungskonsole fehlschlagen. Dieses Problem tritt auf, wenn Sie eine Vertrauensstellung der vertrauenden Seite für die Verwendung einer Online-Metadaten-URL konfigurieren, die mehr als einen passiverequestorendpoint veröffentlicht. Der Fehler lautet: "MSIS7615: die in einer Vertrauensstellung der vertrauenden Seite angegebenen vertrauenswürdigen Endpunkte müssen für diese Vertrauensstellung der vertrauenden Seite eindeutig sein."  </br></br>Behandelt ein Problem, das aufgrund von Azure-Kenn Wort Schutzrichtlinien eine bestimmte Fehlermeldung für Kenn Wort Änderungen externer Komplexität anzeigt. |Februar 2019|
 |[4462928 (Betriebssystem Build 14393,2580)](https://support.microsoft.com/help/4462928/windows-10-update-kb4462928)|Adressiert intervorgangs Probleme zwischen Active Directory-Verbunddienste (AD FS) (AD FS) Extranet Smart Lockout (ESL) und alternativer Anmelde-ID. Wenn eine Alternative Anmelde-ID aktiviert ist, wird bei Aufrufen von AD FS PowerShell-Cmdlets (Get-adfsaccountactivity und Reset-adfsaccountlockout) der Fehler "Konto nicht gefunden" zurückgegeben. Wenn SET-adfsaccountactivity aufgerufen wird, wird ein neuer Eintrag hinzugefügt, anstatt eine vorhandene zu bearbeiten.|Oktober 2018|
 |[4343884 (Betriebssystem Build 14393,2457)](https://support.microsoft.com/help/4343884/windows-10-update-kb4343884)|Adressiert ein Problem mit Active Directory-Verbunddienste (AD FS) (AD FS), bei dem Multi-Factor Authentication nicht ordnungsgemäß mit mobilen Geräten funktioniert, die benutzerdefinierte Kultur Definitionen verwenden. </br></br>Behandelt ein Problem in Windows Hello for Business, das bei der Registrierung neuer Benutzer eine beträchtliche Verzögerung (15 Sekunden) verursacht. Dieses Problem tritt auf, wenn ein Hardware Sicherheitsmodul verwendet wird, um ein AD FS-Registrierungsstellen-Zertifikat (RA) zu speichern.|August 2018|
@@ -49,9 +48,9 @@ Updates für Windows Server 2016 werden monatlich über Windows Update geliefert
 ## <a name="updates-for-ad-fs-and-wap-in-windows-server-2012-r2"></a>Updates für AD FS und WAP in Windows Server 2012 R2
 Im folgenden finden Sie eine Liste der Hotfixes und Updaterollups, die für Active Directory-Verbunddienste (AD FS) (AD FS) in Windows Server 2012 R2 veröffentlicht wurden.
 
-|Verarbeiten # |Beschreibung|Veröffentlichungsdatum
+|Verarbeiten # |Beschreibung|Datum der Veröffentlichung
 |----- | ----- |-----
-|[4507448](https://support.microsoft.com/help/4507448/windows-8-1-update-kb4507448)| Dieses Sicherheitsupdate befasst sich mit einem Sicherheitsrisiko in Active Directory-Verbunddienste (AD FS) (AD FS), das es einem Angreifer ermöglichen könnte, die extranetsperrungsrichtlinie zu umgehen. |Juli 2019
+|[4507448](https://support.microsoft.com/help/4507448/windows-8-1-update-kb4507448)| Dieses Sicherheitsupdate befasst sich mit einem Sicherheitsrisiko in Active Directory-Verbunddienste (AD FS) (AD FS), das es einem Angreifer ermöglichen könnte, die extranetsperrungsrichtlinie zu umgehen. |2019. Juli
 |[4041685](https://support.microsoft.com/kb/4041685)|Es wurde ein AD FS Problem behoben, bei dem msisby ext-Cookies in Anforderungs Headern letztendlich das Größenlimit für Header überschreiten und die Authentifizierung mit dem HTTP-Statuscode 400 "Ungültige Anforderungs Header zu lang" verursachen können.</br></br>Es wurde ein Problem behoben, bei dem ADFS während der Authentifizierung "Prompt = Login" nicht mehr ignorieren kann. Die Option "deaktiviert" wurde hinzugefügt, um Szenarios wiederherzustellen, in denen die Authentifizierung ohne Kennwort verwendet wird.|Oktober 2017 Vorschau des Updaterollup
 |[4019217](https://support.microsoft.com/kb/4019217)|Arbeitsordner Clients, die den tokenbroker verwenden, funktionieren nicht, wenn Sie einen Server 2012 R2 AD FS Server verwenden.|Updaterollup vom Mai 2017 (Vorschau)
 |[4015550](https://support.microsoft.com/kb/4015550)|Es wurde ein Problem behoben, bei AD FS externe Benutzer nicht authentifiziert wurden, und AD FS WAP die Anforderung nach dem Zufallsprinzip nicht|Updaterollup vom April 2017
@@ -69,7 +68,7 @@ Im folgenden finden Sie eine Liste der Hotfixes und Updaterollups, die für Acti
 |[3075610](https://support.microsoft.com/kb/3075610)|Nach dem Hinzufügen oder Entfernen eines Anspruchs Anbieters in Windows Server 2012 R2 gehen Vertrauens Stellungen auf dem sekundären AD FS Server verloren.|Juli 2015
 |[3070080](https://support.microsoft.com/kb/3070080)|Startbereich-Ermittlung funktioniert nicht ordnungsgemäß für die nicht Ansprüche unterstützende Vertrauensstellung der vertrauenden Seite|Juni 2015
 |[3052122](https://support.microsoft.com/kb/3052122)|Update fügt Unterstützung für Verbund-ID-Ansprüche in AD FS Tokens in Windows Server 2012 R2 hinzu.|Mai 2015
-|[3045711](https://support.microsoft.com/kb/3045711)|MS15-040: Sicherheits Anfälligkeit in Active Directory-Verbunddienste (AD FS) kann das Offenlegen von Informationen ermöglichen|April 2015
+|[3045711](https://support.microsoft.com/kb/3045711)|MS15-040: Sicherheits Anfälligkeit in Active Directory-Verbunddienste (AD FS) kann das Offenlegen von Informationen ermöglichen|2015. April
 |[3042127](https://support.microsoft.com/kb/3042127)|Fehler "http 400-Ungültige Anforderung" beim Öffnen eines freigegebenen Postfachs über WAP in Windows Server 2012 R2|März 2015
 |[3042121](https://support.microsoft.com/kb/3042121)|AD FS tokenwiedergabe-Schutz für webanwendungsproxy-Authentifizierungs Token in Windows Server 2012 R2|März 2015
 |[3035025](https://support.microsoft.com/kb/3035025)|Hotfix für die Funktion zum Aktualisieren von Kenn Wörtern, damit Benutzer das registrierte Gerät in Windows Server 2012 R2 nicht verwenden müssen|Januar 2015
@@ -90,22 +89,22 @@ Im folgenden finden Sie eine Liste der Hotfixes und Updaterollups, die für Acti
 ## <a name="updates-for-ad-fs-in-windows-server-2012-ad-fs-21-and-ad-fs-20"></a>Updates für AD FS in Windows Server 2012 (AD FS 2,1) und AD FS 2,0
 Im folgenden finden Sie eine Liste der Hotfixes und Updaterollups, die für AD FS 2,0 und 2,1 veröffentlicht wurden.
 
-|Verarbeiten # |Beschreibung|Veröffentlichungsdatum|Gilt für:
+|Verarbeiten # |Beschreibung|Datum der Veröffentlichung|Gilt für:
 |----- | ----- |-----|-----
 |[3197878](https://support.microsoft.com/kb/3197878)|Die Authentifizierung über den Proxy schlägt in Windows Server 2012 fehl (Dies ist die allgemeine Version von Hotfix 3094446).|Qualitätsrollup vom November 2016|AD FS 2,1
-|[3197869](https://support.microsoft.com/kb/3197869)|Die Authentifizierung über den Proxy schlägt in Windows Server 2008 R2 SP1 fehl (Dies ist die allgemeine Version von Hotfix 3094446).|Qualitätsrollup vom November 2016|AD FS 2.0
-|[3094446](https://support.microsoft.com/kb/3094446)|Authentifizierung über Proxy schlägt in Windows Server 2012 oder Windows Server 2008 R2 SP1 fehl|September 2015|AD FS 2,0 und 2,1
+|[3197869](https://support.microsoft.com/kb/3197869)|Die Authentifizierung über den Proxy schlägt in Windows Server 2008 R2 SP1 fehl (Dies ist die allgemeine Version von Hotfix 3094446).|Qualitätsrollup vom November 2016|AD FS 2,0
+|[3094446](https://support.microsoft.com/kb/3094446)|Authentifizierung über Proxy schlägt in Windows Server 2012 oder Windows Server 2008 R2 SP1 fehl|September 2015|AD FS 2,0 und 2,1
 |[3070078](https://support.microsoft.com/kb/3070078)|AD FS 2,1 löst eine Ausnahme aus, wenn Sie sich bei einem Verschlüsselungs Zertifikat in Windows Server 2012 authentifizieren.|Juli 2015|AD FS 2,1
 |[3062577](https://support.microsoft.com/kb/3062577)|MS15-062: Sicherheits Anfälligkeit in Active Directory Verbund Diensten kann Erhöhung von Berechtigungen ermöglichen|Juni 2015|AD FS 2,0/2,1
 |[3003381](https://support.microsoft.com/kb/3003381)|Ms14-077: Sicherheits Anfälligkeit in Active Directory-Verbunddienste (AD FS) kann Offenlegung von Informationen ermöglichen: 14. April 2015|November 2014|AD FS 2,0/2,1
 |[2987843](https://support.microsoft.com/kb/2987843)|Die Speicherauslastung AD FS Verbund Servers erhöht sich immer, wenn sich viele Benutzer in einer Webanwendung in Windows Server 2012 anmelden.|Juli 2014|AD FS 2,1
 |[2957619](https://support.microsoft.com/kb/2957619)|Die Vertrauensstellung der vertrauenden Seite in AD FS wird beendet, wenn eine Anforderung an AD FS eines delegierten Tokens gerichtet wird.|Mai 2014|AD FS 2,1
 |[2926658](https://support.microsoft.com/kb/2926658)|Die Bereitstellung der ADFS-SQL-Farm schlägt fehl, wenn Sie keine SQL-Berechtigungen|Oktober 2014|AD FS 2,1
-|[2896713](https://support.microsoft.com/kb/2896713) oder [2989956](https://support.microsoft.com/kb/2989956)|Ein Update ist verfügbar, um verschiedene Probleme nach der Installation des Sicherheitsupdates 2843638 auf einem AD FS Server zu beheben.|November 2013</br></br>September 2014|AD FS 2,0/2,1
+|[2896713](https://support.microsoft.com/kb/2896713) oder [2989956](https://support.microsoft.com/kb/2989956)|Ein Update ist verfügbar, um verschiedene Probleme nach der Installation des Sicherheitsupdates 2843638 auf einem AD FS Server zu beheben.|2013. November</br></br>September 2014|AD FS 2,0/2,1
 |[2877424](https://support.microsoft.com/kb/2877424)|Mit Update können Sie ein Zertifikat für mehrere Vertrauens Stellungen der vertrauenden Seite in einer AD FS 2,1-Farm verwenden.|Oktober 2013|AD FS 2,1
-|[2873168](https://support.microsoft.com/kb/2873168)|Behebung: ein Fehler tritt auf, wenn Sie einen Drittanbieter-CSP und ein HSM verwenden und dann eine Anspruchs Anbieter-Vertrauensstellung in Updaterollup 3 für AD FS 2,0 unter Windows Server 2008 R2 Service Pack 1 konfigurieren.|September 2013|AD FS 2.0
-|[2861090](https://support.microsoft.com/kb/2861090)|Ein Komma im Antragsteller Namen eines Verschlüsselungs Zertifikats verursacht eine Ausnahme in Windows Server 2008 R2 SP1.|August 2013|AD FS 2.0
-|[2843639](https://support.microsoft.com/kb/2843639)|Sicherung Sicherheits Anfälligkeit in Active Directory-Verbunddienste (AD FS) kann Offenlegung von Informationen ermöglichen|November 2013|AD FS 2,1
-|[2843638](https://support.microsoft.com/kb/2843638)|MS13-066: Beschreibung des Sicherheitsupdates für Active Directory-Verbunddienste (AD FS) 2,0:13. August 2013|August 2013|AD FS 2.0
+|[2873168](https://support.microsoft.com/kb/2873168)|Behebung: ein Fehler tritt auf, wenn Sie einen Drittanbieter-CSP und ein HSM verwenden und dann eine Anspruchs Anbieter-Vertrauensstellung in Updaterollup 3 für AD FS 2,0 unter Windows Server 2008 R2 Service Pack 1 konfigurieren.|September 2013|AD FS 2,0
+|[2861090](https://support.microsoft.com/kb/2861090)|Ein Komma im Antragsteller Namen eines Verschlüsselungs Zertifikats verursacht eine Ausnahme in Windows Server 2008 R2 SP1.|August 2013|AD FS 2,0
+|[2843639](https://support.microsoft.com/kb/2843639)|Sicherung Sicherheits Anfälligkeit in Active Directory-Verbunddienste (AD FS) kann Offenlegung von Informationen ermöglichen|2013. November|AD FS 2,1
+|[2843638](https://support.microsoft.com/kb/2843638)|MS13-066: Beschreibung des Sicherheitsupdates für Active Directory-Verbunddienste (AD FS) 2,0:13. August 2013|August 2013|AD FS 2,0
 |[2827748](https://support.microsoft.com/kb/2827748)|Die Datei "FederationMetadata. xml" enthält keine MEX-Endpunkt Informationen für die WS-Trust-und WS-Verbund-Endpunkte in Windows Server 2012.|Mai 2013|AD FS 2,1
-|[2790338](https://support.microsoft.com/kb/2790338)|Beschreibung von Updaterollup 3 für Active Directory-Verbunddienste (AD FS) (AD FS) 2,0|März 2013|AD FS 2.0
+|[2790338](https://support.microsoft.com/kb/2790338)|Beschreibung von Updaterollup 3 für Active Directory-Verbunddienste (AD FS) (AD FS) 2,0|März 2013|AD FS 2,0

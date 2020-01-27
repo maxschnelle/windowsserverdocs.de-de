@@ -7,12 +7,12 @@ audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 88f707cc02514dc13c212c6462c47e4d3a94b5f5
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: 433221f9846e9e071557b5537974b5739131742b
+ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654581"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75949696"
 ---
 # <a name="advanced-troubleshooting-server-message-block-smb"></a>Erweiterte Problembehandlung für Server Message Block (SMB)
 
@@ -158,7 +158,7 @@ Sowohl der SMB-Client als auch der SMB-Server verfügen über eine detaillierte 
 
 ## <a name="smb-related-system-files"></a>SMB-bezogene Systemdateien
 
-In diesem Abschnitt werden die SMB-bezogenen Systemdateien aufgelistet. Stellen Sie sicher, dass das aktuellste Updaterollup [](https://support.microsoft.com/en-us/help/4498140/windows-10-update-history) installiert ist, um die Systemdateien zu aktualisieren.
+In diesem Abschnitt werden die SMB-bezogenen Systemdateien aufgelistet. Stellen Sie sicher, dass das aktuellste [Updaterollup ](https://support.microsoft.com/help/4498140/windows-10-update-history) installiert ist, um die Systemdateien zu aktualisieren.
 
 SMB-Client Binärdateien, die unter **% windir%\\System32\\-Treibern**aufgeführt sind:
 

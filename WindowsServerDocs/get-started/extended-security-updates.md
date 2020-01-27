@@ -8,13 +8,13 @@ author: iainfoulds
 ms.author: iainfou
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.date: 12/16/2019
-ms.openlocfilehash: 83ab3663b2c03017ba1bf613a49c394be0511002
-ms.sourcegitcommit: b649047f161cb605df084f18b573f796a584753b
+ms.date: 01/23/2020
+ms.openlocfilehash: 0f3ea0dacc200adaaec5064d19754ad6de0042a6
+ms.sourcegitcommit: ff0db5ca093a31034ccc5e9156f5e9b45b69bae5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76162501"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76725775"
 ---
 # <a name="how-to-use-windows-server-2008-and-2008-r2-extended-security-updates-esu"></a>Verwenden der erweiterten Sicherheitsupdates (ESU) für Windows Server 2008 und 2008 R2
 
@@ -43,23 +43,38 @@ Erweiterte Sicherheitsupdates (ESU) für Windows Server umfassen Sicherheitsupda
 
 Weitere Informationen findest du unter [Häufig gestellte Fragen zu erweiterten Sicherheitsupdates](https://www.microsoft.com/cloud-platform/extended-security-updates).
 
+## <a name="how-to-use-extended-security-updates"></a>Verwenden erweiterter Sicherheitsupdates
+
+Wenn du virtuelle Computer mit Windows Server 2008 bzw. 2008 R2 in Azure ausführst, werden diese automatisch für erweiterte Sicherheitsupdates aktiviert. Du brauchst nichts zu konfigurieren, und es fallen keine zusätzlichen Kosten für die Verwendung erweiterter Sicherheitsupdates mit Azure-VMs an. Erweiterte Sicherheitsupdates werden automatisch an Azure-VMs übermittelt, wenn diese für den Empfang von Updates konfiguriert sind.
+
+Für andere Umgebungen, wie z. B. lokale VMs oder physische Server, musst du erweiterte Sicherheitsupdates manuell anfordern und konfigurieren. Wenn du bereits erweiterte Sicherheitsupdates erworben hast, die über Volumenlizenzprogramme wie Enterprise Agreement (EA), Enterprise Agreement Subscription (EAS), Enrollment for Education Solutions (EES) oder Server and Cloud Enrollment (SCE) verfügbar sind, kannst du einen der folgenden Schritte durchführen, um einen Aktivierungsschlüssel zu erhalten:
+
+* Melde dich beim [Microsoft Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx) an, um Aktivierungsschlüssel anzuzeigen und zu erhalten.
+* Registriere dich für erweiterte Sicherheitsupdates im Azure-Portal, um die Windows Server 2008/R2-Aktivierungsschlüssel zu erhalten.
+    * In den folgenden Schritten in diesem Artikel erfährst du, wie du diesen Prozess abschließt.
+
 ## <a name="register-for-extended-security-updates"></a>Für erweiterte Sicherheitsupdates registrieren
 
 Damit du erweiterte Sicherheitsupdates verwenden kannst, musst du einen Mehrfachaktivierungsschlüssel (Multiple Activation Key, MAK) erstellen und auf Windows Server 2008- und 2008 R2-Computer anwenden. Mit diesem Schlüssel teilst du den Windows Update-Servern mit, dass du weiterhin Sicherheitsupdates empfangen kannst. Du registrierst dich für erweiterte Sicherheitsupdates und verwaltest diese Schlüssel mithilfe des Azure-Portals, auch wenn du nur lokale Computer verwendest.
 
 > [!NOTE]
-> Wenn du Windows Server 2008/2008 R2-VMs in Azure ausführst, sind die folgenden Schritte nicht erforderlich. Azure-VMs werden automatisch für erweiterte Sicherheitsupdates aktiviert. Du musst keine Ressource und keinen Schlüssel für erweiterte Sicherheitsupdates erstellen, und es fallen keine zusätzlichen Kosten für die Verwendung erweiterter Sicherheitsupdates mit Azure-VMs an.
+>
+> Wenn du Windows Server 2008 und 2008 R2 auf Azure VMs ausführst, brauchst Du dich nicht für erweiterte Sicherheitsupdates zu registrieren. Für andere Umgebungen, wie z. B. lokale VMs oder physische Server, musst du [erweiterte Sicherheitsupdates kaufen](https://www.microsoft.com/licensing/how-to-buy/how-to-buy), bevor du diese registrieren und verwenden kannst.
 
-> [!NOTE]
-> Bevor Sie die nachfolgenden Schritte ausführen, senden Sie eine E-Mail mit den folgenden Informationen zur Genehmigung in der Whitelist an [winsvresuchamps@microsoft.com](mailto:winsvresuchamps@microsoft.com):
+> [!IMPORTANT]
+>
+> Stelle sicher, dass die vorherigen Schritte ausgeführt wurden, um erweiterte Sicherheitsupdates über dein Volumenlizenzprogramm zu erwerben. Bevor du die nachfolgenden Schritte ausführst, sende eine E-Mail mit den folgenden Informationen an [winsvresuchamps@microsoft.com](mailto:winsvresuchamps@microsoft.com), um die Genehmigung zur Verwendung des Features zu erhalten:
+>
 > * Kundenname:
 > * Azure-Abonnement:
 > * Enterprise Agreement (EA)-Nummer (für ESU):
 > * Anzahl der ESU-Server:
-> 
-> Das Team überprüft die bereitgestellten Informationen und fügt der Whitelist den Benutzer und das Abonnement hinzu.
-> 
-> Wenn der Antragsteller nicht in der Whitelist aufgeführt ist, kann der folgende Fehler auftreten: [Der Ressourcentyp konnte nicht im Namespace "Microsoft.WindowsESU" gefunden werden](https://social.msdn.microsoft.com/Forums/office/94b16a89-3149-43da-865d-abf7dba7b977/the-resource-type-could-not-be-found-in-the-namespace-microsoftwindowsesu-for-api-version)
+>
+> Das Team überprüft die bereitgestellten Informationen und fügt der Genehmigungsliste den Benutzer bzw. das Abonnement hinzu.
+>
+> Wenn der Antragsteller nicht in der Genehmigungsliste aufgeführt ist, kann der folgende Fehler auftreten:
+>
+> [Der Ressourcentyp konnte nicht im Namespace "Microsoft.WindowsESU" gefunden werden](https://social.msdn.microsoft.com/Forums/office/94b16a89-3149-43da-865d-abf7dba7b977/the-resource-type-could-not-be-found-in-the-namespace-microsoftwindowsesu-for-api-version)
 
 Führe die folgenden Schritte im Azure-Portal aus, um andere VMs als Azure-VMs für erweiterte Sicherheitsupdates zu registrieren und einen Schlüssel zu erstellen:
 
