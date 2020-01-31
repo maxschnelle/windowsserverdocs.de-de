@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: 35afec8e-39a4-463b-839a-3c300ab01174
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 0ba2154338871827aae03936e5e39a356a43d675
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2c5fec6d9dafa350f46dfb5b2f213d628391b87f
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388630"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822783"
 ---
 # <a name="step-2-configure-advanced-directaccess-servers"></a>Schritt 2 Konfigurieren von erweiterten DirectAccess-Servern
 
@@ -30,7 +30,7 @@ In diesem Thema wird die Konfiguration der Client- und Servereinstellungen erlä
 |2.1. Installieren der Remotezugriffsrolle|Installieren Sie die Remotezugriffsrolle.|  
 |2.2. Konfigurieren des Bereitstellungstypen|Konfigurieren Sie den Bereitstellungstypen als DirectAccess und VPN, nur DirectAccess, oder nur VPN|  
 |[Planen einer erweiterten DirectAccess-Bereitstellung](Plan-an-Advanced-DirectAccess-Deployment.md)|Konfigurieren Sie den Remotezugriffsserver mit den Sicherheitsgruppen, die die DirectAccess-Clients enthalten.|  
-|2.4. Konfigurieren des Remotezugriffsservers|Konfigurieren Sie die Einstellungen des Remotezugriffsservers.|  
+|2.4. Konfigurieren des RAS-Servers|Konfigurieren Sie die Einstellungen des RAS-Servers.|  
 |2.5. Konfigurieren des Infrastrukturservers|Konfigurieren Sie die Infrastrukturserver, die in der Organisation eingesetzt werden.|  
 |2.6. Konfigurieren von Anwendungsservern|Konfigurieren Sie die Anwendungsserver so, dass für die Anmeldung eine Authentifizierung und Verschlüsselung vorausgesetzt wird.|  
 |2.7. Zusammenfassung der Konfiguration und alternative Gruppenrichtlinienobjekte|Zeigen Sie die Zusammenfassung der Remotezugriffskonfiguration an und ändern Sie bei Bedarf die Gruppenrichtlinienobjekte.|  
@@ -40,7 +40,7 @@ In diesem Thema wird die Konfiguration der Client- und Servereinstellungen erlä
 > Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
 ## <a name="BKMK_Role"></a>2,1. Installieren der Remotezugriffsrolle  
-Um den Remotezugriff bereitzustellen, müssen Sie die Remotezugriffsrolle auf einem Server in Ihrer Organisation installieren, der als Remotezugriffsserver fungiert.  
+Um den Remotezugriff bereitzustellen, müssen Sie die Remotezugriffsrolle auf einem Server in Ihrer Organisation installieren, der als RAS-Server fungiert.  
   
 #### <a name="to-install-the-remote-access-role"></a>So installieren Sie die Remotezugriffsrolle  
   
@@ -52,7 +52,7 @@ Um den Remotezugriff bereitzustellen, müssen Sie die Remotezugriffsrolle auf ei
   
 4.  Klicken Sie fünfmal auf **Weiter**.  
   
-5.  Klicken Sie auf der Seite **Installationsauswahl bestätigen** auf **Installieren**.  
+5.  Klicken Sie auf der Seite **Confirm installation selections** auf **Install**.  
   
 6.  Überprüfen Sie im Dialogfeld **Installationsstatus**, ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
   
@@ -97,7 +97,7 @@ Damit ein Clientcomputer zur Verwendung von DirectAccess bereitgestellt werden k
 4.  Wählen Sie im Dialogfeld **Gruppen auswählen** die Sicherheitsgruppen aus, die Ihre DirectAccess-Clientcomputer enthalten.  
   
     > [!NOTE]  
-    > Wenn sich die Sicherheitsgruppe in einer anderen Struktur als der Remotezugriffsserver befindet, klicken Sie im Bereich **Aufgaben**auf **Verwaltungsserver aktualisieren**, nachdem Sie den Remotezugriffs-Setup-Assistenten beendet haben, um die Domänencontroller und System Center Configuration Manager-Server n der neuen Struktur zu finden.  
+    > Wenn sich die Sicherheitsgruppe in einer anderen Gesamtstruktur als der RAS-Server befindet, klicken Sie nach Abschluss des Setup-Assistenten für den Remote Zugriff auf **Verwaltungs Server aktualisieren** im Bereich **Tasks** , um die Domänen Controller und Configuration Manager Server in der neuen Gesamtstruktur zu ermitteln.  
   
 5.  Aktivieren Sie das Kontrollkästchen **DirectAccess ausschließlich für mobile Computer aktivieren**, damit bei Bedarf nur mobile Computer auf das interne Netzwerk zugreifen.  
   
@@ -123,10 +123,10 @@ Damit ein Clientcomputer zur Verwendung von DirectAccess bereitgestellt werden k
   
 9. Klicken Sie auf **Fertig stellen**.  
   
-## <a name="BKMK_Server"></a>2,4. Konfigurieren des Remotezugriffsservers  
+## <a name="BKMK_Server"></a>2,4. Konfigurieren des RAS-Servers  
 Um den Remotezugriff bereitzustellen, müssen Sie den Remotezugriffsserver mit korrekten Netzwerkadaptern, einer öffentlichen URL für den Remotezugriffsserver, zu dem Clientcomputer eine Verbindung aufbauen können (die ConnectTo-Adresse), einem IP-HTTPS-Zertifikat mit einem Antragsteller, der mit der ConnectTo-Adresse übereinstimmt, IPv6-Einstellungen und Clientcomputer-Authentifizierung konfigurieren.  
   
-#### <a name="to-configure-the-remote-access-server"></a>So konfigurieren Sie den Remotezugriffsserver  
+#### <a name="to-configure-the-remote-access-server"></a>So konfigurieren Sie den RAS-Server  
   
 1.  Klicken Sie im mittleren Bereich der Remotezugriffs-Verwaltungskonsole unter **Schritt 2 RAS-Server** auf **Konfigurieren**.  
   
@@ -165,10 +165,10 @@ Um die Infrastrukturserver in einer Remotezugriffsbereitstellung zu konfiguriere
   
 4.  Auf der Seite **DNS-Suffixsuchliste** erkennt der Remotezugriffsserver die Domänensuffixe in der Bereitstellung automatisch. Verwenden Sie die Schaltflächen **Hinzufügen** und **Entfernen**, um Domänensuffixe aus der Liste der zu verwendenden Domänensuffixe zu entfernen oder ihr hinzuzufügen. Um ein neues Domänensuffix unter **Neues Suffix** hinzuzufügen, müssen Sie dass Suffix eingeben und anschließend auf **Hinzufügen** klicken. Klicken Sie auf **Weiter**.  
   
-5.  Fügen Sie auf der Seite **Verwaltung** die Verwaltungsserver hinzu, die nicht automatisch erkannt wurden und klicken Sie dann auf **Weiter**. Der Remotezugriff fügt die Domänencontroller und System Center Configuration Manager-Server automatisch hinzu.  
+5.  Fügen Sie auf der Seite **Verwaltung** die Verwaltungsserver hinzu, die nicht automatisch erkannt wurden und klicken Sie dann auf **Weiter**. Der Remote Zugriff fügt automatisch Domänen Controller und Configuration Manager Server hinzu.  
   
     > [!NOTE]  
-    > Obwohl die Server automatisch hinzugefügt werden, werden Sie nicht in der Liste angezeigt. Nachdem Sie die Konfiguration erstmalig anwenden, werden die System Center Configuration Manager-Server in der Liste angezeigt.  
+    > Obwohl die Server automatisch hinzugefügt werden, werden Sie nicht in der Liste angezeigt. Nachdem Sie die Konfiguration zum ersten Mal angewendet haben, werden die Configuration Manager-Server in der Liste angezeigt.  
   
 6.  Klicken Sie auf **Fertig stellen**.  
   

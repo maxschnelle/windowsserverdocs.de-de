@@ -9,12 +9,12 @@ ms.assetid: 158b7a62-2c52-448b-9467-c00d5018f65b
 ms.author: pashort
 author: shortpatti
 ms.localizationpriority: medium
-ms.openlocfilehash: a216c490c92461e07fd5093783ec2c3049e8accb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b5be8827cee22b35fb31bf08d1c960b150dcad84
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388029"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822653"
 ---
 # <a name="configure-vpn-device-tunnels-in-windows-10"></a>Konfigurieren von VPN-Geräte Tunneln in Windows 10
 
@@ -46,9 +46,9 @@ Set-VpnAuthProtocol -UserAuthProtocolAccepted Certificate, EAP -RootCertificateN
 
 ## <a name="vpn-device-tunnel-configuration"></a>Konfiguration des VPN-Geräte Tunnels
 
-Die Beispiel-XML-Datei unten bietet eine gute Anleitung für Szenarien, in denen nur vom Client initiierte Pull-Vorgänge über den Geräte Tunnel erforderlich sind.  Datenverkehrs Filter werden genutzt, um den Geräte Tunnel nur auf den Verwaltungs Datenverkehr zu beschränken.  Diese Konfiguration eignet sich gut für Windows Update, typische Gruppenrichtlinie (GP) und System Center Configuration Manager (SCCM)-Update Szenarios sowie VPN-Konnektivität für die erste Anmeldung ohne zwischengespeicherte Anmelde Informationen oder Szenarios zum Zurücksetzen von Kenn Wörtern. 
+Die Beispiel-XML-Datei unten bietet eine gute Anleitung für Szenarien, in denen nur vom Client initiierte Pull-Vorgänge über den Geräte Tunnel erforderlich sind.  Datenverkehrs Filter werden genutzt, um den Geräte Tunnel nur auf den Verwaltungs Datenverkehr zu beschränken.  Diese Konfiguration eignet sich gut für Windows Update, typische Gruppenrichtlinie (GP) und Microsoft Endpoint Configuration Manager Update Szenarios sowie VPN-Konnektivität für die erste Anmeldung ohne zwischengespeicherte Anmelde Informationen oder Szenarios zur Kenn Wort Zurücksetzung. 
 
-Für Server initiierte pushfälle, wie Windows-Remoteverwaltung (WinRM), Remote-gpupdate und Remote-SCCM-Aktualisierungs Szenarios – Sie müssen eingehenden Datenverkehr im Geräte Tunnel zulassen, sodass keine Datenverkehrs Filter verwendet werden können.  Wenn Sie im Geräte Tunnel Profildaten Verkehrs Filter aktivieren, wird der eingehende Datenverkehr vom Geräte Tunnel verweigert.  Diese Einschränkung wird in zukünftigen Versionen entfernt.
+Für Server initiierte pushfälle, wie Windows-Remoteverwaltung (WinRM), Remote-gpupdate und Remote Configuration Manager Update Szenarios – Sie müssen eingehenden Datenverkehr für den Geräte Tunnel zulassen, sodass keine Datenverkehrs Filter verwendet werden können.  Wenn Sie im Geräte Tunnel Profildaten Verkehrs Filter aktivieren, wird der eingehende Datenverkehr vom Geräte Tunnel verweigert.  Diese Einschränkung wird in zukünftigen Versionen entfernt.
 
 
 ### <a name="sample-vpn-profilexml"></a>Beispiel-VPN-profileXML
@@ -173,7 +173,7 @@ Im folgenden finden Sie weitere Ressourcen zur Unterstützung Ihrer VPN-Bereitst
 
 Im folgenden finden Sie VPN-Client Konfigurations Ressourcen.
 
-- [Erstellen von VPN-Profilen in System Center Configuration Manager](https://docs.microsoft.com/sccm/protect/deploy-use/create-vpn-profiles)
+- [Erstellen von VPN-Profilen in Configuration Manager](https://docs.microsoft.com/configmgr/protect/deploy-use/create-vpn-profiles)
 - [Konfigurieren von Windows 10-Client Always on-VPN-Verbindungen](always-on-vpn/deploy/vpn-deploy-client-vpn-connections.md)
 - [VPN-Profil Optionen](https://docs.microsoft.com/windows/access-protection/vpn/vpn-profile-options)
 

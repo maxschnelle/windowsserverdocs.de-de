@@ -9,12 +9,12 @@ ms.author: pashort
 author: shortpatti
 ms.date: 06/28/2019
 ms.reviewer: deverette
-ms.openlocfilehash: be50c8eaf789b6f0737cbe07cf10d041d25e74f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b813e3f978ad1e61e6770edcf26b1c716efcbbe4
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388200"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822483"
 ---
 # <a name="step-7-optional-conditional-access-for-vpn-connectivity-using-azure-ad"></a>Schritt 7 Optionale Bedingter Zugriff für VPN-Konnektivität mithilfe von Azure AD
 
@@ -79,17 +79,17 @@ Zum Bereitstellen des vertrauenswürdigen Stamm Zertifikats müssen Sie folgende
 
 ## <a name="step-75-create-oma-dm-based-vpnv2-profiles-to-windows-10-devicesvpn-create-oma-dm-based-vpnv2-profilesmd"></a>[Schritt 7,5. Erstellen von OMA-DM-basierten VPNv2-Profilen für Windows 10-Geräte](vpn-create-oma-dm-based-vpnv2-profiles.md)
 
-In diesem Schritt können Sie OMA-DM-basierte VPNv2-Profile mithilfe von InTune erstellen, um eine VPN-Geräte Konfigurationsrichtlinie bereitzustellen. Wenn Sie SCCM oder PowerShell-Skript zum Erstellen von VPNv2-Profilen verwenden möchten, finden Sie weitere Informationen unter [VPNv2 CSP Settings](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) .
+In diesem Schritt können Sie OMA-DM-basierte VPNv2-Profile mithilfe von InTune erstellen, um eine VPN-Geräte Konfigurationsrichtlinie bereitzustellen. Wenn Sie zum Erstellen von VPNv2-Profilen Configuration Manager oder PowerShell-Skript verwenden möchten, finden Sie weitere Informationen unter [VPNv2 CSP Settings](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) .
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 [Schritt 7,1. Konfigurieren von EAP-TLS zum Ignorieren der CRL-Überprüfung (Zertifikat Sperr Liste)](vpn-config-eap-tls-to-ignore-crl-checking.md): in diesem Schritt müssen Sie **IgnoreNoRevocationCheck** hinzufügen und festlegen, dass die Authentifizierung von Clients zugelassen wird, wenn das Zertifikat keine CRL-Verteilungs Punkte enthält. Standardmäßig ist IgnoreNoRevocationCheck auf 0 (deaktiviert) festgelegt.
 
-## <a name="related-topics"></a>Verwandte Themen
+## <a name="related-topics"></a>Zugehörige Themen
 
 - [Konfigurieren von VPNv2-Profilen](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access): der VPN-Client ist nun in der Lage, die cloudbasierte Plattform für den bedingten Zugriff zu integrieren, um eine Geräte Kompatibilitäts Option für Remote Clients bereitzustellen. In diesem Schritt konfigurieren Sie die VPNv2-Profile mit **\<devicecompliance > \<aktiviert > true\</Enabled >** .
 
-- [Verbessern des Remote Zugriffs in Windows 10 mit einem automatischen VPN-Profil](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile): erfahren Sie, wie Microsoft den bedingten Zugriff für VPN-Konnektivität implementiert. VPN-Profile enthalten alle Informationen, die ein Gerät für die Verbindung mit dem Unternehmensnetzwerk benötigt, einschließlich der unterstützten Authentifizierungsmethoden und des VPN-Servers, mit dem das Gerät eine Verbindung herstellen soll. Änderungen in Windows 10 Anniversary Update, einschließlich bedingtem Zugriff und Single Sign-on, ermöglichten es uns, unser Always-on-VPN-Verbindungsprofil zu erstellen. Wir haben das Verbindungsprofil für in die Domäne eingebundenen und Microsoft InTune verwaltete Geräte mithilfe System Center Configuration Manager-Konsole erstellt.
+- [Verbessern des Remote Zugriffs in Windows 10 mit einem automatischen VPN-Profil](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile): erfahren Sie, wie Microsoft den bedingten Zugriff für VPN-Konnektivität implementiert. VPN-Profile enthalten alle Informationen, die ein Gerät für die Verbindung mit dem Unternehmensnetzwerk benötigt, einschließlich der unterstützten Authentifizierungsmethoden und des VPN-Servers, mit dem das Gerät eine Verbindung herstellen soll. Änderungen in Windows 10 Anniversary Update, einschließlich bedingtem Zugriff und Single Sign-on, ermöglichten es uns, unser Always-on-VPN-Verbindungsprofil zu erstellen.
 
 - [Bedingter Zugriff in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal): Sicherheit ist bei Organisationen, die die Cloud nutzen, ein Hauptanliegen. Ein wichtiger Aspekt der cloudsicherheit ist die Identität und der Zugriff bei der Verwaltung Ihrer cloudressourcen. In einer mobilen, cloudbasierten Welt können Benutzer über eine Vielzahl von Geräten und apps von überall aus auf die Ressourcen Ihrer Organisation zugreifen. Daher reicht es nicht aus, sich auf eine Ressource zu konzentrieren, die auf eine Ressource zugreifen kann. Um das Gleichgewicht zwischen Sicherheit und Produktivität zu meistern, müssen IT-Experten auch berücksichtigen, wie auf eine Ressource über eine Zugriffs Steuerungs Entscheidung zugegriffen wird.
 

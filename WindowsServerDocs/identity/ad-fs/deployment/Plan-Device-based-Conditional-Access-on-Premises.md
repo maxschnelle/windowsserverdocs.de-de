@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 79dfc7fbf9e2dcc753829cc53d914f374010f925
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 00a7edf9529e1f116d951fd69d3bfa381d6d413a
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408338"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822753"
 ---
 # <a name="plan-device-based-conditional-access-on-premises"></a>Planen des gerätebasierten bedingten lokalen Zugriffs
 
@@ -25,19 +25,19 @@ In diesem Dokument werden Richtlinien für den bedingten Zugriff basierend auf G
 
 AD FS bietet die lokale Komponente der Richtlinien für den bedingten Zugriff in einem Hybrid Szenario.  Wenn Sie Geräte mit Azure AD für den bedingten Zugriff auf cloudressourcen registrieren, werden die Geräte Registrierungsinformationen von der Funktion zum Zurückschreiben von Azure AD Connect Geräten lokal zur Verfügung gestellt, damit AD FS Richtlinien genutzt und erzwungen werden können.  Auf diese Weise haben Sie einen konsistenten Ansatz für die Zugriffs Steuerungs Richtlinien sowohl für lokale als auch für cloudressourcen.  
 
-![Bedingter Zugriff](media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
+![bedingter Zugriff](media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
 
 ### <a name="types-of-registered-devices"></a>Typen registrierter Geräte  
 Es gibt drei Arten registrierter Geräte, die alle in Azure AD als Geräte Objekte dargestellt und auch für den bedingten Zugriff mit AD FS lokal verwendet werden können.  
 
 | |Geschäfts-oder Schul Konto hinzufügen  |Azure AD-Beitritt  |Windows 10-Domänen Beitritt    
 | --- | --- |--- | --- |
-|Beschreibung    |  Benutzer fügen ihr Geschäfts-, Schul-oder unikonto dem BYOD-Gerät interaktiv hinzu.  **Hinweis**: Das Hinzufügen eines Geschäfts-, Schul-oder unikontos ist der Ersatz für Workplace Join in Windows 8/8.1       | Benutzer fügen ihr Windows 10-Arbeitsgerät in Azure AD ein.|In die Domäne eingebundener Windows 10-Geräte werden automatisch bei Azure AD registriert|           
+|Beschreibung    |  Benutzer fügen ihr Geschäfts-, Schul-oder unikonto dem BYOD-Gerät interaktiv hinzu.  **Hinweis:** Das Hinzufügen eines Geschäfts-, Schul-oder unikontos ist der Ersatz für Workplace Join in Windows 8/8.1       | Benutzer fügen ihr Windows 10-Arbeitsgerät in Azure AD ein.|In die Domäne eingebundener Windows 10-Geräte werden automatisch bei Azure AD registriert|           
 |Anmelden von Benutzern beim Gerät     |  Keine Anmeldung bei Windows als Geschäfts-, Schul-oder unikonto.  Melden Sie sich mit einem Microsoft-Konto an.       |   Melden Sie sich bei Windows als (Geschäfts-, Schul-oder unikonto) an, das das Gerät registriert hat      |     Anmelden mit AD-Konto|      
-|Verwalten von Geräten    |      MDM-Richtlinien (mit zusätzlicher InTune-Registrierung)   | MDM-Richtlinien (mit zusätzlicher InTune-Registrierung)        |   Gruppenrichtlinie, System Center Configuration Manager (SCCM) |
+|Verwalten von Geräten    |      MDM-Richtlinien (mit zusätzlicher InTune-Registrierung)   | MDM-Richtlinien (mit zusätzlicher InTune-Registrierung)        |   Gruppenrichtlinie Configuration Manager |
 |Azure AD vertrauensungstyp|Arbeitsplatz Beitritt|Azure AD verknüpft|Domäne beigetreten  |     
 |Speicherort für die Einstellungen    | Einstellungen > Konten > Ihrem Konto > Hinzufügen eines Geschäfts-, Schul-oder unikontos        | Einstellungen > System > Informationen zum > Join Azure AD       |   Einstellungen > System > über > beitreten zu einer Domäne |       
-|Auch für IOS-und Android-Geräte verfügbar?   |    Ja     |       Nein  |   Nein   |   
+|Auch für IOS-und Android-Geräte verfügbar?   |    „Ja“     |       Nein  |   Nein   |   
 
   
 

@@ -1,6 +1,6 @@
 ---
 ms.assetid: eafdddc3-40d7-4a75-8f4f-a45294aabfc8
-title: Implementieren von sicheren Verwaltungshosts
+title: Implementieren von sicheren Administrative Hosts
 description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
@@ -9,14 +9,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 56986f2ea9f49bdfc1194ae5342798793524e86c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 241418b87fd0f1e6fa64c4b1267e6d9fcde6b0d3
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408610"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822763"
 ---
-# <a name="implementing-secure-administrative-hosts"></a>Implementieren von sicheren Verwaltungshosts
+# <a name="implementing-secure-administrative-hosts"></a>Implementieren von sicheren Administrative Hosts
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -84,7 +84,7 @@ Obwohl die spezifische Konfiguration abhängig von der Architektur ihrer adminis
 Sie sollten interaktive Anmeldungen durch autorisierte Benutzer zulassen und andere Anmelde Typen entfernen oder blockieren, die für den Server Zugriff nicht benötigt werden.  
   
 ### <a name="patch-and-configuration-management"></a>Patch-und Konfigurations Verwaltung  
-Kleinere Unternehmen können sich auf Angebote wie Windows Update oder [Windows Server Update Services](https://technet.microsoft.com/windowsserver/bb332157) (WSUS) verlassen, um die Bereitstellung von Updates für Windows-Systeme zu verwalten. größere Unternehmen implementieren jedoch möglicherweise die Software System Center Configuration Manager zur Verwaltung von Patches und Configuration Management, z. b. Unabhängig von den Mechanismen, die Sie zum Bereitstellen von Aktualisierungen Ihrer allgemeinen Server-und Arbeitsstations Population verwenden, sollten Sie separate bereit Stellungen für hochgradig sichere Systeme wie z. b. Domänen Controller, Zertifizierungsstellen und administrative Hosts in Erwägung gezogen. Wenn Sie diese Systeme von der allgemeinen Verwaltungsinfrastruktur trennen, kann die Gefährdung nicht einfach auf die sichersten Systeme in Ihrer Infrastruktur ausgeweitet werden, wenn Ihre Verwaltungssoftware oder Dienst Konten kompromittiert sind.  
+Kleinere Organisationen können sich auf Angebote wie z. b. Windows Update oder [Windows Server Update Services](https://technet.microsoft.com/windowsserver/bb332157) (WSUS) zum Verwalten der Bereitstellung von Updates für Windows-Systeme verlassen, während größere Unternehmen ggf. Lösungen für die Patchverwaltung und Configuration Management von Unternehmen wie Microsoft Endpoint Configuration Manager implementieren Unabhängig von den Mechanismen, die Sie zum Bereitstellen von Aktualisierungen Ihrer allgemeinen Server-und Arbeitsstations Population verwenden, sollten Sie separate bereit Stellungen für hochgradig sichere Systeme wie z. b. Domänen Controller, Zertifizierungsstellen und administrative Hosts in Erwägung gezogen. Wenn Sie diese Systeme von der allgemeinen Verwaltungsinfrastruktur trennen, kann die Gefährdung nicht einfach auf die sichersten Systeme in Ihrer Infrastruktur ausgeweitet werden, wenn Ihre Verwaltungssoftware oder Dienst Konten kompromittiert sind.  
   
 Obwohl Sie keine manuellen Update Prozesse für sichere Systeme implementieren sollten, sollten Sie eine separate Infrastruktur zum Aktualisieren sicherer Systeme konfigurieren. Auch in sehr großen Organisationen kann diese Infrastruktur in der Regel über dedizierte WSUS-Server und GPOs für gesicherte Systeme implementiert werden.  
   

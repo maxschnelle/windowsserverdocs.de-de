@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: a4587cff-c086-49f1-a0bf-cd74b8a44440
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 7fe8d948a5f43fdab394490f543f3583167bdfe9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 15d57d12679d7441da080ad671264ca1e5e1f42c
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406767"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822803"
 ---
 # <a name="branchcache"></a>BranchCache
 
@@ -136,7 +136,7 @@ Diese Dateiserver verwenden SMB (Server Message Block) zum Austauschen von Infor
 
 Zu den unterstützten Anwendungsservern zählen Computer, auf denen Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 oder Windows Server 2008 R2 mit installiertem und aktiviertem Bits (Bits) ausgeführt wird. 
 
-Außerdem muss auf dem Anwendungsserver das BranchCache-Feature installiert sein. Als Beispiele für Anwendungsserver können Sie Microsoft Windows Server Update Services (WSUS) und Microsoft System Center Configuration Manager Zweig Verteilungs Punkt-Server als BranchCache-Inhalts Server bereitstellen.
+Außerdem muss auf dem Anwendungsserver das BranchCache-Feature installiert sein. Als Beispiele für Anwendungsserver können Sie Microsoft Windows Server Update Services (WSUS) und Microsoft Endpoint Configuration Manager Zweig Verteilungs Punkt-Server als BranchCache-Inhalts Server bereitstellen.
 
 ## <a name="BKMK_3a"></a>BranchCache und die Cloud
 
@@ -192,13 +192,13 @@ Sie können Server-Manager in Windows Server 2016 verwenden, um entweder das Bra
 |-----------------|---------------------|------------------------------------|
 |Inhalts Server \(Bits-basierter Anwendungsserver\)|Zentrale oder Cloudrechenzentrum|BranchCache-Feature|
 |Inhalts Server \(Webserver\)|Zentrale oder Cloudrechenzentrum|BranchCache-Feature|
-|Inhalts Server \(Dateiserver mit dem SMB-Protokoll\)|Zentrale oder Cloudrechenzentrum|Rollendienst %%amp;quot;BranchCache für Netzwerkdateien%%amp;quot; der Serverrolle %%amp;quot;Dateidienste%%amp;quot;|
+|Inhalts Server \(Dateiserver mit dem SMB-Protokoll\)|Zentrale oder Cloudrechenzentrum|Rollendienst „BranchCache für Netzwerkdateien“ der Serverrolle „Dateidienste“|
 |Gehosteter Cacheserver|Filiale|BranchCache-Feature mit aktiviertem gehostetem Cacheservermodus|
 |BranchCache-fähiger Clientcomputer|Filiale|Keine Installation erforderlich. Aktivieren Sie einfach BranchCache und einen BranchCache-Modus \(verteilten oder gehosteten\) auf dem Client.|
 
 Öffnen Sie zum Installieren des Rollendiensts oder des Features den Server-Manager, und wählen Sie die Computer aus, für die die BranchCache-Funktion aktiviert werden soll. Klicken Sie im Server-Manager auf **Verwalten**und dann auf **Rollen und Features hinzufügen**. Der **Assistent zum Hinzufügen von Rollen und Features** wird geöffnet. Wählen Sie im Assistenten die folgenden Optionen aus:
 
-- Wählen Sie auf der Seite **Installationstyp auswählen** des Assistenten die Option **Rollenbasierte oder featurebasierte Installation** aus.
+- Wählen Sie auf der Seite **Installationstyp auswählen**des Assistenten die Option **Rollenbasierte oder featurebasierte Installation**aus.
 
 - Erweitern Sie auf der Assistenten Seite **Server Rollen auswählen**, wenn Sie einen BranchCache-fähigen Datei Server installieren, **Datei-und Speicherdienste** und Datei-und **iSCSI-Dienste**, und wählen Sie dann **BranchCache für Netzwerkdateien aus**.  Um Speicherplatz zu sparen, können Sie auch den Rollen Dienst **Datendeduplizierung** auswählen und dann den Assistenten für die Installation und Fertigstellung fortsetzen. Wenn Sie keinen BranchCache-fähigen Dateiserver installieren möchten, installieren Sie die Rolle "Datei-und Speicherdienste" nicht mit dem Rollen Dienst "BranchCache für Netzwerkdateien".
 
@@ -220,7 +220,7 @@ Die folgenden Betriebssysteme bieten BranchCache Unterstützung für Bits (Bits)
 
 - Windows 8 Enterprise
 
-- Windows 7 Enterprise
+- Windows 7 Enterprise
 
 - Windows 7 Ultimate
 
@@ -271,7 +271,7 @@ Außerdem können die folgenden Windows Server 2008 R2-Betriebssysteme als gehos
 
 ## <a name="bkmk_security"></a>BranchCache-Sicherheit
 
-Durch BranchCache wird ein Verfahren zur sicheren Codierung (%%amp:quot;Secure-by-Design%%amp:quot;) implementiert, das neben bestehenden Netzwerksicherheitsarchitekturen ohne zusätzliche Geräte oder komplexe weitere Sicherheitskonfigurationen ausgeführt wird.
+Durch BranchCache wird ein Verfahren zur sicheren Codierung („Secure-by-Design“) implementiert, das neben bestehenden Netzwerksicherheitsarchitekturen ohne zusätzliche Geräte oder komplexe weitere Sicherheitskonfigurationen ausgeführt wird.
   
 BranchCache ist nicht invasiv und wirkt sich nicht auf Windows-Authentifizierungs- oder -Autorisierungsprozesse aus. Nach der Bereitstellung von BranchCache erfolgt die Authentifizierung nach wie vor anhand von Domänenanmeldeinformationen, und die Autorisierung über Zugriffssteuerungslisten (Access Control Lists, ACL) wird unverändert durchgeführt. Auch andere Konfigurationen sind weiterhin in derselben Weise wie vor der Bereitstellung von BranchCache funktionsfähig.
 
@@ -450,7 +450,7 @@ Damit der gehostete Cacheserver mit dem Protokoll für gehostete Caches aktualis
 
 Der Vorgang zum Hinzufügen von Inhalt zum Cache des gehosteten Cache Servers in einer Zweigniederlassung beginnt, wenn der Client eine INITIAL_OFFER_MESSAGE sendet, die die Segment-ID enthält. Die Segment-ID in der INITIAL_OFFER_MESSAGE Anforderung wird verwendet, um den entsprechenden Segment Hash von Daten, die Liste der Blockhashes und das Segment Geheimnis aus dem Block Cache des gehosteten Cache Servers abzurufen. Wenn auf dem gehosteten Cacheserver bereits die Inhaltsinformationen für ein bestimmtes Segment vorhanden sind, lautet die Antwort auf die „INITIAL_OFFER_MESSAGE“-Anforderung „OK“, und es erfolgt keine Anforderung zum Herunterladen von Blöcken.
 
-Wenn auf dem gehosteten Cacheserver nicht alle angebotenen Datenblöcke vorhanden sind, die den Blockhashes in dem Segment zugeordnet sind, lautet die Antwort auf die „INITIAL_OFFER_MESSAGE“-Anforderung „INTERESTED“. Der Client sendet dann die %%amp;quot;SEGMENT_INFO_MESSAGE%%amp;quot;-Anforderung, in der das einzelne angebotene Segment beschrieben ist. Als Antwort wird durch den gehosteten Cacheserver eine %%amp;quot;OK%%amp;quot;-Nachricht gesendet und das Herunterladen der fehlenden Blöcke vom anbietenden Clientcomputer initiiert.
+Wenn auf dem gehosteten Cacheserver nicht alle angebotenen Datenblöcke vorhanden sind, die den Blockhashes in dem Segment zugeordnet sind, lautet die Antwort auf die „INITIAL_OFFER_MESSAGE“-Anforderung „INTERESTED“. Der Client sendet dann die „SEGMENT_INFO_MESSAGE“-Anforderung, in der das einzelne angebotene Segment beschrieben ist. Als Antwort wird durch den gehosteten Cacheserver eine „OK“-Nachricht gesendet und das Herunterladen der fehlenden Blöcke vom anbietenden Clientcomputer initiiert.
 
 Mit dem Segmentdatenhash, der Liste der Blockhashes und dem Segmentschlüssel wird sichergestellt, dass der heruntergeladene Inhalt nicht manipuliert oder in irgendeiner Weise verändert wurde. Die heruntergeladenen Blöcke werden dann dem Cache des gehosteten Cacheservers hinzugefügt.
 

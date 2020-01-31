@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: c0257b98-5633-4264-9df6-b6ffae80592c
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: b4e3c2f4a27652e7b28b826981d192d6a4c6c107
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0c112898217eb05ad2fd9b387f401ce129b47e54
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404560"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822693"
 ---
 # <a name="step-2-configure-the-remote-access-server"></a>Schritt 2 Konfigurieren des Remote Zugriffs Servers
 
@@ -30,7 +30,7 @@ In diesem Thema wird beschrieben, wie Sie die Client-und Servereinstellungen kon
 |Installieren der Remotezugriffsrolle|Installieren Sie die Remotezugriffsrolle.|  
 |Konfigurieren des Bereitstellungstypen|Konfigurieren Sie den Bereitstellungstypen als DirectAccess und VPN, nur DirectAccess, oder nur VPN|  
 |Konfigurieren von DirectAccess-Clients|Konfigurieren Sie den Remotezugriffsserver mit den Sicherheitsgruppen, die die DirectAccess-Clients enthalten.|  
-|Konfigurieren des Remotezugriffsservers|Konfigurieren Sie die Einstellungen des Remote Zugriffs Servers.|  
+|Konfigurieren des RAS-Servers|Konfigurieren Sie die Einstellungen des Remote Zugriffs Servers.|  
 |Konfigurieren des Infrastrukturservers|Konfigurieren Sie die Infrastrukturserver, die in der Organisation eingesetzt werden.|  
 |Konfigurieren von Anwendungsservern|Konfigurieren Sie die Anwendungsserver so, dass Authentifizierung und Verschlüsselung erforderlich sind.|  
 |Zusammenfassung der Konfiguration und alternative Gruppenrichtlinienobjekte|Zeigen Sie die Zusammenfassung der Remotezugriffskonfiguration an und ändern Sie bei Bedarf die Gruppenrichtlinienobjekte.|  
@@ -59,7 +59,7 @@ Sie müssen die Remote Zugriffs Rolle auf einem Server in Ihrer Organisation ins
   
 7. Klicken Sie auf **Weiter**, und klicken Sie dann auf **Installieren**.  
   
-8.  Überprüfen Sie im Dialogfeld **Installationsstatus**, ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
+8.  Überprüfen Sie im Dialogfeld **Installationsstatus** , ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
   
 ![der entsprechenden Windows PowerShell-](../../../../media/Step-2-Configure-the-Remote-Access-Server/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
@@ -130,7 +130,7 @@ Zum Bereitstellen des Remote Zugriffs müssen Sie den Server, der als RAS-Server
   
 5.  Client Computer Authentifizierung  
   
-#### <a name="to-configure-the-remote-access-server"></a>So konfigurieren Sie den Remotezugriffsserver  
+#### <a name="to-configure-the-remote-access-server"></a>So konfigurieren Sie den RAS-Server  
   
 1.  Klicken Sie im mittleren Bereich der Remotezugriffs-Verwaltungskonsole unter **Schritt 2 RAS-Server** auf **Konfigurieren**.  
   
@@ -177,7 +177,7 @@ Um die Infrastruktur Server in einer Remote Zugriffs Bereitstellung zu konfiguri
   
 4.  Auf der Seite **DNS-Suffixsuchliste** erkennt der Remote Zugriffs Server automatisch Domänen Suffixe in der Bereitstellung. Verwenden Sie die Schaltflächen **Hinzufügen** und **Entfernen** , um die Liste der Domänen Suffixe zu erstellen, die Sie verwenden möchten. Um ein neues Domänensuffix unter **Neues Suffix** hinzuzufügen, müssen Sie dass Suffix eingeben und anschließend auf **Hinzufügen** klicken. Klicken Sie auf **Weiter**.  
   
-5.  Fügen Sie auf der Seite **Verwaltung** Verwaltungs Server hinzu, die nicht automatisch erkannt werden, und klicken Sie dann auf **weiter**. Der Remotezugriff fügt die Domänencontroller und System Center Configuration Manager-Server automatisch hinzu.  
+5.  Fügen Sie auf der Seite **Verwaltung** Verwaltungs Server hinzu, die nicht automatisch erkannt werden, und klicken Sie dann auf **weiter**. Der Remote Zugriff fügt automatisch Domänen Controller und Configuration Manager Server hinzu.  
   
 6.  Klicken Sie auf **Fertig stellen**.  
   

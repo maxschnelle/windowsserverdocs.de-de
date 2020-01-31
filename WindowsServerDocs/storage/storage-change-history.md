@@ -7,14 +7,14 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.date: 12/20/2019
+ms.date: 1/16/2019
 description: Neue und aktualisierte Themen in der Dokumentation zu lokalem Speicher für Windows Server für IT-Experten.
-ms.openlocfilehash: d50d4ca5b49b7f895fad3d3866226f95c55ae485
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.openlocfilehash: eb0e4f5cd357718be298290930bdf6fb9f7f041f
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352774"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822603"
 ---
 # <a name="change-history-for-storage-topics-in-windows-server"></a>Änderungsverlauf für Speicher-Themen in Windows Server
 
@@ -24,7 +24,13 @@ In diesem Thema werden neue und aktualisierte Themen in der [Speicher](storage.m
 
 > Wenn Sie den Update Verlauf für Windows Server suchen, finden Sie weitere Informationen unter [Windows 10 und Windows Server 2019 Update History](https://support.microsoft.com/help/4464619) oder [Windows Server 2016 Update](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history)History.
 
-## <a name="december-2019"></a>Dezember 2019
+## <a name="january-2020"></a>2020. Januar
+
+| Neues oder geändertes Thema | Beschreibung |
+| --- | --- |
+|[Grundlagen und Bereitstellung des persistenten Speichers](storage-spaces/deploy-pmem.md) | Bekanntes Hardwareproblem hinzugefügt. |
+
+## <a name="december-2019"></a>Dezember 2019
 
 | Neues oder geändertes Thema                                        | Beschreibung |
 | ---                                                         | ---           |
@@ -33,7 +39,7 @@ In diesem Thema werden neue und aktualisierte Themen in der [Speicher](storage.m
 | [Zurückkonvertieren eines dynamischen Datenträgers in einer Basisfestplatte](disk-management/change-a-dynamic-disk-back-to-a-basic-disk.md) | Es wurde ein Fehler in der Befehlszeile korrigiert und einige Informationen auf der Grundlage von Kundenfeedback hinzugefügt. |
 
 
-## <a name="august-2019"></a>August 2019
+## <a name="august-2019"></a>2019. August
 
 | Neues oder geändertes Thema                                        | Beschreibung |
 | ---                                                         | ---           |
@@ -54,7 +60,7 @@ In diesem Thema werden neue und aktualisierte Themen in der [Speicher](storage.m
 |[Erstellen von Volumes](storage-spaces/create-volumes.md)| Es wurden Schritte und Videos zum Erstellen eines Volumes im Windows Admin Center hinzugefügt.|
 |[Erweitern von Volumes](storage-spaces/resize-volumes.md)| Es wurden Schritte und Videos zum Ändern der Größe eines Volumes im Windows Admin Center hinzugefügt.|
 
-## <a name="march-2019"></a>März 2019
+## <a name="march-2019"></a>2019. März
 
 |Neues oder geändertes Thema                                        |Beschreibung|
 |---                                                         |---           |
@@ -69,13 +75,13 @@ In diesem Thema werden neue und aktualisierte Themen in der [Speicher](storage.m
 |---                                                         |---           |
 |[Bekannte Probleme bei Storage Migration Service](storage-migration-service/known-issues.md)   | Problem hinzugefügt    |
 
-## <a name="january-2019"></a>Januar 2019
+## <a name="january-2019"></a>2019. Januar
 
 |Neues oder geändertes Thema                                        |Beschreibung|
 |---                                                         |---           |
 |[Grundlagen und Überwachung der Neusynchronisierung des Speichers](storage-spaces/understand-storage-resync.md)|Neues Thema|
 
-## <a name="december-2018"></a>Dezember 2018
+## <a name="december-2018"></a>Dezember 2018
 
 |Neues oder geändertes Thema                                        |Beschreibung|
 |---                                                         |---           |
@@ -112,7 +118,7 @@ In diesem Thema werden neue und aktualisierte Themen in der [Speicher](storage.m
 | [iSCSI-Zielserver](iscsi/iscsi-target-server.md) | Migriert von der [vorherigen Versions](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) Bibliothek.|
 | [Skalierbarkeitsgrenzen des iSCSI-Zielservers](iscsi/iscsi-target-server-limits.md) |Migriert von der [vorherigen Versions](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) Bibliothek.|
 
-## <a name="june-2018"></a>Juni 2018
+## <a name="june-2018"></a>2018. Juni
 
 |Neues oder geändertes Thema|Beschreibung|
 |---|---|

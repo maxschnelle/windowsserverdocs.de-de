@@ -1,6 +1,6 @@
 ---
-title: Migration von DirectAccess zu Always On-VPN
-description: Migration von DirectAccess zu Always On-VPN-erfordert einen bestimmten Prozess muss nach dem Migrieren von Clients, wodurch Racebedingungen zu, die Minimieren von der Durchführung der Schritte bei der Migration außerhalb der Reihenfolge auftreten.
+title: Migration von DirectAccess zu Always on-VPN
+description: Für die Migration von DirectAccess zu Always on VPN ist ein bestimmter Prozess zum Migrieren von Clients erforderlich. Dadurch können Racebedingungen minimiert werden, die durch das Ausführen von Migrations Schritten entstehen.
 manager: dougkim
 ms.prod: windows-server
 ms.technology: networking-ras
@@ -9,75 +9,75 @@ ms.assetid: eeca4cf7-90f0-485d-843c-76c5885c54b0
 ms.author: pashort
 author: shortpatti
 ms.date: 06/07/2018
-ms.openlocfilehash: 94852b33936ece0b329614f428e845f2c7a2ac6a
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 2bcbc7030d54e96b4ac120b943cc1adc0513feca
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59854581"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822638"
 ---
 # <a name="migrate-to-always-on-vpn-and-decommission-directaccess"></a>Migrieren zu Always On VPN und DirectAccess Außerbetriebnahme
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows 10
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows 10
 
-&#171;[ **Vorherigen:** Planen von DirectAccess auf Always On-VPN-migration](da-always-on-migration-planning.md)<br>
+&#171;[Zurück **:** Planen der DirectAccess-Always on für die VPN-Migration](da-always-on-migration-planning.md)<br>
 
-Migration von DirectAccess zu Always On-VPN-erfordert einen bestimmten Prozess muss nach dem Migrieren von Clients, wodurch Racebedingungen zu, die Minimieren von der Durchführung der Schritte bei der Migration außerhalb der Reihenfolge auftreten. Auf einer hohen Ebene besteht aus diesen vier primäre Schritte während der Migration:
+Für die Migration von DirectAccess zu Always on VPN ist ein bestimmter Prozess zum Migrieren von Clients erforderlich. Dadurch können Racebedingungen minimiert werden, die durch das Ausführen von Migrations Schritten entstehen. Der Migrationsprozess umfasst auf hoher Ebene die folgenden vier Hauptschritte:
 
-1.  **Stellen Sie eine Seite-an-Seite-VPN-Infrastruktur bereit.** Nachdem Sie ermittelt haben, Ihre Migrationsphasen und die Features, die in Ihrer Bereitstellung enthalten sein sollen, können Sie die VPN-Infrastruktur parallel mit der vorhandenen DirectAccess-Infrastruktur bereitstellen.  
+1.  **Stellen Sie eine Seite-an-Seite-VPN-Infrastruktur bereit.** Nachdem Sie die Migrations Phasen und die Features festgelegt haben, die Sie in die Bereitstellung einbeziehen möchten, stellen Sie die VPN-Infrastruktur nebeneinander mit der vorhandenen DirectAccess-Infrastruktur bereit.  
 
-2.  **Bereitstellen Sie Zertifikate und die Konfiguration für die Clients.**  Nachdem die VPN-Infrastruktur fertig ist, erstellen und veröffentlichen die erforderlichen Zertifikate an den Client. Wenn die Clients die Zertifikate erhalten haben, stellen Sie das Konfigurationsskript VPN_Profile.ps1 bereit. Alternativ können Sie Intune zum Konfigurieren des VPN-Clients verwenden. Verwenden Sie Microsoft System Center Configuration Manager oder Microsoft Intune, um die erfolgreiche VPN-Konfiguration-Bereitstellungen zu überwachen.
+2.  **Stellen Sie die Zertifikate und die Konfiguration für die Clients bereit.**  Sobald die VPN-Infrastruktur bereit ist, erstellen Sie die erforderlichen Zertifikate und veröffentlichen Sie auf dem Client. Wenn die Clients die Zertifikate erhalten haben, stellen Sie das Konfigurationsskript VPN_Profile. ps1 bereit. Alternativ können Sie InTune verwenden, um den VPN-Client zu konfigurieren. Verwenden Sie Microsoft Endpoint Configuration Manager oder Microsoft InTune, um erfolgreiche VPN-Konfigurations Bereitstellungen zu überwachen.
 
 3.  [!INCLUDE [remove-da-security-group-shortdesc-include](../includes/remove-da-security-group-shortdesc-include.md)]
 
 4.  [!INCLUDE [decommission-da-shortdesc-include](../includes/decommission-da-shortdesc-include.md)]
 
-Achten Sie bevor Sie während der Migration wird von DirectAccess mit Always On-VPN-beginnen darauf, dass Sie für die Migration geplant haben.  Wenn Sie nicht die Migration geplant haben, finden Sie unter [Planen von DirectAccess auf die Migration zu Always On-VPN-](da-always-on-migration-planning.md).
+Stellen Sie vor dem Starten des Migrations Vorgangs von DirectAccess zum Always on-VPN sicher, dass Sie die Migration geplant haben.  Wenn Sie die Migration nicht geplant haben, finden Sie weitere Informationen unter [Planen der DirectAccess-Always on für die VPN-Migration](da-always-on-migration-planning.md).
 
 >[!TIP] 
->In diesem Abschnitt ist es sich nicht um eine schrittweise bereitstellungsanleitung für Always On-VPN- sondern dient eher als Ergänzung zu [Always On-VPN-Bereitstellung für Windows Server und Windows 10](../vpn/always-on-vpn/deploy/always-on-vpn-deploy.md) und Anleitungen zur Migration-spezifische Bereitstellung bereitstellen.
+>Bei diesem Abschnitt handelt es sich nicht um eine schrittweise Bereitstellungs Anleitung für Always on-VPN, sondern um die Ergänzung [Always on VPN-Bereitstellung für Windows Server und Windows 10](../vpn/always-on-vpn/deploy/always-on-vpn-deploy.md) und zur Bereitstellung einer Migrations spezifischen Bereitstellungs Anleitung.
 
 ## <a name="deploy-a-side-by-side-vpn-infrastructure"></a>Bereitstellen einer Seite-an-Seite-VPN-Infrastruktur
 
-Sie stellen die VPN-Infrastruktur parallel mit der vorhandenen DirectAccess-Infrastruktur bereit.  Detaillierte Informationen finden Sie unter [Always On-VPN-Bereitstellung für Windows Server und Windows 10](../vpn/always-on-vpn/deploy/always-on-vpn-deploy.md) installieren und Konfigurieren der Always On-VPN-Infrastruktur. 
+Sie stellen die VPN-Infrastruktur nebeneinander mit der vorhandenen DirectAccess-Infrastruktur bereit.  Ausführliche Informationen finden Sie unter [Always on VPN-Bereitstellung für Windows Server und Windows 10](../vpn/always-on-vpn/deploy/always-on-vpn-deploy.md) , um die Always on VPN-Infrastruktur zu installieren und zu konfigurieren. 
 
-Seite-an-Seite-Deployment umfasst die folgenden grundlegenden Tasks:
+Die parallele Bereitstellung besteht aus den folgenden Hauptaufgaben:
 
-1.  Erstellen Sie die VPN-Benutzer, VPN-Server und NPS-Server-Gruppen.
+1.  Erstellen Sie die Gruppen VPN-Benutzer, VPN-Server und NPS-Server.
 
-2.  Erstellen Sie und veröffentlichen Sie die erforderlichen Zertifikatvorlagen.
+2.  Erstellen und veröffentlichen Sie die erforderlichen Zertifikat Vorlagen.
 
-3.  Registrieren Sie die Serverzertifikate.
+3.  Registrieren Sie die Server Zertifikate.
 
-4.  Installieren Sie und konfigurieren Sie für die Always On-VPN-RAS-Dienst.
+4.  Installieren und Konfigurieren des Remote Zugriffs Dienstanbieter für Always on-VPN.
 
 5.  Installieren und Konfigurieren von NPS.
 
-6.  Konfigurieren von DNS und die Firewallregeln für Always On-VPN.
+6.  Konfigurieren Sie DNS-und Firewallregeln für Always on-VPN.
 
-Die folgende Grafik zeigt eine visuelle Referenz für die infrastrukturänderungen für das DirectAccess-zu-Always On-VPN-Migration.
+Die folgende Abbildung bietet eine visuelle Referenz für die Infrastrukturänderungen in der gesamten DirectAccess-to –-always on-VPN-Migration.
 
 ![](../../media/DA-to-AlwaysOnVPN/6b64f322f945f837f22a32bf87a228f8.png)
 
-## <a name="deploy-certificates-and-vpn-configuration-script-to-the-clients"></a>Bereitstellen Sie Zertifikate und VPN-Konfigurationsskript für die Clients.
+## <a name="deploy-certificates-and-vpn-configuration-script-to-the-clients"></a>Bereitstellen von Zertifikaten und VPN-Konfigurations Skripts für Clients
 
-Obwohl der Großteil der VPN-Clientkonfiguration in der [Bereitstellen von Always On-VPN-](../vpn/always-on-vpn/deploy/always-on-vpn-deploy-deployment.md) Abschnitt zwei zusätzliche Schritte sind erforderlich, um die Migration von DirectAccess zu Always On-VPN-erfolgreich abgeschlossen. 
+Obwohl der Großteil der VPN-Client Konfiguration im Abschnitt bereitstellen [Always on VPN](../vpn/always-on-vpn/deploy/always-on-vpn-deploy-deployment.md) erforderlich ist, sind zwei zusätzliche Schritte erforderlich, um die Migration von DirectAccess zu Always on VPN erfolgreich abzuschließen. 
 
-Sie müssen sicherstellen, dass die **VPN_Profile.ps1** stammt _nach_ das Zertifikat wurde ausgestellt, damit der VPN-Client nicht versucht, ohne eine Verbindung herstellen. Zu diesem Zweck führen Sie ein Skript, das nur die Benutzer an, die registriert wurden im Zertifikat in Ihre VPN-Bereitstellung bereit-Gruppe fügt hinzu, die Sie zum Bereitstellen der Always On-VPN-Konfiguration verwenden.
+Sie müssen sicherstellen, dass die Datei " **VPN_Profile. ps1** " angezeigt wird, _nachdem_ das Zertifikat ausgestellt wurde, sodass der VPN-Client nicht versucht, eine Verbindung ohne diesen herzustellen. Hierzu führen Sie ein Skript aus, mit dem nur die Benutzer hinzugefügt werden, die sich im Zertifikat für Ihre Bereitstellung für die VPN-Bereitstellung registriert haben, die Sie zum Bereitstellen der Always on-VPN-Konfiguration verwenden.
 
 >[!NOTE] 
->Microsoft empfiehlt, dass Sie diesen Prozess testen, bevor Sie es auf Ihre Benutzer Migration Ringe ausführen.
+>Microsoft empfiehlt, dass Sie diesen Prozess testen, bevor Sie ihn für einen Ihrer Benutzer Migrations Ringe ausführen.
 
-1.  **Erstellen Sie und veröffentlichen Sie das VPN-Zertifikat, und aktivieren Sie die automatische Registrierung-Gruppenrichtlinienobjekt (GPO).** Für herkömmliche, auf Zertifikaten basierende Windows 10-VPN-Bereitstellungen wird ein Zertifikat, das Gerät oder der Benutzer ausgestellt, damit sie die Verbindung authentifizieren kann. Wenn das neue Authentifizierungszertifikat erstellt und für die automatische Registrierung veröffentlicht wird, muss erstellen und Bereitstellen von ein Gruppenrichtlinienobjekt mit der automatischen Registrierung-Einstellung so konfiguriert, dass der VPN-Benutzergruppe. Die Schritte zum Konfigurieren von Zertifikaten und die automatische Registrierung finden Sie unter [konfigurieren die Serverinfrastruktur](../vpn/always-on-vpn/deploy/vpn-deploy-server-infrastructure.md).
+1.  **Erstellen und veröffentlichen Sie das VPN-Zertifikat, und aktivieren Sie die automatische Registrierung Gruppenrichtlinie Objekt (GPO).** Bei herkömmlichen, Zertifikat basierten Windows 10-VPN-bereit Stellungen wird ein Zertifikat für das Gerät oder den Benutzer ausgestellt, damit es die Verbindung authentifizieren kann. Wenn das neue Authentifizierungszertifikat erstellt und für die automatische Registrierung veröffentlicht wird, müssen Sie ein Gruppenrichtlinien Objekt mit der Einstellung für die automatische Registrierung erstellen und bereitstellen, die für die Gruppe "VPN-Benutzer" konfiguriert ist. Die Schritte zum Konfigurieren von Zertifikaten und zur automatischen Registrierung finden Sie unter [Konfigurieren der Serverinfrastruktur](../vpn/always-on-vpn/deploy/vpn-deploy-server-infrastructure.md).
 
-2.  **Hinzufügen von Benutzern der Gruppe der VPN-Benutzer.** Fügen Sie beliebige Benutzer, die Sie der Gruppe der VPN-Benutzer zu migrieren. Diese Benutzer bleiben in dieser Sicherheitsgruppe, nachdem Sie sie migriert haben, sodass sie alle zertifikatupdates in der Zukunft empfangen zu können. Weiterhin Benutzer dieser Gruppe hinzufügen, bis Sie alle Benutzer von DirectAccess in Always On-VPN-verschoben haben. 
+2.  **Fügen Sie der Gruppe "VPN-Benutzer" Benutzer hinzu.** Fügen Sie Benutzer hinzu, die Sie zur Gruppe der VPN-Benutzer migrieren. Diese Benutzer bleiben in dieser Sicherheitsgruppe, nachdem Sie Sie migriert haben, damit Sie in Zukunft beliebige Zertifikat Updates empfangen können. Fügen Sie dieser Gruppe weiterhin Benutzer hinzu, bis Sie alle Benutzer aus DirectAccess in Always on VPN verschoben haben. 
 
-3.  **Identifizieren Sie Benutzer, die eine VPN-Authentifizierungszertifikat erhalten haben.** Migrieren Sie von DirectAccess, daher müssen Sie zum Hinzufügen einer Methode zum Identifizieren, wenn ein Client das erforderliche Zertifikat erhalten hat und bereit ist, die VPN-Konfigurationsinformationen zu empfangen. Führen Sie die **GetUsersWithCert.ps1** Skript, um Benutzer hinzuzufügen, die derzeit nonrevoked Zertifikate, die nicht mit dem Namen der angegebenen Vorlage stammen, zu einer angegebenen AD DS-Sicherheitsgruppe, ausgestellt werden. Z. B. nach dem Ausführen der **GetUsersWithCert.ps1** -Skript ausgegeben jeder Benutzer ein gültiges Zertifikat aus der Vorlage, der Gruppe "VPN-Bereitstellung bereit hinzugefügt wird" VPN-Authentifizierungszertifikat.
+3.  **Identifizieren Sie Benutzer, die ein VPN-Authentifizierungszertifikat erhalten haben.** Wenn Sie von DirectAccess migrieren, müssen Sie eine Methode hinzufügen, um zu identifizieren, wann ein Client das erforderliche Zertifikat erhalten hat und bereit ist, die VPN-Konfigurationsinformationen zu empfangen. Führen Sie das Skript " **getuserswithcert. ps1** " aus, um Benutzer hinzuzufügen, die derzeit nicht wider sperrte Zertifikate aus dem angegebenen Vorlagen Namen in eine angegebene AD DS Sicherheitsgruppe ausgegeben haben. Nach dem Ausführen des Skripts " **getuserswithcert. ps1** " wird z. b. jeder Benutzer, der ein gültiges Zertifikat aus der VPN-Authentifizierungszertifikat Vorlage ausgestellt hat, der Gruppe für die Bereitstellung von VPN-bereit Stellungen
 
     >[!NOTE] 
-    >Wenn Sie eine Methode, um zu ermitteln, wann ein Client das erforderliche Zertifikat erhalten hat, nicht verfügen, können Sie die VPN-Konfiguration bereitstellen, bevor der Benutzer, verursacht die VPN-Verbindung nicht das Zertifikat ausgestellt wurde. Um dies zu vermeiden, führen Sie die **GetUsersWithCert.ps1** Skript bei der Zertifizierungsstelle oder nach einem Zeitplan zum Synchronisieren von Benutzern, die das Zertifikat in der Gruppe "VPN-Bereitstellung bereit" erhalten haben. Dann werden dieser Sicherheitsgruppe können Sie Ihre VPN-Bereitstellung in System Center Configuration Manager oder Intune, der sicherstellt, dass der verwaltete Client die VPN-Konfiguration nicht erhält, bevor sie das Zertifikat empfangen hat als Ziel.
+    >Wenn Sie nicht über eine Methode verfügen, um zu ermitteln, wann ein Client das erforderliche Zertifikat erhalten hat, können Sie die VPN-Konfiguration bereitstellen, bevor das Zertifikat für den Benutzer ausgestellt wurde, wodurch die VPN-Verbindung fehlschlägt. Um diese Situation zu vermeiden, führen Sie das Skript " **getuserswithcert. ps1** " für die Zertifizierungsstelle oder einen Zeitplan aus, um die Benutzer, die das Zertifikat erhalten haben, für die Bereitstellungs Gruppe für die Bereitstellung von VPN- Anschließend verwenden Sie diese Sicherheitsgruppe, um Ihre VPN-Konfigurations Bereitstellung in Microsoft Endpoint Configuration Manager oder InTune als Ziel festzustellen. Dadurch wird sichergestellt, dass der verwaltete Client die VPN-Konfiguration nicht empfängt, bevor er das Zertifikat erhalten hat.
     
-    ### <a name="getuserswithcertps1"></a>GetUsersWithCert.ps1
+    ### <a name="getuserswithcertps1"></a>Getuserswithcert. ps1
     
     ```powershell
     Import-module ActiveDirectory
@@ -117,33 +117,33 @@ Sie müssen sicherstellen, dass die **VPN_Profile.ps1** stammt _nach_ das Zertif
       }
     ```
 
-4. Stellen Sie die Always On-VPN-Konfiguration bereit. Als das VPN Clientauthentifizierungszertifikate ausgestellt werden, und Sie führen die **GetUsersWithCert.ps1** Skripts, die Benutzer werden hinzugefügt, der Sicherheitsgruppe der VPN-Bereitstellung bereit.
+4. Stellen Sie die Always on-VPN-Konfiguration bereit. Wenn die VPN-Authentifizierungs Zertifikate ausgestellt werden und Sie das Skript " **getuserswithcert. ps1** " ausführen, werden die Benutzer der Sicherheitsgruppe für die Bereitstellung der VPN-Bereitstellung hinzugefügt.
 
 
-| Bei Verwendung von...  | Folge |
+| Wenn Sie...  | Dann... |
 | ---- | ---- |
-| System Center Configuration Manager | Erstellen Sie eine benutzersammlung, die basierend auf Mitgliedschaft in dieser Sicherheitsgruppe.<br><br>![](../../media/DA-to-AlwaysOnVPN/b38723b3ffcfacd697b83dd41a177f66.png)!|
-| Intune | Zielen Sie die Sicherheitsgruppe einfach direkt auf, nachdem er synchronisiert wird. |
+| Konfigurationsmanager | Erstellen Sie eine Benutzer Sammlung, die auf der Mitgliedschaft dieser Sicherheitsgruppe basiert.<br><br>![](../../media/DA-to-AlwaysOnVPN/b38723b3ffcfacd697b83dd41a177f66.png)!|
+| Intune | Richten Sie die Sicherheitsgruppe einfach direkt nach der Synchronisierung ein. |
 |
     
-Bei jeder Ausführung der **GetUsersWithCert.ps1** Konfigurationsskript, müssen Sie auch eine AD DS-Regel für die Ermittlung die Mitgliedschaft in Sicherheitsgruppen in System Center Configuration Manager aktualisieren ausführen. Stellen Sie außerdem sicher, dass die Aktualisierung der Gruppenmitgliedschaft für die bereitstellungssammlung häufig genug auftritt (mit der Regel Skript und Ermittlung ausgerichtet).
+Jedes Mal, wenn Sie das Konfigurationsskript " **getuserswithcert. ps1** " ausführen, müssen Sie auch eine AD DS Ermittlungs Regel ausführen, um die Sicherheitsgruppen Mitgliedschaft in Configuration Manager zu aktualisieren. Stellen Sie außerdem sicher, dass das Mitgliedschafts Update für die Bereitstellungs Sammlung häufig genug ist (mit dem Skript und der Ermittlungs Regel abgestimmt).
 
-Weitere Informationen zur Verwendung von System Center Configuration Manager oder Intune zum Bereitstellen von Always On-VPN-Clients für Windows finden Sie unter [Always On-VPN-Bereitstellung für Windows Server und Windows 10](../vpn/always-on-vpn/deploy/always-on-vpn-deploy.md). Achten Sie darauf, aber diese Migration-spezifische Aufgaben integrieren.
-
->[!NOTE] 
->Integrieren diese Migration-spezifische Aufgaben ist eine wichtige Unterschied zwischen einem einfachen Always On-VPN-Bereitstellung und Migration von DirectAccess zu Always On-VPN. Achten Sie darauf, dass die Sicherheitsgruppe, statt die Methode im Bereitstellungshandbuch als Ziel die Sammlung definieren.
-
-
-## <a name="remove-devices-from-the-directaccess-security-group"></a>Entfernen Sie Geräte aus der Sicherheitsgruppe für DirectAccess
-
-Als Benutzer des Zertifikats erhalten und die **VPN_Profile.ps1** Konfigurationsskript, daraufhin erfolgreiche VPN-Konfiguration Skripterstellung für die Bereitstellung in System Center Configuration Manager oder Intune entsprechen. Entfernen Sie nach jeder Bereitstellung Gerät des Benutzers aus der Sicherheitsgruppe für DirectAccess, damit Sie später DirectAccess entfernen können. Sowohl Intune als auch System Center Configuration Manager enthält Benutzerzuweisungsinformationen und Gerät Zuweisung können Sie die von den Geräten jedes Benutzers zu bestimmen.
+Weitere Informationen zur Verwendung von Configuration Manager oder InTune zum Bereitstellen von Always on-VPN für Windows-Clients finden Sie unter [Always on die VPN-Bereitstellung für Windows Server und Windows 10](../vpn/always-on-vpn/deploy/always-on-vpn-deploy.md). Stellen Sie jedoch sicher, dass Sie diese Migrations spezifischen Aufgaben integrieren.
 
 >[!NOTE] 
->Wenn Sie DirectAccess-Gruppenrichtlinienobjekte über Organisationseinheiten (Organizational Unit) anstatt Computergruppen anwenden, verschieben Sie die Computer-Objekt aus der Organisationseinheit des Benutzers.
+>Die Einbindung dieser Migrations spezifischen Aufgaben ist ein entscheidender Unterschied zwischen einer einfachen Always on-VPN-Bereitstellung und der Migration von DirectAccess zu Always on VPN. Stellen Sie sicher, dass Sie die Sammlung ordnungsgemäß als Ziel für die Sicherheitsgruppe definieren, anstatt die-Methode im Bereitstellungs Handbuch zu verwenden.
+
+
+## <a name="remove-devices-from-the-directaccess-security-group"></a>Entfernen von Geräten aus der DirectAccess-Sicherheitsgruppe
+
+Wenn Benutzer das Authentifizierungszertifikat und das Konfigurationsskript " **VPN_Profile. ps1** " erhalten, werden die entsprechenden erfolgreichen VPN-Konfigurationsskript Bereitstellungen in Configuration Manager oder InTune angezeigt. Entfernen Sie das Gerät des Benutzers nach jeder Bereitstellung aus der DirectAccess-Sicherheitsgruppe, damit Sie später DirectAccess entfernen können. Sowohl InTune als auch Configuration Manager enthalten Informationen zu Benutzer Geräte Zuweisungen, die Ihnen bei der Ermittlung der Geräte des Benutzers helfen.
+
+>[!NOTE] 
+>Wenn Sie DirectAccess-GPOs über Organisationseinheiten (OUs) anstelle von Computer Gruppen anwenden, verschieben Sie das Computer Objekt des Benutzers aus der Organisationseinheit.
 
 ## <a name="decommission-the-directaccess-infrastructure"></a>Außerbetriebnahme der DirectAccess-Infrastruktur
 
-Wenn Sie die Migration von den DirectAccess-Clients zu Always On-VPN-abgeschlossen haben, können Sie außer Betrieb setzen die DirectAccess-Infrastruktur und entfernen Sie die DirectAccess-Einstellungen von der Gruppenrichtlinie. Microsoft empfiehlt, die folgenden Schritte aus, um ordnungsgemäß zu DirectAccess in Ihrer Umgebung entfernen:
+Wenn Sie alle DirectAccess-Clients zu Always on VPN migriert haben, können Sie die DirectAccess-Infrastruktur außer Betrieb nehmen und die DirectAccess-Einstellungen aus Gruppenrichtlinie entfernen. Microsoft empfiehlt, die folgenden Schritte auszuführen, um DirectAccess ordnungsgemäß aus Ihrer Umgebung zu entfernen:
 
 1.  [!INCLUDE [remove-config-settings-shortdesc-include](../includes/remove-config-settings-shortdesc-include.md)]
 
@@ -151,13 +151,13 @@ Wenn Sie die Migration von den DirectAccess-Clients zu Always On-VPN-abgeschloss
 
 2.  [!INCLUDE [remove-da-security-group-shortdesc-include](../includes/remove-da-security-group-shortdesc-include.md)]
 
-3.  **Bereinigen Sie DNS.** Achten Sie darauf, dass Sie alle Datensätze aus Ihrem internen DNS-Server zu entfernen und öffentlicher DNS-Server im Zusammenhang mit DirectAccess können z. B. DA.contoso.com, DAGateway.contoso.com.
+3.  **Bereinigen Sie DNS.** Stellen Sie sicher, dass Sie alle Datensätze von Ihrem internen DNS-Server und dem öffentlichen DNS-Server im Zusammenhang mit DirectAccess entfernen, z. b. da.contoso.com, DAGateway.contoso.com.
 
 4.  [!INCLUDE [decommission-da-shortdesc-include](../includes/decommission-da-shortdesc-include.md)]
 
-5.  **Entfernen Sie alle DirectAccess-Zertifikate von Active Directory Certificate Services.** Wenn Sie für die Implementierung des DirectAccess-Computerzertifikate verwendet, entfernen Sie veröffentlichten Vorlagen aus dem Ordner "Zertifikatvorlagen" in der Zertifizierungsstellenkonsole.
+5.  **Entfernen Sie alle DirectAccess-Zertifikate aus Active Directory Zertifikat Diensten.** Wenn Sie Computer Zertifikate für die DirectAccess-Implementierung verwendet haben, entfernen Sie die veröffentlichten Vorlagen aus dem Ordner Zertifikat Vorlagen in der Zertifizierungsstellen Konsole.
 
 ## <a name="next-step"></a>Nächster Schritt
-Sie sind fertig Migration von DirectAccess zu Always On-VPN. 
+Die Migration von DirectAccess zu Always on VPN ist abgeschlossen. 
 
 ---

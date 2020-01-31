@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: 3c8feff2-cae1-4376-9dfa-21ad3e4d5d99
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 41c4de30482ff09cb0db8a113fa324b7299af43d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 08bd945bf808843286d390a089d9ac070b9a8813
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404535"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822683"
 ---
 # <a name="configure-a-multi-forest-deployment"></a>Configure a Multi-Forest Deployment
 
@@ -177,9 +177,9 @@ Die DNS-Suffixsuchliste ermöglicht es den Clients, anstelle von FQDNs Kurznamen
   
 2.  Klicken Sie auf der Seite **Netzwerkadressenserver** auf **Weiter**.  
   
-3.  Geben Sie auf der Seite **DNS** in der Tabelle alle zusätzlichen Namenssuffixe ein, die Teil des Unternehmensnetzwerks in %%amp;quot;Forest2%%amp;quot; sind. Geben Sie in **DNS-Serveradresse** die Adresse des DNS-Servers manuell ein, oder klicken Sie auf **Erkennen**. Wenn Sie die Adresse nicht eingeben, werden die neuen Einträge als NRPT-Ausnahmen angewendet. Klicken Sie dann auf **Weiter**.  
+3.  Geben Sie auf der Seite **DNS** in der Tabelle alle zusätzlichen Namenssuffixe ein, die Teil des Unternehmensnetzwerks in %%amp;quot;Forest2%%amp;quot; sind. Geben Sie in **DNS-Serveradresse**die Adresse des DNS-Servers manuell ein, oder klicken Sie auf **Erkennen**. Wenn Sie die Adresse nicht eingeben, werden die neuen Einträge als NRPT-Ausnahmen angewendet. Klicken Sie anschließend auf **Weiter**.  
   
-4.  Optional: Fügen Sie auf der Seite **DNS-Suffixsuchliste** DNS-Suffixe hinzu, indem Sie das Suffix in das Feld **Neues Suffix** eingeben und dann auf **Hinzufügen**klicken. Klicken Sie dann auf **Weiter**.  
+4.  Optional: Fügen Sie auf der Seite **DNS-Suffixsuchliste** DNS-Suffixe hinzu, indem Sie das Suffix in das Feld **Neues Suffix** eingeben und dann auf **Hinzufügen**klicken. Klicken Sie anschließend auf **Weiter**.  
   
 5.  Klicken Sie auf der Seite **Verwaltung** auf **Fertig stellen**.  
   
@@ -202,7 +202,7 @@ Der Remotezugriff verwaltet eine Liste von IPv6-Präfixen für Unternehmensresso
   
 2.  Klicken Sie im Setup-Assistenten für den RAS-Server auf **Präfixkonfiguration**.  
   
-3.  Fügen Sie auf der Seite **Präfixkonfiguration** unter **IPv6-Präfixe des internen Netzwerks** alle zusätzlichen IPv6-Präfixe durch Semikolons getrennt hinzu (z. B. 2001:db8:1::/64;2001:db8:2::/64). Klicken Sie dann auf **Weiter**.  
+3.  Fügen Sie auf der Seite **Präfixkonfiguration** unter **IPv6-Präfixe des internen Netzwerks**alle zusätzlichen IPv6-Präfixe durch Semikolons getrennt hinzu (z. B. 2001:db8:1::/64;2001:db8:2::/64). Klicken Sie anschließend auf **Weiter**.  
   
 4.  Klicken Sie auf der Seite **Authentifizierung** auf **Fertig stellen**.  
   
@@ -221,7 +221,7 @@ Damit Windows 8-Client Computer von Forest2 über DirectAccess auf Ressourcen zu
   
 2.  Klicken Sie im Assistenten zum Einrichten des DirectAccess-Clients auf **Gruppen auswählen**, und klicken Sie dann auf der Seite **Gruppen auswählen** auf **Hinzufügen**.  
   
-3.  Wählen Sie im Dialogfeld **Gruppen auswählen** die Sicherheitsgruppen aus, die DirectAccess-Clientcomputer enthalten. Klicken Sie dann auf **Weiter**.  
+3.  Wählen Sie im Dialogfeld **Gruppen auswählen** die Sicherheitsgruppen aus, die DirectAccess-Clientcomputer enthalten. Klicken Sie anschließend auf **Weiter**.  
   
 4.  Klicken Sie auf der Seite **Netzwerkkonnektivitäts-Assistent** auf **Fertig stellen**.  
   
@@ -236,11 +236,11 @@ Damit Windows 7-Client Computer von Forest2 über DirectAccess auf Ressourcen zu
 ### <a name="RefreshMgmtServers"></a>Aktualisieren der Liste der Verwaltungs Server  
 Der Remotezugriff erkennt automatisch die Infrastrukturserver in allen Gesamtstrukturen, die GPOs für die DirectAccess-Konfiguration enthalten. Wenn DirectAccess auf einem Server in %%amp;quot;Forest1%%amp;quot; bereitgestellt wurde, wird das Server-GPO in seine Domäne in %%amp;quot;Forest1%%amp;quot; geschrieben. Nachdem Sie den Zugriff auf DirectAccess für Clients in %%amp;quot;Forest2%%amp;quot; aktiviert haben, wird das Client-GPO in eine Domäne in %%amp;quot;Forest2%%amp;quot; geschrieben.  
   
-Die automatische Erkennung von Infrastrukturservern ist erforderlich, um über DirectAccess den Zugriff auf die Domänencontroller und System Center Configuration Manager zu ermöglichen. Sie müssen den Erkennungsprozess manuell starten.  
+Der automatische Ermittlungsprozess von Infrastruktur Servern ist erforderlich, um den Zugriff über DirectAccess auf die Domänen Controller und den Microsoft-Endpunkt Configuration Manager zuzulassen. Sie müssen den Erkennungsprozess manuell starten.  
   
 ##### <a name="to-refresh-the-management-servers-list"></a>So aktualisieren Sie die Liste der Verwaltungsserver  
   
-1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole auf **Konfiguration** und dann im Bereich **Aufgaben** auf **Verwaltungsserver aktualisieren**.  
+1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole auf **Konfiguration**und dann im Bereich **Aufgaben** auf **Verwaltungsserver aktualisieren**.  
   
 2.  Klicken Sie im Dialogfeld **Aktualisieren von Verwaltungsservern** auf **Schließen**.  
   

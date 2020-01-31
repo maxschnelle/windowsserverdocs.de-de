@@ -9,12 +9,12 @@ ms.date: 3/29/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0850145c9281c769c5a2b6532ccb56615abd11b3
-ms.sourcegitcommit: ff0db5ca093a31034ccc5e9156f5e9b45b69bae5
+ms.openlocfilehash: b50b1b7b43002c91ee849f352e255f520f6d96f0
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76725785"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822733"
 ---
 # <a name="required-updates-for-active-directory-federation-services-ad-fs-and-web-application-proxy-wap"></a>Erforderliche Updates für Active Directory-Verbunddienste (AD FS) (AD FS) und webanwendungsproxy (WAP)
 
@@ -28,6 +28,7 @@ Updates für Windows Server 2016 werden monatlich über Windows Update geliefert
 
 |Verarbeiten # |Beschreibung|Datum der Veröffentlichung
 |----- | ----- |-----
+|[4534271](https://support.microsoft.com/help/4534271/windows-10-update-kb4534271) | Behandelt eine potenzielle AD FS Chrome-Fehler aufgrund der Unterstützung neuer [SameSite](https://www.chromestatus.com/feature/5088147346030592) -Cookie-Richtlinien standardmäßig für die Version 80 von Google Chrome. Weitere Informationen finden Sie [hier](https://docs.microsoft.com/office365/troubleshoot/miscellaneous/chrome-behavior-affects-applications). |2020. Januar|
 |[CVE-2019-1126](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1126) | Dieses Sicherheitsupdate befasst sich mit einem Sicherheitsrisiko in Active Directory-Verbunddienste (AD FS) (AD FS), das es einem Angreifer ermöglichen könnte, die extranetsperrungsrichtlinie zu umgehen. |2019. Juli|
 |[4489889 (Betriebssystem Build 14393,2879)](https://support.microsoft.com/help/4489889/windows-10-update-kb4489889) | Adressiert ein Problem in Active Directory-Verbunddienste (AD FS) (AD FS), das bewirkt, dass eine doppelte Vertrauensstellung der vertrauenden Seite in der AD FS-Verwaltungskonsole angezeigt wird. Dies tritt auf, wenn Sie Vertrauens Stellungen der vertrauenden Seite mithilfe der AD FS Management Console erstellen oder anzeigen.</br></br> Adressiert ein Problem mit der Wartezeit für ein hohes Active Directory-Verbunddienste (AD FS) (AD FS)-webanwendungsproxy (WAP) (über 10.000 ms), das auftritt, während das Extranet Smart Lockout (ESL) auf AD FS 2016 aktiviert ist. Dieses Sicherheitsupdate adressiert das in [CVE-2018-16794](https://nvd.nist.gov/vuln/detail/CVE-2018-16794)beschriebene Sicherheitsrisiko. |2019. März|
 |[4487006 (Betriebssystem Build 14393,2828)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006) | Adressiert ein Problem, das bewirkt, dass Updates für eine Vertrauensstellung der vertrauenden Seite bei Verwendung von PowerShell oder der Active Directory-Verbunddienste (AD FS) (AD FS)-Verwaltungskonsole fehlschlagen. Dieses Problem tritt auf, wenn Sie eine Vertrauensstellung der vertrauenden Seite für die Verwendung einer Online-Metadaten-URL konfigurieren, die mehr als einen passiverequestorendpoint veröffentlicht. Der Fehler lautet: "MSIS7615: die in einer Vertrauensstellung der vertrauenden Seite angegebenen vertrauenswürdigen Endpunkte müssen für diese Vertrauensstellung der vertrauenden Seite eindeutig sein."  </br></br>Behandelt ein Problem, das aufgrund von Azure-Kenn Wort Schutzrichtlinien eine bestimmte Fehlermeldung für Kenn Wort Änderungen externer Komplexität anzeigt. |Februar 2019|
@@ -50,6 +51,7 @@ Im folgenden finden Sie eine Liste der Hotfixes und Updaterollups, die für Acti
 
 |Verarbeiten # |Beschreibung|Datum der Veröffentlichung
 |----- | ----- |-----
+|[4534309](https://support.microsoft.com/help/4534309/windows-8-1-kb4534309)| Behandelt eine potenzielle AD FS Chrome-Fehler aufgrund der Unterstützung neuer [SameSite](https://www.chromestatus.com/feature/5088147346030592) -Cookie-Richtlinien standardmäßig für die Version 80 von Google Chrome. Weitere Informationen finden Sie [hier](https://docs.microsoft.com/office365/troubleshoot/miscellaneous/chrome-behavior-affects-applications). |2020. Januar
 |[4507448](https://support.microsoft.com/help/4507448/windows-8-1-update-kb4507448)| Dieses Sicherheitsupdate befasst sich mit einem Sicherheitsrisiko in Active Directory-Verbunddienste (AD FS) (AD FS), das es einem Angreifer ermöglichen könnte, die extranetsperrungsrichtlinie zu umgehen. |2019. Juli
 |[4041685](https://support.microsoft.com/kb/4041685)|Es wurde ein AD FS Problem behoben, bei dem msisby ext-Cookies in Anforderungs Headern letztendlich das Größenlimit für Header überschreiten und die Authentifizierung mit dem HTTP-Statuscode 400 "Ungültige Anforderungs Header zu lang" verursachen können.</br></br>Es wurde ein Problem behoben, bei dem ADFS während der Authentifizierung "Prompt = Login" nicht mehr ignorieren kann. Die Option "deaktiviert" wurde hinzugefügt, um Szenarios wiederherzustellen, in denen die Authentifizierung ohne Kennwort verwendet wird.|Oktober 2017 Vorschau des Updaterollup
 |[4019217](https://support.microsoft.com/kb/4019217)|Arbeitsordner Clients, die den tokenbroker verwenden, funktionieren nicht, wenn Sie einen Server 2012 R2 AD FS Server verwenden.|Updaterollup vom Mai 2017 (Vorschau)

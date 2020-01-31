@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: ea7ecd52-4c12-4a49-92fd-b8c08cec42a9
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: ccfde5d13b9b2b722498e824d497a9b790875e14
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3ae66c125548e31603318a7e600c36c00df9d005
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404505"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822553"
 ---
 # <a name="step-3-configure-the-multisite-deployment"></a>Schritt 3 Konfigurieren der Bereitstellung für mehrere Standorte
 
@@ -38,7 +38,7 @@ Führen Sie nach dem Konfigurieren der Infrastruktur für mehrere Standorte die 
 > [!NOTE]  
 > Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_ConfigServer"></a>3,1. Konfigurieren von Remote Zugriffs Servern  
+## <a name="BKMK_ConfigServer"></a>3.1. Konfigurieren von Remote Zugriffs Servern  
 
   
 ### <a name="to-install-the-remote-access-role"></a>So installieren Sie die Remotezugriffsrolle  
@@ -63,7 +63,7 @@ Führen Sie nach dem Konfigurieren der Infrastruktur für mehrere Standorte die 
   
 10. Klicken Sie auf **Weiter**, und klicken Sie dann auf **Installieren**.  
   
-11.  Überprüfen Sie im Dialogfeld **Installationsstatus**, ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
+11.  Überprüfen Sie im Dialogfeld **Installationsstatus** , ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
   
   
 ![der entsprechenden Windows PowerShell-](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
@@ -77,7 +77,7 @@ Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vor
 Install-WindowsFeature RemoteAccess -IncludeManagementTools  
 ```  
   
-## <a name="BKMK_Admin"></a>3,2. Gewähren des Administrator Zugriffs  
+## <a name="BKMK_Admin"></a>3.2. Gewähren des Administrator Zugriffs  
   
 #### <a name="to-grant-administrator-permissions"></a>So erteilen Sie Administrator Berechtigungen  
   
@@ -99,7 +99,7 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 9. Wiederholen Sie diesen Vorgang auf allen RAS-Servern, die Teil der Bereitstellung für mehrere Standorte sein werden.  
   
-## <a name="BKMK_IPHTTPS"></a>3,3. Konfigurieren von IP-HTTPS für eine Bereitstellung mit mehreren Standorten  
+## <a name="BKMK_IPHTTPS"></a>3.3. Konfigurieren von IP-HTTPS für eine Bereitstellung mit mehreren Standorten  
 Auf jedem Remote Zugriffs Server, der der Bereitstellung für mehrere Standorte hinzugefügt wird, ist ein SSL-Zertifikat erforderlich, um die HTTPS-Verbindung mit dem IP-HTTPS-Webserver zu überprüfen. Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der lokalen Gruppe **Administratoren** oder eine gleichwertige Mitgliedschaft.  
   
 #### <a name="to-obtain-an-ip-https-certificate"></a>So erhalten Sie ein IP-HTTPS-Zertifikat  
@@ -338,7 +338,7 @@ Nachdem Sie mehrere Standorte in der Bereitstellung aktiviert haben, können Sie
 15. Klicken Sie im Dialogfeld **Einstiegspunkt hinzufügen** auf **Schließen** , und klicken Sie dann im Assistenten zum Hinzufügen von Einstiegspunkten auf **Schließen**.  
   
     > [!NOTE]  
-    > Wenn sich der hinzugefügte Einstiegspunkt in einer anderen Gesamtstruktur als die vorhandenen Einstiegspunkte oder Client Computer befindet, müssen Sie im Bereich **Tasks** auf **Verwaltungs Server aktualisieren** klicken, um die Domänen Controller und System Center Configuration Manager in der neuen Gesamtstruktur zu ermitteln.  
+    > Wenn sich der hinzugefügte Einstiegspunkt in einer anderen Gesamtstruktur als die vorhandenen Einstiegspunkte oder Client Computer befindet, müssen Sie im Bereich **Tasks** auf **Verwaltungs Server aktualisieren** klicken, um die Domänen Controller und Configuration Manager in der neuen Gesamtstruktur zu ermitteln.  
   
 16. Wiederholen Sie dieses Verfahren aus Schritt 2 für jeden Einstiegspunkt, den Sie der Bereitstellung für mehrere Standorte hinzufügen möchten.  
   

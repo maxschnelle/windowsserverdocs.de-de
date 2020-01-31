@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: a1ce7af5-f3fe-4fc9-82e8-926800e37bc1
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: c8db30d3c5512fc72648c7894d66b715850fb619
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 71a6d38b9c77b3b8c24b28f78114daa63f5bd527
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367306"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822533"
 ---
 # <a name="step-1-plan-the-remote-access-infrastructure"></a>Schritt 1 Planen der Infrastruktur für den Remote Zugriff
 
@@ -272,7 +272,7 @@ Bei Split-Brain-DNS-bereit Stellungen müssen Sie die vollständig im Internet u
   
 Wenn Sie in einer Split-Brain-DNS-Umgebung beide Versionen der Ressource verfügbar sein sollen, konfigurieren Sie Ihre Intranetressourcen mit Namen, die nicht die im Internet verwendeten Namen duplizieren. Weisen Sie Ihre Benutzer dann an, den alternativen Namen zu verwenden, wenn Sie auf die Ressource im Intranet zugreifen. Konfigurieren Sie z. b. www\.Internal.contoso.com als internen Namen von www\.contoso.com.  
   
-In einer Umgebung ohne Split-Brain-DNS unterscheidet sich der Internetnamespace vom Intranetnamespace. Die Contoso Corporation verwendet z. B. im Internet {1}contoso.com{2} und im Intranet {3}corp.contoso.com{4}. Da alle Intranetressourcen das DNS-Suffix corp.contoso.com verwenden, leitet die NRPT-Regel für corp.contoso.com alle DNS-Namensabfragen für Intranetressourcen an Intranet-DNS-Server weiter. DNS-Abfragen für Namen mit dem Suffix "contoso.com" stimmen nicht mit der Corp.contoso.com-Intranetnamespace-Regel in der NRPT und werden an Internet-DNS-Server gesendet. Bei einer Bereitstellung ohne Split-Brain-DNS ist für die NRPT keine zusätzliche Konfiguration erforderlich, da keine Doppelung der FQDNs für Intranet- und Internetressourcen auftritt. DirectAccess-Clients können auf Internet-und Intranetressourcen für Ihre Organisation zugreifen.  
+In einer Umgebung ohne Split-Brain-DNS unterscheidet sich der Internetnamespace vom Intranetnamespace. Die Contoso Corporation verwendet z. B. im Internet contoso.com und im Intranet corp.contoso.com. Da alle Intranetressourcen das DNS-Suffix corp.contoso.com verwenden, leitet die NRPT-Regel für corp.contoso.com alle DNS-Namensabfragen für Intranetressourcen an Intranet-DNS-Server weiter. DNS-Abfragen für Namen mit dem Suffix "contoso.com" stimmen nicht mit der Corp.contoso.com-Intranetnamespace-Regel in der NRPT und werden an Internet-DNS-Server gesendet. Bei einer Bereitstellung ohne Split-Brain-DNS ist für die NRPT keine zusätzliche Konfiguration erforderlich, da keine Doppelung der FQDNs für Intranet- und Internetressourcen auftritt. DirectAccess-Clients können auf Internet-und Intranetressourcen für Ihre Organisation zugreifen.  
   
 ##### <a name="plan-local-name-resolution-behavior-for-directaccess-clients"></a>Planen des Namens der lokalen Namensauflösung für DirectAccess-Clients  
 Wenn ein Name nicht mit DNS aufgelöst werden kann, kann der DNS-Client Dienst in Windows Server 2012, Windows 8, Windows Server 2008 R2 und Windows 7 die lokale Namensauflösung verwenden, mit der Link-Local-Multicast-Namensauflösung (LLMNR) und NetBIOS über TCP/IP-Protokollen, um den Namen im lokalen Subnetz aufzulösen. Die lokale Namensauflösung ist in der Regel für Peer-zu-Peer-Verbindungen erforderlich, wenn sich der Computer in privaten Netzwerken befindet, z. B. in einem Heimnetzwerk mit einem einzelnen Subnetz.  
@@ -323,9 +323,9 @@ DirectAccess-Clients initiieren die Kommunikation mit Verwaltungs Servern, die D
   
 -   Domänen Controller: die automatische Ermittlung von Domänen Controllern wird für die Domänen mit Client Computern und für alle Domänen in derselben Gesamtstruktur wie der Remote Zugriffs Server ausgeführt.  
   
--   System Center Configuration Manager Server  
+-   Microsoft Endpoint Configuration Manager-Server  
   
-Domänen Controller und System Center Configuration Manager Server werden automatisch erkannt, wenn DirectAccess erstmalig konfiguriert wird. Die erkannten Domänen Controller werden nicht in der-Konsole angezeigt, aber die Einstellungen können mithilfe von Windows PowerShell-Cmdlets abgerufen werden. Wenn Domänen Controller oder System Center Configuration Manager Server geändert werden, wird durch Klicken auf **Updateverwaltung Server** in der-Konsole die Management Server Liste aktualisiert.  
+Domänen Controller und Configuration Manager Server werden automatisch erkannt, wenn DirectAccess erstmalig konfiguriert wird. Die erkannten Domänen Controller werden nicht in der-Konsole angezeigt, aber die Einstellungen können mithilfe von Windows PowerShell-Cmdlets abgerufen werden. Wenn Domänen Controller oder Configuration Manager Server geändert werden, wird durch Klicken auf **Updateverwaltung Server** in der-Konsole die Management Server Liste aktualisiert.  
   
 **Verwaltungs Serveranforderungen**  
   
@@ -348,7 +348,7 @@ Wenn Sie eine Active Directory Umgebung für eine Remote Zugriffs Bereitstellung
   
     Wenn sich der Domänen Controller in einem Umkreis Netzwerk befindet (und daher über den Netzwerkadapter mit Internet Zugriff des Remote Zugriffs Servers erreichbar ist), verhindern Sie, dass der RAS-Server den Remote Zugriffs Server erreicht. Sie müssen auf dem Domänen Controller Paketfilter hinzufügen, um die Konnektivität mit der IP-Adresse des Internet Adapters zu verhindern.  
   
--   Der Remotezugriffsserver muss Domänenmitglied sein.  
+-   Der RAS-Server muss Domänenmitglied sein.  
   
 -   DirectAccess-Clients müssen Domänenmitglieder sein. Clients können folgenden Domänen angehören:  
   

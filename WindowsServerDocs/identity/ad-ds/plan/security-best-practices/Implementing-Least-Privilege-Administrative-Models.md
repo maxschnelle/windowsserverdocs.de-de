@@ -9,12 +9,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c8ad9b00070d5daef2e5aee43cfdee2d192bddae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f61bc1ccb7d9b09a17713946b5b8c2cc352f43ac
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367727"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822093"
 ---
 # <a name="implementing-least-privilege-administrative-models"></a>Implementieren von Verwaltungsmodellen der geringste Rechte
 
@@ -253,7 +253,7 @@ In anderen Fällen müssen Sie möglicherweise Sicherheitsgruppen erstellen und 
 3. Welchen Benutzern muss die Mitgliedschaft in einer Rolle gewährt werden.  
 4. Wie die Verwaltung von Rollen Mitgliedschaften ausgeführt wird.  
 
-In vielen Umgebungen kann es schwierig sein, rollenbasierte Zugriffs Steuerungen für die Verwaltung einer Active Directory Umgebung zu implementieren und zu warten. Wenn Sie klar definierte Rollen und Zuständigkeiten für die Verwaltung Ihrer IT-Infrastruktur festgelegt haben, können Sie zusätzliche Tools nutzen, um Sie bei der Erstellung einer verwaltbaren nbac-Bereitstellung zu unterstützen. Wenn z. b. Forefront Identity Manager (FIM) in Ihrer Umgebung verwendet wird, können Sie FIM verwenden, um die Erstellung und die Auffüllung von Verwaltungs Rollen zu automatisieren. Dies kann die laufende Verwaltung vereinfachen. Wenn Sie System Center Configuration Manager (SCCM) und System Center Operations Manager (SCOM) verwenden, können Sie anwendungsspezifische Rollen verwenden, um Verwaltungs-und Überwachungsfunktionen zu delegieren und außerdem eine konsistente Konfiguration und Überwachung über Systeme hinweg zu erzwingen. die Domäne. Wenn Sie eine Public Key-Infrastruktur (PKI) implementiert haben, können Sie Smartcards für die IT-Mitarbeiter, die für die Verwaltung der Umgebung verantwortlich sind, ausgeben und benötigen. Mithilfe der FIM-Anmelde Informationsverwaltung (FIM cm) können Sie die Verwaltung von Rollen und Anmelde Informationen für ihr administratives Personal auch kombinieren.  
+In vielen Umgebungen kann es schwierig sein, rollenbasierte Zugriffs Steuerungen für die Verwaltung einer Active Directory Umgebung zu implementieren und zu warten. Wenn Sie klar definierte Rollen und Zuständigkeiten für die Verwaltung Ihrer IT-Infrastruktur festgelegt haben, können Sie zusätzliche Tools nutzen, um Sie bei der Erstellung einer verwaltbaren nbac-Bereitstellung zu unterstützen. Wenn z. b. Forefront Identity Manager (FIM) in Ihrer Umgebung verwendet wird, können Sie FIM verwenden, um die Erstellung und die Auffüllung von Verwaltungs Rollen zu automatisieren. Dies kann die laufende Verwaltung vereinfachen. Wenn Sie Microsoft Endpoint Configuration Manager und System Center Operations Manager (SCOM) verwenden, können Sie anwendungsspezifische Rollen verwenden, um Verwaltungs-und Überwachungsfunktionen zu delegieren und außerdem eine konsistente Konfiguration und Überwachung über Systeme hinweg zu erzwingen. die Domäne. Wenn Sie eine Public Key-Infrastruktur (PKI) implementiert haben, können Sie Smartcards für die IT-Mitarbeiter, die für die Verwaltung der Umgebung verantwortlich sind, ausgeben und benötigen. Mithilfe der FIM-Anmelde Informationsverwaltung (FIM cm) können Sie die Verwaltung von Rollen und Anmelde Informationen für ihr administratives Personal auch kombinieren.  
 
 In anderen Fällen kann es für eine Organisation vorzuziehen sein, eine RBAC-Software von Drittanbietern bereitzustellen, die "Out-of-Box"-Funktionen bereitstellt. Kommerzielle, nicht-Windows-und nicht-Windows-Verzeichnisse und-Betriebssysteme für die rollenbasierte Zugriffs Steuerung für Active Directory, Windows und nicht-Windows-Verzeichnisse werden von einer Reihe von Anbietern angeboten. Bei der Wahl zwischen nativen Lösungen und Drittanbieter Produkten sollten Sie die folgenden Faktoren berücksichtigen:  
 

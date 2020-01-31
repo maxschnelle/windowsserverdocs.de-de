@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: aa3174f3-42af-4511-ac2d-d8968b66da87
 ms.author: pashort
 author: shortpatti
-ms.openlocfilehash: 9fa6fe4de0c8723c17f6a61717281d0a38d1b579
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bb8bb6dda6eab27413b462a4c7f17176fbed85a1
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388662"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822773"
 ---
 # <a name="step-1-plan-the-advanced-directaccess-infrastructure"></a>Schritt 1 Planen der erweiterten DirectAccess-Infrastruktur
 
@@ -415,7 +415,7 @@ Bei Split-Brain-DNS-bereit Stellungen müssen Sie die vollständig im Internet u
   
 Wenn in einer Split-Brain-DNS-Umgebung beide Versionen der Ressource verfügbar sein sollen, konfigurieren Sie die Intranetressourcen mit alternativen Namen, bei denen es sich nicht um Duplikate der Namen handelt, die im Internet verwendet werden, und weisen Sie die Benutzer an, im Intranet den alternativen Namen zu verwenden. So können Sie beispielsweise für das Intranet den alternativen Namen www.internal.contoso.com anstelle von www.contoso.com konfigurieren.  
   
-In einer Umgebung ohne Split-Brain-DNS unterscheidet sich der Internetnamespace vom Intranetnamespace. Die Contoso Corporation verwendet z. B. im Internet {1}contoso.com{2} und im Intranet {3}corp.contoso.com{4}. Da alle Intranetressourcen das DNS-Suffix corp.contoso.com verwenden, leitet die NRPT-Regel für corp.contoso.com alle DNS-Namensabfragen für Intranetressourcen an Intranet-DNS-Server weiter. DNS-Namensabfragen für Namen mit dem Suffix contoso.com entsprechen nicht der corp.contoso.com-Intranetnamespaceregel in der NRPT und werden daher an Internet-DNS-Server gesendet. Bei einer Bereitstellung ohne Split-Brain-DNS ist für die NRPT keine zusätzliche Konfiguration erforderlich, da keine Doppelung der FQDNs für Intranet- und Internetressourcen auftritt. DirectAccess-Clients können sowohl auf die Internet- als auch auf die Intranetressourcen ihrer Organisation zugreifen.  
+In einer Umgebung ohne Split-Brain-DNS unterscheidet sich der Internetnamespace vom Intranetnamespace. Die Contoso Corporation verwendet z. B. im Internet contoso.com und im Intranet corp.contoso.com. Da alle Intranetressourcen das DNS-Suffix corp.contoso.com verwenden, leitet die NRPT-Regel für corp.contoso.com alle DNS-Namensabfragen für Intranetressourcen an Intranet-DNS-Server weiter. DNS-Namensabfragen für Namen mit dem Suffix contoso.com entsprechen nicht der corp.contoso.com-Intranetnamespaceregel in der NRPT und werden daher an Internet-DNS-Server gesendet. Bei einer Bereitstellung ohne Split-Brain-DNS ist für die NRPT keine zusätzliche Konfiguration erforderlich, da keine Doppelung der FQDNs für Intranet- und Internetressourcen auftritt. DirectAccess-Clients können sowohl auf die Internet- als auch auf die Intranetressourcen ihrer Organisation zugreifen.  
   
 **Lokales Namensauflösungsverhalten für DirectAccess-Clients**  
   
@@ -465,9 +465,9 @@ DirectAccess-Clients initiieren die Kommunikation mit Verwaltungsservern, welche
   
 -   Domänen Controller: die automatische Ermittlung von Domänen Controllern wird für alle Domänen in derselben Gesamtstruktur wie der DirectAccess-Server und die Client Computer durchgeführt.  
   
--   System Center Configuration Manager Server: die automatische Ermittlung von System Center Configuration Manager Servern wird für alle Domänen in derselben Gesamtstruktur wie der DirectAccess-Server und die Client Computer ausgeführt.  
+-   Microsoft Endpoint Configuration Manager-Server: die automatische Ermittlung von Configuration Manager Servern wird für alle Domänen in derselben Gesamtstruktur wie der DirectAccess-Server und die Client Computer durchgeführt.  
   
-Domänencontroller und System Center Configuration Manager-Server werden automatisch erkannt, wenn DirectAccess erstmalig konfiguriert wird. Erkannte Domänen Controller werden nicht in der-Konsole angezeigt, aber die Einstellungen können mithilfe des Windows PowerShell-Cmdlets **Get-damgmtserver-Type all**abgerufen werden. Wenn der Domänencontroller oder System Center Configuration Manager-Server geändert werden, wird durch Klicken auf **Verwaltungsserver aktualisieren** in der Remotezugriffs-Verwaltungskonsole die Verwaltungsserverliste aktualisiert.  
+Domänen Controller und Configuration Manager Server werden automatisch erkannt, wenn DirectAccess erstmalig konfiguriert wird. Erkannte Domänen Controller werden nicht in der-Konsole angezeigt, aber die Einstellungen können mithilfe des Windows PowerShell-Cmdlets **Get-damgmtserver-Type all**abgerufen werden. Wenn Domänen Controller oder Configuration Manager Server geändert werden, wird durch Klicken auf **Verwaltungs Server aktualisieren** in der Remote Zugriffs-Verwaltungskonsole die Management Server Liste aktualisiert.  
   
 **Verwaltungs Serveranforderungen**  
   

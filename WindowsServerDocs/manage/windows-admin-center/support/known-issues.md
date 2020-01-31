@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: 59c659041c7553d8e97a3bfbefbc3bde24098ef2
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 4a91d09d6824795a21a9a7cdc7695c407aa70756
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949937"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822703"
 ---
 # <a name="windows-admin-center-known-issues"></a>Windows Admin Center – bekannte Probleme
 
@@ -82,7 +82,7 @@ Geben Sie `$PSVersiontable` in PowerShell ein, um zu prüfen, ob WMF 5.1 oder ei
 
 Wenn dies nicht der Fall ist, können Sie [herunterladen und WMF 5.1 installieren](https://www.microsoft.com/download/details.aspx?id=54616).
 
-## <a name="role-based-access-control-rbac"></a>Rollenbasierte Zugriffssteuerung (role-based access control, RBAC)
+## <a name="role-based-access-control-rbac"></a>Rollenbasierte Access Control (RBAC)
 
 - RBAC-Bereitstellung ist auf Computern, die für die Windows Defender-Anwendungssteuerung (WDAC, früher als Integrität des Codes bezeichnet) konfiguriert werden, nicht erfolgreich [16568455]
 
@@ -201,7 +201,7 @@ Die Computer-Management-Lösung enthält eine Teilmenge der Tools der Server-Man
 
 - Wenn Sie einen Cluster verwalten (entweder hyperkonvergent oder herkömmlich) tritt möglicherweise der Fehler **shell was not found** auf. Laden Sie in diesem Fall entweder Ihren Browser erneut oder navigieren Sie zu einem anderen Tool und zurück. [13882442]
 
-- Ein Problem kann auftreten, wenn Sie einen älteren Cluster verwalten (Windows Server 2012 oder 2012 R2), der nicht vollständig konfiguriert wurde. Die Fehlerbehebung für dieses Problem besteht darin, sicherzustellen, dass das Windows-Feature **RSAT-Clustering-PowerShell** installiert und auf **jedem Mitgliedsknoten** des Clusters aktiviert wurde. Um dies mit PowerShell auszuführen, geben Sie den Befehl `Install-WindowsFeature -Name RSAT-Windows-PowerShell` auf den Clusterknoten an. [12524664]
+- Ein Problem kann auftreten, wenn Sie einen älteren Cluster verwalten (Windows Server 2012 oder 2012 R2), der nicht vollständig konfiguriert wurde. Die Fehlerbehebung für dieses Problem besteht darin, sicherzustellen, dass das Windows-Feature **RSAT-Clustering-PowerShell** installiert und auf **jedem Mitgliedsknoten** des Clusters aktiviert wurde. Um dies mit PowerShell auszuführen, geben Sie den Befehl `Install-WindowsFeature -Name RSAT-Clustering-PowerShell` auf den Clusterknoten an. [12524664]
 
 - Cluster müssen möglicherweise über den gesamten FQDN hinzugefügt werden, um richtig erkannt zu werden.
 

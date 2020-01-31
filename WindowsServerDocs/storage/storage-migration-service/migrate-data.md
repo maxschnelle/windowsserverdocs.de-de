@@ -8,12 +8,12 @@ ms.date: 02/13/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 4da69087ab1df6200394b36c938cb05ec5185045
-ms.sourcegitcommit: 3f54036c74c5a67799fbc06a8a18a078ccb327f9
+ms.openlocfilehash: 20aa5fbc40efc5a3a439361dadfac0f47f4b41d8
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124888"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822623"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Verwenden von Storage Migration Service zum Migrieren eines Servers
 
@@ -25,18 +25,19 @@ Bevor Sie beginnen, installieren Sie den Speicher Migrationsdienst, und stellen 
 
 1. Überprüfen Sie die Anforderungen an den [Speicher Migrationsdienst](overview.md#requirements) , und installieren Sie das [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md) auf Ihrem PC oder eine Management Server, sofern noch nicht geschehen. Wenn Sie in die Domäne eingebundenen Quell Computern migrieren, müssen Sie den Speicher Migrationsdienst auf einem Server installieren und ausführen, der der gleichen Domäne oder Gesamtstruktur wie die Quellcomputer beigetreten ist.
 2. Stellen Sie im Windows Admin Center eine Verbindung zum Orchestrator-Server her, auf dem Windows Server 2019 ausgeführt wird. <br>Dies ist der Server, auf dem Sie den Speicher Migrationsdienst installieren und zum Verwalten der Migration verwenden. Wenn Sie nur einen Server migrieren, können Sie den Zielserver verwenden, sofern er Windows Server 2019 ausgeführt wird. Es wird empfohlen, einen separaten Orchestrierungs Server für multiservermigrationen zu verwenden.
-1. Wechseln Sie zu **Server-Manager** (in Windows Admin Center) > **Storage Migration Service** , und wählen Sie **Installieren** aus, um den Speicher Migrationsdienst und die erforderlichen Komponenten zu installieren (siehe Abbildung 1).
+3. Wechseln Sie zu **Server-Manager** (in Windows Admin Center) > **Storage Migration Service** , und wählen Sie **Installieren** aus, um den Speicher Migrationsdienst und die erforderlichen Komponenten zu installieren (siehe Abbildung 1).
     ![Screenshot der Seite "Storage Migration Service" mit der Schaltfläche "installieren"](media/migrate/install.png) **Abbildung 1: Installieren von Storage Migration Service**
-1. Installieren Sie den Speicher Migrationsdienst-Proxy auf allen Ziel Servern, auf denen Windows Server 2019 ausgeführt wird. Dadurch wird die Übertragungsgeschwindigkeit bei der Installation auf den Ziel Servern verdoppelt. <br>Stellen Sie hierzu im Windows Admin Center eine Verbindung mit dem Zielserver her, und navigieren Sie dann zu **Server-Manager** (im Windows Admin Center) > **Rollen und Features**, wählen Sie **Speicher Migrationsdienst-Proxy**aus, und klicken Sie dann auf **Installieren**.
-1. Stellen Sie auf allen Quell Servern und auf allen Ziel Servern, auf denen Windows Server 2012 R2 oder Windows Server 2016 ausgeführt wird, im Windows Admin Center eine Verbindung mit jedem Server her, und navigieren Sie zu **Server-Manager** (in Windows Admin Center **) >** Firewall > **Eingehende Regeln**, und überprüfen Sie dann, ob die folgenden Regeln aktiviert sind:
+4. Installieren Sie den Speicher Migrationsdienst-Proxy auf allen Ziel Servern, auf denen Windows Server 2019 ausgeführt wird. Dadurch wird die Übertragungsgeschwindigkeit bei der Installation auf den Ziel Servern verdoppelt. <br>Stellen Sie hierzu im Windows Admin Center eine Verbindung mit dem Zielserver her, und navigieren Sie dann zu **Server-Manager** (im Windows Admin Center) > **Rollen und Features**, > **Features**, wählen Sie **Speicher Migrationsdienst-Proxy**aus, und wählen Sie dann **Installieren**aus. 
+5. Wenn Sie beabsichtigen, zu oder von Windows-Failoverclustern zu migrieren, installieren Sie die Failoverclustering-Tools auf dem Orchestrator-Server. <br>Stellen Sie hierzu im Windows Admin Center eine Verbindung mit dem Orchestrator-Server her, und navigieren Sie dann zu **Server-Manager** (im Windows Admin Center) > **Rollen und Features**> **Features**, > **Remoteserver-Verwaltungstools**, > **featureverwaltungtools**, wählen Sie **Failoverclustering-Tools**aus, und wählen Sie dann **Installieren**aus. 
+6. Stellen Sie auf allen Quell Servern und auf allen Ziel Servern, auf denen Windows Server 2012 R2 oder Windows Server 2016 ausgeführt wird, im Windows Admin Center eine Verbindung mit jedem Server her, und navigieren Sie zu **Server-Manager** (in Windows Admin Center **) >** Firewall > **Eingehende Regeln**, und überprüfen Sie dann, ob die folgenden Regeln aktiviert sind:
     - Datei- und Druckerfreigabe (SMB eingehend)
     - Anmeldedienst (NP-in)
-    - Windows Management Instrumentation (DCOM-In)
+    - Windows-Verwaltungsinstrumentation (DCOM-in)
     - Windows-Verwaltungsinstrumentation (WMI-In)
 
    Wenn Sie Firewalls von Drittanbietern verwenden, sind die zu öffnenden eingehenden Port Bereiche TCP/445 (SMB), TCP/135 (RPC/DCOM Endpoint Mapper) und TCP 1025-65535 (kurzlebige RPC/DCOM-Ports). Die Ports für den Speicher Migrationsdienst sind TCP/28940 (Orchestrator) und TCP/28941 (Proxy).
 
-1. Wenn Sie einen Orchestrator-Server zum Verwalten der Migration verwenden und Ereignisse oder ein Protokoll der übertragenden Daten herunterladen möchten, überprüfen Sie, ob die Firewallregel für die Datei-und Druckerfreigabe (SMB-in) ebenfalls auf diesem Server aktiviert ist.
+7. Wenn Sie einen Orchestrator-Server zum Verwalten der Migration verwenden und Ereignisse oder ein Protokoll der übertragenden Daten herunterladen möchten, überprüfen Sie, ob die Firewallregel für die Datei-und Druckerfreigabe (SMB-in) ebenfalls auf diesem Server aktiviert ist.
 
 ## <a name="step-1-create-a-job-and-inventory-your-servers-to-figure-out-what-to-migrate"></a>Schritt 1: Erstellen eines Auftrags und Inventarisieren der Server, um herauszufinden, was migriert werden soll
 
@@ -105,7 +106,7 @@ In diesem Schritt können Sie die Quell Server auf die Zielserver übertragen un
 3. Geben Sie auf der Seite **Konfigurieren des umgebers** an, welcher Netzwerkadapter auf dem Ziel die Einstellungen der einzelnen Adapter auf der Quelle übernehmen soll. Dadurch wird die IP-Adresse von der Quelle zum Ziel im Rahmen der Umstellung verschoben, sodass der Quell Server eine neue DHCP-oder statische IP-Adresse hat. Sie haben die Möglichkeit, alle Netzwerk Migrationen oder bestimmte Schnittstellen zu überspringen. 
 4. Geben Sie an, welche IP-Adresse für den Quell Server verwendet werden soll, nachdem der Umstellung seine Adresse zum Ziel verschoben hat. Sie können DHCP oder eine statische Adresse verwenden. Wenn eine statische Adresse verwendet wird, muss das neue Subnetz mit dem alten Subnetz identisch sein, oder der Umstellung schlägt fehl.
     ![Screenshot, der einen Quell Server und seine IP-Adressen und Computernamen anzeigt und nach dem Umstellung ersetzt wird](media/migrate/cutover.png) **Abbildung 4: ein Quell Server und die Art und Weise, wie die Netzwerkkonfiguration auf das Ziel verschoben wird**
-5. Geben Sie an, wie der Quell Server umbenannt werden soll, nachdem der Zielserver seinen Namen übernommen hat. Sie können einen zufällig generierten Namen verwenden oder einen selbst eingeben. Klicken Sie dann auf **Weiter**.
+5. Geben Sie an, wie der Quell Server umbenannt werden soll, nachdem der Zielserver seinen Namen übernommen hat. Sie können einen zufällig generierten Namen verwenden oder einen selbst eingeben. Klicken Sie dann auf **weiter**.
 6. Wählen Sie auf der Seite Einstellungen für den **Umschalter anpassen** die Option **weiter** aus.
 7. Wählen **Sie überprüfen** auf der Seite **Quell-und Zielgerät** überprüfen aus, und klicken Sie dann auf **weiter**.
 8. Wenn Sie bereit sind, den Umschalter auszuführen, wählen Sie die Option **Start**Seite aus. <br>Benutzer und Apps können Unterbrechungen auftreten, während die Adressen und Namen verschoben werden und die Server mehrmals neu gestartet werden, aber andernfalls von der Migration nicht betroffen sind. Wie lange es dauert, hängt von der Art und Weise ab, wie schnell der Server neu gestartet wird, sowie von Active Directory und DNS-Replikations Zeiten.
@@ -114,4 +115,4 @@ In diesem Schritt können Sie die Quell Server auf die Zielserver übertragen un
 
 - [Übersicht über den Speicher Migrationsdienst](overview.md)
 - [Häufig gestellte Fragen (FAQ) zu Storage Migration Services](faq.md)
-- [Planung für die Bereitstellung einer Azure-Dateisynchronisierung](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)
+- [Planen einer Azure-Dateisynchronisierung Bereitstellung](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)
