@@ -253,7 +253,7 @@
 ### [Planen für SDN](sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md)
 #### [Installation und Anforderungen an die Vorbereitung für die Bereitstellung von Netzwerkcontrollern](sdn/plan/Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md)
 
-### [Bereitstellen von SDN](sdn/deploy/Deploy-Software-Defined-Networking.md)
+### Bereitstellen von SDN
 #### [Bereitstellen einer SDN-Infrastruktur](sdn/deploy/Deploy-a-Software-Defined-Network-Infrastructure.md)
 ##### [Bereitstellen einer SDN-Infrastruktur mithilfe von Skripts](sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md)
 #### [Bereitstellen von SDN-Technologien mit Windows PowerShell](sdn/deploy/Deploy-Software-Defined-Network-Technologies-using-Windows-powershell.md)

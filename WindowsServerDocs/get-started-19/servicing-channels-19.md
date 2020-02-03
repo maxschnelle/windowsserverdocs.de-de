@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 05/21/2019
-ms.openlocfilehash: 3d443ff123cc041196f59d93d156415c34bdf70f
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 06f92e0a2f74ed229b42e936583a7f75d4584234
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947870"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822113"
 ---
 # <a name="windows-server-servicing-channels-ltsc-and-sac"></a>Windows Server-Wartungskanäle: LTSC und SAC
 
@@ -76,9 +76,9 @@ Es gibt viele Tools, mit denen IT-Experten Windows Server warten können. Jede O
 
 - **Windows Update (eigenständig)** : Diese Option steht nur für Server zur Verfügung, die mit dem Internet verbunden sind und Windows Update aktiviert haben.
 - **Windows Server Update Services (WSUS)** bietet umfassende Kontrolle über Updates für Windows 10 sowie Windows Server und ist im Windows Server-Betriebssystem standardmäßig verfügbar. Neben dem Zurückstellen von Updates haben Organisationen auch die Möglichkeit, eine Genehmigungsebene für Updates hinzuzufügen und diese auf bestimmten Computern oder Computergruppen bereitzustellen, sobald sie bereit sind.
-- **System Center Configuration Manager** bietet die höchstmögliche Kontrolle über die Wartung. IT-Spezialisten können Updates zurückstellen und genehmigen und verfügen über mehrere Optionen für Bereitstellungszielgruppen und die Verwaltung der Bandbreitenverwendung und Bereitstellungszeiten.
+- **Microsoft Endpoint Configuration Manager** bietet die höchstmögliche Kontrolle über die Wartung. IT-Spezialisten können Updates zurückstellen und genehmigen und verfügen über mehrere Optionen für Bereitstellungszielgruppen und die Verwaltung der Bandbreitenverwendung und Bereitstellungszeiten.
 
-Sie haben sich auf der Grundlage Ihrer Ressourcen, Ihrer Mitarbeiter und Ihrer Erfahrung vermutlich bereits für mindestens eine dieser Optionen entschieden. Sie können das gleiche Verfahren für Releases im halbjährlichen Kanal auch weiterhin verwenden: Wenn Sie beispielsweise bereits System Center Configuration Manager zum Verwalten von Updates verwenden, können Sie damit fortfahren. Ebenso ist die Verwendung von WSUS weiterhin möglich.
+Sie haben sich auf der Grundlage Ihrer Ressourcen, Ihrer Mitarbeiter und Ihrer Erfahrung vermutlich bereits für mindestens eine dieser Optionen entschieden. Sie können das gleiche Verfahren für Releases im halbjährlichen Kanal auch weiterhin verwenden: Wenn Sie beispielsweise bereits Configuration Manager zum Verwalten von Updates verwenden, können Sie damit fortfahren. Ebenso ist die Verwendung von WSUS weiterhin möglich.
 
 ## <a name="where-to-obtain-semi-annual-channel-releases"></a>Bezug von Releases im halbjährlichen Kanal
 
