@@ -226,7 +226,7 @@ Nachdem die neue Kopfzeile festgelegt wurde, wird Sie in der AD FS-Antwort (unte
 ## <a name="web-browser-compatibility"></a>Webbrowser Kompatibilität
 Verwenden Sie die folgende Tabelle und die Links, um zu bestimmen, welche Webbrowser mit den einzelnen Sicherheits Antwort Headern kompatibel sind.
 
-|HTTP-Sicherheits Antwortheader|Browserkompatibilität|
+|HTTP-Sicherheits Antwortheader|Browser Kompatibilität|
 |-----|-----|
 |HTTP Strict-Transport-Security (hsts)|[Hsts-Browserkompatibilität](https://developer.mozilla.org/docs/Web/HTTP/Headers/Strict-Transport-Security#Browser_compatibility)|
 |X-Frame-Optionen|[X-Frame-Options-Browserkompatibilität](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options#Browser_compatibility)| 
@@ -234,7 +234,7 @@ Verwenden Sie die folgende Tabelle und die Links, um zu bestimmen, welche Webbro
 |Cross-Origin Resource Sharing (cors)|[Cors-Browserkompatibilität](https://developer.mozilla.org/docs/Web/HTTP/CORS#Browser_compatibility) 
 |Inhalts Sicherheitsrichtlinie (CSP)|[Kompatibilität des CSP-Browsers](https://developer.mozilla.org/docs/Web/HTTP/CSP#Browser_compatibility) 
 
-## <a name="next"></a>Weiter
+## <a name="next"></a>Next
 
 - [Verwenden AD FS Hilfe Handbücher zur Problembehandlung](https://aka.ms/adfshelp/troubleshooting )
 - [Behandeln von AD FS-Problemen](../../ad-fs/troubleshooting/ad-fs-tshoot-overview.md)
