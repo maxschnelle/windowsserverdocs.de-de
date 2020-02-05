@@ -9,12 +9,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b3a30c081731de97e1bdf9abe711a5ef6460be0f
-ms.sourcegitcommit: 74107a32efe1e53b36c938166600739a79dd0f51
+ms.openlocfilehash: 70281f581974493d3182fb6fdd8f35cb37bed4bf
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76918309"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001905"
 ---
 # <a name="build-a-multi-tiered-application-using-on-behalf-of-obo-using-oauth-with-ad-fs-2016-or-later"></a>Erstellen einer Anwendung mit mehreren Stufen mithilfe von "on-Auftrag-of" (OBO) mithilfe von OAuth mit AD FS 2016 oder höher
 
@@ -222,14 +222,13 @@ Um den "im Auftrag von"-Ablauf abzuschließen, müssen Sie eine Back-End-Ressour
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO3.PNG)
 
-* Entsprechenden Controller Namen vergeben
+* Legen Sie dem Controller einen passenden Namen zu.
 
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO13.PNG)
 
-* Fügen Sie den folgenden Code im Controller hinzu.
+* Fügen Sie den folgenden Code in den Controller ein:
 
-
-~~~
+```cs
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -238,15 +237,16 @@ Um den "im Auftrag von"-Ablauf abzuschließen, müssen Sie eine Back-End-Ressour
     using System.Web.Http;
     namespace WebAPIOBO.Controllers
     {
+        [Authorize]
         public class WebAPIOBOController : ApiController
         {
             public IHttpActionResult Get()
             {
-                return Ok("WebAPI via OBO");
+                return Ok($"WebAPI via OBO (user: {User.Identity.Name}");
             }
         }
     }
-~~~
+```
 
 Mit diesem Code wird einfach die Zeichenfolge zurückgegeben, wenn jemand eine GET-Anforderung für die WebAPI webapiobo einfügt.
 

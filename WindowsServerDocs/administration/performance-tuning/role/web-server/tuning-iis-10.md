@@ -7,12 +7,12 @@ ms.topic: landing-page
 ms.author: DavSo; Ericam; YaShi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5658a101371cf3b865dec04ac76716b536792602
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 2f4d309de073e84aa0a1c568c7cfc5f31ee88d83
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265702"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001875"
 ---
 # <a name="tuning-iis-100"></a>Optimieren von IIS 10,0
 
@@ -44,7 +44,7 @@ HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Http\Parameters
 
 **Beachten** Sie  wenn der HTTP-Dienst bereits ausgeführt wird, müssen Sie ihn neu starten, damit die Änderungen wirksam werden.
 
-Â 
+1/2 
 
 ## <a name="cache-management-settings"></a>Einstellungen für die Cache Verwaltung
 
@@ -64,7 +64,7 @@ Im folgenden sind einige hilfreiche Einstellungen für den http. sys-kernelmodus
 
     **Hinweis** Wenn Sie die Größe angeben, wird nur der Höchstwert festgelegt, und das System lässt den Cache möglicherweise nicht auf die maximal zulässige Größe anwachsen.
 
-    Â 
+    1/2 
 
 -   **Urimaxuribytes** Standardwert: 262144 bytes (256 KB)
 
@@ -121,7 +121,7 @@ Die Einstellungen in diesem Abschnitt wirken sich auf das Verhalten des Workerpr
 
 % Systemroot%\\System32\\inetsrv\\config\\ApplicationHost. config
 
-Ändern Sie die Cmdlets "Appcmd. exe", die IIS 10,0-Verwaltungskonsole, die Webadministration oder die iisadministration-PowerShell-Cmdlets. Die meisten Einstellungen werden automatisch erkannt, und es ist kein Neustart der IIS 10,0-Workerprozesse oder des Webanwendungs Servers erforderlich. Weitere Informationen zur Datei "applicationHost. config" finden [Sie unter Einführung in "applicationHost. config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig)".
+Ändern Sie die Cmdlets "Appcmd. exe", die IIS 10,0-Verwaltungskonsole, die Webadministration oder die iisadministration-PowerShell-Cmdlets. Die meisten Einstellungen werden automatisch erkannt, und es ist kein Neustart der IIS 10,0-Workerprozesse oder des Webanwendungs Servers erforderlich. Weitere Informationen zur Datei "applicationHost. config" finden [Sie unter Einführung in "applicationHost. config](https://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig)".
 
 
 ## <a name="ideal-cpu-setting-for-numa-hardware"></a>Ideale CPU-Einstellung für NUMA-Hardware
@@ -160,7 +160,7 @@ Um die Komprimierung vollständig zu deaktivieren, entfernen Sie StaticCompressi
 |Attribut|Beschreibung|Standardwert|
 |--- |--- |--- |
 |staticcompression-enablecpuusage<br><br>staticcompression-disablecpuusage<br><br>dynamiccompression-enablecpuusage<br><br>dynamiccompression-disablecpuusage|Aktiviert oder deaktiviert die Komprimierung, wenn der aktuelle Prozentsatz der CPU-Auslastung die angegebenen Grenzwerte über oder unterschreitet.<br><br>Ab IIS 7,0 wird die Komprimierung automatisch deaktiviert, wenn die CPU des Konstanten Zustands über dem Schwellenwert für die Deaktivierung zunimmt. Die Komprimierung ist aktiviert, wenn die CPU unter den Aktivierungs Schwellenwert sinkt.|50, 100, 50 und 90|
-|directory|Gibt das Verzeichnis an, in dem komprimierte Versionen von statischen Dateien temporär gespeichert und zwischengespeichert werden. Erwägen Sie, dieses Verzeichnis vom Systemlaufwerk zu verschieben, wenn häufig darauf zugegriffen wird.|%SystemDrive%\inetpub\temp\IIS temporäre komprimierte Dateien|
+|befinden|Gibt das Verzeichnis an, in dem komprimierte Versionen von statischen Dateien temporär gespeichert und zwischengespeichert werden. Erwägen Sie, dieses Verzeichnis vom Systemlaufwerk zu verschieben, wenn häufig darauf zugegriffen wird.|%SystemDrive%\inetpub\temp\IIS temporäre komprimierte Dateien|
 |dodiskspaceliangrenzungs|Gibt an, ob eine Beschränkung vorhanden ist, die angibt, wie viel Speicherplatz alle komprimierten Dateien belegen dürfen. Komprimierte Dateien werden im Komprimierungs Verzeichnis gespeichert, das durch das **Directory** -Attribut angegeben wird.|Wahr|
 |maxdiskspaceusage|Gibt die Anzahl der Bytes an Speicherplatz an, die komprimierte Dateien im Komprimierungs Verzeichnis belegen können.<br><br>Diese Einstellung muss möglicherweise angehoben werden, wenn die Gesamtgröße aller komprimierten Inhalte zu groß ist.|100 MB|
 
@@ -208,7 +208,7 @@ Sie können die zentrale binäre Protokollierung aktivieren, indem Sie das centr
 |Attribut|Beschreibung|Standardwert|
 |--- |--- |--- |
 |enabled|Gibt an, ob die zentrale binäre Protokollierung aktiviert ist.|False|
-|directory|Gibt das Verzeichnis an, in das Protokolleinträge geschrieben werden.|%SystemDrive%\inetpub\logs\LogFiles|
+|befinden|Gibt das Verzeichnis an, in das Protokolleinträge geschrieben werden.|%SystemDrive%\inetpub\logs\LogFiles|
 
 
 ## <a name="application-and-site-tunings"></a>Anwendungs-und Standort-Tunings
@@ -266,7 +266,7 @@ Die folgenden Einstellungen werden verwendet, um den klassischen ASP-Vorlagen Ca
 
 ## <a name="aspnet-concurrency-setting"></a>ASP.net-Parallelitäts Einstellung
 
-### <a name="aspnet-35"></a>ASP.NET 3.5
+### <a name="aspnet-35"></a>ASP.NET 3,5
 Standardmäßig wird durch ASP.net Limits die Parallelität angefordert, um den Speicherverbrauch des stabilen Zustands auf dem Server zu verringern. Hohe Parallelitäts Anwendungen müssen möglicherweise einige Einstellungen anpassen, um die Gesamtleistung zu verbessern. Sie können diese Einstellung in der Datei Aspnet. config ändern:
 
 ``` syntax
@@ -319,7 +319,7 @@ Bevor wir uns mit den Besonderheiten befassen, müssen wir beachten, dass es wah
 
 **Beachten Sie**  für den Fall, dass die Site instabilen Code ausführt, z. b. Code mit einem Speichermangel oder anderweitig instabil, kann das Festlegen der Site, die im Leerlauf beendet werden soll, eine schnelle und geänderte Alternative zum Beheben des Code Fehlers sein. Dies ist nicht zu empfehlen, aber es kann besser sein, dieses Feature als Bereinigungs Mechanismus zu verwenden, während eine permanente Lösung in der Arbeit ist.\]
 
-Â 
+1/2 
 
 Ein weiterer Faktor, der berücksichtigt werden muss, ist, dass der Unterbrechungs Prozess selbst eine Mautgebühr übernimmt, wenn der Computer die vom Arbeitsprozess verwendeten Daten auf den Datenträger schreiben muss. Wenn der Arbeitsprozess einen großen Teil des Arbeitsspeichers verwendet, ist das Anhalten möglicherweise teurer als die Kosten, die gewartet werden muss, bis der Arbeitsprozess wieder gestartet wird.
 

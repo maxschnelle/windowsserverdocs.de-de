@@ -9,12 +9,12 @@ ms.date: 01/28/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a4f9d8fa71671c4ad4651008729d4cee53c8ee2f
-ms.sourcegitcommit: 74107a32efe1e53b36c938166600739a79dd0f51
+ms.openlocfilehash: c3a7e7c420ef63adc906e6558ed7aff6819e983c
+ms.sourcegitcommit: a33404f92867089bb9b0defcd50960ff231eef3f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76918259"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013055"
 ---
 # <a name="configure-azure-mfa-as-authentication-provider-with-ad-fs"></a>Konfigurieren von Azure MFA als Authentifizierungs Anbieter mit AD FS
 
@@ -174,7 +174,7 @@ Wenn Sie das Azure AD PowerShell-Modul verwenden, aktualisieren Sie für jedes n
 PS C:/> New-MsolServicePrincipalCredential -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -Type Asymmetric -Usage Verify -Value $newcert
 ```
 
-`$certbase64` ist das neue Zertifikat.  Das Base64-codierte Zertifikat kann abgerufen werden, indem Sie das Zertifikat (ohne den privaten Schlüssel) als die der-codierten Datei exportieren und in "Notepad. exe" öffnen, dann in die PowerShell-Sitzung kopieren/einfügen und der Variablen `$certbase64`zuweisen.
+`$newcert` ist das neue Zertifikat. Das Base64-codierte Zertifikat kann abgerufen werden, indem Sie das Zertifikat (ohne den privaten Schlüssel) als die der-codierten Datei exportieren und in "Notepad. exe" öffnen, dann in die PowerShell-Sitzung kopieren/einfügen und der Variablen `$newcert`zuweisen.
 
 ### <a name="verify-that-the-new-certificates-will-be-used-for-azure-mfa"></a>Überprüfen Sie, ob die neuen Zertifikate für Azure MFA verwendet werden.
 

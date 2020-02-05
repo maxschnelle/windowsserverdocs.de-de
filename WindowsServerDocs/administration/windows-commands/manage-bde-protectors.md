@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/06/2018
-ms.openlocfilehash: 7b25f6fe3c8a067d843fc12e9c1d1955a9606c09
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 86e170e199c7286d883f1248610c6f195add5b01
+ms.sourcegitcommit: a33404f92867089bb9b0defcd50960ff231eef3f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373941"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013035"
 ---
 # <a name="manage-bde-protectors"></a>manage-bde: Schutzvorrichtungen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Verwaltet die Schutzmethoden, die für den BitLocker-Verschlüsselungsschlüssel verwendet werden. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 ## <a name="syntax"></a>Syntax
@@ -48,7 +48,7 @@ manage-bde -protectors [{-get|-add|-delete|-disable|-enable|-adbackup|-aadbackup
 
 ### <a name="BKMK_addprotectors"></a>-Hinzufügen von Syntax und Parametern
 ```
-manage-bde  protectors  add [<Drive>] [-forceupgrade] [-recoverypassword <NumericalPassword>] [-recoverykey <pathToExternalKeydirectory>]
+manage-bde  -protectors  -add [<Drive>] [-forceupgrade] [-recoverypassword <NumericalPassword>] [-recoverykey <pathToExternalKeydirectory>]
 [-startupkey <pathToExternalKeydirectory>] [-certificate {-cf <pathToCertificateFile>|-ct <CertificateThumbprint>}] [-tpm] [-tpmandpin] 
 [-tpmandstartupkey <pathToExternalKeydirectory>] [-tpmandpinandstartupkey <pathToExternalKeydirectory>] [-password][-adaccountorgroup <securityidentifier> [-computername <Name>] 
 [{-?|/?}] [{-help|-h}]
@@ -72,13 +72,13 @@ manage-bde  protectors  add [<Drive>] [-forceupgrade] [-recoverypassword <Numeri
 |      -TPMAndStartupKey       |                                                                                                                    Fügt ein TPM und eine Systemstart Schlüssel-Schutzvorrichtung für das Betriebssystem Laufwerk hinzu. Sie können auch **-TSK** als abgekürzte Version dieses Befehls verwenden.                                                                                                                    |
 |   -tpmandpinandstartupkey    |                                                                                                                Fügt ein TPM, eine PIN und eine Start Schlüsselschutzvorrichtung für das Betriebssystem Laufwerk hinzu. Sie können auch **-tpsk** als abgekürzte Version dieses Befehls verwenden.                                                                                                                 |
 |          -Kennwort           |                                                                                                                              Fügt eine Kenn Wort Schlüssel-Schutzvorrichtung für das Daten Laufwerk hinzu. Sie können auch **-PW** als abgekürzte Version dieses Befehls verwenden.                                                                                                                              |
-|      -adaccountorgroup       | Fügt eine Sicherheits-ID (SID)-basierte Identitäts Schutzvorrichtung für das Volume hinzu.  Sie können auch **-sid** als abgekürzte Version dieses Befehls verwenden. **WICHTIG:** Standardmäßig ist es nicht möglich, eine adaccountorgroup-Schutzvorrichtung mithilfe von WMI oder manage-bde Remote hinzuzufügen.  Wenn Ihre Bereitstellung die Möglichkeit erfordert, diese Schutzvorrichtung Remote hinzuzufügen, müssen Sie die eingeschränkte Delegierung aktivieren. |
+|      -adaccountorgroup       | Fügt eine Sicherheits-ID (SID)-basierte Identitäts Schutzvorrichtung für das Volume hinzu.  Sie können auch **-sid** als abgekürzte Version dieses Befehls verwenden. **Wichtig:** Standardmäßig ist es nicht möglich, eine adaccountorgroup-Schutzvorrichtung mithilfe von WMI oder manage-bde Remote hinzuzufügen.  Wenn Ihre Bereitstellung die Möglichkeit erfordert, diese Schutzvorrichtung Remote hinzuzufügen, müssen Sie die eingeschränkte Delegierung aktivieren. |
 |        -Computername         |                                                                                                       Gibt an, dass "Manage-BDE" verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden.                                                                                                       |
 |            <Name>            |                                                                                                         Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers.                                                                                                         |
 
 ### <a name="BKMK_deleteprotectors"></a>-Löschen von Syntax und Parametern
 ```
-manage-bde  protectors  delete <Drive> [-type {recoverypassword|externalkey|certificate|tpm|tpmandstartupkey|tpmandpin|tpmandpinandstartupkey|Password|Identity}] 
+manage-bde  -protectors  -delete <Drive> [-type {recoverypassword|externalkey|certificate|tpm|tpmandstartupkey|tpmandpin|tpmandpinandstartupkey|Password|Identity}] 
 [-id <KeyProtectorID>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
 
@@ -88,7 +88,7 @@ manage-bde  protectors  delete <Drive> [-type {recoverypassword|externalkey|cert
 |         -Typ          |                               Identifiziert die zu löschende Schlüssel Schutzvorrichtung. Sie können auch **-t** als abgekürzte Version dieses Befehls verwenden.                               |
 |    RecoveryPassword    |                                                 Gibt an, dass alle Schutz Kennwort-Schlüssel Schutzvorrichtungen gelöscht werden sollen.                                                 |
 |      ExternalKey       |                                        Gibt an, dass alle dem Laufwerk zugeordneten externen Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                         |
-|      Stellt       |                                       Gibt an, dass alle dem Laufwerk zugeordneten Zertifikat Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                       |
+|      stellt       |                                       Gibt an, dass alle dem Laufwerk zugeordneten Zertifikat Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                       |
 |          TPM           |                                        Gibt an, dass alle dem Laufwerk zugeordneten TPM-Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                         |
 |    TPMAndStartupKey    |                                Gibt an, dass alle dem Laufwerk zugeordneten TPM-und systemeigenen Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                |
 |       TPMAndPIN        |                                    Gibt an, dass alle dem Laufwerk zugeordneten TPM-und PIN-basierten Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                    |
@@ -104,7 +104,7 @@ manage-bde  protectors  delete <Drive> [-type {recoverypassword|externalkey|cert
 
 ### <a name="BKMK_disableprot"></a>-Deaktivieren von Syntax und Parametern
 ```
-manage-bde  protectors  disable <Drive> [-RebootCount <integer 0 - 15>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
+manage-bde  -protectors  -disable <Drive> [-RebootCount <integer 0 - 15>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
 
 |   Parameter   |                                                                                                                                                                                                                   Beschreibung                                                                                                                                                                                                                    |
@@ -119,23 +119,23 @@ manage-bde  protectors  disable <Drive> [-RebootCount <integer 0 - 15>] [-comput
 ## <a name="BKMK_Examples"></a>Beispiele
 Das folgende Beispiel veranschaulicht die Verwendung des Befehls **-** Protector zum Hinzufügen einer durch eine Zertifikatsdatei identifizierten Zertifikat Schlüssel Schutzvorrichtung zu Laufwerk E.
 ```
-manage-bde  protectors  add E: -certificate  cf "c:\File Folder\Filename.cer"
+manage-bde  -protectors  -add E: -certificate  -cf "c:\File Folder\Filename.cer"
 ```
 Das folgende Beispiel veranschaulicht die Verwendung des Befehls "-Protector" zum Hinzufügen einer **adaccountorgroup** **-** Schlüssel Schutzvorrichtung, die durch Domäne und Benutzername identifiziert wird, zu Laufwerk E.
 ```
-manage-bde  protectors  add E: -sid DOMAIN\user
+manage-bde  -protectors  -add E: -sid DOMAIN\user
 ```
 Das folgende Beispiel **veranschaulicht die Verwendung des Befehls** "Protector", um den Schutz so lange zu deaktivieren, bis der Computer dreimal neu gestartet wurde.
 ```
-manage-bde  protectors  disable C: -rc 3
+manage-bde  -protectors  -disable C: -rc 3
 ```
 Das folgende Beispiel veranschaulicht die Verwendung des Befehls-Protector, um alle TPM **-** und systemeigenen Schlüssel Schutzvorrichtungen auf Laufwerk C zu löschen.
 ```
-manage-bde  protectors  delete C: -type tpmandstartupkey
+manage-bde  -protectors -delete C: -type tpmandstartupkey
 ```
 Das folgende Beispiel veranschaulicht die Verwendung des Befehls " **-** Protector", um alle Wiederherstellungs Informationen für das Laufwerk C zu AD DS zu sichern.
 ```
-manage-bde  protectors  adbackup C:
+manage-bde  -protectors  -adbackup C:
 ```
 ## <a name="additional-references"></a>Weitere Verweise
 -   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: d388da2b7416543c307bd931636902b4a7543e1e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7336637bd3186f885db6d94eeffd0d2311edf3ac
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403653"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001839"
 ---
 # <a name="shielded-vms---hosting-service-provider-sets-up-windows-azure-pack"></a>Abgeschirmte VMs: Hosting-Anbieter richtet Windows Azure Pack ein
 
@@ -48,7 +48,7 @@ Installieren und konfigurieren Sie Windows Azure Pack (WAP) auf dem Computer, au
 
 1.  Überprüfen der [WAP-Systemanforderungen](https://technet.microsoft.com/library/dn296442.aspx) und Installieren der [erforderlichen Software](https://technet.microsoft.com/library/dn469335.aspx).
 
-2.  Herunterladen und Installieren des [Webplattform-Installers](https://www.microsoft.com/web/downloads/platform.aspx). Wenn der Computer nicht mit dem Internet verbunden ist, befolgen Sie die [Anweisungen zur Offline Installation](http://www.iis.net/learn/install/web-platform-installer/web-platform-installer-v4-command-line-webpicmdexe-rtw-release).
+2.  Herunterladen und Installieren des [Webplattform-Installers](https://www.microsoft.com/web/downloads/platform.aspx). Wenn der Computer nicht mit dem Internet verbunden ist, befolgen Sie die [Anweisungen zur Offline Installation](https://www.iis.net/learn/install/web-platform-installer/web-platform-installer-v4-command-line-webpicmdexe-rtw-release).
 
 3.  Öffnen Sie den Webplattform-Installer, und suchen Sie nach **Windows Azure Pack: Portal und API Express** auf der Registerkarte **Produkte** . Klicken Sie auf **Hinzufügen**, und **Installieren** Sie dann am unteren Rand des Fensters.
 
@@ -113,7 +113,7 @@ Damit Mandanten VMs in WAP erstellen können, müssen Sie zuerst einen Hostingpl
 
     An diesem Punkt ist Windows Azure Pack konfiguriert, und Mandanten können den soeben erstellten Plan abonnieren und abgeschirmte VMS bereitstellen. Weitere Schritte, die Mandanten ausführen müssen, finden Sie unter [abgeschirmte VMs für Mandanten: Bereitstellen einer abgeschirmten VM mithilfe von Windows Azure Pack](guarded-fabric-shielded-vm-windows-azure-pack.md).
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Weitere Informationen:
 
 - [Konfigurationsschritte des hostingdienstanbieters für geschützte Hosts und abgeschirmte VMS](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

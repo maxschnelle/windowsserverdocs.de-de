@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: Qizha;TristanB
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 1fcb1601169fa8f8b45a8a89b6495179092a0adc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2f1d5e2f3f17c40f262b8cea98c04e3347790ba8
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370540"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001825"
 ---
 # <a name="power-and-performance-tuning"></a>Leistungs-und Leistungsoptimierung
 
@@ -40,7 +40,7 @@ Sie sollten eine grundlegende Strommessung einrichten, bevor Sie Ihren Server au
 
 Wenn Ihr Server über die erforderliche Unterstützung verfügt, können Sie mithilfe der Funktionen für Energiemessung und Budgetierung in Windows Server 2016 den Energieverbrauch auf Systemebene mithilfe des System Monitors anzeigen.
 
-Eine Möglichkeit, um zu bestimmen, ob Ihr Server die Unterstützung für Messung und Budgetierung bietet, ist die Überprüfung des [Windows Server-Katalogs](http://www.windowsservercatalog.com). Wenn Ihr Server Modell für die neue Qualifizierung der verbesserten Energie Verwaltung im Windows-Hardware Zertifizierungsprogramm qualifiziert ist, ist es garantiert, dass die Messungs-und Budgetierungs Funktionen unterstützt werden.
+Eine Möglichkeit, um zu bestimmen, ob Ihr Server die Unterstützung für Messung und Budgetierung bietet, ist die Überprüfung des [Windows Server-Katalogs](https://www.windowsservercatalog.com). Wenn Ihr Server Modell für die neue Qualifizierung der verbesserten Energie Verwaltung im Windows-Hardware Zertifizierungsprogramm qualifiziert ist, ist es garantiert, dass die Messungs-und Budgetierungs Funktionen unterstützt werden.
 
 Eine weitere Möglichkeit zum Überprüfen der Messungs Unterstützung besteht darin, die Leistungsindikatoren im System Monitor manuell zu suchen. Öffnen Sie den System Monitor, wählen Sie Leistungsindikatoren **Hinzufügen**aus, und suchen Sie dann die **Leistungs** Indikator Gruppe.
 
@@ -112,9 +112,9 @@ In Windows Server 2016 ist der Standardwert für den Boost-Modus 3.
 
 | **Name** | **P-Zustands basiertes Verhalten** | **Cppc-Verhalten** |
 |--------------------------|------------------------|-------------------|
-| 0 (deaktiviert) | Disabled | Disabled |
-| 1 (aktiviert) | Enabled | Effizient aktiviert |
-| 2 (aggressiv) | Enabled | Angriffs |
+| 0 (deaktiviert) | Deaktiviert | Deaktiviert |
+| 1 (aktiviert) | Aktiviert | Effizient aktiviert |
+| 2 (aggressiv) | Aktiviert | Angriffs |
 | 3 (effizient aktiviert) | Effizienz | Effizient aktiviert |
 | 4 (effizient aggressiv) | Effizienz | Angriffs |
 
@@ -129,7 +129,7 @@ Powercfg -setactive scheme_current
 > [!Important]
 > Sie müssen den **POWERCFG-SETACTIVE-** Befehl ausführen, um die neuen Einstellungen zu aktivieren. Der Server muss nicht neu gestartet werden.
 
-Wenn Sie diesen Wert für andere Energie Sparpläne als den aktuell ausgewählten Plan festlegen möchten, können Sie anstelle des Schemas\_\_\_\_AliasewiedasSchemaMaximum(Stromsparmodus),dasSchemamin(HighPerformance)unddasSchemaausgeglichen(ausgeglichen)verwenden.Aktuell. Ersetzen Sie "Schema Current" in den POWERCFG-SETACTIVE-Befehlen, die zuvor durch den gewünschten Alias angezeigt wurden, um diesen Energie Sparplan zu aktivieren.
+Wenn Sie diesen Wert für andere Energie Sparpläne als den aktuell ausgewählten Plan festlegen möchten, können Sie Aliase wie Schema\_Max (Energiesparmodus), Schema\_min (hohe Leistung) und Schema\_ausgeglichen (ausgeglichen) anstelle von Schema\_Current verwenden. Ersetzen Sie "Schema Current" in den POWERCFG-SETACTIVE-Befehlen, die zuvor durch den gewünschten Alias angezeigt wurden, um diesen Energie Sparplan zu aktivieren.
 
 Wenn Sie z. b. den Boost-Modus im Energiespar Plan anpassen und diesen als aktuellen Plan festlegen möchten, führen Sie die folgenden Befehle aus:
 
@@ -189,11 +189,11 @@ Für Kern Computer, die in der Regel geparkt sind, sind keine Threads geplant, u
 
 Bei den meisten Servern bietet das standardmäßige standardmäßige Parkverhalten einen angemessenen Saldo aus Durchsatz und Energieeffizienz. Bei Prozessoren, bei denen die Kerne von Kern-Arbeits Auslastungen nicht so stark genutzt werden können, kann Sie standardmäßig deaktiviert werden.
 
-Wenn für Ihren Server bestimmte Anforderungen an die Kernspeicher Plätze gelten, können Sie die Anzahl der Kerne steuern, die für das Parken verfügbar sind, indem Sie den Parameter maximale Anzahl von Kernen für die **Prozessorleistung** und die **Prozessorleistung Core-Mindestanforderungen für die Kerne verwenden** -Parameter in Windows Server 2016.
+Wenn für Ihren Server bestimmte Anforderungen an die Kernspeicher Plätze gelten, können Sie die Anzahl der Kerne steuern, die für das Parken verfügbar sind, indem Sie den Parameter Leistungsparameter für **Maximale Kerne der Prozessorleistung** oder den Parameter für die Parameter für die **minimale Kerne der Prozessorleistung** in Windows Server 2016.
 
 Ein Szenario, bei dem die Kern-Parkplätze nicht immer optimal sind, ist, wenn mindestens ein aktiver Thread einer nicht trivialen Teilmenge von CPUs in einem NUMA-Knoten zugeordnet ist (d. h. mehr als 1 CPU, aber kleiner als der gesamte Satz von CPUs auf dem Knoten). Wenn der kernelingalgorithmus Kerne zum Aufheben der Wiederaufnahme (vorausgesetzt, dass eine Erhöhung der workloadintensität auftritt) abwählt, werden die Kerne innerhalb der aktiven, affininitiierten Teilmenge (bzw. Teilmengen) nicht immer zum Aufheben der Wiederaufnahme ausgewählt. Folglich können auch unparkkerne entstehen, die tatsächlich nicht eingesetzt.
 
-Die Werte für diese Parameter sind Prozentwerte im Bereich von 0 – 100. Der Parameter für die maximale Anzahl von Kernen **für die** **Prozessorleistung** steuert den maximalen Prozentsatz der Kerne, die freigestellt werden können (zum Ausführen von Threads verfügbar sind) steuert den minimalen Prozentsatz der Kerne, die nicht geparkt werden können. Legen Sie zum Deaktivieren der Kern Parken den Parameter für die **Prozessorleistung Kerne für die minimale Kerne** auf 100 Prozent fest, indem Sie die folgenden Befehle verwenden:
+Die Werte für diese Parameter sind Prozentwerte im Bereich von 0 – 100. Der Parameter für die maximale Anzahl von Kernen für die **Prozessorleistung** steuert den maximalen Prozentsatz der Kerne, die für das Entsperren (verfügbar zum Ausführen von Threads) verfügbar sein können, während der Parameter " **Prozessorleistung Core-minimal Kerne** " den minimalen Prozentsatz der Kerne steuert, die freigestellt werden können. Legen Sie zum Deaktivieren der Kern Parken den Parameter für die **Prozessorleistung Kerne für die minimale Kerne** auf 100 Prozent fest, indem Sie die folgenden Befehle verwenden:
 
 ``` syntax
 Powercfg -setacvalueindex scheme_current sub_processor CPMINCORES 100
