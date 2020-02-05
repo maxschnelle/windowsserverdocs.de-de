@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: da7c90bdb1c4a2fbdb2e518f34abe9cbfef2fc29
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dc083a15d0cd6a21b5512c1506bc9a461c4b886c
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392034"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001765"
 ---
 # <a name="scale-out-file-server-for-application-data-overview"></a>Übersicht über Dateiserver mit horizontaler Skalierung für Anwendungsdaten
 
@@ -23,7 +23,7 @@ Der Dateiserver mit horizontaler Skalierung soll Dateifreigaben mit horizontaler
 
 Sie können mithilfe einer der folgenden Methoden einen gruppierten Dateiserver bereitstellen und konfigurieren:
 
-- **Dateiserver mit horizontaler Skalierung für Anwendungsdaten** Diese Cluster Dateiserver-Funktion wurde in Windows Server 2012 eingeführt und ermöglicht das Speichern von Server Anwendungsdaten, wie z. b. Dateien virtueller Hyper-V-Computer, auf Dateifreigaben und eine ähnliche Zuverlässigkeit, Verfügbarkeit, Verwaltbarkeit und hohe Verfügbarkeit. Leistung, die Sie von einem Storage Area Network erwarten. Alle Dateifreigaben sind auf allen Knoten gleichzeitig online. Die dieser Art von gruppiertem Dateiserver zugeordneten Dateifreigaben werden als Dateifreigaben mit horizontaler Skalierung bezeichnet. Dies wird mitunter als Aktiv/Aktiv bezeichnet. Dies ist der empfohlene Dateiservertyp beim Bereitstellen von entweder Hyper-V über Server Message Block (SMB) oder Microsoft SQL Server über SMB.
+- **Dateiserver mit horizontaler Skalierung für Anwendungsdaten** Diese Cluster Dateiserver-Funktion wurde in Windows Server 2012 eingeführt und ermöglicht das Speichern von Server Anwendungsdaten, wie z. b. Dateien virtueller Hyper-V-Computer, auf Dateifreigaben und das Erreichen eines ähnlichen Maß an Zuverlässigkeit, Verfügbarkeit, Verwaltbarkeit und hoher Leistung, das Sie von einer Storage Area Network erwarten. Alle Dateifreigaben sind auf allen Knoten gleichzeitig online. Die dieser Art von gruppiertem Dateiserver zugeordneten Dateifreigaben werden als Dateifreigaben mit horizontaler Skalierung bezeichnet. Dies wird mitunter als Aktiv/Aktiv bezeichnet. Dies ist der empfohlene Dateiservertyp beim Bereitstellen von entweder Hyper-V über Server Message Block (SMB) oder Microsoft SQL Server über SMB.
 - **Dateiserver zur allgemeinen Verwendung** Dies ist die Weiterführung des gruppierten Dateiservers, der seit der Einführung des Failoverclusterings in Windows Server unterstützt wird. Diese Art von gruppiertem Dateiserver (und damit alle dem gruppierten Dateiserver zugeordneten Dateifreigaben) ist jeweils auf einem Knoten online. Dies wird mitunter als Aktiv/Passiv oder zweifach aktiv bezeichnet. Die dieser Art von gruppiertem Dateiserver zugeordneten Dateifreigaben werden als gruppierte Dateifreigaben bezeichnet. Dies ist der empfohlenen Dateiservertyp bei der Bereitstellung von Information-Worker-Szenarien.
 
 ## <a name="scenario-description"></a>Beschreibung des Szenarios
@@ -45,14 +45,14 @@ Die folgenden Themen bieten hilfreiche Informationen, um einen Dateiserver mit h
 
 - [Planen der Dateiserver mit horizontaler Skalierung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134258(v%3dws.11)>)
 
-  - [Schritt 1: Planen der Speicherung in Dateiserver mit horizontaler Skalierung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134181%28v%3dws.11%29>)
-  - [Schritt 2: Planen von Netzwerken in Dateiserver mit horizontaler Skalierung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134253%28v%3dws.11%29>)
+  - [Schritt 1: Planen des Speichers in Dateiserver mit horizontaler Skalierung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134181%28v%3dws.11%29>)
+  - [Schritt 2: Planen des Netzwerks in Dateiserver mit horizontaler Skalierung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134253%28v%3dws.11%29>)
 
 - [Dateiserver mit horizontaler Skalierung bereitstellen](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831359%28v%3dws.11%29>)
 
-  - [Schritt 1: Installieren von Voraussetzungen für Dateiserver mit horizontaler Skalierung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831478%28v%3dws.11%29>)
+  - [Schritt 1: Installieren der erforderlichen Komponenten für Dateiserver mit horizontaler Skalierung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831478%28v%3dws.11%29>)
   - [Schritt 2: Konfigurieren von Dateiserver mit horizontaler Skalierung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831718%28v%3dws.11%29>)
-  - [Schritt 3: Konfigurieren von Hyper-V für die Verwendung Dateiserver mit horizontaler Skalierung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831463%28v%3dws.11%29>)
+  - [Schritt 3: Konfigurieren von Hyper-V für die Verwendung von Dateiserver mit horizontaler Skalierung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831463%28v%3dws.11%29>)
   - [Schritt 4: Konfigurieren von Microsoft SQL Server für die Verwendung Dateiserver mit horizontaler Skalierung](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831815%28v%3dws.11%29>)
 
 ## <a name="when-to-use-scale-out-file-server"></a>Anwendungsbereiche eines Dateiservers mit horizontaler Skalierung
@@ -105,7 +105,7 @@ In der folgenden Tabelle sind die neuen Funktionen in SMB 3.0, die gängigen Win
 <td>Dateisystem</td>
 <td>NTFS</td>
 <td>Ja</td>
-<td>Nicht verfügbar</td>
+<td>N/V</td>
 </tr>
 <tr class="odd">
 <td>Dateisystem</td>
@@ -116,7 +116,7 @@ In der folgenden Tabelle sind die neuen Funktionen in SMB 3.0, die gängigen Win
 <tr class="even">
 <td>Dateisystem</td>
 <td>Dateisystem des freigegebenen Clustervolumes (CSV)</td>
-<td>Nicht verfügbar</td>
+<td>N/V</td>
 <td>Ja</td>
 </tr>
 <tr class="odd">
@@ -224,13 +224,13 @@ In der folgenden Tabelle sind die neuen Funktionen in SMB 3.0, die gängigen Win
 </tbody>
 </table>
 
-\*Ordner Umleitung, Offlinedateien, Roamingbenutzerprofile oder Basis Verzeichnisse generieren eine große Anzahl von Schreibvorgängen, die sofort auf den Datenträger geschrieben werden müssen (ohne Pufferung), wenn fortlaufend verfügbare Dateifreigaben verwendet werden und die Leistung im Vergleich zu Allgemeine Dateifreigaben. Fortlaufend verfügbare Dateifreigaben sind zudem nicht mit dem Ressourcen-Manager für Dateiserver und PCs unter Windows XP kompatibel. Darüber hinaus wird Offlinedateien möglicherweise 3-6 Minuten lang nicht in den Offline Modus versetzt, nachdem ein Benutzer den Zugriff auf eine Freigabe verloren hat, was Benutzer stören kann, die noch nicht den Modus "immer offline" von Offlinedateien verwenden.
+\* Ordner Umleitung, Offlinedateien, Roamingbenutzerprofilen oder Basis Verzeichnisse generieren eine große Anzahl von Schreibvorgängen, die sofort auf den Datenträger geschrieben werden müssen (ohne Pufferung), wenn fortlaufend verfügbare Dateifreigaben verwendet werden, um die Leistung im Vergleich zu allgemeinen Dateifreigaben zu verringern Fortlaufend verfügbare Dateifreigaben sind zudem nicht mit dem Ressourcen-Manager für Dateiserver und PCs unter Windows XP kompatibel. Darüber hinaus wird Offlinedateien möglicherweise 3-6 Minuten lang nicht in den Offline Modus versetzt, nachdem ein Benutzer den Zugriff auf eine Freigabe verloren hat, was Benutzer stören kann, die noch nicht den Modus "immer offline" von Offlinedateien verwenden.
 
 ## <a name="practical-applications"></a>Praktische Anwendungsfälle
 
 Dateiserver mit horizontaler Skalierung eignen sich ideal für die Speicherung von Serveranwendungen. Es folgen einige Beispiele für Serveranwendungen, die ihre Daten in einer Dateifreigabe mit horizontaler Skalierung speichern können:
 
-- Der IIS-Webserver (Internetinformationsdienste) kann Konfigurationen und Daten für Websites in einer Dateifreigabe mit horizontaler Skalierung speichern. Weitere Informationen finden Sie unter [Freigegebene Konfiguration](http://www.iis.net/learn/manage/managing-your-configuration-settings/shared-configuration_264).
+- Der IIS-Webserver (Internetinformationsdienste) kann Konfigurationen und Daten für Websites in einer Dateifreigabe mit horizontaler Skalierung speichern. Weitere Informationen finden Sie unter [Freigegebene Konfiguration](https://www.iis.net/learn/manage/managing-your-configuration-settings/shared-configuration_264).
 - Hyper-V kann Konfigurationen und aktive virtuelle Datenträger in einer Dateifreigabe mit horizontaler Skalierung speichern. Weitere Informationen finden Sie unter [Bereitstellen von Hyper-V über SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>).
 - SQL Server kann aktive Datenbankdateien in einer Dateifreigabe mit horizontaler Skalierung speichern. Weitere Informationen finden Sie unter [Installieren von SQL Server mit SMB-Dateifreigabe als Speicheroption](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option).
 - Virtual Machine Manager (VMM) kann eine Bibliotheksfreigabe (mit Vorlagen für virtuelle Computer und zugehörigen Dateien) in einer Dateifreigabe mit horizontaler Skalierung speichern. Der Bibliothek Server selbst kann jedoch kein Dateiserver mit horizontaler Skalierung sein – er muss sich auf einem eigenständigen Server oder einem Failovercluster befinden, der die Dateiserver mit horizontaler Skalierung Cluster Rolle nicht verwendet.
@@ -256,11 +256,11 @@ In der folgenden Tabelle werden die Features dieses Szenarios und die Art der be
 <tbody>
 <tr class="odd">
 <td><a href="failover-clustering.md">Failoverclustering</a></td>
-<td>Failovercluster haben in Windows Server 2012 die folgenden Features zur Unterstützung eines Dateiservers mit horizontaler Skalierung hinzugefügt: Name des verteilten Netzwerks, der Dateiserver mit horizontaler Skalierung Ressourcentyp, freigegebene Clustervolumes (CSV) 2 und die Dateiserver mit horizontaler Skalierung hoch Verfügbarkeits Rolle. Weitere Informationen zu diesen Features finden Sie unter <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)">What&#39;es New in Failover Clustering in Windows Server 2012 [umgeleitet]</a>.</td>
+<td>Failovercluster haben in Windows Server 2012 die folgenden Features hinzugefügt, um einen Datei Server mit horizontaler Skalierung zu unterstützen: Name des verteilten Netzwerks, der Dateiserver mit horizontaler Skalierung Ressourcentyp, freigegebene Clustervolumes (CSV) 2 und die Dateiserver mit horizontaler Skalierung hoch Verfügbarkeits Rolle. Weitere Informationen zu diesen Features finden Sie unter <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)">What&#39;es New in Failover Clustering in Windows Server 2012 [umgeleitet]</a>.</td>
 </tr>
 <tr class="even">
 <td><a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831795(v%3dws.11)">Server Message Block</a></td>
-<td>SMB 3,0 hat die folgenden Features in Windows Server 2012 zur Unterstützung eines Dateiservers mit horizontaler Skalierung hinzugefügt: SMB transparent Failover, SMB Multichannel und SMB Direct.<br />
+<td>SMB 3,0 hat die folgenden Features in Windows Server 2012 hinzugefügt, um einen Datei Server mit horizontaler Skalierung zu unterstützen: SMB transparent Failover, SMB Multichannel und SMB Direct.<br />
 <br />
 Weitere Informationen zu neuen und geänderten Funktionen für SMB in Windows Server 2012 R2 finden <a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831474(v%3dws.11)">&#39;Sie unter Neues in SMB unter Windows Server</a>.</td>
 </tr>

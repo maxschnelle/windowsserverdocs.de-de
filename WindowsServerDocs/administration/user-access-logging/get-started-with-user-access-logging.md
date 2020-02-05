@@ -13,20 +13,20 @@ author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 15906e8cc1e5e85a471f1b8725435eb60852f6f5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f69a1fe4f3c17123f91ade3b6aebdb5f7bab9982
+ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71382866"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001785"
 ---
 # <a name="get-started-with-user-access-logging"></a>Einstieg in die Benutzer Zugriffs Protokollierung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Die Benutzer Zugriffs Protokollierung (User Access Logging, UAL) ist eine Funktion in Windows Server, die Client Verwendungs Daten nach Rolle und Produkten auf einem lokalen Server aggregiert. Dadurch können Windows Server-Administratoren Anforderungen von Client Computern nach Rollen und Diensten auf einem lokalen Server quantifizieren.  
   
-Die Benutzer Zugriffs Protokollierung ist standardmäßig installiert und aktiviert und erfasst Daten nahezu in Echtzeit. Es ist keine Konfiguration durch den Administrator erforderlich, wenngleich die Benutzerzugriffsprotokollierung deaktiviert oder aktiviert werden kann. Weitere Informationen finden Sie unter [Manage User Access Logging](Manage-User-Access-Logging.md). Der Dienst für die Benutzer Zugriffs Protokollierung aggregiert Client Verwendungs Daten nach Rollen und Produkten in lokalen Datenbankdateien.  IT-Administratoren können später Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) oder Windows PowerShell-Cmdlets verwenden, um Mengen und Instanzen nach Serverrolle (oder Softwareprodukt), Benutzer, Gerät, lokalem Server und Datum abzurufen.  
+Die Benutzer Zugriffs Protokollierung ist standardmäßig installiert und aktiviert und erfasst Daten nahezu in Echtzeit. Es ist keine Konfiguration durch den Administrator erforderlich, wenngleich die Benutzerzugriffsprotokollierung deaktiviert oder aktiviert werden kann. Weitere Informationen finden Sie unter [Verwalten der Benutzerzugriffsprotokollierung](Manage-User-Access-Logging.md). Der Dienst für die Benutzer Zugriffs Protokollierung aggregiert Client Verwendungs Daten nach Rollen und Produkten in lokalen Datenbankdateien.  IT-Administratoren können später Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) oder Windows PowerShell-Cmdlets verwenden, um Mengen und Instanzen nach Serverrolle (oder Softwareprodukt), Benutzer, Gerät, lokalem Server und Datum abzurufen.  
   
 > [!NOTE]  
 > Die UAL unterstützt das [Microsoft Assessment and Planning Toolkit](https://go.microsoft.com/fwlink/?LinkID=111000).  
@@ -50,7 +50,7 @@ Die folgenden Serverrollen und Dienste können von der Benutzerzugriffsprotokoll
   
 -   Active Directory-Zertifikatdienste (AD CS)  
   
--   Active Directory Rights Management Services (AD RMS)  
+-   Active Directory-Rechteverwaltungsdienste (AD RMS)  
   
 -   BranchCache  
   
@@ -72,14 +72,14 @@ Die folgenden Serverrollen und Dienste können von der Benutzerzugriffsprotokoll
     > [!NOTE]  
     > Die UAL sammelt Hyper-V-Daten alle 24 Stunden, und es gibt ein separates UAL-Cmdlet für dieses Szenario.  
   
--   Webserver (IIS)  
+-   Web Server (IIS)  
   
     > [!WARNING]  
-    > Um die UAL mit IIS zu verwenden, müssen Sie "iisual.exe" verwenden. Weitere Informationen finden Sie unter [Analysieren von Clientverwendungsdaten mit der IIS-Benutzerzugriffsprotokollierung](http://www.iis.net/learn/manage/configuring-security/analyzing-client-usage-data-with-iis-user-access-logging).  
+    > Um die UAL mit IIS zu verwenden, müssen Sie "iisual.exe" verwenden. Weitere Informationen finden Sie unter [Analysieren von Clientverwendungsdaten mit der IIS-Benutzerzugriffsprotokollierung](https://www.iis.net/learn/manage/configuring-security/analyzing-client-usage-data-with-iis-user-access-logging).  
   
 -   Microsoft Message Queuing-Dienste (MSMQ)  
   
--   Network Policy and Access Services  
+-   Netzwerkrichtlinie und Access Services  
   
 -   Druck- und Dokumentdienste  
   
