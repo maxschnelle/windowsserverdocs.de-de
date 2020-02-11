@@ -8,12 +8,12 @@ ms.date: 08/19/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 02829919c53e3488ad7f229ad8bee0d3ead14c9a
-ms.sourcegitcommit: 3f54036c74c5a67799fbc06a8a18a078ccb327f9
+ms.openlocfilehash: a28b25c55b9ad66cd16f3d9e370fec22ec0f2a5d
+ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124898"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125141"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ) zu Storage Migration Service
 
@@ -27,6 +27,10 @@ Der Speicher Migrationsdienst überträgt keine Dateien oder Ordner, die mit dem
 - $Recycle. bin, Recycler, recycelt, systemvolumeinformationen, $UpgDrv $, $SysReset, $Windows. ~ BT, $Windows. ~ ls, Windows. Old, Boot, Recovery, Documents und Settings
 - Pagefile. sys, hiberfil. sys, swap file. sys, winpepge. sys, config. sys, Bootsect. bak, Bootmgr, bootnxt
 - Alle Dateien oder Ordner auf dem Quell Server, die mit den ausgeschlossenen Ordnern auf dem Ziel in Konflikt stehen. <br>Wenn z. b. ein Ordner "n:\Windows" in der Quelle vorhanden ist und der "C:\" zugeordnet wird. das Volume auf dem Ziel, das nicht übertragen wird – unabhängig davon, was darin enthalten ist –, weil es den Ordner "c:\Windows" auf dem Ziel beeinträchtigt.
+
+## <a name="are-locked-files-migrated"></a>Wurden gesperrte Dateien migriert?
+
+Der Speicher Migrationsdienst migriert keine Dateien, die von Anwendungen exklusiv gesperrt werden. Der Dienst führt automatisch einen erneuten Versuch mit einer Verzögerung von 60 Sekunden zwischen den versuchen aus, und Sie können die Anzahl der Versuche und die Verzögerung steuern. Sie können auch Übertragungen erneut ausführen, um nur die Dateien zu kopieren, die zuvor aufgrund von Freigabe Verstößen übersprungen wurden.
 
 ## <a name="are-domain-migrations-supported"></a>Werden Domänen Migrationen unterstützt?
 
@@ -59,17 +63,17 @@ Der Speicher Migrationsdienst migriert alle Flags, Einstellungen und die Sicherh
     - Limit für gleichzeitige Benutzer
     - Fortlaufend verfügbar
     - Beschreibung           
-    - Daten verschlüsseln
+    - Verschlüsseln von Daten
     - Identitäts-Remoting
     - Infrastruktur
     - Name
-    - Pfad
-    - Bereichsbezogen
+    - Path
+    - Bereich
     - Bereichsname
     - Sicherheitsbeschreibung
-    - Schattenkopie
+    - Schatten Kopie
     - Sonderformat
-    - Temporärer
+    - Temporär
 
 ## <a name="can-i-consolidate-multiple-servers-into-one-server"></a>Kann ich mehrere Server auf einem Server konsolidieren?
 
@@ -112,7 +116,7 @@ Der Speicher Migrationsdienst enthält eine Multithread-Lese-und-Kopier-Engine, 
 
 - **Aktualisieren von Treibern.** Installieren Sie ggf. den aktuellen Hersteller Speicher und die Gehäuse Firmware und-Treiber, die neuesten Hersteller-HBA-Treiber, die neueste BIOS-/UEP-Firmwareversion, die neuesten Netzwerktreiber des Anbieters und die neuesten Server für die Hauptschlüssel-Chipsätze auf den Quell-, Ziel Starten Sie die Knoten gegebenenfalls neu. Konfigurieren Sie die Hardware für freigegebenen Speicher und Netzwerk gemäß der Dokumentation des jeweiligen Herstellers.
 
-- **Aktivieren Sie die Verarbeitung mit hoher Leistung.** Stellen Sie sicher, dass die BIOS/UEFI-Einstellungen für Server eine hohe Leistung ermöglichen (z.B. Deaktivieren des C-Status, Festlegen der QPI-Geschwindigkeit, Aktivieren von NUMA und Festlegen der höchsten Speicherfrequenz). Stellen Sie sicher, dass die Energie Verwaltung in Windows Server auf hohe Leistung festgelegt ist. Führen Sie gegebenenfalls einen Neustart aus. Vergessen Sie nicht, diese nach Abschluss der Migration an die entsprechenden Zustände zurückzugeben. 
+- **Aktivieren Sie die Verarbeitung mit hoher Leistung.** Stellen Sie sicher, dass die BIOS/UEFI-Einstellungen für Server eine hohe Leistung ermöglichen (z. B. Deaktivieren des C-Status, Festlegen der QPI-Geschwindigkeit, Aktivieren von NUMA und Festlegen der höchsten Speicherfrequenz). Stellen Sie sicher, dass die Energie Verwaltung in Windows Server auf hohe Leistung festgelegt ist. Führen Sie gegebenenfalls einen Neustart aus. Vergessen Sie nicht, diese nach Abschluss der Migration an die entsprechenden Zustände zurückzugeben. 
 
 - **Optimieren der Hardware** Lesen Sie die [Richtlinien zur Leistungsoptimierung für Windows Server 2016](https://docs.microsoft.com/windows-server/administration/performance-tuning/) zur Optimierung von Orchestrator und Ziel Computern unter Windows Server 2019 und Windows Server 2016. Der Abschnitt zur Optimierung der [Leistung des Netzwerk Subsystems](https://docs.microsoft.com/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics) enthält besonders wertvolle Informationen.
 
@@ -143,13 +147,21 @@ Der Speicher Migrationsdienst verwendet eine ESE (Extensible Storage Engine)-Dat
 
 Nein, der Speicher Migrationsdienst migriert keine lokal installierten Anwendungen. Installieren Sie nach Abschluss der Migration alle Anwendungen auf dem Zielcomputer erneut, die auf dem Quellcomputer ausgeführt wurden. Es ist nicht erforderlich, Benutzer oder deren Anwendungen neu zu konfigurieren. der Storage Migration Service ist so konzipiert, dass die Server Änderung für Clients unsichtbar wird. 
 
+## <a name="what-happens-with-existing-files-on-the-destination-server"></a>Was geschieht mit vorhandenen Dateien auf dem Zielserver?
+
+Beim Durchführen einer Übertragung wird vom Speicher Migrationsdienst versucht, Daten vom Quell Server zu spiegeln. Der Zielserver sollte keine Produktionsdaten oder verbundenen Benutzer enthalten, da diese Daten überschrieben werden könnten. Standardmäßig wird bei der ersten Übertragung eine Sicherungskopie aller Daten auf dem Zielserver als Schutz erstellt. Bei allen nachfolgenden Übertragungen werden Daten vom Speicher Migrationsdienst standardmäßig auf dem Ziel gespiegelt. Dies bedeutet nicht nur das Hinzufügen neuer Dateien, sondern auch das willkürliche Überschreiben vorhandener Dateien und das Löschen aller Dateien, die nicht in der Quelle vorhanden sind. Dieses Verhalten ist beabsichtigt und bietet eine perfekte Treue mit dem Quellcomputer. 
+
+## <a name="what-do-the-error-numbers-mean-in-the-transfer-csv"></a>Was bedeuten die Fehlernummern im Übertragungs-CSV?
+
+Die meisten Fehler in der CSV-Übertragungs Datei sind Windows-System Fehler Codes. Informationen zu den einzelnen Fehlern finden Sie in der Dokumentation zu [Win32-Fehlercodes](https://docs.microsoft.com/windows/win32/debug/system-error-codes). 
+
 ## <a name="give-feedback"></a>Welche Optionen gibt es, um Feedback zu geben, Fehler zu melden oder Support zu erhalten?
 
 So geben Sie Feedback zum Speicher Migrationsdienst an:
 
 - Verwenden Sie das in Windows 10 enthaltene Feedback-Hub-Tool, klicken Sie auf "Feature vorschlagen", und geben Sie die Kategorie "Windows Server" und die Unterkategorie "Speicher Migration" an.
 - Verwenden der [Windows Server UserVoice](https://windowsserver.uservoice.com) -Website
-- E-Mail an smsfeed@microsoft.com
+- E-Mail smsfeed@microsoft.com
 
 So melden Sie Fehler:
 
@@ -162,6 +174,6 @@ So erhalten Sie Support:
  - Beitrag im [TechNet-Forum zu Windows Server 2019](https://social.technet.microsoft.com/Forums/en-US/home?forum=ws2019&filter=alltypes&sort=lastpostdesc) 
  - Öffnen Sie eine Supportanfrage über [Microsoft-Support](https://support.microsoft.com)
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 - [Übersicht über den Speicher Migrationsdienst](overview.md)

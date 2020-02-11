@@ -14,12 +14,12 @@ ms.date: 1/24/2020
 ms.topic: landing-page
 author: kaushika-msft
 ms.author: kaushika
-ms.openlocfilehash: 593fc4abbdce3ed53fa8d7ef73d529558b100bcc
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: cd4e61a9fac5b1a1f6a1b66309e514ef75b1e4db
+ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001795"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125131"
 ---
 # <a name="troubleshooting-windows-server-components"></a>Problembehandlung bei Windows Server-Komponenten
 
@@ -46,17 +46,17 @@ Dieser Abschnitt enthält erweiterte Themen zur Problembehandlung und Links, die
 
 ## <a name="troubleshoot-startup-and-restart"></a>Problembehandlung beim Starten und Neustarten
 
-- [Erweiterte Problembehandlung für den Windows-Start](https://docs.microsoft.com/windows/client-management/troubleshoot-windows-startup.md)
-- [Bestimmen der geeigneten Auslagerungs Dateigröße für 64-Bit-Versionen von Windows](https://docs.microsoft.com/windows/client-management/determine-appropriate-page-file-size.md)
-- [Generieren eines Kernels oder vervollständigen eines Absturz Abbilds](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump.md)
-- [Einführung in die Auslagerungs Datei](https://docs.microsoft.com/windows/client-management/introduction-page-file.md)
-- [Konfigurieren von Systemfehler-und Wiederherstellungsoptionen in Windows](https://docs.microsoft.com/windows/client-management/system-failure-recovery-options.md)
-- [Erweiterte Problembehandlung für Windows-Startprobleme](https://docs.microsoft.com/windows/client-management/advanced-troubleshooting-boot-problems.md)
-- [Erweiterte Problembehandlung für Windows-basiertes Computer Einfrieren](https://docs.microsoft.com/windows/client-management/troubleshoot-windows-freeze.md)
-- [Erweiterte Problembehandlung für Fehler beim Abbrechen oder blauen Bildschirm](https://docs.microsoft.com/windows/client-management/troubleshoot-stop-errors.md)
-- [Erweiterte Problembehandlung für den Fehler bei der Beendigung 7B oder INACCESSIBLE_BOOT_DEVICE](https://docs.microsoft.com/windows/client-management/troubleshoot-inaccessible-boot-device.md)
-- [Erweiterte Problembehandlung für die Ereignis-ID 41 "das System wurde neu gestartet, ohne dass das System zuerst ordnungsgemäß heruntergefahren wurde"](https://docs.microsoft.com/windows/client-management/troubleshoot-event-id-41-restart.md)
-- [Beim Aktualisieren des in-Box-Treiber für den Broadcom-Netzwerkadapter tritt ein Fehler auf.](https://docs.microsoft.com/windows/client-management/troubleshoot-stop-error-on-broadcom-driver-update.md)
+- [Erweiterte Problembehandlung für den Windows-Start](https://docs.microsoft.com/windows/client-management/troubleshoot-windows-startup)
+- [Bestimmen der geeigneten Auslagerungs Dateigröße für 64-Bit-Versionen von Windows](https://docs.microsoft.com/windows/client-management/determine-appropriate-page-file-size)
+- [Generieren eines Kernels oder vervollständigen eines Absturz Abbilds](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump)
+- [Einführung in die Auslagerungs Datei](https://docs.microsoft.com/windows/client-management/introduction-page-file)
+- [Konfigurieren von Systemfehler-und Wiederherstellungsoptionen in Windows](https://docs.microsoft.com/windows/client-management/system-failure-recovery-options)
+- [Erweiterte Problembehandlung für Windows-Startprobleme](https://docs.microsoft.com/windows/client-management/advanced-troubleshooting-boot-problems)
+- [Erweiterte Problembehandlung für Windows-basiertes Computer Einfrieren](https://docs.microsoft.com/windows/client-management/troubleshoot-windows-freeze)
+- [Erweiterte Problembehandlung für Fehler beim Abbrechen oder blauen Bildschirm](https://docs.microsoft.com/windows/client-management/troubleshoot-stop-errors)
+- [Erweiterte Problembehandlung für den Fehler bei der Beendigung 7B oder INACCESSIBLE_BOOT_DEVICE](https://docs.microsoft.com/windows/client-management/troubleshoot-inaccessible-boot-device)
+- [Erweiterte Problembehandlung für die Ereignis-ID 41 "das System wurde neu gestartet, ohne dass das System zuerst ordnungsgemäß heruntergefahren wurde"](https://docs.microsoft.com/windows/client-management/troubleshoot-event-id-41-restart)
+- [Beim Aktualisieren des in-Box-Treiber für den Broadcom-Netzwerkadapter tritt ein Fehler auf.](https://docs.microsoft.com/windows/client-management/troubleshoot-stop-error-on-broadcom-driver-update)
 
 ## <a name="troubleshoot-ad-forest-recovery"></a>Problembehandlung bei der AD-Gesamtstruktur
 

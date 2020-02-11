@@ -4,16 +4,16 @@ description: Bekannte Probleme und Problembehandlung für den Speicher Migration
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 10/09/2019
+ms.date: 02/10/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: a98c560306debc0e10c2c0ac44b41e12141b6e9f
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: 77a23e5787283aa93d6f2f303cf45b461ccf52dd
+ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001885"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125111"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -40,7 +40,7 @@ Lesen Sie die Informationen zur Verwendung.
 
 Wenn Sie die Version 1809 von Windows Admin Center zum Verwalten eines Windows Server 2019 Orchestrator verwenden, wird die Option Tool für Storage Migration Service nicht angezeigt. 
 
-Die Windows Admin Center Storage Migration Service-Erweiterung ist nur für die Verwaltung der Betriebssysteme Windows Server 2019, Version 1809 oder höher, Versions gebunden. Wenn Sie damit ältere Windows Server-Betriebssysteme oder Insider-Vorschau Versionen verwalten, wird das Tool nicht angezeigt. Dieses Verhalten ist entwurfsbedingt. 
+Die Windows Admin Center Storage Migration Service-Erweiterung ist nur für die Verwaltung der Betriebssysteme Windows Server 2019, Version 1809 oder höher, Versions gebunden. Wenn Sie damit ältere Windows Server-Betriebssysteme oder Insider-Vorschau Versionen verwalten, wird das Tool nicht angezeigt. Dieses Verhalten ist beabsichtigt. 
 
 Verwenden Sie zum Auflösen von Windows Server 2019 Build 1809 oder höher, oder führen Sie ein Upgrade durch.
 
@@ -64,7 +64,7 @@ Dieses Problem wurde in einem späteren Release von Windows Server behoben.
 
 Wenn Sie das Windows Admin Center oder PowerShell verwenden, um das CSV-Protokoll mit ausführlichen Fehlern bei der Übertragungs Operation herunterzuladen, erhalten Sie folgende Fehlermeldung:
 
- >   Übertragungsprotokoll: Überprüfen Sie, ob die Dateifreigabe in der Firewall zulässig ist. : Dieser Anforderungs Vorgang, der an net. TCP://localhost: 28940/SMS/Service/1/Transfer gesendet wurde, hat innerhalb des konfigurierten Timeouts (00:01:00) keine Antwort empfangen. Der für diesen Vorgang zugewiesene Zeitraum war möglicherweise ein Teil eines längeren Timeouts. Dies liegt möglicherweise daran, dass der Dienst den Vorgang noch verarbeitet oder der Dienst keine Antwortnachricht senden konnte. Erhöhen Sie das Timeout für den Vorgang (indem Sie den Kanal/Proxy in IContextChannel umwandeln und die Eigenschaft OperationTimeout festlegen), und stellen Sie sicher, dass der Dienst eine Verbindung mit dem Client herstellen kann.
+ >   Übertragungsprotokoll: Überprüfen Sie, ob die Dateifreigabe in der Firewall zulässig ist. : Dieser Anforderungs Vorgang, der an net. TCP://localhost: 28940/SMS/Service/1/Transfer gesendet wurde, hat innerhalb des konfigurierten Timeouts (00:01:00) keine Antwort empfangen. Die für diesen Vorgang vorgesehene Zeit war möglicherweise Teil eines längeren Timeouts. Die Ursache dafür könnte sein, dass der Dienst den Vorgang immer noch verarbeitet oder dass der Dienst keine Antwortmeldung senden konnte. Erhöhen Sie das Timeout für den Vorgang (indem Sie den Kanal/Proxy in IContextChannel umwandeln und die Eigenschaft OperationTimeout festlegen), und stellen Sie sicher, dass der Dienst eine Verbindung mit dem Client herstellen kann.
 
 Dieses Problem wird durch eine extrem große Anzahl übertragener Dateien verursacht, die nicht in dem vom Speicher Migrationsdienst zulässigen Standard Timeout von einer Minute gefiltert werden können. 
 
@@ -349,7 +349,66 @@ Wenn Sie die Übertragung bereits einmal ausgeführt haben, gehen Sie wie folgt 
  4. Für alle deaktivierten Benutzer oder Gruppen, deren Namen jetzt ein durch Storage Migration Service hinzugefügtes Suffix enthalten, können Sie diese Konten löschen. Sie können überprüfen, ob Benutzerkonten zu einem späteren Zeitpunkt hinzugefügt wurden, da Sie nur die Gruppe "Domänen Benutzer" enthalten und ein erstelltes Datum/Uhrzeit-Wert für die Übertragungs Start Zeit des Speicher Migrations dienstan
  
  Wenn Sie Storage Migration Service mit Domänen Controllern zu Übertragungszwecken verwenden möchten, stellen Sie sicher, dass Sie immer "Benutzer und Gruppen nicht übertragen" im Windows Admin Center auf der Seite "Übertragungs Einstellungen" auswählen.
+ 
+ ## <a name="error-53-failed-to-inventory-all-specified-devices-when-running-inventory"></a>Fehler 53: "Fehler beim Inventarisieren aller angegebenen Geräte" beim Ausführen des Inventars. 
 
-## <a name="see-also"></a>Weitere Informationen:
+Wenn Sie versuchen, die Inventur auszuführen, erhalten Sie Folgendes:
+
+    Failed to inventory all specified devices 
+    
+    Log Name:      Microsoft-Windows-StorageMigrationService/Admin
+    Source:        Microsoft-Windows-StorageMigrationService
+    Date:          1/16/2020 8:31:17 AM
+    Event ID:      2516
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      ned.corp.contoso.com
+    Description:
+    Couldn't inventory files on the specified endpoint.
+    Job: ned1
+    Computer: ned.corp.contoso.com
+    Endpoint: hithere
+    State: Failed
+    File Count: 0
+    File Size in KB: 0
+    Error: 53
+    Error Message: Endpoint scan failed
+    Guidance: Check the detailed error and make sure the inventory requirements are met. This could be because of missing permissions on the source computer.
+
+    Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Debug
+    Source:        Microsoft-Windows-StorageMigrationService-Proxy
+    Date:          1/16/2020 8:31:17 AM
+    Event ID:      10004
+    Task Category: None
+    Level:         Critical
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      ned.corp.contoso.com
+    Description:
+    01/16/2020-08:31:17.031 [Crit] Consumer Task failed with error:The network path was not found.
+    . StackTrace=   at Microsoft.Win32.RegistryKey.Win32ErrorStatic(Int32 errorCode, String str)
+       at Microsoft.Win32.RegistryKey.OpenRemoteBaseKey(RegistryHive hKey, String machineName, RegistryView view)
+       at Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetEnvironmentPathFolders(String ServerName, Boolean IsServerLocal)
+       at Microsoft.StorageMigration.Proxy.Service.Discovery.ScanUtils.<ScanSMBEndpoint>d__3.MoveNext()
+       at Microsoft.StorageMigration.Proxy.EndpointScanOperation.Run()
+       at Microsoft.StorageMigration.Proxy.Service.Discovery.EndpointScanRequestHandler.ProcessRequest(EndpointScanRequest scanRequest, Guid operationId)
+       at Microsoft.StorageMigration.Proxy.Service.Discovery.EndpointScanRequestHandler.ProcessRequest(Object request)
+       at Microsoft.StorageMigration.Proxy.Common.ProducerConsumerManager`3.Consume(CancellationToken token)    
+       
+    01/16/2020-08:31:10.015 [Erro] Endpoint Scan failed. Error: (53) The network path was not found.
+    Stack trace:
+       at Microsoft.Win32.RegistryKey.Win32ErrorStatic(Int32 errorCode, String str)
+       at Microsoft.Win32.RegistryKey.OpenRemoteBaseKey(RegistryHive hKey, String machineName, RegistryView view)
+
+Zu diesem Zeitpunkt versucht der Speicher Migrationsdienst-Orchestrator, die Quellcomputer Konfiguration zu ermitteln, um die Konfiguration des Quell Computers zu bestimmen, wird jedoch vom Quell Server abgelehnt, was besagt, dass der Registrierungs Pfad nicht vorhanden ist. Folgende Ursachen sind möglich:
+
+ - Der Remote Registrierungsdienst wird auf dem Quellcomputer nicht ausgeführt.
+ - die Firewall lässt keine Remote Registrierungs Verbindungen mit dem Quell Server vom Orchestrator zu.
+ - Das Quell Migrations Konto verfügt nicht über Remote Registrierungs Berechtigungen zum Herstellen einer Verbindung mit dem Quellcomputer.
+ - Das Quell Migrations Konto verfügt nicht über Leseberechtigungen in der Registrierung des Quell Computers unter "HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\CurrentVersion" oder unter "HKEY_LOCAL_MACHINE \system\currentcontrolset\services\". LanManServer
+
+## <a name="see-also"></a>Siehe auch
 
 - [Übersicht über den Speicher Migrationsdienst](overview.md)
