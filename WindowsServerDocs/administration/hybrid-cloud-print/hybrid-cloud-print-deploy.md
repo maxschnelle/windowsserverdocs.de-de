@@ -12,16 +12,16 @@ author: msjimwu
 ms.author: coreyp
 manager: dongill
 ms.date: 3/15/2018
-ms.openlocfilehash: c756aaeb293f9e6822e979e0f305f0c4f98adf72
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.openlocfilehash: 77462ab74ee63677362b779615376e831c71de00
+ms.sourcegitcommit: eca5bb75d1db20ac07232cea759b6b542626c02f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352208"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114529"
 ---
 # <a name="deploy-windows-server-hybrid-cloud-print"></a>Bereitstellen von Windows Server Hybrid Cloud Print
 
->Gilt für: Windows Server 2016
+>Gilt für: Windows Server 2016
 
 In diesem Thema für IT-Administratoren wird die End-to-End-Bereitstellung der Microsoft Hybrid Cloud Print (HCP)-Lösung beschrieben. Diese Lösung wird auf vorhandenen Windows-Servern ausgeführt, die als Druck Server ausgeführt werden, und ermöglicht Azure Active Directory (Azure AD) verbundenen und MDM-verwalteten Geräten das Auffinden und Drucken in von der Organisation verwalteten Druckern.
 
@@ -107,7 +107,7 @@ Um die authentifizierte Kommunikation mit den HCP-Diensten zu ermöglichen, müs
 
     ![Aad verfügbar machen API 5](../media/hybrid-cloud-print/AAD-AppRegistration-ECP-ExposeAPI-ScopeName.png)
 
-3. Hinzufügen von API-Berechtigungen
+3. API-Berechtigungen hinzufügen
     - Wechseln Sie zurück zum Blatt App-Registrierungen. Klicken Sie auf die native APP, und wählen Sie API-Berechtigungen aus. Klicken Sie auf **Berechtigung hinzufügen**.
 
     ![Aad-API-Berechtigung 1](../media/hybrid-cloud-print/AAD-AppRegistration-APIPermission.png)
@@ -178,7 +178,7 @@ Um die authentifizierte Kommunikation mit den HCP-Diensten zu ermöglichen, müs
 1. Stellen Sie sicher, dass alle verfügbaren Windows Update auf dem Druck Server installiert sind. Hinweis: Server 2019 muss für die Erstellung 17763,165 oder höher gepatcht werden.
     - Installieren Sie die folgenden Server Rollen:
         - Druck Server Rolle
-        - Internetinformationsdienste (IIS)
+        - Internet Informationsdienste (IIS)
     - Ausführliche Informationen zum Installieren von Server Rollen finden [Sie unter Installieren von Rollen, Rollen Diensten und Features mithilfe des Assistenten zum Hinzufügen von Rollen und Features](https://docs.microsoft.com/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features#BKMK_installarfw) .
 
     ![Druck Server Rollen](../media/hybrid-cloud-print/PrintServer-Roles.png)
@@ -199,7 +199,7 @@ Um die authentifizierte Kommunikation mit den HCP-Diensten zu ermöglichen, müs
 
         `"C:\Program Files\WindowsPowerShell\Modules\PublishCloudPrinter\1.0.0.0"`
 
-    - Führen Sie  aus.
+    - Ausführen
 
         `.\CloudPrintDeploy.ps1 -AzureTenant <Azure Active Directory domain name> -AzureTenantGuid <Azure Active Directory ID>`
 
@@ -215,9 +215,9 @@ Um die authentifizierte Kommunikation mit den HCP-Diensten zu ermöglichen, müs
 
     ![Druck Server-Cloud-Druck Bereitstellung](../media/hybrid-cloud-print/PrintServer-CloudPrintDeploy.png)
 
-    - Überprüfen Sie die Protokolldatei, um festzustellen, ob ein Fehler vorliegt: `C:\Program Files\WindowsPowerShell\Modules\PublishCloudPrinter\1.0.0.0>notepad CloudPrintDeploy.log`
+    - Überprüfen Sie die Protokolldatei, um festzustellen, ob ein Fehler vorliegt: `C:\Program Files\WindowsPowerShell\Modules\PublishCloudPrinter\1.0.0.0\CloudPrintDeploy.log`
 
-4. Öffnen Sie regitedit an einer Eingabeaufforderung mit erhöhten Rechten. Wechseln Sie zu Computer \ HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\cloudprint\enterprisecloudprintservice.
+4. Führen Sie **regitedit** an einer Eingabeaufforderung mit erhöhten Rechten aus. Wechseln Sie zu Computer \ HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\cloudprint\enterprisecloudprintservice.
     - Stellen Sie sicher, dass azureaudience auf den Anwendungs-ID-URI der Unternehmens Cloud-Druck-App festgelegt ist
     - Stellen Sie sicher, dass für azuretenant der Azure AD Domänen Name festgelegt ist.
 
@@ -332,7 +332,7 @@ Um die authentifizierte Kommunikation mit den HCP-Diensten zu ermöglichen, müs
     - Wechseln Sie auf Azure-Portal zu **Azure Active Directory** > **Unternehmensanwendungen** > **alle Anwendungen**.
     - Wählen Sie die app "mopriadiscoveryservice" aus.
     - Wechseln Sie zu **Anwendungs Proxy**. Ändern Sie die Methode für die Vorauthentifizierung in **Azure Active Directory**.
-    - Navigieren Sie zu **Single sign-on** (Einmaliges Anmelden). Wählen Sie als Single Sign-on Methode "integrierte Windows-Authentifizierung" aus.
+    - Wechseln Sie zu **einmaliges Anmelden**. Wählen Sie als Single Sign-on Methode "integrierte Windows-Authentifizierung" aus.
     - Legen Sie **interner Anwendungs-SPN** auf den SPN des Druck Server Computers fest.
     - Legen Sie die **Delegierte Anmelde Identität** auf "Benutzer Prinzipal Name" fest.
     - Wiederholen Sie diesen Schritt für die entperiabdruck-app.
@@ -351,7 +351,7 @@ Um die authentifizierte Kommunikation mit den HCP-Diensten zu ermöglichen, müs
 
 > Hinweis: Wenn Sie Microsoft InTune-Dienst verwenden, können Sie diese Einstellungen unter der Kategorie "Cloud Printer" (Cloud Printer) finden.
 
-|InTune-Anzeige Name                     |-Richtlinie                         |
+|InTune-Anzeige Name                     |Policy (Richtlinie)                         |
 |----------------------------------------|-------------------------------|
 |URL für Drucker Ermittlung                   |Cloudprinterdiscoveryendpoint  |
 |URL der Drucker Zugriffs Autorität            |Cloudprintoauthauthority       |
@@ -403,7 +403,7 @@ Um die authentifizierte Kommunikation mit den HCP-Diensten zu ermöglichen, müs
 
         - SDDL = SDDL-Zeichenfolge, die die Berechtigungen für den Drucker darstellt.
             - Melden Sie sich beim Druck Server als Administrator an, und führen Sie dann den folgenden PowerShell-Befehl für den Drucker aus, den Sie veröffentlichen möchten: `(Get-Printer PrinterName -full).PermissionSDDL`.
-            - Fügen Sie dem Ergebnis aus dem obigen Befehl **o:BA** als Präfix hinzu. z. B. Wenn die vom vorherigen Befehl zurückgegebene Zeichenfolge "g:DUD: (A; oici; FA;;;" lautet. WD) ", dann SDDL =" o:Bag: DUD: (A; oici; FA;;; WD) ".
+            - Fügen Sie dem Ergebnis aus dem obigen Befehl **o:BA** als Präfix hinzu. Beispiel: Wenn die vom vorherigen Befehl zurückgegebene Zeichenfolge "g:DUD: (A; oici; FA;;;" lautet. WD) ", dann SDDL =" o:Bag: DUD: (A; oici; FA;;; WD) ".
         - DiscoveryEndpoint = melden Sie sich bei Azure-Portal an, und erhalten Sie dann die Zeichenfolge aus Unternehmensanwendungen > der mopria Discovery Service-APP > Anwendungs Proxy > externe URL. Lassen Sie das nachfolgende "/" Weg.
         - Printserverendpoint = melden Sie sich bei Azure-Portal an, und erhalten Sie dann die Zeichenfolge aus Unternehmensanwendungen > der Unternehmens Cloud-Druck-app > Anwendungs Proxy > externe URL. Lassen Sie das nachfolgende "/" Weg.
         - Azureclientid = Anwendungs-ID der registrierten systemeigenen Anwendung.
@@ -414,7 +414,7 @@ Um die authentifizierte Kommunikation mit den HCP-Diensten zu ermöglichen, müs
 
         `Publish-CloudPrinter -Printer <string> -Manufacturer <string> -Model <string> -OrgLocation <string> -Sddl <string> -DiscoveryEndpoint <string> -PrintServerEndpoint <string> -AzureClientId <string> -AzureTenantGuid <string> -DiscoveryResourceId <string>`
 
-        Beispiel für einen Befehl:
+        Beispiel Befehl:
 
         `Publish-CloudPrinter -Printer HcpTestPrinter -Manufacturer Manufacturer1 -Model Model1 -OrgLocation '{"attrs": [{"category":"country", "vs":"USA", "depth":0}, {"category":"organization", "vs":"MyCompany", "depth":1}, {"category":"site", "vs":"MyCity, State", "depth":2}, {"category":"building", "vs":"Building 1", "depth":3}, {"category":"floor_name", "vs":1, "depth":4}, {"category":"room_name", "vs":"1111", "depth":5}]}' -Sddl "O:BAG:DUD:(A;OICI;FA;;;WD)" -DiscoveryEndpoint "https://mopriadiscoveryservice-contoso.msappproxy.net/mcs" -PrintServerEndpoint "https://enterprisecloudprint-contoso.msappproxy.net/ecp" -AzureClientId "dbe4feeb-cb69-40fc-91aa-73272f6d8fe1" -AzureTenantGuid "8de6a14a-5a23-4c1c-9ae4-1481ce356034" -DiscoveryResourceId "https://mopriadiscoveryservice-contoso.msappproxy.net/mcs/"`
 
@@ -422,7 +422,7 @@ Um die authentifizierte Kommunikation mit den HCP-Diensten zu ermöglichen, müs
 
         `Publish-CloudPrinter -Query -DiscoveryEndpoint <string> -AzureClientId <string> -AzureTenantGuid <string> -DiscoveryResourceId <string>`
 
-        Beispiel für einen Befehl:
+        Beispiel Befehl:
 
         `Publish-CloudPrinter -Query -DiscoveryEndpoint "https://mopriadiscoveryservice-contoso.msappproxy.net/mcs" -AzureClientId "dbe4feeb-cb69-40fc-91aa-73272f6d8fe1" -AzureTenantGuid "8de6a14a-5a23-4c1c-9ae4-1481ce356034" -DiscoveryResourceId "https://mopriadiscoveryservice-contoso.msappproxy.net/mcs/"`
 
@@ -443,19 +443,21 @@ Auf einem Azure AD eingebundener Gerät, auf dem die MDM-Richtlinien konfigurier
 
 > Hinweis: Wenn Sie den "ecpprinttest"-Drucker verwenden, finden Sie die Ausgabedatei auf dem Druck Server Computer unter "C:\\ecptestoutput\\ecptestprint. XPS"-Speicherort.
 
-## <a name="troubleshooting"></a>Fehlerbehebung
+## <a name="troubleshooting"></a>Problembehandlung
 
-Es gibt verschiedene Protokolle, die bei der Problembehandlung helfen können.
-- Auf dem Windows 10-Client.
-    - Verwenden Sie den Feedback-Hub, um ein neues Feedback hinzuzufügen.
-        - Klicken Sie auf **Start** , und geben Sie "Feedback-Hub" ein.
-        - Wählen Sie Unterkategorie die Option **Problem**, **Geräte und Treiber**, **Drucken**aus.
-        - Klicken Sie im Abschnitt zum Hinzufügen von weiteren Details auf die Schaltfläche **Aufzeichnung starten** .
-        - Wiederholen Sie den Druckauftrag, der fehlgeschlagen ist.
-        - Kehren Sie zurück zum Feedback-Hub, und klicken Sie auf die Schaltfläche **Aufzeichnung anhalten** .
-        - Klicken Sie auf **senden** , um Ihr Feedback zu senden.
-    - Verwenden Sie Ereignisanzeige, um das Protokoll von Azure AD Vorgängen anzuzeigen. Klicken Sie auf **Start** , und geben Sie "Ereignisanzeige" ein. Navigieren Sie zu Anwendungs-und Dienst Protokolle > Microsoft > Windows > Aad-> Vorgang.
-- Auf dem Connector-Server.
-    - Verwenden Sie Ereignisanzeige, um das Protokoll des Anwendungs Proxys anzuzeigen. Klicken Sie auf **Start** , und geben Sie "Ereignisanzeige" ein. Navigieren Sie zu Anwendungs-und Dienst Protokolle > Microsoft > aadapplicationproxy > Connector > admin.
-- Auf dem Druck Server.
-    - Die Protokolle für die "mopria Discovery Service"-App und die unternehmenscloud-Druck-App finden Sie unter "c:\inetpub\logs\logfiles\w3svc1.".
+Im folgenden sind häufige Probleme bei der HCP-Bereitstellung
+
+|Error |Empfohlene Schritte |
+|------|------|
+|Cloudprintbereitstellungs-PowerShell-Skript fehlgeschlagen | <ul><li>Stellen Sie sicher, dass Windows Server das neueste Update aufweist.</li><li>Wenn Windows Server Update Services (WSUS) verwendet wird, finden Sie unter Gewusst [wie: Bedarfs gesteuerte Features und Sprachpakete bei Verwendung von WSUS/SCCM](https://docs.microsoft.com/windows/deployment/update/fod-and-lang-packs)Weitere Informationen.</li></ul> |
+|Fehler bei der SQLite-Installation mit der folgenden Meldung: Abhängigkeits Schleife für Paket "System. Data. sqlite" erkannt | Install-package System. Data. sqlite. Core-ProviderName nuget-skipdependen<br>Install-package System. Data. sqlite. EF6-ProviderName nuget-skipdependen<br>Install-package System. Data. sqlite. Linq-ProviderName nuget-skipdependen<br><br>Nachdem die Pakete erfolgreich heruntergeladen wurden, stellen Sie sicher, dass Sie die gleiche Version aufweisen. Wenn dies nicht der Wert ist, fügen Sie den-Requirements dversion-Parameter den obigen Befehlen hinzu, und legen Sie diese auf die gleiche Version fest. |
+|Fehler beim Veröffentlichungs Drucker. | <ul><li>Stellen Sie für Passthrough-Vorauthentifizierung sicher, dass der Benutzer, der den Drucker veröffentlicht, die richtige Berechtigung für die Veröffentlichungs Datenbank erhält.</li><li>Stellen Sie für Azure AD Vorauthentifizierung sicher, dass die Windows-Authentifizierung in IIS aktiviert ist. Siehe Schritt 5,3. Versuchen Sie außerdem, die Passthrough-Vorauthentifizierung zu verwenden. Wenn die Passthrough-Vorauthentifizierung funktioniert, liegt das Problem wahrscheinlich im Zusammenhang mit dem Anwendungs Proxy. Weitere Informationen finden Sie unter [Beheben von Problemen mit Anwendungs Proxy und Fehlermeldungen](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot). Beachten Sie, dass der Wechsel zu Passthrough die Single Sign-on Einstellung zurücksetzt. Wiederholen Sie Schritt 5, um die Vorauthentifizierung erneut Azure AD.</li></ul> |
+|Druckaufträge bleiben im Zustand "an Drucker gesendet" | <ul><li>Stellen Sie sicher, dass TLS 1,2 auf dem Connector-Server aktiviert ist. Weitere Informationen finden Sie im verknüpften Artikel in Schritt 2,1.</li><li>Stellen Sie sicher, dass HTTP2 auf dem Connector-Server deaktiviert ist. Weitere Informationen finden Sie im verknüpften Artikel in Schritt 2,1.</li></ul> |
+
+Im folgenden finden Sie Speicherorte von Protokollen zur Problembehandlung.
+
+|Komponente |Protokoll Speicherort |
+|------|------|
+|Windows 10-Client | <ul><li>Verwenden Sie Ereignisanzeige, um das Protokoll von Azure AD Vorgängen anzuzeigen. Klicken Sie auf **Start** , und geben Sie "Ereignisanzeige" ein. Navigieren Sie zu Anwendungs-und Dienst Protokolle > Microsoft > Windows > Aad-> Vorgang.</li><li>Verwenden Sie den Feedback-Hub, um Protokolle zu erfassen. Siehe [Senden von Feedback an Microsoft mit der Feedback-Hub-App](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)</li></ul> |
+|Connector-Server | Verwenden Sie Ereignisanzeige, um das Protokoll des Anwendungs Proxys anzuzeigen. Klicken Sie auf **Start** , und geben Sie "Ereignisanzeige" ein. Navigieren Sie zu Anwendungs-und Dienst Protokolle > Microsoft > aadapplicationproxy > Connector > admin. |
+|Druckerserver | Die Protokolle für die "mopria Discovery Service"-App und die unternehmenscloud-Druck-App finden Sie unter "c:\inetpub\logs\logfiles\w3svc1.". |
