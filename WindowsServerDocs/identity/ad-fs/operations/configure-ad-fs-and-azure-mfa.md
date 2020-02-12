@@ -9,12 +9,12 @@ ms.date: 01/28/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c3a7e7c420ef63adc906e6558ed7aff6819e983c
-ms.sourcegitcommit: a33404f92867089bb9b0defcd50960ff231eef3f
+ms.openlocfilehash: b658644d1ba7cec1b02a2a51331cd7b7152efc77
+ms.sourcegitcommit: 75e611fd5de8b8aa03fc26c2a3d5dbf8211b8ce3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013055"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77145495"
 ---
 # <a name="configure-azure-mfa-as-authentication-provider-with-ad-fs"></a>Konfigurieren von Azure MFA als Authentifizierungs Anbieter mit AD FS
 
@@ -135,7 +135,7 @@ Windows Server ohne den neuesten Service Pack unterstützt den Parameter "`-Envi
 1. Öffnen Sie den **Registrierungs-Editor** auf dem AD FS-Server.
 1. Navigieren Sie zu `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ADFS`. Erstellen Sie die folgenden Registrierungsschlüssel Werte:
 
-    | Registrierungsschlüssel       | Value |
+    | Registrierungsschlüssel       | Wert |
     |--------------------|-----------------------------------|
     | SasUrl             | https://adnotifications.windowsazure.us/StrongAuthenticationService.svc/Connector |
     | Stsurl             | https://login.microsoftonline.us |
@@ -160,11 +160,14 @@ Auf jedem AD FS Server auf dem lokalen Computer My Store ist ein selbst signiert
 
 Wenn sich die Gültigkeitsdauer Ihrer Zertifikate nähert, starten Sie den Erneuerungs Vorgang, indem Sie auf jedem AD FS Server ein neues Azure MFA-Zertifikat erstellen. Generieren Sie in einem PowerShell-Befehlsfenster auf jedem AD FS Server ein neues Zertifikat mit dem folgenden Cmdlet:
 
+> [!CAUTION]
+> Wenn das Zertifikat bereits abgelaufen ist, fügen Sie den `-Renew $true`-Parameter dem folgenden Befehl nicht hinzu. In diesem Szenario wird das vorhandene abgelaufene Zertifikat durch einen neuen ersetzt, anstatt nicht mehr vorhanden und ein zusätzliches Zertifikat erstellt zu werden.
+
 ```
 PS C:\> $newcert = New-AdfsAzureMfaTenantCertificate -TenantId <tenant id such as contoso.onmicrosoft.com> -Renew $true
 ```
 
-Durch dieses Cmdlet wird ein neues Zertifikat generiert, das von 2 Tagen in der Zukunft bis 2 Tage + 2 Jahre gültig ist.  Die AD FS-und Azure MFA-Vorgänge werden von diesem Cmdlet oder dem neuen Zertifikat nicht beeinträchtigt. (Hinweis: die 2-tägige Verzögerung ist beabsichtigt und bietet Zeit zum Ausführen der folgenden Schritte, um das neue Zertifikat im Mandanten zu konfigurieren, bevor AD FS es für Azure MFA verwendet.)
+Wenn das Zertifikat nicht bereits abgelaufen ist, wird ein neues Zertifikat generiert, das von 2 Tagen in der Zukunft bis 2 Tage + 2 Jahre gültig ist. Die AD FS-und Azure MFA-Vorgänge sind von diesem Cmdlet oder dem neuen Zertifikat nicht betroffen. (Hinweis: die 2-tägige Verzögerung ist beabsichtigt und bietet Zeit zum Ausführen der folgenden Schritte, um das neue Zertifikat im Mandanten zu konfigurieren, bevor AD FS es für Azure MFA verwendet.)
 
 ### <a name="configure-each-new-ad-fs-azure-mfa-certificate-in-the-azure-ad-tenant"></a>Konfigurieren Sie jedes neue AD FS Azure MFA-Zertifikat im Azure AD Mandanten.
 
@@ -174,7 +177,7 @@ Wenn Sie das Azure AD PowerShell-Modul verwenden, aktualisieren Sie für jedes n
 PS C:/> New-MsolServicePrincipalCredential -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -Type Asymmetric -Usage Verify -Value $newcert
 ```
 
-`$newcert` ist das neue Zertifikat. Das Base64-codierte Zertifikat kann abgerufen werden, indem Sie das Zertifikat (ohne den privaten Schlüssel) als die der-codierten Datei exportieren und in "Notepad. exe" öffnen, dann in die PowerShell-Sitzung kopieren/einfügen und der Variablen `$newcert`zuweisen.
+Wenn das vorherige Zertifikat bereits abgelaufen ist, starten Sie den AD FS-Dienst neu, um das neue Zertifikat zu übernehmen. Sie müssen den AD FS-Dienst nicht neu starten, wenn Sie ein Zertifikat erneuern, bevor es abgelaufen ist.
 
 ### <a name="verify-that-the-new-certificates-will-be-used-for-azure-mfa"></a>Überprüfen Sie, ob die neuen Zertifikate für Azure MFA verwendet werden.
 
