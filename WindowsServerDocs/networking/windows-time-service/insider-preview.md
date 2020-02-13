@@ -1,7 +1,7 @@
 ---
 ms.assetid: ''
-title: Insider Preview für Windows-Zeit Dienst Features in Windows Server 2019
-description: Neue Windows-Zeit Dienst Features in Windows Server 2019
+title: Insider Preview für Windows-Zeitdienstfunktionen in Windows Server 2019
+description: Neue Windows-Zeitdienstfunktionen in Windows Server 2019
 author: shortpatti
 ms.author: pashort
 ms.date: 09/05/2018
@@ -10,60 +10,60 @@ ms.prod: windows-server
 ms.technology: networking
 ms.openlocfilehash: 38682afa37a4c6882ee2e63a4abf4cd9fdbd2b27
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71405219"
 ---
-# <a name="insider-preview"></a>Insider preview 
+# <a name="insider-preview"></a>Insider Preview 
 
 
 ## <a name="leap-second-support"></a>Unterstützung für Schaltsekunden
 
 
->Gilt für: Windows Server 2019 und Windows 10, Version 1809
+>Gilt für: Windows Server 2019 und Windows 10, Version 1809
 
-Eine Schaltsekunde ist eine Anpassung von 1 Sekunde auf UTC. Wenn die Drehung der Erde verlangsamt wird, weicht [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) (eine atomarische Zeitspanne) von der [durchschnittlichen Sonnenzeit](https://en.wikipedia.org/wiki/Solar_time#Mean_solar_time) oder der astronomischen Zeit ab.  Wenn die UTC höchstens 0,9 Sekunden voneinander abweigelte, wird eine [Schaltsekunde](https://en.wikipedia.org/wiki/Leap_second) eingefügt, um die UTC-Zeit mit der durchschnittlichen Sonnenzeit synchron zu halten.
+Eine Schaltsekunde ist eine gelegentliche Anpassung der UTC um 1 Sekunde. Wenn sich die Erdrotation verlangsamt, weicht die [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) (eine Atomzeitskala) von der [mittleren Sonnenzeit](https://en.wikipedia.org/wiki/Solar_time#Mean_solar_time) oder der astronomischen Zeit ab.  Sobald die UTC um maximal 0,9 Sekunden abweicht, wird eine [Schaltsekunde](https://en.wikipedia.org/wiki/Leap_second) eingefügt, um die UTC mit der mittleren Sonnenzeit synchron zu halten.
 
-Schaltsekunden sind wichtig, um die gesetzlichen Anforderungen an Genauigkeit und Nachverfolgbarkeit sowohl in der USA als auch in der Europäischen Union zu erfüllen.
+Schaltsekunden sind ein wichtiges Mittel geworden, um die gesetzlichen Anforderungen an Genauigkeit und Nachverfolgbarkeit sowohl in den USA als auch in der Europäischen Union zu erfüllen.
 
-Weitere Informationen finden Sie in den folgenden Themen:
+Weitere Informationen finden Sie unter:
 
--  Unseren [Ankündigungs Blog](https://blogs.technet.microsoft.com/networking/2018/07/18/top10-ws2019-hatime/)
+-  Unser [Ankündigungsblog](https://blogs.technet.microsoft.com/networking/2018/07/18/top10-ws2019-hatime/)
 
--  Validierungs Handbuch für [Entwickler](https://aka.ms/Dev-LeapSecond)
+-  Validierungshandbuch für [Entwickler](https://aka.ms/Dev-LeapSecond)
 
--  Validierungs Handbuch für [IT](https://aka.ms/ITPro-LeapSecond) -Experten
-
-
-## <a name="precision-time-protocol"></a>Genauigkeits Zeitprotokoll
-
->Gilt für: Windows Server 2019 und Windows 10, Version 1809
-
-Ein neuer Zeit Anbieter, der in Windows Server 2019 und Windows 10 (Version 1809) enthalten ist, ermöglicht es Ihnen, die Zeit mithilfe des Zeit Protokolls (Precision Time Protocol, PTP) zu synchronisieren. Wenn die Zeit über ein Netzwerk verteilt wird, wird eine Verzögerung (Wartezeit) festgestellt. wenn diese nicht berücksichtigt wird oder wenn Sie nicht symmetrisch ist, wird es zunehmend schwieriger, den vom Zeitserver gesendeten Zeitstempel zu verstehen. Mit PTP können Netzwerkgeräte die Wartezeit, die von jedem Netzwerkgerät eingeführt wurde, den Zeit Steuerungs Messungen hinzufügen. Dadurch wird dem Windows-Client ein weitaus genaueres Zeit Beispiel bereitgestellt.
-
-Weitere Informationen finden Sie in den folgenden Themen:
-
--  Unseren [Ankündigungs Blog](https://blogs.technet.microsoft.com/networking/2018/07/18/top10-ws2019-hatime/)
-
--  Validierungs Handbuch für [IT](https://aka.ms/PTPValidation) -Experten
+-  Validierungshandbuch für [IT-Experten](https://aka.ms/ITPro-LeapSecond)
 
 
-## <a name="software-timestamping"></a>Software Zeitstempel
+## <a name="precision-time-protocol"></a>Präzisionszeitprotokoll (PTP)
 
->Gilt für: Windows Server 2019 und Windows 10, Version 1809
+>Gilt für: Windows Server 2019 und Windows 10, Version 1809
 
-Beim Empfang eines Zeit Steuerungs Pakets über das Netzwerk von einem Zeitserver aus muss es vom Netzwerk Stapel des Betriebssystems verarbeitet werden, bevor er im Zeit Dienst verwendet werden kann. Jede Komponente im Netzwerk Stapel führt eine Variable Menge an Latenz ein, die sich auf die Genauigkeit der zeitlichen Steuerung auswirkt.
+Ein neuer Zeitanbieter, der in Windows Server 2019 und Windows 10 (Version 1809) enthalten ist, ermöglicht es dir, die Zeit mithilfe des Präzisionszeitprotokolls (Precision Time Protocol, PTP) zu synchronisieren. Während die Zeit über ein Netzwerk verteilt wird, kommt es zu Verzögerungen (Latenzen), durch die es, wenn sie unberücksichtigt bleiben oder asymmetrisch sind, zunehmend schwierig wird, den vom Zeitserver gesendeten Zeitstempel zu verstehen. Mit PTP können Netzwerkgeräte die Latenz, die von jedem Netzwerkgerät eingeführt wird, zu jeder Zeitmessung addieren, wodurch dem Windows-Client eine weitaus genauere Zeitstichprobe bereitgestellt wird.
 
-![Software Zeitstempel](../media/Windows-Time-Service/software-timestamping.png)
+Weitere Informationen finden Sie unter:
 
-Um dieses Problem zu beheben, können wir mit dem Software Zeitstempel vor und nach den oben gezeigten "Windows-Netzwerkkomponenten" Zeitstempel für die Verzögerung des Betriebssystems berücksichtigen.
+-  Unser [Ankündigungsblog](https://blogs.technet.microsoft.com/networking/2018/07/18/top10-ws2019-hatime/)
 
-Weitere Informationen finden Sie in den folgenden Themen:
+-  Validierungshandbuch für [IT-Experten](https://aka.ms/PTPValidation)
 
--  Unseren [Ankündigungs Blog](https://blogs.technet.microsoft.com/networking/2018/07/18/top10-ws2019-hatime/)
 
--  Validierungs Handbuch für [IT](https://github.com/Microsoft/SDN/blob/master/FeatureGuide/Validation%20Guide%20-%20RS5%20-%20Software%20Timestamping.docx) -Experten
+## <a name="software-timestamping"></a>Software-Zeitstempelung
+
+>Gilt für: Windows Server 2019 und Windows 10, Version 1809
+
+Beim Empfang eines Zeitsteuerungspakets über das Netzwerk von einem Zeitserver muss es vom Netzwerkstapel des Betriebssystems verarbeitet werden, bevor es im Zeitdienst verwendet werden kann. Jede Komponente im Netzwerkstapel führt eine variable Menge an Latenz ein, die sich auf die Genauigkeit der Zeitmessung auswirkt.
+
+![Software-Zeitstempelung](../media/Windows-Time-Service/software-timestamping.png)
+
+Um dieses Problem zu beheben, gestattet die Software-Zeitstempelung die Vergabe eines Zeitstempels für Pakete vor und nach den oben gezeigten „Windows-Netzwerkkomponenten“, um die Verzögerung im Betriebssystem zu berücksichtigen.
+
+Weitere Informationen finden Sie unter:
+
+-  Unser [Ankündigungsblog](https://blogs.technet.microsoft.com/networking/2018/07/18/top10-ws2019-hatime/)
+
+-  Validierungshandbuch für [IT-Experten](https://github.com/Microsoft/SDN/blob/master/FeatureGuide/Validation%20Guide%20-%20RS5%20-%20Software%20Timestamping.docx)
 
 
 
