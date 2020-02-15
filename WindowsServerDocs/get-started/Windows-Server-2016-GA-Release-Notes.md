@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: 134aab85-664f-4d44-87ef-9e5fd389071f
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: 64c0daa8ecc2d6b196d4305e3246dadeebf7075a
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: f4568e1781dbe385d8abe8a96f07841391506738
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948343"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822163"
 ---
 # <a name="release-notes-important-issues-in-windows-server-2016"></a>Versionshinweise: Wichtige Probleme in Windows Server 2016
 
@@ -29,7 +29,7 @@ Dieses Dokument wird ständig aktualisiert. Wenn kritische Probleme ermittelt we
 
 ## <a name="express-updates-available-starting-in-november-2018-new"></a>Expressupdates ab November 2018 verfügbar (NEU)
 
-Ab dem Update im November 2018 (Update-Dienstag) werden von Windows wieder [Expressupdates](express-updates.md) für Windows Server 2016 veröffentlicht. Benutzern von WSUS und System Center Configuration Manager (SCCM) werden wieder zwei Pakete für das Windows Server 2016-Update angezeigt: ein vollständiges Update und ein Expressupdate. Wenn du in deinen Serverumgebungen die Expressoption verwenden möchtest, vergewissere dich, dass auf dem Server seit November 2017 (KB 4048953) ein vollständiges Update ausgeführt wurde, um sicherzustellen, dass das Expressupdate ordnungsgemäß installiert wird. Bei Servern, die seit dem 11B-Update von 2017 (KB 4048953) nicht mehr aktualisiert wurden, treten beim Versuch, das Expressupdate anzuwenden, wiederholt Fehler auf, die Bandbreite und CPU-Ressourcen in einer Endlosschleife beanspruchen. Beende in diesem Fall das Pushen des Expressupdates, und pushe stattdessen ein aktuelles vollständiges Update, um die Fehlerschleife zu beenden.
+Ab dem Update im November 2018 (Update-Dienstag) werden von Windows wieder [Expressupdates](express-updates.md) für Windows Server 2016 veröffentlicht. Benutzern von WSUS und Configuration Manager werden wieder zwei Pakete für das Windows Server 2016-Update angezeigt: ein vollständiges Update und ein Expressupdate. Wenn du in deinen Serverumgebungen die Expressoption verwenden möchtest, vergewissere dich, dass auf dem Server seit November 2017 (KB 4048953) ein vollständiges Update ausgeführt wurde, um sicherzustellen, dass das Expressupdate ordnungsgemäß installiert wird. Bei Servern, die seit dem 11B-Update von 2017 (KB 4048953) nicht mehr aktualisiert wurden, treten beim Versuch, das Expressupdate anzuwenden, wiederholt Fehler auf, die Bandbreite und CPU-Ressourcen in einer Endlosschleife beanspruchen. Beende in diesem Fall das Pushen des Expressupdates, und pushe stattdessen ein aktuelles vollständiges Update, um die Fehlerschleife zu beenden.
 
 ## <a name="server-core-installation-option"></a>Server Core-Installationsoption
 

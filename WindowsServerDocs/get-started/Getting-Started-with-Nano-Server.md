@@ -12,12 +12,12 @@ ms.assetid: 2c2fa45b-6f3b-4663-b421-2da6ecc463bf
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: f94e2c083f0bc05231543c15120818481afbabb0
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 09f031c19c8f6d1105d47b9f22d52db30e9c57ef
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947857"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822153"
 ---
 # <a name="install-nano-server"></a>Installieren von Nano Server
 
@@ -50,7 +50,7 @@ Da Nano Server als schlankes Betriebssystem für die Ausführung von „nativen 
 - Gruppenrichtlinien werden nicht unterstützt. Sie können jedoch [DSC](https://msdn.microsoft.com/powershell/dsc/nanoDsc) (Desired State Configuration) verwenden, um Einstellungen bedarfsgerecht anzuwenden.
 - Nano Server kann nicht für die Verwendung eines Proxyservers für den Internetzugriff konfiguriert werden.
 - NIC-Teamvorgänge (insbesondere Lastenausgleich und Failover oder LBFO) werden nicht unterstützt. Stattdessen wird Switch Embedded Teaming (SET) unterstützt.
-- System Center Configuration Manager und System Center Data Protection Manager werden nicht unterstützt.
+- Microsoft Endpoint Configuration Manager und System Center Data Protection Manager werden nicht unterstützt.
 - Best Practices Analyzer (BPA)-Cmdlets und BPA-Integration mit dem Server-Manager werden nicht unterstützt.
 - Nano-Server unterstützen keine virtuellen Hostbusadapter (HBA).
 - Nano Server muss nicht mit einem Product Key aktiviert werden. Wenn Nano Server als Hyper-V-Host fungiert, wird keine [automatische Aktivierung virtueller Computer](https://technet.microsoft.com/library/dn303421%28v=ws.11%29.aspx) (AVMA) unterstützt. Virtuelle Computer, die auf einem Nano Server-Host ausgeführt werden, können mithilfe des [Schlüsselverwaltungsdienstes](https://technet.microsoft.com/library/jj612867(v=ws.11).aspx) (Key Management Service, KMS) mit einem generischen Volumenlizenzschlüssel oder mit der [Aktivierung über Active Directory](https://technet.microsoft.com/library/dn502534(v=ws.11).aspx) aktiviert werden.

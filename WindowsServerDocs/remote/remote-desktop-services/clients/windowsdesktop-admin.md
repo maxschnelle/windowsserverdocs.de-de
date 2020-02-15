@@ -13,12 +13,12 @@ manager: lizross
 ms.author: helohr
 ms.date: 09/16/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 2195c3bafaa01a1b1c16c17889d5e04d7213a5b6
-ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
+ms.openlocfilehash: c0a9f11aea9e24cc1a2bab275aae8dc0a81e9cba
+ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75919708"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76822361"
 ---
 # <a name="windows-desktop-client-for-admins"></a>Windows-Desktopclient für Administratoren
 
@@ -28,7 +28,7 @@ Dieses Thema enthält weitere Informationen zum Windows-Desktopclient, die für 
 
 ## <a name="installation-options"></a>Installationsoptions
 
-Obwohl deine Benutzer den Client direkt nach dem Herunterladen installieren können, möchtest du ihn den Benutzern möglicherweise auf andere Weise bereitstellen, wenn du den Client auf mehreren Geräten bereitstellst. Erfolgt die Bereitstellung über Gruppenrichtlinien oder den System Center Configuration Manager, kann das Installationsprogramm im Hintergrund über eine Befehlszeile ausgeführt werden. Führ die folgenden Befehle aus, um den Client pro Gerät oder pro Benutzer bereitzustellen.
+Obwohl deine Benutzer den Client direkt nach dem Herunterladen installieren können, möchtest du ihn den Benutzern möglicherweise auf andere Weise bereitstellen, wenn du den Client auf mehreren Geräten bereitstellst. Erfolgt die Bereitstellung über Gruppenrichtlinien oder den Microsoft Endpoint Configuration Manager, kann das Installationsprogramm im Hintergrund über eine Befehlszeile ausgeführt werden. Führ die folgenden Befehle aus, um den Client pro Gerät oder pro Benutzer bereitzustellen.
 
 ### <a name="per-device-installation"></a>Installation pro Gerät
 

@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 01/14/2020
+ms.date: 01/29/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: f1f4d6b32b8b7d717d2d424e0a60c5edc96f4cac
-ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
+ms.openlocfilehash: b2d5215c7089ce1aadbeae68890dca1a0ae1c294
+ms.sourcegitcommit: 9077469e372d2aafcad890cbc4e4a24c58a3838c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75953074"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76889444"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -30,14 +30,14 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 
 |Benutzergruppe |Version  |
 |-----------|---------|
-|Öffentlich     |1.2.535  |
-|Insider    |1.2.594  |
+|Öffentlich     |1.2.605  |
+|Insider    |1.2.605  |
 
-## <a name="updates-for-version-12594"></a>Updates für Version 1.2.594
+## <a name="updates-for-version-12605"></a>Updates für Version 1.2.605
 
-*Veröffentlicht am: 14.01.2020*
+*Veröffentlicht am: 29.01.2020*
 
-Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4o4cC), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4o4cI), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oh9C)
+Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oHrD), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oJZs), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4oXhD)
 
 - Du kannst jetzt auswählen, welche Anzeigen für Desktopverbindungen verwendet werden sollen. Zum Ändern dieser Einstellung klicke mit der rechten Maustaste auf das Symbol der Desktopverbindung, und wähle **Einstellungen** aus.
 - Es wurde ein Problem behoben, bei dem in den Verbindungseinstellungen nicht die richtigen verfügbaren Skalierungsfaktoren angezeigt wurden.

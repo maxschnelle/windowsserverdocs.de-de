@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 01/04/2019
+ms.date: 01/29/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: ff5e2252a71f11f2488c6bdd872fe4e2de35519c
-ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
+ms.openlocfilehash: 1753780474332a6d5786a5804fc1b4fe5e3d8883
+ms.sourcegitcommit: 9077469e372d2aafcad890cbc4e4a24c58a3838c
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75919699"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76889434"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Erste Schritte mit dem Windows-Desktopclient
 
@@ -103,17 +103,14 @@ Arbeitsbereiche können mehrere verwaltete Ressourcen enthalten, einschließlich
 
 ### <a name="desktop-settings"></a>Desktopeinstellungen
 
-Du kannst einige der Einstellungen für Desktopressourcen konfigurieren, um sicherzustellen, dass die Oberfläche deinen Anforderungen entspricht. So greifst du auf die Liste der verfügbaren Einstellungen zu:
-
-1. Klicke im Connection Center mit der rechten Maustaste auf eine Desktopressource.
-2. Wähle im Dropdownmenü **Einstellungen** aus.
-3. Der Bereich „Einstellungen“ wird auf der rechten Seite des Clients mit dem Namen des Desktops angezeigt.
+Du kannst einige der Einstellungen für Desktopressourcen konfigurieren, um sicherzustellen, dass die Oberfläche deinen Anforderungen entspricht. Um auf die Liste der verfügbaren Einstellungen zuzugreifen, klicke mit der rechten Maustaste auf die Desktopressource, und wähle dann **Einstellungen** aus.
 
 Der Client verwendet die von deinem Administrator konfigurierten Einstellungen, es sei denn, du deaktivierst die Option **Standardeinstellungen verwenden**. Auf diese Weise kannst du die folgenden Optionen konfigurieren:
 
-- **Alle Monitore verwenden** schaltet die Desktopsitzung zwischen der Nutzung aller lokalen Monitore und nur einem Monitor um.
-- **Im Vollbildmodus starten** legt fest, ob die Sitzung im Vollbild- oder im Fenstermodus gestartet wird. Diese Einstellung ist bei Verwendung aller Monitore automatisch aktiviert.
-- **Auflösung beim Ändern der Größe aktualisieren** ändert das Verhalten beim Ändern der Größe im Fenstermodus. Wenn die Option aktiviert ist, wird die Auflösung des Remotedesktops aktualisiert, damit sie mit der Größe des lokalen Fensters übereinstimmt. Bei deaktivierter Option behält die Sitzung die in **Auflösung** angegebene Auflösung für ihre gesamte Dauer bei. Diese Einstellung ist bei Verwendung aller Monitore automatisch aktiviert.
+- **Mehrere Anzeigen verwenden** schaltet die Desktopsitzung zwischen einer oder mehreren Anzeigen um.
+- **Anzeigen auswählen, die für die Sitzung verwendet werden sollen** gibt an, welche lokalen Anzeigen für die Sitzung verwendet werden sollen. Alle ausgewählten Anzeigen müssen nebeneinander liegen. Diese Einstellung wird automatisch deaktiviert, wenn eine einzelne Anzeige verwendet wird.
+- **Im Vollbildmodus starten** legt fest, ob die Sitzung im Vollbild- oder im Fenstermodus gestartet wird. Diese Einstellung wird automatisch aktiviert, wenn mehrere Anzeigen verwendet werden.
+- **Auflösung bei Größenänderung aktualisieren** bewirkt, dass die Remotedesktopauflösung automatisch aktualisiert wird, wenn die Größe der Sitzung im Fenstermodus geändert wird. Wenn diese Option deaktiviert ist, verwendet die Sitzung immer die Auflösung, die unter **Auflösung** angegeben wird. Diese Einstellung wird automatisch aktiviert, wenn mehrere Anzeigen verwendet werden.
 - In **Auflösung** kannst du die Auflösung des Remotedesktops festlegen. Die Sitzung behält diese Auflösung für ihre gesamte Dauer bei. Diese Einstellung wird automatisch deaktiviert, wenn für die Auflösung Aktualisierung beim Ändern der Größe festgelegt wird.
 - **Größe von Text und Apps ändern** gibt die Größe der Inhalte der Sitzung an. Diese Einstellung gilt nur für Verbindungen mit Windows 8.1 und höher oder Windows Server 2012 R2 und höher. Diese Einstellung wird automatisch deaktiviert, wenn für die Auflösung Aktualisierung beim Ändern der Größe festgelegt wird.
 - **Sitzung an Fenster anpassen** bestimmt, wie die Sitzung angezeigt wird, wenn die Auflösung des Remotedesktops von der Größe des lokalen Fensters abweicht. Wenn die Option aktiviert ist, wird die Größe der Sitzungsinhalte innerhalb des Fensters passend geändert, wobei das Seitenverhältnis der Sitzung beibehalten wird. Ist sie deaktiviert, werden Scrollleisten oder schwarze Bereiche angezeigt, wenn Auflösung und Fenstergröße nicht übereinstimmen.
@@ -129,7 +126,7 @@ Hast du einen Vorschlag für eine Funktion, oder möchtest du ein Problem melden
 5. Schaue die vorhandenen Feedbackthemen durch, um festzustellen, ob das Problem bereits von einem anderen Benutzer gemeldet wurde. Wenn dies nicht der Fall ist, wähle **Neuen Fehler melden** aus, und tippe dann auf **Weiter**.
 6. Auf der nächsten Seite kannst du weitere Informationen geben, damit wir dir helfen können, das Problem zu beheben. Du kannst detailliertere Informationen schreiben, Screenshots senden und sogar eine Aufnahme des Problems erstellen, um uns zu zeigen, was passiert ist. Um eine Aufnahme zu erstellen, wähle **Aufnahme starten** aus, und führe dann die Schritte aus, die zu dem Problem geführt haben. Wenn du fertig bist, kehre zum Feedback-Hub zurück, und wähle **Aufnahme beenden** aus.
 7. Wenn du mit den Informationen zufrieden bist, tippe auf **Senden**.
-8. Tippe auf der Seite „Danke für Ihr Feedback!“ auf **Feedback teilen**, um einen Link zu deinem Feedback zu generieren, den du bei Bedarf mit anderen teilen kannst.
+8. Tippe auf der Seite „Vielen Dank für Ihr Feedback!“ auf **Feedback teilen**, um einen Link zu deinem Feedback zu generieren, den du bei Bedarf mit anderen teilen kannst.
 
 ### <a name="access-client-logs"></a>Zugreifen auf Clientprotokolle
 
