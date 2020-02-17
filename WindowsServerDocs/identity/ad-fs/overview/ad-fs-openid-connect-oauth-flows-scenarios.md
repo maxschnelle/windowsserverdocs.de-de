@@ -1,6 +1,6 @@
 ---
 ms.assetid: 8a64545b-16bd-4c13-a664-cdf4c6ff6ea0
-title: AD FS OpenID Connect/OAuth-Flows und Anwendungsszenarien
+title: AD FS OpenID Connect-/OAuth-Flows und Anwendungsszenarien
 description: ''
 author: billmath
 ms.author: billmath
@@ -11,41 +11,41 @@ ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: e1e0235e50945fadd09fe9dd5ffeaf6d7119e482
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71385601"
 ---
-# <a name="ad-fs-openid-connectoauth-flows-and-application-scenarios"></a>AD FS OpenID Connect/OAuth-Flows und Anwendungsszenarien
-Gilt für AD FS 2016 und höher
+# <a name="ad-fs-openid-connectoauth-flows-and-application-scenarios"></a>AD FS OpenID Connect-/OAuth-Flows und Anwendungsszenarien
+Gilt für Active Directory-Verbunddienste (AD FS) 2016 und höher
 
 
-|Szenario|Exemplarische Vorgehensweise mit Beispielen|OAuth 2,0 Fluss/Gewährung|Clienttyp|
+|Szenario|Exemplarische Vorgehensweise bei Szenarien mit Beispielen|OAuth 2.0 Flow/Gewährung|Clienttyp|
 |-----|-----|-----|-----|
-|Einseitige App</br> | &bull; [Beispiel mit Adal](../development/Single-Page-Application-with-AD-FS.md)|[Verzerrungen](#implicit-grant-flow)|Public| 
-|Web-App, die Benutzer anmeldet</br> | &bull; [Beispiel mit owin](../development/enabling-openid-connect-with-ad-fs.md)|[Autorisierungs Code](#authorization-code-grant-flow)|Öffentlich, vertraulich|  
-|Native App Ruft Web-API auf</br>|&bull; [Beispiel mit msal](../development/msal/adfs-msal-native-app-web-api.md)</br>&bull; [Beispiel mit Adal](../development/native-client-with-ad-fs.md)|[Autorisierungs Code](#authorization-code-grant-flow)|Public|   
-|Web-App Ruft Web-API auf</br>|&bull; [Beispiel mit msal](../development/msal/adfs-msal-web-app-web-api.md)</br>&bull; [Beispiel mit Adal](../development/enabling-oauth-confidential-clients-with-ad-fs.md)|[Autorisierungs Code](#authorization-code-grant-flow)|Vertraulich| 
-|Die Web-API ruft eine andere Web-API im Namen von (OBO) des Benutzers auf.</br>|&bull; [Beispiel mit msal](../development/msal/adfs-msal-web-api-web-api.md)</br>&bull; [Beispiel mit Adal](../development/ad-fs-on-behalf-of-authentication-in-windows-server.md)|[Im Auftrag von](#on-behalf-of-flow)|Die Web-App fungiert als vertraulich.| 
-|Daemon-App Ruft Web-API auf||[Client Anmelde Informationen](#client-credentials-grant-flow)|Vertraulich| 
-|Web-App Ruft Web-API mithilfe von Benutzer-Anmelde-apps||[Kenn Wort Anmelde Informationen des Ressourcen Besitzers](#resource-owner-password-credentials-grant-flow-not-recommended)|Öffentlich, vertraulich| 
-|Browser lose App Ruft Web-API auf||[Geräte Code](#device-code-flow)|Öffentlich, vertraulich| 
+|Single-Page-App (SPA)</br> | &bull; [Beispiel mit ADAL](../development/Single-Page-Application-with-AD-FS.md)|[Implizit](#implicit-grant-flow)|Öffentlich| 
+|Web-App, die Benutzer anmeldet</br> | &bull; [Beispiel mit OWIN](../development/enabling-openid-connect-with-ad-fs.md)|[Autorisierungscode](#authorization-code-grant-flow)|Öffentlich, Vertraulich|  
+|Native App ruft Web-API auf</br>|&bull; [Beispiel mit MSAL](../development/msal/adfs-msal-native-app-web-api.md)</br>&bull; [Beispiel mit ADAL](../development/native-client-with-ad-fs.md)|[Autorisierungscode](#authorization-code-grant-flow)|Öffentlich|   
+|Web-App ruft Web-API auf</br>|&bull; [Beispiel mit MSAL](../development/msal/adfs-msal-web-app-web-api.md)</br>&bull; [Beispiel mit ADAL](../development/enabling-oauth-confidential-clients-with-ad-fs.md)|[Autorisierungscode](#authorization-code-grant-flow)|Vertraulich| 
+|Web-API ruft eine andere Web-API im Auftrag des (OBO) Benutzers auf</br>|&bull; [Beispiel mit MSAL](../development/msal/adfs-msal-web-api-web-api.md)</br>&bull; [Beispiel mit ADAL](../development/ad-fs-on-behalf-of-authentication-in-windows-server.md)|[On-behalf-of](#on-behalf-of-flow)|Web-App agiert vertraulich| 
+|Daemon-App ruft Web-API auf||[Clientanmeldeinformationen](#client-credentials-grant-flow)|Vertraulich| 
+|Web-App ruft Web-API mit Benutzeranmeldeinformationen auf||[Kennwortanmeldeinformationen des Ressourcenbesitzers](#resource-owner-password-credentials-grant-flow-not-recommended)|Öffentlich, Vertraulich| 
+|Browserfreie App ruft Web-API auf||[Gerätecode](#device-code-flow)|Öffentlich, Vertraulich| 
 
-## <a name="implicit-grant-flow"></a>Impliziter Datenfluss 
+## <a name="implicit-grant-flow"></a>Impliziter Gewährungsflow 
  
-Für Single-Page-Anwendungen (angularjs, Ember. js, "reagieren. js" usw.) unterstützt AD FS den impliziten OAuth 2,0-Grant-Flow. Der implizite Fluss wird in der [OAuth 2,0-Spezifikation](https://tools.ietf.org/html/rfc6749#section-4.2)beschrieben. Der Hauptvorteil besteht darin, dass die APP Token aus AD FS erhalten kann, ohne dass ein Back-End-Server Anmelde Informationsaustausch durchgeführt werden muss. Dies ermöglicht es der APP, den Benutzer anzumelden, die Sitzung beizubehalten und Token für andere Web-APIs zu erhalten, die sich im JavaScript-Code des Clients befinden. Es gibt einige wichtige Sicherheitsaspekte, die Sie berücksichtigen sollten, wenn Sie den impliziten Fluss speziell im Hinblick auf den [Client](https://tools.ietf.org/html/rfc6749#section-10.3)verwenden.  
+Für Single-Page-Apps (AngularJS, Ember.js, React.js usw.) unterstützt AD FS den impliziten OAuth 2.0-Gewährungsflow. Der implizite Flow ist in der  [OAuth 2.0-Spezifikation](https://tools.ietf.org/html/rfc6749#section-4.2) beschrieben. Sein Hauptvorteil besteht darin, dass die App entsprechende Token von AD FS abrufen kann, ohne dass ein Austausch von Anmeldeinformationen auf dem Back-End-Server durchgeführt werden muss. Dies ermöglicht es der App, den Benutzer anzumelden, die Sitzung aufrechtzuerhalten und Token für andere Web-APIs abzurufen, und dies alles innerhalb des JavaScript-Clientcodes. Es gibt einige wichtige Sicherheitsaspekte, die bei der Verwendung des impliziten Flows speziell bei  [Clients](https://tools.ietf.org/html/rfc6749#section-10.3) zu berücksichtigen sind.  
  
-Wenn Sie den impliziten Fluss und AD FS verwenden möchten, um der JavaScript-App Authentifizierung hinzuzufügen, führen Sie die folgenden allgemeinen Schritte aus.  
+Wenn du den impliziten Flow und AD FS verwenden möchtest, um deiner JavaScript-App die Authentifizierung hinzuzufügen, folge den nachfolgenden allgemeinen Schritten.  
   
-### <a name="protocol-diagram"></a>Protokoll Diagramm
+### <a name="protocol-diagram"></a>Protokolldiagramm
 
-Das folgende Diagramm zeigt, wie der gesamte implizite Anmeldungs Fluss aussieht, und in den folgenden Abschnitten werden die einzelnen Schritte ausführlicher beschrieben.  
+Das folgende Diagramm zeigt den gesamten impliziten Anmeldeflow, und die einzelnen Schritte werden in den folgenden Abschnitten ausführlicher beschrieben.  
 
 ![Implizite Anmeldung](media/adfs-scenarios-for-developers/implicit.png)
 
-### <a name="request-id-token-and-access-token"></a>Anforderungs-ID-Token und Zugriffs Token 
+### <a name="request-id-token-and-access-token"></a>Anfordern von ID-Token und Zugriffstoken 
  
-Um den Benutzer anfänglich bei Ihrer APP zu signieren, können Sie eine OpenID Connect-Authentifizierungsanforderung senden und id_token und Zugriffs Token vom AD FS Endpunkt abrufen.  
+Um den Benutzer zunächst in deiner App anzumelden, kannst du eine OpenID Connect-Authentifizierungsanforderung senden und ID-Token und Zugriffstoken vom AD FS-Endpunkt abrufen.  
  
 ```
 // Line breaks for legibility only 
@@ -62,23 +62,23 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 |Parameter|Erforderlich/optional|Beschreibung| 
 |-----|-----|-----|
-|client_id|Erforderlich|Die Anwendungs-ID (Client-ID), die der der APP zugewiesen AD FS.| 
-|response_type|Erforderlich|Muss `id_token` für die OpenID Connect-Anmeldung enthalten. Sie kann auch die response_type `token`enthalten. Wenn Sie das Token hier verwenden, kann Ihre APP ein Zugriffs Token direkt vom Autorisierungs Endpunkt empfangen, ohne dass eine zweite Anforderung an den tokenendpunkt gesendet werden muss.| 
-|redirect_uri|Erforderlich|Der redirect_uri Ihrer APP, in dem Authentifizierungs Antworten gesendet und von Ihrer APP empfangen werden können. Er muss genau mit einem der redirect_uris übereinstimmen, die Sie in AD FS konfiguriert haben.| 
-|Nonce|Erforderlich|Ein in der Anforderung enthaltener Wert, der von der APP generiert wird und in der resultierenden id_token als Anspruch enthalten ist. Die APP kann diesen Wert dann überprüfen, um Token-Replay-Angriffe zu verringern. Der Wert ist in der Regel eine zufällige, eindeutige Zeichenfolge, die verwendet werden kann, um den Ursprung der Anforderung zu identifizieren. Nur erforderlich, wenn eine id_token angefordert wird.|
-|scope|Optional|Eine durch Leerzeichen getrennte Liste von Bereichen. Für OpenID Connect muss der Bereich `openid`enthalten sein.|
-|Ressource|Optional|Die URL Ihrer Web-API.</br>Hinweis – Wenn Sie die msal-Client Bibliothek verwenden, wird der Ressourcen Parameter nicht gesendet. Stattdessen wird die Ressourcen-URL als Teil des Bereichs Parameters gesendet: `scope = [resource url]//[scope values e.g., openid]`</br>Wenn die Ressource nicht an dieser Stelle oder im Bereich verwendet wird, verwendet ADFS einen Standard Ressourcen-urn: Microsoft: userinfo. userinfo-Ressourcen Richtlinien (z. b. MFA, Ausstellung oder Autorisierungs Richtlinie) können nicht angepasst werden.| 
-|response_mode|Optional| Gibt die Methode an, die zum Senden des resultierenden Tokens an Ihre APP verwendet werden soll. Wird standardmäßig auf `fragment` festgelegt.| 
-|state|Optional|Ein in der Anforderung enthaltener Wert, der auch in der tokenantwort zurückgegeben wird. Dabei kann es sich um eine Zeichenfolge eines beliebigen Inhalts handeln, den Sie wünschen. Ein zufällig generierter eindeutiger Wert wird normalerweise verwendet, um Website übergreifende Anforderungs Fälschungs Angriffe zu verhindern. Der Status wird auch verwendet, um Informationen über den Status des Benutzers in der APP zu codieren, bevor die Authentifizierungsanforderung aufgetreten ist, z. b. die Seite oder Ansicht, auf der Sie sich befanden.| 
-|prompt|Optional|Gibt den Typ der erforderlichen Benutzerinteraktion an. Zu diesem Zeitpunkt sind die einzigen gültigen Werte "Login" und "None".</br>- `prompt=login` erzwingen, dass der Benutzer seine Anmelde Informationen für diese Anforderung eingibt, wobei einmaliges Anmelden nicht mehr möglich ist. </br>- `prompt=none` ist das Gegenteil. es wird sichergestellt, dass dem Benutzer keine interaktive Eingabeaufforderung angezeigt wird. Wenn die Anforderung nicht über einmaliges Anmelden im Hintergrund abgeschlossen werden kann, wird AD FS interaction_required Fehler zurückgegeben.| 
-|login_hint|Optional|Kann verwendet werden, um das Feld Benutzername/e-Mail-Adresse auf der Anmeldeseite vorab für den Benutzer auszufüllen, wenn Sie Ihren Benutzernamen im Voraus kennen. Apps verwenden diesen Parameter häufig während der erneuten Authentifizierung, indem Sie den Benutzernamen bereits aus einer vorherigen Anmeldung mithilfe des `upn` -Anspruchs von `id_token`extrahiert haben.| 
-|domain_hint|Optional|Wenn Sie enthalten ist, wird der Domänen basierte Ermittlungs Vorgang übersprungen, den der Benutzer auf der Anmeldeseite durchläuft, was zu einem etwas optimierten Benutzererlebnis führt.| 
+|client_id|Erforderlich|Die Anwendungs-ID (Client), die deiner App vom AD FS zugewiesen wurde.| 
+|response_type|Erforderlich|Muss `id_token` für die OpenID Connect-Anmeldung enthalten. Sie kann auch den response_type `token` enthalten. Wenn du hier ein Token verwendest, kann deine App sofort ein Zugriffstoken vom Autorisierungsendpunkt erhalten, ohne eine zweite Anforderung an den Tokenendpunkt stellen zu müssen.| 
+|redirect_uri|Erforderlich|Der redirect_uri (Umleitungs-URI) deiner App, wohin Authentifizierungsantworten gesendet und von deiner App empfangen werden können. Er muss genau mit einem der Umleitungs-URIs übereinstimmen, die du in AD FS konfiguriert hast.| 
+|nonce|Erforderlich|Ein in der Anforderung enthaltener, von der App generierter Wert, der in das resultierende id_token als Anspruch einbezogen wird. Die App kann diesen Wert dann verifizieren, um Tokenwiederholungsangriffe abzuwehren. Der Wert ist in der Regel eine zufällige, eindeutige Zeichenfolge, die zur Identifizierung des Ursprungs der Anforderung verwendet werden kann. Nur erforderlich, wenn ein id_token angefordert wird.|
+|scope|Optional|Eine durch Leerzeichen getrennte Liste von Bereichen. Für OpenID Connect muss der Bereich `openid` enthalten sein.|
+|resource|Optional|Die URL deiner Web-API.</br>Hinweis: Wenn die MSAL-Clientbibliothek verwendet wird, werden keine Ressourcenparameter gesendet. Stattdessen wird die Ressourcen-URL als Teil des Bereichsparameters gesendet: `scope = [resource url]//[scope values e.g., openid]`</br>Wenn die Ressource hier oder im Bereich nicht übergeben wird, verwendet AD FS eine Standardressource: urn:microsoft:userinfo. Ressourcenrichtlinien für Benutzerinformationen wie MFA, Ausstellungs- oder Autorisierungsrichtlinien können nicht angepasst werden.| 
+|response_mode|Optional| Gibt die Methode an, die verwendet werden soll, um das resultierende Token an deine App zurückzusenden. Dies ist standardmäßig `fragment`.| 
+|state|Optional|Ein in der Anforderung enthaltener Wert, der auch in der Tokenantwort zurückgegeben wird. Es kann eine Zeichenfolge mit beliebigen gewünschten Inhalten sein. Ein zufällig generierter eindeutiger Wert wird in der Regel zur Verhinderung von CSRF-Angriffen (Cross-Site Request Forgery) verwendet. Der Status wird auch verwendet, um Informationen über den Zustand des Benutzers in der App vor der Authentifizierungsanforderung zu verschlüsseln, z. B. die Seite oder die Ansicht, auf der bzw. in der sie sich befunden haben.| 
+|prompt|Optional|Gibt den Typ der Benutzerinteraktion an, der erforderlich ist. Derzeit sind die einzigen zulässigen Werte „login“ und „none“.</br>- `prompt=login` zwingt den Benutzer, seine Anmeldeinformationen für diese Anforderung einzugeben und das einmalige Anmelden zu negieren. </br>- `prompt=none` stellt das Gegenteil dar. Es stellt sicher, dass dem Benutzer keinerlei interaktive Eingabeaufforderung präsentiert wird. Wenn die Anforderung nicht im Hintergrund über das einmalige Anmelden abgeschlossen werden kann, gibt AD FS einen interaction_required-Fehler zurück.| 
+|login_hint|Optional|Kann verwendet werden, um das Feld für Benutzername/E-Mail-Adresse der Anmeldeseite für den Benutzer vorab auszufüllen, wenn du seinen Benutzernamen vorab kennst. Häufig verwenden Apps diesen Parameter bei der erneuten Authentifizierung, nachdem sie den Benutzernamen bereits aus einer früheren Anmeldung mit dem `upn` -Anspruch aus `id_token` extrahiert haben.| 
+|domain_hint|Optional|Wenn es enthalten ist, überspringt es den domänenbasierten Ermittlungsprozess, den der Benutzer auf der Anmeldeseite durchläuft, was zu einer erhöhten Benutzerfreundlichkeit führt.| 
 
-An diesem Punkt wird der Benutzer aufgefordert, seine Anmelde Informationen einzugeben und die Authentifizierung abzuschließen. Nachdem sich der Benutzer authentifiziert hat, gibt der AD FS Autorisierungs Endpunkt eine Antwort an die APP an der angegebenen redirect_uri zurück. dabei wird die im response_mode-Parameter angegebene Methode verwendet.  
+An diesem Punkt wird der Benutzer aufgefordert, seine Anmeldeinformationen einzugeben und die Authentifizierung abzuschließen. Sobald sich der Benutzer authentifiziert hat, gibt der AD FS-Autorisierungsendpunkt eine Antwort an deine App am angegebenen redirect_uri (Umleitungs-URI) zurück, wobei die im Parameter „response_mode“ angegebene Methode verwendet wird.  
  
 ### <a name="successful-response"></a>Erfolgreiche Antwort 
  
-Eine erfolgreiche Antwort mit `response_mode=fragment and response_type=id_token+token` sieht wie folgt aus:  
+Eine erfolgreiche Antwort unter Verwendung von `response_mode=fragment and response_type=id_token+token` sieht wie die folgende aus.  
  
 ```
 // Line breaks for legibility only 
@@ -95,29 +95,29 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZEstZnl0aEV...
 
 |Parameter|Beschreibung| 
 |-----|-----|
-|access_token|Enthalten, wenn response_type `token`enthält.|
-|token_type|Enthalten, wenn response_type `token`enthält. Wird immer Bearer.| 
-|expires_in| Enthalten, wenn response_type `token`enthält. Gibt die Anzahl der Sekunden an, die das Token für die Zwischenspeicherung gültig ist.| 
+|access_token|Enthalten, wenn response_type `token` enthält.|
+|token_type|Enthalten, wenn response_type `token` enthält. Wird immer „Bearer“ sein.| 
+|expires_in| Enthalten, wenn response_type `token` enthält. Gibt die Anzahl der Sekunden an, in denen das Token für die Zwischenspeicherung gültig ist.| 
 |scope| Gibt die Bereiche an, für die das access_token gültig ist.|  
-|id_token|Enthalten, wenn response_type `id_token`enthält. Ein signiertes JSON Web Token (JWT). Die APP kann die Segmente dieses Tokens decodieren, um Informationen über den angemeldeten Benutzer anzufordern. Die APP kann die Werte Zwischenspeichern und anzeigen, aber Sie sollte für Autorisierungs-oder Sicherheitsgrenzen nicht darauf basieren.| 
-|state|Wenn ein Status Parameter in der Anforderung enthalten ist, sollte der gleiche Wert in der Antwort angezeigt werden. Die APP sollte überprüfen, ob die Statuswerte in der Anforderung und in der Antwort identisch sind.|
+|id_token|Enthalten, wenn response_type `id_token` enthält. Ein signiertes JSON-Webtoken (JWT). Die App kann die Segmente dieses Tokens entschlüsseln, um Informationen über den Benutzer, der sich angemeldet hat, anzufordern. Die App kann die Werte zwischenspeichern und anzeigen, aber sie sollte sich nicht auf sie verlassen, wenn es um Autorisierung oder Sicherheitsbegrenzungen geht.| 
+|state|Wenn ein state-Parameter in der Anforderung enthalten ist, sollte derselbe Wert in der Antwort angezeigt werden. Die App sollte bestätigen, dass die state-Werte in der Anforderung und der Antwort identisch sind.|
 
-### <a name="refresh-tokens"></a>Token aktualisieren 
-Die implizite Gewährung stellt keine Aktualisierungs Token bereit. Sowohl `id_tokens` als auch `access_tokens` laufen nach kurzer Zeit ab. Ihre APP muss daher darauf vorbereitet sein, diese Token in regelmäßigen Abständen zu aktualisieren. Zum Aktualisieren beider Tokentypen können Sie dieselbe ausgeblendete IFRAME-Anforderung ausführen, indem Sie den `prompt=none` -Parameter verwenden, um das Verhalten der Identitäts Plattform zu steuern. Wenn Sie einen `new id_token`erhalten möchten, achten Sie darauf, dass Sie `response_type=id_token`verwenden. 
+### <a name="refresh-tokens"></a>Aktualisierungstoken 
+Die implizite Gewährung stellt keine Aktualisierungstoken bereit. Sowohl `id_tokens` als auch `access_tokens` laufen nach kurzer Zeit ab, sodass deine App darauf vorbereitet sein muss, diese Token regelmäßig zu aktualisieren. Um beide Arten von Token zu aktualisieren, kannst du dieselbe versteckte iframe-Anforderung von oben ausführen, indem du den Parameter `prompt=none`  verwendest, um das Verhalten der Identitätsplattform zu steuern. Wenn du ein `new id_token` erhalten möchtest, dann verwende unbedingt `response_type=id_token`. 
 
-## <a name="authorization-code-grant-flow"></a>Autorisierungs Code-Zuweisungs Fluss 
+## <a name="authorization-code-grant-flow"></a>Gewährungsflow für Autorisierungscodes 
  
-Die OAuth 2,0-Autorisierungs Code Gewährung kann in Web-Apps verwendet werden, um Zugriff auf geschützte Ressourcen wie Web-APIs zu erhalten. Der OAuth 2,0-Autorisierungs Code Fluss wird in [Abschnitt 4,1 der OAuth 2,0-Spezifikation](https://tools.ietf.org/html/rfc6749)beschrieben. Sie wird verwendet, um die Authentifizierung und Autorisierung in den meisten App-Typen auszuführen, einschließlich Web-Apps und nativ installierten apps. Mit dem Flow können apps access_tokens sicher abrufen, die für den Zugriff auf Ressourcen verwendet werden können, die AD FS Vertrauen.  
+Die OAuth 2. 0-Autorisierungscodegewährung kann in Web-Apps verwendet werden, um Zugriff auf geschützte Ressourcen wie Web-APIs zu erhalten. Der OAuth 2.0-Autorisierungscodeflow ist in [Abschnitt 4.1 der OAuth 2.0-Spezifikation](https://tools.ietf.org/html/rfc6749) beschrieben. Er wird zur Authentifizierung und Autorisierung in den meisten App-Typen verwendet, einschließlich Web-Apps und nativ installierter Apps. Der Flow ermöglicht Apps das sichere Abrufen von access_token, die für den Zugriff auf Ressourcen verwendet werden können, die dem AD FS vertrauen.  
  
-### <a name="protocol-diagram"></a>Protokoll Diagramm 
+### <a name="protocol-diagram"></a>Protokolldiagramm 
  
-Auf hoher Ebene sieht der Authentifizierungs Ablauf für eine native Anwendung etwas so aus:
+Allgemein sieht der Authentifizierungsflow für eine native Anwendung ein wenig wie folgt aus:
 
-![Autorisierungs Code-Zuweisungs Fluss](media/adfs-scenarios-for-developers/authorization.png)
+![Gewährungsflow für Autorisierungscodes](media/adfs-scenarios-for-developers/authorization.png)
 
 ### <a name="request-an-authorization-code"></a>Anfordern eines Autorisierungscodes 
  
-Der Autorisierungs Code Fluss beginnt damit, dass der Client den Benutzer an den/Authorize-Endpunkt-Endpunkt weiterleitet. In dieser Anforderung gibt der Client die Berechtigungen an, die er vom Benutzer abrufen muss: 
+Der Autorisierungscodeflow beginnt damit, dass der Client den Benutzer zum Endpunkt „/authorize“ leitet. In dieser Anforderung gibt der Client die Berechtigungen an, die er vom Benutzer abrufen muss: 
  
 ```
 // Line breaks for legibility only 
@@ -134,24 +134,24 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 |Parameter|Erforderlich/optional|Beschreibung|
 |-----|-----|-----| 
-|client_id|Erforderlich|Die Anwendungs-ID (Client-ID), die der der APP zugewiesen AD FS.|  
-|response_type|Erforderlich| Muss Code für den Autorisierungs Code Fluss enthalten.| 
-|redirect_uri|Erforderlich|Der `redirect_uri` Ihrer APP, in dem Authentifizierungs Antworten gesendet und von Ihrer APP empfangen werden können. Er muss genau mit einem der redirect_uris übereinstimmen, die Sie in der AD FS für den Client registriert haben.|  
-|Ressource|Optional|Die URL Ihrer Web-API.</br>Hinweis – Wenn Sie die msal-Client Bibliothek verwenden, wird der Ressourcen Parameter nicht gesendet. Stattdessen wird die Ressourcen-URL als Teil des Bereichs Parameters gesendet: `scope = [resource url]//[scope values e.g., openid]`</br>Wenn die Ressource nicht an dieser Stelle oder im Bereich verwendet wird, verwendet ADFS einen Standard Ressourcen-urn: Microsoft: userinfo. userinfo-Ressourcen Richtlinien (z. b. MFA, Ausstellung oder Autorisierungs Richtlinie) können nicht angepasst werden.| 
+|client_id|Erforderlich|Die Anwendungs-ID (Client), die deiner App vom AD FS zugewiesen wurde.|  
+|response_type|Erforderlich| Muss den Code für den Autorisierungscodeflow enthalten.| 
+|redirect_uri|Erforderlich|Der `redirect_uri` deiner App, wohin Authentifizierungsantworten gesendet und von deiner App empfangen werden können. Er muss genau mit einem der Umleitungs-URIs übereinstimmen, die du im AD FS für den Client registriert hast.|  
+|resource|Optional|Die URL deiner Web-API.</br>Hinweis: Wenn die MSAL-Clientbibliothek verwendet wird, werden keine Ressourcenparameter gesendet. Stattdessen wird die Ressourcen-URL als Teil des Bereichsparameters gesendet: `scope = [resource url]//[scope values e.g., openid]`</br>Wenn die Ressource hier oder im Bereich nicht übergeben wird, verwendet AD FS eine Standardressource: urn:microsoft:userinfo. Ressourcenrichtlinien für Benutzerinformationen wie MFA, Ausstellungs- oder Autorisierungsrichtlinien können nicht angepasst werden.| 
 |scope|Optional|Eine durch Leerzeichen getrennte Liste von Bereichen.|
-|response_mode|Optional|Gibt die Methode an, die zum Senden des resultierenden Tokens an Ihre APP verwendet werden soll. Kann einen der folgenden Werte annehmen: </br>-Abfrage </br>-Fragment </br>-form_post</br>`query` stellt den Code als Abfrage Zeichenfolgen-Parameter für den Umleitungs-URI bereit. Wenn Sie den Code anfordern, können Sie Abfragen, Fragmente oder form_post verwenden. `form_post` führt einen Beitrag aus, der den Code für den Umleitungs-URI enthält.|
-|state|Optional|Ein in der Anforderung enthaltener Wert, der auch in der tokenantwort zurückgegeben wird. Dabei kann es sich um eine Zeichenfolge eines beliebigen Inhalts handeln, den Sie wünschen. Ein zufällig generierter eindeutiger Wert wird normalerweise verwendet, um Website übergreifende Anforderungs Fälschungs Angriffe zu verhindern. Der Wert kann auch Informationen über den Status des Benutzers in der APP codieren, bevor die Authentifizierungsanforderung aufgetreten ist, z. b. die Seite oder Ansicht, auf der Sie sich befanden.|
-|prompt|Optional|Gibt den Typ der erforderlichen Benutzerinteraktion an. Zu diesem Zeitpunkt sind die einzigen gültigen Werte "Login" und "None".</br>- `prompt=login` erzwingen, dass der Benutzer seine Anmelde Informationen für diese Anforderung eingibt, wobei einmaliges Anmelden nicht mehr möglich ist. </br>- `prompt=none` ist das Gegenteil. es wird sichergestellt, dass dem Benutzer keine interaktive Eingabeaufforderung angezeigt wird. Wenn die Anforderung nicht über einmaliges Anmelden im Hintergrund abgeschlossen werden kann, wird AD FS interaction_required Fehler zurückgegeben.|
-|login_hint|Optional|Kann verwendet werden, um das Feld Benutzername/e-Mail-Adresse auf der Anmeldeseite für den Benutzer vorab auszufüllen, wenn Sie Ihren Benutzernamen im Voraus kennen. Apps verwenden diesen Parameter häufig während der erneuten Authentifizierung, indem Sie den Benutzernamen bereits aus einer vorherigen Anmeldung mithilfe des `upn`-Anspruchs von `id_token`extrahiert haben.|
-|domain_hint|Optional|Wenn Sie enthalten ist, wird der Domänen basierte Ermittlungs Vorgang übersprungen, den der Benutzer auf der Anmeldeseite durchläuft, was zu einem etwas optimierten Benutzererlebnis führt.|
-|code_challenge_method|Optional|Die Methode, die zum Codieren der code_verifier für den code_challenge-Parameter verwendet wird. Kann einer der folgenden Werte sein: </br>-Plain </br>- S256 </br>Wenn Sie ausgeschlossen ist, wird code_challenge als Klartext angenommen, wenn `code_challenge` eingeschlossen ist. AD FS unterstützt sowohl Plain als auch S256. Weitere Informationen finden Sie unter [pkce RFC](https://tools.ietf.org/html/rfc7636).|
-|code_challenge|Optional| Dient zum Sichern von Autorisierungs Code Zuweisungen über den Prüfschlüssel für Code Austausch (pkce) von einem Native Client. Erforderlich, wenn `code_challenge_method` eingeschlossen ist. Weitere Informationen finden Sie unter [pkce RFC](https://tools.ietf.org/html/rfc7636) .|
+|response_mode|Optional|Gibt die Methode an, die verwendet werden soll, um das resultierende Token an deine App zurückzusenden. Kann eines der folgenden Elemente sein: </br>- query </br>- fragment </br>- form_post</br>`query` stellt den Code als Abfragezeichenfolgenparameter für deinen Umleitungs-URI zur Verfügung. Wenn du den Code anforderst, kannst du query, fragment oder form_post verwenden. `form_post` führt einen POST-Vorgang aus, der den Code an deinen Umleitungs-URI enthält.|
+|state|Optional|Ein in der Anforderung enthaltener Wert, der auch in der Tokenantwort zurückgegeben wird. Es kann eine Zeichenfolge mit beliebigen gewünschten Inhalten sein. Ein zufällig generierter eindeutiger Wert wird in der Regel zur Verhinderung von CSRF-Angriffen (Cross-Site Request Forgery) verwendet. Der Wert kann auch Informationen über den Zustand des Benutzers in der App vor der Authentifizierungsanforderung verschlüsseln, z. B. die Seite oder die Ansicht, auf der bzw. in der sie sich befunden haben.|
+|prompt|Optional|Gibt den Typ der Benutzerinteraktion an, der erforderlich ist. Derzeit sind die einzigen zulässigen Werte „login“ und „none“.</br>- `prompt=login` zwingt den Benutzer, seine Anmeldeinformationen für diese Anforderung einzugeben und das einmalige Anmelden zu negieren. </br>- `prompt=none` stellt das Gegenteil dar. Es stellt sicher, dass dem Benutzer keinerlei interaktive Eingabeaufforderung präsentiert wird. Wenn die Anforderung nicht im Hintergrund über das einmalige Anmelden abgeschlossen werden kann, gibt AD FS einen interaction_required-Fehler zurück.|
+|login_hint|Optional|Kann verwendet werden, um das Feld für Benutzername/E-Mail-Adresse der Anmeldeseite für den Benutzer vorab auszufüllen, wenn du seinen Benutzernamen vorab kennst. Häufig verwenden Apps diesen Parameter bei der erneuten Authentifizierung, nachdem sie den Benutzernamen bereits aus einer früheren Anmeldung mit dem `upn`-Anspruch aus `id_token` extrahiert haben.|
+|domain_hint|Optional|Wenn es enthalten ist, überspringt es den domänenbasierten Ermittlungsprozess, den der Benutzer auf der Anmeldeseite durchläuft, was zu einer erhöhten Benutzerfreundlichkeit führt.|
+|code_challenge_method|Optional|Die zum Verschlüsseln von code_verifier für den code_challenge-Parameter verwendete Methode. Folgenden Werte sind möglich: </br>- plain </br>- S256 </br>Wenn ausgeschlossen, wird code_challenge als Klartext angenommen, wenn `code_challenge`  enthalten ist. AD FS unterstützt sowohl „plain“ als auch „S256“. Weitere Informationen findest du unter [PKCE RFC](https://tools.ietf.org/html/rfc7636).|
+|code_challenge|Optional| Dient zur Sicherung von Autorisierungscodegewährungen über Proof Key for Code Exchange (PKCE) von einem nativen Client. Erforderlich, wenn `code_challenge_method` enthalten ist. Weitere Informationen findest du unter [PKCE RFC](https://tools.ietf.org/html/rfc7636).|
 
-An diesem Punkt wird der Benutzer aufgefordert, seine Anmelde Informationen einzugeben und die Authentifizierung abzuschließen. Nachdem sich der Benutzer authentifiziert hat, gibt der AD FS eine Antwort an die APP an der angegebenen `redirect_uri`zurück. dabei wird die im `response_mode` Parameter angegebene Methode verwendet.  
+An diesem Punkt wird der Benutzer aufgefordert, seine Anmeldeinformationen einzugeben und die Authentifizierung abzuschließen. Sobald sich der Benutzer authentifiziert hat, gibt der AD FS eine Antwort an deine App am angegebenen `redirect_uri` zurück, wobei die im Parameter `response_mode` angegebene Methode verwendet wird.  
  
 ### <a name="successful-response"></a>Erfolgreiche Antwort 
  
-Eine erfolgreiche Antwort mit response_mode = Abfrage sieht wie folgt aus: 
+Eine erfolgreiche Antwort mit „response_mode=query“ sieht wie folgt aus: 
  
 ```
 GET https://adfs.contoso.com/common/oauth2/nativeclient? 
@@ -162,12 +162,12 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 
 |Parameter|Beschreibung|
 |-----|-----|
-|code|Der `authorization_code`, den die APP angefordert hat. Die APP kann den Autorisierungs Code zum Anfordern eines Zugriffs Tokens für die Ziel Ressource verwenden. Authorization_codes sind kurzlebig, Sie laufen in der Regel nach ungefähr 10 Minuten ab.|
-|state|Wenn ein `state` Parameter in der Anforderung enthalten ist, sollte der gleiche Wert in der Antwort angezeigt werden. Die APP sollte überprüfen, ob die Statuswerte in der Anforderung und in der Antwort identisch sind.|
+|code|Der von der App angeforderte `authorization_code`. Die App kann mithilfe des Autorisierungscodes ein Zugriffstoken für die Zielressource anfordern. Authorization_codes sind kurzlebig, in der Regel laufen sie nach etwa 10 Minuten ab.|
+|state|Wenn ein `state`-Parameter in der Anforderung enthalten ist, sollte derselbe Wert in der Antwort angezeigt werden. Die App sollte bestätigen, dass die state-Werte in der Anforderung und der Antwort identisch sind.|
 
-### <a name="request-an-access-token"></a>Anfordern eines Zugriffs Tokens 
+### <a name="request-an-access-token"></a>Anfordern eines Zugriffstokens 
  
-Nachdem Sie nun eine `authorization_code` abgerufen und die Berechtigung vom Benutzer erhalten haben, können Sie den Code für eine `access_token` der gewünschten Ressource einlösen. Senden Sie hierzu eine Post-Anforderung an den/Token-Endpunkt:  
+Nachdem du nun einen `authorization_code` abgerufen und die Berechtigung des Benutzers erhalten hast, kannst du den Code für einen `access_token` bei der gewünschten Ressource einlösen. Dazu sendest du eine POST-Anforderung an den „/token“-Endpunkt:  
  
 ```
 // Line breaks for legibility only 
@@ -185,16 +185,16 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 |Parameter|Erforderlich/Optional|Beschreibung|
 |-----|-----|-----| 
-|client_id|Erforderlich|Die Anwendungs-ID (Client-ID), die der der APP zugewiesen AD FS.| 
-|grant_type|Erforderlich|Muss für den Autorisierungs Code Fluss `authorization_code` sein.| 
-|code|Erforderlich|Die `authorization_code`, die Sie im ersten Abschnitt des Flows abgerufen haben.| 
-|redirect_uri|Erforderlich|Derselbe `redirect_uri` Wert, der zum Abrufen des `authorization_code`verwendet wurde.| 
-|client_secret|erforderlich für Web-Apps|Der geheime Anwendungs Schlüssel, den Sie bei der APP-Registrierung in AD FS erstellt haben. Sie sollten den geheimen Anwendungs Schlüssel nicht in einer nativen App verwenden, da client_secrets nicht zuverlässig auf Geräten gespeichert werden können. Dies ist für Web-Apps und Web-APIs erforderlich, die die client_secret sicher auf der Serverseite speichern können. Der geheime Client Schlüssel muss vor dem Senden URL-codiert sein. Diese Apps können auch eine Schlüssel basierte Authentifizierung verwenden, indem ein JWT signiert und als client_assertion-Parameter hinzugefügt wird.| 
-|code_verifier|Optional|Dieselbe `code_verifier`, die zum Abrufen des authorization_code verwendet wurde. Erforderlich, wenn pkce in der Anforderung zum Erteilen von Autorisierungscodes verwendet wurde. Weitere Informationen finden Sie unter [pkce RFC](https://tools.ietf.org/html/rfc7636).</br>Hinweis – gilt für AD FS 2019 und höher| 
+|client_id|Erforderlich|Die Anwendungs-ID (Client), die deiner App vom AD FS zugewiesen wurde.| 
+|grant_type|Erforderlich|Muss `authorization_code` für den Autorisierungscodeflow sein.| 
+|code|Erforderlich|Der `authorization_code`, den du im ersten Abschnitt des Flows abgerufen hast.| 
+|redirect_uri|Erforderlich|Derselbe `redirect_uri`-Wert, der zum Abrufen des `authorization_code` verwendet wurde.| 
+|client_secret|Erforderlich für Web-Apps|Das Anwendungsgeheimnis, das du während der Registrierung der App im AD FS erstellt hast. Du solltest das Anwendungsgeheimnis nicht in einer nativen App verwenden, da client_secrets nicht zuverlässig auf Geräten gespeichert werden können. Es wird für Web-Apps und Web-APIs benötigt, die in der Lage sind, das client_secret sicher auf der Serverseite zu speichern. Der geheime Clientschlüssel muss vor dem Senden mit einer URL codiert werden. Diese Apps können auch eine schlüsselbasierte Authentifizierung verwenden, indem sie ein JWT signieren und dies als client_assertion-Parameter hinzufügen.| 
+|code_verifier|Optional|Derselbe `code_verifier`, der zum Erhalten des authorisation_code verwendet wurde. Erforderlich, wenn PKCE in der Anforderung zur Gewährung des Autorisierungscodes verwendet wurde. Weitere Informationen findest du unter [PKCE RFC](https://tools.ietf.org/html/rfc7636).</br>Hinweis: Gilt für Active Directory-Verbunddienste (AD FS) 2019 und höher| 
 
 ### <a name="successful-response"></a>Erfolgreiche Antwort 
  
-Eine erfolgreiche tokenantwort sieht wie folgt aus: 
+Eine erfolgreiche Tokenantwort wird wie folgt aussehen: 
  
 ```
 { 
@@ -210,14 +210,14 @@ Eine erfolgreiche tokenantwort sieht wie folgt aus:
 
 |Parameter|Beschreibung| 
 |-----|-----|
-|access_token|Das angeforderte Zugriffs Token. Die APP kann dieses Token verwenden, um sich bei der gesicherten Ressource (Web-API) zu authentifizieren.| 
-|token_type|Gibt den Tokentyp Wert an. Der einzige Typ, den AD FS unterstützt, ist Bearer.
-|expires_in|Gibt an, wie lange das Zugriffs Token gültig ist (in Sekunden).
-|refresh_token|Ein OAuth 2,0-Aktualisierungs Token. Die APP kann dieses Token verwenden, um zusätzliche Zugriffs Token zu erhalten, nachdem das aktuelle Zugriffs Token abgelaufen ist. Refresh_tokens sind langlebig und können verwendet werden, um den Zugriff auf Ressourcen für längere Zeit beizubehalten.| 
-|refresh_token_expires_in|Gibt an, wie lange das Aktualisierungs Token gültig ist (in Sekunden).| 
-|id_token|Eine JSON Web Token (JWT). Die APP kann die Segmente dieses Tokens decodieren, um Informationen über den angemeldeten Benutzer anzufordern. Die APP kann die Werte Zwischenspeichern und anzeigen, aber Sie sollte für Autorisierungs-oder Sicherheitsgrenzen nicht darauf basieren.|
+|access_token|Das angeforderte Zugriffstoken. Die App kann dieses Token für die Authentifizierung mit der gesicherten Ressource (Web-API) verwenden.| 
+|token_type|Gibt den Wert des Tokentyps an. Der einzige von AD FS unterstützte Typ ist „Bearer“.
+|expires_in|Die Gültigkeitsdauer des Zugriffstokens (in Sekunden).
+|refresh_token|Ein OAuth 2.0-Aktualisierungstoken. Die App kann dieses Token verwenden, um weitere Zugriffstoken abzurufen, nachdem das aktuelle Zugriffstoken abgelaufen ist. Refresh_token sind langlebig und können verwendet werden, um den Zugriff auf Ressourcen über längere Zeiträume zu erhalten.| 
+|refresh_token_expires_in|Die Gültigkeitsdauer des Aktualisierungstokens (in Sekunden).| 
+|id_token|Ein JSON-Webtoken (JWT). Die App kann die Segmente dieses Tokens entschlüsseln, um Informationen über den Benutzer, der sich angemeldet hat, anzufordern. Die App kann die Werte zwischenspeichern und anzeigen, aber sie sollte sich nicht auf sie verlassen, wenn es um Autorisierung oder Sicherheitsbegrenzungen geht.|
 
-### <a name="use-the-access-token"></a>Verwenden des Zugriffs Tokens 
+### <a name="use-the-access-token"></a>Verwenden des Zugriffstokens 
  
 ```
 GET /v1.0/me/messages 
@@ -225,13 +225,13 @@ Host: https://webapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q... 
  ```
 
-### <a name="refresh-the-access-token"></a>Aktualisieren des Zugriffs Tokens 
+### <a name="refresh-the-access-token"></a>Aktualisieren des Zugriffstokens 
  
-Access_tokens sind kurzlebig, und Sie müssen Sie nach Ablauf aktualisieren, damit Sie weiterhin auf Ressourcen zugreifen können. Hierzu können Sie eine andere Post-Anforderung an den `/token` -Endpunkt senden. dieses Mal wird der refresh_token anstelle des Codes bereitgestellt. Aktualisierungs Token sind für alle Berechtigungen gültig, für die der Client bereits Zugriffs Token erhalten hat. 
+Access_token sind kurzlebig und sie müssen nach Ablauf der Gültigkeitsdauer aktualisiert werden, um weiterhin auf Ressourcen zugreifen zu können. Du kannst dazu eine weitere POST-Anforderung an den `/token` -Endpunkt übermitteln, wobei dieses Mal das refresh_token anstelle des Codes bereitgestellt wird. Aktualisierungstoken sind für alle Berechtigungen gültig, für die dein Client bereits ein Zugriffstoken erhalten hat. 
  
-Aktualisierungs Token verfügen nicht über die angegebene Lebensdauer. Die Lebensdauer von Aktualisierungs Token ist in der Regel relativ lang. In einigen Fällen laufen Aktualisierungs Token jedoch ab, werden gesperrt oder verfügen nicht über ausreichende Berechtigungen für die gewünschte Aktion. Die Anwendung muss vom tokenausstellungs-Endpunkt zurückgegebene Fehler erwarten und behandeln.  
+Aktualisierungstoken haben keine festgelegte Lebensdauer. Die Lebensdauer von Aktualisierungstoken ist in der Regel relativ lang. In einigen Fällen laufen die Aktualisierungstoken jedoch ab, werden widerrufen oder es fehlen ausreichende Berechtigungen für die gewünschte Aktion. Die Anwendung muss Fehler, die vom Tokenausstellungsendpunkt zurückgegeben werden, erwarten und ordnungsgemäß behandeln.  
  
-Obwohl Aktualisierungs Token nicht widerrufen werden, wenn Sie zum Abrufen neuer Zugriffs Token verwendet werden, wird davon ausgegangen, dass Sie das alte Aktualisierungs Token verwerfen. Die OAuth 2,0-Spezifikation besagt: "der autorisierungsserver gibt möglicherweise ein neues Aktualisierungs Token aus. in diesem Fall muss der Client das alte Aktualisierungs Token verwerfen und durch das neue Aktualisierungs Token ersetzen. Der autorisierungsserver kann das alte Aktualisierungs Token widerrufen, nachdem ein neues Aktualisierungs Token für den Client ausgegeben wurde. " 
+Obwohl Aktualisierungstoken nicht widerrufen werden, wenn sie zum Abrufen neuer Zugriffstoken verwendet werden, wird von dir erwartet, dass du das alte Aktualisierungstoken verwirfst. Die OAuth 2.0-Spezifikation besagt Folgendes: „Der Autorisierungsserver KANN ein neues Aktualisierungstoken ausgeben. In diesem Fall MUSS der Client das alte Aktualisierungstoken verwerfen und durch das neue Aktualisierungstoken ersetzen. Der Autorisierungsserver KANN das alte Aktualisierungstoken zurücknehmen, nachdem er ein neues Aktualisierungstoken an den Client ausgegeben hat.“ 
  
 ```
 // Line breaks for legibility only 
@@ -249,15 +249,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 |Parameter|Erforderlich/optional|Beschreibung| 
 |-----|-----|-----|
-|client_id|Erforderlich|Die Anwendungs-ID (Client-ID), die der der APP zugewiesen AD FS.| 
-|grant_type|Erforderlich|Muss für diesen Abschnitt des Autorisierungs Code Flusses `refresh_token` sein.| 
-|Ressource|Optional|Die URL Ihrer Web-API.</br>Hinweis – Wenn Sie die msal-Client Bibliothek verwenden, wird der Ressourcen Parameter nicht gesendet. Stattdessen wird die Ressourcen-URL als Teil des Bereichs Parameters gesendet: `scope = [resource url]//[scope values e.g., openid]`</br>Wenn die Ressource nicht an dieser Stelle oder im Bereich verwendet wird, verwendet ADFS einen Standard Ressourcen-urn: Microsoft: userinfo. userinfo-Ressourcen Richtlinien (z. b. MFA, Ausstellung oder Autorisierungs Richtlinie) können nicht angepasst werden.|
+|client_id|Erforderlich|Die Anwendungs-ID (Client), die deiner App vom AD FS zugewiesen wurde.| 
+|grant_type|Erforderlich|Muss `refresh_token` für diesen Teil des Autorisierungscodeflows sein.| 
+|resource|Optional|Die URL deiner Web-API.</br>Hinweis: Wenn die MSAL-Clientbibliothek verwendet wird, werden keine Ressourcenparameter gesendet. Stattdessen wird die Ressourcen-URL als Teil des Bereichsparameters gesendet: `scope = [resource url]//[scope values e.g., openid]`</br>Wenn die Ressource hier oder im Bereich nicht übergeben wird, verwendet AD FS eine Standardressource: urn:microsoft:userinfo. Ressourcenrichtlinien für Benutzerinformationen wie MFA, Ausstellungs- oder Autorisierungsrichtlinien können nicht angepasst werden.|
 |scope|Optional|Eine durch Leerzeichen getrennte Liste von Bereichen.| 
-|refresh_token|Erforderlich|Die refresh_token, die Sie im zweiten Abschnitt des Flows abgerufen haben.| 
-|client_secret|erforderlich für Web-Apps| Der geheime Anwendungs Schlüssel, den Sie im App-Registrierungs Portal für Ihre APP erstellt haben. Er sollte nicht in einer nativen App verwendet werden, da client_secrets nicht zuverlässig auf Geräten gespeichert werden können. Dies ist für Web-Apps und Web-APIs erforderlich, die die client_secret sicher auf der Serverseite speichern können. Diese Apps können auch eine Schlüssel basierte Authentifizierung verwenden, indem ein JWT signiert und als client_assertion-Parameter hinzugefügt wird.|
+|refresh_token|Erforderlich|Das refresh_token, das du im zweiten Abschnitt des Flows abgerufen hast.| 
+|client_secret|Erforderlich für Web-Apps| Das Anwendungsgeheimnis, das du im App-Registrierungsportal für deine App erstellt hast. Es sollte nicht in einer nativen App verwendet werden, da client_secrets nicht zuverlässig auf Geräten gespeichert werden können. Es wird für Web-Apps und Web-APIs benötigt, die in der Lage sind, das client_secret sicher auf der Serverseite zu speichern. Diese Apps können auch eine schlüsselbasierte Authentifizierung verwenden, indem sie ein JWT signieren und dies als client_assertion-Parameter hinzufügen.|
 
 ### <a name="successful-response"></a>Erfolgreiche Antwort 
-Eine erfolgreiche tokenantwort sieht wie folgt aus: 
+Eine erfolgreiche Tokenantwort wird wie folgt aussehen: 
  
 ```
 { 
@@ -271,55 +271,55 @@ Eine erfolgreiche tokenantwort sieht wie folgt aus:
 ```
 |Parameter|Beschreibung| 
 |-----|-----|
-|access_token|Das angeforderte Zugriffs Token. Die APP kann dieses Token verwenden, um sich bei der gesicherten Ressource (z. b. einer Web-API) zu authentifizieren.| 
-|token_type|Gibt den Tokentyp Wert an. Der einzige Typ, den AD FS unterstützt, ist Bearer|
-|expires_in|Gibt an, wie lange das Zugriffs Token gültig ist (in Sekunden).|
-|scope|Die Bereiche, für die der access_token gültig ist.| 
-|refresh_token|Ein OAuth 2,0-Aktualisierungs Token. Die APP kann dieses Token verwenden, um zusätzliche Zugriffs Token zu erhalten, nachdem das aktuelle Zugriffs Token abgelaufen ist. Refresh_tokens sind langlebig und können verwendet werden, um den Zugriff auf Ressourcen für längere Zeit beizubehalten.| 
-|refresh_token_expires_in|Gibt an, wie lange das Aktualisierungs Token gültig ist (in Sekunden).| 
-|id_token|Eine JSON Web Token (JWT). Die APP kann die Segmente dieses Tokens decodieren, um Informationen über den angemeldeten Benutzer anzufordern. Die APP kann die Werte Zwischenspeichern und anzeigen, aber Sie sollte für Autorisierungs-oder Sicherheitsgrenzen nicht darauf basieren.|
+|access_token|Das angeforderte Zugriffstoken. Die App kann dieses Token für die Authentifizierung mit der gesicherten Ressource (z. B. einer Web-API) verwenden.| 
+|token_type|Gibt den Wert des Tokentyps an. Der einzige von AD FS unterstützte Typ ist „Bearer“.|
+|expires_in|Die Gültigkeitsdauer des Zugriffstokens (in Sekunden).|
+|scope|Die Bereiche, für die das access_token gültig ist.| 
+|refresh_token|Ein OAuth 2.0-Aktualisierungstoken. Die App kann dieses Token verwenden, um weitere Zugriffstoken abzurufen, nachdem das aktuelle Zugriffstoken abgelaufen ist. Refresh_token sind langlebig und können verwendet werden, um den Zugriff auf Ressourcen über längere Zeiträume zu erhalten.| 
+|refresh_token_expires_in|Die Gültigkeitsdauer des Aktualisierungstokens (in Sekunden).| 
+|id_token|Ein JSON-Webtoken (JWT). Die App kann die Segmente dieses Tokens entschlüsseln, um Informationen über den Benutzer, der sich angemeldet hat, anzufordern. Die App kann die Werte zwischenspeichern und anzeigen, aber sie sollte sich nicht auf sie verlassen, wenn es um Autorisierung oder Sicherheitsbegrenzungen geht.|
 
-## <a name="on-behalf-of-flow"></a>"Im Auftrag von"-Ablauf 
+## <a name="on-behalf-of-flow"></a>On-Behalf-Of-Flow 
  
-Der "im Auftrag von"-Flow (OBO) von OAuth 2,0 stellt den Anwendungsfall dar, in dem eine Anwendung eine Dienst-/Web-API aufruft, die wiederum eine andere Dienst-oder Web-API aufrufen muss. Die Idee besteht darin, die Delegierte Benutzeridentität und die Berechtigungen über die Anforderungs Kette weiterzugeben. Damit der Dienst der mittleren Ebene authentifizierte Anforderungen an den Downstreamdienst senden kann, muss er im Auftrag des Benutzers ein Zugriffs Token vom AD FS sichern.  
+Der OAuth 2.0 On-Behalf-Of-Flow (OBO) dient dem Anwendungsfall, dass eine Anwendung eine Dienst-/Web-API aufruft, die wiederum eine andere Dienst-/Web-API aufrufen muss. Die Idee besteht darin, die delegierte Benutzeridentität und die Berechtigungen durch die Anforderungskette zu verteilen. Damit der Dienst der mittleren Ebene authentifizierte Anforderungen an den Downstreamdienst stellen kann, muss er im Auftrag des Benutzers ein Zugriffstoken vom AD FS sichern.  
  
-### <a name="protocol-diagram"></a>Protokoll Diagramm 
-Nehmen Sie an, dass der Benutzer in einer Anwendung authentifiziert wurde, indem Sie den oben beschriebenen OAuth 2,0 Authorization Code Grant-Datenfluss verwenden. An diesem Punkt verfügt die Anwendung über ein Zugriffs Token für API a (Token a) mit den Ansprüchen des Benutzers und der Zustimmung für den Zugriff auf die Web-API der mittleren Ebene (API a). Stellen Sie sicher, dass der Client user_impersonation Gültigkeitsbereich im Token anfordert. API a muss nun eine authentifizierte Anforderung an die downstreamweb-API (API B) senden. 
+### <a name="protocol-diagram"></a>Protokolldiagramm 
+Nehmen wir an, dass der Benutzer bei einer Anwendung mit dem oben beschriebenen Gewährungsflow für den OAuth 2.0-Autorisierungscode authentifiziert wurde. An diesem Punkt verfügt die Anwendung über ein Zugriffstoken für API A (Token A) mit den Ansprüchen und der Zustimmung des Benutzers zum Zugriff auf die Web-API der mittleren Ebene (API A). Stelle sicher, dass der Client im Token den Bereich „user_impersonation“ anfordert. Jetzt muss API A eine authentifizierte Anforderung an die Downstream-Web-API (API B) stellen. 
 
-Die folgenden Schritte bilden den OBO-Flow und werden anhand des folgenden Diagramms erläutert. 
+Die folgenden Schritte bilden den OBO-Flow und werden mithilfe des folgenden Diagramms erläutert. 
 
-!["Im Auftrag von"-Ablauf](media/adfs-scenarios-for-developers/obo.png)
+![On-Behalf-Of-Flow](media/adfs-scenarios-for-developers/obo.png)
 
-  1. Die Client Anwendung sendet eine Anforderung an API a mit Token a.  
-  Hinweis: beim Konfigurieren von OBO Flow in AD FS Sie sicherstellen, dass der Bereich `user_impersonation` ausgewählt ist, und der Client fordert `user_impersonation` Bereich in der Anforderung an. 
-  2. API a authentifiziert sich beim Endpunkt der AD FS Tokenausstellung und fordert ein Token für den Zugriff auf API B an. Hinweis: beim Konfigurieren dieses Flows in AD FS stellen Sie sicher, dass API a auch als Serveranwendung registriert ist, bei der ClientID den gleichen Wert wie die Ressourcen-ID in API A hat. Weitere Informationen finden Sie im Namen von Sample here Add Link.  
-  3. Der AD FS tokenausstellungs-Endpunkt überprüft die Anmelde Informationen von API A mit Token a und gibt das Zugriffs Token für API B (Token b) aus. 
-  4. Token b wird im Autorisierungs Header der Anforderung an API B festgelegt. 
-  5. Daten aus der gesicherten Ressource werden von API B zurückgegeben. 
+  1. Die Clientanwendung stellt eine Anforderung an API A mit Token A.  
+  Hinweis: Stelle bei der Konfiguration des OBO-Flows im AD FS sicher, dass in der Anforderung der Bereich `user_impersonation` ausgewählt ist und der Client den Bereich `user_impersonation` anfordert. 
+  2. API A authentifiziert sich gegenüber dem AD FS-Tokenausstellungsendpunkt und fordert ein Token für den Zugriff auf API B an: Stelle bei der Konfiguration dieses Flows im AD FS sicher, dass API A auch als Serveranwendung registriert wird, wobei die clientID denselben Wert hat wie die Ressourcen-ID in API A. Weitere Informationen findest du unter dem On-Behalf-Of-Beispiel.  
+  3. Der AD FS-Tokenausstellungsendpunkt überprüft die Anmeldeinformationen von API A mit Token A und stellt das Zugriffstoken für API B (Token B) aus. 
+  4. Token B wird im Autorisierungsheader der Anforderung für API B festgelegt. 
+  5. Daten von der gesicherten Ressource werden von API B zurückgegeben. 
 
-### <a name="service-to-service-access-token-request"></a>Dienst-zu-Dienst-zugriffstokenanforderung 
+### <a name="service-to-service-access-token-request"></a>Anforderung von Zugriffstoken zwischen Diensten 
  
-Um ein Zugriffs Token anzufordern, erstellen Sie eine HTTP POST-Anforderung mit den folgenden Parametern an den AD FS tokenendpunkt.  
+Um ein Zugriffstoken anzufordern, führe einen HTTP POST-Vorgang an den AD FS-Tokenendpunkt mit den folgenden Parametern aus.  
 
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Erster Fall: zugriffstokenanforderung mit einem gemeinsamen geheimen Schlüssel 
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Erster Fall: Anforderung eines Zugriffstokens mit einem gemeinsamen Geheimnis 
  
-Bei Verwendung eines gemeinsamen geheimen Schlüssels enthält eine Dienst-zu-Dienst-zugriffstokenanforderung die folgenden Parameter: 
+Bei der Verwendung eines gemeinsamen Geheimnisses enthält eine Anforderung von Zugriffstoken zwischen Diensten die folgenden Parameter: 
 
 
 |Parameter|Erforderlich/optional|Beschreibung|
 |-----|-----|-----| 
-|grant_type|Erforderlich|Der Typ der Tokenanforderung. Bei einer Anforderung mit einem JWT muss der Wert urn: IETF: Parameter: OAuth: Grant-Type: JWT-Träger sein.|  
-|client_id|Erforderlich|Die Client-ID, die Sie konfigurieren, wenn Sie Ihre erste Web-API als Server-App registrieren (app der mittleren Ebene). Dies sollte mit der im ersten Abschnitt verwendeten Ressourcen-ID identisch sein, also mit der URL der ersten Web-API.| 
-|client_secret|Erforderlich|Der geheime Anwendungs Schlüssel, den Sie bei der Registrierung der Server-app in AD FS erstellt haben.| 
-|Assertion|Erforderlich|Der Wert des in der Anforderung verwendeten Tokens.|  
-|requested_token_use|Erforderlich|Gibt an, wie die Anforderung verarbeitet werden soll. Im OBO-Flow muss der Wert auf festgelegt werden on_behalf_of| 
-|Ressource|Erforderlich|Die Ressourcen-ID, die beim Registrieren der ersten Web-API als Server-app (mittlere Ebene-APP) bereitgestellt wird. Die Ressourcen-ID sollte die URL der zweiten Web-API-APP der mittleren Ebene sein, die im Auftrag des Clients aufruft.|
+|grant_type|Erforderlich|Der Typ der Tokenanforderung. Bei einer Anforderung mit einem JWT muss der Wert „urn:ietf:params:oauth:grant-type:jwt-bearer“ sein.|  
+|client_id|Erforderlich|Die Client-ID, die du bei der Registrierung deiner ersten Web-API als Server-App (App auf mittlerer Ebene) konfigurierst. Diese sollte dieselbe sein wie die Ressourcen-ID, die im ersten Abschnitt verwendet wird, d. h. die URL der ersten Web-API.| 
+|client_secret|Erforderlich|Das Anwendungsgeheimnis, das du während der Registrierung der Server-App im AD FS erstellt hast.| 
+|assertion|Erforderlich|Der Wert des in der Anforderung verwendeten Tokens.|  
+|requested_token_use|Erforderlich|Gibt an, wie die Anforderung verarbeitet werden soll. Im OBO-Flow muss der Wert auf „on_behalf_of“ festgelegt werden.| 
+|resource|Erforderlich|Die Ressourcen-ID, die bei der Registrierung der ersten Web-API als Server-App (App auf mittlerer Ebene) bereitgestellt wurde. Die Ressourcen-ID sollte die URL der zweiten Web-API der App auf mittlerer Ebene sein, die im Auftrag des Clients aufgerufen wird.|
 |scope|Optional|Eine durch Leerzeichen getrennte Liste von Bereichen für die Tokenanforderung.| 
 
 #### <a name="example"></a>Beispiel 
  
-Der folgende `HTTP POST` fordert ein Zugriffs Token und ein Aktualisierungs Token an. 
+Der folgende `HTTP POST` fordert ein Zugriffstoken und ein Aktualisierungstoken an. 
  
 ```
 //line breaks for legibility only 
@@ -337,27 +337,27 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 &scope=openid    
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Zweiter Fall: zugriffstokenanforderung mit einem Zertifikat 
+### <a name="second-case-access-token-request-with-a-certificate"></a>Zweiter Fall: Anforderung eines Zugriffstokens mit einem Zertifikat 
  
-Eine Dienst-zu-Dienst-zugriffstokenanforderung mit einem Zertifikat enthält die folgenden Parameter: 
+Eine Anforderung von Zugriffstoken zwischen Diensten mit einem Zertifikat enthält die folgenden Parameter: 
 
 
 |Parameter|Erforderlich/optional|Beschreibung|
 |-----|-----|-----| 
-|grant_type|Erforderlich|Der Typ der Tokenanforderung. Bei einer Anforderung mit einem JWT muss der Wert urn: IETF: Parameter: OAuth: Grant-Type: JWT-Träger sein. |
-|client_id|Erforderlich|Die Client-ID, die Sie konfigurieren, wenn Sie Ihre erste Web-API als Server-App registrieren (app der mittleren Ebene). Dies sollte mit der im ersten Abschnitt verwendeten Ressourcen-ID identisch sein, also mit der URL der ersten Web-API.|  
-|client_assertion_type|Erforderlich|Der Wert muss "urn: IETF: parameams: OAuth: Client-Assert-Type: JWT-bearername" lauten.| 
-|client_assertion|Erforderlich|Eine-Bestätigung (ein JSON-webtoken), die Sie erstellen und mit dem Zertifikat signieren müssen, das Sie als Anmelde Informationen für Ihre Anwendung registriert haben.|  
-|Assertion|Erforderlich|Der Wert des in der Anforderung verwendeten Tokens.| 
-|requested_token_use|Erforderlich|Gibt an, wie die Anforderung verarbeitet werden soll. Im OBO-Flow muss der Wert auf festgelegt werden on_behalf_of| 
-|Ressource|Erforderlich|Die Ressourcen-ID, die beim Registrieren der ersten Web-API als Server-app (mittlere Ebene-APP) bereitgestellt wird. Die Ressourcen-ID sollte die URL der zweiten Web-API-APP der mittleren Ebene sein, die im Auftrag des Clients aufruft.|
+|grant_type|Erforderlich|Der Typ der Tokenanforderung. Bei einer Anforderung mit einem JWT muss der Wert „urn:ietf:params:oauth:grant-type:jwt-bearer“ sein. |
+|client_id|Erforderlich|Die Client-ID, die du bei der Registrierung deiner ersten Web-API als Server-App (App auf mittlerer Ebene) konfigurierst. Diese sollte dieselbe sein wie die Ressourcen-ID, die im ersten Abschnitt verwendet wird, d. h. die URL der ersten Web-API.|  
+|client_assertion_type|Erforderlich|Der Wert muss „urn:ietf:params:oauth:client-assertion-type:jwt-bearer“ sein.| 
+|client_assertion|Erforderlich|Eine Assertion (ein JSON-Webtoken), die du mit dem Zertifikat, das als Berechtigungsnachweis für deine Anwendung registriert wurde, erstellen und signieren musst.|  
+|assertion|Erforderlich|Der Wert des in der Anforderung verwendeten Tokens.| 
+|requested_token_use|Erforderlich|Gibt an, wie die Anforderung verarbeitet werden soll. Im OBO-Flow muss der Wert auf „on_behalf_of“ festgelegt werden.| 
+|resource|Erforderlich|Die Ressourcen-ID, die bei der Registrierung der ersten Web-API als Server-App (App auf mittlerer Ebene) bereitgestellt wurde. Die Ressourcen-ID sollte die URL der zweiten Web-API der App auf mittlerer Ebene sein, die im Auftrag des Clients aufgerufen wird.|
 |scope|Optional|Eine durch Leerzeichen getrennte Liste von Bereichen für die Tokenanforderung.|
 
 
-Beachten Sie, dass die Parameter fast identisch sind, wie bei der Anforderung nach einem gemeinsamen geheimen Schlüssel, mit dem Unterschied, dass der client_secret Parameter durch zwei Parameter ersetzt wird: client_assertion_type und client_assertion. 
+Es ist zu beachten, dass die Parameter fast dieselben sind wie im Fall der Anforderung durch gemeinsames Geheimnis, außer dass der Parameter „client_secret“ durch zwei Parameter ersetzt wird: „client_assertion_type“ und „client_assertion“. 
 
 #### <a name="example"></a>Beispiel 
-Der folgende HTTP Post fordert ein Zugriffs Token für die Web-API mit einem Zertifikat an.
+Der folgende HTTP POST-Vorgang fordert ein Zugriffstoken für die Web-API mit einem Zertifikat an.
 
 ``` 
 // line breaks for legibility only 
@@ -375,24 +375,24 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope= openid 
 ```    
 
-### <a name="service-to-service-access-token-response"></a>Antwort auf Dienst-zu-Dienst-Zugriffs Token 
+### <a name="service-to-service-access-token-response"></a>Zugriffstokenantwort zwischen Diensten 
  
-Eine Erfolgs Antwort ist eine JSON OAuth 2,0-Antwort mit den folgenden Parametern. 
+Eine Erfolgsantwort ist eine JSON OAuth 2.0-Antwort mit den folgenden Parametern. 
 
 
 |Parameter|Beschreibung|
 |-----|-----| 
-|token_type|Gibt den Tokentyp Wert an. Der einzige Typ, den AD FS unterstützt, ist Bearer. | 
-|scope|Der im Token gewährte Zugriffs Bereich.| 
-|expires_in|Die Zeitspanne in Sekunden, für die das Zugriffs Token gültig ist.| 
-|access_token|Das angeforderte Zugriffs Token. Der aufrufende Dienst kann dieses Token verwenden, um sich beim empfangenden Dienst zu authentifizieren.| 
-|id_token|Eine JSON Web Token (JWT). Die APP kann die Segmente dieses Tokens decodieren, um Informationen über den angemeldeten Benutzer anzufordern. Die APP kann die Werte Zwischenspeichern und anzeigen, aber Sie sollte für Autorisierungs-oder Sicherheitsgrenzen nicht darauf basieren.| 
-|refresh_token|Das Aktualisierungs Token für das angeforderte Zugriffs Token. Der aufrufende Dienst kann dieses Token verwenden, um ein anderes Zugriffs Token anzufordern, nachdem das aktuelle Zugriffs Token abläuft.|
-|Refresh_token_expires_in|Die Zeitspanne in Sekunden, für die das Aktualisierungs Token gültig ist. 
+|token_type|Gibt den Wert des Tokentyps an. Der einzige von AD FS unterstützte Typ ist „Bearer“. | 
+|scope|Der Bereich des im Token gewährten Zugriffs.| 
+|expires_in|Die Zeitspanne in Sekunden, in der das Zugriffstoken gültig ist.| 
+|access_token|Das angeforderte Zugriffstoken. Der aufrufende Dienst kann dieses Token zur Authentifizierung beim empfangenden Dienst verwenden.| 
+|id_token|Ein JSON-Webtoken (JWT). Die App kann die Segmente dieses Tokens entschlüsseln, um Informationen über den Benutzer, der sich angemeldet hat, anzufordern. Die App kann die Werte zwischenspeichern und anzeigen, aber sie sollte sich nicht auf sie verlassen, wenn es um Autorisierung oder Sicherheitsbegrenzungen geht.| 
+|refresh_token|Das Aktualisierungstoken für das angeforderte Zugriffstoken. Der aufrufende Dienst kann dieses Token verwenden, um nach Ablauf des aktuellen Zugriffstokens ein weiteres Zugriffstoken anzufordern.|
+|Refresh_token_expires_in|Die Zeitspanne in Sekunden, in der das Aktualisierungstoken gültig ist. 
 
-### <a name="success-response-example"></a>Beispiel für eine Erfolgs Antwort 
+### <a name="success-response-example"></a>Beispiel für eine Erfolgsantwort 
  
-Das folgende Beispiel zeigt eine erfolgreiche Antwort auf eine Anforderung für ein Zugriffs Token für die Web-API. 
+Das folgende Beispiel zeigt eine Erfolgsantwort auf eine Anforderung nach einem Zugriffstoken für die Web-API. 
 
 ``` 
 { 
@@ -407,7 +407,7 @@ Das folgende Beispiel zeigt eine erfolgreiche Antwort auf eine Anforderung für 
 ```  
  
  
-Verwenden Sie das Zugriffs Token für den Zugriff auf die gesicherte Ressource. nun kann der Dienst der mittleren Ebene das oben erhaltene Token verwenden, um authentifizierte Anforderungen an die Downstream-Web-API zu senden, indem das Token im Autorisierungs Header festgelegt wird.  
+Verwende das Zugriffstoken, um auf die gesicherte Ressource zuzugreifen. Jetzt kann der Dienst auf mittlerer Ebene das oben abgerufene Token verwenden, um authentifizierte Anforderungen an die Downstream-Web-API zu stellen, indem das Token im Autorisierungsheader festgelegt wird.  
 
 #### <a name="example"></a>Beispiel 
 ``` 
@@ -416,23 +416,23 @@ Host: https://secondwebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQ… 
 ``` 
 
-## <a name="client-credentials-grant-flow"></a>Flow zum Gewähren von Client Anmelde Informationen 
+## <a name="client-credentials-grant-flow"></a>Gewährungsflow für Clientanmeldeinformationen 
  
-Sie können die in [RFC 6749](https://tools.ietf.org/html/rfc6749#section-4.4)angegebene Gewährung von OAuth 2,0-Client Anmelde Informationen verwenden, um mithilfe der Identität einer Anwendung auf im Internet gehostete Ressourcen zuzugreifen. Diese Art von Gewährung wird häufig für Interaktionen zwischen Servern verwendet, die ohne unmittelbare Interaktion mit einem Benutzer im Hintergrund ausgeführt werden müssen. Diese Anwendungs Typen werden oft als Daemons oder Dienst Konten bezeichnet. 
+Du kannst die in [RFC 6749](https://tools.ietf.org/html/rfc6749#section-4.4) angegebene Gewährung der OAuth 2.0-Clientanmeldeinformationen verwenden, um unter Verwendung der Identität einer Anwendung auf im Web gehostete Ressourcen zuzugreifen. Diese Art von Gewährung wird häufig für Interaktionen zwischen Servern verwendet, die ohne unmittelbare Interaktion mit einem Benutzer im Hintergrund ausgeführt werden müssen. Diese Anwendungstypen werden oft als Daemon oder Dienstkonten bezeichnet. 
 
-Der Flow zum Gewähren von OAuth 2,0-Client Anmelde Informationen ermöglicht einem Webdienst (vertraulicher Client), seine eigenen Anmelde Informationen zu verwenden, anstatt die Identität eines Benutzers anzunehmen, um sich beim Aufrufen eines anderen Webdiensts zu authentifizieren. In diesem Szenario ist der Client normalerweise ein Webdienst der mittleren Ebene, ein daemondienst oder eine Website. Ein höheres Maß an AD FS Sicherheit ermöglicht dem aufrufenden Dienst auch, ein Zertifikat (anstelle eines gemeinsamen geheimen Schlüssels) als Anmelde Informationen zu verwenden. 
+Über den Gewährungsflow für OAuth 2.0-Clientanmeldeinformationen können Webdienste (d. h. vertrauenswürdige Clients) ihre eigenen Anmeldeinformationen für die Authentifizierung beim Aufrufen anderer Webdienste verwenden, anstatt die Identität eines Benutzers anzunehmen. In diesem Szenario ist der Client normalerweise ein Webdienst der mittleren Ebene, ein Daemondienst oder eine Website. Für ein höheres Maß an Sicherheit erlaubt der AD FS dem aufrufenden Dienst auch die Verwendung eines Zertifikats (anstelle eines gemeinsamen Geheimnisses) als Anmeldeinformation. 
 
-### <a name="protocol-diagram"></a>Protokoll Diagramm 
+### <a name="protocol-diagram"></a>Protokolldiagramm 
 
-Das folgende Diagramm zeigt den Datenfluss zur Gewährung von Client Anmelde Informationen. 
+Das folgende Diagramm zeigt den Gewährungsflow für Clientanmeldeinformationen. 
 
-![Client Anmelde Informationen](media/adfs-scenarios-for-developers/credentials.png)
+![Clientanmeldeinformationen](media/adfs-scenarios-for-developers/credentials.png)
 
 ### <a name="request-a-token"></a>Anfordern eines Tokens 
  
-Um ein Token mithilfe der Gewährung von Client Anmelde Informationen zu erhalten, senden Sie eine `POST` Anforderung an den/Token-AD FS Endpunkt:  
+Sende eine `POST`-Anforderung an den AD FS-Endpunkt „/token“, um ein Token unter Verwendung der Clientanmeldeinformationen abzurufen:  
  
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Erster Fall: zugriffstokenanforderung mit einem gemeinsamen geheimen Schlüssel 
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Erster Fall: Anforderung eines Zugriffstokens mit einem gemeinsamen Geheimnis 
  
 ```
 POST /adfs/oauth2/token HTTP/1.1            
@@ -448,12 +448,12 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 
 |Parameter|Erforderlich/optional|Beschreibung|
 |-----|-----|-----| 
-|client_id|Erforderlich|Die Anwendungs-ID (Client-ID), die der der APP zugewiesen AD FS.| 
+|client_id|Erforderlich|Die Anwendungs-ID (Client), die deiner App vom AD FS zugewiesen wurde.| 
 |scope|Optional|Eine durch Leerzeichen getrennte Liste von Bereichen, denen der Benutzer zustimmen soll.| 
-|client_secret|Erforderlich|Der geheime Client Schlüssel, den Sie für Ihre APP im App-Registrierungs Portal generiert haben. Der geheime Client Schlüssel muss vor dem Senden URL-codiert sein.| 
-|grant_type|Erforderlich|Muss auf `client_credentials`festgelegt werden.|
+|client_secret|Erforderlich|Der geheime Clientschlüssel, den du für deine App im App-Registrierungsportal generiert hast. Der geheime Clientschlüssel muss vor dem Senden mit einer URL codiert werden.| 
+|grant_type|Erforderlich|Muss auf `client_credentials` festgelegt werden.|
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Zweiter Fall: zugriffstokenanforderung mit einem Zertifikat 
+### <a name="second-case-access-token-request-with-a-certificate"></a>Zweiter Fall: Anforderung eines Zugriffstokens mit einem Zertifikat 
 
 ``` 
 POST /adfs/oauth2/token HTTP/1.1                
@@ -471,15 +471,15 @@ Content-Type: application/x-www-form-urlencoded
 
 |Parameter|Erforderlich/optional|Beschreibung| 
 |-----|-----|-----|
-|client_assertion_type|Erforderlich|Der Wert muss auf urn: IETF: biams: OAuth: Client-Assert-Type: JWT-Träger festgelegt werden.| 
-|client_assertion|Erforderlich|Eine-Bestätigung (ein JSON-webtoken), die Sie erstellen und mit dem Zertifikat signieren müssen, das Sie als Anmelde Informationen für Ihre Anwendung registriert haben.|  
-|grant_type|Erforderlich|Muss auf `client_credentials`festgelegt werden.|
-|client_id|Optional|Die Anwendungs-ID (Client-ID), die der der APP zugewiesen AD FS. Dies ist ein Teil client_assertion, daher muss er hier nicht übermittelt werden.| 
+|client_assertion_type|Erforderlich|Der Wert muss auf „urn:ietf:params:oauth:client-assertion-type:jwt-bearer“ festgelegt sein.| 
+|client_assertion|Erforderlich|Eine Assertion (ein JSON-Webtoken), die du mit dem Zertifikat, das als Berechtigungsnachweis für deine Anwendung registriert wurde, erstellen und signieren musst.|  
+|grant_type|Erforderlich|Muss auf `client_credentials` festgelegt werden.|
+|client_id|Optional|Die Anwendungs-ID (Client), die deiner App vom AD FS zugewiesen wurde. Dies ist Teil von client_assertion, sodass es hier nicht übergeben werden muss.| 
 |scope|Optional|Eine durch Leerzeichen getrennte Liste von Bereichen, denen der Benutzer zustimmen soll.| 
 
-### <a name="use-a-token"></a>Token verwenden 
+### <a name="use-a-token"></a>Verwenden eines Tokens 
  
-Nachdem Sie ein Token abgerufen haben, können Sie das Token verwenden, um Anforderungen an die Ressource zu senden. Wenn das Token abläuft, wiederholen Sie die Anforderung an den/Token-Endpunkt, um ein neues Zugriffs Token abzurufen.  
+Nachdem du jetzt ein Token abgerufen hast, stelle die Anforderungen an die Ressource mit dem Token. Wenn das Token abläuft, wiederholst du die Anforderung an den „/token“-Endpunkt, um ein neues Zugriffstoken zu erhalten.  
  
 ```
 GET /v1.0/me/messages 
@@ -487,18 +487,18 @@ Host: https://webapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...  
 ```
 
-## <a name="resource-owner-password-credentials-grant-flow-not-recommended"></a>Datenfluss für Kenn Wort Anmelde Informationen für Ressourcen Besitzer (nicht empfohlen) 
+## <a name="resource-owner-password-credentials-grant-flow-not-recommended"></a>Gewährungsflow für Kennwortanmeldeinformationen des Ressourcenbesitzers (nicht empfohlen) 
  
-Mithilfe der Berechtigung für den Ressourcen Besitzer Kennwort-Anmelde Informationsdienst (ropc) kann eine Anwendung den Benutzer anmelden, indem er sein Kennwort direkt verarbeitet. Der ropc-Flow erfordert ein hohes Maß an Vertrauenswürdigkeit und Benutzer Präsenz, und Sie sollten diesen Flow nur verwenden, wenn andere, sicherere, Flows nicht verwendet werden können.  
+Die Gewährung von Ressourcenbesitzer-Kennwortanmeldeinformationen ermöglicht es einer Anwendung, den Benutzer durch direkte Verarbeitung seines Kennworts anzumelden. Der Flow für Kennwortanmeldeinformationen des Ressourcenbesitzers erfordert ein hohes Maß an Vertrauen und potenzieller Benutzergefährdung, und du solltest diesen Flow nur verwenden, wenn andere, sicherere Flows nicht verwendet werden können.  
  
-### <a name="protocol-diagram"></a>Protokoll Diagramm 
+### <a name="protocol-diagram"></a>Protokolldiagramm 
  
-Das folgende Diagramm zeigt den ropc-Flow.
+Das folgende Diagramm zeigt den Flow für Kennwortanmeldeinformationen des Ressourcenbesitzers.
 
-![Ropc-Flow](media/adfs-scenarios-for-developers/resource.png)
+![ROPC-Flow (Resource Owner Password Credential)](media/adfs-scenarios-for-developers/resource.png)
 
-### <a name="authorization-request"></a>Autorisierungs Anforderung 
-Der ropc-Flow ist eine einzelne Anforderung – er sendet die Client Identifikation und die Anmelde Informationen des Benutzers an den IDP und empfängt dann Token in der Rückgabe. Der Client muss die e-Mail-Adresse (UPN) und das Kennwort des Benutzers anfordern, bevor Sie dies tun. Unmittelbar nach einer erfolgreichen Anforderung sollte der Client die Anmelde Informationen des Benutzers sicher aus dem Arbeitsspeicher freigeben. Sie darf Sie niemals speichern.  
+### <a name="authorization-request"></a>Autorisierungsanforderung 
+Der ROPC-Flow ist eine einzelne Anforderung. Er sendet die Client-ID und die Anmeldeinformationen des Benutzers an den IDP und empfängt dann im Gegenzug entsprechende Token. Der Client muss vorher die E-Mail-Adresse (UPN) und das Kennwort des Benutzers anfordern. Unmittelbar nach einer erfolgreichen Anforderung sollte der Client die Anmeldeinformationen des Benutzers sicher aus dem Speicher freigeben. Er darf sie niemals speichern.  
 
 ```
 // Line breaks and spaces are for legibility only. 
@@ -518,13 +518,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |Parameter|Erforderlich/optional|Beschreibung| 
 |-----|-----|-----|
 |client_id|Erforderlich|Client-ID| 
-|grant_type|Erforderlich|Muss auf "Password" festgelegt werden.| 
-|Benutzername|Erforderlich|Dies ist die E-Mail-Adresse des Benutzers.| 
-|Kennwort|Erforderlich|Das Kennwort des Benutzers.| 
+|grant_type|Erforderlich|Muss auf „password“ festgelegt werden.| 
+|username|Erforderlich|Dies ist die E-Mail-Adresse des Benutzers.| 
+|password|Erforderlich|Das Kennwort des Benutzers.| 
 |scope|Optional|Eine durch Leerzeichen getrennte Liste von Bereichen.|
 
-### <a name="successful-authentication-response"></a>Erfolgreiche Authentifizierungs Antwort 
-Das folgende Beispiel zeigt eine erfolgreiche tokenantwort: 
+### <a name="successful-authentication-response"></a>Erfolgreiche Authentifizierungsantwort. 
+Das folgende Beispiel zeigt eine erfolgreiche Tokenantwort: 
 
 ```
 { 
@@ -541,28 +541,28 @@ Das folgende Beispiel zeigt eine erfolgreiche tokenantwort:
 
 |Parameter|Beschreibung| 
 |-----|-----|
-|token_type|Immer auf bearerwert festgelegt.| 
-|scope|Wenn ein Zugriffs Token zurückgegeben wurde, listet dieser Parameter die Bereiche auf, für die das Zugriffs Token gültig ist.| 
-|expires_in|Die Anzahl der Sekunden, für die das enthaltene Zugriffs Token gültig ist.| 
-|access_token|Wird für die angeforderten Bereiche ausgestellt.| 
-|id_token|Eine JSON Web Token (JWT). Die APP kann die Segmente dieses Tokens decodieren, um Informationen über den angemeldeten Benutzer anzufordern. Die APP kann die Werte Zwischenspeichern und anzeigen, aber Sie sollte für Autorisierungs-oder Sicherheitsgrenzen nicht darauf basieren.| 
-|refresh_token_expires_in|Die Anzahl der Sekunden, für die das enthaltene Aktualisierungs Token gültig ist.| 
-|refresh_token|Wird ausgegeben, wenn der ursprüngliche Bereichs Parameter offline_access enthalten ist.|
+|token_type|Immer auf „Bearer“ festgelegt.| 
+|scope|Wenn ein Zugriffstoken zurückgegeben wurde, listet dieser Parameter die Bereiche auf, für die das Zugriffstoken gültig ist.| 
+|expires_in|Anzahl der Sekunden, für die das enthaltene Zugriffstoken gültig ist.| 
+|access_token|Ausgestellt für die angeforderten Bereiche.| 
+|id_token|Ein JSON-Webtoken (JWT). Die App kann die Segmente dieses Tokens entschlüsseln, um Informationen über den Benutzer, der sich angemeldet hat, anzufordern. Die App kann die Werte zwischenspeichern und anzeigen, aber sie sollte sich nicht auf sie verlassen, wenn es um Autorisierung oder Sicherheitsbegrenzungen geht.| 
+|refresh_token_expires_in|Anzahl der Sekunden, für die das enthaltene Aktualisierungstoken gültig ist.| 
+|refresh_token|Wird ausgegeben, wenn der ursprüngliche Bereichsparameter offline_access enthalten hat.|
 
-Sie können das Aktualisierungs Token verwenden, um neue Zugriffs Token und Aktualisierungs Token zu erhalten. verwenden Sie dazu denselben Fluss, der im obigen Abschnitt zum Autorisierungs Code Grant beschrieben wird.   
+Du kannst das Aktualisierungstoken verwenden, um neue Zugriffstoken abzurufen und Token zu aktualisieren, indem du denselben Flow verwendest, der oben im Abschnitt über die Gewährung von Authentifizierungscode beschrieben ist.   
 
-## <a name="device-code-flow"></a>Geräte Code Fluss 
+## <a name="device-code-flow"></a>Gerätecodeflow 
  
-Geräte Code Gewährung ermöglicht es Benutzern, sich bei Geräten anzumelden, die auf die Eingabe beschränkt sind, z. b. ein smartTV, ein IOT-Gerät oder ein Drucker Zum Aktivieren dieses Flows kann der Benutzer auf dem Gerät eine Webseite auf einem anderen Gerät auf einem anderen Gerät besuchen, um sich anzumelden. Sobald sich der Benutzer anmeldet, kann das Gerät bei Bedarf Zugriffs Token und Aktualisierungs Token abrufen. 
+Durch die Gewährung von Gerätecode kann sich der Benutzer an Geräten mit beschränkten Eingabemöglichkeiten anmelden, z. B. Smart-TV, IoT-Gerät oder Drucker. Um diesen Flow zu ermöglichen, lässt das Gerät den Benutzer eine Webseite in seinem Browser auf einem anderen Gerät besuchen, um sich anzumelden. Nach der Anmeldung des Benutzers ist das Gerät in der Lage, Zugriffstoken zu erhalten und die Token bei Bedarf zu aktualisieren. 
  
-### <a name="protocol-diagram"></a>Protokoll Diagramm 
+### <a name="protocol-diagram"></a>Protokolldiagramm 
  
-Der gesamte Geräte Code Fluss ähnelt dem nächsten Diagramm. Wir beschreiben jeden der Schritte weiter unten in diesem Artikel. 
+Der gesamte Gerätecodeflow sieht ähnlich wie im nächsten Diagramm aus. Wir beschreiben jeden dieser Schritte später in diesem Artikel. 
  
-![Geräte Code Fluss](media/adfs-scenarios-for-developers/device.png)
+![Gerätecodeflow](media/adfs-scenarios-for-developers/device.png)
 
-### <a name="device-authorization-request"></a>Geräte Autorisierungs Anforderung 
-Der Client muss zuerst eine Überprüfung des Authentifizierungs Servers für ein Gerät und einen Benutzercode durchsuchen, der zum Initiieren der Authentifizierung verwendet wird. Der Client sammelt diese Anforderung vom/devicecode-Endpunkt. In dieser Anforderung sollte der Client auch die Berechtigungen einschließen, die er vom Benutzer abrufen muss. Ab dem Zeitpunkt, an dem diese Anforderung gesendet wird, hat sich der Benutzer nur 15 Minuten Zeit, sich anzumelden (der übliche Wert für expires_in). Daher sollten Sie diese Anforderung nur dann vornehmen, wenn der Benutzer angegeben hat, dass er für die Anmeldung bereit ist. 
+### <a name="device-authorization-request"></a>Geräteautorisierungsanforderung 
+Der Client muss zunächst mit dem Authentifizierungsserver nach einem Gerät und einem Benutzercode suchen, die zum Einleiten der Authentifizierung verwendet werden. Der Client erfasst diese Anforderung vom „/devicecode“-Endpunkt. In dieser Anforderung sollte der Client auch die Berechtigungen einbeziehen, die er vom Benutzer abrufen muss. Von dem Moment an, an dem diese Anforderung gesendet wird, hat der Benutzer nur 15 Minuten Zeit, um sich anzumelden (der übliche Wert für expires_in), also sollte diese Anforderung nur dann gestellt werden, wenn der Benutzer angegeben hat, dass er bereit ist, sich anzumelden. 
 
 ```
 // Line breaks are for legibility only. 
@@ -577,25 +577,25 @@ scope=openid
 
 |Parameter|Bedingung|Beschreibung|
 |-----|-----|-----| 
-|client_id|Erforderlich|Die Anwendungs-ID (Client-ID), die der der APP zugewiesen AD FS.| 
+|client_id|Erforderlich|Die Anwendungs-ID (Client), die deiner App vom AD FS zugewiesen wurde.| 
 |scope|Optional|Eine durch Leerzeichen getrennte Liste von Bereichen.|
 
-### <a name="device-authorization-response"></a>Geräte Autorisierungs Antwort 
-Eine erfolgreiche Antwort ist ein JSON-Objekt, das die erforderlichen Informationen enthält, damit sich der Benutzer anmelden kann. 
+### <a name="device-authorization-response"></a>Geräteautorisierungsantwort 
+Eine erfolgreiche Antwort wird ein JSON-Objekt sein, das die erforderlichen Informationen enthält, um dem Benutzer die Anmeldung zu ermöglichen. 
 
 
 |Parameter|Beschreibung|
 |-----|-----| 
-|device_code|Eine lange Zeichenfolge, mit der die Sitzung zwischen dem Client und dem autorisierungsserver überprüft wird. Der Client verwendet diesen Parameter, um das Zugriffs Token vom autorisierungsserver anzufordern.| 
-|user_code|Eine kurze Zeichenfolge, die dem Benutzer angezeigt wird, der zum Identifizieren der Sitzung auf einem sekundären Gerät verwendet wird.| 
-|verification_uri|Der URI, an den der Benutzer mit dem user_code gelangen soll, um sich anzumelden.| 
-|verification_uri_complete|Der URI, an den der Benutzer mit dem user_code gelangen soll, um sich anzumelden. Dies ist bereits mit user_code gefüllt, sodass der Benutzer keine Eingabe user_code| 
-|expires_in|Die Anzahl der Sekunden, bevor die device_code und user_code ablaufen.| 
-|Tri|Die Anzahl der Sekunden, die der Client zwischen Abruf Anforderungen warten soll.| 
-|Nachricht|Eine lesbare Zeichenfolge mit Anweisungen für den Benutzer. Dies kann lokalisiert werden, indem Sie einen Abfrage Parameter in die Anforderung des Formulars einschließen? mkt = xx-xx und den entsprechenden Sprachkultur Code ausfüllen.  
+|device_code|Eine lange Zeichenfolge, die zur Überprüfung der Sitzung zwischen dem Client und dem Autorisierungsserver verwendet wird. Der Client verwendet diesen Parameter, um das Zugriffstoken vom Autorisierungsserver anzufordern.| 
+|user_code|Eine kurze, dem Benutzer angezeigte Zeichenfolge, die zur Identifizierung der Sitzung auf einem sekundären Gerät verwendet wird.| 
+|verification_uri|Der URI, zu dem der Benutzer mit dem user_code wechseln sollte, um sich anzumelden.| 
+|verification_uri_complete|Der URI, zu dem der Benutzer mit dem user_code wechseln sollte, um sich anzumelden. Dieser ist mit user_code vorab ausgefüllt, sodass der Benutzer keinen user_code eingeben muss.| 
+|expires_in|Die Anzahl der Sekunden, bevor device_code und user_code ablaufen.| 
+|interval|Die Anzahl der Sekunden, die der Client zwischen den Abfrageanforderungen warten soll.| 
+|message|Eine von Menschen lesbare Zeichenfolge mit Anweisungen für den Benutzer. Dies kann lokalisiert werden, indem ein Abfrageparameter in die Anforderung der Form „?mkt=xx-XX“ einbezogen wird, wobei der entsprechende Sprachkulturcode ausgefüllt wird.  
 
 ### <a name="authenticating-the-user"></a>Authentifizieren des Benutzers 
-Nach dem Empfang der user_code und verification_uri werden diese vom Client für den Benutzer angezeigt, und Sie werden angewiesen, sich mit Ihrem Mobiltelefon oder PC-Browser anzumelden. Außerdem kann der Client einen QR-Code oder einen ähnlichen Mechanismus verwenden, um die verfication_uri_complete anzuzeigen, die den Schritt der Eingabe der user_code für den Benutzer übernimmt. Während der Benutzer sich beim verification_uri authentifiziert, muss der Client den/Token-Endpunkt für das angeforderte Token mithilfe der device_code abrufen. 
+Nachdem der Client den user_code und verification_uri erhalten hat, zeigt er diese dem Benutzer an und weist ihn an, sich mit seinem Mobiltelefon oder PC-Browser anzumelden. Zusätzlich kann der Client einen QR-Code oder einen ähnlichen Mechanismus verwenden, um verification_uri_complete anzuzeigen, der den Schritt der Eingabe des user_code für den Benutzer übernimmt. Während sich der Benutzer am verification_uri authentifiziert, sollte der Client den /token-Endpunkt mit dem device_code nach dem angeforderten Token abfragen. 
 
 ```
 POST https://adfs.contoso.com /adfs/oauth2/token 
@@ -609,24 +609,24 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 |Parameter|Erforderlich|Beschreibung|
 |-----|-----|-----| 
-|grant_type|Erforderlich|Muss "urn: IETF: parameams: OAuth: Grant-Type: device_code| 
-|client_id|Erforderlich|Muss mit der in der ursprünglichen Anforderung verwendeten client_id identisch sein.| 
-|code|Erforderlich|Die device_code, die in der Geräte Autorisierungs Anforderung zurückgegeben wird.|
+|grant_type|Erforderlich|Muss „urn:ietf:params:oauth:grant-type:device_code“ sein.| 
+|client_id|Erforderlich|Muss mit der in der ursprünglichen Anforderung verwendeten client_id übereinstimmen.| 
+|code|Erforderlich|Der in der Geräteautorisierungsanforderung zurückgegebene device_code.|
 
-### <a name="successful-authentication-response"></a>Erfolgreiche Authentifizierungs Antwort 
-Eine erfolgreiche tokenantwort sieht wie folgt aus:  
+### <a name="successful-authentication-response"></a>Erfolgreiche Authentifizierungsantwort. 
+Eine erfolgreiche Tokenantwort wird wie folgt aussehen:  
 
 
 |Parameter|Beschreibung|
 |-----|-----| 
-|token_type|Immer "Träger.| 
-|scope|Wenn ein Zugriffs Token zurückgegeben wurde, werden die Bereiche aufgelistet, für die das Zugriffs Token gültig ist.| 
-|expires_in|Anzahl von Sekunden, bevor das enthaltene Zugriffs Token für gültig ist.| 
-|access_token|Wird für die angeforderten Bereiche ausgestellt.| 
-|id_token|Wird ausgegeben, wenn der ursprüngliche Bereichs Parameter den OpenID-Bereich enthielt.| 
-|refresh_token|Wird ausgegeben, wenn der ursprüngliche Bereichs Parameter offline_access enthalten ist.| 
-|refresh_token_expires_in|Anzahl von Sekunden, bevor das enthaltene Aktualisierungs Token für gültig ist.| 
+|token_type|Dies ist immer „Bearer“.| 
+|scope|Wenn ein Zugriffstoken zurückgegeben wurde, listet dies die Bereiche auf, für die das Zugriffstoken gültig ist.| 
+|expires_in|Anzahl der Sekunden, bevor das enthaltene Zugriffstoken gültig ist.| 
+|access_token|Ausgestellt für die angeforderten Bereiche.| 
+|id_token|Wird ausgegeben, wenn der ursprüngliche Bereichsparameter den openid-Bereich enthalten hat.| 
+|refresh_token|Wird ausgegeben, wenn der ursprüngliche Bereichsparameter offline_access enthalten hat.| 
+|refresh_token_expires_in|Anzahl der Sekunden, bevor das enthaltene Aktualisierungstoken gültig ist.| 
 
 
 ## <a name="related-content"></a>Verwandte Themen  
-Eine umfassende Liste mit exemplarischen Vorgehensweisen finden Sie unter [AD FS Entwicklung](../AD-FS-Development.md) . darin finden Sie schrittweise Anleitungen zur Verwendung der zugehörigen Flows. 
+Die vollständige Liste der Artikel mit exemplarischen Vorgehensweisen ist in [AD FS-Entwicklung](../AD-FS-Development.md) verfügbar, worin schrittweise Anweisungen zur Verwendung der entsprechenden Flows bereitgestellt werden. 

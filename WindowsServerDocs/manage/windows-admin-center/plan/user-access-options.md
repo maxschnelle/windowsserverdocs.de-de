@@ -1,6 +1,6 @@
 ---
-title: Benutzer Zugriffs Optionen mit Windows Admin Center
-description: Benutzer Zugriffs Optionen und Identitäts Anbieter mit Windows Admin Center (Project Honolulu)
+title: Benutzerzugriffsoptionen mit Windows Admin Center
+description: Benutzerzugriffsoptionen und Identitätsanbieter mit Windows Admin Center (Projekt Honolulu)
 ms.technology: manage
 ms.topic: article
 author: haley-rowland
@@ -10,96 +10,96 @@ ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: 084cdae0bf8ca0eb3aff1f4679d30978b860efef
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71356918"
 ---
-# <a name="user-access-options-with-windows-admin-center"></a>Benutzer Zugriffs Optionen mit Windows Admin Center
+# <a name="user-access-options-with-windows-admin-center"></a>Benutzerzugriffsoptionen mit Windows Admin Center
 
 >Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-Wenn das Windows Admin Center auf Windows Server bereitgestellt wird, stellt es einen zentralen Verwaltungspunkt für Ihre Server Umgebung bereit. Indem Sie den Zugriff auf das Windows Admin Center steuern, können Sie die Sicherheit ihrer Verwaltungs Landschaft verbessern.
+Bei Bereitstellung auf Windows Server bietet Windows Admin Center einen zentralen Verwaltungspunkt für die Serverumgebung. Durch die Steuerung des Zugriffs auf Windows Admin Center kann die Sicherheit der Verwaltungsumgebung verbessert werden.
 
-## <a name="gateway-access-roles"></a>Gateway-Zugriffs Rollen
+## <a name="gateway-access-roles"></a>Gatewayzugriffsrollen
 
-Windows Admin Center definiert zwei Rollen für den Zugriff auf den Gatewaydienst: gatewaybenutzer und Gateway-Administratoren.
+Windows Admin Center definiert zwei Rollen für den Zugriff auf den Gatewaydienst: Gatewaybenutzer und Gatewayadministratoren.
 
 > [!NOTE]
-> Der Zugriff auf das Gateway impliziert nicht den Zugriff auf die Zielserver, die für das Gateway sichtbar sind. Um einen Zielserver zu verwalten, muss ein Benutzer eine Verbindung mit Anmelde Informationen herstellen, die auf dem Zielserver über Administratorrechte verfügen.
+> Der Zugriff auf das Gateway impliziert nicht den Zugriff auf die Zielserver, die durch das Gateway sichtbar sind. Um einen Zielserver zu verwalten, muss ein Benutzer eine Verbindung mit Anmeldeinformationen herstellen, die auf dem Zielserver über Administratorrechte verfügen.
 
-**Gatewaybenutzer** können eine Verbindung mit dem Windows Admin Center-Gatewaydienst herstellen, um Server über dieses Gateway zu verwalten. Sie können jedoch weder die Zugriffsberechtigungen noch den Authentifizierungsmechanismus ändern, der für die Authentifizierung beim Gateway verwendet wird.
+**Gatewaybenutzer** können eine Verbindung mit dem Windows Admin Center-Gateway herstellen, um Servern über dieses Gateway zu verwalten, aber sie können weder die Zugriffsberechtigungen noch den Authentifizierungsmechanismus ändern, der zum Authentifizieren des Gateways verwendet wird.
 
 **Gatewayadministratoren** können konfigurieren, wer Zugriff erhält und wie sich Benutzer beim Gateway authentifizieren.
 
 >[!NOTE]
-> Wenn keine Zugriffs Gruppen im Windows Admin Center definiert sind, werden die Rollen dem Windows-Konto Zugriff auf den Gatewayserver widerspiegeln. 
+> Wenn in Windows Admin Center keine Zugriffsgruppen definiert sind, spiegeln die Rollen den Windows-Kontozugriff auf den Gatewayserver wider. 
 
-[Konfigurieren Sie den gatewaybenutzer-und Administrator Zugriff im Windows Admin Center.](../configure/user-access-control.md)
+[Konfiguriere den Gatewaybenutzer- und -administratorzugriff in Windows Admin Center.](../configure/user-access-control.md)
 
-## <a name="identity-provider-options"></a>Optionen des Identitäts Anbieters
+## <a name="identity-provider-options"></a>Optionen für Identitätsanbieter
 
 Gatewayadministratoren können eine der folgenden Optionen auswählen:
 
- - [Active Directory/lokale Computer Gruppen](../configure/user-access-control.md#active-directory-or-local-machine-groups)
- - [Azure Active Directory als Identitäts Anbieter für Windows Admin Center](../configure/user-access-control.md#azure-active-directory)
+ - [Active Directory/lokale Computergruppen](../configure/user-access-control.md#active-directory-or-local-machine-groups)
+ - [Azure Active Directory als Identitätsanbieter für Windows Admin Center](../configure/user-access-control.md#azure-active-directory)
 
 
-### <a name="smartcard-authentication"></a>Smartcardauthentifizierung
+### <a name="smartcard-authentication"></a>Smartcard-Authentifizierung
 
-Wenn Sie Active Directory oder lokale Computer Gruppen als Identitäts Anbieter verwenden, können Sie die Smartcard-Authentifizierung erzwingen, indem Sie Benutzern, die auf das Windows Admin Center zugreifen, als Mitglied von zusätzlichen smartcardbasierten Sicherheitsgruppen aufgefordert werden. [Konfigurieren Sie die Smartcard-Authentifizierung im Windows Admin Center.](../configure/user-access-control.md#active-directory-or-local-machine-groups)
+Wenn Active Directory oder lokale Computergruppen als Identitätsanbieter verwendet werden, kann die Smartcard-Authentifizierung erzwungen werden, indem Benutzer, die auf Windows Admin Center zugreifen, Mitglied zusätzlicher Smartcard-basierter Sicherheitsgruppen sein müssen. [Konfiguriere die Smartcard-Authentifizierung in Windows Admin Center.](../configure/user-access-control.md#active-directory-or-local-machine-groups)
 
-### <a name="conditional-access-and-multi-factor-authentication"></a>Bedingter Zugriff und Multi-Factor Authentication
+### <a name="conditional-access-and-multi-factor-authentication"></a>Bedingter Zugriff und mehrstufige Authentifizierung
 
-Wenn Sie Azure AD Authentifizierung für das Gateway benötigen, können Sie zusätzliche Sicherheitsfeatures wie den bedingten Zugriff und die mehrstufige Authentifizierung nutzen, die von Azure AD bereitgestellt werden. [Weitere Informationen zum Konfigurieren des bedingten Zugriffs mit Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal-get-started)
+Durch die Anforderung der Azure AD-Authentifizierung für das Gateway kannst du zusätzliche Sicherheitsfeatures wie den bedingten Zugriff und die mehrstufige Authentifizierung nutzen, die von Azure AD bereitgestellt werden. [Weitere Informationen zum Konfigurieren des bedingten Zugriffs mit Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal-get-started).
 
 ## <a name="role-based-access-control"></a>Rollenbasierte Zugriffsteuerung
 
-Standardmäßig benötigen Benutzer vollständige lokale Administratorrechte auf den Computern, die Sie mithilfe des Windows Admin Centers verwalten möchten.
-Dies ermöglicht es Ihnen, eine Remote Verbindung mit dem Computer herzustellen und sicherzustellen, dass Sie über ausreichende Berechtigungen zum Anzeigen und Ändern von Systemeinstellungen verfügen.
-Allerdings benötigen einige Benutzer möglicherweise keinen uneingeschränkten Zugriff auf den Computer, um Ihre Aufgaben auszuführen.
-Sie können die **rollenbasierte Zugriffs Steuerung** im Windows Admin Center verwenden, um solchen Benutzern eingeschränkten Zugriff auf den Computer zu gewähren, anstatt sie vollständig als lokale Administratoren zu erstellen.
+Standardmäßig benötigen Benutzer auf den Computern, die sie mit dem Windows Admin Center verwalten möchten, uneingeschränkte lokale Administratorrechte.
+Dadurch können sie sich remote mit dem Computer verbinden und sicherstellen, dass sie über ausreichende Berechtigungen zum Anzeigen und Ändern von Systemeinstellungen verfügen.
+Einige Benutzer benötigen jedoch möglicherweise keinen uneingeschränkten Zugriff auf das Gerät, um ihre Aufgaben auszuführen.
+Du kannst die **rollenbasierte Zugriffssteuerung** (Role-Based Access Control, RBAC) in Windows Admin Center verwenden, um diesen Benutzern eingeschränkten Zugriff auf den Computer zu gewähren, anstatt sie zu vollständigen lokalen Administratoren zu machen.
 
-Die rollenbasierte Zugriffs Steuerung im Windows Admin Center konfiguriert jeden verwalteten Server mit einem PowerShell-Endpunkt, der [gerade genug Verwaltungs](https://aka.ms/jeadocs) Endpunkt ist.
-Dieser Endpunkt definiert die Rollen, einschließlich der Aspekte des Systems, die die einzelnen Rollen verwalten dürfen und welche Benutzer der Rolle zugewiesen sind.
-Wenn ein Benutzer eine Verbindung mit dem eingeschränkten Endpunkt herstellt, wird ein temporäres lokales Administrator Konto erstellt, um das System in seinem Namen zu verwalten.
-Dadurch wird sichergestellt, dass auch Tools, die nicht über ein eigenes Delegierten Modell verfügen, weiterhin mit dem Windows Admin Center verwaltet werden können.
-Das temporäre Konto wird automatisch entfernt, wenn der Benutzer die Verwaltung des Computers über das Windows Admin Center beendet.
+Die rollenbasierte Zugriffssteuerung in Windows Admin Center funktioniert, indem jeder verwaltete Server mit einem PowerShell [Just Enough Administration](https://aka.ms/jeadocs)-Endpunkt konfiguriert wird.
+Dieser Endpunkt definiert die Rollen, einschließlich der Aspekte des Systems, die jede Rolle verwalten darf und welche Benutzer der Rolle zugeordnet werden.
+Wenn sich ein Benutzer mit dem eingeschränkten Endpunkt verbindet, wird ein temporäres lokales Administratorkonto erstellt, um das System in seinem Auftrag zu verwalten.
+Dadurch wird sichergestellt, dass auch Tools, die über kein eigenes Delegierungsmodell verfügen, weiterhin mit Windows Admin Center verwaltet werden können.
+Das temporäre Konto wird automatisch entfernt, wenn der Benutzer die Verwaltung des Computers über Windows Admin Center beendet.
 
-Wenn ein Benutzer eine Verbindung mit einem Computer herstellt, der mit der rollenbasierten Zugriffs Steuerung konfiguriert ist, prüft das Windows Admin Center zunächst, ob es sich um einen lokalen Administrator handelt.
-Wenn dies der Fall ist, erhalten Sie eine vollständige Windows Admin Center-Benutzerversion ohne Einschränkungen.
-Andernfalls prüft das Windows Admin Center, ob der Benutzer zu einer der vordefinierten Rollen gehört.
-Ein Benutzer hat einen *eingeschränkten Zugriff* , wenn er zu einer Windows Admin Center-Rolle gehört, aber kein vollständiger Administrator ist.
-Wenn der Benutzer weder ein Administrator noch ein Mitglied einer Rolle ist, wird ihm der Zugriff zum Verwalten des Computers verweigert.
+Wenn ein Benutzer eine Verbindung mit einem Computer herstellt, der mit rollenbasierter Zugriffssteuerung konfiguriert ist, prüft Windows Admin Center zunächst, ob es sich um einen lokalen Administrator handelt.
+Wenn dies der Fall ist, erhalten sie die volle Windows Admin Center-Erfahrung ohne Einschränkungen.
+Andernfalls prüft Windows Admin Center, ob der Benutzer zu einer der vordefinierten Rollen gehört.
+Ein Benutzer soll *begrenzten Zugriff* erhalten, wenn er zu einer Windows Admin Center-Rolle gehört, aber kein vollständiger Administrator ist.
+Wenn der Benutzer weder Administrator noch Mitglied einer Rolle ist, wird ihm schließlich der Zugriff zur Verwaltung des Computers verweigert.
 
-Die rollenbasierte Zugriffs Steuerung ist für die Server-Manager-und Failoverclusterlösungen verfügbar.
+Die rollenbasierte Zugriffssteuerung ist für die Server-Manager- und Failoverclusterlösungen verfügbar.
 
 ### <a name="available-roles"></a>Verfügbare Rollen
 
-Das Windows Admin Center unterstützt die folgenden Endbenutzer Rollen:
+Windows Admin Center unterstützt die folgenden Endbenutzerrollen:
 
 Rollenname | Beabsichtigte Nutzung
 ----------|-------------
-Administratoren | Ermöglicht Benutzern die Verwendung der meisten Features im Windows Admin Center, ohne dass Ihnen Zugriff auf Remotedesktop oder PowerShell gewährt wird. Diese Rolle eignet sich für "Jump Server"-Szenarien, in denen Sie die Verwaltungs Einstiegspunkte auf einem Computer begrenzen möchten.
+Administratoren | Ermöglicht Benutzern die Verwendung der meisten Features in Windows Admin Center, ohne dass sie Zugriff auf Remotedesktop oder PowerShell erhalten. Diese Rolle eignet sich gut für „Sprungbrettserver“-Szenarien, bei denen die Einstiegspunkte für die Verwaltung auf einem Computer begrenzt werden sollen.
 Leser | Ermöglicht es Benutzern, Informationen und Einstellungen auf dem Server anzuzeigen, aber keine Änderungen vorzunehmen.
-Hyper-V-Administratoren | Ermöglicht Benutzern das vornehmen von Änderungen an virtuellen Hyper-V-Computern und-Switches, schränkt jedoch andere Funktionen auf den schreibgeschützten Zugriff ein.
+Hyper-V-Administratoren | Ermöglicht es Benutzern, Änderungen an virtuellen Hyper-V-Computern und -Switches vorzunehmen, schränkt aber andere Features auf den schreibgeschützten Zugriff ein.
 
-Die folgenden integrierten Erweiterungen verfügen über eingeschränkte Funktionen, wenn ein Benutzer eine Verbindung mit eingeschränktem Zugriff herstellt:
+Die folgenden integrierten Erweiterungen weisen eine reduzierte Funktionalität auf, wenn ein Benutzer mit eingeschränktem Zugriff eine Verbindung herstellt:
 
-- Dateien (kein Hochladen oder Herunterladen von Dateien)
+- Dateien (kein Dateiupload oder Dateidownload)
 - PowerShell (nicht verfügbar)
 - Remotedesktop (nicht verfügbar)
-- Speicher Replikat (nicht verfügbar)
+- Speicherreplikat (nicht verfügbar)
 
-Zu diesem Zeitpunkt können Sie keine benutzerdefinierten Rollen für Ihre Organisation erstellen, aber Sie können auswählen, welchen Benutzern der Zugriff auf die einzelnen Rollen gewährt wird.
+Zur Zeit kannst du keine benutzerdefinierten Rollen für deine Organisation erstellen, aber du kannst auswählen, welche Benutzer Zugriff auf die einzelnen Rollen erhalten.
 
-### <a name="preparing-for-role-based-access-control"></a>Vorbereiten der rollenbasierten Zugriffs Steuerung
+### <a name="preparing-for-role-based-access-control"></a>Vorbereiten auf die rollenbasierte Zugriffssteuerung
 
-Um die temporären lokalen Konten zu nutzen, muss jeder Zielcomputer so konfiguriert werden, dass die rollenbasierte Zugriffs Steuerung im Windows Admin Center unterstützt wird.
-Der Konfigurationsprozess umfasst die Installation von PowerShell-Skripts und einen gerade ausreichenden Verwaltungs Endpunkt auf dem Computer mithilfe der Konfiguration des gewünschten Zustands.
+Um die temporären lokalen Konten zu nutzen, muss jeder Zielcomputer so konfiguriert werden, dass er die rollenbasierte Zugriffssteuerung in Windows Admin Center unterstützt.
+Der Konfigurationsprozess umfasst die Installation von PowerShell-Skripts und eines Just Enough Administration-Endpunkts auf dem Computer unter Verwendung der Desired State Configuration.
 
-Wenn Sie nur über wenige Computer verfügen, können Sie die Konfiguration problemlos auf jeden Computer anwenden, indem Sie die rollenbasierte Zugriffs Steuerungs Seite im Windows Admin Center verwenden.
-Wenn Sie die rollenbasierte Zugriffs Steuerung auf einem einzelnen Computer einrichten, werden lokale Sicherheitsgruppen erstellt, um den Zugriff auf die einzelnen Rollen zu steuern.
-Sie können Benutzern oder anderen Sicherheitsgruppen Zugriff gewähren, indem Sie Sie als Mitglieder der Rollen Sicherheitsgruppen hinzufügen.
+Wenn du nur über einige wenige Computer verfügst, kannst du die Konfiguration mithilfe der rollenbasierten Zugriffssteuerungsseite in Windows Admin Center problemlos individuell auf jeden Computer anwenden.
+Wenn du eine rollenbasierte Zugriffssteuerung auf einem einzelnen Computer einrichtest, werden lokale Sicherheitsgruppen erstellt, um den Zugriff auf die einzelnen Rollen zu kontrollieren.
+Du kannst Benutzern oder anderen Sicherheitsgruppen Zugriff gewähren, indem du sie als Mitglieder der Rolle „Sicherheitsgruppen“ hinzufügst.
 
-Für eine unternehmensweite Bereitstellung auf mehreren Computern können Sie das Konfigurationsskript vom Gateway herunterladen und mithilfe eines pullservers, Azure Automation oder Ihrer bevorzugten Verwaltungs Tools auf Ihre Computer verteilen.
+Für eine unternehmensweite Bereitstellung auf mehreren Computern kannst du das Konfigurationsskript vom Gateway herunterladen und mit einem Pullserver für die Desired State Configuration, mit Azure Automation oder deinem bevorzugten Verwaltungstools auf deine Computer verteilen.
