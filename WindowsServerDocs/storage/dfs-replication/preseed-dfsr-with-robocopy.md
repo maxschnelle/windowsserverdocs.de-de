@@ -1,6 +1,6 @@
 ---
-title: Verwenden von Robocopy zum Seeding für von Dateien für DFS-Replikation
-description: Verwenden von "Robocopy. exe" zum vorab Seed von Dateien für DFS-Replikation.
+title: Verwenden von Robocopy, um ein Vorab-Dateiseeding für die DFS-Replikation auszuführen
+description: Informationen zur Verwendung von „Robocopy.exe“, um ein Vorab-Dateiseeding für die DFS-Replikation auszuführen
 ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
@@ -10,126 +10,126 @@ ms.date: 05/18/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: ea5cd954dde6d4fa8fcaa7874f75cb9588115ab1
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71402125"
 ---
-# <a name="use-robocopy-to-preseed-files-for-dfs-replication"></a>Verwenden von Robocopy zum Seeding für von Dateien für DFS-Replikation
+# <a name="use-robocopy-to-preseed-files-for-dfs-replication"></a>Verwenden von Robocopy, um ein Vorab-Dateiseeding für die DFS-Replikation auszuführen
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
-In diesem Thema wird erläutert, wie Sie das Befehlszeilen Tool **Robocopy. exe**verwenden, um Dateien beim Einrichten der Replikation für die verteiltes Dateisystem (DFS)-Replikation (auch als DFSR oder DFS-R bezeichnet) in Windows Server zu Seeding für. Indem Sie Dateien vor dem Einrichten DFS-Replikation hinzufügen, einen neuen Replikations Partner hinzufügen oder einen Server ersetzen, können Sie die erst Synchronisierung beschleunigen und das Klonen der DFS-Replikation Datenbank in Windows Server 2012 R2 aktivieren. Die Robocopy-Methode ist eine von mehreren Preseeding-Methoden. eine Übersicht finden Sie unter [Step 1: Seeding für files for DFS-Replikation](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn495046(v%3dws.11)>).
+In diesem Thema wird erläutert, wie das Befehlszeilentool **Robocopy.exe** verwendet wird, um beim Einrichten der DFS-Replikation (auch als DFSR oder DFS-R bezeichnet) in Windows Server ein Vorab-Dateiseeding ausführen. Indem du vor dem Einrichten der DFS-Replikation (Distributed File System, verteiltes Dateisystem), dem Hinzufügen eines neuen Replikationspartners oder dem Austauschen eines Servers ein Vorab-Dateiseeding ausführst, kannst du die Erstsynchronisierung beschleunigen und das Klonen der DFS-Replikationsdatenbank in Windows Server 2012 R2 ermöglichen. Robocopy ist eine von mehreren Methoden für das Vorab-Seeding. Eine Übersicht findest du unter [Schritt 1: Ausführen eines Vorab-Dateiseedings für die DFS-Replikation](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn495046(v%3dws.11)>).
 
-Das Befehlszeilenprogramm Robocopy (robustes Datei kopieren) ist in Windows Server enthalten. Das Hilfsprogramm bietet umfassende Optionen, darunter das Kopieren von Sicherheit, Backup-API-Unterstützung, Wiederholungs Funktionen und Protokollierung. Spätere Versionen umfassen Multithreading-und nicht gepufferte e/a-Unterstützung.
+Das Befehlszeilen-Hilfsprogramm Robocopy (Robust File Copy) ist in Windows Server enthalten. Das Hilfsprogramm bietet umfassende Optionen, beispielsweise das sichere Kopieren, Unterstützung der Sicherungs-API, Wiederholungsfunktionen und Protokollierung. Spätere Versionen umfassen Unterstützung für Multithreading und ungepufferte E/A.
 
 >[!IMPORTANT]
->Robocopy kopiert exklusiv gesperrte Dateien nicht. Wenn Benutzer in der Regel viele Dateien für lange Zeiträume auf den Dateiservern sperren, sollten Sie eine andere Preseeding-Methode verwenden. Für das präseeding ist keine perfekte Entsprechung zwischen Dateilisten auf den Quell-und Ziel Servern erforderlich, aber je mehr Dateien nicht vorhanden sind, wenn die erste Synchronisierung für DFS-Replikation ausgeführt wird, desto weniger effektiv ist das vorseeding. Um Sperr Konflikte zu minimieren, verwenden Sie Robocopy für Ihre Organisation außerhalb der Spitzenzeiten. Überprüfen Sie immer die Robocopy-Protokolle nach dem Preseeding, um sicherzustellen, dass Sie wissen, welche Dateien aufgrund exklusiver Sperren übersprungen wurden.
+>Robocopy kopiert keine exklusiv gesperrten Dateien. Wenn Benutzer auf den Dateiservern häufig viele Dateien für längere Zeit sperren, sollte eine andere Methode für das Vorab-Seeding verwendet werden. Für das Vorab-Seeding ist keine perfekte Übereinstimmung zwischen Dateilisten auf den Quell- und Zielservern erforderlich. Allerdings gilt: Je weniger Dateien bei der Erstsynchronisierung für die DFS-Replikation vorhanden sind, umso geringer ist die Effizienz des Vorab-Seedings. Um Sperrkonflikte zu minimieren, sollte Robocopy außerhalb der Spitzenzeiten in der Organisation verwendet werden. Nach dem Vorab-Seeding sollte anhand der Robocopy-Protokolle immer überprüft werden, welche Dateien aufgrund exklusiver Sperren übersprungen wurden.
 
-Führen Sie die folgenden Schritte aus, um Robocopy zum Seeding für von Dateien für DFS-Replikation zu verwenden:
+Befolge diese Schritte, um mithilfe von Robocopy ein Vorab-Dateiseeding für die DFS-Replikation auszuführen:
 
-1. [Laden Sie die neueste Version von Robocopy herunter, und installieren Sie Sie.](#step-1-download-and-install-the-latest-version-of-robocopy)
-2. [Stabilisieren von Dateien, die repliziert werden.](#step-2-stabilize-files-that-will-be-replicated)
-3. [Kopieren Sie die replizierten Dateien auf den Zielserver.](#step-3-copy-the-replicated-files-to-the-destination-server)
+1. [Herunterladen und Installieren der aktuellen Robocopy-Version](#step-1-download-and-install-the-latest-version-of-robocopy)
+2. [Stabilisieren von Dateien, die repliziert werden](#step-2-stabilize-files-that-will-be-replicated)
+3. [Kopieren der replizierten Dateien auf den Zielserver](#step-3-copy-the-replicated-files-to-the-destination-server)
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 
-Da das präseeding nicht direkt DFS-Replikation einschließt, müssen Sie nur die Anforderungen zum Ausführen einer Dateikopie mit Robocopy erfüllen.
+Da das Vorab-Seeding und die DFS-Replikation in keinem direkten Zusammenhang stehen, müssen nur die Anforderungen zum Kopieren von Dateien mit Robocopy erfüllt werden.
 
-- Sie benötigen ein Konto, das Mitglied der lokalen Administratoren Gruppe auf dem Quell-und dem Zielserver ist.
+- Du benötigst ein Konto, das Mitglied der lokalen Administratorgruppe auf dem Quell- und dem Zielserver ist.
 
-- Installieren Sie die neueste Version von Robocopy auf dem Server, den Sie zum Kopieren der Dateien verwenden möchten – entweder den Quell Server oder den Zielserver; Sie müssen die neueste Version für die Betriebssystemversion installieren. Anweisungen finden [Sie unterschritt 2: Stabilisieren von Dateien, die repliziert](#step-2-stabilize-files-that-will-be-replicated)werden. Wenn Sie Dateien nicht von einem Server mit Windows Server 2003 R2 vorab bereitstellen, können Sie Robocopy entweder auf dem Quell-oder Zielserver ausführen. Der Zielserver, der in der Regel über die aktuellste Version des Betriebssystems verfügt, bietet Ihnen Zugriff auf die neueste Version von Robocopy.
+- Installiere die neueste Version von Robocopy auf dem Server, der zum Kopieren der Dateien verwendet wird – entweder auf dem Quellserver oder dem Zielserver. Es muss die neueste Version für die Betriebssystemversion installiert werden. Anweisungen findest du unter [Schritt 2: Stabilisieren von Dateien, die repliziert werden](#step-2-stabilize-files-that-will-be-replicated). Robocopy kann auf dem Quell- oder Zielserver ausgeführt werden, es sei denn, das Vorab-Dateiseeding erfolgt auf einem Server mit Windows Server 2003 R2. Der Zielserver, der in der Regel über die neuere Betriebssystemversion verfügt, bietet Zugriff auf die aktuelle Version von Robocopy.
 
-- Stellen Sie sicher, dass auf dem Ziellaufwerk ausreichend Speicherplatz verfügbar ist. Erstellen Sie keinen Ordner auf dem Pfad, in den Sie kopieren möchten: Robocopy muss den Stamm Ordner erstellen.
+- Auf dem Ziellaufwerk muss ausreichend Speicherplatz verfügbar sein. Es darf kein Ordner in dem Pfad erstellt werden, in den kopiert werden soll: Der Stammordner muss von Robocopy erstellt werden.
     
     >[!NOTE]
-    >Wenn Sie entscheiden, wie viel Speicherplatz für die vorab bereitgestellten Dateien belegt werden soll, sollten Sie die erwartete Daten Vergrößerung im Zeitverlauf und die Speicheranforderungen für DFS-Replikation in Erwägung gezogen Hilfe zur Planung finden Sie unter [Bearbeiten der Kontingent Größe des Stagingordners und des Konflikts und gelöschten Ordners](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754229(v=ws.11)) in [Verwalten von DFS-Replikation](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754771(v=ws.11)>).
+    >Bei der Entscheidung, wie viel Speicherplatz für die Dateien zugewiesen werden soll, für die ein Vorab-Seeding ausgeführt wurde, sollten der zukünftig erwartete Datenzuwachs und die Speicheranforderungen für die DFS-Replikation in Erwägung gezogen werden. Unterstützung bei der Planung findest du unter dem Thema zum [Bearbeiten der Kontingentgröße des Stagingordners und des Ordners „ConflictandDeleted“](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754229(v=ws.11)) unter [Verwalten der DFS-Replikation](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754771(v=ws.11)>).
 
-- Installieren Sie auf dem Quell Server optional den Prozess Monitor oder den Prozess-Explorer, mit dem Sie nach Anwendungen suchen können, die Dateien sperren. Informationen zum Herunterladen finden Sie unter [Prozess Monitor](https://docs.microsoft.com/sysinternals/downloads/procmon) und [Prozess-Explorer](https://docs.microsoft.com/sysinternals/downloads/process-explorer).
+- Installiere auf dem Quellserver optional den Prozessmonitor oder den Prozess-Explorer, mit dem du nach Anwendungen suchen kannst, durch die Dateien gesperrt werden. Informationen zum Download findest du unter [Prozessmonitor](https://docs.microsoft.com/sysinternals/downloads/procmon) und [Prozess-Explorer](https://docs.microsoft.com/sysinternals/downloads/process-explorer).
 
-## <a name="step-1-download-and-install-the-latest-version-of-robocopy"></a>Schritt 1: Herunterladen und Installieren der neuesten Version von Robocopy
+## <a name="step-1-download-and-install-the-latest-version-of-robocopy"></a>Schritt 1: Herunterladen und Installieren der aktuellen Robocopy-Version
 
-Bevor Sie Robocopy zum Seeding für von Dateien verwenden, sollten Sie die neueste Version von **Robocopy. exe**herunterladen und installieren. Dadurch wird sichergestellt, dass DFS-Replikation Dateien aufgrund von Problemen in den Liefer Versionen von Robocopy nicht überspringt.
+Bevor du Robocopy zum Vorab-Dateiseeding verwendest, solltest du die aktuelle Version von **Robocopy.exe** herunterladen und installieren. Dadurch wird verhindert, dass Dateien aufgrund von Problemen in den ausgelieferten Robocopy-Versionen von der DFS-Replikation übersprungen werden.
 
-Die Quelle für die neueste kompatible Robocopy-Version hängt von der Version von Windows Server ab, die auf dem Server ausgeführt wird. Informationen zum Herunterladen des Hotfixes mit der neuesten Version von Robocopy für Windows Server 2008 R2 oder Windows Server 2008 finden Sie [in der Liste der derzeit verfügbaren Hotfixes für verteiltes Dateisystem-Technologien (DFS) unter Windows Server 2008 und in. Windows Server 2008 R2](https://support.microsoft.com/help/968429/list-of-currently-available-hotfixes-for-distributed-file-system-dfs-t).
+Die Quelle für die neueste kompatible Robocopy-Version hängt von der Windows Server-Version ab, die auf dem Server ausgeführt wird. Informationen zum Herunterladen des Hotfix mit der aktuellen Version von Robocopy für Windows Server 2008 R2 oder Windows Server 2008 findest du in der [Liste der derzeit verfügbaren Hotfixes für DFS-Technologien in Windows Server 2008 und in Windows Server 2008 R2](https://support.microsoft.com/help/968429/list-of-currently-available-hotfixes-for-distributed-file-system-dfs-t).
 
-Alternativ dazu können Sie den neuesten Hotfix für ein Betriebssystem suchen und installieren, indem Sie die folgenden Schritte ausführen.
+Mit den folgenden Schritten kannst du alternativ den aktuellen Hotfix für ein Betriebssystem suchen und installieren.
 
-### <a name="locate-and-install-the-latest-version-of-robocopy-for-a-specific-version-of-windows-server"></a>Suchen und Installieren der neuesten Version von Robocopy für eine bestimmte Version von Windows Server
+### <a name="locate-and-install-the-latest-version-of-robocopy-for-a-specific-version-of-windows-server"></a>Suchen und Installieren der aktuellen Version von Robocopy für eine bestimmte Windows Server-Version
 
-1. Öffnen [https://support.microsoft.com](https://support.microsoft.com/)Sie in einem Webbrowser.
+1. Öffne in einem Webbrowser [https://support.microsoft.com](https://support.microsoft.com/).
 
-2. Geben Sie in der **Suchunterstützung**die folgende Zeichenfolge `<operating system version>` ein, und ersetzen Sie dabei durch das entsprechende Betriebssystem. Drücken Sie dann die EINGABETASTE:
+2. Gib in **Support durchsuchen** die folgende Zeichenfolge ein, ersetze `<operating system version>` durch das entsprechende Betriebssystem, und drücke dann die EINGABETASTE:
     
     ```robocopy.exe kbqfe "<operating system version>"```
     
-    Geben Sie beispielsweise **Robocopy. exe kbqfe "Windows Server 2008 R2"** ein.
+    Gib beispielsweise **robocopy.exe kbqfe „Windows Server 2008 R2“** ein.
 
-3. Suchen und laden Sie den Hotfix mit der höchsten ID (d. h. der neuesten Version) herunter.
+3. Suche und lade den Hotfix mit der höchsten ID (d. h. die aktuelle Version) herunter.
 
-4. Installieren Sie den Hotfix auf dem Server.
+4. Installiere den Hotfix auf dem Server.
 
-## <a name="step-2-stabilize-files-that-will-be-replicated"></a>Schritt 2: Dateien stabilisieren, die repliziert werden
+## <a name="step-2-stabilize-files-that-will-be-replicated"></a>Schritt 2: Stabilisieren von Dateien, die repliziert werden
 
-Nachdem Sie die aktuelle Version von Robocopy auf dem-Server installiert haben, sollten Sie verhindern, dass gesperrte Dateien das Kopieren blockieren, indem Sie die Methoden verwenden, die in der folgenden Tabelle beschrieben sind. Bei den meisten Anwendungen werden Dateien nicht exklusiv gesperrt. Während des normalen Betriebs kann es jedoch vorkommen, dass ein kleiner Prozentsatz der Dateien auf Dateiservern gesperrt ist.
+Nachdem du die aktuelle Version von Robocopy auf dem Server installiert hast, solltest du mithilfe der in der folgenden Tabelle beschriebenen Methoden verhindern, dass Kopiervorgänge durch gesperrte Dateien blockiert werden. Bei den meisten Anwendungen werden Dateien nicht exklusiv gesperrt. Während des normalen Betriebs kann es jedoch vorkommen, dass ein geringer Prozentsatz von Dateien auf Dateiservern gesperrt wird.
 
-|Quelle der Sperre|Erläuterung|Abhilfemaßnahmen|
+|Ursprung der Sperre|Erläuterung|Abhilfemaßnahmen|
 |---|---|---|
-|Benutzer öffnen Dateien auf Freigaben Remote.|Mitarbeiter stellen eine Verbindung mit einem Standarddatei Server her und Bearbeiten Dokumente, Multimedia-Inhalte oder andere Dateien. Wird manchmal auch als herkömmlicher Basisordner oder freigegebene datenworkloads bezeichnet.|Führen Sie Robocopy-Vorgänge nur außerhalb der Spitzenzeiten außerhalb der Geschäftszeiten aus. Dadurch wird die Anzahl der Dateien minimiert, die Robocopy während des Preseeding überspringen muss.<br><br>Legen Sie den schreibgeschützten Zugriff auf die Dateifreigaben, die mithilfe der Windows PowerShell-Cmdlets " **Grant-smbshareaccess** " und " **Close-smbsession** " repliziert werden, vorübergehend fest. Wenn Sie Berechtigungen für eine gemeinsame Gruppe, z. b. für alle Benutzer oder authentifizierte Benutzer, festgelegt haben, können Standardbenutzer weniger wahrscheinlich Dateien mit exklusiven Sperren öffnen (wenn Ihre Anwendungen den schreibgeschützten Zugriff erkennen, wenn Dateien geöffnet werden).<br><br>Sie können auch eine temporäre Firewallregel für den eingehenden SMB-Port 445 auf diesen Server festlegen, um den Zugriff auf Dateien zu blockieren oder das Cmdlet " **Block-smbshareaccess** " zu verwenden. Allerdings wirken sich beide Methoden stark auf Benutzer Vorgänge aus.|
-|Anwendungen öffnen lokale Dateien.|Anwendungsworkloads, die auf einem Dateiserver ausgeführt werden, Sperren manchmal Dateien.|Temporäres deaktivieren oder Deinstallieren der Anwendungen, die Dateien sperren. Sie können den Prozess Monitor oder den Prozess-Explorer verwenden, um zu bestimmen, welche Anwendungen Dateien sperren. Zum Herunterladen von Process Monitor oder Process Explorer besuchen Sie die Seite [Prozessmonitor](https://docs.microsoft.com/sysinternals/downloads/procmon) und [Prozess-Explorer](https://docs.microsoft.com/sysinternals/downloads/process-explorer) .|
+|Benutzer öffnen Dateien im Remotemodus auf Freigaben.|Mitarbeiter stellen eine Verbindung mit einem Standarddateiserver her und bearbeiten Dokumente, Multimediainhalte oder andere Dateien. Werden zeitweise auch als herkömmlicher Basisordner oder als freigegebene Datenworkloads bezeichnet.|Robocopy-Vorgänge sollten nur außerhalb der Spitzen- und Geschäftszeiten ausgeführt werden. Dadurch wird die Anzahl der Dateien minimiert, die von Robocopy während des Vorab-Seedings übersprungen werden müssen.<br><br>Mit den Windows PowerShell-Cmdlets **Grant-SmbShareAccess** und **Close-SmbSession** kannst du für die zu replizierenden Dateifreigaben vorübergehend den schreibgeschützten Zugriff festlegen. Wenn du Berechtigungen für eine allgemeine Gruppe wie „Jeder“ oder „Authentifizierte Benutzer“ auf Lesezugriff festlegst, ist es weniger wahrscheinlich, dass Standardbenutzer Dateien mit exklusiven Sperren öffnen (wenn der Schreibschutz beim Öffnen der Dateien von ihren Anwendungen erkannt wird).<br><br>Du könntest auf dem jeweiligen Server auch eine temporäre Firewallregel für eingehende Daten an SMB-Port 445 festlegen, um den Zugriff auf die Dateien zu blockieren, oder das **Block-SmbShareAccess**-Cmdlet verwenden. Allerdings haben beide Methoden starke Auswirkungen auf die Benutzerfreundlichkeit.|
+|Dateien werden von Anwendungen lokal geöffnet.|Dateien werden manchmal von Anwendungsworkloads gesperrt, die auf einem Dateiserver ausgeführt werden.|Die Anwendungen, durch die Dateien gesperrt werden, sollten vorübergehend deaktiviert oder deinstalliert werden. Um zu ermitteln, durch welche Anwendungen Dateien gesperrt werden, kannst du den Prozessmonitor oder Prozess-Explorer verwenden. Der Prozessmonitor kann von der Seite [Process Monitor](https://docs.microsoft.com/sysinternals/downloads/procmon) oder der Prozess-Explorer von der Seite [Process Explorer](https://docs.microsoft.com/sysinternals/downloads/process-explorer) heruntergeladen werden.|
 
 ## <a name="step-3-copy-the-replicated-files-to-the-destination-server"></a>Schritt 3: Kopieren der replizierten Dateien auf den Zielserver
 
-Nachdem Sie die Sperren für die Dateien minimiert haben, die repliziert werden, können Sie die Dateien vom Quell Server auf den Zielserver vorab einschleusen.
+Nachdem du die Anzahl der Sperren für die zu replizierenden Dateien verringert hast, kannst du ein Vorab-Dateiseeding vom Quellserver auf den Zielserver durchführen.
 
 >[!NOTE]
->Sie können Robocopy entweder auf dem Quellcomputer oder auf dem Zielcomputer ausführen. Im folgenden Verfahren wird die Ausführung von Robocopy auf dem Zielserver beschrieben, auf dem normalerweise ein aktuelleres Betriebssystem ausgeführt wird, um alle zusätzlichen Robocopy-Funktionen zu nutzen, die das aktuellere Betriebssystem möglicherweise bereitstellt.
+>Robocopy kann entweder auf dem Quellcomputer oder auf dem Zielcomputer ausgeführt werden. Im folgenden Verfahren wird die Ausführung von Robocopy auf dem Zielserver beschrieben, auf dem normalerweise ein aktuelleres Betriebssystem ausgeführt wird. So können alle zusätzlichen Robocopy-Funktionen genutzt werden, die das neuere Betriebssystem möglicherweise bereitstellt.
 
-### <a name="preseed-the-replicated-files-onto-the-destination-server-with-robocopy"></a>Präseed der replizierten Dateien auf dem Zielserver mit Robocopy
+### <a name="preseed-the-replicated-files-onto-the-destination-server-with-robocopy"></a>Verwenden von Robocopy, um für die replizierten Dateien ein Vorab-Seeding auf den Zielserver auszuführen
 
-1. Melden Sie sich beim Zielserver mit einem Konto an, das Mitglied der lokalen Administratoren Gruppe auf dem Quell-und dem Zielserver ist.
+1. Melde dich mit einem Konto beim Zielserver an, das Mitglied der lokalen Administratorgruppe auf dem Quell- und dem Zielserver ist.
 
 2. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten.
 
-3. Führen Sie den folgenden Befehl aus, um die Dateien von der Quell-zum Zielserver vorzuleiten, und ersetzen Sie dabei die Werte für die in Klammern stehenden Werte für Quelle, Ziel und Protokolldatei:
+3. Führe den folgenden Befehl aus, um ein Vorab-Dateiseeding vom Quell- auf den Zielserver auszuführen. Ersetze dabei die Werte in Klammern durch die Pfade für deinen eigenen Quell- und Zielserver und die Protokolldatei:
     
     ```PowerShell
     robocopy "<source replicated folder path>" "<destination replicated folder path>" /e /b /copyall /r:6 /w:5 /MT:64 /xd DfsrPrivate /tee /log:<log file path> /v
     ```
     
-    Dieser Befehl kopiert den gesamten Inhalt des Quell Ordners in den Zielordner mit den folgenden Parametern:
+    Mit diesem Befehl und den folgenden Parametern wird der gesamte Inhalt des Quellordners in den Zielordner kopiert:
     
     |Parameter|Beschreibung|
     |---|---|
-    |"\<replizierter Ordner Pfad\>für Quelle"|Gibt den Quellordner für den präseed auf dem Zielserver an.|
-    |"\<Pfad\>des replizierten Ziel Ordners"|Gibt den Pfad zu dem Ordner an, in dem die Dateien mit dem präseeding gespeichert werden.<br><br>Der Zielordner darf nicht bereits auf dem Zielserver vorhanden sein. Um übereinstimmende Dateihashes zu erhalten, muss Robocopy den Stamm Ordner erstellen, wenn die Dateien vorab erstellt werden.|
-    |/e|Kopiert Unterverzeichnisse und Ihre Dateien sowie leere Unterverzeichnisse.|
-    |/b|Kopiert Dateien im Sicherungs Modus.|
-    |/copyall|Kopiert alle Dateiinformationen, einschließlich Daten, Attribute, Zeitstempel, NTFS-Zugriffs Steuerungs Liste (Access Control List, ACL), Besitzer Informationen und Überwachungsinformationen.|
-    |/r: 6|Wiederholt den Vorgang sechs Mal, wenn ein Fehler auftritt.|
-    |/w: 5|Wartet 5 Sekunden zwischen den Wiederholungen.|
-    |MT: 64|Kopiert 64-Dateien gleichzeitig.|
-    |/xD DfsrPrivate|Schließt den DfsrPrivate-Ordner aus.|
-    |/tee|Schreibt die Status Ausgabe in das Konsolenfenster sowie in die Protokolldatei.|
-    |/log \<Protokolldatei Pfad >|Gibt die zu schreibende Protokolldatei an. Überschreibt den vorhandenen Inhalt der Datei. (Verwenden `/log+ <log file path>`Sie, um die Einträge an die vorhandene Protokolldatei anzufügen.)|
+    |„\<Pfad des replizierten Quellordners\>“|Gibt den Quellordner an, für den ein Vorab-Seeding auf den Zielserver ausgeführt wird.|
+    |„\<Pfad des replizierten Zielordners\>“|Gibt den Pfad zu dem Ordner an, in dem die Dateien nach dem Vorab-Seeding gespeichert werden.<br><br>Der Zielordner darf noch nicht auf dem Zielserver vorhanden sein. Um übereinstimmende Dateihashes zu erhalten, muss der Stammordner von Robocopy erstellt werden, wenn das Vorab-Dateiseeding ausgeführt wird.|
+    |/e|Kopiert Unterverzeichnisse und die enthaltenen Dateien sowie leere Unterverzeichnisse.|
+    |/b|Kopiert Dateien im Sicherungsmodus.|
+    |/copyall|Kopiert alle Dateiinformationen, einschließlich Daten, Attribute, Zeitstempel, NTFS-Zugriffssteuerungsliste sowie Informationen zum Besitzer und zur Überwachung.|
+    |/r:6|Wiederholt den Vorgang sechsmal, wenn ein Fehler auftritt.|
+    |/w:5|Wartet 5 Sekunden zwischen den Wiederholungen.|
+    |MT:64|Kopiert 64 Dateien gleichzeitig.|
+    |/xd DfsrPrivate|Schließt den Ordner „DfsrPrivate“ aus.|
+    |/tee|Schreibt die Statusausgabe in das Konsolenfenster sowie in die Protokolldatei.|
+    |/log \<Protokolldateipfad>|Gibt die zu schreibende Protokolldatei an. Überschreibt den vorhandenen Inhalt der Datei. (Verwende `/log+ <log file path>`, um Einträge an die vorhandene Protokolldatei anzufügen.)|
     |/v|Erzeugt eine ausführliche Ausgabe, die übersprungene Dateien einschließt.|
     
-    Der folgende Befehl repliziert z. b. Dateien aus dem replizierten Quellordner "\\E: RF01" auf das Daten Laufwerk D auf dem Zielserver:
+    Beispiel: Mit dem folgenden Befehl werden Dateien vom replizierten Quellordner „E:\\RF01“ auf das Datenlaufwerk „D“ auf dem Zielserver repliziert:
     
     ```PowerShell
     robocopy.exe "\\srv01\e$\rf01" "d:\rf01" /e /b /copyall /r:6 /w:5 /MT:64 /xd DfsrPrivate /tee /log:c:\temp\preseedsrv02.log
     ```
     
     >[!NOTE]
-    >Es wird empfohlen, die oben beschriebenen Parameter zu verwenden, wenn Sie Robocopy verwenden, um Dateien für DFS-Replikation vorab zu verwenden. Sie können jedoch einige ihrer Werte ändern oder weitere Parameter hinzufügen. Beispielsweise können Sie testen, ob Sie über die Kapazität verfügen, einen höheren Wert (Thread Anzahl) für den */MT* -Parameter festzulegen. Wenn Sie in erster Linie größere Dateien replizieren, können Sie die Kopier Leistung möglicherweise erhöhen, indem Sie die **/j** -Option für nicht gepufferte e/a-Vorgänge hinzufügen. Weitere Informationen zu Robocopy-Parametern finden Sie in der [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) -Befehlszeilen Referenz.
+    >Es wird empfohlen, die oben beschriebenen Parameter zu verwenden, wenn mit Robocopy ein Vorab-Dateiseeding für die DFS-Replikation ausgeführt wird. Allerdings können einige Parameterwerte geändert oder weitere Parameter hinzugefügt werden. Beispielsweise könnten Tests ergeben, dass genügend Kapazität vorhanden ist, um für den Parameter */MT* (Anzahl der Threads) einen höheren Wert festzulegen. Wenn in erster Linie größere Dateien repliziert werden, könnte die Kopierleistung verbessert werden, indem die Option **/j** für ungepufferte E/A hinzugefügt wird. Weitere Informationen zu Robocopy-Parametern findest du in der Befehlszeilenreferenz zu [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy).
 
     >[!WARNING]
-    >Um potenzielle Datenverluste zu vermeiden, wenn Sie Robocopy verwenden, um Dateien für DFS-Replikation zu Seeding für, nehmen Sie die folgenden Änderungen an den empfohlenen Parametern nicht vor:
-    >- Verwenden Sie nicht den */mir* -Parameter (der eine Verzeichnisstruktur spiegelt) oder den */MOV* -Parameter (der die Dateien verschiebt und dann aus der Quelle löscht).
-    >-  Entfernen Sie die Optionen **/e**, **/b**und **/COPYALL** nicht.
+    >Um potenzielle Datenverluste zu vermeiden, wenn Robocopy zum Vorab-Dateiseeding für die DFS-Replikation verwendet wird, sollten an den empfohlenen Parametern keine der folgenden Änderungen vorgenommen werden:
+    >- Der Parameter */mir* (der eine Verzeichnisstruktur spiegelt) oder der Parameter */mov* (der die Dateien verschiebt und dann aus der Quelle löscht) sollte nicht verwendet werden.
+    >-  Die Optionen **/e**, **/b** und **/copyall** dürfen nicht entfernt werden.
 
-4. Nachdem der Kopiervorgang abgeschlossen ist, überprüfen Sie das Protokoll auf Fehler oder übersprungene Dateien. Verwenden Sie Robocopy, um ausgelassene Dateien einzeln zu kopieren, anstatt den gesamten Satz von Dateien neu zu verwenden. Wenn Dateien aufgrund exklusiver Sperren übersprungen wurden, versuchen Sie, einzelne Dateien später mit Robocopy zu kopieren, oder akzeptieren Sie, dass diese Dateien über die Netzwerk Replikation durch DFS-Replikation während der ersten Synchronisierung erforderlich sind.
+4. Nachdem der Kopiervorgang abgeschlossen ist, überprüfe das Protokoll auf Fehler oder übersprungene Dateien. Verwende Robocopy, um übersprungene Dateien einzeln zu kopieren, anstatt den gesamten Dateisatz erneut zu kopieren. Wenn Dateien aufgrund exklusiver Sperren übersprungen wurden, solltest du später versuchen, einzelne Dateien mit Robocopy zu kopieren, oder akzeptieren, dass diese Dateien während der Erstsynchronisierung per DFS-Replikation über das Netzwerk repliziert werden müssen.
 
 ## <a name="next-step"></a>Nächster Schritt
 
-Nachdem Sie die erste Kopie fertiggestellt haben, und verwenden Sie Robocopy, um Probleme mit so vielen übersprungenen Dateien wie möglich zu beheben, verwenden Sie das **Get-dfsrfilehash** -Cmdlet in Windows PowerShell oder den **Dfsrdiag** -Befehl, um die vorab bereitgestellten Dateien zu überprüfen, indem Sie vergleichen. Dateihashes auf den Quell-und Ziel Servern. Ausführliche Anweisungen finden [Sie unterschritt 2: Überprüfen Sie Dateien, die dem](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn495042(v%3dws.11)>)DFS-Replikation vorangestehen sind.
+Nachdem die erste Kopie abgeschlossen ist und möglichst viele Probleme aufgrund übersprungener Dateien mithilfe von Robocopy behoben wurden, verwendest du das **Get-DfsrFileHash**-Cmdlet in Windows PowerShell oder den Befehl **Dfsrdiag**, um die Dateien, für die ein Vorab-Seeding ausgeführt wurde, zu überprüfen. Dazu vergleichst du Dateihashes auf dem Quellserver und dem Zielserver. Ausführliche Anweisungen findest du unter [Schritt 2: Überprüfen von Dateien, für die ein Vorab-Seeding ausgeführt wurde, für die DFS-Replikation](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn495042(v%3dws.11)>).

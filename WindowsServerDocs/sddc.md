@@ -14,7 +14,7 @@ ms.date: 06/04/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: 6490bd9a6cb7b305ba9746a357a8c909c7b84555
 ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 01/14/2020
 ms.locfileid: "75950464"
@@ -25,27 +25,27 @@ ms.locfileid: "75950464"
 
 ![](media/sddc/heading.png)
 
-## <a name="what-is-windows-server-software-defined-datacenter"></a>Was ist ein softwaredefiniertes Windows Server-Rechenzentrum?
+## <a name="what-is-windows-server-software-defined-datacenter"></a>Was ist Windows Server-Software-Defined Datacenter?
 
-Software-Defined Datacenter (SDDC) ist ein allgemeiner Branchen Begriff, der sich in der Regel auf ein Daten Center bezieht, in dem die gesamte Infrastruktur virtualisiert ist. Virtualisierung ist der Schlüssel, und es bedeutet lediglich, dass die Hardware und Software im Datencenter über ein herkömmliches 1: 1-Verhältnis erweitert sind. Mit einem Software-Hypervisor, der Hardware emuliert, können Betriebssysteme und Anwendungen aus physischer Hardware herausgenommen und zum Erstellen elastischer Ressourcenpools von Prozessoren, Arbeitsspeichern, E/A und Netzwerken multipliziert werden.
+Software-Defined Datacenter (SDDC) ist ein branchenüblicher Begriff, der ein Rechenzentrum beschreibt, dessen gesamte Infrastruktur virtualisiert ist. Virtualisierung ist der Schlüssel, und es bedeutet lediglich, dass die Hardware und Software im Datencenter über ein herkömmliches 1: 1-Verhältnis erweitert sind. Mit einem Software-Hypervisor, der Hardware emuliert, können Betriebssysteme und Anwendungen aus physischer Hardware herausgenommen und zum Erstellen elastischer Ressourcenpools von Prozessoren, Arbeitsspeichern, E/A und Netzwerken multipliziert werden.
  
-Microsofts Implementierung der SDDC besteht aus Windows Server-Technologien, die in diesem Artikel beschrieben werden. Es beginnt mit dem Hyper-V-Hypervisor, der die Virtualisierungsplattform bereitstellt, auf dem Netzwerk und Speicher aufgebaut werden. Sicherheitstechnologien, die für individuelle Herausforderungen der virtualisierten Infrastruktur entwickelt wurden, vermindern interne und externe Bedrohungen. Mit PowerShell in Windows Server und dem Hinzufügen von [System Center](https://docs.microsoft.com/system-center/) und/oder [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) können Sie die Bereitstellung, Konfiguration und Verwaltung programmieren und automatisieren.
+Microsofts Implementierung der SDDC besteht aus Windows Server-Technologien, die in diesem Artikel beschrieben werden. Es beginnt mit dem Hyper-V-Hypervisor, der die Virtualisierungsplattform bereitstellt, auf der Netzwerk und Speicher aufgebaut werden. Sicherheitstechnologien, die für individuelle Herausforderungen der virtualisierten Infrastruktur entwickelt wurden, vermindern interne und externe Bedrohungen. Mit PowerShell in Windows Server und dem Hinzufügen von [System Center](https://docs.microsoft.com/system-center/) und/oder [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) können Sie die Bereitstellung, Konfiguration und Verwaltung programmieren und automatisieren.
 
-Die in Windows Server und System Center integrierten Technologien sind die wichtigsten Bausteine der Windows Server-SDDC Erfahrung. Obwohl es sich um eine virtualisierte Plattform handelt, ist auch weiterhin die richtige Hardware darunter erforderlich. Microsoft-Partner, die an den **Windows Server Software-Defined (WSSD)-Lösungen** und den **Azure Stack HCI-Lösungs** Programmen teilnehmen, können Ihr Unternehmen dabei unterstützen, die richtige Hardware zu erwerben und auf dem ersten Tag zu starten.
+Die in Windows Server und System Center integrierten Technologien sind die wichtigsten Bausteine der Windows Server-SDDC Erfahrung. Obwohl es sich um eine virtualisierte Plattform handelt, ist auch weiterhin die richtige Hardware darunter erforderlich. Microsoft-Partner, die an den Programmen **Windows Server Software-Defined (WSSD)-Lösung** und **Azure Stack HCI-Lösungen** teilnehmen, können Ihr Unternehmen dabei unterstützen, die richtige Hardware zu erwerben und vom ersten Tag an betriebsbereit zu sein.
 
-![](media/sddc/video.png) **[ein Video ansehen, um mehr über den SDDC von Microsoft zu erfahren](https://mva.microsoft.com/training-courses/whats-new-in-windows-server-2016-16457?l=YcsJR6sXC_1006218965) .**
+![](media/sddc/video.png) **[Video mit weiteren Informationen zu Microsoft SDDC](https://mva.microsoft.com/training-courses/whats-new-in-windows-server-2016-16457?l=YcsJR6sXC_1006218965)**
 
-![](media/sddc/poster-ico.png) **[eine Datei Poster Size. PDF auf dieser Seite herunterladen.](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs/media/sddc/sddc_poster_0801417_ANSI-E.pdf)**
+![](media/sddc/poster-ico.png) **[Große PDF-Datei von dieser Seite herunterladen](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs/media/sddc/sddc_poster_0801417_ANSI-E.pdf)**
 
 ![](media/sddc/spacer1.png)<a href="https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs//media/sddc/sddc_poster_0801417_ANSI-E.pdf"><img src="media/sddc/poster.png"></a>
 
-## <a name="azure-stack-hci-solutions"></a>Azure Stack-HCI-Lösungen
+## <a name="azure-stack-hci-solutions"></a>Azure Stack HCI-Lösungen
 
-Das Entwickeln eines Software definierten Windows Server-Rechenzentrums in der richtigen Hardware Infrastruktur ist ein wichtiger erster Schritt für den Erfolg. Aus diesem Grund haben wir mit 15 Partnern zusammengearbeitet, um von Microsoft validierte SDDC-Entwürfe und bewährte Methoden für die Bereitstellung zu erstellen.
+Das Erstellen Ihres eigenen Windows Server Software-Defined Datacenters auf der richtigen Hardware-Infrastruktur ist entscheidend für Ihren Erfolg. Aus diesem Grund haben wir mit 15 Partnern zusammengearbeitet, um von Microsoft validierte SDDC-Designs und optimale Verfahren für die Bereitstellung zu erstellen.
 
-Microsoft-Partner bieten eine Reihe von Lösungen, die mit Windows Server 2019 über das Azure Stack HCI-Programm und Windows Server 2016 über das Programm für Windows Server Software-Defined (WSSD) eingesetzt werden können, um leistungsstarke, hyperkonvergierte Speicher-und Netzwerkfunktionen bereitzustellen. Gas. Zusammengeführte Lösung vereinen Computing, Speicher und Networking auf branchenüblichen Servern und Komponenten für eine verbesserte Datacenter-Intelligence und -Kontrolle.
+Microsoft-Partner bieten eine Vielzahl von Lösungen an, die über das Azure Stack HCI-Programm mit Windows Server 2019 und über das WSSD-Programm (Windows Server Software-Defined) mit Windows Server 2016 zusammenarbeiten, um eine hyperkonvergente Speicher- und Netzwerkinfrastruktur mit hoher Leistung zur Verfügung zu stellen. Hyperkonvergente Lösung vereinen Computing, Speicher und Networking auf branchenüblichen Servern und Komponenten, um eine verbesserte Datacenter-Intelligence und -Kontrolle zu erreichen.
 
-![](media/sddc/learn.png) **[erfahren Sie mehr über Azure Stack HCI-Lösungen](https://azure.microsoft.com/overview/azure-stack/hci)**
+![](media/sddc/learn.png) **[Weitere Informationen zu Azure Stack HCI-Lösungen](https://azure.microsoft.com/overview/azure-stack/hci)**
 
 ![](media/sddc/learn.png) **[Weitere Informationen zu WSSD-Lösungen](https://www.microsoft.com/cloud-platform/software-defined-datacenter)**
 
@@ -57,13 +57,13 @@ Der verbleibende Teil dieses Themas enthält die Windows Server-SDDC-Technologie
 
 ![](media/sddc/virtualize.png)
 
-### <a name="windows-server-hyper-converged"></a>Windows Server, hyperkonvergiert
+### <a name="windows-server-hyper-converged"></a>Windows Server, hyperkonvergent
 
 Windows Server-Virtualisierungstechnologien enthalten Updates für Hyper-V, Virtueller Hyper-V-Switch und Guarded Fabric und Shielded Virtual Machines (VMs), die die Sicherheit, Skalierbarkeit und Zuverlässigkeit verbessern. Updates für Failoverclustering, Networking und Speicher machen das Bereitstellen und Verwalten dieser Technologien mit Hyper-V noch einfacher.
 
 ![](media/sddc/spacer1.png)![](media/sddc/hyper-converged.png)
 
-![](media/sddc/learn.png) **[erfahren Sie mehr über Windows Server, hyperkonvergiert](https://docs.microsoft.com/windows-server/get-started/what-s-new-in-windows-server-2016#computevirtualizationvirtualizationmd)**
+![](media/sddc/learn.png) **[Erfahren Sie mehr über Windows Server, hyperkonvergent](https://docs.microsoft.com/windows-server/get-started/what-s-new-in-windows-server-2016#computevirtualizationvirtualizationmd)**
 
 ### <a name="hyper-v-hypervisor"></a>Hyper-V-Hypervisor
 
@@ -73,7 +73,7 @@ Hyper-V ist eine hypervisorbasierte Virtualisierungstechnologie für Windows. De
 
 ![](media/sddc/learn.png) **[Weitere Informationen zum Hyper-V-Hypervisor](https://www.microsoft.com/cloud-platform/server-virtualization)**
 
-### <a name="guest-clustering-with-shared-vhdx"></a>Gastclustering mit frei gegebener vhdx-Datei
+### <a name="guest-clustering-with-shared-vhdx"></a>Gastclustering mit VHDX-Freigaben
 
 ![](media/sddc/virtualize-line.png)
 
@@ -81,10 +81,10 @@ VHDX-Freigaben sind flexibel und sicher und nicht an die zugrunde liegenden Spei
 
 ![](media/sddc/spacer1.png)![](media/sddc/cluster.png)
 
-- VHDX-Freigaben können sich auf einem Volumes mit freigegebener Unterstützung (Cluster Shared Volume, CSV) im Blockspeicher oder auf SMB-dateibasiertem Speicher befinden.
-- Geschützt: VHDX-Freigaben unterstützen Hyper-V-Replikat- und Sicherung auf Hostebene.
+- VHDX-Freigaben können sich auf einem freigegebenen Clustervolume (Cluster Shared Volume, CSV) im Blockspeicher oder auf SMB-dateibasiertem Speicher befinden.
+- Geschützt: VHDX-Freigaben unterstützen Sicherung von Hyper-V-Replikaten und Sicherung auf Hostebene.
 
-![](media/sddc/learn.png) **[Weitere Informationen zum Gastclustering mit frei gegebener vhdx](https://technet.microsoft.com/library/dn281956(v=ws.11).aspx) -Datei**
+![](media/sddc/learn.png) **[Erfahren Sie mehr über Gastclustering mit VHDX-Freigabe](https://technet.microsoft.com/library/dn281956(v=ws.11).aspx)**
 
 ### <a name="hyper-v-replica"></a>Hyper-V-Replikat
 
@@ -110,27 +110,27 @@ Bietet die Möglichkeit einer zentralen, programmierbaren Automatisierung von Ve
 
 ![](media/sddc/spacer1.png)![](media/sddc/netcontroller.png)
 
-Ein Administrator verwendet ein Verwaltungstool, das direkt mit Netzwerkcontroller interagiert. Der Netzwerkcontroller übertragt Informationen über die Netzwerkinfrastruktur an das Verwaltungstool, einschließlich der virtuellen und physischen Infrastruktur.
+Ein Administrator verwendet ein Verwaltungstool, das direkt mit dem Netzwerkcontroller interagiert. Der Netzwerkcontroller übertragt Informationen über die Netzwerkinfrastruktur an das Verwaltungstool, einschließlich der virtuellen und physischen Infrastruktur.
 
-**[Weitere Informationen zum Netzwerk Controller](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-controller/network-controller) ![](media/sddc/learn.png)**
+![](media/sddc/learn.png) **[Weitere Informationen zum Netzwerkcontroller](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-controller/network-controller)**
 
 ### <a name="datacenter-firewall"></a>Rechenzentrumsfirewall
 
 ![](media/sddc/networking-line.png)
 
-Wenn es bereitgestellt und als ein Dienst angeboten wird, können Mandantenadministratoren Firewall-Richtlinien zum Schutz von virtuellen Netzwerken installieren und konfigurieren, um unerwünschten Datenverkehr aus dem Internet und Intranetnetzwerken fernzuhalten.
+Wenn sie bereitgestellt ist und als Dienst angeboten wird, können Mandantenadministratoren Firewall-Richtlinien zum Schutz von virtuellen Netzwerken installieren und konfigurieren, um unerwünschten Datenverkehr aus dem Internet und Intranetnetzwerken fernzuhalten.
 
 ![](media/sddc/spacer1.png)![](media/sddc/firewall.png)
 
 Der Internetanbieter-Administrator oder der Mandantenadministrator können die Rechenzentrumsfirewall-Richtlinien über den Netzwerkcontroller verwalten.
 
-![](media/sddc/learn.png) **[Weitere Informationen zur Rechenzentrums Firewall](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-function-virtualization/datacenter-firewall-overview)**
+![](media/sddc/learn.png) **[Hier erfahren Sie mehr über die Rechenzentrumsfirewall](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-function-virtualization/datacenter-firewall-overview)**
 
 ### <a name="switch-embedded-teaming"></a>Switch Embedded Teaming
 
 ![](media/sddc/networking-line.png)
 
-SET ist eine alternative NIC-Teaming-Lösung, die Sie in einer Umgebung verwenden können, die Hyper-V und [Software Defined Networking (SDN)](https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking)-Stapel enthält.
+SET ist eine alternative Lösung zur NIC-Teamerstellung, die Sie in einer Umgebung verwenden können, die Hyper-V und den [Software Defined Networking (SDN)](https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking)-Stapel enthält.
 
 ![](media/sddc/spacer1.png)![](media/sddc/teaming.png)
 
@@ -140,11 +140,11 @@ SET ist eine alternative NIC-Teaming-Lösung, die Sie in einer Umgebung verwende
 
 ![](media/sddc/networking-line.png)
 
-SLB ermöglicht es Ihnen, mehrere Server zum Hosten derselben Workload zu aktivieren, um hohe Verfügbarkeit und Skalierbarkeit bereitzustellen. Skalieren Sie Lastenausgleichsfunktionen mit SLB VMs auf den gleichen Hyper-V-Servern, die Sie für Ihre anderen VM-Arbeitslasten verwenden. SLB unterstützt die schnelle Erstellung und das Löschen von Lastenausgleich-Endpunkten für Cloud-Dienstanbieter-Vorgänge. SLB unterstützt Zehntausende von Gigabyte pro Cluster, bietet ein einfaches Modell für den Bereitstellungsprozess und kann einfach erweitert und zu reduziert werden.
+SLB ermöglicht es Ihnen, mehrere Server zum Hosten derselben Workload zu aktivieren, um hohe Verfügbarkeit und Skalierbarkeit bereitzustellen. Skalieren Sie Lastenausgleichsfunktionen mit SLB VMs auf den gleichen Hyper-V-Servern, die Sie für Ihre anderen VM-Arbeitslasten verwenden. SLB unterstützt die schnelle Erstellung und das Löschen von Lastenausgleich-Endpunkten für Cloud-Dienstanbieter-Vorgänge. SLB unterstützt Zehntausende Gigabyte pro Cluster, bietet ein einfaches Modell für den Bereitstellungsprozess und kann einfach erweitert und reduziert werden.
 
 ![](media/sddc/spacer1.png)![](media/sddc/balancer.png)
 
-**[Weitere ![](media/sddc/learn.png)Weitere Informationen zum Software Lastenausgleich](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn)**
+![](media/sddc/learn.png) **[Weitere Informationen zum Lastenausgleich](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn)**
 
 
 ![](media/sddc/storage.png)
@@ -155,11 +155,11 @@ SLB ermöglicht es Ihnen, mehrere Server zum Hosten derselben Workload zu aktivi
 
 „Direkte Speicherplätze“ verwendet branchenübliche Server mit lokal angeschlossenen Laufwerken, um hoch verfügbare, hoch skalierbare softwaredefinierte Speicher zu einem Bruchteil der Kosten von herkömmlichen SAN- oder NAS-Arrays zu erstellen. Die Architektur vereinfacht radikal die Beschaffung und Bereitstellung.
 
-![für jeden Knoten lokale Laufwerke auf Cluster Ebene in einem Pool zusammengefasst werden, indem direkte Speicherplätze auf die VMs über csvs zugreifen](media/sddc/spacer1.png)![](media/sddc/ssd.png)
+![Jeder Knoten hat lokal verbundene Laufwerke, die auf Clusterebene in einem Pool von direkten Speicherplätzen zusammengefasst sind und via CSV Zugriff von VMs haben](media/sddc/spacer1.png)![](media/sddc/ssd.png).
 
-„Direkte Speicherplätze“ führt den neuen Softwarespeicherbus ein und nutzt viele Features von Windows Server, die Sie bereits kennen, z. B. Failoverclustering, CSV (Cluster Shared Volume, freigegebenes Clustervolume), SMB3 (Server Message Block) und natürlich „Speicherplätze“.
+„Direkte Speicherplätze“ führt den neuen Softwarespeicherbus ein und nutzt viele Features von Windows Server, die Sie bereits kennen, z. B. Failoverclustering, CSV (Cluster Shared Volume, freigegebenes Clustervolume), SMB3 (Server Message Block) und natürlich „Speicherplätze“.
 
-![](media/sddc/learn.png) **[erfahren Sie mehr über direkte Speicherplätze](storage/storage-spaces/storage-spaces-direct-overview.md)**
+![](media/sddc/learn.png) **[Weitere Informationen zu direkten Speicherplätzen](storage/storage-spaces/storage-spaces-direct-overview.md)**
 ### <a name="storage-quality-of-service"></a>Quality of Service für Speicher ###
 
 ![](media/sddc/storage-line.png)
@@ -190,13 +190,13 @@ Synchrone Replikation
 4. Bestätigung durch den Remotestandort
 5. Anwendungsschreibvorgang wird bestätigt
 
-t & t1: Daten werden auf das Volume geleert, Protokolle werden immer geschrieben
+t & t1 : Daten werden auf das Volume geleert, Protokolle werden immer per Write-Through geschrieben
 
-![](media/sddc/learn.png) **[Weitere Informationen zum Speicher Replikat](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview)**
+![](media/sddc/learn.png) **[Weitere Informationen zum Speicherreplikat](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview)**
 
 ![](media/sddc/security.png)
 
-### <a name="guarded-fabric"></a>Geschütztes Fabric
+### <a name="guarded-fabric"></a>Guarded Fabric
 
 ![](media/sddc/security-line.png)
 
@@ -204,13 +204,13 @@ Als Cloud-Dienstanbieter oder privater Cloud-Administrator im Unternehmen könne
 
 ![](media/sddc/spacer1.png)![](media/sddc/guarded-fabric.png)
 
-![](media/sddc/learn.png) **[Weitere Informationen zum geschützten Fabric](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms)**
+![](media/sddc/learn.png) **[Erfahren Sie mehr über Guarded Fabric](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms)**
 
 ### <a name="shielded-vms"></a>Abgeschirmte VMs
 
 ![](media/sddc/security-line.png)
 
-Die Daten und der Status eines abgeschirmten VM sind geschützt gegen Überprüfung, Diebstahl und Manipulation durch Schadsoftware und Datacenter-Administratoren.
+Die Daten und der Status einer abgeschirmten VM sind geschützt gegen Überprüfung, Diebstahl und Manipulation, sowohl durch Schadsoftware als auch durch Rechenzentrums-Administratoren.
 
 ![](media/sddc/spacer1.png)![](media/sddc/shielded.png)
 
@@ -218,17 +218,17 @@ Die Daten und der Status eines abgeschirmten VM sind geschützt gegen Überprüf
 - Abgeschirmte VMs sind durch BitLocker oder auf andere Weise verschlüsselt, sodass nur die angegebenen Eigentümer sie ausführen können.
 - Ausgeführte virtuelle Computer können in abgeschirmte Computer konvertiert werden.
 
-![](media/sddc/learn.png) **[Weitere Informationen zu abgeschirmten VMS](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms)**
+![](media/sddc/learn.png) **[Weitere Informationen zu abgeschirmten VMs](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms)**
 
 ### <a name="host-guardian-service"></a>Host-Überwachungsdienst
 
 ![](media/sddc/security-line.png)
 
-Host-Überwachungsdienst sind die Schlüssel zu legitimen Fabrics und zu verschlüsselten virtuellen Computern.
+Der Host-Überwachungsdienst stellt den Schlüssel zu legitimen Fabrics und zu verschlüsselten virtuellen Computern dar.
 
 ![](media/sddc/spacer1.png)![](media/sddc/guardian.png)
 
-![](media/sddc/learn.png) **[erfahren Sie mehr über den Host](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-manage-hgs) -Überwachungsdienst.**
+![](media/sddc/learn.png) **[Erfahren Sie mehr über den Host-Überwachungsdienst](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-manage-hgs)**
 
 ### <a name="device-health-attestation"></a>Integritätsnachweis für Geräte
 
@@ -240,10 +240,10 @@ Der Integritätsnachweis ermöglicht Unternehmen, mit minimalem oder keinem Einf
 ![](media/sddc/spacer1.png)![](media/sddc/attestation.png)
 
 
-Der vertrauenswürdige Modus für Hardware, wie oben angezeigt, bietet mit dem TPM v2. 0-Hardware-Stamm-Vertrauensmodell und der Einhaltung der Codeintegritätsrichtlinien für Schlüssel-Version die größtmögliche Sicherheit.
+Der vertrauenswürdige Modus für Hardware, wie oben angezeigt, bietet mit dem TPM v2.0-Hardware-Stamm-Vertrauensmodell und der Einhaltung der Codeintegritätsrichtlinien für die Schlüsselfreigabe die größtmögliche Sicherheit.
 
 
-![](media/sddc/learn.png) **[erfahren Sie mehr über Integritätsnachweis für Geräte](https://docs.microsoft.com/windows-server/security/device-health-attestation)**
+![](media/sddc/learn.png) **[Weitere Informationen zum Integritätsnachweis für Geräte](https://docs.microsoft.com/windows-server/security/device-health-attestation)**
 
 ![](media/sddc/management.png)
 
@@ -251,11 +251,11 @@ Der vertrauenswürdige Modus für Hardware, wie oben angezeigt, bietet mit dem T
 
 ![](media/sddc/management-line.png)
 
-Windows PowerShell Desired State Configuration ist eine in Windows integrierte Konfigurationsverwaltungsplattform, die auf offenen Standards basiert. DSC ist flexibel genug, in jeder Phase des Bereitstellungslebenszyklus (Entwicklung, Test, Präproduktion, Produktion) sowie bei horizontaler Skalierung zuverlässig und konsistent zu funktionieren.
+Windows PowerShell Desired State Configuration ist eine in Windows integrierte Plattform zur Konfigurationsverwaltung, die auf offenen Standards basiert. DSC ist flexibel genug, in jeder Phase des Bereitstellungslebenszyklus (Entwicklung, Test, Präproduktion, Produktion) sowie bei horizontaler Skalierung zuverlässig und konsistent zu funktionieren.
 
 ![](media/sddc/spacer1.png)![](media/sddc/dsc.png)
 
-DSC unterstützt die "fortlaufende Bereitstellungen", damit Sie Konfigurationen wiederholt bereitstellen können, ohne etwas zu beschädigen.
+DSC unterstützt „Continuous Deployments“, damit Sie Konfigurationen wieder und wieder bereitstellen können, ohne etwas zu beschädigen.
 
 -  DSC-Konfigurationen übernehmen nur die Einstellungen, die von der ursprünglichen auf die schnellere Bereitstellung geändert wurden.
 -  DSC kann lokal, in einer öffentlichen oder in einer privaten Cloud-Umgebung verwendet werden.
@@ -268,16 +268,16 @@ DSC unterstützt die "fortlaufende Bereitstellungen", damit Sie Konfigurationen 
 
 ![](media/sddc/management-line.png)
 
-Virtual Machine Manager ist Teil der System Center-Suite, der zum Konfigurieren, Verwalten und Transformieren von herkömmlichen Datencentern verwendet wird, um eine einheitliche Verwaltung über lokale Dienstanbieter und Azure-Cloud anzubieten.
+Virtual Machine Manager ist Teil der System Center-Suite, der zum Konfigurieren, Verwalten und Transformieren von herkömmlichen Rechenzentren verwendet wird, um eine einheitliche Verwaltung über lokale Dienstanbieter und Azure-Cloud anzubieten.
 
 ![](media/sddc/spacer1.png)![](media/sddc/vmm.png)
 
 - Datacenter: Konfigurieren und Verwalten von Datacenter-Komponenten als eine einzelne Fabric in VMM. 
 - Virtualisierungshosts: VMM kann Hyper-V und VMware-Virtualisierungshosts und Cluster hinzufügen, bereitstellen und verwalten.
-- Networking: VMM bietet die Netzwerkvirtualisierung, inklusive die Unterstützung für das Erstellen und Verwalten von virtuellen Netzwerken und Netzwerkgateways. 
+- Netzwerk: VMM bietet die Netzwerkvirtualisierung, inklusive der Unterstützung für das Erstellen und Verwalten von virtuellen Netzwerken und Netzwerkgateways. 
 - Speicher: VMM kann lokale und Remotespeicher ermitteln, klassifizieren, bereitstellen und zuweisen.
 
-**[Weitere Informationen zu System Center VMM](https://docs.microsoft.com/system-center/vmm/) ![](media/sddc/learn.png)**
+![](media/sddc/learn.png) **[Erfahren Sie mehr über System Center VMM](https://docs.microsoft.com/system-center/vmm/)**
 
 ### <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -289,4 +289,4 @@ Windows Admin Center ist ein lokal bereitgestelltes, browserbasiertes Verwaltung
 
 Nach dem Veröffentlichen des Servers im DNS und dem Einrichten der Unternehmensfirewall können Sie über das Internet auf Windows Admin Center zugreifen und Ihre Server dann von jedem beliebigen Standort mit Microsoft Edge oder Google Chrome verwenden und verwalten.
 
-![](media/sddc/learn.png) **[Weitere Informationen zum Windows Admin Center](manage/windows-admin-center/overview.md)**
+![](media/sddc/learn.png) **[Erfahren Sie mehr über Windows Admin Center](manage/windows-admin-center/overview.md)** .

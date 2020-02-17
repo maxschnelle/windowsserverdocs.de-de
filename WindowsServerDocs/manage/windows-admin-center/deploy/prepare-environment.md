@@ -1,5 +1,5 @@
 ---
-title: Vorbereiten der Umgebung für die Windows Admin Center
+title: Vorbereiten der Umgebung für Windows Admin Center
 description: Vorbereiten der Umgebung für Windows Admin Center (Projekt Honolulu)
 ms.technology: manage
 ms.topic: article
@@ -10,144 +10,144 @@ ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: 72e71ce2d1427f392aa02d32597f92d031f9a5c9
 ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 09/27/2019
 ms.locfileid: "71407005"
 ---
-# <a name="prepare-your-environment-for-windows-admin-center"></a>Vorbereiten der Umgebung für die Windows Admin Center
+# <a name="prepare-your-environment-for-windows-admin-center"></a>Vorbereiten der Umgebung für Windows Admin Center
 
 > Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
-Es gibt einige Serverversionen, die zusätzliche Vorbereitung benötigen, bevor sie mit Windows Admin Center verwalten können:
+Es gibt einige Serverversionen, die zusätzliche Vorbereitung benötigen, bevor sie mit Windows Admin Center verwaltet werden können:
 
-- [Windows Server 2012 und 2012 R2](#prepare-windows-server-2012-and-2012-r2)
+- [Windows Server 2012 und 2012 R2](#prepare-windows-server-2012-and-2012-r2)
 - [Windows Server 2008 R2](#prepare-windows-server-2008-r2)
 - [Microsoft Hyper-V Server 2016](#prepare-microsoft-hyper-v-server-2016)
-- [Microsoft Hyper-V Server 2012 R2](#prepare-microsoft-hyper-v-server-2012-r2)
+- [Microsoft Hyper-V Server 2012 R2](#prepare-microsoft-hyper-v-server-2012-r2)
 
-Es gibt auch einige Szenarien, in denen [die Port Konfiguration auf dem Zielserver](#port-configuration-on-the-target-server) möglicherweise geändert werden muss, bevor Sie mit Windows Admin Center verwalten.
+Es gibt auch einige Szenarien, in denen die [Portkonfiguration auf dem Zielserver](#port-configuration-on-the-target-server) möglicherweise vor der Verwaltung mit Windows Admin Center geändert werden muss.
 
-## <a name="prepare-windows-server-2012-and-2012-r2"></a>Vorbereiten von Windows Server 2012 und 2012 R2
-
-### <a name="install-wmf-version-51-or-higher"></a>Installieren von WMF Version 5.1 oder höher
-
-Windows Admin Center erfordert PowerShell-Features, die nicht standardmäßig in Windows Server 2012 und 2012 R2 enthalten sind. Zum Verwalten von Windows Server 2012 oder 2012 R2 mit Windows Admin Center müssen Sie WMF Version 5.1 oder höher auf diesen Servern installieren.
-
-Geben Sie `$PSVersiontable` in PowerShell ein, um zu prüfen, ob WMF 5.1 oder einen neuere Version installiert ist.
-
-Wenn dies nicht der Fall ist, können Sie [herunterladen und WMF 5.1 installieren](https://docs.microsoft.com/powershell/wmf/setup/install-configure).
-
-## <a name="prepare-windows-server-2008-r2"></a>Vorbereiten von Windows Server 2008 R2
+## <a name="prepare-windows-server-2012-and-2012-r2"></a>Vorbereiten von Windows Server 2012 und 2012 R2
 
 ### <a name="install-wmf-version-51-or-higher"></a>Installieren von WMF Version 5.1 oder höher
 
-Windows Admin Center erfordert PowerShell-Features, die in Windows Server 2008 R2 standardmäßig nicht enthalten sind. Zum Verwalten von Windows Server 2008 R2 mit Windows Admin Center müssen Sie WMF Version 5.1 oder höher auf diesen Servern installieren. 
+Windows Admin Center erfordert PowerShell-Features, die nicht standardmäßig in Windows Server 2012 und 2012 R2 enthalten sind. Zum Verwalten von Windows Server 2012 oder 2012 R2 mit Windows Admin Center musst du WMF Version 5.1 oder höher auf diesen Servern installieren.
 
-Stellen Sie sicher, dass [.NET Framework 4.5.2 oder](https://docs.microsoft.com/dotnet/framework/install/on-windows-7) höher bereits auf dem Computer installiert ist.
+Gebe `$PSVersiontable` in PowerShell ein, um zu prüfen, ob WMF 5.1 oder höher installiert ist.
 
-Geben Sie `$PSVersiontable` in PowerShell ein, um zu prüfen, ob WMF 5.1 oder einen neuere Version installiert ist.
+Wenn dies nicht der Fall ist, kannst du [herunterladen und WMF 5.1 installieren](https://docs.microsoft.com/powershell/wmf/setup/install-configure).
 
-Wenn dies nicht der Fall ist, können Sie [herunterladen und WMF 5.1 installieren](https://docs.microsoft.com/powershell/wmf/setup/install-configure).
+## <a name="prepare-windows-server-2008-r2"></a>Vorbereiten von Windows Server 2008 R2
 
-Führen Sie `Enable-PSRemoting –force` in einer PowerShell-Konsole, um remote Powershell-Verbindung zu aktivieren. 
+### <a name="install-wmf-version-51-or-higher"></a>Installieren von WMF Version 5.1 oder höher
+
+Windows Admin Center erfordert PowerShell-Features, die in Windows Server 2008 R2 standardmäßig nicht enthalten sind. Zum Verwalten von Windows Server 2008 R2 mit Windows Admin Center musst du WMF Version 5.1 oder höher auf diesen Servern installieren. 
+
+Stelle sicher, dass [.NET Framework 4.5.2 oder höher](https://docs.microsoft.com/dotnet/framework/install/on-windows-7) bereits auf dem Computer installiert ist.
+
+Gebe `$PSVersiontable` in PowerShell ein, um zu prüfen, ob WMF 5.1 oder höher installiert ist.
+
+Wenn dies nicht der Fall ist, kannst du [herunterladen und WMF 5.1 installieren](https://docs.microsoft.com/powershell/wmf/setup/install-configure).
+
+Führe `Enable-PSRemoting –force` in einer PowerShell-Konsole aus, um PowerShell-Remoteverbindungen zu aktivieren. 
 
 ### <a name="enable-remote-desktop"></a>Aktivieren von Remotedesktop
 
-Um Remotedesktop in Windows Admin Center zu verwenden, müssen Sie Remotedesktop auf Ihrem Windows Server 2008 R2-Server zu aktivieren.
+Um Remotedesktop in Windows Admin Center zu verwenden, musst du Remotedesktop auf deinem Windows Server 2008 R2-Server aktivieren.
 
-**Server-Manager**wechseln Sie zu **Remotedesktop konfigurieren**. Bei aktivierter Remotedesktop "Verbindungen von Computern unter einer Version von Remotedesktop zulassen".
+Wechsle von **Server-Manager** zu **Remotedesktop konfigurieren**. Aktiviere Remotedesktop, um Verbindungen von Computern mit einer beliebigen Version von Remotedesktop zuzulassen.
 
-## <a name="prepare-microsoft-hyper-v-server-2016"></a>Vorbereiten von Microsoft Hyper-V Server 2016
+## <a name="prepare-microsoft-hyper-v-server-2016"></a>Vorbereiten von Microsoft Hyper-V Server 2016
 
-Zum Verwalten von Microsoft Hyper-V Server 2016 mit Windows Admin Center sind einige Serverrollen, die Sie benötigen aktivieren, bevor Sie dies tun können.
+Zum Verwalten von Microsoft Hyper-V Server 2016 mit Windows Admin Center musst du zuvor einige erforderliche Serverrollen aktivieren.
 
-### <a name="to-manage-microsoft-hyper-v-server-2016-with-windows-admin-center"></a>Zum Verwalten von Microsoft Hyper-V Server 2016 mit Windows Admin Center:
+### <a name="to-manage-microsoft-hyper-v-server-2016-with-windows-admin-center"></a>So verwaltest du Microsoft Hyper-V Server 2016 mit Windows Admin Center
 
-1. Aktivieren Sie Remoteverwaltung.
-2. Aktivieren Sie die Datei-Serverrolle.
-3. Aktivieren Sie Hyper-V-Modul für PowerShell.
+1. Aktiviere die Remoteverwaltung.
+2. Aktiviere die Dateiserverrolle.
+3. Aktiviere das Hyper-V-Modul für PowerShell.
 
-### <a name="step-1-enable-remote-management"></a>**Schritt 1:** Remoteverwaltung aktivieren
+### <a name="step-1-enable-remote-management"></a>**Schritt 1:** Aktivieren der Remoteverwaltung
 
-So aktivieren Sie die Remoteverwaltung in Hyper-V Server:
+So aktivierst du die Remoteverwaltung in Hyper-V Server
 
-1. Melden Sie sich Hyper-V Server.
-2. Geben Sie an des- **Server-Konfiguration** (SCONFIG), **4** zum Konfigurieren von remote-Verwaltung.
-3. Geben Sie **1** ein, um die Remoteverwaltung aktivieren.
-4. Geben Sie **4**, um zum Hauptmenü zurück.
+1. Melde dich bei Hyper-V Server an.
+2. Gebe beim Tool **Serverkonfiguration** (SCONFIG) den Wert **4** ein, um die Remoteverwaltung zu konfigurieren.
+3. Gebe **1** ein, um die Remoteverwaltung zu aktivieren.
+4. Gebe **4** ein, um zum Hauptmenü zurückzukehren.
 
-### <a name="step-2-enable-file-server-role"></a>**Schritt 2:** Aktivieren Sie die Datei-Serverrolle
+### <a name="step-2-enable-file-server-role"></a>**Schritt 2:** Aktivieren der Dateiserverrolle
 
-So aktivieren die Dateiserverrolle für einfache Datei Dateifreigabe und remote Management:
+So aktivierst du die Dateiserverrolle für die grundlegende Dateifreigabe und Remoteverwaltung
 
-1. Klicken Sie im Menü **Extras** auf **Rollen und Funktionen** .
-2. **Rollen und Features**, suchen Sie nach **Datei und Speicherdienste**, und überprüfen **-Datei und iSCSI-Services** und **Dateiserver**:
+1. Klicke in **Rollen und Funktionen** auf das Menü **Extras**.
+2. Suche in **Rollen und Funktionen** nach **Datei- und Speicherdienste** und aktiviere **Datei- und iSCSI-Dienste** sowie **Dateiserver**:
 
-![Screenshot der Rollen und Features, die die ausgewählte Datei-und iSCSI-Dienste-Rolle zeigen](../media/prepare-environment/c6c30b812d96afcc1edcdb6f52f0e13c.png)
+![Screenshot „Rollen und Funktionen“ mit ausgewählter Rolle „Datei- und iSCSI-Dienste“](../media/prepare-environment/c6c30b812d96afcc1edcdb6f52f0e13c.png)
 
-### <a name="step-3-enable-hyper-v-module-for-powershell"></a>**Schritt 3:** Aktivieren Sie Hyper-V-Modul für PowerShell
+### <a name="step-3-enable-hyper-v-module-for-powershell"></a>**Schritt 3:** Aktivieren des Hyper-V-Moduls für PowerShell
 
-So aktivieren Hyper-V-Modul für PowerShell-Features:
+So aktivierst du das Hyper-V-Modul für PowerShell-Features
 
-1. Klicken Sie im Menü **Extras** auf **Rollen und Funktionen** .
-2. Finden Sie in **-Rollen und-Features**die **Remoteserver-Verwaltungstools**, und überprüfen Sie **Rollenverwaltungstools** und **Hyper-V-Modul für PowerShell**:
+1. Klicke in **Rollen und Funktionen** auf das Menü **Extras**.
+2. Suche in **Rollen und Funktionen** nach **Remoteserver-Verwaltungstools** und aktiviere **Rollenverwaltungstools** und **Hyper-V-Modul für PowerShell**:
 
-![Screenshot der Rollen und Features, die die ausgewählten Hyper-V-Rollen zeigen](../media/prepare-environment/7ab0999602b7083733525bd0c1ba2747.png)
+![Screenshot „Rollen und Funktionen“ mit aktivierten Hyper-V-Rollen](../media/prepare-environment/7ab0999602b7083733525bd0c1ba2747.png)
 
-Microsoft Hyper-V Server 2016 ist jetzt für die Verwaltung mit Windows Admin Center bereit.
+Microsoft Hyper-V Server 2016 ist jetzt für die Verwaltung mit Windows Admin Center bereit.
 
-## <a name="prepare-microsoft-hyper-v-server-2012-r2"></a>Vorbereiten von Microsoft Hyper-V Server 2012 R2
+## <a name="prepare-microsoft-hyper-v-server-2012-r2"></a>Vorbereiten von Microsoft Hyper-V Server 2012 R2
 
-Zum Verwalten von Microsoft Hyper-V Server 2012 R2 mit Windows Admin Center sind einige Serverrollen, die Sie benötigen aktivieren, bevor Sie dies tun können.  Darüber hinaus müssen Sie WMF Version 5.1 oder höher zu installieren.
+Zum Verwalten von Microsoft Hyper-V Server 2012 R2 mit Windows Admin Center musst du zuvor einige Serverrollen aktivieren.  Darüber hinaus musst du WMF Version 5.1 oder höher installieren.
 
-### <a name="to-manage-microsoft-hyper-v-server-2012-r2-with-windows-admin-center"></a>Zum Verwalten von Microsoft Hyper-V Server 2012 R2 mit Windows Admin Center:
+### <a name="to-manage-microsoft-hyper-v-server-2012-r2-with-windows-admin-center"></a>So verwaltest du Microsoft Hyper-V Server 2012 R2 mit Windows Admin Center
 
 1. Installieren von Windows Management Framework (WMF) Version 5.1 oder höher
-2. Remoteverwaltung aktivieren
-3. Aktivieren Sie die Datei-Serverrolle
-4. Aktivieren Sie Hyper-V-Modul für PowerShell
+2. Aktivieren der Remoteverwaltung
+3. Aktivieren der Dateiserverrolle
+4. Aktivieren des Hyper-V-Moduls für PowerShell
 
-### <a name="step-1-install-windows-management-framework-51"></a>Schritt 1: Installieren von Windows Management Framework 5,1
+### <a name="step-1-install-windows-management-framework-51"></a>Schritt 1: Installieren von Windows Management Framework 5.1
 
-Windows Admin Center erfordert PowerShell-Features, die nicht in Microsoft Hyper-V Server 2012 R2 standardmäßig enthalten sind. Zum Verwalten von Microsoft Hyper-V Server 2012 R2 mit Windows Admin Center müssen Sie WMF Version 5.1 oder höher zu installieren.
+Windows Admin Center erfordert PowerShell-Features, die in Microsoft Hyper-V Server 2012 R2 nicht standardmäßig enthalten sind. Zum Verwalten von Microsoft Hyper-V Server 2012 R2 mit Windows Admin Center musst du WMF Version 5.1 oder höher installieren.
 
-Geben Sie `$PSVersiontable` in PowerShell ein, um zu prüfen, ob WMF 5.1 oder einen neuere Version installiert ist. 
+Gebe `$PSVersiontable` in PowerShell ein, um zu prüfen, ob WMF 5.1 oder höher installiert ist. 
 
-Bei Bedarf können Sie [WMF 5.1 herunterladen](https://docs.microsoft.com/powershell/wmf/setup/install-configure).
+Wenn es nicht installiert ist, kannst du [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) herunterladen.
 
-### <a name="step-2-enable-remote-management"></a>Schritt 2: Remoteverwaltung aktivieren
+### <a name="step-2-enable-remote-management"></a>Schritt 2: Aktivieren der Remoteverwaltung
 
-So aktivieren Sie Hyper-V Server remote Management:
+So aktivierst du die Hyper-V Server-Remoteverwaltung
 
-1. Melden Sie sich Hyper-V Server.
-2. Geben Sie an des- **Server-Konfiguration** (SCONFIG), **4** zum Konfigurieren von remote-Verwaltung.
-3. Geben Sie **1** ein, um die Remoteverwaltung aktivieren.
-4. Geben Sie **4**, um zum Hauptmenü zurück.
+1. Melde dich bei Hyper-V Server an.
+2. Gebe beim Tool **Serverkonfiguration** (SCONFIG) den Wert **4** ein, um die Remoteverwaltung zu konfigurieren.
+3. Gebe **1** ein, um die Remoteverwaltung zu aktivieren.
+4. Gebe **4** ein, um zum Hauptmenü zurückzukehren.
 
-### <a name="step-3-enable-file-server-role"></a>Schritt 3: Aktivieren Sie die Datei-Serverrolle
+### <a name="step-3-enable-file-server-role"></a>Schritt 3: Aktivieren der Dateiserverrolle
 
-So aktivieren die Dateiserverrolle für einfache Datei Dateifreigabe und remote Management:
+So aktivierst du die Dateiserverrolle für die grundlegende Dateifreigabe und Remoteverwaltung
 
-1. Klicken Sie im Menü **Extras** auf **Rollen und Funktionen** .
-2. **Datei und Speicherdienste** suchen Sie im **Rollen und Features**, und überprüfen Sie **Datei und iSCSI-Services** und **Dateiserver**:
+1. Klicke in **Rollen und Funktionen** auf das Menü **Extras**.
+2. Suche in **Rollen und Funktionen** nach **Datei- und Speicherdienste** und aktiviere **Datei- und iSCSI-Dienste** sowie **Dateiserver**:
 
-![Screenshot der Rollen und Features, die die ausgewählte Datei-und iSCSI-Dienste-Rolle zeigen](../media/prepare-environment/c6c30b812d96afcc1edcdb6f52f0e13c.png)
+![Screenshot „Rollen und Funktionen“ mit ausgewählter Rolle „Datei- und iSCSI-Dienste“](../media/prepare-environment/c6c30b812d96afcc1edcdb6f52f0e13c.png)
 
-### <a name="step-4-enable-hyper-v-module-for-powershell"></a>Schritt 4: Aktivieren Sie Hyper-V-Modul für PowerShell
+### <a name="step-4-enable-hyper-v-module-for-powershell"></a>Schritt 4: Aktivieren des Hyper-V-Moduls für PowerShell
 
-So aktivieren Hyper-V-Modul für PowerShell-Features:
+So aktivierst du das Hyper-V-Modul für PowerShell-Features
 
-1. Klicken Sie im Menü **Extras** auf **Rollen und Funktionen** .
-2. Finden Sie in **-Rollen und-Features**die **Remoteserver-Verwaltungstools**, und überprüfen Sie **Rollenverwaltungstools** und **Hyper-V-Modul für PowerShell**:
+1. Klicke in **Rollen und Funktionen** auf das Menü **Extras**.
+2. Suche in **Rollen und Funktionen** nach **Remoteserver-Verwaltungstools** und aktiviere **Rollenverwaltungstools** und **Hyper-V-Modul für PowerShell**:
 
-![Screenshot der Rollen und Features, die die ausgewählten Hyper-V-Remote Server-Verwaltungs Tools zeigen](../media/prepare-environment/7ab0999602b7083733525bd0c1ba2747.png)
+![Screenshot „Rollen und Funktionen“ mit aktivierten Hyper-V-Remoteserver-Verwaltungstools](../media/prepare-environment/7ab0999602b7083733525bd0c1ba2747.png)
 
-Microsoft Hyper-V Server 2012 R2 ist jetzt für die Verwaltung mit Windows Admin Center bereit.
+Microsoft Hyper-V Server 2012 R2 ist jetzt für die Verwaltung mit Windows Admin Center bereit.
 
-## <a name="port-configuration-on-the-target-server"></a>Port Konfiguration auf dem Zielserver
+## <a name="port-configuration-on-the-target-server"></a>Portkonfiguration auf dem Zielserver
 
-Das Windows Admin Center verwendet das SMB-Dateifreigabe Protokoll für einige Dateien zum Kopieren von Dateien, z. b. beim Importieren eines Zertifikats auf einem Remote Server. Damit diese Datei Kopiervorgänge erfolgreich ausgeführt werden können, muss die Firewall auf dem Remote Server eingehende Verbindungen an Port 445 zulassen.  Sie können das firewalltool im Windows Admin Center verwenden, um zu überprüfen, ob die eingehende Regel für "Datei Server-Remote Verwaltung (SMB eingehend)" auf den Zugriff auf diesen Port festgelegt ist.
+Windows Admin Center verwendet das SMB-Dateifreigabeprotokoll für einige Dateikopieraufgaben, z. B. beim Importieren eines Zertifikats auf einem Remoteserver. Damit diese Dateikopiervorgänge erfolgreich sind, muss die Firewall auf dem Remoteserver eingehende Verbindungen an Port 445 zulassen.  Du kannst das Firewalltool in Windows Admin Center verwenden, um zu überprüfen, ob die Eingangsregel für „Dateiserver-Remoteverwaltung (SMB-In)“ so eingestellt ist, dass der Zugriff auf diesen Port zulässig ist.
 
 > [!Tip]
-> Sind Sie bereit zum Installieren von Windows Admin Center? [Jetzt herunterladen](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center#download-now)
+> Bist du für die Installation von Windows Admin Center bereit? [Jetzt herunterladen](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center#download-now)
