@@ -8,12 +8,12 @@ ms.date: 09/19/2019
 ms.topic: article
 author: Heidilohr
 ms.localizationpriority: medium
-ms.openlocfilehash: 864a15d7336abb56572ddc783ce41a35d6fc13bf
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: a8521eae302ade84904e3ba09c001eac21fffd6a
+ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950412"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125151"
 ---
 # <a name="set-up-the-remote-desktop-web-client-for-your-users"></a>Einrichten des Remotedesktop-Webclients für Ihre Benutzer
 
@@ -170,10 +170,12 @@ Führen Sie die folgenden Schritte aus, um den Webclient auf einem Server mit We
 
 Folgen Sie den Anweisungen unter [Veröffentlichen des Remotedesktop-Webclients](remote-desktop-web-client-admin.md#how-to-publish-the-remote-desktop-web-client), und ersetzen Sie dabei die Schritte 4 und 5 durch die folgenden Schritte.
 
-4. Importieren Sie das PowerShell-Modul für die Remotedesktop-Webclientverwaltung aus dem lokalen Ordner:
-    ```PowerShell
-    Import-Module -Name "C:\WebClient\"
-    ```
+4. Du hast zwei Möglichkeiten, das neueste PowerShell-Modul für die Webclientverwaltung abzurufen:
+    - Importiere das PowerShell-Modul für die Remotedesktop-Webclientverwaltung:
+      ```PowerShell
+      Import-Module -Name RDWebClientManagement
+      ```
+    - Kopiere den heruntergeladenen Ordner „RDWebClientManagement“ in einen der lokalen PowerShell-Modulordner, die unter **$env:psmodulePath** aufgeführt sind, oder füge den Pfad zu dem Ordner mit den heruntergeladenen Dateien dem **$env:psmodulePath** hinzu.
 
 5. Stellen Sie die aktuelle Version des Remotedesktop-Webclients aus dem lokalen Ordner bereit (ersetzen Sie dabei die Angabe durch die entsprechende ZIP-Datei):
     ```PowerShell

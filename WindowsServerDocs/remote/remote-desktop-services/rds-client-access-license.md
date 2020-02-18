@@ -11,14 +11,14 @@ ms.topic: article
 ms.assetid: 5be6546b-df16-4475-bcba-aa75aabef3e3
 author: lizap
 ms.author: elizapo
-ms.date: 09/20/2018
+ms.date: 02/12/2020
 manager: dongill
-ms.openlocfilehash: 252ee776946ba0c387d7a6cdf3dc97ffdc55a591
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 391f9e7569abd3c3496bfcc9b52d3ddf8abdebbb
+ms.sourcegitcommit: 5797a2e67211651070404a5893f5c0a91c63e960
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387578"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77173427"
 ---
 # <a name="license-your-rds-deployment-with-client-access-licenses-cals"></a>Lizenzieren deiner RDS-Bereitstellung mit Clientzugriffslizenzen (CALs)
 
@@ -33,12 +33,12 @@ Es gibt zwar eine Lizenzierungskarenzzeit, in der kein Lizenzserver erforderlich
 Verwende die folgenden Informationen, um zu erfahren, wie die Clientzugriffslizenzierung in den Remotedesktopdiensten funktioniert, und um deine Lizenzen bereitzustellen und zu verwalten:
 
 - [Lizenzieren deiner RDS-Bereitstellung mit Clientzugriffslizenzen (CALs)](#license-your-rds-deployment-with-client-access-licenses-cals)
-  - [Grundlegendes zum Modell der Clientzugriffslizenzen](#understanding-the-cals-model)
-  - [Hinweis zu CAL-Versionen](#note-about-cal-versions)
+  - [Grundlegendes zum RDS-CAL-Modell](#understanding-the-rds-cal-model)
+  - [RDS-CAL-Versionskompatibilität](#rds-cal-version-compatibility)
 
-## <a name="understanding-the-cals-model"></a>Grundlegendes zum Modell der Clientzugriffslizenzen
+## <a name="understanding-the-rds-cal-model"></a>Grundlegendes zum RDS-CAL-Modell
 
-Es gibt zwei Typen von CALs:
+Es gibt zwei Typen von RDS-CALs:
 
 - RDS-CALs pro Gerät
 - RDS-CALs pro Benutzer
@@ -47,33 +47,43 @@ Die folgende Tabelle zeigt die Unterschiede zwischen den beiden CAL-Typen:
 
 | Pro Gerät                                                     | Pro Benutzer                                                                         |
 |----------------------------------------------------------------|----------------------------------------------------------------------------------|
-| CALs werden jedem Gerät physisch zugewiesen.                   | CALs werden einem Benutzer in Active Directory zugewiesen.                                 |
-| CALs werden vom Lizenzserver nachverfolgt.                        | CALs werden vom Lizenzserver nachverfolgt.                                          |
-| CALs können unabhängig von der Mitgliedschaft in Active Directory nachverfolgt werden. | CALs können innerhalb einer Arbeitsgruppe nicht nachverfolgt werden.                                       |
-| Du kannst bis zu 20 % der CALs widerrufen.                              | Du kannst keine CALs widerrufen.                                                      |
-| Temporäre CALs sind 52–89 Tage lang gültig.                       | Es sind keine temporären CALs verfügbar.                                                |
-| CALs können nicht überprovisioniert werden.                                  | CALs können überprovisioniert werden (entgegen der Remotedesktop-Lizenzvereinbarung). |
+| RDS-CALs werden jedem Gerät physisch zugewiesen.                   | RDS-CALs werden einem Benutzer in Active Directory zugewiesen.                                 |
+| RDS-CALs werden vom Lizenzserver nachverfolgt.                        | RDS-CALs werden vom Lizenzserver nachverfolgt.                                          |
+| RDS-CALs können unabhängig von der Mitgliedschaft in Active Directory nachverfolgt werden. | RDS-CALs können innerhalb einer Arbeitsgruppe nicht nachverfolgt werden.                                       |
+| Du kannst bis zu 20 % der RDS-CALs widerrufen.                              | Du kannst keine RDS-CALs widerrufen.                                                      |
+| Temporäre RDS-CALs sind 52–89 Tage lang gültig.                       | Es sind keine temporären RDS-CALs verfügbar.                                                |
+| RDS-CALs können nicht überlastet werden.                                  | RDS-CALs können überlastet werden (entgegen der Remotedesktop-Lizenzvereinbarung). |
 
-Bei Verwendung des Pro-Gerät-Modells wird eine temporäre Lizenz ausgestellt, wenn ein Gerät zum ersten Mal eine Verbindung mit dem Remotedesktop-Sitzungshost herstellt. Bei der zweiten Verbindungsherstellung stellt der Lizenzserver eine permanente RDS-CAL pro Gerät aus, sofern der Server aktiviert ist und CALs verfügbar sind.
+Bei Verwendung des Pro-Gerät-Modells wird eine temporäre Lizenz ausgestellt, wenn ein Gerät zum ersten Mal eine Verbindung mit dem Remotedesktop-Sitzungshost herstellt. Bei der zweiten Verbindungsherstellung stellt der Lizenzserver eine permanente RDS-CAL pro Gerät aus, sofern der Server aktiviert ist und RDS-CALs verfügbar sind.
 
-Wenn du das Pro-Benutzer-Modell verwendest, wird die Lizenzierung nicht erzwungen, und jedem Benutzer wird eine Lizenz erteilt, mit der er von einer beliebigen Anzahl von Geräten aus eine Verbindung mit einem Remotedesktop-Sitzungshost herstellen kann. Der Lizenzserver stellt Lizenzen aus dem verfügbaren CAL-Pool oder dem CAL-Pool „Überbeansprucht“ aus. Du musst sicherstellen, dass all deine Benutzer eine gültige Lizenz und keine CALs aus dem Pool „Überbeansprucht“ besitzen– andernfalls liegt ein Verstoß gegen die Lizenzbedingungen der Remotedesktopdienste vor.
+Wenn du das Pro-Benutzer-Modell verwendest, wird die Lizenzierung nicht erzwungen, und jedem Benutzer wird eine Lizenz erteilt, mit der er von einer beliebigen Anzahl von Geräten aus eine Verbindung mit einem Remotedesktop-Sitzungshost herstellen kann. Der Lizenzserver stellt Lizenzen aus dem verfügbaren RDS-CAL-Pool oder dem RDS-CAL-Pool „Überbeansprucht“ aus. Du musst sicherstellen, dass all deine Benutzer eine gültige Lizenz und keine CALs aus dem Pool „Überbeansprucht“ besitzen– andernfalls liegt ein Verstoß gegen die Lizenzbedingungen der Remotedesktopdienste vor.
 
-Um die Einhaltung der Lizenzbedingungen der Remotedesktopdienste gewährleisten, verfolge die Anzahl von RDS-CALs pro Benutzer nach, die in deiner Organisation verwendet werden. Stelle außerdem sicher, dass auf dem Lizenzserver genügend Pro-Benutzer-CALs für all deine Benutzer installiert sind.
+Um die Einhaltung der Lizenzbedingungen der Remotedesktopdienste gewährleisten, verfolge die Anzahl von RDS-CALs pro Benutzer nach, die in deiner Organisation verwendet werden. Stelle außerdem sicher, dass auf dem Lizenzserver genügend Pro-Benutzer-RDS-CALs für all deine Benutzer installiert sind.
 
 Du kannst den Remotedesktoplizenzierungs-Manager verwenden, um die RDS-CALs pro Benutzer nachzuverfolgen und Berichte dazu zu generieren.
 
-## <a name="note-about-cal-versions"></a>Hinweis zu CAL-Versionen
+## <a name="rds-cal-version-compatibility"></a>RDS-CAL-Versionskompatibilität
 
-Die von Benutzern oder Geräten verwendete CAL muss der Windows Server-Version entsprechen, mit der der Benutzer oder das Gerät eine Verbindung herstellt. Du kannst keine älteren CALs für den Zugriff auf neuere Windows Server-Versionen verwenden, aber du kannst mit neueren CALs auf ältere Versionen von Windows Server zugreifen.
+Die RDS-CAL für deine Benutzer oder Geräte muss mit der Windows Server-Version kompatibel sein, mit der der Benutzer oder das Gerät eine Verbindung herstellt. Du kannst keine RDS-CALs für ältere Versionen für den Zugriff auf neuere Windows Server-Versionen verwenden, aber du kannst mit neueren Versionen von RDS-CALs auf ältere Versionen von Windows Server zugreifen. Beispielsweise ist eine RDS 2016 CAL oder höher erforderlich, um eine Verbindung mit einem Windows Server 2016-RD-Sitzungshost herzustellen, während eine RDS 2012 CAL oder höher erforderlich ist, um eine Verbindung mit einem Windows Server 2012 R2-RD-Sitzungshost herzustellen.
 
-Die folgende Tabelle zeigt die CALs, die auf RD-Sitzungshosts und RD-Virtualisierungshosts kompatibel sind.
+In der folgenden Tabelle wird gezeigt, welche RDS-CAL- und RD-Sitzungshostversionen miteinander kompatibel sind.
 
-|                  |CAL für 2008 R2 und früher|CAL für 2012|CAL für 2016|CAL für 2019|
+|                  | RDS 2008 R2 CAL und niedriger | RDS 2012 CAL | RDS 2016CAL | RDS 2019CAL |
 |---------------------------------|--------|--------|--------|--------|
-| **Lizenzserver: 2008, 2008 R2**| Ja    | Nein     | Nein     | Nein     |
-| **Lizenzserver: 2012**         | Ja    | Ja    | Nein     | Nein     |
-| **Lizenzserver: 2012 R2**      | Ja    | Ja    | Nein     | Nein     |
-| **Lizenzserver: 2016**         | Ja    | Ja    | Ja    | Nein     |
-| **Lizenzserver: 2019**         | Ja    | Ja    | Ja    | Ja    |
+| **2008-, 2008 R2-Sitzungshost** | Ja    | Ja    | Ja    | Ja     |
+| **2012-Sitzungshost**         | Nein     | Ja    | Ja    | Ja    |
+| **2012 R2-Sitzungshost**      | Nein     | Ja    | Ja    | Ja    |
+| **2016-Sitzungshost**         | Nein     | Nein     | Ja    | Ja    |
+| **2019-Sitzungshost**         | Nein     | Nein     | Nein     | Ja    |
 
-Jeder RDS-Lizenzserver kann Lizenzen der aktuellen und aller früheren Versionen der Remotedesktopdienste hosten. Ein Windows Server 2016-RDS-Lizenzserver kann beispielsweise Lizenzen aller früheren Versionen von RDS hosten, ein Windows Server 2012 R2-RDS-Lizenzserver nur Lizenzen für Versionen bis zu Windows Server 2012 R2.
+Sie müssen Ihre RDS-CAL auf einem kompatiblen RD-Lizenzserver installieren. Jeder RDS-Lizenzserver kann Lizenzen der aktuellen und aller früheren Versionen der Remotedesktopdienste hosten. Ein Windows Server 2016-RDS-Lizenzserver kann beispielsweise Lizenzen aller früheren Versionen von RDS hosten, ein Windows Server 2012 R2-RDS-Lizenzserver nur Lizenzen für Versionen bis zu Windows Server 2012 R2.
+
+In der folgenden Tabelle wird gezeigt, welche RDS-CAL- und Lizenzserverversionen miteinander kompatibel sind.
+
+|                  | RDS 2008 R2 CAL und niedriger | RDS 2012 CAL | RDS 2016CAL | RDS 2019CAL |
+|---------------------------------|--------|--------|--------|--------|
+| **Lizenzserver: 2008, 2008 R2** | Ja    | Nein   | Nein   | Nein    |
+| **Lizenzserver: 2012**         | Ja     | Ja    | Nein   | Nein    |
+| **Lizenzserver: 2012 R2**      | Ja     | Ja    | Nein   | Nein    |
+| **Lizenzserver: 2016**         | Ja     | Ja    | Ja   | Nein    |
+| **Lizenzserver: 2019**         | Ja     | Ja    | Ja  | Ja   |

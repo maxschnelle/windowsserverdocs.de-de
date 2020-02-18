@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 21172d9d3e6d91af691986bfd84b0e32049f3b88
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6d8f6bf0df67b76028945403352bd135e6641a5a
+ms.sourcegitcommit: ab3967d71dcbb962079af194875de58e7c32c4e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71401967"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76967419"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Bereitstellen von Ordnerumleitung mit Offlinedateien
 
@@ -93,9 +93,9 @@ So wird eine Dateifreigabe unter Windows Server 2019, Windows Server 2016 und 
 
 ### <a name="required-permissions-for-the-file-share-hosting-redirected-folders"></a>Erforderliche Berechtigungen für die Dateifreigabe, die umgeleitete Ordner hostet
 
-| Benutzerkonto  | Access  | Gilt für  |
+| Benutzerkonto  | Access  | Betrifft  |
 | --------- | --------- | --------- |
-| Benutzerkonto | Access | Gilt für |
+| Benutzerkonto | Access | Betrifft |
 | System     | Vollzugriff        |    Dieser Ordner, die Unterordner und Dateien     |
 | Administratoren     | Vollzugriff       | Nur dieser Ordner        |
 | Ersteller/Besitzer     |   Vollzugriff      |   Nur Unterordner und Dateien      |
@@ -142,7 +142,7 @@ So konfigurieren Sie die Ordnerumleitung in Gruppenrichtlinien:
     > Um Ordnerumleitung auf Computer anzuwenden, auf denen Windows XP oder Windows Server 2003 ausgeführt wird, wählen Sie die Registerkarte **Einstellungen** aus, und aktivieren Sie das Kontrollkästchen **Also apply redirection policy to Windows 2000, Windows 2000 Server, Windows XP, and Windows Server 2003 operating systems** (Umleitungsrichtlinie auch auf die Betriebssysteme Windows 2000, Windows 2000 Server, Windows XP und Windows Server 2003 anwenden).
 
 5. Wählen Sie im Abschnitt **Zielordner** **Einen Ordner für jeden Benutzer im Stammpfad erstellen** aus, und geben Sie dann im Feld **Stammpfad** den Pfad zu der Dateifreigabe ein, auf der die umgeleiteten Ordner gespeichert werden sollen, beispielsweise: **\\\\fs1.corp.contoso.com\\users$**
-6. Wählen Sie die Registerkarte **Einstellungen** aus, und aktivieren Sie im Abschnitt **Entfernen der Richtlinie** optional **Ordner nach Entfernen der Richtlinie zurück an den Speicherort des lokalen Benutzerprofils umleiten** (diese Einstellung kann hilfreich sein, um das Verhalten der Ordnerumleitung für Administratoren und Benutzer vorhersagbarer zu machen).
+6. Wähle die Registerkarte **Einstellungen** aus, und aktiviere im Abschnitt **Entfernen der Richtlinie** optional **Ordner nach Entfernen der Richtlinie zurück an den Speicherort des lokalen Benutzerprofils umleiten** (diese Einstellung kann hilfreich sein, um das Verhalten der Ordnerumleitung für Administratoren und Benutzer vorhersagbarer zu machen).
 7. Wählen Sie **OK** und dann im Dialogfeld Warnung **Ja** aus.
 
 ## <a name="step-5-enable-the-folder-redirection-gpo"></a>Schritt 5: Aktivieren der Gruppenrichtlinie für die Ordnerumleitung
@@ -175,7 +175,7 @@ So testen Sie die Ordnerumleitung:
 
 ## <a name="appendix-a-checklist-for-deploying-folder-redirection"></a>Anhang A: Checkliste zum Bereitstellen der Ordnerumleitung
 
-| Status           | Action |
+| Status           | Aktion |
 | ---              | ---    |
 | ☐<br>☐<br>☐    | 1. Bereiten Sie die Domäne vor<br>– Fügen Sie der Domäne Computer hinzu<br>– Erstellen Sie Benutzerkonten |
 | ☐<br><br><br>   | 2. Erstellen einer Sicherheitsgruppe für die Ordnerumleitung<br>– Gruppenname:<br>– Mitglieder: |

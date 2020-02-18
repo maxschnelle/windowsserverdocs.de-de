@@ -9,17 +9,17 @@ ms.technology: remote-desktop-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 03ec5a3d-d3f2-4afd-9405-ae58b6ecc91c
-author: lizap
-manager: dongill
-ms.author: elizapo
-date: 08/27/2019
+author: Heidilohr
+manager: lizross
+ms.author: helohr
+date: 02/11/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 8361d1171c2526e701a5418696761a8400c47ca3
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 1724f24a794003aaae0ac89ee892269eed045114
+ms.sourcegitcommit: 5797a2e67211651070404a5893f5c0a91c63e960
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949874"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77179354"
 ---
 # <a name="get-started-with-the-ios-client"></a>Erste Schritte mit dem iOS-Client
 
@@ -33,60 +33,13 @@ Verwenden Sie die folgenden Informationen für die ersten Schritte. Lesen Sie un
 > - Möchten Sie mehr über die neuen Versionen für den iOS-Client erfahren? Lesen Sie [Neuerungen bei Remotedesktop unter iOS](ios-whatsnew.md).
 > - Der iOS-Client unterstützt Geräte unter iOS 6.x oder höher.
 
-## <a name="get-the-remote-desktop-beta-client-and-start-using-it"></a>Abrufen des Remotedesktop-Beta-Clients und Ausführen der ersten Schritte
-Der heute über Apple TestFlight verfügbare iOS-Beta-Client unterstützt Verbindungen mit Windows Virtual Desktop-Ressourcen.
-
-### <a name="download-the-remote-desktop-ios-beta-client-from-apple-testflight"></a>Herunterladen des Remotedesktop-Beta-Clients für iOS von Apple TestFlight
-So richten Sie den Remotedesktop Beta-Client auf Ihrem IOS-Gerät ein:
-
-1. Installieren Sie die [Apple Testflight](https://apps.apple.com/us/app/testflight/id899247664)-App auf Ihrem IOS-Gerät.
-2. Öffnen Sie auf Ihrem iOS-Gerät einen Browser, und navigieren Sie zu [aka.ms/rdiosbeta](https://aka.ms/rdiosbeta).
-3. Wählen Sie unter der Beschriftung **Schritt 2 – Betaversion** die Option **Mit Testen beginnen** aus.
-4. Wenn Sie zur Testflight-App umgeleitet werden, wählen Sie **Akzeptieren** aus , und **installieren** Sie dann den Client.
-
-### <a name="add-a-connection-to-a-pc"></a>Hinzufügen einer Verbindung zu einem PC
-So erstellen Sie eine Remoteverbindung mit einem PC:
-
-1. Tippen Sie im Connection Center auf **+** , und tippen Sie dann auf **PC hinzufügen**.
-2. Geben Sie den Namen des Remotecomputers in **PC-Name** ein. Dies kann der Name eines Windows-Computers, ein Internetdomänenname oder eine IP-Adresse sein. Sie können auch Portinformationen an den PC-Namen anfügen (z. B. **MyDesktop:3389** oder **10.0.0.1:3389**).
-3. Wählen Sie das **Benutzerkonto** aus, das Sie für den Zugriff auf den Remotecomputer verwenden möchten.
-   - Wählen Sie **Immer nachfragen** aus, wenn der Client bei jeder Anmeldung am Remotecomputer Ihre Anmeldeinformationen abfragen soll.
-   - Wählen Sie **Benutzerkonto hinzufügen** aus, um ein Konto zu speichern, das Sie häufig verwenden, damit Sie nicht bei jeder Anmeldung Ihre Anmeldeinformationen eingeben müssen. Befolgen Sie [diese Anweisungen](#manage-your-user-accounts) zum Verwalten Ihrer Benutzerkonten.
-4. Sie können außerdem die folgenden optionalen Parameter festlegen:
-   - In **Anzeigename** können Sie einen leicht zu merkenden Namen für den PC eingeben, mit dem Sie die Verbindung herstellen möchten.
-   - Mit **Administratormodus** können Sie eine Verbindung mit einer Administratorsitzung auf dem Remotecomputer herstellen.
-   - **Maustasten tauschen** vertauscht die Befehle, die von der linken und der rechten Maustaste gesendet werden. Ideal für linkshändige Benutzer.
-   - **Gateway** ist das Remotedesktopgateway, das Sie verwenden, um von einem externen Netzwerk aus eine Verbindung mit einem Computer herzustellen. Weitere Informationen erhalten Sie von Ihrem Systemadministrator.
-   - **Sound** wählt das Gerät aus, das von der Remote Sitzung für die Audiowiedergabe verwendet wird. Sie können sich entscheiden, Audiosignale auf Ihrem lokalen Gerät, dem Remotegerät oder gar nicht wiederzugeben.
-   - **Mikrofon** aktiviert die Mikrofonumleitung. Diese Einstellung ist standardmäßig deaktiviert.
-   - **Kamera** aktiviert die Kameraumleitung. Diese Einstellung ist standardmäßig deaktiviert.
-   - **Zwischenablage** aktiviert die Umleitung der Zwischenablage. Die Einstellung ist standardmäßig aktiviert.
-   - **Speicher** aktiviert die Umleitung des lokalen Speichers. Diese Einstellung ist standardmäßig deaktiviert.
-5. Wählen Sie **Speichern** aus, um die Remote-PC-Verbindung hinzuzufügen.
-
-### <a name="add-remote-resources"></a>Hinzufügen von Remoteressourcen
-Bei Remoteressourcen handelt es sich um RemoteApp-Programme, sitzungsbasierte Desktops und virtuelle Desktops, die von Ihrem Administrator veröffentlicht werden. Der iOS-Client unterstützt Ressourcen, die von Bereitstellungen von **Remotedesktopdienste** und **Windows Virtual Desktop** veröffentlicht werden. So fügen Sie Remoteressourcen hinzu:
-
-1. Tippen Sie im Connection Center auf **+** , und tippen Sie dann auf **Arbeitsbereich hinzufügen**.
-2. Geben Sie die **Feed-URL** ein. Dies kann eine URL oder eine E-Mail-Adresse sein:
-   - Die **URL** ist die URL des RD-Webzugriffsservers, die Ihnen von Ihrem Administrator zur Verfügung gestellt wird. Wenn Sie auf Ressourcen von Windows Virtual Desktop zugreifen, können Sie `https://rdweb.wvd.microsoft.com` verwenden.
-   - Wenn Sie **E-Mail** verwenden möchten, geben Sie in diesem Feld Ihre E-Mail-Adresse ein. Dies weist den Client an, nach einem RD-Webzugriffsserver zu suchen, der Ihrer E-Mail-Adresse zugeordnet ist, wenn dies von Ihrem Administrator konfiguriert wurde.
-3. Tippen Sie auf **Weiter**.
-4. Geben Sie auf Aufforderung Ihre Anmeldeinformationen ein. Diese können sich je nach Bereitstellung unterscheiden und können Folgendes beinhalten:
-   - **Benutzername**, der Name des Benutzers, der über die Zugriffsberechtigung auf die Ressourcen verfügt.
-   - **Kennwort**, das dem Benutzernamen zugeordnete Kennwort.
-   - **Zusätzlicher Faktor**, zu dessen Eingabe Sie ggf. aufgefordert werden, wenn die Authentifizierung von Ihrem Administrator in dieser Weise konfiguriert wurde.
-5. Tippen Sie auf **Speichern**.
-
-Die Remoteressourcen werden im Connection Center angezeigt.
-
 ## <a name="get-the-remote-desktop-client-and-start-using-it"></a>Abrufen des Remotedesktopclients und Ausführen der ersten Schritte
 
 ### <a name="download-the-remote-desktop-client-from-the-ios-store"></a>Herunterladen des Remotedesktopclients aus dem App Store für iOS-Geräte
 
 Führen Sie die folgenden Schritte für den Einstieg in Remotedesktop auf Ihrem iOS-Gerät aus:
 
-1. Laden Sie den Microsoft-Remotedesktopclient von [iTunes](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8) herunter.
+1. Lade den Microsoft-Remotedesktopclient aus dem [iOS App Store](https://aka.ms/rdios) oder über [iTunes](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8) herunter.
 2. [Richten Sie Ihren PC so ein, dass Remoteverbindungen zulässig sind](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop).
 3. Fügen Sie eine [Remotedesktopverbindung](#add-a-remote-desktop-connection) oder eine [Remoteressource](#add-a-remote-resource) hinzu. Mit einer Verbindung können Sie eine direkte Verbindung mit einem Windows-PC herstellen, und mit einer Remoteressource können Sie ein RemoteApp-Programm, einen sitzungsbasierten Desktop oder einen virtuellen Desktop verwenden, das/der mithilfe von RemoteApp- und Desktopverbindungen veröffentlicht wird. Dieses Feature ist in der Regel in Unternehmensumgebungen verfügbar.
 
@@ -143,7 +96,7 @@ Gehen Sie wie folgt vor, um ein Benutzerkonto zu löschen:
 
 1. Tippen Sie im Connection Center auf **Einstellungen**, und tippen Sie dann auf **Benutzerkonten**.
 2. Wählen Sie das Konto aus, das Sie löschen möchten.
-3. Tippen Sie auf **Löschen**.   
+3. Tippen Sie auf **Löschen**.
 
 ## <a name="connect-to-an-rd-gateway-to-access-internal-assets"></a>Herstellen einer Verbindung mit einem Remotedesktopgateway zum Zugreifen auf interne Ressourcen
 
@@ -158,6 +111,7 @@ Gehen Sie wie folgt vor, um ein neues Gateway einzurichten:
    - **Benutzername**: Der Benutzername und das Kennwort für das Remotedesktopgateway, mit dem Sie eine Verbindung herstellen. Sie können auch **Anmeldeinformationen für die Verbindung verwenden** auswählen, damit derselbe Benutzername und dasselbe Kennwort wie für die Remotedesktopverbindung verwendet werden.
 
 ## <a name="navigate-the-remote-desktop-session"></a>Navigieren in der Remotedesktopsitzung
+
 Wenn Sie eine Remotedesktopsitzung starten, stehen Tools zur Verfügung, die Sie für die Navigation in der Sitzung verwenden können.
 
 ### <a name="start-a-remote-desktop-connection"></a>Starten einer Remotedesktopverbindung
@@ -178,6 +132,7 @@ Die Verbindungsleiste ermöglicht den Zugriff auf zusätzliche Navigationssteuer
 - **Verschieben der Verbindungsleiste**: Tippen Sie auf die Verbindungsleiste, halten Sie die Leiste gedrückt, und ziehen Sie sie dann per Drag & Drop an eine neue Position am oberen Rand des Bildschirms.
 
 ### <a name="session-selection"></a>Sitzungsauswahl
+
 Es können mehrere Verbindungen mit verschiedenen PCs gleichzeitig geöffnet sein. Tippen Sie auf die Verbindungsleiste, um die Sitzungsauswahlleiste auf der linken Seite des Bildschirms anzuzeigen. Mit der Sitzungsauswahlleiste können Sie Ihre geöffneten Verbindungen anzeigen und zwischen diesen wechseln.
 
 - Wechseln Sie zwischen Apps in einer geöffneten Remoteressourcensitzung.
@@ -215,9 +170,7 @@ Der Client verwendet Standardtouchgesten. Sie können auch Touchgesten verwenden
 
 ## <a name="supported-input-devices"></a>Unterstützte Eingabegeräte
 
-Der [Remotedesktop-Beta Client für iOS](https://aka.ms/rdiosbeta) unterstützt die physischen Mäuse Swiftpoint GT und ProPoint. Swiftpoint bietet Benutzern des iOS-Beta-Clients einen [exklusiven Rabatt](https://www.swiftpoint.com/microsoft/) für die GT-Maus.
-
-Der iOS-Client unterstützt derzeit nur Swiftpoint-Mäuse. Informationen zur Unterstützung von anderen Geräten in der Zukunft finden Sie auf der Seite [Neuerungen beim iOS-Client](ios-whatsnew.md) und im [App Store für iOS-Geräte](https://aka.ms/rdios).
+Der iOS-Client unterstützt derzeit nur Swiftpoint GT- und ProPoint-Mäuse. Weitere Informationen zur Geräteunterstützung findest du unter [Neuerungen beim iOS-Client](ios-whatsnew.md) und im [iOS App Store](https://aka.ms/rdios).
 
 ## <a name="use-a-keyboard-in-a-remote-session"></a>Verwenden einer Tastatur in einer Remotesitzung
 

@@ -13,12 +13,12 @@ manager: dongill
 ms.author: helohr
 ms.date: 05/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 43cffc007970245ab9bd96c7cae9bb5137a8030b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6a596bcd29fdb80f8b2b0fa86ee808755dd09f43
+ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387799"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125092"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>Unterstützte RDP-Dateieinstellungen für Remotedesktop
 
@@ -40,6 +40,7 @@ In [dieser Dokumentation](https://go.microsoft.com/fwlink/?linkid=2098243&clcid=
 | desktop size id:i:value | Gibt die Maße des Remotesitzungsdesktops aus einer Reihe vordefinierter Optionen an. Diese Einstellung wird überschrieben, wenn „desktopheight“ oder „desktopwidth“ angegeben sind.| -0: 640×480<br>- 1: 800×600<br>- 2: 1024×768<br>- 3: 1280×1024<br>- 4: 1600×1200 | 0 | x | x | x |
 | desktopheight:i:value | Bestimmt die Auflösungshöhe (in Pixel) auf dem Remotecomputer, wenn Sie die Verbindung über eine Remotedesktopverbindung herstellen. Diese Einstellung entspricht der Auswahl beim Schieberegler „Anzeigekonfiguration“ auf der Registerkarte „Anzeige“ unter „Optionen“ in der RDC. | Numerischer Wert zwischen 200 und 2048 | Der Standardwert ist auf die Auflösung auf dem lokalen Computer festgelegt | x | x | x |
 | desktopwidth:i:value | Bestimmt die Auflösungsbreite (in Pixel) auf dem Remotecomputer, wenn Sie die Verbindung über eine Remotedesktopverbindung herstellen. Diese Einstellung entspricht der Auswahl beim Schieberegler „Anzeigekonfiguration“ auf der Registerkarte „Anzeige“ unter „Optionen“ in der RDC. | Numerischer Wert zwischen 200 und 4096 | Der Standardwert ist auf die Auflösung auf dem lokalen Computer festgelegt | x | x | x |
+| devicestoredirect:s:value | Bestimmt, welche Geräte auf dem Clientcomputer umgeleitet werden und in der Remotesitzung verfügbar sind. | - *: Alle unterstützten Geräte umleiten, einschließlich der, die später verbunden werden<br> – Gültige Hardware-ID für ein oder mehrere Geräte | | x | x | x |
 | disableconnectionsharing:i:value | Bestimmt, ob der Remotedesktopclient vorhandene offene Verbindungen weiterhin nutzt oder eine neue Verbindung initiiert, wenn eine RemoteApp oder ein Desktop gestartet wird. | - 0: Erneut Verbindung mit einer vorhandenen Sitzung herstellen<br>- 1: Neue Verbindung initiieren | 0 | x | x | x |
 | domain:s:value | Gibt den Namen der Domäne an, in der sich das Benutzerkonto befindet, das zum Anmelden beim Remotecomputer verwendet wird. | Ein gültiger Domänenname, z.B. „CONTOSO“ | Kein Standardwert | x | x | x |
 | drivestoredirect:s:value | Bestimmt, ob lokale Datenträgerlaufwerke auf dem Clientcomputer umgeleitet werden und in der Remotesitzung verfügbar sind. | - Kein Wert angegeben: keine Laufwerke umleiten<br>- * : Alle Datenträgerlaufwerke umleiten, einschließlich aller Laufwerke, die später verbunden werden<br>- DynamicDrives: alle Laufwerke umleiten, die später verbunden werden<br>- Laufwerk und Bezeichnungen für ein oder mehrere Laufwerke, wie etwa "drivestoredirect:s:C:;E:;": das angegebene Laufwerk bzw. die angegebenen Laufwerke umleiten| Kein Wert angegeben: keine Laufwerke umleiten | x | x    | |

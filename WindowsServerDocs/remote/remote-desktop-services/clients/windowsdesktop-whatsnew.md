@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 01/29/2020
+ms.date: 02/11/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: b2d5215c7089ce1aadbeae68890dca1a0ae1c294
-ms.sourcegitcommit: 9077469e372d2aafcad890cbc4e4a24c58a3838c
+ms.openlocfilehash: 3f8b035eef5bb956012627b5e2c7c59adaa8cd32
+ms.sourcegitcommit: 5797a2e67211651070404a5893f5c0a91c63e960
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889444"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77155384"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -30,8 +30,21 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 
 |Benutzergruppe |Version  |
 |-----------|---------|
-|Öffentlich     |1.2.605  |
-|Insider    |1.2.605  |
+|Public     |1.2.605  |
+|Insider    |1.2.673  |
+
+## <a name="updates-for-version-12673"></a>Updates für Version 1.2.673
+
+*Veröffentlicht am: 11.02.2020*
+
+Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4pPJm), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4pFbw), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4pN07)
+
+- Verbindungen mit Windows Virtual Desktop werden jetzt blockiert, wenn der RDP-Datei die Signatur fehlt oder eine der signscope-Eigenschaften geändert wurde.
+- Wenn ein Arbeitsbereich leer ist oder entfernt wurde, scheint das Verbindungscenter nicht mehr leer zu sein.
+- Trennungsmeldungen wurden die Aktivitäts-ID und der Fehlercode hinzugefügt, um die Problembehandlung zu verbessern. Du kannst die Dialogmeldung mit **STRG+C** kopieren.
+- Ein Problem wurde behoben, das dazu geführt hat, dass die Desktopverbindungseinstellungen keine Anzeigen erkannt haben.
+- Der PC wird von Clientupdates nicht mehr automatisch neu gestartet.
+- Auf der Taskleiste sollten keine fensterlosen Symbole mehr angezeigt werden.
 
 ## <a name="updates-for-version-12605"></a>Updates für Version 1.2.605
 
