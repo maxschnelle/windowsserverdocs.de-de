@@ -9,12 +9,12 @@ ms.date: 10/16/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: manage
-ms.openlocfilehash: 6a6ccedeeb007b9d3ab32c308fae991deb526442
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3b29a7e10cc6a862873516b9adc16182d64dd926
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383092"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465464"
 ---
 # <a name="server-performance-advisor-users-guide"></a>Server Performance Advisor-Benutzerhandbuch
 
@@ -28,7 +28,7 @@ Spa kann Ihnen Folgendes helfen:
 
 * Stellen Sie Daten Berichte und Empfehlungen zu häufigen Konfigurations-und Leistungsproblemen bereit.
 
-* Stellen Sie basierend auf den gesammelten Daten optimale Empfehlungen für die Bereitstellung bereit.
+* Geben Sie Empfehlungen zu bewährten Methoden auf Grundlage der gesammelten Daten an.
 
 > [!NOTE]
 > Die Spa-Konsole nimmt keine Änderungen an den Servern vor.
@@ -126,11 +126,11 @@ Die Spa-Konsole kann unter den folgenden Betriebssystemen ausgeführt werden:
 
 * Windows 8
 
-* Windows 7
+* Windows 7
 
-* Windows Server 2012 R2
+* Windows Server 2012 R2
 
-* Windows Server 2012
+* Windows Server 2012
 
 * Windows Server 2008 R2
 
@@ -157,7 +157,7 @@ Das folgende Diagramm zeigt die allgemeine Architektur des Spa-Systems. Der Proz
 ## <a name="getting-started-with-spa"></a>Einstieg in die Spa
 
 
-### <a name="requirements"></a>Anforderungen
+### <a name="requirements"></a>Voraussetzungen
 
 Die Spa-Konsole kann auf Windows 8.1, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 und Windows Server 2008 installiert werden. Das Ausführen von Spa unter früheren Versionen des Windows Server-Betriebssystems wird nicht unterstützt. Spa wird auf x86 oder x64 ausgeführt, unterstützt jedoch keine ia64-oder ARM-Architekturen.
 

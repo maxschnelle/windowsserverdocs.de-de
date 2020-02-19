@@ -10,12 +10,12 @@ ms.topic: article
 author: adagashe
 ms.date: 10/24/2018
 ms.localizationpriority: ''
-ms.openlocfilehash: 67f35e3afa8e9eafabe7b22eb60cc85c7be6cb23
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0d64e6188b24b5a1ec45242c3d99366fdde5a623
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402875"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465214"
 ---
 # <a name="collect-diagnostic-data-with-storage-spaces-direct"></a>Sammeln von Diagnosedaten mit direkte Speicherplätze
 
@@ -23,11 +23,11 @@ ms.locfileid: "71402875"
 
 Es gibt verschiedene Diagnosetools, die verwendet werden können, um die für die Problembehandlung von direkte Speicherplätze und Failoverclustern erforderlichen Daten zu erfassen. In diesem Artikel konzentrieren wir uns auf " **Get-sddcdiagnosticinfo** ": ein eingabetool, das alle relevanten Informationen sammelt, um Sie bei der Diagnose Ihres Clusters zu unterstützen.
 
-Da die Protokolle und andere Informationen, die " **Get-sddcdiagnosticinfo** " aufweisen, dicht sind, sind die Informationen zur Problembehandlung, die nachstehend beschrieben werden, hilfreich bei der Behebung erweiterter Probleme, die eskaliert wurden und möglicherweise erforderlich sind, um Daten zu senden. Microsoft für die Selektierung.
+Da die Protokolle und andere Informationen, die " **Get-sddcdiagnosticinfo** " aufweisen, dicht sind, sind die Informationen zur Problembehandlung, die nachstehend beschrieben werden, hilfreich bei der Behebung erweiterter Probleme, die eskaliert wurden und möglicherweise erfordern, dass Daten für die Auslagerung an Microsoft gesendet werden.
 
 ## <a name="installing-get-sddcdiagnosticinfo"></a>Installieren von "Get-sddcdiagnosticinfo"
 
-Das PowerShell-Cmdlet **Get-sddcdiagnosticinfo** (auch bekannt als **Get-pcstoragediagnosticinfo**, früher als **Test-storagehealth**bezeichnet) kann verwendet werden, um Protokolle für das Failoverclustering (Cluster, Ressourcen, Netzwerke, Knoten) und Speicherplätze (physische Datenträger, Gehäuse) zu erfassen und zu überprüfen. Virtuelle Datenträger), freigegebene Clustervolumes, SMB-Dateifreigaben und Deduplizierung. 
+Das PowerShell-Cmdlet **Get-sddcdiagnosticinfo** (auch bekannt als **Get-pcstoragediagnosticinfo**, früher als **Test-storagehealth**bezeichnet) kann verwendet werden, um Protokolle für Failoverclustering (Cluster, Ressourcen, Netzwerke, Knoten), Speicherplätze (physische Datenträger, Gehäuse, virtuelle Datenträger), freigegebene Clustervolumes, SMB-Dateifreigaben und Deduplizierung zu erfassen und auszuführen. 
 
 Es gibt zwei Methoden zum Installieren des Skripts, von denen beide nachfolgend beschrieben werden.
 
@@ -35,12 +35,15 @@ Es gibt zwei Methoden zum Installieren des Skripts, von denen beide nachfolgend 
 
 Der [PowerShell-Katalog](https://www.powershellgallery.com/packages/PrivateCloud.DiagnosticInfo) ist eine Momentaufnahme des GitHub-Repository. Beachten Sie, dass die Installation von Elementen aus dem PowerShell-Katalog die neueste Version des PowerShellGet-Moduls erfordert, das in Windows 10, in Windows Management Framework (WMF) 5,0 oder im MSI-basierten Installationsprogramm (für PowerShell 3 und 4) verfügbar ist.
 
+Während dieses Vorgangs wird auch die neueste Version der [Microsoft-Netzwerk Diagnosetools](https://www.powershellgallery.com/packages/MSFT.Network.Diag) installiert, da Get-sddcdiagnosticinfo auf diese Weise basiert. Dieses Manifest-Modul enthält das Tool für die Netzwerk Diagnose und-Problembehandlung, das von der Produktgruppe Microsoft Core Networking bei Microsoft verwaltet wird.
+
 Sie können das-Modul installieren, indem Sie den folgenden Befehl in PowerShell mit Administratorrechten ausführen:
 
 ``` PowerShell
 Install-PackageProvider NuGet -Force
 Install-Module PrivateCloud.DiagnosticInfo -Force
 Import-Module PrivateCloud.DiagnosticInfo -Force
+Install-Module -Name MSFT.Network.Diag
 ```
 
 Führen Sie den folgenden Befehl in PowerShell aus, um das Modul zu aktualisieren:
@@ -51,7 +54,7 @@ Update-Module PrivateCloud.DiagnosticInfo
 
 ### <a name="github"></a>GitHub
 
-Das [GitHub](https://github.com/PowerShell/PrivateCloud.DiagnosticInfo/) -Repository ist die aktuellste Version des Moduls, da wir hier ständig Iteration durchlaufen. Um das Modul aus GitHub zu installieren, laden Sie das neueste Modul aus dem [Archiv](https://github.com/PowerShell/PrivateCloud.DiagnosticInfo/archive/master.zip) herunter, und extrahieren Sie das Verzeichnis privatecloud. diagnosticinfo in den richtigen PowerShell-Modul Pfad, auf den ```$env:PSModulePath``` zeigt.
+Das [GitHub](https://github.com/PowerShell/PrivateCloud.DiagnosticInfo/) -Repository ist die aktuellste Version des Moduls, da wir hier ständig Iteration durchlaufen. Um das Modul aus GitHub zu installieren, laden Sie das neueste Modul aus dem [Archiv](https://github.com/PowerShell/PrivateCloud.DiagnosticInfo/archive/master.zip) herunter, und extrahieren Sie das Verzeichnis privatecloud. diagnosticinfo in den richtigen PowerShell-Modul Pfad, auf den ```$env:PSModulePath```
 
 ``` PowerShell
 # Allowing Tls12 and Tls11 -- e.g. github now requires Tls12
@@ -165,7 +168,7 @@ Der Integritäts Zusammenfassungs Bericht wird gespeichert unter:
 
 Diese Datei wird generiert, nachdem Sie alle gesammelten Daten verarbeitet und eine kurze Zusammenfassung Ihres Systems bereitgestellt haben. Die Datei enthält Folgendes:
 
-- System Informationen
+- Systeminformationen
 - Übersicht über die Speicher Integrität (Anzahl der Knoten, Ressourcen Online, freigegebene Clustervolumes Online, fehlerhafte Komponenten usw.)
 - Details zu fehlerhaften Komponenten (offline-, Fehler-oder Online ausstehende Cluster Ressourcen)
 - Firmware-und Treiber Informationen

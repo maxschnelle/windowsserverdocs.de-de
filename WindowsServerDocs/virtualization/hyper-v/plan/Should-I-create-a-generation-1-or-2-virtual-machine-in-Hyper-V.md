@@ -11,19 +11,19 @@ ms.assetid: 02e31413-6140-4723-a8d6-46c7f667792d
 author: KBDAzure
 ms.author: kathydav
 ms.date: 12/05/2016
-ms.openlocfilehash: bd0b50534096bc06edb41390ef2c4ec3554d8406
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fce9b45f538b0d506b621b888d413c99590b1362
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364079"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465554"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>Sollte ich einen virtuellen Computer der Generation 1 oder 2 in Hyper-V erstellen?
 
 >Gilt für: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 > [!NOTE]
-> Wenn Sie einen virtuellen Windows-Computer (VM) von einem lokalen Standort in Microsoft Azure hochladen möchten, werden VMS der Generation 1 und der Generation 2 im VHD-Dateiformat unterstützt, die einen Datenträger mit fester Größe aufweisen. Weitere Informationen zu den in Azure unterstützten Funktionen der Generation 2 finden Sie unter [VMS der Generation](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) 2 in Azure. Weitere Informationen zum Hochladen einer Windows-VHD-oder vhdx-Datei finden Sie unter [Vorbereiten einer Windows-VHD oder vhdx zum Hochladen in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> Wenn Sie virtuelle Windows-Computer (VMS) aus einer lokalen Umgebung in Microsoft Azure hochladen möchten, werden VMS der Generation 1 und der Generation 2 im VHD-Dateiformat unterstützt, die einen Datenträger mit fester Größe aufweisen. Weitere Informationen zu den in Azure unterstützten Funktionen der Generation 2 finden Sie unter [VMS der Generation](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) 2 in Azure. Weitere Informationen zum Hochladen einer Windows-VHD-oder vhdx-Datei finden Sie unter [Vorbereiten einer Windows-VHD oder vhdx zum Hochladen in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 Die Entscheidung, einen virtuellen Computer der Generation 1 oder 2 zu erstellen, hängt von dem Gast Betriebssystem ab, das Sie installieren möchten, und von der Start Methode, die Sie zum Bereitstellen der virtuellen Maschine verwenden möchten. Es wird empfohlen, einen virtuellen Computer der Generation 2 zu erstellen, um Funktionen wie den sicheren Start zu nutzen, es sei denn, eine der folgenden Anweisungen ist true:  
 
@@ -57,33 +57,33 @@ Virtuelle Computer der Generation 1 unterstützen die meisten Gast Betriebssyste
 
 In der folgenden Tabelle wird gezeigt, welche 64-Bit-Versionen von Windows als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwendet werden können.  
 
-|64-Bit-Versionen von Windows|Generation 1|Zweite Generation|  
+|64-Bit-Versionen von Windows|Erste Generation|Zweite Generation|  
 |-------------------------------|----------------|----------------|  
 | Windows Server 2019 |&#10004;|&#10004;|  
 | Windows Server 2016 |&#10004;|&#10004;|  
-| Windows Server 2012 R2 |&#10004;|&#10004;|  
-| Windows Server 2012 |&#10004;|&#10004;|  
+| Windows Server 2012 R2 |&#10004;|&#10004;|  
+| Windows Server 2012 |&#10004;|&#10004;|  
 |Windows Server 2008 R2|&#10004;| &#10006;|  
 |WindowsServer 2008|&#10004;| &#10006;|  
 |Windows 10|&#10004;|&#10004;|  
 |Windows 8.1|&#10004;|&#10004;|  
 |Windows 8|&#10004;|&#10004;|  
-|Windows 7|&#10004;| &#10006;|
+|Windows 7|&#10004;| &#10006;|
 
 In der folgenden Tabelle wird gezeigt, welche 32-Bit-Versionen von Windows als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwendet werden können.
 
-|32-Bit-Versionen von Windows|Generation 1|Zweite Generation|  
+|32-Bit-Versionen von Windows|Erste Generation|Zweite Generation|  
 |-------------------------------|----------------|----------------|  
 |Windows 10|&#10004;| &#10006;|  
 |Windows 8.1|&#10004;| &#10006;|  
 |Windows 8|&#10004;| &#10006;|  
-|Windows 7|&#10004;| &#10006;|  
+|Windows 7|&#10004;| &#10006;|  
 
 ### <a name="centos-and-red-hat-enterprise-linux-guest-operating-system-support"></a>Unterstützung von CentOS und Red Hat Enterprise Linux Gastbetriebssystemen
 
 Die folgende Tabelle zeigt, welche Versionen von Red Hat Enterprise Linux \(RHEL\) und CentOS als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwendet werden können.
 
-|Betriebssystemversionen|Generation 1|Zweite Generation|  
+|Betriebssystemversionen|Erste Generation|Zweite Generation|  
 |-----------------------------|----------------|----------------|  
 |RHEL/CentOS 7. x-Serie|&#10004;|&#10004;|  
 |RHEL/CentOS 6. x-Reihe|&#10004;|&#10004;<br />**Hinweis:** Wird nur unter Windows Server 2016 und höher unterstützt.|  
@@ -95,7 +95,7 @@ Weitere Informationen finden Sie unter [CentOS und Red Hat Enterprise Linux von 
 
 Die folgende Tabelle zeigt, welche Versionen von Debian als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwendet werden können.
 
-|Betriebssystemversionen|Generation 1|Zweite Generation|  
+|Betriebssystemversionen|Erste Generation|Zweite Generation|  
 |-----------------------------|----------------|----------------|  
 |Debian 7. x-Reihe|&#10004;| &#10006;|  
 |Debian 8. x-Reihe|&#10004;|&#10004;|  
@@ -106,7 +106,7 @@ Weitere Informationen finden Sie unter [virtuelle Debian-Computer auf Hyper-V](.
 
 In der folgenden Tabelle sind die Versionen von FreeBSD aufgeführt, die Sie als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwenden können.  
 
-|Betriebssystemversionen|Generation 1|Zweite Generation|  
+|Betriebssystemversionen|Erste Generation|Zweite Generation|  
 |-----------------------------|----------------|----------------|  
 |FreeBSD 10 und 10,1|&#10004;| &#10006;|  
 |FreeBSD 9,1 und 9,3|&#10004;| &#10006;|  
@@ -118,14 +118,14 @@ Weitere Informationen finden Sie unter [FreeBSD Virtual Machines on Hyper-V](../
 
 In der folgenden Tabelle ist aufgeführt, welche Versionen der red hat-kompatiblen Kernel Serie Sie als Gast Betriebssystem für virtuelle Computer der Generation 1 und Generation 2 verwenden können.  
 
-|Red hat-kompatible Kernel Reihen Versionen|Generation 1|Zweite Generation|  
+|Red hat-kompatible Kernel Reihen Versionen|Erste Generation|Zweite Generation|  
 |---------------------------------------------|----------------|----------------|  
 |Oracle Linux 7. x-Serie|&#10004;|&#10004;|
 |Oracle Linux 6. x-Reihe|&#10004;| &#10006;|  
 
 Die folgende Tabelle zeigt, welche Versionen von nicht breakable Enterprise Kernel Sie als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwenden können.
 
-|Nicht breakable Enterprise Kernel (UEK)-Versionen|Generation 1|Zweite Generation|  
+|Nicht breakable Enterprise Kernel (UEK)-Versionen|Erste Generation|Zweite Generation|  
 |--------------------------------------------------|----------------|----------------|  
 |Oracle Linux UEK R3 QU3|&#10004;| &#10006;|  
 |Oracle Linux UEK R3 QU2|&#10004;| &#10006;|  
@@ -137,7 +137,7 @@ Weitere Informationen finden Sie unter [Oracle Linux Virtual Machines on Hyper-V
 
 Die folgende Tabelle zeigt, welche SUSE-Versionen Sie als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwenden können.
 
-|Betriebssystemversionen|Generation 1|Zweite Generation|  
+|Betriebssystemversionen|Erste Generation|Zweite Generation|  
 |-----------------------------|----------------|----------------|  
 |SUSE Linux Enterprise Server 12-Serie|&#10004;|&#10004;|  
 |SUSE Linux Enterprise Server 11-Serie|&#10004;| &#10006;|  
@@ -149,7 +149,7 @@ Weitere Informationen finden Sie unter [SUSE Virtual Machines on Hyper-V](../Sup
 
 Die folgende Tabelle zeigt, welche Versionen von Ubuntu Sie als Gast Betriebssystem für virtuelle Maschinen der Generation 1 und Generation 2 verwenden können.
 
-|Betriebssystemversionen|Generation 1|Zweite Generation|  
+|Betriebssystemversionen|Erste Generation|Zweite Generation|  
 |-----------------------------|----------------|----------------|  
 |Ubuntu 14,04 und höhere Versionen|&#10004;|&#10004;|  
 |Ubuntu 12.04|&#10004;| &#10006;|  
@@ -160,7 +160,7 @@ Weitere Informationen finden Sie unter [Ubuntu Virtual Machines on Hyper-V](../S
 
 Die folgende Tabelle zeigt, welche Startmethoden von virtuellen Maschinen der Generation 1 und der Generation 2 unterstützt werden.  
 
-|Start Methode|Generation 1|Zweite Generation|  
+|Start Methode|Erste Generation|Zweite Generation|  
 |---------------|----------------|----------------|  
 |PXE-Start mithilfe einer standardmäßigen Netzwerkkarte| &#10006;|&#10004;|  
 |PXE-Start mithilfe eines Legacy-Netzwerkadapters|&#10004;| &#10006;|  
@@ -188,7 +188,7 @@ In der folgenden Tabelle werden die verfügbaren Geräte zwischen virtuellen Mas
 |IDE-Controller|Virtueller SCSI-Controller|Start über .vhdx (max. Größe 64 TB und Onlinegrößenänderungs-Funktionalität).|  
 |IDE-CD-ROM|Virtuelle SCSI-CD-ROM|Unterstützung für bis zu 64 SCSI-DVD-Geräte pro SCSI-Controller.|  
 |Legacy-BIOS|UEFI-Firmware|Sicherer Start|  
-|Ältere Netzwerkkarte|Synthetische Netzwerkkarte|Netzwerkstart mit IPv4 und IPv6|  
+|Ältere Netzwerkkarte|Synthetischer Netzwerkadapter|Netzwerkstart mit IPv4 und IPv6|  
 |Disketten- und DMA-Controller|Keine Diskettencontrollerunterstützung|N/V|  
 |UART (Universal Asynchronous Receiver/Transmitter, universeller asynchroner Empfänger/Übermittler) für COM-Ports|Optionaler UART zwecks Debugging|Schneller und zuverlässiger|  
 |i8042-Tastaturcontroller|Softwarebasierte Eingabe|Beansprucht aufgrund der nicht vorhandenen Emulation weniger Ressourcen. Verkleinert zudem die Angriffsfläche vom Gastbetriebssystem.|  

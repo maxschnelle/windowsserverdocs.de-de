@@ -9,12 +9,12 @@ ms.prod: windows-server-hyper-v
 ms.technology: virtualization
 ms.localizationpriority: low
 ms.assetid: 6cb13f84-cb50-4e60-a685-54f67c9146be
-ms.openlocfilehash: c7c2de8354d067faf0dcf1787c3e178421e2ac03
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 8ba413b831c7b11780113ee2ffd3cce598781a44
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872028"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465574"
 ---
 # <a name="managing-hyper-v-hypervisor-scheduler-types"></a>Verwalten von Hyper-V-Hypervisor-Scheduler-Typen
 
@@ -66,7 +66,7 @@ Ab Windows Server 2016 unterstützt der Hyper-V-Hypervisor verschiedene Modi der
 
 Der klassische Scheduler war seit seiner Inbetriebnahme der Standardwert für alle Versionen des Windows Hyper-v-Hypervisors, einschließlich Windows Server 2016 Hyper-v. Der klassische Scheduler bietet eine faire Freigabe, präemptives Roundrobin-Planungsmodell für virtuelle Gast Prozessoren.
 
-Der klassische schedulertyp ist die am besten geeignete Option für die große Mehrheit herkömmlicher Hyper-V-Verwendungen – für Private Clouds, Hostinganbieter usw. Die Leistungsmerkmale sind gut verständlich und am besten optimiert, um eine Vielzahl von Virtualisierungsszenarien zu unterstützen, wie z. b. das über-Abonnement von VPS zu LPs, das gleichzeitige Ausführen von vielen heterogenen VMS und Arbeits Auslastungen und die Ausführung größerer Leistungs-VMS, die den vollständigen Featuresatz von Hyper-V ohne Einschränkungen unterstützen, und vieles mehr.
+Der klassische schedulertyp ist die am besten geeignete Option für die große Mehrheit herkömmlicher Hyper-V-Verwendungen – für Private Clouds, Hostinganbieter usw. Die Leistungsmerkmale sind gut verständlich und am besten optimiert, um eine Vielzahl von Virtualisierungsszenarien zu unterstützen, z. b. das über-Abonnement von VPS zu LPs, das gleichzeitige Ausführen von vielen heterogenen virtuellen Computern und Workloads, die größere Skalierung Leistungs-VMS, die den vollständigen Featuresatz von Hyper-V ohne Einschränkungen unterstützen, und vieles mehr.
 
 ### <a name="the-core-scheduler"></a>Der Kern Planer
 
@@ -122,8 +122,8 @@ Um SMT auf einem virtuellen Gastcomputer zu aktivieren, öffnen Sie ein PowerShe
 Set-VMProcessor -VMName <VMName> -HwThreadCountPerCore <n>
 ```
 
-Dabei <n> ist die Anzahl der SMT-Threads pro Kern, die der Gast-VM angezeigt wird.  
-Beachten Sie <n> , dass = 0 den hwthreadzähltpercore-Wert so festgelegt, dass er mit der SMT-Thread Anzahl des Hosts pro Kernwert identisch ist.
+Dabei ist <n> die Anzahl der SMT-Threads pro Kern, die der Gast-VM angezeigt wird.  
+Beachten Sie, dass <n> = 0 den Wert hwthreadzähltpercore auf den Wert des SMT-Threads des Hosts pro Kernwert festgelegt.
 
 >[!NOTE] 
 >Das Festlegen von hwthreadzähltpercore = 0 wird ab Windows Server 2019 unterstützt.
@@ -153,7 +153,7 @@ Um sicherzustellen, dass Hyper-v-Hosts in der optimalen Sicherheitskonfiguration
 |Windows Server 2016 | 1607 | 2018,07 C | [KB4338822](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822) |
 |Windows Server 2016 | 1703 | 2018,07 C | [KB4338827](https://support.microsoft.com/help/4338827/windows-10-update-kb4338827) |
 |Windows Server 2016 | 1709 | 2018,07 C | [KB4338817](https://support.microsoft.com/help/4338817/windows-10-update-kb4338817) |
-|Windows Server 2019 | 1804 | None | None |
+|Windows Server 2019 | 1804 | Keine | Keine |
 
 ## <a name="selecting-the-hypervisor-scheduler-type-on-windows-server"></a>Auswählen des Hypervisor-planertyps unter Windows Server
 
@@ -165,11 +165,11 @@ Um einen Planertyp auszuwählen, öffnen Sie eine Eingabeaufforderung mit Admini
      bcdedit /set hypervisorschedulertype type
 ```
 
-Dabei `type` ist einer der folgenden:
+Dabei ist `type` einer der folgenden:
 
-* Klassisch
-* Core
-* Stamm
+* Classic
+* Kern
+* Root
 
 Das System muss neu gestartet werden, damit Änderungen am Typ des Hypervisor-Planers wirksam werden.
 

@@ -9,22 +9,22 @@ ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 576ec407e244485441e99ed831b4ed9a0dac198c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6223d261467f1e73b22d5035a73c37868081cef7
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358249"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465254"
 ---
 # <a name="configure-browsers-to-use-windows-integrated-authentication-wia-with-ad-fs"></a>Konfigurieren von Browsern für die Verwendung der integrierten Windows-Authentifizierung (WIA) mit AD FS
 
 Standardmäßig ist die integrierte Windows-Authentifizierung (WIA) in Active Directory-Verbunddienste (AD FS) (AD FS) in Windows Server 2012 R2 für Authentifizierungsanforderungen aktiviert, die im internen Netzwerk des Unternehmens (Intranet) für Anwendungen erfolgen, die eine Browser für die Authentifizierung.
 
-AD FS 2016 verfügt jetzt über eine verbesserte Standardeinstellung, die es dem Microsoft Edge-Browser ermöglicht, WIA zu tun, während er nicht gleichzeitig Windows Phone abfängt:
+AD FS 2016 verfügt jetzt über eine verbesserte Standardeinstellung, die es dem Edge-Browser ermöglicht, WIA zu tun, während er nicht gleichzeitig Windows Phone abfängt:
 
     =~Windows\s*NT.*Edge
 
-Das obige bedeutet, dass Sie keine einzelnen Benutzer-Agent-Zeichen folgen mehr konfigurieren müssen, um gängige Microsoft Edge-Szenarien zu unterstützen, auch wenn Sie sehr häufig aktualisiert werden.
+Das obige bedeutet, dass Sie keine einzelnen Benutzer-Agent-Zeichen folgen mehr konfigurieren müssen, um gängige Edge-Szenarien zu unterstützen, auch wenn Sie sehr häufig aktualisiert werden.
 
 Konfigurieren Sie für andere Browser die AD FS-Eigenschaft **wiasupporteduseragents** , um die erforderlichen Werte basierend auf den verwendeten Browsern hinzuzufügen.  Sie können die nachfolgenden Prozeduren verwenden.
 
@@ -60,5 +60,10 @@ MSIE 10,0; Windows NT 6|IE 10,0 für Windows XP und neuere Versionen des Desktop
 Windows NT 6,3; Einzug/7.0</br></br>Windows NT 6,3; Win64 x64 Einzug/7.0</br></br>Windows NT 6,3; WOW64 Einzug/7.0| Windows 8.1 Desktop Betriebssystem, unterschiedliche Plattformen|
 Windows NT 6,2; Einzug/7.0</br></br>Windows NT 6,2; Win64 x64 Einzug/7.0</br></br>Windows NT 6,2; WOW64 Einzug/7.0|Windows 8 Desktop-Betriebssystem, unterschiedliche Plattformen|
 Windows NT 6,1; Einzug/7.0</br></br>Windows NT 6,1; Win64 x64 Einzug/7.0</br></br>Windows NT 6,1; WOW64 Einzug/7.0|Windows 7 Desktop-Betriebssystem, unterschiedliche Plattformen|
+EDG/79.0.309.43 | Microsoft Edge (Chrom) | 
 MSIPC| Microsoft Information Protection and Control-Client|
 Windows Rights Management-Client|Windows Rights Management-Client|
+
+### <a name="additional-links"></a>Weitere Links
+
+[Microsoft Edge-Dokumentation](https://docs.microsoft.com/microsoft-edge/web-platform/user-agent-string)

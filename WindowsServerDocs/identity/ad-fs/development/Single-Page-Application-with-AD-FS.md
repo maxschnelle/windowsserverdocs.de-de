@@ -8,18 +8,18 @@ ms.date: 06/13/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: d54c33e092204f208590bd15db0d3c7fe7f852f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f4973da0d9e0c347cff8fc910f96277055b66dec
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407891"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465544"
 ---
 # <a name="build-a-single-page-web-application-using-oauth-and-adaljs-with-ad-fs-2016-or-later"></a>Erstellen Sie eine Webanwendung mit einer einzelnen Seite mithilfe von OAuth und Adal. JS mit AD FS 2016 oder höher
 
 Diese exemplarische Vorgehensweise enthält Anweisungen zum Authentifizieren für AD FS mithilfe von Adal für JavaScript, das eine angularjs-basierte Single-Page-Anwendung sichert, die mit einem ASP.net-Web-API Back-End implementiert wird
 
-In diesem Szenario verwendet das JavaScript-Front-End, wenn sich der Benutzer anmeldet, [Active Directory-Authentifizierungsbibliothek für JavaScript (Adal). JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) und die implizite Autorisierungs Gewährung zum Abrufen eines ID-Tokens (ID) aus Azure AD. Das Token wird zwischengespeichert, und der Client fügt es als bearertoken an die Anforderung an, wenn Aufrufe an das Web-API-Back-End durchführen werden, das mithilfe der owin-Middleware gesichert wird.
+In diesem Szenario verwendet das JavaScript-Front-End, wenn sich der Benutzer anmeldet, [Active Directory-Authentifizierungsbibliothek für JavaScript (Adal). JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) und die implizite Autorisierungs Gewährung zum Abrufen eines ID-Tokens (id_token) aus Azure AD. Das Token wird zwischengespeichert, und der Client fügt es als bearertoken an die Anforderung an, wenn Aufrufe an das Web-API-Back-End durchführen werden, das mithilfe der owin-Middleware gesichert wird.
 
 >[!IMPORTANT]
 >Das Beispiel, das Sie hier erstellen können, dient nur zu Schulungszwecken. Diese Anweisungen gelten für die einfachste, kleinste Implementierung, die die erforderlichen Elemente des Modells verfügbar machen kann. Das Beispiel enthält möglicherweise nicht alle Aspekte der Fehlerbehandlung und andere Funktionen zum verknüpfen.
@@ -43,9 +43,9 @@ In dieser exemplarischen Vorgehensweise wird Visual Studio 2015 verwendet. Das P
 ## <a name="setting-up-the-environment"></a>Einrichten der Umgebung
 In dieser exemplarischen Vorgehensweise verwenden wir eine grundlegende Einrichtung von:
 
-1.  DC Domänen Controller für die Domäne, in der AD FS gehostet werden.
-2.  AD FS Server: Der AD FS Server für die Domäne
-3.  Entwicklungs Computer: Computer, auf dem Visual Studio installiert ist und das Beispiel entwickelt wird
+1.  DC: Domänen Controller für die Domäne, in der AD FS gehostet werden.
+2.  AD FS Server: der AD FS Server für die Domäne
+3.  Entwicklungs Computer: der Computer, auf dem Visual Studio installiert ist, und wird unser Beispiel entwickeln
 
 Wenn Sie möchten, können Sie nur zwei Computer verwenden. Eine für DC/AD FS und die andere für die Entwicklung des Beispiels.
 
@@ -72,12 +72,12 @@ Die Schlüsseldateien, die die Authentifizierungs Logik enthalten, lauten wie fo
 
 **HomeController. js**: zeigt, wie die Login ()-Methode und die Logout ()-Methode in Adal genutzt werden.
 
-**Userdatacontroller. js** : zeigt, wie Benutzerinformationen aus dem zwischengespeicherten ID extrahiert werden.
+**Userdatacontroller. js** : zeigt, wie Benutzerinformationen aus dem zwischengespeicherten id_token extrahiert werden.
 
 **Startup.auth.cs** : enthält die Konfiguration für die WebAPI, um Active Directory Verbunddienst für die Träger Authentifizierung zu verwenden.
 
 ## <a name="registering-the-public-client-in-ad-fs"></a>Der öffentliche Client wird in AD FS registriert.
-Im Beispiel ist die WebAPI so konfiguriert, dass Sie auf https://localhost:44326/ lauscht. Der Anwendungs Gruppen-Webbrowser, der auf **eine Webanwendung zugreift** , kann zum Konfigurieren der impliziten Grant Flow-Anwendung verwendet werden.
+Im Beispiel ist die WebAPI so konfiguriert, dass Sie auf https://localhost:44326/lauscht. Der Anwendungs Gruppen-Webbrowser, der auf **eine Webanwendung zugreift** , kann zum Konfigurieren der impliziten Grant Flow-Anwendung verwendet werden.
 
 1. Öffnen Sie die AD FS-Verwaltungskonsole, und klicken Sie auf **Anwendungs Gruppe hinzufügen**. Geben Sie im **Assistenten zum Hinzufügen von Anwendungs Gruppen** den Namen der Anwendung und die Beschreibung ein, und wählen Sie den Webbrowser, der auf **eine Webanwendungsvorlage zugreift** , im Abschnitt **Client/Server-Anwendungen** aus.
 
@@ -112,8 +112,8 @@ Konfigurieren von Adal js
 
 |Konfiguration|Beschreibung|
 |--------|--------|
-|Lichen|Ihre STS-URL, z. b. https://fs.contoso.com/|
-|Tenant|Als "ADFS" beibehalten|
+|lichen|Ihre STS-URL, z. b. https://fs.contoso.com/|
+|Mandant|Als "ADFS" beibehalten|
 |ClientID|Dies ist die Client-ID, die Sie beim Konfigurieren des öffentlichen Clients für Ihre Single-Page-Anwendung angegeben haben.|
 
 ## <a name="configure-webapi-to-use-ad-fs"></a>Konfigurieren von WebAPI für die Verwendung von AD FS
@@ -168,7 +168,7 @@ Der Browser (Chrome-Browser verwenden) lädt die Spa, und Ihnen wird der folgend
 
 Klicken Sie auf anmelden.  Die TODO-Liste löst den Authentifizierungs Fluss aus, und Adal js leitet die Authentifizierung an AD FS
 
-![Anmel](media/Single-Page-Application-with-AD-FS/singleapp4a.PNG)
+![Anmelden](media/Single-Page-Application-with-AD-FS/singleapp4a.PNG)
 
 In "fddler" können Sie sehen, dass das Token als Teil der URL im #-Fragment zurückgegeben wird.
 

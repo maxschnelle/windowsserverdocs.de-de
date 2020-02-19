@@ -9,12 +9,12 @@ ms.date: 07/02/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 8b47cdc4770b1ed6478d1502ed5264164e99352b
-ms.sourcegitcommit: a33404f92867089bb9b0defcd50960ff231eef3f
+ms.openlocfilehash: 2570aae52da2925a62dd6c9262af325fb5461fff
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013045"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465264"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>AD FS: Schnelles Wiederherstellungstool
 
@@ -29,6 +29,9 @@ Das AD FS Tool für die schnelle Wiederherstellung kann in den folgenden Szenari
     - Verwenden Sie das Tool, um eine kalt Standby-Installation von AD FS zu erstellen, die direkt anstelle des Online AD FS Servers bereitgestellt werden kann.
 2. Bereitstellen identischer Test-und Produktionsumgebungen
     - Verwenden Sie das Tool, um schnell eine genaue Kopie der Produktions AD FS in einer Testumgebung zu erstellen oder eine validierte Testkonfiguration schnell in der Produktionsumgebung bereitzustellen.
+3. Migrieren von einer SQL-basierten Konfiguration zu wid und umgekehrt
+    - Verwenden Sie das Tool, um von einer SQL-basierten Farm Konfiguration zu wid zu wechseln oder umgekehrt. 
+
 
 >[!NOTE] 
 >Wenn Sie die SQL-Mergereplikation oder Always on-Verfügbarkeits Gruppen verwenden, wird das Tool für die schnelle Wiederherstellung nicht unterstützt. Es wird empfohlen, SQL-basierte Sicherungen und eine Sicherung des SSL-Zertifikats als Alternative zu verwenden.
@@ -54,7 +57,7 @@ import-module 'C:\Program Files (x86)\ADFS Rapid Recreation Tool\ADFSRapidRecrea
 >[!NOTE] 
 >Wenn Sie die integrierte Windows-Datenbank (WID) verwenden, muss dieses Tool auf dem primären AD FS Server ausgeführt werden.  Mit dem `Get-AdfsSyncProperties` PowerShell-Cmdlet können Sie ermitteln, ob es sich bei dem Server, auf dem Sie sich befinden, um den primären Server handelt.
 
-### <a name="system-requirements"></a>System requirements (Systemanforderungen)
+### <a name="system-requirements"></a>Systemanforderungen
 
 - Dieses Tool funktioniert für AD FS in Windows Server 2012 R2 und höher. 
 - Die erforderliche .NET Framework-Version ist mindestens 4,0. 

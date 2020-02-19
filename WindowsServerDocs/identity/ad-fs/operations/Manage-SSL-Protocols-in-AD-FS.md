@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 44fb4c02421a431edb502daecaa38f00fb4dd2ad
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e0c581a29db92cfb73e4225c72e7e1c2bad4ca68
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407530"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465277"
 ---
 # <a name="managing-ssltls-protocols-and-cipher-suites-for-ad-fs"></a>Verwalten von SSL/TLS-Protokollen und Verschlüsselungs Sammlungen für AD FS
 Die folgende Dokumentation enthält Informationen zum Deaktivieren und Aktivieren bestimmter TLS/SSL-Protokolle und Verschlüsselungs Sammlungen, die von verwendet werden AD FS
@@ -34,13 +34,13 @@ AD FS verwendet Schannel. dll zum Durchführen der sicheren kommunikationinterak
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Verwalten der TLS/SSL-Protokolle und Verschlüsselungs Sammlungen
 > [!IMPORTANT]
-> Dieser Abschnitt enthält Schritte, die Ihnen zeigen, wie Sie die Registrierung ändern können. Schwerwiegende Probleme können jedoch auftreten, wenn Sie die Registrierung falsch ändern. Stellen Sie daher sicher, dass Sie diese Schritte sorgfältig ausführen. 
+> Dieser Abschnitt enthält Schritte, die Ihnen zeigen, wie Sie die Registrierung ändern können. Fehlerhafte Änderungen an der Registrierung können zu schwerwiegenden Problemen führen. Daher sollten Sie diese Schritte unbedingt genau befolgen. 
 > 
 > Beachten Sie, dass das Ändern der Standard Sicherheitseinstellungen für SChannel die Kommunikation zwischen bestimmten Clients und Servern unterbrechen oder verhindern kann.  Dies tritt auf, wenn eine sichere Kommunikation erforderlich ist und Sie nicht über ein Protokoll zum Aushandeln der Kommunikation verfügen.
 > 
 > Wenn Sie diese Änderungen anwenden, müssen Sie auf alle AD FS Server in der Farm angewendet werden.  Nach dem Anwenden dieser Änderungen ist ein Neustart erforderlich.
 
-Am Tag und dem Alter der Tage wird die Härtung Ihrer Server und das Entfernen älterer oder schwacher Verschlüsselungs Sammlungen für viele Organisationen zu einer wichtigen Priorität.  Software Suites sind verfügbar, mit denen die Server getestet werden und detaillierte Informationen zu diesen Protokollen und Sammlungen bereitgestellt werden.  Um die Konformität zu gewährleisten oder sichere Bewertungen zu erzielen, ist das Entfernen oder deaktivieren schwächer Protokolle oder Verschlüsselungs Sammlungen zu einem muss.  Im restlichen Teil dieses Dokuments finden Sie Anleitungen zum Aktivieren oder Deaktivieren bestimmter Protokolle und Verschlüsselungs Sammlungen.
+Heutzutage wird die Härtung Ihrer Server und das Entfernen älterer oder schwacher Verschlüsselungs Sammlungen für viele Organisationen zu einer wichtigen Priorität.  Software Suites sind verfügbar, mit denen die Server getestet werden und detaillierte Informationen zu diesen Protokollen und Sammlungen bereitgestellt werden.  Um die Konformität zu gewährleisten oder sichere Bewertungen zu erzielen, ist das Entfernen oder deaktivieren schwächer Protokolle oder Verschlüsselungs Sammlungen zu einem muss.  Im restlichen Teil dieses Dokuments finden Sie Anleitungen zum Aktivieren oder Deaktivieren bestimmter Protokolle und Verschlüsselungs Sammlungen.
 
 Die folgenden Registrierungsschlüssel befinden sich am selben Speicherort: HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\protocols.  Verwenden Sie regedit oder PowerShell, um diese Protokolle und Verschlüsselungs Sammlungen zu aktivieren bzw. zu deaktivieren.
 
@@ -235,7 +235,7 @@ Verwenden Sie die folgenden Registrierungsschlüssel und deren Werte, um RC4 zu 
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\ciphers\rc4 40/128] "Aktiviert" = DWORD: 00000000
 - [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel\ciphers\rc4 56/128] "Aktiviert" = DWORD: 00000000 
 
-### <a name="using-powershell"></a>Mithilfe der PowerShell
+### <a name="using-powershell"></a>Verwenden von PowerShell
 
 ```powershell
     ([Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey([Microsoft.Win32.RegistryHive]::LocalMachine,$env:COMPUTERNAME)).CreateSubKey('SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 128/128') 
@@ -278,7 +278,7 @@ Verwenden Sie für den .NET Framework 4.0/4.5. x den folgenden Registrierungssch
     New-ItemProperty -path 'HKLM:\SOFTWARE\Microsoft\.NetFramework\v4.0.30319' -name 'SchUseStrongCrypto' -value '1' -PropertyType 'DWord' -Force | Out-Null
 ```
 
-## <a name="additional-information"></a>Weitere Informationen
+## <a name="additional-information"></a>Zusätzliche Informationen
 
 - [Verschlüsselungs Sammlungen in TLS/SSL (Schannel SSP)](https://msdn.microsoft.com/library/windows/desktop/aa374757.aspx)
 - [TLS-Verschlüsselungs Sammlungen in Windows 8.1](https://msdn.microsoft.com/library/windows/desktop/mt767781.aspx)

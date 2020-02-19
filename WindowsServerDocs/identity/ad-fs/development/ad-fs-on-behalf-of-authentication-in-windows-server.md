@@ -9,12 +9,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 70281f581974493d3182fb6fdd8f35cb37bed4bf
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: 028396bffff6449a296e2922846fe2fc379fe624
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001905"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465614"
 ---
 # <a name="build-a-multi-tiered-application-using-on-behalf-of-obo-using-oauth-with-ad-fs-2016-or-later"></a>Erstellen einer Anwendung mit mehreren Stufen mithilfe von "on-Auftrag-of" (OBO) mithilfe von OAuth mit AD FS 2016 oder höher
 
@@ -274,7 +274,7 @@ Fahren Sie mit dem Assistenten fort, wie bei der Konfiguration der WebAPI "dedol
 * Öffnen Sie die Datei "Web. config".
 * Ändern Sie die folgenden Schlüssel.
 
-| Schlüssel                      | Value                                                                                                                                                                                                                   |
+| Key                      | Wert                                                                                                                                                                                                                   |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ida: Audience             | Die ID des TodoListService, wie AD FS beim Konfigurieren der WebAPI TodoListService angegeben wird, z. b. https://localhost:44321/                                                                                         |
 | Ida: ClientID             | Die ID des TodoListService, wie AD FS beim Konfigurieren der WebAPI TodoListService angegeben wird, z. b. <https://localhost:44321/> </br>**Es ist sehr wichtig, dass die "Ida: Audience" und "Ida: ClientID" einander entsprechen.** |
@@ -298,7 +298,7 @@ Alle anderen Ida: XXXXXXX-Schlüssel im Knoten " **appSettings** " können ausko
                 TokenValidationParameters = new TokenValidationParameters{ SaveSigninToken = true }
             });
 
-durch
+mit
 
         app.UseActiveDirectoryFederationServicesBearerAuthentication(
             new ActiveDirectoryFederationServicesBearerAuthenticationOptions
@@ -335,7 +335,7 @@ Fügen Sie einen Verweis auf System. Web. Extensions hinzu. Ändern Sie die Klas
     private static string graphUserUrl = ConfigurationManager.AppSettings["ida:GraphUserUrl"];
     private const string TenantIdClaimType = "https://schemas.microsoft.com/identity/claims/tenantid";
 
-durch
+mit
 
     //
     // The Client ID is used by the application to uniquely identify itself to Azure AD.
@@ -494,7 +494,7 @@ Bei einem erfolgreichen Vorgang sehen Sie, dass das Element der Liste mit der zu
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO27.PNG)
 
 Sie können auch die detaillierten Ablauf Verfolgungen für "fddler" sehen. Starten Sie "fddler" und aktivieren Sie die HTTPS-Entschlüsselung. Sie können sehen, dass wir zwei Anforderungen an den/ADFS/oautincludes-Endpunkt senden.
-In der ersten Interaktion präsentieren wir den Zugriffs Code für den tokenendpunkt und erhalten ein Zugriffs Token für https://localhost:44321/ ![ AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO22.PNG)
+In der ersten Interaktion präsentieren wir den Zugriffs Code für den tokenendpunkt und erhalten ein Zugriffs Token für https://localhost:44321/ ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO22.PNG)
 
 In der zweiten Interaktion mit dem tokenendpunkt sehen Sie, dass **requested_token_use** als **on_behalf_of** festgelegt ist, und wir verwenden das Zugriffs Token, das für den Webdienst der mittleren Ebene abgerufen wurde, d. h. https://localhost:44321/ als die-Bestätigung, um das Token im-Auftrag zu erhalten.
 ![AD FS OBO](media/AD-FS-On-behalf-of-Authentication-in-Windows-Server-2016/ADFS_OBO23.PNG)

@@ -9,12 +9,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: f61bc1ccb7d9b09a17713946b5b8c2cc352f43ac
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: a2b4bd25c50eb8e76627bb6532345f3c187e4f0e
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822093"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465534"
 ---
 # <a name="implementing-least-privilege-administrative-models"></a>Implementieren von Verwaltungsmodellen der geringste Rechte
 
@@ -225,8 +225,8 @@ Administratoren sind standardmäßig Besitzer der meisten AD DS Objekte in ihren
    - Dadurch wird verhindert, dass Mitglieder der Gruppe "Administratoren" zum Anmelden oder zum Herstellen einer Verbindung mit Mitglieds Servern oder Arbeitsstationen verwendet werden (es sei denn, es werden mehrere Kontrollen zuerst verletzt), wo Ihre Anmelde Informationen zwischengespeichert und somit kompromittiert werden könnten. Ein privilegiertes Konto sollte nie zum Anmelden bei einem System mit weniger Berechtigungen verwendet werden, und durch Erzwingen dieser Steuerelemente wird der Schutz gegen eine Reihe von Angriffen ermöglicht.  
 
 3. Bei der Organisationseinheit "Domänen Controller" in jeder Domäne in der Gesamtstruktur sollten der Gruppe "Administratoren" die folgenden Benutzerrechte gewährt werden (sofern Sie nicht bereits über diese Rechte verfügen). Dadurch können die Mitglieder der Gruppe "Administratoren" die für eine Gesamtstruktur weites Notfall Wiederherstellungs Szenario:  
-   - Auf diesen Computer vom Netzwerk aus zugreifen.  
-   - Lokale Anmeldung zulassen  
+   - Auf diesen Computer vom Netzwerk aus zugreifen  
+   - Lokal anmelden zulassen  
    - Anmelden über Remotedesktopdienste zulassen  
 
 4. Die Überwachung sollte so konfiguriert werden, dass Warnungen gesendet werden, wenn Änderungen an den Eigenschaften oder der Gruppe "Administratoren" vorgenommen werden. Diese Warnungen sollten zumindest an Mitglieder des Teams gesendet werden, das für die AD DS Verwaltung verantwortlich ist. Außerdem sollten Warnungen an Mitglieder des Sicherheitsteams gesendet werden, und es sollten Prozeduren zum Ändern der Mitgliedschaft der Gruppe "Administratoren" definiert werden. Insbesondere sollten diese Prozesse eine Prozedur enthalten, mit der das Sicherheitsteam benachrichtigt wird, wenn die Gruppe "Administratoren" geändert wird, sodass Sie beim Senden von Warnungen erwartet werden und kein Alarm ausgelöst wird. Außerdem müssen Prozesse, die das Sicherheitsteam Benachrichtigen, wenn die Verwendung der Gruppe "Administratoren" abgeschlossen ist und die verwendeten Konten aus der Gruppe entfernt wurden, implementiert werden.  
@@ -234,7 +234,7 @@ Administratoren sind standardmäßig Besitzer der meisten AD DS Objekte in ihren
 > [!NOTE]  
 > Wenn Sie Einschränkungen für die Administratoren Gruppe in GPOs implementieren, wendet Windows die Einstellungen zusätzlich zur Administrator Gruppe der Domäne auf Mitglieder der lokalen Administratoren Gruppe eines Computers an. Daher sollten Sie bei der Implementierung von Einschränkungen für die Administratoren Gruppe Vorsicht walten lassen. Obwohl das verbieten von Netzwerk-, Batch-und Dienst Anmeldungen für Mitglieder der Gruppe "Administratoren" empfohlen wird, wenn es möglich ist, lokale Anmeldungen oder Anmeldungen nicht über Remotedesktopdienste einzuschränken. Durch das Blockieren dieser Anmelde Typen kann die legitime Verwaltung eines Computers durch Mitglieder der lokalen Administrator Gruppe blockiert werden. Der folgende Screenshot zeigt die Konfigurationseinstellungen, die den Missbrauch von integrierten lokalen Konten und Domänen Administrator Konten blockieren, sowie die Verwendung integrierter lokaler oder Domänen Administratoren Gruppen. Beachten Sie, dass das Benutzerrecht zum **Verweigern von Anmeldungen über Remotedesktopdienste** die Gruppe "Administratoren" nicht einschließt, da diese Anmeldungen auch für Konten blockiert werden, die Mitglieder der Gruppe "Administratoren" des lokalen Computers sind, wenn Sie in diese Einstellung eingeschlossen werden. Wenn Dienste auf Computern für die Ausführung im Zusammenhang mit einer der in diesem Abschnitt beschriebenen privilegierten Gruppen konfiguriert sind, kann das Implementieren dieser Einstellungen zu Fehlern bei Diensten und Anwendungen führen. Daher sollten Sie wie alle Empfehlungen in diesem Abschnitt die Einstellungen für die Anwendbarkeit in Ihrer Umgebung gründlich testen.  
 >
-> ![Verwaltungsmodelle mit geringstmöglichen Privilegien](media/Implementing-Least-Privilege-Administrative-Models/SAD_3.gif)  
+> ![Verwaltungsmodelle mit geringsten Rechten](media/Implementing-Least-Privilege-Administrative-Models/SAD_3.gif)  
 
 ### <a name="role-based-access-controls-rbac-for-active-directory"></a>Rollenbasierte Zugriffs Steuerung (Role-Based Access Control, RBAC) für Active Directory
 
@@ -261,7 +261,7 @@ In anderen Fällen kann es für eine Organisation vorzuziehen sein, eine RBAC-So
 2. Komposition der IT-Umgebung: Wenn Ihre Umgebung hauptsächlich aus Windows-Systemen besteht oder wenn Sie bereits Active Directory für die Verwaltung von nicht-Windows-Systemen und-Konten nutzen, bieten benutzerdefinierte native Lösungen möglicherweise die optimale Lösung für Ihre Anforderungen. Wenn Ihre Infrastruktur viele Systeme enthält, auf denen nicht Windows ausgeführt wird und die nicht von Active Directory verwaltet werden, müssen Sie möglicherweise die Optionen für die Verwaltung von nicht-Windows-Systemen getrennt von der Active Directory Umgebung in Erwägung gezogen.  
 3. Berechtigungs Modell in der Lösung: Wenn ein Produkt die Platzierung seiner Dienst Konten in stark privilegierte Gruppen in Active Directory benötigt und keine Optionen anbietet, für die keine übermäßige Berechtigung für die RBAC-Software erteilt werden muss, haben Sie sich nicht wirklich verringert. auf Ihrer Active Directory Angriffsfläche haben Sie nur die Zusammensetzung der am stärksten privilegierten Gruppen im Verzeichnis geändert. Wenn ein Anwendungshersteller keine Steuerelemente für Dienst Konten bereitstellen kann, die die Wahrscheinlichkeit minimieren, dass die Konten kompromittiert und böswillig verwendet werden, können Sie andere Optionen in Erwägung ziehen.  
 
-### <a name="privileged-identity-management"></a>Privilegierte Identitätsverwaltung
+### <a name="privileged-identity-management"></a>Privileged Identity Management
 
 Die privilegierte Identitätsverwaltung (privilegierte Identitätsverwaltung), manchmal auch als "privilegierte Kontoverwaltung" ("privilegierte Kontoverwaltung") oder "Verwaltung privilegierter Anmelde Informationen (PCM)" bezeichnet, ist das Entwerfen, erstellen und Implementieren von Ansätzen für die Verwaltung privilegierter Konten in Gas. Im Allgemeinen stellt PIM Mechanismen bereit, mit denen Konten temporäre Rechte und Berechtigungen erteilt werden, die zum Ausführen von Build-oder Break-fixfunktionen erforderlich sind, anstatt die Berechtigungen dauerhaft an Konten zu übernehmen. Ob PIM-Funktionen manuell erstellt werden oder über die Bereitstellung von Drittanbieter Software implementiert werden, kann eine oder mehrere der folgenden Features verfügbar sein:  
   
@@ -314,7 +314,7 @@ Obwohl eine gründliche Erörterung von Angriffen gegen Public Key Infrastructur
 
 Wenn ein Zertifikat für die Authentifizierung bei einem in die Domäne eingebundenen System angezeigt wird, wird der Inhalt des Antragstellers oder des "Subject Alternative Name (San)"-Attributs im Zertifikat verwendet, um das Zertifikat einem Benutzerobjekt in Active Directory zuzuordnen. Abhängig vom Zertifikattyp und seiner Erstellung enthält das Subject-Attribut in einem Zertifikat in der Regel einen allgemeinen Namen (CN) des Benutzers, wie im folgenden Screenshot gezeigt.  
 
-![Verwaltungsmodelle mit geringstmöglichen Privilegien](media/Implementing-Least-Privilege-Administrative-Models/SAD_4.gif)  
+![Verwaltungsmodelle mit geringsten Rechten](media/Implementing-Least-Privilege-Administrative-Models/SAD_4.gif)  
 
 Standardmäßig erstellt Active Directory den CN eines Benutzers, indem er den Vornamen des Kontos + "" und den Nachnamen verkettet. Allerdings sind CN-Komponenten von Benutzer Objekten in Active Directory nicht erforderlich oder garantiert eindeutig. Wenn Sie ein Benutzerkonto an einen anderen Speicherort im Verzeichnis verschieben, ändert sich der Distinguished Name (DN) des Kontos. Dies ist der vollständige Pfad zum Objekt im Verzeichnis, wie im unteren Bereich des vorherigen Screenshots dargestellt.  
 

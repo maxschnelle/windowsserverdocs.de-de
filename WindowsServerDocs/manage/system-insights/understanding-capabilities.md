@@ -13,16 +13,16 @@ author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 6/05/2018
-ms.openlocfilehash: 90622fba1fc33966bd064c19056204013ff0c33b
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 131fbacaab97c1c2c42920a518ce96ba1b8f5d2b
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70869157"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465564"
 ---
 # <a name="understanding-capabilities"></a>Grundlegendes zu Funktionen
 
->Gilt für: Windows Server 2019
+>Gilt für: Windows Server 2019
 
 In diesem Thema wird das Konzept der Funktionen in System Insights definiert und die in Windows Server 2019 verfügbaren Standardfunktionen vorgestellt. 
 
@@ -37,7 +37,7 @@ Eine System Insights-Funktion ist ein Machine Learning-oder Statistik Modell, da
 Außerdem wird jede Funktion lokal auf einer Windows Server-Instanz ausgeführt, und jede Funktion kann einzeln verwaltet werden.
 
 ### <a name="capability-outputs"></a>Funktions Ausgaben
-Wenn eine Funktion aufgerufen wird, stellt Sie eine Ausgabe bereit, um das Ergebnis der Analyse oder Vorhersage zu erläutern. Jede Ausgabe muss einen **Status** und eine **Statusbeschreibung** enthalten, um die Vorhersage zu beschreiben, und jedes Ergebnis kann optional Funktions spezifische Daten enthalten, die mit der Vorhersage verknüpft sind. Die **Statusbeschreibung** enthält eine kontextbezogene Erläuterung für den **Status**, und die Funktion meldet entweder den Status " **OK**", " **Warnung**" oder " **kritisch** ". Außerdem kann eine Funktion einen **Fehler** oder **keinen** Status verwenden, wenn keine Vorhersage erstellt wurde. Im folgenden finden Sie die Funktionsstatus und ihre grundlegende Bedeutung: 
+Wenn eine Funktion aufgerufen wird, stellt Sie eine Ausgabe bereit, um das Ergebnis der Analyse oder Vorhersage zu erläutern. Jede Ausgabe muss einen **Status** und eine **Statusbeschreibung** enthalten, um die Vorhersage zu beschreiben, und jedes Ergebnis kann optional Funktions spezifische Daten enthalten, die mit der Vorhersage verknüpft sind. Die **Statusbeschreibung** enthält eine Kontext Erklärung für den **Status**, und die Funktion meldet entweder den Status " **OK**", " **Warnung**" oder " **kritisch** ". Außerdem kann eine Funktion einen **Fehler** oder **keinen** Status verwenden, wenn keine Vorhersage erstellt wurde. Im folgenden finden Sie die Funktionsstatus und ihre grundlegende Bedeutung: 
 
 - **OK** : alles sieht gut aus.
 - **Warnung** : Es ist keine sofortige Beachtung erforderlich, aber Sie sollten sich einen Blick darauf machen. 
@@ -55,7 +55,7 @@ In Windows Server 2019 werden mit System Insights vier Standardfunktionen eingef
 - **Prognose zur Gesamtspeicher** Auslastung: prognostiziert den gesamten Speicherverbrauch auf allen lokalen Laufwerken. 
 - **Prognose für den Volumenverbrauch** : prognostiziert den Speicherverbrauch für jedes Volume.
 
-Jede Funktion analysiert Vergangenheits Daten, um die zukünftige Verwendung vorherzusagen. **alle Vorhersagefunktionen sind so konzipiert, dass Sie langfristige Trends und nicht das kurzfristige Verhalten prognostizieren**und Administratoren dabei helfen, Hardware richtig bereitzustellen und zu optimieren. Ihre Arbeits Auslastungen, um zukünftige Ressourcenkonflikte zu vermeiden. Da diese Funktionen sich auf die langfristige Verwendung konzentrieren, analysieren diese Funktionen tägliche Daten. 
+Jede Funktion analysiert Vergangenheits Daten, um die zukünftige Verwendung vorherzusagen. **alle Vorhersagefunktionen sind so konzipiert, dass Sie langfristige Trends und nicht das kurzfristige Verhalten prognostizieren**. Dadurch können Administratoren die Hardware ordnungsgemäß bereitstellen und ihre Workloads optimieren, um zukünftige Ressourcenkonflikte zu vermeiden. Da diese Funktionen sich auf die langfristige Verwendung konzentrieren, analysieren diese Funktionen tägliche Daten. 
 
 ### <a name="forecasting-model"></a>Vorhersagemodell
 Die Standardfunktionen verwenden ein Planungsmodell, um die zukünftige Verwendung vorherzusagen, und für jede Vorhersage wird das Modell lokal auf den Daten des Computers trainiert. Dieses Modell ist so konzipiert, dass langfristige Trends erkannt werden, und das erneute trainieren auf jeder Windows Server-Instanz ermöglicht die Anpassung an das spezifische Verhalten und die benutzerspezifischen Aspekte der einzelnen Computer.
@@ -80,7 +80,7 @@ Jede Funktion analysiert tägliche Daten, um die zukünftige Nutzung zu prognost
 | --------------- | -------------- | ---------------- |
  Prognose des Volumen Verbrauchs          | Volumegröße                    | Maximale tägliche Nutzung              
  Prognose der Speichernutzung Gesamt   | Summe der Volumegrößen, Summe der Datenträger Größen              | Maximale tägliche Nutzung             
- Prognose der CPU-Kapazität                | % Processor Time  | Maximal 2 Stunden Durchschnitt pro Tag   
+ Prognose der CPU-Kapazität                | Prozessorzeit (%)  | Maximal 2 Stunden Durchschnitt pro Tag   
  Prognose zur Netzwerkkapazität         | Gesamtanzahl Bytes/Sek.         | Maximal 2 Stunden Durchschnitt pro Tag  
 
 Wenn Sie die oben beschriebene Filter Logik auswerten, ist es wichtig zu beachten, dass jede Funktion Administratoren informieren möchte, wenn die zukünftige Verwendung die verfügbare Kapazität überschreitet – obwohl CPU-Zeitüberschreitung eine Auslastung von 100% erreicht hat, CPU-Auslastung möglicherweise nicht verursachte Leistungsminderung oder Ressourcenkonflikte. Bei CPU-und Netzwerkverbindungen sollte die hohe Nutzung statt der momentanen Spitzen unterstützt werden. Eine Durchschnitts Auslastung der CPU-und Netzwerk Auslastung im ganzen Tag würde jedoch wichtige Verwendungs Informationen verlieren, weil eine hohe CPU-Auslastung oder Netzwerk Auslastung eine erhebliche Auswirkung auf die Leistung Ihrer kritischen Workloads haben könnte. Der maximale Wert von 2 Stunden pro Tag vermeidet diese extreme und erzeugt nach wie vor sinnvolle Daten für jede zu analysierende Funktion.
@@ -89,11 +89,11 @@ Bei der Volume-und Gesamtspeicher Auslastung kann die Speicherauslastung jedoch 
 
 ### <a name="forecasting-statuses"></a>Vorhersage Status
 Alle System Insights-Funktionen müssen einen Status ausgeben, der mit jeder Vorhersage verknüpft ist. Jede Standardfunktion verwendet die folgende Logik zum Definieren der einzelnen Vorhersage Status:
-- **OK**: Die Vorhersage überschreitet die verfügbare Kapazität nicht.
-- **Warnung**: Die Vorhersage überschreitet die verfügbare Kapazität in den nächsten 30 Tagen. 
-- **Kritisch**: Die Vorhersage überschreitet die verfügbare Kapazität in den nächsten 7 Tagen. 
-- **Fehler**: Unerwarteter Fehler bei der Funktion. 
-- **Keine**: Es sind nicht genügend Daten vorhanden, um eine Vorhersage zu treffen. Dies kann auf fehlende Daten zurückzuführen sein oder daran, dass in jüngster Zeit keine Daten gemeldet wurden.
+- **OK**: die Vorhersage überschreitet die verfügbare Kapazität nicht.
+- **Warnung**: die Vorhersage überschreitet die verfügbare Kapazität in den nächsten 30 Tagen. 
+- **Kritisch**: die Vorhersage überschreitet die verfügbare Kapazität in den nächsten 7 Tagen. 
+- **Fehler**: bei der Funktion ist ein unerwarteter Fehler aufgetreten. 
+- **None**: Es sind nicht genügend Daten vorhanden, um eine Vorhersage zu treffen. Dies kann auf fehlende Daten zurückzuführen sein oder daran, dass in jüngster Zeit keine Daten gemeldet wurden.
 
 >[!NOTE]
 >Wenn eine Funktions Vorhersage für mehrere Instanzen ist (z. b. mehrere Volumes oder Netzwerkadapter), gibt der Status den schwerwiegendsten Status für alle Instanzen an. Einzelne Statuswerte für jedes Volume oder jeden Netzwerkadapter werden im Windows Admin Center oder innerhalb der Daten angezeigt, die in der Ausgabe der einzelnen Funktionen enthalten sind. Anweisungen zum Analysieren der JSON-Ausgabe der Standardfunktionen finden Sie in [diesem Blog](https://aka.ms/systeminsights-mitigationscripts). 

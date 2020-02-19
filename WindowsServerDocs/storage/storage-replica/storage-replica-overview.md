@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 4/26/2019
 ms.assetid: e9b18e14-e692-458a-a39f-d5b569ae76c5
-ms.openlocfilehash: 620ab75fc5f44af7cd754847e3e5b717eece5057
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d95feb67001dc7b5eff68a0062d5f944672bad80
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393818"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465229"
 ---
 # <a name="storage-replica-overview"></a>Übersicht über Speicherreplikate
 
@@ -75,7 +75,7 @@ Eine **Server-zu-Server-Konfiguration** ermöglicht eine synchrone und asynchron
 
 * **Erste Synchronisierung mit hoher Leistung**. Das Speicherreplikatfeature unterstützt ein Seeding vor der ersten Synchronisierung, wobei auf einem Ziel bereits eine Untermenge von Daten aus älteren Kopien, Sicherungen oder bereitgestellten Laufwerken vorhanden ist. Bei der ersten Replikation werden nur die unterschiedlichen Blöcke kopiert, möglicherweise verkürzt sich die anfängliche Synchronisierungs Zeit, und es wird verhindert, dass Daten Da Speicherreplikate eine Prüfsummenberechnung und Aggregation verhindern, ist die Leistung bei der ersten Synchronisierung lediglich durch die Geschwindigkeit von Speicher und Netzwerk beschränkt.  
 
-* **Konsistenzgruppen**. Durch die Schreib Anordnung wird sichergestellt, dass Anwendungen wie Microsoft SQL Server in mehrere replizierte Volumes schreiben können und wissen, dass die Daten auf dem Ziel Server sequenziell geschrieben werden.  
+* **Konsistenzgruppen**. Die Schreib Anordnung gewährleistet, dass Anwendungen wie Microsoft SQL Server in mehrere replizierte Volumes schreiben können und wissen, dass die Daten sequenziell auf dem Ziel Server geschrieben werden.  
 
 * **Benutzerdelegierung**. Benutzern können Berechtigungen zum Verwalten der Replikation zugewiesen werden, ohne dass diese Mitglied der integrierten Administratorengruppe auf den replizierten Knoten sind. Dadurch wird der Zugriff dieser Benutzer auf nicht verknüpfte Bereiche eingeschränkt.  
 
@@ -87,16 +87,16 @@ Das Speicher Replikat umfasst die folgenden Features:
 
 | Feature | Details |
 | ----------- | ----------- |  
-| Typ | Hostbasiert |
-| Synchron | Ja |
-| Asynchrone | Ja |
+| Typ | Host-basierte |
+| Synchronous | Ja |
+| Asynchronous | Ja |
 | Speicherhardwareagnostisch | Ja |
 | Replikationseinheit | Volume (Partition) |
 | Erstellung von Windows Server Stretch-Clustern | Ja |
 | Server-zu-Server-Replikation | Ja |
 | Cluster-zu Cluster-Replikation | Ja |
 | Transport | SMB3 |
-| Network | TCP/IP oder RDMA |
+| Netzwerk | TCP/IP oder RDMA |
 | Unterstützung für die Netzwerkeinschränkung | Ja |
 | RDMA* | iWARP, InfiniBand, RoCE v2 |
 | Netzwerkport-Firewallanforderungen für die Replikation | Einzelner IANA-Port (TCP 445 oder 5445) |
@@ -188,7 +188,7 @@ In diesem Leitfaden werden folgende Begriffe häufig verwendet:
 
 Eine Liste der neuen Features im Speicher Replikat unter Windows Server 2019 finden Sie unter [What es New in Storage](../whats-new-in-storage.md#storage-replica2019) .
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 - [Stretch-Cluster Replikation mit frei gegebenem Speicher](stretch-cluster-replication-using-shared-storage.md)  
 - [Replikation von Server zu Server Speicher](server-to-server-storage-replication.md)  

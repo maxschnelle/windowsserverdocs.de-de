@@ -8,12 +8,12 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: 0479309efe629d204bdc98fe11a7ccb4447a7369
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: ec885670ca6808e89c63848781c4ff3dc27799b8
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940726"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465604"
 ---
 # <a name="troubleshooting-guarded-hosts"></a>Problembehandlung für geschützte Hosts
 
@@ -46,12 +46,12 @@ Die Ausgabe von [Get-hgsclientconfiguration](https://technet.microsoft.com/libra
 
 In der folgenden Tabelle werden die Werte erläutert, die ggf. im Feld **attestationstatus** und mögliche nächste Schritte angezeigt werden können.
 
-Attestationstatus         | Erläuterung
+Attestationstatus         | Erklärung
 --------------------------|------------
 Abgelaufen                   | Der Host hat den Nachweis zuvor übermittelt, das ausgegebene Integritäts Zertifikat ist jedoch abgelaufen. Stellen Sie sicher, dass die Host-und HGS-Zeit synchronisiert sind.
 Insecurehostconfiguration | Der Host hat den Nachweis nicht bestanden, weil er nicht den Nachweis Richtlinien entsprach, die auf HGS konfiguriert sind. Weitere Informationen finden Sie in der Tabelle attestationsubstatus.
 NotConfigured             | Der Host ist nicht für die Verwendung eines HGS für den Nachweis und den Schlüsselschutz konfiguriert. Stattdessen ist Sie für den lokalen Modus konfiguriert. Wenn sich dieser Host in einem geschützten Fabric befindet, verwenden Sie [Set-hgsclientconfiguration](https://technet.microsoft.com/library/dn914494.aspx) , um die URLs für Ihren HGS-Server bereitzustellen.
-Vor                    | Der Host hat den Nachweis übermittelt.
+Bestanden                    | Der Host hat den Nachweis übermittelt.
 Transiendterror            | Der letzte Nachweis Versuch ist aufgrund eines Netzwerk-, Dienst-oder anderen temporären Fehlers fehlgeschlagen. Wiederholen Sie den letzten Vorgang.
 Tpmerror                  | Der Host konnte den letzten Nachweis Versuch aufgrund eines Fehlers mit dem TPM nicht durchführen. Weitere Informationen finden Sie in den TPM-Protokollen.
 Unauthorizedhost          | Der Host hat den Nachweis nicht bestanden, weil er nicht zum Ausführen von abgeschirmten VMS autorisiert ist. Stellen Sie sicher, dass der Host zu einer Sicherheitsgruppe gehört, die von HGS als vertrauenswürdig eingestuft wird

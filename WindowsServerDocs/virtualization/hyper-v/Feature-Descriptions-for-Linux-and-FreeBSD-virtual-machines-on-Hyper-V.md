@@ -11,12 +11,12 @@ ms.assetid: a9ee931d-91fc-40cf-9a15-ed6fa6965cb6
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: 1690230d326d7e32175ccde5da1e5fae421a76d0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 829a3897ef54155e34ced75721ec048ba16b342a
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366800"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465174"
 ---
 # <a name="feature-descriptions-for-linux-and-freebsd-virtual-machines-on-hyper-v"></a>Funktionsbeschreibungen für virtuelle Linux-und FreeBSD-Computer auf Hyper-V
 
@@ -24,9 +24,9 @@ ms.locfileid: "71366800"
 
 In diesem Artikel werden die Funktionen beschrieben, die in Komponenten wie Kern, Netzwerk, Speicher und Arbeitsspeicher bei Verwendung von Linux und FreeBSD auf einem virtuellen Computer verfügbar sind.
 
-## <a name="core"></a>Core
+## <a name="core"></a>Kern
 
-|**Funktion**|**Beschreibung**|
+|**Feature**|**Beschreibung**|
 |-|-|
 |Integriertes Herunterfahren|Mit diesem Feature kann ein Administrator virtuelle Computer über den Hyper-V-Manager Herunterfahren. Weitere Informationen finden Sie unter [Herunterfahren des Betriebssystems](https://technet.microsoft.com/library/dn798297(WS.11).aspx#BKMK_Shutdown).|
 |Zeitsynchronisierung|Mit dieser Funktion wird sichergestellt, dass die beibehaltene Zeit in einem virtuellen Computer mit der beibehaltenen Zeit auf dem Host synchronisiert bleibt. Weitere Informationen finden Sie unter [Zeitsynchronisierung](https://technet.microsoft.com/library/dn798297(WS.11).aspx#BKMK_time).|
@@ -39,7 +39,7 @@ In diesem Artikel werden die Funktionen beschrieben, die in Komponenten wie Kern
 
 ## <a name="networking"></a>Netzwerk
 
-|**Funktion**|**Beschreibung**|
+|**Feature**|**Beschreibung**|
 |-|-|
 |Großrahmen|Mit diesem Feature kann ein Administrator die Größe der Netzwerk Frames über 1500 Bytes hinaus erhöhen, was zu einer erheblichen Steigerung der Netzwerkleistung führt.|
 |VLAN-Tagging und-Abschneiden|Mit dieser Funktion können Sie VLAN-Datenverkehr für virtuelle Computer konfigurieren.|
@@ -52,7 +52,7 @@ In diesem Artikel werden die Funktionen beschrieben, die in Komponenten wie Kern
 
 ## <a name="storage"></a>Speicher
 
-|**Funktion**|**Beschreibung**|
+|**Feature**|**Beschreibung**|
 |-|-|
 |Vhdx-Größe ändern|Mit diesem Feature kann ein Administrator die Größe einer vhdx-Datei mit fester Größe ändern, die an einen virtuellen Computer angefügt ist. Weitere Informationen finden Sie unter [Übersicht über das Ändern der Größe virtueller Festplatten im Online](https://technet.microsoft.com/library/dn282286.aspx)Modus.|
 |Virtueller Fibre Channel|Mit diesem Feature können virtuelle Computer ein Fiber-Channel-Gerät erkennen und es nativ einbinden. Weitere Informationen finden Sie unter [virtueller Hyper-V-Fibre Channel: Übersicht](https://technet.microsoft.com/library/hh831413.aspx).|
@@ -62,7 +62,7 @@ In diesem Artikel werden die Funktionen beschrieben, die in Komponenten wie Kern
 
 ## <a name="memory"></a>Arbeitsspeicher
 
-|**Funktion**|**Beschreibung**|
+|**Feature**|**Beschreibung**|
 |-|-|
 |Unterstützung für den unterstützten Kernel|Die PE-Technologie (Physical Address Extension) ermöglicht einem 32-Bit-Kernel den Zugriff auf einen physischen Adressraum, der größer als 4 GB ist. Ältere Linux-Distributionen, wie z. b. RHEL 5. x, haben zum Versenden eines separaten Kernels verwendet, bei dem es sich um eine Neuere Distributionen, wie z. b. RHEL 6. x, verfügen über eine vorgefertigte Unterstützung.|
 |MMIO-Lücke konfigurieren|Mit dieser Funktion können Gerätehersteller den Speicherort der Lücke durch den Speicher Abbild-e/a (MMIO) konfigurieren. Die MMIO-Lücke wird normalerweise verwendet, um den verfügbaren physischen Arbeitsspeicher zwischen den gerade genug Betriebssystemen (JeOS) und der eigentlichen Software Infrastruktur aufzuteilen, die das Gerät unterstützt.|
@@ -72,13 +72,13 @@ In diesem Artikel werden die Funktionen beschrieben, die in Komponenten wie Kern
 
 ## <a name="video"></a>Video
 
-|**Funktion**|**Beschreibung**|
+|**Feature**|**Beschreibung**|
 |-|-|
 |Hyper-V-spezifisches Videogerät|Diese Funktion bietet Hochleistungs Grafiken und eine bessere Auflösung für virtuelle Maschinen. Dieses Gerät bietet keine erweiterten Sitzungs Modus-oder remotefx-Funktionen.|
 
-## <a name="miscellaneous"></a>Sonstiges
+## <a name="miscellaneous"></a>Verschiedenes
 
-|**Funktion**|**Beschreibung**|
+|**Feature**|**Beschreibung**|
 |-|-|
 |KVP (Schlüssel-Wert-Paar) Exchange|Diese Funktion bietet einen Schlüssel-Wert-Paar (KVP)-Exchange-Dienst für virtuelle Computer. In der Regel verwenden Administratoren den KVP-Mechanismus, um benutzerdefinierte Daten Vorgänge für Lese-und Schreibvorgänge auf einem virtuellen Computer auszuführen. Weitere Informationen finden Sie unter [Datenaustausch: Verwenden von Schlüssel-Wert-Paaren zum Freigeben von Informationen zwischen dem Host und dem Gast auf Hyper-V](https://technet.microsoft.com/library/dn798287.aspx).|
 |Nicht mastbare Unterbrechung|Mit dieser Funktion kann ein Administrator einen virtuellen Computer, der nicht mit einem maskierbaren Interrupts (NMI) ausgeführt wird, ausgeben. NMIs sind nützlich, um Absturz Abbilder von Betriebssystemen zu erhalten, die aufgrund von Anwendungsfehlern nicht mehr reagiert. Diese Absturz Abbilder können nach dem Neustart diagnostiziert werden.|
@@ -89,7 +89,7 @@ In diesem Artikel werden die Funktionen beschrieben, die in Komponenten wie Kern
 
 ## <a name="generation-2-virtual-machines"></a>Virtuelle Computer der Generation 2
 
-|**Funktion**|**Beschreibung**|
+|**Feature**|**Beschreibung**|
 |-|-|
 |Starten mithilfe von UEFI|Mit dieser Funktion können virtuelle Computer mit Unified Extensible Firmware Interface (UEFI) gestartet werden.<br /><br />Weitere Informationen finden Sie unter [Übersicht über virtuelle Computer der Generation 2](https://technet.microsoft.com/library/dn282285.aspx).|
 |Sicherer Start|Diese Funktion ermöglicht virtuellen Computern die Verwendung des UEFI-basierten sicheren Start Modus. Wenn ein virtueller Computer im sicheren Modus gestartet wird, werden verschiedene Betriebssystemkomponenten mithilfe von Signaturen überprüft, die im UEFI-Datenspeicher vorhanden sind.<br /><br />Weitere Informationen finden Sie unter [Sicherer Start](https://technet.microsoft.com/library/dn486875.aspx).|
