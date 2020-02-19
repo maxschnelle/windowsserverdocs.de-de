@@ -10,12 +10,12 @@ author: cosmosdarwin
 ms.date: 11/06/2017
 description: Vorgehensweise beim Hinzufügen von Servern oder Laufwerken zu einem direkte Speicherplätze Cluster
 ms.localizationpriority: medium
-ms.openlocfilehash: 3d5949b8fce7253371ee7ecea5118596f713f037
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f5fb9da903bb76de3a075fa7feeeaba468d802c2
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393781"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465624"
 ---
 # <a name="adding-servers-or-drives-to-storage-spaces-direct"></a>Hinzufügen von Servern oder Laufwerken zu „direkten Speicherplätzen“
 
@@ -121,7 +121,7 @@ Hierzu müssen Sie Ihre **StorageTier**-Vorlage so aktualisieren, dass sie die b
 
 #### <a name="option-3"></a>Option 3
 
-Möglicherweise finden Sie es am einfachsten, nur die vorhandene Vorlage zu entfernen und zwei neue zu erstellen. Dies hat keinen Einfluss auf bereits vorhandene Volumes, die anhand der Ebenenvorlage erstellt wurden: Es handelt sich hierbei nur um eine Vorlage.
+Möglicherweise finden Sie es am einfachsten, nur die vorhandene Vorlage zu entfernen und zwei neue zu erstellen. Dies wirkt sich nicht auf bereits vorhandene Volumes aus, die durch Verweisen auf die Ebenenvorlage erstellt wurden: Es handelt sich lediglich um eine Vorlage.
 
 ```PowerShell
 Remove-StorageTier -FriendlyName Capacity
@@ -130,7 +130,7 @@ New-StorageTier -StoragePoolFriendlyName S2D* -MediaType HDD -PhysicalDiskRedund
 New-StorageTier -StoragePoolFriendlyName S2D* -MediaType HDD -PhysicalDiskRedundancy 2 -ResiliencySettingName Parity -FriendlyName Capacity
 ```
 
-Das ist alles! Sie können nun mithilfe dieser Ebenenvorlage Volumes mit einer durch Spiegelung beschleunigten Parität erstellen.
+Das war's. Sie können nun mithilfe dieser Ebenenvorlage Volumes mit einer durch Spiegelung beschleunigten Parität erstellen.
 
 #### <a name="example"></a>Beispiel
 
@@ -181,7 +181,7 @@ Zum zentralen Hochskalieren verbinden Sie die Laufwerke, und stellen Sie sicher,
 Get-PhysicalDisk | Select SerialNumber, CanPool, CannotPoolReason
 ```
 
-Innerhalb kurzer Zeit werden geeignete Laufwerke automatisch von „direkten Speicherplätzen“ beansprucht, dem Speicherpool hinzugefügt, und die Volumes werden automatisch [gleichmäßig auf alle Laufwerke verteilt.](https://blogs.technet.microsoft.com/filecab/2016/11/21/deep-dive-pool-in-spaces-direct/). Zu diesem Zeitpunkt sind Sie fertig und bereit zum [Erweitern der Volumes](resize-volumes.md) oder zum  [Erstellen neuer Volumes](create-volumes.md).
+Innerhalb kurzer Zeit werden geeignete Laufwerke automatisch von „direkten Speicherplätzen“ beansprucht, dem Speicherpool hinzugefügt, und die Volumes werden automatisch [gleichmäßig auf alle Laufwerke verteilt](https://blogs.technet.microsoft.com/filecab/2016/11/21/deep-dive-pool-in-spaces-direct/). Zu diesem Zeitpunkt sind Sie fertig und bereit zum [Erweitern der Volumes](resize-volumes.md) oder zum  [Erstellen neuer Volumes](create-volumes.md).
 
 Wenn die Laufwerke nicht angezeigt werden, suchen Sie manuell nach Hardwareänderungen. Dazu können Sie den **Geräte-Manager** im Menü **Aktion** verwenden. Wenn sie alte Daten oder Metadaten enthalten, sollten Sie sie ggf. neu formatieren. Dies kann unter Verwendung der **Datenträgerverwaltung** oder mithilfe des **Reset-PhysicalDisk**- Cmdlets durchgeführt werden.
 
@@ -200,7 +200,7 @@ Die Optimierung verwendet zwei Aufträge: eine mit dem Namen " *optimieren* " un
 Get-StorageJob
 ```
 
-Sie können einen Speicherpool mithilfe des Cmdlets " [optimieren-storagepool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) " manuell optimieren. Im Folgenden ein Beispiel:
+Sie können einen Speicherpool mithilfe des Cmdlets " [optimieren-storagepool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) " manuell optimieren. Beispiel:
 
 ```powershell
 Get-StoragePool <PoolName> | Optimize-StoragePool
