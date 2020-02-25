@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 77a23e5787283aa93d6f2f303cf45b461ccf52dd
-ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
+ms.openlocfilehash: 92742929e3826fca3cf87cb84341d3aecec0d55d
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77125111"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517495"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -110,12 +110,25 @@ Wenn Sie den Speicher Migrationsdienst-Proxy Dienst auf dem Windows Server 2019-
 
 Bei der Inventarisierung oder Übertragung von Dateien von einer Quell-auf einen Zielcomputer können Dateien, von denen ein Benutzer die Administrator Gruppenberechtigungen entfernt hat, nicht migriert werden. Überprüfen des Speicher Migrations Dienstanbieter: Proxy Debug zeigt Folgendes an:
 
-  Protokoll Name: Microsoft-Windows-storagemigrationservice-Proxy/debugquelle: Microsoft-Windows-storagemigrationservice-Proxy Date: 2/26/2019 9:00:04 am Ereignis-ID: 10000 Aufgaben Kategorie: keine Ebene: Fehler Schlüsselwörter:      
-  Benutzer: Netzwerkdienst Computer: SRV1.contoso.com Beschreibung:
+    Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Debug
+    Source:        Microsoft-Windows-StorageMigrationService-Proxy
+    Date:          2/26/2019 9:00:04 AM
+    Event ID:      10000
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      srv1.contoso.com
+    Description:
 
-  02/26/2019-09:00:04.860 [Fehler] Übertragungsfehler für \\SRV1. ". com\public\indy.png: (5)" wurde verweigert.
-Stapel Überwachung: bei Microsoft. storagemigration. Proxy. Service. Transfer. filedirutils. OpenFile (Zeichenfolge Dateiname, desiredAccess desiredAccess, share Mode Share Mode, kreationdisposition erationdisposition, flagsandattribute flagsandattribute) unter Microsoft. storagemigration. Proxy. Service. Transfer. filedirutils. gettargetfile (Zeichen folgen Pfad) bei Microsoft. storagemigration. Proxy. Service. Transfer. filedirutils. gettargetfile (FileInfo-Datei) unter Microsoft. storagemigration. Proxy. Service. Transfer. Filetransfer. initializesourcefileingefo () bei Microsoft. storagemigration. Proxy. Service. Transfer. Filetransfer. Transfer () at Microsoft. storagemigration. Proxy. Service. Transfer. Filetransfer. trytransfer () [d:\os\src\base\dms\proxy\transfer\transferproxy\filetransfer.cs:: trytransfer:: 55]
-
+    02/26/2019-09:00:04.860 [Error] Transfer error for \\srv1.contoso.com\public\indy.png: (5) Access is denied.
+    Stack Trace:
+     at Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.OpenFile(String fileName, DesiredAccess desiredAccess, ShareMode shareMode, CreationDisposition creationDisposition, FlagsAndAttributes flagsAndAttributes)
+     at Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetTargetFile(String path)
+     at Microsoft.StorageMigration.Proxy.Service.Transfer.FileDirUtils.GetTargetFile(FileInfo file)
+     at Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.InitializeSourceFileInfo()
+     at Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.Transfer()
+     at Microsoft.StorageMigration.Proxy.Service.Transfer.FileTransfer.TryTransfer()   
 
 Dieses Problem wird durch einen Code Fehler im Speicher Migrationsdienst verursacht, bei dem die Sicherungs Berechtigung nicht aufgerufen wurde. 
 
@@ -137,11 +150,19 @@ Zieldatei:
 
 DFSR-Debugprotokoll:
 
-  20190308 10:18:53.116 3948 dbcl 4045 [warn] dbclone:: idtableimportupdate-Konflikt Daten Satz gefunden. 
+    20190308 10:18:53.116 3948 DBCL  4045 [WARN] DBClone::IDTableImportUpdate Mismatch record was found. 
 
-  Lokaler ACL-Hash: 1bcdfe03-A18BCE01-D1AE9859-23a0a5f 6 LastWrite-Time: 20190308 18:09:44.876 filesizelow: 1131654 filesizehigh: 0 Attribute: 32 
+    Local ACL hash:1BCDFE03-A18BCE01-D1AE9859-23A0A5F6 
+    LastWriteTime:20190308 18:09:44.876 
+    FileSizeLow:1131654 
+    FileSizeHigh:0 
+    Attributes:32 
 
-  Klon-ACL-Hash:**DDC4FCE4-DDF329C4-977ced6d-F4D72A5B** LastWrite-Time: 20190308 18:09:44.876 filesizelow: 1131654 filesizehigh: 0 Attribute: 32 
+    Clone ACL hash:**DDC4FCE4-DDF329C4-977CED6D-F4D72A5B** 
+    LastWriteTime:20190308 18:09:44.876 
+    FileSizeLow:1131654 
+    FileSizeHigh:0 
+    Attributes:32 
 
 Dieses Problem wurde durch das [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) -Update behoben.
 
@@ -149,8 +170,8 @@ Dieses Problem wurde durch das [KB4512534](https://support.microsoft.com/help/45
 
 Beim Versuch, Daten von einem Windows Server 2008 R2-Quellcomputer zu übertragen, erhalten Sie keine Datenübertragungen, und Sie erhalten eine Fehlermeldung:  
 
-  Der Speicher konnte auf keinem der Endpunkte übertragen werden.
-0x9044
+    Couldn't transfer storage on any of the endpoints.
+    0x9044
 
 Dieser Fehler wird erwartet, wenn Ihr Windows Server 2008 R2-Computer nicht vollständig mit allen kritischen und wichtigen Updates von Windows Update gepatcht ist. Unabhängig vom Speicher Migrationsdienst empfehlen wir immer, einen Windows Server 2008 R2-Computer zu Sicherheitszwecken zu patchen, da dieses Betriebssystem nicht die Sicherheitsverbesserungen von neueren Versionen von Windows Server enthält.
 
@@ -158,26 +179,30 @@ Dieser Fehler wird erwartet, wenn Ihr Windows Server 2008 R2-Computer nicht voll
 
 Beim Versuch, Daten von einem Quellcomputer zu übertragen, werden einige oder alle Freigaben nicht übertragen, zusammenfassende Fehler:
 
-   Der Speicher konnte auf keinem der Endpunkte übertragen werden.
-0x9044
+    Couldn't transfer storage on any of the endpoints.
+    0x9044
 
 Die Überprüfung der Details zur SMB-Übertragung zeigt Folgendes
 
-   Überprüfen Sie, ob das Quellgerät Online ist-wir konnten nicht darauf zugreifen.
+    Check if the source device is online - we couldn't access it.
 
 Die Untersuchung des storagemigrationservice/Admin-Ereignis Protokolls zeigt Folgendes:
 
-   Speicher konnte nicht übertragen werden.
+    Couldn't transfer storage.
 
-   Job: den job1-ID:  
-   Status: Fehler: 36931 Fehlermeldung: 
+    Job: Job1
+    ID:  
+    State: Failed
+    Error: 36931
+    Error Message: 
 
    Leitfaden: Überprüfen Sie den detaillierten Fehler, und stellen Sie sicher, dass die Übertragungsanforderungen erfüllt sind. Der Übertragungs Auftrag konnte keine Quell-und Zielcomputer übertragen. Dies kann darauf zurückzuführen sein, dass der Orchestrator-Computer keinen Quell-oder Zielcomputer erreichen konnte, möglicherweise aufgrund einer Firewallregel oder fehlender Berechtigungen.
 
 Die Untersuchung des storagemigrationservice-Proxy/Debug-Protokolls zeigt Folgendes:
 
-   07/02/2019-13:35:57.231 [Fehler] Fehler bei der Überprüfung der Übertragung. ErrorCode: 40961, der Quell Endpunkt ist nicht erreichbar oder nicht vorhanden, oder die Quell Anmelde Informationen sind ungültig, oder der authentifizierte Benutzer verfügt nicht über ausreichende Zugriffsberechtigungen.
-bei Microsoft. storagemigration. Proxy. Service. Transfer. transferoperation. Validate () bei Microsoft. storagemigration. Proxy. Service. Transfer. transferrequesthandler. ProcessRequest (filetransferrequest filetransferrequest, GUID operationId)    [d:\os\src\base\dms\proxy\transfer\transferproxy\transferrequesthandler.cs::
+    07/02/2019-13:35:57.231 [Error] Transfer validation failed. ErrorCode: 40961, Source endpoint is not reachable, or doesn't exist, or source credentials are invalid, or authenticated user doesn't have sufficient permissions to access it.
+    at Microsoft.StorageMigration.Proxy.Service.Transfer.TransferOperation.Validate()
+    at Microsoft.StorageMigration.Proxy.Service.Transfer.TransferRequestHandler.ProcessRequest(FileTransferRequest fileTransferRequest, Guid operationId)    
 
 Dies war ein Code Fehler, der Manifest, wenn Ihr Migrations Konto nicht mindestens über Leseberechtigungen für die SMB-Freigaben verfügt. Dieses Problem wurde zuerst im kumulativen Update [4520062](https://support.microsoft.com/help/4520062/windows-10-update-kb4520062)behoben. 
 
@@ -185,15 +210,55 @@ Dies war ein Code Fehler, der Manifest, wenn Ihr Migrations Konto nicht mindeste
 
 Nach der Installation von [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) und dem Versuch, das Inventar auszuführen, schlägt die Inventur mit Fehlern fehl
 
-  Ausnahme von HRESULT: 0x80005000
+    EXCEPTION FROM HRESULT: 0x80005000
   
-  Protokoll Name: Microsoft-Windows-storagemigrationservice/Administrator Quelle: Microsoft-Windows-storagemigrationservice Date: 9/9/2019 5:21:42 pm Ereignis-ID: 2503 Aufgaben Kategorie: keine Ebene: Fehler Schlüsselwörter:      
-  Benutzer: Netzwerkdienst Computer: FS02. TailwindTraders.net Description: die Computer konnten nicht inventarisiert werden.
-Auftrag: foo2 ID: 20ac3f75-4945-41d1-9a79-d11dbb57798b State: failed Error: Fehlermeldung: 36934 Fehlermeldung: Fehler bei Inventur für alle Geräte Anleitung: Überprüfen Sie den detaillierten Fehler, und stellen Sie sicher, dass die Inventur Anforderungen erfüllt sind. Der Auftrag konnte keinen der angegebenen Quellcomputer inventarisieren. Dies kann darauf zurückzuführen sein, dass der Orchestrator-Computer ihn nicht über das Netzwerk erreichen konnte, möglicherweise aufgrund einer Firewallregel oder fehlender Berechtigungen.
+    Log Name:      Microsoft-Windows-StorageMigrationService/Admin
+    Source:        Microsoft-Windows-StorageMigrationService
+    Date:          9/9/2019 5:21:42 PM
+    Event ID:      2503
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      FS02.TailwindTraders.net
+    Description:
+    Couldn't inventory the computers.
+    Job: foo2
+    ID: 20ac3f75-4945-41d1-9a79-d11dbb57798b
+    State: Failed
+    Error: 36934
+    Error Message: Inventory failed for all devices
+    Guidance: Check the detailed error and make sure the inventory requirements are met. The job couldn't inventory any of the specified source computers. This could be because the orchestrator computer couldn't reach it over the network, possibly due to a firewall rule or missing permissions.
   
-  Protokoll Name: Microsoft-Windows-storagemigrationservice/Administrator Quelle: Microsoft-Windows-storagemigrationservice Date: 9/9/2019 5:21:42 pm Ereignis-ID: 2509 Aufgaben Kategorie: keine Ebene: Fehler Schlüsselwörter:      
-  Benutzer: Netzwerkdienst Computer: FS02. TailwindTraders.net Description: der Computer konnte nicht inventarisiert werden.
-Auftrag: foo2 Computer: FS01. TailwindTraders.net State: failed Error:-2147463168 Error Message: Anleitung: Überprüfen Sie den detaillierten Fehler, und stellen Sie sicher, dass die Inventur Anforderungen erfüllt sind. Das Inventar konnte keine Aspekte des angegebenen Quell Computers ermitteln. Dies kann daran liegen, dass fehlende Berechtigungen oder Berechtigungen für die Quelle oder einen gesperrten Firewallport vorhanden sind.
+    Log Name:      Microsoft-Windows-StorageMigrationService/Admin
+    Source:        Microsoft-Windows-StorageMigrationService
+    Date:          9/9/2019 5:21:42 PM
+    Event ID:      2509
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      FS02.TailwindTraders.net
+    Description:
+    Couldn't inventory a computer.
+    Job: foo2
+    Computer: FS01.TailwindTraders.net
+    State: Failed
+    Error: -2147463168
+    Error Message: 
+    Guidance: Check the detailed error and make sure the inventory requirements are met. The inventory couldn't determine any aspects of the specified source computer. This could be because of missing permissions or privileges on the source or a blocked firewall port.
+  
+    Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Debug
+    Source:        Microsoft-Windows-StorageMigrationService-Proxy
+    Date:          2/14/2020 1:18:21 PM
+    Event ID:      10000
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      2019-rtm-orc.ned.contoso.com
+    Description:
+    02/14/2020-13:18:21.097 [Erro] Failed device discovery stage SystemInfo with error: (0x80005000) Unknown error (0x80005000)   
   
 Dieser Fehler wird durch einen Code Fehler im Speicher Migrationsdienst verursacht, wenn Sie Migrations Anmelde Informationen in Form eines Benutzer Prinzipal namens (User Principal Name, UPN) bereitstellen, z. b. "meghan@contoso.com". Der Orchestrator-Dienst des Speicher Migrations Dienstanbieter kann dieses Format nicht ordnungsgemäß analysieren, was zu einem Fehler bei einer Domänen Suche führt, die zur Unterstützung der Cluster Migration in KB4512534 und 19h1 hinzugefügt wurde.
 
@@ -203,8 +268,9 @@ Um dieses Problem zu umgehen, geben Sie Anmelde Informationen im Format "Domäne
 
 Wenn Sie versuchen, Daten auf einen Cluster Datei Server zu übertragen, erhalten Sie folgende Fehlermeldung: 
 
-   Stellen Sie sicher, dass der Proxy Dienst installiert ist und ausgeführt wird, und wiederholen Sie dann den Vorgang. Der Proxy ist zurzeit nicht verfügbar.
-0x9006 ServiceError0x9006, Microsoft. storagemigration. Commands. unregistersmsproxycommand
+    Make sure the proxy service is installed and running, and then try again. The proxy isn't currently available.
+    0x9006
+    ServiceError0x9006,Microsoft.StorageMigration.Commands.UnregisterSmsProxyCommand
 
 Dieser Fehler wird erwartet, wenn die Datei Server Ressource vom ursprünglichen Windows Server 2019-Cluster Besitzer Knoten auf einen neuen Knoten verschoben wurde und die Proxy Funktion für den Speicher Migrationsdienst nicht auf diesem Knoten installiert wurde.
 
@@ -329,10 +395,25 @@ Nach dem Starten der Übertragung von oder zu einem Domänen Controller:
  3. Mindestens ein AD-Benutzer und eine lokale Domänen Gruppe haben den Namen und/oder das Anmelde Attribut vor Windows 2000 geändert.
  4. Das Ereignis 3509 wird im SMS-Orchestrator angezeigt:
  
- Protokoll Name: Microsoft-Windows-storagemigrationservice/Administrator Quelle: Microsoft-Windows-storagemigrationservice Date: 1/10/2020 2:53:48 pm Ereignis-ID: 3509 Aufgaben Kategorie: keine Ebene: Fehler Schlüsselwörter:      
- Benutzer: Netzwerkdienst Computer: orc2019-RTM.Corp.contoso.com Description: der Speicher für einen Computer konnte nicht übertragen werden.
+        Log Name:      Microsoft-Windows-StorageMigrationService/Admin
+        Source:        Microsoft-Windows-StorageMigrationService
+        Date:          1/10/2020 2:53:48 PM
+        Event ID:      3509
+        Task Category: None
+        Level:         Error
+        Keywords:      
+        User:          NETWORK SERVICE
+        Computer:      orc2019-rtm.corp.contoso.com
+        Description:
+        Couldn't transfer storage for a computer.
 
- Auftrag: dctest3 Computer: dc02-2019.Corp.contoso.com Zielcomputer: DC03-2019.Corp.contoso.com Status: Fehler: 53251 Fehlermeldung: Fehler bei der Migration lokaler Konten mit Fehler System. Ausnahme:-2147467259 bei Microsoft. storagemigration. Service. devicehelper. MigrateSecurity (idevicerecord sourcedevicerecord, idevicerecord destinationdevicerecord, transferconfiguration config, GUID proxyid, CancellationToken canceltoken)
+        Job: dctest3
+        Computer: dc02-2019.corp.contoso.com
+        Destination Computer: dc03-2019.corp.contoso.com
+        State: Failed
+        Error: 53251
+        Error Message: Local accounts migration failed with error System.Exception: -2147467259
+           at Microsoft.StorageMigration.Service.DeviceHelper.MigrateSecurity(IDeviceRecord sourceDeviceRecord, IDeviceRecord destinationDeviceRecord, TransferConfiguration config, Guid proxyId, CancellationToken cancelToken)
 
 Dies ist das erwartete Verhalten, wenn Sie versucht haben, von oder zu einem Domänen Controller mit Storage Migration Service zu migrieren und die Option "Benutzer und Gruppen migrieren" zum Umbenennen oder wieder verwenden von Konten verwendet haben. anstatt "Benutzer und Gruppen übertragen" auszuwählen. Die DC-Migration wird für [Storage Migration Service nicht unterstützt](faq.md). Da ein Domänen Controller nicht über echte lokale Benutzer und Gruppen verfügt, werden diese Sicherheits Prinzipale von Storage Migration Service wie bei der Migration zwischen zwei Mitglieds Servern behandelt, und es wird versucht, ACLs als angewiesen zu ändern. Dies führt zu den Fehlern und verkopierten oder kopierten Konten. 
 

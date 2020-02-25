@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b96a66c9e28454752fd4999fcfe74cbb15a3ae7d
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 717308a157d7f4a5f54e3aef2e829fbed9f12152
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265812"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517545"
 ---
 # <a name="best-practices-for-securing-active-directory-federation-services"></a>Bewährte Methoden zum Sichern von Active Directory-Verbunddienste (AD FS)
 
@@ -45,26 +45,26 @@ In dieser Tabelle werden die Ports und Protokolle beschrieben, die für die Komm
 
 Protokoll |Ports |Beschreibung
 --------- | --------- |---------
-HTTP|80 (TCP/UDP)|Wird zum Herunterladen von Zertifikatsperrlisten zur Überprüfung von SSL-Zertifikaten verwendet
-HTTPS|443 (TCP/UDP)|Wird zum Synchronisieren mit Azure AD verwendet
+HTTP|80 (TCP/UDP)|Dient zum Herunterladen von CRLs (Zertifikat Sperr Listen) zum Überprüfen von SSL-Zertifikaten.
+HTTPS|443 (TCP/UDP)|Wird für die Synchronisierung mit Azure AD verwendet.
 WinRM|5985| WinRM-Listener
 
 ### <a name="wap-and-federation-servers"></a>WAP-und Verbund Server
-In dieser Tabelle werden die Ports und Protokolle beschrieben, die für die Kommunikation zwischen den Verbundservern und WAP-Servern erforderlich sind.
+In dieser Tabelle werden die Ports und Protokolle beschrieben, die für die Kommunikation zwischen den Verbund Servern und WAP-Servern erforderlich sind.
 
 Protokoll |Ports |Beschreibung
 --------- | --------- |---------
-HTTPS|443 (TCP/UDP)|Wird für die Authentifizierung verwendet
+HTTPS|443 (TCP/UDP)|Wird für die Authentifizierung verwendet.
 
 ### <a name="wap-and-users"></a>WAP und Benutzer
 In dieser Tabelle werden die Ports und Protokolle beschrieben, die für die Kommunikation zwischen Benutzern und den WAP-Servern erforderlich sind.
 
 Protokoll |Ports |Beschreibung
 --------- | --------- |--------- |
-HTTPS|443 (TCP/UDP)|Wird für die Geräteauthentifizierung verwendet
-TCP|49443 (TCP)|Wird für die Zertifikatauthentifizierung verwendet
+HTTPS|443 (TCP/UDP)|Wird für die Geräte Authentifizierung verwendet.
+TCP|49443 (TCP)|Wird für die Zertifikat Authentifizierung verwendet.
 
-Weitere Informationen zu den erforderlichen Ports und Protokollen, die für Hybrid Bereitstellungen erforderlich sind, [finden Sie in diesem Dokument.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-ports/)
+Weitere Informationen zu den erforderlichen Ports und Protokollen, die für Hybrid Bereitstellungen erforderlich sind, [finden Sie in diesem Dokument.](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-ports)
 
 Ausführliche Informationen zu Ports und Protokollen, die für eine Bereitstellung von Azure AD und Office 365 erforderlich sind [, finden Sie in diesem Dokument.](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US)
 
@@ -90,7 +90,7 @@ AD FS Endpunkte können mithilfe des folgenden PowerShell-Cmdlets auf dem Proxy 
     
     PS:\>Set-AdfsEndpoint -TargetAddressPath <address path> -Proxy $false
 
-Zum Beispiel:
+Beispiel:
     
     PS:\>Set-AdfsEndpoint -TargetAddressPath /adfs/services/trust/13/certificatemixed -Proxy $false
     
@@ -103,7 +103,7 @@ Die Einstellung kann mithilfe des folgenden PowerShell-Cmdlets überprüft werde
     
    `PS:\>Get-ADFSProperties`
 
-Die Eigenschaft ist `ExtendedProtectionTokenCheck`.  Die Standardeinstellung ist zulassen, sodass die Sicherheitsvorteile ohne die Kompatibilitätsprobleme mit Browsern erzielt werden können, die die Funktion nicht unterstützen.  
+Die-Eigenschaft ist `ExtendedProtectionTokenCheck`.  Die Standardeinstellung ist zulassen, sodass die Sicherheitsvorteile ohne die Kompatibilitätsprobleme mit Browsern erzielt werden können, die die Funktion nicht unterstützen.  
 
 ### <a name="congestion-control-to-protect-the-federation-service"></a>Überlastungs Steuerung zum Schutz des Verbund Dienstanbieter
 Der Verbund Dienst Proxy (Teil des WAP) stellt die Überlastungs Steuerung zum Schutz des AD FS Dienstanbieter vor einer Flut von Anforderungen bereit.  Der webanwendungsproxy lehnt externe Client Authentifizierungsanforderungen ab, wenn der Verbund Server durch die Latenz zwischen dem webanwendungsproxy und dem Verbund Server erkannt wird.  Diese Funktion ist standardmäßig mit einem empfohlenen Schwellenwert für die Latenzzeit konfiguriert.

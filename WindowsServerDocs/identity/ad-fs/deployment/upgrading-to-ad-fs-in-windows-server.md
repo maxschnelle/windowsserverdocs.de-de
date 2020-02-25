@@ -1,6 +1,6 @@
 ---
 ms.assetid: 7671e0c9-faf0-40de-808a-62f54645f891
-title: Upgrade von AD FS in Windows Server 2016
+title: Upgrade von ADFS in Windows Server 2016
 description: ''
 author: billmath
 manager: femila
@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: ebcc679b2bc5ab3c6d7c70c9e84ba45697c80165
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 913e45e52c5c6c137d2bf798bb5b86a65f9d1caa
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265592"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517575"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Upgrade auf AD FS in Windows Server 2016 unter Verwendung einer WID-Datenbank
 
@@ -63,11 +63,11 @@ Der Rest des Dokuments enthält die Schritte zum Hinzufügen eines Windows Serve
 
 2. Fügen Sie mit dem Konfigurations-Assistenten für AD FS den neuen Windows Server 2019-Server der vorhandenen AD FS Farm hinzu.
 
-![upgraden](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_1.png)
+![Upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_1.png)
 
 3. Öffnen Sie auf dem Windows Server 2019-Verbund Server AD FS-Verwaltung. Beachten Sie, dass Verwaltungsfunktionen nicht verfügbar sind, da es sich bei diesem Verbund Server nicht um den primären Server handelt.
 
-![upgraden](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_3.png)
+![Upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_3.png)
 
 4. Öffnen Sie auf dem Windows Server 2019-Server ein PowerShell-Befehlsfenster mit erhöhten Rechten, und führen Sie das folgende Cmdlet aus:
 
@@ -75,7 +75,7 @@ Der Rest des Dokuments enthält die Schritte zum Hinzufügen eines Windows Serve
 Set-AdfsSyncProperties -Role PrimaryComputer
 ```
 
-![upgraden](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_4.png)
+![Upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_4.png)
 
 5. Öffnen Sie auf dem AD FS Server, der zuvor als primär konfiguriert wurde, ein PowerShell-Befehlsfenster mit erhöhten Rechten, und führen Sie das folgende Cmdlet aus:
 
@@ -83,22 +83,22 @@ Set-AdfsSyncProperties -Role PrimaryComputer
 Set-AdfsSyncProperties -Role SecondaryComputer -PrimaryComputerName {FQDN}
 ```
 
-![upgraden](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_5.png)
+![Upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_5.png)
 
 6. Öffnen Sie nun auf dem Windows Server 2016-Verbund Server AD FS-Verwaltung. Beachten Sie, dass jetzt alle Administrator Funktionen angezeigt werden, da die primäre Rolle auf diesen Server übertragen wurde.
 
-![upgraden](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_6.png)
+![Upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_6.png)
 
 7. Wenn Sie eine AD FS 2012 R2-Farm auf 2016 oder 2019 aktualisieren, erfordert das Farm Upgrade, dass das AD-Schema mindestens die Ebene 85 hat.  Öffnen Sie zum Aktualisieren des Schemas mit dem Windows Server 2016-Installationsmedium eine Eingabeaufforderung, und navigieren Sie zum Verzeichnis support\adprep. Führen Sie Folgendes aus: `adprep /forestprep`
 
-![upgraden](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_7.png)
+![Upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_7.png)
 
 Wenn die Ausführung abgeschlossen ist, `adprep/domainprep`
 
 > [!NOTE]
 > Stellen Sie vor dem Ausführen des nächsten Schritts sicher, dass Windows Server aktuell ist, indem Sie Windows Update aus den Einstellungen ausführen. Setzen Sie diesen Prozess fort, bis keine weiteren Updates benötigt werden.
 
-![upgraden](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_8.png)
+![Upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_8.png)
 
 8. Öffnen Sie nun auf dem Windows Server 2016-Server PowerShell, und führen Sie das folgende Cmdlet aus:
 
@@ -110,19 +110,19 @@ Wenn die Ausführung abgeschlossen ist, `adprep/domainprep`
 Invoke-AdfsFarmBehaviorLevelRaise
 ```
 
-![upgraden](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_9.png)
+![Upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_9.png)
 
 9. Geben Sie bei entsprechender Aufforderung Y ein. Dadurch wird die Ebene erhöht. Nachdem dieser Vorgang abgeschlossen ist, haben Sie die voll qualifizierte vollständig ausgelöst.
 
-![upgraden](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_10.png)
+![Upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_10.png)
 
 10. Wenn Sie nun AD FS Verwaltung wechseln, sehen Sie, dass die neuen Funktionen für die spätere AD FS Version hinzugefügt wurden.
 
-![upgraden](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_12.png)
+![Upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_12.png)
 
 11. Ebenso können Sie das PowerShell-Cmdlet verwenden: `Get-AdfsFarmInformation`, um Ihnen den aktuellen FBL anzuzeigen.
 
-![upgraden](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_13.png)
+![Upgrade](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_13.png)
 
 12. Um die WAP-Server auf die neueste Ebene zu aktualisieren, konfigurieren Sie auf jedem webanwendungsproxy den WAP neu, indem Sie das folgende PowerShell-Cmdlet in einem erweiterten Fenster ausführen:
 
@@ -149,3 +149,16 @@ Set-WebApplicationProxyConfiguration -UpgradeConfigurationVersion
 ```
 
 Dadurch wird das Upgrade der WAP-Server beendet.
+
+
+> [!NOTE] 
+> In AD FS 2019 ist ein bekanntes PRT-Problem aufgetreten, wenn Windows Hello for Business mit einer hybriden Zertifikat Vertrauensstellung ausgeführt wird. Dieser Fehler kann in den ADFS-Administrator Ereignisprotokollen auftreten: Ungültige OAuth-Anforderung empfangen. Der Client "Name" darf nicht auf die Ressource mit dem Bereich "UGS" zugreifen. So beheben Sie diesen Fehler: 
+> 1. Starten Sie AD FS Management Console. Brose zu "Dienste > Bereichs Beschreibungen"
+> 2. Klicken Sie mit der rechten Maustaste auf Bereichs Beschreibungen, und wählen Sie "Bereichs Beschreibung hinzufügen"
+> 3. Geben Sie unter Name den Namen UGS ein, und klicken Sie auf übernehmen > OK
+> 4. Starten Sie PowerShell als Administrator.
+> 5. Führen Sie den Befehl "Get-adfsapplicationberechtigung" aus. Suchen Sie nach den scopenames: {OpenID, Aza} mit dem clientroleidentifier. Notieren Sie sich den objectidentifier.
+> 6. Führen Sie den Befehl "Set-adfsapplication-Berechtigung-TargetIdentifier < objectidentifier aus Schritt 5 >-addscope ' UGS ' aus.
+> 7. Starten Sie den ADFS-Dienst neu.
+> 8. Auf dem Client: Starten Sie den Client neu. Der Benutzer sollte aufgefordert werden, whfb bereitzustellen.
+> 9. Wenn das Bereitstellungs Fenster nicht angezeigt wird, müssen Sie NGC-Ablauf Verfolgungs Protokolle erfassen und eine weitere Problembehandlung durchführen.

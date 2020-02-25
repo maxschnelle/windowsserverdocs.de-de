@@ -9,12 +9,12 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c36555a8bca7882125451b2c86a0707e3de9b2db
-ms.sourcegitcommit: 8771a9f5b37b685e49e2dd03c107a975bf174683
+ms.openlocfilehash: 6c8a3b30a337c164227bf344b5704cc7e782461a
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145926"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517515"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Konfigurieren von AD FS für die Benutzerzertifikat Authentifizierung
 
@@ -23,7 +23,7 @@ Die Benutzerzertifikat Authentifizierung wird hauptsächlich in zwei Anwendungsf
 * Benutzer verwenden Zertifikate, die für mobile Geräte bereitgestellt werden.
 
 
-## <a name="prerequisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 1) Bestimmen Sie den Modus der AD FS Benutzerzertifikat Authentifizierung, die Sie aktivieren möchten, mithilfe eines der Modi, die in [diesem Artikel](ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md) beschrieben werden.
 2) Stellen Sie sicher, dass die Vertrauenskette des Benutzer Zertifikats installiert ist & von allen AD FS-und WAP-Servern einschließlich aller zwischen Zertifizierungsstellen als vertrauenswürdig eingestuft. Dies erfolgt in der Regel über das Gruppenrichtlinien Objekt auf AD FS/WAP-Servern.
 3)  Stellen Sie sicher, dass das Stamm Zertifikat der Vertrauenskette für ihre Benutzerzertifikate im NTAuth-Speicher in Active Directory
@@ -39,8 +39,10 @@ Aktivieren Sie die Authentifizierung von Benutzer Zertifikaten als Intranet-oder
 Wenn Sie AD FS für die Azure AD Zertifikat Authentifizierung konfigurieren, stellen Sie sicher, dass Sie die [Azure AD Einstellungen](https://docs.microsoft.com/azure/active-directory/active-directory-certificate-based-authentication-get-started#step-2-configure-the-certificate-authorities) und die [AD FS Anspruchs Regeln](https://docs.microsoft.com/azure/active-directory/active-directory-certificate-based-authentication-ios#requirements) konfiguriert haben, die für den Zertifikat Aussteller und die Seriennummer erforderlich sind.
 
 Außerdem gibt es einige optionale Aspekte.
-- Wenn Sie Ansprüche zusätzlich zu EKU (Anspruchstyp https://schemas.microsoft.com/2012/12/certificatecontext/extension/eku) basierend auf Zertifikat Feldern und Erweiterungen verwenden möchten, konfigurieren Sie zusätzliche Anspruchs Pass-Through-Regeln für die Active Directory Anspruchs Anbieter-Vertrauensstellung.  Im folgenden finden Sie eine umfassende Liste der verfügbaren Zertifikat Ansprüche.  
+- Wenn Sie Ansprüche zusätzlich zu EKU (Anspruchstyp https://schemas.microsoft.com/2012/12/certificatecontext/extension/eku)basierend auf Zertifikat Feldern und Erweiterungen verwenden möchten, konfigurieren Sie zusätzliche Anspruchs Pass-Through-Regeln für die Active Directory Anspruchs Anbieter-Vertrauensstellung.  Im folgenden finden Sie eine umfassende Liste der verfügbaren Zertifikat Ansprüche.  
 - Wenn Sie den Zugriff basierend auf dem Zertifikattyp einschränken müssen, können Sie die zusätzlichen Eigenschaften des Zertifikats in AD FS Ausstellungs Autorisierungs Regeln für die Anwendung verwenden. Häufige Szenarien sind "nur Zertifikate lassen, die von einem MDM-Anbieter bereitgestellt werden" oder "nur Smartcardzertifikate zulassen".
+>[!IMPORTANT]
+> Kunden, die den Geräte Code Fluss für die Authentifizierung und Durchführung der Geräte Authentifizierung mit einem anderen IDP als Azure AD (z. b. AD FS) verwenden, können keinen gerätebasierten Zugriff erzwingen (z. b. nur verwaltete Geräte mit einem Drittanbieter-MDM-Dienst zulassen), um Azure AD Ressourcen zu verwenden. Um den Zugriff auf Ihre Unternehmensressourcen in Azure AD zu schützen und jegliche Datenlecks zu verhindern, sollten Kunden Azure AD gerätebasierten bedingten Zugriff konfigurieren (d. h., das Gerät muss als "Beschwerde Azure AD" gekennzeichnet werden.
 - Konfigurieren Sie zugelassene Zertifizierungsstellen für Client Zertifikate mithilfe der Anleitung unter "Verwaltung vertrauenswürdiger Aussteller für die Client Authentifizierung" in [diesem Artikel](https://technet.microsoft.com/library/dn786429(v=ws.11).aspx).
 - Sie sollten die Anmelde Seiten ggf. so ändern, dass Sie den Anforderungen der Endbenutzer bei der Zertifikat Authentifizierung entsprechen. Häufige Fälle: (a) ändern Sie die Anmeldung mit Ihrem X509-Zertifikat, um Endbenutzer freundlicher zu werden.
 
@@ -106,7 +108,7 @@ Viele Office 365-Anwendungen senden prompt = Login an Azure AD. Azure AD konvert
 
 Weitere Informationen finden Sie unter [diesem Link](ad-fs-prompt-login.md). 
 
-### <a name="additional-troubleshooting"></a>Weitere Informationen zur Problembehandlung
+### <a name="additional-troubleshooting"></a>Weitere Problembehandlung
 Dies sind seltene vorkommen.
 1)  Wenn die CRL-Liste sehr lang ist, kann es beim herunterladen zu einem Timeout kommen. In diesem Fall müssen Sie "MaxFieldLength" und "maxrequestbyte" gemäß der https://support.microsoft.com/help/820129/http-sys-registry-settings-for-windows aktualisieren.
 
@@ -115,7 +117,7 @@ Dies sind seltene vorkommen.
 
 ## <a name="reference-complete-list-of-user-certificate-claim-types-and-example-values"></a>Verweis: eine komplette Liste der Anspruchs Typen für Benutzerzertifikate und Beispiel Werte
 
-|                                         Anspruchstyp                                         |                              Beispielwert                               |
+|                                         Anspruchstyp                                         |                              Beispiel Wert                               |
 |--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
 |         https://schemas.microsoft.com/2012/12/certificatecontext/field/x509version         |                                    3                                     |
 |     https://schemas.microsoft.com/2012/12/certificatecontext/field/signaturealgorithm      |                                sha256RSA                                 |
@@ -134,6 +136,6 @@ Dies sind seltene vorkommen.
 |           https://schemas.microsoft.com/2012/12/certificatecontext/extension/san           | Anderer Name: Prinzipal Name =user@contoso.com, RFC822 Name =user@contoso.com |
 |           https://schemas.microsoft.com/2012/12/certificatecontext/extension/eku           |                          1.3.6.1.4.1.311.10.3.4                          |
 
-## <a name="related-links"></a>Verwandte Links
+## <a name="related-links"></a>Verwandte Themen
 * [Konfigurieren alternativer Hostname-Bindungen für AD FS Zertifikat Authentifizierung](ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md)
 * [Konfigurieren von Zertifizierungsstellen in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-certificate-based-authentication-get-started#step-2-configure-the-certificate-authorities)

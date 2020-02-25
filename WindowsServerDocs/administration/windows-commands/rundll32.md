@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 29a87f9f07c25a0c671e47550e0a054d8308f747
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7345c1ad59a4209e607245db1b2a79055ffcb5fe
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384416"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517286"
 ---
 # <a name="rundll32"></a>rundll32
 
@@ -42,7 +42,7 @@ Rundll32 <DLLname>
 
 ## <a name="remarks"></a>Hinweise
 
-Rundll32 kann nur Funktionen aus einer DLL aufrufen, die explizit zum Aufrufen durch rundll32 geschrieben wurden. Weitere Informationen zu rundll32-Anforderungen finden Sie in der Microsoft Knowledge Base im [Artikel 164787](https://go.microsoft.com/fwlink/?LinkID=165773) (https://go.microsoft.com/fwlink/?LinkID=165773).
+Rundll32 kann nur Funktionen aus einer DLL aufrufen, die explizit für das Aufrufen durch rundll32 geschrieben wurde.
 
 #### <a name="additional-references"></a>Weitere Verweise
 
