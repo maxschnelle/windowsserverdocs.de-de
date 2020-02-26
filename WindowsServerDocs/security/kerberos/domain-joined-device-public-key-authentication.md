@@ -8,12 +8,12 @@ manager: alanth
 author: michikos
 ms.technology: security-authentication
 ms.date: 08/18/2017
-ms.openlocfilehash: 616ebf1a8e01f84618d22d535609a0dc8414d718
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c9c4342281ee2036e152c8034fa72e421487a45b
+ms.sourcegitcommit: 9bc7a0478d72944f714f8041fa4506e0d1ed0366
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403492"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77607083"
 ---
 # <a name="domain-joined-device-public-key-authentication"></a>Public Key Authentication für Geräte in einer Domäne
 
@@ -25,12 +25,12 @@ Kerberos hat die Unterstützung von in die Domäne eingebundenen Geräten zum An
 
 Ab Windows 10, Version 1507 und Windows Server 2016, stellen in die Domäne eingebundene Geräte automatisch einen gebundenen öffentlichen Schlüssel für einen Windows Server 2016-Domänen Controller (DC) bereit. Nachdem ein Schlüssel bereitgestellt wurde, kann Windows die Authentifizierung mit öffentlichem Schlüssel für die Domäne verwenden.
 
-### <a name="public-key-generation"></a>Generierung von öffentlichem Schlüssel
-Wenn auf dem Gerät Credential Guard ausgeführt wird, wird ein öffentlicher Schlüssel erstellt, der durch Credential Guard geschützt wird. 
+### <a name="key-generation"></a>Schlüsselgenerierung
+Wenn auf dem Gerät Credential Guard ausgeführt wird, wird ein öffentliches/privates Schlüsselpaar erstellt, das durch Credential Guard geschützt wird. 
 
-Wenn Credential Guard nicht verfügbar ist und ein TPM ist, wird ein öffentlicher Schlüssel erstellt, der vom TPM geschützt wird. 
+Wenn Credential Guard nicht verfügbar ist und ein TPM ist, wird ein öffentliches/privates Schlüsselpaar durch das TPM geschützt. 
 
-Wenn keines von beiden verfügbar ist, wird kein Schlüssel generiert, und das Gerät kann sich nur mit einem Kennwort authentifizieren.
+Wenn keines von beiden verfügbar ist, wird kein Schlüsselpaar generiert, und das Gerät kann sich nur mit einem Kennwort authentifizieren.
 
 ### <a name="provisioning-computer-account-public-key"></a>Öffentlicher Schlüssel für das Bereitstellen des Computer Kontos
 Wenn Windows gestartet wird, wird überprüft, ob ein öffentlicher Schlüssel für sein Computer Konto bereitgestellt wurde. Wenn dies nicht der Fall ist, wird ein gebundener öffentlicher Schlüssel generiert und mit einem DC mit Windows Server 2016 oder höher für sein Konto konfiguriert. Wenn alle Domänen Controller auf eine Unterebene festgelegt sind, wird kein Schlüssel bereitgestellt.

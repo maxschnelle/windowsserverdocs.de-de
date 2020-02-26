@@ -7,19 +7,19 @@ author: cosmosdarwin
 ms.author: cosdar
 manager: eldenc
 ms.technology: storage-spaces
-ms.date: 06/06/2019
-ms.openlocfilehash: 8c17671f2f15d1373973dcf2fbafc753f0a163a6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 02/25/2020
+ms.openlocfilehash: fb53ae74e471d590f83e1017662f33bb5a4b7c1d
+ms.sourcegitcommit: 92e0e4224563106adc9a7f1e90f27da468859d90
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402887"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77608803"
 ---
 # <a name="creating-volumes-in-storage-spaces-direct"></a>Erstellen von Volumes in Direkte Speicherplätze
 
 > Gilt für: Windows Server 2019, Windows Server 2016
 
-In diesem Thema wird beschrieben, wie Volumes auf einem direkte Speicherplätze Cluster mithilfe von Windows Admin Center, PowerShell oder Failovercluster-Manager erstellt werden.
+In diesem Thema wird beschrieben, wie Sie mithilfe des Windows Admin Centers und PowerShell Volumes auf einem direkte Speicherplätze-Cluster erstellen.
 
 > [!TIP]
 > Lesen Sie zunächst [Planen von Volumes in Direkte Speicherplätze](plan-volumes.md), falls noch nicht geschehen.
@@ -88,7 +88,7 @@ Deduplizierung und Komprimierung werden pro Volume verwaltet. Bei der Deduplizie
 
     Anstelle komplizierter Einstellungen können Sie mit dem Windows Admin Center zwischen vorgefertigten Profilen für verschiedene Workloads wählen. Wenn Sie sich nicht sicher sind, verwenden Sie die Standardeinstellung.
 
-6. Wählen Sie **Aktivieren** aus.
+6. Klicken Sie auf **Aktivieren**.
 
 Sehen Sie sich ein kurzes Video zum Aktivieren der Deduplizierung und Komprimierung an.
 
@@ -100,10 +100,10 @@ Wir empfehlen die Verwendung des Cmdlets **New-Volume** zum Erstellen von Volume
 
 Das Cmdlet **New-Volume** hat vier Parameter, die Sie immer angeben müssen:
 
-- **FriendlyName** Eine beliebige Zeichenfolge, z. b. *"volume1"*
-- **Verwendet** Entweder **CSVFS_ReFS** (empfohlen) oder **CSVFS_NTFS**
-- **Storagepoolfriendlyname:** Der Name des Speicherpools, z. b. *"S2D on Cluster Name"*
-- **Größe:** Die Größe des Volumes, z. b *. "10 TB"*
+- **FriendlyName:** Eine beliebige Zeichenfolge, z. B. *"Volume1"*
+- **Dateisystem:** Entweder **CSVFS_ReFS** (empfohlen) oder **CSVFS_NTFS**
+- **StoragePoolFriendlyName:** Der Name Ihres Speicherpools, z. B. *"S2D auf ClusterName"*
+- **Größe:** Die Größe des Volumes, z. B. *"10 TB"*
 
    > [!NOTE]
    > Windows, einschließlich PowerShell, zählt mithilfe von binären Zahlen (Basis 2), während Laufwerke häufig mithilfe von Dezimalzahlen (Basis 10) bezeichnet werden. Dies erklärt, warum ein "Ein Terabyte"-Laufwerk, das als 1,000,000,000,000 Bytes definiert ist, in Windows mit etwa "909 GB" angezeigt wird. Dies ist das erwartungsgemäße Verhalten. Beim Erstellen von Volumes mithilfe von **New-Volume**, müssen Sie den Parameter **Größe** in binären (Basis 2) Zahlen angeben. Beispiel: Bei Angaben von "909 GB" oder "0,909495 TB" wird ein Volume von ungefähr 1,000,000,000,000 Bytes erstellt.
@@ -116,11 +116,11 @@ Wenn Ihre Bereitstellung nur zwei Server hat, verwendet Direkte Speicherplätze 
 New-Volume -FriendlyName "Volume1" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB
 ```
 
-### <a name="example-with-4-servers"></a>Beispiel: Mit vier Servern
+### <a name="example-with-4-servers"></a>Beispiel: mit 4 oder mehr Servern
 
 Wenn Sie vier oder mehr Server haben, können Sie mithilfe des optionalen Parameters **ResiliencySettingName** den Resilienztyp auswählen.
 
--   **ResiliencySettingName** Entweder **Spiegelung** oder **Parität**.
+-   **ResiliencySettingName:** entweder **Spiegelung** oder **Parität**.
 
 Im folgenden Beispiel verwendet *"Volume2"* die Dreiwegespiegelung und *"Volume3"* die duale Parität (häufig als "Erasure Coding" bezeichnet).
 
@@ -148,40 +148,6 @@ Zum Erstellen von Volumes mit mehreren Ebenen verweisen Sie mithilfe der Paramet
 ```PowerShell
 New-Volume -FriendlyName "Volume4" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes 300GB, 700GB
 ```
-
-## <a name="create-volumes-using-failover-cluster-manager"></a>Erstellen von Volumes mithilfe des Failovercluster-Managers
-
-Sie können Volumes auch mithilfe des *Assistenten für neue virtuelle Datenträger (Direkte Speicherplätze)* und anschließend dem *Assistenten für neue Volumes* aus dem Failovercluster-Manager erstellen. Dieser Workflow umfasst allerdings viel mehr manuelle Schritte und wird nicht empfohlen.
-
-Es gibt drei grundlegende Schritte:
-
-### <a name="step-1-create-virtual-disk"></a>Schritt 1: Erstellen eines virtuellen Datenträgers
-
-![Neuer virtueller Datenträger](media/creating-volumes/GUI-Step-1.png)
-
-1. Navigieren Sie im Failovercluster-Manager zu **Speicher** -> **Pools**.
-2. Wählen Sie im Aktionsbereich rechts **Neuer virtueller Datenträger** aus, oder klicken Sie mit der rechten Maustaste auf den Pool, und wählen Sie **Neuer virtueller Datenträger**.
-3. Wählen Sie den Speicherpool aus, und klicken Sie auf **OK**. Der *Assistent für neue virtuelle Datenträger (Direkte Speicherplätze)* wird geöffnet.
-4. Verwenden Sie den Assistenten, um den virtuellen Datenträger zu benennen und seine Größe anzugeben.
-5. Überprüfen Sie Ihre Auswahl, und klicken Sie auf **Erstellen**.
-6. Achten Sie darauf, das Kontrollkästchen **Volume erstellen, wenn dieser Assistent geschlossen wird** zu aktivieren.
-
-### <a name="step-2-create-volume"></a>Schritt 2: Volume erstellen
-
-Der *Assistent für neue Volumes* wird geöffnet.
-
-7. Wählen Sie den virtuellen Datenträger aus, den Sie gerade erstellt haben, und klicken Sie auf **Weiter**.
-8. Geben Sie die Größe des Volumes (Standard: die gleiche Größe wie der virtuelle Datenträger) an, und klicken Sie auf **Weiter**. 
-9. Weisen Sie das Volume einem Laufwerkbuchstaben zu, oder wählen Sie **Keinem Laufwerkbuchstaben zuweisen**, und klicken Sie auf **Weiter**.
-10. Geben Sie das zu verwendende Dateisystem an, behalten Sie als Größe der Zuordnungseinheit die Option *Standard* bei, benennen Sie das Volume, und klicken Sie auf **Weiter**.
-11. Überprüfen Sie Ihre Auswahl, und klicken Sie auf **Erstellen**, dann auf **Schließen**.
-
-### <a name="step-3-add-to-cluster-shared-volumes"></a>Schritt 3: Zu freigegebenen Clustervolumes hinzufügen
-
-![„Zu freigegebenen Clustervolumes hinzufügen“](media/creating-volumes/GUI-Step-2.png)
-
-12. Navigieren Sie im Failovercluster-Manager zu **Speicher** -> **Datenträger**.
-13. Wählen Sie den virtuellen Datenträger aus, den Sie gerade erstellt haben, und wählen Sie im Aktionsbereich rechts **Zu freigegebenen Clustervolumes hinzufügen**, oder klicken Sie mit der rechten Maustaste auf den virtuellen Datenträger, und wählen Sie **Zu freigegebenen Clustervolumes hinzufügen**.
 
 Fertig! Wiederholen Sie diese Schritte ggf., um mehrere Volumes zu erstellen.
 
