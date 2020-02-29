@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 34ea5ca29672cb7bc0080a1c27b1910d5cf6b92e
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.openlocfilehash: b299ddc823b3fbbd5818f96202e3c01faf0762d7
+ms.sourcegitcommit: 9687d3eb221b89061a48bf1e73fb3b25bee69f9a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517525"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78169600"
 ---
 # <a name="ad-fs-requirements"></a>AD FS-Anforderungen
 
@@ -202,7 +202,7 @@ Sowohl die Firewall zwischen dem Webanwendungsproxy und der Verbundserverfarm al
 Wenn außerdem die Authentifizierung des Client Zertifikats \(clienttls-Authentifizierung mithilfe von X509-Benutzer Zertifikaten\) erforderlich ist, erfordert AD FS in Windows Server 2012 R2, dass TCP-Port 49443 in der Firewall zwischen den Clients und dem webanwendungsproxy Eingeh End aktiviert ist. Dies ist bei der Firewall zwischen dem Webanwendungsproxy und den Verbundservern nicht erforderlich\).  
 
 > [!NOTE]
->Stellen Sie  auch sicher, dass Port 49443 nicht von anderen Diensten auf dem webanwendungsproxy-Server verwendet wird.
+>Stellen Sie  auch sicher, dass Port 49443 nicht von anderen Diensten auf dem AD FS und dem webanwendungsproxy-Server verwendet wird.
 
 **Konfigurieren des DNS**  
   
@@ -353,6 +353,6 @@ In der folgenden Tabelle finden Sie zusätzliche Informationen zur Kryptografieu
 ## <a name="BKMK_13"></a>Berechtigungsanforderungen  
 Der Administrator, der die Installation ausführt, und die Erstkonfiguration AD FS müssen über Domänen Administrator Berechtigungen in der lokalen Domäne verfügen \(mit anderen Worten: die Domäne, der der Verbund Server beigetreten ist.\)  
   
-## <a name="see-also"></a>Weitere Informationen  
+## <a name="see-also"></a>Siehe auch  
 [AD FS-Entwurfshandbuch in Windows Server 2012 R2](AD-FS-Design-Guide-in-Windows-Server-2012-R2.md)  
   

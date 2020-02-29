@@ -12,16 +12,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5323210962298ff3f2d0b159cba7726adfbb89d1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b7da68fa9cbe71f8a67e74671d64d11908ae4654
+ms.sourcegitcommit: 9687d3eb221b89061a48bf1e73fb3b25bee69f9a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361622"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78169560"
 ---
 # <a name="running-wsus-replica-mode"></a>Ausführen des WSUS-Replikatmodus
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ein WSUS-Server im Replikat Modus erbt die Update Genehmigungen und Computer Gruppen, die auf einem Verwaltungs Server erstellt wurden. In einem Szenario, in dem der Replikat Modus verwendet wird, verfügen Sie in der Regel über einen einzelnen Verwaltungs Server, und ein oder mehrere untergeordnete WSUS-Replikat Server werden in der gesamten Organisation basierend auf der Standort-oder Organisations Sie genehmigen Updates und erstellen Computer Gruppen auf dem Verwaltungs Server, auf dem die Replikat Modus-Server dann gespiegelt werden. Server im Replikat Modus können nur während der WSUS-Installation eingerichtet werden. Wenn Sie dieses Szenario implementiert haben, ist es wahrscheinlich, dass es in Ihrer Organisation wichtig ist, dass Update Genehmigungen und Computer Gruppen zentral verwaltet werden.
 
