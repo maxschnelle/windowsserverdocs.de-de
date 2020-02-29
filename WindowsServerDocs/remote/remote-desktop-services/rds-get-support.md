@@ -13,18 +13,17 @@ ms.topic: article
 ms.assetid: 938adb3d-71ab-488b-b2f2-57b29df210d7
 author: evaseydl
 manager: scottman
-ms.openlocfilehash: 4280491b8f47ce2d16ecf2cb33dbdb21ac35365b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: eaf3aa737718ce2c0e4654319bea7079e3f92373
+ms.sourcegitcommit: a4b489d0597b6a73c905d3448d5bc332efd6191b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403977"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77675351"
 ---
 # <a name="additional-remote-desktop-resources"></a>Zusätzliche Ressourcen zu Remotedesktop
 
 Neben den Informationen in der Windows Server 2016-Bibliothek kannst du dir auch folgende Ressourcen ansehen, um dich mit Remotedesktopdiensten vertraut zu machen und Unterstützung zu erhalten:
 
-- Du bist bei Twitter? Wir auch: [@RDS4U](https://twitter.com/RDS4U)
 - Im [RDS-TechNet-Forum](https://aka.ms/technetforum-rds) kannst du an allgemeinen Diskussionen zu Remotedesktopdiensten teilnehmen.
 - Diskussionen zu Remotedesktopanwendungen/-clients für Windows, Android, iOS und Mac findest du im [TechNet-Forum zu Remotedesktopclients](https://aka.ms/technetforum-rdc).
 - Informationen zu MultiPoint findest du im [TechNet-Forum zu MultiPoint](https://aka.ms/multipoint-forum).
