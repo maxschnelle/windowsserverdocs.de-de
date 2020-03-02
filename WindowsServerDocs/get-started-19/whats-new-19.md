@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 06/04/2019
-ms.openlocfilehash: 13eed225dfc144d5e7e59be13dbed14d4de8bb01
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dd8cd6700323075a380aa062bfa1d208b3e30f83
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360777"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465494"
 ---
 # <a name="whats-new-in-windows-server-2019"></a>Neuerungen in Windows Server 2019
 
@@ -115,7 +115,7 @@ Hier sind einige der Änderungen, die wir in Windows Server 2019 am Speicher vor
 
 Der Speichermigrationsdienst ist eine neue Technologie, mit der Server einfacher auf eine neuere Version von Windows Server migriert werden können. Er bietet ein grafisches Tool, das Daten auf Servern inventarisiert, Daten und Konfiguration auf neuere Server überträgt und dann optional die Identitäten der alten Server auf die neuen Server überträgt, sodass Apps und Benutzer nichts ändern müssen. Weitere Informationen finden Sie unter [Speichermigrationsdienst)](../storage/storage-migration-service/overview.md).
 
-### <a name="storage-spaces-direct"></a>Direkte Speicherplätze
+### <a name="storage-spaces-direct"></a>Speicherplätze DAS
 
 Hier ist eine Liste der Neuerungen in „Direkte Speicherplätze“. Weitergehende Informationen finden Sie unter [Neuerungen in „Direkte Speicherplätze“](../storage/whats-new-in-storage.md#storage-spaces-direct). Lesen Sie auch [Azure Stack HCI](https://docs.microsoft.com/azure-stack/operator/azure-stack-hci-overview). Dort finden Sie Informationen zum Abrufen von überprüften Systemen für „Direkte Speicherplätze“.
 
@@ -139,7 +139,7 @@ Hier sind die Neuigkeiten für Speicherreplikate. Weitergehende Informationen fi
 - Verbesserungen der Protokollierungsleistung für Speicherreplikate
 - Support für Windows Admin Center
 
-## <a name="failover-clustering"></a>Failoverclustering
+## <a name="failover-clustering"></a>Failoverclusterunterstützung
 
 Hier ist eine Liste der Neuigkeiten für das Failoverclustering. Weitergehende Informationen finden Sie unter [Neuigkeiten für Failoverclustering](../failover-clustering/whats-new-in-failover-clustering.md).
 
@@ -157,7 +157,7 @@ Hier ist eine Liste der Neuigkeiten für das Failoverclustering. Weitergehende I
 
 ### <a name="linux-containers-on-windows"></a>Linux-Container unter Windows
 
-Es ist nun möglich, Windows- und Linux-basierte Container auf demselben Container-Host mit demselben Docker-Daemon auszuführen. Dies ermöglicht Ihnen eine heterogene Container-Host-Umgebung und bietet Anwendungsentwicklern zugleich Flexibilität.
+Es ist nun möglich, Windows- und Linux-basierte Container auf demselben Container-Host mit demselben Docker-Daemon auszuführen. Dies ermöglicht Ihnen das Betreiben einer heterogenen Container-Host-Umgebung und bietet Anwendungsentwicklern zugleich Flexibilität.
 
 ### <a name="built-in-support-for-kubernetes"></a>Integrierte Unterstützung für Kubernetes
 
