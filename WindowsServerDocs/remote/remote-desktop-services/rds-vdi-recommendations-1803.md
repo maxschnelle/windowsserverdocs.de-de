@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 author: jaimeo
 manager: dougkim
-ms.openlocfilehash: 6287b6233306a47d71951b589b5d3cb84ac0d761
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: e7708ffe5639c80067ed0dbc2794c4d6694e6247
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950396"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517505"
 ---
 # <a name="optimizing-windows-10-version-1803-for-a-virtual-desktop-infrastructure-vdi-role"></a>Optimieren von Windows 10, Version 1803, für eine VDI-Rolle (Virtuelle Desktopinfrastruktur)
 
@@ -91,7 +91,7 @@ Je nach Architektur der VDI-VM sind PreFetch, SuperFetch und Ähnliches von eine
 
 ### <a name="to-sysprep-or-not-sysprep"></a>Sysprep – ja oder nein?
 
-Windows 10 verfügt über eine integrierte Funktion, das [Systemvorbereitungstool](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview), häufig als „Sysprep“ (System Preparation) bezeichnet. Mit dem Sysprep-Tool wird ein benutzerdefiniertes Windows 10-Image für die Duplizierung vorbereitet. Der Sysprep-Prozess stellt sicher, dass das resultierende Betriebssystem für den Einsatz in der Produktion eindeutig ist.
+Windows 10 verfügt über eine integrierte Funktion, das [Systemvorbereitungstool](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview), häufig als „Sysprep“ (System Preparation) bezeichnet. Mit dem Sysprep-Tool wird ein benutzerdefiniertes Windows 10-Image für die Duplizierung vorbereitet. Der Sysprep-Prozess stellt sicher, dass das resultierende Betriebssystem für den Einsatz in der Produktion eindeutig ist.
 
 Es gibt Gründe, die für und gegen die Ausführung von Sysprep sprechen. Im Falle von VDI möchtest du vielleicht die Möglichkeit haben, das Standardbenutzerprofil anzupassen, das als Profilvorlage für nachfolgende Benutzer verwendet wird, die sich mit diesem Image anmelden. Möglicherweise möchtest du gern einige Apps installieren, aber auch die Möglichkeit haben, die Einstellungen pro App zu steuern.
 

@@ -9,12 +9,12 @@ ms.date: 01/22/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: adce37d8d06399d3a00221a12f3449244720ade7
-ms.sourcegitcommit: 840d1d8851f68936db3934c80796fb8722d3c64a
+ms.openlocfilehash: 8061f41dab0f02bccd59a659e0bcd209bd73a249
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519482"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517555"
 ---
 # <a name="whats-new-in-active-directory-federation-services"></a>Neuerungen in Active Directory-Verbunddienste
 
@@ -108,6 +108,18 @@ C. Der Client sendet dann den Autorisierungscode in der Zugriffstokenanforderung
 D. AD FS transformiert den geheimen Schlüssel „code_verifier“ und vergleicht ihn mit „t(code_verifier)“ aus (B).  Wenn sie nicht gleich sind, wird der Zugriff verweigert. 
 
 #### <a name="faq"></a>Häufig gestellte Fragen 
+> [!NOTE] 
+> Dieser Fehler kann in den Ereignisprotokollen von ADFS Admin auftreten: Es wurde eine ungültige OAuth-Anforderung empfangen. Dem Client „NAME“ ist der Zugriff auf die Ressource mit dem Bereich „ugs“ untersagt. So behebst du diesen Fehler 
+> 1. Starte die AD FS-Verwaltungskonsole. Navigiere zu „Dienste > Bereichsbeschreibungen“.
+> 2. Klicke mit der rechten Maustaste auf „Bereichsbeschreibungen“ und wähle „Bereichsbeschreibung hinzufügen“ aus.
+> 3. Gebe unter Name den Namen „ugs“ ein und klicke dann auf „Übernehmen“ > „OK“.
+> 4. Führe PowerShell als Administrator aus.
+> 5. Führe den Befehl „Get-AdfsApplicationPermission“ aus. Suche nach „ScopeNames :{openid, aza}“, die „ClientRoleIdentifier“ aufweisen. Notiere den „ObjectIdentifier“.
+> 6. Führe den Befehl „Set-AdfsApplicationPermission -TargetIdentifier <ObjectIdentifier aus Schritt 5> -AddScope 'ugs'“ aus.
+> 7. Starte den ADFS-Dienst neu.
+> 8. Auf dem Client: Starte den Client neu. Der Benutzer sollte zur Bereitstellung von WHFB aufgefordert werden.
+> 9. Wenn das Bereitstellungsfenster nicht angezeigt wird, musst du Protokolle zur NGC-Nachverfolgung sammeln und eine weitere Problembehandlung durchführen.
+
 **F.** Kann ich den Ressourcenwert als Teil des Bereichswerts übergeben, so wie Anforderungen für Azure AD durchgeführt werden? 
 </br>**A.** Bei AD FS unter Windows Server 2019 kann jetzt der im Bereichsparameter eingebettete Ressourcenwert übergeben werden. Der Bereichsparameter kann jetzt als eine durch Leerzeichen getrennte Liste organisiert werden, wobei jeder Eintrag als Ressource/Bereich strukturiert ist. Beispiel:  
 **<eine gültige Beispielanforderung erstellen>**

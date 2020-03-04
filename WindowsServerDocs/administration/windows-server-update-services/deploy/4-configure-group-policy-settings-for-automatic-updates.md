@@ -12,16 +12,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a01d8881e8f0f7ca6feff691938f926a12460db0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f8ebe1f82cd6f616d42521729c5efc14821c20fa
+ms.sourcegitcommit: 9687d3eb221b89061a48bf1e73fb3b25bee69f9a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361661"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78169580"
 ---
 # <a name="step-4-configure-group-policy-settings-for-automatic-updates"></a>Schritt 4: Konfigurieren von Gruppenrichtlinien für „Automatische Updates“
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In einer Active Directory-Umgebung können Sie mithilfe von Gruppenrichtlinien definieren, wie Computer und Benutzer (in diesem Dokument als WSUS-Clients bezeichnet) mit Windows-Updates interagieren können, um automatische Updates von Windows Server Update Services (WSUS) zu beziehen.
 
@@ -94,7 +94,7 @@ Gibt an, ob das Feature „Automatische Updates“ Updates automatisch installie
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 > [!NOTE]
 > Wenn die Richtlinieneinstellung „Automatische Updates konfigurieren“ auf **Deaktiviert** festgelegt ist, hat diese Richtlinie keine Auswirkung.
@@ -135,7 +135,7 @@ Gibt an, ob das Feature „Automatische Updates“ Updates akzeptiert, die von a
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Windows RT|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Windows RT|
 
 > [!NOTE]
 > Updates von einem anderen Dienst als dem Microsoft Update-Dienst im Intranet müssen immer von Microsoft signiert sein und sind von dieser Richtlinieneinstellung nicht betroffen.
@@ -159,7 +159,7 @@ Gibt an, ob ein Neustartzeitgeber immer sofort beginnt, nachdem Windows Update w
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 > [!NOTE]
 > Wenn die Richtlinieneinstellung „Keinen automatischen Neustart für geplante Installationen automatischer Updates durchführen, wenn Benutzer angemeldet sind“ aktiviert ist, hat diese Richtlinie keine Auswirkungen.
@@ -178,7 +178,7 @@ Gibt die Stunden an, die Windows wartet, bis es nach verfügbaren Updates sucht.
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Windows RT|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Windows RT|
 
 > [!NOTE]
 > Die Einstellung „Internen Pfad für den Microsoft Updatedienst angeben“ muss aktiviert sein, damit diese Richtlinie wirksam wird.
@@ -186,7 +186,7 @@ Gibt die Stunden an, die Windows wartet, bis es nach verfügbaren Updates sucht.
 > Wenn die Richtlinieneinstellung „Automatische Updates konfigurieren“ deaktiviert ist, hat diese Richtlinie keine Auswirkung.
 
 > [!NOTE]
-> Unter Windows RT wird diese Richtlinie nicht unterstützt. Die Aktivierung dieser Richtlinie wirkt sich nicht auf Computer aus, auf denen Windows RT ausgeführt wird.
+> Unter Windows RT wird diese Richtlinie nicht unterstützt. Die Aktivierung dieser Richtlinie wirkt sich nicht auf Computer aus, auf denen Windows RT ausgeführt wird.
 
 |||
 |-|-|
@@ -202,7 +202,7 @@ Gibt an, ob automatische Updates auf diesem Computer aktiviert sind.
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Windows RT|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Windows RT|
 
 Wenn diese Option aktiviert ist, müssen Sie eine der vier Optionen auswählen, die in dieser Gruppenrichtlinieneinstellung angegeben sind.
 
@@ -212,7 +212,7 @@ Um diese Einstellung zu verwenden, wählen Sie **Aktiviert** und dann unter **Op
 |-|-|
 |**Status der Richtlinieneinstellung**|**Verhalten**|
 |**Nicht konfiguriert**|Gibt an, dass die Verwendung automatischer Updates nicht auf Gruppenrichtlinienebene angegeben ist. Ein Computeradministrator kann jedoch weiterhin in der Systemsteuerung automatische Updates konfigurieren.|
-|**Aktiviert**|Gibt an, dass Windows erkennt, wann der Computer online ist, und verwendet seine Internetverbindung, um Windows Update nach verfügbaren Updates zu durchsuchen.<br /><br />Wenn diese Option aktiviert ist, können lokale Administratoren mithilfe der Windows Update-Systemsteuerung eine Konfigurationsoption ihrer Wahl auswählen. Lokale Administratoren dürfen jedoch die Konfiguration für das Feature „Automatische Updates“ nicht deaktivieren.<br /><br />-   **2: Vor Herunterladen und Installation benachrichtigen**<br />    Wenn Windows Update Updates findet, die für den Computer gelten, werden Benutzer darüber informiert, dass Updates zum Download bereit stehen. Benutzer können dann Windows Update ausführen, um alle verfügbaren Updates herunterzuladen und zu installieren.<br />-   **3: Autom. Herunterladen, aber vor Installation benachrichtigen** (Standardeinstellung)<br />    Windows Update findet anwendbare Updates und lädt sie im Hintergrund herunter. Der Benutzer wird während des Vorgangs nicht benachrichtigt oder unterbrochen. Wenn die Downloads abgeschlossen sind, werden Benutzer benachrichtigt, dass Updates zur Installation bereit stehen. Benutzer können dann Windows Update ausführen, um die heruntergeladenen Updates zu installieren.<br />-   **4: Autom. Herunterladen und laut Zeitplan installieren**<br />    Sie können den Zeitplan mithilfe der Optionen in dieser Gruppenrichtlinieneinstellung angeben. Wenn kein Zeitplan angegeben ist, sieht der Standardzeitplan für alle Installationen täglich 03:00 Uhr vor. Wenn für Updates ein Neustart erforderlich ist, um die Installation abzuschließen, startet Windows den Computer automatisch neu. (Falls ein Benutzer beim Computer angemeldet ist, wenn Windows neu gestartet werden kann, wird der Benutzer benachrichtigt und erhält die Möglichkeit, den Neustart zu verzögern.) **Hinweis:** Ab Windows 8 können Sie Updates so festlegen, dass sie während der automatischen Wartung installiert werden, anstatt einen bestimmten an Windows Update gekoppelten Zeitplan zu verwenden. Bei der automatischen Wartung werden Updates installiert, wenn der Computer nicht verwendet wird. Es wird vermieden, dass Updates installiert werden, wenn der Computer im Akkubetrieb ist. Wenn die automatische Wartung innerhalb weniger Tage keine Updates installieren kann, installiert Windows Update die Updates sofort. Benutzer werden dann über einen anstehenden Neustart benachrichtigt. Ein anstehender Neustart erfolgt nur dann, wenn kein Potenzial für einen versehentlichen Datenverlust besteht.    Sie können Zeitplanoptionen in den Einstellungen unter „Wartungszeitplan“ im Gruppenrichtlinienverwaltungs-Editor angeben. Diese befinden sich im Pfad *Richtlinienname* > **Computerkonfiguration** > **Richtlinien** > **Administrative Vorlagen** > **Windows-Komponenten** > **Wartungszeitplan** > **Aktivierungsgrenze für automatische Wartung**. Weitere Informationen finden Sie in dieser Referenz mit dem Titel: [Einstellungen für den Wartungszeitplan](#computer-configuration--maintenance-scheduler-policy-settings).    **5: Lokalem Administrator ermöglichen, Einstellung auszuwählen**<br />Gibt an, ob lokale Administratoren die Systemsteuerung für „Automatische Updates“ verwenden dürfen, um eine Konfigurationsoption ihrer Wahl auszuwählen, z. B. ob lokale Administratoren eine geplante Installationsuhrzeit wählen können.<br />    Lokalen Administratoren wird nicht gestattet, die Konfiguration für „Automatische Updates“ zu deaktivieren.|
+|**Aktiviert**|Gibt an, dass Windows erkennt, wann der Computer online ist, und verwendet seine Internetverbindung, um Windows Update nach verfügbaren Updates zu durchsuchen.<br /><br />Wenn diese Option aktiviert ist, können lokale Administratoren mithilfe der Windows Update-Systemsteuerung eine Konfigurationsoption ihrer Wahl auswählen. Lokale Administratoren dürfen jedoch die Konfiguration für das Feature „Automatische Updates“ nicht deaktivieren.<br /><br />-   **2: Vor Herunterladen und Installation benachrichtigen**<br />    Wenn Windows Update Updates findet, die für den Computer gelten, werden Benutzer darüber informiert, dass Updates zum Download bereit stehen. Benutzer können dann Windows Update ausführen, um alle verfügbaren Updates herunterzuladen und zu installieren.<br />-   **3: Autom. Herunterladen, aber vor Installation benachrichtigen** (Standardeinstellung)<br />    Windows Update findet anwendbare Updates und lädt sie im Hintergrund herunter. Der Benutzer wird während des Vorgangs nicht benachrichtigt oder unterbrochen. Wenn die Downloads abgeschlossen sind, werden Benutzer benachrichtigt, dass Updates zur Installation bereit stehen. Benutzer können dann Windows Update ausführen, um die heruntergeladenen Updates zu installieren.<br />-   **4: Autom. Herunterladen und laut Zeitplan installieren**<br />    Sie können den Zeitplan mithilfe der Optionen in dieser Gruppenrichtlinieneinstellung angeben. Wenn kein Zeitplan angegeben ist, sieht der Standardzeitplan für alle Installationen täglich 03:00 Uhr vor. Wenn für Updates ein Neustart erforderlich ist, um die Installation abzuschließen, startet Windows den Computer automatisch neu. (Falls ein Benutzer beim Computer angemeldet ist, wenn Windows neu gestartet werden kann, wird der Benutzer benachrichtigt und erhält die Möglichkeit, den Neustart zu verzögern.) **Hinweis:** Ab Windows 8 können Sie Updates so festlegen, dass sie während der automatischen Wartung installiert werden, anstatt einen bestimmten an Windows Update gekoppelten Zeitplan zu verwenden. Bei der automatischen Wartung werden Updates installiert, wenn der Computer nicht verwendet wird. Es wird vermieden, dass Updates installiert werden, wenn der Computer im Akkubetrieb ist. Wenn die automatische Wartung innerhalb weniger Tage keine Updates installieren kann, installiert Windows Update die Updates sofort. Benutzer werden dann über einen anstehenden Neustart benachrichtigt. Ein anstehender Neustart erfolgt nur dann, wenn kein Potenzial für einen versehentlichen Datenverlust besteht.    Sie können Zeitplanoptionen in den Einstellungen unter „Wartungszeitplan“ im Gruppenrichtlinienverwaltungs-Editor angeben. Diese befinden sich im Pfad *Richtlinienname* > **Computerkonfiguration** > **Richtlinien** > **Administrative Vorlagen** > **Windows-Komponenten** > **Wartungszeitplan** > **Aktivierungsgrenze für automatische Wartung**. Weitere Informationen zu Einstellungsdetails findest du im Abschnitt des folgenden Verweises: [Einstellungen für den Wartungszeitplan](#computer-configuration--maintenance-scheduler-policy-settings).    **5: Lokalem Administrator ermöglichen, Einstellung auszuwählen**<br />Gibt an, ob lokale Administratoren die Systemsteuerung für „Automatische Updates“ verwenden dürfen, um eine Konfigurationsoption ihrer Wahl auszuwählen, z. B. ob lokale Administratoren eine geplante Installationsuhrzeit wählen können.<br />    Lokalen Administratoren wird nicht gestattet, die Konfiguration für „Automatische Updates“ zu deaktivieren.|
 |**Deaktiviert**|Gibt an, dass alle Clientupdates, die über den öffentlichen Windows Update-Dienst verfügbar sind, manuell aus dem Internet heruntergeladen und installiert werden müssen.|
 
 #### <a name="delay-restart-for-scheduled-installations"></a>Neustart für geplante Installationen verzögern
@@ -220,7 +220,7 @@ Gibt die Zeitspanne an, die „Automatische Updates“ warten soll, bis mit eine
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 > [!NOTE]
 > Diese Richtlinie gilt nur, wenn „Automatische Updates“ für die Ausführung geplanter Installationen von Updates konfiguriert ist. Wenn die Richtlinieneinstellung „Automatische Updates konfigurieren“ deaktiviert ist, hat diese Richtlinie keine Auswirkung.
@@ -239,7 +239,7 @@ Mit dieser Richtlinieneinstellung können Sie festlegen, ob die Option **Updates
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 > [!NOTE]
 > Diese Richtlinieneinstellung hat keine Auswirkung, wenn die Richtlinieneinstellung *Richtlinienname* > **Computerkonfiguration** > **Richtlinien** > **Administrative Vorlagen** > **Windows-Komponenten** > **Windows Update** > **Option „Updates installieren und herunterfahren“ im Dialogfeld „Windows herunterfahren“ nicht anzeigen** aktiviert ist.
@@ -260,7 +260,7 @@ Wenn Sie diese Richtlinie aktivieren, wird die Funktionalität zum regelmäßige
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme ab Windows Server 2012 R2 , Windows 8.1 oder Windows RT 8.1, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme ab Windows Server 2012 R2 , Windows 8.1 oder Windows RT 8.1, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 > [!NOTE]
 > Diese Richtlinie gilt nur, wenn der Computer so konfiguriert ist, dass eine Verbindung mit einem internen Updatedienst über die Richtlinieneinstellung „Internen Pfad für den Microsoft Updatedienst angeben“ hergestellt wird.
@@ -279,7 +279,7 @@ Gibt an, ob die Option **Updates installieren und herunterfahren** im Dialogfeld
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 |||
 |-|-|
@@ -295,13 +295,13 @@ Gibt die Namen der Zielgruppen an, die in der WSUS-Konsole konfiguriert werden u
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Windows RT|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Windows RT|
 
 > [!NOTE]
 > Diese Richtlinie gilt nur, wenn dieser Computer so konfiguriert ist, dass er die angegebenen Zielgruppennamen im WSUS unterstützt. Wenn der Zielgruppenname im WSUS nicht vorhanden ist, wird er bis zur Erstellung ignoriert. Wenn die Richtlinieneinstellung „Internen Pfad für den Microsoft Updatedienst angeben“ deaktiviert oder nicht konfiguriert ist, hat diese Richtlinie keine Auswirkung.
 
 > [!NOTE]
-> Unter Windows RT wird diese Richtlinie nicht unterstützt. Die Aktivierung dieser Richtlinie wirkt sich nicht auf Computer aus, auf denen Windows RT ausgeführt wird.
+> Unter Windows RT wird diese Richtlinie nicht unterstützt. Die Aktivierung dieser Richtlinie wirkt sich nicht auf Computer aus, auf denen Windows RT ausgeführt wird.
 
 |||
 |-|-|
@@ -321,7 +321,7 @@ Der Computer wird nur aktiviert, wenn es zu installierende Updates gibt. Wenn de
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme ab Windows Vista und Windows Server 2008 (Windows 7), die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme ab Windows Vista und Windows Server 2008 (Windows 7), die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 |||
 |-|-|
@@ -337,7 +337,7 @@ Gibt an, dass „Automatische Updates“ zum Abschluss einer geplanten Installat
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 > [!NOTE]
 > Diese Richtlinie gilt nur, wenn „Automatische Updates“ für die Ausführung geplanter Installationen von Updates konfiguriert ist. Wenn die Richtlinieneinstellung „Automatische Updates konfigurieren“ deaktiviert ist, hat diese Richtlinie keine Auswirkung.
@@ -356,7 +356,7 @@ Gibt die Zeitspanne an, die „Automatische Updates“ warten soll, ehe der Benu
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Windows RT|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Windows RT|
 
 > [!IMPORTANT]
 > Diese Richtlinie gilt nur, wenn „Automatische Updates“ für die Ausführung geplanter Installationen von Updates konfiguriert ist. Wenn die Richtlinieneinstellung „Automatische Updates konfigurieren“ deaktiviert ist, hat diese Richtlinie keine Auswirkung.
@@ -380,7 +380,7 @@ Wenn der Status auf **Nicht konfiguriert** festgelegt ist, wird eine ausgelassen
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 > [!NOTE]
 > Diese Richtlinie gilt nur, wenn „Automatische Updates“ für die Ausführung geplanter Installationen von Updates konfiguriert ist. Wenn die Richtlinieneinstellung „Automatische Updates konfigurieren“ deaktiviert ist, hat diese Richtlinie keine Auswirkung.
@@ -431,7 +431,7 @@ Gibt an, ob „Automatische Updates“ WICHTIGE und empfohlene Updates von WSUS 
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme ab Windows Vista, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme ab Windows Vista, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 |||
 |-|-|
@@ -451,7 +451,7 @@ Wenn die Richtlinieneinstellung „Automatische Updates konfigurieren“ deaktiv
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme ab Windows Server 2008 (Windows Vista) und Windows 7, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme ab Windows Server 2008 (Windows Vista) und Windows 7, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 > [!NOTE]
 > Diese Richtlinieneinstellung ist standardmäßig deaktiviert.
@@ -481,7 +481,7 @@ Die Aktivierungsgrenze für die Wartung ist die täglich geplante Uhrzeit des St
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 > [!NOTE]
 > Diese Einstellung bezieht sich auf Option 4 in **Automatische Updates konfigurieren**. Wenn Sie in **Automatische Updates konfigurieren** Option 4 nicht ausgewählt haben, müssen Sie diese Einstellung nicht konfigurieren.
@@ -500,7 +500,7 @@ Die zufällige Verzögerung der Wartung ist die Zeitspanne, bis zu der die autom
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 > [!NOTE]
 > Diese Einstellung bezieht sich auf Option 4 in **Automatische Updates konfigurieren**. Wenn Sie in **Automatische Updates konfigurieren** Option 4 nicht ausgewählt haben, müssen Sie diese Einstellung nicht konfigurieren.
@@ -521,7 +521,7 @@ Die Richtlinie für die Aktivierung der Wartung gibt an, ob „Automatische Wart
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 > [!NOTE]
 > Wenn die Aktivierungsrichtlinie des ausgeführten Computers explizit deaktiviert ist, hat diese Einstellung keine Auswirkung.
@@ -558,7 +558,7 @@ Gibt an, ob die Option **Updates installieren und herunterfahren** im Dialogfeld
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 |||
 |-|-|
@@ -574,7 +574,7 @@ Gibt an, ob die Option **Updates installieren und herunterfahren** im Dialogfeld
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 > [!NOTE]
 > Diese Richtlinieneinstellung hat keine Auswirkung, wenn *Richtlinienname* > **Computerkonfiguration** > **Richtlinien** > **Administrative Vorlagen** > **Windows-Komponenten** > **Windows Update** > **Option „Updates installieren und herunterfahren“ im Dialogfeld „Windows herunterfahren“ nicht anzeigen** aktiviert ist.
@@ -593,7 +593,7 @@ Mit dieser Einstellung können Sie den WSUS-Clientzugriff auf Windows Update auf
 
 |Unterstützt für:|Ausnahme:|
 |---------|-------|
-|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|Null|
+|Windows-Betriebssysteme, die sich noch innerhalb ihres [Lebenszyklus für den Support von Microsoft-Produkten](https://support.microsoft.com/gp/lifeselect) befinden.|ungültig|
 
 |||
 |-|-|
@@ -621,7 +621,7 @@ Nachfolgend wird beschrieben, wie Sie die Gruppenrichtlinien-Verwaltungskonsole 
 
 3.  Doppelklicken Sie im linken Bereich auf **Domänen** und dann auf die Domäne, für die Sie ein Gruppenrichtlinienobjekt verwalten möchten. Doppelklicken Sie beispielsweise auf **example.com**.
 
-4.  Führen Sie eine der folgenden Aktionen aus:
+4.  Führen Sie eines der folgenden Verfahren aus:
 
     -  **Um ein bestehendes Gruppenrichtlinienobjekt auf Domänenebene zur Bearbeitung zu öffnen**, doppelklicken Sie auf die Domäne, die das zu verwaltende Gruppenrichtlinienobjekt enthält. Klicken Sie mit der rechten Maustaste auf die zu verwaltende Domänenrichtlinie, und klicken Sie dann auf **Bearbeiten**. Der Gruppenrichtlinienverwaltungs-Editor wird geöffnet.
 
@@ -661,7 +661,7 @@ Weitere Informationen zu Gruppenrichtlinien finden Sie unter [Übersicht über G
 
 3.  Wenn unter **Optionen** Optionen aufgeführt sind, behalten Sie die Standardwerte bei, oder ändern Sie sie nach Bedarf.
 
-4.  Führen Sie eine der folgenden Aktionen aus:
+4.  Führen Sie eines der folgenden Verfahren aus:
 
     -   Um Ihre Änderungen zu speichern und mit der nächsten Einstellung fortzufahren, klicken Sie auf **Übernehmen** und dann auf **Nächste Einstellung**.
 

@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: e73511709bfbee69a6dcbaaff4341c8b067079f3
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: ca68087ad238cbbd06c56e41dd65f318adae5222
+ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949863"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465474"
 ---
 # <a name="get-started-with-the-macos-client"></a>Erste Schritte mit dem macOS-Client
 
@@ -40,7 +40,7 @@ Führen Sie die folgenden Schritte für den Einstieg in Remotedesktop auf Ihrem 
 3. Fügen Sie eine Remotedesktopverbindung oder eine Remoteressource hinzu. Mit einer Verbindung können Sie eine direkte Verbindung mit einem Windows-PC herstellen, und mit einer Remoteressource können Sie ein RemoteApp-Programm, einen sitzungsbasierten Desktop oder einen virtuellen Desktop verwenden, das/der mithilfe von RemoteApp- und Desktopverbindungen veröffentlicht wird. Dieses Feature ist in der Regel in Unternehmensumgebungen verfügbar.
 
 ## <a name="what-about-the-mac-beta-client"></a>Informationen zum Mac-Beta-Client
-Wir testen neue Features auf unserem Vorschaukanal auf HockeyApp. Möchten Sie das ausprobieren? Wechseln Sie zu [Microsoft Remote Desktop for Mac](https://go.microsoft.com/fwlink/?LinkID=619698), und klicken Sie auf **Download**. Sie müssen kein Konto erstellen oder sich bei HockeyApp anmelden, um den Beta-Client herunterladen zu können.
+Wir testen neue Features auf unserem Vorschaukanal auf AppCenter. Möchten Sie das ausprobieren? Wechseln Sie zu [Microsoft Remote Desktop for Mac](https://aka.ms/rdmacbeta), und klicken Sie auf **Download**. Du musst kein Konto erstellen oder dich bei AppCenter anmelden, um den Beta-Client herunterladen zu können.
 
 Wenn Sie bereits über den Client verfügen, können Sie nach Updates suchen, um sicherzustellen, dass Sie die neueste Version verwenden. Klicken Sie im Beta-Client oben auf **Microsoft Remote Desktop Beta**, und klicken Sie dann auf **Nach Updates suchen**. 
 

@@ -9,12 +9,12 @@ author: eldenchristensen
 ms.date: 10/25/2017
 description: Bereitstellen von direkte Speicherplätze in einem Gast Cluster für virtuelle Maschinen, z. b. in Microsoft Azure.
 ms.localizationpriority: medium
-ms.openlocfilehash: ab0ce792c5a948e763a48493a78ccdac7a6fe74c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 34241183a56cdb9be4690e1edd68b56320cc01de
+ms.sourcegitcommit: a6ec589a39ef104ec2be958cd09d2f679816a5ab
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366048"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78261919"
 ---
 # <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>Verwenden von direkte Speicherplätze in Clustern virtueller Gastcomputer
 
@@ -30,7 +30,7 @@ Sie können direkte Speicherplätze auf einem Cluster physischer Server oder auf
 
 <iframe src="https://channel9.msdn.com/Series/Microsoft-Hybrid-Cloud-Best-Practices-for-IT-Pros/Step-by-Step-Deploy-Windows-Server-2016-Storage-Spaces-Direct-S2D-Cluster-in-Microsoft-Azure/player" width="960" height="540" allowfullscreen></iframe>
 
-## <a name="requirements"></a>Anforderungen
+## <a name="requirements"></a>Voraussetzungen
 
 Beim Bereitstellen von direkte Speicherplätze in einer virtualisierten Umgebung gelten die folgenden Überlegungen.
 
@@ -49,7 +49,7 @@ Beim Bereitstellen von direkte Speicherplätze in einer virtualisierten Umgebung
 
     -   Hyper-V – Konfigurieren von AntiAffinityClassNames auf den virtuellen Computern, um die VMs Knoten übergreifend zu trennen
 
-    -   VMware – konfigurieren Sie die antiaffinitäts Regel für VM-VM, indem Sie eine DRS-Regel vom Typ "separate Virtual Machines" erstellen, um die VMs zwischen ESX-Hosts zu trennen. Für Datenträger, die mit direkte Speicherplätze verwendet werden sollen, sollte der Adapter "paravirtual SCSI" (pvscsi) verwendet werden. Informationen zur pvscsi-Unterstützung mit Windows Server finden Sie https://kb.vmware.com/s/article/1010398.
+    -   VMware – konfigurieren Sie die antiaffinitäts Regel für VM-VM, indem Sie eine DRS-Regel vom Typ "separate Virtual Machines" erstellen, um die VMs zwischen ESX-Hosts zu trennen. Für Datenträger, die mit direkte Speicherplätze verwendet werden sollen, sollte der Adapter "paravirtual SCSI" (pvscsi) verwendet werden. Informationen zur pvscsi-Unterstützung mit Windows Server finden Sie unter https://kb.vmware.com/s/article/1010398.
 
 -   Nutzen von geringer Latenz/Hochleistungsspeicher: verwaltete Azure Storage Premium-Datenträger sind erforderlich
 
@@ -65,10 +65,6 @@ Beim Bereitstellen von direkte Speicherplätze in einer virtualisierten Umgebung
     Get-storagesubsystem clus* | set-storagehealthsetting -name “System.Storage.PhysicalDisk.AutoReplace.Enabled” -value “False”
     ```
 
--   Nicht unterstützt: Momentaufnahme/Wiederherstellung virtueller Datenträger auf Hostebene
-
-    Verwenden Sie stattdessen herkömmliche Sicherungslösungen auf Gast Ebene, um die Daten auf den direkte Speicherplätze Volumes zu sichern und wiederherzustellen.
-
 -   Erhöhen Sie den Wert für den e/a-Timeout Wert für Speicherplätze, um der möglichen Speicherlatenz von VHD/vhdx/VMDK in Gast Clustern eine höhere Resilienz zu ermöglichen:
 
     `HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\spaceport\\Parameters\\HwTimeout`
@@ -76,6 +72,16 @@ Beim Bereitstellen von direkte Speicherplätze in einer virtualisierten Umgebung
     `dword: 00007530`
 
     Das Dezimaltrennzeichen von hexadezimal 7530 ist 30000 (30 Sekunden). Beachten Sie, dass der Standardwert 1770 hexadezimal ist, oder 6000 Decimal, d. h. 6 Sekunden.
+
+## <a name="not-supported"></a>Nicht unterstützt
+
+-   Momentaufnahme/Wiederherstellung virtueller Datenträger auf Hostebene
+
+    Verwenden Sie stattdessen herkömmliche Sicherungslösungen auf Gast Ebene, um die Daten auf den direkte Speicherplätze Volumes zu sichern und wiederherzustellen.
+
+-   Änderung der Größe virtueller Datenträger auf Hostebene
+
+    Die virtuellen Datenträger, die über den virtuellen Computer verfügbar gemacht werden, müssen dieselbe Größe und dieselben Merkmale aufweisen. Das Hinzufügen von mehr Kapazität zum Speicherpool kann erreicht werden, indem jeder virtuellen Maschine weitere virtuelle Datenträger hinzugefügt und dem Pool hinzugefügt werden. Es wird dringend empfohlen, virtuelle Datenträger mit derselben Größe und denselben Merkmalen wie die aktuellen virtuellen Datenträger zu verwenden.
 
 ## <a name="see-also"></a>Siehe auch
 

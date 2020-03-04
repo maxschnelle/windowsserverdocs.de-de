@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 22f9e25763217cbbfdfd8a4ab099344f23138344
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c17fd78a2cf726ab156d3eda09b9c0e2d4ed6a75
+ms.sourcegitcommit: aaae95cb05c44232099ec46b04a127c77a3f486e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949713"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77520356"
 ---
 # <a name="dfs-replication-overview"></a>DFS-Replikation – Übersicht
 
@@ -51,9 +51,9 @@ Vor dem Bereitstellen der DFS-Replikation müssen die Server wie folgt konfiguri
 Die Verwendung der DFS-Replikation auf einem virtuellen Computer in Azure wurde mit Windows Server getestet, es gibt jedoch einige Einschränkungen und Anforderungen, die befolgt werden müssen.
 
 - Wenn Sie einen Server, auf dem die DFS-Replikation nicht nur zum Replizieren des SYSVOL-Ordners verwendet wird, mithilfe von Momentaufnahmen oder gespeicherten Zuständen wiederherstellen, tritt bei der DFS-Replikation ein Fehler auf. In diesem Fall müssen spezielle Schritte zur Datenbankwiederherstellung ausgeführt werden. Dementsprechend solltest du keine virtuellen Computer exportieren, klonen oder kopieren. Weitere Informationen finden Sie in Artikel [2517913](https://support.microsoft.com/kb/2517913) in der Microsoft Knowledge Base sowie unter [Safely Virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
-- Wenn Sie Daten in einem replizierten Ordner sichern, der auf einem virtuellen Computer gehostet wird, müssen Sie die Sicherungssoftware vom virtuellen Gastcomputer verwenden.
+- Wenn du Daten in einem replizierten Ordner sicherst, der auf einem virtuellen Computer gehostet wird, musst du die Sicherungssoftware vom virtuellen Gastcomputer verwenden.
 - Die DFS-Replikation erfordert Zugriff auf physische oder virtualisierte Domänencontroller, da eine direkte Kommunikation mit Azure AD nicht möglich ist.
-- Die DFS-Replikation erfordert eine VPN-Verbindung zwischen Ihren lokalen Replikationsgruppenmitgliedern und allen in Azure-VMs gehosteten Mitgliedern. Sie müssen auch den lokalen Router (z. B. Forefront Threat Management Gateway) so konfigurieren, dass die VPN-Verbindung über die RPC-Endpunktzuordnung (Port 135) und einen zufällig zugewiesenen Port zwischen 49152 und 65535 weitergeleitet wird. Du kannst das Set-DfsrMachineConfiguration-Cmdlet oder das Befehlszeilentool „Dfsrdiag“ verwenden, um einen statischen Port anstelle des zufälligen Ports anzugeben. Weitere Informationen zur Festlegung eines statischen Ports für die DFS-Replikation finden Sie unter [Set-DfsrServiceConfiguration](https://docs.microsoft.com/powershell/module/dfsr/set-dfsrserviceconfiguration). Informationen über das Öffnen verknüpfter Ports für die Verwaltung von Windows Server finden Sie im Artikel [832017](https://support.microsoft.com/kb/832017) in der Microsoft Knowledge Base.
+- Die DFS-Replikation erfordert eine VPN-Verbindung zwischen deinen lokalen Replikationsgruppenmitgliedern und allen in Azure-VMs gehosteten Mitgliedern. Du musst auch den lokalen Router (z. B. Forefront Threat Management Gateway) so konfigurieren, dass die VPN-Verbindung über die RPC-Endpunktzuordnung (Port 135) und einen zufällig zugewiesenen Port zwischen 49152 und 65535 weitergeleitet wird. Du kannst das Set-DfsrMachineConfiguration-Cmdlet oder das Befehlszeilentool „Dfsrdiag“ verwenden, um einen statischen Port anstelle des zufälligen Ports anzugeben. Weitere Informationen zur Festlegung eines statischen Ports für die DFS-Replikation finden Sie unter [Set-DfsrServiceConfiguration](https://docs.microsoft.com/powershell/module/dfsr/set-dfsrserviceconfiguration). Informationen über das Öffnen verknüpfter Ports für die Verwaltung von Windows Server finden Sie im Artikel [832017](https://support.microsoft.com/kb/832017) in der Microsoft Knowledge Base.
 
 Weitere Informationen zu den ersten Schritten mit virtuellen Azure-Computern finden Sie auf der [Microsoft Azure web site](https://docs.microsoft.com/azure/virtual-machines/).
 

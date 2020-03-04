@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 37e37e33b5d8dd571f8519aaa48251856503578d
-ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
+ms.openlocfilehash: 2723868251f90429fb0ad5e966c9222a6a22ab0c
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75953087"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77520704"
 ---
 # <a name="windows-server-2016-improvements"></a>Windows Server 2016-Verbesserungen
 
@@ -39,7 +39,7 @@ Leistungsindikatoren wurden hinzugefügt. Diese ermöglichen Ihnen, für die Gen
 |----- | ----- |
 |Berechnete Zeitdifferenz| Die absolute Zeitdifferenz zwischen Systemuhr und ausgewählter Zeitquelle, wie vom W32Time-Dienst in Mikrosekunden berechnet. Wenn eine neue gültige Stichprobe verfügbar ist, wird die berechnete Zeit anhand der von der Stichprobe angegebenen Zeitdifferenz aktualisiert. Dies entspricht der tatsächlichen Zeitdifferenz der lokalen Uhr. W32Time initiiert die Zeitanpassung anhand dieser Differenz und aktualisiert die berechnete Zeit zwischen Stichproben mit der verbleibenden Zeitdifferenz, die auf die lokale Uhr angewendet werden muss. Durch diesen Leistungsindikator kann die Zeitgenauigkeit mit einem niedrigen Abrufintervall (z. B. 256 Sekunden oder weniger) überwacht werden. Dabei sollte der Leistungsindikatorwert kleiner als der gewünschte Grenzwert für die Zeitgenauigkeit sein.|
 |Anpassung der Taktfrequenz| Die Anpassung der absoluten Taktfrequenz, die von W32Time am lokalen System vorgenommen wird (Anzahl pro Milliarde Einheiten). Dieser Leistungsindikator hilft, die von W32Time vorgenommenen Aktionen zu visualisieren.|
-|NTP-Roundtripverzögerung| Die aktuelle Roundtripverzögerung des NTP-Clients beim Empfang einer Antwort vom Server in Mikrosekunden. Dies ist die Zeit, die auf dem NTP-Client zwischen der Übertragung einer Anforderung an den NTP-Server |und dem Empfang einer gültigen Antwort vom Server verstrichen ist. Mithilfe dieses Leistungsindikators werden die auf dem NTP-Client aufgetretenen Verzögerungen klassifiziert. Längere oder variierende Roundtrips können zu ungenaueren NTP-Zeitberechnungen führen, was sich wiederum auf die Genauigkeit bei der Zeitsynchronisierung durch NTP auswirken kann.|
+|NTP-Roundtripverzögerung| Die aktuelle Roundtripverzögerung des NTP-Clients beim Empfang einer Antwort vom Server in Mikrosekunden. Dies ist die Zeit, die auf dem NTP-Client zwischen der Übertragung einer Anforderung an den NTP-Server und dem Empfang einer gültigen Antwort vom Server verstrichen ist. Mithilfe dieses Leistungsindikators werden die auf dem NTP-Client aufgetretenen Verzögerungen klassifiziert. Längere oder variierende Roundtrips können zu ungenaueren NTP-Zeitberechnungen führen, was sich wiederum auf die Genauigkeit bei der Zeitsynchronisierung durch NTP auswirken kann.|
 |Anzahl von Zeitquellen des NTP-Clients| Die aktive Anzahl der NTP-Zeitquellen, die vom NTP-Client verwendet werden. Dies ist die Anzahl aktiver eindeutiger IP-Adressen von Zeitservern, die auf Anforderungen dieses Clients antworten. Die Anzahl kann größer oder kleiner sein als die Anzahl der konfigurierten Peers. Dies richtet sich nach der DNS-Auflösung von Peernamen und der aktuellen Erreichbarkeit.|
 |Eingehende Anforderungen des NTP-Servers| Die Anzahl der vom NTP-Server empfangenen Anforderungen (Anforderungen/Sek.).|
 |Ausgehende Antworten des NTP-Servers| Die Anzahl der vom NTP-Server beantworteten Anforderungen (Anforderungen/Sek.).|

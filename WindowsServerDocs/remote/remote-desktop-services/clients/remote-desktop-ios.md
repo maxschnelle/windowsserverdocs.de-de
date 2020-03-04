@@ -14,12 +14,12 @@ manager: lizross
 ms.author: helohr
 date: 02/11/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 1724f24a794003aaae0ac89ee892269eed045114
-ms.sourcegitcommit: 5797a2e67211651070404a5893f5c0a91c63e960
+ms.openlocfilehash: ef13227a9f7b83f01786bbb11498da912c86581b
+ms.sourcegitcommit: 32211610ad9a24d282b35ed8c0aaa179497c63bf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77179354"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77780819"
 ---
 # <a name="get-started-with-the-ios-client"></a>Erste Schritte mit dem iOS-Client
 
@@ -170,7 +170,12 @@ Der Client verwendet Standardtouchgesten. Sie können auch Touchgesten verwenden
 
 ## <a name="supported-input-devices"></a>Unterstützte Eingabegeräte
 
-Der iOS-Client unterstützt derzeit nur Swiftpoint GT- und ProPoint-Mäuse. Weitere Informationen zur Geräteunterstützung findest du unter [Neuerungen beim iOS-Client](ios-whatsnew.md) und im [iOS App Store](https://aka.ms/rdios).
+Die grundlegende [Bluetooth-Mausunterstützung](https://support.apple.com/HT210546) ist in iOS 13 und iPadOS als Barrierefreiheitsfeature verfügbar. Eine eingehendere Integration der Maus in den RD-Client ist durch die Verwendung der Swiftpoint GT- und ProPoint-Mäuse möglich. Darüber hinaus werden auch externe Tastaturen unterstützt, die mit iOS und iPadOS kompatibel sind.
+
+Weitere Informationen zur Geräteunterstützung findest du unter [Neuerungen beim iOS-Client](ios-whatsnew.md) und im [iOS App Store](https://aka.ms/rdios).
+
+> [!TIP]
+> Swiftpoint bietet Benutzern des iOS-Clients einen [exklusiven Rabatt für die ProPoint-Maus](https://www.swiftpoint.com/microsoft).
 
 ## <a name="use-a-keyboard-in-a-remote-session"></a>Verwenden einer Tastatur in einer Remotesitzung
 
@@ -180,20 +185,7 @@ Verwenden Sie bei Bildschirmtastaturen die Schaltfläche am rechten Rand der Lei
 
 Wenn für Ihr iOS-Gerät Bluetooth aktiviert ist, wird die Bluetooth-Tastatur vom Client automatisch erkannt.
 
-Bedenken Sie, dass Sondertasten wie STRG, die OPTIONSTASTE und Funktionstasten aufgrund von Beschränkungen des Betriebssystems bei Verwendung einer Bluetooth-Tastatur nicht wie erwartet funktionieren. Die folgenden Tasten funktionieren:
+Obwohl bestimmte Tastenkombinationen in einer Remotesitzung möglicherweise nicht wie erwartet funktionieren, funktionieren viele der üblichen Windows-Tastenkombinationen, z. B. STRG+C, STRG+V und ALT+TAB.
 
-- Alphanumerische Tasten
-- Pfeiltasten
-- TAB: TAB funktioniert, aber die Tastenkombination UMSCHALT+TAB funktioniert nicht.
-- Home-Taste/POS1: ALT+NACH-LINKS-TASTE = POS1
-- ENDE: ALT+NACH-RECHTS-TASTE = ENDE
-- BILD-AUF: ALT+NACH-OBEN-TASTE = BILD-AUF
-- BILD-AB: ALT+NACH-UNTEN-TASTE = BILD-AB
-- Alle auswählen: BEFEHLSTASTE+A = STRG+A („Alle auswählen“ in den meisten Programmen)
-- Ausschneiden: BEFEHLSTASTE+X = STRG+X („Ausschneiden“ in den meisten Programmen)
-- Kopieren: BEFEHLSTASTE+C = STRG+C („Kopieren“ in den meisten Programmen)
-- Einfügen: BEFEHLSTASTE+V = STRG+V („Einfügen“ in den meisten Programmen)
-- Sonderzeichen: Mit der ALT-TASTE + alphanumerischen Tasten werden je nach konfigurierter Sprache andere Sonderzeichen erzeugt.
-
-> [!TIP]
+> [!IMPORTANT]
 > Fragen und Kommentare sind immer willkommen. Verwenden Sie jedoch NICHT die Kommentarfunktion am Ende dieses Artikels, um Hilfe bei der Problembehandlung anzufordern. Verwenden Sie stattdessen das [Remotedesktopclient-Forum](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc), und erstellen Sie einen neuen Thread. Haben Sie einen Vorschlag für ein Feature? Teilen Sie uns dies im [UserVoice-Forum für den Client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android) mit.
