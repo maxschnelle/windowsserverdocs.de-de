@@ -9,12 +9,12 @@ ms.date: 03/06/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c8ab160699bc6a961f4fbed6c58cf072a395a313
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a2f4c9ac05e72083fab3e3a926dbdd2876214a7b
+ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407421"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77517535"
 ---
 # <a name="ad-fs-requirements"></a>AD FS-Anforderungen
 
@@ -206,7 +206,7 @@ Wenn die AD FS-Authentifizierung über einen Browser oder ein Browsersteuereleme
   
 Sowohl die Firewall zwischen dem Webanwendungsproxy und der Verbundserverfarm als auch die Firewall zwischen den Clients und dem Webanwendungsproxy müssen den TCP-Port 443 für eingehende Daten aktiviert haben.  
   
-Wenn die Clientbenutzerzertifikat-Authentifizierung \(clientTLS-Authentifizierung mit X509-Benutzerzertifikaten\) erforderlich ist und der certauth-Endpunkt an Port 443 nicht aktiviert ist, erfordert AD FS 2016 außerdem, dass der TCP-Port 49443 der Firewall zwischen den Clients und dem Webanwendungsproxy für eingehende Daten aktiviert ist. Dies ist bei der Firewall zwischen dem Webanwendungsproxy und den Verbundservern nicht erforderlich\). 
+Wenn die Clientbenutzerzertifikat-Authentifizierung \(clientTLS-Authentifizierung mit X509-Benutzerzertifikaten\) erforderlich ist und der certauth-Endpunkt an Port 443 nicht aktiviert ist, erfordert AD FS 2016 außerdem, dass der TCP-Port 49443 der Firewall zwischen den Clients und dem Webanwendungsproxy für eingehende Daten aktiviert ist. Dies ist bei der Firewall zwischen dem Webanwendungsproxy und den Verbundservern nicht erforderlich. 
 
 Weitere Informationen zu den Anforderungen an Hybridports findest du unter [Ports und Protokolle für Hybrididentität](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports). 
 
