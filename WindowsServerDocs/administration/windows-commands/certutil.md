@@ -13,18 +13,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 45c9946cc53fe3a901c3f6ee53f082a5b3d086c0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 71525e4051a079eb9a3d0c8c197c8157b53e5e67
+ms.sourcegitcommit: 1f3ffff0af340868dcf3a2cfef5b8f8aea69d96d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379651"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78278545"
 ---
 # <a name="certutil"></a>certutil
 
 Certutil. exe ist ein Befehlszeilenprogramm, das als Teil der Zertifikat Dienste installiert wird. Mithilfe von "Certutil. exe" können Sie Konfigurationsinformationen der Zertifizierungsstelle (Certification Authority, ca) sichern und anzeigen, Zertifikat Dienste konfigurieren, ZS-Komponenten sichern und Wiederherstellen und Zertifikate, Schlüsselpaare und Zertifikat Ketten überprüfen.
 
-Wenn certutil auf einer Zertifizierungsstelle ohne zusätzliche Parameter ausgeführt wird, wird die aktuelle Zertifizierungsstellen Konfiguration angezeigt. Wenn cerutil auf einer nicht Zertifizierungsstelle ausgeführt wird, wird für den Befehl standardmäßig das "Certutil [-Dump"-](#-dump) Verb ausgeführt.
+Wenn certutil auf einer Zertifizierungsstelle ohne zusätzliche Parameter ausgeführt wird, wird die aktuelle Zertifizierungsstellen Konfiguration angezeigt. Wenn certutil auf einer nicht Zertifizierungsstelle ausgeführt wird, wird für den Befehl standardmäßig das "Certutil [-Dump"-](#-dump) Verb ausgeführt.
 
 > [!WARNING]
 > Frühere Versionen von certutil bieten möglicherweise nicht alle Optionen, die in diesem Dokument beschrieben werden. Sie können alle Optionen anzeigen, die eine bestimmte Version von certutil bereitstellt, indem Sie die im Abschnitt [Syntax Notations](#syntax-notations) aufgeführten Befehle ausführen.
@@ -35,7 +35,7 @@ Die Hauptabschnitte in diesem Dokument lauten:
 
 - [Verbund](#verbs)
 - [Syntax Notationen](#syntax-notations)
-- [Options](#options)
+- [Optionen](#options)
 - [Weitere certutil-Beispiele](#additional-certutil-examples)
 
 ## <a name="verbs"></a>Verben
@@ -153,7 +153,7 @@ In der folgenden Tabelle wird die Notation beschrieben, mit der die Befehlszeile
 |  [Text in eckigen Klammern]  |                Optionale Elemente                 |
 |      {Text in geschweiften Klammern}       |       Satz erforderlicher Elemente; Wählen Sie einen aus       |
 |         Senkrechter Strich (          |                       )                       |
-|          Auslassungspunkte (…)           |          Elemente, die wiederholt werden können           |
+|          Auslassungspunkte (…)           |          Elemente, die wiederholt werden können           |
 
 Zurück zum [Menü](#menu)
 
@@ -1626,9 +1626,9 @@ Wiederherstellung: Abrufen und Wiederherstellen privater Schlüssel in einem Sch
 
 Searchtoken: dient zum Auswählen der Schlüssel und Zertifikate, die wieder hergestellt werden sollen.
 
-Folgende Aktionen sind möglich:
+Eine der folgenden Optionen ist möglich:
 
-1. Allgemeiner Name des Zertifikats
+1. Allgemeiner Name (CN) für das Zertifikat
 2. Seriennummer des Zertifikats
 3. SHA-1-Hash Hash (Fingerabdruck)
 4. Zertifikat-keyid SHA-1-Hash (Subjekt Schlüssel Bezeichner)
@@ -1703,7 +1703,7 @@ In diesem Abschnitt werden die Optionen definiert, die Sie mit dem Befehl angebe
 |-------|-----------|
 |-nullsign|Hash der Daten als Signatur verwenden|
 |-f|Überschreiben erzwingen|
-|-Enterprise|Zertifikat Speicher für die Unternehmens Registrierung des lokalen Computers verwenden|
+|-enterprise|Zertifikat Speicher für die Unternehmens Registrierung des lokalen Computers verwenden|
 |-Benutzer|Verwenden von HKEY_CURRENT_USER Schlüsseln oder Zertifikat Speicher|
 |-GroupPolicy|Gruppenrichtlinie Zertifikat Speicher verwenden|
 |-UT|Anzeigen von Benutzervorlagen|
@@ -1720,7 +1720,7 @@ In diesem Abschnitt werden die Optionen definiert, die Sie mit dem Befehl angebe
 |-urlfetch|Abrufen und Überprüfen von AIA certs und CDP-CRLs|
 |-config machine\caname|Zeichenfolge für ZS und Computername|
 |-Policyserver urlorid|URL oder ID des Richtlinien Servers. Verwenden Sie für Auswahl-U/I-policyserver. Verwenden Sie für alle Richtlinien Server-policyserver \*|
-|-Anonym|Anonyme SSL-Anmelde Informationen verwenden|
+|-Anonymous|Anonyme SSL-Anmelde Informationen verwenden|
 |-Kerberos|Kerberos-SSL-Anmelde Informationen verwenden|
 |-ClientCertificate clientcertid|SSL-Anmelde Informationen des X. 509-Zertifikats verwenden. Verwenden Sie für Auswahl-U/I die Option-ClientCertificate.|
 |-Username username|Verwenden Sie das benannte Konto für SSL-Anmelde Informationen. Verwenden Sie für Auswahl-U/I den-Benutzernamen.|

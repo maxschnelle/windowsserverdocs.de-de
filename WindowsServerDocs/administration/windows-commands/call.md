@@ -1,5 +1,5 @@
 ---
-title: Anruf
+title: call
 description: 'Windows-Befehle Thema ****- '
 ms.custom: na
 ms.prod: windows-server
@@ -13,14 +13,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 06/05/2018
-ms.openlocfilehash: 0e5f9f2b0102c12ee0925bb434fdeddde85e34cd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 89097ec5d3711b3d8831f8c33b3778ed0752246f
+ms.sourcegitcommit: ee8fa8e1293f29229b5ce1b0f3d4a07ba99568f5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379720"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78280191"
 ---
-# <a name="call"></a>Anruf
+# <a name="call"></a>call
 
 
 
@@ -78,7 +78,7 @@ In der folgenden Tabelle wird gezeigt, wie Modifizierern mit den Batch Parameter
 |% ~ DP $ Pfad: 1|Durchsucht die Verzeichnisse, die in der PATH-Umgebungsvariablen für **%1**aufgelistet sind, und wird dann auf den Laufwerk Buchstaben und den Pfad des ersten gefundenen Verzeichnisses erweitert.|
 |% ~ ftza1|Erweitert **%1** , um eine Ausgabe ähnlich dem **dir** -Befehl anzuzeigen.|
 
-In den obigen Beispielen können **%1** und path durch andere gültige Werte ersetzt werden. Die <strong>%~</strong> -Syntax wird mit einer gültigen Argument Nummer beendet. Die <strong>%~</strong> modifiziererer können nicht mit **%\\\*** verwendet werden.
+In den obigen Beispielen können **%1** und path durch andere gültige Werte ersetzt werden. Die <strong>%~</strong> -Syntax wird mit einer gültigen Argument Nummer beendet. Die <strong>%~</strong> modifiziererer können nicht mit **%\*** verwendet werden.
 
 ## <a name="remarks"></a>Hinweise
 
@@ -98,7 +98,7 @@ In den obigen Beispielen können **%1** und path durch andere gültige Werte ers
 
     Wenn Befehls Erweiterungen aktiviert sind, wird die *Bezeichnung* als Ziel des **Aufrufes** akzeptiert. Die korrekte Syntax lautet wie folgt:
 
-    `call :\<Label> <Arguments>`
+    `call :<Label> <Arguments>`
 
 ## <a name="BKMK_examples"></a>Beispiele
 

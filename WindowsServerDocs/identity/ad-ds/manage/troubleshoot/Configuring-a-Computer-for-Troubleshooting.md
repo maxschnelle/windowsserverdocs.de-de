@@ -9,16 +9,16 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 8e11883de9f89d0b95ed0fc35b4f5f3941ef82a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 53af8acd7da8f9008c88ad7c6c14b00e63801847
+ms.sourcegitcommit: 1f3ffff0af340868dcf3a2cfef5b8f8aea69d96d
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71368905"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78278555"
 ---
 # <a name="configuring-a-computer-for-troubleshooting"></a>Konfigurieren eines Computers für die Problembehandlung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Bevor Sie erweiterte Problem Behandlungstechniken verwenden, um Active Directory Probleme zu identifizieren und zu beheben, konfigurieren Sie Ihre Computer für die Problembehandlung. Außerdem sollten Sie über grundlegende Kenntnisse der Problem Behandlungskonzepte, Verfahren und Tools verfügen.
 
@@ -42,20 +42,20 @@ Die Zuverlässigkeits-und Leistungsüberwachung umfasst auch die Zuverlässigkei
 
 ### <a name="set-logging-levels"></a>Protokollierungs Stufen festlegen
 
-Wenn die Informationen, die Sie im Verzeichnisdienst Protokoll in Ereignisanzeige erhalten, für die Problembehandlung nicht ausreichen, erhöhen Sie die Protokollierungs Stufen mithilfe des entsprechenden Registrierungs Eintrags in **HKEY_LOCAL_. Machinesystemcurrentcontrolsetservicesntdsdiagnostics**.
+Wenn die Informationen, die Sie im Verzeichnisdienst Protokoll in Ereignisanzeige erhalten, für die Problembehandlung nicht ausreichen, erhöhen Sie die Protokollierungs Stufen mithilfe des entsprechenden Registrierungs Eintrags in **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\ntds\diagnostics**.
 
 Standardmäßig sind die Protokollierungs Ebenen für alle Einträge auf **0**festgelegt, was die minimale Menge an Informationen liefert. Der höchste Protokolliergrad ist **5**. Das Erhöhen der Ebene für einen Eintrag bewirkt, dass zusätzliche Ereignisse im Verzeichnisdienst-Ereignisprotokoll protokolliert werden.
 
-Verwenden Sie das folgende Verfahren, um den Protokolliergrad für einen diagnoseeintrag zu ändern. Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft in **Domänen-Admins** oder einer gleichwertigen Gruppe.
+Verwenden Sie das folgende Verfahren, um den Protokolliergrad für einen diagnoseeintrag zu ändern. Zum Durchführen dieses Verfahrens ist mindestens die Mitgliedschaft in **Domänen-Admins** oder eine entsprechende Berechtigung erforderlich.
 
 > [!WARNING]
-> Es wird empfohlen, die Registrierung nur dann direkt zu bearbeiten, wenn es keine andere Alternative gibt. Änderungen an der Registrierung werden weder vom Registrierungs-Editor noch von Windows überprüft, bevor Sie angewendet werden. Daher können falsche Werte gespeichert werden. Dies kann zu nicht BEHEB baren Fehlern im System führen. Verwenden Sie nach Möglichkeit Gruppenrichtlinie oder andere Windows-Tools, z. b. MMC-Snap-Ins, um Aufgaben auszuführen, anstatt die Registrierung direkt zu bearbeiten. Wenn Sie die Registrierung bearbeiten müssen, gehen Sie äußerst umsichtig vor.
+> Es wird empfohlen, die Registrierung nur dann direkt zu bearbeiten, wenn es keine andere Alternative gibt. Änderungen an der Registrierung werden weder vom Registrierungs-Editor noch von Windows überprüft, bevor sie angewendet werden, was bedeutet, dass fehlerhafte Werte gespeichert werden können. Dies kann zu nicht behebbaren Fehlern im System führen. Verwenden Sie nach Möglichkeit Gruppenrichtlinie oder andere Windows-Tools, z. b. MMC-Snap-Ins, um Aufgaben auszuführen, anstatt die Registrierung direkt zu bearbeiten. Wenn Sie die Registrierung bearbeiten müssen, gehen Sie äußerst umsichtig vor.
 >
 
 So ändern Sie den Protokolliergrad für einen diagnoseeintrag
 
 1. Klicken Sie auf **Start** > **Ausführen** > geben Sie **Regedit** ein > Klicken Sie auf **OK**.
 2. Navigieren Sie zu dem Eintrag, für den Sie die Protokollierung festlegen möchten.
-   * BEISPIEL: HKEY_LOCAL_MACHINESYSTEMCurrentControlSetServicesNTDSDiagnostics
+   * Beispiel: HKEY_LOCAL_MACHINESYSTEMCurrentControlSetServicesNTDSDiagnostics
 3. Doppelklicken Sie auf den Eintrag, und klicken Sie in **Basis**auf **Dezimal**.
 4. Geben Sie unter **Wert**eine ganze Zahl zwischen **0** und **5**ein, und klicken Sie dann auf **OK**.
