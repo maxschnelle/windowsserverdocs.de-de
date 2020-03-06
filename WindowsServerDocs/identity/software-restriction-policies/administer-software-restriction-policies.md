@@ -14,15 +14,15 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: c75c7813041870f79ed95250857a5c7d1576c7dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407183"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371731"
 ---
 # <a name="administer-software-restriction-policies"></a>Verwalten der Richtlinien für Softwareeinschränkung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema für IT-Experten finden Sie Verfahren zum Verwalten von Anwendungs Steuerungs Richtlinien mithilfe von Software Einschränkungs Richtlinien (SRP) ab Windows Server 2008 und Windows Vista.
 
@@ -74,7 +74,7 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
     -   Sicherheitseinstellungen/Richtlinien für Software Einschränkung
 
 > [!NOTE]
-> Um diese Schritte ausführen zu können, müssen Sie auf dem lokalen Computer ein Mitglied der Gruppe %%amp;quot;Administratoren%%amp;quot; sein oder Ihnen muss die entsprechende Berechtigung übertragen worden sein.
+> Um die folgenden Schritte durchführen zu können, müssen Sie als Mitglied der Gruppe „Administratoren“ auf dem lokalen Computer angemeldet sein, oder Ihnen müssen die entsprechenden Rechte übertragen worden sein.
 
 ### <a name="BKMK_2"></a>Für eine Domäne, Site oder Organisationseinheit, und Sie befinden sich auf einem Mitglieds Server oder einer Arbeitsstation, die mit einer Domäne verknüpft ist
 
@@ -134,14 +134,14 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 
 4.  Klicken Sie in der Konsolen Struktur auf **Richtlinien für Software Einschränkung**.
 
-    **Where**
+    **Wobei**
 
     -   *Gruppenrichtlinie Objekt* [*Computername*] Richtlinie/Computer Konfiguration oder
 
         Benutzerkonfiguration/Windows-Einstellungen/Sicherheitseinstellungen/Richtlinien für Software Einschränkung
 
 > [!NOTE]
-> -   Um diese Schritte ausführen zu können, müssen Sie auf dem lokalen Computer ein Mitglied der Gruppe %%amp;quot;Administratoren%%amp;quot; sein oder Ihnen muss die entsprechende Berechtigung übertragen worden sein. Wenn der Computer zu einer Domäne gehört, können möglicherweise Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren ausführen.
+> -   Um die folgenden Schritte durchführen zu können, müssen Sie als Mitglied der Gruppe „Administratoren“ auf dem lokalen Computer angemeldet sein, oder Ihnen müssen die entsprechenden Rechte übertragen worden sein. Damit Mitglieder der Gruppe „Domänen-Admins“ diese Schritte ausführen zu können, muss der Computer zu einer Domäne gehören.
 > -   Wenn Sie Richtlinien Einstellungen festlegen möchten, die auf Computer angewendet werden, klicken Sie auf **Computerkonfiguration**, unabhängig davon, welche Benutzer sich bei Ihnen anmelden.
 > -   Um Richtlinien Einstellungen festzulegen, die auf Benutzer angewendet werden, und zwar unabhängig davon, auf welchem Computer Sie sich anmelden, klicken Sie auf **Benutzerkonfiguration**.
 
@@ -154,7 +154,7 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 > [!WARNING]
 > -   Abhängig von Ihrer Umgebung sind für das Verfahren verschiedene Administratorrechte erforderlich:
 > 
->     -   Bei der Erstellung neuer Softwareeinschränkungsrichtlinien für Ihren lokalen Computer: Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der lokalen Gruppe **Administratoren** oder eine gleichwertige Mitgliedschaft.
+>     -   Wenn Sie neue Software Einschränkungs Richtlinien für Ihren lokalen Computer erstellen, müssen Sie mindestens Mitglied der lokalen Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, um dieses Verfahren ausführen zu können.
 >     -   Wenn Sie neue Softwareeinschränkungsrichtlinien für einen Computer erstellen, der einer Domäne angehört, kann dieses Verfahren von Mitgliedern der Gruppe %%amp;quot;Domänen-Admins%%amp;quot; ausgeführt werden.
 > -   Falls für ein Gruppenrichtlinienobjekt (Group Policy Object, GPO) bereits Softwareeinschränkungsrichtlinien erstellt wurden, wird der Befehl **Neue Richtlinien für Softwareeinschränkung erstellen** im Menü **Aktion** nicht angezeigt. Klicken Sie zum Löschen der auf ein Gruppenrichtlinienobjekt angewendeten Softwareeinschränkungsrichtlinien in der Konsolenstruktur mit der rechten Maustaste auf **Richtlinien für Softwareeinschränkung**, und klicken Sie anschließend auf **Richtlinien für Softwareeinschränkungen löschen**. Wenn Sie Software Einschränkungs Richtlinien für ein GPO löschen, löschen Sie auch alle Regeln für Software Einschränkungs Richtlinien für dieses Gruppenrichtlinien Objekt. Nach dem Löschen der Softwareeinschränkungsrichtlinien können Sie neue Softwareeinschränkungsrichtlinien für das Gruppenrichtlinienobjekt erstellen.
 
@@ -164,7 +164,7 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 
 2.  Doppelklicken Sie im Detailbereich auf **Designierte Dateitypen**.
 
-3.  Führen Sie eines der folgenden Verfahren aus:
+3.  Führen Sie eine der folgenden Aktionen aus:
 
     -   Geben Sie zum Hinzufügen eines Dateityps unter **Dateinamenerweiterung** die Dateinamenerweiterung ein, und klicken Sie dann auf **Hinzufügen**.
 
@@ -173,7 +173,7 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 > [!NOTE]
 > -   Abhängig von der Umgebung, in der Sie einen designierten Dateityp hinzufügen oder entfernen, sind für das Verfahren verschiedene Administratorrechte erforderlich:
 > 
->     -   Beim Hinzufügen bzw. Löschen eines designierten Dateityps für Ihren lokalen Computer: Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der lokalen Gruppe **Administratoren** oder eine gleichwertige Mitgliedschaft.
+>     -   Wenn Sie einen festgelegten Dateityp für den lokalen Computer hinzufügen oder löschen: die Mitgliedschaft in der lokalen Gruppe " **Administratoren** " oder eine entsprechende Gruppe ist mindestens erforderlich, um dieses Verfahren abzuschließen.
 >     -   Wenn Sie neue Softwareeinschränkungsrichtlinien für einen Computer erstellen, der einer Domäne angehört, kann dieses Verfahren von Mitgliedern der Gruppe %%amp;quot;Domänen-Admins%%amp;quot; ausgeführt werden.
 > -   Möglicherweise muss eine neue Softwareeinschränkungsrichtlinien-Einstellung für das Gruppenrichtlinienobjekt erstellt werden, sofern noch nicht geschehen.
 > -   Die Liste der vorgesehenen Dateitypen wird von allen Regeln für die Computer Konfiguration und die Benutzerkonfiguration für ein Gruppenrichtlinien Objekt gemeinsam verwendet.
@@ -187,7 +187,7 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 3.  Klicken Sie unter **Richtlinien für Softwareeinschränkung auf folgende Benutzer anwenden** auf **Alle Benutzer außer den lokalen Administratoren**.
 
 > [!WARNING]
-> -   Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der lokalen Gruppe **Administratoren** oder eine gleichwertige Mitgliedschaft.
+> -   Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der lokalen Gruppe **Administratoren** oder eine gleichwertige Berechtigung erforderlich.
 > -   Möglicherweise muss eine neue Softwareeinschränkungsrichtlinien-Einstellung für das Gruppenrichtlinienobjekt erstellt werden, sofern noch nicht geschehen.
 > -   Falls Benutzer in Ihrer Organisation in der Regel Mitglied der lokalen Gruppe %%amp;quot;Administratoren%%amp;quot; auf ihren Computern sind, möchten Sie diese Option möglicherweise nicht aktivieren.
 > -   Wenn Sie eine Softwareeinschränkungsrichtlinien-Einstellung für den lokalen Computer festlegen, verhindern Sie mithilfe dieses Verfahrens, dass Softwareeinschränkungsrichtlinien auf lokale Administratoren angewendet werden. Wenn Sie eine Software Einschränkungs Richtlinien Einstellung für Ihr Netzwerk definieren, Filtern Sie die Benutzerrichtlinien Einstellungen basierend auf der Mitgliedschaft in Sicherheitsgruppen über Gruppenrichtlinie.
@@ -219,7 +219,7 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 3.  Klicken Sie unter **Richtlinien für Softwareeinschränkung anwenden auf** auf **Alle Softwaredateien**.
 
 > [!NOTE]
-> -   Um diese Schritte ausführen zu können, müssen Sie auf dem lokalen Computer ein Mitglied der Gruppe %%amp;quot;Administratoren%%amp;quot; sein oder Ihnen muss die entsprechende Berechtigung übertragen worden sein. Wenn der Computer zu einer Domäne gehört, können möglicherweise Mitglieder der Gruppe "Domänen-Admins" dieses Verfahren ausführen.
+> -   Um die folgenden Schritte durchführen zu können, müssen Sie als Mitglied der Gruppe „Administratoren“ auf dem lokalen Computer angemeldet sein, oder Ihnen müssen die entsprechenden Rechte übertragen worden sein. Damit Mitglieder der Gruppe „Domänen-Admins“ diese Schritte ausführen zu können, muss der Computer zu einer Domäne gehören.
 > -   Standardmäßig werden Dynamic Link Libraries (DLLs) von Softwareeinschränkungsrichtlinien nicht überprüft. Die Überprüfung von DLLs kann die Systemleistung beeinträchtigen, da Softwareeinschränkungsrichtlinien bei jedem Laden einer DLL ausgewertet werden müssen. Sie können DLLs jedoch überprüfen, wenn Sie Bedenken bzgl. eines DLL-Virus haben. Wenn die Standard Sicherheitsstufe auf unzulässig festgelegt ist und Sie die DLL-Überprüfung **aktivieren, müssen**Sie Regeln für Software Einschränkungs Richtlinien erstellen, die die jeweilige dll-Durchführung erlauben.
 
 
