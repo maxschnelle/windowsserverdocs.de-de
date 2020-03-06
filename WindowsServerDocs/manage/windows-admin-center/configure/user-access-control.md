@@ -9,15 +9,15 @@ ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: 39af45506ff7023cebe437992e90f6d4ec051333
-ms.sourcegitcommit: da6c4fa55a6a72924ac363753d04c5b682cee55b
-ms.translationtype: HT
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77624894"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371712"
 ---
 # <a name="configure-user-access-control-and-permissions"></a>Konfigurieren der Benutzerzugriffssteuerung und von Berechtigungen
 
-> Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
+> Gilt für: Windows Admin Center, Windows Admin Center Preview
 
 Wenn du dies noch nicht getan haben, mache dich mit den [Benutzerzugriffssteuerungs-Optionen im Windows Admin Center](../plan/user-access-options.md) vertraut.
 
@@ -105,13 +105,13 @@ Einer der Vorteile der Verwendung von Azure AD als zusätzliche Sicherheitsschic
 
 [Weitere Informationen zum Konfigurieren des bedingten Zugriffs mit Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal-get-started).
 
-## <a name="configure-single-sign-on"></a>Konfigurieren des einmaligen Anmeldens
+## <a name="configure-single-sign-on"></a>Einmaliges Anmelden konfigurieren
 
 **Einmaliges Anmelden bei Bereitstellung als Dienst unter Windows Server**
 
 Wenn du Windows Admin Center unter Windows 10 installierst, ist es bereit für die Verwendung der einmaligen Anmeldung. Wenn du Windows Admin Center unter Windows Server verwenden möchtest, musst du jedoch eine Form der Kerberos-Delegierung in deiner Umgebung einrichten, bevor du einmaliges Anmelden verwenden kannst. Die Delegierung konfiguriert den Gatewaycomputer als vertrauenswürdig für die Delegierung an den Zielknoten. 
 
-Um [ressourcenbasierte eingeschränkte Delegierung](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-constrained-delegation-overview) in deiner Umgebung zu konfigurieren, verwendest du folgendes PowerShell-Beispiel. Dieses Beispiel zeigt, wie du einen Windows-Server [node01.contoso.com] so konfigurierst, dass die Delegierung von deinem Windows Admin Center-Gateway [wac.contoso.com] in der Domäne „contoso.com“ akzeptiert wird.
+Um [ressourcenbasierte eingeschränkte Delegierung](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-constrained-delegation-overview) in deiner Umgebung zu konfigurieren, verwendest du folgendes PowerShell-Beispiel. Dieses Beispiel zeigt, wie Sie einen Windows-Server [node01.contoso.com] so konfigurieren, dass die Delegierung von Ihrem Windows Admin Center-Gateway [WAC.contoso.com] in der contoso.com-Domäne angenommen wird.
 
 ```powershell
 Set-ADComputer -Identity (Get-ADComputer node01) -PrincipalsAllowedToDelegateToAccount (Get-ADComputer wac)
