@@ -13,11 +13,11 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 3eace9281d9fcdea5262274ac7fb20ec30d30fb4
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590571"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371211"
 ---
 # <a name="manage-remote-web-access-in-windows-server-essentials"></a>Verwalten des Remotewebzugriffs in Windows Server Essentials
 
@@ -76,7 +76,7 @@ ms.locfileid: "68590571"
   
 3.  Klicken Sie auf **Konfigurieren**. Der Assistent zum Einrichten von %%amp;quot;Zugriff überall%%amp;quot; wird gestartet.  
   
-4.  Aktivieren Sie auf der Seite **Folgende Funktionen für " Zugriff überall" aktivieren** das Kontrollkästchen **Remotewebzugriff** .  
+4.  Aktivieren Sie auf der Seite **Folgende Funktionen für " Zugriff überall" aktivieren** das Kontrollkästchen **Remotewebzugriff**.  
   
 5.  Folgen Sie den Anweisungen, um den Assistenten fertigzustellen.  
   
@@ -89,9 +89,9 @@ ms.locfileid: "68590571"
   
 2.  Klicken Sie auf **Einstellungen**.  
   
-3.  Klicken Sie auf der Registerkarte **Allgemein** auf die Dropdownliste im Abschnitt **Land/Region des Servers** .  
+3.  Klicken Sie auf der Registerkarte **Allgemein** auf die Dropdownliste im Abschnitt **Land/Region des Servers**.  
   
-4.  Wählen Sie in der Dropdownliste die neue Region aus, und klicken Sie dann auf **Übernehmen** , um die neue Regionseinstellung zu bestätigen.  
+4.  Wählen Sie in der Dropdownliste die neue Region aus, und klicken Sie dann auf **Übernehmen**, um die neue Regionseinstellung zu bestätigen.  
   
 ###  <a name="BKMK_ManagePerms"></a>Verwalten von Remote Webzugriff Berechtigungen  
  Wenn Sie ein Benutzerkonto in Windows Server Essentials hinzufügen, ist der neue Benutzer standardmäßig berechtigt, den Remotewebzugriff zu verwenden. Wenn Sie sich entschieden haben, Remote Webzugriff für ein Benutzerkonto zuzulassen und dann festzustellen, dass der Benutzer Remote Webzugriff verwenden muss, können Sie die Eigenschaften des Benutzerkontos aktualisieren.  
@@ -102,11 +102,11 @@ ms.locfileid: "68590571"
   
 2. Klicken Sie auf das Benutzerkonto, das Sie verwalten möchten, und klicken Sie anschließend auf **Kontoeigenschaften anzeigen** im Bereich **Aufgaben**.  
   
-3. Klicken Sie im Dialogfeld **Eigenschaften** auf die Registerkarte **Zugriff überall** .  
+3. Klicken Sie im Dialogfeld **Eigenschaften** auf die Registerkarte **Zugriff überall**.  
   
-4. Aktivieren Sie auf der Registerkarte **Zugriff überall** das Kontrollkästchen **Remotewebzugriff und Zugriff auf Webdienstanwendungen zulassen** , damit der Benutzer eine Verbindung zum Server über den Remotewebzugriff herstellen kann.  
+4. Aktivieren Sie auf der Registerkarte **Zugriff überall** das Kontrollkästchen **Remotewebzugriff und Zugriff auf Webdienstanwendungen zulassen**, damit der Benutzer eine Verbindung zum Server über den Remotewebzugriff herstellen kann.  
   
-5. Klicken Sie auf **Übernehmen**, und klicken Sie anschließend auf **OK**.  
+5. Klicken Sie auf **Übernehmen** und dann auf **OK**.  
   
    Weitere Informationen finden Sie unter [Verwalten von Benutzerkonten](Manage-User-Accounts-in-Windows-Server-Essentials.md).  
   
@@ -127,20 +127,20 @@ ms.locfileid: "68590571"
   
 3.  Wählen Sie in der Liste von Benutzerkonten das Benutzerkonto aus, für das Sie die Berechtigung zum Remotezugriff auf den Desktop gewähren möchten.  
   
-4.  Klicken Sie im Bereich **Aufgaben\> des < Benutzerkontos** auf **Eigenschaften**.  
+4.  Klicken Sie im Bereich **< Benutzerkonto\> Tasks** auf **Eigenschaften**.  
   
-5.  Klicken Sie in **<\> Benutzerkonto Eigenschaften**auf die Registerkarte **Zugriff überall** .  
+5.  Klicken Sie in **< Eigenschaften von Benutzerkonto\>** auf die Registerkarte **Zugriff überall** .  
   
 6.  Gehen Sie auf der Registerkarte **Zugriff überall** in folgender Weise vor:  
   
     1.  Um dem Benutzer die Berechtigung zu gehören, eine Verbindung zum Server über VPN herzustellen, aktivieren Sie das Kontrollkästchen **Virtuelles privates Netzwerk (VPN) zulassen**.  
   
-    2.  Um einem Benutzer die Herstellung einer Verbindung zum Server über den Remotewebzugriff zu erlauben, aktivieren Sie das Kontrollkästchen **Remotewebzugriff und Zugriff auf Webdienstanwendungen zulassen** .  
+    2.  Um einem Benutzer die Herstellung einer Verbindung zum Server über den Remotewebzugriff zu erlauben, aktivieren Sie das Kontrollkästchen **Remotewebzugriff und Zugriff auf Webdienstanwendungen zulassen**.  
   
-7.  Klicken Sie auf **Übernehmen**, und klicken Sie anschließend auf **OK**.  
+7.  Klicken Sie auf **Übernehmen** und dann auf **OK**.  
   
 ##  <a name="BKMK_2"></a>Einrichten des Routers  
- Beim Konfigurieren des Servers für den Remotewebzugriff versucht der Assistent zum Einrichten von "Zugriff überall" den Router einzurichten. Wenn Sie die Router oder Einstellungen des Routers ändern, muss der Assistent zum Einrichten des Routers erneut ausgeführt werden. Weitere Informationen finden Sie unter den folgenden Themen:  
+ Beim Konfigurieren des Servers für den Remotewebzugriff versucht der Assistent zum Einrichten von "Zugriff überall" den Router einzurichten. Wenn Sie die Router oder Einstellungen des Routers ändern, muss der Assistent zum Einrichten des Routers erneut ausgeführt werden. Weitere Informationen finden Sie in den folgenden Themen:  
   
 -   [Einrichten des Routers](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_SetUpRouter)  
   
@@ -165,7 +165,7 @@ ms.locfileid: "68590571"
   
 1.  Klicken Sie auf dem Windows Server Essentials-Dashboard auf **Einstellungen**.  
   
-2.  Klicken Sie auf die Registerkarte **Zugriff überall** , und klicken Sie dann im Abschnitt **Router** auf **Einrichten**. Der Assistent zum Einrichten des Routers wird gestartet.  
+2.  Klicken Sie auf die Registerkarte **Zugriff überall**, und klicken Sie dann im Abschnitt **Router** auf **Einrichten**. Der Assistent zum Einrichten des Routers wird gestartet.  
   
 3.  Folgen Sie den Anweisungen im Assistenten, um das Einrichten des neuen Routers fertigzustellen.  
   
@@ -195,14 +195,14 @@ ms.locfileid: "68590571"
   
 3.  Gehen Sie im Abschnitt **ActiveX-Steuerelemente und Plugins** wie folgt vor:  
   
-    1.  Klicken Sie unter **Download von signierten ActiveX-Steuerelementen**auf **Bestätigen**.  
+    1.  Klicken Sie unter **Download von signierten ActiveX-Steuerelementen** auf **Bestätigen**.  
   
     2.  Klicken Sie unter **ActiveX-Steuerelemente und Plugins ausführen** auf **Aktivieren**.  
   
 4.  Klicken Sie zweimal auf **OK**, um die Änderungen zu übernehmen und das Dialogfeld zu schließen.  
   
 ##  <a name="BKMK_3"></a>Einrichten des Domänen Namens  
- Nach dem Aktivieren des Remotewebzugriffs können Sie einen Domänennamen für den Server mit Windows Server Essentials einrichten. Dieser Schritt ist erforderlich, wenn Sie den Remotewebzugriff auf einem Remotecomputer verwenden möchten. Weitere Informationen finden Sie unter den folgenden Themen:  
+ Nach dem Aktivieren des Remotewebzugriffs können Sie einen Domänennamen für den Server mit Windows Server Essentials einrichten. Dieser Schritt ist erforderlich, wenn Sie den Remotewebzugriff auf einem Remotecomputer verwenden möchten. Weitere Informationen finden Sie in den folgenden Themen:  
   
 -   [Übersicht über Domänen Namen](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_DNOverview)  
   
@@ -248,7 +248,7 @@ ms.locfileid: "68590571"
 >  Windows Live erlaubt die Verwendung von Sonderzeichen in Ihrem Microsoft-Konto-Kennwort, die der Server nicht unterstützt. Stellen Sie bei Verwendung einer personalisierten Microsoft-Domäne sicher, dass das Kennwort für Ihr Microsoft-Konto nur Zeichen enthält, die der Server unterstützt. Der Server unterstützt die Verwendung der Zeichen $, /, ' und % nicht.  
   
 ###  <a name="BKMK_UseNewName"></a>Neuen oder vorhandenen Domänen Namen verwenden  
- Um den Namen Ihrer Domäne auf einem Server unter Windows Server Essentials automatisch einzurichten, müssen Sie einen Domain Name Service-Anbieter verwenden, die im Assistenten zum Einrichten von Domänennamen aufgeführt ist. Sie können einen neuen Domänennamen auswählen oder einen vorhandenen Domänennamen verwenden. Führen Sie eines der folgenden Verfahren aus:  
+ Um den Namen Ihrer Domäne auf einem Server unter Windows Server Essentials automatisch einzurichten, müssen Sie einen Domain Name Service-Anbieter verwenden, die im Assistenten zum Einrichten von Domänennamen aufgeführt ist. Sie können einen neuen Domänennamen auswählen oder einen vorhandenen Domänennamen verwenden. Führen Sie eine der folgenden Aktionen aus:  
   
 -   Wenn Sie von einem der im Assistenten aufgeführten Domain Name Service-Anbieter einen neuen Domänennamen erhalten möchten, klicken Sie auf **Ich möchte einen neuen Domänennamen einrichten**.  
   
@@ -292,9 +292,9 @@ ms.locfileid: "68590571"
 ###  <a name="BKMK_Prefixes"></a>Auswählen eines Domänen Namen Präfixes  
  Ein Domänenname besteht aus hierarchischen Bezeichnungen.  
   
- **Der Domänennamenerweiterung der obersten Ebene** steht ganz rechts im Domänennamen. Beispielsweise ist com in\.www contoso.com die Domänen Namen Erweiterung der obersten Ebene.  
+ **Der Domänennamenerweiterung der obersten Ebene** steht ganz rechts im Domänennamen. Beispielsweise ist com in www\.contoso.com die Domänen Namen Erweiterung der obersten Ebene.  
   
- **Der Domänenname der zweiten Ebene** ist die Bezeichnung neben der Domänennamenerweiterung auf oberster Ebene. Der Domänenname der zweiten Ebene wird häufig auf der Basis von Firmennamen, Produkten oder Dienstleistungen erstellt. Beispielsweise handelt es sich\.bei "www contoso.com" um den Domänen Namen der zweiten Ebene, der für den Firmennamen "mso Pharmaceuticals" ausgewählt wurde. Dem Domänennamen der zweiten Ebene, manchmal als Hostname bezeichnet, ist eine IP-Adresse zugeordnet.  
+ **Der Domänenname der zweiten Ebene** ist die Bezeichnung neben der Domänennamenerweiterung auf oberster Ebene. Der Domänenname der zweiten Ebene wird häufig auf der Basis von Firmennamen, Produkten oder Dienstleistungen erstellt. Beispielsweise handelt es sich bei "www\.contoso.com" um den Domänen Namen der zweiten Ebene und wurde für den Firmennamen "mso Pharmaceuticals" ausgewählt. Dem Domänennamen der zweiten Ebene, manchmal als Hostname bezeichnet, ist eine IP-Adresse zugeordnet.  
   
  **Das Domänennamenpräfix** identifiziert eine Unterdomäne. Der Name der Unterdomäne kann verwendet werden, um Dienste, Geräte oder Regionen zu identifizieren. Beispiel: Contoso Pharmaceuticals möchte Remotebenutzern erlauben, dass sie sich mit den Remotewebzugriff anmelden, möchte jedoch die Website nicht für die Öffentlichkeit verfügbar machen. Daher erstellt das Unternehmen eine Unterdomäne, die nur Benutzern mit den entsprechenden Berechtigungen den Zugriff auf die Website erlaubt. Contoso Pharmaceuticals richtet "remote.contoso.com" als die Unterdomäne ein, wobei "remote" das Domänennamenpräfix ist.  
   
@@ -359,7 +359,7 @@ ms.locfileid: "68590571"
   
 ##### <a name="to-create-an-a-record"></a>So erstellen Sie einen A-Datensatz  
   
-1.  Entscheiden Sie sich für einen Hostnamen, z. b. Remote. Dies ist das Domänennamenpräfix. Mit dem Domänen Namen Präfix und dem Domänen Namen wird die URL zum Öffnen der Remote Webzugriff-Anmeldeseite definiert. Beispiel: **http://remote.contoso.com** .  
+1.  Entscheiden Sie sich für einen Hostnamen, z. b. Remote. Dies ist das Domänennamenpräfix. Mit dem Domänen Namen Präfix und dem Domänen Namen wird die URL zum Öffnen der Remote Webzugriff-Anmeldeseite definiert. beispielsweise **http://remote.contoso.com** .  
   
 2.  Erstellen Sie im Konfigurations Dashboard ihres Domänen Namen Dienstanbietern (in der Regel auf der Webseite) den A-Datensatz für den Hostnamen, den Sie in Schritt 1 ausgewählt haben. Stellen Sie sicher, dass die IP-Adresse, die Sie im A-Datensatz angeben, die IP-Adresse auf der WAN-Seite des Routers (die Seite mit Internet Zugriff) ist. Die WAN-IP-Adresse finden Sie in der Routerdokumentation.  
   
@@ -379,12 +379,12 @@ ms.locfileid: "68590571"
   
 3. Geben Sie in das Feld **Whois** den Namen Ihrer Domäne ein (z. B. "contoso.com").  
   
-4. Klicken Sie auf die Option **Domäne** , und klicken Sie dann auf **Absenden**.  
+4. Klicken Sie auf die Option **Domäne**, und klicken Sie dann auf **Absenden**.  
   
 5. Der Name des Domain Name Service-Anbieter wird in den Suchergebnissen unter **Registrierungsstelle** aufgeführt.  
   
 ##  <a name="BKMK_4"></a>Remote Webzugriff anpassen  
- Sie können die Remotewebzugriffssite mit einem persönlichen Logo oder Hintergrundbild anpassen. Sie können auch Links auf der Startseite hinzufügen, sodass diese Informationen allen Benutzern zur Verfügung stehen. Weitere Informationen finden Sie unter den folgenden Themen:  
+ Sie können die Remotewebzugriffssite mit einem persönlichen Logo oder Hintergrundbild anpassen. Sie können auch Links auf der Startseite hinzufügen, sodass diese Informationen allen Benutzern zur Verfügung stehen. Weitere Informationen finden Sie in den folgenden Themen:  
   
 -   [Remote Webzugriff anpassen](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_CustomizeRWA)  
   
