@@ -10,11 +10,11 @@ author: cosmosdarwin
 ms.date: 06/28/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: 52c600068d5dd447ff9faa7c40788664e222a83a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366887"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370739"
 ---
 # <a name="planning-volumes-in-storage-spaces-direct"></a>Planen von Volumes in Direkte Speicherplätze
 
@@ -89,7 +89,7 @@ Die duale Parität bietet die gleiche Fehlertoleranz wie die Drei-Wege-Spiegelun
 
 Welcher Resilienztyp verwendet werden sollte, hängt von den Anforderungen Ihrer Workload ab. Im folgenden finden Sie eine Tabelle, in der zusammengefasst ist, welche Arbeits Auslastungen für die einzelnen resilienztypen geeignet sind, sowie die Leistung und Speichereffizienz jedes resilienztyps.
 
-| Resilienztyp | Kapazitäts Effizienz | Geschwindigkeit | Arbeitsauslastungen |
+| Resilienztyp | Kapazitäts Effizienz | Geschwindigkeit | Workloads |
 | ------------------- | ----------------------  | --------- | ------------- |
 | **Spiegel**         | ![Speichereffizienz, die 33% anzeigt](media/plan-volumes/3-way-mirror-storage-efficiency.png)<br>Drei-Wege-Spiegelung: 33% <br>Zwei-Wege-Spiegelung: 50%     |![Leistungsanzeige 100%](media/plan-volumes/three-way-mirror-perf.png)<br> Höchste Leistung  | Virtualisierte Arbeits Auslastungen<br> Datenbanken<br>Andere hochleistungsfähige Workloads |
 | **Durch Spiegelung beschleunigte Parität** |![Speichereffizienz mit ungefähr 50%](media/plan-volumes/mirror-accelerated-parity-storage-efficiency.png)<br> Hängt von einem Anteil von Spiegelung und Parität ab | ![Leistungsanzeige ungefähr 20%](media/plan-volumes/mirror-accelerated-parity-perf.png)<br>Viel langsamer als die Spiegelung, aber bis zu doppelt so schnell wie die duale Parität<br> Beste für große sequenzielle Schreib-und Lesevorgänge | Archivierung und Sicherung<br> Virtualisierte Desktop Infrastruktur     |
@@ -151,7 +151,7 @@ Wenn etwas Kapazität im Speicherpool nicht zugeteilt wird, haben Volumes genüg
 
 Es wird empfohlen, das Äquivalent eines Kapazitätslaufwerks pro Server auf bis zu 4 Laufwerken zu reservieren. Sie können nach eigenem Ermessen mehr reservieren, aber dieses empfohlene Minimum gewährleistet, dass eine sofortige, direkte, parallele Reparatur nach dem Ausfall eines beliebigen Laufwerks erfolgreich ist.
 
-![Reservieren](media/plan-volumes/reserve.png)
+![reserve](media/plan-volumes/reserve.png)
 
 Beispiel: Wenn Sie 2 Server haben und Kapazitätslaufwerke mit 1 TB verwenden, reservieren Sie 2 x 1 = 2 TB des Pools. Wenn Sie 3 Server haben und Kapazitätslaufwerke mit 1 TB verwenden, reservieren Sie 3 x 1 = 3 TB. Wenn Sie 4 oder mehr Server haben und Kapazitätslaufwerke mit 1 TB verwenden, reservieren Sie 4 x 1 = 4 TB.
 
@@ -195,11 +195,11 @@ Die vier Volumes passen genau für die in unserem Pool verfügbare physische Spe
 
 Der Einfachheit halber werden in diesem Beispiel durchgehend Dezimaleinheiten (Basis 10) verwendet, d. h. 1 TB = 1,000,000,000,000 Bytes. Speichermengen in Windows werden jedoch in Binäreinheiten (Basis 2) angezeigt. Beispiel: Alle 2-TB-Laufwerke werden in Windows als 1,82 TiB angezeigt. Ebenso wird der 128-TB-Speicherpool als 116.41 TiB angezeigt. Dies ist das erwartungsgemäße Verhalten.
 
-## <a name="usage"></a>Verwendungszweck
+## <a name="usage"></a>Verwendung
 
 Siehe [Erstellen von Volumes in Direkte Speicherplätze](create-volumes.md).
 
-### <a name="see-also"></a>Weitere Informationen
+### <a name="see-also"></a>Siehe auch
 
 - [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
 - [Auswählen von Laufwerken für direkte Speicherplätze](choosing-drives.md)

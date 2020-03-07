@@ -9,11 +9,11 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
 ms.openlocfilehash: 9024557dd42ede27144bf10aa5873b6bb12d585c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403485"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371453"
 ---
 # <a name="review-prerequisites-for-the-host-guardian-service"></a>Überprüfen der Voraussetzungen für den Host-Überwachungsdienst
 
@@ -28,7 +28,7 @@ In diesem Thema werden die Voraussetzungen für HGS und die ersten Schritte zur 
 
     Wenn Sie HGS als physischen Cluster mit drei Knoten (für Verfügbarkeit) ausführen möchten, müssen Sie über drei physische Server verfügen. (Als bewährte Methode für das Clustering sollten die drei Server über eine sehr ähnliche Hardware verfügen.)
   
--   **Betriebssystem**: Beim Nachweis des Host Schlüssels ist Windows Server 2019 Standard oder Datacenter Edition mit einem [v2](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md#versioned-attestation-policies)-Nachweis erforderlich. Bei einem TPM-basierten Nachweis können auf HGS Windows Server 2019 oder Windows Server 2016, Standard oder Datacenter Edition ausgeführt werden.
+-   **Betriebssystem**: für den Host Schlüssel Nachweis ist Windows Server 2019 Standard oder Datacenter Edition mit einem [v2](guarded-fabric-tpm-trusted-attestation-capturing-hardware.md#versioned-attestation-policies)-Nachweis erforderlich. Bei einem TPM-basierten Nachweis können auf HGS Windows Server 2019 oder Windows Server 2016, Standard oder Datacenter Edition ausgeführt werden.
 
 -   **Server Rollen**: Host-Überwachungsdienst und unterstützende Server Rollen.
 

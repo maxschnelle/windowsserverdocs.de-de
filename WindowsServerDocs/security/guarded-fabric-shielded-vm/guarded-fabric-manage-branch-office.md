@@ -7,11 +7,11 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.openlocfilehash: 5a07553e6662fd79230d566ba2049c5e8997f4d6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403575"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371366"
 ---
 # <a name="branch-office-considerations"></a>Überlegungen zu Filialen
 
@@ -24,7 +24,7 @@ Dieser Artikel beschreibt bewährte Methoden für die Ausführung von abgeschirm
 Ab Windows Server, Version 1709, können Sie einen zusätzlichen Satz von Host-Überwachungsdienst-URLs auf Hyper-V-Hosts konfigurieren, die verwendet werden, wenn Ihre primäre HGS nicht reagiert.
 Auf diese Weise können Sie einen lokalen HGS-Cluster ausführen, der als primärer Server verwendet wird, um eine bessere Leistung zu erzielen. Sie können dann auf die HGS Ihres Unternehmens Rechenzentrums zurückgreifen, wenn die lokalen Server ausfallen.
 
-Wenn Sie die Fall Back-Option verwenden möchten, müssen Sie zwei HGS-Server einrichten. Sie können Windows Server 2019 oder Windows Server 2016 ausführen und sind entweder Teil desselben oder unterschiedlichen Clusters. Wenn es sich um verschiedene Cluster handelt, sollten Sie operative Verfahren einrichten, um sicherzustellen, dass die Nachweis Richtlinien zwischen den beiden Servern synchronisiert werden. Beide müssen in der Lage sein, den Hyper-V-Host ordnungsgemäß zu autorisieren, um abgeschirmte VMS auszuführen, und Sie müssen über das Schlüsselmaterial verfügen, das zum Starten der abgeschirmten VMS Sie können entweder ein paar frei gegebener Verschlüsselungs-und Signatur Zertifikate zwischen den beiden Clustern verwenden oder separate Zertifikate verwenden und die abgeschirmte HGS-VM so konfigurieren, dass beide Wächter (Verschlüsselungs-/Signatur-zertifikatpaare) in den geschützten Daten autorisiert werden. Datei.
+Wenn Sie die Fall Back-Option verwenden möchten, müssen Sie zwei HGS-Server einrichten. Sie können Windows Server 2019 oder Windows Server 2016 ausführen und sind entweder Teil desselben oder unterschiedlichen Clusters. Wenn es sich um verschiedene Cluster handelt, sollten Sie operative Verfahren einrichten, um sicherzustellen, dass die Nachweis Richtlinien zwischen den beiden Servern synchronisiert werden. Beide müssen in der Lage sein, den Hyper-V-Host ordnungsgemäß zu autorisieren, um abgeschirmte VMS auszuführen, und Sie müssen über das Schlüsselmaterial verfügen, das zum Starten der abgeschirmten VMS Sie können entweder ein paar frei gegebener Verschlüsselungs-und Signatur Zertifikate zwischen den beiden Clustern verwenden oder separate Zertifikate verwenden und die abgeschirmte HGS-VM so konfigurieren, dass beide Wächter (Verschlüsselungs-/Signatur-zertifikatpaare) in der Schutz Datendatei autorisiert werden.
 
 Aktualisieren Sie dann Ihre Hyper-V-Hosts auf Windows Server-Version 1709 oder Windows Server 2019, und führen Sie den folgenden Befehl aus:
 ```powershell
