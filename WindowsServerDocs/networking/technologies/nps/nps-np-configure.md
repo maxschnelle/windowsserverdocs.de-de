@@ -9,11 +9,11 @@ ms.assetid: fe77655a-e2be-4949-92e1-aaaa215d86ea
 ms.author: pashort
 author: shortpatti
 ms.openlocfilehash: a2bde42ba9b9489ddcd8fb3673ec5ddf1fd4d970
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396361"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371891"
 ---
 # <a name="configure-network-policies"></a>Konfigurieren von Netzwerkrichtlinien
 
@@ -46,13 +46,13 @@ Auf der Seite **Zugriffsberechtigung** müssen Sie **Zugriff gewährt** auswähl
 
 Wenn Sie möchten, dass die Zugriffsberechtigung durch Benutzerkonto-Einwähleigenschaften in Active Directory&reg; Domänen Diensten \(AD DS\)festgelegt wird, können Sie das Kontrollkästchen **Zugriff wird durch Benutzer-DFÜ-Eigenschaften bestimmt** .
 
-Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft in **Domänen-Admins** oder einer gleichwertigen Gruppe.
+Zum Durchführen dieses Verfahrens ist mindestens die Mitgliedschaft in **Domänen-Admins** oder eine entsprechende Berechtigung erforderlich.
 
 ### <a name="to-add-a-network-policy"></a>So fügen Sie eine Netzwerk Richtlinie hinzu 
 
 1. Öffnen Sie die NPS-Konsole, und doppelklicken Sie dann auf **Richtlinien**.
 
-2. Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Netzwerk Richtlinien**, und klicken Sie dann auf **neu**. Der Assistent für neue Netzwerk Richtlinien wird geöffnet.
+2. Klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf **Netzwerk Richtlinien**, und klicken Sie dann auf **neu**. Der Assistent für neue Netzwerkrichtlinien wird geöffnet.
 
 3. Verwenden Sie den Assistenten für neue Netzwerk Richtlinien, um eine Richtlinie zu erstellen.
 
@@ -74,7 +74,7 @@ Sie können den Assistenten für neue DFÜ-oder virtuelle private Netzwerkverbin
 
 Das Ausführen des Assistenten für neue DFÜ-oder VPN-Verbindungen ist nicht der einzige Schritt, der erforderlich ist, um DFÜ-oder VPN-Server als RADIUS-Clients für den NPS bereitzustellen. Für beide Netzwerk Zugriffsmethoden ist es erforderlich, dass Sie zusätzliche Hardware-und Softwarekomponenten bereitstellen.
 
-Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft in **Domänen-Admins** oder einer gleichwertigen Gruppe.
+Zum Durchführen dieses Verfahrens ist mindestens die Mitgliedschaft in **Domänen-Admins** oder eine entsprechende Berechtigung erforderlich.
 
 ### <a name="to-create-policies-for-dial-up-or-vpn-with-a-wizard"></a>So erstellen Sie Richtlinien für die DFÜ-oder VPN-Richtlinie mit einem Assistenten
 
@@ -101,7 +101,7 @@ Wenn Sie neue Richtlinien für den 802.1 x-Zugriff erstellen müssen, können Si
 
 Das Ausführen des neuen IEEE 802.1 x-Assistenten für sichere Kabel-und Drahtlos Verbindungen ist nicht der einzige Schritt, der erforderlich ist, um 802.1 x-authentifizier Ende Switches und drahtlos Zugriffspunkte als RADIUS-Clients für den NPS bereitzustellen. Für beide Netzwerk Zugriffsmethoden ist es erforderlich, dass Sie zusätzliche Hardware-und Softwarekomponenten bereitstellen.
 
-Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft in **Domänen-Admins** oder einer gleichwertigen Gruppe.
+Zum Durchführen dieses Verfahrens ist mindestens die Mitgliedschaft in **Domänen-Admins** oder eine entsprechende Berechtigung erforderlich.
 
 ### <a name="to-create-policies-for-8021x-wired-or-wireless-with-a-wizard"></a>So erstellen Sie Richtlinien für 802.1 x-Kabel-oder drahtlos Verbindungen mit einem Assistenten
 

@@ -13,11 +13,11 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: a1b1a5492a6e5dbc48899b3918314676884e0454
-ms.sourcegitcommit: 39244de670f712857a5fdd56630e95d57b7001a5
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74897676"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371408"
 ---
 # <a name="install-the-windows-server-essentials-log-collector"></a>Installieren des Windows Server Essentials-Protokollsammlers
 
@@ -52,9 +52,9 @@ Der Installations-Assistent für den Windows Server Essentials Log Collector ins
 2.  Wählen Sie auf der **Add-in** Registerkarte **Log Collector** aus der Liste aus und klicken Sie dann auf **Deinstallieren**.  
   
 
-3.  Laden Sie den Log Collector herunter, und führen Sie die Schritte im vorherigen Verfahren, [To install the Log Collector](Install-the-Windows-Server-Essentials-Log-Collector.md#BKMK_ToInstall), aus.  
+3.  Laden Sie den Log Collector herunter und führen Sie die Installation anhand der Schritte im vorherigen Verfahren [Installieren des Log Collectors](Install-the-Windows-Server-Essentials-Log-Collector.md#BKMK_ToInstall) aus.  
 
-3.  Laden Sie den Log Collector herunter, und führen Sie die Schritte im vorherigen Verfahren, [To install the Log Collector](../support/Install-the-Windows-Server-Essentials-Log-Collector.md#BKMK_ToInstall), aus.  
+3.  Laden Sie den Log Collector herunter und führen Sie die Installation anhand der Schritte im vorherigen Verfahren [Installieren des Log Collectors](../support/Install-the-Windows-Server-Essentials-Log-Collector.md#BKMK_ToInstall) aus.  
 
   
 ### <a name="manually-install-the-log-collector"></a>Den Log Collector manuell installieren  
@@ -66,7 +66,7 @@ Der Installations-Assistent für den Windows Server Essentials Log Collector ins
   
 2.  Doppelklicken Sie auf den Dateinamen der Installationsdatei.  
   
-3.  Klicken Sie auf **OK** , wenn Sie dazu aufgefordert werden.  
+3.  Klicken Sie auf **OK**, wenn Sie dazu aufgefordert werden.  
   
 4.  Doppelklicken Sie auf den Namen der Datei mit dem Namen ". msi", und wählen Sie einen Ordner aus, in dem Sie extrahiert werden soll.  
   

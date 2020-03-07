@@ -14,11 +14,11 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.openlocfilehash: 744e49f47f7144dac82dbe68c885060b0c08490d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389604"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371872"
 ---
 # <a name="multipoint-services-site-planning"></a>MultiPoint Services-Standortplanung
 Berücksichtigen Sie den Speicherort, an dem ein oder mehrere Computer, auf denen Multipoint Services ausgeführt wird, und die zugehörigen Stationen bereitgestellt werden.  
@@ -127,7 +127,7 @@ Die Anzahl der benötigten Stationen hängt von der Anzahl der Benutzer ab, die 
 Die folgenden Komponenten erfordern Zugriff auf einen Strom oder eine Steckdose:  
   
 -   Server  
--   Monitore
+-   Monitor
 -   Zwischen Hubs \(bei Verwendung\) 
 -   Einige USB-Clients  
 -   USB-Geräte, wie z. b. externe Speichergeräte und DVD-Laufwerke  
@@ -154,6 +154,6 @@ Abhängig von den verfügbaren Möbeln, der Größe des Raums, der Anzahl der Co
   
 ![Multipoint Services-Aktivitäts Center](./media/WMSActivityCenter.gif)  
   
-**Small Business Office** Bei diesem Setup wird der Computer, auf dem Multipoint Services ausgeführt wird, an einem zentralen Ort platziert, und die Benutzer im gesamten Büro stellen eine Verbindung mit dem \(Computer\)her, indem Sie ein LAN verwenden.  
+**Small Business Office** In diesem Setup wird der Computer, auf dem Multipoint Services ausgeführt wird, an einem zentralen Ort platziert, und Benutzer im gesamten Büro stellen eine Verbindung mit dem Computer her, indem Sie ein lokales Netzwerk \(LAN-\)verwenden.  
   
 ![Verbundene USB-Station ohne Clients](./media/Diagram1.gif)

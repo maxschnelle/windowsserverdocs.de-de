@@ -1,6 +1,6 @@
 ---
 title: Verwalten der Serversicherung in Windows Server Essentials
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server-2016-essentials
@@ -13,11 +13,11 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 7e40a4675cf77d55a3047b41e0ab852fd7cd9de9
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433212"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371208"
 ---
 # <a name="manage-server-backup-in-windows-server-essentials"></a>Verwalten der Serversicherung in Windows Server Essentials
 
@@ -25,23 +25,23 @@ ms.locfileid: "66433212"
   
  Die folgenden Themen betreffen Informationen zu allgemeinen Sicherungsaufgaben, die Sie über das Windows Server Essentials Dashboard ausführen können:  
   
--   [Welche Sicherung soll ausgewählt?](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_WhichBackup)  
+-   [Welche Sicherung soll ausgewählt werden?](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_WhichBackup)  
   
 -   [Einrichten oder Anpassen der Serversicherung](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_1)  
   
--   [Beenden der aktiven serversicherung](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_2)  
+-   [Die Server Sicherung wird beendet.](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_2)  
   
--   [Remoteverwaltung von Sicherungen](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_3)  
+-   [Remote Verwaltung Ihrer Sicherungen](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_3)  
   
--   [Deaktivieren der serversicherung](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_4)  
+-   [Deaktivieren der Server Sicherung](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_4)  
   
--   [Erfahren Sie mehr über das Einrichten der serversicherung](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_5)  
+-   [Weitere Informationen zum Einrichten der Server Sicherung](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_5)  
   
--   [Erneutes Partitionieren einer Festplatte auf dem server](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_6)  
+-   [Neupartitionieren einer Festplatte auf dem Server](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_6)  
   
--   [Wiederherstellen von Dateien und Ordnern aus einer Sicherung](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_7)  
+-   [Wiederherstellen von Dateien und Ordnern aus einer Server Sicherung](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_7)  
   
-##  <a name="BKMK_WhichBackup"></a> Welche Sicherung soll ausgewählt?  
+##  <a name="BKMK_WhichBackup"></a>Welche Sicherung soll ausgewählt werden?  
  Die Auswahl einer Sicherung kann ganz einfach sein, wenn eine aktuelle, erfolgreich ausgeführte Datensicherung mit allen wichtigen Daten vorliegt. Wenn Sie versuchen, eine Wiederherstellung aus einer älteren Sicherung auf dem Server oder einem Computer auszuführen, erfordert die Auswahl einer geeigneten Sicherung für die Wiederherstellung einige Ermittlungen und möglicherweise einige Kompromisse.  
   
 #### <a name="to-choose-a-backup"></a>So wählen Sie eine Sicherung aus  
@@ -54,10 +54,10 @@ ms.locfileid: "66433212"
   
 4.  Als bewährte Methode können Sie Dateien und Ordner an einem anderen Speicherort wiederherstellen. Die erforderlichen Dateien und Ordner lassen Sie dann von ihrem Besitzer an den ursprünglichen Speicherort verschieben. Wenn der Vorgang abgeschlossen ist, können die am alternativen Speicherort verbleibenden Dateien und Ordner gelöscht werden.  
   
-##  <a name="BKMK_1"></a> Einrichten oder Anpassen der serversicherung  
+##  <a name="BKMK_1"></a>Einrichten oder Anpassen der Server Sicherung  
  Die Serversicherung wird während der Installation nicht automatisch konfiguriert. Sie sollten den Server und dessen Daten automatisch schützen, indem Sie tägliche Sicherungen planen. Es wird empfohlen, einen täglichen Sicherungsplan zu verwalten, da die meisten Organisationen es sich nicht leisten können, die im Verlauf von mehreren Tagen erstellten Daten zu verlieren. Weitere Informationen finden Sie unter [Einrichten oder Anpassen der Serversicherung](Set-up-or-customize-server-backup.md).  
   
-##  <a name="BKMK_2"></a> Beenden der aktiven serversicherung  
+##  <a name="BKMK_2"></a>Die Server Sicherung wird beendet.  
  Unabhängig davon, ob eine Serversicherung regelmäßig zu einem geplanten Zeitpunkt erfolgt oder Sie die Serversicherung manuell starten, können Sie die aktive Sicherung beenden.  
   
 #### <a name="to-stop-a-backup-in-progress"></a>So beenden Sie eine laufende Sicherung  
@@ -66,11 +66,11 @@ ms.locfileid: "66433212"
   
 2.  Klicken Sie in der Navigationsleiste auf **Geräte**.  
   
-3.  Klicken Sie in der Liste der Computer auf den Server, und klicken Sie dann im Bereich **Tasks** auf **Sicherung für den Server beenden** .  
+3.  Klicken Sie in der Liste der Computer auf den Server, und klicken Sie dann im Bereich **Tasks** auf **Sicherung für den Server beenden**.  
   
-4.  Klicken Sie auf **Ja** , um die Aktion zu bestätigen.  
+4.  Klicken Sie auf **Ja**, um die Aktion zu bestätigen.  
   
-##  <a name="BKMK_3"></a> Remoteverwaltung von Sicherungen  
+##  <a name="BKMK_3"></a>Remote Verwaltung Ihrer Sicherungen  
  Wenn Sie nicht im Büro sind, können Sie den Windows Server Essentials-Remotewebzugriff verwenden, um zur Verwaltung der Server auf das Windows Server Essentials-Dashboard zuzugreifen.  
   
 #### <a name="to-use-remote-web-access-to-manage-your-server"></a>So verwalten Sie den Server mithilfe des Remotewebzugriffs  
@@ -81,13 +81,13 @@ ms.locfileid: "66433212"
   
 3. Wenn Sie aufgefordert werden, geben Sie Ihren Benutzernamen und das Kennwort ein.  
   
-4. Wenn Sie den Namen des Servers in Remote Web Access klicken, wird die Anmeldeseite für das Dashboard angezeigt.  
+4. Wenn Sie in Remote Webzugriff auf den Namen des Servers klicken, wird die Anmeldeseite für das Dashboard angezeigt.  
   
 5. Melden Sie sich auf dem Dashboard als Administrator an, und klicken Sie dann auf **Geräte**.  
   
-   Weitere Informationen zum Remotewebzugriff finden Sie unter [Übersicht über Remotewebzugriff](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Overview).  
+   Weitere Informationen zu Remote Webzugriff finden Sie unter [Übersicht über Remote Webzugriff](Manage-Remote-Web-Access-in-Windows-Server-Essentials.md#BKMK_Overview).  
   
-##  <a name="BKMK_4"></a> Deaktivieren der serversicherung  
+##  <a name="BKMK_4"></a>Deaktivieren der Server Sicherung  
  Sie sollten den Server und dessen Daten automatisch schützen, indem Sie tägliche Sicherungen planen. Es wird empfohlen, einen täglichen Sicherungsplan zu verwalten, da die meisten Organisationen es sich nicht leisten können, die im Verlauf von mehreren Tagen erstellten Daten zu verlieren.  
   
  Wenn Sie die Serversicherung bereits konfiguriert haben und später eine Drittanbieteranwendung für die Sicherung des Servers verwenden möchten, können Sie die Windows Server Essentials-Serversicherung deaktivieren.  
@@ -101,19 +101,19 @@ ms.locfileid: "66433212"
 3.  Klicken Sie im Aufgabenbereich auf **Sicherung für den Server anpassen**.  
   
     > [!NOTE]
-    >  Die Aufgabe **Sicherung für den Server anpassen** wird angezeigt, nachdem Sie die Serversicherung mithilfe des Assistenten zum Einrichten der Serversicherung konfiguriert haben. Weitere Informationen zum Einrichten der Serversicherung finden Sie unter [Set up or customize server backup](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_1).  
+    >  Die Aufgabe **Sicherung für den Server anpassen** wird angezeigt, nachdem Sie die Serversicherung mithilfe des Assistenten zum Einrichten der Serversicherung konfiguriert haben. Weitere Informationen zum Einrichten der Serversicherung finden Sie unter [Einrichten oder Anpassen der Serversicherung](Manage-Server-Backup-in-Windows-Server-Essentials.md#BKMK_1).  
   
 4.  Der Assistent zum Anpassen der Serversicherung wird angezeigt.  
   
-5.  Klicken Sie auf der Seite **Konfigurationsoptionen** auf **Serversicherung deaktivieren**. Befolgen Sie die Anweisungen im Assistenten.  
+5.  Klicken Sie auf der Seite **Konfigurationsoptionen** auf **Serversicherung deaktivieren**. Folgen Sie den Anweisungen im Assistenten.  
   
-##  <a name="BKMK_5"></a> Erfahren Sie mehr über das Einrichten der serversicherung  
+##  <a name="BKMK_5"></a>Weitere Informationen zum Einrichten der Server Sicherung  
  Die Serversicherung ist während der Einrichtung des Servers nicht aktiviert.  
   
 > [!NOTE]
 >  Beim Konfigurieren der Serversicherung sollten Sie mindestens eine externe Festplatte an den Server anschließen, die Sie als Sicherungsziel verwenden.  
   
-###  <a name="BKMK_Target"></a> Sicherungsziellaufwerk  
+###  <a name="BKMK_Target"></a>Sicherungs Ziellaufwerk  
  Sie können zahlreiche externe Speicherlaufwerke für Sicherungen verwenden, und Sie können bei den Laufwerken zwischen internen und externen Speicherorten wechseln. Dadurch können Sie Ihre Vorbereitung auf Notfälle besser planen und sind in der Lage, die Daten wiederherzustellen, wenn die Hardware vor Ort physische Schäden erleidet.  
   
  Bei der Auswahl eines Speicherlaufwerks für die Serversicherung ist Folgendes zu berücksichtigen:  
@@ -140,10 +140,10 @@ ms.locfileid: "66433212"
 >  In der Standardinstallation von Windows Server Essentials ist der Server für die wöchentliche automatische Defragmentierung konfiguriert. Dadurch können die Sicherungen größer als üblich ausfallen, wenn Sie nicht von Microsoft stammende Imaging-Software verwenden. Wenn die regelmäßige Defragmentierung des Servers nicht erforderlich ist, führen Sie die folgenden Schritte aus, um den Defragmentierungszeitplan zu deaktivieren:  
 > 
 > 1. Drücken Sie WINDOWS+W, um die **Suche** zu öffnen.  
->    2. Geben Sie im Suchfeld **Defragment**ein.  
+>    2. Geben Sie im Suchfeld **Defragment** ein.  
 >    3. Klicken Sie im Ergebnisbereich auf **Laufwerke defragmentieren und optimieren**.  
 >    4. Wählen Sie auf der Seite **Laufwerke optimieren** ein Laufwerk aus, und klicken Sie dann auf **Einstellungen ändern**.  
->    5. Deaktivieren Sie im Fenster **Optimierungszeitplan** das Kontrollkästchen **Nach Zeitplan ausführen (empfohlen)** , und klicken Sie dann auf **OK** , um die Änderung zu speichern.  
+>    5. Deaktivieren Sie im Fenster **Optimierungszeitplan** das Kontrollkästchen **Nach Zeitplan ausführen (empfohlen)** , und klicken Sie dann auf **OK**, um die Änderung zu speichern.  
   
 ### <a name="items-to-be-backed-up"></a>Zu sichernde Elemente  
  Standardmäßig werden alle Betriebssystemdateien und -ordner für die Sicherung ausgewählt. Sie können auch alle Festplatten, Dateien und Ordner auf dem Server sichern oder nur einzelne Festplatten, Dateien oder Ordner für die Sicherung auswählen. Führen Sie einen der folgenden Schritte aus, um Elemente für die Sicherung hinzuzufügen oder zu entfernen:  
@@ -159,7 +159,7 @@ ms.locfileid: "66433212"
   
  So können Sie beispielsweise über einen Ordner verfügen, der aufgezeichnete Fernsehsendungen enthält und viel Festplattenspeicherplatz belegt. Sie können festlegen, dass diese Dateien nicht gesichert werden, da sie normalerweise nach einmaliger Wiedergabe ohnehin gelöscht werden. Alternativ verfügen Sie möglicherweise über einen Ordner, der temporäre Dateien enthält, die Sie nicht behalten möchten.  
   
-##  <a name="BKMK_6"></a> Erneutes Partitionieren einer Festplatte auf dem server  
+##  <a name="BKMK_6"></a>Neupartitionieren einer Festplatte auf dem Server  
  Wenn eine unformatierte interne Festplatte auf dem Windows Server Essentials-Server erkannt wird, wird eine Integritätsstatuswarnung ausgelöst, die eine Verknüpfung zum Assistenten zum Hinzufügen neuer Festplatten enthält. Der Assistent zum Hinzufügen neuer Festplatten führt Sie durch die verschiedenen Optionen zur Formatierung der Festplatte. Nachdem der Assistent abgeschlossen ist, werden eine oder mehrere (in Abhängigkeit von der Laufwerksgröße) logische formatierte Festplatten auf der Festplatte erstellt und mit NTFS formatiert.  
   
  Wenn ein Festplattenlaufwerk neu partitioniert werden muss, gehen Sie wie folgt vor:  
@@ -182,12 +182,12 @@ ms.locfileid: "66433212"
     > [!NOTE]
     >  Wiederholen Sie diesen Schritt, bis sämtlicher nicht zugeordneter Speicherplatz auf der Festplatte verwendet wird.  
   
-##  <a name="BKMK_7"></a> Wiederherstellen von Dateien und Ordnern aus einer Sicherung  
+##  <a name="BKMK_7"></a>Wiederherstellen von Dateien und Ordnern aus einer Server Sicherung  
  Sie können einzelne Dateien und Ordner in einer Serversicherung suchen und wiederherstellen.  
   
 #### <a name="to-restore-files-and-folders-from-a-server-backup"></a>So stellen Sie Dateien und Ordner über eine Server-Sicherung wieder her  
   
-1.  Öffnen Sie das Dashboard, und klicken Sie dann auf die Registerkarte **Geräte** .  
+1.  Öffnen Sie das Dashboard, und klicken Sie dann auf die Registerkarte **Geräte**.  
   
 2.  Klicken Sie auf den Namen des Servers und anschließend auf **Wiederherstellen von Dateien oder Ordnern für den Server** im Bereich **Aufgaben**.  
   
@@ -195,7 +195,7 @@ ms.locfileid: "66433212"
   
 ## <a name="see-also"></a>Siehe auch  
   
--   [Verwalten der Sicherung und Wiederherstellung](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)  
+-   [Verwalten von Sicherungen und Wiederherstellungen](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md)  
   
 -   [Verwalten von Windows Server Essentials](Manage-Windows-Server-Essentials.md)  
   

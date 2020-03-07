@@ -13,11 +13,11 @@ ms.author: justinha
 manager: brianlic-msft
 ms.date: 05/16/2018
 ms.openlocfilehash: a4ac1ea5b0648dbb80f103c146ad3df23fc04ab7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402343"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371392"
 ---
 # <a name="manage-transport-layer-security-tls"></a>Verwalten von Transport Layer Security (TLS)
 
