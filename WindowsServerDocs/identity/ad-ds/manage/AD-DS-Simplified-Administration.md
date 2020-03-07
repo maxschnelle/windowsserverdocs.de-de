@@ -10,15 +10,15 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
 ms.openlocfilehash: 4f12b1e88414a17c8fb82a707bd4399505df4c6c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369451"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371518"
 ---
 # <a name="ad-ds-simplified-administration"></a>Vereinfachte Verwaltung für AD DS
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema werden die Funktionen und Vorteile der Bereitstellung und Verwaltung von Windows Server 2012-Domänen Controllern sowie die Unterschiede zwischen der Bereitstellung des Betriebssystem-DC und der neuen Windows Server 2012-Implementierung erläutert.  
   
@@ -66,7 +66,7 @@ Server-Manager dient als Hub für Serververwaltungsaufgaben. Das Dashboardähnli
   
 Active Directory Domain Services ist eine dieser Hub-Rollen. Wenn Sie Server-Manager auf einem Domänen Controller oder auf einem Windows 8-Remoteserver-Verwaltungstools ausführen, werden wichtige aktuelle Probleme in den Domänen Controllern in Ihrer Gesamtstruktur angezeigt.  
   
-Zu diesen Ansichten zählen:  
+Zu diesen Ansichten gehören folgende:  
   
 - Serververfügbarkeit  
 - Systemmonitor-Warnungen für hohe CPU- und Speicherauslastung  
@@ -195,11 +195,11 @@ Diese Cmdlets müssen normalerweise nicht ausgeführt werden, da sie standardmä
 
 ||||  
 |-|-|-|  
-|Prüfungsname|Protokolle<br /><br />verwendet|Erklärung und Hinweise|  
+|Testname|Protokolle<br /><br />verwendet|Erklärung und Hinweise|  
 |VerifyAdminTrusted<br /><br />ForDelegationProvider|LDAP|Prüft, ob Sie die Berechtigung "Ermöglichen, dass Computer- und Benutzerkonten für Delegierungszwecke vertraut wird" (SeEnableDelegationPrivilege) auf dem existierenden Partner-Domänencontroller haben. Hierfür wird Zugriff auf Ihr konstruiertes tokenGroups-Attribut benötigt.<br /><br />Wird nicht verwendet, wenn ein Microsoft Windows Server 2003-Domänencontroller kontaktier wird. Sie müssen diese Berechtigung vor der Heraufstufung manuell bestätigen|  
 |VerifyADPrep<br /><br />Voraussetzungen (Gesamtstruktur)|LDAP|Sucht und kontaktiert den Schemamaster mithilfe des rootDSE namingContexts-Attributs und dem Schema-Namenskontext-Attribut fsmoRoleOwner. Ermittelt, welche Vorbereitungsoperationen (forestprep, domainprep oder rodcprep) für die AD DS-Installation benötigt werden. Prüft, ob objectVersion für das Schema wie erwartet ist und ob eine weitere Erweiterung benötigt wird.|  
 |VerifyADPrep<br /><br />Voraussetzungen (Domäne und RODC)|LDAP|Sucht und kontaktiert den Infrastruktur-Master mithilfe des rootDSE namingContexts-Attributs und dem Infrastrukturcontainer-Attribut fsmoRoleOwner. Im Fall einer RODC-Installation wird bei dieser Prüfung der Domänennamenmaster gesucht und sichergestellt, dass dieser online ist.|  
-|CheckGroup<br /><br />Membership|LDAP,<br /><br />RPC über SMB (LSARPC)|Prüft, ob der Benutzer Mitglied der Gruppen Domänen-Admins bzw. Unternehmens-Admins ist, je nach Operation (DA beim Hinzufügen oder Herabstufen eines Domänencontrollers, UA beim Hinzufügen oder Entfernen einer Domäne)|  
+|CheckGroup<br /><br />Mitgliedschaft (Membership)|LDAP,<br /><br />RPC über SMB (LSARPC)|Prüft, ob der Benutzer Mitglied der Gruppen Domänen-Admins bzw. Unternehmens-Admins ist, je nach Operation (DA beim Hinzufügen oder Herabstufen eines Domänencontrollers, UA beim Hinzufügen oder Entfernen einer Domäne)|  
 |CheckForestPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC über SMB (LSARPC)|Prüft, ob der Benutzer Mitglied der Gruppen Schema-Admins und Unternehmens-Admins ist und ob er die Berechtigung zur Verwaltung der Überwachungs- und Sicherheitsereignisprotokolle (SesScurityPrivilege) auf den existierenden Domänencontrollern hat|  
 |CheckDomainPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC über SMB (LSARPC)|Prüft, ob der Benutzer Mitglied der Gruppe Domänen-Admins ist und ob er die Berechtigung zur Verwaltung der Überwachungs- und Sicherheitsereignisprotokolle (SesScurityPrivilege) auf den existierenden Domänencontrollern hat|  
 |CheckRODCPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC über SMB (LSARPC)|Prüft, ob der Benutzer Mitglied der Gruppe Unternehmens-Admins ist und ob er die Berechtigung zur Verwaltung der Überwachungs- und Sicherheitsereignisprotokolle (SesScurityPrivilege) auf den existierenden Domänencontrollern hat|  

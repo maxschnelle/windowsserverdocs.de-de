@@ -10,15 +10,15 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
 ms.openlocfilehash: ffc2849fa5e18f7984814d6187cf83d68566409b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369640"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371548"
 ---
 # <a name="simplified-administration-appendix"></a>Anhang für vereinfachte Verwaltung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
   
 -   [Dialog Server-Manager "Server hinzufügen" (Active Directory)](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_AddServers)  
@@ -81,7 +81,7 @@ Get-Module -ListAvailable
   
 ```  
   
-Der Hauptgrund für die Verwendung des **Import-Module-** Befehls ist, wenn Sie Zugriff auf "AD:" benötigen. Virtuelles Windows PowerShell-Laufwerk, und das Modul wurde noch nicht geladen. Verwenden Sie beispielsweise die folgenden Befehle:  
+Der Hauptgrund für die Verwendung des **Import-Module-** Befehls ist, wenn Sie auf das virtuelle Windows PowerShell-Laufwerk "AD:" zugreifen müssen und das Modul noch nicht geladen wurde. Verwenden Sie beispielsweise die folgenden Befehle:  
   
 ```  
 import-module activedirectory  
@@ -100,7 +100,7 @@ In der folgenden Tabelle werden die zwei neuen Menü Elemente beschrieben:
   
 |||  
 |-|-|  
-|Menü Element|Erläuterung|  
+|Menüelement|Erklärung|  
 |Vollständige NoDebug-% s erstellen|Erstellen Sie IFM-Medien ohne die Fragmentierung für einen vollständigen AD DC oder eine AD/LDS-Instanz in den Ordner "% s".|  
 |Create SYSVOL Full Node Frag% s|Erstellen von IFM-Medien mit SYSVOL und ohne decofragmentierung eines vollständigen AD-Domänen Controllers in den Ordner "% s"|  
   

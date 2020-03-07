@@ -8,11 +8,11 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
 ms.openlocfilehash: 8a9273eef906130b11b98148cf1e84f7e18812b0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402379"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371454"
 ---
 # <a name="prerequisites-for-guarded-hosts"></a>Voraussetzungen für geschützte Hosts
 
@@ -24,7 +24,7 @@ ms.locfileid: "71402379"
 
 Geschützte Hosts, die den TPM-Modus verwenden, müssen die folgenden Voraussetzungen erfüllen:
 
--   **Hardware**: Ein Host ist für die erste Bereitstellung erforderlich. Zum Testen der Hyper-V-Live Migration für abgeschirmte VMS müssen Sie über mindestens zwei Hosts verfügen.
+-   **Hardware**: für die erste Bereitstellung ist ein Host erforderlich. Zum Testen der Hyper-V-Live Migration für abgeschirmte VMS müssen Sie über mindestens zwei Hosts verfügen.
 
     Hosts müssen über Folgendes verfügen:
     
@@ -52,8 +52,8 @@ Geschützte Hosts, die den TPM-Modus verwenden, müssen die folgenden Voraussetz
 
 Geschützte Hosts, die den Host Schlüssel Nachweis verwenden, müssen die folgenden Voraussetzungen erfüllen:
 
-- **Hardware**: Alle Server, die Hyper-V ab Windows Server 2019 ausführen können
-- **Betriebssystem**: Windows Server 2019 Datacenter Edition
+- **Hardware**: jeder Server, der Hyper-V ab Windows Server 2019 ausführen können soll
+- **Betriebssystem**: Windows Server 2019 Datacenter Edition
 - **Rolle und Features**: Hyper-v-Rolle und die Hyper-v-Unterstützung des Host-Überwachungs Diensts 
 
 Der Host kann entweder einer Domäne oder einer Arbeitsgruppe hinzugefügt werden. 
@@ -71,14 +71,14 @@ Bei einem Host Schlüssel Nachweis muss auf HGS Windows Server 2019 ausgeführt 
 
 Hyper-V-Hosts müssen die folgenden Voraussetzungen für den AD-Modus erfüllen:
 
--   **Hardware**: Alle Server, die Hyper-V ausführen können, beginnend mit Windows Server 2016. Ein Host ist für die erste Bereitstellung erforderlich. Um die Hyper-V-Live Migration für abgeschirmte VMS zu testen, benötigen Sie mindestens zwei Hosts.
+-   **Hardware**: alle Server, die Hyper-V ausführen können, beginnen mit Windows Server 2016. Ein Host ist für die erste Bereitstellung erforderlich. Um die Hyper-V-Live Migration für abgeschirmte VMS zu testen, benötigen Sie mindestens zwei Hosts.
 
 -   **Betriebssystem**: Windows Server 2016 Datacenter Edition
 
     > [!IMPORTANT]
     > Installieren Sie das [neueste kumulative Update](https://support.microsoft.com/help/4000825/windows-10-and-windows-server-2016-update-history).
 
--   **Rolle und Features**: Die Hyper-v-Rolle und die Hyper-v-Unterstützung für das Host-Überwachungs Feature, das nur in Windows Server 2016 Datacenter Edition verfügbar ist. 
+-   **Rolle und Features**: Hyper-v-Rolle und die Hyper-v-Unterstützung des Host-Überwachungs Features, die nur in Windows Server 2016 Datacenter Edition verfügbar ist. 
 
 > [!WARNING]
 > Die Hyper-V-Unterstützung des Host-Überwachungs Diensts ermöglicht den virtualisierungsbasierten Schutz der Code Integrität, der möglicherweise mit einigen Geräten nicht kompatibel ist. Wir empfehlen dringend, diese Konfiguration in Ihrem Lab zu testen, bevor Sie diese Funktion aktivieren. Andernfalls kann es zu unerwarteten Fehlern und sogar zu Datenverlusten oder zu einem Bluescreen (STOP-Fehler) kommen. Weitere Informationen finden Sie unter [kompatible Hardware mit Windows Server 2016 Virtualization-basierter Schutz der Code Integrität](guarded-fabric-compatible-hardware-with-virtualization-based-protection-of-code-integrity.md).

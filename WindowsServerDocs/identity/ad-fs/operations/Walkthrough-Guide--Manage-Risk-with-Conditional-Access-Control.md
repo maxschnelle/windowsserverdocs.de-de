@@ -10,11 +10,11 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: aefcd597a580de526a758c6d026c6c91d02d10c8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407460"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371662"
 ---
 # <a name="walkthrough-guide-manage-risk-with-conditional-access-control"></a>Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit der bedingten Zugriffssteuerung
 
@@ -66,19 +66,19 @@ In diesem Schritt überprüfen Sie den Standardmechanismus für die AD FS-Zugrif
     Ihnen wird der Zugriff auf die Anwendung gewährt.
 
 ## <a name="BKMK_3"></a>Schritt 3: Konfigurieren der Richtlinie für die bedingte Zugriffs Steuerung basierend auf Benutzerdaten
-In diesem Schritt richten Sie basierend auf den Daten der Benutzergruppenmitgliedschaft eine Richtlinie für die Zugriffssteuerung ein. Sie konfigurieren also eine **Ausstellungsautorisierungsregel** auf dem Verbundserver für eine Vertrauensstellung der vertrauenden Seite, die Ihre Beispielanwendung **claimapp**darstellt. Anhand der Logik dieser Regel werden für den AD-Benutzer **Robert Hatley** Ansprüche ausgestellt, die für den Zugriff auf diese Anwendung erforderlich sind, da er zu einer **Finance** -Gruppe gehört. Sie haben das Konto **Robert Hatley** der Gruppe **Finance** in [Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)hinzugefügt.
+In diesem Schritt richten Sie basierend auf den Daten der Benutzergruppenmitgliedschaft eine Richtlinie für die Zugriffssteuerung ein. Sie konfigurieren also eine **Ausstellungsautorisierungsregel** auf dem Verbundserver für eine Vertrauensstellung der vertrauenden Seite, die Ihre Beispielanwendung **claimapp** darstellt. Anhand der Logik dieser Regel werden für den AD-Benutzer **Robert Hatley** Ansprüche ausgestellt, die für den Zugriff auf diese Anwendung erforderlich sind, da er zu einer **Finance** -Gruppe gehört. Sie haben das Konto **Robert Hatley** der Gruppe **Finance** in [Einrichten der Lab-Umgebung für AD FS in Windows Server 2012 R2](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)hinzugefügt.
 
 Sie können diese Aufgabe über die AD FS-Verwaltungskonsole oder über Windows PowerShell ausführen.
 
 #### <a name="to-configure-conditional-access-control-policy-based-on-user-data-via-the-ad-fs-management-console"></a>So konfigurieren Sie die Richtlinie für die bedingte Zugriffssteuerung basierend auf Benutzerdaten über die AD FS-Verwaltungskonsole
 
-1.  Navigieren Sie in der AD FS-Verwaltungskonsole zu **Vertrauensstellungen**und anschließend zu **Vertrauensstellungen der vertrauenden Seite**.
+1.  Navigieren Sie in der AD FS-Verwaltungskonsole zu **Vertrauensstellungen** und anschließend zu **Vertrauensstellungen der vertrauenden Seite**.
 
 2.  Wählen Sie die Vertrauensstellung der vertrauenden Seite für Ihre Beispielanwendung (**claimapp**) aus, und wählen Sie anschließend entweder im Bereich **Aktionen** oder durch Rechtsklick auf diese Vertrauensstellung der vertrauenden Seite die Option **Anspruchsregeln bearbeiten** aus.
 
 3.  Wählen Sie im Fenster **Anspruchsregeln für claimapp bearbeiten** die Registerkarte **Ausstellungsautorisierungsregeln** aus, und klicken Sie dann auf **Regel hinzufügen**.
 
-4.  Wählen Sie in **Assistent zum Hinzufügen einer Ausstellungsautorisierungs-Anspruchsregel**auf der Seite **Regelvorlage auswählen**die Anspruchsregelvorlage **Benutzern den Zugriff auf Grundlage eines eingehenden Anspruchs gewähren oder verweigern** aus, und klicken Sie dann auf **Weiter**.
+4.  Wählen Sie in **Assistent zum Hinzufügen einer Ausstellungsautorisierungs-Anspruchsregel** auf der Seite **Regelvorlage auswählen** die Anspruchsregelvorlage **Benutzern den Zugriff auf Grundlage eines eingehenden Anspruchs gewähren oder verweigern** aus, und klicken Sie dann auf **Weiter**.
 
 5.  Führen Sie auf der Seite **Regel konfigurieren** alle folgenden Aktionen aus, und klicken Sie dann auf **Fertig stellen**:
 
@@ -90,7 +90,7 @@ Sie können diese Aufgabe über die AD FS-Verwaltungskonsole oder über Windows 
 
     4.  Wählen Sie die Option **Benutzern mit diesem eingehenden Anspruch Zugriff verweigern** aus.
 
-6.  Stellen Sie im Fenster **Anspruchsregeln für claimapp bearbeiten** sicher, dass die Regel **Allen Benutzern Zugriff gewähren** , die beim Erstellen dieser Vertrauensstellung der vertrauenden Seite generiert wurde, gelöscht wird.
+6.  Stellen Sie im Fenster **Anspruchsregeln für claimapp bearbeiten** sicher, dass die Regel **Allen Benutzern Zugriff gewähren**, die beim Erstellen dieser Vertrauensstellung der vertrauenden Seite generiert wurde, gelöscht wird.
 
 #### <a name="to-configure-conditional-access-control-policy-based-on-user-data-via-windows-powershell"></a>So konfigurieren Sie die Richtlinie für die bedingte Zugriffssteuerung basierend auf Benutzerdaten über Windows PowerShell
 

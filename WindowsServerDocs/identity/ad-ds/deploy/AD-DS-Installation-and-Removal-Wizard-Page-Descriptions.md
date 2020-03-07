@@ -10,11 +10,11 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
 ms.openlocfilehash: 3563c30e86c53435c10cafc840a71c7b8c526943
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391199"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371563"
 ---
 # <a name="ad-ds-installation-and-removal-wizard-page-descriptions"></a>Seitenbeschreibungen für den Assistenten zum Installieren und Entfernen von AD DS
 
@@ -40,7 +40,7 @@ Dieses Thema enthält Beschreibungen zu den Steuerelementen auf den folgenden As
   
 -   [Voraussetzungs Prüfung](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_PrerqCheckPage)  
   
--   [Ergebnisse](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_Results)  
+-   [Folgen](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_Results)  
   
 -   [Anmelde Informationen zur Rollen Löschung](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_RemovalCredsPage)  
   
@@ -210,7 +210,7 @@ Geben Sie den Speicherort für die AD DS-Datenbank (NTDS.DIT), die Protokolldate
 ## <a name="BKMK_AdprepCreds"></a>Vorbereitungs Optionen  
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_PreparationOptions.gif)  
   
-Wenn Sie derzeit nicht mit den zum Ausführen von adprep.exe-Befehlen erforderlichen Anmeldeinformationen angemeldet sind und Adprep zum Abschließen der AD DS-Installation erforderlich ist, werden Sie zum Angeben von Anmeldeinformationen aufgefordert, mit denen %%amp;quot;adprep.exe%%amp;quot; ausgeführt werden kann. Zum Hinzufügen des ersten Domänen Controllers, auf dem Windows Server 2012 ausgeführt wird, zu einer vorhandenen Domäne oder Gesamtstruktur muss adprep ausgeführt werden. Das bedeutet im Detail:  
+Wenn Sie derzeit nicht mit den zum Ausführen von adprep.exe-Befehlen erforderlichen Anmeldeinformationen angemeldet sind und Adprep zum Abschließen der AD DS-Installation erforderlich ist, werden Sie zum Angeben von Anmeldeinformationen aufgefordert, mit denen %%amp;quot;adprep.exe%%amp;quot; ausgeführt werden kann. Zum Hinzufügen des ersten Domänen Controllers, auf dem Windows Server 2012 ausgeführt wird, zu einer vorhandenen Domäne oder Gesamtstruktur muss adprep ausgeführt werden. Insbesondere:  
   
 -   Adprep/forestprep muss ausgeführt werden, um den ersten Domänen Controller, auf dem Windows Server 2012 ausgeführt wird, einer vorhandenen Gesamtstruktur hinzuzufügen. Dieser Befehl muss von einem Mitglied der Gruppe %%amp;quot;Organisations-Admins%%amp;quot;, %%amp;quot;Schema-Admins%%amp;quot; und %%amp;quot;Domänen-Admins%%amp;quot; der Domäne ausgeführt werden, die den Schemamaster enthält. Damit dieser Befehl erfolgreich abgeschlossen werden kann, muss zwischen dem Computer, auf dem Sie den Befehl ausführen, und dem Schemamaster für die Gesamtstruktur eine Verbindung bestehen.  
   
