@@ -13,11 +13,11 @@ ms.author: justinha
 manager: brianlic-msft
 ms.date: 02/28/2019
 ms.openlocfilehash: 60202e537093bd21515043ba56f70f3895c91d42
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403407"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371393"
 ---
 # <a name="transport-layer-security-tls-registry-settings"></a>Registrierungs Einstellungen für Transport Layer Security (TLS)
 
@@ -51,7 +51,7 @@ Der Schannel-Anbieter verwendet standardmäßig die folgenden vier Methoden für
 3. 1:1-Zuordnung (auch bekannt als Antragsteller/Aussteller- Zuordnung)
 4. n:1-Zuordnung
 
-Zutreffbare Versionen: Entsprechend der Angabe in der Liste **Betrifft** am Anfang dieses Themas
+Zutreffende Versionen: entsprechend der Angabe in der Liste **betrifft** am Anfang dieses Themas.
 
 Registrierungs Pfad: HKLM system\currentcontrolset\control\securityproviders\schannel
 
@@ -87,14 +87,14 @@ Das Online Certificate Status-Protokoll (OCSP) ermöglicht einem Webserver, z. b
 Zusätzlich zu IIS können auch Webdienste über http. sys von dieser Einstellung profitieren, einschließlich Active Directory-Verbunddienste (AD FS) (AD FS) und webanwendungsproxy (WAP). 
 
 Standardmäßig ist die OCSP-Unterstützung für IIS-Websites aktiviert, die über eine einfache sichere (SSL/TLS)-Bindung verfügen. Diese Unterstützung ist jedoch nicht standardmäßig aktiviert, wenn die IIS-Website einen oder beide der folgenden Typen von sicheren (SSL/TLS)-Bindungen verwendet:
-- Servernamensanzeige erforderlich
+- Servernamensanzeige anfordern
 - Zentralisierten Zertifikatspeicher verwenden
 
-In diesem Fall enthält die Server-Hello-Antwort während des TLS-Handshakes standardmäßig keinen OCSP-Status. Dieses Verhalten verbessert die Leistung: Die Windows OCSP Heften-Implementierung wird auf Hunderte von Server Zertifikaten skaliert. Da mit SNI und CCS IIS auf Tausende von Websites skaliert werden kann, die potenziell Tausende von Server Zertifikaten enthalten, kann das Festlegen dieses Verhaltensstandard mäßig zu Leistungsproblemen führen.
+In diesem Fall enthält die Server-Hello-Antwort während des TLS-Handshakes standardmäßig keinen OCSP-Status. Dieses Verhalten verbessert die Leistung: bei der Windows OCSP Heften-Implementierung werden hunderte von Server Zertifikaten skaliert. Da mit SNI und CCS IIS auf Tausende von Websites skaliert werden kann, die potenziell Tausende von Server Zertifikaten enthalten, kann das Festlegen dieses Verhaltensstandard mäßig zu Leistungsproblemen führen.
 
-Zutreffbare Versionen: Alle Versionen ab Windows Server 2012 und Windows 8. 
+Anwendbare Versionen: alle Versionen ab Windows Server 2012 und Windows 8. 
 
-Registrierungs Pfad: [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL]
+Registrierungs Pfad: [HKEY_LOCAL_MACHINE \system\currentcontrolset\control\securityproviders\schannel]
 
 Fügen Sie den folgenden Schlüssel hinzu:
 
@@ -109,13 +109,13 @@ Legen Sie zum Deaktivieren von den DWORD-Wert auf 0 fest:
 
 ## <a name="fipsalgorithmpolicy"></a>FIPSAlgorithmPolicy
 
-Dieser Eintrag steuert die FIPS-Einhaltung (Federal Information Processing Standard). Die Standardeinstellung ist 0.
+Dieser Eintrag steuert die FIPS-Einhaltung (Federal Information Processing Standard). Der Standard ist 0.
 
-Zutreffbare Versionen: Alle Versionen ab Windows Server 2012 und Windows 8. 
+Anwendbare Versionen: alle Versionen ab Windows Server 2012 und Windows 8. 
 
 Registrierungs Pfad: HKLM SYSTEM\CurrentControlSet\Control\Lsa
 
-Windows Server FIPS-Verschlüsselungs Sammlungen: Weitere Informationen finden Sie [unter Unterstützte Verschlüsselungs Sammlungen und Protokolle im Schannel SSP](https://technet.microsoft.com/library/dn786419.aspx).
+Windows Server FIPS-Verschlüsselungs Sammlungen: Weitere Informationen finden Sie [unter Unterstützte Verschlüsselungs Sammlungen und Protokolle im Schannel-SSP](https://technet.microsoft.com/library/dn786419.aspx).
 
 ## <a name="hashes"></a>Hashes
 
@@ -127,7 +127,7 @@ Dieser Eintrag steuert die Größe des Ausstellercaches und wird mit der Ausstel
 
 Um dies zu verhindern, hat der Server einen negativen Cache. Wenn also ein Ausstellernamen keinem Konto zugeordnet ist, wird er dem Cache hinzugefügt, woraufhin Schannel SSP nicht versucht, den Ausstellernamen erneut zuzuordnen, bis der Cacheeintrag abläuft. Dieser Registrierungseintrag gibt die Cachegröße an. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Der Standardwert ist 100. 
 
-Zutreffbare Versionen: Alle Versionen ab Windows Server 2008 und Windows Vista.
+Anwendbare Versionen: alle Versionen ab Windows Server 2008 und Windows Vista.
 
 Registrierungs Pfad: HKLM system\currentcontrolset\control\securityproviders\schannel
 
@@ -135,9 +135,9 @@ Registrierungs Pfad: HKLM system\currentcontrolset\control\securityproviders\sch
 
 Dieser Eintrag steuert das Zeitlimit für den Cache in Millisekunden. Der Schannel SSP versucht, alle Aussteller in der Zertifikat Kette des Clients zuzuordnen – nicht nur den direkten Aussteller des Client Zertifikats. Wenn die Aussteller keinem Konto zugeordnet werden, was der Normalfall ist, kann der Server versuchen, denselben Ausstellernamen wiederholt (unzählige Male pro Sekunde) zuzuordnen.
 
-Um dies zu verhindern, hat der Server einen negativen Cache. Wenn also ein Ausstellernamen keinem Konto zugeordnet ist, wird er dem Cache hinzugefügt, woraufhin Schannel SSP nicht versucht, den Ausstellernamen erneut zuzuordnen, bis der Cacheeintrag abläuft. Dieser Cache wird aus Leistungsgründen eingerichtet, damit das System nicht laufend versucht, dieselben Aussteller zuzuordnen. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Der Standardwert beträgt 10 Minuten.
+Um dies zu verhindern, hat der Server einen negativen Cache. Wenn also ein Ausstellernamen keinem Konto zugeordnet ist, wird er dem Cache hinzugefügt, woraufhin Schannel SSP nicht versucht, den Ausstellernamen erneut zuzuordnen, bis der Cacheeintrag abläuft. Dieser Cache wird aus Leistungsgründen eingerichtet, damit das System nicht laufend versucht, dieselben Aussteller zuzuordnen. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Der Standardwert beträgt 10 Minuten.
 
-Zutreffbare Versionen: Alle Versionen ab Windows Server 2008 und Windows Vista.
+Anwendbare Versionen: alle Versionen ab Windows Server 2008 und Windows Vista.
 
 Registrierungs Pfad: HKLM system\currentcontrolset\control\securityproviders\schannel
 
@@ -149,7 +149,7 @@ Die Verwendung von Schlüsselaustausch Algorithmen sollte gesteuert werden, inde
 
 In Windows 10, Version 1507 und Windows Server 2016 hinzugefügt.
 
-Registrierungs Pfad: Hklm\system\currentcontrolset\control\securityproviders\schannel\keyexchangealgorithms\pkcs
+Registrierungs Pfad: hklm\system\currentcontrolset\control\securityproviders\schannel\keyexchangealgorithms\pkcs
 
 Um einen minimal unterstützten Bereich der RSA-Schlüssel Bit Länge für den TLS-Client anzugeben, erstellen Sie einen **clientminkeybitlength** -Eintrag. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Nachdem Sie den Eintrag erstellt haben, ändern Sie den DWORD-Wert in die gewünschte Bitlänge. Wenn keine Konfiguration erfolgt, sind 1024 Bits das minimale. 
 
@@ -163,7 +163,7 @@ Die Verwendung von Schlüsselaustausch Algorithmen sollte gesteuert werden, inde
 
 In Windows 10, Version 1507 und Windows Server 2016 hinzugefügt.
 
-Registrierungs Pfad: Hklm\system\currentcontrolset\control\securityproviders\schannel\keyexchangealgorithms\diffie-Hellman
+Registrierungs Pfad: hklm\system\currentcontrolset\control\securityproviders\schannel\keyexchangealgorithms\diffie-Hellman
 
 Um einen minimal unterstützten Bereich von Diffie-Helman Key Bit length für den TLS-Client anzugeben, erstellen Sie einen **clientminkeybitlength** -Eintrag. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Nachdem Sie den Eintrag erstellt haben, ändern Sie den DWORD-Wert in die gewünschte Bitlänge. Wenn keine Konfiguration erfolgt, sind 1024 Bits das minimale. 
  
@@ -175,7 +175,7 @@ Erstellen Sie einen **serverminkeybitlength** -Eintrag, um die Diffie-Helman-Sch
 
 Dieser Eintrag steuert die maximale Anzahl von Elementen im Cache. Durch Festlegen von "MaximumCacheSize" auf 0 werden der serverseitige Sitzungscache deaktiviert und erneute Verbindungen verhindert. Das Erhöhen von "MaximumCacheSize" über die Standardwerte hinaus bewirkt, dass "Lsass.exe" zusätzlichen Arbeitsspeicher beansprucht. Jedes Session-Cache-Element benötigt in der Regel 2 bis 4 KB Arbeitsspeicher. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Der Standardwert ist 20.000 Elemente. 
 
-Zutreffbare Versionen: Alle Versionen ab Windows Server 2008 und Windows Vista.
+Anwendbare Versionen: alle Versionen ab Windows Server 2008 und Windows Vista.
 
 Registrierungs Pfad: HKLM system\currentcontrolset\control\securityproviders\schannel
 
@@ -191,7 +191,7 @@ Die maximal zulässige Größe kann bis zu 2 ^ 24-1 Byte betragen. Es ist keine 
 Hinzugefügt in Windows 7 und Windows Server 2008 R2.
 Ein Update, mit dem Internet Explorer in Windows XP, Windows Vista oder Windows Server 2008 zur Analyse fragmentierter TLS/SSL-Hand Shake Nachrichten verwendet werden kann.
 
-Registrierungs Pfad: Hklm\system\currentcontrolset\control\securityproviders\schannel\messaging
+Registrierungs Pfad: hklm\system\currentcontrolset\control\securityproviders\schannel\messaging
 
 Erstellen Sie einen **messagelimitclient** -Eintrag, um eine maximal zulässige Größe von fragmentierten TLS-Hand Shake Nachrichten anzugeben, die vom TLS-Client akzeptiert werden. Nachdem Sie den Eintrag erstellt haben, ändern Sie den DWORD-Wert in die gewünschte Bitlänge. Wenn keine Konfiguration erfolgt, ist der Standardwert 0X8000 bytes. 
 
@@ -211,12 +211,12 @@ Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden.
 
 Standardverhalten der Liste vertrauenswürdiger Aussteller senden
 
-| Windows-Version | Uhrzeit |
+| Windows-Version | Zeit |
 |-----------------|------|
 | Windows Server 2012 und Windows 8 und höher | FALSE |
 | Windows Server 2008 R2 und Windows 7 und früher | TRUE |
 
-Zutreffbare Versionen: Alle Versionen ab Windows Server 2008 und Windows Vista.
+Anwendbare Versionen: alle Versionen ab Windows Server 2008 und Windows Vista.
 
 Registrierungs Pfad: HKLM system\currentcontrolset\control\securityproviders\schannel
 
@@ -224,11 +224,11 @@ Registrierungs Pfad: HKLM system\currentcontrolset\control\securityproviders\sch
 
 Dieser Eintrag steuert die Dauer, die das Betriebssystem in Millisekunden benötigt, um Einträge im serverseitigen Cache ablaufen zu lassen. Durch Festlegen auf 0 werden der serverseitige Sitzungscache deaktiviert und erneute Verbindungen verhindert. Das Erhöhen von "ServerCacheTime" über die Standardwerte bewirkt, dass "Lsass.exe" zusätzlichen Arbeitsspeicher beansprucht. Jedes Sitzungs Cache Element benötigt in der Regel 2 bis 4 KB Arbeitsspeicher. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. 
 
-Zutreffbare Versionen: Alle Versionen ab Windows Server 2008 und Windows Vista.
+Anwendbare Versionen: alle Versionen ab Windows Server 2008 und Windows Vista.
 
 Registrierungs Pfad: HKLM system\currentcontrolset\control\securityproviders\schannel
 
-Standard Server Cache-Zeit: 10 Stunden
+Standard Server Cache-Zeit: 10 Stunden
 
 ## <a name="ssl-20"></a>SSL 2.0
 
