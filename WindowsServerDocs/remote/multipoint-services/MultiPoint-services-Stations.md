@@ -14,11 +14,11 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.openlocfilehash: 7b8f757d552bf54cd7f4eed0783ba8e0062b9d30
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405074"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371822"
 ---
 # <a name="multipoint--stations"></a>Multipoint-Stationen
 In einer Multipoint Services-Systemumgebung sind *Stationen* die Benutzer Endpunkte zum Herstellen einer Verbindung mit dem Computer, auf dem Multipoint Services ausgeführt wird. Jede Station bietet dem Benutzer eine unabhängige Windows 10-Benutzeroberflächen. Die folgenden Stations Typen werden unterstützt:  
@@ -117,7 +117,7 @@ Nachdem eine Station aufgeteilt wurde, kann sich ein Benutzer an der linken Stat
   
 ||Direktes Video mit Verbindung|USB-Null-Client verbunden|RDP-over-LAN-Verbindung|  
 |-|--------------------------|-----------------------------|----------------------------|  
-|Video Leistung|Empfohlen für eine optimale Video Leistung||Verwenden von Thin Clients, die remotefx unterstützen, um die Videoqualität bei geringerer Netzwerkbandbreite zu steigern|  
+|Videoleistung|Empfohlen für eine optimale Video Leistung||Verwenden von Thin Clients, die remotefx unterstützen, um die Videoqualität bei geringerer Netzwerkbandbreite zu steigern|  
 |Physische Einschränkungen|Begrenzt durch Grafik Kabellänge und USB-Hub und Kabellänge (empfohlene maximale Länge von 15 Metern)|Begrenzt durch USB-Hub und Kabellänge (empfohlene maximale Länge von 15 Metern)|Verteilung durch LAN-Verteilung|  
 |Zulässige Anzahl von Stationen |Begrenzt durch die Anzahl der verfügbaren PCIe-Slots auf den Hauptseiten der Videoanschlüsse Pro Grafikkarte|Die Gesamtanzahl kann durch den USB-Client Hersteller eingeschränkt werden. (Weitere Informationen finden Sie im Hinweis, der dieser Tabelle folgt.)|Begrenzt durch verfügbare Ports auf dem Netzwerk Switch|  
 |Geteilter Bildschirm|Ja|Ja|Nein|  
