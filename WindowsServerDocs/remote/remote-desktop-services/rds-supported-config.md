@@ -14,11 +14,11 @@ ms.assetid: c925c7eb-6880-411f-8e59-bd0f57cc5fc3
 author: lizap
 manager: dongill
 ms.openlocfilehash: e501d550e5371c668f7e243f00106a0b79f694dc
-ms.sourcegitcommit: 214847318401cebdcb7f1924a731b4439c9d8a24
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74187881"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370677"
 ---
 # <a name="supported-configurations-for-remote-desktop-services"></a>Unterstützte Konfigurationen für Remotedesktopdienste
 
@@ -50,8 +50,8 @@ Windows Server 2016 hebt die Beschränkung für die Anzahl der Verbindungsbroker
 |Drei oder mehr RD-Verbindungsbroker bei Hochverfügbarkeit|RDSH oder RDVH 2019|RDSH oder RDVH 2016|RDSH oder RDVH 2012 R2|
 |---|---|---|---|
  |Windows Server 2019-Verbindungsbroker|Unterstützt|Unterstützt|Unterstützt|
- |Windows Server 2016-Verbindungsbroker|N/V|Unterstützt|Unterstützt|
- |Windows Server 2012 R2-Verbindungsbroker|N/V|N/V|Nicht unterstützt|
+ |Windows Server 2016-Verbindungsbroker|NICHT ZUTREFFEND|Unterstützt|Unterstützt|
+ |Windows Server 2012 R2-Verbindungsbroker|NICHT ZUTREFFEND|NICHT ZUTREFFEND|Nicht unterstützt|
 
 ## <a name="support-for-graphics-processing-unit-gpu-acceleration"></a>Unterstützung für GPU-Beschleunigung (Graphics Processing Unit)
 
@@ -69,7 +69,7 @@ Bei GPUs, die von einem nicht von Microsoft stammenden Hypervisor oder einer nic
 
 In der folgenden Tabelle sind die Szenarien aufgeführt, die von verschiedenen Versionen von RDSH-Hosts unterstützt werden.
 
-|Feature|Windows Server 2008 R2|Windows Server 2012 R2|Windows Server 2016|Windows Server 2019|
+|Feature|Windows Server 2008 R2|Windows Server 2012 R2|Windows Server 2016|Windows Server 2019|
 |---|---|---|---|---|
 |Verwendung der Hardware-GPU für alle RDP-Sitzungen|Nein|Ja|Ja|Ja|
 |H.264/AVC-Hardwarecodierung (wenn von der GPU unterstützt)|Nein|Nein|Ja|Ja|
@@ -81,7 +81,7 @@ In der folgenden Tabelle sind die Szenarien aufgeführt, die von verschiedenen V
 
 Die folgende Tabelle enthält eine Übersicht der Unterstützung für GPU-Szenarien im Clientbetriebssystem.
 
-|Feature|Windows 7 SP1|Windows 8.1|Windows 10|
+|Feature|Windows 7 SP1|Windows 8.1|Windows 10|
 |---|---|---|---|
 |Verwendung der Hardware-GPU für alle RDP-Sitzungen|Nein|Ja|Ja|
 |H.264/AVC-Hardwarecodierung (wenn von der GPU unterstützt)|Nein|Nein|Windows 10 1703 und höher|
@@ -108,7 +108,7 @@ Remotedesktopdienste unterstützen physische GPUs, die mit diskreter Gerätezuwe
 
 RD-Virtualisierungshostserver von Windows Server 2016 und Windows Server 2019 RD unterstützen die folgenden Gastbetriebssysteme:
 
-- Windows 10 Enterprise
+- Windows 10 Enterprise
 - Windows 8.1 Enterprise
 - Windows 7 SP1 Enterprise
 

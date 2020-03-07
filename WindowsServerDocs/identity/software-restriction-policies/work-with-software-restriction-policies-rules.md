@@ -14,11 +14,11 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: bb5e56fe541a06b1100de2f25fc10f4db46b8d24
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407157"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371730"
 ---
 # <a name="work-with-software-restriction-policies-rules"></a>Arbeiten mit Regeln der Richtlinien für die Softwareeinschränkung
 
@@ -124,7 +124,7 @@ Abhängig von Ihrer Umgebung stehen verschiedene Vorgehensweisen zum Aktivieren 
 
 #### <a name="BKMK_3"></a>So aktivieren Sie Zertifikat Regeln für ein Gruppenrichtlinie Objekt, und Sie befinden sich auf einem Domänen Controller oder einer Arbeitsstation, auf der die Remoteserver-Verwaltungstools installiert ist
 
-1.  Öffnen Sie %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;.
+1.  Öffnen Sie Active Directory-Benutzer und -Computer.
 
 2.  Klicken Sie in der Konsolenstruktur mit der rechten Maustaste auf das Gruppenrichtlinienobjekt, für das Zertifikatregeln aktiviert werden sollen.
 
@@ -166,7 +166,7 @@ Abhängig von Ihrer Umgebung stehen verschiedene Vorgehensweisen zum Aktivieren 
 ### <a name="set-trusted-publisher-options"></a>Festlegen von Optionen für vertrauenswürdige Verleger
 Immer mehr Softwareherausgeber und Anwendungsentwickler verwenden Softwaresignierung, um zu bestätigen, dass ihre Anwendungen aus einer vertrauenswürdigen Quelle stammen. Viele Benutzer kennen jedoch die mit den installierten Anwendungen verbundenen Signaturzertifikate nicht oder schenken diesen wenig Beachtung.
 
-Mit den Richtlinieneinstellungen auf der Registerkarte **Vertrauenswürdige Herausgeber** der Richtlinie für die Überprüfung des Zertifikatpfads können Administratoren steuern, welche Zertifikate akzeptiert werden können, da sie von einem vertrauenswürdigen Herausgeber stammen.
+Mit den Richtlinieneinstellungen auf der Registerkarte **Vertrauenswürdige Herausgeber** der Richtlinie für die Validierung des Zertifikatpfads können Administratoren steuern, welche Zertifikate akzeptiert werden können, da sie von einem vertrauenswürdigen Herausgeber stammen.
 
 ##### <a name="to-configure-the-trusted-publishers-policy-settings-for-a-local-computer"></a>So konfigurieren Sie die Richtlinieneinstellungen für vertrauenswürdige Herausgeber für einen lokalen Computer
 
@@ -180,7 +180,7 @@ Mit den Richtlinieneinstellungen auf der Registerkarte **Vertrauenswürdige Hera
 
 ##### <a name="to-configure-the-trusted-publishers-policy-settings-for-a-domain"></a>So konfigurieren Sie die Richtlinieneinstellungen für vertrauenswürdige Herausgeber für eine Domäne
 
-1.  Öffnen Sie **Gruppenrichtlinie-Verwaltung**.
+1.  Öffnen Sie **Gruppenrichtlinienverwaltung**.
 
 2.  Doppelklicken Sie in der Konsolen Struktur auf **Gruppenrichtlinie Objekte** in der Gesamtstruktur und Domäne, die das **Standard Domänen Richtlinien** -Gruppenrichtlinie Objekt (GPO) enthält, das Sie bearbeiten möchten.
 
@@ -206,7 +206,7 @@ Mit den Richtlinieneinstellungen auf der Registerkarte **Vertrauenswürdige Hera
 
 ##### <a name="to-allow-only-administrators-to-manage-certificates-used-for-code-signing-for-a-domain"></a>So lassen Sie nur für Administratoren das Verwalten von Zertifikaten, die für Codesignaturen verwendet werden, für eine Domäne zu
 
-1.  Öffnen Sie **Gruppenrichtlinie-Verwaltung**.
+1.  Öffnen Sie **Gruppenrichtlinienverwaltung**.
 
 2.  Doppelklicken Sie in der Konsolen Struktur auf **Gruppenrichtlinie Objekte** in der Gesamtstruktur und Domäne, die das **Standard Domänen Richtlinien** -Gruppenrichtlinien Objekt enthält, das Sie bearbeiten möchten.
 

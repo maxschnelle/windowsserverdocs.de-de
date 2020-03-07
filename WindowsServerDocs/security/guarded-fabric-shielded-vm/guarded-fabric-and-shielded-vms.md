@@ -8,11 +8,11 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
 ms.openlocfilehash: ace6eb30ae6df2dc29aacc05eb7852e03145df4f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386861"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370654"
 ---
 # <a name="guarded-fabric-and-shielded-vms-overview"></a>Übersicht über geschütztes Fabric und abgeschirmte VMs
 
@@ -34,7 +34,7 @@ Wenn ein Mandant abgeschirmte VMs erstellt, die auf einem geschützten Fabric au
 
 ![Geschütztes Hostfabric](../media/Guarded-Fabric-Shielded-VM/Guarded-Host-Overview-Diagram.png)
 
-## <a name="video-introduction-to-shielded-virtual-machines"></a>Video: Einführung in abgeschirmte virtuelle Computer 
+## <a name="video-introduction-to-shielded-virtual-machines"></a>Video: Einführung in abgeschirmte virtuelle Maschinen 
 
 <iframe src="https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016/player" width="650" height="440" allowFullScreen frameBorder="0"></iframe>
 
@@ -49,7 +49,7 @@ Der TPM-vertrauenswürdige Nachweis wird empfohlen, da er stärkere Garantien bi
 
 | **Nachweis Modus, den Sie für Hosts auswählen**                                            | **Host Zusicherungen** |
 |-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|**TPM-vertrauenswürdiger Nachweis:** Bietet die bestmöglichen Schutzmaßnahmen, erfordert aber auch weitere Konfigurationsschritte. Host Hardware und Firmware müssen TPM 2,0 und UEFI 2.3.1 mit aktiviertem sicheren Start einschließen. | Geschützte Hosts werden basierend auf der TPM-Identität, der gemessenen Startsequenz und den Code Integritäts Richtlinien genehmigt, um sicherzustellen, dass Sie nur genehmigten Code ausführen.| 
+|**TPM-vertrauenswürdiger Nachweis:** bietet den stärksten Schutz, erfordert jedoch auch weitere Konfigurationsschritte. Host Hardware und Firmware müssen TPM 2,0 und UEFI 2.3.1 mit aktiviertem sicheren Start einschließen. | Geschützte Hosts werden basierend auf der TPM-Identität, der gemessenen Startsequenz und den Code Integritäts Richtlinien genehmigt, um sicherzustellen, dass Sie nur genehmigten Code ausführen.| 
 | **Host Schlüssel Nachweis:** Dient zur Unterstützung vorhandener Host Hardware, bei der TPM 2,0 nicht verfügbar ist. Erfordert weniger Konfigurationsschritte und ist kompatibel mit gängiger Serverhardware. | Geschützte Hosts werden basierend auf dem Besitz des Schlüssels genehmigt. | 
 
 Ein anderer Modus mit dem Namen **Admin-Trusted Nachweis** ist ab Windows Server 2019 veraltet. Dieser Modus basiert auf der überwachten Host Mitgliedschaft in einer festgelegten Active Directory Domain Services (AD DS)-Sicherheitsgruppe. Der Host Schlüssel Nachweis bietet eine ähnliche Host Identifizierung und ist leichter einzurichten. 
@@ -99,7 +99,7 @@ Abgeschirmte virtuelle Computer dienen zur Verwendung in Fabrics, in denen Daten
 
 In der folgenden Tabelle werden die Unterschiede zwischen Verschlüsselungs unterstütztem und abgeschirmten VMS zusammengefasst.
 
-| Funktion        | Generation 2 – durch Verschlüsselung unterstützt     | Generation 2 – abgeschirmt         |
+| Capability        | Generation 2 – durch Verschlüsselung unterstützt     | Generation 2 – abgeschirmt         |
 |----------|--------------------|----------------|
 |Sicherer Start        | Ja, erforderlich, aber konfigurierbar        | Ja, erforderlich und erzwungen    |
 |Vtpm               | Ja, erforderlich, aber konfigurierbar        | Ja, erforderlich und erzwungen    |
@@ -113,7 +113,7 @@ In der folgenden Tabelle werden die Unterschiede zwischen Verschlüsselungs unte
 
 Sowohl abgeschirmte als auch durch Verschlüsselung unterstützte VMs unterstützen weiterhin gängige Fabricverwaltungsfunktionen wie Livemigration, Hyper-V-Replikat, VM-Prüfpunkt usw.
 
-## <a name="the-host-guardian-service-in-action-how-a-shielded-vm-is-powered-on"></a>Der Host-Überwachungsdienst in Aktion: Einschalten einer abgeschirmten VM
+## <a name="the-host-guardian-service-in-action-how-a-shielded-vm-is-powered-on"></a>Der Host-Überwachungsdienst in Aktion: Wie ein abgeschirmter virtuelle Computer eingeschaltet wird
 
 ![Geschützte Datendatei](../media/Guarded-Fabric-Shielded-VM/shielded-vms-how-a-shielded-vm-is-powered-on.png)
 
@@ -125,7 +125,7 @@ Sowohl abgeschirmte als auch durch Verschlüsselung unterstützte VMs unterstüt
 
     Der geschützte Host fordert einen Nachweis an. Der Nachweismodus wird durch den Host-Überwachungsdienst vorgegeben:
 
-    **TPM-vertrauenswürdiger**Nachweis: Der Hyper-V-Host sendet Informationen, die Folgendes beinhalten:
+    **TPM-vertrauenswürdiger**Nachweis: der Hyper-V-Host sendet Informationen, die Folgendes beinhalten:
 
        - TPM-identifizierende Informationen (seinen Endorsement Key)
        - Informationen zu Prozessen, die während der letzten Startsequenz (TCG-Protokoll) gestartet wurden
@@ -133,9 +133,9 @@ Sowohl abgeschirmte als auch durch Verschlüsselung unterstützte VMs unterstüt
 
        Attestation happens when the host starts and every 8 hours thereafter. If for some reason a host doesn't have an attestation certificate when a VM tries to start, this also triggers attestation.
 
-    **Host Schlüssel**Nachweis: Der Hyper-V-Host sendet die öffentliche Hälfte des Schlüssel Paars. HGS überprüft, dass der Host Schlüssel registriert ist. 
+    **Host Schlüssel**Nachweis: der Hyper-V-Host sendet die öffentliche Hälfte des Schlüssel Paars. HGS überprüft, dass der Host Schlüssel registriert ist. 
     
-    **Admin-vertrauenswürdiger**Nachweis: Der Hyper-V-Host sendet ein Kerberos-Ticket, das die Sicherheitsgruppen identifiziert, in denen sich der Host befindet. Der Host-Überwachungsdienst überprüft, ob der Host zu einer Sicherheitsgruppe gehört, die zuvor vom vertrauenswürdigen HGS-Administrator konfiguriert wurde.
+    **Admin-vertrauenswürdiger Nachweis**: Hyper-V-Host sendet ein Kerberos-Ticket, das die Sicherheitsgruppen identifiziert, zu denen der Host gehört. Der Host-Überwachungsdienst überprüft, ob der Host zu einer Sicherheitsgruppe gehört, die zuvor vom vertrauenswürdigen HGS-Administrator konfiguriert wurde.
 
 3. Nachweis erfolgreich (oder mit Fehler).
 
@@ -179,6 +179,6 @@ Sowohl abgeschirmte als auch durch Verschlüsselung unterstützte VMs unterstüt
 ## <a name="see-also"></a>Siehe auch
 
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)
-- Blog: [Datacenter-und Private Cloud-Sicherheits Blog](https://blogs.technet.microsoft.com/datacentersecurity/)
+- Blog: [Daten Center-und Private Cloud-Sicherheitsblog](https://blogs.technet.microsoft.com/datacentersecurity/)
 - Video: [Einführung in abgeschirmte Virtual Machines](https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016)
-- Video: [Informationen zu abgeschirmten VMS mit Windows Server 2016 Hyper-V](https://channel9.msdn.com/events/Ignite/2016/BRK3124)
+- Video: [Einblicke in abgeschirmte VMS mit Windows Server 2016 Hyper-V](https://channel9.msdn.com/events/Ignite/2016/BRK3124)

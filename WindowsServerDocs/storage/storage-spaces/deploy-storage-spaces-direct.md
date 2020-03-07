@@ -11,11 +11,11 @@ ms.date: 06/07/2019
 description: Eine Schritt-für-Schritt-Anleitung zum Bereitstellen von Software definiertem Speicher mit direkte Speicherplätze in Windows Server als hyperkonvergierte Infrastruktur oder konvergierte Infrastruktur (auch als disaggiert bezeichnet).
 ms.localizationpriority: medium
 ms.openlocfilehash: 60b29cbebb19cd8f1ce364d1eb7e920759375285
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950020"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371772"
 ---
 # <a name="deploy-storage-spaces-direct"></a>Bereitstellen von direkte Speicherplätze
 
@@ -29,7 +29,7 @@ Dieses Thema enthält Schritt-für-Schritt-Anweisungen zum Bereitstellen von [di
 > [!Tip]
 > Sie können virtuelle Hyper-V-Computer (einschließlich in Microsoft Azure) verwenden, um [direkte Speicherplätze ohne Hardware auszuwerten](storage-spaces-direct-in-vm.md). Sie können auch die praktischen [Windows Server-schnell-Lab-Bereitstellungs Skripts](https://aka.ms/wslab)überprüfen, die wir zu Schulungszwecken verwenden.
 
-## <a name="before-you-start"></a>Bevor Sie beginnen
+## <a name="before-you-start"></a>Vorbereitungen
 
 Überprüfen Sie die [direkte Speicherplätze Hardwareanforderungen](Storage-Spaces-Direct-Hardware-Requirements.md) , und lesen Sie dieses Dokument, um sich mit dem allgemeinen Ansatz und wichtigen Notizen vertraut zu machen, die mit einigen Schritten verknüpft sind.
 
@@ -112,7 +112,7 @@ Net localgroup Administrators <Domain\Account> /add
 
 Der nächste Schritt besteht darin, Server Rollen auf jedem Server zu installieren. Hierfür können Sie das [Windows Admin Center](../../manage/windows-admin-center/use/manage-servers.md), [Server-Manager](../../administration/server-manager/install-or-uninstall-roles-role-services-or-features.md)) oder PowerShell verwenden. Folgende Rollen müssen installiert werden:
 
-- Failoverclusterunterstützung
+- Failoverclustering
 - Hyper-V
 - Datei Server (wenn Sie Dateifreigaben hosten möchten, z. b. für eine konvergierte Bereitstellung)
 - Daten-Center-Bridging (Wenn Sie RoCEv2 anstelle von iWARP Netzwerkadaptern verwenden)
@@ -216,7 +216,7 @@ Test-Cluster –Node <MachineName1, MachineName2, MachineName3, MachineName4> �
 
 In diesem Schritt erstellen Sie mit dem folgenden PowerShell-Cmdlet einen Cluster mit den Knoten, die Sie im vorherigen Schritt für die Cluster Erstellung überprüft haben.
 
-Beim Erstellen des Clusters erhalten Sie eine Warnung mit dem Hinweis, dass beim Erstellen der Cluster Rolle Probleme aufgetreten sind, die den Start verhindern können. Weitere Informationen finden Sie in der folgenden Berichtsdatei.“ Sie können diese Warnung ignorieren. Die Ursache dieser Warnung liegt darin, dass keine Datenträger für das Clusterquorum verfügbar sind. Es wird empfohlen, nach der Erstellung des Clusters einen Dateifreigabe- oder Cloudzeugen zu konfigurieren.
+Beim Erstellen des Clusters erhalten Sie eine Warnung mit dem Hinweis, dass beim Erstellen der Cluster Rolle Probleme aufgetreten sind, die den Start verhindern können. Weitere Informationen finden Sie in der folgenden Berichtsdatei.“ Sie können diese Warnung gefahrlos ignorieren. Die Ursache dieser Warnung liegt darin, dass keine Datenträger für das Clusterquorum verfügbar sind. Es wird empfohlen, nach der Erstellung des Clusters einen Dateifreigabe- oder Cloudzeugen zu konfigurieren.
 
 > [!Note]
 > Wenn die Server statische IP-Adressen verwenden, ändern Sie den folgenden Befehl so, dass die statische IP-Adresse reflektiert wird. Fügen Sie dazu den folgenden Parameter hinzu, und geben Sie die IP-Adresse an: „–StaticAddress &lt;X.X.X.X&gt;“.
@@ -225,7 +225,7 @@ Beim Erstellen des Clusters erhalten Sie eine Warnung mit dem Hinweis, dass beim
 > New-Cluster –Name <ClusterName> –Node <MachineName1,MachineName2,MachineName3,MachineName4> –NoStorage
 > ```
 
-Nach der Erstellung des Clusters kann es einige Zeit dauern, bis der DNS-Eintrag für den Clusternamen repliziert wurde. Wie lange, hängt von der Umgebung und der Konfiguration der DNS-Replikation ab. Wird der Cluster nicht erfolgreich aufgelöst, können Sie den Vorgang in den meisten Fällen erfolgreich ausführen, indem Sie anstelle des Clusternamens den Computernamen eines Knotens verwenden, der ein aktives Mitglied des Clusters ist.
+Nach der Erstellung des Clusters kann es einige Zeit dauern, bis der DNS-Eintrag für den Clusternamen repliziert wurde. Wie lange, hängt von der Umgebung und der Konfiguration der DNS-Replikation ab. Wird der Clusters nicht erfolgreich aufgelöst, können Sie den Vorgang in den meisten Fällen erfolgreich ausführen, indem Sie anstelle des Clusternamens den Computernamen eines Knotens verwenden, der ein aktives Mitglied des Clusters ist.
 
 ### <a name="step-34-configure-a-cluster-witness"></a>Schritt 3,4: Konfigurieren eines Cluster Zeugen
 
@@ -386,7 +386,7 @@ CD $ScriptFolder
 
 Nachdem Sie den Cluster Dateiserver bereitgestellt haben, empfiehlt es sich, die Leistung Ihrer Lösung mithilfe synthetischer Workloads zu testen, bevor Sie echte Workloads bereitstellen. Auf diese Weise können Sie überprüfen, ob die Lösung ordnungsgemäß funktioniert, und alle veralteten Probleme beheben, bevor Sie die Komplexität von Workloads hinzufügen. Weitere Informationen finden Sie unter [Testen der Leistung von Speicherplätzen mithilfe synthetischer Workloads](https://technet.microsoft.com/library/dn894707.aspx).
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 -   [Direkte Speicherplätze in Windows Server 2016](storage-spaces-direct-overview.md)
 -   [Grundlegendes zum Cache in direkte Speicherplätze](understand-the-cache.md)

@@ -12,11 +12,11 @@ author: jasongerend
 ms.author: jgerend
 ms.date: 05/22/2019
 ms.openlocfilehash: 96678dfab2a3d5b6f503d8ce9d00850a3c437b35
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392930"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370604"
 ---
 # <a name="upgrade-virtual-machine-version-in-hyper-v-on-windows-10-or-windows-server"></a>Aktualisieren der Version virtueller Computer in Hyper-V unter Windows 10 oder Windows Server
 
@@ -30,7 +30,7 @@ Machen Sie die neuesten Hyper-V-Features auf Ihren virtuellen Computern verfügb
 
 Weitere Informationen finden Sie unter [Cluster Operating System Rolling Upgrade](../../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md) und [Durchführen eines parallelen Upgrades eines Hyper-V-Host Clusters in VMM](https://docs.microsoft.com/system-center/vmm/hyper-v-rolling-upgrade).
 
-## <a name="step-1-check-the-virtual-machine-configuration-versions"></a>Schritt 1: Überprüfen Sie die Konfigurations Versionen der virtuellen Maschine.
+## <a name="step-1-check-the-virtual-machine-configuration-versions"></a>Schritt 1: Überprüfen der Konfigurations Versionen des virtuellen Computers
 
 1. Klicken Sie auf dem Windows-Desktop auf die Schaltfläche „Start“, und geben Sie einen beliebigen Teil des Namens **Windows PowerShell** ein.
 2. Klicken Sie mit der rechten Maustaste auf Windows PowerShell, und wählen Sie **als Administrator ausführen**.
@@ -81,7 +81,7 @@ In der folgenden Tabelle sind die VM-Konfigurations Versionen aufgelistet, die a
 |Windows Server 2016|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Enterprise 2016 LTSB|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Windows 10 Enterprise 2015 LTSB|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|&#10004;|
-|Windows Server 2012 R2|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
+|Windows Server 2012 R2|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
 |Windows 8.1|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10006;|&#10004;|
 
 ### <a name="supported-vm-configuration-versions-for-semi-annual-channel-hosts"></a>Unterstützte VM-Konfigurations Versionen für halbjährliche channelhosts
@@ -110,11 +110,11 @@ In der folgenden Tabelle sind Beschreibungen, Dateinamen Erweiterungen und Stand
 
  |Dateitypen virtueller Computer | Beschreibung|
  |---|---|
-|Konfiguration |Konfigurationsinformationen für virtuelle Computer, die im Binärdatei Format gespeichert werden. <br /> Dateinamenerweiterung: vmcx <br /> Standard Speicherort: C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines|
- |Lauf Zeit Status|Lauf Zeit Zustandsinformationen des virtuellen Computers, die im Binärdatei Format gespeichert werden. <br />Dateinamenerweiterung:. VMRS und. vmgs <br />Standard Speicherort: C:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines|
-|Virtuelle Festplatte|Speichert virtuelle Festplatten für die virtuelle Maschine. <br /> Dateinamenerweiterung: VHD-oder vhdx-Datei <br />Standard Speicherort: C:\ProgramData\Microsoft\Windows\Hyper-v\virtuelle Festplatten|
- |Automatische virtuelle Festplatte |Differenzierende Datenträger Dateien, die für Prüfpunkte virtueller Maschinen verwendet werden. <br /> Dateinamenerweiterung:. avhdx <br /> Standard Speicherort: C:\ProgramData\Microsoft\Windows\Hyper-v\virtuelle Festplatten|
- |Checkpoint|Prüfpunkte werden in mehreren Prüfpunktdateien gespeichert. Jeder Prüfpunkt erstellt eine Konfigurationsdatei und eine Datei mit dem Laufzeitzustand. <br /> Dateinamen Erweiterungen:. VMRS und. vmcx <br />Standard Speicherort: C:\ProgramData\Microsoft\Windows\Snapshots|
+|Konfiguration |Konfigurationsinformationen für virtuelle Computer, die im Binärdatei Format gespeichert werden. <br /> Dateinamenerweiterung: vmcx <br /> Standard Speicherort: c:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines|
+ |Lauf Zeit Status|Lauf Zeit Zustandsinformationen des virtuellen Computers, die im Binärdatei Format gespeichert werden. <br />Dateinamenerweiterung:. VMRS und. vmgs <br />Standard Speicherort: c:\ProgramData\Microsoft\Windows\Hyper-V\Virtual Machines|
+|Virtuelle Festplatte|Speichert virtuelle Festplatten für die virtuelle Maschine. <br /> Dateinamenerweiterung: VHD-oder vhdx-Datei <br />Standard Speicherort: c:\ProgramData\Microsoft\Windows\Hyper-v\virtuelle Festplatten|
+ |Automatische virtuelle Festplatte |Differenzierende Datenträger Dateien, die für Prüfpunkte virtueller Maschinen verwendet werden. <br /> Dateinamenerweiterung:. avhdx <br /> Standard Speicherort: c:\ProgramData\Microsoft\Windows\Hyper-v\virtuelle Festplatten|
+ |Prüfpunkt|Prüfpunkte werden in mehreren Prüfpunktdateien gespeichert. Jeder Prüfpunkt erstellt eine Konfigurationsdatei und eine Datei mit dem Laufzeitzustand. <br /> Dateinamen Erweiterungen:. VMRS und. vmcx <br />Standard Speicherort: c:\programdata\microsoft\windows\momentaufnahmes|
 
 ## <a name="what-happens-if-i-dont-upgrade-the-virtual-machine-configuration-version"></a>Was geschieht, wenn ich die Konfigurations Version des virtuellen Computers nicht Aktualisierungs?
 

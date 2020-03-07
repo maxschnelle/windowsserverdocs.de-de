@@ -12,11 +12,11 @@ author: KBDAzure
 ms.author: kathydav
 ms.date: 12/05/2016
 ms.openlocfilehash: fce9b45f538b0d506b621b888d413c99590b1362
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465554"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370624"
 ---
 # <a name="should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v"></a>Sollte ich einen virtuellen Computer der Generation 1 oder 2 in Hyper-V erstellen?
 
@@ -253,6 +253,6 @@ So fügen Sie einen COM-Port hinzu:
 
 ## <a name="see-also"></a>Weitere Informationen  
 
-- [Linux-und FreeBSD-Virtual Machines unter Hyper-V](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
-- [Lokale Ressourcen auf dem virtuellen Hyper-V-Computer mit VMConnect verwenden](../learn-more/Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md)
+- [Virtuelle Linux- und FreeBSD Computer unter Hyper-V](../Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
+- [Verwenden von lokalen Ressourcen auf einem virtuellen Hyper-V-Computer mit VMConnect](../learn-more/Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md)
 - [Planen der Hyper-V-Skalierbarkeit in Windows Server 2016](Plan-for-Hyper-V-scalability-in-Windows-Server-2016.md)
