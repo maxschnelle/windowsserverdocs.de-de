@@ -11,11 +11,11 @@ author: shortpatti
 ms.localizationpriority: medium
 ms.reviewer: deverette
 ms.openlocfilehash: 73d64cd143b7bbd13e0eb9bb5fadfbb1e7c65416
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950445"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371832"
 ---
 # <a name="advanced-features-of-always-on-vpn"></a>Erweiterte Features von Always on-VPN
 
@@ -33,7 +33,7 @@ Im folgenden finden Sie zusätzliche Optionen für hohe Verfügbarkeit.
 |Option  |Beschreibung  |
 |---------|---------|
 |Server Resilienz und Lastenausgleich     |In Umgebungen, die Hochverfügbarkeit erfordern oder eine große Anzahl von Anforderungen unterstützen, können Sie die Leistung und Resilienz des Remote Zugriffs steigern, indem Sie den Lastenausgleich zwischen mehreren Servern verwenden, auf denen der Netzwerk Richtlinien Server (Network Policy Server, NPS) ausgeführt wird. Remote Zugriffs Server-Clustering.<p>Verwandte Dokumente:<ul><li>[NPS-Proxy Server-Lastenausgleich](../../../../../networking/technologies/nps/nps-manage-proxy-lb.md)</li><li>[Bereitstellen des Remotezugriffs in einem Cluster](https://docs.microsoft.com/windows-server/remote/remote-access/ras/cluster/deploy-remote-access-in-cluster)</li></ul>        |
-|Stabilität des geografischen Standorts     |Für die IP-basierte geolozierung können Sie globale Traffic Manager mit DNS in Windows Server 2016 verwenden. Um einen stabileren geografischen Lastenausgleich zu erreichen, können Sie Lösungen für den Lastenausgleich auf globaler Server wie Microsoft Azure Traffic Manager verwenden.<p>Verwandte Dokumente:<ul><li>[Was ist Traffic Manager?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)</li><li>[Was ist Traffic Manager?](https://azure.microsoft.com/services/traffic-manager)</li></ul>         |
+|Stabilität des geografischen Standorts     |Für die IP-basierte geolozierung können Sie globale Traffic Manager mit DNS in Windows Server 2016 verwenden. Um einen stabileren geografischen Lastenausgleich zu erreichen, können Sie Lösungen für den Lastenausgleich auf globaler Server wie Microsoft Azure Traffic Manager verwenden.<p>Verwandte Dokumente:<ul><li>[Übersicht über Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)</li><li>[Microsoft Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager)</li></ul>         |
 
 ## <a name="advanced-authentication"></a>Erweiterte Authentifizierung
 
@@ -69,7 +69,7 @@ In der folgenden Tabelle sind die Versionen aufgeführt, die die Fixes für jede
 |Windows Server, Version 1903  |[KB4501375](https://support.microsoft.com/help/4501375/windows-10-update-kb4501375) |
 |Windows Server 2019<br />Windows Server, Version 1809  |[KB4505658](https://support.microsoft.com/help/4505658/windows-10-update-kb4505658)  |
 |Windows Server, Version 1803  |[KB4507466](https://support.microsoft.com/help/4507466/windows-10-update-kb4507466)  |
-|Windows Server, Version 1709  |[KB4507465](https://support.microsoft.com/help/4507465/windows-10-update-kb4507465)  |
+|Windows Server, Version 1709  |[KB4507465](https://support.microsoft.com/help/4507465/windows-10-update-kb4507465)  |
 |Windows Server 2016, Version 1607  |[KB4503294](https://support.microsoft.com/help/4503294/windows-10-update-kb4503294) |
 
 **Vorgehensweise beim Konfigurieren der Voraussetzungen** 
@@ -146,16 +146,16 @@ Weitere Informationen zum TPM-Schlüssel Nachweis in Windows 10 finden Sie unter
 
 [Planen der Always on-VPN-Bereitstellung](always-on-vpn-deploy-planning.md): führen Sie vor der Installation der Remote Zugriffs-Server Rolle auf dem Computer, den Sie als VPN-Server verwenden möchten, die folgenden Aufgaben aus. Nach der entsprechenden Planung können Sie Always on VPN bereitstellen und optional den bedingten Zugriff für VPN-Konnektivität mithilfe Azure AD konfigurieren.  
 
-## <a name="related-topics"></a>Zugehörige Themen
+## <a name="related-topics"></a>Verwandte Themen
 - [NPS-Proxy Server-Lastenausgleich](../../../../../networking/technologies/nps/nps-manage-proxy-lb.md): Remote Authentication Dial-in User Service (RADIUS)-Clients, bei denen es sich um Netzwerk Zugriffs Server wie VPN-Server (virtuelles privates Netzwerk) und drahtlos Zugriffspunkte handelt, erstellen Sie Verbindungsanforderungen und senden diese an RADIUS-Server wie z. b. NPS. In einigen Fällen kann ein NPS-Server zu viele Verbindungsanforderungen gleichzeitig empfangen, was zu einer Beeinträchtigung der Leistung oder einer Überlastung führt.
 
-- [Übersicht über Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview): dieses Thema bietet einen Überblick über Azure Traffic Manager, mit dem Sie die Verteilung von Benutzer Datenverkehr für Dienst Endpunkte steuern können. Traffic Manager verwendet das Domain Name System (DNS), um Clientanforderungen auf der Grundlage einer Datenverkehrsrouting-Methode und der Integrität der Endpunkte an den optimalen Endpunkt weiterzuleiten. 
+- [Übersicht über Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview): dieses Thema bietet einen Überblick über Azure Traffic Manager, mit dem Sie die Verteilung von Benutzer Datenverkehr für Dienst Endpunkte steuern können. Traffic Manager verwendet die Domain Name System (DNS), um Client Anforderungen auf der Grundlage einer Datenverkehrs Routing-Methode und der Integrität der Endpunkte an den am besten geeigneten Endpunkt weiterzuleiten. 
 
 - [Windows Hello for Business](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification): dieses Thema enthält die Voraussetzungen, wie z. b. reine Cloud-bereit Stellungen und Hybrid Bereitstellungen.  Außerdem werden in diesem Thema häufig gestellte Fragen zu Windows Hello for Business aufgeführt.
 
-- [Technische Fallstudie: Aktivieren des Remote Zugriffs mit Windows Hello for Business in Windows 10](https://msdn.microsoft.com/library/mt728163.aspx): in dieser technischen Fallstudie erfahren Sie, wie Microsoft den Remote Zugriff mit Windows Hello for Business implementiert.  Windows Hello for Business ist ein Authentifizierungsansatz für Unternehmen und Endkunden, der auf privaten/öffentlichen Schlüsseln oder Zertifikaten basiert und weit über den Gebrauch von Kennwörtern hinausgeht. Bei dieser Form der Authentifizierung werden Schlüsselpaar-Anmeldeinformationen verwendet, die Kennwörter ersetzen können und Verstößen, Diebstahl und Phishing gegenüber resistent sind. 
+- [Technische Fallstudie: Aktivieren des Remote Zugriffs mit Windows Hello for Business in Windows 10](https://msdn.microsoft.com/library/mt728163.aspx): in dieser technischen Fallstudie erfahren Sie, wie Microsoft den Remote Zugriff mit Windows Hello for Business implementiert.  Bei Windows Hello for Business handelt es sich um einen privaten/öffentlichen oder Zertifikat basierten Authentifizierungs Ansatz für Unternehmen und Consumer, die über die Kenn Wörter hinausgehen. Diese Form der Authentifizierung basiert auf Schlüsselpaar-Anmelde Informationen, die Kenn Wörter ersetzen können und gegen Verstöße, Dieb zierungen und Phishing verstoßen. 
 
-- [Integrieren der RADIUS-Authentifizierung in Azure Multi-Factor Authentication-Server](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server-radius): in diesem Thema wird schrittweise erläutert, wie Sie eine RADIUS-Client Authentifizierung mit Azure Multi-Factor Authentication-Server hinzufügen und konfigurieren. RADIUS ist ein Standardprotokoll zum Annehmen und Verarbeiten von Authentifizierungsanforderungen. Der Azure Multi-Factor Authentication-Server kann als RADIUS-Server fungieren. 
+- [Integrieren der RADIUS-Authentifizierung in Azure Multi-Factor Authentication-Server](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server-radius): in diesem Thema wird schrittweise erläutert, wie Sie eine RADIUS-Client Authentifizierung mit Azure Multi-Factor Authentication-Server hinzufügen und konfigurieren. RADIUS ist ein Standardprotokoll zum Annehmen und Verarbeiten von Authentifizierungsanforderungen. Der Azure-Multi-Factor Authentication-Server kann als RADIUS-Server fungieren. 
 
 - [VPN-Sicherheitsfeatures](https://docs.microsoft.com/windows/access-protection/vpn/vpn-security-features): in diesem Thema finden Sie VPN-Sicherheitsrichtlinien für das Sperren von VPN, die WIP-Integration (Windows Information Protection) mit VPN und Datenverkehrs Filter. 
 
