@@ -3,17 +3,17 @@ title: Bekannte Probleme bei Storage Migration Service
 description: Bekannte Probleme und Problembehandlung für den Speicher Migrationsdienst, z. b. das Sammeln von Protokollen für Microsoft-Support.
 author: nedpyle
 ms.author: nedpyle
-manager: siroy
+manager: tiaascs
 ms.date: 02/10/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 92742929e3826fca3cf87cb84341d3aecec0d55d
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.openlocfilehash: a9759f0ea8835c8e07bcd298b75024e3ee29c9ed
+ms.sourcegitcommit: b5c12007b4c8fdad56076d4827790a79686596af
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517495"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78856344"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -295,13 +295,15 @@ Um dieses Problem zu umgehen, installieren Sie die Failovercluster-Verwaltungs T
 
 ## <a name="error-there-are-no-more-endpoints-available-from-the-endpoint-mapper-when-running-inventory-against-a-windows-server-2003-source-computer"></a>Fehler "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar", wenn die Inventur auf einem Windows Server 2003-Quellcomputer ausgeführt wird.
 
-Wenn Sie versuchen, die Inventur mit dem für den Speicher Migrationsdienst Orchestrator-Server mit dem kumulativen Update für [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) oder später auszuführen, erhalten Sie die folgende Fehlermeldung:
+Wenn Sie versuchen, eine Inventur mit dem Speicher Migrationsdienst-Orchestrator für einen Windows Server 2003-Quellcomputer auszuführen, erhalten Sie die folgende Fehlermeldung:
 
     There are no more endpoints available from the endpoint mapper  
 
-Um dieses Problem zu umgehen, deinstallieren Sie das kumulative Update KB4512534 (und ggf. das kumulative Update) vorübergehend über den Orchestrator-Computer des Speicher Migrations Dienstanbieter. Installieren Sie nach Abschluss der Migration das aktuellste kumulative Update neu.  
+Dieses Problem wird durch das [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818) -Update behoben.
 
-Beachten Sie, dass es unter bestimmten Umständen dazu führen kann, dass der Speicher Migrationsdienst nicht mehr gestartet wird, wenn Sie KB4512534 oder seine ersetzenden Updates deinstallieren Um dieses Problem zu beheben, können Sie die Speicher Migrationsdienst-Datenbank sichern und löschen:
+## <a name="uninstalling-a-cumulutative-update-prevents-storage-migration-service-from-starting"></a>Das Deinstallieren eines cumulutative-Updates verhindert, dass der Speicher Migrationsdienst gestartet wird.
+
+Durch das Deinstallieren von kumulativen Windows Server-Updates kann der Speicher Migrationsdienst nicht mehr gestartet werden. Um dieses Problem zu beheben, können Sie die Speicher Migrationsdienst-Datenbank sichern und löschen:
 
 1.  Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, bei der Sie ein Mitglied der Administratoren auf dem Orchestrator-Server für den Speicher Migrationsdienst sind, und führen Sie Folgendes aus:
 
@@ -343,7 +345,7 @@ Bei dem Versuch, einen Ausschneiden einer Windows Server 2008 R2-Cluster Quelle 
 
 Dieses Problem wird durch eine fehlende API in älteren Versionen von Windows Server verursacht. Zurzeit gibt es keine Möglichkeit, Windows Server 2008-und Windows Server 2003-Cluster zu migrieren. Sie können eine Inventur und Übertragung ohne Probleme auf Windows Server 2008 R2-Clustern durchführen und dann die Umstellung manuell durchführen, indem Sie die Ressource "NetName" und die IP-Adresse des Cluster Quelldatei Servers manuell ändern und dann den Ziel Cluster NetName und IP ändern. Adresse, die der ursprünglichen Quelle entspricht. 
 
-## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer"></a>Die Umstellung hängt von "38% Mapping Network Interfaces on the Source Computer..." ab. 
+## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer-when-using-dhcp"></a>Die Umstellung hängt von "38% Mapping Network Interfaces on the Source Computer..." ab. bei Verwendung von DHCP 
 
 Wenn Sie versuchen, einen Ausschneide eines Quell Computers auszuführen, wenn der Quellcomputer für die Verwendung einer neuen statischen (nicht DHCP-) IP-Adresse auf einer oder mehreren Netzwerkschnittstellen festgelegt wurde, bleibt der Ausschneide Schritt in der Phase "38% Mapping Network Interfaces on the Source comnputer..." und Sie erhalten die folgende Fehlermeldung im SMS-Ereignisprotokoll:
 
@@ -372,13 +374,7 @@ Die Untersuchung des Quell Computers zeigt, dass die ursprüngliche IP-Adresse n
 
 Dieses Problem tritt nicht auf, wenn Sie auf dem Windows Admin Center-Bildschirm "Konfiguration konfigurieren" die Option "DHCP verwenden" ausgewählt haben, nur wenn Sie eine neue statische IP-Adresse, ein Subnetz und ein Gateway angeben. 
 
-Dieses Problem wird durch eine Regression in der [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) -Aktualisierung verursacht. Es gibt zurzeit zwei Problem Umgehungen für dieses Problem:
-
-  - Vor dem Ausschneiden: Wenn Sie keine neue statische IP-Adresse auf dem Cutover festgelegt haben, wählen Sie "DHCP verwenden" aus, und stellen Sie sicher, dass ein DHCP-Bereich dieses Subnetz abdeckt. SMS konfiguriert den Quellcomputer für die Verwendung von DHCP auf Quellcomputer Schnittstellen, und die überschneidet wird normal fortgesetzt. 
-  
-  - Wenn das Ausschneiden bereits unterbrochen ist: Melden Sie sich beim Quellcomputer an, und aktivieren Sie DHCP auf seinen Netzwerkschnittstellen, nachdem Sie sichergestellt haben, dass ein DHCP-Bereich dieses Subnetz abdeckt. Wenn der Quellcomputer eine von DHCP bereitgestellte IP-Adresse erhält, fährt SMS mit der Kürzung fort.
-  
-Wenn beide Problem Umgehungen abgeschlossen sind, können Sie nach Abschluss des Ausschnitts eine statische IP-Adresse auf dem alten Quellcomputer festlegen, und Sie können DHCP nicht mehr verwenden.   
+Dieses Problem wird durch das [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818) -Update behoben.
 
 ## <a name="slower-than-expected-re-transfer-performance"></a>Langsamer als erwartete erneute Übertragungsleistung
 
@@ -489,6 +485,48 @@ Zu diesem Zeitpunkt versucht der Speicher Migrationsdienst-Orchestrator, die Que
  - die Firewall lässt keine Remote Registrierungs Verbindungen mit dem Quell Server vom Orchestrator zu.
  - Das Quell Migrations Konto verfügt nicht über Remote Registrierungs Berechtigungen zum Herstellen einer Verbindung mit dem Quellcomputer.
  - Das Quell Migrations Konto verfügt nicht über Leseberechtigungen in der Registrierung des Quell Computers unter "HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\CurrentVersion" oder unter "HKEY_LOCAL_MACHINE \system\currentcontrolset\services\". LanManServer
+ 
+ ## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer"></a>Die Umstellung hängt von "38% Mapping Network Interfaces on the Source Computer..." ab. 
+
+Wenn Sie versuchen, das Ausschneiden eines Quell Computers auszuführen, bleibt das Ausschneiden in der Phase "38% Mapping Network Interfaces on the Source comnputer..." hängen. und Sie erhalten die folgende Fehlermeldung im SMS-Ereignisprotokoll:
+
+    Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Admin
+    Source:        Microsoft-Windows-StorageMigrationService-Proxy
+    Date:          1/11/2020 8:51:14 AM
+    Event ID:      20505
+    Task Category: None
+    Level:         Error
+    Keywords:      
+    User:          NETWORK SERVICE
+    Computer:      nedwardo.contosocom
+    Description:
+    Couldn't establish a CIM session with the computer.
+
+    Computer: 172.16.10.37
+    User Name: nedwardo\MsftSmsStorMigratSvc
+    Error: 40970
+    Error Message: Unknown error (0xa00a)
+
+    Guidance: Confirm that the Netlogon service on the computer is reachable through RPC and that the credentials provided are correct.
+
+Dieses Problem wird durch Gruppenrichtlinie verursacht, bei der der folgende Registrierungs Wert auf dem Quellcomputer festgelegt wird:
+
+ "HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system localaccountdekenfilterpolicy = 0"
+ 
+Diese Einstellung ist nicht Bestandteil von Standard Gruppenrichtlinie, es handelt sich um ein Add-on, das mit dem [Microsoft Security Compliance Toolkit](https://www.microsoft.com/download/details.aspx?id=55319)konfiguriert wurde:
+ 
+ - Windows Server 2012 R2: "Computerkonfiguration\Administrative vorlagen\scm: Pass-the-Hash-entschärf\uac-Einschränkungen auf lokale Konten bei Netzwerk Anmeldungen anwenden"
+ - Windows Server 2016: "Computerkonfiguration\Administrative vorlagen\ms sicherheitssteuerungssteuerungs\uac-Einschränkungen auf lokale Konten bei Netzwerk Anmeldungen anwenden"
+ 
+Sie kann auch mithilfe Gruppenrichtlinie Einstellungen mit einer benutzerdefinierten Registrierungs Einstellung festgelegt werden. Sie können das gpresult-Tool verwenden, um zu bestimmen, welche Richtlinie diese Einstellung auf den Quellcomputer anwendet.
+
+Der Speicher Migrationsdienst aktiviert vorübergehend [localaccountdekenfilterpolicy](https://support.microsoft.com/help/951016/description-of-user-account-control-and-remote-restrictions-in-windows) als Teil des Ausschneide Prozesses und entfernt ihn anschließend. Wenn Gruppenrichtlinie ein in Konflikt stehender Gruppenrichtlinie Objekt (GPO) anwendet, wird der Speicher Migrationsdienst überschrieben und ein Ausschneide Vorgang verhindert.
+
+Um dieses Problem zu umgehen, verwenden Sie eine der folgenden Optionen:
+
+1. Verschieben Sie den Quellcomputer temporär aus der Active Directory Organisationseinheit, die dieses widersprüchliche GPO anwendet. 
+2. Deaktivieren Sie das GPO, das diese widersprüchliche Richtlinie anwendet, vorübergehend.
+3. Temporäres Erstellen eines neuen Gruppenrichtlinien Objekts, das diese Einstellung auf deaktiviert festlegt und für bestimmte Organisationseinheiten der Quell Server gilt, die Vorrang vor anderen GPOs haben.
 
 ## <a name="see-also"></a>Siehe auch
 

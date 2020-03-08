@@ -9,11 +9,11 @@ ms.assetid: 5bc71e71-920e-454f-8195-afebd2a23725
 author: cosmosdarwin
 ms.date: 02/09/2018
 ms.openlocfilehash: 158681e2038e3d8015933771d06d3bfb24d31586
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: b5c12007b4c8fdad56076d4827790a79686596af
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948470"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78865399"
 ---
 # <a name="health-service-in-windows-server"></a>Integritätsdienst in Windows Server
 
@@ -21,7 +21,7 @@ ms.locfileid: "75948470"
 
 Der Integritätsdienst ist ein neues Feature in Windows Server 2016, das die tägliche Überwachung und Betriebsbereitschaft für Cluster mit direkte Speicherplätze verbessert.
 
-## <a name="prerequisites"></a>Voraussetzungen  
+## <a name="prerequisites"></a>Erforderliche Komponenten  
 
 Für „Direkte Speicherplätze“ ist der Integritätsdienst standardmäßig aktiviert. Für seine Einrichtung und seinen Start sind keine weiteren Aktionen erforderlich. Weitere Informationen zu direkte Speicherplätze finden Sie unter [direkte Speicherplätze in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md).  
 
@@ -33,7 +33,7 @@ Siehe [Integritätsdienst Berichte](health-service-reports.md).
 
 Siehe [Integritätsdienst Fehler](health-service-faults.md).
 
-## <a name="actions"></a>„Aktionen“
+## <a name="actions"></a>Aktionen
 
 Siehe [Integritätsdienst Aktionen](health-service-actions.md).
 
@@ -82,7 +82,7 @@ Nach Möglichkeit sollten Sie den deaktivierten physischen Datenträger austausc
 
 Wenn der Ersetzungs Datenträger eingefügt wird, wird er anhand des Dokuments "Unterstützte Komponenten" überprüft (Weitere Informationen finden Sie im nächsten Abschnitt).
 
-#### <a name="pooling"></a>Erstellen von Pools  
+#### <a name="pooling"></a>Pooling  
 
 Falls zulässig, wird der Austauschdatenträger automatisch dem Pool seines Vorgängers hinzugefügt, um den Betrieb aufzunehmen. Sobald der Fehler verschwunden ist, wird das System in seinen Ausgangszustand mit perfekter Integrität zurückgesetzt.  
 
@@ -90,11 +90,11 @@ Falls zulässig, wird der Austauschdatenträger automatisch dem Pool seines Vorg
 
 Der Integritätsdienst stellt einen Erzwingungs Mechanismus bereit, mit dem die von direkte Speicherplätze verwendeten Komponenten auf die von dem Administrator oder dem Lösungs Hersteller bereitgestellten Komponenten beschränkt werden. Diese kann verwendet werden, um eine versehentliche Nutzung nicht unterstützter Hardware durch Sie oder andere zu verhindern, sodass Garantie- und Supportvertragsbedingungen besser eingehalten werden. Diese Funktion ist zurzeit auf physische Festplattengeräte beschränkt, einschließlich SSDs, HDDs und nvme-Laufwerke. Das Dokument "Unterstützte Komponenten" kann für das Modell, den Hersteller (optional) und die Firmwareversion (optional) eingeschränkt werden.
 
-### <a name="usage"></a>Usage  
+### <a name="usage"></a>Verwendung  
 
 Im Dokument "Unterstützte Komponenten" wird eine XML-inspirierte Syntax verwendet. Es wird empfohlen, Ihren bevorzugten Text-Editor, z. b. die kostenlose [Visual Studio Code](https://code.visualstudio.com/) oder den Editor, zum Erstellen eines XML-Dokuments zu verwenden, das Sie speichern und wieder verwenden können.
 
-#### <a name="sections"></a>Abschnitten
+#### <a name="sections"></a>Strecken
 
 Das Dokument weist zwei unabhängige Abschnitte auf: `Disks` und `Cache`.
 
@@ -166,11 +166,11 @@ Sie können dies mit dem folgenden PowerShell-Cmdlet überprüfen:
 Get-PhysicalDisk | Select Model, Manufacturer, FirmwareVersion  
 ```
 
-## <a name="settings"></a>„Einstellungen“
+## <a name="settings"></a>Einstellungen
 
 Siehe [Integritätsdienst Einstellungen](health-service-settings.md).
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 - [Integritätsdienst Berichte](health-service-reports.md)
 - [Integritätsdienst Fehler](health-service-faults.md)
