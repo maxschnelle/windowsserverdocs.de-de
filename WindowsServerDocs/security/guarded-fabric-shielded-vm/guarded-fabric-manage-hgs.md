@@ -8,11 +8,11 @@ manager: dongill
 author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.openlocfilehash: 41912c90beacbb0c0c285ea4da8305c1afdf2a51
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386544"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370644"
 ---
 # <a name="managing-the-host-guardian-service"></a>Verwalten des Host-Überwachungs Diensts
 
@@ -363,7 +363,7 @@ Um einen neuen Host zu einem überwachten Host zu autorisieren (z. b. erfolgreic
 Die Schritte zum Autorisieren eines neuen Hosts unterscheiden sich je nach Nachweis Modus, für den HGS derzeit konfiguriert ist.
 Führen Sie `Get-HgsServer` auf einem beliebigen HGS-Knoten aus, um den Nachweis Modus für Ihr überwachtes Fabric zu überprüfen.
 
-#### <a name="software-configuration"></a>Software Konfiguration
+#### <a name="software-configuration"></a>Softwarekonfiguration
 Stellen Sie auf dem neuen Hyper-V-Host sicher, dass Windows Server 2016 Datacenter Edition installiert ist.
 Windows Server 2016 Standard kann keine abgeschirmten VMs in einem geschützten Fabric ausführen.
 Auf dem Host ist möglicherweise Desktop Darstellung oder Server Core installiert.
