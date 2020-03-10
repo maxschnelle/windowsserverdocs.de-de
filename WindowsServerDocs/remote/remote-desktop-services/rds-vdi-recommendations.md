@@ -13,12 +13,12 @@ ms.topic: article
 ms.assetid: 2a44dc9f-c221-4bf7-89c3-fb4c86a90f8c
 author: jaimeo
 manager: dougkim
-ms.openlocfilehash: 9e2c4012184614826ffd762394d89c25acabf374
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ca6d82973ae8201cdb4021c205a580a11c599b2f
+ms.sourcegitcommit: d7045c56046dbfaefd59a8ba132bfd8444690a73
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403863"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256670"
 ---
 # <a name="recommended-settings-for-vdi-desktops"></a>Empfohlene Einstellungen für VDI-Desktops
 
@@ -32,7 +32,7 @@ Dieses Thema ist keine Blaupause, sondern eher ein Leitfaden oder ein Ausgangspu
 
 Diese Anweisungen und empfohlenen Einstellungen sind für Windows 10 1607 (Version 10.0.1393) relevant.
 
-> [!NOTE]  
+> [!NOTE]
 > Bei allen Einstellungen, die in diesem Thema nicht ausdrücklich erwähnt werden, können die Standardwerte beibehalten (oder Werte entsprechend Ihren Anforderungen und Richtlinien festgelegt) werden. Dies hat keine spürbare Auswirkung auf die VDI-Funktionalität.
 
 Wenn Sie ein Image als Basis für die VDI-Bereitstellung erstellen, verwenden Sie dafür unbedingt den **Current Branch**. Weitere Informationen zu Current Branch finden Sie unter [Windows 10-Versionsinformationen](https://technet.microsoft.com/windows/release-info.aspx).
@@ -49,7 +49,7 @@ Wenn Sie **Anpassen** ausgewählt haben, können Sie während der Installation d
 
 Sie können diese Einstellungen auch noch nach der Installation mit dem Gruppenrichtlinien-Editor anpassen; lesen Sie dazu den Abschnitt „Gruppenrichtlinieneinstellungen“ in diesem Thema.
 
-|Einstellung|Standardwert|Empfohlener Wert für VDI-Verwendung|  
+|Einstellung|Standardwert|Empfohlener Wert für VDI-Verwendung|
 |-------------------|----------|--------------|
 |**Personalisierung**| | |
 |Spracherkennung, Eingabe und Freihand personalisieren, indem Ihre Eingabedaten an Microsoft übermittelt werden.|    Ein| Deaktiviert|
@@ -95,7 +95,7 @@ In diesem Bereich wird die App definiert, die für bestimmte generische Funktion
 
 Durch diese empfohlenen Werte werden Benachrichtigungen und Netzwerkaktivitäten im Hintergrund in einer VDI-Umgebung verringert:
 
-|Einstellung|Standardwert|Empfohlener Wert für VDI-Verwendung|  
+|Einstellung|Standardwert|Empfohlener Wert für VDI-Verwendung|
 |-------------------|----------|--------------|
 |Benachrichtigungen von Apps und anderen Absendern abrufen| Ein| Deaktiviert|
 |Benachrichtigungen auf dem Sperrbildschirm anzeigen|    Ein| Deaktiviert|
@@ -105,11 +105,11 @@ Durch diese empfohlenen Werte werden Benachrichtigungen und Netzwerkaktivitäten
 
 #### <a name="offline-maps"></a>Offlinekarten
 
-Diese Einstellung kann nur angewendet werden, wenn die Karten-App installiert wurde. Der Standardwert ist **Ein**; der empfohlene Wert für VDI-Verwendung ist **Aus**. 
+Diese Einstellung kann nur angewendet werden, wenn die Karten-App installiert wurde. Der Standardwert ist **Ein**; der empfohlene Wert für VDI-Verwendung ist **Aus**.
 
 #### <a name="tablet-mode"></a>Tablet-Modus
 
-|Einstellung|Standardwert|Empfohlener Wert für VDI-Verwendung|  
+|Einstellung|Standardwert|Empfohlener Wert für VDI-Verwendung|
 |-------------------|----------|--------------|
 |Bei der Anmeldung|    Passenden Modus für meine Hardware verwenden|   Desktopmodus verwenden|
 |Wenn dieses Gerät den Tablet-Modus automatisch ein- oder ausschaltet|    Vor dem Wechseln immer fragen| Nicht fragen und nicht wechseln|
@@ -121,7 +121,7 @@ Wenn Sie im Bereich „Windows-Einstellungen“ auf das Symbol **Geräte** klick
 
 #### <a name="autoplay"></a>Automatische Wiedergabe
 
-|Einstellung|Standardwert|Empfohlener Wert für VDI-Verwendung|  
+|Einstellung|Standardwert|Empfohlener Wert für VDI-Verwendung|
 |-------------------|----------|--------------|
 |Automatische Wiedergabe für alle Medien und Geräte verwenden|    Ein| Deaktiviert|
 |Wechseldatenträger:|Standard wählen|Keine Aktion ausführen|
@@ -135,9 +135,9 @@ Manchmal kann der schwarze Standardhintergrund bei Benutzern zu der Vermutung f�
 1. Klicken Sie im Bereich **Hintergrund** auf das Pulldownmenü.
 2. Wenn Sie die Hintergrundfarbe ändern möchten, klicken Sie auf **Einfarbig** und dann auf eine andere Farbe als Schwarz. Alternativ könnten Sie auf **Bild** klicken und dann ein Bild auswählen, das als Hintergrund verwendet werden soll.
 
-#### <a name="start"></a>Beginn
+#### <a name="start"></a>Start
 
-|Einstellung|Standardwert|Empfohlener Wert für VDI-Verwendung|  
+|Einstellung|Standardwert|Empfohlener Wert für VDI-Verwendung|
 |-------------------|----------|--------------|
 |Gelegentlich Vorschläge im Startmenü anzeigen|    Ein| Deaktiviert|
 |Meistverwendete Apps anzeigen|Ein|Deaktiviert|
@@ -153,7 +153,7 @@ Wenn Sie im Bereich „Windows-Einstellungen“ auf das Symbol **Datenschutz** k
 #### <a name="general"></a>Allgemein
 Einige dieser Einstellungen werden auch über das Fenster „Einstellungen anpassen“ festgelegt, das am Anfang dieses Themas erläutert wird.
 
-|Einstellung|Standardwert|Empfohlener Wert für VDI-Verwendung|  
+|Einstellung|Standardwert|Empfohlener Wert für VDI-Verwendung|
 |-------------------|----------|--------------|
 |Apps die Verwendung der Werbungs-ID für App-übergreifende Erlebnisse erlauben (bei Deaktivierung wird Ihre ID zurückgesetzt)|  Ein| Deaktiviert|
 |„Webseiten den Zugriff auf die eigene Sprachliste gestatten, um die Anzeige lokal relevanter Inhalte zu ermöglichen“|Ein|Deaktiviert|
@@ -211,7 +211,7 @@ Der Standardwert für aufgeführte Apps ist **Ein**. Dies ermöglicht es ihnen, 
 #### <a name="windows-update"></a>Windows Update
 Klicken Sie im Bereich **Einstellungen aktualisieren** auf **Erweiterte Optionen**, um diese Einstellungen anzupassen:
 
-|Einstellung|Standardwert|Empfohlener Wert für VDI-Verwendung|  
+|Einstellung|Standardwert|Empfohlener Wert für VDI-Verwendung|
 |-------------------|----------|--------------|
 |Updates für andere Microsoft-Produkte bereitstellen, wenn ein Windows-Update ausgeführt wird|    Deaktiviert|    Ausgewählt|
 |Zurückstellen von Featureupdates|Deaktiviert|Ausgewählt|
@@ -223,14 +223,14 @@ Klicken Sie auf der Seite **Erweiterte Optionen** auf **Übermittlung von Update
 
 Die Einstellungen in diesem Abschnitt können entweder durch Navigieren durch die Systemsteuerung oder direktes Öffnen des Systemprogramms angepasst werden.
 
-> [!NOTE]  
+> [!NOTE]
 > Bei allen Einstellungen, die in diesem Thema nicht ausdrücklich erwähnt werden, können die Standardwerte beibehalten (oder Werte entsprechend Ihren Anforderungen und Richtlinien festgelegt) werden. Dies hat keine spürbare Auswirkung auf die VDI-Funktionalität.
 
 
 ### <a name="task-scheduler"></a>Aufgabenplanung
 Sie können die Aufgabenplanung am schnellsten öffnen, indem Sie auf die Windows-Schaltfläche klicken, und *aufgabenplanung* oder *taskschd.msc* eingeben. Klicken Sie in den dann angezeigten Ergebnissen auf **Aufgabenplanung**, um das gewünschte Systemprogramm zu öffnen. Erweitern Sie in der Aufgabenplanung nacheinander **Aufgabenplanungsbibliothek**, **Microsoft** und **Windows**. Jetzt können Sie auf die Liste von Aufgabensammlungen zugreifen. Wenn Sie den Status der einzelnen geplanten Aufgaben ändern möchten, klicken Sie jeweils mit der rechten Maustaste darauf, und klicken Sie dann auf den gewünschten Status (für VDI-Verwendung in der Regel **Deaktiviert**).
 
-|Aufgabensammlung|Aufgabenname|Standardstatus|Empfohlener Status für VDI-Verwendung|  
+|Aufgabensammlung|Aufgabenname|Standardstatus|Empfohlener Status für VDI-Verwendung|
 |-------------------|-------------|----------|--------------|
 |Programm zur Verbesserung der Benutzerfreundlichkeit||||
 ||Consolidator|Enabled|Deaktiviert|
@@ -238,7 +238,7 @@ Sie können die Aufgabenplanung am schnellsten öffnen, indem Sie auf die Window
 ||UsbCeip|Enabled|Deaktiviert|
 |Defragmentieren||||
 ||ScheduledDefrag|Enabled|Deaktiviert|
-|Pfad||||
+|Speicherort||||
 ||Benachrichtigungen|Enabled|Deaktiviert|
 ||WindowsActionDialog|Enabled|Deaktiviert|
 |Wartung||||
@@ -264,7 +264,7 @@ Sie können die Aufgabenplanung am schnellsten öffnen, indem Sie auf die Window
 
 Klicken Sie wieder auf **Windows**, um es zu reduzieren, und dann auf **XblGameSave**. Damit erhalten Sie Zugriff auf die Aufgaben **XBLGameSaveTask** und **XBLGameSaveTaskLogon**; beide können auf **Deaktiviert** festgelegt werden.
 
-### <a name="performance-monitor"></a>Performance Monitor (Leistungsüberwachung)
+### <a name="performance-monitor"></a>Systemmonitor
 Am schnellsten können Sie die Leistungsüberwachung öffnen, indem Sie auf die Windows-Schaltfläche klicken und dann *leistungsüberwachung* oder *perfmon.msc* eingeben. Klicken Sie in den angezeigten Ergebnissen auf **Leistungsüberwachung**. Klicken Sie in der Leistungsüberwachung auf **Datensammlersätze**, und doppelklicken Sie dann auf **Ereignisablaufverfolgungssitzungen**. Klicken Sie mit der rechten Maustaste auf **WiFiSession**; wenn der Standardzustand **Wird ausgeführt** lautet, klicken Sie auf **Beenden**.
 
 Klicken Sie auf **StartupEventTraceSessions**. Klicken Sie dann mit der rechten Maustaste auf **ReadyBoot**; wenn dies ausgeführt wird, klicken Sie auf **Beenden**. Klicken Sie auf **Ereignisablaufverfolgungssitzungen**, klicken Sie mit der rechten Maustaste auf **ReadyBoot**, und klicken Sie dann auf **Eigenschaften**. Klicken Sie im daraufhin geöffneten Dialogfeld auf die Registerkarte **Ablaufverfolgungssitzung**. Deaktivieren Sie das Kontrollkästchen **Aktiviert**.
@@ -305,16 +305,16 @@ Klicken Sie auf die Windows-Schaltfläche, und geben Sie *systemsteuerung* ein. 
 
 Klicken Sie zum Bearbeiten der Einstellungen „Gruppenrichtlinie“ auf die Windows-Schaltfläche, und geben Sie *gruppenrichtlinie* oder *gpedit.msc* ein. Klicken Sie in den angezeigten Ergebnissen auf **Gruppenrichtlinie bearbeiten**, um den Editor für lokale Gruppenrichtlinien zu öffnen.
 
-> [!NOTE]  
+> [!NOTE]
 > Bei allen Einstellungen, die in diesem Thema nicht ausdrücklich erwähnt werden, können die Standardwerte beibehalten (oder Werte entsprechend Ihren Anforderungen und Richtlinien festgelegt) werden. Dies hat keine spürbare Auswirkung auf die VDI-Funktionalität.
 
 Erweitern Sie unter **Computerkonfiguration** die Option **Windows-Einstellungen** und dann **Sicherheitseinstellungen**. Klicken Sie auf **Netzwerklisten-Manager-Richtlinien**, und doppelklicken Sie dann auf **Alle Netzwerke**. Wählen Sie im daraufhin geöffneten Dialogfeld im Bereich **Netzwerkadresse** das Optionsfeld für **Benutzer kann Ort nicht ändern** aus. Klicken Sie zum Speichern auf die Schaltfläche **OK**.
 
 Reduzieren Sie **Windows-Einstellungen**, und erweitern Sie **Administrative Vorlagen**. Klicken Sie auf oder erweitern Sie **Netzwerk**. Passen Sie dann die einzelnen Einstellungen folgendermaßen an, indem Sie jeweils darauf doppelklicken, dann das Optionsfeld für den angegebenen Wert auswählen und auf die Schaltfläche **OK** klicken:
 
-|Einstellungsbereich|Einstellung|Empfohlener Wert für VDI-Verwendung|  
+|Einstellungsbereich|Einstellung|Empfohlener Wert für VDI-Verwendung|
 |-------------------|-------|----------|
-|BITS (Background Intelligent Transfer Service, Intelligenter Hintergrundübertragungsdienst)|||
+|Intelligenter Hintergrundübertragungsdienst (Background Intelligent Transfer Service, BITS)|||
 ||Verwendung des Windows Branch-Caches durch BITS-Client nicht zulassen|Enabled|
 ||Computer darf nicht als BITS-Peercachingclient fungieren|Enabled|
 ||Computer darf nicht als BITS-Peercachingserver fungieren|Enabled|
@@ -330,7 +330,7 @@ Reduzieren Sie **Windows-Einstellungen**, und erweitern Sie **Administrative Vor
 
 Reduzieren Sie **Netzwerk**, und erweitern Sie dann **System**. Passen Sie die einzelnen Einstellungen folgendermaßen an, indem Sie jeweils darauf doppelklicken, dann das Optionsfeld für den angegebenen Wert auswählen und auf die Schaltfläche **OK** klicken:
 
-|Einstellungsbereich|Einstellung|Empfohlener Wert für VDI-Verwendung|  
+|Einstellungsbereich|Einstellung|Empfohlener Wert für VDI-Verwendung|
 |-------------------|----------|--------------|
 |Geräteinstallation||
 ||Keinen Windows-Fehlerbericht senden, wenn ein Standardtreiber für ein Gerät installiert ist|Enabled|
@@ -346,7 +346,7 @@ Reduzieren Sie **Dateisystem**, und erweitern Sie **Internetkommunikationsverwal
 - Events.asp-Links der Ereignisanzeige deaktivieren
 - Freigabe von Daten für die Handschriftanpassung deaktivieren
 - Handschrifterkennungs-Fehlerberichterstattung deaktivieren
-- „Wussten Sie schon?“-Inhalte im Hilfe- und Supportcenter deaktivieren content
+- „Wussten Sie schon?“-Inhalte im Hilfe- und Supportcenter deaktivieren Inhalt
 - Knowledge Base-Suche des Hilfe- und Supportcenters deaktivieren
 - Verbindungs-Assistenten deaktivieren, wenn sich die URL-Verbindung auf microsoft.com bezieht
 - Internet-Download für die Assistenten „Webpublishing“ und „Onlinebestellung von Abzügen“ deaktivieren
@@ -359,7 +359,7 @@ Reduzieren Sie **Dateisystem**, und erweitern Sie **Internetkommunikationsverwal
 - Fehlerberichterstattung deaktivieren
 - Suche nach Gerätetreibern auf Windows Update deaktivieren
 
-Klicken Sie auf **Energieverwaltung**, und doppelklicken Sie dann auf **Aktiven Energieplan auswählen**. Wählen Sie das Optionsfeld für **Aktiviert** aus, und wählen Sie dann im Pulldownmenü **Optionen** den Eintrag **Höchstleistung** aus. Klicken Sie zum Speichern auf die Schaltfläche **OK**.
+Klicken Sie auf **Energieverwaltung**, und doppelklicken Sie dann auf **Aktiven Energieplan auswählen**. Wählen Sie das Optionsfeld für **Aktiviert** aus, und wählen Sie dann im Pulldownmenü **Optionen** den Eintrag **High Performance** aus. Klicken Sie zum Speichern auf die Schaltfläche **OK**.
 
 Klicken Sie auf **Wiederherstellung**, und doppelklicken Sie dann auf **Systemwiederherstellung in Standardzustand zulassen**. Wählen Sie das Optionsfeld für **Aktiviert** aus, und klicken Sie zum Speichern auf **OK**.
 
@@ -376,17 +376,17 @@ Klicken Sie bei jedem der folgenden Einstellungsbereiche auf den Bereich. Doppel
 
 Reduzieren Sie **System**, und erweitern Sie dann **Windows-Komponenten**. Passen Sie jede Einstellung folgendermaßen an, indem Sie darauf doppelklicken, dann das Optionsfeld für den angegebenen Wert auswählen und auf die Schaltfläche **OK** klicken:
 
-|Einstellungsbereich|Einstellung|Empfohlener Wert für VDI-Verwendung|  
+|Einstellungsbereich|Einstellung|Empfohlener Wert für VDI-Verwendung|
 |-------------------|-------|----------|
 |Features zu Windows 10 hinzufügen|||
 ||Ausführung des Assistenten verhindern|Enabled|
 |Richtlinien für die automatische Wiedergabe|||
-||Standardverhalten von AutoAusführen festlegen|Wählen Sie „Aktiviert“ aus. Wählen Sie dann im Pulldownmenü **Optionen** den Eintrag **Keine AutoAusführen-Befehle ausführen** aus.|
+||Standardverhalten von AutoAusführen festlegen|„Aktiviert“. Wählen Sie dann im Pulldownmenü **Optionen** den Eintrag **Keine AutoAusführen-Befehle ausführen** aus.|
 |Cloudinhalt|||
 ||Windows-Tipps nicht anzeigen|Enabled|
 ||Microsoft-Anwenderfeatures deaktivieren|Enabled|
 |Datensammlung und Vorabversionen|||
-||Telemetrie zulassen|Wählen Sie „Aktiviert“ aus. Wählen Sie dann im Pulldownmenü **Optionen** den Eintrag **1– Einfach** aus.|
+||Telemetrie zulassen|„Aktiviert“. Wählen Sie dann im Pulldownmenü **Optionen** den Eintrag **1– Einfach** aus.|
 ||Pre-Release-Features oder -Einstellungen deaktivieren|     Deaktiviert|
 ||Feedbackbenachrichtigungen nicht mehr anzeigen|       Enabled|
 ||Benutzersteuerung für Insider-Builds umstellen|      Deaktiviert|
@@ -411,22 +411,22 @@ Reduzieren Sie **System**, und erweitern Sie dann **Windows-Komponenten**. Passe
 ||Anzeigen des Begrüßungsbildschirms deaktivieren|        Enabled|
 ||Automatisch neue Versionen von Internet Explorer installieren|      Deaktiviert|
 ||Teilnahme am Programm zur Verbesserung der Benutzerfreundlichkeit verhindern|     Enabled|
-||Ausführen des Anpassungs-Assistenten verhindern – Direkt zur Startseite wechseln|   Wählen Sie „Aktiviert“ aus. Wählen Sie dann im Pulldownmenü **Optionen** den Eintrag **Direkt zur Startseite wechseln** aus.|
+||Ausführen des Anpassungs-Assistenten verhindern – Direkt zur Startseite wechseln|   „Aktiviert“. Wählen Sie dann im Pulldownmenü **Optionen** den Eintrag **Direkt zur Startseite wechseln** aus.|
 ||Zunahme von Registerkartenprozess festlegen|Wählen Sie „Aktiviert“ aus. Geben Sie dann im Feld **Zunahme von Registerkartenprozess** Folgendes ein: *Niedrig*.|
-||Standardverhalten für eine neue Registerkarte festlegen|Wählen Sie „Aktiviert“ aus. Wählen Sie dann im Pulldownmenü **Optionen** den Eintrag **Neue Registerkartenseite** aus.|
+||Standardverhalten für eine neue Registerkarte festlegen|„Aktiviert“. Wählen Sie dann im Pulldownmenü **Optionen** den Eintrag **Neue Registerkartenseite** aus.|
 ||Benachrichtigungen zur Add-On-Leistung deaktivieren|        Enabled|
 ||Browser-Geolocation deaktivieren|     Enabled|
 ||Erneutes Öffnen der letzten Browsersitzung deaktivieren|        Enabled|
 ||Vorschläge für alle benutzerinstallierten Anbieter deaktivieren|        Enabled|
 ||„Vorgeschlagene Sites“ aktivieren|       Deaktiviert|
 
-Beachten Sie auf derselben Ebene wie die Einstellungen **Internet Explorer**, die Sie gerade in der vorstehenden Tabelle angepasst haben, eine weitere Ebene von Ordnern, die von **Schnellinfos** bis **Symbolleisten** reicht. Damit befinden Sie sich auf folgender Ebene: „Richtlinie für Lokaler Computer“ > „Computerkonfiguration“ > „Administrative Vorlagen“ > „Windows-Komponenten“ > „Internet Explorer“. 
+Beachten Sie auf derselben Ebene wie die Einstellungen **Internet Explorer**, die Sie gerade in der vorstehenden Tabelle angepasst haben, eine weitere Ebene von Ordnern, die von **Schnellinfos** bis **Symbolleisten** reicht. Damit befinden Sie sich auf folgender Ebene: „Richtlinie für Lokaler Computer“ > „Computerkonfiguration“ > „Administrative Vorlagen“ > „Windows-Komponenten“ > „Internet Explorer“.
 
 Öffnen Sie den Ordner **Browserverlauf löschen**, doppelklicken Sie auf **Löschen des Browserverlaufs beim Beenden zulassen**, wählen Sie **Aktivieren** aus, und klicken Sie auf **OK**, um Ihre Einstellung zu speichern und den Vorgang zu beenden.
 
 Wechseln Sie mit dem Rückwärtspfeil oben links im Editor für lokale Gruppenrichtlinien zurück zur Ebene **Internet Explorer**. Doppelklicken Sie auf **Interneteinstellungen**, dann auf **Erweiterte Einstellungen**, und passen Sie die Einstellungen in den Unterordnern folgendermaßen an:
 
-|Ordner "Einstellung" unter **Erweiterte Einstellungen**|Einstellung|Empfohlener Wert für VDI-Verwendung|  
+|Ordner "Einstellung" unter **Erweiterte Einstellungen**|Einstellung|Empfohlener Wert für VDI-Verwendung|
 |-------------------|-------|----------|
 |**Browsen**|||
 ||Finden von Telefonnummern deaktivieren|Enabled|
@@ -448,15 +448,15 @@ Doppelklicken Sie auf der Ebene **Position und Sensoren** auf **Windows-Position
 
 Klicken Sie im linken Bereich auf **Karten**, und legen Sie diese Einstellungen auf **Aktiviert**fest. Klicken Sie dann bei jeder Einstellung auf **OK**, um sie zu speichern und den Vorgang zu beenden:
 
-- Turn off Automatic Download and Update of Map Data
+- Automatische Downloads und Updates von Kartendaten deaktivieren
 - Nicht angeforderten Netzwerk-Datenverkehr auf der Einstellungsseite „Offlinekarten“ deaktivieren
 
 Geben Sie im linken Bereich jeden der folgenden Unterordner für Einstellungen ein, und passen Sie die einzelnen Einstellungen folgendermaßen an:
 
-|Ordner „Einstellungen“ unter **Windows-Komponenten**|Einstellung|Empfohlener Wert für VDI-Verwendung|  
+|Ordner „Einstellungen“ unter **Windows-Komponenten**|Einstellung|Empfohlener Wert für VDI-Verwendung|
 |-------------------|-------|----------|
 |**OneDrive**|||
-||Verwendung von OneDrive zum Speichern von Daten verhindern|Enabled|
+||Verwendung von OneDrive für die Dateispeicherung verhindern|Enabled|
 ||Dokumente standardmäßig auf OneDrive speichern|Deaktiviert|
 |**RSS-Feeds**|||
 ||Automatische Ermittlung von Feeds und Web Slices verhindern|Enabled|
@@ -468,7 +468,7 @@ Geben Sie im linken Bereich jeden der folgenden Unterordner für Einstellungen e
 ||Nicht im Web suchen und keine Webergebnisse in der Suche anzeigen|        Enabled|
 ||Hinzufügen von UNC-Speicherorten für die Indizierung in der Systemsteuerung verhindern|     Enabled|
 ||Indizierung von Dateien im Offlinedateicache verhindern|        Enabled|
-|**Store**|||
+|**Speicher**|||
 ||Deaktivieren des Angebots zum Update auf die aktuelle Version von Windows|Enabled|
 |**Windows-Fehlerberichterstattung**|||
 ||Speicherabbild für vom Betriebssystem erstellte Fehlerberichte automatisch senden|       Deaktiviert|
@@ -494,7 +494,7 @@ Geben Sie im linken Bereich jeden der folgenden Unterordner für Einstellungen e
 
 Klicken Sie im linken Bereich des Editors für lokale Gruppenrichtlinien auf **Benutzerkonfiguration**. Klicken Sie im linken Bereich auf **Administrative Vorlagen**. Geben Sie dann jeden der folgenden Unterordner für Einstellungen ein, und passen Sie die einzelnen Einstellungen folgendermaßen an:
 
-|Ordner „Einstellungen“ unter **Administrative Vorlagen**|Einstellung|Empfohlener Wert für VDI-Verwendung|  
+|Ordner „Einstellungen“ unter **Administrative Vorlagen**|Einstellung|Empfohlener Wert für VDI-Verwendung|
 |-------------------|-------|----------|
 |**Desktop**|||
 ||Freigaben von zuletzt geöffneten Dateien nicht in „Netzwerkumgebung“ hinzufügen|Enabled|
@@ -527,7 +527,7 @@ Es gibt eine Reihe von Microsoft Store-Apps, die Sie vielleicht aus dem VDI-Imag
 
 Verwenden Sie zum Anpassen des Standardbenutzerprofils, das zum Erstellen von VDI-Images verwendet wird, das integrierte Administratorkonto. Wenn es noch nicht aktiviert wurde, aktivieren Sie es unter „Computerverwaltung“ mithilfe von „Lokale Benutzer und Gruppen“. Melden Sie sich dann beim Administratorkonto an, um die nachstehenden Schritte auszuführen.
 
-> [!NOTE]  
+> [!NOTE]
 > Entfernen Sie keine System-Apps wie die Store-App. Deren Neuinstallation ist schwierig. Andere Apps können aus dem Store ganz einfach erneut installiert werden.
 
 ### <a name="delete-unwanted-apps-from-the-administrator-user-profile"></a>Löschen von unerwünschten Apps aus dem Benutzerprofil „Administrator“
@@ -573,30 +573,3 @@ So entfernen Sie die OneDrive-App:
 ### <a name="delete-downloaded-updates"></a>Löschen von heruntergeladenen Updates
 1. Navigieren Sie im Datei-Explorer zu **C:\Windows\Software Distribution\Download**.
 2. Löschen Sie alle Dateien und Ordner in diesem Verzeichnis.
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-

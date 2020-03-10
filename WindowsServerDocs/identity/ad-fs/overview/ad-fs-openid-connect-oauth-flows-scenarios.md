@@ -9,12 +9,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e1e0235e50945fadd09fe9dd5ffeaf6d7119e482
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 875edcf191596d181ec0d70a83f9f3c20f5d5f4a
+ms.sourcegitcommit: a6ec589a39ef104ec2be958cd09d2f679816a5ab
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385601"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78261939"
 ---
 # <a name="ad-fs-openid-connectoauth-flows-and-application-scenarios"></a>AD FS OpenID Connect-/OAuth-Flows und Anwendungsszenarien
 Gilt für Active Directory-Verbunddienste (AD FS) 2016 und höher
@@ -292,7 +292,7 @@ Die folgenden Schritte bilden den OBO-Flow und werden mithilfe des folgenden Dia
 
   1. Die Clientanwendung stellt eine Anforderung an API A mit Token A.  
   Hinweis: Stelle bei der Konfiguration des OBO-Flows im AD FS sicher, dass in der Anforderung der Bereich `user_impersonation` ausgewählt ist und der Client den Bereich `user_impersonation` anfordert. 
-  2. API A authentifiziert sich gegenüber dem AD FS-Tokenausstellungsendpunkt und fordert ein Token für den Zugriff auf API B an: Stelle bei der Konfiguration dieses Flows im AD FS sicher, dass API A auch als Serveranwendung registriert wird, wobei die clientID denselben Wert hat wie die Ressourcen-ID in API A. Weitere Informationen findest du unter dem On-Behalf-Of-Beispiel.  
+  2. API A authentifiziert sich gegenüber dem AD FS-Tokenausstellungsendpunkt und fordert ein Token für den Zugriff auf API B an: Stelle bei der Konfiguration dieses Flows im AD FS sicher, dass API A auch als Serveranwendung registriert wird, wobei „clientID“ denselben Wert hat wie die Ressourcen-ID in API A.
   3. Der AD FS-Tokenausstellungsendpunkt überprüft die Anmeldeinformationen von API A mit Token A und stellt das Zugriffstoken für API B (Token B) aus. 
   4. Token B wird im Autorisierungsheader der Anforderung für API B festgelegt. 
   5. Daten von der gesicherten Ressource werden von API B zurückgegeben. 
