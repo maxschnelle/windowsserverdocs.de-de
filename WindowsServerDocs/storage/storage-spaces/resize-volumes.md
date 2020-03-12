@@ -7,18 +7,21 @@ author: cosmosdarwin
 ms.author: cosdar
 manager: eldenc
 ms.technology: storage-spaces
-ms.date: 05/07/2019
-ms.openlocfilehash: 20482fe1728b12d4fe56dcfa397352fbb4b4f981
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.date: 03/10/2020
+ms.openlocfilehash: 4ce41da1da3dc90f698008902170d7cc1541619c
+ms.sourcegitcommit: bb2eb0b12f2a32113899a59aa5644bc6e8cab3d2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366091"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79089352"
 ---
 # <a name="extending-volumes-in-storage-spaces-direct"></a>Erweitern von Volumes in Direkte Speicherplätze
 > Gilt für: Windows Server 2019, Windows Server 2016
 
 Dieses Thema enthält Anweisungen zum Ändern der Größe von Volumes in einem [direkte Speicherplätze](storage-spaces-direct-overview.md) Cluster mithilfe des Windows Admin Centers.
+
+> [!WARNING]
+> **Nicht unterstützt: Ändern der Größe des zugrunde liegenden Speichers, der von direkte Speicherplätze verwendet wird.** Wenn Sie direkte Speicherplätze in einer virtualisierten Speicherumgebung ausführen, einschließlich in Azure, wird das Ändern der Größe oder Änderung der Merkmale der Speichergeräte, die von den virtuellen Computern verwendet werden, nicht unterstützt und führt dazu, dass die Daten nicht mehr verfügbar sind. Befolgen Sie stattdessen die Anweisungen im Abschnitt [Hinzufügen von Servern oder Laufwerken](add-nodes.md) , um vor dem Erweitern von Volumes zusätzliche Kapazität hinzuzufügen.
 
 Sehen Sie sich ein kurzes Video zum Ändern der Größe eines Volumes an.
 
@@ -50,7 +53,7 @@ In Direkte Speicherplätze besteht jedes Volume aus mehreren gestapelten Objekte
 
 Um sich damit vertraut zu machen, führen Sie **Get-** mit dem entsprechenden Substantiv in PowerShell aus.
 
-Zum Beispiel:
+Beispiel:
 
 ```PowerShell
 Get-VirtualDisk
@@ -134,7 +137,7 @@ Wenn Sie die Größe von **Partition** anpassen, folgen **Volume** und **Cluster
 
 ![Resize-Partition](media/resize-volumes/Resize-Partition.gif)
 
-Das ist alles!
+Das war's.
 
 > [!TIP]
 > Sie können überprüfen, ob das Volume die neue Größe aufweist, indem Sie **Get-Volume** ausführen.
