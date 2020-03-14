@@ -9,15 +9,15 @@ manager: klaasl
 ms.author: wgries
 ms.date: 04/17/2019
 ms.openlocfilehash: 577926035840fbd571c8a1157f1da0c2e1b4851b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403165"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322622"
 ---
 # <a name="whats-new-in-data-deduplication"></a>Neuigkeiten bei der Datendeduplizierung
 
-> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (Semi-Annual Channel)
 
 Die [Datendeduplizierung](overview.md) in Windows Server wurde optimiert und ist so optimiert, dass Sie auf Private Cloud Skalierung äußerst leistungsfähig, flexibel und verwaltbar ist. Weitere Informationen zum Software definierten Speicher Stapel in Windows Server finden Sie unter [What es New in Storage in Windows Server](../whats-new-in-storage.md).
 

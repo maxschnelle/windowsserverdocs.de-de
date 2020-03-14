@@ -9,15 +9,15 @@ manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
 ms.openlocfilehash: e26d285f1802e78b2cbf84e38407ff134e7b7035
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403222"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322392"
 ---
 # <a name="understanding-data-deduplication"></a>Grundlegendes zur Datendeduplizierung
 
-> Gilt für:  Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
 
 Dieses Dokument beschreibt, wie die [Datendeduplizierung](overview.md) funktioniert.
 
@@ -63,7 +63,7 @@ Bei den folgenden Verwendungstypen kann die Datendeduplizierung für gängige Wo
 ## <a id="job-info"></a>Tze
 Zur Datendeduplizierung erfolgt eine Nachbearbeitung zum Optimieren und Aufrechterhalten der Effizienz des Speicherplatzes eines Volumes.
 
-| Auftrag | Auftragsbeschreibung | Standardzeitplan |
+| Auftragsname | Auftragsbeschreibung | Standardzeitplan |
 |----------|------------------|------------------|
 | <a id="job-info-optimization"></a>Optimierung | Der Auftrag **Optimization** führt eine Deduplizierung durch, indem Daten auf einem Volume gemäß den Richtlinieneinstellungen für das Volume in Blöcke unterteilt werden. Diese Blöcke werden dann (optional) komprimiert und im Blockspeicher eindeutig gespeichert. Der für die Datendeduplizierung befolgte Optimierungsprozess wird unter [Wie funktioniert die Datendeduplizierung?](understand.md#how-does-dedup-work) detailliert beschrieben. | Einmal pro Stunde |
 | <a id="job-info-gc"></a>Garbage Collection | Der Auftrag **Garbage Collection** gibt Speicherplatz frei, indem unnötige Blöcke entfernt werden, die von Dateien, die vor Kurzem geändert oder gelöscht wurden, nicht mehr referenziert werden. | Samstags um 2:35 Uhr |

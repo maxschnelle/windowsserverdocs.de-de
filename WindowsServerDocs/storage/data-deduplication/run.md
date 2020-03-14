@@ -9,22 +9,22 @@ manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
 ms.openlocfilehash: 86aff55b4c548ccf4fcbb04cc477dd63a889bebd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403211"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322632"
 ---
 # <a name="running-data-deduplication"></a>Ausführen der Datendeduplizierung
 
-> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 ## <a id="running-dedup-jobs-manually"></a>Manuelles Ausführen von datendeduplizierungsaufträgen
 
 Sie können jeden geplanten Datendeduplizierungsauftrag mit den folgenden PowerShell-Cmdlets manuell ausführen:
-* [`Start-DedupJob`](https://technet.microsoft.com/library/hh848442.aspx): Startet einen neuen datendeduplizierungsauftrag.
-* [`Stop-DedupJob`](https://technet.microsoft.com/library/hh848439.aspx): Stoppt einen bereits in Bearbeitung befindlichen datendeduplizierungsauftrag (oder entfernt ihn aus der Warteschlange).
-* [`Get-DedupJob`](https://technet.microsoft.com/library/hh848452.aspx): Zeigt alle aktiven und in der Warteschlange befindlichen datendeduplizierungsaufträge an.
+* [`Start-DedupJob`](https://technet.microsoft.com/library/hh848442.aspx): Startet einen neuen Datendeduplizierungsauftrag.
+* [`Stop-DedupJob`](https://technet.microsoft.com/library/hh848439.aspx): Stoppt einen bereits in Bearbeitung befindlichen Datendeduplizierungsauftrag (oder entfernt ihn aus der Warteschlange).
+* [`Get-DedupJob`](https://technet.microsoft.com/library/hh848452.aspx): Zeigt alle aktiven und in der Warteschlange stehenden Datendeduplizierungsaufträge an.
 
 Alle [Einstellungen, die verfügbar sind, wenn Sie einen Datendeduplizierungsauftrag planen](advanced-settings.md#modifying-job-schedules-available-settings), sind auch verfügbar, wenn Sie einen Auftrag manuell starten, mit Ausnahme der planungsspezifischen Einstellungen. Um z.B. einen [Optimierungsauftrag](understand.md#job-info-optimization) manuell mit hoher Priorität und maximaler Auslastung von CPU und Arbeitsspeicher zu starten, führen Sie den folgenden PowerShell-Befehl mit Administratorrechten aus:
 

@@ -13,11 +13,11 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 48eb7009215e484fb00e704c7b328340240321d2
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865155"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322322"
 ---
 # <a name="manage-devices-in-windows-server-essentials"></a>Verwalten von Geräten in Windows Server Essentials
 
@@ -74,7 +74,7 @@ ms.locfileid: "70865155"
   
 ### <a name="computer-tasks-in-the-dashboard"></a>Computeraufgaben im Dashboard  
   
-|Aufgabenname|Beschreibung|  
+|Taskname|Beschreibung|  
 |---------------|-----------------|  
 |Computereigenschaften anzeigen|Zeigt allgemeine Informationen zu einem ausgewählten Computer an, und ermöglicht Ihnen das Anzeigen der Details zu den Computersicherungen.|  
 |Sicherung für diesen Computer einrichten|Führt den Assistenten zum Einrichten der Sicherung aus.|  
@@ -100,7 +100,7 @@ ms.locfileid: "70865155"
   
 3.  Wählen Sie in der Liste von Benutzerkonten das Benutzerkonto aus, das Sie ändern möchten.  
   
-4.  Klicken Sie im Bereich **Aufgaben\> des < Benutzerkontos** auf **Konto Eigenschaften anzeigen**. Die Seite **Eigenschaften** für das Benutzerkonto wird angezeigt.  
+4.  Klicken Sie im Bereich **< Benutzerkonto\> Tasks** auf **Konto Eigenschaften anzeigen**. Die Seite **Eigenschaften** für das Benutzerkonto wird angezeigt.  
   
 5.  Wählen Sie auf der Registerkarte **Computerzugriff** den Computer aus, auf den dieser Benutzer remote zugreifen kann, und klicken Sie dann auf **OK**.  
   
@@ -114,7 +114,7 @@ ms.locfileid: "70865155"
   
 1.  Öffnen Sie das Windows Server Essentials-Dashboard.  
   
-2.  Klicken Sie auf der Navigationsleiste auf die Registerkarte **Geräte** .  
+2.  Klicken Sie auf der Navigationsleiste auf die Registerkarte **Geräte**.  
   
 3.  Rechtsklicken Sie in der Liste der Computer auf den Computer, den Sie aus dem Netzwerk entfernen möchten, und klicken Sie dann auf **Computer entfernen**.  
   
@@ -127,17 +127,17 @@ ms.locfileid: "70865155"
   
 2.  Klicken Sie auf der Navigationsleiste auf **GERÄTE**.  
   
-3.  Für Windows Server Essentials: Klicken Sie im globalen Bereich**Benutzeraufgaben** auf **Gruppenrichtlinie implementieren**.  
+3.  Für Windows Server Essentials: Klicken Sie im Bereich globale **Benutzer Aufgaben** auf **Gruppenrichtlinie implementieren**.  
   
-     Für Windows Server Essentials: Klicken Sie im globalen Bereich**Geräteaufgaben** auf **Gruppenrichtlinie implementieren**.  
+     Für Windows Server Essentials: Klicken Sie im Bereich globale **Geräte Tasks** auf **Gruppenrichtlinie implementieren**.  
   
 4.  Der Assistent zur Implementierung von Gruppenrichtlinien wird geöffnet.  
   
 5.  Auf der Seite **Gruppenrichtlinie für Ordnerumleitung aktivieren** des Assistenten können Sie die Benutzerordner auswählen, auf die Sie umleiten möchten.  
   
-6.  Auf der Seite **Sicherheitsrichtlinieneinstellungen aktivieren** des Assistenten können Sie Gruppenrichtlinieneinstellungen für **Windows Update**, **Windows Defender**und die **Netzwerkfirewall**auswählen.  
+6.  Auf der Seite **Sicherheitsrichtlinieneinstellungen aktivieren** des Assistenten können Sie Gruppenrichtlinieneinstellungen für **Windows Update**, **Windows Defender** und die **Netzwerkfirewall** auswählen.  
   
-7.  Klicken Sie auf **Fertig stellen** , um die Gruppenrichtlinieneinstellungen zu implementieren.  
+7.  Klicken Sie auf **Fertig stellen**, um die Gruppenrichtlinieneinstellungen zu implementieren.  
   
 ##  <a name="BKMK_7"></a>Herstellen einer Verbindung mit einem Netzwerk Computer mithilfe einer Remotedesktop Sitzung  
  Wenn Sie den Remote Zugriff auf Ihren Windows Server Essentials-Netzwerk Computer durchführen möchten, melden Sie sich mit Ihrem Webbrowser bei der Remote Webzugriff-Website Ihres Unternehmens an, und klicken Sie auf der Registerkarte **Computer** auf den Namen des Computers.  
@@ -175,7 +175,7 @@ ms.locfileid: "70865155"
   
 1.  Wählen Sie in der Liste der Computer das Konto aus, für das Sie Eigenschaften anzeigen oder ändern möchten.  
   
-2.  Klicken Sie im Bereich **Tasks\> für < Computername** auf **Computer Eigenschaften anzeigen**. Die Seite **Eigenschaften** für die Computer wird angezeigt.  
+2.  Klicken Sie im Bereich **< Computername\> Tasks** auf **Computer Eigenschaften anzeigen**. Die Seite **Eigenschaften** für die Computer wird angezeigt.  
   
 3.  Klicken Sie auf eine Registerkarte, um die Eigenschaften für diesen Computer anzuzeigen.  
   

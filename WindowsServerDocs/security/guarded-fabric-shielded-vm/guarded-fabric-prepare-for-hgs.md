@@ -9,11 +9,11 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
 ms.openlocfilehash: 9024557dd42ede27144bf10aa5873b6bb12d585c
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371453"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322482"
 ---
 # <a name="review-prerequisites-for-the-host-guardian-service"></a>Überprüfen der Voraussetzungen für den Host-Überwachungsdienst
 

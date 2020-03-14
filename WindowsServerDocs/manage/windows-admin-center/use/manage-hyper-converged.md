@@ -9,11 +9,11 @@ ms.date: 03/01/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: 6795464bfbadd12fc220e941ad2175eb83d0f050
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949944"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322862"
 ---
 # <a name="manage-hyper-converged-infrastructure-with-windows-admin-center"></a>Verwalten der hyperkonvergierten Infrastruktur mit dem Windows Admin Center
 
@@ -29,7 +29,7 @@ Die hyperkonvergierte Infrastruktur konsolidiert softwaredefinierte COMPUTE-, Sp
 > [!IMPORTANT]
 > Einige der in diesem Artikel beschriebenen Funktionen sind nur in der Vorschauversion des Windows Admin Centers verfügbar. [Gewusst wie diese Version erhalten?](https://aka.ms/windowsadmincenter)
 
-## <a name="what-is-windows-admin-center"></a>Was ist Windows Admin Center?
+## <a name="what-is-windows-admin-center"></a>Was ist Windows Admin Center
 
 [Windows Admin Center](../overview.md) ist das Verwaltungs Tool der nächsten Generation für Windows Server, das Nachfolger für herkömmliche "in-Box"-Tools wie Server-Manager. Es ist kostenlos und kann ohne Internet Verbindung installiert und verwendet werden. Mithilfe des Windows Admin Centers können Sie die hyperkonvergierte Infrastruktur verwalten und überwachen, die unter Windows Server 2016 oder Windows Server 2019 ausgeführt wird.
 
@@ -46,7 +46,7 @@ Zu den Highlights des Windows Admin Centers für die hyperkonvergierte Infrastru
 
 Das Windows Admin Center für die hyperkonvergierte Infrastruktur wird von Microsoft aktiv entwickelt. Er empfängt häufig Updates, die vorhandene Features verbessern und neue Features hinzufügen.
 
-## <a name="before-you-start"></a>Bevor Sie beginnen
+## <a name="before-you-start"></a>Vorbereitungen
 
 Um Ihren Cluster als hyperkonvergierte Infrastruktur im Windows Admin Center zu verwalten, muss Windows Server 2016 oder Windows Server 2019 ausgeführt werden, und Hyper-V und direkte Speicherplätze aktiviert werden. Optional kann die Software auch über das Windows Admin Center aktiviert und verwaltet werden.
 
@@ -92,7 +92,7 @@ Sie können Ihre hyperkonvergierte Infrastruktur mit Windows Server 2016 oder 20
 
 Die Bereitstellung dauert ca. 30 – 45 Minuten.
 
-## <a name="get-started"></a>„Erste Schritte“
+## <a name="get-started"></a>Erste Schritte
 
 Sobald Ihre hyperkonvergierte Infrastruktur bereitgestellt ist, können Sie Sie mithilfe des Windows Admin Centers verwalten.
 
@@ -147,29 +147,29 @@ Im Allgemeinen bezieht sich der Begriff "hyperkonvergiert" auf die Ausführung v
 
 - Die **failoverclusterverbindung** ist der Nachfolger der Failovercluster-Manager Desktop-App. Es bietet eine vertraute allgemeine Verwaltungsfunktion für alle Cluster, die alle Arbeits Auslastungen unterstützen, einschließlich Microsoft SQL Server. Es ist für Windows Server 2012 und höher verfügbar.
 
-- Bei der **hyperkonvergierten Cluster Verbindung** handelt es sich um eine neue, auf direkte Speicherplätze und Hyper-V zugeschnittene Version. Sie konzentriert sich auf das Dashboard und legt den Schwerpunkt auf Diagramme und Benachrichtigungen zur Überwachung. Es ist für Windows Server 2016 und Windows Server 2019 verfügbar.
+- Bei der **hyperkonvergierten Cluster Verbindung** handelt es sich um eine neue, auf direkte Speicherplätze und Hyper-V zugeschnittene Version. Es bietet das Dashboard und betont Diagramme und Warnungen für die Überwachung. Es ist für Windows Server 2016 und Windows Server 2019 verfügbar.
 
 ### <a name="why-do-i-need-the-latest-cumulative-update-for-windows-server-2016"></a>Warum benötige ich das neueste kumulative Update für Windows Server 2016?
 
 Das Windows Admin Center für hyperkonvergierte Infrastrukturen hängt von den Management-APIs ab, die seit der Veröffentlichung von Windows Server 2016 entwickelt wurden. Diese APIs werden im [kumulativen 2018-05-Update für Windows Server 2016 (KB4103723)](https://support.microsoft.com/help/4103723/windows-10-update-kb4103723)hinzugefügt, das ab dem 8. Mai 2018 verfügbar ist.
 
-### <a name="how-much-does-it-cost-to-use-windows-admin-center"></a>Wie viel kostet die Verwendung von Windows Admin Center?
+### <a name="how-much-does-it-cost-to-use-windows-admin-center"></a>Wie viel kostet Windows Admin Center?
 
-Für Windows Admin Center fallen jenseits der Kosten für Windows keine zusätzlichen Kosten an.
+Windows Admin Center ist ohne zusätzliche Kosten über Windows erhältlich.
 
 Sie können Windows Admin Center (als separater Download verfügbar) mit den gültigen Lizenzen für Windows Server oder Windows 10 ohne zusätzliche Kosten verwenden – es ist unter einer ergänzenden Windows-EULA (ENDBENUTZER-LIZENZVERTRAG) lizenziert.
 
-### <a name="does-windows-admin-center-require-system-center"></a>Ist System Center für Windows Admin Center erforderlich?
+### <a name="does-windows-admin-center-require-system-center"></a>Erfordert Windows Admin Center das System Center?
 
-Nein
+Nein.
 
 ### <a name="does-it-require-an-internet-connection"></a>Ist eine Internet Verbindung erforderlich?
 
-Nein
+Nein.
 
 Obwohl das Windows Admin Center eine leistungsstarke und bequeme Integration in die Microsoft Azure Cloud bietet, ist die zentrale Verwaltungs-und Überwachungsumgebung für hyperkonvergierte Infrastrukturen vollständig lokal. Sie kann ohne Internet Verbindung installiert und verwendet werden.
 
-## <a name="things-to-try"></a>Versuchen Sie Folgendes
+## <a name="things-to-try"></a>Zu Versuchs tende Dinge
 
 Wenn Sie gerade erst beginnen, finden Sie hier einige kurze Tutorials, die Ihnen helfen zu erfahren, wie das Windows Admin Center für die hyperkonvergierte Infrastruktur organisiert ist und funktioniert. Führen Sie ein gutes Urteil aus, und seien Sie vorsichtig mit Produktionsumgebungen. Diese Videos wurden mit Windows Admin Center, Version 1804, und einem Insider Preview-Build von Windows Server 2019 aufgezeichnet.
 
@@ -217,7 +217,7 @@ Wenn Sie gerade erst beginnen, finden Sie hier einige kurze Tutorials, die Ihnen
     </tr>
 </table>
 
-### <a name="create-a-new-virtual-machine"></a>Erstellen eines neuen virtuellen Computers
+### <a name="create-a-new-virtual-machine"></a>Erstellen einer neuen virtuellen Maschine
 
 1. Klicken Sie im Navigationsbereich auf der linken Seite auf das **Virtual Machines** Tool.
 2. Wählen Sie am oberen Rand des Virtual Machines Tools die Registerkarte **Inventur** aus, und klicken Sie dann auf **neu** , um einen neuen virtuellen Computer zu erstellen.
@@ -278,7 +278,7 @@ Sie können das virtuelle Netzwerk auch konfigurieren, wenn Sie einen virtuellen
 
 ![Überwachen der Sdn-Infrastruktur](../media/manage-hyper-converged/sdn-monitoring.png)
 
-## <a name="feedback"></a>Feedback senden
+## <a name="feedback"></a>Feedback
 
 Ihr Feedback ist alles! Der wichtigste Vorteil von häufigen Updates besteht darin, zu erfahren, was funktioniert und was verbessert werden muss. Im folgenden finden Sie einige Möglichkeiten, uns zu informieren, was Sie denken:
 
@@ -286,7 +286,7 @@ Ihr Feedback ist alles! Der wichtigste Vorteil von häufigen Updates besteht dar
 - [Besuchen Sie das Forum zum Windows Admin Center in der Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Windows-Server-Management/bd-p/WindowsServerManagement)
 - Tweet zu `@servermgmt`
 
-### <a name="see-also"></a>Weitere Informationen:
+### <a name="see-also"></a>Siehe auch
 
 - [Windows Admin Center](../overview.md)
 - [Direkte Speicherplätze](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)

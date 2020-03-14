@@ -13,12 +13,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b073b0557cd011f6742a8a8e532165f53b0a6974
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8aeb2b3b7d62ae62ba9b8fa70988cf64060673ca
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377876"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79320014"
 ---
 # <a name="dir"></a>dir
 
@@ -44,7 +44,7 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 |/q|Zeigt Dateibesitz Informationen an.|
 |/w|Zeigt die Auflistung im breiten Format an, mit bis zu fünf Dateinamen oder Verzeichnisnamen in jeder Zeile.|
 |/d|Zeigt die Auflistung im gleichen Format wie **/w**an, aber die Dateien sind nach Spalte sortiert.|
-|/a [[:]\<Attribute >]|Zeigt nur die Namen dieser Verzeichnisse und Dateien mit den von Ihnen angegebenen Attributen an. Wenn Sie **/a**weglassen, **werden** die Namen aller Dateien angezeigt, mit Ausnahme von ausgeblendeten Dateien und Systemdateien. Wenn Sie **/a** ohne Angabe von *Attributen*verwenden, werden in **dir** die Namen aller Dateien angezeigt, einschließlich ausgeblendeter Dateien und Systemdateien.</br>In der folgenden Liste werden die einzelnen Werte beschrieben, die Sie für *Attribute*verwenden können. Verwenden eines Doppelpunkts (:) ist optional. Verwenden Sie eine beliebige Kombination dieser Werte, und trennen Sie die Werte nicht durch Leerzeichen.</br>**d-** Verzeichnisse</br>ausgeblendete Dateien</br>**s** -System Dateien</br>**l** -Analyse Punkte</br>schreibgeschützte **r** -Dateien</br>**Dateien,** die für die Archivierung bereit sind</br>indizierte Dateien **sind nicht Inhalts**</br>**-** Präfix "Not"|
+|/a [[:]\<Attribute >]|Zeigt nur die Namen dieser Verzeichnisse und Dateien mit den von Ihnen angegebenen Attributen an. Wenn Sie **/a**weglassen, **werden** die Namen aller Dateien angezeigt, mit Ausnahme von ausgeblendeten Dateien und Systemdateien. Wenn Sie **/a** ohne Angabe von *Attributen*verwenden, werden in **dir** die Namen aller Dateien angezeigt, einschließlich ausgeblendeter Dateien und Systemdateien.</br>In der folgenden Liste werden die einzelnen Werte beschrieben, die Sie für *Attribute*verwenden können. Verwenden eines Doppelpunkts (:) ist optional. Verwenden Sie eine beliebige Kombination dieser Werte, und trennen Sie die Werte nicht durch Leerzeichen.</br>**d-** Verzeichnisse</br>**h** ausgeblendete Dateien</br>**s** -System Dateien</br>**l** -Analyse Punkte</br>schreibgeschützte **r** -Dateien</br>**Dateien,** die für die Archivierung bereit sind</br>indizierte Dateien **sind nicht Inhalts**</br>**-** Präfix "Not"|
 |/o [[:]\<sortor der->]|Sortiert die Ausgabe nach *sortor*, wobei es sich um eine beliebige Kombination der folgenden Werte handeln kann:</br>**n** nach Name (alphabetisch)</br>**e** nach Erweiterung (alphabetisch)</br>**g** Gruppen Verzeichnisse zuerst</br>**s** nach Größe (zuerst die kleinste)</br>**d** nach Datum/Uhrzeit (älteste erste)</br>**-** Präfix in umgekehrter Reihenfolge</br>Hinweis: die Verwendung eines Doppelpunkts ist optional. Mehrere Werte werden in der Reihenfolge verarbeitet, in der Sie Sie auflisten. Trennen Sie mehrere Werte nicht durch Leerzeichen.</br>Wenn *SortOrder* nicht angegeben wird, listet **dir/o** die Verzeichnisse in alphabetischer Reihenfolge auf, gefolgt von den Dateien, die auch in alphabetischer Reihenfolge sortiert sind.|
 |/t [[:]\<TimeField >]|Gibt an, welches Zeit Feld angezeigt oder für die Sortierung verwendet werden soll. In der folgenden Liste werden die einzelnen Werte beschrieben, die Sie für *TimeField*verwenden können:</br>**c** -Erstellung</br>**Letzter Zugriff**</br>**w** zuletzt geschrieben|
 |/s|Listet jedes Vorkommen des angegebenen Datei namens innerhalb des angegebenen Verzeichnisses und aller Unterverzeichnisse auf.|
@@ -64,7 +64,7 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
   **Sternchen (\*):** Verwenden Sie das Sternchen als Ersatz für eine beliebige Zeichenfolge, z. b.:  
   - **dir \*. txt** listet alle Dateien im aktuellen Verzeichnis mit Erweiterungen auf, die mit ". txt" beginnen, z. b. txt,. txt1,. txt_old.
   - **dir Read\*. txt** listet alle Dateien im aktuellen Verzeichnis auf, die mit "Read" beginnen, und mit Erweiterungen, die mit ". txt" beginnen, z. b. txt,. txt1 oder. txt_old.
-  - **dir Read\*.\\** * listet alle Dateien im aktuellen Verzeichnis auf, die mit "Read" mit einer beliebigen Erweiterung beginnen.
+  - **dir Lese\*.\*** listet alle Dateien im aktuellen Verzeichnis auf, die mit "Read" mit einer beliebigen Erweiterung beginnen.
 
   Der Platzhalter Platzhalter verwendet immer eine kurze Zuordnung von Dateinamen, sodass Sie möglicherweise unerwartete Ergebnisse erhalten. Das folgende Verzeichnis enthält z. b. zwei Dateien (t. txt2 und T97. txt): 
  

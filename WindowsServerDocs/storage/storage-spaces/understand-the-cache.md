@@ -10,11 +10,11 @@ author: cosmosdarwin
 ms.date: 07/17/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: f2c2e0435d06c18dbacab4e85db770ba86e654b3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366002"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322342"
 ---
 # <a name="understanding-the-cache-in-storage-spaces-direct"></a>Grundlegendes zum Cache in direkten Speicherplätzen
 
@@ -109,7 +109,7 @@ Dies führt dazu, dass Merkmale von Schreibvorgängen, z. B. die Schreiblatenz,
 
 ### <a name="readwrite-caching-for-hybrid-deployments"></a>Zwischenspeichern von Lese-/Schreibvorgängen für Hybridbereitstellungen
 
-Beim Zwischenspeichern für Festplattenlaufwerke (HDDs) werden sowohl Lese- *als auch* Schreibvorgänge zwischengespeichert, um für beide Vorgänge eine Latenz wie bei Flash zu erzielen (häufig um den Faktor 10 schneller). Im Lesecache werden kürzlich und häufig gelesene Daten zwischengespeichert, um den schnellen Zugriff zu ermöglichen und zufälligen Datenverkehr für die HDDs zu verringern. (Aufgrund von Such-und Rotations Verzögerungen ist die Latenz und die verlorene Zeit, die durch den zufälligen Zugriff auf eine HDD entstehen, von großer Bedeutung.) Schreibvorgänge werden zwischengespeichert, um Spitzen zu absorbieren, und, wie zuvor, die zusammen Fügung von Schreib-und Schreibvorgängen sowie das Minimieren des kumulativen Datenverkehrs an die Kapazitäts Laufwerke.
+Beim Zwischenspeichern für Festplattenlaufwerke (HDDs) werden sowohl Lese- *als auch* Schreibvorgänge zwischengespeichert, um für beide Vorgänge eine Latenz wie bei Flash zu erzielen (häufig um den Faktor 10 schneller). Im Lesecache werden kürzlich und häufig gelesene Daten zwischengespeichert, um den schnellen Zugriff zu ermöglichen und zufälligen Datenverkehr für die HDDs zu verringern. (Da es aufgrund von Suchvorgängen und Rotationsbewegungen zu Verzögerungen kommt, ist die Latenz und verlorene Zeit durch zufällige Zugriffe auf eine HDD nicht zu vernachlässigen.) Schreibvorgänge werden zwischengespeichert, um Datenverkehrsspitzen aufzufangen und, wie zuvor, das Schreiben und erneute Schreiben zusammenzufügen und so den Gesamtdatenverkehr für die Kapazitätslaufwerke zu verringern.
 
 Für „Direkte Speicherplätze“ wird ein Algorithmus implementiert, mit dem die Zufälligkeit von Schreibvorgängen beseitigt wird, bevor deren Bereitstellung aufgehoben wird. So soll ein E/A-Muster für das Laufwerk emuliert werden, das auch dann noch sequenziell erscheint, wenn die tatsächliche Eingabe/Ausgabe von der Workload (z. B. virtuelle Computer) zufälliger Art ist. Auf diese Weise werden der IOPS-Wert und der Durchsatz für die HDDs maximiert.
 
@@ -242,7 +242,7 @@ CacheModeHDD : ReadWrite
 CacheModeSSD : WriteOnly
 ```
 
-Gehen Sie dann wie folgt vor:
+Führen Sie dann folgende Schritte aus:
 
 ```PowerShell
 Set-ClusterStorageSpacesDirect -CacheModeSSD ReadWrite

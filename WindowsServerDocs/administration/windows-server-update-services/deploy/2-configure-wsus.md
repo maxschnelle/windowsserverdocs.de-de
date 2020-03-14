@@ -11,25 +11,25 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: d1a78d2006a45bb2af8f87a91d7bb888964ddbcb
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
-ms.translationtype: MT
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371632"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323502"
 ---
 # <a name="step-2-configure-wsus"></a>Schritt 2: Konfigurieren von WSUS
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Nachdem Sie die WSUS-Serverrolle auf dem Server installiert haben, müssen Sie sie korrekt konfigurieren. In der folgenden Prüfliste sind die Schritte für die Erstkonfiguration des WSUS-Servers zusammengefasst.
 
 |Aufgabe|Beschreibung|
 |----|--------|
-|[2,1. Konfigurieren von Netzwerkverbindungen](#21-configure-network-connections)|Konfigurieren Sie das Clusternetzwerk mithilfe des Netzwerkkonfigurations-Assistenten.|
-|[2,2. Konfigurieren von WSUS mit dem WSUS-Konfigurations-Assistenten](#22-configure-wsus-by-using-the-wsus-configuration-wizard)|Verwenden Sie den WSUS-Konfigurations-Assistenten, um die WSUS-Basiskonfiguration auszuführen.|
-|[2,3. Konfigurieren von WSUS-Computer Gruppen](#23-configure-wsus-computer-groups)|Erstellen Sie Computergruppen in der WSUS-Verwaltungskonsole zum Verwalten von Updates in Ihrer Organisation.|
-|[2,4. Konfigurieren von Client Updates](#24-configure-client-updates)|Geben Sie an, wie und wann automatische Updates auf Clientcomputern angewendet werden.|
-|[2,5. schützen von WSUS mit dem Secure Sockets Layer Protokoll](#25-secure-wsus-with-the-secure-sockets-layer-protocol)|Konfigurieren Sie das Secure Sockets Layer (SSL)-Protokoll zum Schutz von Windows Server Update Services (WSUS).|
+|[2.1. Konfigurieren der Netzwerkverbindungen](#21-configure-network-connections)|Konfigurieren Sie das Clusternetzwerk mithilfe des Netzwerkkonfigurations-Assistenten.|
+|[2.2. Konfigurieren von WSUS mit dem WSUS-Konfigurations-Assistenten](#22-configure-wsus-by-using-the-wsus-configuration-wizard)|Verwenden Sie den WSUS-Konfigurations-Assistenten, um die WSUS-Basiskonfiguration auszuführen.|
+|[2.3. Konfigurieren von WSUS-Computergruppen](#23-configure-wsus-computer-groups)|Erstellen Sie Computergruppen in der WSUS-Verwaltungskonsole zum Verwalten von Updates in Ihrer Organisation.|
+|[2.4. Konfigurieren von Clientupdates](#24-configure-client-updates)|Geben Sie an, wie und wann automatische Updates auf Clientcomputern angewendet werden.|
+|[2.5. Schützen von WSUS mit dem Secure Sockets Layer-Protokoll](#25-secure-wsus-with-the-secure-sockets-layer-protocol)|Konfigurieren Sie das Secure Sockets Layer (SSL)-Protokoll zum Schutz von Windows Server Update Services (WSUS).|
 
 ## <a name="21-configure-network-connections"></a>2.1. Konfigurieren der Netzwerkverbindungen
 Bevor Sie mit der Konfiguration beginnen, müssen Sie sich die folgenden Fragen beantworten:
@@ -119,7 +119,7 @@ Verwenden Sie zum Einrichten von zwei Proxyservern, von denen jeder ein Protokol
 
 2.  Installieren Sie die WSUS-Serverrolle. Geben Sie während der Ausführung des WSUS-Konfigurations-Assistenten (im nächsten Abschnitt erläutert) keinen Proxyserver an.
 
-3.  Öffnen Sie eine Eingabeaufforderung (Cmd.exe) als Administrator. Wählen Sie zum Öffnen einer Eingabeaufforderung als Administrator **Start** aus. Gib in **Suche starten** den Suchbegriff **Eingabeaufforderung** ein. Klicke am oberen Rand des Menüs „Start“ mit der rechten Maustaste auf **Eingabeaufforderung**, und klicke dann auf **Als Administrator ausführen**. Gehe wie folgt vor, wenn das Dialogfeld **Benutzerkontensteuerung** angezeigt wird: Gib die entsprechenden Anmeldeinformationen ein (falls angefordert), vergewissere dich, dass die gewünschte Aktion angezeigt wird, und klicke dann auf **Weiter**.
+3.  Öffnen Sie eine Eingabeaufforderung (Cmd.exe) als Administrator. Wählen Sie zum Öffnen einer Eingabeaufforderung als Administrator **Start**aus. Gib in **Suche starten** den Suchbegriff **Eingabeaufforderung** ein. Klicke am oberen Rand des Menüs „Start“ mit der rechten Maustaste auf **Eingabeaufforderung**, und klicke dann auf **Als Administrator ausführen**. Gehe wie folgt vor, wenn das Dialogfeld **Benutzerkontensteuerung** angezeigt wird: Gib die entsprechenden Anmeldeinformationen ein (falls angefordert), vergewissere dich, dass die gewünschte Aktion angezeigt wird, und klicke dann auf **Weiter**.
 
 4.  Wechsele im Eingabeaufforderungsfenster zum Ordner „C:\Programme\Update Services\Tools“. Gib den folgenden Befehl ein:
 
@@ -139,7 +139,7 @@ Führen Sie das folgende Verfahren aus, um den Proxyserver hinzuzufügen, der da
 
 2.  Erweitern Sie im linken Bereich den Servernamen, und klicken Sie dann auf **Optionen**.
 
-3.  Klicken Sie im Bereich **Optionen** auf **Updatequelle und Proxyserver** und anschließend auf die Registerkarte **Proxyserver**.
+3.  Klicken Sie im Bereich **Optionen** auf **Updatequelle und Proxyserver**und anschließend auf die Registerkarte **Proxyserver** .
 
 4.  Verwenden Sie die folgenden Optionen, um die vorhandene Proxyserverkonfiguration zu ändern:
 
@@ -168,14 +168,14 @@ Dieses Verfahren setzt voraus, dass Sie den WSUS-Konfigurations-Assistenten verw
 
 #### <a name="to-configure-wsus"></a>So konfigurieren Sie WSUS
 
-1.  Klicken Sie im Navigationsbereich des Server-Managers auf **Dashboard**, auf **Tools** und dann auf **Windows Server Update Services**.
+1.  Klicken Sie im Navigationsbereich des Server-Managers auf **Dashboard**, auf **Tools**und dann auf **Windows Server Update Services**.
 
     > [!NOTE]
     > Klicke auf **Ausführen**, wenn das Dialogfeld **WSUS-Installation abschließen** angezeigt wird. Klicke im Dialogfeld **WSUS-Installation abschließen** auf **Schließen**, wenn die Installation erfolgreich abgeschlossen wurde.
 
-2.  Der WSUS-Konfigurations-Assistent wird geöffnet. Lesen Sie die Informationen auf der Seite **Vorbemerkungen**, und klicken Sie dann auf **Weiter**.
+2.  Der WSUS-Konfigurations-Assistent wird geöffnet. Lesen Sie die Informationen auf der Seite **Vorbemerkungen** , und klicken Sie dann auf **Weiter**.
 
-3.  Lesen Sie die Anweisungen auf der Seite **Am Programm zur Verbesserung von Microsoft Update teilnehmen**, und entscheiden Sie, ob Sie am Programm teilnehmen möchten. Wenn Sie am Programm teilnehmen möchten. Behalte die Standardauswahl bei, oder deaktiviere das Kontrollkästchen, und klicke dann auf **Weiter**.
+3.  Lesen Sie die Anweisungen auf der Seite **Am Programm zur Verbesserung von Microsoft Update teilnehmen** , und entscheiden Sie, ob Sie am Programm teilnehmen möchten. Wenn Sie am Programm teilnehmen möchten. Behalte die Standardauswahl bei, oder deaktiviere das Kontrollkästchen, und klicke dann auf **Weiter**.
 
 4.  Auf der Seite **Upstreamserver auswählen** stehen Ihnen zwei Optionen zur Verfügung:
 
@@ -185,13 +185,13 @@ Dieses Verfahren setzt voraus, dass Sie den WSUS-Konfigurations-Assistenten verw
 
         -   Wenn du dich für die Synchronisierung mit einem anderen WSUS-Server entscheidest, gibst du den Servernamen und den Port an, über den der Server mit dem Upstreamserver kommuniziert.
 
-        -   Wenn Sie SSL verwenden möchten, aktivieren Sie das Kontrollkästchen **SSL beim Synchronisieren der Updateinformationen verwenden**. Die Server verwenden den Port 443 für die Synchronisierung. (Stellen Sie sicher, dass dieser Server und der Upstreamserver SSL unterstützen).
+        -   Wenn Sie SSL verwenden möchten, aktivieren Sie das Kontrollkästchen **SSL beim Synchronisieren der Updateinformationen verwenden** . Die Server verwenden den Port 443 für die Synchronisierung. (Stellen Sie sicher, dass dieser Server und der Upstreamserver SSL unterstützen).
 
         -   Falls es sich um einen Replikatserver handelt, aktivierst du das Kontrollkästchen **Dies ist ein Replikat des Upstreamservers**.
 
-5.  Nachdem Sie die entsprechenden Optionen für Ihre Bereitstellung ausgewählt haben, klicken Sie auf **Weiter**, um fortzufahren.
+5.  Nachdem Sie die entsprechenden Optionen für Ihre Bereitstellung ausgewählt haben, klicken Sie auf **Weiter** , um fortzufahren.
 
-6.  Aktivieren Sie auf der Seite **Proxyserver angeben** das Kontrollkästchen **Proxyserver für die Synchronisierung verwenden**, und geben Sie dann den Namen des Proxyservers und die Portnummer (standardmäßig Port 80) in die entsprechenden Felder ein.
+6.  Aktivieren Sie auf der Seite **Proxyserver angeben** das Kontrollkästchen **Proxyserver für die Synchronisierung verwenden** , und geben Sie dann den Namen des Proxyservers und die Portnummer (standardmäßig Port 80) in die entsprechenden Felder ein.
 
     > [!IMPORTANT]
     > Dieser Schritt muss ausgeführt werden, wenn WSUS einen Proxyserver für den Internetzugriff benötigt.
@@ -200,14 +200,14 @@ Dieses Verfahren setzt voraus, dass Sie den WSUS-Konfigurations-Assistenten verw
 
 8.  Klicken Sie auf **Weiter**. Klicke auf der Seite **Mit Upstreamserver verbinden** auf **Verbindung starten**.
 
-9. Wenn die Verbindung hergestellt wurde, klicken Sie auf **Weiter**, um fortzufahren.
+9. Wenn die Verbindung hergestellt wurde, klicken Sie auf **Weiter** , um fortzufahren.
 
 10. Auf der Seite **Sprachen auswählen** kannst du die Sprachen auswählen, für die WSUS Updates empfängt (alle Sprachen oder eine Teilmenge von Sprachen). Wenn du eine Teilmenge von Sprachen auswählst, sparst du Speicherplatz. Es ist aber WICHTIG, alle Sprachen auszuwählen, die für sämtliche Clients des WSUS-Servers erforderlich sind. Falls du nur für bestimmte Sprachen Updates abrufen möchtest, aktivierst du **Updates nur in folgenden Sprachen herunterladen**. Wähle anschließend die gewünschten Sprachen aus. Andernfalls kannst du die Standardeinstellung übernehmen.
 
     > [!WARNING]
-    > Wenn Sie die Option **Updates nur in folgenden Sprachen herunterladen** auswählen und ein WSUS-Downstreamserver mit dem Server verbunden ist, werden für den Downstreamserver ebenfalls nur die ausgewählten Sprachen verwendet.
+    > Wenn Sie die Option **Updates nur in folgenden Sprachen herunterladen**auswählen und ein WSUS-Downstreamserver mit dem Server verbunden ist, werden für den Downstreamserver ebenfalls nur die ausgewählten Sprachen verwendet.
 
-11. Nachdem Sie die entsprechenden Sprachoptionen für Ihre Bereitstellung ausgewählt haben, klicken Sie auf **Weiter**, um fortzufahren.
+11. Nachdem Sie die entsprechenden Sprachoptionen für Ihre Bereitstellung ausgewählt haben, klicken Sie auf **Weiter** , um fortzufahren.
 
 12. Auf der Seite **Produkte auswählen** können Sie die Produkte angeben, für die Sie Updates herunterladen möchten. Wähle Produktkategorien wie Windows oder bestimmte Produkte wie Windows Server 2008 aus. Durch die Auswahl einer Produktkategorie werden alle Produkte in der Kategorie ausgewählt.
 
@@ -221,18 +221,18 @@ Dieses Verfahren setzt voraus, dass Sie den WSUS-Konfigurations-Assistenten verw
 
     -   Bei Auswahl von **Automatisch synchronisieren** führt der WSUS-Server die Synchronisierung in festgelegten Intervallen aus.
 
-    Legen Sie die Zeit für **Erste Synchronisierung** fest, und geben Sie die Anzahl von **Synchronisierungen pro Tag** an, die dieser Server ausführen soll. Wenn Sie z. B. vier Synchronisierungen pro Tag mit der ersten Synchronisierung um 3:00 Uhr festlegen, finden um 3:00 Uhr, 9:00 Uhr, 15:00 Uhr und 21:00 Uhr Synchronisierungen statt
+    Legen Sie die Zeit für **Erste Synchronisierung**fest, und geben Sie die Anzahl von **Synchronisierungen pro Tag** an, die dieser Server ausführen soll. Wenn Sie z. B. vier Synchronisierungen pro Tag mit der ersten Synchronisierung um 3:00 Uhr festlegen, finden um 3:00 Uhr, 9:00 Uhr, 15:00 Uhr und 21:00 Uhr Synchronisierungen statt
 
-16. Nachdem Sie die entsprechenden Synchronisierungsoptionen für Ihre Bereitstellung ausgewählt haben, klicken Sie auf **Weiter**, um fortzufahren.
+16. Nachdem Sie die entsprechenden Synchronisierungsoptionen für Ihre Bereitstellung ausgewählt haben, klicken Sie auf **Weiter** , um fortzufahren.
 
-17. Auf der Seite **Fertig gestellt** haben Sie die Möglichkeit, die Synchronisierung direkt zu starten, indem Sie das Kontrollkästchen **Erstsynchronisierung starten** aktivieren. Wenn du diese Option nicht auswählst, musst du die Erstsynchronisierung über die WSUS-Verwaltungskonsole ausführen. Klicken Sie auf **Weiter**, wenn Sie mehr über zusätzliche Einstellungen erfahren möchten, oder auf **Fertig stellen**, um den Assistenten zu beenden und die WSUS-Erstkonfiguration abzuschließen.
+17. Auf der Seite **Fertig gestellt** haben Sie die Möglichkeit, die Synchronisierung direkt zu starten, indem Sie das Kontrollkästchen **Erstsynchronisierung starten** aktivieren. Wenn du diese Option nicht auswählst, musst du die Erstsynchronisierung über die WSUS-Verwaltungskonsole ausführen. Klicken Sie auf **Weiter** , wenn Sie mehr über zusätzliche Einstellungen erfahren möchten, oder auf **Fertig stellen** , um den Assistenten zu beenden und die WSUS-Erstkonfiguration abzuschließen.
 
-18. Nach dem Klicken auf **Fertig stellen** wird die WSUS-Verwaltungskonsole angezeigt.
+18. Nach dem Klicken auf **Fertig stellen**wird die WSUS-Verwaltungskonsole angezeigt.
 
 Damit ist die grundlegende WSUS-Konfiguration abgeschlossen. Lesen Sie jetzt die nächsten Abschnitte, um mehr über das Ändern der Einstellungen mithilfe der WSUS-Verwaltungskonsole zu erfahren.
 
 ## <a name="23-configure-wsus-computer-groups"></a>2.3. Konfigurieren von WSUS-Computergruppen
-Computergruppen sind ein WICHTIGER Bestandteil von WSUS-Bereitstellungen (Windows Server Update Services). Mithilfe von Computergruppen können Sie Updates testen und gezielt für bestimmte Computer anwenden. Zwei Standard Computer Gruppen sind verfügbar: alle Computer und nicht zugewiesene Computer. Standardmäßig fügt der WSUS-Server jeden Clientcomputer bei der ersten Verbindungsherstellung mit dem Server einer dieser beiden Gruppen hinzu.
+Computergruppen sind ein WICHTIGER Bestandteil von WSUS-Bereitstellungen (Windows Server Update Services). Mithilfe von Computergruppen können Sie Updates testen und gezielt für bestimmte Computer anwenden. Es gibt die folgenden zwei Standardcomputergruppen: „Alle Computer“ und „Nicht zugewiesene Computer“. Standardmäßig fügt der WSUS-Server jeden Clientcomputer bei der ersten Verbindungsherstellung mit dem Server einer dieser beiden Gruppen hinzu.
 
 Sie können beliebig viele benutzerdefinierte Computergruppen erstellen, um Updates in Ihrer Organisation zu verwalten. Es wird empfohlen, mindestens eine Computergruppe zu erstellen, mit der Updates getestet werden können, bevor sie auf anderen Computern in der Organisation bereitgestellt werden.
 
@@ -262,9 +262,9 @@ Beim WSUS-Setup wird IIS automatisch so konfiguriert, dass die aktuelle Version 
 
 Verwenden Sie die folgenden Verfahren, um %%amp;quot;Automatische Updates%%amp;quot; für Clientcomputer zu konfigurieren:
 
--   [Schritt 4: Konfigurieren von Gruppenrichtlinie Einstellungen für automatische Updates](4-configure-group-policy-settings-for-automatic-updates.md)
+-   [Schritt 4: Konfigurieren von Gruppenrichtlinien für automatische Updates](4-configure-group-policy-settings-for-automatic-updates.md)
 
--   [2,3. Konfigurieren von Computer Gruppen](#23-configure-wsus-computer-groups) in diesem Thema
+-   [2.3. Konfigurieren von Computergruppen](#23-configure-wsus-computer-groups) in diesem Thema
 
 ### <a name="configure-automatic-updates-in-group-policy"></a>Konfigurieren von %%amp;quot;Automatische Updates%%amp;quot; in %%amp;quot;Gruppenrichtlinie%%amp;quot;
 
@@ -288,16 +288,16 @@ Verknüpfe dieses WSUS-GPO mit einem für die Umgebung geeigneten Active Directo
 
     -   **Autom. Herunterladen und laut Zeitplan installieren**. Bei Auswahl dieser Option wird der Download von Updates automatisch gestartet, und anschließend werden die Updates zu dem von Ihnen angegebenen Zeitpunkt installiert.
 
-    -   **Lokalen Administrator ermöglichen, Einstellung auszuwählen**. Bei Auswahl dieser Option können lokale Administratoren den Bereich %%amp;quot;Automatische Updates%%amp;quot; in der Systemsteuerung verwenden, um eine Konfigurationsoption auszuwählen. Sie können z. B. einen geplanten Installationszeitpunkt auswählen. Lokale Administratoren können %%amp;quot;Automatische Updates%%amp;quot; nicht deaktivieren.
+    -   **Lokalen Administrator ermöglichen, Einstellung auszuwählen**. Bei Auswahl dieser Option können lokale Administratoren den Bereich %%amp;quot;Automatische Updates%%amp;quot; in der Systemsteuerung verwenden, um eine Konfigurationsoption auszuwählen. Sie können z. B. einen geplanten Installationszeitpunkt auswählen. Lokale Administratoren können %%amp;quot;Automatische Updates%%amp;quot; nicht deaktivieren.
 
 5.  Wähle **Clientseitige Zielzuordnung aktivieren** und dann **Aktiviert** aus. Gib anschließend den Namen der WSUS-Computergruppe, der du diesen Computer hinzufügen möchtest, im Feld **Zielgruppenname für diesen Computer** ein.
 
     > [!NOTE]
-    > Durch die Option **Clientseitige Zielzuordnung aktivieren** können Clientcomputer sich selbst Zielcomputergruppen auf dem WSUS-Server hinzufügen, wenn automatische Updates auf einen WSUS-Server umgeleitet werden. Falls der Status „Aktiviert“ lautet, identifiziert sich dieser Computer selbst als Mitglied einer bestimmten Computergruppe, wenn er Informationen an den WSUS-Server sendet, mit denen ermittelt wird, welche Updates auf diesem Computer bereitgestellt werden. Diese Einstellung zeigt dem WSUS-Server an, welche Gruppe der Clientcomputer verwendet. Sie müssen die Gruppe auf dem WSUS-Server erstellen und ihr Domänenmitgliedscomputer hinzufügen.
+    > Durch die Option**Clientseitige Zielzuordnung aktivieren** können Clientcomputer sich selbst Zielcomputergruppen auf dem WSUS-Server hinzufügen, wenn automatische Updates auf einen WSUS-Server umgeleitet werden. Falls der Status „Aktiviert“ lautet, identifiziert sich dieser Computer selbst als Mitglied einer bestimmten Computergruppe, wenn er Informationen an den WSUS-Server sendet, mit denen ermittelt wird, welche Updates auf diesem Computer bereitgestellt werden. Diese Einstellung zeigt dem WSUS-Server an, welche Gruppe der Clientcomputer verwendet. Sie müssen die Gruppe auf dem WSUS-Server erstellen und ihr Domänenmitgliedscomputer hinzufügen.
 
-6.  Klicken Sie auf **OK**, um die Richtlinie **Clientseitige Zielzuordnung aktivieren** zu schließen und zum Detailfenster „Windows Update“ zurückzukehren.
+6.  Klicken Sie auf **OK** , um die Richtlinie **Clientseitige Zielzuordnung aktivieren** zu schließen und zum Detailfenster „Windows Update“ zurückzukehren.
 
-7.  Klicken Sie auf **OK**, um die Richtlinie **Automatische Updates konfigurieren** zu schließen und zum Detailfenster „Windows Update“ zurückzukehren.
+7.  Klicken Sie auf **OK** , um die Richtlinie **Automatische Updates konfigurieren** zu schließen und zum Detailfenster „Windows Update“ zurückzukehren.
 
 8.  Doppelklicken Sie im Detailbereich **Windows Update** auf **Internen Pfad für den Microsoft Updatedienst angeben**.
 
@@ -308,7 +308,7 @@ Verknüpfe dieses WSUS-GPO mit einem für die Umgebung geeigneten Active Directo
 
 10. Klicken Sie auf **OK**.
 
-Nach dem Einrichten eines Clientcomputers dauert es einige Minuten, bis der Computer auf der Seite **Computer** in der WSUS-Verwaltungskonsole angezeigt wird. Bei Clientcomputern, die mit einem domänenbasierten GPO konfiguriert werden, kann es bis zu 20 Minuten dauern, bis die neuen Richtlinieneinstellungen von der Gruppenrichtlinie auf den Clientcomputer angewendet werden. Standardmäßig wird die Gruppenrichtlinienaktualisierung alle 90 Minuten mit einer Verschiebung von 0 bis 30 Minuten im Hintergrund ausgeführt. Wenn du die Gruppenrichtlinienaktualisierung früher ausführen möchtest, kannst du auf dem Clientcomputer ein Eingabeaufforderungsfenster öffnen und „gpupdate /force“ eingeben.
+Nach dem Einrichten eines Clientcomputers dauert es einige Minuten, bis der Computer auf der Seite **Computer** in der WSUS-Verwaltungskonsole angezeigt wird. Bei Clientcomputern, die mit einem domänenbasierten GPO konfiguriert werden, kann es bis zu 20 Minuten dauern, bis die neuen Richtlinieneinstellungen von der Gruppenrichtlinie auf den Clientcomputer angewendet werden. Standardmäßig wird die Gruppenrichtlinienaktualisierung alle 90 Minuten mit einer Verschiebung von 0 bis 30 Minuten im Hintergrund ausgeführt. Wenn du die Gruppenrichtlinienaktualisierung früher ausführen möchtest, kannst du auf dem Clientcomputer ein Eingabeaufforderungsfenster öffnen und „gpupdate /force“ eingeben.
 
 Bei Clientcomputern, die mit dem Editor für lokale Gruppenrichtlinien konfiguriert werden, wird das GPO direkt angewendet, und die Aktualisierung dauert ca. 20 Minuten. Wenn du die Ermittlung manuell startest, musst du nicht 20 Minuten warten, bis der Clientcomputer eine Verbindung mit WSUS herstellt.
 
@@ -375,7 +375,7 @@ WSUS erfordert zwei Ports für SSL: einen Port, der HTTPS für das Senden versch
 
 -   Sie müssen das Zertifikat auf allen Computern importieren, die mit dem WSUS-Server kommunizieren. Dies umfasst alle Clientcomputer, Downstreamserver und Computer, auf denen die WSUS-Verwaltungskonsole ausgeführt wird. Das Zertifikat sollte in den vertrauenswürdigen Stamm-CA-Speicher des lokalen Computers oder in den vertrauenswürdigen Stamm-CA-Speicher von Windows Server Update Service importiert werden.
 
--   Sie können einen beliebigen Port für SSL verwenden. Der Port, den Sie für SSL eingerichtet haben, bestimmt jedoch auch den Port, über den WSUS unverschlüsselt den HTTP-Datenverkehr sendet. Beachten Sie folgende Beispiele:
+-   Sie können einen beliebigen Port für SSL verwenden. Der Port, den Sie für SSL eingerichtet haben, bestimmt jedoch auch den Port, über den WSUS unverschlüsselt den HTTP-Datenverkehr sendet. Betrachten Sie die folgenden Beispiele:
 
     -   Bei Verwendung des Branchenstandardports 443 für HTTPS-Datenverkehr verwendet WSUS den Branchenstandardport 80 für unverschlüsselten HTTP-Datenverkehr.
 
@@ -419,9 +419,9 @@ Die folgenden Anweisungen dienen der Konfiguration der Synchronisierung eines Do
 
 3.  Erweitern Sie im rechten Bereich den Namen des Servers.
 
-4.  Klicken Sie auf **Optionen** und dann auf **Updatequelle und Proxyserver**.
+4.  Klicken Sie auf **Optionen**und dann auf **Updatequelle und Proxyserver**.
 
-5.  Wählen Sie auf der Seite **Updatequelle** die Option **Von einem Windows Server Update Services-Server synchronisieren** aus.
+5.  Wählen Sie auf der Seite **Updatequelle** die Option **Von einem Windows Server Update Services-Server synchronisieren**aus.
 
 6.  Gib den Namen des Upstreamservers in das Textfeld **Servername** ein. Gib die Portnummer, die der Server für SSL-Verbindungen verwendet, in das Textfeld **Portnummer** ein.
 

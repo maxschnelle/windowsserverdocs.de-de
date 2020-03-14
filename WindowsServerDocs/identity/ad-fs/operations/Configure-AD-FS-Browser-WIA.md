@@ -4,17 +4,17 @@ description: In diesem Dokument wird beschrieben, wie Sie Browser für die Verwe
 author: billmath
 ms.author: billmath
 manager: femila
-ms.date: 05/31/2017
+ms.date: 03/20/2020
 ms.topic: article
 ms.custom: it-pro
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6223d261467f1e73b22d5035a73c37868081cef7
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 47ef535c7e761f9de8331b80508703421feb68e9
+ms.sourcegitcommit: 5197a87e659589bcc8d2a32069803ae736b02892
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465254"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79376257"
 ---
 # <a name="configure-browsers-to-use-windows-integrated-authentication-wia-with-ad-fs"></a>Konfigurieren von Browsern für die Verwendung der integrierten Windows-Authentifizierung (WIA) mit AD FS
 
@@ -44,25 +44,37 @@ Sie können die aktuellen Einstellungen mithilfe des folgenden PowerShell-Beispi
 ### <a name="change-wiasupporteduseragent-settings"></a>Einstellungen für wiasupporteduseragent ändern
 Standardmäßig enthält eine neue AD FS Installation eine Reihe von Benutzer-Agent-Zeichen folgen, die erstellt wurden. Diese können jedoch aufgrund von Änderungen an Browsern und Geräten veraltet sein. Insbesondere Windows-Geräte verfügen über ähnliche Benutzer-Agent-Zeichen folgen mit geringfügigen Variationen in den Token. Das folgende Windows PowerShell-Beispiel bietet den besten Leitfaden für die aktuelle Gruppe von Geräten, die heute auf dem Markt sind und nahtlose WIA unterstützen:
 
+Wenn Sie auf Windows Server 2012 R2 oder früher AD FS haben:
+
 ```powershell
-    Set-AdfsProperties -WIASupportedUserAgents @("MSIE 6.0", "MSIE 7.0; Windows NT", "MSIE 8.0", "MSIE 9.0", "MSIE 10.0; Windows NT 6", "Windows NT 6.3; Trident/7.0", "Windows NT 6.3; Win64; x64; Trident/7.0", "Windows NT 6.3; WOW64; Trident/7.0", "Windows NT 6.2; Trident/7.0", "Windows NT 6.2; Win64; x64; Trident/7.0", "Windows NT 6.2; WOW64; Trident/7.0", "Windows NT 6.1; Trident/7.0", "Windows NT 6.1; Win64; x64; Trident/7.0", "Windows NT 6.1; WOW64; Trident/7.0", "MSIPC", "Windows Rights Management Client")
+   Set-AdfsProperties -WIASupportedUserAgents @("MSIE 6.0", "MSIE 7.0; Windows NT", "MSIE 8.0", "MSIE 9.0", "MSIE 10.0; Windows NT 6", "Windows NT 6.3; Trident/7.0", "Windows NT 6.3; Win64; x64; Trident/7.0", "Windows NT 6.3; WOW64; Trident/7.0", "Windows NT 6.2; Trident/7.0", "Windows NT 6.2; Win64; x64; Trident/7.0", "Windows NT 6.2; WOW64; Trident/7.0", "Windows NT 6.1; Trident/7.0", "Windows NT 6.1; Win64; x64; Trident/7.0", "Windows NT 6.1; WOW64; Trident/7.0", "MSIPC", "Windows Rights Management Client", "Edg/79.0.309.43")
+```
+
+Wenn Sie über AD FS unter Windows Server 2016 oder höher verfügen:
+
+```powershell
+   Set-AdfsProperties -WIASupportedUserAgents @("MSIE 6.0", "MSIE 7.0; Windows NT", "MSIE 8.0", "MSIE 9.0", "MSIE 10.0; Windows NT 6", "Windows NT 6.3; Trident/7.0", "Windows NT 6.3; Win64; x64; Trident/7.0", "Windows NT 6.3; WOW64; Trident/7.0", "Windows NT 6.2; Trident/7.0", "Windows NT 6.2; Win64; x64; Trident/7.0", "Windows NT 6.2; WOW64; Trident/7.0", "Windows NT 6.1; Trident/7.0", "Windows NT 6.1; Win64; x64; Trident/7.0", "Windows NT 6.1; WOW64; Trident/7.0", "MSIPC", "Windows Rights Management Client", "Edg/*")
 ```
 
 Mit dem obigen Befehl wird sichergestellt, dass AD FS nur die folgenden Anwendungsfälle für WIA abdeckt:
 
-Benutzer-Agents|Anwendungsfälle|
------|-----|
-MSIE 6,0|IE 6,0|
-MSIE 7,0; Windows NT|IE 7, IE in der Intranetzone. Das Fragment "Windows NT" wird vom Desktop Betriebssystem gesendet.|
-MSIE 8,0|IE 8,0 (keine Geräte senden dies, deshalb müssen Sie spezifischere festlegen)|
-MSIE 9,0|IE 9,0 (keine Geräte senden dies, sodass Sie dies nicht spezifischere machen müssen)|
-MSIE 10,0; Windows NT 6|IE 10,0 für Windows XP und neuere Versionen des Desktop Betriebssystems</br></br>Windows Phone 8,0-Geräte (mit der Einstellung Mobile) werden ausgeschlossen, da Sie</br></br>Benutzer-Agent: Mozilla/5.0 (kompatibel; MSIE 10,0; Windows Phone 8,0; Einzug/6.0; Iemobile/10.0; Harm Ansprechen Heftig Lumia 920)|
-Windows NT 6,3; Einzug/7.0</br></br>Windows NT 6,3; Win64 x64 Einzug/7.0</br></br>Windows NT 6,3; WOW64 Einzug/7.0| Windows 8.1 Desktop Betriebssystem, unterschiedliche Plattformen|
-Windows NT 6,2; Einzug/7.0</br></br>Windows NT 6,2; Win64 x64 Einzug/7.0</br></br>Windows NT 6,2; WOW64 Einzug/7.0|Windows 8 Desktop-Betriebssystem, unterschiedliche Plattformen|
-Windows NT 6,1; Einzug/7.0</br></br>Windows NT 6,1; Win64 x64 Einzug/7.0</br></br>Windows NT 6,1; WOW64 Einzug/7.0|Windows 7 Desktop-Betriebssystem, unterschiedliche Plattformen|
-EDG/79.0.309.43 | Microsoft Edge (Chrom) | 
-MSIPC| Microsoft Information Protection and Control-Client|
-Windows Rights Management-Client|Windows Rights Management-Client|
+
+
+|Benutzer-Agents|Anwendungsfälle|
+|-----|-----|
+|MSIE 6,0|IE 6,0|
+|MSIE 7,0; Windows NT|IE 7, IE in der Intranetzone. Das Fragment "Windows NT" wird vom Desktop Betriebssystem gesendet.|
+|MSIE 8,0|IE 8,0 (keine Geräte senden dies, deshalb müssen Sie spezifischere festlegen)|
+|MSIE 9,0|IE 9,0 (keine Geräte senden dies, sodass Sie dies nicht spezifischere machen müssen)|
+|MSIE 10,0; Windows NT 6|IE 10,0 für Windows XP und neuere Versionen des Desktop Betriebssystems</br></br>Windows Phone 8,0-Geräte (mit der Einstellung Mobile) werden ausgeschlossen, da Sie</br></br>Benutzer-Agent: Mozilla/5.0 (kompatibel; MSIE 10,0; Windows Phone 8,0; Einzug/6.0; Iemobile/10.0; Harm Ansprechen Heftig Lumia 920)|
+|Windows NT 6,3; Einzug/7.0</br></br>Windows NT 6,3; Win64 x64 Einzug/7.0</br></br>Windows NT 6,3; WOW64 Einzug/7.0| Windows 8.1 Desktop Betriebssystem, unterschiedliche Plattformen|
+|Windows NT 6,2; Einzug/7.0</br></br>Windows NT 6,2; Win64 x64 Einzug/7.0</br></br>Windows NT 6,2; WOW64 Einzug/7.0|Windows 8 Desktop-Betriebssystem, unterschiedliche Plattformen|
+|Windows NT 6,1; Einzug/7.0</br></br>Windows NT 6,1; Win64 x64 Einzug/7.0</br></br>Windows NT 6,1; WOW64 Einzug/7.0|Windows 7 Desktop-Betriebssystem, unterschiedliche Plattformen|
+|EDG/79.0.309.43 | Microsoft Edge (Chrom) für Windows Server 2012 R2 oder früher |
+|EDG/*| Microsoft Edge (Chrom) für Windows Server 2016 oder höher|  
+|MSIPC| Microsoft Information Protection and Control-Client|
+|Windows Rights Management-Client|Windows Rights Management-Client|
+
 
 ### <a name="additional-links"></a>Weitere Links
 

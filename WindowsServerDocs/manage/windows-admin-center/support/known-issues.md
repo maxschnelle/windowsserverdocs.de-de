@@ -9,11 +9,11 @@ ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
 ms.openlocfilehash: 4a91d09d6824795a21a9a7cdc7695c407aa70756
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822703"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322922"
 ---
 # <a name="windows-admin-center-known-issues"></a>Windows Admin Center – bekannte Probleme
 
@@ -27,7 +27,7 @@ Wenn Sie ein Problem haben, das auf dieser Seite nicht beschrieben ist, bitte [T
 
 - Die Verwendung von Port unter 1024 wird nicht unterstützt. Im Dienst Modus können Sie optional Port 80 für die Umleitung an den angegebenen Port konfigurieren.
 
-## <a name="general"></a>„Allgemein“
+## <a name="general"></a>Allgemein
 
 - Wenn Sie Windows Admin Center als Gateway unter **Windows Server 2016** unter hoher Auslastung installiert haben, stürzt der Dienst möglicherweise mit einem Fehler im Ereignisprotokoll ab, der ```Faulting application name: sme.exe``` und ```Faulting module name: WsmSvc.dll```enthält. Der Grund hierfür ist ein Fehler, der in Windows Server 2019 behoben wurde. Der Patch für Windows Server 2016 enthielt das kumulative Update vom Februar 2019, [KB4480977](https://www.catalog.update.microsoft.com/Search.aspx?q=4480977).
 
@@ -53,7 +53,7 @@ Wenn Sie ein Problem haben, das auf dieser Seite nicht beschrieben ist, bitte [T
 
 ### <a name="microsoft-edge"></a>Microsoft Edge
 
-- Wenn Sie das Windows Admin Center als Dienst bereitgestellt haben und Microsoft Edge als Browser verwenden, kann das Verbinden Ihres Gateways mit Azure nach dem Auslösen eines neuen Browserfensters fehlschlagen. Versuchen Sie, dieses Problem zu umgehen, indem Sie https://login.microsoftonline.com , https://login.live.com und die URL Ihres Gateways als vertrauenswürdige Sites und zulässige Websites für Popup Blocker-Einstellungen auf dem Client seitigen Browser hinzufügen. Weitere Anleitungen zur Behebung dieses Problem finden Sie im [Handbuch zur Problem](troubleshooting.md#azure-features-dont-work-properly-in-edge)Behandlung. [17990376]
+- Wenn Sie das Windows Admin Center als Dienst bereitgestellt haben und Microsoft Edge als Browser verwenden, kann das Verbinden Ihres Gateways mit Azure nach dem Auslösen eines neuen Browserfensters fehlschlagen. Versuchen Sie, dieses Problem zu umgehen, indem Sie https://login.microsoftonline.com, https://login.live.comund die URL Ihres Gateways als vertrauenswürdige Sites und zulässige Websites für Popup Blocker-Einstellungen auf dem Client seitigen Browser hinzufügen. Weitere Anleitungen zur Behebung dieses Problem finden Sie im [Handbuch zur Problem](troubleshooting.md#azure-features-dont-work-properly-in-edge)Behandlung. [17990376]
 
 ### <a name="google-chrome"></a>Google Chrome
 
@@ -96,7 +96,7 @@ Wenn dies nicht der Fall ist, können Sie [herunterladen und WMF 5.1 installiere
 
 - Kann nicht importiert werden. PFX verschlüsselt Zertifikat im Speicher des aktuellen Benutzers. [11818622]
 
-### <a name="events"></a>Veranstaltungen
+### <a name="events"></a>Ereignisse
 
 - Ereignisse erfolgen durch [Websocket-Kompatibilität bei Verwendung eines Proxydiensts.](#websocket-compatibility-when-using-a-proxy-service)
 
@@ -152,7 +152,7 @@ Wenn dies nicht der Fall ist, können Sie [herunterladen und WMF 5.1 installiere
 
 - Wenn Sie automatisch neu starten auswählen, wird der Neustart erfolgen, bevor der Status auf 100 % aktualisiert wird. [13098852]
 
-### <a name="storage"></a>„Speicher“.
+### <a name="storage"></a>Speicher
 
 - Älter: DVD/CD/Diskettenlaufwerke werden nicht als Volumes angezeigt.
 

@@ -10,11 +10,11 @@ ms.author: wgries
 ms.date: 05/09/2017
 description: Wie die Datendeduplizierung auf Windows Server installiert ist, bestimmt, ob eine Arbeitsauslastung gut für die Deduplizierung eignet die Deduplizierung auf Volumes ermöglicht.
 ms.openlocfilehash: 36c9894fd8916643340134698f36af3bd50c34d8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402312"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322422"
 ---
 # <a name="install-and-enable-data-deduplication"></a>Installieren und Aktivieren der Datenduplizierung
 > Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
@@ -65,7 +65,7 @@ Datendeduplizierung kann ein effektives Instrument zum Minimieren der Kosten fü
     * Virtualisierte Sicherungsprogramme wie [Microsoft Data Protection Manager (DPM)](https://technet.microsoft.com/library/hh758173.aspx)
 * Workloads, die ggf. von der Deduplizierung profitieren, aber nicht immer gute Kandidaten für die Deduplizierung sind Die folgenden Workloads sind z.B. gut für die Deduplizierung geeignet, jedoch sollen Sie zunächst die Vorteile der Deduplizierung evaluieren:
     * Allgemeine Hyper-V-Hosts
-    * SQL-Server
+    * Computer mit SQL Server
     * Branchenspezifische Server
 
 ### <a id="enable-dedup-evaluating-sometimes-workloads"></a>Evaluieren von Workloads für die Datendeduplizierung
@@ -159,7 +159,7 @@ Nein, die bereitgestellten [Verwendungstypen](understand.md#usage-type) sind so 
 **Welche Arbeitsspeicher Anforderungen gelten für die Datendeduplizierung?**  
 Für den Minimalfall sollten für die Datendeduplizierung 300 MB + 50 MB für jedes TB logischer Daten vorgesehen werden. Wenn Sie beispielsweise ein 10-TB-Volume optimieren, benötigen Sie für die Deduplizierung mindestens 800 MB Arbeitsspeicher (`300 MB + 50 MB * 10 = 300 MB + 500 MB = 800 MB`). Während die Datendeduplizierung ein Volume mit diesem niedrigen Umfang an Arbeitsspeicher optimieren kann, werden Datendeduplizierungsaufträge durch solch einschränkte Ressourcen verlangsamt.
 
-Im optimalen Fall sollte die Datendeduplizierung über 1 GB Arbeitsspeicher pro 1 TB logischer Daten verfügen. Wenn Sie beispielsweise ein 10-TB-Volume optimieren, benötigen Sie im Optimalfall für die Deduplizierung mindestens 10GB Arbeitsspeicher (`1 GB * 10`). Dieses Verhältnis stellt die maximale Leistung für Datendeduplizierungsaufträge sicher.
+Im optimalen Fall sollte die Datendeduplizierung über 1 GB Arbeitsspeicher pro 1 TB logischer Daten verfügen. Wenn Sie beispielsweise ein 10-TB-Volume optimieren, benötigen Sie im Optimalfall für die Deduplizierung mindestens 10 GB Arbeitsspeicher (`1 GB * 10`). Dieses Verhältnis stellt die maximale Leistung für Datendeduplizierungsaufträge sicher.
 
 **Welche Speicheranforderungen gelten für die Datendeduplizierung?**  
 Unter Windows Server 2016 unterstützt die Datendeduplizierung Volumegrößen bis zu 64 TB. Weitere Informationen finden Sie unter [Neuigkeiten bei der Datendeduplizierung](whats-new.md#large-volume-support).

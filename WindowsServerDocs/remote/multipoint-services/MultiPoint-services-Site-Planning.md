@@ -14,11 +14,11 @@ author: evaseydl
 manager: scottman
 ms.author: evas
 ms.openlocfilehash: 744e49f47f7144dac82dbe68c885060b0c08490d
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371872"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322792"
 ---
 # <a name="multipoint-services-site-planning"></a>MultiPoint Services-Standortplanung
 Berücksichtigen Sie den Speicherort, an dem ein oder mehrere Computer, auf denen Multipoint Services ausgeführt wird, und die zugehörigen Stationen bereitgestellt werden.  

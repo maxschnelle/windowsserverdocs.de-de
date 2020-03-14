@@ -11,11 +11,11 @@ description: Wie entferne ich Server aus einem Direkte Speicherplätze-Cluster i
 ms.date: 2/5/2017
 ms.localizationpriority: medium
 ms.openlocfilehash: ce8caef2b51279c97cc012045750b7a73d97a4ba
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402809"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322312"
 ---
 # <a name="removing-servers-in-storage-spaces-direct"></a>Entfernen von Servern in Direkte Speicherplätze
 
@@ -52,7 +52,7 @@ Remove-ClusterNode <Name> -CleanUpDisks
 
 Die Ausführung dieses Cmdlet kann lange dauern (manchmal auch viele Stunden), da Windows alle auf dem Server gespeicherten Daten auf andere Servern im Cluster verschieben muss. Nachdem dieser Vorgang abgeschlossen ist, werden die Laufwerke dauerhaft aus dem Speicherpool entfernt und der fehlerfreie Zustand der betroffenen Volumes wiederhergestellt.
 
-### <a name="requirements"></a>Anforderungen
+### <a name="requirements"></a>Voraussetzungen
 
 Zum dauerhaften horizontalen Herunterskalieren (Entfernen eines Servers *und* der Laufwerke) muss der Cluster die folgenden zwei Kriterien erfüllen. Ist dies nicht der Fall, gibt das Cmdlet **Remove-ClusterNode -CleanUpDisks** sofort einen Fehler zurück, bevor die Datenverschiebung beginnt, um Störungen zu minimieren.
 

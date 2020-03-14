@@ -9,15 +9,15 @@ ms.topic: article
 author: jasongerend
 ms.date: 05/29/2019
 ms.openlocfilehash: ffcff036a7e30018e523def055ce3aeb8d30c225
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365838"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322332"
 ---
 # <a name="whats-new-in-storage-in-windows-server"></a>Neuerungen beim Speicher in Windows Server
 
->Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
+>Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (Semi-Annual Channel)
 
 In diesem Thema werden die neuen und geänderten Funktionen im Speicher in den halbjährlichen Kanal Releases von Windows Server 2019, Windows Server 2016 und Windows Server erläutert.
 
@@ -63,7 +63,7 @@ Um fair zu sein, ist Windows Admin Center ein separater Download, der unter Wind
 
 ### <a name="storage-migration-service"></a>Speichermigrationsdienst
 
-Der Speichermigrationsdienst ist eine neue Technologie, mit der Server einfacher auf eine neuere Version von Windows Server migriert werden können. Er bietet ein grafisches Tool, das Daten auf Servern inventarisiert, Daten und Konfiguration auf neuere Server überträgt und dann optional die Identitäten der alten Server auf die neuen Server überträgt, sodass Apps und Benutzer nichts ändern müssen. Weitere Informationen finden Sie unter [Speichermigrationsdienst)](storage-migration-service/overview.md).
+Der Speichermigrationsdienst ist eine neue Technologie, mit der Server leichter auf eine neuere Version von Windows Server migriert werden können. Es bietet ein grafisches Tool, das Daten auf Servern inventarisiert, Daten und Konfiguration auf neuere Server überträgt und dann optional die Identitäten der alten Server auf die neuen Server überträgt, sodass Apps und Benutzer nichts ändern müssen. Weitere Informationen finden Sie unter [Speichermigrationsdienst)](storage-migration-service/overview.md).
 
 ### <a id="storage-spaces-direct"></a>Direkte Speicherplätze (nur Windows Server 2019)
 
@@ -126,7 +126,7 @@ Wir haben außerdem Verbesserungen an der Nachverfolgung der Replikation durch d
 
 Um die Leistungssteigerung zu erzielen, müssen alle Mitglieder der Replikations Gruppe Windows Server 2019 ausführen.
 
-#### <a name="test-failover"></a>Testen des Failovers
+#### <a name="test-failover"></a>Testfailover
 
 Sie können jetzt vorübergehend eine Momentaufnahme des replizierten Speichers auf einem Zielserver für Test-oder Sicherungszwecke einbinden. Weitere Informationen finden Sie unter [Häufig gestellte Fragen zu Speicherreplikaten](https://aka.ms/srfaq).
 
@@ -143,7 +143,7 @@ Das Speicher Replikat enthält auch folgende Verbesserungen:
 
 ### <a name="smb"></a>SMB
 
-- **SMB1 und das Entfernen der Gastauthentifizierung**: Der Server Message Block-Client und-Server werden von Windows Server nicht mehr standardmäßig installiert. Darüber hinaus ist die Möglichkeit deaktiviert, sich als Gast in SMB2 und höher standardmäßig zu authentifizieren. Weitere Informationen finden Sie unter [SMBv1 wird für Windows 10, Version 1709, und Windows Server, Version 1709, standardmäßig nicht installiert](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
+- **Entfernen der Server Message Block-und Gast Authentifizierung**: Windows Server installiert nicht mehr standardmäßig den Server Message Block-Client und-Server. Darüber hinaus ist die Möglichkeit deaktiviert, sich als Gast in SMB2 und höher standardmäßig zu authentifizieren. Weitere Informationen finden Sie unter [SMBv1 wird nicht standardmäßig in Windows 10, Version 1709 und Windows Server, Version 1709, installiert](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
 
 - **SMB2/SMB3-Sicherheit und Kompatibilität**: Es wurden zusätzliche Optionen für die Sicherheits- und Anwendungskompatibilität hinzugefügt, einschließlich der Möglichkeit, Oplocks SMB2+ für Legacy-Anwendungen zu deaktivieren, sowie die Signierung oder Verschlüsselung, die auf Basis jeder einzelnen Verbindung von einem Client erforderlich ist. Weitere Informationen finden Sie in der SMBShare PowerShell-Modul-Hilfe.
 
@@ -172,8 +172,8 @@ Weitere Informationen finden Sie unter [Übersicht: Windows Server, Semi-Annual 
 
 Der durch das Speicher Replikat hinzugefügte Schutz durch die Notfall Wiederherstellung wird nun erweitert
 
-- **Testen des Failovers**: die Option zum Bereitstellen des Ziel-Speichers ist jetzt mit der Funktion zum Testen des Failovers möglich. Sie können eine Momentaufnahme des replizierten Speichers auf Zielknoten vorübergehend zu Test- und Sicherungszwecken bereitstellen. Weitere Informationen finden Sie unter [Häufig gestellte Fragen zu Speicherreplikaten](https://aka.ms/srfaq).
-- **Windows Admin Center-Unterstützung**: Die Unterstützung für die grafische Verwaltung der Replikation ist jetzt über das Server-Manager Tool im Windows Admin Center verfügbar. Dies schließt die Server-zu-Server-Replikation, Cluster-zu-Cluster sowie die Stretch-Cluster Replikation ein.
+- **Testen des Failovers**: die Option zum Bereitstellen des Ziel-Speichers ist jetzt mit der Funktion zum Testen des Failovers möglich. Sie können einen Snapshot des replizierten Speichers auf Zielknoten vorübergehend zu Test- und Sicherungszwecken bereitstellen. Weitere Informationen finden Sie unter [Häufig gestellte Fragen zu Speicherreplikaten](https://aka.ms/srfaq).
+- **Windows Admin Center-Unterstützung**: die Unterstützung für die grafische Verwaltung der Replikation ist jetzt über das Server-Manager Tool im Windows Admin Center verfügbar. Dies schließt die Server-zu-Server-Replikation, Cluster-zu-Cluster sowie die Stretch-Cluster Replikation ein.
 
 Das Speicher Replikat enthält auch folgende Verbesserungen:
 
@@ -182,7 +182,7 @@ Das Speicher Replikat enthält auch folgende Verbesserungen:
 
 ### <a name="smb"></a>SMB
 
-- **SMB1 und das Entfernen der Gastauthentifizierung**: In Windows Server, Version 1709, wird der SMB1-Client und -Server nicht mehr standardmäßig installiert. Darüber hinaus ist die Möglichkeit deaktiviert, sich als Gast in SMB2 und höher standardmäßig zu authentifizieren. Weitere Informationen finden Sie unter [SMBv1 wird für Windows 10, Version 1709, und Windows Server, Version 1709, standardmäßig nicht installiert](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
+- **SMB1 und das das Entfernen der Gastauthentifizierung**: In Windows Server, Version 1709, wird der SMB1-Client und -Server nicht mehr standardmäßig installiert. Darüber hinaus ist die Möglichkeit deaktiviert, sich als Gast in SMB2 und höher standardmäßig zu authentifizieren. Weitere Informationen finden Sie unter [SMBv1 wird nicht standardmäßig in Windows 10, Version 1709 und Windows Server, Version 1709, installiert](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
 
 - **SMB2/SMB3-Sicherheit und Kompatibilität**: Es wurden zusätzliche Optionen für die Sicherheits- und Anwendungskompatibilität hinzugefügt, einschließlich der Möglichkeit, Oplocks SMB2+ für Legacy-Anwendungen zu deaktivieren, sowie die Signierung oder Verschlüsselung, die auf Basis jeder einzelnen Verbindung von einem Client erforderlich ist. Weitere Informationen finden Sie in der SMBShare PowerShell-Modul-Hilfe.
 
@@ -269,7 +269,7 @@ Wenn die SMB-Signierung und die gegenseitige Authentifizierung nicht verfügbar 
 > [!NOTE]  
 > Die Registrierungswerte für diese Einstellungen sind standardmäßig nicht verfügbar, die Härtungsregeln gelten jedoch trotzdem, bis sie von Gruppenrichtlinien oder anderen Registrierungswerten außer Kraft gesetzt werden.  
 
-Weitere Informationen zu diesen Sicherheitsverbesserungen (auch als UNC-Härtung bezeichnet) finden Sie im Microsoft Knowledge Base-Artikel [3000483](https://support.microsoft.com/kb/3000483) und [MS15-011 & MS15-014: Gruppenrichtlinie für Härtung](https://blogs.technet.microsoft.com/srd/2015/02/10/ms15-011-ms15-014-hardening-group-policy).  
+Weitere Informationen zu diesen Verbesserungen (auch als UNC-Härtung bezeichnet) finden Sie im Microsoft Knowledge Base-Artikel [3000483](https://support.microsoft.com/kb/3000483) und unter [MS15-011 & MS15-014: Hardening Group Policy](https://blogs.technet.microsoft.com/srd/2015/02/10/ms15-011-ms15-014-hardening-group-policy) (MS15-011 & MS15-014: Härten von Gruppenrichtlinien).  
 
 ### <a name="work-folders"></a>Arbeitsordner
 Verbesserte Änderungs Benachrichtigung, wenn auf dem Arbeitsordner Server Windows Server 2016 und der Arbeitsordner Client Windows 10 ausgeführt wird.

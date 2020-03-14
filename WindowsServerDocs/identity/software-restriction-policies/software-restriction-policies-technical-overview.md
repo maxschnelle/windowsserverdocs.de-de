@@ -14,15 +14,15 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
 ms.openlocfilehash: 293239c9f746f939b06d45d6e8c1a50b59e2bc43
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407136"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322962"
 ---
 # <a name="software-restriction-policies-technical-overview"></a>Richtlinien zur Softwareeinschränkung (Software Restriction Policies, SRP) – Technische Übersicht
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema werden Richtlinien für Software Einschränkung beschrieben, wann und wie die Funktion verwendet wird, welche Änderungen in früheren Releases implementiert wurden, und es werden Links zu zusätzlichen Ressourcen bereitgestellt, die Ihnen beim Erstellen und Bereitstellen von Richtlinien für Software Einschränkung ab Windows helfen. Server 2008 und Windows Vista.
 
@@ -88,7 +88,7 @@ In der folgenden Tabelle werden die Features und Funktionen von AppLocker und de
 
 |Anwendungssteuerungsfunktion|Softwareeinschränkungsrichtlinien|AppLocker|
 |----------------|----|-------|
-|Bereich|Richtlinien für Softwareeinschränkung können auf allen Windows-Betriebssystemen ab Windows XP und Windows Server 2003 angewendet werden.|AppLocker-Richtlinien gelten nur für Windows Server 2008 R2, Windows Server 2012, Windows 7 und Windows 8.|
+|Gültigkeitsbereich|Richtlinien für Softwareeinschränkung können auf allen Windows-Betriebssystemen ab Windows XP und Windows Server 2003 angewendet werden.|AppLocker-Richtlinien gelten nur für Windows Server 2008 R2, Windows Server 2012, Windows 7 und Windows 8.|
 |Richtlinienerstellung|SRP-Richtlinien werden mithilfe von Gruppenrichtlinien verwaltet, und nur der Administrator des GPO kann die SRP-Richtlinie aktualisieren. Der Administrator auf dem lokalen Computer kann die im lokalen GPO definierten SRP-Richtlinien ändern.|AppLocker-Richtlinien werden mithilfe von Gruppenrichtlinien verwaltet, und nur der Administrator des GPO kann die Richtlinie aktualisieren. Der Administrator auf dem lokalen Computer kann die im lokalen GPO definierten AppLocker-Richtlinien ändern.<br /><br />Mit AppLocker können Fehlermeldungen so angepasst werden, dass Benutzer auf eine Webseite für Hilfe verwiesen werden.|
 |Richtlinienwartung|SRP-Richtlinien müssen mithilfe des Snap-Ins „Lokale Sicherheitsrichtlinie“ (bei lokal erstellten Richtlinien) oder der Gruppenrichtlinien-Verwaltungskonsole (GPMC) aktualisiert werden.|AppLocker-Richtlinien können mithilfe des Snap-Ins „Lokale Sicherheitsrichtlinie“ (bei lokal erstellten Richtlinien), der GPMC oder den Windows PowerShell-Cmdlets für AppLocker aktualisiert werden.|
 |Richtlinienanwendung|SRP-Richtlinien werden über eine Gruppenrichtlinie verteilt.|AppLocker-Richtlinien werden über eine Gruppenrichtlinie verteilt.|
@@ -97,7 +97,7 @@ In der folgenden Tabelle werden die Features und Funktionen von AppLocker und de
 |Designierte Dateitypen|SRP unterstützt eine erweiterbare Liste von Dateitypen, die als ausführbar gelten. Administratoren können Erweiterungen für Dateien hinzufügen, die als ausführbar gelten sollten.|Dies wird durch AppLocker nicht unterstützt. AppLocker unterstützt derzeit die folgenden Dateierweiterungen:<br /><br />-Ausführbare Dateien (. exe,. com)<br />-DLLs (". ocx", ". dll")<br />-Scripts (. VSB,. js,. ps1,. cmd,. bat)<br />-Windows-Installationsprogramme (. msi,. MST,. msp)<br />-App-Pakete mit Paketen (. AppX)|
 |Regeltypen|SRP unterstützt vier Regeltypen:<br /><br />-Hash<br />-Path<br />-Signatur<br />-Internet Zone|AppLocker unterstützt drei Regeltypen:<br /><br />-Hash<br />-Path<br />-Publisher|
 |Bearbeiten des Hashwerts|Mit SRP können Administratoren benutzerdefinierte Hashwerte bereitstellen.|AppLocker berechnet den Hashwert selbst. Intern wird der SHA1-Authenticode-Hash für portable ausführbare Dateien (exe und dll) und Windows Installer und ein SHA1-Flatfile-Hash für den Rest verwendet.|
-|Unterstützung für verschiedene Sicherheitsstufen|Mit SRP können Administratoren die Berechtigungen angeben, mit denen eine app ausgeführt werden kann. Daher kann ein Administrator eine Regel so konfigurieren, dass Editor immer mit eingeschränkten Berechtigungen und nie mit Administratorrechten ausgeführt wird.<br /><br />Unter Windows Vista und früheren Versionen hat SRP mehrere Sicherheitsstufen unterstützt. Unter Windows 7 war diese Liste auf zwei Ebenen beschränkt: Nicht zulässig und uneingeschränkt (der grundlegende Benutzer wird in unzulässig übersetzt).|AppLocker unterstützt keine Sicherheitsstufen.|
+|Unterstützung für verschiedene Sicherheitsstufen|Mit SRP können Administratoren die Berechtigungen angeben, mit denen eine app ausgeführt werden kann. Daher kann ein Administrator eine Regel so konfigurieren, dass Editor immer mit eingeschränkten Berechtigungen und nie mit Administratorrechten ausgeführt wird.<br /><br />Unter Windows Vista und früheren Versionen hat SRP mehrere Sicherheitsstufen unterstützt. Unter Windows 7 wurde diese Liste auf zwei Ebenen beschränkt: unzulässig und uneingeschränkt (der grundlegende Benutzer wird in unzulässig übersetzt).|AppLocker unterstützt keine Sicherheitsstufen.|
 |Verwalten von App-Paketen und Installer für App-Pakete|Nicht möglich|APPX ist ein gültiger Dateityp, den AppLocker verwalten kann.|
 |Ausrichten einer Regel auf einen Benutzer bzw. eine Benutzergruppe|SRP-Regeln gelten für alle Benutzer auf einem bestimmten Computer.|AppLocker-Regeln können auf einen bestimmten Benutzer bzw. eine Benutzergruppe ausgerichtet werden.|
 |Unterstützung für Regelausnahmen|SRP unterstützt keine Regelausnahmen.|AppLocker-Regeln können Ausnahmen aufweisen, die es Administratoren ermöglichen, Regeln wie "alles von Windows zulassen außer regedit. exe" zu erstellen.|
@@ -173,9 +173,9 @@ Weitere Informationen zur SRP-Architektur und zur Verwaltung von Regeln, Prozess
 
 -   Das Verknüpfen mit einem Gruppenrichtlinien Objekt in einer anderen Domäne oder Website kann zu einer schlechten Leistung führen.
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="additional-resources"></a>Weitere Ressourcen
 
-|Inhaltstyp|Verweise|
+|Art des Inhalts|Verweise|
 |--------|-------|
 |**Planung**|[Technische Referenz für Software Einschränkungs Richtlinien](https://technet.microsoft.com/library/cc728085(v=WS.10).aspx)|
 |**Betrieb**|[Verwalten der Richtlinien für Softwareeinschränkung](administer-software-restriction-policies.md)|

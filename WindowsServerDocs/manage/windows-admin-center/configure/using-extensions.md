@@ -8,15 +8,15 @@ ms.author: jol
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: 7c1a70e36dfac9b23ded8f920ffcc8cccbfff023
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
-ms.translationtype: MT
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371118"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323582"
 ---
 # <a name="install-and-manage-extensions"></a>Installieren und Verwalten von Erweiterungen
 
->Gilt für: Windows Admin Center, Windows Admin Center Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
 Windows Admin Center ist als erweiterbare Plattform ausgelegt, bei der jeder Verbindungstyp und jedes Tool eine Erweiterung darstellt, die du einzeln installieren, deinstallieren und aktualisieren kannst. Du kannst nach neuen, von Microsoft und anderen Entwicklern veröffentlichten Erweiterungen suchen und diese einzeln installieren und aktualisieren, ohne die gesamte Windows Admin Centers-Installation aktualisieren zu müssen. Du kannst außerdem einen separaten NuGet-Feed oder eine gesonderte Dateifreigabe konfigurieren und Erweiterungen zur internen Verwendung innerhalb deiner Organisation verteilen.
 

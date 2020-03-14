@@ -11,15 +11,15 @@ ms.author: coreyp
 manager: dongill
 ms.date: 05/24/2018
 ms.openlocfilehash: 37e3a7788ccd409f4002f5fe2d7ea087e89b3419
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369838"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323522"
 ---
 # <a name="plan-your-wsus-deployment"></a>Planen der WSUS-Bereitstellung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Der erste Schritt bei der Bereitstellung von Windows Server Update Services (WSUS) sind einige wichtige Entscheidungen, z. B. die Auswahl des WSUS-Bereitstellungsszenarios und der Netzwerktopologie sowie die Prüfung der Systemanforderungen. In der folgenden Prüfliste sind die Schritte zur Vorbereitung der Bereitstellung zusammengefasst.
 
@@ -127,7 +127,7 @@ Die folgenden Editionen von SQL Server werden von WSUS unterstützt:
 
 -   Standard
 
--   Unternehmen
+-   Enterprise
 
 -   Express
 
@@ -196,7 +196,7 @@ Sie können das Filialenfeature in Windows nutzen, um die WSUS-Bereitstellung zu
 2.  In Filialen, bei denen die Verbindungen mit der Zentrale eine niedrige Bandbreite haben, die Verbindungen mit dem Internet aber eine hohe Bandbreite, kann das Filialenfeature ebenfalls verwendet werden. In diesem Fall können Sie WSUS-Downstreamserver so konfigurieren, dass sie Informationen zu den zu installierenden Updates vom zentralen WSUS-Server abrufen, die Updates selbst aber von Microsoft Update herunterladen.
 
 ### <a name="network-load-balancing"></a>Netzwerklastenausgleich
-Der Netzwerklastenausgleich (Network Load Balancing, NLB) verbessert die Zuverlässigkeit und Leistung Ihres WSUS-Netzwerks. Sie können mehrere WSUS-Server mit einem gemeinsamen Failovercluster mit SQL Server wie z. B. SQL Server 2008 R2 SP1 einrichten. In dieser Konfiguration müssen Sie eine vollständige SQL Server-Installation verwenden (nicht die von WSUS bereitgestellte interne Windows-Datenbank), und die Datenbankrolle muss auf allen WSUS-Front-End-Servern installiert werden. Sie können auch auch auf allen WSUS-Servern ein verteiltes Dateisystem (Distributed File System, DFS) zum Speichern der Inhalte verwenden.
+Der Netzwerklastenausgleich (Network Load Balancing, NLB) verbessert die Zuverlässigkeit und Leistung Ihres WSUS-Netzwerks. Sie können mehrere WSUS-Server mit einem gemeinsamen Failovercluster mit SQL Server wie z. B. SQL Server 2008 R2 SP1 einrichten. In dieser Konfiguration müssen Sie eine vollständige SQL Server-Installation verwenden (nicht die von WSUS bereitgestellte interne Windows-Datenbank), und die Datenbankrolle muss auf allen WSUS-Front-End-Servern installiert werden. Sie können auch auch auf allen WSUS-Servern ein verteiltes Dateisystem (Distributed File System, DFS) zum Speichern der Inhalte verwenden.
 
 **WSUS-Setup für Netzwerklastenausgleich:** Im Vergleich zum WSUS 3.2-Setup für den Netzwerklastenausgleich sind keine besonderen Setupaufrufe und -parameter mehr erforderlich, um WSUS für den Netzwerklastenausgleich zu konfigurieren. Sie müssen lediglich beim Einrichten der einzelnen WSUS-Server Folgendes beachten.
 
@@ -409,7 +409,7 @@ Einige Bereiche müssen vor der Bereitstellung von WSUS sorgfältig geplant werd
 
 -   Große Updatebereitstellungen
 
--   BITS (Background Intelligent Transfer Service, Intelligenter Hintergrundübertragungsdienst)
+-   Intelligenter Hintergrundübertragungsdienst (Background Intelligent Transfer Service, BITS)
 
 ### <a name="network-setup"></a>Netzwerkeinrichtung
 Anhand der folgenden Methoden kann die Leistung in WSUS-Netzwerken optimiert werden:

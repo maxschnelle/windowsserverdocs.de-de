@@ -9,11 +9,11 @@ ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 03/24/2019
 ms.openlocfilehash: 28108a79bbdc654f6437a698c158a3f74d4423ba
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407015"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322942"
 ---
 # <a name="monitor-servers-and-configure-alerts-with-azure-monitor-from-windows-admin-center"></a>Überwachen von Servern und Konfigurieren von Warnungen mit Azure Monitor aus dem Windows Admin Center
 

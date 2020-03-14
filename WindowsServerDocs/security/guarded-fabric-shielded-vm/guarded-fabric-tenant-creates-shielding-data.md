@@ -9,11 +9,11 @@ author: rpsqrd
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
 ms.openlocfilehash: 26ff5e27494e2f42a0c8e4d28e2b9820f8d19e6a
-ms.sourcegitcommit: 471464a674a53c468a2f1e28575c91245ce9badf
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75548187"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322462"
 ---
 # <a name="shielded-vms-for-tenants---creating-shielding-data-to-define-a-shielded-vm"></a>Abgeschirmte VMs für Mandanten: Erstellen von Schutz Daten zum Definieren einer abgeschirmten VM
 
@@ -76,9 +76,9 @@ Beachten Sie beim Erstellen einer Datei "Unattend. xml" für abgeschirmte VMS di
 
     | Ersetzbares Element | Ersatz Zeichenfolge |
     |-----------|-----------|
-    | ComputerName        | @ComputerName@      |
-    | Zeitzone            | @TimeZone@          |
-    | ProductKey          | @ProductKey@        |
+    | Computername        | @ComputerName@      |
+    | TimeZone            | @TimeZone@          |
+    | ProduktKey          | @ProductKey@        |
     | IPAddr4-1           | @IP4Addr-1@         |
     | IPAddr6-1           | @IP6Addr-1@         |
     | MACADDR-1           | @MACAddr-1@         |
@@ -255,7 +255,7 @@ Wenn Sie weitere Dateien haben, die die Antwortdatei mit dem virtuellen Computer
 
 Weitere Informationen zu weiteren Möglichkeiten zum Konfigurieren ihrer geschützten Datendatei finden Sie in der Cmdlet-Dokumentation für [New-shieldingdatafile](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-ShieldingDataFile?view=win10-ps) und [New-volumeidqualifizierer](https://docs.microsoft.com/powershell/module/shieldedvmdatafile/New-VolumeIDQualifier?view=win10-ps) .
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 - [Bereitstellen von abgeschirmten VMs](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)
