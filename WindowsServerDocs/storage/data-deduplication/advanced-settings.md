@@ -9,11 +9,11 @@ manager: klaasl
 ms.author: wgries
 ms.date: 09/15/2016
 ms.openlocfilehash: 1d0677cec134ddeb4c706d0f1231f2c26b39967e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403221"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322642"
 ---
 # <a name="advanced-data-deduplication-settings"></a>Erweiterte Einstellungen für die Datendeduplizierung
 
@@ -26,9 +26,9 @@ Die [standardmäßigen Auftragszeitpläne für die Datendeduplizierung](understa
 
 ### <a id="modifying-job-schedules-change-schedule"></a>Ändern eines Zeitplans für die Datendeduplizierung
 Datendeduplizierungsaufträge können über den Windows-Aufgabenplanungsdienst geplant und im Pfad „Microsoft\Windows\Deduplication“ angezeigt und bearbeitet werden. Zur Datendeduplizierung gehören mehrere Cmdlets, die die Planung erleichtern.
-* [`Get-DedupSchedule`](https://technet.microsoft.com/library/hh848446.aspx) zeigt die aktuell geplanten Aufträge an.
+* [`Get-DedupSchedule`](https://technet.microsoft.com/library/hh848446.aspx) zeigt die aktuell geplanten Aufträge.
 * [`New-DedupSchedule`](https://technet.microsoft.com/library/hh848445.aspx) erstellt einen neuen geplanten Auftrag.
-* [`Set-DedupSchedule`](https://technet.microsoft.com/library/hh848447.aspx) einen vorhandenen geplanten Auftrag ändern.
+* [`Set-DedupSchedule`](https://technet.microsoft.com/library/hh848447.aspx) ändert einen vorhandenen geplanten Auftrag.
 * [`Remove-DedupSchedule`](https://technet.microsoft.com/library/hh848451.aspx) entfernt einen geplanten Auftrag.
 
 Am häufigsten wird der Zeitpunkt der Ausführung von Datendeduplizierungsaufträgen geändert, um sicherzustellen, dass Aufträge außerhalb der Geschäftszeiten ausgeführt werden. Im folgenden Beispiel wird Schritt für Schritt gezeigt, wie Sie den Zeitplan für die Datendeduplizierung in einem *einfachen* Szenario ändern: ein hyperkonvergenter Hyper-V-Host, der an Wochenenden und wochentags ab 19:00 Uhr im Leerlauf ist. Um den Zeitplan zu ändern, führen Sie die folgenden PowerShell-Cmdlets im Kontext eines Administrators aus.
@@ -100,7 +100,7 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
             <td>Dieser Wert hilft dem System beim Zuordnen von CPU-Zeit. <em>High</em> benötigt mehr CPU-Zeit, <em>low</em> weniger.</td>
         </tr>
         <tr>
-            <td>Days</td>
+            <td>Tage</td>
             <td>Die Tage, an denen der Auftrag geplant ist</td>
             <td>Eine Gruppe ganzer Zahlen von 0 bis 6, die die Tage der Woche darstellen:<ul>
                 <li>0 = Sonntag</li>
@@ -114,7 +114,7 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
             <td>Geplante Aufgaben müssen an mindestens einem Tag ausgeführt werden.</td>
         </tr>
         <tr>
-            <td>Cores</td>
+            <td>Kerne</td>
             <td>Der Prozentsatz der Kerne auf dem System, den ein Auftrag verwenden soll</td>
             <td>Ganze Zahlen von 0 bis 100 (Prozentsatz)</td>
             <td>Dient zum Steuern, welchen Einfluss ein Auftrag auf die Rechenressourcen des Systems hat</td>
@@ -126,7 +126,7 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
             <td>So verhindern Sie, dass ein Auftrag für eine&#39;Arbeitsauslastung außerhalb der Leerlaufzeiten ausgeführt wird</td>
         </tr>
         <tr>
-            <td>Enabled</td>
+            <td>Aktiviert</td>
             <td>Gibt an, ob der Auftrag ausgeführt wird</td>
             <td>True/false</td>
             <td>Dient zum Deaktivieren eines Auftrags, ohne ihn zu entfernen</td>
@@ -152,7 +152,7 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
         <tr>
             <td>Name</td>
             <td>Der Name des geplanten Auftrags</td>
-            <td>Zeichenfolge</td>
+            <td>String</td>
             <td>Ein Auftrag muss einen eindeutig identifizierbaren Namen haben.</td>
         </tr>
         <tr>
@@ -162,7 +162,7 @@ Sie können die folgenden Einstellungen für neue oder geplante Datendeduplizier
             <td>Sie müssen Dateien manuell wiederherstellen, die sich in fehlerhaften Bereichen des Datenträgers befinden.</td>
         </tr>
         <tr>
-            <td>Beginn</td>
+            <td>Starten</td>
             <td>Gibt die Startzeit des Auftrags an</td>
             <td><code>System.DateTime</code></td>
             <td>Der <em>Datums</em> Teil der <code>System.Datetime</code>, der für den <em>Start</em> bereitgestellt wird, ist irrelevant&#39;(solange er in der Vergangenheit liegt), aber der <em>Zeit</em> Teil gibt an, wann der Auftrag gestartet werden soll.</td>
@@ -267,7 +267,7 @@ Die Hauptgründe für das Ändern der Volumeeinstellungen für den ausgewählten
             <td>Aktivieren Sie diese Einstellung, wenn Ihre Workload mit großen, häufig bearbeiteten Dateien arbeitet, bei denen ein Großteil des Dateiinhalts unverändert bleibt. Wenn diese Einstellung nicht aktiviert ist, würden diese Dateien nie optimiert werden, da sie weiter geändert werden, auch wenn der Großteil des Dateiinhalts für eine Optimierung bereit ist.</td>
         </tr>
         <tr>
-            <td>Verify</td>
+            <td>Überprüfen</td>
             <td>Wenn, falls aktiviert, der Hash eines Blocks einem Block entspricht, der bereits im Blockspeicher enthalten ist, werden die Blöcke byteweise verglichen, um sicherzustellen, dass sie identisch sind.</td>
             <td>True/false</td>
             <td>Dies ist ein Integritätsfeature, das sicherstellt, dass der Hashalgorithmus, der die Blöcke vergleicht, nicht den Fehler macht, zwei Datenblöcke zu vergleichen, die eigentlich unterschiedlich sind, aber denselben Hash haben. In der Praxis ist es sehr unwahrscheinlich, dass dies jemals passiert. Das Aktivieren der Überprüfungsfunktion bedeutet für den Optimierungsauftrag einen beträchtlichen Mehraufwand.</td>

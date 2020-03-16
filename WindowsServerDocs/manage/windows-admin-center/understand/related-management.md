@@ -8,15 +8,15 @@ ms.author: harowl
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: d681e5007cd3ae3c14de774df0bc85abc23b51d7
-ms.sourcegitcommit: 06ae7c34c648538e15c4d9fe330668e7df32fbba
-ms.translationtype: MT
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78371686"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323532"
 ---
 # <a name="windows-admin-center-and-related-management-solutions-from-microsoft"></a>Windows Admin Center und verwandte Verwaltungslösungen von Microsoft
 
->Gilt für: Windows Admin Center, Windows Admin Center Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
 
 [Windows Admin Center](windows-admin-center.md) ist die Weiterentwicklung herkömmlicher mitgelieferter Serververwaltungstools für Situationen, in denen du unter Umständen eine Remotedesktopverbindung (RD-Verbindung) mit einem Server herstellen musst, um Problembehandlungs- oder Konfigurationsschritte auszuführen. Die Lösung ist kein Ersatz für andere Microsoft-Verwaltungslösungen, sondern vielmehr eine Ergänzung, wie weiter unten beschrieben.
 
@@ -43,8 +43,8 @@ Bei den [Remoteserver-Verwaltungstools (Remote Server Administration Tools, RSAT
 | **Kompakte** und **ortsunabhängige** browserbasierte Remoteverwaltung von Windows Server-Instanzen als Alternative zu RDP | **Bedarfsorientierte** Verwaltung und Überwachung **heterogener** Systeme – einschließlich Hyper-V, VMware und Linux |
 |Details zu einzelnen Servern und Clustern für die Problembehandlung, Konfiguration und Wartung (**Tiefe**)|Infrastrukturbereitstellung, Automatisierung und Self-Service, Infrastruktur- und Workloadüberwachung (**Breite**)|
 |Optimierte Verwaltung **einzelner** **HCI**-Cluster mit zwei bis vier Knoten und Integration von Hyper-V, direkten Speicherplätzen und SDN|Bereitstellung und Verwaltung von Hyper-V und Windows Server-Clustern auf **Rechenzentrumsebene** über **Bare Metal** mit SCVMM|
-|**Ausschließliche HCI-Überwachung** (Verlaufsspeicherung durch Clusterintegritätsdienst). Erweiterbare Plattform für **Verwaltungstoolerweiterungen** von Microsoft und Drittanbietern|**Erweiterbare** und  & skalierbare Überwachungsplattform** in SCOM mit Warnungen, Benachrichtigungen, Überwachung von Drittanbieterworkloads und SQL für den Verlauf|
+|**Ausschließliche HCI-Überwachung** (Verlaufsspeicherung durch Clusterintegritätsdienst). Erweiterbare Plattform für **Verwaltungstoolerweiterungen** von Microsoft und Drittanbietern|**Erweiterbare** und **skalierbare Überwachungsplattform** in SCOM mit Warnungen, Benachrichtigungen, Überwachung von Drittanbieterworkloads und SQL für den Verlauf|
 |Einfachster Weg zu einer **Hybridlösung**: Onboarding und Verwendung verschiedenster Azure-Dienste für Datenschutz, Replikation, Updates und Ähnlichem|Datenschutz, Replikation und Updates **integriert** (DPM/VMM/SCCM). Hybridintegration mit Log Analytics und Dienstzuordnung|
-|**Beleuchtet Platt Form Features** von Windows Server: Speicher Migrationsdienst, Speicher Replikat, System Einblicke usw.|**Zusätzliche Plattformen**: Automatisierung in Orchestrator/SMA. Integrationen mit SCSM & anderen Dienst Verwaltungs Tools|
+|**Konzentration auf Plattformfeatures** von Windows Server: Speichermigrationsdienst, Speicherreplikat, Systemdaten usw.|**Weitere Plattformen:** Automatisierung in Orchestrator/SMA. Integrationen mit SCSM und anderen Dienstverwaltungstools|
 
 #### <a name="each-delivers-targeted-value-independently-better-together-with-complementary-capabilities"></a>Beide Lösungen bieten jeweils einen gezielten Mehrwert und **ergänzen sich gegenseitig**.
