@@ -8,16 +8,16 @@ ms.author: jol
 ms.date: 09/17/2018
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: ee8c0203be25b30f173b1887de506844d5b58738
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 90f5b670744b812769164a7a2c70fc673fe4089f
+ms.sourcegitcommit: 3cb84bc0bd4be0f9333b7c85cda858c38730cb3a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406911"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79432449"
 ---
 # <a name="extensions-for-windows-admin-center"></a>Erweiterungen für Windows Admin Center
 
->Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center Vorschau
 
 Windows Admin Center wird als eine erweiterbare Plattform zum Aktivieren von Partnern und Entwicklern und Funktionen in Windows Admin Center genutzt, integriert sich nahtlos in andere Produkte für IT-Administrationsprodukte und -Lösungen und mehr. Jede Lösung und jedes Tool im Windows Admin Center ist eine Erweiterung mit denselben Erweiterungsfeatures für Partner und Entwickler, damit Sie die in Windows Admin Center verfügbaren leistungsstarken Tools nutzen können.
 
@@ -27,10 +27,10 @@ Windows Admin Center-Erweiterungen basieren auf modernen Webtechnologien einschl
 
 Hier ist der Wert, den Sie für Ihr Produkt und ihre Kunden nutzen können, indem Sie Erweiterungen für Windows Admin Center entwickeln:
 
-- **Integration in Windows Admin Center-Tools:** Integrieren Sie Ihre Produkte und Dienste in die Server-und Cluster Verwaltungs Tools in Windows Admin Center, und stellen Sie Ihren Kunden eine einheitliche, nahtlose End-to-End-Überwachung, Verwaltung und Problembehandlung bereit.
-- **Nutzen Sie Plattformsicherheit, Identitäts-und Verwaltungsfunktionen:** Aktivieren Sie die Unterstützung von Azure Active Directory (AAD), Multi-Factor Authentication, rollenbasierten Access Control (Role-Based, RBAC), Protokollierung, Überwachung für Ihr Produkt und ihre Dienste, indem Sie die Funktionen der Windows Admin Center-Plattform nutzen, um die komplexen Anforderungen IT-Organisationen.
-- **Entwickeln Sie mit den neuesten Webtechnologien:** Erstellen Sie mit modernen Webtechnologien, wie z.b. HTML5, CSS, Angular, typescript und jQuery, und umfangreiche, leistungsstarke UI-Steuerelemente, die im Windows Admin Center SDK enthalten sind, schnell beeindruckende Benutzererfahrung.
-- **Erweitern der Produktbetreuung:** Nehmen Sie an der neuen Windows Admin Center-Umgebung Teil, und profitieren Sie von unserer schnell wachsenden Kundenbasis und nutzen die Windows Server 2019-Start Dynamik später in diesem Jahr.
+- **Integrieren mit Windows Admin Center Tools:** Integrieren Sie Ihre Produkte und Dienstleistungen mit Server- und Cluster-Verwaltungstools in Windows Admin Center, und übermitteln Sie nahtlos, End-to-End-Management-Überwachung, Problembehandlung für Ihre Kunden.
+- **Nutzen Sie Plattformsicherheit, Identitäts-und Verwaltungsfunktionen:** Aktivieren Sie die Unterstützung von Azure Active Directory (AAD), Multi-Factor Authentication, rollenbasierten Access Control (Role-Based, RBAC), Protokollierung, Überwachung für Ihr Produkt und ihre Dienste, indem Sie die Funktionen der Windows Admin Center-Plattform nutzen, um die komplexen Anforderungen der heutigen IT-
+- **Entwickeln mit den neuesten Webtechnologien:** Erstellen Sie schnell beeindruckende Benutzererlebnisse mit modernen Webtechnologien einschließlich HTML5, CSS, Angular, TypeScript and jQuery und umfangreichen und leistungsstarken UI-Steuerelementen, die im Windows Admin Center SDK enthalten sind.
+- **Produktreichweite vergrößern:** Werden Sie Teil des neuen Windows Admin Center-Ökosystems, erweitern Sie die schnell wachsende Kundenbasis und nutzen Sie das Windows Server 2019 Einführungsmomentum in diesem Jahr.
 
 ## <a name="start-developing-with-the-windows-admin-center-sdk"></a>Beginnen Sie mit der Entwicklung mit dem Windows Admin Center SDK
 
@@ -38,7 +38,7 @@ Der Einstieg in die Entwicklung des Windows Admin Centers ist einfach!  Den Beis
 
 Wir haben ein Windows Admin Center [SDK-Entwurfs-Toolkit](https://github.com/Microsoft/windows-admin-center-sdk/blob/master/WindowsAdminCenterDesignToolkit.zip) zur Verfügung gestellt, mit dem Sie Erweiterungen in PowerPoint mithilfe von Windows Admin Center-Stilen,-Steuerelementen und-Seitenvorlagen schnell bereinigen können. Sehen Sie sich an, wie Ihre Erweiterung im Windows Admin Center aussehen kann, bevor Sie mit dem Programmieren beginnen!
 
-Außerdem haben wir Beispielcode auf GitHub gehostet: [Entwicklertools](https://aka.ms/wacsdk) ist eine Beispiel-projektmappenerweiterung mit einer umfangreichen Sammlung von Steuerelementen, die Sie durchsuchen und in ihrer eigenen Erweiterung verwenden können. Entwicklertools ist eine voll funktionsfähige Erweiterung, die in Windows Admin Center im Entwicklermodus Seite geladen werden können.
+Außerdem haben wir Beispielcode auf GitHub gehostet: [Entwicklertools](https://aka.ms/wacsdk) ist eine Beispiel-projektmappenerweiterung, die eine umfangreiche Sammlung von Steuerelementen enthält, die Sie durchsuchen und in ihrer eigenen Erweiterung verwenden können. Entwicklertools ist eine voll funktionsfähige Erweiterung, die in Windows Admin Center im Entwicklermodus Seite geladen werden können.
 
 Lesen Sie die Themen unten, um mehr über das SDK und die ersten Schritte zu erfahren:
 
@@ -80,14 +80,8 @@ Reiner Speicher bietet Enterprise-, all-Flash-Datenspeicherlösungen, die datenz
 
 ![Reine Speichererweiterung](../media/extensibility-overview/purestorage-extension.png)
 
-### <a name="qct"></a>QCT
+### <a name="qct"></a>Qct
 
 Die qct Management Suite-Erweiterung ergänzt Windows Admin Center durch die Bereitstellung physischer Serverüberwachung und-Verwaltung für qct-Azure Stack HCI-zertifizierte Systeme. Die qct Management Suite-Erweiterung zeigt Server Hardwareinformationen an und bietet eine intuitive Assistent-Benutzeroberfläche, die Ihnen hilft, physische Datenträger effizient zu ersetzen, Hardware-Ereignisprotokoll Tools und S.M.A.R.T. basierte Verwaltung vorhersag barer Datenträger. [Erfahren Sie mehr über die qct Management Suite-Erweiterung](case-studies/qct.md).
 
 ![Qct-Erweiterung](../media/extensibility-overview/qct-extension.png)
-
-### <a name="squared-up"></a>Squared Up
-
-Squared Up bietet eine optimale Erfahrung basierend auf System Center Operations Manager und integriert Azure Log Analytics, Application Insights und anderen Monitoring-Lösungen. Die [Erweiterung Squared Up](https://squaredup.com/product/honolulu/windows-admin-center-extension/?utm_source=microsoft-docs&utm_medium=public-relations&utm_campaign=honolulu) ermöglicht optimale Leistungsdaten und Live-Anwendungstopologien und Abhängigkeiten im Kontext von Server- und Clusterverwaltung des Windows Admin Centers. Vorherige Kunden sehen den Wert der immensen Datenzufuhr aus vielen unterschiedlichen Quellen in eine einzelne Quelle. [Erfahren Sie mehr über Squared Up und die Erfahrung in der Entwicklung](case-studies/squared-up.md).
-
-![Squared Up-Erweiterung](../media/extensibility-overview/squaredup-extension.png)

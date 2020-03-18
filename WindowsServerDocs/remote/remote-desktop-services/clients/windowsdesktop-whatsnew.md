@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 02/25/2020
+ms.date: 03/10/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: f435892f0a200056c08094cac1831c710a47a6be
-ms.sourcegitcommit: 92e0e4224563106adc9a7f1e90f27da468859d90
+ms.openlocfilehash: 981a9071b3f5daf1ca97dcde8a8b32b2a2588d99
+ms.sourcegitcommit: fc900eb19ac26c3d6bc2de179cc4b2c1e971043e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77608796"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79038063"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -31,7 +31,21 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 |Benutzergruppe |Version  |
 |-----------|---------|
 |Öffentlich     |1.2.675  |
-|Insider    |1.2.675  |
+|Insider    |1.2.787  |
+
+## <a name="updates-for-version-12787"></a>Updates für Version 1.2.787
+
+*Veröffentlicht am: 10.03.2020*
+
+Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qZVh), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qXhC), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qRVA)
+
+- Die Aktion „Update“ für Arbeitsbereiche wurde in „Aktualisieren“ umbenannt, um Konsistenz mit anderen Remotedesktopclients zu gewährleisten.
+- Ein Arbeitsbereich kann jetzt direkt über das zugehörige Kontextmenü aktualisiert werden.
+- Durch manuelles Aktualisieren eines Arbeitsbereichs wird sichergestellt, dass alle lokalen Inhalte aktualisiert werden.
+- Die Benutzerdaten des Clients können jetzt über die Seite „Info“ zurückgesetzt werden, ohne die App deinstallieren zu müssen.
+- Die Benutzerdaten des Clients können jetzt auch mit „msrdcw.exe /reset“ und einem optionalen „/f“-Parameter zurückgesetzt werden, um die Eingabeaufforderung zu überspringen.
+- Bei der Navigation zur Seite „Info wird jetzt automatisch nach einem Clientupdate gesucht.
+- Die Farbe der Schaltflächen wurde aus Konsistenzgründen aktualisiert.
 
 ## <a name="updates-for-version-12675"></a>Updates für Version 1.2.675
 

@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 01/07/2020
 ms.localizationpriority: high
 ms.prod: windows-server
-ms.openlocfilehash: 7b3a75258086a73fbd618c2e8221454d7e616556
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: bb2f6d7fcbf18ef9bc67534982d1a98fdc5172a1
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949984"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79320034"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -37,7 +37,7 @@ Für die folgenden Aufgaben können Sie das Windows Admin Center verwenden:
 
 |     |     |
 | --- | --- |
-| ![](media/simple-icon.png)| **Vereinfachen der Serververwaltung** <br/> Verwalten Sie Ihre Server und Cluster mit modernisierten Versionen vertrauter Tools wie Server-Manager. Sie können die Installation in weniger als 5 Minuten ausführen und sofort mit der Verwaltung beginnen, es ist keine Zielkonfiguration erforderlich. Weitere Informationen finden Sie unter [Was ist Windows Admin Center?](understand/what-is.md) |
+| ![](media/simple-icon.png)| **Vereinfachen der Serververwaltung** <br/> Verwalten Sie Ihre Server und Cluster mit modernisierten Versionen vertrauter Tools wie Server-Manager. Sie können die Installation in weniger als 5 Minuten ausführen und sofort mit der Verwaltung beginnen, es ist keine zusätzliche Konfiguration erforderlich. Weitere Informationen finden Sie unter [Was ist Windows Admin Center?](understand/what-is.md) |
 | ![](media/future-icon.png)| **Arbeiten mit Hybridlösungen** <br/> Die Integration in Azure unterstützt Sie beim optionalen Verbinden ihrer lokalen Server mit relevanten Clouddiensten. Weitere Informationen finden Sie unter [Azure-Hybriddienste](azure/index.md). |
 | ![](media/secure-icon.png)| **Optimieren der hyperkonvergenten Verwaltung** <br/> Optimieren Sie die Verwaltung von Azure Stack HCI oder hyperkonvergenten Windows Server-Clustern. Verwenden Sie vereinfachte Workloads, um virtuelle Computer, Volumes mit „Direkte Speicherplätze“, Software-Defined Networking und mehr zu erstellen und zu verwalten. Weitere Informationen finden Sie unter [Verwalten hyperkonvergenter Infrastruktur mit Windows Admin Center](use/manage-hyper-converged.md).|
 

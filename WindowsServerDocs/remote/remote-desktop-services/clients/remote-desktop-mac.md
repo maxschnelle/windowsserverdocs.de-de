@@ -14,12 +14,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: ca68087ad238cbbd06c56e41dd65f318adae5222
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 1b2ea23e95796f6cce90a1dc90de896c2242084a
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465474"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79319994"
 ---
 # <a name="get-started-with-the-macos-client"></a>Erste Schritte mit dem macOS-Client
 
@@ -164,7 +164,7 @@ Die Remotesitzung verwendet standardmäßig dasselbe Tastaturgebietsschema wie d
 
 ## <a name="support-for-remote-desktop-gateway-pluggable-authentication-and-authorization"></a>Unterstützung für die austauschbare Remotedesktopgateway-Authentifizierung und -Autorisierung
 
-In Windows Server 2012 R2 wurde die Unterstützung für eine neue Authentifizierungsmethode, die austauschbare Remotedesktopgateway-Authentifizierung und -Autorisierung eingeführt, die mehr Flexibilität für benutzerdefinierte Authentifizierungsroutinen bietet. Dieses Authentifizierungsmodell können Sie jetzt für den Mac-Client verwenden. 
+In Windows Server 2012 R2 wurde die Unterstützung für eine neue Authentifizierungsmethode, die austauschbare Remotedesktopgateway-Authentifizierung und -Autorisierung eingeführt, die mehr Flexibilität für benutzerdefinierte Authentifizierungsroutinen bietet. Sie können dieses Authentifizierungsmodell jetzt mit dem Mac-Client ausprobieren. 
 
 > [!IMPORTANT]
 > Benutzerdefinierte Authentifizierungs- und Autorisierungsmodelle vor Windows 8.1 werden nicht unterstützt, aber im obigen Artikel erläutert.
@@ -174,4 +174,3 @@ Weitere Informationen zu diesem Feature finden Sie unter [https://aka.ms/paa-sam
 
 > [!TIP]
 > Fragen und Kommentare sind immer willkommen. Verwenden Sie jedoch NICHT die Kommentarfunktion am Ende dieses Artikels, um Hilfe bei der Problembehandlung anzufordern. Verwenden Sie stattdessen das [Remotedesktopclient-Forum](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc), und erstellen Sie einen neuen Thread. Haben Sie einen Vorschlag für ein Feature? Teilen Sie uns dies im [UserVoice-Forum für den Client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android) mit.
-

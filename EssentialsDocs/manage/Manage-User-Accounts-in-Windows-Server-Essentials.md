@@ -13,11 +13,11 @@ author: nnamuhcs
 ms.author: coreyp
 manager: dongill
 ms.openlocfilehash: 069cbbdf499ce86586390b1031b6fea71f4f2b2a
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865232"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79322222"
 ---
 # <a name="manage-user-accounts-in-windows-server-essentials"></a>Verwalten von Benutzerkonten in Windows Server Essentials
 
@@ -90,7 +90,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 3.  Wählen Sie in der Liste der Benutzerkonten das zu entfernende Benutzerkonto aus.  
   
-4.  Klicken Sie im Bereich **Aufgaben\> des < Benutzerkontos** auf **Benutzerkonto entfernen**. Der Assistent zum Löschen eines Benutzerkontos wird angezeigt.  
+4.  Klicken Sie im Bereich **< Benutzerkonto\> Tasks** auf **Benutzerkonto entfernen**. Der Assistent zum Löschen eines Benutzerkontos wird angezeigt.  
   
 5.  Auf der Seite möchten **Sie die Dateien behalten?** des Assistenten können Sie die Dateien des Benutzers löschen, einschließlich der Sicherungen von Datei Versions Verläufen und des umgeleiteten Ordners für das Benutzerkonto. Lassen Sie das Kontrollkästchen leer, um die Dateien des Benutzers beizubehalten. Nachdem Sie die Auswahl getroffen haben, klicken Sie auf **Weiter**.  
   
@@ -116,7 +116,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 1.  Wählen Sie in der Liste der Benutzerkonten das Konto aus, für das Sie Eigenschaften anzeigen oder ändern möchten.  
   
-2.  Klicken Sie im Bereich **Aufgaben\> des < Benutzerkontos** auf **Konto Eigenschaften anzeigen**. Die Seite **Eigenschaften** für das Benutzerkonto wird angezeigt.  
+2.  Klicken Sie im Bereich **< Benutzerkonto\> Tasks** auf **Konto Eigenschaften anzeigen**. Die Seite **Eigenschaften** für das Benutzerkonto wird angezeigt.  
   
 3.  Klicken Sie auf eine Registerkarte, um die Eigenschaften für diese Kontofunktion anzuzeigen.  
   
@@ -133,7 +133,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 3.  Wählen Sie in der Liste von Benutzerkonten das Benutzerkonto aus, das Sie ändern möchten.  
   
-4.  Klicken Sie im Bereich **Aufgaben\> des < Benutzerkontos** auf **Konto Eigenschaften anzeigen**. Die Seite **Eigenschaften** für das Benutzerkonto wird angezeigt.  
+4.  Klicken Sie im Bereich **< Benutzerkonto\> Tasks** auf **Konto Eigenschaften anzeigen**. Die Seite **Eigenschaften** für das Benutzerkonto wird angezeigt.  
   
 5.  Geben Sie auf der Registerkarte **Allgemein** einen neuen **Vornamen** und **Nachnamen** für das Benutzerkonto ein, und klicken Sie dann auf **OK**.  
   
@@ -153,7 +153,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 3.  Wählen Sie in der Listenansicht das zu aktivierende Benutzerkonto aus.  
   
-4.  Klicken Sie im Bereich **Aufgaben\> des < Benutzerkontos** auf **Benutzerkonto aktivieren**.  
+4.  Klicken Sie im Bereich **< Benutzerkonto\> Tasks** auf **Benutzerkonto aktivieren**.  
   
 5.  Klicken Sie im Bestätigungsfenster auf **Ja**, um die Aktion zu bestätigen.  
   
@@ -178,7 +178,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 3.  Wählen Sie in der Listenansicht das zu deaktivierende Benutzerkonto aus.  
   
-4.  Klicken Sie im Bereich **Aufgaben\> des < Benutzerkontos** auf **Benutzerkonto deaktivieren**.  
+4.  Klicken Sie im Bereich **< Benutzerkonto\> Tasks** auf **Benutzerkonto deaktivieren**.  
   
 5.  Klicken Sie im Bestätigungsfenster auf **Ja**, um die Aktion zu bestätigen.  
   
@@ -231,14 +231,14 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
   -   Aufgaben, die es Ihnen gestatten, Einstellungen für alle Benutzerkonten im Netzwerk global festzulegen oder zu ändern.  
   
-  In der folgenden Tabelle sind die verschiedenen Benutzerkontoaufgaben beschrieben, die über die Registerkarte **Benutzer** verfügbar sind. Einige Aufgaben sind benutzerkontoabhängig und sie werden nur angezeigt, wenn Sie ein Benutzerkonto in der Liste auswählen.  
+  In der folgenden Tabelle werden die verschiedenen Benutzerkonto Aufgaben beschrieben, die auf der Registerkarte **Benutzer** verfügbar sind. Einige Aufgaben sind Benutzerkonto spezifisch und nur sichtbar, wenn Sie ein Benutzerkonto in der Liste auswählen.  
   
 > [!NOTE]
 >  Wenn Sie Office 365 in Windows Server Essentials integrieren, werden weitere Aufgaben zur Verfügung gestellt. Weitere Informationen finden Sie unter [Verwalten von Online Konten für Benutzer](Manage-Online-Accounts-for-Users.md).  
   
 ### <a name="user-account-tasks-in-the-dashboard"></a>Benutzerkontoaufgaben im Dashboard  
   
-|Aufgabenname|Beschreibung|  
+|Taskname|Beschreibung|  
 |---------------|-----------------|  
 |Kontoeigenschaften anzeigen|Gestattet es Ihnen, die Eigenschaften des ausgewählten Benutzerkontos anzuzeigen und zu ändern sowie die Berechtigungen für den Ordnerzugriff für das Konto anzugeben.|  
 |Benutzerkonto deaktivieren|Ein deaktiviertes Benutzerkonto kann sich nicht am Netzwerk anmelden oder auf die Netzwerkressourcen zugreifen, z. B. auf die freigegebenen Ordner oder Drucker.|  
@@ -292,7 +292,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 3. Wählen Sie in der Liste der Benutzerkonten das Benutzerkonto aus, das Sie zurücksetzen möchten.  
   
-4. Klicken Sie im Bereich **Aufgaben\> des < Benutzerkontos** auf **Benutzerkonto Kennwort ändern**. Der Assistent zum Ändern des Benutzerkontokennworts wird angezeigt.  
+4. Klicken Sie im Bereich **< Benutzerkonto\> Tasks** auf **Benutzerkonto Kennwort ändern**. Der Assistent zum Ändern des Benutzerkontokennworts wird angezeigt.  
   
 5. Geben Sie ein neues Kennwort für das Benutzerkonto ein, und geben Sie das Kennwort anschließend erneut ein, um es zu bestätigen.  
   
@@ -347,7 +347,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 3.  Legen Sie auf dem Bildschirm **Kennwortrichtlinie ändern** den Grad der Kennwortsicherheit über den Schieberegler fest.  
   
-     Microsoft empfiehlt, für die Kennwortsicherheit **Sicher**festzulegen.  
+     Microsoft empfiehlt, für die Kennwortsicherheit **Sicher** festzulegen.  
   
     > [!NOTE]
     >  Optional können Sie auch **Kennwörter laufen nicht** auswählen. Diese Einstellung ist weniger sicher und wird somit nicht empfohlen.  
@@ -379,13 +379,13 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 3. Wählen Sie in der Liste der Benutzerkonten das zu entfernende Benutzerkonto aus.  
   
-4. Klicken Sie im Bereich **Aufgaben\> des < Benutzerkontos** auf **Benutzerkonto entfernen**. Der Assistent zum Löschen eines Benutzerkontos wird angezeigt.  
+4. Klicken Sie im Bereich **< Benutzerkonto\> Tasks** auf **Benutzerkonto entfernen**. Der Assistent zum Löschen eines Benutzerkontos wird angezeigt.  
   
 5. Stellen Sie auf der Seite **Möchten Sie die Dateien behalten?** sicher, dass das Kontrollkästchen **Dateien (samt Sicherungen des Dateiversionsverlaufs und umgeleitetem Ordner) für das Benutzerkonto löschen** deaktiviert ist, und klicken Sie dann auf **Weiter**.  
   
     Es wird eine Bestätigungsseite mit einer Warnung angezeigt, dass Sie das Konto löschen, aber die Dateien behalten.  
   
-6. Klicken Sie auf **Konto löschen** , um das Benutzerkonto zu löschen.  
+6. Klicken Sie auf **Konto löschen**, um das Benutzerkonto zu löschen.  
   
    Nachdem das Benutzerkonto entfernt wurde, kann der Administrator einem anderen Benutzerkonto den Zugriff auf den freigegebenen Ordner erteilen.  
   
@@ -401,7 +401,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 5.  Klicken Sie mit der rechten Maustaste auf den Ordner für das Benutzerkonto, das Sie freigeben möchten, und klicken Sie dann auf **Eigenschaften**.  
   
-6.  Klicken Sie in **<\> Benutzerkonto Eigenschaften**auf die Registerkarte **Freigabe** , und klicken Sie dann auf **Freigeben**.  
+6.  Klicken Sie in **< Eigenschaften von Benutzerkonto\>** auf die Registerkarte **Freigabe** , und klicken Sie dann auf **Freigeben**.  
   
 7.  Geben Sie in das Fenster **Dateifreigabe** den Benutzerkontonamen ein oder wählen Sie einen Namen aus, für den der Ordner freigegeben werden soll, und klicken Sie dann auf **Hinzufügen**.  
   
@@ -416,11 +416,11 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 1. Führen Sie an einer Eingabeaufforderung `ntdsutil.exe` aus, um das Tool "ntdsutil" zu öffnen.  
   
-2. Geben Sie zum Zurücksetzen des DSRM-Kennworts **set dsrm password**ein.  
+2. Geben Sie zum Zurücksetzen des DSRM-Kennworts **set dsrm password** ein.  
   
 3. Um das DSRM-Kennwort auf einem Domänen Controller mit dem aktuellen Netzwerkadministrator Konto zu synchronisieren, geben Sie Folgendes ein:  
   
-    **aus Domänen Konto synchronisieren** *< current_network_administrator_account >* , und drücken Sie dann die EINGABETASTE.  
+    **Synchronisieren Sie von Domänen Konto** *< current_network_administrator_account >* , und drücken Sie dann die EINGABETASTE.  
   
    Da Sie das Kennwort für das Netzwerkadministratorkonto in regelmäßigen Abständen ändern, um sicherzustellen, dass das DSRM-Kennwort immer dem aktuellen Kennwort des Netzwerkadministrators entspricht, empfiehlt es sich, einen Zeitplantask zu planen, um das DSRM-Kennwort automatisch täglich mit dem Netzwerkadministratorkennwort zu synchronisieren.  
   
@@ -430,7 +430,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 2.  Klicken Sie im Taskplaner im Bereich **Aktionen** auf **Task erstellen**.  
   
-3.  Geben Sie in das Textfeld **Name** einen Namen für die Task ein, z. B. **AutoSync DSRM-Kennwort**, und wählen Sie dann die Option **Mit höchsten Berechtigungen ausführen** aus.  
+3.  Geben Sie in das Textfeld **Name** einen Namen für die Task ein, z. B. **AutoSync DSRM-Kennwort**, und wählen Sie dann die Option **Mit höchsten Berechtigungen ausführen** aus.  
   
 4.  Legen Sie fest, wann die Task ausgeführt werden soll:  
   
@@ -449,9 +449,9 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
     2.  Klicken Sie in der Liste **Aktion** auf **Programm starten**, und navigieren Sie dann zu **C:\WINDOWS\SYSTEM32\ntdsutil.exe**.  
   
-    3.  Geben Sie im Textfeld **Argumente hinzufügen**(optional) Folgendes ein (Sie müssen die Anführungszeichen einschließen): **Festlegen der DSRM-Kenn Wort Synchronisierung aus dem Domänen Konto SBS_network_administrator_account q q** Where *SBS_network_administrator_account* is der Name des aktuellen Netzwerkadministrators.  
+    3.  Geben Sie im Textfeld **Argumente hinzufügen**(optional) Folgendes ein (Sie müssen die Anführungszeichen einschließen): **legen Sie die DSRM-Kenn Wort Synchronisierung über das Domänen Konto SBS_network_administrator_account q q fest** , wobei *SBS_network_administrator_account* den Kontonamen des aktuellen Netzwerkadministrators darstellt.  
   
-6.  Klicken Sie zweimal auf **OK** , um die Task zu speichern und das Dialogfeld **Task erstellen** zu schließen. Die neue Task wird im Abschnitt **Aktive Tasks** des **Taskplaners** angezeigt.  
+6.  Klicken Sie zweimal auf **OK**, um die Task zu speichern und das Dialogfeld **Task erstellen** zu schließen. Die neue Task wird im Abschnitt **Aktive Tasks** des **Taskplaners** angezeigt.  
   
 ###  <a name="BKMK_Access8"></a>Erteilen der Remote Desktop Berechtigung für Benutzerkonten  
  Bei der Standardinstallation von Windows Server Essentials verfügen Netzwerkbenutzer nicht über die Berechtigung zum Herstellen einer Remoteverbindung zu Computern oder anderen Ressourcen im Netzwerk.  
@@ -473,11 +473,11 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
 ###  <a name="BKMK_Access9"></a>Benutzern den Zugriff auf Ressourcen auf dem Server ermöglichen  
   Dieser Abschnitt gilt für einen Server, auf dem Windows Server Essentials oder Windows Server Essentials ausgeführt wird, oder für einen Server mit Windows Server 2012 R2 Standard oder Windows Server 2012 R2 Datacenter mit installierter Windows Server Essentials-Rolle.  
   
- Wenn Benutzer den Remotezugriff verwenden und/oder über einzelne Benutzerkonten verfügen sollen, können Sie nach dem Herstellen einer Verbindung zwischen einem Computer und dem Server über das Dashboard neue Netzwerkbenutzerkonten für die Benutzer des an das Netzwerk angeschlossenen Computers auf dem Server erstellen. Weitere Informationen zum Erstellen von Benutzerkonten finden Sie unter [Add a user account](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage1). Nachdem Sie die Benutzerkonten erstellt haben, müssen Sie die Informationen zum Netzwerkbenutzernamen und dem zugehörigen Kennwort für die Benutzer des Clientcomputers bereitstellen, damit diese mithilfe des Launchpads auf die Ressourcen auf dem Server zugreifen können.  
+ Wenn Benutzer den Remotezugriff verwenden und/oder über einzelne Benutzerkonten verfügen sollen, können Sie nach dem Herstellen einer Verbindung zwischen einem Computer und dem Server über das Dashboard neue Netzwerkbenutzerkonten für die Benutzer des an das Netzwerk angeschlossenen Computers auf dem Server erstellen. Weitere Informationen zum Erstellen von Benutzerkonten finden Sie unter [Hinzufügen eines Benutzerkontos](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage1). Nachdem Sie die Benutzerkonten erstellt haben, müssen Sie die Informationen zum Netzwerkbenutzernamen und dem zugehörigen Kennwort für die Benutzer des Clientcomputers bereitstellen, damit diese mithilfe des Launchpads auf die Ressourcen auf dem Server zugreifen können.  
   
  Für jedes erstellte Benutzerkonto können Sie den Zugriff auf Folgendes über die Benutzerkontoeigenschaften festlegen:  
   
--   **Freigegebene Ordner**  Standardmäßig verfügen Netzwerkadministratoren über die Berechtigung **Lesen/Schreiben** für alle freigegebenen Ordner, und Standardbenutzerkonten weisen die Berechtigung **Schreibgeschützt** für den Unternehmensordner auf. Wenn das Medienstreaming aktiviert ist, können Sie Ordnerzugriffsberechtigungen für einzelne Standardbenutzerkonten für die folgenden freigegebenen Ordner zuweisen: **Musik**, **Bilder**, **TV-Aufzeichnungen** und **Videos**. Sie können Berechtigung für Benutzerkonten für den Zugriff auf freigegebene Ordner auf der Registerkarte **Freigegebene Ordner** der Benutzerkontoeigenschaften festlegen.  
+-   **Freigegebene Ordner**  Standardmäßig verfügen Netzwerkadministratoren über die Berechtigung **Lesen/Schreiben** für alle freigegebenen Ordner, und Standardbenutzerkonten weisen die Berechtigung **Schreibgeschützt** für den Unternehmensordner auf. Wenn das Medienstreaming aktiviert ist, können Sie Ordnerzugriffsberechtigungen für einzelne Standardbenutzerkonten für die folgenden freigegebenen Ordner zuweisen: **Musik**, **Bilder**, **TV-Aufzeichnungen**und **Videos**. Sie können Berechtigung für Benutzerkonten für den Zugriff auf freigegebene Ordner auf der Registerkarte **Freigegebene Ordner** der Benutzerkontoeigenschaften festlegen.  
   
 -   **Zugriff überall**  Standardmäßig können Netzwerkadministratoren entweder VPN oder den Remotewebzugriff für den Zugriff auf Serverrollen verwenden. Für Standardbenutzerkonten müssen Sie Benutzerkontoberechtigungen auf der Registerkarte **Zugriff überall** festlegen.  
   
@@ -491,9 +491,9 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 3.  Wählen Sie in der Liste der Benutzerkonten das Benutzerkonto aus, das Sie bearbeiten möchten.  
   
-4.  Klicken Sie im Bereich **Aufgaben\> des < Benutzerkontos** auf **Konto Eigenschaften anzeigen**.  
+4.  Klicken Sie im Bereich **< Benutzerkonto\> Tasks** auf **Konto Eigenschaften anzeigen**.  
   
-5.  Gehen Sie in den **Eigenschaften\> des < Benutzerkontos**wie folgt vor:  
+5.  Führen Sie in den **Eigenschaften des < Benutzerkontos\>** die folgenden Schritte aus:  
   
     1.  Legen Sie auf der Registerkarte **Freigegebene Ordner** die entsprechenden Berechtigungen für die einzelnen freigegebenen Ordner fest.  
   
@@ -501,7 +501,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
         1.  Um dem Benutzer die Berechtigung zu gehören, eine Verbindung zum Server über VPN herzustellen, aktivieren Sie das Kontrollkästchen **Virtuelles privates Netzwerk (VPN) zulassen**.  
   
-        2.  Um einem Benutzer die Herstellung einer Verbindung zum Server über den Remotewebzugriff zu erlauben, aktivieren Sie das Kontrollkästchen **Remotewebzugriff und Zugriff auf Webdienstanwendungen zulassen** .  
+        2.  Um einem Benutzer die Herstellung einer Verbindung zum Server über den Remotewebzugriff zu erlauben, aktivieren Sie das Kontrollkästchen **Remotewebzugriff und Zugriff auf Webdienstanwendungen zulassen**.  
   
     3.  Wählen Sie auf der Registerkarte **Computerzugriff** die Netzwerkcomputer aus, auf die die Benutzer zugreifen können sollen.  
   
@@ -513,9 +513,9 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 3.  Wählen Sie in der Liste der Benutzerkonten das Benutzerkonto aus, das Sie bearbeiten möchten.  
   
-4.  Klicken Sie im Bereich **Aufgaben\> des < Benutzerkontos** auf **Eigenschaften**.  
+4.  Klicken Sie im Bereich **< Benutzerkonto\> Tasks** auf **Eigenschaften**.  
   
-5.  Gehen Sie in den **Eigenschaften\> des < Benutzerkontos**wie folgt vor:  
+5.  Führen Sie in den **Eigenschaften des < Benutzerkontos\>** die folgenden Schritte aus:  
   
     1.  Wählen Sie auf der Registerkarte **Allgemein** die Option **Benutzer kann Integritätswarnungen für das Netzwerk anzeigen** aus, wenn das Benutzerkonto auf die Berichte zur Netzwerkintegrität zugreifen können muss.  
   
@@ -525,7 +525,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
         1.  Um dem Benutzer die Berechtigung zu gehören, eine Verbindung zum Server über VPN herzustellen, aktivieren Sie das Kontrollkästchen **Virtuelles privates Netzwerk (VPN) zulassen**.  
   
-        2.  Um einem Benutzer die Herstellung einer Verbindung zum Server über den Remotewebzugriff zu erlauben, aktivieren Sie das Kontrollkästchen **Remotewebzugriff und Zugriff auf Webdienstanwendungen zulassen** .  
+        2.  Um einem Benutzer die Herstellung einer Verbindung zum Server über den Remotewebzugriff zu erlauben, aktivieren Sie das Kontrollkästchen **Remotewebzugriff und Zugriff auf Webdienstanwendungen zulassen**.  
   
     4.  Wählen Sie auf der Registerkarte **Computerzugriff** die Netzwerkcomputer aus, auf die die Benutzer zugreifen können sollen.  
   
@@ -540,7 +540,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 3.  Wählen Sie in der Liste von Benutzerkonten das Benutzerkonto aus, das Sie ändern möchten.  
   
-4.  Klicken Sie im Bereich **Aufgaben\> des < Benutzerkontos** auf **Konto Eigenschaften anzeigen**. Die Seite **Eigenschaften** für das Benutzerkonto wird angezeigt.  
+4.  Klicken Sie im Bereich **< Benutzerkonto\> Tasks** auf **Konto Eigenschaften anzeigen**. Die Seite **Eigenschaften** für das Benutzerkonto wird angezeigt.  
   
 5.  Gehen Sie auf der Registerkarte **Zugriff überall** in folgender Weise vor:  
   
@@ -548,7 +548,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
     -   Aktivieren Sie das Kontrollkästchen **Remotewebzugriff und Zugriff auf Webdienstanwendungen zulassen**, um es Benutzern zu gestatten, die Verbindung zum Server über Remotewebzugriff herzustellen.  
   
-6.  Klicken Sie auf **Übernehmen**, und klicken Sie anschließend auf **OK**.  
+6.  Klicken Sie auf **Übernehmen** und dann auf **OK**.  
   
 ###  <a name="BKMK_Access11"></a>Ändern der Berechtigungen für virtuelle private Netzwerke für ein Benutzerkonto  
  Sie können die Verbindung über ein virtuelles privates Netzwerk (VPN) mit Windows Server Essentials herstellen und auf die Ressourcen zugreifen, die auf dem Server gespeichert sind. Dies ist besonders dann nützlich, wenn auf Ihrem Clientcomputer Netzwerkkonten eingerichtet sind, die verwendet werden können, um eine Verbindung mit einem gehosteten Windows Server Essentials-Server über eine VPN-Verbindung herzustellen. Alle auf dem dem gehosteten Windows Server Essentials-Server neu erstellten Benutzerkonten müssen bei der ersten Anmeldung am Clientcomputer VPN verwenden.  
@@ -561,13 +561,13 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 3.  Wählen Sie in der Liste der Benutzerkonten das Benutzerkonto aus, dem Sie den Remotezugriff auf den Desktop gewähren möchten.  
   
-4.  Klicken Sie im Bereich **Aufgaben\> des < Benutzerkontos** auf **Eigenschaften**.  
+4.  Klicken Sie im Bereich **< Benutzerkonto\> Tasks** auf **Eigenschaften**.  
   
-5.  Klicken Sie in den **Eigenschaften\> des < Benutzerkontos**auf die Registerkarte **Zugriff überall** .  
+5.  Klicken Sie in den **Eigenschaften des < Benutzerkontos\>** auf die Registerkarte **Zugriff überall** .  
   
-6.  Aktivieren Sie auf der Registerkarte **Zugriff überall** das Kontrollkästchen **Virtuelles privates Netzwerk (VPN) zulassen** , um es Benutzern zu gestatten, die Verbindung zum Server über ein VPN herzustellen.  
+6.  Aktivieren Sie auf der Registerkarte **Zugriff überall** das Kontrollkästchen **Virtuelles privates Netzwerk (VPN) zulassen**, um es Benutzern zu gestatten, die Verbindung zum Server über ein VPN herzustellen.  
   
-7.  Klicken Sie auf **Übernehmen**, und klicken Sie anschließend auf **OK**.  
+7.  Klicken Sie auf **Übernehmen** und dann auf **OK**.  
   
 ###  <a name="BKMK_Access12"></a>Ändern des Zugriffs auf interne freigegebene Ordner für ein Benutzerkonto  
  Sie können den Zugriff auf freigegebene Ordner auf dem Server mithilfe der Tasks auf der Registerkarte **Serverordner** des Dashboards verwalten. Standardmäßig werden die folgenden Serverordner erstellt, wenn Sie Windows Server Essentials installieren:  
@@ -600,7 +600,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 4.  Klicken Sie im Aufgabenbereich auf **Ordnereigenschaften anzeigen**.  
   
-5.  Klicken Sie in **<\> FolderName-Eigenschaften**auf **Freigabe**, wählen Sie die entsprechende Benutzer Zugriffsebene für die aufgeführten Benutzerkonten aus, und klicken Sie dann auf über **nehmen.**  
+5.  Klicken Sie in **< FolderName\> Eigenschaften**auf **Freigabe**, **Wählen Sie die**entsprechende Benutzer Zugriffsebene für die aufgeführten Benutzerkonten aus, und klicken Sie dann auf übernehmen.  
   
     > [!NOTE]
     >  Die Freigabeberechtigungen für die Serverordner **Sicherungen von Dateiversionsverläufen**, **Ordnerumleitung** und **Benutzer** können nicht geändert werden. Die Ordnereigenschaften dieser Serverordner enthalten daher keine Registerkarte für **Freigabe**.  
@@ -618,9 +618,9 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 3.  Wählen Sie in der Liste der Benutzerkonten das Benutzerkonto aus, dem Sie den Remotezugriff auf den Desktop gewähren möchten.  
   
-4.  Klicken Sie im Bereich **Aufgaben\> des < Benutzerkontos** auf **Eigenschaften**.  
+4.  Klicken Sie im Bereich **< Benutzerkonto\> Tasks** auf **Eigenschaften**.  
   
-5.  Klicken Sie in den **Eigenschaften\> des < Benutzerkontos**auf die Registerkarte **Computer Zugriff** .  
+5.  Klicken Sie in den **Eigenschaften des < Benutzerkontos\>** auf die Registerkarte **Computer Zugriff** .  
   
 6.  Wählen Sie die Computer aus, auf die dieses Benutzerkonto remote zugreifen können soll, und klicken Sie dann auf **OK**.  
   

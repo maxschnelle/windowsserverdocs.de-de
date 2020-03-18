@@ -12,14 +12,14 @@ ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 12/02/2019
+ms.date: 03/12/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: cb0fa7009c4a8fe53810f8b5f058e659c2391dc1
-ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
+ms.openlocfilehash: d4ef08107c816aebf6563e57e5e76b12b793d472
+ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75919839"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79323422"
 ---
 # <a name="get-started-with-the-android-client"></a>Erste Schritte mit dem Android-Client
 
@@ -229,3 +229,11 @@ Der Client verwendet Standardtouchgesten. Sie können auch Touchgesten verwenden
 | Mauszeiger | Klicken Sie mit der rechten Maustaste auf          | Mit zwei Fingern tippen                                                    |
 | Mauszeiger | Rechtsklick und ziehen | Doppeltippen und mit zwei Fingern halten, dann ziehen                         |
 | Mauszeiger | Mausrad          | Tippen und mit zwei Fingern halten, dann nach oben oder unten ziehen                     |
+
+## <a name="join-the-beta-channel"></a>Dem Beta-Kanal beitreten
+
+Wenn du vor allen anderen auf die neuesten Funktionen zugreifen oder Probleme identifizieren willst, bevor neue Versionen veröffentlicht werden, dann ist der Beta-Kanal genau das Richtige für dich! Der Beta-Kanal ist auch eine hervorragende Möglichkeit für Unternehmensadministratoren, neue Versionen des Android-Clients für Benutzer in ihrer Umgebung zu validieren.
+
+Um an der Beta-Version teilzunehmen, musst du lediglich deine Zustimmung zum Zugriff auf die Vorschauversionen und zum Herunterladen des Clients geben. Du erhältst die Vorschauversionen direkt über den Google Play Store.
+
+[Beta-Version beitreten](https://play.google.com/apps/testing/com.microsoft.rdc.androidx)
