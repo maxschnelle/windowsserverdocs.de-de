@@ -8,16 +8,16 @@ ms.topic: get-started-article
 ms.assetid: 8dcb8cf9-0e08-4fdd-9d7e-ec577ce8d8a0
 author: kumudd
 ms.date: 10/10/2016
-ms.openlocfilehash: 11d8abfc23cb0f192ed74a1082e83c8e0c8e87e9
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: ed7d7ca4f41784f2ae12220eb2e30077e2467175
+ms.sourcegitcommit: 056d355516f199e8a505c32b9aa685d0cde89e44
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950096"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79518745"
 ---
 # <a name="storage-quality-of-service"></a>Quality of Service für Speicher
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (Semi-Annual Channel)
 
 Quality of Service (QoS) für Speicher in Windows Server 2016 ermöglicht eine zentrale Überwachung und Verwaltung der Speicherleistung für virtuelle Computer unter Verwendung der Hyper-V-Rolle und der Rolle des Dateiservers mit horizontaler Skalierung. Mit diesem Feature werden Speicherressourcen automatisch fairer auf mehrere virtuelle Computer verteilt, die denselben Dateiservercluster verwenden. Außerdem können richtlinienbasierte Mindest- und Maximalwerte als Leistungsziele konfiguriert werden. Die dabei verwendete Einheit sind normalisierte IOPS.  
 
@@ -31,7 +31,7 @@ Sie können QoS für Speicher in Windows Server 2016 nutzen, um folgende Ziele z
 
 In diesem Dokument wird beschrieben, wie Ihr Unternehmen von der neuen Speicher-QoS-Funktionalität profitieren kann. Es wird davon ausgegangen, dass Sie bereits mit Windows Server, mit Windows Server-Failoverclustering, mit Dateiservern mit horizontaler Skalierung, mit Hyper-V sowie mit Windows PowerShell vertraut sind.
 
-## <a name="BKMK_Overview"></a>Übersicht  
+## <a name="BKMK_Overview"></a>Übersicht über  
 In diesem Abschnitt werden die Anforderungen für die Verwendung von Speicher-QoS beschrieben. Außerdem finden Sie eine Übersicht über eine softwaredefinierte Lösung unter Verwendung von Speicher-QoS sowie eine Terminologieliste zu Speicher-QoS.  
 
 ### <a name="BKMK_Requirements"></a>QoS-Speicheranforderungen  
@@ -74,7 +74,7 @@ Bei Änderungen der Speicher-QoS-Richtlinien oder der Leistungsanforderungen vir
 |Fluss|Jedes Dateihandle, das von einem Hyper-V-Server für eine VHD- oder VHDX-Datei geöffnet wird, wird als „Fluss“ betrachtet. Wenn ein virtueller Computer mit zwei virtuellen Festplatten verknüpft ist, verfügt er für jede Datei über einen Fluss zum Dateiservercluster. Wenn ein VHDX-Datenträger für mehrere virtuelle Computer freigegeben ist, verfügt er über einen Fluss pro VM.|  
 |InitiatorName|Der Name des virtuellen Computers, der dem Dateiserver mit horizontaler Skalierung für jeden Fluss gemeldet wird.|  
 |InitiatorID|Ein Bezeichner, der der VM-ID entspricht.  Dieser Bezeichner kann immer zur eindeutigen Identifizierung einzelner VM-Flüsse verwendet werden (selbst dann, wenn die VMs denselben InitiatorName-Wert aufweisen).|  
-|-Richtlinie|Speicher-QoS-Richtlinien werden in der Clusterdatenbank gespeichert und weisen die folgenden Eigenschaften auf: PolicyId, MinimumIOPs, MaximumIOPs, ParentPolicy und PolicyType.|  
+|Policy (Richtlinie)|Speicher-QoS-Richtlinien werden in der Clusterdatenbank gespeichert und weisen die folgenden Eigenschaften auf: PolicyId, MinimumIOPs, MaximumIOPs, ParentPolicy und PolicyType.|  
 |PolicyId|Eindeutiger Bezeichner für eine Richtlinie.  Dieser Wert wird standardmäßig generiert, kann bei Bedarf jedoch auch festgelegt werden.|  
 |MinimumIOPs|Mindestwert für normalisierte IOPS, die von einer Richtlinie bereitgestellt werden.  Auch als „Reservierung“ bezeichnet.|  
 |MaximumIOPs|Höchstwert für normalisierte IOPS, die von einer Richtlinie eingeschränkt werden.  Auch als „Grenzwert“ bezeichnet.|  
@@ -885,7 +885,7 @@ IOPSNormalizationSize
 32768  
 ```    
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 - [Windows Server 2016](../../get-started/windows-server-2016.md)  
 - [Speicher Replikat in Windows Server 2016](../storage-replica/storage-replica-overview.md)  
 - [Direkte Speicherplätze in Windows Server 2016](../storage-spaces/storage-spaces-direct-overview.md)  
