@@ -9,12 +9,12 @@ manager: jgerend
 ms.date: 01/28/2020
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 1a31fac97a6697909774a084045ad5746b7241f3
-ms.sourcegitcommit: 74107a32efe1e53b36c938166600739a79dd0f51
+ms.openlocfilehash: 08135ed3454bb22db1c2b0fa3a14a8342fbc2dab
+ms.sourcegitcommit: 8b801bd86e2ddf8255899b11f547daa920e5f651
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76918272"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80110663"
 ---
 # <a name="deploy-azure-virtual-machines-from-within-windows-admin-center"></a>Bereitstellen von virtuellen Azure-Computern innerhalb des Windows Admin Centers
 
@@ -32,7 +32,7 @@ Windows Admin Center Version 1910 die Azure-VM-Bereitstellung unterstützt die f
 - [Speicherreplikat](../../../storage/storage-replica/storage-replica-overview.md)
 - [Neuer eigenständiger Server (ohne Rollen)](index.md#extend-on-premises-capacity-with-azure)
 
-## <a name="requirements"></a>Anforderungen
+## <a name="requirements"></a>Voraussetzungen
 
 Zum Erstellen eines neuen virtuellen Azure-Computers innerhalb des Windows Admin Centers benötigen Sie Folgendes:
 
@@ -42,7 +42,7 @@ Zum Erstellen eines neuen virtuellen Azure-Computers innerhalb des Windows Admin
 - Eine vorhandene [Azure-Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) und ein Subnetz.
 - Eine [Azure Express Route](https://azure.microsoft.com/services/expressroute/) -oder [Azure-VPN-Lösung](https://azure.microsoft.com/services/vpn-gateway/) , die an das virtuelle Netzwerk und Subnetz gebunden ist und die Konnektivität von Azure-VMS mit Ihren lokalen Clients, Domänen Controllern, dem Windows Admin Center-Computer und allen Servern zulässt, die im Rahmen einer workloadbereitstellung mit diesem virtuellen Computer kommunizieren müssen. Wenn Sie z. b. den Speicher Migrationsdienst zum Migrieren von Speicher zu einem virtuellen Azure-Computer verwenden möchten, müssen der Orchestrator-Computer und der Quellcomputer beide in der Lage sein, eine Verbindung mit dem virtuellen Azure-Zielcomputer aufzunehmen, zu dem
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Verwendung
 
 Azure-VM-Bereitstellungs Schritte und-Assistenten variieren je nach Szenario. Ausführliche Informationen zum Gesamtszenario finden Sie in der Dokumentation der Arbeitsauslastung.
 
@@ -60,7 +60,15 @@ Dadurch wird ein schrittweises Erstellungs Tool gestartet, mit dem ein Windows S
 Dadurch wird ein Prozess gestartet, bei dem automatisch ein virtueller Azure-Computer unter Windows Server 2016 oder Windows Server 2019 als Ziel für die Migrations Quelle ausgewählt wird. Storage Migration Service empfiehlt VM-Größen, die ihrer Quelle entsprechen. Sie können dies jedoch überschreiben, indem Sie **alle Größen**anzeigen auswählen. Inventur Daten werden verwendet, um Ihre verwalteten Datenträger und Ihre Dateisysteme automatisch zu konfigurieren und ihre neue Azure-VM mit Ihrer Active Directory Domäne zu verknüpfen. 
 3. Nachdem das Windows Admin Center die Azure-VM erstellt hat, geben Sie einen Replikations Gruppennamen an, und wählen Sie dann **Erstellen** Das Windows Admin Center beginnt dann mit der erst Synchronisierung des normalen Speicher Replikats, um die Daten zu schützen.
 
+Im folgenden Video wird gezeigt, wie Sie das Speicher Replikat für die Migration zu Azure-VMS verwenden.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/_VqD7HjTewQ] 
+
 ### <a name="deploying-a-new-standalone-azure-vm"></a>Bereitstellen einer neuen eigenständigen Azure-VM
 
 1. Wählen Sie auf der Seite *alle Verbindungen* im Windows Admin Center die Option **Hinzufügen**aus.
 2. Wählen Sie im Abschnitt *Azure-VM* die Option **neu erstellen**aus.<br><br> Dadurch wird ein schrittweises Erstellungs Tool gestartet, mit dem Sie einen virtuellen Windows Server 2012 R2-, Windows Server 2016-oder Windows Server 2019-virtuellen Azure-Computer auswählen, eine Größe auswählen, verwaltete Datenträger hinzufügen und optional Ihrer Active Directory Domäne beitreten können.
+
+Im folgenden Video wird gezeigt, wie Sie Windows Admin Center zum Erstellen von virtuellen Azure-Computern verwenden.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/__A8J9aC_Jk] 
