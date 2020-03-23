@@ -11,14 +11,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 01/29/2020
+ms.date: 03/04/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 1753780474332a6d5786a5804fc1b4fe5e3d8883
-ms.sourcegitcommit: 9077469e372d2aafcad890cbc4e4a24c58a3838c
+ms.openlocfilehash: 8b7aefa169fe2121c5a2da1f913714d23d989d16
+ms.sourcegitcommit: 056d355516f199e8a505c32b9aa685d0cde89e44
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889434"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79518735"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Erste Schritte mit dem Windows-Desktopclient
 
@@ -134,5 +134,6 @@ Möglicherweise benötigst du die Clientprotokolle, wenn du ein Problem untersuc
 
 So rufst du die Clientprotokolle ab:
 
-1. Öffne den **Datei-Explorer**.
-2. Navigiere zum Ordner **%temp%\DiagOutputDir\RdClientAutoTrace**.
+1. Stellen Sie sicher, dass keine Sitzungen aktiv sind und der Clientprozess nicht im Hintergrund ausgeführt wird, indem Sie in der Taskleiste mit der rechten Maustaste auf das Symbol **Remotedesktop** klicken und dann **Alle Sitzungen trennen** auswählen.
+2. Öffne den **Datei-Explorer**.
+3. Navigiere zum Ordner **%temp%\DiagOutputDir\RdClientAutoTrace**.
