@@ -462,7 +462,7 @@ Die folgenden Einstellungen wurden ausgewählt, weil sie nicht mit einer Einstel
 | *Microsoft Edge | Vorschläge in Dropdownliste der Adressleiste zulassen |  | Deaktiviert |
 | *Microsoft Edge | Konfigurationsupdates für die Bibliothek zulassen |  | Deaktiviert. Deaktiviert die Kompatibilitätslisten in Microsoft Edge. |
 | *Microsoft Edge | Microsoft-Kompatibilitätsliste zulassen |  | Deaktiviert. Wenn du diese Einstellung deaktivierst, wird die Microsoft-Kompatibilitätsliste während der Browsernavigation nicht verwendet. |
-| *Microsoft Edge | Webinhalte auf der Seite „Neuer Tab“ zulassen |  | Deaktiviert. Weist Edge an, eine neue Registerkarte ohne Inhalt zu öffnen. |
+| *Microsoft Edge | Webinhalte auf der Seite „Neuer Tab“ zulassen |  | Deaktiviert. Weist Microsoft Edge an, eine neue Registerkarte ohne Inhalt zu öffnen. |
 | *Microsoft Edge | AutoAusfüllen konfigurieren |  | Deaktiviert. Deaktiviert automatisches Ausfüllen der Adressleiste. |
 | *Microsoft Edge | DNT konfigurieren |  | Aktiviert. Wenn du diese Einstellung aktivierst, werden Do Not Track-Anforderungen (nicht verfolgen) immer an Websites gesendet, die Nachverfolgungsinformationen anfordern. |
 | *Microsoft Edge | Kennwort-Manager konfigurieren |  | Deaktiviert. Wenn du diese Einstellung deaktivierst, können Mitarbeiter mithilfe des Kennwort-Managers ihr Kennwort nicht lokal speichern. |
