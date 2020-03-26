@@ -9,14 +9,14 @@ ms.date: 09/12/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 7098e81f486a5b0b4974c19b47e2d48c6f98832b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bca603344047ea5cc890bf9976ca5a6c79514136
+ms.sourcegitcommit: 9feb093a0acb8834c9ef3c066667c7062d85e6e1
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355365"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80289795"
 ---
-# <a name="insider-preview"></a>Insider-Vorschau
+# <a name="new-hpn-features-in-windows-server-2019"></a>Neue HPN-Features in Windows Server 2019
 
 
 ## <a name="dynamic-vrss-and-vmmq"></a>Dynamisches vrss und vmmq
@@ -27,7 +27,7 @@ In der Vergangenheit konnten virtuelle Computer Warteschlangen und multiwartesch
 
 Windows Server 2019 verbessert diese Optimierungen durch dynamisches verteilen und Optimieren der Verarbeitung von Netzwerk Arbeits Auslastungen nach Bedarf. Windows Server 2019 sorgt für eine optimale Effizienz und entfernt die Konfigurations Belastung für IT-Administratoren.
 
-Weitere Informationen finden Sie in den folgenden Themen:
+Weitere Informationen finden Sie unter:
 
 -   [Ankündigungs Blog](https://blogs.technet.microsoft.com/networking/2018/08/22/netperf4vw/)
 
@@ -43,7 +43,7 @@ Zuvor war dies eine von der NIC implementierte Auslagerung. Leider ist dies der 
 
 Standardmäßig ist RSC im Vswitch auf externen virtuellen Switches aktiviert.
 
-Weitere Informationen finden Sie in den folgenden Themen:
+Weitere Informationen finden Sie unter:
 
 -  [Ankündigungs Blog](https://blogs.technet.microsoft.com/networking/2018/08/22/netperf4vw/)
 
