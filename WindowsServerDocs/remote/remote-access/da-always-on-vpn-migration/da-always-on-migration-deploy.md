@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: eeca4cf7-90f0-485d-843c-76c5885c54b0
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 06/07/2018
-ms.openlocfilehash: 2bcbc7030d54e96b4ac120b943cc1adc0513feca
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 9f78edf0e48dc914b09a5e6f2d054e0fafba62e3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822638"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309301"
 ---
 # <a name="migrate-to-always-on-vpn-and-decommission-directaccess"></a>Migrieren zu Always On VPN und DirectAccess Außerbetriebnahme
 
@@ -120,9 +120,9 @@ Sie müssen sicherstellen, dass die Datei " **VPN_Profile. ps1** " angezeigt wir
 4. Stellen Sie die Always on-VPN-Konfiguration bereit. Wenn die VPN-Authentifizierungs Zertifikate ausgestellt werden und Sie das Skript " **getuserswithcert. ps1** " ausführen, werden die Benutzer der Sicherheitsgruppe für die Bereitstellung der VPN-Bereitstellung hinzugefügt.
 
 
-| Wenn Sie...  | Dann... |
+| Wenn Sie...  | Auswirkung |
 | ---- | ---- |
-| Konfigurationsmanager | Erstellen Sie eine Benutzer Sammlung, die auf der Mitgliedschaft dieser Sicherheitsgruppe basiert.<br><br>![](../../media/DA-to-AlwaysOnVPN/b38723b3ffcfacd697b83dd41a177f66.png)!|
+| Configuration Manager | Erstellen Sie eine Benutzer Sammlung, die auf der Mitgliedschaft dieser Sicherheitsgruppe basiert.<br><br>![](../../media/DA-to-AlwaysOnVPN/b38723b3ffcfacd697b83dd41a177f66.png)!|
 | Intune | Richten Sie die Sicherheitsgruppe einfach direkt nach der Synchronisierung ein. |
 |
     

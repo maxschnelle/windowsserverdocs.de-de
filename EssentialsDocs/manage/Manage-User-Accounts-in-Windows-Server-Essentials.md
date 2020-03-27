@@ -3,7 +3,7 @@ title: Verwalten von Benutzerkonten in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 0d115697-532b-48c2-a659-9f889e235326
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 069cbbdf499ce86586390b1031b6fea71f4f2b2a
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 86feb7168aa53837c4bef514e8a9b6724c0e5682
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322222"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311043"
 ---
 # <a name="manage-user-accounts-in-windows-server-essentials"></a>Verwalten von Benutzerkonten in Windows Server Essentials
 
@@ -26,7 +26,7 @@ ms.locfileid: "79322222"
 Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informationen und Aufgaben zentral an, die Sie dabei unterstützen, die Benutzerkonten im kleinen Firmennetzwerk zu verwalten. Eine Übersicht über das Benutzer Dashboard finden Sie unter [Übersicht](Overview-of-the-Dashboard-in-Windows-Server-Essentials.md)über das Dashboard.  
   
   
-##  <a name="BKMK_ManageAccounts"></a>Verwalten von Benutzerkonten  
+##  <a name="managing-user-accounts"></a><a name="BKMK_ManageAccounts"></a>Verwalten von Benutzerkonten  
  Die folgenden Themen enthalten Informationen zur Verwendung des Windows Server Essentials-Dashboards zum Verwalten der Benutzerkonten auf dem Server:  
   
 -   [Benutzerkonto hinzufügen](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage1)  
@@ -45,7 +45,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 -   [Verwalten von Benutzerkonten mithilfe des Dashboards](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage8)  
   
-###  <a name="BKMK_Manage1"></a>Benutzerkonto hinzufügen  
+###  <a name="add-a-user-account"></a><a name="BKMK_Manage1"></a>Benutzerkonto hinzufügen  
  Wenn Sie ein Benutzerkonto hinzufügen, kann sich der zugewiesene Benutzer am Netzwerk anmelden, und Sie können dem Benutzer dann die Berechtigung für den Zugriff auf Netzwerkressourcen erteilen, z. B. auf freigegebene Ordner und die Website für den Remotewebzugriff. Windows Server Essentials umfasst den Assistenten zum Hinzufügen von Benutzerkonten, der Ihnen bei folgenden Aufgaben hilft:  
   
 -   Bereitstellen eines Namen und Kennworts für das Benutzerkonto.  
@@ -76,7 +76,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 4.  Folgen Sie den Anweisungen, um den Assistenten fertigzustellen.  
   
-###  <a name="BKMK_Remove"></a>Entfernen eines Benutzerkontos  
+###  <a name="remove-a-user-account"></a><a name="BKMK_Remove"></a>Entfernen eines Benutzerkontos  
  Wenn Sie das Entfernen eines Benutzerkontos vom Server gewählt haben, wird das ausgewählte Konto von einem Assistenten gelöscht. Deshalb können Sie sich nicht länger über das Konto am Netzwerk anmelden oder es für den Zugriff auf eine der Netzwerkressourcen verwenden. Optional können Sie auch die Dateien für das Benutzerkonto zusammen mit dem zu entfernenden Benutzerkonto löschen. Wen das Benutzerkonto nicht dauerhaft gelöscht werden soll, können Sie das Benutzerkonto deaktivieren, anstatt den Zugriff auf Netzwerkressourcen einzustellen.  
   
 > [!IMPORTANT]
@@ -101,7 +101,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
 >   
 >  Wenn Sie über einen integrierten E-Mail-Anbieter verfügen, wird das E-Mail-Konto, das dem Benutzerkonto zugewiesen ist, ebenfalls entfernt.  
   
-###  <a name="BKMK_Manage3"></a>Anzeigen von Benutzerkonten  
+###  <a name="view-user-accounts"></a><a name="BKMK_Manage3"></a>Anzeigen von Benutzerkonten  
  Der Abschnitt **Benutzer** des Windows Server Essentials-Dashboards zeigt eine Liste der Netzwerkbenutzerkonten an. Die Liste enthält auch zusätzliche Informationen zu den einzelnen Konten.  
   
 ##### <a name="to-view-a-list-of-user-accounts"></a>So zeigen Sie eine Liste von Benutzerkonten an  
@@ -122,7 +122,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 4.  Um die Änderungen zu speichern, die Sie an den Eigenschaften des Benutzerkontos vorgenommen haben, klicken Sie auf **Übernehmen**.  
   
-###  <a name="BKMK_Manage4"></a>Ändern Sie den anzeigen Amen für das Benutzerkonto.  
+###  <a name="change-the-display-name-for-the-user-account"></a><a name="BKMK_Manage4"></a>Ändern Sie den anzeigen Amen für das Benutzerkonto.  
  Der Anzeigename ist der Name, der in der Spalte **Name** auf der Seite **Benutzer** des Dashboards angezeigt wird. Durch die Änderung des Anzeigenamens ändert sich nicht der Name für die Anmeldung an einem Benutzerkonto.  
   
 ##### <a name="to-change-the-display-name-for-a-user-account"></a>So ändern Sie den Anzeigenamen für Benutzerkonten  
@@ -139,7 +139,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
      Der neue Anzeigename wird in der Liste der Benutzerkonten angezeigt.  
   
-###  <a name="BKMK_Manage5"></a>Aktivieren eines Benutzerkontos  
+###  <a name="activate-a-user-account"></a><a name="BKMK_Manage5"></a>Aktivieren eines Benutzerkontos  
  Wenn Sie ein Benutzerkonto aktivieren, kann sich der zugeordnete Benutzer am Netzwerk anmelden und auf Netzwerkressourcen zugreifen, für die das Konto über die entsprechende Berechtigung verfügt, z. B. freigegebene Ordner und die Website für den Remotewebzugriff.  
   
 > [!NOTE]
@@ -162,7 +162,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
 >   
 >  Wenn Sie über einen integrierten E-Mail-Anbieter verfügen, wird das E-Mail-Konto, das dem Benutzerkonto zugewiesen ist, ebenfalls aktiviert.  
   
-###  <a name="BKMK_Manage6"></a>Deaktivieren eines Benutzerkontos  
+###  <a name="deactivate-a-user-account"></a><a name="BKMK_Manage6"></a>Deaktivieren eines Benutzerkontos  
  Wenn Sie ein Benutzerkonto deaktivieren, wird der Zugriff des Kontos auf den Server vorübergehend unterbrochen. Daher kann der zugeordnete Benutzer das Konto nicht für den Zugriff auf die Netzwerkressourcen wie die freigegebenen Ordner oder die Website für den Remotewebzugriff verwendet werden, bis Sie das Konto aktivieren.  
   
  Wenn dem Benutzerkonto ein Microsoft-Onlinekonto zugeordnet ist, wird das Onlinekonto ebenfalls deaktiviert. Der Benutzer kann keine Ressourcen in Office 365 und anderen Onlinedienste verwenden, die Sie abonnieren, aber die Daten des Benutzers, einschließlich der e-Mails, bleiben in Microsoft Online Services erhalten.  
@@ -187,7 +187,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
 >   
 >  Wenn Sie über einen integrierten E-Mail-Anbieter verfügen, wird das E-Mail-Konto, das dem Benutzerkonto zugewiesen ist, ebenfalls deaktiviert.  
   
-###  <a name="BKMK_Manage7"></a>Grundlegendes zu Benutzerkonten  
+###  <a name="understand-user-accounts"></a><a name="BKMK_Manage7"></a>Grundlegendes zu Benutzerkonten  
  Ein Benutzerkonto stellt wichtige Informationen zu Windows Server Essentials bereit, wodurch Benutzer Zugriff auf Informationen erhalten können, die auf dem Server gespeichert werden. Zudem wird es einzelnen Benutzern ermöglicht, ihre Dateien und Einstellungen zu erstellen und zu verwalten. Benutzer können sich auf beliebigen Computern im Netzwerk anmelden, wenn sie ein Benutzerkonto für Windows Server Essentials besitzen und über Zugriffsrechte für einen Computer verfügen. Benutzer greifen mithilfe ihres Benutzernamens und des zugehörigen Kennworts auf ihr Benutzerkonto zu.  
   
  Es gibt zwei hauptsächliche Benutzerkontotypen. Die einzelnen Typen weisen den Benutzern jeweils einen anderen Grad an Kontrolle für den Computer zu:  
@@ -196,7 +196,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 -   **Administratorkonten** bieten die umfassendsten Kontrollmöglichkeiten über ein Computernetzwerk. Administratorkonten sollten nur zugewiesen werden, wenn dies wirklich erforderlich ist.  
   
-###  <a name="BKMK_Manage8"></a>Verwalten von Benutzerkonten mithilfe des Dashboards  
+###  <a name="manage-user-accounts-using-the-dashboard"></a><a name="BKMK_Manage8"></a>Verwalten von Benutzerkonten mithilfe des Dashboards  
  Windows Server Essentials ermöglicht es, die allgemeinen administrativen Aufgaben mithilfe des Windows Server Essentials-Dashboard auszuführen. Standardmäßig umfasst die Seite **Benutzer** des Dashboards zwei Registerkarten: **Benutzer** und **Benutzergruppen**.  
   
 > [!NOTE]
@@ -254,7 +254,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
 |Dateiverlaufseinstellungen ändern|Ermöglicht es Ihnen, die Einstellungen für den Dateiverlauf zu ändern, z. B. Sicherungshäufigkeit oder Sicherungsdauer.<br /><br /> Diese Aufgabe gilt für Windows Server Essentials.|  
 |Alle Remoteverbindungen exportieren|Erstellt für alle Remoteverbindungen zum Server, die in den letzten 30 Tagen hergestellt wurden, eine Datei im CSV-Format.|  
   
-##  <a name="BKMK_ManageAccess"></a>Verwalten von Kenn Wörtern und Zugriff  
+##  <a name="managing-passwords-and-access"></a><a name="BKMK_ManageAccess"></a>Verwalten von Kenn Wörtern und Zugriff  
  Die folgenden Themen enthalten Informationen zur Verwendung des Windows Server Essentials-Dashboards zum Verwalten von Benutzerkontokennwörtern und für den Benutzerzugriff auf freigegebene Ordner auf dem Server:  
   
 -   [Ändern oder Zurücksetzen des Kennworts für ein Benutzerkonto](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Access1)  
@@ -281,7 +281,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 -   [Zulassen, dass Benutzerkonten eine Remote Desktop Sitzung mit Ihrem Computer einrichten](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Access13)  
   
-###  <a name="BKMK_Access1"></a>Ändern oder Zurücksetzen des Kennworts für ein Benutzerkonto  
+###  <a name="change-or-reset-the-password-for-a-user-account"></a><a name="BKMK_Access1"></a>Ändern oder Zurücksetzen des Kennworts für ein Benutzerkonto  
  Gehen Sie folgendermaßen vor, um ein Benutzerkontokennwort zu ändern oder zurückzusetzen.  
   
 ##### <a name="to-reset-the-password-for-a-user-account"></a>So setzen Sie das Kennwort für ein Benutzerkonto zurück  
@@ -305,7 +305,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
    >   -   Nicht-ASCII-Zeichen werden in Azure AD nicht unterstützt. Wenn Ihr Server in Azure AD integriert ist, sollten Sie daher keine nicht-ASCII-Zeichen in Ihrem Kennwort verwenden.  
    >   -   Wenn dem Benutzer ein Microsoft-Onlinekonto (in Windows Server Essentials als Office 365-Konto bekannt) zugewiesen ist, wird das Kennwort mit dem Onlinekonto Kennwort synchronisiert. Der Benutzer verwendet das neue Kennwort, um sich auf dem Server oder bei Office 365 anzumelden. Weitere Informationen finden Sie unter [Verwalten von Online Konten für Benutzer](Manage-Online-Accounts-for-Users.md).  
   
-###  <a name="BKMK_Access3"></a>Was Sie über Kenn Wort Richtlinien wissen sollten  
+###  <a name="what-you-should-know-about-password-policies"></a><a name="BKMK_Access3"></a>Was Sie über Kenn Wort Richtlinien wissen sollten  
  Die Kennwortrichtlinie besteht aus einer Reihe von Regeln, die festlegen, wie Benutzer Kennwörter entsprechend erstellen und verwenden. Die Richtlinie hilft dabei den nicht berechtigten Zugriff auf Benutzerdaten und andere Informationen zu vermeiden, die auf dem Server gespeichert werden. Die Kennwortrichtlinie wird auf alle Benutzerkonten angewendet, die auf das Netzwerk zugreifen.  
   
  Die Kennwortrichtlinie von Windows Server Essentials besteht wie folgt aus drei primären Elementen:  
@@ -336,7 +336,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
   Bei der Serverinstallation wird die Standardkennwortrichtlinie standardmäßig auf die Option **Sicher** festgelegt.  
   
-###  <a name="BKMK_Access4"></a>Ändern der Kenn Wort Richtlinie  
+###  <a name="change-the-password-policy"></a><a name="BKMK_Access4"></a>Ändern der Kenn Wort Richtlinie  
  Verwenden Sie das folgende Verfahren zum Festlegen oder Ändern der Kennwortrichtlinie auf bzw. in eines der vier vordefinierten Richtlinienprofile.  
   
 ##### <a name="to-change-the-password-policy"></a>So ändern Sie die Kennwortrichtlinie  
@@ -354,7 +354,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 4.  Klicken Sie auf **Richtlinie ändern**.  
   
-###  <a name="BKMK_Access5"></a>Zugriffsebene für freigegebene Ordner  
+###  <a name="level-of-access-to-shared-folders"></a><a name="BKMK_Access5"></a>Zugriffsebene für freigegebene Ordner  
  Als bewährte Methode sollten Sie die restriktivsten verfügbaren Berechtigungen zuweisen, die es den Benutzern weiterhin gestatten, die erforderlichen Aufgaben auszuführen.  
   
  Für die freigegebenen Ordner auf dem Server sind drei Zugriffseinstellungen verfügbar:  
@@ -365,7 +365,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 -   **Kein Zugriff**  Wählen Sie diese Einstellung aus, wenn das Benutzerkonto nicht auf Dateien im freigegebenen Ordner zugreifen können soll.  
   
-###  <a name="BKMK_Access6"></a>Beibehalten und Verwalten des Zugriffs auf Dateien für entfernte Benutzerkonten  
+###  <a name="retain-and-manage-access-to-files-for-removed-user-accounts"></a><a name="BKMK_Access6"></a>Beibehalten und Verwalten des Zugriffs auf Dateien für entfernte Benutzerkonten  
  Der Netzwerkadministrator kann ein Benutzerkonto entfernen und auswählen, dass die Dateien des Benutzers zur zukünftigen Verwendung aufbewahrt werden. In diesem Szenario kann das entfernte Benutzerkonto nicht mehr für die Anmeldung am Netzwerk verwendet werden. Die Dateien für diesen Benutzer werden jedoch in einem freigegebenen Ordner gespeichert, der mit einem anderen Benutzer gemeinsam verwendet werden kann.  
   
 > [!IMPORTANT]
@@ -407,7 +407,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 8.  Wählen Sie die **Berechtigungsstufe** aus, über die das Benutzerkonto verfügen soll, und klicken Sie dann auf **Freigeben**.  
   
-###  <a name="BKMK_Access7"></a>Synchronisieren des DSRM-Kennworts mit dem Netzwerkadministrator Kennwort  
+###  <a name="synchronize-the-dsrm-password-with-the-network-administrator-password"></a><a name="BKMK_Access7"></a>Synchronisieren des DSRM-Kennworts mit dem Netzwerkadministrator Kennwort  
  Die Verzeichnisdienstwiederherstellung (Directory Services Restore Mode, DSRM) ist eine spezielle Startmethode zum Reparieren oder Wiederherstellen von Active Directory. Das Betriebssystem verwendet die Verzeichnisdienstwiederherstellung für die Anmeldung auf dem Computer, falls Active Directory fehlschlägt oder wiederhergestellt werden muss. Wenn sich Ihr Netzwerkadministratorkennwort und das Kennwort für die Verzeichnisdienstwiederherstellung unterscheiden, wird die Verzeichnisdienstwiederherstellung nicht geladen.  
   
  Während einer reinen Erstinstallation von Windows Server Essentials legt das Programm das DSRM-Kennwort auf das Kennwort für das Netzwerkadministratorkonto fest, das Sie während des Setups oder in der Antwortdatei für die Migration angeben. Wenn Sie Ihr Netzwerkadministratorkennwort ändern (es wird empfohlen, dies alle 60 Tage vorzunehmen, um die Serversicherheit zu erhöhen), die Kennwortänderung nicht an die Verzeichnisdienstwiederherstellung weitergeleitet. Dies führt zu einem Kennwortkonflikt. In diesem Fall können Sie die folgenden Lösungen verwenden, um das Kennwort Ihres Netzwerkadministrators manuell oder automatisch mit dem DSRM-Kennwort zu synchronisieren.  
@@ -453,7 +453,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 6.  Klicken Sie zweimal auf **OK**, um die Task zu speichern und das Dialogfeld **Task erstellen** zu schließen. Die neue Task wird im Abschnitt **Aktive Tasks** des **Taskplaners** angezeigt.  
   
-###  <a name="BKMK_Access8"></a>Erteilen der Remote Desktop Berechtigung für Benutzerkonten  
+###  <a name="give-user-accounts-remote-desktop-permission"></a><a name="BKMK_Access8"></a>Erteilen der Remote Desktop Berechtigung für Benutzerkonten  
  Bei der Standardinstallation von Windows Server Essentials verfügen Netzwerkbenutzer nicht über die Berechtigung zum Herstellen einer Remoteverbindung zu Computern oder anderen Ressourcen im Netzwerk.  
   
  Bevor die Netzwerkbenutzer eine Remoteverbindung mit Netzwerkressourcen herstellen können, müssen Sie zuerst die Option "Zugriff überall" einrichten. Nachdem Sie die Option "Zugriff überall" eingerichtet haben, können die Benutzer über ein Gerät an einem beliebigen Standort mit Internetverbindung auf Dateien, Anwendungen und Computer im Unternehmensnetzwerk zugreifen.  
@@ -470,7 +470,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
   Weitere Informationen zu "Zugriff überall" finden Sie unter Verwalten von "Zugriff [überall](Manage-Anywhere-Access-in-Windows-Server-Essentials.md)".  
   
-###  <a name="BKMK_Access9"></a>Benutzern den Zugriff auf Ressourcen auf dem Server ermöglichen  
+###  <a name="enable-users-to-access-resources-on-the-server"></a><a name="BKMK_Access9"></a>Benutzern den Zugriff auf Ressourcen auf dem Server ermöglichen  
   Dieser Abschnitt gilt für einen Server, auf dem Windows Server Essentials oder Windows Server Essentials ausgeführt wird, oder für einen Server mit Windows Server 2012 R2 Standard oder Windows Server 2012 R2 Datacenter mit installierter Windows Server Essentials-Rolle.  
   
  Wenn Benutzer den Remotezugriff verwenden und/oder über einzelne Benutzerkonten verfügen sollen, können Sie nach dem Herstellen einer Verbindung zwischen einem Computer und dem Server über das Dashboard neue Netzwerkbenutzerkonten für die Benutzer des an das Netzwerk angeschlossenen Computers auf dem Server erstellen. Weitere Informationen zum Erstellen von Benutzerkonten finden Sie unter [Hinzufügen eines Benutzerkontos](Manage-User-Accounts-in-Windows-Server-Essentials.md#BKMK_Manage1). Nachdem Sie die Benutzerkonten erstellt haben, müssen Sie die Informationen zum Netzwerkbenutzernamen und dem zugehörigen Kennwort für die Benutzer des Clientcomputers bereitstellen, damit diese mithilfe des Launchpads auf die Ressourcen auf dem Server zugreifen können.  
@@ -529,7 +529,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
     4.  Wählen Sie auf der Registerkarte **Computerzugriff** die Netzwerkcomputer aus, auf die die Benutzer zugreifen können sollen.  
   
-###  <a name="BKMK_Access10"></a>Ändern der Remote Zugriffsberechtigungen für ein Benutzerkonto  
+###  <a name="change-remote-access-permissions-for-a-user-account"></a><a name="BKMK_Access10"></a>Ändern der Remote Zugriffsberechtigungen für ein Benutzerkonto  
  Ein Benutzer kann von einem Remotestandort aus über ein VPN, den Remotewebzugriff oder andere Webdienstanwendungen auf Ressourcen zugreifen, die sich auf dem Server befinden. Standardmäßig werden die Remotezugriffsberechtigungen für Netzwerkbenutzer aktiviert, wenn Sie die Option "Zugriff überall" in Windows Server Essentials über das Dashboard konfigurieren.  
   
 ##### <a name="to-change-remote-access-permissions-for-a-user-account"></a>So ändern Sie die Remotezugriffsberechtigungen für ein Benutzerkonto  
@@ -550,7 +550,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 6.  Klicken Sie auf **Übernehmen** und dann auf **OK**.  
   
-###  <a name="BKMK_Access11"></a>Ändern der Berechtigungen für virtuelle private Netzwerke für ein Benutzerkonto  
+###  <a name="change-virtual-private-network-permissions-for-a-user-account"></a><a name="BKMK_Access11"></a>Ändern der Berechtigungen für virtuelle private Netzwerke für ein Benutzerkonto  
  Sie können die Verbindung über ein virtuelles privates Netzwerk (VPN) mit Windows Server Essentials herstellen und auf die Ressourcen zugreifen, die auf dem Server gespeichert sind. Dies ist besonders dann nützlich, wenn auf Ihrem Clientcomputer Netzwerkkonten eingerichtet sind, die verwendet werden können, um eine Verbindung mit einem gehosteten Windows Server Essentials-Server über eine VPN-Verbindung herzustellen. Alle auf dem dem gehosteten Windows Server Essentials-Server neu erstellten Benutzerkonten müssen bei der ersten Anmeldung am Clientcomputer VPN verwenden.  
   
 ##### <a name="to-change-vpn-permissions-for-network-users"></a>So ändern Sie die VPN-Berechtigungen für Netzwerkbenutzer  
@@ -569,7 +569,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
   
 7.  Klicken Sie auf **Übernehmen** und dann auf **OK**.  
   
-###  <a name="BKMK_Access12"></a>Ändern des Zugriffs auf interne freigegebene Ordner für ein Benutzerkonto  
+###  <a name="change-access-to-internal-shared-folders-for-a-user-account"></a><a name="BKMK_Access12"></a>Ändern des Zugriffs auf interne freigegebene Ordner für ein Benutzerkonto  
  Sie können den Zugriff auf freigegebene Ordner auf dem Server mithilfe der Tasks auf der Registerkarte **Serverordner** des Dashboards verwalten. Standardmäßig werden die folgenden Serverordner erstellt, wenn Sie Windows Server Essentials installieren:  
   
 -   **Clientcomputersicherungen**  Darin werden Clientcomputersicherungen gespeichert, die von der Windows Server-Sicherung erstellt wurden. Dieser Serverordner wird nicht freigegeben.  
@@ -605,7 +605,7 @@ Die Seite "Benutzer" des Windows Server Essentials-Dashboards zeigt Informatione
     > [!NOTE]
     >  Die Freigabeberechtigungen für die Serverordner **Sicherungen von Dateiversionsverläufen**, **Ordnerumleitung** und **Benutzer** können nicht geändert werden. Die Ordnereigenschaften dieser Serverordner enthalten daher keine Registerkarte für **Freigabe**.  
   
-###  <a name="BKMK_Access13"></a>Zulassen, dass Benutzerkonten eine Remote Desktop Sitzung mit Ihrem Computer einrichten  
+###  <a name="allow-user-accounts-to-establish-a-remote-desktop-session-to-their-computer"></a><a name="BKMK_Access13"></a>Zulassen, dass Benutzerkonten eine Remote Desktop Sitzung mit Ihrem Computer einrichten  
   Dieser Abschnitt gilt für einen Server, auf dem Windows Server Essentials oder Windows Server Essentials ausgeführt wird, oder für einen Server mit Windows Server 2012 R2 Standard oder Windows Server 2012 R2 Datacenter mit installierter Windows Server Essentials-Rolle.  
   
  Der Netzwerkadministrator kann Netzwerkbenutzern Berechtigungen erteilen, die es ihnen ermöglichen, von einem Remotestandort aus auf ihre Netzwerkcomputer zuzugreifen.  

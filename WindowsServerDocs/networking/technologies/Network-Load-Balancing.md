@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-nlb
 ms.topic: article
 ms.assetid: 244a4b48-06e5-4796-8750-a50e4f88ac72
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/13/2018
-ms.openlocfilehash: 4d79b6f29fbe64633bf04604ad586aff3dd86edf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 80dae16442041e3b46babaca6d163095c1c5e475
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405844"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309698"
 ---
 # <a name="network-load-balancing"></a>Netzwerklastenausgleich
 
@@ -147,10 +147,10 @@ Weitere Informationen finden Sie unter [install-Windows Feature](https://docs.mi
 ### <a name="network-load-balancing-manager"></a>Netzwerk Lastenausgleich-Manager
 Klicken Sie zum Öffnen des Netzwerklastenausgleich-Managers im Server-Manager auf **Extras**, und klicken Sie dann auf **Netzwerklastenausgleich-Manager**.
   
-## <a name="additional-resources"></a>Zusätzliche Ressourcen  
+## <a name="additional-resources"></a>Weitere Ressourcen  
 In der folgenden Tabelle finden Sie Links zu weiteren Informationen zum NLB-Feature.  
   
-|Inhaltstyp|Verweise|  
+|Art des Inhalts|Verweise|  
 |----------------|--------------|  
 |Bereitstellung|[Bereitstellungs Handbuch](https://technet.microsoft.com/library/cc754833(WS.10).aspx) &#124; für den Netzwerk Lastenausgleich [Konfigurieren des Netzwerk Lastenausgleichs mit Terminal Diensten](https://technet.microsoft.com/library/cc771300(v=WS.10).aspx)|  
 |Vorgänge|[Verwalten von Netzwerk Lastenausgleich-Clustern](https://technet.microsoft.com/library/cc753954(WS.10).aspx) &#124; [Festlegen von Parametern](https://technet.microsoft.com/library/cc731619(WS.10).aspx) &#124; für den Netzwerk Lastenausgleich [Steuern von Hosts auf](https://technet.microsoft.com/library/cc770870(WS.10).aspx) NLB|  
