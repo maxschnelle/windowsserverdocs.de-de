@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: 55686a9c-60dd-47f4-9f1f-fe72c2873a44
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: dc6ade92eb5fe04271033973911ccb98e871d236
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 2ac8dc289cf321266d39016f841c243899fe6cf4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406375"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319063"
 ---
 # <a name="branchcache-hosted-cache-mode-deployment-overview"></a>Übersicht über den BranchCache-Modus „Gehosteter Cache“
 
@@ -23,7 +23,7 @@ Mit dieser Anleitung können Sie einen gehosteten BranchCache-Cache Server in ei
 
 Diese Übersicht enthält die BranchCache-Infrastruktur, die Sie benötigen, sowie eine einfache Schritt-für-Schritt-Übersicht über die Bereitstellung.
 
-## <a name="bkmk_components"></a>Gehostete Cache Server-Bereitstellungs Infrastruktur
+## <a name="hosted-cache-server-deployment-infrastructure"></a><a name="bkmk_components"></a>Gehostete Cache Server-Bereitstellungs Infrastruktur
 
 In dieser Bereitstellung wird der gehostete Cache Server mithilfe von Dienst Verbindungs Punkten in Active Directory Domain Services \(AD DS\)bereitgestellt, und Sie haben die Möglichkeit, mit BranchCache in Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012 einen prähash für den freigegebenen Inhalt auf Web-und dateibasierten Inhalts Servern durchzusetzen und den Inhalt auf gehosteten Cache Servern vorab zu laden.
 
@@ -56,7 +56,7 @@ Wenn die Client Computer in der Verzweigung Gruppenrichtlinie aktualisiert haben
 
 Sie müssen Gruppenrichtlinie auf Client Computern aktualisieren, um neue BranchCache-Gruppenrichtlinie Einstellungen anzuwenden und Clients das Auffinden und Verwenden des gehosteten Cache Servers zu ermöglichen.
 
-## <a name="bkmk_overview"></a>Übersicht über den Bereitstellung des gehosteten Cache Servers
+## <a name="hosted-cache-server-deployment-process-overview"></a><a name="bkmk_overview"></a>Übersicht über den Bereitstellung des gehosteten Cache Servers
 
 >[!NOTE]
 >Ausführliche Informationen zum Ausführen dieser Schritte finden Sie im Abschnitt Bereitstellung des [BranchCache-gehosteten Cache Modus](4-Bc-Hcm-Deployment.md).

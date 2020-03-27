@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: da956be0-c92d-46ea-99eb-85e2bd67bf07
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: a96b67b235b813ad455d5b289b7238f671e4c547
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 4a86d37fe8744127a91b7fb89e4f34d4a0a021fa
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356706"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318497"
 ---
 # <a name="configure-firewall-rules-for-non-domain-members-to-allow-branchcache-traffic"></a>Konfigurieren von Firewallregeln für Nichtdomänenmitglieder zum Zulassen von BranchCache-Datenverkehr
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Mithilfe der Informationen in diesem Thema können Sie Firewallprodukte von Drittanbietern konfigurieren und einen Client Computer manuell mit Firewallregeln konfigurieren, die das Ausführen von BranchCache im Modus "verteilter Cache" zulassen.  
   
@@ -27,7 +27,7 @@ Mithilfe der Informationen in diesem Thema können Sie Firewallprodukte von Drit
   
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, um diese Konfigurationsänderungen vorzunehmen.  
   
-## <a name="ms-pccrd-peer-content-caching-and-retrieval-discovery-protocol"></a>[MS-PCCRD]: Protokoll zum Zwischenspeichern und Abrufen von Peer Inhalten  
+## <a name="ms-pccrd-peer-content-caching-and-retrieval-discovery-protocol"></a>[MS-PCCRD]: Protokoll für das Zwischenspeichern und Abrufen von Peer Inhalten  
 Verteilte Cacheclients müssen eingehenden und ausgehenden MS-PCCRD-Datenverkehr zulassen, der mit dem WS-Discovery-Protokoll (Web Services Dynamic Discovery) übertragen wird.  
   
 Firewalleinstellungen müssen zusätzlich zum eingehenden und ausgehenden Datenverkehr Multicast Datenverkehr zulassen. Sie können die folgenden Einstellungen verwenden, um Firewallausnahmen für den Modus "Verteilter Cache" zu konfigurieren.  
@@ -36,9 +36,9 @@ IPv4-Multicast: 239.255.255.250
   
 IPv6-Multicast: FF02:: C  
   
-Eingehender Datenverkehr: Lokaler Port: 3702, Remoteport: kurzlebige  
+Eingehender Datenverkehr: lokaler Port: 3702, Remoteport: kurzlebige  
   
-Ausgehender Datenverkehr: Lokaler Port: kurzlebige, Remoteport: 3702  
+Ausgehender Datenverkehr: lokaler Port: kurzlebige, Remoteport: 3702  
   
 Programm:%systemroot%\system32\svchost.exe (BranchCache-Dienst [PeerDistSvc])  
   
@@ -47,9 +47,9 @@ Clients für verteilte Caches müssen einen eingehenden und ausgehenden MS-PCCRR
   
 Firewalleinstellungen müssen einen eingehenden und ausgehenden Datenverkehr zulassen. Sie können die folgenden Einstellungen verwenden, um Firewallausnahmen für den Modus "Verteilter Cache" zu konfigurieren.  
   
-Eingehender Datenverkehr: Lokaler Port: 80, Remoteport: kurzlebige  
+Eingehender Datenverkehr: lokaler Port: 80, Remoteport: kurzlebige  
   
-Ausgehender Datenverkehr: Lokaler Port: kurzlebige, Remoteport: 80  
+Ausgehender Datenverkehr: lokaler Port: kurzlebige, Remoteport: 80  
   
 
 

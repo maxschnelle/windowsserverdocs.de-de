@@ -10,14 +10,14 @@ ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 26d105e0-afc3-44b5-bb5e-0c884a4c5d62
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 3ff03dae44600ff79ed22d298ee338c570e61e36
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d8e7130d5774c19cc3d51045786bfef319cf7d16
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405491"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316435"
 ---
 # <a name="nic-teaming-mac-address-use-and-management"></a>NIC-Teaming-MAC-Adresse verwenden und Verwaltung
 
@@ -34,7 +34,7 @@ Sie können die Mac-Adresse des NIC-Teams auf eine bestimmte MAC-Adresse festleg
 ## <a name="mac-address-use-on-transmitted-packets"></a>Mac-Adress Verwendung für übertragene Pakete  
 Wenn Sie ein NIC-Team im Wechsel unabhängigen Modus konfigurieren und entweder die Hash-oder dynamische Lastenverteilung durchsetzen, werden die Pakete aus einer einzelnen Quelle (z. b. eine einzelne VM) gleichzeitig auf mehrere Team Mitglieder verteilt. Um zu verhindern, dass die Switches verwirrt werden, und um Mac-Fluktuation-Alarme zu verhindern, wird die MAC-Quelladresse durch eine andere Mac-Adresse in den Frames ersetzt, die auf andere Teammitglieder als das primäre Teammitglied übertragen werden. Aus diesem Grund verwendet jedes Teammitglied eine andere Mac-Adresse, und Mac-Adresskonflikte werden verhindert, wenn ein Fehler auftritt.  
   
-Wenn ein Fehler auf der primären NIC erkannt wird, startet die NIC-Team Vorgangs Software die Mac-Adresse des primären Teammitglieds auf dem Teammitglied, das als temporäres primäres Teammitglied fungieren soll (d. h. das Konto, das nun als primäres Teammitglied angezeigt wird. mber).  Diese Änderung gilt nur für Datenverkehr, der an das primäre Teammitglied mit der Mac-Adresse des primären Teammitglieds als Quell-MAC-Adresse gesendet wird. Der andere Datenverkehr wird weiterhin mit der Quell-MAC-Adresse gesendet, die vor dem Auftreten des Fehlers verwendet wurde.  
+Wenn ein Fehler auf der primären NIC erkannt wird, startet die NIC-Team Vorgangs Software die Mac-Adresse des primären Teammitglieds auf dem Teammitglied, das als temporäres primäres Teammitglied fungieren soll (d. h. das Konto, das nun als primäres Team für den Switch angezeigt wird). -Member).  Diese Änderung gilt nur für Datenverkehr, der an das primäre Teammitglied mit der Mac-Adresse des primären Teammitglieds als Quell-MAC-Adresse gesendet wird. Der andere Datenverkehr wird weiterhin mit der Quell-MAC-Adresse gesendet, die vor dem Auftreten des Fehlers verwendet wurde.  
   
 Im folgenden finden Sie Listen, die das Austausch Verhalten des NIC-Team Vorgangs für Mac-Adressen basierend auf der Konfiguration des Teams beschreiben:  
   
@@ -69,13 +69,13 @@ Im folgenden finden Sie Listen, die das Austausch Verhalten des NIC-Team Vorgang
     -   Es wird keine Quell-MAC-Adressen Ersetzung durchgeführt.  
   
 ## <a name="related-topics"></a>Verwandte Themen
-- [NIC](NIC-Teaming.md)-Team Vorgang: In diesem Thema erhalten Sie einen Überblick über den NIC-Team Vorgang (Network Interface Card) in Windows Server 2016. Mit dem NIC-Team Vorgang können Sie zwischen einem und 32 physischen Ethernet-Netzwerkadaptern in einem oder mehreren softwarebasierten virtuellen Netzwerkadaptern gruppieren. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.  
+- [NIC](NIC-Teaming.md)-Team Vorgang: in diesem Thema erhalten Sie einen Überblick über den NIC-Team Vorgang (Network Interface Card) in Windows Server 2016. Mit dem NIC-Team Vorgang können Sie zwischen einem und 32 physischen Ethernet-Netzwerkadaptern in einem oder mehreren softwarebasierten virtuellen Netzwerkadaptern gruppieren. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.  
 
-- [Einstellungen für NIC](nic-teaming-settings.md)-Team Vorgänge: In diesem Thema erhalten Sie einen Überblick über die NIC-Team Eigenschaften, z. b. Team-und Lasten ausgleichsmodi. Außerdem erhalten Sie Informationen über die standbyadaptereinstellung und die Eigenschaft "primäre Team Schnittstelle". Wenn Sie über mindestens zwei Netzwerkadapter in einem NIC-Team verfügen, müssen Sie keinen Standby-Adapter für die Fehlertoleranz festlegen.
+- [NIC](nic-teaming-settings.md)-Team Vorgangs Einstellungen: in diesem Thema erhalten Sie eine Übersicht über die NIC-Team Eigenschaften, z. b. Team-und Lasten ausgleichsmodi. Außerdem erhalten Sie Informationen über die standbyadaptereinstellung und die Eigenschaft "primäre Team Schnittstelle". Wenn Sie über mindestens zwei Netzwerkadapter in einem NIC-Team verfügen, müssen Sie keinen Standby-Adapter für die Fehlertoleranz festlegen.
   
-- [Erstellen eines neuen NIC-Teams auf einem Host Computer oder einer VM](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md): In diesem Thema erstellen Sie ein neues NIC-Team auf einem Host Computer oder auf einem virtuellen Hyper-V-Computer (VM), auf dem Windows Server 2016 ausgeführt wird.
+- [Erstellen eines neuen NIC-Teams auf einem Host Computer oder einer VM](Create-a-New-NIC-Team-on-a-Host-Computer-or-VM.md): in diesem Thema erstellen Sie ein neues NIC-Team auf einem Host Computer oder auf einem virtuellen Hyper-V-Computer (VM), auf dem Windows Server 2016 ausgeführt wird.
 
-- [Problem](Troubleshooting-NIC-Teaming.md)Behandlung beim NIC-Team Vorgang: In diesem Thema wird erläutert, wie Sie Probleme mit dem NIC-Team Vorgang beheben, wie z. b. Hardware, physische switchwertgeräte und das Deaktivieren oder Aktivieren von Netzwerkadaptern mithilfe von Windows PowerShell. 
+- [Problem](Troubleshooting-NIC-Teaming.md)Behandlung beim NIC-Team Vorgang: in diesem Thema wird erläutert, wie Sie Probleme mit dem NIC-Team Vorgang beheben, wie z. b. Hardware, physische switchwertgeräte und das Deaktivieren oder Aktivieren von Netzwerkadaptern mithilfe von Windows PowerShell. 
   
 
 

@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 849d661a-42c1-4f93-b669-6009d52aad39
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 268a307336d9a4fae1be5621eec7c32a06a6204e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 311003201f96c5f566077867b09fee0a325ed011
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405400"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316195"
 ---
 # <a name="connection-request-processing"></a>Verarbeitung von Verbindungsanforderungen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erfahren Sie mehr über die Verarbeitung von Verbindungsanforderungen auf dem Netzwerk Richtlinien Server unter Windows Server 2016.
 

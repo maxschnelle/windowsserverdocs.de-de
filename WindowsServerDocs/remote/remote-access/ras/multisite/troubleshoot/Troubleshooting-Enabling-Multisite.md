@@ -10,18 +10,18 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 570c81d6-c4f4-464c-bee9-0acbd4993584
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: fc42040d68b8a22dcfc46aa30db3a2a3c3bc060a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 59db462e3772b551f0d80819e7cd79519e95fb14
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367060"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313823"
 ---
 # <a name="troubleshooting-enabling-multisite"></a>Behandeln von Problemen beim Aktivieren der Funktionen für mehrere Standorte
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Thema enthält Informationen zum Beheben von Problemen mit dem Befehl `Enable-DAMultisite`. Um sicherzustellen, dass sich der angezeigte Fehler auf das Aktivieren der Funktionen für mehrere Standorte bezieht, prüfen Sie, ob im Windows-Ereignisprotokoll die Ereignis-ID 10051 aufgeführt wird.  
   
@@ -51,7 +51,7 @@ So konfigurieren Sie die Computerzertifikatauthentifizierung:
   
 1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole im Detailbereich in Schritt 2 **RAS-Server** auf **Bearbeiten**.  
   
-2.  Aktivieren Sie im **Setup-Assistenten für den RAS-Server** auf der Seite **Authentifizierung** das Kontrollkästchen **Computerzertifikate verwenden**, und wählen Sie die Stamm- oder Zwischenzertifizierungsstelle aus, von der Zertifikate in Ihrer Bereitstellung ausgestellt werden.  
+2.  Aktivieren Sie im Setup-Assistenten für den RAS-Server auf der Seite **Authentifizierung** das Kontrollkästchen **Computerzertifikate verwenden**, und wählen Sie die Stamm- oder Zwischenzertifizierungsstelle aus, von der Zertifikate in Ihrer Bereitstellung ausgestellt werden.  
   
 Verwenden Sie zum Aktivieren der Computer Zertifikat Authentifizierung mithilfe von Windows PowerShell das Cmdlet "`Set-DAServer`", und geben Sie den Parameter " *ipccrootcertificate* " an.  
   
@@ -68,7 +68,7 @@ So wählen Sie ein IP-HTTPS-Zertifikat aus:
   
 1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole im Detailbereich in Schritt 2 **RAS-Server** auf **Bearbeiten**.  
   
-2.  Stellen Sie sicher, dass im **Setup-Assistenten für den RAS-Server** auf der Seite **Netzwerkadapter** unter **Wählen Sie das Zertifikat aus, mit dem IP-HTTPS-Verbindungen authentifiziert werden:** das Kontrollkästchen **Selbstsigniertes Zertifikat verwenden, das von DirectAccess automatisch erstellt wurde** deaktiviert ist, und klicken Sie auf **Durchsuchen**, um ein von einer vertrauenswürdigen Zertifizierungsstelle ausgestelltes Zertifikat auszuwählen.  
+2.  Stellen Sie sicher, dass im Setup-Assistenten für den RAS-Server auf der Seite **Netzwerkadapter** unter **Wählen Sie das Zertifikat aus, mit dem IP-HTTPS-Verbindungen authentifiziert werden:** das Kontrollkästchen **Selbstsigniertes Zertifikat verwenden, das von DirectAccess automatisch erstellt wurde** deaktiviert ist, und klicken Sie auf **Durchsuchen**, um ein von einer vertrauenswürdigen Zertifizierungsstelle ausgestelltes Zertifikat auszuwählen.  
   
 ## <a name="network-location-server"></a>Netzwerkadressenserver  
   
@@ -86,7 +86,7 @@ So wählen Sie ein IP-HTTPS-Zertifikat aus:
   
     1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole im Detailbereich in Schritt 3 **Infrastrukturserver** auf **Bearbeiten**.  
   
-    2.  Stellen Sie sicher, dass im **Assistenten zum Einrichten** des Infrastrukturservers auf der Seite **Netzwerkadressenserver** unter **Der Netzwerkadressenserver wird auf dem RAS-Server bereitgestellt.** das Kontrollkästchen **Selbstsigniertes Zertifikat verwenden** deaktiviert ist, und klicken Sie auf **Durchsuchen**, um ein von einer Unternehmenszertifizierungsstelle ausgestelltes Zertifikat auszuwählen.  
+    2.  Stellen Sie sicher, dass imAssistenten zum Einrichten des Infrastrukturservers auf der Seite **Netzwerkadressenserver** unter **Der Netzwerkadressenserver wird auf dem RAS-Server bereitgestellt.** das Kontrollkästchen **Selbstsigniertes Zertifikat verwenden** deaktiviert ist, und klicken Sie auf **Durchsuchen**, um ein von einer Unternehmenszertifizierungsstelle ausgestelltes Zertifikat auszuwählen.  
   
 -   **Problem 2**  
   
@@ -104,7 +104,7 @@ So wählen Sie ein IP-HTTPS-Zertifikat aus:
   
     1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole im Detailbereich in Schritt 3 **Infrastrukturserver** auf **Bearbeiten**.  
   
-    2.  Klicken Sie im **Assistenten zum Einrichten** des Infrastrukturservers auf der Seite **Netzwerkadressenserver** unter **Der Netzwerkadressenserver wird auf dem RAS-Server bereitgestellt.** auf **Durchsuchen**, um das zuvor abgerufene Zertifikat auszuwählen. Das Zertifikat muss einen Antragstellernamen enthalten, der sich vom internen Namen des RAS-Servers unterscheidet.  
+    2.  Klicken Sie imAssistenten zum Einrichten des Infrastrukturservers auf der Seite **Netzwerkadressenserver** unter **Der Netzwerkadressenserver wird auf dem RAS-Server bereitgestellt.** auf **Durchsuchen**, um das zuvor abgerufene Zertifikat auszuwählen. Das Zertifikat muss einen Antragstellernamen enthalten, der sich vom internen Namen des RAS-Servers unterscheidet.  
   
 ## <a name="windows-7-client-computers"></a>Windows 7-Clientcomputer  
 Die **Warnung wurde empfangen**. Beim Aktivieren von Multisite dürfen die für DirectAccess-Clients konfigurierten Sicherheitsgruppen keine Windows 7-Computer enthalten. Wählen Sie eine Sicherheitsgruppe aus, die die Clients für die einzelnen Einstiegspunkte enthält, damit Clientcomputer mit Windows 7 in einer Bereitstellung mit mehreren Standorten unterstützt werden.  
@@ -118,7 +118,7 @@ In der vorhandenen DirectAccess-Bereitstellung wurde die Windows 7-Client Unters
 DirectAccess erfordert mindestens eine Sicherheitsgruppe für alle Windows 8-Client Computer und eine Sicherheitsgruppe für Windows 7-Client Computer für jeden Einstiegspunkt. Jeder Clientcomputer sollte nur in eine Sicherheitsgruppe aufgenommen werden. Daher sollten Sie sicherstellen, dass die Sicherheitsgruppe für Windows 8-Clients nur Computer enthält, auf denen Windows 8 ausgeführt wird, und dass jeder Windows 7-Client Computer zu einer einzelnen dedizierten Sicherheitsgruppe für den relevanten Einstiegspunkt gehört und keine Windows 8-Clients gehört zu den Windows 7-Sicherheitsgruppen.  
   
 ## <a name="active-directory-site"></a>Active Directory-Standort  
-Der **Fehler wurde empfangen**. Der Server < Servername > ist keinem Active Directory Standort zugeordnet.  
+Der **Fehler wurde empfangen**. Der Server < server_name > ist keinem Active Directory Standort zugeordnet.  
   
 **Ursache**  
   
@@ -128,7 +128,7 @@ Von DirectAccess konnte der Active Directory-Standort nicht ermittelt werden. I
   
 Überprüfen Sie, ob dies das Problem ist, indem Sie den Befehl `nltest /dsgetsite` auf dem RAS-Server ausführen. Ist dies das Problem, wird vom Befehl ERROR_NO_SITENAME zurückgegeben. Stellen Sie zum Beheben des Problems sicher, dass auf dem Domänencontroller ein Subnetz vorhanden ist, das die interne Server-IP-Adresse enthält und einem Active Directory-Standort zugeordnet ist.  
   
-## <a name="SaveGPOSettings"></a>Server-GPO-Einstellungen werden gespeichert  
+## <a name="saving-server-gpo-settings"></a><a name="SaveGPOSettings"></a>Server-GPO-Einstellungen werden gespeichert  
 Der **Fehler wurde empfangen**. Fehler beim Speichern der Remote Zugriffs Einstellungen auf dem GPO-< GPO_name >.  
   
 **Ursache**  
@@ -139,7 +139,7 @@ Der **Fehler wurde empfangen**. Fehler beim Speichern der Remote Zugriffs Einste
   
 Stellen Sie sicher, dass Konnektivität zwischen dem RAS-Server und dem Domänencontroller besteht. Besteht Konnektivität, überprüfen Sie auf dem Domänencontroller, ob die Datei %%amp;quot;registry.pol%%amp;quot; durch einen anderen Benutzer gesperrt ist, und beenden Sie ggf. diese Benutzersitzung, um die Datei zu entsperren.  
   
-## <a name="InternalServerError"></a>Interner Fehler.  
+## <a name="internal-error-occurred"></a><a name="InternalServerError"></a>Interner Fehler.  
 Der **Fehler wurde empfangen**. Interner Fehler.  
   
 **Ursache**  

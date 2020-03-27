@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 911c1538-f79d-42e9-ba38-f4618f87b008
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 06/02/2018
-ms.openlocfilehash: 6f093e605ce735d8f86f7f4d479a646d144e8829
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c6ca1ff8fabb559628afd2dd1abafc56a908909a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356517"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319196"
 ---
 # <a name="use-group-policy-to-configure-domain-member-client-computers"></a>Verwenden von Gruppenrichtlinie zum Konfigurieren von Domänen Mitglieds-Client Computern
 
@@ -35,7 +35,7 @@ Dieser Abschnitt enthält die folgenden Prozeduren.
   
 Sie müssen Mitglied der Gruppe **Domänen-Admins**oder einer entsprechenden Gruppe sein, um diese Verfahren ausführen zu können.  
   
-## <a name="bkmk_gp"></a>So erstellen Sie ein Gruppenrichtlinie Objekt und konfigurieren die BranchCache-Modi  
+## <a name="to-create-a-group-policy-object-and-configure-branchcache-modes"></a><a name="bkmk_gp"></a>So erstellen Sie ein Gruppenrichtlinie Objekt und konfigurieren die BranchCache-Modi  
   
 1.  Klicken Sie auf einem **Computer, auf**dem die Active Directory Domain Services Server-Rolle installiert ist, in Server-Manager auf Extras, und klicken Sie dann auf **Gruppenrichtlinie Verwaltung**. Die Gruppenrichtlinie-Verwaltungskonsole wird geöffnet.  
   
@@ -64,7 +64,7 @@ Sie müssen Mitglied der Gruppe **Domänen-Admins**oder einer entsprechenden Gru
   
 12. Verwenden Sie die folgenden Verfahren, um Firewalleinstellungen auf Client Computern mithilfe von Gruppenrichtlinie zu konfigurieren.  
   
-## <a name="bkmk_inbound"></a>So konfigurieren Sie die Windows-Firewall mit Regeln für eingehenden Datenverkehr  
+## <a name="to-configure-windows-firewall-with-advanced-security-inbound-traffic-rules"></a><a name="bkmk_inbound"></a>So konfigurieren Sie die Windows-Firewall mit Regeln für eingehenden Datenverkehr  
   
 1.  Erweitern Sie in der Gruppenrichtlinie-Verwaltungskonsole den folgenden Pfad: Gesamtstruktur **:** *example.com*, **Domänen**, *example.com*, **Gruppenrichtlinie Objekte**, wobei *example.com* der Name der Domäne ist, in der sich die zu konfigurierenden BranchCache-Client Computer Konten befinden.  
   
@@ -94,7 +94,7 @@ Sie müssen Mitglied der Gruppe **Domänen-Admins**oder einer entsprechenden Gru
     > [!IMPORTANT]  
     > Sie müssen **Verbindung zulassen** auswählen, damit der BranchCache-Client auf diesem Port Datenverkehr empfangen kann.  
   
-## <a name="bkmk_outbound"></a>So konfigurieren Sie Regeln für ausgehenden Datenverkehr für die Windows-Firewall  
+## <a name="to-configure-windows-firewall-with-advanced-security-outbound-traffic-rules"></a><a name="bkmk_outbound"></a>So konfigurieren Sie Regeln für ausgehenden Datenverkehr für die Windows-Firewall  
   
 1.  Klicken Sie in der Konsole des Gruppenrichtlinienverwaltungs-Editors mit der rechten Maustaste auf **Ausgehende Regeln**, und klicken Sie dann auf **Neue Regel**. Der Assistent für neue ausgehende Regeln wird geöffnet.  
   

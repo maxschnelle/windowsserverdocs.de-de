@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3d66901a-c40b-474c-9948-f989f399cfea
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 4c7a8243922f58f9705a85cd30b2a68cf4d876c6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 558c99c187ab01f3084621410964f3a01c0dace8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404788"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308664"
 ---
 # <a name="step-6-install-and-configure-2-dc1"></a>Schritt 6: Installieren und Konfigurieren von 2-DC1
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 2 DC1 stellt die folgenden Dienste bereit:  
   
@@ -50,7 +50,7 @@ Installieren Sie zunächst Windows Server 2016, Windows Server 2012 R2 oder Wind
   
 1.  Starten Sie die Installation von Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012.  
   
-2.  Befolgen Sie die Anweisungen, um die Installation abzuschließen, indem Sie Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 (vollständige Installation) und ein sicheres Kennwort für das lokale Administrator Konto angeben. Melden Sie sich beim lokalen Administratorkonto an.  
+2.  Befolgen Sie die Anweisungen, um die Installation abzuschließen, indem Sie Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 (vollständige Installation) und ein sicheres Kennwort für das lokale Administrator Konto angeben. Melden Sie sich mit dem lokalen Administratorkonto an.  
   
 3.  Verbinden Sie 2 DC1 mit einem Netzwerk, das über Internet Zugriff verfügt, und führen Sie Windows Update aus, um die neuesten Updates für Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 zu installieren, und trennen Sie dann die Verbindung mit dem Internet.  
   
@@ -67,7 +67,7 @@ Konfigurieren Sie das TCP/IP-Protokoll mit statischen IP-Adressen.
   
 3.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
-4.  Klicken Sie auf **Folgende IP-Adresse verwenden**. Geben Sie unter **IP-Adresse**den Namen **10.2.0.1 bis**ein. Geben Sie im Feld **Subnetzmaske**den Wert **255.255.255.0**ein. Geben Sie unter **Standard Gateway**den Namen **10.2.0.254**ein. Klicken Sie auf **folgende DNS-Serveradressen verwenden**, geben Sie unter **Bevorzugter DNS-Server**den Namen **10.2.0.1 bis**ein, und geben Sie in **Alternativer DNS-Server** **10.0.0.1**ein.  
+4.  Klicken Sie auf **Folgende IP-Adresse verwenden**. Geben Sie unter **IP-Adresse**den Namen **10.2.0.1 bis**ein. Geben Sie im Feld **Subnetzmaske** den Wert **255.255.255.0** ein. Geben Sie unter **Standard Gateway**den Namen **10.2.0.254**ein. Klicken Sie auf **folgende DNS-Serveradressen verwenden**, geben Sie unter **Bevorzugter DNS-Server**den Namen **10.2.0.1 bis**ein, und geben Sie in **Alternativer DNS-Server** **10.0.0.1**ein.  
   
 5.  Klicken Sie auf **Erweitert** und dann auf die Registerkarte **DNS**.  
   
@@ -181,13 +181,13 @@ Computer in der CORP2-Domäne müssen Computer Zertifikate von der Zertifizierun
   
 6.  **Geben Sie unter Geben Sie die zu**entwerfbaren Objektnamen ein die Zeichen **Domäne Admins Domänen Computer** , und klicken Sie dann auf **OK**.  
   
-7.  Klicken Sie im Dialogfeld **Eigenschaften von Client-Server-Authentifizierung** unter **Gruppen-oder Benutzernamen**auf **Domänen-Admins (CORP2\Domain Admins)** , und wählen Sie in **Berechtigungen für Domänen Administratoren**in der Spalte **zulassen** die Option **Schreiben** aus. und **registrieren**.  
+7.  Klicken Sie im Dialogfeld **Eigenschaften von Client-Server-Authentifizierung** unter **Gruppen-oder Benutzernamen**auf **Domänen-Admins (CORP2\Domain Admins)** , und wählen Sie in **Berechtigungen für Domänen Administratoren**in der Spalte **zulassen** die Option **Schreiben** und **Anmelden**aus.  
   
 8.  Klicken Sie unter **Gruppen-oder Benutzernamen**auf **Domänen Computer (CORP2\Domain-Computer)** , und wählen Sie unter **Berechtigungen für Domänen Computer**in der Spalte **zulassen** die **Option registrieren und** **automatisch registrieren**aus, und klicken Sie dann auf **OK**.  
   
 9. Schließen Sie die Zertifikatvorlagenkonsole.  
   
-## <a name="replication"></a>Erzwingen der Replikation zwischen DC1 und 2-DC1  
+## <a name="force-replication-between-dc1-and-2-dc1"></a><a name="replication"></a>Erzwingen der Replikation zwischen DC1 und 2-DC1  
 Bevor Sie sich für Zertifikate bei 2 Edge1 registrieren können, müssen Sie die Replikation von Einstellungen von DC1 zu 2-DC1 erzwingen. Dieser Vorgang sollte auf DC1 ausgeführt werden.  
   
 ### <a name="to-force-replication"></a>Erzwingen der Replikation  
@@ -200,7 +200,7 @@ Bevor Sie sich für Zertifikate bei 2 Edge1 registrieren können, müssen Sie di
   
 4.  Geben Sie im Dialogfeld **DEFAULTIPSITELINK-Eigenschaften** unter **Kosten**den Text **1 ein**, geben Sie in **Replizieren alle**den Typ **15**ein, und klicken Sie dann auf **OK**. Warten Sie 15 Minuten, bis die Replikation abgeschlossen ist.  
   
-5.  Um die Replikation jetzt in der Konsolen Struktur zu erzwingen, erweitern Sie **Sites\Default-First-Site-name\servers\dc1\ntds Settings**, klicken Sie im Detailbereich mit der rechten Maustaste auf **<automatically generated>** , klicken Sie auf **Jetzt replizieren**, und klicken Sie dann im Dialogfeld **Jetzt replizieren** auf Klicken Sie auf **OK**.  
+5.  Um die Replikation jetzt in der Konsolen Struktur zu erzwingen, erweitern Sie **Sites\Default-First-Site-name\servers\dc1\ntds Settings**, klicken Sie im Detailbereich mit der rechten Maustaste auf **<automatically generated>** , klicken Sie auf **Jetzt replizieren**, und klicken Sie dann im Dialogfeld **Jetzt replizieren** auf **OK**.  
   
 6.  Gehen Sie folgendermaßen vor, um eine erfolgreiche Replikation sicherzustellen:  
   

@@ -10,19 +10,19 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 84ac2458-3fcf-4c4f-acfe-6105443dd83f
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/26/2018
-ms.openlocfilehash: 854adf0e7bb2a8715e3d447c04e2f09c3470a781
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1faf0112953146959ce2ec587c083c9ae9fed9c5
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355832"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317612"
 ---
 # <a name="understand-the-usage-of-virtual-networks-and-vlans"></a>Grundlegendes zur Verwendung von virtuellen Netzwerken und VLANs
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erfahren Sie mehr über virtuelle Netzwerke für die Hyper-V-Netzwerkvirtualisierung und deren Unterschiede zu virtuellen lokalen Netzwerken (Virtual Local Area Networks, VLANs). Mit der Hyper-V-Netzwerkvirtualisierung erstellen Sie über Lagerungs-VMS, auch als virtuelle Netzwerke bezeichnet.
 

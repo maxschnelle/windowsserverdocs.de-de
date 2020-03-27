@@ -10,18 +10,18 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ed49a0a3-1c45-42e5-8f13-cad20c1c1d68
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 83ea3c4e4feefacde3e1ed7be6b605d8c0e644a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 9a3d3fadbe2f187ae6b5a77137393b7ad7be338b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366975"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313635"
 ---
 # <a name="step-4-verify-directaccess-with-otp"></a>Schritt 4 Überprüfen von DirectAccess mit OTP
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema wird beschrieben, wie Sie überprüfen können, ob Sie DirectAccess mit OTP-Bereitstellung ordnungsgemäß konfiguriert haben.
   
@@ -36,7 +36,7 @@ In diesem Thema wird beschrieben, wie Sie überprüfen können, ob Sie DirectAcc
 4. Vergewissern Sie sich, dass der Status von OTP das grüne Symbol anzeigt und funktioniert.  
   
     > [!NOTE]  
-    > Das Aktualisierungs Intervall für den Integritäts Status ist ein Maximum der Summe der Werte aus dem Registrierungsschlüssel hklm\system\ccs\services\ramgmtsvc\parameters\healthrefreshtimeout und dem **Zeitintervall für die Serveraktivität** , die im Remote Zugriff festgelegt wurde. konfiguri.  
+    > Das Aktualisierungs Intervall für den Integritäts Status ist ein Maximum der Summe der Werte aus dem Registrierungsschlüssel hklm\system\ccs\services\ramgmtsvc\parameters\healthrefreshtimeout und dem **Zeitintervall für die Serveraktivität** , das in der Konfiguration des Remote Zugriffs festgelegt wurde.  
   
 ### <a name="to-verify-access-to-internal-resources-using-otp-authentication"></a>So überprüfen Sie den Zugriff auf interne Ressourcen mithilfe der OTP-Authentifizierung  
   

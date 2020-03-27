@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: a9ee7a56-f062-474f-a61c-9387ff260929
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 6a7836160fc7363ec3d7b2fb11e194db82970f9a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: f9bc1a35016ca5946eddeada2088a83f1fa8ca05
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406154"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317754"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-secondary-deployments"></a>Verwenden von DNS-Richtlinien für eine auf Geolocation basierende Datenverkehrsverwaltung mit primären und sekundären Bereitstellungen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie eine DNS-Richtlinie für die georeduntbasierte Datenverkehrs Verwaltung erstellen, wenn Ihre DNS-Bereitstellung sowohl primäre als auch sekundäre DNS-Server umfasst.  
 
@@ -37,7 +37,7 @@ Um sicherzustellen, dass Woodgrove.com-Kunden eine reaktionsfähige Darstellung 
   
 Die Cloud Services von "Configuration Manager" verfügt über zwei Rechenzentren, eine in den USA und eine andere in Europa, in der das Lebensmittel Anordnungs Portal von "Woodgrove.com" von "" gehostet wird.  
   
-Die DNS-Bereitstellung von "Configuration Manager" umfasst zwei sekundäre Server: **SecondaryServer1**, mit der IP-Adresse 10.0.0.2; und **SecondaryServer2**mit der IP-Adresse 10.0.0.3. Diese sekundären Server fungieren als Namen Server in den beiden unterschiedlichen Regionen, wobei sich SecondaryServer1 in Europa und SecondaryServer2 in den USA
+Die DNS-Bereitstellung von "Configuration Manager" umfasst zwei sekundäre Server: **SecondaryServer1**mit der IP-Adresse 10.0.0.2; und **SecondaryServer2**mit der IP-Adresse 10.0.0.3. Diese sekundären Server fungieren als Namen Server in den beiden unterschiedlichen Regionen, wobei sich SecondaryServer1 in Europa und SecondaryServer2 in den USA
   
 Es gibt eine primäre beschreibbare Zonen Kopie auf **primaryserver** (IP-Adresse 10.0.0.1), in der die Zonen Änderungen vorgenommen werden. Bei der regulären Zonen Übertragung an die sekundären Server sind die sekundären Server immer auf dem neuesten Stand mit neuen Änderungen an der Zone auf dem "primaryserver".
   
@@ -80,7 +80,7 @@ Für alle weiteren Updates in einem Zonen Bereich wird eine IXFR-Benachrichtigun
   
 ## <a name="how-to-configure-dns-policy-for-primary-secondary-geo-location-based-traffic-management"></a>Konfigurieren der DNS-Richtlinie für primäre sekundäre georedunlokbasierte Datenverkehrs Verwaltung
 
-Bevor Sie beginnen, stellen Sie sicher, dass Sie alle Schritte im Thema Verwenden der [DNS-Richtlinie für die georedundante Datenverkehrs Verwaltung mit primären Servern](../../dns/deploy/Scenario--Use-DNS-Policy-for-Geo-Location-Based-Traffic-Management-with-Primary-Servers.md)abgeschlossen haben und der primäre DNS-Server mit Zonen, Zonen Bereichen, DNS-Clientsubnetzen und DNS konfiguriert ist. Policy.  
+Bevor Sie beginnen, stellen Sie sicher, dass Sie alle Schritte im Thema Verwenden der [DNS-Richtlinie für die georedundante Datenverkehrs Verwaltung mit primären Servern](../../dns/deploy/Scenario--Use-DNS-Policy-for-Geo-Location-Based-Traffic-Management-with-Primary-Servers.md)abgeschlossen haben und der primäre DNS-Server mit Zonen, Zonen Bereichen, DNS-Clientsubnetzen und DNS-Richtlinie konfiguriert ist.  
   
 > [!NOTE]
 > Die Anweisungen in diesem Thema, um DNS-Clientsubnetze, Zonen Bereiche und DNS-Richtlinien von primären DNS-Servern auf DNS-sekundäre Server zu kopieren, sind für die anfängliche DNS-Einrichtung und-Überprüfung vorgesehen. In Zukunft möchten Sie möglicherweise die DNS-Clientsubnetze, Zonen Bereiche und Richtlinien Einstellungen auf dem primären Server ändern. In diesem Fall können Sie Automatisierungs Skripts erstellen, um die sekundären Server mit dem primären Server synchron zu halten.  

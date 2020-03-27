@@ -1,5 +1,5 @@
 ---
-title: Leistungsoptimierung für Netzwerkadapter
+title: Optimieren der Leistung von Netzwerkkarten
 description: Dieses Thema ist Teil des Handbuch zur Leistungsoptimierung des Netzwerk Subsystems für Windows Server 2016.
 audience: Admin
 ms.custom:
@@ -10,17 +10,17 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 0b9b0f80-415c-4f5e-8377-c09b51d9c5dd
 manager: dcscontentpm
-ms.author: pashort
+ms.author: lizross
 author: Teresa-Motiv
 ms.date: 12/23/2019
-ms.openlocfilehash: 3feec719934fb16ca34cebe1e653768da5fb9eb7
-ms.sourcegitcommit: 33c89b76ac902927490b9727f3cf92b374754699
+ms.openlocfilehash: f802804d64b3047a2612b7f346de03aff61c30cd
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75728431"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316544"
 ---
-# <a name="performance-tuning-network-adapters"></a>Leistungsoptimierung für Netzwerkadapter
+# <a name="performance-tuning-network-adapters"></a>Optimieren der Leistung von Netzwerkkarten
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (Semi-Annual Channel)
 
@@ -35,7 +35,7 @@ Die richtigen Optimierungs Einstellungen für die Netzwerkadapter hängen von de
 
 In den folgenden Abschnitten werden einige Ihrer Feineinstellungsoptionen beschrieben.  
 
-##  <a name="bkmk_offload"></a>Aktivieren der Auslagerung-Funktionen
+##  <a name="enabling-offload-features"></a><a name="bkmk_offload"></a>Aktivieren der Auslagerung-Funktionen
 
 Das Aktivieren von Netzwerkadapter-Auslagerungsfeatures ist für gewöhnlich nützlich. Der Netzwerkadapter ist jedoch möglicherweise nicht leistungsfähig genug, um die Auslagerungs Funktionen mit hohem Durchsatz zu verarbeiten.
 
@@ -48,7 +48,7 @@ In diesem Fall kann der maximale dauerhafte Durchsatz des Adapters durch Aktivie
 > [!NOTE]  
 > Bei einigen Netzwerkadaptern müssen Sie die Auslagerungs Features für die Sende-und Empfangs Pfade unabhängig voneinander aktivieren.
 
-##  <a name="bkmk_rss_web"></a>Aktivieren der Empfangs seitigen Skalierung (RSS) für Webserver
+##  <a name="enabling-receive-side-scaling-rss-for-web-servers"></a><a name="bkmk_rss_web"></a>Aktivieren der Empfangs seitigen Skalierung (RSS) für Webserver
 
 RSS kann die Webskalierbarkeit und Leistung verbessern, wenn weniger Netzwerkadapter als logische Prozessoren auf dem Server vorhanden sind. Wenn der gesamte Webdatenverkehr die RSS-fähigen Netzwerkadapter durchläuft, kann der Server eingehende Webanforderungen von verschiedenen Verbindungen gleichzeitig über verschiedene CPUs hinweg verarbeiten.
 
@@ -63,7 +63,7 @@ Das standardmäßige RSS-vordefinierte Profil ist **numastatic**und unterscheide
 
 Wenn Sie z. b. den Task-Manager öffnen und die logischen Prozessoren auf dem Server überprüfen und für den Empfang von Datenverkehr unterausgelastet sind, können Sie versuchen, die Anzahl der RSS-Warteschlangen vom Standardwert von 2 auf den maximalen Wert zu erhöhen, den der Netzwerkadapter unterstützt. Ihr Netzwerkadapter verfügt möglicherweise über Optionen zum Ändern der Anzahl der RSS-Warteschlangen als Bestandteil des Treibers.
 
-##  <a name="bkmk_resources"></a>Erhöhen der Netzwerkadapter Ressourcen
+##  <a name="increasing-network-adapter-resources"></a><a name="bkmk_resources"></a>Erhöhen der Netzwerkadapter Ressourcen
 
 Bei Netzwerkadaptern, die es Ihnen ermöglichen, Ressourcen wie Empfangs-und Sendepuffer manuell zu konfigurieren, sollten Sie die zugeordneten Ressourcen vergrößern.  
 
@@ -78,7 +78,7 @@ Um die Unterbrechungs Moderation zu steuern, machen einige Netzwerkadapter unter
 
 Sie sollten die Unterbrechungs Moderation für CPU-gebundene Workloads in Erwägung gezogen. Wenn Sie die Unterbrechungs Moderation verwenden, sollten Sie den Kompromiss zwischen den CPU-Einsparungen und der Latenz der Hosts im Vergleich zu den verstärkten CPU-Einsparungen durch den Host durch mehr Interrupts und weniger Latenz abwägen. Wenn der Netzwerkadapter keine unterbrechungs moderate ausführt, aber Puffer Zusammenstellung verfügbar macht, können Sie die Leistung verbessern, indem Sie die Anzahl der zusammengefügten Puffer erhöhen, um mehr Puffer pro Sende-oder Empfangsvorgang zuzulassen.
 
-##  <a name="bkmk_low"></a>Leistungsoptimierung für die Paketverarbeitung mit geringer Latenz
+##  <a name="performance-tuning-for-low-latency-packet-processing"></a><a name="bkmk_low"></a>Leistungsoptimierung für die Paketverarbeitung mit geringer Latenz
 
 Viele Netzwerkadapter bieten Optionen zum Optimieren der betriebssystembedingten Latenz. Latenz ist die Ablaufzeit, die zwischen der Netzwerktreiberverarbeitung eines eingehenden Pakets und dem Zurücksenden des Pakets durch den Netzwerktreiber vergeht. Diese Zeit wird für gewöhnlich in Mikrosekunden gemessen. Zum Vergleich wird die Übertragungszeit für Paketübertragungen über lange Distanzen hinweg normalerweise in Millisekunden (aufgrund der größeren Größe) gemessen. Diese Feineinstellung reduziert jedoch nicht die Zeit, die ein Paket übertragen wird.
 
@@ -98,7 +98,7 @@ Im Folgenden finden Sie einige Vorschläge zur Leistungsfeineinstellung für mik
 
 - Verarbeiten Sie Netzwerkadapterunterbrechungen und DPCs auf einem Kernprozessor, der CPU-Cache gemeinsam mit dem Kern verwendet, der durch das Programm verwendet wird (Benutzerthread), welches das Paket verarbeitet. Die CPU-Affinitätsfeineinstellung kann zum Lenken eines Vorgangs zu bestimmten logischen Prozessoren in Verbindung mit der RSS-Konfiguration verwendet werden. Das Verwenden des gleichen Kerns für den Interrupt, DPC und Benutzermodusthread zieht eine schlechte Leistung und eine erhöhte Last nach sich, da ISR, DPC und der Thread den Kern für sich beanspruchen.
 
-##  <a name="bkmk_smi"></a>System Verwaltungs Interrupts
+##  <a name="system-management-interrupts"></a><a name="bkmk_smi"></a>System Verwaltungs Interrupts
 
 Viele Hardwaresysteme verwenden System Verwaltungs Interrupts (SMI) für eine Vielzahl von Wartungsfunktionen, wie z. b. das Melden von Fehlerkorrektur Code (ECC), die Beibehaltung der Legacy-USB-Kompatibilität, das Steuern des Lüfters und das Verwalten von BIOS-gesteuerter Leistung. Einstellungen.
 
@@ -111,11 +111,11 @@ Wenn Sie die geringe Latenz erzielen müssen, sollten Sie eine BIOS-Version Ihre
 > [!NOTE]  
 > Das Betriebssystem kann keine smis steuern, da der logische Prozessor in einem speziellen Wartungsmodus ausgeführt wird, der das Betriebssystem Eingriff verhindert.
 
-##  <a name="bkmk_tcp"></a>Leistungsoptimierung für TCP
+##  <a name="performance-tuning-tcp"></a><a name="bkmk_tcp"></a>Leistungsoptimierung für TCP
 
  Sie können die folgenden Elemente verwenden, um die TCP-Leistung zu optimieren.
 
-###  <a name="bkmk_tcp_params"></a>Automatische Optimierung des TCP-Empfangs Fensters
+###  <a name="tcp-receive-window-autotuning"></a><a name="bkmk_tcp_params"></a>Automatische Optimierung des TCP-Empfangs Fensters
 
 In Windows Vista, Windows Server 2008 und höheren Versionen von Windows verwendet der Windows-Netzwerk Stapel eine Funktion mit dem Namen " *TCP-Empfangs Fenster-Automatische* Optimierung", um die TCP-Empfangs Fenstergröße auszuhandeln. Diese Funktion kann eine definierte Empfangs Fenstergröße für jede TCP-Kommunikation während des TCP-Handshakes aushandeln.
 
@@ -231,13 +231,13 @@ Weitere Informationen zu diesen Cmdlets finden Sie in den folgenden Artikeln:
 
 Sie können die automatische Optimierung des Empfangs Fensters auf eine beliebige von fünf Ebenen festlegen. Der Standardwert ist " **Normal**". In der folgenden Tabelle werden die Ebenen beschrieben.
 
-|Stufe |Hexadezimalwert |Anmerkungen |
+|Level |Hexadezimalwert |Comments |
 | --- | --- | --- |
 |Normal (Standardeinstellung) |0x8 (Skalierungsfaktor 8) |Legen Sie fest, dass das TCP-Empfangs Fenster für fast alle Szenarien erweitert werden soll. |
 |Deaktiviert |Kein Skalierungsfaktor verfügbar |Legen Sie das TCP-Empfangs Fenster auf den Standardwert fest. |
-|Beschränkt |0x4 (Skalierungsfaktor 4) |Legen Sie fest, dass das TCP-Empfangs Fenster über den Standardwert hinaus vergrößert wird, aber begrenzen Sie dieses Wachstum in einigen Szenarien. |
+|Restricted (Eingeschränkter Zugriff) |0x4 (Skalierungsfaktor 4) |Legen Sie fest, dass das TCP-Empfangs Fenster über den Standardwert hinaus vergrößert wird, aber begrenzen Sie dieses Wachstum in einigen Szenarien. |
 |Stark eingeschränkt |0x2 (Skalierungsfaktor von 2) |Legen Sie fest, dass das TCP-Empfangs Fenster über den Standardwert hinaus wächst, aber dies ist sehr konservativ. |
-|Experimentell |0xe (Skalierungsfaktor 14) |Legen Sie fest, dass das TCP-Empfangs Fenster erweitert wird, um extrem Szenarios aufzunehmen |
+|eller |0xe (Skalierungsfaktor 14) |Legen Sie fest, dass das TCP-Empfangs Fenster erweitert wird, um extrem Szenarios aufzunehmen |
 
 Wenn Sie eine Anwendung verwenden, um Netzwerkpakete zu erfassen, sollte die Anwendung Daten, die den folgenden ähneln, für verschiedene Einstellungen für die automatische Einstellungen der Fenster-Optimierung melden.
 
@@ -376,7 +376,7 @@ Alle diese Einstellungen befinden sich im folgenden Registrierungs Unterschlüss
 
 > **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\tcpip\parameters**  
 
-###  <a name="bkmk_wfp"></a>Windows-Filter Plattform
+###  <a name="windows-filtering-platform"></a><a name="bkmk_wfp"></a>Windows-Filter Plattform
 
 Windows Vista und Windows Server 2008 haben die Windows-Filter Plattform (WFP) eingeführt. WFP stellt APIs für unabhängige Microsoft-Softwarehersteller (ISVs) zur Verfügung, um Paketverarbeitungs Filter zu erstellen. Zu Beispielen zählen Firewall- und Antivirensoftware.
 

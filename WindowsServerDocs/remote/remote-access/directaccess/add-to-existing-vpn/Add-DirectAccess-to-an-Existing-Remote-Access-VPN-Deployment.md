@@ -10,21 +10,21 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b5db01f7-1ae0-46f2-9be7-8d9e121446b2
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9266acfb38c65711d6d0b12e2b6223a8a4e91746
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 1ad1b823cf48a2c322c7ccab1799c76993b1e9bf
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388799"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314812"
 ---
 # <a name="add-directaccess-to-an-existing-remote-access-vpn-deployment"></a>Hinzufügen von DirectAccess zu einer vorhandenen Remotezugriffsbereitstellung (VPN)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
   
-## <a name="BKMK_OVER"></a>Szenariobeschreibung  
-In diesem Szenario wird ein einzelner Computer mit Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 als DirectAccess-Server mit den empfohlenen Einstellungen konfiguriert, nachdem Sie das VPN bereits installiert und konfiguriert haben. Wenn Sie DirectAccess mit Unternehmens Features wie einem Cluster mit Lastenausgleich, der Bereitstellung für mehrere Standorte oder zweistufiger Client Authentifizierung konfigurieren möchten, schließen Sie das in diesem Thema beschriebene Szenario zum Einrichten eines einzelnen Servers ab, und richten Sie dann das Unternehmen ein. Szenario wie unter Bereitstellen [des Remote Zugriffs in einem Unternehmen](../../ras/Deploy-Remote-Access-in-an-Enterprise.md)beschrieben.  
+## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Szenariobeschreibung  
+In diesem Szenario wird ein einzelner Computer mit Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 als DirectAccess-Server mit den empfohlenen Einstellungen konfiguriert, nachdem Sie das VPN bereits installiert und konfiguriert haben. Wenn Sie DirectAccess mit Unternehmens Features wie einem Cluster mit Lastenausgleich, der Bereitstellung für mehrere Standorte oder zweistufiger Client Authentifizierung konfigurieren möchten, schließen Sie das in diesem Thema beschriebene Szenario zum Einrichten eines einzelnen Servers ab, und richten Sie dann das Enterprise-Szenario ein, wie unter Bereitstellen des [Remote Zugriffs in einem Unternehmen](../../ras/Deploy-Remote-Access-in-an-Enterprise.md)beschrieben.  
   
 ## <a name="in-this-scenario"></a>Inhalt dieses Szenarios  
 Zum Einrichten eines einzelnen Remotezugriffsservers sind mehrere Planungs- und Bereitstellungsschritte erforderlich.  
@@ -55,7 +55,7 @@ Die Bereitstellung besteht aus drei Phasen:
   
     In dieser Phase überprüfen Sie die Bereitstellung auf die ordnungsgemäße Bereitstellung.  
   
-## <a name="BKMK_APP"></a>Praktische Anwendungen  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Praktische Anwendungen  
 Die Bereitstellung eines einzelnen Remotezugriffsservers bietet Folgendes:  
   
 -   **Einfache Zugriffsrechte**  
@@ -66,15 +66,15 @@ Die Bereitstellung eines einzelnen Remotezugriffsservers bietet Folgendes:
   
     Die Remoteverwaltung von DirectAccess-Clientcomputern im Internet ist mithilfe von Remotezugriff-Administratoren über DirectAccess möglich, selbst wenn sich die Clientcomputer nicht im internen Unternehmensnetzwerk befinden. Clientcomputer, die nicht den Unternehmensanforderungen entsprechen, können automatisch über Verwaltungsserver gewartet werden.  
   
-## <a name="BKMK_NEW"></a>Für dieses Szenario erforderliche Rollen und Features  
+## <a name="roles-and-features-required-for-this-scenario"></a><a name="BKMK_NEW"></a>Für dieses Szenario erforderliche Rollen und Features  
 Die folgende Tabelle enthält die für dieses Szenario erforderlichen Rollen und Features:  
   
 |Rolle/Feature|Auf welche Weise dieses Szenario unterstützt wird|  
 |---------|-----------------|  
-|Remotezugriffs-Rolle|Die Rolle wird über die Server-Manager-Konsole oder Windows PowerShell installiert bzw. deinstalliert. Diese Rolle umfasst DirectAccess (zuvor ein Feature unter Windows Server 2008 R2) sowie die Routing- und RAS-Dienste (zuvor ein Rollendienst unter der Serverrolle für Netzwerkrichtlinien- und Zugriffsdienste). Die Remotezugriffs-Rolle besteht aus zwei Komponenten:<br /><br />1.  DirectAccess und Routing- und RAS-Dienste (RRAS) für VPN: Verwaltet in der Remotezugriffs-Verwaltungskonsole.<br />2.  RRAS-Routing: Verwaltet in der Routing- und RAS-Konsole.<br /><br />Die Remotezugriffs-Serverrolle ist von den folgenden Serverfeatures abhängig:<br /><br />-Internetinformationsdienste (IIS)-Webserver: erforderlich, um den Netzwerkadressen Server auf dem Remote Zugriffs Server und den Standardweb Test zu konfigurieren.<br />-Interne Windows-Datenbank: Wird zur lokalen Ressourcenerfassung auf dem Remotezugriffsserver verwendet.|  
+|Remotezugriffs-Rolle|Die Rolle wird über die Server-Manager-Konsole oder Windows PowerShell installiert bzw. deinstalliert. Diese Rolle umfasst DirectAccess (zuvor ein Feature unter Windows Server 2008 R2) sowie die Routing- und RAS-Dienste (zuvor ein Rollendienst unter der Serverrolle für Netzwerkrichtlinien- und Zugriffsdienste). Die Remotezugriffs-Rolle besteht aus zwei Komponenten:<br /><br />1. DirectAccess-und RRAS-VPN (Routing and Remote Access Services): wird in der Remote Zugriffs-Verwaltungskonsole verwaltet.<br />2. RRAS-Routing: wird in der Routing-und RAS-Konsole verwaltet.<br /><br />Die Remotezugriffs-Serverrolle ist von den folgenden Serverfeatures abhängig:<br /><br />-Internetinformationsdienste (IIS)-Webserver: erforderlich, um den Netzwerkadressen Server auf dem Remote Zugriffs Server und den Standardweb Test zu konfigurieren.<br />-Interne Windows-Datenbank: wird für die lokale Kontoführung auf dem Remote Zugriffs Server verwendet.|  
 |Feature %%amp;quot;Tools für die Remotezugriffsverwaltung%%amp;quot;|So installieren Sie dieses Feature:<br /><br />-Standardmäßig auf einem RAS-Server, wenn die Remote Zugriffs Rolle installiert ist. Unterstützt die Benutzeroberfläche der Remote-Verwaltungskonsole und die Windows PowerShell-Cmdlets.<br />: Optional auf einem Server installiert, auf dem die Remote Zugriffs-Server Rolle nicht ausgeführt wird. In diesem Fall wird es für die Remoteverwaltung eines RAS-Computers verwendet, der DirectAccess und VPN ausführt.<br /><br />Das Feature "Tools für die Remotezugriffsverwaltung" besteht aus den folgenden Komponenten:<br /><br />-Remote Zugriffs-GUI<br />-Remote Zugriffs Modul für Windows PowerShell<br /><br />Abhängigkeiten umfassen:<br /><br />-Gruppenrichtlinien-Verwaltungskonsole<br />-RAS-Verbindungs-Manager-Verwaltungskit (CMAK)<br />-Windows PowerShell 3,0<br />-Tools und Infrastruktur für die grafische Verwaltung|  
   
-## <a name="BKMK_HARD"></a>Hardware Anforderungen  
+## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Hardwareanforderungen  
 Für dieses Szenario müssen die folgenden Hardwareanforderungen erfüllt werden:  
   
 **Server Anforderungen**  
@@ -94,7 +94,7 @@ Für dieses Szenario müssen die folgenden Hardwareanforderungen erfüllt werden
 -   Auf einem Client Computer muss Windows 8 oder Windows 7 ausgeführt werden.  
   
     > [!NOTE]  
-    > Es können nur die folgenden Betriebssysteme als DirectAccess-Clients verwendet werden: Windows Server 2012, Windows Server 2008 R2, Windows 8 Enterprise, Windows 7 Enterprise und Windows 7 Ultimate.  
+    > Nur die folgenden Betriebssysteme können als DirectAccess-Clients verwendet werden: Windows Server 2012, Windows Server 2008 R2, Windows 8 Enterprise, Windows 7 Enterprise und Windows 7 Ultimate.  
   
 **Anforderungen an Infrastruktur und Management Server**  
   
@@ -104,7 +104,7 @@ Für dieses Szenario müssen die folgenden Hardwareanforderungen erfüllt werden
   
 -   Es ist ein DNS-Server erforderlich, auf dem Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008 mit SP2 ausgeführt wird.  
   
-## <a name="BKMK_SOFT"></a>Software Anforderungen  
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Software Anforderungen  
 Für dieses Szenario müssen die folgenden Softwareanforderungen erfüllt werden:  
   
 **Server Anforderungen**  
@@ -119,7 +119,7 @@ Für dieses Szenario müssen die folgenden Softwareanforderungen erfüllt werden
   
 -   DirectAccess-Clients müssen Domänenmitglieder sein. Domänen, die Clients beinhalten, können zur selben Gesamtstruktur gehören wie der RAS-Server, oder sie können eine bidirektionale Vertrauensstellung mit dem RAS-Server und der Domäne innehaben.  
   
--   Eine Active Directory-Sicherheitsgruppe wird benötigt, um die Computer aufzunehmen, die als DirectAccess-Clients konfiguriert werden. Wird beim Konfigurieren der DirectAccess-Clienteinstellungen keine Sicherheitsgruppe angegeben, wird das Client-Gruppenrichtlinienobjekt standardmäßig auf alle Laptopcomputer (die DirectAccess-fähig sind) in der Sicherheitsgruppe "Domänencomputer" angewendet. Es können nur die folgenden Betriebssysteme als DirectAccess-Clients verwendet werden:  Windows Server 2012, Windows Server 2008 R2, Windows 8 Enterprise, Windows 7 Enterprise und Windows 7 Ultimate.  
+-   Eine Active Directory-Sicherheitsgruppe wird benötigt, um die Computer aufzunehmen, die als DirectAccess-Clients konfiguriert werden. Wird beim Konfigurieren der DirectAccess-Clienteinstellungen keine Sicherheitsgruppe angegeben, wird das Client-Gruppenrichtlinienobjekt standardmäßig auf alle Laptopcomputer (die DirectAccess-fähig sind) in der Sicherheitsgruppe "Domänencomputer" angewendet. Nur die folgenden Betriebssysteme können als DirectAccess-Clients verwendet werden: Windows Server 2012, Windows Server 2008 R2, Windows 8 Enterprise, Windows 7 Enterprise und Windows 7 Ultimate.  
   
     > [!NOTE]  
     > Es wird empfohlen, für jede Domäne eine Sicherheitsgruppe zu erstellen, die Computer enthält, die als DirectAccess-Clients konfiguriert werden.  

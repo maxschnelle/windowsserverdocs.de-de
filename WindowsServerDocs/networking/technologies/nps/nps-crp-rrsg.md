@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: d81678a7-be21-48f2-9b3f-5a75d6aef013
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 63a6eb5f0f78ed8dbcc0144602f16274fd6ec213
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 8275c3e8902ed78d77d01a2ff5d769d3e99abf97
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396312"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316174"
 ---
 # <a name="remote-radius-server-groups"></a>RADIUS-Remoteservergruppen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Wenn Sie den Netzwerk Richtlinien Server (Network Policy Server, NPS) als RADIUS-Proxy (Remote Authentication Dial-in User Service) konfigurieren, verwenden Sie NPS, um Verbindungsanforderungen an RADIUS-Server weiterzuleiten, die die Verbindungsanforderungen verarbeiten können, da Sie Authentifizierung und Autorisierung in der Domäne, in der sich das Benutzer-oder Computer Konto befindet. Wenn Sie z. b. Verbindungsanforderungen an einen oder mehrere RADIUS-Server in nicht vertrauenswürdigen Domänen weiterleiten möchten, können Sie NPS als RADIUS-Proxy konfigurieren, um die Anforderungen an die Remote-RADIUS-Server in der nicht vertrauenswürdigen Domäne weiterzuleiten.
 

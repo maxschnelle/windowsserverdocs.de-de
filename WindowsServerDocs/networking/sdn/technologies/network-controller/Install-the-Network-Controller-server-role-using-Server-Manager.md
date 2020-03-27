@@ -7,14 +7,14 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 3a6e4352-ff62-4290-b8a4-5c83740070fc
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 8b656bbd823a10f1e36d1757bb53c4565d4e828c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: b8a3e1ede1cdec1ca5ee66be8d53d4420bec673b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405833"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317138"
 ---
 # <a name="install-the-network-controller-server-role-using-server-manager"></a>Installieren der Server Rolle "Netzwerk Controller" mithilfe von Server-Manager
 
@@ -45,7 +45,7 @@ Nachdem Sie den Netzwerk Controller installiert haben, müssen Sie Windows Power
   
 6.  Klicken Sie unter **Server Rollen auswählen**auf **weiter**.  
   
-    ![Klicken Sie auf weiter](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_07.jpg)  
+    ![Klicken Sie auf Weiter.](../../../media/Install-the-Network-Controller-server-role-using-Server-Manager/netc_install_07.jpg)  
   
 7.  Klicken Sie unter **Features auswählen**auf **weiter**.  
   

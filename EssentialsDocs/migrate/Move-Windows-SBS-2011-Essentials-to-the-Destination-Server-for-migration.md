@@ -1,9 +1,9 @@
 ---
 title: Verschieben von Windows SBS 2011 Essentials-Einstellungen und -Daten auf den Zielserver für die Migration zu Windows Server Essentials
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 47548994-9fa0-42e0-afa4-c2ccbd063acb
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 506975db4238abca6ba2d07845281e936e82a76e
-ms.sourcegitcommit: 9a4ab3a0d00b06ff16173aed616624c857589459
+ms.openlocfilehash: 78047680840d5d63f7f8dd884107e9c30658fdbe
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828564"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318860"
 ---
 # <a name="move-windows-sbs-2011-essentials-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Verschieben von Windows SBS 2011 Essentials-Einstellungen und -Daten auf den Zielserver für die Migration zu Windows Server Essentials
 
@@ -26,15 +26,15 @@ ms.locfileid: "66828564"
 Verschieben von Einstellungen und Daten auf den Zielserver:  
   
 
-1.  [Kopieren von Daten auf den Zielserver](Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md#BKMK_CopyData)  
+1.  [Kopieren von Daten auf den Ziel Server](Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md#BKMK_CopyData)  
   
-2.  [Importieren von Active Directory-Benutzerkonten in Windows Server Essentials-Dashboard (optional)](Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md#BKMK_ImportADaccounts)  
+2.  [Importieren von Active Directory Benutzerkonten in das Windows Server Essentials-Dashboard (optional)](Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md#BKMK_ImportADaccounts)  
   
-3.  [Konfigurieren des Netzwerks](Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md#BKMK_Network)  
+3.  [Netzwerk konfigurieren](Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md#BKMK_Network)  
   
-4.  [Ordnen Sie zugelassener Computer zu Benutzerkonten zu](Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md#BKMK_MapPermittedComputers)  
+4.  [Zuordnen zulässiger Computer zu Benutzerkonten](Move-Windows-SBS-2011-Essentials-to-the-Destination-Server-for-migration.md#BKMK_MapPermittedComputers)  
  
-##  <a name="BKMK_CopyData"></a> Kopieren von Daten auf den Zielserver  
+##  <a name="copy-data-to-the-destination-server"></a><a name="BKMK_CopyData"></a>Kopieren von Daten auf den Ziel Server  
  Führen Sie die folgenden Aufgaben aus, bevor Sie Daten vom Quellserver zum Zielserver kopieren:  
   
 -   Prüfen Sie die Liste der freigegebenen Ordner auf dem Quellserver, einschließlich der Berechtigungen für jeden Ordner. Erstellen Sie die Ordner auf dem Zielserver so bzw. passen Sie diese so an, dass sie der Ordnerstruktur entsprechen, die Sie vom Quellserver migrieren.  
@@ -47,22 +47,22 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
   
 1.  Melden Sie sich beim Zielserver als Domänenadministrator an, und öffnen Sie ein Eingabeaufforderungsfenster.  
   
-2.  Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie die EINGABETASTE:  
+2.  Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:  
   
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`  
   
-     Erläuterungen:
-     - \<Quellservername\> ist der Name des Quellservers
-     - \<Namedesfreigegebenenquellordners\> ist der Name des freigegebenen Ordners auf dem Quellserver
-     - \<Zielservername\> ist der Name des Zielservers,
-     - \<Namedesfreigegebenenzielordners\> ist der freigegebene Ordner auf dem Zielserver, auf denen die Daten kopiert werden.  
+     Speicherort:
+     - \<sourceservername\> ist der Name des Quell Servers.
+     - \<sharedsourcefoldername\> ist der Name des freigegebenen Ordners auf dem Quell Server.
+     - \<destinationservername\> ist der Name des Zielservers.
+     - \<shareddestinationfoldername\> ist der freigegebene Ordner auf dem Ziel Server, in den die Daten kopiert werden.  
         
 3.  Wiederholen Sie den vorherigen Schritt für jeden freigegebenen Ordner, zu dem Sie die Migration vom Quellserver aus vornehmen.  
   
-##  <a name="BKMK_ImportADaccounts"></a> Importieren von Active Directory-Benutzerkonten in Windows Server Essentials-Dashboard (optional)  
- Standardmäßig werden alle auf dem Quellserver erstellte Benutzerkonten automatisch an das Dashboard in Windows Server Essentials migriert. Die automatische Migration eines Active Directory-Benutzerkontos schlägt jedoch fehl, wenn nicht alle Eigenschaften die Migrationsanforderungen erfüllen. Sie können das folgende Windows PowerShell-Cmdlet verwenden, um Active Directory-Benutzer zu importieren.  
+##  <a name="import-active-directory-user-accounts-to-the-windows-server-essentials-dashboard-optional"></a><a name="BKMK_ImportADaccounts"></a>Importieren von Active Directory Benutzerkonten in das Windows Server Essentials-Dashboard (optional)  
+ Standardmäßig werden alle auf dem Quell Server erstellten Benutzerkonten automatisch auf das Dashboard in Windows Server Essentials migriert. Die automatische Migration eines Active Directory-Benutzerkontos schlägt jedoch fehl, wenn nicht alle Eigenschaften die Migrationsanforderungen erfüllen. Sie können das folgende Windows PowerShell-Cmdlet verwenden, um Active Directory-Benutzer zu importieren.  
   
-#### <a name="to-import-an-active-directory-user-account-to-the-windows-server-essentials-dashboard"></a>So importieren Sie ein Active Directory-Benutzerkonto in Windows Server Essentials-Dashboard  
+#### <a name="to-import-an-active-directory-user-account-to-the-windows-server-essentials-dashboard"></a>So importieren Sie ein Active Directory Benutzerkonto in das Windows Server Essentials-Dashboard  
   
 1.  Melden Sie sich auf den Zielserver als Domänenadministrator an.  
   
@@ -72,7 +72,7 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
   
      `Import-WssUser  SamAccountName [AD username]`  
   
-##  <a name="BKMK_Network"></a> Konfigurieren des Netzwerks  
+##  <a name="configure-the-network"></a><a name="BKMK_Network"></a>Netzwerk konfigurieren  
   
 #### <a name="to-configure-the-network"></a>So konfigurieren Sie das Netzwerk  
   
@@ -88,12 +88,12 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
   
 -   Port 443: HTTPS-Webdatenverkehr  
   
-##  <a name="BKMK_MapPermittedComputers"></a> Ordnen Sie zugelassener Computer zu Benutzerkonten zu  
+##  <a name="map-permitted-computers-to-user-accounts"></a><a name="BKMK_MapPermittedComputers"></a>Zuordnen zulässiger Computer zu Benutzerkonten  
  Jedes Benutzerkonto, das von Windows Small Business Server 2011 Essentials migriert wird, muss einem oder mehreren Computern zugeordnet werden.  
   
 #### <a name="to-map-user-accounts-to-computers"></a>So weisen Sie Benutzerkonten Computern zu  
   
-1.  Öffnen Sie Windows Server Essentials-Dashboard.  
+1.  Öffnen Sie das Windows Server Essentials-Dashboard.  
   
 2.  Klicken Sie auf der Navigationsleiste auf **Benutzer**.  
   
@@ -101,7 +101,7 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
   
 4.  Klicken Sie auf der Registerkarte **Zugriff überall** auf **Remotewebzugriff und Zugriff auf Webdienstanwendungen zulassen**.  
   
-5.  Wählen Sie **Freigegebene Ordner**, **Computers**und **Links auf der Startseite**aus, und klicken Sie dann auf **Übernehmen**.  
+5.  Wählen Sie **Freigegebene Ordner**, **Computers** und **Links auf der Startseite** aus, und klicken Sie dann auf **Übernehmen**.  
   
 6.  Klicken Sie auf der Registerkarte **Computerzugriff** auf den Namen des Computers, für den Sie Zugriff gewähren möchten.  
   

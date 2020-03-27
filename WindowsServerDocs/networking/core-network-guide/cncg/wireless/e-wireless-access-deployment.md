@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 4b66f517-b17d-408c-828f-a3793086bc1f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: f07520dcdefa04cb43760c5e5c66e28c0d1ce878
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: ddc5ebd5f2e00251bcd1cdd915702902dcdb14ae
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322112"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318095"
 ---
 # <a name="wireless-access-deployment"></a>Bereitstellung des Funkzugriffs
 
@@ -31,7 +31,7 @@ Führen Sie diese Schritte aus, um drahtlosen Zugriff bereitzustellen
 
 - [Neue drahtlos Computer der Domäne beitreten](#bkmk_domain)
 
-## <a name="bkmk_aps"></a>Bereitstellen und Konfigurieren von drahtlos Zugriffs Punkten
+## <a name="deploy-and-configure-wireless-aps"></a><a name="bkmk_aps"></a>Bereitstellen und Konfigurieren von drahtlos Zugriffs Punkten
 
 Führen Sie diese Schritte aus, um Ihre drahtlos Zugriffspunkte bereitzustellen und zu konfigurieren
 
@@ -42,7 +42,7 @@ Führen Sie diese Schritte aus, um Ihre drahtlos Zugriffspunkte bereitzustellen 
 >[!NOTE]
 >Die Verfahren in diesem Handbuch beinhalten keine Anweisungen für Fälle, in denen das Dialogfeld **Benutzerkontensteuerung** geöffnet wird, um die Zustimmung zum Fortfahren abzufragen. Klicken Sie auf **Weiter**, wenn das Dialogfeld während der Ausführung der Verfahren in dieser Anleitung geöffnet wird und als Folge der ausgeführten Aktionen geöffnet wurde.
 
-### <a name="bkmk_channel"></a>Angeben von drahtlosen AP-Kanal Frequenzen
+### <a name="specify-wireless-ap-channel-frequencies"></a><a name="bkmk_channel"></a>Angeben von drahtlosen AP-Kanal Frequenzen
 
 Wenn Sie an einem einzelnen geografischen Standort mehrere drahtlos Zugriffspunkte bereitstellen, müssen Sie drahtlos Zugriffspunkte konfigurieren, die überlappende Signale aufweisen, um die Störungen zwischen drahtlos Zugriffs Punkten zu verringern.
 
@@ -52,7 +52,7 @@ Sie können die folgenden Richtlinien verwenden, um Sie bei der Auswahl von Kana
 
 - Identifizieren Sie überlappende drahtlose Signale auf angrenzenden Etagen innerhalb ihrer eigenen Organisation. Nachdem Sie überlappende Coverage-Bereiche außerhalb und innerhalb Ihrer Organisation identifiziert haben, weisen Sie Kanal Frequenzen für Ihre drahtlos Zugriffspunkte zu, und stellen Sie sicher, dass zwei drahtlos Zugriffs Punkten mit überlappender Abdeckung verschiedene Kanal Frequenzen zugewiesen
 
-### <a name="bkmk_wirelessaps"></a>Konfigurieren von drahtlos Zugriffs Punkten
+### <a name="configure-wireless-aps"></a><a name="bkmk_wirelessaps"></a>Konfigurieren von drahtlos Zugriffs Punkten
 
 Verwenden Sie die folgenden Informationen zusammen mit der Produktdokumentation des drahtlosen AP-Herstellers, um Ihre drahtlos Zugriffspunkte zu konfigurieren.
 
@@ -95,7 +95,7 @@ Führen Sie die folgenden Schritte aus, um eine oder mehrere Sicherheitsgruppen 
 
 - [Hinzufügen von Benutzern zur drahtlos Sicherheitsgruppe](#bkmk_addusers)
 
-### <a name="bkmk_groups"></a>Erstellen einer Sicherheitsgruppe für drahtlose Benutzer
+### <a name="create-a-wireless-users-security-group"></a><a name="bkmk_groups"></a>Erstellen einer Sicherheitsgruppe für drahtlose Benutzer
 
 Mit diesem Verfahren können Sie in der Microsoft-Verwaltungskonsole \(MMC\)\-Snap-in "Active Directory Benutzer und Computer" eine drahtlos Sicherheitsgruppe erstellen.  
 
@@ -123,7 +123,7 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entspr
 
 Wenn Sie für drahtlose Benutzer mehr als eine Sicherheitsgruppe benötigen, wiederholen Sie diese Schritte, um weitere drahtlos Benutzergruppen zu erstellen. Später können Sie einzelne Netzwerk Richtlinien in NPS erstellen, um unterschiedliche Bedingungen und Einschränkungen für jede Gruppe anzuwenden und Ihnen unterschiedliche Zugriffsberechtigungen und konnektivitätsregeln zur Verfügung zu stellen.
 
-### <a name="bkmk_addusers"></a>Hinzufügen von Benutzern zur Sicherheitsgruppe "drahtlose Benutzer"
+### <a name="add-users-to-the-wireless-users-security-group"></a><a name="bkmk_addusers"></a>Hinzufügen von Benutzern zur Sicherheitsgruppe "drahtlose Benutzer"
 
 Mithilfe dieses Verfahrens können Sie einen Benutzer, einen Computer oder eine Gruppe zur drahtlos Sicherheitsgruppe in der Active Directory-Benutzer und-Computer \(MMC\) Snap\-in hinzufügen.
 
@@ -155,7 +155,7 @@ Für dieses Verfahren müssen Sie mindestens Mitglied der Gruppe **Domänen-Admi
 
 4. Um anderen Computern eine Gruppenmitgliedschaft zuzuweisen, wiederholen Sie die Schritte 1\-3 dieses Verfahrens.
 
-## <a name="bkmk_policies"></a>Konfigurieren von Drahtlos Netzwerken \(IEEE 802,11\)-Richtlinien
+## <a name="configure-wireless-network-ieee-80211-policies"></a><a name="bkmk_policies"></a>Konfigurieren von Drahtlos Netzwerken \(IEEE 802,11\)-Richtlinien
 
 Führen Sie die folgenden Schritte aus, um das Drahtlos Netzwerk \(IEEE 802,11\) Policies Gruppenrichtlinie Erweiterung zu konfigurieren:
 
@@ -165,7 +165,7 @@ Führen Sie die folgenden Schritte aus, um das Drahtlos Netzwerk \(IEEE 802,11\)
 
 - [Konfigurieren der neuen Richtlinie für Drahtlos Netzwerke](#bkmk_policyconfig)
 
-### <a name="bkmk_opengpme"></a>Öffnen oder hinzufügen und Öffnen eines Gruppenrichtlinie Objekts
+### <a name="open-or-add-and-open-a-group-policy-object"></a><a name="bkmk_opengpme"></a>Öffnen oder hinzufügen und Öffnen eines Gruppenrichtlinie Objekts
 
 Standardmäßig wird das Gruppenrichtlinie Verwaltungs Feature auf Computern installiert, auf denen Windows Server 2016 ausgeführt wird, wenn die Active Directory Domain Services \(AD DS\) Server-Rolle installiert ist und der Server als Domänen Controller konfiguriert ist. Im folgenden Verfahren wird beschrieben, wie Sie die Gruppenrichtlinien-Verwaltungskonsole \(GPMC\) auf Ihrem Domänen Controller öffnen. Anschließend wird beschrieben, wie Sie entweder eine vorhandene Domänen\-Ebene Gruppenrichtlinie Objekt \(g\) po öffnen, um Sie zu bearbeiten, oder ein neues Domänen-Gruppenrichtlinien Objekt erstellen und zum Bearbeiten öffnen.
 
@@ -191,7 +191,7 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entspr
 
 Im nächsten Abschnitt verwenden Sie Gruppenrichtlinienverwaltungs-Editor, um eine drahtlose Richtlinie zu erstellen.
 
-### <a name="bkmk_activate"></a>Aktivieren des standardmäßigen drahtlos Netzwerks \(IEEE 802,11\)-Richtlinien
+### <a name="activate-default-wireless-network-ieee-80211-policies"></a><a name="bkmk_activate"></a>Aktivieren des standardmäßigen drahtlos Netzwerks \(IEEE 802,11\)-Richtlinien
 
 In diesem Verfahren wird beschrieben, wie Sie das standardmäßige Drahtlos Netzwerk \(IEEE 802,11\)-Richtlinien mithilfe der Gruppenrichtlinienverwaltungs-Editor \(GP\)Me aktivieren.
 
@@ -220,7 +220,7 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entspr
 
 Im nächsten Abschnitt können Sie die Richtlinien Konfiguration, die Reihenfolge der Richtlinien Verarbeitung und die Netzwerk Berechtigungen ausführen.
 
-### <a name="bkmk_policyconfig"></a>Konfigurieren der neuen Richtlinie für Drahtlos Netzwerke
+### <a name="configure-the-new-wireless-network-policy"></a><a name="bkmk_policyconfig"></a>Konfigurieren der neuen Richtlinie für Drahtlos Netzwerke
 
 Mithilfe der Verfahren in diesem Abschnitt können Sie das Drahtlos Netzwerk \(IEEE 802,11\)-Richtlinie konfigurieren. Diese Richtlinie ermöglicht Ihnen das Konfigurieren von Sicherheits-und Authentifizierungs Einstellungen, das Verwalten von drahtlos Profilen und das Angeben von Berechtigungen für Drahtlos Netzwerke, die nicht als bevorzugte Netzwerke konfiguriert sind.
 
@@ -230,7 +230,7 @@ Mithilfe der Verfahren in diesem Abschnitt können Sie das Drahtlos Netzwerk \(I
 
 - [Definieren von Netzwerk Berechtigungen](#bkmk_permissions)  
 
-#### <a name="bkmk_configureprofile"></a>Konfigurieren eines drahtlos Verbindungs Profils für die Peer-\-MS\-CHAP v2
+#### <a name="configure-a-wireless-connection-profile-for-peap-ms-chap-v2"></a><a name="bkmk_configureprofile"></a>Konfigurieren eines drahtlos Verbindungs Profils für die Peer-\-MS\-CHAP v2
 
 Dieses Verfahren enthält die Schritte, die erforderlich sind, um ein PAP-\-MS\-CHAP v2-drahtlos Profil zu konfigurieren.  
 
@@ -309,7 +309,7 @@ Zum Durchführen dieses Verfahrens ist mindestens die Mitgliedschaft in **Domän
 
 Im nächsten Abschnitt können Sie die Richtlinien Profile für eine optimale Sicherheit anordnen.
 
-#### <a name="bkmk_preferenceorder"></a>Festlegen der bevorzugte Reihenfolge für drahtlos Verbindungsprofile
+#### <a name="set-the-preference-order-for-wireless-connection-profiles"></a><a name="bkmk_preferenceorder"></a>Festlegen der bevorzugte Reihenfolge für drahtlos Verbindungsprofile
 Sie können dieses Verfahren verwenden, wenn Sie mehrere drahtlos Profile in ihrer Drahtlos Netzwerk Richtlinie erstellt haben und die Profile für eine optimale Effektivität und Sicherheit sortieren möchten.
 
 Um sicherzustellen, dass drahtlose Clients eine Verbindung mit der höchsten Sicherheitsstufe herstellen, die Sie unterstützen können, platzieren Sie die restriktivsten Richtlinien am Anfang der Liste.
@@ -332,7 +332,7 @@ Zum Durchführen dieses Verfahrens ist mindestens die Mitgliedschaft in **Domän
 
 Im folgenden Abschnitt können Sie Netzwerk Berechtigungen für die drahtlos Richtlinie definieren.
 
-#### <a name="bkmk_permissions"></a>Definieren von Netzwerk Berechtigungen
+#### <a name="define-network-permissions"></a><a name="bkmk_permissions"></a>Definieren von Netzwerk Berechtigungen
 Sie können Einstellungen auf der Registerkarte **Netzwerk Berechtigungen** für die Domänen Mitglieder konfigurieren, auf die die Richtlinien für Drahtlos Netzwerke \(IEEE 802,11\) angewendet werden.
 
 Sie können nur die folgenden Einstellungen für Drahtlos Netzwerke anwenden, die auf der Registerkarte **Allgemein** auf der Seite **Eigenschaften der Drahtlos Netzwerk Richtlinie** nicht konfiguriert sind:
@@ -382,7 +382,7 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins**oder einer entspre
 
     -   Wenn Sie angeben möchten, dass die Benutzer nur über Gruppenrichtlinie Profile eine Verbindung mit zugelassenen Netzwerken herstellen können, wählen Sie **nur Gruppenrichtlinie Profile für zulässige Netzwerke verwenden**.
 
-## <a name="bkmk_nps"></a>Konfigurieren des NPSS
+## <a name="configure-your-npss"></a><a name="bkmk_nps"></a>Konfigurieren des NPSS
 Führen Sie die folgenden Schritte aus, um NPSS zum Ausführen der 802.1 x-Authentifizierung für drahtlos Zugriff zu konfigurieren:
 
 - [Registrieren von NPS in Active Directory Domain Services](#bkmk_npsreg)
@@ -391,7 +391,7 @@ Führen Sie die folgenden Schritte aus, um NPSS zum Ausführen der 802.1 x-Authe
 
 - [Erstellen von NPS-Richtlinien für 802.1 x Wireless mithilfe eines Assistenten](#bkmk_npspolicy)
 
-### <a name="bkmk_npsreg"></a>Registrieren von NPS in Active Directory Domain Services
+### <a name="register-nps-in-active-directory-domain-services"></a><a name="bkmk_npsreg"></a>Registrieren von NPS in Active Directory Domain Services
 Mit diesem Verfahren können Sie einen Server, auf dem der Netzwerk Richtlinien Server ausgeführt wird, \(NPS-\) in Active Directory Domain Services \(AD DS\) in der Domäne registrieren, in der das NPS Mitglied ist. Damit NPSS während der Autorisierung die Berechtigung zum Lesen der Wähl\-in Eigenschaften von Benutzerkonten erhält, muss jede NPS in AD DS registriert werden. Beim Registrieren eines NPS wird der Server der Sicherheitsgruppe **RAS-und IAS-Server** in AD DS hinzugefügt.
 
 >[!NOTE]
@@ -409,7 +409,7 @@ Zum Durchführen dieses Verfahrens ist mindestens die Mitgliedschaft in **Domän
 
 3. Klicken Sie im Dialogfeld **Netzwerkrichtlinienserver** auf **OK**, und klicken Sie erneut auf **OK**.
 
-### <a name="bkmk_radiusclient"></a>Konfigurieren eines drahtlos Zugriffs Punkts als NPS-RADIUS-Client
+### <a name="configure-a-wireless-ap-as-an-nps-radius-client"></a><a name="bkmk_radiusclient"></a>Konfigurieren eines drahtlos Zugriffs Punkts als NPS-RADIUS-Client
 Mithilfe dieses Verfahrens können Sie einen Zugriffs Steuerungspunkt konfigurieren, der auch als *Netzwerk Zugriffs Server \(NAS\)* bezeichnet wird, als Remote-Authentifizierungstyp\-in Benutzer Dienst \(RADIUS\) Client mithilfe des NPS-Snap\-in. 
 
 >[!IMPORTANT]
@@ -450,7 +450,7 @@ Zum Durchführen dieses Verfahrens ist mindestens die Mitgliedschaft in **Domän
 
 9. Klicken Sie auf **OK**. Ihr NAS wird in der Liste der auf dem NPS konfigurierten RADIUS-Clients angezeigt.
 
-### <a name="bkmk_npspolicy"></a>Erstellen von NPS-Richtlinien für 802.1 x Wireless mithilfe eines Assistenten
+### <a name="create-nps-policies-for-8021x-wireless-using-a-wizard"></a><a name="bkmk_npspolicy"></a>Erstellen von NPS-Richtlinien für 802.1 x Wireless mithilfe eines Assistenten
 Mithilfe dieses Verfahrens können Sie die Verbindungs Anforderungs Richtlinien und Netzwerk Richtlinien erstellen, die für die Bereitstellung von "802.1 x\--fähigen drahtlos Zugriffs Punkten" als Remote-\-authentifizierungspunkte in Benutzer Dienst \(RADIUS\) Clients auf dem RADIUS-Server mit dem Netzwerk Richtlinien Server \(NPS-\)erforderlich sind.  
 Nachdem Sie den Assistenten ausgeführt haben, werden die folgenden Richtlinien erstellt:
 
@@ -512,7 +512,7 @@ Zum Durchführen dieses Verfahrens ist mindestens die Mitgliedschaft in **Domän
 
 Ihre NPS-Richtlinien werden jetzt erstellt, und Sie können mit der Verbindung zwischen drahtlos Computern und der Domäne fortfahren.
 
-## <a name="bkmk_domain"></a>Neue drahtlos Computer der Domäne beitreten
+## <a name="join-new-wireless-computers-to-the-domain"></a><a name="bkmk_domain"></a>Neue drahtlos Computer der Domäne beitreten
 Die einfachste Methode, um neue drahtlos Computer mit der Domäne zu verknüpfen, besteht darin, den Computer physisch an ein Segment des verkabelten LANs anzufügen \(einem Segment, das nicht von einem 802.1 x-\) Switch gesteuert wird, bevor der Computer der Domäne hinzugefügt wird. Dies ist am einfachsten, weil die Einstellungen für drahtlose Gruppenrichtlinien automatisch und sofort angewendet werden. Wenn Sie eine eigene PKI bereitgestellt haben, empfängt der Computer das ZS-Zertifikat und platziert es im Zertifikat Speicher Vertrauenswürdige Stamm Zertifizierungsstellen. ermöglicht dem drahtlosen Client, NPSS mit von Ihrer Zertifizierungsstelle ausgestellten Server Zertifikaten zu vertrauen.
 
 Wenn ein neuer drahtloser Computer der Domäne hinzugefügt wurde, ist die bevorzugte Methode für Benutzer, sich bei der Domäne anzumelden, die Anmeldung über eine kabelgebundene Verbindung mit dem Netzwerk auszuführen.
@@ -528,7 +528,7 @@ Weitere Informationen finden Sie im Abschnitt [beitreten zur Domäne und Anmelde
 
 Weitere Informationen finden Sie im Abschnitt [beitreten zur Domäne und Anmelden mit der Konfiguration des Bootstrap-drahtlos Profils durch Benutzer](#bkmk_userbootstrap).
 
-### <a name="bkmk_itstaff"></a>Beitreten zur Domäne und Anmelden mithilfe der Computer Konfigurations Methode des IT-Personals
+### <a name="join-the-domain-and-log-on-by-using-the-it-staff-computer-configuration-method"></a><a name="bkmk_itstaff"></a>Beitreten zur Domäne und Anmelden mithilfe der Computer Konfigurations Methode des IT-Personals
 Domänen Mitglieds Benutzer mit Domänen\-verbundenen drahtlosen Client Computern können ein temporäres drahtlos Profil verwenden, um eine Verbindung mit einem 802.1\-x-authentifizierten Drahtlos Netzwerk herzustellen, ohne zuvor eine Verbindung mit dem kabelgebundenen LAN herzustellen. Dieses temporäre drahtlos Profil wird als *Bootstrap-drahtlos Profil*bezeichnet.
 
 Ein Bootstrap-drahtlos Profil erfordert, dass der Benutzer die Anmelde Informationen für das Domänen Benutzerkonto manuell angibt, und überprüft das Zertifikat des Remote Authentifizierungs Wähl\-in User Service \(RADIUS\) Server, auf dem der Netzwerk Richtlinien Server \(n\)PS ausgeführt wird, nicht.
@@ -560,7 +560,7 @@ Nachdem Sie den Computer der Domäne hinzugefügt haben, verwenden Sie dieses Ve
 
 Wenn der Benutzer den Computer startet, wird der Benutzer von Windows aufgefordert, den Namen und das Kennwort für den Domänen Benutzerkonto einzugeben. Da einmaliges Anmelden aktiviert ist, verwendet der Computer die Anmelde Informationen des Domänen Benutzerkontos, um zuerst eine Verbindung mit dem Drahtlos Netzwerk herzustellen und sich dann bei der Domäne anzumelden.
 
-#### <a name="bkmk_w10"></a>Anmelden bei der Domäne mit Computern, auf denen Windows 10 ausgeführt wird
+#### <a name="log-on-to-the-domain-using-computers-running-windows-10"></a><a name="bkmk_w10"></a>Anmelden bei der Domäne mit Computern, auf denen Windows 10 ausgeführt wird
 
 1. Melden Sie den Computer ab, oder starten Sie ihn neu.
 
@@ -575,7 +575,7 @@ Wenn der Benutzer den Computer startet, wird der Benutzer von Windows aufgeforde
 >[!NOTE]
 >Wenn auf dem **anderen Benutzer** Bildschirm nicht der Text **Anmelden** bei und Ihr Domänen Name enthalten ist, geben Sie Ihren Benutzernamen im Format *Domäne\\Benutzer*ein. Wenn Sie sich beispielsweise bei der Domäne example.com mit einem Konto namens **User\-01**anmelden möchten, geben Sie **Beispiel\\Benutzer\-01**ein.
 
-### <a name="bkmk_userbootstrap"></a>Beitreten zur Domäne und Anmelden mithilfe der Bootstrap-drahtlos Profil Konfiguration durch Benutzer
+### <a name="join-the-domain-and-log-on-by-using-bootstrap-wireless-profile-configuration-by-users"></a><a name="bkmk_userbootstrap"></a>Beitreten zur Domäne und Anmelden mithilfe der Bootstrap-drahtlos Profil Konfiguration durch Benutzer
 Mit dieser Methode führen Sie die Schritte im Abschnitt Allgemeine Schritte aus. Anschließend stellen Sie Ihren Domänen\-Mitglieds Benutzern die Anweisungen zur manuellen Konfiguration eines drahtlos Computers mit einem Bootstrap-drahtlos Profil bereit. Das Bootstrap-drahtlos Profil ermöglicht dem Benutzer das Herstellen einer drahtlos Verbindung und das anschließende beitreten zur Domäne. Nachdem der Computer der Domäne hinzugefügt und neu gestartet wurde, kann sich der Benutzer über eine drahtlose Verbindung bei der Domäne anmelden.
 
 #### <a name="general-steps"></a>Allgemeine Schritte

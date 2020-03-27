@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 0cafb1cc-5798-42f5-89b6-3ffe7ac024ba
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/12/2018
-ms.openlocfilehash: d5a4d5f06cd433fa92c617a3cb36e95d09be3b27
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 7b2030535e65a94e285a3db00779dddb85411c95
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950453"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316996"
 ---
 # <a name="hardware-only-ho-features-and-technologies"></a>Hardware Only (HO)-Features und -Technologien
 
@@ -79,6 +79,6 @@ In Windows Server 2016 gibt es eine neue Auslagerung: MTU_for_HNV. Diese neue Au
 
 LSO ermöglicht einer Anwendung, einen großen Datenblock an die NIC zu übergeben, und die NIC teilt die Daten in Pakete auf, die in die maximale Übertragungseinheit (Maximum Transfer Unit, MTU) des Netzwerks passen.
 
-## <a name="receive-segment-coalescing-rsc"></a>Empfang zusammengeführter Segmente (RSC)
+## <a name="receive-segment-coalescing-rsc"></a>Receive Segment Coalescing (RSC)
 
 Das Zusammenstellen von Empfangs Segmenten (auch als große Empfangs Abladung bezeichnet) ist eine NIC-Funktion, die Pakete annimmt, die Teil desselben Streams sind, der zwischen Netzwerk Interrupts eingeht, und Sie in ein einzelnes Paket zusammenfasst, bevor Sie an das Betriebssystem übertragen werden. RSC ist auf NICs, die an den virtuellen Hyper-V-Switch gebunden sind, nicht verfügbar. Weitere Informationen finden Sie unter [Receive Segment Coalescing (RSC)](https://docs.microsoft.com/windows-server/networking/technologies/hpn/rsc-in-the-vswitch).

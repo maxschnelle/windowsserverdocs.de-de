@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: c7789781-87e8-464e-981b-af887d01badd
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 07/16/2018
-ms.openlocfilehash: 09e775bfe956d67adbd70cf4ce3f9461e1c37cf5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bcf179484718aa029302281ea91c99588ad2857a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405516"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316557"
 ---
 # <a name="performance-tools-for-network-workloads"></a>Leistungstools für Netzwerkauslastungen
 
@@ -24,13 +24,13 @@ In diesem Thema finden Sie Informationen zu Leistungs Tools.
 
 Dieses Thema enthält Abschnitte zum Tool "Client-zu-Server-Datenverkehr", "TCP/IP-Fenstergröße" und "Microsoft Server Performance Advisor".
 
-##  <a name="bkmk_tuning"></a>Client-zu-Server-Traffic Tool
+##  <a name="client-to-server-traffic-tool"></a><a name="bkmk_tuning"></a>Client-zu-Server-Traffic Tool
 
 Der Client-zu-Server-Datenverkehr \(ctstraffic\) Tool bietet Ihnen die Möglichkeit, Netzwerk Datenverkehr zu erstellen und zu überprüfen.
 
 Weitere Informationen und zum Herunterladen des Tools finden Sie unter [ctstraffic (Client-zu-Server-Datenverkehr)](https://github.com/Microsoft/ctsTraffic).
   
-##  <a name="bkmk_size"></a>Größe des TCP/IP-Fensters
+##  <a name="tcpip-window-size"></a><a name="bkmk_size"></a>Größe des TCP/IP-Fensters
 
 Bei 1-GB-Adaptern sollten die in der vorherigen Tabelle gezeigten Einstellungen einen guten Durchsatz bereitstellen, da ntttcp die standardmäßige TCP-Fenstergröße durch eine bestimmte logische Prozessor Option \(SO_RCVBUF\) für die Verbindung auf 64 K festlegt. Dies ermöglicht eine gute Leistung in einem Netzwerk mit geringer Latenz.  
 
@@ -38,7 +38,7 @@ Im Gegensatz dazu ergibt bei Netzwerken mit hoher Latenz oder bei 10-GB-Adaptern
 
 Sie können die TCP-Fenstergröße mit der Option **-RB** statisch auf einen großen Wert festlegen. Mit dieser Option wird die automatische Optimierung von TCP-Fenstern deaktiviert, und es wird empfohlen, Sie nur zu verwenden, wenn der Benutzer die resultierende Änderung im TCP/IP-Verhalten vollständig versteht. Standardmäßig ist die TCP-Fenstergröße auf einen ausreichenden Wert festgelegt und passt sich nur bei hoher Last oder über Verbindungen mit hoher Latenz an.  
 
-##  <a name="bkmk_advisor"></a>Microsoft Server Performance Advisor
+##  <a name="microsoft-server-performance-advisor"></a><a name="bkmk_advisor"></a>Microsoft Server Performance Advisor
 
 Microsoft Server Performance Advisor \(Spa\) unterstützt IT-Administratoren beim Sammeln von Metriken, um potenzielle Leistungsprobleme in einer Windows Server 2016-, Windows Server 2012 R2-, Windows Server 2012-, Windows Server 2008 R2-oder Windows Server 2008-Bereitstellung zu identifizieren, zu vergleichen und zu diagnostizieren. 
 

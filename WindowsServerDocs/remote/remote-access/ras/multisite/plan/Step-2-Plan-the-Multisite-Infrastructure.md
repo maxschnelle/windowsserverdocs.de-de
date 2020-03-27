@@ -10,24 +10,24 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 64c10107-cb03-41f3-92c6-ac249966f574
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: ff8a58aa679691132d074ef52b876cea05366ab5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 6e23c3c3d22509af46b1a1741b545a787be00bfc
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367103"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313883"
 ---
 # <a name="step-2-plan-the-multisite-infrastructure"></a>Schritt 2 Planen der Infrastruktur für mehrere Standorte
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Der nächste Schritt beim Bereitstellen des Remote Zugriffs in einer Topologie mit mehreren Standorten besteht darin, die Infrastrukturplanung für mehrere Standorte abzuschließen. einschließlich, Active Directory, Sicherheitsgruppen und Gruppenrichtlinie Objekten.  
-## <a name="bkmk_2_1_AD"></a>2,1 Plan Active Directory  
+## <a name="21-plan-active-directory"></a><a name="bkmk_2_1_AD"></a>2,1 Plan Active Directory  
 Eine Remote Zugriffs Bereitstellung für mehrere Standorte kann in einer Reihe von Topologien konfiguriert werden:  
   
--   **Einzelne Active Directory Site, mehrere Einstiegspunkte**: in dieser Topologie verfügen Sie über einen einzelnen Active Directory Standort für Ihre gesamte Organisation mit schnellen intranetverknüpfungen auf der gesamten Website, aber Sie haben mehrere RAS-Server, die im gesamten Standort bereitgestellt werden. Ihre Organisation fungiert als Einstiegspunkt. Ein geografisches Beispiel für diese Topologie ist die Verwendung einer einzelnen Active Directory Site für die USA mit Einstiegspunkten an der Ostküste und der Westküste.  
+-   **Einzelne Active Directory Site, mehrere Einstiegspunkte**: in dieser Topologie verfügen Sie über einen einzelnen Active Directory Standort für Ihre gesamte Organisation mit schnellen intranetverknüpfungen auf der gesamten Website, aber Sie verfügen über mehrere RAS-Server, die in ihrer gesamten Organisation bereitgestellt werden, die jeweils als Einstiegspunkt fungieren. Ein geografisches Beispiel für diese Topologie ist die Verwendung einer einzelnen Active Directory Site für die USA mit Einstiegspunkten an der Ostküste und der Westküste.  
   
     ![Infrastruktur für mehrere Standorte](../../../../media/Step-2-Plan-the-Multisite-Infrastructure/RAMultisiteTopo1.png)  
   
@@ -56,16 +56,16 @@ Beachten Sie die folgenden Empfehlungen und Einschränkungen für Active Directo
   
     2.  Wenn der Domänen Controller, von dem ein Server-Gruppenrichtlinien Objekt verwaltet wird, nicht verfügbar ist, verwenden Sie das PowerShell-Cmdlet Set-daentrypointdc, um einen neuen Domänen Controller dem Einstiegspunkt zuzuordnen. Der neue Domänen Controller muss vor dem Ausführen des Cmdlets über aktuelle GPOs verfügen.  
   
-## <a name="bkmk_2_2_SG"></a>2,2 Planen von Sicherheitsgruppen  
-Während der Bereitstellung eines einzelnen Servers mit erweiterten Einstellungen wurden alle Client Computer, die über DirectAccess auf das interne Netzwerk zugreifen, in einer Sicherheitsgruppe gesammelt. Bei einer Bereitstellung mit mehreren Standorten wird diese Sicherheitsgruppe nur für Windows 8-Client Computer verwendet. Bei einer Bereitstellung mit mehreren Standorten werden Windows 7-Client Computer für jeden Einstiegspunkt in der Bereitstellung für mehrere Standorte in separaten Sicherheitsgruppen erfasst. Wenn Sie z. b. zuvor alle Client Computer in der Gruppe DA_Clients gruppiert haben, müssen Sie jetzt alle Windows 7-Computer aus dieser Gruppe entfernen und Sie in einer anderen Sicherheitsgruppe platzieren. Beispielsweise erstellen Sie in der Topologie mehrere Einstiegspunkte für mehrere Active Directory Standorte eine Sicherheitsgruppe für den USA Einstiegspunkt (DA_Clients_US) und einen für den Einstiegspunkt Europa (DA_Clients_Europe). Platzieren Sie alle Windows 7-Client Computer, die sich in der USA befinden, in der Gruppe "DA_Clients_US" und alle in Europa in der Gruppe "DA_Clients_Europe". Wenn Sie über keine Windows 7-Client Computer verfügen, müssen Sie keine Sicherheitsgruppen für Windows 7-Computer planen.  
+## <a name="22-plan-security-groups"></a><a name="bkmk_2_2_SG"></a>2,2 Planen von Sicherheitsgruppen  
+Während der Bereitstellung eines einzelnen Servers mit erweiterten Einstellungen wurden alle Client Computer, die über DirectAccess auf das interne Netzwerk zugreifen, in einer Sicherheitsgruppe gesammelt. Bei einer Bereitstellung mit mehreren Standorten wird diese Sicherheitsgruppe nur für Windows 8-Client Computer verwendet. Bei einer Bereitstellung mit mehreren Standorten werden Windows 7-Client Computer für jeden Einstiegspunkt in der Bereitstellung für mehrere Standorte in separaten Sicherheitsgruppen erfasst. Wenn Sie z. b. zuvor alle Client Computer in der Gruppe DA_Clients gruppiert haben, müssen Sie jetzt alle Windows 7-Computer aus dieser Gruppe entfernen und Sie in einer anderen Sicherheitsgruppe platzieren. Beispielsweise erstellen Sie in der Topologie mehrere Einstiegspunkte für mehrere Active Directory Standorte eine Sicherheitsgruppe für den USA Einstiegspunkt (DA_Clients_US) und einen für den Einstiegspunkt Europa (DA_Clients_Europe). Platzieren Sie alle Windows 7-Client Computer, die sich in der USA befinden, in der Gruppe DA_Clients_US und alle, die sich in Europa in der DA_Clients_Europe Gruppe befinden. Wenn Sie über keine Windows 7-Client Computer verfügen, müssen Sie keine Sicherheitsgruppen für Windows 7-Computer planen.  
   
 Die folgenden Sicherheitsgruppen sind erforderlich:  
   
 -   Eine Sicherheitsgruppe für alle Windows 8-Client Computer. Es wird empfohlen, für jede Domäne eine eindeutige Sicherheitsgruppe für diese Clients zu erstellen.  
   
--   Eine eindeutige Sicherheitsgruppe, die Windows 7-Client Computer für jeden Einstiegspunkt enthält. Es wird empfohlen, für jede Domäne eine eindeutige Gruppe zu erstellen. Zum Beispiel: Domain1\DA_Clients_Europe; Domain2\DA_Clients_Europe; Domain1\DA_Clients_US; Domain2\DA_Clients_US.  
+-   Eine eindeutige Sicherheitsgruppe, die Windows 7-Client Computer für jeden Einstiegspunkt enthält. Es wird empfohlen, für jede Domäne eine eindeutige Gruppe zu erstellen. Beispiel: domain1 \ DA_Clients_Europe; Domäne2 \ DA_Clients_Europe; Domain1 \ DA_Clients_US; Domäne2 \ DA_Clients_US.  
   
-## <a name="bkmk_2_3_GPO"></a>2,3 planen Gruppenrichtlinie Objekte  
+## <a name="23-plan-group-policy-objects"></a><a name="bkmk_2_3_GPO"></a>2,3 planen Gruppenrichtlinie Objekte  
 DirectAccess-Einstellungen, die während der Remote Zugriffs Bereitstellung konfiguriert werden, werden in GPOs gesammelt. Ihre Einzel Server Bereitstellung verwendet bereits GPOs für DirectAccess-Clients, den Remote Zugriffs Server und optional für Anwendungsserver. Für eine Bereitstellung mit mehreren Standorten sind folgende Gruppenrichtlinien Objekte erforderlich:  
   
 -   Ein Server-GPO für jeden Einstiegspunkt.  
@@ -115,7 +115,7 @@ Beachten Sie beim Verwenden manuell erstellter Gruppenrichtlinienobjekte Folgend
   
     -   **Server-GPO**: ein Server-Gruppenrichtlinien Objekt für jeden Einstiegspunkt (in der Domäne, in der sich der Einstiegspunkt befindet). Dieses GPO wird auf jedem RAS-Server im Einstiegspunkt angewendet.  
   
-    -   **Client-GPO (Windows 7)** : ein Gruppenrichtlinien Objekt für jeden Einstiegspunkt und jede Domäne mit Windows 7-Client Computern, die eine Verbindung zu Einstiegspunkten in der Bereitstellung für mehrere Standorte herstellen. Beispiel Domain1\DA_W7_Clients_GPO_Europe; Domain2\DA_W7_Clients_GPO_Europe; Domain1\DA_W7_Clients_GPO_US; Domain2\DA_W7_Clients_GPO_US. Wenn keine Windows 7-Client Computer eine Verbindung mit Einstiegspunkten herstellen, sind GPOs nicht erforderlich.  
+    -   **Client-GPO (Windows 7)** : ein Gruppenrichtlinien Objekt für jeden Einstiegspunkt und jede Domäne mit Windows 7-Client Computern, die eine Verbindung zu Einstiegspunkten in der Bereitstellung für mehrere Standorte herstellen. Zum Beispiel domain1 \ DA_W7_Clients_GPO_Europe; Domäne2 \ DA_W7_Clients_GPO_Europe; Domain1 \ DA_W7_Clients_GPO_US; Domäne2 \ DA_W7_Clients_GPO_US. Wenn keine Windows 7-Client Computer eine Verbindung mit Einstiegspunkten herstellen, sind GPOs nicht erforderlich.  
   
 -   Es ist nicht erforderlich, zusätzliche GPOs für Windows 8-Client Computer zu erstellen. Ein Gruppenrichtlinien Objekt für jede Domäne, die Client Computer enthält, wurde bereits erstellt, als der einzelne RAS-Server bereitgestellt wurde. Bei einer Bereitstellung mit mehreren Standorten fungieren diese Client-Gruppenrichtlinien Objekte als GPOs für Windows 8-Clients.  
   
@@ -136,7 +136,7 @@ Jedes GPO wird von einem bestimmten Domänen Controller wie folgt verwaltet:
   
 Beachten Sie Folgendes, wenn Sie GPO-Einstellungen manuell ändern möchten:  
   
--   Führen Sie für Server-Gruppenrichtlinien Objekte das PowerShell-Cmdlet `Get-DAEntryPointDC -EntryPointName <name of entry point>` aus, um zu ermitteln, welcher Domänen Controller einem bestimmten Einstiegspunkt zugeordnet ist.  
+-   Führen Sie für Server-Gruppenrichtlinien Objekte das PowerShell-Cmdlet `Get-DAEntryPointDC -EntryPointName <name of entry point>`aus, um zu ermitteln, welcher Domänen Controller mit einem bestimmten Einstiegspunkt verknüpft ist.  
   
 -   Wenn Sie mit den PowerShell-Cmdlets für Netzwerke oder der Gruppenrichtlinie Management Console Änderungen vornehmen, wird standardmäßig der Domänen Controller verwendet, der als PDC-Emulator fungiert.  
   
@@ -146,11 +146,11 @@ Beachten Sie Folgendes, wenn Sie GPO-Einstellungen manuell ändern möchten:
   
     2.  Nachdem Sie die Einstellungen geändert haben, müssen Sie darauf warten, dass die Änderungen auf den Domänen Controller repliziert werden, der den Gruppenrichtlinien Objekten zugeordnet ist. Nehmen Sie keine weiteren Änderungen mithilfe der Remote Zugriffs-Verwaltungskonsole oder PowerShell-Cmdlets für den Remote Zugriff vor, bis die Replikation beendet ist. Wenn ein Gruppenrichtlinien Objekt auf zwei verschiedenen Domänen Controllern bearbeitet wird, bevor die Replikation beendet ist, können Mergekonflikte auftreten, was zu einer beschädigten Konfiguration führt.  
   
--   Alternativ können Sie die Standardeinstellung im Dialogfeld **Domänen Controller ändern** in der Gruppenrichtlinie-Verwaltungskonsole oder mithilfe des PowerShell-Cmdlets **Open-netgpo** ändern, damit Änderungen, die über die-Konsole oder die-Cmdlets für Netzwerke vorgenommen wurden, vorgenommen werden. Verwenden Sie den von Ihnen angegebenen Domänen Controller.  
+-   Alternativ können Sie die Standardeinstellung im Dialogfeld **Domänen Controller ändern** in der Gruppenrichtlinie-Verwaltungskonsole oder mithilfe des PowerShell-Cmdlets **Open-netgpo** ändern, damit Änderungen, die über die-Konsole oder die-Cmdlets für Netzwerke vorgenommen wurden, den von Ihnen angegebenen Domänen Controller verwenden.  
   
     1.  Klicken Sie hierzu in der Gruppenrichtlinie-Verwaltungskonsole mit der rechten Maustaste auf den Domänen-oder Standort Container, und klicken Sie dann auf **Domänen Controller ändern**.  
   
-    2.  Geben Sie in PowerShell den Parameter Domain Controller für das Cmdlet Open-netgpo an. Um z. b. die privaten und öffentlichen Profile in der Windows-Firewall auf einem Gruppenrichtlinien Objekt mit dem Namen domain1\DA_Server_GPO _Europe unter Verwendung eines Domänen Controllers namens Europe-DC.Corp.contoso.com zu aktivieren, gehen Sie wie folgt vor  
+    2.  Geben Sie in PowerShell den Parameter Domain Controller für das Cmdlet Open-netgpo an. Wenn Sie z. b. die privaten und öffentlichen Profile in der Windows-Firewall auf einem Gruppenrichtlinien Objekt mit dem Namen domain1 \ DA_Server_GPO _Europe mit einem Domänen Controller namens Europe-DC.Corp.contoso.com aktivieren möchten, gehen Sie wie folgt vor:  
   
         ```  
         $gpoSession = Open-NetGPO -PolicyStore "domain1\DA_Server_GPO _Europe" -DomainController "europe-dc.corp.contoso.com"  
@@ -165,7 +165,7 @@ Um die Einheitlichkeit der Konfiguration in einer Bereitstellung für mehrere St
   
 -   **Optimierung der Konfigurations Verteilung**: nach der Änderung der Netzwerkinfrastruktur ist es möglicherweise erforderlich, das Server-Gruppenrichtlinien Objekt eines Einstiegs Punkts auf einem Domänen Controller an demselben Active Directory Standort wie den Einstiegspunkt zu verwalten.   
   
-## <a name="bkmk_2_4_DNS"></a>2,4 Planen des DNS  
+## <a name="24-plan-dns"></a><a name="bkmk_2_4_DNS"></a>2,4 Planen des DNS  
 Beachten Sie beim Planen von DNS für eine Bereitstellung mit mehreren Standorten Folgendes:  
   
 1.  Client Computer verwenden die ConnectTo-Adresse, um eine Verbindung mit dem Remote Zugriffs Server herzustellen. Für jeden Einstiegspunkt in der Bereitstellung ist eine andere ConnectTo-Adresse erforderlich. Jeder Einstiegspunkt "ConnectTo Address" muss im öffentlichen DNS verfügbar sein, und die von Ihnen gewählte Adresse muss mit dem Antragsteller Namen des IP-HTTPS-Zertifikats, das Sie für die IP-HTTPS-Verbindung bereitstellen, identisch sein.   

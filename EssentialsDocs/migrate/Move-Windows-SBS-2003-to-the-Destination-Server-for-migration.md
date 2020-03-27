@@ -3,7 +3,7 @@ title: Verschieben von Windows SBS 2003-Einstellungen und -Daten auf den Zielser
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 67087ccb-d820-4642-8ca2-7d2d38714014
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ba6fbf0237a16451403a7d4618b935c7c01f7064
-ms.sourcegitcommit: e2b565ce85a97c0c51f6dfe7041f875a265b35dd
+ms.openlocfilehash: f9cf929016b608641e7a7c958cc1311c49b00221
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69584784"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318884"
 ---
 # <a name="move-windows-sbs-2003-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Verschieben von Windows SBS 2003-Einstellungen und -Daten auf den Zielserver für die Migration zu Windows Server Essentials
 
@@ -52,15 +52,15 @@ Führen Sie die folgenden Aufgaben aus, bevor Sie Daten vom Quellserver zum Ziel
 
 2. Klicken Sie auf **Start**, geben Sie **cmd** in das Suchfeld ein, und drücken Sie dann die EINGABETASTE. 
 
-3. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie die EINGABETASTE: 
+3. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE: 
 
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt` 
 
-Erläuterungen:
- - \<Sourceservername\> ist der Name des Quell Servers.
- - \<Sharedsourcefoldername\> ist der Name des freigegebenen Ordners auf dem Quell Server.
- - \<Destinationservername\> ist der Name des Zielservers.
- - \<Shareddestinationfoldername\> ist der freigegebene Ordner auf dem Ziel Server, in den die Daten kopiert werden. 
+Speicherort:
+ - \<sourceservername\> ist der Name des Quell Servers.
+ - \<sharedsourcefoldername\> ist der Name des freigegebenen Ordners auf dem Quell Server.
+ - \<destinationservername\> ist der Name des Zielservers.
+ - \<shareddestinationfoldername\> ist der freigegebene Ordner auf dem Ziel Server, in den die Daten kopiert werden. 
 
 4. Wiederholen Sie den vorherigen Schritt für jeden freigegebenen Ordner, zu dem Sie die Migration vom Quellserver aus vornehmen.
 
@@ -89,11 +89,11 @@ Windows SBS 2003 verwendet Anmeldeskripts für Aufgaben wie das Installieren von
 
 1. Klicken Sie auf **Start**, zeigen Sie auf **Verwaltung**, und klicken Sie dann auf **Active Directory-Benutzer und -Computer**.
 
-2. Erweitern Sie in **Active Directory-Benutzer und -Computer**Ihr Netzwerk, und klicken Sie dann auf **Benutzer**.
+2. Erweitern Sie in **Active Directory-Benutzer und -Computer** Ihr Netzwerk, und klicken Sie dann auf **Benutzer**.
 
-3. Klicken Sie mit der rechten Maustaste auf einen Benutzernamen, klicken Sie auf **Eigenschaften**und dann auf die Registerkarte **Profil** .
+3. Klicken Sie mit der rechten Maustaste auf einen Benutzernamen, klicken Sie auf **Eigenschaften** und dann auf die Registerkarte **Profil**.
 
-4. Löschen Sie die Inhalte des Textfelds **Anmeldeskript** , und klicken Sie dann auf **OK**.
+4. Löschen Sie die Inhalte des Textfelds **Anmeldeskript**, und klicken Sie dann auf **OK**.
 
 5. Wiederholen Sie die Schritte 3 und 4 für jeden Benutzer.
 
@@ -111,7 +111,7 @@ Die Gruppenrichtlinie Objekte (GPOs) werden für Windows Server Essentials aktua
 
 3. Klicken Sie im Navigationsbereich auf **Erweiterte Verwaltung**, klicken Sie auf **Gruppenrichtlinie Verwaltung**, und klicken Sie dann auf Gesamtstruktur **:** _< yourDomainName\>_ . 
 
-4. Klicken Sie auf **Domänen**, klicken Sie auf *<\>yourDomainName*, und klicken Sie dann auf **Gruppenrichtlinie Objekte**. 
+4. Klicken Sie auf **Domänen**, klicken Sie auf *< yourDomainName\>* , und klicken Sie dann auf **Gruppenrichtlinie Objekte**. 
 
 5. Klicken Sie mit der rechten Maustaste auf **Small Business Server Auditing Policy**, klicken Sie auf **Löschen** und dann auf **OK**. 
 
@@ -153,11 +153,11 @@ Es wird empfohlen, die Kenn Wort Richtlinie in Windows Server Essentials zu konf
 
 3. Klicken Sie im Navigationsbereich auf **Erweiterte Verwaltung**, klicken Sie auf **Gruppenrichtlinie Verwaltung**, und klicken Sie dann auf Gesamtstruktur **:** _< yournetworkdomainname\>_
 
-4. Klicken Sie auf **Domänen**, klicken Sie auf *<\>yournetworkdomainname*, und klicken Sie dann auf **WMI-Filter**.
+4. Klicken Sie auf **Domänen**, klicken Sie auf *< yournetworkdomainname\>* , und klicken Sie dann auf **WMI-Filter**.
 
 5. Klicken Sie mit der rechten Maustaste auf **PostSP2**, klicken Sie auf **Löschen** und dann auf **Ja**.
 
-6. Klicken Sie mit der rechten Maustaste auf **PreSP2**, klicken Sie auf **Löschen**und dann auf **Ja**.
+6. Klicken Sie mit der rechten Maustaste auf **PreSP2**, klicken Sie auf **Löschen** und dann auf **Ja**.
 
 7. Stellen Sie sicher, dass diese drei WMI-Filter gelöscht werden.
 
@@ -169,7 +169,7 @@ Es wird empfohlen, die Kenn Wort Richtlinie in Windows Server Essentials zu konf
 
 2. Klicken Sie auf dem Dashboard **Home** auf **Setup**, klicken Sie auf **"Zugriff überall" einrichten**, und wählen Sie dann die Option **Zum Konfigurieren von "Zugriff überall" klicken** aus. 
 
-3. Folgen Sie den Anweisungen im **"Zugriff überall" einrichten** -Assistenten zum Konfigurieren von Router und Domänenname.
+3. Folgen Sie den Anweisungen im **"Zugriff überall" einrichten**-Assistenten zum Konfigurieren von Router und Domänenname.
 
  Wenn Ihr Router das UPnP-Framework nicht unterstützt, oder wenn das UPnP-Framework deaktiviert ist, wird möglicherweise ein gelbes Warnsymbol neben dem Namen des Routers angezeigt. Stellen Sie sicher, dass folgende Ports geöffnet sind, und dass sie an die IP-Adresse des Zielservers weitergeleitet werden:
 

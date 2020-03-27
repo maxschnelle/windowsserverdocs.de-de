@@ -1,9 +1,9 @@
 ---
-title: Installieren von Windows Server Essentials in Migration Modus 1
-description: Beschreibt, wie Windows Server Essentials
+title: Installieren von Windows Server Essentials in Migration MODE1
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,22 +12,22 @@ ms.assetid: fd7196ac-cfa6-46a5-ba77-6962b47a825e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 74c40cc0f06d73a922a3d7fb819f7e71b47ac088
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: dbbd9f7303995e1547e48aa9701467b45e4bad34
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432962"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318998"
 ---
-# <a name="install-windows-server-essentials-in-migration-mode1"></a>Installieren von Windows Server Essentials in Migration Modus 1
+# <a name="install-windows-server-essentials-in-migration-mode1"></a>Installieren von Windows Server Essentials in Migration MODE1
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Sie können veranlassen, dass nur ein Server in Ihrem Netzwerk, auf denen Windows Server Essentials ausgeführt wird, und dieser Server muss ein Domänencontroller für das Netzwerk sein.  
+In Ihrem Netzwerk, auf dem Windows Server Essentials ausgeführt wird, kann nur ein Server vorhanden sein, und dieser Server muss ein Domänen Controller für das Netzwerk sein.  
   
- Wenn Sie Windows Server Essentials im Migrationsmodus installieren, führt der Installations-Assistenten die folgenden Aufgaben aus:  
+ Wenn Sie Windows Server Essentials im Migrations Modus installieren, führt der Installations-Assistent die folgenden Aufgaben aus:  
   
-1.  Installiert und konfiguriert die Windows Server Essentials-Server-Software auf dem Zielserver.  
+1.  Installiert und konfiguriert die Windows Server Essentials-Server Software auf dem Ziel Server.  
   
 2.  Aktualisiert das Domänenschema auf die neueste Version.  
   
@@ -42,15 +42,15 @@ Sie können veranlassen, dass nur ein Server in Ihrem Netzwerk, auf denen Window
   
 6.  Konfiguriert den Zielserver als den Standortlizenzserver.  
   
-##  <a name="BKMK_Install"></a> Installieren von Windows Server Essentials auf dem Zielserver  
- Führen Sie zum Installieren und Konfigurieren von Windows Server Essentials im Migrationsmodus auf dem Zielserver, die folgenden Schritte aus.  
+##  <a name="install-windows-server-essentials-on-the-destination-server"></a><a name="BKMK_Install"></a>Installieren von Windows Server Essentials auf dem Ziel Server  
+ Führen Sie das folgende Verfahren aus, um Windows Server Essentials im Migrations Modus auf dem Ziel Server zu installieren und zu konfigurieren.  
   
-#### <a name="to-install-windows-server-essentials-on-the-destination-server"></a>So installieren Sie Windows Server Essentials auf dem Zielserver  
+#### <a name="to-install-windows-server-essentials-on-the-destination-server"></a>So installieren Sie Windows Server Essentials auf dem Ziel Server  
   
-1. Aktivieren Sie auf dem Zielserver aus, und fügen Sie Windows Server Essentials-DVD1 in das DVD-Laufwerk. Wenn eine Meldung angezeigt wird, in der Sie gefragt werden, ob von einer CD oder DVD gestartet werden soll, drücken Sie dazu eine beliebige Taste.  
+1. Schalten Sie den Ziel Server ein, und fügen Sie Windows Server Essentials DVD1 in das DVD-Laufwerk ein. Wenn eine Meldung angezeigt wird, in der Sie gefragt werden, ob von einer CD oder DVD gestartet werden soll, drücken Sie dazu eine beliebige Taste.  
   
    > [!NOTE]
-   >  Wenn der Zielserver das Starten von einem USB-Flashlaufwerk unterstützt, können Sie die **Windows 7 USB/DVD Download Tool** um einen startbaren USB-Speicherstick aus der Windows Server Essentials-ISO-Datei zu erstellen. Mit einem USB-Speicherstick können Sie den Installationsvorgang deutlich beschleunigen, da Speichersticks Daten sehr viel schneller als DVD-ROM-Laufwerke lesen. Nach dem Erstellen eines startbaren USB-Speichersticks können Sie eine Antwortdatei zum Speicherstick hinzufügen. Sie können [Herunterladen der Windows 7 USB/DVD Download Tool](https://go.microsoft.com/fwlink/p/?LinkId=248282) kostenlos von Microsoft Store-Website.  
+   >  Wenn der Ziel Server das Starten von einem USB-Speicherstick unterstützt, können Sie das **Windows 7 USB/DVD Download Tool** verwenden, um einen Start fähigen USB-Speicherstick aus der Windows Server Essentials-ISO-Datei zu erstellen. Mit einem USB-Speicherstick können Sie den Installationsvorgang deutlich beschleunigen, da Speichersticks Daten sehr viel schneller als DVD-ROM-Laufwerke lesen. Nach dem Erstellen eines startbaren USB-Speichersticks können Sie eine Antwortdatei zum Speicherstick hinzufügen. Sie können [das Windows 7 USB/DVD Download Tool](https://go.microsoft.com/fwlink/p/?LinkId=248282) kostenlos auf Microsoft Store Website herunterladen.  
   
    > [!NOTE]
    >  Wenn der Zielserver nicht von der DVD startet, starten Sie den Computer neu, und überprüfen Sie das BIOS-Setup, um sicherzustellen, dass **DVD-ROM** an erster Stelle in der Startreihenfolge aufgeführt ist. Weitere Informationen zum Ändern der Startreihenfolge im BIOS-Setup finden Sie in der Dokumentation des Hardwareherstellers.  
@@ -68,10 +68,10 @@ Sie können veranlassen, dass nur ein Server in Ihrem Netzwerk, auf denen Window
    Nach Abschluss der Installation werden Sie automatisch mit dem Benutzerkonto und Kennwort des Administrators angemeldet, die Sie in der Antwortdatei für die Migration bereitgestellt haben.  
   
 > [!NOTE]
->  Um den Desktop entsperren, während Windows Server Essentials installiert wird, verwenden Sie das integrierte Administratorkonto aus, und lassen Sie das Kennwort leer.  
+>  Wenn Sie den Desktop bei der Installation von Windows Server Essentials entsperren möchten, verwenden Sie das integrierte Administrator Konto, und lassen Sie das Kennwort leer.  
   
-##  <a name="BKMK_VerifyTheHealthOfDC"></a> Überprüfen Sie die Integrität des Domänencontrollers  
- Bevor Sie mit der Migration fortfahren, sollten Sie sicherstellen, dass der Domänencontroller und Windows Server Essentials-Netzwerk fehlerfrei sind.  
+##  <a name="verify-the-health-of-the-domain-controller"></a><a name="BKMK_VerifyTheHealthOfDC"></a>Überprüfen der Integrität des Domänen Controllers  
+ Bevor Sie mit der Migration fortfahren, sollten Sie sicherstellen, dass der Domänen Controller und das Windows Server Essentials-Netzwerkfehler frei sind.  
   
  Die folgende Tabelle listet die Tools auf, die Sie für die Diagnose von Problemen auf Ihrem Zielserver, im Netzwerk oder in der Domäne verwenden können:  
   
@@ -84,4 +84,4 @@ Sie können veranlassen, dass nur ein Server in Ihrem Netzwerk, auf denen Window
  Alle von diesen Tools erfassten Probleme sollten behoben werden, bevor Sie mit der Migration fortfahren.  
   
 > [!NOTE]
->  Wenn Sie e-Mail-Adresse zu einem anderen lokalen Exchange-Server migrieren möchten, finden Sie unter [Integrieren eines lokalen Exchange-Servers mit Windows Server Essentials](../manage/Integrate-an-On-Premises-Exchange-Server-with-Windows-Server-Essentials.md) Informationen zum Einrichten Ihrer lokalen Exchange-Servers.
+>  Wenn Sie beabsichtigen, eine e-Mail zu einem anderen lokalen Exchange-Server zu migrieren, finden Sie unter [integrieren eines lokalen Exchange-Servers mit Windows Server Essentials](../manage/Integrate-an-On-Premises-Exchange-Server-with-Windows-Server-Essentials.md) Informationen zum Einrichten Ihres lokalen Exchange-Servers.

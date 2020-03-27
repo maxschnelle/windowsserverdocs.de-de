@@ -8,14 +8,14 @@ ms.assetid: 61ae242e-82a8-430d-b07d-52b86c01e686
 ms.localizationpriority: medium
 manager: dougkim
 ms.date: 09/05/2018
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5c7feb696c6ee9014032229543a4f43fb5884527
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 0ee9bf121d64eebe98798df907a2584747a00c7a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395847"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315368"
 ---
 # <a name="vrss-frequently-asked-questions"></a>häufig gestellte Fragen zu vrss
 
@@ -23,23 +23,23 @@ In diesem Thema finden Sie einige häufig gestellte Fragen und Antworten zur Ver
 
 ## <a name="what-are-the-requirements-for-the-physical-network-adapters-that-i-use-with-vrss"></a>Welche Anforderungen gelten für die physischen Netzwerkadapter, die ich mit vrss verwende?
 
-Netzwerkadapter müssen mit Warteschlange für virtuelle Computer \(VMQ\) kompatibel sein und eine Verbindungsgeschwindigkeit von 10 Gbit/s oder mehr aufweisen.
+Netzwerkadapter müssen mit Warteschlange für virtuelle Computer \(VMQ-\) kompatibel sein und eine Verbindungsgeschwindigkeit von 10 Gbit/s oder mehr aufweisen.
 
 Weitere Informationen finden Sie unter [Planen der Verwendung von vrss](vrss-plan.md).
 
-## <a name="does-vrss-work-with-hyper-threaded-processor-cores"></a>Funktioniert vrss mit hyperthreadprozessor\--Kernen?
+## <a name="does-vrss-work-with-hyper-threaded-processor-cores"></a>Funktioniert vrss mit Hyper\-Thread-Prozessorkernen?
 
-Nein. Sowohl von vrss als auch von VMQ werden hyperthreadprozessor\--Kerne ignoriert.
+Nein. Sowohl mit vrss als auch mit VMQ werden Hyper\-Thread Prozessorkerne ignoriert.
 
-## <a name="does-vrss-work-for-host-virtual-nics-vnics"></a>Funktioniert vrss für virtuelle Host-NICs \(-vNICs?\)
+## <a name="does-vrss-work-for-host-virtual-nics-vnics"></a>Funktioniert vrss für virtuelle Host-NICs \(vNICs\)?
 
-Ja. Verwenden Sie den Parameter " **-managementos** " anstelle des \(VM\) -namens des virtuellen Computers im Windows PowerShell-Befehl " **Set-vmnetworkadapter** " und " **enable-netadapterrss** " auf der Host-vNIC.
+Ja. Verwenden Sie den Parameter " **-managementos** " anstelle des virtuellen Computers \(VM\) Name im Windows PowerShell-Befehl " **Set-vmnetworkadapter** " und " **enable-netadapterrss** " auf der Host-vNIC.
 
 Weitere Informationen finden Sie unter [Windows PowerShell-Befehle für RSS und vrss](vrss-wps.md).
 
 ## <a name="how-many-logical-processors-does-a-vm-need-to-use-vrss"></a>Wie viele logische Prozessoren benötigt ein virtueller Computer vrss?
 
-VMs benötigen mindestens zwei logische Prozessoren \((LPs\) ), damit Sie vrss verwenden können.
+VMs benötigen mindestens zwei logische Prozessoren, \(LPs\), um vrss verwenden zu können.
 
 Weitere Informationen finden Sie unter [Planen der Verwendung von vrss](vrss-plan.md).
 
@@ -57,7 +57,7 @@ Wenn der virtuelle Computer mehrere TCP-Sitzungen empfängt, aber nicht mehr als
 
 ## <a name="im-looking-at-the-host-and-not-all-of-the-processors-are-being-used-it-looks-like-every-other-one-is-being-skipped"></a>Ich sehe den Host, und es werden nicht alle Prozessoren verwendet. Anscheinend wird jeder zweite Prozessor übersprungen.
   
-Überprüfen Sie, ob Hyperthreading aktiviert ist. VMQ und vrss sind so konzipiert, dass hyperthreadkerne\-übersprungen werden.
+Überprüfen Sie, ob Hyperthreading aktiviert ist. VMQ und vrss sind so konzipiert, dass Hyper\-Thread Kerne übersprungen werden.
 
 ## <a name="are-there-different-windows-powershell-commands-for-rss-and-vrss"></a>Gibt es unterschiedliche Windows PowerShell-Befehle für RSS und vrss?
 

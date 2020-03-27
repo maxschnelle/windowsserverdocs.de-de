@@ -1,9 +1,9 @@
 ---
 title: Verschieben von Einstellungen und Daten auf den Zielserver für die Migration zu Windows Server Essentials
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 2b882e87-347a-4010-b7fd-9599d61198dd
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 8e173de32230a219bec99586e1b5b533bbe84b73
-ms.sourcegitcommit: 9a4ab3a0d00b06ff16173aed616624c857589459
+ms.openlocfilehash: 4f4ba08c17429f70ef754b0861553e38ba116e5d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66826977"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318829"
 ---
 # <a name="move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Verschieben von Einstellungen und Daten auf den Zielserver für die Migration zu Windows Server Essentials
 
@@ -25,11 +25,11 @@ ms.locfileid: "66826977"
 
 Verschieben von Einstellungen und Daten auf den Zielserver:
 
-1. [Kopieren von Daten auf den Zielserver](#copy-data-to-the-destination-server)
+1. [Kopieren von Daten auf den Ziel Server](#copy-data-to-the-destination-server)
 
-2. [Konfigurieren des Netzwerks](#configure-the-network) 
+2. [Netzwerk konfigurieren](#configure-the-network) 
 
-3. [Ordnen Sie zugelassener Computer zu Benutzerkonten zu](#map-permitted-computers-to-user-accounts)
+3. [Zuordnen zulässiger Computer zu Benutzerkonten](#map-permitted-computers-to-user-accounts)
  
 ## <a name="copy-data-to-the-destination-server"></a>Kopieren von Daten auf den Zielserver.
  Führen Sie die folgenden Aufgaben aus, bevor Sie Daten vom Quellserver zum Zielserver kopieren: 
@@ -44,15 +44,15 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
  
 1. Melden Sie sich am Zielserver als ein Domänenadministrator an, und öffnen Sie dann ein Befehlsfenster. 
  
-2. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie die EINGABETASTE: 
+2. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE: 
  
  `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt` 
  
- Erläuterungen:
- - \<Quellservername\> ist der Name des Quellservers
- - \<Namedesfreigegebenenquellordners\> ist der Name des freigegebenen Ordners auf dem Quellserver
- - \<Zielservername\> ist der Name des Zielservers,
- - \<Namedesfreigegebenenzielordners\> ist der freigegebene Ordner auf dem Zielserver, auf denen die Daten kopiert werden. 
+ Speicherort:
+ - \<sourceservername\> ist der Name des Quell Servers.
+ - \<sharedsourcefoldername\> ist der Name des freigegebenen Ordners auf dem Quell Server.
+ - \<destinationservername\> ist der Name des Zielservers.
+ - \<shareddestinationfoldername\> ist der freigegebene Ordner auf dem Ziel Server, in den die Daten kopiert werden. 
  
 3. Wiederholen Sie den vorherigen Schritt für jeden freigegebenen Ordner, zu dem Sie die Migration vom Quellserver aus vornehmen. 
  
@@ -86,7 +86,7 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
  
 4. Klicken Sie auf die Registerkarte **Zugriff überall**, und klicken Sie dann auf **Remotewebzugriff und Zugriff auf Webdienstanwendungen zulassen**. 
  
-5. Wählen Sie **Freigegebene Ordner**, **Computers**und **Links auf der Startseite**aus, und klicken Sie dann auf **Übernehmen**. 
+5. Wählen Sie **Freigegebene Ordner**, **Computers** und **Links auf der Startseite** aus, und klicken Sie dann auf **Übernehmen**. 
  
 6. Klicken Sie auf der Registerkarte **Computerzugriff** auf den Namen des Computers, für den Sie Zugriff gewähren möchten. 
  

@@ -10,18 +10,18 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4f13f78e-0114-4e41-9a28-82a4feccecfc
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: dec5c9b9b5d5fe858e063af70ff0a8e16991e632
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a5cd347b849948052f4f7caa7fa8a863808e8c26
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355220"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309535"
 ---
 # <a name="manage-role-based-access-control-with-windows-powershell"></a>Verwalten der rollenbasierten Zugriffssteuerung mit Windows PowerShell
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie IPAM zum Verwalten der rollenbasierten Zugriffs Steuerung mit Windows PowerShell verwenden.  
   
@@ -40,7 +40,7 @@ Mit den neuen Windows PowerShell-IPAM-Befehlen können Sie die Zugriffs Bereiche
 |DHCP-Bereichsgruppierung|Get-ipamdhcpsuperscope|Dieses Cmdlet gibt das DHCP-Bereichs Gruppierung-Objekt in IPAM zurück.|  
 |DHCP-Bereich|Get-ipamdhcpscope|Dieses Cmdlet gibt das DHCP-Bereichs Objekt in IPAM zurück.|  
   
-Im folgenden Beispiel der Befehlsausgabe Ruft das `Get-IpamDnsZone`-Cmdlet die **Dublin.contoso.com** -DNS-Zone ab.  
+Im folgenden Beispiel der Befehlsausgabe Ruft das Cmdlet "`Get-IpamDnsZone`" die DNS-Zone **Dublin.contoso.com** ab.  
   
 ```  
 PS C:\Users\Administrator.CONTOSO> Get-IpamDnsZone -ZoneType Forward -ZoneName dublin.contoso.com  
@@ -78,7 +78,7 @@ Sie können Zugriffs Bereiche für IPAM-Objekte mithilfe des Befehls `Set-IpamAc
   
 -   IP-Adresssubnetz  
   
-Im folgenden finden Sie die Syntax für den Befehl "`Set-IpamAccessScope`".  
+Im folgenden finden Sie die Syntax für den `Set-IpamAccessScope`-Befehl.  
   
 ```  
 NAME  

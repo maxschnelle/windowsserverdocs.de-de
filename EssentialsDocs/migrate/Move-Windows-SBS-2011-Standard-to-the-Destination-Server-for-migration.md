@@ -3,7 +3,7 @@ title: Verschieben von Windows SBS 2011 Standard-Einstellungen und -Daten auf de
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 16b24026-2fe3-4bd0-b82f-900e1564be99
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: ef8e717fe235b8d85f4d53442610818b31ad7d1d
-ms.sourcegitcommit: 9f955be34c641b58ae8b3000768caa46ad535d43
+ms.openlocfilehash: d7b1edf2ffd602cd844fa399ac9368a2f4e08643
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/27/2019
-ms.locfileid: "68590415"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318856"
 ---
 # <a name="move-windows-sbs-2011-standard-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Verschieben von Windows SBS 2011 Standard-Einstellungen und -Daten auf den Zielserver für die Migration zu Windows Server Essentials
 
@@ -50,15 +50,15 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
 
 1. Melden Sie sich am Zielserver als ein Domänenadministrator an, und öffnen Sie dann ein Befehlsfenster. 
 
-2. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie die EINGABETASTE: 
+2. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE: 
 
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
  
- Erläuterungen:
- - \<Sourceservername\> ist der Name des Quell Servers.
- - \<Sharedsourcefoldername\> ist der Name des freigegebenen Ordners auf dem Quell Server.
- - \<Destinationservername\> ist der Name des Zielservers.
- - \<Shareddestinationfoldername\> ist der freigegebene Ordner auf dem Ziel Server, in den die Daten kopiert werden. 
+ Speicherort:
+ - \<sourceservername\> ist der Name des Quell Servers.
+ - \<sharedsourcefoldername\> ist der Name des freigegebenen Ordners auf dem Quell Server.
+ - \<destinationservername\> ist der Name des Zielservers.
+ - \<shareddestinationfoldername\> ist der freigegebene Ordner auf dem Ziel Server, in den die Daten kopiert werden. 
 
 3. Wiederholen Sie den vorherigen Schritt für jeden freigegebenen Ordner, zu dem Sie die Migration vom Quellserver aus vornehmen. 
 
@@ -86,7 +86,7 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
 
     2. Klicken Sie in der Liste der zurzeit ausgeführten Dienste mit der rechten Maustaste auf **DHCP-Server**, und klicken Sie dann auf **Eigenschaften**.
 
-    3. Wählen Sie für **Starttyp**die Option **deaktiviert**.
+    3. Wählen Sie für **Starttyp** die Option **deaktiviert**.
 
     4. Halten Sie den Dienst an.
 
@@ -133,7 +133,7 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
  
 3. Klicken Sie im Navigationsbereich auf **Erweiterte Verwaltung**, klicken Sie auf **Gruppenrichtlinie Verwaltung**, und klicken Sie dann auf Gesamtstruktur **:** _< yourDomainName\>_ . 
  
-4. Klicken Sie auf **Domänen**, klicken Sie auf *<\>yourDomainName*, und klicken Sie dann auf **Gruppenrichtlinie Objekte**. 
+4. Klicken Sie auf **Domänen**, klicken Sie auf *< yourDomainName\>* , und klicken Sie dann auf **Gruppenrichtlinie Objekte**. 
  
 5. Klicken Sie mit der rechten Maustaste auf **Small Business Server Auditing Policy**, klicken Sie auf **Löschen** und dann auf **OK**. 
  
@@ -163,7 +163,7 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
  
 3. Klicken Sie im Navigationsbereich auf **Features**, klicken Sie auf **Gruppenrichtlinie Verwaltung**, und klicken Sie dann auf Gesamtstruktur **:** _< yournetworkdomainname\>_ 
  
-4. Klicken Sie auf **Domänen**, klicken Sie auf *<\>yournetworkdomainname*, und klicken Sie dann auf **WMI-Filter**. 
+4. Klicken Sie auf **Domänen**, klicken Sie auf *< yournetworkdomainname\>* , und klicken Sie dann auf **WMI-Filter**. 
  
 5. Klicken Sie mit der rechten Maustaste auf **Windows SBS-Client**, wählen Sie **Löschen** aus, und klicken Sie dann auf **Ja**. 
  
@@ -186,7 +186,7 @@ Verschieben von Einstellungen und Daten auf den Zielserver:
  
 4. Klicken Sie auf der Registerkarte **Zugriff überall** auf **Remotewebzugriff und Zugriff auf Webdienstanwendungen zulassen**. 
  
-5. Wählen Sie **Freigegebene Ordner**, **Computers**und **Links auf der Startseite**aus, und klicken Sie dann auf **Übernehmen**. 
+5. Wählen Sie **Freigegebene Ordner**, **Computers** und **Links auf der Startseite** aus, und klicken Sie dann auf **Übernehmen**. 
  
 6. Klicken Sie auf der Registerkarte **Computerzugriff** auf den Namen des Computers, für den Sie Zugriff gewähren möchten. 
  

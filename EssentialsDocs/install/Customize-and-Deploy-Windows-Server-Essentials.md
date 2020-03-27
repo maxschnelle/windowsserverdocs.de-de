@@ -2,18 +2,18 @@
 title: Anpassen und Bereitstellen von Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 09/13/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: d1c70cf2-0db8-4b75-af46-73620b9e81c8
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c3d2a112544e6ffe13ad64351e5266e4f927e48f
-ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
+ms.openlocfilehash: b336c08fd19e2a16adaacf8ea2d79a8e62040716
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74945257"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311947"
 ---
 # <a name="customize-and-deploy-windows-server-essentials"></a>Anpassen und Bereitstellen von Windows Server Essentials
 
@@ -21,7 +21,7 @@ ms.locfileid: "74945257"
   
  Verwenden Sie zum Anpassen und Bereitstellen von Windows Server Essentials die Informationen im [Windows Bewertungs- und Bereitstellungs-Kit (Windows ADK)](https://www.microsoft.com/download/details.aspx?id=39982) und [Anpassen und Bereitstellen von Windows Server Essentials in Windows Server 2012 R2](https://technet.microsoft.com/library/dn293241.aspx).  
   
-## <a name="see-also"></a>Weitere Informationen:  
+## <a name="see-also"></a>Siehe auch  
   
 -   [Technische Referenz zu Windows-Bereitstellungs Tools](https://technet.microsoft.com/library/hh825039.aspx)  
   

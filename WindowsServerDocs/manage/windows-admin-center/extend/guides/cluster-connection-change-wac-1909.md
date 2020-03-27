@@ -7,17 +7,17 @@ author: daniellee-msft
 ms.author: jol
 ms.date: 10/01/2019
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
-ms.openlocfilehash: a07b30517f0d45b7e6f4f41f0ef9a6549e6e2117
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.prod: windows-server
+ms.openlocfilehash: 5324f782ea3c02ed24968d4b3ef58ab8b6ac9d32
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71952771"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319358"
 ---
 # <a name="cluster-connection-type-changes-in-windows-admin-center-v1909"></a>Änderungen der Änderungen am Cluster Verbindungstyp im Windows Admin Center v1909
 
->Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center Vorschau
 
 > [!IMPORTANT]
 > In diesem Dokument werden die Änderungen beschrieben, die von Entwicklern der Windows Admin Center-Erweiterung benötigt werden, die Windows Admin Center-Tools für Failovercluster-und hyperkonvergierte Clusterlösungen (HCI) entwickeln. Dies ist eine obligatorische Änderung, die erforderlich ist, damit Ihre Erweiterung mit Windows Admin Center kompatibel ist v1909 Vorschauversion und zukünftige allgemein verfügbare Versionen.
@@ -28,7 +28,7 @@ Da dies eine Änderung in der Verbindungstyp Definition erforderte und die Entsc
 
 ## <a name="manifestjson---solutionsids-and-connectiontypes"></a>Manifest. JSON-solutionsids und connectiontypes
 
-Wenn Sie das Tool zuvor für einen Failovercluster oder einen HCI-Cluster Verbindungstyp angezeigt haben, hätten Sie eine der folgenden Definitionen in der ```manifest.json```-Datei verwendet.
+Zuvor haben Sie eine der folgenden Definitionen in der ```manifest.json```-Datei verwendet, um das Tool für einen Failovercluster oder einen HCI-Cluster Verbindungstyp anzuzeigen.
 
 Für Failovercluster:
 ``` json
@@ -85,7 +85,7 @@ In Windows Admin Center 1909 und höher wurden die beiden solutionids und connec
 Dies sind die einzigen Cluster bezogenen solutionids und connectiontypes-Typen, die ab jetzt unterstützt werden. Wenn das Tool nur mit dem Typ "solutionids" und "connectiontypes" definiert ist, wird es für jede beliebige failoverclusterverbindung geladen, unabhängig davon, ob es sich um einen HCI-Cluster handelt. Wenn Sie möchten, dass Ihr Tool nur für HCI-Cluster oder nicht-HCI-Cluster verfügbar ist, müssen Sie zusätzlich die neuen Inventur Eigenschaften verwenden, die im folgenden Abschnitt beschrieben werden.
 
 ## <a name="manifestjson--inventory-properties"></a>Manifest. JSON – Inventur Eigenschaften
-Beim Herstellen einer Verbindung mit einem Server oder Cluster wird von Windows Admin Center ein Satz von Inventur Eigenschaften abgefragt, die Sie zum Erstellen von Bedingungen verwenden können, um zu bestimmen, wann das Tool verfügbar sein sollte. (Weitere Informationen finden Sie im Abschnitt "Inventur Eigenschaften" im [Steuerelement Sichtbarkeits](dynamic-tool-display.md) Dokument für weitere Informationen). In Windows Admin Center v1909 haben wir dieser Liste zwei neue Eigenschaften hinzugefügt, mit denen bestimmt werden kann, ob es sich bei einem Cluster um einen hyperkonvergenten Cluster handelt. 
+Beim Herstellen einer Verbindung mit einem Server oder Cluster wird von Windows Admin Center ein Satz von Inventur Eigenschaften abgefragt, die Sie zum Erstellen von Bedingungen verwenden können, um zu bestimmen, wann das Tool verfügbar sein sollte. (Weitere Informationen finden Sie im Abschnitt "Inventur Eigenschaften" im Dokument zur [Sichtbarkeit Ihres Tools](dynamic-tool-display.md) .) In Windows Admin Center v1909 haben wir dieser Liste zwei neue Eigenschaften hinzugefügt, mit denen bestimmt werden kann, ob es sich bei einem Cluster um einen hyperkonvergenten Cluster handelt. 
 
 ### <a name="iss2denabled"></a>isS2dEnabled
 Technisch gesehen wird ein hyperkonvergierter Cluster als Failovercluster mit aktiviertem direkte Speicherplätze (S2D) definiert. Wenn Sie möchten, dass das Tool nur für hyperkonvergierte Cluster verfügbar ist, d. h., wenn S2D aktiviert ist, fügen Sie die folgende Inventur Bedingung hinzu:
@@ -168,8 +168,8 @@ Um sicherzustellen, dass die Erweiterung weiterhin mit älteren Versionen des Wi
     ]
 ```
 
-## <a name="known-issue-appcontextserviceactiveconnectionishyperconvergedclusterisfailovercluster-is-not-set-properly-in-windows-admin-center-v1909"></a>Bekanntes Problem: Appcontextservice. ActiveConnection. ishyperkonvergedcluster/isfailovercluster ist im Windows Admin Center nicht ordnungsgemäß festgelegt v1909
-Eine Regression von kürzlich vorgenommenen Änderungen besteht darin, dass die ```AppContextService.activeConnection.isHyperConvergedCluster/isFailoverCluster```-Eigenschaften nicht ordnungsgemäß im Windows Admin Center festgelegt sind v1909 und immer false ist. Dies wird in der nächsten Version, v1910, korrigiert, wird aber auch als veraltet eingestuft und ist nicht mehr in der folgenden GA-Version in 2020 verfügbar. In Zukunft können Sie dies durch den folgenden Code ersetzen und ```this.connectHCI``` verwenden.
+## <a name="known-issue-appcontextserviceactiveconnectionishyperconvergedclusterisfailovercluster-is-not-set-properly-in-windows-admin-center-v1909"></a>Bekanntes Problem: appcontextservice. ActiveConnection. ishyperkonvergedcluster/isfailovercluster ist im Windows Admin Center nicht ordnungsgemäß festgelegt v1909
+Eine Regression von kürzlich vorgenommenen Änderungen besteht darin, dass die ```AppContextService.activeConnection.isHyperConvergedCluster/isFailoverCluster``` Eigenschaften nicht ordnungsgemäß im Windows Admin Center festgelegt sind v1909 und immer false ist. Dies wird in der nächsten Version, v1910, korrigiert, wird aber auch als veraltet eingestuft und ist nicht mehr in der folgenden GA-Version in 2020 verfügbar. In Zukunft können Sie dies durch den folgenden Code ersetzen und ```this.connectHCI```verwenden.
 ```
     import { ClusterInventoryCache } from '@msft-sme/core';
 

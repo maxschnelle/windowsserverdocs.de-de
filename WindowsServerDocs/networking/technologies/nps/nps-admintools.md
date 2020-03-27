@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 5de80dc0-53be-42b7-8e5b-24d213bf2b25
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 527fbf52d68f36d198068514476868bcba930a68
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 1bb6447197bfed1108a62be077b0a076bef995da
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396449"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316350"
 ---
 # <a name="network-policy-server-management-with-administration-tools"></a>Netzwerkrichtlinienserver-Verwaltung mit Verwaltungstools
 
@@ -38,7 +38,7 @@ Nachdem Sie NPS installiert haben, können Sie dieses Verfahren verwenden, um de
 
 **Administrator Anmelde Informationen** 
 
-Um dieses Verfahren abzuschließen, müssen Sie Mitglied der Gruppe "Administratoren" sein.
+Sie müssen Mitglied der Gruppe Administratoren sein, um diesen Vorgang auszuführen.
 
 ### <a name="to-configure-the-local-nps-by-using-the-nps-console"></a>So konfigurieren Sie den lokalen NPS mithilfe der NPS-Konsole
 
@@ -58,7 +58,7 @@ Abhängig von den Netzwerkbedingungen und der Anzahl von NPSS, die Sie mithilfe 
 
 **Administrator Anmelde Informationen** 
 
-Um dieses Verfahren abzuschließen, müssen Sie Mitglied der Gruppe "Administratoren" sein.
+Sie müssen Mitglied der Gruppe Administratoren sein, um diesen Vorgang auszuführen.
 
 ### <a name="to-manage-multiple-npss-by-using-the-nps-snap-in"></a>So verwalten Sie mehrere NPSS mithilfe des NPS-Snap-\-in
 
@@ -91,7 +91,7 @@ Um dieses Verfahren abzuschließen, müssen Sie Mitglied der Gruppe "Administrat
 1. Wählen Sie auf jedem NPS, den Sie remote verwalten möchten, in Server-Manager die Option **lokaler Server**aus. Zeigen Sie im Bereich Server-Manager Details die Einstellung **Remotedesktop** an, und führen Sie einen der folgenden Schritte aus. 
     1. Wenn der Wert der **Remotedesktop** Einstellung **aktiviert**ist, müssen Sie einige der Schritte in dieser Prozedur nicht ausführen. Fahren Sie mit Schritt 4 fort, um die Konfiguration Remotedesktop Benutzerberechtigungen zu starten.
     2. Wenn die **Remotedesktop** Einstellung **deaktiviert**ist, klicken Sie auf das Wort **deaktiviert**. Das Dialogfeld **System Eigenschaften** wird auf der Registerkarte **Remote** geöffnet.
-2. Klicken Sie in **Remotedesktop**auf **Remote Verbindungen mit diesem Computer zulassen**. Das Dialogfeld **Remotedesktopverbindung** wird geöffnet. Führen Sie eine der folgenden Aktionen aus.
+2. Klicken Sie in **Remotedesktop**auf **Remote Verbindungen mit diesem Computer zulassen**. Das Dialogfeld **Remotedesktopverbindung** wird geöffnet. Führen Sie einen der folgenden Schritte aus:
     1. Klicken Sie zum Anpassen der zulässigen Netzwerkverbindungen auf **Windows-Firewall mit**erweiterter Sicherheit, und konfigurieren Sie dann die Einstellungen, die Sie zulassen möchten. 
     2. Klicken Sie auf **OK**, um Remotedesktopverbindung für alle Netzwerkverbindungen auf dem Computer zu aktivieren.
 3. Wählen Sie unter **System Eigenschaften**in **Remotedesktop**aus, ob Sie **Verbindungen nur von Computern zulassen möchten, auf denen Remotedesktop mit Authentifizierung auf Netzwerkebene ausgeführt**wird, und treffen Sie Ihre Auswahl.

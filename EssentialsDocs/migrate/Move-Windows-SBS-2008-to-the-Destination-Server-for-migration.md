@@ -3,7 +3,7 @@ title: Verschieben von Windows SBS 2008-Einstellungen und -Daten auf den Zielser
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 4950469d-d800-430d-8d10-53bafc4a9932
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 82a7a5b3ce3662574260379bc893da484baf1caa
-ms.sourcegitcommit: 02f1e11ba37a83e12d8ffa3372e3b64b20d90d00
+ms.openlocfilehash: a62f4fa385b7dfab83f08dae969255843b833e9f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68863411"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318875"
 ---
 # <a name="move-windows-sbs-2008-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Verschieben von Windows SBS 2008-Einstellungen und -Daten auf den Zielserver für die Migration zu Windows Server Essentials
 
@@ -50,15 +50,15 @@ Führen Sie die folgenden Aufgaben aus, bevor Sie Daten vom Quellserver zum Ziel
 
 1. Melden Sie sich am Zielserver als ein Domänenadministrator an, und öffnen Sie dann ein Befehlsfenster. 
 
-2. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie die EINGABETASTE: 
+2. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE: 
 
     `robocopy \\<SourceServerName> \<SharedSourceFolderName> \\<DestinationServerName> \<SharedDestinationFolderName> /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt` 
 
- Erläuterungen:
- - \<Sourceservername\> ist der Name des Quell Servers.
- - \<Sharedsourcefoldername\> ist der Name des freigegebenen Ordners auf dem Quell Server.
- - \<Destinationservername\> ist der Name des Zielservers.
- - \<Shareddestinationfoldername\> ist der freigegebene Ordner auf dem Ziel Server, in den die Daten kopiert werden. 
+ Speicherort:
+ - \<sourceservername\> ist der Name des Quell Servers.
+ - \<sharedsourcefoldername\> ist der Name des freigegebenen Ordners auf dem Quell Server.
+ - \<destinationservername\> ist der Name des Zielservers.
+ - \<shareddestinationfoldername\> ist der freigegebene Ordner auf dem Ziel Server, in den die Daten kopiert werden. 
 
 3. Wiederholen Sie den vorherigen Schritt für jeden freigegebenen Ordner, zu dem Sie die Migration vom Quellserver aus vornehmen. 
 
@@ -82,11 +82,11 @@ Führen Sie die folgenden Aufgaben aus, bevor Sie Daten vom Quellserver zum Ziel
  
 1. Deaktivieren Sie wie folgt den DHCP-Dienst auf dem Quellserver: 
 
-    1. Klicken Sie auf dem Quellserver auf **Start**, klicken Sie auf **Verwaltungstools**und klicken Sie dann auf **Dienste**. 
+    1. Klicken Sie auf dem Quellserver auf **Start**, klicken Sie auf **Verwaltungstools** und klicken Sie dann auf **Dienste**. 
 
     2. Klicken Sie in der Liste der zurzeit ausgeführten Dienste mit der rechten Maustaste auf **DHCP-Server**, und klicken Sie dann auf **Eigenschaften**. 
 
-    3. Wählen Sie für **Starttyp**die Option **deaktiviert**.
+    3. Wählen Sie für **Starttyp** die Option **deaktiviert**.
 
     4. Halten Sie den Dienst an.
 
@@ -133,7 +133,7 @@ Die Gruppenrichtlinie Objekte (GPOs) werden für Windows Server Essentials aktua
  
 3. Klicken Sie im Navigationsbereich auf **Erweiterte Verwaltung**, klicken Sie auf **Gruppenrichtlinie Verwaltung**, und klicken Sie dann auf Gesamtstruktur **:** _< yourDomainName\>_ . 
  
-4. Klicken Sie auf **Domänen**, klicken Sie auf *<\>yourDomainName*, und klicken Sie dann auf **Gruppenrichtlinie Objekte**. 
+4. Klicken Sie auf **Domänen**, klicken Sie auf *< yourDomainName\>* , und klicken Sie dann auf **Gruppenrichtlinie Objekte**. 
  
 5. Klicken Sie mit der rechten Maustaste auf **Small Business Server Auditing Policy**, klicken Sie auf **Löschen** und dann auf **OK**. 
  
@@ -175,11 +175,11 @@ Es wird empfohlen, die Kenn Wort Richtlinie in Windows Server Essentials zu konf
  
 3. Klicken Sie im Navigationsbereich auf **Erweiterte Verwaltung**, klicken Sie auf **Gruppenrichtlinie Verwaltung**, und klicken Sie dann auf Gesamtstruktur **:** _< yournetworkdomainname\>_ 
  
-4. Klicken Sie auf **Domänen**, klicken Sie auf *<\>yournetworkdomainname*, und klicken Sie dann auf **WMI-Filter**. 
+4. Klicken Sie auf **Domänen**, klicken Sie auf *< yournetworkdomainname\>* , und klicken Sie dann auf **WMI-Filter**. 
  
 5. Klicken Sie mit der rechten Maustaste auf **PostSP2**, klicken Sie auf **Löschen** und dann auf **Ja**. 
  
-6. Klicken Sie mit der rechten Maustaste auf **PreSP2**, klicken Sie auf **Löschen**und dann auf **Ja**. 
+6. Klicken Sie mit der rechten Maustaste auf **PreSP2**, klicken Sie auf **Löschen** und dann auf **Ja**. 
  
 7. Stellen Sie sicher, dass diese drei WMI-Filter gelöscht werden. 
  
@@ -196,7 +196,7 @@ Wenn ein Benutzer in Windows SBS 2008 eine Verbindung mit dem Remotewebzugriff h
  
 4. Klicken Sie auf die Registerkarte **Zugriff überall**, und klicken Sie dann auf **Remotewebzugriff und Zugriff auf Webdienstanwendungen zulassen**.
  
-5. Wählen Sie **Freigegebene Ordner**, **Computers**und **Links auf der Startseite**aus, und klicken Sie dann auf **Übernehmen**.
+5. Wählen Sie **Freigegebene Ordner**, **Computers** und **Links auf der Startseite** aus, und klicken Sie dann auf **Übernehmen**.
  
 6. Klicken Sie auf der Registerkarte **Computerzugriff** auf den Namen des Computers, für den Sie Zugriff gewähren möchten.
  

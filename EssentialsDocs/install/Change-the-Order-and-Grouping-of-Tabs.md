@@ -1,9 +1,9 @@
 ---
 title: Ändern der Reihenfolge und der Gruppierung von Registerkarten
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 79a417fd-1b3e-47ab-ae33-bb1faf95c86d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 578c5619cfdf076bb2735254494f393d56d35713
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: abb443994b413f35f6d70510191bc543fad418f5
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887761"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312236"
 ---
 # <a name="change-the-order-and-grouping-of-tabs"></a>Ändern der Reihenfolge und der Gruppierung von Registerkarten
 
@@ -30,7 +30,7 @@ Sie können die Reihenfolge der Registerkarten im Dashboard ändern, damit Ihre 
   
 #### <a name="to-display-your-tab-first-in-the-list-of-tabs"></a>So wird Ihre Registerkarte als erste in der Liste der Registerkarten angezeigt  
   
-1.  Klicken Sie auf dem Referenzcomputer auf **Start**, geben Sie **regedit**ein, und drücken Sie die **Eingabetaste**.  
+1.  Klicken Sie auf dem Referenzcomputer auf **Start**, geben Sie **regedit** ein, und drücken Sie die **Eingabetaste**.  
   
 2.  Erweitern Sie im linken Bereich **HKEY_LOCAL_MACHINE**, **SOFTWARE**, dann **Microsoft** und schließlich **Windows Server**. Wenn der Schlüssel **OEM** nicht vorhanden ist, müssen Sie ihn mit den folgenden Schritten erstellen:  
   
@@ -40,7 +40,7 @@ Sie können die Reihenfolge der Registerkarten im Dashboard ändern, damit Ihre 
   
 3.  Klicken Sie mit der rechten Maustaste auf **OEM**, zeigen Sie auf **Neu**, und klicken Sie dann auf **Zeichenfolgenwert**.  
   
-4.  Geben Sie **DashboardMainTabID** als Zeichenfolgennamen ein, und drücken Sie dann die**EINGABETASTE**.  
+4.  Geben Sie **DashboardMainTabID** als Zeichenfolgennamen ein, und drücken Sie dann die **EINGABETASTE**.  
   
 5.  Klicken Sie im rechten Fensterbereich mit der rechten Maustaste auf die neue Zeichenfolge, und klicken Sie anschließend auf **Ändern**.  
   
@@ -63,7 +63,7 @@ Sie können die Reihenfolge der Registerkarten im Dashboard ändern, damit Ihre 
   
 3.  Klicken Sie mit der rechten Maustaste auf **OEM**, zeigen Sie auf **Neu**, und klicken Sie dann auf **Schlüssel**.  
   
-4.  Geben Sie **DashboardAddIns** als Schlüsselname ein, und drücken Sie dann die**EINGABETASTE**.  
+4.  Geben Sie **DashboardAddIns** als Schlüsselname ein, und drücken Sie dann die **EINGABETASTE**.  
   
 5.  Klicken Sie mit der rechten Maustaste auf **DashboardAddIns**, zeigen Sie auf **Neu**, und klicken Sie dann auf **Zeichenfolgenwert**.  
   
@@ -73,8 +73,8 @@ Sie können die Reihenfolge der Registerkarten im Dashboard ändern, damit Ihre 
   
 8.  Speichern Sie die Änderungen an der Registrierung.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Zusätzliche Anpassungen](Additional-Customizations.md)   
+ [Weitere Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)

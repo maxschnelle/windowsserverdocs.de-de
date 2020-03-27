@@ -1,9 +1,9 @@
 ---
 title: Ausführen des Windows Server Essentials-Protokollsammlers
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,38 +12,38 @@ ms.assetid: 0d340223-fa24-4c75-ba8e-b654feb120ab
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 5654f28aeda3c231376ed888a8aa04bc0cf3d000
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: a39c23ef4119e109372bad3455415f8d3862cf1b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432491"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318673"
 ---
 # <a name="run-the-windows-server-essentials-log-collector"></a>Ausführen des Windows Server Essentials-Protokollsammlers
-Sie können die Windows Server Essentials Log Collector vom Server oder von einem Computer im Netzwerk ausführen. Wenn Sie den Log Collector vom Server ausführen, können nur Protokolle vom Server erfasst werden. Wenn Sie den Log Collector von einem Computer im Netzwerk ausführen, können Sie auswählen, ob Protokolle von dem Server, zusätzlich zu den Protokollen für diesen Computer, erfasst werden sollen.  
+Sie können den Windows Server Essentials Log Collector auf dem Server oder einem Computer im Netzwerk ausführen. Wenn Sie den Log Collector vom Server ausführen, können nur Protokolle vom Server erfasst werden. Wenn Sie den Log Collector von einem Computer im Netzwerk ausführen, können Sie auswählen, ob Protokolle von dem Server, zusätzlich zu den Protokollen für diesen Computer, erfasst werden sollen.  
   
  Sie müssen über die entsprechenden Administratorrechte zum Ausführen des Log Collector verfügen. Wenn Sie Protokolldateien für einen Server erfassen, müssen Sie ein Serveradministrator sein; Wenn Sie Protokolldateien auf einem Computer im Netzwerk erfassen, müssen Sie ein Clientadministrator für diesen Computer sein.  
   
 #### <a name="to-run-the-log-collector-on-the-server-by-using-the-wizard"></a>So führen Sie den Log Collector auf dem Server mithilfe des Assistenten aus  
   
-1. Auf der **starten** Seite des Servers, klicken Sie auf **Windows Server Essentials Log Collector**.  
+1. Klicken Sie auf der **Start** Seite des Servers auf **Windows Server Essentials Log Collector**.  
   
    > [!NOTE]
-   > - Wenn das Log Collector-Programm nicht angezeigt wird, auf die **starten** Seite, wechseln Sie zu **%system%\Program Files (x86) \Windows Server Essentials Log Collector**, und doppelklicken Sie dann auf **LogCollector** .  
+   > - Wenn das Programm "Log Collector" nicht auf der **Start** Seite angezeigt wird, navigieren Sie zu **%System%\Program Files (x86) \Windows Server Essentials Log Collector**, und doppelklicken Sie dann auf **logcollector**.  
    >   -   Wenn Sie nicht auf dem Server mit Administratorrechten angemeldet sind, werden Sie vom Log Collector zur Eingabe Ihrer Anmeldeinformationen aufgefordert.  
   
-2. Wenn Sie einen Speicherort für die erfassten Protokolldateien speichern aufgefordert werden, können Sie den Standardspeicherort  **\\ \\< ServerName\>\logs**, oder geben Sie einen anderen Speicherort. Um den Standardspeicherort zu übernehmen, klicken Sie auf **Weiter**. Zum Ändern des Speicherorts klicken Sie auf **Durchsuchen**, navigieren Sie zu dem Ordner, in dem Protokolldateien gespeichert werden sollen, und klicken Sie dann auf **Speichern**.  
+2. Wenn Sie aufgefordert werden, einen Speicherort zum Speichern der gesammelten Protokolldateien anzugeben, können Sie den Standard Speicherort **\\\\< Servername\>\Logs**auswählen oder einen anderen Speicherort angeben. Um den Standardspeicherort zu übernehmen, klicken Sie auf **Weiter**. Zum Ändern des Speicherorts klicken Sie auf **Durchsuchen**, navigieren Sie zu dem Ordner, in dem Protokolldateien gespeichert werden sollen, und klicken Sie dann auf **Speichern**.  
   
    > [!NOTE]
-   >  Sie brauchen keine Dateinamen für die Protokolldateien anzugeben. Der Log Collector benennt die Auflistung der Zip-Dateien durch Verkettung der Namen des Computers und den Zeitstempel der Datei.  
+   >  Sie brauchen keine Dateinamen für die Protokolldateien anzugeben. Der Log Collector benennt die Sammlung der ZIP-Dateien, indem er den Computernamen und den Zeitstempel der Datei verkettet.  
   
 3. Eine Statusleiste wird angezeigt, während die Protokolle erfasst werden.  
   
-4. Um den Inhalt der Protokollerfassungsdatei anzuzeigen, wählen Sie das Kontrollkästchen **Speicherort der Protokolldateien öffnen** aus, und klicken Sie auf **Schließen** , um den Assistenten zu schließen und die Protokollerfassungsdatei zu öffnen.  
+4. Um den Inhalt der Protokollerfassungsdatei anzuzeigen, wählen Sie das Kontrollkästchen **Speicherort der Protokolldateien öffnen** aus, und klicken Sie auf **Schließen**, um den Assistenten zu schließen und die Protokollerfassungsdatei zu öffnen.  
   
 #### <a name="to-run-the-log-collector-on-a-network-computer-by-using-the-wizard"></a>So führen Sie den Log Collector auf einem Netzwerkcomputer mithilfe des Assistenten aus  
   
-1.  Navigieren Sie zu **%system%\Program Files (x86) \Windows Server Essentials Log Collector**, und klicken Sie dann auf die Datei **LogCollector.exe**.  
+1.  Navigieren Sie zu **%System%\Program Files (x86) \Windows Server Essentials Log Collector**, und doppelklicken Sie dann auf die Datei **logcollector. exe**.  
   
     > [!NOTE]
     >  Wenn Sie nicht auf dem Netzwerkcomputer mit Administratorrechten angemeldet sind, geben Sie Ihren Benutzernamen und das Kennwort ein, wenn Sie dazu aufgefordert werden, und klicken Sie dann auf **Weiter**.  
@@ -61,11 +61,11 @@ Sie können die Windows Server Essentials Log Collector vom Server oder von eine
 4.  Navigieren Sie zu dem Speicherort für die Protokolldateien oder geben Sie den Speicherort ein, und klicken Sie dann auf **Weiter**.  
   
     > [!NOTE]
-    >  Sie brauchen keine Dateinamen für die Protokolldateien anzugeben. Der Log Collector benennt die Auflistung der Zip-Dateien durch Verkettung der Namen des Computers und den Zeitstempel der Datei.  
+    >  Sie brauchen keine Dateinamen für die Protokolldateien anzugeben. Der Log Collector benennt die Sammlung der ZIP-Dateien, indem er den Computernamen und den Zeitstempel der Datei verkettet.  
   
 5.  Eine Statusleiste wird angezeigt, während die Protokolle erfasst werden.  
   
-6.  Um den Inhalt der Protokollerfassungsdatei anzuzeigen, wählen Sie das Kontrollkästchen **Speicherort der Protokolldateien öffnen** aus, und klicken Sie auf **Schließen** , um den Assistenten zu schließen und die Protokollerfassungsdatei zu öffnen.  
+6.  Um den Inhalt der Protokollerfassungsdatei anzuzeigen, wählen Sie das Kontrollkästchen **Speicherort der Protokolldateien öffnen** aus, und klicken Sie auf **Schließen**, um den Assistenten zu schließen und die Protokollerfassungsdatei zu öffnen.  
   
 ### <a name="running-the-log-collector-manually"></a>Manuelles Ausführen von Log Collector  
  Nachdem der Log Collector installiert ist, wird eine geplante Aufgabe zum Ausführen des Tools erstellt. Anschließend können Sie den Log Collector aus dem **Manager für geplante Aufgaben** heraus ausführen, ohne den Assistenten zu verwenden, wenn Probleme beim Starten des Assistenten auftreten.  
@@ -78,7 +78,7 @@ Sie können die Windows Server Essentials Log Collector vom Server oder von eine
   
 3.  Navigieren Sie im Stamm der **Aufgabenplanungsbibliothek** zur geplanten Aufgabe mit dem Namen **LogCollector**.  
   
-4.  Klicken Sie mit der rechten Maustaste auf **LogCollector**, und klicken Sie dann auf **Ausführen**. Der Log Collector platziert die Protokolle im Standardordner auf dem Server  **\\ \\< ServerName\>\Logs**. Wenn Sie keine Schreibberechtigung für den Ordner oder der Ordner ist nicht vorhanden, werden Protokolle abgelegt, der **< Temp\>**  Unterverzeichnis.  
+4.  Klicken Sie mit der rechten Maustaste auf **LogCollector**, und klicken Sie dann auf **Ausführen**. Der Log Collector platziert die Protokolle im Standardordner auf dem Server, **\\\\< Servername\>\Logs**. Wenn Sie nicht über Schreibberechtigungen für den Ordner verfügen oder der Ordner nicht vorhanden ist, werden die Protokolle im < temporären **\>** Unterverzeichnis abgelegt.  
   
 ##### <a name="to-manually-run-the-log-collector-on-a-network-computer"></a>So führen Sie den Log Collector manuell auf dem Netzwerkcomputer aus  
   
@@ -88,4 +88,4 @@ Sie können die Windows Server Essentials Log Collector vom Server oder von eine
   
 3.  Navigieren Sie im Stamm der **Aufgabenplanungsbibliothek** zur geplanten Aufgabe mit dem Namen **LogCollector**.  
   
-4.  Klicken Sie mit der rechten Maustaste auf **LogCollector**, und klicken Sie dann auf **Ausführen**. Der Log Collector platziert die Protokolle in der **< Temp\>**  Ordner auf dem Netzwerkcomputer.
+4.  Klicken Sie mit der rechten Maustaste auf **LogCollector**, und klicken Sie dann auf **Ausführen**. Der Log Collector platziert die Protokolle im Ordner **< Temp\>** auf dem Netzwerk Computer.

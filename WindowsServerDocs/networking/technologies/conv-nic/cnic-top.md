@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: d7642338-9b33-4dce-8100-8b2c38d7127a
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/13/2018
-ms.openlocfilehash: d791e0d51278d1f83f344250d38b1c7005c1a14a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8824a6c6189a447f97f285052af8e5c13a66e766
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355437"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312809"
 ---
 # <a name="converged-network-interface-card-nic-configuration-guidance"></a>Konvergierte Netzwerkschnittstellenkarte \(NIC-\) Konfigurations Leit Faden
 
@@ -34,7 +34,7 @@ Wenn Sie konvergierte NIC mit Windows Server 2016 Hyper-v-Hosts und virtuellen H
 Dieses Handbuch enthält zwei Sätze von Anweisungen, eine für bereit Stellungen, bei denen auf Ihren Servern ein einzelner Netzwerkadapter installiert ist. Hierbei handelt es sich um eine grundlegende Bereitstellung von konvergierter NIC. und eine weitere Anleitung, bei der auf Ihren Servern mindestens zwei Netzwerkadapter installiert sind. Hierbei handelt es sich um eine Bereitstellung von konvergenten NIC über einen Switch Embedded Teaming-\(\) Team von RDMA-\-fähigen Netzwerkadaptern festlegen.
 
 
-## <a name="prerequisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
 Im folgenden sind die Voraussetzungen für die grundlegenden und Daten Center Bereitstellungen von konvergiertem NIC angegeben.
 
@@ -56,7 +56,7 @@ Zum Ausführen der Schritte in dieser Anleitung für die konvergierte NIC-Konfig
 - Zwei Server, auf denen Windows Server 2016 Datacenter Edition oder Windows Server 2016 Standard Edition ausgeführt wird.
 - Zwei RDMA-fähige, zertifizierte Netzwerkadapter, die auf jedem Server installiert sind.
 - Auf jedem Server ist die Hyper-V-Server Rolle installiert.
-- Sie müssen mit Switch Embedded Teaming \(Set\)vertraut sein, einer alternativen NIC-Teamprojekt Mappe, die in Umgebungen verwendet wird, die Hyper-V und den Sdn-Stapel (Software Defined Networking) in Windows Server 2016 enthalten. Set integriert einige NIC-Team Vorgangs Funktionen in den virtuellen Hyper-V-Switch. Weitere Informationen finden Sie unter [Remote Zugriff auf den direkten Speicher rdma  und Switch Embedded Teaming Set ](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
+- Sie müssen mit Switch Embedded Teaming \(Set\)vertraut sein, einer alternativen NIC-Teamprojekt Mappe, die in Umgebungen verwendet wird, die Hyper-V und den Sdn-Stapel (Software Defined Networking) in Windows Server 2016 enthalten. Set integriert einige NIC-Team Vorgangs Funktionen in den virtuellen Hyper-V-Switch. Weitere Informationen finden Sie unter [Remote Direct Memory Access (RDMA) und Switch Embedded Teaming (Set)](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
 
 ## <a name="related-topics"></a>Verwandte Themen
 - [Konvergierte NIC-Konfiguration mit einem einzelnen Netzwerk Adapter](cnic-single.md)

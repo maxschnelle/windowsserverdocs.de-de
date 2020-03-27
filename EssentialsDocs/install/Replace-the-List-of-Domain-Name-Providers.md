@@ -1,9 +1,9 @@
 ---
 title: Ersetzen der Liste von Domänennamenanbietern
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 104d0412-2d77-4cd4-99f7-65a885522850
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c087cdad4d2c047db40b370673fb04b232036b61
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: adbadcd08bb6867cbc7f1da8b08e01250f5186a6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433493"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311537"
 ---
 # <a name="replace-the-list-of-domain-name-providers"></a>Ersetzen der Liste von Domänennamenanbietern
 
@@ -26,16 +26,16 @@ ms.locfileid: "66433493"
 Mit den folgenden Schritten können Sie die Liste der Domänennamenanbieter ersetzen, die im Assistenten zum Einrichten von Domänennamen angezeigt wird:  
 
 
--   [Erstellen der referenzdienstdateien](Replace-the-List-of-Domain-Name-Providers.md#BKMK_ReferralFiles)  
+-   [Erstellen der Referenzdienst Dateien](Replace-the-List-of-Domain-Name-Providers.md#BKMK_ReferralFiles)  
 
--   [Fügen Sie einen Eintrag in der Registrierung auf dem Referenzcomputer](Replace-the-List-of-Domain-Name-Providers.md#BKMK_AddRegistry)  
+-   [Hinzufügen eines Eintrags zur Registrierung auf dem Referenz Computer](Replace-the-List-of-Domain-Name-Providers.md#BKMK_AddRegistry)  
 
--   [Erstellen der referenzdienstdateien](../install/Replace-the-List-of-Domain-Name-Providers.md#BKMK_ReferralFiles)  
+-   [Erstellen der Referenzdienst Dateien](../install/Replace-the-List-of-Domain-Name-Providers.md#BKMK_ReferralFiles)  
 
--   [Fügen Sie einen Eintrag in der Registrierung auf dem Referenzcomputer](../install/Replace-the-List-of-Domain-Name-Providers.md#BKMK_AddRegistry)  
+-   [Hinzufügen eines Eintrags zur Registrierung auf dem Referenz Computer](../install/Replace-the-List-of-Domain-Name-Providers.md#BKMK_AddRegistry)  
 
 
-###  <a name="BKMK_ReferralFiles"></a> Erstellen der referenzdienstdateien  
+###  <a name="create-the-referral-service-files"></a><a name="BKMK_ReferralFiles"></a>Erstellen der Referenzdienst Dateien  
  Das Verwaltungstool für den Referenzdienst erstellt eine Reihe von Dateien, mit denen die Liste der Domänennamenanbieter definiert wird, die im Assistenten zum Einrichten von Domänennamen angezeigt werden. Eine XML-formatierte Datei wird für jede Region weltweit erstellt und enthält Informationen für die Domänennamenanbieter, die Sie im Tool angeben. Die vom Tool erstellten Dateien müssen sich in einem Ordner befinden, auf den über eine sichere Verbindung (HTTPS) zugegriffen werden kann, die Sie über das Internet verwalten.  
 
 ##### <a name="to-create-the-referral-files"></a>So erstellen Sie Referenzdateien  
@@ -46,7 +46,7 @@ Mit den folgenden Schritten können Sie die Liste der Domänennamenanbieter erse
 
 3.  Geben Sie im Dialogfeld "Domänennamenanbieter hinzufügen" den Namen des Domänennamenanbieters ein.  
 
-4.  Fügen Sie die Domänen der obersten Ebene hinzu, die vom Domänennamenanbieter unterstützt werden. Dazu können Sie auf **Hinzufügen**klicken, den Domänenbezeichner der obersten Ebene eingeben und dann die unterstützten Regionen auswählen. Sie können **Alle Regionen** auswählen.  
+4.  Fügen Sie die Domänen der obersten Ebene hinzu, die vom Domänennamenanbieter unterstützt werden. Dazu können Sie auf **Hinzufügen** klicken, den Domänenbezeichner der obersten Ebene eingeben und dann die unterstützten Regionen auswählen. Sie können **Alle Regionen** auswählen.  
 
 5.  Geben Sie die Beschreibung des Domänennamenanbieters ein.  
 
@@ -62,12 +62,12 @@ Mit den folgenden Schritten können Sie die Liste der Domänennamenanbieter erse
 
 11. Klicken Sie auf **Dateien für das Dateisystem generieren**.  
 
-###  <a name="BKMK_AddRegistry"></a> Fügen Sie einen Eintrag in der Registrierung auf dem Referenzcomputer  
+###  <a name="add-an-entry-to-the-registry-on-the-reference-computer"></a><a name="BKMK_AddRegistry"></a>Hinzufügen eines Eintrags zur Registrierung auf dem Referenz Computer  
  Ein Registrierungseintrag muss hinzugefügt werden, um anzugeben, wo das Betriebssystem die Referenzdienstdateien finden kann.  
 
 ##### <a name="to-add-a-key-to-the-registry"></a>So fügen Sie einen Schlüssel zur Registrierung hinzu  
 
-1.  Klicken Sie auf dem Referenzcomputer auf **Start**, geben Sie **regedit**ein, und drücken Sie die **Eingabetaste**.  
+1.  Klicken Sie auf dem Referenzcomputer auf **Start**, geben Sie **regedit** ein, und drücken Sie die **Eingabetaste**.  
 
 2.  Erweitern Sie im linken Bereich **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**, **Windows Server**, dann **Domain Managers** und schließlich **Providers**.  
 
@@ -88,12 +88,12 @@ Mit den folgenden Schritten können Sie die Liste der Domänennamenanbieter erse
 >  A slash (/) is required at the end of the URL.  
 ~~~
 
-###  <a name="BKMK_ReplaceDomainNameProviders"></a> Domänennamen-statusprobleme  
- Wenn ein Partner domänennamenanbieter hinzufügt und eine Anwendungsprogrammierschnittstelle (API) in Windows Server Essentials SDK verwendet, um die Status unbekannt, Fehler und "certificaterequestnotsubmitted" für das Zertifikat festzulegen, erhält der Kunde ein falsches Meldungs- und konfigurationsergebnis. Der Grund hierfür ist, dass die Fälle von Ausnahmen behandelt werden und kein Status zurückgegeben wird.  
+###  <a name="domain-name-status-issues"></a><a name="BKMK_ReplaceDomainNameProviders"></a>Domänen Namen-Status Probleme  
+ Wenn ein Partner Domänen Namen Anbieter hinzufügt und eine Anwendungsprogrammierschnittstelle (Application Programming Interface, API) im Windows Server Essentials SDK verwendet, um den Status "unknown", "failed" und "certificaterequestnotsubmitted" für das Zertifikat festzulegen, erhält der Kunde einen falschen Meldungs-und Konfigurations Ergebnis. Der Grund hierfür ist, dass die Fälle von Ausnahmen behandelt werden und kein Status zurückgegeben wird.  
 
  Die folgenden Statusangaben für Domänen sind falsch und sollten als Fehler gemeldet werden:  
 
-- Failed  
+- Fehler  
 
 - PendingCustomerInterventionRequired  
 
@@ -109,19 +109,19 @@ Mit den folgenden Schritten können Sie die Liste der Domänennamenanbieter erse
 
 - Bereit  
 
-- Pending  
+- Ausstehend  
 
 - InRenewal  
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Zusätzliche Anpassungen](Additional-Customizations.md)   
+ [Weitere Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)
 
  [Erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
- [Zusätzliche Anpassungen](../install/Additional-Customizations.md)   
+ [Weitere Anpassungen](../install/Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)
 

@@ -6,24 +6,24 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: 161446ff-a072-4cc4-b339-00a04857ff3a
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: e497b0d73c816f0295588aa77a21c49d376c0dcf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: e4bb075368bb3dfadaa8046b177dbbac637763e3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406188"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317823"
 ---
 # <a name="use-dns-policy-for-intelligent-dns-responses-based-on-the-time-of-day"></a>Verwenden von DNS-Richtlinien für intelligente DNS-Antworten basierend auf der Tageszeit
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie den Anwendungs Datenverkehr mithilfe von DNS-Richtlinien, die auf der Tageszeit basieren, über verschiedene geografisch verteilte Instanzen einer Anwendung verteilen.  
   
 Dieses Szenario ist nützlich, wenn Sie Datenverkehr in einer Zeitzone an Alternative Anwendungsserver (z. b. Webserver) weiterleiten möchten, die sich in einer anderen Zeitzone befinden. Dies ermöglicht Ihnen den Lastenausgleich für Datenverkehr über Anwendungs Instanzen hinweg in Spitzenzeiten, in denen Ihre primären Server mit Datenverkehr überlastet sind.   
   
-### <a name="bkmk_example1"></a>Beispiel für intelligente DNS-Antworten basierend auf der Tageszeit  
+### <a name="example-of-intelligent-dns-responses-based-on-the-time-of-day"></a><a name="bkmk_example1"></a>Beispiel für intelligente DNS-Antworten basierend auf der Tageszeit  
 Im folgenden finden Sie ein Beispiel dafür, wie Sie mithilfe der DNS-Richtlinie den Anwendungs Datenverkehr basierend auf der Tageszeit ausgleichen können.  
   
 In diesem Beispiel wird ein fiktives Unternehmen mit dem Dienst "contosogiftservices.com" verwendet, das Online-giftinglösungen auf der ganzen Welt über die Website bereitstellt,.   
@@ -38,7 +38,7 @@ In der folgenden Abbildung ist dieses Szenario dargestellt.
   
 ![Beispiel für den Zeitpunkt der DNS-Richtlinie](../../media/DNS-Policy-Tod1/dns_policy_tod1.jpg)  
   
-### <a name="bkmk_works1"></a>Funktionsweise intelligenter DNS-Antworten basierend auf der Tageszeit  
+### <a name="how-intelligent-dns-responses-based-on-time-of-day-works"></a><a name="bkmk_works1"></a>Funktionsweise intelligenter DNS-Antworten basierend auf der Tageszeit  
   
 Wenn der DNS-Server mit der Tageszeit-DNS-Richtlinie konfiguriert ist, die zwischen 6 Uhr und 9 Uhr an jedem geografischen Standort liegt, führt der DNS-Server Folgendes aus.  
   
@@ -53,7 +53,7 @@ Wenn mehrere DNS-Richtlinien in DNS konfiguriert sind, handelt es sich um eine g
   
 Weitere Informationen zu Richtlinien Typen und Kriterien finden Sie unter [Übersicht über DNS-Richtlinien](../../dns/deploy/DNS-Policies-Overview.md).  
   
-### <a name="bkmk_how1"></a>Konfigurieren der DNS-Richtlinie für intelligente DNS-Antworten basierend auf der Tageszeit  
+### <a name="how-to-configure-dns-policy-for-intelligent-dns-responses-based-on-time-of-day"></a><a name="bkmk_how1"></a>Konfigurieren der DNS-Richtlinie für intelligente DNS-Antworten basierend auf der Tageszeit  
 Führen Sie die folgenden Schritte aus, um die DNS-Richtlinie für den Zeitraum für den Anwendungs Lastenausgleich auf Anwendungs Basis zu konfigurieren.  
   
 - [Erstellen der DNS-Clientsubnetze](#bkmk_subnets)  
@@ -69,7 +69,7 @@ In den folgenden Abschnitten finden Sie ausführliche Konfigurations Anweisungen
 >[!IMPORTANT]
 >Die folgenden Abschnitte enthalten Beispiele für Windows PowerShell-Befehle, die Beispiel Werte für viele Parameter enthalten. Stellen Sie sicher, dass Sie die Beispiel Werte in diesen Befehlen durch Werte ersetzen, die für die Bereitstellung geeignet sind, bevor Sie diese Befehle ausführen.  
   
-#### <a name="bkmk_subnets"></a>Erstellen der DNS-Clientsubnetze  
+#### <a name="create-the-dns-client-subnets"></a><a name="bkmk_subnets"></a>Erstellen der DNS-Clientsubnetze  
 Der erste Schritt besteht darin, die Subnetze oder den IP-Adressraum der Regionen zu identifizieren, für die Sie den Datenverkehr umleiten möchten. Wenn Sie z. b. den Datenverkehr für die USA und Europa umleiten möchten, müssen Sie die Subnetze oder IP-Adressräume dieser Regionen identifizieren.  
   
 Diese Informationen können Sie von den georedunzierten Karten abrufen. Basierend auf diesen georedundantenverteilungen müssen Sie die DNS-Clientsubnetze erstellen. Ein DNS-clientsubnetz ist eine logische Gruppierung von IPv4-oder IPv6-Subnetzen, von denen Abfragen an einen DNS-Server gesendet werden.  
@@ -84,7 +84,7 @@ Add-DnsServerClientSubnet -Name "EuropeSubnet" -IPv4Subnet "141.1.0.0/24, 151.1.
 ```  
 Weitere Informationen finden Sie unter [Add-dnsserverclientsubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).  
   
-#### <a name="bkmk_zscopes"></a>Erstellen der Zonen Bereiche  
+#### <a name="create-the-zone-scopes"></a><a name="bkmk_zscopes"></a>Erstellen der Zonen Bereiche  
 Nachdem die Clientsubnetze konfiguriert wurden, müssen Sie die Zone partitionieren, deren Datenverkehr Sie in zwei verschiedene Zonen Bereiche umleiten möchten, einen Bereich für jedes der von Ihnen konfigurierten DNS-Clientsubnetze.  
   
 Wenn Sie z. b. den Datenverkehr für den DNS-Namen www.contosogiftservices.com umleiten möchten, müssen Sie zwei verschiedene Zonen Bereiche in der contosogiftservices.com-Zone erstellen, eine für die USA und eine für Europa.  
@@ -104,7 +104,7 @@ Add-DnsServerZoneScope -ZoneName "contosogiftservices.com" -Name "DublinZoneScop
 ```  
 Weitere Informationen finden Sie unter [Add-dnsserverzonescope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).  
   
-#### <a name="bkmk_records"></a>Hinzufügen von Datensätzen zu den Zonen Bereichen  
+#### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records"></a>Hinzufügen von Datensätzen zu den Zonen Bereichen  
 Nun müssen Sie die Datensätze, die den Webserver Host darstellen, in den zwei Zonen Bereichen hinzufügen.  
   
 Beispielsweise wird in " **sattlezonescope**" der Datensatz " <strong>www.contosogiftservices.com</strong> " mit der IP-Adresse 192.0.0.1 hinzugefügt, die sich in einem Seattle-Daten Center befindet. Analog dazu wird in Dublin **zonescope**der Datensatz <strong>www.contosogiftservices.com</strong> mit IP-Adresse 141.1.0.3 im Dublin-Daten Center hinzugefügt.  
@@ -121,7 +121,7 @@ Der zonescope-Parameter ist nicht eingeschlossen, wenn Sie einen Datensatz im St
   
 Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).  
   
-#### <a name="bkmk_policies"></a>Erstellen der DNS-Richtlinien  
+#### <a name="create-the-dns-policies"></a><a name="bkmk_policies"></a>Erstellen der DNS-Richtlinien  
 Nachdem Sie die Subnetze, die Partitionen (Zonen Bereiche) und Datensätze hinzugefügt haben, müssen Sie Richtlinien erstellen, mit denen die Subnetze und Partitionen verbunden werden, sodass bei einer Abfrage aus einer Quelle in einem der DNS-Clientsubnetze die Abfrage Antwort von der richtige Bereich der Zone. Zum Mapping des Standard Zonen Bereichs sind keine Richtlinien erforderlich.  
   
 Nachdem Sie diese DNS-Richtlinien konfiguriert haben, lautet das DNS-Server Verhalten wie folgt:  

@@ -1,9 +1,9 @@
 ---
 title: Vorbereiten des Abbilds für die Bereitstellung
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 681c6cad-7fde-494f-86a5-f4c7c15d23f9
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 16411ab073e9417c52592aa9a6b13707dd461537
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: aac776253c094c4a77269720bcc5762d6c41d720
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838531"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311550"
 ---
 # <a name="preparing-the-image-for-deployment"></a>Vorbereiten des Abbilds für die Bereitstellung
 
@@ -123,7 +123,7 @@ ms.locfileid: "59838531"
     ```  
   
     > [!IMPORTANT]
-    >  Anstelle eines Parameters von Sysprep können Sie auch die Datei "unattend.xml" unter "%systemdrive%" hinzufügen. Wenn die Datei sich unter c:\ befindet Es wird erläutert, durch die benutzereinstellungen s, aber wenn als Parameter von Sysprep verwendet wird, nicht behandelt wird durch die Benutzer s-Einstellungen. Die Datei "unattend.xml" unter "%systemdrive%" wird bei jedem Neustart des Servers gelöscht. Stellen Sie daher nach dem Erstellen von "unattend.xml" unter "%systemdrive%" sicher, dass der Server nicht neu gestartet wird.  
+    >  Anstelle eines Parameters von Sysprep können Sie auch die Datei "unattend.xml" unter "%systemdrive%" hinzufügen. Wenn sich die Datei unter "c:\" befindet Sie wird durch die Benutzereinstellungen abgedeckt, aber wenn Sie als Parameter von syunp verwendet wird, wird Sie nicht durch die Benutzereinstellungen abgedeckt. Die Datei "unattend.xml" unter "%systemdrive%" wird bei jedem Neustart des Servers gelöscht. Stellen Sie daher nach dem Erstellen von "unattend.xml" unter "%systemdrive%" sicher, dass der Server nicht neu gestartet wird.  
   
 10. Führen Sie den folgenden Befehl aus, um den Registrierungsschlüssel zum Überspringen der Windows OOBE-Schlüsselseite hinzuzufügen.  
   

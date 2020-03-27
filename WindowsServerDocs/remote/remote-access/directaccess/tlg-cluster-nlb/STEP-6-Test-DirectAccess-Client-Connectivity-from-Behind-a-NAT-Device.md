@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aded2881-99ed-4f18-868b-b765ab926597
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 472c1dc6c5531a7c8d41e40bc926bb3e25f73448
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 82e9720bc09593ea7b8d7af4b2102ac3e3ba3e3d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367601"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314701"
 ---
 # <a name="step-6-test-directaccess-client-connectivity-from-behind-a-nat-device"></a>Schritt 6 Testen der DirectAccess-Client Konnektivität hinter einem NAT-Gerät
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Wenn ein DirectAccess-Client hinter einem NAT-Gerät oder einem Webproxyserver mit dem Internet verbunden wird, verwendet der DirectAccess-Client entweder Teredo oder IP-HTTPS zur Verbindungsherstellung mit dem RAS-Server. 
 
@@ -50,7 +50,7 @@ Starten Sie EDGE1 und EDGE2, sofern diese nicht bereits ausgeführt werden.
   
 2. Prüfen Sie die Ausgabe des Befehls "ipconfig".  
   
-   CLIENT1 ist jetzt hinter einem NAT-Gerät mit dem Internet verbunden und hat eine private IPv4-Adresse erhalten. Wenn sich der DirectAccess-Client hinter einem NAT-Gerät befindet und eine private IPv4-Adresse zugeordnet wurde, wird Teredo als IPv6-Übergangstechnologie bevorzugt. Wenn Sie sich die Ausgabe des Befehls ipconfig ansehen, sollte ein Abschnitt für Tunnel Adapter Teredo Tunneling Pseudo Schnittstelle und dann eine Beschreibung für den Microsoft Teredo-Tunneling-Adapter mit einer IP-Adresse angezeigt werden, die mit 2001 beginnt: konsistent mit Teredo. Adresse. Wenn der Teredo-Abschnitt nicht angezeigt wird, aktivieren Sie Teredo mit dem Befehl **netsh interface Teredo set state enterpriseclient**, und wiederholen Sie anschließend den Befehl "ipconfig". Für den Teredo-Tunneladapter wird kein Standardgateway aufgeführt.  
+   CLIENT1 ist jetzt hinter einem NAT-Gerät mit dem Internet verbunden und hat eine private IPv4-Adresse erhalten. Wenn sich der DirectAccess-Client hinter einem NAT-Gerät befindet und eine private IPv4-Adresse zugeordnet wurde, wird Teredo als IPv6-Übergangstechnologie bevorzugt. In der Ausgabe des Befehls "ipconfig" sollten ein Abschnitt für Tunneladapter Teredo Tunneling Pseudo-Interface und die Beschreibung Microsoft-Teredo-Tunneling-Adapter mit einer IP-Adresse angezeigt werden, die entsprechend einer Teredo-Adresse mit "2001:" beginnt. Wenn der Teredo-Abschnitt nicht angezeigt wird, aktivieren Sie Teredo mit dem Befehl **netsh interface Teredo set state enterpriseclient**, und wiederholen Sie anschließend den Befehl "ipconfig". Für den Teredo-Tunneladapter wird kein Standardgateway aufgeführt.  
   
 3. Geben Sie im Windows PowerShell-Fenster **ipconfig/flushdns** ein, und drücken Sie die EINGABETASTE.  
   
@@ -66,11 +66,11 @@ Starten Sie EDGE1 und EDGE2, sofern diese nicht bereits ausgeführt werden.
   
 7. Lassen Sie das Windows PowerShell-Fenster für das nächste Verfahren geöffnet.  
   
-8. Öffnen Sie Internet Explorer, geben Sie in der Internet Explorer-Adressleiste **https://app1/ ein** , und drücken Sie die EINGABETASTE. Die Standard-IIS-Website auf APP1 wird angezeigt.  
+8. Öffnen Sie Internet Explorer, geben Sie in der Internet Explorer-Adressleiste **https://app1/** ein, und drücken Sie die EINGABETASTE. Die Standard-IIS-Website auf APP1 wird angezeigt.  
   
-9. Geben Sie in der Internet Explorer-Adressleiste **https://app2/ ein** , und drücken Sie die EINGABETASTE. Die Standardwebsite auf APP2 wird angezeigt.  
+9. Geben Sie in der Internet Explorer-Adressleiste **https://app2/** ein, und drücken Sie die EINGABETASTE. Die Standardwebsite auf APP2 wird angezeigt.  
   
-10. Geben Sie auf dem **Start** Bildschirm<strong>\\ \ App2\Files</strong>ein, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die neue Textdokumentdatei. Dadurch wird bewiesen, dass Sie eine Verbindung zu einem reinen IPv4-Server herstellen konnten, indem Sie mit SMB eine Ressource auf einem reinen IPv4-Host abgerufen haben.  
+10. Geben Sie auf dem **Start** Bildschirm<strong>\\\app2\files</strong>ein, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die neue Textdokumentdatei. Dadurch wird bewiesen, dass Sie eine Verbindung zu einem reinen IPv4-Server herstellen konnten, indem Sie mit SMB eine Ressource auf einem reinen IPv4-Host abgerufen haben.  
   
 ## <a name="test-ip-https-connectivity"></a>IP-HTTPS-Konnektivität testen  
   
@@ -78,7 +78,7 @@ Starten Sie EDGE1 und EDGE2, sofern diese nicht bereits ausgeführt werden.
   
 2. Geben Sie im Windows PowerShell-Fenster **ipconfig/all** ein, und drücken Sie die EINGABETASTE.  
   
-3. Prüfen Sie die Ausgabe des Befehls "ipconfig". Dieser Computer ist jetzt hinter einem NAT-Gerät mit dem Internet verbunden und hat eine private IPv4-Adresse erhalten. Teredo ist deaktiviert, und der DirectAccess-Client fällt auf IP-HTTPS zurück. Wenn Sie sich die Ausgabe des Befehls "ipconfig" ansehen, sehen Sie einen Abschnitt für Tunnel Adapter iphttpsinterface mit einer IP-Adresse, die mit "2001: db8:1: 100" beginnt, wobei es sich um eine IP-HTTPS-Adresse auf der Grundlage des Präfixes handelt, das beim Einrichten von konfiguriert wurde. DirectAccess. Für den IP-HTTPS-Tunneladapter wird kein Standardgateway aufgeführt.  
+3. Prüfen Sie die Ausgabe des Befehls "ipconfig". Dieser Computer ist jetzt hinter einem NAT-Gerät mit dem Internet verbunden und hat eine private IPv4-Adresse erhalten. Teredo ist deaktiviert, und der DirectAccess-Client fällt auf IP-HTTPS zurück. In der Ausgabe des Befehls "ipconfig" wird der Abschnitt Tunneladapter iphttpsinterface mit einer IP-Adresse angezeigt, die entsprechend einer IP-HTTPS-Adresse mit "2001:db8:1:100" beginnt. Grundlage hierfür ist das Präfix, das beim Einrichten von DirectAccess konfiguriert wurde. Für den IP-HTTPS-Tunneladapter wird kein Standardgateway aufgeführt.  
   
 4. Geben Sie im Windows PowerShell-Fenster **ipconfig/flushdns** ein, und drücken Sie die EINGABETASTE. Dadurch werden Namensauflösungseinträge geleert, die eventuell noch im Client-DNS-Cache vorhanden sind, seitdem der Clientcomputer mit dem Unternehmensnetzwerk verbunden war.  
   
@@ -86,8 +86,8 @@ Starten Sie EDGE1 und EDGE2, sofern diese nicht bereits ausgeführt werden.
   
 6. Geben Sie im Windows PowerShell-Fenster **Ping App2** ein, und drücken Sie die EINGABETASTE. Sie sollten Antworten von der NAT64-Adresse erhalten, die von EDGE1 zu APP2 zugeordnet wurde (in diesem Fall "fdc9:9f4e:eb1b:7777::a00:4").  
   
-7. Öffnen Sie Internet Explorer, geben Sie in der Internet Explorer-Adressleiste **https://app1/ ein** , und drücken Sie die EINGABETASTE. Die Standard-IIS-Site auf APP1 wird angezeigt.  
+7. Öffnen Sie Internet Explorer, geben Sie in der Internet Explorer-Adressleiste **https://app1/** ein, und drücken Sie die EINGABETASTE. Die Standard-IIS-Site auf APP1 wird angezeigt.  
   
-8. Geben Sie in der Internet Explorer-Adressleiste **https://app2/ ein** , und drücken Sie die EINGABETASTE. Die Standardwebsite auf APP2 wird angezeigt.  
+8. Geben Sie in der Internet Explorer-Adressleiste **https://app2/** ein, und drücken Sie die EINGABETASTE. Die Standardwebsite auf APP2 wird angezeigt.  
   
-9. Geben Sie auf dem **Start** Bildschirm<strong>\\ \ App2\Files</strong>ein, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die neue Textdokumentdatei. Dadurch wird bewiesen, dass Sie eine Verbindung zu einem reinen IPv4-Server herstellen konnten, indem Sie mit SMB eine Ressource auf einem reinen IPv4-Host abgerufen haben.
+9. Geben Sie auf dem **Start** Bildschirm<strong>\\\app2\files</strong>ein, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die neue Textdokumentdatei. Dadurch wird bewiesen, dass Sie eine Verbindung zu einem reinen IPv4-Server herstellen konnten, indem Sie mit SMB eine Ressource auf einem reinen IPv4-Host abgerufen haben.

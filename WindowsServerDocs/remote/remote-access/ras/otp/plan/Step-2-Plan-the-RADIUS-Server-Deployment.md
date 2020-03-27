@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2d6ad863-02a5-49b0-9aff-d189e78b2b80
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: a991b312a0938a3809acd2b94c00aa678f5b41da
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 44f8514bd046d2c5f526e85309af430383bf1ec1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404401"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313570"
 ---
 # <a name="step-2-plan-the-radius-server-deployment"></a>Schritt 2 Planen der RADIUS-Server Bereitstellung
 
@@ -29,7 +29,7 @@ Planen Sie nach der Bereitstellung eines einzelnen RAS-Servers den einmal Kennwo
 |----|--------|  
 |2,1 Planen des RADIUS-Servers|Für den OTP-Authentifizierungsserver unterstützt der Remote Zugriff in Windows Server 2016 und Windows Server 2012 alle RADIUS-fähigen OTP-Server, die das Kennwort Authentication Protocol (PAP) unterstützen.|  
   
-## <a name="BKMK_1.1"></a>2,1 Planen des RADIUS-Servers  
+## <a name="21-plan-the-radius-server"></a><a name="BKMK_1.1"></a>2,1 Planen des RADIUS-Servers  
 Beachten Sie Folgendes, wenn Sie einen RADIUS-Server für die OTP-Authentifizierung planen:  
   
 -   Für die meisten Arten von OTP-bereit Stellungen müssen Sie den RAS-Server als RADIUS-Agent konfigurieren. Weitere Informationen finden Sie in der Dokumentation des OTP-Herstellers.  

@@ -11,18 +11,18 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9efe0231-94c1-4de7-be8e-becc2af84e69
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: e692384e9416e21e00556af6ada9af8df1713a03
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a8628404de8a1b9caccc7f7f51b063cabb1caf27
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405859"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317208"
 ---
 # <a name="hyper-v-network-virtualization-technical-details-in-windows-server-2016"></a>Technische Informationen zur Hyper-V-Netzwerkvirtualisierung unter Windows Server 2016
 
->Gilt für:  Windows Server 2016
+>Gilt für: Windows Server 2016
 
 Mittels Servervirtualisierung können auf einem physischen Host mehrere Serverinstanzen parallel und voneinander isoliert ausgeführt werden. Jeder virtuelle Computer arbeitet im Prinzip so, als wäre er der einzige Server, der auf dem Computer ausgeführt wird.  
 
@@ -30,7 +30,7 @@ Die Netzwerkvirtualisierung bietet eine ähnliche Funktion, bei der mehrere virt
 
 ![Servervirtualisierung im Vergleich zur Netzwerkvirtualisierung](../../../media/hyper-v-network-virtualization-technical-details-in-windows-server/VNetF1.gif)  
 
-Abbildung 1: Servervirtualisierung im Vergleich zur Netzwerkvirtualisierung  
+Abbildung 1: Vergleich von Servervirtualisierung und Netzwerkvirtualisierung  
 
 ## <a name="hyper-v-network-virtualization-concepts"></a>Erklärung der Begriffe für Hyper-V-Netzwerkvirtualisierung  
 In Hyper-v-Netzwerkvirtualisierung (HNV) wird ein Kunde oder Mandant als "Besitzer" eines Satzes von IP-Subnetzen definiert, die in einem Unternehmen oder einem Rechenzentrum bereitgestellt werden. Ein Kunde kann ein Unternehmen oder ein Unternehmen mit mehreren Abteilungen oder Geschäftseinheiten in einem privaten Daten Center sein, die eine Netzwerk Isolation erfordern, oder ein Mandant in einem öffentlichen Rechenzentrum, das von einem Dienstanbieter gehostet wird. Jeder Kunde kann über ein oder mehrere [virtuelle Netzwerke](#VirtualNetworks) im Daten Center verfügen, und jedes virtuelle Netzwerk besteht aus einem oder mehreren [virtuellen Subnetzen](#VirtualSubnets).  
@@ -43,7 +43,7 @@ Es gibt zwei HNV-Implementierungen, die in Windows Server 2016 verfügbar sein w
 
     • Set Teaming und HNV v1 sind nicht nach Plattform kompatibel.
 
-    o zur Verwendung von ha nvgre-Gateways müssen Benutzer entweder das LBFO-Team oder kein Team verwenden. oder
+    o zur Verwendung von ha nvgre-Gateways müssen Benutzer entweder das LBFO-Team oder kein Team verwenden. Oder
 
     o verwenden Sie vom Netzwerk Controller bereitgestellte Gateways mit Set-kombinierter Switch.
 
@@ -55,19 +55,19 @@ Es gibt zwei HNV-Implementierungen, die in Windows Server 2016 verfügbar sein w
     > [!IMPORTANT]  
     > Dieses Thema konzentriert sich auf HNVv2.  
 
-### <a name="VirtualNetworks"></a>Virtuelles Netzwerk  
+### <a name="virtual-network"></a><a name="VirtualNetworks"></a>Virtuelles Netzwerk  
 
 -   Jedes virtuelle Netzwerk besteht aus einem oder mehreren virtuellen Subnetzen. Ein virtuelles Netzwerk bildet eine Isolations Grenze, bei der die virtuellen Computer in einem virtuellen Netzwerk nur miteinander kommunizieren können. Normalerweise wurde diese Isolation mithilfe von VLANs mit einem getrennten IP-Adressbereich und einem 802.1 q-Tag oder einer VLAN-ID erzwungen. Mit HNV wird die Isolation jedoch entweder mithilfe von nvgre oder vxlan-Kapselung erzwungen, um Überlagerungs Netzwerke zu erstellen, die sich überlappende IP-Subnetze zwischen Kunden oder Mandanten befinden.  
 
 -   Jedes virtuelle Netzwerk verfügt über eine eindeutige Routing Domänen-ID (rdid) auf dem Host. Diese rdid ist ungefähr einer Ressourcen-ID zugeordnet, um die Rest-Ressource des virtuellen Netzwerks im Netzwerk Controller zu identifizieren. Auf die Rest-Ressource des virtuellen Netzwerks wird mithilfe eines Uniform Resource Identifier (URI)-Namespace mit der angefügten Ressourcen-ID verwiesen.  
 
-### <a name="VirtualSubnets"></a>Virtuelle Subnetze  
+### <a name="virtual-subnets"></a><a name="VirtualSubnets"></a>Virtuelle Subnetze  
 
 -   Ein virtuelles Subnetz implementiert die Layer 3-IP-Subnet-Semantik für die virtuellen Computer, die sich im gleichen virtuellen Subnetz befinden. Das virtuelle Subnetz bildet eine Broadcast Domäne (ähnlich wie ein VLAN), und die Isolation wird durch die Verwendung des Felds nvgre-Mandanten Netzwerk-ID (TNI) oder vxlan-netzwerkbezeichnerfeld (vni) erzwungen.  
 
 -   Jedes virtuelle Subnetz gehört zu einem einzelnen virtuellen Netzwerk (rdid), und ihm wird eine eindeutige vsid (Virtual Subnetz ID) zugewiesen. dabei wird entweder der TNI-oder der vni-Schlüssel im Header für gekapselte Pakete verwendet. Die vsid muss innerhalb des Rechenzentrums eindeutig sein und liegt im Bereich von 4096 bis 2 ^ 24-2.  
 
-Ein wichtiger Vorteil des virtuellen Netzwerks und der Routing Domäne besteht darin, dass Kunden ihre eigenen Netzwerktopologien (z. b. IP-Subnetze) in die Cloud bringen können. In Abbildung 2 wird ein Beispiel gezeigt, in dem das Unternehmen Contoso Corp. über zwei separate Netzwerke verfügt: "F&E-Netzwerk" für Forschung und Entwicklung und "Vertriebsnetzwerk" für den Vertrieb. Da beide Netzwerke unterschiedliche Routingdomänen-IDs besitzen, sind keine Interaktionen zwischen den Netzwerken möglich. Das heißt, das "Contoso-F&E-Netzwerk" ist vom "Contoso-Vertriebsnetzwerk" isoliert, obwohl beide Subnetze im Besitz von Contoso Corp. sind. "Contoso-F&E-Netzwerk" enthält drei virtuelle Subnetze. Beachten Sie, dass sowohl die RDID als auch VSID innerhalb eines Datencenters eindeutig sind.  
+Ein wichtiger Vorteil des virtuellen Netzwerks und der Routing Domäne besteht darin, dass Kunden ihre eigenen Netzwerktopologien (z. b. IP-Subnetze) in die Cloud bringen können. In Abbildung 2 wird ein Beispiel gezeigt, in dem das Unternehmen Contoso Corp. über zwei separate Netzwerke verfügt: "F&E-Netzwerk" für Forschung und Entwicklung und "Vertriebsnetzwerk" für den Vertrieb. Da beide Netzwerke unterschiedliche Routingdomänen-IDs besitzen, sind keine Interaktionen zwischen den Netzwerken möglich. Das heißt, das "Contoso-F&E-Netzwerk" ist vom "Contoso-Vertriebsnetzwerk" isoliert, obgleich beide Subnetze mit Contoso Corp. den gleichen Besitzer haben. "Contoso-F&E-Netzwerk" enthält drei virtuelle Subnetze. Beachten Sie, dass sowohl die RDID als auch VSID innerhalb eines Datencenters eindeutig sind.  
 
 ![Kundennetzwerke und virtuelle Subnetze](../../../media/hyper-v-network-virtualization-technical-details-in-windows-server/VNetF6.gif)  
 
@@ -134,7 +134,7 @@ Mit den CAs wird die Netzwerktopologie des Kunden abgebildet, die virtualisiert 
 
 ![Konzeptionelle Darstellung der Netzwerkvirtualisierung über eine physische Infrastruktur](../../../media/hyper-v-network-virtualization-technical-details-in-windows-server/VNetF2.gif)  
 
-Abbildung 6: Konzeptionelle Darstellung der Netzwerkvirtualisierung über eine physische Infrastruktur  
+Abbildung 6: Konzeptionelle Darstellung der Netzwerkvirtualisierung über eine physische Infrastruktur  
 
 Im Diagramm senden Kunden virtuelle Computer Datenpakete im Zertifizierungsstellen Bereich, die die physische Netzwerkinfrastruktur über ihre eigenen virtuellen Netzwerke oder "Tunnel" durchlaufen. Im obigen Beispiel können die Tunnel als "Umschläge" um die Datenpakete von "ca" und "Fabrikam" mit grünen Versand Bezeichnungen (PA-Adressen) betrachtet werden, die vom Quellhost auf der linken Seite an den Zielhost rechts übermittelt werden sollen. Der Schlüssel besteht darin, wie die Hosts die "Lieferadressen" (PA-Adressen) bestimmen, die der Zertifizierungsstelle von "ca" und der Fabrikam-Zertifizierungsstelle entsprechen, wie der "Umschlag" die Pakete umschließt und wie die Zielhosts die Pakete entpacken und an "TSO" und "Fabrikam" übermitteln können. die virtuellen Zielcomputer sind ordnungsgemäß.  
 
@@ -146,7 +146,7 @@ Diese einfache Analogie verdeutlicht die wichtigsten Aspekte bei der Netzwerkvir
 
 -   Anhand der CA-PA-Zuordnungen müssen die Hosts unterscheiden können, welche Pakete für welchen virtuellen Kundencomputer bestimmt sind.  
 
-Die Virtualisierung des Netzwerks wird also dadurch realisiert, indem die von den virtuellen Computern verwendeten Netzwerkadressen virtualisiert werden. Der Netzwerk Controller ist für die Adress Zuordnung zuständig, und der Host-Agent verwaltet die Zuordnungs Datenbank mithilfe des MS_VTEP-Schemas. Der zur Adressvirtualisierung eingesetzte Mechanismus wird im nächsten Abschnitt beschrieben.  
+Die Virtualisierung des Netzwerks wird also dadurch realisiert, indem die von den virtuellen Computern verwendeten Netzwerkadressen virtualisiert werden. Der Netzwerk Controller ist für die Adress Zuordnung zuständig, und der Host-Agent verwaltet die Zuordnungs Datenbank mit dem MS_VTEP Schema. Der zur Adressvirtualisierung eingesetzte Mechanismus wird im nächsten Abschnitt beschrieben.  
 
 ## <a name="network-virtualization-through-address-virtualization"></a>Netzwerkvirtualisierung durch Adressvirtualisierung  
 HNV implementiert Überlagerungs Mandanten Netzwerke entweder mithilfe der generischen Routing Kapselung für die Netzwerkvirtualisierung (nvgre) oder über das virtuelle erweiterbare lokale Netzwerk (vxlan).  Vxlan ist die Standardeinstellung.  
@@ -161,7 +161,7 @@ Dieser netzwerkvirtualisierungstechnmechanismus verwendet die generische Routing
 
 ![NVGRE-Kapselung](../../../media/hyper-v-network-virtualization-technical-details-in-windows-server/VNetF3.gif)  
 
-Abbildung 7: Netzwerkvirtualisierung – NVGRE-Kapselung  
+Abbildung 7: Netzwerkvirtualisierung – NVGRE-Kapselung  
 
 Die ID des virtuellen Subnetzes ermöglicht Hosts die Identifizierung des virtuellen Kunden Computers für ein beliebiges Paket, obwohl sich die PA-und die Zertifizierungsstellen in den Paketen möglicherweise überlappen. Daher kann auch für alle virtuellen Computer auf dem gleichen Host eine einzige PA gemeinsam genutzt werden (siehe Abbildung 7).  
 
@@ -176,7 +176,7 @@ Das folgende Diagramm zeigt ein Beispiel für die Bereitstellung von zwei Kunden
 
 ![Beispiel für mehrinstanzenfähige Bereitstellung](../../../media/hyper-v-network-virtualization-technical-details-in-windows-server/VNetF5.png)  
 
-Abbildung 8: Beispiel für mehrinstanzenfähige Bereitstellung  
+Abbildung 8: Beispiel für eine mehrinstanzenfähige Bereitstellung  
 
 Betrachten Sie das Beispiel in Abbildung 8. Vor dem Verschieben in den freigegebenen IaaS-Dienst des Hostinganbieters:  
 
@@ -186,13 +186,13 @@ Betrachten Sie das Beispiel in Abbildung 8. Vor dem Verschieben in den freigegeb
 
 Wir gehen davon aus, dass der hostingdienstanbieter zuvor das logische Netzwerk des Anbieters (PA) über den Netzwerk Controller erstellt hat, damit er der physischen Netzwerktopologie entspricht. Der Netzwerk Controller ordnet zwei PA-IP-Adressen aus dem IP-Präfix des logischen Subnetzes an, in dem die Hosts verbunden sind. Der Netzwerk Controller gibt auch das entsprechende VLAN-Tag zum Anwenden der IP-Adressen an.  
 
-Mit dem Netzwerk Controller werden von "Configuration Manager" und "Fabrikam Corp" dann das virtuelle Netzwerk und die Subnetze erstellt, die vom logischen Netzwerk des Anbieters (PA) unterstützt werden, das vom hostingdienstanbieter angegeben wird. Contoso Corp. und Fabrikam Corp. verschieben ihre jeweiligen SQL-Server und Webserver in den freigegebenen IaaS-Dienst des gleichen Hostinganbieters. Dort wird zufällig der virtuelle Computer **SQL** auf dem Hyper-V Host 1 und der virtuelle Computer **Web** (IIS7) auf dem Hyper-V-Host 2 ausgeführt. Alle virtuellen Computer behalten die ursprünglichen Intranet-IP-Adressen (CAs) bei.  
+Mit dem Netzwerk Controller werden von "Configuration Manager" und "Fabrikam Corp" dann das virtuelle Netzwerk und die Subnetze erstellt, die vom logischen Netzwerk des Anbieters (PA) unterstützt werden, das vom hostingdienstanbieter angegeben wird. Contoso Corp. und Fabrikam Corp. verschieben ihre jeweiligen SQL-Server und Webserver in den freigegebenen IaaS-Dienst des gleichen Hostinganbieters. Dort wird zufällig der virtuelle Computer **SQL** auf dem Hyper-V Host 1 und der virtuelle Computer **Web** (IIS7) auf dem Hyper-V-Host 2 ausgeführt. Alle virtuellen Computer behalten die ursprünglichen Intranet-IP-Adressen (CAs) bei.  
 
 Beiden Unternehmen wird die folgende vsid (Virtual Subnet ID) vom Netzwerk Controller zugewiesen, wie unten angegeben.  Der Host-Agent auf allen Hyper-V-Hosts empfängt die zugeordneten PA-IP-Adressen vom Netzwerk Controller und erstellt zwei PA-Host-vNICs in einem nicht standardmäßigen Netzwerk Depot. Jeder dieser Host-vNICs wird eine Netzwerkschnittstelle zugewiesen, wobei die PA-IP-Adresse wie unten dargestellt zugewiesen wird:  
 
--   Vsid und Pas der virtuellen Computer von "Configuration Manager": **Vsid** ist 5001, **SQL PA** ist 192.168.1.10, **Web PA** ist 192.168.2.20  
+-   Die virtuellen Computer der virtuellen Computer von "vsid" und "Pas: **vsid** " von "Configuration Manager" sind 5001, **SQL PA** ist 192.168.1.10, **Web PA** ist 192.168.2.20  
 
--   Virtual Machines vsid und Pas von Fabrikam Corp: **Vsid** ist 6001, **SQL PA** ist 192.168.1.10, **Web PA** ist 192.168.2.20  
+-   Die vsid für die virtuellen Computer von Fabrikam Corp und Pas: **vsid** ist 6001, **SQL PA** ist 192.168.1.10, **Web PA** ist 192.168.2.20  
 
 Der Netzwerk Controller führt die gesamte Netzwerk Richtlinie (einschließlich der ZS-PA-Zuordnung) zum Sdn-Host-Agent aus, der die Richtlinie in einem permanenten Speicher (in den ovsdb-Datenbanktabellen) beibehält.  
 
@@ -233,7 +233,7 @@ Wenn der virtuelle Computer "Web-so Corp." (10.1.1.12) auf dem Hyper-V-Host 2 ei
 
 -   Die VFP-Engine leitet das Paket dann an den Vswitch-Port weiter, mit dem der virtuelle Zielcomputer verbunden ist.  
 
-Bei einem ähnlichen Prozess für den Datenverkehr zwischen den virtuellen Computern **Web** und **SQL** von Fabrikam Corp. werden die Hyper-V-Netzwerkvirtualisierungseinstellungen für Fabrikam Corp. verwendet. Mit der Hyper-V-Netzwerkvirtualisierung interagieren die virtuellen Computer von Fabrikam Corp. und Contoso Corp. daher so, als befänden sie sich in ihren ursprünglichen Intranets. Mit den virtuellen Computern des jeweils anderen Unternehmens findet keine Interaktion statt, auch wenn für diese die gleichen IP-Adressen verwendet werden.  
+Ein ähnlicher Prozess beim Datenverkehr zwischen den virtuellen Computern **Web** und **SQL** von Fabrikam Corp. verwendet die Hyper-V-Netzwerkvirtualisierungs-Richtlinieneinstellungen für Fabrikam Corp. Dies hat zur Folge, dass die virtuellen Computer von Fabrikam Corp. und Contoso Corp. dank Hyper-V-Netzwerkvirtualisierung so miteinander interagieren, als befänden sie sich noch in den ursprünglichen Intranets. Mit den virtuellen Computern des jeweils anderen Unternehmens findet keine Interaktion statt, auch wenn für diese die gleichen IP-Adressen verwendet werden.  
 
 Die separaten Adressen (CAS und PAS), die Richtlinien Einstellungen der Hyper-V-Hosts und die Adressübersetzung zwischen der Zertifizierungsstelle und der PA für eingehenden und ausgehenden Datenverkehr für virtuelle Computer isolieren diese Server Gruppen mithilfe des nvgre-Schlüssels oder des vlxan-VNID. Außerdem wird die virtuelle Netzwerkarchitektur durch die Virtualisierungszuordnungen und -umwandlungen von der physischen Netzwerkarchitektur entkoppelt. Obwohl sich Contoso **SQL** und **Web** sowie Fabrikam **SQL** und **Web** in jeweils eigenen CA-IP-Subnetzen befinden (10.1.1/24), werden sie physisch auf zwei Hosts in unterschiedlichen PA-Subnetzen bereitgestellt: 192.168.1/24 bzw. 192.168.2/24. Dies bringt mit sich, dass durch Hyper-V-Netzwerkvirtualisierung subnetzübergreifende Bereitstellungen virtueller Computer und Livemigrationen möglich werden.  
 
@@ -262,7 +262,7 @@ Die Objekthierarchie für die Vswitch-und VFP-Weiterleitungs Erweiterung lautet 
 
             -   Fluss Tabelle  
 
-            -   Gruppieren  
+            -   Gruppe  
 
             -   Regel  
 
@@ -286,18 +286,18 @@ Die HNV-Richtlinie wird vom Host-Agent programmiert. Jeder Netzwerkadapter für 
 
 ![HNV-Architektur](../../../media/hyper-v-network-virtualization-technical-details-in-windows-server/VNetF7.png)  
 
-Abbildung 9: HNV-Architektur  
+Abbildung 9: Architektur der Hyper-V-Netzwerkvirtualisierung  
 
 ## <a name="summary"></a>Zusammenfassung  
 Cloudbasierte Datencenter bieten viele Vorteile, wie zum Beispiel eine bessere Skalierbarkeit und Ressourcenauslastung. Um diese potenziellen Vorteile praktisch nutzen zu können, ist eine Technologie erforderlich, die sich um die Problematik der mehrinstanzenfähigen Skalierbarkeit in einer dynamischen Umgebung kümmert. Hyper-V-Netzwerkvirtualisierung wurde für diese Problematik entworfen. Außerdem wird die Effizienz von Datencentern erhöht, indem die virtuelle von der physischen Netzwerktopologie entkoppelt wird. Wenn Sie auf einem vorhandenen Standard aufbauen, wird HNV im heutigen Rechenzentrum ausgeführt und arbeitet mit Ihrer vorhandenen vxlan-Infrastruktur. Kunden mit HNV können Ihre Rechenzentren nun in einem Private Cloud konsolidieren oder Ihre Rechenzentren nahtlos auf die Umgebung eines Host Server Anbieters mit einem Hybrid Cloud ausdehnen.  
 
-## <a name="BKMK_LINKS"></a>Siehe auch  
+## <a name="see-also"></a><a name="BKMK_LINKS"></a>Siehe auch  
 Weitere Informationen zu HNVv2 finden Sie unter den folgenden Links:  
 
 
-|       Inhaltstyp       |                                                                                                                                              Verweise                                                                                                                                              |
+|       Art des Inhalts       |                                                                                                                                              Verweise                                                                                                                                              |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Communityressourcen**  |                                                                [Blog zur Architektur der privaten Cloud](https://blogs.technet.com/b/privatecloud) -   <br />-Stellen Sie Fragen: [cloudnetfb@microsoft.com](mailto:%20cloudnetfb@microsoft.com)                                                                |
-|         **RFC**          |                                                                   -   [nvgre Draft RFC](https://www.ietf.org/id/draft-sridharan-virtualization-nvgre-07.txt)<br />-   [VXLAN-RFC 7348](https://www.rfc-editor.org/info/rfc7348)                                                                    |
-| **Verwandte Technologien** | -Technische Details zur Hyper-v-Netzwerkvirtualisierung unter Windows Server 2012 R2 finden Sie unter [Technische Details zur Hyper-v-Netzwerkvirtualisierung](https://technet.microsoft.com/library/jj134174.aspx) .<br />-   -[Netzwerk Controller](../../../sdn/technologies/network-controller/Network-Controller.md) |
+| **Communityressourcen**  |                                                                Blog zur -   [Private Cloud-Architektur](https://blogs.technet.com/b/privatecloud)<br />-Stellen Sie Fragen: [cloudnetfb@microsoft.com](mailto:%20cloudnetfb@microsoft.com)                                                                |
+|         **RFC**          |                                                                   -   [nvgre Draft RFC](https://www.ietf.org/id/draft-sridharan-virtualization-nvgre-07.txt)<br />-   [vxlan-RFC 7348](https://www.rfc-editor.org/info/rfc7348)                                                                    |
+| **Verwandte Technologien** | -Technische Details zur Hyper-v-Netzwerkvirtualisierung unter Windows Server 2012 R2 finden Sie unter [Technische Details zur Hyper-v-Netzwerkvirtualisierung](https://technet.microsoft.com/library/jj134174.aspx) .<br />[Netzwerk Controller](../../../sdn/technologies/network-controller/Network-Controller.md) -    |
 

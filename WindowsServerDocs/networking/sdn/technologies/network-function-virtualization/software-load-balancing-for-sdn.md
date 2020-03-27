@@ -10,14 +10,14 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 97abf182-4725-4026-801c-122db96964ed
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 35743d9e1a25c71a35eed018a4a3882a3d094d76
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 1e7870e045f9af79ed46ec1ad998dbc1f1474afd
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355566"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312901"
 ---
 # <a name="software-load-balancing-slb-for-sdn"></a>Software Lastenausgleich \(SLB-\) für Sdn
 
@@ -114,7 +114,7 @@ SLB umfasst Integritätstests zum Überprüfen der Integrität der Netzwerkinfra
   
 Anders als bei einer herkömmlichen Load Balancer-Appliance, bei der der Test auf dem Gerät basiert und über die Verbindung zu der DIP verläuft, stammt der SLB-Test von dem Host, auf dem sich die DIP-Datei befindet, und wechselt direkt vom SLB-Host-Agent zum DIP und verteilt die Arbeiten Sie auf den Hosts.  
   
-## <a name="bkmk_infrastructure"></a>Infrastruktur für den Software Lastenausgleich  
+## <a name="software-load-balancing-infrastructure"></a><a name="bkmk_infrastructure"></a>Infrastruktur für den Software Lastenausgleich  
 Zum Bereitstellen von Windows Server SLB müssen Sie zuerst den Netzwerk Controller in Windows Server 2016 und mindestens eine SLB MUX-VM bereitstellen.  
   
 Außerdem müssen Sie Hyper-v-Hosts mit dem SDN-fähigen virtuellen Hyper-v-Switch konfigurieren und sicherstellen, dass der SLB-Host-Agent ausgeführt wird.  Die Router, die die Hosts bedienen, müssen das ECMP-Routing (equal cost Multipfad) und Border Gateway Protocol (BGP) unterstützen. Sie müssen so konfiguriert werden, dass BGP-peeringanforderungen von den SLB-muxes akzeptiert werden.  
@@ -179,7 +179,7 @@ Der BGP-Router führt die folgenden Aktionen für SLB aus.
   
 -   Entfernt SLB-muxes aus der SLB-Rotation, wenn Keep-Alive fehlschlägt.  
   
-## <a name="bkmk_features"></a>Features für den Software Lastenausgleich  
+## <a name="software-load-balancing-features"></a><a name="bkmk_features"></a>Features für den Software Lastenausgleich  
 Im folgenden finden Sie einige der Features und Funktionen von SLB.  
   
 **Kernfunktionalität**  

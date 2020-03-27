@@ -1,32 +1,32 @@
 ---
-title: Planen der Remote Access Always On-VPN-migration
-description: Migration von DirectAccess zu Always On-VPN-erfordert eine gründliche Planung bestimmen Sie Ihre Migrationsphasen, die Ihnen hilft, Probleme zu identifizieren, bevor sie sich auf die gesamte Organisation auswirken.
+title: Remote Zugriff Always on VPN-Migrationsplanung
+description: Die Migration von DirectAccess zu Always on VPN erfordert eine ordnungsgemäße Planung, um die Migrations Phasen zu ermitteln. Dadurch können Probleme identifiziert werden, bevor Sie sich auf die gesamte Organisation auswirken.
 manager: dougkim
 ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: eeca4cf7-90f0-485d-843c-76c5885c54b0
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 05/29/2018
-ms.openlocfilehash: 494dc7916b505991c22b07bec738c2300d660ec1
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 80a7a8b3ee13a9d9cc99b81ab917f6443147565f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59835671"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314939"
 ---
 # <a name="plan-the-directaccess-to-always-on-vpn-migration"></a>Planen der DirectAccess auf Always On VPN-migration
 
->Gilt für: WindowsServer (Halbjährlicher Kanal), WindowsServer 2016, Windows 10
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows 10
 
-&#171;[ **Vorherigen:** Übersicht über DirectAccess auf Always On-VPN-migration](da-always-on-migration-overview.md)<br>
-&#187; [**Next:** Migrieren zu Always On-VPN- und außer Betrieb setzen DirectAccess](da-always-on-migration-deploy.md)
+&#171;[ **Vorheriges:** Übersicht über DirectAccess zum Always on der VPN-Migration](da-always-on-migration-overview.md)<br>
+&#187;[ **Nächster Schritt:** Migrieren zu Always on VPN und Außerbetriebnahme von DirectAccess](da-always-on-migration-deploy.md)
 
 
-Migration von DirectAccess zu Always On-VPN-erfordert eine gründliche Planung bestimmen Sie Ihre Migrationsphasen, die Ihnen hilft, Probleme zu identifizieren, bevor sie sich auf die gesamte Organisation auswirken. Die Hauptaufgabe der Migration ist das Aufrechterhalten der Remote-Konnektivität für das Büro während des gesamten Prozesses. Wenn Sie Aufgaben nicht der Reihenfolge nach ausführen, kann eine Racebedingung auftreten, und es ist für Remotebenutzer nicht möglich, auf die Unternehmensressourcen zuzugreifen. Aus diesem Grund empfiehlt Microsoft, eine geplante, Seite-an-Seite-Migration von DirectAccess in Always On-VPN-auszuführen. Weitere Informationen finden Sie unter den [Always On-VPN-migrationsbereitstellung](da-always-on-migration-deploy.md) Abschnitt.
+Die Migration von DirectAccess zu Always on VPN erfordert eine ordnungsgemäße Planung, um die Migrations Phasen zu ermitteln. Dadurch können Probleme identifiziert werden, bevor Sie sich auf die gesamte Organisation auswirken. Die Hauptaufgabe der Migration ist das Aufrechterhalten der Remote-Konnektivität für das Büro während des gesamten Prozesses. Wenn Sie Aufgaben nicht der Reihenfolge nach ausführen, kann eine Racebedingung auftreten, und es ist für Remotebenutzer nicht möglich, auf die Unternehmensressourcen zuzugreifen. Daher empfiehlt Microsoft, eine geplante, Seite-an-Seite-Migration von DirectAccess zu Always on VPN auszuführen. Weitere Informationen finden Sie im Abschnitt [Always on VPN-Migrations Bereitstellung](da-always-on-migration-deploy.md) .
 
-Der Abschnitt beschreibt die Vorteile der Trennung von Benutzern für die Migration, Standardkonfiguration Überlegungen und Verbesserungen für Always On-VPN-Funktion. Die migrationsplanungsphase umfasst:
+In diesem Abschnitt werden die Vorteile der Trennung von Benutzern für die Migration, Überlegungen zur Standardkonfiguration und Always on Features für die VPN-Features beschrieben. Die Migrations Planungsphase umfasst Folgendes:
 
 1.  [!INCLUDE [build-migration-rings-shortdesc-include](../includes/build-migration-rings-shortdesc-include.md)]
 
@@ -36,29 +36,29 @@ Der Abschnitt beschreibt die Vorteile der Trennung von Benutzern für die Migrat
 
 4.  [!INCLUDE [review-the-technology-overview-shortdesc-include](../includes/review-the-technology-overview-shortdesc-include.md)]
 
-## <a name="build-migration-rings"></a>Erstellen Sie die Migration Ringe
-Migration Ringe werden verwendet, die Always On-VPN-Client-Migrationsaufwand in mehrere Phasen unterteilen. Die Zeit der letzten Phase erhalten Sie, sollte der Prozess gut getestete und konsistent sein.
+## <a name="build-migration-rings"></a>Buildmigrations-Ringe
+Migrations Ringe werden verwendet, um den Always on VPN-Client Migrations Aufwand in mehrere Phasen aufzuteilen. Wenn Sie die letzte Phase erreichen, sollte Ihr Prozess gut getestet und konsistent sein.
 
-Dieser Abschnitt bietet eine Möglichkeit zum Trennen von Benutzern in Migrationsphasen, und klicken Sie dann Verwalten dieser Phasen. Behalten Sie unabhängig von der Phase Trennung Benutzermethode, die Sie auswählen, eine einzelne Gruppe von VPN-Benutzer zur einfacheren Verwaltung, wenn die Migration abgeschlossen ist.
+Dieser Abschnitt bietet einen Ansatz zum Aufteilen von Benutzern in Migrations Phasen und zum anschließenden Verwalten dieser Phasen. Unabhängig von der gewählten benutzerphase-Trennungs Methode sollten Sie eine einzelne Gruppe von VPN-Benutzern zur einfacheren Verwaltung beibehalten, wenn die Migration beendet ist.
 
 >[!NOTE] 
->Das Wort _Phase_ richtet sich nicht um anzugeben, dass dies ein langer Prozess ist. Ob Sie über jede Phase in wenigen Tagen oder ein paar Monate verschoben werden, empfiehlt Microsoft, profitieren Sie von Seite-an-Seite-Migration und einen schrittweisen Ansatz zu verwenden.
+>Die Word- _Phase_ soll nicht angeben, dass es sich um einen langen Prozess handelt. Unabhängig davon, ob Sie die einzelnen Phasen innerhalb von einigen Tagen oder in einigen Monaten durchlaufen, empfiehlt Microsoft, die parallele Migration zu nutzen und einen Phasen basierten Ansatz zu verwenden.
 
-### <a name="benefits-of-dividing-the-migration-effort-into-multiple-phases"></a>Die Vorteile den Migrationsaufwand in mehrere Phasen unterteilt
+### <a name="benefits-of-dividing-the-migration-effort-into-multiple-phases"></a>Vorteile der Aufteilung des Migrations Aufwands in mehrere Phasen
 
--   **Große Ausfall Schutz.** Unterteilen eine Migration in Phasen, wird die Anzahl der Personen, für die ein Problem Migration generierter auswirken kann wesentlich kleiner ist.
+-   **Massen Ausfallschutz.** Durch die Aufteilung einer Migration in Phasen kann sich die Anzahl der von der Migration generierten Probleme erheblich verringern.
 
--   **Verbesserung im Prozess oder für die Kommunikation von Feedback.** Im Idealfall Benutzer nicht einmal bemerkt, dass die Migration aufgetreten ist. Allerdings war ihre Erfahrungen als ideal, haben Feedback von diesen verwendet Sie die Möglichkeit zum Verbessern Ihrer Planung und Probleme in der Zukunft zu vermeiden.
+-   **Verbesserungen beim Prozess oder bei der Kommunikation von Feedback.** Im Idealfall haben Benutzer nicht einmal bemerkt, dass die Migration aufgetreten ist. Wenn Ihre Benutzerfunktion jedoch weniger als optimal war, bietet Feedback von diesen Verwendungsmöglichkeiten Ihnen die Möglichkeit, Ihre Planung zu verbessern und Probleme in Zukunft zu vermeiden.
 
-### <a name="tips-for-building-your-migration-ring"></a>Tipps für die Entwicklung Ihrer Migration ring
+### <a name="tips-for-building-your-migration-ring"></a>Tipps zum Entwickeln Ihres Migrations Rings
 
--   **Remote-Benutzer zu identifizieren.** Starten Sie durch die Trennung von Benutzer in zwei Buckets: Personen, die häufig kommen ins Büro und denjenigen, die nicht der Fall ist. Während der Migration wird für beide Gruppen gleich, aber es ist wahrscheinlich zu einer längeren für die remote-Clients das Update als für Benutzer zu erhalten, die häufiger verbunden. Jeden Migrationsschritt sollte im Idealfall Member aus jeder Bucket enthalten.
+-   **Identifizieren Sie Remote Benutzer.** Beginnen Sie, indem Sie die Benutzer in zwei Bucket aufteilen: diejenigen, die häufig ins Büro kommen, und diejenigen, die dies nicht tun. Der Migrationsprozess ist für beide Gruppen identisch, aber es dauert wahrscheinlich länger, bis die Remote Clients das Update empfangen, als für diejenigen, die häufiger eine Verbindung herstellen. Jede Migrationsphase sollte im Idealfall Mitglieder aus jedem Bucket enthalten.
 
--  **Priorisieren Sie Benutzer an.** Führung und anderen Benutzern mit schwerwiegenden Auswirkungen werden in der Regel für den letzten Benutzer migriert. Beim Benutzer zu priorisieren, jedoch sollten Sie ihre Produktivität Beeinträchtigung des Geschäftsbetriebs wäre Migration des Clientcomputers nicht. Z. B. Wenn Sie eine Bewertung von 1 bis 3 haben, mit 1 bedeutet, dass die Mitarbeiter nicht für Ihre Geschäfts- und 3, d. h. ohne Arbeitsunterbrechung sofort würde ein Business Analyst nur interne Line-of-Business (LOB) apps Remoteverwendung wäre 1, während ein Vertriebsmitarbeiter, die mit einer Cloud  App an sich ist 3.
+-  **Priorisieren Sie die Benutzer.** Die Führungskräfte und andere Benutzer mit hoher Auswirkung sind in der Regel die zuletzt migrierten Benutzer. Beachten Sie bei der Priorisierung von Benutzern jedoch die Auswirkungen auf die Geschäfts Produktivität, wenn die Migration Ihres Client Computers fehlschlagen würde. Wenn Sie z. b. eine Bewertung von 1 bis 3 haben, d. h., dass der Mitarbeiter nicht arbeiten und 3 bedeutet, dass es keine unmittelbare Arbeitsunterbrechung gibt, wäre ein Wirtschafts Analytiker, der nur interne branchenspezifische Apps (LOB) verwendet, ein 1, während ein Vertriebsmitarbeiter eine Cloud nutzt. die APP wäre eine 3.
 
--   **Jede Abteilung oder Business-Einheit in mehreren Phasen zu migrieren.** Microsoft empfiehlt dringend, dass eine ganze Abteilung nicht zur selben Zeit migriert. Wenn ein Problem auftreten sollte, sollten Sie nicht damit remotearbeit für die gesamte Abteilung zu beeinträchtigen. Migrieren Sie stattdessen jeder Abteilung oder Business-Einheit in mindestens zwei Phasen.
+-   **Migrieren Sie die einzelnen Abteilungen oder Geschäftseinheiten in mehreren Phasen.** Microsoft empfiehlt dringend, eine gesamte Abteilung nicht gleichzeitig zu migrieren. Wenn ein Problem auftreten sollte, ist es nicht ratsam, die Remote Arbeit für die gesamte Abteilung zu behindern. Migrieren Sie stattdessen die einzelnen Abteilungen oder Geschäftseinheiten in mindestens zwei Phasen.
 
--   **Anzahl der Benutzer graduell zu erhöhen.** Häufigste Migrationsszenarien mit Mitgliedern des IT-Unternehmens starten, und klicken Sie dann für Geschäftsbenutzer, gefolgt von der Unternehmensführung und anderen Benutzern mit schwerwiegenden Auswirkungen verschieben. Jede Migrationsphase umfasst in der Regel immer mehr Menschen. Z. B. die erste Phase kann zehn Benutzer enthalten, und die letzte Gruppe möglicherweise 5.000 Benutzer enthalten. Um die Bereitstellung zu vereinfachen, erstellen Sie eine einzelne Sicherheitsgruppe für die VPN-Benutzer, und fügen Sie Benutzer hinzu, wenn deren Phase eingeht. Auf diese Weise erhalten Sie eine einzelne VPN-Benutzer-Gruppe, die Sie in der Zukunft Mitglieder hinzufügen können.
+-   **Erhöhen Sie die Anzahl der Benutzer allmählich.** Die meisten typischen Migrations Szenarios beginnen mit Mitgliedern der IT-Organisation und wechseln dann zu Geschäfts Benutzern, gefolgt von der Führungskraft und anderen Benutzern mit großen Auswirkungen. Jede Migrationsphase umfasst in der Regel mehr Personen. In der ersten Phase können z. b. zehn Benutzer enthalten sein, und die letzte Gruppe kann 5.000 Benutzer enthalten. Um die Bereitstellung zu vereinfachen, erstellen Sie eine einzelne Sicherheitsgruppe für VPN-Benutzer, und fügen Sie Ihr Benutzer hinzu, sobald Ihre Phase eintrifft. Auf diese Weise erhalten Sie eine einzelne Gruppe von VPN-Benutzern, denen Sie in Zukunft Mitglieder hinzufügen können.
 
 [!INCLUDE [always-on-vpn-standard-config-considerations-include](../includes/always-on-vpn-standard-config-considerations-include.md)]
 
@@ -67,8 +67,8 @@ Dieser Abschnitt bietet eine Möglichkeit zum Trennen von Benutzern in Migration
 
 |Wenn Sie möchten...  |Anzeige...  |
 |---------|---------|
-|Starten Sie die Migration zu Always On-VPN-     |[Migrieren zu Always On-VPN- und außer Betrieb setzen DirectAccess](da-always-on-migration-deploy.md). Migration von DirectAccess zu Always On-VPN-erfordert einen bestimmten Prozess muss nach dem Migrieren von Clients, wodurch Racebedingungen zu, die Minimieren von der Durchführung der Schritte bei der Migration außerhalb der Reihenfolge auftreten.         |
-|Erfahren Sie mehr über die Features der Always On-VPN- und DirectAccess    |[Funktionsvergleich zwischen Always On-VPN und DirectAccess](../vpn/vpn-map-da.md). In früheren Versionen der Windows-VPN-Architektur erschwerten Plattform-Einschränkungen das Anbieten wichtiger Funktionen zum Ersetzen von DirectAccess (wie die automatisch initiierte Verbindungen vor der Benutzeranmeldung). Always On VPN hat die meisten dieser Einschränkungen behoben oder die VPN-Funktion über die Funktionen von DirectAccess erweitert.         |
+|Migration zu Always on-VPN starten     |[Migrieren Sie zu Always on VPN, und Außerbetriebnahme von DirectAccess](da-always-on-migration-deploy.md). Für die Migration von DirectAccess zu Always on VPN ist ein bestimmter Prozess zum Migrieren von Clients erforderlich. Dadurch können Racebedingungen minimiert werden, die durch das Ausführen von Migrations Schritten entstehen.         |
+|Erfahren Sie mehr über die Features von Always on VPN und DirectAccess.    |[Funktions Vergleich von Always on-VPN und DirectAccess](../vpn/vpn-map-da.md). In früheren Versionen der Windows-VPN-Architektur erschwerten Plattform-Einschränkungen das Anbieten wichtiger Funktionen zum Ersetzen von DirectAccess (wie die automatisch initiierte Verbindungen vor der Benutzeranmeldung). Always On VPN hat die meisten dieser Einschränkungen behoben oder die VPN-Funktion über die Funktionen von DirectAccess erweitert.         |
 
 
 

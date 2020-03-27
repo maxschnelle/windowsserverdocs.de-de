@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dhcp
 ms.topic: get-started-article
 ms.assetid: c6f36998-5b64-45d1-b1f0-0f0d6604dbe3
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 8032b7c8e78170d57b0367775672577d9fd900e2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 58d849fa1003148b034cc426817b97d3a70d4421
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355451"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312694"
 ---
 # <a name="whats-new-in-dhcp"></a>Neues in DHCP
 
@@ -50,9 +50,9 @@ Die NAP-Unterstützung wurde mit Windows Server 2008 in die DHCP-Server Rolle ei
 |--------------------|---------------|  
 | WindowsServer 2008 |Unterstützt|  
 | Windows Server 2008 R2 |Unterstützt|  
-| Windows Server 2012 |Unterstützt|  
-| Windows Server 2012 R2 |Unterstützt|  
-| Windows Server 2016|Nicht unterstützt.|  
+| Windows Server 2012 |Unterstützt|  
+| Windows Server 2012 R2 |Unterstützt|  
+| Windows Server 2016|Nicht unterstützt|  
   
 In einer NAP-Bereitstellung kann ein DHCP-Server mit einem Betriebssystem, das NAP unterstützt, als NAP-Erzwingungs Punkt für die NAP-Erzwingungs Methode fungieren. Weitere Informationen zu DHCP in NAP finden Sie unter Prüfliste [: Implementieren eines DHCP](https://technet.microsoft.com/library/dd314186.aspx)-Erzwingungs Entwurfs.  
   
@@ -60,7 +60,7 @@ In Windows Server 2016 erzwingen DHCP-Server keine NAP-Richtlinien, und DHCP-Ber
 
 Wenn Server unter Windows Server 2016 RADIUS-Proxys sind, die Authentifizierungsanforderungen an einen Netzwerk Richtlinien Server weiterleiten, \(NPS-\), der NAP unterstützt, werden diese NAP-Clients von NPS als nicht-NAP-\-fähig ausgewertet, und die NAP-Verarbeitung schlägt fehl.
   
-## <a name="see-also"></a>Weitere Informationen  
+## <a name="see-also"></a>Siehe auch  
   
 -   [Dynamic Host Configuration-Protokoll (DHCP)](Dynamic-Host-Configuration-Protocol--DHCP-.md)  
   

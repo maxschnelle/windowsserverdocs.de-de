@@ -1,9 +1,9 @@
 ---
 title: Erstellen eines Abbilds mithilfe von Antwortdateien
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 72809c9d-c2c9-478c-a867-65d3b9a08b95
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 76d335643202c8596437daf3173891eea5d4fafa
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 323360e093fdb768d6501c873b1df3aaac7c7348
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59828491"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312084"
 ---
 # <a name="create-an-image-by-using-answer-files"></a>Erstellen eines Abbilds mithilfe von Antwortdateien
 
@@ -25,14 +25,14 @@ ms.locfileid: "59828491"
 
 Nutzen Sie beim Erstellen eines benutzerdefinierten Abbilds die Unterstützungsdateien, mit denen Daten, Einstellungen und Bedingungen hinzugefügt, geändert oder nachverfolgt werden können. Die folgenden Unterstützungsdateien können während des Installationsvorgangs verwendet werden:  
   
--   [Erstellen Sie die Datei "Oobe.xml" Logo und EULA](Create-the-Oobe.xml-File-Including-Logo-and-EULA.md)  
+-   [Erstellen der Datei „OOBE.xml“ mit Logo und EULA](Create-the-Oobe.xml-File-Including-Logo-and-EULA.md)  
   
--   [Erstellen Sie die Datei "cfg.ini"](Create-the-Cfg.ini-File.md)  
+-   [Erstellen der Datei „Cfg.ini“](Create-the-Cfg.ini-File.md)  
   
--   [Erstellen Sie die Datei "postic.cmd" zum Ausführen von Aufgaben nach der Erstkonfiguration](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md)  
+-   [Erstellen der Datei „PostIC.cmd“ zum Ausführen von Aufgaben nach der Erstkonfiguration](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md)  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Zusätzliche Anpassungen](Additional-Customizations.md)   
+ [Weitere Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)

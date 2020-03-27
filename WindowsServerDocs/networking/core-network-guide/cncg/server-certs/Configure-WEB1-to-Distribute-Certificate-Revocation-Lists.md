@@ -6,22 +6,22 @@ ms.topic: article
 ms.assetid: fa4a8c41-8c2a-425c-8511-736fe5d196ac
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5d53cbba37699346db110f0748a9c3e0c834c18e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 3319715e70c1e68739a10a4c67a9fa404d5ad80e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356286"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318417"
 ---
 # <a name="configure-web1-to-distribute-certificate-revocation-lists-crls"></a>Konfigurieren von WEB1 zum Verteilen von Zertifikat Sperr Listen (CRLs)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Mithilfe dieses Verfahrens können Sie den Webserver WEB1 für die Verteilung von CRLs konfigurieren.  
   
-In den Erweiterungen der Stamm Zertifizierungsstelle wurde angegeben, dass die CRL der Stamm Zertifizierungsstelle über https://pki.corp.contoso.com/pki verfügbar wäre. Zurzeit ist kein virtuelles PKI-Verzeichnis auf WEB1 vorhanden, daher muss eine erstellt werden.  
+In den Erweiterungen der Stamm Zertifizierungsstelle wurde festgestellt, dass die CRL der Stamm Zertifizierungsstelle über https://pki.corp.contoso.com/pkiverfügbar wäre. Zurzeit ist kein virtuelles PKI-Verzeichnis auf WEB1 vorhanden, daher muss eine erstellt werden.  
   
 Um dieses Verfahren auszuführen, müssen Sie Mitglied der Gruppe " **Domänen-Admins**" sein.  
   
@@ -30,7 +30,7 @@ Um dieses Verfahren auszuführen, müssen Sie Mitglied der Gruppe " **Domänen-A
   
 #### <a name="to-configure-web1-to-distribute-certificates-and-crls"></a>So konfigurieren Sie WEB1 für die Verteilung von Zertifikaten und CRLs  
   
-1.  Führen Sie auf WEB1 Windows PowerShell als Administrator aus, geben Sie "`explorer c:\`" ein, und drücken Sie dann die EINGABETASTE. Windows-Explorer wird mit Laufwerk C geöffnet.   
+1.  Führen Sie auf WEB1 Windows PowerShell als Administrator aus, geben Sie `explorer c:\`ein, und drücken Sie dann die EINGABETASTE. Windows-Explorer wird mit Laufwerk C geöffnet.   
   
 2.  Erstellen Sie auf Laufwerk C: einen neuen Ordner mit dem Namen PKI. Klicken Sie hierzu auf **Startseite**, und klicken Sie dann auf **neuer Ordner**. Es wird ein neuer Ordner erstellt, in dem der temporäre Name hervorgehoben ist. Geben Sie **PKI** ein, und drücken Sie die EINGABETASTE  
   
@@ -40,13 +40,13 @@ Um dieses Verfahren auszuführen, müssen Sie Mitglied der Gruppe " **Domänen-A
   
 5.  Schließen Sie Windows-Explorer.  
   
-6.  Öffnen Sie die IIS-Konsole. Klicken Sie in Server-Manager auf **Extras**, klicken Sie auf Verwaltung, und klicken Sie dann auf **Internetinformationsdienste-Manager**.  
+6.  Öffnen Sie die IIS-Konsole. Klicken Sie im Server-Manager auf **Extras** und anschließend auf **Internetinformationsdienste-Manager**.  
   
 7.  Erweitern Sie in der Konsolen Struktur Internetinformationsdienste (IIS)-Manager den Eintrag **WEB1**. Wenn Sie gefragt werden, ob Sie mit Microsoft-Webplattform beginnen möchten, klicken Sie auf **Abbrechen**.  
   
-8.  Erweitern Sie **Websites**, klicken Sie mit der rechten Maustaste auf **Standardwebsite**, und klicken Sie dann auf **Virtuelles Verzeichnis hinzufügen**.  
+8.  Erweitern Sie **Websites**, klicken Sie mit der rechten Maustaste auf **Default Web Site**, und klicken Sie dann auf **Virtuelles Verzeichnis hinzufügen**.  
   
-9. GebenSie als Alias **PKI**ein. Geben Sie unter **physischer Pfad** **c:\pki**ein, und klicken Sie dann auf **OK**.  
+9. Geben **Alias**Sie als Alias **PKI**ein. Geben Sie unter **physischer Pfad** **c:\pki**ein, und klicken Sie dann auf **OK**.  
   
 10. Aktivieren Sie den anonymen Zugriff auf das virtuelle PKI-Verzeichnis, sodass jeder Client die Gültigkeit der Zertifizierungsstellen Zertifikate und CRLs überprüfen kann. Gehen Sie hierzu wie folgt vor:  
   
@@ -72,7 +72,7 @@ Um dieses Verfahren auszuführen, müssen Sie Mitglied der Gruppe " **Domänen-A
   
 13. Im Bereich **Anforderungsfilterung** ist die Registerkarte **Dateinamenerweiterungen** standardmäßig ausgewählt. Klicken Sie im Bereich **Aktionen** auf **Featureeinstellungen bearbeiten**.  
   
-14. Wählen Sie unter **Einstellungen für die Anforderungsfilterung bearbeiten**die Option **Doppelte Escapezeichen zulassen** aus, und klicken Sie dann auf **OK**.  
+14. Wählen Sie unter **Einstellungen für die Anforderungsfilterung bearbeiten** die Option **Doppelte Escapezeichen zulassen** aus, und klicken Sie dann auf **OK**.  
   
 15. Klicken Sie im Internetinformationsdienste (IIS)-Manager-MMC auf den Namen Ihres Webservers. Wenn der Webserver z. b. den Namen WEB1 hat, klicken Sie auf **WEB1**.  
   

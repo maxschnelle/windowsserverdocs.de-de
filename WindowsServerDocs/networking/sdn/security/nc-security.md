@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: bc625de9-ee31-40a4-9ad2-7448bfbfb6e6
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/30/2018
-ms.openlocfilehash: 54a8b9490fdf83d04c6b69fa88f4e8beca4f703a
-ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
+ms.openlocfilehash: 196a124533b98c6945186ee827494b206028d2c8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259065"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317403"
 ---
 # <a name="secure-the-network-controller"></a>Sichern des Netzwerk-Controllers
 
@@ -125,7 +125,7 @@ Für jeden Authentifizierungsmodus, der vom Netzwerk Controller unterstützt wir
 
 Die Kommunikation zwischen den Netzwerk Controller Knoten wird mithilfe der WCF-Transport Schicht Verschlüsselung verschlüsselt. Diese Art der Verschlüsselung wird verwendet, wenn die Authentifizierungs-und Autorisierungs Methoden entweder Kerberos-oder X509-Zertifikate sind. Weitere Informationen finden Sie in den folgenden Themen.
 
-- [Vorgehensweise: Sichern eines Dienstes mit Windows-Anmeldeinformationen](https://docs.microsoft.com/dotnet/framework/wcf/how-to-secure-a-service-with-windows-credentials)
+- [Vorgehensweise: Sichern eines Dienstanbieter mit Windows-Anmelde Informationen](https://docs.microsoft.com/dotnet/framework/wcf/how-to-secure-a-service-with-windows-credentials)
 - Vorgehens [Weise: Sichern eines Dienstanbieter mit X. 509-Zertifikaten](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-secure-a-service-with-an-x-509-certificate).
 
 ## <a name="southbound-communication"></a>Southbound-Kommunikation

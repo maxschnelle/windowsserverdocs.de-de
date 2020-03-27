@@ -10,19 +10,19 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: networking-sdn
 ms.assetid: 3c361575-1050-46f4-ac94-fa42102f83c1
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/30/2018
-ms.openlocfilehash: 158183bab74e6e45c36c579f3259fc2095a939b5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: db634af114610cce0bdbcacd58986ceb5f00dd99
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406049"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317584"
 ---
 # <a name="use-network-virtual-appliances-on-a-virtual-network"></a>Verwenden virtueller Netzwerkgeräte in einem virtuellen Netzwerk
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie virtuelle Netzwerkgeräte in virtuellen Mandanten Netzwerken bereitstellen. Sie können virtuelle Netzwerkgeräte zu Netzwerken hinzufügen, die benutzerdefinierte Routing-und Port Spiegelungs Funktionen ausführen.
 
@@ -44,7 +44,7 @@ Für einige Geräte sind mehrere virtuelle Netzwerkadapter erforderlich. Normale
 Nachdem Sie das virtuelle Netzwerkgerät bereitgestellt haben, können Sie das Gerät für das definierte Routing, das Portieren von Spiegelung oder beides verwenden. 
 
 
-## <a name="example-user-defined-routing"></a>Beispiel: Benutzerdefiniertes Routing
+## <a name="example-user-defined-routing"></a>Beispiel: benutzerdefiniertes Routing
 
 In den meisten Umgebungen benötigen Sie nur die System Routen, die bereits vom verteilten Router des virtuellen Netzwerks definiert wurden. Möglicherweise müssen Sie jedoch eine Routing Tabelle erstellen und eine oder mehrere Routen in bestimmten Fällen hinzufügen, z. b.:
 
@@ -83,7 +83,7 @@ Subnetze basieren auf System Routen, bis eine Routing Tabelle dem Subnetz zugeor
     $routetable = New-NetworkControllerRouteTable -ConnectionUri $uri -ResourceId "Route1" -Properties $routetableproperties
    ```
 
-4. Wenden Sie die Routing Tabelle auf das virtuelle Subnetz an.<p>Wenn Sie die Routing Tabelle auf das virtuelle Subnetz anwenden, verwendet das erste virtuelle Subnetz im Netzwerk Tenant1_Vnet1 die Routing Tabelle. Sie können die Routentabelle beliebig viele Subnetze im virtuellen Netzwerk zuweisen.
+4. Wenden Sie die Routing Tabelle auf das virtuelle Subnetz an.<p>Wenn Sie die Routing Tabelle auf das virtuelle Subnetz anwenden, verwendet das erste virtuelle Subnetz im Tenant1_Vnet1 Netzwerk die Routing Tabelle. Sie können die Routentabelle beliebig viele Subnetze im virtuellen Netzwerk zuweisen.
 
    ```PowerShell
     $vnet = Get-NetworkControllerVirtualNetwork -ConnectionUri $uri -ResourceId "Tenant1_VNet1"
@@ -95,7 +95,7 @@ Sobald Sie die Routing Tabelle auf das virtuelle Netzwerk anwenden, wird der Dat
 
 ## <a name="example-port-mirroring"></a>Beispiel: Port Spiegelung
 
-In diesem Beispiel konfigurieren Sie den Datenverkehr für MyVM_Ethernet1, um Appliance_Ethernet1 zu spiegeln.  Wir gehen davon aus, dass Sie zwei VMS bereitgestellt haben, eine als Appliance und die andere als die VM, die mit Spiegelung überwacht werden soll. 
+In diesem Beispiel konfigurieren Sie den Datenverkehr für die MyVM_Ethernet1, um Appliance_Ethernet1 zu spiegeln.  Wir gehen davon aus, dass Sie zwei VMS bereitgestellt haben, eine als Appliance und die andere als die VM, die mit Spiegelung überwacht werden soll. 
 
 Die Appliance muss über eine zweite Netzwerkschnittstelle für die Verwaltung verfügen. Nachdem Sie die Spiegelung als Ziel auf Appliciance_Ethernet1 aktiviert haben, empfängt Sie keinen Datenverkehr mehr, der für die hier konfigurierte IP-Schnittstelle bestimmt ist.
 
@@ -168,6 +168,6 @@ Die Appliance muss über eine zweite Netzwerkschnittstelle für die Verwaltung v
    $srcNic = New-NetworkControllerNetworkInterface -ConnectionUri $uri  -Properties $srcNic.Properties -ResourceId $srcNic.ResourceId
    ```
 
-Nachdem Sie diese Schritte ausgeführt haben, spiegelt die Appliance_Ethernet1-Schnittstelle den Datenverkehr von der MyVM_Ethernet1-Schnittstelle.
+Nachdem Sie diese Schritte ausgeführt haben, spiegelt die Appliance_Ethernet1-Schnittstelle den Datenverkehr von der MyVM_Ethernet1 Schnittstelle wider.
  
 ---

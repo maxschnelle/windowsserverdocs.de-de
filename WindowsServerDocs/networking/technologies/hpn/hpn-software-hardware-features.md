@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 0cafb1cc-5798-42f5-89b6-3ffe7ac024ba
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/12/2018
-ms.openlocfilehash: f032717b9f4dca65454d8251083b73ff2d57dba7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 93913acbe598c4fd1b8ee5556dbf70013f3d714a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355322"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316947"
 ---
 # <a name="software-and-hardware-sh-integrated-features-and-technologies"></a>Integration von Software und Hardware (SH)-Features und -Technologien
 
@@ -70,7 +70,7 @@ IPSec-Task Abladung ist eine NIC-Funktion, mit der das Betriebssystem den Prozes
 
 Pvlans ermöglichen die Kommunikation nur zwischen virtuellen Maschinen auf demselben Virtualisierungsserver. Ein privates virtuelles Netzwerk ist nicht an einen physischen Netzwerkadapter gebunden. Ein privates virtuelles Netzwerk ist von dem gesamten externen Netzwerk Datenverkehr auf dem Virtualisierungsserver sowie von Netzwerk Datenverkehr zwischen dem Verwaltungs Betriebssystem und dem externen Netzwerk isoliert. Dieser Netzwerktyp ist nützlich, wenn Sie eine isolierten Netzwerkumgebung erstellen müssen, wie z. B. eine isolierte Testdomäne. Die Hyper-V-und Sdn-Stapel unterstützen nur den isolierten pvlan-Port Modus.
 
-Weitere Informationen zur pvlan-Isolation finden [Sie unter System Center: Virtual Machine Manager Engineering-](https://blogs.technet.microsoft.com/scvmm/2013/06/04/logical-networks-part-iv-pvlan-isolation/)Blog.
+Ausführliche Informationen zur pvlan-Isolation finden Sie im [Blog zu System Center: Virtual Machine Manager Engineering](https://blogs.technet.microsoft.com/scvmm/2013/06/04/logical-networks-part-iv-pvlan-isolation/).
 
 ## <a name="remote-direct-memory-access-rdma"></a>Remotezugriff auf den direkten Speicher (RDMA) 
 
@@ -90,7 +90,7 @@ SR-IOV ermöglicht es dem VM-Datenverkehr, direkt von der NIC zum virtuellen Com
 
 Datenverkehr, der SR-IOV verwendet, umgeht den Hyper-V-Switch, was bedeutet, dass alle Richtlinien, z. b. ACLs oder die Bandbreiten Verwaltung, nicht angewendet werden. SR-IOV-Datenverkehr kann auch nicht über eine netzwerkvirtualisierungsfunktion durchgeführt werden, daher können NV-GRE oder vxlan-Kapselung nicht angewendet werden. Verwenden Sie SR-IOV nur für gut vertrauenswürdige Workloads in bestimmten Situationen. Darüber hinaus können Sie die Host Richtlinien, die Bandbreiten Verwaltung und die Virtualisierungstechnologien nicht verwenden.
 
-In Zukunft ermöglichen zwei Technologien SR-IOV: Generische Fluss Tabellen (GFT) und Hardware-QoS-Auslagerung (Bandbreiten Verwaltung in der NIC) – Sobald die NICs in unserem Ökosystem diese unterstützen. Durch die Kombination dieser beiden Technologien könnte SR-IOV für alle virtuellen Computer nützlich sein, Richtlinien für die Verwaltung von Richtlinien, Virtualisierung und Bandbreiten Verwaltung ermöglichen und in der allgemeinen Anwendung von SR-IOV hervorragend vorankommen.
+In Zukunft ermöglichen zwei Technologien SR-IOV: generische Fluss Tabellen (GFT) und Hardware-QoS-Auslagerung (Bandbreiten Verwaltung in der NIC) – Sobald die NICs in unserem Ökosystem diese unterstützen. Durch die Kombination dieser beiden Technologien könnte SR-IOV für alle virtuellen Computer nützlich sein, Richtlinien für die Verwaltung von Richtlinien, Virtualisierung und Bandbreiten Verwaltung ermöglichen und in der allgemeinen Anwendung von SR-IOV hervorragend vorankommen.
 
 Weitere Informationen finden Sie unter [Übersicht über Single root I/O Virtualization (SR-IOV)](https://docs.microsoft.com/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-).
 

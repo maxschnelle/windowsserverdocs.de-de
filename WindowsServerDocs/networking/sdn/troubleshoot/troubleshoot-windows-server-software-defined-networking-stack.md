@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: 9be83ed2-9e62-49e8-88e7-f52d3449aac5
-ms.author: pashort
+ms.author: lizross
 author: JMesser81
 ms.date: 08/14/2018
-ms.openlocfilehash: 2782419f0c3d99e7ec7f4ee3389f174df400bd55
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 5827ad3b23d6f084e0138bf34ad47223eccb4e76
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949927"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312846"
 ---
 # <a name="troubleshoot-the-windows-server-software-defined-networking-stack"></a>Problembehandlung für die Windows Server-Software Defined Networking-Stapel
 
@@ -121,9 +121,9 @@ Message:          Host is not Connected.
 Die folgende Tabelle zeigt die Liste der Fehlercodes, Meldungen und nach Verfolgungs Aktionen, die basierend auf dem beobachteten Konfigurations Status ausgeführt werden müssen.
 
 
-| **Code**| **Message**| **Aktion**|  
+| **Ordnung**| **Nachricht**| **Aktion**|  
 |--------|-----------|----------|  
-| Unbekannt| Unbekannter Fehler| |  
+| Unbekannt| Unbekannter Fehler.| |  
 | Host nicht erreichbar                       | Der Host Computer ist nicht erreichbar. | Überprüfen Sie die Konnektivität des Verwaltungs Netzwerks zwischen Netzwerk Controller und Host. |  
 | "Pipadressssextrasted"                  | Die PA-IP-Adressen sind erschöpft | Vergrößern der IP-Pool Größe des HNV-Anbieters des logischen Subnetzes |  
 | Pamacadressssextrasted                 | Die PA-Mac-Adressen sind erschöpft | Vergrößern des Mac-Pool Bereichs |  
@@ -196,7 +196,7 @@ Die Module des Netzwerk Controller Dienstanbieter lauten wie folgt:
 - Gatewaymanager
 - Fnmservice
 - Helperservice
-- UpdateService
+- PLB
 
 Überprüfen Sie, ob replicastatus **bereit** ist und healthstate den Wert **OK**aufweist.
 
@@ -234,7 +234,7 @@ ResourceId       : 4c4c4544-0056-4a10-8059-b8c04f395931
 Properties       : Microsoft.Windows.NetworkController.ServerProperties
 ```
 
-Wiederherstellung Wenn Sie sdnexpress-Skripts oder die manuelle Bereitstellung verwenden, aktualisieren Sie den Hostid-Schlüssel in der Registrierung entsprechend der Instanz-ID der Server Ressource. Starten Sie den Netzwerk Controller-Host-Agent auf dem Hyper-v-Host (physischer Server), wenn Sie VMM verwenden, löschen Sie den Hyper-V-Server aus VMM, und entfernen Sie den Hostid-Registrierungsschlüssel. Fügen Sie den Server dann über VMM erneut hinzu.
+*Remediation* Wiederherstellung Wenn Sie sdnexpress-Skripts oder die manuelle Bereitstellung verwenden, aktualisieren Sie den Hostid-Schlüssel in der Registrierung entsprechend der Instanz-ID der Server Ressource. Starten Sie den Netzwerk Controller-Host-Agent auf dem Hyper-v-Host (physischer Server), wenn Sie VMM verwenden, löschen Sie den Hyper-V-Server aus VMM, und entfernen Sie den Hostid-Registrierungsschlüssel. Fügen Sie den Server dann über VMM erneut hinzu.
 
 
 Überprüfen Sie, ob die Fingerabdrücke der X. 509-Zertifikate, die vom Hyper-v-Host verwendet werden (der Hostname ist der Antragsteller Name des Zertifikats), für die (Southbound) Kommunikation zwischen dem Hyper-v-Host (NC-Host-Agent-Dienst) und den Netzwerk Controller Knoten identisch sind. Überprüfen Sie auch, ob das Rest-Zertifikat des Netzwerk Controllers den Antragsteller Namen *CN =<FQDN or IP>* hat.
@@ -270,7 +270,7 @@ Sie können auch die folgenden Parameter jedes Zertifikats überprüfen, um sich
 - Ablaufdatum  
 - Vertrauenswürdig durch Stamm Zertifizierungsstelle  
 
-Wiederherstellung Wenn mehrere Zertifikate denselben Antragsteller Namen auf dem Hyper-V-Host aufweisen, wählt der Netzwerk Controller-Host-Agent nach dem Zufallsprinzip einen aus, der dem Netzwerk Controller vorgelegt werden soll. Dies entspricht möglicherweise nicht dem Fingerabdruck der Server Ressource, die dem Netzwerk Controller bekannt ist. Löschen Sie in diesem Fall eines der Zertifikate mit dem gleichen Antragsteller Namen auf dem Hyper-V-Host, und starten Sie dann den Netzwerk Controller-Host-Agent-Dienst neu. Wenn noch keine Verbindung hergestellt werden kann, löschen Sie das andere Zertifikat mit dem gleichen Antragsteller Namen auf dem Hyper-V-Host, und löschen Sie die entsprechende Server Ressource in VMM. Erstellen Sie dann die Server Ressource in VMM neu, wodurch ein neues X. 509-Zertifikat generiert und auf dem Hyper-V-Host installiert wird.
+*Remediation* Wiederherstellung Wenn mehrere Zertifikate denselben Antragsteller Namen auf dem Hyper-V-Host aufweisen, wählt der Netzwerk Controller-Host-Agent nach dem Zufallsprinzip einen aus, der dem Netzwerk Controller vorgelegt werden soll. Dies entspricht möglicherweise nicht dem Fingerabdruck der Server Ressource, die dem Netzwerk Controller bekannt ist. Löschen Sie in diesem Fall eines der Zertifikate mit dem gleichen Antragsteller Namen auf dem Hyper-V-Host, und starten Sie dann den Netzwerk Controller-Host-Agent-Dienst neu. Wenn noch keine Verbindung hergestellt werden kann, löschen Sie das andere Zertifikat mit dem gleichen Antragsteller Namen auf dem Hyper-V-Host, und löschen Sie die entsprechende Server Ressource in VMM. Erstellen Sie dann die Server Ressource in VMM neu, wodurch ein neues X. 509-Zertifikat generiert und auf dem Hyper-V-Host installiert wird.
 
 
 #### <a name="check-the-slb-configuration-state"></a>Überprüfen des SLB-Konfigurations Status
@@ -441,7 +441,7 @@ C:\> ping -c 3 10.10.182.66 -S 10.10.182.65
 C:\> ping -c 3 10.10.182.67 -S 10.10.182.65
 ```
 
-Wiederherstellung Wenn der HNV-Anbieter Ping nicht funktioniert, überprüfen Sie die physische Netzwerk Konnektivität einschließlich der VLAN-Konfiguration. Die physischen NICs auf den einzelnen Hyper-V-Hosts sollten sich im trunk Modus befinden, ohne dass ein bestimmtes VLAN zugewiesen ist. Die vNIC des Verwaltungs Hosts sollte in das VLAN des logischen Verwaltungs Netzwerks isoliert werden.
+*Remediation* Wiederherstellung Wenn der HNV-Anbieter Ping nicht funktioniert, überprüfen Sie die physische Netzwerk Konnektivität einschließlich der VLAN-Konfiguration. Die physischen NICs auf den einzelnen Hyper-V-Hosts sollten sich im trunk Modus befinden, ohne dass ein bestimmtes VLAN zugewiesen ist. Die vNIC des Verwaltungs Hosts sollte in das VLAN des logischen Verwaltungs Netzwerks isoliert werden.
 
 ```none
 PS C:\> Get-NetAdapter "Ethernet 4" |fl
@@ -527,7 +527,7 @@ Cannot send jumbo packets to the destination. Physical switch ports may not be c
 # TODO: Success Results aftering updating MTU on physical switch ports
 ```
 
-*Wartung*
+*Erungs*
 * Passen Sie die MTU-Größe auf den physischen Switchports auf mindestens 1674b an (einschließlich 14B-Ethernet-Header und-Nachspann).
 * Wenn Ihre NIC-Karte das encapoverhead-Schlüsselwort nicht unterstützt, passen Sie das Wort "jumbopacket" auf mindestens 1674b an.
 
@@ -597,7 +597,7 @@ Informationen zum PA-Routing:
     Local PA IP: 10.10.182.66
     Remote PA IP: 10.10.182.65
 
- <snip> ...
+ <snip>...
 
 4. Tenant Überprüfen Sie, ob für das virtuelle Subnetz oder die VM-Netzwerkschnittstellen keine verteilten Firewallrichtlinien angegeben sind, die den Datenverkehr blockieren würden.    
 
@@ -658,7 +658,7 @@ Wenn kein Speicherort angegeben wurde, wird die lokale Protokollierung auf jedem
 - Ncapplicationlogs
 - PerfCounters
 - Sdndiagnostics
-- Überwachungen
+- Traces
 
 Der Netzwerk Controller verwendet (Azure) Service Fabric. Bei der Behebung bestimmter Probleme sind möglicherweise Service Fabric Protokolle erforderlich. Diese Protokolle befinden sich auf jedem Netzwerk Controller Knoten unter "c:\programdata\microsoft\service Fabric".
 

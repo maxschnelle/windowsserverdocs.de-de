@@ -9,12 +9,12 @@ manager: jgerend
 ms.date: 01/28/2020
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 08135ed3454bb22db1c2b0fa3a14a8342fbc2dab
-ms.sourcegitcommit: 8b801bd86e2ddf8255899b11f547daa920e5f651
+ms.openlocfilehash: 2249a69f60fe87758c74a58aa13b47124da41361
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80110663"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319373"
 ---
 # <a name="deploy-azure-virtual-machines-from-within-windows-admin-center"></a>Bereitstellen von virtuellen Azure-Computern innerhalb des Windows Admin Centers
 
@@ -53,6 +53,10 @@ Azure-VM-Bereitstellungs Schritte und-Assistenten variieren je nach Szenario. Au
 Dadurch wird ein schrittweises Erstellungs Tool gestartet, mit dem ein Windows Server 2012 R2-, Windows Server 2016-oder Windows Server 2019-virtueller Azure-Computer als Ziel für die Migration ausgewählt wird. Storage Migration Service bietet Empfohlene VM-Größen für Ihre Quelle, Sie können Sie jedoch außer Kraft setzen, indem Sie auf **alle Größen**anzeigen klicken.
 <br><br>Quell Serverdaten werden auch verwendet, um Ihre verwalteten Datenträger und Ihre Dateisysteme automatisch zu konfigurieren und ihren neuen virtuellen Azure-Computer mit Ihrer Active Directory Domäne zu verknüpfen. Wenn es sich bei der VM um Windows Server 2019 (was wir empfehlen) handelt, installiert das Windows Admin Center die Proxy Funktion des Storage-Migrations Dienstanbieter. Nachdem die Azure-VM erstellt wurde, kehrt das Windows Admin Center zum normalen Übertragungs Workflow für den Speicher Migrationsdienst zurück.  
 
+Im folgenden Video wird gezeigt, wie Sie mithilfe von Storage Migration Service zu Azure-VMS migrieren.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/k8Z9LuVL0xQ] 
+
 ### <a name="deploying-azure-vms-as-part-of-storage-replica"></a>Bereitstellen von virtuellen Azure-Computern
 
 1. Wählen Sie aus dem *Speicher Replikat* Tool im Windows Admin Center auf der Registerkarte *Partnerschaften* die Option **neu** aus, **und klicken Sie**dann unter *Replikation mit einem anderen Server* auf **neuen virtuellen Azure** -Computer verwenden.
@@ -60,7 +64,7 @@ Dadurch wird ein schrittweises Erstellungs Tool gestartet, mit dem ein Windows S
 Dadurch wird ein Prozess gestartet, bei dem automatisch ein virtueller Azure-Computer unter Windows Server 2016 oder Windows Server 2019 als Ziel für die Migrations Quelle ausgewählt wird. Storage Migration Service empfiehlt VM-Größen, die ihrer Quelle entsprechen. Sie können dies jedoch überschreiben, indem Sie **alle Größen**anzeigen auswählen. Inventur Daten werden verwendet, um Ihre verwalteten Datenträger und Ihre Dateisysteme automatisch zu konfigurieren und ihre neue Azure-VM mit Ihrer Active Directory Domäne zu verknüpfen. 
 3. Nachdem das Windows Admin Center die Azure-VM erstellt hat, geben Sie einen Replikations Gruppennamen an, und wählen Sie dann **Erstellen** Das Windows Admin Center beginnt dann mit der erst Synchronisierung des normalen Speicher Replikats, um die Daten zu schützen.
 
-Im folgenden Video wird gezeigt, wie Sie das Speicher Replikat für die Migration zu Azure-VMS verwenden.
+Im folgenden Video wird gezeigt, wie Sie das Speicher Replikat für die Replikation auf Azure-VMS verwenden.
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/_VqD7HjTewQ] 
 

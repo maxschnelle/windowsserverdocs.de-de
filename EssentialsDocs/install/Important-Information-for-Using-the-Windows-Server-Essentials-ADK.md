@@ -1,9 +1,9 @@
 ---
 title: Wichtige Informationen zur Verwendung von Windows Server Essentials ADK
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,18 +12,18 @@ ms.assetid: 26cb2992-1250-4672-98ee-8b870baa45d5
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 4dec1fdf01538ca119b991675f932d2d8ec1e097
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9a06f3b6431ae6079869e1d7fe9bc3f0ef5e597b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59838641"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311746"
 ---
 # <a name="important-information-for-using-the-windows-server-essentials-adk"></a>Wichtige Informationen zur Verwendung von Windows Server Essentials ADK
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Zum Erstellen und Anpassen eines Abbilds von Windows Server Essentials, verwenden Sie viele der Tools in der [Windows 8 ADK](https://go.microsoft.com/fwlink/?LinkId=248647), aber es einige wichtige Unterschiede zwischen dem Windows 8 ADK und dem Windows Server Essentials ADK gibt.  
+Zum Erstellen und Anpassen eines Images von Windows Server Essentials verwenden Sie viele der Tools im [Windows 8 ADK](https://go.microsoft.com/fwlink/?LinkId=248647). es gibt jedoch einige wichtige Unterschiede zwischen dem Windows 8 ADK und dem Windows Server Essentials ADK.  
   
  Sie sollten sich der folgenden wichtigen Unterschiede bewusst sein:  
   
@@ -31,23 +31,23 @@ Zum Erstellen und Anpassen eines Abbilds von Windows Server Essentials, verwende
   
 ## <a name="working-with-passwords"></a>Arbeiten mit Kennwörtern  
   
--   Das Kennwort des Administrators wird festgelegt, um Admin@123 und die automatische Anmeldung in der Install.wim\unattend.xml aktiviert ist. Daher ist es nicht erforderlich, das Kennwort während der Erstkonfiguration des Servers mehrere Male einzugeben. Wenn im Stammverzeichnis des Wechselmediums eine benutzerdefinierte Datei "unattend.xml" vorhanden ist, werden diese Einstellungen überschrieben, und Sie müssen das Kennwort und die Anmeldung während des Starts festlegen.  
+-   Das Kennwort des Administrators ist auf Admin@123 festgelegt, und die automatische Anmeldung wird in der Datei "install. wim\unattend.xml" aktiviert. Daher ist es nicht erforderlich, das Kennwort während der Erstkonfiguration des Servers mehrere Male einzugeben. Wenn im Stammverzeichnis des Wechselmediums eine benutzerdefinierte Datei "unattend.xml" vorhanden ist, werden diese Einstellungen überschrieben, und Sie müssen das Kennwort und die Anmeldung während des Starts festlegen.  
   
 -   Während der Erstkonfiguration wird der Endbenutzer aufgefordert, ein neues Konto und ein Kennwort zu erstellen. Dieses neue Konto wird das Netzwerkadministratorkonto für das Betriebssystem. Das Administratorkonto und die automatische Anmeldung werden anschließend deaktiviert. Sie können diesen Vorgang mithilfe der Datei "Cfg.ini" für Tests zur Qualitätssicherung automatisieren.  
   
 -   Ausführliche Informationen zum Erstellen einer Datei „unattend.xml“ finden Sie in der Dokumentation zum [Windows 8 ADK](https://go.microsoft.com/fwlink/?LinkId=248694) .  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 
- [Erste Schritte mit Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Die ersten Schritte mit dem Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md) -   
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Zusätzliche Anpassungen](Additional-Customizations.md)   
+ [Weitere Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)
 
- [Erste Schritte mit Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+ [Die ersten Schritte mit dem Windows Server Essentials ADK](../install/Getting-Started-with-the-Windows-Server-Essentials-ADK.md) -   
  [Erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
- [Zusätzliche Anpassungen](../install/Additional-Customizations.md)   
+ [Weitere Anpassungen](../install/Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)
 

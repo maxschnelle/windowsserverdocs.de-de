@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b1b2fe70-7956-46e8-a3e3-43848868df09
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: d0de5f459e31e1dfac40e49cd6cc83de8722df4d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 5b86cbe970c60f0684f3f6e5198fa91bbb9745b1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404428"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313687"
 ---
 # <a name="deploy-remote-access-with-otp-authentication"></a>Bereitstellen des Remotezugriffs mit OTP-Authentifizierung
 
@@ -25,10 +25,10 @@ ms.locfileid: "71404428"
 
  Windows Server 2016 und Windows Server 2012 kombinieren DirectAccess und Routing-und RAS-Dienst \(RRAS-\)-VPN zu einer einzigen Remote Zugriffs Rolle.   
 
-## <a name="BKMK_OVER"></a>Szenariobeschreibung  
+## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Szenariobeschreibung  
 In diesem Szenario wird ein RAS-Server, auf dem DirectAccess aktiviert ist, so konfiguriert, dass er DirectAccess-Client Benutzer mit zwei\-Factor-Kenn Wort \(\) Authentifizierung zusätzlich zu den standardmäßigen Active Directory Anmelde Informationen authentifiziert.  
   
-## <a name="prerequisites"></a>Voraussetzungen  
+## <a name="prerequisites"></a>Erforderliche Komponenten  
 Bevor Sie mit der Bereitstellung dieses Szenarios beginnen, sollten Sie die Liste der wichtigen Anforderungen lesen:  
   
 -   [Eine Bereitstellung eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen](../../directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md) muss vor der Bereitstellung von OTP bereitgestellt werden.  
@@ -54,7 +54,7 @@ Das Szenario für die OTP-Authentifizierung besteht aus mehreren Schritten:
   
 4.  [Problembehandlung bei der OTP-Bereitstellung] ((/troubleshoot/Troubleshoot-an-OTP-Deployment.md). In diesem Abschnitt zur Problembehandlung werden einige der häufigsten Fehler beschrieben, die beim Bereitstellen des Remote Zugriffs mit OTP-Authentifizierung auftreten können.  
   
-## <a name="BKMK_APP"></a>Praktische Anwendungen  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Praktische Anwendungen  
 Erhöhung der Sicherheit: die Verwendung von OTP erhöht die Sicherheit Ihrer DirectAccess-Bereitstellung. Ein Benutzer benötigt OTP-Anmeldeinformationen, um auf das interne Netzwerk zugreifen zu können. Ein Benutzer gibt OTP-Anmelde Informationen über die in den Netzwerkverbindungen auf dem Windows 10-oder Windows 8-Client Computer verfügbaren Arbeitsplatz Verbindungen oder mithilfe des DirectAccess-konnektivitätsassistenten \(DCA-\) auf Client Computern unter Windows 7 an. Der OTP-Authentifizierungsprozess läuft wie folgt ab:  
   
 1.  Der DirectAccess-Client gibt die Domänen Anmelde Informationen ein, um über den Infrastruktur Tunnel\)auf DirectAccess-Infrastruktur Server zuzugreifen \(.  Wenn aufgrund eines bestimmten IKE-Fehlers keine Verbindung zum internen Netzwerk verfügbar ist, erhält der Benutzer über die Arbeitsplatzverbindungen des Clientcomputers eine Benachrichtigung, dass Anmeldeinformationen eingegeben werden müssen. Auf Client Computern, auf denen Windows 7 ausgeführt wird, wird ein Popup\-anfordernder Smartcardanmelde Informationen angezeigt.  
@@ -69,7 +69,7 @@ Erhöhung der Sicherheit: die Verwendung von OTP erhöht die Sicherheit Ihrer Di
   
 6.  Der Clientcomputer verwendet dieses Zertifikat für eine transparente Standard-Kerberos-Authentifizierung mit einer Smartcard.  
   
-## <a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und Features  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und Features  
 Die folgende Tabelle enthält die für dieses Szenario erforderlichen Rollen und Features:  
   
 |Rollen\/Funktion|Auf welche Weise dieses Szenario unterstützt wird|  
@@ -77,7 +77,7 @@ Die folgende Tabelle enthält die für dieses Szenario erforderlichen Rollen und
 |*Rollen für die Remote Zugriffs Verwaltung*|Diese Rolle wird mithilfe der Server-Manager-Konsole installiert und deinstalliert. Diese Rolle umfasst DirectAccess (zuvor ein Feature in Windows Server 2008 R2) sowie die Routing-und RAS-Dienste, die zuvor ein Rollen Dienst unter der Netzwerk Richtlinien-und Zugriffs Dienste \(NPAS\) Server Rolle waren. Die Remotezugriffs-Rolle besteht aus zwei Komponenten:<br /><br />1. DirectAccess-und Routing-und RAS-Dienste \(RRAS\) VPN-DirectAccess und VPN werden in der Remote Zugriffs-Verwaltungskonsole verwaltet.<br />2. RRAS-Routing-RRAS-Routing Features werden in der Legacy-Routing-und Remote Zugriffs Konsole verwaltet.<br /><br />Die Remotezugriffsrolle ist von den folgenden Serverfeatures abhängig:<br /><br />-Internetinformationsdienste \(IIS\)-Webserver: dieses Feature ist erforderlich, um den Netzwerkadressen Server zu konfigurieren, die OTP-Authentifizierung zu verwenden und den Standardweb Test zu konfigurieren.<br />-Interne Windows-Datenbank: wird für die lokale Kontoführung auf dem Remote Zugriffs Server verwendet.|  
 |Feature %%amp;quot;Tools für die Remotezugriffsverwaltung%%amp;quot;|So installieren Sie dieses Feature:<br /><br />-Sie wird standardmäßig auf einem RAS-Server installiert, wenn die Remote Zugriffs Rolle installiert ist, und unterstützt die Benutzeroberfläche der Remote Verwaltungskonsole.<br />-Es kann optional auf einem Server installiert werden, auf dem die Remote Zugriffs-Server Rolle nicht ausgeführt wird. In diesem Fall wird es für die Remoteverwaltung eines RAS-Computers verwendet, der DirectAccess und VPN ausführt.<br /><br />Das Feature "Tools für die Remotezugriffsverwaltung" besteht aus den folgenden Komponenten:<br /><br />-Remote Zugriffs-GUI und Befehlszeilen Tools<br />-Remote Zugriffs Modul für Windows PowerShell<br /><br />Abhängigkeiten umfassen:<br /><br />-Gruppenrichtlinien-Verwaltungskonsole<br />-RAS-Verbindungs-Manager-Verwaltungskit \(CMAK\)<br />-Windows PowerShell 3,0<br />-Tools und Infrastruktur für die grafische Verwaltung|  
   
-## <a name="BKMK_HARD"></a>Hardware Anforderungen  
+## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Hardwareanforderungen  
 Für dieses Szenario müssen die folgenden Hardwareanforderungen erfüllt werden:  
   
 -   Ein Computer, der die Hardwareanforderungen für Windows Server 2016 oder Windows Server 2012 erfüllt.  
@@ -88,7 +88,7 @@ Für dieses Szenario müssen die folgenden Hardwareanforderungen erfüllt werden
   
 -   Ein OTP-Hardware- oder Software-Token  
   
-## <a name="BKMK_SOFT"></a>Software Anforderungen  
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Software Anforderungen  
 Für dieses Szenario gelten eine Reihe von Anforderungen:  
   
 1.  Softwareanforderungen für die Bereitstellung auf einem Einzelserver. Weitere Informationen finden Sie unter Bereitstellen [eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen](../../directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md).  
@@ -103,7 +103,7 @@ Für dieses Szenario gelten eine Reihe von Anforderungen:
   
     4.  Client\-seitige Anforderungen: für Windows 10-und Windows 8-Client Computer wird der netzwerkkonnektivitätsassistent \(NCA\)-Dienst verwendet, um zu ermitteln, ob OTP-Anmelde Informationen erforderlich sind. Wenn dies der Fall ist, fordert der DirectAccess-Medien-Manager Anmelde Informationen an.  NCA ist im Betriebssystem enthalten, und es ist keine Installation oder Bereitstellung erforderlich. Für Windows 7-Client Computer ist der DirectAccess-Konnektivitätsassistent \(DCA\) 2,0 erforderlich. Dieser kann aus dem [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=29039)heruntergeladen werden.  
   
-    5.  Hinweis:  
+    5.  Beachten Sie Folgendes:  
   
         1.  Die OTP-Authentifizierung kann parallel zum Smartcard-und Trusted Platform Module \(TPM-\)\-basierten Authentifizierung verwendet werden. Das Aktivieren der OTP-Authentifizierung in der Remotezugriffsverwaltungskonsole ermöglicht auch die Verwendung der Smartcard-Authentifizierung.  
   
@@ -113,13 +113,13 @@ Für dieses Szenario gelten eine Reihe von Anforderungen:
   
         4.  Bei einer Remotezugriffsbereitstellung an mehreren Standorten sind die OTP-Einstellungen global und dienen zur Identifikation an allen Einstiegspunkten. Wenn mehrere RADIUS- oder Zertifizierungsstellenserver für OTP konfiguriert werden, müssen sie von jedem RAS-Server anhand ihrer Verfügbarkeit und Nähe sortiert werden.  
   
-        5.  Beim Konfigurieren von OTP in einer Remote Zugriffs Umgebung mit mehreren\-Gesamtstruktur sollten die OTP-Zertifizierungsstellen nur aus der Ressourcen Gesamtstruktur und die Zertifikat Registrierung über Gesamtstruktur-Vertrauens Stellungen hinweg konfiguriert werden. Weitere Informationen finden Sie unter [AD CS: Gesamtstrukturübergreifende Zertifikatsregistrierung mit Windows Server 2008 R2](https://technet.microsoft.com/library/ff955842.aspx).  
+        5.  Beim Konfigurieren von OTP in einer Remote Zugriffs Umgebung mit mehreren\-Gesamtstruktur sollten die OTP-Zertifizierungsstellen nur aus der Ressourcen Gesamtstruktur und die Zertifikat Registrierung über Gesamtstruktur-Vertrauens Stellungen hinweg konfiguriert werden. Weitere Informationen finden Sie unter [AD CS: Gesamtstrukturübergreifende Zertifikatsregistrierung mit Windows Server 2008 R2](https://technet.microsoft.com/library/ff955842.aspx).  
   
         6.  Benutzer, die ein Schlüsselfob OTP-Token verwenden, sollten die PIN gefolgt von Tokencode \(ohne Trennzeichen\) im Dialogfeld DirectAccess-OTP einfügen. Benutzer, die einen PIN PAD OTP-Token verwenden, geben in diesem Dialogfeld nur den Tokencode ein.  
   
         7.  Bei aktiviertem WEBDAV darf OTP nicht aktiviert werden.  
   
-## <a name="KnownIssues"></a>Bekannte Probleme  
+## <a name="known-issues"></a><a name="KnownIssues"></a>Bekannte Probleme  
 Im Folgenden finden Sie bekannte Probleme beim Konfigurieren eines OTP-Szenarios:  
   
 -   Der Remote Zugriff verwendet einen Test Mechanismus, um die Konnektivität mit RADIUS-\-basierten OTP-Servern zu überprüfen. In einigen Fällen kann auf dem OTP-Server ein Fehler ausgelöst werden. Gehen Sie zur Vermeidung dieses Problems auf dem OTP-Server folgendermaßen vor:  

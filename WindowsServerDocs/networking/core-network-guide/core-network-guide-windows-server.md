@@ -7,14 +7,14 @@ ms.technology: networking
 ms.topic: article
 ms.date: ''
 ms.assetid: 9b3ef3eb-4246-4e0e-8bf1-53224ca5f2f9
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 52f8b9e1446b5b3f3b1e7060cc737204771d1eae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 62bac410d92e63f4f5cb759b04f7a51ef17d18b0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356066"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318040"
 ---
 # <a name="core-network-guidance-for-windows-server"></a>Netzwerk-Anleitung für Windows Server Core
 
@@ -26,7 +26,7 @@ Dieses Thema enthält eine Übersicht über die wichtigsten Netzwerk Anleitungen
   
 -   [Handbuch zum Hauptnetzwerk für Windows Server](#bkmk_core)  
   
-## <a name="bkmk_intro"></a>Einführung in das Windows Server Core-Netzwerk
+## <a name="introduction-to-the-windows-server-core-network"></a><a name="bkmk_intro"></a>Einführung in das Windows Server Core-Netzwerk
 
 Ein Hauptnetzwerk ist eine Sammlung von Netzwerkhardware, Geräten und Software, die die grundlegenden Dienste für die Anforderungen der Informationstechnologie (IT) Ihres Unternehmens bereitstellt.
 
@@ -46,7 +46,7 @@ Ein Windows Server-Hauptnetzwerk bietet Ihnen zahlreiche Vorteile, wie zum Beisp
 
 Ein Hauptnetzwerk ermöglicht außerdem eine Größenanpassung Ihres Netzwerks, wenn Ihr Unternehmen wächst und sich die IT-Anforderungen ändern. Mit einem Kern Netzwerk können Sie beispielsweise Domänen, IP-Subnetze, RAS-Dienste, drahtlose Dienste und andere Features und Server Rollen hinzufügen, die von Windows Server 2016 bereitgestellt werden.
 
-## <a name="bkmk_core"></a>Handbuch zum Hauptnetzwerk für Windows Server
+## <a name="core-network-guide-for-windows-server"></a><a name="bkmk_core"></a>Handbuch zum Hauptnetzwerk für Windows Server
 
 Das Handbuch zum Windows Server 2016-Kern Netzwerk enthält Anweisungen zum Planen und Bereitstellen der Kernkomponenten, die für ein voll funktionsfähiges Netzwerk und eine neue Active Directory&reg; Domäne in einer neuen Gesamtstruktur erforderlich sind. Mithilfe dieses Handbuchs können Sie Computer bereitstellen, die mit folgenden Windows-Serverkomponenten konfiguriert wurden:
 

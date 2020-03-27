@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-da
 ms.topic: article
 ms.assetid: 23d05e61-95c3-4e70-aa83-b9a8cae92304
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5e652083d4accf90b542a16d51e314299303954f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 3908989b02f6388c994664aa8679c9198da4eea7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388842"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309396"
 ---
 # <a name="directaccess-unsupported-configurations"></a>DirectAccess nicht unterstützte Konfigurationen
 
@@ -21,7 +21,7 @@ ms.locfileid: "71388842"
 
 Überprüfen Sie die folgende Liste mit nicht unterstützten DirectAccess-Konfigurationen, bevor Sie mit der Bereitstellung beginnen, damit Sie die Bereitstellung nicht erneut starten müssen.  
 
-## <a name="bkmk_frs"></a>Verteilung des Datei Replikations Dienstanbieter (FRS) von Gruppenrichtlinie Objekten (SYSVOL-Replikationen)  
+## <a name="file-replication-service-frs-distribution-of-group-policy-objects-sysvol-replications"></a><a name="bkmk_frs"></a>Verteilung des Datei Replikations Dienstanbieter (FRS) von Gruppenrichtlinie Objekten (SYSVOL-Replikationen)  
 Stellen Sie DirectAccess nicht in Umgebungen bereit, in denen die Domänen Controller den Datei Replikations Dienst (File Replication Service, FRS) für die Verteilung von Gruppenrichtlinie Objekten (SYSVOL-Replikationen) ausführen. Die Bereitstellung von DirectAccess wird bei Verwendung von FRS nicht unterstützt.  
   
 Sie verwenden FRS, wenn Sie über Domänen Controller verfügen, auf denen Windows Server 2003 oder Windows Server 2003 R2 ausgeführt wird. Außerdem können Sie FRS verwenden, wenn Sie zuvor Windows 2000 Server oder Windows Server 2003-Domänen Controller verwendet haben und nie die SYSVOL-Replikation von FRS zu verteiltes Dateisystem Replikation (DFS-R) migriert haben.  
@@ -32,25 +32,25 @@ Wenn Sie DirectAccess bereitstellen möchten, müssen Sie Domänen Controller ve
   
 Informationen zum Migrieren von FRS zu DFS-R finden Sie unter [SYSVOL Replication Migration Guide: FRS to DFS-Replikation](https://technet.microsoft.com/library/dd640019(v=ws.10).aspx).  
   
-## <a name="bkmk_nap"></a>Netzwerk Zugriffsschutz für DirectAccess-Clients  
+## <a name="network-access-protection-for-directaccess-clients"></a><a name="bkmk_nap"></a>Netzwerk Zugriffsschutz für DirectAccess-Clients  
 Der Netzwerk Zugriffsschutz (Network Access Protection, NAP) wird verwendet, um zu bestimmen, ob Remote Client Computer IT-Richtlinien erfüllen, bevor Sie Zugriff auf das Unternehmensnetzwerk erhalten NAP wurde in Windows Server 2012 R2 als veraltet markiert und ist nicht in Windows Server 2016 enthalten. Aus diesem Grund wird das Starten einer neuen Bereitstellung von DirectAccess mit NAP nicht empfohlen. Es wird empfohlen, die Sicherheit von DirectAccess-Clients mit einer anderen Methode zu bestimmen.  
   
-## <a name="bkmk_multi"></a>Unterstützung für mehrere Standorte für Windows 7-Clients  
+## <a name="multisite-support-for-windows-7-clients"></a><a name="bkmk_multi"></a>Unterstützung für mehrere Standorte für Windows 7-Clients  
 Wenn DirectAccess in einer Bereitstellung für mehrere Standorte konfiguriert ist, können Windows 10&reg;-, Windows&reg; 8,1-und Windows&reg; 8-Clients eine Verbindung mit dem nächstgelegenen Standort herstellen.  Windows 7-&reg; Client Computer verfügen nicht über die gleiche Funktion. Die Standort Auswahl für Windows 7-Clients wird zum Zeitpunkt der Richtlinien Konfiguration auf einen bestimmten Standort festgelegt, und diese Clients stellen unabhängig von Ihrem Standort stets eine Verbindung mit dem angegebenen Standort her.  
   
-## <a name="bkmk_user"></a>Benutzerbasierte Zugriffs Steuerung  
+## <a name="user-based-access-control"></a><a name="bkmk_user"></a>Benutzerbasierte Zugriffs Steuerung  
 DirectAccess-Richtlinien sind computerbasiert, Nichtbenutzer basiert. Das Angeben von DirectAccess-Benutzerrichtlinien zum Steuern des Zugriffs auf das Unternehmensnetzwerk wird nicht unterstützt.  
   
-## <a name="bkmk_policy"></a>Anpassen der DirectAccess-Richtlinie  
+## <a name="customizing-directaccess-policy"></a><a name="bkmk_policy"></a>Anpassen der DirectAccess-Richtlinie  
 DirectAccess kann mit dem DirectAccess-Setup-Assistenten, der Remote Zugriffs-Verwaltungskonsole oder den Windows PowerShell-Cmdlets für den Remote Zugriff konfiguriert werden. Die Verwendung einer anderen Methode als dem DirectAccess-Setup-Assistenten zum Konfigurieren von DirectAccess, wie z. b. das direkte Ändern von DirectAccess-Gruppenrichtlinie Objekten oder das manuelle Ändern der Standardrichtlinien Einstellungen auf dem Server oder Client, wird nicht unterstützt. Diese Änderungen können zu einer nicht verwendbaren Konfiguration führen.  
   
-## <a name="bkmk_kerb"></a>Kerbproxy-Authentifizierung  
+## <a name="kerbproxy-authentication"></a><a name="bkmk_kerb"></a>Kerbproxy-Authentifizierung  
 Wenn Sie einen DirectAccess-Server mit dem Assistenten für die ersten Schritte konfigurieren, wird der DirectAccess-Server automatisch für die Verwendung der kerbproxy-Authentifizierung für die Computer-und Benutzerauthentifizierung konfiguriert. Aus diesem Grund sollten Sie den Assistenten für die ersten Schritte nur für bereit Stellungen mit einem Standort verwenden, bei denen nur Windows 10-&reg;, Windows 8.1 oder Windows 8-Clients bereitgestellt werden.  
   
 Außerdem sollten die folgenden Funktionen nicht mit der kerbproxy-Authentifizierung verwendet werden:  
   
 -   Lastenausgleich mit einem externen Load Balancer oder Windows Load   
-    Balancer  
+    Ausgleichsmodul  
   
 -   Zweistufige Authentifizierung, bei der Smartcards oder ein einmal Kennwort (OTP) erforderlich sind  
   
@@ -69,16 +69,16 @@ Die folgenden Bereitstellungs Pläne werden nicht unterstützt, wenn Sie die ker
 > [!NOTE]  
 > Für die vorherigen bereit Stellungen sollten Sie den Assistenten für die erweiterte Konfiguration verwenden, der eine zwei-Tunnel-Konfiguration mit einem Zertifikat basierten Computer und einer Benutzerauthentifizierung verwendet. Weitere Informationen finden Sie unter Bereitstellen [eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen](../../remote-access/directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md).  
   
-## <a name="bkmk_isa"></a>Verwenden von ISATAP  
+## <a name="using-isatap"></a><a name="bkmk_isa"></a>Verwenden von ISATAP  
 ISATAP ist eine Übergangstechnologie, die IPv6-Konnektivität in reinen IPv4-Unternehmensnetzwerken bereitstellt. Er ist auf kleine und mittelgroße Unternehmen mit einer einzelnen DirectAccess-Server Bereitstellung beschränkt und ermöglicht die Remote Verwaltung von DirectAccess-Clients. Wenn ISATAP eine Umgebung mit mehreren Standorten, Lastenausgleich oder mehreren Domänen bereitstellt, müssen Sie Sie entfernen oder in eine systemeigene IPv6-Bereitstellung verschieben, bevor Sie DirectAccess konfigurieren.  
   
-## <a name="bkmk_iphttps"></a>Endpunkt Konfiguration für IPHTTPS und einmal Kennwort (One-time password, OTP)  
+## <a name="iphttps-and-one-time-password-otp-endpoint-configuration"></a><a name="bkmk_iphttps"></a>Endpunkt Konfiguration für IPHTTPS und einmal Kennwort (One-time password, OTP)  
 Wenn Sie IPHTTPS verwenden, muss die IPHTTPS-Verbindung auf dem DirectAccess-Server und nicht auf einem anderen Gerät (z. b. einem Load Balancer) beendet werden. Entsprechend muss die während der einmal Kennwort-Authentifizierung (PP) erstellte out-of-Band-Secure Sockets Layer (SSL)-Verbindung auf dem DirectAccess-Server beendet werden. Alle Geräte zwischen den Endpunkten dieser Verbindungen müssen im Pass-Through-Modus konfiguriert werden.  
   
-## <a name="bkmk_ft"></a>Tunnel mit OTP-Authentifizierung erzwingen  
+## <a name="force-tunnel-with-otp-authentication"></a><a name="bkmk_ft"></a>Tunnel mit OTP-Authentifizierung erzwingen  
 Stellen Sie keinen DirectAccess-Server mit zweistufiger Authentifizierung mit OTP bereit, und erzwingen Sie Tunnelung, weil die OTP-Authentifizierung fehlschlägt. Zwischen dem DirectAccess-Server und dem DirectAccess-Client ist eine Out-of-Band-Secure Sockets Layer (SSL)-Verbindung erforderlich. Diese Verbindung erfordert eine Ausnahme, um den Datenverkehr außerhalb des DirectAccess-Tunnels zu senden. In einer Tunnel Erzwingungs Konfiguration muss sämtlicher Datenverkehr über einen DirectAccess-Tunnel geleitet werden, und nach der Tunnel Erstellung ist keine Ausnahme zulässig. Aus diesem Grund wird die OTP-Authentifizierung in einer erzwungenen Tunnel Konfiguration nicht unterstützt.  
   
-## <a name="bkmk_rodc"></a>Bereitstellen von DirectAccess mit einem schreibgeschützten Domänen Controller  
+## <a name="deploying-directaccess-with-a-read-only-domain-controller"></a><a name="bkmk_rodc"></a>Bereitstellen von DirectAccess mit einem schreibgeschützten Domänen Controller  
 DirectAccess-Server benötigen Zugriff auf einen Domänen Controller mit Lese-/Schreibzugriff und funktionieren nicht ordnungsgemäß mit einem schreibgeschützten Domänen Controller (Read-Only Domain Controller, RODC).  
   
 Ein Domänen Controller mit Lese-/Schreibzugriff ist aus vielen Gründen erforderlich, einschließlich der folgenden:  

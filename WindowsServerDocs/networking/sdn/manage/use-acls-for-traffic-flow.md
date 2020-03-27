@@ -10,19 +10,19 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6a7ac5af-85e9-4440-a631-6a3a38e9015d
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/27/2018
-ms.openlocfilehash: 6a1d210d25309be322359add20da4eb8d0eee091
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1f18ad9ddb0ea1a7575f6fcb26189f36f818ada2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355807"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317488"
 ---
 # <a name="use-access-control-lists-acls-to-manage-datacenter-network-traffic-flow"></a>Verwenden von Zugriffs Steuerungs Listen (Access Control Lists, ACLs) zum Verwalten des Datenverkehrs Flusses im Daten Center
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie Zugriffs Steuerungs Listen (ACLs) zum Verwalten des Datenverkehrs Flusses mithilfe von Rechenzentrums Firewall und ACLs in virtuellen Subnetzen konfigurieren. Sie aktivieren und konfigurieren die Datacenter-Firewall, indem Sie ACLs erstellen, die auf ein virtuelles Subnetz oder eine Netzwerkschnittstelle angewendet werden.   
 
@@ -37,8 +37,8 @@ Verwenden Sie die Einträge in der folgenden Tabelle, um einen Regelsatz zu erst
 
 | Quell-IP | Ziel-IP | Protokoll | Quellport | Zielport | Richtung | Aktion | Priority |
 |:---------:|:--------------:|:--------:|:-----------:|:----------------:|:---------:|:------:|:--------:|
-|    \*     |       \*       |   All    |     \*      |        \*        |  Inbound  | Zulassen  |   100    |
-|    \*     |       \*       |   All    |     \*      |        \*        | Outbound  | Zulassen  |   110    |
+|    \*     |       \*       |   Alle    |     \*      |        \*        |  Eingehende  | Zulassen  |   100    |
+|    \*     |       \*       |   Alle    |     \*      |        \*        | Ausgehende  | Zulassen  |   110    |
 
 ---       
 
@@ -92,12 +92,12 @@ In diesem Beispiel erstellen Sie eine ACL, die verhindert, dass VMS innerhalb de
 
 |   Quell-IP    | Ziel-IP | Protokoll | Quellport | Zielport | Richtung | Aktion | Priority |
 |:--------------:|:--------------:|:--------:|:-----------:|:----------------:|:---------:|:------:|:--------:|
-|  192.168.0.1   |       \*       |   All    |     \*      |        \*        |  Inbound  | Zulassen  |   100    |
-|       \*       |  192.168.0.1   |   All    |     \*      |        \*        | Outbound  | Zulassen  |   101    |
-| 192.168.0.0/24 |       \*       |   All    |     \*      |        \*        |  Inbound  | Blockieren  |   102    |
-|       \*       | 192.168.0.0/24 |   All    |     \*      |        \*        | Outbound  | Blockieren  |   103    |
-|       \*       |       \*       |   All    |     \*      |        \*        |  Inbound  | Zulassen  |   104    |
-|       \*       |       \*       |   All    |     \*      |        \*        | Outbound  | Zulassen  |   105    |
+|  192.168.0.1   |       \*       |   Alle    |     \*      |        \*        |  Eingehende  | Zulassen  |   100    |
+|       \*       |  192.168.0.1   |   Alle    |     \*      |        \*        | Ausgehende  | Zulassen  |   101    |
+| 192.168.0.0/24 |       \*       |   Alle    |     \*      |        \*        |  Eingehende  | Block  |   102    |
+|       \*       | 192.168.0.0/24 |   Alle    |     \*      |        \*        | Ausgehende  | Block  |   103    |
+|       \*       |       \*       |   Alle    |     \*      |        \*        |  Eingehende  | Zulassen  |   104    |
+|       \*       |       \*       |   Alle    |     \*      |        \*        | Ausgehende  | Zulassen  |   105    |
 
 --- 
 

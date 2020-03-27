@@ -10,18 +10,18 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 854bd064-2f86-4678-a940-a04b3e48ae10
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: da5cc366a08f9a3f5b69952a2dff1f717fb1647b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: b5ce4c6dae668372521e5b8e0d5168a94cbb86e2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355359"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312643"
 ---
 # <a name="create-an-access-policy"></a>Erstellen einer Zugriffsrichtlinie
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Sie können dieses Thema verwenden, um eine Zugriffs Richtlinie in der IPAM-Client Konsole zu erstellen.  
   
@@ -48,7 +48,7 @@ Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist d
   
 5.  Das Dialogfeld Speicher **Orte** wird geöffnet. Navigieren Sie zu dem Speicherort, der das Benutzerkonto enthält, wählen Sie den Speicherort aus, und klicken Sie dann auf **OK**. Das Dialogfeld Speicher **Orte** wird geschlossen.  
   
-    ![Standort auswählen](../../media/Create-an-Access-Policy/ipam_CreateAP_04.jpg)  
+    ![Speicherort auswählen](../../media/Create-an-Access-Policy/ipam_CreateAP_04.jpg)  
   
 6.  Geben Sie im Dialogfeld **Benutzer oder Gruppe auswählen** unter **Geben Sie die zu**erstellenden Objektnamen ein den Namen des Benutzerkontos ein, für das Sie eine Zugriffs Richtlinie erstellen möchten. Klicken Sie auf **OK**.  
   
@@ -76,7 +76,7 @@ Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist d
   
     ![Anzeigen der neuen Zugriffs Richtlinie](../../media/Create-an-Access-Policy/ipam_CreateAP_09a.jpg)  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Rollenbasierte Access Control](Role-based-Access-Control.md)  
 [Verwalten von IPAM](Manage-IPAM.md)  
   

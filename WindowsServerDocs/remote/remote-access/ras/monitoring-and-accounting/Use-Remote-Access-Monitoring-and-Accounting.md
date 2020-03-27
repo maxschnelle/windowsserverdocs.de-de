@@ -10,22 +10,22 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 92519b49-0df4-43c1-9717-f13570644212
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: eb7c052358bc50f9b466b7ac862e77be7b044685
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 81eb82310508242a82d3236f1ec5b4056ad4bf37
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367147"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314109"
 ---
 # <a name="use-remote-access-monitoring-and-accounting"></a>Verwenden der Remotezugriffsüberwachung und Ressourcenerfassung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Die Überwachung des Remotezugriffs meldet Remotebenutzeraktivitäten und den Status der DirectAccess- und VPN-Verbindungen. Sie zeichnet die Anzahl und die Dauer der Clientverbindungen (und weitere Statistiken) auf und überwacht den Betriebsstatus des Servers. Eine benutzerfreundliche Überwachungskonsole stellt Ihnen eine Ansicht der gesamten Remotezugriffinfrastruktur bereit. Die Überwachungsansichten sind für einzelne Server-, Cluster- und Konfigurationen für mehrere Standorte.  
   
-**Hinweis**: Durch Windows Server 2013 werden DirectAccess und RRAS (Routing and Remote Access Service, Routing- und RAS-Dienst) zu einer einzigen Remotezugriffsrolle zusammengefasst.  
+**Hinweis:** Durch Windows Server 2012 werden DirectAccess und RRAS (Routing and Remote Access Service, Routing- und RAS-Dienst) zu einer einzigen Remotezugriffsrolle zusammengefasst.  
   
 > [!NOTE]  
 > Über dieses Thema hinaus sind die folgenden Themen zur Überwachung des Remotezugriffs verfügbar.  
@@ -37,7 +37,7 @@ Die Überwachung des Remotezugriffs meldet Remotebenutzeraktivitäten und den St
 > -   [Überwachen der Aktivitäten und des Status von verbundenen Remoteclients](Monitor-connected-remote-clients-for-activity-and-status.md)  
 > -   [Erstellen eines Nutzungsberichts für Remoteclients mithilfe von Verlaufsdaten](Generate-a-usage-report-for-remote-clients-using-historical-data.md)  
 
-## <a name="in-this-guide"></a>Inhalt dieser Anleitung  
+## <a name="in-this-guide"></a>In diesem Handbuch  
 Dieses Dokument enthält Anweisungen zur Nutzung der Überwachungsfunktionen des Remotezugriffs mit der DirectAccess-Verwaltungskonsole und den entsprechenden Windows PowerShell-Cmdlets, die als Teil der Remotezugriffs-Serverrolle bereitgestellt werden.  
   
 Es werden folgende Überwachungs- und Ressourcenerfassungsszenarios erläutert:  

@@ -1,9 +1,9 @@
 ---
 title: Problembehandlung für das Überwachen der Computer in Windows Server Essentials
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,27 +12,27 @@ ms.assetid: f1e6b377-4a24-4d28-9b25-05910914826b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1adf8ae2dd8763d0bc5a514609bb2470de6acde4
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 968c8c82bfde350e631f1f6ae4830a4fd920aa4b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66436071"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318608"
 ---
 # <a name="troubleshoot-computer-monitoring-in-windows-server-essentials"></a>Problembehandlung für das Überwachen der Computer in Windows Server Essentials
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Dieses Thema enthält die Problembehandlung für Probleme beim Überwachen des Integritätsstatus von Computern in der Meldungsanzeige und über e-Mail-Benachrichtigungen in Windows Server Essentials.  
+Dieses Thema enthält Informationen zur Problembehandlung bei Problemen, die beim Überwachen des Integritäts Status von Computern in der Meldungs Anzeige und per e-Mail in Windows Server Essentials auftreten.  
   
 > [!NOTE]
->  Die aktuellsten Informationen zur Problembehandlung aus der Windows Server Essentials-Community wird empfohlen, Sie besuchen die [Windows Server Essentials-Forum](https://social.technet.microsoft.com/Forums/winserveressentials/threads). Das Windows Server Essentials-Forum eignet sich optimal, um nach Hilfe zu suchen oder um Fragen zu stellen.  
+>  Die aktuellsten Informationen zur Problembehandlung aus der Windows Server Essentials-Community finden Sie im [Windows Server Essentials-Forum](https://social.technet.microsoft.com/Forums/winserveressentials/threads). Das Windows Server Essentials-Forum eignet sich optimal, um nach Hilfe zu suchen oder um Fragen zu stellen.  
   
-##  <a name="BKMK_TS"></a> Problembehandlung bei e-Mail-Benachrichtigungen für Warnungen  
+##  <a name="troubleshooting-email-notifications-for-alerts"></a><a name="BKMK_TS"></a>Problembehandlung bei e-Mail-Benachrichtigungen  
  Dieser Abschnitt enthält verschiedene Probleme, die auftreten können, wenn Sie E-Mail-Benachrichtigungen für Warnungen verwenden.  
   
 ### <a name="cannot-send-the-test-email-for-the-alert"></a>Die Test-Mail für die Warnung kann nicht gesendet werden.  
- **Problem** erhalten Sie eine Fehlermeldung angezeigt, die besagt, kann nicht die-e-Testmail für Warnung gesendet.  
+ **Problem** Sie erhalten eine Fehlermeldung, die besagt, dass die Test-e-Mail für die Warnung nicht senden kann.  
   
  **Ursache** Dieser Fehler kann aufgrund eines der folgenden Probleme in den Einstellungen für Benachrichtigungen auftreten:  
   
@@ -53,7 +53,7 @@ Dieses Thema enthält die Problembehandlung für Probleme beim Überwachen des I
      %ProgramData%\Microsoft\Windows Server\Logs\SharedServiceHost-AlertServiceConfig.log  
   
     > [!TIP]
-    >  Um den ProgramData-Ordner anzuzeigen, müssen Sie ausgeblendeten Elemente angezeigt werden. Wenn den ProgramData-Ordner nicht auf dem Menüband der angezeigt wird **Ansicht** Registerkarte die **ein-/ausblenden** Gruppe, und wählen die **ausgeblendete Elemente** Textfeld.  
+    >  Um den ProgramData-Ordner anzuzeigen, müssen Sie ausgeblendeten Elemente angezeigt werden. Wenn der Ordner ProgramData nicht angezeigt wird, wählen Sie auf der Registerkarte **Ansicht** des Menübands in der Gruppe **anzeigen/ausblenden** das Textfeld ausgeblendete **Elemente** aus.  
   
 ##### <a name="to-update-your-email-notification-setup-for-alerts"></a>Aktualisieren Ihres E-Mail-Benachrichtigungssetups für Warnungen  
   

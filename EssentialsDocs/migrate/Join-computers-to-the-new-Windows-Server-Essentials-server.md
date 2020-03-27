@@ -1,9 +1,9 @@
 ---
-title: Hinzufügen von Computern mit der neuen Windows Server Essentials-server1
-description: Beschreibt, wie Windows Server Essentials
+title: Hinzufügen von Computern zum neuen Windows Server Essentials-Server1
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,19 +12,19 @@ ms.assetid: cdfa9504-9881-4265-b308-c7ee8721bfaa
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 0240abfff58baedd79ab038af93b107dbb898eb2
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6f7d20e2d74c311a34b98de7c33c755b5981fcef
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432939"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318974"
 ---
-# <a name="join-computers-to-the-new-windows-server-essentials-server1"></a>Hinzufügen von Computern mit der neuen Windows Server Essentials-server1
+# <a name="join-computers-to-the-new-windows-server-essentials-server1"></a>Hinzufügen von Computern zum neuen Windows Server Essentials-Server1
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 ##  <a name="BKMK_JoinComputers"></a>   
- Der nächste Schritt des Migrationsvorgangs ist zum Verknüpfen von Clientcomputern zum neuen Windows Server Essentials-Netzwerk und Aktualisieren von gruppenrichtlinieneinstellungen.  
+ Der nächste Schritt des Migrations Vorgangs besteht im Hinzufügen von Client Computern zum neuen Windows Server Essentials-Netzwerk und zum Aktualisieren Gruppenrichtlinie Einstellungen.  
   
 > [!NOTE]
 >  Wenn ein Clientcomputer bereits mit dem Quellserver verbunden ist, müssen Sie zunächst die Connector-Software auf dem Clientcomputer deinstallieren, bevor Sie den Computer mit dem Zielserver verbinden können.  
@@ -47,7 +47,7 @@ ms.locfileid: "66432939"
   
 2.  Geben Sie an der Eingabeaufforderung **GPRESULT /R** ein, und drücken Sie dann die EINGABETASTE.  
   
-3.  Überprüfen Sie die Ausgabe für den Abschnitt der Gruppenrichtlinie von angewendet wurde: und stellen Sie sicher, sie den Zielserver auflistet, z. B. **DestinationSrv.Domain.local**. Zum Beispiel:  
+3.  Überprüfen Sie die Ausgabe für den Abschnitt Gruppenrichtlinie der auf angewendet wurde, und stellen Sie sicher, dass Sie den Ziel Server auflistet, z. b. **destinationsrv. Domain. local**. Beispiel:  
   
     ```  
     USER SETTINGS  
@@ -61,12 +61,12 @@ ms.locfileid: "66432939"
   
     ```  
   
-4.  Wenn Zielserver nicht aufgeführt ist, geben Sie in eine Eingabeaufforderung **gpupdate /force**ein und drücken Sie dann die EINGABETASTE, um die Gruppenrichtlinieneinstellungen zu aktualisieren. Führen Sie das vorherige Verfahren dann erneut aus.  
+4.  Wenn Zielserver nicht aufgeführt ist, geben Sie in eine Eingabeaufforderung **gpupdate /force** ein und drücken Sie dann die EINGABETASTE, um die Gruppenrichtlinieneinstellungen zu aktualisieren. Führen Sie das vorherige Verfahren dann erneut aus.  
   
 5.  Wenn der Zielserver immer noch nicht angezeigt wird, liegt möglicherweise ein Fehler in den Gruppenrichtlinieneinstellungen vor oder ein Fehler bei der Anwendung auf diesem bestimmten Client-Computer. Wenn der Zielserver nicht angezeigt wird, führen Sie die folgenden Schritte aus:  
   
     1.  Klicken Sie auf **Start**, klicken Sie auf **ausführen**, geben Sie **rsop.msc** (Resultant Set of Policy,) ein und drücken Sie dann die EINGABETASTE.  
   
-    2.  Erweitern Sie die Struktur mit dem X bis zu einem Knoten.  
+    2.  Erweitern Sie die Struktur mit dem X-Wert, bis Sie zu einem Knoten gelangen.  
   
     3.  Klciekn Sie mit der rechten Maustaste auf den Knoten und klicken Sie auf **Fehler anzeigen** für Informationen zu den Gründen, warum die Gruppenrichtlinieneinstellungen auf dem aufgeführten Computer fehlschlagen.

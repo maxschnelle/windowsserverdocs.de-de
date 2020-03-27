@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aa3174f3-42af-4511-ac2d-d8968b66da87
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: bb8bb6dda6eab27413b462a4c7f17176fbed85a1
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a1dbd7bad0a6954d0cf66c372a48507a2a8d61be
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822773"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309077"
 ---
 # <a name="step-1-plan-the-advanced-directaccess-infrastructure"></a>Schritt 1 Planen der erweiterten DirectAccess-Infrastruktur
 
@@ -415,7 +415,7 @@ Bei Split-Brain-DNS-bereit Stellungen müssen Sie die vollständig im Internet u
   
 Wenn in einer Split-Brain-DNS-Umgebung beide Versionen der Ressource verfügbar sein sollen, konfigurieren Sie die Intranetressourcen mit alternativen Namen, bei denen es sich nicht um Duplikate der Namen handelt, die im Internet verwendet werden, und weisen Sie die Benutzer an, im Intranet den alternativen Namen zu verwenden. So können Sie beispielsweise für das Intranet den alternativen Namen www.internal.contoso.com anstelle von www.contoso.com konfigurieren.  
   
-In einer Umgebung ohne Split-Brain-DNS unterscheidet sich der Internetnamespace vom Intranetnamespace. Die Contoso Corporation verwendet z. B. im Internet contoso.com und im Intranet corp.contoso.com. Da alle Intranetressourcen das DNS-Suffix corp.contoso.com verwenden, leitet die NRPT-Regel für corp.contoso.com alle DNS-Namensabfragen für Intranetressourcen an Intranet-DNS-Server weiter. DNS-Namensabfragen für Namen mit dem Suffix contoso.com entsprechen nicht der corp.contoso.com-Intranetnamespaceregel in der NRPT und werden daher an Internet-DNS-Server gesendet. Bei einer Bereitstellung ohne Split-Brain-DNS ist für die NRPT keine zusätzliche Konfiguration erforderlich, da keine Doppelung der FQDNs für Intranet- und Internetressourcen auftritt. DirectAccess-Clients können sowohl auf die Internet- als auch auf die Intranetressourcen ihrer Organisation zugreifen.  
+In einer Umgebung ohne Split-Brain-DNS unterscheidet sich der Internetnamespace vom Intranetnamespace. Die Contoso Corporation verwendet z. B. im Internet {1}contoso.com{2} und im Intranet {3}corp.contoso.com{4}. Da alle Intranetressourcen das DNS-Suffix corp.contoso.com verwenden, leitet die NRPT-Regel für corp.contoso.com alle DNS-Namensabfragen für Intranetressourcen an Intranet-DNS-Server weiter. DNS-Namensabfragen für Namen mit dem Suffix contoso.com entsprechen nicht der corp.contoso.com-Intranetnamespaceregel in der NRPT und werden daher an Internet-DNS-Server gesendet. Bei einer Bereitstellung ohne Split-Brain-DNS ist für die NRPT keine zusätzliche Konfiguration erforderlich, da keine Doppelung der FQDNs für Intranet- und Internetressourcen auftritt. DirectAccess-Clients können sowohl auf die Internet- als auch auf die Intranetressourcen ihrer Organisation zugreifen.  
   
 **Lokales Namensauflösungsverhalten für DirectAccess-Clients**  
   
@@ -500,7 +500,7 @@ DirectAccess verwendet AD DS und Active Directory Gruppenrichtlinien Objekte (Gr
   
     DirectAccess kann IPsec-Authentifizierung und -Verschlüsselung zwischen Clients und dem DirectAccess-Server verwenden. Sie können die IPsec-Authentifizierung und -Verschlüsselung vom Client zu den angegebenen internen Anwendungsservern erweitern. Fügen Sie dazu die erforderlichen Anwendungsserver zu einer Sicherheitsgruppe hinzu.  
   
-**AD DS Anforderungen**  
+**AD DS-Anforderungen**  
   
 Wenn Sie AD DS für eine DirectAccess-Bereitstellung planen, müssen Sie folgende Anforderungen berücksichtigen:  
   

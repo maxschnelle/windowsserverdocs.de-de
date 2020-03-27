@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dcc1037f-1a65-4497-99e6-0df9aef748a8
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7e93c972dbbe2971796c12cdeea27474723a80ac
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 2cb0566dc2cdc68c4653f85c06869585bc6454ef
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404467"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313835"
 ---
 # <a name="troubleshooting-adding-entry-points"></a>Beheben von Problemen beim Hinzufügen von Einstiegspunkten
 
@@ -228,7 +228,7 @@ So erstellen Sie eine Ausnahme für eine Adresse in den NRPT-Regeln:
   
 1.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole in Schritt 3 **Infrastrukturserver** auf **Bearbeiten**.  
   
-2.  Doppelklicken Sie im Assistenten zum **Einrichten des Infrastrukturservers** auf der Seite **DNS** auf die Tabelle, um ein neues Namenssuffix einzugeben.  
+2.  Doppelklicken Sie im Assistenten zum Einrichten des Infrastrukturservers auf der Seite **DNS** auf die Tabelle, um ein neues Namenssuffix einzugeben.  
   
 3.  Geben Sie im Dialogfeld **DNS-Serveradressen** unter %%amp;quot;DNS-Suffix%%amp;quot; die ConnectTo-Adresse des Einstiegspunkts ein, und klicken Sie auf **Übernehmen**.  
   

@@ -1,9 +1,9 @@
 ---
 title: Ändern des Farbschemas für das Dashboard und das Launchpad
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: b2913e51-7979-4d48-a431-d2ec5f1042be
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f7079c9e59c44907fa203db48ce366c2b5a1102b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: a3ffac0b89a62b04b73aada0a49cb755c7e7bd9a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59879641"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312287"
 ---
 # <a name="change-the-color-scheme-of-the-dashboard-and-launchpad"></a>Ändern des Farbschemas für das Dashboard und das Launchpad
 
@@ -124,9 +124,9 @@ Sie können das Farbschema für das Dashboard und das Launchpad ändern, indem S
   
 1.  Bewegen Sie Ihre Maus auf dem Server in die obere rechte Ecke des Bildschirms, und klicken Sie auf **Suchen**.  
   
-2.  Geben Sie im Suchfeld **regedit**ein, und klicken Sie dann auf die Anwendung **Regedit** .  
+2.  Geben Sie im Suchfeld **regedit** ein, und klicken Sie dann auf die Anwendung **Regedit**.  
   
-3.  Erweitern Sie im linken Bereich nacheinander **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**und **Windows Server**. Wenn der Schlüssel **OEM** nicht vorhanden ist, müssen Sie ihn mit den folgenden Schritten erstellen:  
+3.  Erweitern Sie im linken Bereich nacheinander **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft** und **Windows Server**. Wenn der Schlüssel **OEM** nicht vorhanden ist, müssen Sie ihn mit den folgenden Schritten erstellen:  
   
     1.  Klicken Sie mit der rechten Maustaste auf **Windows Server**, zeigen Sie auf **Neu**, und klicken Sie dann auf **Schlüssel**.  
   
@@ -142,37 +142,37 @@ Sie können das Farbschema für das Dashboard und das Launchpad ändern, indem S
   
 8.  Kopieren Sie die Datei nach "%programFiles%\Windows Server\Bin\OEM". Wenn das Verzeichnis "OEM" nicht vorhanden ist, erstellen Sie es.  
   
-##  <a name="BKMK_Dashboard"></a> Bereiche von Dashboard und Launchpad, die geändert werden können  
+##  <a name="dashboard-and-launchpad-areas-that-can-be-changed"></a><a name="BKMK_Dashboard"></a>Bereiche von Dashboard und Launchpad, die geändert werden können  
  In diesem Abschnitt werden Beispiele für anpassbare Bereiche des Dashboards und des Launchpads aufgeführt.  
   
 ### <a name="examples"></a>Beispiele  
   
-####  <a name="BKMK_Figure1"></a> Abbildung 1: Anmeldeseite des Dashboards  
+####  <a name="figure-1-sign-in-page-of-the-dashboard"></a><a name="BKMK_Figure1"></a>Abbildung 1: Anmeldeseite des Dashboards  
  ![Windows Server Essentials-Dashboard](media/SBS8_ADK_Dashboard_Signin_RC.png "SBS8_ADK_Dashboard_Signin_RC")  
   
-####  <a name="BKMK_Figure2"></a> Abbildung 2: Launchpad  
- ![Windows SBS Launchpad Sign&#45;in](media/SBS8_ADK_LaunchpadSignin2.png "SBS8_ADK_LaunchpadSignin2")  
+####  <a name="figure-2-launchpad"></a><a name="BKMK_Figure2"></a>Abbildung 2: launchpad  
+ ![Windows SSB-Launchpad&#45;-Anmeldung](media/SBS8_ADK_LaunchpadSignin2.png "SBS8_ADK_LaunchpadSignin2")  
   
-####  <a name="BKMK_Figure3"></a> Abbildung 3: Anmeldeseite des Launchpads  
- ![Windows Server Essentials Launchpad](media/SBS8_ADK_Launchpad_Signin_RC.png "SBS8_ADK_Launchpad_Signin_RC")  
+####  <a name="figure-3-sign-in-page-of-the-launchpad"></a><a name="BKMK_Figure3"></a>Abbildung 3: Anmeldeseite des Launchpad  
+ ![Windows Server Essentials-launchpad](media/SBS8_ADK_Launchpad_Signin_RC.png "SBS8_ADK_Launchpad_Signin_RC")  
   
-####  <a name="BKMK_Figure4"></a> Abbildung 4: Dashboardtext  
+####  <a name="figure-4-dashboard-text"></a><a name="BKMK_Figure4"></a>Abbildung 4: dashboardtext  
  ![Windows Server Essentials-Navigationsbereich](media/SBS8_ADK_Navigation_RC.png "SBS8_ADK_Navigation_RC")  
   
-####  <a name="BKMK_Figure5"></a> Abbildung 5: Rand der Unterregisterkarte  
- ![Windows SBS-Dashboard-Unterregisterkartenrahmen](media/SBS8_ADK_DashboardSubtabborder.png "SBS8_ADK_DashboardSubtabborder")  
+####  <a name="figure-5-subtab-border"></a><a name="BKMK_Figure5"></a>Abbildung 5: Rahmen für untergeordnete Registerkarten  
+ ![Windows SSB-Dashboard-unter Registerkarten Rahmen](media/SBS8_ADK_DashboardSubtabborder.png "SBS8_ADK_DashboardSubtabborder")  
   
-####  <a name="BKMK_Figure6"></a> Abbildung 6: Aufgabenbereich  
- ![Windows SBS-Dashboard-Aufgabenbereich](media/SBS8_ADK_DashboardTaskPane.png "SBS8_ADK_DashboardTaskPane")  
+####  <a name="figure-6-task-pane"></a><a name="BKMK_Figure6"></a>Abbildung 6: Aufgabenbereich  
+ ![Aufgabenbereich des Windows SSB-Dashboards](media/SBS8_ADK_DashboardTaskPane.png "SBS8_ADK_DashboardTaskPane")  
   
-####  <a name="BKMK_Figure9"></a> Abbildung 7a: Produkt-Begrüßungsbildschirm  
+####  <a name="figure-7a-product-splash-screen"></a><a name="BKMK_Figure9"></a>Abbildung 7a: Begrüßungsbildschirm des Produkts  
  ![Windows Server Essentials-Begrüßungsbildschirm](media/SBS8_ADK_productspalshscreen_RC.png "SBS8_ADK_productspalshscreen_RC")  
   
 #### <a name="figure-7b-home-page"></a>Abbildung 7b: Startseite  
- ![Windows Server Essentials-Homepage](media/SBS8_ADK_Dashboard_HomePage_RC.png "SBS8_ADK_Dashboard_HomePage_RC")  
+ ![Windows Server Essentials-Startseite](media/SBS8_ADK_Dashboard_HomePage_RC.png "SBS8_ADK_Dashboard_HomePage_RC")  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Zusätzliche Anpassungen](Additional-Customizations.md)   
+ [Weitere Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)

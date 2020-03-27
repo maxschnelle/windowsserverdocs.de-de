@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: bb0eb349-914d-4596-9140-d3aae7597d55
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 0b0e3b6b490dead32071d99becccd9dca937f1f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 3639d946cae4da66a391741e7da5fbf6a26e3cd2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406352"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318462"
 ---
 # <a name="move-and-resize-the-hosted-cache-optional"></a>Verschieben und Ändern der Größe des gehosteten Caches \(optional\)
 
@@ -21,7 +21,7 @@ ms.locfileid: "71406352"
 
 Mit diesem Verfahren können Sie den gehosteten Cache auf das gewünschte Laufwerk und den gewünschten Ordner verschieben und den Speicherplatz angeben, der vom gehosteten Cache Server für den gehosteten Cache verwendet werden kann.
 
-Dieses Verfahren ist optional. Wenn der Standard Cache Speicherort \(% windir%\\Service Profiles\\Network Service\\APPDATA\\local\\peerdistpub\) und Size – 5% des gesamten Festplatten Speicherplatzes – für Ihre Bereitstellung geeignet ist, müssen Sie Sie nicht ändern.
+Diese Prozedur ist optional. Wenn der Standard Cache Speicherort \(% windir%\\Service Profiles\\Network Service\\APPDATA\\local\\peerdistpub\) und Size – 5% des gesamten Festplatten Speicherplatzes – für Ihre Bereitstellung geeignet ist, müssen Sie Sie nicht ändern.
 
 Sie müssen Mitglied der Gruppe Administratoren sein, um dieses Verfahren auszuführen.
 

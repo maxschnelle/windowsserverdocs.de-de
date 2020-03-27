@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cc9f02b9-8ddd-4cae-b397-a832996144dd
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 131520f567da6529e342229a0f6965d3223f928b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 39b6d0b924d4939361cb66109d049a6924e9be3e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404572"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314238"
 ---
 # <a name="step-2-plan-the-remote-access-deployment"></a>Schritt 2 Planen der Bereitstellung des Remote Zugriffs
 
@@ -55,7 +55,7 @@ Bei der Planung Ihrer Clientbereitstellung müssen drei Entscheidungen getroffen
   
     -   **Konnektivitätsverifier**  
   
-        Ein Standardwebtest wird erstellt, den Clients verwenden, um die Verbindung zum internen Netzwerk zu prüfen. Der Standardname ist `https://directaccess-WebProbeHost.<domain_name>`. Der Name sollte manuell im DNS registriert werden. Sie können andere konnektivitätsprobleer erstellen, die andere Webadressen über HTTP oder Ping verwenden. Für jeden Verbindungsprüfer muss ein DNS-Eintrag vorhanden sein.  
+        Ein Standardwebtest wird erstellt, den Clients verwenden, um die Verbindung zum internen Netzwerk zu prüfen. Der Standardname lautet `https://directaccess-WebProbeHost.<domain_name>`. Der Name sollte manuell im DNS registriert werden. Sie können andere konnektivitätsprobleer erstellen, die andere Webadressen über HTTP oder Ping verwenden. Für jeden Verbindungsprüfer muss ein DNS-Eintrag vorhanden sein.  
   
     -   **Helpdesk-e-Mail-Adresse**  
   
@@ -118,7 +118,7 @@ Der Remote Zugriff erfordert drei Arten von Infrastruktur Servern:
   
 -   **Verwaltungs Server** 
   
-## <a name="see-also"></a>Weitere Informationen  
+## <a name="see-also"></a>Siehe auch  
   
 -   [Schritt 1: Planen der Infrastruktur für den Remote Zugriff](Step-1-Plan-the-Remote-Access-Infrastructure.md)  
   

@@ -10,24 +10,24 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: f2f2f1a5-ac2f-41b7-a495-98ad0e2a9b20
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: fc19a58482df5dfbfb4ea324f317bbe1b27bf834
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d87c149bef3af0aa2b2b86aa5dfce58294b1634b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405598"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312304"
 ---
 # <a name="whats-new-in-ipam"></a>Neues in IPAM
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema werden die IPAM-Funktionen (IP Address Management) beschrieben, die in Windows Server 2016 neu oder geändert wurden.  
   
 IPAM bietet hochgradig anpassbare Verwaltungs-und Überwachungsfunktionen für die IP-Adresse und die DNS-Infrastruktur in einem Unternehmens-oder clouddienstanbieter-Netzwerk (CSP). Sie können Server, auf denen DHCP (Dynamic Host Configuration Protocol) ausgeführt wird, und Domain Name System (DNS) mithilfe von IPAM überwachen, überwachen und verwalten.  
   
-## <a name="BKMK_IPAM2012R2"></a>Updates auf dem IPAM-Server  
+## <a name="updates-in-ipam-server"></a><a name="BKMK_IPAM2012R2"></a>Updates auf dem IPAM-Server  
 Im folgenden finden Sie die neuen und verbesserten Features für IPAM unter Windows Server 2016.  
   
 |Feature/Funktionalität|Neu oder verbessert|Beschreibung|  
@@ -39,7 +39,7 @@ Im folgenden finden Sie die neuen und verbesserten Features für IPAM unter Wind
 |[Verwendungs Daten bereinigen](#bkmk_purge)|Neu|Sie können jetzt die IPAM-Datenbankgröße verringern, indem Sie die Nutzungsdaten für die IP-Adresse löschen, die älter als ein von Ihnen angefügungs Datum ist.|  
 |[Windows PowerShell-Unterstützung für rollenbasierte Access Control](#bkmk_ps)|Neu|Sie können Windows PowerShell verwenden, um Zugriffs Bereiche für IPAM-Objekte festzulegen.|  
   
-### <a name="EIP"></a>Erweiterte IP-Adressverwaltung  
+### <a name="enhanced-ip-address-management"></a><a name="EIP"></a>Erweiterte IP-Adressverwaltung  
 Die folgenden Features verbessern die IPAM-Adress Verwaltungsfunktionen.  
 >[!NOTE]
 >Die IPAM-Windows PowerShell-Befehlsreferenz finden Sie unter [IP Address Management (IPAM) Server Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/ipamserver/).  
@@ -69,7 +69,7 @@ Der Befehl sucht nach einer fortlaufenden Reihe von nicht zugeordneten IP-Adress
   
 Weitere Informationen finden Sie unter [Find-ipamfreerange](https://docs.microsoft.com/powershell/module/ipamserver/Find-IpamFreeRange).  
   
-### <a name="EDNS"></a>Erweiterte DNS-Dienst Verwaltung  
+### <a name="enhanced-dns-service-management"></a><a name="EDNS"></a>Erweiterte DNS-Dienst Verwaltung  
 IPAM in Windows Server 2016 unterstützt jetzt die Ermittlung von dateibasierten, in die Domäne eingebundenen DNS-Servern in einer Active Directory Gesamtstruktur, in der IPAM ausgeführt wird.  
   
 Außerdem wurden die folgenden DNS-Funktionen hinzugefügt:  
@@ -86,24 +86,24 @@ Außerdem wurden die folgenden DNS-Funktionen hinzugefügt:
   
 -   Sammlung und Konfiguration bedingter Weiterleitungen (erstellen, löschen, bearbeiten).  
   
-### <a name="DDI"></a>Integrierte DNS-, DHCP-und IP-Adressverwaltung (DDI)  
+### <a name="integrated-dns-dhcp-and-ip-address-ddi-management"></a><a name="DDI"></a>Integrierte DNS-, DHCP-und IP-Adressverwaltung (DDI)  
 Wenn Sie eine IP-Adresse im IP-Adress bestand anzeigen, können Sie in der Detailansicht alle DNS-Ressourcen Einträge anzeigen, die der IP-Adresse zugeordnet sind.  
   
 Als Teil der DNS-Ressourcen Daten Satz Sammlung sammelt IPAM die PTR-Einträge für die DNS-Reverse-Lookupzonen. Für alle Reverse-Lookupzonen, die einem beliebigen IP-Adressbereich zugeordnet sind, erstellt IPAM die IP-Adresseinträge für alle PTR-Einträge, die zu dieser Zone gehören, im entsprechenden zugeordneten IP-Adressbereich. Wenn die IP-Adresse bereits vorhanden ist, wird der PTR-Datensatz einfach dieser IP-Adresse zugeordnet. Die IP-Adressen werden nicht automatisch erstellt, wenn die Reverse-Lookupzone keinem IP-Adressbereich zugeordnet ist.  
   
 Wenn ein PTR-Datensatz in einer Reverse-Lookupzone über IPAM erstellt wird, wird die IP-Adress Inventur auf die gleiche Weise wie oben beschrieben aktualisiert. Da die IP-Adresse im System bereits vorhanden ist, wird der PTR-Datensatz bei der nachfolgenden Sammlung einfach dieser IP-Adresse zugeordnet.  
   
-### <a name="bkmk_ad"></a>Unterstützung mehrerer Active Directory-Gesamtstrukturen  
+### <a name="multiple-active-directory-forest-support"></a><a name="bkmk_ad"></a>Unterstützung mehrerer Active Directory-Gesamtstrukturen  
 In Windows Server 2012 R2 konnte IPAM DNS-und DHCP-Server ermitteln und verwalten, die zu derselben Active Directory Gesamtstruktur gehören wie der IPAM-Server. Nun können Sie DNS-und DHCP-Server verwalten, die zu einer anderen AD-Gesamtstruktur gehören, wenn eine bidirektionale Vertrauensstellung mit der Gesamtstruktur besteht, in der der IPAM-Server installiert ist. Sie können das Dialogfeld **Server Ermittlung konfigurieren** aufrufen und Domänen aus den anderen vertrauenswürdigen Gesamtstrukturen hinzufügen, die Sie verwalten möchten. Nachdem die Server ermittelt wurden, ist die Verwaltung die gleiche wie für die Server, die zur gleichen Gesamtstruktur gehören, in der IPAM installiert ist.  
   
 Weitere Informationen finden Sie unter [Verwalten von Ressourcen in mehreren Active Directory](../../technologies/ipam/Manage-Resources-in-Multiple-Active-Directory-Forests.md) Gesamtstrukturen.  
   
-### <a name="bkmk_purge"></a>Verwendungs Daten bereinigen  
+### <a name="purge-utilization-data"></a><a name="bkmk_purge"></a>Verwendungs Daten bereinigen  
 Durch das Löschen von Verwendungs Daten können Sie die IPAM-Datenbankgröße verringern, indem Sie alte Daten zur IP-Adress Auslastung löschen. Zum Löschen von Daten geben Sie ein Datum an, und IPAM löscht alle Datenbankeinträge, die älter oder gleich dem Datum sind, das Sie angeben.   
   
 Weitere Informationen finden Sie unter Löschen von [Verwendungs Daten](../../technologies/ipam/Purge-Utilization-Data.md).  
   
-### <a name="bkmk_ps"></a>Windows PowerShell-Unterstützung für rollenbasierte Access Control  
+### <a name="windows-powershell-support-for-role-based-access-control"></a><a name="bkmk_ps"></a>Windows PowerShell-Unterstützung für rollenbasierte Access Control  
 Sie können jetzt Windows PowerShell verwenden, um rollenbasierte Access Control zu konfigurieren. Sie können Windows PowerShell-Befehle verwenden, um DNS-und DHCP-Objekte in IPAM abzurufen und deren Zugriffs Bereiche zu ändern. Aus diesem Grund können Sie Windows PowerShell-Skripts schreiben, um den folgenden Objekten Zugriffs Bereiche zuzuweisen.  
   
 -   IP-Adressraum  

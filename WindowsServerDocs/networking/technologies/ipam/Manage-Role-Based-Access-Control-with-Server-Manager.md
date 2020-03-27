@@ -10,18 +10,18 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 77b6ac92-eaff-46d7-95db-ee6fc96742ed
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5dfc3c8f31d25f5b72f39e33759d6e26917ae70f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a3fb0a4e09e348040a2e89f97c73371aca62bef0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405628"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316794"
 ---
 # <a name="manage-role-based-access-control-with-server-manager"></a>Verwalten der rollenbasierten Zugriffssteuerung mit Server-Manager
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In den folgenden Themen finden Sie Informationen zum Verwalten der rollenbasierten Zugriffs Steuerung mit Server-Manager, die über eine grafische Benutzeroberfläche verfügt.  
   
@@ -37,7 +37,7 @@ In den folgenden Themen finden Sie Informationen zum Verwalten der rollenbasiert
   
 Alternativ können Sie Windows PowerShell verwenden, um die rollenbasierte Zugriffs Steuerung in IPAM zu verwalten. Weitere Informationen finden Sie unter [Verwalten von rollenbasierten Access Control mit Windows PowerShell](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md).
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Verwalten von IPAM](Manage-IPAM.md)  
   
 

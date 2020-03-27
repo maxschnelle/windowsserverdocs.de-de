@@ -1,9 +1,9 @@
 ---
 title: Automatisches Installieren von Add-Ins während des Setups
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,19 +12,19 @@ ms.assetid: 2e6ff6e4-8d68-4d49-9e38-8088bc8bf95e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c2345726a17a074fc7022c8c4dc9b2443e9ad384
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 579ed4e6e780c261ca582e943cebf2fc18b5ef62
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433644"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310115"
 ---
 # <a name="automate-installation-of-add-ins-during-setup"></a>Automatisches Installieren von Add-Ins während des Setups
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-##  <a name="BKMK_AddIns"></a> Installieren von Add-Ins während des Setups zu automatisieren.  
- Verwenden Sie zum Installieren von Add-Ins während des Setups die Methode „PostIC.cmd“, die im Abschnitt [Erstellen der Datei „PostIC.cmd“ zum Ausführen von Aufgaben nach der Erstkonfiguration](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) dieses Dokuments beschrieben wird.  
+##  <a name="automate-installing-add-ins-during-setup"></a><a name="BKMK_AddIns"></a>Automatisieren der Installation von Add-ins während des Setups  
+ Verwenden Sie zum Installieren von Add-Ins während des Setups die Methode "PostIC.cmd", die im Abschnitt [Erstellen der Datei "PostIC.cmd" zum Ausführen von Aufgaben nach der Erstkonfiguration](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) beschrieben wird.  
   
  Fügen Sie der Datei "PostIC.cmd" den folgenden Eintrag hinzu:  
   
@@ -117,8 +117,8 @@ C:\Program Files\Windows Server\bin\Installaddin.exe <full path to wssx file> -q
   
   Alle Fehler, bei denen die exefile aufgerufen wird, führen zu demselben Verhalten wie bei der Rückgabe eines anderen Codes als "0" oder "1" der exefile.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Zusätzliche Anpassungen](Additional-Customizations.md)   
+ [Weitere Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)

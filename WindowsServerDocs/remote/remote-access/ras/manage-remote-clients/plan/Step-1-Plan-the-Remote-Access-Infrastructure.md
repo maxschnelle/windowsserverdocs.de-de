@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a1ce7af5-f3fe-4fc9-82e8-926800e37bc1
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 71a6d38b9c77b3b8c24b28f78114daa63f5bd527
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 7c6b4e4d4975303aef6a2334bce164ce498f7254
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822533"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314287"
 ---
 # <a name="step-1-plan-the-remote-access-infrastructure"></a>Schritt 1 Planen der Infrastruktur für den Remote Zugriff
 
@@ -77,7 +77,7 @@ Wenn Sie Ihr Netzwerk planen, müssen Sie die Netzwerkadapter Topologie, die Ein
 ### <a name="plan-isatap-requirements"></a>Planen von ISATAP-Anforderungen  
 ISATAP ist für die Remote Verwaltung von directaccessclients erforderlich, damit DirectAccess-Verwaltungs Server eine Verbindung mit DirectAccess-Clients im Internet herstellen können. ISATAP ist nicht erforderlich, um Verbindungen zu unterstützen, die von DirectAccess-Client Computern zu IPv4-Ressourcen im Unternehmensnetzwerk initiiert werden. Für diese Zwecke wird NAT64/DNS64 verwendet. Wenn Ihre Bereitstellung ISATAP erfordert, verwenden Sie die folgende Tabelle, um Ihre Anforderungen zu ermitteln.  
   
-|ISATAP-Bereitstellungs Szenario|Anforderungen|  
+|ISATAP-Bereitstellungs Szenario|Voraussetzungen|  
 |---------------|--------|  
 |Vorhandenes natives IPv6-Intranet (keine ISATAP erforderlich)|Bei einer vorhandenen nativen IPv6-Infrastruktur geben Sie das Präfix der Organisation während der Remote Zugriffs Bereitstellung an, und der RAS-Server konfiguriert sich nicht selbst als ISATAP-Router. Gehen Sie wie folgt vor:<br/><br/>1. um sicherzustellen, dass DirectAccess-Clients über das Intranet erreichbar sind, müssen Sie das IPv6-Routing so ändern, dass der Standardrouten Datenverkehr an den Remote Zugriffs Server weitergeleitet wird. Wenn Ihr Intranet-IPv6-Adressraum eine andere Adresse als ein einzelnes IPv6-Adress Präfix mit 48 Bit verwendet, müssen Sie während der Bereitstellung das relevante IPv6-Präfix für die Organisation angeben.<br/>2. Wenn Sie zurzeit mit dem IPv6-Internet verbunden sind, müssen Sie den Standardrouten Datenverkehr so konfigurieren, dass er an den RAS-Server weitergeleitet wird, und dann die entsprechenden Verbindungen und Routen auf dem RAS-Server konfigurieren, sodass die Standardroute der Datenverkehr wird an das Gerät weitergeleitet, das mit dem IPv6-Internet verbunden ist.|  
 |Vorhandene ISATAP-Bereitstellung|Wenn Sie über eine vorhandene ISATAP-Infrastruktur verfügen, werden Sie während der Bereitstellung aufgefordert, das 48-Bit-Präfix der Organisation zu erhalten, und der RAS-Server konfiguriert sich nicht selbst als ISATAP-Router. Um sicherzustellen, dass DirectAccess-Clients über das Intranet erreichbar sind, müssen Sie die IPv6-Routing Infrastruktur so ändern, dass der Standardrouten Datenverkehr an den Remote Zugriffs Server weitergeleitet wird. Diese Änderung muss auf dem vorhandenen ISATAP-Router erfolgen, auf dem die Intranetclients bereits den Standard Datenverkehr weiterleiten müssen.|  
@@ -272,7 +272,7 @@ Bei Split-Brain-DNS-bereit Stellungen müssen Sie die vollständig im Internet u
   
 Wenn Sie in einer Split-Brain-DNS-Umgebung beide Versionen der Ressource verfügbar sein sollen, konfigurieren Sie Ihre Intranetressourcen mit Namen, die nicht die im Internet verwendeten Namen duplizieren. Weisen Sie Ihre Benutzer dann an, den alternativen Namen zu verwenden, wenn Sie auf die Ressource im Intranet zugreifen. Konfigurieren Sie z. b. www\.Internal.contoso.com als internen Namen von www\.contoso.com.  
   
-In einer Umgebung ohne Split-Brain-DNS unterscheidet sich der Internetnamespace vom Intranetnamespace. Die Contoso Corporation verwendet z. B. im Internet contoso.com und im Intranet corp.contoso.com. Da alle Intranetressourcen das DNS-Suffix corp.contoso.com verwenden, leitet die NRPT-Regel für corp.contoso.com alle DNS-Namensabfragen für Intranetressourcen an Intranet-DNS-Server weiter. DNS-Abfragen für Namen mit dem Suffix "contoso.com" stimmen nicht mit der Corp.contoso.com-Intranetnamespace-Regel in der NRPT und werden an Internet-DNS-Server gesendet. Bei einer Bereitstellung ohne Split-Brain-DNS ist für die NRPT keine zusätzliche Konfiguration erforderlich, da keine Doppelung der FQDNs für Intranet- und Internetressourcen auftritt. DirectAccess-Clients können auf Internet-und Intranetressourcen für Ihre Organisation zugreifen.  
+In einer Umgebung ohne Split-Brain-DNS unterscheidet sich der Internetnamespace vom Intranetnamespace. Die Contoso Corporation verwendet z. B. im Internet {1}contoso.com{2} und im Intranet {3}corp.contoso.com{4}. Da alle Intranetressourcen das DNS-Suffix corp.contoso.com verwenden, leitet die NRPT-Regel für corp.contoso.com alle DNS-Namensabfragen für Intranetressourcen an Intranet-DNS-Server weiter. DNS-Abfragen für Namen mit dem Suffix "contoso.com" stimmen nicht mit der Corp.contoso.com-Intranetnamespace-Regel in der NRPT und werden an Internet-DNS-Server gesendet. Bei einer Bereitstellung ohne Split-Brain-DNS ist für die NRPT keine zusätzliche Konfiguration erforderlich, da keine Doppelung der FQDNs für Intranet- und Internetressourcen auftritt. DirectAccess-Clients können auf Internet-und Intranetressourcen für Ihre Organisation zugreifen.  
   
 ##### <a name="plan-local-name-resolution-behavior-for-directaccess-clients"></a>Planen des Namens der lokalen Namensauflösung für DirectAccess-Clients  
 Wenn ein Name nicht mit DNS aufgelöst werden kann, kann der DNS-Client Dienst in Windows Server 2012, Windows 8, Windows Server 2008 R2 und Windows 7 die lokale Namensauflösung verwenden, mit der Link-Local-Multicast-Namensauflösung (LLMNR) und NetBIOS über TCP/IP-Protokollen, um den Namen im lokalen Subnetz aufzulösen. Die lokale Namensauflösung ist in der Regel für Peer-zu-Peer-Verbindungen erforderlich, wenn sich der Computer in privaten Netzwerken befindet, z. B. in einem Heimnetzwerk mit einem einzelnen Subnetz.  
@@ -348,7 +348,7 @@ Wenn Sie eine Active Directory Umgebung für eine Remote Zugriffs Bereitstellung
   
     Wenn sich der Domänen Controller in einem Umkreis Netzwerk befindet (und daher über den Netzwerkadapter mit Internet Zugriff des Remote Zugriffs Servers erreichbar ist), verhindern Sie, dass der RAS-Server den Remote Zugriffs Server erreicht. Sie müssen auf dem Domänen Controller Paketfilter hinzufügen, um die Konnektivität mit der IP-Adresse des Internet Adapters zu verhindern.  
   
--   Der RAS-Server muss Domänenmitglied sein.  
+-   Der Remotezugriffsserver muss Domänenmitglied sein.  
   
 -   DirectAccess-Clients müssen Domänenmitglieder sein. Clients können folgenden Domänen angehören:  
   

@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1cc0abc6-be4d-4cbe-bd0c-cc448bf294f6
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: c5a316e1230692fb800c088d752c26ec4a0f3349
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: fddffbc2954ef7f0687fc7865ec295295b32983a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388265"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314520"
 ---
 # <a name="step-7-install-and-configure-2-app1"></a>Schritt 7: Installieren und Konfigurieren von 2-App1
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 2 App1 stellt Web-und Dateifreigabe Dienste bereit. 2: die App1-Konfiguration besteht aus folgendem:  
   
@@ -35,20 +35,20 @@ ms.locfileid: "71388265"
   
 - Erstellen eines freigegebenen Ordners auf 2-App1 
   
-## <a name="bkmk_InstallOS"></a>Installieren des Betriebssystems auf 2-App1  
+## <a name="install-the-operating-system-on-2-app1"></a><a name="bkmk_InstallOS"></a>Installieren des Betriebssystems auf 2-App1  
 Installieren Sie zunächst Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012.  
   
 #### <a name="to-install-the-operating-system-on-2-app1"></a>So installieren Sie das Betriebssystem auf 2-App1  
   
 1.  Starten Sie die Installation von Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 (vollständige Installation).  
   
-2.  Folgen Sie den Installationsanweisungen, und legen Sie ein sicheres Kennwort für das lokale Administratorkonto fest. Melden Sie sich beim lokalen Administratorkonto an.  
+2.  Folgen Sie den Installationsanweisungen, und legen Sie ein sicheres Kennwort für das lokale Administratorkonto fest. Melden Sie sich mit dem lokalen Administratorkonto an.  
   
 3.  Verbinden Sie 2 App1 mit einem Netzwerk, das über Internet Zugriff verfügt, und führen Sie Windows Update aus, um die neuesten Updates für Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 zu installieren, und trennen Sie dann die Verbindung mit dem Internet.  
   
 4.  Verbinden Sie 2 App1 mit dem Subnetz 2-Corpnet.  
   
-## <a name="bkmk_TCP"></a>Konfigurieren von TCP/IP-Eigenschaften  
+## <a name="configure-tcpip-properties"></a><a name="bkmk_TCP"></a>Konfigurieren von TCP/IP-Eigenschaften  
 Konfigurieren Sie die TCP/IP-Eigenschaften für 2 App1.  
   
 #### <a name="to-configure-tcpip-properties"></a>So konfigurieren Sie die TCP/IP-Eigenschaften  
@@ -59,11 +59,11 @@ Konfigurieren Sie die TCP/IP-Eigenschaften für 2 App1.
   
 3.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
-4.  Klicken Sie auf **Folgende IP-Adresse verwenden**. Geben Sie unter **IP-Adresse**den Namen **10.2.0.3**ein. Geben Sie im Feld **Subnetzmaske**den Wert **255.255.255.0**ein. Geben Sie unter **Standard Gateway**den Namen **10.2.0.254**ein.  
+4.  Klicken Sie auf **Folgende IP-Adresse verwenden**. Geben Sie unter **IP-Adresse**den Namen **10.2.0.3**ein. Geben Sie im Feld **Subnetzmaske** den Wert **255.255.255.0** ein. Geben Sie unter **Standard Gateway**den Namen **10.2.0.254**ein.  
   
 5.  Klicken Sie auf **Folgende DNS-Serveradressen verwenden**. Geben Sie unter **Bevorzugter DNS-Server** **10.2.0.1 bis**ein.  
   
-6.  Klicken Sie auf **Erweitert** und dann auf die Registerkarte **DNS**. Geben Sie unter **DNS-Suffix für diese Verbindung** **corp2.Corp.contoso.com**ein, und klicken Sie zweimal auf **OK** .  
+6.  Klicken Sie auf **erweitert**, und klicken Sie dann auf die Registerkarte **DNS** . Geben Sie unter **DNS-Suffix für diese Verbindung** **corp2.Corp.contoso.com**ein, und klicken Sie zweimal auf **OK** .  
   
 7.  Klicken Sie auf **Internetprotokoll Version 6 (TCP/IPv6)** , und klicken Sie dann auf **Eigenschaften**.  
   
@@ -77,7 +77,7 @@ Konfigurieren Sie die TCP/IP-Eigenschaften für 2 App1.
   
 12. Schließen Sie das Fenster **Netzwerkverbindungen**.  
   
-## <a name="bkmk_JoinDomain"></a>Join 2 App1 zur CORP2-Domäne  
+## <a name="join-2-app1-to-the-corp2-domain"></a><a name="bkmk_JoinDomain"></a>Join 2 App1 zur CORP2-Domäne  
 Join 2 App1 zur corp2.Corp.contoso.com-Domäne.  
   
 #### <a name="to-join-2-app1-to-the-corp2-domain"></a>So verknüpfen Sie 2 App1 mit der CORP2-Domäne  
@@ -100,7 +100,7 @@ Join 2 App1 zur corp2.Corp.contoso.com-Domäne.
   
 9. Klicken Sie nach dem Neustart des Computers auf **Benutzer wechseln**und dann auf **anderer Benutzer** , und melden Sie sich bei der Domäne CORP2 mit dem Administrator Konto an.  
   
-## <a name="bkmk_IIS"></a>Installieren Sie die Rolle "Webserver (IIS)" auf 2 App1  
+## <a name="install-the-web-server-iis-role-on-2-app1"></a><a name="bkmk_IIS"></a>Installieren Sie die Rolle "Webserver (IIS)" auf 2 App1  
 Installieren Sie die Rolle "Webserver (IIS)", um "2 App1 a Web Server" zu erstellen.  
   
 #### <a name="to-install-the-web-server-iis-role"></a>So installieren Sie die Rolle "Webserver (IIS)"  
@@ -115,7 +115,7 @@ Installieren Sie die Rolle "Webserver (IIS)", um "2 App1 a Web Server" zu erstel
   
 5.  Überprüfen Sie, ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
   
-## <a name="bkmk_Share"></a>Erstellen eines freigegebenen Ordners auf 2-App1  
+## <a name="create-a-shared-folder-on-2-app1"></a><a name="bkmk_Share"></a>Erstellen eines freigegebenen Ordners auf 2-App1  
 Erstellen Sie einen freigegebenen Ordner und eine Textdatei im Ordner auf 2 App1.  
   
 #### <a name="to-create-a-shared-folder"></a>So erstellen Sie einen freigegebenen Ordner  

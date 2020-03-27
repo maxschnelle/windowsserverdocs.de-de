@@ -6,18 +6,18 @@ ms.topic: article
 ms.assetid: 4acdc3ad-078e-45cc-b54c-e9456e0c90f5
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 024fc73c4ed089d81808cf44d7cfe8b01bfffaa0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: fffb03a707c48c8dd485c68b5c6bf10783b0e6cf
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406331"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318366"
 ---
 # <a name="install-the-certification-authority"></a>Installieren der Zertifizierungsstelle
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Mithilfe dieses Verfahrens können Sie Active Directory Zertifikat Dienste (AD CS) installieren, damit Sie ein Serverzertifikat für Server mit Netzwerk Richtlinien Server (Network Policy Server, NPS), Routing-und RAS-Dienst (RRAS) oder beides registrieren können.  
   
@@ -64,7 +64,7 @@ Für dieses Verfahren sind mindestens die Mitgliedschaften in den Gruppen **Orga
   
 10. Klicken Sie unter **Rollen Dienste**auf **Zertifizierungs**Stelle, und klicken Sie dann auf **weiter**.  
   
-11. Überprüfen Sie auf der Seite Setuptyp, ob **Unternehmens** Zertifizierungsstelle ausgewählt ist, und klicken Sie dann auf **weiter**.  
+11. Überprüfen Sie auf der Seite Setuptyp, ob **Unternehmens** Zertifizierungsstelle ausgewählt ist, und klicken Sie dann auf **weiter**. **Setup Type**  
   
 12. Vergewissern Sie sich **, dass auf** der Seite **Typ der** Zertifizierungsstelle angeben die Option Stamm Zertifizierungsstelle ausgewählt ist, und klicken Sie dann auf **weiter**.  
   

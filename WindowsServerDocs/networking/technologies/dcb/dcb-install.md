@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: b89213d8-143a-45f3-a609-bc6a7027204c
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5ecb6ef072dd2328a0a45d57d181dca9c2928a30
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: edca8269178d9e1de9f8d57abac04400da0ac5c1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405783"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312801"
 ---
 # <a name="install-data-center-bridging-dcb-in-windows-server-2016-or-windows-10"></a>Installieren von Data Center Bridging \(DCB-\) in Windows Server 2016 oder Windows 10
 
@@ -35,8 +35,8 @@ Sie können die DCB-Befehle in diesem Handbuch unter den folgenden Betriebssyste
 
 Die folgenden Betriebssysteme enthalten frühere Versionen von DCB, die nicht mit den Befehlen kompatibel sind, die in der DCB-Dokumentation für Windows Server 2016 und Windows 10 verwendet werden.
 
-- Windows Server 2012 R2
-- Windows Server 2012
+- Windows Server 2012 R2
+- Windows Server 2012
 
 ###  <a name="hardware-requirements"></a>Hardwareanforderungen
 

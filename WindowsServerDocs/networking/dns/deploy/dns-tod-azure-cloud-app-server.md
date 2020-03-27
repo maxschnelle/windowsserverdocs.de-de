@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: 4846b548-8fbc-4a7f-af13-09e834acdec0
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 4307ce1512980277af819e0710e0447d8dbac8c4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: be0604a850e54f4945e7416298fad30ce3dbf083
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406199"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317848"
 ---
 # <a name="dns-responses-based-on-time-of-day-with-an-azure-cloud-app-server"></a>Auf der Tageszeit basierende DNS-Antworten mit einem Azure-Cloud-App-Server
 
@@ -57,7 +57,7 @@ In der folgenden Abbildung ist dieses Szenario dargestellt.
  
 In diesem Artikel wird veranschaulicht, wie der DNS-Server so konfiguriert wird, dass DNS-Abfragen mit zwei verschiedenen Anwendungsserver-IP-Adressen beantwortet werden: ein Webserver befindet sich in Seattle und der andere in einem Azure-Rechenzentrum.
 
-Nach der Konfiguration einer neuen DNS-Richtlinie, die auf den Spitzenzeiten von 6 Uhr bis 9 pm in Seattle basiert, sendet der DNS-Server 70 Prozent der DNS-Antworten an Clients, die die IP-Adresse des Webservers Seattle enthalten, und 30 Prozent der DNS-Antworten an opologie. NTS mit der IP-Adresse des Azure-Webservers, der den Client Datenverkehr an den neuen Azure-Webserver weiterleitet und den Webserver von Seattle nicht überlastet wird. 
+Nach der Konfiguration einer neuen DNS-Richtlinie, die auf den Spitzenzeiten von 6 Uhr bis 9 Uhr in Seattle basiert, sendet der DNS-Server 70 Prozent der DNS-Antworten an Clients, die die IP-Adresse des Webservers Seattle enthalten, und dreißig Prozent der DNS-Antworten an Clients. , die die IP-Adresse des Azure-Webservers enthält, sodass der Client Datenverkehr an den neuen Azure-Webserver weitergeleitet wird und verhindert wird, dass der Seattle-Webserver überladen wird. 
 
 Zu allen anderen Tageszeiten findet die normale Abfrage Verarbeitung statt, und Antworten werden vom Standard Zonen Bereich gesendet, der einen Datensatz für den Webserver im lokalen Daten Center enthält. 
 

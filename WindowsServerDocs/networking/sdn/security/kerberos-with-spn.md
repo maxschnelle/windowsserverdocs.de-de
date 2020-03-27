@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: bc625de9-ee31-40a4-9ad2-7448bfbfb6e6
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/23/2018
-ms.openlocfilehash: 78d5d2144e0def8e69a2a4ae5fdc2d7718936710
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: adf282222674130dcb16b0c7bfe0cf3ff05ed720
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355767"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317395"
 ---
 # <a name="kerberos-with-service-principal-name-spn"></a>Kerberos mit Dienstprinzipalname (SPN)
 
@@ -30,7 +30,7 @@ Der SPN wird vom Netzwerk Controller automatisch konfiguriert. Sie müssen ledig
 
 1.  Starten Sie auf dem Domänen Controller Computer **Active Directory Benutzer und Computer**.
 
-2.  Wählen **Sie \> Ansicht erweitert**aus.
+2.  Wählen Sie **Ansicht \> erweitert**aus.
 
 3.  Suchen Sie unter Computer nach einem der Netzwerk Controller- **Computer**Konten, klicken Sie mit der rechten Maustaste, und wählen Sie **Eigenschaften**aus.
 
@@ -58,7 +58,7 @@ Der SPN wird vom Netzwerk Controller automatisch konfiguriert. Sie müssen ledig
 
 ## <a name="failure-to-provide-permissions-for-spn-registrationmodification"></a>Fehler beim Bereitstellen von Berechtigungen für die SPN-Registrierung/-Änderung
 
-Wenn Sie bei einer **neuen** Windows Server 2019-Bereitstellung Kerberos für die Rest-Client Authentifizierung ausgewählt haben und keine Berechtigung für Netzwerk Controller Knoten erteilen, um den SPN zu registrieren oder zu ändern, können Rest-Vorgänge auf dem Netzwerk Controller die Verwaltung von nicht verhindern. der Sdn.
+Wenn Sie bei einer **neuen** Windows Server 2019-Bereitstellung Kerberos für die Rest-Client Authentifizierung ausgewählt haben und keine Berechtigung für Netzwerk Controller Knoten erteilen, um den SPN zu registrieren oder zu ändern, können Rest-Vorgänge auf dem Netzwerk Controller die Verwaltung des SDN nicht verhindern.
 
 Bei einem Upgrade von Windows Server 2016 auf Windows Server 2019 und bei der Auswahl von Kerberos für die Rest-Client Authentifizierung werden Rest-Vorgänge nicht blockiert. Dadurch wird die Transparenz für vorhandene Produktions Bereitstellungen sichergestellt. 
 
@@ -66,7 +66,7 @@ Wenn der SPN nicht registriert ist, verwendet die Rest-Client Authentifizierung 
 
 
 >[!TIP]
->In der Regel können Sie den Netzwerk Controller so konfigurieren, dass er eine IP-Adresse oder einen DNS-Namen für Rest-basierte Vorgänge verwendet. Wenn Sie Kerberos konfigurieren, können Sie jedoch keine IP-Adresse für Rest-Abfragen an den Netzwerk Controller verwenden. Beispiels \<Weise können Sie verwenden https://networkcontroller.consotso.com\>, aber Sie können nicht verwenden \< https://192.34.21.3\>. Dienst Prinzipal Namen können nicht funktionieren, wenn IP-Adressen verwendet werden.
+>In der Regel können Sie den Netzwerk Controller so konfigurieren, dass er eine IP-Adresse oder einen DNS-Namen für Rest-basierte Vorgänge verwendet. Wenn Sie Kerberos konfigurieren, können Sie jedoch keine IP-Adresse für Rest-Abfragen an den Netzwerk Controller verwenden. Beispielsweise können Sie \<https://networkcontroller.consotso.com\>verwenden, aber Sie können \<https://192.34.21.3\>nicht verwenden. Dienst Prinzipal Namen können nicht funktionieren, wenn IP-Adressen verwendet werden.
 >
 >Wenn Sie die IP-Adresse für Rest-Vorgänge zusammen mit der Kerberos-Authentifizierung in Windows Server 2016 verwendet haben, wäre die tatsächliche Kommunikation über die NTLM-Authentifizierung erfolgt. Wenn Sie in einer solchen Bereitstellung ein Upgrade auf Windows Server 2019 durchführen, verwenden Sie die NTLM-basierte Authentifizierung. Wenn Sie zur Kerberos-basierten Authentifizierung wechseln möchten, müssen Sie den DNS-Namen des Netzwerk Controllers für Rest-Vorgänge verwenden und die Berechtigung für Netzwerk Controller Knoten zum Registrieren des SPN angeben.
 

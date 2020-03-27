@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 96d03b42-6cd9-4905-b6a2-dc36130dd24f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 69dc525a093c86d57b665e26ff5acaf2679c81a5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: f66e7e728f8e5ca657d002c3c5afcd2d9d23e9ff
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356434"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319152"
 ---
 # <a name="deploy-hosted-cache-servers-optional"></a>Bereitstellen von gehosteten Cacheserver (Optional)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Sie können dieses Verfahren zum Installieren und Konfigurieren von BranchCache-gehosteten Cache Servern verwenden, die sich in Zweigniederlassungen befinden, in denen Sie den BranchCache-Modus für gehostete Caches bereitstellen möchten. Mit BranchCache in Windows Server 2016 können Sie mehrere gehostete Cache Server in einer Zweigstelle bereitstellen.  
   
@@ -47,6 +47,6 @@ Sie müssen Mitglied der Gruppe " **Administratoren**" oder einer entsprechenden
     `Get-BCStatus`  
   
     > [!NOTE]  
-    > Nachdem Sie diesen Befehl ausgeführt **haben, ist im Abschnitt "** " "" "" "" " " "" "" "" "" "" "" "" "" "" " Wenn Sie einen in die Domäne eingebundener gehosteten Cache Server für die Registrierung eines Dienst Verbindungs Punkts (Service Connection Point, SCP) in Active Directory konfiguriert haben, lautet der Wert für **hostedcachescpregistrationaktiviert** **true**.  
+    > Nachdem Sie diesen Befehl ausgeführt **haben, ist im Abschnitt "** " "" "" "" " **HostedCacheServerIsEnabled** " "" "" "" " **True**" "" "" "" "" "" " Wenn Sie einen in die Domäne eingebundener gehosteten Cache Server für die Registrierung eines Dienst Verbindungs Punkts (Service Connection Point, SCP) in Active Directory konfiguriert haben, lautet der Wert für **hostedcachescpregistrationaktiviert** **true**.  
   
 

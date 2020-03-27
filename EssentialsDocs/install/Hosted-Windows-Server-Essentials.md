@@ -3,7 +3,7 @@ title: Gehostete Windows Server Essentials-Lösung
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: fda5628c-ad23-49de-8d94-430a4f253802
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 84464c69d4b8576906e5fb0d0a7de7e382a59537
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 76319f87a246c6fabbe0befaf7dc4c74d1416ac4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947505"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311758"
 ---
 # <a name="hosted-windows-server-essentials"></a>Gehostete Windows Server Essentials-Lösung
 
@@ -36,7 +36,7 @@ Dieses Dokument enthält spezifische Informationen für Hoster, die Windows Serv
   
  **Flexibilität der Arbeitsauslastung:** Windows Server Essentials wurde entwickelt, damit Kunden flexibel auswählen können, welche Anwendungen und Dienste lokal und welche in der Cloud ausgeführt werden. In früheren Versionen enthielt Windows Small Business Server Standard als Komponentenprodukt Exchange Server, wodurch Kunden, die cloudbasierte Dienste für Messaging und Zusammenarbeit nutzen wollten, nicht nur mehr Kosten entstanden, sondern auch eine größere Komplexität zu bewältigen hatten. Mit Windows Server Essentials können Kunden die gleiche Art integrierter Verwaltungsfunktionen nutzen, unabhängig davon, ob Sie eine lokale Kopie von Exchange Server ausführen, einen gehosteten Exchange-Dienst abonnieren oder Microsoft Office 365 abonnieren.  
   
- System **Überwachung:** Windows Server Essentials überwacht seinen eigenen Integritäts Status und den Status von Client Computern, auf denen Windows 8.1, Windows 7 und Mac OS X Version 10,5 und höher ausgeführt wird. Der Integritätsstatus benachrichtigt Sie u. a. bei Problemen im Zusammenhang mit Computersicherungen, dem Serverspeicher und wenig Speicherplatz.  
+ System **Überwachung:** Windows Server Essentials überwacht seinen eigenen Integritäts Status und den Status von Client Computern, auf denen Windows 8.1, Windows 7 und Mac OS X Version 10,5 und höher ausgeführt wird. Der Integritätsstatus benachrichtigt Sie u. a. bei Problemen im Zusammenhang mit Computersicherungen, dem Serverspeicher und wenig Speicherplatz.  
   
  **Erweiterbarkeit:** Windows Server Essentials baut auf dem Erweiterbarkeits Modell von Windows SSB 2011 Essentials auf, das es anderen Softwareanbietern ermöglicht, dem Kernprodukt Funktionen und Features hinzuzufügen und einen neuen Satz von Webdienst-APIs hinzuzufügen. Das Feature sichert auch Kompatibilität mit dem vorhandenen [Software Development Kit](https://msdn.microsoft.com/library/gg513958.aspx) (SDK) und [Add-Ins](https://pinpoint.microsoft.com/applications/search?fpt=300105&q=small+business+server+essentials) , die für Windows SBS 2011 Essentials erstellt wurden.  
   
@@ -57,10 +57,10 @@ Dieses Dokument enthält spezifische Informationen für Hoster, die Windows Serv
   
    Wenn Sie Virtual Machine Manager verwenden, können Sie eine Vorlage mithilfe der ausgeführten Instanz erstellen. Durch das Erstellen einer Vorlage wird für die Instanz eine Systemvorbereitung durchgeführt und der Server heruntergefahren. Nachdem Sie die Instanz in Ihrer Bibliothek gespeichert haben, können Sie sie bei Bedarf jederzeit aufrufen.  
   
-##  <a name="BKMK_automatedeployment"></a>Gewusst wie die Bereitstellung automatisieren?  
+##  <a name="how-do-i-automate-the-deployment"></a><a name="BKMK_automatedeployment"></a>Gewusst wie die Bereitstellung automatisieren?  
  Nachdem Sie das angepasste Abbild aufgezeichnet haben, können Sie die Bereitstellung mit dem eigenen Abbild ausführen. Damit Sie eine teilweise unbeaufsichtigte Installation ausführen können, müssen Sie die Datei "unattend.xml" für WinPE-Setup angeben/bereitstellen. Um eine vollständig unbeaufsichtigte Installation durchzuführen, müssen Sie auch die Datei "cfg. ini" für die Erstkonfiguration von Windows Server Essentials bereitstellen.  
   
-1. Führen Sie nur ein unbeaufsichtigtes WinPE-Setup aus. Dadurch wird nur das WinPE-Setup automatisiert, und die Installation wird vor der Erstkonfiguration angehalten, sodass die Endbenutzer nach dem Herstellen einer RDP-Verbindung mit der Serversitzung Informationen zum Unternehmen, zur Domäne und zum Administrator selbst angeben können. Aufgabe:  
+1. Führen Sie nur ein unbeaufsichtigtes WinPE-Setup aus. Dadurch wird nur das WinPE-Setup automatisiert, und die Installation wird vor der Erstkonfiguration angehalten, sodass die Endbenutzer nach dem Herstellen einer RDP-Verbindung mit der Serversitzung Informationen zum Unternehmen, zur Domäne und zum Administrator selbst angeben können. Dazu gehen Sie folgendermaßen vor:  
   
    1.  Geben Sie die Windows-Datei "unattend.xml" an. Führen Sie die [Windows 8.1 ADK](https://go.microsoft.com/fwlink/?LinkId=248694) aus, um die Datei zu generieren, und geben Sie alle erforderlichen Informationen einschließlich Servername, Product Keys und Administrator Kennwort an. Geben Sie im Abschnitt Microsoft-Windows-Setup der Datei Unattend. XML die folgenden Informationen an.  
   
@@ -84,7 +84,7 @@ Dieses Dokument enthält spezifische Informationen für Hoster, die Windows Serv
   
    Wenn Sie Virtual Machine Manager verwenden, können Sie das Administratorkennwort in der Konsole angeben, wenn Sie aus der Vorlage eine neue Instanz erstellen.  
   
-2. Führen Sie ein vollständig unbeaufsichtigtes Setup einschließlich einer unbeaufsichtigten Erstkonfiguration aus. Aufgabe:  
+2. Führen Sie ein vollständig unbeaufsichtigtes Setup einschließlich einer unbeaufsichtigten Erstkonfiguration aus. Dazu gehen Sie folgendermaßen vor:  
   
    1.  Geben Sie die Datei "unattend.xml" wie zuvor an, wenn die Bereitstellung von WinPE-Setup aus startet.  
   
@@ -310,7 +310,7 @@ $Add-WssFolder -Name "MyTestFolder" -Path "C:\ServerFolders\MyTestFolder"
   
 - Wenn Sie einen anderen Mechanismus zum Sichern der Windows Server Essentials-VM haben und der Benutzer die systemeigene Windows Server Essentials-Server Sicherung nicht sehen soll, können Sie Sie deaktivieren und die gesamte zugehörige Benutzeroberfläche aus Windows Server Essentials entfernen. BRE. Weitere Informationen finden Sie im Abschnitt "Anpassen der Server Sicherung" im [ADK-Dokument](https://go.microsoft.com/fwlink/p/?LinkID=249124).  
   
-  Mithilfe der**externen Sicherung** können Sie die Serverdaten regelmäßig in einem Cloud-Dienst sichern. Sie können das Microsoft Azure Backup-Integrationsmodul für Windows Server Essentials herunterladen und installieren, um die von Microsoft bereitgestellten Azure Backup zu nutzen.  
+  Mithilfe der **externen Sicherung** können Sie die Serverdaten regelmäßig in einem Cloud-Dienst sichern. Sie können das Microsoft Azure Backup-Integrationsmodul für Windows Server Essentials herunterladen und installieren, um die von Microsoft bereitgestellten Azure Backup zu nutzen.  
   
   Führen Sie folgende Aktionen aus, wenn Sie oder Ihre Benutzer einen anderen Cloud-Dienst bevorzugen:  
   
@@ -358,7 +358,7 @@ $Add-WssFolder -Name "MyTestFolder" -Path "C:\ServerFolders\MyTestFolder"
   
 - Führen Sie ein Upgrade von Windows Server Essentials auf Windows Server 2012 aus.  
   
-  **Serverkonfiguration**  
+  **Server Konfiguration**  
   
 - Konfigurieren von Zugriff überall (VPN, Remotewebzugriff, Direktzugriff)  
   

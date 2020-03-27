@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: eeca4cf7-90f0-485d-843c-76c5885c54b0
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 05/29/2018
-ms.openlocfilehash: d3ea6f0e29803b8a709f31811f77678bf03201a8
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: bd4d0d4d3b165a4e89a00cd2975ace20687aed7d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822578"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314988"
 ---
 # <a name="overview-of-the-directaccess-to-always-on-vpn-migration"></a>Übersicht über die DirectAccess auf Always On VPN-migration 
 
@@ -64,15 +64,15 @@ Viele DirectAccess-Bereitstellungs Szenarien und-Optionen sind vorhanden, sodass
 | Bereitstellungsszenario                   | Bereitstellen von vollständigem DirectAccess für den Client Zugriff und die Remote Verwaltung                                               |
 | Netzwerkadapter                      | 2                                                                                                              |
 | Benutzerauthentifizierung                   | Active Directory-Anmeldeinformationen                                                                                   |
-| Verwenden von Computer Zertifikaten             | „Ja“                                                                                                            |
-| Sicherheitsgruppen                       | „Ja“                                                                                                            |
-| Einzelner DirectAccess-Server            | „Ja“                                                                                                            |
+| Verwenden von Computer Zertifikaten             | Ja                                                                                                            |
+| Sicherheitsgruppen                       | Ja                                                                                                            |
+| Einzelner DirectAccess-Server            | Ja                                                                                                            |
 | Netzwerktopologie                      | Netzwerk Adressübersetzung (Network Address Translation, NAT) hinter einer Edge-Firewall mit zwei Netzwerkadaptern                            |
 | Zugriffsmodus                           | End-to-Edge                                                                                                    |
 | Tunneling                             | Geteilter Tunnel                                                                                                   |
 | Authentifizierung                        | Standard Authentifizierung der Public Key-Infrastruktur (PKI) mit einem Computer Zertifikat und Kerberos (nicht kerbproxy) |
 | Protokolle                             | IP über HTTPS (IP-HTTPS)                                                                                       |
-| Nicht im Feld Netzwerkadressen Server (NLS) | „Ja“                                                                                                            |
+| Nicht im Feld Netzwerkadressen Server (NLS) | Ja                                                                                                            |
 
 ## <a name="always-on-vpn-deployment-scenario"></a>Always on-VPN-Bereitstellungs Szenario
 
@@ -82,10 +82,10 @@ In diesem Bereitstellungs Szenario konzentrieren Sie sich auf das Migrieren eine
 
 | VPN-Feature | Konfiguration der Bereitstellungs Szenarien |
 |-----|-----|
-| Verbindungsart | Native Internetschlüsselaustausch Version 2 (IKEv2) |
+| Verbindungstyp | Native Internetschlüsselaustausch Version 2 (IKEv2) |
 | Netzwerkadapter   | 2        |
 | Benutzerauthentifizierung  | Active Directory-Anmeldeinformationen            |
-| Verwenden von Computer Zertifikaten        | „Ja“                          |
+| Verwenden von Computer Zertifikaten        | Ja                          |
 | Routing | Tunnelung aufteilen |
 | Namensauflösung | Domänen Namen-Informationsliste und Domain Name System-Suffix (DNS) |
 | Ängste | Erkennung von Always on und vertrauenswürdigem Netzwerk |

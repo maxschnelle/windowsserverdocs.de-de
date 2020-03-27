@@ -7,15 +7,15 @@ ms.topic: article
 ms.assetid: ''
 ms.localizationpriority: medium
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/04/2018
-ms.openlocfilehash: 3bbb70657cb009ce760ccfe273b24c6df17d3ca7
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c214b0f7ffdceb662b783b0a3603e65604243261
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949902"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315273"
 ---
 # <a name="resolve-vrss-issues"></a>Probleme mit vRSS
 
@@ -48,7 +48,7 @@ Wenn Sie alle Vorbereitungsschritte abgeschlossen haben und der vrss-Lasten Ausg
    Enable-NetAdapterRss *
    ```
    
-   Eine weitere systemweite Methode zum Konfigurieren von RSS ist die Verwendung von Netsh. Mit 
+   Eine weitere systemweite Methode zum Konfigurieren von RSS ist die Verwendung von Netsh. Verwendung 
    
     ```cmd
    netsh int tcp show global

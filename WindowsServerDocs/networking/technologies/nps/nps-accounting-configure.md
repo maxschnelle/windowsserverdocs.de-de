@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: dfde2e21-f3d5-41e8-8492-cb3f0d028afb
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 05/25/2018
-ms.openlocfilehash: 0c154d4d4534f4c343107eecd158974b92903e39
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 26edf4d1ae4a30ccd9219392c7c4ee3604dcdad9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405571"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316366"
 ---
 # <a name="configure-network-policy-server-accounting"></a>Konfigurieren der Kontoführung für den Netzwerkrichtlinienserver
 
@@ -90,7 +90,7 @@ Mit diesem Verfahren können Sie die RADIUS-Buchhaltungsdaten in einer lokalen o
 >[!NOTE]
 >NPS formatiert Buchhaltungsdaten als XML-Dokument, das an die gespeicherte Prozedur **report_event** in der SQL Server-Datenbank gesendet wird, die Sie in NPS festlegen. Damit SQL Server Protokollierung ordnungsgemäß funktioniert, müssen Sie über eine gespeicherte Prozedur mit dem Namen **report_event** in der SQL Server Datenbank verfügen, die die XML-Dokumente von NPS empfangen und analysieren kann.
 
-Um dieses Verfahren auszuführen, ist mindestens die Mitgliedschaft in "Domänen-Admins" oder eine entsprechende Berechtigung erforderlich.
+Um diese Schritte ausführen zu können, ist mindestens die Mitgliedschaft in der Gruppe Domänen-Admins (oder einer ähnlichen Gruppe) erforderlich.
 
 ### <a name="to-configure-sql-server-logging-in-nps"></a>So konfigurieren Sie SQL Server Protokollierung in NPS
 
@@ -122,7 +122,7 @@ Wenn Sie einen Registrierungs Eintrag für **Ping User-Name**konfigurieren, glei
 **Ping User-Name** wird nicht standardmäßig installiert. Sie müssen **Ping User-Name** der Registrierung hinzufügen. Mithilfe des Registrierungs-Editors können Sie der Registrierung einen Eintrag hinzufügen.
 
 >[!CAUTION]
->Durch eine fehlerhafte Bearbeitung der Registrierung können ernsthafte Systemschäden verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
+>Das System kann durch falsches Bearbeiten der Registrierung schwerwiegend beschädigt werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
 
 ### <a name="to-add-ping-user-name-to-the-registry"></a>So fügen Sie Ping User-Name zur Registrierung hinzu
 

@@ -1,5 +1,5 @@
 ---
-title: -Netzwerk
+title: Netzwerk
 description: Dieses Thema enthält eine Übersicht über die Software Defined Networking- und Netzwerkplattform-Technologien, die in Windows Server 2016 verfügbar sind.
 ms.prod: windows-server
 layout: LandingPage
@@ -7,20 +7,20 @@ ms.technology: networking
 ms.topic: landing-page
 ms.assetid: daaf6b61-5953-4c2d-b6b8-7c885b552646
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.localizationpriority: medium
-ms.openlocfilehash: f3b580b108677b391065ad83f61e52504fe9ac91
-ms.sourcegitcommit: 68483ee9284285f5643dd67dce06f5a102cb9469
+ms.openlocfilehash: e625bb537ef514ff68241669c3e75f482a61f068
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74823845"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318576"
 ---
-# <a name="networking"></a>-Netzwerk
+# <a name="networking"></a>Netzwerk
 
 >[!TIP]
-> Suchen Sie nach Informationen zu älteren Versionen von Windows Server? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
+> Suchen Sie nach Informationen zu älteren Versionen von Windows? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf docs.microsoft.com an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
 <hr />
 
@@ -193,7 +193,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
 
 <hr />
 
-## <a name="bkmk_networking"></a>Netzwerktechnologien
+## <a name="networking-technologies"></a><a name="bkmk_networking"></a>Netzwerktechnologien
 
 <ul class="cardsF panelContent">
     <li>
@@ -322,7 +322,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                     <div class="cardText">
                         <h3><a href="../virtualization/hyper-v-virtual-switch/Hyper-V-Virtual-Switch.md">Virtueller Hyper-V-Switch</a></h3>
                         <hr />
-                        <p>Beim virtuellen Hyper-V-Switch handelt es sich um einen softwarebasierten Schicht-2-Ethernet-Netzwerkswitch, der im Hyper-V-Manager verfügbar ist, wenn Sie die Hyper-V-Serverrolle installieren. Der Switch umfasst programmgesteuert verwaltete und erweiterbare Funktionen zum Verbinden virtueller Computer mit virtuellen Netzwerken und dem physischen Netzwerk. Außerdem bietet Hyper-V Virtual Switch Richtlinienerzwingung für Sicherheits-, Isolations- und Dienststufen. </p>
+                        <p>Beim virtuellen Hyper-V-Switch handelt es sich um einen softwarebasierten Schicht-2-Ethernet-Netzwerkswitch, der im Hyper-V-Manager verfügbar ist, wenn Sie die Hyper-V-Serverrolle installieren. Der Switch umfasst programmgesteuert verwaltete und erweiterbare Funktionen zum Verbinden virtueller Computer mit virtuellen Netzwerken und dem physischen Netzwerk. Außerdem bietet der virtuelle Hyper-V-Switch Richtlinienerzwingung für Sicherheits-, Isolations- und Dienststufen. </p>
                     </div>
                 </div>
             </div>
@@ -462,7 +462,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                     <div class="cardText">
                         <h3><a href="technologies/nic-teaming/NIC-Teaming.md">NIC-Teamvorgang</a></h3>
                         <hr />
-                        <p>NIC Teaming ermöglicht, physische Ethernet-Netzwerkadapter in einem oder mehreren softwarebasierten virtuellen Netzwerkadaptern zusammenzufassen. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.</p>
+                        <p>NIC-Teaming ermöglicht Ihnen, physische Ethernet-Netzwerkadapter in ein oder mehrere softwarebasierte virtuelle Netzwerkadapter zu gruppieren. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.</p>
                     </div>
                 </div>
             </div>
@@ -537,7 +537,7 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3><a href="https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture">Windows-Container Netzwerk</a></h3>
+                        <h3><a href="https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture">Windows-Containernetzwerk</a></h3>
                         <hr />
                         <p>Windows Container Networking ermöglicht das Erstellen und Verwalten von Netzwerken zum Verbinden von Containerendpunkten auf Windows 10- und Windows Server-Hosts mithilfe von standardmäßigen Branchentools und Workflows. Windows Container Networking unterstützt mehrere Topologien, z. B. private, flat-L2 und routed-L3.</p>
                         <p>Unterstützt werden auch Überlagerungen, die Sie lokal auf dem Host erstellen können, indem Sie Docker, Kubernetes oder Windows PowerShell über Plug-Ins verwenden, die mit dem Windows-Host Netzwerkdienst (HNS) kommunizieren. Cluster Netzwerke mit mehreren Knoten können mithilfe von Orchestrierungs Systemen auf höherer Ebene erstellt und verwaltet werden, indem Sie über einen lokalen Agent mit dem HNS eines Knotens kommunizieren.</p>
@@ -570,10 +570,10 @@ Diese Konsistenz bedeutet, dass die Anwendungen sich jetzt leichter skalieren un
     </li>
 </ul>
 
-## <a name="additional-resources"></a>Weitere Ressourcen
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 Networking-Ressourcen für Betriebssysteme vor Windows Server 2016 stehen unter den folgenden Links zur Verfügung:
 
 - Windows Server 2012 und Windows Server 2012 R2 [Übersicht über Netzwerke](https://technet.microsoft.com/library/hh831357.aspx)
-- Windows Server 2008 und Windows Server 2008 R2 [Networking](https://technet.microsoft.com/library/cc753940)
+- Windows Server 2008 und Windows Server 2008 R2 [Netzwerke](https://technet.microsoft.com/library/cc753940)
 - Windows Server 2003 [Windows Server 2003/2003 R2-deaktivierter Inhalt](https://www.microsoft.com/download/details.aspx?id=53314)

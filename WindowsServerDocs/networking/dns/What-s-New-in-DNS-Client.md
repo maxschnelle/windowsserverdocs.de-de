@@ -6,24 +6,24 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: 6edaba84-4595-4fd8-95d7-64d4d975a38a
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 696ea0b499a4132d630cc0cda15a1d7efdac37a8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a02aea149a658be2696195a2a17429b506dec1fa
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356058"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317984"
 ---
 # <a name="whats-new-in-dns-client-in-windows-server-2016"></a>Neues im DNS-Client unter Windows Server 2016
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema werden die Funktionen des Domain Name System (DNS) beschrieben, die in Windows 10 und Windows Server 2016 und höheren Versionen dieser Betriebssysteme neu sind oder geändert wurden.
   
 ## <a name="updates-to-dns-client"></a>Updates für den DNS-Client
 
-**DNS-Client Dienst Bindung**: In Windows 10 bietet der DNS-Client Dienst eine verbesserte Unterstützung für Computer mit mehr als einer Netzwerkschnittstelle. Bei mehrfach vernetzten Computern wird die DNS-Auflösung wie folgt optimiert:  
+**DNS-Client Dienst Bindung**: in Windows 10 bietet der DNS-Client Dienst eine verbesserte Unterstützung für Computer mit mehr als einer Netzwerkschnittstelle. Bei mehrfach vernetzten Computern wird die DNS-Auflösung wie folgt optimiert:  
   
 -   Wenn ein DNS-Server, der auf einer bestimmten Schnittstelle konfiguriert ist, verwendet wird, um eine DNS-Abfrage aufzulösen, wird der DNS-Client Dienst vor dem Senden der DNS-Abfrage an diese Schnittstelle gebunden.  
   

@@ -10,18 +10,18 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5b80294a-7325-476b-84eb-69f0d051e8b2
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 541645a274481bb8b044c37df572d7746c5da30e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 4e032e2c5b89dc362fceb34e06525d8632f7b19e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405665"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312407"
 ---
 # <a name="filter-the-view-of-dns-resource-records"></a>Filtern der Ansicht von DNS-Ressourceneinträgen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Sie können dieses Thema verwenden, um die Ansicht der DNS-Ressourcen Einträge in der IPAM-Client Konsole zu filtern.  
   
@@ -59,7 +59,7 @@ Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist d
   
     ![Ausführen des Filters](../../media/Filter-the-View-of-DNS-Resource-Records/ipam_FilterRR_05.jpg)  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Verwaltung von DNS-Ressourcen Einträgen](DNS-Resource-Record-Management.md)  
 [Verwalten von IPAM](Manage-IPAM.md)  
   

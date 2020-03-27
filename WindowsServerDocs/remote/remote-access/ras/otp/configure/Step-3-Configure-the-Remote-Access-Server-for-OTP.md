@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: df1e87f2-6a0f-433b-8e42-816ae75395f9
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 41cc5cc2df5ac9709818536df8fff098d2a0c297
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d588d9b8675dad8bffc9e020032bc66bebf503b0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404340"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313677"
 ---
 # <a name="step-3-configure-the-remote-access-server-for-otp"></a>Schritt 3 Konfigurieren des Remote Zugriffs Servers für OTP
 
@@ -32,9 +32,9 @@ Nachdem der RADIUS-Server mit Software Verteilungs Token konfiguriert wurde, sin
 |[3,3 Smartcards für zusätzliche Autorisierung](#BKMK_Smartcard)|Weitere Informationen zur Verwendung von Smartcards.|  
   
 > [!NOTE]  
-> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit deren Hilfe einige beschriebene Verfahren automatisiert werden können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_Exempt"></a>3,1 Benutzer von OTP-Authentifizierung ausgenommen (optional)  
+## <a name="31-exempt-users-from-otp-authentication-optional"></a><a name="BKMK_Exempt"></a>3,1 Benutzer von OTP-Authentifizierung ausgenommen (optional)  
 Wenn bestimmte Benutzer von der OTP-Authentifizierung ausgenommen werden sollen, müssen diese Schritte vor der Konfiguration des Remote Zugriffs ausgeführt werden:  
   
 > [!NOTE]  
@@ -49,7 +49,7 @@ Wenn bestimmte Benutzer von der OTP-Authentifizierung ausgenommen werden sollen,
     > [!NOTE]  
     > Stellen Sie sicher, dass nur Benutzerkonten und keine Computer Konten in der Sicherheitsgruppe "OTP" ausgenommen sind.  
   
-## <a name="BKMK_Config"></a>3,2 Konfigurieren des Remote Zugriffs Servers für die Unterstützung von OTP  
+## <a name="32-configure-the-remote-access-server-to-support-otp"></a><a name="BKMK_Config"></a>3,2 Konfigurieren des Remote Zugriffs Servers für die Unterstützung von OTP  
 Führen Sie die folgenden Schritte aus, um den Remote Zugriff für die Verwendung von zweistufiger Authentifizierung und OTP mit dem RADIUS-Server und der Zertifikat Bereitstellung aus den vorherigen Abschnitten zu konfigurieren:  
   
 #### <a name="configure-remote-access-for-otp"></a>Konfigurieren des Remote Zugriffs für OTP  
@@ -99,7 +99,7 @@ Führen Sie die folgenden Schritte aus, um den Remote Zugriff für die Verwendun
   
 17. Klicken Sie im Dialogfeld **Remote Zugriffs Überprüfung** auf über **nehmen, warten Sie,** bis die DirectAccess-Richtlinie aktualisiert wurde, und klicken Sie dann auf **Schließen**.  
   
-18. Geben Sie im **Start** Bildschirm**PowerShell. exe**ein, klicken Sie mit der rechten Maustaste auf **PowerShell**, klicken Sie auf **erweitert**, und klicken Sie dann auf **als Administrator ausführen**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+18. Geben Sie im **Start** Bildschirm**PowerShell. exe**ein, klicken Sie mit der rechten Maustaste auf **PowerShell**, klicken Sie auf **erweitert**, und klicken Sie dann auf **als Administrator ausführen**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 19. Geben Sie im Windows PowerShell-Fenster **gpupdate/force** ein, und drücken Sie die EINGABETASTE.  
   
@@ -107,7 +107,7 @@ So konfigurieren Sie den Remote Zugriff für OTP mithilfe von PowerShell-Befehle
   
 ![der entsprechenden Windows PowerShell-](../../../../media/Step-3-Configure-the-Remote-Access-Server-for-OTP/PowerShellLogoSmall.gif)**Befehle in Windows PowerShell**  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 So konfigurieren Sie den Remote Zugriff für die Verwendung der zweistufigen Authentifizierung für eine Bereitstellung, die derzeit die Computer Zertifikat Authentifizierung verwendet:  
   
@@ -134,7 +134,7 @@ Nachdem Sie die PowerShell-Befehle ausgeführt haben, führen Sie die Schritte 1
 > [!NOTE]  
 > Stellen Sie sicher, dass Sie die OTP-Einstellungen auf dem RAS-Server angewendet haben, bevor Sie einen Einstiegspunkt hinzufügen.  
   
-## <a name="BKMK_Smartcard"></a>3,3 Smartcards für zusätzliche Autorisierung  
+## <a name="33-smart-cards-for-additional-authorization"></a><a name="BKMK_Smartcard"></a>3,3 Smartcards für zusätzliche Autorisierung  
 Auf der Seite Authentifizierung von Schritt 2 im Setup-Assistenten für Remote Zugriff können Sie die Verwendung von Smartcards für den Zugriff auf das interne Netzwerk vorschreiben. Wenn diese Option ausgewählt ist, konfiguriert der Remote Zugriffs-Setup-Assistent die IPSec-Verbindungs Sicherheitsregel für den intranettunnel auf dem DirectAccess-Server so, dass eine Tunnel Modus-Autorisierung mit Smartcards erforderlich ist. Mithilfe der Tunnelmodusautorisierung können Sie angeben, dass nur autorisierte Computer oder Benutzer einen eingehenden Tunnel einrichten können.  
   
 Um bei der IPsec-Tunnelmodusberechtigung für den Intranettunnel Smartcards zu verwenden, müssen Sie eine Public Key-Infrastruktur (PKI) für die Verwendung mit Smartcards bereitstellen.  
@@ -155,7 +155,7 @@ Die Smartcard-Autorisierung funktioniert, indem die Tunnelmodusautorisierung der
   
 Wenn Sie die Smartcard-Autorisierung in Schritt 2 des DirectAccess-Setup-Assistenten aktivieren, konfiguriert der DirectAccess-Setup-Assistent die globale IPsec-tunnelmodusautorisierungseinstellung mit dieser sid für das Gruppenrichtlinie Objekt des DirectAccess-Servers. Führen Sie die folgenden Schritte aus, um diese Konfiguration im Snap-in "Windows-Firewall mit erweiterter Sicherheit" für das Objekt "DirectAccess-Server Gruppenrichtlinie" anzuzeigen:  
   
-1.  Klicken Sie mit der rechten Maustaste auf Windows-Firewall mit erweiterter Sicherheit und dann auf Eigenschaften.  
+1.  Klicken Sie mit der rechten Maustaste auf Windows-Firewall mit erweiterter Sicherheit, und klicken Sie dann auf Eigenschaften.  
   
 2.  Klicken Sie auf der Registerkarte IPsec-Einstellungen unter IPsec-Tunnel Autorisierung auf anpassen.  
   

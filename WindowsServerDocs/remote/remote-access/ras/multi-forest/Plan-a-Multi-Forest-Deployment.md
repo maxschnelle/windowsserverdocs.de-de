@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8acc260f-d6d1-4d32-9e3a-1fd0b2a71586
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 2a0f04a3ff7797d18f7647416dc99319860c7030
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 8e483f5986a5a23123495e3a13440ddc57a6c521
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404515"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314042"
 ---
 # <a name="plan-a-multi-forest-deployment"></a>Planen einer Bereitstellung mit mehreren Gesamtstrukturen
 
@@ -25,7 +25,7 @@ ms.locfileid: "71404515"
 
 In diesem Thema werden die zum Konfigurieren des Remotezugriffs für eine Bereitstellung mit mehreren Gesamtstrukturen erforderlichen Planungsschritte beschrieben.  
   
-## <a name="prerequisites"></a>Voraussetzungen  
+## <a name="prerequisites"></a>Erforderliche Komponenten  
 Bevor Sie mit der Bereitstellung dieses Szenarios beginnen, sollten Sie die Liste der wichtigen Anforderungen lesen:  
   
 -   Eine bidirektionale Vertrauensstellung ist erforderlich.  
@@ -38,7 +38,7 @@ Beim Konfigurieren des Remotezugriffs werden Gruppenrichtlinienobjekte aktualisi
   
 Darüber hinaus muss es sich beim Remotezugriffsadministrator um einen lokalen Administrator für alle RAS-Server handeln, einschließlich der RAS-Server in der neuen Gesamtstruktur, die als Einstiegspunkte zur ursprünglichen Remotezugriffsbereitstellung hinzugefügt werden.  
   
-## <a name="ClientSG"></a>Planen von Client Sicherheitsgruppen  
+## <a name="plan-client-security-groups"></a><a name="ClientSG"></a>Planen von Client Sicherheitsgruppen  
 Sie müssen mindestens eine Sicherheitsgruppe in der neuen Gesamtstruktur für DirectAccess-Clientcomputer in der neuen Gesamtstruktur konfigurieren. Eine einzelne Sicherheitsgruppe kann keine Konten aus verschiedenen Gesamtstrukturen enthalten.  
   
 > [!NOTE]  

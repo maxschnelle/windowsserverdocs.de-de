@@ -6,14 +6,14 @@ ms.technology: networking-dhcp
 ms.topic: article
 ms.assetid: 7110ad21-a33e-48d5-bb3c-129982913bc8
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 16900809c2c6b877d2b5c45f1c3ca26e55c6bea9
-ms.sourcegitcommit: 7df2bd3a7d07a50ace86477335ed6fbfb2dac373
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a5b2e750bd7a0103382f6d91c515f4e283a112cb
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77027945"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312660"
 ---
 # <a name="deploy-dhcp-using-windows-powershell"></a>Bereitstellung von DHCP mit Windows PowerShell
 
@@ -39,19 +39,19 @@ Dieses Handbuch enthält die folgenden Abschnitte:
 - [Windows PowerShell-Befehle für DHCP](#bkmk_dhcpwps)
 - [Liste der Windows PowerShell-Befehle in diesem Handbuch](#bkmk_list)
 
-## <a name="bkmk_overview"></a>Übersicht
+## <a name="dhcp-deployment-overview"></a><a name="bkmk_overview"></a>Übersicht
 
 In der folgenden Abbildung ist das Szenario dargestellt, das Sie mit diesem Handbuch bereitstellen können. Das Szenario umfasst einen DHCP-Server in einer Active Directory Domäne. Der Server ist so konfiguriert, dass er IP-Adressen für DHCP-Clients in zwei unterschiedlichen Subnetzen bereitstellt. Die Subnetze werden durch einen Router getrennt, für den die DHCP-Weiterleitung aktiviert ist.
 
 ![Übersicht über die DHCP-Netzwerktopologie](../../media/Core-Network-Guide/cng16_overview.jpg)
 
-## <a name="bkmk_technologies"></a>Technologie Übersichten
+## <a name="technology-overviews"></a><a name="bkmk_technologies"></a>Technologie Übersichten
 
 In den folgenden Abschnitten finden Sie eine kurze Übersicht über DHCP und TCP/IP.
 
 ### <a name="dhcp-overview"></a>Übersicht über DHCP
 
-DHCP ist ein IP-Standard für die Vereinfachung der Verwaltung der Host-IP-Konfiguration. Der DHCP-Standard ermöglicht DHCP-Servern die Verwaltung der dynamischen Zuweisung von IP-Adressen und sonstiger zugehöriger Konfigurationsdetails für DHCP-fähige Clients im Netzwerk.
+DHCP ist ein IP-Standard für die Vereinfachung der Verwaltung der Host-IP-Konfiguration. Der DHCP-Standard berücksichtigt die Verwendung von DHCP-Servern als eine Methode zum Verwalten der dynamischen Zuweisung von IP-Adressen und anderer zugehöriger Konfigurationsdetails für DHCP-fähige Clients im Netzwerk.
 
 DHCP ermöglicht Ihnen die Verwendung eines DHCP-Servers zum dynamischen Zuweisen einer IP-Adresse zu einem Computer oder einem anderen Gerät (z. b. einem Drucker) im lokalen Netzwerk, anstatt jedes Gerät manuell mit einer statischen IP-Adresse zu konfigurieren.
 
@@ -81,21 +81,21 @@ TCP/IP stellt grundlegende TCP/IP-Hilfsprogramme bereit, mit deren Hilfe Windows
 
 - Windows Server 2016
 
-- Windows-10
+- Windows 10
 
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 
 - Windows 8.1
 
-- WindowsServer 2012
+- Windows Server 2012
 
-- Windows 8
+- Windows 8
 
 - Windows Server 2008 R2
 
-- Windows 7
+- Windows 7
 
-- Windows Server 2008
+- WindowsServer 2008
 
 - Windows Vista
 
@@ -113,7 +113,7 @@ TCP/IP stellt grundlegende TCP/IP-Hilfsprogramme bereit, mit deren Hilfe Windows
 
 - Tablets und Mobiltelefone mit kabelgebundener Ethernet-oder drahtlos 802,11-Technologie
 
-## <a name="bkmk_plan"></a>DHCP-Bereitstellung planen
+## <a name="plan-dhcp-deployment"></a><a name="bkmk_plan"></a>DHCP-Bereitstellung planen
 
 Im folgenden finden Sie die wichtigsten Planungsschritte vor der Installation der DHCP-Server Rolle.
 
@@ -131,17 +131,17 @@ In den meisten Fällen ist die Konfiguration von Routern für die Weiterleitung 
 
 Jedes Subnetz muss seinen eigenen eindeutigen IP-Adressbereich besitzen. Diese Bereiche werden auf einem DHCP-Server durch Bereiche dargestellt.
 
-Ein Bereich ist eine administrative Gruppierung von IP-Adressen für Computer in einem Subnetz, die den DHCP-Dienst verwenden. Der Administrator erstellt zunächst einen Bereich für jedes physische Subnetz und verwendet diesen dann, um die von den Clients verwendeten Parameter zu definieren.
+Ein Bereich ist eine administrative Gruppierung von IP-Adressen für Computer auf einem Subnetz, die den DHCP-Dienst nutzen. Der Administrator erstellt zunächst einen Bereich für jedes physische Subnetz, und dann verwendet er den Bereich, um die von den Clients genutzten Parameter zu definieren.
 
-Ein Bereich weist folgende Eigenschaften auf:
+Ein Bereich verfügt über die folgenden Eigenschaften:
 
-- Einen IP-Adressbereich, von dem Adressen ein- oder ausgeschlossen werden, die für DHCP-Dienst-Leaseangebote verwendet werden.
+- Ein IP-Adressbereich, aus dem Adressen für Leaseangebote für DHCP-Dienste ein- oder ausgeschlossen werden.
 
 - Eine Subnetzmaske, die das Subnetzpräfix für eine angegebene IP-Adresse bestimmt.
 
-- Ein bei seiner Erstellung zugewiesener Bereichsname.
+- Ein Bereichsname wird bei Erstellung zugewiesen.
 
-- Leasedauerwerte, die DHCP-Clients zugewiesen werden, die dynamisch zugeordnete IP-Adressen empfangen.
+- Leasedauerwerte, die DHCP-Clients zugewiesen werden, die dynamisch zugewiesene IP-Adressen empfangen.
 
 - Beliebige DHCP-Bereichsoptionen, die für die Zuordnung zu DHCP-Clients konfiguriert wurden, z. B. IP-Adresse des DNS-Servers und IP-Adresse des Routers/Standardgateways.
 
@@ -165,8 +165,8 @@ In der folgenden Tabelle werden Subnetzmasken für die Internetadressklassen ang
 
 |Adressklasse|Bits für die Subnetzmaske|Subnetzmaske|
 |-----------------|------------------------|---------------|
-|Klasse A|11111111 00000000 00000000 00000000|255.0.0.0|
-|Klasse B|11111111 11111111 00000000 00000000|255.255.0.0|
+|Klasse A|11111111 00000000 00000000 00000000|255.0.0.0|
+|Klasse B|11111111 11111111 00000000 00000000|255.255.0,0|
 |Klasse C|11111111 11111111 11111111 00000000|255.255.255.0|
 
 Wenn Sie einen Bereich in DHCP erstellen und den IP-Adressbereich für den Bereich eingeben, stellt DHCP diese Standard-Subnetzmaskenwerte bereit. In der Regel sind Standard-Subnetzmaskenwerte für die meisten Netzwerke ohne spezielle Anforderungen sowie für Netzwerke, bei denen jedes IP-Netzwerksegment einem physischen Netzwerk entspricht, akzeptabel.
@@ -210,7 +210,7 @@ Weitere Beispiel Konfigurationselemente für AD DS und DNS finden Sie in der fol
 |Bereichs Werte<br /><br />1. Bereichs Name<br />2. Start-IP-Adresse<br />3. IP-Endadresse<br />4. Subnetzmaske<br />5. Standard Gateway (optional)<br />6. Leasedauer|1. primäres Subnetz<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6.8 Tage|
 |Betriebsmodus des IPv6-DHCP-Servers|Nicht aktiviert|
 
-## <a name="bkmk_lab"></a>Verwenden dieses Handbuchs in einer Test Umgebung
+## <a name="using-this-guide-in-a-test-lab"></a><a name="bkmk_lab"></a>Verwenden dieses Handbuchs in einer Test Umgebung
 
 Mit dieser Anleitung können Sie DHCP in einer Testumgebung bereitstellen, bevor Sie in einer Produktionsumgebung bereitstellen. 
 
@@ -273,13 +273,13 @@ Für diese Bereitstellung ist ein Hub oder ein Switch, ein physischer Server und
 3. Ein physischer Computer, auf dem ein Windows-Client Betriebssystem ausgeführt wird, mit dem Sie überprüfen, ob der DHCP-Server DHCP-Clients dynamisch IP-Adressen und DHCP-Optionen zuordnet.
 
 
-## <a name="bkmk_deploy"></a>Bereitstellen von DHCP
+## <a name="deploy-dhcp"></a><a name="bkmk_deploy"></a>Bereitstellen von DHCP
 
 In diesem Abschnitt finden Sie Windows PowerShell-Beispiel Befehle, mit denen Sie DHCP auf einem Server bereitstellen können. Bevor Sie diese Beispiel Befehle auf dem Server ausführen, müssen Sie die Befehle so ändern, dass Sie Ihrem Netzwerk und ihrer Umgebung entsprechen. 
 
 Vor dem Ausführen der Befehle sollten Sie z. b. die Beispiel Werte in den Befehlen für die folgenden Elemente ersetzen:
 
-- Computer Namen
+- Computernamen
 - IP-Adressbereich für jeden Bereich, den Sie konfigurieren möchten (1 Bereich pro Subnetz)
 - Subnetzmaske für jeden IP-Adressbereich, den Sie konfigurieren möchten
 - Bereichs Name für jeden Bereich
@@ -490,7 +490,7 @@ Wenn Sie über zusätzliche Subnetze verfügen, die von diesem DHCP-Server gewar
 > [!IMPORTANT]
 > Stellen Sie sicher, dass alle Router zwischen Ihren DHCP-Clients und dem DHCP-Server für die DHCP-Nachrichten Weiterleitung konfiguriert sind. Weitere Informationen zum Konfigurieren der DHCP-Weiterleitung finden Sie in der routerdokumentation.
 
-## <a name="bkmk_verify"></a>Überprüfen der Server Funktionalität
+## <a name="verify-server-functionality"></a><a name="bkmk_verify"></a>Überprüfen der Server Funktionalität
 
 Um zu überprüfen, ob der DHCP-Server DHCP-Clients eine dynamische Zuordnung von IP-Adressen bereitstellt, können Sie einen anderen Computer mit einem Serviced Subnetz verbinden. Nach dem Verbinden des Ethernet-Kabels mit dem Netzwerkadapter und dem Einschalten des Computers wird vom DHCP-Server eine IP-Adresse angefordert. Sie können die erfolgreiche Konfiguration überprüfen, indem Sie den Befehl **ipconfig/all** verwenden und die Ergebnisse überprüfen, oder indem Sie Konnektivitätstests durchführen, z. b. den Zugriff auf Webressourcen mit Ihrem Browser oder Dateifreigaben mit Windows Explorer oder anderen Anwendungen
 
@@ -501,7 +501,7 @@ Wenn der Client keine IP-Adresse vom DHCP-Server empfängt, führen Sie die folg
 3. Stellen Sie sicher, dass der DHCP-Server in Active Directory autorisiert ist, indem Sie den folgenden Befehl ausführen, um die Liste der autorisierten DHCP-Server von Active Directory abzurufen. [Get-dhcpserverindc](https://docs.microsoft.com/powershell/module/dhcpserver/Get-DhcpServerInDC).
 4. Stellen Sie sicher, dass ihre Bereiche aktiviert sind, indem Sie die DHCP-Konsole öffnen \(Server-Manager, **Tools**, **DHCP**\), erweitern Sie die Server Struktur, um Bereiche zu überprüfen, und klicken Sie dann mit der rechten\- Wenn das resultierende Menü die Auswahl **aktivieren**enthält, klicken Sie auf **aktivieren**. \(wenn der Bereich bereits aktiviert ist, liest die Menü Auswahl die Option **Deaktivieren**.\)
 
-## <a name="bkmk_dhcpwps"></a>Windows PowerShell-Befehle für DHCP
+## <a name="windows-powershell-commands-for-dhcp"></a><a name="bkmk_dhcpwps"></a>Windows PowerShell-Befehle für DHCP
 
 Die folgende Referenz enthält Befehlsbeschreibungen und Syntax für alle Windows PowerShell-Befehle des DHCP-Servers für Windows Server 2016. Das Thema listet Befehle in alphabetischer Reihenfolge auf, die auf dem Verb am Anfang der Befehle basieren, z. b. **Get** oder **set**.
 
@@ -517,7 +517,7 @@ Die folgende Referenz enthält Befehlsbeschreibungen und Syntax für alle Window
 
 - [DHCP-Server-Cmdlets in Windows PowerShell](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-deploy-wps)
 
-## <a name="bkmk_list"></a>Liste der Windows PowerShell-Befehle in diesem Handbuch
+## <a name="list-of-windows-powershell-commands-in-this-guide"></a><a name="bkmk_list"></a>Liste der Windows PowerShell-Befehle in diesem Handbuch
 
 Im folgenden finden Sie eine einfache Liste der Befehle und Beispiel Werte, die in diesem Handbuch verwendet werden.
 

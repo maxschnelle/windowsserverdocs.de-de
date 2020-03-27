@@ -1,9 +1,9 @@
 ---
-title: 'Schritt 2: Installieren von Windows Server Essentials als ein neuer replikatsdomänencontroller'
-description: Beschreibt, wie Windows Server Essentials
+title: 'Schritt 2: Installieren von Windows Server Essentials als neuen Replikatsdomänencontroller'
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,27 +12,27 @@ ms.assetid: c7ccfc34-63fd-436b-a1cd-e05810f60bfe
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 757012b7d1a57a001e3b55cdc0604b63852a3d3c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5968db77c091dbca1eb7d38f5e924e5f449052ce
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59816461"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318777"
 ---
-# <a name="step-2-install-windows-server-essentials-as-a-new-replica-domain-controller"></a>Schritt 2: Installieren von Windows Server Essentials als ein neuer replikatsdomänencontroller
+# <a name="step-2-install-windows-server-essentials-as-a-new-replica-domain-controller"></a>Schritt 2: Installieren von Windows Server Essentials als neuen Replikatsdomänencontroller
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-In diesem Abschnitt wird beschrieben, wie Windows Server Essentials und Windows Server 2012 R2 Standard (mit aktivierter Windows Server Essentials Experience-Rolle) als Domänencontroller installiert werden.  
+In diesem Abschnitt wird beschrieben, wie Sie Windows Server Essentials und Windows Server 2012 R2 Standard (mit aktivierter Rolle "Windows Server Essentials-Rolle") als Domänen Controller installieren.  
   
- Für Umgebungen mit bis zu 25 Benutzern und 50 Geräten können Sie die Schritte in diesem Handbuch Migrieren von früheren Versionen von Windows SBS zu Windows Server Essentials ausführen. Für Umgebungen mit bis zu 100 Benutzern und 200 Geräten können Sie die gleiche Anweisungen zum Migrieren auf die Standard- und Datacenter-Editionen von Windows Server 2012 R2 mit installierter Windows Server Essentials Experience-Rolle folgen. In dieser Dokumentation werden beide Szenarien behandelt.  
+ Für Umgebungen mit bis zu 25 Benutzern und 50 Geräten können Sie die Schritte in dieser Anleitung befolgen, um von früheren Versionen von Windows SSB zu Windows Server Essentials zu migrieren. Für Umgebungen mit bis zu 100 Benutzern und 200 Geräten können Sie denselben Leitfaden befolgen, um zu den Standard-und Datacenter-Editionen von Windows Server 2012 R2 mit installierter Windows Server Essentials-Umgebung zu migrieren. In dieser Dokumentation werden beide Szenarien behandelt.  
   
 > [!IMPORTANT]
->  Bei der Migration zu Windows Server Essentials die folgende Fehlermeldung wurde in das Ereignisprotokoll jeden Tag während der Karenzzeit 21 Tagen, bis Sie den Quellserver aus dem Netzwerk entfernen. Nach der Toleranzperiode von 21 Tagen wird der Quellserver heruntergefahren. <br> **Überprüfung der FSMO-Rolle wurde eine Bedingung in Ihrer Umgebung, die nicht mit der Lizenzierungsrichtlinie konform ist festgestellt. Der Verwaltungsserver muss die Active Directory-Rollen des primären Domänencontrollers und des Domänennamenmasters aufweisen. Verschieben Sie diese Active Directory-Rollen jetzt zum Verwaltungsserver. Dieser Server wird automatisch heruntergefahren, wenn das Problem nicht in 21 Tage ab dem Zeitpunkt behoben ist, diese Bedingung wurde zuerst erkannt**.   
+>  Wenn Sie zu Windows Server Essentials migrieren, wird die folgende Fehlermeldung täglich in der Karenzzeit von 21 Tagen zum Ereignisprotokoll hinzugefügt, bis Sie den Quell Server aus dem Netzwerk entfernen. Nach der Toleranzperiode von 21 Tagen wird der Quellserver heruntergefahren. <br> **Die FSMO-Rollen Überprüfung hat eine Bedingung in Ihrer Umgebung erkannt, die nicht mit der Lizenzierungs Richtlinie konform ist. Der Verwaltungs Server muss den primären Domänen Controller und die Domänen Namen-Master Active Directory Rollen enthalten. Verschieben Sie die Active Directory Rollen jetzt auf den Verwaltungs Server. Dieser Server wird automatisch heruntergefahren, wenn das Problem nicht innerhalb von 21 Tagen nach der ersten Erkennung dieses Zustands behoben wird**.   
   
-#### <a name="install-windows-server-essentials-or-windows-server-2012-r2-standard-on-the-destination-server"></a>Installieren von Windows Server Essentials oder Windows Server 2012 R2 Standard auf dem Zielserver  
+#### <a name="install-windows-server-essentials-or-windows-server-2012-r2-standard-on-the-destination-server"></a>Installieren von Windows Server Essentials oder Windows Server 2012 R2 Standard auf dem Ziel Server  
   
-1.  Installieren von Windows Server Essentials oder Windows Server 2012 R2 Standard mit aktivierter mithilfe der Anweisungen in Windows Server Essentials Experience-Rolle [installieren und Konfigurieren von Windows Server Essentials](../install/Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).  
+1.  Installieren Sie Windows Server Essentials oder Windows Server 2012 R2 Standard mit aktivierter Rolle "Windows Server Essentials-Rolle", indem Sie die Anweisungen unter [Installieren und Konfigurieren von Windows Server Essentials](../install/Install-and-Configure-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md)befolgen.  
   
     > [!NOTE]
     >  Wenn der Windows Server Essentials-Konfigurationsassistent gestartet wird, brechen Sie ihn ab.  
@@ -40,7 +40,7 @@ In diesem Abschnitt wird beschrieben, wie Windows Server Essentials und Windows 
 2.  Übertragen Sie die FSMO-Rollen vom Quellserver.  
   
     > [!NOTE]
-    >  Wenn Windows Server Essentials der einzige Domänencontroller in der Domäne ist, wird die FSMO-Rolle automatisch verschoben, an den Server, Windows Server Essentials ausgeführt wird, wenn Sie den Quellserver tiefer stufen.  
+    >  Wenn Windows Server Essentials der einzige Domänen Controller in der Domäne ist, wird die FSMO-Rolle automatisch auf den Server verschoben, auf dem Windows Server Essentials ausgeführt wird, wenn Sie den Quell Server herabstufen.  
   
 3.  Öffnen Sie Server-Manager, und führen Sie den Assistenten zum Hinzufügen von Rollen und Features aus.  
   
@@ -52,36 +52,36 @@ In diesem Abschnitt wird beschrieben, wie Windows Server Essentials und Windows 
   
     -   Ändern Sie ggf. den Namen des Servers, da Sie den Namen nach Abschluss des Konfiguratoinsassistenten von Windows Server Essentials nicht mehr ändern können.  
   
-    -   Stellen Sie sicher, dass die Zeit des Servers und die Einstellungen richtig sind.  
+    -   Stellen Sie sicher, dass die Zeit und die Einstellungen des Servers korrekt sind.  
   
 7.  Überprüfen Sie die Installation wie folgt:  
   
     1.  Öffnen Sie das Dashboard.  
   
-    2.  Klicken Sie auf die Registerkarte **Benutzer** , und stellen Sie sicher, dass die Benutzerkonten in Active Directory aufgeführt sind.  
+    2.  Klicken Sie auf die Registerkarte **Benutzer**, und stellen Sie sicher, dass die Benutzerkonten in Active Directory aufgeführt sind.  
   
 ### <a name="transfer-the-operations-master-roles"></a>Übertragen der Betriebsmasterrollen  
- Die (auch als flexible einfache Mastervorgänge oder FSMO bezeichnet) Betriebsmasterrollen müssen innerhalb von 21 Tagen nach der Installation von Windows Server Essentials auf dem Zielserver vom Quellserver auf den Zielserver übertragen werden.  
+ Die Betriebs Master Rollen (auch als Flexible Single Master Operations oder FSMO bezeichnet) müssen innerhalb von 21 Tagen nach der Installation von Windows Server Essentials auf dem Zielserver vom Quell Server auf den Zielserver übertragen werden.  
   
 ##### <a name="to-transfer-the-operations-master-roles"></a>So übertragen Sie Betriebsmasterrollen  
   
 1.  Öffnen Sie auf dem Zielserver ein Eingabeaufforderungsfenster als Administrator. Informationen hierzu finden Sie unter [Öffnen eines Eingabeaufforderungsfensters als Administrator](https://technet.microsoft.com/library/cc947813\(v=WS.10\).aspx).  
   
-2.  Geben Sie an der Eingabeaufforderung **NETDOM QUERY FSMO**ein, und drücken Sie dann die EINGABETASTE.  
+2.  Geben Sie an der Eingabeaufforderung **NETDOM QUERY FSMO** ein, und drücken Sie dann die EINGABETASTE.  
   
 3.  Geben Sie an der Eingabeaufforderung **ntdsutil** ein, und drücken Sie dann die EINGABETASTE.  
   
 4.  An der Eingabeaufforderung **ntdsutil** geben Sie die folgenden Befehle ein:  
   
-    1.  Geben Sie **activate instance NTDS**ein, und drücken Sie dann die EINGABETASTE.  
+    1.  Geben Sie **activate instance NTDS** ein, und drücken Sie dann die EINGABETASTE.  
   
     2.  Geben Sie **roles** ein, und drücken Sie dann die EINGABETASTE.  
   
     3.  Geben Sie **connections** ein, und drücken Sie dann die EINGABETASTE.  
   
-    4.  Typ **eine Verbindung mit Server herstellen** *< ServerName\>*  (wobei *< ServerName\>*  ist der Name des Zielservers), und drücken Sie dann die EINGABETASTE.  
+    4.  Geben **Sie Connect to Server < Server** *Name\>* ein (wobei *< Servername\>* der Name des Zielservers ist), und drücken Sie dann die EINGABETASTE.  
   
-    5.  Geben Sie an der Eingabeaufforderung **q**ein, und drücken Sie dann die EINGABETASTE.  
+    5.  Geben Sie an der Eingabeaufforderung **q** ein, und drücken Sie dann die EINGABETASTE.  
   
         1.  Geben Sie **transfer PDC** ein, drücken Sie die EINGABETASTE, und klicken Sie dann im Dialogfeld **Bestätigung der Funktionenübertragung** auf **Ja**.  
   
@@ -89,17 +89,17 @@ In diesem Abschnitt wird beschrieben, wie Windows Server Essentials und Windows 
   
         3.  Geben Sie **transfer naming master** ein, drücken Sie die EINGABETASTE, und klicken Sie dann im Dialogfeld **Bestätigung der Funktionenübertragung** auf **Ja**.  
   
-        4.  Geben Sie **transfer RID master**ein, drücken Sie die EINGABETASTE, und klicken Sie dann im Dialogfeld **Bestätigung der Funktionenübertragung** auf **Ja** .  
+        4.  Geben Sie **transfer RID master** ein, drücken Sie die EINGABETASTE, und klicken Sie dann im Dialogfeld **Bestätigung der Funktionenübertragung** auf **Ja**.  
   
         5.  Geben Sie **transfer schema master** ein, drücken Sie die EINGABETASTE, und klicken Sie dann im Dialogfeld **Bestätigung der Funktionenübertragung** auf **Ja**.  
   
-    6.  Geben Sie **q**ein, und drücken Sie dann die EINGABETASTE, bis Sie zur Eingabeaufforderung zurückkehren.  
+    6.  Geben Sie **q** ein, und drücken Sie dann die EINGABETASTE, bis Sie zur Eingabeaufforderung zurückkehren.  
   
 > [!NOTE]
->  Auf einem beliebigen Server im Netzwerk können Sie sich vergewissern, dass die Betriebsmasterrollen auf den Zielserver übertragen wurden. Öffnen Sie ein Eingabeaufforderungsfenster als Administrator (weitere Informationen finden Sie unter [Öffnen eines Eingabeaufforderungsfensters als Administrator](https://technet.microsoft.com/library/cc947813\(v=WS.10\).aspx)). Geben Sie **netdom query fsmo**ein, und drücken Sie dann die EINGABETASTE.  
+>  Auf einem beliebigen Server im Netzwerk können Sie sich vergewissern, dass die Betriebsmasterrollen auf den Zielserver übertragen wurden. Öffnen Sie ein Eingabeaufforderungsfenster als Administrator (weitere Informationen finden Sie unter [Öffnen eines Eingabeaufforderungsfensters als Administrator](https://technet.microsoft.com/library/cc947813\(v=WS.10\).aspx)). Geben Sie **netdom query fsmo** ein, und drücken Sie dann die EINGABETASTE.  
   
 ## <a name="next-steps"></a>Nächste Schritte  
- Sie haben Windows Server Essentials als einen neuen Replikatdomänencontroller installiert. Wechseln Sie nun zur [Schritt 3: Hinzufügen von Computern zum neuen Windows Server Essentials-Server](Step-3--Join-computers-to-the-new-Windows-Server-Essentials-server.md).  
+ Sie haben Windows Server Essentials als neuen Replikat Domänen Controller installiert. Gehen Sie jetzt zu [Schritt 3: Hinzufügen von Computern zum neuen Windows Server Essentials-Server](Step-3--Join-computers-to-the-new-Windows-Server-Essentials-server.md).  
   
 Alle Schritte finden Sie unter [Migrieren zu Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).
 

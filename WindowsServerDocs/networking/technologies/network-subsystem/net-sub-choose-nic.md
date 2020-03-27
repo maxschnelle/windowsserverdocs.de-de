@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: a6615411-83d9-495f-8a6a-1ebc8b12f164
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9271cf4e5f50adf93f421e830a226507034ac454
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 5e1ed095b3180f3aebd25381ec9086445bb141ec
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517475"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316624"
 ---
 # <a name="choosing-a-network-adapter"></a>Auswählen einer Netzwerkkarte
 
@@ -26,7 +26,7 @@ Netzwerk intensive Anwendungen erfordern hochleistungsfähige Netzwerkadapter. I
 > [!TIP]
 >  Sie können die Einstellungen für Netzwerkadapter mithilfe von Windows PowerShell konfigurieren. Weitere Informationen finden Sie unter [Netzwerk Adapter-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/netadapter).
 
-##  <a name="bkmk_offload"></a>Offload-Funktionen
+##  <a name="offload-capabilities"></a><a name="bkmk_offload"></a>Offload-Funktionen
 
 Durch das Auslagern von Tasks von der zentralen Verarbeitungseinheit \(CPU-\) auf den Netzwerkadapter kann die CPU-Auslastung auf dem Server verringert werden, was die Gesamtsystemleistung verbessert.
 
@@ -42,7 +42,7 @@ Der Netzwerk Stapel in Microsoft-Produkten kann eine oder mehrere Tasks auf eine
 |Empfangs seitige Skalierung \(RSS-\)|RSS ist eine Netzwerktreiber Technologie, die die effiziente Verteilung der Netzwerk Empfangs Verarbeitung auf mehrere CPUs in Multiprozessorsystemen ermöglicht. Weitere Informationen zu RSS finden Sie weiter unten in diesem Thema.|  
 |Empfangen von Segmentieren von Segmenten \(RSC\)|RSC ist die Möglichkeit, Pakete zu gruppieren, um die Header Verarbeitung zu minimieren, die für die Ausführung des Hosts erforderlich ist. Maximal 64 KB empfangene Nutzlast können zur Verarbeitung in ein einzelnes größeres Paket zusammengepackt werden. Weitere Details zu RSC finden Sie weiter unten in diesem Thema.|  
   
-###  <a name="bkmk_rss"></a>Empfangs seitige Skalierung
+###  <a name="receive-side-scaling"></a><a name="bkmk_rss"></a>Empfangs seitige Skalierung
 
 Windows Server 2016, Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2 und Windows Server 2008 unterstützen die Empfangs seitige Skalierung \(RSS-\). 
 
@@ -158,7 +158,7 @@ Um die CPUs vollständig nutzen zu können, muss die Anzahl der RSS-Empfangs War
 
 RSS kann auf einem Netzwerkadapter aktiviert werden, der mithilfe des NIC-Team Vorgangs mit einer anderen Netzwerkschnittstellenkarte verbunden ist. In diesem Szenario kann nur der zugrunde liegende physische Netzwerkadapter für die Verwendung von RSS konfiguriert werden. Ein Benutzer kann keine RSS-Cmdlets auf dem kombinierten Netzwerkadapter festlegen.
   
-###  <a name="bkmk_rsc"></a>Empfangen von Segmenten zusammenfügen (RSC)
+###  <a name="receive-segment-coalescing-rsc"></a><a name="bkmk_rsc"></a>Empfangen von Segmenten zusammenfügen (RSC)
 
 Empfangen von Segmentieren von Segmenten \(RSC\) unterstützt die Leistung, indem die Anzahl der IP-Header reduziert wird, die für eine bestimmte Menge empfangener Daten verarbeitet werden. Sie sollte verwendet werden, um die Leistung der empfangenen Daten zu skalieren, indem Sie \(gruppieren oder\) kleineren Paketen in größere Einheiten gruppieren.
 
@@ -206,7 +206,7 @@ RSC wird nur auf dem physischen Host unterstützt, wenn der Host Netzwerkadapter
 
 RSC kann für einen virtuellen Computer aktiviert werden, wenn die Eingabe-/ausgabevirtualisierung mit einem einzelnen Stamm \(SR-IOV\) aktiviert ist. In diesem Fall unterstützen virtuelle Funktionen RSC-Fähigkeiten. Daher erhalten virtuelle Computer auch den Vorteil RSC.
 
-##  <a name="bkmk_resources"></a>Netzwerk Adapter Ressourcen
+##  <a name="network-adapter-resources"></a><a name="bkmk_resources"></a>Netzwerk Adapter Ressourcen
 
 Einige Netzwerkadapter verwalten ihre Ressourcen aktiv, um eine optimale Leistung zu erzielen. Mit mehreren Netzwerkadaptern können Sie Ressourcen manuell konfigurieren, indem Sie die Registerkarte **Erweiterte Netzwerke** für den Adapter verwenden. Bei solchen Adaptern können Sie die Werte für eine Reihe von Parametern festlegen, einschließlich der Anzahl der Empfangs Puffer und Sendepuffer.
 

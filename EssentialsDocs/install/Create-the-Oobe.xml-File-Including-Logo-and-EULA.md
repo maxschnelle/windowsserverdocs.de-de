@@ -1,9 +1,9 @@
 ---
 title: Erstellen der Datei "Oobe.xml" mit Logo und EULA
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 8a7b3cc1-21bb-4344-8110-f5d5959b370d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 5d7dac41ba6d6f73b0d3d65d3481fe45ff99a6bc
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 58d98aa84b8851e3226ebc76c86cffd574400c42
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433613"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312056"
 ---
 # <a name="create-the-oobexml-file-including-logo-and-eula"></a>Erstellen der Datei "Oobe.xml" mit Logo und EULA
 
@@ -31,11 +31,11 @@ Mithilfe der Datei "Oobe.xml" können Sie der Erstkonfiguration Ihre eigenen End
   
 1. Öffnen Sie die Datei "Oobe.xml" in einem Text-Editor, z. B. in Editor.  
   
-2. In den < Logopath\>< / Logopath\> Tags, geben Sie den absoluten Pfad zur Logodatei. Die Datei sollte eine 32-Bit-PNG-Datei (Portable Network Graphics) mit 240 x 100 Pixeln enthalten.  
+2. Geben Sie im < Logopath\></Logopath\> Tags den absoluten Pfad zur Logodatei ein. Die Datei sollte eine 32-Bit-PNG-Datei (Portable Network Graphics) mit 240 x 100 Pixeln enthalten.  
   
-3. In den < Eulafilename\>< / Eulafilename\> Tags, geben Sie den absoluten Pfad zur EULA-Datei. Bei der EULA-Datei muss es sich um eine RTF-Datei handeln.  
+3. Geben Sie im < eulafilename\></eulafilename\> Tags den absoluten Pfad zur EULA-Datei ein. Bei der EULA-Datei muss es sich um eine RTF-Datei handeln.  
   
-4. In den < Name\>< / name\> Tags, geben Sie den Namen Ihres Unternehmens.  
+4. Geben Sie im < Namen\></Name\> Tags den Namen Ihres Unternehmens ein.  
   
     Im folgenden Beispiel werden die Tags in einer Datei vom Typ "Oobe.xml" veranschaulicht:  
   
@@ -59,9 +59,9 @@ Mithilfe der Datei "Oobe.xml" können Sie der Erstkonfiguration Ihre eigenen End
   
    |Pfad zur Datei "Oobe.xml"|Bedingung zum Festlegen des Pfads|  
    |-----------------------|----------------------------------------|  
-   |%WINDIR%\System32\Oobe\Info\|der Server in einem Land/einer Region und einem ausgeliefert wird.|  
-   |%windir%\system32\oobe\info\default\\< Sprache\>|Der Server wurde für den Vertrieb in einem Land/einer Region und mehreren Sprachsystemen konzipiert.|  
-   |%WINDIR%\System32\Oobe\Info\\< Land/Region > \ und %windir%\system32\oobe\info\\< Land/Region >\\< Sprache\>\|Server ausgeliefert wird, um mehr als einem Land / müssen Anpassungen auf einer pro Land/Region jeweils in einer einzigen Sprache, Region und die Einstellungen. < Land/Region > ist die Dezimalversion der geografische Standort-Bezeichner (GeoID) des Landes oder der Region, in dem der Server bereitgestellt wird, und < Sprache\> ist die Dezimalversion der Gebietsschema-ID (LCID).|  
+   |%WINDIR%\System32\Oobe\Info\|der Server wird in einem Land/einer Region und einem einzelnen Sprachsystem ausgeliefert.|  
+   |%windir%\system32\oobe\info\default\\< Language\>|Der Server wurde für den Vertrieb in einem Land/einer Region und mehreren Sprachsystemen konzipiert.|  
+   |%WINDIR%\System32\Oobe\Info\\< Country/Region > \ und%WINDIR%\System32\Oobe\Info\\< Land/Region >\\< Sprache\>\|der Server in mehr als einem Land bzw. in einer Region ausgeliefert wird und die Einstellungen pro Land/Region angepasst werden müssen, jeweils mit einer einzigen Sprache. Dabei ist < Land/Region > die Dezimal Version des geografischen Standort Bezeichners (Geoid) des Landes oder der Region, in der der Server bereitgestellt wird, und < Language\> die Dezimal Version der Gebiets Schema-ID (Locale Identifier, LCID) ist.|  
   
    Wenn Sie über ein anderes Unternehmenslogo mit weißem Text verfügen, wirkt dieses aufgrund des dunklen Hintergrunds im Setupablauf möglicherweise besser.  Sie können dieses Logo optional angeben, indem Sie einen Registrierungsschlüssel mit zugehörigem Wert angeben.  
   
@@ -71,11 +71,11 @@ Mithilfe der Datei "Oobe.xml" können Sie der Erstkonfiguration Ihre eigenen End
   
 2.  Geben Sie im Suchfeld **regedit** ein, und klicken Sie dann auf die Anwendung "Regedit".  
   
-3.  Navigieren Sie im Navigationsbereich zu  **HKEY_LOCAL_MACHINE**, und erweitern Sie nacheinander **SOFTWARE**, **Microsoft**und **Windows Server**. Wenn der Schlüssel "OEM" nicht vorhanden ist, gehen Sie wie folgt vor, um ihn zu erstellen:  
+3.  Navigieren Sie im Navigationsbereich zu **HKEY_LOCAL_MACHINE**, und erweitern Sie nacheinander **SOFTWARE**, **Microsoft** und **Windows Server**. Wenn der Schlüssel "OEM" nicht vorhanden ist, gehen Sie wie folgt vor, um ihn zu erstellen:  
   
     1.  Klicken Sie mit der rechten Maustaste auf **Windows Server**, klicken Sie auf **Neu**, und klicken Sie dann auf **Schlüssel**.  
   
-    2.  Geben Sie als Schlüsselnamen **OEM**ein.  
+    2.  Geben Sie als Schlüsselnamen **OEM** ein.  
   
 4.  (Optional) Wenn Sie einen Eintrag für ein Logo erstellen, können Sie verschiedene Schlüssel erstellen, um zwischen den Sprachversionen des Logos zu unterscheiden. Wenn Sie z. B. Logoversionen in Englisch und Deutsch haben, können Sie einen Schlüssel "en-us" und einen Schlüssel "de-de" erstellen. Da alle Logodateien im gleichen Ordner gespeichert sind, müssen Sie Instanzen der Datei mit dem Logobild mit einem eindeutigen Namen für jede Sprache bereitstellen. Sie können beispielsweise eine Datei namens "LogoWithWhiteText_en.png" und "LogoWithWhiteText_de.png" erstellen.  
   
@@ -87,9 +87,9 @@ Mithilfe der Datei "Oobe.xml" können Sie der Erstkonfiguration Ihre eigenen End
   
 8.  Geben Sie den Pfad zum Logobild ein, und klicken Sie dann auf "OK".  
   
-## <a name="see-also"></a>Siehe auch  
- [Erste Schritte mit Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md)   
+## <a name="see-also"></a>Weitere Informationen  
+ [Die ersten Schritte mit dem Windows Server Essentials ADK](Getting-Started-with-the-Windows-Server-Essentials-ADK.md) -   
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Zusätzliche Anpassungen](Additional-Customizations.md)   
+ [Weitere Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)

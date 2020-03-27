@@ -3,7 +3,7 @@ title: Vorbereiten des Quell Servers für Windows Server Essentials Migration1
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: f5861ae9-77cb-4d37-b4c5-8f0757213385
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d09ad4b66029c40c840ff5764fdaa2705b44bac2
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 503b8edc645b43da1dc5c5fb37547e8e0245d4a2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947446"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318815"
 ---
 # <a name="prepare-your-source-server-for-windows-server-essentials-migration1"></a>Vorbereiten des Quell Servers für Windows Server Essentials Migration1
 
@@ -49,7 +49,7 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
 5.  [Erstellen eines Plans für die Migration von Branchen Anwendungen](../migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_PlanToMigrateLineOfBusinessApplications)  
 
   
-###  <a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a>Sichern des Quell Servers  
+###  <a name="back-up-your-source-server"></a><a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a>Sichern des Quell Servers  
  Sichern Sie den Quellserver, bevor Sie mit dem Migrationsprozess beginnen. Durch diese Sicherung schützen Sie sich vor Datenverlusten, wenn während der Migration ein nicht behebbarer Fehler auftritt.  
   
 ##### <a name="to-back-up-the-source-server"></a>So sichern Sie den Zielserver  
@@ -58,10 +58,10 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
   
 2.  Überprüfen Sie, ob die Sicherung erfolgreich ausgeführt wurde. Zum Prüfen der Integrität der Sicherung wählen Sie beliebige Dateien der Sicherung aus und stellen diese an einem anderen Speicherort wieder her. Überprüfen Sie dann, ob die wiederhergestellten Dateien mit den Originaldateien identisch sind.  
   
-###  <a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a>Installieren der aktuellsten Service Packs  
+###  <a name="install-the-most-recent-service-packs"></a><a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a>Installieren der aktuellsten Service Packs  
  Sie müssen vor der Migration die neuesten Updates und Service Packs auf dem Quellserver installieren.  
   
-###  <a name="BKMK_UseWindowsBestPracticeAnalyzer"></a>Auswerten der Integrität des Quell Servers  
+###  <a name="evaluate-the-health-of-the-source-server"></a><a name="BKMK_UseWindowsBestPracticeAnalyzer"></a>Auswerten der Integrität des Quell Servers  
  Es ist wichtig, dass Sie die Integrität des Quellservers auswerten, bevor Sie mit der Migration beginnen. Verwenden Sie die folgenden Verfahren, um sicherzustellen, dass die Updates aktuell sind, um einen Systemintegritätsbericht zu generieren und das Windows Server Solutions Best Practice Analyzer (BPA) auszuführen.  
   
 #### <a name="download-and-install-critical-and-security-updates"></a>Laden Sie kritische und Sicherheits-Updates herunter und installieren sie sie.  
@@ -69,7 +69,7 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
   
 ###### <a name="to-check-for-the-latest-updates"></a>So überprüfen Sie die neuesten Updates  
   
-1.  Klicken Sie auf dem Quellserver auf **Start**, klicken Sie auf **Programme**und klicken Sie dann auf **Windows Update**.  
+1.  Klicken Sie auf dem Quellserver auf **Start**, klicken Sie auf **Programme** und klicken Sie dann auf **Windows Update**.  
   
 2.  Klicken Sie auf **Nach Updates suchen**.  
   
@@ -91,7 +91,7 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
   
 1. Laden Sie die [Windows Server-Lösungen Best Practices Analyzer](https://www.microsoft.com/download/details.aspx?id=15556) im Microsoft Download Center herunter, und installieren Sie Sie.  
   
-2. Gehen Sie nach dem Abschluss des Downloads auf **Start**, **Alle Programme**und dann auf **SBS Best Practices Analyzer Tool**.  
+2. Gehen Sie nach dem Abschluss des Downloads auf **Start**, **Alle Programme** und dann auf **SBS Best Practices Analyzer Tool**.  
   
    > [!NOTE]
    >  Suchen Sie vor dem Überprüfen des Servers nach Updates.  
@@ -108,11 +108,11 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
 |-----------------|-----------------|  
 |Listenberichte|Zeigt Berichte in einer eindimensionalen Liste an.|  
 |Strukturberichte|Zeigt Berichte in einer hierarchischen Liste an.|  
-|Andere Berichte|Zeigt Berichte wie z. B. ein Laufzeitprotokoll an.|  
+|Andere Berichte|Zeigt Berichte wie z. B. ein Laufzeitprotokoll an.|  
   
  Wenn Sie die Beschreibung und Lösungen für ein Problem anzeigen möchten, klicken Sie im Bericht auf das betreffende Problem. Nicht alle Probleme, die von Windows SB 2011 Essentials BPA gemeldet werden, wirken sich auf die Migration aus. Sie sollten jedoch möglichst viele der Probleme beheben, um eine erfolgreiche Migration sicherzustellen.  
   
-####  <a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a>Synchronisieren der Quell Server Uhrzeit mit einer externen Zeit Quelle  
+####  <a name="synchronize-the-source-server-time-with-an-external-time-source"></a><a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a>Synchronisieren der Quell Server Uhrzeit mit einer externen Zeit Quelle  
  Die Uhrzeit auf dem Quellserver darf maximal fünf Minuten von der Uhrzeit auf dem Zielserver abweichen, und die Datums- und Zeitzone muss auf beiden Servern gleich sein. Wenn der Quellserver einen virtuellen Computer ausführt, müssen das Datum, die Uhrzeit und die Zeitzone auf dem Hostserver diesen Angaben auf dem Quell- und dem Zielserver entsprechen. Um sicherzustellen, dass Windows Server Essentials erfolgreich installiert wurde, müssen Sie die Uhrzeit des Quell Servers mit dem NTP-Server (Network Time Protocol) im Internet synchronisieren.  
   
 ###### <a name="to-synchronize-the-source-server-time-with-the-ntp-server"></a>So synchronisieren Sie die Uhrzeit des Quellservers mit dem NTP-Server  
@@ -130,7 +130,7 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
 > [!IMPORTANT]
 >  Während der Installation von Windows Server Essentials haben Sie die Möglichkeit, die Uhrzeit auf dem Ziel Server zu überprüfen und ggf. zu ändern. Stellen Sie sicher, dass die Uhrzeit höchstens fünf Minuten von der Uhrzeit auf dem Quellserver abweicht. Nachdem die Installation abgeschlossen ist, wird der Zielserver mit dem NTP-Server synchronisiert. Alle Computer, die Mitglied der Domäne sind (einschließlich des Quellservers) werden mit dem Zielserver synchronisiert, der die Rolle des Betriebsmasters für den PDC-Emulator (Primary Domain Controller, primärer Domänencontroller) ausübt.  
   
-###  <a name="BKMK_MPT"></a>Ausführen des Tools zum Vorbereiten der Migration auf dem Quell Server  
+###  <a name="run-the-migration-preparation-tool-on-the-source-server"></a><a name="BKMK_MPT"></a>Ausführen des Tools zum Vorbereiten der Migration auf dem Quell Server  
  Sie können keine Installation im Migrationsmodus durchführen, ohne zuerst auf dem Quellserver das Tool zum Vorbereiten der Migration auszuführen. Mit diesem Tool können Sie den Quell Server und die Domäne für die Migration zu Windows Server Essentials vorbereiten.  
   
 > [!IMPORTANT]
@@ -200,7 +200,7 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
 > [!NOTE]
 >  Sie müssen das Tool zum Vorbereiten der Migration innerhalb von zwei Wochen nach der Installation von Windows Server Essentials auf dem Zielserver erfolgreich auf dem Quell Server ausführen. Andernfalls wird die Installation von Windows Server Essentials auf dem Ziel Server blockiert. In diesem Fall müssen Sie das Tool zum Vorbereiten der Migration erneut auf dem Quellserver ausführen.  
   
-###  <a name="BKMK_PlanToMigrateLineOfBusinessApplications"></a>Erstellen eines Plans für die Migration von Branchen Anwendungen  
+###  <a name="create-a-plan-to-migrate-line-of-business-applications"></a><a name="BKMK_PlanToMigrateLineOfBusinessApplications"></a>Erstellen eines Plans für die Migration von Branchen Anwendungen  
  Eine Branchenanwendung ist eine wichtige Computeranwendung, die für den Geschäftsbetrieb unabdingbar ist. Dabei kann es sich z. B. um Buchhaltungs-, Supply Chain Management- oder Ressourcenplanungsanwendungen handeln.  
   
  Wenn Sie die Migration Ihrer Branchenanwendungen planen, beraten Sie sich mit dem Branchenanwendungsanbieter, um die geeignete Methode zum Migrieren der einzelnen Anwendungen zu ermitteln. Außerdem müssen Sie das Medium ermitteln, das zum Installieren der Branchenanwendungen auf dem Zielserver verwendet wird.  

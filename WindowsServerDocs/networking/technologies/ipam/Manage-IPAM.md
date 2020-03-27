@@ -10,18 +10,18 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c68905ef-d54f-4fc8-80ac-1006125db64f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 165ffe41fd79fc9f71f96ef65317375e4120cc5c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: ffe7816c0464f0963f3f65cf21f1f6a4b7c42aa1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405620"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316813"
 ---
 # <a name="manage-ipam"></a>Verwalten von IPAM
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Handbuch enthält Informationen zur Verwaltung und Problembehandlung für das IPAM-Feature (IP Address Management, IP-Adressverwaltung) in Windows Server 2016.  
   
@@ -39,7 +39,7 @@ Das Handbuch umfasst folgende Abschnitte:
   
 -   [Rollenbasierte Access Control](../../technologies/ipam/Role-based-Access-Control.md)  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [IP-Adress &#40;Verwaltung (IPAM)&#41;](IP-Address-Management--IPAM-.md)  
   
 

@@ -6,23 +6,23 @@ ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
 ms.localizationpriority: medium
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: c04074338cf4ba0189eb1e9bc45a80b948fdbfbf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9d3afb21c466ef1010a20ec811df45b9dcb2b711
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388040"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312255"
 ---
-# <a name="step-3-configure-the-remote-access-server-for-always-on-vpn"></a>Schritt 3 Konfigurieren des RAS-Servers für Always On VPN
+# <a name="step-3-configure-the-remote-access-server-for-always-on-vpn"></a>Schritt 3: Konfigurieren des RAS-Servers für Always On VPN
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Vorher** Schritt 2 Konfigurieren der Server Infrastruktur](vpn-deploy-server-infrastructure.md)
-- [**Vorher** Schritt 4 Installieren und Konfigurieren des Netzwerk Richtlinien Servers (NPS)](vpn-deploy-nps.md)
+- [**Vorheriges:** Schritt 2: Konfigurieren der Server Infrastruktur](vpn-deploy-server-infrastructure.md)
+- [**Vorheriges:** Schritt 4: Installieren und Konfigurieren des Netzwerk Richtlinien Servers (NPS)](vpn-deploy-nps.md)
 
 RRAS ist so konzipiert, dass Sie sowohl einen Router als auch einen RAS-Server ausführen, da er eine Vielzahl von Features unterstützt. Für diese Bereitstellung benötigen Sie nur eine kleine Teilmenge dieser Features: Unterstützung für IKEv2-VPN-Verbindungen und LAN-Routing.
 
@@ -173,7 +173,7 @@ In diesem Abschnitt können Sie das RAS-VPN so konfigurieren, dass es IKEv2-VPN-
 
 14. Überprüfen Sie die Einstellung für den **Kontoführungs Anbieter**:
 
-    |                    Wenn Sie möchten...                     |                                                     Dann...                                                      |
+    |                    Wenn Sie möchten...                     |                                                     Dann ...                                                      |
     |-----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
     | Remote Zugriffs Aktivität auf dem RAS-Server protokolliert |                               Stellen Sie sicher, dass Windows-Konto **Führung** ausgewählt ist.                               |
     |        NPS zum Durchführen von Buchhaltungs Diensten für VPN         | Ändern Sie den Konto **Buchhaltungs Anbieter** in die RADIUS-Konto **Führung** , und konfigurieren Sie dann den NPS als Buchhaltungs Anbieter. |
@@ -198,7 +198,7 @@ In diesem Abschnitt können Sie das RAS-VPN so konfigurieren, dass es IKEv2-VPN-
 
     a. Rechts: die **Verbindungen mit der Netzwerk Richtlinie für den Routing-und RAS-Server von Microsoft** und wählen **Eigenschaften**aus.
 
-    b. Wählen Sie **den Zugriff gewähren aus. Gewähren Sie Zugriff, wenn die Verbindungsanforderung mit** dieser Richtlinien Option übereinstimmt.
+    b. Wählen Sie den **Zugriff gewähren aus. Gewähren Sie Zugriff, wenn die Verbindungsanforderung mit dieser Richtlinien Option übereinstimmt** .
 
     c. Wählen Sie unter Typ des Netzwerk Zugriffs Servers in der Dropdown-Datei den Eintrag RAS- **Server (VPN-Dial-up)** aus.
 
@@ -234,4 +234,4 @@ In diesem Abschnitt können Sie das RAS-VPN so konfigurieren, dass es IKEv2-VPN-
 
 ## <a name="next-step"></a>Nächster Schritt
 
-[Schritt 4: Installieren und Konfigurieren des Netzwerk Richtlinien Servers (Network Policy Server](vpn-deploy-nps.md), NPS): In diesem Schritt installieren Sie den Netzwerk Richtlinien Server (Network Policy Server, NPS) mithilfe von Windows PowerShell oder dem Server-Manager Assistenten zum Hinzufügen von Rollen und Features. Außerdem können Sie NPS so konfigurieren, dass alle Authentifizierungs-, Autorisierungs-und Buchhaltungsaufgaben für Verbindungsanforderungen verarbeitet werden, die vom VPN-Server empfangen werden.
+[Schritt 4: Installieren und Konfigurieren des Netzwerk Richtlinien Servers (NPS)](vpn-deploy-nps.md): in diesem Schritt installieren Sie den Netzwerk Richtlinien Server (Network Policy Server, NPS) mithilfe von Windows PowerShell oder des Server-Manager Assistenten zum Hinzufügen von Rollen und Features. Außerdem können Sie NPS so konfigurieren, dass alle Authentifizierungs-, Autorisierungs-und Buchhaltungsaufgaben für Verbindungsanforderungen verarbeitet werden, die vom VPN-Server empfangen werden.

@@ -10,18 +10,18 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ae6a42db-a104-401b-a8e6-b85c47d30b46
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 01e3216ca62cdb780342b477e575e00cdeedc6dd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 61b8a331d5451e65d2b29f973b66c41a2aad8c1a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405704"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312624"
 ---
 # <a name="create-a-user-role-for-access-control"></a>Erstellen einer Benutzerrolle für die Zugriffssteuerung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Sie können dieses Thema verwenden, um eine neue Access Control Benutzerrolle in der IPAM-Client Konsole zu erstellen.  
   
@@ -58,7 +58,7 @@ Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist d
   
     ![Neue Rollen Details](../../media/Create-a-User-Role-for-Access-Control/ipam_CreateUserRole_06.jpg)  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Rollenbasierte Access Control](Role-based-Access-Control.md)  
 [Verwalten von IPAM](Manage-IPAM.md)  
   

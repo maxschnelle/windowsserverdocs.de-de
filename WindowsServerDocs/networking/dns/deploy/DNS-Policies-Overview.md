@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: 566bc270-81c7-48c3-a904-3cba942ad463
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 613bb7f43b382389dc0db953a48668147cfaee88
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a6fe98dea50dd194c2bb2303a663968f93818332
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356051"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317966"
 ---
 # <a name="dns-policies-overview"></a>DNS-Richtlinien (Übersicht)
 
@@ -49,15 +49,15 @@ DNS-Richtlinien werden nach Ebene und Typ aufgeteilt. Sie können Richtlinien f�
 
 Sie können DNS-Abfrage Auflösungs Richtlinien verwenden, um anzugeben, wie eingehende Auflösungs Abfragen von einem DNS-Server behandelt werden. Jede Richtlinie für die DNS-Abfrage Auflösung enthält die folgenden Elemente:  
 
-|Feld|Beschreibung|Mögliche Werte|  
+|Field|Beschreibung|Mögliche Werte|  
 |---------|---------------|-------------------|  
-|**Name**|Richtlinienname|Bis zu 256 Zeichen<br />-Kann beliebige Zeichen enthalten, die für einen Dateinamen gültig sind.|  
+|**Name**|Name der Richtlinie|Bis zu 256 Zeichen<br />-Kann beliebige Zeichen enthalten, die für einen Dateinamen gültig sind.|  
 |**State**|Richtlinien Status|-Enable (Standard)<br />-Deaktiviert|  
-|**Level**|Richtlinien Ebene|-Server<br />-Zone|  
+|**Geringen**|Richtlinien Ebene|-Server<br />-Zone|  
 |**Verarbeitungsreihenfolge**|Nachdem eine Abfrage nach Ebene klassifiziert und angewendet wurde, ermittelt der Server die erste Richtlinie, für die die Abfrage den Kriterien entspricht, und wendet Sie auf die Abfrage an.|-Numerischer Wert<br />-Eindeutiger Wert pro Richtlinie, die dieselbe Ebene enthält und für den Wert gilt.|  
 |**Aktion**|Aktion, die vom DNS-Server ausgeführt werden soll|-Allow (Standard für die Zonenebene)<br />-DENY (Standard auf Serverebene)<br />-Ignorieren|  
 |**Liste**|Richtlinien Bedingung (und/oder) und Liste der Kriterien, die erfüllt werden müssen, damit die Richtlinie angewendet wird|-Condition-Operator (und/oder)<br />-Liste der Kriterien (siehe Kriterium Tabelle unten)|  
-|**Bereich**|Liste der Zonen Bereiche und gewichteten Werte pro Bereich. Gewichtete Werte werden für den Lastenausgleich der Verteilung verwendet. Wenn diese Liste beispielsweise Datacenter1 mit einer Gewichtung von 3 und datacenter2 mit einer Gewichtung von 5 enthält, antwortet der Server mit einem Datensatz von datacentre1 dreimal von acht Anforderungen.|-Liste der Zonen Bereiche (nach Name) und Gewichtungen|  
+|**Scope**|Liste der Zonen Bereiche und gewichteten Werte pro Bereich. Gewichtete Werte werden für den Lastenausgleich der Verteilung verwendet. Wenn diese Liste beispielsweise Datacenter1 mit einer Gewichtung von 3 und datacenter2 mit einer Gewichtung von 5 enthält, antwortet der Server mit einem Datensatz von datacentre1 dreimal von acht Anforderungen.|-Liste der Zonen Bereiche (nach Name) und Gewichtungen|  
 
 > [!NOTE]
 > Richtlinien auf Server Ebene können nur die Werte **Deny** oder **Ignore** als Aktion aufweisen.
@@ -124,7 +124,7 @@ Sie können mehrere Zonen Übertragungs Richtlinien auf derselben Ebene erstelle
 ## <a name="managing-dns-policies"></a>DNS-Richtlinien verwalten  
 Sie können DNS-Richtlinien mithilfe von PowerShell erstellen und verwalten. In den folgenden Beispielen werden verschiedene Beispielszenarien durchlaufen, die Sie über DNS-Richtlinien konfigurieren können:  
 
-### <a name="traffic-management"></a>Datenverkehrs Verwaltung  
+### <a name="traffic-management"></a>Datenverkehrsmanagement  
 Abhängig vom Speicherort des DNS-Clients können Sie den Datenverkehr basierend auf einem FQDN an verschiedene Server weiterleiten. Das folgende Beispiel zeigt, wie Richtlinien für die Datenverkehrs Verwaltung erstellt werden, um die Kunden von einem bestimmten Subnetz an ein nordamerikanisches Rechenzentrum und von einem anderen Subnetz zu einem europäischen Rechenzentrum zu leiten.  
 
 ```  

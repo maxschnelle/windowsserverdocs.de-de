@@ -6,14 +6,14 @@ ms.topic: article
 ms.assetid: 65b36794-bb09-4c1b-a2e7-8fc780893d97
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 2af3a621991627addb94238e84cceb357fb47731
-ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 4df23cd64bcf3bf9c27190908fb5f2a48b30b833
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72588088"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318291"
 ---
 # <a name="capolicyinf-syntax"></a>CAPolicy. inf-Syntax
 >   Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
@@ -42,7 +42,7 @@ Die folgenden Begriffe werden verwendet, um die INF-Dateistruktur zu beschreiben
 
 -   _Value_ – ist der Parameter und wird rechts neben dem Gleichheitszeichen angezeigt.
 
-Im folgenden Beispiel ist **[Version]** der-Abschnitt, **Signature** ist der Schlüssel, und **"\$Windows NT \$"** ist der Wert.
+Im folgenden Beispiel ist **[Version]** der-Abschnitt, **Signature** ist der Schlüssel, und **"\$Windows NT\$"** ist der Wert.
 
 Beispiel:
 
@@ -146,7 +146,7 @@ Weitere Hinweise zum Abschnitt "Autoritäts Informations Zugriff":
 
 ### <a name="certsrv_server"></a>certsrv_Server
 
-Ein weiterer Optionaler Abschnitt der Datei "capolicy. inf" ist [Certsrv_Server], mit der die Länge des Erneuerungs Schlüssels, der Erneuerungs Gültigkeits Zeitraum und die Zertifikat Sperr Listen-Gültigkeitsdauer für eine Zertifizierungsstelle angegeben werden, die erneuert oder installiert wird. Keiner der Schlüssel in diesem Abschnitt ist erforderlich. Viele dieser Einstellungen verfügen über Standardwerte, die für die meisten Anforderungen ausreichend sind und in der Datei CAPolicy. inf weggelassen werden können. Alternativ können viele dieser Einstellungen geändert werden, nachdem die Zertifizierungsstelle installiert wurde.
+Ein weiterer Optionaler Abschnitt der Datei "capolicy. inf" ist [Certsrv_Server], mit der die Länge des Erneuerungs Schlüssels, der Erneuerungs Gültigkeitsdauer und die Zertifikat Sperr Listen-Gültigkeitsdauer für eine Zertifizierungsstelle angegeben werden, die erneuert oder installiert wird. Keiner der Schlüssel in diesem Abschnitt ist erforderlich. Viele dieser Einstellungen verfügen über Standardwerte, die für die meisten Anforderungen ausreichend sind und in der Datei CAPolicy. inf weggelassen werden können. Alternativ können viele dieser Einstellungen geändert werden, nachdem die Zertifizierungsstelle installiert wurde.
 
 Ein Beispiel sieht wie folgt aus:
 
@@ -254,4 +254,4 @@ Vor der Installation von AD CS konfigurieren Sie die Datei CAPolicy. inf mit spe
 9. Schließen Sie Editor.
 
 > [!IMPORTANT]
->   In der Datei "capolicy. inf" sehen Sie eine Zeile, in der die URL https://pki.corp.contoso.com/pki/cps.txt angegeben wird. Der Abschnitt der Datei %%amp;quot;CAPolicy.inf%%amp;quot; zu den internen Richtlinien dient lediglich als Beispiel dafür, wie Sie den Speicherort einer Zertifikatverwendungserklärung (Certificate Practice Statement, CPS) angeben können. In diesem Handbuch werden Sie nicht aufgefordert, die CPS (Certificate Practice Statement) zu erstellen.
+>   In der Datei "capolicy. inf" sehen Sie eine Zeile, in der die URL https://pki.corp.contoso.com/pki/cps.txtangegeben wird. Der Abschnitt der Datei %%amp;quot;CAPolicy.inf%%amp;quot; zu den internen Richtlinien dient lediglich als Beispiel dafür, wie Sie den Speicherort einer Zertifikatverwendungserklärung (Certificate Practice Statement, CPS) angeben können. In diesem Handbuch werden Sie nicht aufgefordert, die CPS (Certificate Practice Statement) zu erstellen.

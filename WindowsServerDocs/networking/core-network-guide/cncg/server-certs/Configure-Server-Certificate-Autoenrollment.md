@@ -6,14 +6,14 @@ ms.topic: article
 ms.assetid: c81e85cb-ecb8-442a-ad27-442c2f9e40df
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: c0803e369d9b48547190dc242617fed6e72d9ce4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 9c85c4fd9026155fe1ca880ecb05f4c9358a2309
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406341"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318428"
 ---
 # <a name="configure-certificate-auto-enrollment"></a>Konfigurieren der automatischen Zertifikat Registrierung
 
@@ -36,7 +36,7 @@ Für dieses Verfahren sind mindestens die Mitgliedschaften in den Gruppen **Orga
 5. Klicken Sie in **Domänen, Organisationseinheiten und verknüpfte Gruppenrichtlinienobjekte** auf **Standarddomänenrichtlinie**, und klicken Sie dann auf **OK**.
 6. Klicken Sie auf **Fertig stellen**, und klicken Sie dann auf **OK**.
 7. Doppelklicken Sie auf **Standarddomänenrichtlinie**. Erweitern Sie in der-Konsole den folgenden Pfad: **Computer Konfiguration**, **Richtlinien**, **Windows-Einstellungen**, **Sicherheitseinstellungen**und dann **Richtlinien für öffentliche Schlüssel**.
-8. Klicken Sie auf **Richtlinien für öffentliche Schlüssel**. Doppelklicken Sie im Detailbereich auf **Zertifikatdiensteclient - automatische Registrierung**. Das Dialogfeld **Eigenschaften** wird geöffnet. Geben Sie die folgenden Elemente ein, und klicken Sie dann auf **OK**:
+8. Klicken Sie auf **Richtlinien für öffentliche Schlüssel**. Doppelklicken Sie im Detailbereich auf **Zertifikatsdiensteclient - automatische Registrierung**. Das Dialogfeld **Eigenschaften** wird geöffnet. Geben Sie die folgenden Elemente ein, und klicken Sie dann auf **OK**:
 
      1. Wählen Sie in **Konfigurationsmodell** die Option **Aktiviert** aus.
      2. Aktivieren Sie das Kontrollkästchen **Abgelaufene Zertifikate erneuern, ausstehende Zertifikate aktualisieren und gesperrte Zertifikate entfernen**.
@@ -57,7 +57,7 @@ Für dieses Verfahren sind mindestens die Mitgliedschaften in den Gruppen **Orga
 5. Klicken Sie in **Domänen, Organisationseinheiten und verknüpfte Gruppenrichtlinienobjekte** auf **Standarddomänenrichtlinie**, und klicken Sie dann auf **OK**.
 6. Klicken Sie auf **Fertig stellen**, und klicken Sie dann auf **OK**.
 7. Doppelklicken Sie auf **Standarddomänenrichtlinie**. Erweitern Sie in der-Konsole den folgenden Pfad: **Benutzerkonfiguration**, **Richtlinien**, **Windows-Einstellungen**, **Sicherheitseinstellungen**.
-8. Klicken Sie auf **Richtlinien für öffentliche Schlüssel**. Doppelklicken Sie im Detailbereich auf **Zertifikatdiensteclient - automatische Registrierung**. Das Dialogfeld **Eigenschaften** wird geöffnet. Geben Sie die folgenden Elemente ein, und klicken Sie dann auf **OK**:
+8. Klicken Sie auf **Richtlinien für öffentliche Schlüssel**. Doppelklicken Sie im Detailbereich auf **Zertifikatsdiensteclient - automatische Registrierung**. Das Dialogfeld **Eigenschaften** wird geöffnet. Geben Sie die folgenden Elemente ein, und klicken Sie dann auf **OK**:
 
      1. Wählen Sie in **Konfigurationsmodell** die Option **Aktiviert** aus.
      2. Aktivieren Sie das Kontrollkästchen **Abgelaufene Zertifikate erneuern, ausstehende Zertifikate aktualisieren und gesperrte Zertifikate entfernen**.

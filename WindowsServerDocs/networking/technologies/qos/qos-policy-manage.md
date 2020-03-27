@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 04fdfa54-6600-43d4-8945-35f75e15275a
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 4b8f10ab7b3da05fbefabb735ee2b8bb4ef1cb8a
-ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 36c30372b6cac40b603658eca9636a265801fb1a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781347"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315442"
 ---
 # <a name="manage-qos-policy"></a>Verwalten der QoS-Richtlinie
 
@@ -32,7 +32,7 @@ In Windows-Betriebssystemen kombiniert die QoS-Richtlinie die Funktionalität de
 
 -  [Anzeigen, bearbeiten oder Löschen einer QoS-Richtlinie](#bkmk_editpolicy)
 
-##  <a name="bkmk_createpolicy"></a>Erstellen einer QoS-Richtlinie
+##  <a name="create-a-qos-policy"></a><a name="bkmk_createpolicy"></a>Erstellen einer QoS-Richtlinie
 
 Bevor Sie eine QoS-Richtlinie erstellen, ist es wichtig, dass Sie die beiden Schlüssel-QoS-Steuerelemente kennen, die zur Verwaltung des Netzwerk Datenverkehrs verwendet werden:
 
@@ -176,7 +176,7 @@ Um die Erstellung der neuen QoS-Richtlinie abzuschließen, klicken Sie auf der S
   
 Wenn Sie die QoS-Richtlinien Einstellungen auf Benutzer oder Computer anwenden möchten, verknüpfen Sie das Gruppenrichtlinien Objekt, in dem sich die QoS-Richtlinien befinden, mit einem Active Directory Domain Services Container (z. b. einer Domäne, einem Standort oder einer Organisationseinheit).  
   
-##  <a name="bkmk_editpolicy"></a>Anzeigen, bearbeiten oder Löschen einer QoS-Richtlinie
+##  <a name="view-edit-or-delete-a-qos-policy"></a><a name="bkmk_editpolicy"></a>Anzeigen, bearbeiten oder Löschen einer QoS-Richtlinie
 
 Die Seiten des zuvor beschriebenen Assistenten für QoS-Richtlinien entsprechen den Eigenschaften Seiten, die angezeigt werden, wenn Sie die Eigenschaften einer Richtlinie anzeigen oder bearbeiten.  
   
@@ -190,7 +190,7 @@ Die Seiten des zuvor beschriebenen Assistenten für QoS-Richtlinien entsprechen 
   
     -   Anwendungsname  
   
-    -   "IP-Adressen"  
+    -   IP-Adressen  
   
     -   Protokolle und Ports  
   
@@ -253,9 +253,9 @@ Durch Festlegen einer niedrigeren Durchsatz Ebene auf der Registerkarte **eingeh
   
 Das TCP-Empfangs Fenster wurde in Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 und Windows Vista aus früheren Windows-Versionen geändert. In früheren Versionen von Windows wurde das Empfangs seitige TCP-Fenster auf maximal 64 Kilobyte (KB) beschränkt, während Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows Server 2008 und Windows Vista die Größe des Empfangs seitigen Fensters dynamisch auf bis zu 16 Megabyte (MB ). In der eingehenden TCP-Datenverkehrs Steuerung können Sie den Durchsatz für den eingehenden Durchsatz steuern, indem Sie den maximalen Wert festlegen, auf den das TCP-Empfangs Fenster vergrößert werden kann. Die Ebenen entsprechen den folgenden maximalen Werten. 
   
-|Durchsatz für eingehenden Durchsatz|Maximal|  
+|Durchsatz für eingehenden Durchsatz|Maximum|  
 |------------------------|-------|  
-|0|64 KB|
+|0|64 KB|
 |1|256 KB|
 |2|1 MB|
 |3|16 MB|
@@ -291,7 +291,7 @@ Die [Wi-Fi-Allianz](https://go.microsoft.com/fwlink/?LinkId=160769) hat eine Zer
 
 Sie können QoS-Richtlinien erstellen, die diese DSCP-Werte verwenden, um sicherzustellen, dass tragbare Computer mit Wi\-Fi-zertifizierten™ für WMM-drahtlos Adapter eine priorisierte Behandlung erhalten, wenn Sie für WMM-Zugriffspunkte mit\-WLAN-Zertifizierung verknüpft sind.
   
-### <a name="BKMK_precedencerules"></a>Rangfolge von QoS-Richtlinien
+### <a name="qos-policy-precedence-rules"></a><a name="BKMK_precedencerules"></a>Rangfolge von QoS-Richtlinien
 
 Ähnlich wie bei den Prioritäten von GPO haben QoS-Richtlinien Vorrangregeln zum Auflösen von Konflikten, wenn mehrere QoS-Richtlinien für eine bestimmte Gruppe von Datenverkehr gelten. Für ausgehenden TCP-oder UDP-Datenverkehr kann jeweils nur eine QoS-Richtlinie angewendet werden. Dies bedeutet, dass QoS-Richtlinien keinen kumulativen Effekt haben, z. b. wenn Drosselungs Raten summiert werden.
 

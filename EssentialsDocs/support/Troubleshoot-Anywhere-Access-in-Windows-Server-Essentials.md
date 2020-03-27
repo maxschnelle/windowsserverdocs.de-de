@@ -1,9 +1,9 @@
 ---
 title: Problembehandlung von "Zugriff überall" in Windows Server Essentials
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,23 +12,23 @@ ms.assetid: 68f2b05c-09eb-4cba-8db4-a91353b513c6
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: a14dbaed8c36f52814ba8080262ef60c399931dc
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5e25a4f597fdab019171aa38e67780069c6380ee
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59874011"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318655"
 ---
 # <a name="troubleshoot-anywhere-access-in-windows-server-essentials"></a>Problembehandlung von "Zugriff überall" in Windows Server Essentials
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Dieses Thema enthält allgemeine Anweisungen für die Verwendung des Assistent zum Reparieren überall Zugriff in Windows Server Essentials zur Problembehandlung, die verhindert, dass Benutzer im Netzwerk den Zugriff auf Serverressourcen. Zugriff überall Funktionen Remotewebzugriff, virtuelles privates Netzwerk (VPN), und Aktivieren von DirectAccess Benutzer an einem Ort mit Internetverbindung, jederzeit von einem beliebigen Gerät den Zugriff auf Serverressourcen im Netzwerk.  
+Dieses Thema enthält allgemeine Anweisungen für die Verwendung des Assistenten zum Reparieren von "Zugriff überall" in Windows Server Essentials, um Probleme zu beheben, die verhindern, dass Netzwerk Benutzer auf Server Ressourcen zugreifen. "Zugriff überall"-Funktionen: Remote Webzugriff, virtuelles privates Netzwerk (VPN) und DirectAccess: ermöglichen Netzwerk Benutzern den Zugriff auf Server Ressourcen von einem beliebigen Standort mit einer Internet Verbindung jederzeit von einem beliebigen Gerät aus.  
   
  Der Assistent zum Reparieren von "Zugriff überall" versucht, Probleme mit Router, Domänenname oder Firewall zu identifizieren und zu beheben, die Benutzer im Netzwerk daran hindern, per Remotezugriff auf Serverressourcen zuzugreifen.  
   
 > [!NOTE]
->  Die aktuellsten Informationen zur Problembehandlung aus der Windows Server Essentials-Community wird empfohlen, Sie besuchen die [Windows Server Essentials-Forum](https://social.technet.microsoft.com/Forums/winserveressentials/threads). Das Windows Server Essentials-Forum eignet sich optimal, um nach Hilfe zu suchen oder um Fragen zu stellen.  
+>  Die aktuellsten Informationen zur Problembehandlung aus der Windows Server Essentials-Community finden Sie im [Windows Server Essentials-Forum](https://social.technet.microsoft.com/Forums/winserveressentials/threads). Das Windows Server Essentials-Forum eignet sich optimal, um nach Hilfe zu suchen oder um Fragen zu stellen.  
   
 ### <a name="to-repair-anywhere-access"></a>So reparieren Sie "Zugriff überall"  
   
@@ -52,13 +52,13 @@ Dieses Thema enthält allgemeine Anweisungen für die Verwendung des Assistent z
  Wenn der Assistent zum Reparieren von "Zugriff überall" keine Reparatur ausführen kann, überprüfen Sie die folgenden Ressourcen für die Problembehandlung bei Problemen im Zusammenhang mit Remote Web Access, VPN und DirectAccess:  
   
 
--   [Behandeln von Konnektivitätsproblemen mit Remote Web Access](Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
+-   [Behandeln von Problemen mit der Remote Webzugriff Konnektivität](Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
   
--   [Problembehandlung bei der firewall](Troubleshoot-your-firewall-in-Windows-Server-Essentials.md)  
+-   [Behandeln von Problemen mit der Firewall](Troubleshoot-your-firewall-in-Windows-Server-Essentials.md)  
 
--   [Behandeln von Konnektivitätsproblemen mit Remote Web Access](../support/Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
+-   [Behandeln von Problemen mit der Remote Webzugriff Konnektivität](../support/Troubleshoot-Remote-Web-Access-connectivity-in-Windows-Server-Essentials.md)  
   
--   [Problembehandlung bei der firewall](../support/Troubleshoot-your-firewall-in-Windows-Server-Essentials.md)  
+-   [Behandeln von Problemen mit der Firewall](../support/Troubleshoot-your-firewall-in-Windows-Server-Essentials.md)  
 
   
--   Überprüfen Sie die [Windows Server Essentials-Forum](https://social.technet.microsoft.com/Forums/winserveressentials/threads) für den aktuellen Problemen, die von der Windows Server Essentials-Community gemeldet.
+-   Im [Windows Server Essentials-Forum](https://social.technet.microsoft.com/Forums/winserveressentials/threads) finden Sie die neuesten Probleme, die von der Windows Server Essentials-Community gemeldet wurden.

@@ -10,18 +10,18 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7b66c09d-e401-4f70-9a2a-6047dd629bfa
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 8fe318a8ac17c650d8dbf2339e72b561de529c4a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 3aa20913a01a23291879b98d6f53fe60a7138670
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405672"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312452"
 ---
 # <a name="dns-resource-record-management"></a>Verwaltung von DNS-Ressourceneinträgen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Thema enthält Informationen zum Verwalten von DNS-Ressourcen Einträgen mithilfe von IPAM.  
   
@@ -55,13 +55,13 @@ Im folgenden finden Sie eine Liste der DNS-Ressourcen Daten Satz Typen, die von 
   
 -   DHCID  
   
--   DNAME  
+-   DName  
   
 -   Host A oder AAAA  
   
 -   Host Informationen  
   
--   DIGITALEN  
+-   Digitalen  
   
 -   MX  
   
@@ -75,7 +75,7 @@ Im folgenden finden Sie eine Liste der DNS-Ressourcen Daten Satz Typen, die von 
   
 -   Dienst Identifizierung  
   
--   FREUNDLICHERWEISE  
+-   SOA  
   
 -   SRV  
   
@@ -113,7 +113,7 @@ Mit IPAM können Sie die folgenden Vorgänge für Ressourcen Einträge über die
   
 IPAM protokolliert automatisch alle Änderungen an der DNS-Konfiguration, die Sie mithilfe der IPAM-Konsole vornehmen.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Verwalten von IPAM](Manage-IPAM.md)  
   
 

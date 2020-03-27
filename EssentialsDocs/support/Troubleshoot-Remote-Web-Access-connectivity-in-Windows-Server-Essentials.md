@@ -1,9 +1,9 @@
 ---
 title: Behandeln von Problemen mit der Remotewebzugriff-Verbindung in Windows Server Essentials
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: d3642575-b3ee-4488-b654-5bf9d3b8c935
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: fda0b5a227fe25b4e8780915089e97ee48620383
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 6db623308184c5be2968fa1d8991de2b48eef5b7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432436"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318634"
 ---
 # <a name="troubleshoot-remote-web-access-connectivity-in-windows-server-essentials"></a>Behandeln von Problemen mit der Remotewebzugriff-Verbindung in Windows Server Essentials
  
@@ -43,7 +43,7 @@ ms.locfileid: "66432436"
   
 - Überprüfen, ob das Breitbandgerät, das die Verbindung mit Ihrem Internetdienstanbieter (ISP) herstellt, aktiviert ist, ordnungsgemäß funktioniert und ob Ihr Router mit dem Breitbandgerät verbunden ist.  
   
-- Aktivieren Sie die UPnP-Einstellung für Ihren Router. Öffnen Sie die Konfigurationswebseite für Ihren Router, um die UPnP-Einstellung zu aktivieren. Informationen dazu, wie Sie sich bei Ihrem Router anmelden und die UPnP-Einstellung aktivieren, finden Sie in der Dokumentation zum Router. Nachdem Sie die UPnP-Einstellung aktivieren, führen Sie die aktivieren auf Assistent für Remotewebzugriff erneut aus, um den Router zu konfigurieren.  
+- Aktivieren Sie die UPnP-Einstellung für Ihren Router. Öffnen Sie die Konfigurationswebseite für Ihren Router, um die UPnP-Einstellung zu aktivieren. Informationen dazu, wie Sie sich bei Ihrem Router anmelden und die UPnP-Einstellung aktivieren, finden Sie in der Dokumentation zum Router. Nachdem Sie die UPnP-Einstellung aktiviert haben, führen Sie den Assistenten zum Aktivieren von Remote Webzugriff erneut aus, um den Router zu konfigurieren.  
   
 - Wenn Ihr Router den UPnP-Standard nicht vollständig unterstützt, kann er nicht automatisch konfiguriert werden. Sie müssen den Router manuell konfigurieren oder einen Router erwerben, der den UPnP-Standard unterstützt.  
   
@@ -53,7 +53,7 @@ ms.locfileid: "66432436"
   
      Bevor Sie den Router manuell so konfigurieren, dass die erforderlichen Ports an Windows Server Essentials weitergeleitet werden, müssen Sie auf dem Router eine DHCP-Reservierung für Ihren Server mit Windows Server Essentials einrichten. Durch diesen Schritt wird sichergestellt, dass sich die IP-Adresse, an die Sie die Ports weiterleiten, nicht ändert.  
   
-     Informationen dazu, wie Sie eine DHCP-Reservierung für Ihren Server, auf dem Router manuell einrichten finden Sie unter der Dokumentation des Herstellers für Ihren Router.  
+     Informationen dazu, wie Sie manuell eine DHCP-Reservierung für den Server auf dem Router einrichten, finden Sie in der Dokumentation des Herstellers für Ihren Router.  
   
   - Konfigurieren Sie die Portweiterleitung auf dem Router für die folgenden Ports:  
   
@@ -62,7 +62,7 @@ ms.locfileid: "66432436"
     |HTTP|TCP 80|  
     |HTTPS|TCP 443|  
   
-    Informationen zum Einrichten der portweiterleitung auf dem Router manuell festlegen finden Sie in der Dokumentation des Herstellers.  
+    Informationen zum manuellen Einrichten der Port Weiterleitung auf dem Router finden Sie in der Dokumentation des Herstellers.  
   
     Eine typische Routerkonfigurationsseite enthält eine Tabelle, die der folgenden ähnelt.  
   
@@ -74,7 +74,7 @@ ms.locfileid: "66432436"
   |192.168.0.100|TCP 80|Immer|Alle zulassen|  
   |192.168.0.100|TCP 443|Immer|Alle zulassen|  
   
-   Nachdem Sie den Router manuell konfiguriert haben, führen Sie die aktivieren auf Assistent für Remotewebzugriff, wählen Sie die **routereinrichtung überspringen** option die **Einstieg** Seite.  
+   Nachdem Sie den Router manuell konfiguriert haben, führen Sie den Assistenten zum Aktivieren von Remote Webzugriff aus, um sicherzustellen, dass Sie auf **der Seite mit den ersten** Schritten die Option **routereinrichtung überspringen** auswählen  
   
 - Erwerben Sie einen neuen Router, falls Ihr Router den UPnP-Standard nicht vollständig unterstützt.  
   
@@ -83,11 +83,11 @@ ms.locfileid: "66432436"
   
 ## <a name="see-also"></a>Siehe auch  
   
--   [Verwenden des Remotewebzugriffs](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Remote Webzugriff verwenden](../use/Use-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
--   [Verwalten des Remotewebzugriffs](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
+-   [Remote Webzugriff verwalten](../manage/Manage-Remote-Web-Access-in-Windows-Server-Essentials.md)  
   
--   [Verwalten von Zugriff überall](../manage/Manage-Anywhere-Access-in-Windows-Server-Essentials.md)  
+-   [Zugriff überall verwalten](../manage/Manage-Anywhere-Access-in-Windows-Server-Essentials.md)  
   
 -   [Verwalten von Windows Server Essentials](../manage/Manage-Windows-Server-Essentials.md)  
   

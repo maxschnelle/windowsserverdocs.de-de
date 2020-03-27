@@ -3,7 +3,7 @@ title: Einrichten oder Anpassen der Serversicherung
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 441c2d6c-435a-42cb-90f2-6d680d279d34
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 820474934ef1f164d24d4893c42b10c5043f7707
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 06d8381e622cdb6c437b0f5aa4d1cd9293ef779a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70865207"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310596"
 ---
 # <a name="set-up-or-customize-server-backup"></a>Einrichten oder Anpassen der Serversicherung
 
@@ -35,7 +35,7 @@ ms.locfileid: "70865207"
   
 -   [Zu sichernde Elemente](Set-up-or-customize-server-backup.md#BKMK_4)  
   
-##  <a name="BKMK_1"></a>Einrichten oder Ändern von Server Sicherungs Einstellungen  
+##  <a name="set-up-or-change-server-backup-settings"></a><a name="BKMK_1"></a>Einrichten oder Ändern von Server Sicherungs Einstellungen  
   
 #### <a name="to-set-up-or-change-server-backup-settings"></a>So richten Sie Serversicherungseinstellungen ein oder ändern sie  
   
@@ -48,24 +48,24 @@ ms.locfileid: "70865207"
     > [!NOTE]
     >  Wenn Sie die vorhandenen Sicherungseinstellungen ändern möchten, klicken Sie auf **Sicherung für den Server anpassen**.  
   
-4.  Befolgen Sie die Anweisungen im Assistenten.  
+4.  Folgen Sie den Anweisungen im Assistenten.  
   
     > [!NOTE]
-    >  Wenn Sie den Assistenten starten, bevor Sie das externe Festplattenlaufwerk an den Server angehängt haben, klicken Sie auf **Liste aktualisieren** auf der Seite **Sicherungsziel auswählen** , nachdem Sie das Festplattenlaufwerk angehängt haben.  
+    >  Wenn Sie den Assistenten starten, bevor Sie das externe Festplattenlaufwerk an den Server angehängt haben, klicken Sie auf **Liste aktualisieren** auf der Seite **Sicherungsziel auswählen**, nachdem Sie das Festplattenlaufwerk angehängt haben.  
   
 > [!NOTE]
 >  In der Standardinstallation von Windows Server Essentials ist der Server so konfiguriert, dass einmal pro Woche automatisch eine Defragmentierung durchgeführt wird. Dadurch können die Sicherungen größer als üblich ausfallen, wenn Sie nicht von Microsoft stammende Imaging-Software verwenden. Wenn die regelmäßige Defragmentierung des Servers nicht erforderlich ist, führen Sie die folgenden Schritte aus, um den Defragmentierungszeitplan zu deaktivieren:  
 > 
 > 1. Drücken Sie WINDOWS+W, um die **Suche** zu öffnen.  
->    2. Geben Sie im Suchfeld **Defragment**ein.  
+>    2. Geben Sie im Suchfeld **Defragment** ein.  
 >    3. Klicken Sie im Ergebnisabschnitt auf **Laufwerke defragmentieren und optimieren**.  
 >    4. Wählen Sie auf der Seite **Laufwerke optimieren** ein Laufwerk aus, und klicken Sie dann auf **Einstellungen ändern**.  
->    5. Deaktivieren Sie im Fenster **Optimierungszeitplan** das Kontrollkästchen **Nach Zeitplan ausführen (empfohlen)** , und klicken Sie dann auf **OK** , um die Änderung zu speichern.  
+>    5. Deaktivieren Sie im Fenster **Optimierungszeitplan** das Kontrollkästchen **Nach Zeitplan ausführen (empfohlen)** , und klicken Sie dann auf **OK**, um die Änderung zu speichern.  
   
-##  <a name="BKMK_2"></a>Zeitplan für die Server Sicherung  
+##  <a name="server-backup-schedule"></a><a name="BKMK_2"></a>Zeitplan für die Server Sicherung  
  Wenn Sie den Assistenten zum Einrichten der Serversicherung oder den Assistenten zum Anpassen der Serversicherung verwenden, können Sie wählen, die Serverdaten zu verschiedenen Zeitpunkten täglich zu sichern. Da die Assistenten inkrementelle Sicherungen planen, werden die Sicherungen schnell ausgeführt und die Serverleistung nicht wesentlich beeinträchtigt. Standardmäßig wird von den Assistenten eine tägliche Sicherung um 12 Uhr und um 23 Uhr geplant. Sie können den Sicherungszeitplan jedoch entsprechend den Anforderungen Ihrer Organisation anpassen. Sie sollten von Zeit zu Zeit die Effektivität des Sicherungsplans bewerten und diesen nach Bedarf ändern.  
   
-##  <a name="BKMK_Target"></a>Sicherungs Ziellaufwerk  
+##  <a name="backup-target-drive"></a><a name="BKMK_Target"></a>Sicherungs Ziellaufwerk  
  Sie können zahlreiche externe Speicherlaufwerke für Sicherungen verwenden, und Sie können bei den Laufwerken zwischen internen und externen Speicherorten wechseln. Dadurch können Sie Ihre Vorbereitung auf Notfälle besser planen und sind in der Lage, die Daten wiederherzustellen, wenn die Hardware vor Ort physische Schäden erleidet.  
   
  Bei der Auswahl eines Speicherlaufwerks für die Serversicherung ist Folgendes zu berücksichtigen:  
@@ -92,7 +92,7 @@ ms.locfileid: "70865207"
   
     1.  Öffnen Sie in der Systemsteuerung **System und Sicherheit**.  
   
-    2.  Klicken Sie unter **Verwaltung**auf **Festplattenpartitionen erstellen und formatieren**.  
+    2.  Klicken Sie unter **Verwaltung** auf **Festplattenpartitionen erstellen und formatieren**.  
   
     3.  Löschen Sie alle Volumes auf dem USB-Datenträger, oder löschen Sie einfach die EFI-Partition. Der Assistent zum Einrichten der Serversicherung löscht alle Volumes.  
   
@@ -110,14 +110,14 @@ ms.locfileid: "70865207"
 >  **So weisen Sie einen Laufwerk Buchstaben für ein vorhandenes Volume erneut zu**  
 > 
 > 1. Öffnen Sie in der Systemsteuerung **System und Sicherheit**.  
->    2. Klicken Sie unter **Verwaltung**auf **Festplattenpartitionen erstellen und formatieren**.  
+>    2. Klicken Sie unter **Verwaltung** auf **Festplattenpartitionen erstellen und formatieren**.  
 >    3. Klicken Sie mit der rechten Maustaste auf das Laufwerk, und klicken Sie auf **Laufwerkbuchstaben und -pfade ändern...** .  
 >    4. Klicken Sie auf **Hinzufügen**.  
->    5. Wählen Sie im Dialogfeld Laufwerkbuchstaben oder -pfad hinzufügen“ einen Laufwerkbuchstaben für die Zuweisung aus. (Sie können den gleichen Laufwerkbuchstaben erneut zuweisen.) Klicken Sie dann auf **OK**.  
+>    5. Wählen Sie im Dialogfeld Laufwerkbuchstaben oder -pfad hinzufügen“ einen Laufwerkbuchstaben für die Zuweisung aus. (Sie können den gleichen Laufwerk Buchstaben erneut zuweisen.) Klicken Sie dann auf **OK**.  
 > 
 >    Das Laufwerk wird sofort auf dem Dashboard angezeigt.  
   
-##  <a name="BKMK_4"></a>Zu sichernde Elemente  
+##  <a name="items-to-be-backed-up"></a><a name="BKMK_4"></a>Zu sichernde Elemente  
  Sie können wählen, alle Laufwerke, Dateien und Ordner auf dem Server zu sichern oder nur einzelne Laufwerke, Dateien oder Ordner für die Sicherung auswählen.  
   
  Wenn Sie ein Laufwerk oder freigegebene Dateien und Ordner hinzufügen oder entfernen, müssen Sie die Serversicherungskonfiguration erneut überprüfen, um sicherzustellen, dass diese Elemente der Sicherungskonfiguration hinzugefügt oder daraus entfernt wurden. Führen Sie einen der folgenden Schritte aus, um Elemente für die Sicherung hinzuzufügen oder zu entfernen:  

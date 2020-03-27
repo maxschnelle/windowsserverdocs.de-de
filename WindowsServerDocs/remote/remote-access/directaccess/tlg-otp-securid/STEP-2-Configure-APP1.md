@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 19a7a4a6-9a04-42ea-a5d0-ecb28a34dbaa
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: ea96a30caeedc188a5a41c097a5c8a90e2b5dbc7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: dbeba9f1646cfb13d709cb4f7987802f69708adb
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388214"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314425"
 ---
 # <a name="step-2-configure-app1"></a>Schritt 2 App1 konfigurieren
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Führen Sie die folgenden Schritte aus, um App1 für die OTP-Unterstützung vorzubereiten:  
   
@@ -32,7 +32,7 @@ Führen Sie die folgenden Schritte aus, um App1 für die OTP-Unterstützung vorz
 > [!WARNING]  
 > Der Entwurf dieser Test Umgebungs Anleitung umfasst Infrastruktur Server, z. b. einen Domänen Controller und eine Zertifizierungsstelle (Certification Authority, ca), die entweder Windows Server 2012 R2 oder Windows Server 2012 ausführen. Die Verwendung dieser Test Umgebungs Anleitung zum Konfigurieren von Infrastruktur Servern, auf denen andere Betriebssysteme ausgeführt werden, wurde nicht getestet, und Anweisungen zum Konfigurieren anderer Betriebssysteme sind in diesem Handbuch nicht enthalten.  
   
-## <a name="DAOTPRA"></a>So erstellen Sie eine Zertifikat Vorlage, die zum Signieren von OTP-Zertifikat Anforderungen verwendet wird  
+## <a name="to-create-and-deploy-a-certificate-template-used-to-sign-otp-certificate-requests"></a><a name="DAOTPRA"></a>So erstellen Sie eine Zertifikat Vorlage, die zum Signieren von OTP-Zertifikat Anforderungen verwendet wird  
   
 1.  Führen Sie **certtmpl. msc**aus, und drücken Sie dann die EINGABETASTE.  
   
@@ -52,7 +52,7 @@ Führen Sie die folgenden Schritte aus, um App1 für die OTP-Unterstützung vorz
   
 9. Wählen Sie auf der Registerkarte **Erweiterungen** die Option **Anwendungsrichtlinien** aus, und klicken Sie dann auf **Bearbeiten** Entfernen Sie alle vorhandenen Anwendungsrichtlinien. Klicken Sie auf **Hinzufügen**, und klicken Sie im Dialogfeld **Anwendungs Richtlinie hinzufügen** auf **neu** **, geben Sie** **im Feld** **Name** Folgendes ein, und klicken Sie auf **1.3.6.1.4.1.311.81.1.1** , und klicken Sie dann auf **OK**. Klicken Sie im Dialogfeld **Anwendungs Richtlinie hinzufügen** auf **OK**. Klicken Sie unter **Anwendungsrichtlinien Erweiterung bearbeiten**auf **OK**. Klicken Sie im Dialogfeld **Eigenschaften der neuen Vorlage** auf **OK**.  
   
-## <a name="DAOTPLogon"></a>So erstellen und stellen Sie eine Zertifikat Vorlage für OTP-Zertifikate bereit, die von der Unternehmens Zertifizierungsstelle ausgestellt wurden  
+## <a name="to-create-and-deploy-a-certificate-template-for-otp-certificates-issued-by-the-corporate-ca"></a><a name="DAOTPLogon"></a>So erstellen und stellen Sie eine Zertifikat Vorlage für OTP-Zertifikate bereit, die von der Unternehmens Zertifizierungsstelle ausgestellt wurden  
   
 1.  Klicken Sie in der Konsole Zertifikat Vorlagen im Detailbereich mit der rechten Maustaste auf die **Smartcard-Anmelde** Vorlage, und klicken Sie auf **Doppelte Vorlage**.  
   
@@ -65,13 +65,13 @@ Führen Sie die folgenden Schritte aus, um App1 für die OTP-Unterstützung vorz
     > [!IMPORTANT]  
     > **Windows Server 2003**-Zertifizierungsstelle. In Fällen, in denen sich die Zertifizierungsstelle auf einem Computer befindet, auf dem Windows Server 2003 ausgeführt wird, muss die Zertifikat Vorlage auf einem anderen Computer konfiguriert werden. Dies ist erforderlich, da das Festlegen der **Gültigkeitsdauer** in Stunden nicht möglich ist, wenn Windows-Versionen vor Windows Server 2008 und Windows Vista ausgeführt werden. Wenn auf dem Computer, den Sie zum Konfigurieren der Vorlage verwenden, die Active Directory Zertifikat Dienste-Server Rolle nicht installiert ist, oder wenn es sich um einen Client Computer handelt, müssen Sie möglicherweise das Zertifikat Vorlagen-Snap-in installieren. Weitere Informationen finden Sie unter [Installieren des Zertifikat Vorlagen-Snap-Ins](https://technet.microsoft.com/library/cc732445.aspx).  
     >   
-    > **Windows Server 2008 R2**-Zertifizierungsstelle. Wenn Sie bereits eine Zertifizierungsstelle (Certification Authority, ca) bereitgestellt haben, auf der Windows Server 2008 R2 ausgeführt wird, müssen Sie den **Erneuerungs Zeitraum** für die Zertifikat Vorlage auf 1 oder 2 Stunden festlegen, und der **Gültigkeits Zeitraum** muss länger als der **Erneuerungs Zeitraum**sein. aber nicht mehr als vier Stunden. Wenn Sie für eine Zertifizierungsstelle, auf der Windows Server 2008 R2 ausgeführt wird, eine **Gültigkeitsdauer** von Zertifikat Vorlagen mit einer Zertifizierungsstelle konfigurieren, die auf Windows Server R2 ausgeführt wird, kann der DirectAccess-Installations-Assistent die Zertifikat Vorlage nicht erkennen  
+    > **Windows Server 2008 R2**-Zertifizierungsstelle. Wenn Sie bereits eine Zertifizierungsstelle (Certification Authority, ca) bereitgestellt haben, auf der Windows Server 2008 R2 ausgeführt wird, müssen Sie den **Erneuerungs Zeitraum** für die Zertifikat Vorlage auf 1 oder 2 Stunden festlegen, und der **Gültigkeits Zeitraum** muss länger sein als der **Erneuerungs Zeitraum**, aber nicht mehr als vier Stunden. Wenn Sie für eine Zertifizierungsstelle, auf der Windows Server 2008 R2 ausgeführt wird, eine **Gültigkeitsdauer** von Zertifikat Vorlagen mit einer Zertifizierungsstelle konfigurieren, die auf Windows Server R2 ausgeführt wird, kann der DirectAccess-Installations-Assistent die Zertifikat Vorlage nicht erkennen  
   
 5.  Klicken Sie auf die Registerkarte **Sicherheit** , wählen Sie in der **Spalte Zulassen** die Option **Authentifizierte Benutzer**aus, und aktivieren Sie die Kontrollkästchen **Lesen** und **registrieren** . Klicken Sie auf **OK**. Klicken Sie auf **Domänen-Admins** und Organisations- **Admins**, und klicken Sie in der Spalte **zulassen** für beide auf **voll** Zugriff. Klicken Sie auf **Übernehmen**.  
   
-6.  Klicken Sie auf die Registerkarte Antragsteller **Name** , und klicken Sie dann auf **aus diesen Active Directory Informationen erstellen**. Wählen Sie im **Format** "Antragsteller Name" die Option **Vollständiger definierter Name**aus, vergewissern Sie sich, dass das Feld **Benutzer Prinzipal Name (UPN)** aktiviert ist, und klicken Sie auf übernehmen  
+6.  Klicken Sie auf die Registerkarte Antragsteller **Name** , und klicken Sie dann auf **aus diesen Active Directory Informationen erstellen**. Wählen Sie im **Format** "Antragsteller Name" die Option **Vollständiger definierter Name**aus, vergewissern Sie sich, dass das Feld **Benutzer Prinzipal Name (UPN)** aktiviert ist, und klicken Sie auf übernehmen **Apply**  
   
-7.  Aktivieren Sie die Registerkarte **Server** , aktivieren Sie das Kontrollkästchen keine **Zertifikate und Anforderungen in der Zertifizierungsstellen Datenbank speichern** , deaktivieren Sie das Kontrollkästchen keine Sperr **Informationen in ausgestellten Zertifikaten einschließen** , und wählen Sie dann die **Eigenschaften der neuen Vorlage** aus. , **Klicken Sie**auf übernehmen.  
+7.  Aktivieren Sie die Registerkarte **Server** , aktivieren Sie das Kontrollkästchen keine **Zertifikate und Anforderungen in der Zertifizierungsstellen Datenbank speichern** , deaktivieren Sie das Kontrollkästchen keine Sperr **Informationen in ausgestellten Zertifikaten einschließen** , und klicken Sie dann im Dialogfeld **Eigenschaften der neuen Vorlage** auf **anwenden**.  
   
 8.  Klicken Sie auf die Registerkarte Ausstellungs **Anforderungen** , aktivieren Sie das Kontrollkästchen **diese Anzahl von autorisierten Signaturen:** , und legen Sie den Wert auf 1 fest. Wählen Sie unter **Signatur den Richtlinientyp erforderlich in** der Liste die Option **Anwendungs Richtlinie**aus, und wählen Sie in der Liste **Anwendungs Richtlinie** die Option **da OTP RA**aus. Klicken Sie im Dialogfeld **Eigenschaften der neuen Vorlage** auf **OK**.  
   
@@ -85,11 +85,11 @@ Führen Sie die folgenden Schritte aus, um App1 für die OTP-Unterstützung vorz
   
 13. Klicken Sie in der Liste der Zertifikat Vorlagen auf **daotpra** und **daotplogon**, und klicken Sie dann auf **OK**.  
   
-14. Im Detailbereich der Konsole sollte die **daotpra** -Zertifikat Vorlage mit dem **beabsichtigten Zweck** " **da OTP RA** " und der " **daotplogon** "-Zertifikat Vorlage mit einem **beabsichtigten Zweck** für die **Smartcard-Anmeldung** angezeigt werden. .  
+14. Im Detailbereich der-Konsole sollte die **daotpra** -Zertifikat Vorlage mit dem **beabsichtigten Zweck** " **da OTP RA** " und der " **daotplogon** "-Zertifikat Vorlage mit dem **beabsichtigten Zweck** der **Smartcardanmeldung**angezeigt werden.  
   
 15. Starten Sie die Dienste neu.  
   
-16. Schließen Sie die Zertifizierungsstellenkonsole.  
+16. Schließen Sie die Konsole Zertifizierungsstelle.  
   
 17. Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten. Geben Sie **certutil. exe-setreg DBFlags + DBFLAGS_ENABLEVOLATILEREQUESTS**ein, und drücken Sie die EINGABETASTE.  
   

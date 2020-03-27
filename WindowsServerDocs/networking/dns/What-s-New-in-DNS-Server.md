@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: c9cecb94-3cd5-4da7-9a3e-084148b8226b
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: de502d7be023d12e3350063e467a60356b2472c4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 26d9a532f8c2276a81e8718e76290d41c78f6633
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406235"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317975"
 ---
 # <a name="whats-new-in-dns-server-in-windows-server"></a>Neues in DNS-Server unter Windows Server
 
@@ -23,7 +23,7 @@ In diesem Thema werden die Domain Name System (DNS)-Serverfunktionen beschrieben
   
 In Windows Server 2016 bietet der DNS-Server eine verbesserte Unterstützung in den folgenden Bereichen.  
   
-|Funktion|Neu oder verbessert|Beschreibung|  
+|Funktionalität|Neu oder verbessert|Beschreibung|  
 |-----------------|-------------------|---------------|  
 |DNS-Richtlinien|Neu|Sie können DNS-Richtlinien konfigurieren, um anzugeben, wie ein DNS-Server auf DNS-Abfragen antwortet. DNS-Antworten können auf der Client-IP-Adresse (Speicherort), der Tageszeit und mehreren anderen Parametern basieren. DNS-Richtlinien ermöglichen standortabhängige DNS, Datenverkehrs Verwaltung, Lastenausgleich, Split-Brain-DNS und andere Szenarien.|  
 |Antwortraten Begrenzung (RRL)|Neu|Sie können die Reaktionsraten Begrenzung für Ihre DNS-Server aktivieren. Auf diese Weise können Sie verhindern, dass böswillige Systeme, die Ihre DNS-Server verwenden, einen Denial-of-Service-Angriff auf einen DNS-Client initiieren.|  
@@ -150,7 +150,7 @@ Weitere Informationen finden Sie in den folgenden Windows Server 2016 Windows Po
 - [DNSServer-Modul](https://docs.microsoft.com/powershell/module/dnsserver/?view=win10-ps)
 - [Dnsclient-Modul](https://docs.microsoft.com/powershell/module/dnsclient/?view=win10-ps)
 
-## <a name="see-also"></a>Weitere Informationen  
+## <a name="see-also"></a>Siehe auch  
   
 -   [Neues im DNS-Client](What-s-New-in-DNS-Client.md)  
   

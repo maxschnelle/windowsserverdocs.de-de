@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: a275b02c-62b3-4b8a-8417-a710f24bebfe
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: a676a8b27c3f799a4cab275610016bfb311e044d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: bc96a6c4406988db2d7906d76af2c1abcfdffeac
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405371"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315903"
 ---
 # <a name="manage-network-policy-server-nps"></a>Netzwerk Richtlinien Server (NPS) verwalten
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Mit den Themen in diesem Abschnitt können Sie den Netzwerk Richtlinien Server verwalten.  
   
@@ -27,7 +27,7 @@ Mit den Themen in diesem Abschnitt können Sie den Netzwerk Richtlinien Server v
 >- [Planen des Netzwerk Richtlinien Servers](nps-plan-top.md)
 >- [Netzwerk Richtlinien Server bereitstellen](nps-deploy.md)  
   
-In diesem Abschnitt werden die folgenden Themen behandelt:  
+Dieser Abschnitt enthält die folgenden Themen:  
   
 - [Netzwerkrichtlinienserver-Verwaltung mit Verwaltungstools](nps-admintools.md)
 - [Konfigurieren von Verbindungs Anforderungs Richtlinien](nps-crp-configure.md)

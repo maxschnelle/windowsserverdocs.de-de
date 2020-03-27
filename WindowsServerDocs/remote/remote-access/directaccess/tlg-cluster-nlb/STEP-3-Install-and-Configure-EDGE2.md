@@ -10,34 +10,34 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f04eb11e-ed5f-42a1-a77b-57a248ba2d10
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 3dad1db575bd9b9b4a70a24da44d1d030273f021
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: cb869ad1617d52562e73eb6965a9f1c2184a56a7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404867"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310785"
 ---
 # <a name="step-3-install-and-configure-edge2"></a>Schritt 3 installieren und Konfigurieren von EDGE2
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 EDGE2 ist das zweite Mitglied eines Remote Zugriffs Clusters. EDGE2 wird vor dem Aktivieren der Cluster Konfiguration installiert und konfiguriert.
 
 Führen Sie die folgenden Schritte aus, um EDGE2 zu konfigurieren:
 
-## <a name="installOS"></a>Installieren des Betriebssystems auf EDGE2  
+## <a name="install-the-operating-system-on-edge2"></a><a name="installOS"></a>Installieren des Betriebssystems auf EDGE2  
   
 1.  Starten Sie auf EDGE2 die Installation von Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012.  
   
-2.  Befolgen Sie die Anweisungen, um die Installation abzuschließen, indem Sie Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 (vollständige Installation) und ein sicheres Kennwort für das lokale Administrator Konto angeben. Melden Sie sich beim lokalen Administratorkonto an.  
+2.  Befolgen Sie die Anweisungen, um die Installation abzuschließen, indem Sie Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 (vollständige Installation) und ein sicheres Kennwort für das lokale Administrator Konto angeben. Melden Sie sich mit dem lokalen Administratorkonto an.  
   
 3.  Verbinden Sie EDGE2 mit einem Netzwerk, das über Internet Zugriff verfügt, und führen Sie Windows Update aus, um die neuesten Updates für Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 zu installieren, und trennen Sie dann die Verbindung mit dem Internet.  
   
 4.  Verbinden Sie einen Netzwerkadapter mit dem Subnetz "Corpnet" oder dem virtuellen Switch, der das Subnetz "Corpnet" darstellt, und der andere mit dem Internet Subnetz oder dem virtuellen Switch, der das Internet-Subnetz darstellt.  
   
-## <a name="TCP"></a>Konfigurieren von TCP/IP-Eigenschaften  
+## <a name="configure-tcpip-properties"></a><a name="TCP"></a>Konfigurieren von TCP/IP-Eigenschaften  
   
 1.  Klicken Sie in der Server-Manager Konsole auf **lokaler Server**, und klicken Sie dann im Bereich **Eigenschaften** neben **verkabelte Ethernet-Verbindung**auf den Link.  
   
@@ -49,7 +49,7 @@ Führen Sie die folgenden Schritte aus, um EDGE2 zu konfigurieren:
   
 5.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
-6.  Klicken Sie auf **Folgende IP-Adresse verwenden**. Geben Sie unter **IP-Adresse**den Namen **10.0.0.8**ein. Geben Sie im Feld **Subnetzmaske**den Wert **255.255.255.0**ein.  
+6.  Klicken Sie auf **Folgende IP-Adresse verwenden**. Geben Sie unter **IP-Adresse**den Namen **10.0.0.8**ein. Geben Sie im Feld **Subnetzmaske** den Wert **255.255.255.0** ein.  
   
 7.  Klicken Sie auf **Folgende DNS-Serveradressen verwenden**. Geben Sie im Feld **Bevorzugter DNS-Server** den Wert **10.0.0.1** ein.  
   
@@ -89,7 +89,7 @@ Führen Sie die folgenden Schritte aus, um EDGE2 zu konfigurieren:
   
 25. Schließen Sie das Eingabeaufforderungsfenster.  
   
-## <a name="rename"></a>EDGE2 umbenennen und der Domäne beitreten  
+## <a name="rename-edge2-and-join-it-to-the-domain"></a><a name="rename"></a>EDGE2 umbenennen und der Domäne beitreten  
   
 1.  Klicken Sie in der Server-Manager Konsole unter **lokaler Server**im Bereich **Eigenschaften** neben **Computer Name**auf den Link.  
   
@@ -99,7 +99,7 @@ Führen Sie die folgenden Schritte aus, um EDGE2 zu konfigurieren:
   
 4.  Geben Sie, wenn Sie zur Angabe eines Benutzernamens und eines Kennworts aufgefordert werden, **User1** und das zugehörige Kennwort ein, und klicken Sie dann auf **OK**.  
   
-5.  Klicken Sie auf **OK**, wenn das Begrüßungsdialogfeld für die Domäne %%amp;quot;corp.contoso.com%%amp;quot; angezeigt wird.  
+5.  Klicken Sie, wenn das Begrüßungsdialogfeld für die Domäne %%amp;quot;corp.contoso.com%%amp;quot; angezeigt wird, auf **OK**.  
   
 6.  Klicken Sie auf **OK**, wenn Sie zum Neustarten des Computers aufgefordert werden.  
   
@@ -109,9 +109,9 @@ Führen Sie die folgenden Schritte aus, um EDGE2 zu konfigurieren:
   
 9. Melden Sie sich nach dem Neustart als corp\user1 an.  
   
-## <a name="IPHTTPSCert"></a>Installieren des IP-HTTPS-Zertifikats  
+## <a name="install-the-ip-https-certificate"></a><a name="IPHTTPSCert"></a>Installieren des IP-HTTPS-Zertifikats  
   
-1.  Geben Sie auf dem **Start** Bildschirm**MMC. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Geben Sie auf dem **Start** Bildschirm**MMC. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der MMC-Konsole im Menü **Datei** auf **Snap-In hinzufügen/entfernen**.  
   
@@ -139,7 +139,7 @@ Führen Sie die folgenden Schritte aus, um EDGE2 zu konfigurieren:
   
 14. Schließen Sie das Konsolenfenster. Wenn Sie zum Speichern der Einstellungen aufgefordert werden, klicken Sie auf **Nein**.  
   
-## <a name="InstallDA"></a>Installieren der Remote Zugriffs Rolle auf EDGE2  
+## <a name="install-the-remote-access-role-on-edge2"></a><a name="InstallDA"></a>Installieren der Remote Zugriffs Rolle auf EDGE2  
   
 1.  Klicken Sie in der Server-Manager-Konsole im **Dashboard**auf **Rollen und Features hinzufügen**.  
   

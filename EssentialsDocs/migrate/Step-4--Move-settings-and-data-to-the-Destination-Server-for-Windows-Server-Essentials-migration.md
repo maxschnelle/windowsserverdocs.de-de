@@ -1,9 +1,9 @@
 ---
-title: 'Schritt 4: Verschieben von Einstellungen und Daten auf den Zielserver für die Migration zu Windows Server Essentials'
-description: Beschreibt, wie Windows Server Essentials
+title: 'Schritt 4: Verschieben von Einstellungen und Daten auf den Zielserver für die Migration zu Windows Server Essentials'
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,26 +12,26 @@ ms.assetid: e143df43-e227-4629-a4ab-9f70d9bf6e84
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: fa6ab8e2108e569b7cef6bfbf0d20af4fa31016d
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: d9aea85513e2453c02f6c14fb3f4d708be211d3f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432568"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318757"
 ---
-# <a name="step-4-move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Schritt 4: Verschieben von Einstellungen und Daten auf den Zielserver für die Migration zu Windows Server Essentials
+# <a name="step-4-move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Schritt 4: Verschieben von Einstellungen und Daten auf den Zielserver für die Migration zu Windows Server Essentials
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellungen vom Quellserver. Verschieben von Einstellungen und Daten auf den Zielserver:  
   
--   [Kopieren von Daten auf den Zielserver](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_CopyData)  
+-   [Kopieren von Daten auf den Ziel Server](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_CopyData)  
   
--   [Konfigurieren des Netzwerks](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_Network)  
+-   [Netzwerk konfigurieren](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_Network)  
   
--   [Ordnen Sie zugelassener Computer zu Benutzerkonten zu](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_MapPermittedComputers)  
+-   [Zuordnen zulässiger Computer zu Benutzerkonten](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_MapPermittedComputers)  
   
-##  <a name="BKMK_CopyData"></a> Kopieren von Daten auf den Zielserver  
+##  <a name="copy-data-to-the-destination-server"></a><a name="BKMK_CopyData"></a>Kopieren von Daten auf den Ziel Server  
  Führen Sie die folgenden Aufgaben aus, bevor Sie Daten vom Quellserver zum Zielserver kopieren:  
   
 -   Prüfen Sie die Liste der freigegebenen Ordner auf dem Quellserver, einschließlich der Berechtigungen für jeden Ordner. Erstellen Sie die Ordner auf dem Zielserver so bzw. passen Sie diese so an, dass sie der Ordnerstruktur entsprechen, die Sie vom Quellserver migrieren.  
@@ -42,7 +42,7 @@ Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellunge
   
 -   Der Ordner **Clientcomputersicherung** kann nicht auf den Zielserver migriert werden. Stellen Sie vor der Servermigration sicher, dass alle Clientcomputer fehlerfrei sind. Nach der Servermigration empfiehlt es sich, Sicherungen der Clientcomputer zu konfigurieren und zu starten, um sicherzustellen, dass die Daten für alle wichtigen Clientcomputer gesichert werden.  
   
--   Die **Sicherungen von Dateiversionsverläufen** Ordner kann nicht direkt auf dem Zielserver aufgrund der Ordnerstruktur und geänderter Sicherungsmetadaten in Windows Server Essentials migriert werden. Es ist jedoch möglich, den Ordner **Sicherungen von Dateiversionsverläufen** für einen bestimmten Benutzer auf einem bestimmten Computer zu migrieren. Hierzu suchen Sie den Ordner **Daten** im Ordner **Sicherungen von Dateiversionsverläufen** für den betreffenden Benutzer und Computer und kopieren diesen Ordner **Daten** in den Ordner **Sicherungen von Dateiversionsverläufen** auf dem Zielserver.  
+-   Der Ordner **Sicherungen von Datei** Versions Verläufen kann aufgrund der Ordnerstruktur und der Änderungen der Sicherungs Metadaten in Windows Server Essentials nicht direkt zum Ziel Server migriert werden. Es ist jedoch möglich, den Ordner **Sicherungen von Dateiversionsverläufen** für einen bestimmten Benutzer auf einem bestimmten Computer zu migrieren. Hierzu suchen Sie den Ordner **Daten** im Ordner **Sicherungen von Dateiversionsverläufen** für den betreffenden Benutzer und Computer und kopieren diesen Ordner **Daten** in den Ordner **Sicherungen von Dateiversionsverläufen** auf dem Zielserver.  
   
 #### <a name="to-copy-data-from-the-source-server-to-the-destination-server"></a>Kopieren von Daten vom Quellserver auf den Zielserver.  
   
@@ -52,15 +52,15 @@ Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellunge
   
    `robocopy \\<SourceServerName>\<SharedSourceFolderName> "<PathOfTheDestination>\<SharedDestinationFolderName>" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
   
-    Erläuterungen:  
+    Speicherort:  
   
-   - \<Quellservername\> ist der Name des Quellservers  
+   - \<sourceservername\> ist der Name des Quell Servers.  
   
-   - \<Namedesfreigegebenenquellordners\> ist der Name des freigegebenen Ordners auf dem Quellserver  
+   - \<sharedsourcefoldername\> ist der Name des freigegebenen Ordners auf dem Quell Server.  
   
-   - \<PathOfTheDestination\> ist der absolute Pfad, in dem Sie den Ordner verschieben möchten,  
+   - \<pathofder Destination\> ist der absolute Pfad, in dem Sie den Ordner verschieben möchten.  
   
-   - \<Namedesfreigegebenenzielordners\> ist der Ordner auf dem Zielserver, auf denen die Daten kopiert werden,  
+   - \<shareddestinationfoldername\> ist der Ordner auf dem Ziel Server, in den die Daten kopiert werden.  
   
      Beispiel:  `robocopy \\sourceserver\MyData "d:\ServerFolders\MyData" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`.  
   
@@ -70,7 +70,7 @@ Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellunge
   
 4. Wiederholen Sie diesen Vorgang für jeden freigegebenen Ordner, den Sie vom Quellserver migrieren.  
   
-##  <a name="BKMK_Network"></a> Konfigurieren des Netzwerks  
+##  <a name="configure-the-network"></a><a name="BKMK_Network"></a>Netzwerk konfigurieren  
   
 #### <a name="to-configure-the-network"></a>So konfigurieren Sie das Netzwerk  
   
@@ -89,12 +89,12 @@ Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellunge
 > [!NOTE]
 >  Wenn Sie einen öffentlichen Domänennamen auf dem Zielserver konfigurieren möchten, müssen Sie den Domänennamen vom Quellserver zur Vermeidung einer Störung durch das dynamische DNS-Update freigeben.  
   
-##  <a name="BKMK_MapPermittedComputers"></a> Ordnen Sie zugelassener Computer zu Benutzerkonten zu  
+##  <a name="map-permitted-computers-to-user-accounts"></a><a name="BKMK_MapPermittedComputers"></a>Zuordnen zulässiger Computer zu Benutzerkonten  
  Jedes Benutzerkonto, das von früheren Versionen von Windows Small Business Server oder Windows Server Essentials migriert wird, muss einem oder mehreren Computern zugeordnet werden.  
   
 #### <a name="to-map-user-accounts-to-computers"></a>So weisen Sie Benutzerkonten Computern zu  
   
-1.  Öffnen Sie Windows Server Essentials-Dashboard.  
+1.  Öffnen Sie das Windows Server Essentials-Dashboard.  
   
 2.  Klicken Sie auf der Navigationsleiste auf **Benutzer**.  
   
@@ -115,7 +115,7 @@ Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellunge
 >  Wenn nach abgeschlossener Migration ein Problem beim Erstellen des ersten neuen Benutzerkontos auf dem Zielserver auftritt, entfernen Sie das Benutzerkonto, das Sie hinzugefügt haben, und erstellen Sie es erneut.  
   
 ## <a name="next-steps"></a>Nächste Schritte  
- Sie haben die Einstellungen und Daten auf den Zielserver verschoben. Wechseln Sie nun zur [Schritt 5: Aktivieren der ordnerumleitung auf dem Zielserver für Windows Server Essentials-Migration](Step-5--Enable-folder-redirection-on-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  
+ Sie haben die Einstellungen und Daten auf den Zielserver verschoben. Gehen Sie jetzt zu [Schritt 5: Aktivieren der Ordner Umleitung auf dem Ziel Server für die Migration zu Windows Server Essentials](Step-5--Enable-folder-redirection-on-the-Destination-Server-for-Windows-Server-Essentials-migration.md).  
   
 
 Alle Schritte finden Sie unter [Migrieren zu Windows Server Essentials](Migrate-from-Previous-Versions-to-Windows-Server-Essentials-or-Windows-Server-Essentials-Experience.md).

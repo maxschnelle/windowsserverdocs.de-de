@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: f62c6a67-4dda-47f8-8bdf-9b76c37953e6
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: d62beb3106141d4683c957020bc96e4a7dfb306f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 7b42dd9470b44b0f1c7d25627d491cd6f2a2dfae
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405477"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316282"
 ---
 # <a name="configure-connection-request-policies"></a>Konfigurieren von Verbindungsanforderungsrichtlinien
 
@@ -35,7 +35,7 @@ Wenn Sie möchten, dass der NPS als RADIUS-Server fungiert, die Verbindungsanfor
 
 ## <a name="add-a-connection-request-policy"></a>Hinzufügen einer Verbindungs Anforderungs Richtlinie
 
-Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft in **Domänen-Admins** oder einer gleichwertigen Gruppe.
+Zum Durchführen dieses Verfahrens ist mindestens die Mitgliedschaft in **Domänen-Admins** oder eine entsprechende Berechtigung erforderlich.
 
 ### <a name="to-add-a-new-connection-request-policy"></a>So fügen Sie eine neue Verbindungs Anforderungs Richtlinie hinzu 
 

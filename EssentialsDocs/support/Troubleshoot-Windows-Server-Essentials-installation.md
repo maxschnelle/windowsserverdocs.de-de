@@ -1,9 +1,9 @@
 ---
 title: Problembehandlung bei der Windows Server Essentials-Installation
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,68 +12,68 @@ ms.assetid: ecf19216-7aac-4aca-839a-342ac28f5329
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 4756d3735fd710930e0eb124b7b5c58c50078d9e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: f8f8adf97011629dbdd68622b5d6ad1ba40f7bc2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432423"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318614"
 ---
 # <a name="troubleshoot-windows-server-essentials-installation"></a>Problembehandlung bei der Windows Server Essentials-Installation
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Dieses Thema enthält die Behandlung von Problemen, die auftreten, wenn Sie Windows Server Essentials installieren. Anleitungen werden für die folgenden Bereiche bereitgestellt:  
+Dieses Thema enthält Informationen zur Problembehandlung bei Problemen, die bei der Installation von Windows Server Essentials auftreten. Anleitungen werden für die folgenden Bereiche bereitgestellt:  
   
 
 -   [Allgemeine Schritte zur Problembehandlung](Troubleshoot-Windows-Server-Essentials-installation.md#BKMK_GeneralTroubleshootingSteps)  
   
--   [Behandeln von Treiberproblemen](Troubleshoot-Windows-Server-Essentials-installation.md#BKMK_TroubleshootDrivers)  
+-   [Beheben von Treiber Problemen](Troubleshoot-Windows-Server-Essentials-installation.md#BKMK_TroubleshootDrivers)  
 
 -   [Allgemeine Schritte zur Problembehandlung](Troubleshoot-Windows-Server-Essentials-installation.md#BKMK_GeneralTroubleshootingSteps)  
   
--   [Behandeln von Treiberproblemen](Troubleshoot-Windows-Server-Essentials-installation.md#BKMK_TroubleshootDrivers)  
+-   [Beheben von Treiber Problemen](Troubleshoot-Windows-Server-Essentials-installation.md#BKMK_TroubleshootDrivers)  
 
   
 > [!NOTE]
->  Die aktuellsten Informationen zur Problembehandlung aus der Windows Server Essentials-Community wird empfohlen, Sie besuchen die [Windows Server Essentials-Forum](https://social.technet.microsoft.com/Forums/winserveressentials/threads). Das Windows Server Essentials-Forum eignet sich optimal, um nach Hilfe zu suchen oder um Fragen zu stellen.  
+>  Die aktuellsten Informationen zur Problembehandlung aus der Windows Server Essentials-Community finden Sie im [Windows Server Essentials-Forum](https://social.technet.microsoft.com/Forums/winserveressentials/threads). Das Windows Server Essentials-Forum eignet sich optimal, um nach Hilfe zu suchen oder um Fragen zu stellen.  
   
-##  <a name="BKMK_GeneralTroubleshootingSteps"></a> Allgemeine Schritte zur Problembehandlung  
- Wenn die Installation von Windows Server Essentials ein Fehler auftritt, werden Sie diese Maßnahmen durchführen, um das Problem zu identifizieren, das den Fehler verursacht hat.  
+##  <a name="general-troubleshooting-steps"></a><a name="BKMK_GeneralTroubleshootingSteps"></a>Allgemeine Schritte zur Problembehandlung  
+ Wenn die Installation von Windows Server Essentials fehlschlägt, führen Sie diese Schritte aus, um das Problem zu identifizieren, das den Fehler verursacht hat.  
   
 > [!IMPORTANT]
->  Es ist wichtig, dass Sie nicht manuell Ihren Server neu gestartet werden während der Installation von Windows Server Essentials. Der Server wird während der Installation und Erstkonfiguration automatisch mehrere Male neu gestartet. Wenn Sie den Server manuell neu gestartet haben, bevor Sie die Meldung **Serverinstallation erfolgreich** angezeigt wird, kann dies möglicherweise die Unterbrechung und das Misslingen der Installation verursacht haben.  
+>  Es ist wichtig, dass Sie den Server bei der Installation von Windows Server Essentials nicht manuell neu starten. Der Server wird während der Installation und Erstkonfiguration automatisch mehrere Male neu gestartet. Wenn Sie den Server manuell neu gestartet haben, bevor Sie die Meldung **Serverinstallation erfolgreich** angezeigt wird, kann dies möglicherweise die Unterbrechung und das Misslingen der Installation verursacht haben.  
   
-#### <a name="to-identify-issues-in-a-failed-installation-of-windows-server-essentials"></a>Zum Identifizieren von Problemen bei einer fehlerhaften Installation von Windows Server Essentials  
+#### <a name="to-identify-issues-in-a-failed-installation-of-windows-server-essentials"></a>So identifizieren Sie Probleme in einer fehlgeschlagenen Installation von Windows Server Essentials  
   
-1.  Stellen Sie sicher, dass Ihre Serverhardware die Mindestanforderungen erfüllt. Weitere Informationen zu den hardwareanforderungen finden Sie unter [System Requirements for Windows Server Essentials](../get-started/system-requirements.md).  
+1.  Stellen Sie sicher, dass Ihre Serverhardware die Mindestanforderungen erfüllt. Informationen zu Hardwareanforderungen finden Sie unter [System Anforderungen für Windows Server Essentials](../get-started/system-requirements.md).  
   
-2.  Wenn Sie die Windows Server Essentials-Installations-DVD von MSDN erhalten haben, stellen Sie sicher, dass die DVD gültig ist, indem Sie die SHA1-Summe überprüfen. Weitere Informationen finden Sie unter [Verfügbarkeit und Beschreibung des Hilfsprogramms File Checksum Integrity Verifier](https://go.microsoft.com/fwlink/?LinkId=220495) (https://go.microsoft.com/fwlink/?LinkId=220495).  
+2.  Wenn Sie die Windows Server Essentials-Installations-DVD von MSDN erhalten haben, stellen Sie sicher, dass die DVD gültig ist, indem Sie die SHA1-Summe prüfen. Weitere Informationen finden Sie unter [Verfügbarkeit und Beschreibung des File Checksum Integrity Verifier Utility](https://go.microsoft.com/fwlink/?LinkId=220495) (https://go.microsoft.com/fwlink/?LinkId=220495).  
   
 3.  Stellen Sie sicher, dass der Netzwerkadapter auf dem Server über ein Netzwerkkabel mit einem Router verbunden ist.  
   
 4.  Wenn der Server über mehrere Netzwerkadapter verfügt, stellen Sie sicher, dass nur ein Netzwerkadapter aktiviert ist.  
   
     > [!IMPORTANT]
-    >  Das Netzwerkkabel nicht, und starten Sie den Router neu, während der Installation von Windows Server Essentials.  
+    >  Trennen Sie das Netzwerkkabel nicht, oder starten Sie den Router bei der Installation von Windows Server Essentials nicht neu.  
   
-5.  Überprüfen Sie "Server-Installation und Bereitstellung" in [Release Documentation for Windows Server Essentials](../get-started/release-notes.md)  
+5.  Lesen Sie "Server Installation und-Bereitstellung" in der [releasedokumentation für Windows Server Essentials](../get-started/release-notes.md) .  
   
-6.  Wenn Sie die Fehlermeldung ist ein Fehler aufgetreten, während der Einrichtung des Servers während der Installation verwenden die Serverwiederherstellungs-DVD und den Anweisungen des Herstellers der Hardware, um den Server auf die werkseitigen Standardeinstellungen zurückzusetzen.  
+6.  Wenn Sie die Fehlermeldung erhalten, dass beim Einrichten des Servers während der Installation ein Fehler aufgetreten ist, verwenden Sie die serverwiederherstellungs-DVD und die Anweisungen des Herstellers der Hardware, um den Server auf die Werkseinstellungen wiederherzustellen.  
   
-##  <a name="BKMK_TroubleshootDrivers"></a> Behandeln von Treiberproblemen  
- Das häufigste Problem bei der Installation von Windows Server Essentials ist Speichercontroller, die Treiber manuell installiert wurden. Windows bietet Treiber für viele Speichercontroller, jedoch möglicherweise keine Treiber für Ihre bestimmte Hardware.  
+##  <a name="troubleshoot-driver-issues"></a><a name="BKMK_TroubleshootDrivers"></a>Beheben von Treiber Problemen  
+ Das häufigste Problem bei der Installation von Windows Server Essentials sind Speichercontroller, für die Treiber manuell installiert werden müssen. Windows bietet Treiber für viele Speichercontroller, jedoch möglicherweise keine Treiber für Ihre bestimmte Hardware.  
   
  Sie müssen möglicherweise auch Netzwerkkartentreiber für Ihre bestimmte Hardware manuell installieren.  
   
-###  <a name="BKMK_StorageDrivers"></a> Hinzufügen von Treibern für Speichercontroller  
- Wenn Ihre Hardware Speichertreiber, die nicht in Windows Server Essentials enthalten sind benötigt, verwenden Sie die folgende Informationen, um das Setup abzuschließen.  
+###  <a name="adding-drivers-for-storage-controllers"></a><a name="BKMK_StorageDrivers"></a>Hinzufügen von Treibern für Speichercontroller  
+ Wenn Ihre Hardware Speicher Treiber erfordert, die nicht in Windows Server Essentials enthalten sind, verwenden Sie die folgenden Informationen, um das Setup abzuschließen.  
   
  Wenn während der Installation die folgende Meldung angezeigt wird, müssen Sie für Ihren Speichercontroller manuell Treiber hinzufügen:  
   
- **Windows Server-Setup-Fehler**  
+ **Windows Server-Setup Fehler**  
   
- Hosten von Windows Server Essentials können Festplattenlaufwerk wurde nicht gefunden. Möchten Sie zusätzliche Speichertreiber laden?  
+ Das Festplattenlaufwerk, auf dem Windows Server Essentials gehostet werden konnte, wurde nicht gefunden. Möchten Sie zusätzliche Speichertreiber laden?  
   
  Gehen Sie wie folgt vor, um einen Treiber für den Speichercontroller zu installieren.  
   
@@ -85,11 +85,11 @@ Dieses Thema enthält die Behandlung von Problemen, die auftreten, wenn Sie Wind
   
 3. Schließen Sie das Diskettenlaufwerk bzw. den USB-Stick mit dem Treiber an den Computer an.  
   
-4. Starten Sie den Computer auf der DVD für Windows Server Essentials.  
+4. Starten Sie den Computer von der Windows Server Essentials-DVD.  
   
-    Wenn Speichercontrollertreiber fehlen, wird das Dialogfeld "Windows Server Essentials-Setup-Fehler" angezeigt.  
+    Wenn Speichercontroller Treiber fehlen, wird das Dialogfeld Windows Server Essentials-Setup Fehler angezeigt.  
   
-5. Klicken Sie in das Dialogfeld Windows Server Essentials-Setup-Fehler auf **Ja** um zusätzliche Speichertreiber zu laden.  
+5. Klicken Sie im Dialogfeld Fehler des Windows Server Essentials-Setups auf **Ja** , um die zusätzlichen Speicher Treiber zu laden.  
   
 6. Bei der Aufforderung **Wählen Sie die INF-Datei des Treibers aus** navigieren Sie zur INF-Datei im Ordner TREIBER auf der Diskette oder dem USB-Stick, wählen die Datei aus, klicken mit der rechten Maustaste auf den Dateinamen und klicken dann auf **Öffnen**. Dadurch wird der Treiber geladen.  
   
@@ -100,12 +100,12 @@ Dieses Thema enthält die Behandlung von Problemen, die auftreten, wenn Sie Wind
   
    Das Setup sollte nun normal fortgesetzt werden.  
   
-###  <a name="BKMK_AddingNICdrivers"></a> Hinzufügen von Treibern für Netzwerkadapter  
- Wenn ein Netzwerkadapter auf dem Computer nicht von Windows Server Essentials unterstützt wird, wird Ihr Server keine Netzwerkverbindung nachdem Setup abgeschlossen ist, und Sie werden nicht in der Computer mit Ihrem Server herstellen können.  
+###  <a name="adding-drivers-for-network-adapters"></a><a name="BKMK_AddingNICdrivers"></a>Hinzufügen von Treibern für Netzwerkadapter  
+ Wenn ein Netzwerkadapter auf dem Computer nicht von Windows Server Essentials unterstützt wird, hat der Server nach Abschluss des Setups keine Netzwerkverbindung, und Sie können keine Computer mit dem Server verbinden.  
   
- Am Ende der Installation von Windows Server Essentials werden Sie darüber informiert, wenn ein Netzwerkadaptertreiber nicht automatisch installiert wurde. Sie können auch **Netzwerkverbindungen** in der Systemsteuerung auf einen fehlenden Netzwerkadaptertreiber überprüfen. Wenn dem Netzwerkadapter auf dem Server keine Netzwerkverbindung zugeordnet ist, müssen Sie einen Treiber installieren.  
+ Am Ende der Windows Server Essentials-Installation werden Sie informiert, wenn ein Netzwerkadapter Treiber nicht automatisch installiert wurde. Sie können auch **Netzwerkverbindungen** in der Systemsteuerung auf einen fehlenden Netzwerkadaptertreiber überprüfen. Wenn dem Netzwerkadapter auf dem Server keine Netzwerkverbindung zugeordnet ist, müssen Sie einen Treiber installieren.  
   
- Wenn dem Computer für einen Netzwerkadapter ein unterstützter Treiber fehlt, müssen Sie den richtigen Netzwerkadaptertreiber manuell installieren und den Server anschließend neu starten. Führen Sie dazu die nachfolgend aufgeführten Schritte aus.  
+ Wenn dem Computer für einen Netzwerkadapter ein unterstützter Treiber fehlt, müssen Sie den richtigen Netzwerkadaptertreiber manuell installieren und den Server anschließend neu starten. Verwenden Sie das folgende Verfahren:  
   
 ##### <a name="to-install-a-network-adapter-driver"></a>So installieren Sie einen Netzwerkadaptertreiber  
   
@@ -116,4 +116,4 @@ Dieses Thema enthält die Behandlung von Problemen, die auftreten, wenn Sie Wind
 3.  Starten Sie den Computer neu.  
   
     > [!IMPORTANT]
-    >  Wenn Sie den Server nach der Installation der fehlenden Netzwerkadaptertreiber nicht neu starten, kann die Installation der Windows Server Essentials Connector-Software auf Ihren Clientcomputern fehlschlagen.
+    >  Wenn Sie den Server nach der Installation des fehlenden Netzwerkadapter Treibers nicht neu starten, kann die Installation der Windows Server Essentials-Connector-Software auf Ihren Client Computern fehlschlagen.

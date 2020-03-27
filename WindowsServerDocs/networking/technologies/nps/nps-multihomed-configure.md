@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: d9d9e9ac-4859-4522-89ed-a23092c9e12a
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: df3c157ea4f453d965cd8754ef4ef9f7a71532a8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: a937e151954629f7e8775ec68ba8ab5f2b63ee1a
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396073"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315809"
 ---
 # <a name="configure-nps-on-a-multihomed-computer"></a>Konfigurieren von NPS auf einem mehrfach vernetzten Computer
 
@@ -62,7 +62,7 @@ Stellen Sie sicher, dass Ihre Netzwerk Zugriffs Server mit den gleichen RADIUS-U
 
 Sie können das folgende Verfahren verwenden, um die mehrfach vernetzten NPS zu konfigurieren.
 
-Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft in **Domänen-Admins** oder einer gleichwertigen Gruppe.
+Zum Durchführen dieses Verfahrens ist mindestens die Mitgliedschaft in **Domänen-Admins** oder eine entsprechende Berechtigung erforderlich.
 
 ### <a name="to-specify-the-network-adapter-and-udp-ports-that-nps-uses-for-radius-traffic"></a>So geben Sie den Netzwerkadapter und die UDP-Ports an, die NPS für RADIUS-Datenverkehr verwendet
 

@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f6e8d85b-de65-43b3-bf3e-ec84471a1fcc
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: ce86a75ac5b8d53874d2fc5c6743979506591680
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 74c4eae329698d33b160ac7180bbabd6d1d8fbad
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388227"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314515"
 ---
 # <a name="step-9-configure-edge1"></a>Schritt 9 Edge1 konfigurieren
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Die folgenden Prozeduren werden auf dem Edge1-Server ausgeführt:  
   
@@ -29,7 +29,7 @@ Die folgenden Prozeduren werden auf dem Edge1-Server ausgeführt:
   
 2. Konfigurieren Sie das Routing zwischen Subnetzen. Konfigurieren Sie das Routing auf Edge1, um die Kommunikation zwischen den Subnetzen Corpnet und 2-Corpnet zu ermöglichen.  
   
-## <a name="IPv6"></a>Konfigurieren der DNS-Server auf Edge1  
+## <a name="configure-the-dns-servers-on-edge1"></a><a name="IPv6"></a>Konfigurieren der DNS-Server auf Edge1  
   
 1.  Klicken Sie in der Server-Manager Konsole auf **lokaler Server**, und klicken Sie dann im Bereich **Eigenschaften** neben **Corpnet**auf den Link.  
   
@@ -47,9 +47,9 @@ Die folgenden Prozeduren werden auf dem Edge1-Server ausgeführt:
   
 8.  Schließen Sie das Fenster **Netzwerkverbindungen**.  
   
-## <a name="ConfigRouting"></a>Konfigurieren des Routings zwischen Subnetzen  
+## <a name="configure-routing-between-subnets"></a><a name="ConfigRouting"></a>Konfigurieren des Routings zwischen Subnetzen  
   
-1.  Geben Sie im **Start** Bildschirm**cmd. exe**ein, klicken Sie mit der rechten Maustaste auf **cmd**, klicken Sie auf **erweitert**, und klicken Sie dann auf **als Administrator ausführen**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Geben Sie im **Start** Bildschirm**cmd. exe**ein, klicken Sie mit der rechten Maustaste auf **cmd**, klicken Sie auf **erweitert**, und klicken Sie dann auf **als Administrator ausführen**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 2.  Geben Sie im Eingabe Aufforderungs Fenster die folgenden Befehle ein. Drücken Sie nach dem Eingeben der einzelnen Befehle die EINGABETASTE.  
   

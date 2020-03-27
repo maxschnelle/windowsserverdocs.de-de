@@ -10,14 +10,14 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0115b7ad-d229-4c69-9d7e-a3f5fbaa3b2f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 0eda30b0980f2080f1603eb906fd308440316248
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 2d85545224d8487b4778b95b9366a0336b27b343
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405951"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317223"
 ---
 # <a name="hyper-v-network-virtualization-overview-in-windows-server-2016"></a>Übersicht über die Hyper-V-Netzwerkvirtualisierung unter Windows Server 2016
 
@@ -47,7 +47,7 @@ Weitere technische Details zur Netzwerkvirtualisierung in Windows Server 2016 fi
 
 -   [Virtueller Hyper-V-Switch (Übersicht)](assetId:///e6ec46af-6ef4-49b3-b1f1-5268dc03f05b)  
 
-## <a name="BKMK_OVER"></a>Funktionsbeschreibung  
+## <a name="feature-description"></a><a name="BKMK_OVER"></a>Featurebeschreibung  
 Bei der Hyper-V-Netzwerkvirtualisierung werden "virtuelle Netzwerke" (VM-Netzwerk) virtuellen Computern ähnlich wie bei der Servervirtualisierung (Hypervisor) für das Betriebssystem bereitgestellt. Bei der Netzwerkvirtualisierung werden virtuelle Netzwerke von der physischen Netzwerkinfrastruktur entkoppelt und die Einschränkungen von VLAN und hierarchischer IP-Adressenzuweisung von der Bereitstellung virtueller Computer getrennt. Diese Flexibilität erleichtert es Kunden, zu IaaS-Clouds zu wechseln, und gewährt Hostern und Datencenteradministratoren Effizienz bei der Infrastrukturverwaltung. Gleichzeitig bleiben die erforderliche mehrinstanzenfähige Isolation und Sicherheitsanforderungen erhalten, und die IP-Adressen-Überlappung virtueller Computer wird unterstützt.  
 
 Kunden wünschen sich eine Möglichkeit für eine nahtlose Ausweitung ihrer Datencenter in die Cloud. Heute bestehen die technischen Herausforderungen darin, nahtlose hybride Cloudarchitekturen zu erstellen. Eine der größten Hürden, denen Kunden begegnen, ist die Wiederverwendung Ihrer vorhandenen Netzwerktopologien (Subnetze, IP-Adressen, Netzwerkdienste usw.) in der Cloud und die Überbrückung zwischen Ihren lokalen Ressourcen und ihren cloudressourcen.  Die Hyper-V-Netzwerkvirtualisierung umfasst das Konzept eines VM-Netzwerks, das unabhängig von dem zugrunde liegenden physischen Netzwerk ist. Bei diesem Konzept für VM-Netzwerke, die sich aus einem oder mehreren virtuellen Subnetzen zusammensetzen, wird der exakte Speicherort virtueller Computer im physischen Netzwerk von der Topologie des virtuellen Netzwerks entkoppelt. Dadurch können Kunden ihre virtuellen Subnetze auf einfache Weise in die Cloud verschieben und dabei gleichzeitig die bestehenden IP-Adressen und die Topologie in der Cloud beibehalten, sodass vorhandene Dienste weiterhin verwendet werden können, unabhängig von deren physischem Speicherort in den Subnetzen. Dies bedeutet, dass mit der Hyper-V-Netzwerkvirtualisierung eine nahtlose Hybrid-Cloud zur Verfügung steht.  
@@ -58,7 +58,7 @@ Der Hauptvorteil von workloadbesitzern besteht darin, dass Sie jetzt Ihre Worklo
 
 Infrastrukturbesitzer erhalten dank der zusätzlichen Flexibilität bei der Platzierung virtueller Computer die Möglichkeit, Arbeitsauslastungen an beliebige Speicherorte in den Datencentern verschieben zu können, ohne die virtuellen Computer ändern oder die Netzwerke neu konfigurieren zu müssen. Die Hyper-V-Netzwerkvirtualisierung ermöglicht beispielsweise eine subnetzübergreifende Livemigration, sodass ein virtueller Computer an einem beliebigen Speicherort im Datencenter ohne Dienstunterbrechung eine Livemigration ausführen kann. Bisher waren Livemigrationen auf dasselbe Subnetz beschränkt und bedeuteten somit auch Einschränkungen im Hinblick darauf, wo sich die virtuellen Computer befinden können. Bei der subnetzübergreifenden Livemigration können Administratoren die Arbeitsauslastungen auf der Grundlage des dynamischen Ressourcenbedarfs und der Energieeffizienz konsolidieren und eine Infrastrukturwartung ohne Betriebszeitunterbrechung der Kundenarbeitsauslastung gewährleisten.  
 
-## <a name="BKMK_APP"></a>Praktische Anwendungen  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Praktische Anwendungen  
 Mit dem Erfolg virtualisierter Datencenter haben IT-Organisationen und Hostinganbieter (Anbieter, die eine Zusammenstellung oder Vermietung physischer Server bereitstellen) begonnen, flexiblere virtualisierte Infrastrukturen anzubieten, und das erleichtert die bedarfsorientierte Bereitstellung von Serverinstanzen für ihre Kunden. Diese neue Art von Dienst wird als %%amp;quot;Infrastructure as a Service (IaaS)%%amp;quot; bezeichnet. Windows Server 2016 bietet alle erforderlichen Plattformfunktionen, damit Unternehmenskunden Private Clouds erstellen und zu einem IT-as-a-Service-Betriebsmodell wechseln können. Windows Server 2016 2016 ermöglicht Hostern auch, öffentliche Clouds zu erstellen und ihren Kunden IaaS-Lösungen anzubieten. In Kombination mit Virtual Machine Manager und Windows Azure Pack zur Verwaltung der Hyper-V-netzwerkvirtualisierungsrichtlinie stellt Microsoft eine leistungsstarke cloudlösung bereit.  
 
 Die Hyper-V-Netzwerkvirtualisierung von Windows Server 2016 bietet eine Richtlinien basierte, softwaregesteuerte Netzwerkvirtualisierung, die den Verwaltungsaufwand reduziert, der von Unternehmen bei der Erweiterung dedizierter IaaS-Clouds festgestellt wird, und cloudhoster verbessern. Flexibilität und Skalierbarkeit für die Verwaltung virtueller Computer, um eine höhere Ressourcennutzung zu erzielen.  
@@ -91,7 +91,7 @@ Das Problem bei dieser Anforderung besteht darin, dass eine IP-Adresse nicht nur
 
 Bei der Hyper-V-Netzwerkvirtualisierung werden die virtuellen Netzwerke für die virtuellen Computer der Kunden von der physischen Netzwerkinfrastruktur abgekoppelt. Dies bedeutet wiederum, dass die virtuellen Computer der Kunden ihre ursprünglichen IP-Adressen beibehalten können, während die virtuellen Computer der Kunden von den Datencenteradministratoren an einem beliebigen Speicherort im Datencenter bereitgestellt werden können, ohne dass eine Neukonfiguration der physischen IP-Adressen oder VLAN-IDs erforderlich ist. Im folgenden Abschnitt wird die eigentliche Funktionalität erläutert.  
 
-## <a name="BKMK_NEW"></a>Wichtige Funktionen  
+## <a name="important-functionality"></a><a name="BKMK_NEW"></a>Wichtige Funktionen  
 Im folgenden finden Sie eine Liste der wichtigsten Funktionen, Vorteile und Funktionen der Hyper-V-Netzwerkvirtualisierung in Windows Server 2016:  
 
 -   **Ermöglicht flexible Arbeits Auslastungs Platzierung: Netzwerk Isolation und Wiederverwendung von IP-Adressen ohne VLANs**  
@@ -132,14 +132,14 @@ Im folgenden finden Sie eine Liste der wichtigsten Funktionen, Vorteile und Funk
 
     Netzwerkvirtualisierungsrichtlinien in Windows Server 2016 werden über den Microsoft-Netzwerk Controller konfiguriert. Der Netzwerk Controller verfügt über eine Rest-Northbound-API und eine Windows PowerShell-Schnittstelle zum Konfigurieren der Richtlinie. Weitere Informationen zum Microsoft-Netzwerk Controller finden Sie unter [Netzwerk Controller](../../../sdn/technologies/network-controller/../../../sdn/technologies/network-controller/Network-Controller.md).  
 
-## <a name="BKMK_SOFT"></a>Software Anforderungen  
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Software Anforderungen  
 Die Hyper-v-Netzwerkvirtualisierung unter Verwendung des Microsoft-Netzwerk Controllers erfordert Windows Server 2016 und die Hyper-v-Rolle.  
 
-## <a name="BKMK_LINKS"></a>Siehe auch  
+## <a name="see-also"></a><a name="BKMK_LINKS"></a>Siehe auch  
 Weitere Informationen zur Hyper-V-Netzwerkvirtualisierung unter Windows Server 2016 finden Sie unter den folgenden Links:  
 
 
-|       Inhaltstyp       |                                                                                                                                Verweise                                                                                                                                |
+|       Art des Inhalts       |                                                                                                                                Verweise                                                                                                                                |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Communityressourcen**  |     Blog zur -   [Private Cloud-Architektur](https://blogs.technet.com/b/privatecloud/archive/2012/03/19/cloud-datacenter-network-architecture-in-the-windows-server-8-era.aspx)<br />-Stellen Sie Fragen: [cloudnetfb@microsoft.com](mailto:%20cloudnetfb@microsoft.com)     |
 |         **RFC**          |                                                                                                     -Vxlan: [RFC 7348](https://www.rfc-editor.org/info/rfc7348)                                                                                                      |

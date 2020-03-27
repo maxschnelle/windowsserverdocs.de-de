@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: da74fea7-52b2-4d6d-9d21-19184eedbe3c
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: bae0d3dff22205f3311020e233a26835527186f5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 660a4979aa5e29a6dd22cb2e0e6659966d077a8e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406492"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319329"
 ---
 # <a name="configure-the-branchcache-hash-publication-group-policy-object"></a>Konfigurieren des Gruppenrichtlinienobjekts für BranchCache-Hashveröffentlichung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Mit diesem Verfahren können Sie das BranchCache-Hash Veröffentlichungs Gruppenrichtlinie-Objekt (GPO) konfigurieren, sodass auf alle Dateiserver, die Sie Ihrer Organisationseinheit hinzugefügt haben, dieselbe Hash Veröffentlichungs Richtlinien Einstellung angewendet wird.  
   
@@ -34,11 +34,11 @@ Für dieses Verfahren müssen Sie mindestens Mitglied der Gruppe **Domänen-Admi
   
 3.  Doppelklicken Sie in **Snap-Ins hinzufügen bzw. entfernen** unter **Verfügbare Snap-Ins** auf **Gruppenrichtlinienverwaltung**, und klicken Sie anschließend auf **OK**.  
   
-4.  Erweitern Sie in der Gruppenrichtlinienverwaltungs-MMC den Pfad zum Gruppenlinienobjekt BranchCache-Hashveröffentlichung, das Sie zuvor erstellt haben. Wenn der Name der Gesamtstruktur z. B. „beispiel.com“ der der Domäne „beispiel1.com“ und der Name des Gruppenrichtlinienobjekts **BranchCache-Hashveröffentlichung** lautet, erweitern Sie den folgenden Pfad: **Gruppenrichtlinie Verwaltung**, Gesamtstruktur **: example.com**, **Domänen**, **example1.com**, **Gruppenrichtlinie Objekte**, **BranchCache-Hash Veröffentlichung**.  
+4.  Erweitern Sie in der Gruppenrichtlinienverwaltungs-MMC den Pfad zum Gruppenlinienobjekt BranchCache-Hashveröffentlichung, das Sie zuvor erstellt haben. Wenn die Gesamtstruktur beispielsweise example.com lautet, die Domäne example1.com lautet und Ihr Gruppenrichtlinien Objekt den Namen **BranchCache Hash Publication**hat, erweitern Sie den folgenden Pfad: **Gruppenrichtlinie Verwaltung**, Gesamtstruktur **: example.com**, **Domänen**, **example1.com**, **Gruppenrichtlinie Objekte**, **BranchCache-Hash Veröffentlichung**.  
   
 5.  Klicken Sie mit der rechten Maustaste auf das Gruppenrichtlinienobjekt **BranchCache-Hashveröffentlichung**, und wählen Sie **Bearbeiten** aus. Die Gruppenrichtlinienverwaltungs-Editor-Konsole wird geöffnet.  
   
-6.  Erweitern Sie in der Gruppenrichtlinienverwaltungs-Editor Konsole den folgenden Pfad: **Computerkonfiguration**, **Richtlinien**, **Administrative Vorlagen**, **Netzwerk**, **LanMan-Server**.  
+6.  Erweitern Sie in der Gruppenrichtlinienverwaltungs-Editor Konsole den folgenden Pfad: **Computer Konfiguration**, **Richtlinien**, **Administrative Vorlagen**, **Netzwerk**, **LanMan-Server**.  
   
 7.  Klicken Sie in der Konsole des Gruppenrichtlinienverwaltungs-Editors auf **LanMan-Server**. Doppelklicken Sie im Detailbereich auf **Hashveröffentlichung für BranchCache**. Das Dialogfeld **Hashveröffentlichung für BranchCache** wird geöffnet.  
   

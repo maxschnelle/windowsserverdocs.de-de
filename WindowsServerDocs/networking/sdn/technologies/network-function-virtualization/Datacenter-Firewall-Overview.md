@@ -10,18 +10,18 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 67576533-206b-428a-956c-ed8c53218d9b
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9562972f731a553dbc3e5558fcce1d5c51d539d0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 141057d2ee3e648f589d255ea04fdef179cedf3c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405885"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317032"
 ---
 # <a name="datacenter-firewall-overview"></a>Rechenzentrumsfirewall: Übersicht
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Datacenter Firewall ist ein neuer Dienst, der in Windows Server 2016 enthalten ist. Dabei handelt es sich um eine Netzwerkschicht, 5-Tupel (Protokoll, Quell-und Ziel Portnummern, Quell-und Ziel-IP-Adressen), Zustands behaftete, mehr Instanzen fähige Firewall. Wenn Sie vom Dienstanbieter als Dienst bereitgestellt und angeboten werden, können Mandanten Administratoren Firewallrichtlinien installieren und konfigurieren, um Ihre virtuellen Netzwerke vor unerwünschtem Datenverkehr aus Internet-und intranetnetzwerken zu schützen.  
   

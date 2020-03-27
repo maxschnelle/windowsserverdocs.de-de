@@ -10,15 +10,15 @@ ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a4caaa86-5799-4580-8775-03ee213784a3
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/13/2018
-ms.openlocfilehash: 1785b34741ce525a5bdd27b77a0e52fc2ca6c1b6
-ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
+ms.openlocfilehash: 1463d3b9a596436b93423806a0acdb40728a15fb
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72591107"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316692"
 ---
 # <a name="create-a-new-nic-team-on-a-host-computer-or-vm"></a>Erstellen eines neuen NIC-Teams auf einem Host Computer oder einer VM
 
@@ -46,19 +46,19 @@ Die Anforderungen für den physischen Switch, den virtuellen Hyper-V-Switch, das
 ## <a name="step-1-configure-the-physical-and-virtual-network"></a>Schritt 1 Konfigurieren des physischen und des virtuellen Netzwerks  
 In diesem Verfahren erstellen Sie zwei externe virtuelle Hyper-V-Switches, verbinden eine VM mit den Switches und konfigurieren dann die VM-Verbindungen mit den Switches.  
 
-### <a name="prerequisites"></a>Voraussetzungen
+### <a name="prerequisites"></a>Erforderliche Komponenten
 
 Sie müssen Mitglied der Gruppe " **Administratoren**" oder einer entsprechenden Gruppe sein.  
 
-### <a name="procedure"></a>Verfahren
+### <a name="procedure"></a>Vorgehensweise
 
 1.  Öffnen Sie auf dem Hyper-v-Host den Hyper-v-Manager, und klicken Sie unter Aktionen auf **Manager für virtuelle**Switches.  
 
-   ![Manager für virtuelle Switches](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hv.jpg)  
+   ![Virtueller Switch-Manager](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hv.jpg)  
 
 2.  Stellen Sie im Manager für virtuelle Switches sicher, dass **extern** ausgewählt ist, und klicken Sie dann auf **virtuellen Switch erstellen**.  
 
-   ![Virtuellen Switch erstellen](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hv_02.jpg)  
+   ![Erstellen des virtuellen Switches](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hv_02.jpg)  
 
 3.  Geben Sie unter Eigenschaften für virtuelle Switches einen **Namen** für den virtuellen Switch ein, und fügen Sie bei Bedarf **Notizen** hinzu.  
 
@@ -76,7 +76,7 @@ Sie müssen Mitglied der Gruppe " **Administratoren**" oder einer entsprechenden
 
 8.  Klicken Sie unter **Hardware**auf **Netzwerk Adapter**.  
 
-   ![Netzwerkkarte](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_01.jpg)  
+   ![Netzwerkadapter](../../media/Create-a-New-NIC-Team-in-a-VM/nict_hvs_01.jpg)  
 
 9. Wählen Sie in den Eigenschaften des **Netzwerkadapters** einen der virtuellen Switches aus, den Sie in den vorherigen Schritten erstellt haben, und **Klicken Sie dann**auf übernehmen.  
 
@@ -141,11 +141,11 @@ Optional können Sie auch die primäre Team Schnittstelle konfigurieren und eine
 
 Weitere Informationen zu diesen Einstellungen finden Sie unter [NIC Teaming Settings](nic-teaming-settings.md).
 
-### <a name="prerequisites"></a>Voraussetzungen
+### <a name="prerequisites"></a>Erforderliche Komponenten
 
 Sie müssen Mitglied der Gruppe " **Administratoren**" oder einer entsprechenden Gruppe sein.  
 
-### <a name="procedure"></a>Verfahren
+### <a name="procedure"></a>Vorgehensweise
 
 1. Klicken Sie im Server-Manager auf **Lokaler Server**.  
 
@@ -175,7 +175,7 @@ Sie müssen Mitglied der Gruppe " **Administratoren**" oder einer entsprechenden
        |                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
        |----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
        |              **Statischer Teaming**              |                                                                                                                                              Erfordert, dass Sie sowohl den Switch als auch den Host manuell konfigurieren, um zu bestimmen, welche Links das Team bilden. Da es sich hierbei um eine statisch konfigurierte Lösung handelt, gibt es kein zusätzliches Protokoll, das es dem Switch und dem Host unterstützt, nicht ordnungsgemäß konfigurierte Kabel oder andere Fehler zu identifizieren, die zu einem Fehler des Teams führen könnten. Dieser Modus wird im Allgemeinen von Switches der Serverklasse unterstützt.                                                                                                                                              |
-       | **Link Aggregation Control Protocol (LACP)** | Im Gegensatz zum statischen Team Vorgang identifiziert der LACP-Team Vorgangs Modus dynamisch Verknüpfungen, die zwischen dem Host und dem Switch verbunden sind. Diese dynamische Verbindung ermöglicht die automatische Erstellung eines Teams und, in der Praxis, die Erweiterung und Reduzierung eines Teams einfach durch die Übertragung oder den Empfang von LACP-Paketen aus der Peer Entität. Alle Server Klassen Switches unterstützen LACP, und alle erfordern, dass der Netzwerk Operator LACP auf dem Switchport administrativ aktiviert. Wenn Sie einen Teaming-Modus von LACP konfigurieren, wird der NIC-Team Vorgang immer im aktiven Modus von LACP ausgeführt.  Standardmäßig verwendet der NIC-Team Vorgang einen kurzen Timer (3 Sekunden), Sie können jedoch einen langen Timer (90 Sekunden) mit `Set-NetLbfoTeam` konfigurieren. |
+       | **Link Aggregation Control Protocol (LACP)** | Im Gegensatz zum statischen Team Vorgang identifiziert der LACP-Team Vorgangs Modus dynamisch Verknüpfungen, die zwischen dem Host und dem Switch verbunden sind. Diese dynamische Verbindung ermöglicht die automatische Erstellung eines Teams und, in der Praxis, die Erweiterung und Reduzierung eines Teams einfach durch die Übertragung oder den Empfang von LACP-Paketen aus der Peer Entität. Alle Server Klassen Switches unterstützen LACP, und alle erfordern, dass der Netzwerk Operator LACP auf dem Switchport administrativ aktiviert. Wenn Sie einen Teaming-Modus von LACP konfigurieren, wird der NIC-Team Vorgang immer im aktiven Modus von LACP ausgeführt.  Standardmäßig verwendet der NIC-Team Vorgang einen kurzen Timer (3 Sekunden), Sie können jedoch einen langen Timer (90 Sekunden) mit `Set-NetLbfoTeam`konfigurieren. |
 
        ---
 
@@ -212,7 +212,7 @@ _**Gratul!**_  Sie haben ein neues NIC-Team auf einem Host Computer oder einer V
 
 - [NIC](NIC-Teaming.md)-Team Vorgang: in diesem Thema erhalten Sie einen Überblick über den NIC-Team Vorgang (Network Interface Card) in Windows Server 2016. Mit dem NIC-Team Vorgang können Sie zwischen einem und 32 physischen Ethernet-Netzwerkadaptern in einem oder mehreren softwarebasierten virtuellen Netzwerkadaptern gruppieren. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.   
 
-- [NIC-Team Vorgang MAC-Adress Verwendung und-Verwaltung](NIC-Teaming-MAC-Address-Use-and-Management.md): Wenn Sie ein NIC-Team mit dem Switch-unabhängigen Modus konfigurieren und entweder die Address-Hash-oder die dynamische Lastenverteilung verwenden, verwendet das Team die Media Access Control (Mac)-Adresse des primären NIC-Teammitglieds bei ausgehende verkehrssicher. Das primäre NIC-Team Mitglied ist ein Netzwerkadapter, der vom Betriebssystem aus der anfänglichen Gruppe von Team Mitgliedern ausgewählt wird.
+- [NIC-Team Vorgang MAC-Adress Verwendung und-Verwaltung](NIC-Teaming-MAC-Address-Use-and-Management.md): Wenn Sie ein NIC-Team mit dem Switch-unabhängigen Modus und entweder Address Hash oder Dynamic Load Distribution konfigurieren, verwendet das Team die Media Access Control (Mac)-Adresse des primären NIC-Teammitglieds für ausgehenden Datenverkehr. Das primäre NIC-Team Mitglied ist ein Netzwerkadapter, der vom Betriebssystem aus der anfänglichen Gruppe von Team Mitgliedern ausgewählt wird.
 
 - [NIC](nic-teaming-settings.md)-Team Vorgangs Einstellungen: in diesem Thema erhalten Sie eine Übersicht über die NIC-Team Eigenschaften, z. b. Team-und Lasten ausgleichsmodi. Außerdem erhalten Sie Informationen über die standbyadaptereinstellung und die Eigenschaft "primäre Team Schnittstelle". Wenn Sie über mindestens zwei Netzwerkadapter in einem NIC-Team verfügen, müssen Sie keinen Standby-Adapter für die Fehlertoleranz festlegen.
 
