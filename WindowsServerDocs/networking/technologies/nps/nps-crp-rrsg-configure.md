@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: ca125e57-249c-4d97-85d1-2929cbf871f1
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: fe34d25d2b54b02bb56fcad99c433054a309f60b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d9e1afd9505d3bbf1383d174cac6a2f543fcaae2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405459"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316182"
 ---
 # <a name="configure-remote-radius-server-groups"></a>Konfigurieren von RADIUS-Remoteservergruppen
 
@@ -30,7 +30,7 @@ Wenn Sie NPS als RADIUS-Proxy konfigurieren, erstellen Sie eine neue Verbindungs
 >[!NOTE]
 >Sie können auch eine neue Remote-RADIUS-Server Gruppe beim Erstellen einer neuen Verbindungs Anforderungs Richtlinie konfigurieren.
 
-Grundvoraussetzung für die Ausführung dieses Vorgangs ist die Mitgliedschaft in **Domänen-Admins** oder einer gleichwertigen Gruppe.
+Zum Durchführen dieses Verfahrens ist mindestens die Mitgliedschaft in **Domänen-Admins** oder eine entsprechende Berechtigung erforderlich.
 
 ### <a name="to-add-a-remote-radius-server-group"></a>So fügen Sie eine Remote-RADIUS-Server Gruppe hinzu 
 

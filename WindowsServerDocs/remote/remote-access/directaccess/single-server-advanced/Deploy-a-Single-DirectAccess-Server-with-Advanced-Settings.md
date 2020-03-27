@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b211a9ca-1208-4e1f-a0fe-26a610936c30
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 8ccb91973dfb3493b534bdbc8fc4e2bcb26b26b8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 4e6c8379f225dbeefd7c97ac96b9a0047dfd4a0b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404957"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309211"
 ---
 # <a name="deploy-a-single-directaccess-server-with-advanced-settings"></a>Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Thema bietet eine Einführung in das DirectAccess-Szenario, in dem ein einzelner DirectAccess-Server verwendet wird, und ermöglicht es Ihnen, DirectAccess mit erweiterten Einstellungen bereitzustellen.  
   
@@ -32,11 +32,11 @@ In den folgenden Themen finden Sie Informationen zu Voraussetzungen und anderen 
   
 -   [Erforderliche Komponenten für die Bereitstellung von DirectAccess](../../../remote-access/directaccess/Prerequisites-for-Deploying-DirectAccess.md)  
   
-## <a name="BKMK_OVER"></a>Szenariobeschreibung  
+## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Szenariobeschreibung  
 In diesem Szenario wird ein einzelner Computer, auf dem entweder Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird, als DirectAccess-Server mit erweiterten Einstellungen konfiguriert.  
   
 > [!NOTE]  
-> Falls Sie lediglich eine einfache Bereitstellung mit einfachen Einstellungen konfigurieren möchten, finden Sie unter [Bereitstellen eines DirectAccess-Servers mit dem Assistenten für erste Schritte](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md) weitere Informationen. In dem einfachen Szenario wird DirectAccess über einen Assistenten mit Standardeinstellungen eingerichtet, ohne dass die Notwendigkeit zur Konfiguration von Infrastruktureinstellungen wie einer Zertifizierungsstelle oder Active Directory-Sicherheitsgruppen besteht.  
+> Wenn Sie nur eine grundlegende Bereitstellung mit einfachen Standardeinstellungen konfigurieren möchten, finden Sie unter [Deploy a Single DirectAccess Server Using the Getting Started Wizard](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)weitere Informationen. In dem einfachen Szenario wird DirectAccess über einen Assistenten mit Standardeinstellungen eingerichtet, ohne dass die Notwendigkeit zur Konfiguration von Infrastruktureinstellungen wie einer Zertifizierungsstelle oder Active Directory-Sicherheitsgruppen besteht.  
   
 ## <a name="in-this-scenario"></a>Inhalt dieses Szenarios  
 Um einen einzelnen DirectAccess-Server mit erweiterten Einstellungen einzurichten, müssen Sie einige Planungs- und Bereitstellungsschritte durchführen.  
@@ -71,24 +71,24 @@ Die Bereitstellung besteht aus drei Phasen:
   
 3.  **Überprüfen der Bereitstellung**. Diese Phase beinhaltet Schritte zur Überprüfung der DirectAccess-Bereitstellung.  
   
-Informationen zu den Bereitstellungsschritten finden Sie unter [Install and Configure Advanced DirectAccess](../../../remote-access/directaccess/single-server-advanced/Install-and-Configure-Advanced-DirectAccess.md).  
+Ausführliche Informationen zu den Bereitstellungsschritten finden Sie unter [Installieren und Konfigurieren des erweiterten DirectAccess](../../../remote-access/directaccess/single-server-advanced/Install-and-Configure-Advanced-DirectAccess.md).  
   
-## <a name="BKMK_APP"></a>Praktische Anwendungen  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Praktische Anwendungen  
 Die Bereitstellung eines einzelnen DirectAccess-Servers bietet Folgendes:  
   
 -   **Erleichterte Bedienung**. Verwaltete Client Computer, auf denen Windows 10, Windows 8.1, Windows 8 und Windows 7 ausgeführt wird, können als DirectAccess-Client Computer konfiguriert werden. Diese Clients können immer, wenn sie im Internet sind, über DirectAccess auf interne Netzwerkressourcen zugreifen, ohne sich über eine VPN-Verbindung einzuloggen. Clientcomputer, die keines dieser Betriebssysteme verwenden, können per VPN eine Verbindung zum internen Netzwerk herstellen.  
   
 -   **Erleichterte Verwaltung**. Die Remoteverwaltung von DirectAccess-Clientcomputern im Internet ist mithilfe von RAS-Administratoren über DirectAccess möglich, selbst wenn die Clientcomputer sich nicht im internen Unternehmensnetzwerk befinden. Clientcomputer, die nicht den Unternehmensanforderungen entsprechen, können automatisch über Verwaltungsserver gewartet werden. Sowohl DirectAccess als auch VPN werden über dieselbe Konsole und mit denselben Assistenten verwaltet. Außerdem können einer oder mehrere DirectAccess-Server über eine einzelne Remotezugriffs-Verwaltungskonsole verwaltet werden.  
   
-## <a name="BKMK_NEW"></a>Für dieses Szenario erforderliche Rollen und Features  
+## <a name="roles-and-features-required-for-this-scenario"></a><a name="BKMK_NEW"></a>Für dieses Szenario erforderliche Rollen und Features  
 Die folgende Tabelle enthält die für dieses Szenario erforderlichen Rollen und Features:  
   
 |Rolle/Feature|Auf welche Weise dieses Szenario unterstützt wird|  
 |---------|-----------------|  
-|Remotezugriffs-Rolle|Die Rolle wird über die Server-Manager-Konsole oder Windows PowerShell installiert bzw. deinstalliert. Diese Rolle umfasst DirectAccess sowie die Routing- und RAS-Dienste. Die Remotezugriffs-Rolle besteht aus zwei Komponenten:<br/><br/>1.  DirectAccess und RRAS-VPN. DirectAccess und VPN werden in der Remote Zugriffs-Verwaltungskonsole verwaltet.<br/>2.  RRAS-Routing. RRAS-Routing Features werden in der Legacy-Routing-und Remote Zugriffs Konsole verwaltet.<br /><br />Die RAS-Serverrolle ist von den folgenden Serverrollen/-features abhängig:<br/><br/> -Internetinformationsdienste (IIS)-Webserver: dieses Feature ist erforderlich, um den Netzwerkadressen Server auf dem DirectAccess-Server und den Standard Webtest zu konfigurieren.<br/> -Interne Windows-Datenbank. Wird für die lokale Kontoführung auf dem DirectAccess-Server verwendet.|  
+|Remotezugriffs-Rolle|Die Rolle wird über die Server-Manager-Konsole oder Windows PowerShell installiert bzw. deinstalliert. Diese Rolle umfasst DirectAccess sowie die Routing- und RAS-Dienste. Die Remotezugriffs-Rolle besteht aus zwei Komponenten:<br/><br/>1. DirectAccess und RRAS-VPN. DirectAccess und VPN werden in der Remote Zugriffs-Verwaltungskonsole verwaltet.<br/>2. RRAS-Routing. RRAS-Routing Features werden in der Legacy-Routing-und Remote Zugriffs Konsole verwaltet.<br /><br />Die RAS-Serverrolle ist von den folgenden Serverrollen/-features abhängig:<br/><br/> -Internetinformationsdienste (IIS)-Webserver: dieses Feature ist erforderlich, um den Netzwerkadressen Server auf dem DirectAccess-Server und den Standard Webtest zu konfigurieren.<br/> -Interne Windows-Datenbank. Wird für die lokale Kontoführung auf dem DirectAccess-Server verwendet.|  
 |Feature %%amp;quot;Tools für die Remotezugriffsverwaltung%%amp;quot;|So installieren Sie dieses Feature:<br /><br />-Sie wird bei der Installation der Remote Zugriffs Rolle standardmäßig auf einem DirectAccess-Server installiert und unterstützt die Benutzeroberfläche der Remote Verwaltungskonsole und Windows PowerShell-Cmdlets.<br />-Es kann optional auf einem Server installiert werden, auf dem die DirectAccess-Server Rolle nicht ausgeführt wird. In diesem Fall wird es für die Remoteverwaltung eines RAS-Computers verwendet, der DirectAccess und VPN ausführt.<br /><br />Das Feature "Tools für die Remotezugriffsverwaltung" besteht aus den folgenden Komponenten:<br /><br />-Remote Zugriff grafische Benutzeroberfläche (GUI)<br />-Remote Zugriffs Modul für Windows PowerShell<br /><br />Abhängigkeiten umfassen:<br /><br />-Gruppenrichtlinien-Verwaltungskonsole<br />-RAS-Verbindungs-Manager-Verwaltungskit (CMAK)<br />-Windows PowerShell 3,0<br />-Tools und Infrastruktur für die grafische Verwaltung|  
   
-## <a name="BKMK_HARD"></a>Hardware Anforderungen  
+## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Hardwareanforderungen  
 Für dieses Szenario müssen die folgenden Hardwareanforderungen erfüllt werden:  
   
 -   Serveranforderungen:  
@@ -120,7 +120,7 @@ Für dieses Szenario müssen die folgenden Hardwareanforderungen erfüllt werden
   
     -   Falls ein VPN aktiviert ist, ist ein DHCP-Server erforderlich, um die IP-Adressen automatisch den VPN-Clients zuzuweisen, sofern kein statischen IP-Adresspool genutzt wird.  
   
-## <a name="BKMK_SOFT"></a>Software Anforderungen  
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Software Anforderungen  
 Für dieses Szenario gelten eine Reihe von Anforderungen:  
   
 -   Serveranforderungen:  
@@ -143,10 +143,10 @@ Für dieses Szenario gelten eine Reihe von Anforderungen:
         > [!IMPORTANT]  
         > Wenn Sie Teredo in der DirectAccess-Bereitstellung aktiviert haben und Zugriff auf Windows 7-Clients bereitstellen möchten, müssen Sie sicherstellen, dass die Clients auf Windows 7 mit SP1 aktualisiert werden. Clients, die Windows 7 RTM verwenden, können keine Verbindung über Teredo herstellen. Diese Clients können jedoch weiterhin eine Verbindung zum Unternehmensnetzwerk über IP-HTTPS herstellen.  
   
-## <a name="BKMK_LINKS"></a>Siehe auch  
+## <a name="see-also"></a><a name="BKMK_LINKS"></a>Siehe auch  
 Die folgende Tabelle enthält Links zu zusätzlichen Ressourcen.  
   
-|Inhaltstyp|Verweise|  
+|Art des Inhalts|Verweise|  
 |--------|-------|  
 |**Bereitstellung**|[DirectAccess-Bereitstellungs Pfade in Windows Server](../../../remote-access/directaccess/DirectAccess-Deployment-Paths-in-Windows-Server.md)<br /><br />[Bereitstellen eines einzelnen DirectAccess-Servers mit dem Assistenten für die ersten Schritte](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)|  
 |**Tools und Einstellungen**|[PowerShell-Cmdlets für den Remote Zugriff](https://technet.microsoft.com/library/hh918399.aspx)|  

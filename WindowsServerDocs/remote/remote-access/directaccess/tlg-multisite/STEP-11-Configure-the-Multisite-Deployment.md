@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8cbdeb1d-5f7c-4360-bcc1-ab40d3cd8040
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 3a80697665eeb67c2dda0d4d25201c7d02ed0c7e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d90b20716c49b2ea0b1cd002a1c1933fbd6e26e5
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404806"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314574"
 ---
 # <a name="step-11-configure-the-multisite-deployment"></a>Schritt 11 Konfigurieren der Bereitstellung für mehrere Standorte
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Um eine Bereitstellung für mehrere Standorte zu konfigurieren, nehmen Sie Änderungen am Assistenten für die Remote Zugriffs Konfiguration auf Edge1 vor, aktivieren Sie die Funktion für mehrere Standorte, und fügen Sie dann 2-Edge1 als zweiten Einstiegspunkt hinzu.  
   
@@ -31,9 +31,9 @@ Um eine Bereitstellung für mehrere Standorte zu konfigurieren, nehmen Sie Ände
   
 - 2-Edge1 als zweiten Einstiegspunkt hinzufügen  
   
-## <a name="configDA"></a>Konfigurieren des Remote Zugriffs auf Edge1  
+## <a name="configure-remote-access-on-edge1"></a><a name="configDA"></a>Konfigurieren des Remote Zugriffs auf Edge1  
   
-1.  Geben Sie auf dem **Start** Bildschirm**ramgmtui. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Geben Sie auf dem **Start** Bildschirm**ramgmtui. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole auf **Konfiguration**.  
   
@@ -43,7 +43,7 @@ Um eine Bereitstellung für mehrere Standorte zu konfigurieren, nehmen Sie Ände
   
 5.  Klicken Sie im mittleren Bereich der Konsole im Bereich **Schritt 3 Infrastruktur Server** auf **Bearbeiten**.  
   
-6.  Klicken Sie auf **DNS-Suffixsuchliste**. Vergewissern Sie sich auf der Seite **DNS-Suffixsuchliste** , dass das Kontrollkästchen **DirectAccess-Clients mit DNS-clientsuffixsuchliste konfigurieren** aktiviert ist, und dass die Domänen Suffixe **Corp.contoso.com** und **corp2.Corp.contoso.com** aktiviert sind. in der Liste **zu verwendende Domänen Suffixe** angezeigt werden, klicken Sie auf **weiter**und dann auf Fertigstellen.  
+6.  Klicken Sie auf **DNS-Suffixsuchliste**. Vergewissern Sie sich, dass auf der Seite **DNS-Suffixsuchliste** das Kontrollkästchen **DirectAccess-Clients mit DNS-clientsuffixsuchliste konfigurieren** aktiviert ist und dass die Domänen Suffixe **Corp.contoso.com** und **corp2.Corp.contoso.com** in der Liste **zu verwendende Domänen Suffixe** angezeigt werden. Klicken Sie auf **weiter**und dann auf Fertigstellen.  
   
 7.  Klicken Sie im mittleren Bereich der Konsole auf **Fertig**stellen.  
   
@@ -51,7 +51,7 @@ Um eine Bereitstellung für mehrere Standorte zu konfigurieren, nehmen Sie Ände
   
 9. Klicken Sie im Bereich **Tasks** auf **Verwaltungs Server aktualisieren**, und klicken Sie dann auf **Schließen** , wenn Sie fertig sind.  
   
-## <a name="EnabledMultisite"></a>Aktivieren der Konfiguration für mehrere Standorte auf Edge1  
+## <a name="enable-multisite-configuration-on-edge1"></a><a name="EnabledMultisite"></a>Aktivieren der Konfiguration für mehrere Standorte auf Edge1  
   
 1.  Klicken Sie in der Remote Zugriffs-Verwaltungskonsole im Bereich **Tasks** auf **Multisite aktivieren**.  
   
@@ -65,7 +65,7 @@ Um eine Bereitstellung für mehrere Standorte zu konfigurieren, nehmen Sie Ände
   
 6.  Klicken Sie auf der Seite **Client Unterstützung** auf **Client Computern, auf denen Windows 7 ausgeführt wird, auf diesen Einstiegspunkt zugreifen**, und klicken Sie auf **Hinzufügen**.  
   
-7.  Geben Sie im Dialogfeld **Gruppen auswählen** unter **Geben Sie die zu ausgewäfnenden Objektnamen ein den Namen** **Win7_Clients_Site1**ein, klicken Sie auf **OK**, und klicken Sie dann auf **weiter**.  
+7.  Geben Sie im Dialogfeld **Gruppen auswählen** unter **Geben Sie die zu ausgewäfnenden Objektnamen**ein **Win7_Clients_Site1**ein, klicken Sie auf **OK**, und klicken Sie dann auf **weiter**.  
   
 8.  Klicken Sie auf der Seite **Einstellungen des Client** -Gruppenrichtlinien Objekts auf **weiter**.  
   
@@ -73,7 +73,7 @@ Um eine Bereitstellung für mehrere Standorte zu konfigurieren, nehmen Sie Ände
   
 10. Klicken Sie im Dialogfeld **Bereitstellung für mehrere Standorte** aktivieren auf **Schließen** , und klicken Sie dann im Assistenten zum Aktivieren der Bereitstellung für mehrere Standorte auf **Schließen**.  
   
-## <a name="AddEP"></a>2-Edge1 als zweiten Einstiegspunkt hinzufügen  
+## <a name="add-2-edge1-as-a-second-entry-point"></a><a name="AddEP"></a>2-Edge1 als zweiten Einstiegspunkt hinzufügen  
   
 1.  Klicken Sie in der Remote Zugriffs-Verwaltungskonsole im Bereich **Tasks** auf **Einstiegspunkt hinzufügen**.  
   
@@ -89,7 +89,7 @@ Um eine Bereitstellung für mehrere Standorte zu konfigurieren, nehmen Sie Ände
   
 7.  Klicken Sie auf der Seite **Client Unterstützung** auf **Client Computern, auf denen Windows 7 ausgeführt wird, auf diesen Einstiegspunkt zugreifen**, und klicken Sie auf **Hinzufügen**.  
   
-8.  Geben Sie im Dialogfeld **Gruppen auswählen** unter **Geben Sie die zu ausgewäfnenden Objektnamen ein den Namen** **Win7_Clients_Site2**ein, klicken Sie auf **OK**, und klicken Sie dann auf **weiter**.  
+8.  Geben Sie im Dialogfeld **Gruppen auswählen** unter **Geben Sie die zu ausgewäfnenden Objektnamen**ein **Win7_Clients_Site2**ein, klicken Sie auf **OK**, und klicken Sie dann auf **weiter**.  
   
 9. Klicken Sie auf der Seite **Einstellungen des Client** -Gruppenrichtlinien Objekts auf **weiter**.  
   

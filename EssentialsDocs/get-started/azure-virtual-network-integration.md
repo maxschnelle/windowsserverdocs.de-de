@@ -1,9 +1,9 @@
 ---
-title: Azure Virtual Network-integration
-description: Beschreibt, wie Windows Server Essentials
+title: Azure Virtual Network-Integration
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,64 +12,64 @@ ms.assetid: d7d38505-cff5-4f15-9fd5-ae6dba15ce88
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 673cb5a2292bab113aefb1de37f80bf4d880b467
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 92c8241d861e72d5f9f409a334e6edbeed5eae4c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433906"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310577"
 ---
-# <a name="azure-virtual-network-integration"></a>Azure Virtual Network-integration
+# <a name="azure-virtual-network-integration"></a>Azure Virtual Network-Integration
 
 >Gilt für: Windows Server 2016 Essentials
 
-Wenn Unternehmen ihren Weg in die cloud computing vornehmen, werden nur selten sie verschieben Sie alle ihre Ressourcen gleichzeitig zu 100 %, aber stattdessen dauern einen Ansatz, in dem einige Ressourcen sind in der Cloud und einige sind weiterhin lokal. Dieser kombinierte Ansatz erleichtert es für Unternehmen nicht nur einige Compute-Ressourcen in die Cloud verschieben, aber auch können sie ihre IT-Infrastruktur zu erweitern, ohne neue Hardware erwerben.
+Wenn Organisationen die Cloud Computing durchführen, werden Sie selten alle Ihre Ressourcen 100% zu einem Zeitpunkt verschieben, sondern stattdessen einen Ansatz treffen, bei dem sich einige Ressourcen in der Cloud befinden und einige weiterhin lokal sind. Dank dieses hybriden Ansatzes können Organisationen nicht nur einige Computerressourcen in die Cloud verlagern, sondern auch Ihre IT-Infrastruktur erweitern, ohne neue Hardware erwerben zu müssen.
 
-Bei der Implementierung dieser kombinierte Ansatz beim computing ist ein nahtloses Verfahren für Ressourcen in beiden Speicherorten für die Kommunikation mit anderen erforderlich. Azure Virtual Networking ist ein Azure-Dienste, die es ermöglicht Organisationen einen Punkt (P2P) zu erstellen oder Standort-zu-Standort (S2S) virtuelles privates Netzwerk, mit der die Ressourcen, die in Azure (z. B. virtuelle Maschinen und Speicher) suchen ausgeführt werden, als wären sie sind im lokalen Netzwerk für den Zugriff für nahtlose und Ressourcen.
+Bei der Implementierung dieses hybriden Ansatzes für das Computing ist eine nahtlose Methode für Ressourcen an beiden Standorten erforderlich, um miteinander zu kommunizieren. Azure Virtual Network ist ein Azure-Dienst, mit dem Organisationen ein virtuelles privates Netzwerk (Punkt-zu-Punkt-(P2P) oder Site-to-Site-VPN (S2S) erstellen können, mit dem die in Azure (z. b. virtuelle Computer und Speicher) laufenden Ressourcen so aussehen, als wären Sie im lokalen Netzwerk für den nahtlosen Zugriff auf Anwendungen und Ressourcen.
 
-Konfiguration von einem virtuellen Azure-Netzwerk kann komplex sein. Mit Windows Server Essentials 2016 können Sie problemlos Ihrem virtuellen Azure-Netzwerk über einen einfachen Assistenten konfigurieren, mit dem Sie die am besten geeignete Standardwerte für Ihre vernetzten Umgebung auswählen können. Wie im folgenden Screenshot gezeigt, wurde eine neue Azure Virtual Network Integration Aufgabe hinzugefügt, um die Microsoft Cloud Services-Abschnitt des Windows-Essentials-Dashboards zum Einführen von virtuellen Azure-Netzwerk sowie einen direkter Link zum Initiieren der integration .
+Die Konfiguration eines virtuellen Azure-Netzwerks kann komplex sein. Mit Windows Server Essentials 2016 können Sie Ihr virtuelles Azure-Netzwerk problemlos über einen einfachen Assistenten konfigurieren, mit dem Sie die am besten geeigneten Standardeinstellungen für Ihre Netzwerkumgebung auswählen können. Wie im folgenden Screenshot gezeigt, wurde dem Abschnitt Microsoft Cloud Services des Windows Essentials-Dashboards eine neue Azure Virtual Network-Integrationsaufgabe hinzugefügt, um virtuelle Netzwerke in Azure einzuführen und einen schnellen Link zum Initiieren der Integration bereitzustellen. .
 
-![Dieser Screenshot zeigt die Registerkarte "Erste Schritte" auf der Homepage des Windows Server Essentials-Dashboards. Klicken Sie auf der Registerkarte "Erste Schritte" Dienstabschnitt ausgewählt wurde, und im Dashboard unter Microsoft Cloud Services-Integration angegeben ist, dass Azure Virtual Network ist derzeit deaktiviert.](media/azure-virtual-network-1.PNG)
+![Ein Screenshot mit der Registerkarte "Get Started" auf der Startseite des Windows Server Essentials-Dashboards. Auf der Registerkarte "Get Started" wurde der Abschnitt Dienste ausgewählt, und das Dashboard zeigt unter Microsoft Cloud Services-Integration an, dass das virtuelle Azure-Netzwerk zurzeit deaktiviert ist.](media/azure-virtual-network-1.PNG)
 
-Beim Klicken auf die **integrieren jetzt** für virtuelle Azure-Netzwerke im Screenshot oben, verknüpfen Sie aufgefordert werden, melden Sie sich mit Ihrem Microsoft Azure-Konto ein Dialogfeld angezeigt. Wenn Sie nicht über ein Microsoft Azure-Konto verfügen, müssen Sie die Option zur Registrierung für eine auf diesem Bildschirm die Sie an das anmeldungsportal für Azure-Konto umleitet:
+Wenn Sie im obigen Screenshot auf den Link **jetzt integrieren** für virtuelle Azure-Netzwerke klicken, wird ein Dialogfeld angezeigt, in dem Sie aufgefordert werden, sich bei Ihrem Microsoft Azure Konto anzumelden. Wenn Sie nicht über ein Microsoft Azure Konto verfügen, können Sie sich auf diesem Bildschirm für eine registrieren, die Sie zum Azure-Konto für die Anmeldung umleitet:
 
-![Dieser Screenshot zeigt die Anmeldung bei Microsoft Azure-Seite des Assistenten für die Integration mit virtuellen Azure-Netzwerk.](media/azure-virtual-network-2.PNG)
+![Ein Screenshot, der die Seite anmelden bei Microsoft Azure des Assistenten zum Integrieren von virtuellen Azure-Netzwerken anzeigt](media/azure-virtual-network-2.PNG)
 
-Sobald in Azure sich anmelden, wird Ihnen angezeigt mit der Option, welches Abonnement wählen sie die virtuellen Azure-zuordnen möchten networking Dienst:
+Nachdem Sie sich bei Azure angemeldet haben, haben Sie die Möglichkeit, das Abonnement auszuwählen, das dem virtuellen Azure-Netzwerkdienst zugeordnet werden soll:
 
-![Dieser Screenshot zeigt die Seite Meine Microsoft Azure-Abonnement von der Integration in Azure Virtual Network-Assistenten.](media/azure-virtual-network-3.PNG)
+![Ein Screenshot, der die Seite Mein Microsoft Azure Abonnement des Assistenten zum Integrieren von virtuellen Azure-Netzwerken anzeigt.](media/azure-virtual-network-3.PNG)
 
-Nachdem Sie ausgewählt haben, welches Azure-Abonnement für virtuelle Azure-Netzwerken verwenden möchten Sie die Option zum Erstellen eines neuen virtuellen Azure-Netzwerks angezeigt werden oder wenn eine Installation unter diesem Abonnement bereits stattgefunden hat, zeigt die Dropdown-Feld, dass sie verfügbar ist. Sie werden auch einen Namen für das lokale Netzwerk auswählen, die im virtuellen Azure-Netzwerk zum Identifizieren von Ressourcen in Ihrem lokalen Netzwerk verwenden. Schließlich werden Sie die Azure-Region auswählen, in dem ihre virtuellen Azure-Netzwerk gehostet werden soll. Auswählen eines Speicherorts, die physisch am ehesten entsprechen Ihrem lokalen Netzwerk empfiehlt sich in der Regel zur Optimierung der Geschwindigkeit der Bandbreite für die Kommunikation mit Ressourcen, die Sie in ihrer Azure-Dienste hosten können:
+Nachdem Sie das Azure-Abonnement ausgewählt haben, das Sie für virtuelle Azure-Netzwerke verwenden möchten, erhalten Sie die Möglichkeit, ein neues virtuelles Azure-Netzwerk zu erstellen. Wenn bereits ein Abonnement unter diesem Abonnement eingerichtet wurde, wird im Dropdown Feld angezeigt, dass es verfügbar ist. Außerdem wählen Sie einen Namen für das lokale Netzwerk aus, mit dem das virtuelle Azure-Netzwerkressourcen in Ihrem lokalen Netzwerk identifizieren soll. Schließlich wählen Sie die Azure-Region aus, in der das virtuelle Azure-Netzwerk gehostet werden soll. Die Auswahl eines Orts, der sich physisch am nächsten an Ihrem lokalen Netzwerk befindet, eignet sich in der Regel zum Optimieren der Bandbreitengeschwindigkeit bei der Kommunikation mit Ressourcen, die Sie in ihren Azure-Diensten
 
-![Dieser Screenshot zeigt die legen Sie virtuelle Azure-Netzwerk-Seite des Assistenten für die Integration mit virtuellen Azure-Netzwerk.](media/azure-virtual-network-4.PNG)
+![Ein Screenshot, der die Seite Virtuelles Azure-Netzwerk einrichten des Assistenten zum Integrieren von virtuellen Azure-Netzwerken anzeigt.](media/azure-virtual-network-4.PNG)
 
-Der letzte Schritt des Integrationsprozesses ist das VPN-Gerät einrichten, das für die S2S-VPN-Verbindung verwendet werden. Da die meisten kleine Unternehmen nur einige Server in ihrer Umgebung haben und nicht über die IT-Mitarbeiter, um ein VPN-Router für Microsoft Azure die Verbindung ordnungsgemäß zu konfigurieren, wird die Standardauswahl werden auf dem Windows Server Essentials-Server als dem VPN-Server richten Sie diese Ressourcen in Ihrem lokale Netzwerk werden mit verbunden, um den Zugriff auf Ressourcen im virtuellen Azure-Netzwerk. Wenn Sie eher einen anderen Server in Ihrer Umgebung, wie der VPN-Server verwenden würden, oder Sie stattdessen ein VPN-Router verwenden, können Sie jedoch, diese Optionen auswählen.
+Der letzte Schritt des Integrationsprozesses ist das Einrichten des VPN-Geräts, das für die S2S-VPN-Verbindung verwendet wird. Da die meisten kleinen Unternehmen nur wenige Server in Ihrer Umgebung haben und das IT-Personal nicht für die ordnungsgemäße Konfiguration eines VPN-Routers zum Herstellen einer Verbindung mit Microsoft Azure, besteht die Standardauswahl darin, den Windows Server Essentials-Server als VPN-Server einzurichten, auf dem Ressourcen in Ihrem lokalen Netzwerk wird eine Verbindung mit hergestellt, um auf Ressourcen im virtuellen Azure-Netzwerk zuzugreifen. Wenn Sie jedoch lieber einen anderen Server in Ihrer Umgebung als den VPN-Server verwenden oder stattdessen einen VPN-Router verwenden möchten, können Sie diese Optionen auswählen.
 
-Aufgrund der Variante in Routertypen und Modelle versucht Windows Server Essentials nicht automatisch den VPN-Router konfigurieren. Auswählen der VPN-Router in diesem Assistenten Integration benachrichtigt nur virtuelle Azure-Netzwerk des Gerätetyps für die entsprechenden routing-Konfigurationen in Azure für Verbindungen erforderlich.
+Aufgrund der Variation von Routertypen und-Modellen wird von Windows Server Essentials nicht versucht, den VPN-Router automatisch zu konfigurieren. Wenn Sie den VPN-Router in diesem Integrations-Assistenten auswählen, wird nur das virtuelle Azure-Netzwerk des Gerätetyps benachrichtigt, damit für die Konnektivität geeignete Routing Konfigurationen in Azure erforderlich sind.
 
-Nach Abschluss des Assistenten für Integration, werden eine neue Registerkarte angezeigt, auf dem Windows Server Essentials-Dashboard für virtuelle Azure-Netzwerke:
+Nach dem Abschließen des Integrations-Assistenten wird im Windows Server Essentials-Dashboard für virtuelle Azure-Netzwerke eine neue Registerkarte angezeigt:
 
-![Dieser Screenshot zeigt die Azure-VNet-Seite des Windows Server Essentials-Dashboards. Die Registerkarte "virtuelle Azure-Netzwerk" ausgewählt ist, und es wird der Status als konfigurieren.](media/azure-virtual-network-5.PNG)
+![Ein Screenshot, der die Azure-vnet-Seite des Windows Server Essentials-Dashboards anzeigt. Die Registerkarte Azure Virtual Network ist ausgewählt und zeigt den Status als Konfiguration an.](media/azure-virtual-network-5.PNG)
 
->! Beachten Sie die Konfiguration für einen virtuellen Azure-Netzwerk in der Cloud kann viel Zeit nach oben, um 30 Minuten dauern. Während dieser Zeit werden der Status der Konfigurieren von in die Azure Virtual Network-Statusseite des Dashboards vorhanden.
+>! Beachten Sie, dass das Abschließen der Konfiguration eines virtuellen Azure-Netzwerks in der Cloud eine lange Zeit in Anspruch nehmen kann, bis zu 30 Minuten. Während dieser Zeit wird der Status der Konfiguration auf der Seite Status des virtuellen Azure-Netzwerks des Dashboards angezeigt.
 
-Nach Abschluss die Konfiguration des virtuellen Azure-Netzwerks der Status ändert, verbunden und die Details Ihres virtuellen Azure-Netzwerks wie z. B. Daten in/Out "," Gateway-IP-Adresse "," lokale IP-Adresse und den Kontonamen Details anzeigen:
+Sobald die Konfiguration des virtuellen Azure-Netzwerks abgeschlossen ist, ändert sich der Status in verbunden und zeigt die Details Ihres virtuellen Azure-Netzwerks an, z. b. Daten in/out, Gateway-IP-Adresse, lokale IP-Adresse und Konto Details:
 
-![Dieser Screenshot zeigt die Azure-VNet-Seite des Windows Server Essentials-Dashboards. Die Registerkarte "virtuelle Azure-Netzwerk" ausgewählt ist, und zeigt den Status als verbunden, und die Details des virtuellen Netzwerks werden unter diese Statusinformationen angezeigt.](media/azure-virtual-network-6.PNG)
+![Ein Screenshot, der die Azure-vnet-Seite des Windows Server Essentials-Dashboards anzeigt. Die Registerkarte Azure Virtual Network ist ausgewählt und zeigt den Status verbunden an. unter diesen Statusinformationen werden die Details des virtuellen Netzwerks angezeigt.](media/azure-virtual-network-6.PNG)
 
-Im Bereich Tasks auf der rechten Seite des Dashboards sind die verschiedenen Aufgaben, die Sie mit Ihrem virtuellen Azure-Netzwerk ausführen können.
+Im Bereich Tasks auf der rechten Seite des Dashboards finden Sie die verschiedenen Aufgaben, die Sie mit Ihrem virtuellen Azure-Netzwerk durchführen können.
 
--   **Trennen von Azure-VNET** zum Einrichten eines Azure Virtual Network ist kostenlos, aber eine Gebühr für das VPN-Gateway, die eine Verbindung mit lokalen und anderen VNETs in Azure. Trennen der Verbindung aus dem Azure VNET beendet abgerechnet.
+-   Verbindung mit **Azure-vnet trennen** Das Einrichten eines virtuellen Azure-Netzwerks ist kostenlos, aber es fallen Kosten für das VPN-Gateway an, das eine Verbindung mit lokalen und anderen vnets in Azure herstellt. Durchtrennen der Verbindung mit dem Azure-vnet wird die gesamte Abrechnung beendet.
 
--   **Wechseln Sie über VPN-Gerät** den Fall, dass Sie über einen VPN-Server mit einem VPN-Router ändern möchten, diese Aufgabe können Sie wechseln, und benachrichtigen das Azure-VNET.
+-   **Über VPN-Gerät wechseln** Wenn Sie von einem VPN-Server zu einem VPN-Router wechseln möchten, können Sie mit diesem Task den Switch festlegen und das Azure-vnet benachrichtigen.
 
--   **Konfigurieren von Azure-VNET** mit diesem Task können Sie erweiterte Konfigurationsoptionen des Azure-VNETS zu ändern, indem sie auf der Seite "Azure-Portal-Konfiguration" für Azure-VNET umleiten.
+-   **Azure-vnet konfigurieren** Mit dieser Aufgabe können Sie Erweiterte Konfigurationsoptionen für das Azure-vnet ändern, indem Sie Sie auf die Seite für die Azure-Portal Konfiguration für das Azure-vnet umleiten.
 
--   **Aktualisierungsstatus** die Statusseite, aktualisieren den Status der Verbindung des Azure-VNETS, einschließlich der Daten in/out-aktualisiert.
+-   **Aktualisierungs Status** Aktualisiert die Seite Status und aktualisiert den Verbindungsstatus des Azure-vnets einschließlich der in/out-Daten.
 
--   **Azure-VNET-Integration deaktivieren** trennt die Verbindung im Azure-VNET und die Integration über das Windows Server Essentials-Dashboard entfernt. Beachten Sie dies nicht das Azure-VNET gelöscht, die Einstellungen werden in Azure weiterhin beibehalten, wenn Sie Azure-VNET mit dem Dashboard später erneut integrieren möchten.
+-   **Deaktivieren von Azure-VNET-Integration** Trennt die Verbindung mit dem Azure-vnet und entfernt die Integration aus dem Windows Server Essentials-Dashboard. Beachten Sie, dass das Azure-vnet nicht gelöscht wird. die Einstellungen bleiben in Azure weiterhin erhalten, wenn Sie das Azure-vnet später erneut in das Dashboard integrieren möchten.
 
--   **Erfahren Sie mehr über Azure-VNET** [ https://azure.microsoft.com/services/virtual-network/ ](https://azure.microsoft.com/services/virtual-network/).
+-   **Erfahren Sie mehr über Azure vnet** [https://azure.microsoft.com/services/virtual-network/](https://azure.microsoft.com/services/virtual-network/).
 
 <a name="see-also"></a>Siehe auch
 --------

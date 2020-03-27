@@ -10,18 +10,18 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a35164e1-11ad-47c8-9843-580d30c70d07
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 2175cf9c740d7b727ba017922a77c94d4379c891
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: b2fa8ff6742dc393a5a2cc962c7f849049b5ef31
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355276"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312421"
 ---
 # <a name="edit-a-dns-zone"></a>Bearbeiten einer DNS-Zone
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Sie können dieses Thema verwenden, um eine DNS-Zone in der IPAM-Client Konsole zu bearbeiten.  
   
@@ -49,7 +49,7 @@ Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist d
   
     ![DNS-Zone bearbeiten](../../media/Edit-a-DNS-Zone/ipam_EditZone_02.jpg)  
   
-6.  Das Dialogfeld **DNS-Zone bearbeiten** wird geöffnet, und die Seite **Allgemein** ist ausgewählt. Bearbeiten Sie bei Bedarf die allgemeinen Zonen Eigenschaften: **DNS-Server**, **Zonen Kategorie**und **Zonentyp**, und klicken Sie dann auf **anwenden** , oder wenn Ihre Bearbeitung **fertig ist**  
+6.  Das Dialogfeld **DNS-Zone bearbeiten** wird geöffnet, und die Seite **Allgemein** ist ausgewählt. Bearbeiten Sie ggf. die allgemeinen Zonen Eigenschaften: **DNS-Server**, **Zonen Kategorie**und **Zonentyp**, und klicken Sie dann auf **anwenden** , oder wenn Ihre Bearbeitung vollständig ist, klicken Sie auf über **nehmen.**  
   
     ![Zonen Eigenschaften bearbeiten und speichern](../../media/Edit-a-DNS-Zone/ipam_EditZone_03a.jpg)  
   
@@ -59,7 +59,7 @@ Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist d
   
 8.  Wählen Sie bei Bedarf die Eigenschaften der zusätzlichen Zonen Eigenschaften aus (Namen Server, SOA, Zonenübertragungen), nehmen Sie die Änderungen vor, und klicken **Sie auf über** nehmen oder **OK**. Klicken Sie auf **Zusammenfassung**, und klicken Sie dann auf **OK**, um alle Änderungen an der Zone zu überprüfen.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [DNS-Zonenverwaltung](DNS-Zone-Management.md)  
 [Verwalten von IPAM](Manage-IPAM.md)  
   

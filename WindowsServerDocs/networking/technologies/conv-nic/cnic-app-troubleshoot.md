@@ -6,18 +6,18 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 0bc6746f-2adb-43d8-a503-52f473833164
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 297044397088bfb64b51e1553d3f69d5b933e81b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: c20c21c39e44d7eb3da812bbe71f175d0688d6c0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405910"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309655"
 ---
 # <a name="troubleshooting-converged-nic-configurations"></a>Problembehandlung bei zusammen getauschten NIC
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Mithilfe des folgenden Skripts können Sie überprüfen, ob die RDMA-Konfiguration auf dem Hyper-V-Host korrekt ist.
 
@@ -82,7 +82,7 @@ Die Host-vNIC sollte auch als RDMA-fähig aus der Perspektive von SMB angezeigt 
 
 ## <a name="get-netadapterqos"></a>Get-netadapterqos
 
-Sie können die Quality of Service \(QoS\) -Konfiguration des Netzwerkadapters anzeigen, indem Sie den folgenden Windows PowerShell-Befehl ausführen.
+Mit dem folgenden Windows PowerShell-Befehl können Sie die Quality of Service \(QoS-\) Konfiguration des Netzwerkadapters anzeigen.
 
     Get-NetAdapterQos
 
@@ -96,14 +96,14 @@ Die Prioritäten und die Datenverkehrs Klassen sollten gemäß dem ersten Konfig
 
 Wenn die Ergebnisse unerwartet ausfallen, führen Sie die folgenden Schritte aus.
 
-1. Stellen Sie sicher, dass der physische Netzwerkadapter Rechen \(Zentrums Bridging\) DCB und QoS unterstützt.
+1. Stellen Sie sicher, dass der physische Netzwerkadapter Data Center Bridging \(DCB\) und QoS unterstützt.
 2. Stellen Sie sicher, dass die Treiber für Netzwerkadapter auf dem neuesten Stand sind.
 
 --- 
 
 ## <a name="get-smbmultichannelconnection"></a>Get-smbmultichannelconnection
 
-Mit dem folgenden Windows PowerShell-Befehl können Sie überprüfen, ob die IP-Adresse des Remote Knotens RDMA\--fähig ist.
+Mit dem folgenden Windows PowerShell-Befehl können Sie überprüfen, ob die IP-Adresse des Remote Knotens RDMA\-fähig ist.
 
     Get-SmbMultiChannelConnection
 
@@ -125,7 +125,7 @@ Wenn die Ergebnisse unerwartet ausfallen, führen Sie die folgenden Schritte aus
 
 ## <a name="get-smbclientnetworkinterface"></a>Get-smbclientnetworkinterface
 
-Mit dem folgenden Befehl können Sie überprüfen, ob die für RDMA aktivierte virtuelle NIC als RDMA\--fähig von SMB gemeldet wird.
+Sie können den folgenden Befehl verwenden, um zu überprüfen, ob die für RDMA aktivierte virtuelle NIC als RDMA-\-von SMB-fähig gemeldet wird.
 
     Get-SmbClientNetworkInterface
 
@@ -145,9 +145,9 @@ Wenn die Ergebnisse unerwartet ausfallen, führen Sie die folgenden Schritte aus
 
 --- 
 
-## <a name="vstat-mellanox-specific"></a>vstat \(Mellanox-spezifisch\)
+## <a name="vstat-mellanox-specific"></a>vstat \(Mellanox-spezifische\)
 
-Wenn Sie Mellanox-Netzwerkadapter verwenden, können Sie den **vstat** -Befehl verwenden, um die RDMA over converdown \(Ethernet ROCE\) -Version auf Hyper-V-Knoten zu überprüfen.
+Wenn Sie Mellanox-Netzwerkadapter verwenden, können Sie den Befehl " **vstat** " verwenden, um die RDMA-über konvergierte Ethernet-\(ROCE-\) Version auf Hyper-V-Knoten zu überprüfen.
 
 ### <a name="vstat-expected-results"></a>erwartete vstat-Ergebnisse
 

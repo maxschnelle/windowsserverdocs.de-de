@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ''
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 6f4c727dc8f7905502d47119bd0e911537e827aa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 9c71ef26f9e4ba5d20705827109d9ad22fe5c7ab
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404878"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308892"
 ---
 # <a name="step-1-plan-the-basic-directaccess-infrastructure"></a>Schritt 1 Planen der grundlegenden DirectAccess-Infrastruktur
 Der erste Schritt bei einer einfachen DirectAccess-Bereitstellung auf einem einzelnen Server ist die Planung der Infrastruktur, die für die Bereitstellung erforderlich ist. In diesem Thema werden die Schritte zur Planung der Infrastruktur beschrieben:  
@@ -33,7 +33,7 @@ Der erste Schritt bei einer einfachen DirectAccess-Bereitstellung auf einem einz
   
 Diese Planungsaufgaben müssen nicht in einer bestimmten Reihenfolge durchgeführt werden.  
   
-## <a name="bkmk_1_1_Network_svr_top_settings"></a>Planen der Netzwerktopologie und-Einstellungen  
+## <a name="plan-network-topology-and-settings"></a><a name="bkmk_1_1_Network_svr_top_settings"></a>Planen der Netzwerktopologie und-Einstellungen  
   
 ### <a name="plan-network-adapters-and-ip-addressing"></a>Planen von Netzwerkadaptern und IP-Adressierung  
   
@@ -56,16 +56,16 @@ Diese Planungsaufgaben müssen nicht in einer bestimmten Reihenfolge durchgefüh
     ||Externer Netzwerkadapter|Interner Netzwerkadapter<sup>1</sup>|Routinganforderungen|  
     |-|--------------|--------------------|------------|  
     |IPv4-Intranet und IPv4-Internet|Konfigurieren Sie Folgendes:<br /><br />-Eine statische öffentliche IPv4-Adresse mit der entsprechenden Subnetzmaske.<br />-Eine Standard Gateway-IPv4-Adresse Ihrer Internet Firewall oder eines lokalen Internetdienstanbieters \(ISP\) Router.|Konfigurieren Sie Folgendes:<br /><br />: Eine IPv4-Intranetadresse mit der entsprechenden Subnetzmaske.<br />: Eine Verbindung\-bestimmtes DNS-Suffix des Intranetnamespaces. Zudem sollte ein DNS-Server auf der internen Schnittstelle konfiguriert werden.<br />-Konfigurieren Sie kein Standard Gateway auf Intranetschnittstellen.|Gehen Sie wie folgt vor, um den DirectAccess-Server so zu konfigurieren, dass er alle Subnetze auf dem internen IPv4-Netzwerk erreicht:<br /><br />1. Listen Sie die IPv4-Adressbereiche für alle Speicherorte im Intranet auf.<br />2. verwenden Sie den Befehl **Route Add \-p** oder **Netsh Interface IPv4 Add Route** , um die IPv4-Adressbereiche als statische Routen in der IPv4-Routing Tabelle des DirectAccess-Servers hinzuzufügen.|  
-    |IPv6-Internet und IPv6-Intranet|Konfigurieren Sie Folgendes:<br /><br />-Verwenden Sie die automatisch konfigurierte Adress Konfiguration, die von Ihrem ISP bereitgestellt wird.<br />Verwenden Sie den Befehl **Route Print** , um sicherzustellen, dass in der IPv6-Routing Tabelle eine IPv6-Standardroute vorhanden ist, die auf den ISP-Router zeigt.<br />: Bestimmen Sie, ob der ISP-und der Intranetrouter in RFC 4191 beschriebene Standard Router-Einstellungen verwenden, und verwenden Sie eine höhere Standardeinstellung als ihre lokalen Intranetrouter. Wenn beide Fälle zutreffen, ist keine weitere Konfiguration für die Standardroute erforderlich. Die höhere Präferenz für den ISP-Router stellt sicher, dass die aktive IPv6-Standardroute des DirectAccess-Servers auf das IPv6-Internet zeigt.<br /><br />Wenn Sie über eine systemeigene IPv6-Infrastruktur verfügen, kann die Internetschnittstelle außerdem auch die Domänencontroller im Intranet erreichen, da der DirectAccess-Server ein IPv6-Router ist. Fügen Sie in diesem Fall Paketfilter zum Domänen Controller im Umkreis Netzwerk hinzu, die Konnektivität mit der IPv6-Adresse der Internet\-Schnittstelle des DirectAccess-Servers verhindern.|Konfigurieren Sie Folgendes:<br /><br />Wenn Sie keine Standard Einstellungsebenen verwenden, konfigurieren Sie Ihre Intranetschnittstellen mit dem Befehl **Netsh Interface IPv6 Set interfakeindex ignoredefaultroutes\=aktiviert** . Dieser Befehl stellt sicher, dass der IPv6-Routingtabelle keine weiteren Standardrouten hinzugefügt werden, die auf Intranetrouter zeigen. Den Schnittstellenindex Ihrer Intranetschnittstellen können Sie mit dem Befehl "netsh interface show interface" anzeigen.|Wenn Sie ein IPv6-Intranet haben, führen Sie folgende Schritte aus, um den DirectAccess-Server so zu konfigurieren, dass er alle IPv6-Speicherorte erreicht:<br /><br />1. Listen Sie die IPv6-Adressräume für alle Speicherorte im Intranet auf.<br />2. verwenden Sie den Befehl **Netsh Interface IPv6 Add Route** , um die IPv6-Adressbereiche als statische Routen in der IPv6-Routing Tabelle des DirectAccess-Servers hinzuzufügen.|  
+    |IPv6-Internet und IPv6-Intranet|Konfigurieren Sie Folgendes:<br /><br />-Verwenden Sie die automatisch konfigurierte Adress Konfiguration, die von Ihrem ISP bereitgestellt wird.<br />Verwenden Sie den Befehl **Route Print** , um sicherzustellen, dass in der IPv6-Routing Tabelle eine IPv6-Standardroute vorhanden ist, die auf den ISP-Router zeigt.<br />: Bestimmen Sie, ob der ISP-und der Intranetrouter in RFC 4191 beschriebene Standard Router-Einstellungen verwenden, und verwenden Sie eine höhere Standardeinstellung als ihre lokalen Intranetrouter. Wenn beide Fälle zutreffen, ist keine weitere Konfiguration für die Standardroute erforderlich. Die höhere Präferenz für den ISP-Router stellt sicher, dass die aktive IPv6-Standardroute des DirectAccess-Servers auf das IPv6-Internet zeigt.<br /><br />Wenn Sie über eine systemeigene IPv6-Infrastruktur verfügen, kann die Internetschnittstelle außerdem auch die Domänencontroller im Intranet erreichen, da der DirectAccess-Server ein IPv6-Router ist. Fügen Sie in diesem Fall Paketfilter zum Domänen Controller im Umkreis Netzwerk hinzu, die Konnektivität mit der IPv6-Adresse der Internet\-Schnittstelle des DirectAccess-Servers verhindern.|Konfigurieren Sie Folgendes:<br /><br />Wenn Sie keine Standard Einstellungsebenen verwenden, konfigurieren Sie Ihre Intranetschnittstellen mit dem Befehl **Netsh Interface IPv6 Set interfakeindex ignoredefaultroutes\=aktiviert** . Dieser Befehl stellt sicher, dass der IPv6-Routingtabelle keine weiteren Standardrouten hinzugefügt werden, die auf Intranetrouter zeigen. Den SchnittstellenIndex Ihrer Intranetschnittstellen können Sie mit dem Befehl netsh interface show interface anzeigen.|Wenn Sie ein IPv6-Intranet haben, führen Sie folgende Schritte aus, um den DirectAccess-Server so zu konfigurieren, dass er alle IPv6-Speicherorte erreicht:<br /><br />1. Listen Sie die IPv6-Adressräume für alle Speicherorte im Intranet auf.<br />2. verwenden Sie den Befehl **Netsh Interface IPv6 Add Route** , um die IPv6-Adressbereiche als statische Routen in der IPv6-Routing Tabelle des DirectAccess-Servers hinzuzufügen.|  
     |IPv4-Internet und IPv6-Intranet|Der DirectAccess-Server leitet den Datenverkehr für die Standard-IPv6-Route mit dem Microsoft-IP6-zu-IP4-Adapter an ein IP6-zu-IP4-Relay im IPv4-Internet weiter. Sie können einen DirectAccess-Server für die IPv4-Adresse des Microsoft IPv6-zu-IPv4-Relay im IPv4-Internet \(konfigurieren, das verwendet wird, wenn System eigenes IPv6 nicht im Unternehmensnetzwerk\) bereitgestellt wird. verwenden Sie dazu den folgenden Befehl: Netsh Interface IPv6 6zu 4 Set Relay Name\=192.88.99.1 State\=aktivierter Befehl.|||  
   
     > [!NOTE]  
-    > Hinweis:  
+    > Beachten Sie Folgendes:  
     >   
     > 1.  Wenn dem DirectAccess-Client eine öffentliche IPv4-Adresse zugewiesen wurde, verwendet diese die IP6-zu-IP4-Übergangstechnologie für die Verbindung mit dem Internet. Wenn der DirectAccess-Client mit IPv6-zu-IPv4 keine Verbindung mit dem DirectAccess-Server herstellen kann, wird IP\-HTTPS verwendet.  
     > 2.  Systemeigene IPv6-Clientcomputer können über eine systemeigene IPv6 eine Verbindung zum DirectAccess-Server herstellen, und es ist keine Übergangstechnologie erforderlich.  
   
-### <a name="ConfigFirewalls"></a>Planen der Firewallanforderungen  
+### <a name="plan-firewall-requirements"></a><a name="ConfigFirewalls"></a>Planen der Firewallanforderungen  
 Wenn sich der DirectAccess-Server hinter einer Edge-Firewall befindet, sind folgende Ausnahmen für DirectAccess-Datenverkehr erforderlich, wenn sich der DirectAccess-Server auf dem IPv4-Internet befindet:  
   
 -   IPv6-zu-IPv4-Datenverkehr-IP-Protokoll 41 eingehend und ausgehend.  
@@ -89,7 +89,7 @@ Wenden Sie bei zusätzlichen Firewalls die folgenden internen Netzwerkfirewallau
   
 -   TCP-\/UDP für den gesamten IPv4-\/IPv6-Datenverkehr  
   
-### <a name="bkmk_1_2_CAs_and_certs"></a>Planen der Zertifikat Anforderungen  
+### <a name="plan-certificate-requirements"></a><a name="bkmk_1_2_CAs_and_certs"></a>Planen der Zertifikat Anforderungen  
 Zertifikatanforderungen für IPsec beinhalten ein Computerzertifikat, das von DirectAccess-Clientcomputern verwendet wird, wenn diese die IPsec-Verbindung zwischen dem Client und dem DirectAccess-Server herstellen, und einem Computerzertifikat, das von DirectAccess-Servern für das Aufbauen von IPsec-Verbindungen mit DirectAccess-Clients verwendet wird. Für DirectAccess in Windows Server 2012 R2 und Windows Server 2012 ist die Verwendung dieser IPSec-Zertifikate nicht obligatorisch. Der Assistent für erste Schritte konfiguriert den DirectAccess-Server als Kerberos-Proxy, damit die IPsec-Authentifizierung ohne erforderliche Zertifikate durchgeführt werden kann.
   
 1.  **IP-\-HTTPS-Server**. Wenn Sie DirectAccess konfigurieren, wird der DirectAccess-Server automatisch als IP-\-HTTPS-Weblistener konfiguriert. Die IP-\-HTTPS-Website erfordert ein Website Zertifikat, und Client Computer müssen in der Lage sein, eine Verbindung mit der Zertifikat Sperr Liste \(CRL-\) Standort für das Zertifikat zu erhalten. Der Assistent zum Aktivieren von DirectAccess versucht, das SSTP VPN-Zertifikat zu verwenden. Wenn SSTP nicht konfiguriert ist, prüft er, ob im persönlichen Speicher des Computers ein Zertifikat für IP\-HTTPS vorhanden ist. Wenn keine verfügbar ist, wird automatisch ein selbst\-signiertes Zertifikat erstellt.
@@ -104,7 +104,7 @@ Die einzelnen Zertifikatanforderungen werden in der folgenden Tabelle zusammenge
 ||Interne Zertifizierungsstelle: Sie können eine interne Zertifizierungsstelle zum Ausstellen des IP-\-HTTPS-Zertifikats verwenden. Sie müssen jedoch sicherstellen, dass der CRL-Verteilungs Punkt extern verfügbar ist.|Selbst\-signiertes Zertifikat: Sie können ein selbst\-signiertes Zertifikat für die Netzwerkadressen Server-Website verwenden. Es ist jedoch nicht möglich, ein selbst\-signiertes Zertifikat in bereit Stellungen mit mehreren Standorten zu verwenden.|  
 ||Selbst\-signiertes Zertifikat: Sie können ein selbst\-signiertes Zertifikat für den IP-\-HTTPS-Server verwenden; Sie müssen jedoch sicherstellen, dass der CRL-Verteilungs Punkt extern verfügbar ist. Ein selbst\-signiertes Zertifikat kann nicht in einer Bereitstellung für mehrere Standorte verwendet werden.||  
   
-#### <a name="bkmk_website_cert_IPHTTPS"></a>Planen von Zertifikaten für IP\-HTTPS und den Netzwerkadressen Server  
+#### <a name="plan-certificates-for-ip-https-and-network-location-server"></a><a name="bkmk_website_cert_IPHTTPS"></a>Planen von Zertifikaten für IP\-HTTPS und den Netzwerkadressen Server  
 Wenn Sie zu diesem Zweck ein Zertifikat bereistellen möchten, finden Sie dazu unter [Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen](../single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md) weitere Informationen. Wenn keine Zertifikate verfügbar sind, erstellt der Assistent für die ersten Schritte automatisch selbst\-signierte Zertifikate für diese Zwecke.
   
 > [!NOTE]
@@ -146,14 +146,14 @@ In einer DirectAccess-Bereitstellung ist DNS für Folgendes erforderlich:
 > [!NOTE]  
 > Es wird nicht empfohlen, DNS-Server zu verwenden, auf denen Windows Server 2003 ausgeführt wird, wenn Sie DirectAccess bereitstellen. Windows Server 2003-DNS-Server unterstützen zwar IPv6-Datensätze, doch Windows Server 2003 wird nicht mehr von Microsoft unterstützt. Darüber hinaus sollten Sie DirectAccess nicht bereitstellen, wenn auf Ihren Domänencontrollern Windows Server 2003 aufgrund eines Problems mit dem Dateireplikationsdienst ausgeführt wird. Weitere Informationen finden Sie unter [DirectAccess: nicht unterstützte Konfigurationen](../DirectAccess-Unsupported-Configurations.md).  
   
-### <a name="bkmk_1_4_NLS"></a>Planen des Netzwerkadressen Servers  
+### <a name="plan-the-network-location-server"></a><a name="bkmk_1_4_NLS"></a>Planen des Netzwerkadressen Servers  
 Der Netzwerkadressenserver ist eine Website, die erkennt, ob sich DirectAccess-Clients im Unternehmensnetzwerk befinden. Clients im Unternehmensnetzwerk verwenden kein DirectAccess, um interne Ressourcen zu erreichen, stattdessen stellen Sie direkt eine Verbindung her.  
   
 Der Assistent für erste Schritte richtet den Netzwerkadressenserver auf dem DirectAccess-Server automatisch ein und die Website wird beim Bereitstellen von DirectAccess automatisch erstellt. So ist eine einfach Installation möglich, ohne eine Zertifikatinfrastruktur verwenden zu müssen.
   
 Wenn Sie einen Netzwerkadressen Server bereitstellen und keine selbst\-signierten Zertifikate verwenden möchten, finden Sie unter Bereitstellen [eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen](../single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md)Weitere Informationen.
   
-### <a name="bkmk_1_6_AD"></a>Plan Active Directory  
+### <a name="plan-active-directory"></a><a name="bkmk_1_6_AD"></a>Plan Active Directory  
 DirectAccess verwendet Active Directory und Active Directory Gruppenrichtlinien Objekte wie folgt:
   
 -   **Authentifizierung**. Active Directory wird für die Authentifizierung verwendet. Der DirectAccess-Tunnel verwendet für den Benutzer die Kerberos-Authentifizierung, um auf interne Ressourcen zuzugreifen.
@@ -184,7 +184,7 @@ Bei der Planung von Active Directory für eine DirectAccess-Bereitstellung ist F
 > - Der DirectAccess-Server kann nicht als Domänencontroller verwendet werden.  
 > - Der für DirectAccess verwendete Active Directory Domänen Controller darf nicht vom externen Internet Adapter des DirectAccess-Servers aus erreichbar sein \(der Adapter darf sich nicht im Domänen Profil der Windows-Firewall\)befinden.  
   
-### <a name="bkmk_1_7_GPOs"></a>Planen von Gruppenrichtlinie Objekten  
+### <a name="plan-group-policy-objects"></a><a name="bkmk_1_7_GPOs"></a>Planen von Gruppenrichtlinie Objekten  
 Die beim Konfigurieren von DirectAccess konfigurierten DirectAccess-Einstellungen werden in Gruppenrichtlinien Objekten \(GPO\)erfasst. Die beiden Gruppenrichtlinienobjekte werden mit DirectAccess-Einstellungen aufgefüllt und wie folgt verteilt:  
   
 -   **DirectAccess-Client-Gruppenrichtlinienobjekt**. Dieses Gruppenrichtlinienobjekt enthält die Client-Einstellungen, einschließlich der Einstellungen für die IPv6-Übergangstechnologie, der Einträge in der Richtlinientabelle für die Namensauflösung und der Verbindungssicherheitsregeln für die Windows-Firewall mit erweiterter Sicherheit. Das Gruppenrichtlinienobjekt wird auf die für die Clientcomputer angegebenen Sicherheitsgruppen angewendet.  
@@ -250,7 +250,7 @@ In der **DirectAccess-Verwaltung** wird die folgende Fehlermeldung angezeigt: **
   
 3.  In der angezeigten Fehlermeldung werden Sie darauf hingewiesen, dass das Gruppenrichtlinienobjekt nicht gefunden werden konnte. Klicken Sie auf **Konfigurationseinstellungen entfernen**. Nach Abschluss des Abschlusses wird der Server in einen nicht-\-konfigurierten Zustand wieder hergestellt.  
   
-### <a name="BKMK_Links"></a>Nächster Schritt  
+### <a name="next-step"></a><a name="BKMK_Links"></a>Nächster Schritt  
   
 -   [Schritt 2: Planen der grundlegenden DirectAccess-Bereitstellung](da-basic-plan-s2-deployment.md)  
   

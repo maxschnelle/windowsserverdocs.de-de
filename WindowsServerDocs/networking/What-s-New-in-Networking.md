@@ -5,14 +5,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: get-started-article
 ms.assetid: 08fb7563-d319-48a9-b181-ca0ca3032c18
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: da2166d28edda5662797824d9b26ad930f51083c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 35c3c3b2610918e8b0fd69ccf04422e3f6df4d0e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406755"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318541"
 ---
 # <a name="whats-new-in-networking"></a>Was ist neu in Netzwerken
 
@@ -25,7 +25,7 @@ Im folgenden finden Sie die neuen oder verbesserten Netzwerktechnologien in Wind
   
 -   [Neue Features für zusätzliche Netzwerktechnologien](#bkmk_existing)  
   
-## <a name="bkmk_features"></a>Neue Netzwerk Features und-Technologien
+## <a name="new-networking-features-and-technologies"></a><a name="bkmk_features"></a>Neue Netzwerk Features und-Technologien
 
 Der Netzwerkbetrieb ist ein grundlegender Bestandteil der Plattform für die Software-Defined Datacenter (SDDC), und Windows Server 2016 bietet neue und verbesserte Sdn-Technologien (Software Defined Networking), mit denen Sie zu einer vollständig erkannten SDDC-Lösung für Ihre Organisation wechseln können.  
   
@@ -70,30 +70,30 @@ Die folgenden Grundlagen der Cloud sind jetzt verfügbar.
   
 -   **Paket direkt**.  Paket Direct bietet einen hohen Durchsatz für den Netzwerk Datenverkehr und eine Paket Verarbeitungs Infrastruktur mit niedriger Latenz.  
   
--   **Switch Embedded Teaming (Set)** .        Set ist eine NIC-Team Vorgangs Lösung, die in den virtuellen Hyper-V-Switch integriert ist. Set ermöglicht das Team Vorgang von bis zu acht physischen NICs in ein einzelnes Set-Team, das die Verfügbarkeit verbessert und Failover bereitstellt. In Windows Server 2016 können Sie Set-Teams erstellen, die auf die Verwendung von Server Message Block (SMB) und RDMA beschränkt sind. Außerdem können Sie Set Teams zum Verteilen von Netzwerk Datenverkehr für die Hyper-V-Netzwerkvirtualisierung verwenden. Weitere Informationen finden Sie unter [Remote Zugriff auf den direkten Speicher &#40;RDMA&#41; und Switch Embedded Teaming &#40;Set&#41;](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
+-   **Switch Embedded Teaming (Set)** .        Set ist eine NIC-Team Vorgangs Lösung, die in den virtuellen Hyper-V-Switch integriert ist. Set ermöglicht das Team Vorgang von bis zu acht physischen NICs in ein einzelnes Set-Team, das die Verfügbarkeit verbessert und Failover bereitstellt. In Windows Server 2016 können Sie Set-Teams erstellen, die auf die Verwendung von Server Message Block (SMB) und RDMA beschränkt sind. Außerdem können Sie Set Teams zum Verteilen von Netzwerk Datenverkehr für die Hyper-V-Netzwerkvirtualisierung verwenden. Weitere Informationen finden Sie unter [Remote Direct Memory Access &#40;RDMA&#41; und Switch Embedded Teaming &#40;Set&#41;](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
   
-## <a name="bkmk_existing"></a>Neue Features für zusätzliche Netzwerktechnologien
+## <a name="new-features-for-additional-networking-technologies"></a><a name="bkmk_existing"></a>Neue Features für zusätzliche Netzwerktechnologien
 
 Dieser Abschnitt enthält Informationen zu neuen Features für vertraute Netzwerktechnologien.
   
-## <a name="bkmk_dhcp"></a>KONFIGURIERT  
+## <a name="dhcp"></a><a name="bkmk_dhcp"></a>Konfiguriert  
 DHCP ist ein IETF (Internet Engineering Task Force)-Standard, der den Verwaltungsaufwand und die Komplexität beim Konfigurieren von Hosts in einem TCP/IP-basierten Netzwerk, wie z. B. einem privaten Intranet, reduziert. Der DHCP-Serverdienst führt den Konfigurationsprozess für TCP/IP auf DHCP-Clients automatisch durch.  
   
 Weitere Informationen finden Sie unter [Neues in DHCP](technologies/dhcp/What-s-New-in-DHCP.md).  
   
-## <a name="bkmk_dns"></a>DNS-  
+## <a name="dns"></a><a name="bkmk_dns"></a>DNS-  
 Bei DNS handelt es sich um ein System, das in TCP/IP-Netzwerke zum Benennen von Computern und Netzwerkdiensten verwendet wird. Die DNS-Namensgebung sucht Computer und Dienste über benutzerfreundliche Namen. Wenn ein Benutzer in einer App einen DNS-Namen eingibt, können die DNS-Dienste den Namen in andere dem Namen entsprechende Informationen auflösen, z. B. in eine IP-Adresse.  
   
 Im folgenden finden Sie Informationen zum DNS-Client und DNS-Server.  
   
-### <a name="bkmk_dnsc"></a>DNS-Client  
+### <a name="dns-client"></a><a name="bkmk_dnsc"></a>DNS-Client  
 Im folgenden finden Sie die neuen oder verbesserten DNS-Client Technologien.  
   
 -   **DNS-Client Dienst Bindung**. In Windows 10 bietet der DNS-Client Dienst eine verbesserte Unterstützung für Computer mit mehr als einer Netzwerkschnittstelle.  
   
 Weitere Informationen finden Sie unter [What es New in DNS Client in Windows Server 2016](dns/What-s-New-in-DNS-Client.md) .  
   
-### <a name="bkmk_dnss"></a>DNS-Server  
+### <a name="dns-server"></a><a name="bkmk_dnss"></a>DNS-Server  
 Im folgenden finden Sie die neuen oder verbesserten DNS-Server Technologien.  
   
 -   **DNS-Richtlinien**  Sie können DNS-Richtlinien konfigurieren, um anzugeben, wie ein DNS-Server auf DNS-Abfragen antwortet. DNS-Antworten können auf der Client-IP-Adresse (Speicherort), der Tageszeit und mehreren anderen Parametern basieren. DNS-Richtlinien ermöglichen standortabhängige DNS, Datenverkehrs Verwaltung, Lastenausgleich, Split-Brain-DNS und andere Szenarien.  
@@ -118,17 +118,17 @@ Im folgenden finden Sie die neuen oder verbesserten DNS-Server Technologien.
   
 Weitere Informationen finden Sie unter [What es New in DNS Server in Windows Server 2016](dns/What-s-New-in-DNS-Server.md) .  
   
-## <a name="bkmk_GRE"></a>GRE-Tunnelung  
+## <a name="gre-tunneling"></a><a name="bkmk_GRE"></a>GRE-Tunnelung  
 RAS-Gateway unterstützt jetzt allgemeine hoch Verfügbarkeits Tunnel für Site-to-Site-Verbindungen und M + N-Redundanz von Gateways. GRE ist ein einfaches Tunneling-Protokoll, das eine Vielzahl von Protokollen der Vermittlungsschicht in virtuellen Point-to-Point-Links über ein IP-Internetwork kapseln kann.  
   
 Weitere Informationen finden Sie unter [GRE tunnelingin Windows Server 2016](../remote/remote-access/ras-gateway/gre-tunneling-windows-server.md).  
   
-## <a name="HNV"></a>Hyper-V-Netzwerkvirtualisierung  
+## <a name="hyper-v-network-virtualization"></a><a name="HNV"></a>Hyper-V-Netzwerkvirtualisierung  
 Hyper-v Network Virtualization (HNV) wurde in Windows Server 2012 eingeführt und ermöglicht die Virtualisierung von Kunden Netzwerken auf der Grundlage einer gemeinsam genutzten physischen Netzwerkinfrastruktur. Bei minimalen Änderungen, die auf dem physischen netzwerkfabric erforderlich sind, bietet HNV Dienstanbietern die Flexibilität, mandantenworkloads überall in den drei Clouds bereitzustellen und zu migrieren: die Dienstanbieter-Cloud, die Private Cloud oder die Microsoft Azure Public Cloud.  
   
 Weitere Informationen finden Sie unter [Neues bei der Hyper-V-Netzwerkvirtualisierung unter Windows Server 2016](sdn/technologies/hyper-v-network-virtualization/whats-new-hyperv-network-virtualization-windows-server.md) .  
   
-## <a name="bkmk_ipam"></a>IPAM  
+## <a name="ipam"></a><a name="bkmk_ipam"></a>IPAM  
 IPAM bietet hochgradig anpassbare Verwaltungs-und Überwachungsfunktionen für die IP-Adresse und die DNS-Infrastruktur in einem Unternehmensnetzwerk. Mithilfe von IPAM können Sie Server überwachen, überwachen und verwalten, auf denen DHCP (Dynamic Host Configuration-Protokoll) und Domain Name System (DNS) ausgeführt werden.  
   
 -   **Erweiterte IP-Adressverwaltung**.  

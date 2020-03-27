@@ -10,29 +10,29 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 73bff8ba-939d-40d8-b1e5-3ba3ed5439c3
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/23/2018
-ms.openlocfilehash: 80f1319c1abc845d7e63a2d53868bf7a3c381019
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a12d9a1ea953b587918fed8367ee21626697e256
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406101"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309887"
 ---
 # <a name="configure-the-software-load-balancer-for-load-balancing-and-network-address-translation-nat"></a>Konfigurieren des Software Load Balancers für den Lastenausgleich und Netzwerkadressenübersetzung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-In diesem Thema erfahren Sie, wie Sie den Software- \(defined Networking-Sdn\) -Software Lastenausgleich \(-\) \(SLB verwenden, um die NAT\)für ausgehende Netzwerkadressen bereitzustellen. eingehender NAT-oder Lastenausgleich zwischen mehreren Instanzen einer Anwendung.
+In diesem Thema erfahren Sie, wie Sie die Software-Defined Networking \(Sdn\) Software Load Balancer \(SLB\) verwenden, um ausgehende Netzwerk Adressübersetzung \(NAT-\), eingehende NAT oder einen Lastenausgleich zwischen mehreren Anwendungs Instanzen bereitzustellen.
 
 ## <a name="software-load-balancer-overview"></a>Übersicht über Software Load Balancer
 
-Die Sdn-Software \(Load Balancer SLB\) bietet Hochverfügbarkeit und Netzwerkleistung für Ihre Anwendungen. Dabei handelt es sich um \(einen Layer 4\) -TCP-, UDP-Lastenausgleich, der eingehenden Datenverkehr auf fehlerfreie Dienst Instanzen in Cloud Services oder virtuellen Computern verteilt, die in einer Lasten Ausgleichs Gruppe definiert sind.
+Der Sdn-Software Load Balancer \(SLB-\) bietet Hochverfügbarkeit und Netzwerkleistung für Ihre Anwendungen. Dabei handelt es sich um eine Schicht 4 \(TCP, UDP\) Load Balancer, der den eingehenden Datenverkehr auf fehlerfreie Dienst Instanzen in Cloud Services oder virtuellen Computern verteilt, die in einer Lasten Ausgleichs Gruppe definiert sind.
 
 Konfigurieren Sie SLB für folgende Aufgaben:
 
-- Lastenausgleich für eingehenden Datenverkehr außerhalb eines virtuellen Netzwerks mit \(virtuellen\)Computern, die auch als "öffentliche VIP-Lastenausgleich" bezeichnet werden.
+- Lastenausgleich für eingehenden Datenverkehr außerhalb eines virtuellen Netzwerks zu virtuellen Computern \(VMS\), auch als "Public VIP Load Balancing" bezeichnet.
 - Lastenausgleich für eingehenden Datenverkehr zwischen VMs in einem virtuellen Netzwerk, zwischen virtuellen Computern in Clouddiensten oder zwischen lokalen Computern und VMS in einem standortübergreifenden virtuellen Netzwerk. 
 - Weiterleiten von VM-Netzwerk Datenverkehr aus dem virtuellen Netzwerk an externe Ziele mithilfe von Network Address Translation (NAT), auch als ausgehende NAT bezeichnet.
 - Weiterleiten von externem Datenverkehr an eine bestimmte VM, auch als eingehende NAT bezeichnet.

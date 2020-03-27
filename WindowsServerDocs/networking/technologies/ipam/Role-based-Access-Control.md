@@ -10,18 +10,18 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ecdfc589-fa14-4bb3-ab7e-456ebc719385
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: cf6b8418482b606c86bac77b2790e3365e80bf5d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: dc4dc26a5079a34cdaa3d455e59f6bfb4d1f74c1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355157"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309524"
 ---
 # <a name="role-based-access-control"></a>Rollenbasierte Zugriffsteuerung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Thema enthält Informationen zur Verwendung der rollenbasierten Zugriffs Steuerung in IPAM.  
   
@@ -42,7 +42,7 @@ Sie können die Zugriffs Steuerung so konfigurieren, dass Benutzer auf die folge
   
 -   Benutzer können DNS-Ressourcen Einträge für bestimmte Zonen bearbeiten.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Verwalten von rollenbasierten Access Control mit Server-Manager](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Server-Manager.md)  
 [Verwalten von rollenbasierten Access Control mit Windows PowerShell](../../technologies/ipam/Manage-Role-Based-Access-Control-with-Windows-PowerShell.md)  
 [Verwalten von IPAM](Manage-IPAM.md)  

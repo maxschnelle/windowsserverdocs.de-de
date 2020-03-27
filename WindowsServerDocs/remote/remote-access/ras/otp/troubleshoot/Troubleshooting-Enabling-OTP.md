@@ -10,18 +10,18 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b58252ca-4c1d-4664-a3c4-7301e2121517
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: a1c18f264a6a8d263f3e9f50bc325ef97f4240af
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 2f3581451b65e96a277b23bd6808d2dea6ba45c9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366917"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313446"
 ---
 # <a name="troubleshooting-enabling-otp"></a>Problembehandlung bei der Aktivierung von OTP
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Thema enthält Informationen zur Problembehandlung bei Problemen im Zusammenhang mit dem Aktivieren der DirectAccess-OTP-Authentifizierung über das PowerShell-Cmdlet " **enable-daotpauthentication** " oder über die Remote Zugriffs-Verwaltungskonsole.
   
@@ -49,7 +49,7 @@ Für diesen Fehler gibt es drei mögliche Ursachen:
 2.  Wenn die Vorlage nicht vorhanden ist, erstellen Sie Sie wie in 3,3 Planen des Registrierungsstellen Zertifikats beschrieben. Wenn eine andere entsprechende Vorlage vorhanden ist, konfigurieren Sie DirectAccess OTP mit dem neuen Vorlagen Namen neu.  
   
 ## <a name="failed-to-enable-directaccess-otp-when-webdav-is-installed"></a>Fehler beim Aktivieren von DirectAccess OTP, wenn WebDAV installiert ist.  
-**Szenario**. Bei dem Versuch, die DirectAccess-OTP-Konfiguration in der Remote Zugriffs-Verwaltungskonsole oder mithilfe des `Enable-DAOtpAuthentication`-PowerShell-Cmdlets anzuwenden, schlägt der Vorgang fehl.  
+**Szenario**. Beim Versuch, die Konfiguration von DirectAccess OTP in der Remote Zugriffs-Verwaltungskonsole oder mithilfe des `Enable-DAOtpAuthentication` PowerShell-Cmdlets anzuwenden, schlägt der Vorgang fehl.  
   
 **Fehler** (Server Ereignisprotokoll). DirectAccess-OTP-Einstellungen können nicht angewendet werden, weil die WebDAV-IIS-Erweiterung auf dem Server ausgeführt wird. Entfernen Sie WebDAV, und wenden Sie die Einstellungen erneut an.  
   

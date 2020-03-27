@@ -10,18 +10,18 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4b9569b8-a366-43ad-a52a-b35d88a08d41
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 72109621d67a4c38760668b1eabfbe0119ec315c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 6f3cabd460a13112cce0eb93dc9ce6ec0506c10c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366981"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313464"
 ---
 # <a name="troubleshoot-an-otp-deployment"></a>Problembehandlung bei einer OTP-Bereitstellung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema wird beschrieben, wie Sie die häufigsten Fehler beheben können, die beim Konfigurieren einer Remote Zugriffs Bereitstellung mit OTP-Authentifizierung auftreten können.  
 

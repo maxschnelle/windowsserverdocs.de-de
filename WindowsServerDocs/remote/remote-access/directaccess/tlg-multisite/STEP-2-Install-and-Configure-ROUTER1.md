@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dc20b1a0-540d-4531-a176-50b87c071600
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 0c6bff2acc15b7ff90731e0113ae0d5a429c635c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 3cd73f1a5e2612f4551be1f16e49e9645c5e12c0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404801"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308734"
 ---
 # <a name="step-2-install-and-configure-router1"></a>Schritt 2 ROUTER1 installieren und Konfigurieren von
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In dieser Test Umgebungs Anleitung für mehrere Standorte stellt der Routercomputer eine IPv4-und IPv6-Brücke zwischen den Subnetzen "Corpnet" und "2-Corpnet" bereit und fungiert als Router für den IP-HTTPS-und Teredo-Datenverkehr.  
   
@@ -40,7 +40,7 @@ Installieren Sie zunächst Windows Server 2016, Windows Server 2012 R2 oder Wind
   
 1.  Starten Sie die Installation von Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 (vollständige Installation).  
   
-2.  Folgen Sie den Installationsanweisungen, und legen Sie ein sicheres Kennwort für das lokale Administratorkonto fest. Melden Sie sich beim lokalen Administratorkonto an.  
+2.  Folgen Sie den Installationsanweisungen, und legen Sie ein sicheres Kennwort für das lokale Administratorkonto fest. Melden Sie sich mit dem lokalen Administratorkonto an.  
   
 3.  Verbinden Sie ROUTER1 mit einem Netzwerk, das über Internet Zugriff verfügt, und führen Sie Windows Update aus, um die neuesten Updates für Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 zu installieren, und trennen Sie dann die Verbindung mit dem Internet.  
   
@@ -106,11 +106,11 @@ Dieser Computer ist nur für die Bereitstellung des Routings zwischen den Subnet
   
 2.  Klicken Sie in Windows-Firewall mit erweiterter Sicherheit im **Aktions** Bereich auf **Eigenschaften**.  
   
-3.  Klicken Sie im Dialogfeld **Windows-Firewall mit** erweiterter Sicherheit auf der Registerkarte **Domänen Profil** unter Firewallstatus auf **aus**.  
+3.  Klicken Sie im Dialogfeld **Windows-Firewall mit** erweiterter Sicherheit auf der Registerkarte **Domänen Profil** unter Firewallstatus auf **aus**. **Firewall state**  
   
-4.  Klicken Sie im Dialogfeld **Windows-Firewall mit** erweiterter Sicherheit auf der Registerkarte **privates Profil** unter Firewallstatus auf **aus**.  
+4.  Klicken Sie im Dialogfeld **Windows-Firewall mit** erweiterter Sicherheit auf der Registerkarte **privates Profil** unter Firewallstatus auf **Firewall state** **aus**.  
   
-5.  Klicken Sie im Dialogfeld **Windows-Firewall mit** erweiterter Sicherheit auf der Registerkarte **Öffentliches Profil** unter Firewallstatus auf **aus**, und klicken Sie dann auf **OK**.  
+5.  Klicken Sie im Dialogfeld **Windows-Firewall mit** erweiterter Sicherheit auf der Registerkarte **Öffentliches Profil** unter Firewallstatus auf **Firewall state** **aus**, und klicken Sie dann auf **OK**.  
   
 6.  Schließen Sie Windows-Firewall mit erweiterter Sicherheit.  
   

@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 456e5971-3aa7-4a24-bc5d-0c21fec7687e
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9969cade328b19f16dbdbad432b96dabb5518007
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: e63b4c4f266d286b766c89b61676493328aa8652
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394837"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310986"
 ---
 # <a name="directaccess-capacity-planning"></a>DirectAccess-Kapazitätsplanung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Dokument ist ein Bericht zur DirectAccess-Serverleistung von Windows Server 2012. Anhand von Tests wurde die Durchsatzkapazität für Highend-Computerhardware und Lowend-Computerhardware ermittelt. Die CPU-Leistung der Highend- und Lowend-Hardware war vom Durchsatz an Netzwerkdatenverkehr und den Arten der verwendeten Clients abhängig. Eine typische DirectAccess-Bereitstellung (die Grundlage für diese Tests) besteht zu einem Drittel (30 %) aus IPHTTPS-Clients und zu zwei Dritteln (70 %) aus Teredo-Clients. Teredo-Clients bieten teilweise eine höhere Leistung als IPHTTPS-Clients, weil für Windows Server 2012 die empfangsseitige Skalierung (Receive Side Scaling, RSS) verwendet wird, bei der die Nutzung aller CPU-Cores möglich ist. Da bei diesen Tests RSS aktiviert ist, ist das Hyperthreading deaktiviert. Außerdem unterstützt TCP/IP unter Windows Server 2012 den UDP-Datenverkehr, sodass mit Teredo-Clients der Lastenausgleich über mehrere CPUs hinweg durchgeführt werden kann.  
   
@@ -54,16 +54,16 @@ Die Tests wurden sowohl mit 1.000 Clients als auch mit 750 Clients durchgefüh
   
 Die folgenden Abschnitte enthalten Informationen zu den einzelnen Tests. Im Titel eines Abschnitts sind jeweils die wichtigsten Elemente des Tests gefolgt von einer Zusammenfassung der Ergebnisse angegeben. In einer Tabelle sind dann die ausführlichen Ergebnisse aufgeführt.  
   
-**low-End-Leistung:  750 Clients, 70/30 Split, 84,17 ms/Sek. Durchsatz:**  
+**Low-End-Leistung: 750 Clients, 70/30 Split, 84,17 MBits/Sek. Durchsatz:**  
   
 Die folgenden drei Tests zeigen die Ergebnisse für Lowend-Hardware.  In den unten angegebenen Testläufen wurden 750 Clients mit einem Durchsatz von 84,17 MBit/s und einer Datenverkehrsaufteilung von 562 (Teredo) zu 188 (IPHTTPS) verwendet. Teredo-MTU war auf 1.472 festgelegt, und Teredo-Shunt war aktiviert. Die CPU-Auslastung erreichte bei den drei Tests im Durchschnitt 46,42 %. Die durchschnittliche Arbeitsspeicherauslastung, die als Prozentsatz der zugesicherten Bytes des gesamten verfügbaren Arbeitsspeichers von 4 GB ausgedrückt wird, lag bei 25,95 %.  
   
 ||||||||  
 |-|-|-|-|-|-|-|  
-|**En**|**Cpuavg (aus Indikator)**|**Mbit/s (Corp-Seite)**|**Mbit/s (Internet seitig)**|**Aktive qmsa**|**Aktives mmsa**|**Arbeitsspeicher Auslastung (4-GB-System)**|  
-|**low-End-HW.  562 Teredo-Clients.  188 IPHTTPS-Clients.**|47,7472542|84,3|119,13|1502,05|1502,1|26,27%|  
-|**low-End-HW.  562 Teredo-Clients.  188 IPHTTPS-Clients.**|46,3889778|84,146|118,73|1501,25|1501,2|25,90%|  
-|**low-End-HW.  562 Teredo-Clients.  188 IPHTTPS-Clients.**|45,113082|84,0494|118,43|1546,14|1546,1|25,68%|  
+|**Szenario**|**Cpuavg (aus Indikator)**|**Mbit/s (Corp-Seite)**|**Mbit/s (Internet seitig)**|**Aktive qmsa**|**Aktives mmsa**|**Arbeitsspeicher Auslastung (4-GB-System)**|  
+|**Low-End-HW.  562 Teredo-Clients.  188 IPHTTPS-Clients.**|47,7472542|84,3|119,13|1502,05|1502,1|26,27%|  
+|**Low-End-HW.  562 Teredo-Clients.  188 IPHTTPS-Clients.**|46,3889778|84,146|118,73|1501,25|1501,2|25,90%|  
+|**Low-End-HW.  562 Teredo-Clients.  188 IPHTTPS-Clients.**|45,113082|84,0494|118,43|1546,14|1546,1|25,68%|  
   
 **1000 Clients, 70/30 Teilung, 78 MS/Sek. Durchsatz:**  
   
@@ -71,10 +71,10 @@ Mit den folgenden drei Tests wurde die Leistung für Lowend-Hardware ermittelt. 
   
 ||||||||  
 |-|-|-|-|-|-|-|  
-|**En**|**Cpuavg (aus Indikator)**|**Mbit/s (Corp-Seite)**|**Mbit/s (Internet seitig)**|**Aktive qmsa**|**Aktives mmsa**|**Arbeitsspeicher Auslastung (4-GB-System)**|  
-|**low-End-HW.  700 Teredo-Clients.  300 IPHTTPS-Clients.**|51,28406247|78,6432|113,19|2002,42|1502,1|25,59%|  
-|**low-End-HW.  700 Teredo-Clients.  300 IPHTTPS-Clients.**|51,06993128|78,6402|113,22|2001,4|1501,2|30,87%|  
-|**low-End-HW.  700 Teredo-Clients.  300 IPHTTPS-Clients.**|49,75235617|78,6387|113,2|2002,6|1546,1|30,66%|  
+|**Szenario**|**Cpuavg (aus Indikator)**|**Mbit/s (Corp-Seite)**|**Mbit/s (Internet seitig)**|**Aktive qmsa**|**Aktives mmsa**|**Arbeitsspeicher Auslastung (4-GB-System)**|  
+|**Low-End-HW.  700 Teredo-Clients.  300 IPHTTPS-Clients.**|51,28406247|78,6432|113,19|2002,42|1502,1|25,59%|  
+|**Low-End-HW.  700 Teredo-Clients.  300 IPHTTPS-Clients.**|51,06993128|78,6402|113,22|2001,4|1501,2|30,87%|  
+|**Low-End-HW.  700 Teredo-Clients.  300 IPHTTPS-Clients.**|49,75235617|78,6387|113,2|2002,6|1546,1|30,66%|  
   
 **1000 Clients, 70/30 Teilung, 109 MS/Sek. Durchsatz:**  
   
@@ -82,10 +82,10 @@ In den folgenden drei Testläufen wurden 1.000 Clients mit einem durchschnittli
   
 ||||||||  
 |-|-|-|-|-|-|-|  
-|**En**|**Cpuavg (aus Indikator)**|**Mbit/s (Corp-Seite)**|**Mbit/s (Internet seitig)**|**Aktive qmsa**|**Aktives mmsa**|**Arbeitsspeicher Auslastung (4-GB-System)**|  
-|**low-End-HW.  700 Teredo-Clients.  300 IPHTTPS-Clients.**|59,81640675|108,305|153,14|2001,64|2001,6|24,38%|  
-|**low-End-HW.  700 Teredo-Clients.  300 IPHTTPS-Clients.**|59,46473798|110,969|157,53|2005,22|2005,2|28,72%|  
-|**low-End-HW.  700 Teredo-Clients.  300 IPHTTPS-Clients.**|57,89089768|108,305|153,14|1999,53|2018,3|24,38%|  
+|**Szenario**|**Cpuavg (aus Indikator)**|**Mbit/s (Corp-Seite)**|**Mbit/s (Internet seitig)**|**Aktive qmsa**|**Aktives mmsa**|**Arbeitsspeicher Auslastung (4-GB-System)**|  
+|**Low-End-HW.  700 Teredo-Clients.  300 IPHTTPS-Clients.**|59,81640675|108,305|153,14|2001,64|2001,6|24,38%|  
+|**Low-End-HW.  700 Teredo-Clients.  300 IPHTTPS-Clients.**|59,46473798|110,969|157,53|2005,22|2005,2|28,72%|  
+|**Low-End-HW.  700 Teredo-Clients.  300 IPHTTPS-Clients.**|57,89089768|108,305|153,14|1999,53|2018,3|24,38%|  
   
 ## <a name="testing-results-for-high-end-hardware"></a>Testergebnisse für Highend-Hardware:  
 Die Tests wurden mit 1.500 Clients durchgeführt. Der Datenverkehr wurde zu 70 % auf Teredo und zu 30 % auf IPHTTPS aufgeteilt. Bei allen Tests verlief der TCP-Datenverkehr über Nat64, indem zwei IPsec-Tunnel pro Client verwendet wurden. In allen Tests war die Arbeitsspeicherauslastung gering und die CPU-Auslastung akzeptabel.  
@@ -100,13 +100,13 @@ Die folgenden fünf Tests zeigen die Ergebnisse für Highend-Hardware. In den un
   
 ||||||||  
 |-|-|-|-|-|-|-|  
-|**En**|**Cpuavg (aus Indikator)**|**Mbit/s (Corp-Seite)**|**Mbit/s (Internet seitig)**|**Aktive qmsa**|**Aktives mmsa**|**Arbeitsspeicher Auslastung (4-GB-System)**|  
-|**high-End-HW.  1050 Teredo-Clients.  450 IPHTTPS-Clients.**|51,712437|157,029|216,29|3000,31|3046|21,58%|  
-|**high-End-HW.  1050 Teredo-Clients.  450 IPHTTPS-Clients.**|48,86020205|151,012|206,53|3002,86|3045,3|21,15%|  
-|**high-End-HW.  1050 Teredo-Clients.  450 IPHTTPS-Clients.**|52,23979519|155,511|213,45|3001,15|3002,9|22,90%|  
-|**high-End-HW.  1050 Teredo-Clients.  450 IPHTTPS-Clients.**|51,26269767|155,09|212,92|3000,74|3002,4|22,91%|  
-|**high-End-HW.  1050 Teredo-Clients.  450 IPHTTPS-Clients.**|50,15751307|154,772|211,92|3000,9|3002,1|22,93%|  
-|**high-End-HW.  1050 Teredo-Clients.  450 IPHTTPS-Clients.**|49,83665607|145,994|201,92|3000,51|3006|22,03%|  
+|**Szenario**|**Cpuavg (aus Indikator)**|**Mbit/s (Corp-Seite)**|**Mbit/s (Internet seitig)**|**Aktive qmsa**|**Aktives mmsa**|**Arbeitsspeicher Auslastung (4-GB-System)**|  
+|**High-End-HW.  1050 Teredo-Clients.  450 IPHTTPS-Clients.**|51,712437|157,029|216,29|3000,31|3046|21,58%|  
+|**High-End-HW.  1050 Teredo-Clients.  450 IPHTTPS-Clients.**|48,86020205|151,012|206,53|3002,86|3045,3|21,15%|  
+|**High-End-HW.  1050 Teredo-Clients.  450 IPHTTPS-Clients.**|52,23979519|155,511|213,45|3001,15|3002,9|22,90%|  
+|**High-End-HW.  1050 Teredo-Clients.  450 IPHTTPS-Clients.**|51,26269767|155,09|212,92|3000,74|3002,4|22,91%|  
+|**High-End-HW.  1050 Teredo-Clients.  450 IPHTTPS-Clients.**|50,15751307|154,772|211,92|3000,9|3002,1|22,93%|  
+|**High-End-HW.  1050 Teredo-Clients.  450 IPHTTPS-Clients.**|49,83665607|145,994|201,92|3000,51|3006|22,03%|  
   
 ![High-End-Hardware Testergebnisse](../../media/DirectAccess-Capacity-Planning/DACapacityPlanning3.gif)  
   

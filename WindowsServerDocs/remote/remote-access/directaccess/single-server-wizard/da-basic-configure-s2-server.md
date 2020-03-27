@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 82bf5fed-93b3-4fa6-8e71-522146eccdb1
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: a21e5799824c968b29c719585ca16b6b45a9ef37
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 6faa40428df424f60637fb206641d8bae2774c79
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404921"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308933"
 ---
 # <a name="step-2-configure-the-basic-directaccess-server"></a>Schritt 2 Konfigurieren des grundlegenden DirectAccess-Servers
 
@@ -32,9 +32,9 @@ In diesem Thema wird die Konfiguration der Client- und Servereinstellungen erlä
 |Aktualisieren von Clients mit der DirectAccess-Konfiguration|Zum Erhalt der DirectAccess-Einstellungen müssen Clients die Gruppenrichtlinien aktualisieren, während sie mit dem Intranet verbunden sind.|  
   
 > [!NOTE]  
-> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit deren Hilfe einige beschriebene Verfahren automatisiert werden können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_Role"></a>Installieren der Remote Zugriffs Rolle  
+## <a name="install-the-remote-access-role"></a><a name="BKMK_Role"></a>Installieren der Remote Zugriffs Rolle  
 Um den Remotezugriff bereitzustellen, müssen Sie die Remotezugriffsrolle auf einem Server in Ihrer Organisation installieren, der als Remotezugriffsserver fungiert.  
   
 #### <a name="to-install-the-remote-access-role"></a>So installieren Sie die Remotezugriffsrolle  
@@ -43,7 +43,7 @@ Um den Remotezugriff bereitzustellen, müssen Sie die Remotezugriffsrolle auf ei
   
 2.  Klicken Sie dreimal auf **Weiter** , um zur Anzeige für die Serverrollenauswahl zu gelangen.  
   
-3.  Wählen Sie im Dialogfeld **Serverrollen auswählen** die Option **Remotezugriff**aus, und klicken Sie dann auf **Weiter**.  
+3.  Wählen Sie im Dialogfeld **Serverrollen auswählen** die Option **Remotezugriff** aus, und klicken Sie dann auf **Weiter**.  
   
 4.  Klicken Sie im Dialogfeld **Features auswählen** auf **Weiter**.  
   
@@ -119,7 +119,7 @@ Mit dem folgenden Windows PowerShell-Cmdlet oder den folgenden Cmdlets wird die 
   
 6.  Geben Sie **Get-DAConnectionStatus**, und drücken Sie dann die EINGABETASTE. Da der Client die Netzwerkadressenserver-URL erreichen kann, wird der Status **Lokal verbunden** angezeigt.  
   
-## <a name="BKMK_Links"></a>Vorheriger Schritt  
+## <a name="previous-step"></a><a name="BKMK_Links"></a>Vorheriger Schritt  
   
 -   [Schritt 1: Konfigurieren der DirectAccess-Infrastruktur](Step-1-Configure-the-DirectAccess-Infrastructure.md)  
   

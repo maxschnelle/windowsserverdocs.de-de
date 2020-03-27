@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b12dd0e8-1d80-4d4b-bb45-586f19d17ef0
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 10a0f7952fc27d0185d4383da21f0614885ddac3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: fbbba17567109363a9b9fd0963258744f8853f5f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367046"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313786"
 ---
 # <a name="troubleshooting-setting-the-entry-point-domain-controller"></a>Problembehandlung für Einstellungen für Einstiegspunkte und Domänencontroller
 
@@ -25,10 +25,10 @@ ms.locfileid: "71367046"
 
 Dieses Thema enthält Informationen zum Beheben von Problemen mit dem Befehl `Set-DAEntryPointDC`. Überprüfen Sie, ob das Windows-Ereignisprotokoll ein Ereignis mit der ID 10065 enthält, um sicherzustellen, dass der Fehler mit den Einstellungen für Einstiegspunkte und Domänencontroller zusammenhängt.  
   
-## <a name="SaveGPOSettings"></a>Server-GPO-Einstellungen werden gespeichert  
+## <a name="saving-server-gpo-settings"></a><a name="SaveGPOSettings"></a>Server-GPO-Einstellungen werden gespeichert  
 Der **Fehler wurde empfangen**. Fehler beim Speichern der Remote Zugriffs Einstellungen auf dem GPO-< GPO_name >.  
   
-Informationen zum Beheben dieses Fehlers finden Sie unter Speichern von Server-GPO-Einstellungen.  
+Informationen zum Beheben dieses Fehlers finden Sie unter Speichern der Server-GPO-Einstellungen.  
   
 ## <a name="remote-access-is-not-configured"></a>Nicht konfigurierter Remotezugriff  
 Der **Fehler wurde empfangen**. Der Remote Zugriff ist auf < server_name > nicht konfiguriert. Geben Sie den Namen eines Servers an, der zu einer Bereitstellung für mehrere Standorte gehört.  

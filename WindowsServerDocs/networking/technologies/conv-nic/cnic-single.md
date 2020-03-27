@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: eed5c184-fa55-43a8-a879-b1610ebc70ca
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/14/2018
-ms.openlocfilehash: 2ad7592fd9faf1e92893e6271daabdad907d3aaa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5a088df043190de9e7f1df4dccdc2fc832751093
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405797"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309623"
 ---
 # <a name="converged-nic-configuration-with-a-single-network-adapter"></a>Konvergierte NIC-Konfiguration mit einem einzelnen Netzwerkadapter
 
@@ -40,7 +40,7 @@ Stellen Sie sicher, dass die physische NIC eine Verbindung mit dem Zielhost hers
    _**Folgen**_  
 
 
-   | Name |    Interfacedescription     | ifIndex | Status |    MACAddress     | LinkSpeed |
+   | Name |    Interfacedescription     | ifIndex | Status |    MacAddress     | LinkSpeed |
    |------|-----------------------------|---------|--------|-------------------|-----------|
    |  M1  | Mellanox ConnectX-3 pro... |    4    |   Nach oben   | 7C-FE-90-93-8F-a1 |  40 Gbit/s  |
 
@@ -116,12 +116,12 @@ In diesem Schritt verwenden wir den Windows PowerShell-Befehl " **Test-NetConnec
 
    |        Parameter         |    Wert    |
    |--------------------------|-------------|
-   |       ComputerName       | 192.168.1.5 erstellt |
+   |       Computername       | 192.168.1.5 erstellt |
    |      RemoteAddress       | 192.168.1.5 erstellt |
    |      InterfaceAlias      |     M1      |
    |      SourceAddress       | 192.168.1.3 |
    |      Pingerfolg       |    True     |
-   | Pingreplydetails \(RTT-\) |    0 ms     |
+   | Pingreplydetails \(RTT-\) |    0 ms     |
 
    ---
 
@@ -144,18 +144,18 @@ In diesem Schritt verwenden wir den Windows PowerShell-Befehl " **Test-NetConnec
 
    |        Parameter         |    Wert    |
    |--------------------------|-------------|
-   |       ComputerName       | 192.168.1.5 erstellt |
+   |       Computername       | 192.168.1.5 erstellt |
    |      RemoteAddress       | 192.168.1.5 erstellt |
    |      InterfaceAlias      | Test-40G-1  |
    |      SourceAddress       | 192.168.1.3 |
    |      Pingerfolg       |    False    |
-   | Pingreplydetails \(RTT-\) |    0 ms     |
+   | Pingreplydetails \(RTT-\) |    0 ms     |
 
    ---
 
 
 
-## <a name="step-3-optional-configure-the-vlan-ids-for-nics-installed-in-your-hyper-v-hosts"></a>Schritt 3 Optionale Konfigurieren der VLAN-IDs für NICs, die auf Ihren Hyper-V-Hosts installiert sind
+## <a name="step-3-optional-configure-the-vlan-ids-for-nics-installed-in-your-hyper-v-hosts"></a>Schritt 3: Optionale Konfigurieren der VLAN-IDs für NICs, die auf Ihren Hyper-V-Hosts installiert sind
 
 Bei vielen Netzwerkkonfigurationen werden VLANs verwendet, und wenn Sie beabsichtigen, VLANs in Ihrem Netzwerk zu verwenden, müssen Sie den vorherigen Test mit konfigurierten VLANs wiederholen. Wenn Sie die Verwendung von ROCE für RDMA-Dienste planen, müssen Sie VLANs auch aktivieren.
 
@@ -209,7 +209,7 @@ Die folgende Abbildung zeigt zwei Hyper-V-Hosts mit jeweils einem physischen Net
    _**Folgen**_
 
 
-   | Name |          Interfacedescription           | ifIndex | Status |    MACAddress     | LinkSpeed |
+   | Name |          Interfacedescription           | ifIndex | Status |    MacAddress     | LinkSpeed |
    |------|-----------------------------------------|---------|--------|-------------------|-----------|
    |  M1  | Mellanox ConnectX-3 pro Ethernet Ada... |    4    |   Nach oben   | 7C-FE-90-93-8F-a1 |  40 Gbit/s  |
 
@@ -255,7 +255,7 @@ Die folgende Abbildung zeigt zwei Hyper-V-Hosts mit jeweils einem physischen Net
    |   Parameter    |          Wert           |
    |----------------|--------------------------|
    |      Name      |           SMB            |
-   |     Besitzer      | Gruppenrichtlinie \(Computer\) |
+   |     Owner      | Gruppenrichtlinie \(Computer\) |
    | " |           Alle            |
    |   Rangfolge   |           127            |
    |   JobObject    |          &nbsp;          |
@@ -274,7 +274,7 @@ Die folgende Abbildung zeigt zwei Hyper-V-Hosts mit jeweils einem physischen Net
    _**Folgen**_
 
 
-   | Priority | Enabled | Policyset | ifIndex | Ifalias |
+   | Priority | Aktiviert | Policyset | ifIndex | Ifalias |
    |----------|---------|-----------|---------|---------|
    |    0     |  False  |  Global   | &nbsp;  | &nbsp;  |
    |    1     |  False  |  Global   | &nbsp;  | &nbsp;  |
@@ -305,7 +305,7 @@ Die folgende Abbildung zeigt zwei Hyper-V-Hosts mit jeweils einem physischen Net
    _**Eigenschaften**_   
 
 
-   |      Parameter      |   Hardware   |   Strömung    |
+   |      Parameter      |   Hardware   |   Aktuell    |
    |---------------------|--------------|--------------|
    |    Macsecbypass     | NotSupported | NotSupported |
    |     Dcbxsupport     |     Keine     |     Keine     |
@@ -365,7 +365,7 @@ Die folgende Abbildung zeigt zwei Hyper-V-Hosts mit jeweils einem physischen Net
 
    |   Name    | Algorithmus | Bandbreite (%) | Priority | Policyset | ifIndex | Ifalias |
    |-----------|-----------|--------------|----------|-----------|---------|---------|
-   | Vorgegebene |    Blättern    |      70      | 0-2, 4-7  |  Global   | &nbsp;  | &nbsp;  |
+   | [Default] |    Blättern    |      70      | 0-2, 4-7  |  Global   | &nbsp;  | &nbsp;  |
    |    SMB    |    Blättern    |      30      |    3     |  Global   | &nbsp;  | &nbsp;  |
 
    ---
@@ -378,7 +378,7 @@ Wenn ein Mellanox-Adapter verwendet wird, blockiert der angefügte Debugger stan
    Set-ItemProperty HKLM:"\SYSTEM\CurrentControlSet\Services\NDIS\Parameters" AllowFlowControlUnderDebugger -type DWORD -Value 1 –Force
    ``` 
 
-## <a name="step-6-verify-the-rdma-configuration-native-host"></a>Schritt 6. Überprüfen der RDMA-Konfiguration (nativer Host)
+## <a name="step-6-verify-the-rdma-configuration-native-host"></a>Schritt 6 Überprüfen der RDMA-Konfiguration (nativer Host)
 
 Sie möchten sicherstellen, dass das Fabric ordnungsgemäß konfiguriert ist, bevor Sie einen Vswitch erstellen und zu RDMA (konvergierte NIC) wechseln. 
 
@@ -394,7 +394,7 @@ Die folgende Abbildung zeigt den aktuellen Status der Hyper-V-Hosts.
    _**Folgen**_
 
 
-   | Name |           Interfacedescription           | Enabled |
+   | Name |           Interfacedescription           | Aktiviert |
    |------|------------------------------------------|---------|
    |  M1  | Mellanox ConnectX-3 pro-Ethernet-Adapter |  True   |
 
@@ -446,7 +446,7 @@ Die folgende Abbildung zeigt den aktuellen Status der Hyper-V-Hosts.
    >[!NOTE]
    >Wenn der RDMA-Datenverkehr fehlschlägt, wenden Sie sich für den speziellen ROCE-Fall an die Tor-Switchkonfiguration, um geeignete PFC/ETS-Einstellungen zu erhalten, die den Host Einstellungen entsprechen. Referenzwerte finden Sie im Abschnitt QoS in diesem Dokument.
 
-## <a name="step-7-remove-the-access-vlan-setting"></a>Schritt 7 Entfernen der VLAN-Zugriffs Einstellung
+## <a name="step-7-remove-the-access-vlan-setting"></a>Schritt 7. Entfernen der VLAN-Zugriffs Einstellung
 
 Um den Hyper-V-Switch zu erstellen, müssen Sie die zuvor installierten VLAN-Einstellungen entfernen.  
 
@@ -493,7 +493,7 @@ In der folgenden Abbildung ist Hyper-V-Host 1 mit einem Vswitch dargestellt.
    _**Folgen**_
 
 
-   |         Name          |        Interfacedescription         | ifIndex | Status |    MACAddress     | LinkSpeed |
+   |         Name          |        Interfacedescription         | ifIndex | Status |    MacAddress     | LinkSpeed |
    |-----------------------|-------------------------------------|---------|--------|-------------------|-----------|
    | vethernet \(vmstest\) | Virtueller Hyper-V-Ethernet-Adapter #2 |   27    |   Nach oben   | E4-1D-2D-07-40-71 |  40 Gbit/s  |
 
@@ -511,7 +511,7 @@ In der folgenden Abbildung ist Hyper-V-Host 1 mit einem Vswitch dargestellt.
    _**Folgen**_
 
 
-   |         Name         | Ismanagementos |        VMName        |  SwitchName  | MACAddress | Status | IpAddresses |
+   |         Name         | Ismanagementos |        VMName        |  SwitchName  | MacAddress | Status | IpAddresses |
    |----------------------|----------------|----------------------|--------------|------------|--------|-------------|
    | Corp-externer Switch |      True      | Corp-externer Switch | 001b785768aa |    Okay    | &nbsp; |             |
    |       Vmstest        |      True      |       Vmstest        | E41D2D074071 |    Okay    | &nbsp; |             |
@@ -568,7 +568,7 @@ In der folgenden Abbildung ist Hyper-V-Host 1 mit einem Vswitch dargestellt.
     PingReplyDetails (RTT) : 0 ms
    ```
 
-## <a name="step-9-test-hyper-v-virtual-switch-rdma-mode-2"></a>Schritt 9: Testen des virtuellen Hyper-V-Switches RDMA (Modus 2)
+## <a name="step-9-test-hyper-v-virtual-switch-rdma-mode-2"></a>Schritt 9. Testen des virtuellen Hyper-V-Switches RDMA (Modus 2)
 
 Die folgende Abbildung zeigt den aktuellen Status der Hyper-v-Hosts, einschließlich des Vswitch auf dem Hyper-v-Host 1.
 
@@ -596,7 +596,7 @@ Die folgende Abbildung zeigt den aktuellen Status der Hyper-v-Hosts, einschließ
    _**Folgen**_
 
 
-   |         Name          |        Interfacedescription         | Enabled |
+   |         Name          |        Interfacedescription         | Aktiviert |
    |-----------------------|-------------------------------------|---------|
    | vethernet \(vmstest\) | Virtueller Hyper-V-Ethernet-Adapter #2 |  False  |
 
@@ -615,7 +615,7 @@ Die folgende Abbildung zeigt den aktuellen Status der Hyper-v-Hosts, einschließ
    _**Folgen**_   
 
 
-   |        Name         |        Interfacedescription         | ifIndex | Status |    MACAddress     | LinkSpeed |
+   |        Name         |        Interfacedescription         | ifIndex | Status |    MacAddress     | LinkSpeed |
    |---------------------|-------------------------------------|---------|--------|-------------------|-----------|
    | vethernet (vmstest) | Virtueller Hyper-V-Ethernet-Adapter #2 |   27    |   Nach oben   | E4-1D-2D-07-40-71 |  40 Gbit/s  |
 
@@ -632,7 +632,7 @@ Die folgende Abbildung zeigt den aktuellen Status der Hyper-v-Hosts, einschließ
    _**Folgen**_
 
 
-   |         Name          |        Interfacedescription         | Enabled |
+   |         Name          |        Interfacedescription         | Aktiviert |
    |-----------------------|-------------------------------------|---------|
    | vethernet \(vmstest\) | Virtueller Hyper-V-Ethernet-Adapter #2 |  True   |
 

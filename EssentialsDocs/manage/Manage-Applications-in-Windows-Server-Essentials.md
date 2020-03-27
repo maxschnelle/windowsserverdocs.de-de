@@ -1,9 +1,9 @@
 ---
 title: Verwalten von Anwendungen in Windows Server 2012 Essentials
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,24 +12,24 @@ ms.assetid: ae89c46a-0afd-4858-9150-ec97650f45a4
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1a60a9e7fd958d447b4770431a69546f0ad6f229
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 7701cbc11ec691b4d4aadd5668dce6438eb9a076
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433350"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311415"
 ---
 # <a name="manage-applications-in-windows-server-essentials"></a>Verwalten von Anwendungen in Windows Server 2012 Essentials
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
  
- Das Server-Dashboard in Windows Server Essentials und Windows Server 2012 R2 mit installierter Windows Server Essentials Experience-Rolle vereinfacht allgemeine Verwaltungsaufgaben auszuführen. Weitere Informationen zum Durchführen dieser Aufgaben finden Sie unter:  
+ Das Server-Dashboard in Windows Server Essentials und Windows Server 2012 R2 mit installierter Windows Server Essentials-Rolle ermöglicht das Ausführen allgemeiner administrativer Aufgaben. Weitere Informationen zum Durchführen dieser Aufgaben finden Sie unter:  
   
--   [Anwendungsverwaltungsaufgaben im Dashboard](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_1)  
+-   [Anwendungs Verwaltungsaufgaben im Dashboard](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_1)  
   
 -   [Installieren oder Entfernen von Add-Ins mithilfe des Dashboards](Manage-Applications-in-Windows-Server-Essentials.md#BKMK_2)  
   
-##  <a name="BKMK_1"></a> Anwendungsverwaltungsaufgaben im Dashboard  
+##  <a name="application-management-tasks-in-the-dashboard"></a><a name="BKMK_1"></a>Anwendungs Verwaltungsaufgaben im Dashboard  
  Die Verwaltungsseite **Anwendungen** im Dashboard bietet Folgendes:  
   
 - Eine Liste der installierten Add-Ins, wobei Folgendes angezeigt wird:  
@@ -48,7 +48,7 @@ ms.locfileid: "66433350"
   
   Die folgende Tabelle beschreibt die verschiedenen Add-In-Verwaltungsaufgaben, die im Server-Dashboard verfügbar sind. Einige Aufgaben sind Add-In-spezifisch, sodass sie nur angezeigt werden, wenn Sie ein Add-In in der Liste auswählen.  
   
-|Aufgabenname|Beschreibung|  
+|Taskname|Beschreibung|  
 |---------------|-----------------|  
 |Add-In entfernen|Entfernt das ausgewählte Add-In vom Server und von allen anderen Computern im Netzwerk.|  
 |Add-In auf Netzwerkcomputern installieren|Hilft Ihnen bei der Planung der Installation der ausgewählten Add-Ins auf allen anderen Computern im Netzwerk.|  
@@ -58,14 +58,14 @@ ms.locfileid: "66433350"
 |Datenschutzbestimmungen für das Add-In lesen|Öffnet eine Website im Internetbrowser, auf der Sie die Datenschutzbestimmungen anzeigen können.|  
 |Wie werden Add-Ins installiert oder entfernt?|Öffnet eine Website im Internetbrowser mit Hilfethemen.|  
   
-##  <a name="BKMK_2"></a> Installieren oder Entfernen von Add-Ins mithilfe des Dashboards  
+##  <a name="install-or-remove-add-ins-using-the-dashboard"></a><a name="BKMK_2"></a>Installieren oder Entfernen von Add-Ins mithilfe des Dashboards  
  Ein Add-In ist eine Softwareanwendung, die zusätzliche Funktionen für den Server bereitstellt. Eine wachsende Zahl von Add-Ins wird von Microsoft und anderen unabhängigen Softwareanbietern (ISVs) zur Verfügung gestellt.  
   
  Bevor Sie die erweiterten Funktionen nutzen können, die ein Add-In Ihnen bietet, müssen Sie zuerst das Add-In auf dem Server installieren.  
   
 #### <a name="to-install-an-add-in-from-microsoft-pinpoint"></a>So installieren Sie ein Add-In von Microsoft Pinpoint  
   
-1.  Klicken Sie im Server-Dashboard auf **Anwendungen** und dann auf die Registerkarte **Microsoft Pinpoint**.  Eine Liste der verfügbaren Add-Ins wird angezeigt.  
+1.  Klicken Sie im Server Dashboard auf **Anwendungen**, und klicken Sie dann auf die Registerkarte **Microsoft PinPoint** .  Eine Liste der verfügbaren Add-Ins wird angezeigt.  
   
 2.  Klicken Sie auf das Add-In, das Sie installieren möchten. Die Seite mit Add-In-Informationen wird angezeigt.  
   
@@ -100,6 +100,6 @@ ms.locfileid: "66433350"
   
 ## <a name="see-also"></a>Siehe auch  
   
--   [Dashboard-Übersicht](Overview-of-the-Dashboard-in-Windows-Server-Essentials.md)  
+-   [Übersicht über das Dashboard](Overview-of-the-Dashboard-in-Windows-Server-Essentials.md)  
   
 -   [Verwalten von Windows Server Essentials](Manage-Windows-Server-Essentials.md)

@@ -7,15 +7,15 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.assetid: d165822d-b65c-40a2-b440-af495ad22f42
 ms.localizationpriority: medium
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.reviewer: deverette
-ms.openlocfilehash: c35cc44e0a52596fd9fa2ba5b2c01727c11b834c
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 11906c737dd1604bf064e25a01289fe2ee5a23ad
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822408"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310496"
 ---
 # <a name="step-6-configure-windows-10-client-always-on-vpn-connections"></a>Schritt 6 Konfigurieren von Windows 10-Client Always on-VPN-Verbindungen
 
@@ -174,7 +174,7 @@ Wenn Sie den Computer jedoch seit dem Konfigurieren der automatischen Zertifikat
 
 13. Klicken Sie auf **Eigenschaften** , um das Dialogfeld Eigenschaften für geschütztes EAP zu öffnen, und führen Sie die folgenden Schritte aus:
 
-    ein. Geben Sie im Feld **Verbindung mit diesen Servern herstellen** den Namen des NPS-Servers ein, den Sie aus den NPS-Server-Authentifizierungs Einstellungen weiter oben in diesem Abschnitt abgerufen haben (z. b. NPS01).
+    a. Geben Sie im Feld **Verbindung mit diesen Servern herstellen** den Namen des NPS-Servers ein, den Sie aus den NPS-Server-Authentifizierungs Einstellungen weiter oben in diesem Abschnitt abgerufen haben (z. b. NPS01).
 
     >[!NOTE]
     >Der Servername, den Sie eingeben, muss mit dem Namen im Zertifikat identisch sein. Diesen Namen haben Sie zuvor in diesem Abschnitt wieder hergestellt. Wenn der Name nicht stimmt, schlägt die Verbindung fehl, und es wird angegeben, dass die Verbindung aufgrund einer Richtlinie, die auf Ihrem RAS/VPN-Server konfiguriert wurde, verhindert wurde.
@@ -706,7 +706,7 @@ Wenn Sie Configuration Manager für die Bereitstellung eines Remote Zugriffs Alw
 
 3.  Führen Sie auf der Seite Allgemein die folgenden Schritte aus:
 
-    ein. Geben Sie unter **Name den Namen** **VPN-Benutzer**ein.
+    a. Geben Sie unter **Name den Namen** **VPN-Benutzer**ein.
 
     b. Klicken Sie auf **Durchsuchen**, dann auf **alle Benutzer** und dann auf **OK**.
 
@@ -714,7 +714,7 @@ Wenn Sie Configuration Manager für die Bereitstellung eines Remote Zugriffs Alw
 
 4.  Führen Sie auf der Seite Mitgliedschafts Regeln die folgenden Schritte aus:
 
-    ein.  Klicken Sie unter **Mitgliedschafts Regeln**auf **Regel hinzufügen**, und klicken Sie auf **direkt Regel**. In diesem Beispiel fügen Sie einzelne Benutzer zur Benutzer Sammlung hinzu. Sie können jedoch eine Abfrage Regel verwenden, um dieser Sammlung für eine größere Bereitstellung dynamisch Benutzer hinzuzufügen.
+    a.  Klicken Sie unter **Mitgliedschafts Regeln**auf **Regel hinzufügen**, und klicken Sie auf **direkt Regel**. In diesem Beispiel fügen Sie einzelne Benutzer zur Benutzer Sammlung hinzu. Sie können jedoch eine Abfrage Regel verwenden, um dieser Sammlung für eine größere Bereitstellung dynamisch Benutzer hinzuzufügen.
 
     b.  Klicken Sie auf der **Willkommenseite** auf **Weiter**.
 
@@ -744,7 +744,7 @@ Nachdem Sie die Benutzergruppe für den Empfang des VPN-Profils erstellt haben, 
 
 4.  Führen Sie auf der Seite Paket die folgenden Schritte aus:
 
-    ein. Geben Sie unter **Name den Namen** **Windows 10 Always on VPN-Profil**ein.
+    a. Geben Sie unter **Name den Namen** **Windows 10 Always on VPN-Profil**ein.
 
     b. Aktivieren Sie das Kontrollkästchen **Dieses Paket enthält Quelldateien** , und klicken Sie auf **Durchsuchen**.
 
@@ -757,7 +757,7 @@ Nachdem Sie die Benutzergruppe für den Empfang des VPN-Profils erstellt haben, 
 
 3.  Führen Sie auf der Seite Standard Programm die folgenden Schritte aus:
 
-    ein.  Geben Sie unter **Name den Namen** **VPN-Profil Skript**ein.
+    a.  Geben Sie unter **Name den Namen** **VPN-Profil Skript**ein.
 
     b.  Geben Sie in der **Befehlszeile** **PowerShell. exe-ExecutionPolicy Bypass-file "VPN_Profile. ps1"** ein.
 
@@ -767,7 +767,7 @@ Nachdem Sie die Benutzergruppe für den Empfang des VPN-Profils erstellt haben, 
 
 4.  Führen Sie auf der Seite Anforderungen die folgenden Schritte aus:
 
-    ein.  Wählen Sie **dieses Programm kann nur auf bestimmten Plattformen ausgeführt werden aus**.
+    a.  Wählen Sie **dieses Programm kann nur auf bestimmten Plattformen ausgeführt werden aus**.
 
     b.  Aktivieren Sie die Kontrollkästchen **alle Windows 10 (32-Bit)** und **alle Windows 10 (64 Bit)** .
 
@@ -791,7 +791,7 @@ Nachdem Sie das Paket und das Programm erstellt haben, müssen Sie es für die *
 
 3.  Klicken Sie auf der Registerkarte **Programme** unten im Detailbereich mit der rechten Maustaste auf **VPN-Profil Skript**, klicken Sie auf **Eigenschaften**, und führen Sie die folgenden Schritte aus:
 
-    ein.  Klicken Sie auf der Registerkarte **erweitert** in **Wenn dieses Programm einem Computer zugewiesen ist**, auf **einmal für jeden Benutzer, der sich anmeldet**.
+    a.  Klicken Sie auf der Registerkarte **erweitert** in **Wenn dieses Programm einem Computer zugewiesen ist**, auf **einmal für jeden Benutzer, der sich anmeldet**.
 
     b.  Klicken Sie auf **OK**.
 
@@ -799,7 +799,7 @@ Nachdem Sie das Paket und das Programm erstellt haben, müssen Sie es für die *
 
 5.  Führen Sie auf der Seite Allgemein die folgenden Schritte aus:
 
-    ein.  Klicken Sie neben **Sammlung**auf **Durchsuchen**.
+    a.  Klicken Sie neben **Sammlung**auf **Durchsuchen**.
 
     b.  Klicken Sie in der Liste **Sammlungs Typen** (oben links) auf **Benutzer Sammlungen**.
 
@@ -809,7 +809,7 @@ Nachdem Sie das Paket und das Programm erstellt haben, müssen Sie es für die *
 
 6.  Führen Sie auf der Seite Inhalt die folgenden Schritte aus:
 
-    ein.  Klicken Sie auf **Hinzufügen**und **dann auf Verteilungs Punkt**.
+    a.  Klicken Sie auf **Hinzufügen**und **dann auf Verteilungs Punkt**.
 
     b.  Wählen Sie unter **Verfügbare Verteilungs Punkte**die Verteilungs Punkte aus, an die Sie das profileXML-Konfigurationsskript verteilen möchten, und klicken Sie auf **OK**.
 
@@ -819,7 +819,7 @@ Nachdem Sie das Paket und das Programm erstellt haben, müssen Sie es für die *
 
 8.  Führen Sie auf der Seite Zeitplanung die folgenden Schritte aus:
 
-    ein.  Klicken Sie auf **neu** , um das Dialogfeld Zuweisungs Zeitplan zu öffnen.
+    a.  Klicken Sie auf **neu** , um das Dialogfeld Zuweisungs Zeitplan zu öffnen.
 
     b.  Klicken Sie auf **direkt nach diesem Ereignis zuweisen**, und klicken Sie auf **OK**.
 
@@ -846,7 +846,7 @@ Melden Sie sich bei der Bereitstellung des profillexml-Konfigurations Skripts be
 
 2.  Führen Sie im Dialogfeld Configuration Manager Eigenschaften auf der Registerkarte **Aktionen** die folgenden Schritte aus:
 
-    ein.  Klicken Sie auf **Computer Richtlinien Abruf & Evaluierungs Zyklen**, klicken Sie auf **jetzt ausführen**, und klicken Sie auf **OK**.
+    a.  Klicken Sie auf **Computer Richtlinien Abruf & Evaluierungs Zyklen**, klicken Sie auf **jetzt ausführen**, und klicken Sie auf **OK**.
 
     b.  Klicken Sie auf **Benutzerrichtlinien Abruf & Evaluierungs Zyklen**, klicken Sie auf **jetzt ausführen**, und klicken Sie auf **OK**.
 
@@ -908,7 +908,7 @@ Erstellen Sie die VPN-Geräte Konfigurationsrichtlinie, um die Windows 10-Client
 4.  Ersetzen Sie die **\<-Treuhänder-> 5A 89 FE CB 5B 49 A7 0B 1a 52 63 B7 35 EE T7 1C C2 68 be 4B <\/** -Treuhänder > im Beispiel mit dem Zertifikat Fingerabdruck Ihrer lokalen Stamm Zertifizierungsstelle an beiden stellen.
   
     >[!Important]
-    >Verwenden Sie den Beispiel Fingerabdruck nicht im folgenden Abschnitt \<\</TrustedRootCA >.  Der Treuhänder muss der Zertifikat Fingerabdruck der lokalen Stamm Zertifizierungsstelle sein, von der das Server Authentifizierungszertifikat für RRAS-und NPS-Server ausgestellt wurde. **Dabei darf es sich nicht um das Cloud-Stamm Zertifikat oder um den Fingerabdruck der zwischen ausstellenden Zertifizierungsstelle handeln**.
+    >Verwenden Sie den Beispiel Fingerabdruck nicht im folgenden Abschnitt \<>\</TrustedRootCA >.  Der Treuhänder muss der Zertifikat Fingerabdruck der lokalen Stamm Zertifizierungsstelle sein, von der das Server Authentifizierungszertifikat für RRAS-und NPS-Server ausgestellt wurde. **Dabei darf es sich nicht um das Cloud-Stamm Zertifikat oder um den Fingerabdruck der zwischen ausstellenden Zertifizierungsstelle handeln**.
 
 5.  Ersetzen Sie die **\<Server Ames > NPS.\</ServerNames->** in der XML-Beispieldatei durch den voll qualifizierten Domänen Namen der in die Domäne eingebundenen NPS, wo die Authentifizierung stattfindet. 
 

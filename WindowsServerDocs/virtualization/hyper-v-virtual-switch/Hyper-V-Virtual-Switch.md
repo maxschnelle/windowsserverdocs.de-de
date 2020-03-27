@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: article
 ms.assetid: 398440ac-5988-41ce-b91e-eab343a255d3
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: c508005af67e9dd5b0c9a22693aca25eb19e8e48
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: fb2ebf485b5004e457558fc16d8535662c0c5ff2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366833"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307980"
 ---
 # <a name="hyper-v-virtual-switch"></a>Virtueller Hyper-V-Switch
 
@@ -57,7 +57,7 @@ Die Funktionen des virtuellen Hyper-V-Switches bieten Ihnen weitere Optionen zum
 >[!NOTE]
 > In Windows Server 2016 zeigt ein virtueller Computer mit einer virtuellen NIC genau den maximalen Durchsatz für die virtuelle NIC an. Klicken Sie zum Anzeigen der Geschwindigkeit der virtuellen NIC unter **Netzwerkverbindungen**mit der rechten Maustaste auf das gewünschte virtuelle NIC-Symbol, und klicken Sie dann auf **Status**. Das Dialogfeld **Status** der virtuellen NIC wird geöffnet. In **Verbindung**entspricht der Wert der **Geschwindigkeit** der Geschwindigkeit der physischen NIC, die auf dem Server installiert ist.
   
-## <a name="bkmk_apps"></a>Verwendung für virtuellen Hyper-V-Switch
+## <a name="uses-for-hyper-v-virtual-switch"></a><a name="bkmk_apps"></a>Verwendung für virtuellen Hyper-V-Switch
 
 Im folgenden finden Sie einige Anwendungsszenarien für den virtuellen Hyper-V-Switch.
 
@@ -69,7 +69,7 @@ Im folgenden finden Sie einige Anwendungsszenarien für den virtuellen Hyper-V-S
   
 **Weiterleitungs Erweiterung verwaltet VLAN-ID**: ein Haupt switchunternehmen baut eine Weiterleitungs Erweiterung auf, die alle Richtlinien für das Netzwerk anwendet. Ein verwaltetes Element sind IDs für virtuelle lokale Netzwerke (Virtual Local Area Network, VLAN). Der virtuelle Switch übergibt die Kontrolle des VLAN an eine Weiterleitungserweiterung. Die Installation des switchunternehmens ruft Programm gesteuert eine-API (Windows-Verwaltungsinstrumentation (WMI)-Anwendungsprogrammierschnittstelle (Application Programming Interface, API) auf, die die Transparenz übernimmt und den virtuellen Hyper-V-Switch anteilt, die VLAN-Tags zu übergeben und keine Aktionen auszuführen.  
   
-## <a name="bkmk_func"></a>Funktionalität des virtuellen Hyper-V-Switches
+## <a name="hyper-v-virtual-switch-functionality"></a><a name="bkmk_func"></a>Funktionalität des virtuellen Hyper-V-Switches
  
 Einige der Prinzipalfeatures, die der Hyper-V-Switch umfasst, sind:  
   

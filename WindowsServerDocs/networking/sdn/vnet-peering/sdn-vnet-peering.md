@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: ''
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/08/2018
-ms.openlocfilehash: ccdcbb953939345ef5e9a45dff87fc7af62eb7bf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 01c768aefa685b688c2ed3f777c44a4665b5e4a7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355484"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309685"
 ---
 # <a name="virtual-network-peering"></a>Virtuelles Netzwerk peering
 
@@ -51,7 +51,7 @@ Beim Peering virtueller Netzwerke sind einige Anforderungen und Einschränkungen
 
   [Bild hier]
 
-## <a name="connectivity"></a>Verbindung
+## <a name="connectivity"></a>Konnektivitäts-
 
 Nachdem Sie virtuelle Netzwerke mittels Peering verbunden haben, können Ressourcen in beiden virtuellen Netzwerken direkt mit Ressourcen im mittels Peering verknüpften virtuellen Netzwerk verbunden werden.
 
@@ -83,14 +83,14 @@ Wenn Sie zwei virtuelle Netzwerke mittels Peering verknüpfen, müssen Sie für 
 
 Sie können den Status Ihrer Peeringverbindung überwachen, die sich in einem der folgenden Zustände befinden kann:
 
--   **Initiiert** Wird angezeigt, wenn Sie das Peering vom ersten virtuellen Netzwerk mit dem zweiten virtuellen Netzwerk erstellen.
+-   **Initiiert:** Wird angezeigt, wenn Sie das Peering vom ersten virtuellen Netzwerk mit dem zweiten virtuellen Netzwerk erstellen.
 
--   **Hängt** Wird angezeigt, nachdem Sie das Peering vom zweiten virtuellen Netzwerk mit dem ersten virtuellen Netzwerk erstellt haben. Der peeringstatus für das erste virtuelle Netzwerk wechselt von "initiiert" in "verbunden". Beide Peers von virtuellen Netzwerken müssen den Status "verbunden" aufweisen, bevor das Peering virtueller Netzwerke erfolgreich hergestellt werden konnte.
+-   **Verbunden:** Wird angezeigt, nachdem Sie das Peering vom zweiten virtuellen Netzwerk mit dem ersten virtuellen Netzwerk erstellt haben. Der peeringstatus für das erste virtuelle Netzwerk wechselt von "initiiert" in "verbunden". Beide Peers von virtuellen Netzwerken müssen den Status "verbunden" aufweisen, bevor das Peering virtueller Netzwerke erfolgreich hergestellt werden konnte.
 
--   **Koppelt** Wird angezeigt, wenn ein virtuelles Netzwerk die Verbindung mit einem anderen virtuellen Netzwerk trennt.
+-   **Getrennt:** Wird angezeigt, wenn ein virtuelles Netzwerk die Verbindung mit einem anderen virtuellen Netzwerk trennt.
 
 [infographic der Zustände]
 
 ## <a name="next-steps"></a>Nächste Schritte
-[Konfigurieren Sie das Peering virtueller Netzwerke](sdn-configure-vnet-peering.md): In diesem Verfahren verwenden Sie Windows PowerShell, um das logische HNV-anbieternetzwerk zu suchen und zwei virtuelle Netzwerke mit jeweils einem Subnetz zu erstellen. Außerdem konfigurieren Sie das Peering zwischen den beiden virtuellen Netzwerken.
+[Konfigurieren des Peerings virtueller](sdn-configure-vnet-peering.md)Netzwerke: in diesem Verfahren verwenden Sie Windows PowerShell, um das logische HNV-anbieternetzwerk zu suchen und zwei virtuelle Netzwerke mit jeweils einem Subnetz zu erstellen. Außerdem konfigurieren Sie das Peering zwischen den beiden virtuellen Netzwerken.
 

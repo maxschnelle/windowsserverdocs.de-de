@@ -1,9 +1,9 @@
 ---
 title: Hinzufügen von Domänennamen der dritten Ebene
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: e5b4a362-1881-4024-ae4e-cc3b05e50103
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 64bf24e45155fdd981e2061b3de7ebce1c53b36c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 5608fb5417b9e958b45d150879daccc3b7767e59
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833321"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310233"
 ---
 # <a name="add-third-level-domain-names"></a>Hinzufügen von Domänennamen der dritten Ebene
 
@@ -28,26 +28,26 @@ Sie können es Benutzern ermöglichen, Domänennamen der dritten Ebene im Assist
 ## <a name="create-a-provider-of-third-level-domain-names"></a>Erstellen eines Anbieters für Domänennamen der dritten Ebene  
  Sie können Domänennamen der dritten Ebene verfügbar machen, indem Sie eine Codeassembly erstellen und installieren, die dem Assistenten Domänennamen bereitstellt. Dazu führen Sie die folgenden Schritte aus:  
   
--   [Eine Implementierung der IDomainSignupProvider-Schnittstelle zur Assembly hinzufügen](Add-Third-Level-Domain-Names.md#BKMK_DomainSignup)  
+-   [Hinzufügen einer Implementierung der idomainsignupprovider-Schnittstelle zur Assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainSignup)  
   
--   [Eine Implementierung der IDomainMaintenanceProvider-Schnittstelle zur Assembly hinzufügen](Add-Third-Level-Domain-Names.md#BKMK_DomainMaintenance)  
+-   [Hinzufügen einer Implementierung der idomainmaintenanceprovider-Schnittstelle zur Assembly](Add-Third-Level-Domain-Names.md#BKMK_DomainMaintenance)  
   
--   [Signieren der Assembly mit Authenticode-Signatur](Add-Third-Level-Domain-Names.md#BKMK_SignAssembly)  
+-   [Signieren der Assembly mit einer Authenticode-Signatur](Add-Third-Level-Domain-Names.md#BKMK_SignAssembly)  
   
--   [Installieren Sie die Assembly, auf dem Referenzcomputer](Add-Third-Level-Domain-Names.md#BKMK_InstallAssembly)  
+-   [Installieren der Assembly auf dem Referenz Computer](Add-Third-Level-Domain-Names.md#BKMK_InstallAssembly)  
   
--   [Starten Sie den Dienst von Windows Server-Domänennamenverwaltung](Add-Third-Level-Domain-Names.md#BKMK_RestartService)  
+-   [Starten Sie den Windows Server-Domänen Namen-Verwaltungsdienst](Add-Third-Level-Domain-Names.md#BKMK_RestartService)  
   
-###  <a name="BKMK_DomainSignup"></a> Eine Implementierung der IDomainSignupProvider-Schnittstelle zur Assembly hinzufügen  
+###  <a name="add-an-implementation-of-the-idomainsignupprovider-interface-to-the-assembly"></a><a name="BKMK_DomainSignup"></a>Hinzufügen einer Implementierung der idomainsignupprovider-Schnittstelle zur Assembly  
  Die IDomainSignupProvider-Schnittstelle wird verwendet, um dem Assistenten Domänenangebote hinzufügen.  
   
 ##### <a name="to-add-the-idomainsignupprovider-code-to-the-assembly"></a>So fügen Sie der Assembly den Code für "IDomainSignupProvider" hinzu  
   
 1.  Öffnen Sie Visual Studio 2008 als Administrator, indem Sie im Menü **Start** mit der rechten Maustaste auf das Programm klicken und **Als Administrator ausführen** auswählen.  
   
-2.  Klicken Sie auf **Datei**, auf **Neu**und anschließend auf **Projekt**.  
+2.  Klicken Sie auf **Datei**, auf **Neu** und anschließend auf **Projekt**.  
   
-3.  Klicken Sie im Dialogfeld **Neues Projekt** auf **Visual C#**, klicken Sie auf **Klassenbibliothek**, geben Sie einen Namen für die Projektmappe ein, und klicken Sie dann auf **OK**.  
+3.  Klicken Sie im Dialogfeld **Neues Projekt** auf **Visual C#** , klicken Sie auf **Klassenbibliothek**, geben Sie einen Namen für die Projektmappe ein, und klicken Sie dann auf **OK**.  
   
 4.  Benennen Sie die Datei "Class1.cs" um, beispielsweise in "MyDomainNameProvider.cs".  
   
@@ -278,7 +278,7 @@ Sie können es Benutzern ermöglichen, Domänennamen der dritten Ebene im Assist
   
 21. Speichern Sie das Projekt, aber schließen Sie es nicht, da Sie es mit dem nächsten Verfahren erweitern. Sie können das Projekt erst erstellen, wenn Sie das nächste Verfahren abgeschlossen haben.  
   
-###  <a name="BKMK_DomainMaintenance"></a> Eine Implementierung der IDomainMaintenanceProvider-Schnittstelle zur Assembly hinzufügen  
+###  <a name="add-an-implementation-of-the-idomainmaintenanceprovider-interface-to-the-assembly"></a><a name="BKMK_DomainMaintenance"></a>Hinzufügen einer Implementierung der idomainmaintenanceprovider-Schnittstelle zur Assembly  
  Die IDomainMaintenanceProvider-Schnittstelle wird verwendet, um die Domäne zu verwalten, nachdem sie erstellt wurde.  
   
 ##### <a name="to-add-the-idomainmaintenanceprovider-code-to-the-assembly"></a>So fügen Sie der Assembly den Code für "IDomainMaintenanceProvider" hinzu  
@@ -517,10 +517,10 @@ Sie können es Benutzern ermöglichen, Domänennamen der dritten Ebene im Assist
   
 14. Speichern und erstellen Sie die Projektmappe.  
   
-###  <a name="BKMK_SignAssembly"></a> Signieren der Assembly mit Authenticode-Signatur  
+###  <a name="sign-the-assembly-with-an-authenticode-signature"></a><a name="BKMK_SignAssembly"></a>Signieren der Assembly mit einer Authenticode-Signatur  
  Sie müssen die Assembly mit Authenticode signieren, damit sie im Betriebssystem verwendet werden kann. Weitere Informationen zum Signieren der Assembly finden Sie unter [Signieren und Überprüfen von Code mit Authenticode](https://msdn.microsoft.com/library/ms537364\(VS.85\).aspx#SignCode).  
   
-###  <a name="BKMK_InstallAssembly"></a> Installieren Sie die Assembly, auf dem Referenzcomputer  
+###  <a name="install-the-assembly-on-the-reference-computer"></a><a name="BKMK_InstallAssembly"></a>Installieren der Assembly auf dem Referenz Computer  
  Platzieren Sie die Assembly in einem Ordner auf dem Referenzcomputer. Notieren Sie sich den Ordnerpfad, da Sie ihn im nächsten Schritt in die Registrierung einfügen.  
   
 ### <a name="add-a-key-to-the-registry"></a>Hinzufügen eines Schlüssels zur Registrierung  
@@ -528,7 +528,7 @@ Sie können es Benutzern ermöglichen, Domänennamen der dritten Ebene im Assist
   
 ##### <a name="to-add-a-key-to-the-registry"></a>So fügen Sie einen Schlüssel zur Registrierung hinzu  
   
-1.  Klicken Sie auf dem Referenzcomputer auf **Start**, geben Sie **regedit**ein, und drücken Sie die **Eingabetaste**.  
+1.  Klicken Sie auf dem Referenzcomputer auf **Start**, geben Sie **regedit** ein, und drücken Sie die **Eingabetaste**.  
   
 2.  Erweitern Sie im linken Bereich **HKEY_LOCAL_MACHINE**, **SOFTWARE**, **Microsoft**, **Windows Server**, dann **Domain Managers** und schließlich **Providers**.  
   
@@ -550,7 +550,7 @@ Sie können es Benutzern ermöglichen, Domänennamen der dritten Ebene im Assist
   
 11. Klicken Sie mit der rechten Maustaste im rechten Bereich auf die neue Zeichenfolge **Aktiviert**, und klicken Sie dann auf **Ändern**.  
   
-12. Geben Sie **True**ein und klicken Sie dann auf **OK**.  
+12. Geben Sie **True** ein und klicken Sie dann auf **OK**.  
   
 13. Klicken Sie mit der rechten Maustaste erneut auf den Schlüssel, und klicken Sie dann auf **Zeichenfolgenwert**.  
   
@@ -560,10 +560,10 @@ Sie können es Benutzern ermöglichen, Domänennamen der dritten Ebene im Assist
   
 16. Geben Sie den vollständigen Klassennamen des Anbieters ein, der in der Assembly definiert ist, und klicken Sie dann auf **OK**.  
   
-###  <a name="BKMK_RestartService"></a> Starten Sie den Dienst von Windows Server-Domänennamenverwaltung  
+###  <a name="restart-the-windows-server-domain-name-management-service"></a><a name="BKMK_RestartService"></a>Starten Sie den Windows Server-Domänen Namen-Verwaltungsdienst  
  Sie müssen den Windows Server-Dienst für die Domänenverwaltung neu starten, damit der Anbieter dem Betriebssystem zur Verfügung steht.  
   
-##### <a name="restart-the-service"></a>Neustarten des Diensts  
+##### <a name="restart-the-service"></a>Den Dienst neu starten  
   
 1.  Click **Start**, type **mmc**, and then press **Enter**.  
   
@@ -577,10 +577,10 @@ Sie können es Benutzern ermöglichen, Domänennamen der dritten Ebene im Assist
   
     4.  Klicken Sie auf **OK**, um das Dialogfeld **Snap-In hinzufügen/entfernen** zu schließen.  
   
-3.  Doppelklicken Sie auf **Dienste**, führen Sie einen Bildlauf nach unten aus, und wählen Sie **Windows Server-Domänenverwaltung**aus. Klicken Sie anschließend auf **Dienst neu starten**.  
+3.  Doppelklicken Sie auf **Dienste**, führen Sie einen Bildlauf nach unten aus, und wählen Sie **Windows Server-Domänenverwaltung** aus. Klicken Sie anschließend auf **Dienst neu starten**.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Zusätzliche Anpassungen](Additional-Customizations.md)   
+ [Weitere Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)

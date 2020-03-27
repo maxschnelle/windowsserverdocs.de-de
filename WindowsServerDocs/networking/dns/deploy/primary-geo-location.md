@@ -6,20 +6,20 @@ ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: ef9828f8-c0ad-431d-ae52-e2065532e68f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9c313b88e2502a99baf5962a1f2eb224d67a38dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 5c74ca9fe60374d1bc1396d95c2e34cc5cd1fdd6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406178"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317768"
 ---
 # <a name="use-dns-policy-for-geo-location-based-traffic-management-with-primary-servers"></a>Verwenden von DNS-Richtlinien für eine auf Geolocation basierende Datenverkehrsverwaltung mit Primärservern
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-In diesem Thema erfahren Sie, wie Sie die DNS-Richtlinie so konfigurieren, dass primäre DNS-Server auf DNS-Client Abfragen basierend auf dem geografischen Standort des Clients und der Ressource, mit der der Client eine Verbindung herstellt, Antworten können. dabei wird dem Client die IP-Adresse des Clients bereitgestellt. Das Gewand der nächstgelegenen Ressource.  
+In diesem Thema erfahren Sie, wie Sie die DNS-Richtlinie so konfigurieren, dass primäre DNS-Server auf DNS-Client Abfragen basierend auf dem geografischen Standort des Clients und der Ressource, mit der der Client eine Verbindung herstellt, Antworten können. dabei wird dem Client die IP-Adresse bereitgestellt. Adresse der nächstgelegenen Ressource.  
   
 >[!IMPORTANT]  
 >In diesem Szenario wird veranschaulicht, wie Sie eine DNS-Richtlinie für die georedunkte Datenverkehrs Verwaltung bereitstellen, wenn Sie nur primäre DNS-Server verwenden Sie können auch die georeduntbasierte Datenverkehrs Verwaltung durchführen, wenn Sie sowohl primäre als auch sekundäre DNS-Server haben. Wenn Sie über eine primäre sekundäre Bereitstellung verfügen, führen Sie zunächst die Schritte in diesem Thema aus, und führen Sie dann die Schritte aus, die im Thema [Verwenden der DNS-Richtlinie für die georeduntbasierte Datenverkehrs Verwaltung mit primären sekundären bereit Stellungen](primary-secondary-geo-location.md)beschrieben werden.
@@ -32,7 +32,7 @@ Sie können die folgenden DNS-Richtlinien Parameter verwenden, um die DNS-Server
 - **Transport Protokoll**. Das Transport Protokoll, das in der Abfrage verwendet wird. Mögliche Einträge sind **UDP** und **TCP**.
 - **Internet Protokoll**. In der Abfrage verwendetes Netzwerkprotokoll. Mögliche Einträge sind **IPv4** und **IPv6**.
 - **IP-Adresse der Server Schnittstelle**. IP-Adresse der Netzwerkschnittstelle des DNS-Servers, von dem die DNS-Anforderung empfangen wurde.
-- VOLLSTÄNDIG **VERFÜGBAR.** Der voll qualifizierte Domänen Name (Fully Qualified Domain Name, FQDN) des Datensatzes in der Abfrage mit der Möglichkeit, eine Platzhalter zu verwenden.
+- Vollständig **verfügbar.** Der voll qualifizierte Domänen Name (Fully Qualified Domain Name, FQDN) des Datensatzes in der Abfrage mit der Möglichkeit, eine Platzhalter zu verwenden.
 - **Abfragetyp**. Typ des Datensatzes, der abgefragt wird (A, SRV, txt usw.).
 - **Tageszeit**. Tageszeit, zu der die Abfrage empfangen wird. 
   
@@ -42,7 +42,7 @@ Sie können die folgenden Kriterien mit einem logischen Operator (und/oder) komb
 - **Verweigern**. Der DNS-Server antwortet mit einer Fehler Antwort auf diese Abfrage.          
 - **Zulassen**. Der DNS-Server antwortet mit der durch den Datenverkehr verwalteten Antwort.          
   
-##  <a name="bkmk_example"></a>Beispiel für die georedunlokbasierte Datenverkehrs Verwaltung
+##  <a name="geo-location-based-traffic-management-example"></a><a name="bkmk_example"></a>Beispiel für die georedunlokbasierte Datenverkehrs Verwaltung
 
 Im folgenden finden Sie ein Beispiel für die Verwendung der DNS-Richtlinie, um die Umleitung des Datenverkehrs auf der Basis des physischen Standorts des Clients zu erreichen, der eine DNS-Abfrage ausführt.   
   
@@ -56,7 +56,7 @@ In der folgenden Abbildung ist dieses Szenario dargestellt.
   
 ![Beispiel für die georedunlokbasierte Datenverkehrs Verwaltung](../../media/DNS-Policy-Geo1/dns_policy_geo1.png)  
   
-##  <a name="bkmk_works"></a>So funktioniert der DNS-Namens Auflösungsprozess  
+##  <a name="how-the-dns-name-resolution-process-works"></a><a name="bkmk_works"></a>So funktioniert der DNS-Namens Auflösungsprozess  
   
 Während des Namens Auflösungs Vorgangs versucht der Benutzer, eine Verbindung mit www.Woodgrove.com herzustellen. Dies führt zu einer Anforderung zur Auflösung von DNS-Namen, die an den DNS-Server gesendet wird, der in den Eigenschaften der Netzwerkverbindung auf dem Computer des Benutzers konfiguriert ist. In der Regel handelt es sich hierbei um den DNS-Server, der vom lokalen ISP bereitgestellt wird, der als cacheresolver fungiert, und wird als ldns bezeichnet.   
   
@@ -69,7 +69,7 @@ In diesem Szenario sieht der autorisierende DNS-Server in der Regel die namens A
 >[!NOTE]  
 >DNS-Richtlinien verwenden die Absender-IP im UDP/TCP-Paket, das die DNS-Abfrage enthält. Wenn die Abfrage den primären Server über mehrere Konflikt Löser/ldns-Hops erreicht, berücksichtigt die Richtlinie nur die IP des letzten Resolvers, von dem der DNS-Server die Abfrage empfängt.  
   
-##  <a name="bkmk_config"></a>Konfigurieren der DNS-Richtlinie für georedunfbasierte Abfrage Antworten  
+##  <a name="how-to-configure-dns-policy-for-geo-location-based-query-responses"></a><a name="bkmk_config"></a>Konfigurieren der DNS-Richtlinie für georedunfbasierte Abfrage Antworten  
 Sie müssen die folgenden Schritte ausführen, um die DNS-Richtlinie für georedunfbasierte Abfrage Antworten zu konfigurieren.  
   
 1. [Erstellen der DNS-Clientsubnetze](#bkmk_subnets)  
@@ -85,7 +85,7 @@ In den folgenden Abschnitten finden Sie ausführliche Konfigurations Anweisungen
 >[!IMPORTANT]  
 >Die folgenden Abschnitte enthalten Beispiele für Windows PowerShell-Befehle, die Beispiel Werte für viele Parameter enthalten. Stellen Sie sicher, dass Sie die Beispiel Werte in diesen Befehlen durch Werte ersetzen, die für die Bereitstellung geeignet sind, bevor Sie diese Befehle ausführen.  
   
-### <a name="bkmk_subnets"></a>Erstellen der DNS-Clientsubnetze  
+### <a name="create-the-dns-client-subnets"></a><a name="bkmk_subnets"></a>Erstellen der DNS-Clientsubnetze  
   
 Der erste Schritt besteht darin, die Subnetze oder den IP-Adressraum der Regionen zu identifizieren, für die Sie den Datenverkehr umleiten möchten. Wenn Sie z. b. den Datenverkehr für die USA und Europa umleiten möchten, müssen Sie die Subnetze oder IP-Adressräume dieser Regionen identifizieren.  
   
@@ -101,7 +101,7 @@ Sie können die folgenden Windows PowerShell-Befehle verwenden, um DNS-Clientsub
   
 Weitere Informationen finden Sie unter [Add-dnsserverclientsubnet](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverclientsubnet?view=win10-ps).  
   
-### <a name="bkmk_scopes"></a>Zonen Bereiche erstellen  
+### <a name="create-zone-scopes"></a><a name="bkmk_scopes"></a>Zonen Bereiche erstellen  
 Nachdem die Clientsubnetze konfiguriert wurden, müssen Sie die Zone partitionieren, deren Datenverkehr Sie in zwei verschiedene Zonen Bereiche umleiten möchten, einen Bereich für jedes der von Ihnen konfigurierten DNS-Clientsubnetze.   
   
 Wenn Sie z. b. den Datenverkehr für den DNS-Namen www.Woodgrove.com umleiten möchten, müssen Sie zwei verschiedene Zonen Bereiche in der Woodgrove.com-Zone erstellen, eine für die USA und eine für Europa.  
@@ -120,7 +120,7 @@ Sie können die folgenden Windows PowerShell-Befehle verwenden, um Zonen Bereich
 
 Weitere Informationen finden Sie unter [Add-dnsserverzonescope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps).  
   
-### <a name="bkmk_records"></a>Hinzufügen von Datensätzen zu den Zonen Bereichen  
+### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records"></a>Hinzufügen von Datensätzen zu den Zonen Bereichen  
 Nun müssen Sie die Datensätze, die den Webserver Host darstellen, in den zwei Zonen Bereichen hinzufügen.   
   
 Z. b. "USA **" und "** **europezonescope**". In der-Zugriffs Steuerungs Liste können Sie den Datensatz www.Woodgrove.com mit der IP-Adresse 192.0.0.1 hinzufügen, die sich in einem US-Daten Center befindet. und in "europezonescope" können Sie den gleichen Datensatz (www.Woodgrove.com) mit der IP-Adresse 141.1.0.1 im Europäischen Daten Center hinzufügen.   
@@ -145,7 +145,7 @@ Der **zonescope** -Parameter ist nicht eingeschlossen, wenn Sie einen Datensatz 
   
 Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).  
   
-### <a name="bkmk_policies"></a>Erstellen der Richtlinien  
+### <a name="create-the-policies"></a><a name="bkmk_policies"></a>Erstellen der Richtlinien  
 Nachdem Sie die Subnetze, die Partitionen (Zonen Bereiche) und Datensätze hinzugefügt haben, müssen Sie Richtlinien erstellen, mit denen die Subnetze und Partitionen verbunden werden, sodass bei einer Abfrage aus einer Quelle in einem der DNS-Clientsubnetze die Abfrage Antwort von der richtige Bereich der Zone. Zum Mapping des Standard Zonen Bereichs sind keine Richtlinien erforderlich.   
   
 Mithilfe der folgenden Windows PowerShell-Befehle können Sie eine DNS-Richtlinie erstellen, mit der die DNS-Clientsubnetze und die Zonen Bereiche verknüpft werden.   

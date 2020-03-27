@@ -8,8 +8,8 @@ metadata:
   text: 'Always On-VPN-bietet eine einzige, einheitliche Lösung für den Remotezugriff für all Ihre verbundenen Geräte, sogar Geräte in Privatbesitz. Mit Always On-VPN muss der Verbindungstyp nicht ausschließlich Benutzer oder Gerät, sondern kann eine Kombination aus beidem sein. Sie könnten z.B. die Geräteauthentifizierung für die Remotegeräteverwaltung aktivieren und dann die Benutzerauthentifizierung für Konnektivität mit internen Unternehmenssites und -diensten.'
   keywords: 'Windows 10, Windows Server, Windows Server 2016, Remotezugriff, VPN'
   ms.localizationpriority: high
-  author: shortpatti
-  ms.author: pashort
+  author: eross-msft
+  ms.author: lizross
   ms.date: 11/05/2018
   ms.topic: article
   ms.devlang: na

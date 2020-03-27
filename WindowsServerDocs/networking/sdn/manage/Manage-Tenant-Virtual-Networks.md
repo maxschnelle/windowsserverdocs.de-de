@@ -10,22 +10,22 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5905532b-626d-4b35-99a3-72a063e25809
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: e204eaca846f152da991f7f0674bc10f66555f3f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 15ba6f6039e9b2249fadd7898a5393527e6ea2ab
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406083"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313014"
 ---
 # <a name="manage-tenant-virtual-networks"></a>Verwalten von virtuellen Mandantennetzwerken
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Mithilfe der Themen in diesem Abschnitt können Sie virtuelle Hyper-V-netzwerkvirtualisierungsnetzwerke für Mandanten verwalten, nachdem Sie Software-Defined Networking bereitgestellt haben. verwenden Sie hierzu das Thema bereitstellen [einer Software definierten Netzwerkinfrastruktur mithilfe von Skripts](../../sdn/deploy/Deploy-a-Software-Defined-Network-infrastructure-using-scripts.md).  
   
-In diesem Abschnitt werden die folgenden Themen behandelt:  
+Dieser Abschnitt enthält die folgenden Themen:  
   
 - [Grundlegendes zur Verwendung von virtuellen Netzwerken und VLANs](Understanding-Usage-of-Virtual-Networks-and-VLANs.md)  
 - [Verwenden von Access Control Listen (ACLs) zum Verwalten des Datenverkehrs Flusses im Daten Center](use-acls-for-traffic-flow.md)  

@@ -10,18 +10,18 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f590fb86-4195-4f90-98cb-e90459d4c1e3
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 63fc52644b4f08d745891763265cc8f929e89910
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 170be9d3d47374188640ef4b132adce9043e4e29
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355089"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309475"
 ---
 # <a name="view-dns-resource-records-for-a-specific-ip-address"></a>Anzeigen von DNS-Ressourceneinträgen für eine bestimmte IP-Adresse
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema können Sie die DNS-Ressourcen Einträge anzeigen, die der gewählten IP-Adresse zugeordnet sind.  
   
@@ -39,7 +39,7 @@ Die Mitgliedschaft in **Administratoren** oder einer entsprechenden Gruppe ist d
   
     ![Anzeigen von DNS-Ressourcen Einträgen](../../media/View-DNS-Resource-Records-for-a-Specific-IP-Address/ipam_IPInventory_02.jpg)  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Verwaltung von DNS-Ressourcen Einträgen](DNS-Resource-Record-Management.md)  
 [Verwalten von IPAM](Manage-IPAM.md)  
   

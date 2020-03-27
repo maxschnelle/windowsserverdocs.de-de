@@ -6,22 +6,22 @@ ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
 ms.localizationpriority: medium
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/30/2018
-ms.openlocfilehash: 5cb0d342afec9c28259efb7a2e15666358f3cb5b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 18fa85189b082a4a88a8a0bc0d6df11e21e7c97d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404254"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307689"
 ---
 # <a name="step-4-install-and-configure-the-network-policy-server-nps"></a>Schritt 4 Installieren und Konfigurieren des Netzwerk Richtlinien Servers (NPS)
 
 > Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Weiter** Schritt 3 Konfigurieren des RAS-Servers für Always On VPN](vpn-deploy-ras.md)
-- [**Weiter** Schritt 5 Konfigurieren von DNS und Firewalleinstellungen](vpn-deploy-dns-firewall.md)
+- [**Weiter:** Schritt 3. Konfigurieren des Remote Zugriffs Servers für die Always on-VPN](vpn-deploy-ras.md)
+- [**Weiter:** Schritt 5: Konfigurieren von DNS-und Firewalleinstellungen](vpn-deploy-dns-firewall.md)
 
 In diesem Schritt installieren Sie den Netzwerk Richtlinien Server (Network Policy Server, NPS) für die Verarbeitung von Verbindungsanforderungen, die vom VPN-Server gesendet werden:
 
@@ -104,7 +104,7 @@ In diesem Verfahren registrieren Sie den Server in Active Directory, damit er be
 
 2.  Klicken Sie in der NPS-Konsole mit der rechten Maustaste auf **NPS (lokal)** , und wählen Sie dann **Server in Active Directory registrieren aus**.
    
-     Das Dialogfeld Netzwerk Richtlinien Server wird geöffnet.
+     Das Dialogfeld Netzwerkrichtlinienserver wird geöffnet.
 
 3.  Klicken Sie im Dialogfeld Netzwerk Richtlinien Server zweimal auf **OK** .
 
@@ -171,7 +171,7 @@ In diesem Verfahren konfigurieren Sie NPS als RADIUS-Server in Ihrem Organisatio
 
 4. Wählen Sie unter DFÜ-oder VPN-Server angeben in RADIUS-Clients den Namen des VPN-Servers aus, den Sie im vorherigen Schritt hinzugefügt haben. Wenn der NetBIOS-Name des VPN-Servers beispielsweise RAS1 lautet, wählen Sie **RAS1**aus.
 
-5. Wählen Sie **Weiter** aus.
+5. Klicken Sie auf **Weiter**.
 
 6. Führen Sie unter Konfigurieren von Authentifizierungsmethoden die folgenden Schritte aus:
 
@@ -179,7 +179,7 @@ In diesem Verfahren konfigurieren Sie NPS als RADIUS-Server in Ihrem Organisatio
 
     2. Aktivieren Sie das Kontrollkästchen **Extensible Authentication-Protokoll** , um es auszuwählen.
 
-    3. Wählen Sie **in Typ (basierend auf der Zugriffs-und Netzwerkkonfiguration) die Option Microsoft: Geschütztes EAP (PEAP)** , und wählen Sie dann **Konfigurieren**aus.
+    3. Wählen Sie in Typ (basierend auf der Zugriffs-und Netzwerkkonfiguration) die Option **Microsoft: geschütztes EAP (PEAP)** , und klicken Sie dann auf **Konfigurieren**.
       
         Das Dialogfeld geschützte EAP-Eigenschaften bearbeiten wird geöffnet.
 
@@ -191,15 +191,15 @@ In diesem Verfahren konfigurieren Sie NPS als RADIUS-Server in Ihrem Organisatio
 
     7. Wählen Sie **OK** aus, um geschützte EAP-Eigenschaften bearbeiten zu schließen.
 
-7. Wählen Sie **Weiter** aus.
+7. Klicken Sie auf **Weiter**.
 
 8. Führen Sie unter Benutzergruppen angeben die folgenden Schritte aus:
 
-    1. Wählen Sie **Hinzufügen**. Das Dialogfeld Benutzer, Computer, Dienst Konten oder Gruppen auswählen wird geöffnet.
+    1. Wählen Sie **Hinzufügen**. Das Dialogfeld Benutzer, Computer, Dienstkonten oder Gruppen auswählen wird geöffnet.
 
     2. Geben Sie **VPN-Benutzer**ein, und wählen Sie dann **OK**
 
-    3. Wählen Sie **Weiter** aus.
+    3. Klicken Sie auf **Weiter**.
 
 9. Wählen Sie unter IP-Filter angeben die Option **weiter**aus.
 
@@ -228,4 +228,4 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Schritt 5: Konfigurieren von DNS-und Firewalleinstellungen](vpn-deploy-dns-firewall.md)für Always on-VPN: In diesem Schritt installieren Sie den Netzwerk Richtlinien Server (Network Policy Server, NPS) mithilfe von Windows PowerShell oder dem Server-Manager Assistenten zum Hinzufügen von Rollen und Features. Außerdem können Sie NPS so konfigurieren, dass alle Authentifizierungs-, Autorisierungs-und Buchhaltungsaufgaben für Verbindungsanforderungen verarbeitet werden, die vom VPN-Server empfangen werden.
+[Schritt 5: Konfigurieren von DNS-und Firewalleinstellungen für Always on-VPN](vpn-deploy-dns-firewall.md): in diesem Schritt installieren Sie den Netzwerk Richtlinien Server (Network Policy Server, NPS) mithilfe von Windows PowerShell oder dem Assistenten zum Hinzufügen von Rollen und Features Server-Manager. Außerdem können Sie NPS so konfigurieren, dass alle Authentifizierungs-, Autorisierungs-und Buchhaltungsaufgaben für Verbindungsanforderungen verarbeitet werden, die vom VPN-Server empfangen werden.

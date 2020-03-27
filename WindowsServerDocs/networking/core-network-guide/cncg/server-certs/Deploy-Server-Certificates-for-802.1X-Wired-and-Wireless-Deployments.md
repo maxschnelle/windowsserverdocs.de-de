@@ -6,18 +6,18 @@ ms.topic: article
 ms.assetid: 0a39ecae-39cc-4f26-bd6f-b71ed02fc4ad
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 0dce886555167ad651704045120fb92eff0dcea1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 0636fc321b4e94351628fd577526a8e81b4fc4cf
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356174"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318309"
 ---
 # <a name="deploy-server-certificates-for-8021x-wired-and-wireless-deployments"></a>Bereitstellen von Serverzertifikaten für drahtgebundene und drahtlose 802.1X-Bereitstellungen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Mithilfe dieses Handbuchs können Sie Server Zertifikate für die Remote Zugriffs-und NPS-Infrastruktur Server (Network Policy Server, Netzwerk Richtlinien Server) bereitstellen.   
 
@@ -61,7 +61,7 @@ Die automatische Registrierung von Server Zertifikaten, auch als automatische Re
 - Einfachheit. Sie geben die Server, die Server Zertifikate registrieren, mithilfe von Active Directory Gruppenkonten und Gruppenmitgliedschaften an.   
 - Wenn Sie Server Zertifikate bereitstellen, basieren die Zertifikate auf einer Vorlage, die Sie mit den Anweisungen in diesem Handbuch konfigurieren. Dies bedeutet, dass Sie verschiedene Zertifikat Vorlagen für bestimmte Server Typen anpassen können, oder Sie können für alle Server Zertifikate, die Sie ausgeben möchten, dieselbe Vorlage verwenden.  
 
-## <a name="bkmk_pre"></a>Voraussetzungen für die Verwendung dieses Handbuchs  
+## <a name="prerequisites-for-using-this-guide"></a><a name="bkmk_pre"></a>Voraussetzungen für die Verwendung dieses Handbuchs  
 
 Dieses Handbuch enthält Anweisungen zum Bereitstellen von Server Zertifikaten mithilfe von AD CS und der Server Rolle Webserver (IIS) in Windows Server 2016. Im folgenden finden Sie die Voraussetzungen für die Ausführung der Verfahren in diesem Handbuch.  
 
@@ -71,23 +71,23 @@ Dieses Handbuch enthält Anweisungen zum Bereitstellen von Server Zertifikaten m
 
 - Sie müssen den Abschnitt Planning dieses Handbuchs lesen, um sicherzustellen, dass Sie für diese Bereitstellung vorbereitet sind, bevor Sie die Bereitstellung ausführen.  
 - Die Schritte in diesem Handbuch müssen in der Reihenfolge ausgeführt werden, in der Sie angezeigt werden. Stellen Sie Ihre Zertifizierungsstelle nicht bereit, ohne die Schritte auszuführen, die zur Bereitstellung des Servers führen, oder die Bereitstellung schlägt fehl.  
-- Sie müssen darauf vorbereitet sein, zwei neue Server in Ihrem Netzwerk bereitzustellen: einen Server, auf dem Sie AD CS als Stamm Zertifizierungsstelle des Unternehmens installieren werden, und einen Server, auf dem Sie den Webserver (IIS) installieren, damit Ihre Zertifizierungsstelle die Zertifikat Sperr Liste (CRL) auf der Web-SE veröffentlichen kann. rvername.   
+- Sie müssen darauf vorbereitet sein, zwei neue Server in Ihrem Netzwerk bereitzustellen: einen Server, auf dem Sie AD CS als Stamm Zertifizierungsstelle des Unternehmens installieren werden, und einen Server, auf dem Sie den Webserver (IIS) installieren, damit Ihre Zertifizierungsstelle die Zertifikat Sperr Liste im Web veröffentlichen kann. Servers.   
 
 >[!NOTE]  
 >Sie sind darauf vorbereitet, den Web-und AD CS-Servern, die Sie mit diesem Handbuch bereitstellen, eine statische IP-Adresse zuzuweisen. Außerdem können Sie die Computer gemäß den Benennungs Konventionen Ihrer Organisation benennen. Außerdem müssen Sie die Computer der Domäne hinzufügen.  
 
-## <a name="bkmk_not"></a>Was diese Anleitung nicht bietet  
+## <a name="what-this-guide-does-not-provide"></a><a name="bkmk_not"></a>Was diese Anleitung nicht bietet  
 Diese Anleitung enthält keine ausführlichen Anweisungen zum Entwerfen und Bereitstellen einer Public Key-Infrastruktur (PKI) mithilfe von AD CS. Es wird empfohlen, die AD CS-Dokumentation und die PKI-Entwurfsdokumentation zu lesen, bevor Sie die Technologien in diesem Handbuch bereitstellen.   
 
-## <a name="bkmk_tech"></a>Technologie Übersichten  
+## <a name="technology-overviews"></a><a name="bkmk_tech"></a>Technologie Übersichten  
 Im folgenden finden Sie Technologie Übersichten für AD CS und Webserver (IIS).  
 
-### <a name="active-directory-certificate-services"></a>Active Directory-Zertifikatdienste  
+### <a name="active-directory-certificate-services"></a>Active Directory-Zertifikatsdienste  
 AD CS in Windows Server 2016 bietet anpassbare Dienste zum Erstellen und Verwalten der X. 509-Zertifikate, die in Software Sicherheitssystemen verwendet werden, die Public Key-Technologien einsetzen. Organisationen können AD CS verwenden, um die Sicherheit zu erhöhen, indem Sie die Identität einer Person, eines Geräts oder Diensts an einen entsprechenden öffentlichen Schlüssel binden. AD CS umfasst auch Features, mit denen Sie die Zertifikat Registrierung und die Sperrung in einer Vielzahl von skalierbaren Umgebungen verwalten können.  
 
 Weitere Informationen finden Sie unter [Übersicht über Active Directory Zertifikat Dienste](https://technet.microsoft.com/library/hh831740.aspx) und [Entwurfs Leit Fäden für die Public Key-Infrastruktur](https://social.technet.microsoft.com/wiki/contents/articles/2901.public-key-infrastructure-design-guidance.aspx).  
 
-### <a name="web-server-iis"></a>Webserver (IIS)  
+### <a name="web-server-iis"></a>Web Server (IIS)  
 
 Die Rolle "Webserver (IIS)" in Windows Server 2016 bietet eine sichere, einfach zu verwaltende, modulare und erweiterbare Plattform für das zuverlässige Hosting von Websites, Diensten und Anwendungen. Mit IIS können Sie Informationen für Benutzer im Internet, in einem Intranet oder in einem Extranet freigeben. IIS ist eine einheitliche Webplattform, die IIS, ASP.net, FTP-Dienste, PHP und Windows Communication Foundation (WCF) integriert.  
 

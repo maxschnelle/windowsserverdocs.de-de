@@ -10,14 +10,14 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 79df3bbe-48fd-4eff-8df6-35f6317566f3
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 338d5a285f2524932a91a66db186554cd0f50e2a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 1d5d5aaae5983e062dae203c60a7001f36e5629b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355662"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309811"
 ---
 # <a name="network-function-virtualization"></a>Netzwerkfunktionsvirtualisierung
 
@@ -33,10 +33,10 @@ In diesem Thema erfahren Sie mehr über die netzwerkfunktionsvirtualisierung, mi
   
 In den heutigen Software definierten Rechenzentren werden Netzwerkfunktionen, die von Hardware Geräten (z. b. Lasten Ausgleichs Module, Firewalls, Router, Switches usw.) ausgeführt werden, zunehmend als virtuelle Geräte virtualisiert. Diese „Netzwerkfunktionsvirtualisierung“ ist ein natürlicher Fortschritt der Server- und Netzwerkvirtualisierung. Virtuelle Geräte werden schnell neu entwickelt und erstellen einen neuen Markt. Sie generieren weiterhin Interessen und gewinnen Dynamik sowohl bei Virtualisierungsplattformen als auch bei Clouddiensten.  
   
-Microsoft enthielt seit Windows Server 2012 R2 ein eigenständiges Gateway als virtuelles Gerät. Weitere Informationen finden Sie unter [Windows Server Gateway](https://technet.microsoft.com/library/dn313101.aspx). Mit Windows Server 2016 erweitert und investiert Microsoft den Netzwerk Funktions-Virtualisierungsmarkt.  
+Microsoft enthielt seit Windows Server 2012 R2 ein eigenständiges Gateway als virtuelles Gerät. Weitere Informationen finden Sie unter [Windows Server-Gateway](https://technet.microsoft.com/library/dn313101.aspx). Mit Windows Server 2016 erweitert und investiert Microsoft den Netzwerk Funktions-Virtualisierungsmarkt.  
   
 ## <a name="virtual-appliance-benefits"></a>Vorteile von virtuellen Geräten  
-Ein virtuelles Gerät ist dynamisch und leicht zu ändern, da es sich um einen vordefinierten, angepassten virtuellen Computer handelt. Dabei kann es sich um einen oder mehrere virtuelle Computer handeln, die als Einheit verpackt, aktualisiert und verwaltet werden. In Verbindung mit Software-Defined Networking (SDN) erhalten Sie die Flexibilität und Flexibilität, die Sie in der heutigen cloudbasierten Infrastruktur benötigen. Zum Beispiel:  
+Ein virtuelles Gerät ist dynamisch und leicht zu ändern, da es sich um einen vordefinierten, angepassten virtuellen Computer handelt. Dabei kann es sich um einen oder mehrere virtuelle Computer handeln, die als Einheit verpackt, aktualisiert und verwaltet werden. In Verbindung mit Software-Defined Networking (SDN) erhalten Sie die Flexibilität und Flexibilität, die Sie in der heutigen cloudbasierten Infrastruktur benötigen. Beispiel:  
   
 -   SDN stellt das Netzwerk als eine gepoolte und dynamische Ressource dar.  
   
@@ -79,7 +79,7 @@ Der Marketplace für virtualisierte Netzwerkfunktionen wächst schnell. Die folg
   
     -   Router  
   
-    -   Mikro  
+    -   Switches  
   
     -   NAT  
   

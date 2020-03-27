@@ -10,20 +10,20 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 22ccd5c3-0a26-484c-88c8-54119d1228cc
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: edbc9a3e44f3f2aa2586f7c82462255beec3733b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: f2874f5ab75723f6a0fec137dd1f1cd7d6a2efbb
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404993"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310968"
 ---
 # <a name="directaccess-deployment-paths-in-windows-server"></a>DirectAccess-Bereitstellungspfade in Windows Server
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Dieses Thema enthält eine Liste der Dokumentation für die beiden Haupt Bereitstellungs Pfade für den Remote Zugriff: **Basic** und **erweitert**.  
+Dieses Thema enthält eine Liste der Dokumentation für die beiden Haupt Bereitstellungs Pfade für den Remote Zugriff: " **Basic** " und " **Advanced**".  
   
 Im folgenden Abschnitt finden Sie Informationen zu den Unterschieden zwischen den grundlegenden und erweiterten Bereitstellungs Pfaden von DirectAccess. Sie können auch die Dokumentations Links verwenden, um das Bereitstellungs Handbuch zu finden, das für Ihre Ziele am besten geeignet ist.  
   

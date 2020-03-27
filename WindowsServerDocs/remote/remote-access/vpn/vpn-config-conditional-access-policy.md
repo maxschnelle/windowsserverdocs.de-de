@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: 22983c085f2b9d9e7e16810e25c6fa50111f9fa6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 479c9fe4895f4181f8a776f024a7ff3c047fbc0e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404347"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307818"
 ---
 # <a name="step-73-configure-the-conditional-access-policy"></a>Schritt 7.3. Konfigurieren der Richtlinie für bedingten Zugriff
 
@@ -88,7 +88,7 @@ Erstellen Sie eine Richtlinie für bedingten Zugriff, die der Gruppe "VPN-Benutz
 
 8.  Wählen Sie auf der Seite **neu** unter **Richtlinie aktivieren**die Option **ein aus.**
 
-    ![Richtlinie aktivieren](../../media/Always-On-Vpn/15.png)
+    ![Aktivieren einer Richtlinie](../../media/Always-On-Vpn/15.png)
 
 9.  Wählen Sie auf der Seite **neu** die Option **Erstellen**aus.
 

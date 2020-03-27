@@ -6,26 +6,26 @@ ms.topic: article
 ms.assetid: ca5c3e04-ae25-4590-97f3-0376a9c2a9a2
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: d4b713437f031e4a381d2759bdcbf7f41bd573d5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 63cc9e3b347635aaf631169b887b0e4c0dd9e989
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406347"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318232"
 ---
 # <a name="server-certificate-deployment-overview"></a>Serverzertifikatbereitstellung – Übersicht
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-Dieses Thema enthält die folgenden Abschnitte:  
+Dieses Thema enthält folgende Abschnitte:  
   
 -   [Komponenten der Server Zertifikat Bereitstellung](#bkmk_components)
   
 -   [Übersicht über den Server Zertifikat Bereitstellungs Prozess](#bkmk_process)
   
-## <a name="bkmk_components"></a>Komponenten der Server Zertifikat Bereitstellung
+## <a name="server-certificate-deployment-components"></a><a name="bkmk_components"></a>Komponenten der Server Zertifikat Bereitstellung
 Mithilfe dieses Handbuchs können Sie Active Directory Zertifikat Dienste (AD CS) als Unternehmens-Stamm Zertifizierungsstelle (Certification Authority, ca) installieren und Server Zertifikate für Server registrieren, auf denen der Netzwerk Richtlinien Server (Network Policy Server, NPS), der Routing-und RAS-Dienst (RRAS) ausgeführt wird. oder NPS und RRAS.
 
 
@@ -48,7 +48,7 @@ Weitere Informationen zu den Elementen, die in der obigen Abbildung dargestellt 
   
 -   [NPS1](#bkmk_nps1)  
   
-### <a name="bkmk_ca1"></a>CA1 Ausführen der AD CS-Server Rolle  
+### <a name="ca1-running-the-ad-cs-server-role"></a><a name="bkmk_ca1"></a>CA1 Ausführen der AD CS-Server Rolle  
 In diesem Szenario ist die Stamm Zertifizierungsstelle des Unternehmens ebenfalls eine ausstellende Zertifizierungsstelle. Die Zertifizierungsstelle gibt Zertifikate für Server Computer aus, die über die richtigen Sicherheits Berechtigungen zum Registrieren eines Zertifikats verfügen. Die Active Directory Zertifikat Dienste (AD CS) werden auf CA1 installiert.  
   
 Bei größeren Netzwerken oder bei Sicherheitsrisiken, die eine Begründung darstellen, können Sie die Rollen der Stamm Zertifizierungsstelle und der ausstellenden Zertifizierungsstelle trennen und untergeordnete CAS bereitstellen, die Zertifizierungsstellen  
@@ -66,13 +66,13 @@ Sie verwenden eine Kopie der Vorlage anstelle der ursprünglichen Vorlage, damit
 #### <a name="additional-ca1-configuration"></a>Zusätzliche CA1-Konfiguration  
 Von der Zertifizierungsstelle wird eine Zertifikat Sperr Liste (CRL) veröffentlicht, die von Computern überprüft werden muss, um sicherzustellen, dass Zertifikate, die Ihnen als Identitätsnachweis angezeigt werden, gültige Zertifikate sind und nicht widerrufen wurden. Sie müssen die Zertifizierungsstelle mit dem richtigen Speicherort der CRL konfigurieren, damit die Computer wissen, wo die Zertifikat Sperr Liste während des Authentifizierungs Vorgangs gesucht werden soll.  
   
-### <a name="bkmk_web1"></a>WEB1 Ausführen der Web Services (IIS)-Server Rolle  
+### <a name="web1-running-the-web-services-iis-server-role"></a><a name="bkmk_web1"></a>WEB1 Ausführen der Web Services (IIS)-Server Rolle  
 Auf dem Computer, auf dem die Webserver Rolle "Webserver (IIS)" (WEB1) ausgeführt wird, müssen Sie in Windows-Explorer einen Ordner erstellen, der als Speicherort für die Zertifikat Sperr Liste und AIA verwendet werden kann.  
   
 #### <a name="virtual-directory-for-the-crl-and-aia"></a>Virtuelles Verzeichnis für die CRL und AIA  
 Nachdem Sie einen Ordner in Windows-Explorer erstellt haben, müssen Sie den Ordner als virtuelles Verzeichnis in Internetinformationsdienste (IIS)-Manager konfigurieren und die Zugriffs Steuerungs Liste für das virtuelle Verzeichnis konfigurieren, um Computern den Zugriff auf AIA und CRL zu ermöglichen. Nachdem Sie dort veröffentlicht wurden.  
   
-### <a name="bkmk_dc1"></a>DC1 Ausführen der AD DS-und DNS-Server Rollen  
+### <a name="dc1-running-the-ad-ds-and-dns-server-roles"></a><a name="bkmk_dc1"></a>DC1 Ausführen der AD DS-und DNS-Server Rollen  
 DC1 ist der Domänen Controller und DNS-Server in Ihrem Netzwerk.  
   
 #### <a name="group-policy-default-domain-policy"></a>Standard Domänen Richtlinie Gruppenrichtlinie  
@@ -81,13 +81,13 @@ Nachdem Sie die Zertifikat Vorlage auf der Zertifizierungsstelle konfiguriert ha
 #### <a name="dns-alias-cname-resource-record"></a>DNS-Alias (CNAME)-Ressourcen Daten Satz  
 Sie müssen einen Alias Ressourcen Daten Satz (CNAME) für den Webserver erstellen, um sicherzustellen, dass der Server von anderen Computern sowie von AIA und der CRL, die auf dem Server gespeichert sind, gefunden werden kann. Außerdem bietet die Verwendung eines Alias-CNAME-Ressourceneinsatzes Flexibilität, sodass Sie den Webserver für andere Zwecke verwenden können, z. b. das Hosting von Web-und FTP-Sites.  
   
-### <a name="bkmk_nps1"></a>NPS1 Ausführen des Netzwerk Richtlinien Server-Rollen Diensts der Server Rolle "Netzwerk Richtlinien-und Zugriffs Dienste"  
+### <a name="nps1-running-the-network-policy-server-role-service-of-the-network-policy-and-access-services-server-role"></a><a name="bkmk_nps1"></a>NPS1 Ausführen des Netzwerk Richtlinien Server-Rollen Diensts der Server Rolle "Netzwerk Richtlinien-und Zugriffs Dienste"  
 Der NPS wird installiert, wenn Sie die Aufgaben im Windows Server 2016-Kern Netzwerk Handbuch ausführen, sodass Sie vor dem Ausführen der Aufgaben in diesem Handbuch bereits einen oder mehrere NPSS in Ihrem Netzwerk installiert haben.  
   
 #### <a name="group-policy-applied-and-certificate-enrolled-to-servers"></a>Gruppenrichtlinie angewendete und auf Server registrierte Zertifikate  
 Nachdem Sie die Zertifikat Vorlage und die automatische Registrierung konfiguriert haben, können Sie Gruppenrichtlinie auf allen Ziel Servern aktualisieren. Zu diesem Zeitpunkt registrieren die Server das Serverzertifikat von CA1.  
   
-### <a name="bkmk_process"></a>Übersicht über den Server Zertifikat Bereitstellungs Prozess  
+### <a name="server-certificate-deployment-process-overview"></a><a name="bkmk_process"></a>Übersicht über den Server Zertifikat Bereitstellungs Prozess  
   
 > [!NOTE]  
 > Ausführliche Informationen zur Ausführung dieser Schritte finden Sie im Abschnitt [Server Zertifikat Bereitstellung](../../../core-network-guide/cncg/server-certs/Server-Certificate-Deployment.md).  

@@ -1,8 +1,8 @@
 ---
 title: Neues in Windows Server 2019 Essentials
-description: Beschreibt, was in Windows Server Essentials 2019 geändert wird
+description: Beschreibt, was in Windows Server Essentials 2019 geändert wurde.
 ms.custom: na
-ms.prod: windows-server-2019-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -11,37 +11,37 @@ ms.assetid: affff774-5fa6-4944-887a-9bfde05f6a3f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
-ms.openlocfilehash: 2692869ac4ff1302a4f36533ba8788148db7b73f
-ms.sourcegitcommit: a3c9a7718502de723e8c156288017de465daaf6b
+ms.openlocfilehash: 11d12d3dc00357e09e156daa47c373a893ac40f7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67263024"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310281"
 ---
 # <a name="whats-new-in-windows-server-2019-essentials"></a>Neues in Windows Server 2019 Essentials
 
 > Gilt für: Windows Server 2019 Essentials
 
-## <a name="windows-server-essentials-experience-role-has-been-deprecated"></a>Windows Server Essentials Experience-Rolle wurde als veraltet markiert
+## <a name="windows-server-essentials-experience-role-has-been-deprecated"></a>Die Rolle "Windows Server Essentials-Benutzer" ist veraltet.
 
-Die Windows Server Essentials Experience-Rolle wurde aus der alle Server-SKUs, einschließlich Windows Server 2019 Essentials entfernt. Dies bedeutet, dass die [-Verwaltungsdashboard](../manage/overview-of-the-dashboard-in-windows-server-essentials.md) , verwendet das Hauptfeature sein, für die Essentials Experience-Rolle ist nicht mehr zugegriffen werden kann und die gesamte Verwaltung und Konfiguration manuell abgeschlossen werden konnte müssen. 
+Die Rolle "Windows Server Essentials-Benutzer" wurde aus allen Server-SKUs entfernt, einschließlich Windows Server 2019 Essentials. Dies bedeutet, dass auf das [Administrative Dashboard](../manage/overview-of-the-dashboard-in-windows-server-essentials.md) , das als Haupt Feature für die Essentials-Benutzerrolle verwendet wird, nicht mehr zugegriffen werden kann und dass die gesamte Verwaltung und Konfiguration manuell abgeschlossen werden muss. 
 
-Die folgenden Funktionen sind mit dem Server Essentials Experience-Rolle als veraltet nicht mehr verfügbar:
+Mit der veralteten Server Essentials-Funktion sind die folgenden Features nicht mehr verfügbar:
 
--   Clientsicherung 
--   Remotewebzugriff 
+-   Client Sicherung 
+-   Remoteweb Zugriff 
 
-## <a name="microsoft-365-business-the-modern-small-business-solution"></a>Microsoft 365 Business: Die Lösung für die moderne kleine Unternehmen 
+## <a name="microsoft-365-business-the-modern-small-business-solution"></a>Microsoft 365 Business: die moderne Small Business-Lösung 
 
-Im Laufe der Jahre seit Windows Server 2016 Essentials veröffentlicht wurde, haben wir hart auf die nächste von Lösungen für große und kleine Unternehmen gleichermaßen gearbeitet: Microsoft 365. Wir empfehlen dringend Microsoft 365 für small Business-Kunden als Ersatz für alle Versionen von Windows Server Essentials. Microsoft 365 ist eine moderne Lösung für die Dateifreigabe und Zusammenarbeit, und umfasst Office 365, Windows 10 und Enterprise Mobility + Security. 
+Im Laufe der Jahre seit der Veröffentlichung von Windows Server 2016 Essentials arbeiten wir mit der nächsten Lösung für große und kleine Unternehmen wie Microsoft 365. Wir empfehlen dringend Microsoft 365 für Kunden von Kleinunternehmen als Ersatz für alle Versionen von Windows Server Essentials. Microsoft 365 ist eine moderne Lösung für die gemeinsame Nutzung und Zusammenarbeit von Dateien und umfasst Office 365, Windows 10 und Enterprise Mobility + Security. 
 
-Entwickeln Sie Ihr Unternehmen mit [Microsoft 365 Business](https://www.microsoft.com/microsoft-365/business), wozu auch weitere Office-Features wie e-Mail- und Kalenderfunktionen, Dateispeicher in der Cloud, den Schutz von Daten und mehr. Microsoft 365 Business hilft kleine Unternehmen Produktivität erzielen.
+Entwickeln Sie Ihr Unternehmen weiter mit [Microsoft 365 Business](https://www.microsoft.com/microsoft-365/business), das noch mehr Office-Features umfasst, wie z. b. e-Mail und Kalender, Dateispeicher in der Cloud, Datenschutz und mehr. Microsoft 365 Business hilft Ihrem kleinen Unternehmen dabei, neue Produktivitäts Stufen zu erzielen.
 
-## <a name="aad-connect-can-now-be-installed-on-windows-server-2019-essentials"></a>AAD Connect kann jetzt auf Windows Server 2019 Essentials installiert werden
+## <a name="aad-connect-can-now-be-installed-on-windows-server-2019-essentials"></a>Aad Connect kann jetzt unter Windows Server 2019 Essentials installiert werden.
 
-Windows Server 2019 Essentials bietet neue Unterstützung für Azure Active Directory über [AAD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-prerequisites). 
+Windows Server 2019 Essentials bietet neue Unterstützung für Azure Active Directory über [Aad Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-prerequisites). 
 
 ## <a name="ltsc-support-for-windows-server-2016-essentials"></a>LTSC-Unterstützung für Windows Server 2016 Essentials
 
-Kunden, die derzeit mit Windows Server 2016 Essentials werden gemäß der lange Begriff Wartungskanal (LTSC) Zeitachse Wartung unterstützt.
-Für Unternehmen mit mehr als 25 Benutzer/50 Geräten oder Unternehmen, die möglicherweise über 25 Benutzern zugenommen haben, können Windows Server 2019 Standard – und möglicherweise die Datacenter-Edition – die flexiblere Bereitstellungsoptionen bereitstellen.
+Kunden, die derzeit Windows Server 2016 Essentials verwenden, werden gemäß der LTSC-Wartungszeit (Long Term Service Channel) unterstützt.
+Für Unternehmen mit mehr als 25 Benutzern/50 Geräten oder Unternehmen, die möglicherweise über 25 Benutzer hinaus zugenommen haben, können Windows Server 2019 Standard – und potenziell die Datacenter Edition – flexiblere Bereitstellungs Optionen bereitstellen.

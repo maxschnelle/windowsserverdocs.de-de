@@ -3,7 +3,7 @@ title: Unterstützung von Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: ac12e9a9-ba7a-480a-9249-6e216c70941b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d6855e777ea6e59ce5a9596adc9ba2e186b0a3e5
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 9142f44e61a7361bd4c40bdfdb5869e326d67343
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947384"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318663"
 ---
 # <a name="support-windows-server-essentials"></a>Unterstützung von Windows Server Essentials
 
@@ -25,7 +25,7 @@ ms.locfileid: "75947384"
 
 In diesem Thema finden Sie Support- und Problembehandlungsoptionen für Windows Server Essentials.  
   
-##  <a name="BKMK_Top"></a>Top Support-Lösungen und Updates  
+##  <a name="top-support-solutions-and-updates"></a><a name="BKMK_Top"></a>Top Support-Lösungen und Updates  
   
 -   [Top-Supportlösungen für Windows Server 2012 R2 und Windows Server 2012](https://blogs.technet.com/b/topsupportsolutions/archive/2014/02/04/top-support-solutions-for-microsoft-windows-server-2012.aspx)  
   
@@ -41,7 +41,7 @@ In diesem Thema finden Sie Support- und Problembehandlungsoptionen für Windows 
   
 -   [Hotfix: Sie können die Windows Server Update Services-Rolle in Windows Server Essentials](https://support.microsoft.com/kb/2762663) (Februar 2013) nicht aktivieren.  
   
-## <a name="troubleshoot"></a>„Problembehandlung”  
+## <a name="troubleshoot"></a>Problembehandlung  
  Dieser Abschnitt enthält Informationen, mit deren Hilfe Sie häufige Probleme beheben können, die möglicherweise auftreten, wenn Sie Windows Server Essentials verwenden. Die Informationen zur Problembehandlung sind in logische Bereiche unterteilt, die wichtigen Produktfeatures entsprechen.  
   
 -   [Von Windows Server Essentials Best Practices Analyzer (BPA) verwendete Regeln](../migrate/Rules-used-by-the-Windows-Server-Essentials-Best-Practices-Analyzer--BPA--Tool.md)  
@@ -126,7 +126,7 @@ In diesem Thema finden Sie Support- und Problembehandlungsoptionen für Windows 
   
 -    Informationen zur sicheren Zusammenarbeit mit Partnern und Lieferanten finden Sie unter [verbessern der Zusammenarbeit in kleinen und mittelständischen Unternehmen](https://technet.microsoft.com/library/dn747893.aspx).  
   
-## <a name="see-also"></a>Weitere Informationen:  
+## <a name="see-also"></a>Siehe auch  
   
 -   [Installieren von Windows Server Essentials](../install/Install-Windows-Server-Essentials.md)  
   

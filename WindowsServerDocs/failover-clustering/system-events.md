@@ -1,18 +1,18 @@
 ---
 title: Failoverclustering-System Protokollereignisse
 description: Eine Liste der Failoverclustering-Ereignisse im Windows Server-System Protokoll. Diese Ereignisse können verwendet werden, um Probleme mit einem Cluster zu beheben.
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 01/14/2020
-ms.openlocfilehash: 5c2606b96b42d08cc66da2e19596240c21bf4b88
-ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
+ms.openlocfilehash: 0346b56ad2fe8a60ab84b7e6ab43e0558ed1c85b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75956452"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310050"
 ---
 # <a name="failover-clustering-system-log-events"></a>Failoverclustering-System Protokollereignisse
 
@@ -133,7 +133,7 @@ Der Cluster Dienst hat ein unerwartetes Problem feststellen und wird heruntergef
 
 Clusterdienst konnte nicht gestartet werden, da dieser Knoten festgestellt hat, dass er nicht über die neueste Kopie der Cluster Konfigurationsdaten verfügt. Die Änderungen am Cluster sind aufgetreten, während sich dieser Knoten nicht in der Mitgliedschaft befand und somit keine Konfigurationsdaten Aktualisierungen empfangen konnte.
 
-#### <a name="guidance"></a>Anleitung
+#### <a name="guidance"></a>Empfehlungen
 
 Versuchen Sie, den Cluster Dienst auf allen Knoten im Cluster zu starten, damit Knoten mit der neuesten Kopie der Cluster Konfigurationsdaten zuerst den Cluster bilden können. Dieser Knoten kann dann in den Cluster eingebunden werden und erhält automatisch die aktualisierten Cluster Konfigurationsdaten. Wenn keine Knoten mit der neuesten Kopie der Cluster Konfigurationsdaten verfügbar sind, führen Sie das Windows PowerShell-Cmdlet "Start-clusternode-f" aus. Mithilfe des ForceQuorum (FQ)-Parameters wird der Cluster Dienst gestartet, und die Kopie der Cluster Konfigurationsdaten dieses Knotens wird als autorisierend gekennzeichnet. Das Erzwingen des Quorums auf einem Knoten mit einer veralteten Kopie der Cluster Datenbank führt möglicherweise zu Änderungen an der Cluster Konfiguration, die aufgetreten sind, während der Knoten nicht an dem Cluster beteiligt war.
 
@@ -497,7 +497,7 @@ Die Cluster Ressource "%1" in der Cluster Rolle "%2" hat eine Benachrichtigung �
 
 Fehler bei der Registrierung von mindestens einem zugeordneten DNS-Namen durch die Cluster-Netzwerknamen Ressource, weil die entsprechende DNS-Zone keine dynamischen Updates akzeptiert.<br><br>Cluster Netzwerkname: "%1"<br>DNS-Zone: "%2"
 
-#### <a name="guidance"></a>Anleitung
+#### <a name="guidance"></a>Empfehlungen
 
 Stellen Sie sicher, dass das DNS als dynamische DNS-Zone konfiguriert ist. Wenn der DNS-Server keine dynamischen Updates akzeptiert, deaktivieren Sie in den Eigenschaften des Netzwerkadapters die Adressen dieser Verbindung in DNS registrieren.
 
@@ -517,7 +517,7 @@ Fehler bei der Registrierung eines oder mehrerer zugeordneter DNS-Namen durch de
 
 Die DNS-Registrierung konnte von der Cluster Netzwerk-namens Ressource nicht geändert werden.<br><br>Cluster Netzwerkname: "%1"<br>Fehlercode: "%2"
 
-#### <a name="guidance"></a>Anleitung
+#### <a name="guidance"></a>Empfehlungen
 
 Stellen Sie sicher, dass die Netzwerkadapter, die abhängigen IP-Adress Ressourcen zugeordnet sind, mit Zugriff auf mindestens einen DNS-Server konfiguriert sind.
 
@@ -525,7 +525,7 @@ Stellen Sie sicher, dass die Netzwerkadapter, die abhängigen IP-Adress Ressourc
 
 Die DNS-Registrierung konnte von der Cluster Netzwerk-namens Ressource nicht geändert werden.<br><br>Cluster Netzwerkname: "%1"<br>Ursache: "%2"
 
-#### <a name="guidance"></a>Anleitung
+#### <a name="guidance"></a>Empfehlungen
 
 Stellen Sie sicher, dass die Netzwerkadapter, die abhängigen IP-Adress Ressourcen zugeordnet sind, mit Zugriff auf mindestens einen DNS-Server konfiguriert sind.
 
@@ -533,7 +533,7 @@ Stellen Sie sicher, dass die Netzwerkadapter, die abhängigen IP-Adress Ressourc
 
 Die Cluster-Netzwerknamen Ressource konnte den PTR-Datensatz in der DNS-Reverse-Lookupzone nicht veröffentlichen.<br><br>Cluster Netzwerkname: "%1"<br>Fehler Code: "%2"
 
-#### <a name="guidance"></a>Anleitung
+#### <a name="guidance"></a>Empfehlungen
 
 Stellen Sie sicher, dass die Netzwerkadapter, die abhängigen IP-Adress Ressourcen zugeordnet sind, mit Zugriff auf mindestens einen DNS-Server konfiguriert sind und dass die DNS-Reverse-Lookupzone vorhanden ist.
 
@@ -541,7 +541,7 @@ Stellen Sie sicher, dass die Netzwerkadapter, die abhängigen IP-Adress Ressourc
 
 Die Cluster-Netzwerknamen Ressource konnte den PTR-Datensatz in der DNS-Reverse-Lookupzone nicht veröffentlichen.<br><br>Cluster Netzwerkname: "%1"<br>Ursache: "%2"
 
-#### <a name="guidance"></a>Anleitung
+#### <a name="guidance"></a>Empfehlungen
 
 Stellen Sie sicher, dass die Netzwerkadapter, die abhängigen IP-Adress Ressourcen zugeordnet sind, mit Zugriff auf mindestens einen DNS-Server konfiguriert sind und dass die DNS-Reverse-Lookupzone vorhanden ist.
 
@@ -609,7 +609,7 @@ Fehler bei der Integritäts Überprüfung für die IP-Schnittstelle "%1" (Adress
 
 Die cloudzeugen Ressource konnte Microsoft Azure Speicherdienste nicht erreichen.<br><br>Cluster Ressource: %1 <br>Cluster Knoten: %2 
 
-#### <a name="guidance"></a>Anleitung
+#### <a name="guidance"></a>Empfehlungen
 
 Dies kann auf die Netzwerkkommunikation zwischen dem Cluster Knoten und dem Microsoft Azure zu blockierenden Dienst zurückzuführen sein. Überprüfen Sie die Internet Konnektivität des Knotens mit Microsoft Azure. Stellen Sie eine Verbindung mit dem Microsoft Azure-Portal her, und überprüfen Sie, ob das Speicherkonto
 
@@ -621,7 +621,7 @@ Das Netzwerk "%1", das für die Verwendung des Failoverclusters deaktiviert wurd
 
 Die Cloud-Zeugen Ressource konnte sich nicht bei Microsoft Azure Speicherdiensten authentifizieren. Beim Kontaktieren des Microsoft Azure Speicher Kontos wurde ein Fehler vom Typ "Zugriff verweigert" zurückgegeben. <br><br>Cluster Ressource: %1 
 
-#### <a name="guidance"></a>Anleitung
+#### <a name="guidance"></a>Empfehlungen
 
 Der Zugriffsschlüssel des Speicher Kontos ist möglicherweise nicht mehr gültig. Verwenden Sie den Assistenten zum Konfigurieren des Cluster Quorums in den Failovercluster-Manager oder dem Windows PowerShell-Cmdlet Set-Clusterquorum, um die Cloud-Zeugen Ressource mit dem aktualisierten Zugriffsschlüssel für das Speicherkonto zu konfigurieren.
 
@@ -726,7 +726,7 @@ Fehler bei Knoten Ableitung auf Cluster Knoten %1. <br><br>Verweisen Sie auf die
 
 Der Cluster Dienst konnte keinen verfügbaren Domänen Controller in der Domäne erreichen. Dies kann Auswirkungen auf die Funktionalität haben, die von der Authentifizierung des Cluster Netzwerk namens abhängig ist.<br><br>DC-Server: %1 
 
-#### <a name="guidance"></a>Anleitung
+#### <a name="guidance"></a>Empfehlungen
 
 Vergewissern Sie sich, dass auf die Domänen Controller im Netzwerk auf die Cluster Knoten zugegriffen werden kann.
 
@@ -734,14 +734,14 @@ Vergewissern Sie sich, dass auf die Domänen Controller im Netzwerk auf die Clus
 
 Die Cluster-Netzwerknamen Ressource konnte das zugehörige Computer Objekt in Active Directory nicht finden. Dies kann Auswirkungen auf die Funktionalität haben, die von der Authentifizierung des Cluster Netzwerk namens abhängig ist.<br><br>Netzwerk Name: %1<br>Organisationseinheit: %2
 
-#### <a name="guidance"></a>Anleitung
+#### <a name="guidance"></a>Empfehlungen
 
 Stellen Sie das Computer Objekt für den Netzwerknamen aus dem Active Directory Papierkorb wieder her. Alternativ dazu können Sie die Cluster-Netzwerknamen Ressource offline schalten und die Reparaturaktion ausführen, um das Computer Objekt in Active Directory neu zu erstellen.
 
 ### <a name="event-1685-res_netname_computer_object_cno_not_found"></a>Ereignis 1685: RES_NETNAME_COMPUTER_OBJECT_CNO_NOT_FOUND
 
 Die Cluster-Netzwerknamen Ressource konnte das zugehörige Computer Objekt in Active Directory nicht finden. Dies kann Auswirkungen auf die Funktionalität haben, die von der Authentifizierung des Cluster Netzwerk namens abhängig ist.<br><br>Netzwerk Name: %1<br>Organisationseinheit: %2
-#### <a name="guidance"></a>Anleitung
+#### <a name="guidance"></a>Empfehlungen
 
 Stellen Sie das Computer Objekt für den Netzwerknamen aus dem Active Directory Papierkorb wieder her.
 
@@ -749,7 +749,7 @@ Stellen Sie das Computer Objekt für den Netzwerknamen aus dem Active Directory 
 
 Ressource des Cluster Netzwerk namens gefunden, dass das zugehörige Computer Objekt in Active Directory deaktiviert werden soll. Dies kann Auswirkungen auf die Funktionalität haben, die von der Authentifizierung des Cluster Netzwerk namens abhängig ist.<br><br>Netzwerk Name: %1<br>Organisationseinheit: %2
 
-#### <a name="guidance"></a>Anleitung
+#### <a name="guidance"></a>Empfehlungen
 
 Aktivieren Sie das Computer Objekt für den Netzwerknamen in Active Directory.
 
@@ -757,7 +757,7 @@ Aktivieren Sie das Computer Objekt für den Netzwerknamen in Active Directory.
 
 Ressource des Cluster Netzwerk namens gefunden, dass das zugehörige Computer Objekt in Active Directory deaktiviert werden soll. Dies kann Auswirkungen auf die Funktionalität haben, die von der Authentifizierung des Cluster Netzwerk namens abhängig ist.<br><br>Netzwerk Name: %1<br>Organisationseinheit: %2
 
-#### <a name="guidance"></a>Anleitung
+#### <a name="guidance"></a>Empfehlungen
 
 Aktivieren Sie das Computer Objekt für den Netzwerknamen in Active Directory. Alternativ dazu können Sie die Cluster-Netzwerknamen Ressource offline schalten und die Reparaturaktion ausführen, um das Computer Objekt in Active Directory zu aktivieren.
 
@@ -765,7 +765,7 @@ Aktivieren Sie das Computer Objekt für den Netzwerknamen in Active Directory. A
 
 Die Ressource "Cluster Netzwerkname" hat festgestellt, dass das zugeordnete Computer Objekt in Active Directory deaktiviert wurde und versucht, es zu aktivieren. Dies kann Auswirkungen auf die Funktionalität haben, die von der Authentifizierung des Cluster Netzwerk namens abhängig ist.<br><br>Netzwerk Name: %1<br>Organisationseinheit: %2
 
-#### <a name="guidance"></a>Anleitung
+#### <a name="guidance"></a>Empfehlungen
 
 Aktivieren Sie das Computer Objekt für den Netzwerknamen in Active Directory.
 
@@ -926,7 +926,7 @@ Von der Cluster Ressource "%1" konnte das replizierte lokale Benutzerkonto "%2" 
 
 Der Cluster konnte nicht gestartet werden. Die neueste Kopie der Cluster Konfigurationsdaten war innerhalb der Gruppe von Knoten, die versuchen, den Cluster zu starten, nicht verfügbar. Änderungen am Cluster sind aufgetreten, während die Gruppe der Knoten nicht Mitglied der Mitgliedschaft war und daher nicht in der Lage war, Konfigurationsdaten Aktualisierungen zu empfangen. .<br><br>Zum Starten des Clusters erforderliche Stimmen: %1<br>Verfügbare Stimmen: %2<br>Knoten mit Stimmen: %3
 
-#### <a name="guidance"></a>Anleitung
+#### <a name="guidance"></a>Empfehlungen
 
 Versuchen Sie, den Cluster Dienst auf allen Knoten im Cluster zu starten, damit Knoten mit der neuesten Kopie der Cluster Konfigurationsdaten zuerst den Cluster bilden können. Der Cluster kann gestartet werden, und die Knoten erhalten automatisch die aktualisierten Cluster Konfigurationsdaten. Wenn keine Knoten mit der neuesten Kopie der Cluster Konfigurationsdaten verfügbar sind, führen Sie das Windows PowerShell-Cmdlet "Start-clusternode-f" aus. Mithilfe des ForceQuorum (FQ)-Parameters wird der Cluster Dienst gestartet, und die Kopie der Cluster Konfigurationsdaten dieses Knotens wird als autorisierend gekennzeichnet. Das Erzwingen des Quorums auf einem Knoten mit einer veralteten Kopie der Cluster Datenbank führt möglicherweise zu Änderungen an der Cluster Konfiguration, die aufgetreten sind, während der Knoten nicht an dem Cluster beteiligt war.
 
@@ -1113,7 +1113,7 @@ Der Rückgabecode war "%4". Die Ausgabe von CHKDSK wurde in der Datei "%3" proto
 
 Die physische Datenträger Ressource des Clusters kann nicht online geschaltet werden.<br><br>Name der physischen Datenträger Ressource: %1<br>Fehler Code: %2<br>Verstrichene Zeit (Sekunden): %3
 
-#### <a name="guidance"></a>Anleitung
+#### <a name="guidance"></a>Empfehlungen
 
 Führen Sie den Konfigurationsüberprüfungs-Assistenten aus, um die Speicherkonfiguration zu überprüfen. Wenn der Fehlercode ERROR_CLUSTER_SHUTDOWN wurde, wurde der ausstehende Online Status von einem Administrator abgebrochen. Wenn es sich um ein repliziertes Volume handelt, könnte dies das Ergebnis eines Fehlers beim Festlegen der Datenträger Attribute sein. Überprüfen Sie die Speicher Replikations Ereignisse auf Weitere Informationen.
 
@@ -1250,6 +1250,6 @@ Auf Freigegebenes Clustervolume ' %1 ' (' %2 ') kann von diesem Cluster Knoten a
 Die physische Datenträger Ressource "%1" des Clusters löschte eine Software Momentaufnahme. Die Software Momentaufnahme auf Freigegebenes Clustervolume ' %2 ' wurde gelöscht, weil Sie älter als ' %3 ' Tag (e) war. Die Momentaufnahme-ID lautete "%4" und wurde aus dem Knoten "%5" auf "%6" erstellt.
 Es wird erwartet, dass Momentaufnahmen von einer Sicherungs Anwendung gelöscht werden, nachdem ein Sicherungsauftrag abgeschlossen wurde. Diese Momentaufnahme hat die Zeit überschritten, die für das vorhanden sein einer Momentaufnahme erwartet wird. Überprüfen Sie mit der Sicherungs Anwendung, ob Sicherungsaufträge erfolgreich abgeschlossen werden.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 -   [Ausführliche Ereignis Informationen für Failoverclustering-Komponenten in Windows Server 2008](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753362(v%3dws.10))

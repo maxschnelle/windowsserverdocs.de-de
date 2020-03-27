@@ -1,19 +1,19 @@
 ---
 title: Planen der GPU-Beschleunigung in Windows Server
 description: Erfahren Sie mehr über die verschiedenen Hyper-V-Technologien für die GPU-Beschleunigung, einschließlich DDA und remotefx vgpu
-ms.prod: windows-server-threshold
+ms.prod: windows-server
 ms.reviewer: rickman
 author: rick-man
 ms.author: rickman
 manager: stevelee
 ms.topic: article
 ms.date: 08/21/2019
-ms.openlocfilehash: f62357de1ab167d0a6be4eb63b9d6d23bfac7371
-ms.sourcegitcommit: 81198fbf9e46830b7f77dcd345b02abb71ae0ac2
+ms.openlocfilehash: 7ca8d29b58dc8682575d9cb8b0f26aa49b257335
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72923902"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307856"
 ---
 # <a name="plan-for-gpu-acceleration-in-windows-server"></a>Planen der GPU-Beschleunigung in Windows Server
 
@@ -26,7 +26,7 @@ In diesem Artikel werden die in Windows Server verfügbaren Funktionen für die 
 Abhängig von der Arbeitsauslastung sollten Sie die GPU-Beschleunigung in Erwägung gezogen. Vor der Auswahl von GPU-Beschleunigung sollten Sie Folgendes berücksichtigen:
 
 - **App-und desktopremoting-Workloads (VDI/daas)** : Wenn Sie einen app-oder desktopremotingdienst mit Windows Server entwickeln, sollten Sie den Katalog der apps in Erwägung gezogen haben, die Ihre Benutzer erwarten. Einige Arten von apps, wie z. b. CAD/CAM-apps, Simulations-apps, Spiele und Render/Visualisierungs-apps, basieren stark auf 3D-Rendering, um eine reibungslose und reaktionsfähige Interaktivität zu ermöglichen Die meisten Kunden werden GPUs in Erwägung gezogen, dass Sie mit diesen Arten von apps eine angemessene Benutzer Leistung haben.
-- **Remoterendering-, Codierungs-und Visualisierungs Arbeits Auslastungen**: Diese Grafik orientierten Workloads basieren tendenziell stark auf den spezialisierten Funktionen von GPU, wie z. b. effizientes 3D-Rendering und Frame Codierung/Decodierung, um Folgendes zu erreichen: Kosteneffizienz und Durchsatz Ziele. Für diese Art der Arbeitsauslastung kann ein einzelner GPU-fähiger virtueller Computer in der Lage sein, den Durchsatz von vielen virtuellen CPU-Computern abzugleichen.
+- **Remoterendering-, Codierungs-und Visualisierungs Arbeits Auslastungen**: Diese Grafik orientierten Workloads basieren tendenziell stark auf den spezialisierten Funktionen von GPU, wie z. b. effizientes 3D-Rendering und Frame Codierung/Decodierung, um Kosten Effektivität und Durchsatz Ziele zu erreichen. Für diese Art der Arbeitsauslastung kann ein einzelner GPU-fähiger virtueller Computer in der Lage sein, den Durchsatz von vielen virtuellen CPU-Computern abzugleichen.
 - **HPC-und ml-Arbeits Auslastungen**: für hoch Daten parallele Compute-Workloads, wie z. b. Hochleistungsmodelle für Compute-und Machine Learning-Modelle, können GPUs die Zeit bis zum Ergebnis, die Zeit bis zum Rückschluss und die Trainingszeit drastisch verkürzen. Alternativ bieten Sie möglicherweise eine bessere Kosteneffizienz als eine reine CPU-Architektur auf einer vergleichbaren Leistungs Ebene. Viele HPC-und Machine Learning-Frameworks haben eine Option zum Aktivieren der GPU-Beschleunigung. Stellen Sie sich vor, ob dies für die jeweilige Arbeitsauslastung von Vorteil
 
 ## <a name="gpu-virtualization-in-windows-server"></a>GPU-Virtualisierung in Windows Server
@@ -60,7 +60,7 @@ Remotefx vgpu ist eine Grafik-Virtualisierungstechnologie, die die gemeinsame Nu
 
 Weitere Informationen finden Sie in folgenden Themen:
 
-- [Bereitstellen von Grafik Geräten mithilfe von remotefx vgpu](../deploy/deploy-graphics-devices-using-remotefx-vgpu.md)
+- [Bereitstellen von Grafikgeräten mit RemoteFX vGPU](../deploy/deploy-graphics-devices-using-remotefx-vgpu.md)
 - [Unterstützung von remotefx 3D-Video Adaptern (vgpu)](../../../remote/remote-desktop-services/rds-supported-config.md#remotefx-3d-video-adapter-vgpu-support)
 
 ## <a name="comparing-dda-and-remotefx-vgpu"></a>Vergleichen von DDA und remotefx vgpu

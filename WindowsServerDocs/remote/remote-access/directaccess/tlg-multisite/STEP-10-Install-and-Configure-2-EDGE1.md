@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d98d6f7a-a2e6-45b1-9c63-08e2986a5c03
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7044a0d219decceb7669e92e884c78bcd9e3a61c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 7d21d80f4970a501e31a053483c37268bdddb811
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388388"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314614"
 ---
 # <a name="step-10-install-and-configure-2-edge1"></a>Schritt 10: Installieren und Konfigurieren von 2-Edge1
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 2: die Edge1-Konfiguration besteht aus folgendem:  
   
@@ -41,17 +41,17 @@ ms.locfileid: "71388388"
   
 2 Edge1 es müssen zwei Netzwerkadapter installiert sein.  
   
-## <a name="installOS"></a>Installieren des Betriebssystems auf 2-Edge1  
+## <a name="install-the-operating-system-on-2-edge1"></a><a name="installOS"></a>Installieren des Betriebssystems auf 2-Edge1  
   
 1.  Starten Sie die Installation von Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012.  
   
-2.  Befolgen Sie die Anweisungen, um die Installation abzuschließen, indem Sie Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 (vollständige Installation) und ein sicheres Kennwort für das lokale Administrator Konto angeben. Melden Sie sich beim lokalen Administratorkonto an.  
+2.  Befolgen Sie die Anweisungen, um die Installation abzuschließen, indem Sie Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 (vollständige Installation) und ein sicheres Kennwort für das lokale Administrator Konto angeben. Melden Sie sich mit dem lokalen Administratorkonto an.  
   
 3.  Verbinden Sie 2 Edge1 mit einem Netzwerk, das über Internet Zugriff verfügt, und führen Sie Windows Update aus, um die neuesten Updates für Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 zu installieren, und trennen Sie dann die Verbindung mit dem Internet.  
   
 4.  Verbinden Sie einen Netzwerkadapter mit dem Subnetz 2-Corpnet und dem anderen mit dem simulierten Internet.  
   
-## <a name="tcpip"></a>Konfigurieren von TCP/IP-Eigenschaften  
+## <a name="configure-tcpip-properties"></a><a name="tcpip"></a>Konfigurieren von TCP/IP-Eigenschaften  
   
 1.  Klicken Sie in der Server-Manager Konsole auf **lokaler Server**, und klicken Sie dann im Bereich **Eigenschaften** neben **verkabelte Ethernet-Verbindung**auf den Link.  
   
@@ -85,7 +85,7 @@ ms.locfileid: "71388388"
   
 16. Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
-17. Klicken Sie auf **Folgende IP-Adresse verwenden**. Geben Sie unter **IP-Adresse**den Namen **131.107.0.20**ein. Geben Sie im Feld **Subnetzmaske**den Wert **255.255.255.0**ein.  
+17. Klicken Sie auf **Folgende IP-Adresse verwenden**. Geben Sie unter **IP-Adresse**den Namen **131.107.0.20**ein. Geben Sie im Feld **Subnetzmaske** den Wert **255.255.255.0** ein.  
   
 18. Klicken Sie auf **Erweitert**. Klicken Sie auf der Registerkarte **IP-Einstellungen** im Bereich **IP-Adressen** auf **Hinzufügen**. Geben Sie im Dialogfeld **TCP/IP-Adresse** unter **IP-Adressentyp** **131.107.0.21**unter **Subnetzmaske** den Wert **255.255.255.0**ein, und klicken Sie dann auf **Hinzufügen**.  
   
@@ -95,7 +95,7 @@ ms.locfileid: "71388388"
   
 21. Schließen Sie das Fenster **Netzwerkverbindungen**.  
   
-## <a name="routing"></a>Konfigurieren des Routings zwischen Subnetzen  
+## <a name="configure-routing-between-subnets"></a><a name="routing"></a>Konfigurieren des Routings zwischen Subnetzen  
   
 1.  Geben Sie auf dem **Start** Bildschirm**cmd. exe**ein, und drücken Sie dann die EINGABETASTE.  
   
@@ -112,7 +112,7 @@ ms.locfileid: "71388388"
   
 5.  Schließen Sie das Eingabeaufforderungsfenster.  
   
-## <a name="Join"></a>Join 2 Edge1 zur CORP2-Domäne  
+## <a name="join-2-edge1-to-the-corp2-domain"></a><a name="Join"></a>Join 2 Edge1 zur CORP2-Domäne  
   
 1.  Klicken Sie in der Server-Manager Konsole unter **lokaler Server**im Bereich **Eigenschaften** neben **Computer Name**auf den Link.  
   
@@ -132,7 +132,7 @@ ms.locfileid: "71388388"
   
 9. Klicken Sie nach dem Neustart des Computers auf **Benutzer wechseln**und dann auf **anderer Benutzer** , und melden Sie sich bei der Domäne CORP2 mit dem Administrator Konto an.  
   
-## <a name="certs"></a>Abrufen von Zertifikaten auf 2-Edge1  
+## <a name="obtain-certificates-on-2-edge1"></a><a name="certs"></a>Abrufen von Zertifikaten auf 2-Edge1  
   
 1.  Geben Sie auf dem **Start** Bildschirm**MMC. exe**ein, und drücken Sie dann die EINGABETASTE.  
   
@@ -144,7 +144,7 @@ ms.locfileid: "71388388"
   
 5.  Klicken Sie mit der rechten Maustaste auf **persönlich**, zeigen Sie auf **alle Aufgaben**, und klicken Sie dann auf **Neues Zertifikat anfordern**.  
   
-6.  Klicken Sie zweimal auf **Weiter** .  
+6.  Klicken Sie zweimal auf **Weiter**.  
   
 7.  Wählen Sie auf der Seite **Zertifikate anfordern** die Kontrollkästchen **Client-Server-Authentifizierung** und **Webserver** aus, und klicken Sie dann auf **Weitere Informationen sind erforderlich, um dieses Zertifikat zu registrieren**.  
   
@@ -164,7 +164,7 @@ ms.locfileid: "71388388"
   
 15. Schließen Sie das Konsolenfenster. Wenn Sie zum Speichern der Einstellungen aufgefordert werden, klicken Sie auf **Nein**.  
   
-## <a name="Access"></a>Gewähren des Zugriffs auf "corp\user1"  
+## <a name="provide-access-to-corpuser1"></a><a name="Access"></a>Gewähren des Zugriffs auf "corp\user1"  
   
 1.  Geben Sie auf dem **Start** Bildschirm**compmgmt. msc**ein, und drücken Sie dann die EINGABETASTE.  
   
@@ -180,9 +180,9 @@ ms.locfileid: "71388388"
   
 7.  Klicken Sie im Dialogfeld **Administrator Eigenschaften** auf **OK**.  
   
-8.  Schließen Sie das Fenster Computer Verwaltung.  
+8.  Schließen Sie das Fenster Computerverwaltung.  
   
-## <a name="InstallDA"></a>Installieren der Remote Zugriffs Rolle auf 2 Edge1  
+## <a name="install-the-remote-access-role-on-2-edge1"></a><a name="InstallDA"></a>Installieren der Remote Zugriffs Rolle auf 2 Edge1  
   
 1.  Klicken Sie in der Server-Manager-Konsole im **Dashboard**auf **Rollen und Features hinzufügen**.  
   

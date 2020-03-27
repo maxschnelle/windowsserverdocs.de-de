@@ -1,9 +1,9 @@
 ---
-title: Hinzufügen von Computern, die neue Windows Server Essentials-network1
-description: Beschreibt, wie Windows Server Essentials
+title: Hinzufügen von Computern zum neuen Windows Server Essentials-network1
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,19 +12,19 @@ ms.assetid: d94de050-3300-4323-a5ea-c824cb9cecc9
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 62f31f859ed3fd0f77baf37d3467d4702b24ad95
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 48703ed78ee7d604e67be06b540d4206617d4578
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66432916"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318982"
 ---
-# <a name="join-computers-to-the-new-windows-server-essentials-network1"></a>Hinzufügen von Computern, die neue Windows Server Essentials-network1
+# <a name="join-computers-to-the-new-windows-server-essentials-network1"></a>Hinzufügen von Computern zum neuen Windows Server Essentials-network1
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 ##  <a name="BKMK_JoinComputers"></a>   
- Der nächste Schritt des Migrationsvorgangs ist zum Verknüpfen von Clientcomputern zum neuen Windows Server Essentials-Netzwerk und Aktualisieren von gruppenrichtlinieneinstellungen.  
+ Der nächste Schritt des Migrations Vorgangs besteht im Hinzufügen von Client Computern zum neuen Windows Server Essentials-Netzwerk und zum Aktualisieren Gruppenrichtlinie Einstellungen.  
   
 ### <a name="domain-joined-client-computers"></a>Domänenverbundene Clientcomputer  
  Navigieren Sie zu **http://** <em>Ziel-Servername</em> **/ connect** und installieren Sie die Windows Server-Connector-Software, wie bei einem neuen Computer. Der Installationsvorgang wird für Clientcomputer, die Domäne mit der Domäne verknüpft sind oder nicht, derselbe.  
@@ -49,7 +49,7 @@ ms.locfileid: "66432916"
   
 2.  Geben Sie an der Eingabeaufforderung **GPRESULT /R** ein, und drücken Sie dann die EINGABETASTE.  
   
-3.  Überprüfen Sie die Ausgabe für den Abschnitt der Gruppenrichtlinie von angewendet wurde: und stellen Sie sicher, sie den Zielserver auflistet, z. B. **DestinationSrv.Domain.local**. Zum Beispiel:  
+3.  Überprüfen Sie die Ausgabe für den Abschnitt Gruppenrichtlinie der auf angewendet wurde, und stellen Sie sicher, dass Sie den Ziel Server auflistet, z. b. **destinationsrv. Domain. local**. Beispiel:  
   
     ```  
     USER SETTINGS  
@@ -63,12 +63,12 @@ ms.locfileid: "66432916"
   
     ```  
   
-4.  Wenn Zielserver nicht aufgeführt ist, geben Sie in eine Eingabeaufforderung **gpupdate /force**ein und drücken Sie dann die EINGABETASTE, um die Gruppenrichtlinieneinstellungen zu aktualisieren. Führen Sie das vorherige Verfahren dann erneut aus.  
+4.  Wenn Zielserver nicht aufgeführt ist, geben Sie in eine Eingabeaufforderung **gpupdate /force** ein und drücken Sie dann die EINGABETASTE, um die Gruppenrichtlinieneinstellungen zu aktualisieren. Führen Sie das vorherige Verfahren dann erneut aus.  
   
 5.  Wenn der Zielserver immer noch nicht angezeigt wird, liegt möglicherweise ein Fehler in den Gruppenrichtlinieneinstellungen vor oder ein Fehler bei der Anwendung auf diesem bestimmten Client-Computer. Wenn der Zielserver nicht angezeigt wird, führen Sie die folgenden Schritte aus:  
   
     1.  Klicken Sie auf **Start**, klicken Sie auf **ausführen**, geben Sie **rsop.msc** (Resultant Set of Policy,) ein und drücken Sie dann die EINGABETASTE.  
   
-    2.  Erweitern Sie die Struktur mit dem X bis zu einem Knoten.  
+    2.  Erweitern Sie die Struktur mit dem X-Wert, bis Sie zu einem Knoten gelangen.  
   
     3.  Klciekn Sie mit der rechten Maustaste auf den Knoten und klicken Sie auf **Fehler anzeigen** für Informationen zu den Gründen, warum die Gruppenrichtlinieneinstellungen auf dem aufgeführten Computer fehlschlagen.

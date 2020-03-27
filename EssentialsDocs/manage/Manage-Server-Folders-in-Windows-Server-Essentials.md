@@ -3,7 +3,7 @@ title: Verwalten der Serverordner in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 090cf1b8-7b9b-48b9-ae85-b98477b8d7cc
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 0c46d19f4f172786e0ffe7f3b9dd7ac1d8f4fcf0
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 6ba5dd5e5978687c9d80a6d34e5e622aaa37c4b9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322232"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311124"
 ---
 # <a name="manage-server-folders-in-windows-server-essentials"></a>Verwalten der Serverordner in Windows Server Essentials
 
@@ -39,7 +39,7 @@ ms.locfileid: "79322232"
   
 -   [Grundlegendes zu Schatten Kopien](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_Shadow)  
   
-##  <a name="BKMK_2"></a>Verwalten von Server Ordnern mithilfe des Dashboards  
+##  <a name="manage-server-folders-using-the-dashboard"></a><a name="BKMK_2"></a>Verwalten von Server Ordnern mithilfe des Dashboards  
  Windows Server Essentials ermöglicht die Ausführung allgemeiner administrativer Aufgaben über das Dashboard. Die Seite **Serverordner** des Dashboards bietet Folgendes:  
   
 - Eine Liste der Serverordner, in der Folgendes angezeigt wird:  
@@ -72,7 +72,7 @@ ms.locfileid: "79322232"
 |Hinzufügen von Ordnern|Unterstützt Sie bei der Erstellung eines neuen Serverordners und der Zuweisung der Zugriffsebene, die für die jeweiligen Benutzerkonten zulässig sind.|  
 |Grundlagen zu Serverordnern|Öffnet ein Hilfethema im Internet, in dem Verwendung und Funktionen von Serverordnern beschrieben sind.|  
   
-##  <a name="BKMK_1"></a>Verwalten des Zugriffs auf Server Ordner  
+##  <a name="manage-access-to-server-folders"></a><a name="BKMK_1"></a>Verwalten des Zugriffs auf Server Ordner  
  Mithilfe von Windows Server Essentials können Sie Dateien, die sich auf Ihren Clientcomputern befinden, mithilfe von Serverordnern an einem zentralen Speicherort speichern. Durch das Speichern der Dateien in Serverordnern wird sichergestellt, dass sich Ihre Dateien immer an einem Speicherort befinden, auf den von jedem Client aus immer auf sichere Weise zugegriffen werden kann.  
   
  Die Verwendung von Serverordnern zum Speichern von Dateien bietet folgende Möglichkeiten:  
@@ -105,7 +105,7 @@ ms.locfileid: "79322232"
   
 -   [Anzeigen oder Ändern von Server Ordnereigenschaften](Manage-Server-Folders-in-Windows-Server-Essentials.md#BKMK_10)  
   
-###  <a name="BKMK_Hide"></a>Ausblenden von Server Ordnern  
+###  <a name="hide-server-folders"></a><a name="BKMK_Hide"></a>Ausblenden von Server Ordnern  
  Als Netzwerkadministrator können Sie jeden dieser Serverordner ausblenden und dadurch verhindern, dass sie auf der Website für den Remotewebzugriff oder in den Webdienstanwendungen (wie "Eigener Server") angezeigt werden.  
   
 > [!NOTE]
@@ -123,7 +123,7 @@ ms.locfileid: "79322232"
   
 5.  Klicken Sie in **< FolderName\> Eigenschaften**auf **Freigabe**, wählen Sie **Ordner in Remote Webzugriff und Webdienst Anwendungen ausblenden aus**, und klicken Sie dann auf über **nehmen.**  
   
-###  <a name="BKMK_Perms"></a>Festlegen von Berechtigungen für Server Ordner  
+###  <a name="set-permissions-to-server-folders"></a><a name="BKMK_Perms"></a>Festlegen von Berechtigungen für Server Ordner  
  Für jeden zusätzlichen Serverordner, den Sie mithilfe des Dashboards auf dem Server hinzufügen, können Sie drei unterschiedliche Zugriffseinstellungen Einstellungen auswählen:  
   
 -   **Lesen/Schreiben**  
@@ -162,7 +162,7 @@ ms.locfileid: "79322232"
 > [!NOTE]
 >  Die Freigabeberechtigungen für die Serverordner **Sicherungen von Dateiversionsverläufen**, **Ordnerumleitung** und **Benutzer** können nicht geändert werden. Die Ordnereigenschaften dieser Serverordner enthalten daher keine Registerkarte für **Freigabe**.  
   
-###  <a name="BKMK_10"></a>Anzeigen oder Ändern von Server Ordnereigenschaften  
+###  <a name="view-or-modify-server-folder-properties"></a><a name="BKMK_10"></a>Anzeigen oder Ändern von Server Ordnereigenschaften  
  Sie können den Serverordnernamen und seine Beschreibung ändern und über die Aufgabe **Ordnereigenschaften anzeigen** auf der Registerkarte **Serverordner** des Dashboards festlegen, welche Benutzerkonten Zugriff auf einen Serverordner erhalten.  
   
 > [!NOTE]
@@ -183,7 +183,7 @@ ms.locfileid: "79322232"
     > [!NOTE]
     >  In Windows Server Essentials und Windows Server 2012 R2 mit installierter Rolle "Windows Server Essentials-Umgebung" können Sie auch das Ordner Kontingent ändern, das eine Warnmeldung generiert, wenn ein Server Ordner seine angegebene Größe erreicht.  
   
-##  <a name="BKMK_5"></a>Hinzufügen oder Verschieben eines Server Ordners  
+##  <a name="add-or-move-a-server-folder"></a><a name="BKMK_5"></a>Hinzufügen oder Verschieben eines Server Ordners  
  Sie können **weitere Serverordner hinzufügen**, um Ihre Dateien auf dem Server zu speichern, anstatt nur die Standardserverordner zu verwenden, die beim Setup erstellt werden. Sie können Serverordner entweder auf dem primären oder einem Mitgliedsserver hinzufügen, auf denen Windows Server Essentials ausgeführt wird.  
   
  Sie können einen **Serverordner**, der sich auf dem primären Server befindet, auf dem Windows Server Essentials ausgeführt wird, und auf der Registerkarte **Serverordner** des Dashboards angezeigt wird, bei Bedarf mithilfe des Assistenten zum Verschieben von Ordnern auf eine andere Festplatte verschieben. Unter den folgenden Bedingungen können Sie einen Serverordner an eine andere Speicheradresse auf der Festplatte verschieben:  
@@ -226,7 +226,7 @@ ms.locfileid: "79322232"
   
 - Kontingente  
   
-###  <a name="BKMK_6"></a>Hinzufügen oder Verschieben eines Server Ordners  
+###  <a name="where-to-add-or-move-a-server-folder"></a><a name="BKMK_6"></a>Hinzufügen oder Verschieben eines Server Ordners  
  In der Regel sollten Sie Serverordner auf Festplatten hinzufügen oder verschieben, die über die maximale Größe an freiem Speicherplatz verfügen. Vermeiden Sie nach Möglichkeit das Hinzufügen oder Verschieben eines freigegebenen Ordners zum Systemlaufwerk (z. B. "C:"), da dadurch dann möglicherweise der erforderliche Speicherplatz fehlt, der für das Betriebssystem und seine Updates erforderlich ist. Vermeiden Sie außerdem das Hinzufügen oder Verschieben von Serverordnern auf externe Festplatten, da die Verbindung zu ihnen ganz einfach getrennt werden kann. In diesem Fall können Sie dann nicht mehr auf Ihre Dateien zugreifen. Stattdessen wird empfohlen, den Ordner auf einem internen Laufwerk zu erstellen.  
   
  Ein Serverordner kann nicht zu den folgenden Speicherorten hinzugefügt oder an diese verschoben werden. Wenn einer dieser Speicherorte für das Hinzufügen oder Verschieben von Serverordnern ausgewählt wird, führt dies zu einem Fehler:  
@@ -278,7 +278,7 @@ ms.locfileid: "79322232"
   
 5.  Folgen Sie den Anweisungen, um den Assistenten fertigzustellen.  
   
-##  <a name="BKMK_9"></a>Hinzufügen eines fehlenden Server Ordners  
+##  <a name="add-a-missing-server-folder"></a><a name="BKMK_9"></a>Hinzufügen eines fehlenden Server Ordners  
  Wenn der Server erkennt, dass ein vordefinierter Server Ordner? Unternehmen, Benutzer, Client Computer Sicherungen, Sicherungen von Datei Versions Verläufen oder Ordner Umleitung können nicht mehr freigegeben werden (aus irgendeinem Grund oder einem anderen). es wird eine Warnung generiert, die den Benutzer zur Behebung dieses Problems führt. Versuchen Sie nach Möglichkeit, den Ordner aus einer Serversicherung wiederherzustellen. Wenn der Server jedoch nicht gesichert wurde, wählen Sie den fehlenden Ordner aus, und klicken Sie dann auf **Fehlenden Ordner neu erstellen**, um den Speicherort des Serverordners neu zu konfigurieren.  
   
 > [!NOTE]
@@ -288,10 +288,10 @@ ms.locfileid: "79322232"
   
  Informationen zum Wiederherstellen von Dateien aus Server Sicherungen finden Sie im Abschnitt "Weitere Informationen zum Wiederherstellen von Dateien und Ordnern" im Thema Verwalten von Sicherungen [und Wiederherstellungen](Manage-Backup-and-Restore-in-Windows-Server-Essentials.md).  
   
-##  <a name="BKMK_11"></a>Informationen zu freigegebenen Ordnern  
+##  <a name="understand-shared-folders"></a><a name="BKMK_11"></a>Informationen zu freigegebenen Ordnern  
  Es gibt mehrere Möglichkeiten, in Windows Server Essentials über ein Gerät, das mit dem Server verbunden ist, auf die freigegebenen Ordner zuzugreifen. Weitere Informationen finden Sie im Thema Verwenden von frei [gegebenen Ordnern](../use/Use-Shared-Folders-in-Windows-Server-Essentials.md).  
   
-##  <a name="BKMK_Shadow"></a>Grundlegendes zu Schatten Kopien  
+##  <a name="understand-shadow-copies"></a><a name="BKMK_Shadow"></a>Grundlegendes zu Schatten Kopien  
  Mit Schattenkopien von Servern können Benutzer freigegebene Dateien und Ordner anzeigen, wie sie zu einem bestimmten Zeitpunkt in der Vergangenheit vorhanden waren. Der Zugriff auf frühere Versionen von Dateien oder Schattenkopien sind hilfreich, da Benutzer die folgenden Möglichkeiten haben:  
   
 1. **Wiederherstellen von versehentlich gelöschten Dateien**. Wenn Sie eine Datei versehentlich löschen, können Sie eine frühere Version öffnen und diese an einen sicheren Speicherort kopieren.  

@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d46ede6f-1a21-414d-b8c3-6b5c87344b9d
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 3519e9d6e89b26a733b6b0178334f86e284bddfb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 1a2244422c8b625f5641fb775a2e503b096b07b5
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404760"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308617"
 ---
 # <a name="step-4-install-and-configure-rsa-and-edge1"></a>Schritt 4 installieren und Konfigurieren von RSA und Edge1
 
@@ -49,17 +49,17 @@ Zum Konfigurieren der RSA-Bereitstellung führen Sie die folgenden Schritte aus:
   
 11. Konfigurieren Sie Edge1 zur Unterstützung der OTP-Authentifizierung. Konfigurieren Sie OTP für DirectAccess, und überprüfen Sie die Konfiguration.  
   
-## <a name="InstallOS"></a>Installieren des Betriebssystems auf dem RSA-Server  
+## <a name="install-the-operating-system-on-the-rsa-server"></a><a name="InstallOS"></a>Installieren des Betriebssystems auf dem RSA-Server  
   
 1.  Starten Sie unter RSA die Installation von Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012.  
   
-2.  Befolgen Sie die Anweisungen, um die Installation abzuschließen, indem Sie Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 (vollständige Installation) und ein sicheres Kennwort für das lokale Administrator Konto angeben. Melden Sie sich beim lokalen Administratorkonto an.  
+2.  Befolgen Sie die Anweisungen, um die Installation abzuschließen, indem Sie Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 (vollständige Installation) und ein sicheres Kennwort für das lokale Administrator Konto angeben. Melden Sie sich mit dem lokalen Administratorkonto an.  
   
 3.  Verbinden Sie RSA mit einem Netzwerk, das über Internet Zugriff verfügt, und führen Sie Windows Update aus, um die neuesten Updates für Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 zu installieren, und trennen Sie dann die Verbindung mit dem Internet.  
   
 4.  Stellen Sie eine Verbindung mit dem Subnetz "Corpnet" her.  
   
-## <a name="TCP"></a>Konfigurieren von TCP/IP auf RSA  
+## <a name="configure-tcpip-on-rsa"></a><a name="TCP"></a>Konfigurieren von TCP/IP auf RSA  
   
 1.  Klicken Sie in Aufgaben zur Erstkonfiguration auf **Netzwerk konfigurieren**.  
   
@@ -67,7 +67,7 @@ Zum Konfigurieren der RSA-Bereitstellung führen Sie die folgenden Schritte aus:
   
 3.  Klicken Sie auf **Internetprotokoll Version 4 (TCP/IPv4)** , und klicken Sie dann auf **Eigenschaften**.  
   
-4.  Klicken Sie auf **Folgende IP-Adresse verwenden**. Geben Sie im Feld **IP-Adresse**die Adresse **10.0.0.5**ein. Geben Sie im Feld **Subnetzmaske**den Wert **255.255.255.0**ein. Geben Sie unter **Standard Gateway**den Namen **10.0.0.2**ein. Klicken Sie auf **folgende DNS-Serveradressen verwenden**, geben Sie unter **Bevorzugter DNS-Server**den Namen **10.0.0.1**ein.  
+4.  Klicken Sie auf **Folgende IP-Adresse verwenden**. Geben Sie im Feld **IP-Adresse** die Adresse **10.0.0.5** ein. Geben Sie im Feld **Subnetzmaske** den Wert **255.255.255.0** ein. Geben Sie unter **Standard Gateway**den Namen **10.0.0.2**ein. Klicken Sie auf **folgende DNS-Serveradressen verwenden**, geben Sie unter **Bevorzugter DNS-Server**den Namen **10.0.0.1**ein.  
   
 5.  Klicken Sie auf **Erweitert** und dann auf die Registerkarte **DNS**.  
   
@@ -77,7 +77,7 @@ Zum Konfigurieren der RSA-Bereitstellung führen Sie die folgenden Schritte aus:
   
 8.  Schließen Sie das Fenster **Netzwerkverbindungen**.  
   
-## <a name="copyinstfiles"></a>Kopieren von Authentifizierungs-Manager-Installationsdateien auf den RSA-Server  
+## <a name="copy-authentication-manager-installation-files-to-the-rsa-server"></a><a name="copyinstfiles"></a>Kopieren von Authentifizierungs-Manager-Installationsdateien auf den RSA-Server  
   
 1.  Erstellen Sie auf dem RSA-Server den Ordner "c:\rsa-Installation".  
   
@@ -87,7 +87,7 @@ Zum Konfigurieren der RSA-Bereitstellung führen Sie die folgenden Schritte aus:
   
 4.  Kopieren Sie die RSA-Lizenzdateien nach c:\rsa installation\license und Token.  
   
-## <a name="JoinDomain"></a>Fügen Sie den RSA-Server der Corp-Domäne hinzu.  
+## <a name="join-the-rsa-server-to-the-corp-domain"></a><a name="JoinDomain"></a>Fügen Sie den RSA-Server der Corp-Domäne hinzu.  
   
 1.  Klicken Sie mit der rechten Maustaste auf **Arbeitsplatz**und dann auf **Eigenschaften**.  
   
@@ -107,7 +107,7 @@ Zum Konfigurieren der RSA-Bereitstellung führen Sie die folgenden Schritte aus:
   
 9. Nachdem der Computer neu gestartet wurde, geben Sie **User1** und das Kennwort ein, wählen Sie Corp in der Dropdown Liste **Anmelden an:** aus, und klicken Sie auf **OK**.  
   
-## <a name="BKMK_Firewall"></a>Deaktivieren der Windows-Firewall auf RSA  
+## <a name="disable-windows-firewall-on-rsa"></a><a name="BKMK_Firewall"></a>Deaktivieren der Windows-Firewall auf RSA  
   
 1.  Klicken Sie auf **Start**, klicken Sie auf System **Steuerung**, klicken Sie auf **System und Sicherheit**und dann auf **Windows-Firewall**.  
   
@@ -117,7 +117,7 @@ Zum Konfigurieren der RSA-Bereitstellung führen Sie die folgenden Schritte aus:
   
 4.  Klicken Sie auf **OK** , und schließen Sie Windows-Firewall.  
   
-## <a name="install"></a>Installieren Sie den RSA Authentication Manager auf dem RSA-Server.  
+## <a name="install-rsa-authentication-manager-on-the-rsa-server"></a><a name="install"></a>Installieren Sie den RSA Authentication Manager auf dem RSA-Server.  
   
 1.  Wenn die Sicherheits Warnmeldung während des Vorgangs zu einem beliebigen Zeitpunkt angezeigt wird, klicken Sie auf **Ausführen** , um fortzufahren.  
   
@@ -145,7 +145,7 @@ Zum Konfigurieren der RSA-Bereitstellung führen Sie die folgenden Schritte aus:
   
 13. Klicken Sie nach Abschluss der Installation auf **Fertig**stellen.  
   
-## <a name="confiauthmgr"></a>Konfigurieren des RSA-Authentifizierungs-Managers  
+## <a name="configure-rsa-authentication-manager"></a><a name="confiauthmgr"></a>Konfigurieren des RSA-Authentifizierungs-Managers  
   
 1.  Wenn die RSA-Sicherheits Konsole nicht automatisch geöffnet wird, doppelklicken Sie auf dem RSA-Computer Desktop auf "RSA Security Console".  
   
@@ -257,13 +257,13 @@ Zum Konfigurieren der RSA-Bereitstellung führen Sie die folgenden Schritte aus:
   
     7.  Über den RSA Authentication Manager Media Copy \ auth_mgr \Windows-x86_64 \am\rsa-ace_nsload \Win32-5.0-x86\ agent_nsload. exe zu c:\rsa Installation.  
   
-## <a name="BKMK_DAProbeUser"></a>Erstellen von daprobeuser  
+## <a name="create-daprobeuser"></a><a name="BKMK_DAProbeUser"></a>Erstellen von daprobeuser  
   
 1.  Klicken Sie in der **RSA-Sicherheits Konsole** auf die Registerkarte **Identität** , klicken Sie auf **Benutzer**und dann auf **neue hinzufügen**.  
   
 2.  Geben Sie im Abschnitt **Nachname die Bezeichnung** Type **Probe**ein, und geben Sie im Abschnitt **User ID:** den Typ **daprobeuser**ein. Geben Sie in den Abschnitten **Kennwort:** und **Kennwort bestätigen:** ein sicheres Kennwort ein. Deaktivieren Sie das Kontrollkästchen **"Benutzer muss Kennwort bei der nächsten Anmeldung ändern",** und klicken Sie auf **Speichern**.  
   
-## <a name="InstToken"></a>Installieren des RSA SecurID-Software Tokens auf CLIENT1  
+## <a name="install-rsa-securid-software-token-on-client1"></a><a name="InstToken"></a>Installieren des RSA SecurID-Software Tokens auf CLIENT1  
 Verwenden Sie dieses Verfahren, um das SecurID-Software Token auf CLIENT1 zu installieren.  
   
 #### <a name="install-securid-software-token"></a>SecurID-Software Token installieren  
@@ -278,7 +278,7 @@ Verwenden Sie dieses Verfahren, um das SecurID-Software Token auf CLIENT1 zu ins
   
 5.  Wählen Sie im Dialogfeld **Installationstyp** die Option **typisch**aus, klicken Sie auf **weiter und dann**auf **Installieren**.  
   
-6.  Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+6.  Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 7.  Aktivieren Sie das Kontrollkästchen **RSA SecurID-Software Token starten** , und klicken Sie auf **Fertig**stellen.  
   
@@ -288,7 +288,7 @@ Verwenden Sie dieses Verfahren, um das SecurID-Software Token auf CLIENT1 zu ins
   
 10. Klicken Sie zweimal auf **OK** .  
   
-## <a name="configAuthAgt"></a>Konfigurieren von Edge1 als RSA-Authentifizierungs-Agent  
+## <a name="configure-edge1-as-an-rsa-authentication-agent"></a><a name="configAuthAgt"></a>Konfigurieren von Edge1 als RSA-Authentifizierungs-Agent  
 Verwenden Sie dieses Verfahren, um Edge1 zum Ausführen der RSA-Authentifizierung zu konfigurieren.  
   
 #### <a name="configure-the-rsa-authentication-agent"></a>Konfigurieren des RSA-Authentifizierungs-Agents  
@@ -311,7 +311,7 @@ Verwenden Sie dieses Verfahren, um Edge1 zum Ausführen der RSA-Authentifizierun
   
 7. Kopieren Sie c:\windows\syswow64\securid nach c:\Windows\System32.  
   
-## <a name="configOTP"></a>Konfigurieren von Edge1 für die Unterstützung der OTP-Authentifizierung  
+## <a name="configure-edge1-to-support-otp-authentication"></a><a name="configOTP"></a>Konfigurieren von Edge1 für die Unterstützung der OTP-Authentifizierung  
 Verwenden Sie dieses Verfahren, um OTP für DirectAccess zu konfigurieren und die Konfiguration zu überprüfen.  
   
 #### <a name="configure-otp-for-directaccess"></a>Konfigurieren von OTP für DirectAccess  
@@ -341,7 +341,7 @@ Verwenden Sie dieses Verfahren, um OTP für DirectAccess zu konfigurieren und di
   
 11. Klicken Sie im Dialogfeld **Remote Zugriffs Überprüfung** auf über **nehmen, warten Sie,** bis die DirectAccess-Richtlinie aktualisiert wurde, und klicken Sie dann auf **Schließen**.  
   
-12. Geben Sie im **Start** Bildschirm**PowerShell. exe**ein, klicken Sie mit der rechten Maustaste auf **PowerShell**, klicken Sie auf **erweitert**, und klicken Sie dann auf **als Administrator ausführen**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+12. Geben Sie im **Start** Bildschirm**PowerShell. exe**ein, klicken Sie mit der rechten Maustaste auf **PowerShell**, klicken Sie auf **erweitert**, und klicken Sie dann auf **als Administrator ausführen**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 13. Geben Sie im Windows PowerShell-Fenster **gpupdate/force** ein, und drücken Sie die EINGABETASTE.  
   

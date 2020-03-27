@@ -6,23 +6,23 @@ ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
 ms.localizationpriority: medium
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/30/2018
 ms.reviewer: deverette
-ms.openlocfilehash: c7e2c4172621416048fa9e82bbd12f5b1717d490
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a7d1c451989d69f45f02571de4854b0f0f4e12f5
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404298"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307827"
 ---
 # <a name="step-2-configure-the-server-infrastructure"></a>Schritt 2 Konfigurieren der Serverinfrastruktur
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Vorher** Schritt 1 Planen der Always On VPN-Bereitstellung](always-on-vpn-deploy-planning.md)
-- [**Weiter** Schritt 3 Konfigurieren des RAS-Servers für Always On VPN](vpn-deploy-ras.md)
+- [**Vorheriges:** Schritt 1: Planen der Always on VPN-Bereitstellung](always-on-vpn-deploy-planning.md)
+- [**Weiter:** Schritt 3. Konfigurieren des Remote Zugriffs Servers für die Always on-VPN](vpn-deploy-ras.md)
 
 In diesem Schritt installieren und konfigurieren Sie die serverseitigen Komponenten, die zur Unterstützung des VPN erforderlich sind. Zu den serverseitigen Komponenten gehört das Konfigurieren der PKI für die Verteilung der Zertifikate, die von Benutzern, dem VPN-Server und dem NPS-Server verwendet werden.  Außerdem konfigurieren Sie RRAS für die Unterstützung von IKEv2-Verbindungen und den NPS-Server zum Ausführen der Autorisierung für die VPN-Verbindungen.
 
@@ -68,7 +68,7 @@ Sie registrieren Zertifikate manuell auf VPN-Servern.
 
     6. Schließen Sie den Gruppenrichtlinienverwaltungs-Editor.
 
-7. Schließen Sie die Gruppenrichtlinienverwaltung.
+7. Schließen Sie Gruppenrichtlinienverwaltung.
 
 ### <a name="ca-configuration-for-non-domain-joined-computers"></a>Zertifizierungsstellen Konfiguration für Computer, die keiner Domäne beigetreten sind
 
@@ -118,7 +118,7 @@ Da der RRAS-Server keiner Domäne beigetreten ist, kann die automatische Registr
 
     - **Zertifikat Vorlage:** [_Customer_] VPN-Server
 
-#### <a name="example-vpngatewayinf-script"></a>Beispiel: Vpngateway. inf-Skript
+#### <a name="example-vpngatewayinf-script"></a>Beispiel: vpngateway. inf-Skript
 
 Hier sehen Sie ein Beispielskript für eine Richtlinie für Zertifikat Anforderungen, die verwendet wird, um ein VPN-Gatewayzertifikat mithilfe eines Out-of-Band-Prozesses anzufordern.
 
@@ -176,7 +176,7 @@ Außerdem fügen Sie eine Gruppe hinzu, die VPN-Server und eine andere Gruppe mi
 
 6. Fügen Sie im Dialogfeld Benutzer auswählen alle Benutzer hinzu, die VPN-Zugriff benötigen, und wählen Sie **OK**aus.
 
-7. Schließen Sie %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;.
+7. Schließen Sie Active Directory-Benutzer und -Computer.
 
 ### <a name="configure-the-vpn-servers-and-nps-servers-groups"></a>Konfigurieren der VPN-Server und NPS-Server Gruppen
 
@@ -198,14 +198,14 @@ Außerdem fügen Sie eine Gruppe hinzu, die VPN-Server und eine andere Gruppe mi
 
 9. Wiederholen Sie die vorherigen Schritte für die NPS-Server Gruppe.
 
-10. Schließen Sie %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;.
+10. Schließen Sie Active Directory-Benutzer und -Computer.
 
 ## <a name="create-the-user-authentication-template"></a>Erstellen der Benutzer Authentifizierungs Vorlage
 
 In diesem Verfahren konfigurieren Sie eine benutzerdefinierte Client-Server-Authentifizierungs Vorlage. Diese Vorlage ist erforderlich, da Sie die Gesamtsicherheit des Zertifikats verbessern möchten, indem Sie aktualisierte Kompatibilitäts Grade auswählen und den Kryptografieanbieter der Microsoft-Plattform auswählen. Mit dieser letzten Änderung können Sie das TPM auf den Client Computern zum Sichern des Zertifikats verwenden. Eine Übersicht über das TPM finden Sie unter [Übersicht](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview)über die Trusted Platform Module-Technologie.
 
 >[!IMPORTANT] 
->Der Kryptografieanbieter für Microsoft-Plattformen erfordert einen TPM-Chip, wenn Sie einen virtuellen Computer ausführen, und Sie erhalten die folgende Fehlermeldung: "Es wurde kein gültiger CSP auf dem lokalen Computer gefunden." Wenn Sie versuchen, das Zertifikat manuell zu registrieren, müssen Sie "Microsoft Software Key Storage Provider" (Microsoft-Software Schlüsselspeicher-Anbieter) aktivieren und auf der Registerkarte Cryptography (Zertifikat Eigenschaften.
+>Der Kryptografieanbieter für Microsoft-Plattformen erfordert einen TPM-Chip, falls Sie einen virtuellen Computer ausführen, und Sie erhalten die folgende Fehlermeldung: "Es wurde kein gültiger CSP auf dem lokalen Computer gefunden". Wenn Sie versuchen, das Zertifikat manuell zu registrieren, müssen Sie "Microsoft Software Key Storage" prüfen. Anbieter "und nach" der Microsoft-Plattform-Kryptografieanbieter "auf der Registerkarte" Kryptografie "in den Zertifikat Eigenschaften.
 
 **Dringlichkeit**
 
@@ -300,7 +300,7 @@ In die Domäne eingebundenen VPN-Servern
 
     3. Wählen Sie im Dialogfeld **Anwendungs Richtlinie hinzufügen** die Option **IP-Sicherheit IKE zwischen**aus, und klicken Sie dann auf **OK**.
    
-        Das Hinzufügen der IP-Sicherheits-IKE Intermediate zur EKU unterstützt Szenarien, in denen mehrere Server Authentifizierungs Zertifikate auf dem VPN-Server vorhanden sind. Wenn IP-Sicherheits-IKE Intermediate vorhanden ist, verwendet IPSec nur das Zertifikat mit beiden EKU-Optionen. Ohne diesen Fehler kann die IKEv2-Authentifizierung mit Fehler 13801 fehlschlagen: Die Anmelde Informationen für die IKE-Authentifizierung sind unzulässig.
+        Das Hinzufügen der IP-Sicherheits-IKE Intermediate zur EKU unterstützt Szenarien, in denen mehrere Server Authentifizierungs Zertifikate auf dem VPN-Server vorhanden sind. Wenn IP-Sicherheits-IKE Intermediate vorhanden ist, verwendet IPSec nur das Zertifikat mit beiden EKU-Optionen. Andernfalls kann die IKEv2-Authentifizierung mit Fehler 13801 fehlschlagen: die Anmelde Informationen für die IKE-Authentifizierung sind nicht zulässig.
 
     4. Wählen Sie **OK** aus, um zum Dialogfeld **Eigenschaften der neuen Vorlage** zurückzukehren.
 
@@ -438,7 +438,7 @@ Im Gegensatz zum Benutzerzertifikat müssen Sie das Zertifikat des VPN-Servers m
 
 7. Wählen Sie **Anmelden**aus.
 
-8. Wählen Sie **Fertig**stellen.
+8. Wählen Sie **Fertig stellen** aus.
 
 9. Wählen Sie im Zertifikate-Snap-in unter **persönlich**die Option **Zertifikate**aus.
     
@@ -452,7 +452,7 @@ Im Gegensatz zum Benutzerzertifikat müssen Sie das Zertifikat des VPN-Servers m
 
 13. Wählen Sie **OK** aus, um das Zertifikat zu schließen.
 
-14. Schließen Sie das Snap-in "Zertifikate".
+14. Schließen Sie das Snap-In Zertifikate.
 
 ### <a name="validate-the-nps-server-certificate"></a>Validieren des NPS-Serverzertifikats
 
@@ -470,8 +470,8 @@ Im Gegensatz zum Benutzerzertifikat müssen Sie das Zertifikat des VPN-Servers m
 
 6. Wählen Sie **OK** aus, um das Zertifikat zu schließen.
 
-7. Schließen Sie das Snap-in "Zertifikate".
+7. Schließen Sie das Snap-In Zertifikate.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Schritt 3: Konfigurieren Sie den Remote Zugriffs Server für Always on](vpn-deploy-ras.md)VPN: In diesem Schritt konfigurieren Sie das RAS-VPN, um IKEv2-VPN-Verbindungen zuzulassen, Verbindungen von anderen VPN-Protokollen zu verweigern und einen statischen IP-Adresspool für die Ausstellung von IP-Adressen für die Verbindung mit autorisierten VPN-Clients zuzuweisen.
+[Schritt 3. Konfigurieren des RAS-Servers für Always on VPN](vpn-deploy-ras.md): in diesem Schritt konfigurieren Sie das RAS-VPN, um IKEv2-VPN-Verbindungen zuzulassen, Verbindungen von anderen VPN-Protokollen zu verweigern und einen statischen IP-Adresspool für die Ausstellung von IP-Adressen für die Verbindung mit autorisierten VPN-Clients zuzuweisen.

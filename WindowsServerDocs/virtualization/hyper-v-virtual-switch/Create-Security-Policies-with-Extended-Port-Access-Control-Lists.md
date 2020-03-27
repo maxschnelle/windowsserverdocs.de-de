@@ -10,28 +10,28 @@ ms.technology: networking-hv-switch
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a92e61c3-f7d4-4e42-8575-79d75d05a218
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: f76a3146c1cb38dab26019be655fadbd15d924c5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 2beb4ec1d78200b5c62d18ffb3f935843bd12ae0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365600"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308020"
 ---
 # <a name="create-security-policies-with-extended-port-access-control-lists"></a>Erstellen von Sicherheitsrichtlinien mit erweiterten Port-Zugriffssteuerungslisten
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Thema enthält Informationen zu erweiterten Port Access Control Listen (ACLs) in Windows Server 2016. Sie können erweiterte ACLs für den virtuellen Hyper-V-Switch konfigurieren, um Netzwerkdatenverkehr an die und von den virtuellen Computern (VMs), die über virtuelle Netzwerkadapter mit dem Switch verbunden sind, zuzulassen und zu blockieren.  
   
-Dieses Thema enthält die folgenden Abschnitte:  
+Dieses Thema enthält folgende Abschnitte:  
   
 -   [Detaillierte ACL-Regeln](#bkmk_detailed)  
   
 -   [Zustands behaftete ACL-Regeln](#bkmk_stateful)  
   
-## <a name="bkmk_detailed"></a>Detaillierte ACL-Regeln  
+## <a name="detailed-acl-rules"></a><a name="bkmk_detailed"></a>Detaillierte ACL-Regeln  
 Erweiterte ACLs für den virtuellen Hyper-v-Switch ermöglicht Ihnen das Erstellen detaillierter Regeln, die Sie auf einzelne VM-Netzwerkadapter anwenden können, die mit dem virtuellen Hyper-v-Switch verbunden sind. Durch die Möglichkeit, ausführliche Regeln zu erstellen, können Unternehmen und clouddienstanbieter (Cloud Service Providers, CSPs) netzwerkbasierte Sicherheitsbedrohungen in einer mehrinstanzfähigen freigegebenen Serverumgebung lösen.  
   
 Mit erweiterten ACLs müssen Sie nicht allgemeine Regeln erstellen, mit denen der gesamte Datenverkehr über alle Protokolle an einen bzw. von einem virtuellen Computer blockiert oder zugelassen wird. Stattdessen können Sie jetzt den Netzwerkdatenverkehr über einzelne auf den virtuellen Computern ausgeführte Protokolle blockieren oder zulassen. Sie können erweiterte ACL-Regeln in Windows Server 2016 erstellen, die die folgenden 5-Tupel-Parameter enthalten: Quell-IP-Adresse, Ziel-IP-Adresse, Protokoll, Quellport und Zielport. Darüber hinaus kann in jeder Regel die Richtung des Netzwerkdatenverkehrs (ein- oder ausgehend) und die von der Regel unterstützte Aktion (Blockieren oder Zulassen des Datenverkehrs) angegeben werden.  
@@ -101,14 +101,14 @@ In den folgenden Beispielen wird gezeigt, wie Sie den Befehl **Add-VMNetworkAdap
 > [!NOTE]  
 > Die Werte für den Regelparameter **Richtung** in den folgenden Tabellen basieren auf dem Fluss des Datenverkehrs zu dem bzw. von dem virtuellen Computer, für den Sie die Regel erstellen. Wenn der virtuelle Computer Datenverkehr empfängt, handelt es sich um eingehenden Datenverkehr. Wenn vom virtuellen Computer Datenverkehr gesendet wird, handelt es sich um ausgehenden Datenverkehr. Wenn Sie beispielsweise eine Regel auf einen virtuellen Computer anwenden, mit der eingehender Datenverkehr blockiert wird, verläuft die Richtung des eingehenden Datenverkehrs von externen Ressourcen zum virtuellen Computer. Wenn Sie eine Regel anwenden, mit der ausgehender Datenverkehr blockiert wird, verläuft die Richtung des ausgehenden Datenverkehrs vom lokalen virtuellen Computer zu den externen Ressourcen.  
   
-### <a name="bkmk_enforce"></a>Erzwingen der Sicherheit auf Anwendungsebene  
+### <a name="enforce-application-level-security"></a><a name="bkmk_enforce"></a>Erzwingen der Sicherheit auf Anwendungsebene  
 Da von vielen Anwendungsservern für die Kommunikation mit Clientcomputern standardisierte TCP/UDP-Ports verwendet werden, können Sie leicht Regeln erstellen, mit denen der Zugriff auf einen Anwendungsserver blockiert wird, indem der Datenverkehr zu dem bzw. von dem für die Anwendung festgelegten Port gefiltert wird.  
   
 Beispielsweise können Sie einem Benutzer die Anmeldung bei einem Anwendungsserver im Datencenter über eine Remotedesktopverbindung (Remote Desktop Connection, RDP) ermöglichen. Da für RDP der TCP-Port 3389 verwendet wird, können Sie schnell die folgende Regel einrichten:  
   
 |Quell-IP|Ziel-IP|Protokoll|Quellport|Zielport|Richtung|Aktion|  
 |-------------|------------------|------------|---------------|--------------------|-------------|----------|  
-|*|*|TCP|*|3389|In|Zulassen|  
+|*|*|TCP|*|3389|Im|Zulassen|  
   
 In den beiden folgenden Beispielen wird gezeigt, wie Sie mit Windows PowerShell-Befehlen Regeln erstellen können. Die erste Beispiel Regel blockiert den gesamten Datenverkehr an den virtuellen Computer mit dem Namen "ApplicationServer". Die zweite Beispiel Regel, die auf den Netzwerkadapter des virtuellen Computers mit dem Namen "ApplicationServer" angewendet wird, ermöglicht nur eingehenden RDP-Datenverkehr an den virtuellen Computer.  
   
@@ -120,7 +120,7 @@ Add-VMNetworkAdapterExtendedAcl -VMName "ApplicationServer" -Action "Deny" -Dire
 Add-VMNetworkAdapterExtendedAcl -VMName "ApplicationServer" -Action "Allow" -Direction "Inbound" -LocalPort 3389 -Protocol "TCP" -Weight 10  
 ```  
   
-### <a name="bkmk_both"></a>Erzwingen der Sicherheit auf Benutzer-und Anwendungsebene  
+### <a name="enforce-both-user-level-and-application-level-security"></a><a name="bkmk_both"></a>Erzwingen der Sicherheit auf Benutzer-und Anwendungsebene  
 Da mit einer Regel ein 5-Tupel-IP-Paket (Quell-IP, Ziel-IP, Protokoll, Quellport und Zielport) verglichen werden kann, kann mit der Regel eine detailliertere Sicherheitsrichtlinie erzwungen werden als mit einer Port-ACL.  
   
 Wenn Sie beispielsweise einen DHCP-Dienst für eine begrenzte Anzahl von Client Computern mithilfe einer bestimmten Gruppe von DHCP-Servern bereitstellen möchten, können Sie auf dem Windows Server 2016-Computer, auf dem Hyper-V ausgeführt wird, auf dem die Benutzer-VMS gehostet werden, die folgenden Regeln konfigurieren:  
@@ -129,7 +129,7 @@ Wenn Sie beispielsweise einen DHCP-Dienst für eine begrenzte Anzahl von Client 
 |-------------|------------------|------------|---------------|--------------------|-------------|----------|  
 |*|255.255.255.255|UDP|*|67|Heraus|Zulassen|  
 |*|10.175.124.0/25|UDP|*|67|Heraus|Zulassen|  
-|10.175.124.0/25|*|UDP|*|68|In|Zulassen|  
+|10.175.124.0/25|*|UDP|*|68|Im|Zulassen|  
   
 In den folgenden Beispielen wird gezeigt, wie Sie diese Regeln mit Windows PowerShell-Befehlen erstellen können.  
   
@@ -140,7 +140,7 @@ Add-VMNetworkAdapterExtendedAcl -VMName "ServerName" -Action "Allow" -Direction 
 Add-VMNetworkAdapterExtendedAcl -VMName "ServerName" -Action "Allow" -Direction "Inbound" -RemoteIPAddress 10.175.124.0/25 -RemotePort 68 -Protocol "UDP"-Weight 20  
 ```  
   
-### <a name="bkmk_tcp"></a>Bereitstellen von Sicherheitsunterstützung für eine nicht-TCP/UDP-Anwendung  
+### <a name="provide-security-support-to-a-non-tcpudp-application"></a><a name="bkmk_tcp"></a>Bereitstellen von Sicherheitsunterstützung für eine nicht-TCP/UDP-Anwendung  
 Während der größte Teil des Netzwerkdatenverkehrs in einem Datacenter über TCP und UDP erfolgt, werden dennoch für einen Teil des Datenverkehrs andere Protokolle genutzt. Wenn Sie beispielsweise zulassen möchten, dass auf einer Gruppe von Servern eine IP-Multicastanwendung ausgeführt wird, die auf IGMP (Internet Group Management-Protokoll) basiert, können Sie die folgende Regel erstellen.  
   
 > [!NOTE]  
@@ -148,7 +148,7 @@ Während der größte Teil des Netzwerkdatenverkehrs in einem Datacenter über T
   
 |Quell-IP|Ziel-IP|Protokoll|Quellport|Zielport|Richtung|Aktion|  
 |-------------|------------------|------------|---------------|--------------------|-------------|----------|  
-|*|*|0x02|*|*|In|Zulassen|  
+|*|*|0x02|*|*|Im|Zulassen|  
 |*|*|0x02|*|*|Heraus|Zulassen|  
   
 Im folgenden Beispiel wird gezeigt, wie Sie diese Regeln mit Windows PowerShell-Befehlen erstellen können.  
@@ -158,7 +158,7 @@ Add-VMNetworkAdapterExtendedAcl -VMName "ServerName" -Action "Allow" -Direction 
 Add-VMNetworkAdapterExtendedAcl -VMName "ServerName" -Action "Allow" -Direction "Outbound" -Protocol 2 -Weight 20  
 ```  
   
-## <a name="bkmk_stateful"></a>Zustands behaftete ACL-Regeln  
+## <a name="stateful-acl-rules"></a><a name="bkmk_stateful"></a>Zustands behaftete ACL-Regeln  
 Eine weitere neue Funktion der erweiterten ACLs ermöglicht das Konfigurieren zustandsbehafteter Regeln. Eine Zustands behaftete Regel filtert Pakete basierend auf fünf Attributen in einer Paket Quell-IP, Ziel-IP, Protokoll, Quellport und Zielport.  
   
 Zustandsbehaftete Regeln haben die folgenden Funktionen:  
@@ -190,10 +190,10 @@ Für diese Regelkonfiguration können Sie die Einstellungen aus der folgenden Ta
 |Protokoll|*|*|TCP|  
 |Quellport|*|*|*|  
 |Zielport|*|*|80|  
-|Richtung|In|Heraus|Heraus|  
-|Aktion|Deny|Deny|Zulassen|  
+|Richtung|Im|Heraus|Heraus|  
+|Aktion|Verweigern|Verweigern|Zulassen|  
 |Zustandsbehaftet|Nein|Nein|Ja|  
-|Timeout (in Sekunden)|Nicht zutreffend|Nicht zutreffend|3600|  
+|Timeout (in Sekunden)|N/V|N/V|3600|  
   
 Mit der zustandsbehafteten Regel wird zugelassen, dass über den Anwendungsserver für virtuelle Computer eine Verbindung mit einem Remotewebserver hergestellt wird. Wenn das erste Paket gesendet wird, werden vom virtuellen Hyper-V-Switch dynamisch zwei Flusszustände erstellt, um alle an den Remotewebserver gesendeten und von diesem zurückgesendeten Pakete zuzulassen. Wenn der Fluss der Pakete zwischen den Servern endet, tritt für die Flusszustände ein Timeout gemäß dem festgelegten Timeoutwert von 3600 Sekunden (oder einer Stunde) auf.  
   

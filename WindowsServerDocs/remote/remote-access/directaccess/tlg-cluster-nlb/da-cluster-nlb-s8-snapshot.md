@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 915ef7dd-169d-4d58-9174-438d8ffa3584
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: af862a9342204bbdcbcad97d9b819de831c1fee1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 6848c3900e4dad389f40ce3c8c707bcf4ea30971
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404831"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310752"
 ---
 # <a name="step-8-snapshot-the-directaccess-cluster-nlb-configuration"></a>Schritt 8: Momentaufnahme des DirectAccess-Clusters (NLB-Konfiguration)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dadurch wird die DirectAccess-Testumgebung abgeschlossen. Um diese Konfiguration zu speichern, sodass Sie schnell zu einer funktionierenden DirectAccess-Konfiguration mit NLB-Cluster Konfiguration zurückkehren können, mit der Sie andere Test Umgebungs Anleitungen für DirectAccess und Test Umgebungs Anleitungen testen können, oder für Ihr eigenes Experimentieren und lernen, führen Sie die folgenden Schritte aus: folgenden  
   

@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 43abc30a-300d-4752-b845-10a6b9f32244
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 30705a9aa55cdc652280c27c327cf865a47c5a11
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: c5ab8e089d3cf5fd8f9ed53f7f67cc47a8c17f70
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404933"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309181"
 ---
 # <a name="step-1-configure-advanced-directaccess-infrastructure"></a>Schritt 1 Konfigurieren der erweiterten DirectAccess-Infrastruktur
 
@@ -39,9 +39,9 @@ In diesem Thema wird die Konfiguration der Infrastruktur beschrieben, die für e
 |1.10 Konfigurieren des Netzwerkadressenservers|Konfigurieren Sie den Netzwerkadressenserver, dazu gehört auch die Installation des Netzwerkadressenserver-Websitezertifikats.|  
   
 > [!NOTE]  
-> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit deren Hilfe einige beschriebene Verfahren automatisiert werden können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="ConfigNetworkSettings"></a>1,1 Konfigurieren von Servernetzwerk Einstellungen  
+## <a name="11-configure-server-network-settings"></a><a name="ConfigNetworkSettings"></a>1,1 Konfigurieren von Servernetzwerk Einstellungen  
 Für eine einzelne Serverbereitstellung in einer Umgebung mit IPv4 und IPv6 sind folgende Netzwerkschnittstelleneinstellungen erforderlich. Sämtliche IP-Adressen können im **Netzwerk- und Freigabecenter** von Windows mit der Option **Adaptereinstellungen ändern** konfiguriert werden.  
   
 **Edge-Topologie**  
@@ -75,7 +75,7 @@ Für eine einzelne Serverbereitstellung in einer Umgebung mit IPv4 und IPv6 sind
 >     Save-NetGPO "GPOSession $gposession  
 >     ```  
   
-## <a name="BKMK_forcetunnel"></a>1,2 Konfigurieren der Tunnel Erzwingung  
+## <a name="12-configure-force-tunneling"></a><a name="BKMK_forcetunnel"></a>1,2 Konfigurieren der Tunnel Erzwingung  
 Das Erzwingen von Tunneln kann mithilfe des Remotezugriffs-Setup-Assistenten konfiguriert werden. Diese Option wird im Remoteclient-Konfigurationsassistenten als Kontrollkästchen angezeigt. Diese Einstellung hat nur Auswirkungen auf DirectAcess-Clients. Wenn VPN aktiviert ist, verwenden VPN-Clients standardmäßig das Erzwingen von Tunneln. Administratoren können die Einstellung für VPN-Clients über das Clientprofil ändern.  
   
 Durch Aktivierung des Kontrollkästchens zum Erzwingen von Tunneln wird Folgendes bewirkt:  
@@ -98,14 +98,14 @@ Set-DAClientDNSConfiguration "DNSSuffix "." "ProxyServer <Name of the proxy serv
 > [!NOTE]  
 > Wenn eine Organisation für das Zugreifen auf Internetressourcen einen Webproxy für DirectAcess-Clients verwendet und der Unternehmensproxy nicht fähig ist, interne Netzwerkressourcen zu verarbeiten, können die DirectAccess-Clients nicht auf die internen Ressourcen zugreifen, wenn sie sich außerhalb des Intranets befinden. In solch einem Szenario müssen Sie in der Richtlinientabelle für die Namensauflösung manuell Einträge für die internen Netzwerksuffixe erstellen, indem Sie die DNS-Seite des Infrastruktur-Assistenten verwenden, damit DirectAccess-Clients auf die internen Ressourcen zugreifen können. Wenden Sie auf die Suffixe in der Richtlinientabelle für die Namensauflösung keine Proxyeinstellungen an. Die Suffixe sollten mit DNS-Server-Standardeinträgen aufgefüllt werden.  
   
-## <a name="ConfigRouting"></a>1,3 Konfigurieren des Routings im Unternehmensnetzwerk  
+## <a name="13-configure-routing-in-the-corporate-network"></a><a name="ConfigRouting"></a>1,3 Konfigurieren des Routings im Unternehmensnetzwerk  
 Konfigurieren Sie das Routing im Unternehmensnetzwerk wie folgt:  
   
 -   Wenn in der Organisation eine systemeigene IPv6-Adresse bereitgestellt wird, fügen Sie ihr eine Route hinzu, damit die Router im internen Netzwerk den IPv6-Datenverkehr zurück über den DirectAccess-Server leiten.  
   
 -   Konfigurieren Sie die IPv4-und IPv6-Routen der Organisation manuell auf den DirectAccess-Servern. Fügen Sie eine öffentliche Route hinzu, sodass der gesamte Datenverkehr mit Organisations-IPv6-Präfix (/48) an das interne Netzwerk weitergeleitet wird. Fügen Sie für IPv4-Datenverkehr explizite Routen hinzu, damit IPv4-Datenverkehr an das interne Netzwerk weitergeleitet wird.  
   
-## <a name="ConfigFirewalls"></a>1,4 Konfigurieren von Firewalls  
+## <a name="14-configure-firewalls"></a><a name="ConfigFirewalls"></a>1,4 Konfigurieren von Firewalls  
 Wenden Sie bei zusätzlichen Firewalls in der Bereitstellung die folgenden Firewallausnahmen mit Internetzugriff für Remotezugriff-Datenverkehr an, wenn der DirectAccess-Server sich im IPv4-Internet befindet:  
   
 -   Teredo-Datenverkehr "UDP-Zielport 3544 (User Datagram Protocol) eingehend und UDP-Quellport 3544 ausgehend.  
@@ -136,7 +136,7 @@ Wenden Sie bei zusätzlichen Firewalls die folgenden internen Netzwerkfirewallau
   
 -   ICMP für den gesamten IPv4/IPv6-Datenverkehr  
   
-## <a name="ConfigCAs"></a>1,5 Konfigurieren von Zertifizierungsstellen und Zertifikaten  
+## <a name="15-configure-cas-and-certificates"></a><a name="ConfigCAs"></a>1,5 Konfigurieren von Zertifizierungsstellen und Zertifikaten  
 Der Remote Zugriff in Windows Server 2012 ermöglicht Ihnen die Auswahl zwischen der Verwendung von Zertifikaten für die Computer Authentifizierung oder der Verwendung eines integrierten Kerberos-Proxys, der mithilfe von Benutzernamen und Kenn Wörtern authentifiziert wird. Außerdem müssen Sie ein IP-HTTPS-Zertifikat auf dem DirectAccess-Server konfigurieren.  
   
 Weitere Informationen finden Sie unter [Active Directory Certificate Services](https://technet.microsoft.com/library/cc770357.aspx).  
@@ -155,7 +155,7 @@ Auf dem DirectAccess-Server und allen DirectAccess-Clients, die die IPsec-Authen
   
 3.  Konfigurieren Sie die Zertifikatvorlage bei Bedarf für die automatische Registrierung. Weitere Informationen finden Sie unter [Konfigurieren](https://technet.microsoft.com/library/cc731522.aspx)der automatischen Zertifikat Registrierung.  
   
-### <a name="ConfigCertTemp"></a>1.5.2 Konfigurieren von Zertifikat Vorlagen  
+### <a name="152-configure-certificate-templates"></a><a name="ConfigCertTemp"></a>1.5.2 Konfigurieren von Zertifikat Vorlagen  
 Wenn Sie zur Ausstellung von Zertifikaten eine interne Zertifizierungsstelle verwenden, müssen Sie für das IP-HTTPS-Zertifikat und das Netzwerkadressenserver-Websitezertifikat eine Zertifikatvorlage konfigurieren.  
   
 ##### <a name="to-configure-a-certificate-template"></a>So konfigurieren Sie eine Zertifikatvorlage  
@@ -218,7 +218,7 @@ Stellen Sie sicher, dass das für die IP-HTTPS-Authentifizierung verwendete Webs
   
 5.  Klicken Sie mit der rechten Maustaste auf **Zertifikate**, zeigen Sie auf **Alle Aufgaben**, und klicken Sie dann auf **Neues Zertifikat anfordern**.  
   
-6.  Klicken Sie zweimal auf **Weiter** .  
+6.  Klicken Sie zweimal auf **Weiter**.  
   
 7.  Aktivieren Sie auf der Seite **Zertifikate anfordern** das Kontrollkästchen für die zuvor erstellte Zertifikat Vorlage (Weitere Informationen finden Sie unter 1.5.2 Konfigurieren von Zertifikat Vorlagen). Klicken Sie bei Bedarf auf **Es werden zusätzliche Informationen für diese Zertifikatsregistrierung benötigt**.  
   
@@ -238,10 +238,10 @@ Stellen Sie sicher, dass das für die IP-HTTPS-Authentifizierung verwendete Webs
   
 15. Überprüfen Sie im Detailbereich des Zertifikat-Snap-Ins, dass das neue Zertifikat mit der Option Beabsichtigte Zwecke registriert wurde.  
   
-## <a name="ConfigDNS"></a>1,6 Konfigurieren des DNS-Servers  
+## <a name="16-configure-the-dns-server"></a><a name="ConfigDNS"></a>1,6 Konfigurieren des DNS-Servers  
 Sie müssen einen DNS-Eintrag für die Netzwerkadressenserver-Website für das interne Netzwerk in Ihrer Bereitstellung manuell konfigurieren.  
   
-### <a name="NLS_DNS"></a>So erstellen Sie den Netzwerkadressen Server  
+### <a name="to-create-the-network-location-server"></a><a name="NLS_DNS"></a>So erstellen Sie den Netzwerkadressen Server  
   
 1.  Auf dem internen Netzwerk-DNS-Server: Geben Sie auf dem **Start** Bildschirm**dnsmgmt. msc**ein, und drücken Sie dann die EINGABETASTE.  
   
@@ -265,7 +265,7 @@ Sie müssen einen DNS-Eintrag für die Netzwerkadressenserver-Website für das i
   
 ![der entsprechenden Windows PowerShell-](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 ```  
 Add-DnsServerResourceRecordA -Name <network_location_server_name> -ZoneName <DNS_zone_name> -IPv4Address <network_location_server_IPv4_address>  
@@ -286,7 +286,7 @@ Außerdem müssen Sie die DNS-Einträge für folgende Elemente konfigurieren:
   
     Intrasite Automatic Tunnel Addressing Protocol (ISATAP) verwendet Tunnel, damit DirectAccess-Clients über das IPv4-Internet eine Verbindung zum DirectAccess-Server aufbauen können, dabei werden die IPv6-Pakete innerhalb eines IPv4-Headers zu kapseln. Es kann vom Remotezugriff verwendet werden, um IPv6-Konnektivität mit ISATAP-Hosts im gesamten Intranet bereitzustellen. In einer nicht systemeigenen IPv6-Netzwerkumgebung konfiguriert sich der DirectAccess-Server automatisch als ISATAP-Router. Auflösungsunterstützung für den ISATAP-Namen ist nicht erforderlich.  
   
-## <a name="ConfigAD"></a>1,7 Konfigurieren von Active Directory  
+## <a name="17-configure-active-directory"></a><a name="ConfigAD"></a>1,7 Konfigurieren von Active Directory  
 Der DirectAccess-Server und alle DirectAccess-Clientcomputer müssen zu einer Active Directory-Domäne zusammengeführt werden. DirectAccess-Clientcomputer müssen Mitglied folgender Domänentypen sein:  
   
 -   Domänen, die zur gleichen Gesamtstruktur wie der DirectAccess-Server gehören.  
@@ -337,7 +337,7 @@ Der DirectAccess-Server und alle DirectAccess-Clientcomputer müssen zu einer Ac
   
 ![der entsprechenden Windows PowerShell-](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 > [!NOTE]  
 > Bei der Eingabe des folgenden **Add-Computer**-Befehls müssen Sie die Domänenanmeldeinformationen angeben.  
@@ -347,14 +347,14 @@ Add-Computer -DomainName <domain_name>
 Restart-Computer  
 ```  
   
-## <a name="ConfigGPOs"></a>1,8 Konfigurieren von GPOs  
+## <a name="18-configure-gpos"></a><a name="ConfigGPOs"></a>1,8 Konfigurieren von GPOs  
 Zum Bereitstellen des Remote Zugriffs sind mindestens zwei Gruppenrichtlinie Objekte erforderlich:  
   
 -   Eins enthält die Einstellungen für den DirectAccess-Server  
   
 -   Eins enthält die Einstellungen für DirectAccess-Clientcomputer  
   
-Wenn Sie den Remote Zugriff konfigurieren, erstellt der Assistent automatisch die erforderlichen Gruppenrichtlinie Objekte. Wenn Ihre Organisation jedoch eine Benennungskonvention erzwingt, können Sie einen Namen in das Gruppenrichtlinienobjekt-Dialogfeld der Remotezugriffs-Verwaltungskonsole eingeben. Weitere Informationen finden Sie unter 2,7. Konfigurations Zusammenfassung und Alternative Gruppenrichtlinien Objekte. Das Gruppenrichtlinienobjekt wird beim Erstellen der Berechtigungen erstellt. Wenn Sie nicht über die erforderlichen Berechtigungen zum Erstellen von Gruppenrichtlinienobjekten verfügen, müssen sie vor der Konfiguration des Remotezugriffs erstellt werden.  
+Wenn Sie den Remote Zugriff konfigurieren, erstellt der Assistent automatisch die erforderlichen Gruppenrichtlinie Objekte. Wenn Ihre Organisation jedoch eine Benennungskonvention erzwingt, können Sie einen Namen in das Gruppenrichtlinienobjekt-Dialogfeld der Remotezugriffs-Verwaltungskonsole eingeben. Weitere Informationen finden Sie unter 2.7. Zusammenfassung der Konfiguration und alternative Gruppenrichtlinienobjekte. Das Gruppenrichtlinienobjekt wird beim Erstellen der Berechtigungen erstellt. Wenn Sie nicht über die erforderlichen Berechtigungen zum Erstellen von Gruppenrichtlinienobjekten verfügen, müssen sie vor der Konfiguration des Remotezugriffs erstellt werden.  
   
 Informationen zum Erstellen von Gruppenrichtlinie Objekten finden Sie unter [Erstellen und Bearbeiten eines Gruppenrichtlinie Objekts](https://technet.microsoft.com/library/cc754740.aspx).  
   
@@ -372,7 +372,7 @@ Informationen zum Erstellen von Gruppenrichtlinie Objekten finden Sie unter [Ers
 ### <a name="181-configure-remote-access-gpos-with-limited-permissions"></a>1.8.1 Konfigurieren der Gruppenrichtlinienobjekte für den Remotezugriff mit eingeschränkten Berechtigungen  
 In einer Bereitstellung, die Bereitstellungs- und Produktions-Gruppenrichtlinienobjekte verwendet, sollte der Domänenadministrator folgende Schritte ausführen:  
   
-1.  Abrufen der Liste der erforderlichen Gruppenrichtlinienobjekte für die Remotezugriffsbereitstellung aus dem Remotezugriffsadministrator. Weitere Informationen finden Sie unter 1,8 Plan Gruppenrichtlinie Objects.  
+1.  Abrufen der Liste der erforderlichen Gruppenrichtlinienobjekte für die Remotezugriffsbereitstellung aus dem Remotezugriffsadministrator. Weitere Informationen finden Sie unter 1.8 Planen von Gruppenrichtlinienobjekten.  
   
 2.  Erstellen eines Gruppenrichtlinienobjektpaars mit unterschiedlichen Namen für jedes vom Remotezugriffsadministrator angeforderte Gruppenrichtlinienobjekt. Das erste wird als Bereitstellungsgruppenrichtlinienobjekt verwendet und das zweite als Produktionsgruppenrichtlinienobjekt  
   
@@ -393,9 +393,9 @@ Nachdem Remotezugriffsadministrator die Änderungen an der Remotezugriffskonfigu
   
 ##### <a name="to-copy-settings-to-the-production-gpos"></a>So kopieren Sie die Einstellungen in die Produktionsgruppenrichtlinienobjekte  
   
-1.  Vergewissern Sie sich, dass alle Bereitstellungsgruppenrichtlinienobjekte in der Remotezugriffsbereitstellung mit allen Domänencontrollern der Domäne repliziert wurden. Dieser Schritt ist nötig, um sicherzustellen, dass die aktuellste Konfiguration in die Produktionsgruppenrichtlinienobjekte importiert wird. Weitere Informationen finden Sie unter Überprüfen des Status der Gruppenrichtlinie Infrastruktur.  
+1.  Vergewissern Sie sich, dass alle Bereitstellungsgruppenrichtlinienobjekte in der Remotezugriffsbereitstellung mit allen Domänencontrollern der Domäne repliziert wurden. Dieser Schritt ist nötig, um sicherzustellen, dass die aktuellste Konfiguration in die Produktionsgruppenrichtlinienobjekte importiert wird. Weitere Informationen finden Sie unter Überprüfen des Gruppenrichtlinieninfrastruktur-Status.  
   
-2.  Exportieren der Einstellung durch Sichern aller Bereitstellungsgruppenrichtlinienobjekte in der Remotezugriffsbereitstellung. Weitere Informationen finden Sie unter Sichern eines Gruppenrichtlinie Objekts.  
+2.  Exportieren der Einstellung durch Sichern aller Bereitstellungsgruppenrichtlinienobjekte in der Remotezugriffsbereitstellung. Weitere Informationen finden Sie unter Sichern eines Gruppenrichtlinienobjekts.  
   
 3.  Ändern Sie die Sicherheitsfilter für jedes Produktionsgruppenrichtlinienobjekt, damit die Sicherheitsfilter mit denen des entsprechenden Bereitstellungsgruppenrichtlinienobjekts übereinstimmen. Weitere Informationen finden Sie unter Filtern mithilfe von Sicherheitsgruppen.  
   
@@ -426,7 +426,7 @@ Nachdem Remotezugriffsadministrator die Änderungen an der Remotezugriffskonfigu
   
 ![der entsprechenden Windows PowerShell-](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 -   So sichern Sie das stagingclientgpo "DirectAccess-Client Einstellungen-Staging" in der Domäne "Corp.contoso.com" im Sicherungsordner "c:\Backups\":  
   
@@ -452,10 +452,10 @@ Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vor
     Import-GPO "BackupId $backup.Id "Path $backup.BackupDirectory "TargetName 'DirectAccess Client Settings - Production' "Domain 'corp.contoso.com'  
     ```  
   
-## <a name="ConfigSGs"></a>1,9 Konfigurieren von Sicherheitsgruppen  
+## <a name="19-configure-security-groups"></a><a name="ConfigSGs"></a>1,9 Konfigurieren von Sicherheitsgruppen  
 Die DirectAccess-Einstellungen, die auf dem Client Computer Gruppenrichtlinie Objekt enthalten sind, werden nur auf Computer angewendet, die Mitglieder der Sicherheitsgruppe sind, die Sie beim Konfigurieren des Remote Zugriffs angeben. Außerdem müssen Sie eine Sicherheitsgruppe für diese Server erstellen, wenn Sie zum Verwalten Ihrer Anwendungsserver Sicherheitsgruppen verwenden.  
   
-### <a name="Sec_Group"></a>So erstellen Sie eine Sicherheitsgruppe für DirectAccess-Clients  
+### <a name="to-create-a-security-group-for-directaccess-clients"></a><a name="Sec_Group"></a>So erstellen Sie eine Sicherheitsgruppe für DirectAccess-Clients  
   
 1.  Geben Sie auf dem **Start** Bildschirm**DSA. msc**ein, und drücken Sie dann die EINGABETASTE. Erweitern Sie in der Konsole **Active Directory-Benutzer und -Computers** im linken Bereich die Domäne, die die Sicherheitsgruppe enthält, klicken Sie mit der rechten Maustaste auf **Benutzer**, zeigen Sie auf **Neu** und klicken Sie dann auf **Gruppe**.  
   
@@ -471,14 +471,14 @@ Die DirectAccess-Einstellungen, die auf dem Client Computer Gruppenrichtlinie Ob
   
 ![der entsprechenden Windows PowerShell-](../../../media/Step-1-Configuring-DirectAccess-Infrastructure/PowerShellLogoSmall.gif)**Befehle in Windows PowerShell**  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 ```  
 New-ADGroup -GroupScope global -Name <DirectAccess_clients_group_name>  
 Add-ADGroupMember -Identity DirectAccess_clients_group_name -Members <computer_name>  
 ```  
   
-## <a name="ConfigNLS"></a>1,10 Konfigurieren des Netzwerkadressen Servers  
+## <a name="110-configure-the-network-location-server"></a><a name="ConfigNLS"></a>1,10 Konfigurieren des Netzwerkadressen Servers  
 Der Netzwerkadressenserver sollte ein Server mit hoher Verfügbarkeit sein, der über ein gültiges SSL-Zertifikat verfügt, dem die DirectAccess-Clients vertrauen. Für das Netzwerkadressenserver-Zertifikat sind zwei Zertifikatoptionen verfügbar:  
   
 -   **Privates Zertifikat**  
@@ -511,7 +511,7 @@ Folgendes ist für alle Zertifikattypen erforderlich, falls noch nicht vorhanden
   
 5.  Klicken Sie mit der rechten Maustaste auf **Zertifikate**, zeigen Sie auf **Alle Aufgaben**, und klicken Sie dann auf **Neues Zertifikat anfordern**.  
   
-6.  Klicken Sie zweimal auf **Weiter** .  
+6.  Klicken Sie zweimal auf **Weiter**.  
   
 7.  Aktivieren Sie auf der Seite **Zertifikate anfordern** das Kontrollkästchen für die Zertifikat Vorlage, die Sie erstellt haben, indem Sie die Anweisungen unter 1.5.2 Konfigurieren von Zertifikat Vorlagen befolgen. Klicken Sie bei Bedarf auf **Es werden zusätzliche Informationen für diese Zertifikatsregistrierung benötigt**.  
   
@@ -553,7 +553,7 @@ Folgendes ist für alle Zertifikattypen erforderlich, falls noch nicht vorhanden
   
 4.  Vergewissern Sie sich, dass die DirectAccess-Clients im internen Netzwerk den Namen des Netzwerkadressenservers auflösen können. Vergewissern Sie sich, dass der Name nicht von DirectAccess-Clients im Internet aufgelöst werden kann.  
   
-## <a name="BKMK_Links"></a>Nächster Schritt  
+## <a name="next-step"></a><a name="BKMK_Links"></a>Nächster Schritt  
   
 -   [Schritt 2: Konfigurieren erweiterter DirectAccess-Server](da-adv-configure-s2-servers.md)  
   

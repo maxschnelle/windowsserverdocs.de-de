@@ -10,14 +10,14 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: db15dcf5-4d64-48d7-818a-06c2839e1289
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: e0c82f9f56ea680c11cd612e17326fe7cf96aeca
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 563ccf1cf68fc6ffd67a29533b3fb3b579a55ee6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388426"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308846"
 ---
 # <a name="test-lab-guide-demonstrate-directaccess-in-a-cluster-with-windows-nlb"></a>Testumgebungsanleitung: Vorführung von DirectAccess in einem Cluster mit Windows-Netzwerklastenausgleich
 
@@ -31,12 +31,12 @@ Diese Anleitung enthält Anweisungen zum Konfigurieren und Veranschaulichen des 
 > [!IMPORTANT]  
 > Diese Testumgebung ist eine Machbarkeitsstudie mit der minimalen Anzahl an Computern. Die in dieser Anleitung beschriebene Konfiguration ist nur für Testzwecke geeignet und sollte nicht in einer Produktionsumgebung verwendet werden.  
   
-## <a name="KnownIssues"></a>Bekannte Probleme  
+## <a name="known-issues"></a><a name="KnownIssues"></a>Bekannte Probleme  
 Im Folgenden finden Sie bekannte Probleme beim Konfigurieren eines Clusterszenarios:  
   
 -   Nach dem Konfigurieren von DirectAccess in einer ausschließlichen IPv4-Bereitstellung mit einem einzelnen Netzwerkadapter und nach automatischem Konfigurieren von Standard-DNS64 (die IPv6-Adresse mit „:3333::“) auf dem Netzwerkadapter wird der Benutzer bei dem Versuch, den Lastenausgleich über die Remotezugriffs-Verwaltungskonsole zu aktivieren, zur Eingabe einer IPv6-DIP-Adresse aufgefordert. Wenn eine IPv6-DIP-Adresse angegeben wird, tritt nach dem Klicken auf **Commit ausführen** ein Konfigurationsfehler mit folgender Fehlermeldung auf: Der Parameter ist falsch.  
   
-    So beheben Sie dieses Problem  
+    So lösen Sie dieses Problem:  
   
     1.  Laden Sie die Sicherung herunter, und stellen Sie Skripts aus [Back up and Restore Remote Access Configuration](https://gallery.technet.microsoft.com/Back-up-and-Restore-Remote-e157e6a6)wieder her.  
   
@@ -44,7 +44,7 @@ Im Folgenden finden Sie bekannte Probleme beim Konfigurieren eines Clusterszenar
   
     3.  Versuchen Sie, den Lastenausgleich bis zu dem Schritt zu aktivieren, bei dem ein Fehler auftritt. Erweitern Sie den Detailbereich im Dialogfeld „Lastenausgleich aktivieren“, klicken Sie mit der rechten Maustaste in den Detailbereich, und klicken Sie auf **Skript kopieren**.  
   
-    4.  Öffnen Sie Editor, und fügen Sie den Inhalt der Zwischenablage ein. Zum Beispiel:  
+    4.  Öffnen Sie Editor, und fügen Sie den Inhalt der Zwischenablage ein. Beispiel:  
   
         ```  
         Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress @('10.244.4.19/255.255.255.0','fdc4:29bd:abde:3333::2/128') -InternetVirtualIPAddress @('fdc4:29bd:abde:3333::1/128', '10.244.4.21/255.255.255.0') -ComputerName 'DA1.domain1.corp.contoso.com' -Verbose  
@@ -52,7 +52,7 @@ Im Folgenden finden Sie bekannte Probleme beim Konfigurieren eines Clusterszenar
   
     5.  Schließen Sie alle offenen Remotezugriffs-Dialogfelder und die Remotezugriffs-Verwaltungskonsole.  
   
-    6.  Bearbeiten Sie den eingefügten Text, und entfernen Sie die IPv6-Adressen. Zum Beispiel:  
+    6.  Bearbeiten Sie den eingefügten Text, und entfernen Sie die IPv6-Adressen. Beispiel:  
   
         ```  
         Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress @('10.244.4.19/255.255.255.0') -InternetVirtualIPAddress @('10.244.4.21/255.255.255.0') -ComputerName 'DA1.domain1.corp.contoso.com' -Verbose  

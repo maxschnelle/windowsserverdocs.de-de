@@ -10,19 +10,19 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6a820826-e829-4ef2-9a20-f74235f8c25b
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/24/2018
-ms.openlocfilehash: 779c7bc4f6c4ff1e66fca68ced8b0eeb4d54abc5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f85f593ec3dca33c5b35fb065c7d84ed12ea9af2
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406063"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309824"
 ---
 # <a name="create-delete-or-update-tenant-virtual-networks"></a>Erstellen, Löschen oder Aktualisieren von virtuellen Mandantennetzwerken
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erfahren Sie, wie Sie virtuelle Hyper-V-netzwerkvirtualisierungsnetzwerke nach der Bereitstellung von Software-Defined Networking (SDN) erstellen, löschen und aktualisieren. Die Hyper-V-Netzwerkvirtualisierung unterstützt Sie bei der Isolierung von Mandanten Netzwerken, sodass jedes Mandanten Netzwerk eine separate Entität ist. Jede Entität hat keine Verbindungs übergreifende Möglichkeit, es sei denn, Sie konfigurieren die Workloads mit öffentlichem Zugriff.   
   
@@ -39,7 +39,7 @@ Die Schritte zum Erstellen eines neuen virtuellen Netzwerks lauten wie folgt:
 In der folgenden Tabelle sind Beispiel-Subnetz-IDs und Präfixe für zwei fiktive Mandanten enthalten. Der Mandant Fabrikam verfügt über zwei virtuelle Subnetze, während der Mandanten "Mandanten" über drei virtuelle Subnetze verfügt.  
  
   
-Mandanten Name  |Virtuelle Subnetz-ID  |Präfix des virtuellen Subnetzes    
+Mandantenname  |Virtuelle Subnetz-ID  |Präfix des virtuellen Subnetzes    
 ---------|---------|---------  
 Fabrikam    |5001         |24.30.1.0/24           
 Fabrikam     |5002         | 24.30.2.0/20          
@@ -109,7 +109,7 @@ New-NetworkControllerVirtualNetwork -ResourceId "Contoso_VNet1" -ConnectionUri $
   
 ```  
   
-## <a name="delete-a-virtual-network"></a>Löschen eines Virtual Network  
+## <a name="delete-a-virtual-network"></a>Löschen eines virtuellen Netzwerks  
   
 Sie können Windows PowerShell verwenden, um eine Virtual Network zu löschen.  
   

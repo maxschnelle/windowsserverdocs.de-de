@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 35d68abb-6914-42e0-91e8-803933cf785e
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 87983076ee8a7d5546a5ac491ed4ca88153798f0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 74aac416a5aa69a0cd935d58e3ecb931e4b5fd02
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367407"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308339"
 ---
 # <a name="step-2-prepare-cluster-servers"></a>Schritt 2 Vorbereiten von Cluster Servern
 
@@ -31,7 +31,7 @@ Bevor Sie eine Cluster Bereitstellung konfigurieren können, bereiten Sie zusät
 |[2,2 Installieren der Remote Zugriffs Rolle](#BKMK_Install)|Installieren Sie auf jedem zusätzlichen Server, den Sie dem Cluster hinzufügen möchten, die Remote Zugriffs Rolle.|  
 |[2,3 Installieren von NLB](#BKMK_NLB)|Installieren Sie auf dem bereitgestellten Remote Zugriffs Server und auf jedem zusätzlichen Server, den Sie dem Cluster hinzufügen möchten, das NLB-Feature. Beachten Sie, dass dieser Schritt bei der Verwendung eines externen Load Balancer nicht erforderlich ist.|  
   
-## <a name="BKMK_config"></a>2,1 Konfigurieren der Remote Zugriffs Infrastruktur  
+## <a name="21-configure-the-remote-access-infrastructure"></a><a name="BKMK_config"></a>2,1 Konfigurieren der Remote Zugriffs Infrastruktur  
 Zum Konfigurieren eines Remote Zugriffs Clusters müssen Sie die Server Topologie, die IP-Adressierung, das Routing und die Weiterleitung auf jedem Server konfigurieren, der Teil des Clusters sein wird.  
   
 ### <a name="to-configure-the-remote-access-infrastructure"></a>So konfigurieren Sie die Remote Zugriffs Infrastruktur  
@@ -42,7 +42,7 @@ Zum Konfigurieren eines Remote Zugriffs Clusters müssen Sie die Server Topologi
   
 3.  Verknüpfen Sie jeden Server, der sich im Cluster befinden soll, mit derselben Domäne wie der erste RAS-Server.  
   
-## <a name="BKMK_Install"></a>2,2 Installieren der Remote Zugriffs Rolle  
+## <a name="22-install-the-remote-access-role"></a><a name="BKMK_Install"></a>2,2 Installieren der Remote Zugriffs Rolle  
 Zum Konfigurieren eines Remote Zugriffs Clusters müssen Sie die Remote Zugriffs Rolle auf allen Servern installieren, die einen Teil des Clusters bilden.  
   
 ### <a name="to-install-the-remote-access-role-on-always-on-vpn-servers"></a>So installieren Sie die Remote Zugriffs Rolle auf Always on VPN-Servern  
@@ -59,13 +59,13 @@ Zum Konfigurieren eines Remote Zugriffs Clusters müssen Sie die Remote Zugriffs
   
 6.  Wählen Sie **Routing**, **webanwendungsproxy**aus, klicken Sie auf **Features hinzufügen**und dann auf **weiter**.  
   
-7. Klicken Sie auf **Weiter**, und klicken Sie dann auf **Installieren**.  
+7. Klicken Sie auf **Weiter** und dann auf **Installieren**.  
   
 8.  Überprüfen Sie im Dialogfeld **Installationsstatus**, ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
   
 9.  Wiederholen Sie diesen Vorgang auf allen Servern, für die Sie Cluster Mitglieder sein möchten.  
   
-## <a name="BKMK_NLB"></a>2,3 Installieren von NLB  
+## <a name="23-install-nlb"></a><a name="BKMK_NLB"></a>2,3 Installieren von NLB  
 Wenn Sie einen Remote Zugriffs Cluster konfigurieren möchten, müssen Sie die Funktion für den Netzwerk Lastenausgleich auf jedem Server installieren, der einen Teil des Clusters bilden soll.  
   
 > [!NOTE]  
@@ -83,7 +83,7 @@ Wenn Sie einen Remote Zugriffs Cluster konfigurieren möchten, müssen Sie die F
   
 5.  Wiederholen Sie diesen Vorgang auf allen Servern, für die Sie Cluster Mitglieder sein möchten.  
   
-## <a name="BKMK_Links"></a>Siehe auch  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Siehe auch  
   
 -   [Schritt 3: Konfigurieren eines Clusters mit Lastenausgleich](Step-3-Configure-a-Load-Balanced-Cluster.md)  
   

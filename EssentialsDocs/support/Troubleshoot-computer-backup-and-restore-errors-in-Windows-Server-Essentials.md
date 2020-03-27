@@ -1,9 +1,9 @@
 ---
 title: Problembehebung bei Computersicherungs- und Wiederherstellungsfehlern in Windows Server Essentials
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 06/25/2013
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 5cc73aff-d2c0-4cf9-a23d-ef928ae5ddc9
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 37e79661442ba9f66a564b6c6c8fb57db1978454
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
-ms.translationtype: HT
+ms.openlocfilehash: 28e3564c93f192563626bfb44992ef9bc4a49598
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59812331"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313240"
 ---
 # <a name="troubleshoot-computer-backup-and-restore-errors-in-windows-server-essentials"></a>Problembehebung bei Computersicherungs- und Wiederherstellungsfehlern in Windows Server Essentials
 
@@ -26,9 +26,9 @@ ms.locfileid: "59812331"
 Verwenden Sie diese Verfahren für die Problembehandlung von Computersicherungen in Windows Server Essentials, einschließlich Sicherungskonfigurationsproblemen, unvollständige oder nicht erfolgreiche Sicherungen, Sicherungsstatuswarnungen und Probleme mit Datei-, Ordner- oder vollständigen Systemwiederherstellungen.  
   
 > [!NOTE]
->  Die neuesten Informationen zur Problembehandlung aus der Windows Server Essentials-Community finden Sie auf die [Windows Server Essentials-Forum](https://social.technet.microsoft.com/Forums//winserveressentials/threads).  
+>  Die neuesten Informationen zur Problembehandlung aus der Windows Server Essentials-Community finden Sie im [Windows Server Essentials-Forum](https://social.technet.microsoft.com/Forums//winserveressentials/threads).  
   
-##  <a name="BKMK_TroubleshootBackupConfigurationIssues"></a> Behandeln von sicherungskonfigurationsproblemen für einen verbundenen computer  
+##  <a name="troubleshoot-backup-configuration-issues-for-a-connected-computer"></a><a name="BKMK_TroubleshootBackupConfigurationIssues"></a>Beheben von Problemen mit der Sicherungs Konfiguration für einen verbundenen Computer  
  Verwenden Sie diese Verfahren zum Beheben von Problemen mit Sicherungskonfigurationen für Computer, die auf dem Windows Server Essentials-Server gesichert werden.  
   
 ### <a name="errors"></a>Fehler  
@@ -53,9 +53,9 @@ Verwenden Sie diese Verfahren für die Problembehandlung von Computersicherungen
   
     1.  Klicken Sie auf dem Server, auf **Start**, klicken Sie auf **Verwaltung**, und klicken Sie dann auf **Dienste**.  
   
-    2.  Führen Sie einen Bildlauf nach unten aus, und klicken Sie auf **Windows Server Client Computer Backup Provider Service**. Wenn der Status des Diensts nicht **Gestartet**lautet, klicken Sie mit der rechten Maustaste auf den Dienst. Klicken Sie dann auf **Starten**.  
+    2.  Führen Sie einen Bildlauf nach unten aus, und klicken Sie auf **Windows Server Client Computer Backup Provider Service**. Wenn der Status des Diensts nicht **Gestartet** lautet, klicken Sie mit der rechten Maustaste auf den Dienst. Klicken Sie dann auf **Starten**.  
   
-    3.  Klicken Sie auf **Windows Server Client Computer Backup Service**. Wenn der Status des Diensts nicht **Gestartet**lautet, klicken Sie mit der rechten Maustaste auf den Dienst. Klicken Sie dann auf **Starten**.  
+    3.  Klicken Sie auf **Windows Server Client Computer Backup Service**. Wenn der Status des Diensts nicht **Gestartet** lautet, klicken Sie mit der rechten Maustaste auf den Dienst. Klicken Sie dann auf **Starten**.  
   
     4.  Schließen Sie **Dienste**.  
   
@@ -65,7 +65,7 @@ Verwenden Sie diese Verfahren für die Problembehandlung von Computersicherungen
   
     1.  Klicken Sie auf dem Clientcomputer auf **Start**, geben Sie **Dienste** in das Textfeld **Programme und Dateien suchen** ein, und drücken Sie dann die EINGABETASTE.  
   
-    2.  Führen Sie einen Bildlauf nach unten aus, und klicken Sie auf **Windows Server Client Computer Backup Provider Service**. Wenn der Status des Diensts nicht **Gestartet**lautet, klicken Sie mit der rechten Maustaste auf den Dienst. Klicken Sie dann auf **Starten**.  
+    2.  Führen Sie einen Bildlauf nach unten aus, und klicken Sie auf **Windows Server Client Computer Backup Provider Service**. Wenn der Status des Diensts nicht **Gestartet** lautet, klicken Sie mit der rechten Maustaste auf den Dienst. Klicken Sie dann auf **Starten**.  
   
     3.  Schließen Sie **Dienste**.  
   
@@ -73,7 +73,7 @@ Verwenden Sie diese Verfahren für die Problembehandlung von Computersicherungen
   
 6.  Deinstallieren Sie die Windows Server Essentials Connector-Software von dem Computer und installieren Sie sie neu. Weitere Informationen finden Sie in den Themen [Deinstallieren der Connector-Software](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13) und [Installieren der Connector-Software](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_11).  
   
-##  <a name="BKMK_TroubleshootaBackupThatDidNotCompleteProperly"></a> Problembehandlung bei einer Sicherung, die nicht ordnungsgemäß abgeschlossen wurde  
+##  <a name="troubleshoot-a-backup-that-did-not-complete-properly"></a><a name="BKMK_TroubleshootaBackupThatDidNotCompleteProperly"></a>Behandeln von Problemen mit einer Sicherung, die nicht ordnungsgemäß ausgeführt wurde  
  Wenn eine Sicherung nicht erfolgreich war, war kein Teil der Sicherung erfolgreich und es sind keine Daten für die Wiederherstellung verfügbar. Wenn eine Sicherung unvollständig ist, wurden nicht alle in der Sicherungskonfiguration angegebenen Elemente gesichert. Einige Daten können aber wiederherstellbar sein.  
   
 ### <a name="errors"></a>Fehler  
@@ -98,7 +98,7 @@ Verwenden Sie diese Verfahren für die Problembehandlung von Computersicherungen
   
 1.  Stellen Sie sicher, dass die Festplatte mit dem Computer verbunden und eingeschaltet ist sowie einwandfrei funktioniert.  
   
-2.  Führen Sie **chkdsk /f /r** aus, um alle Fehler auf der Festplatte zu beheben (**/f**) und lesbare Informationen in fehlerhaften Sektoren wiederherzustellen (**/r**). Weitere Informationen zum Ausführen von **chkdsk**finden Sie unter [CHKDSK](https://go.microsoft.com/fwlink/?LinkId=206562).  
+2.  Führen Sie **chkdsk /f /r** aus, um alle Fehler auf der Festplatte zu beheben ( **/f**) und lesbare Informationen in fehlerhaften Sektoren wiederherzustellen ( **/r**). Weitere Informationen zum Ausführen von **chkdsk**finden Sie unter [CHKDSK](https://go.microsoft.com/fwlink/?LinkId=206562).  
   
 3.  Stellen Sie sicher, dass der Computer nicht heruntergefahren oder vom Netzwerk getrennt wurde, während die Sicherung ausgeführt wurde.  
   
@@ -112,7 +112,7 @@ Verwenden Sie diese Verfahren für die Problembehandlung von Computersicherungen
   
         1.  Klicken Sie in der Systemsteuerung auf **System und Sicherheit**.  
   
-        2.  Klicken Sie unter **Verwaltung**auf **Festplattenpartitionen erstellen und formatieren**.  
+        2.  Klicken Sie unter **Verwaltung** auf **Festplattenpartitionen erstellen und formatieren**.  
   
         3.  Klicken Sie mit der rechten Maustaste auf das Volume, das Sie erweitern möchten. Wenn **Volume erweitern** aktiviert ist, wählen Sie diese Option aus. Wenn die Option nicht aktiviert ist, können Sie das Volume nicht erweitern.  
   
@@ -132,7 +132,7 @@ Verwenden Sie diese Verfahren für die Problembehandlung von Computersicherungen
   
 6.  Führen Sie **vssadmin** an einer Eingabeaufforderung aus, um Probleme mit VSS (Volume Shadow Copy Service) zu beheben. Informationen zu **vssadmin**finden Sie unter [VSSADMIN](https://go.microsoft.com/fwlink/?LinkID=94332).  
   
-##  <a name="BKMK_TroubleshootBackupHealthAlertIssues"></a> Problembehandlung für sicherungsstatuswarnungen  
+##  <a name="troubleshoot-backup-health-alert-issues"></a><a name="BKMK_TroubleshootBackupHealthAlertIssues"></a>Beheben von Problemen mit der Sicherungs Integritäts Warnung  
   
 ### <a name="errors"></a>Fehler  
   
@@ -155,9 +155,9 @@ Verwenden Sie diese Verfahren für die Problembehandlung von Computersicherungen
         > [!NOTE]
         >  Wenn Sie den Server remote verwalten, müssen Sie die Remotedesktopverbindung verwenden, um auf den Serverdesktop zuzugreifen. Informationen zum Verwenden der Remotedesktopverbindung finden Sie unter [Herstellen einer Verbindung mit einem anderen Computer mithilfe der Remotedesktopverbindung](https://windows.microsoft.com/windows-vista/Connect-to-another-computer-using-Remote-Desktop-Connection).  
   
-    2.  Führen Sie einen Bildlauf nach unten aus, und klicken Sie auf **Windows Server Client Computer Backup Provider Service**. Wenn der Status des Diensts nicht **Gestartet**lautet, klicken Sie mit der rechten Maustaste auf den Dienst. Klicken Sie dann auf **Starten**.  
+    2.  Führen Sie einen Bildlauf nach unten aus, und klicken Sie auf **Windows Server Client Computer Backup Provider Service**. Wenn der Status des Diensts nicht **Gestartet** lautet, klicken Sie mit der rechten Maustaste auf den Dienst. Klicken Sie dann auf **Starten**.  
   
-    3.  Klicken Sie auf **Windows Server Client Computer Backup Service**. Wenn der Status des Diensts nicht **Gestartet**lautet, klicken Sie mit der rechten Maustaste auf den Dienst. Klicken Sie dann auf **Starten**.  
+    3.  Klicken Sie auf **Windows Server Client Computer Backup Service**. Wenn der Status des Diensts nicht **Gestartet** lautet, klicken Sie mit der rechten Maustaste auf den Dienst. Klicken Sie dann auf **Starten**.  
   
     4.  Schließen Sie **Dienste**.  
   
@@ -175,7 +175,7 @@ Verwenden Sie diese Verfahren für die Problembehandlung von Computersicherungen
   
 5.  Überprüfen Sie Statuswarnungen für andere Probleme, die sich auf die Clientsicherung auswirken können.  
   
-##  <a name="BKMK_FileAndFolder"></a> Problembehandlung bei einer Datei oder eines Ordners wiederherstellen  
+##  <a name="troubleshoot-a-file-or-folder-restore"></a><a name="BKMK_FileAndFolder"></a>Problembehandlung bei einer Datei-oder Ordner Wiederherstellung  
   
 ### <a name="errors"></a>Fehler  
   
@@ -205,7 +205,7 @@ Verwenden Sie diese Verfahren für die Problembehandlung von Computersicherungen
   
         1.  Öffnen Sie eine Eingabeaufforderung mit Administratorrechten, und führen Sie den folgenden Befehl aus:  
   
-             **%ProgramFiles%\Windows Server\Bin\BackupDriverInstaller.exe?  �i**  
+             **%ProgramFiles%\Windows server\bin\backupdriverinstaller.exe? -i**  
   
         2.  Aktualisieren Sie den Geräte-Manager. Der Treiber sollte angezeigt werden.  
   
@@ -213,7 +213,7 @@ Verwenden Sie diese Verfahren für die Problembehandlung von Computersicherungen
   
     5.  Wenn das Symbol, das angezeigt wird, keinem Computermonitor entspricht  
   
-        1.  Klicken Sie mit der rechten Maustaste auf **Windows Server Solution-Computerwiederherstellungstreiber**, und klicken Sie dann auf **Eigenschaften**.  
+        1.  Klicken Sie mit der rechten Maustaste  auf **Windows Server Solution-Computerwiederherstellungstreiber**, und klicken Sie dann auf **Eigenschaften**.  
   
         2.  Klicken Sie auf die Registerkarte **Treiber** und dann auf **Treiber aktualisieren**.  
   
@@ -223,7 +223,7 @@ Verwenden Sie diese Verfahren für die Problembehandlung von Computersicherungen
   
 6.  Deinstallieren Sie die Windows Server Essentials Connector-Software von dem Computer und installieren Sie sie neu. Weitere Informationen finden Sie in den Themen [Deinstallieren der Connector-Software](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13) und [Installieren der Connector-Software](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_11).  
   
-##  <a name="BKMK_Troubleshootfullsystemrestoreissues"></a> Problembehandlung bei einer vollständigen Systemwiederherstellung  
+##  <a name="troubleshoot-a-full-system-restore"></a><a name="BKMK_Troubleshootfullsystemrestoreissues"></a>Problembehandlung bei einer vollständigen Systemwiederherstellung  
   
 ### <a name="errors"></a>Fehler  
   
@@ -236,12 +236,12 @@ Verwenden Sie diese Verfahren für die Problembehandlung von Computersicherungen
   
 1.  Melden Sie sich als lokaler Administrator an dem Computer an.  
   
-2.  Deinstallieren Sie die Connector-Software. Weitere Informationen finden Sie unter [Uninstall the Connector software](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13).  
+2.  Deinstallieren Sie die Connector-Software. Weitere Informationen finden Sie unter [Deinstallieren der Connector-Software](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_13).  
   
-3.  Entfernen Sie den Computer aus der Domäne. Weitere Informationen finden Sie unter [Remove a computer from a Windows domain](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_8).  
+3.  Entfernen Sie den Computer aus der Domäne. Weitere Informationen finden Sie unter [Entfernen eines Computers aus einer Windows-Domäne](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_8).  
   
 4.  Verbinden Sie den Computer erneut mit dem Server. Weitere Informationen finden Sie unter [Verbinden von Computern mit dem Server](../use/Get-Connected-in-Windows-Server-Essentials.md#BKMK_9).  
   
 ## <a name="see-also"></a>Siehe auch  
   
--   [Unterstützung für Windows Server Essentials](Support-Windows-Server-Essentials.md)
+-   [Unterstützung von Windows Server Essentials](Support-Windows-Server-Essentials.md)

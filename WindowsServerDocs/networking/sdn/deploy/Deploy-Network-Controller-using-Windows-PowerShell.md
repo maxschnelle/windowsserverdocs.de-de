@@ -10,15 +10,15 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 2448d381-55aa-4c14-997a-202c537c6727
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/23/2018
-ms.openlocfilehash: 294466ef70a9ffc230953b48bb292938be519eac
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ee3aa93c02419667b05a987f548ef4d14285231d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406116"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313074"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell
 
@@ -29,7 +29,7 @@ Dieses Thema enthält Anweisungen zur Verwendung von Windows PowerShell zur Bere
 >[!IMPORTANT]
 >Stellen Sie die Netzwerk Controller-Server Rolle nicht auf physischen Hosts bereit. Zum Bereitstellen des Netzwerk Controllers müssen Sie die Netzwerk Controller-Server Rolle auf einem virtuellen Hyper-v-Computer \(VM-\) installieren, der auf einem Hyper-v-Host installiert ist. Nachdem Sie den Netzwerk Controller auf virtuellen Computern auf drei verschiedenen Hyper\-V-Hosts installiert haben, müssen Sie die Hyper\-V-Hosts für Software-Defined Networking \(Sdn\) aktivieren, indem Sie die Hosts mithilfe des Windows PowerShell-Befehls **New-networkcontrollerserver**dem Netzwerk Controller hinzufügen. Auf diese Weise aktivieren Sie die Load Balancer der Sdn-Software. Weitere Informationen finden Sie unter [New-networkcontrollerserver](https://technet.microsoft.com/itpro/powershell/windows/network-controller/new-networkcontrollerserver).
 
-Dieses Thema enthält die folgenden Abschnitte:
+Dieses Thema enthält folgende Abschnitte:
 
 - [Installieren der Server Rolle "Netzwerk Controller"](#install-the-network-controller-server-role)
 
@@ -115,7 +115,7 @@ In der folgenden Tabelle finden Sie Beschreibungen der einzelnen Parameter des B
 |Credential|Dieser Parameter ist nur erforderlich, wenn Sie diesen Befehl von einem Remote Computer ausführen. Der **Credential** -Parameter gibt ein Benutzerkonto an, das über die Berechtigung zum Ausführen dieses Befehls auf dem Bereitstellungs Zielcomputer verfügt.|
 |CertificateThumbprint|Dieser Parameter ist nur erforderlich, wenn Sie diesen Befehl von einem Remote Computer ausführen. Der " **certifikatethumbprint** "-Parameter gibt das digitale Zertifikat für öffentliche Schlüssel (X509) eines Benutzerkontos an, das über die Berechtigung zum Ausführen dieses Befehls auf dem Bereitstellungs Zielcomputer verfügt.|
 |UseSSL|Dieser Parameter ist nur erforderlich, wenn Sie diesen Befehl von einem Remote Computer ausführen. Der **Parameter "** -Parameter" gibt das Secure Sockets Layer (SSL)-Protokoll an, das verwendet wird, um eine Verbindung mit dem Remote Computer herzustellen. Standardmäßig wird SSL nicht verwendet.|
-|ComputerName|Der **Computername** -Parameter gibt den Netzwerk Controller Knoten an, auf dem dieser Befehl ausgeführt wird. Wenn Sie für diesen Parameter keinen Wert angeben, wird standardmäßig der lokale Computer verwendet.|
+|Computername|Der **Computername** -Parameter gibt den Netzwerk Controller Knoten an, auf dem dieser Befehl ausgeführt wird. Wenn Sie für diesen Parameter keinen Wert angeben, wird standardmäßig der lokale Computer verwendet.|
 |Logsizelimitinmsb|Dieser Parameter gibt die maximale Protokoll Größe in MB an, die der Netzwerk Controller speichern kann. Protokolle werden zirkulär gespeichert. Wenn diagnosticloglokation bereitgestellt wird, ist der Standardwert dieses Parameters 40 GB. Wenn diagnosticloglokation nicht angegeben wird, werden die Protokolle auf den Netzwerk Controller Knoten gespeichert, und der Standardwert dieses Parameters ist 15 GB.|
 |Logtimelimitindays|Dieser Parameter gibt das Dauer Limit in Tagen an, in dem die Protokolle gespeichert werden. Protokolle werden zirkulär gespeichert. Der Standardwert dieses Parameters ist 3 Tage.|
 

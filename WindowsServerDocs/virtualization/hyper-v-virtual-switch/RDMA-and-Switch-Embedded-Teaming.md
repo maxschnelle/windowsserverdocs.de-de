@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: 68c35b64-4d24-42be-90c9-184f2b5f19be
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: b39cac842f115a1828c666eec52f17f80971510c
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: cfa8076b84a2fc62cec2a709fc15d3dc5be8eb77
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322712"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307993"
 ---
 # <a name="remote-direct-memory-access-rdma-and-switch-embedded-teaming-set"></a>Remote Zugriff auf den direkten Speicher \(RDMA-\) und \(Set-Switch Embedded Teaming\)
 
@@ -25,7 +25,7 @@ Dieses Thema enthält Informationen zum Konfigurieren des Remote Zugriffs auf de
 > Zusätzlich zu diesem Thema ist der Inhalt des folgenden Switch Embedded-Teaming verfügbar. 
 > - TechNet-Katalog Download: [Windows Server 2016 NIC und Switch Embedded Teaming-Benutzerhandbuch](https://gallery.technet.microsoft.com/Windows-Server-2016-839cb607?redir=0)
 
-## <a name="bkmk_rdma"></a>Konfigurieren von RDMA-Schnittstellen mit Hyper-V  
+## <a name="configuring-rdma-interfaces-with-hyper-v"></a><a name="bkmk_rdma"></a>Konfigurieren von RDMA-Schnittstellen mit Hyper-V  
 
 In Windows Server 2012 R2 kann die Verwendung von RDMA und Hyper-V auf demselben Computer wie die Netzwerkadapter, die RDMA-Dienste bereitstellen, nicht an einen virtuellen Hyper-V-Switch gebunden werden. Dadurch erhöht sich die Anzahl der physischen Netzwerkadapter, die auf dem Hyper-V-Host installiert werden müssen.
 
@@ -94,7 +94,7 @@ Fügen Sie Host-vNICs hinzu, und machen Sie Sie RDMA-fähig:
 
     Get-NetAdapterRdma
 
-###  <a name="bkmk_set-rdma"></a>Erstellen eines virtuellen Hyper-V-Switches mit Set-und RDMA-vNICs
+###  <a name="create-a-hyper-v-virtual-switch-with-set-and-rdma-vnics"></a><a name="bkmk_set-rdma"></a>Erstellen eines virtuellen Hyper-V-Switches mit Set-und RDMA-vNICs
 
 Zum Verwenden von RDMA-Unterstützung auf virtuellen Hyper-v-Host Netzwerkadaptern \(vNICs\) auf einem virtuellen Hyper-v-Switch, der RDMA-Teaming unterstützt, können Sie diese Windows PowerShell-Beispiel Befehle verwenden.
 
@@ -144,7 +144,7 @@ Dieser Abschnitt bietet eine Übersicht über Switch Embedded Teaming (Set) in W
 
 - [Verwalten eines Set-Teams](#bkmk_manage)
 
-## <a name="bkmk_over"></a>Übersicht festlegen
+## <a name="set-overview"></a><a name="bkmk_over"></a>Übersicht festlegen
 
 Set ist eine Alternative NIC-Team Vorgangs Lösung, die Sie in Umgebungen mit Hyper-V und dem Software-Defined Networking \(Sdn\) Stack in Windows Server 2016 verwenden können. Set integriert einige NIC-Team Vorgangs Funktionen in den virtuellen Hyper-V-Switch.
 
@@ -167,15 +167,15 @@ Weitere Informationen finden Sie unter NIC-Team Vorgang [in Virtual Machines (VM
 
 Außerdem werden von der Set-Architektur keine Team Schnittstellen verfügbar gemacht. Stattdessen müssen Sie virtuelle Hyper-V-Switchports konfigurieren.
 
-## <a name="bkmk_avail"></a>Festlegen der Verfügbarkeit
+## <a name="set-availability"></a><a name="bkmk_avail"></a>Festlegen der Verfügbarkeit
 
 Set ist in allen Versionen von Windows Server 2016 verfügbar, die Hyper-V und den Sdn-Stapel enthalten. Außerdem können Sie Windows PowerShell-Befehle und Remotedesktop Verbindungen verwenden, um die Gruppe von Remote Computern aus zu verwalten, auf denen ein Client Betriebssystem ausgeführt wird, auf dem die Tools unterstützt werden.
 
-## <a name="bkmk_nics"></a>Unterstützte NICs für Set
+## <a name="supported-nics-for-set"></a><a name="bkmk_nics"></a>Unterstützte NICs für Set
 
 Sie können eine beliebige Ethernet-NIC verwenden, die die Windows-Hardware Qualifizierung und das Logo \(WHQL\) Test in einem Set-Team in Windows Server 2016 übermittelt hat. Set erfordert, dass alle Netzwerkadapter, die Mitglieder eines Set-Teams sind, identisch sein müssen \(d. h., derselbe Hersteller, dasselbe Modell, dieselbe Firmware und dieser Treiber\). Legen Sie Unterstützung zwischen einem und acht Netzwerkadaptern in einem Team fest.
   
-## <a name="bkmk_compat"></a>Festlegen der Kompatibilität mit Windows Server-Netzwerktechnologien
+## <a name="set-compatibility-with-windows-server-networking-technologies"></a><a name="bkmk_compat"></a>Festlegen der Kompatibilität mit Windows Server-Netzwerktechnologien
 
 Set ist kompatibel mit den folgenden Netzwerktechnologien in Windows Server 2016.
 
@@ -210,7 +210,7 @@ Set ist nicht kompatibel mit den folgenden Netzwerktechnologien in Windows Serve
 
 - QoS für virtuelle Computer \(VM-QoS-\). VM-QoS ist verfügbar, aber standardmäßig deaktiviert. Wenn Sie VM-QoS in einer festgelegten Umgebung konfigurieren, führen die QoS-Einstellungen zu unvorhersehbaren Ergebnissen.
 
-## <a name="bkmk_modes"></a>Festlegen von Modi und Einstellungen
+## <a name="set-modes-and-settings"></a><a name="bkmk_modes"></a>Festlegen von Modi und Einstellungen
 
 Anders als beim NIC-Team Vorgang können Sie einen Teamnamen nicht konfigurieren, wenn Sie ein Set-Team erstellen. Außerdem wird die Verwendung eines Standby-Adapters beim NIC-Team Vorgang unterstützt, wird jedoch in Set nicht unterstützt. Wenn Sie Set bereitstellen, sind alle Netzwerkadapter aktiv und keine im Standbymodus.
 
@@ -253,7 +253,7 @@ Die ausgehenden Lasten in diesem Modus werden basierend auf dem Konzept der flow
 
 Wenn der Algorithmus für den dynamischen Modus erkennt, dass eine flowlet-Grenze gefunden wurde (z. b. wenn im TCP-Datenfluss eine Unterbrechung der Länge aufgetreten ist), gleicht der Algorithmus den Flow automatisch an ein anderes Teammitglied aus, falls dies erforderlich ist.  In einigen seltenen Fällen kann es vorkommen, dass der Algorithmus regelmäßig auch Flows umschließt, die keine flowlets enthalten. Aus diesem Grund kann sich die Affinität zwischen TCP-Fluss und Teammitglied jederzeit ändern, da der dynamische Ausgleichs Algorithmus funktioniert, um die Arbeitsauslastung der Teammitglieder auszugleichen.
 
-## <a name="bkmk_vmq"></a>Set-und Virtual Machine-Warteschlangen (vmqs)
+## <a name="set-and-virtual-machine-queues-vmqs"></a><a name="bkmk_vmq"></a>Set-und Virtual Machine-Warteschlangen (vmqs)
 
 VMQ und legen eine gute Zusammenarbeit fest. Sie sollten VMQ immer dann aktivieren, wenn Sie Hyper-V verwenden und festlegen.
 
@@ -273,15 +273,15 @@ Im folgenden finden Sie einige VMQ-Einstellungen, die eine bessere Systemleistun
 
 - Die Prozessoren der Teammitglieder sollten so groß sein, dass Sie praktisch und nicht überlappen. Beispielsweise können Sie in einem 4-Kern-Host \(8 logische Prozessoren\) mit einem Team von 2 10 Gbit/s-NICs festlegen, dass der erste Wert den Basis Prozessor 2 verwendet und vier Kerne verwendet werden sollen. der zweite Wert wird so festgelegt, dass er den Basis Prozessor 6 verwendet und 2 Kerne verwendet.
 
-## <a name="bkmk_hnv"></a>Set und Hyper-v-Netzwerkvirtualisierung \(HNV\)
+## <a name="set-and-hyper-v-network-virtualization-hnv"></a><a name="bkmk_hnv"></a>Set und Hyper-v-Netzwerkvirtualisierung \(HNV\)
 
 Der Satz ist vollständig kompatibel mit der Hyper-V-Netzwerkvirtualisierung in Windows Server 2016. Das HNV-Verwaltungssystem stellt Informationen für den Set-Treiber bereit, mit dem die Verteilung des Netzwerk Datenverkehrs auf eine Weise ermöglicht wird, die für den HNV-Datenverkehr optimiert ist.
   
-## <a name="bkmk_live"></a>Festlegen und Livemigration
+## <a name="set-and-live-migration"></a><a name="bkmk_live"></a>Festlegen und Livemigration
 
 Livemigration wird in Windows Server 2016 unterstützt.
 
-## <a name="bkmk_mac"></a>Mac-Adress Verwendung für übertragene Pakete
+## <a name="mac-address-use-on-transmitted-packets"></a><a name="bkmk_mac"></a>Mac-Adress Verwendung für übertragene Pakete
 
 Wenn Sie ein Set-Team mit dynamischer Lastenverteilung konfigurieren, werden die Pakete aus einer einzelnen Quelle \(z. b. eine einzelne VM-\) gleichzeitig auf mehrere Teammitglieder verteilt. 
 
@@ -311,7 +311,7 @@ Im folgenden finden Sie Listen, die das Austausch Verhalten von Mac-Adressen fes
   
     - Für Pakete, die für ein anderes Teammitglied als das affininitisierte Teammitglied gesendet werden, wird die Mac-Adresse der Quelle abgeschlossen.  
   
-## <a name="bkmk_manage"></a>Verwalten eines Set-Teams
+## <a name="managing-a-set-team"></a><a name="bkmk_manage"></a>Verwalten eines Set-Teams
 
 Es wird empfohlen, dass Sie System Center Virtual Machine Manager \(VMM-\) verwenden, um Set-Teams zu verwalten. Sie können jedoch auch Windows PowerShell verwenden, um die Gruppe zu verwalten. In den folgenden Abschnitten werden die Windows PowerShell-Befehle bereitgestellt, die Sie zum Verwalten von Set verwenden können.
 

@@ -10,18 +10,18 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f66ee49a-1fd3-4927-a813-64a15017b63b
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: d1ba40f17506f8012462f43c1e124a6b414c0531
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: c0e99dde090efa337bee9c0c25594f3f8c9e0377
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356006"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309985"
 ---
 # <a name="system-center-technologies-for-sdn"></a>Systemcenter-Technologien für SDN
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 System Center beinhaltet die folgenden Technologien zur Verwendung mit Software-Defined Networking (SDN):  
   
@@ -30,12 +30,12 @@ System Center beinhaltet die folgenden Technologien zur Verwendung mit Software-
 -   [System Center Virtual Machine Manager](#bkmk_scvmm)  
   
   
-## <a name="bkmk_scom"></a>System Center Operations Manager  
+## <a name="system-center-operations-manager"></a><a name="bkmk_scom"></a>System Center Operations Manager  
 System Center 2016 Operations Manager stellt eine flexible und kostengünstige Infrastrukturüberwachung bereit, trägt zur Sicherstellung der vorhersagbaren Leistung und Verfügbarkeit wichtiger Anwendungen bei und bietet eine umfassende Überwachung für Ihr Daten Center und Ihre Cloud. Privat und öffentlich.  
   
 Weitere Informationen finden Sie unter [Operations Manager](https://technet.microsoft.com/library/hh205987.aspx).  
   
-## <a name="bkmk_scvmm"></a>System Center Virtual Machine Manager  
+## <a name="system-center-virtual-machine-manager"></a><a name="bkmk_scvmm"></a>System Center Virtual Machine Manager  
 Mit System Center 2016 Virtual Machine Manager (VMM) können Sie folgende Aktionen ausführen:
 
 - Stellen Sie virtuelle Netzwerke skaliert bereit und verwalten Sie Sie.

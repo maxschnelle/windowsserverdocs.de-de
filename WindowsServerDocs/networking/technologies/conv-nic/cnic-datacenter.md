@@ -6,21 +6,21 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: f01546f8-c495-4055-8492-8806eee99862
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/17/2018
-ms.openlocfilehash: e4c305a7c8c4c4618b0df1e1b2a646356d8f821f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 54471446fb9eab6dc5dc20043c7cb651766a59a9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356120"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309648"
 ---
 # <a name="converged-nic-in-a-teamed-nic-configuration-datacenter"></a>Konvergierte NIC in einer kombinierten NIC-Konfiguration (Datacenter)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
-In diesem Thema erhalten Sie Anweisungen zum Bereitstellen einer konvergenten NIC in einer kombinierten NIC-Konfiguration mit dem Switch Embedded \(Teaming-Satz\). 
+In diesem Thema erhalten Sie Anweisungen zum Bereitstellen von konvergenten NIC in einer kombinierten NIC-Konfiguration mit Switch Embedded Teaming \(\)festzulegen. 
 
 In der Beispielkonfiguration in diesem Thema werden zwei Hyper-v-Hosts, **Hyper-v-Host 1** und **Hyper-v-Host 2**, beschrieben. Beide Hosts verfügen über zwei Netzwerkadapter. Auf jedem Host ist ein Adapter mit dem Subnetz 192.168.1. x/24 verbunden, und ein Adapter ist mit dem 192.168.2. x/24-Subnetz verbunden.
 
@@ -28,7 +28,7 @@ In der Beispielkonfiguration in diesem Thema werden zwei Hyper-v-Hosts, **Hyper-
 
 ## <a name="step-1-test-the-connectivity-between-source-and-destination"></a>Schritt 1 Testen der Konnektivität zwischen Quelle und Ziel
 
-Stellen Sie sicher, dass die physische NIC eine Verbindung mit dem Zielhost herstellen kann.  In diesem Test wird die Konnektivität mithilfe von \(Layer\) 3 L3 oder der IP-Schicht sowie des VLANs der \(virtuellen\) VLANs\)der Layer \(2 L2 Virtual Local Area Networks veranschaulicht.
+Stellen Sie sicher, dass die physische NIC eine Verbindung mit dem Zielhost herstellen kann.  In diesem Test wird die Konnektivität mithilfe von Layer 3 \(L3\)-oder der IP-Schicht sowie der Layer 2 \(L2\) Virtual Local Area Networks \(VLAN-\)veranschaulicht.
 
 1. Zeigen Sie die ersten Netzwerkadapter Eigenschaften an.
 
@@ -39,7 +39,7 @@ Stellen Sie sicher, dass die physische NIC eine Verbindung mit dem Zielhost hers
    _**Folgen**_
 
 
-   |    Name    |           Interfacedescription           | ifIndex | Status |    macAddress     | LinkSpeed |
+   |    Name    |           Interfacedescription           | ifIndex | Status |    MacAddress     | LinkSpeed |
    |------------|------------------------------------------|---------|--------|-------------------|-----------|
    | Test-40G-1 | Mellanox ConnectX-3 pro-Ethernet-Adapter |   11    |   Nach oben   | E4-1D-2D-07-43-D0 |  40 Gbit/s  |
 
@@ -75,9 +75,9 @@ Stellen Sie sicher, dass die physische NIC eine Verbindung mit dem Zielhost hers
    _**Folgen**_
 
 
-   |    Name    |          Interfacedescription           | ifIndex | Status |    macAddress     | LinkSpeed |
+   |    Name    |          Interfacedescription           | ifIndex | Status |    MacAddress     | LinkSpeed |
    |------------|-----------------------------------------|---------|--------|-------------------|-----------|
-   | TEST-40G-2 | Mellanox ConnectX-3 pro Ethernet A... #2 |   13    |   Nach oben   | E4-1D-2D-07-40-70 |  40 Gbit/s  |
+   | Test-40G-2 | Mellanox ConnectX-3 pro Ethernet A... #2 |   13    |   Nach oben   | E4-1D-2D-07-40-70 |  40 Gbit/s  |
 
    ---
 
@@ -95,14 +95,14 @@ Stellen Sie sicher, dass die physische NIC eine Verbindung mit dem Zielhost hers
    |----------------|-------------|
    |   IPAddress    | 192.168.2.3 |
    | InterfaceIndex |     13      |
-   | InterfaceAlias | TEST-40G-2  |
+   | InterfaceAlias | Test-40G-2  |
    | AddressFamily  |    IPv4     |
    |      Typ      |   Unicast   |
    |  PrefixLength  |     24      |
 
    ---
 
-5. Überprüfen Sie, ob andere NIC-Team-oder Set-Member-pnics eine gültige IP-Adresse aufweisen<p>Verwenden Sie ein separates Subnetz \(, xxx.xxx. **2**. xxx im Vergleich zu xxx.xxx. **1**. xxx\), um das Senden von diesem Adapter an das Ziel zu vereinfachen. Wenn Sie beide pnics im gleichen Subnetz finden, wird die Windows-TCP/IP-Stapel Last zwischen den Schnittstellen und der einfachen Validierung komplizierter.
+5. Überprüfen Sie, ob andere NIC-Team-oder Set-Member-pnics eine gültige IP-Adresse aufweisen<p>Verwenden Sie ein separates Subnetz, \(xxx.xxx. **2**. xxx im Vergleich zu xxx.xxx. **1**. xxx\), um das Senden von diesem Adapter an das Ziel zu vereinfachen. Wenn Sie beide pnics im gleichen Subnetz finden, wird die Windows-TCP/IP-Stapel Last zwischen den Schnittstellen und der einfachen Validierung komplizierter.
 
 
 ## <a name="step-2-ensure-that-source-and-destination-can-communicate"></a>Schritt 2 Stellen Sie sicher, dass Quelle und Ziel kommunizieren können
@@ -120,12 +120,12 @@ In diesem Schritt verwenden wir den Windows PowerShell-Befehl " **Test-NetConnec
 
    |        Parameter         |    Wert    |
    |--------------------------|-------------|
-   |       ComputerName       | 192.168.1.5 erstellt |
+   |       Computername       | 192.168.1.5 erstellt |
    |      RemoteAddress       | 192.168.1.5 erstellt |
    |      InterfaceAlias      | Test-40G-1  |
    |      SourceAddress       | 192.168.1.3 |
    |      Pingerfolg       |    False    |
-   | Pingreplydetails \(RTT\) |    0 ms     |
+   | Pingreplydetails \(RTT-\) |    0 ms     |
 
    ---
 
@@ -148,12 +148,12 @@ In diesem Schritt verwenden wir den Windows PowerShell-Befehl " **Test-NetConnec
 
    |        Parameter         |    Wert    |
    |--------------------------|-------------|
-   |       ComputerName       | 192.168.1.5 erstellt |
+   |       Computername       | 192.168.1.5 erstellt |
    |      RemoteAddress       | 192.168.1.5 erstellt |
    |      InterfaceAlias      | Test-40G-1  |
    |      SourceAddress       | 192.168.1.3 |
    |      Pingerfolg       |    False    |
-   | Pingreplydetails \(RTT\) |    0 ms     |
+   | Pingreplydetails \(RTT-\) |    0 ms     |
 
    ---
 
@@ -169,22 +169,22 @@ In diesem Schritt verwenden wir den Windows PowerShell-Befehl " **Test-NetConnec
 
    |        Parameter         |    Wert    |
    |--------------------------|-------------|
-   |       ComputerName       | 192.168.2.5 |
+   |       Computername       | 192.168.2.5 |
    |      RemoteAddress       | 192.168.2.5 |
    |      InterfaceAlias      | Test-40G-2  |
    |      SourceAddress       | 192.168.2.3 |
    |      Pingerfolg       |    False    |
-   | Pingreplydetails \(RTT\) |    0 ms     |
+   | Pingreplydetails \(RTT-\) |    0 ms     |
 
    ---
 
-## <a name="step-3-configure-the-vlan-ids-for-nics-installed-in-your-hyper-v-hosts"></a>Schritt 3 Konfigurieren der VLAN-IDs für NICs, die auf Ihren Hyper-V-Hosts installiert sind
+## <a name="step-3-configure-the-vlan-ids-for-nics-installed-in-your-hyper-v-hosts"></a>Schritt 3: Konfigurieren der VLAN-IDs für NICs, die auf Ihren Hyper-V-Hosts installiert sind
 
 Bei vielen Netzwerkkonfigurationen werden VLANs verwendet, und wenn Sie beabsichtigen, VLANs in Ihrem Netzwerk zu verwenden, müssen Sie den vorherigen Test mit konfigurierten VLANs wiederholen.
 
-Bei diesem Schritt befinden sich die NICs im **Zugriffs** Modus. Wenn Sie jedoch später in diesem Handbuch einen virtuellen Hyper- \(V-\) Switch-Vswitch erstellen, werden die VLAN-Eigenschaften auf der Vswitch-Port Ebene angewendet. 
+Bei diesem Schritt befinden sich die NICs im **Zugriffs** Modus. Wenn Sie jedoch einen virtuellen Hyper-V-Switch \(Vswitch später in diesem Handbuch\) erstellen, werden die VLAN-Eigenschaften auf der Vswitch-Port Ebene angewendet. 
 
-Da ein Switch mehrere VLANs hosten kann, ist es erforderlich, dass der \(\) physische Switch des oberen Rands den Port hat, mit dem der Host verbunden ist, der im trunk Modus konfiguriert ist.
+Da ein Switch mehrere VLANs hosten kann, ist es erforderlich, dass der obere Bereich \(Tor\) physischen Switch den Port hat, mit dem der Host verbunden ist, der im trunk Modus konfiguriert ist.
 
 >[!NOTE]
 >In der Tor-switchdokumentation finden Sie Anweisungen zum Konfigurieren des trunk Modus auf dem Switch.
@@ -195,7 +195,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
 
 
 >[!TIP]
->Gemäß den IEEE\) -Netzwerkstandards "Institute of \(Electrical and Electronics Engineers" werden \(die Quality of Service\) QoS-Eigenschaften in der physischen NIC für den eingebetteten 802.1 p-Header ausgeführt. im 802.1 q \(-VLAN\) -Header, wenn Sie die VLAN-ID konfigurieren.
+>Gemäß dem Institute of Electrical and Electronics Engineers \(IEEE\) Networking Standards werden die Quality of Service \(QoS\)-Eigenschaften in der physischen NIC auf den 802.1 p-Header reagieren, der beim Konfigurieren der VLAN-ID in den \(-Header 802.1 q\) VLAN eingebettet ist.
 
 1. Konfigurieren Sie die VLAN-ID auf der ersten NIC, Test-40G-1.
 
@@ -209,7 +209,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
 
    |    Name    | DisplayName | Display value | Registryschlüsselwort | REGISTRYVALUE |
    |------------|-------------|--------------|-----------------|---------------|
-   | TEST-40G-1 |   VLAN-ID   |     101      |     VlanID      |     {101}     |
+   | Test-40G-1 |   VLAN-ID   |     101      |     VlanID      |     {101}     |
 
    ---
 
@@ -228,7 +228,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    _**Folgen**_
 
 
-   |    Name    |          Interfacedescription           | ifIndex | Status |    macAddress     | LinkSpeed |
+   |    Name    |          Interfacedescription           | ifIndex | Status |    MacAddress     | LinkSpeed |
    |------------|-----------------------------------------|---------|--------|-------------------|-----------|
    | Test-40G-1 | Mellanox ConnectX-3 pro Ethernet Ada... |   11    |   Nach oben   | E4-1D-2D-07-43-D0 |  40 Gbit/s  |
 
@@ -246,7 +246,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
 
    |    Name    | DisplayName | Display value | Registryschlüsselwort | REGISTRYVALUE |
    |------------|-------------|--------------|-----------------|---------------|
-   | TEST-40G-2 |   VLAN-ID   |     102      |     VlanID      |     {102}     |
+   | Test-40G-2 |   VLAN-ID   |     102      |     VlanID      |     {102}     |
 
    ---
 
@@ -265,7 +265,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    _**Folgen**_
 
 
-   |    Name    |          Interfacedescription           | ifIndex | Status |    macAddress     | LinkSpeed |
+   |    Name    |          Interfacedescription           | ifIndex | Status |    MacAddress     | LinkSpeed |
    |------------|-----------------------------------------|---------|--------|-------------------|-----------|
    | Test-40G-2 | Mellanox ConnectX-3 pro Ethernet Ada... |   11    |   Nach oben   | E4-1D-2D-07-43-D1 |  40 Gbit/s  |
 
@@ -285,12 +285,12 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
 
    |        Parameter         |    Wert    |
    |--------------------------|-------------|
-   |       ComputerName       | 192.168.1.5 erstellt |
+   |       Computername       | 192.168.1.5 erstellt |
    |      RemoteAddress       | 192.168.1.5 erstellt |
    |      InterfaceAlias      | Test-40G-1  |
    |      SourceAddress       | 192.168.1.5 erstellt |
    |      Pingerfolg       |    True     |
-   | Pingreplydetails \(RTT\) |    0 ms     |
+   | Pingreplydetails \(RTT-\) |    0 ms     |
 
    ---
 
@@ -305,12 +305,12 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
 
    |        Parameter         |    Wert    |
    |--------------------------|-------------|
-   |       ComputerName       | 192.168.2.5 |
+   |       Computername       | 192.168.2.5 |
    |      RemoteAddress       | 192.168.2.5 |
    |      InterfaceAlias      | Test-40G-2  |
    |      SourceAddress       | 192.168.2.3 |
    |      Pingerfolg       |    True     |
-   | Pingreplydetails \(RTT\) |    0 ms     |
+   | Pingreplydetails \(RTT-\) |    0 ms     |
 
    ---
 
@@ -325,15 +325,15 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    ![Konfigurieren von Quality of Service](../../media/Converged-NIC/3-datacenter-configure-qos.jpg)
 
 
-## <a name="step-4-configure-quality-of-service-qos"></a>Schritt 4 Konfigurieren von \(Quality of Service QoS\)
+## <a name="step-4-configure-quality-of-service-qos"></a>Schritt 4 Konfigurieren von Quality of Service \(QoS\)
 
 >[!NOTE]
 >Sie müssen alle der folgenden DCB-und QoS-Konfigurationsschritte auf allen Hosts ausführen, die miteinander kommunizieren sollen.
 
-1. Installieren Sie Data Center \(Bridging DCB\) auf allen Hyper-V-Hosts.
+1. Installieren Sie Data Center Bridging \(DCB-\) auf den einzelnen Hyper-V-Hosts.
 
    - **Optional** für Netzwerkkonfigurationen, die IWarp verwenden.
-   - **Erforderlich** für Netzwerkkonfigurationen, die eine beliebige \(Version\) von ROCE für RDMA-Dienste verwenden.
+   - **Erforderlich** für Netzwerkkonfigurationen, die ROCE-\(beliebige Versions\) für RDMA-Dienste verwenden.
 
    ```PowerShell
    Install-WindowsFeature Data-Center-Bridging
@@ -351,7 +351,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
 2. Legen Sie die QoS-Richtlinien für SMB-Direct fest:
 
    - **Optional** für Netzwerkkonfigurationen, die IWarp verwenden.
-   - **Erforderlich** für Netzwerkkonfigurationen, die eine beliebige \(Version\) von ROCE für RDMA-Dienste verwenden.
+   - **Erforderlich** für Netzwerkkonfigurationen, die ROCE-\(beliebige Versions\) für RDMA-Dienste verwenden.
 
    Im folgenden Beispiel Befehl ist der Wert "3" beliebig. Sie können einen beliebigen Wert zwischen 1 und 7 verwenden, solange Sie während der Konfiguration der QoS-Richtlinien einheitlich denselben Wert verwenden.
 
@@ -365,8 +365,8 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    |   Parameter    |          Wert           |
    |----------------|--------------------------|
    |      Name      |           SMB            |
-   |     Besitzer      | Gruppenrichtlinie \(Computer\) |
-   | " |           All            |
+   |     Owner      | Gruppenrichtlinie \(Computer\) |
+   | " |           Alle            |
    |   Rangfolge   |           127            |
    |   JobObject    |          &nbsp;          |
    | Netdirectport  |           445            |
@@ -385,11 +385,11 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
 
    |   Parameter    |          Wert           |
    |----------------|--------------------------|
-   |      Name      |         DEFAULT          |
-   |     Besitzer      | Gruppenrichtlinie \(Computer\) |
-   | " |           All            |
+   |      Name      |         STANDARD          |
+   |     Owner      | Gruppenrichtlinie \(Computer\) |
+   | " |           Alle            |
    |   Rangfolge   |           127            |
-   |    Vorlage    |         Default          |
+   |    Vorlage    |         Standard          |
    |   JobObject    |          &nbsp;          |
    | PriorityValue  |            0             |
 
@@ -405,7 +405,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    _**Folgen**_
 
 
-   | Priority | Enabled | Policyset | ifIndex | Ifalias |
+   | Priority | Aktiviert | Policyset | ifIndex | Ifalias |
    |----------|---------|-----------|---------|---------|
    |    0     |  False  |  Global   | &nbsp;  | &nbsp;  |
    |    1     |  False  |  Global   | &nbsp;  | &nbsp;  |
@@ -439,7 +439,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    _**Funktionen**:_   
 
 
-   |      Parameter      |   Hardware   |   Strömung    |
+   |      Parameter      |   Hardware   |   Aktuell    |
    |---------------------|--------------|--------------|
    |    Macsecbypass     | NotSupported | NotSupported |
    |     Dcbxsupport     |     Keine     |     Keine     |
@@ -450,9 +450,9 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    _**Operationaltrafficclasses**:_    
 
 
-   | TC |  BEWUNDERNSWERT   | Bandbreite | Prioritäten |
+   | TC |  Bewundernswert   | Bandbreite | Prioritäten |
    |----|--------|-----------|------------|
-   | 0  | Strengeren |  &nbsp;   |    0-7     |
+   | 0  | Strict |  &nbsp;   |    0-7     |
 
    ---
 
@@ -465,7 +465,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
 
    | Protokoll  | Port/Typ | Priority |
    |-----------|-----------|----------|
-   |  Default  |  &nbsp;   |    0     |
+   |  Standard  |  &nbsp;   |    0     |
    | NetDirect |    445    |    3     |
 
    ---
@@ -483,7 +483,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    _**Funktionen**:_ 
 
 
-   |      Parameter      |   Hardware   |   Strömung    |
+   |      Parameter      |   Hardware   |   Aktuell    |
    |---------------------|--------------|--------------|
    |    Macsecbypass     | NotSupported | NotSupported |
    |     Dcbxsupport     |     Keine     |     Keine     |
@@ -494,9 +494,9 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
    _**Operationaltrafficclasses**:_  
 
 
-   | TC |  BEWUNDERNSWERT   | Bandbreite | Prioritäten |
+   | TC |  Bewundernswert   | Bandbreite | Prioritäten |
    |----|--------|-----------|------------|
-   | 0  | Strengeren |  &nbsp;   |    0-7     |
+   | 0  | Strict |  &nbsp;   |    0-7     |
 
    ---
 
@@ -509,13 +509,13 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
 
    | Protokoll  | Port/Typ | Priority |
    |-----------|-----------|----------|
-   |  Default  |  &nbsp;   |    0     |
+   |  Standard  |  &nbsp;   |    0     |
    | NetDirect |    445    |    3     |
 
    ---
 
 
-7. Reservieren der Hälfte der Bandbreite für \(SMB Direct RDMA\)
+7. Reservieren der Hälfte der Bandbreite für SMB Direct \(RDMA\)
 
    ```PowerShell
    New-NetQosTrafficClass "SMB" -priority 3 -bandwidthpercentage 50 -algorithm ETS
@@ -526,7 +526,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
 
    | Name | Algorithmus | Bandbreite (%) | Priority | Policyset | ifIndex | Ifalias |
    |------|-----------|--------------|----------|-----------|---------|---------|
-   | SMB  |    BLÄTTERN    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
+   | SMB  |    Blättern    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
 
    ---
 
@@ -541,8 +541,8 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
 
    |   Name    | Algorithmus | Bandbreite (%) | Priority | Policyset | ifIndex | Ifalias |
    |-----------|-----------|--------------|----------|-----------|---------|---------|
-   | Vorgegebene |    BLÄTTERN    |      50      | 0-2, 4-7  |  Global   | &nbsp;  | &nbsp;  |
-   |    SMB    |    BLÄTTERN    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
+   | [Default] |    Blättern    |      50      | 0-2, 4-7  |  Global   | &nbsp;  | &nbsp;  |
+   |    SMB    |    Blättern    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
 
    ---
 
@@ -560,7 +560,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
 
    | Name | Algorithmus | Bandbreite (%) | Priority | Policyset | ifIndex | Ifalias |
    |------|-----------|--------------|----------|-----------|---------|---------|
-   | IP1  |    BLÄTTERN    |      10      |    1     |  Global   | &nbsp;  | &nbsp;  |
+   | IP1  |    Blättern    |      10      |    1     |  Global   | &nbsp;  | &nbsp;  |
 
    ---
 
@@ -573,7 +573,7 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
 
    | Name | Algorithmus | Bandbreite (%) | Priority | Policyset | ifIndex | Ifalias |
    |------|-----------|--------------|----------|-----------|---------|---------|
-   | IP2  |    BLÄTTERN    |      10      |    2     |  Global   | &nbsp;  | &nbsp;  |
+   | IP2  |    Blättern    |      10      |    2     |  Global   | &nbsp;  | &nbsp;  |
 
    ---
 
@@ -588,10 +588,10 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
 
     |   Name    | Algorithmus | Bandbreite (%) | Priority | Policyset | ifIndex | Ifalias |
     |-----------|-----------|--------------|----------|-----------|---------|---------|
-    | Vorgegebene |    BLÄTTERN    |      30      |  0, 4-7   |  Global   | &nbsp;  | &nbsp;  |
-    |    SMB    |    BLÄTTERN    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
-    |    IP1    |    BLÄTTERN    |      10      |    1     |  Global   | &nbsp;  | &nbsp;  |
-    |    IP2    |    BLÄTTERN    |      10      |    2     |  Global   | &nbsp;  | &nbsp;  |
+    | [Default] |    Blättern    |      30      |  0, 4-7   |  Global   | &nbsp;  | &nbsp;  |
+    |    SMB    |    Blättern    |      50      |    3     |  Global   | &nbsp;  | &nbsp;  |
+    |    IP1    |    Blättern    |      10      |    1     |  Global   | &nbsp;  | &nbsp;  |
+    |    IP2    |    Blättern    |      10      |    2     |  Global   | &nbsp;  | &nbsp;  |
 
     ---
 
@@ -610,9 +610,9 @@ In der folgenden Abbildung sind zwei Hyper-V-Hosts mit jeweils zwei Netzwerkadap
     1
     ```
 
-## <a name="step-5-verify-the-rdma-configuration-mode-1"></a>Schritt 5 Überprüfen des RDMA \(-Konfigurations Modus 1\) 
+## <a name="step-5-verify-the-rdma-configuration-mode-1"></a>Schritt 5 Überprüfen Sie den RDMA-Konfigurations \(Modus 1\) 
 
-Sie möchten sicherstellen, dass das Fabric ordnungsgemäß konfiguriert ist, bevor Sie einen Vswitch erstellen und in den \(RDMA\)-Modus 2 übergehen.
+Sie möchten sicherstellen, dass das Fabric ordnungsgemäß konfiguriert ist, bevor Sie einen Vswitch erstellen und zu RDMA \(Modus 2\)wechseln.
 
 Die folgende Abbildung zeigt den aktuellen Status der Hyper-V-Hosts.
 
@@ -628,10 +628,10 @@ Die folgende Abbildung zeigt den aktuellen Status der Hyper-V-Hosts.
    _**Folgen**_
 
 
-   |    Name    |        Interfacedescription        | Enabled |
+   |    Name    |        Interfacedescription        | Aktiviert |
    |------------|------------------------------------|---------|
-   | TEST-40G-1 | Mellanox ConnectX-4 VPI-Adapter #2 |  True   |
-   | TEST-40G-2 |  Mellanox ConnectX-4 VPI-Adapter   |  True   |
+   | Test-40G-1 | Mellanox ConnectX-4 VPI-Adapter #2 |  True   |
+   | Test-40G-2 |  Mellanox ConnectX-4 VPI-Adapter   |  True   |
 
    ---
 
@@ -646,14 +646,14 @@ Die folgende Abbildung zeigt den aktuellen Status der Hyper-V-Hosts.
 
    | InterfaceAlias | InterfaceIndex |  IPv4-Adresse  |
    |----------------|----------------|---------------|
-   |   TEST-40G-1   |       14       | {192.168.1.3} |
-   |   TEST-40G-2   |       13       | {192.168.2.3} |
+   |   Test-40G-1   |       14       | {192.168.1.3} |
+   |   Test-40G-2   |       13       | {192.168.2.3} |
 
    ---
 
-3. Laden Sie das [Hilfsprogramm diskspd. exe](https://aka.ms/diskspd) herunter, und extrahieren Sie es in c:\test.\.
+3. Laden Sie das [Hilfsprogramm diskspd. exe](https://aka.ms/diskspd) herunter, und extrahieren Sie es in c:\test\.
 
-4. Laden Sie das [PowerShell-Skript "Test-RDMA](https://github.com/Microsoft/SDN/blob/master/Diagnostics/Test-Rdma.ps1) " in einen Test Ordner auf dem lokalen Laufwerk herunter, z. b. "c:\Test".\.
+4. Laden Sie das [PowerShell-Skript "Test-RDMA](https://github.com/Microsoft/SDN/blob/master/Diagnostics/Test-Rdma.ps1) " in einen Test Ordner auf dem lokalen Laufwerk herunter, z. b. "c:\Test"\.
 
 5. Führen Sie das PowerShell-Skript **Test-RDMA. ps1** aus, um den ifindex-Wert zusammen mit der IP-Adresse des ersten Remote Adapters im gleichen VLAN an das Skript zu übergeben.<p>In diesem Beispiel übergibt das Skript den **ifindex** -Wert 14 auf der IP-Adresse 192.168.1.5 erstellt des Remote Netzwerkadapters.
 
@@ -732,7 +732,7 @@ Die folgende Abbildung zeigt Hyper-V-Host 1 mit einem Vswitch.
 
    |  Name   | SwitchType extern | Netadapterinterfacedescription |
    |---------|------------|--------------------------------|
-   | VMSTEST |  Extern  |        Zusammenfassung        |
+   | Vmstest |  Extern  |        Zusammenfassung        |
 
    ---
 
@@ -761,7 +761,7 @@ Die folgende Abbildung zeigt Hyper-V-Host 1 mit einem Vswitch.
    _**Folgen**_
 
 
-   |        Name         |        Interfacedescription         | ifIndex | Status |    macAddress     | LinkSpeed |
+   |        Name         |        Interfacedescription         | ifIndex | Status |    MacAddress     | LinkSpeed |
    |---------------------|-------------------------------------|---------|--------|-------------------|-----------|
    | vethernet (vmstest) | Virtueller Hyper-V-Ethernet-Adapter #2 |   28    |   Nach oben   | E4-1D-2D-07-40-71 |  80 Gbit/s  |
 
@@ -776,9 +776,9 @@ Die folgende Abbildung zeigt Hyper-V-Host 1 mit einem Vswitch.
    _**Folgen**_
 
 
-   |  Name   | Ismanagementos | VMName  |  SwitchName  | macAddress | Status | IpAddresses |
+   |  Name   | Ismanagementos | VMName  |  SwitchName  | MacAddress | Status | IpAddresses |
    |---------|----------------|---------|--------------|------------|--------|-------------|
-   | VMSTEST |      True      | VMSTEST | E41D2D074071 |    Okay    | &nbsp; |             |
+   | Vmstest |      True      | Vmstest | E41D2D074071 |    Okay    | &nbsp; |             |
 
    ---
 
@@ -802,7 +802,7 @@ Die folgende Abbildung zeigt Hyper-V-Host 1 mit einem Vswitch.
    PingReplyDetails (RTT) : 0 ms
    ```
 
-## <a name="step-7-remove-the-access-vlan-setting"></a>Schritt 7 Entfernen der VLAN-Zugriffs Einstellung
+## <a name="step-7-remove-the-access-vlan-setting"></a>Schritt 7. Entfernen der VLAN-Zugriffs Einstellung
 
 In diesem Schritt entfernen Sie die VLAN-Zugriffs Einstellung aus der physischen NIC und legen die VLANID mithilfe des Vswitch fest.
 
@@ -848,7 +848,7 @@ Sie müssen die VLAN-Zugriffs Einstellung entfernen, um zu verhindern, dass sowo
    PingReplyDetails (RTT) : 0 ms
    ```
 
-   >**Wichtig** Wenn die Ergebnisse den Beispiel Ergebnissen nicht ähneln, schlägt Ping mit der Meldung "Warnung: Fehler beim Ping an 192.168.1.5 erstellt-Status: Destinationhostunerreich, "vergewissern Sie sich, dass das" vethernet (vmstest) "über die richtige IP-Adresse verfügt.
+   >**Wichtig** Wenn Ihre Ergebnisse den Beispiel Ergebnissen nicht ähneln und Ping mit der Meldung "Warnung: Ping an 192.168.1.5 erstellt Failed--Status: destinationhostunerreich" fehlschlägt, vergewissern Sie sich, dass das "vethernet (vmstest)" über die richtige IP-Adresse verfügt.
    >
    >```PowerShell
    >Get-NetIPAddress -InterfaceAlias "vEthernet (VMSTEST)"
@@ -885,10 +885,10 @@ Sie müssen die VLAN-Zugriffs Einstellung entfernen, um zu verhindern, dass sowo
    _**Folgen**_ 
 
 
-   |         Name         | Ismanagementos | VMName |      SwitchName      |  macAddress  | Status | IpAddresses |
+   |         Name         | Ismanagementos | VMName |      SwitchName      |  MacAddress  | Status | IpAddresses |
    |----------------------|----------------|--------|----------------------|--------------|--------|-------------|
-   | Corp-externer Switch |      True      | &nbsp; | Corp-externer Switch | 001B785768AA |  Okay  |   &nbsp;    |
-   |         VERWALTUNG          |      True      | &nbsp; |       VMSTEST        | E41D2D074071 |  Okay  |   &nbsp;    |
+   | Corp-externer Switch |      True      | &nbsp; | Corp-externer Switch | 001b785768aa |  Okay  |   &nbsp;    |
+   |         Verwaltung          |      True      | &nbsp; |       Vmstest        | E41D2D074071 |  Okay  |   &nbsp;    |
 
    ---
 
@@ -901,7 +901,7 @@ Sie müssen die VLAN-Zugriffs Einstellung entfernen, um zu verhindern, dass sowo
    _**Folgen**_
 
 
-   |      Name       |        Interfacedescription         | ifIndex | Status |    macAddress     | LinkSpeed |
+   |      Name       |        Interfacedescription         | ifIndex | Status |    MacAddress     | LinkSpeed |
    |-----------------|-------------------------------------|---------|--------|-------------------|-----------|
    | vethernet (mgt) | Virtueller Hyper-V-Ethernet-Adapter #2 |   28    |   Nach oben   | E4-1D-2D-07-40-71 |  80 Gbit/s  |
 
@@ -922,8 +922,8 @@ Die folgende Abbildung zeigt den aktuellen Status der Hyper-v-Hosts, einschließ
 
    _**Folgen**_  
 
-   Benennen VERWALTUNG  
-   Ieeeprioritytag:  On  
+   Name: mgt  
+   Ieeeprioritytag: on  
 
 2. Erstellen Sie zwei Host-vNICs für RDMA, und verbinden Sie Sie mit dem Vswitch vmstest.
 
@@ -941,16 +941,16 @@ Die folgende Abbildung zeigt den aktuellen Status der Hyper-v-Hosts, einschließ
    _**Folgen**_ 
 
 
-   |         Name         | Ismanagementos |        VMName        |  SwitchName  | macAddress | Status | IpAddresses |
+   |         Name         | Ismanagementos |        VMName        |  SwitchName  | MacAddress | Status | IpAddresses |
    |----------------------|----------------|----------------------|--------------|------------|--------|-------------|
-   | Corp-externer Switch |      True      | Corp-externer Switch | 001B785768AA |    Okay    | &nbsp; |             |
-   |         Verwaltung          |      True      |       VMSTEST        | E41D2D074071 |    Okay    | &nbsp; |             |
-   |         SERVER MESSAGE BLOCK         |      True      |       VMSTEST        | 00155D30AA00 |    Okay    | &nbsp; |             |
-   |         SMB2         |      True      |       VMSTEST        | 00155D30AA01 |    Okay    | &nbsp; |             |
+   | Corp-externer Switch |      True      | Corp-externer Switch | 001b785768aa |    Okay    | &nbsp; |             |
+   |         Verwaltung          |      True      |       Vmstest        | E41D2D074071 |    Okay    | &nbsp; |             |
+   |         Server Message Block         |      True      |       Vmstest        | 00155d30aa00 |    Okay    | &nbsp; |             |
+   |         SMB2         |      True      |       Vmstest        | 00155d30aa01 |    Okay    | &nbsp; |             |
 
    ---
 
-## <a name="step-9-assign-an-ip-address-to-the-smb-host-vnics-vethernet-smb1-and-vethernet-smb2"></a>Schritt 9: Zuweisen einer IP-Adresse zu den SMB-Host-vNICs \(vethernet Server Message Block\) und \(vethernet SMB2\)
+## <a name="step-9-assign-an-ip-address-to-the-smb-host-vnics-vethernet-smb1-and-vethernet-smb2"></a>Schritt 9. Zuweisen einer IP-Adresse zu den SMB-Host-vNICs vethernet \(Server Message Block\) und vethernet \(SMB2\)
 
 Die physischen Adapter "Test-40G-1" und "Test-40G-2" verfügen weiterhin über das konfigurierte zugriffsvlan 101 und 102. Aus diesem Grund markieren die Adapter den Datenverkehr, und der Ping-Vorgang ist erfolgreich. Zuvor haben Sie beide PNIC-VLAN-IDs auf NULL festgelegt und dann vmstest Vswitch auf VLAN 101 festgelegt. Anschließend konnten Sie den Remote-VLAN 101-Adapter weiterhin mithilfe von mgt vNIC pingen, aber zurzeit sind keine VLAN 102-Mitglieder vorhanden.
 
@@ -997,7 +997,7 @@ Die physischen Adapter "Test-40G-1" und "Test-40G-2" verfügen weiterhin über d
    PingReplyDetails (RTT) : 0 ms
    ```
 
-3. Fügen Sie eine neue IP-Adresse für die Schnitt \(Stelle\)vethernet SMB2 hinzu.
+3. Fügen Sie eine neue IP-Adresse für Interface vethernet \(SMB2\)hinzu.
 
    ```PowerShell
    New-NetIPAddress -InterfaceAlias "vEthernet (SMB2)" -IPAddress 192.168.2.222 -PrefixLength 24 
@@ -1136,7 +1136,7 @@ Die physischen Adapter "Test-40G-1" und "Test-40G-2" verfügen weiterhin über d
     ```
 
 
-11. Testen Sie die Verbindung vom Remote System, da sich beide Host-vNICs im selben Subnetz befinden und dieselbe VLAN- \(ID\)102 aufweisen.
+11. Testen Sie die Verbindung vom Remote System, da sich beide Host-vNICs im selben Subnetz befinden und dieselbe VLAN-ID \(102\)haben.
 
     ```PowerShell 
     Test-NetConnection 192.168.2.111
@@ -1225,7 +1225,7 @@ Die physischen Adapter "Test-40G-1" und "Test-40G-2" verfügen weiterhin über d
 
 ## <a name="step-10-validate-the-rdma-functionality"></a>Schritt 10. Überprüfen Sie die RDMA-Funktionalität.
 
-Sie möchten die RDMA-Funktionalität vom Remote System auf das lokale System, das über einen Vswitch verfügt, an beide Mitglieder des Vswitch Set-Teams überprüfen.<p>Da sowohl Host-vNICs \(Server Message Block als auch SMB2\) VLAN 102 zugewiesen sind, können Sie den VLAN 102-Adapter auf dem Remote System auswählen. <p>In diesem Beispiel führt der NIC-Test-40G-2 RDMA zu Server Message Block (192.168.2.111) und SMB2 (192.168.2.222).
+Sie möchten die RDMA-Funktionalität vom Remote System auf das lokale System, das über einen Vswitch verfügt, an beide Mitglieder des Vswitch Set-Teams überprüfen.<p>Da beide Host-vNICs \(Server Message Block und SMB2\) VLAN 102 zugewiesen sind, können Sie den VLAN 102-Adapter auf dem Remote System auswählen. <p>In diesem Beispiel führt der NIC-Test-40G-2 RDMA zu Server Message Block (192.168.2.111) und SMB2 (192.168.2.222).
 
 >[!TIP]
 >Möglicherweise müssen Sie die Firewall auf diesem System deaktivieren.  Weitere Informationen finden Sie in der Fabric-Richtlinie.
@@ -1407,7 +1407,7 @@ Sie möchten die RDMA-Funktionalität vom Remote System auf das lokale System, d
    VERBOSE: RDMA traffic test SUCCESSFUL: RDMA traffic was sent to 192.168.2.5
    ```
 
-Die letzte Zeile in der Ausgabe "RDMA-Datenverkehrs Test erfolgreich: RDMA-Datenverkehr wurde an 192.168.2.5 gesendet. "zeigt, dass Sie die konvergierte NIC erfolgreich auf dem Adapter konfiguriert haben.
+Die letzte Zeile in der Ausgabe "RDMA-Datenverkehrs Test erfolgreich: RDMA-Datenverkehr wurde an 192.168.2.5 gesendet" zeigt, dass Sie die konvergierte NIC erfolgreich auf dem Adapter konfiguriert haben.
 
 ## <a name="related-topics"></a>Verwandte Themen 
 

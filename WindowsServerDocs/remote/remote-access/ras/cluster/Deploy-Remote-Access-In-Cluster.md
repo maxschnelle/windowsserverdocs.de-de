@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ''
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5e4108eee0c62ae4d4db31560b31a6f90751c6b8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 9a025c82b5bece3a4719905c4e28333c42aac35c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404643"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308387"
 ---
 # <a name="deploy-remote-access-in-a-cluster"></a>Bereitstellen des Remotezugriffs in einem Cluster
 
@@ -25,10 +25,10 @@ ms.locfileid: "71404643"
 
 Windows Server 2016 und Windows Server 2012 kombinieren DirectAccess-und RAS-Dienst \(RAS-\)-VPN zu einer einzigen Remote Zugriffs Rolle. Sie können den Remote Zugriff in einer Reihe von Unternehmens Szenarios bereitstellen. Diese Übersicht bietet eine Einführung in das Unternehmens Szenario für die Bereitstellung mehrerer RAS-Server in einem Cluster Lastenausgleich mit Windows-Netzwerk Lastenausgleich \(NLB\) oder mit einem externen Lasten Ausgleichs Modul \(ELB\), wie z. b. F5 Big\-IP.  
 
-## <a name="BKMK_OVER"></a>Szenariobeschreibung  
+## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Szenariobeschreibung  
 Eine Cluster Bereitstellung sammelt mehrere RAS-Server in einer einzelnen Einheit, die dann als einzelner Kontaktpunkt für Remote Client Computer fungiert, die über DirectAccess oder VPN eine Verbindung mit dem internen Unternehmensnetzwerk herstellen, indem die externe virtuelle IP-\(VIP\) Adresse des Remote Zugriffs Clusters verwendet wird.  Der Lastenausgleich für den Datenverkehr zum Cluster erfolgt mithilfe von Windows NLB oder mit einem externen Lasten Ausgleichs Modul \(z. b. F5 Big\-IP-\).  
 
-## <a name="prerequisites"></a>Voraussetzungen  
+## <a name="prerequisites"></a>Erforderliche Komponenten  
 Bevor Sie mit der Bereitstellung dieses Szenarios beginnen, sollten Sie die Liste der wichtigen Anforderungen lesen:  
 
 -   Standardlastenausgleich über Windows NLB.  
@@ -58,16 +58,16 @@ Das Clusterbereitstellungsszenario umfasst eine Reihe von Schritten:
 
 3.  [Konfigurieren Sie einen Remote Zugriffs Cluster](configure/Configure-a-Remote-Access-Cluster.md). Dies umfasst eine Reihe von Konfigurationsschritten, einschließlich der Vorbereitung des einzelnen Servers für Windows NLB oder des externen Load Balancers, der Vorbereitung zusätzlicher Server für den Cluster Beitritt und dem Aktivieren des Lasten Ausgleichs.  
 
-## <a name="BKMK_APP"></a>Praktische Anwendungen  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Praktische Anwendungen  
 Der Zusammenschluss mehrerer Server zu einem Servercluster bietet Folgendes:  
 
 -   Skalierbarkeit. Ein einzelner RAS-Server bietet ein eingeschränktes Maß an Server Zuverlässigkeit und skalierbarer Leistung. Durch die Gruppierung der Ressourcen von zwei oder mehr Servern zu einem einzigen Cluster können Sie die verfügbare Kapazität für die Benutzer und den Durchsatz erhöhen.  
 
--   Hohe Verfügbarkeit. Ein Cluster bietet hohe Verfügbarkeit für den Zugriff immer\-. Wenn ein Server im Cluster ausfällt, können Remotebenutzer weiterhin über einen anderen Server im Cluster auf das Unternehmensnetzwerk zugreifen. Alle Server im Cluster verfügen über denselben Satz virtueller IP-Adressen \(VIP-\) Adressen, während gleichzeitig eine eindeutige, dedizierte IP-Adresse für jeden Server beibehalten wird.  
+-   Hohe Verfügbarkeit: Ein Cluster bietet hohe Verfügbarkeit für den Zugriff immer\-. Wenn ein Server im Cluster ausfällt, können Remotebenutzer weiterhin über einen anderen Server im Cluster auf das Unternehmensnetzwerk zugreifen. Alle Server im Cluster verfügen über denselben Satz virtueller IP-Adressen \(VIP-\) Adressen, während gleichzeitig eine eindeutige, dedizierte IP-Adresse für jeden Server beibehalten wird.  
 
 -   Vereinfachen Sie die\-der\-Verwaltung. Ein Cluster ermöglicht die Verwaltung mehrerer Server als einzelne Entität. Gemeinsam genutzte Einstellungen können problemlos clusterserverübergreifend festgelegt werden. Remote Zugriffs Einstellungen können von einem beliebigen Server im Cluster oder Remote mithilfe Remoteserver-Verwaltungstools \(RSAT-\)verwaltet werden. Darüber hinaus kann der ganze Cluster über eine einzelne Remotezugriffs-Verwaltungskonsole überwacht werden.  
 
-## <a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und Features  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und Features  
 Die folgende Tabelle enthält die für dieses Szenario erforderlichen Rollen und Features:  
 
 |Rollen\/Funktion|Auf welche Weise dieses Szenario unterstützt wird|  
@@ -76,7 +76,7 @@ Die folgende Tabelle enthält die für dieses Szenario erforderlichen Rollen und
 |Feature %%amp;quot;Tools für die Remotezugriffsverwaltung%%amp;quot;|So installieren Sie dieses Feature:<br /><br />-Sie wird standardmäßig auf einem RAS-Server installiert, wenn die Remote Zugriffs Rolle installiert ist, und unterstützt die Benutzeroberfläche der Remote Verwaltungskonsole.<br />-Es kann optional auf einem Server installiert werden, auf dem die Remote Zugriffs-Server Rolle nicht ausgeführt wird. In diesem Fall wird es für die Remoteverwaltung eines RAS-Computers verwendet, der DirectAccess und VPN ausführt.<br /><br />Das Feature "Tools für die Remotezugriffsverwaltung" besteht aus den folgenden Komponenten:<br /><br />-Remote Zugriffs-GUI und Befehlszeilen Tools<br />-Remote Zugriffs Modul für Windows PowerShell<br /><br />Abhängigkeiten umfassen:<br /><br />-Gruppenrichtlinien-Verwaltungskonsole<br />-RAS-Verbindungs-Manager-Verwaltungskit \(CMAK\)<br />-Windows PowerShell 3,0<br />-Tools und Infrastruktur für die grafische Verwaltung|  
 |Netzwerklastenausgleich|Dieses Feature ermöglicht den Lastenausgleich in einem Cluster mithilfe des Windows-Netzwerklastenausgleichs.|  
 
-## <a name="BKMK_HARD"></a>Hardware Anforderungen  
+## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Hardwareanforderungen  
 Für dieses Szenario müssen die folgenden Hardwareanforderungen erfüllt werden:  
 
 -   Mindestens zwei Computer, die die Hardwareanforderungen für Windows Server 2012 erfüllen.  
@@ -85,7 +85,7 @@ Für dieses Szenario müssen die folgenden Hardwareanforderungen erfüllt werden
 
 -   Um das Szenario zu testen, müssen Sie mindestens einen Computer mit Windows 10 als Always on VPN-Client konfiguriert haben.   
 
-## <a name="BKMK_SOFT"></a>Software Anforderungen  
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Software Anforderungen  
 Für dieses Szenario gelten eine Reihe von Anforderungen:  
 
 -   Softwareanforderungen für die Bereitstellung auf einem Einzelserver. Weitere Informationen finden Sie [unter Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen](../../directaccess/single-server-advanced/Deploy-a-Single-DirectAccess-Server-with-Advanced-Settings.md). Ein einzelner Remote Zugriff).  
@@ -100,12 +100,12 @@ Für dieses Szenario gelten eine Reihe von Anforderungen:
 
     -   Das IPv6-Präfix, das DirectAccess-Clientcomputern in Serverclustern zugewiesen wird, muss 59 Bit umfassen. Wenn VPN aktiviert ist, muss das VPN-Präfix ebenfalls 59 Bit umfassen.  
 
-## <a name="KnownIssues"></a>Bekannte Probleme  
+## <a name="known-issues"></a><a name="KnownIssues"></a>Bekannte Probleme  
 Im Folgenden finden Sie bekannte Probleme beim Konfigurieren eines Clusterszenarios:  
 
 -   Nach dem Konfigurieren von DirectAccess in einem IPv4-\-nur die Bereitstellung mit einem einzelnen Netzwerkadapter und nach dem standardmäßigen DNS64 \(die IPv6-Adresse, die ": 3333::" enthält\) automatisch auf dem Netzwerkadapter konfiguriert wird, wird beim Versuch, den Lasten\-Ausgleich über die Remote Zugriffs-Verwaltungskonsole zu aktivieren, eine Eingabeaufforderung für den Benutzer bereitgestellt. Wenn eine IPv6-DIP-Adresse angegeben wird, tritt nach dem Klicken auf **Commit ausführen** ein Konfigurationsfehler mit folgender Fehlermeldung auf: Der Parameter ist falsch.  
 
-    So beheben Sie dieses Problem  
+    So lösen Sie dieses Problem:  
 
     1.  Laden Sie die Sicherung herunter, und stellen Sie Skripts aus [Back up and Restore Remote Access Configuration](https://gallery.technet.microsoft.com/Back-up-and-Restore-Remote-e157e6a6)wieder her.  
 
@@ -113,7 +113,7 @@ Im Folgenden finden Sie bekannte Probleme beim Konfigurieren eines Clusterszenar
 
     3.  Versuchen Sie, den Lastenausgleich bis zu dem Schritt zu aktivieren, bei dem ein Fehler auftritt. Erweitern Sie im Dialogfeld Lastenausgleich aktivieren den Bereich Details, klicken Sie mit der rechten\-in den Detailbereich, und klicken Sie dann auf **Skript kopieren**.  
 
-    4.  Öffnen Sie Editor, und fügen Sie den Inhalt der Zwischenablage ein. Zum Beispiel:  
+    4.  Öffnen Sie Editor, und fügen Sie den Inhalt der Zwischenablage ein. Beispiel:  
 
         ```  
         Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress @('10.244.4.19 /255.255.255.0','fdc4:29bd:abde:3333::2/128') -InternetVirtualIPAddress @('fdc4:29bd:abde:3333::1/128', '10.244.4.21 /255.255.255.0') -ComputerName 'DA1.domain1.corp.contoso.com' -Verbose  
@@ -121,7 +121,7 @@ Im Folgenden finden Sie bekannte Probleme beim Konfigurieren eines Clusterszenar
 
     5.  Schließen Sie alle offenen Remotezugriffs-Dialogfelder und die Remotezugriffs-Verwaltungskonsole.  
 
-    6.  Bearbeiten Sie den eingefügten Text, und entfernen Sie die IPv6-Adressen. Zum Beispiel:  
+    6.  Bearbeiten Sie den eingefügten Text, und entfernen Sie die IPv6-Adressen. Beispiel:  
 
         ```  
         Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress @('10.244.4.19 /255.255.255.0') -InternetVirtualIPAddress @('10.244.4.21 /255.255.255.0') -ComputerName 'DA1.domain1.corp.contoso.com' -Verbose  

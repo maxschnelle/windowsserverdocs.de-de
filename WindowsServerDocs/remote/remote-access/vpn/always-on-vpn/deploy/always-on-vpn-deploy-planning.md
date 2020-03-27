@@ -6,22 +6,22 @@ ms.technology: networking-ras
 ms.topic: article
 ms.assetid: 3c9de3ec-4bbd-4db0-b47a-03507a315383
 ms.localizationpriority: medium
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 11/05/2018
-ms.openlocfilehash: f92cfdbe13633dd4c59012f566c6888fdc7fc7a1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e0e061a38170242a3808fbad0c82a4154bf9c536
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388159"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313304"
 ---
 # <a name="step-1-plan-the-always-on-vpn-deployment"></a>Schritt 1 Planen der Always On VPN-Bereitstellung
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
-- [**Vorher** Erfahren Sie mehr über den Workflow für die Bereitstellung Always on VPN](always-on-vpn-deploy-deployment.md)
-- [**Weiter** Schritt 2 Konfigurieren der Server Infrastruktur](vpn-deploy-server-infrastructure.md)
+- [**Vorheriges:** Erfahren Sie mehr über den Workflow für die Bereitstellung Always on VPN](always-on-vpn-deploy-deployment.md)
+- [**Weiter:** Schritt 2: Konfigurieren der Server Infrastruktur](vpn-deploy-server-infrastructure.md)
 
 In diesem Schritt beginnen Sie mit der Planung und Vorbereitung ihrer Always on-VPN-Bereitstellung. Bevor Sie die Remote Zugriffs-Server Rolle auf dem Computer installieren, den Sie als VPN-Server verwenden möchten, führen Sie die folgenden Aufgaben aus. Nach dem ordnungsgemäßen Planen können Sie Always On VPN bereitstellen und optional den bedingten Zugriff für VPN-Konnektivität mit Azure AD konfigurieren.
 
@@ -73,4 +73,4 @@ In den meisten Umgebungen können Sie zum Erreichen des neuen internen Umkreis N
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-[Schritt 2: Konfigurieren Sie die Server](vpn-deploy-server-infrastructure.md)Infrastruktur: In diesem Schritt installieren und konfigurieren Sie die serverseitigen Komponenten, die zur Unterstützung des VPN erforderlich sind. Zu den serverseitigen Komponenten gehört das Konfigurieren der PKI für die Verteilung der Zertifikate, die von Benutzern, dem VPN-Server und dem NPS-Server verwendet werden.
+[Schritt 2: Konfigurieren der Serverinfrastruktur](vpn-deploy-server-infrastructure.md): in diesem Schritt installieren und konfigurieren Sie die serverseitigen Komponenten, die zur Unterstützung des VPN erforderlich sind. Zu den serverseitigen Komponenten gehört das Konfigurieren der PKI für die Verteilung der Zertifikate, die von Benutzern, dem VPN-Server und dem NPS-Server verwendet werden.

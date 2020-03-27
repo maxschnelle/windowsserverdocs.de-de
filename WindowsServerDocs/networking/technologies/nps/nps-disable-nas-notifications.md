@@ -6,22 +6,22 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: a09bfb03-95fc-4534-bf3c-97078ef6b07e
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: b8ae0ab02a5c14675d543087f635d53ee63e0423
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: dd56dfd4db9dd41c98141e2239efcca544a364fe
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71396253"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316159"
 ---
 # <a name="disable-nas-notification-forwarding-in-nps"></a>Deaktivieren der NAS-Benachrichtigungs Weiterleitung in NPS
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Mithilfe dieses Verfahrens können Sie die Weiterleitung von Nachrichten zum Starten und Abbrechen von Netzwerk Zugriffs Servern (nass) an Mitglieder einer Remote-RADIUS-Server Gruppe deaktivieren, die in NPS konfiguriert ist.
 
-Wenn Sie Remote-RADIUS-Server Gruppen konfiguriert haben und Sie in NPS- **Verbindungs Anforderungs Richtlinien**das Kontrollkästchen **Buchhaltungs Anforderungen an diese Remote-RADIUS-Server Gruppe weiterleiten** deaktivieren, werden diese Gruppen weiterhin von der NAS-Start-und-beenden-Benachrichtigung gesendet. Nachrichten. 
+Wenn Sie Remote-RADIUS-Server Gruppen konfiguriert haben und Sie in NPS- **Verbindungs Anforderungs Richtlinien**das Kontrollkästchen **Buchhaltungs Anforderungen an diese Remote-RADIUS-Server Gruppe weiterleiten** deaktivieren, werden diese Gruppen weiterhin vom NAS-Start-und-Beenden von Benachrichtigungs Meldungen gesendet. 
 
 Dadurch wird unnötiger Netzwerk Datenverkehr erstellt. Deaktivieren Sie die NAS-Benachrichtigungs Weiterleitung für einzelne Server in jeder RADIUS-Remote Server Gruppe, um diesen Datenverkehr auszuschließen.
 

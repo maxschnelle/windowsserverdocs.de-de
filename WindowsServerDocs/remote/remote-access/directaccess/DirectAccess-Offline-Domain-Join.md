@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 55528736-6c19-40bd-99e8-5668169ef3c7
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 229e2955c7f382ff630829990a9dd6485d62652e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 09ed401fa4912a48033e4a51a29309e3fd4cc998
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388878"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310907"
 ---
 # <a name="directaccess-offline-domain-join"></a>DirectAccess-Offline-Domänenbeitritt
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Handbuch werden die Schritte zum Ausführen eines Offline-Domänen Beitritts mit DirectAccess erläutert. Während eines Offline-Domänen Beitritts ist ein Computer so konfiguriert, dass er einer Domäne ohne physische oder VPN-Verbindung Beitritt.  
   
@@ -44,12 +44,12 @@ Die in Windows Server 2008 R2 eingeführten Domänen Controller enthalten ein Fe
   
 3.  Starten Sie den Zielcomputer neu, und der Computer wird der Domäne hinzugefügt.  
   
-### <a name="BKMK_ODJOverview"></a>Szenario "Offline-Domänen Beitritt mit DirectAccess-Richtlinien"  
+### <a name="offline-domain-join-with-directaccess-policies-scenario-overview"></a><a name="BKMK_ODJOverview"></a>Szenario "Offline-Domänen Beitritt mit DirectAccess-Richtlinien"  
 Der DirectAccess-Offline-Domänen Beitritt ist ein Prozess, mit dem Computer, auf denen Windows Server 2016, Windows Server 2012, Windows 10 oder Windows 8 ausgeführt wird, einer Domäne beitreten können, ohne dass Sie physisch mit dem Unternehmensnetzwerk verbunden oder über VPN verbunden ist. Dadurch ist es möglich, Computer einer Domäne von Orten aus hinzuzufügen, an denen keine Verbindung mit einem Unternehmensnetzwerk besteht. Der Offline-Domänen Beitritt für DirectAccess bietet Clients DirectAccess-Richtlinien, um die Remote Bereitstellung zuzulassen.  
   
 Bei einem Domänen Beitritt wird ein Computer Konto erstellt und eine Vertrauensstellung zwischen einem Computer mit einem Windows-Betriebssystem und einer Active Directory Domäne hergestellt.  
   
-## <a name="BKMK_ODJRequirements"></a>Vorbereiten des Offline-Domänen Beitritts  
+## <a name="prepare-for-offline-domain-join"></a><a name="BKMK_ODJRequirements"></a>Vorbereiten des Offline-Domänen Beitritts  
   
 1.  Erstellen Sie das Computer Konto.  
   
@@ -59,7 +59,7 @@ Bei einem Domänen Beitritt wird ein Computer Konto erstellt und eine Vertrauens
   
 . In den folgenden Abschnitten werden die Anforderungen an das Betriebssystem und die Anmelde Informationen für die Ausführung eines DirectAccess-Offline-Domänen Beitritts mithilfe von Djoin. exe erläutert  
   
-### <a name="operating-system-requirements"></a>Betriebssystemanforderungen  
+### <a name="operating-system-requirements"></a>Anforderungen an das Betriebssystem  
 Sie können Djoin. exe nur für DirectAccess auf Computern ausführen, auf denen Windows Server 2016, Windows Server 2012 oder Windows 8 ausgeführt wird. Auf dem Computer, auf dem Sie Djoin. exe ausführen, um Computer Kontodaten in AD DS bereitzustellen, muss Windows Server 2016, Windows 10, Windows Server 2012 oder Windows 8 ausgeführt werden. Auf dem Computer, den Sie der Domäne hinzufügen möchten, muss auch Windows Server 2016, Windows 10, Windows Server 2012 oder Windows 8 ausgeführt werden.  
   
 ### <a name="credential-requirements"></a>Anforderungen bezüglich der Anmeldeinformationen  
@@ -84,7 +84,7 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins**oder einer entspre
   
 2.  Doppelklicken Sie auf den Namen der Gesamtstruktur, doppelklicken Sie auf **Domänen**, doppelklicken Sie auf den Namen der Domäne, der Sie einen Computer hinzufügen möchten, klicken Sie mit der rechten Maustaste auf **Standard Domänen Richtlinie**, und klicken Sie dann auf **Bearbeiten**.  
   
-3.  Doppelklicken Sie in der Konsolen Struktur auf **Computer Konfiguration**, doppelklicken Sie **auf Richtlinien**, doppelklicken Sie auf **Windows-Einstellungen**, doppelklicken Sie auf **Sicherheitseinstellungen**, doppelklicken Sie auf **lokale Richtlinien**, und doppelklicken Sie dann auf  **Zuweisung von Benutzerrechten**.  
+3.  Doppelklicken Sie in der Konsolen Struktur auf **Computer Konfiguration**, doppelklicken Sie auf **Richtlinien**, doppelklicken Sie auf **Windows-Einstellungen**, doppelklicken Sie auf **Sicherheitseinstellungen**, doppelklicken Sie auf **lokale Richtlinien**, und doppelklicken Sie dann auf Zuweisen von **Benutzerrechten**.  
   
 4.  Doppelklicken Sie im Detail **Bereich auf Arbeitsstationen zur Domäne hinzufügen**.  
   
@@ -92,12 +92,12 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins**oder einer entspre
   
 6.  Geben Sie den Namen des Kontos ein, für das Sie dem Benutzerrechte erteilen möchten, und klicken Sie dann zweimal auf **OK** .  
   
-## <a name="BKMK_ODKSxS"></a>Offline-Domänen Beitrittsprozess  
+## <a name="offline-domain-join-process"></a><a name="BKMK_ODKSxS"></a>Offline-Domänen Beitrittsprozess  
 Führen Sie Djoin. exe an einer Eingabeaufforderung mit erhöhten Rechten aus, um die Computer Konto Metadaten bereitzustellen. Wenn Sie den Bereitstellungs Befehl ausführen, werden die Metadaten des Computer Kontos in einer Binärdatei erstellt, die Sie als Teil des Befehls angeben.  
   
-Weitere Informationen zum Bereitstellen des Computer Kontos während eines Offline-Domänen Beitritts finden Sie unter [NetProvisionComputerAccount-Funktion](https://go.microsoft.com/fwlink/?LinkId=162426) (https://go.microsoft.com/fwlink/?LinkId=162426). Weitere Informationen zur Funktion "nettrequestofflinedomainjoin", die lokal auf dem Zielcomputer ausgeführt wird, finden Sie unter " [nettrequestofflinedomainjoin](https://go.microsoft.com/fwlink/?LinkId=162427) "-Funktion (https://go.microsoft.com/fwlink/?LinkId=162427).  
+Weitere Informationen zur NetProvisionComputerAccount-Funktion, die zum Bereitstellen des Computer Kontos während eines Offline-Domänen Beitritts verwendet wird, finden Sie unter [NetProvisionComputerAccount-Funktion](https://go.microsoft.com/fwlink/?LinkId=162426) (https://go.microsoft.com/fwlink/?LinkId=162426). Weitere Informationen zur Funktion "nettrequestofflinedomainjoin", die lokal auf dem Zielcomputer ausgeführt wird, finden Sie unter " [nettrequestofflinedomainjoin](https://go.microsoft.com/fwlink/?LinkId=162427) "-Funktion (https://go.microsoft.com/fwlink/?LinkId=162427).  
   
-## <a name="BKMK_ODJSteps"></a>Schritte zum Durchführen eines DirectAccess-Offline-Domänen Beitritts  
+## <a name="steps-for-performing-a-directaccess-offline-domain-join"></a><a name="BKMK_ODJSteps"></a>Schritte zum Durchführen eines DirectAccess-Offline-Domänen Beitritts  
 Der Offline-Domänen Beitrittsprozess umfasst die folgenden Schritte:  
   
 1.  Erstellen Sie ein neues Computer Konto für jeden der Remote Clients, und generieren Sie mithilfe des Befehls Djoin. exe von einem bereits in eine Domäne eingebundener Computer im Unternehmensnetzwerk ein Bereitstellungs Paket.  
@@ -114,7 +114,7 @@ Beim Erstellen des Bereitstellungs Pakets für den Client sind zwei Optionen zu 
   
 Führen Sie die folgenden Schritte aus, um den Offline-Domänen Beitritt auszuführen:  
   
-##### <a name="option1-create-a-provisioning-package-for-the-client-without-pki"></a>Option 1: Erstellen eines Bereitstellungs Pakets für den Client ohne PKI  
+##### <a name="option1-create-a-provisioning-package-for-the-client-without-pki"></a>Option1: Erstellen eines Bereitstellungs Pakets für den Client ohne PKI  
   
 1.  Geben Sie an einer Eingabeaufforderung des Remote Zugriffs Servers den folgenden Befehl ein, um das Computer Konto bereitzustellen:  
   
@@ -122,7 +122,7 @@ Führen Sie die folgenden Schritte aus, um den Offline-Domänen Beitritt auszuf�
     Djoin /provision /domain <your domain name> /machine <remote machine name> /policynames DA Client GPO name /rootcacerts /savefile c:\files\provision.txt /reuse  
     ```  
   
-##### <a name="option2-create-a-provisioning-package-for-the-client-with-pki"></a>Option2 Erstellen eines Bereitstellungs Pakets für den Client mit PKI  
+##### <a name="option2-create-a-provisioning-package-for-the-client-with-pki"></a>Option2: Erstellen eines Bereitstellungs Pakets für den Client mit PKI  
   
 1.  Geben Sie an einer Eingabeaufforderung des Remote Zugriffs Servers den folgenden Befehl ein, um das Computer Konto bereitzustellen:  
   
@@ -158,7 +158,7 @@ Führen Sie die folgenden Schritte aus, um den Offline-Domänen Beitritt auszuf�
   
 3.  Starten Sie den Client Computer neu. Der Computer wird der Domäne hinzugefügt. Nach dem Neustart wird der Client der Domäne hinzugefügt und verfügt über eine Verbindung mit dem Unternehmensnetzwerk mit DirectAccess.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [NetProvisionComputerAccount-Funktion](https://go.microsoft.com/fwlink/?LinkId=162426)  
 [Nettrequestofflinedomainjoin-Funktion](https://go.microsoft.com/fwlink/?LinkId=162427)  
   

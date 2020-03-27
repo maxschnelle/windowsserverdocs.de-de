@@ -10,15 +10,15 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f7af1eb6-d035-4f74-a25b-d4b7e4ea9329
-ms.author: pashort
+ms.author: lizross
 author: jmesser81
 ms.date: 08/24/2018
-ms.openlocfilehash: 83996f7ffb82d01c9f36945efa022f0dd0b9825b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5673cb6f808f37fb7737e22cf93c3984073e4f48
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355818"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309837"
 ---
 # <a name="connect-container-endpoints-to-a-tenant-virtual-network"></a>Verbinden von Containerendpunkten mit einem virtuellen Mandantennetzwerk
 
@@ -45,7 +45,7 @@ Der Unterschied zwischen den *l2bridge* -und *l2tunnel* -Treibern lautet wie fol
 >Diese Netzwerk Modi können nicht zum Verbinden von Windows-Container Endpunkten mit einem virtuellen Mandanten Netzwerk in Azure Public Cloud verwendet werden.
 
 
-## <a name="prerequisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 -  Eine bereitgestellte Sdn-Infrastruktur mit dem Netzwerk Controller.
 -  Ein virtuelles Mandanten Netzwerk wurde erstellt.
 -  Ein bereitgestellter virtueller Computer für einen Mandanten mit aktiviertem Windows-Container Feature, installiertem docker und aktiviertem Hyper-V-Feature. Das Hyper-V-Feature ist erforderlich, um mehrere Binärdateien für l2bridge-und l2tunnel-Netzwerke zu installieren.

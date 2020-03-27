@@ -6,19 +6,19 @@ ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: get-started-article
 ms.assetid: 7f899e62-6e5b-4fca-9a59-130d4766ee2f
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/10/2018
-ms.openlocfilehash: 38d104bc3ceca478f0e261b3a364b5d4448b22f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a16d82e4db1e92a5dd20f6b4feb88f0619d50cc4
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406013"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317510"
 ---
 # <a name="requirements-for-deploying-network-controller"></a>Anforderungen für die Bereitstellung des Netzwerk Controllers
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Bereiten Sie Ihr Daten Center auf die Bereitstellung des Netzwerk Controllers vor, für die mindestens ein Computer oder ein virtueller Computer und ein Computer oder ein virtueller Computer erforderlich ist. Bevor Sie den Netzwerk Controller bereitstellen können, müssen Sie die Sicherheitsgruppen, die Protokolldatei Speicherorte (falls erforderlich) und die dynamische DNS-Registrierung konfigurieren.
 
@@ -56,12 +56,12 @@ Als Nächstes konfigurieren Sie die Dateispeicher Orte für die Speicherung von 
 >Wenn Sie die Protokolle in einer Remote Dateifreigabe speichern, stellen Sie sicher, dass die Freigabe vom Netzwerk Controller aus zugänglich ist.
 
 
-### <a name="step-3-configure-dynamic-dns-registration-for-network-controller"></a>Schritt 3 Konfigurieren der dynamischen DNS-Registrierung für den Netzwerk Controller
+### <a name="step-3-configure-dynamic-dns-registration-for-network-controller"></a>Schritt 3: Konfigurieren der dynamischen DNS-Registrierung für den Netzwerk Controller
 
 Schließlich möchten Sie als nächstes Netzwerk Controller-Cluster Knoten im gleichen Subnetz oder in anderen Subnetzen bereitstellen. 
 
 
-|         Situation         |                                                                                                                                                         Folge                                                                                                                                                         |
+|         Situation         |                                                                                                                                                         Auswirkung                                                                                                                                                         |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  Im gleichen Subnetz:  |                                                                                                                                Sie müssen die Rest-IP-Adresse des Netzwerk Controllers angeben.                                                                                                                                 |
 | In unterschiedlichen Subnetzen | Sie müssen den Rest-DNS-Namen des Netzwerk Controllers angeben, den Sie während des Bereitstellungs Vorgangs erstellen. Sie müssen auch die folgenden Schritte ausführen:<ul><li>Konfigurieren Sie dynamische DNS-Updates für den DNS-Namen des Netzwerk Controllers auf dem DNS-Server.</li><li>Beschränken Sie die dynamischen DNS-Updates nur auf Netzwerk Controller Knoten.</li></ul> |

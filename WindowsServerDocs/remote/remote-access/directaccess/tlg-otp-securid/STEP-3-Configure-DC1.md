@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 836a2a08-3d22-48d2-873e-80d7e57ebbd6
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7655208fb537e78839f2b459c8df0e24c0573aa7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 8104868103fff29044041136b48c59d966cc7bd0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367549"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314405"
 ---
 # <a name="step-3-configure-dc1"></a>Schritt 3 DC1 konfigurieren
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 DC1 fungiert als Domänen Controller, DNS-Server und DHCP-Server für die Corp.contoso.com-Domäne. Konfigurieren Sie DC1 wie folgt:  
   
@@ -31,7 +31,7 @@ DC1 fungiert als Domänen Controller, DNS-Server und DHCP-Server für die Corp.c
   
 2.  Überprüfen Sie auf der Registerkarte **Konto** , ob der **Benutzer Anmelde Name** auf user1 festgelegt ist. Wenn dies nicht der Wert ist, geben Sie **User1** in das Feld **Benutzer Anmelde Name** ein.  
   
-3.  Klicken Sie auf **OK**. Schließen Sie die Konsole **Active Directory-Benutzer und -Computer** .  
+3.  Klicken Sie auf **OK**. Schließen Sie die Konsole **Active Directory-Benutzer und -Computer**.  
   
 
 

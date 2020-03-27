@@ -10,18 +10,18 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7540c17b-81de-47de-a04f-3247afa26f70
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: beb2f5ce27115bf328917e38910198794f523547
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 1a195be9c00ef35f80a7e1975b52128681fca1f0
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404602"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308210"
 ---
 # <a name="step-3-plan-a-load-balanced-cluster-deployment"></a>Schritt 3: Planen einer Cluster Bereitstellung mit Lastenausgleich
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Der nächste Schritt besteht darin, die Lasten Ausgleichs Konfiguration und die Cluster Bereitstellung zu planen.  
   
@@ -32,7 +32,7 @@ Der nächste Schritt besteht darin, die Lasten Ausgleichs Konfiguration und die 
 |3,3 Planen von VPN-Clientverbindungen|Beachten Sie die Anforderungen für VPN-Clientverbindungen.|  
 |3,4 Planen des Netzwerkadressen Servers|Wenn die Netzwerkadressen Server-Website auf dem Remote Zugriffs Server gehostet wird und kein selbst signiertes Zertifikat verwendet wird, stellen Sie sicher, dass jeder Server im Cluster über ein Serverzertifikat verfügt, um die Verbindung mit der Website zu authentifizieren.|  
   
-## <a name="bkmk_2_1_Plan_LB"></a>3,1 Planen des Lasten Ausgleichs  
+## <a name="31-plan-load-balancing"></a><a name="bkmk_2_1_Plan_LB"></a>3,1 Planen des Lasten Ausgleichs  
 Der Remote Zugriff kann auf einem einzelnen Server oder auf einem Cluster von Remote Zugriffs Servern bereitgestellt werden. Für den Datenverkehr an den Cluster kann ein Lastenausgleich ausgeführt werden, um für DirectAccess-Clients Hochverfügbarkeit und Skalierbarkeit zu bieten. Es gibt zwei Optionen für den Lastenausgleich:  
   
 -   **Windows NLB**-Windows NLB ist eine Windows Server-Funktion. Um es zu verwenden, benötigen Sie keine zusätzliche Hardware, da alle Server im Cluster für die Verwaltung der Datenverkehrs Auslastung verantwortlich sind. Windows-NLB unterstützt maximal acht Server in einem Remote Zugriffs Cluster.  
@@ -47,7 +47,7 @@ Der Remote Zugriff kann auf einem einzelnen Server oder auf einem Cluster von Re
   
     -   Der Administrator kann von der Windows-Netzwerk lastenverwaltung zum externen Load Balancer wechseln und umgekehrt. Beachten Sie, dass der Administrator nicht von einem externen Lasten Ausgleichs Modul zu Windows NLB wechseln kann, wenn er mehr als acht Server in der externen Load Balancer-Bereitstellung aufweist.  
   
-### <a name="ELBConfigEx"></a>3.1.1 externe Load Balancer Konfigurationsbeispiel  
+### <a name="311-external-load-balancer-configuration-example"></a><a name="ELBConfigEx"></a>3.1.1 externe Load Balancer Konfigurationsbeispiel  
 In diesem Abschnitt werden die Konfigurationsschritte zum Aktivieren eines externen Load Balancers für eine neue Remote Zugriffs Bereitstellung beschrieben. Wenn Sie einen externen Load Balancer verwenden, könnte der Remote Zugriffs Cluster wie in der folgenden Abbildung aussehen, wobei die RAS-Server über einen Load Balancer im internen Netzwerk und das Internet über einen Load Balancer mit dem Unternehmensnetzwerk verbunden sind. Verbindung mit dem externen Netzwerk:  
   
 ![Beispiel für eine externe Load Balancer Konfiguration](../../../../media/Step-3-Plan-a-Load-Balanced-Cluster-Deployment/ELBDiagram-URA_Enterprise_NLB-.png)  
@@ -85,7 +85,7 @@ In diesem Abschnitt werden die Konfigurationsschritte zum Aktivieren eines exter
   
 6.  Der Remote Zugriffs Server wird nun mit den geplanten IP-Adressen konfiguriert, und die externen und internen IP-Adressen für den Cluster werden gemäß den geplanten IP-Adressen konfiguriert.  
   
-## <a name="bkmk_2_2_NLB"></a>3,2 planen IP-HTTPS  
+## <a name="32-plan-ip-https"></a><a name="bkmk_2_2_NLB"></a>3,2 planen IP-HTTPS  
   
 1.  **Zertifikat Anforderungen**: während der Bereitstellung des einzelnen RAS-Servers haben Sie die Verwendung eines IP-HTTPS-Zertifikats ausgewählt, das von einer öffentlichen oder internen Zertifizierungsstelle (Certification Authority, ca) ausgestellt wurde, oder ein selbst signiertes Zertifikat. Für die Cluster Bereitstellung müssen Sie für jedes Mitglied des Remote Zugriffs Clusters denselben Zertifikattyp verwenden. Wenn Sie also ein von einer öffentlichen Zertifizierungsstelle ausgestelltes Zertifikat verwendet haben (empfohlen), müssen Sie ein von einer öffentlichen Zertifizierungsstelle ausgestelltes Zertifikat auf jedem Mitglied des Clusters installieren. Der Antragsteller Name des neuen Zertifikats muss mit dem Antragsteller Namen des IP-HTTPS-Zertifikats identisch sein, das zurzeit in der Bereitstellung verwendet wird. Beachten Sie Folgendes: Wenn Sie selbst signierte Zertifikate verwenden, werden diese bei der Cluster Bereitstellung automatisch auf jedem Server konfiguriert.  
   
@@ -94,7 +94,7 @@ In diesem Abschnitt werden die Konfigurationsschritte zum Aktivieren eines exter
     > [!NOTE]  
     > Die Präfix Anforderungen sind nur in einem IPv6-fähigen internen Netzwerk (nur IPv6 oder IPv4 + IPv6) relevant. In einem reinen IPv4-Unternehmensnetzwerk wird das Client Präfix automatisch konfiguriert und kann vom Administrator nicht geändert werden.  
   
-## <a name="BKMK_3.3"></a>3,3 Planen von VPN-Clientverbindungen  
+## <a name="33-plan-for-vpn-client-connections"></a><a name="BKMK_3.3"></a>3,3 Planen von VPN-Clientverbindungen  
 Es gibt eine Reihe von Überlegungen zu VPN-Clientverbindungen:  
   
 -   Der Lastenausgleich für den VPN-Client Verkehr ist nicht möglich, wenn VPN-Client Adressen mithilfe von DHCP zugeordnet werden Ein statischer Adresspool ist erforderlich.  
@@ -105,7 +105,7 @@ Es gibt eine Reihe von Überlegungen zu VPN-Clientverbindungen:
   
 -   Um den Lastenausgleich für den VPN-IPv6-Client Datenverkehr zu ermöglichen, müssen Sie ein IPv6-Präfix von 59 Bit angeben.  
   
-## <a name="BKMK_nls"></a>3,4 Planen des Netzwerkadressen Servers  
+## <a name="34-plan-the-network-location-server"></a><a name="BKMK_nls"></a>3,4 Planen des Netzwerkadressen Servers  
 Wenn Sie die Netzwerkadressen Server-Website auf dem einzelnen RAS-Server ausführen, haben Sie während der Bereitstellung die Verwendung eines von einer internen Zertifizierungsstelle (Certification Authority, ca) ausgestellten Zertifikats oder eines selbst signierten Zertifikats ausgewählt.  Beachten Sie Folgendes:  
   
 1.  Jedes Mitglied des Remote Zugriffs Clusters muss über ein Zertifikat für den Netzwerkadressen Server verfügen, das dem DNS-Eintrag für die Netzwerkadressen Server-Website entspricht.  

@@ -5,16 +5,16 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: ''
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 11/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 8a79e590a273d7d7ccb673e5043bed2fcd1aeace
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 8ebdceedbe793eba545e57fd991114158cb647be
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822673"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313371"
 ---
 # <a name="always-on-vpn-enhancements"></a>Always On VPN-Verbesserungen
 
@@ -50,7 +50,7 @@ Microsoft hat die folgenden Integrationsfunktionen in Always on-VPN eingeführt 
 | **[Bedingter Zugriff Microsoft Azure](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls)**  |Der Always on VPN-Client kann in die Azure-Plattform für bedingten Zugriff integriert werden, um die mehrstufige Authentifizierung (Multi-Factor Authentication, MFA), Geräte Konformität oder eine Kombination der beiden zu erzwingen. Wenn die Richtlinien für den bedingten Zugriff erfüllt sind, gibt Azure Active Directory (Azure AD) ein kurzlebiges (standardmäßig 60 Minuten) IP Security (IPSec)-Authentifizierungszertifikat aus, das dann für die Authentifizierung beim VPN-Gateway verwendet werden kann. Die Geräte Konformität verwendet Configuration Manager/InTune-Kompatibilitätsrichtlinien, die den Zustand der Geräte Integritäts Nachweis im Rahmen der Verbindungs Kompatibilitätsprüfung einschließen können.|
 |  **Azure MFA** |In Kombination mit Remote Authentication Dial-in User Service (RADIUS)-Diensten und der Netzwerk Richtlinien Server-Erweiterung (NPS) für Azure MFA kann die VPN-Authentifizierung starke MFA verwenden. | **Drittanbieter-VPN-Plug-in**  | Mit dem universelle Windows-Plattform (UWP) können Drittanbieter-VPN-Anbieter eine einzelne Anwendung für die gesamte Palette von Windows 10-Geräten erstellen. Die UWP bietet eine garantierte API-Kernschicht auf allen Geräten, wodurch die Komplexität und Probleme vermieden werden, die häufig mit dem Schreiben von Treibern auf Kernel Ebene verbunden sind. Derzeit sind Windows 10 UWP-VPN-Plug-Ins für [Pulse Secure](https://www.microsoft.com/p/pulse-secure/9nblggh3b0bp), [F5 Access](https://www.microsoft.com/p/f5-access/9wzdncrdsfn0), [Check Point Capsule VPN](https://www.microsoft.com/p/check-point-capsule-vpn/9wzdncrdjxtj), [FortiClient](https://www.microsoft.com/p/forticlient/9wzdncrdh6mc), [SonicWALL Mobile Connect](https://www.microsoft.com/p/sonicwall-mobile-connect/9wzdncrdsfkz)und [globalprotect](https://www.microsoft.com/p/globalprotect/9nblggh6bzl3)vorhanden. Zweifellos werden andere in Zukunft angezeigt. |
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicherheit
 
 Die wichtigsten Verbesserungen bei der Sicherheit liegen in den folgenden Bereichen:
 
@@ -72,7 +72,7 @@ Im folgenden sind die wichtigsten Verbesserungen bei der Always on VPN-Konnektiv
 |            **Erkennung vertrauenswürdiger Netzwerke**            |                                                                                    Always on-VPN umfasst diese Funktion, um sicherzustellen, dass die VPN-Konnektivität nicht ausgelöst wird, wenn ein Benutzer mit einem vertrauenswürdigen Netzwerk innerhalb der Unternehmens Grenze verbunden ist. Sie können diese Funktion mit den zuvor erwähnten auslösenden Methoden kombinieren, um eine nahtlose "nur bei Bedarf Connect"-Benutzer Funktionalität bereitzustellen.                                                                                     |
 | **[Geräte Tunnel](../vpn-device-tunnel-config.md)** | Always on-VPN bietet Ihnen die Möglichkeit, ein dediziertes VPN-Profil für das Gerät oder den Computer zu erstellen. Anders als bei einem *Benutzer Tunnel*, der nur eine Verbindung herstellt, nachdem sich ein Benutzer am Gerät oder Computer anmeldet, ermöglicht der *Geräte Tunnel* dem VPN, vor der Benutzeranmeldung eine Konnektivität herzustellen. Sowohl Geräte Tunnel als auch Benutzer Tunnel arbeiten unabhängig von Ihren VPN-Profilen, können gleichzeitig verbunden werden und können gegebenenfalls verschiedene Authentifizierungsmethoden und andere VPN-Konfigurationseinstellungen verwenden. |
 
-## <a name="networking"></a>-Netzwerk
+## <a name="networking"></a>Netzwerk
 
 Im folgenden finden Sie einige der Netzwerk Verbesserungen in Always on-VPN:
 

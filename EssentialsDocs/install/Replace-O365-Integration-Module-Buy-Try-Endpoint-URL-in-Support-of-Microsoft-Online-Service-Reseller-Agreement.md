@@ -1,9 +1,9 @@
 ---
 title: Ersetzen der Endpunkt-URLs des O365-Integrationsmoduls (Abonnement/Testabonnement) zur Unterstützung des Microsoft Online Services-Wiederverkäufervertrags
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,19 +12,19 @@ ms.assetid: 9860a6b9-baea-4bf0-9a9f-6f1a288f996e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b690cedd2f692cc6d11af6e05dd0cd4b4ea5a1d6
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 11e18d7d61edb0a618fb71791f77c4df84c9d708
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59833101"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311545"
 ---
 # <a name="replace-o365-integration-module-buy-try-endpoint-url-in-support-of-microsoft-online-service-reseller-agreement"></a>Ersetzen der Endpunkt-URLs des O365-Integrationsmoduls (Abonnement/Testabonnement) zur Unterstützung des Microsoft Online Services-Wiederverkäufervertrags
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
 ##  <a name="BKMK_O365"></a>   
- Wenn Sie ein Microsoft Online Service Reseller Agreement ANMELDETRANSAKTIONEN-Partner, um sicherzustellen, dass Kunden über Ihr Portal verarbeitet werden können, müssen Sie ersetzen die Endpunkt-URLs, die von der Windows Server Essentials Office 365-Integrationsmodul verwendet.  
+ Wenn Sie ein Microsoft Online Service Reseller Agreement-Partner (mosra) sind, müssen Sie die Endpunkt-URLs ersetzen, die vom Windows Server Essentials Office 365-Integrationsmodul verwendet werden, um sicherzustellen, dass Kunden-Registrierungs Transaktionen über Ihr Portal verarbeitet werden.  
   
  Vom Integrationsmodul werden die folgenden vier Endpunkt-URLs verwendet:  
   
@@ -36,7 +36,7 @@ ms.locfileid: "59833101"
   
     -   Schlüsselname = MOSRASTDBUY  
   
-    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Zum Beispiel: Wert = http://syndicatepartner.office365.com/enterprisebuy.html  
+    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Value = http://syndicatepartner.office365.com/enterprisebuy.html  
   
 2.  Endpunkt für ein Office 365 Enterprise-Testabonnement.  
   
@@ -46,9 +46,9 @@ ms.locfileid: "59833101"
   
     -   Schlüsselname = MOSRASTDTRY  
   
-    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Zum Beispiel: Wert = http://syndicatepartner.office365.com/enterprisetry.html  
+    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Value = http://syndicatepartner.office365.com/enterprisetry.html  
   
-3.  Ein Office 365 Small Business Premium-Abonnement erwerben-Endpunkt.  
+3.  Ein Office 365 Small Business Premium-Abonnement Kauf Endpunkt.  
   
     -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\MSO\  
   
@@ -56,9 +56,9 @@ ms.locfileid: "59833101"
   
     -   Schlüsselname = MOSRALITEBUY  
   
-    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Zum Beispiel: Wert = http://syndicatepartner.office365.com/smallbizbuy.html  
+    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Value = http://syndicatepartner.office365.com/smallbizbuy.html  
   
-4.  Ein Office 365 Small Business Premium-Abonnement Testversion Endpunkt.  
+4.  Einen Test Endpunkt für Office 365 Small Business Premium-Abonnements.  
   
     -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Server\MSO\  
   
@@ -66,7 +66,7 @@ ms.locfileid: "59833101"
   
     -   Schlüsselname = MOSRALITETRY  
   
-    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Zum Beispiel: Wert = http://syndicatepartner.office365.com/smallbiztry.html  
+    -   Wert = *xxxxx*, wobei xxxxx die Abonnement-URL Ihres Unternehmens ist. Beispiel: Value = http://syndicatepartner.office365.com/smallbiztry.html  
   
 #### <a name="to-add-an-endpoint-url-key-to-the-registry"></a>So fügen Sie der Registrierung einen Schlüssel für die Endpunkt-URL hinzu  
   
@@ -92,13 +92,13 @@ ms.locfileid: "59833101"
   
 7.  Wiederholen Sie die Schritte 4 bis 6 für jeden in Schritt 4 aufgeführten Zeichenfolgennamen.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Zusätzliche Anpassungen](Additional-Customizations.md)   
+ [Weitere Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
- [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md) [erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
- [Zusätzliche Anpassungen](../install/Additional-Customizations.md)   
+ [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md) beim [Erstellen und Anpassen des Abbilds](../install/Creating-and-Customizing-the-Image.md)   
+ [Weitere Anpassungen](../install/Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](../install/Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](../install/Testing-the-Customer-Experience.md)
 

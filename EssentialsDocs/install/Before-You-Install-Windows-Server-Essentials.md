@@ -3,7 +3,7 @@ title: Vor der Installation von Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,18 +12,18 @@ ms.assetid: 8d0893bd-e2b7-4494-9537-02b1cbbcd57a
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 4629c0ba04cc7ee617a2fc6b6a73a19b9e45ada8
-ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
+ms.openlocfilehash: 7268ebbfffd034780635e693cd6aa6380f30dd91
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74829548"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310105"
 ---
 # <a name="before-you-install-windows-server-essentials"></a>Vor der Installation von Windows Server Essentials
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-##  <a name="BKMK_BeforeYouBegin"></a>Bevor Sie mit der Installation von Windows Server Essentials beginnen, führen Sie die folgenden Aufgaben aus:  
+##  <a name="before-you-begin-your-installation-of--windows-server-essentials-perform-the-following-tasks"></a><a name="BKMK_BeforeYouBegin"></a>Bevor Sie mit der Installation von Windows Server Essentials beginnen, führen Sie die folgenden Aufgaben aus:  
 
 -   **Stellen Sie sicher, dass Ihr Computer die Mindesthardwareanforderungen erfüllt**. Dies umfasst die Bestimmung, ob zusätzliche Hardware erforderlich ist und ob die Treiber für Ihre Hardware von Windows Server Essentials unterstützt werden. Weitere Informationen finden Sie unter [System Anforderungen für Windows Server Essentials](../get-started/system-requirements.md).   
 
@@ -49,7 +49,7 @@ ms.locfileid: "74829548"
 
     Wenn der Router das UPnP-Framework nicht unterstützt oder der Router während der Installation nicht konfiguriert werden kann, müssen Sie ihn manuell mit den Einstellungen für das Netzwerk konfigurieren. Stellen Sie sicher, dass folgende Ports geöffnet sind und an die IP-Adresse des Zielservers weitergeleitet werden:  
 
-  |Portnummer|Application|  
+  |Portnummer|Anwendung|  
   |-----------------|-----------------|  
   |Port 80|HTTP-Webdatenverkehr|  
   |Port 443|HTTPS-Webdatenverkehr|  
@@ -57,7 +57,7 @@ ms.locfileid: "74829548"
 
 - **Lesen Sie die Dokumentation zur Windows Server Essentials-Version**. Die releasedokumentation enthält die neuesten Informationen, die für eine ordnungsgemäße Installation und Konfiguration von Windows Server Essentials von entscheidender Bedeutung sein können. Informationen zum Anzeigen oder Drucken der releasedokumentation finden Sie in der Versions [Dokumentation für Windows Server Essentials](../get-started/release-notes.md).  
 
-## <a name="see-also"></a>Weitere Informationen:  
+## <a name="see-also"></a>Siehe auch  
 
 -   [Installieren von Windows Server Essentials](Install-Windows-Server-Essentials.md)
 

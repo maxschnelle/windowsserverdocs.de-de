@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: cd4908f0-0d6f-4c02-8f98-4dc88c3dcb65
 ms.date: 11/05/2018
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.localizationpriority: medium
-ms.openlocfilehash: fdd409dee5a7a957580daeeb05209336edfd86f6
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 55e99d4a02b88a7b5367d3b389237bf96829fd89
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822613"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307804"
 ---
 # <a name="virtual-private-networking-vpn"></a>Virtual Private Networking (VPN)
 
@@ -37,7 +37,7 @@ Wenn Sie den **DirectAccess-und VPN-Rollen Dienst (RAS)** installieren, stellen 
 >[!NOTE]
 >Sie können das RAS-Gateway auch als mehr Instanzen fähigen VPN-Server für die Verwendung mit Software-Defined Networking (SDN) oder als DirectAccess-Server bereitstellen. Weitere Informationen finden Sie unter [RAS-Gateway](https://docs.microsoft.com/windows-server/remote/remote-access/ras-gateway/ras-gateway), [Software-Defined Networking (SDN)](https://docs.microsoft.com/windows-server/networking/sdn/software-defined-networking)und [DirectAccess](https://docs.microsoft.com/windows-server/remote/remote-access/directaccess/directaccess).
 
-## <a name="related-topics"></a>Zugehörige Themen
+## <a name="related-topics"></a>Verwandte Themen
 - [Always on von VPN-Features und-Funktionen](vpn-map-da.md): in diesem Thema erfahren Sie mehr über die Features und Funktionen von Always on VPN. 
 
 - [Konfigurieren von VPN-Geräte Tunneln in Windows 10](vpn-device-tunnel-config.md): Always on-VPN bietet Ihnen die Möglichkeit, ein dediziertes VPN-Profil für das Gerät oder den Computer zu erstellen. Always on-VPN-Verbindungen umfassen zwei Arten von Tunneln: _Geräte Tunnel_ und _Benutzer Tunnel_. Der Geräte Tunnel wird für Konnektivitätsszenarien vor der Anmeldung und für Geräteverwaltung verwendet. Der Benutzer Tunnel ermöglicht Benutzern den Zugriff auf Organisations Ressourcen über VPN-Server.

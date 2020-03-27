@@ -1,9 +1,9 @@
 ---
 title: Hinzufügen von Integritätswarnungen
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 270e0aac-dc42-46f3-a20b-a68ffbded06d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 8c3ba4746211690ad52f775b8bdc1ccf9b6c74b7
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 4166d65d0008f3427947322b285221e7b0090029
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433726"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310252"
 ---
 # <a name="add-health-alerts"></a>Hinzufügen von Integritätswarnungen
 
@@ -49,8 +49,8 @@ Ein Integritäts-Add-In bietet Definitionen für Warnungen, Integritätsprüfung
     > [!NOTE]
     >  Mit dieser Aufgabe werden keine Binärdateien installiert. Sie müssen die Binärdateien manuell in den Ordner **%ProgramFiles%\Windows Server\Bin** auf dem Clientcomputer kopieren.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Zusätzliche Anpassungen](Additional-Customizations.md)   
+ [Weitere Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)

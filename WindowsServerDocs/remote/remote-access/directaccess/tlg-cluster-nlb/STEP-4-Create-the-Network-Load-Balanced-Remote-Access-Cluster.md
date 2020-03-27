@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 509eaa08-c49d-448d-a71e-c1c45519ccd5
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: f888ebadfaa91b35f0924b23e9818da1c32f26e5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: c2f855512b978462f89b8f32b1f7edf59180f563
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388480"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310775"
 ---
 # <a name="step-4-create-the-network-load-balanced-remote-access-cluster"></a>Schritt 4 Erstellen des Remote Zugriffs Clusters mit Netzwerk Lastenausgleich
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
  Windows Server 2016, Windows Server 2012 R2 und Windows Server 2012 ermöglichen Ihnen das Erstellen von Clustern von Remote Zugriffs Servern. Ein Cluster fungiert als einzelner logischer Server und ermöglicht eine zentralisierte Konfiguration und Verwaltung der Server im Cluster. Bei Verwendung des Netzwerk Lastenausgleichs (Network Load Balancing, NLB) wird die Unterstützung für bis zu 8 Remote Zugriffs Mitglieder in einem einzelnen Cluster unterstützt. RAS-Cluster bieten Hochverfügbarkeit und Lastenausgleich von Verbindungen zwischen DirectAccess-Clients und dem internen Netzwerk.  
   
@@ -71,7 +71,7 @@ Verwenden Sie dieses Verfahren, um den Lastenausgleich zu aktivieren und die neu
   
 ### <a name="enable-load-balancing"></a>Aktivieren des Lasten Ausgleichs  
   
-1.  Klicken Sie auf Edge1 auf **Start**, geben Sie **ramgmtui. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Klicken Sie auf Edge1 auf **Start**, geben Sie **ramgmtui. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der Remote Zugriffs-Verwaltungskonsole im linken Bereich auf **Konfiguration**, und klicken Sie dann im Bereich **Tasks** auf **Lastenausgleich aktivieren**.  
   
@@ -117,7 +117,7 @@ Verwenden Sie dieses Verfahren, um dem NLB-Cluster EDGE2 hinzuzufügen.
   
 8.  Klicken Sie im Dialogfeld zum **Hinzufügen und Entfernen von Servern** auf **Schließen**.  
   
-9. Geben Sie auf dem **Start** Bildschirm**nlbmgr. exe**ein, und drücken Sie die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+9. Geben Sie auf dem **Start** Bildschirm**nlbmgr. exe**ein, und drücken Sie die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 10. Klicken Sie im **Netzwerk Lastenausgleich-Manager**auf **interner da-Cluster**. Stellen Sie im Detailbereich sicher, dass sowohl **Edge1 (Corpnet)** als auch **EDGE2 (Corpnet)** den Status **konvergiert**haben.  
   

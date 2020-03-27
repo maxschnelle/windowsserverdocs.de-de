@@ -5,16 +5,16 @@ ms.prod: windows-server
 manager: dougkim
 ms.technology: compute
 ms.topic: article
-author: shortpatti
-ms.author: pashort
+author: eross-msft
+ms.author: lizross
 ms.localizationpriority: medium
 ms.date: 03/16/2018
-ms.openlocfilehash: bbbd8ea812a25b0d538dcb87a380184412235b99
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d5a3390f1a072e5d155f19a97fe90ef481436f33
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364038"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80307910"
 ---
 # <a name="virtualization"></a>Virtualisierung
 
@@ -60,7 +60,7 @@ Zu den Windows Server-Virtualisierungstechnologien zählen Updates für Hyper-v,
                     </div>
                     <div class="cardText">
                         <h3>Windows 10 für Unternehmen: Beispiele zur Verwendung von Geräten für die Arbeit</h3>
-                        <p>Die Hyper-V-Technologie stellt Computing-Ressourcen durch Hardware-Virtualisierung bereit. Hyper-V erstellt eine Softwareversion von einem Computer, einen virtuellen Computer, auf dem Sie ein Betriebssystem und Anwendungen ausführen können. Sie können mehrere virtuelle Computer gleichzeitig ausführen und sie nach Bedarf erstellen und löschen. </p>
+                        <p>Die Hyper-V-Technologie stellt Computing-Ressourcen durch Hardware-Virtualisierung bereit. Hyper-V erstellt eine Softwareversion von einem Computer, einen virtuellen Computer, auf dem Sie ein Betriebssystem und Anwendungen ausführen können. Sie können mehrere virtuelle Computer gleichzeitig ausführen und bei Bedarf erstellen und löschen. </p>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@ Zu den Windows Server-Virtualisierungstechnologien zählen Updates für Hyper-v,
                     </div>
                     <div class="cardText">
                         <h3>Microsoft Hyper-V Server</h3>
-                        <p>Die Hyper-V-Technologie stellt Computing-Ressourcen durch Hardware-Virtualisierung bereit. Hyper-V erstellt eine Softwareversion von einem Computer, einen virtuellen Computer, auf dem Sie ein Betriebssystem und Anwendungen ausführen können. Sie können mehrere virtuelle Computer gleichzeitig ausführen und sie nach Bedarf erstellen und löschen. </p>
+                        <p>Die Hyper-V-Technologie stellt Computing-Ressourcen durch Hardware-Virtualisierung bereit. Hyper-V erstellt eine Softwareversion von einem Computer, einen virtuellen Computer, auf dem Sie ein Betriebssystem und Anwendungen ausführen können. Sie können mehrere virtuelle Computer gleichzeitig ausführen und bei Bedarf erstellen und löschen. </p>
                     </div>
                 </div>
             </div>
@@ -139,7 +139,7 @@ Zu den Windows Server-Virtualisierungstechnologien zählen Updates für Hyper-v,
 
 
 
-## <a name="related"></a>Verwandte Themen
+## <a name="related"></a>Verknüpft
 
 Hyper-V erfordert spezielle Hardware, um die Virtualisierungsumgebung zu erstellen. Weitere Informationen finden Sie unter [Systemanforderungen für Hyper-V unter Windows Server 2016](./hyper-v/system-requirements-for-hyper-v-on-windows.md). 
 

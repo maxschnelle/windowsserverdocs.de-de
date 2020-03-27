@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 43ac612e-2e77-418c-8171-ebb2086b7cb6
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 82acca0309835149ca35676784120b3130e72a54
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 3967f50a354ee6ed31273734f2449d6d337d9b50
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388703"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314727"
 ---
 # <a name="step-3-verify-the-deployment"></a>Schritt 3 Überprüfen der Bereitstellung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema wird beschrieben, wie Sie überprüfen, ob Sie die DirectAccess-Bereitstellung ordnungsgemäß konfiguriert haben  
   

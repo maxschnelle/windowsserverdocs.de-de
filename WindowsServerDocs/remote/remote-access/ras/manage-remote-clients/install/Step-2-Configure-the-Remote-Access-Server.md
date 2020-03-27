@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c0257b98-5633-4264-9df6-b6ffae80592c
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 0c112898217eb05ad2fd9b387f401ce129b47e54
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: fa8cd203304b477761e9cfa0742efc8c9d8a5443
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822693"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308147"
 ---
 # <a name="step-2-configure-the-remote-access-server"></a>Schritt 2 Konfigurieren des Remote Zugriffs Servers
 
@@ -30,15 +30,15 @@ In diesem Thema wird beschrieben, wie Sie die Client-und Servereinstellungen kon
 |Installieren der Remotezugriffsrolle|Installieren Sie die Remotezugriffsrolle.|  
 |Konfigurieren des Bereitstellungstypen|Konfigurieren Sie den Bereitstellungstypen als DirectAccess und VPN, nur DirectAccess, oder nur VPN|  
 |Konfigurieren von DirectAccess-Clients|Konfigurieren Sie den Remotezugriffsserver mit den Sicherheitsgruppen, die die DirectAccess-Clients enthalten.|  
-|Konfigurieren des RAS-Servers|Konfigurieren Sie die Einstellungen des Remote Zugriffs Servers.|  
+|Konfigurieren des Remotezugriffsservers|Konfigurieren Sie die Einstellungen des Remote Zugriffs Servers.|  
 |Konfigurieren des Infrastrukturservers|Konfigurieren Sie die Infrastrukturserver, die in der Organisation eingesetzt werden.|  
 |Konfigurieren von Anwendungsservern|Konfigurieren Sie die Anwendungsserver so, dass Authentifizierung und Verschlüsselung erforderlich sind.|  
 |Zusammenfassung der Konfiguration und alternative Gruppenrichtlinienobjekte|Zeigen Sie die Zusammenfassung der Remotezugriffskonfiguration an und ändern Sie bei Bedarf die Gruppenrichtlinienobjekte.|  
   
 > [!NOTE]  
-> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit deren Hilfe einige beschriebene Verfahren automatisiert werden können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_Role"></a>Installieren der Remote Zugriffs Rolle  
+## <a name="install-the-remote-access-role"></a><a name="BKMK_Role"></a>Installieren der Remote Zugriffs Rolle  
 Sie müssen die Remote Zugriffs Rolle auf einem Server in Ihrer Organisation installieren, der als Remote Zugriffs Server fungiert.  
   
 #### <a name="to-install-the-remote-access-role"></a>So installieren Sie die Remotezugriffsrolle  
@@ -57,19 +57,19 @@ Sie müssen die Remote Zugriffs Rolle auf einem Server in Ihrer Organisation ins
   
 6.  Wählen Sie **Routing**, **webanwendungsproxy**aus, klicken Sie auf **Features hinzufügen**und dann auf **weiter**.  
   
-7. Klicken Sie auf **Weiter**, und klicken Sie dann auf **Installieren**.  
+7. Klicken Sie auf **Weiter** und dann auf **Installieren**.  
   
-8.  Überprüfen Sie im Dialogfeld **Installationsstatus** , ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
+8.  Überprüfen Sie im Dialogfeld **Installationsstatus**, ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
   
 ![der entsprechenden Windows PowerShell-](../../../../media/Step-2-Configure-the-Remote-Access-Server/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 ```  
 Install-WindowsFeature RemoteAccess -IncludeManagementTools  
 ```  
   
-## <a name="BKMK_Deploy"></a>Konfigurieren des Bereitstellungs Typs  
+## <a name="configure-the-deployment-type"></a><a name="BKMK_Deploy"></a>Konfigurieren des Bereitstellungs Typs  
 Es gibt drei Optionen, die Sie zum Bereitstellen des Remote Zugriffs über die Remote Zugriffs-Verwaltungskonsole verwenden können:  
   
 -   DirectAccess und VPN  
@@ -83,13 +83,13 @@ Es gibt drei Optionen, die Sie zum Bereitstellen des Remote Zugriffs über die R
   
 #### <a name="to-configure-the-deployment-type"></a>So konfigurieren Sie den Bereitstellungstypen  
   
-1.  Öffnen Sie auf dem Remote Zugriffs Server die Remote Zugriffs-Verwaltungskonsole: Geben Sie auf dem **Start** Bildschirm ein, geben Sie **Remote Zugriffs-Verwaltungskonsole**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Öffnen Sie auf dem Remote Zugriffs Server die Remote Zugriffs-Verwaltungskonsole: Geben Sie auf dem **Start** Bildschirm ein, geben Sie **Remote Zugriffs-Verwaltungskonsole**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole im mittleren Bereich auf **Remotezugriffs-Setup-Assistenten ausführen**.  
   
 3.  Wählen Sie im Dialogfeld **Remote Zugriff konfigurieren** die Option DirectAccess und VPN, nur DirectAccess oder nur VPN aus.  
   
-## <a name="BKMK_Clients"></a>Konfigurieren von DirectAccess-Clients  
+## <a name="configure-directaccess-clients"></a><a name="BKMK_Clients"></a>Konfigurieren von DirectAccess-Clients  
 Damit ein Clientcomputer zur Verwendung von DirectAccess bereitgestellt werden kann, muss er zur ausgewählten Sicherheitsgruppe gehören. Nachdem DirectAccess konfiguriert wurde, werden Client Computer in der Sicherheitsgruppe bereitgestellt, um die DirectAccess-Gruppenrichtlinie Objekte (GPOs) für die Remote Verwaltung zu empfangen.  
   
 #### <a name="to-configure-directaccess-clients"></a>So konfigurieren Sie DirectAccess-Clients  
@@ -117,7 +117,7 @@ Damit ein Clientcomputer zur Verwendung von DirectAccess bereitgestellt werden k
   
 6.  Klicken Sie auf **Fertig stellen**.  
   
-## <a name="BKMK_Server"></a>Konfigurieren des Remote Zugriffs Servers  
+## <a name="configure-the-remote-access-server"></a><a name="BKMK_Server"></a>Konfigurieren des Remote Zugriffs Servers  
 Zum Bereitstellen des Remote Zugriffs müssen Sie den Server, der als RAS-Server fungiert, mit den folgenden Einstellungen konfigurieren:  
   
 1.  Korrigieren von Netzwerkadaptern  
@@ -130,11 +130,11 @@ Zum Bereitstellen des Remote Zugriffs müssen Sie den Server, der als RAS-Server
   
 5.  Client Computer Authentifizierung  
   
-#### <a name="to-configure-the-remote-access-server"></a>So konfigurieren Sie den RAS-Server  
+#### <a name="to-configure-the-remote-access-server"></a>So konfigurieren Sie den Remotezugriffsserver  
   
 1.  Klicken Sie im mittleren Bereich der Remotezugriffs-Verwaltungskonsole unter **Schritt 2 RAS-Server** auf **Konfigurieren**.  
   
-2.  Klicken Sie im Setup-Assistenten für den Remotezugriffsserver auf der Seite **Netzwerktopologie** auf die Bereitstellungstopologie, die in Ihrer Organisation verwendet wird. Geben Sie unter **Geben Sie den öffentlichen Namen oder die öffentliche IPv4-Adresse an** den öffentlichen Namen für die Bereitstellung ein (dieser Name stimmt mit dem Antragstellernamen des IP-HTTPS-Zertifikats überein, z. B. edge1.contoso.com), und klicken Sie dann auf **Weiter**.  
+2.  Klicken Sie im Setup-Assistenten für den RAS-Server auf der Seite **Netzwerktopologie** auf die Bereitstellungstopologie, die in Ihrer Organisation verwendet wird. Geben Sie unter **Geben Sie den öffentlichen Namen oder die öffentliche IPv4-Adresse an** den öffentlichen Namen für die Bereitstellung ein (dieser Name stimmt mit dem Antragstellernamen des IP-HTTPS-Zertifikats überein, z. B. edge1.contoso.com), und klicken Sie dann auf **Weiter**.  
   
 3.  Auf der Seite **Netzwerkadapter** erkennt der Assistent automatisch Folgendes:  
   
@@ -154,7 +154,7 @@ Zum Bereitstellen des Remote Zugriffs müssen Sie den Server, der als RAS-Server
   
 7.  Klicken Sie auf **Fertig stellen**.  
   
-## <a name="BKMK_Infra"></a>Konfigurieren der Infrastruktur Server  
+## <a name="configure-the-infrastructure-servers"></a><a name="BKMK_Infra"></a>Konfigurieren der Infrastruktur Server  
 Um die Infrastruktur Server in einer Remote Zugriffs Bereitstellung zu konfigurieren, müssen Sie Folgendes konfigurieren:  
   
 -   Netzwerkadressenserver  
@@ -181,10 +181,10 @@ Um die Infrastruktur Server in einer Remote Zugriffs Bereitstellung zu konfiguri
   
 6.  Klicken Sie auf **Fertig stellen**.  
   
-## <a name="BKMK_App"></a>Anwendungsserver konfigurieren  
+## <a name="configure-application-servers"></a><a name="BKMK_App"></a>Anwendungsserver konfigurieren  
 Bei einer vollständigen Remote Zugriffs Bereitstellung ist das Konfigurieren von Anwendungsservern eine optionale Aufgabe. In diesem Szenario für die Remote Verwaltung von DirectAccess-Clients werden Anwendungsserver nicht verwendet, und dieser Schritt ist ausgegraut, um anzugeben, dass er nicht aktiv ist. Klicken Sie auf **Fertig** stellen, um die Konfiguration anzuwenden.  
   
-## <a name="BKMK_GPO"></a>Konfigurations Zusammenfassung und Alternative GPOs  
+## <a name="configuration-summary-and-alternate-gpos"></a><a name="BKMK_GPO"></a>Konfigurations Zusammenfassung und Alternative GPOs  
 Wenn die Konfiguration des Remotezugriffs abgeschlossen ist, wird das Dialogfeld **Überprüfung des Remotezugriffs** angezeigt. Sie können alle zuvor ausgewählten Einstellungen überprüfen, dazu gehören:  
   
 -   **GPO-Einstellungen**  
@@ -203,7 +203,7 @@ Wenn die Konfiguration des Remotezugriffs abgeschlossen ist, wird das Dialogfeld
   
     Diese Liste enthält die Netzwerkadressenserver-URL, DNS-Suffixe, die von DirectAcccess-Clients verwendet werden sowie Verwaltungsserverinformationen.  
   
-## <a name="BKMK_Links"></a>Siehe auch  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Siehe auch  
   
 -   [Schritt 3: Überprüfen der Bereitstellung](Step-3-Verify-the-Deployment_2.md)  
   

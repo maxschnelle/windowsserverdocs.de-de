@@ -4,16 +4,16 @@ description: Storage Migration Service vereinfacht die Migration von Speicher zu
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 01/17/2020
+ms.date: 03/26/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 70ce4ebca35e071cf6e27fe429d3c4e6f67d342c
-ms.sourcegitcommit: 8b801bd86e2ddf8255899b11f547daa920e5f651
+ms.openlocfilehash: 0765c43333f23fb09c0f69ceca1ff21cfce25874
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80110673"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310507"
 ---
 # <a name="storage-migration-service-overview"></a>Übersicht über den Speicher Migrationsdienst
 
@@ -21,7 +21,7 @@ ms.locfileid: "80110673"
 
 Storage Migration Service vereinfacht die Migration von Speicher zu Windows Server oder zu Azure. Es bietet ein grafisches Tool, das Daten auf Windows-und Linux-Servern inventarisiert und die Daten dann auf neuere Server oder virtuelle Azure-Computer überträgt. Storage Migration Service bietet auch die Möglichkeit, die Identität eines Servers auf den Zielserver zu übertragen, sodass apps und Benutzer auf Ihre Daten zugreifen können, ohne dass Links oder Pfade geändert werden müssen.
 
-In diesem Thema wird erläutert, warum Sie Storage Migration Service verwenden möchten, wie der Migrationsprozess funktioniert und welche Anforderungen für Quell-und Zielserver gelten.
+In diesem Thema wird erläutert, warum Sie Storage Migration Service verwenden möchten, wie der Migrationsprozess funktioniert, welche Anforderungen für Quell-und Zielserver gelten und [Welche Neuerungen es bei Storage Migration Service](#whats-new-in-storage-migration-service)gibt.
 
 ## <a name="why-use-storage-migration-service"></a>Gründe für die Verwendung von Storage Migration Service
 
@@ -134,7 +134,12 @@ Auf dem Zielserver muss eines der folgenden Betriebssysteme ausgeführt werden:
 
 In Windows Admin Center, Version 1910, können Sie virtuelle Azure-Computer bereitstellen. Dadurch wird die VM-Bereitstellung in den Speicher Migrationsdienst integriert. Anstatt vor dem Bereitstellen der Arbeitsauslastung neue Server und VMS im Azure-Portal zu entwickeln, und möglicherweise Fehlende erforderliche Schritte und Konfiguration: das Windows Admin Center kann den virtuellen Azure-Computer bereitstellen, seinen Speicher konfigurieren, ihn Ihrer Domäne hinzufügen, Rollen installieren und richten Sie dann Ihr verteiltes System ein. 
 
+   Im folgenden Video wird gezeigt, wie Sie mithilfe von Storage Migration Service zu Azure-VMS migrieren.
+   > [!VIDEO https://www.youtube-nocookie.com/embed/k8Z9LuVL0xQ] 
+
 ## <a name="whats-new-in-storage-migration-service"></a>Neuerungen bei Storage Migration Service
+
+Windows Admin Center, Version 1910, bietet die Möglichkeit, virtuelle Azure-Computer bereitzustellen. Dies integriert die Azure-VM-Bereitstellung in den Speicher Migrationsdienst. Weitere Informationen finden Sie unter [Migration virtueller Azure](#azure-vm-migration)-Computer.
 
 Die folgenden neuen Funktionen sind verfügbar, wenn Sie den Speicher Migrations Server-Orchestrator unter Windows Server, Version 1903 oder höher oder eine frühere Version von Windows Server mit installierter [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) ausführen:
 

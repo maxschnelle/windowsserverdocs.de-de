@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ea7ecd52-4c12-4a49-92fd-b8c08cec42a9
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 3ae66c125548e31603318a7e600c36c00df9d005
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 0ac6e231ac797d1ba1e8dfb314c6aa3df99ff91d
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822553"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80313960"
 ---
 # <a name="step-3-configure-the-multisite-deployment"></a>Schritt 3 Konfigurieren der Bereitstellung für mehrere Standorte
 
@@ -36,9 +36,9 @@ Führen Sie nach dem Konfigurieren der Infrastruktur für mehrere Standorte die 
 |3,7. Hinzufügen von Einstiegspunkten zur Bereitstellung für mehrere Standorte|Fügen Sie der Bereitstellung für mehrere Standorte zusätzliche Einstiegspunkte hinzu.|  
   
 > [!NOTE]  
-> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit deren Hilfe einige beschriebene Verfahren automatisiert werden können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_ConfigServer"></a>3.1. Konfigurieren von Remote Zugriffs Servern  
+## <a name="31-configure-remote-access-servers"></a><a name="BKMK_ConfigServer"></a>3.1. Konfigurieren von Remote Zugriffs Servern  
 
   
 ### <a name="to-install-the-remote-access-role"></a>So installieren Sie die Remotezugriffsrolle  
@@ -61,9 +61,9 @@ Führen Sie nach dem Konfigurieren der Infrastruktur für mehrere Standorte die 
   
 9.  Wählen Sie **Routing**, **webanwendungsproxy**aus, klicken Sie auf **Features hinzufügen**und dann auf **weiter**.  
   
-10. Klicken Sie auf **Weiter**, und klicken Sie dann auf **Installieren**.  
+10. Klicken Sie auf **Weiter** und dann auf **Installieren**.  
   
-11.  Überprüfen Sie im Dialogfeld **Installationsstatus** , ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
+11.  Überprüfen Sie im Dialogfeld **Installationsstatus**, ob die Installation erfolgreich war, und klicken Sie dann auf **Schließen**.  
   
   
 ![der entsprechenden Windows PowerShell-](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
@@ -71,13 +71,13 @@ Führen Sie nach dem Konfigurieren der Infrastruktur für mehrere Standorte die 
   
 Die Schritte 1-3 müssen manuell ausgeführt werden und werden nicht mithilfe dieses Windows PowerShell-Cmdlets ausgeführt.  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 ```  
 Install-WindowsFeature RemoteAccess -IncludeManagementTools  
 ```  
   
-## <a name="BKMK_Admin"></a>3.2. Gewähren des Administrator Zugriffs  
+## <a name="32-grant-administrator-access"></a><a name="BKMK_Admin"></a>3.2. Gewähren des Administrator Zugriffs  
   
 #### <a name="to-grant-administrator-permissions"></a>So erteilen Sie Administrator Berechtigungen  
   
@@ -95,16 +95,16 @@ Install-WindowsFeature RemoteAccess -IncludeManagementTools
   
 7.  Klicken Sie im Dialogfeld **Administrator Eigenschaften** auf **OK**.  
   
-8.  Schließen Sie das Fenster Computer Verwaltung.  
+8.  Schließen Sie das Fenster Computerverwaltung.  
   
 9. Wiederholen Sie diesen Vorgang auf allen RAS-Servern, die Teil der Bereitstellung für mehrere Standorte sein werden.  
   
-## <a name="BKMK_IPHTTPS"></a>3.3. Konfigurieren von IP-HTTPS für eine Bereitstellung mit mehreren Standorten  
-Auf jedem Remote Zugriffs Server, der der Bereitstellung für mehrere Standorte hinzugefügt wird, ist ein SSL-Zertifikat erforderlich, um die HTTPS-Verbindung mit dem IP-HTTPS-Webserver zu überprüfen. Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der lokalen Gruppe **Administratoren** oder eine gleichwertige Mitgliedschaft.  
+## <a name="33-configure-ip-https-for-a-multisite-deployment"></a><a name="BKMK_IPHTTPS"></a>3.3. Konfigurieren von IP-HTTPS für eine Bereitstellung mit mehreren Standorten  
+Auf jedem Remote Zugriffs Server, der der Bereitstellung für mehrere Standorte hinzugefügt wird, ist ein SSL-Zertifikat erforderlich, um die HTTPS-Verbindung mit dem IP-HTTPS-Webserver zu überprüfen. Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der lokalen Gruppe **Administratoren** oder eine gleichwertige Berechtigung erforderlich.  
   
 #### <a name="to-obtain-an-ip-https-certificate"></a>So erhalten Sie ein IP-HTTPS-Zertifikat  
   
-1.  Auf jedem RAS-Server: Geben Sie auf dem **Start** Bildschirm **MMC**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Auf jedem RAS-Server: Geben Sie auf dem **Start** Bildschirm **MMC**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie im Menü **Datei** auf **Snap-Ins hinzufügen bzw. entfernen**.  
   
@@ -114,7 +114,7 @@ Auf jedem Remote Zugriffs Server, der der Bereitstellung für mehrere Standorte 
   
 5.  Klicken Sie mit der rechten Maustaste auf **Zertifikate**, zeigen Sie auf **Alle Aufgaben**, und klicken Sie dann auf **Neues Zertifikat anfordern**.  
   
-6.  Klicken Sie zweimal auf **Weiter** .  
+6.  Klicken Sie zweimal auf **Weiter**.  
   
 7.  Klicken Sie auf der Seite **Zertifikate anfordern** auf die Vorlage Webserver Zertifikat, und klicken Sie dann auf **Weitere Informationen sind erforderlich, um sich für dieses Zertifikat zu registrieren**.  
   
@@ -137,12 +137,12 @@ Auf jedem Remote Zugriffs Server, der der Bereitstellung für mehrere Standorte 
   
 14. Wiederholen Sie diesen Vorgang auf allen RAS-Servern in Ihrer Bereitstellung.  
   
-## <a name="BKMK_NLS"></a>3,4. Konfigurieren des Netzwerkadressen Servers für eine Bereitstellung mit mehreren Standorten  
-Wenn Sie beim Einrichten des ersten Servers die Netzwerkadressen Server-Website auf dem RAS-Server eingerichtet haben, muss jeder neue RAS-Server, den Sie hinzufügen, mit einem Webserver Zertifikat konfiguriert werden, das den gleichen Antragsteller Namen hat, den Sie für t ausgewählt haben. Er ist der Netzwerkadressen Server für den ersten Server. Jeder Server benötigt ein Zertifikat, um die Verbindung mit dem Netzwerkadressen Server zu authentifizieren, und Client Computer im internen Netzwerk müssen in der Lage sein, den Namen der Website in DNS aufzulösen.  
+## <a name="34-configure-the-network-location-server-for-a-multisite-deployment"></a><a name="BKMK_NLS"></a>3,4. Konfigurieren des Netzwerkadressen Servers für eine Bereitstellung mit mehreren Standorten  
+Wenn Sie beim Einrichten des ersten Servers die Netzwerkadressen Server-Website auf dem RAS-Server eingerichtet haben, muss jeder neue RAS-Server, den Sie hinzufügen, mit einem Webserver Zertifikat konfiguriert werden, das den gleichen Antragsteller Namen hat, den Sie ausgewählt haben. der Netzwerkadressen Server für den ersten Server. Jeder Server benötigt ein Zertifikat, um die Verbindung mit dem Netzwerkadressen Server zu authentifizieren, und Client Computer im internen Netzwerk müssen in der Lage sein, den Namen der Website in DNS aufzulösen.  
   
 #### <a name="to-install-a-certificate-for-network-location"></a>So installieren Sie ein Zertifikat für den Netzwerk Speicherort  
   
-1.  Auf dem Remote Zugriffs Server: Geben Sie auf dem **Start** Bildschirm **MMC**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Auf dem Remote Zugriffs Server: Geben Sie auf dem **Start** Bildschirm **MMC**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie im Menü **Datei** auf **Snap-Ins hinzufügen bzw. entfernen**.  
   
@@ -155,7 +155,7 @@ Wenn Sie beim Einrichten des ersten Servers die Netzwerkadressen Server-Website 
     > [!NOTE]  
     > Sie können auch das Zertifikat importieren, das für den Netzwerkadressen Server für den ersten RAS-Server verwendet wurde.  
   
-6.  Klicken Sie zweimal auf **Weiter** .  
+6.  Klicken Sie zweimal auf **Weiter**.  
   
 7.  Klicken Sie auf der Seite **Zertifikate anfordern** auf die Vorlage Webserver Zertifikat, und klicken Sie dann auf **Weitere Informationen sind erforderlich, um sich für dieses Zertifikat zu registrieren**.  
   
@@ -178,7 +178,7 @@ Wenn Sie beim Einrichten des ersten Servers die Netzwerkadressen Server-Website 
   
 14. Wiederholen Sie diesen Vorgang auf allen RAS-Servern in Ihrer Bereitstellung.  
   
-### <a name="NLS"></a>So erstellen Sie DNS-Einträge für den Netzwerkadressen Server  
+### <a name="to-create-the-network-location-server-dns-records"></a><a name="NLS"></a>So erstellen Sie DNS-Einträge für den Netzwerkadressen Server  
   
 1.  Auf dem DNS-Server: Geben Sie auf dem **Start** Bildschirm **dnsmgmt. msc**ein, und drücken Sie dann die EINGABETASTE.  
   
@@ -194,7 +194,7 @@ Wenn Sie beim Einrichten des ersten Servers die Netzwerkadressen Server-Website 
   
 7.  Wiederholen Sie dieses Verfahren, bevor Sie Server als zusätzliche Einstiegspunkte in der Bereitstellung hinzufügen.  
   
-## <a name="BKMK_Client"></a>3,5. Konfigurieren von DirectAccess-Clients für eine Bereitstellung mit mehreren Standorten  
+## <a name="35-configure-directaccess-clients-for-a-multisite-deployment"></a><a name="BKMK_Client"></a>3,5. Konfigurieren von DirectAccess-Clients für eine Bereitstellung mit mehreren Standorten  
 DirectAccess-Windows-Client Computer müssen Mitglieder der Sicherheitsgruppe (n) sein, die ihre DirectAccess-Zuordnung definieren. Vor der Aktivierung mehrerer Standorte können diese Sicherheitsgruppen sowohl Windows 8-Clients als auch Windows 7-Clients enthalten (sofern der entsprechende Modus "Downlevel" ausgewählt wurde). Wenn die Funktion für mehrere Standorte aktiviert ist, werden vorhandene Client Sicherheitsgruppen im Einzel Server Modus nur für Windows 8 in die Sicherheitsgruppe (n) konvertiert. Nachdem Multisite aktiviert ist, müssen DirectAccess-Windows 7-Client Computer in die entsprechenden dedizierten Windows 7-Client Sicherheitsgruppen (die bestimmten Einstiegspunkten zugeordnet sind) verschoben werden, oder Sie können keine Verbindung über DirectAccess herstellen. Die Windows 7-Clients müssen zunächst aus den vorhandenen Sicherheitsgruppen entfernt werden, die jetzt Windows 8-Sicherheitsgruppen sind. Vorsicht: Windows 7-Client Computer, die Mitglieder von Windows 7-und Windows 8-Client Sicherheitsgruppen sind, verlieren die Remote Konnektivität, und Windows 7-Clients ohne installiertes SP1 verlieren auch die Unternehmens Konnektivität. Daher müssen alle Windows 7-Client Computer aus Windows 8-Sicherheitsgruppen entfernt werden.  
   
 #### <a name="remove--windows-7--clients-from-windows-8-security-groups"></a>Entfernen von Windows 7-Clients aus Windows 8-Sicherheitsgruppen  
@@ -210,7 +210,7 @@ DirectAccess-Windows-Client Computer müssen Mitglieder der Sicherheitsgruppe (n
 > [!IMPORTANT]  
 > Wenn Sie eine Remote Zugriffs Konfiguration für mehrere Standorte aktivieren, verlieren alle Client Computer (Windows 7 und Windows 8) Remote Verbindungen, bis Sie direkt oder per VPN eine Verbindung mit dem Unternehmensnetzwerk herstellen können, um Ihre Gruppenrichtlinien zu aktualisieren. Dies trifft zu, wenn Sie die Funktionalität für mehrere Standorte zum ersten Mal aktivieren, und auch wenn Sie mehrere Websites deaktivieren.  
   
-## <a name="BKMK_Enable"></a>3,6. Aktivieren der Bereitstellung für mehrere Standorte  
+## <a name="36-enable-the-multisite-deployment"></a><a name="BKMK_Enable"></a>3,6. Aktivieren der Bereitstellung für mehrere Standorte  
 Um eine Bereitstellung für mehrere Standorte zu konfigurieren, aktivieren Sie die Funktion für mehrere Standorte auf dem vorhandenen Remote Zugriffs Server. Stellen Sie sicher, dass Sie über die folgenden Informationen verfügen, bevor Sie mehrere Standorte in der Bereitstellung aktivieren:  
   
 1.  Globale Load Balancer-Einstellungen und IP-Adressen, wenn Sie einen Lastenausgleich für DirectAccess-Clientverbindungen über alle Einstiegspunkte in der Bereitstellung ausführen möchten.  
@@ -219,9 +219,9 @@ Um eine Bereitstellung für mehrere Standorte zu konfigurieren, aktivieren Sie d
   
 3.  Gruppenrichtlinie Objektnamen, wenn Sie nicht standardmäßige Gruppenrichtlinie Objekte verwenden müssen, die auf Windows 7-Client Computern für den ersten Einstiegspunkt in der Bereitstellung angewendet werden, wenn Sie Unterstützung für Windows 7-Client Computer benötigen.  
   
-### <a name="EnabledMultisite"></a>So aktivieren Sie eine Konfiguration für mehrere Standorte  
+### <a name="to-enable-a-multisite-configuration"></a><a name="EnabledMultisite"></a>So aktivieren Sie eine Konfiguration für mehrere Standorte  
   
-1.  Auf dem vorhandenen RAS-Server: Geben Sie auf dem **Start** Bildschirm **ramgmtui. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Auf dem vorhandenen RAS-Server: Geben Sie auf dem **Start** Bildschirm **ramgmtui. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der Remote Zugriffs-Verwaltungskonsole auf **Konfiguration**, und klicken Sie dann im Bereich **Tasks** auf **Multisite aktivieren**.  
   
@@ -262,7 +262,7 @@ Um eine Bereitstellung für mehrere Standorte zu konfigurieren, aktivieren Sie d
   
 ![der entsprechenden Windows PowerShell-](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 So aktivieren Sie eine Bereitstellung mit mehreren Standorten mit dem Namen "Configuration Manager" auf dem ersten Einstiegspunkt mit dem Namen "EDGE1-US". Mithilfe der Bereitstellung können Clients den Einstiegspunkt manuell auswählen und keinen globalen Lastenausgleich verwenden.  
   
@@ -276,7 +276,7 @@ Um Windows 7-Client Computern den Zugriff über den ersten Einstiegspunkt über 
 Add-DAClient -EntrypointName 'Edge1-US' -DownlevelSecurityGroupNameList @('corp.contoso.com\DA_Clients_US') -DownlevelGpoName @('corp.contoso.com\DA_W7_Clients_GPO_US)  
 ```  
   
-## <a name="BKMK_EntryPoint"></a>3,7. Hinzufügen von Einstiegspunkten zur Bereitstellung für mehrere Standorte  
+## <a name="37-add-entry-points-to-the-multisite-deployment"></a><a name="BKMK_EntryPoint"></a>3,7. Hinzufügen von Einstiegspunkten zur Bereitstellung für mehrere Standorte  
 Nachdem Sie mehrere Standorte in der Bereitstellung aktiviert haben, können Sie mithilfe des Assistenten zum Hinzufügen eines Einstiegs Punkts weitere Einstiegspunkte hinzufügen. Stellen Sie vor dem Hinzufügen von Einstiegspunkten sicher, dass Sie über die folgenden Informationen verfügen:  
   
 -   Globale Load Balancer-IP-Adressen für jeden neuen Einstiegspunkt, wenn Sie einen globalen Lastenausgleich verwenden.  
@@ -287,9 +287,9 @@ Nachdem Sie mehrere Standorte in der Bereitstellung aktiviert haben, können Sie
   
 -   Wenn IPv6 im Netzwerk der Organisation bereitgestellt wird, müssen Sie das IP-HTTPS-Präfix für den neuen Einstiegspunkt vorbereiten.  
   
-### <a name="AddEP"></a>So fügen Sie Ihrer Bereitstellung für mehrere Standorte Einstiegspunkte hinzu  
+### <a name="to-add-entry-points-to-your-multisite-deployment"></a><a name="AddEP"></a>So fügen Sie Ihrer Bereitstellung für mehrere Standorte Einstiegspunkte hinzu  
   
-1.  Auf dem vorhandenen RAS-Server: Geben Sie auf dem **Start** Bildschirm **ramgmtui. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Auf dem vorhandenen RAS-Server: Geben Sie auf dem **Start** Bildschirm **ramgmtui. exe**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der Remote Zugriffs-Verwaltungskonsole auf **Konfiguration**, und klicken Sie dann im Bereich **Tasks** auf **Einstiegspunkt hinzufügen**.  
   
@@ -344,7 +344,7 @@ Nachdem Sie mehrere Standorte in der Bereitstellung aktiviert haben, können Sie
   
 ![der entsprechenden Windows PowerShell-](../../../../media/Step-3-Configure-the-Multisite-Deployment/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 Um den Computer edge2 aus der corp2-Domäne als zweiten Einstiegspunkt mit dem Namen edge2-Europe hinzuzufügen. Die Einstiegspunkt Konfiguration lautet wie folgt: ein Client-IPv6-Präfix "2001: db8:2: 2000::/64", eine Connect to-Adresse (das IP-HTTPS-Zertifikat auf dem edge2-Computer) "edge2.contoso.com", ein Server-Gruppenrichtlinien Objekt mit dem Namen "DirectAccess-Servereinstellungen-edge2-Europa" und die internen und externen Schnittstellen mit  
   
@@ -358,6 +358,6 @@ Um Windows 7-Client Computern den Zugriff auf den zweiten Einstiegspunkt über d
 Add-DAClient -EntrypointName 'Edge2-Europe' -DownlevelGpoName @('corp.contoso.com\ DA_W7_Clients_GPO_Europe') -DownlevelSecurityGroupNameList @('corp.contoso.com\DA_Clients_Europe')  
 ```  
   
-## <a name="BKMK_Links"></a>Siehe auch  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Siehe auch  
   
 -   [Schritt 2: Konfigurieren der Infrastruktur für mehrere Standorte](Step-2-Configure-the-Multisite-Infrastructure.md)

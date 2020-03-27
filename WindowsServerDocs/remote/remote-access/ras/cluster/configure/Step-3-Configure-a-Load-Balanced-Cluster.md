@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f000066e-7cf8-4085-82a3-4f4fe1cb3c5c
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: fb7dca9a0f7875936cbb30cbc9c5e9e0a7473237
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 19a87762e19dd763376f50c7c5b04da3f2187874
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404638"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308355"
 ---
 # <a name="step-3-configure-a-load-balanced-cluster"></a>Schritt 3: Konfigurieren eines Clusters mit Lastenausgleich
 
@@ -41,11 +41,11 @@ Nachdem Sie die Server für den Cluster vorbereitet haben, konfigurieren Sie den
 > [!NOTE]  
 > Stellen Sie sicher, dass Sie keine DIP verwenden, die bereits auf einem anderen Computer im Netzwerk vorhanden ist.  
   
-## <a name="BKMK_Prefix"></a>3,1 Konfigurieren des IPv6-Präfixes  
+## <a name="31-configure-the-ipv6-prefix"></a><a name="BKMK_Prefix"></a>3,1 Konfigurieren des IPv6-Präfixes  
   
-### <a name="configDA"></a>So konfigurieren Sie das Präfix  
+### <a name="to-configure-the-prefix"></a><a name="configDA"></a>So konfigurieren Sie das Präfix  
   
-1.  Klicken Sie auf dem Remote Zugriffs Server auf **Start**, und klicken Sie dann auf **Remote Zugriffs Verwaltung**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Klicken Sie auf dem Remote Zugriffs Server auf **Start**, und klicken Sie dann auf **Remote Zugriffs Verwaltung**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole auf **Konfiguration**.  
   
@@ -57,11 +57,11 @@ Nachdem Sie die Server für den Cluster vorbereitet haben, konfigurieren Sie den
   
 6.  Überprüfen Sie im Dialogfeld **Remote Zugriffs Überprüfung** die Konfigurationseinstellungen, und klicken Sie **dann auf über**nehmen. Klicken Sie im Dialogfeld **Anwenden der Einstellungen zum Einrichten des Remotezugriffs** auf **Schließen**.  
   
-## <a name="BKMK_NLB"></a>3,2 Aktivieren des Lasten Ausgleichs  
+## <a name="32-enable-load-balancing"></a><a name="BKMK_NLB"></a>3,2 Aktivieren des Lasten Ausgleichs  
   
 #### <a name="to-enable-load-balancing"></a>So aktivieren Sie den Lastenausgleich  
   
-1.  Klicken Sie auf dem konfigurierten DirectAccess-Server auf **Start**, und klicken Sie dann auf **Remote Zugriffs Verwaltung**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Klicken Sie auf dem konfigurierten DirectAccess-Server auf **Start**, und klicken Sie dann auf **Remote Zugriffs Verwaltung**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der Remote Zugriffs-Verwaltungskonsole im linken Bereich auf **Konfiguration**, und klicken Sie dann im Bereich **Tasks** auf **Lastenausgleich aktivieren**.  
   
@@ -102,7 +102,7 @@ Nachdem Sie die Server für den Cluster vorbereitet haben, konfigurieren Sie den
   
 ![der entsprechenden Windows PowerShell-](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 Wenn Sie sich für die Verwendung von Windows NLB in den Planungsschritten entschieden haben, führen Sie Folgendes aus:  
   
@@ -119,12 +119,12 @@ Set-RemoteAccessLoadBalancer -InternetDedicatedIPAddress "2.1.1.20/255.255.255.0
 > [!NOTE]  
 > Es wird empfohlen, keine Änderungen an den Einstellungen des Load Balancers mit Änderungen an anderen Einstellungen einzuschließen, wenn Sie staginggruppen Richtlinien Objekte verwenden. Alle Änderungen an den Einstellungen des Load Balancers müssen zuerst angewendet werden, und dann sollten andere Konfigurationsänderungen vorgenommen werden. Nachdem Sie den Lastenausgleich auf einem neuen DirectAccess-Server konfiguriert haben, sollten Sie außerdem einige Zeit für die Anwendung von IP-Änderungen auf die DNS-Server im Unternehmen zulassen, bevor Sie andere DirectAccess-Einstellungen ändern, die sich auf den neuen Cluster beziehen.  
   
-## <a name="BKMK_InstallIPHTTP"></a>3,3 Installieren des IP-HTTPS-Zertifikats  
-Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der lokalen Gruppe **Administratoren** oder eine gleichwertige Mitgliedschaft.  
+## <a name="33-install-the-ip-https-certificate"></a><a name="BKMK_InstallIPHTTP"></a>3,3 Installieren des IP-HTTPS-Zertifikats  
+Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der lokalen Gruppe **Administratoren** oder eine gleichwertige Berechtigung erforderlich.  
   
-### <a name="IPHTTPSCert"></a>So installieren Sie das IP-HTTPS-Zertifikat  
+### <a name="to-install-the-ip-https-certificate"></a><a name="IPHTTPSCert"></a>So installieren Sie das IP-HTTPS-Zertifikat  
   
-1.  Klicken Sie auf dem konfigurierten RAS-Server auf **Start**, geben Sie **MMC** ein, und drücken Sie EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Klicken Sie auf dem konfigurierten RAS-Server auf **Start**, geben Sie **MMC** ein, und drücken Sie EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der MMC-Konsole im Menü **Datei** auf **Snap-In hinzufügen/entfernen**.  
   
@@ -132,7 +132,7 @@ Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der
   
 4.  Navigieren Sie im linken Bereich der Konsole zu **Zertifikate (lokaler Computer) \personal\zertifikate**. Klicken Sie mit der rechten Maustaste auf das IP-HTTPS-Zertifikat, zeigen **Sie auf** **Alle Tasks** , und klicken Sie auf  
   
-5.  Klicken Sie auf der Seite **Willkommen** auf **Weiter**.  
+5.  Klicken Sie auf der Seite **Zertifikatexport-Assistent – Willkommen** auf **Weiter**.  
   
 6.  Klicken Sie auf der Seite **Privaten Schlüssel exportieren** auf **Ja, privaten Schlüssel exportieren**, und klicken Sie dann auf **Weiter**.  
   
@@ -148,7 +148,7 @@ Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der
   
 12. Kopieren Sie das Zertifikat auf alle Server, die Sie als Cluster Mitglieder gruppieren möchten.  
   
-13. Klicken Sie auf dem neuen DirectAccess-Server auf **Start**, geben Sie **MMC** ein, und drücken Sie EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+13. Klicken Sie auf dem neuen DirectAccess-Server auf **Start**, geben Sie **MMC** ein, und drücken Sie EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 14. Klicken Sie in der MMC-Konsole im Menü **Datei** auf **Snap-In hinzufügen/entfernen**.  
   
@@ -164,18 +164,18 @@ Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der
   
 20. Klicken Sie auf der Seite **Zertifikatspeicher** auf **Weiter**.  
   
-21. Klicken Sie auf der Seite **Fertigstellen des Assistenten** auf **Fertig stellen**.  
+21. Klicken Sie auf der Seite **Abschließen des Zertifikatimport-Assistenten** auf **Fertig stellen**.  
   
 22. Klicken Sie im Dialogfeld **Zertifikat Import-Assistent** auf **OK**.  
   
 23. Wiederholen Sie die Schritte 13-22 auf allen Servern, bei denen es sich um Cluster Mitglieder handeln soll.  
   
-## <a name="BKMK_NLS"></a>3,4 Installieren des Netzwerkadressen Server-Zertifikats  
-Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der lokalen Gruppe **Administratoren** oder eine gleichwertige Mitgliedschaft.  
+## <a name="34-install-the-network-location-server-certificate"></a><a name="BKMK_NLS"></a>3,4 Installieren des Netzwerkadressen Server-Zertifikats  
+Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der lokalen Gruppe **Administratoren** oder eine gleichwertige Berechtigung erforderlich.  
   
 #### <a name="to-install-a-certificate-for-network-location"></a>So installieren Sie ein Zertifikat für den Netzwerk Speicherort  
   
-1.  Klicken Sie auf dem Remote Zugriffs Server auf **Start**, geben Sie **MMC**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Klicken Sie auf dem Remote Zugriffs Server auf **Start**, geben Sie **MMC**ein, und drücken Sie dann die EINGABETASTE. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie im Menü **Datei** auf **Snap-Ins hinzufügen bzw. entfernen**.  
   
@@ -185,7 +185,7 @@ Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der
   
 5.  Klicken Sie mit der rechten Maustaste auf **Zertifikate**, zeigen Sie auf **Alle Aufgaben**, und klicken Sie dann auf **Neues Zertifikat anfordern**.  
   
-6.  Klicken Sie zweimal auf **Weiter** .  
+6.  Klicken Sie zweimal auf **Weiter**.  
   
 7.  Klicken Sie auf der Seite **Zertifikate anfordern** auf die Vorlage Webserver Zertifikat, und klicken Sie dann auf **Weitere Informationen sind erforderlich, um sich für dieses Zertifikat zu registrieren**.  
   
@@ -208,12 +208,12 @@ Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der
   
 14. Wiederholen Sie diesen Vorgang auf allen Servern, für die Sie Cluster Mitglieder sein möchten.  
   
-## <a name="BKMK_Add"></a>3,5 Hinzufügen von Servern zum Cluster  
+## <a name="35-add-servers-to-the-cluster"></a><a name="BKMK_Add"></a>3,5 Hinzufügen von Servern zum Cluster  
  
   
 #### <a name="to-add-servers-to-the-cluster"></a>So fügen Sie dem Cluster Server hinzu  
   
-1.  Klicken Sie auf dem konfigurierten DirectAccess-Server auf **Start**, und klicken Sie dann auf **Remote Zugriffs Verwaltung**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Klicken Sie auf dem konfigurierten DirectAccess-Server auf **Start**, und klicken Sie dann auf **Remote Zugriffs Verwaltung**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole auf **Konfiguration**. Klicken Sie im Bereich **Tasks** unter **Cluster mit Lasten**Ausgleich auf **Server hinzufügen oder entfernen**.  
   
@@ -249,7 +249,7 @@ Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der
   
 ![der entsprechenden Windows PowerShell-](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 ```  
 Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>  
@@ -258,12 +258,12 @@ Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
 > [!NOTE]  
 > Wenn VPN nicht in einem Cluster mit Lastenausgleich aktiviert wurde, sollten Sie keine VPN-Adressbereiche angeben, wenn Sie dem Cluster mithilfe von Windows PowerShell-Cmdlets einen neuen Server hinzufügen. Wenn dies versehentlich erfolgt ist, entfernen Sie den Server aus dem Cluster, und fügen Sie ihn erneut dem Cluster hinzu, ohne die VPN-Adressbereiche anzugeben.  
   
-## <a name="BKMK_remove"></a>3,6 Entfernen eines Servers aus dem Cluster  
+## <a name="36-remove-a-server-from-the-cluster"></a><a name="BKMK_remove"></a>3,6 Entfernen eines Servers aus dem Cluster  
  
   
 #### <a name="to-remove-a-server-from-the-cluster"></a>So entfernen Sie einen Server aus dem Cluster  
   
-1.  Klicken Sie auf dem konfigurierten Remote Zugriffs Server auf **Start**, und klicken Sie dann auf **Remote Zugriffs Verwaltung**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Klicken Sie auf dem konfigurierten Remote Zugriffs Server auf **Start**, und klicken Sie dann auf **Remote Zugriffs Verwaltung**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole auf **Konfiguration**. Klicken Sie im Bereich **Tasks** unter **Cluster mit Lasten**Ausgleich auf **Server hinzufügen oder entfernen**.  
   
@@ -279,18 +279,18 @@ Add-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 ![der entsprechenden Windows PowerShell-](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 ```  
 Remove-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>  
 ```  
   
-## <a name="BKBK_disable"></a>3,7 Deaktivieren des Lasten Ausgleichs  
+## <a name="37-disable-load-balancing"></a><a name="BKBK_disable"></a>3,7 Deaktivieren des Lasten Ausgleichs  
 [Führen Sie diesen Schritt mithilfe von Windows PowerShell aus.](assetId:///7a817ca0-2b4a-4476-9d28-9a63ff2453f9)  
   
 #### <a name="to-disable-load-balancing"></a>So deaktivieren Sie den Lastenausgleich  
   
-1.  Klicken Sie auf dem konfigurierten DirectAccess-Server auf **Start**, und klicken Sie dann auf **Remote Zugriffs Verwaltung**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass Sie die angezeigte Aktion wünschen, und klicken Sie anschließend auf **Ja**.  
+1.  Klicken Sie auf dem konfigurierten DirectAccess-Server auf **Start**, und klicken Sie dann auf **Remote Zugriffs Verwaltung**. Falls das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, bestätigen Sie, dass die angezeigte Aktion ausgeführt werden soll, und klicken Sie anschließend auf **Ja**.  
   
 2.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole auf **Konfiguration**. Klicken Sie im Bereich **Tasks** unter **Cluster mit Lasten**Ausgleich auf **Lastenausgleich deaktivieren**.  
   
@@ -300,7 +300,7 @@ Remove-RemoteAccessLoadBalancerNode -RemoteAccessServer <server name>
   
 ![der entsprechenden Windows PowerShell-](../../../../media/Step-3-Configure-a-Load-Balanced-Cluster/PowerShellLogoSmall.gif)***<em>Befehle in Windows PowerShell</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 ```  
 set-RemoteAccessLoadBalancer -disable  
@@ -315,7 +315,7 @@ Wenn Sie auf **Konfigurationseinstellungen entfernen** klicken, werden Remote Zu
 > -   Nachdem Sie das Cmdlet " **Set-remoteaccessloadbalancer** " zum Deaktivieren des Lasten Ausgleichs verwendet haben, warten Sie zwei Minuten, bevor Sie ein beliebiges anderes Cmdlet ausführen. Dies sollte auch in allen Skripts erfolgen, die nach dem **Set-remoteaccessloadbalancer-deaktivierte** Cmdlet ein anderes Cmdlet ausführen.  
 > -   Durch die Deaktivierung des Lasten Ausgleichs wird die virtuelle IP-Adresse des Clusters in eine dedizierte IP-Adresse geändert. Daher schlägt jeder Vorgang, bei dem der Name des Servers abgefragt wird, so lange fehl, bis der zwischengespeicherte DNS-Eintrag auf dem Server abläuft. Stellen Sie sicher, dass Sie keine PowerShell-Cmdlets für den Remote Zugriff ausführen, nachdem Sie den Lastenausgleich deaktiviert haben, bis der Cache auf dem Server abgelaufen ist. Dieses Problem ist häufiger, wenn Sie versuchen, den Lastenausgleich auf einem Computer von einem anderen Computer in einer anderen Domäne zu deaktivieren. Dies geschieht auch, wenn Sie den Lastenausgleich über die Remote Zugriffs-Verwaltungskonsole deaktivieren und das Laden der Konfiguration möglicherweise verhindern. Die Konfiguration wird geladen, nachdem der Cache abgelaufen ist oder geleert wurde.  
   
-## <a name="BKMK_Links"></a>Siehe auch  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Siehe auch  
   
 -   [Schritt 4: Überprüfen des Clusters](Step-4-Verify-the-Cluster.md)  
   

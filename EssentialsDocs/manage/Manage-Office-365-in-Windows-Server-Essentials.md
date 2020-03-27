@@ -2,17 +2,17 @@
 title: Verwalten von Office 365 in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 3f8485e4-e10f-4f38-8a5e-d5227abd0d84
 author: nnamuhcs
 ms.author: daveba
-ms.openlocfilehash: ded26080ce59b48d7bbc3404684b3dbf926eceaa
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: d8051431f55a7a3e05f0a1917a003df044533571
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947463"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311256"
 ---
 # <a name="manage-office-365-in-windows-server-essentials"></a>Verwalten von Office 365 in Windows Server Essentials
 
@@ -25,7 +25,7 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
 > [!IMPORTANT]
 >   Die Integration von Office 365 wird nur in einer Umgebung mit einem einzelnen Domänen Controller unterstützt. Außerdem muss der Assistent zum Integrieren von Office 365 auf einem Domänen Controller ausgeführt werden.  
   
-## <a name="in-this-topic"></a>Inhalt dieses Themas  
+## <a name="in-this-topic"></a>In diesem Thema  
   
 -   [Warum sollte ich Office 365 in meinen Server integrieren?](#BKMK_IntegrationOverview)  
   
@@ -35,7 +35,7 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
   
 -   [Problembehandlung bei der Integration von Office 365](Manage-Office-365-in-Windows-Server-Essentials.md#BKMK_Troubleshoot)  
   
-##  <a name="BKMK_IntegrationOverview"></a>Warum sollte ich Office 365 in meinen Server integrieren?  
+##  <a name="why-should-i-integrate-office-365-with-my-server"></a><a name="BKMK_IntegrationOverview"></a>Warum sollte ich Office 365 in meinen Server integrieren?  
  Es gibt viele gute Gründe für die Integration von Office 365 in Ihren Windows Server Essentials-Server. Wenn Sie einige ihrer Ressourcen intern verwalten, aber Office 365 für andere Dienste verwenden, können Sie Ihre Office 365-Dienste und-Ressourcen zusammen mit Ihren lokalen Ressourcen über das Dashboard verwalten, statt an zwei Orten zu arbeiten.  
   
 - Verwalten Sie die Online Konten, mit denen Ihre Benutzer zusammen mit ihren Benutzerkonten Zugriff auf Office 365 erhalten:  
@@ -77,7 +77,7 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
   
   -   Verwenden Sie die My Server 2012 R2-APP, um mit Dokumenten in Ihren SharePoint Online-Bibliotheken auf Ihrem Laptop, mobilen Gerät oder Windows Phone zu arbeiten. Weitere Informationen finden Sie unter [Verwenden der My Server-App](../use/Use-the-My-Server-App-to-Connect-to-Windows-Server-Essentials.md). Diese Funktion ist nur in Windows Server Essentials verfügbar.  
   
-##  <a name="BKMK_Configure"></a>Einrichten der Integration von Office 365  
+##  <a name="set-up-office-365-integration"></a><a name="BKMK_Configure"></a>Einrichten der Integration von Office 365  
  Sie können den Server jederzeit nach Abschluss der Server Installation mit Office 365 integrieren. Wenn Sie nicht bereits über ein Office 365-Abonnement verfügen, können Sie eines erwerben oder sich für ein kostenloses Testabonnement registrieren.  
   
  Führen Sie die folgenden Aufgaben aus:  
@@ -88,7 +88,7 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
   
 -   [Schritt 3: Verknüpfen des Internet Domänen Namens Ihres Unternehmens mit Office 365 (optional)](#BKMK_StepThree)  
   
-###  <a name="BKMK_StepOne_VERIFY"></a>Schritt 1: Überprüfen der Integrationsanforderungen für Office 365  
+###  <a name="step-1-verify-office-365-integration-requirements"></a><a name="BKMK_StepOne_VERIFY"></a>Schritt 1: Überprüfen der Integrationsanforderungen für Office 365  
  Bevor Sie beginnen, stellen Sie sicher, dass der Server die folgenden Anforderungen erfüllt:  
   
 -   Der Server kann eines der folgenden Betriebssysteme aufweisen: Windows Server Essentials, Windows Server Essentials oder das Betriebssystem Windows Server 2012 R2 Standard oder Windows Server 2012 R2 Datacenter mit installierter Windows Server Essentials-Rolle.  
@@ -104,7 +104,7 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
 > [!NOTE]
 >  Sie müssen Office 365 nicht vorab abonnieren. Während der Integration von Office 365 können Sie ein Abonnement erwerben oder sich für eine kostenlose Testversion registrieren. Wenn Sie Pläne und Preise für Office 365 ansehen möchten, [vergleichen Sie Office 365-Pläne für Unternehmen](https://office.microsoft.com/compare-office-365-for-business-plans-FX102918419.aspx?CR_CC=200061904&WT.srch=1&WT.mc_ID=PS_bing_O365Comm_subscribe-to-office-365_Text).  
   
-###  <a name="BKMK_StepTwo"></a>Schritt 2: Integrieren des Servers in Microsoft Office 365  
+###  <a name="step-2-integrate-the-server-with-microsoft-office-365"></a><a name="BKMK_StepTwo"></a>Schritt 2: Integrieren des Servers in Microsoft Office 365  
  Führen Sie das folgende Verfahren auf dem Domänen Controller aus, um Ihren Windows Server Essentials-Server in Office 365 zu integrieren.  
   
 > [!NOTE]
@@ -114,7 +114,7 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
   
 1. Melden Sie sich auf dem Server als Administrator an, und öffnen Sie das Windows Server Essentials-Dashboard.  
   
-2. Klicken Sie auf der **Start** Seite auf **Dienste** (in Windows Server Essentials, klicken Sie auf e-Mail), klicken Sie auf **in Microsoft Office 365 integrieren**, und klicken Sie dann auf **Microsoft Office 365-Integration einrichten**.  
+2. Klicken Sie auf der **Start** Seite auf **Dienste** (in Windows Server Essentials, klicken Sie auf e-Mail), klicken Sie auf **in Microsoft Office 365 integrieren**, und klicken Sie dann auf **Microsoft Office 365-Integration einrichten**. **Email**  
   
     Der Assistent für die Integration in Microsoft Office 365 wird angezeigt.  
   
@@ -136,7 +136,7 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
   
 -   Die Seite **Speicher** auf einem Windows Server Essentials-Server verfügt über eine Registerkarte **SharePoint-Bibliotheken** zum Verwalten von SharePoint Online-Bibliotheken und zum Ändern von Berechtigungen für Ihre Team Websites. Jeder Geschäftsplan für Office 365 umfasst diese grundlegenden SharePoint Online-Features.  
   
-###  <a name="BKMK_StepThree"></a>Schritt 3: Verknüpfen des Internet Domänen Namens Ihres Unternehmens mit Office 365 (optional)  
+###  <a name="step-3-link-your-organizations-internet-domain-name-to-office-365-optional"></a><a name="BKMK_StepThree"></a>Schritt 3: Verknüpfen des Internet Domänen Namens Ihres Unternehmens mit Office 365 (optional)  
  Wenn Sie Ihre eigene Internet Domäne in e-Mail-Nachrichten an Ihre Organisation und die URLs für Ihre SharePoint Online-Ressourcen verwenden möchten, können Sie eine benutzerdefinierte Domäne mit Ihrem Office 365-Abonnement verknüpfen. Wenn Sie Ihren Windows Server Essentials-Server in Office 365 integrieren, können Sie dazu das Dashboard verwenden.  
   
  Es ist am einfachsten, dies zu tun, bevor Sie Online Konten für Ihre Benutzer erstellen, damit Sie die Domäne verwenden können, wenn Sie die Online Konten per Massen Vorgang erstellen.  
@@ -172,24 +172,24 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
     > [!NOTE]
     >  Um den Assistenten zu verwenden, um einen neuen Domänennamen zu registrieren, müssen Sie einen Domain Name Service-Anbieter verwenden, der Partner von Microsoft ist, um eine nahtlose Integration mit dem Assistenten bereitstellen zu können. Eine Domänennamen-Registrierungsstelle finden Sie unter [Erwerben eines Domänennamens](https://office.microsoft.com/office365-suite-help/how-to-buy-a-domain-name-HA102819883.aspx?CTT=5&origin=HA102818660).  
   
-3.  Wenn der Assistent erkennt, dass der Domänen Name nicht vom Server verwaltet wird, müssen Sie die erforderlichen DNS-Einträge manuell konfigurieren, um die Konfiguration abzuschließen. Anweisungen finden Sie unter [Gewusst wie: Manuelles Konfigurieren von DNS-Einträgen für die Integration von Office 365](#BKMK_ManuallyConfigureDNS)weiter unten in diesem Thema.  
+3.  Wenn der Assistent erkennt, dass der Domänen Name nicht vom Server verwaltet wird, müssen Sie die erforderlichen DNS-Einträge manuell konfigurieren, um die Konfiguration abzuschließen. Anweisungen finden Sie unter [Gewusst wie: Manuelles Konfigurieren von DNS-Datensätzen für die Integration von Office 365](#BKMK_ManuallyConfigureDNS) weiter unten in diesem Thema.  
   
 4.  Vergewissern Sie sich, dass die Domäne in Office 365 verwendet wird.  
   
      Nachdem der Assistent abgeschlossen ist, wird ein wenig gewartet, während die Domänen Namen-Registrierungsstelle die DNS-Einträge überprüft. Dies geschieht automatisch. Sie müssen nichts tun. Es dauert jedoch im Allgemeinen ungefähr eine Stunde, aber manchmal etwas länger. Nach Abschluss der Domänen Überprüfung wird auf der Seite **Office 365** die Domäne Ihrer Organisation aufgelistet.  
   
-####  <a name="BKMK_ManuallyConfigureDNS"></a>Manuelles Konfigurieren von DNS-Einträgen für die Integration von Office 365  
+####  <a name="how-to-manually-configure-dns-records-for-office-365-integration"></a><a name="BKMK_ManuallyConfigureDNS"></a>Manuelles Konfigurieren von DNS-Einträgen für die Integration von Office 365  
  Wenn der Assistent für die Verknüpfung Ihrer Domäne mit Office 365 erkennt, dass der Domänenname nicht vom Server verwaltet wird, müssen zum Abschließen der Konfiguration manuell die erforderlichen Domänennamenserver (DNS)-Einträge konfigurieren. In diesem Fall finden Sie eine Liste der DNS-Einträge, die Sie konfigurieren müssen, unter **% username% \ NewDNSRecords_ (n). txt**, wobei *(n)* eine zufällige Zahl ist.  
   
  Die folgende Tabelle beschreibt die DNS-Einträge, die Sie hinzufügen müssen. Eintragsmethoden können bei unterschiedlichen Domänennamen-Registrierungsstellen variieren. Wenn Sie Fragen haben, wenden Sie sich an die Domänennamen-Registrierungsstelle.  
   
 ### <a name="required-dns-records-for-linking-a-custom-internet-domain-name-to-office-365"></a>Erforderliche DNS-Einträge für die Verknüpfung eines benutzerdefinierten Internetdomänennamens mit Office 365  
   
-|Dienst|Erforderliche DNS-Einträge|Zweck|  
+|Service|Erforderliche DNS-Einträge|Zweck|  
 |-------------|--------------------------|-------------|  
 |(Mehrere Dienste)|MX| Office 365 verwendet diesen Datensatz, um zu überprüfen, ob Sie einen bestimmten Domänen Namen besitzen. Dieser MX-Eintrag beeinträchtigt das Routing von E-Mail-Nachrichten nicht.|  
 |Exchange Online|MX|Ermöglicht Routing von E-Mail-Nachrichten. **Wichtig:**  Wenn Sie e-Mail migrieren, weisen Sie dem neuen MX-Eintrag keine Einstellung von NULL (**0**) zu. Stellen Sie sicher, dass der Wert für den Eintrag größer ist, als der Wert, der dem aktuellen MX-Eintrag zugewiesen ist. Wenn die e-Mail-Migration abgeschlossen ist und Sie bereit sind, den e-Mail-Server in Office 365 zu ändern, muss die Domänen Namen-Registrierungsstelle den Wert des neuen MX-Einsatzes zurücksetzen.|  
-|Exchange Online|Alias (CNAME)|AutoErmittlungs-Eintrag, der verwendet wird, um Benutzer beim einfachen Einrichten einer Verbindung zwischen Exchange Online und dem Outlook-Client auf deren Desktops oder einem mobilen E-Mail-Client zu unterstützen. **Hinweis:**  Wenn Sie den Zugriff auf Outlook Webzugriff bevorzugen, indem Sie den eigenen Domänen Namen Ihrer Organisation verwenden (z. b. http://mail.contoso.com) anstelle der Standard-URL (https://outlook.com/owa/office365.com) ), können Sie den Alias Eintrag (CNAME) wie folgt konfigurieren: **Type = CNAME, TTL = 01:00:00, Hostname = Mail, Address = Mail. Office 365. com**|  
+|Exchange Online|Alias (CNAME)|AutoErmittlungs-Eintrag, der verwendet wird, um Benutzer beim einfachen Einrichten einer Verbindung zwischen Exchange Online und dem Outlook-Client auf deren Desktops oder einem mobilen E-Mail-Client zu unterstützen. **Hinweis:**  Wenn Sie den Zugriff auf Outlook Webzugriff bevorzugen, indem Sie den eigenen Domänen Namen Ihrer Organisation verwenden (z. b. http://mail.contoso.com) anstelle der Standard-URL (https://outlook.com/owa/office365.com)), können Sie den Alias Eintrag (CNAME) wie folgt konfigurieren: **Type = CNAME, TTL = 01:00:00, Hostname = Mail, Address = Mail. Office 365. com**|  
 |Exchange Online|TXT|Gibt an, dass Outlook.com, die Domäne, die von den Office 365-e-Mail-Servern verwendet wird, autorisiert ist, e-Mails im Namen Ihrer Domäne zu senden. Erstellen Sie diesen Eintrag, um zu verhindern, dass Ihre ausgehenden E-Mail-Nachrichten als Spam gekennzeichnet werden.|  
 |Lync Online|SRV|Hilft, den Verbund mit anderen Instant Messaging-Diensten, wie z. B. Windows Live oder Yahoo! zu ermöglichen.|  
 |Lync Online|SRV|AutoErmittlungs-Eintrag, der verwendet wird, um Benutzer beim einfachen Einrichten einer Verbindung zwischen dem Lync-Desktopclient und Microsoft Lync Online zu unterstützen.|  
@@ -197,7 +197,7 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
 > [!IMPORTANT]
 >  Versuchen Sie nach Abschluss der Domänen Überprüfung nicht, die DNS-Einträge im Office 365-Portal hinzuzufügen oder weitere Änderungen vorzunehmen.  
   
-###  <a name="BKMK_StepFour_ACCOUNTS"></a> Nächster Schritt  
+###  <a name="next-step"></a><a name="BKMK_StepFour_ACCOUNTS"></a>Nächster Schritt  
   
 -   Erstellen Sie Microsoft Online Services-Konten für die Benutzer.  
   
@@ -206,7 +206,7 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
 > [!NOTE]
 >  Auf dem Dashboard in Windows Server Essentials werden Microsoft Online Services-Konten als Office 365-Konten bezeichnet. Die Konten sind identisch, nur die Terminologie ist anders.  
   
-##  <a name="BKMK_ManageIntegration"></a>Verwalten der Integration von Office 365  
+##  <a name="manage-office-365-integration"></a><a name="BKMK_ManageIntegration"></a>Verwalten der Integration von Office 365  
  Nachdem Sie den Server in Office 365 integriert haben, zeigt die Seite **Office 365** auf dem Dashboard Informationen zu Ihrem Office 365-Abonnement an und stellt diese Aufgaben zur Verfügung:  
   
 -   [Verwalten Sie Ihr Office 365-Abonnement](#BKMK_ManageO365) ? Ändern Sie das Administrator Konto, das Sie zum Verwalten des Abonnements verwenden. Öffnen Sie das Office 365 Admin-Dashboard, um Ihr Abonnement zu verwalten.  
@@ -215,14 +215,14 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
   
 -   [Integration von Office 365 deaktivieren](#BKMK_Disable) ? Wenn Sie Ihre Office 365-Dienste,-Abonnements und-Online Konten nicht über das Dashboard verwalten möchten, können Sie die Integration von Office 365 deaktivieren. Die Dienste sind weiterhin im Office 365-Portal verfügbar.  
   
-###  <a name="BKMK_ManageO365"></a>Verwalten Ihres Office 365-Abonnements  
+###  <a name="manage-your-office-365-subscription"></a><a name="BKMK_ManageO365"></a>Verwalten Ihres Office 365-Abonnements  
  Wenn Sie Änderungen an Ihrem Office 365-Abonnement vornehmen müssen, während Sie auf dem Server arbeiten, können Sie das Abonnement in Office 365 auf der Seite **Office 365** des Dashboards öffnen. Sie können auch das Administrator Konto ändern, mit dem der Serveränderungen an den Office 365-Diensten vornimmt.  
   
 ##### <a name="to-open-your-subscription-on-the-office-365-admin-dashboard"></a>So öffnen Sie das Abonnement mit dem Office 365-Administratordashboard  
   
 1.  Öffnen Sie im Windows Server Essentials-Dashboard die Seite **Office 365** .  
   
-2.  Klicken Sie unter **Konfigurationsaufgaben**auf **Office 365 verwalten**.  
+2.  Klicken Sie unter **Konfigurationsaufgaben** auf **Office 365 verwalten**.  
   
 3.  Melden Sie sich mit dem Microsoft-Onlinekonto, das Sie zum Verwalten Ihres Abonnements verwenden, bei Office 365 an.  
   
@@ -230,7 +230,7 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
   
 ##### <a name="to-change-the-office-365-administrator-account"></a>So ändern Sie das Administratorkonto für Office 365  
   
-1.  Klicken Sie auf dem Dashboard auf **Office 365**.  
+1.  Klicken Sie auf dem Dashboard auf **Office 365**.  
   
 2.  Klicken Sie unter **Konfigurationsaufgaben**auf **Office 365-Administratorkonto ändern**. Der Assistent zum Ändern von Administratorenkonten wird angezeigt. (In Windows Server Essentials heißt der Assistent "Office 365-Administrator Konto einrichten".)  
   
@@ -238,7 +238,7 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
   
 4.  Klicken Sie auf **Schließen**. Das Dashboard wird neu gestartet.  
   
-###  <a name="BKMK_Disable"></a>Deaktivieren der Integration von Office 365  
+###  <a name="disable-office-365-integration"></a><a name="BKMK_Disable"></a>Deaktivieren der Integration von Office 365  
  Wenn Sie entscheiden, dass Sie Ihre Office 365-Dienste und Online Konten nicht über das Dashboard verwalten möchten, können Sie die Integration von Office 365 deaktivieren. Ihr Office 365-Abonnement bleibt aktiv, und alle Konfigurationsänderungen, die Sie über das Dashboard vorgenommen haben, bleiben in Kraft. Beispielsweise erhalten Sie eine e-Mail, die an einen Domänen Namen gerichtet ist, den Sie mit Ihrem Office 365-Abonnement verknüpft haben. Sie verlieren keine e-Mails, und die von Ihnen für mobile Geräte festgelegten Steuerelemente werden weiterhin in Exchange Online verwendet.  
   
  In Zukunft verwalten Sie Ihr Office 365-Abonnement, Dienste und Ressourcen in Office 365, und Ihre Benutzer müssen die Kenn Wörter für Ihre Online Konten in Office 365 verwalten. Die Kenn Wort Synchronisierung erfolgt nicht mehr, und das Deaktivieren oder Entfernen eines Benutzerkontos hat keine Auswirkung auf das Onlinekonto des Benutzers.  
@@ -247,7 +247,7 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
   
 ##### <a name="to-disable-office-365-integration-with-the-server"></a>So deaktivieren Sie die Office 365-Integration mit dem Server  
   
-1.  Klicken Sie auf dem Dashboard auf **Office 365**.  
+1.  Klicken Sie auf dem Dashboard auf **Office 365**.  
   
 2.  Klicken Sie auf **Office 365-Integration deaktivieren**. Der Assistent für das Deaktivieren von Office 365 wird angezeigt.  
   
@@ -256,10 +256,10 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
 > [!NOTE]
 >  Um die Integration von Office 365 erneut zu aktivieren, verwenden Sie die Aufgabe in **Office 365 integrieren** auf der Registerkarte **Dienst** auf der **Start** Seite des Dashboards. Anweisungen finden Sie unter [Schritt 2: Integrieren des Windows Server Essentials-Servers mit Microsoft Office 365](#BKMK_StepTwo)weiter oben in diesem Thema.  
   
-##  <a name="BKMK_Troubleshoot"></a>Problembehandlung bei der Integration von Office 365  
+##  <a name="troubleshoot-office-365-integration"></a><a name="BKMK_Troubleshoot"></a>Problembehandlung bei der Integration von Office 365  
  Dieser Abschnitt enthält Informationen, die Ihnen helfen, häufige Probleme zu beheben, die bei der Verwendung der Office 365-Integrationsfunktionen in Windows Server Essentials auftreten können.  
   
-###  <a name="BKMK_AcctsNotCreated"></a>Einige Microsoft Online Services-Konten wurden nicht erstellt.  
+###  <a name="some-microsoft-online-services-accounts-were-not-created"></a><a name="BKMK_AcctsNotCreated"></a>Einige Microsoft Online Services-Konten wurden nicht erstellt.  
  **Beschreibung**  
   
  Der Versuch, ein oder mehrere Microsoft Online Services-Konten über das Dashboard zu erstellen, war nicht erfolgreich.  
@@ -272,7 +272,7 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
   
 3.  Wenn dieses Problem weiterhin besteht, starten Sie den Server neu, und versuchen Sie, die Onlinekonten erneut zu erstellen.  
   
-###  <a name="BKMK_ProblemUninstalling"></a>Beim Deinstallieren der Integration von Office 365 ist ein Problem aufgetreten.  
+###  <a name="there-was-a-problem-uninstalling-office-365-integration"></a><a name="BKMK_ProblemUninstalling"></a>Beim Deinstallieren der Integration von Office 365 ist ein Problem aufgetreten.  
  **Beschreibung**  
   
  Unbekannter Fehler beim Versuch, die Integration von Office 365 zu deaktivieren.  
@@ -283,7 +283,7 @@ Wenn Sie Ihren Windows Server Essentials-Server in Microsoft Office 365 integrie
   
 2.  Wenn der Fehler erneut auftritt, starten Sie den Server neu, und versuchen Sie es erneut.  
   
-## <a name="see-also"></a>Weitere Informationen:  
+## <a name="see-also"></a>Siehe auch  
   
 -   [Übersicht über die Dienst Integration für Windows Server Essentials-Teil 1](https://blogs.technet.com/b/sbs/archive/2013/11/04/services-integration-overview-for-windows-server-2012-r2-essentials-part-1.aspx)  
   

@@ -11,19 +11,19 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/10/2018
-ms.openlocfilehash: ed2dc8861366b929de346d5bd5b3d40998cc8dd5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 83f94d3770c475fca7f5d4b8cc2f5a5ade1a20d7
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355787"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317463"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Planen einer Software-Defined Networking-Infrastruktur
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Erfahren Sie mehr über die Bereitstellungs Planung für eine Software definierte Netzwerkinfrastruktur, einschließlich der Hardware-und Software Voraussetzungen. 
 
@@ -48,7 +48,7 @@ Jeder physische computehost erfordert Netzwerk Konnektivität über mindestens e
 >[!IMPORTANT]
 >Software-Defined Networking von Windows Server 2016 unterstützt IPv4-Adressierung für die unter-und Überlagerung. IPv6 wird nicht unterstützt.
 
-### <a name="logical-networks"></a>logische Netzwerke
+### <a name="logical-networks"></a>Logische Netzwerke
 
 #### <a name="management-and-hnv-provider"></a>Verwaltungs-und HNV-Anbieter 
 
@@ -60,7 +60,7 @@ Ein DHCP-Server kann automatisch IP-Adressen für das Verwaltungs Netzwerk zuwei
 >Der Netzwerk Controller weist einem physischen computehost eine IP-Adresse für den HNV-Anbieter zu, nachdem der Netzwerk Controller-Host-Agent eine Netzwerk Richtlinie für einen bestimmten virtuellen Mandanten Computer empfangen hat. 
 
 
-|                                                               Situation                                                               |                                                                                                                                                                          Folge                                                                                                                                                                           |
+|                                                               Situation                                                               |                                                                                                                                                                          Auswirkung                                                                                                                                                                           |
 |-----------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                                                  In den logischen Netzwerken werden VLANs verwendet,                                                  |                                                                 der physische computehost muss eine Verbindung mit einem abgeverkürzten Switchport herstellen, der Zugriff auf diese VLANs hat. Beachten Sie, dass für die physischen Netzwerkadapter auf dem Computer Host keine VLAN-Filterung aktiviert werden darf.                                                                 |
 |                Mithilfe von umschtem Embedded-Team Vorgang (Set) und mehreren NIC-Teammitgliedern (z. b. Netzwerkadaptern)                |                                                                                                                        Sie müssen alle NIC-Teammitglieder für diesen bestimmten Host mit derselben Schicht-2-Broadcast Domäne verbinden.                                                                                                                         |
@@ -93,12 +93,12 @@ Es müssen zusätzliche logische Netzwerke erstellt und für die Gateway-und SLB
 
 | **Netzwerkname** |  **Subnetz**  | **Chel** | **VLAN-ID auf LKW** | **Zugang**  |                                                           **Reservierungen (Beispiele)**                                                           |
 |------------------|--------------|----------|----------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-|    Management    | 10.184.108.0 |    24    |          7           | 10.184.108.1 | 10.184.108.1 – Router 10.184.108.4-Network Controller 10.184.108.10-Compute Host 110.184.108.11-Compute Host 210.184.108. X-computehost X |
+|    Verwaltung    | 10.184.108.0 |    24    |          7           | 10.184.108.1 | 10.184.108.1 – Router 10.184.108.4-Network Controller 10.184.108.10-Compute Host 110.184.108.11-Compute Host 210.184.108. X-computehost X |
 |   HNV-Anbieter   |  10.10.56.0  |    23    |          11          |  10.10.56.1  |                                                    10.10.56.1 – Router 10.10.56.2-SLB/MUX1                                                     |
 |     Mitteln      |  "10.10.10.0  |    24    |          10          |  10.10.10.1  |                                                               10.10.10.1 –-Router                                                               |
-|    Öffentliche VIP    |  41.40.40.0  |    27    |          Nicht verfügbar          |  41.40.40.1  |                                    41.40.40.1 – Router 41.40.40.2-SLB/MUX VIP 41.40.40.3-IPSec S2S VPN-VIP                                    |
-|   Private VIP    |  20.20.20.0  |    27    |          Nicht verfügbar          |  20.20.20.1  |                                                        20.20.20.1-default GW (Router)                                                         |
-|     GRE-VIP      |  31.30.30.0  |    24    |          Nicht verfügbar          |  31.30.30.1  |                                                             31.30.30.1-Standard-GW                                                             |
+|    Öffentliche VIP    |  41.40.40.0  |    27    |          N/V          |  41.40.40.1  |                                    41.40.40.1 – Router 41.40.40.2-SLB/MUX VIP 41.40.40.3-IPSec S2S VPN-VIP                                    |
+|   Private VIP    |  20.20.20.0  |    27    |          N/V          |  20.20.20.1  |                                                        20.20.20.1-default GW (Router)                                                         |
+|     GRE-VIP      |  31.30.30.0  |    24    |          N/V          |  31.30.30.1  |                                                             31.30.30.1-Standard-GW                                                             |
 
 ---
 
@@ -121,11 +121,11 @@ Wenn Sie RDMA-basierten Speicher verwenden, definieren Sie ein VLAN und Subnetz 
 
 Wenn Sie die Sdn-Infrastruktur mithilfe von Skripts bereitstellen, müssen die Verwaltungs-, HNV-Anbieter-, Transit-und VIP-Subnetze im physischen Netzwerk Routing fähig sein.     
 
-Routing Informationen \(, z. b.\) der nächste Hop für die VIP-Subnetze, werden von den SLB/MUX-und RAS-Gateways im physischen Netzwerk mithilfe des internen BGP-Peerings angekündigt. Den logischen VIP-Netzwerken ist kein VLAN zugewiesen, und es ist nicht im Layer-2-Switch vorkonfiguriert (z. b. ein Top-of-Rack-Switch).  
+Routing Informationen \(z. b.\) des nächsten Hops für die VIP-Subnetze, werden von den SLB/MUX-und RAS-Gateways im physischen Netzwerk mithilfe des internen BGP-Peerings angekündigt. Den logischen VIP-Netzwerken ist kein VLAN zugewiesen, und es ist nicht im Layer-2-Switch vorkonfiguriert (z. b. ein Top-of-Rack-Switch).  
 
 Sie müssen einen BGP-Peer auf dem Router erstellen, der von ihrer Sdn-Infrastruktur zum Empfangen von Routen für die von den SLB/muxes und RAS-Gateways angekündigten logischen VIP-Netzwerke verwendet wird. BGP-Peering muss nur unidirektional erfolgen (von SLB/MUX oder RAS-Gateway zum externen BGP-Peer).  Oberhalb der ersten Routing Ebene können Sie statische Routen oder ein anderes dynamisches Routing Protokoll wie z. b. OSPF verwenden. wie bereits erwähnt, muss das IP-Subnetzpräfix für die logischen VIP-Netzwerke jedoch vom physischen Netzwerk an den externen BGP-Peer übertragen werden können.   
 
-BGP-Peering wird in der Regel in einem verwalteten Switch oder Router als Teil der Netzwerkinfrastruktur konfiguriert. Der BGP-Peer kann auch auf einem Windows-Server konfiguriert werden, auf dem die RAS-Rolle (Remote Access Server) in einem reinen Routing Modus installiert ist. Dieser BGP-routerpeer in der Netzwerkinfrastruktur muss so konfiguriert sein, dass er über eine eigene ASN verfügt und das Peering von einer ASN zulässt, \(die den SLB/MUX-\)und RAS-Gateways der Sdn-Komponenten zugewiesen ist. Sie müssen die folgenden Informationen von Ihrem physischen Router oder vom Netzwerkadministrator zur Steuerung dieses Routers abrufen:
+BGP-Peering wird in der Regel in einem verwalteten Switch oder Router als Teil der Netzwerkinfrastruktur konfiguriert. Der BGP-Peer kann auch auf einem Windows-Server konfiguriert werden, auf dem die RAS-Rolle (Remote Access Server) in einem reinen Routing Modus installiert ist. Dieser BGP-routerpeer in der Netzwerkinfrastruktur muss so konfiguriert sein, dass er über eine eigene ASN verfügt und das Peering von einer ASN zulässt, die den Sdn-Komponenten \(SLB/MUX-und RAS-Gateways\)zugewiesen ist. Sie müssen die folgenden Informationen von Ihrem physischen Router oder vom Netzwerkadministrator zur Steuerung dieses Routers abrufen:
 
 - Routerasn  
 - IP-Adresse des Routers  
@@ -165,28 +165,28 @@ Switch Embedded Teaming (Set) ist eine Alternative NIC-Team Vorgangs Lösung, di
 
 Weitere Informationen finden Sie unter [Remote Direct Memory Access (RDMA) und Switch Embedded Teaming (Set)](../../../virtualization//hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).   
 
-Um den mehr Aufwand für den Datenverkehr des virtuellen Mandanten Netzwerks zu berücksichtigen, der durch vxlan-oder nvgre-Kapselungs Header verursacht wird, muss die MTU des Layer-2-Fabric-Netzwerks (Switches und Hosts \() größer oder gleich 1674 bytes, einschließlich Layer-2-Ethernet, festgelegt werden. Header\). 
+Um den mehr Aufwand für den Datenverkehr des virtuellen Mandanten Netzwerks zu berücksichtigen, der durch vxlan-oder nvgre-Kapselungs Header verursacht wird, muss die MTU des Layer-2-Fabric-Netzwerks (Switches und Hosts) größer oder gleich 1674 Bytes \(einschließlich Layer-2-Ethernet-Header\)sein. 
 
-NICs, die das neue Schlüsselwort " *encapoverhead* Advanced Adapter" unterstützen, legt die MTU automatisch über den Netzwerk Controller-Host-Agent fest. NICs, die das neue *encapoverhead* -Schlüsselwort nicht unterstützen, müssen die MTU-Größe manuell auf jedem physischen Host mithilfe des Schlüssel Worts "\) *jumbopacket* \(" oder "äquivalente" festlegen. 
+NICs, die das neue Schlüsselwort " *encapoverhead* Advanced Adapter" unterstützen, legt die MTU automatisch über den Netzwerk Controller-Host-Agent fest. NICs, die das neue *encapoverhead-Schlüsselwort* nicht unterstützen, müssen die MTU-Größe auf jedem physischen Host manuell mithilfe des *jumbopacket* -\(oder eines entsprechenden\) Schlüsselworts festlegen. 
 
 
-### <a name="switches"></a>Mikro
+### <a name="switches"></a>Switches
 
 Wenn Sie einen physischen Switch und Router für Ihre Umgebung auswählen, stellen Sie sicher, dass er die folgenden Funktionen unterstützt:  
 
-- Switchport-MTU \(-Einstellungen erforderlich\)  
-- MTU auf > = 1674 Bytes \(einschließlich L2-Ethernet-Header festgelegt\)  
-- L3- \(Protokolle erforderlich\)  
+- Switchport-MTU-Einstellungen \(erforderlich\)  
+- MTU ist auf > = 1674 Bytes \(einschließlich L2-Ethernet-Header festgelegt\)  
+- L3-Protokolle \(erforderlich\)  
 - ECMP  
-- BGP \(IETF RFC 4271\)\--basiertes ECMP
+- BGP \(IETF RFC 4271\)\-basiertes ECMP
 
 Implementierungen sollten die-Anweisungen in den folgenden IETF-Standards unterstützen.
 
 - RFC 2545: "BGP-4-multiprotokollerweiterungen für IPv6-Domänen übergreifendes Routing"  
-- RFC 4760: "MultiProtocol-Erweiterungen für BGP-4"  
+- RFC 4760: "MultiProtocol Extensions for BGP-4"  
 - RFC 4893: "BGP-Unterstützung für vier Oktett als Zahlenbereich"  
-- RFC 4456: "BGP-Routen Reflektion: Eine Alternative zum vollständigen Mesh Internal BGP (IBGP)  
-- RFC 4724: "Ordnungsgemäßer Neustart Mechanismus für BGP"  
+- RFC 4456: "BGP-Routen Reflektion: eine Alternative zum vollständigen Mesh Internal BGP (IBGP)"  
+- RFC 4724: "ordnungsgemäßer Neustart Mechanismus für BGP"  
 
 Die folgenden taggingprotokolle sind erforderlich.
 
@@ -195,9 +195,9 @@ Die folgenden taggingprotokolle sind erforderlich.
 
 Die folgenden Elemente stellen ein Link Steuerelement bereit.
 
-- Quality of Service \(PFC ist nur erforderlich, wenn ROCE verwendet wird.\)
-- Erweiterte Datenverkehrs \(Auswahl 802.1 QAZ\)
-- Prioritäts basierte Fluss \(Steuerung 802.1 p/Q und 802.1 qbb\)
+- Quality of Service \(PFC ist nur erforderlich, wenn ROCE verwendet wird\)
+- Erweiterte Datenverkehrs Auswahl \(802.1 QAZ\)
+- Prioritäts basierte Fluss Steuerungs \(802.1 p/Q und 802.1 qbb\)
 
 Die folgenden Elemente bieten Verfügbarkeit und Redundanz.
 
@@ -209,7 +209,7 @@ Die folgenden Elemente bieten Verwaltungsfunktionen.
 **Chtungs**
 
 - SNMP v1 oder SNMP v2 (erforderlich, wenn Netzwerk Controller für die Überwachung physischer Switches verwendet wird)  
-- SNMP-MIB \(ist erforderlich, wenn Sie den Netzwerk Controller für die Überwachung physischer Switches verwenden.\)  
+- SNMP-MIB \(erforderlich, wenn Sie den Netzwerk Controller für die Überwachung physischer Switches verwenden\)  
 - MIB-II (RFC 1213), LLDP, Interface MIB \(RFC 2863\), if-MIB, IP-MIB, IP-Forward-MIB, Q-Bridge-MIB, Bridge-MIB, lldb-MIB, Entity-MIB, IEEE8023-lag-MIB  
 
 Die folgenden Diagramme zeigen eine Beispiel Einrichtung mit vier Knoten. Aus Gründen der Übersichtlichkeit zeigt das erste Diagramm nur den Netzwerk Controller an, das zweite zeigt den Netzwerk Controller und den Software Lastenausgleich, und das dritte Diagramm zeigt den Netzwerk Controller, den Software Lastenausgleich und das Gateway.  
@@ -231,19 +231,19 @@ Auf allen Hyper-v-Hosts muss Windows Server 2016 installiert sein, Hyper-v aktiv
 Jeder Speichertyp, der mit Hyper-V, Shared oder local kompatibel ist, kann verwendet werden.   
 
 > [!TIP]  
-> Es ist praktisch, wenn Sie für alle virtuellen Switches denselben Namen verwenden, aber dies ist nicht zwingend erforderlich. Wenn Sie die Bereitstellung mit Skripts planen, sehen Sie sich den `vSwitchName` mit der Variablen in der Datei config. psd1 verknüpften Kommentar an.  
+> Es ist praktisch, wenn Sie für alle virtuellen Switches denselben Namen verwenden, aber dies ist nicht zwingend erforderlich. Wenn Sie die Bereitstellung mit Skripts planen, sehen Sie sich den Kommentar an, der der `vSwitchName` Variable in der Datei config. psd1 zugeordnet ist.  
 
 **Hostcomputeanforderungen**  
 In der folgenden Tabelle werden die Mindestanforderungen an die Hardware und Software für die vier physischen Hosts, die in der Beispiel Bereitstellung verwendet werden, angezeigt.  
 
 Host|Hardwareanforderungen|Softwareanforderungen|  
 --------|-------------------------|-------------------------  
-|Physischer Hyper-v-Host|4-Kern-CPU mit 2,66 GHz<br /><br />32 GB RAM<br /><br />300 GB Speicherplatz<br /><br />1 GB/s (oder schneller) physischer Netzwerkadapter|VULKANE Windows Server 2016<br /><br />Hyper-V-Rolle installiert|  
+|Physischer Hyper-v-Host|4-Kern-CPU mit 2,66 GHz<br /><br />32 GB RAM<br /><br />300 GB Speicherplatz<br /><br />1 GB/s (oder schneller) physischer Netzwerkadapter|Betriebssystem: Windows Server 2016<br /><br />Hyper-V-Rolle installiert|  
 
 
 **Rollenanforderungen für virtuelle Computer in der Sdn-Infrastruktur**  
 
-Role-Eigenschaft|vCPU-Anforderungen|Arbeitsspeicheranforderungen|Datenträgeranforderungen|  
+Rolle|vCPU-Anforderungen|Arbeitsspeicheranforderungen|Datenträgeranforderungen|  
 --------|---------------------|-----------------------|---------------------  
 |Netzwerk Controller (drei Knoten)|4 vCPUs|4 GB min. (8 GB empfohlen)|75 GB für das Betriebssystem Laufwerk  
 |SLB/Mux (drei Knoten)|8 vCPUs|8 GB empfohlen|75 GB für das Betriebssystem Laufwerk  
@@ -259,7 +259,7 @@ Die Größenanpassung und Ressourcenanforderungen für Ihre Infrastruktur sind a
 Wenn die virtuellen Computer der Mandanten Arbeitsauslastung zu viele Ressourcen auf den physischen Hyper-V-Hosts belegen, können Sie Ihre Infrastruktur erweitern, indem Sie zusätzliche physische Hosts hinzufügen. Dies kann mit Virtual Machine Manager oder mithilfe von PowerShell-Skripts (abhängig von der anfänglichen Bereitstellung der Infrastruktur) erfolgen, um neue Server Ressourcen über den Netzwerk Controller zu erstellen. Wenn Sie zusätzliche IP-Adressen für das HNV-anbieternetzwerk hinzufügen müssen, können Sie neue logische Subnetze (mit den entsprechenden IP-Pools) erstellen, die die Hosts verwenden können.  
 
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Installations-und Vorbereitungs Anforderungen für die Bereitstellung des Netzwerk Controllers](Installation-and-Preparation-Requirements-for-Deploying-Network-Controller.md)  
 [SDN des &#40;Software-Defined Networking&#41;](../Software-Defined-Networking--SDN-.md)  
 

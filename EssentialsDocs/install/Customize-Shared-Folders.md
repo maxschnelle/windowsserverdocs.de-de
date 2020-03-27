@@ -1,9 +1,9 @@
 ---
 title: Anpassen freigegebener Ordner
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 47bc4986-14eb-4a29-9930-83a25704a3a0
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d8f52cbe76204bb00cb15c3093f69daf3d8abb6e
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 387f9570e87bd2bd65266489b0f3eac6c945e3be
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433536"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311917"
 ---
 # <a name="customize-shared-folders"></a>Anpassen freigegebener Ordner
 
@@ -31,7 +31,7 @@ Standardmäßig werden Serverordner auf der größten Datenpartition auf Datentr
   
    1.  Bewegen Sie Ihre Maus auf dem Server in die obere rechte Ecke des Bildschirms, und klicken Sie auf **Suchen**.  
   
-   2.  Geben Sie im Suchfeld **regedit**ein, und klicken Sie dann auf die Anwendung **Regedit** .  
+   2.  Geben Sie im Suchfeld **regedit** ein, und klicken Sie dann auf die Anwendung **Regedit**.  
   
    3.  Erweitern Sie im Navigationsbereich **HKEY_LOCAL_MACHINE**, **SOFTWARE** und dann **Microsoft**.  
   
@@ -41,19 +41,19 @@ Standardmäßig werden Serverordner auf der größten Datenpartition auf Datentr
   
    6.  Klicken Sie im Navigationsbereich mit der rechten Maustaste auf den neuen Registrierungsschlüssel "Storage", klicken Sie auf **Neu**, und klicken Sie dann auf **DWORD-Wert (32-Bit)** .  
   
-   7.  Geben Sie als Namen der Zeichenfolge **CreateFoldersOnSystem**ein.  
+   7.  Geben Sie als Namen der Zeichenfolge **CreateFoldersOnSystem** ein.  
   
    8.  Klicken Sie mit der rechten Maustaste auf **CreateFoldersOnSystem**, und klicken Sie dann auf **Ändern**. Das Dialogfeld **Zeichenfolge bearbeiten** wird angezeigt.  
   
-   9. Legen Sie den Wert dieses neuen Schlüssels auf **1**fest, und klicken Sie dann auf **OK**.  
+   9. Legen Sie den Wert dieses neuen Schlüssels auf **1** fest, und klicken Sie dann auf **OK**.  
   
-2. Verwenden Sie das Skript "PostIC.cmd", um die Ordner an einen anderen Ort zu verschieben oder um weitere Ordner zu erstellen. Siehe das folgende Beispiel: [Beispiel 1: Erstellen eines benutzerdefinierten Ordners und Verschieben der Standardordner von "postic.cmd" an einen neuen Ort mithilfe von Windows PowerShell](Customize-Shared-Folders.md#BKMK_Example1).  
+2. Verwenden Sie das Skript "PostIC.cmd", um die Ordner an einen anderen Ort zu verschieben oder um weitere Ordner zu erstellen. Siehe das folgende Beispiel: [Beispiel 1: Erstellen eines benutzerdefinierten Ordners und Verschieben der Standardordner von "PostIC.cmd" an einen neuen Ort mithilfe von Windows PowerShell](Customize-Shared-Folders.md#BKMK_Example1).  
   
-3. Verwenden Sie das SDK für Windows Server-Lösungen, um die Ordner an einen anderen Ort zu verschieben oder um weitere Ordner zu erstellen. Siehe das folgende Beispiel: [Beispiel 2: Erstellen eines benutzerdefinierten Ordners und Verschieben eines vorhandenen Ordners mit dem Windows Server Solutions SDK](Customize-Shared-Folders.md#BKMK_Example2).  
+3. Verwenden Sie das SDK für Windows Server-Lösungen, um die Ordner an einen anderen Ort zu verschieben oder um weitere Ordner zu erstellen. Siehe das folgende Beispiel: [Beispiel 2: Erstellen eines benutzerdefinierten Ordners und Verschieben eines vorhandenen Ordners mit dem SDK für Windows Server-Lösungen](Customize-Shared-Folders.md#BKMK_Example2).  
   
    Optional können Partner die Datenordner auf dem Laufwerk "C" belassen. So kann der Endbenutzer oder der Handelspartner das Layout der Datenordner auf den Datenlaufwerken bestimmen.  
   
-###  <a name="BKMK_Example1"></a> Beispiel 1: Erstellen eines benutzerdefinierten Ordners und Verschieben der Standardordner von "PostIC.cmd" an einen neuen Ort mithilfe von Windows PowerShell.  
+###  <a name="example-1-create-a-custom-folder-and-move-the-default-folders-to-a-new-location-from-posticcmd-by-using-windows-powershell"></a><a name="BKMK_Example1"></a>Beispiel 1: Erstellen eines benutzerdefinierten Ordners und Verschieben der Standardordner von "postic. cmd" an einen neuen Speicherort mithilfe von Windows PowerShell  
   
 1.  Erstellen Sie die Datei "PostIC.cmd" zum Ausführen von Aufgaben nach der Erstkonfiguration, wie im Abschnitt [Erstellen der Datei "PostIC.cmd" zum Ausführen von Aufgaben nach der Erstkonfiguration](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) erläutert.  
   
@@ -99,7 +99,7 @@ Standardmäßig werden Serverordner auf der größten Datenpartition auf Datentr
     Set ERRORLEVEL=%error_level%  
     ```  
   
-###  <a name="BKMK_Example2"></a> Beispiel 2: Erstellen eines benutzerdefinierten Ordners und Verschieben eines vorhandenen Ordners mit dem SDK für Windows Server-Lösungen.  
+###  <a name="example-2-create-a-custom-folder-and-move-an-existing-folder-by-using-the-windows-server-solutions-sdk"></a><a name="BKMK_Example2"></a>Beispiel 2: Erstellen eines benutzerdefinierten Ordners und Verschieben eines vorhandenen Ordners mit dem SDK für Windows Server-Lösungen  
  Der von Ihnen erstellte Code kann als ausführbare Datei kompiliert werden und dann von der Datei "PostIC.cmd" oder direkt von einem installierten Add-In aufgerufen werden.  
   
 ```  
@@ -143,8 +143,8 @@ static void Main(string[] args)
 }  
 ```  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
  [Erstellen und Anpassen des Abbilds](Creating-and-Customizing-the-Image.md)   
- [Zusätzliche Anpassungen](Additional-Customizations.md)   
+ [Weitere Anpassungen](Additional-Customizations.md)   
  [Vorbereiten des Abbilds für die Bereitstellung](Preparing-the-Image-for-Deployment.md)   
  [Testen der Benutzerfreundlichkeit](Testing-the-Customer-Experience.md)

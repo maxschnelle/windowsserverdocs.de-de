@@ -1,9 +1,9 @@
 ---
 title: Konfigurieren der Ordnerumleitung auf dem Windows Server Essentials-Zielserver
-description: Beschreibt, wie Windows Server Essentials
+description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: fe77ba67-128c-4fc3-9361-30fa6af42516
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6709aa2a342efd5837cf340b645961499baff6a5
-ms.sourcegitcommit: eaf071249b6eb6b1a758b38579a2d87710abfb54
+ms.openlocfilehash: 44fb54a654689285c5db6d178e6d1c714779b91b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66433009"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310602"
 ---
 # <a name="configure-folder-redirection-on-the-windows-server-essentials-destination-server"></a>Konfigurieren der Ordnerumleitung auf dem Windows Server Essentials-Zielserver
 
@@ -25,7 +25,7 @@ ms.locfileid: "66433009"
 
 Führen Sie diese Aufgabe aus, wenn die Ordnerumleitung auf dem Quellserver aktiviert ist.  
   
- Löschen Sie zuerst die alte Gruppenrichtlinieneinstellung zur Ordnerumleitung. Verwenden Sie dann das Windows Server Essentials-Dashboard zum Aktivieren der ordnerumleitung auf dem Zielserver an.  
+ Löschen Sie zuerst die alte Gruppenrichtlinieneinstellung zur Ordnerumleitung. Verwenden Sie dann das Windows Server Essentials-Dashboard, um die Ordner Umleitung auf dem Ziel Server zu aktivieren.  
   
 ### <a name="to-delete-the-old-folder-redirection-group-policy-setting"></a>Löschen der alten Gruppenrichtlinieneinstellung zur Ordnerumleitung.  
   
@@ -33,7 +33,7 @@ Führen Sie diese Aufgabe aus, wenn die Ordnerumleitung auf dem Quellserver akti
   
 2. Erweitern Sie in **Gruppenrichtlinienverwaltung**den Eintrag **Gesamtstruktur:** <em>IhrNetzwerkDomänenname</em>den Eintrag **Domänen**den Eintrag *IhrNetzwerkDomänenname*und erweitern Sie dann **Gruppenrichtlinienobjekte**.  
   
-3. Klicken Sie mit der rechten Maustaste auf **SBS Gruppenrichtlinien-Ordnerumleitung**und klicken Sie dann auf **Löschen**.  
+3. Klicken Sie mit der rechten Maustaste auf **SBS Gruppenrichtlinien-Ordnerumleitung** und klicken Sie dann auf **Löschen**.  
   
 4. Klicken Sie mit der rechten Maustaste auf **SBS Gruppenrichtlinien-Sicherheitsvorlagen** und klicken Sie dann auf **Löschen**.  
   
@@ -43,7 +43,7 @@ Führen Sie diese Aufgabe aus, wenn die Ordnerumleitung auf dem Quellserver akti
   
 ### <a name="to-enable-folder-redirection-on-the-destination-server"></a>So aktivieren Sie die Ordnerumleitung auf dem Zielserver  
   
-1. Öffnen Sie auf dem Zielserver Windows Server Essentials-Dashboard ein.  
+1. Öffnen Sie auf dem Ziel Server das Windows Server Essentials-Dashboard.  
   
 2. Klicken Sie in der Navigationsleiste auf **Geräte**.  
   

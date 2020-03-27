@@ -10,18 +10,18 @@ ms.technology: networking-ipam
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: de3dc14b-164a-49f1-8a57-b9e788046c23
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: c5249cc61d1f6d4794c73b595781a59af0783f9f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 6ab1450be2ceacb6f650b1be3d01e770c3c8116f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355255"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80312416"
 ---
 # <a name="dns-zone-management"></a>DNS-Zonenverwaltung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Thema enthält Informationen zum Verwalten von DNS-Zonen mithilfe der IPAM-Client Konsole.  
   
@@ -37,7 +37,7 @@ Wenn Sie IPAM in Windows Server 2016 bereitstellen, können Sie IPAM zur Verwalt
   
 In der IPAM-Konsole können Sie DNS-Ressourcen Einträge für eine bestimmte DNS-Zone anzeigen und die Datensätze basierend auf Typ, IP-Adresse, Ressourcen Daten Satz Daten und anderen Filteroptionen filtern. Außerdem können Sie DNS-Ressourcen Einträge für bestimmte Zonen bearbeiten.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Verwalten von IPAM](Manage-IPAM.md)  
   
 

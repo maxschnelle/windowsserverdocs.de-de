@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: 90e544bd-e826-4093-8c3b-6a6fc2dfd1d6
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 364783e2188152fc5c57bba04991ae124b0bb8d2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 278d813aa13ea42b7f597bdbe7eb210f68cee955
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405495"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316304"
 ---
 # <a name="network-policy-server-best-practices"></a>Bewährte Methoden: Netzwerkrichtlinienserver
 
@@ -51,7 +51,7 @@ Weitere Informationen finden Sie unter [Konfigurieren der Netzwerk Richtlinien S
 
 - Zum Bereitstellen von Failover und Redundanz mit SQL Server Protokollierung platzieren Sie zwei Computer, auf denen SQL Server ausgeführt wird, in verschiedenen Subnetzen Mit dem **Assistenten zum Erstellen einer Veröffentlichung** von SQL Server können Sie die Daten Bank Replikation zwischen den beiden Servern einrichten. Weitere Informationen finden Sie unter [SQL Server technische Dokumentation](https://msdn.microsoft.com/library/ms130214.aspx) und [SQL Server-Replikation](https://msdn.microsoft.com/library/ms151198.aspx).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentifizierung
 
 Im folgenden finden Sie die bewährten Methoden für die Authentifizierung.
 

@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.assetid: df2023bf-ba64-481e-b222-6f709edaa5c1
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: be57bc0ce1b509c49f269618765c79f380fd3b12
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: d246f0e56681f75e4336ed225d1557a0e05c581b
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404681"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80308555"
 ---
 # <a name="gre-tunneling-in-windows-server-2016"></a>GRE-Tunneling in Windows Server 2016
 
@@ -64,19 +64,19 @@ Im folgenden finden Sie einige Beispielszenarien:
 
 Im folgenden finden Sie die wichtigsten Szenarien, die der GRE-Tunnel-Feature adressiert.  
   
-### <a name="BKMK_Access"></a>Zugriff von virtuellen Mandanten Netzwerken auf physische Mandanten Netzwerke
+### <a name="access-from-tenant-virtual-networks-to-tenant-physical-networks"></a><a name="BKMK_Access"></a>Zugriff von virtuellen Mandanten Netzwerken auf physische Mandanten Netzwerke
 
 Dieses Szenario ermöglicht eine skalierbare Möglichkeit, den Zugriff von virtuellen Mandanten Netzwerken auf physische Mandanten Netzwerke auf dem lokalen hostingdienstanbieter bereitzustellen. Ein GRE-Tunnelendpunkt wird auf dem mehr Instanzen fähigen Gateway eingerichtet, der andere GRE-Tunnelendpunkt wird auf einem Drittanbieter Gerät im physischen Netzwerk eingerichtet. Layer-3-Datenverkehr wird zwischen den virtuellen Computern im virtuellen Netzwerk und dem Drittanbieter Gerät im physischen Netzwerk weitergeleitet.  
   
 ![GRE-Tunnel mit Verbindung zum physischen Host Netzwerk und zum virtuellen Mandanten Netzwerk](../../media/gre-tunneling-in-windows-server/GRE_.png)  
   
-### <a name="BKMK_Speed"></a>Hoch Geschwindigkeits Konnektivität
+### <a name="high-speed-connectivity"></a><a name="BKMK_Speed"></a>Hoch Geschwindigkeits Konnektivität
 
 Dieses Szenario ermöglicht eine skalierbare Möglichkeit, eine hoch Geschwindigkeits Konnektivität zwischen dem lokalen Netzwerk des Mandanten und dem virtuellen Netzwerk im hostingdienstanbieter-Netzwerk bereitzustellen. Ein Mandant stellt über MPLS (Multiprotocol Label Switching) eine Verbindung mit dem Dienstanbieter Netzwerk her, bei der zwischen dem edgerrouter des hostingdienstanbieters und dem mehr Instanzen fähigen Gateway und dem virtuellen Netzwerk des Mandanten ein GRE-Tunnel eingerichtet wird.  
   
 ![GRE-Tunnel mit Verbindung zwischen Mandanten-MPLS-Netzwerk und virtuellem Mandanten Netzwerk](../../media/gre-tunneling-in-windows-server/GRE-.png)  
   
-### <a name="BKMK_Integration"></a>Integration in VLAN-basierte Isolation
+### <a name="integration-with-vlan-based-isolation"></a><a name="BKMK_Integration"></a>Integration in VLAN-basierte Isolation
 
 In diesem Szenario können Sie die VLAN-basierte Isolation mit der Hyper-V-Netzwerkvirtualisierung integrieren. Ein physisches Netzwerk im hostinganbietenetzwerk enthält ein Lasten Ausgleichs Modul, das die VLAN-basierte Isolation verwendet. Ein mehr Instanzen fähiges Gateway stellt GRE-Tunnel zwischen dem Load Balancer im physischen Netzwerk und dem mehr Instanzen fähigen Gateway im virtuellen Netzwerk her.  
   
@@ -84,7 +84,7 @@ Zwischen Quelle und Ziel können mehrere Tunnel eingerichtet werden, und der GRE
   
 ![Mehrere GRE-Tunnel, die virtuelle Mandanten Netzwerke verbinden](../../media/gre-tunneling-in-windows-server/GRE-VLANIsolation.png)  
   
-### <a name="BKMK_Shared"></a>Zugreifen auf freigegebene Ressourcen
+### <a name="access-shared-resources"></a><a name="BKMK_Shared"></a>Zugreifen auf freigegebene Ressourcen
 
 In diesem Szenario können Sie auf freigegebene Ressourcen in einem physischen Netzwerk zugreifen, das sich im hostinganbietenetzwerk befindet.  
   
@@ -96,7 +96,7 @@ In diesem Szenario kann das Gateway eines einzelnen Mandanten durch Hardware Ger
   
 ![Ein Gateway mit einem Mandanten, das mehrere Tunnel zum Verbinden mehrerer virtueller Netzwerke verwendet](../../media/gre-tunneling-in-windows-server/GRE-SharedResource.png)  
   
-### <a name="BKMK_thirdparty"></a>Dienste von Drittanbieter Geräten für Mandanten
+### <a name="services-of-third-party-devices-to-tenants"></a><a name="BKMK_thirdparty"></a>Dienste von Drittanbieter Geräten für Mandanten
 
 Dieses Szenario kann verwendet werden, um Drittanbieter Geräte (z. b. Hardware-Lasten Ausgleichs Module) in den Daten Verkehrsfluss des virtuellen Mandanten Netzwerks zu integrieren. Beispielsweise wird der Datenverkehr von einem Unternehmens Standort über einen S2S-Tunnel an das mehr Instanzen fähige Gateway weitergeleitet. Der Datenverkehr wird über einen GRE-Tunnel an den Load Balancer weitergeleitet. Der Load Balancer leitet Datenverkehr an mehrere virtuelle Computer im virtuellen Netzwerk des Unternehmens weiter. Dasselbe geschieht für einen anderen Mandanten mit potenziell überlappenden IP-Adressen in den virtuellen Netzwerken. Der Netzwerk Datenverkehr wird mithilfe von VLANs auf dem Load Balancer isoliert und gilt für alle Layer 3-Geräte, von denen VLANs unterstützt werden.  
   

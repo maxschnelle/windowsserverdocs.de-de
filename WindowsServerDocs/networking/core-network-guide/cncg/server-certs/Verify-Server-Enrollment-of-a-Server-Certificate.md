@@ -6,18 +6,18 @@ ms.topic: article
 ms.assetid: bd80a018-5a30-47c3-89fc-aacb9f5ad298
 ms.prod: windows-server
 ms.technology: networking
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 5f87db78d6f07d11c36193b1a56cf66bd44e7160
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: b55988d9e5d4832acf6c74039815c9e8c9a8a6ca
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356101"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318136"
 ---
 # <a name="verify-server-enrollment-of-a-server-certificate"></a>Überprüfen der Serverregistrierung eines Serverzertifikats
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Mit diesem Verfahren können Sie überprüfen, ob die NPS-Server (Network Policy Server) ein Server Zertifikat von der Zertifizierungsstelle (Certification Authority, ca) registriert haben.   
   
@@ -34,7 +34,7 @@ Um sicherzustellen, dass ein Serverzertifikat ordnungsgemäß konfiguriert und b
   
 1.  Klicken Sie in Server-Manager **auf Extras, und**klicken Sie dann auf **Netzwerk Richtlinien Server**. Der Netzwerk Richtlinien Server Microsoft Management Console (MMC) wird geöffnet.  
   
-2.  Doppelklicken Sie auf **Richtlinien**, klicken Sie mit der rechten Maustaste auf **Netzwerk Richtlinien**und dann auf **neu**. Der Assistent für neue Netzwerk Richtlinien wird geöffnet.  
+2.  Doppelklicken Sie auf **Richtlinien**, klicken Sie mit der rechten Maustaste auf **Netzwerk Richtlinien**und dann auf **neu**. Der Assistent für neue Netzwerkrichtlinien wird geöffnet.  
   
 3.  Geben Sie unter **Netzwerk Richtlinien Name und Verbindungstyp angeben**in **Richtlinien Name die Bezeichnung** **Test Richtlinie**ein. Stellen Sie sicher, dass **für den Typ des Netzwerk Zugriffs Servers** der Wert **nicht angegeben**ist, und klicken Sie dann auf **weiter**.  
   
@@ -44,7 +44,7 @@ Um sicherzustellen, dass ein Serverzertifikat ordnungsgemäß konfiguriert und b
   
 6.  Stellen Sie unter **Zugriffsberechtigung angeben**sicher, dass der **Zugriff gewährt** ausgewählt ist, und klicken Sie dann auf **weiter**.  
   
-7.  Klicken Sie unter **Authentifizierungsmethoden konfigurieren**auf **Hinzufügen**. Klicken Sie in **EAP hinzufügen**auf **Microsoft: Geschütztes EAP (PEAP)** , und klicken Sie dann auf **OK**. Wählen Sie in **EAP-Typen** **Microsoft: Geschütztes EAP (PEAP)** , und klicken Sie dann auf **Bearbeiten**. Das Dialogfeld **geschützte EAP-Eigenschaften bearbeiten** wird geöffnet.  
+7.  Klicken Sie unter **Authentifizierungsmethoden konfigurieren**auf **Hinzufügen**. Klicken Sie in **EAP hinzufügen**auf **Microsoft: geschütztes EAP (PEAP)** , und klicken Sie dann auf **OK**. Wählen Sie unter **EAP-Typen**die Option **Microsoft: geschütztes EAP (PEAP)** aus, und klicken Sie dann auf **Bearbeiten**. Das Dialogfeld **geschützte EAP-Eigenschaften bearbeiten** wird geöffnet.  
   
 8.  Im Dialogfeld **geschützte EAP-Eigenschaften bearbeiten** wird in **Zertifikat ausgestellt für**NPS der Name des Serverzertifikats im Format *Computername*angezeigt. *Domäne*: Wenn Ihr NPS beispielsweise NPS-01 heißt und Ihre Domäne example.com ist, zeigt NPS das Zertifikat **NPS-01.example.com**an. Außerdem wird der Name Ihrer Zertifizierungsstelle im **Aussteller**angezeigt, und im **Ablaufdatum**wird das Ablaufdatum des Serverzertifikats angezeigt. Dies zeigt, dass Ihr NPS ein gültiges Serverzertifikat registriert hat, mit dem die Identität für Client Computer nachgewiesen werden kann, die über Ihre Netzwerk Zugriffs Server auf das Netzwerk zugreifen möchten, z. b. VPN-Server (virtuelles privates Netzwerk), 802.1 x-fähig. drahtlos Zugriffspunkte, Remotedesktop Gateway-Server und 802.1 x-fähige Ethernet-Switches.  
   

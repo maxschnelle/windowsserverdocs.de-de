@@ -4,16 +4,16 @@ description: Kurze Beschreibung des Themas für Suchmaschinenergebnisse
 author: jasongerend
 ms.author: jgerend
 manager: elizapo
-ms.date: 02/13/2019
+ms.date: 03/25/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: 20aa5fbc40efc5a3a439361dadfac0f47f4b41d8
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: cb1ac2fc1c7d4ed0a7f57bbe95cb9989bc85e99e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822623"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310559"
 ---
 # <a name="use-storage-migration-service-to-migrate-a-server"></a>Verwenden von Storage Migration Service zum Migrieren eines Servers
 
@@ -32,8 +32,8 @@ Bevor Sie beginnen, installieren Sie den Speicher Migrationsdienst, und stellen 
 6. Stellen Sie auf allen Quell Servern und auf allen Ziel Servern, auf denen Windows Server 2012 R2 oder Windows Server 2016 ausgeführt wird, im Windows Admin Center eine Verbindung mit jedem Server her, und navigieren Sie zu **Server-Manager** (in Windows Admin Center **) >** Firewall > **Eingehende Regeln**, und überprüfen Sie dann, ob die folgenden Regeln aktiviert sind:
     - Datei- und Druckerfreigabe (SMB eingehend)
     - Anmeldedienst (NP-in)
-    - Windows-Verwaltungsinstrumentation (DCOM-in)
-    - Windows-Verwaltungsinstrumentation (WMI-In)
+    - Windows Management Instrumentation (DCOM-In)
+    - Windows Management Instrumentation (WMI-In)
 
    Wenn Sie Firewalls von Drittanbietern verwenden, sind die zu öffnenden eingehenden Port Bereiche TCP/445 (SMB), TCP/135 (RPC/DCOM Endpoint Mapper) und TCP 1025-65535 (kurzlebige RPC/DCOM-Ports). Die Ports für den Speicher Migrationsdienst sind TCP/28940 (Orchestrator) und TCP/28941 (Proxy).
 
@@ -60,12 +60,15 @@ In diesem Schritt übertragen Sie die Daten, nachdem Sie angegeben haben, wo Sie
 1. Geben Sie auf der Seite **Datenübertragung** > **Anmelde Informationen eingeben** die Administrator Anmelde Informationen ein, die auf den Ziel Servern funktionieren, zu denen Sie migrieren möchten, und klicken Sie dann auf **weiter**.
 2. Auf der Seite **Zielgerät und Zuordnungen hinzufügen** wird der erste Quell Server aufgeführt. Geben Sie den Namen des Servers oder des gruppierten Dateiservers ein, zu dem Sie migrieren möchten, und wählen Sie dann **Gerät scannen**aus. Wenn Sie von einem in die Domäne eingebundenen Quellcomputer migrieren, muss der Zielserver der gleichen Domäne beitreten. Sie können auch auf "neuen virtuellen Azure-Computer erstellen" klicken und dann mit dem Assistenten einen neuen Zielserver in Azure bereitstellen. Dadurch wird automatisch die Größe Ihres virtuellen Computers, die Bereitstellung von Speicher, das Formatieren von Datenträgern, das beitreten zur Domäne und das Hinzufügen des Speicher Migrationsdienst-Proxy zu einem Windows Server 2019 Sie können zwischen virtuellen Computern unter Windows Server 2019 (empfohlen), Windows Server 2016 und Windows Server 2012 R2 jeder Größe auswählen und Managed Disks verwenden.   
 
- > [!NOTE]
-   > Wenn Sie "neuen virtuellen Azure-Computer erstellen" verwenden, benötigen Sie Folgendes:
-   > - Ein gültiges Azure-Abonnement.
-   > - Eine vorhandene Azure Compute-Ressourcengruppe, für die Sie über die Berechtigung erstellen verfügen.
-   > - Eine vorhandene Azure-Virtual Network und ein Subnetz. 
-   > - Eine Azure Express Route-oder VPN-Lösung, die an die Virtual Network und das Subnetz gebunden ist, die die Konnektivität von dieser Azure-IaaS-VM mit Ihren lokalen Clients, Domänen Controllern, dem Computer mit dem Speicher Migrationsdienst Orchestrator, dem Computer mit dem Windows Admin Center, und den Quellcomputer, der migriert werden soll.
+    > [!NOTE]
+    > Wenn Sie "neuen virtuellen Azure-Computer erstellen" verwenden, benötigen Sie Folgendes:
+    > - Ein gültiges Azure-Abonnement.
+    > - Eine vorhandene Azure Compute-Ressourcengruppe, für die Sie über die Berechtigung erstellen verfügen.
+    > - Eine vorhandene Azure-Virtual Network und ein Subnetz. 
+    > - Eine Azure Express Route-oder VPN-Lösung, die an die Virtual Network und das Subnetz gebunden ist, die die Konnektivität von dieser Azure-IaaS-VM mit Ihren lokalen Clients, Domänen Controllern, dem Computer mit dem Speicher Migrationsdienst Orchestrator, dem Computer mit dem Windows Admin Center, und den Quellcomputer, der migriert werden soll.
+   
+    Im folgenden Video wird gezeigt, wie Sie mithilfe von Storage Migration Service zu Azure-VMS migrieren.
+    > [!VIDEO https://www.youtube-nocookie.com/embed/k8Z9LuVL0xQ] 
 
 3. Ordnen Sie die Quellvolumes den Zielvolumes zu, deaktivieren Sie das Kontrollkästchen **einschließen** für alle Freigaben, die Sie nicht übertragen möchten (einschließlich administrativer Freigaben im Windows-Systemordner), und klicken Sie dann auf **weiter**.
    ![Screenshot, der einen Quell Server und seine Volumes und Freigaben anzeigt und an die er auf dem Ziel](media/migrate/transfer.png) übertragen wird, **Abbildung 3: ein Quell Server, an den der Speicher übertragen wird**
@@ -111,7 +114,7 @@ In diesem Schritt können Sie die Quell Server auf die Zielserver übertragen un
 7. Wählen **Sie überprüfen** auf der Seite **Quell-und Zielgerät** überprüfen aus, und klicken Sie dann auf **weiter**.
 8. Wenn Sie bereit sind, den Umschalter auszuführen, wählen Sie die Option **Start**Seite aus. <br>Benutzer und Apps können Unterbrechungen auftreten, während die Adressen und Namen verschoben werden und die Server mehrmals neu gestartet werden, aber andernfalls von der Migration nicht betroffen sind. Wie lange es dauert, hängt von der Art und Weise ab, wie schnell der Server neu gestartet wird, sowie von Active Directory und DNS-Replikations Zeiten.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 - [Übersicht über den Speicher Migrationsdienst](overview.md)
 - [Häufig gestellte Fragen (FAQ) zu Storage Migration Services](faq.md)

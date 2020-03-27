@@ -3,7 +3,7 @@ title: Verwalten von Geräten in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: f5fe1088-ebe7-4799-a47d-075b0048dea1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 48eb7009215e484fb00e704c7b328340240321d2
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: cd43826579bff16e4bdf50bba956f19a39fec5e6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322322"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80311317"
 ---
 # <a name="manage-devices-in-windows-server-essentials"></a>Verwalten von Geräten in Windows Server Essentials
 
@@ -37,7 +37,7 @@ ms.locfileid: "79322322"
   
 -   [Anzeigen von Computer Eigenschaften](Manage-Devices-in-Windows-Server-Essentials.md#BKMK_8)  
   
-##  <a name="BKMK_1"></a>Verwalten von Geräten mithilfe des Dashboards  
+##  <a name="manage-devices-by-using-the-dashboard"></a><a name="BKMK_1"></a>Verwalten von Geräten mithilfe des Dashboards  
  Windows Server Essentials ermöglicht es, die allgemeinen administrativen Aufgaben mithilfe des Windows Server Essentials-Dashboard auszuführen. Die Seite **Geräte** des Dashboards enthält Folgendes:  
   
 -   Liste der Netzwerkcomputer mit folgenden Angaben:  
@@ -89,7 +89,7 @@ ms.locfileid: "79322322"
 |Wie werden Computer mit dem Server verbunden?|Öffnet ein Hilfethema, das die Schritte zum Hinzufügen eines Computers zum Netzwerk beschreibt.|  
 |Gruppenrichtlinie implementieren|Wendet Richtlinieneinstellungen auf Windows 8- und Windows 7-Computer an, die der Domäne beigetreten sind.|  
   
-##  <a name="BKMK_2"></a>Zuweisen von Benutzerkonten Berechtigung zum Anmelden bei bestimmten Netzwerkcomputern  
+##  <a name="assign-user-accounts-permission-to-log-on-to-specific-network-computers"></a><a name="BKMK_2"></a>Zuweisen von Benutzerkonten Berechtigung zum Anmelden bei bestimmten Netzwerkcomputern  
  Sie können Benutzerkonten Berechtigungen zuweisen, sodass Benutzer sich nur auf bestimmten Netzwerkcomputern anmelden können, wenn von einem Remotestandort aus auf das Windows Server Essentials-Netzwerk zugegriffen wird.  
   
 #### <a name="to-change-the-computer-access-for-a-user-account"></a>So ändern Sie den Computerzugriff für ein Benutzerkonto  
@@ -104,7 +104,7 @@ ms.locfileid: "79322322"
   
 5.  Wählen Sie auf der Registerkarte **Computerzugriff** den Computer aus, auf den dieser Benutzer remote zugreifen kann, und klicken Sie dann auf **OK**.  
   
-##  <a name="BKMK_3"></a>Entfernen eines Computers vom Server  
+##  <a name="remove-a-computer-from-the-server"></a><a name="BKMK_3"></a>Entfernen eines Computers vom Server  
  Wenn Sie einen Computer von einem Server, auf dem Windows Server Essentials ausgeführt wird, mithilfe des Dashboards entfernen, wird er nicht mehr vom Server verwaltet. Daher wird der Server das Erstellen von Computersicherungen oder die Überwachung seines Zustands nach dem Entfernen aus dem Netzwerk beenden.  
   
 > [!NOTE]
@@ -118,7 +118,7 @@ ms.locfileid: "79322322"
   
 3.  Rechtsklicken Sie in der Liste der Computer auf den Computer, den Sie aus dem Netzwerk entfernen möchten, und klicken Sie dann auf **Computer entfernen**.  
   
-##  <a name="BKMK_5"></a>Konfigurieren von Gruppenrichtlinie Einstellungen für die Ordner Umleitung und-Sicherheit  
+##  <a name="configure-group-policy-settings-for-folder-redirection-and-security"></a><a name="BKMK_5"></a>Konfigurieren von Gruppenrichtlinie Einstellungen für die Ordner Umleitung und-Sicherheit  
  Sie können eine Gruppenrichtlinie konfigurieren und mithilfe von Windows Server Essentials-Dashboard auf Computern im Windows Server Essentials-Netzwerk bereitstellen. Gruppenrichtlinien in Windows Server Essentials enthalten Einstellungen für Ordnerumleitung und Sicherheit, die Auswirkungen auf Windows Update, Windows Defender und die Netzwerkfirewall haben.  
   
 #### <a name="to-configure-group-policy-in-windows-server-essentials"></a>So konfigurieren Sie Gruppenrichtlinien in Windows Server Essentials  
@@ -139,7 +139,7 @@ ms.locfileid: "79322322"
   
 7.  Klicken Sie auf **Fertig stellen**, um die Gruppenrichtlinieneinstellungen zu implementieren.  
   
-##  <a name="BKMK_7"></a>Herstellen einer Verbindung mit einem Netzwerk Computer mithilfe einer Remotedesktop Sitzung  
+##  <a name="connect-to-a-network-computer-by-using-a-remote-desktop-session"></a><a name="BKMK_7"></a>Herstellen einer Verbindung mit einem Netzwerk Computer mithilfe einer Remotedesktop Sitzung  
  Wenn Sie den Remote Zugriff auf Ihren Windows Server Essentials-Netzwerk Computer durchführen möchten, melden Sie sich mit Ihrem Webbrowser bei der Remote Webzugriff-Website Ihres Unternehmens an, und klicken Sie auf der Registerkarte **Computer** auf den Namen des Computers.  
   
  Die Spalte **Status** zeigt an, ob Sie eine Verbindung zu einem Computer in Ihrem Netzwerk herstellen können, und kann die folgenden Werte enthalten:  
@@ -160,7 +160,7 @@ ms.locfileid: "79322322"
   
      Die Computerverbindung wird entweder durch eine Firewall blockiert, oder der Remotedesktop ist auf dem Computer oder durch eine Gruppenrichtlinie deaktiviert. Es kann bis zu sechs Stunden dauern, bis der Status auf dem Server aktualisiert wird, wenn eine Änderung durchgeführt wird.  
   
-##  <a name="BKMK_8"></a>Anzeigen von Computer Eigenschaften  
+##  <a name="view-computer-properties"></a><a name="BKMK_8"></a>Anzeigen von Computer Eigenschaften  
  Der Abschnitt **Geräte** des Windows Server Essentials-Dashboards zeigt eine Liste mit Netzwerkcomputern an. Die Liste enthält auch zusätzliche Informationen zu jedem Computer.  
   
 #### <a name="to-view-a-list-of-computers"></a>So zeigen Sie eine Liste von Computern an  

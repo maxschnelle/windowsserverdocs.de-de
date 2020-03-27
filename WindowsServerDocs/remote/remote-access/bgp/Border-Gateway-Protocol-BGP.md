@@ -10,14 +10,14 @@ ms.technology: networking-ras
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 78cc2ce3-a48e-45db-b402-e480b493fab1
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: ae6fddce1564e44ad72a5630c6abb16cdb6735d1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 3e04c732cbacb182731717215a4cf99cf3cc1f76
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71388981"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309292"
 ---
 # <a name="border-gateway-protocol-bgp"></a>Border Gateway Protocol (BGP)
 
@@ -30,7 +30,7 @@ In diesem Thema erhalten Sie Informationen zum Verständnis des Border Gateway P
 >   
 > -   [BGP-Befehlsreferenz für Windows PowerShell](../../remote-access/bgp/BGP-Windows-PowerShell-Command-Reference.md)  
   
-Dieses Thema enthält die folgenden Abschnitte:  
+Dieses Thema enthält folgende Abschnitte:  
   
 -   [BGP-Unterstützte Bereitstellungstopologien](#bkmk_top)  
   
@@ -61,7 +61,7 @@ Enable-RemoteAccessRoutingDomain -Name $Contoso_RoutingDomain -Type All -PassThr
 Enable-RemoteAccessRoutingDomain -Name $Fabrikam_RoutingDomain -Type All -PassThru  
 ```  
   
-## <a name="bkmk_top"></a>BGP-Unterstützte Bereitstellungstopologien  
+## <a name="bgp-supported-deployment-topologies"></a><a name="bkmk_top"></a>BGP-Unterstützte Bereitstellungstopologien  
 Im Folgenden sind die unterstützten Bereitstellungstopologien aufgeführt, bei denen Unternehmensstandorte mit einem Cloud Service Provider (CSP)-Datencenter verbunden sind.  
   
 In allen Szenarien ist das CSP-Gateway ein Windows Server 2016-RAS-Gateway am Rand. Das RAS-Gateway, das mehrere Verbindungen von mehreren Mandanten verarbeiten kann, besteht aus einem Hyper-V-Host und einem virtuellen Computer, der tatsächlich als Gateway konfiguriert ist. Dieses Edgegateway wird als mehrinstanzenfähiger BGP-Router für den Austausch von Unternehmens- und CSP-Subnetzrouten mit Standort-zu-Standort-VPN-Verbindungen konfiguriert.  
@@ -80,7 +80,7 @@ Die folgenden Bereitstellungstopologien werden unterstützt.
   
 Die folgenden Abschnitte enthalten weitere Informationen über die einzelnen unterstützten BGP-Topologien.  
   
-### <a name="bkmk_top1"></a>RAS-VPN-Standort-zu-Standort-Gateway mit BGP am Unternehmens Standort Edge  
+### <a name="ras-vpn-site-to-site-gateway-with-bgp-at-enterprise-site-edge"></a><a name="bkmk_top1"></a>RAS-VPN-Standort-zu-Standort-Gateway mit BGP am Unternehmens Standort Edge  
 Diese Topologie stellt einen mit einem CSP verbundene Unternehmensstandort dar. Die Unternehmens Routing Topologie enthält einen internen Router, ein Windows Server 2016-RAS-Gateway, das für VPN-Standort-zu-Standort-Verbindungen mit dem CSP konfiguriert ist, und ein edgefirewallgerät. Das RAS-Gateway beendet die S2S-VPN-und BGP-Verbindungen.  
   
 ![RAS-VPN-Standort-zu-Standort-Gateway](../../media/Border-Gateway-Protocol-BGP/bgp_01.jpg)  
@@ -97,7 +97,7 @@ In diesem Szenario funktioniert BGP auf folgende Weise.
   
     -   Das Edgegerät kann mit statischen Routen oder Schnittstellen zur Auswahl von Routen für die Ankündigung mithilfe von BGP konfiguriert werden. Das Edgegerät verteilt die externen Routen mit einem IGP auch an andere lokale Router.  
   
-### <a name="bkmk_top2"></a>Drittanbieter Gateway mit BGP am Unternehmens Standort Edge  
+### <a name="third-party-gateway-with-bgp-at-enterprise-site-edge"></a><a name="bkmk_top2"></a>Drittanbieter Gateway mit BGP am Unternehmens Standort Edge  
 Diese Topologie stellt einen Unternehmensstandort dar, der mit einem Edgerouter eines Drittanbieters eine Verbindung mit einem CSP herstellt. Der Edgerouter dient auch als Standort-zu-Standort-VPN-Gateway.  
   
 ![Drittanbietergateway mit BGP an der Unternehmensstandortedge](../../media/Border-Gateway-Protocol-BGP/bgp_02.jpg)  
@@ -108,7 +108,7 @@ Der Unternehmensedgerouter lernt lokale interne Routen mit einem der folgenden M
   
 -   Das Edgegerät implementiert ein internes Gatewayprotokoll (IGP) und ist direkt am internen Routing beteiligt.  
   
-### <a name="bkmk_top3"></a>Mehrere Unternehmensstandorte mit Verbindung zum CSP-clouddatencenter  
+### <a name="multiple-enterprise-sites-connecting-to-csp-cloud-datacenter"></a><a name="bkmk_top3"></a>Mehrere Unternehmensstandorte mit Verbindung zum CSP-clouddatencenter  
 Diese Topologie stellt mehrere Unternehmensstandorte dar, die mit einem Edgerouter eines Drittanbieters eine Verbindung mit einem CSP herstellen. Die Edgegeräte der Drittanbieter dienen als Standort-zu-Standort-VPN-Gateways und BGP-Router.  
   
 ![Mehrere Unternehmensstandorte mit Verbindung zum CSP-clouddatencenter](../../media/Border-Gateway-Protocol-BGP/bgp_03.jpg)  
@@ -125,7 +125,7 @@ Jeder Unternehmensstandort lernt die gehosteten Netzwerkrouten direkt und über 
   
 Wenn der BGP-Router an Enterprise Site 1 keine Verbindung mit dem BGP-Router des Enterprise-Standorts 2 herstellen kann, weil die Konnektivität fehlgeschlagen ist, beginnt der BGP-Router von Standort 1 dynamisch, die Routen an das Netzwerk des Unternehmens Standorts 2 vom CSP-BGP-Router zu erlernen. die Umleitung von Standort 1 an Standort 2 über den Windows Server BGP-Router beim CSP.  
   
-### <a name="bkmk_top4"></a>Separate Beendigungs Punkte für BGP und VPN  
+### <a name="separate-termination-points-for-bgp-and-vpn"></a><a name="bkmk_top4"></a>Separate Beendigungs Punkte für BGP und VPN  
 Diese Topologie stellt ein Unternehmen dar, das zwei verschiedene Router als BGP- und Standort-zu-Standort-VPN-Endpunkte verwendet. Die Site-to-Site-VPN-Verbindung wird auf dem Windows Server 2016-RAS-Gateway beendet, während BGP auf einem internen Router beendet wird. Auf der CSP-Seite der Verbindungen beendet der CSP sowohl VPN-als auch BGP-Verbindungen mit dem RAS-Gateway. Bei dieser Konfiguration muss die interne Drittanbieter-Routerhardware die Umverteilung von IGP-Routen an BGP sowie von BGP-Routen an IGP unterstützen.  
   
 ![Separate Endpunkte für BGP und VPN](../../media/Border-Gateway-Protocol-BGP/bgp_04.jpg)  
@@ -144,7 +144,7 @@ Bei dieser Bereitstellung verfügt das Enterprise RAS-Gateway über eine Standor
   
 Ab diesem Zeitpunkt tauschen der interne Unternehmens Router und das CSP-RAS-Gateway Routing Informationen aus. Und der Enterprise RAS-BGP-Router lernt die CSP-Routen und Unternehmens Routen, um Pakete physisch zwischen den Netzwerken weiterzuleiten.  
   
-## <a name="bkmk_features"></a>BGP-Funktionen  
+## <a name="bgp-features"></a><a name="bkmk_features"></a>BGP-Funktionen  
 Im folgenden finden Sie die Features des RAS-Gateway-BGP-Routers.  
   
 **BGP-Routing als Rollen Dienst des Remote Zugriffs**. Sie können jetzt den **Routing** Rollen Dienst der Remote Zugriffs-Server Rolle installieren, ohne den RAS-Rollen Dienst **(Remote Access Service** ) zu installieren, wenn Sie den Remote Zugriff als BGP-LAN-Router verwenden möchten.  Dadurch wird der Speicherbedarf des BGP-Routers reduziert, und nur die für das dynamische BGP-Routing erforderlichen Komponenten werden installiert. Der Routing Rollen Dienst ist nützlich, wenn nur eine BGP-Router-VM erforderlich ist und Sie DirectAccess oder VPN nicht verwenden müssen. Außerdem bietet die Verwendung des Remote Zugriffs als LAN-Router mit BGP die dynamischen Routing Vorteile von BGP in Ihrem internen Netzwerk.  

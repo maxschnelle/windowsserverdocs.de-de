@@ -3,7 +3,7 @@ title: 'Schritt 1: Vorbereiten des Quellservers für die Migration nach Windows
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.custom: na
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.assetid: 244c8a06-04c6-4863-8b52-974786455373
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f95ebfec13c2ec1f374c60f48d5f8af6c4b22324
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: cb0cffdda0e0f1528887d3c94a1905a99c5c55c3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947393"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318785"
 ---
 # <a name="step-1-prepare-your-source-server-for-windows-server-essentials-migration"></a>Schritt 1: Vorbereiten des Quellservers für die Migration nach Windows Server Essentials
 
@@ -38,7 +38,7 @@ In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systeminte
 
 5.  [Erstellen eines Plans für die Migration von Branchen Anwendungen](Step-1--Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md#BKMK_MigrateLOB)  
 
-###  <a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a>Sichern des Quell Servers  
+###  <a name="back-up-your-source-server"></a><a name="BKMK_BackUpYourSourceServerToPrepareForMigration"></a>Sichern des Quell Servers  
  Sichern Sie den Quellserver, bevor Sie mit dem Migrationsprozess beginnen. Durch diese Sicherung schützen Sie sich vor Datenverlusten, wenn während der Migration ein nicht behebbarer Fehler auftritt.  
 
 ##### <a name="to-back-up-the-source-server"></a>So sichern Sie den Zielserver  
@@ -47,19 +47,19 @@ In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systeminte
 
 2. Überprüfen Sie, ob die Sicherung erfolgreich ausgeführt wurde. Zum Prüfen der Integrität der Sicherung wählen Sie beliebige Dateien der Sicherung aus und stellen diese an einem anderen Speicherort wieder her. Überprüfen Sie dann, ob die wiederhergestellten Dateien mit den Originaldateien identisch sind.  
 
-   |Produkt|Ressource|
+   |Product|Ressource|
    |---|---|
    |Windows Small Business Server 2003|[Sichern und Wiederherstellen von Windows Small Business Server 2003](https://msdn.microsoft.com/library/cc875809.aspx) 
    |Windows Small Business Server 2008|[Sichern und Wiederherstellen von Daten in Windows Small Business Server 2008](https://technet.microsoft.com/library/cc527505\(WS.10\).aspx)
-   |Windows Server 2008 Foundation|[Sicherung und Wiederherstellung:](https://technet.microsoft.com/library/cc754097\(WS.10\).aspx)  
+   |Windows Server 2008 Foundation|[Sicherung und Wiederherstellung](https://technet.microsoft.com/library/cc754097\(WS.10\).aspx)  
    |Windows Small Business Server 2011 Essentials|[Weitere Informationen zum Einrichten der Server Sicherung](https://technet.microsoft.com/library/server-backup-support-1.aspx)
    |Windows Small Business Server 2011 Standard|[Verwalten der Server Sicherung](https://technet.microsoft.com/library/cc527488.aspx)  
    |Windows Server Essentials|[Verwalten der Sicherung und Wiederherstellung in Windows Server Essentials](https://technet.microsoft.com/library/jj713536.aspx)
 
-###  <a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a>Installieren der aktuellsten Service Packs  
+###  <a name="install-the-most-recent-service-packs"></a><a name="BKMK_InstallTheMostRecentServicePacksToPrepareForMigration"></a>Installieren der aktuellsten Service Packs  
  Sie müssen vor der Migration die neuesten Updates und Service Packs auf dem Quellserver installieren.  
 
-###  <a name="BKMK_DeleteSvcAcctSetting"></a>Einstellung "Anmelden als Dienst Konto" Löschen  
+###  <a name="delete-the-log-on-as-a-service-account-setting"></a><a name="BKMK_DeleteSvcAcctSetting"></a>Einstellung "Anmelden als Dienst Konto" Löschen  
  Wenn Sie von Windows Small Business Server 2003 oder Windows Server 2003 migrieren, löschen Sie die Kontoeinstellung **Anmelden als Dienst** aus der Gruppenrichtlinie.  
 
 ##### <a name="to-delete-the-log-on-as-a-service-account-setting"></a>So löschen Sie die Einstellung "Anmelden als Dienst Konto"  
@@ -72,11 +72,11 @@ In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systeminte
 
 4.  Doppelklicken Sie im Detailbereich auf **Anmelden als Dienst**.  
 
-5.  Deaktivieren Sie das Kontrollkästchen **Diese Richtlinieneinstellungen definieren** .  
+5.  Deaktivieren Sie das Kontrollkästchen **Diese Richtlinieneinstellungen definieren**.  
 
 6.  Löschen Sie \\\localhost\sysvol\\< Domain Name\>\script\ SBS_LOGIN_SCRIPT. bat.  
 
-###  <a name="BKMK_EvaluateHealth"></a>Auswerten der Integrität des Quell Servers  
+###  <a name="evaluate-the-health-of-the-source-server"></a><a name="BKMK_EvaluateHealth"></a>Auswerten der Integrität des Quell Servers  
  Es ist wichtig, dass Sie die Integrität des Quellservers auswerten, bevor Sie mit der Migration beginnen. Verwenden Sie die folgenden Verfahren, um sicherzustellen, dass die Updates aktuell sind, um einen Systemintegritätsbericht zu generieren und das Windows Server Solutions Best Practice Analyzer (BPA) auszuführen.  
 
 #### <a name="download-and-install-critical-and-security-updates"></a>Laden Sie kritische und Sicherheits-Updates herunter und installieren sie sie.  
@@ -84,7 +84,7 @@ In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systeminte
 
 ###### <a name="to-check-for-the-latest-updates"></a>So überprüfen Sie die neuesten Updates  
 
-1.  Klicken Sie auf dem Quellserver auf **Start**, klicken Sie auf **Programme**und klicken Sie dann auf **Windows Update**.  
+1.  Klicken Sie auf dem Quellserver auf **Start**, klicken Sie auf **Programme** und klicken Sie dann auf **Windows Update**.  
 
 2.  Klicken Sie auf **Nach Updates suchen**.  
 
@@ -112,7 +112,7 @@ In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systeminte
    |     Windows Server Essentials oder Windows Server 2012     |                                                          Das Server-Dashboard                                                           |
 
 
-2. Gehen Sie nach dem Abschluss des Downloads auf **Start**, **Alle Programme**und dann auf **SBS Best Practices Analyzer Tool**.  
+2. Gehen Sie nach dem Abschluss des Downloads auf **Start**, **Alle Programme** und dann auf **SBS Best Practices Analyzer Tool**.  
 
    > [!NOTE]
    >  Suchen Sie vor dem Überprüfen des Servers nach Updates.  
@@ -123,24 +123,24 @@ In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systeminte
 
    1.  Melden Sie sich auf dem Zielserver als Administrator an und öffnen Sie das Dashboard.  
 
-   2.  Klicken Sie im Dashboard auf die Registerkarte **Geräte** .  
+   2.  Klicken Sie im Dashboard auf die Registerkarte **Geräte**.  
 
    3.  Klicken Sie im Bereich <**Server** >**Tasks** auf **Best Practices Analyzer**.  
 
-4. Geben Sie im Detailbereich die Überprüfungsbezeichnung ein und klicken Sie dann auf **Überprüfung starten**. Die Überprüfungsbezeichnung ist der Name des Überprüfungsberichts, z. B. **SBS BPA Scan 1Jul2013**.  
+4. Geben Sie im Detailbereich die Überprüfungsbezeichnung ein und klicken Sie dann auf **Überprüfung starten**. Die Überprüfungsbezeichnung ist der Name des Überprüfungsberichts, z. B. **SBS BPA Scan 1Jul2013**.  
 
 5. Nachdem die Überprüfung abgeschlossen ist, klicken Sie auf **Bericht für diese Bewährte Methoden-Überprüfung anzeigen**.  
 
    Nachdem das BPA-Tool Informationen zur Serverkonfiguration gesammelt hat, überprüft es, ob die Informationen korrekt sind, und legt dann den Administratoren eine Liste der Informationen und Probleme nach Schweregrad sortiert vor. Die Liste beschreibt jedes Problem und bietet eine Empfehlung oder eine mögliche Lösung. Folgende drei Berichtstypen sind verfügbar:  
 
-|Berichttyp|Beschreibung
+|Berichtstyp|Beschreibung
 |-----------------|----------------- 
 |Listenberichte|Zeigt Berichte in einer eindimensionalen Liste an. 
 |Strukturberichte|Zeigt Berichte in einer hierarchischen Liste an.
 
 Wenn Sie die Beschreibung und Lösungen für ein Problem anzeigen möchten, klicken Sie im Bericht auf das betreffende Problem. Nicht alle vom BPA-Tool erfassten Probleme wirken sich auf die Migration aus, Sie sollten jedoch möglichst viele der Probleme beheben, um eine erfolgreiche Migration sicherzustellen.  
 
-####  <a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a>Synchronisieren der Quell Server Uhrzeit mit einer externen Zeit Quelle  
+####  <a name="synchronize-the-source-server-time-with-an-external-time-source"></a><a name="BKMK_SynchronizeTheSourceServerTimeWithAnExternalTimeSource"></a>Synchronisieren der Quell Server Uhrzeit mit einer externen Zeit Quelle  
  Die Uhrzeit auf dem Quellserver darf maximal fünf Minuten von der Uhrzeit auf dem Zielserver abweichen, und die Datums- und Zeitzone muss auf beiden Servern gleich sein. Wenn der Quellserver einen virtuellen Computer ausführt, müssen das Datum, die Uhrzeit und die Zeitzone auf dem Hostserver diesen Angaben auf dem Quell- und dem Zielserver entsprechen. Um sicherzustellen, dass Windows Server Essentials erfolgreich installiert wurde, müssen Sie die Uhrzeit des Quell Servers mit dem NTP-Server (Network Time Protocol) im Internet synchronisieren.  
 
 ###### <a name="to-synchronize-the-source-server-time-with-the-ntp-server"></a>So synchronisieren Sie die Uhrzeit des Quellservers mit dem NTP-Server  
@@ -158,7 +158,7 @@ Wenn Sie die Beschreibung und Lösungen für ein Problem anzeigen möchten, klic
 > [!IMPORTANT]
 >  Während der Installation von Windows Server Essentials haben Sie die Möglichkeit, die Uhrzeit auf dem Ziel Server zu überprüfen und ggf. zu ändern. Stellen Sie sicher, dass die Uhrzeit höchstens fünf Minuten von der Uhrzeit auf dem Quellserver abweicht. Nachdem die Installation abgeschlossen ist, wird der Zielserver mit dem NTP-Server synchronisiert. Alle Computer, die Mitglied der Domäne sind (einschließlich des Quellservers) werden mit dem Zielserver synchronisiert, der die Rolle des Betriebsmasters für den PDC-Emulator (Primary Domain Controller, primärer Domänencontroller) ausübt.  
 
-###  <a name="BKMK_MigrateLOB"></a>Erstellen eines Plans für die Migration von Branchen Anwendungen  
+###  <a name="create-a-plan-to-migrate-line-of-business-applications"></a><a name="BKMK_MigrateLOB"></a>Erstellen eines Plans für die Migration von Branchen Anwendungen  
  Eine Branchenanwendung ist eine wichtige Computeranwendung, die für den Geschäftsbetrieb unabdingbar ist. Dabei kann es sich z. B. um Buchhaltungs-, Supply Chain Management- oder Ressourcenplanungsanwendungen handeln.  
 
  Wenn Sie die Migration Ihrer Branchenanwendungen planen, beraten Sie sich mit dem Branchenanwendungsanbieter, um die geeignete Methode zum Migrieren der einzelnen Anwendungen zu ermitteln. Außerdem müssen Sie das Medium ermitteln, das zum Installieren der Branchenanwendungen auf dem Zielserver verwendet wird.  

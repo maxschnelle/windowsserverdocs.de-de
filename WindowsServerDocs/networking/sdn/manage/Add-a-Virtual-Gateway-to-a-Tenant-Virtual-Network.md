@@ -10,19 +10,19 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b9552054-4eb9-48db-a6ce-f36ae55addcd
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/23/2018
-ms.openlocfilehash: deeb226d81c48e0e389ea4d2619c43aca01e25c2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: feee6f7bfaa34983290bfe173c7729666581e3f8
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355890"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309922"
 ---
 # <a name="add-a-virtual-gateway-to-a-tenant-virtual-network"></a>Hinzufügen eines Gateways zu einem virtuellen Mandantennetzwerk 
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016 
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016 
 
 Erfahren Sie, wie Sie Windows PowerShell-Cmdlets und-Skripts zum Bereitstellen von Standort-zu-Standort-Konnektivität für die virtuellen Netzwerke Ihres Mandanten verwenden. In diesem Thema fügen Sie mithilfe des Netzwerk Controllers Instanzen des RAS-Gateways, die Mitglieder von Gateways-Pools sind, als Mandanten hinzu. Das RAS-Gateway unterstützt bis zu 100 Mandanten, abhängig von der von den einzelnen Mandanten verwendeten Bandbreite. Der Netzwerk Controller bestimmt automatisch das beste RAS-Gateway, das beim Bereitstellen eines neuen virtuellen Gateways für Ihre Mandanten verwendet werden soll.  
 

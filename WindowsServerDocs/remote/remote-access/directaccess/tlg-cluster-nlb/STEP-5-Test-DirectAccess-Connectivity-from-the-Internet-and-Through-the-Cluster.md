@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8399bdfa-809a-45e4-9963-f9b6a631007f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 1b5708e51b2653444fb3eb636baac6a165dfc55d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 92641ccf19f77becd9ed5476cd8c0178f4090f49
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404849"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80310834"
 ---
 # <a name="step-5-test-directaccess-connectivity-from-the-internet-and-through-the-cluster"></a>Schritt 5 Testen der DirectAccess-Konnektivität über das Internet und über den Cluster
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 CLIENT1 ist jetzt für DirectAccess-Tests bereit.  
   
@@ -50,11 +50,11 @@ CLIENT1 ist jetzt für DirectAccess-Tests bereit.
   
 6. Lassen Sie das Windows PowerShell-Fenster für das nächste Verfahren geöffnet.  
   
-7. Öffnen Sie Internet Explorer, geben Sie in der Internet Explorer-Adressleiste **https://app1/ ein** , und drücken Sie die EINGABETASTE. Die Standard-IIS-Website auf APP1 wird angezeigt.  
+7. Öffnen Sie Internet Explorer, geben Sie in der Internet Explorer-Adressleiste **https://app1/** ein, und drücken Sie die EINGABETASTE. Die Standard-IIS-Website auf APP1 wird angezeigt.  
   
-8. Geben Sie in der Internet Explorer-Adressleiste **https://app2/ ein** , und drücken Sie die EINGABETASTE. Die Standardwebsite auf APP2 wird angezeigt.  
+8. Geben Sie in der Internet Explorer-Adressleiste **https://app2/** ein, und drücken Sie die EINGABETASTE. Die Standardwebsite auf APP2 wird angezeigt.  
   
-9. Geben Sie auf dem **Start** Bildschirm<strong>\\ \ App2\Files</strong>ein, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die neue Textdokumentdatei.  
+9. Geben Sie auf dem **Start** Bildschirm<strong>\\\app2\files</strong>ein, und drücken Sie dann die EINGABETASTE. Doppelklicken Sie auf die neue Textdokumentdatei.  
   
     Dies zeigt, dass Sie eine Verbindung mit einem reinen IPv4-Server herstellen konnten, indem Sie SMB zum Abrufen einer Ressource in der Ressourcen Domäne verwenden.  
   
@@ -62,7 +62,7 @@ CLIENT1 ist jetzt für DirectAccess-Tests bereit.
   
 11. Beachten Sie in der Konsole **Windows-Firewall mit** erweiterter Sicherheit, dass nur das **private** oder **öffentliche Profil** aktiv ist. Die Windows-Firewall muss aktiviert sein, damit DirectAccess ordnungsgemäß funktioniert. Wenn die Windows-Firewall deaktiviert ist, funktioniert die DirectAccess-Konnektivität nicht.  
   
-12. Erweitern Sie im linken Bereich der Konsole den Knoten **Überwachung** , und klicken Sie auf den Knoten **Verbindungs Sicherheitsregeln** . Die aktiven Verbindungs Sicherheitsregeln sollten angezeigt werden: **DirectAccess Policy-clientabcorp**, **DirectAccess Policy-ClientToDNS64NAT64PrefixExemption**, **DirectAccess Policy-Clientdie Infrastruktur**und **DirectAccess Policy-clienttonlaausgenommen**. Führen Sie im mittleren Bereich einen Bildlauf nach rechts durch, um die **ersten Authentifizierungsmethoden** und **2. Authentifizierungsmethoden** Spalten anzuzeigen. Beachten Sie, dass die erste Regel (clientescorp) Kerberos V5 verwendet, um den intranettunnel einzurichten, und die dritte Regel (clientesinfrastructure) verwendet NTLMv2, um den Infrastruktur Tunnel einzurichten.  
+12. Erweitern Sie im linken Bereich der Konsole den Knoten **Überwachung** , und klicken Sie auf den Knoten **Verbindungs Sicherheitsregeln** . Es sollten die aktiven Verbindungs Sicherheitsregeln angezeigt werden: **DirectAccess Policy-clientdecorp**, **DirectAccess Policy-ClientToDNS64NAT64PrefixExemption**, **DirectAccess Policy-clientdeinfraund** **DirectAccess Policy-clienttonlaausgenommen**. Führen Sie im mittleren Bereich einen Bildlauf nach rechts durch, um die **ersten Authentifizierungsmethoden** und **2. Authentifizierungsmethoden** Spalten anzuzeigen. Beachten Sie, dass die erste Regel (clientescorp) Kerberos V5 verwendet, um den intranettunnel einzurichten, und die dritte Regel (clientesinfrastructure) verwendet NTLMv2, um den Infrastruktur Tunnel einzurichten.  
   
 13. Erweitern Sie im linken Bereich der Konsole den Knoten **Sicherheits Zuordnungen** , und klicken Sie auf den Knoten **Hauptmodus** . Beachten Sie die Infrastruktur Tunnel-Sicherheits Zuordnungen mit NTLMv2 und der intranettunnel-Sicherheits Zuordnung mithilfe von Kerberos V5. Klicken Sie mit der rechten Maustaste auf den Eintrag, der **Benutzer (Kerberos V5)** als **2. Authentifizierungsmethode** anzeigt, und klicken Sie auf **Eigenschaften**. Beachten Sie, dass auf der Registerkarte **Allgemein** die **zweite lokale Authentifizierungs-ID** **corp\user1**lautet, die angibt, dass sich user1 erfolgreich bei der Corp-Domäne mithilfe von Kerberos authentifizieren konnte.  
   
@@ -76,9 +76,9 @@ CLIENT1 ist jetzt für DirectAccess-Tests bereit.
   
 3. Pingen Sie im Windows PowerShell-Fenster den Befehl App1 und APP2. Sie sollten Antworten von diesen beiden Ressourcen erhalten.  
   
-4. Geben Sie auf dem **Start** Bildschirm<strong>\\ \ app2\files</strong>ein. Der Ordner "freigegeben" sollte auf dem Computer "APP2" angezeigt werden. Die Möglichkeit zum Öffnen der Dateifreigabe auf APP2 gibt an, dass der zweite Tunnel, der die Kerberos-Authentifizierung für den Benutzer erfordert, ordnungsgemäß funktioniert.  
+4. Geben Sie auf dem **Start** Bildschirm<strong>\\\app2\files</strong>ein. Der Ordner "freigegeben" sollte auf dem Computer "APP2" angezeigt werden. Die Möglichkeit zum Öffnen der Dateifreigabe auf APP2 gibt an, dass der zweite Tunnel, der die Kerberos-Authentifizierung für den Benutzer erfordert, ordnungsgemäß funktioniert.  
   
-5. Öffnen Sie Internet Explorer, und öffnen Sie dann die Websites https://app1/ und https://app2/. Die Möglichkeit, beide Websites zu öffnen, bestätigt, dass der erste und der zweite Tunnel aktiv sind und funktionsfähig sind. Schließen Sie Internet Explorer.  
+5. Öffnen Sie Internet Explorer, und öffnen Sie dann die Websites https://app1/ und https://app2/. Die Möglichkeit, beide Websites zu öffnen, bestätigt, dass der erste und der zweite Tunnel aktiv sind und funktionsfähig sind. Schließen Sie Internet Explorer.  
   
 6. Starten Sie den EDGE2-Computer.  
   

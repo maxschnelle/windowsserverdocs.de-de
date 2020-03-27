@@ -6,15 +6,15 @@ ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
 ms.assetid: ''
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/08/2018
-ms.openlocfilehash: 4d35501b8d876f2a178a4744d495125dea8da6c7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4ea035d80a32e245edc4633ee14e98b9d1153fff
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405819"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309732"
 ---
 # <a name="configure-virtual-network-peering"></a>Konfigurieren von virtuellen Netzwerks peering
 
@@ -22,13 +22,13 @@ ms.locfileid: "71405819"
 
 In diesem Verfahren verwenden Sie Windows PowerShell zum Erstellen von zwei virtuellen Netzwerken mit jeweils einem Subnetz. Anschließend konfigurieren Sie das Peering zwischen den beiden virtuellen Netzwerken, um die Konnektivität zwischen Ihnen zu ermöglichen.
 
-- [Schritt 1: Erstellen des ersten virtuellen Netzwerks](#step-1-create-the-first-virtual-network)
+- [Schritt 1: Erstellen des ersten virtuellen Netzwerks](#step-1-create-the-first-virtual-network)
 
 - [Schritt 2: Erstellen des zweiten virtuellen Netzwerks](#step-2-create-the-second-virtual-network)
 
-- [Schritt 3: Konfigurieren von Peering vom ersten virtuellen Netzwerk mit dem zweiten virtuellen Netzwerk](#step-3-configure-peering-from-the-first-virtual-network-to-the-second-virtual-network)
+- [Schritt 3. Konfigurieren von Peering vom ersten virtuellen Netzwerk mit dem zweiten virtuellen Netzwerk](#step-3-configure-peering-from-the-first-virtual-network-to-the-second-virtual-network)
 
-- [Schritt 4: Konfigurieren von Peering vom zweiten virtuellen Netzwerk mit dem ersten virtuellen Netzwerk](#step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network)
+- [Schritt 4: Konfigurieren von Peering vom zweiten virtuellen Netzwerk mit dem ersten virtuellen Netzwerk](#step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network)
 
 
 >[!IMPORTANT]
@@ -90,9 +90,9 @@ $vnetproperties.Subnets = @($vsubnet)
 New-NetworkControllerVirtualNetwork -ResourceId "Woodgrove_VNet1" -ConnectionUri $uri -Properties $vnetproperties
 ```
 
-## <a name="step-3-configure-peering-from-the-first-virtual-network-to-the-second-virtual-network"></a>Schritt 3 Konfigurieren von Peering vom ersten virtuellen Netzwerk mit dem zweiten virtuellen Netzwerk
+## <a name="step-3-configure-peering-from-the-first-virtual-network-to-the-second-virtual-network"></a>Schritt 3: Konfigurieren von Peering vom ersten virtuellen Netzwerk mit dem zweiten virtuellen Netzwerk
 
-In diesem Schritt konfigurieren Sie das Peering zwischen dem ersten virtuellen Netzwerk und dem zweiten virtuellen Netzwerk, das Sie in den beiden vorherigen Schritten erstellt haben. Das folgende Beispielskript stellt das Peering virtueller Netzwerke zwischen **Contoso_vnet1** und **Woodgrove_vnet1**her.
+In diesem Schritt konfigurieren Sie das Peering zwischen dem ersten virtuellen Netzwerk und dem zweiten virtuellen Netzwerk, das Sie in den beiden vorherigen Schritten erstellt haben. Mit dem folgenden Beispielskript wird das Peering virtueller Netzwerke von **Contoso_vnet1** auf **Woodgrove_vnet1**festgelegt.
 
 ```PowerShell
 $peeringProperties = New-Object Microsoft.Windows.NetworkController.VirtualNetworkPeeringProperties
@@ -120,7 +120,7 @@ New-NetworkControllerVirtualNetworkPeering -ConnectionUri $uri -VirtualNetworkId
 
 ## <a name="step-4-configure-peering-from-the-second-virtual-network-to-the-first-virtual-network"></a>Schritt 4 Konfigurieren von Peering vom zweiten virtuellen Netzwerk mit dem ersten virtuellen Netzwerk
 
-In diesem Schritt konfigurieren Sie das Peering zwischen dem zweiten virtuellen Netzwerk und dem ersten virtuellen Netzwerk, das Sie in den Schritten 1 und 2 erstellt haben. Das folgende Beispielskript stellt das Peering virtueller Netzwerke zwischen **Woodgrove_vnet1** und **Contoso_vnet1**her.
+In diesem Schritt konfigurieren Sie das Peering zwischen dem zweiten virtuellen Netzwerk und dem ersten virtuellen Netzwerk, das Sie in den Schritten 1 und 2 erstellt haben. Mit dem folgenden Beispielskript wird das Peering virtueller Netzwerke von **Woodgrove_vnet1** auf **Contoso_vnet1**festgelegt.
 
 ```PowerShell
 $peeringProperties = New-Object Microsoft.Windows.NetworkController.VirtualNetworkPeeringProperties 

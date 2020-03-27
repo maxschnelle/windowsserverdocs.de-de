@@ -10,18 +10,18 @@ ms.technology: networking-da
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 72b5b2af-6925-41e0-a3f9-b8809ed711d1
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: cd42d00d8bddc786ea8a13faf10703361bf8da7b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 865f9ffd3eed3ce145364c227845af097194416e
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404965"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80309245"
 ---
 # <a name="step-2-plan-the-directaccess-deployment"></a>Schritt 2 Planen der DirectAccess-Bereitstellung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Nach der Planung der Remotezugriffinfrastruktur besteht der nächste Schritt zur Aktivierung von DirectAccess darin, die Einstellungen zum Aktivieren des DirectAccess-Assistenten zu planen.  
   
@@ -30,7 +30,7 @@ Nach der Planung der Remotezugriffinfrastruktur besteht der nächste Schritt zur
 |Planen der Clientbereitstellung|Planen Sie die Methode zum Verbinden der Clientcomputer mithilfe von DirectAccess. Legen Sie fest, welche verwalteten Computer als DirectAccess-Clients konfiguriert werden sollen.|  
 |Planen der Remotezugriffsserverbereitstellung|Planen Sie die Bereitstellung des Remotezugriffsservers.|  
   
-## <a name="bkmk_2_1_client"></a>Planen der Client Bereitstellung  
+## <a name="planning-for-client-deployment"></a><a name="bkmk_2_1_client"></a>Planen der Client Bereitstellung  
 Bei der Planung Ihrer Clientbereitstellung müssen zwei Entscheidungen getroffen werden:  
   
 -   Soll DirectAcess für alle oder nur für mobile Computer verfügbar sein?  
@@ -41,7 +41,7 @@ Bei der Planung Ihrer Clientbereitstellung müssen zwei Entscheidungen getroffen
   
     Die DirectAccess-Einstellungen befinden sich in dem Gruppenrichtlinienobjekt des DirectAccess-Clients. Das Gruppenrichtlinienobjekt wird auf Computer angewendet, die in den Sicherheitsgruppen enthalten sind, die Sie in dem Assistenten zum Aktivieren von DirectAccess angegeben haben. Sie können angeben, dass Sicherheitsgruppen in einer beliebigen unterstützten Domäne enthalten sein sollen. Bevor Sie den Remotezugriff konfigurieren, sollten die Sicherheitsgruppen erstellt werden. Nach Abschluss der Remotezugriffbereitstellung können Sie Computer zur Sicherheitsgruppe hinzufügen, wenn Sie jedoch Clientcomputer hinzufügen, die sich in einer anderen Domäne befinden wie die Sicherheitsgruppe, dann wird das Client-Gruppenrichtlinienobjekt nicht auf diese Clients angewendet. Wenn Sie beispielsweise SG1 in Domäne A für DirectAccess-Clients erstellen und später Clients von Domäne B zu dieser Gruppe hinzufügen, wird das Client-Gruppenrichtlinienobjekt nicht auf Clients von Domäne B angewendet. Sie können dieses Problem vermeiden, indem Sie eine neue Client-Sicherheitsgruppe für jede Domäne erstellen, die die Clientcomputer enthält. Alternativ dazu können Sie auch das Add-DAClient-Cmdlet mit dem Namen des neuen Gruppenrichtlinienobjekts für die neue Domäne ausführen, wenn Sie keine neue Sicherheitsgruppe erstellen möchten.  
   
-## <a name="bkmk_2_2_server"></a>Planen der Bereitstellung des Remote Zugriffs Servers  
+## <a name="planning-for-remote-access-server-deployment"></a><a name="bkmk_2_2_server"></a>Planen der Bereitstellung des Remote Zugriffs Servers  
 Beim Planen der Bereitstellung Ihres Remotezugriffsservers müssen Sie mehrere Entscheidungen treffen:  
   
 -   **Netzwerktopologie**: bei der Bereitstellung eines Remote Zugriffs Servers sind zwei Topologien verfügbar:  
@@ -56,7 +56,7 @@ Beim Planen der Bereitstellung Ihres Remotezugriffsservers müssen Sie mehrere E
   
 -   **IP-HTTPS-Zertifikat**: Wenn das SSTP-VPN konfiguriert ist, übernimmt der Assistent zum Aktivieren von DirectAccess das Zertifikat, das von SSTP für IP-HTTPS verwendet wird. Wenn SSTP-VPN nicht konfiguriert ist, versucht der Assistent zu ermitteln, ob ein Zertifikate für IP-HTTPS konfiguriert wurde. Falls das nicht der Fall ist, stellt der Assistent automatisch selbstsignierte Zertifikate für IP-HTTPS bereit. Außerdem aktiviert er automatisch die Kerberos-Authentifizierung. Außerdem aktiviert der Assistent NAT64 und DNS64 für die Protokollübersetzung in der auf IPv4 beschränkten Umgebung.  
   
--   **IPv6-Präfixe**: Wenn der Assistent erkennt, dass IPv6 auf den Netzwerkadaptern bereitgestellt wurde, erstellt er automatisch IPv6-Präfixe für das interne Netzwerk, ein IPv6-Präfix, das DirectAccess-Client Computern zugewiesen werden soll, und ein IPv6-Präfix für die Zuweisung zum VPN-Client. Computer. Wenn die automatisch generierten Präfixe nicht mit Ihrer systemeigenen IPv6- oder ISATAP-Infrastruktur übereinstimmen, müssen Sie sie manuell ändern. Siehe 1,1 Planen der Netzwerk-und Server Topologie und-Einstellungen.  
+-   **IPv6-Präfixe**: Wenn der Assistent erkennt, dass IPv6 auf den Netzwerkadaptern bereitgestellt wurde, erstellt er automatisch IPv6-Präfixe für das interne Netzwerk, ein IPv6-Präfix, das DirectAccess-Client Computern zugewiesen werden soll, und ein IPv6-Präfix, das VPN-Client Computern zugewiesen werden soll. Wenn die automatisch generierten Präfixe nicht mit Ihrer systemeigenen IPv6- oder ISATAP-Infrastruktur übereinstimmen, müssen Sie sie manuell ändern. Weitere Informationen finden Sie unter 1.1 Planen der Netzwerk- und Servertopologie und -einstellungen.  
   
 -   **Windows 7-Clients**: Windows 7-Client Computer können standardmäßig keine Verbindung mit einer Windows Server 2012-Remote Zugriffs Bereitstellung herstellen. Wenn Sie in Ihrer Organisation über Windows 7-Client Computer verfügen, die Remote Zugriff auf interne Ressourcen benötigen, können Sie eine Verbindung herstellen. Clientcomputer, die auf interne Ressourcen zugreifen sollen, müssen Mitglied einer Sicherheitsgruppe sein, die Sie im Assistenten zum Aktivieren von DirectAccess angeben.  
   
