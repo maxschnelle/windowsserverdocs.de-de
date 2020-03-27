@@ -6,14 +6,14 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: article
 ms.assetid: 4235231c-4732-4ea9-9330-2a8c8a616d39
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 49e74132dba2909b7e5b639c95ef50064cf23e8c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 1da6df19933d3a4b9866b0428fb0088ac5f862b9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356379"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319097"
 ---
 # <a name="deploy-branchcache-hosted-cache-mode"></a>Bereitstellen des BranchCache-Modus „Gehosteter Cache“
 
@@ -44,7 +44,7 @@ Dieses Handbuch enthält die folgenden Abschnitte:
 
 - [Weitere Ressourcen](11-Bc-Hcm-additional-resources.md)
 
-## <a name="bkmk_pre"></a>Voraussetzungen für die Verwendung dieses Handbuchs
+## <a name="prerequisites-for-using-this-guide"></a><a name="bkmk_pre"></a>Voraussetzungen für die Verwendung dieses Handbuchs
 
 Dies ist ein Begleit Handbuch zum Windows Server 2016-Kern Netzwerk Handbuch. Zum Bereitstellen von BranchCache im Modus "Gehosteter Cache" mit diesem Handbuch müssen Sie die folgenden Schritte ausführen.
 
@@ -69,13 +69,13 @@ Dies ist ein Begleit Handbuch zum Windows Server 2016-Kern Netzwerk Handbuch. Zu
 >     - Windows 8.1 pro, nur Bits-Unterstützung
 >     - Windows 8 pro, nur Bits-Unterstützung
 
-## <a name="bkmk_about"></a>Informationen zu diesem Leitfaden
+## <a name="about-this-guide"></a><a name="bkmk_about"></a>Informationen zu diesem Leitfaden
 
 Dieses Handbuch richtet sich an Netzwerk-und Systemadministratoren, die die Anweisungen im Windows Server 2016-Kern Netzwerk Handbuch oder im Windows Server 2012-Kern Netzwerk Handbuch zum Bereitstellen eines Kern Netzwerks befolgt haben, oder für diejenigen, die zuvor die im Handbuch zum Hauptnetzwerk enthaltenen Technologien bereitgestellt haben, einschließlich Active Directory Domain Services \(AD DS\), Domain Name Service \(DNS\), Dynamic Host Configuration-Protokolls \(DHCP-\)und TCP\/
 
 Sie sollten die Entwurfs- und Bereitstellungshandbücher für jede der Technologien einsehen, die in diesem Bereitstellungsszenario verwendet werden. Diese Handbücher können Ihnen helfen, zu bestimmen, ob dieses Bereitstellungsszenario die Dienste und Konfigurationen bietet, die Sie zur Organisation des Netzwerks benötigen.
 
-## <a name="bkmk_not"></a>Was diese Anleitung nicht bietet
+## <a name="what-this-guide-does-not-provide"></a><a name="bkmk_not"></a>Was diese Anleitung nicht bietet
 
 Dieses Handbuch bietet keine grundlegende Informationen zu BranchCache, Informationen zu Modi und Funktionen von BranchCache inbegriffen.  
 
@@ -88,7 +88,7 @@ Wenn Sie über Computer verfügen, auf denen Windows 7 ausgeführt wird, müssen
 > [!IMPORTANT]
 > Wenn auf ihren gehosteten Cache Servern Windows Server 2008 R2 ausgeführt wird, verwenden Sie das Windows Server 2008 R2 [BranchCache-Bereitstellungs Handbuch](https://technet.microsoft.com/library/ee649232(v=ws.10).aspx) anstelle dieser Anleitung, um BranchCache im Modus "gehosteter Cache" bereitzustellen. Wenden Sie die in diesem Handbuch beschriebenen Gruppenrichtlinie Einstellungen auf alle BranchCache-Clients an, auf denen Versionen von Windows von Windows 7 auf Windows 10 ausgeführt werden. Computer, auf denen Windows Server 2008 R2 ausgeführt wird, können mithilfe der in diesem Handbuch beschriebenen Schritte nicht konfiguriert werden.
 
-## <a name="bkmk_tech"></a>Technologie Übersichten
+## <a name="technology-overviews"></a><a name="bkmk_tech"></a>Technologie Übersichten
 
 Bei diesem Begleithandbuch ist BranchCache die einzige Technologie, die Sie installieren und konfigurieren müssen. Sie müssen Windows PowerShell-BranchCache-Befehle auf Ihren Inhaltsservern, z. B. Web- und Dateiservern, ausführen, jedoch müssen Sie die Inhaltsserver auf keine andere Weise ändern oder neu konfigurieren. Außerdem müssen Sie Client Computer mithilfe von Gruppenrichtlinie auf Ihren Domänen Controllern konfigurieren, auf denen AD DS auf Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird.
 

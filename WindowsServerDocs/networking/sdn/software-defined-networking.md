@@ -6,19 +6,19 @@ ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: 9a1ea73c-20cd-42c5-95ad-b003b9cc6d64
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 08/09/2018
-ms.openlocfilehash: dd2b39f3563a47db18564de282f2646ec269e584
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a1283c6afcebe7b6abc12f9847865d6305bd3f2c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405924"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317278"
 ---
 # <a name="sdn-in-windows-server-overview"></a>SDN in Windows Server-Übersicht
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 
 Software-Defined Networking (Softwaredefinierte Netzwerke, SDN) bietet eine Methode, mit der Sie physische und virtuelle Netzwerkgeräte wie Router, Switches und Gateways in Ihrem Datencenter zentral konfigurieren und verwalten können. Sie können Ihre vorhandenen Sdn-kompatiblen Geräte verwenden, um eine tiefere Integration zwischen dem virtuellen Netzwerk und dem physischen Netzwerk zu erzielen. Virtuelle Netzwerkelemente, z. b. virtueller Hyper-v-Switch, Hyper-v-Netzwerkvirtualisierung und RAS-Gateway, sind als integrale Elemente Ihrer Sdn-Infrastruktur konzipiert. 

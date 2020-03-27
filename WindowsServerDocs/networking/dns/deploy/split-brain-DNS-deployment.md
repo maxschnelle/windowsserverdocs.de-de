@@ -1,19 +1,19 @@
 ---
-title: Verwenden von DNS-Richtlinien für Split-Brain-DNS-Bereitstellung
+title: Verwenden von DNS-Richtlinien für die Split Brain-DNS-Bereitstellung
 description: Dieses Thema ist Teil des DNS-Richtlinien szenariohandbuchs für Windows Server 2016.
 manager: brianlic
 ms.prod: windows-server
 ms.technology: networking-dns
 ms.topic: article
 ms.assetid: a255a4a5-c1a0-4edc-b41a-211bae397e3c
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 9f611f61150508d9170a6fe6757844bc29759886
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: 75da22fa4b1e59a7a666ee1a2c8f4e88cf7beeef
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950471"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317733"
 ---
 # <a name="use-dns-policy-for-split-brain-dns-deployment"></a>Verwenden der DNS-Richtlinie für das Aufteilen\-DNS-Bereitstellung
 
@@ -28,15 +28,15 @@ Bisher war es für dieses Szenario erforderlich, dass DNS-Administratoren zwei v
 
 Ein weiteres Konfigurations Szenario für die Split-Brain-Bereitstellung ist die selektive Rekursions Steuerung für die DNS-Namensauflösung Unter bestimmten Umständen wird erwartet, dass die DNS-Server des Unternehmens für die internen Benutzer eine rekursive Auflösung über das Internet durchführen, während Sie auch als autorisierende Namen Server für externe Benutzer fungieren und die Rekursion für Sie blockieren müssen. 
 
-Dieses Thema enthält die folgenden Abschnitte:
+Dieses Thema enthält folgende Abschnitte:
 
 - [Beispiel für eine DNS-Split-Brain-Bereitstellung](#bkmk_sbexample)
 - [Beispiel für das selektive DNS-Rekursions Steuerelement](#bkmk_recursion)
 
-## <a name="bkmk_sbexample"></a>Beispiel für eine DNS-Split-Brain-Bereitstellung
+## <a name="example-of-dns-split-brain-deployment"></a><a name="bkmk_sbexample"></a>Beispiel für eine DNS-Split-Brain-Bereitstellung
 Im folgenden finden Sie ein Beispiel für die Verwendung der DNS-Richtlinie, um das zuvor beschriebene Szenario mit Split-Brain-DNS auszuführen.
 
-In diesem Abschnitt werden die folgenden Themen behandelt.
+Dieser Abschnitt enthält die folgenden Themen:
 
 - [Funktionsweise der DNS Split-Brain-Bereitstellung](#bkmk_sbhow)
 - [Konfigurieren der DNS-Split-Brain-Bereitstellung](#bkmk_sbconfigure)
@@ -57,7 +57,7 @@ In der folgenden Abbildung ist dieses Szenario dargestellt.
 ![Split-Brain-DNS-Bereitstellung](../../media/DNS-Split-Brain/Dns-Split-Brain-01.jpg)  
 
 
-## <a name="bkmk_sbhow"></a>Funktionsweise der DNS Split-Brain-Bereitstellung
+## <a name="how-dns-split-brain-deployment-works"></a><a name="bkmk_sbhow"></a>Funktionsweise der DNS Split-Brain-Bereitstellung
 
 Wenn der DNS-Server mit den erforderlichen DNS-Richtlinien konfiguriert ist, wird jede Anforderung zur Namensauflösung mit den Richtlinien auf dem DNS-Server ausgewertet.
 
@@ -67,7 +67,7 @@ Wenn die Server Schnittstelle, auf der die Abfrage empfangen wird, mit einer der
 
 In unserem Beispiel erhalten die DNS-Abfragen für www.Career.contoso.com, die auf der privaten IP-Adresse (10.0.0.56) empfangen werden, eine DNS-Antwort, die eine interne IP-Adresse enthält. und die DNS-Abfragen, die an der öffentlichen Netzwerkschnittstelle empfangen werden, erhalten eine DNS-Antwort, die die öffentliche IP-Adresse im Standard Zonen Bereich enthält (entspricht der normalen Abfrage Auflösung).  
 
-## <a name="bkmk_sbconfigure"></a>Konfigurieren der DNS-Split-Brain-Bereitstellung
+## <a name="how-to-configure-dns-split-brain-deployment"></a><a name="bkmk_sbconfigure"></a>Konfigurieren der DNS-Split-Brain-Bereitstellung
 Sie müssen die folgenden Schritte ausführen, um die DNS Split-Brain-Bereitstellung mithilfe der DNS-Richtlinie zu konfigurieren.
 
 - [Erstellen der Zonen Bereiche](#bkmk_zscopes)  
@@ -79,7 +79,7 @@ In den folgenden Abschnitten finden Sie ausführliche Konfigurations Anweisungen
 >[!IMPORTANT]
 >Die folgenden Abschnitte enthalten Beispiele für Windows PowerShell-Befehle, die Beispiel Werte für viele Parameter enthalten. Stellen Sie sicher, dass Sie die Beispiel Werte in diesen Befehlen durch Werte ersetzen, die für die Bereitstellung geeignet sind, bevor Sie diese Befehle ausführen. 
 
-### <a name="bkmk_zscopes"></a>Erstellen der Zonen Bereiche
+### <a name="create-the-zone-scopes"></a><a name="bkmk_zscopes"></a>Erstellen der Zonen Bereiche
 
 Ein Zonen Bereich ist eine eindeutige Instanz der Zone. Eine DNS-Zone kann über mehrere Zonen Bereiche verfügen, wobei jeder Zonen Bereich einen eigenen Satz von DNS-Einträgen enthält. Derselbe Datensatz kann in mehreren Bereichen mit unterschiedlichen IP-Adressen oder den gleichen IP-Adressen vorhanden sein. 
 
@@ -92,7 +92,7 @@ Mit dem folgenden Beispiel Befehl können Sie den Zonen Bereich contoso.com part
 
 Weitere Informationen finden Sie unter [Add-dnsserverzonescope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverzonescope?view=win10-ps) .
 
-### <a name="bkmk_records"></a>Hinzufügen von Datensätzen zu den Zonen Bereichen
+### <a name="add-records-to-the-zone-scopes"></a><a name="bkmk_records"></a>Hinzufügen von Datensätzen zu den Zonen Bereichen
 
 Der nächste Schritt besteht darin, die Datensätze, die den Webserver Host darstellen, in die beiden Zonen Bereiche "intern" und "Standard" (für externe Clients) hinzuzufügen. 
 
@@ -109,7 +109,7 @@ Add-DnsServerResourceRecord -ZoneName "contoso.com" -A -Name "www.career" -IPv4A
 
 Weitere Informationen finden Sie unter [Add-dnsserverresourcerecord](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverresourcerecord?view=win10-ps).
 
-### <a name="bkmk_policies"></a>Erstellen der DNS-Richtlinien
+### <a name="create-the-dns-policies"></a><a name="bkmk_policies"></a>Erstellen der DNS-Richtlinien
 
 Nachdem Sie die Server Schnittstellen für das externe Netzwerk und das interne Netzwerk ermittelt und die Zonen Bereiche erstellt haben, müssen Sie DNS-Richtlinien erstellen, mit denen die internen und externen Zonen Bereiche verbunden werden.
 
@@ -128,11 +128,11 @@ Im folgenden Beispiel Befehl ist 10.0.0.56 die IP-Adresse der privaten Netzwerks
 Weitere Informationen finden Sie unter [Add-dnsserverqueryresolutionpolicy](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy?view=win10-ps).  
 
 
-## <a name="bkmk_recursion"></a>Beispiel für das selektive DNS-Rekursions Steuerelement
+## <a name="example-of-dns-selective-recursion-control"></a><a name="bkmk_recursion"></a>Beispiel für das selektive DNS-Rekursions Steuerelement
 
 Im folgenden finden Sie ein Beispiel für die Verwendung der DNS-Richtlinie, um das zuvor beschriebene Szenario der selektiven Rekursions Steuerung von DNS auszuführen.
 
-In diesem Abschnitt werden die folgenden Themen behandelt.
+Dieser Abschnitt enthält die folgenden Themen:
 
 - [Funktionsweise der selektiven DNS-Rekursions Steuerung](#bkmk_recursionhow)
 - [Konfigurieren der selektiven DNS-Rekursions Steuerung](#bkmk_recursionconfigure)
@@ -154,7 +154,7 @@ In der folgenden Abbildung ist dieses Szenario dargestellt.
 ![Selektives Rekursions Steuerelement](../../media/DNS-Split-Brain/Dns-Split-Brain-02.jpg) 
 
 
-### <a name="bkmk_recursionhow"></a>Funktionsweise der selektiven DNS-Rekursions Steuerung
+### <a name="how-dns-selective-recursion-control-works"></a><a name="bkmk_recursionhow"></a>Funktionsweise der selektiven DNS-Rekursions Steuerung
 
 Wenn eine Abfrage empfangen wird, für die der DNS-Server des Configuration Manager-Servers nicht autoritativ ist, z. b. für https://www.microsoft.com, wird die namens Auflösungs Anforderung anhand der Richtlinien auf dem DNS-Server ausgewertet. 
 
@@ -168,14 +168,14 @@ Wenn die Abfrage auf der externen Schnittstelle empfangen wird, Stimmen keine DN
 
 Dadurch wird verhindert, dass der Server als offener Konflikt Löser für externe Clients fungiert, während er als cacheresolver für interne Clients fungiert. 
 
-### <a name="bkmk_recursionconfigure"></a>Konfigurieren der selektiven DNS-Rekursions Steuerung
+### <a name="how-to-configure-dns-selective-recursion-control"></a><a name="bkmk_recursionconfigure"></a>Konfigurieren der selektiven DNS-Rekursions Steuerung
 
 Führen Sie die folgenden Schritte aus, um das selektive DNS-Rekursions Steuerelement mithilfe der DNS-Richtlinie zu konfigurieren.
 
 - [Erstellen von DNS-Rekursions Bereichen](#bkmk_recscopes)
 - [Erstellen von DNS-Rekursions Richtlinien](#bkmk_recpolicy)
 
-#### <a name="bkmk_recscopes"></a>Erstellen von DNS-Rekursions Bereichen
+#### <a name="create-dns-recursion-scopes"></a><a name="bkmk_recscopes"></a>Erstellen von DNS-Rekursions Bereichen
 
 Rekursions Bereiche sind eindeutige Instanzen einer Gruppe von Einstellungen, die die Rekursion auf einem DNS-Server steuern. Ein Rekursions Bereich enthält eine Liste von Weiterleitungen und gibt an, ob die Rekursion aktiviert ist. Ein DNS-Server kann über viele Rekursions Bereiche verfügen. 
 
@@ -190,7 +190,7 @@ In diesem Beispiel ist die Standardeinstellung für die Rekursion deaktiviert, w
 
 Weitere Informationen finden Sie unter [Add-dnsserverrecursionscope](https://docs.microsoft.com/powershell/module/dnsserver/add-dnsserverrecursionscope?view=win10-ps) .
 
-#### <a name="bkmk_recpolicy"></a>Erstellen von DNS-Rekursions Richtlinien
+#### <a name="create-dns-recursion-policies"></a><a name="bkmk_recpolicy"></a>Erstellen von DNS-Rekursions Richtlinien
 
 Sie können DNS-Server Rekursions Richtlinien erstellen, um einen Rekursions Bereich für eine Reihe von Abfragen auszuwählen, die bestimmten Kriterien entsprechen. 
 

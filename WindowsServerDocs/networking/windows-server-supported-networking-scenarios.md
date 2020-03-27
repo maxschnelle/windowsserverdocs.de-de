@@ -7,14 +7,14 @@ ms.technology: networking
 ms.topic: article
 ms.date: ''
 ms.assetid: 6de4232d-b0b3-4e43-8735-ebae35ae4f9f
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: f338ddf0a7d3a4fe41277ddbf49b0c3db34ae11b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: e2e59b70b102e7ca942e2aafb8b216fecd62fc32
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395698"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315158"
 ---
 # <a name="windows-server-supported-networking-scenarios"></a>Windows Server unterstützte Netzwerkszenarios
 
@@ -24,7 +24,7 @@ Dieses Thema enthält Informationen zu unterstützten und nicht unterstützten S
 >[!IMPORTANT]
 >Verwenden Sie für alle Produktionsszenarien die neuesten signierten Hardwaretreiber Ihres ursprünglichen Geräteherstellers \(OEM\) oder unabhängigen Hardwarehersteller \(IHV\).
   
-## <a name="bkmk_supp"></a>Unterstützte Netzwerkszenarien
+## <a name="supported-networking-scenarios"></a><a name="bkmk_supp"></a>Unterstützte Netzwerkszenarien
 
 Dieser Abschnitt enthält Informationen zu den unterstützten Netzwerkszenarien für Windows Server 2016 und umfasst die folgenden Szenariokategorien.  
   
@@ -40,7 +40,7 @@ Dieser Abschnitt enthält Informationen zu den unterstützten Netzwerkszenarien 
 
 - [Switch Embedded Teaming \(Set\) Szenarios](#bkmk_set)
   
-### <a name="bkmk_sdn"></a>Software-Defined Networking (SDN)-Szenarios
+### <a name="software-defined-networking-sdn-scenarios"></a><a name="bkmk_sdn"></a>Software-Defined Networking (SDN)-Szenarios
  
 In der folgenden Dokumentation finden Sie die Bereitstellung von Sdn-Szenarien mit Windows Server 2016.  
   
@@ -49,7 +49,7 @@ In der folgenden Dokumentation finden Sie die Bereitstellung von Sdn-Szenarien m
   
 Weitere Informationen finden Sie unter [Software Defined Networking &#40;(SDN&#41;](sdn/software-defined-networking.md)).  
   
-#### <a name="bkmk_netc"></a>Netzwerk Controller Szenarios
+#### <a name="network-controller-scenarios"></a><a name="bkmk_netc"></a>Netzwerk Controller Szenarios
 
 Die Netzwerk Controller Szenarien ermöglichen Folgendes:  
   
@@ -61,7 +61,7 @@ Die Netzwerk Controller Szenarien ermöglichen Folgendes:
   
 Weitere Informationen finden Sie unter [Network Controller](sdn/technologies/network-controller/Network-Controller.md).  
   
-#### <a name="bkmk_netf"></a>Netzwerk funktionsvirtualisierungsszenarien (NFV)  
+#### <a name="network-function-virtualization-nfv-scenarios"></a><a name="bkmk_netf"></a>Netzwerk funktionsvirtualisierungsszenarien (NFV)  
 Die NFV-Szenarien ermöglichen Folgendes:  
   
 -   Bereitstellen und Verwenden eines Software Lastenausgleichs zum Verteilen von Northbound-und Southbound-Datenverkehr.  
@@ -84,7 +84,7 @@ Die NFV-Szenarien ermöglichen Folgendes:
   
 Weitere Informationen finden Sie unter [netzwerkfunktionsvirtualisierung](sdn/technologies/network-function-virtualization/Network-Function-Virtualization.md).  
   
-### <a name="bkmk_netp"></a>Szenarios der Netzwerkplattform
+### <a name="network-platform-scenarios"></a><a name="bkmk_netp"></a>Szenarios der Netzwerkplattform
 
 In den Szenarien in diesem Abschnitt unterstützt das Windows Server-Netzwerkteam die Verwendung eines beliebigen Windows Server 2016 Certified-Treibers. Überprüfen Sie die Netzwerkschnittstellenkarte \(NIC\) Hersteller, um sicherzustellen, dass Sie über die neuesten Treiber Updates verfügen.
   
@@ -96,9 +96,9 @@ Die Szenarien für die Netzwerkplattform ermöglichen Folgendes:
   
 -   Konfigurieren Sie, um SMB Direct-und RDMA-Daten Verkehrsflüsse zwischen bis zu zwei Netzwerkadaptern zu verteilen.  
   
-Weitere Informationen finden Sie unter [Remote Zugriff auf den direkten Speicher rdma  und Switch Embedded Teaming Set ](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
+Weitere Informationen finden Sie unter [Remote Direct Memory Access &#40;RDMA&#41; und Switch Embedded Teaming &#40;Set&#41;](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).  
   
-#### <a name="bkmk_switch"></a>Szenarien für virtuelle Hyper-V-Switches
+#### <a name="hyper-v-virtual-switch-scenarios"></a><a name="bkmk_switch"></a>Szenarien für virtuelle Hyper-V-Switches
 
 Die virtuellen Hyper-V-Switch-Szenarien ermöglichen Folgendes:  
   
@@ -112,7 +112,7 @@ Die virtuellen Hyper-V-Switch-Szenarien ermöglichen Folgendes:
   
 Weitere Informationen finden Sie unter [Remote Direct Memory Access &#40;RDMA&#41; und Switch Embedded Teaming &#40;Set&#41; ](../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md) .  
   
-### <a name="bkmk_dns"></a>DNS-Server Szenarios
+### <a name="dns-server-scenarios"></a><a name="bkmk_dns"></a>DNS-Server Szenarios
 
 DNS-Server Szenarios ermöglichen Folgendes:  
   
@@ -138,7 +138,7 @@ DNS-Server Szenarios ermöglichen Folgendes:
   
 Weitere Informationen finden Sie in den Themen [Neues im DNS-Client unter Windows Server 2016](dns/What-s-New-in-DNS-Client.md) und [Neues in DNS-Server unter Windows Server 2016](dns/What-s-New-in-DNS-Server.md).  
   
-### <a name="bkmk_ipam"></a>IPAM-Szenarien mit DHCP und DNS
+### <a name="ipam-scenarios-with-dhcp-and-dns"></a><a name="bkmk_ipam"></a>IPAM-Szenarien mit DHCP und DNS
 
 Die IPAM-Szenarien ermöglichen Folgendes:  
   
@@ -152,7 +152,7 @@ Die IPAM-Szenarien ermöglichen Folgendes:
   
     Weitere Informationen finden Sie unter [Verwalten von IPAM](technologies/ipam/Manage-IPAM.md).  
   
-### <a name="bkmk_nicteam"></a>Nic-Team Vorgangs Szenarios
+### <a name="nic-teaming-scenarios"></a><a name="bkmk_nicteam"></a>Nic-Team Vorgangs Szenarios
 
 Mit den NIC-Team Vorgangs Szenarien können Sie folgende Aktionen ausführen:  
   
@@ -169,7 +169,7 @@ Mit den NIC-Team Vorgangs Szenarien können Sie folgende Aktionen ausführen:
 
 Weitere Informationen finden Sie unter [NIC](technologies/nic-teaming/NIC-Teaming.md)-Team Vorgang. 
 
-### <a name="bkmk_set"></a>Switch Embedded Teaming \(Set\) Szenarios
+### <a name="switch-embedded-teaming-set-scenarios"></a><a name="bkmk_set"></a>Switch Embedded Teaming \(Set\) Szenarios
 
 Set ist eine Alternative NIC-Team Vorgangs Lösung, die Sie in Umgebungen verwenden können, die Hyper-V und den Sdn-Stapel (Software Defined Networking) in Windows Server 2016 enthalten. Set integriert einige NIC-Team Vorgangs Funktionen in den virtuellen Hyper-V-Switch. 
 
@@ -177,7 +177,7 @@ Weitere Informationen finden Sie unter [Remote Direct Memory Access (RDMA) und S
   
  
   
-## <a name="bkmk_unsupp"></a>Nicht unterstützte Netzwerkszenarien  
+## <a name="unsupported-networking-scenarios"></a><a name="bkmk_unsupp"></a>Nicht unterstützte Netzwerkszenarien  
 Die folgenden Netzwerkszenarien werden in Windows Server 2016 nicht unterstützt.  
   
 -   VLAN-basierte virtuelle Mandanten Netzwerke  

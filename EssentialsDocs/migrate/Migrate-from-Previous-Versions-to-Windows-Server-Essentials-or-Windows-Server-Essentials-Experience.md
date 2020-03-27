@@ -2,18 +2,18 @@
 title: Migrieren von früheren Versionen nach Windows Server Essentials oder Windows Server Essentials Experience
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
-ms.prod: windows-server-2016-essentials
+ms.prod: windows-server
 ms.topic: article
 ms.assetid: 2974fb3a-5150-43fd-a73f-3e5074eb5d03
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: f58a8f83fed4185ee51145b988cfef1074f889c7
-ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
+ms.openlocfilehash: 55b31785de6e17232a717d534fcb21a24d9052bd
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74945140"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80318895"
 ---
 # <a name="migrate-from-previous-versions-to-windows-server-essentials-or-windows-server-essentials-experience"></a>Migrieren von früheren Versionen nach Windows Server Essentials oder Windows Server Essentials Experience
 
@@ -54,7 +54,7 @@ In dieser Anleitung wird die Migration von früheren Versionen von Windows Small
   
    Mehrere der Migrationsverfahren erfordern das Öffnen einer Eingabeaufforderung als Administrator. In den folgenden Verfahren wird erläutert, wie hierbei vorzugehen ist.  
   
-###  <a name="BKMK_OpenACommandPromptAsAdmin"></a>So öffnen Sie ein Eingabe Aufforderungs Fenster auf dem Quell Server als Administrator  
+###  <a name="to-open-a-command-prompt-window-on-the-source-server-as-an-administrator"></a><a name="BKMK_OpenACommandPromptAsAdmin"></a>So öffnen Sie ein Eingabe Aufforderungs Fenster auf dem Quell Server als Administrator  
   
 1.  Klicken Sie auf **Start**.  
   
@@ -68,7 +68,7 @@ In dieser Anleitung wird die Migration von früheren Versionen von Windows Small
   
 2.  Klicken Sie in der Ergebnisliste mit der rechten Maustaste auf **cmd**, und klicken Sie dann auf **Als Administrator ausführen**.  
   
-## <a name="see-also"></a>Weitere Informationen:  
+## <a name="see-also"></a>Siehe auch  
   
 -   [Migrieren von Serverdaten zu Windows Server Essentials](Migrate-Server-Data-to-Windows-Server-Essentials.md)
 

@@ -6,14 +6,14 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 7ebaa271-2557-4c24-a679-c3d863e6bf9e
 manager: brianlic
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 7ebff972d670f3fd0b8d12959d161bce03ac487e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: e62b92fbb78dc267dbd9cd09927bf54c62d8245f
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71401844"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316600"
 ---
 # <a name="network-related-performance-counters"></a>Netzwerkbezogene Leistungsindikatoren
 
@@ -27,7 +27,7 @@ In diesem Thema werden die Leistungsindikatoren aufgelistet, die für die Verwal
   
 -   [Empfangs seitige zusammen Fügung (Receive Side Coalescing, RSC)](#bkmk_rsc)  
   
-##  <a name="bkmk_ru"></a>Ressourcenverwendung  
+##  <a name="resource-utilization"></a><a name="bkmk_ru"></a>Ressourcenverwendung  
 
 Die folgenden Leistungsindikatoren sind für die Verwendung von Netzwerkressourcen relevant.  
   
@@ -47,7 +47,7 @@ Die folgenden Leistungsindikatoren sind für die Verwendung von Netzwerkressourc
   
 - Netzwerkschnittstelle (*), Netzwerk Adapter (\*)  
   
-  - Empfangene Bytes/Sek.  
+  - Empfangene Bytes/Sekunde  
   
   - Gesendete Bytes/Sek.  
   
@@ -61,7 +61,7 @@ Die folgenden Leistungsindikatoren sind für die Verwendung von Netzwerkressourc
   
 - Prozessor Informationen  
   
-  - % Processor Time  
+  - Prozessorzeit (%)  
   
   - Interrupts/Sek.  
   
@@ -69,7 +69,7 @@ Die folgenden Leistungsindikatoren sind für die Verwendung von Netzwerkressourc
   
     Dieser Wert ist eine durchschnittliche Rate, mit der DPCs der DPC-Warteschlange des logischen Prozessors hinzugefügt wurden. Jeder logische Prozessor verfügt über eine eigene DPC-Warteschlange. Dieser Wert misst die Rate, mit der DPCs der Warteschlange hinzugefügt werden, nicht die Anzahl der DPCs in der Warteschlange. Es zeigt den Unterschied zwischen den Werten, die in den letzten beiden Beispielen beobachtet wurden, dividiert durch die Dauer des Stichproben Intervalls an.  
   
-##  <a name="bkmk_np"></a>Potenzielle Netzwerkprobleme  
+##  <a name="potential-network-problems"></a><a name="bkmk_np"></a>Potenzielle Netzwerkprobleme  
 
 Die folgenden Leistungsindikatoren sind für potenzielle Netzwerkprobleme relevant.  
   
@@ -119,7 +119,7 @@ Die folgenden Leistungsindikatoren sind für potenzielle Netzwerkprobleme releva
   
     -   Abgelehnte Verbindungen/Sek.  
   
-##  <a name="bkmk_rsc"></a>Empfangs seitige zusammen Fügung (Receive Side Coalescing, RSC)  
+##  <a name="receive-side-coalescing-rsc-performance"></a><a name="bkmk_rsc"></a>Empfangs seitige zusammen Fügung (Receive Side Coalescing, RSC)  
 
 Die folgenden Leistungsindikatoren sind für die RSC-Leistung relevant.  
   

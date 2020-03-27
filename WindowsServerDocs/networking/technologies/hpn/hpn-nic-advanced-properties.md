@@ -6,15 +6,15 @@ ms.technology: networking
 ms.topic: article
 ms.assetid: 0cafb1cc-5798-42f5-89b6-3ffe7ac024ba
 manager: dougkim
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/20/2018
-ms.openlocfilehash: 1395cefca5d9ef696eed3f2735334954b9ee02a5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 78d320f4309d60fa0396cbd723feafa07a65aea1
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405718"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317002"
 ---
 # <a name="nic-advanced-properties"></a>NIC erweiterte Eigenschaften
 
@@ -38,7 +38,7 @@ Sie können NICs und alle Features mithilfe von Windows PowerShell über das Cmd
 
     ![C1-Eigenschaften](../../media/network-offload-and-optimization/c1-properties.png)
 
-   c. Klicken Sie auf die Registerkarte **erweitert** , um die erweiterten Eigenschaften anzuzeigen.<p>Die Elemente in dieser Liste korrelieren mit den Elementen in der `Get-NetAdapterAdvancedProperties`-Ausgabe.
+   c. Klicken Sie auf die Registerkarte **erweitert** , um die erweiterten Eigenschaften anzuzeigen.<p>Die Elemente in dieser Liste korrelieren mit den Elementen in der `Get-NetAdapterAdvancedProperties` Ausgabe.
 
    ![Eigenschaften von Chelsio-Netzwerkadaptern](../../media/network-offload-and-optimization/chelsio-network-adapter-properties.png)
 

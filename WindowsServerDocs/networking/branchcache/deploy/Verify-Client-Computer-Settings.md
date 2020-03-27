@@ -6,18 +6,18 @@ ms.prod: windows-server
 ms.technology: networking-bc
 ms.topic: get-started-article
 ms.assetid: 31ea58b0-d407-4f62-8ec6-6a1b19174042
-ms.author: pashort
-author: shortpatti
-ms.openlocfilehash: 6d0adbf0db2d7888ca12ca49f50fc37baa8cbc16
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.author: lizross
+author: eross-msft
+ms.openlocfilehash: e4bd3c4d4b2998f5c4faea22887bdef8663587cb
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71356510"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80319178"
 ---
 # <a name="verify-client-computer-settings"></a>Überprüfen von Client Computer Einstellungen
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Mit diesem Verfahren können Sie überprüfen, ob der Client Computer für BranchCache ordnungsgemäß konfiguriert ist.  
   
@@ -48,7 +48,7 @@ Sie müssen Mitglied der Gruppe " **Administratoren**" oder einer entsprechenden
   
     In **Client Settings**sollte der Wert für **currentclientmode** in Abhängigkeit vom Modus, den Sie in diesem Handbuch konfiguriert haben, " **distributedclient** " oder " **hustedcacheclient**" lauten.  
   
-    Wenn Sie in **ClientSettings**den gehosteten Cache Modus konfiguriert und die Namen der gehosteten Cache Server während der Konfiguration bereitgestellt haben, oder wenn der Client mithilfe von Dienst Verbindungs Punkten automatisch gehostete Cache Server gefunden hat,  **Hostedcacheserverlist** sollte über einen Wert verfügen, der mit dem Namen oder den Namen der gehosteten Cache Server identisch ist. Wenn der gehostete Cache Server z. b. den Namen HCS1 hat und Ihre Domäne corp.contoso.com ist, lautet der Wert für **hostedcacheserverlist** **HCS1.Corp.contoso.com**.  
+    Wenn Sie in **Client Settings**den gehosteten Cache Modus konfiguriert und die Namen der gehosteten Cache Server während der Konfiguration bereitgestellt haben, oder wenn der Client mithilfe von Dienst Verbindungs Punkten automatisch gehostete Cache Server gefunden hat, sollte **hostedcacheserverlist** einen Wert aufweisen, der mit dem Namen oder den Namen der gehosteten Cache Server identisch ist. Wenn der gehostete Cache Server z. b. den Namen HCS1 hat und Ihre Domäne corp.contoso.com ist, lautet der Wert für **hostedcacheserverlist** **HCS1.Corp.contoso.com**.  
   
 5.  Wenn eine der oben aufgeführten BranchCache-Einstellungen nicht über die korrekten Werte verfügt, verwenden Sie die Schritte in diesem Handbuch, um die Richtlinien Einstellungen für Gruppenrichtlinie oder lokale Computer sowie die von Ihnen konfigurierten Firewallausnahmen zu überprüfen und sicherzustellen, dass Sie richtig sind. Starten Sie außerdem den Computer neu, oder führen Sie die Schritte in diesem Verfahren aus, um Gruppenrichtlinie zu aktualisieren und den BranchCache-Dienst neu zu starten.  
   

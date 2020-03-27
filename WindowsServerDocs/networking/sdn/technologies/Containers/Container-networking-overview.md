@@ -10,19 +10,19 @@ ms.technology: networking-sdn
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 318659e5-e4a5-4e46-99d6-211dfc46f6b8
-ms.author: pashort
+ms.author: lizross
 author: jmesser81
 ms.date: 09/04/2018
-ms.openlocfilehash: 352b4303b7cf08a0c53712e46a309b8365c10d08
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e8ec74ff0ebf0f0cb87db4d79ed5d37583f9beb9
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355676"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80317265"
 ---
 # <a name="container-networking-overview"></a>Übersicht über Container-Networking
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema erhalten Sie einen Überblick über den Netzwerk Stapel für Windows-Container. Außerdem finden Sie hier Links zu weiteren Anleitungen zum Erstellen, konfigurieren und Verwalten von Container Netzwerken.
 
@@ -39,6 +39,6 @@ Zum Erzwingen der Isolation zwischen Containern auf demselben Host erstellen Sie
 
 ## <a name="related-topics"></a>Verwandte Themen 
 
-- [Windows-Container Netzwerk](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture): Erfahren Sie, wie Sie Container Netzwerke für nicht-Overlay-/Sdn-bereit Stellungen erstellen und verwalten.
+- [Windows-Container Netzwerk](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture): erfahren Sie, wie Sie Container Netzwerke für nicht-Overlay-/Sdn-bereit Stellungen erstellen und verwalten.
 
-- [Verbinden von Container Endpunkten mit einem virtuellen Mandanten Netzwerk](../../manage/Connect-container-endpoints-to-a-Tenant-Virtual-Network.md): Informieren Sie sich über das Erstellen und Verwalten von Container Netzwerken für virtuelle über Lagerungs Netzwerke mit Sdn. 
+- [Verbinden von Container Endpunkten mit einem virtuellen Mandanten Netzwerk](../../manage/Connect-container-endpoints-to-a-Tenant-Virtual-Network.md): erfahren Sie mehr über das Erstellen und Verwalten von Container Netzwerken für virtuelle über Lagerungs Netzwerke mit Sdn. 

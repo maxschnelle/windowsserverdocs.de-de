@@ -10,19 +10,19 @@ ms.technology: networking-nict
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fdee02ec-3a7e-473e-9784-2889dc1b6dbb
-ms.author: pashort
-author: shortpatti
+ms.author: lizross
+author: eross-msft
 ms.date: 09/13/2018
-ms.openlocfilehash: 2f21301e0669fb593acda47787fed5f396618daf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 75b6ae2f2c7d6b4ab28aaedcc7309ccba3dcbd02
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405556"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80316369"
 ---
 # <a name="troubleshooting-nic-teaming"></a>Problembehandlung beim NIC-Teamvorgang
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema wird erläutert, wie Sie Probleme mit dem NIC-Team Vorgang beheben, wie z. b. Hardware-und physische switchschnittstellen.  Wenn Hardware Implementierungen von Standardprotokollen den Spezifikationen nicht entsprechen, kann die Leistung des NIC-Team Vorgangs beeinträchtigt werden. Abhängig von der Konfiguration kann der NIC-Team Vorgang außerdem Pakete von derselben IP-Adresse mit mehreren Mac-Adressen senden, die die Sicherheitsfunktionen auf dem physischen Switch überspringen.
 
@@ -43,7 +43,7 @@ Abhängig von der Konfiguration kann der NIC-Team Vorgang Pakete von derselben I
 
 Ein Fehler tritt häufig auf, wenn ein NIC-Team fehlschlägt, weil die Team Schnittstelle deaktiviert ist, und in vielen Fällen, wenn eine Sequenz von Befehlen ausgeführt wird.  Mit dieser speziellen Sequenz von Befehlen werden nicht alle NetAdapters deaktiviert, da durch das Deaktivieren aller zugrunde liegenden physischen Member von NICs die NIC-Team Schnittstelle entfernt wird. 
 
-In diesem Fall wird die NIC-Team Schnittstelle nicht mehr in Get-netadapter angezeigt, und aus diesem Grund wird **enable-netadapter \\** * das NIC-Team nicht aktivieren. Der Befehl **enable-netadapter \\** * aktiviert jedoch die Member-NICs, die dann (nach kurzer Zeit) die Team Schnittstelle neu erstellen. Die Team Schnittstelle verbleibt im Status "deaktiviert", bis Sie erneut aktiviert wird, sodass der Netzwerk Datenverkehr gestartet werden kann. 
+In diesem Fall wird die NIC-Team Schnittstelle nicht mehr in Get-netadapter angezeigt, und aus diesem Grund aktiviert **enable-netadapter \\** * das NIC-Team nicht mehr. Der Befehl **enable-netadapter \\** * aktiviert jedoch die Member-NICs, die dann (nach kurzer Zeit) die Team Schnittstelle neu erstellen. Die Team Schnittstelle verbleibt im Status "deaktiviert", bis Sie erneut aktiviert wird, sodass der Netzwerk Datenverkehr gestartet werden kann. 
 
 Mit der folgenden Windows PowerShell-Sequenz von Befehlen kann die Team Schnittstelle nach einem Unfall deaktiviert werden:  
   
@@ -55,11 +55,11 @@ Enable-NetAdapter *
 
   
 ## <a name="related-topics"></a>Verwandte Themen  
-- [NIC](NIC-Teaming.md)-Team Vorgang: In diesem Thema erhalten Sie einen Überblick über den NIC-Team Vorgang (Network Interface Card) in Windows Server 2016. Mit dem NIC-Team Vorgang können Sie zwischen einem und 32 physischen Ethernet-Netzwerkadaptern in einem oder mehreren softwarebasierten virtuellen Netzwerkadaptern gruppieren. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.   
+- [NIC](NIC-Teaming.md)-Team Vorgang: in diesem Thema erhalten Sie einen Überblick über den NIC-Team Vorgang (Network Interface Card) in Windows Server 2016. Mit dem NIC-Team Vorgang können Sie zwischen einem und 32 physischen Ethernet-Netzwerkadaptern in einem oder mehreren softwarebasierten virtuellen Netzwerkadaptern gruppieren. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.   
 
 - [NIC-Team Vorgang MAC-Adress Verwendung und-Verwaltung](NIC-Teaming-MAC-Address-Use-and-Management.md): Wenn Sie ein NIC-Team mit dem Switch-unabhängigen Modus und entweder Address Hash oder Dynamic Load Distribution konfigurieren, verwendet das Team die Media Access Control (Mac)-Adresse des primären NIC-Teammitglieds für ausgehenden Datenverkehr. Das primäre NIC-Team Mitglied ist ein Netzwerkadapter, der vom Betriebssystem aus der anfänglichen Gruppe von Team Mitgliedern ausgewählt wird.
 
-- [Einstellungen für NIC](nic-teaming-settings.md)-Team Vorgänge: In diesem Thema erhalten Sie einen Überblick über die NIC-Team Eigenschaften, z. b. Team-und Lasten ausgleichsmodi. Außerdem erhalten Sie Informationen über die standbyadaptereinstellung und die Eigenschaft "primäre Team Schnittstelle". Wenn Sie über mindestens zwei Netzwerkadapter in einem NIC-Team verfügen, müssen Sie keinen Standby-Adapter für die Fehlertoleranz festlegen.
+- [NIC](nic-teaming-settings.md)-Team Vorgangs Einstellungen: in diesem Thema erhalten Sie eine Übersicht über die NIC-Team Eigenschaften, z. b. Team-und Lasten ausgleichsmodi. Außerdem erhalten Sie Informationen über die standbyadaptereinstellung und die Eigenschaft "primäre Team Schnittstelle". Wenn Sie über mindestens zwei Netzwerkadapter in einem NIC-Team verfügen, müssen Sie keinen Standby-Adapter für die Fehlertoleranz festlegen.
   
 
 
