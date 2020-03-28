@@ -2,18 +2,18 @@
 ms.assetid: ''
 title: Konfigurieren von Systemen für hohe Genauigkeit
 description: Die Zeitsynchronisierung in Windows 10 und Windows Server 2016 wurde erheblich verbessert.  Unter angemessenen Betriebsbedingungen können Systeme so konfiguriert werden, dass sie eine Genauigkeit von 1 ms (Millisekunden) oder besser (in Bezug auf die UTC) aufrechterhalten.
-author: shortpatti
+author: eross-msft
 ms.author: dacuo
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: b7cd256fdbbdbe7432e5b5d5b16254314132560f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8cdded0eb0dc663d352011fb1a6765a2ed358764
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405200"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315034"
 ---
 # <a name="configuring-systems-for-high-accuracy"></a>Konfigurieren von Systemen für hohe Genauigkeit
 >Gilt für: Windows Server 2016 und Windows 10, Version 1607 oder höher
@@ -106,7 +106,7 @@ Diese Messung kann mithilfe des im Lieferumfang enthaltenen Tools „w32tm.exe�
 
 #### <a name="registry-settings"></a>Registrierungseinstellungen
 
-# <a name="minpollintervaltabminpollinterval"></a>[MinPollInterval](#tab/MinPollInterval)
+# <a name="minpollinterval"></a>[MinPollInterval](#tab/MinPollInterval)
 Konfiguriert das kleinste Intervall in log2 Sekunden, das für den Systemabruf zulässig ist.
 
 |  |  | 
@@ -120,7 +120,7 @@ Mit dem folgenden Befehl wird Windows-Zeit signalisiert, die aktualisierten Eins
 `w32tm /config /update`
 
 
-# <a name="maxpollintervaltabmaxpollinterval"></a>[MaxPollInterval](#tab/MaxPollInterval)
+# <a name="maxpollinterval"></a>[MaxPollInterval](#tab/MaxPollInterval)
 Konfiguriert das größte Intervall in log2 Sekunden, das für den Systemabruf zulässig ist.
 
 |  |  |  
@@ -133,7 +133,7 @@ Mit dem folgenden Befehl wird Windows-Zeit signalisiert, die aktualisierten Eins
 
 `w32tm /config /update`
 
-# <a name="updateintervaltabupdateinterval"></a>[UpdateInterval](#tab/UpdateInterval)
+# <a name="updateinterval"></a>[UpdateInterval](#tab/UpdateInterval)
 Die Anzahl der Zeiteinheiten zwischen Phasenkorrekturanpassungen.
 
 |  |  |  
@@ -146,7 +146,7 @@ Mit dem folgenden Befehl wird Windows-Zeit signalisiert, die aktualisierten Eins
 
 `w32tm /config /update`
 
-# <a name="specialpollintervaltabspecialpollinterval"></a>[SpecialPollInterval](#tab/SpecialPollInterval)
+# <a name="specialpollinterval"></a>[SpecialPollInterval](#tab/SpecialPollInterval)
 Konfiguriert das Abrufintervall in Sekunden, wenn das Kennzeichen „SpecialInterval 0x1“ aktiviert ist.
 
 |  |  |  
@@ -159,7 +159,7 @@ Mit dem folgenden Befehl wird Windows-Zeit neu gestartet, um die aktualisierten 
 
 `net stop w32time && net start w32time`
 
-# <a name="frequencycorrectratetabfrequencycorrectrate"></a>[FrequencyCorrectRate](#tab/FrequencyCorrectRate)
+# <a name="frequencycorrectrate"></a>[FrequencyCorrectRate](#tab/FrequencyCorrectRate)
 
 |  |  |  
 |---------|---------|

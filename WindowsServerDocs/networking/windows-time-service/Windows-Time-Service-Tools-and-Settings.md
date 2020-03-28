@@ -3,7 +3,7 @@ ms.assetid: 6086947f-f9ef-4e18-9f07-6c7c81d7002c
 title: 'Windows-Zeitdienst: Tools und Einstellungen'
 description: ''
 author: Teresa-Motiv
-ms.author: pashort
+ms.author: lizross
 manager: dougkim
 ms.date: 02/24/2020
 ms.topic: article
@@ -13,12 +13,12 @@ ms.custom:
 - CI ID 113344
 - CSSTroubleshoot
 audience: Admin
-ms.openlocfilehash: e99c07428a1689e3c079ff2570759c849a61e945
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: e9432aa11446cdd4f00efca3af28c24d757d6019
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323472"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315132"
 ---
 # <a name="windows-time-service-tools-and-settings"></a>Windows-Zeitdienst: Tools und Einstellungen
 
@@ -256,7 +256,7 @@ In den folgenden Tabellen bezieht sich „Alle Versionen“ auf Windows-Versione
 >  
 > Beispielsweise werden 5 Minuten zu 5 &times; 60 &times; 1000 &times; 10000 = 3.000.000.000 Zeiteinheiten.  
 
-### <a id="config"></a>„HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Config“ – Unterschlüsseleinträge
+### <a name="hklmsystemcurrentcontrolsetservicesw32timeconfig-subkey-entries"></a><a id="config"></a>„HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Config“ – Unterschlüsseleinträge
 
 |Registrierungseintrag |Versionen |Beschreibung |
 | --- | --- | --- |
@@ -289,7 +289,7 @@ In den folgenden Tabellen bezieht sich „Alle Versionen“ auf Windows-Versione
 |**UpdateInterval** |Alle Versionen |Gibt die Anzahl der Zeiteinheiten zwischen Phasenkorrekturanpassungen an. Der Standardwert für Domänencontroller ist **100**. Der Standardwert für Domänenmitglieder ist **30.000**. Der Standardwert für eigenständige Clients und Server ist **360.000**.<br /><br />**Hinweis**<br />„0“ ist kein ungültiger Wert für den Registrierungseintrag **UpdateInterval**. Auf Computern unter Windows Server 2003, Windows Server 2003 R2, Windows Server 2008 und Windows Server 2008 R2 ändert der Windows-Zeitdienst den Wert automatisch in **1**, wenn er auf **0** festgelegt ist.|
 |**UtilizeSslTimeData** |Windows-Versionen, die höher als Windows 10 Build 1511 sind |Der Wert **1** gibt an, dass W32Time mehrere SSL-Zeitstempel verwendet, um ein Seeding einer Uhr vorzunehmen, die äußerst ungenau ist. |
 
-### <a id="parameters"></a>„HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters“ – Unterschlüsseleinträge
+### <a name="hklmsystemcurrentcontrolsetservicesw32timeparameters-subkey-entries"></a><a id="parameters"></a>„HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters“ – Unterschlüsseleinträge
 
 | Registrierungseintrag | Versionen | Beschreibung |
 | --- | --- | --- |
@@ -299,7 +299,7 @@ In den folgenden Tabellen bezieht sich „Alle Versionen“ auf Windows-Versione
 |**ServiceMain** |Alle Versionen |Wird von W32Time verwaltet. Er enthält reservierte Daten, die vom Windows-Betriebssystem verwendet werden. Außerdem können Änderungen an dieser Einstellung zu unvorhersehbaren Ergebnissen führen. Der Standardwert für Domänenmitglieder ist **SvchostEntry_W32Time**. Der Standardwert für eigenständige Clients und Server ist **SvchostEntry_W32Time**. |
 |**Type** |Alle Versionen |Gibt an, von welchen Peers Synchronisierung akzeptiert werden soll:  <ul><li>**NoSync**. Der Zeitdienst synchronisiert sich nicht mit anderen Quellen.</li><li>**NTP**. Der Zeitdienst synchronisiert sich mit den in **NtpServer** angegebenen Servern. Registrierungseintrag.</li><li>**NT5DS**. Der Zeitdienst synchronisiert sich mit der Domänenhierarchie.  </li><li>**AllSync**. Der Zeitdienst verwendet alle verfügbaren Synchronisierungsmechanismen.  </li></ul>Der Standardwert für Domänenmitglieder ist **NT5DS**. Der Standardwert für eigenständige Clients und Server ist **NTP**. |
 
-### <a id="ntpclient"></a>„HKLM\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpClient“ – Unterschlüsseleinträge
+### <a name="hklmsystemcurrentcontrolsetservicesw32timetimeprovidersntpclient-subkey-entries"></a><a id="ntpclient"></a>„HKLM\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpClient“ – Unterschlüsseleinträge
 
 |Registrierungseintrag |Version |Beschreibung |
 | --- | --- | --- |
@@ -316,7 +316,7 @@ In den folgenden Tabellen bezieht sich „Alle Versionen“ auf Windows-Versione
 |**SpecialPollInterval** |Alle Versionen |Gibt das spezifische Abrufintervall in Sekunden für manuelle Peers an. Wenn das Flag **SpecialInterval** 0x1 aktiviert ist, verwendet W32Time dieses Abrufintervall anstelle eines vom Betriebssystem festgelegten Abrufintervalls. Der Standardwert für Domänenmitglieder ist **3.600**. Der Standardwert für eigenständige Clients und Server ist **604.800**.<br/><br/>Neu für Build 1702; **SpecialPollInterval** ist in den Konfigurationsregistrierungswerten **MinPollInterval** und **MaxPollInterval** enthalten.|
 |**SpecialPollTimeRemaining** |Alle Versionen |Wird von W32Time verwaltet. Er enthält reservierte Daten, die vom Windows-Betriebssystem verwendet werden. Gibt die Zeit in Sekunden an, nach der W32Time nach einem Neustart des Computers erneut synchronisiert wird. Änderungen an dieser Einstellung können zu unvorhersehbaren Ergebnissen führen. Als Standardwert für Domänenmitglieder sowie eigenständige Clients und Server bleibt die Einstellung leer. |
 
-### <a id="ntpserver"></a>„HKLM\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpServer“ – Unterschlüsseleinträge
+### <a name="hklmsystemcurrentcontrolsetservicesw32timetimeprovidersntpserver-subkey-entries"></a><a id="ntpserver"></a>„HKLM\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpServer“ – Unterschlüsseleinträge
 
 |Registrierungseintrag |Versionen |Beschreibung |
 | --- | --- | --- |

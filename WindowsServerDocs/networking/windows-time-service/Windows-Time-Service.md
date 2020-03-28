@@ -2,19 +2,19 @@
 ms.assetid: e34622ff-b2d0-4f81-8d00-dacd5d6c215e
 title: Technische Referenz zum Windows-Zeitdienst
 description: ''
-author: shortpatti
-ms.author: pashort
+author: eross-msft
+ms.author: lizross
 manager: dougkim
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 31c7c53a5dd28813076fcaa745093050808b5755
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6d6f203c43ccb764b3ccbfcabbf92f448920b41c
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405228"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315039"
 ---
 # <a name="windows-time-service"></a>Windows-Zeitdienst
 
@@ -37,7 +37,7 @@ Der Windows-Zeitdienst, auch als „W32Time“ bekannt, synchronisiert das Datum
 > [!IMPORTANT]  
 > Vor Windows Server 2016 war der W32Time-Dienst nicht so konzipiert, dass er die Anforderungen zeitabhängiger Anwendungen erfüllte.  Updates für Windows Server 2016 ermöglichen es jetzt jedoch, eine Lösung für eine Genauigkeit von 1 ms in deiner Domäne zu implementieren.  Weitere Informationen findest du unter [Windows 2016: Genaue Zeit](accurate-time.md) und [Supportgrenze zum Konfigurieren des Windows-Zeitdiensts für Umgebungen mit hoher Genauigkeit](support-boundary.md).  
   
-## <a name="BKMK_Config"></a>Wo finde ich Konfigurationsinformationen zum Windows-Zeitdienst?  
+## <a name="where-to-find-windows-time-service-configuration-information"></a><a name="BKMK_Config"></a>Wo finde ich Konfigurationsinformationen zum Windows-Zeitdienst?  
 In diesem Leitfaden wird **nicht** erläutert, wie der Windows-Zeitdienst konfiguriert wird. In Microsoft TechNet und in der Microsoft Knowledge Base findest du zahlreiche Themen, in denen erläutert wird, wie der Windows-Zeitdienst konfiguriert wird. Wenn du Konfigurationsinformationen benötigst, sollten dir die folgenden Themen beim Auffinden der entsprechenden Informationen helfen.  
   
 -   Informationen zum Konfigurieren des Windows-Zeitdiensts für den PDC-Emulator in der Stammdomäne der Gesamtstruktur findest du hier:  
@@ -63,7 +63,7 @@ In diesem Leitfaden wird **nicht** erläutert, wie der Windows-Zeitdienst konfig
   
 -   Um den Windows-Zeitdienst auf einem Mitgliedsserver zu konfigurieren, der als virtueller Computer ausgeführt wird, verwende die Domänenzeithierarchie, wie unter [Konfigurieren eines Clientcomputers für die automatische Domänenzeitsynchronisierung](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc816884%28v%3dws.10%29) beschrieben.  
   
-## <a name="BKMK_WTS"></a>Was ist der Windows-Zeitdienst?  
+## <a name="what-is-the-windows-time-service"></a><a name="BKMK_WTS"></a>Was ist der Windows-Zeitdienst?  
 Der Windows-Zeitdienst (W32Time) bietet Uhrsynchronisierung im Netzwerk für Computer, ohne dass eine größere Konfiguration erforderlich ist.  
   
 Der Windows-Zeitdienst ist für den erfolgreichen Betrieb der Kerberos-Authentifizierung, Version 5, und somit für die AD DS basierte Authentifizierung von wesentlicher Bedeutung. Jede Kerberos-fähige Anwendung, einschließlich der meisten Sicherheitsdienste, basiert auf der Zeitsynchronisierung zwischen den Computern, die an der Authentifizierungsanforderung teilnehmen. AD DS-Domänencontroller müssen auch synchronisierte Uhren besitzen, um die exakte Datenreplikation zu gewährleisten.  
@@ -72,7 +72,7 @@ Der Windows-Zeitdienst ist in einer DLL (Dynamic Link Library) namens „W32Time
   
 „W32Time.dll“ wurde ursprünglich für Windows 2000 Server entwickelt, um eine Spezifikation des Kerberos V5-Authentifizierungsprotokolls zu unterstützen, die erfordert, dass Uhren in einem Netzwerk synchronisiert sind. Ab Windows Server 2003 stellt „W32Time.dll“ eine höhere Genauigkeit bei der Netzwerkuhrsynchronisierung über das Betriebssystem Windows 2000 Server bereit und unterstützt eine Vielzahl von Hardwaregeräten und Netzwerkzeitprotokollen mithilfe von Zeitanbietern. Obwohl es ursprünglich konzipiert wurde, um Uhrsynchronisierung für die Kerberos-Authentifizierung bereitzustellen, verwenden viele aktuelle Anwendungen Zeitstempel, um die Transaktionskonsistenz sicherzustellen, um die Zeit wichtiger Ereignisse sowie anderer geschäftskritischer, zeitabhängiger Informationen aufzuzeichnen. Diese Anwendungen profitieren von der Zeitsynchronisierung zwischen Computern, die vom Windows-Zeitdienst bereitgestellt wird.  
   
-## <a name="BKMK_TimeProtocols"></a>Wichtigkeit von Zeitprotokollen  
+## <a name="importance-of-time-protocols"></a><a name="BKMK_TimeProtocols"></a>Wichtigkeit von Zeitprotokollen  
 Zeitprotokolle kommunizieren zwischen zwei Computern, um Zeitinformationen auszutauschen, und verwenden diese Informationen dann, um ihre Uhren zu synchronisieren. Mit dem Zeitprotokoll des Windows-Zeitdiensts fordert ein Client Zeitinformationen von einem Server an und synchronisiert seine Uhr basierend auf den empfangenen Informationen.  
   
 Der Windows-Zeitdienst verwendet NTP, um die Synchronisierung der Zeit über ein Netzwerk zu unterstützen. NTP ist ein Internetzeitprotokoll, das die für die Synchronisierung von Uhren erforderlichen Disziplinalgorithmen umfasst. NTP ist ein genaueres Zeitprotokoll als das Simple Network Time Protocol (SNTP), das in einigen Versionen von Windows verwendet wird. W32Time unterstützt jedoch weiterhin SNTP, um Abwärtskompatibilität mit Computern zu ermöglichen, auf denen SNTP-basierte Zeitdienste, wie beispielsweise Windows 2000, ausgeführt werden.  

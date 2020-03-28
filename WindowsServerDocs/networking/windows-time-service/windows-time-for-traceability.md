@@ -2,19 +2,19 @@
 ms.assetid: ''
 title: Windows-Zeitdienst für Nachverfolgbarkeit.
 description: Bestimmungen in vielen Sektoren erfordern, dass Systeme bezogen auf UTC ablaufverfolgbar sind.  Dies bedeutet, dass die Abweichung eines Systems in Bezug auf die UTC nachgewiesen werden kann.
-author: shortpatti
+author: eross-msft
 ms.author: dacuo
 manager: dougkim
 ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 307739042426088fa92c50e6ea4dc5d2a744f15a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e7f7a68d61729813583255d64afbf172475969e3
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405218"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314938"
 ---
 # <a name="windows-time-for-traceability"></a>Windows-Zeitdienst für Nachverfolgbarkeit.
 >Gilt für: Windows Server 2016, Version 1709 oder höher, und Windows 10, Version 1703 oder höher
@@ -41,7 +41,7 @@ Zur Verwendung dieser Funktion ist keine Konfiguration erforderlich.  Diese Erei
 
 Im folgenden Abschnitt werden die Ereignisse beschrieben, die für die Verwendung in Ablaufverfolgungsszenarien protokolliert werden.
 
-# <a name="257tab257"></a>[257](#tab/257)
+# <a name="257"></a>[257](#tab/257)
 Dieses Ereignis wird protokolliert, wenn der Windows-Zeitdienst (W32Time) gestartet wird und Informationen zur aktuellen Zeit, zur aktuellen Taktanzahl, zur Laufzeitkonfiguration, zu Zeitanbietern und zur aktuellen Taktfrequenz protokolliert.
 
 |||
@@ -71,7 +71,7 @@ w32tm.exe /query /status /verbose
 ```
 
 
-# <a name="258tab258"></a>[258](#tab/258)
+# <a name="258"></a>[258](#tab/258)
 Dieses Ereignis wird protokolliert, wenn der Windows-Zeitdienst (W32Time) beendet wird und Informationen zur aktuellen Zeit und Taktanzahl protokolliert.
 
 |||
@@ -84,7 +84,7 @@ Dieses Ereignis wird protokolliert, wenn der Windows-Zeitdienst (W32Time) beende
 **Beispieltext:** 
 `W32time service is stopping at 2018-03-01T05:42:13.944Z (UTC), System Tick Count 6370250.`
 
-# <a name="259tab259"></a>[259](#tab/259)
+# <a name="259"></a>[259](#tab/259)
 Dieses Ereignis protokolliert regelmäßig die aktuelle Liste der Zeitquellen und die ausgewählte Zeitquelle.  Zusätzlich wird die aktuelle Taktanzahl protokolliert.  Dieses Ereignis wird nicht bei jeder Zeitquellenänderung ausgelöst.  Andere Ereignisse, die später in diesem Dokument aufgeführt sind, bieten diese Funktionalität.
 
 |||
@@ -105,7 +105,7 @@ server1.fabrikam.com,0x8 (ntp.m|0x8|[::]:123->[IPAddress]:123)server2.fabrikam.c
 *Peers identifizieren*
 `w32tm.exe /query /peers`
 
-# <a name="260tab260"></a>[260](#tab/260)
+# <a name="260"></a>[260](#tab/260)
 
 |||
 |---|---|
@@ -113,7 +113,7 @@ server1.fabrikam.com,0x8 (ntp.m|0x8|[::]:123->[IPAddress]:123)server2.fabrikam.c
 |Details |W32Time protokolliert regelmäßig seine Konfiguration und seinen Status. Dies entspricht dem Aufrufen von:<br><br>`w32tm /query /configuration /verbose`<br>oder<br>`w32tm /query /status /verbose` |
 |Drosselungsmechanismus  |Wird alle 8 Stunden einmal protokolliert. |
 
-# <a name="261tab261"></a>[261](#tab/261)
+# <a name="261"></a>[261](#tab/261)
 Dies protokolliert jede Instanz, wenn die Systemzeit mithilfe der SetSystemTime-API geändert wird.
 
 |||
@@ -121,7 +121,7 @@ Dies protokolliert jede Instanz, wenn die Systemzeit mithilfe der SetSystemTime-
 |Ereignisbeschreibung |Systemzeit wird gestellt. |
 |Drosselungsmechanismus  |Keine.<br><br>Dies sollte nur selten auf Systemen mit angemessener Zeitsynchronisierung erfolgen, und wir möchten dies bei jedem Auftreten protokollieren. Wir ignorieren die Einstellung „TimeJumpAuditOffset“ beim Protokollieren dieses Ereignisses, da diese Einstellung zum Drosseln von Ereignissen im Windows-Systemereignisprotokoll gedacht war. |
 
-# <a name="262tab262"></a>[262](#tab/262)
+# <a name="262"></a>[262](#tab/262)
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ Dies protokolliert jede Instanz, wenn die Systemzeit mithilfe der SetSystemTime-
 |Details |Die Systemtaktfrequenz wird von W32Time konstant geändert, wenn die Uhr eng synchronisiert wird. Wir möchten „hinreichend signifikante“ Anpassungen erfassen, die an der Taktfrequenz vorgenommen werden, ohne das Ereignisprotokoll zu überfüllen. |
 |Drosselungsmechanismus  |Alle Taktanpassungen unterhalb von „TimeAdjustmentAuditThreshold“ (Minimum = 128 ppm (Teile pro Mio.), Standardwert = 800 ppm) werden nicht protokolliert.<br><br>Eine 2 ppm-Änderung der Taktfrequenz mit der aktuellen Granularität ergibt eine 120 μs/Sek.-Änderung der Taktgenauigkeit.<br><br>Bei einem synchronisierten System liegt der Großteil der Anpassungen unterhalb dieses Niveaus. Wenn du eine genauere Nachverfolgung wünschst, kann diese Einstellung nach unten angepasst werden, oder du kannst Leistungsindikatoren verwenden oder beides. |
 
-# <a name="263tab263"></a>[263](#tab/263)
+# <a name="263"></a>[263](#tab/263)
 
 |||
 |---|---|
@@ -138,7 +138,7 @@ Dies protokolliert jede Instanz, wenn die Systemzeit mithilfe der SetSystemTime-
 |Drosselungsmechanismus  |Keine.<br><br>Dieses Ereignis tritt nur auf, wenn ein Administrator oder eine Gruppenrichtlinienaktualisierung die Zeitanbieter ändert und dann W32Time auslöst. Wir möchten jede Instanz einer Änderung von Einstellungen aufzeichnen. |
 
 
-# <a name="264tab264"></a>[264](#tab/264)
+# <a name="264"></a>[264](#tab/264)
 
 |||
 |---|---|
@@ -146,7 +146,7 @@ Dies protokolliert jede Instanz, wenn die Systemzeit mithilfe der SetSystemTime-
 |Details |Der NTP-Client zeichnet ein Ereignis mit dem aktuellen Zustand der Zeitserver/Peers auf, wenn sich der Zustand eines Zeitservers/Peers ändert (**Ausstehend > Synchronisierung**, **Synchronisierung > Nicht erreichbar** oder andere Übergänge). |
 |Drosselungsmechanismus  |Maximale Häufigkeit: nur einmal alle 5 Minuten, um das Protokoll vor vorübergehenden Problemen und einer fehlerhaften Anbieterimplementierung zu schützen. |
 
-# <a name="265tab265"></a>[265](#tab/265)
+# <a name="265"></a>[265](#tab/265)
 
 |||
 |---|---|
@@ -155,7 +155,7 @@ Dies protokolliert jede Instanz, wenn die Systemzeit mithilfe der SetSystemTime-
 |Drosselungsmechanismus  |Keine. |
 
 
-# <a name="266tab266"></a>[266](#tab/266)
+# <a name="266"></a>[266](#tab/266)
 
 |||
 |---|---|

@@ -2,18 +2,18 @@
 ms.assetid: 72a90d00-56ee-48a9-9fae-64cbad29556c
 title: Genaue Uhrzeit für Windows Server 2016
 description: Die Genauigkeit der Zeitsynchronisierung in Windows Server 2016 wurde erheblich verbessert, während gleichzeitig die vollständige NTP-Abwärtskompatibilität mit älteren Windows-Versionen erhalten blieb.
-author: shortpatti
+author: eross-msft
 ms.author: dacuo
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 2e8e9e86f81596c85219c37c07d8fd2e95cc3a49
-ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
+ms.openlocfilehash: 3320c67d52978f0e9abaae7d5bec9b4fcb727fd6
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75953081"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80315082"
 ---
 # <a name="accurate-time-for-windows-server-2016"></a>Genaue Uhrzeit für Windows Server 2016
 
