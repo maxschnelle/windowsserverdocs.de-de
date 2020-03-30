@@ -2,18 +2,18 @@
 ms.assetid: e34622ff-b2d0-4f81-8d00-dacd5d6c215e
 title: Technische Referenz zum Windows-Zeitdienst
 description: Der W32Time-Dienst bietet Uhrsynchronisierung im Netzwerk für Computer, ohne dass eine größere Konfiguration erforderlich ist. Der W32Time-Dienst ist für den erfolgreichen Betrieb der Kerberos V5-Authentifizierung und somit für die AD DS basierte Authentifizierung von wesentlicher Bedeutung.
-author: shortpatti
+author: eross-msft
 ms.author: dacuo
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 04d39f222fbbc7943cc2074a857a76f38832935d
-ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
+ms.openlocfilehash: b3d66f47bea99f6eed55aac15f2b54f3401a5755
+ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75919877"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80314916"
 ---
 # <a name="windows-time-service-technical-reference"></a>Technische Referenz zum Windows-Zeitdienst
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10 oder höher
@@ -23,7 +23,7 @@ Der W32Time-Dienst bietet Uhrsynchronisierung im Netzwerk für Computer, ohne da
 > [!NOTE]  
 > In Windows Server 2003 und Microsoft Windows 2000 Server heißt der Verzeichnisdienst Active Directory-Verzeichnisdienst. In Windows Server 2008 R2 und Windows Server 2008 heißt der Verzeichnisdienst Active Directory Domain Services (AD DS). Im weiteren Verlauf dieses Themas wird Bezug auf AD DS genommen, aber die Informationen gelten auch für Active Directory Domain Services in Windows Server 2016.
 
-Der W32Time-Zeitdienst ist in einer DLL (Dynamic Link Library) namens „W32Time.dll“ implementiert, die standardmäßig in **%Systemroot%\System32** installiert wird. „W32Time.dll“ wurde ursprünglich für Windows 2000 Server entwickelt, um eine Spezifikation des Kerberos V5-Authentifizierungsprotokolls zu unterstützen, die erfordert, dass Uhren in einem Netzwerk synchronisiert sind. Ab Windows Server 2003 stellt „W32Time.dll“ eine höhere Genauigkeit bei der Netzwerkuhrsynchronisierung über das Betriebssystem Windows Server 2000 bereit. Darüber hinaus unterstützte „W32Time.dll“ in Windows Server 2003 eine Vielzahl von Hardwaregeräten und Netzwerkzeitprotokollen mithilfe von Zeitanbietern.
+Der W32Time-Zeitdienst ist in einer DLL (Dynamic Link Library) namens „W32Time.dll“ implementiert, die standardmäßig in **%Systemroot%\System32** installiert wird. „W32Time.dll“ wurde ursprünglich für Windows 2000 Server entwickelt, um eine Spezifikation des Kerberos V5-Authentifizierungsprotokolls zu unterstützen, die erfordert, dass Uhren in einem Netzwerk synchronisiert sind. Seit Windows Server 2003 stellt „W32Time.dll“ eine höhere Genauigkeit bei der Netzwerkuhrsynchronisierung über das Betriebssystem Windows Server 2000 bereit. Darüber hinaus unterstützte „W32Time.dll“ in Windows Server 2003 eine Vielzahl von Hardwaregeräten und Netzwerkzeitprotokollen mithilfe von Zeitanbietern.
 
 Obwohl es ursprünglich konzipiert wurde, um Uhrsynchronisierung für die Kerberos-Authentifizierung bereitzustellen, verwenden viele aktuelle Anwendungen Zeitstempel, um die Transaktionskonsistenz sicherzustellen, um die Zeit wichtiger Ereignisse sowie anderer geschäftskritischer, zeitabhängiger Informationen aufzuzeichnen.  Diese Anwendungen profitieren von der Zeitsynchronisierung zwischen Computern, die vom Windows-Zeitdienst bereitgestellt wird.
 
