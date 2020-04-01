@@ -93,8 +93,8 @@
 #### [Gewähren des Zugriffs auf Ihren PC von außerhalb Ihres Netzwerks](clients/remote-desktop-allow-outside-access.md)
 #### [Ändern des RD-Abhörports auf Ihrem PC](clients/change-listening-port.md)
 ### Weiterführende Informationen
-#### [Welcher Client eignet sich am besten für Sie?](clients/remote-desktop-app-compare.md)
-#### [Remotedesktop: Einstellungen für RDP-Datei](clients/rdp-files.md)
+#### [Vergleichen der Clients](clients/remote-desktop-app-compare.md)
+#### [Unterstützte RDP-Dateieinstellungen für Remotedesktop](clients/rdp-files.md)
 #### [Remotedesktop-URI-Schema](clients/remote-desktop-uri.md)
 #### [Remotedesktopclient – Häufig gestellte Fragen](clients/remote-desktop-client-faq.md)
 #### [Datenschutzeinstellungen für verwaltete Apps und Desktops](clients/remote-privacy-settings.md)
