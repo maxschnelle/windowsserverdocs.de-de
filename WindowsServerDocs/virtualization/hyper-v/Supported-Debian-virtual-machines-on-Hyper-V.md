@@ -11,12 +11,12 @@ ms.assetid: 3cc62c10-02a3-4633-960c-23bf91a45bd5
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: 60f2f3a6ed885f2da80b9beac51eeb703789ec91
-ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
+ms.openlocfilehash: 7a717acf5c132d68d6ee041aeb5af5a430aa171b
+ms.sourcegitcommit: 9f7cc76b8c9add44dcbbd97f77b4f881d5a2c073
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791762"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80613003"
 ---
 # <a name="supported-debian-virtual-machines-on-hyper-v"></a>Unterstützte virtuelle Debian-Computer auf Hyper-V
 
@@ -32,7 +32,7 @@ Die folgende featureverteilungskarte gibt die Funktionen an, die in den einzelne
 
 * (*leer*): Feature nicht verfügbar
 
-| **Feature**                                                                                                                                  | **Windows Server-Betriebssystemversion** | **10 (Buster)** | **9.0-9.6 (Stretch)** | **8.0-8.11 (Jessie)** | **7.0-7.11 (Wheezy)** |
+| **Feature**                                                                                                                                  | **Windows Server-Betriebssystemversion** | **10.0-10.3 (Buster)** | **9.0-9.12 (Stretch)** | **8.0-8.11 (Jessie)** | **7.0-7.11 (Wheezy)** |
 |----------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|-----------------------|-----------------------|-----------------------|-----------------------|
 | **Verfügbarkeit**                                                                                                                             |                                             | Integriert              | Integriert              | Integriert              | Integriert (Notiz 6)     |
 | **[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**                                                   | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              |
@@ -71,7 +71,7 @@ Die folgende featureverteilungskarte gibt die Funktionen an, die in den einzelne
 | Sicherer Start                                                                                                                                  | 2019, 2016                                  | &#10004;              |                       |                       |                       |
 
 
-## <a name="BKMK_notes"></a>Anmerkungen
+## <a name="notes"></a><a name="BKMK_notes"></a>Anmerkungen
 
 1. Das Erstellen von Dateisystemen auf VHDs, die größer als 2 TB sind, wird nicht unterstützt.
 
@@ -93,7 +93,7 @@ Die folgende featureverteilungskarte gibt die Funktionen an, die in den einzelne
    ```
 8. Die neuesten upstreamkernel-Funktionen sind nur verfügbar, wenn der mit dem Kernel enthaltene [debian-backports](https://wiki.debian.org/Backports)verwendet wird.
 
-Weitere Informationen
+Siehe auch
 
 * [Unterstützte virtuelle Computer der CentOS-und Red Hat Enterprise Linux auf Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 
