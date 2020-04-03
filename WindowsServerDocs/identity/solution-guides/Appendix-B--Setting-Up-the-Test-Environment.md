@@ -95,7 +95,7 @@ Im Folgenden erstellen wir ein internes virtuelles Netzwerk mit dem Namen „ID_
 
 6.  Klicken Sie auf **OK** , um das virtuelle Netzwerk zu erstellen, und schließen Sie den Manager für virtuelle Netzwerke, oder klicken Sie auf **Übernehmen** zum Erstellen des virtuellen Netzwerks, und fahren Sie mithilfe des Managers für virtuelle Netzwerke fort.  
 
-### <a name="BKMK_Build"></a>Erstellen des Domänen Controllers  
+### <a name="build-the-domain-controller"></a><a name="BKMK_Build"></a>Erstellen des Domänen Controllers  
 Erstellen Sie einen virtuellen Computer, der als der Domänencontroller (DC1) verwendet wird. Installieren Sie den virtuellen Computer mit Windows Server 2012 ISO, und nennen Sie ihn DC1.  
 
 ##### <a name="to-install-active-directory-domain-services"></a>So installieren Sie Active Directory-Domänendienste  
@@ -199,7 +199,7 @@ Erstellen Sie die folgenden Benutzer mithilfe des Active Directory-Verwaltungsce
     gpupdate /force  
     ```  
 
-### <a name="BKMK_FS1"></a>Erstellen des Dateiservers und AD RMS Servers (file1)  
+### <a name="build-the-file-server-and-ad-rms-server-file1"></a><a name="BKMK_FS1"></a>Erstellen des Dateiservers und AD RMS Servers (file1)  
 
 1. Erstellen Sie einen virtuellen Computer mit dem Namen file1 aus der ISO-Datei von Windows Server 2012.  
 
@@ -282,7 +282,7 @@ Beim Erstellen von Kontingenten und Dateibildschirmen haben Sie die Option, E-Ma
 > [!NOTE]  
 > Zentrale Zugriffsrichtlinien sind auf dem System oder Startvolume C: standardmäßig nicht aktiviert.  
 
-#### <a name="BKMK_CS1"></a>Installieren von Active Directory Rights Management Services  
+#### <a name="install-active-directory-rights-management-services"></a><a name="BKMK_CS1"></a>Installieren von Active Directory Rights Management Services  
 Fügen Sie die Active Directory-Rechteverwaltungsdienste (AD RMS) und alle erforderlichen Features über den Server-Manager hinzu. Wählen Sie alle Standardeinstellungen aus.  
 
 ###### <a name="to-install-active-directory-rights-management-services"></a>So installieren Sie Active Directory-Rechteverwaltungsdienste  
@@ -552,9 +552,9 @@ Konfigurieren Sie Microsoft Exchange Server auf diesem Computer. Weitere Informa
 
     -   Wert: DWORD  
 
-## <a name="BKMK_CF"></a>Lab-Einrichtung für das Gesamtstruktur übergreifende Bereitstellen von Ansprüchen  
+## <a name="lab-setup-for-deploying-claims-across-forests-scenario"></a><a name="BKMK_CF"></a>Lab-Einrichtung für das Gesamtstruktur übergreifende Bereitstellen von Ansprüchen  
 
-### <a name="BKMK_2.1"></a>Erstellen eines virtuellen Computers für DC2  
+### <a name="build-a-virtual-machine-for-dc2"></a><a name="BKMK_2.1"></a>Erstellen eines virtuellen Computers für DC2  
 
 -   Erstellen Sie einen virtuellen Computer aus der Windows Server 2012-ISO-Datei.  
 
@@ -567,7 +567,7 @@ Konfigurieren Sie Microsoft Exchange Server auf diesem Computer. Weitere Informa
 >   
 > Sämtliche virtuelle Computerimages (Server und Clients) müssen erneut konfiguriert werden, um eine statische IP-Version 4-Adresse (IPv4) und DNS-Clienteinstellungen (Domain Name System) zu verwenden. Weitere Informationen finden Sie unter [Configure a DNS Client for Static IP Address](https://go.microsoft.com/fwlink/?LinkId=150952).  
 
-### <a name="BKMK_2.2"></a>Einrichten einer neuen Gesamtstruktur namens adatum.com  
+### <a name="set-up-a-new-forest-called-adatumcom"></a><a name="BKMK_2.2"></a>Einrichten einer neuen Gesamtstruktur namens adatum.com  
 
 ##### <a name="to-install-active-directory-domain-services"></a>So installieren Sie Active Directory-Domänendienste  
 
@@ -620,7 +620,7 @@ Konfigurieren Sie Microsoft Exchange Server auf diesem Computer. Weitere Informa
 >   
 > Wenn diese Befehle fehlerfrei ausgeführt werden, können die Gesamtstrukturen miteinander kommunizieren. Weitere Informationen über nslookup-Fehler finden Sie im Problembehandlungsabschnitt im Thema [Using NSlookup.exe](https://support.microsoft.com/kb/200525).  
 
-### <a name="BKMK_2.22"></a>Legen Sie contoso.com als vertrauende Gesamtstruktur auf adatum.com fest.  
+### <a name="set-contosocom-as-a-trusting-forest-to-adatumcom"></a><a name="BKMK_2.22"></a>Legen Sie contoso.com als vertrauende Gesamtstruktur auf adatum.com fest.  
 In diesem Schritt erstellen Sie eine Vertrauensstellung zwischen der Adatum Corporation- und der Contoso, Ltd.-Website.  
 
 ##### <a name="to-set-contoso-as-a-trusting-forest-to-adatum"></a>So legen Sie Contoso als eine vertrauenswürdige Gesamtstruktur auf Adatum fest  
@@ -641,7 +641,7 @@ In diesem Schritt erstellen Sie eine Vertrauensstellung zwischen der Adatum Corp
 
 8.  Folgen Sie den weiteren Anweisungen des Assistenten.  
 
-### <a name="BKMK_2.4"></a>Erstellen zusätzlicher Benutzer in der Adatum-Gesamtstruktur  
+### <a name="create-additional-users-in-the-adatum-forest"></a><a name="BKMK_2.4"></a>Erstellen zusätzlicher Benutzer in der Adatum-Gesamtstruktur  
 Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>, und weisen Sie das Company-Attribut mit dem Wert **adatum**zu.  
 
 ##### <a name="to-create-a-user-with-the-company-attribute"></a>So erstellen Sie einen Benutzer mit dem „Company“-Attribut  
@@ -662,7 +662,7 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
 
     ```  
 
-### <a name="BKMK_2.5"></a>Erstellen des Anspruchs Typs Company auf adataum.com  
+### <a name="create-the-company-claim-type-on-adataumcom"></a><a name="BKMK_2.5"></a>Erstellen des Anspruchs Typs Company auf adataum.com  
 
 ##### <a name="to-create-a-claim-type-by-using-windows-powershell"></a>So erstellen Sie einen Anspruchstyp mithilfe der Windows PowerShell  
 
@@ -683,7 +683,7 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
 
     ```  
 
-### <a name="BKMK_2.55"></a>Aktivieren der Eigenschaft "Unternehmensressourcen" auf contoso.com  
+### <a name="enable-the-company-resource-property-on-contosocom"></a><a name="BKMK_2.55"></a>Aktivieren der Eigenschaft "Unternehmensressourcen" auf contoso.com  
 
 ##### <a name="to-enable-the-company-resource-property-on-contosocom"></a>So aktivieren Sie die Ressourceneigenschaft „Company“ auf „contoso.com“  
 
@@ -697,7 +697,7 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
 
 5.  Wählen Sie **Unternehmen** aus der Liste **Ressourceneigenschaften** aus, und klicken Sie mit der rechten Maustaste auf **Aktivieren**, und wählen Sie die Option aus.  
 
-### <a name="BKMK_2.6"></a>Dynamische Access Control auf adatum.com aktivieren  
+### <a name="enable-dynamic-access-control-on-adatumcom"></a><a name="BKMK_2.6"></a>Dynamische Access Control auf adatum.com aktivieren  
 
 ##### <a name="to-enable-dynamic-access-control-for-adatumcom"></a>So aktivieren Sie die dynamische Zugriffssteuerung für „adatum.com“  
 
@@ -717,7 +717,7 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
     gpupdate /force  
     ```  
 
-### <a name="BKMK_2.8"></a>Erstellen des Anspruchs Typs Company auf contoso.com  
+### <a name="create-the-company-claim-type-on-contosocom"></a><a name="BKMK_2.8"></a>Erstellen des Anspruchs Typs Company auf contoso.com  
 
 ##### <a name="to-create-a-claim-type-by-using-windows-powershell"></a>So erstellen Sie einen Anspruchstyp mithilfe der Windows PowerShell  
 
@@ -734,7 +734,7 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
 
     ```  
 
-### <a name="BKMK_2.9"></a>Erstellen der zentralen Zugriffs Regel  
+### <a name="create-the-central-access-rule"></a><a name="BKMK_2.9"></a>Erstellen der zentralen Zugriffs Regel  
 
 ##### <a name="to-create-a-central-access-rule"></a>So erstellen Sie eine zentrale Zugriffsregel  
 
@@ -765,7 +765,7 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
    -Server:"contoso.com" `  
    ```  
 
-### <a name="BKMK_2.10"></a>Erstellen der zentralen Zugriffs Richtlinie  
+### <a name="create-the-central-access-policy"></a><a name="BKMK_2.10"></a>Erstellen der zentralen Zugriffs Richtlinie  
 
 ##### <a name="to-create-a-central-access-policy"></a>So erstellen Sie eine zentrale Zugriffsrichtlinie  
 
@@ -779,7 +779,7 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
     -Member "AdatumEmployeeAccessRule" `  
     ```  
 
-### <a name="BKMK_2.11"></a>Veröffentlichen der neuen Richtlinie über Gruppenrichtlinie  
+### <a name="publish-the-new-policy-through-group-policy"></a><a name="BKMK_2.11"></a>Veröffentlichen der neuen Richtlinie über Gruppenrichtlinie  
 
 ##### <a name="to-apply-the-central-access-policy-across-file-servers-through-group-policy"></a>So wenden Sie die zentrale Zugriffsrichtlinie dateiserverübergreifend durch die Gruppenrichtlinie an  
 
@@ -811,13 +811,13 @@ Erstellen Sie den Benutzer Jeff Low mit dem Kennwort <strong>pass@word1</strong>
 
 7.  Schließen Sie den Gruppenrichtlinienverwaltungs-Editor. Sie haben nun der Gruppenrichtlinie die zentrale Zugriffsrichtlinie hinzugefügt.  
 
-### <a name="BKMK_2.12"></a>Erstellen des Ordners "Ergebnis" auf dem Dateiserver  
+### <a name="create-the-earnings-folder-on-the-file-server"></a><a name="BKMK_2.12"></a>Erstellen des Ordners "Ergebnis" auf dem Dateiserver  
 Erstellen Sie ein neues NTFS-Volume auf „FILE1“, und erstellen Sie den folgenden Ordner: D:\Ergebnis.  
 
 > [!NOTE]  
 > Zentrale Zugriffsrichtlinien sind auf dem System oder Startvolume C: standardmäßig nicht aktiviert.  
 
-### <a name="BKMK_2.13"></a>Festlegen der Klassifizierung und Anwenden der zentralen Zugriffs Richtlinie auf den Ordner "Ergebnis"  
+### <a name="set-classification-and-apply-the-central-access-policy-on-the-earnings-folder"></a><a name="BKMK_2.13"></a>Festlegen der Klassifizierung und Anwenden der zentralen Zugriffs Richtlinie auf den Ordner "Ergebnis"  
 
 ##### <a name="to-assign-the-central-access-policy-on-the-file-server"></a>So weisen Sie die zentrale Zugriffsrichtlinie auf dem Dateiserver zu  
 

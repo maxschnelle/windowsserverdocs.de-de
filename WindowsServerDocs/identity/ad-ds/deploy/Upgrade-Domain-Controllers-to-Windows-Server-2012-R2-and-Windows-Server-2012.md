@@ -22,7 +22,7 @@ ms.locfileid: "76822723"
 
 Dieses Thema enthält Hintergrundinformationen zu Active Directory Domain Services in Windows Server 2012 R2 und Windows Server 2012 und erläutert den Prozess zum Aktualisieren von Domänen Controllern von Windows Server 2008 oder Windows Server 2008 R2.  
   
-## <a name="BKMK_UpgradeWorkflow"></a>Upgradeschritte für Domänen Controller  
+## <a name="domain-controller-upgrade-steps"></a><a name="BKMK_UpgradeWorkflow"></a>Upgradeschritte für Domänen Controller  
 Die empfohlene Vorgehensweise zum Upgrade einer Domäne besteht im Heraufstufen von Domänencontrollern, auf denen neuere Versionen von Windows Server ausgeführt werden, und ältere Domänencontroller nach Bedarf herabzustufen. Diese Methode empfiehlt sich gegenüber einem Upgrade des Betriebssystems auf einem vorhandenen Domänencontroller. Diese Liste enthält die allgemeinen Schritte, die Sie befolgen müssen, bevor Sie einen Domänen Controller herauf Stufen, der eine neuere Version von Windows Server ausführt:  
   
 1. Stellen Sie sicher, dass der Zielserver die [Systemanforderungen](https://technet.microsoft.com/library/dn303418.aspx)erfüllt.  
@@ -68,7 +68,7 @@ Unter Windows 8 und Windows Server 2012 wurde das neue Feature [Automatische War
   
 Da Windows Update ein Teil der automatischen Wartung in Windows 8 und Windows Server 2012 ist, gilt der interne Zeitplan zur Konfiguration von Tag und Uhrzeit für die Installation von Updates nicht mehr. Um ein einheitliches und vorhersehbares Neustartverhalten für alle Geräte und Computer in Ihrer Organisation, inklusive derer unter Windows 8 und Windows Server 2012, zu garantieren, lesen Sie den Microsoft KB-Artikel [2885694](https://support.microsoft.com/kb/2885694) (oder das kumulative Rollup für Oktober 2013 [2883201](https://support.microsoft.com/kb/2883201)). Konfigurieren Sie anschließend die Richtlinien gemäß des WSUS-Blogeintrags [Enabling a more predictable Windows Update experience for Windows 8 and Windows Server 2012 (KB 2885694)](https://blogs.technet.com/b/wsus/archive/2013/10/08/enabling-a-more-predictable-windows-update-experience-for-windows-8-and-windows-server-2012-kb-2885694.aspx).  
 
-## <a name="BKMK_NewWS2012R2"></a>Neues in AD DS in Windows Server 2012 R2
+## <a name="whats-new-in-ad-ds-in-windows-server-2012-r2"></a><a name="BKMK_NewWS2012R2"></a>Neues in AD DS in Windows Server 2012 R2
 
 In der folgenden Tabelle sind die neuen Features für AD DS in Windows Server 2012 R2 zusammengefasst, und es ist ein Link zu ausführlicheren Informationen angegeben, sofern diese verfügbar sind. Eine ausführlichere Erläuterung einiger Features und ihrer Anforderungen finden Sie unter [What's New in Active Directory in Windows Server 2012 R2](https://technet.microsoft.com/library/dn268294.aspx).  
 
@@ -87,7 +87,7 @@ In der folgenden Tabelle sind die neuen Features für AD DS in Windows Server 20
 |[Verbesserungen am Ereignis 1644](https://technet.microsoft.com/library/dn535775.aspx)|Statistiken zu LDAP-Suchergebnissen wurden als Hilfe bei der Problembehandlung zum Ereignis mit der ID 1644 hinzugefügt.|  
 |[Active Directory Replikations Durchsatz Verbesserung](https://technet.microsoft.com/library/dn535775.aspx)|Verbesserung des maximalen Durchsatzes bei der AD-Replikation von 40Mbps auf ca. 600 Mbps|  
 
-## <a name="BKMK_WhatsNewAD"></a>Neues in AD DS in Windows Server 2012?
+## <a name="whats-new-in-ad-ds-in-windows-server-2012"></a><a name="BKMK_WhatsNewAD"></a>Neues in AD DS in Windows Server 2012?
 
 In der folgenden Tabelle sind die neuen Features für AD DS in Windows Server 2012 zusammengefasst, und es ist ein Link zu ausführlicheren Informationen angegeben, sofern diese verfügbar sind. Eine ausführlichere Erläuterung einiger Features, einschließlich Ihrer Anforderungen, finden Sie unter [What es New in Active Directory Domain Services (AD DS)](https://technet.microsoft.com/library/hh831477.aspx).  
   
@@ -108,7 +108,7 @@ In der folgenden Tabelle sind die neuen Features für AD DS in Windows Server 20
 |[Rollback-Schutz für virtualisierte DCS](https://technet.microsoft.com/library/hh831734.aspx#safe_virt_dc)|Das versehentliche Wiederherstellen der Sicherungen von Momentaufnahmen virtualisierter Domänencontroller verursacht kein USN-Rollback mehr.|  
 |[Windows PowerShell-Verlaufs Anzeige](https://technet.microsoft.com/library/hh831702.aspx#windows_powershell_history_viewer)|Ermöglicht Administratoren bei Verwendung des Active Directory-Verwaltungscenters das Anzeigen der Windows PowerShell-Befehle.|  
   
-### <a name="BKMK_"></a>Automatische Wartung und Änderungen am Neustart Verhalten nach dem Anwenden von Updates durch Windows Update
+### <a name="automatic-maintenance-and-changes-to-restart-behavior-after-updates-are-applied-by-windows-update"></a><a name="BKMK_"></a>Automatische Wartung und Änderungen am Neustart Verhalten nach dem Anwenden von Updates durch Windows Update
 
 Vor Windows 8 verwaltete Windows Update einen eigenen internen Zeitplan für Suche, Download und Installation von Updates. Dazu musste der Windows Update-Agent ständig im Hintergrund laufen und verbrauchte Speicherplatz und andere Systemressourcen.  
   
@@ -131,7 +131,7 @@ Die folgende Tabelle enthält einige Beispiele für die Konfiguration dieser Ein
 
 Weitere Informationen zum Hintergrund dieser Änderungen finden Sie unter [Minimizing restarts after automatic updating in Windows Update](https://blogs.msdn.com/b/b8/archive/2011/11/14/minimizing-restarts-after-automatic-updating-in-windows-update.aspx).  
 
-## <a name="BKMK_InstallationChanges"></a>Änderungen an der Installation von AD DS Server Rollen
+## <a name="ad-ds-server-role-installation-changes"></a><a name="BKMK_InstallationChanges"></a>Änderungen an der Installation von AD DS Server Rollen
 
 Unter Windows Server 2003 bis Windows Server 2008 R2 haben Sie die x86- oder X64-Version des Befehlszeilentools %%amp;quot;Adprep.exe%%amp;quot; ausgeführt, bevor Sie den Assistenten zum Installieren von Active Directory (Dcpromo.exe) ausgeführt haben. %%amp;quot;Dcpromo.exe%%amp;quot; verfügte über die Optionen für die Installation vom Datenträger oder für die unbeaufsichtigte Installation.  
   
@@ -142,7 +142,7 @@ Anhand von Überprüfungen der Voraussetzungen im AD DS-Konfigurations-Assistent
 Zusammen führen die Änderungen bei der AD DS-Installation zu einer vereinfachten Installation von Domänencontrollerrollen und tragen zu einer Verringerung der Wahrscheinlichkeit von administrativen Fehlern bei. Dies gilt besonders, wenn Sie mehrere Domänencontroller über globale Regionen und Domänen hinweg einsetzen.  
 Ausführlichere Informationen zu GUI- und auf Windows PowerShell basierenden Installationen sowie die Befehlszeilensyntax und Schritt-für-Schritt-Anleitungen finden Sie unter [Install Active Directory Domain Services](https://technet.microsoft.com/library/hh472162.aspx). Für Administratoren, die die Einführung von Schemaänderungen in einer Active Directory-Gesamtstruktur unabhängig von der Installation von Windows Server 2012-Domänencontrollern in einer bestehenden Gesamtstruktur steuern möchten, können Adprep.exe-Befehle weiterhin über eine Eingabeaufforderung mit erhöhten Rechten ausgeführt werden.  
 
-## <a name="BKMK_DeprecatedFeatures"></a>Veraltete Features und Verhaltensänderungen im Zusammenhang mit AD DS in Windows Server 2012
+## <a name="deprecated-features-and-behavior-changes-related-to-ad-ds-in-windows-server-2012"></a><a name="BKMK_DeprecatedFeatures"></a>Veraltete Features und Verhaltensänderungen im Zusammenhang mit AD DS in Windows Server 2012
 
 Für AD DS wurden einige Änderungen vorgenommen:  
 
@@ -163,7 +163,7 @@ Ab Windows Server 2008 verfügen Domänen Controller im Vergleich zu Domänen Co
 |CBT/Erweiterter Schutz für integrierte Authentifizierung|NICHT ZUTREFFEND|Aktiviert|Weitere Informationen finden Sie in der Microsoft- [Sicherheitsempfehlung (937811)](https://go.microsoft.com/fwlink/?LinkId=164559) (https://go.microsoft.com/fwlink/?LinkId=164559) und [Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=178251).<br /><br />Überprüfen und installieren Sie den Hotfix in [Artikel 977073](https://go.microsoft.com/fwlink/?LinkId=186394) (https://go.microsoft.com/fwlink/?LinkId=186394) in der Microsoft Knowledge Base nach Bedarf.|  
 |LMv2|Aktiviert|Deaktiviert|[Artikel 976918](https://go.microsoft.com/fwlink/?LinkId=178251) in der Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=178251)|  
 
-## <a name="BKMK_SysReqs"></a>Anforderungen an das Betriebssystem
+## <a name="operating-system-requirements"></a><a name="BKMK_SysReqs"></a>Anforderungen an das Betriebssystem
 
 Die Mindestsystemanforderungen für Windows Server 2012 sind in der folgenden Tabelle aufgeführt. Weitere Informationen zu Systemanforderungen und Informationen zur Installationsvorbereitung finden Sie unter [Installing Windows Server 2012](https://technet.microsoft.com/library/jj134246.aspx). Für die Installation einer neuen Active Directory-Gesamtstruktur gelten keine weiteren Systemanforderungen. Sie sollten jedoch ausreichend Arbeitsspeicher zum Zwischenspeichern des Inhalts der Active Directory-Datenbank hinzufügen, um die Leistung für Domänencontroller, LDAP-Clientanforderungen und Active Directory-fähige Anwendungen zu verbessern. Wenn Sie einen vorhandenen Domänencontroller aktualisieren oder einen neuen Domänencontroller zu einer vorhandenen Gesamtstruktur hinzufügen, können Sie mithilfe der Informationen im nächsten Abschnitt sicherstellen, dass der Server die Speicherplatzanforderungen erfüllt.  
 
@@ -175,7 +175,7 @@ Die Mindestsystemanforderungen für Windows Server 2012 sind in der folgenden Ta
 |Bildschirmauflösung|800 x 600 oder höher|  
 |Verschiedenes|DVD-Laufwerk, Tastatur, Internetzugriff|  
 
-### <a name="BKMK_DiskSpaceDCWin8"></a>Speicherplatzanforderungen für Upgrades von Domänen Controllern
+### <a name="disk-space-requirements-for-upgrading-domain-controllers"></a><a name="BKMK_DiskSpaceDCWin8"></a>Speicherplatzanforderungen für Upgrades von Domänen Controllern
 
 In diesem Abschnitt werden nur die Speicherplatzanforderungen für Upgrades von Domänen Controllern von Windows Server 2008 oder Windows Server 2008 R2 behandelt. Weitere Informationen zu den Speicherplatzanforderungen für Upgrades von Domänencontrollern auf frühere Versionen von Windows Server finden Sie unter [Disk space requirements for upgrading to Windows Server 2008](https://technet.microsoft.com/library/cc754463(WS.10).aspx#BKMK_2008) oder [Disk space requirements for upgrading to Windows Server 2008 R2](https://technet.microsoft.com/library/cc754463(WS.10).aspx#BKMK_2008R2).  
   
@@ -200,7 +200,7 @@ Die folgenden Windows-Client- und Windows Server-Betriebssysteme werden für Dom
    - Computer unter Windows 8.1 oder Windows 8 können außerdem Domänen beitreten, deren Domänencontroller unter früheren Windows Server-Versionen laufen, inklusive Windows Server 2003 oder neuer. In diesem Fall kann es jedoch sein, dass einige Features von Windows 8 speziell konfiguriert werden müssen oder nicht verfügbar sind. Weitere Informationen zu diesen Features und Empfehlungen zur Verwaltung von Windows 8-Clients in Domänen mit Vorgängerversionen finden Sie unter [Running Windows 8 member computers in Windows Server 2003 domains](https://social.technet.microsoft.com/wiki/contents/articles/17361.running-windows-8-member-computers-in-windows-server-2003-domains.aspx).  
 - Serverbetriebssysteme: Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008, Windows Server 2003 R2, Windows Server 2003  
 
-## <a name="BKMK_UpgradePaths"></a>Unterstützte direkte Upgradepfade
+## <a name="supported-in-place-upgrade-paths"></a><a name="BKMK_UpgradePaths"></a>Unterstützte direkte Upgradepfade
 
 Domänen Controller, auf denen 64-Bit-Versionen von Windows Server 2008 oder Windows Server 2008 R2 ausgeführt werden, können auf Windows Server 2012 aktualisiert werden. Für Domänencontroller, auf denen Windows Server 2003 oder 32-Bit-Versionen von Windows Server 2008 ausgeführt werden, kann kein Upgrade durchgeführt werden. Wenn Sie diese ersetzen möchten, installieren Sie in der Domäne Domänencontroller, auf denen eine neuere Version von Windows Server ausgeführt wird, und entfernen Sie dann die Domänencontroller, auf denen Windows Server 2003 ausgeführt wird.  
 
@@ -217,7 +217,7 @@ Weitere Informationen zu unterstützten Aktualisierungspfaden finden Sie unter [
   
 Aufgrund eines bekannten Problems können Sie kein Upgrade eines Domänen Controllers, auf dem eine Server Core-Installation von Windows Server 2008 R2 ausgeführt wird, auf eine Server Core-Installation von Windows Server 2012 ausführen. Das Upgrade bleibt spät im Upgradeprozess mit einem schwarzen Bildschirm hängen. Beim Neustarten dieser Domänencontroller wird in der Datei %%amp;quot;boot.ini%%amp;quot; eine Option verfügbar gemacht, mit der ein Rollback auf die vorherige Betriebssystemversion durchgeführt wird. Bei einem weiteren Neustart wird das automatische Rollback zur vorherigen Betriebssystemversion ausgelöst. Bis eine Lösung verfügbar ist, wird empfohlen, dass Sie einen neuen Domänen Controller installieren, auf dem eine Server Core-Installation von Windows Server 2012 ausgeführt wird, anstatt ein direktes Upgrade eines vorhandenen Domänen Controllers durchführen, auf dem eine Server Core-Installation von Windows Server ausgeführt wird. 2008 R2. Weitere Informationen finden Sie im KB-Artikel [2734222](https://support.microsoft.com/kb/2734222).  
 
-## <a name="BKMK_FunctionalLevels"></a>Funktionen und Anforderungen auf Funktionsebene
+## <a name="functional-level-features-and-requirements"></a><a name="BKMK_FunctionalLevels"></a>Funktionen und Anforderungen auf Funktionsebene
 
 Für Windows Server 2012 ist eine Windows Server 2003-Gesamtstruktur Funktionsebene erforderlich. Das heißt, bevor Sie einen Domänen Controller, auf dem Windows Server 2012 ausgeführt wird, zu einer vorhandenen Active Directory Gesamtstruktur hinzufügen können, muss die Gesamtstruktur Funktionsebene Windows Server 2003 oder höher sein. Dies bedeutet, dass Domänencontroller, auf denen Windows Server 2008 R2, Windows Server 2008 oder Windows Server 2003 ausgeführt wird, in derselben Gesamtstruktur betrieben werden können. Domänencontroller, auf denen Windows 2000 Server ausgeführt wird, werden jedoch nicht unterstützt und blockieren die Installation eines Domänencontrollers, auf dem Windows Server 2012 ausgeführt wird. Wenn die Gesamtstruktur Domänencontroller mit Windows Server 2003 oder höher enthält, die Gesamtstrukturfunktionsebene jedoch noch auf Windows 2000 basiert, wird die Installation ebenfalls blockiert.  
   
@@ -244,7 +244,7 @@ Neben Funktionsebenen bietet ein Domänen Controller, auf dem Windows Server 201
 > [!NOTE]  
 > Microsoft Exchange Server 2013 erfordert die Gesamtstrukturfunktionsebene Windows Server 2003 oder höher.  
 
-## <a name="BKMK_ServerRoles"></a>AD DS Interoperabilität mit anderen Server Rollen und Windows-Betriebssystemen
+## <a name="ad-ds-interoperability-with-other-server-roles-and-windows-operating-systems"></a><a name="BKMK_ServerRoles"></a>AD DS Interoperabilität mit anderen Server Rollen und Windows-Betriebssystemen
 
 AD DS wird auf den folgenden Windows-Betriebssystemen nicht unterstützt:  
   
@@ -256,7 +256,7 @@ AD DS kann nicht auf einem Server installiert werden, auf dem auch die folgenden
 - Hyper-V Server  
 - Remotedesktop-Verbindungsbroker  
   
-## <a name="BKMK_OpsMasters"></a>Betriebs Master Rollen
+## <a name="operations-master-roles"></a><a name="BKMK_OpsMasters"></a>Betriebs Master Rollen
 
 Einige neue Features in Windows Server 2012 wirken sich auf die Betriebs Master Rollen aus:  
 
@@ -267,15 +267,15 @@ Einige neue Features in Windows Server 2012 wirken sich auf die Betriebs Master 
 > [!NOTE]  
 > Obwohl es sich nicht um Betriebs Master Rollen handelt, besteht eine weitere Änderung bei der AD DS Installation darin, dass die DNS-Server Rolle und der globale Katalog standardmäßig auf allen Domänen Controllern installiert werden, die Windows Server 2012 ausführen.  
 
-## <a name="BKMK_Virtual"></a>Virtualisieren von Domänen Controllern
+## <a name="virtualizing-domain-controllers"></a><a name="BKMK_Virtual"></a>Virtualisieren von Domänen Controllern
 
 Verbesserungen in AD DS ab Windows Server 2012 ermöglichen eine sicherere Virtualisierung von Domänen Controllern und die Möglichkeit zum Klonen von Domänen Controllern. Das Klonen von Domänencontrollern ermöglicht wiederum eine schnelle Bereitstellung zusätzlicher Domänencontroller in einer neuen Domäne, und es bietet weitere Vorteile. Weitere Informationen finden Sie unter [Einführung in Active Directory Domain Services &#40;AD DS&#41; Virtualisierungsebene &#40;100&#41;](../../ad-ds/Introduction-to-Active-Directory-Domain-Services-AD-DS-Virtualization-Level-100.md).  
 
-## <a name="BKMK_Admin"></a>Verwaltung von Windows Server 2012-Servern
+## <a name="administration-of-windows-server-2012-servers"></a><a name="BKMK_Admin"></a>Verwaltung von Windows Server 2012-Servern
 
 Verwenden Sie den [Remoteserver-Verwaltungstools für Windows 8](https://www.microsoft.com/download/details.aspx?id=28972) zum Verwalten von Domänen Controllern und anderen Servern, auf denen Windows Server 2012 ausgeführt wird. Sie können Windows Server 2012 Remoteserver-Verwaltungstools auf einem Computer mit Windows 8 ausführen.  
 
-## <a name="BKMK_AppCompat"></a>Anwendungs Kompatibilität
+## <a name="application-compatibility"></a><a name="BKMK_AppCompat"></a>Anwendungs Kompatibilität
 
 In der folgenden Tabelle sind die allgemeinen Microsoft-Anwendungen mit Active Directory-Integration zusammengefasst. Es ist angegeben, unter welchen Versionen von Windows Server die Anwendungen installiert werden können und ob sich die Einführung von Windows Server 2012-Domänencontrollern auf die Anwendungskompatibilität auswirkt.  
 
@@ -299,7 +299,7 @@ In der folgenden Tabelle sind die allgemeinen Microsoft-Anwendungen mit Active D
 |SQL Server 2008|Quelle: KB-Artikel [2681562](https://support.microsoft.com/kb/2681562):<br /><br />Erfordert SQL Server 2008 mit Service Pack 3 oder höher für die Installation unter Windows Server 2012.|  
 |SQL Server 2005|Quelle: KB-Artikel [2681562](https://support.microsoft.com/kb/2681562):<br /><br />Wird für die Installation unter Windows Server 2012 nicht unterstützt.|  
 
-## <a name="BKMK_KnownIssues"></a>Bekannte Probleme
+## <a name="known-issues"></a><a name="BKMK_KnownIssues"></a>Bekannte Probleme
 
 In der folgenden Tabelle sind die mit der AD DS-Installation verbundenen bekannten Probleme aufgeführt.  
 
