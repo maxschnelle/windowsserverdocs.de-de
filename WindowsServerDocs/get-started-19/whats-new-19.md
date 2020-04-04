@@ -8,12 +8,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
 ms.date: 06/04/2019
-ms.openlocfilehash: dd8cd6700323075a380aa062bfa1d208b3e30f83
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 47269fbfac6aea3fe46513ad67d2cfa2f0c9b78e
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465494"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639920"
 ---
 # <a name="whats-new-in-windows-server-2019"></a>Neuerungen in Windows Server 2019
 
@@ -63,7 +63,7 @@ Die umfassenden Plattformsensoren und Reaktionsaktionen von ATP decken Angriffe 
 
 -   [Attack Surface Reduction (ASR)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-exploit-guard/attack-surface-reduction-exploit-guard?ocid=cx-blog-mmpc) umfasst eine Reihe von Steuerelementen, mit denen Unternehmen verhindern können, dass Schadsoftware auf die Computer gelangt, indem sie verdächtige schädliche Dateien (z.B. Office-Dateien), Skripts, seitliche Bewegungen, Ransomware-Verhalten und E-Mail-basierte Bedrohungen blockieren.
 
--   [Netzwerkschutz](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-exploit-guard/network-protection-exploit-guard?ocid=cx-blog-mmpc) schützt den Endpunkt vor webbasierten Bedrohungen, indem er jeden ausgehenden Prozess auf dem Gerät an nicht vertrauenswürdige Hosts/IP-Adressen über Windows Defender SmartScreen blockiert.
+-   [Netzwerkschutz](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/network-protection) schützt den Endpunkt vor webbasierten Bedrohungen, indem er jeden ausgehenden Prozess auf dem Gerät an nicht vertrauenswürdige Hosts/IP-Adressen über Windows Defender SmartScreen blockiert.
 
 -   [Kontrollierter Ordnerzugriff](https://cloudblogs.microsoft.com/microsoftsecure/2017/10/23/stopping-ransomware-where-it-counts-protecting-your-data-with-controlled-folder-access/?ocid=cx-blog-mmpc?source=mmpc) schützt sensible Daten vor Ransomware, indem er verhindert, dass nicht vertrauenswürdige Prozesse auf Ihre geschützten Ordner zugreifen.
 

@@ -13,12 +13,12 @@ ms.assetid: deae35b9-7647-42b8-b6bf-45645a44c9c4
 author: KBDAzure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: fba83d22d9e5d9f31a5809781aa04943cc4cd3af
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6416a86b0f80861d0272581c8468fa7d5bb7f329
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364152"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639946"
 ---
 # <a name="hyper-v-virtual-machine-connection"></a>Hyper-V-Verbindung mit virtuellen Computern
 
@@ -47,7 +47,7 @@ Die folgenden Informationen sind für die Verwendung von VMConnect nützlich:
 |Ändern Sie die Einstellungen des virtuellen Computers|Wählen Sie **Datei** > **Einstellungen** aus.|  
 |Herstellen einer Verbindung mit der \(ISO-Datei\) eines DVD-Images oder der \(VFD-Datei\) einer virtuellen Diskette|Wählen Sie **Medien** aus.<br /><br />Virtueller Disketten werden für virtuelle Maschinen der Generation 2 nicht unterstützt. Weitere Informationen finden Sie unter [Soll ich in Hyper-V einen virtuellen Computer der 1. oder der 2. Generation erstellen?](../plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V.md).|  
 |Verwenden der lokalen Ressourcen eines Hosts in einem virtuellen Hyper\-V-Computer, z. B. eines USB-Speichersticks|Aktivieren Sie den erweiterten Sitzungsmodus auf dem Hyper-V-Host, verwenden Sie VMConnect für die Verbindung zum virtuellen Computer, und wählen Sie vor dem Verbindungsaufbau die gewünschte lokale Ressource aus. Im Einzelnen finden Sie die Schritte in [Verwenden von lokalen Ressourcen auf virtuellen Hyper\-V-Computern mit VMConnect](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md) beschrieben.|  
-|Ändern der gespeicherten VMConnect-Einstellungen für einen virtuellen Computer|Führen Sie in Windows PowerShell oder an der Eingabeaufforderung den folgenden Befehl aus:<br /><br />`VMConnect.exe <ServerName> <VMName> \/edit`|  
+|Ändern der gespeicherten VMConnect-Einstellungen für einen virtuellen Computer|Führen Sie in Windows PowerShell oder an der Eingabeaufforderung den folgenden Befehl aus:<br /><br />`VMConnect.exe <ServerName> <VMName> /edit`|  
 |Hindern eines VMConnect-Benutzers an der Übernahme der VMConnect-Sitzung eines anderen Benutzers|[Aktivieren Sie den erweiterten Sitzungsmodus auf dem Hyper-V-Host](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md#turn-on-enhanced-session-mode-on-a-hyper-v-host).<br /><br />Den erweiterten Sitzungsmodus nicht zu aktivieren, kann ein Sicherheits- und Datenschutzrisiko mit sich bringen. Wenn ein Benutzer mithilfe von VMConnect mit einem virtuellen Computer verbunden und bei diesem angemeldet ist und ein weiterer autorisierter Benutzer eine Verbindung mit dem gleichen virtuellen Computer herstellt, wird die Sitzung vom zweiten Benutzer übernommen, und der erste Benutzer verliert die Verbindung. Der zweite Benutzer kann den Desktop, die Dokumente und die Anwendungen des ersten Benutzers sehen.|
 |Verwalten von Integrationsdiensten oder von Komponenten, die der VM die Kommunikation mit dem Hyper-V-Host ermöglichen| Auf Hyper-V-Hosts, die Windows 10 oder Windows Server 2016 ausführen, können mit VMConnect keine Integrationsdienste verwaltet werden. Mehr dazu finden Sie in diesen Themen: <br />- [Aktivieren/Deaktivieren von Integrationsdiensten vom Hyper-V-Host aus](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics) <br />- [Aktivieren/Deaktivieren von Integrationsdiensten von einem virtuellen Windows-Computer aus](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics#manage-integration-services-from-guest-os-windows)<br />- [Aktivieren/Deaktivieren von Integrationsdiensten von einem virtuellen Linux-Computer aus](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics#manage-integration-services-from-guest-os-linux) <br />- [Integrationsdienste für virtuelle Computer auf dem aktuellen Stand halten](https://msdn.microsoft.com/virtualization/hyperv_on_windows/user_guide/managing_ics#integration-service-maintenance)  <br />Lesen Sie für Hosts, die Windows Server 2012 oder Windows Server 2012 R2 ausführen, [Integrationsdienste](https://technet.microsoft.com/library/dn798297(v=ws.11).aspx).|
 |Ändern der Größe des VMConnect-Fensters|Sie können die Größe des VMConnect-Fensters für virtuelle Computer der 2. Generation ändern, die ein Windows-Betriebssystem ausführen. Dazu müssen Sie möglicherweise auf dem Hyper-V-Host den erweiterten Sitzungsmodus aktivieren. Weitere Informationen finden Sie unter [Erweiterten Sitzungsmodus auf Hyper-V-Host aktivieren](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md#turn-on-enhanced-session-mode-on-a-hyper-v-host). Informationen zu virtuellen Computern, die Ubuntu ausführen, finden Sie unter [Ändern der Ubuntu-Bildschirmauflösung in einer Hyper-V-VM](https://blogs.msdn.microsoft.com/virtual_pc_guy/2014/09/19/changing-ubuntu-screen-resolution-in-a-hyper-v-vm/).|

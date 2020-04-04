@@ -8,12 +8,12 @@ author: johnmarlin-msft
 ms.date: 01/30/2019
 description: Dieser Artikel beschreibt das Szenario mit Cluster Sätzen.
 ms.localizationpriority: medium
-ms.openlocfilehash: 52d686fa9797d84f56182b15c36a26440792ec13
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: db427e8fa4e5574c6eb7837cf0ab4a9fcc180410
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402921"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639963"
 ---
 # <a name="cluster-sets"></a>Cluster-Gruppen
 
@@ -65,7 +65,7 @@ Eine Fehler Domäne ist die Gruppierung von Software-und Hardware Artefakten, di
 
 **Verfügbarkeits Gruppe**
 
-Eine Verfügbarkeits Gruppe unterstützt den Administrator dabei, die gewünschte Redundanz von gruppierten Arbeits Auslastungen für Fehler Domänen zu konfigurieren, indem Sie diese in einer Verfügbarkeits Gruppe organisieren und Workloads in dieser Verfügbarkeits Gruppe Nehmen wir an, wenn Sie eine Anwendung mit zwei Ebenen bereitstellen, empfehlen wir, dass Sie mindestens zwei virtuelle Computer in einer Verfügbarkeits Gruppe für jede Ebene konfigurieren, um sicherzustellen, dass Ihre Anwendung mindestens über Folgendes verfügt, wenn eine Fehler Domäne in dieser Verfügbarkeits Gruppe ausfällt. ein virtueller Computer in jeder Ebene, der in einer anderen Fehler Domäne derselben Verfügbarkeits Gruppe gehostet wird.
+Eine Verfügbarkeits Gruppe unterstützt den Administrator dabei, die gewünschte Redundanz von gruppierten Arbeits Auslastungen für Fehler Domänen zu konfigurieren, indem Sie diese in einer Verfügbarkeits Gruppe organisieren und Workloads in dieser Verfügbarkeits Gruppe Nehmen wir an, wenn Sie eine Anwendung mit zwei Ebenen bereitstellen, empfehlen wir, dass Sie mindestens zwei virtuelle Computer in einer Verfügbarkeits Gruppe für jede Ebene konfigurieren, um sicherzustellen, dass bei Ausfall einer Fehler Domäne in dieser Verfügbarkeits Gruppe mindestens ein virtueller Computer auf jeder Ebene in einer anderen Fehler Domäne derselben Verfügbarkeits Gruppe gehostet wird.
 
 ## <a name="why-use-cluster-sets"></a>Gründe für die Verwendung von Cluster Sätzen
 
@@ -100,7 +100,7 @@ In Windows Server 2019 gibt es eine neue Datei Server Rolle mit horizontaler Ska
 
 Die folgenden Überlegungen gelten für eine Infrastruktur-sofs-Rolle:
 
-1.  In einem Failovercluster kann es höchstens eine Infrastruktur-sofs-Cluster Rolle geben. Die Infrastruktur-sofs-Rolle wird erstellt, indem der Switch-Parameter " **-Infrastructure**" für das Cmdlet " **Add-clusterscaleoutfileserverrole** " angegeben wird.  Zum Beispiel:
+1.  In einem Failovercluster kann es höchstens eine Infrastruktur-sofs-Cluster Rolle geben. Die Infrastruktur-sofs-Rolle wird erstellt, indem der Switch-Parameter " **-Infrastructure**" für das Cmdlet " **Add-clusterscaleoutfileserverrole** " angegeben wird.  Beispiel:
 
         Add-ClusterScaleoutFileServerRole -Name "my_infra_sofs_name" -Infrastructure
 
@@ -116,7 +116,7 @@ Zum Zeitpunkt der Erstellung des Cluster Satzes hat der Administrator die Mögli
 
 ## <a name="creating-a-cluster-set"></a>Erstellen eines Cluster Satzes
 
-### <a name="prerequisites"></a>Voraussetzungen
+### <a name="prerequisites"></a>Erforderliche Komponenten
 
 Wenn Sie einen Cluster Satz erstellen, werden die folgenden Voraussetzungen empfohlen:
 
@@ -163,7 +163,7 @@ Wenn Sie einen Cluster Satz erstellen, werden die folgenden Voraussetzungen empf
 
         Get-ClusterSet -CimSession CSMASTER | Get-Cluster | Get-ClusterGroup 
 
-8. Um zu überprüfen, ob der Cluster Satz Erstellungs Prozess eine SMB-Freigabe (identifiziert als volume1 oder den CSV-Ordner mit dem Namen des Infrastruktur Dateiservers und dem Pfad als beides bezeichnet) in der Infrastruktur-sofs für die einzelnen Cluster Mitglieder CSV-Volume:
+8. Um zu überprüfen, ob der Cluster Satz Erstellungs Prozess eine SMB-Freigabe (identifiziert als volume1 oder den CSV-Ordner mit dem Namen des Infrastruktur Dateiservers und dem Pfad als beides bezeichnet) in der Infrastruktur-sofs für das CSV-Volume jedes Cluster Mitglieds erstellt hat:
 
         Get-SmbShare -CimSession CSMASTER
 
@@ -171,7 +171,7 @@ Wenn Sie einen Cluster Satz erstellen, werden die folgenden Voraussetzungen empf
 
         Get-ClusterSetLog -ClusterSetCimSession CSMASTER -IncludeClusterLog -IncludeManagementClusterLog -DestinationFolderPath <path>
 
-9. Konfigurieren Sie die eingeschränkte Kerberos- [Delegierung](https://blogs.technet.microsoft.com/virtualization/2017/02/01/live-migration-via-constrained-delegation-with-kerberos-in-windows-server-2016/) zwischen allen Mitgliedern der Clustergruppe.
+9. Konfigurieren Sie die eingeschränkte Kerberos- [Delegierung](https://techcommunity.microsoft.com/t5/virtualization/live-migration-via-constrained-delegation-with-kerberos-in/ba-p/382334) zwischen allen Mitgliedern der Clustergruppe.
 
 10. Konfigurieren Sie den Authentifizierungstyp für die Live Migration der Cluster übergreifenden virtuellen Maschine auf jedem Knoten im Cluster Satz mit Kerberos.
 
@@ -260,7 +260,7 @@ Die Live Migration einer virtuellen Maschine zwischen unterschiedlichen Clusterg
 
 Bei Cluster Sätzen sind diese Schritte nicht erforderlich, und nur ein Befehl ist erforderlich.  Legen Sie zunächst mithilfe des folgenden Befehls alle Netzwerke fest, die für die Migration verfügbar sein sollen:
 
-    Set-VMHost -UseAnyNetworkMigration $true
+    Set-VMHost -UseAnyNetworkForMigration $true
 
 Beispielsweise möchte ich einen virtuellen Computer für den Cluster Satz von CLUSTER1 auf Node2-CL3 auf CLUSTER3 verschieben.  Der einzige Befehl lautet wie folgt:
 
@@ -323,7 +323,7 @@ Beispielsweise wäre der Befehl zum Entfernen des CLUSTER1-Clusters aus Cluster 
 
         Remove-ClusterSetMember -ClusterName CLUSTER1 -CimSession CSMASTER
 
-## <a name="frequently-asked-questions-faq"></a>Häufig gestellte Fragen
+## <a name="frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ)
 
 **Frage:** Kann ich in meinem Cluster Satz nur hyperkonvergierte Cluster verwenden? <br>
 **Antwort:** Nein.  Sie können direkte Speicherplätze mit herkömmlichen Clustern kombinieren.

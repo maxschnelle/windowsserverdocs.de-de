@@ -13,16 +13,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4559016388f9b0d765c8e4d76f76fa7ef0a7f0f0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9c7bca5be7a8ec0e857cba65680fbc3b967af4f8
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361598"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639752"
 ---
 # <a name="setting-up-update-synchronizations"></a>Einrichten von Updatesynchronisierungen
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Während der Synchronisierung werden von einem WSUS-Server Updates (Aktualisieren von Metadaten und Dateien) aus einer Update Quelle heruntergeladen. Außerdem werden neue Produkt Klassifizierungen und-Kategorien heruntergeladen, sofern vorhanden. Wenn der WSUS-Server zum ersten Mal synchronisiert wird, werden alle Updates heruntergeladen, die Sie beim Konfigurieren der Synchronisierungs Optionen angegeben haben. Nach der ersten Synchronisierung lädt Ihr WSUS-Server nur Updates von der Update Quelle sowie Revisionen der Metadaten für vorhandene Updates und Ablauf Aktualisierungen für Updates herunter.
 

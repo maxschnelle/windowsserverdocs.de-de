@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: a9759f0ea8835c8e07bcd298b75024e3ee29c9ed
-ms.sourcegitcommit: b5c12007b4c8fdad56076d4827790a79686596af
+ms.openlocfilehash: f8a1e70bba740875e19660d5a729a952c9fae8f2
+ms.sourcegitcommit: d56c042c58833bdaa9a6fe54dd68f540af12fc6e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78856344"
+ms.lasthandoff: 04/04/2020
+ms.locfileid: "80661071"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -23,7 +23,7 @@ Storage Migration Service wird in zwei Teilen veröffentlicht: der-Dienst in Win
 
 Beispielsweise enthält Windows Server, Version 1903, neue Features und Korrekturen für den Speicher Migrationsdienst, die auch für Windows Server 2019 und Windows Server, Version 1809, verfügbar sind, indem Sie [KB4512534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534)installieren.
 
-## <a name="collecting-logs"></a>Sammeln von Protokolldateien beim Arbeiten mit Microsoft-Support
+## <a name="how-to-collect-log-files-when-working-with-microsoft-support"></a><a name="collecting-logs"></a>Sammeln von Protokolldateien beim Arbeiten mit Microsoft-Support
 
 Der Speicher Migrationsdienst enthält Ereignisprotokolle für den Orchestrator-Dienst und den Proxy Dienst. Der Orchestrator-Server enthält immer Ereignisprotokolle, und Zielserver, auf denen der Proxy Dienst installiert ist, enthalten die Proxy Protokolle. Diese Protokolle befinden sich unter:
 
@@ -343,7 +343,7 @@ Bei dem Versuch, einen Ausschneiden einer Windows Server 2008 R2-Cluster Quelle 
        at Microsoft.FailoverClusters.Framework.ClusterUtils.RenameFSNetName(SafeClusterHandle ClusterHandle, String clusterName, String FsResourceId, String NetNameResourceId, String newDnsName, CancellationToken ct)
        at Microsoft.StorageMigration.Proxy.Cutover.CutoverUtils.RenameFSNetName(NetworkCredential networkCredential, Boolean isLocal, String clusterName, String fsResourceId, String nnResourceId, String newDnsName, CancellationToken ct)    [d:\os\src\base\dms\proxy\cutover\cutoverproxy\CutoverUtils.cs::RenameFSNetName::1510]
 
-Dieses Problem wird durch eine fehlende API in älteren Versionen von Windows Server verursacht. Zurzeit gibt es keine Möglichkeit, Windows Server 2008-und Windows Server 2003-Cluster zu migrieren. Sie können eine Inventur und Übertragung ohne Probleme auf Windows Server 2008 R2-Clustern durchführen und dann die Umstellung manuell durchführen, indem Sie die Ressource "NetName" und die IP-Adresse des Cluster Quelldatei Servers manuell ändern und dann den Ziel Cluster NetName und IP ändern. Adresse, die der ursprünglichen Quelle entspricht. 
+Dieses Problem wird durch eine fehlende API in älteren Versionen von Windows Server verursacht. Zurzeit gibt es keine Möglichkeit, Windows Server 2008-und Windows Server 2003-Cluster zu migrieren. Sie können eine Inventur und Übertragung ohne Probleme auf Windows Server 2008 R2-Clustern durchführen und dann die Umstellung manuell durchführen, indem Sie die Ressource NetName und IP-Adresse des Cluster Quelldatei Servers manuell ändern und dann den NetName und die IP-Adresse des Ziel Clusters entsprechend der ursprünglichen Quelle ändern. 
 
 ## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer-when-using-dhcp"></a>Die Umstellung hängt von "38% Mapping Network Interfaces on the Source Computer..." ab. bei Verwendung von DHCP 
 
@@ -421,7 +421,7 @@ Wenn Sie die Übertragung bereits einmal ausgeführt haben, gehen Sie wie folgt 
     Get-ADObject -Filter 'Description -like "*storage migration service renamed*"' -SearchBase 'DC=<domain>,DC=<TLD>' | ft name,distinguishedname
     ```
    
- 2. Bearbeiten Sie für alle Benutzer, die mit Ihrem ursprünglichen Namen zurückgegeben werden, ihren "Benutzer Anmelde Namen (Pre-Windows 2000)", um das zufällige Zeichen Suffix zu entfernen, das von Storage Migration Service hinzugefügt wurde, sodass sich dieser Verlierer anmelden kann.
+ 2. Bearbeiten Sie für alle Benutzer, die mit Ihrem ursprünglichen Namen zurückgegeben werden, ihren "Benutzer Anmelde Namen (Pre-Windows 2000)", um das zufällige Zeichen Suffix zu entfernen, das von Storage Migration Service hinzugefügt wurde, damit dieser Benutzer sich anmelden kann.
  3. Bearbeiten Sie für alle Gruppen, die mit Ihrem ursprünglichen Namen zurückgegeben werden, ihren "Gruppennamen (Pre-Windows 2000)", um das zufällige Zeichen Suffix zu entfernen, das von Storage Migration Service hinzugefügt wurde.
  4. Für alle deaktivierten Benutzer oder Gruppen, deren Namen jetzt ein durch Storage Migration Service hinzugefügtes Suffix enthalten, können Sie diese Konten löschen. Sie können überprüfen, ob Benutzerkonten zu einem späteren Zeitpunkt hinzugefügt wurden, da Sie nur die Gruppe "Domänen Benutzer" enthalten und ein erstelltes Datum/Uhrzeit-Wert für die Übertragungs Start Zeit des Speicher Migrations dienstan
  
@@ -484,7 +484,7 @@ Zu diesem Zeitpunkt versucht der Speicher Migrationsdienst-Orchestrator, die Que
  - Der Remote Registrierungsdienst wird auf dem Quellcomputer nicht ausgeführt.
  - die Firewall lässt keine Remote Registrierungs Verbindungen mit dem Quell Server vom Orchestrator zu.
  - Das Quell Migrations Konto verfügt nicht über Remote Registrierungs Berechtigungen zum Herstellen einer Verbindung mit dem Quellcomputer.
- - Das Quell Migrations Konto verfügt nicht über Leseberechtigungen in der Registrierung des Quell Computers unter "HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\CurrentVersion" oder unter "HKEY_LOCAL_MACHINE \system\currentcontrolset\services\". LanManServer
+ - Das Quell Migrations Konto verfügt nicht über Leseberechtigungen in der Registrierung des Quell Computers unter "HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\CurrentVersion" oder unter "HKEY_LOCAL_MACHINE \system\currentcontrolset\services\lanmanserver".
  
  ## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer"></a>Die Umstellung hängt von "38% Mapping Network Interfaces on the Source Computer..." ab. 
 

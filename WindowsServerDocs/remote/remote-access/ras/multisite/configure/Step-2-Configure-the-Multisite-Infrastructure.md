@@ -12,12 +12,12 @@ ms.topic: article
 ms.assetid: faec70ac-88c0-4b0a-85c7-f0fe21e28257
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 6f020dc2bf5c0dc11d18e886346a98a4a40f3855
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 9434f3192da110c8ad61e999d2aecd02bfff3812
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80314054"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639840"
 ---
 # <a name="step-2-configure-the-multisite-infrastructure"></a>Schritt 2 Konfigurieren der Infrastruktur für mehrere Standorte
 
@@ -241,7 +241,7 @@ Wenn Sie die Remote Zugriffs Konfiguration laden oder ändern möchten, können 
   
 #### <a name="to-change-the-domain-controller-that-manages-server-gpos"></a><a name="ChangeDC"></a>So ändern Sie den Domänen Controller, der Server-GPOs verwaltet  
   
--   Führen Sie das Windows PowerShell-Cmdlet `HYPERLINK "https://technet.microsoft.com/library/hh918412.aspx" Set-DAEntryPointDC` auf dem Remote Zugriffs Server aus, und geben Sie den nicht erreichbaren Domänen Controller Namen für den *existingdc* -Parameter an. Mit diesem Befehl wird die Domänen Controller Zuordnung für die Server-Gruppenrichtlinien Objekte der Einstiegspunkte geändert, die derzeit von diesem Domänen Controller verwaltet werden.  
+-   Führen Sie das Windows PowerShell-Cmdlet [Set-daentrypointdc](https://docs.microsoft.com/powershell/module/remoteaccess/set-daentrypointdc) auf dem Remote Zugriffs Server aus, und geben Sie den nicht erreichbaren Domänen Controller Namen für den *existingdc* -Parameter an. Mit diesem Befehl wird die Domänen Controller Zuordnung für die Server-Gruppenrichtlinien Objekte der Einstiegspunkte geändert, die derzeit von diesem Domänen Controller verwaltet werden.
   
     -   Gehen Sie folgendermaßen vor, um den nicht erreichbaren Domänen Controller "DC1.Corp.contoso.com" durch den Domänen Controller "DC2.Corp.contoso.com" zu ersetzen:  
   
@@ -300,7 +300,7 @@ Domänen Controller-Zuordnungs Informationen werden sowohl in der Registrierung 
     ![Windows PowerShell](../../../../media/Step-2-Configure-the-Multisite-Infrastructure/DCAssocFinal.png)  
   
 ### <a name="optimization-of-configuration-distribution"></a><a name="ConfigDistOptimization"></a>Optimierung der Konfigurations Verteilung  
-Wenn Sie Konfigurationsänderungen vornehmen, werden die Änderungen erst angewendet, nachdem die Server-Gruppenrichtlinien Objekte an die RAS-Server weitergegeben wurden. Um die Konfigurations Verteilung zu verkürzen, wählt der Remote Zugriff automatisch einen beschreibbaren Domänen Controller aus, der dem RAS-Server am nächsten liegt, wenn das zugehörige Server-Gruppenrichtlinien Objekt erstellt<https://technet.microsoft.com/library/cc978016.aspx>wird.  
+Wenn Sie Konfigurationsänderungen vornehmen, werden die Änderungen erst angewendet, nachdem die Server-Gruppenrichtlinien Objekte an die RAS-Server weitergegeben wurden. Um die Konfigurations Verteilung zu verkürzen, wählt der Remote Zugriff automatisch einen beschreibbaren Domänen Controller aus, der dem RAS- [Server am nächsten](https://technet.microsoft.com/library/cc978016.aspx) liegt, wenn das zugehörige Server-Gruppenrichtlinien Objekt erstellt wird.  
   
 In einigen Szenarien kann es erforderlich sein, den Domänen Controller, von dem ein Server-Gruppenrichtlinien Objekt verwaltet wird, manuell zu ändern, um die Konfigurationszeit für die Verteilung zu optimieren:  
   
@@ -336,4 +336,3 @@ Führen Sie einen der folgenden Schritte aus, um die Konfigurations Verteilung z
   
 -   [Schritt 3: Konfigurieren der Bereitstellung für mehrere Standorte](Step-3-Configure-the-Multisite-Deployment.md)  
 -   [Schritt 1: Implementieren einer Remote Zugriffs Bereitstellung für einen einzelnen Server](Step-1-Implement-a-Single-Server-Remote-Access-Deployment.md)  
-

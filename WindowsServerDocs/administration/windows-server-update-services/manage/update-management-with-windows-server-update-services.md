@@ -13,20 +13,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e80f6763d7b1aa11603cbd2bb8756a426d685092
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8454966af47be4775bb241523e50dd4968c4f92e
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361501"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639813"
 ---
 # <a name="update-management-with-windows-server-update-services"></a>Verwalten von Updates mit Windows Server Update Services
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Überprüfen Sie regelmäßig die Startseite der WSUS-Konsole, um die allgemeine Updatekompatibilität und die Netzwerkintegrität anzuzeigen. Überprüfen Sie Anwendungsprotokolle häufig, wenn Sie Probleme vermuten, wie z. B. Fehler beim Herunterladen oder wenn Clientcomputer keine Berichte an den WSUS-Server senden können. Diese Anleitung enthält Informationen zum Verwalten des Windows Server Update Services.  
   
-## <a name="in-this-guide"></a>Inhalt dieser Anleitung  
+## <a name="in-this-guide"></a>In diesem Handbuch  
 In diese Anleitung finden Sie Informationen zu folgenden Themen:  
   
 -   [Einrichten von Updatesynchronisierungen](setting-up-update-synchronizations.md)  
