@@ -10,16 +10,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 22554a9669c30cc827c509824f187fbaaedb1272
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5d71a26cbe889f5de11934b2af411ac407fc5e75
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361702"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639859"
 ---
 # <a name="step-1-install-the-wsus-server-role"></a>Schritt 1: Installieren der WSUS-Serverrolle
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Der nächste Schritt zur Bereitstellung des WSUS-Servers ist die Installation der WSUS-Serverrolle. Anhand des folgenden Verfahrens wird die Installation der WSUS-Serverrolle mithilfe von Server-Manager beschrieben.
 

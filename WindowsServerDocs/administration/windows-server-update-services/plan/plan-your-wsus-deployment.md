@@ -10,16 +10,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/24/2018
-ms.openlocfilehash: 37e3a7788ccd409f4002f5fe2d7ea087e89b3419
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 8d284c51bfa1e04a38c32adf5dce2b6f5d948b0a
+ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323522"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80639931"
 ---
 # <a name="plan-your-wsus-deployment"></a>Planen der WSUS-Bereitstellung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Der erste Schritt bei der Bereitstellung von Windows Server Update Services (WSUS) sind einige wichtige Entscheidungen, z. B. die Auswahl des WSUS-Bereitstellungsszenarios und der Netzwerktopologie sowie die Prüfung der Systemanforderungen. In der folgenden Prüfliste sind die Schritte zur Vorbereitung der Bereitstellung zusammengefasst.
 
@@ -37,7 +37,7 @@ Der erste Schritt bei der Bereitstellung von Windows Server Update Services (WSU
 
 ### <a name="system-requirements"></a>Systemanforderungen
 
-Stellen Sie vor dem Aktivieren der WSUS-Serverrolle anhand der folgenden Richtlinien sicher, dass der Server die Systemanforderungen erfüllt und Sie die erforderlichen Berechtigungen zum Durchführen der Installation besitzen:
+Die Anforderungen an Hardware und Datenbanksoftware richten sich nach der Anzahl der Clientcomputer, die in Ihrem Unternehmen aktualisiert werden.  Stellen Sie vor dem Aktivieren der WSUS-Serverrolle anhand der folgenden Richtlinien sicher, dass der Server die Systemanforderungen erfüllt und Sie die erforderlichen Berechtigungen zum Durchführen der Installation besitzen:
 
 -   Serverhardwareanforderungen zum Aktivieren der WSUS-Rolle sind an die Hardware gebunden. Die Mindesthardwareanforderungen für WSUS sind:
 
@@ -45,9 +45,12 @@ Stellen Sie vor dem Aktivieren der WSUS-Serverrolle anhand der folgenden Richtli
 
     -   **Arbeitsspeicher:** WSUS erfordert 2 GB RAM zusätzlich zum vom Server und allen anderen Diensten und Programmen benötigten Arbeitsspeicher.
 
-    -   **Verfügbarer Speicherplatz:** 10 GB (min. 40 GB empfohlen)
+    -   **Verfügbarer Speicherplatz:** min. 40 GB empfohlen
 
-    -   **Netzwerkadapter:** Min. 100 MBit/s
+    -   **Netzwerkadapter:** min. 100 MBit/s (1 GB empfohlen)
+
+> [!NOTE] 
+> Diese Richtlinien gehen davon aus, dass WSUS-Clients bei einem Rullup von 30.000 Clients alle acht Stunden mit dem Server synchronisiert werden. Wenn sie öfter synchronisieren, erhöht sich die Serverlast entsprechend.  
 
 -   Softwareanforderungen:
 
