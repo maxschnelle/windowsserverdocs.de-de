@@ -110,7 +110,7 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 |----------------|------------------------------------------------|-----------------------|
 | Maximale Dateinamenslänge | 255 Unicode-Zeichen  | 255 Unicode-Zeichen               |
 | Maximale Pfadnamenslänge |32.000 Unicode-Zeichen | 32.000 Unicode-Zeichen                |
-| Maximale Dateigröße | 35 PB (Peer tabytes)  | 256 TB               |
+| Maximale Dateigröße | 35 PB (Petabyte)  | 256 TB               |
 | Maximale Volumegröße | 35-PB                           | 256 TB                |
 
 ### <a name="functionality"></a>Funktionalität
