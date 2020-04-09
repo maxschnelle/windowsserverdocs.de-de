@@ -4,15 +4,15 @@ description: Empfehlungen zur Leistungsoptimierung für Webserver unter Windows 
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: landing-page
-ms.author: DavSo; Ericam; YaShi
+ms.author: davso; ericam; yashi
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9587eb5215d2920a0146e8a697c6f36c50f19f27
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ec36d87957e5bbe897597e330e766c3193cd30d0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370053"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851693"
 ---
 # <a name="performance-tuning-web-servers"></a>Leistungsoptimierung für Webserver
 
@@ -57,7 +57,7 @@ Das Deaktivieren der Updates ist wirkungsvoll, wenn Sie große Datensätze (oder
 >[!Warning]
 > Einige Anwendungen, wie z.B. die Hilfsprogramme für inkrementelle Sicherungen, sind auf diese Aktualisierungsinformationen angewiesen und funktionieren ohne sie nicht ordnungsgemäß.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 - [IIS 10.0-Leistungsfeineinstellung](tuning-iis-10.md)
 - [HTTP 1.1/2-Optimierung](http-performance.md)
 
