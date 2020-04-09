@@ -1,24 +1,20 @@
 ---
 title: Einrichten einer Verbindung zwischen einem USB-Client und einem Client verbundenen Station in Multipoint Services
 description: Erfahren Sie, wie Sie eine USB Zero-Client Station in Multipoint Services erstellen.
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d2908865-6be3-474d-88f1-995f40bb61d0
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 80a73065024e5c40f1ebf8efd64022ee6d48fbe8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 688b4908cd52dd53ba88f0a35cabccb58c289ba1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395071"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855643"
 ---
 # <a name="set-up-a-usb-zero-client-connected-station-in-multipoint-services"></a>Einrichten einer Verbindung zwischen einem USB-Client und einem Client verbundenen Station in Multipoint Services
 Wenn Sie Multipoint Services-Stationen mithilfe von USB-Clients erstellen, wird der Monitor für jede Station mit dem Videoport auf dem USB Zero-Client verbunden, wie in der folgenden Abbildung dargestellt. Weitere Informationen zu diesem und anderen Stations Typen finden Sie unter [Multipoint-Stationen](MultiPoint-services-Stations.md).

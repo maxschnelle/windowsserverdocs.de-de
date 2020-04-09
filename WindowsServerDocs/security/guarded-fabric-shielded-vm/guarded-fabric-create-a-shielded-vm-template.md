@@ -1,19 +1,19 @@
 ---
 title: Erstellen eines Datenträgers für eine geschützte Windows-VM-Vorlage
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 9c8b84e8-1f5a-47a1-83ca-b1dbd801cb0b
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 01/29/2019
-ms.openlocfilehash: 04fdd52544b69d2c41abcbee00dd00b31bf5f21c
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 766ea9688b7f08914ca68a960cc21393963bd0e9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949786"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856773"
 ---
 # <a name="create-a-windows-shielded-vm-template-disk"></a>Erstellen eines Datenträgers für eine geschützte Windows-VM-Vorlage
 
@@ -75,7 +75,7 @@ Führen Sie die folgenden Schritte auf einem Computer aus, auf dem Windows Serve
 
 7. Geben Sie auf der Seite Signatur Katalog einen anzeigen **Amen** und eine **Version** des Datenträgers an. Diese Felder sind vorhanden, damit Sie den Datenträger nach der Vorbereitung identifizieren können.
 
-    Beispielsweise können Sie für den Datenträger Namen _WS2016_ und für **Version**, _1.0.0.0_ eingeben.
+    Beispielsweise können Sie **disk name** für den Datenträger Namen _WS2016_ und für **Version**, _1.0.0.0_ eingeben.
 
 8. Überprüfen Sie Ihre Auswahl auf der Seite Einstellungen überprüfen des Assistenten. Wenn Sie auf **generieren**klicken, aktiviert der Assistent BitLocker auf dem Vorlagen Datenträger, berechnet den Hash des Datenträgers und erstellt den volumensignaturkatalog, der in den vhdx-Metadaten gespeichert ist.
 
@@ -99,7 +99,7 @@ Wenn Sie VMM verwenden, müssen Sie nach dem Erstellen eines Vorlagen Datenträg
 
 3. Als Nächstes stellen Sie VMM Informationen zum Betriebssystem bereit, das auf dem Vorlagen Datenträger installiert ist:
 
-    ein. Suchen Sie den neu importierten Vorlagen Datenträger auf dem Bibliothek Server im Arbeitsbereich **Bibliothek** .
+    a. Suchen Sie den neu importierten Vorlagen Datenträger auf dem Bibliothek Server im Arbeitsbereich **Bibliothek** .
 
     b. Klicken Sie mit der rechten Maustaste auf den Datenträger und dann auf **Eigenschaften**.
 
@@ -113,7 +113,7 @@ Das kleine Schild Symbol neben dem Namen des Datenträgers bezeichnet den Datent
 
 ## <a name="create-the-shielded-vm-template-in-vmm-using-the-prepared-template-disk"></a>Erstellen der abgeschirmten VM-Vorlage in VMM mithilfe des vorbereiteten Vorlagen Datenträgers
 
-Mit einem vorbereiteten Vorlagen Datenträger in der VMM-Bibliothek können Sie eine VM-Vorlage für abgeschirmte VMS erstellen. VM-Vorlagen für abgeschirmte VMS unterscheiden sich geringfügig von herkömmlichen VM-Vorlagen dahin, dass bestimmte Einstellungen fest sind (VM der Generation 2, UEFI und sicherer Start aktiviert usw.) und andere nicht verfügbar sind (die Anpassung der Mandanten ist auf einige wenige, SELECT-Eigenschaften der VM beschränkt). . Führen Sie die folgenden Schritte aus, um die VM-Vorlage zu erstellen:
+Mit einem vorbereiteten Vorlagen Datenträger in der VMM-Bibliothek können Sie eine VM-Vorlage für abgeschirmte VMS erstellen. VM-Vorlagen für abgeschirmte VMS unterscheiden sich geringfügig von herkömmlichen VM-Vorlagen dahin, dass bestimmte Einstellungen fest sind (VM der Generation 2, UEFI und sicherer Start aktiviert usw.) und andere nicht verfügbar sind (die Anpassung von Mandanten ist auf einige wenige, ausgewählte Eigenschaften der VM beschränkt). Führen Sie die folgenden Schritte aus, um die VM-Vorlage zu erstellen:
 
 1. Klicken Sie im Arbeitsbereich **Bibliothek** oben auf der Registerkarte Start auf **VM-Vorlage erstellen** .
 
@@ -167,7 +167,7 @@ Save-VolumeSignatureCatalog -TemplateDiskPath 'C:\temp\MyLinuxTemplate.vhdx' -Vo
 > [!div class="nextstepaction"]
 > [Erstellen einer Schutz Datendatei](guarded-fabric-tenant-creates-shielding-data.md)
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 - [Konfigurationsschritte des hostingdienstanbieters für geschützte Hosts und abgeschirmte VMS](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

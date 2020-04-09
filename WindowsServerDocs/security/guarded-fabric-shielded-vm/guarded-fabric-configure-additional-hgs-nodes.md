@@ -1,19 +1,19 @@
 ---
 title: Konfigurieren zusätzlicher HGS-Knoten
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 227f723b-acb2-42a7-bbe3-44e82f930e35
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 01/14/2020
-ms.openlocfilehash: ece005617c4a2faac41c2be15967b2f43951517e
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: d131643db4dfb179f5bdb8bcbad9f003d1ae61e1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265862"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856893"
 ---
 # <a name="configure-additional-hgs-nodes"></a>Konfigurieren zusätzlicher HGS-Knoten
 
@@ -28,7 +28,7 @@ Verwenden Sie eine dieser Methoden, um HGS-Knoten hinzuzufügen, die für Ihre U
 |Neue HGS-Gesamtstruktur  | [Verwenden von PFX-Dateien](#dedicated-hgs-forest-with-pfx-certificates) | [Verwenden von Zertifikat Fingerabdrücken](#dedicated-hgs-forest-with-certificate-thumbprints) |
 |Vorhandene geschützte Gesamtstruktur |  [Verwenden von PFX-Dateien](#existing-bastion-forest-with-pfx-certificates) | [Verwenden von Zertifikat Fingerabdrücken](#existing-bastion-forest-with-certificate-thumbprints) |
 
-## <a name="prerequisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
 Stellen Sie sicher, dass jeder zusätzliche Knoten: 
 - Hat dieselbe Hardware-und Softwarekonfiguration wie der primäre Knoten. 

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 3095e6a7-b562-4c6a-bf29-13b32c133cac
 title: Registrieren eines SSL-Zertifikats für AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: efa7c7aee848a5bbb68d3ce7140e135d37c2161d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6f7af40f23c3fa3bd0a31ecb74b11013133a4b32
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408362"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855433"
 ---
 # <a name="enroll-an-ssl-certificate-for-ad-fs"></a>Registrieren eines SSL-Zertifikats für AD FS
 
-Active Directory-Verbunddienste (AD FS) \(AD FS\) erfordert auf jedem Verbund Server in der Verbund Serverfarm ein Zertifikat für Secure Socket Layer \(SSL\) Server-Authentifizierung. Das gleiche Zertifikat kann auf jedem Verbund Server in einer Farm verwendet werden. Sie müssen sowohl über das Zertifikat als auch den dazugehörigen privaten Schlüssel verfügen. Wenn Sie beispielsweise über eine PFX-Datei mit dem Zertifikat und dem privaten Schlüssel verfügen, können Sie die Datei direkt in den Konfigurations-Assistenten für Active Directory-Verbunddienste importieren. Dieses SSL-Zertifikat muss Folgendes enthalten:  
+Active Directory-Verbunddienste (AD FS) \(AD FS\) erfordert auf jedem Verbund Server in der Verbund Serverfarm ein Zertifikat für Secure Socket Layer \(SSL\) Server-Authentifizierung. Das gleiche Zertifikat kann auf jedem Verbund Server in einer Farm verwendet werden. Das Zertifikat und sein privater Schlüssel müssen verfügbar sein. Wenn Sie beispielsweise über eine PFX-Datei mit dem Zertifikat und dem privaten Schlüssel verfügen, können Sie die Datei direkt in den Konfigurations-Assistenten für Active Directory-Verbunddienste importieren. Dieses SSL-Zertifikat muss Folgendes enthalten:  
   
 1.  Der Antragsteller Name und der alternative Antragsteller Name müssen ihren Verbund Dienstnamen enthalten, z. b. fs.contoso.com.  
   

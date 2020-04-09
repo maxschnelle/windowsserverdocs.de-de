@@ -1,23 +1,18 @@
 ---
 title: Konfigurieren geschützter Benutzerkonten
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.service: na
-ms.suite: na
 ms.technology: security-auditing
-ms.tgt_pltfrm: na
 ms.topic: article
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 4dbcc3165a6226c60a3c6a5acf500c643c8ef4d9
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 001a20267aef23e7e4457e0979dca40e821931f4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949916"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857143"
 ---
 # <a name="how-to-configure-protected-accounts"></a>Konfigurieren geschützter Benutzerkonten
 
@@ -27,7 +22,7 @@ Bei Pass-the-hash (PtH)-Angriffen können Angreifer den zugrunde liegenden NTLM-
   
 -   [Geschützte Benutzer](#protected-users)  
   
--   [Authentifizierungsrichtlinien](#authentication-policies)  
+-   [Authentifizierungs Richtlinien](#authentication-policies)  
   
 -   [Authentifizierungs Richtlinien Silos](#authentication-policy-silos)  
   
@@ -114,7 +109,7 @@ Konten für Dienste und Computer dürfen nicht Mitglieder der Benutzergruppe **G
   
 -   NTLM-Authentifizierung ablehnen: nur über [NTLM-Block Richtlinien](https://technet.microsoft.com/library/jj865674(v=ws.10).aspx)konfigurierbar.  
   
--   Ablehnen von Daten Verschlüsselungs Standard (Data Encryption Standard, des) bei der Kerberos-Vorauthentifizierung: Windows Server 2012 R2-Domänen Controller akzeptieren des nicht für Computer Konten, es sei denn, Sie sind nur für die konfiguriert, weil jede mit Kerberos freigegebene Version von Windows auch RC4.  
+-   Ablehnen von Daten Verschlüsselungs Standard (Data Encryption Standard, des) bei der Kerberos-Vorauthentifizierung: Windows Server 2012 R2-Domänen Controller akzeptieren des nicht für Computer Konten, es sei denn, Sie sind nur für die konfiguriert, weil jede mit Kerberos freigegebene Version von Windows auch RC4 unterstützt  
   
 -   Ablehnen von RC4 für die Kerberos-Vorabauthentifizierung: nicht konfigurierbar.  
   
@@ -174,7 +169,7 @@ Sie können Dienstticket-Anfragen über den Ticket-Granting Service (TGS) einsch
   
 ### <a name="requirements-for-using-authentication-policies"></a>Anforderungen für die Verwendung von Authentifizierungsrichtlinien  
   
-|-Richtlinie|Anforderungen|  
+|Policy (Richtlinie)|Voraussetzungen|  
 |-----|--------|  
 |Benutzerdefinierte TGT-Lebensdauer| Konto Domänen auf Domänen Funktionsebene auf Windows Server 2012 R2|  
 |Benutzeranmeldung beschränken|-Windows Server 2012 R2 Domänen Funktionsebene Konto Domänen mit dynamischer Access Control Unterstützung<br />-Windows 8-, Windows 8.1-, Windows Server 2012-oder Windows Server 2012 R2-Geräte mit dynamischer Access Control Unterstützung|  

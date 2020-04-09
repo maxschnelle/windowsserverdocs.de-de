@@ -1,18 +1,18 @@
 ---
 title: Wählen Sie aus, ob HGS in einer eigenen neuen Gesamtstruktur oder in einer vorhandenen geschützten Gesamtstruktur installiert werden sollen.
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 28c7eceefa4747a35d1b989df4a2c5e43a8d6a42
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 52376a4e193b8021dc58214003e9b7579b096a79
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386794"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856883"
 ---
 # <a name="choose-whether-to-install-hgs-in-its-own-dedicated-forest-or-in-an-existing-bastion-forest"></a>Wählen Sie aus, ob HGS in einer eigenen dedizierten Gesamtstruktur oder in einer vorhandenen geschützten Gesamtstruktur installiert werden.
 

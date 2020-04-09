@@ -1,18 +1,18 @@
 ---
 title: Installieren Sie vertrauenswürdige TPM-Stamm Zertifikate.
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 06/27/2019
-ms.openlocfilehash: 15614ce1065170bc557fad10a168b3dda6a5b05a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 096a40f422f308a036b8062e4515ebe698c31f08
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386548"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856573"
 ---
 # <a name="install-trusted-tpm-root-certificates"></a>Installieren Sie vertrauenswürdige TPM-Stamm Zertifikate.
 
@@ -20,11 +20,11 @@ ms.locfileid: "71386548"
 
 Wenn Sie HGS für die Verwendung des TPM-Attestation konfigurieren, müssen Sie auch HGS so konfigurieren, dass Sie den Anbietern der TPMs auf Ihren Servern vertrauen.
 Durch diesen zusätzlichen Überprüfungsprozess wird sichergestellt, dass nur echte vertrauenswürdige TPMs ihre HGS überzeugen können.
-Wenn Sie versuchen, ein nicht vertrauenswürdiges TPM bei `Add-HgsAttestationTpmHost` zu registrieren, erhalten Sie eine Fehlermeldung, die darauf hinweist, dass der TPM-Anbieter nicht vertrauenswürdig ist.
+Wenn Sie versuchen, ein nicht vertrauenswürdiges TPM bei `Add-HgsAttestationTpmHost`zu registrieren, erhalten Sie eine Fehlermeldung, die darauf hinweist, dass der TPM-Anbieter nicht vertrauenswürdig ist.
 
 Um den TPMs zu vertrauen, müssen die Stamm-und zwischen Signatur Zertifikate, die zum Signieren des Endorsement Key in den TPMs Ihres Servers verwendet werden, auf HGS installiert werden.
 Wenn Sie in Ihrem Daten Center mehr als ein TPM-Modell verwenden, müssen Sie möglicherweise verschiedene Zertifikate für jedes Modell installieren.
-HGS werden in den Zertifikat speichern "TrustedTPM_RootCA" und "TrustedTPM_IntermediateCA" für die Zertifikate des Anbieters angezeigt.
+HGS sehen sich die Zertifikat Speicher "TrustedTPM_RootCA" und "TrustedTPM_IntermediateCA" für die herstellerzertifikate an.
 
 > [!NOTE]
 > Die TPM-herstellerzertifikate unterscheiden sich von den standardmäßig in Windows installierten Stamm-und zwischen Zertifikaten, die von TPM-Anbietern verwendet werden.
@@ -35,7 +35,7 @@ Wenn Ihre TPM-Zertifikate nicht im folgenden Paket enthalten sind, wenden Sie si
 
 Wiederholen Sie die folgenden Schritte auf **jedem HGS-Server**:
 
-1.  Laden Sie das neueste Paket von [https://go.microsoft.com/fwlink/?linkid=2097925](https://go.microsoft.com/fwlink/?linkid=2097925)herunter.
+1.  Laden Sie das neueste Paket aus [https://go.microsoft.com/fwlink/?linkid=2097925](https://go.microsoft.com/fwlink/?linkid=2097925)herunter.
 
 2.  Überprüfen Sie die Signatur der CAB-Datei, um ihre Echtheit sicherzustellen. Fahren Sie nicht fort, wenn die Signatur ungültig ist.
 

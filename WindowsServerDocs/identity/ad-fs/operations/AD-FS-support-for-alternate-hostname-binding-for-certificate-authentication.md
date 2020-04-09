@@ -1,7 +1,6 @@
 ---
 ms.assetid: 4b71b212-7e5b-4fad-81ee-75b3d1f27869
 title: AD FS-Unterstützung für alternative Hostnamenbindung für Zertifikatauthentifizierung
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: be522f4dd990a920e910950c1bf2564d795bf9fa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e3764977e29413ea1e361fa78cadd040adabcf04
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358588"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858093"
 ---
 # <a name="ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication"></a>AD FS-Unterstützung für alternative Hostnamenbindung für Zertifikatauthentifizierung
 
@@ -31,7 +30,7 @@ Es gibt zwei Möglichkeiten, wie Sie die Alternative Host Namen Bindung für die
   
 ![Alternative Host Namen Bindung](media/AD-FS-support-for-alternate-hostname-binding-for-certificate-authentication/ADFS_CA_2.png)  
   
-Entsprechend können Sie nach der Bereitstellung AD FS in Windows Server 2016 das PowerShell-Cmdlet verwenden: Set-ADF salternatetlsclientbinding.
+Entsprechend können Sie das PowerShell-Cmdlet Set-ADF salternatetlsclientbinding verwenden, nachdem AD FS in Windows Server 2016 bereitgestellt wurde.
   
 ```powershell
 Set-AdfsAlternateTlsClientBinding -Member DC1.contoso.com -Thumbprint '<thumbprint of cert>'

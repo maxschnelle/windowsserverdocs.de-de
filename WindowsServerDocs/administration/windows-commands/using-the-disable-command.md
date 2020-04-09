@@ -1,30 +1,27 @@
 ---
-title: Verwenden des Befehls "deaktivieren"
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+title: Deaktivieren
+description: Windows-Befehls Thema zum deaktivieren, das alle Dienste für die Windows-Bereitstellungs Dienste deaktiviert.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 08d1b9ea-1e25-486a-b7df-ad26c53b4e77
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 52e1bdf48d682c06356cd2cc52cb8ca3f65a89f4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ffb63db8a865f9e4368c180e86724120823d097e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71363550"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80831653"
 ---
-# <a name="using-the-disable-command"></a>Verwenden des Befehls "deaktivieren"
+# <a name="disable"></a>Deaktivieren
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Deaktiviert alle Dienste für die Windows-Bereitstellungs Dienste.
+
 ## <a name="subcommands"></a>Unterbefehle
 |Unterbefehl|Beschreibung|
 |-------|--------|

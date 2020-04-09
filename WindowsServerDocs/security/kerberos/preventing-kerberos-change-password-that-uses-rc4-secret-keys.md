@@ -1,19 +1,18 @@
 ---
 title: Verhindern eines Kerberos-Änderungs Kennworts, das RC4-Geheimnis Schlüssel verwendet
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: de207d55-aa3d-4c16-bd3b-496db43663a4
 manager: alanth
 author: justinha
-ms.technology: security-crdential-protection-and-management
+ms.technology: security-credential-protection-and-management
 ms.date: 11/09/2016
-ms.openlocfilehash: 21c2d3d79653bd02fea9d2ac0d09bd18690a388f
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 4b335ca4432f17acd60d9246de81081cf0441552
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949748"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858823"
 ---
 # <a name="preventing-kerberos-change-password-that-uses-rc4-secret-keys"></a>Verhindern, dass ein Kennwort, das geheime RC4-Schlüssel verwendet, von Kerberos geändert wird
 
@@ -37,7 +36,7 @@ In den Windows-Betriebssystemen, die in der Liste gilt für am Anfang dieses The
 
 - Stellen Sie Domänen auf Windows Server 2012 R2-Domänen Funktionsebene oder höher bereit, und konfigurieren Sie die Benutzer als Mitglieder der Sicherheitsgruppe "geschützte Benutzer". Da dieses Feature mehr als nur die RC4-Verwendung im Kerberos-Protokoll unterbricht, finden Sie weitere Informationen unter Ressourcen [im folgenden Abschnitt](#see-also) .
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - Informationen dazu, wie Sie die Verwendung des RC4-Verschlüsselungs Typs in Windows Server 2012 R2-Domänen verhindern, finden Sie unter [Sicherheitsgruppe "geschützte Benutzer](/../credentials-protection-and-management/protected-users-security-group.md)" und [Konfigurieren geschützter Konten](/../credentials-protection-and-management/how-to-configure-protected-accounts.md).
 

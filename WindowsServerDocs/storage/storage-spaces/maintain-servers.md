@@ -2,20 +2,19 @@
 title: Server für Direkte Speicherplätze zu Wartungszwecken offline schalten
 ms.prod: windows-server
 ms.author: eldenc
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 10/08/2018
-Keywords: Direkte Speicherplätze (S2D), Wartung
 ms.assetid: 73dd8f9c-dcdb-4b25-8540-1d8707e9a148
 ms.localizationpriority: medium
-ms.openlocfilehash: 20439a06c255a73f20a297f765e6ed11abfde6f2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2ccf8d809354f96277701cd365966ba5e914f64b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402825"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857533"
 ---
 # <a name="taking-a-storage-spaces-direct-server-offline-for-maintenance"></a>Server für Direkte Speicherplätze zu Wartungszwecken offline schalten
 
@@ -72,7 +71,7 @@ Um dies im Failovercluster-Manager durchzuführen, wechseln Sie zu **Knoten**, k
 
 ![Anhalten-Ausgleichen](media/maintain-servers/pause-drain.png)
 
-Alle virtuellen Computer beginnen mit der Livemigration zu anderen Servern im Cluster. Dieser Vorgang kann einige Minuten dauern.
+Alle virtuellen Computer beginnen mit der Livemigration zu anderen Servern im Cluster. Das kann einige Minuten in Anspruch nehmen.
 
    > [!NOTE]
    > Wenn Sie den Clusterknoten ordnungsgemäß anhalten und abgleichen, führt Windows eine automatische Prüfung durch, um sicherzustellen, dass der Vorgang fortgesetzt werden kann. Wenn beschädigte Volumes vorhanden sind, wird der Vorgang beendet und gewarnt, dass eine Fortsetzung nicht mehr sicher durchgeführt werden kann.
@@ -155,7 +154,7 @@ MyVolume2    Mirror                InService         Warning      True          
 MyVolume3    Mirror                InService         Warning      True           1 TB
 ```
 
-Sobald die Aufträge abgeschlossen ist, überprüfen Sie mithilfe des Cmdlet `Get-VirtualDisk`, ob die Volumes als **Fehlerfrei** angezeigt werden. Ausgabebeispiel:
+Sobald die Aufträge abgeschlossen ist, überprüfen Sie mithilfe des Cmdlet **, ob die Volumes als** Fehlerfrei`Get-VirtualDisk` angezeigt werden. Ausgabebeispiel:
 
 ```
 FriendlyName ResiliencySettingName OperationalStatus HealthStatus IsManualAttach Size
