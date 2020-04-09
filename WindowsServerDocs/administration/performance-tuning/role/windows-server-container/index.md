@@ -4,15 +4,15 @@ description: Empfehlungen zur Leistungsoptimierung für Windows Server-Container
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: landing-page
-ms.author: DavSo; Ericam; YaShi
+ms.author: davso; ericam; yashi
 author: akino
 ms.date: 10/16/2017
-ms.openlocfilehash: 890632c9e8adf221e56ffa91331e5371a3fcdf86
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a4508e28e54562748422b198f703e23326d15720
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384938"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851633"
 ---
 # <a name="performance-tuning-windows-server-containers"></a>Leistungsoptimierung für Windows Server-Container
 
@@ -25,7 +25,7 @@ Diese Konfigurationen sind mit unterschiedlichen Auswirkungen auf die Leistung v
 
 Windows Server-Container und Hyper-V-Container weisen viele Portabilitäts- und Konsistenzvorteile auf, aber sie unterscheiden sich in Bezug auf die Isolationsgarantie und die Leistungsmerkmale.
 
-**Windows Server-Container**: Bieten Anwendungsisolation mithilfe einer Technologie zum Isolieren von Prozessen und Namespaces. Ein Windows Servercontainer teilt sich einen Kernel mit dem Containerhost und allen Containern, die auf dem Host ausgeführt werden.
+**Windows Server-Container**: Bieten Anwendungsisolation mithilfe einer Technologie zum Isolieren von Prozessen und Namespaces. Ein Windows Server-Container teilt sich einen Kernel mit dem Containerhost und allen Container, die auf dem Host ausgeführt werden.
 
 **Hyper-V-Container**: Erweitern die Isolationsmöglichkeiten von Windows Server-Containern, indem jeder Container auf einem stark optimierten virtuellen Computer ausgeführt wird. Bei dieser Konfiguration wird der Kernel des Containerhosts nicht gemeinsam mit den Hyper-V-Containern verwendet.
 
@@ -35,7 +35,7 @@ Die zusätzliche Isolation durch Hyper-V-Container wird größtenteils durch ein
 
 Windows Server-Container und Hyper-V-Container verfügen über Unterstützung für Server Core und für eine neue Installationsoption, die unter Windows Server 2016 verfügbar ist: [Nano Server](https://technet.microsoft.com/windows-server-docs/compute/nano-server/getting-started-with-nano-server). 
 
-Nano Server ist ein remote verwaltetes Serverbetriebssystem, das für private Clouds und Rechenzentren optimiert ist. Das Betriebssystem ähnelt Windows Server im Modus Server Core, ist aber deutlich kleiner, bietet keine Möglichkeit zur lokalen Anmeldung, und unterstützt ausschließlich 64-Bit-Anwendungen, Tools und Agents. Es beansprucht erheblich weniger Speicherplatz und startet schneller.
+Nano Server ist ein remote verwaltetes Serverbetriebssystem, das für private Clouds und Rechenzentren optimiert ist. Das Betriebssystem ähnelt Windows Server im Modus Server Core, ist aber deutlich kleiner, hat keine Möglichkeit zur lokalen Anmeldung, und unterstützt ausschließlich 64-Bit-Anwendungen, Tools und Agents. Es beansprucht erheblich weniger Speicherplatz und startet schneller.
 
 ## <a name="container-start-up-time"></a>Startzeit von Containern
 Die Startzeit von Containern ist eine wichtige Metrik in vielen Szenarien, in denen sich durch Container die größten Vorteile ergeben. Daher ist es sehr wichtig zu verstehen, wie die Startzeit von Containern am besten optimiert werden kann. Unten sind einige Kompromisse beschrieben, die beim Optimieren ggf. eingegangen werden müssen, um eine Verbesserung der Startzeit zu erzielen.
