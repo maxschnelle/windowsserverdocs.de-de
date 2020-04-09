@@ -1,24 +1,20 @@
 ---
 title: klist
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4689b4a9-1740-47dd-9240-02105efca428
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4b35069faa835b59f2655262f640ddb18068702f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b693e4496f4fc1275e1f2b364900564ce86e97cb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375309"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841963"
 ---
 # <a name="klist"></a>klist
 
@@ -32,7 +28,7 @@ Zeigt eine Liste der derzeit zwischengespeicherten Kerberos-Tickets an. Diese In
 klist [-lh <LogonId.HighPart>] [-li <LogonId.LowPart>] tickets | tgt | purge | sessions | kcd_cache | get | add_bind | query_bind | purge_bind
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -41,7 +37,7 @@ klist [-lh <LogonId.HighPart>] [-li <LogonId.LowPart>] tickets | tgt | purge | s
 |Tickets|Listet die derzeit zwischengespeicherten Ticket-Zuteilungs Tickets (TGTs) und Dienst Tickets der angegebenen Anmelde Sitzung auf. Dies ist die Standardoption.|
 |TGT|Zeigt das erste Kerberos-TGT an.|
 |Löschen|Hiermit können Sie alle Tickets der angegebenen Anmelde Sitzung löschen.|
-|Besessenheit|Zeigt eine Liste der Anmelde Sitzungen auf diesem Computer an.|
+|Sitzungen|Zeigt eine Liste der Anmelde Sitzungen auf diesem Computer an.|
 |kcd_cache|Zeigt die Informationen zur eingeschränkten Kerberos-Delegierung im Cache an.|
 |get|Ermöglicht das Anfordern eines Tickets für den Zielcomputer, der durch den Dienst Prinzipal Namen (SPN) angegeben wird.|
 |add_bind|Ermöglicht es Ihnen, einen bevorzugten Domänen Controller für die Kerberos-Authentifizierung anzugeben.|
@@ -60,48 +56,48 @@ In den Parametern werden die folgenden Informationen angezeigt:
 -   **Tickets**
 
     Listet die derzeit zwischengespeicherten Tickets von Diensten auf, für die Sie sich seit der Anmeldung authentifiziert haben. Zeigt die folgenden Attribute aller zwischengespeicherten Tickets an:  
-    -   Anmelde-ID: Die LUID
-    -   Client: Die Verkettung des Client namens und des Domänen Namens des Clients
-    -   Server: Die Verkettung des Dienst namens und des Domänen Namens des Dienstanbieter
-    -   Kerbticket-Verschlüsselungstyp: Der Verschlüsselungstyp, der zum Verschlüsseln des Kerberos-Tickets verwendet wird.
-    -   Ticket-Flags: Die Kerberos-Ticket-Flags
-    -   Startzeit: Der Zeitpunkt, ab dem das Ticket gültig ist.
-    -   Endzeit: Der Zeitpunkt, zu dem das Ticket nicht mehr gültig ist. Wenn ein Ticket zu diesem Zeitpunkt abgelaufen ist, kann es nicht mehr verwendet werden, um sich bei einem Dienst zu authentifizieren oder für die Verlängerung zu verwenden.
-    -   Erneuerungszeit: Der Zeitpunkt, zu dem eine neue anfängliche Authentifizierung erforderlich ist.
-    -   Sitzungs Schlüsseltyp: Der Verschlüsselungsalgorithmus, der für den Sitzungsschlüssel verwendet wird.
+    -   LogonId: die LUID
+    -   Client: die Verkettung des Client namens und des Domänen Namens des Clients
+    -   Server: die Verkettung des Dienst namens und des Domänen Namens des Dienstanbieter
+    -   Kerbticket-Verschlüsselungstyp: der Verschlüsselungstyp, der zum Verschlüsseln des Kerberos-Tickets verwendet wird.
+    -   Fahrdatenträger: die Kerberos-Ticket-Flags
+    -   Startzeit: die Uhrzeit, zu der das Ticket gültig ist.
+    -   Endzeit: die Uhrzeit, zu der das Ticket nicht mehr gültig ist. Wenn ein Ticket zu diesem Zeitpunkt abgelaufen ist, kann es nicht mehr verwendet werden, um sich bei einem Dienst zu authentifizieren oder für die Verlängerung zu verwenden.
+    -   Erneuerungszeit: der Zeitpunkt, zu dem eine neue anfängliche Authentifizierung erforderlich ist.
+    -   Sitzungs Schlüsseltyp: der Verschlüsselungsalgorithmus, der für den Sitzungsschlüssel verwendet wird.
 -   **TGT**
 
     Listet das erste Kerberos-TGT und die folgenden Attribute des aktuell zwischengespeicherten Tickets auf:  
-    -   Anmelde-ID: Identifiziert in Hexadezimal Zahl
+    -   LogonId: identifiziert in Hexadezimal
     -   ServiceName: krbtgt
-    -   TargetName \<-SPN >: krbtgt
-    -   Domain Name Der Name der Domäne, die das TGT ausgibt.
-    -   TargetDomainName: Die Domäne, für die das TGT ausgestellt wurde.
-    -   Alttargetdomainname: Die Domäne, für die das TGT ausgestellt wurde.
-    -   Ticket-Flags: Address-und Target-Aktionen und-Typ
+    -   TargetName \<SPN >: krbtgt
+    -   Domain Name: Name der Domäne, die das TGT ausgibt
+    -   TargetDomainName: Domäne, an die das TGT ausgegeben wird
+    -   Alttargetdomainname: Domäne, an die das TGT ausgegeben wird
+    -   Ticket-Flags: Adress-und Ziel Aktionen und-Typ
     -   Sitzungsschlüssel: Schlüssellänge und Verschlüsselungsalgorithmus
-    -   StartTime Uhrzeit des lokalen Computers, an dem das Ticket angefordert wurde
-    -   EndTime Uhrzeit, zu der das Ticket nicht mehr gültig ist. Wenn ein Ticket zu diesem Zeitpunkt abgelaufen ist, kann es nicht mehr zum Authentifizieren bei einem Dienst verwendet werden.
-    -   Erneuteste Verlängerung: Stichtag für die Verlängerung des Tickets
-    -   Timeskew: Zeitunterschied mit dem Schlüsselverteilungscenter (KDC)
-    -   Encode-Ticket: Codiertes Ticket
+    -   StartTime: lokale Computerzeit, für die das Ticket angefordert wurde
+    -   EndTime: die Zeit, zu der das Ticket nicht mehr gültig ist. Wenn ein Ticket zu diesem Zeitpunkt abgelaufen ist, kann es nicht mehr zum Authentifizieren bei einem Dienst verwendet werden.
+    -   Erneuter Abschluss: Stichtag für die Verlängerung des Tickets
+    -   Timeskew: Zeitunterschied zum Schlüsselverteilungscenter (KDC)
+    -   Encodticket: codiertes Ticket
 -   **ungs**
 
     Ermöglicht das Löschen eines bestimmten Tickets. Wenn Sie Tickets löschen, werden alle von Ihnen zwischengespeicherten Tickets zerstört. verwenden Sie daher dieses Attribut mit Vorsicht. Möglicherweise werden Sie nicht mehr in der Lage sein, sich bei Ressourcen zu authentifizieren. Wenn dies der Fall ist, müssen Sie sich ab-und wieder anmelden.  
-    -   Anmelde-ID: Identifiziert in Hexadezimal Zahl
+    -   LogonId: identifiziert in Hexadezimal
 -   **Besessenheit**
 
     Ermöglicht das Auflisten und Anzeigen der Informationen für alle Anmelde Sitzungen auf diesem Computer.  
-    -   Anmelde-ID: Wenn angegeben, wird die Anmelde Sitzung nur durch den angegebenen Wert angezeigt. Wenn nicht angegeben, werden alle Anmelde Sitzungen auf diesem Computer angezeigt.
+    -   LogonId: Wenn angegeben, wird die Anmelde Sitzung nur durch den angegebenen Wert angezeigt. Wenn nicht angegeben, werden alle Anmelde Sitzungen auf diesem Computer angezeigt.
 -   **kcd_cache**
 
     Hiermit können Sie die Informationen zum eingeschränkten Kerberos-Delegierungs Cache anzeigen.  
-    -   Anmelde-ID: Wenn angegeben, werden die Cache Informationen für die Anmelde Sitzung mit dem angegebenen Wert angezeigt. Wenn nicht angegeben, werden die Cache Informationen für die Anmelde Sitzung des aktuellen Benutzers angezeigt.
--   **get**
+    -   LogonId: Wenn angegeben, werden die Cache Informationen für die Anmelde Sitzung anhand des angegebenen Werts angezeigt. Wenn nicht angegeben, werden die Cache Informationen für die Anmelde Sitzung des aktuellen Benutzers angezeigt.
+-   **Erhalten**
 
     Ermöglicht es Ihnen, ein Ticket für das vom SPN angegebene Ziel anzufordern.  
     -   Anmelde-ID: Wenn angegeben, wird ein Ticket angefordert, indem die Anmelde Sitzung mit dem angegebenen Wert verwendet wird. Wenn nicht angegeben, fordert ein Ticket mithilfe der Anmelde Sitzung des aktuellen Benutzers an.
-    -   kdcoptions: Fordert ein Ticket mit den angegebenen KDC-Optionen an.
+    -   kdcoptions: fordert ein Ticket mit den angegebenen KDC-Optionen an.
 -   **add_bind**
 
     Ermöglicht es Ihnen, einen bevorzugten Domänen Controller für die Kerberos-Authentifizierung anzugeben.
@@ -118,7 +114,7 @@ In den Parametern werden die folgenden Informationen angezeigt:
 **Weitere Überlegungen**
 -   "Klist. exe" ist in Windows Server 2012 und Windows 8 verfügbar und erfordert keine besondere Installation.
 
-## <a name="BKMK_Examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
 
 1. Wenn Sie die Ereignis-ID 27 bei der Verarbeitung einer TGS-Anforderung (Ticket Gewährung Service) für den Zielserver diagnostizieren, verfügt das Konto nicht über einen passenden Schlüssel zum Generieren eines Kerberos-Tickets. Sie können klist verwenden, um den Kerberos-Ticket Cache abzufragen, um zu bestimmen, ob Tickets fehlen, ob der Zielserver oder das Konto fehlerhaft ist oder ob der Verschlüsselungstyp nicht unterstützt wird.  
    ```
@@ -161,11 +157,11 @@ In den Parametern werden die folgenden Informationen angezeigt:
    ```
    klist query_bind
    ```  
-9. Wenn Sie möchten, dass Kerberos Domänen Controller wiederentdeckt, können Sie den folgenden Befehl verwenden. Dieser Befehl kann auch verwendet werden, um den Cache zu leeren, bevor neue Domänen Controller Bindungen mit klist add_bind erstellt werden.  
+9. Wenn Sie möchten, dass Kerberos Domänen Controller wiederentdeckt, können Sie den folgenden Befehl verwenden. Dieser Befehl kann auch verwendet werden, um den Cache zu leeren, bevor neue Domänen Controller Bindungen mit klist-add_bind erstellt werden.  
    ```
    klist purge_bind
    ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,24 +1,20 @@
 ---
 title: ksetup
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4e046f8a-811b-48dc-9a69-18d8e097f353
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 265f67bff65794938485472a41064837551c7699
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b3c61fd81691f9db44330eddbf40d4212d1786ff
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374798"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841253"
 ---
 # <a name="ksetup"></a>ksetup
 
@@ -55,7 +51,7 @@ ksetup
 
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -68,7 +64,7 @@ ksetup
 |[Ksetup:server](ksetup-server.md)|Ermöglicht es Ihnen, den Namen eines Windows-Computers anzugeben, auf dem die Änderungen angewendet werden sollen.|
 |[Ksetup:setcomputerpassword](ksetup-setcomputerpassword.md)|Legt das Kennwort für das Domänen Konto des Computers (oder den Host Prinzipal) fest.|
 |[Ksetup:removerealm](ksetup-removerealm.md)|Löscht alle Informationen für den angegebenen Bereich aus der Registrierung.|
-|[Ksetup:domain](ksetup-domain.md)|Ermöglicht das Angeben einer Domäne (wenn \<domainname > nicht mithilfe von **/Domain**festgelegt wurde).|
+|[Ksetup:domain](ksetup-domain.md)|Ermöglicht das Angeben einer Domäne (wenn \<Domain Name > nicht mithilfe von **/Domain**festgelegt wurde).|
 |[Ksetup:changepassword](ksetup-changepassword.md)|Ermöglicht die Verwendung von kpasswd zum Ändern des Kennworts des angemeldeten Benutzers.|
 |[Ksetup:listrealmflags](ksetup-listrealmflags.md)|Listet die verfügbaren bereichflags auf, die von **Ksetup** erkannt werden können.|
 |[Ksetup:setrealmflags](ksetup-setrealmflags.md)|Legt bereichflags für einen bestimmten Bereich fest.|
@@ -87,10 +83,10 @@ ksetup
 
 Mithilfe von **Ksetup** werden die Computereinstellungen zum Suchen von Kerberos-Bereichen geändert. Bei nicht von Microsoft Kerberos – basierten Implementierungen werden diese Informationen in der Regel in der Datei krb5. conf gespeichert. In Windows Server-Betriebssystemen wird Sie in der Registrierung gespeichert. Sie können dieses Tool verwenden, um diese Einstellungen zu ändern. Diese Einstellungen werden von Arbeitsstationen zum Suchen von Kerberos-Bereichen und von Domänen Controllern verwendet, um Kerberos-Bereiche für bereichsübergreifende Vertrauens Stellungen zu finden.
 
-**Ksetup** initialisiert Registrierungsschlüssel, die der Kerberos Security Support Provider (SSP) zum Suchen eines KDC für den Kerberos-Bereich verwendet, wenn auf dem Computer Windows Server 2003, Windows Server 2008 oder Windows Server 2008 R2 ausgeführt wird und kein Windows Server R2-Mitglied ist. -. Nach der Konfiguration kann sich der Benutzer eines Client Computers, auf dem das Windows-Betriebssystem ausgeführt wird, bei Konten im Kerberos-Bereich anmelden.
+**Ksetup** initialisiert Registrierungsschlüssel, die der Kerberos-Security Support Provider (SSP) verwendet, um einen KDC für den Kerberos-Bereich zu suchen, wenn auf dem Computer Windows Server 2003, Windows Server 2008 oder Windows Server 2008 R2 ausgeführt wird und kein Mitglied einer Windows-Domäne ist. Nach der Konfiguration kann sich der Benutzer eines Client Computers, auf dem das Windows-Betriebssystem ausgeführt wird, bei Konten im Kerberos-Bereich anmelden.
 
 Das Kerberos 5-Protokoll ist die Standardeinstellung für die Netzwerk Authentifizierung auf Computern, auf denen Windows XP Professional, Windows Vista und Windows 7 ausgeführt wird. Der Kerberos-SSP durchsucht die Registrierung nach dem Domänen Namen des Bereichs des Benutzers und löst dann den Namen in eine IP-Adresse auf, indem er einen DNS-Server abfragt. Das Kerberos-Protokoll kann DNS zum Auffinden von KDCs mithilfe des Bereichs namens verwenden, muss jedoch speziell dafür konfiguriert werden.
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

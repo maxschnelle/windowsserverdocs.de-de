@@ -1,24 +1,20 @@
 ---
 title: Hilfe
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c65b5ac3-711a-4368-95b8-ba82e2d00713
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1d759c85c07d76811053ba0a4a938e07220c2648
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f7b6f3a563c59a55ff92b38f0854437b96478f6c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375594"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842343"
 ---
 # <a name="help"></a>Hilfe
 
@@ -35,13 +31,13 @@ help [<Command>]
 [<Command>] /?
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<-Befehl >|Gibt den Namen des Befehls an, zu dem Sie Informationen wünschen.|
+|\<Befehl >|Gibt den Namen des Befehls an, zu dem Sie Informationen wünschen.|
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Zum Anzeigen von Informationen zum **Robocopy** -Befehl geben Sie eine der folgenden Optionen ein:
 ```
@@ -49,6 +45,6 @@ help robocopy
 robocopy /? 
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

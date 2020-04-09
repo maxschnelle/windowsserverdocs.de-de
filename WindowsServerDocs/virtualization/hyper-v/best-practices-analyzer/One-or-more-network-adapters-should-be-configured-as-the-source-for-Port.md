@@ -2,20 +2,19 @@
 title: Mindestens ein Netzwerkadapter muss als Quelle für die Port Spiegelung konfiguriert werden.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 147fd00f-1440-44d1-94e3-3a8af63aa7ed
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: a079033608b8af8c63a0d02ae166eb7280fec41d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b2beb64629f95b04ddf1fa3f43634759899554c5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393572"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861863"
 ---
 # <a name="one-or-more-network-adapters-should-be-configured-as-the-source-for-port-mirroring"></a>Mindestens ein Netzwerkadapter muss als Quelle für die Port Spiegelung konfiguriert werden.
 
@@ -38,9 +37,9 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 ## <a name="impact"></a>**Auswirkt**  
 *Die Port Spiegelung wird für die folgenden virtuellen Switches und virtuellen Maschinen nicht ordnungsgemäß ausgeführt:*  
   
-\<list of Virtual Machines >  
+\<Liste der virtuellen Computer >  
   
-## <a name="resolution"></a>**Auflösung**  
+## <a name="resolution"></a>**Lösung**  
 *Verwenden Sie Windows PowerShell oder Hyper-V-Manager, um die Port Spiegelungs Konfiguration abzuschließen oder zu korrigieren.*  
   
 

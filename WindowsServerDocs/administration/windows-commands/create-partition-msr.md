@@ -1,35 +1,29 @@
 ---
 title: Erstellen einer Partition MSR
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Artikel zum Erstellen einer Partition MSR, mit der eine Microsoft Reserved-Partition (MSR) auf einem GPT-Datenträger (GUID-Partitionstabelle) erstellt wird.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 04fba033-23cb-4521-bd5d-db96131f2e73
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 45cc215b097ce048b15f0e907f95f976e4941e28
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a0f0390cd3b9f390e1f65b034fecd00d8ff41079
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71378899"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847013"
 ---
 # <a name="create-partition-msr"></a>Erstellen einer Partition MSR
 
 >Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-erstellt eine reservierte Microsoft-\(MSR-\) Partition für eine GUID-Partitionstabelle \(GPT\) Datenträger.  
+Erstellt eine reservierte Microsoft-Partition (MSR) auf einem GPT-Datenträger (GUID-Partitionstabelle).
   
 > [!CAUTION]  
-> Gehen Sie bei der Verwendung dieses Befehls sehr vorsichtig vor. Da GPT-Datenträger ein bestimmtes Partitionslayout erfordern, kann das Erstellen von reservierten Microsoft-Partitionen dazu führen, dass der Datenträger nicht mehr lesbar ist.  
-  
-  
+> Gehen Sie bei der Verwendung dieses Befehls sehr vorsichtig vor. Da GPT-Datenträger ein bestimmtes Partitionslayout erfordern, kann das Erstellen von reservierten Microsoft-Partitionen dazu führen, dass der Datenträger nicht mehr lesbar ist.
   
 ## <a name="syntax"></a>Syntax  
   
@@ -37,13 +31,13 @@ erstellt eine reservierte Microsoft-\(MSR-\) Partition für eine GUID-Partitions
 create partition msr [size=<n>] [offset=<n>] [noerr]  
 ```  
   
-## <a name="parameters"></a>Parameter  
+### <a name="parameters"></a>Parameter  
   
 |  Parameter  |                                                                                                                         Beschreibung                                                                                                                         |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  Größe\=<n>  |               Die Größe der Partition in Megabyte \(MB\). Die Partition ist mindestens so lang wie die Zahl, die durch <n>angegeben wird. Wenn keine Größe angegeben wird, wird die Partition so lange fortgesetzt, bis in der aktuellen Region kein freier Speicherplatz mehr verfügbar ist.               |
 | Offset\=<n> | Gibt den Offset in Kilobyte \(KB-\)an, bei dem die Partition erstellt wird. Der Offset wird aufgerundet, um alle verwendeten Sektorgrößen vollständig auszufüllen. Wenn kein Offset angegeben wird, wird die Partition in den ersten Datenträger Block eingefügt, der groß genug ist, um Sie zu speichern. |
-|    Noerr    |                            nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.                             |
+|    Noerr    |                            Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.                             |
   
 ## <a name="remarks"></a>Hinweise  
   
@@ -55,15 +49,15 @@ create partition msr [size=<n>] [offset=<n>] [noerr]
   
 -   Ein einfacher GPT-Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt wird. Wählen Sie mit dem Befehl Datenträger **auswählen** einen einfachen GPT-Datenträger aus, und verschieben Sie den Fokus darauf.  
   
-## <a name="BKMK_examples"></a>Beispiele  
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
 Geben Sie Folgendes ein, um eine reservierte Microsoft-Partition mit einer Größe von 1000 Megabyte zu erstellen:  
   
 ```  
 create partition msr size=1000  
 ```  
   
-#### <a name="additional-references"></a>Weitere Verweise  
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
+## <a name="additional-references"></a>Weitere Verweise  
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 
   

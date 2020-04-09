@@ -1,28 +1,22 @@
 ---
 title: dir
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für dir, das eine Liste der Dateien und Unterverzeichnisse eines Verzeichnisses anzeigt.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: edcbf69b-eaa4-466e-b210-3dd8892f4d93
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8aeb2b3b7d62ae62ba9b8fa70988cf64060673ca
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 44e50707886df87b217f22bc04edcdaf7496b0d1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79320014"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845563"
 ---
 # <a name="dir"></a>dir
-
-
 
 Zeigt eine Liste der Dateien und Unterverzeichnisse eines Verzeichnisses an. Bei Verwendung ohne Parameter zeigt **dir** die Volumebezeichnung und Seriennummer des Datenträgers an, gefolgt von einer Liste der Verzeichnisse und Dateien auf dem Datenträger (einschließlich ihrer Namen und Datum und Uhrzeit der letzten Änderung). Für Dateien zeigt **dir** die Namenserweiterung und die Größe in Bytes an. **Außerdem werden** die Gesamtzahl der aufgeführten Dateien und Verzeichnisse, die kumulative Größe und der freie Speicherplatz (in Bytes) angezeigt, der auf dem Datenträger verbleiben.
 
@@ -34,7 +28,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#exampl
 dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>]][/o[[:]<SortOrder>]] [/t[[:]<TimeField>]] [/s] [/b] [/l] [/n] [/x] [/c] [/4]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -44,7 +38,7 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 |/q|Zeigt Dateibesitz Informationen an.|
 |/w|Zeigt die Auflistung im breiten Format an, mit bis zu fünf Dateinamen oder Verzeichnisnamen in jeder Zeile.|
 |/d|Zeigt die Auflistung im gleichen Format wie **/w**an, aber die Dateien sind nach Spalte sortiert.|
-|/a [[:]\<Attribute >]|Zeigt nur die Namen dieser Verzeichnisse und Dateien mit den von Ihnen angegebenen Attributen an. Wenn Sie **/a**weglassen, **werden** die Namen aller Dateien angezeigt, mit Ausnahme von ausgeblendeten Dateien und Systemdateien. Wenn Sie **/a** ohne Angabe von *Attributen*verwenden, werden in **dir** die Namen aller Dateien angezeigt, einschließlich ausgeblendeter Dateien und Systemdateien.</br>In der folgenden Liste werden die einzelnen Werte beschrieben, die Sie für *Attribute*verwenden können. Verwenden eines Doppelpunkts (:) ist optional. Verwenden Sie eine beliebige Kombination dieser Werte, und trennen Sie die Werte nicht durch Leerzeichen.</br>**d-** Verzeichnisse</br>**h** ausgeblendete Dateien</br>**s** -System Dateien</br>**l** -Analyse Punkte</br>schreibgeschützte **r** -Dateien</br>**Dateien,** die für die Archivierung bereit sind</br>indizierte Dateien **sind nicht Inhalts**</br>**-** Präfix "Not"|
+|/a [[:]\<Attribute >]|Zeigt nur die Namen dieser Verzeichnisse und Dateien mit den von Ihnen angegebenen Attributen an. Wenn Sie **/a**weglassen, **werden** die Namen aller Dateien angezeigt, mit Ausnahme von ausgeblendeten Dateien und Systemdateien. Wenn Sie **/a** ohne Angabe von *Attributen*verwenden, werden in **dir** die Namen aller Dateien angezeigt, einschließlich ausgeblendeter Dateien und Systemdateien.</br>In der folgenden Liste werden die einzelnen Werte beschrieben, die Sie für *Attribute*verwenden können. Verwenden eines Doppelpunkts (:) ist optional. Verwenden Sie eine beliebige Kombination dieser Werte, und trennen Sie die Werte nicht durch Leerzeichen.</br>**d-** Verzeichnisse</br>**h** ausgeblendete Dateien</br>**s** -System Dateien</br>**l** -Analyse Punkte</br>schreibgeschützte **r** -Dateien</br>**Dateien,** die für die Archivierung bereit sind</br>indizierte Dateien **sind nicht Inhalts**</br>**-** Präfix Bedeutung nicht|
 |/o [[:]\<sortor der->]|Sortiert die Ausgabe nach *sortor*, wobei es sich um eine beliebige Kombination der folgenden Werte handeln kann:</br>**n** nach Name (alphabetisch)</br>**e** nach Erweiterung (alphabetisch)</br>**g** Gruppen Verzeichnisse zuerst</br>**s** nach Größe (zuerst die kleinste)</br>**d** nach Datum/Uhrzeit (älteste erste)</br>**-** Präfix in umgekehrter Reihenfolge</br>Hinweis: die Verwendung eines Doppelpunkts ist optional. Mehrere Werte werden in der Reihenfolge verarbeitet, in der Sie Sie auflisten. Trennen Sie mehrere Werte nicht durch Leerzeichen.</br>Wenn *SortOrder* nicht angegeben wird, listet **dir/o** die Verzeichnisse in alphabetischer Reihenfolge auf, gefolgt von den Dateien, die auch in alphabetischer Reihenfolge sortiert sind.|
 |/t [[:]\<TimeField >]|Gibt an, welches Zeit Feld angezeigt oder für die Sortierung verwendet werden soll. In der folgenden Liste werden die einzelnen Werte beschrieben, die Sie für *TimeField*verwenden können:</br>**c** -Erstellung</br>**Letzter Zugriff**</br>**w** zuletzt geschrieben|
 |/s|Listet jedes Vorkommen des angegebenen Datei namens innerhalb des angegebenen Verzeichnisses und aller Unterverzeichnisse auf.|
@@ -63,8 +57,8 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 
   **Sternchen (\*):** Verwenden Sie das Sternchen als Ersatz für eine beliebige Zeichenfolge, z. b.:  
   - **dir \*. txt** listet alle Dateien im aktuellen Verzeichnis mit Erweiterungen auf, die mit ". txt" beginnen, z. b. txt,. txt1,. txt_old.
-  - **dir Read\*. txt** listet alle Dateien im aktuellen Verzeichnis auf, die mit "Read" beginnen, und mit Erweiterungen, die mit ". txt" beginnen, z. b. txt,. txt1 oder. txt_old.
-  - **dir Lese\*.\*** listet alle Dateien im aktuellen Verzeichnis auf, die mit "Read" mit einer beliebigen Erweiterung beginnen.
+  - mit der Datei " **Read\*. txt** " werden alle Dateien im aktuellen Verzeichnis aufgelistet, die mit "lesen" beginnen, und mit Erweiterungen beginnen, die mit ". txt" beginnen, z. b. txt,. txt1 oder. txt_old.
+  - **dir Lese\*.\*** listet alle Dateien im aktuellen Verzeichnis auf, die mit dem Lesevorgang mit einer beliebigen Erweiterung beginnen.
 
   Der Platzhalter Platzhalter verwendet immer eine kurze Zuordnung von Dateinamen, sodass Sie möglicherweise unerwartete Ergebnisse erhalten. Das folgende Verzeichnis enthält z. b. zwei Dateien (t. txt2 und T97. txt): 
  
@@ -83,7 +77,7 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 
   Sie erwarten möglicherweise, dass die Eingabe von **dir T97\\** * die Datei T97. txt zurückgibt. Bei der Eingabe von **dir T97\\** * werden jedoch beide Dateien zurückgegeben, da das Sternchen-Platzhalter Zeichen mit der Kurznamen Zuordnung T97B4 ~ 1. txt mit der Datei t. txt2 zu T97. txt übereinstimmt. Ebenso werden bei der Eingabe von **del T97\\** * beide Dateien gelöscht.
 
-  **Fragezeichen (?):** Verwenden Sie das Fragezeichen als Ersatz für ein einzelnes Zeichen in einem Namen. Geben Sie z. b. **dir Read???. txt** listet alle Dateien im aktuellen Verzeichnis mit der Erweiterung ". txt" auf, die mit "Read" beginnen und bis zu drei Zeichen gefolgt sind. Hierzu gehören Read. txt, Read1. txt, Read12. txt, Read123. txt und Readme1. txt, jedoch nicht Readme12. txt.
+  **Fragezeichen (?):** Verwenden Sie das Fragezeichen als Ersatz für ein einzelnes Zeichen in einem Namen. Geben Sie z. b. **dir Read???. txt** listet alle Dateien im aktuellen Verzeichnis mit der Erweiterung ". txt" auf, die mit "Read" beginnen und von bis zu drei Zeichen gefolgt sind. Hierzu gehören Read. txt, Read1. txt, Read12. txt, Read123. txt und Readme1. txt, jedoch nicht Readme12. txt.
 - Angeben von Datei Anzeige Attributen
 
   Wenn Sie **/a** mit mehr als einem Wert in *Attributen* **verwenden, werden** nur die Namen der Dateien mit allen angegebenen Attributen angezeigt. Wenn Sie z. b. **/a** mit **r** und **-h** als Attribute verwenden (entweder mithilfe von **/a: r-h** oder **/AR-h**), werden in **dir** nur die Namen der schreibgeschützten Dateien angezeigt, die nicht ausgeblendet sind.
@@ -103,7 +97,7 @@ Stellen Sie sicher, dass das Stammverzeichnis das aktuelle Verzeichnis ist, um a
 dir /s/w/o/p
 ```
 
-**Dir** listet das Stammverzeichnis, die Unterverzeichnisse und die Dateien im Stammverzeichnis, einschließlich Erweiterungen, auf. In **dir** werden die Namen und Dateinamen der Unterverzeichnisse in den einzelnen Unterverzeichnissen in der Struktur aufgeführt.
+Der Befehl **dir** listet das Stammverzeichnis, die Unterverzeichnisse und die Dateien im Stammverzeichnis, einschließlich Erweiterungen, auf. In **dir** werden die Namen und Dateinamen der Unterverzeichnisse in den einzelnen Unterverzeichnissen in der Struktur aufgeführt.
 
 Um das vorherige Beispiel so zu ändern, dass **dir** die Dateinamen und-Erweiterungen anzeigt, die Verzeichnisnamen jedoch ausgelassen werden, geben Sie Folgendes ein:
 
@@ -135,8 +129,8 @@ Geben Sie Folgendes ein, um eine Liste aller Dateinamen mit der Erweiterung ". t
 dir c:\*.txt /w/o/s/p
 ```
 
-**Dir** zeigt eine alphabetisch sortierte Liste der übereinstimmenden Dateinamen in jedem Verzeichnis an, und es wird jedes Mal angehalten, wenn der Bildschirm aufgefüllt wird, bis Sie eine beliebige Taste drücken, um den Vorgang fortzusetzen.
+Der Befehl **dir** zeigt im breiten Format eine alphabetisch sortierte Liste der übereinstimmenden Dateinamen in jedem Verzeichnis an und wird jedes Mal angehalten, wenn der Bildschirm ausgefüllt wird, bis Sie eine Taste drücken, um den Vorgang fortzusetzen.
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

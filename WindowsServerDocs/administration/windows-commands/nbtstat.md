@@ -1,28 +1,24 @@
 ---
 title: nbtstat
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1d2ea99e-72f1-471f-9525-d2c49bf3be82
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bd9148c922ac97e83b3b21bcb8b6585775505bf2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f8077228a6c72302e63a2d1b8123e7f7e0ff6b8e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373316"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839023"
 ---
 # <a name="nbtstat"></a>nbtstat
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt NetBT-Protokoll Statistiken (NetBIOS over TCP/IP), NetBIOS-Namens Tabellen sowohl für den lokalen Computer als auch für die Remote Computer und für den NetBIOS-Namen Cache an. **nbtstat** ermöglicht das Aktualisieren des NetBIOS-Namens Caches und der Namen, die mit WINS (Windows Internet Name Service) registriert sind. Wird ohne Parameter verwendet, zeigt **nbtstat** Hilfe an. 
 
@@ -32,7 +28,7 @@ Zeigt NetBT-Protokoll Statistiken (NetBIOS over TCP/IP), NetBIOS-Namens Tabellen
 nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [<Interval>]
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |    Parameter    |                                                                                                                         Beschreibung                                                                                                                         |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -56,20 +52,20 @@ nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
 
     |Richtung|Beschreibung|
     |------|--------|
-    |Input|Die Anzahl der empfangenen Bytes.|
+    |Eingabe|Die Anzahl der empfangenen Bytes.|
     |Ausgabe|Die Anzahl der gesendeten Bytes.|
-    |Eingabe/Ausgabe|Gibt an, ob die Verbindung vom Computer (ausgehend) oder von einem anderen Computer zum lokalen Computer (eingehend) erfolgt.|
+    |Ein/Aus|Gibt an, ob die Verbindung vom Computer (ausgehend) oder von einem anderen Computer zum lokalen Computer (eingehend) erfolgt.|
     |Menschen|Die verbleibende Zeit, in der ein Name Table Cache-Eintrag aktiv wird, bevor er gelöscht wird.|
     |Lokaler Name|Der lokale NetBIOS-Name, der der Verbindung zugeordnet ist.|
     |Remote Host|Der Name oder die IP-Adresse, die dem Remote Computer zugeordnet ist.|
     |< 03 >|Das letzte Byte eines NetBIOS-Namens, das in Hexadezimal konvertiert wurde. Jeder NetBIOS-Name hat eine Länge von 16 Zeichen. Das letzte Byte hat häufig eine besondere Bedeutung, da derselbe Name mehrmals auf einem Computer vorhanden sein kann, der sich nur im letzten Byte unterscheidet. Beispielsweise ist < 20 > ein Leerzeichen im ASCII-Text.|
     |Typ|Der Typ des Namens. Ein Name kann entweder ein eindeutiger Name oder ein Gruppenname sein.|
     |Status|Gibt an, ob der NetBIOS-Dienst auf dem Remote Computer ausgeführt wird (registriert ist) oder ob ein doppelter Computername denselben Dienst registriert hat (Konflikt).|
-    |Status|Der Status von NetBIOS-Verbindungen.|
+    |Phase|Der Status von NetBIOS-Verbindungen.|
 
 -   In der folgenden Tabelle werden die möglichen NetBIOS-Verbindungszustände beschrieben:
 
-    |Status|Beschreibung|
+    |Phase|Beschreibung|
     |-----|--------|
     |Verbunden|Eine Sitzung wurde eingerichtet.|
     |ierter|Ein Verbindungs Endpunkt wurde erstellt und einer IP-Adresse zugeordnet.|
@@ -78,14 +74,14 @@ nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
     |Verbindung wird aufgebaut|Eine Sitzung befindet sich in der Verbindungs Phase, und die Zuordnung zwischen Name und IP-Adresse des Ziels wird aufgelöst.|
     |Verantwortung|Eine eingehende Sitzung wird derzeit akzeptiert und wird in Kürze verbunden.|
     |Verbindung|Eine Sitzung versucht, erneut eine Verbindung herzustellen (beim ersten Versuch konnte keine Verbindung hergestellt werden).|
-    |Outbound|Eine Sitzung befindet sich in der Verbindungs Phase, und die TCP-Verbindung wird gerade erstellt.|
-    |Inbound|Eine eingehende Sitzung befindet sich in der Verbindungs Phase.|
+    |Ausgehende|Eine Sitzung befindet sich in der Verbindungs Phase, und die TCP-Verbindung wird gerade erstellt.|
+    |Eingehende|Eine eingehende Sitzung befindet sich in der Verbindungs Phase.|
     |Verbindung wird getrennt|Eine Sitzung wird gerade getrennt.|
-    |Disconnected|Der lokale Computer hat eine Verbindung getrennt und wartet auf eine Bestätigung vom Remote System.|
+    |getrennt|Der lokale Computer hat eine Verbindung getrennt und wartet auf eine Bestätigung vom Remote System.|
 
 -   Dieser Befehl ist nur verfügbar, wenn das TCP/IP-Protokoll (Internet Protocol) als Komponente in den Eigenschaften eines Netzwerkadapters in Netzwerkverbindungen installiert ist.
 
-## <a name="BKMK_Examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
 Geben Sie Folgendes ein, um die NetBIOS-Namens Tabelle des Remote Computers mit dem NetBIOS-Computernamen CORP07 anzuzeigen:
 
 ```
@@ -130,6 +126,6 @@ nbtstat /S 5
 
 ## <a name="additional-references"></a>Weitere Verweise
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 

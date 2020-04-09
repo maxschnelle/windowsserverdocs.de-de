@@ -1,28 +1,24 @@
 ---
 title: logman update Counter
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 607df6d5-876c-428d-a0b3-f59cb244e2ce britw
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8c0696b6077a919d93106cb39329c986e91883fa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d93ea91fb1b5d105923457aeb8d5515e1ac5b9c5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374352"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840573"
 ---
 # <a name="logman-update-counter"></a>logman update Counter
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Aktualisieren Sie die Eigenschaften eines vorhandenen Counter-Daten Sammlers.  
 
@@ -30,7 +26,7 @@ Aktualisieren Sie die Eigenschaften eines vorhandenen Counter-Daten Sammlers.
 ```  
 logman update counter <[-n] <name>> [options]  
 ```  
-## <a name="parameters"></a>Parameter  
+### <a name="parameters"></a>Parameter  
 
 |                    Parameter                     |                                                                               Beschreibung                                                                               |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -39,7 +35,7 @@ logman update counter <[-n] <name>> [options]
 |                 -config <value>                  |                                                         Gibt die Einstellungsdatei an, die Befehlsoptionen enthält.                                                         |
 |                   [-n] <name>                    |                                                                       Der Name des Zielobjekts.                                                                        |
 | -f < bin&#124;bincirc&#124;CSV&#124;TSV&#124;SQL > |                                                            Gibt das Protokoll Format für den Datensammler an.                                                             |
-|             -[-] u < Benutzer [Kennwort] >              | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie einen \* für das Kennwort eingeben, wird eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
+|             -[-] u < Benutzer [Kennwort] >              | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie einen \* für das Kennwort eingeben, wird eine Eingabeaufforderung angezeigt. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
 |    -m < [Start] [Ende] [[Start] [Ende] [...]] >    |                                                Wechseln Sie zu "manueller Start" oder "beenden" anstelle eines geplanten Anfangs-oder Endzeit Zeitraums.                                                 |
 |                -RF < [[hh:] mm:] SS >                |                                                        Führt den Datensammler für den angegebenen Zeitraum aus.                                                         |
 |        -b < M/d/yyyy h:mm: SS [am&#124;pm] >         |                                                              Beginnt mit dem Sammeln von Daten zum angegebenen Zeitpunkt.                                                               |
@@ -60,11 +56,11 @@ logman update counter <[-n] <name>> [options]
 
 ## <a name="remarks"></a>Hinweise  
 Wenn [-] aufgeführt ist, wird die-Option durch ein extra negiert.  
-## <a name="BKMK_examples"></a>Beispiele  
-Der folgende Befehl aktualisiert den Datensammler perf_log, ändert das Stichproben Intervall in 10 und das Protokoll Format in CSV und fügt dem Namen der Protokolldatei im Format mmddhhmm eine Versionsverwaltung hinzu.  
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
+Der folgende Befehl aktualisiert den Datensammler perf_log, ändert das Stichproben Intervall in "10" und das Protokoll Format in "CSV" und fügt dem Namen der Protokolldatei im Format "mmddhhmm" eine Versionsverwaltung hinzu.  
 ```  
 logman update perf_log -si 10 -f csv -v mmddhhmm  
 ```  
-#### <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Weitere Verweise  
 [logman](logman.md)  
 [logman Create Counter](logman-create-counter.md)  
