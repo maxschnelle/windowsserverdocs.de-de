@@ -2,19 +2,17 @@
 title: Bereitstellen von nvme-Speichergeräten mithilfe der diskreten Geräte Zuweisung
 description: Erfahren Sie, wie Sie mit DDA Speichergeräte bereitstellen.
 ms.prod: windows-server
-ms.service: na
 ms.technology: hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 1c36107e-78c9-4ec0-a313-6ed557ac0ffc
-ms.openlocfilehash: eb76b25e8ff1428b2c03b37dde1f76562751d3bb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2b92b175a6e914b62b069f76f92255cb99d55d74
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364324"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860903"
 ---
 # <a name="deploy-nvme-storage-devices-using-discrete-device-assignment"></a>Bereitstellen von nvme-Speichergeräten mithilfe der diskreten Geräte Zuweisung
 
@@ -39,7 +37,7 @@ Set-VM -Name VMName -AutomaticStopAction TurnOff
 ## <a name="dismount-the-device-from-the-host-partition"></a>Aufheben der Einbindung des Geräts von der Host Partition
 
 ### <a name="locating-the-devices-location-path"></a>Suchen des Speicher Orts des Geräts
-Der PCI-Speicherort Pfad ist erforderlich, um das Gerät vom Host zu entfernen und zu binden.  Ein Beispiel für einen Speicherort Pfad sieht wie `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`folgt aus:.   Weitere Informationen zum Speicherort Pfad finden Sie hier: [Planen Sie die Bereitstellung von Geräten mit diskreter Geräte Zuweisung](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
+Der PCI-Speicherort Pfad ist erforderlich, um das Gerät vom Host zu entfernen und zu binden.  Ein Beispiel für einen Speicherort Pfad sieht wie folgt aus: `"PCIROOT(20)#PCI(0300)#PCI(0000)#PCI(0800)#PCI(0000)"`.   Weitere Informationen zum Speicherort Pfad finden Sie hier: Planen der Bereitstellung [von Geräten mit diskreter Geräte Zuweisung](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md).
 
 ### <a name="disable-the-device"></a>Deaktivieren des Geräts
 Stellen Sie mithilfe von Geräte-Manager oder PowerShell sicher, dass das Gerät "deaktiviert" ist.  
@@ -56,7 +54,7 @@ Der letzte Schritt besteht darin, Hyper-V mitzuteilen, dass ein virtueller Compu
 Add-VMAssignableDevice -LocationPath $locationPath -VMName VMName
 ```
 
-## <a name="whats-next"></a>Was kommt als nächstes
+## <a name="whats-next"></a>Wie geht es weiter?
 Nachdem ein Gerät erfolgreich auf einem virtuellen Computer bereitgestellt wurde, können Sie diesen virtuellen Computer starten und mit dem Gerät interagieren, wie Sie es normalerweise bei einem Bare-Metal-System ausführen würden.  Sie können dies überprüfen, indem Sie in der Gast-VM den Geräte-Manager öffnen und sehen, dass die Hardware jetzt angezeigt wird.
 
 ## <a name="removing-a-device-and-returning-it-to-the-host"></a>Entfernen eines Geräts und Zurückgeben des Geräts an den Host

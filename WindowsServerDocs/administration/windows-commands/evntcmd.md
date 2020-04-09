@@ -1,24 +1,20 @@
 ---
 title: evntcmd
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c1aabb74-76e7-4304-95a6-50ad87e92fd9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b4496df6df1a40b383505627d58389c098493f59
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 86e4290543ffcc0da1c768a661fd88a7638b1146
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377436"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845013"
 ---
 # <a name="evntcmd"></a>evntcmd
 
@@ -29,7 +25,7 @@ Konfiguriert die Übersetzung von Ereignissen in Traps, Trap Ziele oder beides b
 ```  
 evntcmd [/s <computerName>] [/v <verbosityLevel>] [/n] <FileName>  
 ```  
-### <a name="parameters"></a>Parameter  
+#### <a name="parameters"></a>Parameter  
 
 |      Parameter      |                                                                                                                                                            Beschreibung                                                                                                                                                             |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -65,19 +61,19 @@ evntcmd [/s <computerName>] [/v <verbosityLevel>] [/n] <FileName>
   - Der-Parameter *delete_TRAP_DEST* gibt an, dass Trap-Nachrichten nicht an einen angegebenen Host innerhalb einer Community gesendet werden sollen.  
   - Der *Communityname* -Parameter gibt die Community, in der Trap-Nachrichten gesendet werden, anhand des Namens an.  
   - Der *-Parameter Hostid* gibt anhand des Namens oder der IP-Adresse den Host an, an den keine Trap-Nachrichten gesendet werden sollen.  
-    ## <a name="BKMK_Examples"></a>Beispiele  
+    ## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele  
     In den folgenden Beispielen werden Einträge in der Konfigurationsdatei für den Befehl " **evntcmd** " veranschaulicht. Sie sind nicht darauf ausgelegt, an einer Eingabeaufforderung eingegeben zu werden.  
     Um eine Trap-Nachricht zu senden, wenn der Ereignisprotokoll Dienst neu gestartet wird, geben Sie Folgendes ein:  
     ```  
-    #pragma add System "Eventlog" 2147489653  
+    #pragma add System Eventlog 2147489653  
     ```  
     Geben Sie Folgendes ein, um eine Trap-Nachricht zu senden, wenn der Ereignisprotokoll Dienst zweimal innerhalb von drei Minuten neu gestartet wird:  
     ```  
-    #pragma add System "Eventlog" 2147489653 2 180  
+    #pragma add System Eventlog 2147489653 2 180  
     ```  
     Geben Sie Folgendes ein, um das Senden einer Trap-Nachricht zu erhalten, wenn der Ereignisprotokoll Dienst neu gestartet wird  
     ```  
-    #pragma delete System "Eventlog" 2147489653  
+    #pragma delete System Eventlog 2147489653  
     ```  
     Zum Senden von Trap-Nachrichten innerhalb der Community mit dem Namen Public an den Host mit der IP-Adresse 192.168.100.100 geben Sie Folgendes ein:  
     ```  
@@ -92,4 +88,4 @@ evntcmd [/s <computerName>] [/v <verbosityLevel>] [/n] <FileName>
     #pragma delete_TRAP_DEST private localhost  
     ```  
     ## <a name="additional-references"></a>Weitere Verweise  
-- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
+- - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

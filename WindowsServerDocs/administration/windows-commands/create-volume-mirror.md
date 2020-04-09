@@ -1,43 +1,37 @@
 ---
 title: volumespiegelung erstellen
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Artikel zum Erstellen einer volumespiegelung, mit dem eine volumespiegelung mithilfe der beiden angegebenen dynamischen Datenträger erstellt wird.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 48776917-783a-47ff-8da4-1cab77cea34b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 72ecc4e0ede163857c47c5b7013aacdd49719ac8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fa5ea72eb0edacb841f32126f31a257b0573dd6d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71378868"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80846973"
 ---
 # <a name="create-volume-mirror"></a>volumespiegelung erstellen
 
 >Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-erstellt eine volumespiegelung mithilfe der beiden angegebenen dynamischen Datenträger.  
+Erstellt eine volumespiegelung mithilfe der beiden angegebenen dynamischen Datenträger.  
   
 > [!NOTE]  
-> Dieser Befehl ist nur in Windows 7 und Windows Server 2008 R2 verfügbar.  
-  
-  
-  
+> Dieser Befehl ist nur in Windows 7 und Windows Server 2008 R2 verfügbar.
+
 ## <a name="syntax"></a>Syntax  
   
 ```  
 create volume mirror [size=<n>] disk=<n>,<n>[,<n>,...] [align=<n>] [noerr] [noerr]  
 ```  
   
-## <a name="parameters"></a>Parameter  
+### <a name="parameters"></a>Parameter  
   
 |         Parameter         |                                                                                                                                     Beschreibung                                                                                                                                     |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -50,15 +44,15 @@ create volume mirror [size=<n>] disk=<n>,<n>[,<n>,...] [align=<n>] [noerr] [noer
   
 -   Nachdem Sie das Volume erstellt haben, wird der Fokus automatisch auf das neue Volume verlagert.  
   
-## <a name="BKMK_examples"></a>Beispiele  
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
 Geben Sie auf den Datenträgern 1 und 2 Folgendes ein, um ein gespiegeltes Volume mit einer Größe von 1000 Megabyte zu erstellen:  
   
 ```  
 create volume mirror size=1000 disk=1,2  
 ```  
   
-#### <a name="additional-references"></a>Weitere Verweise  
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
+## <a name="additional-references"></a>Weitere Verweise  
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 
   

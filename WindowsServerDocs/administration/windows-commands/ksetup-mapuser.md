@@ -1,24 +1,20 @@
 ---
 title: 'Ksetup: mapuser'
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 84113e6e-89ff-488a-9cd0-f14bbf23b543
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6b80538999c364e9ed10ca0ed43387f603ac9ad3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f61c67fa21eccb77601b78aed51791259d609c5e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374978"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841483"
 ---
 # <a name="ksetupmapuser"></a>Ksetup: mapuser
 
@@ -32,12 +28,12 @@ Ordnet den Namen eines Kerberos-Prinzipals einem Konto zu. Beispiele für die Ve
 ksetup /mapuser <Principal> <Account>
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |  Parameter   |                                                   Beschreibung                                                   |
 |--------------|-----------------------------------------------------------------------------------------------------------------|
-| \<principal > |              Der voll qualifizierte Domänen Name eines beliebigen Prinzipals. beispielsweise mike@corp.CONTOSO.COM.              |
-|  \<konto >  | Alle Konto-oder Sicherheitsgruppen Namen, die auf diesem Computer vorhanden sind, z. b. Gast, Domänen Benutzer oder Administrator. |
+| \<Prinzipal > |              Der voll qualifizierte Domänen Name eines beliebigen Prinzipals. beispielsweise mike@corp.CONTOSO.COM.              |
+|  \<Konto >  | Alle Konto-oder Sicherheitsgruppen Namen, die auf diesem Computer vorhanden sind, z. b. Gast, Domänen Benutzer oder Administrator. |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -51,7 +47,7 @@ Verwenden Sie **Ksetup** ohne Parameter oder Argumente, um die aktuellen zugeord
 
 Wenn Änderungen an der externen Schlüsselverteilungscenter (KDC) und der Bereichs Konfiguration vorgenommen werden, ist ein Neustart des Computers erforderlich, auf dem die Einstellung geändert wurde.
 
-## <a name="BKMK_Examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
 
 Ordnen Sie das Konto von Mike Danseglio innerhalb des Kerberos-Bereichs "" mit dem Gast Konto auf diesem Computer zu, und gewähren Sie ihm alle Berechtigungen eines Mitglieds des integrierten Gastkontos, ohne sich bei diesem Computer authentifizieren zu müssen:
 ```
@@ -70,7 +66,7 @@ Ordnen Sie alle Konten innerhalb des Bereichs "" von "" von "" im Bereich "" von
 ksetup /mapuser * *
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Ksetup](ksetup.md)

@@ -2,20 +2,19 @@
 title: Reservieren Sie mindestens ein externes virtuelles Netzwerk für die ausschließliche Verwendung durch virtuelle Computer.
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: f7732258-93f1-44e8-835b-5ad2d1c45cd9
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: a72f3d616bb0c520e49c27f90686196463f25953
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c371743f20f8192b682ff68045c5d72e9e0f7e8d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364779"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861803"
 ---
 # <a name="reserve-one-or-more-external-virtual-networks-for-exclusive-use-by-virtual-machines"></a>Reservieren Sie mindestens ein externes virtuelles Netzwerk für die ausschließliche Verwendung durch virtuelle Computer.
 
@@ -27,7 +26,7 @@ Weitere Informationen zu bewährten Methoden und Überprüfungen finden Sie unte
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
 |**Produkt/Feature**|Hyper-V|  
-|**Zunehmen**|Fehler|  
+|**Zunehmen**|Error|  
 |**Kategorie**|Konfiguration|  
   
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  

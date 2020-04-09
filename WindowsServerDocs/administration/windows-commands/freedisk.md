@@ -1,24 +1,20 @@
 ---
 title: freedisk
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 91c15166-5baa-4b80-9e0c-4cd815d00530
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e417a8f9768706fe391f705adde37c62ceaa818
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5d652aa89c689a97bf2ecc67383bc2fd464a3054
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377033"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844443"
 ---
 # <a name="freedisk"></a>freedisk
 
@@ -30,7 +26,7 @@ Prüft, ob die angegebene Menge an Speicherplatz verfügbar ist, bevor der Insta
 ```
 freedisk [/s <computer> [/u [<Domain>\]<User> [/p [<Password>]]]] [/d <Drive>] [<Value>]
 ```
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |       Parameter       |                                                                                         Beschreibung                                                                                          |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -44,7 +40,7 @@ freedisk [/s <computer> [/u [<Domain>\]<User> [/p [<Password>]]]] [/d <Drive>] [
 - Die Befehlszeilenoptionen **/s**, **/u**und **/p** sind nur verfügbar, wenn Sie **/s**verwenden. Sie müssen **/p** mit **/u**verwenden, um das Kennwort des Benutzers anzugeben.
 - bei unbeaufsichtigten Installationen können Sie mithilfe von **freedisk** in den Installations Batch Dateien den freien Speicherplatz für den erforderlichen Speicherplatz überprüfen, bevor Sie die Installation fortsetzen.
 - Wenn Sie in einer Batchdatei " **freiplatte** " verwenden, wird " **0** " zurückgegeben, wenn ausreichend Speicherplatz vorhanden ist, und **1** , wenn nicht genügend Speicherplatz vorhanden ist.
-  ## <a name="BKMK_examples"></a>Beispiele
+  ## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
   Geben Sie Folgendes ein, um zu bestimmen, ob mindestens 50 MB freier Speicherplatz auf Laufwerk C: verfügbar ist:
   ```
   freedisk 50mb 
@@ -54,4 +50,4 @@ freedisk [/s <computer> [/u [<Domain>\]<User> [/p [<Password>]]]] [/d <Drive>] [
   INFO: The specified 52,428,800 byte(s) of free space is available on current drive.
   ```
   ## <a name="additional-references"></a>Weitere Verweise
-  [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+  - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 472c3b91285810ac1ff528da24de50533bae526d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 56e27c386451c561de8f62e523e2d1e59a8ce84c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376943"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844303"
 ---
 # <a name="fsutil-fsinfo"></a>F-Datei (f)
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
@@ -33,20 +33,20 @@ fsutil fsinfo [statistics] <VolumePath>
 fsutil fsinfo [volumeinfo] <RootPath>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |-------------|---------------|
-|Master|Listet alle Laufwerke des Computers auf.|
+|Laufwerke|Listet alle Laufwerke des Computers auf.|
 |DriveType|Fragt ein Laufwerk ab und listet seinen Typ auf, z. b. CD-ROM-Laufwerk.|
 |NTFSInfo|Listet die NTFS-spezifischen Volumeinformationen für das angegebene Volume auf, z. b. die Anzahl der Sektoren, Cluster Gesamt, freie Cluster und den Anfang und das Ende der MFT-Zone.|
 |sectoriinfo|Listet Informationen über die Sektorgröße und die Ausrichtung der Hardware auf.|
-|kam|Listet die Dateisystem Statistiken für das angegebene Volume, z. b. Metadaten, Protokolldateien und MFT-Lese-und Schreibvorgänge.|
+|Statistiken|Listet die Dateisystem Statistiken für das angegebene Volume, z. b. Metadaten, Protokolldateien und MFT-Lese-und Schreibvorgänge.|
 |volumeingefo|Listet Informationen für das angegebene Volume, wie z. b. das Dateisystem, und gibt an, ob das Volume die Groß-/Kleinschreibung beachtet, Unicode in Dateinamen oder Datenträger Kontingente oder ein DirectAccess (DAX)-Volume unterstützt.|
 |< "volumepath" >|Gibt den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt) an.|
 |< "rootpathname" >|Gibt den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt) des Stamm Laufwerks an.|
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
 Um alle Laufwerke des Computers aufzulisten, geben Sie Folgendes ein:
 
 ```
@@ -153,8 +153,8 @@ UserFileReadBytes :    1305244512
 LogFileWriteBytes :    180936704       
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
-[Befehlszeilen-Syntax Schlüssel](Command-Line-Syntax-Key.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
 " [f](Fsutil.md) "
 
 

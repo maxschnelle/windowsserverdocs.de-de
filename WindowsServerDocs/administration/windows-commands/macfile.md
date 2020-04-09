@@ -1,24 +1,20 @@
 ---
 title: macfile
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e2ce586c-b316-41d3-90f8-4be0d074cc0e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 194d1adaaf64ffee2a217982638ddf0661dd0369
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0156be5a3209bf8cedf13b35ceab61ef38a0f49a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374166"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840313"
 ---
 # <a name="macfile"></a>macfile
 
@@ -30,14 +26,14 @@ Verwaltet den Datei Server für Macintosh-Server, Volumes, Verzeichnisse und Dat
 -   [So ändern Sie die Anmelde Nachricht und schränken Sitzungen ein](#BKMK_LogonLimit)
 -   [So können Sie Macintosh-barrierefreie Volumes hinzufügen, ändern oder entfernen](#BKMK_addvol)
 
-## <a name="BKMK_Moddirs"></a>So ändern Sie Verzeichnisse in auf Macintosh zugänglichen Volumes
+## <a name="to-modify-directories-in-macintosh-accessible-volumes"></a><a name=BKMK_Moddirs></a>So ändern Sie Verzeichnisse in auf Macintosh zugänglichen Volumes
 
 ### <a name="syntax"></a>Syntax
 ```
 macfile directory[/server:\\<computerName>] /path:<directory> [/owner:<OwnerName>] [/group:<GroupName>] [/permissions:<Permissions>]
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 -   /Server:\\\\<computerName> gibt den Server an, auf dem ein Verzeichnis geändert werden soll. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt.
 -   /Path:<directory> erforderlich. Gibt den Pfad zu dem Verzeichnis an, das Sie ändern möchten. Das Verzeichnis muss vorhanden sein. im **MacFile-Verzeichnis** werden keine Verzeichnisse erstellt.
 -   /Owner:<OwnerName> ändert den Besitzer des Verzeichnisses. Wenn die Angabe ausgelassen wird, bleibt der Besitzer unverändert.
@@ -47,12 +43,12 @@ macfile directory[/server:\\<computerName>] /path:<directory> [/owner:<OwnerName
 
     |Position|Legt die Berechtigung für|
     |------|------------|
-    |Erste|Besitzer Dateien|
-    |Zweimal|Besitzer Ordner|
-    |Dritter|Besitzmakechanges|
-    |Vierter|GroupSeeFiles|
-    |Tels|Groupseedner|
-    |Sech|GroupMakeChanges|
+    |First|Besitzer Dateien|
+    |Zweite|Besitzer Ordner|
+    |3\.|Besitzmakechanges|
+    |4\.|GroupSeeFiles|
+    |5\.|Groupseedner|
+    |6\.|GroupMakeChanges|
     |Siebten|Worldseefiles|
     |Platz|Worldseedner|
     |När|WorldMakeChanges|
@@ -63,22 +59,22 @@ macfile directory[/server:\\<computerName>] /path:<directory> [/owner:<OwnerName
     Zeigt die Hilfe an der Eingabeaufforderung an.
 
 ### <a name="remarks"></a>Hinweise
-- Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z. b. **"** <em>Computer Name</em> **"** ).
+- Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z. b. * * * *<em>Computer Name</em>* * * *).
 - Verwenden Sie **macfiledirectory** , um ein vorhandenes Verzeichnis auf einem auf Macintosh zugänglichen Volume für Macintosh-Benutzer verfügbar zu machen. Mit dem Befehl " **macfiledirectory** " werden keine Verzeichnisse erstellt. Erstellen Sie mit dem Datei-Manager, der Eingabeaufforderung oder dem **Macintosh New Folder** -Befehl ein Verzeichnis auf einem auf Macintosh zugänglichen Volume, bevor Sie den Befehl " **Macfile Directory** " verwenden.
-  ### <a name="BKMK_Examples"></a>Beispiele
+  ### <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
   Im folgenden Beispiel werden die Berechtigungen für das Unterverzeichnis Sales Sales in the Macintosh-barrierefreie Volume Statistics auf dem Laufwerk E des lokalen Servers geändert. Im Beispiel werden die Dateien Siehe Dateien, Ordner und Änderungs Berechtigungen für den Besitzer zugewiesen, und es werden Dateien angezeigt und Ordner Berechtigungen für alle anderen Benutzer angezeigt. gleichzeitig wird verhindert, dass das Verzeichnis umbenannt, verschoben oder gelöscht wird.
   ```
-  macfile directory /path:"e:\statistics\may sales" /permissions:11111011000
+  macfile directory /path:e:\statistics\may sales /permissions:11111011000
   ```
 
-## <a name="BKMK_Joinforks"></a>So verknüpfen Sie die Daten und Ressourcen Verzweigungen einer Macintosh-Datei
+## <a name="to-join-a-macintosh-files-data-and-resource-forks"></a><a name=BKMK_Joinforks></a>So verknüpfen Sie die Daten und Ressourcen Verzweigungen einer Macintosh-Datei
 
 ### <a name="syntax"></a>Syntax
 ```
 macfile forkize[/server:\\<computerName>] [/creator:<CreatorName>] [/type:<typeName>]  [/datafork:<Filepath>] [/resourcefork:<Filepath>] /targetfile:<Filepath>
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |         Parameter          |                                                                                                           Beschreibung                                                                                                            |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -87,29 +83,29 @@ macfile forkize[/server:\\<computerName>] [/creator:<CreatorName>] [/type:<typeN
 |      /Type:<typeName>      |                                 Gibt den Dateityp an. Der Macintosh-Finder verwendet die Befehlszeilenoption **/Type** , um den Dateityp innerhalb der Anwendung zu ermitteln, von der die Datei erstellt wurde.                                 |
 |    /DATAFORK:<Filepath>    |                                                                   Gibt den Speicherort der Daten Verzweigung an, die verknüpft werden soll. Sie können einen Remote Pfad angeben.                                                                   |
 |  /resourcefork:<Filepath>  |                                                                 Gibt den Speicherort der Ressourcenverzweigung an, der verknüpft werden soll. Sie können einen Remote Pfad angeben.                                                                 |
-|   /targetfile:<Filepath>   | Erforderlich. Gibt den Speicherort der Datei an, die durch den Beitritt zu einer Daten Verzweigung und einer Ressourcen Verzweigung erstellt wird, oder gibt den Speicherort der Datei an, deren Typ oder Ersteller Sie ändern. Die Datei muss sich auf dem angegebenen Server befinden. |
+|   /targetfile:<Filepath>   | Erforderlich Gibt den Speicherort der Datei an, die durch den Beitritt zu einer Daten Verzweigung und einer Ressourcen Verzweigung erstellt wird, oder gibt den Speicherort der Datei an, deren Typ oder Ersteller Sie ändern. Die Datei muss sich auf dem angegebenen Server befinden. |
 |             /?             |                                                                                               Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                               |
 
 ### <a name="remarks"></a>Hinweise
-- Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z. b. **"** <em>Computer Name</em> **"** ).
+- Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z. b. * * * *<em>Computer Name</em>* * * *).
 
 ### <a name="examples"></a>Beispiele
-So erstellen Sie die Datei "treeapp" auf dem Macintosh-zugänglichen Volume "d:\Release" mithilfe der Ressourcen Verzweigung "c:\cross\mac\appcode" und machen diese neue Datei als Anwendung für Macintosh-Clients sichtbar (Macintosh-Anwendungen verwenden den Typ APPL) mit dem Ersteller (Signatur ) auf Magnolia festgelegt, geben Sie Folgendes ein:
+Zum Erstellen der Datei treeapp auf dem Macintosh-zugänglichen Volume d:\Release mithilfe der Ressourcen Verzweigung c:\cross\mac\appcode, und um diese neue Datei für Macintosh-Clients als Anwendung anzuzeigen (Macintosh-Anwendungen verwenden den Typ APPL), wobei der Ersteller (Signatur) auf Magnolia festgelegt ist, geben Sie Folgendes ein:
 ```
 macfile forkize /resourcefork:c:\cross\mac\appcode /type:APPL /creator:MAGNOLIA /targetfile:D:\Release\treeapp
 ```
 Um den Datei Ersteller in Microsoft Word 5,1 zu ändern, geben Sie für die Datei "Word. txt" im Verzeichnis "d:\Word documents\group Files" auf der Server \\\servera Folgendes ein:
 ```
-macfile forkize /server:\\servera /creator:MSWD /type:TEXT /targetfile:"d:\Word documents\Group files\Word.txt"
+macfile forkize /server:\\servera /creator:MSWD /type:TEXT /targetfile:d:\Word documents\Group files\Word.txt
 ```
 
-## <a name="BKMK_LogonLimit"></a>So ändern Sie die Anmelde Nachricht und schränken Sitzungen ein
+## <a name="to-change-the-logon-message-and-limit-sessions"></a><a name=BKMK_LogonLimit></a>So ändern Sie die Anmelde Nachricht und schränken Sitzungen ein
 ### <a name="syntax"></a>Syntax
 ```
 macfile server [/server:\\<computerName>] [/maxsessions:{Number | unlimited}] [/loginmessage:<Message>]
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |               Parameter                |                                                                                                                                                                           Beschreibung                                                                                                                                                                            |
 |----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -119,56 +115,56 @@ macfile server [/server:\\<computerName>] [/maxsessions:{Number | unlimited}] [/
 |                   /?                   |                                                                                                                                                               Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                               |
 
 ### <a name="remarks"></a>Hinweise
-- Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z. b. **"** <em>Computer Name</em> **"** ).
+- Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z. b. * * * *<em>Computer Name</em>* * * *).
 
 ### <a name="examples"></a>Beispiele
-Zum Ändern der Anzahl von Datei-und Druckservern für Macintosh-Sitzungen, die auf dem lokalen Server zulässig sind, von der aktuellen Einstellung auf fünf Sitzungen und zum Hinzufügen der Anmelde Meldung "Abmelden von Server für Macintosh, wenn Sie fertig sind." geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Anzahl von Datei-und Druckservern für Macintosh-Sitzungen, die auf dem lokalen Server zulässig sind, von der aktuellen Einstellung auf fünf Sitzungen zu ändern und das Anmelde Nachrichtenprotokoll von Server für Macintosh zu ändern, wenn Sie fertig sind. Geben Sie Folgendes ein:
 ```
-macfile server /maxsessions:5 /loginmessage:"Log off from Server for Macintosh when you are finished."
+macfile server /maxsessions:5 /loginmessage:Log off from Server for Macintosh when you are finished.
 ```
 
-## <a name="BKMK_addvol"></a>So können Sie Macintosh-barrierefreie Volumes hinzufügen, ändern oder entfernen
+## <a name="to-add-change-or-remove-macintosh-accessible-volumes"></a><a name=BKMK_addvol></a>So können Sie Macintosh-barrierefreie Volumes hinzufügen, ändern oder entfernen
 ### <a name="syntax"></a>Syntax
 ```
 macfile volume {/add|/set} [/server:\\<computerName>] /name:<volumeName>/path:<directory>[/readonly:{true | false}] [/guestsallowed:{true | false}] [/password:<Password>] [/maxusers:{<Number>>|unlimited}]
 macfile volume /remove[/server:\\<computerName>] /name:<volumeName>
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |              Parameter               |                                                                                                                                                                       Beschreibung                                                                                                                                                                        |
 |--------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |          {/Add &#124; /Set}          |                                                                                                                      Erforderlich, wenn Sie ein auf Macintosh zugängliches Volume hinzufügen oder ändern. Fügt das angegebene Volume hinzu oder ändert es.                                                                                                                       |
 |      /Server:\\\\<computerName>      |                                                                                                             Gibt den Server an, auf dem ein Volume hinzugefügt, geändert oder entfernt werden soll. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt.                                                                                                              |
-|          /Name:<volumeName>          |                                                                                                                                          Erforderlich. Gibt den Volumenamen an, der hinzugefügt, geändert oder entfernt werden soll.                                                                                                                                           |
+|          /Name:<volumeName>          |                                                                                                                                          Erforderlich Gibt den Volumenamen an, der hinzugefügt, geändert oder entfernt werden soll.                                                                                                                                           |
 |          /Path:<directory>           |                                                                                                                Erforderlich und gültig nur, wenn Sie ein Volume hinzufügen. Gibt den Pfad zum Stammverzeichnis des hinzu zufügenden Volumes an.                                                                                                                 |
 |    /ReadOnly: {true &#124; false}     | Gibt an, ob Benutzer Dateien im Volume ändern können. Geben Sie true ein, um anzugeben, dass Benutzer die Dateien im Volume nicht ändern können. Geben Sie false ein, um anzugeben, dass Benutzer Dateien im Volume ändern können. Wenn beim Hinzufügen eines Volumes weggelassen wird, sind Änderungen an Dateien zulässig. Wenn beim Ändern eines Volumes ausgelassen wird, bleibt die Schreib **geschützte Einstellung für** das Volume unverändert. |
 |  /guestsallowed: {true &#124; false}  |      Gibt an, ob Benutzer, die sich als Gäste anmelden, das Volume verwenden können. Geben Sie true ein, um anzugeben, dass Gäste das Volume verwenden können. Geben Sie false ein, um anzugeben, dass Gäste das Volume nicht verwenden können. Wenn Sie beim Hinzufügen eines Volumes ausgelassen werden, können Gäste das Volume verwenden. Wenn beim Ändern eines Volumes ausgelassen wird, bleibt die Einstellung **GUESTSALLOWED** für das Volume unverändert.       |
 |         /Password:<Password>         |                                                                               Gibt ein Kennwort an, das für den Zugriff auf das Volume erforderlich ist. Wenn beim Hinzufügen eines Volumes kein Kennwort angegeben wird, wird kein Kennwort erstellt. Wenn beim Ändern eines Volumes kein Kennwort angegeben wird, bleibt das Kennwort unverändert.                                                                               |
 | /maxUsers: {<Number>>&#124;unbegrenzt} |                                                 Gibt die maximale Anzahl von Benutzern an, die die Dateien auf dem Volume gleichzeitig verwenden können. Wenn der Wert beim Hinzufügen eines Volumes weggelassen wird, kann das Volume von einer unbegrenzten Anzahl von Benutzern verwendet werden. Wenn beim Ändern eines Volumes ausgelassen wird, bleibt der Wert **maxUsers** unverändert.                                                 |
-|               /remove                |                                                                                                                                Erforderlich, wenn Sie ein Macintosh-accesible-Volume entfernen. Entfernt das angegebene Volume.                                                                                                                                |
+|               /remove                |                                                                                                                                Erforderlich, wenn Sie ein Macintosh-accesible-Volume entfernen. entfernt das angegebene Volume.                                                                                                                                |
 |                  /?                  |                                                                                                                                                           Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                           |
 
 ### <a name="remarks"></a>Hinweise
-- Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z. b. **"** <em>Computer Name</em> **"** ).
+- Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z. b. * * * *<em>Computer Name</em>* * * *).
 
 ### <a name="examples"></a>Beispiele
 Geben Sie Folgendes ein, um ein Volume mit der Bezeichnung "US-Marketing Statistik" auf dem lokalen Server zu erstellen, indem Sie das Verzeichnis "Stats" im Laufwerk E verwenden und angeben, dass der Zugriff auf das Volume nicht von Gästen
 ```
-macfile volume /add /name:"US Marketing Statistics" /guestsallowed:false /path:e:\Stats
+macfile volume /add /name:US Marketing Statistics /guestsallowed:false /path:e:\Stats
 ```
 Geben Sie Folgendes ein, um das oben erstellte Volume so zu ändern, dass es schreibgeschützt ist und ein Kennwort erforderlich ist. Geben Sie zum Festlegen der maximalen Anzahl von Benutzern auf fünf Folgendes ein:
 ```
-macfile volume /set /name:"US Marketing Statistics" /readonly:true /password:saturn /maxusers:5
+macfile volume /set /name:US Marketing Statistics /readonly:true /password:saturn /maxusers:5
 ```
 Geben Sie zum Hinzufügen eines Volumes namens Landscape Design auf dem Server \\\magnolia unter Verwendung des Trees-Verzeichnisses im Laufwerk E ein, und geben Sie Folgendes ein, um den Zugriff auf das Volume durch Gäste anzugeben:
 ```
-macfile volume /add /server:\\Magnolia /name:"Landscape Design" /path:e:\trees
+macfile volume /add /server:\\Magnolia /name:Landscape Design /path:e:\trees
 ```
 Geben Sie Folgendes ein, um das Volume namens Sales Reports auf dem lokalen Server zu entfernen:
 ```
-macfile volume /remove /name:"Sales Reports"
+macfile volume /remove /name:Sales Reports
 ```
 
 ## <a name="additional-references"></a>Weitere Verweise
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,24 +1,20 @@
 ---
 title: 'Ksetup: Server'
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e3407111-ac92-457f-aa1f-a04fe9109d59
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dd05fd294640c63e633b7b866307197ae6770476
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7889e1a03d3c0eec1958bf1d6356c67e9371a80f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374957"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841443"
 ---
 # <a name="ksetupserver"></a>Ksetup: Server
 
@@ -32,26 +28,26 @@ Hiermit können Sie einen Namen für einen Computer angeben, auf dem das Windows
 ksetup /server <ServerName>
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<servername >|Der vollständige Computername, auf dem die Konfiguration wirksam wird, z. b. IPops897.Corp.contoso.com.</br>Wenn ein unvollständiger voll qualifizierter Domänen Computername angegeben wird, schlägt der Befehl fehl.|
+|\<Servername >|Der vollständige Computername, auf dem die Konfiguration wirksam wird, z. b. IPops897.Corp.contoso.com.</br>Wenn ein unvollständiger voll qualifizierter Domänen Computername angegeben wird, schlägt der Befehl fehl.|
 
 ## <a name="remarks"></a>Hinweise
 
 Der Zielserver Name kann nicht entfernt werden. Sie können Sie nur auf den Namen des lokalen Computers zurücksetzen. Dies ist die Standardeinstellung.
 
-Der Name des Zielservers wird in der Registrierung in **HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\LSA\Kerberos**gespeichert. Er wird nicht mit **Ksetup**gemeldet.
+Der Name des Zielservers wird in der Registrierung unter **HKEY_LOCAL_MACHINE \system\controlset001\control\lsa\kerberos**gespeichert. Er wird nicht mit **Ksetup**gemeldet.
 
-## <a name="BKMK_Examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
 
 Legen Sie die **Ksetup** -Konfigurationen auf dem IPops897-Computer, der in der Domäne "Domäne" verbunden ist, wirksam fest:
 ```
 ksetup /server IPops897.corp.contoso.com
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Ksetup](ksetup.md)
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

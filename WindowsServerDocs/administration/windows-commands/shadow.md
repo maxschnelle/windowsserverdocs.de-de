@@ -1,38 +1,35 @@
 ---
 title: shadow
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema für Schatten, mit dem Sie eine aktive Sitzung eines anderen Benutzers auf einem Remotedesktop-Sitzungshost Server remote steuern können.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f81d9717-6883-4e14-9508-4b2a87e48ea7 Lizap
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cb2fad4b0a553e736755f2dc56e5d88297a1fef5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 90c3202d810257cc94c73b88c5c1627901f54af0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383962"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834333"
 ---
 # <a name="shadow"></a>shadow
 
 >Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ermöglicht die Remote Steuerung einer aktiven Sitzung eines anderen Benutzers auf einem Remotedesktop-Sitzungshost Server (RD-Sitzungs Host).
-Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+Ermöglicht die Remote Steuerung einer aktiven Sitzung eines anderen Benutzers auf einem Remotedesktop-Sitzungshost Server.
+
+Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntax
 ```
 shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
 |\<Sessionname >|Gibt den Namen der Sitzung an, die Sie remote steuern möchten.|
@@ -50,7 +47,7 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
 -   Die Konsolen Sitzung kann keine Remote Steuerung einer anderen Sitzung durchführt, und Sie kann nicht von einer anderen Sitzung remote gesteuert werden.
 -   Wenn Sie die Remote Steuerung beenden möchten (Shadowing), drücken Sie STRG +\* (indem Sie nur \* von der numerischen Tastatur verwenden).
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 -   Zum Schatten der Sitzung 93 geben Sie Folgendes ein:
     ```
     shadow 93
@@ -60,6 +57,6 @@ shadow {<SessionName> | <SessionID>} [/server:<ServerName>] [/v]
     shadow ACCTG01
     ```
 
-#### <a name="additional-references"></a>Weitere Verweise
-[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[Remotedesktopdienste &#40;Terminal Dienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[Remotedesktopdienste Befehlsreferenz (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)

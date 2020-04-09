@@ -1,24 +1,20 @@
 ---
 title: driverquery
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 92ca4b84-e4e2-405b-9f31-bf6db9f66839
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5d44a1be300b7178bc2271187344c2fc4ab8815e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7c3e7cc5dc84794a5cfb5ac21edb00f8dacfaa18
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377654"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845283"
 ---
 # <a name="driverquery"></a>driverquery
 
@@ -34,7 +30,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 driverquery [/s <System> [/u [<Domain>\]<Username> [/p <Password>]]] [/fo {table | list | csv}] [/nh] [/v | /si]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |         Parameter         |                                                                                                                                         Beschreibung                                                                                                                                          |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -47,7 +43,7 @@ driverquery [/s <System> [/u [<Domain>\]<Username> [/p <Password>]]] [/fo {table
 |            /Si            |                                                                                                                          Enthält Informationen zu signierten Treibern.                                                                                                                          |
 |            /?             |                                                                                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                             |
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Geben Sie Folgendes ein, um eine Liste der installierten Gerätetreiber auf dem lokalen Computer anzuzeigen:
 ```
@@ -70,6 +66,6 @@ Wenn Sie den Befehl " **driverquery** " auf einem Remote Server mit dem Namen **
 driverquery /s server1 /u maindom\user1 /p p@ssw3d
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

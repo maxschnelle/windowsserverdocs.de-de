@@ -8,12 +8,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 292bec5f73e2746103ffc41cde729ddc59728e0b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c36de1c3565be7f0f0e6c6203a21345f3d227e96
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407878"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857323"
 ---
 # <a name="identity-delegation-scenario-with-ad-fs"></a>Identitäts Delegierungs Szenario mit AD FS
 
@@ -30,16 +30,16 @@ Das folgende Diagramm veranschaulicht ein typisches Identitäts Delegierungs Sze
 
 Die fiktiven Benutzer, die an diesem Szenario teilnehmen, sind:
 
-- Offen Ein Fabrikam-Mitarbeiter, der auf die Ressourcen von "Configuration Manager" zugreifen möchte.
-- Daniel Ein Anwendungsentwickler von Configuration Manager, der die erforderlichen Änderungen in der Anwendung implementiert.
-- Adam Der IT-Administrator von "Configuration Manager".
+- Frank: ein Fabrikam-Mitarbeiter, der auf die Ressourcen von "Configuration Manager" zugreifen möchte.
+- Daniel: ein Anwendungsentwickler von "Configuration Manager", der die erforderlichen Änderungen in der Anwendung implementiert.
+- Adam: der IT-Administrator von "IT".
 
 Folgende Komponenten sind an diesem Szenario beteiligt:
 
-- web1 Eine Webanwendung mit Links zu Back-End-Ressourcen, die die Delegierte Identität des anfänglichen Aufrufers benötigen. Diese Anwendung wird mit ASP.NET erstellt.
+- web1: eine Webanwendung mit Links zu Back-End-Ressourcen, die die Delegierte Identität des anfänglichen Aufrufers benötigen. Diese Anwendung wird mit ASP.NET erstellt.
 - Ein Webdienst, der auf eine SQL Server zugreift, die die Delegierte Identität des anfänglichen Aufrufers erfordert, zusammen mit der des unmittelbaren Aufrufers. Dieser Dienst wird mit WCF erstellt.
-- sts1: Ein STS, der die Rolle des Anspruchs Anbieters hat, und gibt Ansprüche aus, die von der Anwendung erwartet werden (web1). Sie hat eine Vertrauensstellung mit fabrikam.com und auch mit der Anwendung hergestellt.
-- sts2: Ein STS, der sich in der Rolle des Identitäts Anbieters für fabrikam.com befindet und einen Endpunkt bereitstellt, den der Fabrikam-Mitarbeiter zum Authentifizieren verwendet. Sie hat eine Vertrauensstellung mit contoso.com hergestellt, sodass Fabrikam-Mitarbeiter auf Ressourcen auf contoso.com zugreifen können.
+- sts1: ein STS, der die Rolle des Anspruchs Anbieters hat, und gibt Ansprüche aus, die von der Anwendung erwartet werden (web1). Sie hat eine Vertrauensstellung mit fabrikam.com und auch mit der Anwendung hergestellt.
+- sts2: ein STS, der sich in der Rolle des Identitäts Anbieters für fabrikam.com befindet und einen Endpunkt bereitstellt, den der Fabrikam-Mitarbeiter zum Authentifizieren verwendet. Sie hat eine Vertrauensstellung mit contoso.com hergestellt, sodass Fabrikam-Mitarbeiter auf Ressourcen auf contoso.com zugreifen können.
 
 >[!NOTE] 
 >Der Begriff "ACTAS Token", der in diesem Szenario häufig verwendet wird, bezieht sich auf ein Token, das von einem STS ausgegeben wird und die Identität des Benutzers enthält. Die Actor-Eigenschaft enthält die STS-Identität.
@@ -57,7 +57,7 @@ Wie im vorherigen Diagramm gezeigt, ist der Ablauf in diesem Szenario:
 Es stehen drei Optionen für den fabrikam.com-Administrator offen:
 
 
-1. Erwerben und installieren Sie ein STS-Produkt, z. b. Active Directory® Verbund Dienste (AD FS).
+1. Erwerben und installieren Sie ein STS-Produkt, z. b. Active Directory&reg; Verbund Dienste (AD FS).
 2. Abonnieren Sie ein Cloud STS-Produkt, z. b. LiveID STS.
 3. Erstellen Sie einen benutzerdefinierten STS mithilfe von WIF.
 

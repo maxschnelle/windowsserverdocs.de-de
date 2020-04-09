@@ -1,24 +1,20 @@
 ---
 title: logman update cfg
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9da4e8b4-3be5-42d3-b0b4-c429630c35c4 britw
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 880499048978f3a451f2ccb4e898155b49e33bcb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c74370432dbc21f244dd675bb62cc65a13fa2ec7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374357"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840533"
 ---
 # <a name="logman-update-cfg"></a>logman update cfg
 
@@ -30,7 +26,7 @@ Aktualisieren Sie die Eigenschaften eines vorhandenen Konfigurationsdaten Sammle
 ```  
 logman update cfg <[-n] <name>> [options]  
 ```  
-## <a name="parameters"></a>Parameter  
+### <a name="parameters"></a>Parameter  
 
 |                    Parameter                     |                                                                               Beschreibung                                                                               |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -61,11 +57,11 @@ logman update cfg <[-n] <name>> [options]
 
 ## <a name="remarks"></a>Hinweise  
 Wenn [-] aufgeführt ist, wird die-Option durch ein extra negiert.  
-## <a name="BKMK_examples"></a>Beispiele  
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
 Der folgende Befehl aktualisiert den vorhandenen Konfigurationsdaten Sammler cfg_log, um den Registrierungsschlüssel HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows nt\currentverion\\zu erfassen.  
 ```  
-logman update cfg cfg_log -reg "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\Currentverion\"  
+logman update cfg cfg_log -reg HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\Currentverion\  
 ```  
-#### <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Weitere Verweise  
 [logman](logman.md)  
 [logman Create cfg](logman-create-cfg.md)  

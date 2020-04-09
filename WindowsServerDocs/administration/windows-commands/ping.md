@@ -1,26 +1,22 @@
 ---
-title: ping
+title: Ping
 description: Verwenden Sie Ping, um die Netzwerk Konnektivität zu überprüfen.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 49272671-2eec-4fa5-881f-65c24cfbef52
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 7d9841c12d403d91e14021ff9df65246d322debd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c9e03b45d889bcac87bd3e533ab69c7a07be74ee
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372307"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837553"
 ---
-# <a name="ping"></a>ping
+# <a name="ping"></a>Ping
 
 >Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -32,7 +28,7 @@ Der **Ping** -Befehl überprüft die Konnektivität auf IP-Ebene zu einem andere
 ping [/t] [/a] [/n <Count>] [/l <Size>] [/f] [/I <TTL>] [/v <TOS>] [/r <Count>] [/s <Count>] [{/j <Hostlist> | /k <Hostlist>}] [/w <timeout>] [/R] [/S <Srcaddr>] [/4] [/6] <TargetName>
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |-------|--------|
@@ -41,8 +37,8 @@ ping [/t] [/a] [/n <Count>] [/l <Size>] [/f] [/I <TTL>] [/v <TOS>] [/r <Count>] 
 |/n \<Anzahl\>|Gibt die Anzahl der gesendeten Echo Request-Meldungen an. Der Standardwert ist 4.|
 |/l \<Größe\>|Gibt die Länge des Daten Felds in den gesendeten Echo Anforderungs Nachrichten in Bytes an. Der Standardwert ist 32. Die maximale Größe beträgt 65.527.|
 |/f|Gibt an, dass Echo Request-Nachrichten mit dem Flag do not Fragment im IP-Header, der auf 1 festgelegt ist, gesendet werden (nur auf IPv4 verfügbar). Die Echo Anforderungs Nachricht kann nicht von Routern im Pfad zum Ziel fragmentiert werden. Dieser Parameter ist für die Problembehandlung bei PMTU-Problemen (maximale Übertragungseinheit) nützlich.|
-|/I \<TTL-\>|Gibt den Wert des TTL-Felds im IP-Header für gesendete Echo Anforderungs Nachrichten an. Der Standardwert ist der standardmäßige TTL-Wert für den Host. Die maximale Gültigkeitsdauer beträgt 255.|
-|/v \<TOS\>|Gibt den Wert des Felds Type of Service (TOS) im IP-Header für gesendete Echo Anforderungs Nachrichten an (nur auf IPv4 verfügbar). Der Standardwert ist 0. " *TOS* " wird als Dezimalwert zwischen 0 und 255 angegeben.|
+|/I \<TTL-\>|Gibt den Wert des TTL-Felds im IP-Header für gesendete Echo Anforderungs Nachrichten an. Der Standardwert ist der standardmäßige TTL-Wert für den Host. Die maximale *TTL* Gültigkeitsdauer beträgt 255.|
+|/v \<TOS\>|Gibt den Wert des Felds Type of Service (TOS) im IP-Header für gesendete Echo Anforderungs Nachrichten an (nur auf IPv4 verfügbar). Der Standard ist 0. " *TOS* " wird als Dezimalwert zwischen 0 und 255 angegeben.|
 |/r \<Anzahl\>|Gibt an, dass die Daten Satz-Routen Option im IP-Header verwendet wird, um den Pfad aufzuzeichnen, der von der Echo Anforderungs Nachricht und der entsprechenden Echo Antwortnachricht (nur auf IPv4 verfügbar) verwendet wird. Jeder Hop im Pfad verwendet einen Eintrag in der Daten Satz-Routen Option. Geben Sie nach *Möglichkeit eine Anzahl an, die* gleich oder größer als die Anzahl der Hops zwischen Quelle und Ziel ist. Die *Anzahl* muss mindestens 1 und maximal 9 betragen.|
 |/s \<Anzahl\>|Gibt an, dass die Option Internet Zeitstempel im IP-Header verwendet wird, um die Ankunftszeit für die Echo Anforderungs Nachricht und die entsprechende Echo Antwortnachricht für jeden Hop aufzuzeichnen. Die *Anzahl* muss mindestens 1 und maximal 4 betragen. Dies ist für Verbindungs lokale Zieladressen erforderlich.|
 |/j \<hostlist\>|Gibt an, dass die Echo Anforderungs Nachrichten die Option lose Quell Route im IP-Header mit dem Satz von zwischen Zielen verwenden, die in der *Hostliste* angegeben sind (nur auf IPv4 verfügbar). Beim losen Quell Routing können aufeinander folgende Zwischenziele durch einen oder mehrere Router getrennt werden. Die maximale Anzahl von Adressen oder Namen in der Hostliste beträgt 9. Die Hostliste ist eine Reihe von IP-Adressen (in punktierter Dezimal Schreibweise), getrennt durch Leerzeichen.|
@@ -60,7 +56,7 @@ ping [/t] [/a] [/n <Count>] [/l <Size>] [/f] [/I <TTL>] [/v <TOS>] [/r <Count>] 
 -   Mit **Ping** können Sie den Computernamen und die IP-Adresse des Computers testen. Wenn das Pingen der IP-Adresse erfolgreich ist, das Pingen des Computer namens jedoch nicht der Fall ist, liegt möglicherweise ein Problem mit der Namensauflösung vor. Stellen Sie in diesem Fall sicher, dass der Computername, den Sie angeben, über die lokale Hostdatei aufgelöst werden kann, indem Sie Domain Name System (DNS)-Abfragen oder NetBIOS-Namens Auflösungsverfahren verwenden.
 -   Dieser Befehl ist nur verfügbar, wenn das TCP/IP-Protokoll (Internet Protocol) als Komponente in den Eigenschaften eines Netzwerkadapters in Netzwerkverbindungen installiert ist.
 
-## <a name="BKMK_Examples"></a>Beispiele
+## <a name="examples"></a><a name="BKMK_Examples"></a>Beispiele
 
 Das folgende Beispiel zeigt die Ausgabe des **Ping** -Befehls:
 
@@ -98,4 +94,4 @@ ping /j 10.12.0.1 10.29.3.1 10.1.44.1 10.0.99.221
 ```
 
 ## <a name="additional-references"></a>Weitere Verweise
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

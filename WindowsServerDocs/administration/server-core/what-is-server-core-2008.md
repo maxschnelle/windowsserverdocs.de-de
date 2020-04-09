@@ -5,16 +5,16 @@ ms.prod: windows-server
 ms.author: helohr
 ms.date: 11/01/2017
 ms.topic: article
-author: Heidilohr
-ms.openlocfilehash: 0a109d0bfc4fc09b5e8097059d68b728d17752a6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+author: heidilohr
+ms.openlocfilehash: 13167dad848ac31827c42045360e45c76718207a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383381"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851593"
 ---
 # <a name="what-is-server-core-2008"></a>Was ist Server Core 2008?
->Gilt für: WindowsServer 2008
+>Gilt für: Windows Server 2008
 
 >[!NOTE]
 >Diese Informationen gelten für Windows Server 2008. Weitere Informationen zu Server Core in Windows Server finden Sie unter [Was ist die Server Core-Installation in Windows Server](https://docs.microsoft.com/windows-server/administration/server-core/what-is-server-core). 
@@ -43,14 +43,14 @@ Um zu verstehen, was eine "Installationsoption" ist, nehmen wir an, dass Sie ein
 
 **Abbildung 1-1** Auswählen einer Server Core-Installationsoption für die Installation
 
-In Abbildung 1-1 bietet Ihre Volumenlizenz (oder Product Key für Einzelhandels Medien) zwei Installationsoptionen, zwischen denen Sie wählen können: die zweite Option (eine vollständige Installation von Windows Server 2008 Enterprise) und die fünfte Option (eine Server Core-Installation von Windows). Server 2008 Enterprise), wobei der zweite in diesem Beispiel ausgewählt ist. 
+In Abbildung 1-1 bietet Ihre Volumenlizenz (oder Product Key für Einzelhandels Medien) zwei Installationsoptionen, zwischen denen Sie wählen können: die zweite Option (eine vollständige Installation von Windows Server 2008 Enterprise) und die fünfte Option (eine Server Core-Installation von Windows Server 2008 Enterprise) mit der in diesem Beispiel ausgewählten. 
 
 ## <a name="full-vs-server-core"></a>Vollständig im Vergleich zu Server Core 
 Seit den frühen Tagen der Microsoft Windows-Plattform waren Windows-Server im wesentlichen "alles"-Server, die alle Arten von Features enthielt, von denen Sie in Ihrer Netzwerkumgebung möglicherweise nie tatsächlich verwendet werden. Wenn Sie z. b. Windows Server 2003 auf einem System installiert haben, wurden die Binärdateien für den Routing-und RAS-Dienst (RRAS) auf dem Server installiert, auch wenn Sie diesen Dienst nicht benötigen (obwohl Sie weiterhin RRAS konfigurieren müssen, bevor dies funktioniert). Windows Server 2008 verbessert frühere Versionen, indem die von einer Server Rolle benötigten Binärdateien nur installiert werden, wenn Sie diese Rolle auf dem Server installieren. Bei der vollständigen Installation von Windows Server 2008 werden jedoch weiterhin viele Dienste und andere Komponenten installiert, die für ein bestimmtes Verwendungs Szenario häufig nicht benötigt werden. 
 
 Dies ist der Grund, warum Microsoft eine zweite Installationsoption – Server Core – für Windows Server 2008 erstellt hat:, um Dienste und andere Features zu eliminieren, die für die Unterstützung bestimmter häufig verwendeter Server Rollen nicht von wesentlicher Bedeutung sind. Beispielsweise muss auf einem Domain Name System (DNS)-Server nicht Windows Internet Explorer installiert sein, da Sie aus Sicherheitsgründen nicht das Web von einem DNS-Server durchsuchen möchten. Und ein DNS-Server benötigt nicht einmal eine grafische Benutzeroberfläche (GUI), da Sie praktisch alle Aspekte von DNS entweder über die Befehlszeile mit dem leistungsstarken Befehl "dnscmd. exe" oder Remote mithilfe des DNS Microsoft Management Console (MMC)-Snap-Ins verwalten können.
 
-Um dies zu vermeiden, entschied sich Microsoft, alles aus Windows Server 2008 zu entfernen, das nicht unbedingt für die Ausführung von Kern Netzwerkdiensten wie Active Directory Domain Services (AD DS), DNS, DHCP (Dynamic Host Configuration Protocol), Datei-und Druckvorgänge und einer einige andere Server Rollen. Das Ergebnis ist die neue Server Core-Installationsoption, die zum Erstellen eines Servers verwendet werden kann, der nur eine begrenzte Anzahl von Rollen und Features unterstützt. 
+Um dies zu vermeiden, entschied sich Microsoft, alles aus Windows Server 2008 zu entfernen, das nicht unbedingt für die Ausführung von Kern Netzwerkdiensten wie Active Directory Domain Services (AD DS), DNS, DHCP (Dynamic Host Configuration Protocol), Datei-und Druckfunktionen und einigen anderen Server Rollen erforderlich war. Das Ergebnis ist die neue Server Core-Installationsoption, die zum Erstellen eines Servers verwendet werden kann, der nur eine begrenzte Anzahl von Rollen und Features unterstützt. 
 
 ## <a name="the-server-core-gui"></a>Die Server Core-GUI
 Wenn Sie die Installation von Server Core auf einem System abgeschlossen haben und sich zum ersten Mal anmelden, sind Sie etwas überraschend. In Abbildung 1-2 wird die Server Core-Benutzeroberfläche nach der ersten Anmeldung angezeigt.
@@ -59,7 +59,7 @@ Wenn Sie die Installation von Server Core auf einem System abgeschlossen haben u
 
 **Abbildung 1-2** Server Core-Benutzeroberfläche
 
-Es gibt keinen Desktop! Das heißt, es gibt keine Windows-Explorer-Shell, mit dem Startmenü, der Taskleiste und den anderen Features, die Sie möglicherweise verwenden. Sie verfügen lediglich über eine Eingabeaufforderung. Dies bedeutet, dass Sie den größten Teil der Konfiguration einer Server Core-Installation durchführen müssen, indem Sie nacheinander Befehle einzeln eingeben, was langsam ist, oder indem Sie Skripts und Batch Dateien verwenden, die Ihnen helfen können, ihre configurati zu beschleunigen und zu vereinfachen. bei Aufgaben durch Automatisierung. Sie können auch einige erst Konfigurationsaufgaben mithilfe von Antwort Dateien ausführen, wenn Sie eine unbeaufsichtigte Installation von Server Core durchführen. 
+Es gibt keinen Desktop! Das heißt, es gibt keine Windows-Explorer-Shell, mit dem Startmenü, der Taskleiste und den anderen Features, die Sie möglicherweise verwenden. Sie verfügen lediglich über eine Eingabeaufforderung. Dies bedeutet, dass Sie den größten Teil der Konfiguration einer Server Core-Installation durchführen müssen, indem Sie nacheinander Befehle einzeln eingeben. Dies ist langsam oder mithilfe von Skripts und Batch Dateien, die Ihnen helfen können, ihre Konfigurationsaufgaben zu beschleunigen und zu vereinfachen, indem Sie Sie automatisieren. Sie können auch einige erst Konfigurationsaufgaben mithilfe von Antwort Dateien ausführen, wenn Sie eine unbeaufsichtigte Installation von Server Core durchführen. 
 
 Administratoren, die über Befehlszeilen Tools wie "Netsh. exe", "Dfscmd. exe" und "dnscmd. exe" verfügen, können die Konfiguration und Verwaltung einer Server Core-Installation einfach und sogar Spaß machen. Personen, die keine Experten sind, gehen jedoch nicht verloren. Sie können weiterhin die standardmäßigen Windows Server 2008-MMC-Tools für die Verwaltung einer Server Core-Installation verwenden. Sie müssen Sie nur auf einem anderen System verwenden, auf dem entweder eine vollständige Installation von Windows Server 2008 oder Windows Vista mit Service Pack 1 ausgeführt wird. 
 
@@ -77,7 +77,7 @@ In Tabelle 1-2 sind die Haupt-GUI-Anwendungen sowie die ausführbaren Dateien au
 | Diagnose Tool für Microsoft-Support | %Windir%\system32\msdt.exe |
 | Editor | %Windir%\system32\notepad.exe |
 | Registrierungs-Editor | %Windir%\system32\regedt32.exe |
-| System Informationen | %Windir%\system32\msinfo32.exe |
+| Systeminformationen | %Windir%\system32\msinfo32.exe |
 | Task-Manager | %Windir%\system32\taskmgr.exe |
 | Windows Installer | %WINDIR%\System32\MSiexec.exe |
 
@@ -113,12 +113,12 @@ Eine Server Core-Installation umfasst nur eine begrenzte Anzahl von Server Rolle
 | Faxserver  | X  |  |
 | Dateidienste  | X  | X |
 | Hyper-V  | X | X |
-| Network Policy and Access Services  | X  |  |
+| Netzwerkrichtlinie und Access Services  | X  |  |
 | Druckdienste  | X  | X |
 | Streaming Media-Dienste  | X  | X |
 | Terminaldienste  | X  |  |
 | UDDI-Dienste  | X  |  |
-| Webserver (IIS) | X | X |
+| Web Server (IIS) | X | X |
 | Windows-Bereitstellungsdienste  | X |  |
 
 Die Rollen, die für Server Core verfügbar sind, sind in der Regel unabhängig von der Architektur (x86 oder x64) und der Produkt Edition gleich. es gibt jedoch einige Ausnahmen:
@@ -142,15 +142,15 @@ Eine Server Core-Installation unterstützt auch nur eine begrenzte Teilmenge der
 | Failoverclustering  | X  | X |
 | Gruppenrichtlinienverwaltung  | X  |  |
 | Internetdruckclient  | X  |  |
-| Internet-Speicher Namen Server  | X  |  |
-| LPR-Portüberwachung  | X  |  |
+| Internet Storage Name Server  | X  |  |
+| LPR-Anschlussmonitor  | X  |  |
 | Message Queuing  | X  |  |
 | Multipfad-IO  | X  | X |
 | Netzwerklastenausgleich  | X  | X |
 | Peer Name Resolution-Protokoll  | X  |  |
-| Verbessertes Audio-/Videostreaming unter Windows  | X |  |
+| Windows-Dienst für verbessertes Audio/Video-Streaming  | X |  |
 | Remoteunterstützung  | X  |  |
-| RDC (Remote Differential Compression) | X  |  |
+| Remotedifferenzialkomprimierung | X  |  |
 | Remoteserver-Verwaltungstools  | X  |  |
 | Wechsel Speicher-Manager | X  | X |
 | RPC-über-HTTP-Proxy | X  |  |
@@ -178,7 +178,7 @@ Auch hier gibt es einige Punkte, die Sie über die auf Server Core verfügbaren 
 Sehen wir uns die Architektur einer Server Core-Installation von Windows Server 2008 genauer an, indem wir Sie mit der einer vollständigen Installation vergleichen. Denken Sie zunächst daran, dass es sich bei Server Core nicht um eine andere Version von Windows Server 2008, sondern lediglich um eine Installationsoption handelt, die Sie bei der Installation von Windows Server 2008 auf einem System auswählen können. Dies impliziert Folgendes:
 * Der Kernel einer Server Core-Installation ist derselbe, der bei einer vollständigen Installation derselben Hardwarearchitektur (x86 oder x64) und Edition gefunden wurde. 
 * Wenn eine Binärdatei in einer Server Core-Installation vorhanden ist, hat eine vollständige Installation der gleichen Hardwarearchitektur (x86 oder x64) und Edition dieselbe Version dieser speziellen Binärdatei (mit zwei Ausnahmen, die später besprochen werden). 
-* Wenn eine bestimmte Einstellung (z. b. eine bestimmte Firewallausnahme oder der Starttyp eines bestimmten dienstanztyps) eine bestimmte Standardkonfiguration für eine Server Core-Installation aufweist, wird diese Einstellung in einer vollständigen Installation von genauso konfiguriert wie Hardwarearchitektur (x86 oder x64) und Edition.
+* Wenn eine bestimmte Einstellung (z. b. eine bestimmte Firewallausnahme oder der Starttyp eines bestimmten dienstantetyps) eine bestimmte Standardkonfiguration für eine Server Core-Installation aufweist, wird diese Einstellung in einer vollständigen Installation derselben Hardwarearchitektur (x86 oder x64) und Edition exakt auf die gleiche Weise konfiguriert.
 
 In Abbildung 1-3 wird eine vereinfachte Ansicht der Architektur einer vollständigen Installation und einer Server Core-Installation von Windows Server 2008 veranschaulicht. Die gepunktete Linie zeigt die Architektur von Server Core an, während das gesamte Diagramm die Architektur einer vollständigen Installation darstellt. 
 
@@ -200,7 +200,7 @@ Bei einer Server Core-Installation ist der Treiber Installationsvorgang identisc
 
 Beachten Sie, dass für jede der drei hier gezeigten Gerätekategorien Server Core dieselben in-Box-Treiber enthält, die in einer entsprechenden vollständigen Installation (für die gleiche Hardwarearchitektur) gefunden werden. 
 
-Wenn das PNP-Subsystem automatisch einen Treiber für ein neues Gerät installiert, erfolgt dies automatisch – es wird keine Benachrichtigung über eine Sprechblase angezeigt. Warum nicht? Da keine GUI auf Server Core vorhanden ist, gibt es keine Taskleiste, sodass auf der Taskleiste kein Benachrichtigungsbereich vorhanden ist. 
+Wenn das PNP-Subsystem automatisch einen Treiber für ein neues Gerät installiert, erfolgt dies automatisch – es wird keine Benachrichtigung über eine Sprechblase angezeigt. Warum? Da keine GUI auf Server Core vorhanden ist, gibt es keine Taskleiste, sodass auf der Taskleiste kein Benachrichtigungsbereich vorhanden ist. 
 
 Was tun Sie also, wenn Sie die Rolle "Druckdienste" zu einer Server Core-Installation hinzufügen und einen Drucker installieren möchten? Der Druckertreiber wird dem Server manuell hinzugefügt – Server Core verfügt über keine in-Box-Drucktreiber.
 
@@ -213,73 +213,73 @@ In Tabelle 1-5 werden die Dienste aufgelistet, die standardmäßig in einer Serv
 
 | Dienstname  | Anzeigename  | Start Modus  | Konto  |
 | ------------- | ------------- | ------------ | ------------ |
-| Aelookupsvc  | Anwendungs Darstellung  | Auto | LocalSystem |
+| Aelookupsvc  | Anwendungserfahrung  | Automatisch | LocalSystem |
 | AppMgmt  | Anwendungsverwaltung  | Manuell | LocalSystem |
-| BFE | Basisfiltermodul  | Auto | LocalService |
-| BITS | Intelligenter Hintergrundübertragungsdienst (Background Intelligent Transfer Service, BITS)  | Auto | LocalSystem |
+| BFE | Basisfiltermodul  | Automatisch | LocalService |
+| BITS | Background Intelligent Transfer Service  | Automatisch | LocalSystem |
 | Browser | Computerbrowser  | Manuell | LocalSystem |
 | CertPropSvc | Zertifikatverteilung  | Manuell | LocalSystem |
-| COMSysApp  | COM+-Systemanwendung  | Manuell | LocalSystem |
-| CryptSvc  | Kryptografiedienste  | Auto | Netzwerkdienst |
-| DcomLaunch  | DCOM-Server-Prozessstart  | Auto | LocalSystem |
-| Dhcp  | DHCP-Client  | Auto | LocalService |
-| Dnscache | DNS-Client  | Auto | Netzwerkdienst |
-| DPS  | Diagnoserichtliniendienst  | Auto | LocalService |
-| EventLog | Windows-Ereignisprotokoll  | Auto | LocalService |
-| EventSystem  | COM+-Ereignissystem  | Auto | LocalService |
+| COMSysApp  | COM+ Systemanwendung  | Manuell | LocalSystem |
+| CryptSvc  | Kryptografische Dienste  | Automatisch | Netzwerkdienst |
+| DcomLaunch  | DCOM-Server-Prozessstart  | Automatisch | LocalSystem |
+| Dhcp  | DHCP-Client  | Automatisch | LocalService |
+| Dnscache | DNS-Client  | Automatisch | Netzwerkdienst |
+| DPS  | Diagnoserichtliniendienst  | Automatisch | LocalService |
+| EventLog | Windows-Ereignisprotokoll  | Automatisch | LocalService |
+| EventSystem  | COM+-Ereignissystem  | Automatisch | LocalService |
 | "F"  | Registrierungsdienst für Microsoft Fibre Channel-Plattform  | Manuell | LocalService |
-| gpsvc  | Gruppenrichtlinienclient  | Auto | LocalSystem |
+| gpsvc  | Gruppenrichtlinienclient  | Automatisch | LocalSystem |
 | hidserv | Eingabegeräte Zugriff  | Manuell | LocalSystem |
 | hkmsvc  | Integritäts Schlüssel und Zertifikat Verwaltung  | Manuell | LocalSystem |
-| IKEEXT  | IKE- und AuthIP IPsec-Schlüsselerstellungsmodule  | Auto | LocalSystem |
-| iphlpsvc  | IP-Hilfsprogramm  | Auto | LocalSystem |
+| IKEEXT  | IKE- und AuthIP IPsec-Schlüsselerstellungsmodule  | Automatisch | LocalSystem |
+| iphlpsvc  | IP-Hilfsdienst  | Automatisch | LocalSystem |
 | KeyIso | CNG-Schlüsselisolation  | Manuell | LocalSystem |
-| KtmRm  | KtmRm für Distributed Transaction Coordinator  | Auto | Netzwerkdienst |
-| LanmanServer  | Server  | Auto | LocalSystem |
-| LanmanWorkstation  | Workstatione  | Auto | LocalService |
-| lltdsvc  | Verbindungsschicht-Topologieerkennungs-Zuordnungsprogramm  | Manuell | LocalService |
-| lmhosts  | TCP/IP-NetBIOS-Hilfsdienst  | Auto | LocalService |
-| MpsSvc  | Windows-Firewall  | Auto | LocalService |
-| MSDTC  | Distributed Transaction Coordinator  | Auto | Netzwerkdienst |
+| KtmRm  | KtmRm für Distributed Transaction Coordinator  | Automatisch | Netzwerkdienst |
+| LanmanServer  | Server  | Automatisch | LocalSystem |
+| LanmanWorkstation  | Workstatione  | Automatisch | LocalService |
+| lltdsvc  | Zuordnung für Verbindungsschicht-Topologieerkennung  | Manuell | LocalService |
+| lmhosts  | TCP/IP-NetBIOS-Hilfsdienst  | Automatisch | LocalService |
+| MpsSvc  | Windows-Firewall  | Automatisch | LocalService |
+| MSDTC  | Distributed Transaction Coordinator  | Automatisch | Netzwerkdienst |
 | MSiSCSI  | Microsoft iSCSI-Initiator-Dienst  | Manuell | LocalSystem |
 | msiserver  | Windows Installer  | Manuell | LocalSystem |
 | NAPAgent  | Netzwerkzugriffsschutz-Agent  | Manuell | Netzwerkdienst |
-| Netlogon  | Netlogon  | Manuell | LocalSystem |
-| netprofm  | Netzwerklistendienst  | Auto | LocalService |
-| NlaSvc  | NLA (Network Location Awareness)  | Auto | Netzwerkdienst |
-| nsi  | Netzwerkspeicher-Schnittstellendienst  | Auto | LocalService |
+| Anmeldedienst  | Anmeldedienst  | Manuell | LocalSystem |
+| netprofm  | Netzwerklistendienst  | Automatisch | LocalService |
+| NlaSvc  | Netzwerkadressinformationen  | Automatisch | Netzwerkdienst |
+| nsi  | Netzwerkspeicher-Schnittstellendienst  | Automatisch | LocalService |
 | pla  | Leistungsprotokolle und -warnungen  | Manuell | LocalService |
-| PlugPlay  | Plug & Play  | Auto | LocalSystem |
-| PolicyAgent  | IPsec-Richtlinien-Agent  | Auto | Netzwerkdienst |
-| ProfSvc  | Benutzerprofildienst  | Auto | LocalSystem |
+| PlugPlay  | Plug & Play  | Automatisch | LocalSystem |
+| PolicyAgent  | IPsec-Richtlinien-Agent  | Automatisch | Netzwerkdienst |
+| ProfSvc  | Benutzerprofildienst  | Automatisch | LocalSystem |
 | ProtectedStorage  | Geschützter Speicher  | Manuell | LocalSystem |
-| RemoteRegistry  | Remoteregistrierung  | Auto | LocalService |
-| RpcSs  | Remoteprozeduraufruf (RPC)  | Auto | Netzwerkdienst |
+| RemoteRegistry  | Remoteregistrierung  | Automatisch | LocalService |
+| RpcSs  | Remoteprozeduraufruf (RPC)  | Automatisch | Netzwerkdienst |
 | RSoPProv | Richtlinienergebnissatzanbieter  | Manuell | LocalSystem |
 | sacsvr  | Hilfsprogramm für spezielle Verwaltungskonsole  | Manuell | LocalSystem |
-| SamSs  | Sicherheitskonto-Manager  | Auto | LocalSystem |
+| SamSs  | Sicherheitskonto-Manager  | Automatisch | LocalSystem |
 | SCardSvr | Smartcard  | Manuell | LocalService |
-| Zeitplan | Aufgabenplanung  | Auto | LocalSystem |
+| Zeitplan | Aufgabenplaner  | Automatisch | LocalSystem |
 | SCPolicySvc | Richtlinie zum Entfernen der Smartcard  | Manuell | LocalSystem |
-| seclogon | Sekundäre Anmeldung  | Auto | LocalSystem |
-| SENS | Benachrichtigungsdienst für Systemereignisse  | Auto | LocalSystem |
+| seclogon | Sekundäre Anmeldung  | Automatisch | LocalSystem |
+| SENS | Benachrichtigungsdienst für Systemereignisse  | Automatisch | LocalSystem |
 | SessionEnv | Terminaldienstekonfiguration  | Manuell | LocalSystem |
-| SLsvc  | Softwarelizenzierung | Auto | Netzwerkdienst |
+| SLsvc  | Softwarelizenzierung | Automatisch | Netzwerkdienst |
 | SNMPTRAP  | SNMP-Trap  | Manuell | LocalService |
-| swprv  | Microsoft-Softwareschattenkopie-Anbieter | Manuell | LocalSystem |
+| swprv  | Microsoft Software Schattenkopieanbieter | Manuell | LocalSystem |
 | TB | TPM-Basisdienste  | Manuell | LocalService |
-| TermService  | Terminaldienste | Auto | Netzwerkdienst |
-| TrustedInstaller | Windows Modules Installer  | Auto | LocalSystem |
+| TermService  | Terminaldienste | Automatisch | Netzwerkdienst |
+| TrustedInstaller | Windows Modules Installer  | Automatisch | LocalSystem |
 | UmRdpService | Terminal Dienste-portredirector für usermode  | Manuell | LocalSystem |
 | vds | Virtueller Datenträger  | Manuell | LocalSystem |
 | VSS | Volumeschattenkopie  | Manuell | LocalSystem |
-| W32Time | Windows-Zeitdienst  | Auto | LocalService |
+| W32Time | Windows-Zeitdienst  | Automatisch | LocalService |
 | WcsPlugInService  | Windows-Farb System  | Manuell | LocalService |
 | WdiServiceHost  | Diagnosediensthost  | Manuell | LocalService |
 | WdiSystemHost  | Diagnosesystemhost  | Manuell | LocalSystem |
 | Wecsvc | Windows-Ereignissammlung  | Manuell | Netzwerkdienst |
-| Winhttpauto-proxysvc  | WinHTTP-Web Proxy Auto-Discovery-Dienst  | Auto | LocalService |
-| Winmgmt | Windows-Verwaltungsinstrumentation | Auto | LocalSystem |
-| WinRM  | Windows-Remoteverwaltung (WS-Verwaltung) | Auto | Netzwerkdienst |
+| Winhttpauto-proxysvc  | WinHTTP-Web Proxy Auto-Discovery-Dienst  | Automatisch | LocalService |
+| Winmgmt | Windows-Verwaltungsinstrumentation | Automatisch | LocalSystem |
+| WinRM  | Windows-Remoteverwaltung (WS-Verwaltung) | Automatisch | Netzwerkdienst |
 | wmiApSrv  | WMI-Leistungsadapter  | Manuell | LocalSystem |
-| wuauserv | Windows Update | Auto | LocalSystem |
+| wuauserv | Windows Update | Automatisch | LocalSystem |

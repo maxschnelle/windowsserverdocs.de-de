@@ -1,51 +1,47 @@
 ---
 title: bitsadmin replaceremoteprefix
-description: Windows-Befehls Thema für **bitionadmin REPLACEREMOTEPREFIX** -alle Dateien im Auftrag, deren Remote-URL mit *oldprefix* beginnt, werden so geändert, dass *newprefix*verwendet wird.
-ms.custom: na
+description: Windows-Befehls Thema für **bigsadmin REPLACEREMOTEPREFIX**, das die Remote-URL für alle Dateien im Auftrag von *oldprefix* in *newprefix*ändert, je nach Bedarf.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d0e0abb1-bdb4-4c74-abbc-16c809f5fd81
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ee896a337b571487797967d3ce0bf1f1b17e7507
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0cea0108a292815e31e893e91dc4079305c1da9a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380800"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849813"
 ---
 # <a name="bitsadmin-replaceremoteprefix"></a>bitsadmin replaceremoteprefix
 
-Alle Dateien im Auftrag, deren Remote-URL mit *oldprefix* beginnt, werden so geändert, dass Sie *newprefix*verwendet.
+Ändert die Remote-URL für alle Dateien im Auftrag bei Bedarf von *oldprefix* in *newprefix*.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-bitsadmin /ReplaceRemotePrefix <Job> <OldPrefix> <NewPrefix
+bitsadmin /replaceremoteprefix <job> <oldprefix> <newprefix>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
-|Oldprefix|Bestehendes URL-Präfix|
-|Newprefix|Neues URL-Präfix|
+| Parameter | Beschreibung |
+| -------------- | -------------- |
+| Auftrag | Der Anzeige Name oder GUID des Auftrags. |
+| oldprefix | Vorhandenes URL-Präfix. |
+| newprefix | Neues URL-Präfix. |
 
 ## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel werden alle Dateien in einem Auftrag mit dem Namen *mydownloadjob* geändert, deren Remote-URL mit *http://stageserver* auf *http://prodserver* beginnt.
+Im folgenden Beispiel wird die Remote-URL für alle Dateien in Auftrag mit dem Namen *mydownloadjob*von *http://stageserver* in *http://prodserver* geändert.
 
 ```
-C:\>bitsadmin /ReplaceRemotePrefix myDownloadJob http://stageserver http://prodserver
+C:\>bitsadmin /replaceremoteprefix myDownloadJob http://stageserver http://prodserver
 ```
 
-## <a name="additional-information"></a>Weitere Informationen
+## <a name="additional-information"></a>Zusätzliche Informationen
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,24 +1,20 @@
 ---
 title: Planen von Benutzerkonten für eine MultiPoint Services-Umgebung
 description: Planungsinformationen für Benutzerkonten in Multipoint Services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d47be540-e891-47bd-85da-6df4bbf93b2f
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 056c3b9773387cf00b40baf6f14e4e1f3583f6c9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 28ee7a1475ec55352fe344842b8df7633abb9137
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405003"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853393"
 ---
 # <a name="plan-user-accounts-for-your-multipoint-services-environment"></a>Planen von Benutzerkonten für eine MultiPoint Services-Umgebung
 Die beste Methode zum Implementieren von Benutzerkonten in Multipoint Services hängt von der Größe und Komplexität Ihrer Bereitstellung ab:  
@@ -62,7 +58,7 @@ Im Gegensatz dazu ist es auch möglich, einzelne Benutzerkonten auf allen Comput
 |UserAccount_04|UserAccount_04|  
 |UserAccount_05|UserAccount_05|  
   
-Ein Vorteil dieses Ansatzes besteht darin, dass Benutzer über ein lokales Benutzerkonto für alle verfügbaren Multipoint Services verfügen. Dieser Vorteil kann jedoch durch die Nachteile aufwiegen. Wenn z. b. der Benutzername und das Kennwort für eine bestimmte Person auf beiden Computern identisch sind, sind die Konten nicht miteinander verknüpft. Wenn sich ein Benutzer am Montag bei seinem Konto auf Computer a anmeldet, speichert eine Datei und meldet sich dann bei seinem Konto auf Computer B am Dienstag an, und er kann nicht auf die zuvor auf Computer a gespeicherte Datei zugreifen. Das Replizieren von Benutzerkonten auf mehreren Computern erhöht den Verwaltungsaufwand und die Speicheranforderungen.  
+Ein Vorteil dieses Ansatzes besteht darin, dass Benutzer über ein lokales Benutzerkonto für alle verfügbaren Multipoint Services verfügen. Dieser Vorteil kann jedoch durch die Nachteile aufwiegen. Wenn z. b. der Benutzername und das Kennwort für eine bestimmte Person auf beiden Computern identisch sind, sind die Konten nicht miteinander verknüpft. Wenn sich ein Benutzer am Montag bei seinem Konto auf Computer a anmeldet, speichert eine Datei und meldet sich dann bei seinem Konto auf Computer B am Dienstag an, und er kann nicht auf die Datei zugreifen, die zuvor auf Computer a gespeichert wurde. Darüber hinaus erhöht die Replikation von Benutzerkonten auf mehreren Computern den Verwaltungsaufwand und die Speicheranforderungen.  
   
 ### <a name="use-generic-local-user-accounts"></a>Generische lokale Benutzerkonten verwenden  
 Wenn Ihr Multipoint Services-System nicht mit einer Domäne verbunden ist und Sie kein einzelnes Konto für jeden Benutzer erstellen möchten, können Sie für jede Station generische Konten erstellen. Wenn Sie beispielsweise über zwei Computer verfügen, auf denen Multipoint Services ausgeführt wird, und jedem Computer fünf Stationen zugeordnet sind, können Sie Benutzerkonten erstellen, die den in der folgenden Tabelle aufgeführten ähneln.  

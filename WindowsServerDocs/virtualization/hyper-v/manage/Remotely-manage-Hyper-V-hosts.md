@@ -2,21 +2,19 @@
 title: Remote Verwaltung von Hyper-V-Hosts
 description: Beschreibt die Versions Kompatibilität zwischen Hyper-v-Hosts und Hyper-v-Manager sowie das Herstellen einer Verbindung mit Remote Hosts in verschiedenen Umgebungen, einschließlich Domänen übergreifender und eigenständiger Umgebungen.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 12/06/2016
-ms.openlocfilehash: 677e054fe42978697ef786b73daac75069f0408f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 592bb6352c4ca56770e1a3051ecbc88d9d378467
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392689"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859413"
 ---
 # <a name="remotely-manage-hyper-v-hosts-with-hyper-v-manager"></a>Remote Verwaltung von Hyper-v-Hosts mit dem Hyper-v-Manager
 
@@ -37,8 +35,8 @@ In der folgenden Tabelle ist aufgeführt, welche Versionen eines Hyper-v-Hosts v
 |Hyper-V-Manager-Version | Hyper-V-Host Version|
 |---|---|
 |Windows 2016, Windows 10|-Windows Server 2016 – alle Editionen und Installationsoptionen, einschließlich nano Server, und die entsprechende Version von Hyper-V Server <br>-Windows Server 2012 R2 – alle Editionen und Installationsoptionen sowie die entsprechende Version von Hyper-V Server <br>-Windows Server 2012 – alle Editionen und Installationsoptionen und die entsprechende Version von Hyper-V Server <br> -Windows 10 <br> -Windows 8.1  |
-| Windows Server 2012 R2, Windows 8.1 | -Windows Server 2012 R2 – alle Editionen und Installationsoptionen sowie die entsprechende Version von Hyper-V Server <br>-Windows Server 2012 – alle Editionen und Installationsoptionen und die entsprechende Version von Hyper-V Server <br>-Windows 8.1
-| Windows Server 2012 | -Windows Server 2012 – alle Editionen und Installationsoptionen und die entsprechende Version von Hyper-V Server
+| Windows Server 2012 R2, Windows 8.1 | -Windows Server 2012 R2 – alle Editionen und Installationsoptionen sowie die entsprechende Version von Hyper-V Server <br>-Windows Server 2012 – alle Editionen und Installationsoptionen und die entsprechende Version von Hyper-V Server <br>-Windows 8.1
+| Windows Server 2012 | -Windows Server 2012 – alle Editionen und Installationsoptionen und die entsprechende Version von Hyper-V Server
 | Windows Server 2008 R2 Service Pack 1, Windows 7 Service Pack 1 | -Windows Server 2008 R2 – alle Editionen und Installationsoptionen sowie die entsprechende Version von Hyper-V Server
 | Windows Server 2008, Windows Vista Service Pack 2 | -Windows Server 2008 – alle Editionen und Installationsoptionen und die entsprechende Version von Hyper-V Server
 
@@ -51,7 +49,7 @@ Zum Herstellen einer Verbindung mit einem Hyper-v-Host über den Hyper-v-Manager
 
 ## <a name="manage-hyper-v-on-a-local-computer"></a>Verwalten von Hyper-V auf einem lokalen Computer
 
-Mit dem Hyper-v-Manager werden keine Computer aufgelistet, auf denen Hyper-v gehostet wird, bis Sie den Computer einschließlich eines lokalen Computers hinzufügen. Gehen Sie dazu wie folgt vor:
+Mit dem Hyper-v-Manager werden keine Computer aufgelistet, auf denen Hyper-v gehostet wird, bis Sie den Computer einschließlich eines lokalen Computers hinzufügen. Dazu gehen Sie folgendermaßen vor:
 
 1. Klicken Sie im linken Bereich mit der rechten Maustaste auf **Hyper-V-Manager**.
 2. Klicken Sie auf **Verbindung mit Server herstellen**.
@@ -85,7 +83,7 @@ Der Hyper-V-Manager in Windows Server 2016 und Windows 10 bietet mehr Typen von 
 
 ### <a name="connect-to-a-windows-2016-or-windows-10-remote-host-as-a-different-user"></a>Herstellen einer Verbindung mit einem Windows 2016-oder Windows 10-Remote Host als anderer Benutzer
 
-Auf diese Weise können Sie eine Verbindung mit dem Hyper-v-Host herstellen, wenn Sie nicht auf dem lokalen Computer als Benutzer ausgeführt werden, der Mitglied der Gruppe "Hyper-v-Administratoren" oder der Gruppe "Administratoren" auf dem Hyper-v-Host ist. Gehen Sie dazu wie folgt vor:
+Auf diese Weise können Sie eine Verbindung mit dem Hyper-v-Host herstellen, wenn Sie nicht auf dem lokalen Computer als Benutzer ausgeführt werden, der Mitglied der Gruppe "Hyper-v-Administratoren" oder der Gruppe "Administratoren" auf dem Hyper-v-Host ist. Dazu gehen Sie folgendermaßen vor:
 
 1. Klicken Sie im linken Bereich mit der rechten Maustaste auf **Hyper-V-Manager**.
 1. Klicken Sie auf **Verbindung mit Server herstellen**.
@@ -97,7 +95,7 @@ Auf diese Weise können Sie eine Verbindung mit dem Hyper-v-Host herstellen, wen
 
 ### <a name="connect-to-a-windows-2016-or-windows-10-remote-host-using-ip-address"></a>Herstellen einer Verbindung mit einem Windows 2016-oder Windows 10-Remote Host über die IP-Adresse
 
-Gehen Sie dazu wie folgt vor:
+Dazu gehen Sie folgendermaßen vor:
 
 1. Klicken Sie im linken Bereich mit der rechten Maustaste auf **Hyper-V-Manager**.
 1. Klicken Sie auf **Verbindung mit Server herstellen**.
@@ -108,7 +106,7 @@ Gehen Sie dazu wie folgt vor:
 
 ### <a name="connect-to-a-windows-2016-or-windows-10-remote-host-outside-your-domain-or-with-no-domain"></a>Herstellen einer Verbindung mit einem Windows 2016-oder Windows 10-Remote Host außerhalb Ihrer Domäne oder ohne Domäne
 
-Gehen Sie dazu wie folgt vor:
+Dazu gehen Sie folgendermaßen vor:
 
 1. Öffnen Sie auf dem zu verwaltenden Hyper-V-Host eine Windows PowerShell-Sitzung als Administrator.
 
@@ -169,7 +167,7 @@ Um Windows PowerShell zu verwenden, führen Sie den folgenden Befehl als Adminis
 add-windowsfeature rsat-hyper-v-tools
 ```
 
-## <a name="see-also"></a>Weitere Informationen  
+## <a name="see-also"></a>Siehe auch  
  
 [Installieren von Hyper-V](../get-started/Install-the-Hyper-V-role-on-Windows-Server.md) 
 

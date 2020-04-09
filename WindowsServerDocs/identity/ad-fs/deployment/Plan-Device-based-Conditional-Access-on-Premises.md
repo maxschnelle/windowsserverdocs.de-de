@@ -1,7 +1,6 @@
 ---
 ms.assetid: c5eb3fa0-550c-4a2f-a0bc-698b690c4199
 title: Planen des gerätebasierten bedingten lokalen Zugriffs
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 00a7edf9529e1f116d951fd69d3bfa381d6d413a
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: d22897111588393efc148e6f24affeb243ee9e88
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822753"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855333"
 ---
 # <a name="plan-device-based-conditional-access-on-premises"></a>Planen des gerätebasierten bedingten lokalen Zugriffs
 
@@ -23,7 +22,7 @@ In diesem Dokument werden Richtlinien für den bedingten Zugriff basierend auf G
 
 ## <a name="ad-fs-and-hybrid-conditional-access"></a>AD FS und Hybrid bedingter Zugriff  
 
-AD FS bietet die lokale Komponente der Richtlinien für den bedingten Zugriff in einem Hybrid Szenario.  Wenn Sie Geräte mit Azure AD für den bedingten Zugriff auf cloudressourcen registrieren, werden die Geräte Registrierungsinformationen von der Funktion zum Zurückschreiben von Azure AD Connect Geräten lokal zur Verfügung gestellt, damit AD FS Richtlinien genutzt und erzwungen werden können.  Auf diese Weise haben Sie einen konsistenten Ansatz für die Zugriffs Steuerungs Richtlinien sowohl für lokale als auch für cloudressourcen.  
+AD FS bietet die lokale Komponente der Richtlinien für bedingten Zugriff in einem Hybridszenario.  Wenn Sie Geräte mit Azure AD für den bedingten Zugriff auf cloudressourcen registrieren, werden die Geräte Registrierungsinformationen von der Funktion zum Zurückschreiben von Azure AD Connect Geräten lokal zur Verfügung gestellt, damit AD FS Richtlinien genutzt und erzwungen werden können.  Auf diese Weise haben Sie einen konsistenten Ansatz für die Zugriffs Steuerungs Richtlinien sowohl für lokale als auch für cloudressourcen.  
 
 ![bedingter Zugriff](media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
 
@@ -35,9 +34,9 @@ Es gibt drei Arten registrierter Geräte, die alle in Azure AD als Geräte Objek
 |Beschreibung    |  Benutzer fügen ihr Geschäfts-, Schul-oder unikonto dem BYOD-Gerät interaktiv hinzu.  **Hinweis:** Das Hinzufügen eines Geschäfts-, Schul-oder unikontos ist der Ersatz für Workplace Join in Windows 8/8.1       | Benutzer fügen ihr Windows 10-Arbeitsgerät in Azure AD ein.|In die Domäne eingebundener Windows 10-Geräte werden automatisch bei Azure AD registriert|           
 |Anmelden von Benutzern beim Gerät     |  Keine Anmeldung bei Windows als Geschäfts-, Schul-oder unikonto.  Melden Sie sich mit einem Microsoft-Konto an.       |   Melden Sie sich bei Windows als (Geschäfts-, Schul-oder unikonto) an, das das Gerät registriert hat      |     Anmelden mit AD-Konto|      
 |Verwalten von Geräten    |      MDM-Richtlinien (mit zusätzlicher InTune-Registrierung)   | MDM-Richtlinien (mit zusätzlicher InTune-Registrierung)        |   Gruppenrichtlinie Configuration Manager |
-|Azure AD vertrauensungstyp|Arbeitsplatz Beitritt|Azure AD verknüpft|Domäne beigetreten  |     
+|Azure AD vertrauensungstyp|Arbeitsplatz Beitritt|Azure AD verknüpft|Mit Domäne verknüpft  |     
 |Speicherort für die Einstellungen    | Einstellungen > Konten > Ihrem Konto > Hinzufügen eines Geschäfts-, Schul-oder unikontos        | Einstellungen > System > Informationen zum > Join Azure AD       |   Einstellungen > System > über > beitreten zu einer Domäne |       
-|Auch für IOS-und Android-Geräte verfügbar?   |    „Ja“     |       Nein  |   Nein   |   
+|Auch für IOS-und Android-Geräte verfügbar?   |    Ja     |       Nein  |   Nein   |   
 
   
 
@@ -89,7 +88,7 @@ Kompatible Geräte verfügen über den **iscompliance** -AD FS Anspruch mit dem 
 Eine umfassende Liste mit AD FS 2016-Gerät und bedingten Zugriffs Ansprüchen finden Sie unter [Reference](#reference).  
 
 
-## <a name="reference"></a>Referenz  
+## <a name="reference"></a>Verweis  
 #### <a name="complete-list-of-new-ad-fs-2016-and-device-claims"></a>Umfassende Liste der neuen AD FS 2016-und Geräteansprüche  
 
 * https://schemas.microsoft.com/ws/2014/01/identity/claims/anchorclaimtype  

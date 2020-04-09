@@ -1,28 +1,22 @@
 ---
 title: bitadmin setcustomheaders
-description: Windows-Befehls Thema für **bitionadmin setcustomheaders** -Hinzufügen eines benutzerdefinierten HTTP-Headers zu einer GET-Anforderung.
-ms.custom: na
+description: Windows-Befehls Thema für BI-admin setcustomheaders, das einer GET-Anforderung einen benutzerdefinierten HTTP-Header hinzufügt.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ed926410-80d0-46ed-9a90-f752c164bb9a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 45e3a5178df69b84618966ca0fcd9cc1e6d0e449
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e5d97fae5f84637c80c3d1ef00aa36f09049bb17
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380639"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849613"
 ---
 # <a name="bitsadmin-setcustomheaders"></a>bitadmin setcustomheaders
-
-
 
 Fügen Sie einen benutzerdefinierten HTTP-Header zu einer GET-Anforderung hinzu.
 
@@ -32,7 +26,7 @@ Fügen Sie einen benutzerdefinierten HTTP-Header zu einer GET-Anforderung hinzu.
 bitsadmin /SetCustomHeaders <Job> <Header1> <Header2> <. . .>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -43,13 +37,13 @@ bitsadmin /SetCustomHeaders <Job> <Header1> <Header2> <. . .>
 
 -   Mithilfe dieses Schalters wird einer GET-Anforderung, die an einen HTTP-Server gesendet wird, ein benutzerdefinierter HTTP-Header hinzugefügt.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Im folgenden Beispiel wird ein benutzerdefinierter HTTP-Header für den Auftrag mit dem Namen *mydownloadjob*hinzugefügt.
 ```
-C:\>bitsadmin / SetCustomHeaders myDownloadJob "Accept-encoding:deflate/gzip"
+C:\>bitsadmin / SetCustomHeaders myDownloadJob Accept-encoding:deflate/gzip
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,7 +1,6 @@
 ---
 ms.assetid: d254fca3-85a1-424d-ac22-d6687ec3798e
 title: Bereitstellen von Zugriff auf Ihre Ansprüche unterstützenden Anwendungen und Dienste für Active Directory-Benutzer
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 48436f8e98af965f2bc2b38d296c4a15924e4db1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0cb530eacfa8239f3a2a135397e54becfadb602b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407950"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858573"
 ---
 # <a name="provide-your-active-directory-users-access-to-your-claims-aware-applications-and-services"></a>Bereitstellen von Zugriff auf Ihre Ansprüche unterstützenden Anwendungen und Dienste für Active Directory-Benutzer
 
@@ -35,9 +34,9 @@ Die folgenden Komponenten sind für dieses Bereitstellungsziel erforderlich:
     > [!NOTE]  
     > Sie können auch Lightweight Directory Access Protocol \(LDAP\) oder strukturierte Abfragesprache \(SQL\) verwenden, um die Identitäten für die AD FS tokengenerierung zu enthalten.  
   
--   Unter **nehmens-DNS:** Diese Implementierung von Domain Name System \(DNS-\) enthält einen einfachen Host \(einen\) Ressourcen Daten Satz, sodass Intranetclients den Konto Verbund Server finden können. Diese DNS-Implementierung kann auch andere DNS-Einträge hosten, die im Unternehmensnetzwerk erforderlich sind. Weitere Informationen finden Sie unter [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md).  
+-   Unter **nehmens-DNS:** Diese Implementierung von Domain Name System \(DNS-\) enthält einen einfachen Host \(einen\) Ressourcen Daten Satz, sodass Intranetclients den Konto Verbund Server finden können. Diese DNS-Implementierung kann auch andere DNS-Einträge hosten, die im Unternehmensnetzwerk erforderlich sind. Weitere Informationen finden Sie unter [Anforderungen an die Namensauflösung für Verbundserver](Name-Resolution-Requirements-for-Federation-Servers.md).  
   
--   **Konto Partner Verbund Server:** Dieser Verbund Server ist einer Domäne in der Konto Partner-Gesamtstruktur hinzugefügt. Er authentifiziert Mitarbeiterbenutzerkonten und generiert AD FS-Tokens. Der Client Computer für den Mitarbeiter führt die integrierte Windows-Authentifizierung für diesen Verbund Server aus, um ein AD FS Token zu generieren. Weitere Informationen finden Sie unter [Überprüfen der Rolle des Verbundservers beim Kontopartner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
+-   **Konto Partner Verbund Server:** Dieser Verbund Server ist einer Domäne in der Konto Partner-Gesamtstruktur hinzugefügt. Er authentifiziert Mitarbeiterbenutzerkonten und generiert AD FS-Tokens. Der Client Computer für den Mitarbeiter führt die integrierte Windows-Authentifizierung für diesen Verbund Server aus, um ein AD FS Token zu generieren. Weitere Informationen finden Sie unter [Review the Role of the Federation Server in the Account Partner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
   
     Der Verbund Server des Konto Partners kann die folgenden Benutzer authentifizieren:  
   

@@ -1,24 +1,20 @@
 ---
 title: findstr
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c2d803fb-4cd2-46a1-a1b7-6f5e0249c418
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 547a0abf658ef826cca8c87d451144181f8dac7d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dbdc1b741b5934f53340bda773909fb5035e449b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377191"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844633"
 ---
 # <a name="findstr"></a>findstr
 
@@ -32,7 +28,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#exampl
 findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] [/c:<String>] [/g:<File>] [/d:<DirList>] [/a:<ColorAttribute>] [/off[line]] <Strings> [<Drive>:][<Path>]<FileName>[ ...]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -54,7 +50,7 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 |/g:\<Datei >|Ruft Such Zeichenfolgen aus der angegebenen Datei ab.|
 |/d:\<dirlist->|Durchsucht die angegebene Liste von Verzeichnissen. Jedes Verzeichnis muss durch ein Semikolon (z. b.;) `dir1;dir2;dir3`getrennt werden.|
 |/a:\<ColorAttribute >|Gibt Farb Attribute mit zwei hexadezimal Ziffern an. Geben Sie `color /?` für weitere Informationen ein.|
-|\<Zeichen folgen >|Gibt den Text an, nach dem in *filename*gesucht werden soll. Erforderlich.|
+|\<Zeichen folgen >|Gibt den Text an, nach dem in *filename*gesucht werden soll. Erforderlich|
 |[\<Laufwerk >:] [<Path>]<FileName>[...]|Gibt den Speicherort und die Datei an, die durchsucht werden sollen. Mindestens ein Dateiname ist erforderlich.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
@@ -84,7 +80,7 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
   .*
   ``` 
 
-  Verwenden Sie den folgenden Ausdruck als Teil eines größeren Ausdrucks, um eine beliebige Zeichenfolge abzugleichen, die mit "b" beginnt und mit "ung" endet: 
+  Verwenden Sie den folgenden Ausdruck als Teil eines größeren Ausdrucks, um eine beliebige Zeichenfolge abzugleichen, die mit "b" beginnt und mit "" endet 
 
   ```
   b.*ing
@@ -92,21 +88,21 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 
 ## <a name="examples"></a>Beispiele
 
-Verwenden Sie Leerzeichen, um mehrere Such Zeichenfolgen zu trennen,es sei denn, das-Argument weist das
+Verwenden Sie Leerzeichen, um mehrere Such Zeichenfolgen zu trennen, **/c**es sei denn, das-Argument weist das
 
-Wenn Sie in der Datei x. y nach "Hello" oder "There" suchen möchten, geben Sie Folgendes ein:
-
-```
-findstr "hello there" x.y 
-```
-
-Geben Sie Folgendes ein, um in der Datei x. y nach "Hello There" zu suchen:
+Wenn Sie in der Datei x. y nach Hello oder dort suchen möchten, geben Sie Folgendes ein:
 
 ```
-findstr /c:"hello there" x.y 
+findstr hello there x.y 
 ```
 
-Geben Sie Folgendes ein, um alle Vorkommen des Worts "Windows" (mit dem ersten Großbuchstaben "W") in der Datei "Proposal. txt" zu finden:
+Geben Sie Folgendes ein, um in der Datei x. y nach "Hello" zu suchen:
+
+```
+findstr /c:hello there x.y 
+```
+
+Wenn Sie alle Vorkommen des Word-Windows (mit dem ersten Großbuchstaben "W") in der Datei "" "" ". txt" suchen möchten, geben Sie
 
 ```
 findstr Windows proposal.txt 
@@ -118,10 +114,10 @@ Geben Sie Folgendes ein, um jede Datei im aktuellen Verzeichnis und alle Unterve
 findstr /s /i Windows *.* 
 ```
 
-Wenn Sie alle Vorkommen von Zeilen suchen möchten, die mit "for" beginnen und von NULL oder mehr Leerzeichen (wie in einer Computerprogramm Schleife) vorangestellt werden, und um die Zeilennummer anzuzeigen, in der die einzelnen Vorkommen gefunden werden, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um alle Vorkommen von Zeilen zu suchen, die mit für und mit 0 (null) oder mehr Leerzeichen (wie in einer Computerprogramm Schleife) beginnen, und um die Zeilennummer anzuzeigen, in der die einzelnen Vorkommen gefunden werden:
 
 ```
-findstr /b /n /r /c:"^ *FOR" *.bas 
+findstr /b /n /r /c:^ *FOR *.bas 
 ```
 
 Wenn Sie mehrere Zeichen folgen in einem Satz von Dateien suchen möchten, erstellen Sie eine Textdatei, die jedes Suchkriterium in einer separaten Zeile enthält. Sie können auch die genauen Dateien auflisten, die Sie in einer Textdatei durchsuchen möchten. Wenn Sie z. b. die Suchkriterien in der Datei "stringlist. txt" verwenden möchten, suchen Sie die in FileList. txt aufgeführten Dateien, und speichern Sie dann die Ergebnisse in den Datei Ergebnissen. out, geben Sie Folgendes ein:
@@ -130,18 +126,18 @@ Wenn Sie mehrere Zeichen folgen in einem Satz von Dateien suchen möchten, erste
 findstr /g:stringlist.txt /f:filelist.txt > results.out 
 ```
 
-Geben Sie Folgendes ein, um jede Datei mit dem Wort "Computer" im aktuellen Verzeichnis und allen Unterverzeichnissen aufzulisten, unabhängig von der Groß-/Kleinschreibung:
+Geben Sie Folgendes ein, um jede Datei mit dem Word-Computer im aktuellen Verzeichnis und allen Unterverzeichnissen aufzulisten, unabhängig von der Groß-/Kleinschreibung:
 
 ```
-findstr /s /i /m "\<computer\>" *.*
+findstr /s /i /m \<computer\> *.*
 ```
 
-Geben Sie Folgendes ein, um alle Dateien aufzulisten, die das Wort "Computer" und alle anderen Wörter enthalten, die mit "Comp" beginnen (z. b. "Kompliment" und "konkurrieren"):
+Geben Sie Folgendes ein, um alle Dateien mit dem Wort Computer und alle anderen Wörter aufzulisten, die mit Comp beginnen (z. b. "Kompliment" und "konkurrieren"):
 
 ```
-findstr /s /i /m "\<comp.*" *.*
+findstr /s /i /m \<comp.* *.*
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

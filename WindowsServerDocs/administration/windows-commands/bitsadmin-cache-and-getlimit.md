@@ -1,44 +1,39 @@
 ---
 title: biout admin Cache und getlimit
-description: 'Windows-Befehls Thema für **bitionadmin Cache und getlimit** : Ruft das Cache Limit ab.'
-ms.custom: na
+description: Windows-Befehls Thema für den **BI-admin-Cache und getlimit**, der das Cache Limit abruft.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2f3e9912-928c-483b-9acb-55fa5fc975a0
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3c3a58ad713651268b522307b84ebea66773e8d0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: de657e9be91ab09c284760a35bd0e4f3b6b94f63
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71382028"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850903"
 ---
 # <a name="bitsadmin-cache-and-getlimit"></a>biout admin Cache und getlimit
-
-
 
 Ruft das Cache Limit ab.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-bitsadmin /Cache /GetLimit 
+bitsadmin /cache /getlimit
 ```
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Im folgenden Beispiel wird das Cache Limit abgerufen.
+
 ```
-C:\>bitsadmin /Cache /GetLimit 
+C:\>bitsadmin /cache /getlimit
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

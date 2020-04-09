@@ -1,24 +1,20 @@
 ---
 title: mapadmin
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b17332c7-8622-4223-9c43-2fb9cf4d992d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fc4b76c1989298ea83c480b9c838ce0fc18fef5f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5ea60f4d9753ed90c0d13ee48289b011aeafe6b0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373757"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839673"
 ---
 # <a name="mapadmin"></a>mapadmin
 
@@ -57,14 +53,14 @@ Zusätzlich zu bestimmten Befehls Argumenten akzeptiert **mapadmin** die folgend
 -p &lt;Kennwort&gt; gibt das Kennwort des Benutzers an. Wenn Sie die Option "- **u** " angeben, aber die Option " **-p** " weglassen, werden Sie zur Eingabe des Benutzer Kennworts aufgefordert.
 Die spezifische Aktion, die von **mapadmin** ausgeführt wird, hängt vom angegebenen Befehls Argument ab:
 
-## <a name="parameters"></a>Parameter
-### <a name="start"></a>start
+### <a name="parameters"></a>Parameter
+### <a name="start"></a>Start
 startet den Benutzernamenzuordnung-Dienst.
 
 ### <a name="stop"></a>stop
 Beendet den Benutzernamenzuordnung-Dienst.
 
-### <a name="config"></a>Einstellungen
+### <a name="config"></a>config
 Gibt allgemeine Einstellungen für Benutzernamenzuordnung an. Die folgenden Optionen sind mit diesem Befehls Argument verfügbar: **-r &lt;dddd&gt;:&lt;HH&gt;:&lt;mm&gt;** : gibt das Aktualisierungs Intervall für die Aktualisierung aus den Windows-und NIS-Datenbanken in Tagen, Stunden und Minuten an. Das Mindestintervall beträgt 5 Minuten.
 **-i {Yes | No}** -schaltet die einfache Zuordnung ein (**Ja**) oder aus (**Nein**). Standardmäßig ist die einfache Zuordnung aktiviert.
 **Add** -erstellt eine neue Zuordnung für einen Benutzer oder eine Gruppe. Die folgenden Optionen sind mit diesem Befehls Argument verfügbar:
@@ -127,7 +123,7 @@ Gibt allgemeine Einstellungen für Benutzernamenzuordnung an. Die folgenden Opti
 
 **listdomainmaps** : Listet die Windows-Domänen auf, die NIS-Domänen oder Kennwort-und Gruppen Dateien zugeordnet sind.
 
-## <a name="notes"></a>Anmerkungen
+## <a name="notes"></a>Hinweise
 -   Wenn Sie kein Befehls Argument angeben, zeigt **mapadmin** die aktuellen Einstellungen für Benutzernamenzuordnung an.
 -   für alle Optionen, die einen Benutzer-oder Gruppennamen angeben, können die folgenden Formate verwendet werden:
 -   Verwenden Sie für Windows-Benutzer das Formular &lt;Domänen&gt;\\&lt;Benutzernamen&gt;, \\\\&lt;&gt;Computer \\&lt;&gt;Benutzername \\, &lt;&gt;\\&lt;&gt;&lt;Benutzername&gt;\\&lt;&gt; Computer
@@ -136,4 +132,4 @@ Gibt allgemeine Einstellungen für Benutzernamenzuordnung an. Die folgenden Opti
 -   Verwenden Sie für UNIX-Gruppen das Formular &lt;zdomain&gt;\\&lt;GroupName&gt;, &lt;GroupName&gt;@&lt;zdomain&gt;, &lt;GroupName&gt;@PCNFSoder PCNFS\\&lt;GroupName&gt;
 
 ## <a name="additional-references"></a>Weitere Verweise
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

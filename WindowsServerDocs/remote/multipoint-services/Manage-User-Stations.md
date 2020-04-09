@@ -1,30 +1,26 @@
 ---
 title: Verwalten von Benutzerstationen
 description: Erfahren Sie, wie Sie Benutzer Stationen in Multipoint Services verwalten.
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b418578d-3a4c-49b0-90db-8389b320b2f6
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 7f46d2a68fc6247bddc1251c32ac55544b6fbf52
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7b434002b5f542e3a9242290217fa66d418ee2f1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71405066"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853493"
 ---
 # <a name="manage-user-stations"></a>Verwalten von Benutzerstationen
 Dieser Abschnitt behandelt die Verwaltung der *Stationen*, aus denen das MultiPoint Services-System besteht. Die Verwaltung eines Multipoint Services-Systems umfasst die Verwaltung der Hardware-und Softwarekomponenten von Multipoint Manager. In einem Multipoint Services-System ist ein Desktop die Software Benutzeroberfläche, die auf dem Monitor für jede Benutzer Station angezeigt wird.  
   
 ## <a name="station-status"></a>Stationsstatus  
-Für jeden Desktop können die folgenden Statustypen auf der Registerkarte **Stationen** angezeigt werden. Der Status umfasst folgende Informationen:  
+Sie können die folgenden Arten von Status für jeden Desktop auf der Registerkarte **Stationen** anzeigen. der Status umfasst Folgendes:  
   
 -   Angemeldete Benutzer  
   
@@ -52,7 +48,7 @@ Als Administrator können Sie für eine oder mehrere Station(en) die automatisch
 ## <a name="split-a-station"></a>Teilen einer Station  
 Jeder Stationsmonitor mit einer Auflösung von mehr als 1024x768 kann in zwei Stationen geteilt werden. Weitere Informationen zum Teilen einer Station finden Sie im Thema [Teilen einer Benutzerstation](Split-a-User-Station.md).  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Anzeigen des Benutzerverbindungsstatus](View-User-Connection-Status.md)  
 [Abmelden oder Trennen von Benutzersitzungen](Log-off-or-Disconnect-User-Sessions.md)  
 [Aussetzen und Benutzersitzung aktiv lassen](Suspend-and-Leave-User-Session-Active.md)  

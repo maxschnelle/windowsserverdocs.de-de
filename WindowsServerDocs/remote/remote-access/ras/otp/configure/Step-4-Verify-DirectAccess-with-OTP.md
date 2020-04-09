@@ -2,22 +2,18 @@
 title: Schritt 4 Überprüfen von DirectAccess mit OTP
 description: Dieses Thema ist Teil des Handbuchs Bereitstellen des Remote Zugriffs mit OTP-Authentifizierung in Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ed49a0a3-1c45-42e5-8f13-cad20c1c1d68
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 9a3d3fadbe2f187ae6b5a77137393b7ad7be338b
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 14d8a3a2138682fb552538948db604a75a1fe898
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313635"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858203"
 ---
 # <a name="step-4-verify-directaccess-with-otp"></a>Schritt 4 Überprüfen von DirectAccess mit OTP
 

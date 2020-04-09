@@ -2,20 +2,19 @@
 title: Alle Integration Services auf virtuellen Computern aktivieren
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 16e202ad-3795-40c9-8176-7ca319e56d26
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 1984c3d1d6261756bf83f899985b457681537046
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2497755185ba1971130b571ce654e0019df18e0a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364887"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861973"
 ---
 # <a name="enable-all-integration-services-in-virtual-machines"></a>Alle Integration Services auf virtuellen Computern aktivieren
 
@@ -40,7 +39,7 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
   
 *Die Dienst-oder Integrationsfunktion funktioniert möglicherweise nicht ordnungsgemäß für die folgenden virtuellen Computer:*  
   
-\<liste der Namen der virtuellen Computer >  
+\<Liste der Namen der virtuellen Computer >  
   
 ## <a name="resolution"></a>Auflösung  
   

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 434fd617-373a-405e-bae4-da324ea83efc
 title: Bereitstellungshandbuch für AD FS unter Windows Server 2012 R2
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 7a3cada555fbf22a853e3aaf002c6413b6555fb8
-ms.sourcegitcommit: 5197a87e659589bcc8d2a32069803ae736b02892
+ms.openlocfilehash: b4cf161d9dfcbeeb467ccb0a83cc260c5299057e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79376277"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855523"
 ---
 # <a name="configure-a-federation-server"></a>Konfigurieren eines Verbundservers
 
@@ -151,7 +150,7 @@ Sie können eine neue Verbund Serverfarm erstellen, indem Sie entweder ein neues
 4.  Geben Sie auf der Seite **Farm angeben** den Namen des primären Verbund Servers in einer Farm an, die wid verwendet, oder geben Sie den Datenbank-Hostnamen und den Datenbankinstanznamen einer vorhandenen Verbund Server Farm an, die SQL Server verwendet.  
   
     > [!WARNING]  
-    > In Windows Server® 2012 R2 gibt es eine Problem Umgehung, um die Standard Instanz von SQL Server anzugeben. bei der die Benutzeroberfläche umgangen wird. Verwenden Sie stattdessen die Schritte in [, um den ersten Verbund Server in einer neuen Verbund Serverfarm über Windows PowerShell zu konfigurieren](Configure-a-Federation-Server.md#BKMK_3).  
+    > In Windows Server&reg; 2012 R2 gibt es eine Problem Umgehung, um die Standard Instanz von SQL Server anzugeben. bei der die Benutzeroberfläche umgangen wird. Verwenden Sie stattdessen die Schritte in [, um den ersten Verbund Server in einer neuen Verbund Serverfarm über Windows PowerShell zu konfigurieren](Configure-a-Federation-Server.md#BKMK_3).  
   
     > [!IMPORTANT]  
     > Wenn Sie eine AD FS-Farm erstellen und Ihre Konfigurationsdaten mithilfe von SQL Server speichern möchten, können Sie SQL Server 2008 und höhere Versionen, einschließlich SQL Server 2012, verwenden.  
@@ -225,7 +224,7 @@ Nachdem Sie die Active Directory-Verbunddienste (AD FS) \(AD FS\) Rollen Dienst 
 
 -   [Hinzufügen eines Verbund Servers zu einer vorhandenen Verbund Serverfarm](Configure-a-Federation-Server.md#BKMK_2)
 
-## <a name="BKMK_1"></a>Konfigurieren des ersten Verbund Servers in einer neuen Verbund Serverfarm
+## <a name="configure-the-first-federation-server-in-a-new-federation-server-farm"></a><a name="BKMK_1"></a>Konfigurieren des ersten Verbund Servers in einer neuen Verbund Serverfarm
 
 ### <a name="to-configure-the-first-federation-server-in-a-new-federation-server-farm-by-using-the-active-directory-federation-service-configuration-wizard"></a>So konfigurieren Sie den ersten Verbund Server in einer neuen Verbund Serverfarm mithilfe des Konfigurations-Assistenten für Active Directory Verbunddienst
 
@@ -271,7 +270,7 @@ Nachdem Sie die Active Directory-Verbunddienste (AD FS) \(AD FS\) Rollen Dienst 
 
 9. Überprüfen Sie auf der Seite **Ergebnisse** die Ergebnisse, und überprüfen Sie, ob die Konfiguration erfolgreich abgeschlossen wurde, und klicken Sie dann auf **weiter, um die Bereitstellung des Verbund Dienstanbieter abzuschließen**. Weitere Informationen finden Sie unter [Nächste Schritte zum Abschließen der AD FS Installation](https://go.microsoft.com/fwlink/p/?LinkId=286704). Klicken Sie auf **Schließen**, um den Assistenten zu beenden.
 
-### <a name="BKMK_3"></a>So konfigurieren Sie den ersten Verbund Server in einer neuen Verbund Serverfarm über Windows PowerShell
+### <a name="to-configure-the-first-federation-server-in-a-new-federation-server-farm-via-windows-powershell"></a><a name="BKMK_3"></a>So konfigurieren Sie den ersten Verbund Server in einer neuen Verbund Serverfarm über Windows PowerShell
 Sie können eine neue Verbund Serverfarm erstellen, indem Sie entweder ein neues oder ein vorhandenes GMSA-Konto oder ein vorhandenes Domänen Benutzerkonto verwenden.
 
 -   **Wenn Sie einen neuen Verbund Server mit einem neuen GMSA-Konto erstellen möchten, gehen Sie wie folgt vor:**
@@ -330,7 +329,7 @@ Sie können eine neue Verbund Serverfarm erstellen, indem Sie entweder ein neues
         > [!IMPORTANT]
         > Wenn Sie eine AD FS-Farm erstellen und SQL Server zum Speichern der Konfigurationsdaten verwenden möchten, können Sie SQL Server 2008 und neuere Versionen verwenden, einschließlich SQL Server 2012 und SQL Server 2014.
 
-## <a name="BKMK_2"></a>Hinzufügen eines Verbund Servers zu einer vorhandenen Verbund Serverfarm
+## <a name="add-a-federation-server-to-an-existing-federation-server-farm"></a><a name="BKMK_2"></a>Hinzufügen eines Verbund Servers zu einer vorhandenen Verbund Serverfarm
 
 > [!IMPORTANT]
 > Stellen Sie sicher, dass Sie [Schritt 3: Installieren des AD FS Rollen Dienstanbieter](../../ad-fs/deployment/Install-the-AD-FS-Role-Service.md)abgeschlossen haben, bevor Sie mit einem der in diesem Abschnitt beschriebenen Verfahren beginnen.
@@ -351,7 +350,7 @@ Sie können eine neue Verbund Serverfarm erstellen, indem Sie entweder ein neues
 4.  Geben Sie auf der Seite **Farm angeben** den Namen des primären Verbund Servers in einer Farm an, die wid verwendet, oder geben Sie den Datenbank-Hostnamen und den Datenbankinstanznamen einer vorhandenen Verbund Server Farm an, die SQL Server verwendet.
 
     > [!WARNING]
-    > In Windows Server® 2012 R2 gibt es eine Problem Umgehung, um die Standard Instanz von SQL Server anzugeben. bei der die Benutzeroberfläche umgangen wird. Verwenden Sie stattdessen die Schritte in [, um den ersten Verbund Server in einer neuen Verbund Serverfarm über Windows PowerShell zu konfigurieren](Configure-a-Federation-Server.md#BKMK_3).
+    > In Windows Server&reg; 2012 R2 gibt es eine Problem Umgehung, um die Standard Instanz von SQL Server anzugeben. bei der die Benutzeroberfläche umgangen wird. Verwenden Sie stattdessen die Schritte in [, um den ersten Verbund Server in einer neuen Verbund Serverfarm über Windows PowerShell zu konfigurieren](Configure-a-Federation-Server.md#BKMK_3).
 
     > [!IMPORTANT]
     > Wenn Sie eine AD FS-Farm erstellen und Ihre Konfigurationsdaten mithilfe von SQL Server speichern möchten, können Sie SQL Server 2008 und höhere Versionen, einschließlich SQL Server 2012, verwenden.

@@ -1,24 +1,20 @@
 ---
 title: gpresult
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dfaa3adf-2c83-486c-86d6-23f93c5c883c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bb61911450ea8c0c68af0cf1a35c2f571810504b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 480599a4040ab1fdcc3842cdb0eaa8c35afa873c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375657"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842463"
 ---
 # <a name="gpresult"></a>gpresult
 
@@ -33,7 +29,7 @@ Um die RSoP-Berichterstellung für Remote Zielcomputer über die Firewall verwen
 gpresult [/s <system> [/u <USERNAME> [/p [<PASSWOrd>]]]] [/user [<TARGETDOMAIN>\]<TARGETUSER>] [/scope {user | computer}] {/r | /v | /z | [/x | /h] <FILENAME> [/f] | /?}
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 > [!NOTE]
 > Mit Ausnahme der Verwendung von **/?** müssen Sie eine Ausgabe Option ( **/r**, **/v**, **"/z**, **/x**oder **/h**) einschließen.
@@ -79,4 +75,4 @@ Im folgenden Beispiel werden RSOP-Daten für den Computer **srvmain** und den an
 ## <a name="additional-references"></a>Weitere Verweise
 - [Gruppenrichtlinie-TechCenter](https://go.microsoft.com/fwlink/?LinkID=145531)
 
-- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

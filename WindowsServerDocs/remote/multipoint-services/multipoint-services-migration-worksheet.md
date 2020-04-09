@@ -1,24 +1,20 @@
 ---
 title: Planen des Arbeitsblatts für die Multipoint Services-Migration
 description: Stellt Planungs Arbeitsblätter bereit, um Sie bei der Migration zu Multipoint Services in Windows Server 2016 zu unterstützen.
-ms.custom: na
 ms.date: 07/29/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 864405bb-47ed-4c83-97a2-8df4c6e6f96b
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: d3d2ecca4062d28d210196d9191e08710eb731c2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c0d5976e70bcf8009cd98e54e973dd6f585d7208
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394626"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858903"
 ---
 # <a name="planning-worksheet-for-multipoint-services-migration"></a>Planen des Arbeitsblatts für die Multipoint Services-Migration
 

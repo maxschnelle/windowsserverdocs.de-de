@@ -2,21 +2,19 @@
 title: Unterstützte virtuelle Ubuntu-Computer auf Hyper-V
 description: Listet die in jeder Version enthaltenen Linux-Integrationsdienste und-Funktionen auf.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 95ea5f7c-25c6-494b-8ffd-2a77f631ee94
 author: shirgall
 ms.author: shirgall
 ms.date: 06/13/2019
-ms.openlocfilehash: ed1c1a9f678dd7cb68b59d2df239ca278b7a3688
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 06c836d9671547ea3d40e5582c2ed7b330777ac9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365477"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857993"
 ---
 # <a name="supported-ubuntu-virtual-machines-on-hyper-v"></a>Unterstützte virtuelle Ubuntu-Computer auf Hyper-V
 
@@ -36,7 +34,7 @@ Die folgende featureverteilungszuordnung gibt die Features in den einzelnen Vers
 
 * (*leer*): Feature nicht verfügbar
 
-|**Funktion**|**Windows Server-Betriebssystemversion**|**18,10/19,04**|**18,04 LTS**|**16,04 LTS**|**14,04 LTS**|**12,04 LTS**|
+|**Feature**|**Windows Server-Betriebssystemversion**|**18,10/19,04**|**18,04 LTS**|**16,04 LTS**|**14,04 LTS**|**12,04 LTS**|
 |-|-|-|-|-|-|-|
 |**Verfügbarkeit**||Integrierte|Integrierte|Integrierte|Integrierte|Integrierte|
 |**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
@@ -80,7 +78,7 @@ Die folgende featureverteilungszuordnung gibt die Features in den einzelnen Vers
 
 2. Stellen Sie bei der Verwendung von Virtual Fiber Channel-Geräten sicher, dass die logische Gerätenummer 0 (LUN 0) aufgefüllt wurde. Wenn LUN 0 nicht aufgefüllt wurde, kann ein virtueller Linux-Computer möglicherweise keine systemeigenen Fiber-Fibre Channel-Geräte einbinden.
 
-3. Wenn während eines Sicherungs Vorgangs für virtuelle Computer geöffnete Datei Handles vorhanden sind, müssen die gesicherten VHDs in einigen Fällen bei der Wiederherstellung möglicherweise eine Konsistenzprüfung des Dateisystems (`fsck`) durchlaufen.
+3. Wenn während eines Sicherungs Vorgangs für virtuelle Computer geöffnete Datei Handles vorhanden sind, müssen die gesicherten VHDs in einigen Fällen möglicherweise bei der Wiederherstellung einer Dateisystem Konsistenzprüfung (`fsck`) unterzogen werden.
 
 4. Bei Live Sicherungs Vorgängen kann ein Fehler auftreten, wenn der virtuelle Computer über ein angefügtes iSCSI-Gerät oder einen direkt angeschlossenen Speicher (auch als Pass-Through-Datenträger bezeichnet) verfügt.
 
@@ -171,7 +169,7 @@ Die folgende featureverteilungszuordnung gibt die Features in den einzelnen Vers
        # sudo mv shimx64.efi bootx64.efi
        ```
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 * [Unterstützte virtuelle Computer der CentOS-und Red Hat Enterprise Linux auf Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 

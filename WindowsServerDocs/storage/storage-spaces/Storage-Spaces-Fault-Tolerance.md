@@ -2,7 +2,7 @@
 title: Fehlertoleranz und Speichereffizienz in Direkte Speicherplätze
 ms.prod: windows-server
 ms.author: cosmosdarwin
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
@@ -10,12 +10,12 @@ ms.date: 10/11/2017
 ms.assetid: 5e1d7ecc-e22e-467f-8142-bad6d82fc5d0
 description: Eine Erläuterung der Resilienzoptionen in Direkte Speicherplätze, einschließlich Spiegelung und Parität.
 ms.localizationpriority: medium
-ms.openlocfilehash: 2e60a715ffa0097f3f5c615792da3aa0a291d6bd
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: b64592bf3cf5659410dcbbeb4c190d2d6a85485a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950045"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859013"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-storage-spaces-direct"></a>Fehlertoleranz und Speichereffizienz in Direkte Speicherplätze
 
@@ -102,27 +102,27 @@ Die Speichereffizienz einer durch Spiegelung beschleunigten Parität liegt zwisc
 > [!IMPORTANT]
 > Es wird empfohlen, für die meisten leistungsabhängigen Arbeitslasten eine Spiegelung zu verwenden. Weitere Informationen zum Ausgleich der Leistung und Kapazität je nach Ihrer Workload finden Sie unter [Volumes planen](plan-volumes.md#choosing-the-resiliency-type).
 
-## <a name="summary"></a>Zusammenfassung
+## <a name="summary"></a><a name="summary"></a>FAS
 
 Dieser Abschnitt enthält die in „Direkte Speicherplätze“ verfügbaren Resilienztypen, die Mindestanforderungen für die Skalierung bei Verwendung der einzelnen Typen, die Anzahl von tolerierbaren Fehlern pro Typ und die entsprechende Speichereffizienz.
 
 ### <a name="resiliency-types"></a>Resilienztypen
 
-|    Ausfallsicherheit          |    Fehlertoleranz       |    Speichereffizienz      |
+|    Resilienz          |    Fehlertoleranz       |    Speichereffizienz      |
 |------------------------|----------------------------|----------------------------|
-|    Zwei-Wege-Spiegelung      |    1                       |    50,0 %                   |
+|    Zwei-Wege-Spiegelung      |    1                       |    50.0%                   |
 |    Drei-Wege-Spiegelung    |    2                       |    33,3 %                   |
 |    Duale Parität         |    2                       |    50,0 % - 80,0 %           |
-|    Gemischt               |    2                       |    33,3 % - 80,0 %           |
+|    Mixed               |    2                       |    33,3 % - 80,0 %           |
 
 ### <a name="minimum-scale-requirements"></a>Mindestanforderungen für Skalierung
 
-|    Ausfallsicherheit          |    Mindestens erforderliche Fehlerdomänen   |
+|    Resilienz          |    Mindestens erforderliche Fehlerdomänen   |
 |------------------------|-------------------------------------|
 |    Zwei-Wege-Spiegelung      |    2                                |
 |    Drei-Wege-Spiegelung    |    3                                |
 |    Duale Parität         |    4                                |
-|    Gemischt               |    4                                |
+|    Mixed               |    4                                |
 
    >[!TIP]
    > Sofern Sie nicht die [Gehäuse- oder Rackfehlertoleranz](../../failover-clustering/fault-domains.md) verwenden, bezieht sich die Anzahl von Fehlerdomänen auf die Anzahl von Servern. Die Anzahl von Laufwerken auf jedem Server hat keine Auswirkung darauf, welche Resilienztypen Sie verwenden können, solange Sie die Mindestanforderungen für „Direkte Speicherplätze“ erfüllen. 
@@ -135,9 +135,9 @@ In dieser Tabelle sind die Speichereffizienz der dualen Parität und die Codes f
 |-----------------------|---------------------|-----------------|
 |    2                  |    –                |    –            |
 |    3                  |    –                |    –            |
-|    4                  |    RS 2+2           |    50,0 %        |
-|    5                  |    RS 2+2           |    50,0 %        |
-|    6                  |    RS 2+2           |    50,0 %        |
+|    4                  |    RS 2+2           |    50.0%        |
+|    5                  |    RS 2+2           |    50.0%        |
+|    6                  |    RS 2+2           |    50.0%        |
 |    7                  |    RS 4+2           |    66,7 %        |
 |    8                  |    RS 4+2           |    66,7 %        |
 |    9                  |    RS 4+2           |    66,7 %        |
@@ -157,21 +157,21 @@ In dieser Tabelle sind die Speichereffizienz der dualen Parität und die Codes f
 |-----------------------|---------------------|-----------------|
 |    2                  |    –                |    –            |
 |    3                  |    –                |    –            |
-|    4                  |    RS 2+2           |    50,0 %        |
-|    5                  |    RS 2+2           |    50,0 %        |
-|    6                  |    RS 2+2           |    50,0 %        |
+|    4                  |    RS 2+2           |    50.0%        |
+|    5                  |    RS 2+2           |    50.0%        |
+|    6                  |    RS 2+2           |    50.0%        |
 |    7                  |    RS 4+2           |    66,7 %        |
 |    8                  |    RS 4+2           |    66,7 %        |
-|    9                  |    RS 6+2           |    75,0 %        |
-|    10                 |    RS 6+2           |    75,0 %        |
-|    11                 |    RS 6+2           |    75,0 %        |
-|    12                 |    RS 6+2           |    75,0 %        |
-|    13                 |    RS 6+2           |    75,0 %        |
-|    14                 |    RS 6+2           |    75,0 %        |
-|    15                 |    RS 6+2           |    75,0 %        |
+|    9                  |    RS 6+2           |    75.0%        |
+|    10                 |    RS 6+2           |    75.0%        |
+|    11                 |    RS 6+2           |    75.0%        |
+|    12                 |    RS 6+2           |    75.0%        |
+|    13                 |    RS 6+2           |    75.0%        |
+|    14                 |    RS 6+2           |    75.0%        |
+|    15                 |    RS 6+2           |    75.0%        |
 |    16                 |    LRC (12, 2, 1)   |    80,0 %        |
 
-## <a name="examples"></a>Beispiele
+## <a name="examples"></a><a name="examples"></a>Beispiele
 
 Sofern Sie nicht nur zwei Server verwenden, empfehlen wir Ihnen die Nutzung der Drei-Wege-Spiegelung bzw. der dualen Parität, weil dies eine bessere Fehlertoleranz ermöglicht. Es wird sichergestellt, dass alle Daten auch dann sicher und ständig verfügbar sind, wenn zwei Fehlerdomänen – bei „Direkte Speicherplätze“ also zwei Server – von gleichzeitigen Ausfällen betroffen sind.
 
@@ -205,11 +205,11 @@ Während ihrer gesamten Lebensdauer können Speicherplätze eine beliebige Anzah
 
 ![fault-tolerance-examples-7-and-8](media/Storage-Spaces-Fault-Tolerance/Fault-Tolerance-Example-78.png)
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Verwendung
 
 Sehen Sie sich [Erstellen von Volumes in direkten Speicherplätzen](create-volumes.md) an.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 Alle folgenden Links sind inline im Text dieses Themas vorhanden.
 

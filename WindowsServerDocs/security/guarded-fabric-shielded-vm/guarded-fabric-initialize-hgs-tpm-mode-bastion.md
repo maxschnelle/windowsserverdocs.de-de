@@ -1,18 +1,18 @@
 ---
 title: Initialisieren des HGS-Clusters mit dem TPM-Modus in einer geschützten Gesamtstruktur
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: b360f0f5195bea3c61f9a181b4b75a681f7e29b9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 09fa226b4e7189904d5baa54fb2b59c18a800948
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403609"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856633"
 ---
 # <a name="initialize-the-hgs-cluster-using-tpm-mode-in-an-existing-bastion-forest"></a>Initialisieren des HGS-Clusters mit dem TPM-Modus in einer vorhandenen geschützten Gesamtstruktur
 
@@ -23,7 +23,7 @@ Active Directory Domain Services wird auf dem Computer installiert, sollte jedoc
 [!INCLUDE [Obtain certificates for HGS](../../../includes/guarded-fabric-initialize-hgs-default-step-two.md)]
 
 Bevor Sie fortfahren, stellen Sie sicher, dass Sie die Cluster Objekte für den Host-Überwachungsdienst vorab bereitgestellt haben, und gewähren Sie dem angemeldeten Benutzer die **vollständige Kontrolle** über die VCO-und CNO-Objekte in Active Directory.
-Der Name des virtuellen Computer Objekts muss an den Parameter "`-HgsServiceName`" und der Cluster Name an den Parameter "`-ClusterName`" übergeben werden.
+Der Name des virtuellen Computer Objekts muss an den `-HgsServiceName`-Parameter übergeben werden, und der Cluster Name muss an den `-ClusterName`-Parameter übergeben werden.
 
 > [!TIP]
 > Überprüfen Sie die AD-Domänen Controller, um sicherzustellen, dass Ihre Cluster Objekte auf alle DCS repliziert wurden

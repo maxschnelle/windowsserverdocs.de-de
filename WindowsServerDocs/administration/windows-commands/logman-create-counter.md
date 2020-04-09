@@ -1,28 +1,24 @@
 ---
 title: logman Create Counter
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1e214c32-b704-43c1-b548-e1cf43b583c3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3245ce1c153ac0d5fe95ea0c85009e33f71a230c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 416a62331bccc9c646ce0a00ec71b9ef7bb4238d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374562"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840873"
 ---
 # <a name="logman-create-counter"></a>logman Create Counter
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Erstellen Sie einen Counter-Datensammler.  
 
@@ -30,7 +26,7 @@ Erstellen Sie einen Counter-Datensammler.
 ```  
 logman create counter <[-n] <name>> [options]  
 ```  
-## <a name="parameters"></a>Parameter  
+### <a name="parameters"></a>Parameter  
 
 |                    Parameter                     |                                                                               Beschreibung                                                                               |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -39,7 +35,7 @@ logman create counter <[-n] <name>> [options]
 |                 -config <value>                  |                                                         Gibt die Einstellungsdatei an, die Befehlsoptionen enthält.                                                         |
 |                   [-n] <name>                    |                                                                       Der Name des Zielobjekts.                                                                        |
 | -f < bin&#124;bincirc&#124;CSV&#124;TSV&#124;SQL > |                                                            Gibt das Protokoll Format für den Datensammler an.                                                             |
-|             -[-] u < Benutzer [Kennwort] >              | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie einen \* für das Kennwort eingeben, wird eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
+|             -[-] u < Benutzer [Kennwort] >              | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie einen \* für das Kennwort eingeben, wird eine Eingabeaufforderung angezeigt. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
 |    -m < [Start] [Ende] [[Start] [Ende] [...]] >    |                                                Wechseln Sie zu "manueller Start" oder "beenden" anstelle eines geplanten Anfangs-oder Endzeit Zeitraums.                                                 |
 |                -RF < [[hh:] mm:] SS >                |                                                        Führt den Datensammler für den angegebenen Zeitraum aus.                                                         |
 |        -b < M/d/yyyy h:mm: SS [am&#124;pm] >         |                                                              Beginnt mit dem Sammeln von Daten zum angegebenen Zeitpunkt.                                                               |
@@ -60,14 +56,14 @@ logman create counter <[-n] <name>> [options]
 
 ## <a name="remarks"></a>Hinweise  
 Wenn [-] aufgeführt ist, wird die-Option durch ein extra negiert.  
-## <a name="BKMK_examples"></a>Beispiele  
-Der folgende Befehl erstellt einen Counter mit dem Namen "perf_log" und verwendet dabei den Wert "Prozessorzeit (%)" aus der Prozessor Kategorie (_Total).  
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
+Der folgende Befehl erstellt einen Counter-Wert mit dem Namen "perf_log" unter Verwendung des Zählers "Prozessorzeit (%)" aus der Prozessor-(_Total)  
 ```  
-logman create counter perf_log -c "\Processor(_Total)\% Processor time"  
+logman create counter perf_log -c \Processor(_Total)\% Processor time  
 ```  
-Der folgende Befehl erstellt einen Counter mit dem Namen perf_log unter Verwendung des Zählers "Prozessorzeit (%)" aus der Prozessor Kategorie (_Total), wobei eine Protokolldatei mit einer maximalen Größe von 10 MB erstellt und Daten für 1 Minute und 0 Sekunden gesammelt werden.  
+Der folgende Befehl erstellt einen Counter mit dem Namen "perf_log" unter Verwendung des Zählers "Prozessorzeit (%)" aus der Kategorie "Prozessor" (_Total), wobei eine Protokolldatei mit einer maximalen Größe von 10 MB erstellt und Daten für 1 Minute und 0 Sekunden gesammelt werden.  
 ```  
-logman create counter perf_log -c "\Processor(_Total)\% Processor time" -max 10 -rf 01:00  
+logman create counter perf_log -c \Processor(_Total)\% Processor time -max 10 -rf 01:00  
 ```  
-#### <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Weitere Verweise  
 [logman](logman.md)  

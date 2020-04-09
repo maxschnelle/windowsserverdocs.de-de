@@ -1,30 +1,26 @@
 ---
 title: diskcomp
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für diskcomp, das den Inhalt von zwei Disketten vergleicht.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4f56f534-a356-4daa-8b4f-38e089341e42
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ca5ea0f4587b21b2a274c772aab239668b7868b4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e36e644616e25659c1a2a5ca684e975fd06fc19f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377872"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845553"
 ---
 # <a name="diskcomp"></a>diskcomp
 
+Vergleicht den Inhalt von zwei Disketten. Bei Verwendung ohne Parameter verwendet **diskcomp** das aktuelle Laufwerk, um beide Datenträger zu vergleichen.
 
-
-Vergleicht den Inhalt von zwei Disketten. Bei Verwendung ohne Parameter verwendet **diskcomp** das aktuelle Laufwerk, um beide Datenträger zu vergleichen. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,11 +28,11 @@ Vergleicht den Inhalt von zwei Disketten. Bei Verwendung ohne Parameter verwende
 diskcomp [<Drive1>: [<Drive2>:]]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<drive1 >|Gibt das Laufwerk an, das eine der Disketten enthält.|
+|\<Drive1 >|Gibt das Laufwerk an, das eine der Disketten enthält.|
 |\<drive2 >|Gibt das Laufwerk an, das die andere Diskette enthält.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
@@ -107,7 +103,7 @@ diskcomp [<Drive1>: [<Drive2>:]]
 
   Zum Verarbeiten von Exitcodes, die von **diskcomp**zurückgegeben werden, können Sie die ERRORLEVEL-Umgebungsvariable in der **if** -Befehlszeile in einem Batch-Programm verwenden.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Wenn Ihr Computer nur über ein Diskettenlaufwerk (z. b. Laufwerk A) verfügt und Sie zwei Datenträger vergleichen möchten, geben Sie Folgendes ein:
 ```
@@ -131,7 +127,7 @@ goto exit
 echo ERROR: An irrecoverable error occurred 
 goto exit 
 :break 
-echo "You just pressed CTRL+C" to stop the comparison 
+echo You just pressed CTRL+C to stop the comparison 
 goto exit 
 :no_compare 
 echo Disks are not the same 
@@ -142,6 +138,6 @@ goto exit
 :exit
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

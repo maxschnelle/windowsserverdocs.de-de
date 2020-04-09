@@ -2,20 +2,18 @@
 title: Planen der Hyper-V-Netzwerke in Windows Server
 description: Hier wird beschrieben, was für grundlegende Netzwerke in Hyper-V erforderlich ist, und enthält Links zu Anweisungen.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: f09bc82d0dd47d3393dd05dcf03913db11e4c335
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3127c9579493ad8b317667b61de88304fd14f6cf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392508"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860763"
 ---
 # <a name="plan-for-hyper-v-networking-in-windows-server"></a>Planen der Hyper-V-Netzwerke in Windows Server
 
@@ -52,7 +50,7 @@ Typen von virtuellen Netzwerkadaptern:
 -   **Legacy-Netzwerkadapter** : nur in virtuellen Computern der Generation 1 verfügbar. Emuliert einen Intel 21140-basierten PCI-Fast-Ethernet-Adapter und kann verwendet werden, um in einem Netzwerk zu starten, sodass Sie ein Betriebssystem von einem Dienst wie Windows-Bereitstellungs Dienste installieren können.  
   
 ## <a name="hyper-v-networking-and-related-technologies"></a>Hyper-V-Netzwerke und zugehörige Technologien  
-Die neuesten Versionen von Windows Server enthalten Verbesserungen, die Ihnen weitere Optionen zum Konfigurieren des Netzwerks für Hyper-V zur Verfügung stehen. Windows Server 2012 führte z. b. Unterstützung für konvergierte Netzwerke ein. Auf diese Weise können Sie Netzwerk Datenverkehr über einen externen virtuellen Switch weiterleiten. Windows Server 2016 baut darauf auf, indem der Remote Zugriff auf den direkten Speicher (RDMA) auf Netzwerkadaptern zugelassen wird, die an einen virtuellen Hyper-V-Switch gebunden sind. Sie können diese Konfiguration entweder mit oder ohne Switch Embedded Teaming (Set) verwenden. Weitere Informationen finden Sie [Remote Zugriff auf den direkten Speicher &#40;Access&#41; RDMA und Switch Embedded Teaming&#41; &#40;Set](../../hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md) .  
+Die neuesten Versionen von Windows Server enthalten Verbesserungen, die Ihnen weitere Optionen zum Konfigurieren des Netzwerks für Hyper-V zur Verfügung stehen. Windows Server 2012 führte z. b. Unterstützung für konvergierte Netzwerke ein. Auf diese Weise können Sie Netzwerk Datenverkehr über einen externen virtuellen Switch weiterleiten. Windows Server 2016 baut darauf auf, indem der Remote Zugriff auf den direkten Speicher (RDMA) auf Netzwerkadaptern zugelassen wird, die an einen virtuellen Hyper-V-Switch gebunden sind. Sie können diese Konfiguration entweder mit oder ohne Switch Embedded Teaming (Set) verwenden. Weitere Informationen finden Sie [unter Remote Direct Memory &#40;Access&#41; RDMA und Switch Embedded Teaming&#41; &#40;Set](../../hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md) .  
   
 Einige Features basieren auf bestimmten Netzwerkkonfigurationen oder unter bestimmten Konfigurationen besser. Beachten Sie diese Punkte beim Planen oder Aktualisieren der Netzwerkinfrastruktur.  
   

@@ -1,7 +1,6 @@
 ---
 ms.assetid: e1f2ce2d-b24f-4ccd-8add-9e69419fc6c1
 title: Importieren eines Serverauthentifizierungszertifikats in die Standardwebsite
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: b1c602d0cdfa562469419de223f5691ec2ff4527
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3f02358167b024247f934a46218028575e393ba9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359562"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855403"
 ---
 # <a name="import-a-server-authentication-certificate-to-the-default-web-site"></a>Importieren eines Serverauthentifizierungszertifikats in die Standardwebsite
 
@@ -27,9 +26,9 @@ Wenn Sie eine Farm einrichten, achten Sie darauf, dass Sie dieses Verfahren auf 
 > [!NOTE]  
 > Der AD FS-Verwaltungs-Snap\-in bezieht sich auf Server Authentifizierungs Zertifikate für Verbund Server als Dienst Kommunikations Zertifikate.  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe **Administratoren** oder eine gleichwertige Berechtigung auf dem lokalen Computer erforderlich.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
-### <a name="to-import-a-server-authentication-certificate-to-the-default-web-site"></a>So importieren Sie ein Serverauthentifizierungszertifikat auf der Standardwebsite  
+### <a name="to-import-a-server-authentication-certificate-to-the-default-web-site"></a>So importieren Sie ein Serverauthentifizierungszertifikat auf die Standardwebsite  
   
 1.  Geben Sie auf dem **Start** Bildschirm**Internetinformationsdienste \(IIS-\)-Manager**ein, und drücken Sie dann die EINGABETASTE.  
   
@@ -41,7 +40,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
   
 5.  Klicken Sie im Dialogfeld **Zertifikat importieren** auf die **...** .  
   
-6.  Navigieren Sie zum Speicherort der PFX-Zertifikatdatei, markieren Sie diese, und klicken Sie dann auf **Öffnen**.  
+6.  Suchen Sie nach dem Speicherort der Zertifikatsdatei mit der Erweiterung **PFX**, wählen Sie sie aus, und klicken Sie auf Öffnen.  
   
 7.  Geben Sie das Kennwort für das Zertifikat ein, und klicken Sie auf **OK**.  
   

@@ -1,35 +1,31 @@
 ---
 title: nlbmgr
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 89cb8590-b7cf-4a27-89fa-0fa62ea1a1ca
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2843e303b296beca24132b62073b6776a343544b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dab1a2eff2c0c2e039e67e9c3271a967b802ac7c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373160"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838873"
 ---
 # <a name="nlbmgr"></a>nlbmgr
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Mithilfe des Netzwerk Lastenausgleich-Managers können Sie die Netzwerk Lastenausgleichs-Cluster und alle Cluster Hosts von einem einzelnen Computer aus konfigurieren und verwalten. Außerdem können Sie die Cluster Konfiguration auf andere Hosts replizieren. Sie können den Netzwerk Lastenausgleich-Manager über die Befehlszeile starten, indem Sie den Befehl " **nlbmgr. exe**" verwenden, der im Ordner " **systemroot\system32** " installiert ist.
 ## <a name="syntax"></a>Syntax
 ```
 nlbmgr [/help] [/noping] [/hostlist <filename>] [/autorefresh <interval>]
 ```
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |        Parameter        |                                                                                                                                                                                                Beschreibung                                                                                                                                                                                                |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -40,5 +36,5 @@ nlbmgr [/help] [/noping] [/hostlist <filename>] [/autorefresh <interval>]
 |           /?            |                                                                                                                                                                                   Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                    |
 
 ## <a name="additional-references"></a>Weitere Verweise
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

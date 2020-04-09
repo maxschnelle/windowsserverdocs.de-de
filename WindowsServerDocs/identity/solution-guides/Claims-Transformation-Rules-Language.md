@@ -1,7 +1,6 @@
 ---
 ms.assetid: e831f781-3c45-4d44-b411-160d121d1324
 title: Sprache zum Schreiben von Regeln für die Transformation von Ansprüchen
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 200d592bc68562856bbdee623e70d73d41457c15
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f391c3f8ef2bb5b12f0dd15db55df4f861c05f9b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357578"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861273"
 ---
 # <a name="claims-transformation-rules-language"></a>Sprache zum Schreiben von Regeln für die Transformation von Ansprüchen
 
@@ -24,7 +23,7 @@ Die Gesamtstruktur übergreifende Anspruchs Transformations Funktion ermöglicht
   
 Die Windows PowerShell-Cmdlets für Transformations Richtlinien für Gesamtstruktur übergreifende Vertrauens Stellungen haben Optionen zum Festlegen einfacher Richtlinien, die in gängigen Szenarien erforderlich sind. Diese Cmdlets übersetzen die Benutzereingaben in Richtlinien und Regeln in der Sprache der Anspruchs Transformationsregeln und speichern Sie dann im vorgeschriebenen Format in Active Directory. Weitere Informationen zu Cmdlets für die Transformation von Ansprüchen finden Sie in den [AD DS Cmdlets für dynamisches Access Control](https://go.microsoft.com/fwlink/?LinkId=243150).  
   
-Abhängig von der Anspruchs Konfiguration und den Anforderungen, die für die Gesamtstruktur übergreifende Vertrauensstellung in Ihren Active Directory Gesamtstrukturen gelten, müssen ihre Anspruchs Transformations Richtlinien möglicherweise komplexer sein als die Richtlinien, die von den Windows PowerShell-Cmdlets für aktiv unterstützt werden. Befinden. Um solche Richtlinien effektiv zu verfassen, ist es von entscheidender Bedeutung, die Sprachsyntax und die Semantik der Anspruchs Transformationsregeln zu verstehen. Diese Anspruchs Transformations Regel-Sprache ("die Sprache") in Active Directory ist eine Teilmenge der Sprache, die von [Active Directory-Verbunddienste (AD FS)](https://go.microsoft.com/fwlink/?LinkId=243982) zu ähnlichen Zwecken verwendet wird, und Sie weist eine sehr ähnliche Syntax und Semantik auf. Es sind jedoch weniger Vorgänge zulässig, und zusätzliche Syntax Einschränkungen werden in der Active Directory Version der Sprache platziert.  
+Abhängig von der Anspruchs Konfiguration und den Anforderungen, die für die Gesamtstruktur übergreifende Vertrauensstellung in Ihren Active Directory Gesamtstrukturen gelten, müssen ihre Anspruchs Transformations Richtlinien möglicherweise komplexer sein als die Richtlinien, die von den Windows PowerShell-Cmdlets für Active Directory unterstützt werden. Um solche Richtlinien effektiv zu verfassen, ist es von entscheidender Bedeutung, die Sprachsyntax und die Semantik der Anspruchs Transformationsregeln zu verstehen. Diese Anspruchs Transformations Regel-Sprache ("die Sprache") in Active Directory ist eine Teilmenge der Sprache, die von [Active Directory-Verbunddienste (AD FS)](https://go.microsoft.com/fwlink/?LinkId=243982) zu ähnlichen Zwecken verwendet wird, und Sie weist eine sehr ähnliche Syntax und Semantik auf. Es sind jedoch weniger Vorgänge zulässig, und zusätzliche Syntax Einschränkungen werden in der Active Directory Version der Sprache platziert.  
   
 In diesem Thema wird die Syntax und Semantik der Anspruchs Transformations Regel-Sprache in Active Directory erläutert, und es werden Überlegungen zum Erstellen von Richtlinien erläutert. Sie enthält mehrere Sätze von Beispiel Regeln, um Ihnen den Einstieg zu erleichtern, sowie Beispiele falscher Syntax und der von Ihnen generierten Meldungen, um beim Erstellen der Regeln Fehlermeldungen zu entschlüsseln.  
   
@@ -46,7 +45,7 @@ Im folgenden finden Sie eine kurze Übersicht über die Syntax und die Semantik 
   
 -   Jede **übereinstimmende Bedingung** gibt die Bedingung an, mit der der **Typ** oder **Wert** oder **ValueType** eines Anspruchs mithilfe verschiedener Bedingungs **Operatoren** und **Zeichen folgen Literale**übereinstimmen.  
   
-    -   Wenn Sie eine abgleichsbedingung für **einen Wert**angeben, müssen Sie auch eine **entsprechende Bedingung** für einen bestimmten **ValueType** angeben und umgekehrt. Diese Bedingungen müssen in der-Syntax nebeneinander liegen.  
+    -   Wenn Sie eine abgleichsbedingung für **einen Wert**angeben, müssen Sie auch eine **entsprechende Bedingung** für einen bestimmten **Matching Condition** **ValueType** angeben und umgekehrt. Diese Bedingungen müssen in der-Syntax nebeneinander liegen.  
   
     -   **ValueType** -Übereinstimmungs Bedingungen müssen nur bestimmte **ValueType** -Literale verwenden.  
   
@@ -153,7 +152,7 @@ Im folgenden finden Sie eine spezielle Syntax für Regeln:
     C1:[] => Issule (claim = C1);  
     ```  
   
-## <a name="security-considerations"></a>Sicherheitsüberlegungen  
+## <a name="security-considerations"></a>Überlegungen zur Sicherheit  
 **Ansprüche, die in eine Gesamtstruktur eintreten**  
   
 Die Ansprüche, die von Prinzipale vorgelegt werden, die in einer Gesamtstruktur eingehenden werden, müssen gründlich geprüft werden, um sicherzustellen, dass wir nur die richtigen Ansprüche zulassen oder ausstellen. Nicht ordnungsgemäße Ansprüche können die Gesamtstruktur Sicherheit beeinträchtigen, und dies sollte bei der Erstellung von Transformations Richtlinien für Ansprüche, die eine Gesamtstruktur eintreten, eine hohe Priorität haben.  
@@ -295,10 +294,10 @@ In diesem Abschnitt werden einige Beispiele für Regeln veranschaulicht, die mit
   
    Dieses Beispiel ist syntaktisch und semantisch korrekt. Die Verwendung von "Boolean" als Zeichen folgen Wert ist jedoch an Verwirrung gebunden und sollte vermieden werden. Wie bereits erwähnt, sollten die Verwendung von sprach Terminals als Anspruchs Werte nach Möglichkeit vermieden werden.  
   
-## <a name="BKMK_LT"></a>Sprach Terminals  
+## <a name="language-terminals"></a><a name="BKMK_LT"></a>Sprach Terminals  
 In der folgenden Tabelle sind die kompletten Terminal Zeichenfolgen und die zugehörigen sprach Terminals aufgelistet, die in der Anspruchs Transformations-Regel Sprache verwendet werden. In diesen Definitionen werden UTF-16-Zeichen folgen ohne Beachtung der Groß-und  
   
-|Zeichenfolge|Vergütungen|  
+|String|Terminal|  
 |----------|------------|  
 |"= >"|Bein|  
 |";"|Semikolon|  
@@ -316,15 +315,15 @@ In der folgenden Tabelle sind die kompletten Terminal Zeichenfolgen und die zuge
 |"="|Einräumen|  
 |"& &"|AND|  
 |betrifft|PROBLEM|  
-|Sorte|TYPE|  
-|Wert|Wert|  
+|Sorte|TYP|  
+|Wert|WERT|  
 |ValueType|VALUE_TYPE|  
 |erheben|Erheben|  
-|"[_A-za-z] [_a-zA-Z0-9] *"|Figur|  
-|"\\" [^\\"\n] *\\" "|Schnür|  
+|"[_A-za-z] [_a-zA-Z0-9] *"|BEZEICHNER|  
+|"\\" [^\\"\n] *\\" "|ZEICHENFOLGE|  
 |UInt64|UINT64_TYPE|  
 |Int64|INT64_TYPE|  
-|Schnür|STRING_TYPE|  
+|"Zeichenfolge"|STRING_TYPE|  
 |booleschen|BOOLEAN_TYPE|  
   
 ## <a name="language-syntax"></a>Sprachsyntax  

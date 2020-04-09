@@ -1,24 +1,20 @@
 ---
 title: echo
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fb9fcd0f-5e73-4504-aa95-78204e1a79d3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 343d6327d262401b4be14e472a135062456890f1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5e6e9c3c79cc8006efba0c97a574e3d6d94a6f7e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377629"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845243"
 ---
 # <a name="echo"></a>echo
 
@@ -35,12 +31,12 @@ echo [<Message>]
 echo [on | off]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
 |[on \| off]|Aktiviert oder deaktiviert die Funktion zum Wiederholen von Befehlen. Die Befehls Echo Prüfung ist standardmäßig aktiviert.|
-|\<message >|Gibt den Text an, der auf dem Bildschirm angezeigt werden soll.|
+|\<Meldung >|Gibt den Text an, der auf dem Bildschirm angezeigt werden soll.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
@@ -49,7 +45,7 @@ echo [on | off]
 -   Wenn **Echo** ausgeschaltet ist, wird die Eingabeaufforderung nicht im Eingabe Aufforderungs Fenster angezeigt. Geben Sie **Echo on** ein, um die Eingabeaufforderung anzuzeigen.
 -   Wenn Sie in einer Batchdatei verwendet werden, haben **Echo on** und **echo off** keine Auswirkung auf die Einstellung an der Eingabeaufforderung.
 -   Um zu verhindern, dass ein bestimmter Befehl in einer Batchdatei wiederholt wird, fügen Sie vor dem Befehl ein @-Zeichen ein. Um zu verhindern, dass alle Befehle in einer Batchdatei wiedergegeben werden, schließen Sie den Befehl **echo off** am Anfang der Datei ein.
--   Um eine Pipe ( **|** ) oder ein Umleitungs Zeichen **(<** oder **>** ) anzuzeigen, wenn Sie **Echo**verwenden, verwenden Sie ein Caretzeichen (^) direkt vor der Pipe oder dem Umleitungs Zeichen (z. b. **^|** , **0).** , oder **2**). Wenn Sie ein Caretzeichen anzeigen möchten, geben Sie zwei**Einfügemarke nacheinander ein (^^** ).
+-   Um eine Pipe ( **|** ) oder ein Umleitungs Zeichen ( **<** oder **>** ) anzuzeigen, wenn Sie **Echo**verwenden, verwenden Sie ein Caretzeichen (^) direkt vor der Pipe oder dem Umleitungs Zeichen (z. b. **^|** , **^>** oder **^<** ). Zum Anzeigen einer Einfügemarke geben Sie zwei Einfügemarke in Folge ( **^^** ) ein.
 
 ## <a name="examples"></a>Beispiele
 
@@ -117,6 +113,6 @@ File2.txt
 File3.txt
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

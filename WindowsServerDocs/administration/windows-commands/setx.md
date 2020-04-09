@@ -1,28 +1,22 @@
 ---
 title: setx
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für SETX, das Umgebungsvariablen in der Benutzer-oder Systemumgebung erstellt oder ändert, ohne dass Programmieren oder Skripts erforderlich sind.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ef37482f-f8a8-4765-951a-2518faac3f44
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c206f36e2d0bc947329124b08fb797091e838bcd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 19f6625ffaaf745ae2af26e52986e97382f42702
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384031"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834343"
 ---
 # <a name="setx"></a>setx
-
-
 
 Erstellt oder ändert Umgebungsvariablen in der Benutzer-oder Systemumgebung, ohne dass Programmieren oder Skripts erforderlich sind. Der **setx** -Befehl ruft auch die Werte von Registrierungs Schlüsseln ab und schreibt Sie in Textdateien.
 
@@ -33,10 +27,10 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 ```
 setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] <Variable> <Value> [/m]
 setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] [<Variable>] /k <Path> [/m]
-setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <FileName> {[<Variable>] {/a <X>,<Y> | /r <X>,<Y> "<String>"} [/m] | /x} [/d <Delimiters>]
+setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <FileName> {[<Variable>] {/a <X>,<Y> | /r <X>,<Y> <String>} [/m] | /x} [/d <Delimiters>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |         Parameter          |                                                                                                                                              Beschreibung                                                                                                                                              |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -48,10 +42,10 @@ setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <FileName>
 |         /k \<Pfad >         | Gibt an, dass die Variable auf der Grundlage von Informationen aus einem Registrierungsschlüssel festgelegt wird. Der p-*ATH* verwendet die folgende Syntax:</br>`\\<HIVE>\<KEY>\...\<Value>`</br>Sie können z. b. den folgenden Pfad angeben:</br>`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName` |
 |      /f \<Dateiname >       |                                                                                                                               Gibt die Datei an, die Sie verwenden möchten.                                                                                                                                |
 |        /a \<X >,<Y>         |                                                                                                                    Gibt absolute Koordinaten und einen Offset als Suchparameter an.                                                                                                                    |
-|   /r \<X-><Y> "<String>"   |                                                                                                            Gibt relative Koordinaten und einen Offset von der **Zeichenfolge** als Suchparameter an.                                                                                                            |
+|   /r \<X >,<Y> <String>   |                                                                                                            Gibt relative Koordinaten und einen Offset von der **Zeichenfolge** als Suchparameter an.                                                                                                            |
 |             /m             |                                                                                                Gibt an, dass die Variable in der Systemumgebung festgelegt wird. Die Standardeinstellung ist die lokale Umgebung.                                                                                                 |
 |             /x             |                                                                                                       Zeigt Datei Koordinaten an, wobei die Befehlszeilenoptionen **/a**, **/r**und **/d** ignoriert werden.                                                                                                        |
-|      /d \<Trennzeichen >      |                    Gibt Trennzeichen wie z. b. " **,** " oder " **\\** " an, die zusätzlich zu den vier integrierten Trennzeichen verwendet werden können – Leerzeichen, Tabstopps, EINGABETASTE und Zeilenvorschub. Gültige Trennzeichen sind beliebige ASCII-Zeichen. Die maximale Anzahl von Trennzeichen beträgt 15, einschließlich integrierter Trennzeichen.                    |
+|      /d \<Trennzeichen >      |                    Gibt Trennzeichen wie oder **\\** **an, die** zusätzlich zu den vier integrierten Trennzeichen verwendet werden können – Leerzeichen, Tabstopps, Eingabe und Zeilenvorschub. Gültige Trennzeichen sind beliebige ASCII-Zeichen. Die maximale Anzahl von Trennzeichen beträgt 15, einschließlich integrierter Trennzeichen.                    |
 |             /?             |                                                                                                                                 Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                  |
 
 ## <a name="remarks"></a>Hinweise
@@ -66,7 +60,7 @@ setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <FileName>
 -   REG_DWORD Registrierungs Werte werden extrahiert und im Hexadezimal Modus verwendet.
 -   Im Dateimodus wird nur das Übertragen von Textdateien in Wagen Rücklauf-und Zeilenvorschub (CRLF) unterstützt.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Geben Sie Folgendes ein, um die Computer Umgebungsvariable in der lokalen Umgebung auf den Wert Brand1 festzulegen:
 ```
@@ -74,7 +68,7 @@ setx MACHINE Brand1
 ```
 Geben Sie Folgendes ein, um die Computer Umgebungsvariable in der Systemumgebung auf den Wert Brand1 Computer festzulegen:
 ```
-setx MACHINE "Brand1 Computer" /m
+setx MACHINE Brand1 Computer /m
 ```
 Geben Sie Folgendes ein, um die Umgebungsvariable myPath in der lokalen Umgebung so festzulegen, dass Sie den in der PATH-Umgebungsvariablen definierten Suchpfad verwendet:
 ```
@@ -102,11 +96,11 @@ setx /s computer1 /u maindom\hiropln /p p@ssW23 TZONE /k HKEY_LOCAL_MACHINE\Syst
 ```
 Geben Sie Folgendes ein, um die Buildumgebungs Variable in der Systemumgebung auf den Wert im Registrierungsschlüssel **HKEY_LOCAL_MACHINE \software\microsoft\windowsnt\currentversion\currentbuildnumber** festzulegen:
 ```
-setx BUILD /k "HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsNT\CurrentVersion\CurrentBuildNumber" /m
+setx BUILD /k HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsNT\CurrentVersion\CurrentBuildNumber /m
 ```
 Geben Sie Folgendes ein, um die Buildumgebungs Variable in der Systemumgebung eines Remote Computers mit dem Namen Computer1 auf den Wert festzulegen, der im Registrierungsschlüssel **HKEY_LOCAL_MACHINE \software\microsoft\windowsnt\currentversion\currentbuildnumber** gefunden wurde.
 ```
-setx /s computer1 /u maindom\hiropln /p p@ssW23  BUILD /k "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\CurrentBuildNumber" /m
+setx /s computer1 /u maindom\hiropln /p p@ssW23  BUILD /k HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\CurrentBuildNumber /m
 ```
 Um den Inhalt einer Datei mit dem Namen "ipconfig. out" zusammen mit den entsprechenden Koordinaten des Inhalts anzuzeigen, geben Sie Folgendes ein:
 ```
@@ -116,11 +110,11 @@ Geben Sie Folgendes ein, um die Umgebungsvariable ipaddr in der lokalen Umgebung
 ```
 setx IPADDR /f ipconfig.out /a 5,11
 ```
-Geben Sie Folgendes ein, um die Umgebungsvariable OCTET1 in der lokalen Umgebung auf den Wert festzulegen, der in der-Koordinate 5, 3 in der Datei ipconfig. out mit Trennzeichen **"# $\*."** gefunden wird:
+Zum Festlegen der OCTET1-Umgebungsvariablen in der lokalen Umgebung auf den Wert in der-Koordinate 5, 3 in der Datei ipconfig. out mit Trennzeichen **#$\*.** geben Sie Folgendes ein:
 ```
-setx OCTET1 /f ipconfig.out /a 5,3 /d "#$*." 
+setx OCTET1 /f ipconfig.out /a 5,3 /d #$*. 
 ```
-Geben Sie Folgendes ein, um die IPGateway-Umgebungsvariable in der lokalen Umgebung auf den Wert festzulegen, der in der Koordinate 0, 7 in Bezug auf die Koordinate von "Gateway" in der Datei "ipconfig. out" gefunden wird:
+Geben Sie Folgendes ein, um die IPGateway-Umgebungsvariable in der lokalen Umgebung auf den Wert festzulegen, der in der Koordinate 0, 7 in Bezug auf die Koordinaten des Gateways in der Datei "ipconfig. out" gefunden wird:
 ```
 setx IPGATEWAY /f ipconfig.out /r 0,7 Gateway 
 ```
@@ -129,6 +123,6 @@ Geben Sie Folgendes ein, um den Inhalt einer Datei mit dem Namen ipconfig. out �
 setx /s computer1 /u maindom\hiropln /p p@ssW23 /f ipconfig.out /x 
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

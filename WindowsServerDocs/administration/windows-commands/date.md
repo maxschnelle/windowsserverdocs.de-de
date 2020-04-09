@@ -1,28 +1,22 @@
 ---
 title: date
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für Date, das das Systemdatum anzeigt oder festlegt. Bei Verwendung ohne Parameter
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ce6700fb-32f9-4350-a1af-5aee61d4448c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d7328b2b5d3c78fdfd741918d76e26195f0af4a1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8f9e32240eb27d651e324becefd72e9b1a545215
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71378819"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80846743"
 ---
 # <a name="date"></a>date
-
-
 
 Zeigt das Systemdatum an oder legt es fest. Bei Verwendung ohne Parameter zeigt **Date** die aktuelle Einstellung für das Systemdatum an und fordert Sie auf, ein neues Datum einzugeben.
 
@@ -34,11 +28,11 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 date [/t | <Month-Day-Year>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<monat-Tag-Jahr >|Legt das angegebene Datum fest, wobei *Month* der Monat (eine oder zwei Ziffern), *Day* der Tag (eine oder zwei Ziffern) und *year* das Jahr (zwei oder vier Ziffern) ist.|
+|\<Monat-Tag-Jahr >|Legt das angegebene Datum fest, wobei *Month* der Monat (eine oder zwei Ziffern), *Day* der Tag (eine oder zwei Ziffern) und *year* das Jahr (zwei oder vier Ziffern) ist.|
 |/t|Zeigt das aktuelle Datum an, ohne Sie zur Eingabe eines neuen Datums aufzufordern.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
@@ -50,7 +44,7 @@ date [/t | <Month-Day-Year>]
 -   Gültige *Tages* Werte liegen zwischen 1 und 31.
 -   Gültige *Jahres* Werte sind entweder 00 bis 99, 1980 bis 2099. Wenn Sie zwei Ziffern verwenden, entsprechen die Werte 80 bis 99 den Jahren 1980 bis 1999.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Wenn Befehls Erweiterungen aktiviert sind, geben Sie Folgendes ein, um das aktuelle Systemdatum anzuzeigen:
 ```
@@ -69,6 +63,6 @@ Enter the new date: (mm-dd-yy)
 ```
 Drücken Sie die EINGABETASTE, um das aktuelle Datum beizubehalten und zur Eingabeaufforderung zurückzukehren. Um das aktuelle Datum zu ändern, geben Sie das neue Datum ein, und drücken Sie dann die EINGABETASTE.
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,26 +1,22 @@
 ---
-title: erhalten
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+title: Erhalten
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: eeab0aef-2ba5-441a-a10d-bbef6f0d7e3e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3b076e12c833645833f53a06476e62bbf44f2690
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 891192c0d6b1687cf6bffea0f57d1853e023b776
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384488"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835763"
 ---
-# <a name="retain"></a>erhalten
+# <a name="retain"></a>Erhalten
 
 
 
@@ -37,5 +33,5 @@ retain
 -   Auf einem dynamischen Datenträger mit Master Boot Record (MBR) erstellt dieser Befehl einen Partitionseintrag im Master Boot Record.
 -   Bei einem dynamischen GPT-Datenträger (GUID-Partitionstabelle) erstellt dieser Befehl einen Partitionseintrag in der GUID-Partitionstabelle.
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 

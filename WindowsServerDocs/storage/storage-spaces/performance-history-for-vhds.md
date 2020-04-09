@@ -1,34 +1,33 @@
 ---
-title: Leistungsverlauf für virtuelle Festplatten
+title: Leistungs Verlauf für virtuelle Festplatten
 ms.author: cosdar
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 02/09/2018
-Keywords: Direkte Speicherplätze
 ms.localizationpriority: medium
-ms.openlocfilehash: 7a0d8d132b6a5ff42cbe78a22c67dd9fec397184
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: d917c2d75c1e4078438b94e8aa4a6f921019af5a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880401"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856163"
 ---
-# <a name="performance-history-for-virtual-hard-disks"></a>Leistungsverlauf für virtuelle Festplatten
+# <a name="performance-history-for-virtual-hard-disks"></a>Leistungs Verlauf für virtuelle Festplatten
 
-> Gilt für: Windows Server-Insider – Vorschau
+> Gilt für: Windows Server 2019
 
-Dieser Unterabschnitt von [– Leistungsverlauf für "direkte Speicherplätze"](performance-history.md) beschreibt ausführlich den Leistungsverlauf für virtuelle Festplatten (VHD) Dateien gesammelt. Leistungsverlauf für ist verfügbar für jede virtuelle Festplatte an einen ausgeführten, gruppierten virtuellen Computer angefügt. Leistungsverlauf für ist für sowohl VHD-als auch VHDX-Format verfügbar, jedoch nicht für die freigegebenen VHDX-Dateien verfügbar ist.
+In diesem Unterthema des [Leistungs Verlaufs für direkte Speicherplätze](performance-history.md) wird der Leistungs Verlauf ausführlich beschrieben, der für VHD-Dateien (Virtual Hard Disk, virtuelle Festplatte) erfasst wurde. Der Leistungs Verlauf ist für jede VHD verfügbar, die an einen laufenden, gruppierten virtuellen Computer angefügt ist. Der Leistungs Verlauf ist für VHD-und vhdx-Formate verfügbar, aber für freigegebene vhdx-Dateien nicht verfügbar.
 
    > [!NOTE]
-   > Es dauert einige Minuten, bis die Auflistung, die für neu erstellte oder verschobenen VHD-Dateien zu beginnen.
+   > Es kann einige Minuten dauern, bis die Sammlung für neu erstellte oder verschoderte VHD-Dateien beginnt.
 
-## <a name="series-names-and-units"></a>Namen von Datenreihen und Einheiten
+## <a name="series-names-and-units"></a>Reihen Namen und Einheiten
 
-Dieser Reihe werden für jede geeignete virtuelle Festplatte gesammelt:
+Diese Reihen werden für jede berechtigte virtuelle Festplatte erfasst:
 
-| Serie                    | Einheit             |
+| Reihe                    | Einheit             |
 |---------------------------|------------------|
 | `vhd.iops.read`           | pro Sekunde       |
 | `vhd.iops.write`          | pro Sekunde       |
@@ -40,54 +39,54 @@ Dieser Reihe werden für jede geeignete virtuelle Festplatte gesammelt:
 | `vhd.size.current`        | Bytes            |
 | `vhd.size.maximum`        | Bytes            |
 
-## <a name="how-to-interpret"></a>Gewusst wie: interpretieren
+## <a name="how-to-interpret"></a>Interpretieren
 
-| Serie                    | Gewusst wie: interpretieren                                                                                                 |
+| Reihe                    | Interpretieren                                                                                                 |
 |---------------------------|------------------------------------------------------------------------------------------------------------------|
-| `vhd.iops.read`           | Die Anzahl der Lesevorgänge pro Sekunde, die von der virtuellen Festplatte abgeschlossen.                                         |
-| `vhd.iops.write`          | Die Anzahl der Schreibvorgänge pro Sekunde, die von der virtuellen Festplatte abgeschlossen.                                        |
-| `vhd.iops.total`          | Gesamtanzahl der Lese- oder Schreibvorgängen pro Sekunde, die von der virtuellen Festplatte abgeschlossen.                          |
-| `vhd.throughput.read`     | Menge der Daten, die aus der virtuellen Festplatte, die pro Sekunde gelesen werden.                                                     |
-| `vhd.throughput.write`    | Die Menge der Daten in die virtuelle Festplatte, die pro Sekunde geschrieben.                                                    |
-| `vhd.throughput.total`    | Die Gesamtmenge der Daten gelesen oder geschrieben werden, um die virtuelle Festplatte, die pro Sekunde.                                 |
-| `vhd.latency.average`     | Die durchschnittliche Wartezeit für alle Vorgänge zu oder von der virtuellen Festplatte.                                              |
-| `vhd.size.current`        | Die aktuelle Dateigröße der virtuellen Festplatte, wenn dynamisch erweiterbar. Wenn behoben wird, wird die Reihe nicht gesammelt. |
-| `vhd.size.maximum`        | Die maximale Größe der virtuellen Festplatte, wenn dynamisch erweiterbar. Wenn fest, der die Größe.                  |
+| `vhd.iops.read`           | Anzahl der Lesevorgänge pro Sekunde, die von der virtuellen Festplatte abgeschlossen wurden.                                         |
+| `vhd.iops.write`          | Anzahl der Schreibvorgänge pro Sekunde, die von der virtuellen Festplatte abgeschlossen wurden.                                        |
+| `vhd.iops.total`          | Die Gesamtanzahl der Lese-oder Schreibvorgänge pro Sekunde, die von der virtuellen Festplatte abgeschlossen wurden.                          |
+| `vhd.throughput.read`     | Menge der Daten, die pro Sekunde von der virtuellen Festplatte gelesen werden.                                                     |
+| `vhd.throughput.write`    | Menge der Daten, die pro Sekunde auf die virtuelle Festplatte geschrieben werden.                                                    |
+| `vhd.throughput.total`    | Die Gesamtmenge der Daten, die pro Sekunde von der virtuellen Festplatte gelesen oder auf diese geschrieben wurden.                                 |
+| `vhd.latency.average`     | Die durchschnittliche Latenz aller Vorgänge auf der virtuellen Festplatte oder von der virtuellen Festplatte.                                              |
+| `vhd.size.current`        | Die aktuelle Dateigröße der virtuellen Festplatte, wenn Sie dynamisch erweitert wird. Wenn diese korrigiert ist, wird die Reihe nicht gesammelt. |
+| `vhd.size.maximum`        | Die maximale Größe der virtuellen Festplatte, wenn Sie dynamisch erweitert wird. Wenn der Wert korrigiert ist, ist die Größe.                  |
 
-## <a name="where-they-come-from"></a>Wo diese herkommen
+## <a name="where-they-come-from"></a>Woher Sie stammen
 
-Die `iops.*`, `throughput.*`, und `latency.*` Reihe werden gesammelt, aus der `Hyper-V Virtual Storage Device` Leistungsindikator auf dem Server festgelegt ist, in dem der virtuelle Computer, ausgeführt wird, eine Instanz pro VHD oder VHDX.
+Die `iops.*`-, `throughput.*`-und `latency.*`-Reihe werden aus dem `Hyper-V Virtual Storage Device` Leistungs Zählers, der auf dem Server, auf dem der virtuelle Computer ausgeführt wird, und einer Instanz pro VHD oder vhdx gesammelt.
 
-| Serie                    | Source-Indikator         |
+| Reihe                    | Quellen Counter         |
 |---------------------------|------------------------|
 | `vhd.iops.read`           | `Read Operations/Sec`  |
 | `vhd.iops.write`          | `Write Operations/Sec` |
-| `vhd.iops.total`          | *Summe der oben genannten*     |
+| `vhd.iops.total`          | *Summe der obigen*     |
 | `vhd.throughput.read`     | `Read Bytes/sec`       |
 | `vhd.throughput.write`    | `Write Bytes/sec`      |
-| `vhd.throughput.total`    | *Summe der oben genannten*     |
+| `vhd.throughput.total`    | *Summe der obigen*     |
 | `vhd.latency.average`     | `Latency`              |
 
    > [!NOTE]
-   > Leistungsindikatoren werden anhand des gesamten Intervalls, nicht entnommen gemessen. Wenn die VHD inaktiv ist 9 Sekunden jedoch abgeschlossen hat z. B. 30 IOs im zweiten 10. die `vhd.iops.total` aufgezeichnet werden als 3 IOs pro Sekunde durchschnittliche Intervall 10 Sekunden. Dadurch wird der Leistungsverlauf erfasst alle Aktivitäten und ist stabil, um Rauschen.
+   > Leistungsindikatoren werden über das gesamte Intervall gemessen, nicht als Stichprobe. Wenn die virtuelle Festplatte z. b. für eine Dauer von 9 Sekunden inaktiv ist, aber 30 IOS in der 10. Sekunde abgeschlossen ist, werden die zugehörigen `vhd.iops.total` im Durchschnitt in diesem 10-Sekunden-Intervall auf 3 IOS pro Sekunde aufgezeichnet. Dadurch wird sichergestellt, dass der Leistungs Verlauf alle Aktivitäten erfasst und stabil ist.
 
 ## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
-Verwenden der [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd) Cmdlet:
+Verwenden Sie das Cmdlet " [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd) ":
 
 ```PowerShell
 Get-VHD <Path> | Get-ClusterPerf
 ```
 
-Den Pfad der jede VHD dem virtuellen Computer abrufen:
+So erhalten Sie den Pfad für jede VHD von der virtuellen Maschine:
 
 ```PowerShell
 (Get-VM <Name>).HardDrives | Select Path
 ```
 
    > [!NOTE]
-   > Das Cmdlet "Get-VHD" erfordert einen Dateipfad angegeben werden. Enumeration wird nicht unterstützt.
+   > Für das Cmdlet "Get-VHD" muss ein Dateipfad angegeben werden. Enumeration wird nicht unterstützt.
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Leistungsverlauf für "direkte Speicherplätze"](performance-history.md)
+- [Leistungs Verlauf für direkte Speicherplätze](performance-history.md)

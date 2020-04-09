@@ -1,18 +1,18 @@
 ---
 title: Übersicht über geschütztes Fabric und abgeschirmte VMs
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: ace6eb30ae6df2dc29aacc05eb7852e03145df4f
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: edcf2e011b701904fb8c1b27d4f9b7d13415b2a8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79321992"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856903"
 ---
 # <a name="guarded-fabric-and-shielded-vms-overview"></a>Übersicht über geschütztes Fabric und abgeschirmte VMs
 
@@ -89,9 +89,9 @@ Die folgende Abbildung zeigt die geschützte Datendatei und zugehörige Konfigur
 
 Geschützte Fabrics können VMs in einer von drei möglichen Arten ausführen:
 
-1.  Eine normale VM, die gegenüber früheren Versionen von Hyper-V weder mehr noch weniger Schutz bietet
-2.  Eine durch Verschlüsselung unterstützte VM, deren Schutzmaßnahmen durch einen Fabricadministrator konfiguriert werden können
-3.  Eine abgeschirmte VM, bei der alle Schutzmaßnahmen aktiviert sind und nicht durch einen Fabricadministrator deaktiviert werden können
+1.    Eine normale VM, die gegenüber früheren Versionen von Hyper-V weder mehr noch weniger Schutz bietet
+2.    Eine durch Verschlüsselung unterstützte VM, deren Schutzmaßnahmen durch einen Fabricadministrator konfiguriert werden können
+3.    Eine abgeschirmte VM, bei der alle Schutzmaßnahmen aktiviert sind und nicht durch einen Fabricadministrator deaktiviert werden können
 
 Durch Verschlüsselung unterstützte VMs sollen dort eingesetzt werden, wo die Fabricadministratoren voll vertrauenswürdig sind.  Beispielsweise könnte ein Unternehmen ein geschütztes Fabric bereitstellen, um sicherzustellen, dass VM-Datenträger zur Einhaltung von Vorschriften im Ruhezustand verschlüsselt werden. Fabricadministratoren können weiterhin komfortable Verwaltungsfunktionen wie VM-Konsolenverbindungen, PowerShell Direct und andere Tools zur täglichen Verwaltung und Problembehandlung verwenden.
 

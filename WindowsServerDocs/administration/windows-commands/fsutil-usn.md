@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: b62d031c547f140ac5008af20a9e0ee4bcecc919
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 326390a5b40de46ca932043e9982f84c7758d901
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376787"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844003"
 ---
 # <a name="fsutil-usn"></a>Nicht zutreffend
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
@@ -33,31 +33,31 @@ fsutil usn [readdata] <FileName>
 fsutil usn [readjournal] [c= <chunk-size> s=<file-size-threshold>] <volumepath>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |-------------|---------------|
 |"kreatejournal"|Erstellt ein Aktualitäts Änderungs Journal.|
-|m = \<maxsize->|Gibt die maximale Größe in Bytes an, die von NTFS für das Änderungs Journal zugewiesen wird.|
-|a = \<zuweisung >|Gibt die Größe der Speicher Belegung (in Bytes) an, die am Ende hinzugefügt und am Anfang des Änderungs Journals entfernt wird.|
+|m =\<MaxSize->|Gibt die maximale Größe in Bytes an, die von NTFS für das Änderungs Journal zugewiesen wird.|
+|a =\<"Zuordnung" >|Gibt die Größe der Speicher Belegung (in Bytes) an, die am Ende hinzugefügt und am Anfang des Änderungs Journals entfernt wird.|
 |\<volumepath >|Gibt den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt) an.|
 |deletejournal|Löscht oder deaktiviert ein aktives Aktualitäts Änderungs Journal. **Vorsicht:** Das Löschen des Änderungs Journals wirkt sich auf den Datei Replikations Dienst (File Replication Service, FRS) und den Indizierungs Dienst aus, da diese Dienste eine vollständige (und zeitaufwändige) Überprüfung des Volumes benötigen. Dies wirkt sich wiederum negativ auf die SYSVOL-Replikation und Replikation zwischen DFS-Links aus, während das Volume neu berechnet wird.|
 |/d|Deaktiviert ein aktives Aktualitäts Änderungs Journal und gibt ein Eingabe-/Ausgabesteuerelement (e/a) zurück, während das Änderungs Journal deaktiviert wird.|
 |/n|Deaktiviert ein aktives Aktualitäts Änderungs Journal und gibt das e/a-Steuerelement nur zurück, nachdem das Änderungs Journal deaktiviert wurde.|
 |enablerangetracking|Aktiviert die Nachverfolgung von Schreib Bereichen für das Laufwerk für ein Volume.|
-|c = \<block-Größe >|Gibt die Blockgröße an, die auf einem Volume nachverfolgt werden soll.|
-|s = \<dateigröße-Schwellenwert >|Gibt den Schwellenwert für die Dateigröße für die Bereichs Überwachung an.|
+|c =\<Blockgröße >|Gibt die Blockgröße an, die auf einem Volume nachverfolgt werden soll.|
+|s =\<Dateigrößen Schwellenwert >|Gibt den Schwellenwert für die Dateigröße für die Bereichs Überwachung an.|
 |enumdaten|Listet die Änderungs Journal Einträge zwischen zwei angegebenen Grenzen auf und listet diese auf.|
-|\<fileref >|Gibt die Ordinalposition innerhalb der Dateien auf dem Volume an, an dem die Enumeration beginnen soll.|
+|\<fileRef >|Gibt die Ordinalposition innerhalb der Dateien auf dem Volume an, an dem die Enumeration beginnen soll.|
 |\<lowusn >|Gibt die untere Grenze des Bereichs der für die Datensätze zurückgegebenen Datensätze an, die zum Filtern der zurückgegebenen Datensätze verwendet werden. Es werden nur Datensätze zurückgegeben, deren letzte Änderungs Journal-Verwendungen zwischen dem *lowusn* -Wert und dem *highun* -Elementwert liegt.|
-|\<highun >|Gibt die obere Grenze des Bereichs von USN-Werten an, die zum Filtern der zurückgegebenen Dateien verwendet werden.|
+|\<highus->|Gibt die obere Grenze des Bereichs von USN-Werten an, die zum Filtern der zurückgegebenen Dateien verwendet werden.|
 |queryjournal|Fragt die Daten eines volumedatentyps ab, um Informationen über das aktuelle Änderungs Journal, seine Datensätze und seine Kapazität zu erfassen.|
 |ReadData|Liest die Daten der Datenquelle für eine Datei.|
-|\<Dateiname >|Gibt den vollständigen Pfad zur Datei an, einschließlich des Datei namens und der Erweiterung, z. b.: C:\documents\dateiname.txt|
+|\<Dateiname >|Gibt den vollständigen Pfad zur Datei an, einschließlich des Datei namens und der Erweiterung, z. b.: c:\documents\dateiname.txt|
 |"lesjournal"|Liest die Datensätze der Datensätze im US-Journal.|
-|Minver = \<number >|Minimale Haupt Version von USN_RECORD, die zurückgegeben werden soll. Standardwert = 2.|
-|MaxVer = \<number >|Maximale Haupt Version von USN_RECORD, die zurückgegeben werden soll. Standardwert = 4.|
-|startusn = \<U-Nummer >|Die Startseite für die ersten Lesevorgänge des Verwendungen der Startseite. Standardwert = 0.|
+|Minver =\<Anzahl >|Die minimale Haupt Version USN_RECORD, die zurückgegeben werden soll. Standardwert = 2.|
+|MaxVer =\<Anzahl >|Die maximale Haupt Version USN_RECORD, die zurückgegeben werden soll. Standardwert = 4.|
+|startusn =\<->-Nummer|Die Startseite für die ersten Lesevorgänge des Verwendungen der Startseite. Standardwert = 0.|
 
 
 ## <a name="remarks"></a>Hinweise
@@ -84,7 +84,7 @@ fsutil usn [readjournal] [c= <chunk-size> s=<file-size-threshold>] <volumepath>
 
     Das Löschen oder Deaktivieren eines aktiven Änderungs Journals ist sehr zeitaufwändig, da das System auf alle Datensätze in der Master Dateitabelle (MFT) zugreifen und das letzte Attribut für die Zugriffs Steuerung auf 0 (null) festlegen muss. Dieser Vorgang kann einige Minuten in Anspruch nehmen und nach dem Systemneustart fortgesetzt werden, wenn ein Neustart erforderlich ist. Während dieses Vorgangs wird das Änderungs Journal nicht als aktiv angesehen und ist nicht deaktiviert. Während das System das Journal deaktiviert, kann nicht darauf zugegriffen werden, und alle Journal Vorgänge geben Fehler zurück. Sie sollten bei der Deaktivierung eines aktiven Journal äußerst vorsichtig vorgehen, da es sich negativ auf andere Anwendungen auswirkt, die das Journal verwenden.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
 Geben Sie Folgendes ein, um ein Aktualitäts Änderungs Journal auf Laufwerk C zu erstellen:
 
 ```
@@ -127,8 +127,8 @@ Geben Sie Folgendes ein, um das US-Journal mit einer bestimmten Start-Start-n zu
 fsutil usn readjournal startusn=0xF00
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
-[Erläuterung zur Befehlszeilensyntax](Command-Line-Syntax-Key.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)
 

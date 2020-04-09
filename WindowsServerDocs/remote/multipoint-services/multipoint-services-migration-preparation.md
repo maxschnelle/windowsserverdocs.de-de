@@ -1,24 +1,20 @@
 ---
 title: Vorbereiten der Migration zu MultiPoint Services
 description: Beschreibt Informationen, die vor der Migration zu Multipoint Services in Windows Server 2016 erfasst werden müssen.
-ms.custom: na
 ms.date: 07/29/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3060c531-98a2-4957-a02c-be273f25f493
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: d0f1fd22b00bdb2e5e3684a541dd14532fd885e6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3333570aae34f2c102c36382eeffcb5411b7dd83
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394648"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858703"
 ---
 # <a name="prepare-to-migrate-to-multipoint-services-in-windows-server-2016"></a>Vorbereiten der Migration zu Multipoint Services in Windows Server 2016
 

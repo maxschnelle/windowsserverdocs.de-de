@@ -1,24 +1,20 @@
 ---
 title: openfiles
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c3be561d-a11f-4bf1-9835-8e4e96fe98ec
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 38b1d27b86551c6d4cd9e6b1ad87bfc0e8dd221d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f684acc48fbb279ced8ce1dfb3a930ff15f3bf13
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372501"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837823"
 ---
 # <a name="openfiles"></a>openfiles
 
@@ -31,7 +27,7 @@ Dieses Thema enthält Informationen zu den folgenden Befehlen:
 -   [openfiles/Query "aus](#BKMK_query)
 -   [openfiles/local ein](#BKMK_local)
 
-## <a name="BKMK_disconnect"></a>openfiles/disconnect
+## <a name="openfiles-disconnect"></a><a name=BKMK_disconnect></a>openfiles/disconnect
 
 Ermöglicht einem Administrator das Trennen von Dateien und Ordnern, die per Remote Zugriff über einen freigegebenen Ordner geöffnet wurden.
 
@@ -41,7 +37,7 @@ Ermöglicht einem Administrator das Trennen von Dateien und Ordnern, die per Rem
 openfiles /disconnect [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]] {[/id <OpenFileID>] | [/a <AccessedBy>] | [/o {read | write | read/write}]} [/op <OpenFile>]
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |            Parameter             |                                                                                                                                 Beschreibung                                                                                                                                  |
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,7 +56,7 @@ Wenn Sie alle geöffneten Dateien mit der Datei-ID 26843578 trennen möchten, ge
 ```
 openfiles /disconnect /id 26843578
 ```
-So trennen Sie alle geöffneten Dateien und Verzeichnisse, auf die der Benutzer "hiropln" zugreift,:
+Wenn Sie alle geöffneten Dateien und Verzeichnisse trennen möchten, auf die der Benutzer hiropln zugreifen, geben Sie Folgendes ein:
 ```
 openfiles /disconnect /a hiropln
 ```
@@ -68,16 +64,16 @@ Geben Sie Folgendes ein, um alle geöffneten Dateien und Verzeichnisse mit dem L
 ```
 openfiles /disconnect /o read/write
 ```
-Wenn Sie das Verzeichnis mit dem geöffneten Dateinamen "c:\testshare\"trennen möchten, unabhängig davon, wer auf das Verzeichnis zugreift, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Verbindung zwischen dem Verzeichnis und dem geöffneten Dateinamen "c:\testshare"\, unabhängig davon, wer darauf zugreift,:
 ```
-openfiles /disconnect /a * /op "c:\testshare\"
+openfiles /disconnect /a * /op c:\testshare\
 ```
-Wenn Sie alle geöffneten Dateien auf dem Remote Computer "srvmain" trennen möchten, auf den der Benutzer "hiropln" zugreift, unabhängig von ihrer ID, geben Sie Folgendes ein:
+Wenn Sie alle geöffneten Dateien auf dem Remote Computer srvmain trennen möchten, auf die der Benutzer "hiropln" zugreift, unabhängig von ihrer ID, geben Sie Folgendes ein:
 ```
 openfiles /disconnect /s srvmain /u maindom\hiropln /id *
 ```
 
-## <a name="BKMK_query"></a>openfiles/Query "aus
+## <a name="openfiles-query"></a><a name=BKMK_query></a>openfiles/Query "aus
 
 Fragt alle geöffneten Dateien ab und zeigt diese an.
 
@@ -87,7 +83,7 @@ Fragt alle geöffneten Dateien ab und zeigt diese an.
 openfiles /query [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]] [/fo {TABLE | LIST | CSV}] [/nh] [/v]
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |          Parameter           |                                                                                                                                 Beschreibung                                                                                                                                  |
 |------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -113,7 +109,7 @@ Wenn Sie alle geöffneten Dateien im Listenformat mit detaillierten Informatione
 ```
 openfiles /query /fo list /v
 ```
-Wenn Sie alle geöffneten Dateien auf dem Remote System "srvmain" mithilfe der Anmelde Informationen für den Benutzer "hiropln" in der Domäne "Maindom" Abfragen und anzeigen möchten, geben Sie Folgendes ein:
+Wenn Sie alle geöffneten Dateien auf dem Remote System srvmain mithilfe der Anmelde Informationen für den Benutzer hiropln in der Maindom-Domäne Abfragen und anzeigen möchten, geben Sie Folgendes ein:
 ```
 openfiles /query /s srvmain /u maindom\hiropln /p p@ssW23
 ```
@@ -121,7 +117,7 @@ openfiles /query /s srvmain /u maindom\hiropln /p p@ssW23
 > [!NOTE]
 > In diesem Beispiel wird das Kennwort in der Befehlszeile angegeben. Wenn Sie die Anzeige des Kennworts verhindern möchten, lassen Sie die Option **/p** aus. Sie werden zur Eingabe des Kennworts aufgefordert, das nicht auf dem Bildschirm angezeigt wird.
 
-## <a name="BKMK_local"></a>openfiles/local ein
+## <a name="openfiles-local"></a><a name=BKMK_local></a>openfiles/local ein
 
 Aktiviert oder deaktiviert das globale Flag für die Liste der Objekte der Systemverwaltung. Bei Verwendung ohne Parameter zeigt **openfiles/local ein** den aktuellen Status der globalen Flag zum Auflisten von Objekten an.
 
@@ -131,7 +127,7 @@ Aktiviert oder deaktiviert das globale Flag für die Liste der Objekte der Syste
 openfiles /local [on | off]
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -167,6 +163,6 @@ Geben Sie Folgendes ein, um das globale Flag zum Verwalten von Objekten zu deakt
 openfiles /local off
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

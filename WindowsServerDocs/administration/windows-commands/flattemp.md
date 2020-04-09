@@ -1,41 +1,37 @@
 ---
 title: flattemp
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 059a0960-1fd9-4382-87fe-a85d5dccdaea
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b1a458e8742ca354eeca821e93590386bca56dff
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2a291c102d70ff9166a7bb0261e506792a49dc18
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377127"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844573"
 ---
 # <a name="flattemp"></a>flattemp
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Aktiviert oder deaktiviert flattemporäre Ordner.
 Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
+> In Windows Server 2008 R2 wurde „Terminaldienste“ umbenannt in „Remotedesktopdienste“. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
 
 ## <a name="syntax"></a>Syntax
 ```
 flattemp {/query | /enable | /disable}
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
 |/Query "aus|Fragt die aktuelle-Einstellung ab.|
@@ -51,7 +47,7 @@ flattemp {/query | /enable | /disable}
 -   Möglicherweise treten Anwendungsfehler auf, wenn sich der temporäre Ordner des Benutzers auf einem Netzlaufwerk befindet. Dieser Fehler tritt auf, wenn das freigegebene Netzwerklaufwerk im Netzwerk vorübergehend nicht mehr verfügbar ist. Da die temporären Dateien der Anwendung entweder nicht zugänglich sind oder nicht synchronisiert sind, antwortet sie so, als ob der Datenträger angehalten wurde. Es wird nicht empfohlen, den temporären Ordner auf ein Netzwerklaufwerk zu verschieben. Der Standardwert besteht darin, temporäre Ordner auf der lokalen Festplatte beizubehalten. Wenn bei bestimmten Anwendungen unerwartetes Verhalten oder Datenträger Beschädigungs Fehler auftreten, stabilisieren Sie das Netzwerk, oder verschieben Sie die temporären Ordner zurück auf die lokale Festplatte.
 -   Wenn Sie die Verwendung separater temporärer Ordner pro Sitzung deaktivieren, werden die **flattemp** -Einstellungen ignoriert. Diese Option wird im Remotedesktopdienste-Konfigurationstool festgelegt.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 -   Geben Sie Folgendes ein, um die aktuelle Einstellung für flattemporär Ordner anzuzeigen:
     ```
     flattemp /query
@@ -66,6 +62,6 @@ flattemp {/query | /enable | /disable}
     ```
 
 ## <a name="additional-references"></a>Weitere Verweise
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-[Remotedesktopdienste &#40;Befehlsreferenz&#41; für terminaldienstedienste](remote-desktop-services-terminal-services-command-reference.md)
+[Remotedesktopdienste (Terminaldienste): Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

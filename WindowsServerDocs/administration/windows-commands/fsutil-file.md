@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 2b89d96535512f79c83c601be50327c24dc40787
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 175b5e17f186653d4fdbc7efb505637e915cfe38
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376979"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844323"
 ---
 # <a name="fsutil-file"></a>Datei "Datei"
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
@@ -42,37 +42,37 @@ fsutil file [setzerodata] offset=<offset> length=<length> <filename>
 
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |-------------|---------------|
 |CreateNew|Erstellt eine Datei mit dem angegebenen Namen und der angegebenen Größe mit Inhalt, der aus Nullen besteht.|
-|\<filename >|Gibt den vollständigen Pfad zur Datei einschließlich des Datei namens und der Erweiterung an, z. b. "c:\documents\dateiname.txt".|
-|\<length >|Gibt die gültige Daten Länge der Datei an.|
+|\<Dateiname >|Gibt den vollständigen Pfad zur Datei einschließlich des Datei namens und der Erweiterung an, z. b. "c:\documents\dateiname.txt".|
+|\<Länge >|Gibt die gültige Daten Länge der Datei an.|
 |findbysid|Sucht Dateien, die zu einem angegebenen Benutzer auf NTFS-Volumes gehören, bei denen Datenträger Kontingente aktiviert sind.|
-|\<username >|Gibt den Benutzernamen oder den Anmelde Namen des Benutzers an.|
-|\<directory>|Gibt den vollständigen Pfad zum Verzeichnis an, z. b. c:\Users.|
+|\<Benutzername >|Gibt den Benutzernamen oder den Anmelde Namen des Benutzers an.|
+|\<Verzeichnis >|Gibt den vollständigen Pfad zum Verzeichnis an, z. b. c:\Users.|
 |optimizemetadata|Dadurch wird eine sofortige Komprimierung der Metadaten für eine bestimmte Datei durchführt.|
 |/A|Analysieren von Datei Metadaten vor und nach der Optimierung.|
 |queryzuweisung|Fragt die zugeordneten Bereiche für eine Datei auf einem NTFS-Volume ab. Nützlich, um zu bestimmen, ob eine Datei sparsespalten aufweist.|
-|Offset = \<offset >|Gibt den Anfang des Bereichs an, der auf Nullen festgelegt werden soll.|
-|length = \<length >|Gibt die Länge des Bereichs (in Bytes) an.|
+|Offset =\<Offset >|Gibt den Anfang des Bereichs an, der auf Nullen festgelegt werden soll.|
+|length =\<Länge >|Gibt die Länge des Bereichs (in Bytes) an.|
 |queryextents|Abfrage Blöcke werden für eine Datei erweitert.|
-|/R|Wenn <filename> ein Analyse Punkt ist, öffnen Sie ihn anstelle seines Ziels.|
+|/R|Wenn <filename> ein Analyse Punkt ist, öffnen Sie ihn statt seines Ziels.|
 |\<startingvcn >|Gibt die erste abzufragende VCN an. Wenn der Wert ausgelassen wird, beginnen Sie bei VCN 0.|
 |\<numvcns >|Anzahl von vcns, die abgefragt werden sollen. Wenn nicht angegeben oder 0, Fragen Sie bis EOF ab.|
-|querymeleid|Fragt die Datei-ID einer Datei auf einem NTFS-Volume ab.<br /><br />Dieser Parameter gilt für:  Windows Server 2008 R2 und Windows 7.|
-|\<volume >|Gibt das Volume als Laufwerk Namen gefolgt von einem Doppelpunkt an.|
-|QueryFile-amebyid|Zeigt einen zufälligen Verknüpfungs Namen für eine angegebene Datei-ID auf einem NTFS-Volume an. Da eine Datei mehr als einen Linknamen aufweisen kann, der auf diese Datei verweist, wird nicht garantiert, welcher Dateilink als Ergebnis der Abfrage für den Dateinamen bereitgestellt wird.<br /><br />Dieser Parameter gilt für:  Windows Server 2008 R2 und Windows 7.|
-|\<fleid >|Gibt die ID der Datei auf einem NTFS-Volume an.|
+|querymeleid|Fragt die Datei-ID einer Datei auf einem NTFS-Volume ab.<p>Dieser Parameter gilt für: Windows Server 2008 R2 und Windows 7.|
+|\<Volume >|Gibt das Volume als Laufwerk Namen gefolgt von einem Doppelpunkt an.|
+|QueryFile-amebyid|Zeigt einen zufälligen Verknüpfungs Namen für eine angegebene Datei-ID auf einem NTFS-Volume an. Da eine Datei mehr als einen Linknamen aufweisen kann, der auf diese Datei verweist, wird nicht garantiert, welcher Dateilink als Ergebnis der Abfrage für den Dateinamen bereitgestellt wird.<p>Dieser Parameter gilt für: Windows Server 2008 R2 und Windows 7.|
+|\<>|Gibt die ID der Datei auf einem NTFS-Volume an.|
 |queryoptimizemetadata|Fragt den metadatenstatus einer Datei ab.|
 |queryvaliddata|Fragt die gültige Daten Länge für eine Datei ab.|
 |/D|Anzeigen ausführlicher gültiger Daten Informationen|
 |"von"|Legt den EOF der angegebenen Datei fest.|
 |setshortname|Legt den Kurznamen (8,3-Dateinamen mit Zeichen Länge) für eine Datei auf einem NTFS-Volume fest.|
-|\<shortname >|Gibt den Kurznamen der Datei an.|
+|\<ShortName >|Gibt den Kurznamen der Datei an.|
 |setvaliddata|Legt die gültige Daten Länge für eine Datei auf einem NTFS-Volume fest.|
-|\<datalength >|Gibt die Länge der Datei in Bytes an.|
+|\<DATALENGTH->|Gibt die Länge der Datei in Bytes an.|
 |"setzerodata"|Legt einen Bereich (angegeben durch *Offset* und *Länge*) der Datei auf Nullen fest, wodurch die Datei geleert wird. Wenn die Datei eine sparsedatei ist, wird der Commit für die zugrunde liegenden Zuordnungs Einheiten ausgeführt.|
 
 ## <a name="remarks"></a>Hinweise
@@ -87,7 +87,7 @@ fsutil file [setzerodata] offset=<offset> length=<length> <filename>
 
     -   Erstellen großer Dateien, wenn die Leistung ein Problem ist. Dadurch wird die Zeit vermieden, die benötigt wird, um die Datei mit Nullen zu füllen, wenn die Datei erstellt oder erweitert wird.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
 Um Dateien zu suchen, die im Besitz von scottb auf Laufwerk C sind, geben Sie Folgendes ein:
 
 ```
@@ -136,8 +136,8 @@ Geben Sie Folgendes ein, um einen Bereich einer Datei auf einem NTFS-Volume auf 
 fsutil file setzerodata offset=100 length=150 c:\temp\sample.txt  
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
-[Erläuterung zur Befehlszeilensyntax](Command-Line-Syntax-Key.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)
 

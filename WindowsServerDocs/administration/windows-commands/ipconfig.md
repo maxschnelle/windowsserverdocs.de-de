@@ -1,24 +1,20 @@
 ---
 title: ipconfig
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 15071c2c-4815-4893-93b2-ab30232e312e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4bfe3476dd90016291881ca8cee2b66283772bce
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1c93b75d6518746df7ef936c7059bd03fcf96ab6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375385"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842073"
 ---
 # <a name="ipconfig"></a>ipconfig
 
@@ -32,11 +28,11 @@ Zeigt alle aktuellen TCP/IP-Netzwerk Konfigurationswerte an und aktualisiert Ein
 ipconfig [/allcompartments] [/all] [/renew [<Adapter>]] [/release [<Adapter>]] [/renew6[<Adapter>]] [/release6 [<Adapter>]] [/flushdns] [/displaydns] [/registerdns] [/showclassid <Adapter>] [/setclassid <Adapter> [<ClassID>]]
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/All|Zeigt die vollständige TCP/IP-Konfiguration für alle Adapter an. Adapter können für physikalische Schnittstellen, z. B. installierte Netzwerkadapter, oder logische Schnittstellen stehen, z. B. DFÜ-Verbindungen.|
+|/all|Zeigt die vollständige TCP/IP-Konfiguration für alle Adapter an. Adapter können für physikalische Schnittstellen, z. B. installierte Netzwerkadapter, oder logische Schnittstellen stehen, z. B. DFÜ-Verbindungen.|
 |/allcompartments|Zeigt die vollständige TCP/IP-Konfiguration für alle Depots an.|
 |/displaydns|Zeigt den Inhalt des DNS-Client Auflösungs Caches an. dieser enthält sowohl Einträge, die vorab aus der lokalen Hostdatei geladen wurden, als auch alle zuletzt erhaltenen Ressourcen Einträge für namens Abfragen, die vom Computer aufgelöst wurden. Der DNS-Client Dienst verwendet diese Informationen, um häufig abgefragte Namen schnell zu beheben, bevor die konfigurierten DNS-Server abgefragt werden.|
 |/flushdns|Leert den Inhalt des DNS-Client Auflösungs Caches und setzt ihn zurück. Bei der DNS-Problembehandlung können Sie mithilfe dieses Verfahrens negative Cache Einträge aus dem Cache sowie alle anderen Einträge, die dynamisch hinzugefügt wurden, verwerfen.|
@@ -52,8 +48,8 @@ ipconfig [/allcompartments] [/all] [/renew [<Adapter>]] [/release [<Adapter>]] [
 ## <a name="remarks"></a>Hinweise
 
 - Dieser Befehl ist besonders nützlich auf Computern, die so konfiguriert sind, dass eine IP-Adresse automatisch abgerufen wird. Dadurch können Benutzer bestimmen, welche TCP/IP-Konfigurationswerte von DHCP, der automatischen privaten IP-Adressierung (APIPA) oder einer alternativen Konfiguration konfiguriert wurden.
-- Wenn der von Ihnen für den *Adapter* bereitgestellte Name Leerzeichen enthält, verwenden Sie Anführungszeichen um den Adapter Namen (Beispiel: **"** <em>Adapter Name</em> **"** ).
-- Für den Adapternamen **Ipconfig** unterstützt die Verwendung des Sternchens (\*) Platzhalterzeichen, um die beiden Namen anzugeben, die mit einer angegebenen Zeichenfolge oder Netzwerkkarten mit Namen mit einer angegebenen Zeichenfolge beginnen. Beispielsweise entspricht die **lokale\*** allen Adaptern, die mit der Zeichenfolge local und **\*con beginnen\*** alle Adapter, die die Zeichenfolge con enthalten.
+- Wenn der von Ihnen für den *Adapter* bereitgestellte Name Leerzeichen enthält, verwenden Sie Anführungszeichen um den Adapter Namen (Beispiel: * * * *<em>Adapter Name</em>* * * *).
+- Bei Adapter Namen unterstützt **ipconfig** die Verwendung des Platzhalter Zeichens Sternchen (\*) zum Angeben von Adaptern mit Namen, die mit einer angegebenen Zeichenfolge beginnen, bzw. von Adaptern mit Namen, die eine angegebene Zeichenfolge enthalten. Beispielsweise entspricht die **lokale\*** allen Adaptern, die mit der Zeichenfolge local und **\*con beginnen\*** alle Adapter, die die Zeichenfolge con enthalten.
 
 ## <a name="examples"></a>Beispiele
 
@@ -67,7 +63,7 @@ ipconfig /all
 ```
 Geben Sie Folgendes ein, um eine durch DHCP zugewiesene IP-Adress Konfiguration nur für den lokalen Verbindungs Adapter zu erneuern:
 ```
-ipconfig /renew "Local Area Connection"
+ipconfig /renew Local Area Connection
 ```
 Geben Sie Folgendes ein, um den DNS-Auflösungs Cache bei der Problembehandlung bei der DNS-Namensauflösung zu leeren
 ```
@@ -79,9 +75,9 @@ ipconfig /showclassid Local*
 ```
 Geben Sie Folgendes ein, um die DHCP-Klassen-ID für den zu testenden lokalen Verbindungs Adapter festzulegen:
 ```
-ipconfig /setclassid "Local Area Connection" TEST
+ipconfig /setclassid Local Area Connection TEST
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

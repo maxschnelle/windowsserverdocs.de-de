@@ -1,24 +1,20 @@
 ---
 title: nfsshare
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 437a2615-335a-442f-9713-d50d5f3983a3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d205bcfad11d22fea7fc9d0651aca61f234347cf
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 032baaf3013d2658b1040345da3a35cb6a1631f2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948506"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838903"
 ---
 # <a name="nfsshare"></a>nfsshare
 
@@ -56,6 +52,6 @@ Der Befehl **nfsshare** akzeptiert die folgenden Optionen und Argumente:
 > [!NOTE]
 > Geben Sie zum Anzeigen der vollständigen Syntax für diesen Befehl an der Eingabeaufforderung Folgendes ein:</br>> **nfsshare/?**
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 [Dienste für Network File System-Befehlsreferenz](services-for-network-file-system-command-reference.md)

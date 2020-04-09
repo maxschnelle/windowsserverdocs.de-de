@@ -1,7 +1,6 @@
 ---
 ms.assetid: ceb9ce18-5a94-4166-9edd-2685b81fc15f
 title: Bereitstellen von Ansprüchen über Gesamtstrukturen
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 21ddcbd3b71a8d623950f1600b654e04ecc41f1e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 99af1022870c891c75bb2008f57e8d8e171961ff
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357568"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861233"
 ---
 # <a name="deploy-claims-across-forests"></a>Bereitstellen von Ansprüchen über Gesamtstrukturen
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In Windows Server 2012 ist ein Anspruchstyp eine Aussage über das Objekt, dem es zugeordnet ist. Anspruchstypen werden pro Gesamtstruktur in Active Directory definiert. Es gibt viele Szenarien, in denen ein Sicherheitsprinzipal für den Zugriff auf Ressourcen in einer vertrauenswürdigen Gesamtstruktur eine Vertrauensstellungsgrenze durchlaufen muss. Die Gesamtstruktur übergreifende Anspruchs Transformation in Windows Server 2012 ermöglicht es Ihnen, ausgehende und eingehende Ansprüche zu transformieren, die Gesamtstrukturen durchlaufen, damit die Ansprüche in den vertrauenden und vertrauenswürdigen Gesamtstrukturen erkannt und akzeptiert werden. Es folgen einige praktische Szenarien für die Transformation von Ansprüchen:  
   
@@ -49,12 +48,12 @@ Für dieses Szenario gilt folgende Leitlinie:
   
 -   [Sprache zum Schreiben von Regeln für die Transformation von Ansprüchen](Claims-Transformation-Rules-Language.md)  
   
-## <a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und Features  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und Features  
 In der folgenden Tabelle sind die Rollen und Features dieses Szenarios und die Art der bereitgestellten Unterstützung aufgeführt.  
   
 |Rolle/Feature|Auf welche Weise dieses Szenario unterstützt wird|  
 |-----------------|---------------------------------|  
-|Active Directory Domain Services|In diesem Szenario müssen Sie zwei Active Directory-Gesamtstrukturen mit einer bidirektionalen Vertrauensstellung einrichten. Sie haben Ansprüche in beiden Gesamtstrukturen. Sie legen außerdem die zentralen Zugriffsrichtlinien für die vertrauende Gesamtstruktur fest, in der sich die Ressourcen befinden.|  
+|Active Directory-Domänendienste|In diesem Szenario müssen Sie zwei Active Directory-Gesamtstrukturen mit einer bidirektionalen Vertrauensstellung einrichten. Sie haben Ansprüche in beiden Gesamtstrukturen. Sie legen außerdem die zentralen Zugriffsrichtlinien für die vertrauende Gesamtstruktur fest, in der sich die Ressourcen befinden.|  
 |Datei- und Speicherdienste (Rolle)|Bei diesem Szenario wird die Datenklassifizierung auf die Ressourcen auf den Dateiservern angewendet. Die zentrale Zugriffsrichtlinie gilt für den Ordner, auf den Benutzerzugriff gewährt werden soll. Nach der Transformation gewährt der Anspruch Benutzerzugriff auf Ressourcen basierend auf einer zentralen Zugriffsrichtlinie, die für den Ordner auf dem Dateiserver gilt.|  
   
 

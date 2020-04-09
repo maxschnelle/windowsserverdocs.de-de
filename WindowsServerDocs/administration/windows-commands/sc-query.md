@@ -1,24 +1,20 @@
 ---
 title: SC-Abfrage
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ac365f89-4b20-4de6-a582-b204c5e7d0eb
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4d2f3f603ad173b5ab90bc56a9a4e589c0fe9d8a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 38d83fa07e9f85f3a5a4b86388bbed41fcf326d1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384343"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835283"
 ---
 # <a name="sc-query"></a>SC-Abfrage
 
@@ -34,7 +30,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 sc [<ServerName>] query [<ServiceName>] [type= {driver | service | all}] [type= {own | share | interact | kernel | filesys | rec | adapt}] [state= {active | inactive | all}] [bufsize= <BufferSize>] [ri= <ResumeIndex>] [group= <GroupName>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |       Parameter        |                                                                                                                          Beschreibung                                                                                                                          |
 |------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,10 +38,10 @@ sc [<ServerName>] query [<ServiceName>] [type= {driver | service | all}] [type= 
 |     \<ServiceName >     |                                      Gibt den Dienstnamen an, der vom **getkeyname** -Vorgang zurückgegeben wird. Dieser **Abfrage** Parameter wird nicht in Verbindung mit anderen **Abfrage** Parametern (mit Ausnahme von *Servername*) verwendet.                                      |
 |     Type = {Driver      |                                                                                                                            Dienst                                                                                                                            |
 |       Type = {Own       |                                                                                                                             Freigeben                                                                                                                             |
-|     State = {Active     |                                                                                                                           VSTE                                                                                                                            |
+|     State = {Active     |                                                                                                                           inactive                                                                                                                            |
 | buf size = \<bufferSize > |                     Gibt die Größe (in Bytes) des enumerationspuffers an. Die Standardpuffergröße beträgt 1.024 Bytes. Sie sollten die Größe des enumerationspuffers erhöhen, wenn die aus einer Abfrage resultierende Anzeige 1.024 Bytes überschreitet.                      |
 |   RI = \<resumeindex >   | Gibt die Indexnummer an, bei der die Enumeration gestartet oder fortgesetzt werden soll. Der Standardwert ist **0** (null). Verwenden Sie diesen Parameter in Verbindung mit dem Parameter " **bussize =** ", wenn mehr Informationen von einer Abfrage zurückgegeben werden, als der Standard Puffer anzeigen kann. |
-|  Group = \<GroupName >   |                                                                             Gibt die aufzuzählende Dienstgruppe an. Standardmäßig werden alle Gruppen aufgelistet (**Group = ""** ).                                                                              |
+|  Group = \<GroupName >   |                                                                             Gibt die aufzuzählende Dienstgruppe an. Standardmäßig werden alle Gruppen aufgelistet (* * Group = * *).                                                                              |
 |           /?           |                                                                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                              |
 
 ## <a name="remarks"></a>Hinweise
@@ -62,7 +58,7 @@ sc [<ServerName>] query [<ServiceName>] [type= {driver | service | all}] [type= 
   sc query bufsize= 1822 ri= 79
   ```
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Wenn Sie nur Informationen für aktive Dienste anzeigen möchten, geben Sie einen der folgenden Befehle ein:
 ```
@@ -98,6 +94,6 @@ Geben Sie Folgendes ein, um Informationen für Treiber in der Network Driver Int
 sc query type= driver group= ndis
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

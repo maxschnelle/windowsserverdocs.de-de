@@ -2,21 +2,19 @@
 title: Unterstützte virtuelle FreeBSD-Maschinen auf Hyper-V
 description: Listet die in jeder Version enthaltenen Linux-Integrationsdienste und-Funktionen auf.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 930e758f-bd50-46b4-a3a4-9857110f17b4
 author: shirgall
 ms.author: kathydav
 ms.date: 08/30/2017
-ms.openlocfilehash: b7b02e1ec93d6255412a89e7e7d7b8246cf5e50e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ea63a64ee0e1ce36ceb7783bbbc764c6ca5ca9d6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365511"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855953"
 ---
 # <a name="supported-freebsd-virtual-machines-on-hyper-v"></a>Unterstützte virtuelle FreeBSD-Maschinen auf Hyper-V
 
@@ -32,7 +30,7 @@ Die folgende featureverteilungszuordnung gibt die Features in den einzelnen Vers
 
 * (*leer*): Feature nicht verfügbar
 
-|**Funktion**|**Windows Server-Betriebssystemversion**|**11.1/11.2**|**11,0**|**10,3**|**10,2**|**10,0-10,1**|**9,1-9,3, 8,4**|
+|**Feature**|**Windows Server-Betriebssystemversion**|**11.1/11.2**|**11,0**|**10,3**|**10,2**|**10,0-10,1**|**9,1-9,3, 8,4**|
 |-|-|-|-|-|-|-|-|
 |**Verfügbarkeit**||Integriert|Integriert|Integriert|Integriert|Integriert|[Landungen](https://svnweb.freebsd.org/ports/branches/2015Q1/emulators/hyperv-is/) |
 |**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004; |
@@ -71,7 +69,7 @@ Die folgende featureverteilungszuordnung gibt die Features in den einzelnen Vers
 |Starten mithilfe von UEFI|2019, 2016, 2012 R2|&#10004;||||||
 |Sicherer Start|2019, 2016|||||||
 
-## <a name="BKMK_notes"></a>Anmerkungen
+## <a name="notes"></a><a name="BKMK_notes"></a>Anmerkungen
 
 1. Legen Sie fest, dass Datenträger [Geräte beschriftet]( https://www.freebsd.org/doc/handbook/geom-glabel.html) werden sollen, um den Fehler beim Starten der Stamm
 
@@ -94,11 +92,11 @@ Die folgende featureverteilungszuordnung gibt die Features in den einzelnen Vers
     # dd if=/dev/da1 of=/dev/da1 count=0
     # gpart recover da1
     ```
-   **Weitere Hinweise**: Die Featurematrix von 10 stabilen und 11 stabilen ist mit der Version FreeBSD 11,1 identisch. Außerdem sind FreeBSD 10,2 und frühere Versionen (10,1, 10,0, 9. x, 8. x) das Ende der Lebensdauer. [Hier](https://security.freebsd.org/) finden Sie eine aktuelle Liste der unterstützten Releases und die neuesten Sicherheitsempfehlungen.
+   **Weitere Hinweise**: die Featurematrix von 10 stabilen und 11 stabilen ist mit der Version FreeBSD 11,1 identisch. Außerdem sind FreeBSD 10,2 und frühere Versionen (10,1, 10,0, 9. x, 8. x) das Ende der Lebensdauer. [Hier](https://security.freebsd.org/) finden Sie eine aktuelle Liste der unterstützten Releases und die neuesten Sicherheitsempfehlungen.
 
-**Weitere Hinweise**: Die Featurematrix von 10 stabilen und 11 stabilen ist mit der Version FreeBSD 11,1 identisch. Außerdem sind FreeBSD 10,2 und frühere Versionen (10,1, 10,0, 9. x, 8. x) das Ende der Lebensdauer. [Hier](https://security.freebsd.org/) finden Sie eine aktuelle Liste der unterstützten Releases und die neuesten Sicherheitsempfehlungen.
+**Weitere Hinweise**: die Featurematrix von 10 stabilen und 11 stabilen ist mit der Version FreeBSD 11,1 identisch. Außerdem sind FreeBSD 10,2 und frühere Versionen (10,1, 10,0, 9. x, 8. x) das Ende der Lebensdauer. [Hier](https://security.freebsd.org/) finden Sie eine aktuelle Liste der unterstützten Releases und die neuesten Sicherheitsempfehlungen.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 * [Funktionsbeschreibungen für virtuelle Linux-und FreeBSD-Computer auf Hyper-V](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md)
 * [Bewährte Methoden für die Ausführung von FreeBSD unter Hyper-V](Best-practices-for-running-FreeBSD-on-Hyper-V.md)

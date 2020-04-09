@@ -2,20 +2,19 @@
 title: Konfigurieren virtueller Computer, auf denen Windows Vista ausgeführt wird, mit 1 oder 2 virtuellen Prozessoren
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: e562bce3-fd68-42c9-821c-12022ae4746c
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: f0fd83122ce148cfa97147a352ebef4f7cc443cf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0319039dfc26d59b1045ffc60f52e56eb900ff76
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364934"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80862023"
 ---
 # <a name="configure-virtual-machines-running-windows-vista-with-1-or-2-virtual-processors"></a>Konfigurieren virtueller Computer, auf denen Windows Vista ausgeführt wird, mit 1 oder 2 virtuellen Prozessoren
 
@@ -28,7 +27,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |**Betriebssystem**|Windows Server 2016|  
 |**Produkt/Feature**|Hyper-V|  
 |**Zunehmen**|Konfiguration|  
-|**Kategorie**|Fehler|  
+|**Kategorie**|Error|  
   
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
   
@@ -40,7 +39,7 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
   
 *Microsoft unterstützt nicht die Konfiguration der folgenden virtuellen Computer:*  
   
-\<liste der Namen der virtuellen Computer >  
+\<Liste der Namen der virtuellen Computer >  
   
 ## <a name="resolution"></a>Auflösung  
   

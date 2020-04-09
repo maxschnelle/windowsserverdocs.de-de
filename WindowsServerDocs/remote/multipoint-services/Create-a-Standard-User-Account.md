@@ -1,25 +1,21 @@
 ---
 title: Erstellen eines Standardbenutzerkontos
-ms.custom: na
 description: Erstellen eines einfachen Benutzerkontos für Multipoint Services
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1e113666-e45f-48b6-aad8-42c361c9046d
 author: lizap
 manager: dongill
-ms.openlocfilehash: dc1307855b847b3d27f655e953c718e4049f8332
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d92b5b21c5a10e808e52bf5081ebc1ed7a2b9a3d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395477"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859783"
 ---
 # <a name="create-a-standard-user-account"></a>Erstellen eines Standardbenutzerkontos
-Erstellen Sie *Standardbenutzerkonten* für die Benutzer, die regelmäßig auf Stationen zugreifen, das MultiPoint Services-System aber nicht verwalten. Benutzer mit Standardbenutzer Konten können die meisten Anwendungen ausführen und Dateien speichern, aber nicht den Multipoint-Manager ausführen. Um festzustellen, wer über Standardbenutzer Zugriff verfügt, klicken Sie in Multipoint-Manager auf die Registerkarte **Benutzer** . Standardbenutzerkonten werden in der Spalte Kontotyp als **Standard** angezeigt.  
+Erstellen Sie *Standardbenutzerkonten* für die Benutzer, die regelmäßig auf Stationen zugreifen, das MultiPoint Services-System aber nicht verwalten. Benutzer mit Standardbenutzer Konten können die meisten Anwendungen ausführen und Dateien speichern, aber nicht den Multipoint-Manager ausführen. Um festzustellen, wer über Standardbenutzer Zugriff verfügt, klicken Sie in Multipoint-Manager auf die Registerkarte **Benutzer** . Standardbenutzer Konten werden in der Spalte **Kontotyp** als **Standard**angezeigt.  
   
 Wenn Ihre MultiPoint Services-Benutzer private Dokumente in Windows speichern, sollte sich jeder Benutzer mit einem eindeutigen Benutzernamen und Kennwort am MultiPoint Services-System anmelden.  
   

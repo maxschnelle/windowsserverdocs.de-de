@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 5e1c6793ca866ecacd8b00aa7e01d632c2538405
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4bb320d9192848cd7a6719c58bde4111798a799e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376844"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844213"
 ---
 # <a name="fsutil-quota"></a>Nicht-Kontingent
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
@@ -34,20 +34,20 @@ fsutil quota [track] <VolumePath>
 fsutil quota [violations]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |   Parameter   |                                                                                    Beschreibung                                                                                    |
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Deaktivieren    |                                                         Deaktiviert die Kontingent Verfolgung und-Erzwingung auf dem angegebenen Volume.                                                          |
 |    durch    |                                                                   Erzwingt die Kontingent Nutzung auf dem angegebenen Volume.                                                                   |
-|    ändern     |                                                              Ändert ein vorhandenes Datenträger Kontingent oder erstellt ein neues Kontingent.                                                              |
-|     query     |                                                                            Listet vorhandene Datenträger Kontingente auf.                                                                            |
+|    modify     |                                                              Ändert ein vorhandenes Datenträger Kontingent oder erstellt ein neues Kontingent.                                                              |
+|     Abfrage     |                                                                            Listet vorhandene Datenträger Kontingente auf.                                                                            |
 |     Nachverfolgen     |                                                                    Verfolgt die Datenträger Verwendung auf dem angegebenen Volume.                                                                     |
 |  Verletzungen   | Durchsucht die System-und Anwendungsprotokolle und zeigt eine Meldung an, um anzugeben, dass Kontingent Verletzungen erkannt wurden oder ob ein Benutzer einen Kontingent Schwellenwert oder eine Kontingent Grenze erreicht hat. |
-| \<volumepath > |                                  Erforderlich. Gibt den Namen des Laufwerks an, gefolgt von einem Doppelpunkt oder der GUID im Format **Volume {** <em>GUID</em> **}** .                                  |
-| \<threshold >  |                            Legt den Grenzwert (in Bytes) fest, mit dem Warnungen ausgegeben werden. Dieser Parameter ist für den Befehl zum Ändern des Befehls " **ssutil Quota** " erforderlich.                            |
-|   \<limit >    |                                Legt die maximal zulässige Datenträger Verwendung (in Bytes) fest. Dieser Parameter ist für den Befehl zum Ändern des Befehls " **ssutil Quota** " erforderlich.                                |
-|  \<username >  |                                      Gibt den Domänen-oder Benutzernamen an. Dieser Parameter ist für den Befehl zum Ändern des Befehls " **ssutil Quota** " erforderlich.                                       |
+| \<volumepath > |                                  Erforderlich Gibt den Namen des Laufwerks an, gefolgt von einem Doppelpunkt oder der GUID im Format **Volume {** <em>GUID</em> **}** .                                  |
+| \<Schwellenwert >  |                            Legt den Grenzwert (in Bytes) fest, mit dem Warnungen ausgegeben werden. Dieser Parameter ist für den Befehl zum Ändern des Befehls " **ssutil Quota** " erforderlich.                            |
+|   \<Limit >    |                                Legt die maximal zulässige Datenträger Verwendung (in Bytes) fest. Dieser Parameter ist für den Befehl zum Ändern des Befehls " **ssutil Quota** " erforderlich.                                |
+|  \<Benutzername >  |                                      Gibt den Domänen-oder Benutzernamen an. Dieser Parameter ist für den Befehl zum Ändern des Befehls " **ssutil Quota** " erforderlich.                                       |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -55,7 +55,7 @@ fsutil quota [violations]
 
 -   Mithilfe von Schreib Skripts, bei denen das **fsutil-Kontingent** verwendet wird, können Sie die Kontingent Limits jedes Mal festlegen, wenn Sie einen neuen Benutzer hinzufügen, oder Sie können Kontingent Limits automatisch nachverfolgen, in einen Bericht kompilieren und automatisch per e-Mail an den Systemadministrator senden.
 
-### <a name="BKMK_examples"></a>Beispiele
+### <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
 Zum Auflisten vorhandener Datenträger Kontingente für ein Datenträger Volume, das mit der GUID {928842df-5a01-11de-a85c-806e6f6e6963} angegeben ist, geben Sie Folgendes ein:
 
 ```
@@ -68,8 +68,8 @@ Zum Auflisten vorhandener Datenträger Kontingente für ein Datenträger Volume,
 Fsutil quota query C:
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
-[Erläuterung zur Befehlszeilensyntax](Command-Line-Syntax-Key.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)
 

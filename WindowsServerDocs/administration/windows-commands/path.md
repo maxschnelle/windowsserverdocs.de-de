@@ -1,24 +1,20 @@
 ---
 title: path
 description: Erfahren Sie, wie Sie die PATH-Umgebungsvariable festlegen.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1bfa1349-e79a-472b-a9e6-d7a91149ae8f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 81e8441e7c67e42bdf929e703c8fe780a6f8aff8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cb77cac3871dcf4a411638409de68d038a317d24
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372423"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837713"
 ---
 # <a name="path"></a>path
 
@@ -35,11 +31,11 @@ path [[<Drive>:]<Path>[;...][;%PATH%]]
 path ;
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |     Parameter     |                                                                                                     Beschreibung                                                                                                      |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [\<laufwerk >:] <Path> |                                                                            Gibt das Laufwerk und das Verzeichnis an, die im Befehlspfad festgelegt werden sollen.                                                                             |
+| [\<Laufwerk >:]<Path> |                                                                            Gibt das Laufwerk und das Verzeichnis an, die im Befehlspfad festgelegt werden sollen.                                                                             |
 |         ;         | Trennt Verzeichnisse im Befehlspfad. Wenn es ohne andere Parameter verwendet wird, löscht die vorhandenen Befehls Pfade aus der PATH-Umgebungsvariablen und leitet "cmd. exe" so **um, dass** Sie nur im aktuellen Verzeichnis suchen. |
 |      ADS       |                                                         Fügt den Befehlspfad an den vorhandenen Satz von Verzeichnissen an, der in der PATH-Umgebungsvariablen aufgelistet ist.                                                         |
 |        /?         |                                                                                         Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                         |
@@ -54,12 +50,12 @@ path ;
 -   Wenn zwei oder mehr Dateien im Befehlspfad den gleichen Dateinamen und die gleiche Erweiterung aufweisen, sucht der **Pfad** zuerst nach dem angegebenen Dateinamen im aktuellen Verzeichnis. Anschließend werden die Verzeichnisse im Befehlspfad in der Reihenfolge durchsucht, in der Sie in der PATH-Umgebungsvariablen aufgelistet sind.
 -   Wenn Sie den **Pfad** Befehl in der Datei Autoexec. NT platzieren, fügt das Windows-Betriebssystem jedes Mal, wenn Sie sich an Ihrem Computer angemeldet haben, automatisch den angegebenen Pfad des MS-DOS-subsystemsuchpfades an. "Cmd. exe" verwendet nicht die Datei "Autoexec. NT". Beim Starten über eine Verknüpfung erbt cmd. exe die Umgebungsvariablen, die in Arbeitsplatz/Properties/Advanced/Environment festgelegt sind.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um die Pfade c:\user\steuern, b:\user\invest und b:\bin für externe Befehle zu durchsuchen:
 
 `path c:\user\taxes;b:\user\invest;b:\bin`
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

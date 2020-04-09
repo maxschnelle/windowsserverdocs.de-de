@@ -1,40 +1,36 @@
 ---
 title: Abmelden
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 939f09cc-de8c-436c-a05d-aca5f2a06371
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d09b58823f12d0b26bf21c00638b58046119bdab
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1661a9dd6cc89ea05980fd9085aa8fa67b8fe2c0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374228"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840413"
 ---
 # <a name="logoff"></a>Abmelden
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Protokolliert einen Benutzer von einer Sitzung auf einem Remotedesktop-Sitzungshost Server (RD-Sitzungs Host Server) und löscht die Sitzung vom Server.
 Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
+> In Windows Server 2008 R2 wurde „Terminaldienste“ umbenannt in „Remotedesktopdienste“. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
 
 ## <a name="syntax"></a>Syntax
 ```
 logoff [<SessionName> | <SessionID>] [/server:<ServerName>] [/v]
 ```
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |      Parameter       |                                                                             Beschreibung                                                                              |
 |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -50,7 +46,7 @@ logoff [<SessionName> | <SessionID>] [/server:<ServerName>] [/v]
 - Wenn <*SessionID*> oder <*Sessionname*> nicht angegeben **ist, protokolliert** die Abmeldung den Benutzer aus der aktuellen Sitzung. Wenn Sie <*Sessionname*> angeben, muss es sich um einen aktiven Wert handeln.
 - Wenn Sie einen Benutzer abmelden, werden alle Prozesse beendet, und die Sitzung wird vom Server gelöscht.
 - Es ist nicht möglich, einen Benutzer von der Konsolen Sitzung aus abzumelden.
-  ## <a name="BKMK_examples"></a>Beispiele
+  ## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 - Wenn Sie einen Benutzer aus der aktuellen Sitzung abmelden möchten, geben Sie Folgendes ein:
   ```
   logoff
@@ -64,6 +60,6 @@ logoff [<SessionName> | <SessionID>] [/server:<ServerName>] [/v]
   logoff TERM04 /server:Server1
   ```
 
-#### <a name="additional-references"></a>Weitere Verweise
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
--   [Remotedesktopdienste &#40;Befehlsreferenz&#41; für terminaldienstedienste](remote-desktop-services-terminal-services-command-reference.md)
+## <a name="additional-references"></a>Weitere Verweise
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Remotedesktopdienste (Terminaldienste): Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

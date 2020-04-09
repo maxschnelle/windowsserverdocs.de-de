@@ -1,7 +1,6 @@
 ---
 ms.assetid: 963a3d37-d5f1-4153-b8d5-2537038863cb
 title: Bewährte Methoden für die sichere Planung und Bereitstellung von AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: be488ccffee7b267d2a3a120b85436abf206f65a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bcddb3cc7534f45f0a84e25a6174648f1e3b82af
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359201"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858413"
 ---
 # <a name="best-practices-for-secure-planning-and-deployment-of-ad-fs"></a>Bewährte Methoden für die sichere Planung und Bereitstellung von AD FS
 
@@ -87,7 +86,7 @@ Die folgenden grundlegenden bewährten Methoden gelten für alle AD FS Installat
   
     |Parameterwert|Sicherheitsstufe|Schutzeinstellung|  
     |-------------------|------------------|----------------------|  
-    |Require|Die Sicherheit des Servers ist vollständig verstärkt.|Der erweiterte Schutz wird erzwungen und ist immer erforderlich.|  
+    |Erforderlich|Die Sicherheit des Servers ist vollständig verstärkt.|Der erweiterte Schutz wird erzwungen und ist immer erforderlich.|  
     |Zulassen|Die Sicherheit des Servers ist teilweise verstärkt.|Der erweiterte Schutz wird erzwungen, wenn die beteiligten Systeme einen Patch erhalten haben, um diesen zu unterstützen.|  
     |Keine|Der Server ist anfällig.|Der erweiterte Schutz wird nicht erzwungen.|  
   
@@ -114,7 +113,7 @@ Die folgenden grundlegenden bewährten Methoden gelten für alle AD FS Installat
      Informationen zur Extranet Smart Lockout for AD FS auf Windows Server 2016 finden [Sie unter AD FS Extranet Smart Lockout Protection](../../ad-fs/operations/Configure-AD-FS-Extranet-Smart-Lockout-Protection.md).  
   
 ## <a name="sql-serverspecific-security-best-practices-for-ad-fs"></a>Wichtige SQL Server-spezifische bewährte Sicherheitsmethoden für AD FS  
-Die folgenden bewährten Sicherheitsmethoden gelten speziell für die Verwendung von Microsoft SQL Server® oder der internen Windows-Datenbank (WID), wenn diese Datenbanktechnologien zum Verwalten von Daten in AD FS Entwurf und Bereitstellung verwendet werden.  
+Die folgenden bewährten Sicherheitsmethoden gelten speziell für die Verwendung von Microsoft SQL Server&reg; oder der internen Windows-Datenbank (WID), wenn diese Datenbanktechnologien zum Verwalten von Daten in AD FS Entwurf und Bereitstellung verwendet werden.  
   
 > [!NOTE]  
 > Die Empfehlungen sollen SQL Server-Produktsicherheitsanleitungen ergänzen, aber nicht ersetzen. Weitere Informationen zum Planen einer sicheren SQL Server-Installation finden Sie unter [Sicherheitsüberlegungen für eine sichere SQL-Installation](https://go.microsoft.com/fwlink/?LinkID=139831) (https://go.microsoft.com/fwlink/?LinkID=139831).  
@@ -125,7 +124,7 @@ Die folgenden bewährten Sicherheitsmethoden gelten speziell für die Verwendung
   
 -   **Führen Sie SQL Server unter einem Dienst Konto aus, statt die integrierten Standard-Systemdienst Konten zu verwenden.**  
   
-    Standardmäßig wird SQL Server oft installiert und konfiguriert, um eins der unterstützten integrierten Systemkonten zu verwenden, beispielsweise das LocalSystem- oder das NetworkService-Konto. Um die Sicherheit Ihrer SQL Server Installation für AD FS zu verbessern, verwenden Sie, sofern möglich, ein separates Dienst Konto für den Zugriff auf Ihren SQL Server Dienst, und aktivieren Sie die Kerberos-Authentifizierung, indem Sie den Sicherheits Prinzipal Namen (SPN) dieses Kontos in Ihrem Active Directory Bereitstellung. Damit wird eine gegenseitige Authentifizierung zwischen Client und Server ermöglicht. Ohne SPN-Registrierung eines separaten Dienstkontos verwendet SQL Server NTLM für die Windows-basierte Authentifizierung, bei der nur der Client authentifiziert wird.  
+    Standardmäßig wird SQL Server oft installiert und konfiguriert, um eins der unterstützten integrierten Systemkonten zu verwenden, beispielsweise das LocalSystem- oder das NetworkService-Konto. Um die Sicherheit Ihrer SQL Server Installation für AD FS zu verbessern, verwenden Sie, sofern möglich, ein separates Dienst Konto für den Zugriff auf Ihren SQL Server Dienst, und aktivieren Sie die Kerberos-Authentifizierung, indem Sie den Sicherheits Prinzipal Namen (SPN) dieses Kontos in Ihrer Active Directory Bereitstellung registrieren. Damit wird eine gegenseitige Authentifizierung zwischen Client und Server ermöglicht. Ohne SPN-Registrierung eines separaten Dienstkontos verwendet SQL Server NTLM für die Windows-basierte Authentifizierung, bei der nur der Client authentifiziert wird.  
   
 -   **Minimieren Sie den Oberflächen Bereich SQL Server.**  
   

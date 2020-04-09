@@ -1,24 +1,20 @@
 ---
 title: Anzeigen von Aufgabendetails und Benachrichtigungen
 description: Server-Manager
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 95117407-2dd3-4f9a-841f-4331be3544c3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a3dcbac95e60fce75316f8a4427aef54bdfad15b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0047a9f2d4b6b66cec85b2746b1975af2ced3316
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383021"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851453"
 ---
 # <a name="view-task-details-and-notifications"></a>Anzeigen von Aufgabendetails und Benachrichtigungen
 
@@ -50,7 +46,7 @@ Um eine Benachrichtigung zu löschen, die Sie nicht mehr in der **Benachrichtigu
 ## <a name="viewing-and-troubleshooting-tasks-by-using-task-details"></a>Anzeigen und Problembehandlung von Aufgaben mithilfe von Aufgaben Details
 Der **Task Details** -Befehl unten im **Benachrichtigungs** Menü öffnet das Dialogfeld **Aufgaben Details** , das vollständige Beschreibungen von Aufgaben Ereignissen (starten, beenden, Warnungen, Erfolg oder Fehlern) bereitstellt. Wie bei anderen Listen Steuerelementen in Server-Manager, z. b. **Ereignisse**, **Dienste**und **Best Practices Analyzer** Kacheln, können Sie Abfragen filtern und erstellen, die für die Aufgaben ausgeführt werden, die im Dialogfeld Aufgaben **Details** angezeigt werden. (Weitere Informationen zum Filtern und Erstellen von Abfragen für Listen Steuerelemente finden Sie unter [Filtern, Sortieren und Abfragen von Daten in Server-Manager Kacheln](filter-sort-and-query-data-in-server-manager-tiles.md).) Im oberen Bereich können Sie Benachrichtigungen überprüfen, wie Sie im Menü **Benachrichtigungen** angezeigt werden, und sehen, wie viele Benachrichtigungen zu derselben Aufgabe generiert wurden. Wenn Sie im oberen Bereich eine Benachrichtigung auswählen, werden im unteren Bereich vollständige Details zu der Benachrichtigung angezeigt.
 
-Der untere Bereich ist vor allem bei der Problembehandlung fehlgeschlagener Aufgaben hilfreich. Wenn Server-Manager keine Verbindung mit einem Server herstellen oder Daten für einen Server mit dem Server Pool erhalten kann, enthalten Einträge in diesem Bereich häufig detaillierte Meldungen, darunter den vollständigen Text der zugrunde liegenden Windows-Remote Verwaltung (WinRM), Netzwerk-oder Sicherheitsprobleme, die verhindern Sie, dass Server-Manager mit einem Ziel Server kommunizieren.
+Der untere Bereich ist vor allem bei der Problembehandlung fehlgeschlagener Aufgaben hilfreich. Wenn Server-Manager keine Verbindung mit einem Server herstellen oder Daten für einen Server mit dem Server Pool erhalten kann, enthalten Einträge in diesem Bereich häufig detaillierte Meldungen, darunter den vollständigen Text der zugrunde liegenden Windows-Remote Verwaltung (WinRM), Netzwerk-oder Sicherheitsprobleme, die verhindern, dass Server-Manager mit einem Ziel Server kommunizieren.
 
 ## <a name="see-also"></a>Weitere Informationen
 [Filtern, Sortieren und Abfragen von Daten in Server-Manager Kacheln](filter-sort-and-query-data-in-server-manager-tiles.md)

@@ -2,20 +2,18 @@
 title: Bereitstellen von Grafik Geräten mithilfe der diskreten Geräte Zuweisung
 description: Erfahren Sie, wie Sie mit DDA Grafikgeräte in Windows Server bereitstellen.
 ms.prod: windows-server
-ms.service: na
 ms.technology: hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.assetid: 67a01889-fa36-4bc6-841d-363d76df6a66
 ms.date: 08/21/2019
-ms.openlocfilehash: 5466cecf9f11a53dc6e205f36d50d7b27b310ea1
-ms.sourcegitcommit: 81198fbf9e46830b7f77dcd345b02abb71ae0ac2
+ms.openlocfilehash: 07f0ba19aaf998bb7b2fe8cf4ef1ba6cf8cae322
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72923876"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860913"
 ---
 # <a name="deploy-graphics-devices-using-discrete-device-assignment"></a>Bereitstellen von Grafik Geräten mithilfe der diskreten Geräte Zuweisung
 
@@ -87,7 +85,7 @@ Der letzte Schritt besteht darin, Hyper-V mitzuteilen, dass ein virtueller Compu
 Add-VMAssignableDevice -LocationPath $locationPath -VMName VMName
 ```
 
-## <a name="whats-next"></a>Was kommt als nächstes
+## <a name="whats-next"></a>Wie geht es weiter?
 Nachdem ein Gerät erfolgreich auf einem virtuellen Computer bereitgestellt wurde, können Sie diesen virtuellen Computer starten und mit dem Gerät interagieren, wie Sie es normalerweise bei einem Bare-Metal-System ausführen würden.  Dies bedeutet, dass Sie jetzt die Treiber des Hardware Anbieters auf dem virtuellen Computer installieren können und Anwendungen sehen können, dass die Hardware vorhanden ist.  Sie können dies überprüfen, indem Sie in der Gast-VM den Geräte-Manager öffnen und sehen, dass die Hardware jetzt angezeigt wird.
 
 ## <a name="removing-a-device-and-returning-it-to-the-host"></a>Entfernen eines Geräts und Zurückgeben des Geräts an den Host
@@ -133,7 +131,7 @@ Dismount-VMHostAssignableDevice -force -LocationPath $locationPath
 Add-VMAssignableDevice -LocationPath $locationPath -VMName $vm
 ```
 
-## <a name="troubleshooting"></a>Fehlerbehebung
+## <a name="troubleshooting"></a>Problembehandlung
 
 Wenn Sie eine GPU an eine VM übermittelt haben, Remotedesktop oder eine Anwendung die GPU nicht erkennt, überprüfen Sie die folgenden häufigen Probleme:
 
@@ -141,4 +139,4 @@ Wenn Sie eine GPU an eine VM übermittelt haben, Remotedesktop oder eine Anwendu
 - Stellen Sie sicher, dass auf Ihrem Gerät ausreichend MMIO-Speicherplatz innerhalb der VM zugeordnet ist. Weitere Informationen finden Sie unter [MMIO-Speicherplatz](../plan/Plan-for-Deploying-Devices-using-Discrete-Device-Assignment.md#mmio-space).
 - Stellen Sie sicher, dass Sie eine GPU verwenden, die der Anbieter unterstützt, die in dieser Konfiguration verwendet wird. Beispielsweise verhindern einige Anbieter, dass Ihre verbraucherkarten funktionieren, wenn Sie an einen virtuellen Computer übermittelt werden.
 - Stellen Sie sicher, dass die Anwendung, die ausgeführt wird, auf einem virtuellen Computer ausgeführt wird und dass sowohl die GPU als auch die zugehörigen Treiber von der Anwendung unterstützt werden. Einige Anwendungen verfügen über Zulassungs Listen mit GPUs und Umgebungen.
-- Wenn Sie die Remotedesktop-Sitzungshost-Rolle oder Windows MultiPoint Services auf dem Gast verwenden, müssen Sie sicherstellen, dass ein bestimmter Gruppenrichtlinie Eintrag festgelegt ist, um die Verwendung der Standard-GPU zuzulassen. Wenn Sie ein Gruppenrichtlinie Objekt verwenden, das auf den Gast angewendet wird (oder die Editor für lokale Gruppenrichtlinien auf dem Gast), navigieren Sie zu folgendem Gruppenrichtlinie Element: **Computer Konfiguration** > **Administrator Vorlagen** > **Windows-Komponenten** . > **Remotedesktopdienste** > **Remotedesktop-Sitzungshost** > **Remote Sitzungs Umgebung** > **den Hardware-Standard Grafikadapter für alle Remotedesktopdienste Sitzungen verwenden**. Legen Sie diesen Wert auf aktiviert fest, und starten Sie den virtuellen Computer neu, sobald die Richtlinie angewendet wurde.
+- Wenn Sie die Remotedesktop-Sitzungshost-Rolle oder Windows MultiPoint Services auf dem Gast verwenden, müssen Sie sicherstellen, dass ein bestimmter Gruppenrichtlinie Eintrag festgelegt ist, um die Verwendung der Standard-GPU zuzulassen. Wenn Sie ein Gruppenrichtlinie Objekt verwenden, das auf den Gast angewendet wird (oder die Editor für lokale Gruppenrichtlinien auf dem Gast), navigieren Sie zu folgendem Gruppenrichtlinie Element: **Computer Konfiguration** > **Administrator Vorlagen** > **Windows-Komponenten** ** > Remotedesktopdienste** ** > Remotedesktop-Sitzungshost** > **Remote Sitzungs Umgebung** > **den Hardware-Standard Grafikadapter für alle Remotedesktopdienste Sitzungen verwenden**. Legen Sie diesen Wert auf aktiviert fest, und starten Sie den virtuellen Computer neu, sobald die Richtlinie angewendet wurde.

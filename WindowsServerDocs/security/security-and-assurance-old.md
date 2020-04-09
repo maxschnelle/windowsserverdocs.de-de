@@ -1,22 +1,20 @@
 ---
-title: Sicherheit und Assurance
+title: Sicherheit und Zusicherungen
 description: Übersicht über die Sicherheit in Windows Server 2016
-ms.custom: na
 ms.prod: windows-server
 ms.technology: techgroup-security
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/27/2018
 ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
-ms.openlocfilehash: ee0d536eeea5943c0c0e69951a7733d7462b2d9e
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: ec389fab792ecc714684ff5f8976845b5cea05ba
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949735"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859333"
 ---
 # <a name="security-and-assurance-in-windows-server"></a>Sicherheit und Zuverlässigkeit in Windows Server 
 
@@ -25,119 +23,119 @@ ms.locfileid: "75949735"
 >[!TIP]
 > Suchen Sie nach Informationen zu älteren Versionen von Windows Server? Sehen Sie sich unsere [Windows Server-Bibliotheken](/previous-versions/windows/) auf „docs.microsoft.com“ an. Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
-<img src="../media/landing-icons/security.png" style='float:left; padding:.5em;' alt="Icon representing a lock"> Sie können auf neue Schutzebenen vertrauen, die in das Betriebssystem integriert wurden, um weiterhin Schutz gegen Sicherheitsverletzungen zu bieten. Wehren Sie bedrohliche Angriffe ab und erhöhen Sie die Sicherheit Ihrer virtuellen Maschinen, Anwendungen und Daten.
+<img src="../media/landing-icons/security.png" style='float:left; padding:.5em;' alt="Icon representing a lock"> Sie können auf neue Schutzebenen vertrauen, die in das Betriebssystem integriert wurden, um weiterhin Schutz gegen Sicherheitsverletzungen zu bieten. Unterstützen Sie die Blockierung böswilliger Angriffe und die Verbesserung der Sicherheit Ihrer virtuellen Computer, Anwendungen und Daten.
 
 
-### <a name="windows-server-security-blog-posthttpsblogstechnetmicrosoftcomwindowsserver20160425ten-reasons-youll-love-windows-server-2016-8-security"></a>[Blog Beitrag zu Windows Server-Sicherheit](https://blogs.technet.microsoft.com/windowsserver/2016/04/25/ten-reasons-youll-love-windows-server-2016-8-security/)
+### <a name="windows-server-security-blog-post"></a>[Blog Beitrag zu Windows Server-Sicherheit](https://blogs.technet.microsoft.com/windowsserver/2016/04/25/ten-reasons-youll-love-windows-server-2016-8-security/)
 In diesem Blogbeitrag des Windows Server-Sicherheitsteams werden viele der Verbesserungen in Windows Server beschrieben, mit denen die Sicherheit beim Hosten und in Hybrid Cloud-Umgebungen erhöht wird.
 
-### <a name="datacenter-and-private-cloud-security-bloghttpsblogstechnetmicrosoftcomdatacentersecurity"></a>[Datacenter-und Private Cloud-Sicherheits Blog](https://blogs.technet.microsoft.com/datacentersecurity/)
+### <a name="datacenter-and-private-cloud-security-blog"></a>[Datacenter-und Private Cloud-Sicherheits Blog](https://blogs.technet.microsoft.com/datacentersecurity/)
 Dies ist die zentrale Blogwebsite für technische Inhalte des Microsoft Datacenter and Private Cloud Security-Teams.                                    
 
-### <a name="addressing-emerging-threats-and-landscape-shiftshttpswwwyoutubecomwatchvb5jmyxywx1kfeatureyoutube"></a>[Umgang mit neuen Bedrohungen und quer Verschiebungen](https://www.youtube.com/watch?v=B5JMYxYWx1k&feature=youtu.be)
-In diesem sechsminütigen Video vermittelt Anders Vinberg zunächst einen Überblick über die Sicherheits- und Zusicherungsstrategien von Microsoft und spricht über Branchentrends und sicherheitsrelevante Veränderungen in der Systemlandschaft. Vinberg legt dann den Schwerpunkt auf die wichtigsten Initiativen von Microsoft, um Workloads gegen das zugrunde liegende Fabric und direkte Angriffe von privilegierten Konten zu schützen. Außerdem erläutert er, wie Bedrohungen mithilfe der neuen Ermittlungsfunktionen und forensischen Funktionen besser erkannt werden können.
+### <a name="addressing-emerging-threats-and-landscape-shifts"></a>[Umgang mit neuen Bedrohungen und quer Verschiebungen](https://www.youtube.com/watch?v=B5JMYxYWx1k&feature=youtu.be)
+In diesem sechsminütigen Video, gibt Ihnen Anders Vinberg eine Übersicht über die Sicherheits- und Zusicherungsstrategien von Microsoft und behandelt Branchentrends sowie Änderungen der Systemlandschaft, da sich diese ebenso auf die Sicherheit beziehen. Vinberg legt dann den Schwerpunkt auf die wichtigsten Initiativen von Microsoft, um Workloads gegen das zugrunde liegende Fabric und direkte Angriffe von privilegierten Konten zu schützen. Außerdem erläutert er, wie Bedrohungen mithilfe der neuen Ermittlungsfunktionen und forensischen Funktionen besser erkannt werden können.
 
-### <a name="protecting-your-datacenter-and-cloud-from-emerging-threats-blog-posthttpsblogstechnetcombwindowsserverarchive20151118protecting-your-datacenter-and-cloud-november-updateaspx"></a>[Blogbeitrag zum Schutz Ihres Rechenzentrums und ihrer Cloud vor neuen Bedrohungen](https://blogs.technet.com/b/windowsserver/archive/2015/11/18/protecting-your-datacenter-and-cloud-november-update.aspx)
+### <a name="protecting-your-datacenter-and-cloud-from-emerging-threats-blog-post"></a>[Blogbeitrag zum Schutz Ihres Rechenzentrums und ihrer Cloud vor neuen Bedrohungen](https://blogs.technet.com/b/windowsserver/archive/2015/11/18/protecting-your-datacenter-and-cloud-november-update.aspx)
 In diesem Blogbeitrag wird erläutert, wie Sie Microsoft-Technologien einsetzen können, um Ihre Rechenzentrums- und Cloudinvestitionen gegen neue Bedrohungen zu schützen.                   
 
-### <a name="security-and-assurance-overview-session-at-ignitehttpschannel9msdncomeventsignite2015brk2482"></a>[Sicherheits-und Assurance-Übersichts Sitzung bei Ignite](https://channel9.msdn.com/events/ignite/2015/brk2482)
-Themen dieser Ignite-Sitzung sind dauerhafte Bedrohungen, Sicherheitsverstöße durch interne Mitarbeiter einer Organisation, organisierte Internetkriminalität sowie das Absichern der Microsoft Cloud Platform (lokale und mit Azure verbundene Dienste). Dabei werden u. a. Szenarien für das Schützen von Workloads, großen Unternehmensmandanten und Dienstanbietern beschrieben.                                                                   
+### <a name="security-and-assurance-overview-session-at-ignite"></a>[Sicherheits-und Assurance-Übersichts Sitzung bei Ignite](https://channel9.msdn.com/events/ignite/2015/brk2482)
+Inhalt dieser Ignite-Sitzung sind dauerhafte Bedrohungen, Sicherheitsverstöße durch interne Mitarbeiter einer Organisation, organisierte Internetkriminalität sowie das Absichern der Microsoft Cloud Platform (lokale und mit Azure verbundene Dienste). Dabei werden u. a. Szenarien für das Schützen von Workloads, großen Unternehmensmandanten und Dienstanbietern beschrieben.                                                                   
 
-## <a name="secure-virtualization-with-shielded-vms"></a>Sichere Virtualisierung mit abgeschirmten VMs
+## <a name="secure-virtualization-with-shielded-vms"></a>Sichern der Visualisierung mit abgeschirmten VMs
 
-### <a name="shielded-vm-in-channel-9httpschannel9msdncomshowsmechanicsintroduction-to-shielded-virtual-machines-in-windows-server-2016"></a>[Abgeschirmte VMs auf Channel 9](https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016)
+### <a name="shielded-vm-in-channel-9"></a>[Abgeschirmte VMs auf Channel 9](https://channel9.msdn.com/Shows/Mechanics/Introduction-to-Shielded-Virtual-Machines-in-Windows-Server-2016)
 Eine exemplarische Vorgehensweise zu abgeschirmten VM-Technologien und Vorteilen.                           
 
-### <a name="shielded-vm-demohttpswwwyoutubecomwatchvxip5qtk-7d8"></a>[Video zu abgeschirmten VMs](https://www.youtube.com/watch?v=xip5Qtk-7d8)
+### <a name="shielded-vm-demo"></a>[Video zu abgeschirmten VMs](https://www.youtube.com/watch?v=xip5Qtk-7d8)
 In diesem 4-minütigen Video werden der Nutzen abgeschirmter VMs sowie die Unterschiede zwischen einer abgeschirmten VM und einer nicht abgeschirmten VM erläutert.                                   
 
-### <a name="shielded-virtual-machines-in-windows-server-video-walkthroughhttpmicrosoft-cloudcloudguidescomguidesshielded-virtual-machines-in-windows-serverhtm"></a>[Video mit exemplarischer Vorgehensweise „Shielded Virtual Machines in Windows Server“](http://microsoft-cloud.cloudguides.com/Guides/Shielded Virtual Machines in Windows Server.htm)
+### <a name="shielded-virtual-machines-in-windows-server-video-walkthrough"></a>[Video mit exemplarischer Vorgehensweise „Shielded Virtual Machines in Windows Server“](http://microsoft-cloud.cloudguides.com/Guides/Shielded Virtual Machines in Windows Server.htm)
 In diesem Video mit exemplarischer Vorgehensweise wird gezeigt, wie der Host-Überwachungsdienst die Verwendung abgeschirmter virtueller Computer ermöglicht, damit sensible Daten vor einem nicht autorisierten Zugriff durch Hyper-V-Hostadministratoren geschützt werden.
 
-### <a name="harden-the-fabric-protecting-tenant-secrets-in-hyper-v-ignite-videohttpschannel9msdncomeventsignite2015brk3457"></a>[Härten des Fabrics: Schützen von Mandanten Geheimnissen in Hyper-V (Ignite-Video)](https://channel9.msdn.com/events/ignite/2015/brk3457)
+### <a name="harden-the-fabric-protecting-tenant-secrets-in-hyper-v-ignite-video"></a>[Härten des Fabrics: Schützen von Mandanten Geheimnissen in Hyper-V (Ignite-Video)](https://channel9.msdn.com/events/ignite/2015/brk3457)
 
 Diese Ignite-Präsentation erläutert Erweiterungen in Hyper-V, Virtual Machine Manager und eine neue Host-Überwachungsdienst-Serverrolle zur Aktivierung von abgeschirmten VMs.                
 
-### <a name="guarded-fabric-deployment-guidehttpsdocsmicrosoftcomwindows-servervirtualizationguarded-fabric-shielded-vmguarded-fabric-deploying-hgs-overview"></a>[Guarded Fabric Deployment Guide (Bereitstellungsleitfaden für geschütztes Fabric)](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-deploying-hgs-overview)
+### <a name="guarded-fabric-deployment-guide"></a>[Guarded Fabric Deployment Guide (Bereitstellungsleitfaden für geschütztes Fabric)](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-deploying-hgs-overview)
 Dieser Leitfaden umfasst Installations- und Validierungsinformationen für Windows Server und System Center Virtual Machine Manager für Hosts mit geschütztem Fabric und abgeschirmten VMs.
 
-### <a name="shielded-vm-and-guarded-fabric-in-branch-officeshttpsdocsmicrosoftcomwindows-servervirtualizationguarded-fabric-shielded-vmguarded-fabric-manage-branch-office"></a>[Abgeschirmte VMs und geschützte Fabrics in Filialen](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office)
+### <a name="shielded-vm-and-guarded-fabric-in-branch-offices"></a>[Abgeschirmte VMs und geschützte Fabrics in Filialen](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office)
 Dieses Handbuch enthält bewährte Methoden für die Ausführung von abgeschirmten virtuellen Computern in Filialen und anderen Remoteszenarien, in denen Hyper-V-Hosts Zeiträume mit eingeschränkter Konnektivität zu HGS haben können.
 
-### <a name="shielded-vm-and-guarded-fabric-troubleshooting-guidehttpsdocsmicrosoftcomwindows-servervirtualizationguarded-fabric-shielded-vmguarded-fabric-troubleshoot-overview"></a>[Shielded VM and Guarded Fabric Troubleshooting Guide (Leitfaden zur Problembehandlung für abgeschirmte VMs und geschütztes Fabric)](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-troubleshoot-overview)
+### <a name="shielded-vm-and-guarded-fabric-troubleshooting-guide"></a>[Shielded VM and Guarded Fabric Troubleshooting Guide (Leitfaden zur Problembehandlung für abgeschirmte VMs und geschütztes Fabric)](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-troubleshoot-overview)
 In diesem Leitfaden finden Sie Informationen zur Behandlung von Problemen, die in Ihrer Umgebung mit abgeschirmten VMs auftreten können.
 
-### <a name="shielded-vm-articlehttpwindowsitprocomhyper-vsuper-secure-hyper-v-environments-shielded-vms-2016"></a>[Artikel zu abgeschirmten VMs](http://windowsitpro.com/hyper-v/super-secure-hyper-v-environments-shielded-vms-2016)
-In diesem Whitepaper können Sie sich einen Überblick darüber verschaffen, wie sich die Sicherheit mit abgeschirmten VMs verbessern lässt, und wie Sie Manipulationen mithilfe dieser VMs verhindern können.                                         
+### <a name="shielded-vm-article"></a>[Artikel zu abgeschirmten VMs](http://windowsitpro.com/hyper-v/super-secure-hyper-v-environments-shielded-vms-2016)
+In diesem Whitepaper können Sie sich einen Überblick darüber verschaffen, wie sich die Sicherheit mit abgeschirmten VMs verbessern lässt und wie Sie Manipulationen mithilfe dieser VMs verhindern können.                                         
 
 ## <a name="privileged-access-management"></a>Privileged Access Management (Schützen von Windows und Microsoft Azure Active Directory mit Privileged Access Management)
-### <a name="securing-privileged-accesshttpstechnetmicrosoftcomwindows-server-docssecuritysecuring-privileged-accesssecuring-privileged-access"></a>[Schützen des privilegierten Zugriffs](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access)
-Ein Fahrplan zum Schutz Ihres privilegierten Zugriffs. Dieser Wegweiser basiert auf dem geballten Fachwissens des Teams für die Sicherheit von Servern, der Microsoft-IT, des Azure-Teams und Microsoft Consulting Services.                           
+### <a name="securing-privileged-access"></a>[Schützen des privilegierten Zugriffs](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access)
+Ein Wegweiser, der Ihnen zeigt, wie Sie Ihren privilegierten Zugriff schützen können. Dieser Wegweiser basiert auf dem geballten Fachwissens des Teams für die Sicherheit von Servern, der Microsoft-IT, des Azure-Teams und Microsoft Consulting Services.                           
 
-### <a name="just-in-time-administration-with-microsoft-identity-managerhttpstechnetmicrosoftcomlibrarymt150258aspx"></a>[Just in Time Administration with Microsoft Identity Manager (Just-In-Time-Verwaltung mit Microsoft Identity Manager)](https://technet.microsoft.com/library/mt150258.aspx)
-In diesem Artikel werden Features und Funktionen von Microsoft Identity Manager beschrieben. Dazu zählt auch die Unterstützung für Just In Time (JIT) Privileged Access Management.                                                                    
+### <a name="just-in-time-administration-with-microsoft-identity-manager"></a>[Just in Time Administration with Microsoft Identity Manager (Just-In-Time-Verwaltung mit Microsoft Identity Manager)](https://technet.microsoft.com/library/mt150258.aspx)
+In diesem Artikel werden Features und Funktionen von Microsoft Identity Manager beschrieben. Dazu zählt auch die Unterstützung für Just-In-Time-Privileged Access Management.                                                                    
 
-### <a name="protecting-windows-and-microsoft-azure-active-directory-with-privileged-access-managementhttpschannel9msdncomeventsignite2015brk3873"></a>[Video über den Schutz von Windows und Microsoft Azure Active Directory mit privilegierter Zugriffsverwaltung](https://channel9.msdn.com/events/ignite/2015/brk3873)
+### <a name="protecting-windows-and-microsoft-azure-active-directory-with-privileged-access-management"></a>[Video über den Schutz von Windows und Microsoft Azure Active Directory mit privilegierter Zugriffsverwaltung](https://channel9.msdn.com/events/ignite/2015/brk3873)
 In dieser Ignite-Präsentation wird auf die Strategie und die Investitionen von Microsoft bei Windows Server, PowerShell, Active Directory, Identity Manager und Azure Active Directory eingegangen, um mithilfe einer sichereren Authentifizierung und durch die Verwaltung des Zugriffs über Just-In-Time- und Just Enough Administration-Verfahren (JEA) dem Risiko eines Administratorzugriffs entgegenzuwirken.
 
-### <a name="just-enough-administration-articlehttpsakamsjea"></a>[Artikel zu Just Enough Administration](https://aka.ms/JEA)
+### <a name="just-enough-administration-article"></a>[Artikel zu Just Enough Administration](https://aka.ms/JEA)
 In diesem Dokument werden die Vision und technische Details von Just Enough Administration beschrieben, einem PowerShell-Toolkit, mit dem Organisationen den Administratorzugriff auf die Aufgaben beschränken können, die der jeweilige Mitarbeiter ausführen muss.
 
-### <a name="just-enough-administration-demo-videohttpswwwyoutubecomwatchvxnbrbky9p20"></a>[Demovideo zu Just Enough Administration](https://www.youtube.com/watch?v=xnBrbkY9P20)
+### <a name="just-enough-administration-demo-video"></a>[Demovideo zu Just Enough Administration](https://www.youtube.com/watch?v=xnBrbkY9P20)
 Just Enough Administration – exemplarische Vorgehensweise.                                                                                                                  
 ## <a name="credential-protection"></a>Schutz von Anmeldeinformationen
 
-### <a name="protect-derived-domain-credentials-with-credential-guardhttpsdocsmicrosoftcomwindowssecurityidentity-protectioncredential-guardcredential-guard"></a>[Schützen abgeleiteter Domänenanmeldeinformationen mit Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard)
-Credential Guard nutzt auf Virtualisierung basierende Sicherheitsverfahren, um geheime Daten zu isolieren, damit nur durch privilegierte Systemsoftware auf diese Daten zugegriffen werden kann. Ein nicht autorisierter Zugriff auf diese geheimen Daten kann Angriffe zum Diebstahl von Anmeldeinformationen zur Folge haben (z. B. Pass-the-Hash- oder Pass-the-Ticket-Angriffe). Credential Guard verhindert diese Angriffe, indem NTLM-Kennworthashes und Kerberos Ticket Granting Tickets geschützt werden.
+### <a name="protect-derived-domain-credentials-with-credential-guard"></a>[Schützen abgeleiteter Domänenanmeldeinformationen mit Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard)
+Credential Guard nutzt auf Virtualisierung basierende Sicherheitsverfahren, um geheime Daten zu isolieren, damit nur durch privilegierte Systemsoftware auf diese Daten zugegriffen werden kann. Ein nicht autorisierter Zugriff auf diese geheimen Schlüssel kann zu Angriffen mit dem Ziel des Diebstahls von Anmeldeinformationen, z. B. Pass-the-Hash oder Pass-The-Ticket, führen. Credential Guard verhindert diese Angriffe durch den Schutz von NTLM-Kennworthashes und Kerberos-TGTs.
 
-### <a name="protect-remote-desktop-credentials-with-remote-credential-guardhttpsdocsmicrosoftcomwindowssecurityidentity-protectionremote-credential-guard"></a>[Schützen von Remotedesktop-Anmeldeinformationen mit Remote Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/remote-credential-guard)
+### <a name="protect-remote-desktop-credentials-with-remote-credential-guard"></a>[Schützen von Remotedesktop-Anmeldeinformationen mit Remote Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/remote-credential-guard)
 Mit Remote Credential Guard können Sie Ihre Anmeldeinformationen über eine Remotedesktopverbindung schützen, indem Kerberos-Anforderungen an das Gerät zurückgeleitet werden, das die Verbindung anfordert. Darüber hinaus profitieren Sie mit dieser Lösung von einer SSO-Umgebung (Single Sign-On, einmaliges Anmelden) für Remotedesktopsitzungen.                                                                                                        |
-### <a name="credential-guard-demo-videohttpswwwyoutubecomwatchveupkogsl7yk"></a>[Demovideo zu Credential Guard](https://www.youtube.com/watch?v=eUpKOGSl7yk)
+### <a name="credential-guard-demo-video"></a>[Demovideo zu Credential Guard](https://www.youtube.com/watch?v=eUpKOGSl7yk)
 Dieses fünfminütige Video enthält Informationen über Credential Guard und Remote Credential Guard.         
 
 ## <a name="hardening-the-os-and-applications"></a>Härtung des Betriebssystems und der Anwendungen
-### <a name="windows-defender-application-control-wdac-deployment-guidehttpsdocsmicrosoftcomwindowssecuritythreat-protectionwindows-defender-application-controlwindows-defender-application-control"></a>[Bereitstellungshandbuch zu Windows Defender-Anwendungssteuerung (WDAC)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control)
+### <a name="windows-defender-application-control-wdac-deployment-guide"></a>[Bereitstellungshandbuch zu Windows Defender-Anwendungssteuerung (WDAC)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control)
 Bei der WDAC handelt es sich um eine konfigurierbare Richtlinie zur Codeintegrität (CI), die Unternehmen dabei hilft zu steuern, welche Anwendungen in ihrer Umgebung ausgeführt werden. Sie hat keine speziellen Hardware- oder Softwareanforderungen, muss jedoch unter Windows 10 ausgeführt werden.
 
-### <a name="device-guard-demo-videohttpswwwyoutubecomwatchvf-ptkesjkhi"></a>[Demovideo zu Device Guard](https://www.youtube.com/watch?v=F-pTkesjkhI)
+### <a name="device-guard-demo-video"></a>[Demovideo zu Device Guard](https://www.youtube.com/watch?v=F-pTkesjkhI)
 Device Guard ist eine Kombination aus WDAC und Hypervisor-geschützter Codeintegrität (HVCI). Dieses siebenminütige Video enthält Informationen über Device Guard und seine Verwendung unter Windows Server.
 
-### <a name="transport-layer-security-registry-settingshttpsdocsmicrosoftcomwindows-serversecuritytlstls-registry-settings"></a>[Registrierungseinstellungen für Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)
+### <a name="transport-layer-security-registry-settings"></a>[Registrierungseinstellungen für Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)
 Informationen zu unterstützten Registrierungseinstellungen für die Implementierung des Transport Layer Security (TLS)- und des Secure Sockets Layer (SSL)-Protokolls unter Windows.
 
-### <a name="control-flow-guardhttpsdocsmicrosoftcomwindowsdesktopsecbpcontrol-flow-guard"></a>[Ablaufsteuerungsschutz](https://docs.microsoft.com/windows/desktop/SecBP/control-flow-guard)
+### <a name="control-flow-guard"></a>[Ablaufsteuerungsschutz](https://docs.microsoft.com/windows/desktop/SecBP/control-flow-guard)
 Der Ablaufsteuerungsschutz bietet integrierten Schutz gegen einige Fälle von Speicherbeschädigungsangriffen.
 
-### <a name="windows-defenderhttpstechnetmicrosoftcomwindows-server-docssecuritywindows-defenderwindows-defender-overview-windows-server"></a>[Windows Defender](https://technet.microsoft.com/windows-server-docs/security/windows-defender/windows-defender-overview-windows-server)
+### <a name="windows-defender"></a>[Windows Defender](https://technet.microsoft.com/windows-server-docs/security/windows-defender/windows-defender-overview-windows-server)
 Windows Defender bietet Funktionen zum aktiven Schutz, um bekannte Schadsoftware zu blockieren. Windows Defender ist standardmäßig aktiviert und für die Unterstützung der verschiedenen Serverrollen in Windows Server optimiert.
 
 ## <a name="detecting-and-responding-to-threats"></a>Ermitteln von und Reagieren auf Bedrohungen
-### <a name="security-threat-analysis-using-microsoft-operations-management-suitehttpschannel9msdncomeventsignite2015brk3464"></a>[Security Threat Analysis Using Microsoft Operations Management Suite (Analyse von Sicherheitsbedrohungen mit Microsoft Operations Management Suite)](https://channel9.msdn.com/events/ignite/2015/brk3464)
+### <a name="security-threat-analysis-using-microsoft-operations-management-suite"></a>[Security Threat Analysis Using Microsoft Operations Management Suite (Analyse von Sicherheitsbedrohungen mit Microsoft Operations Management Suite)](https://channel9.msdn.com/events/ignite/2015/brk3464)
 In dieser Ignite-Präsentation wird erläutert, wie Sie Operational Insights für eine Analyse von Sicherheitsbedrohungen nutzen können.
 
-### <a name="microsoft-operations-management-suite-omshttpswwwmicrosoftcomserver-cloudoperations-management-suiteoverviewaspx"></a>[Microsoft Operations Management Suite (OMS)](https://www.microsoft.com/server-cloud/operations-management-suite/overview.aspx)
+### <a name="microsoft-operations-management-suite-oms"></a>[Microsoft Operations Management Suite (OMS)](https://www.microsoft.com/server-cloud/operations-management-suite/overview.aspx)
 Die Sicherheits- und Überwachungslösung Microsoft Operations Management Suite (OMS) verarbeitet Sicherheitsprotokolle und Firewallereignisse aus lokalen und cloudbasierten Umgebungen, um böswilliges Verhalten zu analysieren und zu ermitteln.
 
-### <a name="oms-and-windows-serverhttpswwwyoutubecomwatchv_sadw1dry2k"></a>[Microsoft Operations Management Suite (OMS) und Windows Server](https://www.youtube.com/watch?v=_SaDw1dRy2k)
+### <a name="oms-and-windows-server"></a>[Microsoft Operations Management Suite (OMS) und Windows Server](https://www.youtube.com/watch?v=_SaDw1dRy2k)
 Dieses dreiminütige Video zeigt, wie OMS dabei helfen kann, potentielles böswilliges Verhalten zu erkennen, das von Windows Server blockiert wird.  
 
-### <a name="microsoft-advanced-threat-analyticshttpsblogstechnetcombadarchive20150722microsoft-advanced-threat-analytics-coming-next-monthaspx"></a>[Microsoft Advanced Threat Analytics](https://blogs.technet.com/b/ad/archive/2015/07/22/microsoft-advanced-threat-analytics-coming-next-month.aspx)
+### <a name="microsoft-advanced-threat-analytics"></a>[Microsoft Advanced Threat Analytics](https://blogs.technet.com/b/ad/archive/2015/07/22/microsoft-advanced-threat-analytics-coming-next-month.aspx)
 In diesem Blogbeitrag wird Microsoft Advanced Threat Analytics vorgestellt, eine lokale Lösung, die anhand von Active Directory-Netzwerkdatenverkehr und SIEM-Daten potenzielle Bedrohungen ermittelt und entsprechende Warnungen generiert.
 
-### <a name="microsoft-advanced-threat-analyticshttpswwwyoutubecomwatchv0na9fetrzfwlistpl8nfc9hageb5izgm8hvmrozethrpbdksw"></a>[Microsoft Advanced Threat Analytics](https://www.youtube.com/watch?v=0nA9FeTRZFw&list=PL8nfc9haGeb5IZGM8HvmRozetHRpBDKSw)
+### <a name="microsoft-advanced-threat-analytics"></a>[Microsoft Advanced Threat Analytics](https://www.youtube.com/watch?v=0nA9FeTRZFw&list=PL8nfc9haGeb5IZGM8HvmRozetHRpBDKSw)
 Mit diesem 3-minütigen Video verschaffen Sie sich einen Überblick darüber, wie Microsoft Funktionen zur Bedrohungsanalyse in Windows Server hinzufügt.                                                                                 |
 
 ## <a name="network-security"></a>Netzwerksicherheit
 
-### <a name="datacenter-firewall-overviewhttpstechnetmicrosoftcomlibrarydn920240aspx"></a>[Übersicht über Datacenter Firewall](https://technet.microsoft.com/library/dn920240.aspx)
+### <a name="datacenter-firewall-overview"></a>[Übersicht über Datacenter Firewall](https://technet.microsoft.com/library/dn920240.aspx)
 In dieser Übersicht wird Datacenter Firewall erläutert, eine zustandsbehaftete, mehrinstanzenfähige 5-Tupel-Firewall (Protokoll, Portnummer von Quelle und Ziel sowie IP-Adresse von Quelle und Ziel), die auf der Vermittlungsschicht implementiert ist.
 
-### <a name="whats-new-in-dns-in-windows-serverhttpstechnetmicrosoftcomwindows-server-docsnetworkingdnswhat-s-new-in-dns-server"></a>[What's New in DNS in Windows Server (Neues in DNS unter Windows Server)](https://technet.microsoft.com/windows-server-docs/networking/dns/what-s-new-in-dns-server)
+### <a name="whats-new-in-dns-in-windows-server"></a>[What's New in DNS in Windows Server (Neues in DNS unter Windows Server)](https://technet.microsoft.com/windows-server-docs/networking/dns/what-s-new-in-dns-server)
 In dieser Übersicht finden Sie eine kurze Beschreibung der neuen Funktionen in DNS sowie eine Reihe von Links, um auf weitere Informationen zuzugreifen.                                                                           
 
-## <a name="mapping-security-features-to-compliance-regulations"></a>Abbilden von Compliancebestimmungen auf Sicherheitsfunktionen
+## <a name="mapping-security-features-to-compliance-regulations"></a>Zuordnen von Sicherheitsfunktionen zu Kompatibilitätsbestimmungen
 
-Compliance ist ein wichtiger Aspekt der Sicherheitsfunktionen. Wir überlassen es Ihren zuverlässigen Compliance-Beratern, zu erklären, was Compliance bedeutet und wie Sie diese erreichen. Jedoch möchten wir Ihnen auch eine erste Zuordnung bereitstellen, die Sie bei der Evaluierung von Windows Server verwenden können.
+Die Kompatibilität ist ein wichtiger Aspekt der Sicherheitsfunktionen. Wir überlassen es Ihren zuverlässigen Compliance-Beratern, zu erklären, was Compliance bedeutet und wie Sie diese erreichen. Jedoch möchten wir Ihnen auch eine erste Zuordnung bereitstellen, die Sie bei der Evaluierung von Windows Server verwenden können.
 
 -   [Whitepaper zur Kompatibilitätszuordnung von abgeschirmten Hyper-V-VMs (in englischer Sprache)](https://download.microsoft.com/download/6/D/0/6D06E149-B4C1-4EED-ACD5-DF6066E93CC0/Coalfire_Branded_Hyper_V_Shielded_VMs_Whitepaper_EN_US.pdf)
 

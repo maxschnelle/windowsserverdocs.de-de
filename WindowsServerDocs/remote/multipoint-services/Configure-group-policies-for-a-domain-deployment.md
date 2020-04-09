@@ -1,24 +1,20 @@
 ---
 title: Konfigurieren von Gruppenrichtlinien für eine Domänenbereitstellung
 description: Erfahren Sie, wie Sie Gruppenrichtlinien in Multipoint Services einrichten.
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 13e5fa90-d330-4155-a6b8-78eb650cbbfa
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 5ac6524289d231d152e366d2ba750a59d27ce14f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e851d12dad29de8b3498aad220354d31917fadee
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395521"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80862183"
 ---
 # <a name="configure-group-policies-for-a-domain-deployment"></a>Konfigurieren von Gruppenrichtlinien für eine Domänenbereitstellung
 Um sicherzustellen, dass Ihre Domänen Bereitstellung von Multipoint Services ordnungsgemäß funktioniert, wenden Sie die folgenden Gruppenrichtlinien Einstellungen auf das wmsshell-Benutzerkonto in einem Multipoint Services-System an.  
@@ -39,14 +35,14 @@ Weisen Sie die folgenden Werte zu:
 |Einstellung|Werte|  
 |-----------|----------|  
 |Bildschirmschoner aktivieren|Deaktiviert|  
-|Zeitlimit für Bildschirmschoner|Deaktiviert<br /><br />Sekunden: xxx|  
+|Zeitlimit für Bildschirmschoner|Deaktiviert<p>Sekunden: xxx|  
 |Kennwortschutz für den Bildschirmschoner verwenden|Deaktiviert|  
   
 **Richtlinie:** Computer Konfiguration > Windows-Einstellungen > Sicherheitseinstellungen > Lokale Richtlinien > Zuweisen von Benutzerrechten > **Lokal anmelden zulassen**  
   
 |Einstellung|Werte|  
 |-----------|----------|  
-|Lokale Anmeldung zulassen|Stellen Sie sicher, dass die Liste der Konten das wmsshell-Konto enthält.<br /><br />**Hinweis:** Standardmäßig ist das wmsshell-Konto Mitglied der Gruppe "Benutzer". Wenn die Gruppe "Benutzer" in der Liste enthalten ist und wmsshell Mitglied der Gruppe "Benutzer" ist, müssen Sie das wmsshell-Konto nicht zur Liste hinzufügen.|  
+|Lokal anmelden zulassen|Stellen Sie sicher, dass die Liste der Konten das wmsshell-Konto enthält.<p>**Hinweis:** Standardmäßig ist das wmsshell-Konto Mitglied der Gruppe "Benutzer". Wenn die Gruppe "Benutzer" in der Liste enthalten ist und wmsshell Mitglied der Gruppe "Benutzer" ist, müssen Sie das wmsshell-Konto nicht zur Liste hinzufügen.|  
   
 > [!IMPORTANT]  
 > Wenn Sie Gruppenrichtlinien festlegen, stellen Sie sicher, dass die Richtlinien die automatischen Updates und die Fehlerberichterstattung für Fehlerberichte auf dem Multipoint-Server nicht beeinträchtigen. Diese werden von den Einstellungen **Updates automatisch installieren** und automatisch **Windows-Fehlerberichterstattung** festgelegt, die bei der Installation von Windows MultiPoint Server ausgewählt, in Multipoint Manager mithilfe von **Server Einstellungen bearbeiten**oder in geplanten Updates für den Datenträger Schutz konfiguriert wurden.  
@@ -55,7 +51,7 @@ Weisen Sie die folgenden Werte zu:
 Für eine Domänen Bereitstellung von Multipoint Services sollten Sie die folgenden Registrierungs Unterschlüssel aktualisieren.  
   
 > [!IMPORTANT]  
-> Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.  
+> Eine fehlerhafte Bearbeitung der Registrierung kann Ihr System schwer beschädigen. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.  
   
 #### <a name="to-update-registry-subkeys-for-a-domain-deployment-of-multipoint-services"></a>So aktualisieren Sie Registrierungs Unterschlüssel für eine Domänen Bereitstellung von Multipoint Services  
   

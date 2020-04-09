@@ -1,24 +1,20 @@
 ---
 title: 'Ksetup: dumpstate'
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3ef2f7b8-97af-4f42-9542-cff324840637
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 625d05b2fea9ae58681648c64e309aa8b2a201ed
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 46f827d26d867392db4cbef92cf5be496aee8d74
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374990"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841513"
 ---
 # <a name="ksetupdumpstate"></a>Ksetup: dumpstate
 
@@ -32,7 +28,7 @@ Zeigt den aktuellen Status der Bereichs Einstellungen für alle Bereiche an, die
 ksetup /dumpstate
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 Keine
 
@@ -49,14 +45,14 @@ Mit diesem Befehl wird das Computer Kennwort, das mithilfe des Befehls **Ksetup/
 
 **Ksetup** erzeugt dieselbe Ausgabe wie **Ksetup/dumpstate**.
 
-## <a name="BKMK_Examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
 
 Suchen Sie den größten Teil der Kerberos-Bereichs Konfigurationen auf einem Computer:
 ```
 ksetup /dumpstate
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Ksetup](ksetup.md)
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

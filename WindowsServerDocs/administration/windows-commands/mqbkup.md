@@ -1,24 +1,20 @@
 ---
 title: mqbkup
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7bdd41c4-75ef-455f-b241-1d64a4c7acf5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 66783e0bbfe5c82971e14fd05e913d485485dc6f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5ff6fc2f483bceb99b970cd0c48f56985ecd485b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373510"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839353"
 ---
 # <a name="mqbkup"></a>mqbkup
 
@@ -31,14 +27,14 @@ Vor der Verwendung des Dienstprogramms MSMQ-Nachrichten Sicherung/Wiederherstell
 ```  
 mqbkup {/b | /r} <folder path_to_storage_device>  
 ```  
-### <a name="parameters"></a>Parameter  
+#### <a name="parameters"></a>Parameter  
 |Parameter|Beschreibung|  
 |-------|--------|  
 |/b|Gibt den Sicherungs Vorgang an|  
 |/r|Gibt Wiederherstellungs Vorgang an|  
 |< Ordner path_to_storage\_Gerät >|Gibt den Pfad an, in dem die MSMQ-Nachrichten Dateien und Registrierungs Einstellungen gespeichert werden.|  
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|  
-## <a name="BKMK_Examples"></a>Beispiele  
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele  
 So sichern Sie alle MSMQ-Nachrichten Dateien und-Registrierungs Einstellungen und speichern Sie im Ordner " *msmqbkup* " auf Laufwerk "C:".  
 ```  
 mqbkup /b c:\msmqbkup  
@@ -54,4 +50,4 @@ mqbkup /r c:\msmqbkup
 ```  
 Die Speicherorte von Ordnern, die zum Speichern von MSMQ-Nachrichten Dateien verwendet werden, werden in der Registrierung gespeichert. Folglich stellt das Hilfsprogramm MSMQ-Nachrichten Dateien in den Ordnern wieder her, die in der Registrierung angegeben sind, und nicht für die Speicherordner, die vor dem Wiederherstellungs Vorgang verwendet werden. Wenn die in der Registrierung angegebenen Ordner nicht vorhanden sind, werden Sie durch den Wiederherstellungs Vorgang automatisch erstellt. Wenn Ordner Verzeichnisse vorhanden sind und nicht leer sind, werden Sie vom Hilfsprogramm aufgefordert, die Berechtigung zum Löschen des aktuellen Inhalts dieser Ordner zu löschen.  
 ## <a name="additional-references"></a>Weitere Verweise  
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

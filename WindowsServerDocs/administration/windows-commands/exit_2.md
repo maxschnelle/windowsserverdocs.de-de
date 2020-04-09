@@ -1,24 +1,20 @@
 ---
 title: exit
-description: 'Windows-Befehls Thema für * * * *- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 23d1044b-f5c1-4180-ae6d-f553b48da4d9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d6d3a4d0bfc74644f6fda43abe57e0e4e7c1264a
-ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
+ms.openlocfilehash: 13cf7a7658394e59ce6cc7e66c3083cd3d359574
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791228"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844883"
 ---
 # <a name="exit"></a>exit
 
@@ -30,7 +26,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 ```  
 exit [/b] [<exitCode>]  
 ```  
-## <a name="parameters"></a>Parameter  
+### <a name="parameters"></a>Parameter  
 
 | Parameter  |                                                                                         Beschreibung                                                                                          |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -38,11 +34,11 @@ exit [/b] [<exitCode>]
 | `<exitCode>` | Gibt eine numerische Zahl an. Wenn **/b** angegeben wird, wird die ERRORLEVEL-Umgebungsvariable auf diese Zahl festgelegt. Wenn Sie " **cmd. exe**" beenden, wird der Prozessexitcode auf diese Zahl festgelegt. |
 |     /?     |                                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                                             |
 
-## <a name="BKMK_examples"></a>Beispiele  
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
 Zum Schließen des Befehls Interpreters, cmd. exe, geben Sie Folgendes ein:  
 ```  
 exit  
 ```  
 ## <a name="additional-references"></a>Weitere Verweise  
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
 

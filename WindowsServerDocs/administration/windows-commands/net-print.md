@@ -1,24 +1,20 @@
 ---
 title: Net print
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f59b2015-4698-415d-9a74-09566c466f40
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 241f9d74cb537924cf69c1e0bb5fd73a422c4b23
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ad631788a59c24dcb92d180330de25a5be320154
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373300"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839053"
 ---
 # <a name="net-print"></a>Net print
 
@@ -33,14 +29,14 @@ Beispiele für die Verwendung dieses Befehls finden Sie im Abschnitt " [Beispiel
 > Net print {\\<computerName>\<Sharename> | 
 > \\<computerName> <JobNumber> [/hold | /release | /delete]} [help]
 > ```
-> ## <a name="parameters"></a>Parameter
+> ### <a name="parameters"></a>Parameter
 > 
 > |               Parameter               |                                                                                                                                                                                                                     Beschreibung                                                                                                                                                                                                                      |
 > |----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > |    \\\\<computerName>\\<Sharename>     |                                                                                                                                                                            Gibt (nach Name) den Computer und die Druck Warteschlange an, über die Sie Informationen anzeigen möchten.                                                                                                                                                                             |
 > |           \\\\<computerName>           |                                                                                                                                 Gibt (nach Name) den Computer an, der den Druckauftrag hostet, den Sie steuern möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer angenommen. Erfordert den <JobNumber>-Parameter.                                                                                                                                  |
 > |              <JobNumber>               |                                             Gibt die Nummer des Druckauftrags an, den Sie steuern möchten. Diese Nummer wird von dem Computer zugewiesen, der die Druck Warteschlange hostet, in der der Druckauftrag gesendet wird. Wenn ein Computer einem Druckauftrag eine Zahl zuweist, wird diese Nummer keinem anderen Druckauftrag in einer Warteschlange zugewiesen, die von diesem Computer gehostet wird. Erforderlich, wenn der \\\\<computerName>-Parameter verwendet wird.                                             |
-> | [/Hold &#124; /Release &#124; /DELETE] | Gibt die Aktion an, die mit dem Druckauftrag ausgeführt werden soll.<br /><br />-Der **/Hold** -Parameter verzögert den Auftrag, sodass andere Druckaufträge ihn umgehen können, bis er freigegeben wird.<br />-Der **/Release** -Parameter gibt einen verzögerten Druckauftrag frei.<br />-Der **/Delete** -Parameter entfernt einen Druckauftrag aus einer Druck Warteschlange.<br /><br />Wenn Sie eine Auftragsnummer angeben, aber keine Aktion angeben, werden Informationen zum Druckauftrag angezeigt. |
+> | [/Hold &#124; /Release &#124; /DELETE] | Gibt die Aktion an, die mit dem Druckauftrag ausgeführt werden soll.<p>-Der **/Hold** -Parameter verzögert den Auftrag, sodass andere Druckaufträge ihn umgehen können, bis er freigegeben wird.<br />-Der **/Release** -Parameter gibt einen verzögerten Druckauftrag frei.<br />-Der **/Delete** -Parameter entfernt einen Druckauftrag aus einer Druck Warteschlange.<p>Wenn Sie eine Auftragsnummer angeben, aber keine Aktion angeben, werden Informationen zum Druckauftrag angezeigt. |
 > |                  Hilfe                  |                                                                                                                                                                                                     Zeigt die Hilfe für den Befehl " **net Print** " an.                                                                                                                                                                                                     |
 > 
 > ## <a name="remarks"></a>Hinweise
@@ -66,7 +62,7 @@ Beispiele für die Verwendung dieses Befehls finden Sie im Abschnitt " [Beispiel
 >   Job parameters
 >   additional info
 >   ```
->   ## <a name="BKMK_examples"></a>Beispiele
+>   ## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 >   Dieses Beispiel zeigt, wie Sie den Inhalt der Dotmatrix-Druck Warteschlange auf dem \\\production-Computer auflisten:
 >   ```
 >   Net print \\Production\Dotmatrix 
@@ -83,6 +79,6 @@ Beispiele für die Verwendung dieses Befehls finden Sie im Abschnitt " [Beispiel
 >   ```
 >   Net print \\Production 263 /release 
 >   ```
->   #### <a name="additional-references"></a>Weitere Verweise
->   [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+>   ## <a name="additional-references"></a>Weitere Verweise
+>   - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
 >   [Print-Befehlsreferenz](print-command-reference.md)

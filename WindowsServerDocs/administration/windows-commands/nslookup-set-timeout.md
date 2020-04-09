@@ -1,24 +1,20 @@
 ---
 title: nslookup set timeout
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 07afdaf4-ffec-496f-a188-4e91cf1a28f8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 32fcfcaeccb6599e9aaca21f9c085bb00857479c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8506511fc203f94d395851471f6a981ef0765928
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372765"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838273"
 ---
 # <a name="nslookup-set-timeout"></a>nslookup set timeout
 
@@ -29,7 +25,7 @@ ms.locfileid: "71372765"
 ```
 set timeout=<Number>
 ```
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |    Parameter    |                                           Beschreibung                                            |
 |-----------------|--------------------------------------------------------------------------------------------------|
@@ -38,11 +34,11 @@ set timeout=<Number>
 
 ## <a name="remarks"></a>Hinweise
 - Wenn eine Antwort auf eine Anforderung nicht innerhalb des angegebenen Zeitraums empfangen wird, wird das Timeout verdoppelt, und die Anforderung wird erneut gesendet. Sie können den Befehl **Set Wiederholen Sie** verwenden, um die Anzahl der Wiederholungen zu steuern.
-  ## <a name="BKMK_examples"></a>Beispiele
+  ## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
   Im folgenden Beispiel wird das Timeout für das erhalten einer Antwort auf 2 Sekunden festgelegt:
   ```
   set timeout=2
   ```
   ## <a name="additional-references"></a>Weitere Verweise
-  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+  - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
   [nslookup-Satz Wiederholung](nslookup-set-retry.md)

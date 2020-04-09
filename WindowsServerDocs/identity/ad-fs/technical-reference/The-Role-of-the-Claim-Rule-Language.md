@@ -1,6 +1,5 @@
 ---
 title: Rolle der Anspruchsregelsprache
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,15 +8,15 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: dda9d148-d72f-4bff-aa2a-f2249fa47e4c
 ms.technology: identity-adfs
-ms.openlocfilehash: ff4c43bb8dc5582716638f0a3f6e4f6a8022aece
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 742e0ce781225303c623461439f8d4460fec97c9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407375"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860103"
 ---
 # <a name="the-role-of-the-claim-rule-language"></a>Rolle der Anspruchsregelsprache
-Die Anspruchs Regel Sprache Active Directory-Verbunddienste (AD FS) (AD FS) fungiert als administrativer Baustein für das Verhalten von eingehenden und ausgehenden Ansprüchen, während die Anspruchs-Engine als Verarbeitungs-Engine für die Logik in der Anspruchs Regel Sprache fungiert, die definiert die benutzerdefinierte Regel. Weitere Informationen zur Verarbeitung aller Regeln durch die Anspruchs-Engine finden Sie [unter der Rolle der Anspruchs](The-Role-of-the-Claims-Engine.md)-Engine.  
+Die Anspruchs Regel Sprache Active Directory-Verbunddienste (AD FS) (AD FS) fungiert als administrativer Baustein für das Verhalten eingehender und ausgehender Ansprüche, während die Anspruchs-Engine als Verarbeitungs-Engine für die Logik in der Anspruchs Regel Sprache fungiert, die die benutzerdefinierte Regel definiert. Weitere Informationen zur Verarbeitung aller Regeln durch die Anspruchs-Engine finden Sie [unter der Rolle der Anspruchs](The-Role-of-the-Claims-Engine.md)-Engine.  
 
 ## <a name="creating-custom-claim-rules-using-the-claim-rule-language"></a>Erstellen benutzerdefinierter Anspruchsregeln mithilfe der Anspruchsregelsprache  
 AD FS bietet Administratoren die Möglichkeit, benutzerdefinierte Regeln zu definieren, die Sie verwenden können, um das Verhalten von Identitäts Ansprüchen mit der Anspruchs Regel Sprache zu bestimmen. Mithilfe der Syntaxbeispiele für die Anspruchsregelsprache in diesem Thema können Sie benutzerdefinierte Regeln erstellen, die Ansprüche gemäß der Anforderungen Ihrer Organisation aufzählen, hinzufügen, löschen oder modifizieren. Benutzerdefinierte Regeln können durch Eingabe eines Syntaxausdrucks der Anspruchsregelsprache in die Regelvorlage **Ansprüche mit einem benutzerdefinierten Anspruch senden** erstellt werden.  
@@ -75,7 +74,7 @@ In der folgenden Tabelle finden Sie ein Beispiel für Bedingungen mit mehreren A
 
 |                                                                                                                   Beschreibung der Bedingung                                                                                                                    |                                        Syntaxbeispiel der Bedingung                                        |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| Diese Regel besitzt eine Bedingung, überprüfen Sie, ob zwei zur Eingabe, Ansprüche, jeweils mit einem festgelegten Anspruchstyp ("<http://test/name>" und "<http://test/email>"). Wenn die zwei übereinstimmenden Ansprüche in den Eingabeansprüchen vorhanden sind, kopiert die Regel den Namensanspruch in die Menge der Ausgabeansprüche. | ``` c1: [type  == "http://test/name"] && c2: [type == "http://test/email"] => issue (claim  = c1 );``` |
+| Diese Regel besteht aus einer Bedingung zum Überprüfen zweier Eingabe Ansprüche, von denen jede einen angegebenen Anspruchstyp hat ("<http://test/name>" und "<http://test/email>"). Wenn die zwei übereinstimmenden Ansprüche in den Eingabeansprüchen vorhanden sind, kopiert die Regel den Namensanspruch in die Menge der Ausgabeansprüche. | ``` c1: [type  == "http://test/name"] && c2: [type == "http://test/email"] => issue (claim  = c1 );``` |
 
 #### <a name="regular--condition-examples"></a>Beispiele für reguläre Bedingungen  
 In der folgenden Tabelle finden Sie ein Beispiel für eine reguläre, Ausdrucks basierte Bedingung.  

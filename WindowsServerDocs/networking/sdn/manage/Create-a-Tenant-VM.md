@@ -1,24 +1,20 @@
 ---
 title: Erstellen einer VM und Verbinden mit einem virtuellen Mandantennetzwerk oder VLAN
 description: In diesem Thema erfahren Sie, wie Sie eine Mandanten-VM erstellen und mit einem virtuellen Netzwerk verbinden, das Sie mit der Hyper-V-Netzwerkvirtualisierung oder einem virtuellen lokalen Netzwerk (VLAN) erstellt haben.
-manager: dougkim
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3c62f533-1815-4f08-96b1-dc271f5a2b36
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/24/2018
-ms.openlocfilehash: ef588cfc93216f13490ef3196ec0990b9e7f48d3
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 3949c4f10015a7fdfe4955b950b109a702553c45
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309796"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854513"
 ---
 # <a name="create-a-vm-and-connect-to-a-tenant-virtual-network-or-vlan"></a>Erstellen einer VM und Verbinden mit einem virtuellen Mandantennetzwerk oder VLAN
 
@@ -57,7 +53,7 @@ Stellen Sie sicher, dass Sie bereits eine Virtual Network erstellt haben, bevor 
 2. Holen Sie sich das virtuelle Netzwerk, das das Subnetz enthält, mit dem Sie den Netzwerkadapter verbinden möchten.
 
    ```Powershell 
-   $vnet = get-networkcontrollervirtualnetwork -connectionuri $uri -ResourceId “Contoso_WebTier”
+   $vnet = get-networkcontrollervirtualnetwork -connectionuri $uri -ResourceId "Contoso_WebTier"
    ```
 
 3. Erstellen Sie ein Netzwerkschnittstellen Objekt im Netzwerk Controller.
@@ -77,14 +73,14 @@ Stellen Sie sicher, dass Sie bereits eine Virtual Network erstellt haben, bevor 
    $ipconfiguration = new-object Microsoft.Windows.NetworkController.NetworkInterfaceIpConfiguration
    $ipconfiguration.resourceid = "MyVM_IP1"
    $ipconfiguration.properties = new-object Microsoft.Windows.NetworkController.NetworkInterfaceIpConfigurationProperties
-   $ipconfiguration.properties.PrivateIPAddress = “24.30.1.101”
+   $ipconfiguration.properties.PrivateIPAddress = "24.30.1.101"
    $ipconfiguration.properties.PrivateIPAllocationMethod = "Static"
     
    $ipconfiguration.properties.Subnet = new-object Microsoft.Windows.NetworkController.Subnet
    $ipconfiguration.properties.subnet.ResourceRef = $vnet.Properties.Subnets[0].ResourceRef
     
    $vmnicproperties.IpConfigurations = @($ipconfiguration)
-   New-NetworkControllerNetworkInterface –ResourceID “MyVM_Ethernet1” –Properties $vmnicproperties –ConnectionUri $uri
+   New-NetworkControllerNetworkInterface –ResourceID "MyVM_Ethernet1" –Properties $vmnicproperties –ConnectionUri $uri
    ```
 
 4. Holen Sie sich die InstanceId für die Netzwerkschnittstelle vom Netzwerk Controller.
@@ -103,7 +99,7 @@ Stellen Sie sicher, dass Sie bereits eine Virtual Network erstellt haben, bevor 
     
    $FeatureId = "9940cd46-8b06-43bb-b9d5-93d50381fd56"
     
-   $vmNics = Get-VMNetworkAdapter -VMName “MyVM”
+   $vmNics = Get-VMNetworkAdapter -VMName "MyVM"
     
    $CurrentFeature = Get-VMSwitchExtensionPortFeature -FeatureId $FeatureId -VMNetworkAdapter $vmNics
     
@@ -134,7 +130,7 @@ Stellen Sie sicher, dass Sie bereits eine Virtual Network erstellt haben, bevor 
 6. Starten Sie den virtuellen Computer.
 
    ```PowerShell
-    Get-VM -Name “MyVM” | Start-VM 
+    Get-VM -Name "MyVM" | Start-VM 
    ```
 
 Sie haben erfolgreich einen virtuellen Computer erstellt, den virtuellen Computer mit einem Mandanten Virtual Network verbunden und den virtuellen Computer gestartet, damit er workerworkloads verarbeiten kann.
@@ -155,7 +151,7 @@ Sie haben erfolgreich einen virtuellen Computer erstellt, den virtuellen Compute
 2. Legen Sie die VLAN-ID auf dem VM-Netzwerkadapter fest.
 
    ```PowerShell
-   Set-VMNetworkAdapterIsolation –VMName “MyVM” -AllowUntaggedTraffic $true -IsolationMode VLAN -DefaultIsolationId 123
+   Set-VMNetworkAdapterIsolation –VMName "MyVM" -AllowUntaggedTraffic $true -IsolationMode VLAN -DefaultIsolationId 123
    ```
 
 3. Rufen Sie das logische Netzwerksubnetz ab, und erstellen Sie die Netzwerkschnittstelle. 
@@ -174,14 +170,14 @@ Sie haben erfolgreich einen virtuellen Computer erstellt, den virtuellen Compute
     $ipconfiguration = new-object Microsoft.Windows.NetworkController.NetworkInterfaceIpConfiguration
     $ipconfiguration.resourceid = "MyVM_Ip1"
     $ipconfiguration.properties = new-object Microsoft.Windows.NetworkController.NetworkInterfaceIpConfigurationProperties
-    $ipconfiguration.properties.PrivateIPAddress = “10.127.132.177”
+    $ipconfiguration.properties.PrivateIPAddress = "10.127.132.177"
     $ipconfiguration.properties.PrivateIPAllocationMethod = "Static"
 
     $ipconfiguration.properties.Subnet = new-object Microsoft.Windows.NetworkController.Subnet
     $ipconfiguration.properties.subnet.ResourceRef = $logicalnet.Properties.Subnets[0].ResourceRef
 
     $vmnicproperties.IpConfigurations = @($ipconfiguration)
-    $vnic = New-NetworkControllerNetworkInterface –ResourceID “MyVM_Ethernet1” –Properties $vmnicproperties –ConnectionUri $uri
+    $vnic = New-NetworkControllerNetworkInterface –ResourceID "MyVM_Ethernet1" –Properties $vmnicproperties –ConnectionUri $uri
 
     $vnic.InstanceId
    ```
@@ -192,7 +188,7 @@ Sie haben erfolgreich einen virtuellen Computer erstellt, den virtuellen Compute
    #The hardcoded Ids in this section are fixed values and must not change.
    $FeatureId = "9940cd46-8b06-43bb-b9d5-93d50381fd56"
 
-   $vmNics = Get-VMNetworkAdapter -VMName “MyVM”
+   $vmNics = Get-VMNetworkAdapter -VMName "MyVM"
 
    $CurrentFeature = Get-VMSwitchExtensionPortFeature -FeatureId $FeatureId -VMNetworkAdapter $vmNic
         
@@ -223,7 +219,7 @@ Sie haben erfolgreich einen virtuellen Computer erstellt, den virtuellen Compute
 5. Starten Sie den virtuellen Computer.
 
    ```PowerShell
-   Get-VM -Name “MyVM” | Start-VM 
+   Get-VM -Name "MyVM" | Start-VM 
    ```
 
 Sie haben erfolgreich einen virtuellen Computer erstellt, den virtuellen Computer mit einem VLAN verbunden und den virtuellen Computer gestartet, damit er workerworkloads verarbeiten kann.

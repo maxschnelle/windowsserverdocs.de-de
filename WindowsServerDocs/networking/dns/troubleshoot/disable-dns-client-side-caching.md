@@ -2,18 +2,17 @@
 title: DNS-Client seitiges Zwischenspeichern auf DNS-Clients deaktivieren
 description: In diesem Artikel wird beschrieben, wie Sie das Client seitige DNS-Zwischenspeichern auf DNS-Clients deaktivieren.
 manager: dcscontentpm
-ms.prod: ''
 ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: 51a9dbfd05402a9d018aec3bfea8a5c89e9e5d5e
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 09af41a544cacb0fd0977847b7bc2e6b0d8a59f7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265842"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860073"
 ---
 # <a name="disable-dns-client-side-caching-on-dns-clients"></a>DNS-Client seitiges Zwischenspeichern auf DNS-Clients deaktivieren
 
@@ -52,20 +51,20 @@ Mit diesem Befehl wird der Inhalt des DNS-resolvercaches angezeigt, einschließl
 ## <a name="using-the-registry-to-control-the-caching-time"></a>Steuern der zwischen Speicherungs Zeit mithilfe der Registrierung
 
 > [!IMPORTANT]  
-> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/help/322756) für den Fall, dass Probleme auftreten.
+> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wenn Ihnen beim Bearbeiten der Registrierung ein Fehler unterläuft, kann dies zu schwerwiegenden Problemen führen. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/help/322756) für den Fall, dass Probleme auftreten.
 
 Die Zeitspanne, für die eine positive oder negative Antwort zwischengespeichert wird, hängt von den Werten der Einträge im folgenden Registrierungsschlüssel ab:
 
 **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\dnscache\parameters**
 
-Die TTL für positive Antworten ist der kleinere der folgenden Werte: 
+Die Gültigkeitsdauer für positive Antworten ist der kleinere der folgenden Werte: 
 
-- Die Anzahl von Sekunden, die in der von der Auflösung empfangenen Antwort auf die Abfrage angegeben ist
+- Die Anzahl der Sekunden, die in der vom Konflikt Löser empfangenen Abfrage Antwort angegeben wurden.
 
 - Der Wert der **maxcachettl** -Registrierungs Einstellung.
 
 >[!Note]
->- Die Standard-TTL für positive Antworten ist 86.400 Sekunden (1 Tag).
+>- Die Standard Gültigkeitsdauer für positive Antworten beträgt 86.400 Sekunden (1 Tag).
 >- Die Gültigkeitsdauer für negative Antworten ist die Anzahl der Sekunden, die in der Registrierungs Einstellung maxnegativecachettl angegeben ist.
 >- Die Standard Gültigkeitsdauer für negative Antworten beträgt 900 Sekunden (15 Minuten).
 Wenn Sie nicht möchten, dass negative Antworten zwischengespeichert werden, legen Sie die maxnegativecachettl-Registrierungs Einstellung auf "0" fest.
