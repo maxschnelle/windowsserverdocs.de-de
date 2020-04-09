@@ -1,7 +1,6 @@
 ---
 ms.assetid: a91339ef-6ad4-445f-8ecc-a95fbcc04296
 title: AD DS-Entwurf und -Planung
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5267561e4a3d19514d9105f21122db73f85bffb9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fa596fd3897c9fd2cc368e4c5ef164d05bfc4c20
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71409022"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822903"
 ---
 # <a name="ad-ds-design-and-planning"></a>AD DS-Entwurf und -Planung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Durch die Bereitstellung von Windows Server Active Directory Domain Services (AD DS) in Ihrer Umgebung können Sie die Vorteile des zentralisierten, Delegierten Verwaltungsmodells und der Single Sign-On-Funktion (SSO) nutzen, die von AD DS bereitgestellt wird. Nachdem Sie die Bereitstellungs Aufgaben und die aktuelle Umgebung für Ihre Organisation ermittelt haben, können Sie die AD DS Bereitstellungs Strategie erstellen, die den Anforderungen Ihrer Organisation entspricht.  
   
@@ -28,11 +27,11 @@ Dieses Handbuch enthält Empfehlungen, die Ihnen helfen, eine AD DS Bereitstellu
   
 In dieser Anleitung werden die Aufgaben für verschiedene mögliche Ausgangspunkte einer Windows Server 2008-AD DS Bereitstellung beschrieben. Mit diesem Handbuch können Sie die am besten geeignete Bereitstellungs Strategie für Ihre Umgebung bestimmen.  
   
-Obwohl die in diesem Handbuch vorgestellten Strategien für fast alle Server-Betriebssystem Bereitstellungen geeignet sind, wurden Sie speziell für Umgebungen getestet und überprüft, die weniger als 100.000 Benutzer und weniger als 1.000 Websites enthalten. Netzwerkverbindungen von mindestens 28,8 kbit pro Sekunde (Kbit/s). Wenn Ihre Umgebung diese Kriterien nicht erfüllt, empfiehlt es sich, ein Beratungsunternehmen zu verwenden, das AD DS in komplexeren Umgebungen bereitstellt.  
+Obwohl die in diesem Handbuch vorgestellten Strategien für fast alle Server-Betriebssystem Bereitstellungen geeignet sind, wurden Sie speziell für Umgebungen getestet und überprüft, die weniger als 100.000 Benutzer und weniger als 1.000 Standorte enthalten, wobei die Netzwerkverbindungen mindestens 28,8 kbit pro Sekunde (Kbit/s) betragen. Wenn Ihre Umgebung diese Kriterien nicht erfüllt, empfiehlt es sich, ein Beratungsunternehmen zu verwenden, das AD DS in komplexeren Umgebungen bereitstellt.  
   
 Weitere Informationen zum Testen des AD DS Bereitstellungs Prozesses finden Sie im Artikel [Testen und Überprüfen des Bereitstellungs Prozesses](https://go.microsoft.com/fwlink/?LinkId=100206).  
   
-## <a name="in-this-guide"></a>Inhalt dieser Anleitung
+## <a name="in-this-guide"></a>In diesem Handbuch
 
 [Grundlegendes zum AD DS-Entwurf](Understanding-AD-DS-Design.md)  
   
@@ -48,4 +47,4 @@ Weitere Informationen zum Testen des AD DS Bereitstellungs Prozesses finden Sie 
   
 [Bewerten der AD DS-Bereitstellungsstrategie: Beispiele](Evaluating-AD-DS-Deployment-Strategy-Examples.md)  
   
-[Anhang A: Die wichtigsten AD DS-Begriffe](Appendix-A--Reviewing-Key-AD-DS-Terms.md)  
+[Anhang A: Überprüfen der Schlüssel AD DS Bedingungen](Appendix-A--Reviewing-Key-AD-DS-Terms.md)  

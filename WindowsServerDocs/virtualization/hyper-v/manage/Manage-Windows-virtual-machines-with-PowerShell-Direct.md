@@ -2,21 +2,19 @@
 title: Verwalten von virtuellen Windows-Computern mit PowerShell Direct
 description: Hier finden Sie Anweisungen für die Verwendung von PowerShell Direct zum Verwalten virtueller Computer ohne Verwendung eines Netzwerks oder einer Remote Verbindung.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b5715c02-a90f-4de9-a71e-0fc09093ba2d
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 10/04/2016
-ms.openlocfilehash: f42e221b073cf199117f85ea96beef4997bbbbc5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c4a051de2d8f62c38ae0c44b1a62d5bf9df339e8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392747"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859433"
 ---
 # <a name="manage-windows-virtual-machines-with-powershell-direct"></a>Verwalten von virtuellen Windows-Computern mit PowerShell Direct
 
@@ -83,7 +81,7 @@ So richten Sie eine PowerShell Direct-Sitzung auf einem virtuellen Computer ein
   
 Mithilfe des Cmdlets [Get-VM](https://docs.microsoft.com/powershell/module/hyper-v/get-vm) können Sie überprüfen, ob die von Ihnen verwendeten Anmelde Informationen die Rolle "Hyper-V-Administrator" aufweisen und eine Liste der virtuellen Computer, die lokal auf dem Host ausgeführt werden, und gestartet wird.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Enter-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Enter-PSSession)  
 [Exit-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Exit-PSSession)  
 [Befehl "aufrufen"](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Invoke-Command)  

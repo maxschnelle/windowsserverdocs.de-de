@@ -2,21 +2,19 @@
 title: Installieren der Hyper-V-Rolle unter Windows Server
 description: Enthält Anweisungen zum Installieren von Hyper-V mithilfe von Server-Manager oder Windows PowerShell.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 8e871317-09d2-4314-a6ec-ced12b7aee89
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 12/02/2016
-ms.openlocfilehash: 2687a907852e2a81f03b147df1425cd01b34fb76
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d4d8f2343f0935ea7185890319a3e33564750572
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392809"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860823"
 ---
 # <a name="install-the-hyper-v-role-on-windows-server"></a>Installieren der Hyper-V-Rolle unter Windows Server
 
@@ -58,13 +56,13 @@ Wenn Sie nur die Verwaltungs Tools (z. b. Hyper-v-Manager) installieren möchten
   
 2. Klicken Sie mit der rechten Maustaste auf Windows PowerShell, und wählen Sie **als Administrator ausführen**.  
   
-3. Wenn Sie Hyper-V auf einem Server installieren möchten, mit dem Sie eine Remote Verbindung hergestellt haben, führen Sie den folgenden Befehl aus, und ersetzen Sie `<computer_name>` durch den Namen des Servers.  
+3. Zum Installieren von Hyper-V auf einem Server, mit dem Sie eine Remote Verbindung hergestellt haben, führen Sie den folgenden Befehl aus, und ersetzen Sie `<computer_name>` durch den Namen des Servers.  
   
     ```powershell
     Install-WindowsFeature -Name Hyper-V -ComputerName <computer_name> -IncludeManagementTools -Restart  
     ```  
   
-    Wenn Sie lokal mit dem Server verbunden sind, führen Sie den Befehl ohne `-ComputerName <computer_name>` aus.  
+    Wenn Sie lokal mit dem Server verbunden sind, führen Sie den Befehl ohne `-ComputerName <computer_name>`aus.  
   
 4. Nachdem der Server neu gestartet wurde, können Sie sehen, dass die Hyper-V-Rolle installiert ist, und sehen, welche anderen Rollen und Features installiert werden, indem Sie den folgenden Befehl ausführen:  
   
@@ -72,10 +70,10 @@ Wenn Sie nur die Verwaltungs Tools (z. b. Hyper-v-Manager) installieren möchten
     Get-WindowsFeature -ComputerName <computer_name>  
     ```  
   
-    Wenn Sie lokal mit dem Server verbunden sind, führen Sie den Befehl ohne `-ComputerName <computer_name>` aus.  
+    Wenn Sie lokal mit dem Server verbunden sind, führen Sie den Befehl ohne `-ComputerName <computer_name>`aus.  
   
 > [!NOTE]  
-> Wenn Sie diese Rolle auf einem Server installieren, auf dem die Server Core-Installationsoption von Windows Server 2016 ausgeführt wird, und den Parameter `-IncludeManagementTools` verwenden, wird nur das Hyper-V-Modul für Windows PowerShell installiert. Sie können das GUI-Verwaltungs Tool Hyper-v-Manager auf einem anderen Computer verwenden, um einen Hyper-v-Host, der auf einer Server Core-Installation ausgeführt wird, Remote zu verwalten. Anweisungen zum Herstellen einer Remote Verbindung finden Sie unter [Remote Verwaltung von Hyper-v-Hosts mit dem Hyper-v-Manager](../Manage/Remotely-manage-Hyper-V-hosts.md).  
+> Wenn Sie diese Rolle auf einem Server installieren, auf dem die Server Core-Installationsoption von Windows Server 2016 ausgeführt wird, und den Parameter `-IncludeManagementTools`verwenden, wird nur das Hyper-V-Modul für Windows PowerShell installiert. Sie können das GUI-Verwaltungs Tool Hyper-v-Manager auf einem anderen Computer verwenden, um einen Hyper-v-Host, der auf einer Server Core-Installation ausgeführt wird, Remote zu verwalten. Anweisungen zum Herstellen einer Remote Verbindung finden Sie unter [Remote Verwaltung von Hyper-v-Hosts mit dem Hyper-v-Manager](../Manage/Remotely-manage-Hyper-V-hosts.md).  
   
 ## <a name="see-also"></a>Siehe auch  
   

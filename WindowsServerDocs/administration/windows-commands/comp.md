@@ -1,28 +1,22 @@
 ---
 title: comp
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für Comp, das den Inhalt von zwei Dateien oder Datei Sätzen Byte Weise vergleicht.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 40319d23-704d-4da1-be93-8259547275d0
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 84604cea36b0b4c9543a7169002551c0da4f0493
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2f61743b55f38cfdebb17506368609895f48b4f6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379260"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847453"
 ---
 # <a name="comp"></a>comp
-
-
 
 Vergleicht den Inhalt von zwei Dateien oder Dateigruppen byteweise. Wenn Sie ohne Parameter verwendet wird, werden Sie von **Comp** aufgefordert, die zu vergleichenden Dateien einzugeben.
 
@@ -34,7 +28,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 comp [<Data1>] [<Data2>] [/d] [/a] [/l] [/n=<Number>] [/c]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -91,7 +85,7 @@ comp [<Data1>] [<Data2>] [/d] [/a] [/l] [/n=<Number>] [/c]
 
     Drücken Sie Y, um weitere Dateien zu vergleichen. Mit dem Befehl **Comp** werden Sie aufgefordert, die Speicherorte und Namen der neuen Dateien einzugeben. Um die Vergleiche zu unterbrechen, drücken Sie N. Wenn Sie Y drücken, werden Sie von **Comp** aufgefordert, die Befehlszeilenoptionen zu verwenden. Wenn Sie keine Befehlszeilenoptionen angeben, verwendet **Comp** die Werte, die Sie zuvor angegeben haben.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Geben Sie Folgendes ein, um den Inhalt des Verzeichnisses c:\Reports mit dem Sicherungs Verzeichnis \\\\sales\backup\april zu vergleichen:
 ```
@@ -102,6 +96,6 @@ Wenn Sie die ersten zehn Zeilen der Textdateien im Verzeichnis "\rechnungs" verg
 comp \invoice\*.txt \invoice\backup\*.txt /n=10 /d
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

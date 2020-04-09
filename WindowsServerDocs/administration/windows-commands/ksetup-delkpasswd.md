@@ -1,35 +1,31 @@
 ---
 title: 'Ksetup: Delta Pass WD'
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2db0bfcd-bc08-48e3-9f30-65b6411839c6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dce7d9666040ff0c234139932ea60e3589dfecb2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b849265e6036f338413b75fe1da2067e4cdb4cd8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375131"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841653"
 ---
 # <a name="ksetupdelkpasswd"></a>Ksetup: Delta Pass WD
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 entfernt einen Kerberos-Kenn Wort Server (kpasswd) für einen Bereich. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
 ## <a name="syntax"></a>Syntax
 ```
 ksetup /delkpasswd <RealmName> <KpasswdName>
 ```
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |   Parameter   |                                                                                                   Beschreibung                                                                                                   |
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -38,7 +34,7 @@ ksetup /delkpasswd <RealmName> <KpasswdName>
 
 ## <a name="remarks"></a>Hinweise
 Führen Sie den Befehl **Ksetup** aus, um den KDC-Namen zu überprüfen. Wenn **kpasswd =** nicht in der Ausgabe angezeigt wird, wurde die Zuordnung nicht konfiguriert. Wenn festgelegt, werden mehrere Zuordnungen aufgelistet.
-## <a name="BKMK_Examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
 Überprüfen Sie den Bereich Corp. CONTOSO.com verwendet den nicht-Windows-KDC-Server mitkdc.contoso.com als Kenn Wort Server:
 ```
 ksetup /delkpasswd CORP.CONTOSO.COM mitkdc.contoso.com
@@ -47,4 +43,4 @@ Um zu überprüfen, ob der Befehl wie beabsichtigt funktioniert, führen Sie **K
 ## <a name="additional-references"></a>Weitere Verweise
 -   [ksetup](ksetup.md)
 -   [Ksetup: Delta Pass WD](ksetup-delkpasswd.md)
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

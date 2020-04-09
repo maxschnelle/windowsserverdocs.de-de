@@ -2,22 +2,18 @@
 title: 'Schritt 6: Installieren und Konfigurieren von 2-DC1'
 description: 'Dieses Thema ist Teil der Test Umgebungs Anleitung: veranschaulichen einer DirectAccess-Bereitstellung für mehrere Standorte für Windows Server 2016'
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3d66901a-c40b-474c-9948-f989f399cfea
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 558c99c187ab01f3084621410964f3a01c0dace8
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 21591de4527cc33857e215d9521f2f1458c1f3c6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308664"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861563"
 ---
 # <a name="step-6-install-and-configure-2-dc1"></a>Schritt 6: Installieren und Konfigurieren von 2-DC1
 

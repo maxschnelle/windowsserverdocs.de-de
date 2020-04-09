@@ -1,6 +1,5 @@
 ---
 title: Einrichten der geografischen Redundanz mit SQL Server-Replikation
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.prod: windows-server
 ms.technology: active-directory-federation-services
 ms.author: billmath
 ms.assetId: 7b9f9a4f-888c-4358-bacd-3237661b1935
-ms.openlocfilehash: 16cf1a237043aa546d4fc24164045aa9f9a1e6ac
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 54106ae635d44368542986c7c469560981f9888a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359816"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855843"
 ---
 # <a name="setup-geographic-redundancy-with-sql-server-replication"></a>Einrichten der geografischen Redundanz mit SQL Server-Replikation
 
@@ -24,7 +23,7 @@ ms.locfileid: "71359816"
   
 Wenn Sie SQL Server als AD FS Konfigurations Datenbank verwenden, können Sie mithilfe SQL Server Replikation Geor\-Redundanz für Ihre AD FS Farm einrichten. Geor\-Redundanz repliziert Daten zwischen zwei geografisch entfernten Standorten, sodass Anwendungen von einem Standort zu einem anderen wechseln können. Auf diese Weise können Sie bei einem Ausfall eines Standorts weiterhin alle Konfigurationsdaten am zweiten Standort verfügbar haben. Weitere Informationen finden Sie im Abschnitt "SQL Server geografische Redundanz" in der Verbund [Server Farm unter Verwendung SQL Server](../design/Federation-Server-Farm-Using-SQL-Server.md).  
   
-## <a name="prerequisites"></a>Voraussetzungen  
+## <a name="prerequisites"></a>Erforderliche Komponenten  
 Installieren und konfigurieren Sie eine SQL Server-Farm. Weitere Informationen finden Sie unter [https://technet.microsoft.com/evalcenter/hh225126.aspx](https://technet.microsoft.com/evalcenter/hh225126.aspx). Vergewissern Sie sich auf dem ersten SQL Server, dass der SQL Server-Agent-Dienst ausgeführt wird und auf automatischen Start festgelegt ist.  
   
 ## <a name="create-the-second-replica-sql-server-for-geo-redundancy"></a>Erstellen Sie die zweite \(Replikat\) SQL Server für Geor\-Redundanz.  
@@ -156,7 +155,7 @@ Stellen Sie sicher, dass Sie die Herausgeber Einstellungen auf dem ersten SQL Se
   
 4.  Darüber hinaus können Sie unter dem Knoten **SQL Server-Agent\\Aufträge** sehen, wie der Auftrag\(s\) geplant ist, um die Vorgänge des Veröffentlichungs\/Abonnements auszuführen.  Es werden nur lokale Aufträge angezeigt. Vergewissern Sie sich daher, dass der Verleger und der Abonnent die Problembehandlung durchführen.  Klicken Sie mit der rechten\-auf einen Auftrag, und wählen Sie **Verlauf anzeigen** , um Ausführungs Verlauf und Ergebnisse anzuzeigen.  
   
-## <a name="sqlagent"></a>Konfigurieren der SQL-Anmeldung für das Domänen Konto\\SQLAgent  
+## <a name="configure-sql-login-for-the-domain-account-contososqlagent"></a><a name="sqlagent"></a>Konfigurieren der SQL-Anmeldung für das Domänen Konto\\SQLAgent  
   
 1.  Erstellen Sie eine neue Anmeldung auf dem primären und dem Replikat SQL Server mit dem Namen "\\SQLAgent" \(dem Namen des neuen Domänen Benutzers, der in den obigen Verfahren auf der Seite " **Agentsicherheit** " erstellt und konfiguriert wurde.\)  
   
@@ -167,7 +166,7 @@ Stellen Sie sicher, dass Sie die Herausgeber Einstellungen auf dem ersten SQL Se
 ## <a name="configure-ad-fs-nodes-to-point-to-the-sql-server-replica-farm"></a>Konfigurieren Sie AD FS Knoten\(s\), um auf die SQL Server Replikat Farm zu verweisen.  
 Nachdem Sie georedundanz eingerichtet haben, können die AD FS Farm-Knoten so konfiguriert werden, dass Sie auf Ihr Replikat SQL Server Farm mit den standardmäßigen AD FS "Join"-Farm Funktionen verweisen, entweder über die Benutzeroberfläche des AD FS Konfigurations-Assistenten oder mithilfe von Windows PowerShell.  
   
-Wenn Sie die Benutzeroberfläche des AD FS Konfigurations-Assistenten verwenden, wählen Sie Verbund **Server zu einer Verbund Serverfarm hinzufügen**aus. Wählen Sie nicht **die Option ersten Verbund Server in einer Verbund Serverfarm erstellen aus**.  
+Wenn Sie die Benutzeroberfläche des AD FS Konfigurations-Assistenten verwenden, wählen Sie Verbund **Server zu einer Verbund Serverfarm hinzufügen**aus. **Do NOT** Wählen Sie nicht **die Option ersten Verbund Server in einer Verbund Serverfarm erstellen aus**.  
   
 Wenn Sie Windows PowerShell verwenden, führen Sie **\-adfsfarmnode hinzufügen**aus. Führen Sie **install\-adfsfarm** **nicht** aus.  
   

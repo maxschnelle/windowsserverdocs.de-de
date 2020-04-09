@@ -1,27 +1,23 @@
 ---
 title: Teilen einer Benutzerstation
 description: Erfahren Sie, wie Sie eine Anzeige in Multipoint Services aufteilen, damit zwei Benutzer dieselbe Station verwenden können.
-ms.custom: na
 ms.date: 07/08/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f0d1fc9c-f5ea-45bc-a8da-623c5d081cdf
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 5067df3f5902570d56ee130264c751d66b5b0d3f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: db828da06045bb884db138458f875af1d4d5b99d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394950"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853893"
 ---
 # <a name="split-a-user-station"></a>Teilen einer Benutzerstation
-Jeder MultiPoint Server-Stationsmonitor mit einer Auflösung höher als 1024x768 kann mithilfe der Aufgabe **Station teilen** auf der Registerkarte **Stationen** in zwei Stationen aufgeteilt werden. Der auf dem Monitor zum Zeitpunkt der Teilung angezeigte Desktop wird auf die linke Hälfte des Monitors verschoben, und die neue Station wird auf der rechten Hälfte des gleichen Monitors erstellt. Der neuen Station müssen eine Tastatur, eine Maus und ein USB-Hub zugeordnet werden, um die Erstellung abzuschließen. Nach dem Teilen einer Station kann sich ein Benutzer auf der linken Station anmelden, während sich ein anderer Benutzer auf der rechten Station anmeldet.  
+Jeder Multipoint Services-Stations Monitor mit einer Auflösung von mehr als 1024 x 768 kann mithilfe der Aufgabe **Split Station** auf der Registerkarte **Stationen** in zwei Stationen aufgeteilt werden. Der Desktop, der zum Zeitpunkt der Aufteilung auf dem Monitor vorhanden ist, wechselt zur linken Hälfte des Monitors, und auf der rechten Hälfte desselben Monitors wird eine neue Station erstellt. Der neuen Station müssen eine Tastatur, eine Maus und ein USB-Hub zugeordnet werden, um die Erstellung abzuschließen. Nach dem Teilen einer Station kann sich ein Benutzer auf der linken Station anmelden, während sich ein anderer Benutzer auf der rechten Station anmeldet.  
   
 Die Verwendung einer Split-Screen-Station kann Folgendes umfassen:  
   
@@ -50,5 +46,5 @@ Die Verwendung einer Split-Screen-Station kann Folgendes umfassen:
   
 3.  Klicken Sie unter **Stationsaufgaben** auf **Stationsteilung aufheben**.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Verwalten von Benutzerstationen](Manage-User-Stations.md)

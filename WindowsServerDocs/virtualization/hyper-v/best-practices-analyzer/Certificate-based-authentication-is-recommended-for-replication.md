@@ -2,20 +2,19 @@
 title: Die Zertifikat basierte Authentifizierung wird für die Replikation empfohlen.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: d931cc57-414f-4bdf-9ebd-08fd5e22b19d
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 0eac99fddd8bbc6dc585931cd25f2a440be16c76
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c5e356792ba93d21d9ce130a46e1d60336c99844
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365181"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857673"
 ---
 # <a name="certificate-based-authentication-is-recommended-for-replication"></a>Die Zertifikat basierte Authentifizierung wird für die Replikation empfohlen.
 
@@ -36,12 +35,12 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 *Mindestens eine für die Replikation ausgewählte virtuelle Maschine ist für die Kerberos-Authentifizierung konfiguriert.*  
   
 ## <a name="impact"></a>**Auswirkt**  
-*der Replikations Netzwerk-Datenverkehr vom primären Server zum Replikationsserver ist nicht verschlüsselt. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
+*Der Netzwerk Datenverkehr für die Replikation vom primären Server zum Replikationsserver ist nicht verschlüsselt. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
   
-\<list of Virtual Machines >  
+\<Liste der virtuellen Computer >  
   
-## <a name="resolution"></a>**Auflösung**  
-*wenn eine andere Methode zum Durchführen der Verschlüsselung verwendet wird, können Sie dies ignorieren. Andernfalls ändern Sie die Einstellungen der virtuellen Maschine, um die Zertifikat basierte Authentifizierung auszuwählen.*  
+## <a name="resolution"></a>**Lösung**  
+*Wenn eine andere Methode zum Durchführen der Verschlüsselung verwendet wird, können Sie dies ignorieren. Andernfalls ändern Sie die Einstellungen der virtuellen Maschine, um die Zertifikat basierte Authentifizierung auszuwählen.*  
   
 
 

@@ -4,19 +4,19 @@ description: Optimieren der Prozessor Energie Verwaltung (ppm) für den Energie 
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Qizha;TristanB
+ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 53399c1ff1d9fa60df992b922b99c82d119b2f58
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5c7319c843609f8bf846dd6ccf4bc2bf91f3b942
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355025"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851973"
 ---
 # <a name="processor-power-management-ppm-tuning-for-the-windows-server-balanced-power-plan"></a>Optimieren der Prozessor Energie Verwaltung (ppm) für den Energie Sparplan von Windows Server ausgeglichen
 
-Ab Windows Server 2008 bietet Windows Server drei Energie Sparpläne: **Ausgeglichen**, **hohe Leistung**und **Energiespar**Modus. Der **ausgeglichene** Energie Sparplan ist die Standardoption, mit der die beste Energieeffizienz für eine Reihe typischer Server Arbeits Auslastungen erzielt werden soll. In diesem Thema werden die Arbeits Auslastungen beschrieben, die verwendet wurden, um die Standardeinstellungen für das **ausgeglichene** Schema für die letzten Versionen von Windows zu ermitteln.
+Ab Windows Server 2008 bietet Windows Server drei Energie Sparpläne: **ausgeglichen**, **hohe Leistung**und **Energiespar**Modus. Der **ausgeglichene** Energie Sparplan ist die Standardoption, mit der die beste Energieeffizienz für eine Reihe typischer Server Arbeits Auslastungen erzielt werden soll. In diesem Thema werden die Arbeits Auslastungen beschrieben, die verwendet wurden, um die Standardeinstellungen für das **ausgeglichene** Schema für die letzten Versionen von Windows zu ermitteln.
 
 Wenn Sie ein Server System mit stark unterschiedlichen workloadmerkmalen oder Leistungs-und Leistungsanforderungen als diese Arbeits Auslastungen ausführen, sollten Sie die Standardeinstellungen für Energie Einstellungen (d. h. Erstellen eines benutzerdefinierten Energie Sparplans) optimieren. Eine Quelle nützlicher Optimierungs Informationen sind die [Leistungsaspekte der Server Hardware](../power.md). Alternativ können Sie sich entscheiden, dass der **High Performance** -Energie Sparplan die richtige Wahl für Ihre Umgebung ist. Dadurch wird erkannt, dass Sie für eine gewisse höhere Reaktionsfähigkeit wahrscheinlich eine beträchtliche Stromversorgung in Exchange erreichen werden.
 
@@ -46,7 +46,7 @@ Die Optimierung der einzelnen Energierichtlinien basiert auf den Daten, die von 
 
 -   **Specpower – Java-Arbeitsauslastung**
 
-    [Specpower\_ssj2008](http://spec.org/power_ssj2008/) ist der erste Branchen standardspezifikations-Benchmark, der die Leistungs-und Leistungsmerkmale zusammen wertet. Dabei handelt es sich um eine serverseitige Java-Arbeitsauslastung mit unterschiedlichen CPU-Lade Graden. Es sind nicht viele Datenträger-oder Netzwerkressourcen erforderlich, es sind jedoch bestimmte Anforderungen an die Arbeitsspeicher Bandbreite erforderlich. Fast alle CPU-Aktivitäten werden im Benutzermodus ausgeführt. die kernelmodusaktivität hat keine großen Auswirkungen auf die Leistungs-und Leistungsmerkmale der Benchmarks, mit Ausnahme der Energie Verwaltungsentscheidungen.
+    [Specpower\_ssj2008](http://spec.org/power_ssj2008/) ist der erste Branchen standardspezifikations-Benchmark, der die Leistungs-und Leistungsmerkmale gemeinsam evaluiert. Dabei handelt es sich um eine serverseitige Java-Arbeitsauslastung mit unterschiedlichen CPU-Lade Graden. Es sind nicht viele Datenträger-oder Netzwerkressourcen erforderlich, es sind jedoch bestimmte Anforderungen an die Arbeitsspeicher Bandbreite erforderlich. Fast alle CPU-Aktivitäten werden im Benutzermodus ausgeführt. die kernelmodusaktivität hat keine großen Auswirkungen auf die Leistungs-und Leistungsmerkmale der Benchmarks, mit Ausnahme der Energie Verwaltungsentscheidungen.
 
 -   **Anwendungs Server-Arbeitsauslastung**
 
@@ -58,10 +58,10 @@ Alle Benchmarks außer specpower wurden ursprünglich für die Leistungsanalyse 
 
 Für jede Version von Windows werden die aktuellen Produktionsserver in der Energie Sparplan-Analyse und-Optimierung verwendet. In einigen Fällen wurden die Tests in präproduktionssystemen ausgeführt, deren releasezeitplan mit der nächsten Windows-Version übereinstimmt.
 
-Da die meisten Server mit 1 bis 4 Prozessor Sockets verkauft werden, und da die Wahrscheinlichkeit, dass für Server mit horizontaler Skalierung die Energieeffizienz als Hauptanliegen festgestellt wird, werden die Tests der Energiespar Plan Optimierung hauptsächlich auf zwei socketsystemen und vier socketsystemen ausgeführt. Die Größe der RAM-, Datenträger-und Netzwerkressourcen für jeden Test wird ausgewählt, damit jedes System bis zu seiner vollen Kapazität ausgeführt werden kann. dabei werden die Kosteneinschränkungen berücksichtigt, die normalerweise für reale Serverumgebungen gelten, wie z. b. die Beibehaltung der angemessene Konfigurationen.
+Da die meisten Server mit 1 bis 4 Prozessor Sockets verkauft werden, und da die Wahrscheinlichkeit, dass für Server mit horizontaler Skalierung die Energieeffizienz als Hauptanliegen festgestellt wird, werden die Tests der Energiespar Plan Optimierung hauptsächlich auf zwei socketsystemen und vier socketsystemen ausgeführt. Die Größe der RAM-, Datenträger-und Netzwerkressourcen für jeden Test wird ausgewählt, damit jedes System bis zu seiner vollständigen Kapazität ausgeführt werden kann. dabei werden die Kosteneinschränkungen berücksichtigt, die normalerweise für reale Serverumgebungen gelten, wie z. b. die angemessene Beibehaltung der Konfigurationen.
 
 > [!IMPORTANT]
-> Obwohl das System bei Spitzenlast ausgeführt werden kann, optimieren wir in der Regel eine höhere Auslastung, da Server, die mit ihren Spitzenlast Ebenen konsistent ausgeführt werden, den **hochleistungsfähigen** Energie Sparplan nutzen würden, sofern die Energieeffizienz nicht hoch ist. haben.
+> Obwohl das System bei Spitzenlast ausgeführt werden kann, optimieren wir in der Regel eine höhere Auslastung, da Server, die mit ihren Spitzenlast Ebenen konsistent ausgeführt werden, den **hochleistungsfähigen** Energie Sparplan verwenden sollten, wenn die Energieeffizienz eine hohe Priorität ist.
 
 ### <a name="metrics"></a>Metriken
 
@@ -74,7 +74,7 @@ Daher verwendet die ppm-Optimierungs Analyse auch einen Durchsatz als Leistungs 
 Durch das Ausführen der CPU-Kerne bei niedrigeren Frequenzen wird der Energieverbrauch reduziert. Niedrigere Frequenzen verringern jedoch in der Regel den Durchsatz und erhöhen die Reaktionszeit. Für den **ausgeglichenen** Energie Sparplan ist ein beabsichtigter Kompromiss von Reaktionsfähigkeit und Energieeffizienz vorhanden. Die SAP-workloadtests und die Antwortzeit-SLAs für die anderen Arbeits Auslastungen stellen sicher, dass die Erhöhung der Antwortzeit für diese spezifischen Workloads keinen bestimmten Schwellenwert (z. b. 5%) überschreitet.
 
 > [!NOTE]
-> Wenn die Arbeitsauslastung die Antwortzeit als Leistungs Metrik verwendet, sollte das System entweder zum **hochleistungsfähigen** Energie Sparplan wechseln oder einen **ausgeglichenen** Energie Sparplan ändern, wie in [Empfohlene ausgeglichene Energie Sparplan Parameter für die schnelle Reaktion empfohlen. Uhrzeit](recommended-balanced-plan-parameters.md).
+> Wenn die Arbeitsauslastung die Antwortzeit als Leistungs Metrik verwendet, sollte das System entweder zum **hochleistungsfähigen** Energie Sparplan wechseln oder einen **ausgeglichenen** Energie Sparplan ändern, wie in [Empfohlene ausgeglichene Energie Sparplan Parameter für die schnelle Reaktionszeit empfohlen](recommended-balanced-plan-parameters.md).
 
 ### <a name="tuning-results"></a>Optimierungsergebnisse
 
@@ -107,11 +107,11 @@ Aufgrund der Anzahl und Komplexität von Parametern ist dies möglicherweise ein
 
 ### <a name="understand-high-level-performance-and-power-requirements"></a>Grundlegendes zu Leistungs-und Energieanforderungen auf hoher Ebene
 
-Wenn Ihre Arbeitsauslastung "Echt Zeit" ist (z. b. anfällig für das Durchsuchen oder andere sichtbare Auswirkungen auf Endbenutzer) oder eine sehr strenge Reaktions Anforderung (z. b. eine Aktien Makler), und wenn der Energieverbrauch kein primäres Kriterium für Ihre Umgebung ist, sollten Sie wahrscheinlich Wechseln Sie einfach zum **hochleistungsfähigen** Energie Sparplan. Andernfalls sollten Sie die Reaktionszeit Anforderungen ihrer Arbeits Auslastungen kennen und dann die ppm-Parameter für die bestmögliche Energieeffizienz optimieren, die diese Anforderungen erfüllt.
+Wenn Ihre Arbeitsauslastung "Echt Zeit" ist (z. b. anfällig für das Durchsuchen oder andere sichtbare Auswirkungen des Endbenutzers) oder eine sehr strenge Reaktions Anforderung (z. b. eine Aktien Vermittler) ist, und wenn der Energieverbrauch für Ihre Umgebung kein primäres Kriterium ist, sollten Sie wahrscheinlich einfach zum **hochleistungsfähigen** Energie Sparplan wechseln. Andernfalls sollten Sie die Reaktionszeit Anforderungen ihrer Arbeits Auslastungen kennen und dann die ppm-Parameter für die bestmögliche Energieeffizienz optimieren, die diese Anforderungen erfüllt.
 
 ### <a name="understand-underlying-workload-characteristics"></a>Grundlagen der Merkmale
 
-Sie sollten Ihre Arbeits Auslastungen kennen und die Experiment Parametersätze für die Optimierung entwerfen. Wenn z. b. Häufigkeiten der CPU-Kerne sehr schnell hochgefahren werden müssen (möglicherweise verfügen Sie über eine bursty-Arbeitsauslastung mit erheblichen Leerlaufzeiten, aber Sie benötigen eine sehr schnelle Reaktionsfähigkeit, wenn eine neue Transaktion auftritt), dann wird die Richtlinie für die Prozessorleistung erhöht. muss möglicherweise auf "Rocket" festgelegt werden (was bedeutet, dass die CPU-Kern Frequenz in den maximalen Wert und nicht über einen Zeitraum hinweg durchlaufen wird).
+Sie sollten Ihre Arbeits Auslastungen kennen und die Experiment Parametersätze für die Optimierung entwerfen. Wenn beispielsweise die Häufigkeit der CPU-Kerne sehr schnell beschleunigt werden muss (vielleicht haben Sie eine bursty-Arbeitsauslastung mit erheblichen Leerlaufzeiten), Sie benötigen jedoch sehr schnelle Reaktionsfähigkeit, wenn eine neue Transaktion durchgeführt wird, und die Leistungs Erhöhung der Prozessorleistung muss möglicherweise auf "Rocket" festgelegt werden (was bedeutet, dass die CPU-Kern Frequenz auf den maximalen Wert stößt, anstatt Sie über einen bestimmten Zeitraum hinweg zu überschreiten).
 
 Wenn Ihre Arbeitsauslastung sehr gut ist, kann das Intervall von ppm verkürzt werden, damit die CPU-Frequenz schneller nach Erreichen eines Burst Vorgangs beschleunigt wird. Wenn Ihre Arbeitsauslastung keine hohe Thread Parallelität hat, können Sie mit der Kern-Platz Überschreitung aktivieren, um die Ausführung der Arbeitsauslastung auf einer geringeren Anzahl von Kernen zu erzwingen, was möglicherweise zu einer Verbesserung der Prozessor Cache-Trefferquoten führt.
 
@@ -125,7 +125,7 @@ Dies erhöht wiederum die Komplexität des Optimierungsprozesses, sodass es eine
 
 Aus diesem Grund bietet Windows einen **ausgeglichenen** Energie Sparplan an erster Stelle, denn in vielen Fällen ist es wahrscheinlich nicht sinnvoll, eine manuelle Optimierung für eine bestimmte Arbeitsauslastung auf einem bestimmten Server durchzuführen.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 - [Überlegungen zur Server Hardware Leistung](../index.md)
 - [Server Hardware Power Considerations](../power.md) (Überlegungen zum Energiebedarf von Serverhardware)
 - [Power and Performance Tuning](power-performance-tuning.md) (Leistungs- und Energieoptimierung)

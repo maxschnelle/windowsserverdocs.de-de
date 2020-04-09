@@ -1,24 +1,20 @@
 ---
 title: 'Ksetup: setcomputerpassword'
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e307d8f6-3b93-4c24-ac04-f31549f7dc7d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d1d3742476385eb770c9cb5c798c1f6ab27c74f8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3e65ea6e935d9fde9c23842755c36e418928dec7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374942"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841373"
 ---
 # <a name="ksetupsetcomputerpassword"></a>Ksetup: setcomputerpassword
 
@@ -32,11 +28,11 @@ Legt das Kennwort für den lokalen Computer fest. Beispiele für die Verwendung 
 ksetup /setcomputerpassword <Password>
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<password >|Verwendet das angegebene Kennwort, um das Computer Konto auf dem lokalen Computer festzulegen.</br>Das Kennwort kann nur mit einem Konto mit Administrator Berechtigungen festgelegt werden. Das Kennwort kann zwischen 1 und 156 alphanumerische Zeichen oder Sonderzeichen enthalten.|
+|Kennwort \<>|Verwendet das angegebene Kennwort, um das Computer Konto auf dem lokalen Computer festzulegen.</br>Das Kennwort kann nur mit einem Konto mit Administrator Berechtigungen festgelegt werden. Das Kennwort kann zwischen 1 und 156 alphanumerische Zeichen oder Sonderzeichen enthalten.|
 
 ## <a name="remarks"></a>Hinweise
 
@@ -46,14 +42,14 @@ Sie müssen den Computer neu starten, damit die Kenn Wort Änderung wirksam wird
 
 Das Kennwort des Computer Kontos wird nicht in der Registrierung oder als Ausgabe des **Ksetup** -Befehls angezeigt.
 
-## <a name="BKMK_Examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
 
 Ändern Sie das Kennwort des Computer Kontos auf dem lokalen Computer von IPops897 auf IPOP $897!.
 ```
 ksetup /setcomputerpassword IPop$897!
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Ksetup](ksetup.md)
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

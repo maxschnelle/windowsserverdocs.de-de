@@ -1,7 +1,6 @@
 ---
 title: Cluster-zu-Cluster-Speicher Replikat innerhalb derselben Region in Azure
 description: Cluster-zu-Cluster-Speicher Replikation innerhalb derselben Region in Azure
-keywords: Speicher Replikat, Server-Manager, Windows Server, Azure, Cluster, dieselbe Region
 author: arduppal
 ms.author: arduppal
 ms.date: 04/26/2019
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 3e620b5597a2d25a7bb02daf80c5812d25f6a987
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 00dbf709139ef245b94a3f083ab83a12503131c2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950036"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856293"
 ---
 # <a name="cluster-to-cluster-storage-replica-within-the-same-region-in-azure"></a>Cluster-zu-Cluster-Speicher Replikat innerhalb derselben Region in Azure
 
@@ -36,7 +35,7 @@ Teil 2
 
 1. Erstellen Sie eine [Ressourcengruppe](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) im Azure-Portal in einer Region (**SR-AZ2AZ** in **USA, Westen 2**). 
 2. Erstellen Sie in der oben erstellten Ressourcengruppe (**SR-AZ2AZ**) zwei [Verfügbarkeits Gruppen](https://ms.portal.azure.com/#create/Microsoft.AvailabilitySet-ARM) , eine für jeden Cluster. 
-    ein. Verfügbarkeits Gruppe (**az2azAS1**) b. Verfügbarkeits Gruppe (**az2azAS2**)
+    a. Verfügbarkeits Gruppe (**az2azAS1**) b. Verfügbarkeits Gruppe (**az2azAS2**)
 3. Erstellen Sie ein [virtuelles Netzwerk](https://ms.portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) (**az2az-vnet**) in der zuvor erstellten Ressourcengruppe (**SR-az2az**) mit mindestens einem Subnetz. 
 4. Erstellen Sie eine [Netzwerk Sicherheitsgruppe](https://ms.portal.azure.com/#create/Microsoft.NetworkSecurityGroup-ARM) (**az2az-NSG**), und fügen Sie eine eingehende Sicherheitsregel für RDP hinzu: 3389. Nachdem Sie die Einrichtung abgeschlossen haben, können Sie diese Regel entfernen. 
 5. Erstellen Sie [virtuelle](https://ms.portal.azure.com/#create/Microsoft.WindowsServer2016Datacenter-ARM) Windows Server-Computer in der zuvor erstellten Ressourcengruppe (**SR-AZ2AZ**). Verwenden Sie das zuvor erstellte virtuelle Netzwerk (**az2az-vnet**) und die Netzwerk Sicherheitsgruppe (**az2az-NSG**). 
@@ -103,7 +102,7 @@ Teil 2
      $IPResourceName = "Cluster IP Address" # IP Address cluster resource name.
      $ILBIP = "10.3.0.100" # IP Address in Internal Load Balancer (ILB) - The static IP address for the load balancer configured in the Azure portal.
      [int]$ProbePort = 59999
-     Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";”ProbeFailureThreshold”=5;"EnableDhcp"=0}
+     Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"ProbeFailureThreshold"=5;"EnableDhcp"=0}
     ```
 
 14. Führen Sie den folgenden Befehl von einem beliebigen Knoten aus **az2az3**/**az2az4**. 
@@ -113,7 +112,7 @@ Teil 2
     $IPResourceName = "Cluster IP Address" # IP Address cluster resource name.
     $ILBIP = "10.3.0.101" # IP Address in Internal Load Balancer (ILB) - The static IP address for the load balancer configured in the Azure portal.
     [int]$ProbePort = 59999
-    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";”ProbeFailureThreshold”=5;"EnableDhcp"=0}  
+    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"ProbeFailureThreshold"=5;"EnableDhcp"=0}  
     ```   
     Stellen Sie sicher, dass beide Cluster eine Verbindung herstellen und miteinander kommunizieren können. 
 

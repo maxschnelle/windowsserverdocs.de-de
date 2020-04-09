@@ -1,52 +1,50 @@
 ---
 title: bitsadmin removecredentials
-description: Windows-Befehls Thema für **bitionadmin removecredenseins** -entfernt Anmelde Informationen aus einem Auftrag.
-ms.custom: na
+description: Windows-Befehls Thema für biout admin **removecredenseins**, mit dem Anmelde Informationen aus einem Auftrag entfernt werden.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4a78ce9a-1feb-4811-a000-cce81287b22b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 34a5bae9304a9db9f47f437276270ca06b1ebeee
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 55ff7e2a813c7cc6b60e04d55ef63804a2aed796
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380822"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849843"
 ---
 # <a name="bitsadmin-removecredentials"></a>bitsadmin removecredentials
 
 Entfernt Anmelde Informationen aus einem Auftrag.
 
-**Bits 1,2 und früher**: Nicht unterstützt.
+> [!NOTE]
+> Dieser Befehl wird von Bits 1,2 und früheren Versionen nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-bitsadmin /RemoveCredentials <Job> <Target> <Scheme>
+bitsadmin /removecredentials <job> <target> <scheme>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
-|Ziel|Server oder Proxy|
-|Schrift|Eine der folgenden Möglichkeiten:</br>-Basic – das Authentifizierungsschema, in dem der Benutzername und das Kennwort in Klartext an den Server oder Proxy gesendet werden.</br>-Digest – ein Challenge-Response-Authentifizierungsschema, das eine vom Server angegebene Daten Zeichenfolge für die Abfrage verwendet.</br>-NTLM – ein Challenge-Response-Authentifizierungsschema, bei dem die Anmelde Informationen des Benutzers zur Authentifizierung in einer Windows-Netzwerkumgebung verwendet werden.</br>-Aushandlungen – auch als Simple and Protected Aushandlungs Protokoll (snego) bezeichnet, ist ein Challenge-Response-Authentifizierungsschema, das mit dem Server oder Proxy aushandelt, um zu bestimmen, welches Schema für die Authentifizierung verwendet werden soll. Beispiele sind das Kerberos-Protokoll und NTLM.</br>-Passport – ein von Microsoft bereitgestellter zentralisierter Authentifizierungsdienst, der eine einzelne Anmeldung für Mitglieder Standorte bietet.|
+| Parameter | Beschreibung |
+| -------------- | -------------- |
+| Auftrag | Der Anzeige Name oder GUID des Auftrags. |
+| target | Verwenden Sie entweder den **Server** oder den **Proxy**. |
+| scheme | Verwenden Sie eine der folgenden Aktionen:<ul><li>**Basic.** Das Authentifizierungsschema, in dem der Benutzername und das Kennwort in Klartext an den Server oder Proxy gesendet werden.</li><li>**lich.** Ein Challenge-Response-Authentifizierungsschema, das eine vom Server angegebene Daten Zeichenfolge für die Abfrage verwendet.</li><li>**NTLM.** Ein Challenge-Response-Authentifizierungsschema, bei dem die Anmelde Informationen des Benutzers zur Authentifizierung in einer Windows-Netzwerkumgebung verwendet werden.</li><li>**Aushandeln (auch als einfaches und geschütztes Aushandlungs Protokoll bezeichnet).** Ein Challenge-Response-Authentifizierungsschema, das mit dem Server oder Proxy aushandiert, um zu bestimmen, welches Schema für die Authentifizierung verwendet werden soll. Beispiele sind das Kerberos-Protokoll und NTLM.</li><li>**BU.** Ein von Microsoft bereitgestellter zentralisierter Authentifizierungsdienst, der eine einzelne Anmeldung für Mitglieder Standorte bietet.</li></ul> |
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Im folgenden Beispiel werden die Anmelde Informationen aus dem Auftrag mit dem Namen *mydownloadjob*entfernt.
+
 ```
-C:\>bitsadmin /RemoveCredentials myDownloadJob SERVER BASIC
+C:\>bitsadmin /removecredentials myDownloadJob server basic
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

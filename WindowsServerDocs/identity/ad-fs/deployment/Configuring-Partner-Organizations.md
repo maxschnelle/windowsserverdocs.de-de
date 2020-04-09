@@ -1,7 +1,6 @@
 ---
 ms.assetid: 4d002764-58b4-4137-9c86-1e55b02e07ce
 title: Konfigurieren von Partner Organisationen
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 575d7e3fc97496c3f7c147220fe342add66517c3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ac83d9754365f3ceea5b363af4df93862bdb59e6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408398"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855493"
 ---
 # <a name="configuring-partner-organizations"></a>Konfigurieren von Partner Organisationen
 
@@ -28,7 +27,7 @@ Ein Konto Partner ist die Organisation in der Verbund Vertrauensstellung, die Be
   
 Anders ausgedrückt: ein Konto Partner stellt die Organisation dar, für deren Benutzer das Konto\-seitigen Verbund Servers Sicherheits Token ausgibt. Der Verbund Server in der Konto Partnerorganisation authentifiziert lokale Benutzer und erstellt Sicherheits Token, die der Ressourcen Partner verwendet, um Autorisierungs Entscheidungen zu treffen.  
   
-Im Hinblick auf Attribut Speicher entspricht der Konto Partner in AD FS konzeptionell einer einzelnen Active Directory Gesamtstruktur, deren Konten Zugriff auf Ressourcen benötigen, die sich physisch in einer anderen Gesamtstruktur befinden. Konten in dieser Gesamtstruktur können nur auf Ressourcen in der Ressourcen Gesamtstruktur zugreifen, wenn zwischen den beiden Gesamtstrukturen eine externe Vertrauensstellung oder eine Gesamtstruktur-Vertrauensstellung besteht und die Ressourcen, auf die die Benutzer zugreifen möchten, mit der entsprechenden Autorisierung festgelegt wurden. Griff.  
+Im Hinblick auf Attribut Speicher entspricht der Konto Partner in AD FS konzeptionell einer einzelnen Active Directory Gesamtstruktur, deren Konten Zugriff auf Ressourcen benötigen, die sich physisch in einer anderen Gesamtstruktur befinden. Konten in dieser Gesamtstruktur können nur auf Ressourcen in der Ressourcen Gesamtstruktur zugreifen, wenn zwischen den beiden Gesamtstrukturen eine externe Vertrauensstellung oder eine Gesamtstruktur-Vertrauensstellung besteht und die Ressourcen, auf die die Benutzer zugreifen möchten, mit den entsprechenden Autorisierungs Berechtigungen festgelegt wurden.  
   
 ## <a name="about-resource-partner-organizations"></a>Informationen zu Ressourcen Partnerorganisationen  
 Der Ressourcen Partner ist die Organisation in einer AD FS Bereitstellung, in der sich Webserver befindet. Der Ressourcen Partner vertraut dem Konto Partner, um Benutzer zu authentifizieren. Um Autorisierungs Entscheidungen zu treffen, verwendet der Ressourcen Partner daher die Ansprüche, die in Sicherheits Token gepackt sind, die von Benutzern des Konto Partners stammen.  

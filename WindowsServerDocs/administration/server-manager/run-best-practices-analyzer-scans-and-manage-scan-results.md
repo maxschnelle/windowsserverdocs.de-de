@@ -1,24 +1,20 @@
 ---
 title: Ausführen Best Practices Analyzer Scans und Verwalten der Scan Results_1
 description: Server-Manager
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 232f1c80-88ef-4a39-8014-14be788c2766
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6edd561749ea0d224058b482992d357357c12505
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6ff854bcb25e4f5891e56f1e094fd4f387cf023f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383076"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851483"
 ---
 # <a name="run-best-practices-analyzer-scans-and-manage-scan-results"></a>Ausführen von Best Practices Analyzer-Scans und Verwalten der Scanergebnisse
 
@@ -30,7 +26,7 @@ Best Practices Analyzer (BPA) ist ein Server Verwaltungs Tool, das in Windows Se
 
 Sie können Best Practices Analyzer (BPA)-Scans entweder über Server-Manager, mithilfe der grafischen Benutzeroberfläche von BPA oder mithilfe von Cmdlets in Windows PowerShell ausführen. ab Windows Server 2012 können Sie eine oder mehrere Rollen gleichzeitig auf mehreren Servern Scannen, unabhängig davon, ob Sie die Best Practices Analyzer-Kachel in der Server-Manager-Konsole oder Windows PowerShell-Cmdlets zum Ausführen von Scans verwenden. Sie können in BPA auch festlegen, dass Scanergebnisse ausgeschlossen oder ignoriert werden, die Sie nicht anzeigen möchten.
 
-Dieses Thema enthält die folgenden Abschnitte:
+Dieses Thema enthält folgende Abschnitte:
 
 -   [BPA suchen](#BKMK_find)
 
@@ -40,15 +36,15 @@ Dieses Thema enthält die folgenden Abschnitte:
 
 -   [Überprüfungs Ergebnisse verwalten](#BKMK_manage)
 
-## <a name="BKMK_find"></a>BPA suchen
+## <a name="find-bpa"></a><a name=BKMK_find></a>BPA suchen
 Die Best Practices Analyzer-Kachel finden Sie auf den Rollen-und Server Gruppen Seiten Server-Manager in Windows Server 2012 R2 und Windows Server 2012, oder Sie können eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten öffnen, um Best Practices Analyzer-Cmdlets auszuführen.
 
-## <a name="BKMK_how"></a>Funktionsweise von BPA
+## <a name="how-bpa-works"></a><a name=BKMK_how></a>Funktionsweise von BPA
 BPA misst die Konformität einer Rolle mit Best Practices-Regeln in acht verschiedenen Kategorien von Effektivität, Vertrauenswürdigkeit und Zuverlässigkeit. Die Bewertungsergebnisse werden in einem der drei Schweregrade zurückgegeben, die in der folgenden Tabelle beschrieben werden.
 
 |Schweregrad|Beschreibung|
 |---------|--------|
-|Fehler|Fehlerergebnisse werden zurückgegeben, wenn eine Rolle den Bedingungen einer Regel für bewährte Methoden nicht entspricht und Funktionalitätsprobleme erwartet werden können.|
+|Error|Fehlerergebnisse werden zurückgegeben, wenn eine Rolle den Bedingungen einer Regel für bewährte Methoden nicht entspricht und Funktionalitätsprobleme erwartet werden können.|
 |Information|Informationsergebnisse werden zurückgegeben, wenn eine Rolle den Bedingungen einer Regel für bewährte Methoden entspricht.|
 |Warnung|Warnungsergebnisse werden zurückgegeben, wenn die Ergebnisse der Nichtkompatibilität zu Problemen führen können, falls keine Änderungen vorgenommen werden. Die Anwendung ist zwar möglicherweise im aktuellen Betrieb kompatibel, entspricht den Bedingungen einer Regel jedoch nur, wenn ihre Konfiguration oder Richtlinieneinstellungen geändert werden. Beispielsweise kann beim Scan von Remotedesktopdienste eine Warnung angezeigt werden, wenn ein Lizenzserver für die Rolle nicht verfügbar ist. Denn selbst wenn zum Zeitpunkt des Scans keine Remoteverbindungen aktiv sind, bedeutet das Fehlen des Lizenzservers, dass neue Remoteverbindungen keine gültige Clientzugriffslizenzen erhalten.|
 
@@ -60,16 +56,16 @@ In der folgenden Tabelle werden die Kategorien der Best Practices-Regeln beschri
 |Sicherheit|Sicherheitsregeln werden angewendet, um das relative Risiko einer Rolle für Bedrohungen wie nicht autorisierte oder böswillige Benutzer oder den Verlust oder Diebstahl vertraulicher oder proprietärer Daten zu messen.|
 |Leistung|Leistungs Regeln werden angewendet, um die Fähigkeit einer Rolle zum Verarbeiten von Anforderungen und zum Ausführen der vorgeschriebenen Aufgaben im Unternehmen innerhalb der erwarteten Zeitspanne in der Arbeitsauslastung der Rolle zu messen.|
 |Konfiguration|Mit Konfigurationsregeln werden die Einstellungen einer Rolle identifiziert, die für eine optimale Leistung ggf. Änderungen erfordern. Konfigurationsregeln können Konflikte bei Einstellungen vermeiden, die Fehlermeldungen verursachen oder verhindern können, dass eine Rolle ihre zugewiesenen Aufgaben im Unternehmen erfüllt.|
-|Richtlinie|Richtlinien Regeln werden angewendet, um Gruppenrichtlinie oder Windows-Registrierungs Einstellungen zu identifizieren, die möglicherweise geändert werden müssen, damit eine Rolle optimal und sicher funktioniert.|
+|Policy (Richtlinie)|Richtlinien Regeln werden angewendet, um Gruppenrichtlinie oder Windows-Registrierungs Einstellungen zu identifizieren, die möglicherweise geändert werden müssen, damit eine Rolle optimal und sicher funktioniert.|
 |Vorgang|Mit Vorgangsregeln werden mögliche Fehler einer Rolle beim Ausführen der vorgeschriebenen Aufgaben im Unternehmen identifiziert.|
 |Vor der Bereitstellung|Regeln vor der Bereitstellung werden vor dem Bereitstellen einer installierten Rolle im Unternehmen angewendet. Damit können Administratoren auswerten, ob die bewährten Methoden erfüllt werden, bevor die Rolle in der Produktion verwendet wird.|
 |Nach der Bereitstellung|Regeln nach der Bereitstellung werden angewendet, nachdem alle erforderlichen Dienste für eine Rolle gestartet wurden und die Rolle im Unternehmen ausgeführt wird.|
 |Erforderliche Komponenten|Voraussetzungsregeln erläutern Konfigurationseinstellungen, Richtlinieneinstellungen und Features, die für eine Rolle erforderlich sind, bevor bestimmte Regeln aus anderen Kategorien von BPA angewendet werden können. Eine Voraussetzung in den Scanergebnissen gibt an, dass BPA aufgrund einer falschen Einstellung, eines fehlenden Programms, einer falsch aktivierten oder deaktivierten Richtlinie, einer Registrierungsschlüsseleinstellung oder sonstigen Konfiguration eine oder mehrere Regeln während des Scans nicht anwenden konnte. Die Kompatibilität oder Nichtkompatibilität mit Regeln wird somit nicht bewertet. Da eine Regel nicht angewendet werden konnte, ist sie nicht Bestandteil der Scanergebnisse.|
 
-## <a name="BKMK_BPAscan"></a>Ausführen von Best Practices Analyzer Scans für Rollen
+## <a name="performing-best-practices-analyzer-scans-on-roles"></a><a name=BKMK_BPAscan></a>Ausführen von Best Practices Analyzer Scans für Rollen
 Sie können BPA-Scans für Rollen ausführen, indem Sie entweder die BPA-GUI in Server-Manager oder Windows PowerShell-Cmdlets verwenden.
 
-In Windows Server 2012 R2 und Windows Server 2012 werden Sie von einigen Rollen aufgefordert, zusätzliche Parameter anzugeben, z. b. die Namen bestimmter Server oder Freigaben, auf denen Teile der Rolle ausgeführt werden, oder die IDs von Teilmodellen, bevor ein BPA-Scan gestartet wird. Verwenden Sie bei BPA-Scans für Modelle, bei denen Sie zusätzliche Parameter angeben müssen, die BPA-Cmdlets. Die grafische Benutzeroberfläche von BPA kann keine zusätzlichen Parameter wie Teilmodell-IDs annehmen. Beispielsweise stellt die Teilmodell-ID **FSRM** das Dateidienste-BPA-Teilmodell für den Ressourcen-Manager für Dateiserver dar, einen Rollendienst der Datei- und Speicherdienste. Führen Sie einen BPA-Scan mithilfe von Windows PowerShell-Cmdlets aus, und fügen Sie dem Cmdlet den Parameter `SubmodelId` hinzu, um nur einen Scanvorgang auf dem Datei Server Ressourcen-Manager Rollen Dienst auszuführen.
+In Windows Server 2012 R2 und Windows Server 2012 werden Sie von einigen Rollen aufgefordert, zusätzliche Parameter anzugeben, z. b. die Namen bestimmter Server oder Freigaben, auf denen Teile der Rolle ausgeführt werden, oder die IDs von Teilmodellen, bevor ein BPA-Scan gestartet wird. Verwenden Sie bei BPA-Scans für Modelle, bei denen Sie zusätzliche Parameter angeben müssen, die BPA-Cmdlets. Die grafische Benutzeroberfläche von BPA kann keine zusätzlichen Parameter wie Teilmodell-IDs annehmen. Beispielsweise stellt die Teilmodell-ID **FSRM** das Dateidienste-BPA-Teilmodell für den Ressourcen-Manager für Dateiserver dar, einen Rollendienst der Datei- und Speicherdienste. Führen Sie einen BPA-Scan mithilfe von Windows PowerShell-Cmdlets aus, und fügen Sie dem Cmdlet den Parameter `SubmodelId` hinzu, um eine Überprüfung nur auf dem Datei Server Ressourcen-Manager Rollen Dienst auszuführen.
 
 Obwohl Sie keine zusätzlichen Parameter an einen Scan übergeben können, den Sie auf der grafischen Benutzeroberfläche von BPA starten, zeigt die BPA-Kachel in Server-Manager Ergebnisse für den letzten BPA-Scan an, unabhängig davon, wie der Scanvorgang gestartet wurde.
 
@@ -77,7 +73,7 @@ Obwohl Sie keine zusätzlichen Parameter an einen Scan übergeben können, den S
 
 -   [Überprüfen von Rollen mithilfe von Windows PowerShell-Cmdlets](#BKMK_PSscan)
 
-### <a name="BKMK_GUIscan"></a>Überprüfen von Rollen mithilfe der grafischen Benutzeroberfläche von BPA
+### <a name="scanning-roles-by-using-the-bpa-gui"></a><a name=BKMK_GUIscan></a>Überprüfen von Rollen mithilfe der grafischen Benutzeroberfläche von BPA
 Führen Sie die folgenden Schritte aus, um eine oder mehrere Rollen auf der grafischen Benutzeroberfläche von BPA zu überprüfen.
 
 ##### <a name="to-scan-roles-by-using-the-bpa-gui"></a>So überprüfen Sie Rollen mithilfe der grafischen Benutzeroberfläche von BPA
@@ -96,7 +92,7 @@ Führen Sie die folgenden Schritte aus, um eine oder mehrere Rollen auf der graf
 
 4.  Je nach Anzahl der Regeln, die für die von Ihnen ausgewählte Rolle oder Gruppe ausgewertet werden, kann es einige Minuten dauern, bis der BPA-Scan abgeschlossen ist.
 
-### <a name="BKMK_PSscan"></a>Überprüfen von Rollen mithilfe von Windows PowerShell-Cmdlets
+### <a name="scanning-roles-by-using-windows-powershell-cmdlets"></a><a name=BKMK_PSscan></a>Überprüfen von Rollen mithilfe von Windows PowerShell-Cmdlets
 Verwenden Sie die folgenden Verfahren, um eine oder mehrere Rollen mithilfe von Windows PowerShell-Cmdlets zu scannen.
 
 > [!NOTE]
@@ -110,7 +106,7 @@ Verwenden Sie die folgenden Verfahren, um eine oder mehrere Rollen mithilfe von 
 
 -   **Set-bparameesult**
 
-#### <a name="BKMK_singlerole"></a>So scannen Sie eine einzelne Rolle mithilfe von Windows PowerShell-Cmdlets
+#### <a name="to-scan-a-single-role-by-using-windows-powershell-cmdlets"></a><a name=BKMK_singlerole></a>So scannen Sie eine einzelne Rolle mithilfe von Windows PowerShell-Cmdlets
 
 1.  Führen Sie eine der folgenden Aktionen aus, um Windows PowerShell mit erhöhten Benutzerrechten auszuführen.
 
@@ -143,7 +139,7 @@ Verwenden Sie die folgenden Verfahren, um eine oder mehrere Rollen mithilfe von 
 
     Wenn Sie dieses Cmdlet ausführen, ohne eine Modell-ID anzugeben, werden alle vom `Get-BPAmodel`-Cmdlet zurückgegebenen Modelle an das `Invoke-BPAmodel`-Cmdlet weitergeleitet, und es werden Scans für alle Modelle gestartet, die auf Servern verfügbar sind, die dem Server-Manager-Server Pool hinzugefügt wurden.
 
-#### <a name="BKMK_allroles"></a>So scannen Sie alle Rollen mithilfe von Windows PowerShell-Cmdlets
+#### <a name="to-scan-all-roles-by-using-windows-powershell-cmdlets"></a><a name=BKMK_allroles></a>So scannen Sie alle Rollen mithilfe von Windows PowerShell-Cmdlets
 
 1.  Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten, sofern nicht bereits eine geöffnet ist. Anweisungen finden Sie im vorherigen Verfahren.
 
@@ -163,7 +159,7 @@ Verwenden Sie die folgenden Verfahren, um eine oder mehrere Rollen mithilfe von 
 
     ```
 
-## <a name="BKMK_manage"></a>Überprüfungs Ergebnisse verwalten
+## <a name="manage-scan-results"></a><a name=BKMK_manage></a>Überprüfungs Ergebnisse verwalten
 Nachdem ein BPA-Scan auf der grafischen Benutzeroberfläche abgeschlossen wurde, können Sie Scanergebnisse in der BPA-Kachel anzeigen. Wenn Sie ein Ergebnis in der Kachel auswählen, werden in einem Vorschaubereich in der Kachel Ergebniseigenschaften angezeigt, und es wird angegeben, ob die Rolle mit der zugeordneten bewährten Methode kompatibel ist. Wenn ein Ergebnis nicht kompatibel ist und Sie wissen möchten, wie die in den Ergebnis Eigenschaften beschriebenen Probleme gelöst werden können, öffnen die Links unter Fehler-und Warnungs Ergebnis Eigenschaften detaillierte Lösungs Hilfe Themen im Windows Server TechCenter.
 
 > [!NOTE]
@@ -175,7 +171,7 @@ Wenn keine BPA-Ergebnisse angezeigt werden müssen, z. b. Ergebnisse, die häufi
 > [!NOTE]
 > Wenn Sie Ergebnisse ausschließen, werden sie auch nicht auf verwalteten Servern angezeigt. Andere Administratoren können ausgeschlossene Ergebnisse auf verwalteten Servern nicht anzeigen. Wenn Sie Ergebnisse nur in einer lokalen Server-Manager Konsole ausschließen möchten, erstellen Sie eine benutzerdefinierte Abfrage, anstatt den Befehl **Ergebnis ausschließen** zu verwenden.
 
-#### <a name="BKMK_exclude"></a>Scanergebnisse ausschließen
+#### <a name="exclude-scan-results"></a><a name=BKMK_exclude></a>Scanergebnisse ausschließen
 Die Einstellung **Ausschließen** ist persistent. Die von Ihnen ausgeschlossenen Ergebnisse bleiben bei künftigen Scans desselben Modells auf demselben Computer ausgeschlossen, sofern Sie sie nicht wieder einschließen.
 
 Sie können Scanergebnisse mit dem `Set-BPAResult` -Cmdlet in Verbindung mit dem `Exclude` -Parameter ausschließen. Wie in der Best Practices Analyzer Kachel in Server-Manager können Sie einzelne Ergebnis Objekte ausschließen. Sie können auch eine Reihe von Ergebnissen ausschließen, deren Felder (z. b. Kategorie, Titel oder Schweregrad) mit den angegebenen Werten übereinstimmen oder diese enthalten. Beispielsweise können Sie aus einer Reihe von Scanergebnissen für ein Modell alle **Leistungsergebnisse** ausschließen.
@@ -197,11 +193,11 @@ Sie können Scanergebnisse mit dem `Set-BPAResult` -Cmdlet in Verbindung mit dem
 
 ###### <a name="to-exclude-scan-results-by-using-windows-powershell-cmdlets"></a>So schließen Sie Scanergebnisse mithilfe von Windows PowerShell-Cmdlets aus
 
-1.  Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten.
+1.  Öffne Sie eine Windows PowerShell-Sitzung mit erhöhten Benutzerberechtigungen.
 
 2.  Führen Sie den folgenden Befehl aus, um bestimmte Ergebnisse aus einem Modellscan auszuschließen.
 
-    `Get-BPAResult -modelId <model ID> | Where { $_.<Field Name> -eq "Value"} | Set-BPAResult -Exclude $true`
+    `Get-BPAResult -modelId <model ID> | Where { $_.<Field Name> -eq Value} | Set-BPAResult -Exclude $true`
 
     Mit dem vorangehenden Befehl werden Ergebnis Elemente des BPA-Scans für die Modell-ID abgerufen, die durch die *Modell-ID*dargestellt wird.
 
@@ -209,12 +205,12 @@ Sie können Scanergebnisse mit dem `Set-BPAResult` -Cmdlet in Verbindung mit dem
 
     Mit dem letzten Abschnitt des Befehls, der auf den zweiten senkrechten Strich folgt, werden die vom vorherigen Cmdlet-Abschnitt gefilterten Ergebnisse ausgeschlossen.
 
-    **Beispiel:** `Get-BPAResult -Microsoft/Windows/FileServices | Where { $_.Severity -eq "Information"} | Set-BPAResult -Exclude $true`
+    **Beispiel:** `Get-BPAResult -Microsoft/Windows/FileServices | Where { $_.Severity -eq Information} | Set-BPAResult -Exclude $true`
 
 #### <a name="include-scan-results"></a>Einschließen von Scanergebnissen
 Wenn Sie ausgeschlossene Scanergebnisse anzeigen möchten, können Sie diese Ergebnisse einschließen. Die Einstellung **Einschließen** ist persistent. Eingeschlossene Ergebnisse bleiben bei künftigen Scans desselben Modells auf demselben Computer eingeschlossen.
 
-##### <a name="BKMK_gui"></a>So schließen Sie Scanergebnisse mithilfe der grafischen Benutzeroberfläche ein
+##### <a name="to-include-scan-results-by-using-the-gui"></a><a name=BKMK_gui></a>So schließen Sie Scanergebnisse mithilfe der grafischen Benutzeroberfläche ein
 
 1.  Öffnen Sie eine Rollen-oder Server Gruppenseite in Server-Manager.
 
@@ -222,28 +218,28 @@ Wenn Sie ausgeschlossene Scanergebnisse anzeigen möchten, können Sie diese Erg
 
     Das Ergebnis wird nicht mehr in der Liste der ausgeschlossenen Ergebnisse angezeigt. Löschen Sie die Abfrage, indem Sie auf **Alle löschen** klicken, um das eingeschlossene Ergebnis in die Liste aller eingeschlossenen Ergebnisse anzuzeigen.
 
-##### <a name="BKMK_cmdlets"></a>So schließen Sie Scanergebnisse mithilfe von Windows PowerShell-Cmdlets ein
+##### <a name="to-include-scan-results-by-using-windows-powershell-cmdlets"></a><a name=BKMK_cmdlets></a>So schließen Sie Scanergebnisse mithilfe von Windows PowerShell-Cmdlets ein
 
-1.  Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten.
+1.  Öffne Sie eine Windows PowerShell-Sitzung mit erhöhten Benutzerberechtigungen.
 
 2.  Geben Sie zum Einschließen bestimmter Ergebnisse aus einem Modellscan den folgenden Befehl ein, und drücken Sie dann die **EINGABETASTE**.
 
-    `Get-BPAResult -modelId <model Id> | Where { $_.<Field Name> -eq "Value" } | Set-BPAResult -Exclude $false`
+    `Get-BPAResult -modelId <model Id> | Where { $_.<Field Name> -eq Value } | Set-BPAResult -Exclude $false`
 
     Der vorherige Befehl ruft BPA-Scanergebnis Elemente für das Modell ab, das durch die *Modell-ID*dargestellt wird.
 
-    Mit dem zweiten Teil des Befehls nach dem ersten senkrechter Strich ( **|** ) werden die Ergebnisse des Cmdlets **Get-bparser** gefiltert, sodass nur die Scanergebnisse abgerufen werden, bei denen der Wert des Ergebnis Felds, dargestellt durch *Feldname*, übereinstimmt. der Text in Anführungszeichen.
+    Mit dem zweiten Teil des Befehls, nach dem ersten senkrechter Strich ( **|** ) werden die Ergebnisse des Cmdlets **Get-bparser** gefiltert, sodass nur die Scanergebnisse abgerufen werden, bei denen der Wert des durch *Feldname*dargestellten Ergebnis Felds mit dem Text in Anführungszeichen übereinstimmt.
 
-    Mit dem letzten Abschnitt des Befehls, der auf den zweiten senkrechten Strich folgt, werden die Filterergebnisse des zweiten Cmdlet-Abschnitts eingeschlossen. Dabei wird der **-Exclude** -Parameter auf **false**festgelegt.
+    Mit dem letzten Abschnitt des Befehls, der auf den zweiten senkrechten Strich folgt, werden die Filterergebnisse des zweiten Cmdlet-Abschnitts eingeschlossen. Dabei wird der **-Exclude**-Parameter auf **false** festgelegt.
 
-    **Beispiel:** `Get-BPAResult -Microsoft/Windows/FileServices | Where { $_.Severity -eq "Information"} | Set-BPAResult -Exclude $false`
+    **Beispiel:** `Get-BPAResult -Microsoft/Windows/FileServices | Where { $_.Severity -eq Information} | Set-BPAResult -Exclude $false`
 
 ### <a name="view-and-export-bpa-scan-results-in-windows-powershell"></a>Anzeigen und Exportieren von BPA-Scanergebnissen in Windows PowerShell
 Informationen zum Anzeigen und Verwalten der Scanergebnisse mithilfe von Windows PowerShell-Cmdlets finden Sie in den folgenden Prozeduren. Bevor Sie eines der folgenden Verfahren verwenden können, müssen Sie mindestens einen BPA-Scan auf mindestens einem Modell oder Teilmodell ausführen.
 
-#### <a name="BKMK_recentPS"></a>So zeigen Sie die Ergebnisse des letzten Scans einer Rolle mithilfe von Windows PowerShell an
+#### <a name="to-view-results-of-the-most-recent-scan-of-a-role-by-using-windows-powershell"></a><a name=BKMK_recentPS></a>So zeigen Sie die Ergebnisse des letzten Scans einer Rolle mithilfe von Windows PowerShell an
 
-1.  Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten.
+1.  Öffne Sie eine Windows PowerShell-Sitzung mit erhöhten Benutzerberechtigungen.
 
 2.  Rufen Sie die Ergebnisse des letzten Scans für eine angegebene Modell-ID ab. Geben Sie Folgendes ein, in dem das Modell durch die *Modell-ID*dargestellt wird, und drücken Sie dann die **Eingabe**Taste. Sie können Ergebnisse für mehrere Modell-IDs abrufen, indem Sie die Modell-IDs durch Kommas trennen.
 
@@ -255,7 +251,7 @@ Informationen zum Anzeigen und Verwalten der Scanergebnisse mithilfe von Windows
 
     **Beispiel:** `Get-BPAResult Microsoft/Windows/FileServices -SubmodelID FSRM`
 
-#### <a name="BKMK_formats"></a>So können Sie BPA-Ergebnisse aus Windows PowerShell-Sitzungen in verschiedenen Formaten anzeigen oder speichern
+#### <a name="to-view-or-save-bpa-results-from-windows-powershell-sessions-in-different-formats"></a><a name=BKMK_formats></a>So können Sie BPA-Ergebnisse aus Windows PowerShell-Sitzungen in verschiedenen Formaten anzeigen oder speichern
 
 -   In Windows PowerShell ähnelt jedes BPA-Ergebnis dem folgenden.
 
@@ -280,7 +276,7 @@ Informationen zum Anzeigen und Verwalten der Scanergebnisse mithilfe von Windows
 
     ```
 
-    Führen Sie eine der folgenden Aktionen aus.
+    Führen Sie einen der folgenden Schritte aus:
 
     -   Wenn Sie BPA-Ergebnisse in einer Tabelle formatieren möchten, führen Sie das folgende Cmdlet aus, und fügen Sie aus dem vorherigen Beispiel die Ergebniseigenschaften hinzu, die Sie anzeigen möchten.
 
@@ -304,7 +300,7 @@ Informationen zum Anzeigen und Verwalten der Scanergebnisse mithilfe von Windows
 
         **Beispiel:** `Get-BPAResult Microsoft/Windows/FileServices | Export-CSV C:\BPAResults\FileServices.txt`
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [Best Practices Analyzer Auflösungs Inhalt im Windows Server TechCenter](https://go.microsoft.com/fwlink/p/?LinkId=241597)
 [Filtern, Sortieren und Abfragen von Daten in Server-Manager Kacheln](filter-sort-and-query-data-in-server-manager-tiles.md)
 [Verwalten mehrerer Remote Server mit Server-Manager](manage-multiple-remote-servers-with-server-manager.md)

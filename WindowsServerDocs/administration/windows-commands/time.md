@@ -1,26 +1,22 @@
 ---
-title: Zeit
+title: time
 description: Erfahren Sie, wie Sie die Systemzeit festlegen und anzeigen.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1276a257-7283-41da-ae80-fb4cfb311f9d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 484653ed65d5e5c16d74b2cb45b2c9da71aa62aa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5b6efff57a512a2e0519b3294c51c073f1f44d8d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369953"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80832833"
 ---
-# <a name="time"></a>Zeit
+# <a name="time"></a>time
 
 
 
@@ -34,7 +30,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 time [/t | [<HH>[:<MM>[:<SS>]] [am|pm]]]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -49,7 +45,7 @@ time [/t | [<HH>[:<MM>[:<SS>]] [am|pm]]]
 -   Gültige *HH* -Werte sind 0 bis 24.
 -   Gültige *mm* -und *SS* -Werte sind 0 bis 59.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
 
 Wenn Befehls Erweiterungen aktiviert sind, geben Sie Folgendes ein, um die aktuelle Systemzeit anzuzeigen:
 ```
@@ -67,6 +63,6 @@ Enter the new time:
 ```
 Drücken Sie die EINGABETASTE, um die aktuelle Uhrzeit beizubehalten und zur Eingabeaufforderung zurückzukehren. Um die aktuelle Uhrzeit zu ändern, geben Sie die neue Uhrzeit ein, und drücken Sie dann die EINGABETASTE.
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,28 +1,24 @@
 ---
 title: Windows-Authentifizierungskonzepte
 description: Windows Server-Sicherheit
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-windows-auth
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 29d1db15-cae0-4e3d-9d8e-241ac206bb8b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 46a0f6c4c08146f1d8fcf9de45446b974e48ecac
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4051bfea26d5c96d02132b50373f56b7b17ce5fb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402333"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857473"
 ---
 # <a name="windows-authentication-concepts"></a>Windows-Authentifizierungskonzepte
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Referenz Übersichts Thema werden die Konzepte beschrieben, auf denen die Windows-Authentifizierung basiert.
 
@@ -32,9 +28,9 @@ Im Netzwerkkontext dient die Authentifizierung dazu, die Identität gegenüber e
 
 Durch die Speicherung der Kryptografieschlüssel an einem zentralen Ort wird der Authentifizierungsvorgang skalierbar und verwaltbar. Active Directory ist die empfohlene und Standardtechnologie zum Speichern von Identitätsinformationen, die die kryptografischen Schlüssel enthalten, bei denen es sich um die Anmelde Informationen des Benutzers handelt. Active Directory ist für Standardimplementierungen von Kerberos und NTLM erforderlich.
 
-Die Authentifizierungstechniken reichen von der einfachen Anmeldung auf ein Betriebssystem oder von der Anmeldung bei einem Dienst oder einer Anwendung, der Benutzer auf der Grundlage von etwas, das nur dem Benutzer bekannt ist, wie z. b. einem Kennwort, für leistungsfähigere Sicherheitsmechanismen identifiziert, die Folgendes verwenden: der Benutzer hat z. b. Token, öffentliche Schlüssel Zertifikate, Bilder oder biologische Attribute. In einer Unternehmensumgebung ist es Benutzer eventuell möglich, auf unterschiedliche Anwendungen auf verschiedenen Arten von Servern an einem einzigen Standort oder auch standortübergreifend zugreifen. Aus diesem Grund muss die Authentifizierung Umgebungen unterstützen, die auf anderen Plattformen und anderen Windows-Betriebssystemen basieren.
+Die Authentifizierungstechniken reichen von der einfachen Anmeldung bei einem Betriebssystem oder der Anmeldung bei einem Dienst oder einer Anwendung, der Benutzer auf der Grundlage von etwas, das nur dem Benutzer bekannt ist (z. b. ein Kennwort), zu leistungsfähigeren Sicherheitsmechanismen, die von Benutzern verwendet werden, wie z. b. Token, öffentliche Schlüssel Zertifikate, Bilder oder biologische Attribute, identifiziert. In einer Unternehmensumgebung ist es Benutzer eventuell möglich, auf unterschiedliche Anwendungen auf verschiedenen Arten von Servern an einem einzigen Standort oder auch standortübergreifend zugreifen. Aus diesem Grund muss die Authentifizierung Umgebungen unterstützen, die auf anderen Plattformen und anderen Windows-Betriebssystemen basieren.
 
-## <a name="authentication-and-authorization-a-travel-analogy"></a>Authentifizierung und Autorisierung: Eine Reise Analogie
+## <a name="authentication-and-authorization-a-travel-analogy"></a>Authentifizierung und Autorisierung: eine Reise Analogie
 Eine Reise Analogie kann Ihnen helfen, die Funktionsweise der Authentifizierung zu erläutern. In der Regel sind einige Vorbereitungsaufgaben erforderlich, um die Journey zu beginnen. Der Reisende muss seine tatsächliche Identität seinen Host Behörden nachweisen. Diese Prüfung kann in Form von Nachweis der Bürgerschaft, Geburts Stelle, persönlichen gutschafts-, Foto-und Foto-oder sonstigen Anforderungen des Gastlandes erfolgen. Die Identität des Reisenden wird durch die Ausstellung eines Passport überprüft. Dies entspricht einem von einer Organisation ausgestellten und verwalteten Systemkonto (dem Sicherheits Prinzipal). Der Passport und das beabsichtigte Ziel basieren auf einer Reihe von Regeln und Vorschriften, die von der behördlichen Behörde ausgestellt wurden.
 
 **Die Journey**
@@ -67,7 +63,7 @@ Ein Konto ist ein Mittel zum Identifizieren eines Anforderer: der Benutzer oder 
 
 Integrierte Konten und die Sicherheitsgruppen, von denen Sie Mitglieder sind, werden für jede Windows-Version definiert. Mithilfe von Sicherheitsgruppen können Sie den gleichen Sicherheits Berechtigungen für viele Benutzer zuweisen, die erfolgreich authentifiziert wurden, wodurch die Zugriffs Verwaltung vereinfacht wird. Regeln für das Ausstellen von Pässen erfordern möglicherweise, dass der Reisende bestimmten Gruppen zugewiesen wird, z. b. Geschäfts-, Touristen-oder Regierungsbehörden. Durch diesen Vorgang wird sichergestellt, dass für alle Mitglieder einer Gruppe konsistente Sicherheits Berechtigungen erteilt werden. Durch die Verwendung von Sicherheitsgruppen zum Zuweisen von Berechtigungen bedeutet dies, dass die Zugriffs Steuerung von Ressourcen konstant und einfach zu verwalten und zu überwachen ist. Durch Hinzufügen und Entfernen von Benutzern, die bei Bedarf Zugriff von den entsprechenden Sicherheitsgruppen benötigen, können Sie die Häufigkeit von Änderungen an Zugriffs Steuerungs Listen (ACLs) minimieren.
 
-Eigenständige verwaltete Dienst Konten und virtuelle Konten wurden in Windows Server 2008 R2 und Windows 7 eingeführt, um erforderliche Anwendungen wie Microsoft Exchange Server und Internetinformationsdienste (IIS) mit der Isolation ihrer eigenen Domäne bereitzustellen. Konten, während ein Administrator den Dienst Prinzipal Namen (SPN) und die Anmelde Informationen für diese Konten nicht mehr manuell verwalten muss. Gruppen verwaltete Dienst Konten wurden in Windows Server 2012 eingeführt und bieten die gleiche Funktionalität innerhalb der Domäne, erweitern diese Funktionalität aber auch auf mehrere Server. Beim Herstellen einer Verbindung mit einem Dienst, der in einer Serverfarm gehostet wird (beispielsweise ein Netzwerklastenausgleich), erfordern die Authentifizierungsprotokolle mit gegenseitiger Authentifizierung, dass alle Instanzen der Dienste den gleichen Prinzipal verwenden.
+Eigenständige verwaltete Dienst Konten und virtuelle Konten wurden in Windows Server 2008 R2 und Windows 7 eingeführt, um erforderliche Anwendungen wie Microsoft Exchange Server und Internetinformationsdienste (IIS) mit der Isolation ihrer eigenen Domänen Konten bereitzustellen, während ein Administrator den Dienst Prinzipal Namen (Service Principal Name, SPN) und die Anmelde Informationen für diese Konten nicht mehr manuell verwalten muss. Gruppen verwaltete Dienst Konten wurden in Windows Server 2012 eingeführt und bieten die gleiche Funktionalität innerhalb der Domäne, erweitern diese Funktionalität aber auch auf mehrere Server. Beim Herstellen einer Verbindung mit einem Dienst, der in einer Serverfarm gehostet wird (beispielsweise ein Netzwerklastenausgleich), erfordern die Authentifizierungsprotokolle mit gegenseitiger Authentifizierung, dass alle Instanzen der Dienste den gleichen Prinzipal verwenden.
 
 Weitere Informationen zu Konten finden Sie unter:
 
@@ -84,7 +80,7 @@ Weitere Informationen zu Konten finden Sie unter:
 -   [Besondere Identitäten](https://technet.microsoft.com/itpro/windows/keep-secure/special-identities)
 
 ## <a name="delegated-authentication"></a>Delegierte Authentifizierung
-Um die Reise Analogie zu verwenden, können Länder den gleichen Zugriff für alle Mitglieder einer offiziellen behördlichen Delegierung ausgeben, so lange die Delegaten bekannt sind. Diese Delegierung ermöglicht einem Mitglied das agieren der Autorität eines anderen Mitglieds. In Windows erfolgt die delegierte Authentifizierung, wenn ein Netzwerkdienst eine Authentifizierungsanforderung von einem Benutzer akzeptiert und die Identität dieses Benutzers annimmt, um eine neue Verbindung mit einem zweiten Netzwerkdienst zu initiieren. Zur Unterstützung der delegierten Authentifizierung müssen Sie Front-End-oder First-Tier-Server, wie z. b. Webserver, einrichten, die für die Verarbeitung von Client Authentifizierungsanforderungen und Back-End-oder n-Tier-Servern zuständig sind, wie z. b. große Datenbanken, die für Speichern von Informationen. Sie können das Recht zum Einrichten der delegierten Authentifizierung für Benutzer in Ihrer Organisation delegieren, um die administrative Belastung Ihrer Administratoren zu verringern.
+Um die Reise Analogie zu verwenden, können Länder den gleichen Zugriff für alle Mitglieder einer offiziellen behördlichen Delegierung ausgeben, so lange die Delegaten bekannt sind. Diese Delegierung ermöglicht einem Mitglied das agieren der Autorität eines anderen Mitglieds. In Windows erfolgt die delegierte Authentifizierung, wenn ein Netzwerkdienst eine Authentifizierungsanforderung von einem Benutzer akzeptiert und die Identität dieses Benutzers annimmt, um eine neue Verbindung mit einem zweiten Netzwerkdienst zu initiieren. Zur Unterstützung der delegierten Authentifizierung müssen Sie Front-End-Server oder Server der ersten Ebene einrichten, wie z. b. Webserver, die für die Verarbeitung von Client Authentifizierungsanforderungen und Back-End-oder n-Tier-Servern (z. b. große Datenbanken) verantwortlich sind, die für das Speichern von Informationen verantwortlich sind Sie können das Recht zum Einrichten der delegierten Authentifizierung für Benutzer in Ihrer Organisation delegieren, um die administrative Belastung Ihrer Administratoren zu verringern.
 
 Wenn Sie einen Dienst oder Computer als vertrauenswürdig für die Delegierung einrichten, können Sie diesen Dienst oder Computer für die delegierte Authentifizierung festlegen, ein Ticket für den Benutzer erhalten, der die Anforderung sendet, und dann auf Informationen für diesen Benutzer zugreifen. Dieses Modell schränkt den Datenzugriff auf Back-End-Server nur auf die Benutzer oder Dienste ein, die Anmelde Informationen mit den korrekten Zugriffs Steuerungs Token darstellen. Außerdem ermöglicht es die Zugriffs Überwachung für diese Back-End-Ressourcen. Durch die Anforderung, dass auf alle Daten über Anmelde Informationen zugegriffen werden muss, die zur Verwendung im Auftrag des Clients an den Server delegiert werden, stellen Sie sicher, dass der Server nicht kompromittiert werden kann und dass Sie Zugriff auf vertrauliche Informationen erhalten können, die auf anderen Servern gespeichert sind. Die delegierte Authentifizierung ist nützlich für Anwendungen mit mehreren Ebenen, die für die Verwendung Single Sign-On Funktionen auf mehreren Computern konzipiert sind.
 
@@ -98,7 +94,7 @@ Wie eine bestimmte Vertrauensstellung Authentifizierungsanforderungen übergibt,
 Informationen zur Funktionsweise einer Vertrauensstellung finden Sie unter [Funktionsweise von Domänen-und](https://technet.microsoft.com/library/cc773178(v=ws.10).aspx)Gesamtstruktur-Vertrauens Stellungen.
 
 ### <a name="protocol-transition"></a>Protokoll Übergang
-Der Protokoll Übergang unterstützt Anwendungs-Designer, indem Anwendungen verschiedene Authentifizierungsmechanismen auf der Ebene der Benutzerauthentifizierung unterstützen und zum Kerberos-Protokoll für Sicherheitsfeatures wechseln, wie z. b. gegenseitige Authentifizierung und eingeschränkte Delegierung in den nachfolgenden Anwendungsebenen.
+Der Protokoll Übergang unterstützt Anwendungsentwickler, indem es Anwendungen ermöglicht, verschiedene Authentifizierungsmechanismen auf der Benutzer Authentifizierungs Ebene zu unterstützen und in den nachfolgenden Anwendungsebenen auf das Kerberos-Protokoll für Sicherheitsfeatures wie z. b. gegenseitige Authentifizierung und eingeschränkte Delegierung zu wechseln.
 
 Weitere Informationen zum Protokoll Übergang finden Sie unter [Kerberos-Protokoll Übergang und eingeschränkte Delegierung](https://technet.microsoft.com/library/cc758097(v=ws.10).aspx).
 

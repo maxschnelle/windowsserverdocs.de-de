@@ -1,20 +1,20 @@
 ---
 title: Anforderungen für die Bereitstellung des Netzwerk Controllers
 description: Bereiten Sie Ihr Daten Center auf die Bereitstellung des Netzwerk Controllers vor, für die mindestens ein Computer oder ein virtueller Computer und ein Computer oder ein virtueller Computer erforderlich ist. Bevor Sie den Netzwerk Controller bereitstellen können, müssen Sie die Sicherheitsgruppen, die Protokolldatei Speicherorte (falls erforderlich) und die dynamische DNS-Registrierung konfigurieren.
-manager: dougkim
+manager: grcusanz
 ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: get-started-article
 ms.assetid: 7f899e62-6e5b-4fca-9a59-130d4766ee2f
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/10/2018
-ms.openlocfilehash: a16d82e4db1e92a5dd20f6b4feb88f0619d50cc4
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: da9164eea4ab7e2fb38864fb69c47252448b77b6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317510"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854423"
 ---
 # <a name="requirements-for-deploying-network-controller"></a>Anforderungen für die Bereitstellung des Netzwerk Controllers
 

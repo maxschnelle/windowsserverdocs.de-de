@@ -1,17 +1,17 @@
 ---
 title: Begrenzen der Zuordnung von Volumes in direkte Speicherplätze
 ms.author: cosmosdarwin
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 03/29/2018
-ms.openlocfilehash: 19e5a38ca406878b7dbc5a187b0057e97e4fe2d1
-ms.sourcegitcommit: 74107a32efe1e53b36c938166600739a79dd0f51
+ms.openlocfilehash: 26454881279e1d33392a827f794788370def2cab
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76918294"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858973"
 ---
 # <a name="delimit-the-allocation-of-volumes-in-storage-spaces-direct"></a>Begrenzen der Zuordnung von Volumes in direkte Speicherplätze
 > Gilt für: Windows Server 2019
@@ -21,19 +21,19 @@ In Windows Server 2019 wird eine Option eingeführt, mit der die Zuordnung von V
    > [!IMPORTANT]
    > Diese Funktion ist neu in Windows Server 2019. Es ist in Windows Server 2016 nicht verfügbar. 
 
-## <a name="prerequisites"></a>Voraussetzungen
+## <a name="prerequisites"></a>Erforderliche Komponenten
 
-### <a name="green-checkmark-iconmediadelimit-volume-allocationsupportedpng-consider-using-this-option-if"></a>![Grünes Häkchen.](media/delimit-volume-allocation/supported.png) Verwenden Sie diese Option, wenn Folgendes gilt:
+### <a name="green-checkmark-icon-consider-using-this-option-if"></a>![Grünes Häkchen.](media/delimit-volume-allocation/supported.png) Verwenden Sie diese Option, wenn Folgendes gilt:
 
 - Ihr Cluster verfügt über sechs oder mehr Server; immer
 - Ihr Cluster verwendet nur die [drei-Wege-Spiegelungs](storage-spaces-fault-tolerance.md#mirroring) Resilienz.
 
-### <a name="red-x-iconmediadelimit-volume-allocationunsupportedpng-do-not-use-this-option-if"></a>![Rotes X-Symbol.](media/delimit-volume-allocation/unsupported.png) Verwenden Sie diese Option nicht, wenn Folgendes geschieht:
+### <a name="red-x-icon-do-not-use-this-option-if"></a>![Rotes X-Symbol.](media/delimit-volume-allocation/unsupported.png) Verwenden Sie diese Option nicht, wenn Folgendes geschieht:
 
 - Ihr Cluster verfügt über weniger als sechs Server. noch
 - Ihr [Cluster verwendet die](storage-spaces-fault-tolerance.md#parity) Resilienz der Parität oder der [Spiegelungs Beschleunigung](storage-spaces-fault-tolerance.md#mirror-accelerated-parity) .
 
-## <a name="understand"></a>Grundlegende Informationen
+## <a name="understand"></a>Verstehen
 
 ### <a name="review-regular-allocation"></a>Review: reguläre Zuordnung
 
@@ -153,7 +153,7 @@ MyVolume                300 GB         0       100 GB  100 GB  100 GB  100 GB  0
 
 Beachten Sie, dass server1 keine Platten von *myvolume* mehr enthält – sondern auch Server5.
 
-## <a name="best-practices"></a>Bewährte Verfahren
+## <a name="best-practices"></a>Empfohlene Methoden
 
 Im folgenden finden Sie die empfohlenen Vorgehensweisen bei der Verwendung von durch Trennzeichen getrennten Volumes:
 
@@ -200,7 +200,7 @@ Ja. Sie können pro Volume auswählen, ob die Zuordnung begrenzt werden soll.
 
 Nein, es ist das gleiche wie bei der regulären Zuordnung.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 - [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
 - [Fehlertoleranz in direkte Speicherplätze](storage-spaces-fault-tolerance.md)

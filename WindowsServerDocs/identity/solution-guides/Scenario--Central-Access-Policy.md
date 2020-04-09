@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7f285c9f-c3e8-4aae-9ff4-a9123815114e
 title: Szenariozentrale Zugriffs Richtlinie
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 91fd437895e765d4d73f3a200f76a5f8f96b52f2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a22592e5c8af9fa23725de90a14a9a8a46c286d7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407094"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861153"
 ---
 # <a name="scenario-central-access-policy"></a>Szenario: Zentrale Zugriffsrichtlinie
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zentrale Zugriffsrichtlinien für Dateien ermöglichen Organisationen das zentrale Bereitstellen und Verwalten von Autorisierungsrichtlinien, die bedingte Ausdrücke enthalten, die Benutzeransprüche, Geräteansprüche und Ressourceneigenschaften verwenden. (Ansprüche sind Assertionen zu den Attributen des Objekts, mit dem sie verknüpft sind.) Um z. B. auf Daten mit großen Geschäftsauswirkungen (HBI) zuzugreifen, muss ein Benutzer ein Vollzeitmitarbeiter sein, Zugriff auf ein verwaltetes Gerät erhalten und sich mit einer Smartcard anmelden. Diese Richtlinien werden in Active Directory-Domänendiensten (AD DS) definiert und gehostet.  
   
@@ -83,14 +82,14 @@ Die folgende Anleitung steht Ihnen für zentrale Zugriffsrichtlinien zur Verfüg
   
 -   [Bereitstellen der Demonstrations Schritte &#40;für eine zentrale Zugriffs Richtlinie&#41;](Deploy-a-Central-Access-Policy--Demonstration-Steps-.md)  
   
--   [Dynamische Zugriffsteuerung: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Dynamisches Access Control: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
   
-## <a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und Features  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und Features  
 In der folgenden Tabelle sind die Rollen und Features dieses Szenarios und die Art der bereitgestellten Unterstützung aufgeführt.  
   
 |Rolle/Feature|Auf welche Weise dieses Szenario unterstützt wird|  
 |-----------------|---------------------------------|  
-|Active Directory-Domänendienste-Rolle|AD DS in Windows Server 2012 führt eine Anspruchs basierte Autorisierungs Plattform ein, die das Erstellen von Benutzer Ansprüchen und Geräte Ansprüchen, zusammengesetzten Identitäten (Benutzer-Plus Geräteansprüche), neuen Modellen für zentrale Zugriffsrichtlinien (Cap) und die Verwendung der Datei Klassifizierung ermöglicht. Informationen in Autorisierungs Entscheidungen.|  
+|Active Directory-Domänendienste-Rolle|AD DS in Windows Server 2012 führt eine Anspruchs basierte Autorisierungs Plattform ein, die das Erstellen von Benutzer Ansprüchen und Geräte Ansprüchen, zusammengesetzten Identitäten (Benutzer-Plus Geräteansprüche), neuen Modellen für zentrale Zugriffsrichtlinien (Cap) und die Verwendung von Datei Klassifizierungs Informationen in Autorisierungs Entscheidungen ermöglicht.|  
 |Datei- und Speicherdiensteserver-Rolle|Die Datei- und Speicherdienste bieten Technologien, mit deren Hilfe Sie einen oder mehrere Dateiserver einrichten und verwalten können. Dateiserver sind Server, die zentrale Orte im Netzwerk bereitstellen, an denen Sie Dateien speichern und für andere Benutzer freigeben können. Wenn Ihre Netzwerkbenutzer in Ihrer Organisation auf die gleichen Dateien und Anwendungen zugreifen müssen oder wenn eine zentrale Datensicherung und Dateiverwaltung für Ihre Organisation wichtig ist, sollten Sie einen oder mehrere Computer als Dateiserver einrichten, indem Sie die Datei- und Speicherdienste-Rolle sowie die geeigneten Rollendienste hinzufügen.|  
 |Windows-Clientcomputer|Benutzer können über den Clientcomputer auf Dateien und Ordner im Netzwerk zugreifen.|  
   

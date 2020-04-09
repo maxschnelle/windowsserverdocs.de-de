@@ -1,24 +1,20 @@
 ---
 title: ver
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für Ver, in dem die Versionsnummer des Betriebssystems angezeigt wird.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5a9c6cd4-b67d-4b30-8c56-5f9798eafd2a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e48b3b1061edf793c88693b3353753c6a4cedcfc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d0d0676dcfa6546e4bbf74c4c58a24f51744d00f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362722"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80830193"
 ---
 # <a name="ver"></a>ver
 
@@ -36,13 +32,13 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 ver
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Zum Abrufen der Versionsnummer des Betriebssystems von der Befehlsshell (cmd. exe) geben Sie Folgendes ein:
 
@@ -57,6 +53,6 @@ $PSVersionTable.BuildVersion
 ````
 
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

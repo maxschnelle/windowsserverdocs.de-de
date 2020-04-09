@@ -1,24 +1,20 @@
 ---
 title: Glossar
 description: Definiert Wörter, Begriffe und Konzepte in Multipoint Services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 807bce1d-b993-49c6-9783-b01a3c55846c
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 0c966f0c8e1ad239769c58e4648832ae5020d0dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9a5f76f0f41d9ff1726a1a468fde7f53b6a7634d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389650"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859223"
 ---
 # <a name="glossary"></a>Glossar
 **Zuordnen einer Station**  
@@ -57,7 +53,7 @@ Siehe *USB-Zero-Client*.
 **Multipoint Services-System**  
 Eine Sammlung von Hardware und Software, die aus einem Computer besteht, auf dem Windows Server 2016 mit aktivierter Multipoint Services-Rolle und mindestens einer Multipoint-Station installiert ist. Weitere Informationen zu systemlayoutoptionen finden Sie unter [Planen von Multipoint Services-Websites](MultiPoint-services-Site-Planning.md) .  
   
-**partition**  
+**spaltet**  
 Ein Abschnitt des Speicherplatzes auf einem physischen Datenträger, der so funktioniert, als handele es sich um einen separaten Datenträger.  
   
 **primäre Station**  

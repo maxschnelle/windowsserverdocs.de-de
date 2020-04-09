@@ -1,24 +1,20 @@
 ---
 title: Einstieg in die Benutzer Zugriffs Protokollierung
 desctription: Describes the User Access Logging feature and how to start using it.
-ms.custom: na
 ms.prod: windows-server
 ms.technology: manage-user-access-logging
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5c395b8b-3b35-4042-b9cc-07e438f86d50
 author: brentfor
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f69a1fe4f3c17123f91ade3b6aebdb5f7bab9982
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: b36253b8dfa10ac8156fdc5526d02aa98ebdc740
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001785"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851403"
 ---
 # <a name="get-started-with-user-access-logging"></a>Einstieg in die Benutzer Zugriffs Protokollierung
 
@@ -31,7 +27,7 @@ Die Benutzer Zugriffs Protokollierung ist standardmäßig installiert und aktivi
 > [!NOTE]  
 > Die UAL unterstützt das [Microsoft Assessment and Planning Toolkit](https://go.microsoft.com/fwlink/?LinkID=111000).  
   
-## <a name="BKMK_APP"></a>Praktische Anwendungen  
+## <a name="practical-applications"></a><a name="BKMK_APP"></a>Praktische Anwendungen  
 Die Benutzer Zugriffs Protokollierung aggregiert eindeutige Client Geräte-und Benutzer Anforderungs Ereignisse, die in einer lokalen Datenbank protokolliert werden. Diese Datensätze werden dann (über die Abfrage eines Serveradministrators) zur Verfügung gestellt, um Mengen und Instanzen nach Serverrolle, Benutzer, Gerät, lokalem Server und Datum abzurufen.  Außerdem wurde die Benutzer Zugriffs Protokollierung erweitert, damit nicht-Microsoft-Softwareentwickler ihre UAL-Ereignisse so instrumentieren, dass Sie von Windows Server aggregiert werden.  
   
 Die Benutzer Zugriffs Protokollierung kann die folgenden Aufgaben ausführen:  
@@ -92,7 +88,7 @@ Die folgenden Serverrollen und Dienste können von der Benutzerzugriffsprotokoll
 > [!IMPORTANT]  
 > Für direkt mit dem Internet verbundene Server (z. B. Webserver in einem Adressraum, der über das Internet zugänglich ist) oder Szenarien, in denen eine extrem hohe Leistung die primäre Funktion des Servers ist (z. B. in Umgebungen mit High Performance Computing-Auslastung), wird die Verwendung der Benutzerzugriffsprotokollierung nicht empfohlen. Die Benutzer Zugriffs Protokollierung ist in erster Linie für Intranetszenarios in kleinen, mittelgroßen und großen Unternehmen gedacht, bei denen ein hohes Volumen erwartet wird, aber nicht so hoch wie bereit Stellungen, die regelmäßig Internet Datenverkehr verarbeiten.  
   
-## <a name="BKMK_NEW"></a>Wichtige Funktionen  
+## <a name="important-functionality"></a><a name="BKMK_NEW"></a>Wichtige Funktionen  
 In der folgenden Tabelle werden die Hauptfunktionen der Benutzerzugriffsprotokollierung und ihre mögliche Bedeutung beschrieben.  
   
 |Funktionalität|Wert|  
@@ -128,7 +124,7 @@ Die folgenden gerätespezifischen Daten werden von der Benutzerzugriffsprotokoll
 |**RoleName**|Name der Rolle, der Komponente oder des untergeordneten Produkts, die bzw. das die Daten für die Benutzerzugriffsprotokollierung bereitstellt. Hier besteht außerdem eine Verknüpfung mit %%amp;quot;ProductName%%amp;quot; und %%amp;quot;RoleGUID%%amp;quot;.|  
 |**Tenantidentifier**|Eindeutige GUID für den Mandantenclient einer installierten Rolle oder ggf. für ein Produkt, das die Daten der Benutzerzugriffsprotokollierung begleitet.|  
   
-## <a name="BKMK_SOFT"></a>Software Anforderungen  
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Software Anforderungen  
 Die Benutzer Zugriffs Protokollierung kann auf jedem Computer verwendet werden, auf dem Windows Server-Versionen nach Windows Server 2012 ausgeführt werden.  
   
 ## <a name="see-also"></a>Siehe auch  

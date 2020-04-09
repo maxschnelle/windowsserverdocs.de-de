@@ -8,12 +8,12 @@ ms.topic: article
 ms.assetid: b3cd60f7-d380-4712-9a78-0a8f551e1121
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: a0da2265f8f66256ed2ba71d4847bf8a548626f8
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: b58fe9eaa66abd91de27713398759529ae6147ae
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80319144"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861763"
 ---
 # <a name="core-network-components"></a>Kernkomponenten
 
@@ -283,11 +283,11 @@ Beispiel Konfigurationselemente für AD DS werden in der folgenden Tabelle berei
 
 |Konfigurationselemente:|Beispielwerte:|
 |------------------------|-------------------|
-|Vollständiger DNS-Name|Beispiele:<br /><br />-Corp.contoso.com<br />-example.com|
+|Vollständiger DNS-Name|Beispiele:<p>-Corp.contoso.com<br />-example.com|
 |Gesamtstrukturfunktionsebene|-Windows Server 2008 <br />-Windows Server 2008 R2 <br />-Windows Server 2012 <br />-Windows Server 2012 R2 <br />-Windows Server 2016|
-|Speicherort des AD DS-Datenbankordners|E:\konfigurations\\<br /><br />Oder übernehmen Sie den Standardspeicherort.|
-|Speicherort des AD DS-Protokolldateiordners|E:\konfigurations\\<br /><br />Oder übernehmen Sie den Standardspeicherort.|
-|Speicherort des AD DS-SYSVOL-Ordners|E:\konfigurations\\<br /><br />Oder übernehmen Sie den Standardspeicherort.|
+|Speicherort des AD DS-Datenbankordners|E:\konfigurations\\<p>Oder übernehmen Sie den Standardspeicherort.|
+|Speicherort des AD DS-Protokolldateiordners|E:\konfigurations\\<p>Oder übernehmen Sie den Standardspeicherort.|
+|Speicherort des AD DS-SYSVOL-Ordners|E:\konfigurations\\<p>Oder übernehmen Sie den Standardspeicherort.|
 |Administratorkennwort für den Verzeichnisdienst-Wiederherstellungsmodus|**J\*p2leO4 $ F**|
 |Name der Antwortdatei (optional)|**AD-DS_AnswerFile**|
 
@@ -412,7 +412,7 @@ Weitere Beispiel Konfigurationselemente für AD DS und DNS finden Sie in der fol
 |Bindungen für die Netzwerkverbindung|Ethernet|
 |DNS-Servereinstellungen|DC1.corp.contoso.com|
 |Bevorzugte IP-Adresse des DNS-Servers|10.0.0.2|
-|Werte für das Dialogfeld %%amp;quot;Bereich hinzufügen%%amp;quot;<br /><br />1. Bereichs Name<br />2. Start-IP-Adresse<br />3. IP-Endadresse<br />4. Subnetzmaske<br />5. Standard Gateway (optional)<br />6. Leasedauer|1. primäres Subnetz<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6.8 Tage|
+|Werte für das Dialogfeld %%amp;quot;Bereich hinzufügen%%amp;quot;<p>1. Bereichs Name<br />2. Start-IP-Adresse<br />3. IP-Endadresse<br />4. Subnetzmaske<br />5. Standard Gateway (optional)<br />6. Leasedauer|1. primäres Subnetz<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6.8 Tage|
 |Betriebsmodus des IPv6-DHCP-Servers|Nicht aktiviert|
 
 ## <a name="core-network-deployment"></a><a name="BKMK_deployment"></a>Kern Netzwerk Bereitstellung
@@ -1437,9 +1437,9 @@ Konfigurationselemente für das Bereitstellungsverfahren für das Windows Serve
 |-----------------------|------------------|----------|
 |Vollständiger DNS-Name|corp.contoso.com||
 |Gesamtstrukturfunktionsebene|Windows Server 2003||
-|Speicherort des AD DS-Datenbankordners|E:\konfigurations\\<br /><br />Oder übernehmen Sie den Standardspeicherort.||
-|Speicherort des AD DS-Protokolldateiordners|E:\konfigurations\\<br /><br />Oder übernehmen Sie den Standardspeicherort.||
-|Speicherort des AD DS-SYSVOL-Ordners|E:\konfigurations\\<br /><br />Oder übernehmen Sie den Standardspeicherort.||
+|Speicherort des AD DS-Datenbankordners|E:\konfigurations\\<p>Oder übernehmen Sie den Standardspeicherort.||
+|Speicherort des AD DS-Protokolldateiordners|E:\konfigurations\\<p>Oder übernehmen Sie den Standardspeicherort.||
+|Speicherort des AD DS-SYSVOL-Ordners|E:\konfigurations\\<p>Oder übernehmen Sie den Standardspeicherort.||
 |Administratorkennwort für den Verzeichnisdienst-Wiederherstellungsmodus|J*p2leO4$F||
 |Name der Antwortdatei (optional)|AD-DS_AnswerFile||
 
@@ -1448,10 +1448,10 @@ Konfigurationselemente für das Bereitstellungsverfahren für das Windows Serve
 |Konfigurationselemente|Beispielwerte|Werte|
 |-----------------------|------------------|----------|
 |Zonentyp:|-Primäre Zone<br />-Sekundäre Zone<br />-Stub-Zone||
-|Zonentyp<br /><br />**Speichern Sie die Zone in Active Directory**|-Ausgewählt<br />-Nicht ausgewählt||
+|Zonentyp<p>**Speichern Sie die Zone in Active Directory**|-Ausgewählt<br />-Nicht ausgewählt||
 |Active Directory-Zonenreplikationsbereich|-Auf alle DNS-Server in dieser Gesamtstruktur<br />-Auf alle DNS-Server in dieser Domäne<br />-Auf alle Domänen Controller in dieser Domäne<br />-Zu allen Domänen Controllern, die im Gültigkeitsbereich dieser Verzeichnis Partition angegeben sind||
-|Name der Reverse-Lookupzone<br /><br />(IP-Typ)|-IPv4-Reverse-Lookupzone<br />-IPv6-Reverse-Lookupzone||
-|Name der Reverse-Lookupzone<br /><br />(Netzwerk-ID)|10.0.0||
+|Name der Reverse-Lookupzone<p>(IP-Typ)|-IPv4-Reverse-Lookupzone<br />-IPv6-Reverse-Lookupzone||
+|Name der Reverse-Lookupzone<p>(Netzwerk-ID)|10.0.0||
 
 ### <a name="installing-dhcp"></a><a name="BKMK_FndtnPrep_InstallDHCP"></a>Installieren von DHCP
 Die Tabellen in diesem Abschnitt enthalten Konfigurationselemente für die Installationsvorbereitung und die Installation von DHCP.
@@ -1509,16 +1509,16 @@ Konfigurationselemente für das Bereitstellungsverfahren für das Windows Serve
 |-----------------------|------------------|----------|
 |Name des neuen Bereichs|Corp2||
 |Beschreibung des Bereichs|Hauptbüro-Subnetz 2||
-|(IP-Adressbereich)<br /><br />Start-IP-Adresse|10.0.1.1||
-|(IP-Adressbereich)<br /><br />IP-Endadresse|10.0.1.254||
+|(IP-Adressbereich)<p>Start-IP-Adresse|10.0.1.1||
+|(IP-Adressbereich)<p>IP-Endadresse|10.0.1.254||
 |Länge|8||
 |Subnetzmaske|255.255.255.0||
 |Start-IP-Adresse (Ausschlussbereich)|10.0.1.1||
 |End-IP-Adresse des Ausschlussbereichs|10.0.1.15||
-|Leasedauer<br /><br />Tage<br /><br />Stunden<br /><br />Minuten|-8<br />-   0<br />-   0||
-|Router (Standardgateway)<br /><br />IP-Adresse|10.0.1.1||
+|Leasedauer<p>Tage<p>Stunden<p>Minuten|-8<br />-   0<br />-   0||
+|Router (Standardgateway)<p>IP-Adresse|10.0.1.1||
 |Übergeordnete DNS-Domäne|corp.contoso.com||
-|DNS-Server<br /><br />IP-Adresse|10.0.0.2||
+|DNS-Server<p>IP-Adresse|10.0.0.2||
 
 ### <a name="installing-network-policy-server-optional"></a><a name="BKMK_FndtnPrep_InstallNPS"></a>Installieren des Netzwerk Richtlinien Servers (optional)
 Die Tabellen in diesem Abschnitt enthalten Konfigurationselemente für die Installationsvorbereitung und die Installation von NPS.

@@ -1,54 +1,48 @@
 ---
 title: bitsadmin getreplydata
-description: 'Thema Windows-Befehle für **BITSAdmin getreplydata** : Ruft die Antwortdaten des Servers im Hexadezimal Format ab.'
-ms.custom: na
+description: Windows-Befehls Thema für **BITSAdmin getreplydata**, das die uploadantwortdaten des Servers im Hexadezimal Format für den Auftrag abruft.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 819f97d5-b255-4b2d-9f63-0daa73915434
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7ebd3ee77e5d442467f49bb209c560f089f2271b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fb83ca93f8e73445788d926e0d5e6db4c774d759
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381279"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850503"
 ---
 # <a name="bitsadmin-getreplydata"></a>bitsadmin getreplydata
 
-Ruft die Antwortdaten des Servers im Hexadezimal Format ab.
+Ruft die uploadantwortdaten des Servers im Hexadezimal Format für den Auftrag ab.
 
-**Bits 1,2 und früher**: Nicht unterstützt.
+> [!NOTE]
+> Dieser Befehl wird von Bits 1,2 und früheren Versionen nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-bitsadmin /GetReplyData <Job>
+bitsadmin /getreplydata <job>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+| Parameter | Beschreibung |
+| -------------- | -------------- |
+| Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="remarks"></a>Hinweise
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
-Nur für Upload-Antwort-Aufträge gültig.
+Im folgenden Beispiel werden die uploadantwortdaten für den Auftrag *mydownloadjob*abgerufen.
 
-## <a name="BKMK_examples"></a>Beispiele
-
-Im folgenden Beispiel werden die Antwortdaten für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
 ```
-C:\>bitsadmin /GetReplyData myDownloadJob
+C:\>bitsadmin /getreplydata myDownloadJob
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

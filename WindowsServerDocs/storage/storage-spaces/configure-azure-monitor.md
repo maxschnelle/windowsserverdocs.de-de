@@ -1,20 +1,18 @@
 ---
 title: Verstehen und Konfigurieren von Azure Monitor
 description: Ausführliche Informationen zur Einrichtung der Azure Monitor und zum Konfigurieren von e-Mail-und SMS-Warnungen für den Cluster "direkte Speicherplätze" in Windows Server 2016 und 2019.
-keywords: Direkte Speicherplätze, Azure Monitor, Benachrichtigungen, e-Mail, SMS
-ms.assetid: ''
 ms.prod: windows-server
 ms.author: adagashe
 ms.technology: storage-spaces
 ms.topic: article
 author: adagashe
 ms.date: 01/10/2020
-ms.openlocfilehash: 878bbce9543439cf78501e496c59e06e077c5ddc
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: fa4d8793c07cabd39ee6cc0d54b5cddc84eac202
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308180"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859043"
 ---
 # <a name="use-azure-monitor-to-send-emails-for-health-service-faults"></a>Verwenden Sie Azure Monitor, um e-Mails zu Integritätsdienst Fehlern zu senden.
 

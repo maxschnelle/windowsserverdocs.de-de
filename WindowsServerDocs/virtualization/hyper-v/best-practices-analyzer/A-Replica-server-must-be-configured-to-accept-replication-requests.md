@@ -2,19 +2,18 @@
 title: Ein Replikat Server muss für die Annahme von Replikations Anforderungen konfiguriert
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 54868d4db2dccc893bd2897134d9125446873384
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 09bb573bbb091d1b167f3c354be4d6448476e26d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366720"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857953"
 ---
 # <a name="a-replica-server-must-be-configured-to-accept-replication-requests"></a>Ein Replikat Server muss für die Annahme von Replikations Anforderungen konfiguriert
 
@@ -26,7 +25,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
 |**Produkt/Feature**|Hyper-V|  
-|**Zunehmen**|Fehler|  
+|**Zunehmen**|Error|  
 |**Kategorie**|Konfiguration|  
   
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.
@@ -42,7 +41,7 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
   
 #### <a name="create-authorization-entries-using-hyper-v-manager"></a>Erstellen von Autorisierungs Einträgen mit dem Hyper-V-Manager  
   
-1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie**in Server-Manager auf Extras  > **Hyper-V-Manager**.)  
+1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie** in Server-Manager auf Extras > **Hyper-V-Manager**.)  
   
 2.  Klicken Sie in der Liste der Hosts mit der rechten Maustaste auf das gewünschte, und klicken Sie dann auf **Hyper-V-Einstellungen**.  
   

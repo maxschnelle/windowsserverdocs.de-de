@@ -1,24 +1,20 @@
 ---
 title: graftabl
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b08351d4-3d24-490c-86f6-1252da11d923
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ac7748b43eb8859a17a2c61ef9ef4444019ad51b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d55df814cb962e82775a86e154a024c579987cf2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375631"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842413"
 ---
 # <a name="graftabl"></a>graftabl
 
@@ -35,11 +31,11 @@ graftabl <CodePage>
 graftabl /status
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<codepage >|Gibt eine Codepage an, um die Darstellung erweiterter Zeichen im Grafikmodus zu definieren.</br>Gültige Codepage-Identifikationsnummern sind:</br>437: USA</br>850: Mehrsprachig (lateinisch I)</br>852: Slawisch (Lateinisch II)</br>855: Kyrillisch (Russisch)</br>857: Türkisch</br>860: Portugiesisch</br>861: Isländisch</br>863: Französisch (Kanada)</br>865: Nordischen</br>866: Russisch</br>869: Modernes Griechisch|
+|\<Codepage->|Gibt eine Codepage an, um die Darstellung erweiterter Zeichen im Grafikmodus zu definieren.</br>Gültige Codepage-Identifikationsnummern sind:</br>437: USA</br>850: mehrsprachig (lateinisch I)</br>852: slawisch (Lateinisch II)</br>855: Kyrillisch (Russisch)</br>857: Türkisch</br>860: Portugiesisch</br>861: Isländisch</br>863: Französisch (Kanada)</br>865: Nordisch</br>866: Russisch</br>869: modernes Griechisch|
 |/status|Zeigt die aktuelle Codepage an, die von **graftabl** verwendet wird.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
@@ -54,7 +50,7 @@ graftabl /status
     |2|Ein Datei Fehler ist aufgetreten.|
 -   Mit der ERRORLEVEL-Umgebungsvariablen in einem Batch-Programm können Sie Exitcodes verarbeiten, die von **graftabl**zurückgegeben werden.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Geben Sie Folgendes ein, um die von **graftabl**verwendete aktuelle Codepage anzuzeigen:
 ```
@@ -69,9 +65,9 @@ Geben Sie Folgendes ein, um den Grafikzeichen Satz für Codepage 850 (mehrsprach
 graftabl 850
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 [Freiplatte](freedisk.md)
 

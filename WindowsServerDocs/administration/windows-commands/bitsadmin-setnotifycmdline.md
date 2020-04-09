@@ -1,30 +1,26 @@
 ---
 title: bitsadmin setnotifycmdline
-description: Thema für Windows-Befehle für * * * *-bizadmin setnotifycmdlinesets der Befehlszeilen Befehl, der ausgeführt wird, wenn der Auftrag das Übertragen von Daten abgeschlossen hat oder wenn ein Auftrag in einen Zustand wechselt.
-ms.custom: na
+description: Windows-Befehls Thema für bitadmin setnotifycmdline, mit dem der Befehlszeilen Befehl festgelegt wird, der ausgeführt wird, wenn der Auftrag das Übertragen von Daten abgeschlossen hat oder wenn ein Auftrag in einen Zustand wechselt.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 415ae6ef-8549-48b2-9693-2368a6e24075
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7a307fe552e7d8ec5852de953a3a439cb02246ec
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 761a7003e44e8dc15cb2dd2f1ce5a1a23be53286
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380476"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849333"
 ---
 # <a name="bitsadmin-setnotifycmdline"></a>bitsadmin setnotifycmdline
 
 Legt den Befehlszeilen Befehl fest, der ausgeführt wird, wenn die Übertragung von Daten durch den Auftrag abgeschlossen ist oder wenn ein Auftrag in einen Zustand wechselt.
 
-**Bits 1,2 und früher**: Nicht unterstützt.
+**Bits 1,2 und früher**: nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,7 +28,7 @@ Legt den Befehlszeilen Befehl fest, der ausgeführt wird, wenn die Übertragung 
 bitsadmin /SetNotifyCmdLine <Job> <ProgramName> [ProgramParameters]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -47,16 +43,16 @@ Sie können NULL für *Programmname* und *Program Parameters*angeben. Wenn *Prog
 > [!IMPORTANT]
 > Wenn " *Program Parameters* " nicht NULL ist, muss der erste Parameter in " *Program Parameters* " dem *Programmnamen*entsprechen.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Im folgenden Beispiel wird der Befehlszeilen Befehl festgelegt, der vom Dienst zum Ausführen von Editor verwendet wird, wenn der Auftrag mit dem Namen *mydownloadjob* abgeschlossen ist.
 ```
 C:\>bitsadmin /SetNotifyCmdLine myDownloadJob c:\winnt\system32\notepad.exe NULL
 ```
 ```
-C:\>bitsadmin /SetNotifyCmdLine myDownloadJob c:\winnt\system32\notepad.exe "notepad c:\eula.txt"
+C:\>bitsadmin /SetNotifyCmdLine myDownloadJob c:\winnt\system32\notepad.exe notepad c:\eula.txt
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

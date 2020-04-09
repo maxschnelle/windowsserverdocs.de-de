@@ -2,7 +2,7 @@
 title: Direkte Speicherplätze – Übersicht
 ms.prod: windows-server
 ms.author: cosdar
-ms.manager: dongill
+manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
@@ -10,18 +10,18 @@ ms.date: 06/26/2019
 ms.assetid: 8bd0d09a-0421-40a4-b752-40ecb5350ffd
 description: Eine Übersicht über direkte Speicherplätze, ein Feature von Windows Server, mit dem Sie Server mit internem Speicher in einer Software definierten Speicherlösung Clustern können.
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e47adcebf7da87e9d3c96812f5d7d90ca00601b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b032d286398b3c1719d290ca83da8bbc9c6b9f85
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402833"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859133"
 ---
 # <a name="storage-spaces-direct-overview"></a>Direkte Speicherplätze – Übersicht
 
 >Gilt für: Windows Server 2019, Windows Server 2016
 
-„Direkte Speicherplätze“ verwendet branchenübliche Server mit lokal angeschlossenen Laufwerken, um hoch verfügbare, hoch skalierbare softwaredefinierte Speicher zu einem Bruchteil der Kosten von herkömmlichen SAN- oder NAS-Arrays zu erstellen. Die konvergierte oder hyperkonvergierte Architektur vereinfacht die Beschaffung und Bereitstellung, während Features wie Caching, Speicherebenen und Löschung Coding zusammen mit den neuesten Hardware Innovationen wie RDMA-Netzwerk und nvme-Laufwerke, Bereitstellung nicht über rivalisierte Effizienz und Leistung.
+„Direkte Speicherplätze“ verwendet branchenübliche Server mit lokal angeschlossenen Laufwerken, um hoch verfügbare, hoch skalierbare softwaredefinierte Speicher zu einem Bruchteil der Kosten von herkömmlichen SAN- oder NAS-Arrays zu erstellen. Die konvergierte oder hyperkonvergierte Architektur vereinfacht die Beschaffung und Bereitstellung, während Features wie Caching, Speicherebenen und Lösch Programmierung zusammen mit den neuesten Hardware Innovationen wie RDMA-Netzwerk-und nvme-Laufwerke eine nicht über rivalisierte Effizienz und Leistung bieten.
 
 Direkte Speicherplätze ist in den Builds Windows Server 2019 Datacenter, Windows Server 2016 Datacenter und [Windows Server Insider Preview](https://insider.windows.com/for-business-getting-started-server/)enthalten. 
 
@@ -78,7 +78,7 @@ Informationen zu anderen Anwendungen von Speicherplätzen, wie freigegebene SAS-
 
 ![„Direkte Speicherplätze“ stellt Speicher für Hyper-V-VMs in demselben Cluster bereit](media/storage-spaces-direct-in-windows-server-2016/hyper-converged-minimal.png)
 
-## <a name="how-it-works"></a>Funktionsweise
+## <a name="how-it-works"></a>So funktioniert's
 
 „Direkte Speicherplätze“ ist die Weiterentwicklung von „Speicherplätze“, das mit Windows Server 2012 eingeführt wurde. „Direkte Speicherplätze“ nutzt viele Features von Windows Server, die Sie bereits kennen, z. B. Failoverclustering, das CSV-Dateisystem (Cluster Shared Volume, freigegebenes Clustervolume), SMB3 (Server Message Block) und natürlich „Speicherplätze“. Außerdem werden neuen Technologie eingeführt, insbesondere der Softwarespeicherbus.
 
@@ -112,7 +112,7 @@ Es gibt weltweit [mehr als 10.000 Cluster, auf](https://blogs.technet.microsoft.
 
 Besuchen Sie [Microsoft.com/HCI](https://www.microsoft.com/hci) , um Ihre Geschichten zu lesen:
 
-[![-Raster von Kundenlogos](media/storage-spaces-direct-in-windows-server-2016/customer-stories.png)](https://www.microsoft.com/hci)
+[![Raster von Kundenlogos](media/storage-spaces-direct-in-windows-server-2016/customer-stories.png)](https://www.microsoft.com/hci)
 
 ## <a name="management-tools"></a>Verwaltungstools
 
@@ -120,9 +120,9 @@ Die folgenden Tools können zum Verwalten und/oder Überwachen von direkte Speic
 
 | Name | Grafisch oder Befehlszeile? | Kostenpflichtig oder inbegriffen? |
 |-----------------|----------------------------|-------------------|
-| [Windows Admin Center](../../manage/windows-admin-center/overview.md)     | Grafischen    | Eingeschlossen |
-| Server-Manager & Failovercluster-Manager                                 | Grafischen    | Eingeschlossen |
-| Windows PowerShell                                                        | Befehlszeile | Eingeschlossen |
+| [Windows Admin Center](../../manage/windows-admin-center/overview.md)     | Grafischen    | Einbezogen |
+| Server-Manager & Failovercluster-Manager                                 | Grafischen    | Einbezogen |
+| Windows PowerShell                                                        | Befehlszeile | Einbezogen |
 | [System Center Virtual Machine Manager (SCVMM)](https://technet.microsoft.com/system-center-docs/vmm/manage/manage-storage-spaces-direct-vmm) <br>& [Operations Manager (SCOM)](https://www.microsoft.com/download/details.aspx?id=54700) | Grafischen    | Kostenpflichtig     |
 
 ## <a name="get-started"></a>Erste Schritte

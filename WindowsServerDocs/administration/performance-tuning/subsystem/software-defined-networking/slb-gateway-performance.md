@@ -4,15 +4,15 @@ description: Leitfaden zur Leistungsoptimierung für SLB-Gateways in Sdn-Netzwer
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: grcusanz; AnPaul
+ms.author: grcusanz; anpaul
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 9a0d239da2ca321333ec757db22bbaf9a9b8ba30
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d1a497f24eba26b3b9b866772ae5171ea0fcbb24
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383459"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851583"
 ---
 # <a name="slb-gateway-performance-tuning-in-software-defined-networks"></a>Leistungsoptimierung des SLB-Gateways in Software definierten Netzwerken
 
@@ -26,7 +26,7 @@ Virtuelle SLB MUX-Computer werden in einer aktiv/aktiv-Konfiguration bereitgeste
 
 Eine einzelne Verbindung mit einer virtuellen IP-Adresse (VIP) wird immer an dieselbe MUX-Adresse gesendet, wobei angenommen wird, dass die Anzahl der Mux konstant bleibt. Infolgedessen wird der Durchsatz auf den Durchsatz einer einzelnen MUX-VM beschränkt.  Muxes verarbeiten nur den eingehenden Datenverkehr, der an eine VIP-Adresse gerichtet ist.  Antwort Pakete gelangen direkt von der VM, die die Antwort an den physischen Switch sendet, der Sie an den Client weiterleitet.
 
-In einigen Fällen, in denen die Quelle der Anforderung von einem Sdn-Host stammt, der demselben Netzwerk Controller hinzugefügt wird, der die VIP verwaltet, wird auch die weitere Optimierung des eingehenden Pfads für die Anforderung ausgeführt, sodass die meisten Pakete direkt vom Client an den Server, wobei die MUX-VM vollständig umgangen wird.  Es ist keine zusätzliche Konfiguration erforderlich, damit diese Optimierung stattfindet.
+In einigen Fällen, in denen die Quelle der Anforderung von einem Sdn-Host stammt, der demselben Netzwerk Controller hinzugefügt wird, der die VIP verwaltet, wird auch die weitere Optimierung des eingehenden Pfads für die Anforderung ausgeführt, sodass die meisten Pakete direkt vom Client zum Server übertragen werden können, wobei der Mux-VM vollständig umgangen wird.  Es ist keine zusätzliche Konfiguration erforderlich, damit diese Optimierung stattfindet.
 
 Jeder SLB MUX-VM muss gemäß den Richtlinien, die im Abschnitt [Planen einer Software definierten Netzwerkinfrastruktur](../../../../networking/sdn/plan/Plan-a-Software-Defined-Network-Infrastructure.md) beschrieben werden, gemäß den Richtlinien für die Rollenanforderungen für virtuelle Computer in Sdn-Infrastruktur angegeben werden.
 

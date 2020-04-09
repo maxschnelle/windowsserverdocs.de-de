@@ -1,107 +1,106 @@
 ---
-title: Leistungsverlauf für "direkte Speicherplätze"
+title: Leistungs Verlauf für direkte Speicherplätze
 ms.author: cosdar
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 09/07/2018
-Keywords: Direkte Speicherplätze
 ms.localizationpriority: medium
-ms.openlocfilehash: 1916d2d5e4d1fc846bec19826437b200afe36f42
-ms.sourcegitcommit: 4ff3d00df3148e4bea08056cea9f1c3b52086e5d
+ms.openlocfilehash: ab9b6016d49725b7f25d2ad3c40bd6265ac811a9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64772212"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856153"
 ---
-# <a name="performance-history-for-storage-spaces-direct"></a>Leistungsverlauf für "direkte Speicherplätze"
+# <a name="performance-history-for-storage-spaces-direct"></a>Leistungs Verlauf für direkte Speicherplätze
 
 > Gilt für: Windows Server 2019
 
-Leistungsverlauf für ist ein neues Feature, das bietet ["direkte Speicherplätze"](storage-spaces-direct-overview.md) Administratoren ganz einfach auf historische COMPUTE-, Arbeitsspeicher-, Netzwerk- und Speicher Messungen auf Hostservern, Laufwerke, Volumes, virtuelle Computer und mehr. Leistungsverlauf für automatisch erfasst und auf dem Cluster bis zu ein Jahr lang gespeichert.
+Der Leistungs Verlauf ist ein neues Feature, das [direkte Speicherplätze](storage-spaces-direct-overview.md) Administratoren einen einfachen Zugriff auf Verlaufs bezogene COMPUTE-, Arbeitsspeicher-, Netzwerk-und Speicher Messungen über Host Server, Laufwerke, Volumes, virtuelle Maschinen und vieles mehr ermöglicht. Der Leistungs Verlauf wird automatisch erfasst und bis zu einem Jahr im Cluster gespeichert.
 
    > [!IMPORTANT]
-   > Dieses Feature ist neu in Windows Server-2019. Es ist nicht in Windows Server 2016 verfügbar.
+   > Diese Funktion ist neu in Windows Server 2019. Es ist in Windows Server 2016 nicht verfügbar.
 
-## <a name="get-started"></a>Beginnen
+## <a name="get-started"></a>Erste Schritte
 
-Leistungsverlauf für gesammelt, die standardmäßig mit "direkte Speicherplätze" in Windows Server-2019. Sie müssen nicht installieren, konfigurieren, oder starten nichts. Eine Internetverbindung ist nicht erforderlich, System Center ist nicht erforderlich, und eine externe Datenbank ist nicht erforderlich.
+Der Leistungs Verlauf wird standardmäßig mit direkte Speicherplätze in Windows Server 2019 erfasst. Sie müssen nichts installieren, konfigurieren oder starten. Eine Internet Verbindung ist nicht erforderlich, System Center ist nicht erforderlich, und eine externe Datenbank ist nicht erforderlich.
 
-Leistungsverlauf für Ihren Cluster grafisch erhalten [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md):
+Verwenden Sie [Windows Admin Center](../../manage/windows-admin-center/understand/windows-admin-center.md), um den Leistungs Verlauf Ihres Clusters grafisch anzuzeigen:
 
-![Leistungsverlauf für in Windows Admin Center](media/performance-history/perf-history-in-wac.png)
+![Leistungs Verlauf im Windows Admin Center](media/performance-history/perf-history-in-wac.png)
 
-Verwenden Sie zum Abfragen und programmgesteuert zu verarbeiten, die neue `Get-ClusterPerf` Cmdlet. Finden Sie unter [Verwendung in PowerShell](#usage-in-powershell).
+Verwenden Sie das neue Cmdlet "`Get-ClusterPerf`", um es Programm gesteuert abzufragen und zu verarbeiten. Weitere Informationen finden Sie [unter Verwendung in PowerShell](#usage-in-powershell).
 
-## <a name="whats-collected"></a>Was wird gesammelt
+## <a name="whats-collected"></a>Erfasste Elemente
 
-Leistungsverlauf für 7 Objekttypen werden gesammelt:
+Der Leistungs Verlauf wird für 7 Objekttypen gesammelt:
 
-![Typen von Objekten](media/performance-history/types-of-object.png)
+![Objekttypen](media/performance-history/types-of-object.png)
 
-Jeder Objekttyp verfügt über viele Serie: z. B. `ClusterNode.Cpu.Usage` werden für jeden Server gesammelt.
+Jeder Objekttyp verfügt über viele Reihen: beispielsweise wird `ClusterNode.Cpu.Usage` für jeden Server erfasst.
 
-Details zu gesammelten Daten für jeden Objekttyp und wie diese interpretiert werden soll finden Sie in folgenden Unterthemen:
+Ausführliche Informationen zu den gesammelten Informationen für jeden Objekttyp und deren Interpretation finden Sie in den folgenden Unterthemen:
 
-| Objekt             | Serie                                                                               |
+| Object             | Reihe                                                                               |
 |--------------------|--------------------------------------------------------------------------------------|
-| Laufwerke             | [Was wird für Laufwerke gesammelt.](performance-history-for-drives.md)                     |
-| Netzwerkadapter   | [Was ist für Netzwerkadapter erfasst.](performance-history-for-network-adapters.md) |
-| Server            | [Was wird für Server gesammelt.](performance-history-for-servers.md)                   |
-| Virtuelle Festplatten | [Was wird für virtuelle Festplatten gesammelt.](performance-history-for-vhds.md)           |
-| Virtuelle Computer   | [Was wird für virtuelle Maschinen gesammelt.](performance-history-for-vms.md)              |
-| Volumes            | [Was wird für Volumes gesammelt.](performance-history-for-volumes.md)                   |
-| Cluster           | [Was wird für Cluster gesammelt.](performance-history-for-clusters.md)                 |
+| Laufwerke             | [Gesammelte Informationen für Laufwerke](performance-history-for-drives.md)                     |
+| Netzwerkadapter   | [Erfasste Elemente für Netzwerkadapter](performance-history-for-network-adapters.md) |
+| Server            | [Erfasste Elemente für Server](performance-history-for-servers.md)                   |
+| Virtuelle Festplatten | [Gesammelte Datenträger für virtuelle Festplatten](performance-history-for-vhds.md)           |
+| Virtuelle Computer   | [Gesammelte Elemente für virtuelle Computer](performance-history-for-vms.md)              |
+| Volumes            | [Gesammelte Volumes für Volumes](performance-history-for-volumes.md)                   |
+| Cluster           | [Gesammelte Elemente für Cluster](performance-history-for-clusters.md)                 |
 
-Viele Reihen für Objekte auf derselben Ebene zu ihrer übergeordneten zusammengefasst werden: z. B. `NetAdapter.Bandwidth.Inbound` separat für jeden Netzwerkadapter erfasst und an den gesamten Server aggregiert ebenso `ClusterNode.Cpu.Usage` werden aggregiert, um den gesamten Cluster und so weiter.
+Viele Reihen werden über Peer Objekte mit ihrem übergeordneten Element aggregiert, z. b. `NetAdapter.Bandwidth.Inbound` für jeden Netzwerkadapter separat erfasst und mit dem gesamten Server aggregiert werden. entsprechend wird `ClusterNode.Cpu.Usage` mit dem gesamten Cluster aggregiert. Und so weiter.
 
 ## <a name="timeframes"></a>Zeitrahmen
 
-Leistungsverlauf für wird mit abnehmender Granularität bis zu ein Jahr lang gespeichert. Für die aktuelle Stunde stehen Messungen alle zehn Sekunden. Danach werden sie auf intelligente Weise zusammengeführt (Durchschnitt oder summieren, je nach Bedarf) in weniger präzise Reihe, die mehr Zeit umfassen. Für den letzten Tag stehen Messungen alle fünf Minuten. für die letzte Woche, alle 15 Minuten. Und so weiter.
+Der Leistungs Verlauf wird bis zu einem Jahr mit abnehmender Granularität gespeichert. In der letzten Stunde sind Messungen alle zehn Sekunden verfügbar. Anschließend werden Sie intelligent (durch Mittelwert oder summiert) in weniger differenzierte Reihen, die mehr Zeit umfassen, intelligent zusammengeführt. Für den letzten Tag sind Messungen alle fünf Minuten verfügbar. für die letzte Woche, alle 15 Minuten Und so weiter.
 
-In Windows Admin Center können Sie den Zeitrahmen, in der rechten oberen Ecke über dem Diagramm auswählen.
+Im Windows Admin Center können Sie den Zeitrahmen in der oberen rechten Ecke oberhalb des Diagramms auswählen.
 
-![Zeitrahmen, in Windows Admin Center](media/performance-history/timeframes-in-honolulu.png)
+![Timeframes im Windows Admin Center](media/performance-history/timeframes-in-honolulu.png)
 
-Verwenden Sie in PowerShell die `-TimeFrame` Parameter.
+Verwenden Sie in PowerShell den `-TimeFrame`-Parameter.
 
-Hier sind die verfügbaren Zeitrahmen aus:
+Die folgenden Zeitrahmen sind verfügbar:
 
-| Zeitrahmen   | Häufigkeit der Messung | Beibehalten für |
+| Zeitrahmen   | Maßfrequenz | Beibehalten für |
 |-------------|-----------------------|--------------|
-| `LastHour`  | Alle 10 Sekunden         | 1 Stunden       |
+| `LastHour`  | Alle 10 Sekunden         | 1 Stunde       |
 | `LastDay`   | Alle 5 Minuten       | 25 Stunden     |
 | `LastWeek`  | Alle 15 Minuten      | 8 Tage       |
-| `LastMonth` | Jede Stunde          | 35 Tage      |
-| `LastYear`  | Jeden Tag           | 400 Tagen     |
+| `LastMonth` | Alle 1 Stunde          | 35 Tage      |
+| `LastYear`  | Jeden Tag           | 400 Tage     |
 
 ## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
-Verwenden der `Get-ClusterPerformanceHistory` -Cmdlet zum Leistungsverlauf für Abfrage- und Prozessfunktionen in PowerShell.
+Verwenden Sie das Cmdlet "`Get-ClusterPerformanceHistory`", um den Leistungs Verlauf in PowerShell abzufragen und zu verarbeiten.
 
 ```PowerShell
 Get-ClusterPerformanceHistory
 ```
 
    > [!TIP]
-   > Verwenden der **Get-ClusterPerf** Alias für einige Tastenanschläge sparen.
+   > Verwenden Sie den Alias **Get-clusterperf** , um einige Tastatureingaben zu speichern.
 
 ### <a name="example"></a>Beispiel
 
-Die CPU-Auslastung des virtuellen Computers abrufen *MyVM* der letzten Stunde:
+Die CPU-Auslastung des virtuellen Computers *MyVM* wurde in der letzten Stunde abgerufen:
 
 ```PowerShell
 Get-VM "MyVM" | Get-ClusterPerf -VMSeriesName "VM.Cpu.Usage" -TimeFrame LastHour
 ```
 
-Erweiterte Beispiele finden Sie in den veröffentlichten [Beispielskripts](performance-history-scripting.md) , Startcode Spitzenwerte finden, Durchschnittswerte berechnen, zeichnen Trendlinien, führen Sie Ausreißer, Erkennung und vieles mehr bereitstellen.
+Ausführlichere Beispiele finden Sie in den veröffentlichten [Beispiel Skripts](performance-history-scripting.md) , die Startcode zum Ermitteln von Spitzenwerten, berechnen von Durchschnittswerten, Zeichnen von Trendlinien, Ausführen der Ausreißererkennung und mehr bereitstellen.
 
-### <a name="specify-the-object"></a>Geben Sie das Objekt
+### <a name="specify-the-object"></a>Objekt angeben
 
-Sie können das Objekt angeben, die von der Pipeline werden sollen. Dies funktioniert mit 7 Arten von Objekten:
+Sie können das gewünschte Objekt von der Pipeline angeben. Dies funktioniert mit 7 Typen von Objekten:
 
-| -Objekt aus der pipeline | Beispiel     |
+| Objekt aus Pipeline | Beispiel     |
 |----------------------|-------------|
 | `Get-PhysicalDisk`   | <code>Get-PhysicalDisk -SerialNumber "XYZ456" &#124; Get-ClusterPerf</code>         |
 | `Get-NetAdapter`     | <code>Get-NetAdapter "Ethernet" &#124; Get-ClusterPerf</code>                       |
@@ -111,122 +110,122 @@ Sie können das Objekt angeben, die von der Pipeline werden sollen. Dies funktio
 | `Get-Volume`         | <code>Get-Volume -FriendlyName "MyVolume"  &#124; Get-ClusterPerf</code>            |
 | `Get-Cluster`        | <code>Get-Cluster "MyCluster" &#124; Get-ClusterPerf</code>                         |
 
-Wenn Sie nicht angeben, wird – Leistungsverlauf für den gesamten Cluster zurückgegeben.
+Wenn Sie nicht angeben, wird der Leistungs Verlauf für den gesamten Cluster zurückgegeben.
 
-### <a name="specify-the-series"></a>Geben Sie der Reihe
+### <a name="specify-the-series"></a>Angeben der Reihe
 
-Sie können die gewünschte Reihe angeben, mit folgenden Parametern:
+Sie können die gewünschte Reihe mit den folgenden Parametern angeben:
 
 
-| Parameter                 | Beispiel                       | List                                                                                 |
+| Parameter                 | Beispiel                       | Liste                                                                                 |
 |---------------------------|-------------------------------|--------------------------------------------------------------------------------------|
-| `-PhysicalDiskSeriesName` | `"PhysicalDisk.Iops.Read"`    | [Was wird für Laufwerke gesammelt.](performance-history-for-drives.md)                     |
-| `-NetAdapterSeriesName`   | `"NetAdapter.Bandwidth.Outbound"` | [Was ist für Netzwerkadapter erfasst.](performance-history-for-network-adapters.md) |
-| `-ClusterNodeSeriesName`  | `"ClusterNode.Cpu.Usage"`     | [Was wird für Server gesammelt.](performance-history-for-servers.md)                   |
-| `-VHDSeriesName`          | `"Vhd.Size.Current"`          | [Was wird für virtuelle Festplatten gesammelt.](performance-history-for-vhds.md)           |
-| `-VMSeriesName`           | `"Vm.Memory.Assigned"`        | [Was wird für virtuelle Maschinen gesammelt.](performance-history-for-vms.md)              |
-| `-VolumeSeriesName`       | `"Volume.Latency.Write"`      | [Was wird für Volumes gesammelt.](performance-history-for-volumes.md)                   |
-| `-ClusterSeriesName`      | `"PhysicalDisk.Size.Total"`   | [Was wird für Cluster gesammelt.](performance-history-for-clusters.md)                 |
+| `-PhysicalDiskSeriesName` | `"PhysicalDisk.Iops.Read"`    | [Gesammelte Informationen für Laufwerke](performance-history-for-drives.md)                     |
+| `-NetAdapterSeriesName`   | `"NetAdapter.Bandwidth.Outbound"` | [Erfasste Elemente für Netzwerkadapter](performance-history-for-network-adapters.md) |
+| `-ClusterNodeSeriesName`  | `"ClusterNode.Cpu.Usage"`     | [Erfasste Elemente für Server](performance-history-for-servers.md)                   |
+| `-VHDSeriesName`          | `"Vhd.Size.Current"`          | [Gesammelte Datenträger für virtuelle Festplatten](performance-history-for-vhds.md)           |
+| `-VMSeriesName`           | `"Vm.Memory.Assigned"`        | [Gesammelte Elemente für virtuelle Computer](performance-history-for-vms.md)              |
+| `-VolumeSeriesName`       | `"Volume.Latency.Write"`      | [Gesammelte Volumes für Volumes](performance-history-for-volumes.md)                   |
+| `-ClusterSeriesName`      | `"PhysicalDisk.Size.Total"`   | [Gesammelte Elemente für Cluster](performance-history-for-clusters.md)                 |
 
 
    > [!TIP]
-   > Verwenden Sie Tab-Vervollständigung, um verfügbare Reihe zu ermitteln.
+   > Verwenden Sie die Vervollständigung mit der Tab-Taste, um
 
-Wenn Sie nicht angeben, wird jede Reihe zur Verfügung, für das angegebene Objekt zurückgegeben.
+Wenn Sie nicht angeben, wird jede Reihe, die für das angegebene Objekt verfügbar ist, zurückgegeben.
 
-### <a name="specify-the-timeframe"></a>Geben Sie den Zeitrahmen
+### <a name="specify-the-timeframe"></a>Zeitrahmen angeben
 
-Sie können angeben, den Zeitrahmen des Verlaufs, die mit der `-TimeFrame` Parameter.
+Sie können den gewünschten Verlauf des Verlaufs mit dem `-TimeFrame`-Parameter angeben.
 
    > [!TIP]
-   > Verwenden Sie Tab-Vervollständigung, um verfügbare Zeitrahmen zu ermitteln.
+   > Verwenden der Vervollständigung mit der Tab-Taste zum Ermitteln verfügbarer Zeit
 
-Wenn Sie nicht angeben, die `MostRecent` Messung zurückgegeben wird.
+Wenn Sie nicht angeben, wird die `MostRecent` Messung zurückgegeben.
 
-## <a name="how-it-works"></a>Funktionsweise
+## <a name="how-it-works"></a>So funktioniert's
 
-### <a name="performance-history-storage"></a>Performance History-Speicher
+### <a name="performance-history-storage"></a>Leistungs Verlaufs Speicher
 
-Kurz nach dem "direkte Speicherplätze" aktiviert ist, ein ungefähr bei 10 GB-Volume mit dem Namen `ClusterPerformanceHistory` wird erstellt, und es eine Instanz von die Extensible Storage Engine (auch bekannt als Microsoft JET) bereitgestellt. Diese einfache Datenbank speichert den Leistungsverlauf ohne Eingreifen eines Administrators oder Verwaltung.
+Kurz nachdem direkte Speicherplätze aktiviert ist, wird ein Volume mit einer Größe von ungefähr 10 GB mit dem Namen `ClusterPerformanceHistory` erstellt und eine Instanz der erweiterbaren Speicher-Engine (auch als Microsoft Jet bezeichnet) bereitgestellt. Diese Lightweight-Datenbank speichert den Leistungs Verlauf ohne Administrator Beteiligung oder-Verwaltung.
 
-![Volume für die Speicherung des Berichtsverlaufs Leistung](media/performance-history/perf-history-volume.png)
+![Volume für den Leistungs Verlaufs Speicher](media/performance-history/perf-history-volume.png)
 
-Das Volume durch Speicherplätze unterstützt wird und entweder einfache, bidirektionale Spiegelung oder drei-Wege-Spiegelung resilienz, abhängig von der Anzahl von Knoten im Cluster verwendet. Es wurde repariert, nachdem Laufwerk- oder Serverausfälle wie alle anderen Volumes in "direkte Speicherplätze".
+Das Volume wird durch Speicherplätze unterstützt und verwendet entweder einfache, bidirektionale Spiegelung oder drei-Wege-Spiegelungs Resilienz, abhängig von der Anzahl der Knoten im Cluster. Sie wird nach Laufwerk-oder Server Fehlern repariert, wie bei jedem anderen Volume in direkte Speicherplätze.
 
-Das Volume ReFS verwendet, aber es ist kein freigegebenes Clustervolume (CSV), sodass es nur auf dem Besitzerknoten der Clustergruppe angezeigt wird. Zusätzlich wird automatisch erstellt, es ist nichts Besonderes zu diesem Volume: Sie können sehen, durchsuchen, ändern Sie die Größe oder löschen Sie ihn (nicht empfohlen). Wenn ein Fehler auftritt, finden Sie unter [Problembehandlung](#troubleshooting).
+Das Volume verwendet Refs, ist jedoch nicht freigegebenes Clustervolume (CSV), sodass es nur auf dem Cluster Gruppenbesitzer Knoten angezeigt wird. Neben der automatischen Erstellung gibt es keine besonderen Informationen zu diesem Volume: Sie können das Volume sehen, es durchsuchen, die Größe ändern oder es löschen (nicht empfohlen). Wenn etwas schief geht, finden Sie Informationen unter [Problem](#troubleshooting)Behandlung.
 
-### <a name="object-discovery-and-data-collection"></a>Objekt-Ermittlung und Sammlung
+### <a name="object-discovery-and-data-collection"></a>Objekt Ermittlung und Datensammlung
 
-Leistungsverlauf für relevanten Objekte, z. B. virtuelle Computer, an einer beliebigen Stelle innerhalb des Clusters ermittelt automatisch und beginnt mit dem streamen ihrer Leistungsindikatoren. Die Leistungsindikatoren werden aggregiert, synchronisiert und in die Datenbank eingefügt. Streamen wird fortlaufend ausgeführt und ist für die Auswirkungen auf die nur minimale Systemressourcen optimiert.
+Der Leistungs Verlauf ermittelt automatisch relevante Objekte, z. b. virtuelle Computer, an beliebiger Stelle im Cluster und beginnt mit dem streamen ihrer Leistungsindikatoren. Die Leistungsindikatoren werden aggregiert, synchronisiert und in die Datenbank eingefügt. Streaming wird kontinuierlich ausgeführt und ist für minimale System Auswirkung optimiert.
 
-Auflistung erfolgt vom Integritätsdienst, die hoch verfügbar ist: Wenn der Knoten, in dem er ausgeführt wird, nicht verfügbar mehr, fortgesetzt, an Momente später einen anderen Knoten im Cluster. Leistungsverlauf möglicherweise kurz verfallen, aber es wird automatisch fortgesetzt. Sehen Sie den Health-Dienst und seiner Besitzerknoten mit `Get-ClusterResource Health` in PowerShell.
+Die Sammlung wird vom Integritätsdienst behandelt, der hoch verfügbar ist: Wenn der Knoten, auf dem er ausgeführt wird, ausfällt, wird er später auf einem anderen Knoten im Cluster wieder aufgenommen. Der Leistungs Verlauf kann kurz ausfallen, wird jedoch automatisch fortgesetzt. Sie können den Integritätsdienst und dessen Besitzer Knoten anzeigen, indem Sie `Get-ClusterResource Health` in PowerShell ausführen.
 
-### <a name="handling-measurement-gaps"></a>Behandeln von Lücken für Messung
+### <a name="handling-measurement-gaps"></a>Behandeln von Mess Lücken
 
-Wenn Messungen zusammengeführt weniger präzise Reihe, die mehr Zeit umfassen, wie in beschrieben [Zeitrahmen](#timeframes), fehlende Daten ausgeschlossen werden. Beispielsweise, wenn der Server für 30 Minuten gedrückt wurde, klicken Sie dann ausführen bei 50 % CPU für die nächsten 30 Minuten, die `ClusterNode.Cpu.Usage` durchschnittliche für die Stunde als 50 % (nicht 25 %) ordnungsgemäß aufgezeichnet werden.
+Wenn Messungen in weniger differenzierte Reihen zusammengeführt werden, die mehr Zeit umfassen (siehe [Zeitrahmen](#timeframes)), werden Zeiträume fehlender Daten ausgeschlossen. Wenn der Server z. b. 30 Minuten lang eingestellt war und für die nächsten 30 Minuten eine CPU-Auslastung von 50% beträgt, wird der `ClusterNode.Cpu.Usage`-Durchschnitt für die Stunde ordnungsgemäß als 50% (nicht 25%) aufgezeichnet.
 
 ### <a name="extensibility-and-customization"></a>Erweiterbarkeit und Anpassung
 
-Der Leistungsverlauf ist scripting geeignet. Verwenden Sie PowerShell, um alle verfügbaren Verlauf direkt aus der Datenbank automatisierten reporting zu erstellen oder Warnungen, exportverlaufs zur Aufbewahrung abzurufen, verwenden Sie Ihre eigenen Visualisierungen usw. Finden Sie im veröffentlichten [Beispielskripts](performance-history-scripting.md) für hilfreich Startcode.
+Der Leistungs Verlauf ist Skript freundlich. Verwenden Sie PowerShell, um einen beliebigen verfügbaren Verlauf direkt aus der Datenbank abzurufen, um automatisierte Berichte oder Warnungen zu erstellen, den Verlauf für die Aufbewahrung zu exportieren, ihre eigenen Visualisierungen zu registrieren usw. In den veröffentlichten [Beispiel Skripts](performance-history-scripting.md) finden Sie hilfreiche Starter Codes.
 
-Es ist nicht möglich, um den Verlauf für zusätzliche Objekte, Zeitrahmen oder Reihen zu sammeln.
+Es ist nicht möglich, den Verlauf für zusätzliche Objekte, Zeitrahmen oder Reihen zu erfassen.
 
-Die Häufigkeit der Messung und die Beibehaltungsdauer sind nicht aktuell konfigurierbar.
+Die Mess Häufigkeit und die Beibehaltungs Dauer können derzeit nicht konfiguriert werden.
 
-## <a name="start-or-stop-performance-history"></a>Starten oder Beenden der Leistungsverlauf
+## <a name="start-or-stop-performance-history"></a>Leistungs Verlauf starten oder Abbrechen
 
-### <a name="how-do-i-enable-this-feature"></a>Wie aktiviere ich dieses Feature?
+### <a name="how-do-i-enable-this-feature"></a>Gewusst wie dieses Feature aktivieren?
 
-Es sei denn, Sie `Stop-ClusterPerformanceHistory`, Leistungsverlauf ist standardmäßig aktiviert.
+Wenn Sie nicht `Stop-ClusterPerformanceHistory`, ist der Leistungs Verlauf standardmäßig aktiviert.
 
-Um es erneut zu aktivieren, führen Sie dieses PowerShell-Cmdlet als Administrator aus:
+Führen Sie dieses PowerShell-Cmdlet als Administrator aus, um es wieder zu aktivieren:
 
 ```PowerShell
 Start-ClusterPerformanceHistory
 ```
 
-### <a name="how-do-i-disable-this-feature"></a>Wie deaktivieren kann ich dieses Feature?
+### <a name="how-do-i-disable-this-feature"></a>Gewusst wie diese Funktion deaktivieren?
 
-Führen Sie dieses PowerShell-Cmdlet als Administrator, um das Sammeln von Leistungsverlauf zu beenden:
+Führen Sie dieses PowerShell-Cmdlet als Administrator aus, um die Erfassung des Leistungs Verlaufs zu verhindern:
 
 ```PowerShell
 Stop-ClusterPerformanceHistory
 ```
 
-Verwenden Sie zum Löschen vorhandener Messungen der `-DeleteHistory` Flag:
+Verwenden Sie das `-DeleteHistory`-Flag, um vorhandene Messungen zu löschen:
 
 ```PowerShell
 Stop-ClusterPerformanceHistory -DeleteHistory
 ```
 
    > [!TIP]
-   > Während der erstbereitstellung, können Sie verhindern – Leistungsverlauf ab, durch Festlegen der `-CollectPerformanceHistory` Parameter `Enable-ClusterStorageSpacesDirect` zu `$False`.
+   > Während der ersten Bereitstellung können Sie den Start des Leistungs Verlaufs verhindern, indem Sie den `-CollectPerformanceHistory`-Parameter von `Enable-ClusterStorageSpacesDirect` auf `$False`festlegen.
 
 ## <a name="troubleshooting"></a>Problembehandlung
 
-### <a name="the-cmdlet-doesnt-work"></a>Das Cmdlet funktioniert nicht
+### <a name="the-cmdlet-doesnt-work"></a>Das Cmdlet funktioniert nicht.
 
-Eine Fehlermeldung wie "*der Begriff"Get-ClusterPerf"wird nicht als Name eines Cmdlets erkannt*" bedeutet, dass das Feature ist nicht verfügbar oder installiert. Stellen Sie sicher, dass Sie Windows Server Insider Preview Build 17692 oder höher verfügen, die Sie installiert haben, Failoverclustering und, dass Sie "direkte Speicherplätze" ausgeführt werden.
+Eine Fehlermeldung wie "*der Begriff ' Get-clusterperf ' wird nicht als Name eines Cmdlets erkannt*" bedeutet, dass das Feature nicht verfügbar oder installiert ist. Vergewissern Sie sich, dass Sie über Windows Server Insider Preview Build 17692 oder höher verfügen, dass Sie das Failoverclustering installiert haben, und dass Sie direkte Speicherplätze ausführen.
 
    > [!NOTE]
-   > Dieses Feature ist nicht verfügbar unter Windows Server 2016 oder früher.
+   > Diese Funktion ist unter Windows Server 2016 oder früher nicht verfügbar.
 
-### <a name="no-data-available"></a>Keine Daten verfügbar. 
+### <a name="no-data-available"></a>Keine Daten verfügbar 
 
-Wenn Sie ein Diagramm zeigt die "*keine Daten verfügbar*" wie abgebildet ist, sieht Sie so beheben Sie:
+Wenn im Diagramm "*keine Daten verfügbar*" angezeigt werden, gehen Sie wie folgt vor:
 
-![Keine Daten verfügbar.](media/performance-history/no-data-available.png)
+![Keine Daten verfügbar](media/performance-history/no-data-available.png)
 
-1. Wenn das Objekt neu hinzugefügt oder erstellt wurde, warten Sie, um es zu ermittelt (bis zu 15 Minuten).
+1. Wenn das Objekt neu hinzugefügt oder erstellt wurde, warten Sie, bis es erkannt wird (bis zu 15 Minuten).
 
-2. Aktualisieren Sie die Seite, oder warten Sie auf der nächsten Aktualisierung im Hintergrund (bis zu 30 Sekunden).
+2. Aktualisieren Sie die Seite, oder warten Sie auf die nächste Hintergrund Aktualisierung (bis zu 30 Sekunden).
 
-3. Bestimmte spezielle Objekte sind ausgeschlossen – Leistungsverlauf – z. B. virtuelle Computer, die gruppiert werden nicht und Volumes, die das Dateisystem (Cluster Shared Volume, CSV) nicht verwenden. Überprüfen Sie im Unterabschnitt für den Objekttyp, z. B. [– Leistungsverlauf für Volumes](performance-history-for-volumes.md), für das Kleingedruckte.
+3. Bestimmte spezielle Objekte werden aus dem Leistungs Verlauf ausgeschlossen – z. b. virtuelle Computer, die nicht geclustert sind, und Volumes, die nicht das CSV-Dateisystem (freigegebenes Clustervolume) verwenden. Überprüfen Sie das Unterthema für den Objekttyp, wie z. b. [Leistungs Verlauf für Volumes](performance-history-for-volumes.md), für den fein Abdruck.
 
-4. Wenn das Problem weiterhin besteht, öffnen Sie PowerShell als Administrator, und führen die `Get-ClusterPerf` Cmdlet. Das Cmdlet enthält, zur Problembehandlung von Logik zum Identifizieren von Problemen, z. B. wenn das Volume ClusterPerformanceHistory ist nicht vorhanden und enthält Anweisungen zur integritätswiederherstellung.
+4. Wenn das Problem weiterhin besteht, öffnen Sie PowerShell als Administrator, und führen Sie das `Get-ClusterPerf`-Cmdlet aus. Das Cmdlet enthält Problem Behandlungs Logik zur Identifizierung allgemeiner Probleme, z. b. wenn das Volume clusterperformancehistory fehlt, und stellt Korrektur Anweisungen bereit.
 
-5. Wenn der Befehl im vorherigen Schritt mit "nothing" zurückgibt, können Sie versuchen, neu zu starten den Integritätsdienst (der Leistungsverlauf erfasst) mit `Stop-ClusterResource Health ; Start-ClusterResource Health` in PowerShell.
+5. Wenn der Befehl im vorherigen Schritt nichts zurückgibt, können Sie versuchen, den Integritätsdienst (der Leistungs Verlauf sammelt) zu starten, indem Sie `Stop-ClusterResource Health ; Start-ClusterResource Health` in PowerShell ausführen.
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Übersicht über Storage "direkte Speicherplätze"](storage-spaces-direct-overview.md)
+- [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)

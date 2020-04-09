@@ -8,12 +8,12 @@ author: larsiwer
 ms.asset: b78ab493-e7c3-41f5-ab36-29397f086f32
 ms.author: kathydav
 ms.date: 11/03/2016
-ms.openlocfilehash: 2232f62090e171060f25e4c2513a217e2ab98eaa
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: a7df8de5a828b68a341191eaa1a400f80dd9127b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950539"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852903"
 ---
 # <a name="about-dump-encryption"></a>Informationen zur dumpverschlüsselung
 Die dumpverschlüsselung kann verwendet werden, um Absturz Abbilder und Live Abbilder zu verschlüsseln, die für ein System generiert werden. Die Abbilder werden mit einem symmetrischen Verschlüsselungsschlüssel verschlüsselt, der für jedes Abbild generiert wird. Dieser Schlüssel selbst wird dann mit dem öffentlichen Schlüssel verschlüsselt, der vom vertrauenswürdigen Administrator des Hosts angegeben wird (Schutzvorrichtung für Absturz Abbild Verschlüsselung). Dadurch wird sichergestellt, dass nur jemand, der über den entsprechenden privaten Schlüssel verfügt, den Inhalt des Abbilds entschlüsseln und somit darauf zugreifen kann Diese Funktion wird in einem geschützten Fabric genutzt.
@@ -23,11 +23,11 @@ Hinweis: Wenn Sie die dumpverschlüsselung konfigurieren, deaktivieren Sie auch 
 ### <a name="manual-configuration"></a>Manuelle Konfiguration
 Um die dumpverschlüsselung mithilfe der Registrierung zu aktivieren, konfigurieren Sie die folgenden Registrierungs Werte unter `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl`
 
-| Wertname | Geben Sie in das Suchfeld auf der Taskleiste | Value |
+| Wertname | Typ | Wert |
 | ---------- | ---- | ----- |
 | Dumpverschlüsselungsfähig | DWORD | 1 zum Aktivieren der dumpverschlüsselung, 0 zum Deaktivieren der dumpverschlüsselung |
-| Verschlüsselungcertificates\certificate1::P ublickey | Binär | Öffentlicher Schlüssel (RSA, 2048 Bit), der zum Verschlüsseln von Dumps verwendet werden soll. Dies muss als [BCRYPT_RSAKEY_BLOB](https://msdn.microsoft.com/library/windows/desktop/aa375531(v=vs.85).aspx)formatiert werden. |
-| "Verschlüsselungcertificates\certificate1:: Thumbprint" | Zeichenfolge | Zertifikat Fingerabdruck, um die automatische Suche nach privatem Schlüssel im lokalen Zertifikat Speicher zuzulassen, wenn ein Absturz Abbild entschlüsselt wird. |
+| Verschlüsselungcertificates\certificate1::P ublickey | Binary | Öffentlicher Schlüssel (RSA, 2048 Bit), der zum Verschlüsseln von Dumps verwendet werden soll. Dies muss als [BCRYPT_RSAKEY_BLOB](https://msdn.microsoft.com/library/windows/desktop/aa375531(v=vs.85).aspx)formatiert werden. |
+| "Verschlüsselungcertificates\certificate1:: Thumbprint" | String | Zertifikat Fingerabdruck, um die automatische Suche nach privatem Schlüssel im lokalen Zertifikat Speicher zuzulassen, wenn ein Absturz Abbild entschlüsselt wird. |
 
 
 ### <a name="configuration-using-script"></a>Konfiguration mithilfe eines Skripts
@@ -52,7 +52,7 @@ Nach der Entschlüsselung können Tools wie WinDBG die entschlüsselte Dumpdatei
 ## <a name="troubleshooting-dump-encryption"></a>Fehlerbehebung
 Wenn die dumpverschlüsselung auf einem System aktiviert ist, aber keine Abbilder generiert werden, überprüfen Sie das `System` Ereignisprotokoll des Systems auf `Kernel-IO` Ereignis 1207. Wenn die dumpverschlüsselung nicht initialisiert werden kann, wird dieses Ereignis erstellt und Abbilder deaktiviert.
 
-| Detaillierte Fehlermeldung | Auszumindern Schritte |
+| Ausführliche Fehlermeldung | Auszumindern Schritte |
 | ---------------------- | ----------------- |
 | Der öffentliche Schlüssel oder die Fingerabdruck Registrierung fehlt. | Überprüfen Sie, ob beide Registrierungs Werte am erwarteten Speicherort vorhanden sind. |
 | Ungültiger öffentlicher Schlüssel | Stellen Sie sicher, dass der öffentliche Schlüssel, der im Registrierungs Wert PublicKey gespeichert ist, als [BCRYPT_RSAKEY_BLOB](https://msdn.microsoft.com/library/windows/desktop/aa375531(v=vs.85).aspx)gespeichert wird. |

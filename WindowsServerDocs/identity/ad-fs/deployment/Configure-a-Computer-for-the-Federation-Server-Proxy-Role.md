@@ -1,7 +1,6 @@
 ---
 ms.assetid: a2f23877-30a7-439f-817d-387da9e00e86
 title: Konfigurieren eines Computers für die Verbundserverproxy-Rolle
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: d47f7d3985aa779276f0712347eb9030857cefdb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a8bfe21f50a68edfcdbc7c937dc914ff1e1d94c3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359790"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854903"
 ---
 # <a name="configure-a-computer-for-the-federation-server-proxy-role"></a>Konfigurieren eines Computers für die Verbundserverproxy-Rolle
 
@@ -25,27 +24,27 @@ Nachdem Sie einen Computer mit den erforderlichen Zertifikaten konfiguriert und 
   
 Wenn Sie das Einrichten des Computers fertig gestellt haben, überprüfen Sie, ob die Funktionsweise des Verbundserverproxys den Erwartungen entspricht. Weitere Informationen finden Sie unter [Überprüfen der Betriebsbereitschaft eines Verbundserverproxys](Verify-That-a-Federation-Server-Proxy-Is-Operational.md).  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe **Administratoren** oder eine gleichwertige Berechtigung auf dem lokalen Computer erforderlich.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 ### <a name="to-configure-a-computer-for-the-federation-server-proxy-role"></a>So konfigurieren Sie einen Computer für die Verbundserverproxy-Rolle  
   
-1.  Es gibt zwei Möglichkeiten, den Assistenten für die Konfiguration des AD FS-Verbund Servers zu starten. Führen Sie zum Starten des Assistenten eine der folgenden Aktionen aus:  
+1.  Es gibt zwei Möglichkeiten, den AD FS-Assistenten für die Konfiguration des Verbundservers zu starten. Führen Sie zum Starten des Assistenten eine der folgenden Aktionen aus:  
   
     -   Geben Sie auf dem **Start** Bildschirm**AD FS Assistenten für die Konfiguration eines Verbund Server Proxys**ein, und drücken Sie die EINGABETASTE  
   
     -   Öffnen Sie nach Abschluss des Setup-Assistenten Windows-Explorer, navigieren Sie zum Ordner **C:\\Windows\\ADFS** , und Doppel\-klicken Sie dann auf **fspconfigwizard. exe**.  
   
-2.  Starten Sie den Assistenten mit einer dieser Methoden, und klicken Sie auf der Seite **Willkommen** auf **Weiter**.  
+2.  Starten Sie den Assistenten mit einer der beiden Methoden, und klicken Sie dann auf der Seite **Willkommen** auf **Weiter**.  
   
-3.  Geben Sie auf der Seite **Angeben eines Verbunddienstnamens** unter **Verbunddienstname** den Namen für den Verbunddienst ein, für den dieser Computer in der Proxyrolle agieren wird.  
+3.  Geben Sie auf der Seite **Verbunddienstname angeben** unter **Verbunddienstname** den Namen ein, der den Verbunddienst darstellt, für den dieser Computer die Proxyrolle übernimmt.  
   
-4.  Legen Sie basierend auf Ihren bestimmten Netzwerkanforderungen fest, ob Sie einen HTTP-Proxyserver verwenden müssen, um Anforderungen an den Verbunddienst weiterzuleiten. Falls ja, aktivieren Sie das Kontrollkästchen zum **Verwenden eines HTTP-Proxyservers beim Senden von Andorderungen an diesen Verbunddienst**, geben Sie unter **HTTP-Proxyserveradresse** die Adresse des Proxyservers ein, klicken Sie auf **Verbindung testen**, um die Konnektivität zu prüfen, und klicken Sie dann auf **Weiter**.  
+4.  Ermitteln Sie je nach vorliegenden Netzwerkanforderungen, ob Sie zum Weiterleiten von Anforderungen an den Verbunddienst einen HTTP-Proxyserver verwenden müssen. Wenn dies der Fall ist, aktivieren Sie das Kontrollkästchen **HTTP-Proxyserver beim Senden von Anforderungen an diesen Verbunddienst verwenden**, geben Sie unter **Adresse des HTTP-Proxyservers** die Adresse des Proxyservers ein, klicken Sie auf **Verbindung testen**, um die Verbindung zu überprüfen, und klicken Sie dann auf **Weiter**.  
   
-5.  Wenn Sie dazu aufgefordert werden, geben Sie die zum Einrichten einer Vertrauensstellung zwischen diesem Verbundserverproxy und dem Verbunddienst erforderlichen Anmeldeinformationen an.  
+5.  Wenn Sie dazu aufgefordert werden, geben Sie die Anmeldeinformationen an, die zum Einrichten einer Vertrauensstellung zwischen diesem Verbundserverproxy und dem Verbunddienst erforderlich sind.  
   
     Standardmäßig kann nur das vom Verbunddienst verwendete Dienst Konto oder ein Mitglied der lokalen Gruppe\\Administratoren einen Verbund Server Proxy autorisieren.  
   
-6.  Überprüfen Sie die Details auf der Seite **Bereit zum Anwenden der Einstellungen**. Wenn die Einstellungen korrekt zu sein scheinen, klicken Sie auf **Weiter**, um die Konfiguration dieses Computer mit diesen Proxyeinstellungen zu beginnen.  
+6.  Überprüfen Sie auf der Seite **Bereit zum Übernehmen der Einstellungen** die Details. Wenn die Einstellungen richtig sind, klicken Sie auf **Weiter**, um diesen Computer mit diesen Proxyeinstellungen zu konfigurieren.  
   
 7.  Überprüfen Sie die Ergebnisse auf der Seite **Konfigurationsergebnisse**. Wenn alle Konfigurationsschritte abgeschlossen sind, klicken Sie auf **Schließen** , um den Assistenten zu beenden.  
   
@@ -80,7 +79,7 @@ Standardmäßig ist der Verbund Server Proxy-Dienst für die Verwendung von TCP-
     > [!NOTE]  
     > Endpunkt-URLs sind für den Verbund Server Proxy-Dienst standardmäßig nicht aktiviert. Wenn Sie eine neue Verbund Server Installation konfigurieren, müssen Sie zunächst die Verbund Server Proxy-Dienst Endpunkte aktivieren. Beispielsweise wird angenommen, dass Sie für alle Endpunkte, auf die sich das Beispiel in diesem Verfahren bezieht, Sie für den Proxy aktiviert haben, indem Sie Sie in der AD FS-Verwaltungs-Snap\-in auswählen und dann **auf Proxy aktivieren**auswählen.  
   
-3.  Aktualisieren Sie die IIS-Installation auf dem Verbund Server Proxy, damit Security Assertion Markup Language \(SAML\) und WS\-Vertrauens Endpunkte so konfiguriert sind, dass Sie die aktualisierte Portnummer widerspiegeln. Zu diesem Zweck können Sie den Editor in der Datei "Web. config" in der Datei "Web. config" unter "System Drive%\\Inetpub\\ADFS\\ls\\ auf dem Verbund Server Proxy-Computer ändern. Wenn Sie z. b. einen Verbund Server mit dem Namen sts1.contoso.com haben und die neue Portnummer 444 lautet, navigieren Sie zu, und öffnen Sie die Datei Web. config in Editor auf dem Verbund Server Proxy-Computer. Suchen Sie den folgenden Abschnitt, und ändern Sie die Portnummer als. unten hervorgehoben, und speichern und beenden Sie dann den Editor.  
+3.  Aktualisieren Sie die IIS-Installation auf dem Verbund Server Proxy, damit Security Assertion Markup Language \(SAML\) und WS\-Vertrauens Endpunkte so konfiguriert sind, dass Sie die aktualisierte Portnummer widerspiegeln. Zu diesem Zweck können Sie den Editor in der Datei "Web. config" in der Datei "Web. config" unter "System Drive%\\Inetpub\\ADFS\\ls\\ auf dem Verbund Server Proxy-Computer ändern. Wenn Sie z. b. einen Verbund Server mit dem Namen sts1.contoso.com haben und die neue Portnummer 444 lautet, navigieren Sie zu, und öffnen Sie die Datei Web. config in Editor auf dem Verbund Server Proxy-Computer. Suchen Sie den folgenden Abschnitt, ändern Sie die Portnummer wie unten gezeigt, und speichern und beenden Sie dann den Editor.  
   
     ```  
     <securityTokenService samlProtocolEndpoint="https://sts1.contoso.com:444/adfs/services/trust/samlprotocol/proxycertificatetransport"  

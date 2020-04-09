@@ -1,22 +1,18 @@
 ---
 title: Verwalten unterschiedlicher Domänen in Active Directory-Verwaltungscenter
-ms.prod: windows-server
 description: Windows Server-Sicherheit
-ms.custom: na
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
+ms.prod: windows-server
 ms.assetid: 166351c3-4076-48be-aa8f-797adf1e9d68
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 71edf6bb38cc665fe5c780ce986d0c0b8807d6ab
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6690ffbc558db4026c3fe67168907ca953ad4081
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386929"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856983"
 ---
 # <a name="manage-different-domains-in-active-directory-administrative-center"></a>Verwalten unterschiedlicher Domänen in Active Directory-Verwaltungscenter
 
@@ -24,7 +20,7 @@ ms.locfileid: "71386929"
 
   Wenn Sie Active Directory Verwaltung öffnen, wird die Domäne, bei der Sie zurzeit auf diesem Computer angemeldet sind \(die lokale Domäne\) im Active Directory-Verwaltungscenter Navigationsbereich \(linken Bereich\)angezeigt. Abhängig von den rechten Ihres aktuellen Anmelde Informations Satzes können Sie die Active Directory Objekte in dieser lokalen Domäne anzeigen oder verwalten.
 
- Sie können auch denselben Satz von Anmelde Informationen und dieselbe Instanz von Active Directory-Verwaltungscenter verwenden, um Active Directory Objekte in einer beliebigen anderen Domäne in derselben Gesamtstruktur anzuzeigen oder zu verwalten, oder eine Domäne in einer anderen Gesamtstruktur, die eine Vertrauensstellung mit dem lokalen -. Sowohl eine\-Way-Vertrauensstellung als auch zwei\-, wie Vertrauens Stellungen unterstützt werden.
+ Sie können auch denselben Satz von Anmelde Informationen und dieselbe Instanz von Active Directory-Verwaltungscenter verwenden, um Active Directory Objekte in einer beliebigen anderen Domäne in derselben Gesamtstruktur anzuzeigen oder zu verwalten, oder eine Domäne in einer anderen Gesamtstruktur, die über eine Vertrauensstellung mit der lokalen Domäne verfügt. Sowohl eine\-Way-Vertrauensstellung als auch zwei\-, wie Vertrauens Stellungen unterstützt werden.
 
 > [!NOTE]
 >  Wenn eine\-Weise Vertrauensstellung zwischen Domäne a und Domäne b vorhanden ist, über die Benutzer in Domäne a auf Ressourcen in Domäne b zugreifen können, aber Benutzer in Domäne b können nicht auf Ressourcen in Domäne a zugreifen, wenn Sie Active Directory-Verwaltungscenter auf dem Computer ausführen, auf dem Domäne a als lokale Domäne festgelegt ist, können Sie mit dem aktuellen Satz von Anmelde Informationen und in derselben Instanz von Active Directory-Verwaltungscenter eine Verbindung mit Wenn Sie jedoch Active Directory-Verwaltungscenter auf dem Computer ausführen, auf dem Domäne B Ihre lokale Domäne ist, können Sie keine Verbindung mit Domäne A mit demselben Satz von Anmelde Informationen in derselben Instanz des Active Directory-Verwaltungscenter herstellen.
@@ -33,7 +29,7 @@ ms.locfileid: "71386929"
 
 ### <a name="windows-server-2012-to-manage-a-foreign-domain-in-the-selected-instance-of-active-directory-administrative-center-using-the-current-set-of-logon-credentials"></a>Windows Server 2012: zum Verwalten einer fremden Domäne in der ausgewählten Instanz von Active Directory-Verwaltungscenter mithilfe des aktuellen Anmelde Informations Satzes
 
-1.  Klicken Sie zum Öffnen vonActive Directory-Verwaltungscenter in Server-Manager **auf Extras, und**klicken Sie dann auf **Active Directory-Verwaltungscenter**.
+1.  Klicken Sie zum Öffnen von **Server Manager**Active Directory-Verwaltungscenter in Server-Manager **auf Extras, und**klicken Sie dann auf **Active Directory-Verwaltungscenter**.
 
     > [!NOTE]
     >  Sie können Active Directory-Verwaltungscenter auch öffnen, indem Sie auf **Start**klicken und dann **Dsac. exe**eingeben.
@@ -74,7 +70,7 @@ ms.locfileid: "71386929"
 
    Weitere Informationen zum Anpassen des Navigationsbereichs Active Directory-Verwaltungscenter finden Sie unter [Anpassen des Navigationsbereichs Active Directory-Verwaltungscenter](customize-the-active-directory-administrative-center-navigation-pane.md).
 
-   Sie können Active Directory-Verwaltungscenter auch öffnen, indem Sie einen Satz von Anmelde Informationen verwenden, der sich von dem aktuellen Satz von Anmelde Informationen unterscheidet. Der Befehl im folgenden Verfahren kann nützlich sein, wenn Sie auf dem Computer angemeldet sind, auf dem Active Directory-Verwaltungscenter mit normalen Benutzer Anmelde Informationen ausgeführt wird. Sie möchten jedoch Active Directory-Verwaltungscenter auf diesem Computer verwenden, um Ihre lokale Domäne als Administrator. \(dieser Befehl kann auch nützlich sein, wenn Sie Active Directory-Verwaltungscenter verwenden möchten, um eine fremde fremde Domäne, die sich von Ihrer lokalen Domäne unterscheidet, mit einem Satz von Anmelde Informationen, die sich von den aktuellen Anmelde Informationen unterscheiden, Remote zu verwalten. Allerdings muss die fremde Domäne über eine festgelegte Vertrauensstellung mit der lokalen Domäne verfügen.\)
+   Sie können Active Directory-Verwaltungscenter auch öffnen, indem Sie einen Satz von Anmelde Informationen verwenden, der sich von dem aktuellen Satz von Anmelde Informationen unterscheidet. Der Befehl im folgenden Verfahren kann nützlich sein, wenn Sie auf dem Computer angemeldet sind, auf dem Active Directory-Verwaltungscenter mit normalen Benutzer Anmelde Informationen ausgeführt wird. Sie möchten jedoch Active Directory-Verwaltungscenter auf diesem Computer verwenden, um Ihre lokale Domäne als Administrator zu verwalten. \(dieser Befehl kann auch nützlich sein, wenn Sie Active Directory-Verwaltungscenter verwenden möchten, um eine fremde fremde Domäne, die sich von Ihrer lokalen Domäne unterscheidet, mit einem Satz von Anmelde Informationen, die sich von den aktuellen Anmelde Informationen unterscheiden, Remote zu verwalten. Allerdings muss die fremde Domäne über eine festgelegte Vertrauensstellung mit der lokalen Domäne verfügen.\)
 
    Zum Abschließen dieses Verfahrens besteht keine Mindestanforderung an eine Gruppenmitgliedschaft.
 

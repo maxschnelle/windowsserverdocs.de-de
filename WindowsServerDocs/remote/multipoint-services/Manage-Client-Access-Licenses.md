@@ -1,24 +1,20 @@
 ---
 title: Verwalten der Clientzugriffslizenzen
 description: Erfahren Sie mehr über das Arbeiten mit CALs in Multipoint Services
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 675e089e-d841-401e-bba7-69f3929ef609
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 4d809ab1bf2a18dff537bf63620623d576c0b25d
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 2981f22b2b85d90f4102c3a0b67e25901cb12395
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949884"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853543"
 ---
 # <a name="manage-client-access-licenses"></a>Verwalten der Clientzugriffslizenzen
 Jede Station, die eine Verbindung mit einem Multipoint Services-System herstellt, einschließlich des Computers, auf dem Multipoint Services ausgeführt wird und als Station verwendet wird, muss über eine gültige benutzerspezifische Remotedesktop *Client Zugriffslizenz (CAL)* verfügen.
@@ -41,13 +37,13 @@ Wenn diese Einstellung nicht ordnungsgemäß konfiguriert ist, wird bei der Einr
 3. Klicken Sie im rechten Bereich mit der rechten Maustaste auf **die angegebenen Remotedesktop Lizenzserver verwenden** , und wählen Sie dann **Bearbeiten**aus:
    - Wählen Sie im Dialogfeld Gruppenrichtlinien-Editor die **Option aktiviert** aus.
    - Geben Sie im Feld **zu verwendende Lizenzserver** den Namen des lokalen Computers ein.
-   - Wählen Sie **OK** aus
+   - **OK** auswählen
   
 4. Klicken Sie im rechten Bereich mit der rechten Maustaste auf **Remotedesktop Lizenzierungs Modus festlegen** , und wählen Sie **Bearbeiten** aus.
    - Wählen Sie im Dialogfeld Gruppenrichtlinien-Editor die **Option aktiviert** aus.
    - Legen Sie den **Lizenzierungs Modus** auf pro Gerät/pro Benutzer fest.
-   - Wählen Sie **OK** aus 
+   - **OK** auswählen 
 
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Verwalten von Systemaufgaben mithilfe des MultiPoint-Managers](Manage-System-Tasks-Using-MultiPoint-Manager.md)

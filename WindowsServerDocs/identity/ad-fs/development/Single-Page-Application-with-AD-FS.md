@@ -8,12 +8,12 @@ ms.date: 06/13/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: active-directory-federation-services
-ms.openlocfilehash: f4973da0d9e0c347cff8fc910f96277055b66dec
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: f7e68558945fcd26d5e8ab405f39e86266beeea8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465544"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853863"
 ---
 # <a name="build-a-single-page-web-application-using-oauth-and-adaljs-with-ad-fs-2016-or-later"></a>Erstellen Sie eine Webanwendung mit einer einzelnen Seite mithilfe von OAuth und Adal. JS mit AD FS 2016 oder höher
 
@@ -43,9 +43,9 @@ In dieser exemplarischen Vorgehensweise wird Visual Studio 2015 verwendet. Das P
 ## <a name="setting-up-the-environment"></a>Einrichten der Umgebung
 In dieser exemplarischen Vorgehensweise verwenden wir eine grundlegende Einrichtung von:
 
-1.  DC: Domänen Controller für die Domäne, in der AD FS gehostet werden.
-2.  AD FS Server: der AD FS Server für die Domäne
-3.  Entwicklungs Computer: der Computer, auf dem Visual Studio installiert ist, und wird unser Beispiel entwickeln
+1.    DC: Domänen Controller für die Domäne, in der AD FS gehostet werden.
+2.    AD FS Server: der AD FS Server für die Domäne
+3.    Entwicklungs Computer: der Computer, auf dem Visual Studio installiert ist, und wird unser Beispiel entwickeln
 
 Wenn Sie möchten, können Sie nur zwei Computer verwenden. Eine für DC/AD FS und die andere für die Entwicklung des Beispiels.
 

@@ -1,7 +1,6 @@
 ---
 ms.assetid: e9563792-cd73-4a32-b4a1-5bd6a2109016
 title: AD FS-Entwicklung
-description: ''
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: d9d170678b845446706c148c8816b5dc83e19371
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b4c94553116d7a888ad76fd999f12cecd70e3523
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360106"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854093"
 ---
 # <a name="ad-fs-development"></a>AD FS-Entwicklung
 
@@ -38,7 +37,7 @@ Dieses Dokument enthält eine Liste aller exemplarischen Vorgehensweisen zur Dok
 
 - [Erstellen einer nativen Client Anwendung mit öffentlichen OAuth-Clients mit AD FS 2016](../ad-fs/development/native-client-with-ad-fs.md)
 
-- [Anpassen von Anspruchs, die in ID ausgegeben werden sollen, wenn OpenID Connect oder OAuth mit AD FS 2016 verwendet wird](../ad-fs/development/Customize-Id-Token-AD-FS-2016.md)
+- [Anpassen von Anspruchs, die in id_token ausgegeben werden sollen, wenn OpenID Connect oder OAuth mit AD FS 2016 verwendet wird](../ad-fs/development/Customize-Id-Token-AD-FS-2016.md)
 
 - [Identitäts Delegierung mit AD FS](../ad-fs/development/ad-fs-identity-delegation.md)
 

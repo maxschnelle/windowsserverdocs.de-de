@@ -1,20 +1,20 @@
 ---
 title: Verwalten von Zertifikaten für Software-Defined Networking
 description: In diesem Thema erfahren Sie, wie Sie bei der Bereitstellung von Software-Defined Networking (SDN) in Windows Server 2016 Datacenter die Zertifikate für die Kommunikation zwischen dem Netzwerk Controller und der Southbound-Kommunikation verwalten.
-manager: dougkim
+manager: grcusanz
 ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: c4e2f6c7-0364-4bf8-bb66-9af59c0bbd74
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/22/2018
-ms.openlocfilehash: 20448e9bdef41f676bf5422c811be535bcf30ca2
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 3225b3f5065e49521411b35fa3781338086b4e59
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317366"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854353"
 ---
 # <a name="manage-certificates-for-software-defined-networking"></a>Verwalten von Zertifikaten für Software-Defined Networking
 

@@ -1,7 +1,6 @@
 ---
 ms.assetid: ad0bf21d-2ace-4565-b1f5-ce57c8eb2689
 title: Wann sollte eine Verbundserverproxy-Farm erstellt werden?
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 247daf1b9b49124188f6bb16bce7da381fe997ef
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d4b2b889159dee9f3b93a54a2b1924be286792f4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402427"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858493"
 ---
 # <a name="when-to-create-a-federation-server-proxy-farm"></a>Wann sollte eine Verbundserverproxy-Farm erstellt werden?
 
@@ -31,8 +30,8 @@ In der folgenden Tabelle werden die Aufgaben beschrieben, die ausgeführt werden
   
 |Aufgabe|Beschreibung|  
 |--------|---------------|  
-|Alle Proxys in der Farm auf denselben AD FS Verbunddienst Namen verweisen|Beim Erstellen der Verbund Server Proxys müssen Sie im Assistenten zum Konfigurieren des AD FS-Verbund Server Proxys für alle Verbund Server Proxys, die an der Farm teilnehmen, denselben Verbunddienst Namen eingeben. Der Verbund Server Proxy verwendet die URL, aus der dieser DNS-Hostname besteht, um zu bestimmen, welche AD FS Verbunddienst Instanz er kontaktiert.<br /><br />Weitere Informationen finden Sie unter [Konfigurieren eines Computers für die Verbundserverproxy-Rolle](../../ad-fs/deployment/Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).|  
-|Abrufen und Freigeben von Zertifikaten|Sie können ein Server Authentifizierungszertifikat von einer öffentlichen Zertifizierungsstelle \(ca\)– z. b. Verisign – abrufen und dann das Zertifikat so konfigurieren, dass alle Verbund Server Proxys den gleichen privaten Schlüsselteil desselben Zertifikats auf der Standard Website für jeden Verbund Server Proxy gemeinsam verwenden. Um das Zertifikat freizugeben, müssen Sie auf der Standard Website jedes Verbund Server Proxys dasselbe Server Authentifizierungszertifikat installieren. Weitere Informationen finden Sie unter [Importieren eines Server Authentifizierungs Zertifikats auf die Standard Website](../../ad-fs/deployment/Import-a-Server-Authentication-Certificate-to-the-Default-Web-Site.md).<br /><br />Weitere Informationen finden Sie unter [Zertifikatanforderungen für Verbundserverproxies](Certificate-Requirements-for-Federation-Server-Proxies.md).|  
+|Alle Proxys in der Farm auf denselben AD FS Verbunddienst Namen verweisen|Beim Erstellen der Verbund Server Proxys müssen Sie im Assistenten zum Konfigurieren des AD FS-Verbund Server Proxys für alle Verbund Server Proxys, die an der Farm teilnehmen, denselben Verbunddienst Namen eingeben. Der Verbund Server Proxy verwendet die URL, aus der dieser DNS-Hostname besteht, um zu bestimmen, welche AD FS Verbunddienst Instanz er kontaktiert.<p>Weitere Informationen finden Sie unter [Configure a Computer for the Federation Server Proxy Role](../../ad-fs/deployment/Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).|  
+|Abrufen und Freigeben von Zertifikaten|Sie können ein Server Authentifizierungszertifikat von einer öffentlichen Zertifizierungsstelle \(ca\)– z. b. Verisign – abrufen und dann das Zertifikat so konfigurieren, dass alle Verbund Server Proxys den gleichen privaten Schlüsselteil desselben Zertifikats auf der Standard Website für jeden Verbund Server Proxy gemeinsam verwenden. Um das Zertifikat freizugeben, müssen Sie auf der Standard Website jedes Verbund Server Proxys dasselbe Server Authentifizierungszertifikat installieren. Weitere Informationen finden Sie unter [Importieren eines Server Authentifizierungs Zertifikats auf die Standard Website](../../ad-fs/deployment/Import-a-Server-Authentication-Certificate-to-the-Default-Web-Site.md).<p>Weitere Informationen finden Sie unter [Certificate Requirements for Federation Server Proxies](Certificate-Requirements-for-Federation-Server-Proxies.md).|  
   
 Weitere Informationen zum Hinzufügen neuer Verbund Server Proxys, um eine Verbund Server Proxy-Farm zu erstellen, finden Sie unter [Checkliste: Einrichten eines Verbund Server Proxys](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server-Proxy.md).  
   

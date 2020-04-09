@@ -2,20 +2,19 @@
 title: Komprimierung wird für Replikations Datenverkehr empfohlen
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: cf8be6e9-2909-4e4a-bb63-d1e1ebbc6930
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 77a314e816c36f626ea3edb10b80f65e3897e7c5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: aca66991eae57d702f38e2282eeb4253bc1cd244
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365097"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857663"
 ---
 # <a name="compression-is-recommended-for-replication-traffic"></a>Komprimierung wird für Replikations Datenverkehr empfohlen
 
@@ -36,12 +35,12 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 *Der Replikations Datenverkehr, der vom primären Server zum Replikat Server über das Netzwerk gesendet wird, ist nicht komprimiert.*  
   
 ## <a name="impact"></a>Auswirkungen  
-*replikations Datenverkehr verwendet mehr Bandbreite als notwendig. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
+*Der Replikations Datenverkehr verwendet mehr Bandbreite als notwendig. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
   
-\<list of Virtual Machines >  
+\<Liste der virtuellen Computer >  
   
 ## <a name="resolution"></a>Auflösung  
-*konfigurieren Sie das Hyper-v-Replikat, um die über das Netzwerk übertragenen Daten in den Einstellungen für den virtuellen Computer im Hyper-v-Manager zu komprimieren. Sie können auch Tools außerhalb von Hyper-V verwenden, um die Komprimierung auszuführen.*  
+*Konfigurieren Sie das Hyper-v-Replikat, um die über das Netzwerk übertragenen Daten in den Einstellungen für den virtuellen Computer im Hyper-v-Manager zu komprimieren. Sie können auch Tools außerhalb von Hyper-V verwenden, um die Komprimierung auszuführen.*  
   
 
 

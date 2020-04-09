@@ -1,24 +1,20 @@
 ---
 title: Konfigurieren der Remote Verwaltung in Server-Manager
 description: Server-Manager
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 509182ed-c37d-4b81-84bc-aee43d006873
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e1058a5679f73fcd2ceb8586da687158762d10f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 01bc2d2d262882c08d1213bae6149896a8b284ab
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383209"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851563"
 ---
 # <a name="configure-remote-management-in-server-manager"></a>Konfigurieren der Remote Verwaltung in Server-Manager
 
@@ -64,7 +60,7 @@ In Windows Server 2016 stützt Server-Manager die Windows-Remote Verwaltung (Win
 
     -   [So deaktivieren Sie die Remote Verwaltung mithilfe einer Antwortdatei während der unbeaufsichtigten Installation](#to-disable-remote-management-by-using-an-answer-file-during-unattended-installation)
 
--   Informationen zum Konfigurieren der DCOM-Remoteverwaltung finden Sie in [To configure DCOM remote management](#to-configure-mmc-or-other-tool-remote-management-over-dcom).
+-   Informationen zum Konfigurieren der DCOM-Remoteverwaltung finden Sie unter [So konfigurieren Sie die Remoteverwaltung mit der MMC oder einem anderen Tool über DCOM](#to-configure-mmc-or-other-tool-remote-management-over-dcom).
 
 ### <a name="to-enable-server-manager-remote-management-by-using-the-windows-interface"></a>So aktivieren Sie die Remoteverwaltung des Server-Managers auf der Windows-Benutzeroberfläche
 
@@ -101,7 +97,7 @@ In Windows Server 2016 stützt Server-Manager die Windows-Remote Verwaltung (Win
 
     **%windir%\system32\konfiguriert-SMRemoting.exe**
 
-3.  Führen Sie eines der folgenden Verfahren aus:
+3.  Führen Sie eine der folgenden Aktionen aus:
 
     -   Um die Remote Verwaltung zu deaktivieren, geben Sie **configure-SMRemoting. exe-deaktivieren**ein, und drücken Sie dann die **Eingabe**Taste.
 
@@ -111,7 +107,7 @@ In Windows Server 2016 stützt Server-Manager die Windows-Remote Verwaltung (Win
 
 ### <a name="to-enable-server-manager-and-windows-powershell-remote-management-on-earlier-releases-of-windows-server"></a>So aktivieren Sie die Remoteverwaltung von Server-Manager und Windows PowerShell für ältere Versionen von Windows Server
 
--   Führen Sie eines der folgenden Verfahren aus:
+-   Führen Sie eine der folgenden Aktionen aus:
 
     -   Informationen zum Aktivieren der Remote Verwaltung auf Servern, auf denen Windows Server 2012 ausgeführt wird, finden Sie unter so [Aktivieren Sie Server-Manager-Remote Verwaltung mithilfe der Windows-Benutzeroberfläche](#to-enable-server-manager-remote-management-by-using-the-windows-interface) in diesem Thema.
 
@@ -168,7 +164,7 @@ In Windows Server 2016 stützt Server-Manager die Windows-Remote Verwaltung (Win
     > [!NOTE]
     > Durch diese Einstellung wird die Remoteverwaltung bei der Installation des Betriebssystems deaktiviert. Durch das Konfigurieren dieser Einstellung wird verhindert, dass ein Administrator Server-Manager Remote Verwaltung auf einem Server aktiviert, nachdem das Betriebssystem Setup beendet wurde. Administratoren können Server-Manager Remote Verwaltung erneut aktivieren, indem Sie die Schritte in [zum Konfigurieren Server-Manager der Remote Verwaltung mithilfe der Windows-Benutzeroberfläche](#to-enable-server-manager-remote-management-by-using-the-windows-interface) oder [zum Aktivieren der Server-Manager-Remote Verwaltung mithilfe von Windows PowerShell](#to-enable-server-manager-remote-management-by-using-windows-powershell) in diesem Thema ausführen.
     > 
-    > Wenn Sie die Remote Verwaltung standardmäßig im Rahmen einer unbeaufsichtigten Installation deaktivieren und die Remote Verwaltung auf dem Server nach der Installation nicht wieder aktivieren, können Server, auf die diese Antwortdatei angewendet wird, nicht vollständig mithilfe Server-Manager verwaltet werden. Server, auf denen Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird (und die Remote Verwaltung standardmäßig deaktiviert haben), generieren verwaltbarkeitsstatusfehler in der Server-Manager-Konsole, nachdem Sie dem Server-Manager Server hinzugefügt wurden. Spool.
+    > Wenn Sie die Remote Verwaltung standardmäßig im Rahmen einer unbeaufsichtigten Installation deaktivieren und die Remote Verwaltung auf dem Server nach der Installation nicht wieder aktivieren, können Server, auf die diese Antwortdatei angewendet wird, nicht vollständig mithilfe Server-Manager verwaltet werden. Server, auf denen Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird (und die Remote Verwaltung standardmäßig deaktiviert haben), generieren verwaltbarkeitsstatusfehler in der Server-Manager-Konsole, nachdem Sie dem Server-Manager Server Pool hinzugefügt wurden.
 
 ## <a name="windows-remote-management-winrm-listener-settings"></a>WinRM-Listenereinstellungen (Windows Remote Management)
 Server-Manager stützt sich auf den Remote Servern, die Sie verwalten möchten, auf den Standardeinstellungen des WinRM-Listener. Wenn der Standard Authentifizierungsmechanismus oder die WinRM-listenerportnummer auf einem Remote Server von den Standardeinstellungen geändert wurde, kann Server-Manager nicht mit dem Remote Server kommunizieren.

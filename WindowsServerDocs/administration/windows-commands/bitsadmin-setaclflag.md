@@ -1,24 +1,20 @@
 ---
 title: bitsadmin setaclflag
-description: 'Windows-Befehls Thema für **BITSAdmin setaclflag** : legt die weitergabesteuerungsflags für die Zugriffs Steuerungs Liste fest.'
-ms.custom: na
+description: Windows-Befehls Thema für BITSAdmin setaclflag, mit dem die weitergabesteuerungsflags für Zugriffs Steuerungs Listen festgelegt werden.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6e3bcda0-827d-4dfd-8384-d1da018f3e10
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fbdb12c29af7b4db8b25846d43ee1c93b2454ff2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4ac47e554dde6a555e891d89668cd12fec3179d4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380758"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849673"
 ---
 # <a name="bitsadmin-setaclflag"></a>bitsadmin setaclflag
 
@@ -30,7 +26,7 @@ Legt die weitergabesteuerungsflags für die Zugriffs Steuerungs Liste (ACL) für
 bitsadmin /SetAclFlags <Job> <Flags>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -41,13 +37,13 @@ bitsadmin /SetAclFlags <Job> <Flags>
 
 Der Schalter "staclflags" wird verwendet, um Besitzer-und Zugriffs Steuerungs Listen-Informationen beizubehalten, wenn ein Auftrag Daten aus einer Windows-Freigabe (SMB) herunterlädt.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Im folgenden Beispiel werden die Weitergabeflags für die Zugriffs Steuerungs Liste für den Auftrag *mydownloadjob* festgelegt, um die Besitzer-und Gruppeninformationen mit den heruntergeladenen Dateien beizubehalten.
 ```
 C:\>bitsadmin /setaclflags myDownloadJob OG
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

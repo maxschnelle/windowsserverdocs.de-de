@@ -1,7 +1,6 @@
 ---
 ms.assetid: b7109e46-b66e-4c5c-8b87-a6611d68415a
 title: Konfigurieren der Namensauflösung für einen Verbundserverproxy in einer DNS-Zone, die nur das Umkreisnetzwerk bedient
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: de4627f2e03e6432f4e678cd9ca932819cb483d5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 451ed2bb2b2da9481d33c6e9e339bb582824a4e1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408434"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854923"
 ---
 # <a name="configure-name-resolution-for-a-federation-server-proxy-in-a-dns-zone-that-serves-only-the-perimeter-network"></a>Konfigurieren der Namensauflösung für einen Verbundserverproxy in einer DNS-Zone, die nur das Umkreisnetzwerk bedient
 
@@ -31,13 +30,13 @@ Damit die Namensauflösung für einen Verbund Server in einer Active Directory-V
 ## <a name="add-the-ip-address-of-a-federation-server-to-the-hosts-file"></a>Hinzufügen der IP-Adresse eines Verbund Servers zur Hostdatei  
 Damit ein Verbund Server Proxy erwartungsgemäß im Umkreis Netzwerk eines Konto Partners funktionieren kann, müssen Sie der Hostdatei auf diesem Verbund Server Proxy einen Eintrag hinzufügen, der auf den DNS-Hostnamen eines Verbund Servers verweist \(z. b. fs.fabrikam.com\) und IP-Adresse \(beispielsweise im Unternehmensnetzwerk des Konto Partners\). Durch das Hinzufügen dieses Eintrags zur Hostdatei wird verhindert, dass sich der Verbund Server Proxy an sich selbst kontaktiert, um einen Client\-initiierten Aufrufe eines Verbund Servers im Konto Partner aufzulösen.  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe **Administratoren** oder eine gleichwertige Berechtigung auf dem lokalen Computer erforderlich.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 #### <a name="to-add-the-ip-address-of-a-federation-server-to-the-hosts-file"></a>So fügen Sie die IP-Adresse eines Verbund Servers der Hosts-Datei hinzu  
   
 1.  Navigieren Sie zum Verzeichnis% systemroot%\\WinNT\\System32\\Drivers, und suchen Sie die Datei **Hosts** .  
   
-2.  Starten Sie Editor, und öffnen Sie dann die Datei **hosts**.  
+2.  Starten Sie den Editor, und öffnen Sie dann die **hosts**-Datei.  
   
 3.  Fügen Sie die IP-Adresse und den Hostnamen eines Verbund Servers im Konto Partner der **Hosts** -Datei hinzu, wie im folgenden Beispiel gezeigt:  
   

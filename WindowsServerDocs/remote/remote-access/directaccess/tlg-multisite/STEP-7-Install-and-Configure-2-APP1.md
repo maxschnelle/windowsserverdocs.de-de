@@ -2,22 +2,18 @@
 title: 'Schritt 7: Installieren und Konfigurieren von 2-App1'
 description: 'Dieses Thema ist Teil der Test Umgebungs Anleitung: veranschaulichen einer DirectAccess-Bereitstellung für mehrere Standorte für Windows Server 2016'
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1cc0abc6-be4d-4cbe-bd0c-cc448bf294f6
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: fddffbc2954ef7f0687fc7865ec295295b32983a
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 8b6f5438498349e7d02fd6c9122d300e55fe2517
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80314520"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861553"
 ---
 # <a name="step-7-install-and-configure-2-app1"></a>Schritt 7: Installieren und Konfigurieren von 2-App1
 

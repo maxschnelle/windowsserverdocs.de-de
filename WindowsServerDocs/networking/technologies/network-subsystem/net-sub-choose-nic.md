@@ -5,15 +5,15 @@ ms.prod: windows-server
 ms.technology: networking
 ms.topic: article
 ms.assetid: a6615411-83d9-495f-8a6a-1ebc8b12f164
-manager: brianlic
-ms.author: lizross
-author: eross-msft
-ms.openlocfilehash: 5e1ed095b3180f3aebd25381ec9086445bb141ec
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+manager: dcscontentpm
+ms.author: v-tea
+author: Teresa-Motiv
+ms.openlocfilehash: 2e902f3aea4025afe4f475c45193710a8b474dcd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316624"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80862223"
 ---
 # <a name="choosing-a-network-adapter"></a>Auswählen einer Netzwerkkarte
 
@@ -100,27 +100,27 @@ Im folgenden sind die zusätzlichen **Set-netadapterrss** -Parameter aufgeführt
 
 - **\* maxprocessor**: legt die maximale Anzahl der zu verwendenden RSS-Prozessoren fest. Dadurch wird sichergestellt, dass der Anwendungs Datenverkehr an eine maximale Anzahl von Prozessoren an einer bestimmten Schnittstelle gebunden ist. Beispielsyntax:
 
-     `Set-NetAdapterRss –Name “Ethernet” –MaxProcessors <value>`
+     `Set-NetAdapterRss –Name "Ethernet" –MaxProcessors <value>`
 
 - **\* baseprocessorgroup**: legt die Basis Prozessor Gruppe eines NUMA-Knotens fest. Dies wirkt sich auf das von RSS verwendete Prozessor Array aus. Beispielsyntax:
 
-     `Set-NetAdapterRss –Name “Ethernet” –BaseProcessorGroup <value>`
+     `Set-NetAdapterRss –Name "Ethernet" –BaseProcessorGroup <value>`
   
 - **\* maxprocessorgroup**: legt die maximale Prozessor Gruppe eines NUMA-Knotens fest. Dies wirkt sich auf das von RSS verwendete Prozessor Array aus. Durch Festlegen dieser Einstellung wird eine maximale Prozessor Gruppe so eingeschränkt, dass der Lastenausgleich innerhalb einer k-Gruppe ausgerichtet wird. Beispielsyntax:
 
-     `Set-NetAdapterRss –Name “Ethernet” –MaxProcessorGroup <value>`
+     `Set-NetAdapterRss –Name "Ethernet" –MaxProcessorGroup <value>`
 
 - **\* baseprocessornumber**: legt die Basis Prozessornummer eines NUMA-Knotens fest. Dies wirkt sich auf das von RSS verwendete Prozessor Array aus. Dies ermöglicht die Partitionierung von Prozessoren über Netzwerkadapter hinweg. Dies ist der erste logische Prozessor in dem Bereich von RSS-Prozessoren, der den einzelnen Adaptern zugewiesen wird. Beispielsyntax:
 
-     `Set-NetAdapterRss –Name “Ethernet” –BaseProcessorNumber <Byte Value>`
+     `Set-NetAdapterRss –Name "Ethernet" –BaseProcessorNumber <Byte Value>`
 
 - **\* numanode**: der NUMA-Knoten, von dem jeder Netzwerkadapter Arbeitsspeicher zuordnen kann. Dies kann sich innerhalb einer k-Gruppe oder aus unterschiedlichen k-Gruppen befinden. Beispielsyntax:
 
-     `Set-NetAdapterRss –Name “Ethernet” –NumaNodeID <value>`
+     `Set-NetAdapterRss –Name "Ethernet" –NumaNodeID <value>`
 
 - **\*-anzahlungswarteschlangen**: Wenn Ihre logischen Prozessoren für den Empfangs Datenverkehr zu wenig ausgelastet sind \(z. b. wie im Task-Manager\)angezeigt, können Sie versuchen, die Anzahl der RSS-Warteschlangen standardmäßig auf den maximalen Wert zu erhöhen, der vom Netzwerkadapter unterstützt wird. Der Netzwerkadapter kann möglicherweise Optionen zum Ändern der Anzahl der RSS-Warteschlangen als Teil des Treibers haben. Beispielsyntax:
 
-     `Set-NetAdapterRss –Name “Ethernet” –NumberOfReceiveQueues <value>`
+     `Set-NetAdapterRss –Name "Ethernet" –NumberOfReceiveQueues <value>`
 
 Weitere Informationen erhalten Sie, indem Sie auf den folgenden Link klicken, um [skalierbare Netzwerke herunterzuladen: vermeiden des Empfangs Verarbeitungs Engpass – Einführung in RSS](https://download.microsoft.com/download/5/D/6/5D6EAF2B-7DDF-476B-93DC-7CF0072878E6/NDIS_RSS.doc) im Word-Format.
   
@@ -190,7 +190,7 @@ Im vorherigen Szenario wird IPv4 RSC in der-Schnittstelle unterstützt und funkt
 Im folgenden finden Sie eine Beispielausgabe beim Ausführen des Cmdlets Get-netadapterstatistics.
 
 ```  
-PS C:\Users\Administrator> $x = Get-NetAdapterStatistics “myAdapter”   
+PS C:\Users\Administrator> $x = Get-NetAdapterStatistics "myAdapter"   
 PS C:\Users\Administrator> $x.rscstatistics  
   
 CoalescedBytes       : 0  

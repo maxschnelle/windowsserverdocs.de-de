@@ -1,20 +1,19 @@
 ---
 title: Konfigurieren von virtuellen Netzwerks peering
 description: Das Konfigurieren des Peerings virtueller Netzwerke umfasst das Erstellen von zwei virtuellen Netzwerken mit Peering.
-manager: dougkim
+manager: grcusanz
 ms.prod: windows-server
 ms.technology: networking-hv-switch
 ms.topic: get-started-article
-ms.assetid: ''
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/08/2018
-ms.openlocfilehash: 4ea035d80a32e245edc4633ee14e98b9d1153fff
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: ede13fd47c32b2d75ec71ad7c7bf7eb50c269c82
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309732"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853563"
 ---
 # <a name="configure-virtual-network-peering"></a>Konfigurieren von virtuellen Netzwerks peering
 

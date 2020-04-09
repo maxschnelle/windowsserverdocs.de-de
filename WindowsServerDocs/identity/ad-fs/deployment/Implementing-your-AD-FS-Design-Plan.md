@@ -1,7 +1,6 @@
 ---
 ms.assetid: d04dd17e-a843-46fd-8711-0039918f92d9
 title: Implementieren des AD FS-Entwurfsplans
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,18 +8,18 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 6306b87dd06774bfde5ffc3ff98818d47d0c858f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ee822ef94e2723a4ce20e456a5507f572f038a93
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408376"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855413"
 ---
 # <a name="implementing-your-ad-fs-design-plan"></a>Implementieren des AD FS-Entwurfsplans
 
 Die folgenden Umgebungsbedingungen und Anforderungen sind wichtige Faktoren bei der Implementierung Ihrer Active Directory-Verbunddienste (AD FS) \(AD FS\) Entwurfs Plans:  
   
--   **Unterstützte Partner:** In der Regel verwenden Sie AD FS, um mit Partnerorganisationen zu arbeiten. Legen Sie zum Einrichten des Identitäts Verbunds fest, welche Organisationen eine Partnerschaft bilden möchten. Nachdem eine Baseline AD FS Bereitstellung vorhanden ist, umfasst der Betrieb mit Partnern das Hinzufügen von Partnern, das Löschen von Partnern und das Aktualisieren von Partner Informationen. Änderungen an Partnerschaften können aus verschiedenen Gründen auftreten. Beispielsweise ist für Ihre AD FS-Bereitstellung möglicherweise ein partnerschaftliches Update erforderlich, wenn Ihr Partner das Unternehmen erheblich ändert, Ihr Unternehmen zu einer größeren Organisation oder einem Verbund von Organisationen gehört, oder wenn Ihre Organisation durch eine andere Geschäfts. In jedem Szenario, in dem Sie Identitäten aus mehreren Domänen bilden, müssen Sie die Domänen \(Partner\), die derzeit unterstützt werden, sowie alle zusätzlichen Domänen, die potenzielle Partner darstellen, kennen.  
+-   **Unterstützte Partner:** In der Regel verwenden Sie AD FS, um mit Partnerorganisationen zu arbeiten. Legen Sie zum Einrichten des Identitäts Verbunds fest, welche Organisationen eine Partnerschaft bilden möchten. Nachdem eine Baseline AD FS Bereitstellung vorhanden ist, umfasst der Betrieb mit Partnern das Hinzufügen von Partnern, das Löschen von Partnern und das Aktualisieren von Partner Informationen. Änderungen an Partnerschaften können aus verschiedenen Gründen auftreten. Beispielsweise ist für Ihre AD FS-Bereitstellung möglicherweise ein partnerschaftliches Update erforderlich, wenn Ihr Partner das Unternehmen erheblich ändert, Ihre Organisation Teil einer größeren Organisation oder eines Verbund von Organisationen ist, oder wenn Ihre Organisation von einem anderen Unternehmen erworben wird. In jedem Szenario, in dem Sie Identitäten aus mehreren Domänen bilden, müssen Sie die Domänen \(Partner\), die derzeit unterstützt werden, sowie alle zusätzlichen Domänen, die potenzielle Partner darstellen, kennen.  
   
 -   **Unterstützte Anwendungs-und Dienst Typen:** Einige Anwendungen und Dienste benötigen Zugriff auf Betriebssystemressourcen, während andere Anwendungen "Ansprüche" unterstützen. Es ist wichtig, die Typen von Anwendungen und Diensten zu verstehen, die von AD FS unterstützt werden, damit Sie die Verwaltungsanforderungen formulieren können.  
   

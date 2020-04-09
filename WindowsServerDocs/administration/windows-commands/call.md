@@ -1,35 +1,29 @@
 ---
 title: call
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Artikel zum aufrufen, bei dem ein Batch Programm von einem anderen aufgerufen wird, ohne das übergeordnete Batch Programm zu beenden.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d34a41dc-e6c7-4467-bf6a-15cec704833e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 06/05/2018
-ms.openlocfilehash: 89097ec5d3711b3d8831f8c33b3778ed0752246f
-ms.sourcegitcommit: ee8fa8e1293f29229b5ce1b0f3d4a07ba99568f5
+ms.openlocfilehash: 58b2d03c76f53fa7bbf5c483c1a423cd4a011f94
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78280191"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848233"
 ---
 # <a name="call"></a>call
 
-
-
 Ruft ein Batch Programm von einem anderen auf, ohne das übergeordnete Batch Programm zu beenden. Der **Befehl "** Befehl" akzeptiert Bezeichnungen als Ziel des Aufrufes.
 
-> [!NOTE]
-> Der- **Befehl hat an** der Eingabeaufforderung keine Auswirkung, wenn er außerhalb eines Skripts oder einer Batchdatei verwendet wird.
-
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
+> [!NOTE]
+> Der-Befehl hat an der Eingabeaufforderung keine Auswirkung, wenn er außerhalb eines Skripts oder einer Batchdatei verwendet wird.
 
 ## <a name="syntax"></a>Syntax
 
@@ -37,7 +31,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 call [Drive:][Path]<FileName> [<BatchParameters>] [:<Label> [<Arguments>]]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |           Parameter           |                                                                         Beschreibung                                                                          |
 |-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -57,7 +51,7 @@ Sie können die folgenden optionalen Syntaxen als Ersatz für Batch Parameter ( 
 
 |Batch-Parameter|Beschreibung|
 |---------------|-----------|
-|% ~ 1|Erweitert **%1** und entfernt die umgebenden Anführungszeichen ("").|
+|% ~ 1|Erweitert **%1** und entfernt umgebende Anführungszeichen ().|
 |% ~ F1|" **%1** " wird in einen voll qualifizierten Pfad erweitert.|
 |% ~ D1|" **%1** " wird nur auf einen Laufwerk Buchstaben erweitert.|
 |% ~ P1|" **%1** " wird nur in einen Pfad erweitert.|
@@ -100,7 +94,7 @@ In den obigen Beispielen können **%1** und path durch andere gültige Werte ers
 
     `call :<Label> <Arguments>`
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Um das Programm checknew. bat von einem anderen Batch Programm auszuführen, geben Sie den folgenden Befehl in das übergeordnete Batch-Programm ein:
 ```
@@ -111,6 +105,6 @@ Wenn das übergeordnete Batch-Programm zwei Batch Parameter annimmt und Sie dies
 call checknew %1 %2
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

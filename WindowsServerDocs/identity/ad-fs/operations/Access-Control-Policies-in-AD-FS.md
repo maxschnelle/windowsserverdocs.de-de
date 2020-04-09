@@ -1,7 +1,6 @@
 ---
 ms.assetid: 102eeeb1-6c55-42a2-b321-71a7dab46146
 title: Zugriffssteuerungsrichtlinien in AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 27eb5b4b52dd727afae5cffc60e7d9749dd5d59f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6af511ac1aff488f192f75b31801c6fed751cedd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407766"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859423"
 ---
 # <a name="access-control-policies-in-windows-server-2016-ad-fs"></a>Zugriffsrichtlinien in für Windows Server 2016 AD FS
 
@@ -40,22 +39,22 @@ Um höhere Flexibilität bei der Bewältigung ihrer geschäftlichen Anforderunge
   
 Zum Erstellen einer Richtlinien Vorlage muss ein Administrator zuerst festlegen, unter welchen Bedingungen eine Anforderung für die Tokenausstellung und/oder Delegierung autorisiert wird. Bedingungs-und Aktions Optionen sind in der folgenden Tabelle aufgeführt.   Fett formatierte Bedingungen können vom Administrator mit unterschiedlichen oder neuen Werten weiter konfiguriert werden. Der Administrator kann ggf. auch Ausnahmen angeben. Wenn eine Bedingung erfüllt ist, wird eine Zulassungs Aktion nicht ausgelöst, wenn eine Ausnahme angegeben wird und die eingehende Anforderung mit der in der Ausnahme angegebenen Bedingung übereinstimmt.  
   
-|Benutzern gestatten|Davon| 
+|Benutzern gestatten|davon| 
 | --- | --- | 
- |Aus **spezifischem** Netzwerk|Aus **spezifischem** Netzwerk<br /><br />Aus **bestimmten** Gruppen<br /><br />Von Geräten mit **bestimmten** Vertrauens Stufen<br /><br />Mit **bestimmten** Ansprüchen in der Anforderung|  
-|Aus **bestimmten** Gruppen|Aus **spezifischem** Netzwerk<br /><br />Aus **bestimmten** Gruppen<br /><br />Von Geräten mit **bestimmten** Vertrauens Stufen<br /><br />Mit **bestimmten** Ansprüchen in der Anforderung|  
-|Von Geräten mit **bestimmten** Vertrauens Stufen|Aus **spezifischem** Netzwerk<br /><br />Aus **bestimmten** Gruppen<br /><br />Von Geräten mit **bestimmten** Vertrauens Stufen<br /><br />Mit **bestimmten** Ansprüchen in der Anforderung|  
-|Mit **bestimmten** Ansprüchen in der Anforderung|Aus **spezifischem** Netzwerk<br /><br />Aus **bestimmten** Gruppen<br /><br />Von Geräten mit **bestimmten** Vertrauens Stufen<br /><br />Mit **bestimmten** Ansprüchen in der Anforderung|  
-|Und erfordern die Multi-Factor Authentication|Aus **spezifischem** Netzwerk<br /><br />Aus **bestimmten** Gruppen<br /><br />Von Geräten mit **bestimmten** Vertrauens Stufen<br /><br />Mit **bestimmten** Ansprüchen in der Anforderung|  
+ |Aus **spezifischem** Netzwerk|Aus **spezifischem** Netzwerk<p>Aus **bestimmten** Gruppen<p>Von Geräten mit **bestimmten** Vertrauens Stufen<p>Mit **bestimmten** Ansprüchen in der Anforderung|  
+|Aus **bestimmten** Gruppen|Aus **spezifischem** Netzwerk<p>Aus **bestimmten** Gruppen<p>Von Geräten mit **bestimmten** Vertrauens Stufen<p>Mit **bestimmten** Ansprüchen in der Anforderung|  
+|Von Geräten mit **bestimmten** Vertrauens Stufen|Aus **spezifischem** Netzwerk<p>Aus **bestimmten** Gruppen<p>Von Geräten mit **bestimmten** Vertrauens Stufen<p>Mit **bestimmten** Ansprüchen in der Anforderung|  
+|Mit **bestimmten** Ansprüchen in der Anforderung|Aus **spezifischem** Netzwerk<p>Aus **bestimmten** Gruppen<p>Von Geräten mit **bestimmten** Vertrauens Stufen<p>Mit **bestimmten** Ansprüchen in der Anforderung|  
+|Und erfordern die Multi-Factor Authentication|Aus **spezifischem** Netzwerk<p>Aus **bestimmten** Gruppen<p>Von Geräten mit **bestimmten** Vertrauens Stufen<p>Mit **bestimmten** Ansprüchen in der Anforderung|  
   
 Wenn ein Administrator mehrere Bedingungen auswählt, bestehen diese aus der Beziehung **und** . Aktionen schließen sich gegenseitig aus, und für eine Richtlinien Regel können Sie nur eine Aktion auswählen. Wenn der Administrator mehrere Ausnahmen auswählt, handelt es sich um eine- **oder** -Beziehung. Unten sind einige Beispiele für Richtlinien Regeln aufgeführt:  
   
 |**Richtlinie**|**Richtlinien Regeln**|
 | --- | --- |  
-|Der Extranetzugriff erfordert MFA.<br /><br />Alle Benutzer sind zulässig.|**Regel #1**<br /><br />aus **Extranet**<br /><br />und mit MFA<br /><br />Aufenthal<br /><br />**Regel 2**<br /><br />aus **Intranet**<br /><br />Aufenthal|  
-|Externer Zugriff ist außer nicht-FTE nicht zulässig.<br /><br />Intranetzugriff für FTE auf Arbeitsplatz verknüpften Geräten ist zulässig.|**Regel #1**<br /><br />Aus **Extranet**<br /><br />und aus **nicht-FTE-** Gruppe<br /><br />Aufenthal<br /><br />**Regel #2**<br /><br />aus **Intranet**<br /><br />und vom mit dem **Arbeitsplatz verbundenen** Gerät<br /><br />und aus der Gruppe " **FTE** "<br /><br />Aufenthal|  
-|Für den Extranetzugriff ist MFA außer "Service Admin" erforderlich.<br /><br />Alle Benutzer sind berechtigt, auf zuzugreifen.|**Regel #1**<br /><br />aus **Extranet**<br /><br />und mit MFA<br /><br />Aufenthal<br /><br />Mit Ausnahme der **Dienst Administrator Gruppe**<br /><br />**Regel #2**<br /><br />Immer<br /><br />Aufenthal|  
-|für den Zugriff auf das Extranet nicht in den Arbeitsplatz eingebundenes Gerät erfordert MFA<br /><br />Zulassen von AD Fabric für Intranet-und Extranetzugriff|**Regel #1**<br /><br />aus **Intranet**<br /><br />Und aus der **AD Fabric** -Gruppe<br /><br />Aufenthal<br /><br />**Regel #2**<br /><br />aus **Extranet**<br /><br />und von **nicht mit dem Arbeitsplatz verknüpften** Geräten<br /><br />und aus der **AD Fabric** -Gruppe<br /><br />und mit MFA<br /><br />Aufenthal<br /><br />**Regel #3**<br /><br />aus **Extranet**<br /><br />und vom mit dem **Arbeitsplatz verbundenen** Gerät<br /><br />und aus der **AD Fabric** -Gruppe<br /><br />Aufenthal|  
+|Der Extranetzugriff erfordert MFA.<p>Alle Benutzer sind zulässig.|**Regel #1**<p>aus **Extranet**<p>und mit MFA<p>Aufenthal<p>**Regel 2**<p>aus **Intranet**<p>Aufenthal|  
+|Externer Zugriff ist außer nicht-FTE nicht zulässig.<p>Intranetzugriff für FTE auf Arbeitsplatz verknüpften Geräten ist zulässig.|**Regel #1**<p>aus **Extranet**<p>und aus **nicht-FTE-** Gruppe<p>Aufenthal<p>**Regel #2**<p>aus **Intranet**<p>und vom mit dem **Arbeitsplatz verbundenen** Gerät<p>und aus der Gruppe " **FTE** "<p>Aufenthal|  
+|Für den Extranetzugriff ist MFA außer "Service Admin" erforderlich.<p>Alle Benutzer sind berechtigt, auf zuzugreifen.|**Regel #1**<p>aus **Extranet**<p>und mit MFA<p>Aufenthal<p>Mit Ausnahme der **Dienst Administrator Gruppe**<p>**Regel #2**<p>immer<p>Aufenthal|  
+|für den Zugriff auf das Extranet nicht in den Arbeitsplatz eingebundenes Gerät erfordert MFA<p>Zulassen von AD Fabric für Intranet-und Extranetzugriff|**Regel #1**<p>aus **Intranet**<p>und aus der **AD Fabric** -Gruppe<p>Aufenthal<p>**Regel #2**<p>aus **Extranet**<p>und von **nicht mit dem Arbeitsplatz verknüpften** Geräten<p>und aus der **AD Fabric** -Gruppe<p>und mit MFA<p>Aufenthal<p>**Regel #3**<p>aus **Extranet**<p>und vom mit dem **Arbeitsplatz verbundenen** Gerät<p>und aus der **AD Fabric** -Gruppe<p>Aufenthal|  
   
 ## <a name="parameterized-policy-template-vs-non-parameterized-policy-template"></a>Parametrisierte Richtlinien Vorlage im Vergleich zu nicht parametrisierten Richtlinien Vorlagen  
 Zugriffs Steuerungs Richtlinien können  
@@ -75,7 +74,7 @@ Verwenden Sie das folgende Verfahren, um eine nicht parametrisierte Zugriffs Ste
   
 1.  Wählen Sie in AD FS Verwaltung auf der linken Seite Access Control Richtlinien aus, und klicken Sie mit der rechten Maustaste auf Access Control Richtlinie  
   
-2.  Geben Sie einen Namen und eine Beschreibung ein.  Zum Beispiel:  Erlauben Sie Benutzern mit authentifizierten Geräten.  
+2.  Geben Sie einen Namen und eine Beschreibung ein.  Beispiel: erlauben Sie Benutzern mit authentifizierten Geräten.  
   
 3.  Klicken Sie unter **Zugriff zulassen, wenn eine der folgenden Regeln erfüllt**ist auf **Hinzufügen**.  
   
@@ -98,7 +97,7 @@ Verwenden Sie das folgende Verfahren, um eine parametrisierte Zugriffs Steuerung
   
 1.  Wählen Sie in AD FS Verwaltung auf der linken Seite Access Control Richtlinien aus, und klicken Sie mit der rechten Maustaste auf Access Control Richtlinie  
   
-2.  Geben Sie einen Namen und eine Beschreibung ein.  Zum Beispiel:  Erlauben Sie Benutzern mit einem bestimmten Anspruch.  
+2.  Geben Sie einen Namen und eine Beschreibung ein.  Beispiel: erlauben Sie Benutzern mit einem bestimmten Anspruch.  
   
 3.  Klicken Sie unter **Zugriff zulassen, wenn eine der folgenden Regeln erfüllt**ist auf **Hinzufügen**.  
   
@@ -121,7 +120,7 @@ Verwenden Sie das folgende Verfahren, um eine Zugriffs Steuerungs Richtlinie mit
   
 1.  Wählen Sie in AD FS Verwaltung auf der linken Seite Access Control Richtlinien aus, und klicken Sie mit der rechten Maustaste auf Access Control Richtlinie  
   
-2.  Geben Sie einen Namen und eine Beschreibung ein.  Zum Beispiel:  Benutzer mit authentifizierten Geräten zulassen, aber nicht verwaltet.  
+2.  Geben Sie einen Namen und eine Beschreibung ein.  Beispiel: Zulassen von Benutzern mit authentifizierten Geräten, aber nicht verwaltet.  
   
 3.  Klicken Sie unter **Zugriff zulassen, wenn eine der folgenden Regeln erfüllt**ist auf **Hinzufügen**.  
   
@@ -148,7 +147,7 @@ Verwenden Sie das folgende Verfahren, um eine Zugriffs Steuerungs Richtlinie mit
   
 1.  Wählen Sie in AD FS Verwaltung auf der linken Seite Access Control Richtlinien aus, und klicken Sie mit der rechten Maustaste auf Access Control Richtlinie  
   
-2.  Geben Sie einen Namen und eine Beschreibung ein.  Zum Beispiel:  Erlauben Sie Benutzern mit einem bestimmten Anspruch und einer bestimmten Gruppe.  
+2.  Geben Sie einen Namen und eine Beschreibung ein.  Beispiel: erlauben Sie Benutzern mit einem bestimmten Anspruch und einer bestimmten Gruppe.  
   
 3.  Klicken Sie unter **Zugriff zulassen, wenn eine der folgenden Regeln erfüllt**ist auf **Hinzufügen**.  
   
@@ -180,6 +179,6 @@ Von hier aus können Sie die Zugriffs Steuerungs Richtlinie auswählen und Sie a
   
 ![Zugriffs Steuerungs Richtlinien](media/Access-Control-Policies-in-AD-FS/ADFSACP15.PNG)  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md) 
 

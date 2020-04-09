@@ -1,26 +1,21 @@
 ---
-title: Winlogon-Anmeldung nach einem automatischen Neustart
-ms.custom: na
+title: Winlogon Automatic Restart Sign-On (ARSO)
 ms.prod: windows-server
-ms.reviewer: na
-ms.service: na
-ms.suite: na
 ms.technology: security-auditing
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 15cddcfa-8a8e-45e4-bb76-b8e1a14ceac0
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: f085cf78a01148f97a450577131213ce977a432a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3dd66cc799ee23f77c9c60e23e49d3088a27b2fc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402331"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855103"
 ---
-# <a name="winlogon-automatic-restart-sign-on-arso"></a>Winlogon-Anmeldung nach einem automatischen Neustart
+# <a name="winlogon-automatic-restart-sign-on-arso"></a>Winlogon Automatic Restart Sign-On (ARSO)
 
 >Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
@@ -60,7 +55,7 @@ Beim Neustart wird der Benutzer automatisch über den automatischen Authentifizi
   
     -   In Server-SKUs standardmäßig deaktiviert  
   
--   Weshalb?  
+-   Warum?  
   
     -   Einige Updates können erst abgeschlossen werden, wenn sich der Benutzer wieder anmeldet.  
   
@@ -95,7 +90,7 @@ Wenn Sie diese Richtlinien Einstellung deaktivieren, speichert das Gerät die An
   
 |Wertname|Typ|Daten|  
 |-------|----|----|  
-|Disableautomatikrestartsignon|DWORD|0<br /><br />**Beispiel:**<br /><br />0 (aktiviert)<br /><br />1 (deaktiviert)|  
+|Disableautomatikrestartsignon|DWORD|0<p>**Beispiel:**<p>0 (aktiviert)<p>1 (deaktiviert)|  
   
 **Registrierungs Speicherort der Richtlinie:** Hklm\software\microsoft\windows\currentversion\policies\system  
   
@@ -142,11 +137,11 @@ Eine vorhandene Benutzersitzung kann auch dann beibehalten werden, wenn Sie deak
 ### <a name="logon-hours-and-parental-controls"></a>Anmeldezeiten und Eltern Kontrollen  
 Die Anmeldezeiten und die Steuerelement-Steuerelemente können verhindern, dass eine neue Benutzersitzung erstellt wird.  Wenn während dieses Fensters ein Neustart stattfindet, ist der Benutzer nicht berechtigt, sich anzumelden.  Es gibt zusätzliche Richtlinien, die eine Sperr-oder Abmelde Aktion als Konformitäts Aktion verursachen.  Dies könnte für viele untergeordnete Fälle problematisch sein, bei denen eine Kontosperrung zwischen der Zeit des Abrufs und der Reaktivierung auftreten kann, insbesondere, wenn das Wartungsfenster in der Regel während dieser Zeit liegt.  
   
-## <a name="additional-resources"></a>Weitere Ressourcen  
+## <a name="additional-resources"></a>Zusätzliche Ressourcen  
 **Tabelle \\\* Arabisch 3: ARSO Glossar**  
   
 |Begriff|Definition|  
 |----|-------|  
-|Automatische Anmeldung|Autologon ist ein Feature, das in Windows für mehrere Versionen vorhanden ist.  Dabei handelt es sich um ein dokumentiertes Feature von Windows, das auch Tools wie Autologon für Windows v 3.01  *[http:/technet. Microsoft. com/Sysinternals/bb963905. aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx) enthält.*<br /><br />Dadurch kann sich ein einzelner Benutzer des Geräts automatisch anmelden, ohne Anmelde Informationen einzugeben. Die Anmelde Informationen werden konfiguriert und als verschlüsselter LSA-Schlüssel in der Registrierung gespeichert.|  
+|Automatische Anmeldung|Autologon ist ein Feature, das in Windows für mehrere Versionen vorhanden ist.  Dabei handelt es sich um ein dokumentiertes Feature von Windows, das auch Tools wie Autologon für Windows v 3.01  *[http:/technet. Microsoft. com/Sysinternals/bb963905. aspx](https://technet.microsoft.com/sysinternals/bb963905.aspx) enthält.*<p>Dadurch kann sich ein einzelner Benutzer des Geräts automatisch anmelden, ohne Anmelde Informationen einzugeben. Die Anmelde Informationen werden konfiguriert und als verschlüsselter LSA-Schlüssel in der Registrierung gespeichert.|  
   
 

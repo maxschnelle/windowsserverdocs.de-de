@@ -1,23 +1,19 @@
 ---
 title: Interner DNS-Dienst (iDNS) für SDN
 description: In diesem Thema wird erläutert, wie Sie mithilfe interner DNS (IDNs), das in Software-Defined Networking in Windows Server 2016 integriert ist, DNS-Dienste für Ihre gehosteten mandantenworkloads bereitstellen können.
-manager: brianlic
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: ad848a5b-0811-4c67-afe5-6147489c0384
-ms.author: lizross
-author: eross-msft
-ms.openlocfilehash: 0b08e5af20b3d089391717479817e0d26329fde2
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.author: anpaul
+author: AnirbanPaul
+ms.openlocfilehash: 717575693d40ff7d17c160772886f7ae3f648a9c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317254"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854323"
 ---
 # <a name="internal-dns-service-idns-for-sdn"></a>Interner DNS-Dienst (iDNS) für SDN
 

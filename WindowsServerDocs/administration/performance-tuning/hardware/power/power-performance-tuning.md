@@ -4,15 +4,15 @@ description: Optimieren der Prozessor Energie Verwaltung (ppm) für den Energie 
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Qizha;TristanB
+ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 2f1d5e2f3f17c40f262b8cea98c04e3347790ba8
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: 1457328a151c87d2d4cb41c4ee91b4759f4fb8e2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001825"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851993"
 ---
 # <a name="power-and-performance-tuning"></a>Leistungs-und Leistungsoptimierung
 
@@ -100,7 +100,7 @@ Turbo ist für hochleistungsfähige Energie Sparpläne auf allen Intel-und AMD-P
 > [!Note]
 > Das EPB-Register wird nur in Intel Westmere-Prozessoren und höher unterstützt.
 
-Für Intel Nehalem-und AMD-Prozessoren ist Turbo standardmäßig auf P-State-basierten Plattformen deaktiviert. Wenn ein System jedoch die kollaborative Prozessor Leistungskontrolle (cppc) unterstützt, bei der es sich um einen neuen alternativen Modus für die Leistungs Kommunikation zwischen dem Betriebssystem und der Hardware handelt (definiert in ACPI 5,0), kann Turbo eingeschaltet werden, wenn der Windows-Betriebssystem Das System fordert die Hardware dynamisch an, um die höchstmöglichen Leistungsstufen zu erzielen.
+Für Intel Nehalem-und AMD-Prozessoren ist Turbo standardmäßig auf P-State-basierten Plattformen deaktiviert. Wenn ein System jedoch die kollaborative Prozessor Leistungskontrolle (cppc) unterstützt, bei der es sich um einen neuen alternativen Modus für die Leistungs Kommunikation zwischen dem Betriebssystem und der Hardware handelt (definiert in ACPI 5,0), kann Turbo eingeschaltet werden, wenn das Windows-Betriebssystem die Hardware dynamisch zum Bereitstellen der höchstmöglichen Leistungsstufen anfordert.
 
 Um die Funktion "Turbo Boost" zu aktivieren oder zu deaktivieren, muss der Parameter "Processor Performance Boost Mode" vom Administrator oder durch die Standardparameter Einstellungen für den ausgewählten Energie Sparplan konfiguriert werden. Der Streamingmodus für die Prozessorleistung weist fünf zulässige Werte auf, wie in Tabelle 5 dargestellt.
 
@@ -114,9 +114,9 @@ In Windows Server 2016 ist der Standardwert für den Boost-Modus 3.
 |--------------------------|------------------------|-------------------|
 | 0 (deaktiviert) | Deaktiviert | Deaktiviert |
 | 1 (aktiviert) | Aktiviert | Effizient aktiviert |
-| 2 (aggressiv) | Aktiviert | Angriffs |
+| 2 (aggressiv) | Aktiviert | Aggressive |
 | 3 (effizient aktiviert) | Effizienz | Effizient aktiviert |
-| 4 (effizient aggressiv) | Effizienz | Angriffs |
+| 4 (effizient aggressiv) | Effizienz | Aggressive |
 
  
 Die folgenden Befehle aktivieren den Prozessor Leistungs Boost-Modus für den aktuellen Energie Sparplan (geben Sie die Richtlinie mit einem GUID-Alias an):
@@ -191,7 +191,7 @@ Bei den meisten Servern bietet das standardmäßige standardmäßige Parkverhalt
 
 Wenn für Ihren Server bestimmte Anforderungen an die Kernspeicher Plätze gelten, können Sie die Anzahl der Kerne steuern, die für das Parken verfügbar sind, indem Sie den Parameter Leistungsparameter für **Maximale Kerne der Prozessorleistung** oder den Parameter für die Parameter für die **minimale Kerne der Prozessorleistung** in Windows Server 2016.
 
-Ein Szenario, bei dem die Kern-Parkplätze nicht immer optimal sind, ist, wenn mindestens ein aktiver Thread einer nicht trivialen Teilmenge von CPUs in einem NUMA-Knoten zugeordnet ist (d. h. mehr als 1 CPU, aber kleiner als der gesamte Satz von CPUs auf dem Knoten). Wenn der kernelingalgorithmus Kerne zum Aufheben der Wiederaufnahme (vorausgesetzt, dass eine Erhöhung der workloadintensität auftritt) abwählt, werden die Kerne innerhalb der aktiven, affininitiierten Teilmenge (bzw. Teilmengen) nicht immer zum Aufheben der Wiederaufnahme ausgewählt. Folglich können auch unparkkerne entstehen, die tatsächlich nicht eingesetzt.
+Ein Szenario, bei dem die Kern-Parkplätze nicht immer optimal sind, ist, wenn mindestens ein aktiver Thread einer nicht trivialen Teilmenge von CPUs in einem NUMA-Knoten zugeordnet ist (d. h. mehr als 1 CPU, aber kleiner als der gesamte Satz von CPUs auf dem Knoten). Wenn der kernelingalgorithmus Kerne zum Aufheben der Wiederaufnahme (vorausgesetzt, dass eine Erhöhung der workloadintensität auftritt) abwählt, werden die Kerne innerhalb der aktiven, affininitiierten Teilmenge (bzw. Teilmengen) nicht immer zum Aufheben der Wiederaufnahme ausgewählt
 
 Die Werte für diese Parameter sind Prozentwerte im Bereich von 0 – 100. Der Parameter für die maximale Anzahl von Kernen für die **Prozessorleistung** steuert den maximalen Prozentsatz der Kerne, die für das Entsperren (verfügbar zum Ausführen von Threads) verfügbar sein können, während der Parameter " **Prozessorleistung Core-minimal Kerne** " den minimalen Prozentsatz der Kerne steuert, die freigestellt werden können. Legen Sie zum Deaktivieren der Kern Parken den Parameter für die **Prozessorleistung Kerne für die minimale Kerne** auf 100 Prozent fest, indem Sie die folgenden Befehle verwenden:
 
@@ -220,7 +220,7 @@ Powercfg -setacvalueindex scheme_current sub_processor DISTRIBUTEUTIL 0
 Powercfg -setactive scheme_current
 ```
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 - [Überlegungen zur Server Hardware Leistung](../index.md)
 - [Server Hardware Power Considerations](../power.md) (Überlegungen zum Energiebedarf von Serverhardware)
 - [Processor Power Management (PPM) Tuning for the Windows Server Balanced Power Plan](processor-power-management-tuning.md) (Optimieren der Prozessorenergieverwaltung (Processor Power Management (PPM)) für den ausgewogenen Energiesparplan von Windows Server)

@@ -2,23 +2,19 @@
 title: NIC-Teamvorgang
 description: In diesem Thema erhalten Sie einen Überblick über den NIC-Team Vorgang (Network Interface Card) in Windows Server 2016. Mit dem NIC-Team Vorgang können Sie zwischen einem und 32 physischen Ethernet-Netzwerkadaptern in einem oder mehreren softwarebasierten virtuellen Netzwerkadaptern gruppieren. Diese virtuellen Netzwerkadapter bieten schnelle Leistung und Fehlertoleranz bei Ausfall eines Netzwerkadapters.
 manager: dougkim
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-nict
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: abded6f3-5708-4e35-9a9e-890e81924fec
 ms.author: lizross
 author: eross-msft
 ms.date: 09/10/2018
-ms.openlocfilehash: f4d9dd20d626f998bee0a8414c281cd27b2d3dbb
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 13607bedb436b794e03e3b2ef67ca0e90d865ed7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316447"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854733"
 ---
 # <a name="nic-teaming"></a>NIC-Teamvorgang
 
@@ -41,7 +37,10 @@ Da Windows Server 2016 bis zu 32 Team Schnittstellen pro Team unterstützt, gibt
 Außerdem können Sie Ihre Team eigenen NICs mit dem gleichen Switch oder anderen Switches verbinden. Wenn Sie NICs mit verschiedenen Switches verbinden, müssen sich beide Switches im gleichen Subnetz befinden.  
   
 ## <a name="availability"></a>Verfügbarkeit  
-NIC-Teaming ist in allen Versionen von Windows Server 2016 verfügbar. Sie können eine Vielzahl von Tools zum Verwalten des NIC-Team Vorgangs auf Computern verwenden, auf denen ein Client Betriebssystem ausgeführt wird, z. b.: • Windows PowerShell-Cmdlets • Remotedesktop • Remoteserver-Verwaltungstools  
+NIC-Teaming ist in allen Versionen von Windows Server 2016 verfügbar. Sie können eine Vielzahl von Tools zum Verwalten des NIC-Team Vorgangs auf Computern verwenden, auf denen ein Client Betriebssystem ausgeführt wird, z. b.:
+*    Windows PowerShell-Cmdlets
+*    Remotedesktop
+*    Remoteserver-Verwaltungstools  
   
 ## <a name="supported-and-unsupported-nics"></a>Unterstützte und nicht unterstützte NICs   
 Sie können eine beliebige Ethernet-NIC verwenden, die in einem NIC-Team in Windows Server 2016 den Windows-Hardware Qualifikations-und Logotest (WHQL-Tests) bestanden hat.  
@@ -116,9 +115,9 @@ Wenn ein Team eine Verbindung mit einem virtuellen Hyper-v-Switch herstellt, mü
 
 Planen Sie die Verwendung von VLANs auf einem mit einem NIC-Team konfigurierten virtuellen Computer mithilfe der folgenden Richtlinien:
   
--   Die bevorzugte Methode zur Unterstützung mehrerer VLANs auf einem virtuellen Computer besteht darin, die VM mit mehreren Ports auf dem virtuellen Hyper-V-Switch zu konfigurieren und jeden Port einem VLAN zuzuordnen. Diese Ports werden nie auf dem virtuellen Computer ausgeführt, da dadurch Netzwerk Kommunikationsprobleme verursacht werden.  
+-    Die bevorzugte Methode zur Unterstützung mehrerer VLANs auf einem virtuellen Computer besteht darin, die VM mit mehreren Ports auf dem virtuellen Hyper-V-Switch zu konfigurieren und jeden Port einem VLAN zuzuordnen. Diese Ports werden nie auf dem virtuellen Computer ausgeführt, da dadurch Netzwerk Kommunikationsprobleme verursacht werden.  
 
--   Wenn der virtuelle Computer über mehrere virtuelle SR-IOV-Funktionen (VFS) verfügt, müssen Sie sicherstellen, dass Sie sich im gleichen VLAN befinden, bevor Sie Sie auf dem virtuellen Computer ausführen. Es ist problemlos möglich, die verschiedenen VFS so zu konfigurieren, dass Sie sich auf unterschiedlichen VLANs befinden. Dies bewirkt Probleme bei der Netzwerkkommunikation.  
+-    Wenn der virtuelle Computer über mehrere virtuelle SR-IOV-Funktionen (VFS) verfügt, müssen Sie sicherstellen, dass Sie sich im gleichen VLAN befinden, bevor Sie Sie auf dem virtuellen Computer ausführen. Es ist problemlos möglich, die verschiedenen VFS so zu konfigurieren, dass Sie sich auf unterschiedlichen VLANs befinden. Dies bewirkt Probleme bei der Netzwerkkommunikation.  
  
   
 ### <a name="manage-network-interfaces-and-vlans"></a>Verwalten von Netzwerkschnittstellen und VLANs 

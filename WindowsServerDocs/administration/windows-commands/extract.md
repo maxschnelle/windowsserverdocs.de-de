@@ -1,24 +1,20 @@
 ---
 title: extract
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 20dab03e-f6e1-4eb8-b8a1-fd6f1d97ee83
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 967f08e271019cc33970419179c9ddbf902b1882
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d66682126f1cc3c924c42b4605a537a997e8ac52
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377258"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844773"
 ---
 # <a name="extract"></a>extract
 
@@ -32,13 +28,13 @@ EXTRACT [/Y] source [newname]
 EXTRACT [/Y] /C source destination
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
 |KEs|Die Datei enthält mindestens zwei Dateien.|
-|Dateiname|Der Name der Datei, die aus der CAB-Datei extrahiert werden soll. Platzhalter und mehrere Dateinamen (durch Leerzeichen getrennt) können verwendet werden.|
-|Quelle|Komprimierte Datei (eine CAB-Datei mit nur einer Datei).|
+|filename|Der Name der Datei, die aus der CAB-Datei extrahiert werden soll. Platzhalter und mehrere Dateinamen (durch Leerzeichen getrennt) können verwendet werden.|
+|source|Komprimierte Datei (eine CAB-Datei mit nur einer Datei).|
 |newname|Neuer Dateiname für die extrahierte Datei. Wenn kein Wert angegeben wird, wird der ursprüngliche Name verwendet.|
 |/A|Alle Schränke verarbeiten. Folgt der CAB-Kette, beginnend mit dem ersten beschriebenen CAB.|
 |/C|Kopieren Sie die Quelldatei in das Ziel (zum Kopieren von DMF-Datenträgern).|
@@ -47,6 +43,6 @@ EXTRACT [/Y] /C source destination
 |/L dir|Speicherort für extrahierte Dateien (Standardwert ist Aktuelles Verzeichnis).|
 |/Y|Keine Eingabeaufforderung, bevor eine vorhandene Datei überschrieben wird.|
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

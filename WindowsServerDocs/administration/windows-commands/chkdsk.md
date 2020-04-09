@@ -9,12 +9,12 @@ author: jasongerend
 ms.author: jgerend
 manager: lizapo
 ms.date: 10/09/2019
-ms.openlocfilehash: 130b51e472ebf3d900186d6d63e318c88a340579
-ms.sourcegitcommit: e2964a803cba1b8037e10d065a076819d61e8dbe
+ms.openlocfilehash: 21f6ac91faefa17f153df43fbd2530a2c8c0f713
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72252350"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847783"
 ---
 # <a name="chkdsk"></a>chkdsk
 
@@ -37,7 +37,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#exampl
 chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]] [/b]  
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |      Parameter       |                  Beschreibung                                    |
 | -------------------- | ------------------------------------------------------------------------ |
@@ -52,8 +52,8 @@ chkdsk [<Volume>[[<Path>]<FileName>]] [/f] [/v] [/r] [/x] [/i] [/c] [/l[:<Size>]
 |    /l [:\<Größe >]     | Nur mit NTFS verwenden. Ändert die Größe der Protokolldatei in die Größe, die Sie eingeben. Wenn Sie den size-Parameter weglassen, wird von **/l** die aktuelle Größe angezeigt. |
 |         /b          | Nur NTFS: Löscht die Liste der fehlerhaften Cluster auf dem Volume und stellt alle zugeordneten und freien Cluster für Fehler wieder her. **/b** schließt die Funktionalität von **/r**ein. Verwenden Sie diesen Parameter, nachdem Sie ein Volume auf einem neuen Festplattenlaufwerk Abbild gespeichert haben.            |
 | /Scan               | Nur NTFS: führt eine Online Überprüfung auf dem Volume aus. |
-| /forceofflinefix    | Nur NTFS: (muss mit "/Scan" verwendet werden). Alle Online Reparaturen umgehen alle gefundenen Fehler werden in die Warteschlange für die Offline Reparatur eingereiht (d.h. "Chkdsk/spotfix"). |
-| /perf               | Nur NTFS: (muss mit "/Scan" verwendet werden). Verwendet mehr Systemressourcen, um eine Überprüfung so schnell wie möglich abzuschließen. Dies hat möglicherweise eine negative Auswirkung auf die Leistung bei anderen Tasks, die auf dem System ausgeführt werden.|
+| /forceofflinefix    | Nur NTFS: (muss mit/Scan verwendet werden). Alle Online Reparaturen umgehen alle gefundenen Fehler werden in der Warteschlange für eine Offline Reparatur (z./spotfix. Chkdsk-) eingereiht. |
+| /perf               | Nur NTFS: (muss mit/Scan verwendet werden). Verwendet mehr Systemressourcen, um eine Überprüfung so schnell wie möglich abzuschließen. Dies hat möglicherweise eine negative Auswirkung auf die Leistung bei anderen Tasks, die auf dem System ausgeführt werden.|
 | /spotfix            | Nur NTFS: führt die Fehlerbehebungen auf dem Volume aus. |
 | /sdcleanup          | Nur NTFS: Garbage Collection nicht benötigte Sicherheits deskriptordaten (impliziert/F). |
 | /offlinescanandfix  | Führt eine Offline Überprüfung und-Behebung auf dem Volume aus. |
@@ -144,4 +144,4 @@ chkdsk *.*
 
 ## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

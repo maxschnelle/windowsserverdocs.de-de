@@ -1,23 +1,19 @@
 ---
 title: Azure Site Recovery Services-Integration
 description: Beschreibt die Verwendung von Windows Server Essentials
-ms.custom: na
 ms.date: 10/01/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 262701a6-8a97-4c4e-bfbf-9f8007c308d6
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c04f27d4bf6ff6e615cf06da73247bf79dea1008
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 29db78fdf38a6fab23d9a5ec5539c0606e2fbbaa
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310418"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814483"
 ---
 # <a name="azure-site-recovery-services-integration"></a>Azure Site Recovery Services-Integration
 
@@ -43,7 +39,7 @@ Nachdem Sie die Abonnement-und Regions Auswahl ausgewählt haben, wird im **Wind
 
 ### <a name="enabling-guest-virtual-machines-for-protection"></a>Aktivieren von virtuellen Gast Computern für den Schutz
 
-Wenn Sie einen virtuellen Computer im Azure-Wiederherstellungs Fenster ausgewählt haben, können Sie auf der rechten Seite des Dashboards auf **Replikation in Azure aktivieren** klicken, um das Image des virtuellen Computers™ s vorzubereiten und in Azure zu kopieren:
+Wenn Sie einen virtuellen Computer im Azure-Wiederherstellungs Fenster ausgewählt haben, können Sie auf der rechten Seite des Dashboards auf **Replikation in Azure aktivieren** klicken, um das Image des virtuellen Computers &trade;s vorzubereiten und in Azure zu kopieren:
 
 ![Screenshot, der das Dialogfeld "Replikation in Azure aktivieren" anzeigt. Eine Statusanzeige wird angezeigt, wenn ein Host hinzugefügt wird.](media/azure-site-recovery-5.PNG)
 

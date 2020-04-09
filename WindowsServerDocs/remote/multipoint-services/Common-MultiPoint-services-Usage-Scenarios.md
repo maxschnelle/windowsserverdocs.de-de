@@ -1,24 +1,20 @@
 ---
 title: Häufige Verwendungs Szenarien für Multipoint Services
 description: Weitere Informationen zu häufigen Verwendungsmöglichkeiten für Multipoint Services
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9aefaf1b-3ba2-4f41-9068-9629a28157ad
 author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: b6e1ce47be76d8df1d8c9079204106f51c9067b3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9429bb297ead933f461b563951a628b1514f28c7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395580"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859083"
 ---
 # <a name="common-usage-scenarios"></a>Allgemeine Verwendungsszenarien
 Multipoint Services bietet den einzelnen Benutzer Desktops die wichtigsten Elemente des Windows 10-Desktop Erlebnisses. Außerdem wird ein einfaches Verwaltungs Tool (Multipoint-Manager) angeboten, das Systemadministratoren für die Ermittlung und Steuerung mehrerer Multipoint-Server und-Clients verwenden können. Darüber hinaus umfasst Multipoint Services das Multipoint-Dashboard für die Echt Zeit Sichtbarkeit. Beispiele für die Möglichkeiten von Multipoint Services sind folgende:  

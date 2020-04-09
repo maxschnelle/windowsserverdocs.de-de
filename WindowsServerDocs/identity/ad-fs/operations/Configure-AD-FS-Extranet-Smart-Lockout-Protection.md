@@ -1,7 +1,6 @@
 ---
 ms.assetid: 777aab65-c9c7-4dc9-a807-9ab73fac87b8
 title: Konfigurieren von AD FS extranetsperrschutz
-description: ''
 author: billmath
 ms.author: billmath
 manager: mtilman
@@ -9,12 +8,12 @@ ms.date: 05/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 9ef595cc98a95caca0f2043b011868e0573a5b19
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 28f7fc4a8c7129d9f88cc030b1b150db44321bf9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407708"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859943"
 ---
 # <a name="ad-fs-extranet-lockout-and-extranet-smart-lockout"></a>AD FS extranetsperr-und Extranet-Smart Lockout
 
@@ -44,25 +43,25 @@ Alle sekundären Knoten wenden sich bei jeder neuen Anmeldung über Port 80 an d
  Wenn der sekundäre Knoten den Master nicht kontaktieren kann, werden Fehlerereignisse in das AD FS Administrator Protokoll geschrieben. Authentifizierungen werden weiterhin verarbeitet, aber AD FS schreiben den aktualisierten Status nur lokal. AD FS wird alle 10 Minuten eine Verbindung mit dem Master hergestellt und wechselt zurück zum Master, sobald der Master verfügbar ist.
 
 ### <a name="terminology"></a>Terminologie
-- **Familiarlocation**: Während einer Authentifizierungsanforderung prüft ESL alle dargestellten IPS. Diese IPS bestehen aus einer Kombination aus Netzwerk-IP, weiter geleiteter IP-Adresse und der optionalen x-weitergeleiteten IP-Adresse. Wenn die Anforderung erfolgreich ist, werden alle IPS der Konto Aktivitäts Tabelle als "vertraute IPS" hinzugefügt. Wenn für die Anforderung alle IPS in den "vertrauten IPS" vorhanden sind, wird die Anforderung als "vertrauter"-Speicherort behandelt.
+- **Familiarlocation**: während einer Authentifizierungsanforderung prüft ESL alle dargestellten IPS. Diese IPS bestehen aus einer Kombination aus Netzwerk-IP, weiter geleiteter IP-Adresse und der optionalen x-weitergeleiteten IP-Adresse. Wenn die Anforderung erfolgreich ist, werden alle IPS der Konto Aktivitäts Tabelle als "vertraute IPS" hinzugefügt. Wenn für die Anforderung alle IPS in den "vertrauten IPS" vorhanden sind, wird die Anforderung als "vertrauter"-Speicherort behandelt.
 - **Unknownlocation**: Wenn eine Anforderung, die in enthalten ist, mindestens eine IP-Adresse nicht in der vorhandenen "familiarlocation"-Liste enthalten ist, wird die Anforderung als "Unbekannter" Speicherort behandelt. Dies dient zum Verarbeiten von Proxy Szenarien wie der Legacy Authentifizierung von Exchange Online, bei der Exchange Online-Adressen sowohl erfolgreiche als auch fehlgeschlagene Anforderungen verarbeiten.  
-- **BadPwdCount**: Ein Wert, der angibt, wie oft ein falsches Kennwort übermittelt und die Authentifizierung nicht erfolgreich war. Für jeden Benutzer werden separate Indikatoren für vertraute Standorte und unbekannte Speicherorte aufbewahrt.
-- **Unknownlockout**: Ein boolescher Wert pro Benutzer, wenn der Benutzer für den Zugriff über unbekannte Speicherorte gesperrt ist. Dieser Wert wird auf der Grundlage der badpwdzähl-und extranetlockoutthreshold-Werte berechnet.
-- **Extranetlockoutthreshold**: Dieser Wert bestimmt die maximale Anzahl fehlerhafter Kenn Wort Versuche. Wenn der Schwellenwert erreicht ist, lehnt ADFS Anforderungen vom Extranet ab, bis das Überwachungs Fenster verstrichen ist.
-- **Extranetobservationwindow**: Dieser Wert bestimmt die Dauer, für die Benutzernamen-und Kenn Wort Anforderungen von unbekannten Speicherorten gesperrt werden. Wenn das Fenster verstrichen ist, startet ADFS die Benutzernamen-und Kenn Wort Authentifizierung von unbekannten Standorten erneut.
+- **BadPwdCount**: ein Wert, der angibt, wie oft ein falsches Kennwort übermittelt und die Authentifizierung nicht erfolgreich war. Für jeden Benutzer werden separate Indikatoren für vertraute Standorte und unbekannte Speicherorte aufbewahrt.
+- **Unknownlockout**: ein boolescher Wert pro Benutzer, wenn der Benutzer für den Zugriff über unbekannte Speicherorte gesperrt ist. Dieser Wert wird auf der Grundlage der badpwdzähl-und extranetlockoutthreshold-Werte berechnet.
+- **Extranetlockoutthreshold**: dieser Wert bestimmt die maximale Anzahl fehlerhafter Kenn Wort Versuche. Wenn der Schwellenwert erreicht ist, lehnt ADFS Anforderungen vom Extranet ab, bis das Überwachungs Fenster verstrichen ist.
+- **Extranetobservationwindow**: dieser Wert bestimmt die Dauer, für die Benutzernamen-und Kenn Wort Anforderungen von unbekannten Speicherorten gesperrt werden. Wenn das Fenster verstrichen ist, startet ADFS die Benutzernamen-und Kenn Wort Authentifizierung von unbekannten Standorten erneut.
 - **Extranetlockumquirepdc**: Wenn diese Option aktiviert ist, erfordert die extranetsperre einen primären Domänen Controller (PDC). Wenn diese Option deaktiviert ist, wird für den Fall, dass der PDC nicht verfügbar ist, die extranetsperre auf einen anderen Domänen Controller  
-- **Extranetlockoutmode**: Steuerelemente nur protokollieren im Vergleich zum erzwungenen Modus von Extranet Smart Lockout
-    - **Adsssmartlockoutlogonly**: Die Smart Lockout-Funktion für Extranet ist aktiviert, aber AD FS werden nur admin-und Audit-Ereignisse schreiben, aber keine Authentifizierungsanforderungen ablehnen. Dieser Modus soll zunächst aktiviert werden, damit "familiarlocation" ausgefüllt wird, bevor "adfssmartlockoutenforce" aktiviert ist.
-    - **Adsssmartlockoutenforce**: Vollständige Unterstützung für das Blockieren von unbekannten Authentifizierungsanforderungen, wenn Schwellenwerte erreicht werden.
+- **Extranetlockoutmode**: steuert nur das Protokoll im Vergleich zum erzwungenen Modus der Extranet-Smart Lockout
+    - **Adsssmartlockoutlogonly**: die Smart Lockout-Funktion in Extranet ist aktiviert, aber AD FS werden nur Administrator-und Überwachungs Ereignisse schreiben, aber keine Authentifizierungsanforderungen ablehnen. Dieser Modus soll zunächst aktiviert werden, damit "familiarlocation" ausgefüllt wird, bevor "adfssmartlockoutenforce" aktiviert ist.
+    - **ADF-martlockoutenforce**: vollständige Unterstützung für das Blockieren von unbekannten Authentifizierungsanforderungen, wenn Schwellenwerte erreicht werden.
 
 IPv4-und IPv6-Adressen werden unterstützt.
 
 ### <a name="anatomy-of-a-transaction"></a>Anatomie einer Transaktion
-- **Vorauthentifizierungs Überprüfung**: Während einer Authentifizierungsanforderung prüft ESL alle dargestellten IPS. Diese IPS bestehen aus einer Kombination aus Netzwerk-IP, weiter geleiteter IP-Adresse und der optionalen x-weitergeleiteten IP-Adresse. In den Überwachungsprotokollen werden diese IP-Adressen im <IpAddress> Feld in der Reihenfolge von "x-ms-weitergeleitet-Client-IP", "x-weitergeleitet-für", "x-ms-Proxy-Client-IP" aufgeführt.
+- **Vorauthentifizierungs Überprüfung**: während einer Authentifizierungsanforderung prüft ESL alle dargestellten IPS. Diese IPS bestehen aus einer Kombination aus Netzwerk-IP, weiter geleiteter IP-Adresse und der optionalen x-weitergeleiteten IP-Adresse. In den Überwachungsprotokollen werden diese IP-Adressen im Feld <IpAddress> in der Reihenfolge x-ms-weitergeleitet-Client-IP, x-weitergeleitet-für, x-ms-Proxy-Client-IP aufgelistet.
 
-  Basierend auf diesen IPS ermittelt ADFS, ob die Anforderung von einem vertrauten oder unbekannten Speicherort erfolgt, und prüft dann, ob der entsprechende BadPwdCount-Wert kleiner als der festgelegte Schwellenwert ist, oder ob der letzte **fehlgeschlagene** Versuch länger als die Zeit des Beobachtungs Fensters ist. Dr. Wenn eine dieser Bedingungen zutrifft, ermöglicht ADFS dieser Transaktion die weitere Verarbeitung und Überprüfung der Anmelde Informationen. Wenn beide Bedingungen false sind, befindet sich das Konto bereits in einem gesperrten Zustand, bis das Überwachungs Fenster vorbei ist. Nachdem das Überwachungs Fenster weitergeleitet wurde, ist der Benutzer berechtigt, sich zu authentifizieren. Beachten Sie, dass ADFS in 2019 anhand des entsprechenden Schwellenwerts überprüft, ob die IP-Adresse mit einem vertrauten Speicherort übereinstimmt oder nicht.
+  Basierend auf diesen IPS wird von ADFS ermittelt, ob die Anforderung von einem vertrauten oder unbekannten Speicherort aus erfolgt. Anschließend wird überprüft, ob der entsprechende BadPwdCount-Wert kleiner als der festgelegte Schwellenwert ist oder ob der letzte **fehlgeschlagene** Versuch länger als der Zeitrahmen des Beobachtungs Fensters erfolgt ist. Wenn eine dieser Bedingungen zutrifft, ermöglicht ADFS dieser Transaktion die weitere Verarbeitung und Überprüfung der Anmelde Informationen. Wenn beide Bedingungen false sind, befindet sich das Konto bereits in einem gesperrten Zustand, bis das Überwachungs Fenster vorbei ist. Nachdem das Überwachungs Fenster weitergeleitet wurde, ist der Benutzer berechtigt, sich zu authentifizieren. Beachten Sie, dass ADFS in 2019 anhand des entsprechenden Schwellenwerts überprüft, ob die IP-Adresse mit einem vertrauten Speicherort übereinstimmt oder nicht.
 - **Erfolgreiche Anmeldung**: Wenn die Anmeldung erfolgreich ist, werden die IP-Adressen aus der Anforderung der vertrauten Standort-IP-Liste des Benutzers hinzugefügt.  
-- Fehler bei der **Anmeldung**: Wenn bei der Anmeldung ein Fehler auftritt, wird "BadPwdCount" angehoben. Der Benutzer wechselt in einen Sperr Status, wenn der Angreifer mehr ungültige Kenn Wörter an das System sendet, als der Schwellenwert zulässt. (BadPwdCount > extranetlockoutthreshold)  
+- Fehler bei der **Anmeldung**: Wenn bei der Anmeldung ein Fehler auftritt, wird der Wert für BadPwdCount angehoben. Der Benutzer wechselt in einen Sperr Status, wenn der Angreifer mehr ungültige Kenn Wörter an das System sendet, als der Schwellenwert zulässt. (BadPwdCount > extranetlockoutthreshold)  
 
 ![Konfiguration](media/configure-ad-fs-extranet-smart-lockout-protection/esl2.png)
 
@@ -145,7 +144,7 @@ Die Tabelle accountactivity wird im Modus "nur Protokoll" und im Modus "erzwinge
 Diese Funktion nutzt Sicherheits Überwachungs Protokolle, sodass die Überwachung sowohl in AD FS als auch in der lokalen Richtlinie auf allen AD FS Servern aktiviert werden muss.
 
 ### <a name="configuration-instructions"></a>Konfigurations Anweisungen
-Extranet Smart Lockout verwendet die ADFS-Eigenschaft **extranetlockoutenabled**. Diese Eigenschaft wurde zuvor zum Steuern der "Extranet Soft Lockout" in Server 2012r2 verwendet. Wenn Extranet Soft Lockout aktiviert war, führen ` Get-AdfsProperties` Sie aus, um die aktuelle Eigenschaften Konfiguration anzuzeigen.
+Extranet Smart Lockout verwendet die ADFS-Eigenschaft **extranetlockoutenabled**. Diese Eigenschaft wurde zuvor zum Steuern der "Extranet Soft Lockout" in Server 2012r2 verwendet. Wenn die extranetsperre aktiviert war, führen Sie ` Get-AdfsProperties` aus, um die aktuelle Eigenschaften Konfiguration anzuzeigen.
 
 ### <a name="configuration-recommendations"></a>Konfigurations Empfehlungen
 Wenn Sie die Smart Lockout-Extranet konfigurieren, befolgen Sie die bewährten Methoden zum Festlegen von Schwellenwerten:  
@@ -214,12 +213,12 @@ Dieses Verhalten kann überschrieben werden, indem der-Server-Parameter übergeb
 `Get-ADFSAccountActivity user@contoso.com`
 
   Eigenschaften:
-    - Badpwdzählvertraute: Inkrementiert, wenn eine Authentifizierung von einem bekannten Speicherort aus erfolgreich ist.
-    - Badpwdrattunknown: Inkrementiert, wenn eine Authentifizierung an einem unbekannten Speicherort nicht erfolgreich ist
+    - Badpwdzählvertraute: wird inkrementiert, wenn eine Authentifizierung von einem bekannten Speicherort aus erfolgreich ist.
+    - Badpwdrattunknown: inkrementiert, wenn eine Authentifizierung an einem unbekannten Speicherort nicht erfolgreich ist
     - Lastfailedauthvertraute: Wenn die Authentifizierung an einem vertrauten Speicherort nicht erfolgreich war, ist lastfailedauthunknown auf die Zeit der nicht erfolgreichen Authentifizierung festgelegt.
     - Lastfailedauthunknown: Wenn die Authentifizierung an einem unbekannten Speicherort nicht erfolgreich war, ist lastfailedauthunknown auf die Zeit der nicht erfolgreichen Authentifizierung festgelegt.
     - Familiarlockout: Boolescher Wert, der "true" lautet, wenn "badpwdrattvertraute" > extranetlockoutthreshold
-    - Unknownlockout: Boolescher Wert, der "true" lautet, wenn "badpwdgräfin" > extranetlockoutthreshold  
+    - Unknownlockout: Boolescher Wert, der "true" lautet, wenn "badpwdrattunknown" > extranetlockoutthreshold  
     - Vertrautheit: maximale Anzahl von 20 IPS, die dem Benutzer bekannt sind. Wenn dieser Wert überschritten wird, wird die älteste IP-Adresse in der Liste entfernt.
 -    Set-adfsaccountactivity
 
@@ -250,28 +249,28 @@ Im Modus "nur Protokoll" können Sie das Sicherheits Überwachungs Protokoll auf
 
 |Ereignis-ID|Beschreibung|
 |-----|-----|
-|1203|Dieses Ereignis wird für jeden ungültigen Kennwort-Versuch geschrieben. Sobald BadPwdCount den in extranetlockoutthreshold angegebenen Wert erreicht, wird das Konto für die in extranetobservationwindow angegebene Dauer in ADFS gesperrt.</br>Aktivitäts-ID:% 1</br>XML:% 2|
-|1201|Dieses Ereignis wird jedes Mal geschrieben, wenn ein Benutzer gesperrt wird. </br>Aktivitäts-ID:% 1</br>XML:% 2|
-|557 (ADFS 2019)| Fehler beim Versuch, mit dem Konto Speicher-Rest-Dienst auf dem Knoten% 1 zu kommunizieren. Wenn es sich um eine wid-Farm handelt, ist der primäre Knoten möglicherweise offline. Wenn es sich um eine SQL-Farm handelt, wählt ADFS automatisch einen neuen Knoten zum Hosten der Benutzerspeicher-Master Rolle aus.|
-|562 (ADFS 2019)|Fehler bei der Kommunikation mit dem Konto Speicher Endpunkt auf Server "% 1".</br>Ausnahme Meldung:% 2|
-|563 (ADFS 2019)|Beim Berechnen des extranetsperrungsstatus ist ein Fehler aufgetreten. Aufgrund des Werts der Einstellung% 1 wird die Authentifizierung für diesen Benutzer zugelassen, und die Tokenausstellung wird fortgesetzt. Wenn es sich um eine wid-Farm handelt, ist der primäre Knoten möglicherweise offline. Wenn es sich um eine SQL-Farm handelt, wählt ADFS automatisch einen neuen Knoten zum Hosten der Benutzerspeicher-Master Rolle aus.</br>Name des Konto Speicher Servers:% 2</br>Benutzer-ID:% 3</br>Ausnahme Meldung:% 4|
-|512|Das Konto für den folgenden Benutzer ist gesperrt. Ein Anmeldeversuch ist aufgrund der Systemkonfiguration zulässig.</br>Aktivitäts-ID:% 1 </br>Benutzer:% 2 </br>Client-IP:% 3 </br>Anzahl fehlerhafter Kenn Wörter:% 4  </br>Letzter fehlerhafter Kenn Wort Versuch:% 5|
-|515|Das folgende Benutzerkonto befand sich in einem gesperrten Zustand, und es wurde nur das richtige Kennwort angegeben. Dieses Konto ist möglicherweise kompromittiert.</br>Weitere Daten </br>Aktivitäts-ID:% 1 </br>Benutzer:% 2 </br>Client-IP:% 3 |
-|516|Das folgende Benutzerkonto wurde aufgrund zu vieler fehlerhafter Kenn Wort Versuche gesperrt.</br>Aktivitäts-ID:% 1  </br>Benutzer:% 2  </br>Client-IP:% 3  </br>Anzahl fehlerhafter Kenn Wörter:% 4  </br>Letzter fehlerhafter Kenn Wort Versuch:% 5|
+|1203|Dieses Ereignis wird für jeden ungültigen Kennwort-Versuch geschrieben. Sobald BadPwdCount den in extranetlockoutthreshold angegebenen Wert erreicht, wird das Konto für die in extranetobservationwindow angegebene Dauer in ADFS gesperrt.</br>Aktivitäts-ID: %1</br>XML: %2|
+|1201|Dieses Ereignis wird jedes Mal geschrieben, wenn ein Benutzer gesperrt wird. </br>Aktivitäts-ID: %1</br>XML: %2|
+|557 (ADFS 2019)| Fehler beim Versuch, mit dem Konto Speicher-Rest-Dienst auf dem Knoten %1 zu kommunizieren. Wenn es sich um eine wid-Farm handelt, ist der primäre Knoten möglicherweise offline. Wenn es sich um eine SQL-Farm handelt, wählt ADFS automatisch einen neuen Knoten zum Hosten der Benutzerspeicher-Master Rolle aus.|
+|562 (ADFS 2019)|Fehler bei der Kommunikation mit dem Konto Speicher Endpunkt auf Server "%1".</br>Ausnahme Meldung: %2|
+|563 (ADFS 2019)|Beim Berechnen des extranetsperrungsstatus ist ein Fehler aufgetreten. Aufgrund des Werts der Einstellung %1 wird die Authentifizierung für diesen Benutzer zugelassen, und die Tokenausstellung wird fortgesetzt. Wenn es sich um eine wid-Farm handelt, ist der primäre Knoten möglicherweise offline. Wenn es sich um eine SQL-Farm handelt, wählt ADFS automatisch einen neuen Knoten zum Hosten der Benutzerspeicher-Master Rolle aus.</br>Name des Konto Speicher Servers: %2</br>Benutzer-ID: %3</br>Ausnahme Meldung: %4|
+|512|Das Konto für den folgenden Benutzer ist gesperrt. Ein Anmeldeversuch ist aufgrund der Systemkonfiguration zulässig.</br>Aktivitäts-ID: %1 </br>Benutzer: %2 </br>Client-IP: %3 </br>Anzahl fehlerhafter Kenn Wörter: %4  </br>Letzter fehlerhafter Kenn Wort Versuch: %5|
+|515|Das folgende Benutzerkonto befand sich in einem gesperrten Zustand, und es wurde nur das richtige Kennwort angegeben. Dieses Konto ist möglicherweise kompromittiert.</br>Zusätzliche Daten </br>Aktivitäts-ID: %1 </br>Benutzer: %2 </br>Client-IP: %3 |
+|516|Das folgende Benutzerkonto wurde aufgrund zu vieler fehlerhafter Kenn Wort Versuche gesperrt.</br>Aktivitäts-ID: %1  </br>Benutzer: %2  </br>Client-IP: %3  </br>Anzahl fehlerhafter Kenn Wörter: %4  </br>Letzter fehlerhafter Kenn Wort Versuch: %5|
 
 ## <a name="esl-frequently-asked-questions"></a>Häufig gestellte Fragen zu ESL
 
 **Wird eine AD FS-Farm mit Extranet Smart Lockout im Erzwingungs Modus jemals böswillige Benutzer sperren sehen?** 
 
-A: Wenn die AD FS-Smart Lockout auf den Modus "erzwingen" festgelegt ist, wird das Konto des berechtigten Benutzers nie durch Brute-Force-oder Denial-of-Service gesperrt. Die einzige Möglichkeit, dass eine böswillige Konto Sperre verhindert, dass eine Benutzeranmeldung möglich ist, besteht darin, dass der ungültige Akteur über das Benutzer Kennwort verfügt oder Anforderungen von einer bekannten, vertrauten (vertrauten) IP-Adresse für diesen Benutzer senden kann. 
+A: Wenn für die AD FS-Smart Lockout der Modus "erzwingen" festgelegt ist, wird das Konto des berechtigten Benutzers nie durch Brute-Force-oder Denial-of-Service gesperrt. Die einzige Möglichkeit, dass eine böswillige Konto Sperre verhindert, dass eine Benutzeranmeldung möglich ist, besteht darin, dass der ungültige Akteur über das Benutzer Kennwort verfügt oder Anforderungen von einer bekannten, vertrauten (vertrauten) IP-Adresse für diesen Benutzer senden kann. 
 
 **Was geschieht, wenn ESL aktiviert ist und der ungültige Akteur ein Benutzer Kennwort hat?** 
 
-A: Das typische Ziel des Brute-Force-Angriffs Szenarios besteht darin, ein Kennwort zu erraten und sich erfolgreich anzumelden.  Wenn ein Benutzer ein Kennwort enthält oder ein Kennwort erraten wird, blockiert das ESL-Feature den Zugriff nicht, da die Anmeldung den "erfolgreichen" Kriterien des korrekten Kennworts und der neuen IP-Adresse entspricht. Die IP-Adresse des ungültigen Actors würde dann als "vertrauter" angezeigt werden. Die beste Entschärfung in diesem Szenario besteht darin, die Aktivität des Benutzers in AD FS zu löschen und die Multi-Factor Authentication für die Benutzer anzufordern. Es wird dringend empfohlen, den Aad-Kenn Wort Schutz zu installieren, mit dem sichergestellt wird, dass die Kenn Wörter nicht in das System
+A: das typische Ziel des Brute-Force-Angriffs Szenarios besteht darin, ein Kennwort zu erraten und sich erfolgreich anzumelden.  Wenn ein Benutzer ein Kennwort enthält oder ein Kennwort erraten wird, blockiert das ESL-Feature den Zugriff nicht, da die Anmeldung den "erfolgreichen" Kriterien des korrekten Kennworts und der neuen IP-Adresse entspricht. Die IP-Adresse des ungültigen Actors würde dann als "vertrauter" angezeigt werden. Die beste Entschärfung in diesem Szenario besteht darin, die Aktivität des Benutzers in AD FS zu löschen und die Multi-Factor Authentication für die Benutzer anzufordern. Es wird dringend empfohlen, den Aad-Kenn Wort Schutz zu installieren, mit dem sichergestellt wird, dass die Kenn Wörter nicht in das System
 
 **Wenn sich der Benutzer nie erfolgreich von einer IP-Adresse angemeldet hat und dann mehrmals versucht, sich mit einem falschen Kennwort anzumelden?** 
 
-A: Wenn ein Benutzer mehrere ungültige Kenn Wörter (d. h. die falsche Typisierung) übermittelt und bei folgendem Versuch das Kennwort richtig ist, wird der Benutzer sich sofort erfolgreich anmelden.  Dadurch wird die Anzahl fehlerhafter Kenn Wörter gelöscht und dieser IP-Adresse hinzugefügt.  Wenn Sie jedoch den Schwellenwert fehlerhafter Anmeldungen über den unbekannten Speicherort überschreiten, werden Sie in den Sperr Zustand versetzt, und Sie müssen auf das Überwachungs Fenster warten und sich mit einem gültigen Kennwort anmelden, oder es muss ein Administrator Eingriff erforderlich sein, um Ihr Konto zurückzusetzen.  
+A: Wenn ein Benutzer mehrere ungültige Kenn Wörter übermittelt (d. h. die falsche Typisierung) und bei folgendem Versuch das Kennwort richtig ist, wird der Benutzer sich sofort erfolgreich anmelden.  Dadurch wird die Anzahl fehlerhafter Kenn Wörter gelöscht und dieser IP-Adresse hinzugefügt.  Wenn Sie jedoch den Schwellenwert fehlerhafter Anmeldungen über den unbekannten Speicherort überschreiten, werden Sie in den Sperr Zustand versetzt, und Sie müssen auf das Überwachungs Fenster warten und sich mit einem gültigen Kennwort anmelden, oder es muss ein Administrator Eingriff erforderlich sein, um Ihr Konto zurückzusetzen.  
  
 **Funktioniert ESL auch im Intranet?**
 
@@ -282,9 +281,9 @@ A: Wenn die Clients eine direkte Verbindung mit den AD FS-Servern herstellen und
 A: ESL funktioniert gut, um Exchange Online-oder andere ältere Authentifizierungs Szenarien für Brute-Force-Angriffe zu verhindern. Eine Legacy Authentifizierung hat eine "Aktivitäts-ID" von 00000000-0000-0000-0000-000000000000. In diesen Angriffen nutzt der schlechte Akteur die Exchange Online-Standard Authentifizierung (auch als ältere Authentifizierung bezeichnet), sodass die Client-IP-Adresse als Microsoft-Adresse angezeigt wird. Die Exchange Online-Server im cloudproxy die Authentifizierungs Überprüfung für den Outlook-Client. In diesen Szenarien wird die IP-Adresse des bösartigen submitters in "x-ms-weitergeleitet-Client-IP" angezeigt, und die IP-Adresse von Microsoft Exchange Online Server ist im Wert x-MS-Client-IP.
 Extranet Smart Lockout überprüft Netzwerk-IP-Adressen, weitergeleitete IPS, den Wert x-weitergeleitete Client-IP und den Wert x-MS-Client-IP. Wenn die Anforderung erfolgreich ist, werden alle IPS der vertrauten Liste hinzugefügt. Wenn eine Anforderung empfangen wird und eine der dargestellten IPS nicht in der vertrauten Liste enthalten ist, wird die Anforderung als unbekannt gekennzeichnet. Der vertraute Benutzer kann sich erfolgreich anmelden, während Anforderungen von den unbekannten Standorten blockiert werden.  
 
-\* * Q: Kann ich die Größe von adfsartifactstore vor dem Aktivieren von ESL schätzen?
+\* * F: kann ich die Größe von adfsartifactstore vor dem Aktivieren von ESL schätzen?
 
-A: Bei aktiviertem ESL verfolgt AD FS die Kontoaktivität und die bekannten Speicherorte für Benutzer in der adfsartifactstore-Datenbank nach. Die Größe dieser Datenbank wird relativ zur Anzahl der Benutzer und bekannten Standorte skaliert. Wenn Sie die Aktivierung von ESL planen, können Sie die Größe der adfsartifactstore-Datenbank mit einer Rate von bis zu 1 GB pro 100.000 Benutzer schätzen. Wenn die AD FS-Farm die interne Windows-Datenbank (WID) verwendet, lautet der Standard Speicherort für die Datenbankdateien c:\windows\wid\data\. Um das Auffüllen dieses Laufwerks zu verhindern, stellen Sie sicher, dass mindestens 5 GB freier Speicherplatz verfügbar sind, bevor Sie die ESL aktivieren. Planen Sie zusätzlich zum Datenträger Speicher den gesamten Prozess Arbeitsspeicher, der nach dem Aktivieren von ESL erweitert werden soll, um bis zu 1 GB RAM für die Benutzer Population von 500.000 oder weniger.
+A: bei aktiviertem ESL werden AD FS die Kontoaktivität und die bekannten Speicherorte für Benutzer in der adfsartifactstore-Datenbank nachverfolgt. Die Größe dieser Datenbank wird relativ zur Anzahl der nachverfolgten Benutzer und bekannten Standorte skaliert. Beim Planen der Aktivierung von ESL können Sie die Größenzunahme für die ADFSArtifactStore-Datenbank auf eine Rate von bis zu 1 GB pro 100.000 Benutzer schätzen. Wenn die AD FS-Farm die interne Windows-Datenbank (WID) verwendet, lautet der Standard Speicherort für die Datenbankdateien c:\windows\wid\data\. Um das Auffüllen dieses Laufwerks zu verhindern, stellen Sie sicher, dass mindestens 5 GB freier Speicherplatz verfügbar sind, bevor Sie ESL aktivieren. Planen Sie zusätzlich zum Datenträgerspeicher, dass der gesamte Prozessspeicher nach der Aktivierung von ESL um bis zu weitere 1 GB RAM für Benutzerauffüllungen von maximal 500.000 größer wird.
 
 
 ## <a name="additional-references"></a>Weitere Verweise  

@@ -2,18 +2,18 @@
 title: Direkte Speicherplätze in-Memory-Lesecache
 ms.prod: windows-server
 ms.author: eldenc
-ms.manager: siroy
+manager: siroy
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 02/20/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 83fc923f505531f955fc0131d7dcc1ce98974daa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d9ebc40b69373dafbebdb87f2abe624a5a7a4375
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394086"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858953"
 ---
 # <a name="using-storage-spaces-direct-with-the-csv-in-memory-read-cache"></a>Verwenden von direkte Speicherplätze mit dem CSV-in-Memory-Lesecache
 > Gilt für: Windows Server 2016, Windows Server 2019
@@ -43,7 +43,7 @@ Der CSV-Speicher in-Memory-Lese Cache ist sowohl in Windows Server 2016 als auch
 | BS-Version          | Standard-CSV-Cache Größe |
 |---------------------|------------------------|
 | Windows Server 2016 | 0 (deaktiviert)           |
-| Windows Server 2019 | 1 gib                   |
+| Windows Server 2019 | 1 GiB                   |
 
 Führen Sie Folgendes aus, um zu sehen, wie viel Arbeitsspeicher mithilfe von PowerShell zugewiesen wird
 
@@ -51,7 +51,7 @@ Führen Sie Folgendes aus, um zu sehen, wie viel Arbeitsspeicher mithilfe von Po
 (Get-Cluster).BlockCacheSize
 ```
 
-Der zurückgegebene Wert erfolgt in mebibytes (MIB) pro Server. @No__t-0 stellt z. b. 1 gibibyte (Gib) dar.
+Der zurückgegebene Wert erfolgt in mebibytes (MIB) pro Server. `1024` stellt z. b. 1 gibibyte (Gib) dar.
 
 Ändern Sie diesen Wert mithilfe von PowerShell, um zu ändern, wie viel Arbeitsspeicher zugeordnet wird. Führen Sie z. b. Folgendes aus, um 2 Gib pro Server zuzuordnen:
 

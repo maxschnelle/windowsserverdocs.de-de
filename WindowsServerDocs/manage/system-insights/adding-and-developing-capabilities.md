@@ -1,54 +1,49 @@
 ---
 title: Hinzufügen und Entwickeln von Funktionen
-description: System Insights können Sie System-Einblicke, ohne dass alle Betriebssystemupdates neue Vorhersagefunktionen hinzufügen. Dadurch können Entwickler, einschließlich von Microsoft und Drittanbietern, zum Erstellen und Bereitstellen von neuen Funktionen Mid-Version um die Szenarien, die Sie interessieren. Neue Funktionen können die benutzerdefinierte Daten zu sammeln und analysieren Sie angeben, und sie auch mit den vorhandenen Ebenen von Insights von System Management integrieren.
-ms.custom: na
+description: System Insights ermöglicht Ihnen das Hinzufügen neuer Vorhersagefunktionen zu System Insights, ohne dass Betriebssystemupdates erforderlich sind. Dadurch können Entwickler, einschließlich Microsoft und Drittanbietern, neue Funktionen in der Mitte der Veröffentlichung erstellen und bereitstellen, um die Szenarios zu berücksichtigen, die Sie interessieren. Neue Funktionen können benutzerdefinierte Daten angeben, die erfasst und analysiert werden sollen, und Sie können auch in die vorhandenen System Insights-Verwaltungsebenen integriert werden.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: system-insights
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.assetid: ''
 author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 7/31/2018
-ms.openlocfilehash: 8caddead774ac69a38906f3c0a0d2eaf005c1d28
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0dd4e24197d5a8c438d70a849e435ce28792dfce
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59817481"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858433"
 ---
-# <a name="adding-and-developing-new-capabilities"></a>Hinzufügen und neue Funktionen entwickeln
+# <a name="adding-and-developing-new-capabilities"></a>Hinzufügen und Entwickeln neuer Funktionen
 
->Gilt für: Windows Server 2019
+>Gilt für: Windows Server 2019
 
-System Insights können Sie System-Einblicke, ohne dass alle Betriebssystemupdates neue Vorhersagefunktionen hinzufügen. Dadurch können Entwickler, einschließlich von Microsoft und Drittanbietern, zum Erstellen und Bereitstellen von neuen Funktionen Mid-Version um die Szenarien, die Sie interessieren. 
+System Insights ermöglicht Ihnen das Hinzufügen neuer Vorhersagefunktionen zu System Insights, ohne dass Betriebssystemupdates erforderlich sind. Dadurch können Entwickler, einschließlich Microsoft und Drittanbietern, neue Funktionen in der Mitte der Veröffentlichung erstellen und bereitstellen, um die Szenarios zu berücksichtigen, die Sie interessieren. 
 
-Eine neue Funktion kann integriert und erweitert die vorhandene Infrastruktur von System Insights:
+Jede neue Funktion kann in die vorhandene System Insights-Infrastruktur integriert und erweitert werden:
 
-- Neue Funktionen können **Geben Sie Leistung des Indikators oder der System-Ereignis**, der erfasst, lokal gespeichert, und für die Funktion für die Analyse zurückgegeben wird, wenn die Funktion aufgerufen wird.  
-- Neue Funktionen können **nutzen Sie die vorhandene Windows Admin Center und PowerShell Management-Ebenen**. Nicht nur werden neue Funktionen in System Insights ermittelt werden, profitieren sie auch benutzerdefinierte Zeitpläne und Aktionen zur Problembehebung. 
+- Neue Funktionen können **jeden Leistungs-oder System Ereignis Wert angeben**, der gesammelt, lokal gespeichert und an die Analysefunktion zurückgegeben wird, wenn die Funktion aufgerufen wird.  
+- Neue Funktionen können **das vorhandene Windows Admin Center und die PowerShell-Verwaltungsebenen nutzen**. In System Insights können nicht nur neue Funktionen erkannt werden, sondern Sie profitieren auch von benutzerdefinierten Zeitplänen und Wiederherstellungs Aktionen. 
 
-## <a name="manage-new-capabilities"></a>Verwalten von neuen Funktionen
-- [Erfahren Sie,](add-remove-update-capabilities.md) wie hinzufügen, entfernen und Aktualisieren von Funktionen, die mithilfe von PowerShell. 
+## <a name="manage-new-capabilities"></a>Verwalten neuer Funktionen
+- [Erfahren Sie](add-remove-update-capabilities.md) , wie Sie Funktionen mithilfe von PowerShell hinzufügen, entfernen und aktualisieren. 
 
-## <a name="develop-a-capability"></a>Entwickeln Sie eine Funktion
-Verwenden Sie die folgenden Ressourcen können Sie beginnen das Schreiben von eigenen benutzerdefinierten Funktionen:
-- [Erfahren Sie,](data-sources.md) zu den Datenquellen, die Sie sammeln können.
-- [Herunterladen](https://www.nuget.org/packages/Microsoft.WindowsServer.SystemInsights/) das System-Insights-NuGet-Paket enthält die Klassen und Schnittstellen, die Sie eine Funktion schreiben müssen.
-- [Besuchen Sie](https://aka.ms/systeminsights-api) der API-Dokumentation erfahren Sie die System-Insights-Klassen und Schnittstellen. 
-- [Verwendung](https://aka.ms/systeminsights-samplecapability) beginnen Sie die System-Insights-Beispiel-Funktion, die Ihnen helfen. Dadurch erfahren Sie, wie eine Funktion zu registrieren, geben Sie die Datenquellen zum Sammeln und Systemdaten mit der Analyse beginnen.
+## <a name="develop-a-capability"></a>Entwickeln einer Funktion
+Verwenden Sie die folgenden Ressourcen, um Ihnen den Einstieg in die Erstellung eigener benutzerdefinierter Funktionen zu erleichtern:
+- [Erfahren Sie mehr](data-sources.md) über die Datenquellen, die Sie erfassen können.
+- [Laden](https://www.nuget.org/packages/Microsoft.WindowsServer.SystemInsights/) Sie das System Insights-nuget-Paket herunter, das die Klassen und Schnittstellen enthält, die Sie zum Schreiben einer Funktion benötigen.
+- Weitere Informationen zu den Klassen und Schnittstellen von System Insights [finden Sie](https://aka.ms/systeminsights-api) in der API-Dokumentation. 
+- [Verwenden](https://aka.ms/systeminsights-samplecapability) Sie die System Insights-Beispiel Funktion, um Ihnen den Einstieg zu erleichtern. Dadurch wird gezeigt, wie Sie eine Funktion registrieren, die zu sammelnden Datenquellen angeben und mit der Analyse der Systemdaten beginnen.
 
 >[!NOTE]
->Dies ist eine Vorabversion-Funktion. Es unterliegt, wie wir die neue Funktionalität hinzufügen und integrieren Feedback.
+>Dies ist eine vorab Funktionalität. Es kann geändert werden, da wir neue Funktionen hinzufügen und Feedback integrieren.
 
 ## <a name="see-also"></a>Siehe auch
-Weitere Informationen zum System Insights können Sie die folgenden Ressourcen:
+Weitere Informationen zu System Insights finden Sie in den folgenden Ressourcen:
 
-- [System-Insights-Übersicht](overview.md)
+- [Übersicht über System Einblicke](overview.md)
 - [Grundlegendes zu Funktionen](understanding-capabilities.md)
 - [Verwalten von Funktionen](managing-capabilities.md)
-- [Hinzufügen, entfernen und Aktualisieren von Funktionen](add-remove-update-capabilities.md)
-- [System Insights – häufig gestellte Fragen](faq.md)
+- [Hinzufügen, Entfernen und Aktualisieren von Funktionen](add-remove-update-capabilities.md)
+- [FAQ zu System Insights](faq.md)

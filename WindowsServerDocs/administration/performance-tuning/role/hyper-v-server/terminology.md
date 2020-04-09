@@ -4,15 +4,15 @@ description: In der Hyper-v-Leistungsoptimierung Nützliche Hyper-v-Terminologie
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Asmahi; SandySp; JoPoulso
+ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: acd61e9edef3ac88027d0cc89618c537fa6aa25f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 88aaebaac9161849fefe8116a1115eb628bcbf9e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385029"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851763"
 ---
 # <a name="hyper-v-terminology"></a>Hyper-V-Terminologie
 In diesem Abschnitt wird die Schlüssel Terminologie für die Technologie virtueller Computer zusammengefasst, die in diesem Thema zur Leistungsoptimierung verwendet wird:
@@ -24,7 +24,7 @@ In diesem Abschnitt wird die Schlüssel Terminologie für die Technologie virtue
 |*emulierten Gerät*|Ein virtualisiertes Gerät, das ein tatsächliches physisches Hardware Gerät imitiert, sodass Gäste die typischen Treiber für das Hardware Gerät verwenden können.|
 |*Anti*|Eine Optimierung eines Gast Betriebssystems, um die virtuellen Computerumgebungen zu erkennen und das Verhalten virtueller Maschinen zu optimieren.|
 |*Gästen*|Software, die in einer Partition ausgeführt wird. Dabei kann es sich um ein Betriebssystem mit vollem Funktionsumfang oder einen kleinen, speziellen Kernel handeln. Der Hypervisor ist Gast agnostisch.|
-|*hypervisor*|Eine Software Ebene, die über der Hardware und unter einem oder mehreren Betriebssystemen liegt. Ihre Hauptaufgabe ist die Ausführung isolierter Ausführungsumgebungen, die man Partitionen nennt. Jede Partition verfügt über einen eigenen Satz virtualisierter Hardware Ressourcen (zentrale Verarbeitungseinheit, CPU, Arbeitsspeicher und Geräte). Der Hypervisor steuert und vermittelt den Zugriff auf die zugrunde liegende Hardware.|
+|*Hypervisor*|Eine Software Ebene, die über der Hardware und unter einem oder mehreren Betriebssystemen liegt. Ihre Hauptaufgabe ist die Ausführung isolierter Ausführungsumgebungen, die man Partitionen nennt. Jede Partition verfügt über einen eigenen Satz virtualisierter Hardware Ressourcen (zentrale Verarbeitungseinheit, CPU, Arbeitsspeicher und Geräte). Der Hypervisor steuert und vermittelt den Zugriff auf die zugrunde liegende Hardware.|
 |*Logischer Prozessor*| Eine Verarbeitungseinheit, die einen Ausführungs Thread verarbeitet (Anweisungs Datenstrom). Es können ein oder mehrere logische Prozessoren pro Prozessorkern und ein oder mehrere Kerne pro Prozessor-Socket vorhanden sein.|
 | *Pass-Through-Datenträger Zugriff*|Eine Darstellung eines gesamten physischen Datenträgers als virtueller Datenträger innerhalb des Gast Betriebssystems. Die Daten und Befehle werden an den physischen Datenträger (über den systemeigenen Speicher Stapel der Stamm Partition) übermittelt, ohne dass eine Verarbeitung durch den virtuellen Stapel besteht.|
 |*Stamm Partition*|Die Stamm Partition, die zuerst erstellt wird und alle Ressourcen besitzt, die der Hypervisor nicht enthält, einschließlich der meisten Geräte und des System Speichers. Die Stamm Partition hostet den Virtualisierungsstapel und erstellt und verwaltet die untergeordneten Partitionen.|

@@ -1,28 +1,24 @@
 ---
 title: TLS-Protokoll (Transport Layer Security)
 description: Windows Server-Sicherheit
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-tls-ssl
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: de510bb0-a9f6-4bbe-8f8a-8dd7473bbae8
 author: justinha
 ms.author: justinha
-manager: brianlic-msft
+manager: brianlic
 ms.date: 05/16/2018
-ms.openlocfilehash: aca2db3ae5bf424dd0f855d24c1ef771039c8b14
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3884d80d1d2f5465e5f3daf708af57b35fab6bd8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403373"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853603"
 ---
 # <a name="transport-layer-security-protocol"></a>TLS-Protokoll (Transport Layer Security)
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows 10
 
 In diesem Thema für IT-Experten wird beschrieben, wie das Transport Layer Security (TLS)-Protokoll funktioniert und Links zu den IETF-RFCs für TLS 1,0, TLS 1,1 und TLS 1,2 bereitstellt.
 
@@ -45,7 +41,7 @@ Der Schannel-SSP implementiert die TLS-und SSL-Protokolle ohne Änderungen. Das 
 
 -   Das TLS-Daten Satz Protokoll
 
--   Die TLS-Handshaking-Protokolle: \--Protokoll für Protokoll \--Warnung
+-   Die TLS-handlerprotokolle: \- Änderungsprotokoll für Protokoll \- Warnungs Protokoll
 
 -   Kryptografische Berechnungen
 
@@ -59,7 +55,7 @@ Der Schannel-SSP implementiert die TLS-und SSL-Protokolle ohne Änderungen. Das 
 
 [RFC 2246-TLS-Protokoll, Version 1,0](http://tools.ietf.org/html/rfc2246)
 
-## <a name="BKMK_SessionResumption"></a>TLS-Sitzungs Wiederaufnahme
+## <a name="tls-session-resumption"></a><a name="BKMK_SessionResumption"></a>TLS-Sitzungs Wiederaufnahme
 Der Schannel SSP wurde in Windows Server 2012 R2 eingeführt und implementierte den Server seitigen Teil der Wiederaufnahme der TLS-Sitzung. Die Client seitige Implementierung von RFC 5077 wurde in Windows 8 hinzugefügt.
 
 Geräte, die TLS-Verbindungen mit Servern herstellen, müssen die Verbindung häufig wiederherstellen. Durch die Wiederaufnahme der TLS-Sitzung werden die Kosten für das Einrichten von TLS-Verbindungen reduziert, da die Wiederaufnahme einen Dadurch wird eine größere Anzahl von Wiederholungs versuchen ermöglicht, da eine Gruppe von TLS-Servern die TLS-Sitzungen der anderen Gruppe wieder aufnehmen kann. Diese Änderung bietet die folgenden Einsparungen für jeden TLS-Client, der RFC 5077 unterstützt, einschließlich Windows Phone und Windows RT-Geräten:
@@ -72,12 +68,12 @@ Geräte, die TLS-Verbindungen mit Servern herstellen, müssen die Verbindung hä
 
 Informationen zur Zustands losen Wiederaufnahme der TLS-Sitzung finden Sie im IETF-Dokument [RFC 5077.](http://www.ietf.org/rfc/rfc5077)
 
-## <a name="BKMK_AppProtocolNego"></a>Anwendungsprotokoll Aushandlung
+## <a name="application-protocol-negotiation"></a><a name="BKMK_AppProtocolNego"></a>Anwendungsprotokoll Aushandlung
  In Windows Server 2012 R2 und Windows 8.1 wurde Unterstützung eingeführt, die die Client seitige TLS-Anwendungsprotokoll Aushandlung ermöglicht. Anwendungen können Protokolle als Teil der http 2,0-Standardentwicklung nutzen, und Benutzer können auf Onlinedienste z. b. Google und Twitter zugreifen, indem Sie Apps verwenden, die das SPDY-Protokoll ausführen.
 
 Weitere Informationen zur Funktionsweise der Anwendungsprotokoll Aushandlung finden Sie unter [Transport Layer Security (TLS) Application Layer Protocol](http://tools.ietf.org/search/draft-ietf-tls-applayerprotoneg-05)Aushandlungs Erweiterung.
 
-## <a name="BKMK_SNI"></a>TLS-Unterstützung für Servernamensanzeige-Erweiterungen
+## <a name="tls-support-for-server-name-indication-extensions"></a><a name="BKMK_SNI"></a>TLS-Unterstützung für Servernamensanzeige-Erweiterungen
 Das SNI-Feature stellt eine Erweiterung der Protokolle SSL und TLS dar und ermöglicht die richtige Identifizierung des Servers, wenn zahlreiche virtuelle Abbilder auf einem einzelnen Server ausgeführt werden. In einem virtuellen Hostingszenario werden mehrere Domänen (die jeweils über ein eigenes potenziell unterschiedliches Zertifikat verfügen) auf einem Server gehostet. In diesem Fall kann der Server nicht im Voraus wissen, welches Zertifikat an den Client gesendet werden soll. SNI ermöglicht es dem Client, die Zieldomäne weiter oben im Protokoll zu informieren. Dies ermöglicht es dem Server, das richtige Zertifikat ordnungsgemäß auszuwählen.
 
 Die folgende zusätzliche Funktionalität:

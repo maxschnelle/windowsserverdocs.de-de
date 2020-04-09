@@ -1,7 +1,6 @@
 ---
 ms.assetid: a0f7bb11-47a5-47ff-a70c-9e6353382b39
 title: Verwalten von Risiken mit der bedingten Zugriffssteuerung
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: e73cf77e9590496f0ff3f881fd8ac4556450b5f0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 719c8ad0b39ccb4e252243e64385b12f8dbe6a28
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357760"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816223"
 ---
 # <a name="manage-risk-with-conditional-access-control"></a>Verwalten von Risiken mit der bedingten Zugriffssteuerung
 
@@ -25,7 +24,7 @@ ms.locfileid: "71357760"
 
 -   [Verwalten von Risiken mit bedingtem Access Control](../../ad-fs/operations/Manage-Risk-with-Conditional-Access-Control.md#BKMK_2)
 
-## <a name="BKMK_1"></a>Schlüsselkonzepte: bedingte Zugriffs Steuerung in AD FS
+## <a name="key-concepts---conditional-access-control-in-ad-fs"></a><a name="BKMK_1"></a>Schlüsselkonzepte: bedingte Zugriffs Steuerung in AD FS
 Die allgemeine Funktion von AD FS besteht darin, ein Zugriffs Token auszugeben, das einen Satz von Ansprüchen enthält. Die Entscheidung bezüglich der Ansprüche, die AD FS akzeptiert und dann Probleme behandelt, unterliegt den Anspruchs Regeln.
 
 Die Zugriffs Steuerung in AD FS wird mit Anspruchs Regeln für Ausstellungs Autorisierung implementiert, mit denen Zulassungs-oder Verweigerungs Ansprüche ausgegeben werden, die bestimmen, ob ein Benutzer oder eine Gruppe von Benutzern auf AD FS gesicherte Ressourcen zugreifen darf. Autorisierungsregeln können nur für Vertrauensstellungen der vertrauenden Seite festgelegt werden.
@@ -36,7 +35,7 @@ Die Zugriffs Steuerung in AD FS wird mit Anspruchs Regeln für Ausstellungs Auto
 |Benutzern mit diesem eingehenden Anspruch Zugriff gewähren|Wenn der Typ des eingehenden Anspruchs einem *angegebenen Anspruchstyp* und der Wert einem *angegebenen Anspruchswert*entspricht, wird der Ausstellungsanspruch mit Wert auf *Zulassen*festgelegt.|
 |Benutzern mit diesem eingehenden Anspruch Zugriff verweigern|Wenn der Typ des eingehenden Anspruchs einem *angegebenen Anspruchstyp* und der Wert einem *angegebenen Anspruchswert* entspricht, wird der Ausstellungsanspruch mit Wert auf *Verweigern* festgelegt.|
 
-Weitere Informationen zu diesen Regeloptionen und zur Logik finden Sie unter [When to Use an Authorization Claim Rule](https://technet.microsoft.com/library/ee913560.aspx).
+Weitere Informationen zu diesen Regeloptionen und der entsprechenden Logik finden Sie unter [Verwendung einer Autorisierungsanspruchsregel](https://technet.microsoft.com/library/ee913560.aspx).
 
 In AD FS in Windows Server 2012 R2 wurde die Zugriffs Steuerung durch mehrere Faktoren erweitert, einschließlich Benutzer-, Geräte-, Standort-und Authentifizierungsdaten. Dies wird durch eine größere Vielfalt an für die Autorisierungsanspruchsregeln verfügbaren Anspruchstypen ermöglicht.  Anders ausgedrückt: in AD FS in Windows Server 2012 R2 können Sie die bedingte Zugriffs Steuerung basierend auf der Benutzeridentität oder der Gruppenmitgliedschaft, dem Netzwerk Speicherort und dem Gerät (mit dem Arbeitsplatz Beitritt) erzwingen. Weitere Informationen finden Sie unter [Verbinden mit Workplace von einem beliebigen Gerät für SSO und nahtlose zweistufige Authentifizierung bei allen Unternehmensanwendungen](../../ad-fs/operations/Join-to-Workplace-from-Any-Device-for-SSO-and-Seamless-Second-Factor-Authentication-Across-Company-Applications.md).
 
@@ -57,14 +56,14 @@ In der folgenden Tabelle sind alle in AD FS in Windows Server 2012 R2 verfügbar
 |Anspruchstyp|Beschreibung|
 |--------------|---------------|
 |E-Mail-Adresse|E-Mail-Adresse des Benutzers|
-|Angegebener Name|Angegebener Name des Benutzers|
+|Vorname|Angegebener Name des Benutzers|
 |Name|Eindeutiger Name des Benutzers|
 |UPN|Prinzipalname (UPN) des Benutzers|
 |Allgemeiner Name|Allgemeiner Name des Benutzers|
 |AD FS 1.x-E-Mail-Adresse|Die E-Mail-Adresse des Benutzers bei der Interaktion mit AD FS 1.1 oder AD FS 1.0|
 |Gruppe|Eine Gruppe, in der der Benutzer Mitglied ist|
 |AD FS 1.x UPN|UPN des Benutzers bei der Interaktion mit AD FS 1.1 oder AD FS 1.0|
-|Role-Eigenschaft|Eine Rolle, über die der Benutzer verfügt.|
+|Rolle|Eine Rolle, über die der Benutzer verfügt.|
 |Nachname|Nachname des Benutzers|
 |PPID|Private ID des Benutzers|
 |Namens-ID|SAML-Namensbezeichner des Benutzers|
@@ -97,7 +96,7 @@ In der folgenden Tabelle sind alle in AD FS in Windows Server 2012 R2 verfügbar
 |Erweiterte Schlüsselverwendung|Beschreibt eine der erweiterten Schlüsselverwendungen des Zertifikats|
 |Aussteller|Der Name der Zertifizierungsstelle, die das X.509-Zertifikat ausgestellt hat|
 |Ausstellername|Definierter Name des Zertifikatausstellers|
-|Key Usage|Eine der Schlüsselverwendungen des Zertifikats|
+|Schlüsselverwendung|Eine der Schlüsselverwendungen des Zertifikats|
 |Nicht nach|Datum (lokale Zeit), nach dem ein Zertifikat nicht mehr gültig ist|
 |Nicht vor|Datum (lokale Zeit), ab dem ein Zertifikat gültig ist|
 |Zertifikatrichtlinien|Die bei der Zertifikatausstellung gültigen Richtlinien|
@@ -106,12 +105,12 @@ In der folgenden Tabelle sind alle in AD FS in Windows Server 2012 R2 verfügbar
 |Alternativer Antragstellername|Einer der alternativen Namen des Zertifikats|
 |Seriennummer|Seriennummer des Zertifikats|
 |Signaturalgorithmus|Zum Erstellen der Signatur eines Zertifikats verwendeter Algorithmus|
-|Antragsteller|Antragsteller des Zertifikats|
+|Subject (Antragsteller)|Antragsteller des Zertifikats|
 |Schlüsselkennung des Antragstellers|Schlüsselkennung des Antragstellers des Zertifikats|
 |Antragstellername|Definierter Antragstellername aus einem Zertifikat|
 |V2-Vorlagenname|Name der Zertifikatvorlage Version 2, die beim Ausstellen oder Erneuern eines Zertifikats verwendet wird. Dies ist ein Microsoft-spezifischer Wert.|
 |V1-Vorlagenname|Name der Zertifikatvorlage Version 1, die beim Ausstellen oder Erneuern eines Zertifikats verwendet wird. Dies ist ein Microsoft-spezifischer Wert.|
-|Fingerabdruck|Fingerabdruck des Zertifikats|
+|Fingerabdruck|Fingerabdruck des Zertifikats.|
 |X.509-Version|X.509-Formatversion des Zertifikats|
 |Innerhalb des Unternehmensnetzwerks|Wird verwendet, um anzuzeigen, ob eine Anforderung aus dem Unternehmensnetzwerk stammt|
 |Zeitpunkt des Kennwortablaufs|Zeigt den Zeitpunkt an, zu dem das Kennwort abläuft|
@@ -119,7 +118,7 @@ In der folgenden Tabelle sind alle in AD FS in Windows Server 2012 R2 verfügbar
 |Kennwortaktualisierungs-URL|Zeigt die Webadresse des Kennwortaktualisierungsdiensts an|
 |Authentifizierungsmethodenreferenzen|Gibt alle Authentifizierungsmethoden an, die zum Authentifizieren des Benutzers verwendet werden|
 
-## <a name="BKMK_2"></a>Verwalten von Risiken mit bedingtem Access Control
+## <a name="managing-risk-with-conditional-access-control"></a><a name="BKMK_2"></a>Verwalten von Risiken mit bedingtem Access Control
 Mithilfe der verfügbaren Einstellungen können Risiken durch Implementierung der bedingten Zugriffssteuerung verwaltet werden.
 
 ### <a name="common-scenarios"></a>Allgemeine Szenarien

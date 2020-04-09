@@ -2,20 +2,19 @@
 title: Die Anzahl der laufenden oder konfigurierten virtuellen Computer muss innerhalb unterstützter Grenzwerte liegen.
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 9d3c4aa3-8416-46ec-a253-26dc98088d7b
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 56d7fd528d7fda20dbdbb16a6262bb072f053ef0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 49013d6a4c9dda6e79d6a803bae0f5641d826817
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364629"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854623"
 ---
 # <a name="the-number-of-running-or-configured-virtual-machines-must-be-within-supported-limits"></a>Die Anzahl der laufenden oder konfigurierten virtuellen Computer muss innerhalb unterstützter Grenzwerte liegen.
 
@@ -27,7 +26,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
 |**Produkt/Feature**|Hyper-V|  
-|**Zunehmen**|Fehler  
+|**Zunehmen**|Error  
 |**Kategorie**|Konfiguration|  
   
 In den folgenden Abschnitten gibt Kursiv Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  

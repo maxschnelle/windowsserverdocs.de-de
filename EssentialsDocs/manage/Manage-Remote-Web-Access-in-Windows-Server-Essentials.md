@@ -1,29 +1,25 @@
 ---
 title: Verwalten des Remotewebzugriffs in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f3ea40fa-b6ba-4d66-b754-221ca6271387
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 6f4277637ed0f721b0cae12c15086a59ac6190fc
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 3457eb28c05bd79f0de3a982da77ca01ffe9b52d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80311161"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852763"
 ---
 # <a name="manage-remote-web-access-in-windows-server-essentials"></a>Verwalten des Remotewebzugriffs in Windows Server Essentials
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
  
- Remote Webzugriff in Windows Server Essentials oder Windows Server 2012 R2 mit installierter Windows Server Essentials-Rolle bietet eine optimierte, benutzerfreundliche Browser Darstellung, um von praktisch jedem Standort aus auf Anwendungen und Daten zuzugreifen. Sie verfügen über eine Internet Verbindung und über fast alle Geräte. Damit Sie den Remotewebzugriff verwenden können, müssen Sie ihn zunächst mithilfe des Assistenten zum Einrichten von %%amp;quot;Zugriff überall%%amp;quot; aktivieren und den Router und Domänennamen einrichten.  
+ Remote Webzugriff in Windows Server Essentials oder Windows Server 2012 R2 mit installierter Windows Server Essentials-Benutzerrolle bietet eine optimierte, benutzerfreundliche Browser Darstellung, um von nahezu allen Orten mit Internet Verbindung und über fast alle Geräte auf Anwendungen und Daten zuzugreifen. Damit Sie den Remotewebzugriff verwenden können, müssen Sie ihn zunächst mithilfe des Assistenten zum Einrichten von %%amp;quot;Zugriff überall%%amp;quot; aktivieren und den Router und Domänennamen einrichten.  
   
 ## <a name="in-this-topic"></a>In diesem Thema  
   

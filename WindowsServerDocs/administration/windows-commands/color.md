@@ -1,28 +1,22 @@
 ---
-title: color
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+title: Farbe
+description: Windows-Befehls Thema für Color, mit dem die Vordergrund-und Hintergrundfarben im Eingabe Aufforderungs Fenster für die aktuelle Sitzung geändert werden.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f5b67131-d196-45ec-a3f9-b5d9f091fd86
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ed792e4626897945e688f1c54767d7680ade6d99
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0e89c20d90a3b812fa67b597c4c205d34e725785
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379239"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847483"
 ---
-# <a name="color"></a>color
-
-
+# <a name="color"></a>Farbe
 
 Ändert die Vordergrund-und Hintergrundfarben im Eingabe Aufforderungs Fenster für die aktuelle Sitzung. Wenn Sie ohne Parameter verwendet **wird, werden** die standardmäßigen Vordergrund-und Hintergrundfarben des Eingabe Aufforderungs Fensters wieder hergestellt
 
@@ -34,7 +28,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 color [[<B>]<F>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -44,33 +38,33 @@ color [[<B>]<F>]
 
 ## <a name="remarks"></a>Hinweise
 
--   Die folgende Tabelle enthält gültige hexadezimale Ziffern, mit denen Sie als Werte für *B* und *F*.
+-   In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die Sie als Werte für *B* und *F*verwenden können.
 
 |Wert|Farbe|
 |-----|-----|
-|0|Schwarz|
+|0|Black|
 |1|Blau|
 |2|Grün|
 |3|CE|
 |4|Rot|
-|5|Viol|
+|5|Violett|
 |6|Gelb|
 |7|Weiß|
 |8|Grau|
 |9|Hellblau|
 |A|Hellgrün|
 |B|Hell Aqua|
-|c|Hellrot|
+|A|Hellrot|
 |D|Hell lila|
 |E|Hellgelb|
-|V|Helles Weiß|
+|C|Helles Weiß|
     
 -   Verwenden Sie keine Leerzeichen zwischen *B* und *F*.
 -   Wenn Sie nur eine hexadezimale Ziffer angeben, wird die entsprechende Farbe als Vordergrundfarbe verwendet, und die Hintergrundfarbe wird auf die Standardfarbe festgelegt.
--   Wenn Sie die standardmäßige Eingabe Aufforderungs Fenster-Farbe festlegen möchten, klicken Sie auf die linke obere Ecke des Eingabe Aufforderungs Fensters, klicken Sie auf **Standardwerte**, klicken Sie auf die Registerkarte **Farben** , und klicken Sie dann auf die Farben, die Sie für den **Bildschirm Text** und den **Bildschirmhintergrund** .
+-   Um die standardmäßige Eingabe Aufforderungs Fenster Farbe festzulegen, klicken Sie auf die obere linke Ecke des Eingabe Aufforderungs Fensters, klicken Sie auf **Standardwerte**, klicken Sie auf die Registerkarte **Farben** , und klicken Sie dann auf die Farben, die Sie für den **Bildschirm Text** und den **Hintergrund Hintergrund**verwenden möchten.
 -   Wenn *B* und *F* identisch sind, legt der **Color** -Befehl ERRORLEVEL auf 1 fest, und es wird keine Änderung an der Vorder-oder Hintergrundfarbe vorgenommen.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Wenn Sie die Hintergrundfarbe des Eingabe Aufforderungs Fensters in grau und die Vordergrundfarbe in Rot ändern möchten, geben Sie Folgendes ein:
 ```
@@ -84,6 +78,6 @@ color e
 > [!NOTE]
 > In diesem Beispiel wird der Hintergrund auf die Standardfarbe festgelegt, da nur eine hexadezimale Ziffer angegeben wird.
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

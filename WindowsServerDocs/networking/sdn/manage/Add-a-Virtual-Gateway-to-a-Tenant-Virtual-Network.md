@@ -1,24 +1,20 @@
 ---
 title: Hinzufügen eines Gateways zu einem virtuellen Mandantennetzwerk
 description: Erfahren Sie, wie Sie Windows PowerShell-Cmdlets und-Skripts zum Bereitstellen von Standort-zu-Standort-Konnektivität für die virtuellen Netzwerke Ihres Mandanten verwenden.
-manager: dougkim
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b9552054-4eb9-48db-a6ce-f36ae55addcd
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/23/2018
-ms.openlocfilehash: feee6f7bfaa34983290bfe173c7729666581e3f8
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: de7a5a612ac4a1b0415c3d7d29435cfc5debacf9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309922"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854573"
 ---
 # <a name="add-a-virtual-gateway-to-a-tenant-virtual-network"></a>Hinzufügen eines Gateways zu einem virtuellen Mandantennetzwerk 
 

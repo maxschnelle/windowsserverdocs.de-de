@@ -1,32 +1,28 @@
 ---
-title: Sicherheitsgruppe "Geschützte Benutzer"
+title: Sicherheitsgruppe „Geschützte Benutzer“
 description: Windows Server-Sicherheit
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-credential-protection
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1b0b5180-f65a-43ac-8ef3-66014116f296
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 10234611904a4ed5b58939d3fd5ca341221c073c
-ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
+ms.openlocfilehash: c6883513fdc02f4f4d1b874995780639279cc178
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259145"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857053"
 ---
-# <a name="protected-users-security-group"></a>Sicherheitsgruppe "Geschützte Benutzer"
+# <a name="protected-users-security-group"></a>Sicherheitsgruppe „Geschützte Benutzer“
 
 > Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 Dieses Thema für IT-Experten beschreibt die Active Directory-Sicherheitsgruppe „Geschützte Benutzer“ und erklärt deren Funktionsweise. Diese Gruppe wurde in Windows Server 2012 R2-Domänen Controllern eingeführt.
 
-## <a name="BKMK_ProtectedUsers"></a>Übersicht
+## <a name="overview"></a><a name="BKMK_ProtectedUsers"></a>Übersicht über
 
 Diese Sicherheitsgruppe ist als Teil einer Strategie zum Verwalten der Gefährdung von Anmelde Informationen innerhalb des Unternehmens konzipiert. Für Mitglieder dieser Gruppe gilt automatisch nicht konfigurierbarer Schutz für deren Konten. Eine Mitgliedschaft in der Gruppe der geschützten Benutzer bedeutet standardmäßig eine restriktive und proaktive Sicherheit. Die einzige Methode zum Ändern dieses Schutzes für ein Konto ist die Entfernung dieses Kontos aus der Sicherheitsgruppe.
 
@@ -38,7 +34,7 @@ Diese Domänen bezogene globale Gruppe löst nicht konfigurierbaren Schutz auf G
 Weitere Informationen finden Sie unter [Funktionsweise der Gruppe "geschützte Benutzer](#BKMK_HowItWorks) " in diesem Thema.
 
 
-## <a name="BKMK_Requirements"></a>Anforderungen der Gruppe "geschützte Benutzer"
+## <a name="protected-users-group-requirements"></a><a name="BKMK_Requirements"></a>Anforderungen der Gruppe "geschützte Benutzer"
 Zum Bereitstellen von Geräteschutz für Mitglieder der Gruppe "geschützte Benutzer" müssen folgende Anforderungen erfüllt sein:
 
 - Die globale Sicherheitsgruppe der geschützten Benutzer wird zu allen Domänencontrollern in der Kontodomäne repliziert.
@@ -58,23 +54,23 @@ Domänen Controller, auf denen ein älteres Betriebssystem als Windows Server 20
 
 Die Gruppe "geschützte Benutzer" kann erstellt werden, indem [die Rolle "primärer Domänen Controller (PDC)](https://technet.microsoft.com/library/cc816944(v=ws.10).aspx) " auf einen Domänen Controller mit Windows Server 2012 R2 übertragen wird. Nachdem das Gruppenobjekt auf andere Domänencontroller repliziert wurde, kann die PDC-Emulatorrolle auf einem Domänencontroller gehostet werden, der unter einer älteren Windows Server-Version läuft.
 
-### <a name="BKMK_ADgroup"></a>Eigenschaften der Gruppe "geschützte Benutzer"
+### <a name="protected-users-group-ad-properties"></a><a name="BKMK_ADgroup"></a>Eigenschaften der Gruppe "geschützte Benutzer"
 
 Die folgende Tabelle zeigt die Eigenschaften der Gruppe der geschützten Benutzer.
 
-|Attribut|Value|
+|Attribut|Wert|
 |-------|-----|
 |Gut bekannte SID/RID|S-1-5-21-<domain>-525|
-|Geben Sie in das Suchfeld auf der Taskleiste|Globale Domäne|
+|Typ|Globale Domäne|
 |Standardcontainer|CN=Benutzer, DC=<domain>, DC=|
 |Standardmitglieder|Keine|
 |Standardmitglied von|Keine|
 |Geschützt durch ADMINSDHOLDER?|Nein|
-|Speichern, um aus Standardcontainer zu entfernen?|„Ja“|
+|Speichern, um aus Standardcontainer zu entfernen?|Ja|
 |Speichern, um die Verwaltung dieser Gruppe zu Nicht-Dienstadministratoren zu delegieren?|Nein|
 |Standardbenutzerrechte|Keine Standardbenutzerrechte.|
 
-## <a name="BKMK_HowItWorks"></a>Funktionsweise der Gruppe "geschützte Benutzer"
+## <a name="how-protected-users-group-works"></a><a name="BKMK_HowItWorks"></a>Funktionsweise der Gruppe "geschützte Benutzer"
 In diesem Abschnitt wird erklärt, wie die Gruppe der geschützten Benutzer funktioniert, wenn folgende Voraussetzungen erfüllt sind:
 
 - Signiert in einem Windows-Gerät
@@ -110,20 +106,20 @@ Konten, die Mitglieder der Gruppe der geschützten Benutzer sind, die sich bei e
 
 - Erneuern der Kerberos-TGTs außerhalb der ursprünglichen Lebensdauer von vier Stunden.
 
-Nicht konfigurierbare Einstellungen zum Ablauf von TGTs werden für jedes Konto in der Gruppe der geschützten Benutzer eingerichtet. Normalerweise legt der Domänencontroller die Lebensdauer und Erneuerung der TGTs basierend auf den Domänenrichtlinien fest, **Max. Gültigkeitsdauer des Benutzertickets** und **Max. Zeitraum, in dem ein Benutzerticket erneuert werden kann**. Für die Gruppe der geschützten Benutzer ist 600 Minuten für diese Domänenrichtlinien eingestellt.
+Nicht konfigurierbare Einstellungen zum Ablauf von TGTs werden für jedes Konto in der Gruppe der geschützten Benutzer eingerichtet. Normalerweise legt der Domänencontroller die Lebensdauer und Erneuerung der TGTs basierend auf den Domänenrichtlinien fest, **Max. Gültigkeitsdauer des Benutzertickets** und **Max. Zeitraum, in dem ein Benutzerticket erneuert werden kann**. Für die Gruppe der geschützten Benutzer ist 600 Minuten für diese Domänenrichtlinien eingestellt.
 
-Weitere Informationen finden Sie unter [How to Configure Protected Accounts](how-to-configure-protected-accounts.md).
+Weitere Informationen finden Sie unter [Konfigurieren geschützter Konten](how-to-configure-protected-accounts.md).
 
-## <a name="troubleshooting"></a>Fehlerbehebung
+## <a name="troubleshooting"></a>Problembehandlung
 Es gibt zwei betriebliche Administrativprotokolle für die Fehlerbehebung von Ereignissen hinsichtlich geschützter Benutzer. Diese neuen Protokolle befinden sich in Ereignisanzeige und sind standardmäßig deaktiviert und befinden sich unter **Anwendungs-und dienstprotokolle\microsoft\windows\authentication**.
 
 |Ereignis-ID und Protokoll|Beschreibung|
 |----------|--------|
-|104<br /><br />**ProtectedUser-Client**|Grund: Das Sicherheitspaket auf dem Client enthält keine Anmeldeinformationen.<br /><br />Der Fehler wird im Clientcomputer protokolliert, wenn das Konto Mitglied der Sicherheitsgruppe der geschützten Benutzer ist. Das Ereignis zeigt an, dass das Sicherheitspaket die Anmeldeinformationen, die für die Serverauthentifizierung erforderlich sind, nicht zwischenspeichert.<br /><br />Zeigt den Paketnamen, Benutzernamen, Domänennamen und den Servernamen an.|
-|304<br /><br />**ProtectedUser-Client**|Grund: das Sicherheitspaket speichert nicht die Anmelde Informationen des geschützten Benutzers.<br /><br />Im Client wird ein Informations Ereignis protokolliert, um anzugeben, dass das Sicherheitspaket die Anmelde Informationen des Benutzers nicht zwischenspeichert. Es wird erwartet, dass Digest (WDigest), Delegierung von Anmeldeinformationen (CredSSP) und NTLM keine Anmeldeinformationen für geschützte Benutzer haben können. Anwendungen können weiterhin erfolgreich nach Anmeldeinformationen fragen.<br /><br />Zeigt den Paketnamen, Benutzernamen und Domänennamen an.|
-|100<br /><br />**ProtectedUserFailures-DomainController**|Grund: Ein NTLM-Anmeldefehler ereignet sich für ein Konto in der Sicherheitsgruppe der geschützten Benutzer.<br /><br />Im Domänencontroller wird ein Fehler protokolliert, um anzugeben, dass die NTLM-Authentifizierung fehlgeschlagen ist, da das Konto Mitglied der Sicherheitsgruppe der geschützten Benutzer ist.<br /><br />Zeigt den Kontonamen und den Gerätenamen an.|
-|104<br /><br />**ProtectedUserFailures-DomainController**|Grund: DES- oder RC4-Verschlüsselungstypen werden für die Kerberos-Authentifizierung verwendet, und ein Anmeldefehler ereignet sich für einen Benutzer in der Sicherheitsgruppe der geschützten Benutzer.<br /><br />Kerberos-Vorauthentifizierung ist fehlgeschlagen, da DES- und RC4-Verschlüsselungstypen nicht verwendet werden können, wenn das Konto Mitglied der Sicherheitsgruppe der geschützten Benutzer ist.<br /><br />(AES wird akzeptiert.)|
-|303<br /><br />**ProtectedUserSuccesses-DomainController**|Grund: Ein Kerberos-Ticket-Granting-Ticket (TGT) wurde erfolgreich für ein Mitglied der Gruppe der geschützten Benutzer ausgegeben.|
+|104<p>**ProtectedUser-Client**|Grund: Das Sicherheitspaket auf dem Client enthält keine Anmeldeinformationen.<p>Der Fehler wird im Clientcomputer protokolliert, wenn das Konto Mitglied der Sicherheitsgruppe der geschützten Benutzer ist. Das Ereignis zeigt an, dass das Sicherheitspaket die Anmeldeinformationen, die für die Serverauthentifizierung erforderlich sind, nicht zwischenspeichert.<p>Zeigt den Paketnamen, Benutzernamen, Domänennamen und den Servernamen an.|
+|304<p>**ProtectedUser-Client**|Grund: das Sicherheitspaket speichert nicht die Anmelde Informationen des geschützten Benutzers.<p>Im Client wird ein Informations Ereignis protokolliert, um anzugeben, dass das Sicherheitspaket die Anmelde Informationen des Benutzers nicht zwischenspeichert. Es wird erwartet, dass Digest (WDigest), Delegierung von Anmeldeinformationen (CredSSP) und NTLM keine Anmeldeinformationen für geschützte Benutzer haben können. Anwendungen können weiterhin erfolgreich nach Anmeldeinformationen fragen.<p>Zeigt den Paketnamen, Benutzernamen und Domänennamen an.|
+|100<p>**ProtectedUserFailures-DomainController**|Grund: Ein NTLM-Anmeldefehler ereignet sich für ein Konto in der Sicherheitsgruppe der geschützten Benutzer.<p>Im Domänencontroller wird ein Fehler protokolliert, um anzugeben, dass die NTLM-Authentifizierung fehlgeschlagen ist, da das Konto Mitglied der Sicherheitsgruppe der geschützten Benutzer ist.<p>Zeigt den Kontonamen und den Gerätenamen an.|
+|104<p>**ProtectedUserFailures-DomainController**|Grund: DES- oder RC4-Verschlüsselungstypen werden für die Kerberos-Authentifizierung verwendet, und ein Anmeldefehler ereignet sich für einen Benutzer in der Sicherheitsgruppe der geschützten Benutzer.<p>Kerberos-Vorauthentifizierung ist fehlgeschlagen, da DES- und RC4-Verschlüsselungstypen nicht verwendet werden können, wenn das Konto Mitglied der Sicherheitsgruppe der geschützten Benutzer ist.<p>(AES wird akzeptiert.)|
+|303<p>**ProtectedUserSuccesses-DomainController**|Grund: Ein Kerberos-Ticket-Granting-Ticket (TGT) wurde erfolgreich für ein Mitglied der Gruppe der geschützten Benutzer ausgegeben.|
 
 
 ## <a name="additional-resources"></a>Weitere Ressourcen

@@ -1,7 +1,6 @@
 ---
 ms.assetid: d282bb4e-38a0-4c7c-83d8-f6ea89278057
 title: Erstellen einer Webanwendung mit OpenID Connect mit AD FS 2016 und höher
-description: ''
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 02/22/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 9b3d64558c27e7b4bda20b6af27e02d55431c94d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 49d952a49cf474708f57a0ae2a7760d2470af607
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358789"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857493"
 ---
 # <a name="build-a-web-application-using-openid-connect-with-ad-fs-2016-and-later"></a>Erstellen einer Webanwendung mit OpenID Connect mit AD FS 2016 und höher
 
@@ -40,7 +39,7 @@ Im folgenden Abschnitt wird beschrieben, wie Sie die Anwendungs Gruppe in AD FS 
 
 3.  Kopieren Sie den Wert für den **Client Bezeichner** .  Sie wird später als Wert für "Ida: ClientID" in der Datei "Web. config" der Anwendung verwendet.  
 
-4.  Geben Sie für **Umleitungs-URI** - Folgendes ein: **https://localhost:44320/** .  Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**.  
+4.  Geben Sie Folgendes für den **Umleitungs-URI ein:**  -  **https://localhost:44320/** .  Klicken Sie auf **Hinzufügen**. Klicken Sie auf **Weiter**.  
 
     ![OpenID AD FS](media/Enabling-OpenId-Connect-with-AD-FS-2016/AD_FS_OpenID_2.PNG)  
 

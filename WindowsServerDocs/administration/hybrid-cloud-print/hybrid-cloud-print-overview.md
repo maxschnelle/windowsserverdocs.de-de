@@ -1,68 +1,65 @@
 ---
-title: Übersicht über die Windows Server Hybrid Cloud drucken
-description: Drucken Sie Hybrid Cloud ermöglicht IT-Experten zur Unterstützung von print-Anforderungen für BYOD oder eine Domäne eingebundenen Geräten.
-ms.prod: w10
-ms.mktglfcycl: manage
-ms.sitesec: library
-ms.pagetype: store
+title: Übersicht über Windows Server Hybrid Cloud Print
+description: Hybrid Cloud Print ermöglicht IT-Experten die Unterstützung von Druckanforderungen für BYOD-oder in die Domäne eingebundener Geräte
+ms.prod: windows-server
 ms.technology: server-general
-author: TrudyHa
-ms.author: TrudyHa
+author: trudyha
+ms.author: trudyha
 ms.date: 10/16/2017
-ms.openlocfilehash: faa9fde857a9a4ee3f7c03f682b3dbced0340417
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: f448e8709f9e73165ba1a477c59567fcff4a2008
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59878831"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852003"
 ---
-# <a name="windows-server-hybrid-cloud-print-overview"></a>Übersicht über die Windows Server Hybrid Cloud drucken
+# <a name="windows-server-hybrid-cloud-print-overview"></a>Übersicht über Windows Server Hybrid Cloud Print
 
-**Gilt für**
--   Windows Server 2016
+**Gilt für:**
+-   Windows Server 2016
 
-## <a name="what-is-hybrid-cloud-print"></a>Was ist Hybrid Cloud drucken?
-**Hybrid Cloud Drucken** steht ein neues Feature für Windows Server 2016 über **Features bei Bedarf**. Es ermöglicht IT-Experten zur Unterstützung von print-Anforderungen für Personen, die ihre eigenen Geräte mitbringen, oder verwenden Sie die Geräte, die mit Ihrem Azure Active Directory verknüpft. Dies schließt mobiler Geräte wie Windows Phone, Laptops oder Tablets unter Windows 10 oder Windows Mobile. Es bietet Unterstützung für den Druck von überall aus Personen, die Zugriff auf das Internet haben.
+## <a name="what-is-hybrid-cloud-print"></a>Was ist Hybrid Cloud Print?
+**Hybrid Cloud Print** ist ein neues Feature für Windows Server 2016, das über **Features bei Bedarf**verfügbar ist. Dadurch können IT-Experten Druckanforderungen für Personen unterstützen, die ihre eigenen Geräte verwenden, oder Geräte verwenden, die mit Ihrem Azure Active Directory verknüpft sind. Dies umfasst auch mobile Geräte wie Windows Phone, Laptops oder Tablets, auf denen Windows 10 oder Windows Mobile ausgeführt wird. Es bietet Druckunterstützung von allen Personen, die Zugriff auf das Internet haben.
 
-Für IT-Administratoren **Hybrid Cloud Drucken** bietet sicheren Benutzerzugriffs auf einem lokalen Drucker mithilfe des Azure Multi-Factor Authentication auf die um Benutzerzugriff zu überprüfen. Einmaliges Anmelden (SSO) Funktionalität vereinfacht die benutzerfreundlichkeit. **Hybrid Cloud Drucken** basiert auf Windows **Druckserver** Rolle, sodass IT-Experten eine Erfahrung, die zum Verwalten von Druckern und Sicherheit für den Benutzerzugriff ähnlich ist.
+Für IT-Administratoren bietet **Hybrid Cloud Print** sicheren Benutzer Zugriff auf lokale Drucker mithilfe der Multi-Factor Authentication von Azure, um den Benutzer Zugriff zu überprüfen. Die Funktion für einmaliges Anmelden (Single Sign-on, SSO) vereinfacht die Benutzer Funktionalität. **Hybrid Cloud Print** basiert auf der Windows- **Druck Server** Rolle und bietet IT-Experten eine ähnliche Darstellung wie die Verwaltung von Druckern und Benutzer Zugriffssicherheit.
 
-**Hybrid Cloud Drucken** können von Personen in Ihrer Organisation so drucken Sie sie verwenden, um ihre Arbeit - abgeschlossen wird, selbst wenn sie von ihren Helpdesk oder den Arbeitsplatz sind von den Geräten.
+**Hybrid Cloud Print** ermöglicht es Personen in Ihrer Organisation, von den Geräten, die Sie zum Abschluss ihrer Arbeit verwenden, zu drucken, auch wenn Sie nicht von Ihrem Desk oder Workplace entfernt sind.
 
-**Hybrid Cloud Drucken** in Windows 10 Creators Update und Windows 10 s unterstützt
+**Hybrid Cloud Print** wird in Windows 10 Creators Update und Windows 10 S unterstützt.
  
-## <a name="feature-summary"></a>Zusammenfassung der Funktionen
-**Hybrid Cloud Drucken** besteht aus zwei Hauptkomponenten: serverseitige: **Ermittlung** -Dienst und **Windows Print** Service.
-- **Ermittlung** Dienstendpunkt auf eine IIS-Dienst unterstützen Mopria-Alliance-Branchenstandard für die Ermittlung der Drucker in der Cloud ausgeführt wird.
-- **Windows-Druckserver** Dienstendpunkt einen IIS-Dienst, der Unterstützung der Branche unter standard Internet Printing Protokoll (IPP) um sicherzustellen, dass das breiteste Clientbetriebssystem unterstützt.
+## <a name="feature-summary"></a>Funktions Zusammenfassung
+**Hybrid Cloud Print** besteht aus zwei Hauptserver seitigen **Komponenten: Ermittlungs** Dienst und Windows- **Druck** Dienst.
+- Ermittlungsdienst-Endpunkt, der unter einem IIS **-Dienst ausgeführt** wird, der einen mopria Alliance-Industriestandard für die Drucker Ermittlung in der Cloud
+- Der **Windows-Druck** Dienst Endpunkt, der auf einem IIS-Dienst ausgeführt wird, der das branchenübliche Internet Druck Protokoll (IPP) unterstützt.
 
 ## <a name="deployment"></a>Bereitstellung
-**Hybrid Cloud Drucken** unterstützt eine Reihe von verschiedenen Bereitstellungsoptionen, je nachdem, in denen Benutzerauthentifizierung in der Organisation erforderlich ist. Hier ist eine Bereitstellung könnte folgendermaßen aussehen:
+**Hybrid Cloud Print** unterstützt verschiedene Bereitstellungs Optionen, je nachdem, wo Ihre Organisation eine Benutzerauthentifizierung erfordert. Eine Bereitstellung könnte wie folgt aussehen:
 
-![Das Diagramm zeigt eine grafische Darstellung der Hybrid Cloud-Print-Lösung](../media/hybrid-cloud-print/wshcp-deployment-options.png)
+![Ein Diagramm, das eine grafische Darstellung der Hybrid Cloud-Drucklösung anzeigt](../media/hybrid-cloud-print/wshcp-deployment-options.png)
 
-*Diagramm der Hybrid Cloud-Print-Lösung*
+*Hybrid Cloud Print-Lösungs Diagramm*
 
-Das Diagramm zeigt:
-- **Hybrid Cloud Drucken** mit Azure Active Directory als benutzeridentitätsanbieter. 
-- **Windows-Druckserver** Service und **Ermittlung** Dienstendpunkte mit Azure Active Directory zur Aktivierung des Client-Geräts, zum Abrufen der erforderlichen Authentifizierung Benutzertoken für diese Dienste verwenden registriert sind. 
-- Eine MDM-Dienst, z. B. **Microsoft Intune**, stellt der Client-Gerät mit den Richtlinien, die Azure Active Directory zum Herstellen einer Verbindung erforderlich **Windows Print** Service und **Ermittlung**Service.
+Das Diagramm zeigt Folgendes:
+- **Hybrid Cloud Print** using Azure Active Directory als Benutzer Identitäts Anbieter. 
+- **Windows-Druck** Dienst **-** und Ermittlungsdienst Endpunkte werden bei Azure Active Directory registriert, damit das Client Gerät das für diese Dienste zu verwendende erforderliche Benutzer Authentifizierungs Token abrufen kann. 
+- Ein MDM-Dienst, wie z. b. **Microsoft InTune**, stellt dem Client Gerät Richtlinien bereit, die für die Verbindung Azure Active Directory mit dem **Windows-Druck** **Dienst und** -Ermittlungsdienst
 
-Diese Tabelle enthält weitere Informationen für die Elemente im Diagramm.  
+Diese Tabelle enthält weitere Informationen zu den Elementen im Diagramm.  
 
 | Element | Beschreibung |
 | ------- | ----------- |
-| Azure Active Directory  | Bietet und steuert die Benutzerfunktionalität für Identität und Autorisierung |
-| Active Directory        | Bietet und steuert die Benutzerfunktionalität für Identität und Autorisierung |
-| Azure AD Connect  | Benutzeranmeldeinformationen zwischen Azure AD synchronisiert, und klicken Sie mit der lokalen AD. |
-| MDM-Dienst (Intune) | Bietet, dass die Richtlinie Bereitstellung Gerätefunktionen um sicherzustellen, dass Client-Gerät (BYOD-Gerät) mit den Unternehmensrichtlinien entspricht. |
-| Azure AD Proxy | Stellt eine langlebige Verbindung, die hinter der Firewall in Azure zu bestimmten konfigurierte Anwendung-Datenverkehr über das Internet mit dem Unternehmensnetzwerk verbunden hergestellt wird. |
-| Azure-Web-App | Der Kern der Hybrid Cloud-Print-Lösung. Enthält die erforderlichen Endpunkte zum Ermitteln von Druckern und Druckinhalte für nicht in die Domäne eingebundene Geräte zu senden. |
-| BYOD-Gerät / Windows Server-Druckspooler / Drucker | Hierbei handelt es sich als-ist. Keine Änderung an der Funktionalität in der Bereitstellung. |
+| Azure Active Directory  | Bietet und steuert die Benutzeridentität und Autorisierungs Funktionalität |
+| Active Directory        | Bietet und steuert die Benutzeridentität und Autorisierungs Funktionalität |
+| Azure AD Connect  | Synchronisiert Benutzer Anmelde Informationen zwischen Azure AD und lokalem AD. |
+| MDM-Dienst (InTune) | Bietet Funktionen zur Bereitstellung von Geräte Richtlinien, um sicherzustellen, dass das Client Gerät (BYOD-Gerät) den Unternehmensrichtlinien entspricht. |
+| Azure AD Proxy | Bietet eine langlebige Verbindung, die von hinter Ihrer Firewall zu Azure hergestellt wird, damit bestimmter konfigurierter Anwendungs Datenverkehr aus dem Internet in das Unternehmensnetzwerk übertragen werden kann. |
+| Azure-Web-App | Der Kern der Hybrid Cloud-Drucklösung. Stellt die erforderlichen Webendpunkte zum Ermitteln von Druckern und zum Senden von Druck Inhalten für Geräte bereit, die nicht der Domäne beigetreten sind. |
+| BYOD-Gerät/Windows-Druck Server Spooler/Drucker | Diese sind unverändert. Keine Änderung der Funktionalität in der Bereitstellung. |
 
-Es gibt zwei Möglichkeiten zum Installieren von **Hybrid Cloud Drucken**:
-- **Features bei Bedarf** -finden Sie unter [Configure Features on Demand in Windows Server](https://docs.microsoft.com/windows-server/administration/server-manager/configure-features-on-demand-in-windows-server) Weitere Informationen zum Hinzufügen und Entfernen von Rollen und featuredateien. 
-- **Einstellungen für Windows Server 2016** -Administratoren können, wechseln Sie zu **Einstellungen** -> **Apps** -> **optionale Features verwalten**  ->  **Hinzufügen einer Funktion** und suchen Sie nach der Features bei Bedarf Paket 
-- PowerShell-Befehle – In einer PowerShell-Administratorfenster, führen Sie folgende Befehle:
+Es gibt zwei Möglichkeiten zum Installieren von **Hybrid Cloud Print**:
+- \* * Features bei Bedarf. Weitere Informationen zum Hinzufügen und Entfernen von Rollen-und Featuredateien finden Sie unter [Konfigurieren von Features bei Bedarf in Windows Server](https://docs.microsoft.com/windows-server/administration/server-manager/configure-features-on-demand-in-windows-server) . 
+- \* * Einstellungen für Windows Server 2016, die Administratoren zu **Einstellungen** -> **apps** -> **Verwalten optionaler Features** -> **Hinzufügen eines** Features und suchen nach dem Paket "Features bei Bedarf" 
+- PowerShell-Befehle: führen Sie in einem PowerShell-Administrator Fenster die folgenden Befehle aus:
 
 ```PowerShell
     Install-Module -Name PublishCloudPrinter

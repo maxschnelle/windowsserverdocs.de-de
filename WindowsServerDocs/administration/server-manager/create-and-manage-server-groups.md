@@ -1,24 +1,20 @@
 ---
 title: Erstellen und Verwalten von Server Gruppen
 description: Server-Manager
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9d5b1be8-49fd-4ff7-9580-e4ff21fe4b17
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 74075f091cd707f6faf73567c1dce6f22a2f6753
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2f4ad512c55bcd1391ad55bdbdeb9a2ba3bfd7f0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383217"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851543"
 ---
 # <a name="create-and-manage-server-groups"></a>Erstellen und Verwalten von Server Gruppen
 
@@ -26,7 +22,7 @@ ms.locfileid: "71383217"
 
 In diesem Thema wird beschrieben, wie benutzerdefinierte benutzerdefinierte Server Gruppen in Server-Manager in Windows Server erstellt werden.
 
-## <a name="BKMK_groups"></a>Server Gruppen
+## <a name="server-groups"></a><a name=BKMK_groups></a>Server Gruppen
 Server, die Sie dem Server Pool hinzufügen, werden auf der Seite **alle Server** in Server-Manager angezeigt. Sie können benutzerdefinierte Gruppen von Servern erstellen, die Sie hinzugefügt haben. Mit Server Gruppen können Sie eine kleinere Teilmenge des Server Pools als logische Einheit anzeigen und verwalten. Sie können z. b. eine Gruppe namens **Buchhaltungsserver** für alle Server in der Buchhaltungsabteilung Ihrer Organisation oder eine Gruppe namens **Chicago** für alle Server erstellen, die sich geografisch in Chicago befinden. Nachdem Sie eine Server Gruppe erstellt haben, werden auf der Startseite der Gruppe in Server-Manager Informationen zu Ereignissen, Diensten, Leistungsindikatoren, Best Practices Analyzer Ergebnissen sowie zu installierten Rollen und Features für die Gruppe als Ganzes angezeigt.
 
 Server können mehreren Gruppen angehören.
@@ -43,7 +39,7 @@ Server können mehreren Gruppen angehören.
 
 #### <a name="to-edit-an-existing-server-group"></a>So bearbeiten Sie eine vorhandene Servergruppe
 
-1.  Führen Sie eine der folgenden Aktionen aus.
+1.  Führen Sie einen der folgenden Schritte aus:
 
     -   Klicken Sie im Navigationsbereich Server-Manager mit der rechten Maustaste auf eine Server Gruppe, und klicken Sie dann auf **Server Gruppe bearbeiten**.
 
@@ -58,7 +54,7 @@ Server können mehreren Gruppen angehören.
 
 #### <a name="to-delete-an-existing-server-group"></a>So löschen Sie eine vorhandene Servergruppe
 
-1.  Führen Sie eine der folgenden Aktionen aus.
+1.  Führen Sie einen der folgenden Schritte aus:
 
     -   Klicken Sie im Navigationsbereich Server-Manager mit der rechten Maustaste auf eine Server Gruppe, und klicken Sie dann auf **Server Gruppe löschen**.
 

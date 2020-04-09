@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7be1f2cb-02d5-4209-ba79-edf496a88f47
 title: Szenariodatei-Zugriffs Überwachung
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 37a3b17360112d958b59a7e9c3f64aed5e6f6a5b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 37ea1cf28e42f74a18cd57b8fa9def5f9d1646be
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406992"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861123"
 ---
 # <a name="scenario-file-access-auditing"></a>Szenario: Dateizugriffsüberwachung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Die Sicherheitsüberwachung gehört zu den leistungsstärksten Tools zur Erhaltung der Sicherheit eines Unternehmens. Eines der wichtigsten Ziele von Sicherheitsüberwachungen ist die Einhaltung rechtlicher Bestimmungen. So müssen Unternehmen bei Industriestandards wie Sarbanes Oxley, Health Insurance Portability and Accountability Act (HIPAA) und Payment Card Industry (PCI) strenge Regeln zur Gewährleistung von Datensicherheit und Datenschutz befolgen. Sicherheitsüberprüfungen tragen dazu bei, das Vorhandensein solcher Richtlinien zu bestätigen und die Einhaltung dieser Standards nachzuweisen. Darüber hinaus helfen Sicherheitsüberwachungen, anormales Verhalten zu erkennen, Lücken in Sicherheitsrichtlinien zu identifizieren und auszugleichen und vor unverantwortlichem Verhalten abzuschrecken, indem ein Datensatz der Benutzeraktivität erstellt wird, der zur forensischen Analyse verwendet werden kann.  
   
@@ -71,12 +70,12 @@ Die folgenden Themen stellen zusätzliche Leitfäden für dieses Szenario bereit
   
 -   [Demonstrations Schritte zum Bereitstellen der Sicherheits &#40;Überwachung mit zentralen Überwachungs Richtlinien&#41;](Deploy-Security-Auditing-with-Central-Audit-Policies--Demonstration-Steps-.md)  
   
-## <a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und Features  
+## <a name="roles-and-features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>In diesem Szenario enthaltene Rollen und Features  
 In der folgenden Tabelle sind die Rollen und Features dieses Szenarios und die Art der bereitgestellten Unterstützung aufgeführt.  
   
 |Rolle/Feature|Auf welche Weise dieses Szenario unterstützt wird|  
 |-----------------|---------------------------------|  
-|Active Directory-Domänendienste (Rolle)|AD DS in Windows Server 2012 führt eine Anspruchs basierte Autorisierungs Plattform ein, die das Erstellen von Benutzer Ansprüchen und Geräte Ansprüchen, zusammengesetzten Identitäten (Benutzer-Plus Geräteansprüche), neues Cap-Modell (Central Access Policies) und die Verwendung der Datei Klassifizierung ermöglicht. Informationen in Autorisierungs Entscheidungen.|  
+|Active Directory-Domänendienste (Rolle)|AD DS in Windows Server 2012 führt eine Anspruchs basierte Autorisierungs Plattform ein, die das Erstellen von Benutzer Ansprüchen und Geräte Ansprüchen, zusammengesetzten Identitäten (Benutzer-Plus Geräteansprüche), neues Cap-Modell (Central Access Policies) und die Verwendung von Datei Klassifizierungs Informationen in Autorisierungs Entscheidungen ermöglicht.|  
 |Datei- und Speicherdienste (Rolle)|Dateiserver in Windows Server 2012 stellen eine Benutzeroberfläche bereit, auf der Administratoren die effektiven Berechtigungen für Benutzer für eine Datei oder einen Ordner anzeigen und Zugriffs Probleme beheben und nach Bedarf Zugriff gewähren können.|  
   
 

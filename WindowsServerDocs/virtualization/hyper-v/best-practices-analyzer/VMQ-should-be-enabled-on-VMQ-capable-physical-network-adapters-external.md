@@ -2,20 +2,19 @@
 title: VMQ sollte auf VMQ-fähigen physischen Netzwerkadaptern aktiviert werden, die an einen externen virtuellen Switch gebunden sind.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 93d1b155-bf44-46b0-bb69-d34d5b30e574
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: e8607ee891ef693d4e4e7a868540237855aebd2e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a66c1c4580f8ecda90caa5446e74bc9b12ac0476
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393288"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855043"
 ---
 # <a name="vmq-should-be-enabled-on-vmq-capable-physical-network-adapters-bound-to-an-external-virtual-switch"></a>VMQ sollte auf VMQ-fähigen physischen Netzwerkadaptern aktiviert werden, die an einen externen virtuellen Switch gebunden sind.
 
@@ -38,9 +37,9 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 ## <a name="impact"></a>**Auswirkt**  
 *Die verfügbaren Hardware Abladungen auf den folgenden Netzwerkadaptern können von Windows nicht voll ausgenutzt werden:*  
   
-\<liste der Netzwerkadapter >  
+\<Liste der Netzwerkadapter >  
   
-## <a name="resolution"></a>**Auflösung**  
+## <a name="resolution"></a>**Lösung**  
 *Aktivieren Sie VMQ mithilfe des Windows PowerShell-Cmdlets Enable-netadaptervmq oder mithilfe der Benutzeroberfläche Erweiterte Eigenschaften für den Netzwerkadapter.*  
   
 

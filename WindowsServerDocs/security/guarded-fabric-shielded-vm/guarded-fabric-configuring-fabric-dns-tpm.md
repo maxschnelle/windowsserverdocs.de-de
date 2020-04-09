@@ -1,19 +1,19 @@
 ---
 title: Konfigurieren des Fabric-DNS für überwachte Hosts (TPM)
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 074b6d09-f16e-49bf-b88a-377139d35067
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 78e45ae752b6bae67d4fbace18150323ae956492
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 47034b537919d23bf9381f1b932d085148198e80
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949797"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856813"
 ---
 >Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
@@ -24,7 +24,7 @@ ms.locfileid: "75949797"
 > [!div class="nextstepaction"]
 > [Konfigurieren von HTTPS](guarded-fabric-configure-hgs-https.md)
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 - [Konfigurationsschritte für Hyper-V-Hosts, die zu überwachten Hosts werden](guarded-fabric-configure-hgs-with-authorized-hyper-v-hosts.md)
 - [Bereitstellungs Aufgaben für geschützte Fabrics und abgeschirmte VMS](guarded-fabric-deploying-hgs-overview.md#deployment-tasks-for-guarded-fabrics-and-shielded-vms)

@@ -1,24 +1,20 @@
 ---
 title: Konfigurieren von "Features bei Bedarf" unter Windows Server
 description: Server-Manager
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e663bbea-d025-41fa-b16c-c2bff00a88e8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f834ca2e4c4acd045ccaeb4f46142dcc0e86f674
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 090b87810dc519728bf915bdb2cd79668c7f01f4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383268"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851553"
 ---
 # <a name="configure-features-on-demand-in-windows-server"></a>Konfigurieren von "Features bei Bedarf" unter Windows Server
 
@@ -26,9 +22,9 @@ ms.locfileid: "71383268"
 
 In diesem Thema wird beschrieben, wie Featuredateien in einer Features-bei-Bedarf-Konfiguration mithilfe des Cmdlets "Uninstall-WindowsFeature" entfernt werden.
 
-Features bei Bedarf ist ein Feature, das in Windows 8 und Windows Server 2012 eingeführt wurde, mit dem Sie Rollen-und Featuredateien (manchmal auch als Funktions *Nutzlast*bezeichnet) aus dem Betriebssystem entfernen können, um Speicherplatz zu sparen, und Rollen und Features aus installieren. Remote Standorte oder Installationsmedien anstelle von lokalen Computern. Sie können Featuredateien von ausgeführten physischen und virtuellen Computern entfernen. Sie können Featuredateien Windows-Imagedateien (WIM) oder offline geschalteten virtuellen Festplatten (VHDs) hinzufügen oder von diesen entfernen, um eine reproduzierbare Kopie von „Features bei Bedarf“-Konfigurationen zu erstellen.
+Features bei Bedarf ist ein Feature, das in Windows 8 und Windows Server 2012 eingeführt wurde, mit dem Sie Rollen-und Featuredateien (manchmal auch als Funktions *Nutzlast*bezeichnet) aus dem Betriebssystem entfernen können, um Speicherplatz zu sparen, und Rollen und Features von Remote Standorten oder Installationsmedien anstelle von lokalen Computern installieren. Sie können Featuredateien von ausgeführten physischen und virtuellen Computern entfernen. Sie können Featuredateien Windows-Imagedateien (WIM) oder offline geschalteten virtuellen Festplatten (VHDs) hinzufügen oder von diesen entfernen, um eine reproduzierbare Kopie von „Features bei Bedarf“-Konfigurationen zu erstellen.
 
-Wenn in einer Features-bei-Bedarf-Konfiguration Featuredateien auf einem Computer nicht verfügbar sind und eine Installation diese Featuredateien erfordert, kann Windows Server 2012 R2 oder Windows Server 2012 angewiesen werden, die Dateien aus einem parallelen Funktions Speicher (einem freigegebenen Ordner) zu erhalten. , das Featuredateien enthält und für den Computer im Netzwerk verfügbar ist, von Windows Update oder vom Installationsmedium. Wenn Featuredateien nicht auf dem Zielserver verfügbar sind, sucht die Funktion "Features bei Bedarf" nach fehlenden Featuredateien, indem die folgenden Schritte in der angegebenen Reihenfolge erfolgen.
+Wenn in einer Features-bei-Bedarf-Konfiguration Featuredateien auf einem Computer nicht verfügbar sind und eine Installation diese Featuredateien erfordert, kann Windows Server 2012 R2 oder Windows Server 2012 angewiesen werden, die Dateien aus einem parallelen featurespeicher (einem freigegebenen Ordner mit Featuredateien, der dem Computer im Netzwerk zur Verfügung steht) zu erhalten, von Windows Update oder vom Installationsmedium. Wenn Featuredateien nicht auf dem Zielserver verfügbar sind, sucht die Funktion "Features bei Bedarf" nach fehlenden Featuredateien, indem die folgenden Schritte in der angegebenen Reihenfolge erfolgen.
 
 1.  Durchsuchen eines Speicher Orts, der von Benutzern des Assistenten zum Hinzufügen von Rollen und Features oder von "-Installations Befehlen" angegeben wurde
 
@@ -44,7 +40,7 @@ Sie können das standardmäßige Features-bei-Bedarf-Verhalten über eine der fo
 
 -   Konfigurieren der Gruppenrichtlinieneinstellung **Einstellungen für die Installation optionaler Komponenten und die Reparatur von Komponenten angeben**
 
-Dieses Thema enthält die folgenden Abschnitte:
+Dieses Thema enthält folgende Abschnitte:
 
 -   [Erstellen einer Featuredatei oder eines parallelen Stores](#BKMK_store)
 
@@ -52,14 +48,14 @@ Dieses Thema enthält die folgenden Abschnitte:
 
 -   [Entfernen von Featuredateien mithilfe von "Uninstall-Windows Feature"](#BKMK_remove)
 
-## <a name="BKMK_store"></a>Erstellen einer Featuredatei oder eines parallelen Stores
+## <a name="create-a-feature-file-or-side-by-side-store"></a><a name=BKMK_store></a>Erstellen einer Featuredatei oder eines parallelen Stores
 In diesem Abschnitt wird das Einrichten eines freigegebenen Remote Ordners für Featuredateien beschrieben, in dem die Dateien gespeichert werden, die zum Installieren von Rollen, Rollen Diensten und Features auf Servern, auf denen Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird, erforderlich sind. Nachdem Sie einen featurespeicher eingerichtet haben, können Sie Rollen, Rollen Dienste und Features auf Servern mit diesen Betriebssystemen installieren und den featurespeicher als Speicherort der Installations Quelldateien angeben.
 
 #### <a name="to-create-a-feature-file-store"></a>So erstellen Sie einen Speicher für Featuredateien
 
-1.  Erstellen Sie auf einem Server im Netzwerk einen freigegebenen Ordner. Beispielsweise *\\ \ network\share\sxs*.
+1.  Erstellen Sie auf einem Server im Netzwerk einen freigegebenen Ordner. Beispielsweise *\\\network\share\sxs*.
 
-2.  Vergewissern Sie sich, dass Sie über die ordnungsgemäßen Berechtigungen für den Featurespeicher verfügen. Der Quellpfad oder die Dateifreigabe muss entweder der Gruppe **jeder** (nicht empfohlen aus Sicherheitsgründen) oder den Computer Konten (*Domäne*\\*Servername*$) der Server, auf denen Sie die Installation planen, **Lese** Berechtigungen erteilen. Features mithilfe dieses featurestores das Gewähren des Benutzerkonto Zugriffs ist nicht ausreichend.
+2.  Vergewissern Sie sich, dass Sie über die ordnungsgemäßen Berechtigungen für den Featurespeicher verfügen. Der Quellpfad oder die Dateifreigabe muss entweder der Gruppe **jeder** (nicht empfohlen aus Sicherheitsgründen) oder den Computer Konten (*Domänen*\\*Servername*$) der Server, auf denen Sie Features mithilfe dieses featurestores installieren möchten, **Lese** Berechtigungen erteilen. das Gewähren des Benutzerkonto Zugriffs ist nicht ausreichend.
 
     Sie können auf Einstellungen zu Dateifreigaben und Berechtigungen über eine der folgenden Aktionen auf dem Windows-Desktop zugreifen.
 
@@ -72,14 +68,14 @@ In diesem Abschnitt wird das Einrichten eines freigegebenen Remote Ordners für 
 
 3.  Kopieren Sie den Ordner **Sources\SxS** vom Installationsmedium von Windows Server in den freigegebenen Ordner, den Sie in Schritt 1 erstellt haben.
 
-## <a name="BKMK_methods"></a>Methoden zum Entfernen von Featuredateien
+## <a name="methods-of-removing-feature-files"></a><a name=BKMK_methods></a>Methoden zum Entfernen von Featuredateien
 Es gibt zwei Möglichkeiten zum Entfernen von Featuredateien aus Windows Server in einer „Features bei Bedarf“-Konfiguration.
 
--   Der Parameter "`remove`" des Cmdlets "`Uninstall-WindowsFeature`" ermöglicht das Löschen von Featuredateien von einem Server oder einer offline geschalteten virtuellen Festplatte (VHD), auf dem Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird. Gültige Werte für den `remove`-Parameter sind die Namen von Rollen, Rollen Diensten und Features.
+-   Der `remove`-Parameter des `Uninstall-WindowsFeature`-Cmdlets ermöglicht das Löschen von Featuredateien von einem Server oder einer offline geschalteten virtuellen Festplatte (VHD), auf dem Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird. Gültige Werte für den `remove`-Parameter sind die Namen von Rollen, Rollen Diensten und Features.
 
 -   DISM-Befehle (Deployment Image Servicing and Management, Abbildverwaltung für die Bereitstellung) ermöglichen das Erstellen benutzerdefinierter WIM-Dateien zum Einsparen von Festplattenspeicher, indem Featuredateien weggelassen werden, die entweder nicht benötigt werden oder aus anderen Remotequellen abgerufen werden können. Weitere Informationen zum Vorbereiten benutzerdefinierter Images mit DISM finden Sie unter [How to Enable or Disable Windows Features](https://technet.microsoft.com/library/hh824822.aspx).
 
-## <a name="BKMK_remove"></a>Entfernen von Featuredateien mithilfe von "Uninstall-Windows Feature"
+## <a name="remove-feature-files-by-using-uninstall-windowsfeature"></a><a name=BKMK_remove></a>Entfernen von Featuredateien mithilfe von "Uninstall-Windows Feature"
 Mit dem Cmdlet "Uninstall-Windows Feature" können Sie sowohl Rollen, Rollen Dienste und Features von Servern als auch offline-VHDs, auf denen Windows Server 2012 R2 oder Windows Server 2012 ausgeführt wird, deinstallieren und Featuredateien löschen. Wenn gewünscht, können Sie dieselben Rollen, Rollen Dienste und Features im gleichen Befehl deinstallieren und löschen.
 
 > [!IMPORTANT]
@@ -104,16 +100,16 @@ Mit dem Cmdlet "Uninstall-Windows Feature" können Sie sowohl Rollen, Rollen Die
     Uninstall-WindowsFeature -Name <feature_name> -computerName <computer_name> -remove
     ```
 
-    **Beispiel** „Remotedesktoplizenzierung“ ist der letzte verbleibende Rollendienst der installierten Remotedesktopdienste. Der Befehl deinstalliert "Remotedesktoplizenzierung" und anschließend die Featuredateien der gesamten Rolle "Remotedesktopdienste" vom angegebenen Server *contoso_1*.
+    **Beispiel:** "Remotedesktoplizenzierung" ist der letzte verbleibende Rollendienst der installierten Remotedesktopdienste. Der Befehl deinstalliert "Remotedesktoplizenzierung" und anschließend die Featuredateien der gesamten Rolle "Remotedesktopdienste" vom angegebenen Server *contoso_1*.
 
     ```
     Uninstall-WindowsFeature -Name rdS-Licensing -computerName contoso_1 -remove
     ```
 
-    **Beispiel** Im folgenden Beispiel entfernt der Befehl Active Directory-Domänen Dienste und Gruppenrichtlinie Verwaltung von einer Offline-VHD. Zunächst werden die Rolle und das Feature deinstalliert. Anschließend werden die Featuredateien vollständig von der Offline-VHD *Contoso.vhd* entfernt.
+    **Beispiel:** Im folgenden Beispiel entfernt der Befehl Active Directory-Domänen Dienste und Gruppenrichtlinie Verwaltung von einer Offline-VHD. Zunächst werden die Rolle und das Feature deinstalliert. Anschließend werden die Featuredateien vollständig von der Offline-VHD *Contoso.vhd* entfernt.
 
     > [!NOTE]
-    > Sie müssen den Parameter "`computerName`" hinzufügen, wenn Sie das Cmdlet auf einem Computer mit Windows 8.1 oder Windows 8 ausführen.
+    > Sie müssen den `computerName`-Parameter hinzufügen, wenn Sie das Cmdlet auf einem Computer mit Windows 8.1 oder Windows 8 ausführen.
     > 
     > Wenn Sie den Namen einer VHD-Datei auf einer Netzwerkfreigabe eingeben, muss diese Freigabe dem Computer Konto des Servers, den Sie zum Einbinden der VHD ausgewählt haben, **Lese** -und **Schreib** Berechtigungen erteilen. Die Zugriffsberechtigungen des Benutzerkontos reichen nicht aus. Die Freigabe kann der Gruppe **Jeder** die Berechtigungen **Lesen** und **Schreiben** gewähren, um den Zugriff auf die VHD zu ermöglichen, dies wird aber aus Sicherheitsgründen nicht empfohlen.
 
@@ -121,10 +117,10 @@ Mit dem Cmdlet "Uninstall-Windows Feature" können Sie sowohl Rollen, Rollen Die
     Uninstall-WindowsFeature -Name AD-Domain-Services,GPMC -VHD C:\WS2012VHDs\Contoso.vhd -computerName ContosoDC1
     ```
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [Installieren oder Deinstallieren von Rollen, Rollen Diensten oder Features](install-or-uninstall-roles-role-services-or-features.md)
 [Windows Server-Installationsoptionen](https://technet.microsoft.com/library/hh831786.aspx)
-[Aktivieren oder Deaktivieren von Windows-Features](https://technet.microsoft.com/library/hh824822.aspx)
-[Bereitstellung Abbild Wartung und-Verwaltung (Übersicht)](https://technet.microsoft.com/library/hh825236.aspx)
+Gewusst [wie: Aktivieren oder Deaktivieren von Windows-Features](https://technet.microsoft.com/library/hh824822.aspx)
+[Bereitstellung Abbild Verwaltung (Mage) Übersicht](https://technet.microsoft.com/library/hh825236.aspx)
 
 

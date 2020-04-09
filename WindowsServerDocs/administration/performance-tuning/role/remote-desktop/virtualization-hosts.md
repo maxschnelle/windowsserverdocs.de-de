@@ -4,25 +4,25 @@ description: Leistungsoptimierung für Remotedesktop Virtualisierungshosts
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: HammadBu; VladmiS; denisgun
+ms.author: hammadbu; vladmis; denisgun
 author: phstee
 ms.date: 10/22/2019
-ms.openlocfilehash: 1b66f6404df5debee2a4c52ffc9166c8eabb9f81
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 2a0db4d890a01df13c44a9bb7adfbd13bebbdde0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947121"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851703"
 ---
 # <a name="performance-tuning-remote-desktop-virtualization-hosts"></a>Leistungsoptimierung Remotedesktop Virtualisierungshosts
 
-Remotedesktop-Virtualisierungshost (RD-Virtualisierungshost) ist ein Rollen Dienst, der Szenarien für die virtuelle Desktop Infrastruktur (VDI) unterstützt und es mehreren Benutzern ermöglicht, Windows-basierte Anwendungen auf virtuellen Computern auszuführen, die auf einem Server unter Windows Server gehostet werden. Hyper-V.
+Remotedesktop-Virtualisierungshost (RD-Virtualisierungshost) ist ein Rollen Dienst, der Szenarien für die virtuelle Desktop Infrastruktur (VDI) unterstützt und es mehreren Benutzern ermöglicht, Windows-basierte Anwendungen auf virtuellen Computern auszuführen, die auf einem Server mit Windows Server und Hyper-V gehostet werden.
 
 Windows Server unterstützt zwei Arten von virtuellen Desktops: Persönliche virtuelle Desktops und in einem Pool zusammengefasste virtuelle Desktops.
 
-## <a name="general-considerations"></a>Allgemeine Aspekte
+## <a name="general-considerations"></a>Allgemeine Überlegungen
 
-### <a name="storage"></a>„Speicher“.
+### <a name="storage"></a>Speicher
 
 Der Speicher ist der wahrscheinlichste Leistungsengpass, und es ist wichtig, die Größe Ihres Speichers so zu skaliert, dass die e/a-Auslastung ordnungsgemäß verarbeitet wird, die durch Zustandsänderungen virtueller Maschinen generiert wird. Wenn ein Pilotprojekt oder eine Simulation nicht durchführbar ist, empfiehlt es sich, eine Datenträger Spindel für vier aktive virtuelle Computer bereitzustellen. Verwenden Sie Datenträger Konfigurationen mit guter Schreibleistung (z. b. RAID 1 + 0).
 
@@ -41,7 +41,7 @@ Enable-DedupVolume <volume> -UsageType HyperV
 > [!NOTE]
 > Die datendeduplizierungsoptimierung von geöffneten Dateien wird nur für VDI-Szenarien mit Hyper-V unterstützt, die Remote Speicher über SMB 3,0 verwenden.
 
-### <a name="memory"></a>Speicher
+### <a name="memory"></a>Arbeitsspeicher
 
 Die Auslastung des Server Arbeitsspeichers wird durch drei Hauptfaktoren gesteuert:
 
@@ -69,7 +69,7 @@ Dynamischer Arbeitsspeicher ermöglicht eine effizientere Auslastung der Speiche
 
 Mit dynamischer Arbeitsspeicher können Sie die VM-Dichte mit den Ressourcen erhöhen, die Sie bereits besitzen, ohne Leistungseinbußen oder Skalierbarkeit zu beeinträchtigen. Das Ergebnis ist eine effizientere Verwendung kostspieliger Server Hardware Ressourcen, die in eine einfachere Verwaltung und geringere Kosten übersetzt werden können.
 
-Bei Gastbetriebssystemen mit Windows 8 und höher mit virtuellen Prozessoren, die mehrere logische Prozessoren umfassen, sollten Sie den Kompromiss zwischen der Ausführung mit dynamischer Arbeitsspeicher in Erwägung gezogen werden, um die Speicherauslastung zu minimieren und dynamischer Arbeitsspeicher zur Verbesserung der Leistung zu deaktivieren. einer Anwendung, die Computer Topologie unterstützt. Eine solche Anwendung kann die Topologieinformationen nutzen, um Planungs-und Speicher Belegungs Entscheidungen zu treffen.
+Berücksichtigen Sie bei Gastbetriebssystemen mit Windows 8 und höher mit virtuellen Prozessoren, die mehrere logische Prozessoren umfassen, den Kompromiss zwischen der Ausführung mit dynamischer Arbeitsspeicher, um die Speicherauslastung zu minimieren und dynamischer Arbeitsspeicher zu deaktivieren, um die Leistung einer Anwendung zu verbessern, die Computer Topologie unterstützt. Eine solche Anwendung kann die Topologieinformationen nutzen, um Planungs-und Speicher Belegungs Entscheidungen zu treffen.
 
 ### <a name="tiered-storage"></a>Mehrschichtiger Speicher
 
@@ -93,7 +93,7 @@ Es ist sinnvoll, Windows-Features und-Dienste zu deaktivieren, die vom permanent
 
 Jeder bestimmte Dienst sollte vor jeder breiten Bereitstellung angemessen ausgewertet werden. Im folgenden sind einige der folgenden Punkte zu beachten:
 
-| Dienst                                      | Woran liegt das?                                                                                                                                                                                                      |
+| Service                                      | Warum?                                                                                                                                                                                                      |
 |----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Automatische Aktualisierung                                  | In einem Pool zusammengefasste virtuelle Desktops werden aktualisiert, indem die Vorlage für virtuelle Desktops neu erstellt wird.                                                                                                                          |
 | Offlinedateien                                | Virtuelle Desktops sind immer online und über einen Netzwerk Ansichts Punkt verbunden.                                                                                                                         |

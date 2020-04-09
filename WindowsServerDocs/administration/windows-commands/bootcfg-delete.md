@@ -1,24 +1,20 @@
 ---
 title: bootcfg delete
-description: 'Thema "Windows-Befehle" für **bootcfg DELETE** : Löscht einen Betriebssystem Eintrag im Abschnitt "Betriebssysteme" der Datei "Boot. ini".'
-ms.custom: na
+description: Windows-Befehls Artikel zum Löschen von Bootcfg, mit dem ein Betriebssystem Eintrag im Abschnitt "Betriebssysteme" der Datei "Boot. ini" gelöscht wird.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 71382e29-9b39-41c8-9c23-cf0ff829440a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7d2298c07af32e66a2ffcebb85ec780da762be58
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 01ec7a4dde1e22982f2cf0fa30245c33e09cc0ff
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380008"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848543"
 ---
 # <a name="bootcfg-delete"></a>bootcfg delete
 
@@ -30,7 +26,7 @@ Löscht einen Betriebssystem Eintrag im Abschnitt [Betriebssysteme] der Datei "B
 ```
 bootcfg /delete [/s <computer> [/u <Domain>\<User> /p <Password>]] [/id <OSEntryLineNum>]
 ```
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |         Begriff         |                                                                                             Definition                                                                                              |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -40,11 +36,11 @@ bootcfg /delete [/s <computer> [/u <Domain>\<User> /p <Password>]] [/id <OSEntry
 | /ID <OSEntryLineNum> |        Gibt die Betriebssystem-Eintrags Zeilennummer im Abschnitt [Betriebssysteme] der zu löschenden Datei "Boot. ini" an. Die erste Zeile nach der Abschnitts Kopfzeile [Betriebssystem] ist 1.        |
 |          /?          |                                                                                Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                 |
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 In den folgenden Beispielen wird gezeigt, wie Sie den Befehl **bootcfg/DELETE**verwenden können:
 ```
 bootcfg /delete /id 1
 bootcfg /delete /s srvmain /u maindom\hiropln /p p@ssW23 /id 3
 ```
-#### <a name="additional-references"></a>Weitere Verweise
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

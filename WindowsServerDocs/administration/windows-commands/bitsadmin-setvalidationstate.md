@@ -1,28 +1,22 @@
 ---
 title: bizadmin setvalidationstate
-description: 'Windows-Befehls Thema für **BITSAdmin setvalidationstate** : legt den Inhalts Überprüfungs Zustand der angegebenen Datei innerhalb des Auftrags fest.'
-ms.custom: na
+description: Windows-Befehls Thema für BITSAdmin setvalidationstate, mit dem der Inhalts Überprüfungs Zustand der angegebenen Datei innerhalb des Auftrags festgelegt wird.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e8fc8e8c-171c-4681-8057-6986b018e576
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 37d7fa3a8a91abf1e7b6ac5a51b6cebd78984a91
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: de6480596b55b3a483076297f32ce52a975915db
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380399"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849113"
 ---
 # <a name="bitsadmin-setvalidationstate"></a>bizadmin setvalidationstate
-
-
 
 Legt den Inhalts Überprüfungs Zustand der angegebenen Datei innerhalb des Auftrags fest.
 
@@ -32,7 +26,7 @@ Legt den Inhalts Überprüfungs Zustand der angegebenen Datei innerhalb des Auft
 bitsadmin /SetValidationState <Job> <file index> <true|false> 
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 | Parameter  |          Beschreibung           |
 |------------|--------------------------------|
@@ -40,13 +34,13 @@ bitsadmin /SetValidationState <Job> <file index> <true|false>
 | Datei index |         Beginnt bei 0          |
 |    True    |             False              |
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Im folgenden Beispiel wird der Inhalts Überprüfungs Zustand von Datei 2 für den Auftrag *MyJob*auf true festgelegt.
 ```
 C:\>bitsadmin /SetValidationState myJob 2 TRUE 
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

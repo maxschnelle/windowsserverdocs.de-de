@@ -1,7 +1,6 @@
 ---
 ms.assetid: 1a6740e6-5b6d-41f8-9ec4-32cdbee3e1bb
 title: Konfigurieren der Namensauflösung für einen Verbundserverproxy in einer DNS-Zone, die sowohl das Umkreisnetzwerk als auch Internetclients bedient
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 118c03ada32d3cd5b198ecd238078984a38df0db
-ms.sourcegitcommit: 8fbd2d877612a9feb02d7d91ed0372d7cd441d5c
+ms.openlocfilehash: 487ba9d90043ada0d401d7e5a9d02872e1872b7e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71359831"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854933"
 ---
 # <a name="configure-name-resolution-for-a-federation-server-proxy-in-a-dns-zone-that-serves-both-the-perimeter-network-and-internet-clients"></a>Konfigurieren der Namensauflösung für einen Verbundserverproxy in einer DNS-Zone, die sowohl das Umkreisnetzwerk als auch Internetclients bedient
 
@@ -52,7 +51,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 Damit Internet Client Anforderungen vom Verbund Server Proxy erfolgreich verarbeitet und der Verbund Server erreicht werden können, nachdem Sie durch die Internet-DNS-Zone aufgelöst wurden, müssen Sie einen Host \(einem\) Ressourcen Daten Satz in der Umkreis-DNS-Zone erstellen. Mit diesem Ressourcen Daten Satz wird der Hostname des Konto Verbund Servers aufgelöst \(z. b. "FS". fabrikam.com\) auf die IP-Adresse des Konto Verbund Servers \(z. b. 192.168.1.4\) im Unternehmensnetzwerk.  
   
 > [!NOTE]  
-> Es wird davon ausgegangen, dass Sie einen DNS-Server verwenden, auf dem Windows 2000 Server, Windows Server 2003, Windows Server 2008 oder Windows Server® 2012 mit dem DNS-Server Dienst ausgeführt wird, um die Umkreis-DNS-Zone zu steuern.  
+> Es wird davon ausgegangen, dass Sie einen DNS-Server verwenden, auf dem Windows 2000 Server, Windows Server 2003, Windows Server 2008 oder Windows Server&reg; 2012 mit dem DNS-Server Dienst ausgeführt wird, um die Umkreis-DNS-Zone zu steuern.  
   
 Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren durchführen können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
@@ -62,7 +61,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
   
 2.  Klicken Sie in der Konsolen Struktur mit der rechten\-auf die entsprechende Forward-Lookupzone, und klicken Sie dann auf **neuer Host \(A oder AAAA\)** .  
   
-3.  Geben Sie unter **Name**nur den Computernamen des Verbund Servers ein. Geben Sie beispielsweise für den FQDN „fs.fabrikam.com“ die Zeichenfolge **fs** ein.  
+3.  Geben Sie unter **Name**nur den Computernamen des Verbund Servers ein. Geben Sie für den FQDN fs.fabrikam.com z. B. **fs** ein.  
   
 4.  Geben Sie im Textfeld **IP-Adresse** die IP-Adresse für den Verbund Server im Unternehmensnetzwerk ein, z. b. 192.168.1.4.  
   

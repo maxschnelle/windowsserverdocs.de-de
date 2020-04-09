@@ -1,23 +1,19 @@
 ---
 title: Anpassen freigegebener Ordner
 description: Beschreibt die Verwendung von Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 47bc4986-14eb-4a29-9930-83a25704a3a0
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 387f9570e87bd2bd65266489b0f3eac6c945e3be
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 861107035408fc39d0dc5e4d94a4d82d8dfba74e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80311917"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80818073"
 ---
 # <a name="customize-shared-folders"></a>Anpassen freigegebener Ordner
 
@@ -57,7 +53,7 @@ Standardmäßig werden Serverordner auf der größten Datenpartition auf Datentr
   
 1.  Erstellen Sie die Datei "PostIC.cmd" zum Ausführen von Aufgaben nach der Erstkonfiguration, wie im Abschnitt [Erstellen der Datei "PostIC.cmd" zum Ausführen von Aufgaben nach der Erstkonfiguration](Create-the-PostIC.cmd-File-for-Running-Post-Initial-Configuration-Tasks.md) erläutert.  
   
-2.  Erstellen Sie in Editor eine Datei mit dem Namen **customizefolders.ps1** im Ordner "C:\Windows\Setup\Scripts". Fügen Sie dann die folgenden Windows PowerShell®-Befehle in die Datei ein (heben Sie die Markierung entsprechender Zeilen abhängig vom gewünschten Verhalten auf).  
+2.  Erstellen Sie im Ordner "c:\windows\setup\scripts" im Ordner "c:\windows\setup\scripts" eine Datei mit dem Namen " **customizefolders. ps1** ", und fügen Sie die folgenden Windows PowerShell-&reg; Befehle in die Datei ein.  
   
     ```  
     # Move the Documents folder to D:\ServerFolders  

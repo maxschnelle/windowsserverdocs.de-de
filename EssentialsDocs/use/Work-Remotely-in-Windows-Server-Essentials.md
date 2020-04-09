@@ -1,23 +1,19 @@
 ---
 title: Remote-Arbeit in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8b183f8f-1279-4fdf-a495-c7c801563cb0
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 2918a0f198d9c591803fa7bf945e01dd48c9e318
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: ec6b97dd153802ea2ff8b55f6ba58f3208e4abb1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313092"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852083"
 ---
 # <a name="work-remotely-in-windows-server-essentials"></a>Remote-Arbeit in Windows Server Essentials
 
@@ -28,8 +24,8 @@ ms.locfileid: "80313092"
  In den folgenden Themen wird der Remotezugriff auf Serverressourcen erläutert:  
   
 
--   [Verwenden des Remotewebzugriffs in Windows Server 2012 Essentials](Work-Remotely-in-Windows-Server-Essentials.md#BKMA_RWA)  
-  
+-      [Verwenden des Remotewebzugriffs in Windows Server 2012 Essentials](Work-Remotely-in-Windows-Server-Essentials.md#BKMA_RWA)  
+     
 -   [Herstellen einer Verbindung mit Windows Server Essentials mithilfe von VPN](Work-Remotely-in-Windows-Server-Essentials.md#BKMK_3)  
   
 -   [Verwenden der My Server-App zum Herstellen einer Verbindung mit Windows Server Essentials](Work-Remotely-in-Windows-Server-Essentials.md#BKMK_App)  

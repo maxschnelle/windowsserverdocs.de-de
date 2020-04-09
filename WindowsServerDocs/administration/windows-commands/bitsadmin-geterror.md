@@ -1,50 +1,45 @@
 ---
 title: bitsadmin geterror
-description: 'Windows-Befehls Thema für **bizadmin getError** : Ruft ausführliche Fehlerinformationen für den angegebenen Auftrag ab.'
-ms.custom: na
+description: Windows-Befehls Thema für **bizadmin getError**, das ausführliche Fehlerinformationen für den angegebenen Auftrag abruft.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cbe5bca1-d2dd-4ce6-903f-f85de4a2ec6a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0f9bd607886d00ede4e1da91ed73eff2794db6ce
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7c65b072bb190e3e516b917c310942146bb3f3d2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381643"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850703"
 ---
 # <a name="bitsadmin-geterror"></a>bitsadmin geterror
-
-
 
 Ruft ausführliche Fehlerinformationen für den angegebenen Auftrag ab.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-bitsadmin /GetError <Job>
+bitsadmin /geterror <job>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+| Parameter | Beschreibung |
+| -------------- | -------------- |
+| Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Im folgenden Beispiel werden die Fehlerinformationen für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
+
 ```
-C:\>bitsadmin /GetError myDownloadJob
+C:\>bitsadmin /geterror myDownloadJob
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

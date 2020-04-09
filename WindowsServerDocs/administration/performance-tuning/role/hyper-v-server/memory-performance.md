@@ -4,15 +4,15 @@ description: Überlegungen zum Arbeitsspeicher bei der Leistungsoptimierung in H
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Asmahi; SandySp; JoPoulso
+ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 88827176e8a425e9bf68fdc170a4a114346562f0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5f683b85657b8dd263e93380b71c646ad677950c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385088"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851723"
 ---
 # <a name="hyper-v-memory-performance"></a>Hyper-V-Speicherleistung
 
@@ -29,7 +29,7 @@ Weitere Informationen zu dynamischer Arbeitsspeicher finden Sie unter [Hyper-v d
 
 Wenn Sie in der untergeordneten Partition Windows ausführen, können Sie die folgenden Leistungsindikatoren in einer untergeordneten Partition verwenden, um zu ermitteln, ob die untergeordnete Partition Arbeitsspeicher belegt und wahrscheinlich besser mit einer höheren Arbeitsspeicher Größe für virtuelle Computer ausgeführt wird.
 
-| Leistungs Zählers                                                         | Vorgeschlagene Schwellenwert                                                                                                                                                           |
+| Leistungsindikator                                                         | Vorgeschlagene Schwellenwert                                                                                                                                                           |
 |-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Arbeitsspeicher – reservierte Bytes im standbycache                                        | Die Summe der reservierten Bytes für den standbycache und die Anzahl der freien und null-Seiten Listen sollte 200 MB oder mehr auf Systemen mit 1 GB und 300 MB oder mehr auf Systemen mit mindestens 2 GB sichtbarem RAM betragen. |
 | Arbeitsspeicher – freie & NULL-Seitenliste (Bytes)                                        | Die Summe der reservierten Bytes für den standbycache und die Anzahl der freien und null-Seiten Listen sollte 200 MB oder mehr auf Systemen mit 1 GB und 300 MB oder mehr auf Systemen mit mindestens 2 GB sichtbarem RAM betragen. |

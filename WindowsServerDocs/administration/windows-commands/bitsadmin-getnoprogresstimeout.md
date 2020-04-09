@@ -1,50 +1,45 @@
 ---
 title: bitsadmin getnoprogresstimeout
-description: 'Thema Windows-Befehle für **bizadmin getnoprogresstimeout** : Ruft die Zeitspanne (in Sekunden) ab, die der Dienst versucht, die Datei zu übertragen, nachdem ein vorübergehender Fehler aufgetreten ist.'
-ms.custom: na
+description: 'Windows-Befehls Thema für **bistiadmin getnoprogresstimeout**: Hiermit wird die Zeitspanne (in Sekunden) abgerufen, die der Dienst versucht, die Datei zu übertragen, nachdem ein vorübergehender Fehler aufgetreten ist.'
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9cd9b19b-cbb4-4352-8419-978080f016b6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7dcc0e445f4cae25c27f5ff70c73f4f2f23975aa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cf2cfd77b494e221b60c8816ff46eed5f9252f39
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381504"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850603"
 ---
 # <a name="bitsadmin-getnoprogresstimeout"></a>bitsadmin getnoprogresstimeout
-
-
 
 Ruft die Zeitdauer in Sekunden ab, die der Dienst versucht, die Datei zu übertragen, nachdem ein vorübergehender Fehler aufgetreten ist.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-bitsadmin /GetNoProgressTimeout <Job>
+bitsadmin /getnoprogresstimeout <job>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+| Parameter | Beschreibung |
+| -------------- | -------------- |
+| Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Im folgenden Beispiel wird der Wert für den Status Timeout für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
+
 ```
-C:\>bitsadmin /GetNoProgressTimeout myDownloadJob
+C:\>bitsadmin /getnoprogresstimeout myDownloadJob
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

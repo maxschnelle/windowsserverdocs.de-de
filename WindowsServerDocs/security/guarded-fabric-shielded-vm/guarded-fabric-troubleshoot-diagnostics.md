@@ -1,19 +1,19 @@
 ---
 title: Problembehandlung mithilfe des geschützten Fabric-Diagnosetools
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 07691d5b-046c-45ea-8570-a0a85c3f2d22
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 01/14/2020
-ms.openlocfilehash: c69fc70282ff61ecce25f6413244d7ba3a5ba3bc
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 3cf2b71113e812774cfb39b2ed21df8b41f83f12
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265822"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856413"
 ---
 # <a name="troubleshooting-using-the-guarded-fabric-diagnostic-tool"></a>Problembehandlung mithilfe des geschützten Fabric-Diagnosetools
 
@@ -164,7 +164,7 @@ Vor der manuellen Diagnose müssen Sie sicherstellen, dass die Administratoren j
 
 Die Schritte zum Ausführen einer manuellen Diagnose lauten wie folgt:
 
-1. Fordern Sie an, dass die einzelnen Host Administratoren `Get-HgsTrace` die Angabe eines bekannten `-Path` und die Liste der Diagnose, die Sie für die resultierenden Ablauf Verfolgungen ausführen möchten, ausführen.  Zum Beispiel:
+1. Fordern Sie an, dass die einzelnen Host Administratoren `Get-HgsTrace` die Angabe eines bekannten `-Path` und die Liste der Diagnose, die Sie für die resultierenden Ablauf Verfolgungen ausführen möchten, ausführen.  Beispiel:
 
    ```PowerShell
    Get-HgsTrace -Path C:\Traces -Diagnostic Networking,BestPractices
@@ -190,7 +190,7 @@ Die Schritte zum Ausführen einer manuellen Diagnose lauten wie folgt:
          |- [..]
       ```
 
-4. Führen Sie die Diagnose aus, und geben Sie den Pfad zum assemblierten Ablauf Verfolgungs Ordner für den `-Path`-Parameter an, und geben Sie den `-RunDiagnostics`-Switch sowie die Diagnoseinformationen an, für die Sie Ihre Administratoren aufgefordert haben,  Die Diagnose geht davon aus, dass Sie nicht auf die im Pfad gefundenen Hosts zugreifen kann und versucht daher, nur die vorab erfassten Ablauf Verfolgungen zu verwenden.  Wenn Ablauf Verfolgungen fehlen oder beschädigt sind, tritt bei der Diagnose nur ein Fehler auf, und der Vorgang wird normal fortgesetzt.  Zum Beispiel:
+4. Führen Sie die Diagnose aus, und geben Sie den Pfad zum assemblierten Ablauf Verfolgungs Ordner für den `-Path`-Parameter an, und geben Sie den `-RunDiagnostics`-Switch sowie die Diagnoseinformationen an, für die Sie Ihre Administratoren aufgefordert haben,  Die Diagnose geht davon aus, dass Sie nicht auf die im Pfad gefundenen Hosts zugreifen kann und versucht daher, nur die vorab erfassten Ablauf Verfolgungen zu verwenden.  Wenn Ablauf Verfolgungen fehlen oder beschädigt sind, tritt bei der Diagnose nur ein Fehler auf, und der Vorgang wird normal fortgesetzt.  Beispiel:
 
    ```PowerShell
    Get-HgsTrace -RunDiagnostics -Diagnostic Networking,BestPractices -Path ".\FabricTraces"

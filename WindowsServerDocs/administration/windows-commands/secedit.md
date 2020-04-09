@@ -1,24 +1,20 @@
 ---
 title: secedit
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 58ed57ed-08e3-403d-a363-0620b358637a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5598f830ad4cef8d45c99594da12cbcdd84e7eef
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e80217c201cde4dc1df58c0e8976fbe1422511fe
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371111"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834843"
 ---
 # <a name="secedit"></a>secedit
 
@@ -38,7 +34,7 @@ secedit
 [/validate <configuration file name>]
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -56,7 +52,7 @@ Für alle Dateinamen wird das aktuelle Verzeichnis verwendet, wenn kein Pfad ang
 Wenn eine Sicherheits Vorlage mithilfe des Sicherheits Vorlagen-Snap-Ins erstellt wird und das Sicherheitskonfigurations-und Analyse-Snap-in ausgeführt wird, werden die folgenden Dateien erstellt:
 
 
-|           Datei           |                                                                                                                                                                                                                                                               Beschreibung                                                                                                                                                                                                                                                                |
+|           File           |                                                                                                                                                                                                                                                               Beschreibung                                                                                                                                                                                                                                                                |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |        Scesrv. log        |                                                                                                                             **Speicherort**:%windir%\security\logs</br>**Erstellt von**: Betriebssystem</br>**Dateityp**: Text</br>**Aktualisierungsrate**: wird überschrieben, wenn secedit/analyze,/configure,/Export oder/Import ausgeführt wird.</br>**Content**: enthält die Ergebnisse der Analyse nach Richtlinientyp gruppiert.                                                                                                                             |
 | Vom *Benutzer ausgewählter Name*. SDB |                                                                                    **Speicherort**:% windir%\*Benutzerkonto<em>\documents\security\database</br></em>*erstellt von*<em>: Ausführen des Snap-Ins "Sicherheitskonfiguration und-Analyse"</br></em>*Dateityp*<em>: proprietäre</br></em>Aktualisierungs *Rate*<em>: wird immer dann aktualisiert, wenn eine neue Sicherheits Vorlage erstellt wird.</br></em>*Inhalts*\*: lokale Sicherheitsrichtlinien und vom Benutzer erstellte Sicherheits Vorlagen.                                                                                    |
@@ -66,7 +62,7 @@ Wenn eine Sicherheits Vorlage mithilfe des Sicherheits Vorlagen-Snap-Ins erstell
 > [!NOTE]
 > Die Microsoft Management Console (MMC) und das Snap-in "Sicherheitskonfiguration und-Analyse" sind auf Server Core nicht verfügbar.
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
 Beispiele für die Verwendung dieses Befehls finden Sie im Abschnitt "Beispiele" in einer der untergeordneten Befehls Dateien.
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

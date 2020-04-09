@@ -2,21 +2,19 @@
 title: Bewährte Methoden für die Ausführung von Linux unter Hyper-V
 description: Bietet Empfehlungen zum Ausführen von Linux auf einem virtuellen Computer
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a08648eb-eea0-4e2b-87fb-52bfe8953491
 author: shirgall
 ms.author: kathydav
 ms.date: 3/1/2019
-ms.openlocfilehash: 3488bbc1e295a68befc7044b83379bd65a5f28df
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7baf71af401b8318ccd136fe12d6eb810cf9434e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365567"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853303"
 ---
 # <a name="best-practices-for-running-linux-on-hyper-v"></a>Bewährte Methoden für die Ausführung von Linux unter Hyper-V
 
@@ -74,7 +72,7 @@ Virtuelle Linux-Computer, die mithilfe des Failoverclustering bereitgestellt wer
 
 ## <a name="use-hyper-v-specific-network-adapters-not-the-legacy-network-adapter"></a>Verwenden Sie Hyper-V-spezifische Netzwerkadapter, nicht den Legacy-Netzwerkadapter.
 
-Konfigurieren und verwenden Sie den virtuellen Ethernet-Adapter, bei dem es sich um eine Hyper-V-spezifische Netzwerkkarte mit verbesserter Leistung handelt. Wenn sowohl Legacy-als auch Hyper-V-spezifische Netzwerkadapter an einen virtuellen Computer angefügt sind, werden in den Netzwerknamen in der Ausgabe von **ifconfig-a** möglicherweise Zufallswerte wie z. b. **_tmp12000801310**angezeigt. Entfernen Sie alle älteren Netzwerkadapter, wenn Sie Hyper-V-spezifische Netzwerkadapter auf einem virtuellen Linux-Computer verwenden, um dieses Problem zu vermeiden.
+Konfigurieren und verwenden Sie den virtuellen Ethernet-Adapter, bei dem es sich um eine Hyper-V-spezifische Netzwerkkarte mit verbesserter Leistung handelt. Wenn sowohl Legacy-als auch Hyper-V-spezifische Netzwerkadapter an einen virtuellen Computer angefügt sind, können die Netzwerknamen in der Ausgabe von **ifconfig-a** zufällige Werte wie **_tmp12000801310**anzeigen. Entfernen Sie alle älteren Netzwerkadapter, wenn Sie Hyper-V-spezifische Netzwerkadapter auf einem virtuellen Linux-Computer verwenden, um dieses Problem zu vermeiden.
 
 ## <a name="use-io-scheduler-noop-for-better-disk-io-performance"></a>Verwenden des e/a-Scheduler-NOOP zur Verbesserung der Datenträger-e/a-Leistung
 

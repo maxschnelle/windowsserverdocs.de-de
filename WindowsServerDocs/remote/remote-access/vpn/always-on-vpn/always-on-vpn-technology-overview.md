@@ -5,15 +5,15 @@ ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
 ms.date: 11/05/2018
-ms.author: lizross
-author: eross-msft
+ms.author: v-tea
+author: Teresa-MOTIV
 ms.localizationpriority: medium
-ms.openlocfilehash: a5d65dd9f8fb6328bd00be8a46af37ee69ccd2bf
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 570b96d07f414442a00d5f7ec48de80f270f0a76
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313396"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861313"
 ---
 # <a name="always-on-vpn-technology-overview"></a>Übersicht über Always on VPN-Technologie
 
@@ -202,10 +202,10 @@ Windows 10 bietet viele CSPs, aber bei dieser Bereitstellung liegt der Schwerpun
 
 - [Domain Name System (DNS)](../../../../networking/dns/dns-top.md): dieses Thema enthält eine Übersicht über DNS (Domain Name Systems). In Windows Server 2016 ist DNS eine Server Rolle, die Sie mithilfe von Server-Manager oder Windows PowerShell-Befehlen installieren können. Wenn Sie eine neue Active Directory Gesamtstruktur und Domäne installieren, wird DNS automatisch mit Active Directory als globaler Katalogserver für die Gesamtstruktur und Domäne installiert.
 
-- [Übersicht über Active Directory Zertifikat Dienste](https://technet.microsoft.com/library/hh831740.aspx): Dieses Dokument bietet eine Übersicht über die Active Directory Zertifikat Dienste (AD CS) in Windows Server® 2012. AD CS ist die Serverrolle, die es Ihnen ermöglicht, eine Public Key Infrastructure (PKI) zu erstellen und Verschlüsselung für öffentliche Schlüssel, digitale Zertifikate und Funktionen für digitale Signaturen in Ihrer Organisation bereitzustellen.
+- [Übersicht über Active Directory Zertifikat Dienste](https://technet.microsoft.com/library/hh831740.aspx): Dieses Dokument bietet eine Übersicht über die Active Directory Zertifikat Dienste (AD CS) in Windows Server&reg; 2012. AD CS ist die Serverrolle, die es Ihnen ermöglicht, eine Public Key Infrastructure (PKI) zu erstellen und Verschlüsselung für öffentliche Schlüssel, digitale Zertifikate und Funktionen für digitale Signaturen in Ihrer Organisation bereitzustellen.
 
 - [Entwurfs Leit Faden für die Public Key-Infrastruktur](https://social.technet.microsoft.com/wiki/contents/articles/2901.public-key-infrastructure-design-guidance.aspx): dieses wiki bietet Anleitungen zum Entwerfen von Public Key-Infrastrukturen (PKIs). Bevor Sie eine PKI-und Zertifizierungsstellen Hierarchie konfigurieren, sollten Sie die Sicherheitsrichtlinie und die CPS-Anweisung (Certificate Practice Statement) Ihrer Organisation kennen.
 
-- [Schritt-für-Schritt-Anleitung für AD CS: Bereitstellung der PKI-Hierarchie mit zwei Ebenen](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx): Diese Schritt-für-Schritt-Anleitung beschreibt die Schritte, die zum Einrichten einer grundlegenden Konfiguration von Active Directory® Zertifikat Diensten (AD CS) in einer Lab-Umgebung erforderlich sind AD CS in Windows Server® 2008 R2 bietet anpassbare Dienste zum Erstellen und Verwalten von Zertifikaten für öffentliche Schlüssel, die in Software Sicherheitssystemen verwendet werden, die Public Key-Technologien einsetzen.
+- [Schritt-für-Schritt-Anleitung für AD CS: Bereitstellung der PKI-Hierarchie mit zwei Ebenen](https://social.technet.microsoft.com/wiki/contents/articles/15037.ad-cs-step-by-step-guide-two-tier-pki-hierarchy-deployment.aspx): Diese Schritt-für-Schritt-Anleitung beschreibt die Schritte, die zum Einrichten einer grundlegenden Konfiguration von Active Directory&reg; Zertifikat Diensten (AD CS) in einer Lab-Umgebung erforderlich sind AD CS in Windows Server&reg; 2008 R2 bietet anpassbare Dienste zum Erstellen und Verwalten von Zertifikaten für öffentliche Schlüssel, die in Software Sicherheitssystemen verwendet werden, die Public Key-Technologien einsetzen.
 
 - [Netzwerk Richtlinien Server (Network Policy Server, NPS)](../../../../networking/technologies/nps/nps-top.md): dieses Thema enthält eine Übersicht über den Netzwerk Richtlinien Server unter Windows Server 2016. Mit einem Netzwerkrichtlinienserver (Network Policy Server, NPS) können Sie organisationsweite Netzwerkzugriffsrichtlinien für die Authentifizierung und Autorisierung von Verbindungsanforderungen erstellen und erzwingen.

@@ -2,22 +2,18 @@
 title: Verwalten des Remotezugriffs
 description: Dieses Thema enthält Informationen zum Verwalten des Remote Zugriffs in Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1459819a-b1b6-4800-8770-4a85d02c7a2b
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 6437a7aa5a535352ad4f6c6be8fbac2162b6feea
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 19798c5fb29d3b8aea68b29e5a42775970eeca46
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308432"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857449"
 ---
 # <a name="manage-remote-access"></a>Verwalten des Remotezugriffs
 
@@ -86,8 +82,8 @@ Die folgende Tabelle enthält die für dieses Szenario erforderlichen Rollen und
   
 |Rolle oder Feature|Auf welche Weise dieses Szenario unterstützt wird|  
 |----------|-----------------|  
-|*Remote Zugriffs Rolle*|Die Rolle wird über die Server-Manager-Konsole oder Windows PowerShell installiert bzw. deinstalliert. Diese Rolle umfasst DirectAccess (zuvor ein Feature unter Windows Server 2008 R2) sowie die Routing- und RAS-Dienste (zuvor ein Rollendienst unter der Serverrolle für Netzwerkrichtlinien- und Zugriffsdienste). Die Remotezugriffs-Rolle besteht aus zwei Komponenten:<br /><br />1. DirectAccess-und RRAS-VPN (Routing and Remote Access Services): DirectAccess und VPN werden in der Remote Zugriffs-Verwaltungskonsole verwaltet.<br />2. RRAS: Features werden in der Routing-und RAS-Konsole verwaltet.<br /><br />Die Serverrolle "Remotezugriff" ist von den folgenden Features abhängig:<br /><br />-Webserver (IIS): ist erforderlich, um den Netzwerkadressen Server und den Standardweb Test zu konfigurieren.<br />-Interne Windows-Datenbank: wird für die lokale Kontoführung auf dem Remote Zugriffs Server verwendet.|  
-|Feature %%amp;quot;Tools für die Remotezugriffsverwaltung%%amp;quot;|So installieren Sie dieses Feature:<br /><br />-Standardmäßig auf einem RAS-Server, wenn die Remote Zugriffs Rolle installiert ist und die Benutzeroberfläche der Remote Verwaltungskonsole unterstützt.<br />-Als Option auf einem Server, auf dem die Remote Zugriffs-Server Rolle nicht ausgeführt wird. In diesem Fall wird es für die Remoteverwaltung eines RAS-Servers verwendet.<br /><br />Dieses Feature umfasst Folgendes:<br /><br />-Remote Zugriffs-GUI und Befehlszeilen Tools<br />-Remote Zugriffs Modul für Windows PowerShell<br /><br />Abhängigkeiten umfassen:<br /><br />-Gruppenrichtlinien-Verwaltungskonsole<br />-RAS-Verbindungs-Manager-Verwaltungskit (CMAK)<br />-Windows PowerShell 3,0<br />-Tools und Infrastruktur für die grafische Verwaltung|  
+|*Remote Zugriffs Rolle*|Die Rolle wird über die Server-Manager-Konsole oder Windows PowerShell installiert bzw. deinstalliert. Diese Rolle umfasst DirectAccess (zuvor ein Feature unter Windows Server 2008 R2) sowie die Routing- und RAS-Dienste (zuvor ein Rollendienst unter der Serverrolle für Netzwerkrichtlinien- und Zugriffsdienste). Die Remotezugriffs-Rolle besteht aus zwei Komponenten:<p>1. DirectAccess-und RRAS-VPN (Routing and Remote Access Services): DirectAccess und VPN werden in der Remote Zugriffs-Verwaltungskonsole verwaltet.<br />2. RRAS: Features werden in der Routing-und RAS-Konsole verwaltet.<p>Die Serverrolle "Remotezugriff" ist von den folgenden Features abhängig:<p>-Webserver (IIS): ist erforderlich, um den Netzwerkadressen Server und den Standardweb Test zu konfigurieren.<br />-Interne Windows-Datenbank: wird für die lokale Kontoführung auf dem Remote Zugriffs Server verwendet.|  
+|Feature %%amp;quot;Tools für die Remotezugriffsverwaltung%%amp;quot;|So installieren Sie dieses Feature:<p>-Standardmäßig auf einem RAS-Server, wenn die Remote Zugriffs Rolle installiert ist und die Benutzeroberfläche der Remote Verwaltungskonsole unterstützt.<br />-Als Option auf einem Server, auf dem die Remote Zugriffs-Server Rolle nicht ausgeführt wird. In diesem Fall wird es für die Remoteverwaltung eines RAS-Servers verwendet.<p>Dieses Feature umfasst Folgendes:<p>-Remote Zugriffs-GUI und Befehlszeilen Tools<br />-Remote Zugriffs Modul für Windows PowerShell<p>Abhängigkeiten umfassen:<p>-Gruppenrichtlinien-Verwaltungskonsole<br />-RAS-Verbindungs-Manager-Verwaltungskit (CMAK)<br />-Windows PowerShell 3,0<br />-Tools und Infrastruktur für die grafische Verwaltung|  
   
 ## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Hardwareanforderungen  
 Für dieses Szenario müssen die folgenden Hardwareanforderungen erfüllt werden:  

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 4ef052f0-61a9-4912-b780-5c96187c850f
 title: Überlegungen zur AD FS-Bereitstellungstopologie
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 260d86c0feae0179620ece09e06f12729691b5a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 42db104691bce75c37adf19eb97abba3bf579cf8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359223"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855873"
 ---
 # <a name="ad-fs-deployment-topology-considerations"></a>Überlegungen zur AD FS-Bereitstellungstopologie
 
@@ -30,15 +29,15 @@ AD FS Features
 |Feature|Unterstützt von WID?|Unterstützt von SQL Server?|Weitere Informationen zu diesem Feature|  
 |-----------|---------------------|----------------------------|---------------------------------------|  
 |Bereitstellung einer Verbundserverfarm|Ja, mit einer Beschränkung von 30 Verbund Servern für jede Farm|Ja. Es gibt keine erzwungene Begrenzung für die Anzahl der Verbundserver, die Sie in einer einzelnen Farm bereitstellen können.|[Bestimmen der AD FS-Bereitstellungstopologie](Determine-Your-AD-FS-Deployment-Topology.md)|  
-|**Anmerkung zur** SAML-artefaktauflösung: dieses Feature ist für Microsoft Online Services-, Microsoft Office 365-, Microsoft Exchange-oder Microsoft Office SharePoint-Szenarios nicht erforderlich.|Nein|Ja|[Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Bewährte Methoden für die sichere Planung und Bereitstellung von AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
-|SAML-\/WS\--Wiedergabe Erkennung für Verbund Token|Nein|Ja|[Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Bewährte Methoden für die sichere Planung und Bereitstellung von AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
+|**Anmerkung zur** SAML-artefaktauflösung: dieses Feature ist für Microsoft Online Services-, Microsoft Office 365-, Microsoft Exchange-oder Microsoft Office SharePoint-Szenarios nicht erforderlich.|Nein|Ja|[Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<p>[Bewährte Methoden für die sichere Planung und Bereitstellung von AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
+|SAML-\/WS\--Wiedergabe Erkennung für Verbund Token|Nein|Ja|[Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<p>[Bewährte Methoden für die sichere Planung und Bereitstellung von AD FS](Best-Practices-for-Secure-Planning-and-Deployment-of-AD-FS.md)|  
 
 Datenbankfeatures  
 
 |Feature|Unterstützt von WID?|Unterstützt von SQL Server?|Weitere Informationen zu diesem Feature|  
 |-----------|---------------------|----------------------------|---------------------------------------|  
 |Grundlegende Daten Bank Redundanz mithilfe der Pull-Replikation, bei der ein oder mehrere Server, die eine Lese\-Kopie der Datenbank hosten, Änderungen anfordern, die auf einem Quell Server vorgenommen werden, der eine Lese\/Schreib Kopie der Datenbank hostet.|Ja|Nein|[Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)|  
-|Daten Bank Redundanz mit hoch\-Verfügbarkeits Lösungen wie Failoverclustering oder Spiegelung \(nur auf Datenbankebene\) **Hinweis:** alle AD FS Bereitstellungstopologien unterstützen Clustering auf AD FS Dienst Ebene.|Nein|Ja|[Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<br /><br />[Übersicht über Lösungen mit hoher Verfügbarkeit](https://go.microsoft.com/fwlink/?LinkId=179853)|  
+|Daten Bank Redundanz mit hoch\-Verfügbarkeits Lösungen wie Failoverclustering oder Spiegelung \(nur auf Datenbankebene\) **Hinweis:** alle AD FS Bereitstellungstopologien unterstützen Clustering auf AD FS Dienst Ebene.|Nein|Ja|[Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md)<p>[Übersicht über Lösungen mit hoher Verfügbarkeit](https://go.microsoft.com/fwlink/?LinkId=179853)|  
 
 ### <a name="sql-server-considerations"></a>Überlegungen zu SQL Server  
 Berücksichtigen Sie die folgenden Bereitstellungs Fakten, wenn Sie SQL Server als Konfigurations Datenbank für die AD FS Bereitstellung auswählen.  
@@ -48,7 +47,7 @@ Berücksichtigen Sie die folgenden Bereitstellungs Fakten, wenn Sie SQL Server a
 -   **Anzahl der für Ihre Bereitstellung erforderlichen Server**. Sie müssen mindestens einen zusätzlichen Server \(zur Gesamtzahl der Server hinzufügen, die für die Bereitstellung Ihrer AD FS Infrastructure\) erforderlich ist, die als dedizierter Host der SQL Server Instanz fungieren soll. Wenn Sie beabsichtigen, Failoverclustering oder Spiegelung zu verwenden, um Fehlertoleranz und Skalierbarkeit für die SQL Server Konfigurations Datenbank bereitzustellen, sind mindestens zwei SQL-Server erforderlich.  
 
 ### <a name="how-the-configuration-database-type-you-select-may-impact-hardware-resources"></a>Auswirkung des augewählten Konfigurationsdatenbanktyps auf Hardwareressourcen  
-Die Auswirkung auf Hardware Ressourcen auf einem Verbund Server, der in einer Farm mit wid bereitgestellt wird, im Gegensatz zu einem Verbund Server, der in einer Farm mit der SQL Server-Datenbank bereitgestellt wird, ist nicht von Bedeutung. Es ist jedoch wichtig zu beachten, dass bei Verwendung von wid für die Farm jeder Verbund Server in dieser Farm Replikations Änderungen für die lokale Kopie der AD FS Konfigurations Datenbank speichern, verwalten und verwalten muss, während gleichzeitig der normale Vorgänge, die für den Verbunddienst erforderlich sind.  
+Die Auswirkung auf Hardware Ressourcen auf einem Verbund Server, der in einer Farm mit wid bereitgestellt wird, im Gegensatz zu einem Verbund Server, der in einer Farm mit der SQL Server-Datenbank bereitgestellt wird, ist nicht von Bedeutung. Es ist jedoch wichtig zu beachten, dass bei Verwendung von wid für die Farm jeder Verbund Server in dieser Farm Replikations Änderungen für die lokale Kopie der AD FS Konfigurations Datenbank speichern, verwalten und verwalten muss, während gleichzeitig die normalen Vorgänge bereitgestellt werden, die für die Verbunddienst erforderlich sind.  
 
 Im Vergleich dazu enthalten Verbund Server, die in einer Farm bereitgestellt werden, die die SQL Server Datenbank verwendet, nicht notwendigerweise eine lokale Instanz der AD FS Konfigurations Datenbank. Daher stellen diese etwas geringere Ansprüche an die Hardwareressourcen.  
 

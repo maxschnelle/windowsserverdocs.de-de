@@ -1,28 +1,24 @@
 ---
 title: Warnung zu logman Create
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 93e6fc2b-5bf5-413b-84b4-be8b9dd3a57d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9420c486d4c6161c2c5724384f0d916448164a2a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7568d4a2164cb9c387f59ff581ab739e7bb1f3e9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374579"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840943"
 ---
 # <a name="logman-create-alert"></a>Warnung zu logman Create
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Erstellen Sie einen Warnungs Datensammler.  
 
@@ -30,7 +26,7 @@ Erstellen Sie einen Warnungs Datensammler.
 ```  
 logman create alert <[-n] <name>> [options]  
 ```  
-## <a name="parameters"></a>Parameter  
+### <a name="parameters"></a>Parameter  
 
 |                 Parameter                  |                                                                               Beschreibung                                                                               |
 |--------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -38,7 +34,7 @@ logman create alert <[-n] <name>> [options]
 |             -s <computer name>             |                                                          Führen Sie den Befehl auf dem angegebenen Remote Computer aus.                                                          |
 |              -config <value>               |                                                         Gibt die Einstellungsdatei an, die Befehlsoptionen enthält.                                                         |
 |                [-n] <name>                 |                                                                       Der Name des Zielobjekts.                                                                        |
-|          -[-] u < Benutzer [Kennwort] >           | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie einen \* für das Kennwort eingeben, wird eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
+|          -[-] u < Benutzer [Kennwort] >           | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie einen \* für das Kennwort eingeben, wird eine Eingabeaufforderung angezeigt. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
 | -m < [Start] [Ende] [[Start] [Ende] [...]] > |                                                Wechseln Sie zu "manueller Start" oder "beenden" anstelle eines geplanten Anfangs-oder Endzeit Zeitraums.                                                 |
 |             -RF < [[hh:] mm:] SS >             |                                                        Führt den Datensammler für den angegebenen Zeitraum aus.                                                         |
 |     -b < M/d/yyyy h:mm: SS [am&#124;pm] >      |                                                              Beginnt mit dem Sammeln von Daten zum angegebenen Zeitpunkt.                                                               |
@@ -62,12 +58,12 @@ logman create alert <[-n] <name>> [options]
 
 ## <a name="remarks"></a>Hinweise  
 Wenn [-] aufgeführt ist, wird die-Option durch ein extra negiert.  
-## <a name="BKMK_examples"></a>Beispiele  
-Mit dem folgenden Befehl wird eine Warnung namens new_alert erstellt, die ausgelöst wird, wenn der Leistungswert "% Processor Time" in der Leistungs Schwellenwert Gruppe "Prozessor" (_Total) den Wert von 50 überschreitet.  
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
+Mit dem folgenden Befehl wird eine Warnung namens new_alert erstellt, die ausgelöst wird, wenn der Leistungswert "% Processor Time" in der Leistungs Schwellenwert Gruppe "Processor" (_Total) den Wert von 50 überschreitet.  
 ```  
-logman create alert new_alert -th "\Processor(_Total)\% Processor time>50"  
+logman create alert new_alert -th \Processor(_Total)\% Processor time>50  
 ```  
 > [!NOTE]
 > Der definierte Schwellenwert basiert auf dem Wert, der vom Leistungs Schwellenwert erfasst wird. in diesem Beispiel entspricht der Wert 50 der Prozessorzeit von 50%.  
-> #### <a name="additional-references"></a>Weitere Verweise  
+> ## <a name="additional-references"></a>Weitere Verweise  
 > [logman](logman.md)  

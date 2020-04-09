@@ -2,20 +2,19 @@
 title: Alle virtuellen Netzwerkadapter sollten aktiviert sein.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: b17d647d-a34a-44de-ada6-01a2bf5eeb48
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: fce564fdb47d0677b36078f3d8446579bc06816c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 450a3b42529be9a85991fcaf5263bae7b7827b1a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366591"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857833"
 ---
 # <a name="all-virtual-network-adapters-should-be-enabled"></a>Alle virtuellen Netzwerkadapter sollten aktiviert sein.
 
@@ -44,7 +43,7 @@ Das Verwaltungs Betriebssystem kann keine Verbindung mit einem physischen (exter
   
 ## <a name="resolution"></a>Auflösung  
   
-*netzwerk & Internet Einstellungen verwenden, um den virtuellen Netzwerkadapter zu aktivieren. Alternativ können Sie mit dem Manager für virtuelle Switches den externen virtuellen Switch so konfigurieren, dass er nicht mit dem Verwaltungs Betriebssystem gemeinsam verwendet wird.*  
+*Verwenden Sie die Netzwerk-& Internet Einstellungen, um den virtuellen Netzwerkadapter zu aktivieren. Alternativ können Sie mit dem Manager für virtuelle Switches den externen virtuellen Switch so konfigurieren, dass er nicht mit dem Verwaltungs Betriebssystem gemeinsam verwendet wird.*  
   
 
 

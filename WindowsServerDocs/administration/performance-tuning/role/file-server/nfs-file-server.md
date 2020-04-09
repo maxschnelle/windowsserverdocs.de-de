@@ -5,18 +5,18 @@ ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 author: phstee
-ms.author: RoopeshB, NedPyle
+ms.author: roopeshb, nedpyle
 ms.date: 10/16/2017
-ms.openlocfilehash: 07e5005c1bc38e791e847c8965cbc9a6c0ac96f4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9bee396532c3319e43d10012e098533495cf0b03
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355183"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851853"
 ---
 # <a name="performance-tuning-nfs-file-servers"></a>Leistungsoptimierung für NFS-Dateiserver
 
-## <a href="" id="servicesnfs"></a>Dienste für NFS-Modell
+## <a name="services-for-nfs-model"></a><a href="" id="servicesnfs"></a>Dienste für NFS-Modell
 
 
 Die folgenden Abschnitte enthalten Informationen zum NFS-Modell (Microsoft Services for Network File System) für die Kommunikation zwischen Client und Server. Da NFS v2 und NFS V3 immer noch die am häufigsten bereitgestellten Versionen des Protokolls sind, gelten alle Registrierungsschlüssel mit Ausnahme von maxconcurrentconnectionsperip nur für NFS v2 und NFS v3.
@@ -41,7 +41,7 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\OptimalReads
     ```
 
-    Der Standardwert ist 0. Dieser Parameter bestimmt, ob Dateien für Datei\_zufälligen\_Zugriff oder nur für Datei\_sequenzieller\_geöffnet werden, abhängig von den e/a-Merkmalen der Arbeitsauslastung. Legen Sie diesen Wert auf 1 fest, um zu erzwingen, dass Dateien für die Datei\_zufälligen\_Zugriff geöffnet werden. Datei\_Random\_Access verhindert, dass das Dateisystem und der Cache-Manager vorab abgerufen werden.
+    Der Standard ist 0. Dieser Parameter bestimmt, ob Dateien für Datei\_zufälligen\_Zugriff oder nur für Datei\_sequenzieller\_geöffnet werden, abhängig von den e/a-Merkmalen der Arbeitsauslastung. Legen Sie diesen Wert auf 1 fest, um zu erzwingen, dass Dateien für die Datei\_zufälligen\_Zugriff geöffnet werden. Datei\_Random\_Access verhindert, dass das Dateisystem und der Cache-Manager vorab abgerufen werden.
 
     >[!NOTE]
     > Diese Einstellung muss sorgfältig ausgewertet werden, da Sie möglicherweise Auswirkungen auf die Vergrößerung des Systemdatei Caches hat.
@@ -93,7 +93,7 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\LockFileHandleCacheInMemory
     ```
 
-    Der Standardwert ist 0. Dieser Parameter gibt an, ob die physischen Seiten, die für die durch filehandlecachesizeinmb angegebene Cache Größe zugeordnet sind, im Arbeitsspeicher gesperrt sind. Wenn dieser Wert auf 1 festgelegt wird, wird diese Aktivität aktiviert. Seiten werden im Arbeitsspeicher gesperrt (nicht auf den Datenträger ausgelagert), was die Leistung der Auflösung von Datei Handles verbessert, aber den für Anwendungen verfügbaren Arbeitsspeicher reduziert.
+    Der Standard ist 0. Dieser Parameter gibt an, ob die physischen Seiten, die für die durch filehandlecachesizeinmb angegebene Cache Größe zugeordnet sind, im Arbeitsspeicher gesperrt sind. Wenn dieser Wert auf 1 festgelegt wird, wird diese Aktivität aktiviert. Seiten werden im Arbeitsspeicher gesperrt (nicht auf den Datenträger ausgelagert), was die Leistung der Auflösung von Datei Handles verbessert, aber den für Anwendungen verfügbaren Arbeitsspeicher reduziert.
 
 -   **Maxicbnfsleserrehandscachesize**
 
@@ -109,7 +109,7 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
     HKLM\System\CurrentControlSet\Services\NfsServer\Parameters\HandleSigningEnabled
     ```
 
-    Der Standardwert ist 1. Dieser Parameter steuert, ob Handles, die vom NFS-Datei Server angegeben werden, kryptografisch signiert werden. Wenn der Wert auf 0 festgelegt wird, wird das Signieren von
+    Der Standard ist 1. Dieser Parameter steuert, ob Handles, die vom NFS-Datei Server angegeben werden, kryptografisch signiert werden. Wenn der Wert auf 0 festgelegt wird, wird das Signieren von
 
 -   **Rdwrnf sdeferredwrite tesflushdelay**
 
@@ -153,7 +153,7 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
     HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableLastAccessUpdate
     ```
 
-    Der Standardwert ist 1. Dieser globale System Switch verringert die Datenträger-e/a-Auslastung und Wartezeiten, indem die Aktualisierung des Datums-und Zeitstempels für den letzten Datei-oder Verzeichnis Zugriff deaktiviert wird.
+    Der Standard ist 1. Dieser globale System Switch verringert die Datenträger-e/a-Auslastung und Wartezeiten, indem die Aktualisierung des Datums-und Zeitstempels für den letzten Datei-oder Verzeichnis Zugriff deaktiviert wird.
 
 -   **Maxconcurrentconnectionsperip**
 

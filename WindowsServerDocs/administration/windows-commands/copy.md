@@ -1,28 +1,22 @@
 ---
-title: copy
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+title: Kopieren
+description: Windows-Befehls Thema zum Kopieren, bei dem eine oder mehrere Dateien von einem Speicherort in einen anderen kopiert werden.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9624d4a1-349a-4693-ad00-1d1d4e59e9ac
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 102fd6b59516b04b8986ee47b52f521be73f04de
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3f1ba088f62dec574a23406683bf5ae3d13c1e86
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379041"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847143"
 ---
-# <a name="copy"></a>copy
-
-
+# <a name="copy"></a>Kopieren
 
 Kopiert eine oder mehrere Dateien von einem Speicherort in einen anderen.
 
@@ -34,7 +28,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <Source> [/a | /b] [+<Source> [/a | /b] [+ ...]] [<Destination> [/a | /b]]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -46,8 +40,8 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <Source> [/a | /b] [+<Source> [/a 
 |"/z|Kopiert vernetzte Dateien im neu startbaren Modus.|
 |/a|Gibt eine ASCII-Textdatei an.|
 |/b|Gibt eine Binärdatei an.|
-|> der \<Quelle|Erforderlich. Gibt den Speicherort an, von dem Sie eine Datei oder einen Satz von Dateien kopieren möchten. Die *Quelle* kann aus einem Laufwerk Buchstaben und einem Doppelpunkt, einem Verzeichnisnamen, einem Dateinamen oder einer Kombination aus diesen bestehen.|
-|\<Ziel >|Erforderlich. Gibt den Speicherort an, an den Sie eine Datei oder einen Satz von Dateien kopieren möchten. Das *Ziel* kann aus einem Laufwerk Buchstaben und einem Doppelpunkt, einem Verzeichnisnamen, einem Dateinamen oder einer Kombination aus diesen bestehen.|
+|> der \<Quelle|Erforderlich Gibt den Speicherort an, von dem Sie eine Datei oder einen Satz von Dateien kopieren möchten. Die *Quelle* kann aus einem Laufwerk Buchstaben und einem Doppelpunkt, einem Verzeichnisnamen, einem Dateinamen oder einer Kombination aus diesen bestehen.|
+|\<Ziel >|Erforderlich Gibt den Speicherort an, an den Sie eine Datei oder einen Satz von Dateien kopieren möchten. Das *Ziel* kann aus einem Laufwerk Buchstaben und einem Doppelpunkt, einem Verzeichnisnamen, einem Dateinamen oder einer Kombination aus diesen bestehen.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
@@ -112,7 +106,7 @@ copy [/d] [/v] [/n] [/y | /-y] [/z] [/a | /b] <Source> [/a | /b] [+<Source> [/a 
     Um alle Dateien und Unterverzeichnisse eines Verzeichnisses zu kopieren, verwenden Sie den **xcopy** -Befehl.
 -   Der **Kopier** Befehl mit unterschiedlichen Parametern ist über die Wiederherstellungskonsole verfügbar.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Geben Sie Folgendes ein, um eine Datei namens Memo. doc in Letter. doc auf dem aktuellen Laufwerk zu kopieren und sicherzustellen, dass sich das Dateiendezeichen (STRG + Z) am Ende der kopierten Datei befindet:
 ```
@@ -136,7 +130,7 @@ Geben Sie Folgendes ein, um alle Dateien im aktuellen Verzeichnis mit der Datein
 ```
 copy *.txt Combined.doc 
 ```
-Wenn Sie mehrere Binärdateien mithilfe von Platzhalter Zeichen zu einer Datei zusammenfassen möchten, schließen Sie **/b**ein. Dadurch wird verhindert, dass Windows Strg + Z als Dateiendezeichen behandelt. Beispiel:
+Wenn Sie mehrere Binärdateien mithilfe von Platzhalter Zeichen zu einer Datei zusammenfassen möchten, schließen Sie **/b**ein. Dadurch wird verhindert, dass Windows Strg + Z als Dateiendezeichen behandelt. Geben Sie beispielsweise Folgendes ein:
 ```
 copy /b *.exe Combined.exe
 ```
@@ -144,7 +138,7 @@ copy /b *.exe Combined.exe
 > [!CAUTION]
 > Wenn Sie Binärdateien kombinieren, kann die resultierende Datei aufgrund interner Formatierung nicht verwendet werden.
 
-Im folgenden Beispiel kombiniert **Copy** jede Datei mit der Erweiterung TXT mit der entsprechenden Verweis Datei. Das Ergebnis ist eine Datei mit dem gleichen Dateinamen, aber mit der Erweiterung ". doc". **Copy** kombiniert "file1. txt" mit "file1. ref" in Form von "file1. doc" und **kopiert** dann "file2. txt" mit "file2. ref" in Form von "file2. doc" usw. Beispiel:
+Im folgenden Beispiel kombiniert **Copy** jede Datei mit der Erweiterung TXT mit der entsprechenden Verweis Datei. Das Ergebnis ist eine Datei mit dem gleichen Dateinamen, aber mit der Erweiterung ". doc". **Copy** kombiniert "file1. txt" mit "file1. ref" in Form von "file1. doc" und **kopiert** dann "file2. txt" mit "file2. ref" in Form von "file2. doc" usw. Geben Sie beispielsweise Folgendes ein:
 ```
 copy *.txt + *.ref *.doc
 ```
@@ -153,6 +147,6 @@ Wenn Sie alle Dateien mit der Erweiterung. txt kombinieren und dann alle Dateien
 copy *.txt + *.ref Combined.doc
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

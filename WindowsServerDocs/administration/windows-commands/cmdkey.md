@@ -1,28 +1,24 @@
 ---
 title: cmdkey
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für cmdkey, das gespeicherte Benutzernamen und Kenn Wörter oder Anmelde Informationen erstellt, auflistet und löscht.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5fcd68ee-a14a-4b71-9300-c3f5c5d31e8e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dc2b12cb53eef930d05c1e291de5574a8ba94306
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cdb732bf95e30af012f78d1bad337d6d6d191268
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379307"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847593"
 ---
 # <a name="cmdkey"></a>cmdkey
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dient zum Erstellen, Auflisten und Löschen gespeicherter Benutzernamen, Kennwörter oder Anmeldeinformationen.
 
@@ -30,23 +26,23 @@ Dient zum Erstellen, Auflisten und Löschen gespeicherter Benutzernamen, Kennwö
 ```
 cmdkey [{/add:<TargetName>|/generic:<TargetName>}] {/smartcard|/user:<UserName> [/pass:<Password>]} [/delete{:<TargetName>|/ras}] /list:<TargetName>
 ```
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |             Parameter             |                                                                                    Beschreibung                                                                                     |
 |------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         /Add: <TargetName>          | Fügt der Liste einen Benutzernamen und ein Kennwort hinzu.<br /><br />Erfordert den-Parameter <TargetName>, mit dem der Computer-oder Domänen Name identifiziert wird, dem dieser Eintrag zugeordnet wird. |
-|       /generisch: <TargetName>        |   Fügt der Liste generische Anmelde Informationen hinzu.<br /><br />Erfordert den-Parameter <TargetName>, mit dem der Computer-oder Domänen Name identifiziert wird, dem dieser Eintrag zugeordnet wird.    |
+|         /Add:<TargetName>          | Fügt der Liste einen Benutzernamen und ein Kennwort hinzu.<p>Erfordert den-Parameter von <TargetName> der den Computer-oder Domänen Namen identifiziert, dem dieser Eintrag zugeordnet wird. |
+|       /generisch:<TargetName>        |   Fügt der Liste generische Anmelde Informationen hinzu.<p>Erfordert den-Parameter von <TargetName> der den Computer-oder Domänen Namen identifiziert, dem dieser Eintrag zugeordnet wird.    |
 |             /smartcard             |                                                                    Ruft die Anmelde Informationen von einer Smartcard ab.                                                                     |
-|          /User: <UserName>          |                                 Gibt den Namen des Benutzers oder des Kontos an, der mit diesem Eintrag gespeichert werden soll. Wenn der *Benutzername* nicht angegeben wird, wird er angefordert.                                  |
-|          /Pass: <Password>          |                                       Gibt das Kennwort an, das mit diesem Eintrag gespeichert werden soll. Wenn kein *Kennwort* angegeben wird, wird es angefordert.                                        |
-| /DELETE{: <TargetName> &#124; /RAS} |  Löscht einen Benutzernamen und ein Kennwort aus der Liste. Wenn *TargetName* angegeben ist, wird dieser Eintrag gelöscht. Wenn/RAS angegeben wird, wird der gespeicherte Remote Zugriffs Eintrag gelöscht.   |
-|         /List: <TargetName>         |                  Zeigt die Liste der gespeicherten Benutzernamen und Anmelde Informationen an. Wenn *TargetName* nicht angegeben wird, werden alle gespeicherten Benutzernamen und Anmelde Informationen aufgelistet.                   |
+|          /User:<UserName>          |                                 Gibt den Namen des Benutzers oder des Kontos an, der mit diesem Eintrag gespeichert werden soll. Wenn der *Benutzername* nicht angegeben wird, wird er angefordert.                                  |
+|          /Pass:<Password>          |                                       Gibt das Kennwort an, das mit diesem Eintrag gespeichert werden soll. Wenn kein *Kennwort* angegeben wird, wird es angefordert.                                        |
+| /DELETE{:<TargetName> &#124; /RAS} |  Löscht einen Benutzernamen und ein Kennwort aus der Liste. Wenn *TargetName* angegeben ist, wird dieser Eintrag gelöscht. Wenn/RAS angegeben wird, wird der gespeicherte Remote Zugriffs Eintrag gelöscht.   |
+|         /List:<TargetName>         |                  Zeigt die Liste der gespeicherten Benutzernamen und Anmelde Informationen an. Wenn *TargetName* nicht angegeben wird, werden alle gespeicherten Benutzernamen und Anmelde Informationen aufgelistet.                   |
 |                 /?                 |                                                                        Zeigt die Hilfe an der Eingabeaufforderung an.                                                                        |
 
 ## <a name="remarks"></a>Hinweise
 - Wenn auf dem System mehr als eine Smartcard gefunden wird, wenn die Befehlszeilenoption/Smartcard verwendet wird, werden von **cmdkey** Informationen zu allen verfügbaren Smartcards angezeigt, und der Benutzer wird aufgefordert, die zu verwendende Option anzugeben.
 - Kenn Wörter werden nicht angezeigt, nachdem Sie gespeichert wurden.
-  ## <a name="BKMK_examples"></a>Beispiele
+  ## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
   Geben Sie Folgendes ein, um eine Liste aller gespeicherten Benutzernamen und Anmelde Informationen anzuzeigen:
   ```
   cmdkey /list
@@ -68,4 +64,4 @@ cmdkey [{/add:<TargetName>|/generic:<TargetName>}] {/smartcard|/user:<UserName> 
   cmdkey /delete:Server01
   ```
   ## <a name="additional-references"></a>Weitere Verweise
-  [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+  - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,24 +1,20 @@
 ---
 title: Neues beim Schutz von Anmelde Informationen
 description: Windows Server-Sicherheit
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-credential-protection
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1b0b5180-f65a-43ac-8ef3-66014116f297
 author: gitmichiko
 ms.author: michikos
 manager: dongill
 ms.date: 03/06/2017
-ms.openlocfilehash: 2351be82ad1d8b9af17715ce363836f57c71ea66
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 35097cee243239735995a00cec7a6fd3936c62a8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386909"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857043"
 ---
 # <a name="whats-new-in-credential-protection"></a>Neues beim Schutz von Anmelde Informationen
 
@@ -47,7 +43,7 @@ Für den Domänen Schutz ist eine Active Directory Domäne erforderlich.
 
 ### <a name="domain-joined-device-support-for-authentication-using-public-key"></a>Unterstützung von in die Domäne eingebundenen Geräten für die Authentifizierung mit öffentlichem Schlüssel
 
-Ab Windows 10, Version 1507 und Windows Server 2016, kann das Gerät mithilfe von Kerberos PKINIT mit dem öffentlichen Schlüssel authentifiziert werden, wenn ein in eine Domäne eingebundenes Gerät seinen gebundenen öffentlichen Schlüssel bei einem Windows Server 2016-Domänen Controller (DC) registrieren kann. Authentifizierung bei einem Windows Server 2016-DC.
+Ab Windows 10, Version 1507 und Windows Server 2016, kann das Gerät mithilfe der Kerberos PKINIT-Authentifizierung bei einem Windows Server 2016-Domänen Controller mit dem öffentlichen Schlüssel authentifiziert werden, wenn ein in eine Domäne eingebundenes Gerät seinen gebundenen öffentlichen Schlüssel bei einem Windows Server 2016-Domänen Controller (DC) registrieren kann.
 
 Ab Windows Server 2016 unterstützen KDCs die Authentifizierung mithilfe der Kerberos-Schlüssel Vertrauensstellung.  
 
@@ -68,7 +64,7 @@ Beginnend mit der Windows Server 2016-Domänen Funktionsebene (DFL) können DCS 
 > [!WARNING] 
 > Wenn Sie einen Domänen Controller zu einer Domäne hinzufügen, bei der parallele NTLM-Geheimnisse aktiviert sind 2016, bevor der DC mit mindestens dem 8 
 
-Konfiguration: Bei neuen Domänen ist dieses Feature standardmäßig aktiviert. Für vorhandene Domänen muss Sie im Active Directory Verwaltungs Center konfiguriert werden: 
+Konfiguration: für neue Domänen ist dieses Feature standardmäßig aktiviert. Für vorhandene Domänen muss Sie im Active Directory Verwaltungs Center konfiguriert werden: 
 
 1. Klicken Sie im Active Directory Verwaltungs Center im linken Bereich mit der rechten Maustaste auf die Domäne, und wählen Sie **Eigenschaften**aus.
 
@@ -84,6 +80,6 @@ Konfiguration: Bei neuen Domänen ist dieses Feature standardmäßig aktiviert. 
 
 Beginnend mit der Windows Server 2016-Domänen Funktionsebene (DFL) können DCS das Zulassen von Netzwerk-NTLM unterstützen, wenn ein Benutzer auf bestimmte in die Domäne eingebundenen Geräte beschränkt ist. Diese Funktion ist in niedrigeren dfls nicht verfügbar.
 
-Konfiguration: Klicken Sie unter Authentifizierungs Richtlinie auf **NTLM-Netzwerk Authentifizierung zulassen, wenn der Benutzer auf ausgewählte Geräte beschränkt ist**. 
+Konfiguration: Klicken Sie in der Authentifizierungs Richtlinie auf **NTLM-Netzwerk Authentifizierung zulassen, wenn der Benutzer auf ausgewählte Geräte beschränkt ist**. 
 
 [Weitere Informationen zu Authentifizierungs Richtlinien](https://technet.microsoft.com/windows-server-docs/security/credentials-protection-and-management/authentication-policies-and-authentication-policy-silos).

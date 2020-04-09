@@ -1,24 +1,20 @@
 ---
 title: bitsadmin setnoprogresstimeout
-description: 'Windows-Befehls Thema für **bitadmin setnoprogresstimeout** : legt die Zeitspanne (in Sekunden) fest, die der Dienst versucht, die Datei zu übertragen, nachdem ein vorübergehender Fehler aufgetreten ist.'
-ms.custom: na
+description: Windows-Befehls Thema für bistiadmin setnoprogresstimeout, mit dem die Zeitspanne (in Sekunden) festgelegt wird, die der Dienst versucht, die Datei zu übertragen, nachdem ein vorübergehender Fehler aufgetreten ist.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7fac50d9-cc6b-46a4-a96f-fab751ee1756
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 761d0d76a2c70af9d4ad68aa564c1a9816691d0d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 544a6c73f29684bc4091ec05fa28016fbc718bb2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380499"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80849353"
 ---
 # <a name="bitsadmin-setnoprogresstimeout"></a>bitsadmin setnoprogresstimeout
 
@@ -30,7 +26,7 @@ Legt die Zeitspanne (in Sekunden) fest, die Bits versucht, die Datei zu übertra
 bitsadmin /SetNoProgressTimeout <Job> <TimeOutvalue>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -43,13 +39,13 @@ bitsadmin /SetNoProgressTimeout <Job> <TimeOutvalue>
 -   Das Timeout Intervall wird beendet oder zurückgesetzt, wenn ein Byte mit Daten erfolgreich übertragen wird.
 -   Wenn kein Status Timeout Intervall den Timeout *Wert*überschreitet, wird der Auftrag in einen schwerwiegenden Fehlerzustand versetzt.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Im folgenden Beispiel wird der Wert No Progress Timeout für den Auftrag *mydownloadjob* auf 20 Sekunden festgelegt.
 ```
 C:\>bitsadmin /SetNoProgressTimeout myDownloadJob 20
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

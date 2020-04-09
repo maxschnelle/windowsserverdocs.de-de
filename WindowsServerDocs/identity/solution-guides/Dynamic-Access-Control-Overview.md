@@ -1,7 +1,6 @@
 ---
 ms.assetid: 9ee8a6cb-7550-46e2-9c11-78d0545c3a97
 title: Übersicht über die dynamische Zugriffssteuerung
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 343e51f113f54c3965ef45d49f5d8fd64c260991
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2374e2c8a1efb204dbae1ee633bc5ee41d049d57
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357507"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861173"
 ---
 # <a name="dynamic-access-control-overview"></a>Übersicht über die dynamische Zugriffssteuerung
 
@@ -36,16 +35,16 @@ Die dynamische Zugriffssteuerung bietet die folgenden Features und Konzepte:
   
 -   [Claims](#BKMK_Claims)  
   
--   [Ausdrücke](#BKMK_Expressions2)  
+-   [Eindrücke](#BKMK_Expressions2)  
   
 -   [Vorgeschlagene Berechtigungen](#BKMK_Permissions2)  
   
-### <a name="BKMK_Rules"></a>Zentrale Zugriffsregeln  
+### <a name="central-access-rules"></a><a name="BKMK_Rules"></a>Zentrale Zugriffsregeln  
 Eine zentrale Zugriffsregel ist ein Ausdruck von Autorisierungsregeln, die eine oder mehrere Bedingungen beinhalten können, die sich auf Benutzergruppen, Benutzeransprüche, Geräteansprüche und Ressourceneigenschaften beziehen können. Mehrere zentrale Zugriffsregeln können zu einer zentralen Zugriffsrichtlinie zusammengefasst werden.  
   
 Wenn für eine Domäne eine oder mehrere zentrale Zugriffsregeln definiert werden, können Dateifreigabeadministratoren bestimmte Regeln an bestimmte Ressourcen und Geschäftsanforderungen anpassen.  
   
-### <a name="BKMK_Policies"></a>Zentrale Zugriffsrichtlinien  
+### <a name="central-access-policies"></a><a name="BKMK_Policies"></a>Zentrale Zugriffsrichtlinien  
 Zentrale Zugriffsrichtlinien sind Autorisierungsrichtlinien, die bedingte Ausdrücke enthalten. Angenommen, eine Organisation hat eine geschäftliche Anforderung, den Zugriff auf personenbezogene Informationen (PII) in Dateien auf den Dateibesitzer und die Mitglieder der Personalabteilung (Personalabteilung, HR) zu beschränken, die personenbezogene Informationen anzeigen dürfen. Es handelt sich hierbei um eine organisationsweite Richtlinie, die für Dateien mit personenbezogenen Daten gilt, und zwar unabhängig davon, auf welchen Dateiservern in der gesamten Organisation sie sich befinden. Für die Implementierung dieser Richtlinie muss ein Unternehmen Folgendes können:  
   
 -   Es muss die Dateien, die personenbezogene Daten enthalten, identifizieren und kennzeichnen können.  
@@ -56,7 +55,7 @@ Zentrale Zugriffsrichtlinien sind Autorisierungsrichtlinien, die bedingte Ausdr�
   
 Zentrale Zugriffsrichtlinien dienen als Sicherheitsschirme, die ein Unternehmen auf alle Server anwendet. Diese Richtlinien gelten zusätzlich zu (nicht anstelle von) den lokalen Zugriffsrichtlinien oder freigegebenen Zugriffssteuerungslisten (Discretionary Access Control Lists, DACLs), die auf Dateien und Ordner angewendet werden.  
   
-### <a name="BKMK_Claims"></a>Claims  
+### <a name="claims"></a><a name="BKMK_Claims"></a>Claims  
 Bei einem Anspruch handelt es sich um eindeutige, von einem Domänencontroller veröffentlichte Informationen zu Benutzern, Geräten oder Ressourcen. Der Titel des Benutzers, die Abteilungs Klassifizierung einer Datei oder der Integritäts Status eines Computers sind gültige Beispiele für einen Anspruch. Eine Entität kann mehrere Ansprüche aufweisen, und der Zugriff auf Ressourcen kann mit jeder beliebigen Kombination aus Ansprüchen autorisiert werden. Die folgenden Typen von Ansprüchen stehen in den unterstützten Versionen von Windows zur Verfügung:  
   
 -   **Benutzeransprüche**: Active Directory-Attribute, die einem bestimmten Benutzer zugeordnet sind.  
@@ -67,12 +66,12 @@ Bei einem Anspruch handelt es sich um eindeutige, von einem Domänencontroller v
   
 Mithilfe von Ansprüchen können Administratoren präzise, unternehmensweite Anweisungen zu Benutzern, Geräten und Ressourcen erstellen, die in Ausdrücke, Regeln und Richtlinien integriert werden können.  
   
-### <a name="BKMK_Expressions2"></a>Eindrücke  
+### <a name="expressions"></a><a name="BKMK_Expressions2"></a>Eindrücke  
 Bedingte Ausdrücke sind eine Erweiterung der Zugriffssteuerungsverwaltung, mit denen der Zugriff auf Ressourcen gewährt oder verweigert wird, wenn bestimmte Bedingungen zu Gruppenmitgliedschaft, Standort oder Sicherheitsstatus eines Geräts erfüllt sind. Ausdrücke werden über das Dialogfeld %%amp;quot;Erweiterte Sicherheitseinstellungen%%amp;quot; des ACL-Editors oder des Editors für zentrale Zugriffsregeln im Active Directory-Verwaltungscenter (AD AC) verwaltet.  
   
 Mithilfe von Ausdrücken können Administratoren den Zugriff auf vertrauliche Ressourcen mit flexiblen Bedingungen in zunehmend komplexeren Geschäftsumgebungen leichter verwalten.  
   
-### <a name="BKMK_Permissions2"></a>Vorgeschlagene Berechtigungen  
+### <a name="proposed-permissions"></a><a name="BKMK_Permissions2"></a>Vorgeschlagene Berechtigungen  
 Mithilfe von vorgeschlagenen Berechtigungen können Administratoren die Auswirkungen möglicher Änderungen auf Zugriffssteuerungseinstellungen exakter modellieren, ohne die Änderungen tatsächlich vornehmen zu müssen.  
   
 Wenn Sie den effektiven Zugriff auf eine Ressource vorhersagen können, können Sie Berechtigungen für diese Ressourcen planen und konfigurieren, bevor Sie diese Änderungen implementieren.  

@@ -1,24 +1,20 @@
 ---
 title: prnport
 description: Erfahren Sie, wie Sie Drucker Anschlüsse erstellen, löschen und auflisten.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6a0ec638-a21e-4a34-be5c-bd0f7ca89ffe
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c9c162cef2a3ae2f3de1e891691572130ae68f93
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 17f81b127927a41e60c290535032876def109989
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372553"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837223"
 ---
 # <a name="prnport"></a>prnport
 
@@ -34,7 +30,7 @@ cscript prnport {-a | -d | -l | -g | -t | -?} [-r <PortName>]
 [-i <SNMPIndex>] [-y <CommunityName>] -2{e | -d}
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |          Parameter           |                                                                                                                                                                                                                                                                                                     Beschreibung                                                                                                                                                                                                                                                                                                      |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -57,14 +53,14 @@ cscript prnport {-a | -d | -l | -g | -t | -?} [-r <PortName>]
 |              /?              |                                                                                                                                                                                                                                                                                         Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                                                                                                                         |
 
 ## <a name="remarks"></a>Hinweise
--   Der **prnport** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis "%windir%\SYSTEM32\ printing_Admin_Scripts\\<language>" befindet. Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** ein, gefolgt vom vollständigen Pfad der prnport-Datei, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Zum Beispiel:
+-   Der **prnport** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis "%windir%\SYSTEM32\ printing_Admin_Scripts\\<language>" befindet. Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** ein, gefolgt vom vollständigen Pfad der prnport-Datei, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Beispiel:
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnport
     ```
 -   Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. `"computer Name"`).
 -   Das TCP-RAW-Protokoll ist ein höheres Leistungs Protokoll unter Windows als das lpr-Protokoll.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
 Wenn Sie alle standardmäßigen TCP/IP-druckports auf dem Server \\\server1 anzeigen möchten, geben Sie Folgendes ein:
 ```
 cscript prnport -l -s Server1
@@ -86,6 +82,6 @@ Um einen standardmäßigen TCP/IP-druckport auf dem lokalen Computer hinzuzufüg
 cscript prnport -a -r IP_10.2.3.4 -h 10.2.3.4
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
-[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
 [Print-Befehlsreferenz](print-command-reference.md)

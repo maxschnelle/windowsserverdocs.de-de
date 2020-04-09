@@ -1,7 +1,6 @@
 ---
 ms.assetid: 2bac7744-9de3-491a-b0a2-4e843cec7344
 title: Hinzufügen eines Helpdesklinks
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 1673e6ee6357a9d59e8ac5891625d453bb434088
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0aa57147ed2565db9cf8cde0addeb13432cb8856
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358464"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859403"
 ---
 # <a name="add-help-desk-link"></a>Hinzufügen eines Helpdesklinks 
 
@@ -29,7 +28,7 @@ Zum Hinzufügen des helpdesklinks, der auf der Seite Sign\-in angezeigt wird, ve
  
   
 > [!IMPORTANT]  
-> Der `linkText` -Parameter in diesem Cmdlet ist nur erforderlich, wenn Sie einen anderen Wert als den Standardwert *Help*verwenden. Der Vorteil des Standardwerts ist, dass er für alle Clientgebietsschemata lokalisiert ist. Nachdem die Seite angepasst ist, hat die Anpassung Vorrang, daher sollten Sie für alle Sprachen anpassen, die Sie unterstützen möchten.  
+> Der `linkText`-Parameter in diesem Cmdlet ist nur erforderlich, wenn Sie einen anderen Wert als den Standardwert *Help* verwenden. Der Vorteil des Standardwerts ist, dass er für alle Clientgebietsschemata lokalisiert ist. Nachdem die Seite angepasst ist, hat die Anpassung Vorrang, daher sollten Sie für alle Sprachen anpassen, die Sie unterstützen möchten.  
 
 
 ## <a name="additional-references"></a>Weitere Verweise 

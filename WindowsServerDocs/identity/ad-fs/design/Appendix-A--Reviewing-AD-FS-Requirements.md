@@ -1,7 +1,6 @@
 ---
 ms.assetid: 39ecc468-77c5-4938-827e-48ce498a25ad
 title: 'Anhang A: Überprüfen von AD FS Anforderungen'
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 281bb3763bc13e28b007a819254de382dc977f1c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e8a11c7e6072d4aaa1ace19885c92639acfdbbb8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408154"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858053"
 ---
-# <a name="appendix-a-reviewing-ad-fs-requirements"></a>Anhang A: Überprüfen der AD FS-Anforderungen
+# <a name="appendix-a-reviewing-ad-fs-requirements"></a>Anhang A: Überprüfen der AD FS-Anforderungen
 
-Damit die Organisations Partner in Ihrer Active Directory-Verbunddienste (AD FS) (AD FS)-Bereitstellung erfolgreich zusammenarbeiten können, müssen Sie zunächst sicherstellen, dass Ihre Unternehmensnetzwerk Infrastruktur für die Unterstützung von AD FS Anforderungen für Konten, Name Auflösung und Zertifikate. AD FS verfügt über die folgenden Arten von Anforderungen:  
+Damit die Organisations Partner in Ihrer Active Directory-Verbunddienste (AD FS)-Bereitstellung (AD FS) erfolgreich zusammenarbeiten können, müssen Sie zunächst sicherstellen, dass Ihre Unternehmensnetzwerk Infrastruktur für die Unterstützung von AD FS Anforderungen für Konten, Namensauflösung und Zertifikate konfiguriert ist. Für AD FS müssen die folgenden Anforderungen erfüllt sein:  
   
 > [!TIP]  
 > Weitere Links zu AD FS 2.0-Ressourcen finden Sie im Microsoft TechNet-Wiki auf der Seite mit [AD FS 2.0-Inhalten](https://social.technet.microsoft.com/wiki/contents/articles/2735.aspx) . Diese Seite wird von Mitgliedern der AD FS-Community verwaltet und regelmäßig vom AD FS-Produktteam überprüft.  
@@ -26,14 +25,14 @@ Damit die Organisations Partner in Ihrer Active Directory-Verbunddienste (AD FS)
 ## <a name="hardware-requirements"></a>Hardwareanforderungen  
 Die folgenden Mindestanforderungen und empfohlenen Hardwareanforderungen gelten für die Verbund Server-und Verbund Server Proxy-Computer.  
   
-|Hardwareanforderung|Mindestanforderung|Empfohlene Anforderung|  
+|Hardwareanforderung|Mindestanforderung|Empfehlung|  
 |------------------------|-----------------------|---------------------------|  
 |CPU-Geschwindigkeit|Single-Core, 1 Gigahertz (GHz)|Quad-Core, 2 GHz|  
-|RAM|1 GB|4 GB|  
+|RAM|1 GB|4 GB|  
 |Speicherplatz|50 MB|100 MB|  
   
 ## <a name="software-requirements"></a>Softwareanforderungen  
-AD FS stützt sich auf Serverfunktionen, die in das Betriebssystem Windows Server® 2012 integriert sind.  
+AD FS stützt sich auf Serverfunktionen, die in das Betriebssystem Windows Server&reg; 2012 integriert sind.  
   
 > [!NOTE]  
 > Die Verbunddienst- und Verbunddienstproxy-Rollendienste können nicht auf demselben Computer installiert werden.  
@@ -42,26 +41,26 @@ AD FS stützt sich auf Serverfunktionen, die in das Betriebssystem Windows Serve
 Zertifikate spielen eine äußerst wichtige Rolle beim Sichern der Kommunikation zwischen Verbundservern, Verbundproxyservern, Ansprüche unterstützenden Anwendungen und Webclients. Die Anforderungen für Zertifikate sind unterschiedlich, je nachdem, ob Sie einen Verbundserver- oder Verbundserverproxy-Computer einrichten, wie in diesem Abschnitt beschrieben.  
   
 ### <a name="federation-server-certificates"></a>Verbundserverzertifikate  
-Für Verbundserver sind die in der folgenden Tabelle beschriebenen Zertifikate erforderlich.  
+Verbundserver erfordern die Zertifikate in der folgenden Tabelle.  
   
-|Zertifikattyp|Beschreibung|Was Sie vor der Bereitstellung wissen müssen|  
+|Zertifikattyp|Beschreibung|Wissenswertes im Vorfeld einer Bereitstellung|  
 |--------------------|---------------|------------------------------------------|  
-|SSL (Secure Sockets Layer)-Zertifikat|Dieses Standard-SSL-Zertifikat wird für das Sichern der Kommunikation zwischen Verbundservern und Clients verwendet.|Das Zertifikat muss auf die Standardwebsite in den Internetinformationsdiensten (IIS) für einen Verbundserver oder Verbundserverproxy begrenzt sein.  Bei einem Verbundserverproxy muss die Begrenzung in IIS konfiguriert werden, bevor der Assistent für die Konfiguration eines Verbundserverproxys erfolgreich ausgeführt werden kann.<br /><br />**Sonder** Da dieses Zertifikat für Clients von AD FS vertrauenswürdig sein muss, verwenden Sie ein Serverauthentifizierungszertifikat, das von einer öffentlichen (Drittanbieter) Zertifizierungsstelle wie VeriSign ausgestellt wurde. **Tipp:** Der Antragstellername dieses Zertifikats wird verwendet, um den Namen des Verbunddiensts für jede von Ihnen bereitgestellte Instanz von AD FS darzustellen. Aus diesem Grund sollten Sie einen Antragsstellernamen für jedes neue von einer Zertifizierungsstelle ausgestellte Zertifikat in Betracht ziehen, der den Namen Ihres Unternehmens oder Ihrer Organisation gegenüber Partnern am besten widerspiegelt.|  
+|SSL-Zertifikat (Secure Sockets Layer)|Dieses Standard-SSL-Zertifikat wird für das Sichern der Kommunikation zwischen Verbundservern und Clients verwendet.|Das Zertifikat muss auf die Standardwebsite in den Internetinformationsdiensten (IIS) für einen Verbundserver oder Verbundserverproxy begrenzt sein.  Bei einem Verbundserverproxy muss die Begrenzung in IIS konfiguriert werden, bevor der Assistent für die Konfiguration eines Verbundserverproxys erfolgreich ausgeführt werden kann.<p>**Empfehlung:** Da dieses Zertifikat für Clients von AD FS vertrauenswürdig sein muss, verwenden Sie ein Serverauthentifizierungszertifikat, das von einer öffentlichen (Drittanbieter) Zertifizierungsstelle wie VeriSign ausgestellt wurde. **Tipp:** Der Antragstellername dieses Zertifikats wird verwendet, um den Namen des Verbunddiensts für jede von Ihnen bereitgestellte Instanz von AD FS darzustellen. Aus diesem Grund sollten Sie einen Antragsstellernamen für jedes neue von einer Zertifizierungsstelle ausgestellte Zertifikat in Betracht ziehen, der den Namen Ihres Unternehmens oder Ihrer Organisation gegenüber Partnern am besten widerspiegelt.|  
 |Dienstkommunikationszertifikat|Mit diesem Zertifikat wird die WCF-Nachrichtensicherheit für das Sichern der Kommunikation zwischen Verbundservern aktiviert.|Standardmäßig wird das SSL-Zertifikat als Dienstkommunikationszertifikat verwendet.  Dies kann über die AD FS-Verwaltungskonsole geändert werden.|  
-|Tokensignaturzertifikat|Dies ist ein Standard-X509-Zertifikat, das für die sichere Signierung aller Token verwendet wird, die der Verbungsserver ausstellt.|Das Tokensignaturzertifikat muss einen privaten Schlüssel enthalten und sollte an einen vertrauenswürdigen Stamm im Verbunddienst gebunden sein. Standardmäßig erstellt AD FS ein selbstsigniertes Zertifikat. Sie können dies jedoch später je nach Anforderungen Ihrer Organisation über das AD FS-Verwaltungs-Snap-In in ein von einer Zertifizierungsstelle ausgestelltes Zertifikat ändern.|  
-|Tokenentschlüsselungszertifikat|Dies ist ein Standard-SSL-Zertifikat, das für die Entschlüsselung aller eingehenden Token verwendet wird, die von einem Partnerverbundserver verschlüsselt werden. Es wird außerdem in den Verbundmetadaten veröffentlicht.|Standardmäßig erstellt AD FS ein selbstsigniertes Zertifikat. Sie können dies jedoch später je nach Anforderungen Ihrer Organisation über das AD FS-Verwaltungs-Snap-In in ein von einer Zertifizierungsstelle ausgestelltes Zertifikat ändern.|  
+|Tokensignaturzertifikat|Dies ist ein Standard-X509-Zertifikat, das für die sichere Signierung aller Token verwendet wird, die der Verbungsserver ausstellt.|Das Tokensignaturzertifikat muss einen privaten Schlüssel enthalten und mit einem vertrauenswürdigen Stamm im Verbunddienst verkettet sein. AD FS erstellt standardmäßig ein selbstsigniertes Zertifikat. Sie können dies jedoch später je nach Anforderungen Ihrer Organisation über das AD FS-Verwaltungs-Snap-In in ein von einer Zertifizierungsstelle ausgestelltes Zertifikat ändern.|  
+|Tokenentschlüsselungszertifikat|Dies ist ein Standard-SSL-Zertifikat, das für die Entschlüsselung aller eingehenden Token verwendet wird, die von einem Partnerverbundserver verschlüsselt werden. Es wird außerdem in den Verbundmetadaten veröffentlicht.|AD FS erstellt standardmäßig ein selbstsigniertes Zertifikat. Sie können dies jedoch später je nach Anforderungen Ihrer Organisation über das AD FS-Verwaltungs-Snap-In in ein von einer Zertifizierungsstelle ausgestelltes Zertifikat ändern.|  
   
 > [!CAUTION]  
 > Zertifikate, die für die Tokensignatur und die Tokenentschlüsselung verwendet werden, sind wichtig für die Stabilität des Verbunddiensts. Da der Verlust oder die ungeplante Entfernung von Zertifikaten, die für diesen Zweck konfiguriert sind, den Dienst unterbrechen kann, sollten Sie alle für diesen Zweck konfigurierten Zertifikate sichern.  
   
-Weitere Informationen zu den von Verbundservern verwendeten Zertifikaten finden Sie unter [Certificate Requirements for Federation Servers](Certificate-Requirements-for-Federation-Servers.md).  
+Weitere Informationen zu den von Verbundservern verwendeten Zertifikaten finden Sie unter [Zertifikatanforderungen für Verbundserver](Certificate-Requirements-for-Federation-Servers.md).  
   
 ### <a name="federation-server-proxy-certificates"></a>Verbundserverproxy-Zertifikate  
 Für Verbundserverproxies sind die in der folgenden Tabelle beschriebenen Zertifikate erforderlich.  
   
-|Zertifikattyp|Beschreibung|Was Sie vor der Bereitstellung wissen müssen|  
+|Zertifikattyp|Beschreibung|Wissenswertes im Vorfeld einer Bereitstellung|  
 |--------------------|---------------|------------------------------------------|  
-|Serverauthentifizierungszertifikat|Dieses Standard-SSL-Zertifikat wird für das Sichern der Kommunikation zwischen einem Verbundserverproxy und Internetclientcomputern verwendet.|Das Zertifikat muss auf die Standardwebsite in den Internetinformationsdiensten (IIS) begrenzt sein, bevor Sie den Assistenten für die Konfiguration eines Verbundserverproxys erfolgreich ausführen können.<br /><br />**Sonder** Da dieses Zertifikat für Clients von AD FS vertrauenswürdig sein muss, verwenden Sie ein Serverauthentifizierungszertifikat, das von einer öffentlichen (Drittanbieter) Zertifizierungsstelle wie VeriSign ausgestellt wurde.<br /><br />**Tipp:** Der Antragstellername dieses Zertifikats wird verwendet, um den Namen des Verbunddiensts für jede von Ihnen bereitgestellte Instanz von AD FS darzustellen. Aus diesem Grund sollten Sie einen Antragstellernamen in Betracht ziehen, der den Namen Ihres Unternehmens oder Ihrer Organisation gegenüber Partnern am besten widerspiegelt.|  
+|Serverauthentifizierungszertifikat|Dieses Standard-SSL-Zertifikat wird für das Sichern der Kommunikation zwischen einem Verbundserverproxy und Internetclientcomputern verwendet.|Das Zertifikat muss auf die Standardwebsite in den Internetinformationsdiensten (IIS) begrenzt sein, bevor Sie den Assistenten für die Konfiguration eines Verbundserverproxys erfolgreich ausführen können.<p>**Empfehlung:** Da dieses Zertifikat für Clients von AD FS vertrauenswürdig sein muss, verwenden Sie ein Serverauthentifizierungszertifikat, das von einer öffentlichen (Drittanbieter) Zertifizierungsstelle wie VeriSign ausgestellt wurde.<p>**Tipp:** Der Antragstellername dieses Zertifikats wird verwendet, um den Namen des Verbunddiensts für jede von Ihnen bereitgestellte Instanz von AD FS darzustellen. Aus diesem Grund sollten Sie einen Antragstellernamen in Betracht ziehen, der den Namen Ihres Unternehmens oder Ihrer Organisation gegenüber Partnern am besten widerspiegelt.|  
   
 Weitere Informationen zu den von Verbundserverproxies verwendeten Zertifikaten finden Sie unter [Zertifikatanforderungen für Verbundserverproxies](Certificate-Requirements-for-Federation-Server-Proxies.md).  
   
@@ -70,7 +69,7 @@ Auch wenn jeder aktuelle Webbrowser mit JavaScript-Funktion als ein AD FS-Clien
   
 Das AD FS-Produktteam bei Microsoft hat die Browser-und Betriebs Systemkonfigurationen in der folgenden Tabelle erfolgreich getestet.  
   
-|Browser|Windows 7|Windows Vista|  
+|Browser|Windows 7|Windows Vista|  
 |-----------|-------------|-----------------|  
 |Internet Explorer 7.0|X|X|  
 |Internet Explorer 8.0|X|X|  
@@ -87,13 +86,13 @@ AD FS erstellt sitzungsbasierte und beständige Cookies, die auf Clientcomputern
 Aus Sicherheitsgründen ist eine Unterstützung für TLS/SSL erforderlich.  
   
 ## <a name="network-requirements"></a>Netzwerkanforderungen  
-Die ordnungsgemäß Konfigurierung der folgenden Netzwerkdienste ist wichtig für eine erfolgreiche Bereitstellung von AD FS in Ihrer Organisation.  
+Das ordnungsgemäße Konfigurieren der folgenden Netzwerkdienste ist für eine erfolgreiche Bereitstellung von AD FS in Ihrer Organisation entscheidend.  
   
-### <a name="tcpip-network-connectivity"></a>TCP/IP-Netzwerkkonnektivität  
+### <a name="tcpip-network-connectivity"></a>TCP/IP-Netzwerkverbindung  
 Damit AD FS funktioniert, muss TCP/IP-Netzwerk Konnektivität zwischen dem Client vorhanden sein. ein Domänen Controller; und die Computer, auf denen die Verbunddienst gehostet werden, die Verbunddienstproxy (bei Verwendung) und die AD FS-Web-Agent.  
   
 ### <a name="dns"></a>DNS  
-Der primäre Netzwerkdienst, der für den Betrieb von AD FS wichtig ist, außer Active Directory Domain Services (AD DS), ist Domain Name System (DNS). Wenn DNS bereitgestellt wird, können Benutzer einfach zu merkende Computeranzeigenamen verwenden, um eine Verbindung zu Computern und anderen Ressourcen in IP-Netzwerken herzustellen.  
+Der primäre Netzwerkdienst, der für den Betrieb von AD FS wichtig ist, außer Active Directory Domain Services (AD DS), ist Domain Name System (DNS). Bei Bereitstellung von DNS können Benutzer benutzerfreundliche und leicht zu merkende Computernamen verwenden, wenn sie Verbindungen mit Computern und anderen Ressourcen in IP-Netzwerken herstellen.  
   
  Windows Server 2008 verwendet DNS für die Namensauflösung anstelle der Windows Internet Name Service (WINS)-NetBIOS-Namensauflösung, die in Windows NT 4.0 – basierten Netzwerken verwendet wurde. Es ist immer noch möglich, WINS für Anwendungen zu verwenden, für die der Dienst erforderlich ist. Für AD DS und AD FS ist jedoch die DNS-Namensauflösung erforderlich.  
   
@@ -101,7 +100,7 @@ Der Prozess der Konfiguration von DNS zur Unterstützung von AD FS variiert abh�
   
 -   Ihre Organisation verfügt bereits über eine vorhandene DNS-Infrastruktur. In den meisten Szenarien ist DNS bereits im gesamten Netzwerk konfiguriert, sodass die Browserclients in Ihrem Unternehmensnetzwerk Zugriff auf das Internet haben. Da der Internet Zugriff und die Namensauflösung Anforderungen AD FS sind, wird davon ausgegangen, dass diese Infrastruktur für Ihre AD FS Bereitstellung eingerichtet ist.  
   
--   Sie beabsichtigen, Ihrem Unternehmensnetzwerk einen Verbundserver hinzuzufügen. Für den Zweck der Authentifizierung von Benutzern im Unternehmensnetzwerk müssen interne DNS-Server in der Unternehmensnetzwerkgesamtstruktur so konfiguriert werden, dass der CNAME des internen Servers zurückgegeben wird, auf dem der Verbunddienst ausgeführt wird. Weitere Informationen finden Sie unter [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md).  
+-   Sie beabsichtigen, Ihrem Unternehmensnetzwerk einen Verbundserver hinzuzufügen. Für den Zweck der Authentifizierung von Benutzern im Unternehmensnetzwerk müssen interne DNS-Server in der Unternehmensnetzwerkgesamtstruktur so konfiguriert werden, dass der CNAME des internen Servers zurückgegeben wird, auf dem der Verbunddienst ausgeführt wird. Weitere Informationen finden Sie unter [Anforderungen an die Namensauflösung für Verbundserver](Name-Resolution-Requirements-for-Federation-Servers.md).  
   
 -   Sie beabsichtigen, Ihrem Unternehmensnetzwerk einen Verbundserverproxy hinzuzufügen. Wenn Sie Benutzerkonten authentifizieren möchten, die sich im Unternehmensnetzwerk Ihrer Identitäts Partnerorganisation befinden, müssen die internen DNS-Server in der Unternehmensnetzwerk Gesamtstruktur so konfiguriert werden, dass der CNAME des internen Verbund Server Proxys zurückgegeben wird. Informationen zum Konfigurieren von DNS für das Hinzufügen von Verbund Server Proxys finden Sie unter [Anforderungen für die Namensauflösung für Verbund Server](Name-Resolution-Requirements-for-Federation-Server-Proxies.md)Proxys.  
   
@@ -115,7 +114,7 @@ AD FS erfordert mindestens einen Attribut Speicher, der für die Authentifizieru
   
 Die Anforderungen an den Attributspeicher hängen davon ab, ob Ihre Organisation als Kontopartner (der die Verbundbenutzer hostet) oder als Ressourcenpartner (der die Verbundanwendung hostet) agiert.  
   
-### <a name="adds"></a>AD DS  
+### <a name="adds"></a>AD DS  
 Damit AD FS erfolgreich ausgeführt werden kann, muss auf Domänen Controllern in der Konto Partnerorganisation oder der Ressourcen Partnerorganisation Windows Server 2003 SP1, Windows Server 2003 R2, Windows Server 2008 oder Windows Server 2012 ausgeführt werden.  
   
 Wenn AD FS auf einem Computer installiert und konfiguriert ist, der einer Domäne angehört, wird der Active Directory-Benutzerkontenspeicher für diese Domäne als auswählbarer Attributspeicher zur Verfügung gestellt.  
@@ -135,7 +134,7 @@ Wenn Sie eine Verbundserverfarm erstellen, müssen Sie zunächst ein dediziertes
 ### <a name="ldap"></a>LDAP  
 Wenn Sie mit anderen Lightweight Directory Access Protocol (LDAP)-basierten Attributspeichern arbeiten, müssen Sie eine Verbindung zu einem LDAP-Server herstellen, der die integrierte Windows-Authentifizierung unterstützt. Die LDAP-Verbindungszeichenfolge muss außerdem im Format einer LDAP-URL geschrieben sein, wie in RFC 2255 beschrieben.  
   
-### <a name="sql-server"></a>SQL Server  
+### <a name="sql-server"></a>SQL Server  
 Damit AD FS erfolgreich ausgeführt werden können, müssen Computer, auf denen der strukturierte Abfragesprache (SQL)-Server Attribut Speicher gehostet wird, entweder Microsoft SQL Server 2005 oder SQL Server 2008 ausgeführt werden. Wenn Sie mit SQL-basierten Attributspeichern arbeiten, müssen Sie außerdem eine Verbindungszeichenfolge konfigurieren.  
   
 ### <a name="custom-attribute-stores"></a>Benutzerdefinierte Attributspeicher  
@@ -179,5 +178,5 @@ Bei der Smartcard-Authentifizierung wird das Kerberos-Protokoll für die Authent
   
 Zur Unterstützung der Anforderungen an bestimmte Authentifizierungsstärken in einigen Szenarien können Sie AD FS auch für die Erstellung eines Anspruchs konfigurieren, der anzeigt, wie ein Benutzer authentifiziert wurde. Eine vertrauende Seite kann diesen Anspruch dann verwenden, um eine Autorisierungsentscheidung zu treffen.  
   
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [AD FS-Entwurfshandbuch in Windows Server 2012](AD-FS-Design-Guide-in-Windows-Server-2012.md)

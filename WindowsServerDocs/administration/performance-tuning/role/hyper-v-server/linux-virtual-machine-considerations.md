@@ -4,15 +4,15 @@ description: Virtueller Linux-und BSD-Computer
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Asmahi; SandySp; JoPoulso
+ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5668629e7eded214525561d30fec496a4e91b8dc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7abc1ef5473365dd26dce1167bb685f116822a7d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385068"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851743"
 ---
 # <a name="linux-virtual-machine-considerations"></a>Überlegungen zu virtuellen Linux-Computern
 
@@ -24,9 +24,9 @@ Auch wenn der Gast Integration Services ausgeführt wird, kann er mit Legacy Har
 
 ## <a name="linux-network-performance"></a>Linux-Netzwerkleistung
 
-Linux aktiviert standardmäßig Hardwarebeschleunigung und-Abladungen. Wenn vrss in den Eigenschaften einer NIC auf dem Host aktiviert ist und der Linux-Gast die Funktion zur Verwendung von vrss hat, wird die Funktion aktiviert. In PowerShell kann derselbe Parameter mit dem Befehl "`EnableNetAdapterRSS`" geändert werden.
+Linux aktiviert standardmäßig Hardwarebeschleunigung und-Abladungen. Wenn vrss in den Eigenschaften einer NIC auf dem Host aktiviert ist und der Linux-Gast die Funktion zur Verwendung von vrss hat, wird die Funktion aktiviert. In PowerShell kann derselbe Parameter mit dem `EnableNetAdapterRSS`-Befehl geändert werden.
 
-Ebenso kann die vmmq-Funktion (Virtual Switch RSS) auf der physischen NIC aktiviert werden, die von den Gast **Eigenschaften**verwendet wird  > **konfigurieren...**  > -Registerkarte**erweitert** > den **virtuellen Switch RSS** auf **aktiviert** oder vmmq in PowerShell aktivieren, indem Sie Folgendes verwenden:
+Ebenso kann die vmmq-Funktion (Virtual Switch RSS) auf der physischen NIC aktiviert werden, die von den Gast **Eigenschaften** > **konfigurieren...**  > Registerkarte " **erweitert** " > legen Sie den **virtuellen Switch RSS** auf **aktiviert** fest, oder aktivieren Sie vmmq in PowerShell, indem Sie Folgendes verwenden:
 
 ```PowerShell
  Set-VMNetworkAdapter -VMName **$VMName** -VmmqEnabled $True
@@ -49,7 +49,7 @@ net.ipv4.ip_local_port_range = 10240 65535
 net.ipv4.tcp_abort_on_overflow = 1
 ```
 
-Ein nützliches Tool für Netzwerk-Mikrobenchmarks ist ntttcp, das unter Linux und Windows verfügbar ist. Die Linux-Version ist Open Source und ist [über ntttcp-for-Linux auf GitHub.com](https://github.com/Microsoft/ntttcp-for-linux)verfügbar. Die Windows-Version finden [Sie im Download Center](https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769). Beim Optimieren von Arbeits Auslastungen empfiehlt es sich, möglichst viele Streams zu verwenden, um den besten Durchsatz zu erzielen. Durch die Verwendung von ntttcp zum Modellieren von Datenverkehr legt der Parameter "`-P`" die Anzahl der verwendeten parallelen Verbindungen fest.
+Ein nützliches Tool für Netzwerk-Mikrobenchmarks ist ntttcp, das unter Linux und Windows verfügbar ist. Die Linux-Version ist Open Source und ist [über ntttcp-for-Linux auf GitHub.com](https://github.com/Microsoft/ntttcp-for-linux)verfügbar. Die Windows-Version finden [Sie im Download Center](https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769). Beim Optimieren von Arbeits Auslastungen empfiehlt es sich, möglichst viele Streams zu verwenden, um den besten Durchsatz zu erzielen. Durch die Verwendung von ntttcp zum Modellieren von Datenverkehr wird mit dem `-P`-Parameter die Anzahl der verwendeten parallelen Verbindungen festgelegt.
 
 ## <a name="linux-storage-performance"></a>Linux-Speicherleistung
 

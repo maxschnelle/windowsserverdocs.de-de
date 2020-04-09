@@ -1,50 +1,45 @@
 ---
 title: bitsadmin getdescription
-description: 'Thema Windows-Befehle für **bigsadmin GetDescription** : Ruft die Beschreibung des angegebenen Auftrags ab.'
-ms.custom: na
+description: Windows-Befehls Thema für **bigsadmin GetDescription**, das die Beschreibung des angegebenen Auftrags abruft.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f3974603-ebbe-4d31-8217-040fe2d90c85
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 02ab91ad9b6d1d6d1ef67465bb5c982fbddc1bb4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2ff1638cf634d76001042691fd890dfe41f9ae0b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381648"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850723"
 ---
 # <a name="bitsadmin-getdescription"></a>bitsadmin getdescription
-
-
 
 Ruft die Beschreibung des angegebenen Auftrags ab.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-bitsadmin /GetDescription <Job>
+bitsadmin /getdescription <job>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+| Parameter | Beschreibung |
+| -------------- | -------------- |
+| Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Im folgenden Beispiel wird die Beschreibung für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
+
 ```
-C:\>bitsadmin /GetDescription myDownloadJob
+C:\>bitsadmin /getdescription myDownloadJob
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

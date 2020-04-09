@@ -1,23 +1,19 @@
 ---
 title: Problembehandlung der Protokollierung des Softwarebestands
 description: Beschreibt, wie häufige Bereitstellungs Probleme bei der Protokollierung des Software Bestands gelöst werden
-ms.custom: na
 ms.prod: windows-server
 ms.technology: manage-software-inventory-logging
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 author: brentfor
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: fb6e6fbba835e049748ca8578f24a1ff7fc750bf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5a02caf63bbd02705aebb8306a7b50a32f3d6c82
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71382898"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851413"
 ---
 # <a name="troubleshoot-software-inventory-logging"></a>Problembehandlung der Protokollierung des Softwarebestands 
 
@@ -54,7 +50,7 @@ Bevor Sie beginnen, müssen Sie wissen, wie lange der SIL-Aggregator mit dem " *
 >[!IMPORTANT]
 >Es werden erst dann Daten im Bericht angezeigt, wenn der SQL-Datencube zum Zeitpunkt der lokalen Systemzeit von 3 Uhr verarbeitet wird. Fahren Sie nicht mit den Schritten zur Problembehandlung fort, bis der Cube Daten verarbeitet hat.
 
-Wenn Sie Daten im Bericht behandeln (oder aus dem Bericht fehlen), der aktueller ist als der Zeitpunkt, zu dem der Cube zuletzt verarbeitet wurde, oder bevor der Cube jemals verarbeitet wurde (bei einer neuen Installation), führen Sie die folgenden Schritte aus, um den SQL-Datencube in Echtzeit zu verarbeiten. :
+Wenn Sie Daten im Bericht behandeln (oder aus dem Bericht fehlen), der aktueller ist als der Zeitpunkt, zu dem der Cube zuletzt verarbeitet wurde, oder bevor der Cube jemals verarbeitet wurde (bei einer neuen Installation), führen Sie die folgenden Schritte aus, um den SQL-Datencube in Echtzeit zu verarbeiten:
 
 1. Melden Sie sich als Administrator von SQL Server an, und führen Sie **SSMS** an einer Eingabeaufforderung aus.
 2. Stellen Sie eine Verbindung mit dem Datenbankmodul her.
@@ -69,7 +65,7 @@ Wenn im Bericht noch keine Daten vorhanden sind, können Sie mit der Problembeha
 
 #### <a name="no-data-in-the-report-when-using-the-publish-silreport-cmdlet-or-data-is-generally-missing"></a>Keine Daten im Bericht, wenn das Cmdlet Publish-silreport verwendet wird (oder wenn die Daten im allgemeinen fehlen)
 
-Wenn Daten fehlen, ist dies wahrscheinlich darauf zurückzuführen, dass der SQL-Datencube noch nicht verarbeitet wurde. Wenn Sie kürzlich verarbeitet wurde und Sie glauben, dass fehlende Daten beim Aggregator vor der Cubeverarbeitung eintreffen müssen, befolgen Sie den Pfad der Daten in umgekehrter Reihenfolge. Wählen Sie einen eindeutigen Host und einen eindeutigen virtuellen Computer für die Problembehandlung aus. Der Dateipfad in umgekehrter Reihenfolge ist der Sila- **Bericht** &lt; **Sila-Datenbank** &lt; , lokaler Remote- **Verzeichnis** &lt; **physischer Host** oder **WS-VM mit SIL-Agent/Task**.
+Wenn Daten fehlen, ist dies wahrscheinlich darauf zurückzuführen, dass der SQL-Datencube noch nicht verarbeitet wurde. Wenn Sie kürzlich verarbeitet wurde und Sie glauben, dass fehlende Daten beim Aggregator vor der Cubeverarbeitung eintreffen müssen, befolgen Sie den Pfad der Daten in umgekehrter Reihenfolge. Wählen Sie einen eindeutigen Host und einen eindeutigen virtuellen Computer für die Problembehandlung aus. Der Dateipfad in umgekehrter Reihenfolge ist **Sila-Bericht** &lt; **Sila-Datenbank** &lt; **Lokales lokales Verzeichnis** &lt; **Remote-physischer Host** oder WS-VM, auf dem **SIL-Agent/Task ausgeführt**wird.
 
 #### <a name="check-to-see-if-data-is-in-the-database"></a>Überprüfen Sie, ob die Daten in der Datenbank gespeichert sind.
 
@@ -92,9 +88,9 @@ Es gibt zwei Möglichkeiten, um nach Daten zu suchen: **PowerShell** oder **SSMS
 
 **Weitere verwandte Befehle**
 
-**Get-silaggregator-Computername &lt;der voll qualifizierte Server, von dem Daten&gt;übertragen werden**: Dadurch werden Informationen aus der Datenbank zu einem Computer (VM) erstellt, auch wenn der Cube verarbeitet wurde. Folglich kann dieses Cmdlet verwendet werden, um Daten in der Datenbank für einen Windows-Server zu übertragen, der SIL-Daten über HTTPS, vor oder ohne den Cube-Prozess bei 3AM überträgt (oder wenn Sie den Cube nicht in Echtzeit aktualisiert haben, wie am Anfang dieses Abschnitts beschrieben).
+**Get-silaggregator-Computername &lt;der voll qualifizierte Server, der den Daten&gt;** übertragen hat, die Daten aus der Datenbank zu einem Computer (VM), auch wenn der Cube verarbeitet wurde. Folglich kann dieses Cmdlet verwendet werden, um Daten in der Datenbank für einen Windows-Server zu übertragen, der SIL-Daten über HTTPS, vor oder ohne den Cube-Prozess bei 3AM überträgt (oder wenn Sie den Cube nicht in Echtzeit aktualisiert haben, wie am Anfang dieses Abschnitts beschrieben).
 
-**Get-silaggregator-vmhostname &lt;der voll qualifizierte Name eines abgeleiteten physischen Hosts, bei dem bei Verwendung des Cmdlets&gt;"Get-silvmhost" unter der Spalte Aktueller Abruf ein Wert vorhanden ist**: Dadurch werden Informationen aus der Datenbank über einen physischen Host erstellt, auch wenn der Cube verarbeitet wurde.
+**Get-silaggregator-vmhostname &lt;der voll qualifizierte Name eines abgeleiteten physischen Hosts, bei dem bei Verwendung des cmd&gt;Lets "Get-silvmhost" ein Wert unter der aktuellen Umfrage Spalte vorhanden ist** : Dadurch werden Informationen aus der Datenbank zu einem physischen Host erstellt, auch wenn der Cube verarbeitet wurde.
 
 #### <a name="ssms"></a>SSMS
 
@@ -128,7 +124,7 @@ Dies tritt wahrscheinlich in virtuellen Umgebungen auf, wenn der SIL-Aggregator 
 
         -   Nach dem Hinzufügen des Hosts für den Abruf müssen Sie eine Stunde warten (vorausgesetzt, dieses Intervall ist auf Default festgelegt – kann mithilfe des Cmdlets **Get-silaggregator** aktiviert werden).
 
-        -   Wenn eine Stunde vergangen ist, seit der Host hinzugefügt wurde, überprüfen Sie, ob der Abruf Task ausgeführt wird: Wählen Sie in **Taskplaner**den **Aggregator der Protokollierung des Software Bestands** unter **Microsoft** &gt; **Windows** aus, und überprüfen Sie den Verlauf der Aufgabe.
+        -   Wenn seit dem Hinzufügen des Hosts eine Stunde vergangen ist, überprüfen Sie, ob der Abruf Task ausgeführt wird: Wählen Sie in **Taskplaner**unter **Microsoft** &gt; **Windows** den **Aggregator der Protokollierung des Software Bestands** aus, und überprüfen Sie den Verlauf der Aufgabe.
 
     -   Wenn ein Host aufgelistet ist, aber kein Wert für " **recentfetch**", " **HostType**" oder " **hypervisortype**" vorhanden ist, kann dies größtenteils ignoriert werden. Dies erfolgt nur in HyperV-Umgebungen. Diese Daten stammen tatsächlich von der Windows Server-VM und identifizieren den physischen Host, der über HTTPS ausgeführt wird. Dies kann nützlich sein, um einen bestimmten virtuellen Computer zu identifizieren, der Bericht erstattet, erfordert jedoch das Mining der Datenbank mithilfe des Cmdlets **Get-silaggregatordata** .
 
@@ -156,7 +152,7 @@ Wenn die Hosts ordnungsgemäß abgerufen werden, können Sie die Daten für dies
 
      -  Zum Schluss können Sie den folgenden Speicherort auf zwischengespeicherte SIL-Dateien auf dem Server überprüfen, der versucht, den Forward/Push-Vorgang durchzusetzen, **\windows\system32\logfiles\sil**. Wenn " **sillogging** " seit mehr als einer Stunde gestartet wurde und ausgeführt wird, oder wenn " **Publish-sildata** " vor kurzem ausgeführt wurde und keine Dateien in diesem Verzeichnis vorhanden sind, ist die Protokollierung für den Aggregator erfolgreich.
 
-Wenn kein Fehler vorliegt und keine Ausgabe in der Konsole vorhanden ist, war das Verschieben/Veröffentlichen von Daten vom Windows Server-Endknoten zum SIL-Aggregator über HTTPS erfolgreich. Wenn Sie den Pfad der Daten weiterleiten möchten, melden Sie sich als Administrator beim SIL-Aggregator an, und untersuchen Sie die Datendatei (en), die eingetroffen sind. Wechseln Sie zum Verzeichnis **Programmdateien (x86)** &gt; **Microsoft SIL-Aggregator** &gt; sila. Sie können Datendateien, die in Echtzeit eintreffen, ansehen.
+Wenn kein Fehler vorliegt und keine Ausgabe in der Konsole vorhanden ist, war das Verschieben/Veröffentlichen von Daten vom Windows Server-Endknoten zum SIL-Aggregator über HTTPS erfolgreich. Wenn Sie den Pfad der Daten weiterleiten möchten, melden Sie sich als Administrator beim SIL-Aggregator an, und untersuchen Sie die Datendatei (en), die eingetroffen sind. Wechseln Sie zu **Programmdateien (x86)** &gt; **Microsoft SIL-Aggregator** &gt; Sila-Verzeichnis. Sie können Datendateien, die in Echtzeit eintreffen, ansehen.
 
 >[!NOTE] 
 >Möglicherweise wurden mehrere Datendateien mit dem Cmdlet **Publish-sildata** übertragen. Von SIL auf dem Endknoten werden fehlerhafte Pushvorgänge für bis zu 30 Tage zwischengespeichert. Beim nächsten erfolgreichen Push werden alle Datendateien zur Verarbeitung an den Aggregator weitergeleitet. Auf diese Weise kann ein neu eingelegter SIL-Aggregator Daten von einem Endknoten vor seiner eigenen Einrichtung anzeigen.

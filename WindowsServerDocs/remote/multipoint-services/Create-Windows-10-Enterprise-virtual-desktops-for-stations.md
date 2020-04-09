@@ -1,24 +1,20 @@
 ---
 title: Erstellen virtueller Windows 10 Enterprise-Desktops für Stationen
 description: Erfahren Sie, wie Sie Windows Server 2016-Desktops für Station erstellen.
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 63f08b5b-c735-41f4-b6c8-411eff85a4ab
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: cd08caef8228a4d20c6d5f4a40fe5bd90aacbe40
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 40af6ea98aa91730f78bde8a71f2ad9a741a6490
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395539"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859803"
 ---
 # <a name="create-windows-10-enterprise-virtual-desktops-for-stations"></a>Erstellen virtueller Windows 10 Enterprise-Desktops für Stationen
 Diese optionale Konfiguration in Multipoint Services ist hauptsächlich für Situationen vorgesehen, in denen eine erforderliche Anwendung für jeden Benutzer eine eigene Instanz eines Client Betriebssystems erfordert. Zu den Beispielen zählen Anwendungen, die nicht auf Windows Server installiert werden können, und Anwendungen, die nicht mehrere Instanzen auf demselben Host Computer ausführen.  
@@ -29,10 +25,10 @@ Diese optionale Konfiguration in Multipoint Services ist hauptsächlich für Sit
 ## <a name="prerequisites"></a>Erforderliche Komponenten  
 Stellen Sie sicher, dass Ihr Multipoint Services-System die folgenden Anforderungen erfüllt, um die Erstellung virtueller Desktops auf der Station vorzubereiten:      
   
-|Hardware|Anforderungen|         |
+|Hardware|Voraussetzungen|         |
 |------------|----------------|----------------| 
 |CPU (Multimedia)|1 Kern oder Thread pro virtuellem Computer|  
-|Solid State Drive (SSD)|Kapazitäts > = 20 GB pro Station + 40 GB für das Multipoint Services-Host Betriebssystem<br /><br />Zufälliger\/Lese-/Schreibzugriff > = 3K pro Station|  
+|Solid State Drive (SSD)|Kapazitäts > = 20 GB pro Station + 40 GB für das Multipoint Services-Host Betriebssystem<p>Zufälliger Lese-\/Schreib-IOPS-> = 3K pro Station|  
 |RAM|2 GB pro Station + 2 GB für das Windows-MultiPoint Server-Host Betriebssystem|  
 |Grafik|DX11|  
 |BIOS|BIOS-CPU-Einstellung, die für die Aktivierung der Virtualisierung konfiguriert ist – Second Level Address Translation (slat)|  
@@ -156,7 +152,7 @@ Verwenden Sie das folgende Verfahren, um eine Kopie einer vorhandenen virtuellen
   
 3.  Klicken Sie auf die Registerkarte **virtuelle Desktops** .  
   
-4.  Klicken Sie auf **virtuelle Desktop Vorlage importieren**, und wählen Sie mit **Durchsuchen** die VHD-Datei (Vorlage) aus, die Sie importieren möchten. Wenn Sie eine Vorlage importieren, wird eine Kopie der ursprünglichen VHD-Datei erstellt. Standardmäßig speichert Multipoint Services VHD-Dateien im Ordner "C:\\Users\\Public\\Documents\\Hyper\-V\\Virtual Hard Disks\\ ".  
+4.  Klicken Sie auf **virtuelle Desktop Vorlage importieren**, und wählen Sie mit **Durchsuchen** die VHD-Datei (Vorlage) aus, die Sie importieren möchten. Wenn Sie eine Vorlage importieren, wird eine Kopie der ursprünglichen VHD-Datei erstellt. Standardmäßig speichert Multipoint Services VHD-Dateien in den C:\\-Benutzern\\öffentlichen\\Dokumenten\\Hyper\-V\\virtuellen Festplatten\\ Ordners.  
   
 5.  Geben Sie ein Präfix für die neue Vorlage ein, und klicken Sie dann auf **OK**.  
   

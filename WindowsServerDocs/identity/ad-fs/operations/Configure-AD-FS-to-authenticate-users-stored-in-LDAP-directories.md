@@ -1,7 +1,6 @@
 ---
 ms.assetid: e863ab80-4e4c-48d3-bdaa-31815ef36bae
 title: Konfigurieren von AD FS zum Authentifizieren von Benutzern, die in LDAP-Verzeichnissen gespeichert sind
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 191ec0243c8c34c2084dd07f94f0b3f70b197756
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9c194128cb5d96bf84e19b11b9d8803c61e34490
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358066"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859903"
 ---
 # <a name="configure-ad-fs-to-authenticate-users-stored-in-ldap-directories"></a>Konfigurieren von AD FS zum Authentifizieren von Benutzern, die in LDAP-Verzeichnissen gespeichert sind
 
@@ -23,13 +22,13 @@ Im folgenden Thema wird die Konfiguration beschrieben, die erforderlich ist, um 
 In vielen Organisationen bestehen Lösungen zur Identitätsverwaltung aus einer Kombination aus Active Directory-, AD LDS-oder LDAP-Verzeichnissen von Drittanbietern. Durch das Hinzufügen AD FS Unterstützung für die Authentifizierung von Benutzern, die in LDAP-kompatiblen Verzeichnissen gespeichert sind, können Sie von der gesamten Unternehmensklasse AD FS Featuresatz profitieren, unabhängig davon, wo Ihre Benutzer Identitäten gespeichert werden. AD FS unterstützt ein beliebiges LDAP-V3-kompatibles Verzeichnis.
 
 > [!NOTE]
-> Zu den AD FS Features zählen Single Sign-on (SSO), Geräte Authentifizierung, flexible Richtlinien für den bedingten Zugriff, Unterstützung für die Arbeit von überall durch die Integration mit dem webanwendungsproxy und nahtloser Verbund mit Azure AD, der wiederum ermöglicht Ihnen und ihren Benutzern die Nutzung der Cloud, einschließlich Office 365 und anderer SaaS-Anwendungen.  Weitere Informationen finden Sie unter [Active Directory-Verbunddienste (AD FS) Übersicht](../../ad-fs/AD-FS-2016-Overview.md).
+> Zu den AD FS Features zählen Single Sign-on (SSO), Geräte Authentifizierung, flexible Richtlinien für den bedingten Zugriff, Unterstützung für die Arbeit von überall über die Integration mit dem webanwendungsproxy und ein nahtloser Verbund mit Azure AD, der Ihnen und ihren Benutzern wiederum die Nutzung der Cloud ermöglicht, einschließlich Office 365 und anderer SaaS-Anwendungen.  Weitere Informationen finden Sie unter [Active Directory-Verbunddienste (AD FS) Übersicht](../../ad-fs/AD-FS-2016-Overview.md).
 
 Damit AD FS Benutzer von einem LDAP-Verzeichnis authentifizieren können, müssen Sie dieses LDAP-Verzeichnis mit Ihrer AD FS Farm verbinden, indem Sie eine **lokale Anspruchs Anbieter-Vertrauens**Stellung erstellen.  Eine lokale Anspruchs Anbieter-Vertrauensstellung ist ein Vertrauensstellungs Objekt, das ein LDAP-Verzeichnis in Ihrer AD FS Farm darstellt. Ein lokales Anspruchs Anbieter-Vertrauensstellungs Objekt besteht aus einer Vielzahl von Bezeichnernamen, Namen und Regeln, die dieses LDAP-Verzeichnis für den lokalen Verbund Dienst identifizieren.
 
 Sie können mehrere LDAP-Verzeichnisse unterstützen, die jeweils über eine eigene Konfiguration innerhalb derselben AD FS Farm verfügen, indem Sie mehrere **lokale Anspruchs Anbieter**-Vertrauens Stellungen hinzufügen. Außerdem können AD DS Gesamtstrukturen, die von der Gesamtstruktur, in der AD FS Leben, nicht als vertrauenswürdig eingestuft werden. Sie können lokale Anspruchs Anbieter-Vertrauens Stellungen mithilfe von Windows PowerShell erstellen.
 
-LDAP-Verzeichnisse (lokale Anspruchs Anbieter-Vertrauens Stellungen) können zusammen mit AD-Verzeichnissen (Anspruchs Anbieter-Vertrauens Stellungen) auf demselben AD FS Server innerhalb derselben AD FS Farm vorhanden sein. Daher ist eine einzelne Instanz von AD FS in der Lage, den Zugriff für Benutzer zu authentifizieren und zu autorialisieren, die in AD-und nicht-AD-Verzeichnissen gespeichert.
+LDAP-Verzeichnisse (lokale Anspruchs Anbieter-Vertrauens Stellungen) können zusammen mit AD-Verzeichnissen (Anspruchs Anbieter-Vertrauens Stellungen) auf demselben AD FS Server innerhalb derselben AD FS Farm vorhanden sein. Daher ist eine einzelne Instanz von AD FS in der Lage, den Zugriff für Benutzer zu authentifizieren und zu autorialisieren, die in AD-und nicht-AD-Verzeichnissen gespeichert sind.
 
 Zum Authentifizieren von Benutzern von LDAP-Verzeichnissen wird nur die Formular basierte Authentifizierung unterstützt. Die Zertifikat basierte und die integrierte Windows-Authentifizierung werden nicht für die Authentifizierung von Benutzern in LDAP-Verzeichnissen unterstützt.
 
@@ -50,7 +49,7 @@ Führen Sie die folgenden Schritte aus, um die AD FS-Farm zum Authentifizieren v
    > [!NOTE]
    > Es wird empfohlen, ein neues Verbindungs Objekt für jeden LDAP-Server zu erstellen, mit dem Sie eine Verbindung herstellen möchten. AD FS können eine Verbindung mit mehreren Replikat-LDAP-Servern herstellen und automatisch ein Failover ausführen, falls ein bestimmter LDAP-Server ausfällt. In einem solchen Fall können Sie für jeden dieser LDAP-Replikat Server eine adfsldapserverconnection erstellen und dann das Array der Verbindungs Objekte mithilfe des Parameters-**ldapserverconnection** des Cmdlets **Add-adfslocalclaimsprovidertrust** hinzufügen.
 
-   **HINWEIS:** Der Versuch, Get-Credential zu verwenden und einen DN und ein Kennwort einzugeben, die für die Bindung an eine LDAP-Instanz verwendet werden, kann aufgrund der Benutzeroberflächen Anforderung für bestimmte Eingabeformate (z. b. DOMAIN\username oder user@domain.tld) zu einem Fehler führen. Stattdessen können Sie das ConvertTo-SecureString-Cmdlet wie folgt verwenden (im Beispiel unten wird UID = admin, ou = System als DN der Anmelde Informationen verwendet, die für die Bindung an die LDAP-Instanz verwendet werden sollen):
+   **Hinweis:** Der Versuch, Get-Credential zu verwenden und einen DN und ein Kennwort einzugeben, die für die Bindung an eine LDAP-Instanz verwendet werden, kann aufgrund der Benutzeroberflächen Anforderung für bestimmte Eingabeformate, z. b. Domäne \ Benutzername oder user@domain.tld, zu einem Fehler führen. Stattdessen können Sie das ConvertTo-SecureString-Cmdlet wie folgt verwenden (im Beispiel unten wird UID = admin, ou = System als DN der Anmelde Informationen verwendet, die für die Bindung an die LDAP-Instanz verwendet werden sollen):
 
    ```
    $ldapuser = ConvertTo-SecureString -string "uid=admin,ou=system" -asplaintext -force
@@ -93,9 +92,9 @@ Führen Sie die folgenden Schritte aus, um die AD FS-Farm zum Authentifizieren v
    -OrganizationalAccountSuffix "vendors.contoso.com"
    ```
 
-   Im obigen Beispiel erstellen Sie eine lokale Anspruchs Anbieter-Vertrauensstellung mit dem Namen "Lieferanten". Sie geben Verbindungsinformationen für AD FS an, um eine Verbindung mit dem LDAP-Verzeichnis herzustellen, das diese lokale Anspruchs Anbieter-Vertrauensstellung darstellt, indem Sie `$vendorDirectory` dem `-LdapServerConnection`-Parameter zuweisen. Beachten Sie, dass Sie in Schritt 1 `$vendorDirectory` eine Verbindungs Zeichenfolge zugewiesen haben, die beim Herstellen einer Verbindung mit Ihrem spezifischen LDAP-Verzeichnis verwendet werden soll. Schließlich geben Sie an, dass die LDAP-Attribute `$GivenName`, `$Surname` und `$CommonName` (die Sie den AD FS Ansprüchen zugeordnet haben) für die bedingte Zugriffs Steuerung verwendet werden sollen, einschließlich Multi-Factor Authentication-Richtlinien und Ausstellungs Autorisierungs Regeln sowie für die Ausstellung über Ansprüche in AD FS ausgestellten Sicherheits Token. Um aktive Protokolle wie WS-Trust mit AD FS zu verwenden, müssen Sie den organizationalaccountsuffix-Parameter angeben, der es AD FS ermöglicht, bei der Wartung einer aktiven Autorisierungs Anforderung zwischen lokalen Anspruchs Anbieter-Vertrauens Stellungen zu unterscheiden.
+   Im obigen Beispiel erstellen Sie eine lokale Anspruchs Anbieter-Vertrauensstellung mit dem Namen "Lieferanten". Sie geben Verbindungsinformationen für AD FS an, um eine Verbindung mit dem LDAP-Verzeichnis herzustellen, das diese lokale Anspruchs Anbieter-Vertrauensstellung darstellt, indem Sie dem `-LdapServerConnection` Parameter `$vendorDirectory` zuweisen. Beachten Sie, dass Sie in Schritt 1 `$vendorDirectory` eine Verbindungs Zeichenfolge zugewiesen haben, die beim Herstellen einer Verbindung mit Ihrem spezifischen LDAP-Verzeichnis verwendet werden soll. Schließlich geben Sie an, dass die `$GivenName`-, `$Surname`-und `$CommonName` LDAP-Attribute (die Sie den AD FS Ansprüchen zugeordnet haben) für die bedingte Zugriffs Steuerung verwendet werden sollen, einschließlich Multi-Factor Authentication-Richtlinien und Ausstellungs Autorisierungs Regeln sowie für die Ausstellung über Ansprüche in AD FS ausgestellte Sicherheits Token. Um aktive Protokolle wie WS-Trust mit AD FS zu verwenden, müssen Sie den organizationalaccountsuffix-Parameter angeben, der es AD FS ermöglicht, bei der Wartung einer aktiven Autorisierungs Anforderung zwischen lokalen Anspruchs Anbieter-Vertrauens Stellungen zu unterscheiden.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
 
 

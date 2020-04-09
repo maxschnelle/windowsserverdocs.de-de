@@ -1,24 +1,20 @@
 ---
 title: Planen einer MultiPoint Services-Bereitstellung
 description: Navigations Thema für Informationen zum Planen der Bereitstellung von Multipoint Services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dcb9edf1-99d0-490c-a7f8-863b18a80cdf
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: c6c1074ddd45eee4540b1b6a04d921c2d5cca6ce
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 91a75704515f2999bbbfe6caf443fec7dc09e76d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395149"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853383"
 ---
 # <a name="planning-a-multipoint-services-deployment"></a>Planen einer MultiPoint Services-Bereitstellung
 Mithilfe von MultiPoint Services können mehrere Stationen mit einem einzigen Computer verbunden werden. Dann können mehrere Benutzer diesen Computer gleichzeitig gemeinsam verwenden. Jede Station besteht aus einem stationshub, einem Monitor, einer Tastatur und einer Maus. Multipoint Services beinhaltet die Multipoint-Manager-Anwendung, die Sie als Administrator bei der Überwachung und Verwaltung von Multipoint-Stationen unterstützt, sowie in der Multipoint-Dashboardanwendung, die alltägliche Verwaltungsfunktionen bereitstellt.   

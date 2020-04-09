@@ -1,24 +1,20 @@
 ---
 title: ntfrsutl
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d7721a19-5a87-4ab6-b816-65d2da2c811f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f1301b6876698e9eb552ae0ef9e70ed278319a7c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 14e718550247b8854073407146456d366d562d2b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372623"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837993"
 ---
 # <a name="ntfrsutl"></a>ntfrsutl
 
@@ -37,7 +33,7 @@ ntfrsutl [version][<computer>]
 ntfrsutl poll[/quickly[=[<N>]]][/slowly[=[<N>]]][/now][<computer>]  
 ```  
   
-### <a name="parameters"></a>Parameter  
+#### <a name="parameters"></a>Parameter  
   
 |  Parameter  |                                                                                                                                                                                                                                                                                                                                        Beschreibung                                                                                                                                                                                                                                                                                                                                         |
 |-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -46,16 +42,16 @@ ntfrsutl poll[/quickly[=[<N>]]][/slowly[=[<N>]]][/now][<computer>]
 |    inlog    |                                                                                                                                                                                                                                                                                                                                        Eingehendes Protokoll                                                                                                                                                                                                                                                                                                                                         |
 |   OUTLOG    |                                                                                                                                                                                                                                                                                                                                        Ausgeh Endes Protokoll                                                                                                                                                                                                                                                                                                                                        |
 | <computer>  |                                                                                                                                                                                                                                                                                                                                  Gibt den Computer an.                                                                                                                                                                                                                                                                                                                                   |
-|   memory    |                                                                                                                                                                                                                                                                                                                                        Speicherauslastung                                                                                                                                                                                                                                                                                                                                        |
+|   Memory    |                                                                                                                                                                                                                                                                                                                                        Speicherauslastung                                                                                                                                                                                                                                                                                                                                        |
 |   Threads   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|    Stufe    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|    Bühne    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |     DS      |                                                                                                                                                                                                                                                                                                                         Listet die Ansicht der DS des NTFRS-dienstanders auf.                                                                                                                                                                                                                                                                                                                          |
-|    sationen     |                                                                                                                                                                                                                                                                                                                             Gibt die aktiven Replikat Gruppen an                                                                                                                                                                                                                                                                                                                              |
+|    Mengen     |                                                                                                                                                                                                                                                                                                                             Gibt die aktiven Replikat Gruppen an                                                                                                                                                                                                                                                                                                                              |
 |   version   |                                                                                                                                                                                                                                                                                                                       Gibt die API-und NtFrs-Dienst Versionen an.                                                                                                                                                                                                                                                                                                                        |
-|    Umfrage     | Gibt die aktuellen Abruf Intervalle an.<br /><br />Parameter:<br /><br /><ul><li>**\/schnell**\[ **\=** \[ <N>\]\]\(\)<br /><br /><ul><li>**schnelles** \- schneller Abfragen, bis eine stabile Konfiguration wiederholt wird</li><li>**schnell\=** \- in jedem Standard Minuten schnell Abfragen.</li><li>**schnelles\=** <N> \- Abrufe schnell alle *N* Minuten</li></ul></li><li>**\/langsam**\[ **\=** \[ <N>\]\] \(langsam abfragt\)<br /><br /><ul><li>**langsam** \- Umfragen langsam, bis eine stabile Konfiguration abgerufen wird.</li><li>**langsam\=** \- werden alle Standard Minuten langsam abgerufen</li><li>**langsam\=** <N> \- alle *N* Minutenschnelle Abfragen</li></ul></li><li>jetzt **\/** \(jetzt abruft\)</li></ul> |
+|    Umfrage     | Gibt die aktuellen Abruf Intervalle an.<p>Parameter:<p><ul><li>**\/schnell**\[ **\=** \[ <N>\]\]\(\)<p><ul><li>**schnelles** \- schneller Abfragen, bis eine stabile Konfiguration wiederholt wird</li><li>**schnell\=** \- in jedem Standard Minuten schnell Abfragen.</li><li>**schnelles\=** <N> \- Abrufe schnell alle *N* Minuten</li></ul></li><li>**\/langsam**\[ **\=** \[ <N>\]\] \(langsam abfragt\)<p><ul><li>**langsam** \- Umfragen langsam, bis eine stabile Konfiguration abgerufen wird.</li><li>**langsam\=** \- werden alle Standard Minuten langsam abgerufen</li><li>**langsam\=** <N> \- alle *N* Minutenschnelle Abfragen</li></ul></li><li>jetzt **\/** \(jetzt abruft\)</li></ul> |
 |     \/?     |                                                                                                                                                                                                                                                                                                                            Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                                                                                                                                                            |
   
-## <a name="BKMK_Examples"></a>Beispiele  
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele  
 So bestimmen Sie das Abruf Intervall für die Datei Replikation:  
   
 ```  
@@ -70,7 +66,7 @@ C:\Program Files\SupportTools>ntfrsutl version
   
 ## <a name="additional-references"></a>Weitere Verweise  
   
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
   
   

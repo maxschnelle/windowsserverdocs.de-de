@@ -1,24 +1,20 @@
 ---
 title: MultiPoint-Stationen
 description: Erfahren Sie mehr über Stationen in Multipoint Services, einschließlich der verschiedenen Optionen für Benutzer.
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f9f9d618-ccfe-41ea-a52c-00c3c7adb51a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 7b8f757d552bf54cd7f4eed0783ba8e0062b9d30
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 3bcdd2d3f7492b29ecf92c59714f1d93b910c9b5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322802"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853423"
 ---
 # <a name="multipoint--stations"></a>Multipoint-Stationen
 In einer Multipoint Services-Systemumgebung sind *Stationen* die Benutzer Endpunkte zum Herstellen einer Verbindung mit dem Computer, auf dem Multipoint Services ausgeführt wird. Jede Station bietet dem Benutzer eine unabhängige Windows 10-Benutzeroberflächen. Die folgenden Stations Typen werden unterstützt:  
@@ -48,7 +44,7 @@ Der Computer, auf dem Multipoint Services ausgeführt wird, kann mehrere Videoka
   
 **Abbildung 1** Multipoint Services-System mit vier direkt mit einem Video verbundenen Stationen  
   
-### <a name="BKMK_PS2stations"></a>PS/2-Stationen  
+### <a name="ps2-stations"></a><a name="BKMK_PS2stations"></a>PS/2-Stationen  
 Mit Multipoint Services können Sie die PS/2-Tastatur und die Maus auf dem Motherboard einem direkt Video verbundenen Monitor zuordnen, um eine PS/2-Station zu erstellen. Eine hochauflösende, analoge Audiodatei auf der Hauptplatine ist das Audiomaterial, das mit dieser Art von Station verknüpft ist. Dies gilt nicht für Computer, bei denen keine PS/2-Jacks auf der Hauptplatine vorhanden sind.  
   
 ## <a name="usb-zero-client-connected-stations"></a>An einem USB-Client angeschlossene Stationen  
@@ -64,7 +60,7 @@ Das folgende Diagramm zeigt ein Multipoint-Server System mit einer primären Sta
 USB-over-Ethernet-Clients stellen eine Variation von USB-Clients dar, die USB-über-LAN an das Multipoint Services-System senden. Diese Typen von USB-Clients funktionieren ähnlich wie andere USB-Clients, sind aber nicht durch maximale Länge der USB-Kabellänge beschränkt. Bei USB-over-Ethernet-Clients handelt es sich nicht um herkömmliche Thin Clients, und Sie werden als virtuelle USB-Geräte im Multipoint Services-System angezeigt. Wenn Sie diese Geräte verwenden, finden Sie unter Gerätehersteller spezifische Empfehlungen zur Leistung und Website Planung. Die meisten Geräte verfügen über ein Drittanbieter-Plug-in für Multipoint Manager, mit dem Sie Geräte dem Multipoint Services-System zuordnen und verbinden können.  
   
 ## <a name="rdp-over-lan-connected-stations"></a>Verbundene RDP-over-LAN-Stationen  
-Thin Clients und herkömmliche Desktop-, Laptop-oder Tablet-Computer können eine Verbindung mit dem Computer herstellen, auf dem Multipoint Services über das lokale Netzwerk (Local Area Network, LAN) ausgeführt wird, indem Remotedesktopprotokoll (RDP) oder ein proprietäres Remotedesktopprotokoll Protokoll verwendet wird. Ab. RDP-Verbindungen bieten eine Endbenutzer Umgebung, die mit jeder anderen Multipoint-Station vergleichbar ist, aber die Hardware des lokalen Client Computers verwendet. Erfahren Sie mehr über unsere Remote Desktop-Anwendungen, die in [Remotedesktop-Clients](../remote-desktop-services/clients/remote-desktop-clients.md)für Android, Ios, Mac und Windows verfügbar sind. 
+Thin Clients und herkömmliche Desktop-, Laptop-oder Tablet Computer können eine Verbindung mit dem Computer herstellen, auf dem Multipoint Services über das lokale Netzwerk (Local Area Network, LAN) ausgeführt wird, indem Remotedesktopprotokoll (RDP) oder ein proprietäres Protokoll und der Remotedesktopprotokoll Anbieter verwendet werden. RDP-Verbindungen bieten eine Endbenutzer Umgebung, die mit jeder anderen Multipoint-Station vergleichbar ist, aber die Hardware des lokalen Client Computers verwendet. Erfahren Sie mehr über unsere Remote Desktop-Anwendungen, die in [Remotedesktop-Clients](../remote-desktop-services/clients/remote-desktop-clients.md)für Android, Ios, Mac und Windows verfügbar sind. 
   
 Clients und Geräte, auf denen Microsoft RemoteFX ausgeführt wird, können eine umfangreiche Multimediaumgebung bereitstellen, indem Sie die Prozessor-und Video Hardwarefunktionen des lokalen Thin Client oder des lokalen Computers nutzen, um Videos mit hoher Definition über das Netzwerk bereitzustellen.  
   
@@ -113,7 +109,7 @@ Nachdem eine Station aufgeteilt wurde, kann sich ein Benutzer an der linken Stat
   
 **Abbildung 4** Multipoint Services-System mit unterteilten Bildschirm Stationen  
   
-## <a name="BKMK_StationTypeComparison"></a>Stations Typvergleich  
+## <a name="station-type-comparison"></a><a name="BKMK_StationTypeComparison"></a>Stations Typvergleich  
   
 ||Direktes Video mit Verbindung|USB-Null-Client verbunden|RDP-over-LAN-Verbindung|  
 |-|--------------------------|-----------------------------|----------------------------|  

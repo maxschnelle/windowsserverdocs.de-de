@@ -1,24 +1,20 @@
 ---
 title: Speichern und Freigeben von Dateien auf einem USB-Flashlaufwerk
 description: Erfahren Sie, wie Sie in Multipoint Services auf einem USB-Speicherstick speichern.
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 51f6564e-a07f-4b13-8567-a5f080cc2e0d
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: ddbee49ae80e65f29dcdb3c3c4ad43c17a451ccf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e5eb73bdc630d375a19da5c42ed6ceb265eab2e4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389413"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855653"
 ---
 # <a name="save-and-share-files-on-a-usb-flash-drive"></a>Speichern und Freigeben von Dateien auf einem USB-Flashlaufwerk
 Zusätzlich zur Freigabe von Inhalten mithilfe von öffentlichen Ordnern in Windows-Explorer können Sie Inhalte auch über ein USB-Speichergerät, z. b. einen USB-Speicherstick oder ein Massen Speichergerät, freigeben. Wenn ein USB-Speichergerät direkt an den Hostcomputer oder einen USB-Hub, der nicht als Stationshub fungiert, angeschlossen wird, wird dieses Speichergerät für alle Benutzer – sowohl *Standardbenutzer* als auch *Administratoren* – im gesamten MultiPoint Services-System als Wechseldatenträger angezeigt.  
@@ -42,7 +38,7 @@ Sie können einen Wechseldatenträger auch verwenden, um private Dokumente im Wi
   
 Verbinden Sie den Wechseldatenträger mit einem freien USB-Anschluss des Stationshubs.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Schützen von Dateien](Keep-Files-Private.md)  
 [Freigeben von Dateien](Share-Files.md)  
 [Verwalten von Benutzerdateien](Manage-User-Files.md)

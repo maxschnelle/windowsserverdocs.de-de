@@ -1,34 +1,33 @@
 ---
-title: Leistungsverlauf für volumes
+title: Leistungs Verlauf für Volumes
 ms.author: cosdar
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 02/09/2018
-Keywords: Direkte Speicherplätze
 ms.localizationpriority: medium
-ms.openlocfilehash: fea1d3d67ab96d95b1699e8ac0129dba698477fe
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 5f6acf062d2dba7c2a1a04d8a3f7cb4d7bd51a4d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59882951"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856133"
 ---
-# <a name="performance-history-for-volumes"></a>Leistungsverlauf für volumes
+# <a name="performance-history-for-volumes"></a>Leistungs Verlauf für Volumes
 
-> Gilt für: Windows Server-Insider – Vorschau
+> Gilt für: Windows Server 2019
 
-Dieser Unterabschnitt von [– Leistungsverlauf für "direkte Speicherplätze"](performance-history.md) beschreibt ausführlich den Leistungsverlauf für Volumes erfasst. Leistungsverlauf für ist für jede freigegebenes Clustervolume (CSV) im Cluster verfügbar. Es ist jedoch nicht für das Betriebssystem verfügbar Volumes und alle anderen nicht-CSV-Speicher zu starten.
+In diesem Unterthema des [Leistungs Verlaufs für direkte Speicherplätze](performance-history.md) wird der für Volumes gesammelte Leistungs Verlauf ausführlich beschrieben. Der Leistungs Verlauf ist für alle freigegebenes Clustervolume (CSV) im Cluster verfügbar. Es ist jedoch nicht für Betriebssystem-Start Volumes und andere nicht-CSV-Speicher verfügbar.
 
    > [!NOTE]
-   > Es dauert einige Minuten, bis die Auflistung, die für die neu erstellte oder umbenannte Volumes zu beginnen.
+   > Es kann einige Minuten dauern, bis die Sammlung für neu erstellte oder umbenannte Volumes beginnt.
 
-## <a name="series-names-and-units"></a>Namen von Datenreihen und Einheiten
+## <a name="series-names-and-units"></a>Reihen Namen und Einheiten
 
-Dieser Reihe werden für jede geeignete Volume gesammelt:
+Diese Reihen werden für jedes berechtigte Volume erfasst:
 
-| Serie                    | Einheit             |
+| Reihe                    | Einheit             |
 |---------------------------|------------------|
 | `volume.iops.read`        | pro Sekunde       |
 | `volume.iops.write`       | pro Sekunde       |
@@ -42,54 +41,54 @@ Dieser Reihe werden für jede geeignete Volume gesammelt:
 | `volume.size.total`       | Bytes            |
 | `volume.size.available`   | Bytes            |
 
-## <a name="how-to-interpret"></a>Gewusst wie: interpretieren
+## <a name="how-to-interpret"></a>Interpretieren
 
-| Serie                    | Gewusst wie: interpretieren                                                              |
+| Reihe                    | Interpretieren                                                              |
 |---------------------------|-------------------------------------------------------------------------------|
-| `volume.iops.read`        | Die Anzahl der Lesevorgänge pro Sekunde, die von diesem Volume abgeschlossen.                |
-| `volume.iops.write`       | Die Anzahl der Schreibvorgänge pro Sekunde, die von diesem Volume abgeschlossen.               |
-| `volume.iops.total`       | Gesamtanzahl der Lese- oder Schreibvorgängen pro Sekunde, die von diesem Volume abgeschlossen. |
-| `volume.throughput.read`  | Die Menge der von diesem Volume pro Sekunde gelesenen Daten.                            |
-| `volume.throughput.write` | Die Menge der Daten, die auf diesem Volume pro Sekunde geschrieben.                           |
-| `volume.throughput.total` | Die Gesamtmenge der Daten gelesen oder geschrieben werden, auf dieses Volume pro Sekunde.        |
-| `volume.latency.read`     | Durchschnittliche Wartezeit für Lesevorgänge, die von diesem Volume.                          |
-| `volume.latency.write`    | Die durchschnittliche Wartezeit der Schreibvorgänge auf dieses Volume.                           |
-| `volume.latency.average`  | Die durchschnittliche Wartezeit für alle Vorgänge zu oder von diesem Volume.                     |
-| `volume.size.total`       | Die Gesamtspeicherkapazität des Volumes.                                     |
+| `volume.iops.read`        | Anzahl der Lesevorgänge pro Sekunde, die von diesem Volume abgeschlossen wurden.                |
+| `volume.iops.write`       | Anzahl der Schreibvorgänge pro Sekunde, die von diesem Volume abgeschlossen wurden.               |
+| `volume.iops.total`       | Die Gesamtanzahl der Lese-oder Schreibvorgänge pro Sekunde, die von diesem Volume abgeschlossen wurden. |
+| `volume.throughput.read`  | Menge der Daten, die von diesem Volume pro Sekunde gelesen werden.                            |
+| `volume.throughput.write` | Menge der Daten, die pro Sekunde auf dieses Volume geschrieben werden.                           |
+| `volume.throughput.total` | Die Gesamtmenge der Daten, die pro Sekunde von diesem Volume gelesen oder geschrieben wurden.        |
+| `volume.latency.read`     | Durchschnittliche Latenz von Lesevorgängen auf diesem Volume.                          |
+| `volume.latency.write`    | Durchschnittliche Latenz von Schreibvorgängen auf diesem Volume.                           |
+| `volume.latency.average`  | Die durchschnittliche Latenz aller Vorgänge in bzw. von diesem Volume.                     |
+| `volume.size.total`       | Die Gesamt Speicherkapazität des Volumes.                                     |
 | `volume.size.available`   | Die verfügbare Speicherkapazität des Volumes.                                 |
 
-## <a name="where-they-come-from"></a>Wo diese herkommen
+## <a name="where-they-come-from"></a>Woher Sie stammen
 
-Die `iops.*`, `throughput.*`, und `latency.*` Reihe werden gesammelt, aus der `Cluster CSVFS` Leistungsindikatorensatzes ein. Jeder Server im Cluster hat eine Instanz für jede CSV-Volume, unabhängig von den Besitz an. Der Leistungsverlauf für Volume aufgezeichnet `MyVolume` ist das Aggregat der `MyVolume` Instanzen auf jedem Server im Cluster.
+Die `iops.*`-, `throughput.*`-und `latency.*`-Reihe werden aus dem Leistungsdaten Satz `Cluster CSVFS` gesammelt. Jeder Server im Cluster verfügt unabhängig vom Besitz über eine-Instanz für jedes CSV-Volume. Der Leistungs Verlauf, der für Volume `MyVolume` aufgezeichnet wurde, ist das Aggregat der `MyVolume` Instanzen auf jedem Server im Cluster.
 
-| Serie                    | Source-Indikator         |
+| Reihe                    | Quellen Counter         |
 |---------------------------|------------------------|
 | `volume.iops.read`        | `Reads/sec`            |
 | `volume.iops.write`       | `Writes/sec`           |
-| `volume.iops.total`       | *Summe der oben genannten*     |
+| `volume.iops.total`       | *Summe der obigen*     |
 | `volume.throughput.read`  | `Read bytes/sec`       |
 | `volume.throughput.write` | `Write bytes/sec`      |
-| `volume.throughput.total` | *Summe der oben genannten*     |
+| `volume.throughput.total` | *Summe der obigen*     |
 | `volume.latency.read`     | `Avg. sec/Read`        |
 | `volume.latency.write`    | `Avg. sec/Write`       |
-| `volume.latency.average`  | *Durchschnitt der oben genannten* |
+| `volume.latency.average`  | *Mittelwert des obigen Werts* |
 
    > [!NOTE]
-   > Leistungsindikatoren werden anhand des gesamten Intervalls, nicht entnommen gemessen. Wenn das Volume im Leerlauf ist 9 Sekunden jedoch abgeschlossen hat z. B. 30 IOs im zweiten 10. die `volume.iops.total` aufgezeichnet werden als 3 IOs pro Sekunde durchschnittliche Intervall 10 Sekunden. Dadurch wird der Leistungsverlauf erfasst alle Aktivitäten und ist stabil, um Rauschen.
+   > Leistungsindikatoren werden über das gesamte Intervall gemessen, nicht als Stichprobe. Wenn sich das Volume z. b. 9 Sekunden lang im Leerlauf befindet, aber 30 IOS in der 10. Sekunde abgeschlossen ist, wird sein `volume.iops.total` im Durchschnitt in diesem 10-Sekunden-Intervall als 3 IOS pro Sekunde aufgezeichnet. Dadurch wird sichergestellt, dass der Leistungs Verlauf alle Aktivitäten erfasst und stabil ist.
 
    > [!TIP]
-   > Dies sind die Leistungsindikatoren von beliebten [VM Flotte](https://github.com/Microsoft/diskspd/blob/master/Frameworks/VMFleet/watch-cluster.ps1) Benchmark-Framework.
+   > Dabei handelt es sich um die gleichen Leistungsindikatoren, die vom gängigen [VM-Flotten](https://github.com/Microsoft/diskspd/blob/master/Frameworks/VMFleet/watch-cluster.ps1) Vergleichs Framework verwendet werden
 
-Die `size.*` Reihe werden gesammelt, aus der `MSFT_Volume` Klasse in WMI, eine Instanz pro Volume.
+Die `size.*` Reihe wird von der `MSFT_Volume`-Klasse in WMI, einer Instanz pro Volume, gesammelt.
 
-| Serie                    | Source-Eigenschaft |
+| Reihe                    | Source-Eigenschaft |
 |---------------------------|-----------------|
 | `volume.size.total`       | `Size`          |
 | `volume.size.available`   | `SizeRemaining` |
 
 ## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
-Verwenden der [Get-Volume](https://docs.microsoft.com/powershell/module/storage/get-volume) Cmdlet:
+Verwenden Sie das Cmdlet [Get-Volume](https://docs.microsoft.com/powershell/module/storage/get-volume) :
 
 ```PowerShell
 Get-Volume -FriendlyName <FriendlyName> | Get-ClusterPerf
@@ -97,4 +96,4 @@ Get-Volume -FriendlyName <FriendlyName> | Get-ClusterPerf
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Leistungsverlauf für "direkte Speicherplätze"](performance-history.md)
+- [Leistungs Verlauf für direkte Speicherplätze](performance-history.md)

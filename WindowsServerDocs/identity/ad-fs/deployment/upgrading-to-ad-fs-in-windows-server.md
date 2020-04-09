@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7671e0c9-faf0-40de-808a-62f54645f891
 title: Upgrade von ADFS in Windows Server 2016
-description: ''
 author: billmath
 manager: femila
 ms.date: 04/09/2018
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 913e45e52c5c6c137d2bf798bb5b86a65f9d1caa
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.openlocfilehash: 4c13a3ecbcc6ade1455c10dde5f6a89e0303e161
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517575"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857633"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Upgrade auf AD FS in Windows Server 2016 unter Verwendung einer WID-Datenbank
 
@@ -152,13 +151,13 @@ Dadurch wird das Upgrade der WAP-Server beendet.
 
 
 > [!NOTE] 
-> In AD FS 2019 ist ein bekanntes PRT-Problem aufgetreten, wenn Windows Hello for Business mit einer hybriden Zertifikat Vertrauensstellung ausgeführt wird. Dieser Fehler kann in den ADFS-Administrator Ereignisprotokollen auftreten: Ungültige OAuth-Anforderung empfangen. Der Client "Name" darf nicht auf die Ressource mit dem Bereich "UGS" zugreifen. So beheben Sie diesen Fehler: 
-> 1. Starten Sie AD FS Management Console. Brose zu "Dienste > Bereichs Beschreibungen"
-> 2. Klicken Sie mit der rechten Maustaste auf Bereichs Beschreibungen, und wählen Sie "Bereichs Beschreibung hinzufügen"
-> 3. Geben Sie unter Name den Namen UGS ein, und klicken Sie auf übernehmen > OK
-> 4. Starten Sie PowerShell als Administrator.
-> 5. Führen Sie den Befehl "Get-adfsapplicationberechtigung" aus. Suchen Sie nach den scopenames: {OpenID, Aza} mit dem clientroleidentifier. Notieren Sie sich den objectidentifier.
-> 6. Führen Sie den Befehl "Set-adfsapplication-Berechtigung-TargetIdentifier < objectidentifier aus Schritt 5 >-addscope ' UGS ' aus.
-> 7. Starten Sie den ADFS-Dienst neu.
-> 8. Auf dem Client: Starten Sie den Client neu. Der Benutzer sollte aufgefordert werden, whfb bereitzustellen.
-> 9. Wenn das Bereitstellungs Fenster nicht angezeigt wird, müssen Sie NGC-Ablauf Verfolgungs Protokolle erfassen und eine weitere Problembehandlung durchführen.
+> In AD FS 2019 ist ein bekanntes PRT-Problem aufgetreten, wenn Windows Hello for Business mit einer hybriden Zertifikat Vertrauensstellung ausgeführt wird. Dieser Fehler kann in den ADFS-Administrator Ereignisprotokollen auftreten: Ungültige OAuth-Anforderung empfangen. Dem Client „NAME“ ist der Zugriff auf die Ressource mit dem Bereich „ugs“ untersagt. So behebst du diesen Fehler 
+> 1. Starte die AD FS-Verwaltungskonsole. Navigiere zu „Dienste > Bereichsbeschreibungen“.
+> 2. Klicke mit der rechten Maustaste auf „Bereichsbeschreibungen“ und wähle „Bereichsbeschreibung hinzufügen“ aus.
+> 3. Gebe unter Name den Namen „ugs“ ein und klicke dann auf „Übernehmen“ > „OK“.
+> 4. Führe PowerShell als Administrator aus.
+> 5. Führe den Befehl „Get-AdfsApplicationPermission“ aus. Suche nach „ScopeNames :{openid, aza}“, die „ClientRoleIdentifier“ aufweisen. Notiere den „ObjectIdentifier“.
+> 6. Führe den Befehl „Set-AdfsApplicationPermission -TargetIdentifier <ObjectIdentifier aus Schritt 5> -AddScope 'ugs'“ aus.
+> 7. Starte den ADFS-Dienst neu.
+> 8. Auf dem Client: Starten Sie den Client neu. Der Benutzer sollte zur Bereitstellung von WHFB aufgefordert werden.
+> 9. Wenn das Bereitstellungsfenster nicht angezeigt wird, musst du Protokolle zur NGC-Nachverfolgung sammeln und eine weitere Problembehandlung durchführen.

@@ -1,7 +1,6 @@
 ---
 ms.assetid: f0464182-56a2-4bfa-a8c8-7e39c1bd62d3
 title: Verbundserverfarm mit WID und Proxys
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,19 +8,19 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6a123afaebba002b8ee4fb98d5cee5aded286a96
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 523e076ad9593f09ac2f9db5c45fa8c2e82f05bb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359132"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853103"
 ---
 # <a name="federation-server-farm-using-wid-and-proxies"></a>Verbundserverfarm mit WID und Proxys
 
 Diese Bereitstellungs Topologie für Active Directory-Verbunddienste (AD FS) \(AD FS\) ist mit der Verbund Serverfarm mit der internen Windows-Datenbank \(wid\) Topologie identisch, fügt jedoch dem Umkreis Netzwerk Proxy Computer zur Unterstützung externer Benutzer hinzu. Diese Proxys leiten Client Authentifizierungsanforderungen, die von außerhalb Ihres Unternehmensnetzwerks stammen, an die Verbund Serverfarm um. In früheren Versionen von AD FS wurden diese Proxys als Verbund Server Proxys bezeichnet.  
   
 > [!IMPORTANT]  
-> In Active Directory-Verbunddienste (AD FS) \(AD FS\) in Windows Server 2012 R2 wird die Rolle eines Verbund Server Proxys von einem neuen Remote Zugriffs-Rollen Dienst namens webanwendungsproxy behandelt. Um Ihre AD FS für den Zugriff von außerhalb des Unternehmensnetzwerks zu aktivieren. Dies war der Zweck der Bereitstellung eines Verbund Server Proxys in Legacy Versionen von AD FS, wie z. b. AD FS 2,0 und AD FS in Windows Server 2012, Sie können einen oder mehrere webanwendungsproxys für einen D FS in Windows Server 2012 R2.  
+> In Active Directory-Verbunddienste (AD FS) \(AD FS\) in Windows Server 2012 R2 wird die Rolle eines Verbund Server Proxys von einem neuen Remote Zugriffs-Rollen Dienst namens webanwendungsproxy behandelt. Um Ihre AD FS für den Zugriff von außerhalb des Unternehmensnetzwerks zu aktivieren. Dies war der Zweck der Bereitstellung eines Verbund Server Proxys in Legacy Versionen von AD FS, wie z. b. AD FS 2,0 und AD FS in Windows Server 2012, Sie können einen oder mehrere webanwendungsproxys für AD FS in Windows Server 2012 R2 bereitstellen.  
 >   
 > Im Kontext von AD FS fungiert der webanwendungsproxy als AD FS Verbund Server Proxy. Darüber hinaus bietet der Webanwendungsproxy Reverseproxyfunktionen für Webanwendungen in Ihrem Unternehmensnetzwerk, damit Benutzer außerhalb des Unternehmensnetzwerks von allen Geräten auf die Anwendungen zugreifen können. Weitere Informationen zum Webanwendungsproxy-Rollendienst finden Sie unter „Übersicht über den Webanwendungsproxy“.  
 >   
@@ -51,7 +50,7 @@ In diesem Abschnitt werden verschiedene Überlegungen zu den beabsichtigten Ziel
 
 ||1 \- 100 RP-Vertrauens Stellungen|Mehr als 100 RP-Vertrauens Stellungen 
 | ----- |-----| ------ |
-|1 \- 30 AD FS Knoten|Unterstützt wid|Nicht unterstützt mit wid \- SQL erforderlich 
+|1 \- 30 AD FS Knoten|Von WID unterstützt|Nicht unterstützt mit wid \- SQL erforderlich 
 |Mehr als 30 AD FS Knoten|Nicht unterstützt mit wid \- SQL erforderlich|Nicht unterstützt mit wid \- SQL erforderlich  
   
 ## <a name="server-placement-and-network-layout-recommendations"></a>Empfehlungen zur Server Platzierung und zum Netzwerk Layout  

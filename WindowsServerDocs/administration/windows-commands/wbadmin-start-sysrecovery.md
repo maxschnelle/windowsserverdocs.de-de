@@ -1,24 +1,20 @@
 ---
 title: WBADMIN-START SYSRECOVERY
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für Wbadmin start sysrecovery, das eine Systemwiederherstellung (Bare-Metal-Recovery) mit den von Ihnen angegebenen Parametern ausführt.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 95b8232f-7c42-452b-838e-15b0cf6faebe
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9c653fa52a2a56267d6f0df169f8f9924f2aa94d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4e0f1f79f35678b5c4a50022adf3413f3de217a7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362279"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829593"
 ---
 # <a name="wbadmin-start-sysrecovery"></a>WBADMIN-START SYSRECOVERY
 
@@ -47,7 +43,7 @@ wbadmin start sysrecovery
 [-quiet]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -60,7 +56,7 @@ wbadmin start sysrecovery
 |-skipbadclustercheck|Überspringt die Überprüfung der Wiederherstellungs Datenträger auf fehlerhafte Cluster Wenn Sie die Wiederherstellung auf einem alternativen Server oder auf einer anderen Hardware durchführen, wird empfohlen, diesen Parameter nicht zu verwenden. Sie können **chkdsk/b** jederzeit auf den Wiederherstellungs Datenträgern manuell ausführen, um Sie auf fehlerhafte Cluster zu überprüfen, und dann die Dateisystem Informationen entsprechend aktualisieren.</br>Warnung: bis Sie **chkdsk** wie beschrieben ausführen, sind die in Ihrem wiederhergestellten System gemeldeten fehlerhaften Cluster möglicherweise nicht korrekt.|
 |-quiet|Führt den Befehl ohne Aufforderungen an den Benutzer aus.|
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Geben Sie Folgendes ein, um mit der Wiederherstellung der Informationen aus der Sicherung zu beginnen, die am 31. März, 2013 um 9:00 Uhr, auf Laufwerk d: ausgeführt wurde:
 ```
@@ -71,8 +67,8 @@ Geben Sie Folgendes ein, um mit der Wiederherstellung der Informationen aus der 
 wbadmin start sysrecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   Cmdlet " [Get-wbbaremetalrecovery](https://technet.microsoft.com/library/jj902461.aspx) "

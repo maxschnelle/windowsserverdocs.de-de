@@ -1,28 +1,24 @@
 ---
 title: popd
 description: Erfahren Sie, wie Sie das Verzeichnis in das Verzeichnis ändern, das zuletzt vom Befehl pushd gespeichert wurde.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8a4c52d5-9fd1-4eac-9c0c-5767b25728ed
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 8a9e0a301a5f8b46e1907a4f43c5ed9247b85f77
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b66b5edd2fa068923650f578d13f30631a8602ad
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372228"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837473"
 ---
 # <a name="popd"></a>popd
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ändert das aktuelle Verzeichnis in das Verzeichnis, das zuletzt durch den Befehl **pushd** gespeichert wurde.
 Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
@@ -32,7 +28,7 @@ Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_
 popd
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
@@ -43,7 +39,7 @@ popd
     Mit dem Befehl **popd** können Sie das aktuelle Verzeichnis in das Verzeichnis ändern, das zuletzt vom Befehl **pushd** gespeichert wurde. Wenn Sie den **popd-** Befehl verwenden, wird das Verzeichnis am oberen Rand des Stapels aus dem Stapel entfernt, und das aktuelle Verzeichnis wird in dieses Verzeichnis geändert. Wenn Sie den Befehl " **popd** " erneut verwenden, wird das nächste Verzeichnis auf dem Stapel entfernt.
 -   Wenn Befehls Erweiterungen aktiviert sind, entfernt der **popd-** Befehl alle von **pushd**erstellten Laufwerksbuchstaben-Zuweisungen.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
 Im folgenden Beispiel wird gezeigt, wie Sie den Befehl **pushd** und den Befehl **popd** in einem Batch Programm verwenden können, um das aktuelle Verzeichnis von dem Verzeichnis zu ändern, in dem das Batch Programm ausgeführt wurde, und es dann wieder zurück zu ändern:
 
 ```
@@ -58,5 +54,5 @@ echo All text files deleted in the %1 directory
 
 ## <a name="additional-references"></a>Weitere Verweise
 -   [pushd](pushd.md)
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,24 +1,19 @@
 ---
 title: Grundlegendes zu Funktionen
 description: In diesem Thema wird das Konzept der Funktionen in System Insights definiert und die in Windows Server 2019 verfügbaren Standardfunktionen vorgestellt.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: system-insights
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.assetid: ''
 author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 6/05/2018
-ms.openlocfilehash: 131fbacaab97c1c2c42920a518ce96ba1b8f5d2b
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 9b0f043aab5773773785afc7fb48ba0295a76865
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465564"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858743"
 ---
 # <a name="understanding-capabilities"></a>Grundlegendes zu Funktionen
 
@@ -83,7 +78,7 @@ Jede Funktion analysiert tägliche Daten, um die zukünftige Nutzung zu prognost
  Prognose der CPU-Kapazität                | Prozessorzeit (%)  | Maximal 2 Stunden Durchschnitt pro Tag   
  Prognose zur Netzwerkkapazität         | Gesamtanzahl Bytes/Sek.         | Maximal 2 Stunden Durchschnitt pro Tag  
 
-Wenn Sie die oben beschriebene Filter Logik auswerten, ist es wichtig zu beachten, dass jede Funktion Administratoren informieren möchte, wenn die zukünftige Verwendung die verfügbare Kapazität überschreitet – obwohl CPU-Zeitüberschreitung eine Auslastung von 100% erreicht hat, CPU-Auslastung möglicherweise nicht verursachte Leistungsminderung oder Ressourcenkonflikte. Bei CPU-und Netzwerkverbindungen sollte die hohe Nutzung statt der momentanen Spitzen unterstützt werden. Eine Durchschnitts Auslastung der CPU-und Netzwerk Auslastung im ganzen Tag würde jedoch wichtige Verwendungs Informationen verlieren, weil eine hohe CPU-Auslastung oder Netzwerk Auslastung eine erhebliche Auswirkung auf die Leistung Ihrer kritischen Workloads haben könnte. Der maximale Wert von 2 Stunden pro Tag vermeidet diese extreme und erzeugt nach wie vor sinnvolle Daten für jede zu analysierende Funktion.
+Wenn Sie die oben beschriebene Filter Logik auswerten, ist es wichtig zu beachten, dass jede Funktion Administratoren informieren möchte, wenn die zukünftige Verwendung die verfügbare Kapazität überschreitet – auch wenn die CPU-Zeitüberschreitung eine Auslastung von 100% erreicht hat, kann die CPU-Auslastung nicht zu einer sinnvollen Leistungsminderung oder Ressourcenkonflikten führen. Bei CPU-und Netzwerkverbindungen sollte die hohe Nutzung statt der momentanen Spitzen unterstützt werden. Eine Durchschnitts Auslastung der CPU-und Netzwerk Auslastung im ganzen Tag würde jedoch wichtige Verwendungs Informationen verlieren, weil eine hohe CPU-Auslastung oder Netzwerk Auslastung eine erhebliche Auswirkung auf die Leistung Ihrer kritischen Workloads haben könnte. Der maximale Wert von 2 Stunden pro Tag vermeidet diese extreme und erzeugt nach wie vor sinnvolle Daten für jede zu analysierende Funktion.
 
 Bei der Volume-und Gesamtspeicher Auslastung kann die Speicherauslastung jedoch die verfügbare Kapazität nicht überschreiten, auch wenn dies nicht der Fall ist, sodass die maximale tägliche Nutzung für diese Funktionen verwendet wird. 
 

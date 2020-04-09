@@ -4,15 +4,15 @@ description: Überlegungen zur Speicher-e/a-Leistung bei der Hyper-V-Leistungsop
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Asmahi; SandySp; JoPoulso
+ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c5a7b667f24ee929a80010dc51508033f991ed5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 83b22c47cb23b02bb9984e03d78fcae93be1ca0a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370060"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851813"
 ---
 # <a name="hyper-v-storage-io-performance"></a>Hyper-V-Speicher-e/a-Leistung
 
@@ -234,7 +234,7 @@ Folgende Einschränkungen sind zu beachten:
 
 Weitere Informationen zu Speicher Quality of Service finden Sie unter [Storage Quality of Service für Hyper-V](https://technet.microsoft.com/library/dn282281.aspx).
 
-### <a name="numa-io"></a>NUMA-E/A
+### <a name="numa-io"></a>NUMA-e/a
 
 Windows Server 2012 und darüber hinaus unterstützen große virtuelle Computer, und jede große VM-Konfiguration (z. b. eine Konfiguration mit Microsoft SQL Server mit 64 virtuellen Prozessoren) benötigt auch Skalierbarkeit im Hinblick auf den e/a-Durchsatz.
 
@@ -244,7 +244,7 @@ Die folgenden wichtigen Verbesserungen, die zuerst in den Windows Server 2012-Sp
 
 -   Ein effizienterer e/a-Abschlussmechanismus zur Unterbrechung der Verteilung zwischen den virtuellen Prozessoren, um teure interprozessorunterbrechungen zu vermeiden.
 
-In Windows Server 2012 wurden einige Registrierungseinträge unter HKLM\\System\\CurrentControlSet\\Enum\\VMBus\\{Geräte-ID}\\{Instanz-ID}\\gefunden.Storchannel, mit dem die Anzahl der Kanäle angepasst werden kann. Außerdem richten Sie die virtuellen Prozessoren, die die e/a-Vervollständigung verarbeiten, an die virtuellen CPUs aus, die von der Anwendung als e/a-Prozessoren zugewiesen werden. Die Registrierungs Einstellungen werden auf Adapter Basis mit dem Hardwareschlüssel des Geräts konfiguriert.
+In Windows Server 2012 wurden einige Registrierungseinträge in HKLM\\System\\CurrentControlSet\\Enum\\VMBus\\{Geräte-ID}\\{Instanz-ID}\\storchannel gefunden, mit denen die Anzahl der Kanäle angepasst werden kann. Außerdem richten Sie die virtuellen Prozessoren, die die e/a-Vervollständigung verarbeiten, an die virtuellen CPUs aus, die von der Anwendung als e/a-Prozessoren zugewiesen werden. Die Registrierungs Einstellungen werden auf Adapter Basis mit dem Hardwareschlüssel des Geräts konfiguriert.
 
 -   **ChannelCount (DWORD)** Die Gesamtanzahl der zu verwendenden Kanäle mit maximal 16. Standardmäßig wird eine Obergrenze verwendet. Dies ist die Anzahl der virtuellen Prozessoren/16.
 
@@ -262,7 +262,7 @@ Hyper-V in Windows Server 2012 und höher unterstützt die Offload-Datenübertra
 
 Dateien für virtuelle Festplatten sind als Dateien auf einem Speicher Volume vorhanden, und Sie geben verfügbaren Speicherplatz für andere Dateien frei. Da die Größe dieser Dateien tendenziell groß ist, kann der von Ihnen belegte Speicherplatz schnell zunehmen. Der Bedarf an physischem Speicher wirkt sich auf das IT-Hardware Budget aus. Es ist wichtig, die Verwendung von physischem Speicher so weit wie möglich zu optimieren.
 
-Vor Windows Server 2012 hatte der Windows-Speicher Stapel im Gast Betriebssystem und auf dem Hyper-V-Host Einschränkungen, die dies verhindert haben, wenn Anwendungen Inhalte innerhalb einer virtuellen Festplatte löschen, wodurch der Speicherplatz des Inhalts tatsächlich abgebrochen wurde. Informationen über die Kommunikation mit der virtuellen Festplatte und dem physischen Speichergerät. Dies verhindert, dass der Hyper-V-Speicher Stapel die Speicherplatz Auslastung durch die VHD-basierten virtuellen Festplatten Dateien optimiert. Außerdem wurde das zugrunde liegende Speichergerät daran gehindert, den Speicherplatz freizugeben, der zuvor durch die gelöschten Daten belegt war.
+Vor Windows Server 2012 hatte der Windows-Speicher Stapel im Gast Betriebssystem und auf dem Hyper-V-Host Einschränkungen, wenn Anwendungen Inhalt auf einer virtuellen Festplatte löschen, wodurch der Speicherplatz des Inhalts tatsächlich abgebrochen wurde. Dies hat zur Folge, dass diese Informationen nicht an die virtuelle Festplatte und das physische Speichergerät übermittelt werden konnten. Dies verhindert, dass der Hyper-V-Speicher Stapel die Speicherplatz Auslastung durch die VHD-basierten virtuellen Festplatten Dateien optimiert. Außerdem wurde das zugrunde liegende Speichergerät daran gehindert, den Speicherplatz freizugeben, der zuvor durch die gelöschten Daten belegt war.
 
 Ab Windows Server 2012 unterstützt Hyper-V das Aufheben der Zuordnung von Benachrichtigungen, die es ermöglichen, dass vhdx-Dateien bei der Darstellung der darin enthaltenen Daten effizienter sind. Dies führt zu einer geringeren Größe von Dateien und ermöglicht dem zugrunde liegenden physischen Speichergerät, nicht verwendeten Speicherplatz freizugeben.
 

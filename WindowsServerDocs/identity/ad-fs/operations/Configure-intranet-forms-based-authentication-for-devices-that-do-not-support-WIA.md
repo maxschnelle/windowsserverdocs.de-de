@@ -1,7 +1,6 @@
 ---
 ms.assetid: d562ef46-f240-48be-bbd4-fd88fc6bbbdc
 title: Konfigurieren der Formular basierten intranetauthentifizierung für Geräte, die WIA nicht unterstützen
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,17 +8,17 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 09172b3fcfcedf0888205d099409647a6e077577
-ms.sourcegitcommit: b5c12007b4c8fdad56076d4827790a79686596af
+ms.openlocfilehash: 7db040d98317cee67e78493b2210f33279221aa9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78856354"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80817043"
 ---
 # <a name="configuring-intranet-forms-based-authentication-for-devices-that-do-not-support-wia"></a>Konfigurieren der Formular basierten intranetauthentifizierung für Geräte, die WIA nicht unterstützen
 
 
-Standardmäßig ist die integrierte Windows-Authentifizierung (WIA) in Active Directory-Verbunddienste (AD FS) (AD FS) in Windows Server 2012 R2 für Authentifizierungsanforderungen aktiviert, die im internen Netzwerk des Unternehmens (Intranet) für Anwendungen erfolgen, die eine Browser für die Authentifizierung. Dies können beispielsweise browserbasierte Anwendungen sein, die WS-Verbund-oder SAML-Protokolle und umfangreiche Anwendungen verwenden, die das OAuth-Protokoll verwenden. WIA bietet Endbenutzern eine nahtlose Anmeldung bei den Anwendungen, ohne dass Ihre Anmelde Informationen manuell eingegeben werden müssen. Allerdings sind einige Geräte und Browser nicht in der Lage, WIA zu unterstützen, und das Ergebnis ist, dass Authentifizierungsanforderungen von diesen Geräten fehlschlagen. Außerdem ist das Verhalten für bestimmte Browser, die in NTLM aushandeln, nicht wünschenswert. Die empfohlene Vorgehensweise ist ein Fall Back auf Formular basierte Authentifizierung für solche Geräte und Browser.
+Standardmäßig ist die integrierte Windows-Authentifizierung (WIA) in Active Directory-Verbunddienste (AD FS) (AD FS) in Windows Server 2012 R2 für Authentifizierungsanforderungen aktiviert, die im internen Netzwerk (Intranet) der Organisation für alle Anwendungen erfolgen, die einen Browser für die Authentifizierung verwenden. Dies können beispielsweise browserbasierte Anwendungen sein, die WS-Verbund-oder SAML-Protokolle und umfangreiche Anwendungen verwenden, die das OAuth-Protokoll verwenden. WIA bietet Endbenutzern eine nahtlose Anmeldung bei den Anwendungen, ohne dass Ihre Anmelde Informationen manuell eingegeben werden müssen. Allerdings sind einige Geräte und Browser nicht in der Lage, WIA zu unterstützen, und das Ergebnis ist, dass Authentifizierungsanforderungen von diesen Geräten fehlschlagen. Außerdem ist das Verhalten für bestimmte Browser, die in NTLM aushandeln, nicht wünschenswert. Die empfohlene Vorgehensweise ist ein Fall Back auf Formular basierte Authentifizierung für solche Geräte und Browser.
 
 AD FS in Windows Server 2016 und Windows Server 2012 R2 bietet Administratoren die Möglichkeit, die Liste der Benutzer-Agents zu konfigurieren, die den Fall Back auf Formular basierte Authentifizierung unterstützen. Der Fall Back wird durch zwei Konfigurationen ermöglicht:
 

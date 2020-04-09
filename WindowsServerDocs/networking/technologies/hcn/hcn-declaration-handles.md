@@ -1,15 +1,15 @@
 ---
 title: RPC-Kontexthandles für HCN
-description: ''
 ms.author: jmesser
 author: jmesser81
+ms.prod: windows-server
 ms.date: 11/05/2018
-ms.openlocfilehash: 0eb620fe52de5ee98a247e17ed73304b2325c7c8
-ms.sourcegitcommit: 213989f29cc0c30a39a78573bd4396128a59e729
+ms.openlocfilehash: d55a990b2158f8dfbc61d8e75e9b0606edc9bf7c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70031491"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859863"
 ---
 # <a name="rpc-context-handles-for-hcn"></a>RPC-Kontexthandles für HCN
 
@@ -18,9 +18,9 @@ ms.locfileid: "70031491"
 
 ## <a name="hcn_network"></a>HCN_Network
 
-Ein HCN-Netzwerk ist eine Entität, die zur Darstellung eines hostcomputenetzwerks und der zugehörigen Systemressourcen und Richtlinien verwendet wird. Ein HCN-Netzwerk besteht z. b. in der Regel aus einem Satz von Metadaten (z. b. ID, Name, Typ), einem virtuellen Switch, einem virtuellen Host Netzwerkadapter (der als Standard Gateway für das Netzwerk fungiert), einer NAT-Instanz (falls vom Netzwerktyp benötigt), einer Gruppe von Subnetz-und Mac-Pools. und alle Netzwerk weiten Richtlinien, die angewendet werden sollen (z. b. ACLs).
+Ein HCN-Netzwerk ist eine Entität, die zur Darstellung eines hostcomputenetzwerks und der zugehörigen Systemressourcen und Richtlinien verwendet wird. Beispielsweise besteht ein HCN-Netzwerk in der Regel aus einem Satz von Metadaten (z. b. ID, Name, Typ), ein virtueller Switch, ein virtueller Netzwerkadapter für den Host (der als Standard Gateway für das Netzwerk fungiert), eine NAT-Instanz (falls vom Netzwerktyp benötigt), eine Gruppe von Subnetz-und Mac-Pools und alle anzuwendenden Netzwerk weiten Richtlinien (z. b. ACLs).
 
-HCN-Netzwerk Entitäten werden mithilfe von HCN_NETWORK-RPC-Kontext Handles dargestellt.
+HCN-Netzwerk Entitäten werden mithilfe HCN_NETWORK RPC-Kontext Handles dargestellt.
 
 ```
 
@@ -152,7 +152,7 @@ HcnCloseNetwork(
 ## <a name="hcn_endpoint"></a>HCN_Endpoint
 
 Ein HCN-Endpunkt ist eine Entität, die zur Darstellung eines IP-Endpunkts in einem HCN-Netzwerk und der zugehörigen Systemressourcen und Richtlinien verwendet wird. Beispielsweise besteht ein HCN-Endpunkt in der Regel aus einem Satz von Metadaten (z. b. ID, Name, übergeordnete Netzwerk-ID), seiner Netzwerk Identität (z. b. IP-Adresse, Mac-Adresse) und sämtlicher Endpunkt spezifischer Richtlinien, die angewendet werden sollen (z. b. ACLs, Routen).
-HCN-Endpunkt Entitäten werden mithilfe von HCN_ENDPOINT-RPC-Kontext Handles dargestellt.
+HCN-Endpunkt Entitäten werden mithilfe HCN_ENDPOINT RPC-Kontext Handles dargestellt.
 
 ```
 
@@ -287,7 +287,7 @@ HcnCloseEndpoint(
 
 Ein HCN-Namespace ist eine Entität, die zur Darstellung eines hostcompute-Netzwerk Namespace verwendet wird. Mit Namespaces können isolierte Netzwerkumgebungen auf einem einzelnen Host vorhanden sein, wobei jeder Namespace über eigene Netzwerkschnittstellen und Routing Tabellen verfügt, die von anderen Namespaces getrennt sind.
 
-HCN-Namespace-Entitäten werden mit HCN_NAMESPACE-RPC-Kontext Handles dargestellt.
+HCN-Namespace Entitäten werden mithilfe HCN_NAMESPACE RPC-Kontext Handles dargestellt.
 
 ```
 /// Handle to an operation
@@ -422,7 +422,7 @@ HcnCloseNamespace(
 ## <a name="hcn_loadbalancer"></a>HCN_LoadBalancer
 
 Ein HCN-LoadBalancer ist eine Entität, die zur Darstellung eines hostcompute-Netzwerk-Loadbalancers verwendet wird. LoadBalancer ermöglichen das Hosten von Compute-Netzwerk Endpunkten mit Lastenausgleich.
-HCN-LoadBalancer-Entitäten werden mit HCN_LOADBALANCER-RPC-Kontext Handles dargestellt.
+HCN-LoadBalancer-Entitäten werden mithilfe HCN_LOADBALANCER RPC-Kontext Handles dargestellt.
 
 ```
 /// Handle to an operation

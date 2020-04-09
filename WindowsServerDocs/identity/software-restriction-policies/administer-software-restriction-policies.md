@@ -1,24 +1,20 @@
 ---
 title: Verwalten der Richtlinien für Softwareeinschränkung
 description: Windows Server-Sicherheit
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-software-restriction-policies
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8cc22093-67d1-47b6-9ddd-4569b6761ce9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: c75c7813041870f79ed95250857a5c7d1576c7dc
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 88e745b6951ab27f22cc412ee63f792d30775d14
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322982"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855113"
 ---
 # <a name="administer-software-restriction-policies"></a>Verwalten der Richtlinien für Softwareeinschränkung
 
@@ -53,7 +49,7 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 
 -   [Verwenden von Richtlinien für Software Einschränkung zum Schutz Ihres Computers vor einem e-Mail-Virus](use-software-restriction-policies-to-help-protect-your-computer-against-an-email-virus.md)
 
-## <a name="BKMK_Open_SRP"></a>So öffnen Sie Richtlinien für Software Einschränkung
+## <a name="to-open-software-restriction-policies"></a><a name="BKMK_Open_SRP"></a>So öffnen Sie Richtlinien für Software Einschränkung
 
 -   [Für den lokalen Computer](#BKMK_1)
 
@@ -63,7 +59,7 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 
 -   [Für einen-Standort und Sie befinden sich auf einem Domänen Controller oder auf einer Arbeitsstation, auf der die-Remoteserver-Verwaltungstools installiert ist.](#BKMK_4)
 
-### <a name="BKMK_1"></a>Für den lokalen Computer
+### <a name="for-your-local-computer"></a><a name="BKMK_1"></a>Für den lokalen Computer
 
 1.  Öffnen Sie %%amp;quot;Lokale Sicherheitseinstellungen%%amp;quot;.
 
@@ -76,7 +72,7 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 > [!NOTE]
 > Um die folgenden Schritte durchführen zu können, müssen Sie als Mitglied der Gruppe „Administratoren“ auf dem lokalen Computer angemeldet sein, oder Ihnen müssen die entsprechenden Rechte übertragen worden sein.
 
-### <a name="BKMK_2"></a>Für eine Domäne, Site oder Organisationseinheit, und Sie befinden sich auf einem Mitglieds Server oder einer Arbeitsstation, die mit einer Domäne verknüpft ist
+### <a name="for-a-domain-site-or-organizational-unit-and-you-are-on-a-member-server-or-on-a-workstation-that-is-joined-to-a-domain"></a><a name="BKMK_2"></a>Für eine Domäne, Site oder Organisationseinheit, und Sie befinden sich auf einem Mitglieds Server oder einer Arbeitsstation, die mit einer Domäne verknüpft ist
 
 1.  Öffnen Sie die Microsoft Management Console (MMC).
 
@@ -101,7 +97,7 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 > [!NOTE]
 > Um dieses Verfahren auszuführen, müssen Sie Mitglied der Gruppe "Domänen-Admins" sein.
 
-### <a name="BKMK_3"></a>Für eine Domäne oder Organisationseinheit, und Sie befinden sich auf einem Domänen Controller oder einer Arbeitsstation, auf der die Remoteserver-Verwaltungstools installiert ist.
+### <a name="for-a-domain-or-organizational-unit-and-you-are-on-a-domain-controller-or-on-a-workstation-that-has-the-remote-server-administration-tools-installed"></a><a name="BKMK_3"></a>Für eine Domäne oder Organisationseinheit, und Sie befinden sich auf einem Domänen Controller oder einer Arbeitsstation, auf der die Remoteserver-Verwaltungstools installiert ist.
 
 1.  Öffnen Sie Gruppenrichtlinien-Verwaltungskonsole.
 
@@ -120,7 +116,7 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 > [!NOTE]
 > Um dieses Verfahren auszuführen, müssen Sie Mitglied der Gruppe "Domänen-Admins" sein.
 
-### <a name="BKMK_4"></a>Für einen-Standort und Sie befinden sich auf einem Domänen Controller oder auf einer Arbeitsstation, auf der die-Remoteserver-Verwaltungstools installiert ist.
+### <a name="for-a-site-and-you-are-on-a-domain-controller-or-on-a-workstation-that-has-the-remote-server-administration-tools-installed"></a><a name="BKMK_4"></a>Für einen-Standort und Sie befinden sich auf einem Domänen Controller oder auf einer Arbeitsstation, auf der die-Remoteserver-Verwaltungstools installiert ist.
 
 1.  Öffnen Sie Gruppenrichtlinien-Verwaltungskonsole.
 
@@ -145,7 +141,7 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 > -   Wenn Sie Richtlinien Einstellungen festlegen möchten, die auf Computer angewendet werden, klicken Sie auf **Computerkonfiguration**, unabhängig davon, welche Benutzer sich bei Ihnen anmelden.
 > -   Um Richtlinien Einstellungen festzulegen, die auf Benutzer angewendet werden, und zwar unabhängig davon, auf welchem Computer Sie sich anmelden, klicken Sie auf **Benutzerkonfiguration**.
 
-## <a name="BKMK_Create_SRP"></a>So erstellen Sie neue Richtlinien für Software Einschränkung
+## <a name="to-create-new-software-restriction-policies"></a><a name="BKMK_Create_SRP"></a>So erstellen Sie neue Richtlinien für Software Einschränkung
 
 1.  Öffnen Sie %%amp;quot;Richtlinien für Softwareeinschränkung%%amp;quot;.
 
@@ -158,7 +154,7 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 >     -   Wenn Sie neue Softwareeinschränkungsrichtlinien für einen Computer erstellen, der einer Domäne angehört, kann dieses Verfahren von Mitgliedern der Gruppe %%amp;quot;Domänen-Admins%%amp;quot; ausgeführt werden.
 > -   Falls für ein Gruppenrichtlinienobjekt (Group Policy Object, GPO) bereits Softwareeinschränkungsrichtlinien erstellt wurden, wird der Befehl **Neue Richtlinien für Softwareeinschränkung erstellen** im Menü **Aktion** nicht angezeigt. Klicken Sie zum Löschen der auf ein Gruppenrichtlinienobjekt angewendeten Softwareeinschränkungsrichtlinien in der Konsolenstruktur mit der rechten Maustaste auf **Richtlinien für Softwareeinschränkung**, und klicken Sie anschließend auf **Richtlinien für Softwareeinschränkungen löschen**. Wenn Sie Software Einschränkungs Richtlinien für ein GPO löschen, löschen Sie auch alle Regeln für Software Einschränkungs Richtlinien für dieses Gruppenrichtlinien Objekt. Nach dem Löschen der Softwareeinschränkungsrichtlinien können Sie neue Softwareeinschränkungsrichtlinien für das Gruppenrichtlinienobjekt erstellen.
 
-## <a name="BKMK_Add_Del"></a>So können Sie einen bestimmten Dateityp hinzufügen oder löschen
+## <a name="to-add-or-delete-a-designated-file-type"></a><a name="BKMK_Add_Del"></a>So können Sie einen bestimmten Dateityp hinzufügen oder löschen
 
 1.  Öffnen Sie %%amp;quot;Richtlinien für Softwareeinschränkung%%amp;quot;.
 
@@ -178,7 +174,7 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 > -   Möglicherweise muss eine neue Softwareeinschränkungsrichtlinien-Einstellung für das Gruppenrichtlinienobjekt erstellt werden, sofern noch nicht geschehen.
 > -   Die Liste der vorgesehenen Dateitypen wird von allen Regeln für die Computer Konfiguration und die Benutzerkonfiguration für ein Gruppenrichtlinien Objekt gemeinsam verwendet.
 
-## <a name="BKMK_Prevent_Admin"></a>So verhindern Sie, dass Software Einschränkungs Richtlinien auf lokale Administratoren angewendet werden
+## <a name="to-prevent-software-restriction-policies-from-applying-to-local-administrators"></a><a name="BKMK_Prevent_Admin"></a>So verhindern Sie, dass Software Einschränkungs Richtlinien auf lokale Administratoren angewendet werden
 
 1.  Öffnen Sie %%amp;quot;Richtlinien für Softwareeinschränkung%%amp;quot;.
 
@@ -192,7 +188,7 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 > -   Falls Benutzer in Ihrer Organisation in der Regel Mitglied der lokalen Gruppe %%amp;quot;Administratoren%%amp;quot; auf ihren Computern sind, möchten Sie diese Option möglicherweise nicht aktivieren.
 > -   Wenn Sie eine Softwareeinschränkungsrichtlinien-Einstellung für den lokalen Computer festlegen, verhindern Sie mithilfe dieses Verfahrens, dass Softwareeinschränkungsrichtlinien auf lokale Administratoren angewendet werden. Wenn Sie eine Software Einschränkungs Richtlinien Einstellung für Ihr Netzwerk definieren, Filtern Sie die Benutzerrichtlinien Einstellungen basierend auf der Mitgliedschaft in Sicherheitsgruppen über Gruppenrichtlinie.
 
-## <a name="BKMK_Sec_Lvl"></a>So ändern Sie die Standard Sicherheitsstufe von Software Einschränkungs Richtlinien
+## <a name="to-change-the-default-security-level-of-software-restriction-policies"></a><a name="BKMK_Sec_Lvl"></a>So ändern Sie die Standard Sicherheitsstufe von Software Einschränkungs Richtlinien
 
 1.  Öffnen Sie %%amp;quot;Richtlinien für Softwareeinschränkung%%amp;quot;.
 
@@ -210,7 +206,7 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 > -   Regeln für Software Einschränkungs Richtlinien werden erstellt, um Ausnahmen für die Standard Sicherheitsstufe anzugeben. Wenn als Standardsicherheitsstufe **Nicht eingeschränkt** festgelegt ist, kann mit Regeln Software angegeben werden, die nicht ausgeführt werden darf. Wenn als Standardsicherheitsstufe **Nicht erlaubt** festgelegt ist, kann mit Regeln Software angegeben werden, die ausgeführt werden darf.
 > -   Bei der Installation wird die Standardsicherheitsstufe der Softwareeinschränkungsrichtlinien für alle Dateien im System auf **Nicht eingeschränkt** festgelegt.
 
-## <a name="BKMK_Apply_SRP_DLLs"></a>So wenden Sie Richtlinien für Software Einschränkung auf DLLs an
+## <a name="to-apply-software-restriction-policies-to-dlls"></a><a name="BKMK_Apply_SRP_DLLs"></a>So wenden Sie Richtlinien für Software Einschränkung auf DLLs an
 
 1.  Öffnen Sie %%amp;quot;Richtlinien für Softwareeinschränkung%%amp;quot;.
 

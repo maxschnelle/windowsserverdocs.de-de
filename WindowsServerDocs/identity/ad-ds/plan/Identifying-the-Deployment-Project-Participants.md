@@ -1,7 +1,6 @@
 ---
 ms.assetid: 50bd2566-e03c-4884-b5c4-895c8aab80aa
 title: Bestimmen der Teilnehmer am Bereitstellungsprojekt
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: bb5ded466a45061649585a747be74adcdc1148cc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 516c37165952e46c8e6e76499909e90851e305ce
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408774"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822313"
 ---
 # <a name="identifying-the-deployment-project-participants"></a>Bestimmen der Teilnehmer am Bereitstellungsprojekt
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Der erste Schritt beim Einrichten eines Bereitstellungs Projekts für Active Directory-Domäne-Dienst (AD DS) besteht darin, die Entwurfs-und Bereitstellungs Projektteams einzurichten, die für die Verwaltung der Entwurfsphase und der Bereitstellungs Phase des Active Directory Projektzyklen zuständig sind. Außerdem müssen Sie die Einzelpersonen und Gruppen ermitteln, die für das besitzende und das Verwalten des Verzeichnisses zuständig sind, nachdem die Bereitstellung abgeschlossen ist.  
   
@@ -28,10 +27,10 @@ Der erste Schritt beim Einrichten eines Bereitstellungs Projekts für Active Dir
   
 -   [Projektteams werden aufgebaut](#BKMK_3)  
   
-## <a name="BKMK_1"></a>Definieren von projektspezifischen Rollen  
+## <a name="defining-project-specific-roles"></a><a name="BKMK_1"></a>Definieren von projektspezifischen Rollen  
 Ein wichtiger Schritt beim Einrichten der Projektteams besteht darin, die Personen zu identifizieren, die projektspezifische Rollen enthalten sollen. Hierzu gehören der Executive-Sponsor, der Projekt Architekt und der Projektmanager. Diese Personen sind verantwortlich für die Ausführung des Active Directory Bereitstellungs Projekts.  
   
-Nachdem Sie den Projektarchitekten und den Projektmanager bestellt haben, richten diese Personen Kanäle der Kommunikation innerhalb der Organisation ein, erstellen Projekt Zeitpläne und identifizieren die Personen, die Mitglieder der Projektteams werden, beginnend mit dem verschiedene Besitzer.  
+Nachdem Sie den Projektarchitekten und den Projektmanager bestellt haben, richten diese Personen Kanäle der Kommunikation innerhalb der Organisation ein, erstellen Projekt Zeitpläne und identifizieren die Personen, die Mitglieder der Projektteams werden, beginnend mit den verschiedenen Besitzern.  
   
 ### <a name="executive-sponsor"></a>Executive-Sponsor  
 Das Bereitstellen einer Infrastruktur, wie z. b. AD DS, kann eine große Auswirkung auf eine Organisation haben. Aus diesem Grund ist es wichtig, dass Sie einen Führungskräfte haben, der den Geschäftswert der Bereitstellung versteht, das Projekt auf der Führungsebene unterstützt und Konflikte im gesamten Unternehmen lösen kann.  
@@ -71,7 +70,7 @@ Der Projektmanager ermöglicht die Zusammenarbeit über Unternehmenseinheiten hi
   
 -   Einrichten und Verwalten der Kommunikation mit dem Executive-Sponsor im gesamten Bereitstellungs Projekt  
   
-## <a name="BKMK_2"></a>Einrichten von Besitzern und Administratoren  
+## <a name="establishing-owners-and-administrators"></a><a name="BKMK_2"></a>Einrichten von Besitzern und Administratoren  
 In einem Active Directory Bereitstellungs Projekt sind Personen, die Besitzer sind, für die Verwaltung verantwortlich, um sicherzustellen, dass die Bereitstellungs Aufgaben abgeschlossen sind und dass Active Directory Entwurfs Spezifikationen die Anforderungen der Organisation erfüllen. Besitzer haben nicht unbedingt Zugriff auf die Verzeichnis Infrastruktur und müssen diese direkt bearbeiten. Administratoren sind die Personen, die für die Ausführung der erforderlichen Bereitstellungs Aufgaben zuständig sind. Administratoren verfügen über den Netzwerk Zugriff und die erforderlichen Berechtigungen, um das Verzeichnis und seine Infrastruktur zu bearbeiten.  
   
 Die Rolle des Besitzers ist "strategisch" und "Manager". Besitzer sind verantwortlich für die Kommunikation mit Administratoren über die Aufgaben, die für die Implementierung des Active Directory Entwurfs erforderlich sind, wie z. b. das Erstellen neuer Domänen Controller innerhalb der Gesamtstruktur. Die Administratoren sind für die Implementierung des Entwurfs im Netzwerk gemäß den Entwurfs Spezifikationen verantwortlich.  
@@ -85,10 +84,10 @@ Die tägliche Verwaltung von AD DS umfasst zwei Arten von Besitzern:
   
 -   Daten Besitzer, die für die Wartung der im Verzeichnis gespeicherten Informationen verantwortlich sind. Dies umfasst die Verwaltung von Benutzer-und Computer Konten und die Verwaltung lokaler Ressourcen wie Mitglieds Server und Arbeitsstationen.  
   
-Es ist wichtig, den Active Directory Dienst und die Daten Besitzer frühzeitig zu identifizieren, damit Sie an einem möglichst großen Teil des Entwurfsprozesses teilnehmen können. Da der Dienst und die Daten Besitzer für die langfristige Verwaltung des Verzeichnisses nach Abschluss des Bereitstellungs Projekts verantwortlich sind, ist es wichtig, dass diese Personen Eingaben bezüglich der Organisations Anforderungen bereitstellen und mit der Art und Weise vertraut sind, wie und warum bestimmte Entwurfsentscheidungen werden getroffen. Zu den Dienst Besitzern gehören der Gesamtstruktur Besitzer, der Besitzer des Active Directory-Domäne Naming Systems (DNS) und der Besitzer der Standort Topologie. Zu den Daten Besitzern gehören Organisations Einheits Besitzer.  
+Es ist wichtig, den Active Directory Dienst und die Daten Besitzer frühzeitig zu identifizieren, damit Sie an einem möglichst großen Teil des Entwurfsprozesses teilnehmen können. Da der Dienst und die Daten Besitzer für die langfristige Verwaltung des Verzeichnisses nach Abschluss des Bereitstellungs Projekts verantwortlich sind, ist es wichtig, dass diese Personen Eingaben bezüglich der Organisations Anforderungen bereitstellen und sich mit der Art und Weise vertraut machen, warum bestimmte Entwurfsentscheidungen getroffen werden. Zu den Dienst Besitzern gehören der Gesamtstruktur Besitzer, der Besitzer des Active Directory-Domäne Naming Systems (DNS) und der Besitzer der Standort Topologie. Zu den Daten Besitzern gehören Organisations Einheits Besitzer.  
   
 ### <a name="service-and-data-administrators"></a>Dienst-und Daten Administratoren  
-Der Vorgang AD DS umfasst zwei Arten von Administratoren: Dienst Administratoren und Daten Administratoren. Dienst Administratoren implementieren Richtlinien Entscheidungen, die von Dienst Besitzern getroffen werden, und behandeln die alltäglichen Aufgaben, die mit der Verwaltung des Verzeichnis Dienstanbieter und der Infrastruktur verknüpft sind. Dies umfasst die Verwaltung der Domänen Controller, auf denen der Verzeichnisdienst gehostet wird, die Verwaltung anderer Netzwerkdienste, wie z. b. DNS, die für AD DS erforderlich sind, das Steuern der Konfiguration von Gesamtstruktur weiten Einstellungen und das sicherstellen, dass das Verzeichnis immer frei.  
+Der Vorgang AD DS umfasst zwei Arten von Administratoren: Dienst Administratoren und Daten Administratoren. Dienst Administratoren implementieren Richtlinien Entscheidungen, die von Dienst Besitzern getroffen werden, und behandeln die alltäglichen Aufgaben, die mit der Verwaltung des Verzeichnis Dienstanbieter und der Infrastruktur verknüpft sind. Dies umfasst die Verwaltung der Domänen Controller, auf denen der Verzeichnisdienst gehostet wird, die Verwaltung anderer Netzwerkdienste, wie z. b. DNS, die für AD DS erforderlich sind, das Steuern der Konfiguration von Gesamtstruktur weiten Einstellungen und das sicherstellen, dass das Verzeichnis immer verfügbar ist.  
   
 Dienst Administratoren sind auch für die Ausführung laufender Active Directory Bereitstellungs Aufgaben verantwortlich, die nach Abschluss des anfänglichen Windows Server 2008 Active Directory Bereitstellungs Vorgangs erforderlich sind. Wenn beispielsweise das Verzeichnis zunimmt, werden Dienst Administratoren zusätzliche Domänen Controller erstellen und Vertrauens Stellungen zwischen Domänen nach Bedarf einrichten oder entfernen. Aus diesem Grund muss das Active Directory Bereitstellungs teamdienst Administratoren einschließen.  
   
@@ -96,7 +95,7 @@ Sie müssen darauf achten, dass Sie Dienst Administrator Rollen nur vertrauensw�
   
 Daten Administratoren sind Benutzer innerhalb einer Domäne, die sowohl für die Verwaltung von Daten, die in AD DS gespeichert sind, wie z. b. Benutzer-und Gruppenkonten, als auch für die Verwaltung von Computern, die Mitglieder Ihrer Domäne sind. Daten Administratoren steuern Teilmengen von Objekten im Verzeichnis und haben keine Kontrolle über die Installation oder Konfiguration des Verzeichnis Dienstanbieter.  
   
-Daten Administrator Konten werden standardmäßig nicht bereitgestellt. Nachdem das Entwurfs Team festgelegt hat, wie Ressourcen für die Organisation verwaltet werden sollen, müssen Domänen Besitzer Daten Administrator Konten erstellen und Ihnen basierend auf dem Satz von Objekten, für die die Administratoren verantwortlich sein müssen, die entsprechenden Berechtigungen delegieren. .  
+Daten Administrator Konten werden standardmäßig nicht bereitgestellt. Nachdem das Entwurfs Team festgelegt hat, wie Ressourcen für die Organisation verwaltet werden sollen, müssen Domänen Besitzer Daten Administrator Konten erstellen und Ihnen basierend auf dem Satz von Objekten, für die die Administratoren verantwortlich sein müssen, die entsprechenden Berechtigungen delegieren.  
   
 Es empfiehlt sich, die Anzahl von Dienst Administratoren in Ihrer Organisation auf die Mindestanzahl zu beschränken, um sicherzustellen, dass die Infrastruktur weiterhin funktionsfähig ist. Die meisten Verwaltungsaufgaben können von Daten Administratoren ausgeführt werden. Dienst Administratoren benötigen eine viel größere Qualifikation, da Sie für die Verwaltung des Verzeichnisses und der Infrastruktur, die es unterstützt, verantwortlich sind. Daten Administratoren benötigen nur die erforderlichen Kenntnisse, um ihren Teil des Verzeichnisses zu verwalten. Das Aufteilen von Arbeits Zuweisungen auf diese Weise führt zu Kosteneinsparungen für das Unternehmen, da nur eine kleine Anzahl von Administratoren trainiert werden muss, um das gesamte Verzeichnis und seine Infrastruktur zu betreiben und zu verwalten.  
   
@@ -107,7 +106,7 @@ Das Bereitstellen von AD DS erfordert Koordination und Kommunikation zwischen vi
 Nachdem das Bereitstellungs Projekt fertiggestellt wurde, sind diese Dienst-und Daten Besitzer weiterhin für den Teil der Infrastruktur verantwortlich, der von Ihrer Gruppe verwaltet wird. In einer Active Directory Umgebung sind diese Besitzer der Gesamtstruktur Besitzer, der DNS für AD DS Besitzer, der Standort topologiebesitzer und der Besitzer der Organisationseinheit. Die Rollen dieser Dienst-und Daten Besitzer werden in den folgenden Abschnitten erläutert.  
   
 #### <a name="forest-owner"></a>Gesamtstruktur Besitzer  
-Beim Gesamtstruktur Besitzer handelt es sich in der Regel um einen leitenden Informationstechnologie-Manager in der Organisation, der für den Active Directory Bereitstellungs Prozess verantwortlich ist und der letztendlich für die Aufrechterhaltung der Dienst Bereitstellung innerhalb der Gesamtstruktur verantwortlich ist. die Bereitstellung ist fertiggestellt. Der Gesamtstruktur Besitzer weist Personen zu, die anderen Besitz Rollen zu füllen, indem er wichtige Mitarbeiter innerhalb der Organisation identifiziert, die die erforderlichen Informationen zur Netzwerkinfrastruktur und zu administrativen Anforderungen einbringen können. Der Gesamtstruktur Besitzer ist für Folgendes zuständig:  
+Der Gesamtstruktur Besitzer ist in der Regel ein leitender Informationstechnologie-Manager in der Organisation, der für den Active Directory Bereitstellungs Prozess verantwortlich ist und der letztendlich für die Aufrechterhaltung der Dienst Bereitstellung innerhalb der Gesamtstruktur verantwortlich ist, nachdem die Bereitstellung fertiggestellt wurde. Der Gesamtstruktur Besitzer weist Personen zu, die anderen Besitz Rollen zu füllen, indem er wichtige Mitarbeiter innerhalb der Organisation identifiziert, die die erforderlichen Informationen zur Netzwerkinfrastruktur und zu administrativen Anforderungen einbringen können. Der Gesamtstruktur Besitzer ist für Folgendes zuständig:  
   
 -   Bereitstellung der Gesamtstruktur-Stamm Domäne zum Erstellen der Gesamtstruktur  
   
@@ -172,7 +171,7 @@ Der Besitzer der Organisationseinheit ist für die Verwaltung der im Verzeichnis
   
 Der Besitzer der Organisationseinheit ist ein Daten Besitzer.  
   
-## <a name="BKMK_3"></a>Projektteams werden aufgebaut  
+## <a name="building-project-teams"></a><a name="BKMK_3"></a>Projektteams werden aufgebaut  
 Active Directory Projektteams sind temporäre Gruppen, die für das Abschließen Active Directory Entwurfs-und Bereitstellungs Aufgaben zuständig sind. Wenn das Active Directory Bereitstellungs Projekt fertiggestellt ist, übernehmen die Besitzer die Verantwortung für das Verzeichnis, und die Projektteams können den Vorgang aufheben.  
   
 Die Größe der Projektteams variiert je nach Größe des Unternehmens. In kleinen Organisationen kann eine einzelne Person mehrere Zuständigkeiten in einem Projektteam abdecken und an mehr als einer Phase der Bereitstellung beteiligt sein. Große Unternehmen benötigen ggf. größere Teams mit unterschiedlichen Personen oder sogar unterschiedlichen Teams, die die verschiedenen Zuständigkeitsbereiche abdecken. Die Größe der Teams ist nicht wichtig, solange alle Bereiche der Zuständigkeit zugewiesen sind und die Entwurfs Ziele der Organisation erfüllt werden.  
@@ -184,7 +183,7 @@ Durch die Trennung von Dienst-und Datenverwaltung in AD DS kann die IT-Infrastru
   
 Für Organisationen, die über eine zentrale Infrastruktur-IT-Gruppe verfügen, ist die IT-Gruppe in der Regel der Gesamtstruktur Besitzer und somit der potenzielle Gesamtstruktur Besitzer für zukünftige bereit Stellungen. Organisationen, die eine Reihe unabhängiger Infrastruktur-IT-Gruppen beinhalten, haben eine Reihe potenzieller Gesamtstruktur Besitzer. Wenn Ihre Organisation bereits über eine Active Directory Infrastruktur verfügt, sind alle aktuellen Gesamtstruktur Besitzer auch potenzielle Gesamtstruktur Besitzer für neue bereit Stellungen.  
   
-Wählen Sie einen der potenziellen Gesamtstruktur Besitzer aus, der als Gesamtstruktur Besitzer für jede Gesamtstruktur fungiert, die Sie für die Bereitstellung in Erwägung ziehen. Diese potenziellen Gesamtstruktur Besitzer sind dafür verantwortlich, mit dem Entwurfs Team zu ermitteln, ob Ihre Gesamtstruktur tatsächlich bereitgestellt wird oder ob eine alternative Vorgehensweise (z. b. das beitreten zu einer anderen vorhandenen Gesamtstruktur) eine bessere Nutzung der verfügbaren Ressourcen ist. und erfüllt weiterhin Ihre Anforderungen. Der Gesamtstruktur Besitzer (oder die Besitzer) in Ihrer Organisation sind Mitglieder des Active Directory Designteams.  
+Wählen Sie einen der potenziellen Gesamtstruktur Besitzer aus, der als Gesamtstruktur Besitzer für jede Gesamtstruktur fungiert, die Sie für die Bereitstellung in Erwägung ziehen. Diese potenziellen Gesamtstruktur Besitzer sind dafür verantwortlich, mit dem Entwurfs Team zu ermitteln, ob Ihre Gesamtstruktur tatsächlich bereitgestellt wird oder ob eine alternative Vorgehensweise (z. b. das beitreten zu einer anderen vorhandenen Gesamtstruktur) eine bessere Nutzung der verfügbaren Ressourcen und dennoch Ihren Anforderungen entspricht. Der Gesamtstruktur Besitzer (oder die Besitzer) in Ihrer Organisation sind Mitglieder des Active Directory Designteams.  
   
 ### <a name="establishing-a-design-team"></a>Einrichten eines Entwurfs Teams  
 Das Active Directory-Entwurfs Team ist dafür verantwortlich, alle Informationen zu sammeln, die erforderlich sind, um Entscheidungen zum Entwurf der Active Directory logischen Struktur zu treffen.  
@@ -253,7 +252,7 @@ Das Active Directory Bereitstellungs Team umfasst die folgenden Mitglieder:
 Das Bereitstellungs Team arbeitet während der Bereitstellungs Phase mit dem Dienst und den Daten Administratoren zusammen, um sicherzustellen, dass die Mitglieder des Betriebsteams mit dem neuen Design vertraut sind. Dadurch wird sichergestellt, dass der Besitz beim Abschluss des Bereitstellungs Vorgangs reibungslos verläuft. Nach Abschluss des Bereitstellungs Prozesses wird die Verantwortung für die Beibehaltung der neuen Active Directory Umgebung an das Betriebsteam weitergeleitet.  
   
 ### <a name="documenting-the-design-and-deployment-teams"></a>Dokumentieren der Entwurfs-und Bereitstellungs Teams  
-Dokumentieren Sie die Namen und Kontaktinformationen für die Personen, die am Entwurf und der Bereitstellung von AD DS teilnehmen werden. Bestimmen Sie, wer für die einzelnen Rollen in den Entwurfs-und Bereitstellungs Teams verantwortlich sein wird. Diese Liste enthält zunächst die potenziellen Gesamtstruktur Besitzern, den Projektmanager und den Projektarchitekten. Wenn Sie die Anzahl der Gesamtstrukturen ermitteln, die Sie bereitstellen werden, müssen Sie möglicherweise neue Entwurfs Teams für weitere Gesamtstrukturen erstellen. Beachten Sie, dass Sie die Dokumentation aktualisieren müssen, wenn sich die Team Mitgliedschaften ändern und während des Entwurfsprozesses die verschiedenen Active Directory Besitzer identifiziert werden. Für ein Arbeitsblatt, das Sie bei der Dokumentation der Entwurfs-und Bereitstellungs Teams für jede Gesamtstruktur unterstützt, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den Auftrags Hilfen für Windows Server 2003 Deployment Kit ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)) herunter, und öffnen Sie " Informationen zum Design und Bereitstellungs Team "(DSSLOGI_1. doc).  
+Dokumentieren Sie die Namen und Kontaktinformationen für die Personen, die am Entwurf und der Bereitstellung von AD DS teilnehmen werden. Bestimmen Sie, wer für die einzelnen Rollen in den Entwurfs-und Bereitstellungs Teams verantwortlich sein wird. Diese Liste enthält zunächst die potenziellen Gesamtstruktur Besitzern, den Projektmanager und den Projektarchitekten. Wenn Sie die Anzahl der Gesamtstrukturen ermitteln, die Sie bereitstellen werden, müssen Sie möglicherweise neue Entwurfs Teams für weitere Gesamtstrukturen erstellen. Beachten Sie, dass Sie die Dokumentation aktualisieren müssen, wenn sich die Team Mitgliedschaften ändern und während des Entwurfsprozesses die verschiedenen Active Directory Besitzer identifiziert werden. Für ein Arbeitsblatt, das Sie bei der Dokumentation der Entwurfs-und Bereitstellungs Teams für jede Gesamtstruktur unterstützt, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den Auftrags Hilfen für das Windows Server 2003 Deployment Kit ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)) herunter, und öffnen Sie "Design and Deployment Team Information" (DSSLOGI_1. doc).  
   
 
 

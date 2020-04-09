@@ -1,19 +1,20 @@
 ---
 title: Domänen übergreifende Cluster Migration in Windows Server 2016/2019
+description: In diesem Artikel wird das Verschieben eines Windows Server 2019-Clusters von einer Domäne in eine andere beschrieben.
 ms.prod: windows-server
-ms.manager: eldenc
+manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
+ms.author: johnmar
 ms.date: 01/18/2019
-description: In diesem Artikel wird das Verschieben eines Windows Server 2019-Clusters von einer Domäne in eine andere beschrieben.
 ms.localizationpriority: medium
-ms.openlocfilehash: 68f49795124dedf0655726853a4d865686f6d697
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ba556b5a00f3932e2049135b177a7ad8bbceec9c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361410"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828293"
 ---
 # <a name="failover-cluster-domain-migration"></a>Migration der failoverclusterdomäne
 
@@ -122,7 +123,7 @@ In den folgenden Schritten wird ein Cluster von der contoso.com-Domäne in die n
    New-ClusterNameAccount -Name CLUSTERNAME -Domain NEWDOMAINNAME.com -UpgradeVCOs
    ```
 
-    HINWEIS: Wenn keine weiteren Gruppen mit Netzwerknamen vorhanden sind (d. h. ein Hyper-V-Cluster mit nur virtuellen Computern), wird der Schalter-upgradevcos Parameter nicht benötigt.
+    Hinweis: Wenn Sie keine zusätzlichen Gruppen mit Netzwerknamen haben (d. h. ein Hyper-V-Cluster mit nur virtuellen Computern), wird der Schalter-upgradevcos Parameter nicht benötigt.
 
 9. Verwenden Sie Active Directory Benutzer und Computer, um die neue Domäne zu überprüfen und sicherzustellen, dass die zugeordneten Computer Objekte erstellt wurden. Wenn dies der Fall ist, schalten Sie die verbleibenden Ressourcen in den Gruppen online.
 

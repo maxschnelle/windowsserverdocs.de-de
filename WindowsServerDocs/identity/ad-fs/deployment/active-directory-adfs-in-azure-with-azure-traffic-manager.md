@@ -1,26 +1,20 @@
 ---
 title: Regions übergreifende Hochverfügbarkeit AD FS Bereitstellung in Azure mit Azure Traffic Manager | Microsoft-Dokumentation
-description: In diesem Dokument erfahren Sie, wie Sie AD FS in Azure bereitstellen, um eine hohe Verfügbarkeit zu erhalten.
-keywords: AD FS mit Azure Traffic Manager, ADFS mit Azure Traffic Manager, geografisch, multidatacenter, geografische Rechenzentren, mehrere geografische Rechenzentren, bereitstellen AD FS in Azure, Bereitstellen von Azure ADFS, Azure ADFS, Azure AD FS, Bereitstellen von ADFS, Bereitstellen von AD FS, AD FS in Azure, Bereitstellen von AD FS in Azure, Bereitstellen von AD FS in Azure, ADFS in Azure, Einführung in AD FS, Azure, AD FS in Azure, IaaS, ADFS, Verschieben von ADFS in Azure
+description: Bereitstellen von AD FS in Azure für hohe Verfügbarkeit.
 services: active-directory
-documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: ''
+ms.prod: windows-server
 ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
-ms.openlocfilehash: d98eb126513d707bce7abe3e901c8bf584d2319c
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 9bfb59fadd2cf6b07d3c47ab69f0fe67974706a3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868019"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855203"
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Regions übergreifende Hochverfügbarkeit AD FS Bereitstellung in Azure mit Azure Traffic Manager
 [AD FS Bereitstellung in Azure](how-to-connect-fed-azure-adfs.md) bietet eine Schritt-für-Schritt-Anleitung, wie Sie eine einfache AD FS-Infrastruktur für Ihre Organisation in Azure bereitstellen können. Dieser Artikel enthält die nächsten Schritte zum Erstellen einer Regions übergreifenden Bereitstellung von AD FS in Azure mithilfe von [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/). Azure Traffic Manager unterstützt Sie bei der Erstellung einer geografisch verteilten Hochverfügbarkeit und hochleistungsfähigen AD FS Infrastruktur für Ihre Organisation, indem Sie eine Reihe von Routing Methoden verwenden, die für unterschiedliche Anforderungen aus der Infrastruktur verfügbar sind.
@@ -41,7 +35,7 @@ Die grundlegenden Entwurfs Prinzipien sind identisch mit den Entwurfs Prinzipien
 * **Netzwerk Sicherheitsgruppen:** Als Speicher Konten können Netzwerk Sicherheitsgruppen, die in einer Region erstellt werden, nicht in einer anderen geografischen Region verwendet werden. Daher müssen Sie neue Netzwerk Sicherheitsgruppen erstellen, die denen in der ersten geografischen Region für das int-und DMZ-Subnetz in der neuen geografischen Region ähneln.
 * **DNS-Bezeichnungen für öffentliche IP-Adressen:** Azure-Traffic Manager können nur über DNS-Bezeichnungen auf Endpunkte verweisen. Daher müssen Sie DNS-Bezeichnungen für die öffentlichen IP-Adressen der externen Lasten Ausgleichs Module erstellen.
 * **Azure-Traffic Manager:** Microsoft Azure Traffic Manager ermöglicht es Ihnen, die Verteilung des Benutzer Datenverkehrs an die Dienst Endpunkte zu steuern, die in verschiedenen Daten Centern auf der ganzen Welt ausgeführt werden. Azure Traffic Manager funktioniert auf der DNS-Ebene. Er verwendet DNS-Antworten, um Endbenutzer-Datenverkehr an Global verteilte Endpunkte weiterzuleiten. Clients stellen dann eine direkte Verbindung mit diesen Endpunkten her. Mit unterschiedlichen Routing Optionen für Leistung, gewichtet und Priorität können Sie problemlos die Routing Option auswählen, die für die Anforderungen Ihrer Organisation am besten geeignet ist. 
-* **Vnet-zu-v-Netzwerkkonnektivität zwischen zwei Regionen:** Sie benötigen keine Konnektivität zwischen den virtuellen Netzwerken. Da jedes virtuelle Netzwerk Zugriff auf Domänen Controller hat und über AD FS-und WAP-Server verfügt, kann er ohne jegliche Konnektivität zwischen den virtuellen Netzwerken in unterschiedlichen Regionen funktionieren. 
+* Vnet **-zu-v-Netzwerkkonnektivität zwischen zwei Regionen:** Sie benötigen keine Konnektivität zwischen den virtuellen Netzwerken. Da jedes virtuelle Netzwerk Zugriff auf Domänen Controller hat und über AD FS-und WAP-Server verfügt, kann er ohne jegliche Konnektivität zwischen den virtuellen Netzwerken in unterschiedlichen Regionen funktionieren. 
 
 ## <a name="steps-to-integrate-azure-traffic-manager"></a>Schritte zum Integrieren von Azure-Traffic Manager
 ### <a name="deploy-ad-fs-in-the-new-geographical-region"></a>Bereitstellen von AD FS in der neuen geografischen Region
@@ -60,7 +54,7 @@ Führen Sie die folgenden Schritte aus, um ein Traffic Manager-Profil zu erstell
     ![Traffic Manager Profilerstellung](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/trafficmanager01.png)
 2. **Routing Methode für Datenverkehr:** In Traffic Manager stehen drei Routing Optionen zur Verfügung:
    
-   * Priorität 
+   * Priority 
    * Leistung
    * Tem
      
@@ -71,7 +65,7 @@ Führen Sie die folgenden Schritte aus, um ein Traffic Manager-Profil zu erstell
    
    Befolgen Sie für die unterschiedlichen Eingaben die folgenden Richtlinien:
    
-   **Sorte** Wählen Sie Azure-Endpunkt aus, da wir auf eine öffentliche Azure-IP-Adresse verweisen.
+   **Typ:** Wählen Sie Azure-Endpunkt aus, da wir auf eine öffentliche Azure-IP-Adresse verweisen.
    
    **Name:** Erstellen Sie einen Namen, den Sie dem Endpunkt zuordnen möchten. Dies ist nicht der DNS-Name und hat keine Auswirkungen auf DNS-Einträge.
    
@@ -81,7 +75,7 @@ Führen Sie die folgenden Schritte aus, um ein Traffic Manager-Profil zu erstell
    
    Fügen Sie einen Endpunkt für jede geografische Region hinzu, an die der Azure-Traffic Manager Datenverkehr weiterleiten soll.
    Weitere Informationen und ausführliche Schritte zum Hinzufügen/Konfigurieren von Endpunkten in Traffic Manager finden Sie unter [hinzufügen, deaktivieren, aktivieren oder Löschen von Endpunkten](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-endpoints) .
-4. **Test konfigurieren:** Klicken Sie in der Traffic Manager-Seite auf Konfiguration. Auf der Konfigurationsseite müssen Sie die Monitoreinstellungen ändern, um den HTTP-Port 80 und den relativen Pfad/ADFS/Probe zu überprüfen.
+4. Test **konfigurieren:** Klicken Sie in der Traffic Manager-Seite auf Konfiguration. Auf der Konfigurationsseite müssen Sie die Monitoreinstellungen ändern, um den HTTP-Port 80 und den relativen Pfad/ADFS/Probe zu überprüfen.
    
     ![Test konfigurieren](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/mystsconfig.png) 
    
@@ -106,7 +100,7 @@ Die einfachste Möglichkeit zum Testen von AD FS ist die Verwendung der Seite id
 
 1. Führen Sie das folgende Cmdlet auf dem AD FS Server mithilfe von PowerShell aus, um es auf "aktiviert" festzulegen. 
    Set-ADF sproperties-enableidpinitiatedsignonpage $true
-2. Von einem beliebigen externen Computer Zugriff<yourfederationservicedns>https:///adfs/ls/IdpInitiatedSignon.aspx
+2. Von einem beliebigen externen Computer Zugriff https://<yourfederationservicedns>/adfs/ls/IdpInitiatedSignon.aspx
 3. Die AD FS Seite sollte wie folgt angezeigt werden:
    
     ![AD FS-Test-Authentifizierungs Aufforderung](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest1.png)

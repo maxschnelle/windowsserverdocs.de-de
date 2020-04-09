@@ -4,15 +4,15 @@ description: Überlegungen zu LDAP in Active Directory Arbeits Auslastungen
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
+ms.author: timwi; chrisrob; herbertm; kenbrumf;  mleary; shawnrab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5e407f9f32339e3f9c75e3722ad218228b608b9d
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 86aef48575388ad76ff22fc6027c5ce2d4b6694a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947114"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851893"
 ---
 # <a name="ldap-considerations-in-adds-performance-tuning"></a>Überlegungen zu LDAP in Hinzufügen von Leistungsoptimierungen
 
@@ -98,10 +98,10 @@ Weitere Informationen finden Sie in den folgenden Bereichen:
 
 -   [Indizierte Attribute](https://msdn.microsoft.com/library/windows/desktop/ms677112.aspx)
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 - [Leistungsoptimierung Active Directory Server](index.md)
-- [Hardwareaspekte](hardware-considerations.md)
+- [Überlegungen zur Hardware](hardware-considerations.md)
 - [Ordnungsgemäße Platzierung von Domänencontrollern und Überlegungen zum Standort](site-definition-considerations.md)
 - [Problembehandlung bezüglich der ADDS-Leistung](troubleshoot.md) 
 - [Kapazitätsplanung für Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkId=324566)

@@ -1,24 +1,20 @@
 ---
 title: bootcfg addsw
-description: Thema Windows-Befehle für **bootcfg addsw** -fügt Optionen für das Laden von Betriebssystemen für einen angegebenen Betriebssystem Eintrag hinzu.
-ms.custom: na
+description: Windows-Befehls Thema für bootcfg addsw, das Optionen für das Laden von Betriebssystemen für einen angegebenen Betriebssystem Eintrag hinzufügt.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d8389293-ecd9-42f0-b84b-b9ead4cf52e6
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2dd727c839babe1ae4f7743285844f35cf5bf76e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a9ae5175dfc3b068276f6ab95d6823699c96b2b5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380180"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848713"
 ---
 # <a name="bootcfg-addsw"></a>bootcfg addsw
 
@@ -30,7 +26,7 @@ Fügt Optionen für das Laden von Betriebssystemen für einen angegebenen Betrie
 ```
 bootcfg /addsw [/s <computer> [/u <Domain>\<User> /p <Password>]] [/mm <MaximumRAM>] [/bv] [/so] [/ng] /id <OSEntryLineNum>
 ```
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |         Begriff         |                                                                                                            Definition                                                                                                            |
 |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -44,7 +40,7 @@ bootcfg /addsw [/s <computer> [/u <Domain>\<User> /p <Password>]] [/mm <MaximumR
 | /ID <OSEntryLineNum> | Gibt die Betriebssystem-Eintrags Zeilennummer im Abschnitt [Betriebssysteme] der Datei Boot. ini an, der die Betriebssystem-Lade Optionen hinzugefügt werden. Die erste Zeile nach der Abschnitts Kopfzeile [Betriebssystem] ist 1. |
 |          /?          |                                                                                               Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                               |
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 In den folgenden Beispielen wird gezeigt, wie Sie den Befehl **bootcfg/addsw** verwenden können:
 ```
 bootcfg /addsw /mm 64 /id 2 
@@ -53,5 +49,5 @@ bootcfg /addsw /so /ng /s srvmain /u hiropln /id 2
 bootcfg /addsw /ng /id 2 
 bootcfg /addsw /mm 96 /ng /s srvmain /u maindom\hiropln /p p@ssW23 /id 2
 ```
-#### <a name="additional-references"></a>Weitere Verweise
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

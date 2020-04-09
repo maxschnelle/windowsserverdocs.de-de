@@ -2,22 +2,18 @@
 title: Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen
 description: Dieses Thema ist Teil des Handbuchs Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen für Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b211a9ca-1208-4e1f-a0fe-26a610936c30
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 4e6c8379f225dbeefd7c97ac96b9a0047dfd4a0b
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 7f6a6724a2ab7bb6da48a11d31fb04461912e388
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309211"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859523"
 ---
 # <a name="deploy-a-single-directaccess-server-with-advanced-settings"></a>Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen
 
@@ -85,8 +81,8 @@ Die folgende Tabelle enthält die für dieses Szenario erforderlichen Rollen und
   
 |Rolle/Feature|Auf welche Weise dieses Szenario unterstützt wird|  
 |---------|-----------------|  
-|Remotezugriffs-Rolle|Die Rolle wird über die Server-Manager-Konsole oder Windows PowerShell installiert bzw. deinstalliert. Diese Rolle umfasst DirectAccess sowie die Routing- und RAS-Dienste. Die Remotezugriffs-Rolle besteht aus zwei Komponenten:<br/><br/>1. DirectAccess und RRAS-VPN. DirectAccess und VPN werden in der Remote Zugriffs-Verwaltungskonsole verwaltet.<br/>2. RRAS-Routing. RRAS-Routing Features werden in der Legacy-Routing-und Remote Zugriffs Konsole verwaltet.<br /><br />Die RAS-Serverrolle ist von den folgenden Serverrollen/-features abhängig:<br/><br/> -Internetinformationsdienste (IIS)-Webserver: dieses Feature ist erforderlich, um den Netzwerkadressen Server auf dem DirectAccess-Server und den Standard Webtest zu konfigurieren.<br/> -Interne Windows-Datenbank. Wird für die lokale Kontoführung auf dem DirectAccess-Server verwendet.|  
-|Feature %%amp;quot;Tools für die Remotezugriffsverwaltung%%amp;quot;|So installieren Sie dieses Feature:<br /><br />-Sie wird bei der Installation der Remote Zugriffs Rolle standardmäßig auf einem DirectAccess-Server installiert und unterstützt die Benutzeroberfläche der Remote Verwaltungskonsole und Windows PowerShell-Cmdlets.<br />-Es kann optional auf einem Server installiert werden, auf dem die DirectAccess-Server Rolle nicht ausgeführt wird. In diesem Fall wird es für die Remoteverwaltung eines RAS-Computers verwendet, der DirectAccess und VPN ausführt.<br /><br />Das Feature "Tools für die Remotezugriffsverwaltung" besteht aus den folgenden Komponenten:<br /><br />-Remote Zugriff grafische Benutzeroberfläche (GUI)<br />-Remote Zugriffs Modul für Windows PowerShell<br /><br />Abhängigkeiten umfassen:<br /><br />-Gruppenrichtlinien-Verwaltungskonsole<br />-RAS-Verbindungs-Manager-Verwaltungskit (CMAK)<br />-Windows PowerShell 3,0<br />-Tools und Infrastruktur für die grafische Verwaltung|  
+|Remotezugriffs-Rolle|Die Rolle wird über die Server-Manager-Konsole oder Windows PowerShell installiert bzw. deinstalliert. Diese Rolle umfasst DirectAccess sowie die Routing- und RAS-Dienste. Die Remotezugriffs-Rolle besteht aus zwei Komponenten:<br/><br/>1. DirectAccess und RRAS-VPN. DirectAccess und VPN werden in der Remote Zugriffs-Verwaltungskonsole verwaltet.<br/>2. RRAS-Routing. RRAS-Routing Features werden in der Legacy-Routing-und Remote Zugriffs Konsole verwaltet.<p>Die RAS-Serverrolle ist von den folgenden Serverrollen/-features abhängig:<br/><br/> -Internetinformationsdienste (IIS)-Webserver: dieses Feature ist erforderlich, um den Netzwerkadressen Server auf dem DirectAccess-Server und den Standard Webtest zu konfigurieren.<br/> -Interne Windows-Datenbank. Wird für die lokale Kontoführung auf dem DirectAccess-Server verwendet.|  
+|Feature %%amp;quot;Tools für die Remotezugriffsverwaltung%%amp;quot;|So installieren Sie dieses Feature:<p>-Sie wird bei der Installation der Remote Zugriffs Rolle standardmäßig auf einem DirectAccess-Server installiert und unterstützt die Benutzeroberfläche der Remote Verwaltungskonsole und Windows PowerShell-Cmdlets.<br />-Es kann optional auf einem Server installiert werden, auf dem die DirectAccess-Server Rolle nicht ausgeführt wird. In diesem Fall wird es für die Remoteverwaltung eines RAS-Computers verwendet, der DirectAccess und VPN ausführt.<p>Das Feature "Tools für die Remotezugriffsverwaltung" besteht aus den folgenden Komponenten:<p>-Remote Zugriff grafische Benutzeroberfläche (GUI)<br />-Remote Zugriffs Modul für Windows PowerShell<p>Abhängigkeiten umfassen:<p>-Gruppenrichtlinien-Verwaltungskonsole<br />-RAS-Verbindungs-Manager-Verwaltungskit (CMAK)<br />-Windows PowerShell 3,0<br />-Tools und Infrastruktur für die grafische Verwaltung|  
   
 ## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Hardwareanforderungen  
 Für dieses Szenario müssen die folgenden Hardwareanforderungen erfüllt werden:  
@@ -148,9 +144,9 @@ Die folgende Tabelle enthält Links zu zusätzlichen Ressourcen.
   
 |Art des Inhalts|Verweise|  
 |--------|-------|  
-|**Bereitstellung**|[DirectAccess-Bereitstellungs Pfade in Windows Server](../../../remote-access/directaccess/DirectAccess-Deployment-Paths-in-Windows-Server.md)<br /><br />[Bereitstellen eines einzelnen DirectAccess-Servers mit dem Assistenten für die ersten Schritte](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)|  
+|**Bereitstellung**|[DirectAccess-Bereitstellungs Pfade in Windows Server](../../../remote-access/directaccess/DirectAccess-Deployment-Paths-in-Windows-Server.md)<p>[Bereitstellen eines einzelnen DirectAccess-Servers mit dem Assistenten für die ersten Schritte](../../../remote-access/directaccess/single-server-wizard/Deploy-a-Single-DirectAccess-Server-Using-the-Getting-Started-Wizard.md)|  
 |**Tools und Einstellungen**|[PowerShell-Cmdlets für den Remote Zugriff](https://technet.microsoft.com/library/hh918399.aspx)|  
-|**Communityressourcen**|[Leitfaden zum DirectAccess-Lebensfaden](https://social.technet.microsoft.com/wiki/contents/articles/23210.directaccess-survival-guide.aspx)<br /><br />[DirectAccess-wiki-Einträge](https://go.microsoft.com/fwlink/?LinkId=236871)|  
+|**Communityressourcen**|[Leitfaden zum DirectAccess-Lebensfaden](https://social.technet.microsoft.com/wiki/contents/articles/23210.directaccess-survival-guide.aspx)<p>[DirectAccess-wiki-Einträge](https://go.microsoft.com/fwlink/?LinkId=236871)|  
 |**Verwandte Technologien**|[Funktionsweise von IPv6](https://technet.microsoft.com/library/cc781672(v=WS.10).aspx)|  
   
 

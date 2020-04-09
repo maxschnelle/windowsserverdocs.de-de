@@ -1,19 +1,20 @@
 ---
 title: Cluster-Gruppen
 ms.prod: windows-server
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: johnmarlin-msft
+ms.author: johnmar
 ms.date: 01/30/2019
 description: Dieser Artikel beschreibt das Szenario mit Cluster Sätzen.
 ms.localizationpriority: medium
-ms.openlocfilehash: db427e8fa4e5574c6eb7837cf0ab4a9fcc180410
-ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
+ms.openlocfilehash: 3c7ddef1831a82f7fc068ec4241bb1a72bd888bd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80639963"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861043"
 ---
 # <a name="cluster-sets"></a>Cluster-Gruppen
 
@@ -100,13 +101,13 @@ In Windows Server 2019 gibt es eine neue Datei Server Rolle mit horizontaler Ska
 
 Die folgenden Überlegungen gelten für eine Infrastruktur-sofs-Rolle:
 
-1.  In einem Failovercluster kann es höchstens eine Infrastruktur-sofs-Cluster Rolle geben. Die Infrastruktur-sofs-Rolle wird erstellt, indem der Switch-Parameter " **-Infrastructure**" für das Cmdlet " **Add-clusterscaleoutfileserverrole** " angegeben wird.  Beispiel:
+1.    In einem Failovercluster kann es höchstens eine Infrastruktur-sofs-Cluster Rolle geben. Die Infrastruktur-sofs-Rolle wird erstellt, indem der Switch-Parameter " **-Infrastructure**" für das Cmdlet " **Add-clusterscaleoutfileserverrole** " angegeben wird.  Beispiel:
 
-        Add-ClusterScaleoutFileServerRole -Name "my_infra_sofs_name" -Infrastructure
+        Add-clusterscaleoutfileserverrole-Name "my_infra_sofs_name"-Infrastructure
 
-2.  Jedes CSV-Volume, das im Failover erstellt wird, löst automatisch die Erstellung einer SMB-Freigabe mit einem automatisch generierten Namen auf Grundlage des CSV-Volumenamens aus. Ein Administrator kann SMB-Freigaben unter einer sofs-Rolle nicht direkt erstellen oder ändern, außer über CSV-Volume Create/Modify-Vorgänge.
+2.    Jedes CSV-Volume, das im Failover erstellt wird, löst automatisch die Erstellung einer SMB-Freigabe mit einem automatisch generierten Namen auf Grundlage des CSV-Volumenamens aus. Ein Administrator kann SMB-Freigaben unter einer sofs-Rolle nicht direkt erstellen oder ändern, außer über CSV-Volume Create/Modify-Vorgänge.
 
-3.  In hyperkonvergierten Konfigurationen ermöglicht ein-Infrastruktur-sofs einem SMB-Client (Hyper-V-Host) die Kommunikation mit der garantierten kontinuierlichen Verfügbarkeit (ca) mit dem Infrastruktur-sofs-SMB-Server. Diese hyperkonvergierte SMB-Loopback Zertifizierungsstelle wird über virtuelle Computer erreicht, die auf Ihre vhdx-Dateien (Virtual Disk) zugreifen, bei denen die Identität des besitzenden virtuellen Computers zwischen dem Client und dem Server weitergeleitet wird. Diese Identitäts Weiterleitung ermöglicht die ACL-vhdx-Dateien genau wie bei standardmäßigen hyperkonvergierten Cluster Konfigurationen wie zuvor.
+3.    In hyperkonvergierten Konfigurationen ermöglicht ein-Infrastruktur-sofs einem SMB-Client (Hyper-V-Host) die Kommunikation mit der garantierten kontinuierlichen Verfügbarkeit (ca) mit dem Infrastruktur-sofs-SMB-Server. Diese hyperkonvergierte SMB-Loopback Zertifizierungsstelle wird über virtuelle Computer erreicht, die auf Ihre vhdx-Dateien (Virtual Disk) zugreifen, bei denen die Identität des besitzenden virtuellen Computers zwischen dem Client und dem Server weitergeleitet wird. Diese Identitäts Weiterleitung ermöglicht die ACL-vhdx-Dateien genau wie bei standardmäßigen hyperkonvergierten Cluster Konfigurationen wie zuvor.
 
 Nachdem ein Cluster Satz erstellt wurde, basiert der Cluster Satz-Namespace auf einem Infrastruktur-sofs auf jedem der Mitglieds Cluster und zusätzlich auf einem Infrastruktur-sofs im Verwaltungs Cluster.
 

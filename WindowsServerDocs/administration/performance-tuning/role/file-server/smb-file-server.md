@@ -5,14 +5,14 @@ ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 author: phstee
-ms.author: NedPyle; Danlo; DKruse
+ms.author: nedpyle; danlo; dkruse
 ms.date: 4/14/2017
-ms.openlocfilehash: 918d21139a068da1a46fbda1fa5034e14c8379c0
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 89017686801501593c51245d44bf88a6ecf4baf6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947062"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851823"
 ---
 # <a name="performance-tuning-for-smb-file-servers"></a>Leistungsoptimierung für SMB-Dateiserver
 
@@ -106,7 +106,7 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
   Die Standardwerte sind 512 bzw. 8192. Mit diesen Parametern kann der Server die Parallelität von Client Vorgängen dynamisch innerhalb der angegebenen Grenzen drosseln. Einige Clients erzielen möglicherweise einen erhöhten Durchsatz mit höheren Parallelitäts Grenzen, z. b. das Kopieren von Dateien über Verbindungen mit hoher Bandbreite und hoher Latenz.
     
   > [!TIP]
-  > Vor Windows 10 und Windows Server 2016 variiert die Anzahl der Gutschriften, die dem Client erteilt wurden, dynamisch zwischen Smb2CreditsMin und "smb2creditsmax", basierend auf einem Algorithmus, der versucht hat, die optimale Anzahl von Gutschriften zu ermitteln, die basierend auf der Netzwerk Latenz zu gewähren sind. und die Verwendung von Guthaben. In Windows 10 und Windows Server 2016 wurde der SMB-Server so geändert, dass auf Anforderung bis zu der konfigurierten maximalen Anzahl von Gutschriften uneingeschränkt Gutschriften erteilt werden. Im Rahmen dieser Änderung wurde der Mechanismus für die Kredit Drosselung, der die Größe des Kredit Fensters der einzelnen Verbindungen reduziert, wenn der Server nicht genügend Arbeitsspeicher hat, entfernt. Das nicht genügend Speicher Ereignis des Kernels, das eine Drosselung ausgelöst hat, wird nur signalisiert, wenn der Arbeitsspeicher des Servers (< einige MB) nicht nutzlos ist. Da der Server keine Gutschrift für Gutschriften mehr verkleinert, ist die Smb2CreditsMin-Einstellung nicht mehr erforderlich und wird jetzt ignoriert.
+  > Vor Windows 10 und Windows Server 2016 hat sich die Anzahl der Gutschriften, die dem Client erteilt wurden, dynamisch zwischen Smb2CreditsMin und "smb2creditsmax" geändert, basierend auf einem Algorithmus, der versucht hat, die optimale Anzahl von Gutschriften zu ermitteln, die basierend auf der Netzwerk Latenz und der Gutschrift verwendet werden. In Windows 10 und Windows Server 2016 wurde der SMB-Server so geändert, dass auf Anforderung bis zu der konfigurierten maximalen Anzahl von Gutschriften uneingeschränkt Gutschriften erteilt werden. Im Rahmen dieser Änderung wurde der Mechanismus für die Kredit Drosselung, der die Größe des Kredit Fensters der einzelnen Verbindungen reduziert, wenn der Server nicht genügend Arbeitsspeicher hat, entfernt. Das nicht genügend Speicher Ereignis des Kernels, das eine Drosselung ausgelöst hat, wird nur signalisiert, wenn der Arbeitsspeicher des Servers (< einige MB) nicht nutzlos ist. Da der Server keine Gutschrift für Gutschriften mehr verkleinert, ist die Smb2CreditsMin-Einstellung nicht mehr erforderlich und wird jetzt ignoriert.
   > 
   > Sie können SMB-Client Freigaben\\Guthaben überwachen/Sek., um festzustellen, ob es Probleme mit Gutschriften gibt.
 
@@ -127,7 +127,7 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
   HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\MaxThreadsPerQueue
   ```
 
-  Die Standardeinstellung ist 20. Wenn Sie diesen Wert erhöhen, wird die Anzahl der Threads, die vom Dateiserver zum bedienen paralleler Anforderungen verwendet werden können, erhöht. Wenn eine große Anzahl aktiver Verbindungen gewartet werden muss und Hardware Ressourcen wie z. b. die Speicherbandbreite ausreichen, kann das Erhöhen des Werts die Skalierbarkeit, Leistung und Reaktionszeiten des Servers verbessern.
+  Der Standardwert ist 20. Wenn Sie diesen Wert erhöhen, wird die Anzahl der Threads, die vom Dateiserver zum bedienen paralleler Anforderungen verwendet werden können, erhöht. Wenn eine große Anzahl aktiver Verbindungen gewartet werden muss und Hardware Ressourcen wie z. b. die Speicherbandbreite ausreichen, kann das Erhöhen des Werts die Skalierbarkeit, Leistung und Reaktionszeiten des Servers verbessern.
 
   >[!TIP]
   > Ein Hinweis darauf, dass der Wert möglicherweise vergrößert werden muss, ist, wenn die SMB2-Arbeits Warteschlangen sehr groß werden (Leistungsindikator "Server Arbeits Warteschlangen\\Warteschlangen Länge\\SMB2 nicht blockierender \*" ist konstant über ~ 100).
@@ -142,13 +142,13 @@ Die folgenden reg\_DWORD-Registrierungs Einstellungen können sich auf die Leist
   HKLM\System\CurrentControlSet\Services\LanmanServer\Parameters\AsynchronousCredits
   ```
 
-  Der Standardwert liegt bei 512. Dieser Parameter schränkt die Anzahl von gleichzeitigen asynchronen SMB-Befehlen ein, die für eine einzelne Verbindung zulässig sind. In einigen Fällen (z. b. bei einem Front-End-Server mit einem Back-End-IIS-Server) ist eine große Menge an Parallelität erforderlich (insbesondere bei Benachrichtigungs Anforderungen für Dateiänderungen). Der Wert dieses Eintrags kann erweitert werden, um diese Fälle zu unterstützen.
+  Der Standardwert ist 512. Dieser Parameter schränkt die Anzahl von gleichzeitigen asynchronen SMB-Befehlen ein, die für eine einzelne Verbindung zulässig sind. In einigen Fällen (z. b. bei einem Front-End-Server mit einem Back-End-IIS-Server) ist eine große Menge an Parallelität erforderlich (insbesondere bei Benachrichtigungs Anforderungen für Dateiänderungen). Der Wert dieses Eintrags kann erweitert werden, um diese Fälle zu unterstützen.
 
 ### <a name="smb-server-tuning-example"></a>Beispiel für die SMB-Server Optimierung
 
 Die folgenden Einstellungen können einen Computer in vielen Fällen für die Dateiserver Leistung optimieren. Die Einstellungen sind nicht für alle Computer optimal bzw. geeignet. Sie sollten die Auswirkungen der einzelnen Einstellungen vor dem Anwenden überprüfen.
 
-| Parameter                       | Value | Standardwert |
+| Parameter                       | Wert | Standard |
 |---------------------------------|-------|---------|
 | Additionalcriticalworkerthreads | 64    | 0       |
 | Maxthreadsperqueue              | 64    | 20      |

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7d957ebb-3476-49d8-b00b-6e93b4a94778
 title: Identifizieren von Gesamtstruktur-Entwurfsanforderungen
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,20 +8,20 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 41caeca82819eaea3d86d5f1eb4883ab8bbf53cc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 33025dc2e08185744ffd0dee7eac4d0c020a0691
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408792"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822403"
 ---
 # <a name="identifying-forest-design-requirements"></a>Identifizieren von Gesamtstruktur-Entwurfsanforderungen
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Um einen Gesamtstruktur Entwurf für Ihre Organisation zu erstellen, müssen Sie die geschäftlichen Anforderungen ermitteln, die Ihre Verzeichnisstruktur erfüllen muss. Dies umfasst die Festlegung, wie viel Autonomie die Gruppen in Ihrer Organisation benötigen, um Ihre Netzwerkressourcen zu verwalten, und ob die einzelnen Gruppen ihre Ressourcen im Netzwerk von anderen Gruppen isolieren müssen.  
   
-Mit Active Directory Domain Services (AD DS) können Sie eine Verzeichnis Infrastruktur entwerfen, die mehrere Gruppen innerhalb einer Organisation mit eindeutigen Verwaltungsanforderungen und der strukturellen und operativen Unabhängigkeit zwischen Gruppen unterstützt. nach Bedarf.  
+Mit Active Directory Domain Services (AD DS) können Sie eine Verzeichnis Infrastruktur entwerfen, die mehrere Gruppen innerhalb einer Organisation mit eindeutigen Verwaltungsanforderungen sowie eine strukturelle und betriebsbedingte Unabhängigkeit zwischen den Gruppen für die erforderliche Verwaltung erreicht.  
   
 Für Gruppen in Ihrer Organisation sind möglicherweise einige der folgenden Arten von Anforderungen erforderlich:  
   
@@ -38,14 +37,14 @@ Für Gruppen in Ihrer Organisation sind möglicherweise einige der folgenden Art
   
 -   **Rechtliche Anforderungen**. Einige Organisationen haben gesetzliche Anforderungen für eine bestimmte Methode, z. b. das Einschränken des Zugriffs auf bestimmte Informationen, wie in einem Geschäftsvertrag angegeben. Einige Organisationen verfügen über Sicherheitsanforderungen, um auf isolierten internen Netzwerken zu arbeiten. Wenn diese Anforderungen nicht erfüllt werden, kann dies zu einem Verlust des Vertrags und möglicherweise zu rechtlichen Aktionen führen.  
   
-Zum Identifizieren der Gesamtstruktur-Entwurfs Anforderungen müssen Sie angeben, inwieweit Gruppen in Ihrer Organisation den potenziellen Gesamtstruktur Besitzern und deren Dienst Administratoren vertrauen können und welche Autonomie-und Isolations Anforderungen für die einzelnen in Ihrer Organisation gruppieren.  
+Zum Identifizieren der Gesamtstruktur-Entwurfs Anforderungen müssen Sie angeben, inwieweit Gruppen in Ihrer Organisation den potenziellen Gesamtstruktur Besitzern und deren Dienst Administratoren vertrauen können und welche Autonomie-und Isolations Anforderungen für die einzelnen Gruppen in Ihrem Unternehmen gelten.  
   
 Das Entwurfs Team muss die Isolations-und Autonomie Anforderungen für die Dienst-und Datenverwaltung für jede Gruppe in der Organisation dokumentieren, die AD DS verwenden soll. Das Team muss auch alle Bereiche eingeschränkter Konnektivität beachten, die sich auf die Bereitstellung von AD DS auswirken können.  
   
-Das Entwurfs Team muss die Isolations-und Autonomie Anforderungen für die Dienst-und Datenverwaltung für jede Gruppe in der Organisation dokumentieren, die AD DS verwenden soll. Das Team muss auch alle Bereiche eingeschränkter Konnektivität beachten, die sich auf die Bereitstellung von AD DS auswirken können. Für ein Arbeitsblatt, das Sie bei der Dokumentation der identifizierten Regionen unterstützt, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den [Auftrags Hilfen für das Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558) herunter, und öffnen Sie "Gesamtstruktur-Entwurfs Anforderungen" ( DSSLOGI_2. doc).  
+Das Entwurfs Team muss die Isolations-und Autonomie Anforderungen für die Dienst-und Datenverwaltung für jede Gruppe in der Organisation dokumentieren, die AD DS verwenden soll. Das Team muss auch alle Bereiche eingeschränkter Konnektivität beachten, die sich auf die Bereitstellung von AD DS auswirken können. Für ein Arbeitsblatt, das Sie bei der Dokumentation der identifizierten Regionen unterstützt, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den [Auftrags Hilfen für das Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558) herunter, und öffnen Sie "Gesamtstruktur-Entwurfs Anforderungen" (DSSLOGI_2. doc).  
   
 ## <a name="in-this-section"></a>Inhalt dieses Abschnitts  
   
 -   [Dienstadministrator: Autoritätsumfang](../../ad-ds/plan/Service-Administrator-Scope-of-Authority.md)  
   
--   [Gegenüberstellung von Autonomie und Isolation](../../ad-ds/plan/Autonomy-vs.-Isolation.md)  
+-   [Autonomie und Isolation](../../ad-ds/plan/Autonomy-vs.-Isolation.md)  

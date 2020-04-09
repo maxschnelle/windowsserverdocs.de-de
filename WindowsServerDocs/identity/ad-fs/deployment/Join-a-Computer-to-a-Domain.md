@@ -1,7 +1,6 @@
 ---
 ms.assetid: 10d6723e-c857-43da-9d2d-acb5641d3da8
 title: Hinzufügen eines Computers zu einer Domäne
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 9f6d657397cb07d081a229135e3e6c97c7191164
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 174f585f3e156fc8e068b9300fc90a20a67869cf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408349"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855353"
 ---
 # <a name="join-a-computer-to-a-domain"></a>Hinzufügen eines Computers zu einer Domäne
 
@@ -22,7 +21,7 @@ Damit Active Directory-Verbunddienste (AD FS) \(AD FS\) funktioniert, muss jeder
   
 Sie müssen einen Webserver nicht zu einer Domäne hinzufügen, wenn der Webserver nur Ansprüche\-fähigen Anwendungen unterstützt.  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe **Administratoren** oder eine gleichwertige Berechtigung auf dem lokalen Computer erforderlich.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 ### <a name="to-join-a-computer-to-a-domain"></a>So fügen Sie einen Computer einer Domäne hinzu  
   
@@ -30,7 +29,7 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
   
 2.  Navigieren Sie zu **System und Sicherheit**, und klicken Sie dann auf **System**.  
   
-3.  Klicken Sie unter **Einstellungen für Computernamen, Domäne und Arbeitsgruppe**auf **Einstellungen ändern**.  
+3.  Klicken Sie unter **Einstellungen für Computernamen, Domäne und Arbeitsgruppe** auf **Einstellungen ändern**.  
   
 4.  Klicken Sie auf der Registerkarte **Computername** auf **Ändern**.  
   

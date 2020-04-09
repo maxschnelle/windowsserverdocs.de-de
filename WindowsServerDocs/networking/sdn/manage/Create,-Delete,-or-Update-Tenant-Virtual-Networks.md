@@ -1,24 +1,20 @@
 ---
 title: Virtuelles Mandanten Netzwerk erstellen, löschen oder aktualisieren
 description: In diesem Thema erfahren Sie, wie Sie virtuelle Hyper-V-netzwerkvirtualisierungsnetzwerke nach der Bereitstellung von Software-Defined Networking (SDN) erstellen, löschen und aktualisieren. Die Hyper-V-Netzwerkvirtualisierung unterstützt Sie bei der Isolierung von Mandanten Netzwerken, sodass jedes Mandanten Netzwerk eine separate Entität ist. Jede Entität hat keine Verbindungs übergreifende Möglichkeit, es sei denn, Sie konfigurieren die Workloads mit öffentlichem Zugriff.
-manager: dougkim
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6a820826-e829-4ef2-9a20-f74235f8c25b
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/24/2018
-ms.openlocfilehash: f85f593ec3dca33c5b35fb065c7d84ed12ea9af2
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: acb663cd33d015c1ce96241abffd4ca260cc5559
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309824"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854523"
 ---
 # <a name="create-delete-or-update-tenant-virtual-networks"></a>Erstellen, Löschen oder Aktualisieren von virtuellen Mandantennetzwerken
 

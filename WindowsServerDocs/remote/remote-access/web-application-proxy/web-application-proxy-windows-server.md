@@ -1,25 +1,25 @@
 ---
 ms.assetid: d8adcb68-18e0-41bf-a817-d57344bf2e7d
 title: Webanwendungsproxy in Windows Server 2016
-description: ''
-author: kgremban
+ms.author: kgremban
+author: eross-msft
 manager: femila
 ms.date: 07/13/2016
 ms.topic: article
 ms.prod: windows-server
 ms.technology: web-app-proxy
-ms.openlocfilehash: 4f2827f02ec13d187cdf360637882c6c9d4b2441
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 660915a9fc704a01b59b4eeb1107ef56599ecac7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387971"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80818573"
 ---
 # <a name="web-application-proxy-in-windows-server-2016"></a>Webanwendungsproxy in Windows Server 2016
 
 >Gilt für: Windows Server 2016
 
-**dieser Inhalt ist für die lokale Version des webanwendungsproxys relevant. Informationen zum Aktivieren des sicheren Zugriffs auf lokale Anwendungen über die Cloud finden Sie in den [Azure AD Anwendungs Proxy-Inhalt](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
+**Diese Inhalte sind für die lokale Version des webanwendungsproxys relevant. Informationen zum Aktivieren des sicheren Zugriffs auf lokale Anwendungen über die Cloud finden Sie in den [Azure AD Anwendungs Proxy-Inhalt](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
   
 In diesem Abschnitt werden die Neuerungen und Änderungen im webanwendungsproxy für Windows Server 2016 beschrieben. Die hier aufgeführten neuen Features und Änderungen haben bei der Arbeit mit der Vorschau wahrscheinlich die größten Auswirkungen.  
   
@@ -55,7 +55,7 @@ In diesem Abschnitt werden die Neuerungen und Änderungen im webanwendungsproxy 
   
 - Weitergabe von Client-IP-Adressen an Back-End  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
   
 -   [Neuerungen in Windows Server 2016](https://technet.microsoft.com/library/dn765472.aspx)  
   

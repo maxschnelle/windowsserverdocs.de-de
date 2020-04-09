@@ -4,15 +4,15 @@ description: Überlegungen zur Hardware bei der AD-Leistungsoptimierung
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: TimWi; ChrisRob; HerbertM; KenBrumf;  MLeary; ShawnRab
+ms.author: timwi; chrisrob; herbertm; kenbrumf;  mleary; shawnrab
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e9b121036d33bc36cabb92ca682407bc2382fca
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c40faca06668adf6fd29a5e4e753e5790b8104b7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355098"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851913"
 ---
 # <a name="hardware-considerations-in-adds-performance-tuning"></a>Überlegungen zur Hardware in werden Leistungsoptimierungen hinzugefügt 
 
@@ -27,7 +27,7 @@ Active Directory speichert so viele Datenbanken wie der Arbeitsspeicher zulässt
 
     -   Informationen zu den Einschränkungen der Legacy Plattformen finden Sie unter [Speicherauslastung durch den LSASS. exe-Prozess auf Domänen Controllern, auf denen Windows Server 2003 oder Windows 2000 Server ausgeführt](https://support.microsoft.com/kb/308356)wird.
 
-    -   Verwenden Sie den\\Leistungs Begriffswert für die langfristige durchschnittliche Dauer &gt; des standbycache-standbycaches von 30 Minuten.
+    -   Verwenden Sie den Leistungs bearbeits Speicher\\langfristigen Dauer des standbycache-Cache &gt; 30 Minuten.
 
 -   Legen Sie das Betriebssystem, die Protokolle und die Datenbank auf separaten Volumes ab. Wenn der gesamte oder der Großteil der DIT zwischengespeichert werden kann, wird der Cache nach dem Aufwärmen und im stabilen Zustand weniger relevant und bietet ein wenig mehr Flexibilität beim Speicher Layout. In Szenarien, in denen die gesamte dit nicht zwischengespeichert werden kann, wird die Wichtigkeit der Aufteilung des Betriebssystems, der Protokolle und der Datenbank auf separaten Volumes wichtiger.
 
@@ -41,13 +41,13 @@ Active Directory speichert so viele Datenbanken wie der Arbeitsspeicher zulässt
 
 -   Überprüfen Sie die Leistung des Datenträger Subsystems einzeln für jedes Volume. Die meisten Active Directory Szenarios sind hauptsächlich Schreib basiert, daher sind die Statistiken auf dem Volume, das die DIT-Anwendung gehostet, die wichtigste zu überprüfen. Übersehen Sie jedoch nicht die Überwachung der restlichen Laufwerke, einschließlich des Betriebssystems und der Protokolldatei Laufwerke. Um zu ermitteln, ob der Domänen Controller ordnungsgemäß konfiguriert ist, um zu vermeiden, dass Speicher als Engpass für die Leistung dient, finden Sie im Abschnitt Speicher Subsysteme Informationen zu Standard Speicher Empfehlungen. In vielen Umgebungen besteht die Philosophie darin, sicherzustellen, dass genügend Platz zur Verfügung steht, um Spitzen oder Spitzen bei Last zu bewältigen. Bei diesen Schwellenwerten handelt es sich um Schwellenwerte für Warnungen, bei denen der haupthfad für die Aufnahme von Spitzen oder Spitzenlast eingeschränkt wird und die Client Reaktionsfähigkeit Kurz gesagt: das Überschreiten dieser Schwellenwerte ist kurzfristig nicht schlecht (5 bis 15 Minuten mehrmals täglich), aber ein System, das mit dieser Art von Statistiken nicht vollständig ausgeführt wird, wird die Datenbank nicht vollständig Zwischenspeichern und ist möglicherweise übersteuert und sollte untersucht werden.
 
-    -   Database = =&gt; Instanzen (LSASS/NTDSA)\\e/a-Datenbank liest durchschnittliche &lt; Latenz 15ms
+    -   Database = =&gt; Instanzen (LSASS/NTDSA)\\I/O Database liest die durchschnittliche Latenz &lt; 15ms
 
-    -   Database = =&gt; Instanzen (LSASS/NTDSA)\\e/a-Daten Bank Lese &lt; Vorgänge/Sek. 10
+    -   Database = =&gt; Instanzen (LSASS/NTDSA)\\e/a-Daten Bank Lesevorgänge/Sek &lt; 10
 
-    -   Database = =&gt; Instanzen (LSASS/NTDSA)\\e/a-Protokoll Schreibvorgänge &lt; mit durchschnittlicher Latenz 10 ms
+    -   Database = =&gt; Instanzen (LSASS/NTDSA)\\e/a-Protokoll Schreibt die durchschnittliche Latenz &lt; 10 ms
 
-    -   Database = =&gt; Instanzen (LSASS/NTDSA)\\e/a-Protokoll Schreibvorgänge/Sek. – nur Information.
+    -   Database = =&gt; Instanzen (LSASS/NTDSA)\\e/a-Protokoll Schreibvorgängen/Sek. – nur Information.
 
         Um die Konsistenz der Daten aufrechtzuerhalten, müssen alle Änderungen in das Protokoll geschrieben werden. Hier gibt es keine gute oder ungültige Zahl. es handelt sich lediglich um ein Maß dafür, wie viel Speicherplatz unterstützt wird.
 
@@ -55,13 +55,13 @@ Active Directory speichert so viele Datenbanken wie der Arbeitsspeicher zulässt
 
 ## <a name="dont-over-tax-the-processors"></a>Steuern Sie die Prozessoren nicht.
 
-Prozessoren, die nicht über genügend freie Zyklen verfügen, können lange Wartezeiten beim Ausführen von Threads an den Prozessor für die Ausführung verursachen. In vielen Umgebungen besteht die Philosophie darin, sicherzustellen, dass genügend Platz zur Verfügung steht, um die Auswirkungen auf die Reaktionsfähigkeit von Clients in diesen Szenarien zu minimieren. Kurz gesagt: das Überschreiten der folgenden Schwellenwerte ist kurzfristig nicht schlecht (5 bis 15 Minuten mehrmals täglich). ein System, das mit dieser Art von Statistiken ausgeführt wird, bietet jedoch keinen Platz für ungewöhnliche Lasten und kann problemlos in eine Übersteuerte CENARIO. Systeme, die die Schwellenwerte überschreiten, sollten untersucht werden, um die Prozessorauslastung zu reduzieren.
+Prozessoren, die nicht über genügend freie Zyklen verfügen, können lange Wartezeiten beim Ausführen von Threads an den Prozessor für die Ausführung verursachen. In vielen Umgebungen besteht die Philosophie darin, sicherzustellen, dass genügend Platz zur Verfügung steht, um die Auswirkungen auf die Reaktionsfähigkeit von Clients in diesen Szenarien zu minimieren. Kurz gesagt: das Überschreiten der folgenden Schwellenwerte ist kurzfristig nicht schlecht (5 bis 15 Minuten mehrmals täglich), aber ein System, das mit dieser Art von Statistiken ausgeführt wird, bietet keinen Spielraum für ungewöhnliche Lasten und kann problemlos in ein über gesteuertes Szenario eingefügt werden. Systeme, die die Schwellenwerte überschreiten, sollten untersucht werden, um die Prozessorauslastung zu reduzieren.
 
 -   Weitere Informationen zum Auswählen eines Prozessors finden Sie unter [Leistungsoptimierung für Server Hardware](../../hardware/index.md).
 
 -   Fügen Sie Hardware hinzu, optimieren Sie die Last, leiten Sie Clients an einem anderen Ort weiter, oder entfernen Sie die Auslastung aus der Umgebung, um
 
--   Verwenden Sie die Prozessor Informationen (\_total) \\% Prozessorauslastung &lt; 60% Leistungs Zählers.
+-   Verwenden Sie die Prozessor Informationen (\_gesamt)\\Prozessorauslastung von% &lt; 60%.
 
 ## <a name="avoid-overloading-the-network-adapter"></a>Vermeiden Sie das Überladen des Netzwerkadapters.
 
@@ -69,7 +69,7 @@ Ebenso wie bei Prozessoren führt eine übermäßige Auslastung des Netzwerkadap
 
 -   Weitere Informationen zum Optimieren des Netzwerk Subsystems finden Sie unter [Leistungsoptimierung für Netzwerk Subsysteme](../../../../networking/technologies/network-subsystem/net-sub-performance-top.md).
 
--   Verwenden Sie den Leistungs Leistungs Dienst "\*netzwerkschnittstellenbytes ()\\mit gesendete\*Bytes\\/Sek." mit NetworkInterface (). Das Verhältnis sollte weniger als 60% betragen.
+-   Verwenden Sie den Vergleich NetworkInterface (\*)\\gesendete Bytes/Sek. mit NetworkInterface (\*)\\aktuellen Bandbreiten Leistungs Zählers. Das Verhältnis sollte weniger als 60% betragen.
 
 ## <a name="see-also"></a>Siehe auch
 - [Leistungsoptimierung Active Directory Server](index.md)

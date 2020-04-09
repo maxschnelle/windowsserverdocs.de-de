@@ -1,28 +1,22 @@
 ---
 title: Erläuterung zur Befehlszeilensyntax
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für den Befehlszeilen-Syntax Schlüssel, der die Notation beschreibt, die zur Angabe der Befehlszeilen Syntax verwendet wird.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 338c0381-ad63-4a4c-bd2c-42c7a93821fe
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b4f8d1e492ee14c3f94c1de00812edcf60c52991
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2e1d7d8601614adbd77d38ce43c0760acb7f7b0a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379233"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847473"
 ---
 # <a name="command-line-syntax-key"></a>Erläuterung zur Befehlszeilensyntax
-
-
 
 In der folgenden Tabelle wird die Notation beschrieben, mit der die Befehlszeilen Syntax angegeben wird.
 
@@ -33,4 +27,4 @@ In der folgenden Tabelle wird die Notation beschrieben, mit der die Befehlszeile
 |[Text in eckigen Klammern]|Optionale Elemente|
 |{Text in geschweiften Klammern}|Satz erforderlicher Elemente; Wählen Sie einen aus|
 |Senkrechter Strich (\|)|Trennzeichen für sich gegenseitig ausschließende Elemente Wählen Sie einen aus|
-|Auslassungspunkte (…)|Elemente, die wiederholt werden können|
+|Auslassungspunkte (…)|Elemente, die wiederholt werden können|

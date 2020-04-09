@@ -4,15 +4,15 @@ description: Empfehlungen zur Leistungsoptimierung für Remotedesktop Gateways
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: HammadBu; VladmiS
+ms.author: hammadbu; vladmis
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: fcd7afd840df12ec19e162f751df9e5c0c9c84d4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3794b47e7226a905944495dd7c31f3196a33d0d5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385013"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851733"
 ---
 # <a name="performance-tuning-remote-desktop-gateways"></a>Leistungsoptimierung Remotedesktop Gateways
 
@@ -44,7 +44,7 @@ Internetinformationsdienste (IIS) und RD-Gateway exportieren Sie die folgenden R
     HKLM\System\CurrentControlSet\Services\InetInfo\Parameters\MaxPoolThreads (REG_DWORD)
     ```
 
-    Dieser Parameter gibt die Anzahl der IIS-Poolthreads an, die pro logischem Prozessor erstellt werden. Die IIS-Poolthreads beobachten das Netzwerk auf Anforderungen und verarbeiten alle eingehenden Anforderungen. Die Anzahl der **MaxPoolThreads** schließt keine Threads ein, die RD-Gateway verbraucht. Der Standardwert lautet %%amp;quot;4%%amp;quot;.
+    Dieser Parameter gibt die Anzahl der IIS-Poolthreads an, die pro logischem Prozessor erstellt werden. Die IIS-Poolthreads beobachten das Netzwerk auf Anforderungen und verarbeiten alle eingehenden Anforderungen. Die Anzahl der **MaxPoolThreads** schließt keine Threads ein, die RD-Gateway verbraucht. Der Standardwert ist 4.
 
 **Tunings für Remote Prozedur Aufrufe für RD-Gateway**
 
@@ -74,15 +74,15 @@ Die folgende Liste der Leistungsindikatoren wird als Basissatz von Indikatoren b
 
 -   \\RPC/HTTP-Proxy\\\*
 
--   \\RPC/HTTP-Proxy pro Server\\\*
+-   \\des RPC/HTTP-Proxys pro Server\\\*
 
 -   \\Webdienst\\\*
 
--   \\W3SVC\_W3WP\\\*
+-   \\W3SVC\_w3wp\\\*
 
--   \\IPv4\\\*
+-   \\IPv4-\\\*
 
--   \\Gedenkens\\\*
+-   \\Arbeitsspeicher\\\*
 
 -   \\Netzwerkschnittstelle (\*)\\\*
 
@@ -90,22 +90,22 @@ Die folgende Liste der Leistungsindikatoren wird als Basissatz von Indikatoren b
 
 -   \\Prozessor Informationen (\*)\\\*
 
--   \\Synchronisierung\*()\\\*
+-   \\Synchronisierung (\*)\\\*
 
--   \\Anlage\\\*
+-   \\System\\\*
 
 -   \\TCPv4\\\*
 
 Die folgenden Leistungsindikatoren sind nur für den Legacy-RPC-Transport anwendbar:
 
--   \\RPC/HTTP-\\ Proxy\* -RPC
+-   \\RPC/HTTP-Proxy\\\* RPC
 
--   \\RPC/HTTP-Proxy pro\\ Server\* -RPC
+-   \\RPC/HTTP-Proxy pro Server\\\* RPC
 
--   \\\\ Webdienst\* -RPC
+-   \\Webdienst\\\* RPC
 
--   \\W3SVC\_W3WP\\ RPC\*
+-   \\W3SVC\_w3wp\\\* RPC
 
 > [!NOTE]
-> Fügen Sie ggf. \\die\\ IPv6 \\\* -\\ undTCPv6\* -Objekte hinzu. ReplaceThisText
+> Fügen Sie ggf. die \\IPv6-\\\* und \\TCPv6\\\* Objekte hinzu. ReplaceThisText
 

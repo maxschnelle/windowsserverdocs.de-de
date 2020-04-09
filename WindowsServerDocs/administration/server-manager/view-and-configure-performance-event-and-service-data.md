@@ -1,38 +1,34 @@
 ---
 title: Anzeigen und Konfigurieren von Leistungs Ereignis-und Dienst Daten
 description: Server-Manager
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ccd59c35-4dbf-48e7-88a4-c519c00184d1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 55ff19988cf502c2fdc968f08f207120956217df
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 992fdc6e4f1bba69d540a4ae810bde00db207a46
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383044"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851463"
 ---
 # <a name="view-and-configure-performance-event-and-service-data"></a>Anzeigen und Konfigurieren von Leistungs-, Ereignis- und Dienstdaten
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema wird beschrieben, wie Sie die Ereignisprotokoll Einträge, Leistungsindikatoren und Dienst Warnungen anzeigen und konfigurieren, die für lokale und Remote Server in Server-Manager angezeigt werden.  
 
 Ereignis-, Dienst-und Leistungs Protokolldaten werden an zwei Stellen in der Server-Manager-Konsole in Windows Server angezeigt.  
 
--   Auf dem Dashboard können Sie auf die Zeilen **Ereignisse**, **Leistung**und **Dienste** klicken, um Ereignis-, Leistungs-und Dienst Protokolldaten zu konfigurieren, die für Rollen, den gesamten Server-Manager Server Pool, vom Benutzer erstellte Gruppen, angezeigt werden sollen. von-Servern und dem lokalen Server. Durch Klicken auf die Textzeilen werden die Dialogfelder **Detailansicht** geöffnet, in denen Sie die Daten angeben können, über die Sie im Dashboard benachrichtigt werden möchten. Nachdem Sie die Ereignis-, Dienst-und Leistungs Protokolldaten konfiguriert haben, die in den Miniaturansichten des Dashboards hervorgehoben werden sollen, werden Protokolleinträge, die den angegebenen Kriterien entsprechen, unten in den Dialogfeldern **Detailansicht** aufgelistet.  
+-   Auf dem Dashboard können Sie auf die Zeilen **Ereignisse**, **Leistung**und **Dienste** klicken, um die Ereignis-, Leistungs-und Dienst Protokolldaten zu konfigurieren, die Sie für Rollen, den gesamten Server-Manager Server Pool, vom Benutzer erstellte Server Gruppen und den lokalen Server anzeigen möchten. Durch Klicken auf die Textzeilen werden die Dialogfelder **Detailansicht** geöffnet, in denen Sie die Daten angeben können, über die Sie im Dashboard benachrichtigt werden möchten. Nachdem Sie die Ereignis-, Dienst-und Leistungs Protokolldaten konfiguriert haben, die in den Miniaturansichten des Dashboards hervorgehoben werden sollen, werden Protokolleinträge, die den angegebenen Kriterien entsprechen, unten in den Dialogfeldern **Detailansicht** aufgelistet.  
 
 -   Die Kacheln **Ereignisse**, **Dienste** und **Leistung** sind Teil der Rollen- und Gruppen-Homepages. Mit den Befehlen im Menü **Aufgaben** dieser Kacheln können Sie die Daten angeben, die Sie von verwalteten Servern sammeln möchten. Die Kacheln enthalten Filter und Abfragen, mit denen die in der Kachel angezeigten Protokolleinträge weiter eingeschränkt werden können, sofern dies gewünscht wird.  
 
-Dieses Thema enthält die folgenden Abschnitte:  
+Dieses Thema enthält folgende Abschnitte:  
 
 -   [Was sind Miniaturansichten?](#BKMK_thumb)  
 
@@ -44,26 +40,26 @@ Dieses Thema enthält die folgenden Abschnitte:
 
 -   [Anzeigen und Kopieren von Ereignis-oder Leistungs Einträgen](#BKMK_copy)  
 
-## <a name="BKMK_thumb"></a>Was sind Miniaturansichten?  
-*Miniaturansichten* werden auf dem Server-Manager-Dashboard für jede Rolle angezeigt (die Miniaturansicht einer Rolle spiegelt die gesammelten Daten zu allen Servern im Server-Manager Pool wider, auf denen die Rolle ausgeführt wird), für jede Server Gruppe für die Gruppe **alle** Server (alle der Server im Server-Manager Pool) und für den lokalen Server. Nachdem Server-Manager Daten von verwalteten Servern abgerufen hat, werden für Rollen, die auf Servern im Server Pool ausgeführt werden, automatisch Miniaturansichten erstellt.  
+## <a name="what-are-thumbnails"></a><a name=BKMK_thumb></a>Was sind Miniaturansichten?  
+*Miniaturansichten* werden auf dem Server-Manager-Dashboard für jede Rolle angezeigt (die Miniaturansicht einer Rolle spiegelt die gesammelten Daten zu allen Servern im Server-Manager Pool wider, auf denen die Rolle ausgeführt wird), für jede Server Gruppe, für die Gruppe **alle** Server (alle Server im Server-Manager Pool) und für den lokalen Server. Nachdem Server-Manager Daten von verwalteten Servern abgerufen hat, werden für Rollen, die auf Servern im Server Pool ausgeführt werden, automatisch Miniaturansichten erstellt.  
 
 Wenn die Server-Manager-Konsole im Rahmen Remoteserver-Verwaltungstools auf einem Client Computer ausgeführt wird, gibt es keine Miniaturansicht für den **lokalen Server** .  
 
-Die Miniaturansicht zeigt eine kurze Übersicht über den Status und die Verwaltbarkeit von Rollen, Servern und Servergruppen. Die Farbe der Zeile für die Miniaturansicht-Überschrift ändert sich (und hervorgehobene Zahlen werden am linken Rand angezeigt), wenn Ereignisse, Leistungsindikatoren, Best Practices Analyzer Ergebnisse, Dienste oder allgemeine verwaltbarkeitsprobleme Kriterien erfüllen, die Sie im Detail konfigurieren.  **Anzeigen** von Dialogfeldern, die durch Klicken auf Miniatur Zeilen geöffnet werden. In der folgenden Tabelle werden die in den Miniaturansichten angezeigten Daten erläutert.  
+Die Miniaturansicht zeigt eine kurze Übersicht über den Status und die Verwaltbarkeit von Rollen, Servern und Servergruppen. Die Farbe der Zeile für die Miniaturansicht-Überschrift ändert sich (und hervorgehobene Zahlen werden am linken Rand angezeigt), wenn Ereignisse, Leistungsindikatoren, Best Practices Analyzer Ergebnisse, Dienste oder allgemeine verwaltbarkeitsprobleme Kriterien erfüllen, die Sie in den durch Klicken auf Miniatur Ansichts Zeilen geöffneten Dialogfeldern der **Detailansicht** konfigurieren. In der folgenden Tabelle werden die in den Miniaturansichten angezeigten Daten erläutert.  
 
 |Miniaturansichtszeile|Beschreibung|  
 |---------|--------|  
-|Verwaltbarkeit|Die Verwaltbarkeit eines Servers umfasst mehrere Measures: ob der Server Online oder offline ist, ob auf ihn zugegriffen werden kann und wie Berichtsdaten an Server-Manager werden, ob der Benutzer, der am lokalen Computer angemeldet ist, über ausreichende Benutzerrechte für den Zugriff auf oder die Verwaltung des Remote Server, ob auf dem Remote Server die gesamte Software ausgeführt wird, die für die Remote Verwaltung erforderlich ist, oder ob der Server so konfiguriert ist, dass er mit Server-Manager abgefragt und verwaltet werden kann. Die einzigen verwaltbarkeitsdaten, die Server-Manager von einem Server, auf dem Windows Server 2003 ausgeführt wird, erfassen können, ist, ob der Server Online oder offline ist. Ausführliche Informationen zu Verwaltbarkeitsstatusfehlern und deren Behebung finden Sie im [Server Manager Troubleshooting Guide](https://social.technet.microsoft.com/wiki/contents/articles/13443.windows-server-2012-server-manager-troubleshooting-guide-part-i-overview.aspx).|  
+|Verwaltbarkeit|Die Verwaltbarkeit eines Servers umfasst mehrere Measures: ob der Server Online oder offline ist, ob auf ihn zugegriffen werden kann und welche Daten Server-Manager werden, ob der Benutzer, der am lokalen Computer angemeldet ist, über ausreichende Benutzerrechte für den Zugriff auf den Remote Server verfügt und ob auf dem Remote Server die gesamte für die Remote Verwaltung erforderliche Software verfügbar ist. oder, ob der Server so konfiguriert wurde, dass er mit Server-Manager abgefragt und verwaltet werden kann. Die einzigen verwaltbarkeitsdaten, die Server-Manager von einem Server, auf dem Windows Server 2003 ausgeführt wird, erfassen können, ist, ob der Server Online oder offline ist. Ausführliche Informationen zu Verwaltbarkeitsstatusfehlern und deren Behebung finden Sie im [Server Manager Troubleshooting Guide](https://social.technet.microsoft.com/wiki/contents/articles/13443.windows-server-2012-server-manager-troubleshooting-guide-part-i-overview.aspx).|  
 |Ereignisse|Sie können die Zeile **Ereignisse** einer Miniaturansicht so konfigurieren, dass Benachrichtigungen angezeigt werden, wenn Ereignisse mit den von Ihnen angegebenen Schweregraden, Quellen, Zeiträumen, Servern oder Ereignis-IDs protokolliert werden. Zeigen Sie Details zu Ereignissen an, und ändern Sie die Warnungen, die Sie anzeigen möchten, indem Sie auf die Zeile **Ereignisse** klicken und das Dialogfeld **Detailansicht Ereignisse** für die Rolle oder Server Gruppe öffnen.|  
-|Dienste|Sie können die Zeile **Dienste** so konfigurieren, dass Warnungen angezeigt werden, wenn Dienste in einer Rolle oder Server Gruppe gefunden werden, die Start Typen, Dienststatus, Dienstnamen und Servern entsprechen, die Sie im Dialogfeld **Dienst Detailansicht** angeben.<br /><br />Nachdem ein Server dem Server-Manager-Server Pool hinzugefügt wurde, können Dienst Warnungen zum Dienst für die Shellhardwareerkennung angezeigt werden, wenn keine Benutzer am verwalteten Server angemeldet sind. Dies geschieht, weil der Dienst für die Shellhardwareerkennung nur ausgeführt wird, wenn Benutzer am verwalteten Server angemeldet oder mit einer Remotedesktopsitzung auf dem verwalteten Server verbunden sind. Damit in diesem Fall keine Shellhardwareerkennung-Dienstwarnungen angezeigt werden, klicken Sie in den Miniaturansichten für Servergruppen, einschließlich der Gruppe **Alle Server** , auf **Dienste** . Deaktivieren Sie im Dialogfeld **Dienst Detailansicht** in der Dropdown Liste **Dienste** das Kontrollkästchen für **Shellhardwareerkennung**, und klicken Sie dann auf **OK**.|  
-|Leistung|Sie können die Zeile **Leistung** so konfigurieren, dass Warnungen für eine Rolle oder Server Gruppe angezeigt werden, wenn Leistungs Warnungen auftreten, die Ressourcentypen, Servern oder Zeiträumen entsprechen, die Sie im Dialogfeld **Leistungs Detailansicht** angeben.<br /><br />Leistungsindikatoren sind standardmäßig deaktiviert. Verwaltete Server, auf denen Betriebssysteme ausgeführt werden, die neuer als Windows Server 2003 sind und für die keine Leistungsindikatoren gestartet wurden, zeigen normalerweise verwaltbarkeitsstatusfehler von **Online Leistungsindikatoren** an, die nicht auf den Servern gestartet wurden.Kachel von Rollen-oder Gruppen Seiten. Um die Leistungsindikatoren für verwaltete Server zu aktivieren, klicken Sie auf der Seite **alle Server** mit der rechten Maustaste auf Einträge auf der Kachel **Leistung** , die den Indikator **Status** Wert **aus**anzeigt, und klicken Sie dann auf **Leistungsindikatoren starten**. Sie können Leistungsindikatoren auch starten, indem Sie in der Kachel **Server** der Rollen-oder Gruppen Seiten mit der rechten Maustaste auf Einträge für Server klicken und dann auf **Leistungsindikatoren starten**klicken.|  
+|Dienste|Sie können die Zeile **Dienste** so konfigurieren, dass Warnungen angezeigt werden, wenn Dienste in einer Rolle oder Server Gruppe gefunden werden, die Start Typen, Dienststatus, Dienstnamen und Servern entsprechen, die Sie im Dialogfeld **Dienst Detailansicht** angeben.<p>Nachdem ein Server dem Server-Manager-Server Pool hinzugefügt wurde, können Dienst Warnungen zum Dienst für die Shellhardwareerkennung angezeigt werden, wenn keine Benutzer am verwalteten Server angemeldet sind. Dies geschieht, weil der Dienst für die Shellhardwareerkennung nur ausgeführt wird, wenn Benutzer am verwalteten Server angemeldet oder mit einer Remotedesktopsitzung auf dem verwalteten Server verbunden sind. Damit in diesem Fall keine Shellhardwareerkennung-Dienstwarnungen angezeigt werden, klicken Sie in den Miniaturansichten für Servergruppen, einschließlich der Gruppe **Alle Server** , auf **Dienste** . Deaktivieren Sie im Dialogfeld **Dienst Detailansicht** in der Dropdown Liste **Dienste** das Kontrollkästchen für **Shellhardwareerkennung**, und klicken Sie dann auf **OK**.|  
+|Leistung|Sie können die Zeile **Leistung** so konfigurieren, dass Warnungen für eine Rolle oder Server Gruppe angezeigt werden, wenn Leistungs Warnungen auftreten, die Ressourcentypen, Servern oder Zeiträumen entsprechen, die Sie im Dialogfeld **Leistungs Detailansicht** angeben.<p>Leistungsindikatoren sind standardmäßig deaktiviert. Verwaltete Server, auf denen Betriebssysteme ausgeführt werden, die neuer als Windows Server 2003 sind und für die keine Leistungsindikatoren gestartet wurden, zeigen normalerweise verwaltbarkeitsstatusfehler von **Online-Leistungsindikatoren** , die auf der Kachel **Server** der Rollen-oder Gruppen Seiten nicht gestartet sind, an. Um die Leistungsindikatoren für verwaltete Server zu aktivieren, klicken Sie auf der Seite **alle Server** mit der rechten Maustaste auf Einträge auf der Kachel **Leistung** , die den Indikator **Status** Wert **aus**anzeigt, und klicken Sie dann auf **Leistungsindikatoren starten**. Sie können Leistungsindikatoren auch starten, indem Sie in der Kachel **Server** der Rollen-oder Gruppen Seiten mit der rechten Maustaste auf Einträge für Server klicken und dann auf **Leistungsindikatoren starten**klicken.|  
 |BPA-Ergebnisse|Sie können die Zeile **BPA-Ergebnisse** so konfigurieren, dass Warnungen für eine Rolle oder Server Gruppe angezeigt werden, wenn BPA-Scanergebnisse gefunden werden, die Schweregraden, Servern oder BPA-Kategorien entsprechen, die Sie im Dialogfeld mit der **BPA-Ergebnis Detailansicht** angeben.|  
 
-## <a name="BKMK_events"></a>Anzeigen und Konfigurieren von Ereignissen  
+## <a name="view-and-configure-events"></a><a name=BKMK_events></a>Anzeigen und Konfigurieren von Ereignissen  
 In diesem Abschnitt erfahren Sie, wie Sie konfigurieren können, welche Ereignisprotokoll Daten von den Servern im Server-Manager Server Pool gesammelt werden und welche Ereignisse Sie in den Miniaturansichten hervorheben möchten.  
 
 > [!NOTE]  
-> Die Ereignisse, über die Sie in den Miniaturansichten benachrichtigt werden, sind eine Teilmenge der Gesamt Ereignisse, die Sie anweisen, Server-Manager von verwalteten Servern zu erfassen. Obwohl das Ändern von Ereignis Kriterien im Dialogfeld **Ereignisdaten konfigurieren** in den Kacheln **Ereignisse** die Anzahl der Warnungen ändern kann, die auf dem Server-Manager-Dashboard angezeigt werden, wirkt sich das Ändern der Ereignis Warnungs Kriterien in Miniaturansichten nicht auf die Ereignisprotokoll Daten aus. wird von verwalteten Servern gesammelt.  
+> Die Ereignisse, über die Sie in den Miniaturansichten benachrichtigt werden, sind eine Teilmenge der Gesamt Ereignisse, die Sie anweisen, Server-Manager von verwalteten Servern zu erfassen. Obwohl das Ändern von Ereignis Kriterien im Dialogfeld **Ereignisdaten konfigurieren** in den Kacheln **Ereignisse** die Anzahl der Warnungen ändern kann, die auf dem Server-Manager-Dashboard angezeigt werden, wirkt sich das Ändern der Kriterien für Ereignis Warnungen in den Miniaturansichten nicht auf die Ereignisprotokoll Daten aus, die von den verwalteten Servern gesammelt werden.  
 
 #### <a name="to-configure-the-events-collected-from-managed-servers"></a>So konfigurieren Sie Ereignisse, die von verwalteten Servern gesammelt werden  
 
@@ -105,15 +101,15 @@ In diesem Abschnitt erfahren Sie, wie Sie konfigurieren können, welche Ereignis
 
 10. Klicken Sie auf **OK** , um die Änderungen zu speichern, das Dialogfeld **Detailansicht** zu schließen und die Änderungen an den Ereignis Warnungen in der Quell Miniaturansicht anzuzeigen.  
 
-## <a name="BKMK_perf"></a>Anzeigen und Konfigurieren von Leistungs Protokolldaten  
+## <a name="view-and-configure-performance-log-data"></a><a name=BKMK_perf></a>Anzeigen und Konfigurieren von Leistungs Protokolldaten  
 In diesem Abschnitt erfahren Sie, wie Sie konfigurieren können, welche Leistungs Protokolldaten von den Servern im Server-Manager Server Pool gesammelt werden und welche Leistungs Warnungs Warnungen Sie in den Miniaturansichten hervorheben möchten.  
 
-Leistungsindikatoren sind standardmäßig deaktiviert. Verwaltete Server, auf denen Betriebssysteme ausgeführt werden, die neuer als Windows Server 2003 sind und für die keine Leistungsindikatoren gestartet wurden, zeigen normalerweise verwaltbarkeitsstatusfehler von **Online Leistungsindikatoren** an, die nicht auf den Servern gestartet wurden.Kachel von Rollen-oder Gruppen Seiten. Um die Leistungsindikatoren für verwaltete Server zu aktivieren, klicken Sie auf der Seite **alle Server** mit der rechten Maustaste auf Einträge auf der Kachel **Leistung** , die den Indikator **Status** Wert **aus**anzeigt, und klicken Sie dann auf **Leistungsindikatoren starten**. Sie können Leistungsindikatoren auch starten, indem Sie in der Kachel **Server** der Rollen-oder Gruppen Seiten mit der rechten Maustaste auf Einträge für Server klicken und dann auf **Leistungsindikatoren starten**klicken.  
+Leistungsindikatoren sind standardmäßig deaktiviert. Verwaltete Server, auf denen Betriebssysteme ausgeführt werden, die neuer als Windows Server 2003 sind und für die keine Leistungsindikatoren gestartet wurden, zeigen normalerweise verwaltbarkeitsstatusfehler von **Online-Leistungsindikatoren** , die auf der Kachel **Server** der Rollen-oder Gruppen Seiten nicht gestartet sind, an. Um die Leistungsindikatoren für verwaltete Server zu aktivieren, klicken Sie auf der Seite **alle Server** mit der rechten Maustaste auf Einträge auf der Kachel **Leistung** , die den Indikator **Status** Wert **aus**anzeigt, und klicken Sie dann auf **Leistungsindikatoren starten**. Sie können Leistungsindikatoren auch starten, indem Sie in der Kachel **Server** der Rollen-oder Gruppen Seiten mit der rechten Maustaste auf Einträge für Server klicken und dann auf **Leistungsindikatoren starten**klicken.  
 
 > [!NOTE]  
-> Die Leistungs Warnungen, die Sie in den Miniaturansichten anzeigen, sind eine Teilmenge der gesamten Leistungsdaten, die Sie anweisen, Server-Manager von verwalteten Servern zu erfassen. Obwohl das Ändern der Leistungs Warn Kriterien im Dialogfeld **Leistungs Warnungen konfigurieren** in den Kacheln **Leistung** die Anzahl der Warnungen ändern kann, die auf dem Server-Manager-Dashboard angezeigt werden, ändern Sie die Kriterien für die Leistungs Warnung in Miniaturansichten. hat keine Auswirkung auf die Leistungs Protokolldaten, die von den verwalteten Servern gesammelt werden.  
+> Die Leistungs Warnungen, die Sie in den Miniaturansichten anzeigen, sind eine Teilmenge der gesamten Leistungsdaten, die Sie anweisen, Server-Manager von verwalteten Servern zu erfassen. Obwohl das Ändern der Kriterien für die Leistungs Warnung im Dialogfeld **Leistungs Warnungen konfigurieren** in den Kacheln **Leistung** die Anzahl der Warnungen ändern kann, die auf dem Server-Manager-Dashboard angezeigt werden, hat das Ändern der Kriterien für die Leistungs Warnung in den Miniaturansichten keine Auswirkung auf die Leistungs Protokolldaten, die von verwalteten Servern gesammelt werden.  
 >   
-> Aus diesem Grund kann das maximale Alter von Leistungsdaten, die Sie in den Miniaturansichten anzeigen können, nicht größer als der maximale Zeitraum der Diagrammanzeige sein, der im Dialogfeld **Leistungswarnungen konfigurieren** konfiguriert ist. Wenn der Wert des **Diagramms für die Diagramm Anzeige** in **Leistungs Warnungen konfigurieren** z. b. **1 Tag**ist, wird der Maximalwert für **das Feld Zeitraum** im Dialogfeld mit der **Leistungs Detailansicht** angezeigt, das Sie im Server-Manager Das Dashboard kann **1 Tag**, **24 Stunden**oder **1.440 Minuten**sein.  
+> Aus diesem Grund kann das maximale Alter von Leistungsdaten, die Sie in den Miniaturansichten anzeigen können, nicht größer als der maximale Zeitraum der Diagrammanzeige sein, der im Dialogfeld **Leistungswarnungen konfigurieren** konfiguriert ist. Wenn der Wert des **Diagramms für die Diagramm Anzeige** in **Leistungs Warnungen konfigurieren** z. b. **1 Tag**ist, kann der Maximalwert für **das Feld Zeitraum** im Dialogfeld mit der **Leistungs Detailansicht** , das Sie über das Server-Manager Dashboard geöffnet haben, **1 Tag**, **24 Stunden**oder **1.440 Minuten**sein.  
 
 #### <a name="to-configure-the-performance-log-data-collected-from-managed-servers"></a>So konfigurieren Sie die Leistungsprotokolldaten, die von den verwalteten Servern gesammelt werden  
 
@@ -154,7 +150,7 @@ Leistungsindikatoren sind standardmäßig deaktiviert. Verwaltete Server, auf de
 
 #### <a name="to-view-the-properties-of-performance-alerts"></a>So zeigen Sie die Eigenschaften der Leistungswarnungen an  
 
-1.  Führen Sie eine der folgenden Aktionen aus.  
+1.  Führen Sie einen der folgenden Schritte aus:  
 
     -   Klicken Sie auf der Dashboardseite in der Kachel **Rollen und Servergruppen** in einer Miniaturansicht auf die Zeile **Leistung** .  
 
@@ -175,7 +171,7 @@ Weitere Informationen zum Analysieren von Leistungsdaten in Server-Manager und z
 
 Weitere Informationen zu erweiterten Tools für die Leistungsüberwachung und-Analyse, die für Windows Server 2012 und spätere Versionen von Windows Server verfügbar sind, einschließlich Server Performance Advisor 3,0, finden Sie unter Performance on MSDN ( [Leistung](https://msdn.microsoft.com/windows/hardware/gg463374.aspx) auf MSDN).  
 
-## <a name="BKMK_services"></a>Dienste verwalten und Dienst Warnungen konfigurieren  
+## <a name="manage-services-and-configure-service-alerts"></a><a name=BKMK_services></a>Dienste verwalten und Dienst Warnungen konfigurieren  
 In diesem Abschnitt erfahren Sie, wie Sie Dienste starten, anhalten, neu starten, anhalten oder fortsetzen, die auf den Rollen-und Server Gruppen Seiten in Server-Manager auf der Kachel **Dienste** angezeigt werden. Sie können auch die Dienste konfigurieren, über die Sie in den Miniaturansichten auf dem Server-Manager-Dashboard benachrichtigt werden.  
 
 > [!NOTE]  
@@ -209,11 +205,11 @@ In diesem Abschnitt erfahren Sie, wie Sie Dienste starten, anhalten, neu starten
 
 8.  Klicken Sie auf **OK** , um die Änderungen zu speichern, das Dialogfeld **Detailansicht** zu schließen und die Änderungen an den Dienst Warnungen in der Quell Miniaturansicht anzuzeigen.  
 
-## <a name="BKMK_copy"></a>Anzeigen und Kopieren von Ereignis-, Dienst-oder Leistungs Einträgen  
+## <a name="view-and-copy-event-service-or-performance-entries"></a><a name=BKMK_copy></a>Anzeigen und Kopieren von Ereignis-, Dienst-oder Leistungs Einträgen  
 Sie können in den Dialogfeldern **Detailansicht** und in den Kacheln **Ereignisse** und **Leistung** für eine Rolle oder eine Gruppe Eigenschaften für Ereignis-, Dienst-oder Leistungs Einträge kopieren. Klicken Sie mit der rechten Maustaste auf einen Ereignis-oder leistungseintrag, und klicken Sie auf **Kopieren**.  
 
 Über die Kachel **Ereignisse** können Sie auch in der unteren Hälfte der Kachel Ereigniseigenschaften in der Vorschau anzeigen, indem Sie in der Liste einen Eintrag auswählen. Zum Kopieren der in der Vorschau angezeigten Eigenschaften klicken Sie mit der rechten Maustaste auf den Vorschaubereich, und klicken Sie dann auf **Kopieren**.  
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Server-Manager](server-manager.md)  
 [Filtern, Sortieren und Abfragen von Daten in Server-Manager-Kacheln](filter-sort-and-query-data-in-server-manager-tiles.md)  

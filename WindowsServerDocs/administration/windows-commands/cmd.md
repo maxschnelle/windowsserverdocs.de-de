@@ -1,26 +1,22 @@
 ---
-title: Cmd
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+title: cmd
+description: Windows-Befehls Thema für cmd, das eine neue Instanz des Befehls interpreterers, cmd. exe, startet.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6ec588db-31a9-4a73-a970-65a2c6f4abbe
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 032fbea2039faa09753ac0c2b51e4b62004d36ac
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 83b5e27017a9a0f979acec428b8ddaa73cd9d46b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379333"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847623"
 ---
-# <a name="cmd"></a>Cmd
+# <a name="cmd"></a>cmd
 
 Startet eine neue Instanz des Befehls interpreterers, cmd. exe. Bei Verwendung ohne Parameter zeigt **cmd** die Version und die Copyright Informationen des Betriebssystems an.
 
@@ -30,7 +26,7 @@ Startet eine neue Instanz des Befehls interpreterers, cmd. exe. Bei Verwendung o
 cmd [/c|/k] [/s] [/q] [/d] [/a|/u] [/t:{<B><F>|<F>}] [/e:{on|off}] [/f:{on|off}] [/v:{on|off}] [<String>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -60,26 +56,26 @@ In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die S
 |2|Grün|
 |3|CE|
 |4|Rot|
-|5|Viol|
+|5|Violett|
 |6|Gelb|
-|7|White|
+|7|Weiß|
 |8|Grau|
 |9|Hellblau|
 |a|Hellgrün|
-|b)|Hell Aqua|
+|b|Hell Aqua|
 |c|Hellrot|
 |d|Hell lila|
-|Fresser|Hellgelb|
+|e|Hellgelb|
 |f|Helles Weiß|
 
 ## <a name="remarks"></a>Hinweise
 
 -   Verwenden mehrerer Befehle
 
-    Wenn Sie mehrere Befehle für \<Zeichenfolge > verwenden möchten, trennen Sie diese durch das Befehls Trennzeichen **&&** und schließen Sie Sie in Anführungszeichen ein. Zum Beispiel:
+    Wenn Sie mehrere Befehle für \<Zeichenfolge > verwenden möchten, trennen Sie diese durch das Befehls Trennzeichen **&&** und schließen Sie Sie in Anführungszeichen ein. Beispiel:
 
     ```
-    "<Command>&&<Command>&&<Command>"
+    <Command>&&<Command>&&<Command>
     ``` 
  
 -   Verarbeiten von Anführungszeichen
@@ -103,7 +99,7 @@ In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die S
     Wenn ein oder beide Registrierungs Unterschlüssel vorhanden sind, werden diese vor allen anderen Variablen ausgeführt.
 
 > [!CAUTION]
-> Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
+> Eine fehlerhafte Bearbeitung der Registrierung kann Ihr System schwer beschädigen. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
 
 -   Aktivieren und Deaktivieren von Befehls Erweiterungen
 
@@ -116,7 +112,7 @@ In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die S
     Legen Sie den **REG_DWORD** -Wert in der Registrierung mithilfe von regedit. exe entweder auf **0 × 1** (aktiviert) oder auf **0 × 0** (deaktiviert) fest. Benutzerdefinierte Einstellungen haben Vorrang vor Computereinstellungen, und Befehlszeilenoptionen haben Vorrang vor den Registrierungs Einstellungen.
 
 > [!CAUTION]
-> Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
+> Eine fehlerhafte Bearbeitung der Registrierung kann Ihr System schwer beschädigen. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
 
     When you enable command extensions, the following commands are affected:  
     -  **assoc**
@@ -156,7 +152,7 @@ In der folgenden Tabelle werden gültige hexadezimale Ziffern aufgelistet, die S
     Wenn Sie den **REG_DWORD** Wert festlegen möchten, führen Sie regedit. exe aus, und verwenden Sie den Hexadezimalwert eines Steuer Zeichens für eine bestimmte Funktion (z. b. **0 × 9** ist Tab, und **0 × 08** ist RÜCKTASTE). Benutzerdefinierte Einstellungen haben Vorrang vor Computereinstellungen, und Befehlszeilenoptionen haben Vorrang vor den Registrierungs Einstellungen.
 
 > [!CAUTION]
-> Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
+> Eine fehlerhafte Bearbeitung der Registrierung kann Ihr System schwer beschädigen. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.
 
 Wenn Sie die Vervollständigung von Datei-und Verzeichnisnamen mithilfe von **/f: on**aktivieren, verwenden Sie STRG + D für den Abschluss des Verzeichnis namens und Strg + f für den Abschluss des Datei namens. Um ein bestimmtes Abschluss Zeichen in der Registrierung zu deaktivieren, verwenden Sie den Wert für Leerraum [**0 × 20**], da es sich nicht um ein gültiges Steuerzeichen handelt.
 
@@ -166,10 +162,10 @@ Datei-und Verzeichnisnamen Vervollständigung verarbeitet ordnungsgemäß Datein
 
 Die folgenden Sonderzeichen erfordern Anführungszeichen: & < > [] {} ^ =;! ' +, ' ~ [Leerraum].
 
-Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. "Computer Name").
+Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. Computer Name).
 
 Wenn Sie die Vervollständigung von Datei-und Verzeichnisnamen innerhalb der *Zeichenfolge*verarbeiten, wird jeder Teil des *Pfads* rechts vom Cursor verworfen (an der Stelle in der *Zeichenfolge* , an der der Abschluss verarbeitet wurde).
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

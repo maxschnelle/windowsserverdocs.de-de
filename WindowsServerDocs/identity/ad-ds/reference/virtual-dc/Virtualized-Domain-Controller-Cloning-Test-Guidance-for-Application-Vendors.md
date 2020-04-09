@@ -1,7 +1,6 @@
 ---
 ms.assetid: fde99b44-cb9f-49bf-b888-edaeabe6b88d
 title: 'Testleitfaden: Klonen von virtualisierten Domänencontrollern für Anwendungsanbieter'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,18 +8,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 4926fabe255f964b6d39e6c39c5e794a37423111
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.openlocfilehash: 7273c59022edf4b03276a9e26c8291849ef93b40
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517465"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853993"
 ---
 # <a name="virtualized-domain-controller-cloning-test-guidance-for-application-vendors"></a>Testleitfaden: Klonen von virtualisierten Domänencontrollern für Anwendungsanbieter
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-In diesem Thema wird erläutert, welche Anwendungshersteller in Erwägung gezogen werden sollten, um sicherzustellen, dass Ihre Anwendung nach Abschluss des Klonens des virtualisierten Domänen Controllers (DC) weiterhin erwartungsgemäß funktioniert. Dabei werden die Aspekte des Klon Prozesses behandelt, bei denen es sich um Anwendungsanbieter und Szenarios handelt, die möglicherweise zusätzliche Tests rechtfertigen Anwendungshersteller, die überprüft haben, ob Ihre Anwendung auf virtualisierten Domänen Controllern funktioniert, die geklont wurden, werden aufgefordert, den Namen der Anwendung im Inhalt der Community am Ende dieses Themas zusammen mit einem Link zu Ihrem Website der Organisation, auf der Benutzer mehr über die Validierung erfahren können.
+In diesem Thema wird erläutert, welche Anwendungshersteller in Erwägung gezogen werden sollten, um sicherzustellen, dass Ihre Anwendung nach Abschluss des Klonens des virtualisierten Domänen Controllers (DC) weiterhin erwartungsgemäß funktioniert. Dabei werden die Aspekte des Klon Prozesses behandelt, bei denen es sich um Anwendungsanbieter und Szenarios handelt, die möglicherweise zusätzliche Tests rechtfertigen Anwendungshersteller, die überprüft haben, ob Ihre Anwendung auf virtualisierten Domänen Controllern funktioniert, die geklont wurden, werden aufgefordert, den Namen der Anwendung im Inhalt der Community am Ende dieses Themas zusammen mit einem Link zur Website Ihres Unternehmens aufzulisten, auf der die Benutzer mehr über die Validierung erfahren können.
 
 ## <a name="overview-of-virtualized-dc-cloning"></a>Übersicht über das Klonen virtualisierter Domänen Controller
 Der Prozess für das Klonen virtualisierter Domänen Controller wird ausführlich in [Einführung in Active Directory Domain Services (AD DS) Virtualisierung (Stufe 100)](https://docs.microsoft.com/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) und [Technische Referenz für virtualisierte Domänen Controller (Level 300)](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/virtual-dc/virtualized-domain-controller-technical-reference--level-300-)beschrieben. Aus der Perspektive eines Anwendungs Herstellers sind dies einige Aspekte zu berücksichtigen, die bei der Bewertung der Auswirkungen des Klonens auf Ihre Anwendung zu berücksichtigen sind:

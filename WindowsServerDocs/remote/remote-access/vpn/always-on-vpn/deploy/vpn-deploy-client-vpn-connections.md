@@ -7,15 +7,15 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.assetid: d165822d-b65c-40a2-b440-af495ad22f42
 ms.localizationpriority: medium
-ms.author: lizross
-author: eross-msft
+ms.author: v-tea
+author: Teresa-MOTIV
 ms.reviewer: deverette
-ms.openlocfilehash: 11906c737dd1604bf064e25a01289fe2ee5a23ad
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: ecaf35f9cfe825d2bb617acbd9554bf1eb0eff1e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310496"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860503"
 ---
 # <a name="step-6-configure-windows-10-client-always-on-vpn-connections"></a>Schritt 6 Konfigurieren von Windows 10-Client Always on-VPN-Verbindungen
 
@@ -238,7 +238,7 @@ Verwenden Sie das Skript **VPN_Profile. ps1** in Windows PowerShell oder Microso
 >[!NOTE]
 >Das vollständige Beispielskript finden Sie im Abschnitt [makeprofile. ps1 Full Script](#makeprofileps1-full-script).
 
-#### <a name="parameters"></a>Parameter
+##### <a name="parameters"></a>Parameter
 
 Konfigurieren Sie die folgenden Parameter:
 
@@ -548,47 +548,47 @@ Das folgende Beispielskript enthält alle Codebeispiele aus den vorherigen Absch
  
       try
       {
-    `$deleteInstances = `$session.EnumerateInstances(`$namespaceName, `$className, `$options)
-    foreach (`$deleteInstance in `$deleteInstances)
-    {
-        `$InstanceId = `$deleteInstance.InstanceID
-        if (`"`$InstanceId`" -eq `"`$ProfileNameEscaped`")
-        {
-            `$session.DeleteInstance(`$namespaceName, `$deleteInstance, `$options)
-            `$Message = `"Removed `$ProfileName profile `$InstanceId`"
-            Write-Host `"`$Message`"
-        } else {
-            `$Message = `"Ignoring existing VPN profile `$InstanceId`"
-            Write-Host `"`$Message`"
-        }
-    }
+     `$deleteInstances = `$session.EnumerateInstances(`$namespaceName, `$className, `$options)
+     foreach (`$deleteInstance in `$deleteInstances)
+     {
+         `$InstanceId = `$deleteInstance.InstanceID
+         if (`"`$InstanceId`" -eq `"`$ProfileNameEscaped`")
+         {
+             `$session.DeleteInstance(`$namespaceName, `$deleteInstance, `$options)
+             `$Message = `"Removed `$ProfileName profile `$InstanceId`"
+             Write-Host `"`$Message`"
+         } else {
+             `$Message = `"Ignoring existing VPN profile `$InstanceId`"
+             Write-Host `"`$Message`"
+         }
+     }
       }
       catch [Exception]
       {
-    `$Message = `"Unable to remove existing outdated instance(s) of `$ProfileName profile: `$_`"
-    Write-Host `"`$Message`"
-    exit
+     `$Message = `"Unable to remove existing outdated instance(s) of `$ProfileName profile: `$_`"
+     Write-Host `"`$Message`"
+     exit
       }
  
       try
       {
-    `$newInstance = New-Object Microsoft.Management.Infrastructure.CimInstance `$className, `$namespaceName
-    `$property = [Microsoft.Management.Infrastructure.CimProperty]::Create(`"ParentID`", `"`$nodeCSPURI`", `"String`", `"Key`")
-    `$newInstance.CimInstanceProperties.Add(`$property)
-    `$property = [Microsoft.Management.Infrastructure.CimProperty]::Create(`"InstanceID`", `"`$ProfileNameEscaped`", `"String`",      `"Key`")
-    `$newInstance.CimInstanceProperties.Add(`$property)
-    `$property = [Microsoft.Management.Infrastructure.CimProperty]::Create(`"ProfileXML`", `"`$ProfileXML`", `"String`", `"Property`")
-    `$newInstance.CimInstanceProperties.Add(`$property)
-    `$session.CreateInstance(`$namespaceName, `$newInstance, `$options)
-    `$Message = `"Created `$ProfileName profile.`"
+     `$newInstance = New-Object Microsoft.Management.Infrastructure.CimInstance `$className, `$namespaceName
+     `$property = [Microsoft.Management.Infrastructure.CimProperty]::Create(`"ParentID`", `"`$nodeCSPURI`", `"String`", `"Key`")
+     `$newInstance.CimInstanceProperties.Add(`$property)
+     `$property = [Microsoft.Management.Infrastructure.CimProperty]::Create(`"InstanceID`", `"`$ProfileNameEscaped`", `"String`",      `"Key`")
+     `$newInstance.CimInstanceProperties.Add(`$property)
+     `$property = [Microsoft.Management.Infrastructure.CimProperty]::Create(`"ProfileXML`", `"`$ProfileXML`", `"String`", `"Property`")
+     `$newInstance.CimInstanceProperties.Add(`$property)
+     `$session.CreateInstance(`$namespaceName, `$newInstance, `$options)
+     `$Message = `"Created `$ProfileName profile.`"
 
-    Write-Host `"`$Message`"
+     Write-Host `"`$Message`"
       }
       catch [Exception]
       {
-    `$Message = `"Unable to create `$ProfileName profile: `$_`"
-    Write-Host `"`$Message`"
-    exit
+     `$Message = `"Unable to create `$ProfileName profile: `$_`"
+     Write-Host `"`$Message`"
+     exit
       }
  
       `$Message = `"Script Complete`"
@@ -867,13 +867,13 @@ Erstellen Sie die VPN-Geräte Konfigurationsrichtlinie, um die Windows 10-Client
 
 ### <a name="create-the-always-on-vpn-configuration-policy"></a>Erstellen der Always on VPN-Konfigurationsrichtlinie
 
-1.  Melde dich beim [Azure-Portal](https://portal.azure.com/) an.
+1.    Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
 
-2.  Wechseln Sie zu **InTune** > **Gerätekonfiguration** > **profile**.
+2.    Wechseln Sie zu **InTune** > **Gerätekonfiguration** > **profile**.
 
-3.  Klicken Sie zum Starten des Assistenten zum Erstellen von Profilen auf **Profil erstellen** .
+3.    Klicken Sie zum Starten des Assistenten zum Erstellen von Profilen auf **Profil erstellen** .
 
-4.  Geben Sie einen **Namen** für das VPN-Profil und (optional) eine Beschreibung ein.
+4.    Geben Sie einen **Namen** für das VPN-Profil und (optional) eine Beschreibung ein.
 
 1.   Wählen Sie unter **Plattform**die Option **Windows 10 oder**höher, **und wählen Sie** in der Dropdown-Dropdown-Dropdown-Dropdown-
 

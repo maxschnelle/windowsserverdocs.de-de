@@ -1,40 +1,47 @@
 ---
 title: biout admin makecustomheadersschreiteonly
-description: 'Thema für Windows-Befehle für **bigsadmin makecustomheadersschreiteonly** : machen Sie die benutzerdefinierten HTTP-Header eines Auftrags schreibgeschützt (kann nicht rückgängig gemacht werden).'
-ms.custom: na
+description: Windows-Befehls Thema für **bitionadmin makecustomheadersschreiteonly**, mit dem die benutzerdefinierten HTTP-Header eines Auftrags schreibgeschützt werden.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 64bf048ddc76ad1d751509e95d09403db1de7883
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9183b1b5de51020c5c6d2efad2c0a788d158a183
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381030"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850243"
 ---
 # <a name="bitsadmin-makecustomheaderswriteonly"></a>biout admin makecustomheadersschreiteonly
 
-Schreibschutz für benutzerdefinierte HTTP-Header eines Auftrags (kann nicht rückgängig gemacht werden)
+Schreiben Sie die benutzerdefinierten HTTP-Header eines Auftrags als schreibgeschützt.
+
+> [!Important]
+> Diese Aktion kann nicht rückgängig gemacht werden.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-bitsadmin /MakeCustomHeadersWriteOnly <Job>
+bitsadmin /makecustomheaderswriteonly <job>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+| Parameter | Beschreibung |
+| -------------- | -------------- |
+| Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+Im folgenden Beispiel werden benutzerdefinierte HTTP-Header für den Auftrag mit dem Namen *mydownloadjob*schreibgeschützt.
+
+```
+C:\>bitsadmin /makecustomheaderswriteonly myDownloadJob
+```
+
+## <a name="additional-references"></a>Weitere Verweise
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,5 @@
 ---
 title: What's New in Kerberos Authentication
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 7bd17803-6e42-4a3b-803f-e47c74725813
@@ -8,12 +7,12 @@ manager: alanth
 author: justinha
 ms.technology: security-authentication
 ms.date: 11/09/2016
-ms.openlocfilehash: a0916abf1076b5f791a856f0c85f54ad17f6d64c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 35eff73e97c8fdbb6df2c1412779b033a9ca3fa5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403474"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858813"
 ---
 # <a name="whats-new-in-kerberos-authentication"></a>What's New in Kerberos Authentication
 
@@ -31,19 +30,19 @@ Ab Windows 10, Version 1607 und Windows Server 2016, versuchen die Kerberos-Clie
 
 Ab Windows Server 2016 können KDCs die Erweiterung PKINIT-Aktualität unterstützen. Standardmäßig bieten KDCs keine PKINIT-Aktualität-Erweiterung. Um es zu aktivieren, verwenden Sie die neue KDC-Unterstützung für die administrative Vorlage für die administrative Vorlage für die PKINIT-Erweiterung für alle DCS in der Domäne. Bei der Konfiguration werden die folgenden Optionen unterstützt, wenn die Domäne Windows Server 2016-Domänen Funktionsebene (DFL) ist:
 
-- **Deaktiviert**: Der KDC bietet die PKINIT-Erweiterung nie an und akzeptiert gültige Authentifizierungsanforderungen, ohne die Aktualität zu überprüfen. Benutzer erhalten nie die neue Identität der öffentlichen Schlüssel Identität.
+- **Deaktiviert**: der KDC bietet die PKINIT-Erweiterung nie an und akzeptiert gültige Authentifizierungsanforderungen, ohne auf Aktualität zu prüfen. Benutzer erhalten nie die neue Identität der öffentlichen Schlüssel Identität.
 - **Unterstützt**: PKINIT-Erweiterungen werden auf Anforderung unterstützt. Kerberos-Clients, die sich erfolgreich bei der PKINIT-Erweiterung authentifizieren, erhalten die aktuelle SID der öffentlichen Schlüssel Identität.
-- **Erforderlich**: Die PKINIT-Erweiterung ist für die erfolgreiche Authentifizierung erforderlich. Kerberos-Clients, die die PKINIT-Erweiterung nicht unterstützen, schlagen immer fehl, wenn Anmelde Informationen für öffentliche Schlüssel verwendet werden.
+- **Erforderlich**: PKINIT-Erweiterung ist für die erfolgreiche Authentifizierung erforderlich. Kerberos-Clients, die die PKINIT-Erweiterung nicht unterstützen, schlagen immer fehl, wenn Anmelde Informationen für öffentliche Schlüssel verwendet werden.
 
 ## <a name="domain-joined-device-support-for-authentication-using-public-key"></a>Unterstützung von in die Domäne eingebundenen Geräten für die Authentifizierung mit öffentlichem Schlüssel
 
-Ab Windows 10, Version 1507 und Windows Server 2016, kann das Gerät mithilfe der Kerberos-Authentifizierung mit dem öffentlichen Schlüssel authentifiziert werden, wenn ein in eine Domäne eingebundenes Gerät seinen gebundenen öffentlichen Schlüssel bei einem Windows Server 2016-Domänen Controller (DC) registriert. einen Windows Server 2016-DC. Weitere Informationen finden Sie unter [Authentifizierung mit öffentlichem Schlüssel für den Domänen Beitritt](Domain-joined-Device-Public-Key-Authentication.md) .
+Ab Windows 10, Version 1507 und Windows Server 2016, kann das Gerät mithilfe der Kerberos-Authentifizierung bei einem Windows Server 2016-DC mit dem öffentlichen Schlüssel authentifiziert werden, wenn ein in eine Domäne eingebundenes Gerät seinen gebundenen öffentlichen Schlüssel bei einem Windows Server 2016-Domänen Controller (DC) registrieren kann. Weitere Informationen finden Sie unter [Authentifizierung mit öffentlichem Schlüssel für den Domänen Beitritt](Domain-joined-Device-Public-Key-Authentication.md) .
 
 ## <a name="kerberos-clients-allow-ipv4-and-ipv6-address-hostnames-in-service-principal-names-spns"></a>Kerberos-Clients lassen IPv4-und IPv6-Adress Hostnamen in Dienst Prinzipal Namen (SPNs) zu.
 
 Ab Windows 10, Version 1507 und Windows Server 2016, können Kerberos-Clients für die Unterstützung von IPv4-und IPv6-Hostnamen in SPNs konfiguriert werden. 
 
-Registrierungs Pfad:
+Registrierungspfad:
 
 Hklm\software\microsoft\windows\currentversion\policies\system\kerberos\parameters
 
@@ -57,14 +56,14 @@ Weitere Informationen finden Sie im Dokument [Konfigurieren von Kerberos für IP
 
 Ab Windows Server 2016 haben Domänen Controller Unterstützung für die Zuordnung von Schlüssel vertrauenswürdigen Konten sowie für das Fall Back auf vorhandene AltSecId und den Benutzer Prinzipal Namen (User Principal Name, UPN) im San-Verhalten. Wenn "" für "\esubjectaltname" auf festgelegt ist:
 
-- 0: Eine explizite Zuordnung ist erforderlich. Dann muss Folgendes vorhanden sein:
+- 0: eine explizite Zuordnung ist erforderlich. Dann muss Folgendes vorhanden sein:
     - Schlüssel Vertrauensstellung (neu mit Windows Server 2016)
     - Explizitl
-- 1: Implizite Zuordnung ist zulässig (Standard):
+- 1: implizite Zuordnung ist zulässig (Standard):
     1. Wenn die Schlüssel Vertrauensstellung für das Konto konfiguriert ist, wird Sie für die Zuordnung verwendet (neu mit Windows Server 2016).
     2. Wenn kein UPN im San vorhanden ist, wird für die Zuordnung von "AltSecId" versucht.
     3. Wenn ein UPN im San vorhanden ist, wird ein UPN-Wert für die Zuordnung versucht.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Kerberos-Authentifizierung (Übersicht)](kerberos-authentication-overview.md)

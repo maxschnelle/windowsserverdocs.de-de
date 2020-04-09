@@ -1,23 +1,19 @@
 ---
 title: Hardwareanforderungen für den Zielcomputer
 description: Beschreibt die Verwendung von Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c20b06b9-ce0d-4c20-bf49-257c3f5dc01b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 2ab2608095ffe6c0f2006f9f52cce106ff68cffc
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: a566a8f342ba076ee402d1f19e35f99c58b931e4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313252"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80817873"
 ---
 # <a name="hardware-requirements-for-the-target-computer"></a>Hardwareanforderungen für den Zielcomputer
 
@@ -44,7 +40,7 @@ Dieser Abschnitt enthält die Hardwareanforderungen für Windows Server Essentia
 |Komponente|Beschreibung|  
 |---------------|-----------------|  
 |Netzwerkadapter|Gigabit-Ethernet-Adapter (10/100/1000baseT PHY/MAC)|  
-|Internet|Für einige Funktionen ist möglicherweise ein Internetzugang (ggf. kostenpflichtig) oder ein Windows Live® ID-Konto erforderlich.|  
+|Internet|Für einige Funktionen ist möglicherweise ein Internet Zugang (ggf. Gebühren) oder ein Windows Live&reg; ID-Konto erforderlich.|  
 |Unterstützte Clientbetriebssysteme|-Windows 7<br />-Windows 8<br />-Macintosh OS X 10,5 bis 10,8.<br /><br /> **Hinweis:** Für einige Features sind Editionen von Professional oder höher erforderlich.<br /><br /> 1 GB verfügbarer Festplatten-Speicherplatz (ein Teil des Datenträgers wird nach der Installation freigegeben)|  
 |Router|Ein Router oder eine Firewall mit Unterstützung für IPv4 NAT|  
 |Weitere Anforderungen|DVD-ROM-Laufwerk|  

@@ -1,24 +1,20 @@
 ---
 title: certutil
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehlszeilen Thema für certutil, bei dem es sich um ein Befehlszeilenprogramm handelt, das Zertifizierungsstellen-Konfigurationsinformationen absichert und anzeigt, Zertifikat Dienste konfiguriert, Zertifizierungsstellen-und Wiederherstellungs Zertifizierungsstellen-Komponenten konfiguriert und Zertifikate, Schlüsselpaare und Zertifikat Ketten überprüft.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c264ccf0-ba1e-412b-9dd3-d77dd9345ad9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 71525e4051a079eb9a3d0c8c197c8157b53e5e67
-ms.sourcegitcommit: 1f3ffff0af340868dcf3a2cfef5b8f8aea69d96d
+ms.openlocfilehash: 3ae2d68ee6a23422dda3dee8b261027c36707bd1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78278545"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848193"
 ---
 # <a name="certutil"></a>certutil
 
@@ -241,8 +237,8 @@ AttributeString--Anforderungs Attribut Name-Wert-Paare
 
 - Namen und Werte sind durch Doppelpunkte getrennt.
 - Mehrere Name-Wert-Paare sind zeilenweise getrennt.
-- Beispiel: "CertificateTemplate:User\nEMail:User@Domain.com"
-- Jede "\n"-Sequenz wird in ein Zeilen Trennzeichen konvertiert.
+- Beispiel: CertificateTemplate:User\nEMail:User@Domain.com
+- Jede \n-Sequenz wird in ein Zeilen Trennzeichen konvertiert.
 
 [-config machine\caname]
 
@@ -337,7 +333,7 @@ Certutil [Optionen]-cainfo [Infoname [Index | ErrorCode]]
 
 Anzeigen der Zertifizierungsstellen Informationen
 
-Infoname: gibt die anzuzeigende ZS-Eigenschaft an (siehe unten). Verwenden Sie "\*" für alle Eigenschaften.
+Infoname: gibt die anzuzeigende ZS-Eigenschaft an (siehe unten). Verwenden Sie \* für alle Eigenschaften.
 
 Index--optionaler NULL basierter Eigenschafts Index
 
@@ -530,19 +526,19 @@ CSV: Ausgabe als durch Trennzeichen getrennte Werte
 
 So zeigen Sie die Spalte "Statuscode" für alle Einträge an:-Out Statuscode
 
-So zeigen Sie alle Spalten für den letzten Eintrag an: beschränken Sie "RequestId = = $"
+So zeigen Sie alle Spalten für den letzten Eintrag an: Einschränkung RequestId = = $
 
-So zeigen Sie RequestId und Disposition für drei Anforderungen an: beschränken Sie "RequestId > = 37, RequestId\<40"-out "RequestId, Disposition"
+Zum Anzeigen von RequestId und Disposition für drei Anforderungen:-Einschränkung RequestId > = 37, RequestId\<40-out RequestId, Disposition
 
-So zeigen Sie Zeilen-IDs und CRL-Nummern für alle Basis-CRLs an:-einschränken "crlminbase = 0"-out "crlrowid, CRLNumber" CRL
+So zeigen Sie Zeilen-IDs und CRL-Nummern für alle Basis-CRLs an:-einschränken crlminbase = 0-out crlrowid, CRLNumber CRL
 
-Zum Anzeigen der CRL-Nummer 3:-v-Limit "crlminbase = 0, CRLNumber = 3"-out "crlrawcrl" CRL
+So zeigen Sie die CRL-Nummer 3:-v-schränkt crlminbase = 0 an, CRLNumber = 3-out crlrawcrl CRL
 
 So zeigen Sie die gesamte CRL-Tabelle an: CRL
 
-Verwenden Sie "Date [+ |-DD: hh]" für Datums Einschränkungen.
+Use Date [+ |-DD: hh] für Datums Einschränkungen
 
-"Now + DD: hh" für ein Datum in Bezug auf die aktuelle Uhrzeit verwenden
+Verwenden Sie jetzt + DD: hh für ein Datum relativ zum aktuellen Zeitpunkt.
 
 [-silent] [-Split] [-config machine\caname] [-RestrictionList einschränken] [-out ColumnList]
 
@@ -731,11 +727,11 @@ Zertifikat Speicher sichern
 
 Certifikatestorename: Name des Zertifikat Speichers. Beispiele:
 
-- "My", "ca" (Standard), "root",
-- "LDAP:///CN=Certification Autoritäten, CN = Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? One? objectClass = CertificationAuthority" (Stamm Zertifikate anzeigen)
-- "LDAP:///CN=CAName,CN=Certification Authority, CN = Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? Base? objectClass = CertificationAuthority" (Modify Root-Zertifikate)
-- "LDAP:///CN=CAName,CN=MachineName,CN=CDP,CN=Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? CertificateRevocationList? Base? objectClass = CRLDistributionPoint" (CRLs anzeigen)
-- "LDAP:///CN=NTAuthCertificates,CN=Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? Base? objectClass = CertificationAuthority" (Unternehmens Zertifizierungsstellen-Zertifikate)
+- My, ca (Standard), root,
+- LDAP:///CN=Certification Authority, CN = Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? One? objectClass = CertificationAuthority (Stamm Zertifikate anzeigen)
+- LDAP:///CN=CAName,CN=Certification Authority, CN = Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? Base? objectClass = CertificationAuthority (Stamm Zertifikate ändern)
+- LDAP:///CN=CAName,CN=MachineName,CN=CDP,CN=Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? CertificateRevocationList? Base? objectClass = CRLDistributionPoint (CRLs anzeigen)
+- LDAP:///CN=NTAuthCertificates,CN=Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? Base? objectClass = CertificationAuthority (Unternehmens Zertifizierungsstellen-Zertifikate)
 - LDAP: (AD-Computer Objekt Zertifikate)
 - -Benutzer-LDAP: (AD-Benutzerobjekt Zertifikate)
 
@@ -821,22 +817,22 @@ Propertyinffile--INF-Datei mit externen Eigenschaften:
      19 = Empty ; Add archived property, OR:
      19 =       ; Remove archived property
 
-     11 = "{text}Friendly Name" ; Add friendly name property
+     11 = {text}Friendly Name ; Add friendly name property
 
-     127 = "{hex}" ; Add custom hexadecimal property
-         _continue_ = "00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f"
-         _continue_ = "10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e 1f"
+     127 = {hex} ; Add custom hexadecimal property
+         _continue_ = 00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f
+         _continue_ = 10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e 1f
 
-     2 = "{text}" ; Add Key Provider Information property
-       _continue_ = "Container=Container Name&"
-       _continue_ = "Provider=Microsoft Strong Cryptographic Provider&"
-       _continue_ = "ProviderType=1&"
-       _continue_ = "Flags=0&"
-       _continue_ = "KeySpec=2"
+     2 = {text} ; Add Key Provider Information property
+       _continue_ = Container=Container Name&
+       _continue_ = Provider=Microsoft Strong Cryptographic Provider&
+       _continue_ = ProviderType=1&
+       _continue_ = Flags=0&
+       _continue_ = KeySpec=2
 
-     9 = "{text}" ; Add Enhanced Key Usage property
-       _continue_ = "1.3.6.1.5.5.7.3.2,"
-       _continue_ = "1.3.6.1.5.5.7.3.1,"
+     9 = {text} ; Add Enhanced Key Usage property
+       _continue_ = 1.3.6.1.5.5.7.3.2,
+       _continue_ = 1.3.6.1.5.5.7.3.1,
 ```
 
 [-f] [-Enterprise] [-user] [-GroupPolicy] [-silent] [-Split] [-CSP-Anbieter]
@@ -851,11 +847,11 @@ Zertifikat Speicher sichern
 
 Certifikatestorename: Name des Zertifikat Speichers. Beispiele:
 
-- "My", "ca" (Standard), "root",
-- "LDAP:///CN=Certification Autoritäten, CN = Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? One? objectClass = CertificationAuthority" (Stamm Zertifikate anzeigen)
-- "LDAP:///CN=CAName,CN=Certification Authority, CN = Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? Base? objectClass = CertificationAuthority" (Modify Root-Zertifikate)
-- "LDAP:///CN=CAName,CN=MachineName,CN=CDP,CN=Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? CertificateRevocationList? Base? objectClass = CRLDistributionPoint" (CRLs anzeigen)
-- "LDAP:///CN=NTAuthCertificates,CN=Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? Base? objectClass = CertificationAuthority" (Unternehmens Zertifizierungsstellen-Zertifikate)
+- My, ca (Standard), root,
+- LDAP:///CN=Certification Authority, CN = Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? One? objectClass = CertificationAuthority (Stamm Zertifikate anzeigen)
+- LDAP:///CN=CAName,CN=Certification Authority, CN = Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? Base? objectClass = CertificationAuthority (Stamm Zertifikate ändern)
+- LDAP:///CN=CAName,CN=MachineName,CN=CDP,CN=Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? CertificateRevocationList? Base? objectClass = CRLDistributionPoint (CRLs anzeigen)
+- LDAP:///CN=NTAuthCertificates,CN=Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? Base? objectClass = CertificationAuthority (Unternehmens Zertifizierungsstellen-Zertifikate)
 - LDAP: (AD-Computer Objekt Zertifikate)
 - -Benutzer-LDAP: (AD-Benutzerobjekt Zertifikate)
 
@@ -890,11 +886,11 @@ Zertifikat aus dem Speicher löschen
 
 Certifikatestorename: Name des Zertifikat Speichers. Beispiele:
 
-- "My", "ca" (Standard), "root",
-- "LDAP:///CN=Certification Autoritäten, CN = Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? One? objectClass = CertificationAuthority" (Stamm Zertifikate anzeigen)
-- "LDAP:///CN=CAName,CN=Certification Authority, CN = Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? Base? objectClass = CertificationAuthority" (Modify Root-Zertifikate)
-- "LDAP:///CN=CAName,CN=MachineName,CN=CDP,CN=Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? CertificateRevocationList? Base? objectClass = CRLDistributionPoint" (CRLs anzeigen)
-- "LDAP:///CN=NTAuthCertificates,CN=Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? Base? objectClass = CertificationAuthority" (Unternehmens Zertifizierungsstellen-Zertifikate)
+- My, ca (Standard), root,
+- LDAP:///CN=Certification Authority, CN = Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? One? objectClass = CertificationAuthority (Stamm Zertifikate anzeigen)
+- LDAP:///CN=CAName,CN=Certification Authority, CN = Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? Base? objectClass = CertificationAuthority (Stamm Zertifikate ändern)
+- LDAP:///CN=CAName,CN=MachineName,CN=CDP,CN=Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? CertificateRevocationList? Base? objectClass = CRLDistributionPoint (CRLs anzeigen)
+- LDAP:///CN=NTAuthCertificates,CN=Public Key Services, CN = Services, CN = Configuration, DC = CPANDL, DC = com? cACertificate? Base? objectClass = CertificationAuthority (Unternehmens Zertifizierungsstellen-Zertifikate)
 - LDAP: (AD-Computer Objekt Zertifikate)
 - -Benutzer-LDAP: (AD-Benutzerobjekt Zertifikate)
 
@@ -1322,7 +1318,7 @@ CRL: Erstellen Sie eine leere CRL. Der Gültigkeits Zeitraum und andere Optionen
 
 Outfilelist: durch Trennzeichen getrennte Liste der geänderten Zertifikats-oder CRL-Ausgabedateien. Die Anzahl der Dateien muss mit "infilelist" verglichen werden.
 
-StartDate + DD: hh: neue Gültigkeitsdauer: Optionales Datum plus; optionale Gültigkeitsdauer für Tage und Stunden; Wenn beide angegeben sind, verwenden Sie ein Pluszeichen Trennzeichen (+). Verwenden Sie "Now [+ DD: hh]", um zum aktuellen Zeitpunkt zu starten. Verwenden Sie "Never" nicht für das Ablaufdatum (nur für CRLs).
+StartDate + DD: hh: neue Gültigkeitsdauer: Optionales Datum plus; optionale Gültigkeitsdauer für Tage und Stunden; Wenn beide angegeben sind, verwenden Sie ein Pluszeichen Trennzeichen (+). Verwenden Sie jetzt [+ DD: hh], um zum aktuellen Zeitpunkt zu starten. Verwenden Sie für niemals das Ablaufdatum (nur für CRLs).
 
 Serialzahllist: durch Trennzeichen getrennte Liste mit durch Trennzeichen getrennten Seriennummern
 
@@ -1333,8 +1329,8 @@ Objectidlist: durch Trennzeichen getrennte Erweiterung ObjectID List to Remove
 ```
 [Extensions]
      2.5.29.31 = ; Remove CRL Distribution Points extension
-     2.5.29.15 = "{hex}" ; Update Key Usage extension
-     _continue_="03 02 01 86"
+     2.5.29.15 = {hex} ; Update Key Usage extension
+     _continue_=03 02 01 86
 ```
 
 HashAlgorithm: Name des Hash Algorithmus, dem ein #-Zeichen vorangestellt ist
@@ -1483,15 +1479,15 @@ Policyservers: Richtlinien Server-Registrierungsschlüssel verwenden
 
 ProgID: Richtlinie oder Beendigungs Modul-ProgID (Name des Registrierungs unter Schlüssels) verwenden
 
-Registryvaluename: Name des Registrierungs Werts (verwenden Sie "Name\*", um eine Entsprechung zu erreichen)
+Registryvaluename: Name des Registrierungs Werts (Verwendung des Namens\* für die Präfix Übereinstimmung)
 
-Wert: neuer numerischer Wert, Zeichen folgen-oder Datums Registrierungs Wert oder Dateiname. Wenn ein numerischer Wert mit "+" oder "-" beginnt, werden die im neuen Wert angegebenen Bits im vorhandenen Registrierungs Wert festgelegt oder gelöscht.
+Wert: neuer numerischer Wert, Zeichen folgen-oder Datums Registrierungs Wert oder Dateiname. Wenn ein numerischer Wert mit + oder-beginnt, werden die im neuen Wert angegebenen Bits im vorhandenen Registrierungs Wert festgelegt oder gelöscht.
 
-Wenn ein Zeichen folgen Wert mit "+" oder "-" beginnt und der vorhandene Wert ein REG_MULTI_SZ Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um die Erstellung eines REG_MULTI_SZ Werts zu erzwingen, fügen Sie am Ende des Zeichen folgen Werts "\n" ein.
+Wenn ein Zeichen folgen Wert mit + oder-beginnt und der vorhandene Wert ein REG_MULTI_SZ Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um die Erstellung eines REG_MULTI_SZ Werts zu erzwingen, fügen Sie am Ende des Zeichen folgen Werts "\n" ein.
 
-Wenn der Wert mit "\@" beginnt, ist der restliche Wert der Name der Datei, die die hexadezimale Textdarstellung eines Binär Werts enthält. Wenn Sie nicht auf eine gültige Datei verweist, wird Sie stattdessen als [Date] [+ |-] [DD: hh] (ein optionales Datum plus oder minus optionale Tage und Stunden) analysiert. Wenn beide angegeben sind, verwenden Sie ein Pluszeichen (+) oder Minuszeichen (-). Verwenden Sie "now + DD: hh" für ein Datum relativ zum aktuellen Zeitpunkt.
+Wenn der Wert mit \@beginnt, entspricht der restliche Wert dem Namen der Datei, die die hexadezimale Textdarstellung eines Binär Werts enthält. Wenn Sie nicht auf eine gültige Datei verweist, wird Sie stattdessen als [Date] [+ |-] [DD: hh] (ein optionales Datum plus oder minus optionale Tage und Stunden) analysiert. Wenn beide angegeben sind, verwenden Sie ein Pluszeichen (+) oder Minuszeichen (-). Verwenden Sie jetzt + DD: hh für ein Datum relativ zum aktuellen Zeitpunkt.
 
-Verwenden Sie "chain\chaincacheresyncfiletime \@Now", um zwischengespeicherte CRLs effektiv zu leeren.
+Verwenden Sie chain\chaincacheresyncfiletime \@jetzt, um zwischengespeicherte CRLs effektiv zu leeren.
 
 [-f] [-user] [-GroupPolicy] [-config machine\caname]
 
@@ -1521,15 +1517,15 @@ Policyservers: Richtlinien Server-Registrierungsschlüssel verwenden
 
 ProgID: Richtlinie oder Beendigungs Modul-ProgID (Name des Registrierungs unter Schlüssels) verwenden
 
-Registryvaluename: Name des Registrierungs Werts (verwenden Sie "Name\*", um eine Entsprechung zu erreichen)
+Registryvaluename: Name des Registrierungs Werts (Verwendung des Namens\* für die Präfix Übereinstimmung)
 
-Wert: neuer numerischer Wert, Zeichen folgen-oder Datums Registrierungs Wert oder Dateiname. Wenn ein numerischer Wert mit "+" oder "-" beginnt, werden die im neuen Wert angegebenen Bits im vorhandenen Registrierungs Wert festgelegt oder gelöscht.
+Wert: neuer numerischer Wert, Zeichen folgen-oder Datums Registrierungs Wert oder Dateiname. Wenn ein numerischer Wert mit + oder-beginnt, werden die im neuen Wert angegebenen Bits im vorhandenen Registrierungs Wert festgelegt oder gelöscht.
 
-Wenn ein Zeichen folgen Wert mit "+" oder "-" beginnt und der vorhandene Wert ein REG_MULTI_SZ Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um die Erstellung eines REG_MULTI_SZ Werts zu erzwingen, fügen Sie am Ende des Zeichen folgen Werts "\n" ein.
+Wenn ein Zeichen folgen Wert mit + oder-beginnt und der vorhandene Wert ein REG_MULTI_SZ Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um die Erstellung eines REG_MULTI_SZ Werts zu erzwingen, fügen Sie am Ende des Zeichen folgen Werts "\n" ein.
 
-Wenn der Wert mit "\@" beginnt, ist der restliche Wert der Name der Datei, die die hexadezimale Textdarstellung eines Binär Werts enthält. Wenn Sie nicht auf eine gültige Datei verweist, wird Sie stattdessen als [Date] [+ |-] [DD: hh] (ein optionales Datum plus oder minus optionale Tage und Stunden) analysiert. Wenn beide angegeben sind, verwenden Sie ein Pluszeichen (+) oder Minuszeichen (-). Verwenden Sie "now + DD: hh" für ein Datum relativ zum aktuellen Zeitpunkt.
+Wenn der Wert mit \@beginnt, entspricht der restliche Wert dem Namen der Datei, die die hexadezimale Textdarstellung eines Binär Werts enthält. Wenn Sie nicht auf eine gültige Datei verweist, wird Sie stattdessen als [Date] [+ |-] [DD: hh] (ein optionales Datum plus oder minus optionale Tage und Stunden) analysiert. Wenn beide angegeben sind, verwenden Sie ein Pluszeichen (+) oder Minuszeichen (-). Verwenden Sie jetzt + DD: hh für ein Datum relativ zum aktuellen Zeitpunkt.
 
-Verwenden Sie "chain\chaincacheresyncfiletime \@Now", um zwischengespeicherte CRLs effektiv zu leeren.
+Verwenden Sie chain\chaincacheresyncfiletime \@jetzt, um zwischengespeicherte CRLs effektiv zu leeren.
 
 [-f] [-user] [-GroupPolicy] [-config machine\caname]
 
@@ -1559,15 +1555,15 @@ Policyservers: Richtlinien Server-Registrierungsschlüssel verwenden
 
 ProgID: Richtlinie oder Beendigungs Modul-ProgID (Name des Registrierungs unter Schlüssels) verwenden
 
-Registryvaluename: Name des Registrierungs Werts (verwenden Sie "Name\*", um eine Entsprechung zu erreichen)
+Registryvaluename: Name des Registrierungs Werts (Verwendung des Namens\* für die Präfix Übereinstimmung)
 
-Wert: neuer numerischer Wert, Zeichen folgen-oder Datums Registrierungs Wert oder Dateiname. Wenn ein numerischer Wert mit "+" oder "-" beginnt, werden die im neuen Wert angegebenen Bits im vorhandenen Registrierungs Wert festgelegt oder gelöscht.
+Wert: neuer numerischer Wert, Zeichen folgen-oder Datums Registrierungs Wert oder Dateiname. Wenn ein numerischer Wert mit + oder-beginnt, werden die im neuen Wert angegebenen Bits im vorhandenen Registrierungs Wert festgelegt oder gelöscht.
 
-Wenn ein Zeichen folgen Wert mit "+" oder "-" beginnt und der vorhandene Wert ein REG_MULTI_SZ Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um die Erstellung eines REG_MULTI_SZ Werts zu erzwingen, fügen Sie am Ende des Zeichen folgen Werts "\n" ein.
+Wenn ein Zeichen folgen Wert mit + oder-beginnt und der vorhandene Wert ein REG_MULTI_SZ Wert ist, wird die Zeichenfolge dem vorhandenen Registrierungs Wert hinzugefügt oder daraus entfernt. Um die Erstellung eines REG_MULTI_SZ Werts zu erzwingen, fügen Sie am Ende des Zeichen folgen Werts "\n" ein.
 
-Wenn der Wert mit "\@" beginnt, ist der restliche Wert der Name der Datei, die die hexadezimale Textdarstellung eines Binär Werts enthält. Wenn Sie nicht auf eine gültige Datei verweist, wird Sie stattdessen als [Date] [+ |-] [DD: hh] (ein optionales Datum plus oder minus optionale Tage und Stunden) analysiert. Wenn beide angegeben sind, verwenden Sie ein Pluszeichen (+) oder Minuszeichen (-). Verwenden Sie "now + DD: hh" für ein Datum relativ zum aktuellen Zeitpunkt.
+Wenn der Wert mit \@beginnt, entspricht der restliche Wert dem Namen der Datei, die die hexadezimale Textdarstellung eines Binär Werts enthält. Wenn Sie nicht auf eine gültige Datei verweist, wird Sie stattdessen als [Date] [+ |-] [DD: hh] (ein optionales Datum plus oder minus optionale Tage und Stunden) analysiert. Wenn beide angegeben sind, verwenden Sie ein Pluszeichen (+) oder Minuszeichen (-). Verwenden Sie jetzt + DD: hh für ein Datum relativ zum aktuellen Zeitpunkt.
 
-Verwenden Sie "chain\chaincacheresyncfiletime \@Now", um zwischengespeicherte CRLs effektiv zu leeren.
+Verwenden Sie chain\chaincacheresyncfiletime \@jetzt, um zwischengespeicherte CRLs effektiv zu leeren.
 
 [-f] [-user] [-GroupPolicy] [-config machine\caname]
 
@@ -1665,7 +1661,7 @@ Pfxoutfile: PFX-Ausgabedatei
 
 ExtendedProperties: einschließen erweiterter Eigenschaften
 
-Das in der Befehlszeile angegebene Kennwort ist eine durch Trennzeichen getrennte Kenn Wort Liste.  Wenn mehr als ein Kennwort angegeben wird, wird das letzte Kennwort für die Ausgabedatei verwendet.  Wenn nur ein Kennwort angegeben wird, oder wenn das letzte Kennwort "\*" lautet, wird der Benutzer zur Eingabe des Kennworts für die Ausgabedatei aufgefordert.
+Das in der Befehlszeile angegebene Kennwort ist eine durch Trennzeichen getrennte Kenn Wort Liste.  Wenn mehr als ein Kennwort angegeben wird, wird das letzte Kennwort für die Ausgabedatei verwendet.  Wenn nur ein Kennwort angegeben wird, oder wenn das letzte Kennwort \*ist, wird der Benutzer zur Eingabe des Kennworts für die Ausgabedatei aufgefordert.
 
 [-f] [-user] [-Split] [-p Kennwort] [-Protectto samnameandsidlist] [-CSP-Anbieter]
 
@@ -1689,7 +1685,7 @@ V3CACertId: v3-Zertifikat Übereinstimmungs Token.  Siehe [-Store](#-store) Cert
 
 Salt: EPF-Ausgabedatei, Salt-Zeichenfolge
 
-Das in der Befehlszeile angegebene Kennwort ist eine durch Trennzeichen getrennte Kenn Wort Liste. Wenn mehr als ein Kennwort angegeben wird, wird das letzte Kennwort für die Ausgabedatei verwendet.  Wenn nur ein Kennwort angegeben wird, oder wenn das letzte Kennwort "\*" lautet, wird der Benutzer zur Eingabe des Kennworts für die Ausgabedatei aufgefordert.
+Das in der Befehlszeile angegebene Kennwort ist eine durch Trennzeichen getrennte Kenn Wort Liste. Wenn mehr als ein Kennwort angegeben wird, wird das letzte Kennwort für die Ausgabedatei verwendet.  Wenn nur ein Kennwort angegeben wird, oder wenn das letzte Kennwort \*ist, wird der Benutzer zur Eingabe des Kennworts für die Ausgabedatei aufgefordert.
 
 [-f] [-silent] [-Split] [-DC DCNAME] [-p Kennwort] [-CSP-Anbieter]
 
@@ -1726,7 +1722,7 @@ In diesem Abschnitt werden die Optionen definiert, die Sie mit dem Befehl angebe
 |-Username username|Verwenden Sie das benannte Konto für SSL-Anmelde Informationen. Verwenden Sie für Auswahl-U/I den-Benutzernamen.|
 |-CERT CertID|Signaturzertifikat|
 |-DC DCNAME|Ziel eines bestimmten Domänen Controllers|
-|-Einschränkungs Liste einschränken|Durch Trennzeichen getrennte Einschränkungs Liste. Jede Einschränkung besteht aus einem Spaltennamen, einem relationalen Operator und einer Konstanten Ganzzahl, einer Zeichenfolge oder einem Datum. Einem Spaltennamen kann ein Plus-oder Minuszeichen vorangestellt werden, um die Sortierreihenfolge anzugeben. Beispiele:</br>"RequestId = 47"</br>"+ Requestername > = a, requestername < b"</br>"-Requestername > Domäne, Disposition = 21"|
+|-Einschränkungs Liste einschränken|Durch Trennzeichen getrennte Einschränkungs Liste. Jede Einschränkung besteht aus einem Spaltennamen, einem relationalen Operator und einer Konstanten Ganzzahl, einer Zeichenfolge oder einem Datum. Einem Spaltennamen kann ein Plus-oder Minuszeichen vorangestellt werden, um die Sortierreihenfolge anzugeben. Beispiele:</br>RequestId = 47</br>\+ Requestername > = a, requestername < b</br>-Requestername > Domäne, Disposition = 21|
 |-Out ColumnList|Durch Trennzeichen getrennte Spaltenliste|
 |-p Kennwort|Kennwort|
 |-Protectto samnameandsidlist|Durch Trennzeichen getrennte SAM-Name/sid-Liste|

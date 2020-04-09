@@ -2,18 +2,18 @@
 title: Übersicht über Ressourcen-Manager für Dateiserver (File Server Resource Manager, FSRM)
 ms.prod: windows-server
 ms.author: jgerend
-ms.manager: brianlic
+manager: brianlic
 ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 5/14/2018
 description: File Server Ressourcen-Manager (FSRM) ist ein Tool, mit dem Sie Daten auf einem Windows Server-Dateiserver verwalten und klassifizieren können.
-ms.openlocfilehash: 719176307afc320ad676fd1acfc07ad9d15920cf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0ed7e5abce9389283a9b9d641f813b5df89a586b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394166"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854243"
 ---
 # <a name="file-server-resource-manager-fsrm-overview"></a>Übersicht über Ressourcen-Manager für Dateiserver (File Server Resource Manager, FSRM)
 
@@ -53,7 +53,7 @@ Die in Dateiserver Ressourcen-Manager enthaltenen Features können mithilfe der 
   
 -   Planen Sie einen Bericht, der jeden Sonntag um Mitternacht ausgeführt wird und eine Liste mit den Dateien generiert, auf die in den beiden vorherigen Tagen am häufigsten zugegriffen wurde. Damit können Sie die Speicheraktivität am Wochenende ermitteln und Serverausfallzeiten entsprechend einplanen.  
 
-## <a name="whats-new"></a>Neuerungen: verhindern der Erstellung von Änderungs Journalen in f
+## <a name="whats-new---prevent-fsrm-from-creating-change-journals"></a><a name="whats-new"></a>Neuerungen: verhindern der Erstellung von Änderungs Journalen in f
 
 Ab Windows Server, Version 1803, können Sie verhindern, dass der Datei Server Ressourcen-Manager-Dienstanbieter ein Änderungs Journal (auch als "US-Journal" bezeichnet) auf Volumes erstellt, wenn der Dienst gestartet wird. Dadurch kann ein wenig Speicherplatz auf jedem Volume eingespart werden, die Echt Zeit Datei Klassifizierung wird jedoch deaktiviert.
 
@@ -61,7 +61,7 @@ Informationen zu älteren neuen Features finden Sie unter [What es New in File S
 
 Führen Sie die folgenden Schritte aus, um zu verhindern, dass Datei Server Ressourcen-Manager ein Änderungs Journal auf einigen oder allen Volumes erstellt, wenn der Dienst gestartet wird: 
 
-1. Beendet den SRMSVC-Dienst. Öffnen Sie beispielsweise eine PowerShell-Sitzung als Administrator, und `Stop-Service SrmSvc`geben Sie ein.
+1. Beendet den SRMSVC-Dienst. Öffnen Sie beispielsweise eine PowerShell-Sitzung als Administrator, und geben Sie `Stop-Service SrmSvc`ein.
 2. Löschen Sie mit dem Befehl "fsutil" das "US-Journal" für die Volumes, auf denen Sie Speicherplatz einsparen möchten: 
 
       ```
@@ -69,14 +69,14 @@ Führen Sie die folgenden Schritte aus, um zu verhindern, dass Datei Server Ress
       ```
     Beispiel: `fsutil usn deletejournal /d c:`
 
-3. Öffnen Sie den Registrierungs-Editor, indem Sie `regedit` z. b. in derselben PowerShell-Sitzung eingeben.
-4. Navigieren Sie zum folgenden Schlüssel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings**
+3. Öffnen Sie den Registrierungs-Editor, indem Sie beispielsweise `regedit` in derselben PowerShell-Sitzung eingeben.
+4. Navigieren Sie zum folgenden Schlüssel: **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\srmsvc\settings** .
 5. So können Sie optional die Änderungs Journal Erstellung für den gesamten Server überspringen (überspringen Sie diesen Schritt, wenn Sie ihn nur auf bestimmten Volumes deaktivieren möchten):
-    1. Klicken Sie mit der rechten Maustaste auf den **Einstellungs** Schlüssel, und wählen Sie dann **neuer** > **DWORD-Wert (32-Bit)** aus. 
-    1. Benennen Sie den `SkipUSNCreationForSystem`Wert.
+    1. Klicken Sie mit der rechten Maustaste auf den **Einstellungs** Schlüssel, und wählen Sie dann **neu** > **DWORD-Wert (32-Bit)** aus. 
+    1. Benennen Sie den Wert `SkipUSNCreationForSystem`.
     1. Legen Sie den Wert auf **1** (in Hexadezimal) fest.
 6. So können Sie optional die Änderungs Journal Erstellung für bestimmte Volumes überspringen:
-    1. Verwenden Sie den `fsutil volume list` Befehl oder den folgenden PowerShell-Befehl, um die volumepfade zu überspringen:
+    1. Verwenden Sie den Befehl `fsutil volume list` oder den folgenden PowerShell-Befehl, um die volumepfade zu überspringen:
         ```PowerShell
         Get-Volume | Format-Table DriveLetter,FileSystemLabel,Path
         ```
@@ -88,9 +88,9 @@ Führen Sie die folgenden Schritte aus, um zu verhindern, dass Datei Server Ress
                     System Reserved \\?\Volume{8d3c9e8a-0000-0000-0000-100000000000}\
         C                           \\?\Volume{8d3c9e8a-0000-0000-0000-501f00000000}\
        ```
-    2. Klicken Sie im Registrierungs-Editor mit der rechten Maustaste auf die **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SrmSvc\Settings** -Taste, und wählen Sie dann **neuer** > -**Zeichen folgen Wert**aus.
-    3. Benennen Sie den `SkipUSNCreationForVolumes`Wert.
-    4. Geben Sie den Pfad für jedes Volume ein, auf dem Sie das Erstellen eines Änderungs Journals überspringen, und platzieren Sie die einzelnen Pfade in einer separaten Zeile. Zum Beispiel:
+    2. Kehren Sie zurück in den Registrierungs-Editor, klicken Sie mit der rechten Maustaste auf den Schlüssel **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\srmsvc\settings** , und wählen Sie dann **neuer** > **Wert mit mehreren Zeichen**Folgen aus.
+    3. Benennen Sie den Wert `SkipUSNCreationForVolumes`.
+    4. Geben Sie den Pfad für jedes Volume ein, auf dem Sie das Erstellen eines Änderungs Journals überspringen, und platzieren Sie die einzelnen Pfade in einer separaten Zeile. Beispiel:
 
         ```
         \\?\Volume{8d3c9e8a-0000-0000-0000-100000000000}\
@@ -98,9 +98,9 @@ Führen Sie die folgenden Schritte aus, um zu verhindern, dass Datei Server Ress
         ```
 
         > [!NOTE] 
-        > Der Registrierungs-Editor weist möglicherweise darauf hin, dass leere Zeichen folgen entfernt wurden. diese Warnung wird angezeigt, die Sie sicher ignorieren können: *-Daten vom Typ REG_MULTI_SZ dürfen keine leeren Zeichen folgen enthalten. Der Registrierungs-Editor entfernt alle gefundenen leeren Zeichen folgen.*
+        > Der Registrierungs-Editor weist möglicherweise darauf hin, dass leere Zeichen folgen entfernt wurden. diese Warnung wird angezeigt, die Sie sicher ignorieren können: *Daten vom Typ REG_MULTI_SZ dürfen keine leeren Zeichen folgen enthalten. Der Registrierungs-Editor entfernt alle gefundenen leeren* Zeichen folgen.
 
-7. Starten Sie den Dienst SRMSVC. Geben Sie `Start-Service SrmSvc`z. b. in einer PowerShell-Sitzung ein.
+7. Starten Sie den Dienst SRMSVC. Geben Sie z. b. in einer PowerShell-Sitzung `Start-Service SrmSvc`ein.
 
 
 

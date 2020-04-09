@@ -1,24 +1,20 @@
 ---
 title: bootcfg copy
-description: Windows-Befehls Thema für **bootcfg Copy** -erstellt eine Kopie eines vorhandenen Start Eintrags, dem Sie Befehlszeilenoptionen hinzufügen können.
-ms.custom: na
+description: Windows-Befehls Thema für bootcfg Copy, das eine Kopie eines vorhandenen Start Eintrags erstellt, dem Sie Befehlszeilenoptionen hinzufügen können.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2a236c2a-8675-444d-b695-9cbc9aff643b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 42a408443cbe6722c25780f7c27d70b05da7eb8e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5194418a07aece4f15a84c3eccbc044431a865b9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71380119"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848683"
 ---
 # <a name="bootcfg-copy"></a>bootcfg copy
 
@@ -30,7 +26,7 @@ Erstellt eine Kopie eines vorhandenen Start Eintrags, dem Sie Befehlszeilenoptio
 ```
 bootcfg /copy [/s <computer> [/u <Domain>\<User> /p <Password>]] [/d <Description>] [/id <OSEntryLineNum>]
 ```
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |      Parameter       |                                                                                             Beschreibung                                                                                             |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -41,10 +37,10 @@ bootcfg /copy [/s <computer> [/u <Domain>\<User> /p <Password>]] [/d <Descriptio
 | /ID <OSEntryLineNum> |         Gibt die Betriebssystem-Eintrags Zeilennummer im Abschnitt [Betriebssysteme] der zu kopierenden Datei Boot. ini an. Die erste Zeile nach der Abschnitts Kopfzeile [Betriebssystem] ist 1.         |
 |          /?          |                                                                                Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                 |
 
-## <a name="BKMK_examples"></a>Beispiele
-In den folgenden Beispielen wird veranschaulicht, wie Sie den Befehl **bootcfg/Copy** verwenden können, um Boot Entry 1 zu kopieren und "\abc Server\\" als Beschreibung einzugeben:
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+In den folgenden Beispielen wird veranschaulicht, wie Sie den Befehl **bootcfg/Copy** zum Kopieren des Start Eintrags 1 und zum Eingeben von \abc Server\\ als Beschreibung verwenden können:
 ```
-bootcfg /copy /d "\ABC Server\" /id 1
+bootcfg /copy /d \ABC Server\ /id 1
 ```
-#### <a name="additional-references"></a>Weitere Verweise
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

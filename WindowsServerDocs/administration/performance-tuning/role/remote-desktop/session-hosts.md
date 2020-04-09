@@ -4,15 +4,15 @@ description: Richtlinien zur Leistungsoptimierung für Remotedesktop Sitzungs Ho
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: HammadBu; VladmiS; DenisGun
+ms.author: hammadbu; vladmis; denisgun
 author: phstee
 ms.date: 10/22/2019
-ms.openlocfilehash: b439b0cbab66f98a1f74faeb7bff996b30a188d5
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: 3227bfe3bf21343ca9b7e85a07f550b4684a2fb7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812329"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851713"
 ---
 # <a name="performance-tuning-remote-desktop-session-hosts"></a>Leistungsoptimierung Remotedesktop Sitzungs Hosts
 
@@ -58,7 +58,7 @@ Die Datenträger Aktivität, die auf einem typischen RD-Sitzungshost Server gene
 
 -   Benutzerprofile und Benutzerdaten
 
-Im Idealfall sollten diese Bereiche von unterschiedlichen Speichergeräten gesichert werden. Durch die Verwendung von RAID-RAID-Konfigurationen oder anderen hochleistungsfähigen Speichertypen wird die Leistung verbessert. Es wird dringend empfohlen, Speicher Adapter mit Akku gestütztem Schreib Cache zu verwenden. Controller mit Datenträger Schreib Cache bieten verbesserte Unterstützung für synchrone Schreibvorgänge. Da alle Benutzer über eine separate Hive verfügen, sind synchrone Schreibvorgänge auf einem RD-Sitzungshost Server deutlich häufiger. Registrierungs Strukturen werden regelmäßig mithilfe synchroner Schreibvorgänge auf dem Datenträger gespeichert. Um diese Optimierungen zu aktivieren, öffnen Sie in der Konsole Datenträgerverwaltung das Dialogfeld **Eigenschaften** für den Ziel Datenträger, und wählen Sie auf der Registerkarte **Richtlinien** das Kontrollkästchen **Schreib Cache auf dem** Datenträger aktivieren und **Windows-Schreib Cache Puffer ausschalten aus.** aktivieren Sie die Kontrollkästchen für das Gerät.
+Im Idealfall sollten diese Bereiche von unterschiedlichen Speichergeräten gesichert werden. Durch die Verwendung von RAID-RAID-Konfigurationen oder anderen hochleistungsfähigen Speichertypen wird die Leistung verbessert. Es wird dringend empfohlen, Speicher Adapter mit Akku gestütztem Schreib Cache zu verwenden. Controller mit Datenträger Schreib Cache bieten verbesserte Unterstützung für synchrone Schreibvorgänge. Da alle Benutzer über eine separate Hive verfügen, sind synchrone Schreibvorgänge auf einem RD-Sitzungshost Server deutlich häufiger. Registrierungs Strukturen werden regelmäßig mithilfe synchroner Schreibvorgänge auf dem Datenträger gespeichert. Um diese Optimierungen zu aktivieren, öffnen Sie in der Konsole Datenträgerverwaltung das Dialogfeld **Eigenschaften** für den Ziel Datenträger, und wählen Sie auf der Registerkarte **Richtlinien** das Kontrollkästchen **Schreib Cache auf dem** Datenträger aktivieren und **Windows-Schreib Cache Puffer leeren** aus.
 
 ### <a name="network-configuration"></a>Netzwerkkonfiguration
 
@@ -122,7 +122,7 @@ Unzureichende Größe der Auslagerungs Datei kann zu Fehlern bei der Speicher Be
 
 Die Installation von Antivirensoftware auf einem RD-Sitzungshost Server wirkt sich stark auf die allgemeine Systemleistung aus, insbesondere auf die CPU Es wird dringend empfohlen, dass Sie aus der Liste der aktiven Überwachungen alle Ordner ausschließen, die temporäre Dateien enthalten, insbesondere diejenigen, die von Diensten und anderen Systemkomponenten generiert werden.
 
-### <a name="task-scheduler"></a>Aufgabenplanung
+### <a name="task-scheduler"></a>Aufgabenplaner
 
 Mit Taskplaner können Sie die Liste der Aufgaben untersuchen, die für verschiedene Ereignisse geplant sind. Bei einem RD-Sitzungshost Server ist es sinnvoll, sich speziell auf die Aufgaben zu konzentrieren, die für die Unterbrechung im Leerlauf, bei der Benutzeranmeldung oder bei der Verbindung und bei der Verbindung von Sitzungen konfiguriert sind. Aufgrund der Besonderheiten der Bereitstellung sind viele dieser Aufgaben möglicherweise unnötig.
 
@@ -132,7 +132,7 @@ Benachrichtigungs Symbole auf dem Desktop können über Recht teure Aktualisieru
 
 ### <a name="remote-desktop-protocol-data-compression"></a>Datenkomprimierung Remotedesktopprotokoll
 
-Remotedesktopprotokoll Komprimierung kann mithilfe Gruppenrichtlinie unter **Computer Konfiguration** &gt; **Administrative Vorlagen** &gt; Windows- **Komponenten** &gt; **Remotedesktopdienste** konfiguriert werden &gt; **Remotedesktop-Sitzungshost** &gt; **Remote Sitzungs Umgebung** &gt; die **Komprimierung für remotefx-Daten konfigurieren**. Drei Werte sind möglich:
+Remotedesktopprotokoll Komprimierung kann mithilfe Gruppenrichtlinie unter **Computer Konfiguration** &gt; **Administrative Vorlagen** &gt; Windows- **Komponenten** **&gt; Remotedesktopdienste &gt;** Remotedesktop-Sitzungshost **&gt;** &gt; **Remote Sitzungs Umgebung** konfiguriert werden konfigurieren Sie die **Komprimierung für remotefx-Daten**. Drei Werte sind möglich:
 
 -   **Optimiert, um weniger Arbeitsspeicher zu verwenden** Beansprucht die geringste Menge an Arbeitsspeicher pro Sitzung, verfügt aber über das niedrigste Komprimierungs Verhältnis und somit über den höchsten Bandbreitenverbrauch.
 
@@ -144,7 +144,7 @@ Sie können auch auswählen, dass kein Remotedesktopprotokoll Komprimierungs Alg
 
 ### <a name="device-redirection"></a>Geräte Umleitung
 
-Die Geräte Umleitung kann mithilfe der Gruppenrichtlinie unter **Computer Konfiguration** &gt; **Administrative Vorlagen** &gt; **Windows-Komponenten** &gt; **Remotedesktopdienste &gt;** Remote konfiguriert werden.  **Desktop Sitzungs Host** &gt; **Geräte-und Ressourcen Umleitung** oder das Eigenschaften Feld **Sitzungs Sammlung** in Server-Manager.
+Die Geräte Umleitung kann mithilfe der Gruppenrichtlinie unter **Computer Konfiguration** &gt; **Administrative Vorlagen** &gt; **Windows-Komponenten** &gt; **Remotedesktopdienste &gt; Remotedesktop-Sitzungshost** &gt; **Geräte-und Ressourcen Umleitung** oder mithilfe des Felds Eigenschaften der **Sitzungs Sammlung** in Server-Manager konfiguriert werden. **Remote Desktop Session Host**
 
 Im allgemeinen erhöht die Geräte Umleitung, wie viel Netzwerkbandbreite RD-Sitzungshost Serververbindungen verwendet werden, da Daten zwischen Geräten auf den Client Computern und Prozessen ausgetauscht werden, die in der Server Sitzung ausgeführt werden. Der Umfang der Erhöhung ist eine Funktion der Häufigkeit von Vorgängen, die von den Anwendungen ausgeführt werden, die auf dem Server gegen die umgeleiteten Geräte ausgeführt werden.
 

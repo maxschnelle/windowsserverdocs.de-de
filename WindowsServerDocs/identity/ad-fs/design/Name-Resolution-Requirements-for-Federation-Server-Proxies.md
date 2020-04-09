@@ -1,7 +1,6 @@
 ---
 ms.assetid: c28c60ff-693d-49ee-a75b-58f24866217b
 title: Namensauflösungsanforderungen für Verbundserverproxys
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 51176101b471ec940e2b43a95e1a1a8d37b394f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 47c5bd23d3ba82c3df81c71951c2a50db0fe99d7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408061"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853043"
 ---
 # <a name="name-resolution-requirements-for-federation-server-proxies"></a>Namensauflösungsanforderungen für Verbundserverproxys
 
@@ -38,7 +37,7 @@ Die folgende Abbildung und die entsprechenden Schritte veranschaulichen, wie jed
 Weitere Informationen zum Konfigurieren einer Cluster-IP-Adresse oder eines Cluster-voll qualifizierten Daten Controllers mithilfe von NLB finden Sie unter [angeben der Cluster Parameter](https://go.microsoft.com/fwlink/?LinkId=75282).  
   
 ### <a name="1-configure-the-hosts-file-on-the-federation-server-proxy"></a>1. Konfigurieren der "Hosts"-Datei für den Verbundserverproxy  
-Da das DNS im Umkreis Netzwerk so konfiguriert ist, dass alle Anforderungen von FS.fabrikam.com an den Konto Verbund Server Proxy aufgelöst werden, verfügt der Verbund Server Proxy des Konto Partners über einen Eintrag in der lokalen Hostdatei, um FS.fabrikam.com auf die IP-Adresse des eigentlichen Konto Verbund Servers \(oder den DNS-Cluster Namen für die Verbund Serverfarm\), die mit dem Unternehmensnetzwerk verbunden ist. Dies ermöglicht es dem Konto Verbund Server Proxy, den Hostnamen fs.fabrikam.com auf den Konto Verbund Server und nicht in sich selbst zu lösen – wie beim Versuch, FS.fabrikam.com mithilfe des Umkreis-DNS – zu suchen, sodass der Verbund der Server Proxy kann mit dem Verbund Server kommunizieren.  
+Da das DNS im Umkreis Netzwerk so konfiguriert ist, dass alle Anforderungen von FS.fabrikam.com an den Konto Verbund Server Proxy aufgelöst werden, verfügt der Verbund Server Proxy des Konto Partners über einen Eintrag in der lokalen Hostdatei, um FS.fabrikam.com auf die IP-Adresse des eigentlichen Konto Verbund Servers \(oder den DNS-Cluster Namen für die Verbund Serverfarm\), die mit dem Unternehmensnetzwerk verbunden ist. Dies ermöglicht es dem Konto Verbund Server Proxy, den Hostnamen fs.fabrikam.com auf den Konto Verbund Server und nicht in sich selbst zu lösen – wie beim Versuch, FS.fabrikam.com mithilfe des Umkreis-DNS – zu suchen, sodass der Verbund Server Proxy mit dem Verbund Server kommunizieren kann.  
   
 ### <a name="2-configure-perimeter-dns"></a>2. Konfigurieren des Umkreis-DNS  
 Da es nur einen einzigen AD FS Hostnamen gibt, zu dem Client Computer geleitet werden – ob Sie sich in einem Intranet oder Internet befinden – müssen Client Computer im Internet, die den Umkreis-DNS-Server verwenden, den FQDN für den Konto Verbund Server \(FS.fabrikam.com\) in die IP-Adresse des Konto Verbund Server Proxys im Umkreis Netzwerk auflösen. Damit Clients beim Auflösen von FS.fabrikam.com an den Konto Verbund Server Proxy weiterleiten können, enthält der Umkreis-DNS eine beschränkte Corp.fabrikam.com DNS-Zone mit einem einzelnen Host \(einen\) Ressourcen Daten Satz für FS \(FS.fabrikam.com\) und die IP-Adresse des Konto Verbund Server Proxys im Umkreis Netzwerk.  
@@ -59,7 +58,7 @@ Die folgende Abbildung und die entsprechenden Schritte veranschaulichen, wie jed
 ### <a name="1-configure-perimeter-dns"></a>1. Konfigurieren des Umkreis-DNS  
 In diesem Szenario wird davon ausgegangen, dass Sie die Internet-DNS-Zone konfigurieren, die Sie für die Auflösung von Anforderungen, die für eine bestimmte Endpunkt-URL vorgenommen werden, \(d. h. fs.fabrikam.com\) an den Verbund Server Proxy im Umkreis Netzwerk, konfigurieren möchten. Außerdem müssen Sie die Zone im Umkreis-DNS konfigurieren, um diese Anforderungen an den Verbund Server im Unternehmensnetzwerk weiterzuleiten.  
   
-Damit Clients an den Konto Verbund Server weitergeleitet werden können, wenn Sie versuchen, FS.fabrikam.com aufzulösen, wird das Umkreis-DNS mit einem einzelnen Host \(einem\)-Ressourcen Daten Satz für FS \(FS.fabrikam.com-\) und der IP-Adresse des Konto Verbund Servers im Unternehmensnetzwerk konfiguriert. Dies ermöglicht es dem Konto Verbund Server Proxy, den Hostnamen fs.fabrikam.com auf den Konto Verbund Server und nicht in sich selbst zu lösen – wie beim Versuch, FS.fabrikam.com mithilfe von Internet-DNS – zu suchen, sodass der Verbund Server der Proxy kann mit dem Verbund Server kommunizieren.  
+Damit Clients an den Konto Verbund Server weitergeleitet werden können, wenn Sie versuchen, FS.fabrikam.com aufzulösen, wird das Umkreis-DNS mit einem einzelnen Host \(einem\)-Ressourcen Daten Satz für FS \(FS.fabrikam.com-\) und der IP-Adresse des Konto Verbund Servers im Unternehmensnetzwerk konfiguriert. Dies ermöglicht es dem Konto Verbund Server Proxy, den Hostnamen fs.fabrikam.com auf den Konto Verbund Server und nicht in sich selbst zu lösen – wie bei der Suche nach FS.fabrikam.com mithilfe von Internet DNS –, damit der Verbund Server Proxy mit dem Verbund Server kommunizieren kann.  
   
 ### <a name="2-configure-internet-dns"></a>2. Konfigurieren von Internet-DNS  
 Damit die Namensauflösung in diesem Szenario erfolgreich ist, müssen alle Anforderungen von Clientcomputern im Internet an "fs.fabrikam.com" von der von Ihnen kontrollierten Internet-DNS-Zone aufgelöst werden. Folglich müssen Sie die Internet-DNS-Zone so konfigurieren, dass Client Anforderungen für FS.fabrikam.com an die IP-Adresse des Konto-Verbund Server Proxys im Umkreis Netzwerk weiterleiten werden.  

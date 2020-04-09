@@ -1,7 +1,6 @@
 ---
 ms.assetid: 61ed00fd-51c7-4728-91fa-8501de9d8f28
 title: Veröffentlichen von Anwendungen mit SharePoint, Exchange und RDG
-description: ''
 author: billmath
 manager: mtillman
 ms.author: billmath
@@ -9,12 +8,12 @@ ms.date: 04/30/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: web-app-proxy
-ms.openlocfilehash: 3852baf866dae20d1d1d08219841295aa976c626
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 18851463b82afc1dc34615e6faaa14622c80224a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79319934"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80818683"
 ---
 # <a name="publishing-applications-with-sharepoint-exchange-and-rdg"></a>Veröffentlichen von Anwendungen mit SharePoint, Exchange und RDG
 
@@ -27,7 +26,7 @@ In diesem Thema werden die erforderlichen Aufgaben zum Veröffentlichen von Shar
 > [!NOTE]
 > Diese Informationen werden unverändert bereitgestellt.  Remotedesktopdienste unterstützt und empfiehlt [die Verwendung Azure-App Proxys, um sicheren Remote Zugriff auf lokale Anwendungen bereitzustellen](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
 
-## <a name="BKMK_6.1"></a>Veröffentlichen von SharePoint Server
+## <a name="publish-sharepoint-server"></a><a name="BKMK_6.1"></a>Veröffentlichen von SharePoint Server
 Sie können eine SharePoint-Website mithilfe des webanwendungsproxys veröffentlichen, wenn die SharePoint-Website für die Anspruchs basierte Authentifizierung oder die integrierte Windows-Authentifizierung konfiguriert ist. Wenn Sie Active Directory-Verbunddienste (AD FS) (AD FS) für die Vorauthentifizierung verwenden möchten, müssen Sie eine vertrauende Seite mithilfe eines der Assistenten konfigurieren.
 
 -   Wenn die SharePoint-Website die anspruchsbasierte Authentifizierung verwendet, müssen Sie den Assistenten zum Hinzufügen der Vertrauensstellung der vertrauenden Seite für die Anwendung verwenden.
@@ -40,7 +39,7 @@ Sie können eine SharePoint-Website mithilfe des webanwendungsproxys veröffentl
 
 Wenn die SharePoint-Website mithilfe alternativer Zugriffszuordnungen (AAM) oder hostbenannter Websitesammlungen konfiguriert ist, können Sie jeweils verschiedene URLs der externen und Back-End-Server zur Veröffentlichung Ihrer Anwendung verwenden. Wenn die SharePoint-Website jedoch nicht mithilfe von AAM oder hostbenannten Websitesammlungen konfiguriert ist, müssen Sie jeweils die gleichen externen und Back-End-Server-URLs verwenden.
 
-## <a name="BKMK_6.2"></a>Veröffentlichen von Exchange Server
+## <a name="publish-exchange-server"></a><a name="BKMK_6.2"></a>Veröffentlichen von Exchange Server
 In der folgenden Tabelle werden die Exchange-Dienste beschrieben, die Sie über den webanwendungsproxy veröffentlichen können, sowie die unterstützte Vorauthentifizierung für diese Dienste:
 
 
@@ -48,7 +47,7 @@ In der folgenden Tabelle werden die Exchange-Dienste beschrieben, die Sie über 
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Outlook Web App     | -AD FS mit nicht Anspruchs basierter Authentifizierung<br />-Pass-Through<br />-AD FS verwenden der Anspruchs basierten Authentifizierung für lokales Exchange 2013 Service Pak 1 (SP1) |                                                                  Weitere Informationen finden Sie unter: [Verwenden anspruchsbasierter Authentifizierung von AD FS mit Outlook Web App und EAC](https://go.microsoft.com/fwlink/?LinkId=393723)                                                                  |
 | Exchange-Systemsteuerung |                                                                               Pass-Through                                                                               |                                                                                                                                                                                                                                                                                    |
-|    Outlook Anywhere    |                                                                               Pass-Through                                                                               | Zur ordnungsgemäßen Funktion müssen drei URLs für Outlook Anywhere veröffentlicht werden:<br /><br />: Die automatische Erkennung-URL.<br />-Der externe Hostname des Exchange-Servers. Das heißt, die URL, die für Clients zum Herstellen einer Verbindung konfiguriert ist.<br />: Der interne voll qualifizierte Namen des Exchange-Servers. |
+|    Outlook Anywhere    |                                                                               Pass-Through                                                                               | Zur ordnungsgemäßen Funktion müssen drei URLs für Outlook Anywhere veröffentlicht werden:<p>: Die automatische Erkennung-URL.<br />-Der externe Hostname des Exchange-Servers. Das heißt, die URL, die für Clients zum Herstellen einer Verbindung konfiguriert ist.<br />: Der interne voll qualifizierte Namen des Exchange-Servers. |
 |  Exchange ActiveSync   |                                                     Pass-Through<br/> AD FS mithilfe des HTTP-Standard Autorisierungs Protokolls                                                      |                                                                                                                                                                                                                                                                                    |
 
 Um Outlook Web App mithilfe der integrierten Windows-Authentifizierung zu veröffentlichen, müssen Sie den nicht anspruchsbasierten Assistenten zum Hinzufügen der Vertrauensstellung der vertrauenden Seite für die Anwendung verwenden.
@@ -162,7 +161,7 @@ Wenn Sie den Zugriff auf das Remote Zugriffs Gateway einschränken und die Vorau
 
             Weitere Informationen zu RDP finden Sie unter [Konfigurieren des TS-Gateway-OTP-Szenarios](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731249(v=ws.10)).
 
-## <a name="BKMK_Links"></a>Siehe auch
+## <a name="see-also"></a><a name="BKMK_Links"></a>Siehe auch
 
 - [Planen der Veröffentlichung von Anwendungen mit webanwendungsproxy](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383650(v=ws.11))
 

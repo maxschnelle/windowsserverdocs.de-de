@@ -1,7 +1,6 @@
 ---
 ms.assetid: 6127963f-71b2-4d8f-8b53-7c525bf06521
 title: Erstellen einer Regel zum durchlaufen oder Filtern eines eingehenden Anspruchs
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,20 +8,20 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 145558e620188c4311d79d2a9ba4ed7aaf7b13a8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fb885d8b822faf4bd5ee82ad70c59b99678a58e9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358137"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816833"
 ---
 # <a name="create-a-rule-to-pass-through-or-filter-an-incoming-claim"></a>Erstellen einer Regel zum durchlaufen oder Filtern eines eingehenden Anspruchs
 
-Mithilfe der Regel Vorlage zum durchlaufen oder Filtern einer eingehenden Anspruchs Regel in Active Directory-Verbunddienste (AD FS) \(AD FS\)können Sie alle eingehenden Ansprüche mit einem ausgewählten Anspruchstyp weiterleiten. Sie können auch die Werte eingehender Ansprüche mit einem ausgewählten Anspruchstyp filtern. Beispielsweise können Sie diese Regel Vorlage verwenden, um eine Regel zu erstellen, die alle eingehenden Gruppen Ansprüche sendet. Sie können diese Regel auch verwenden, um nur den Benutzer Prinzipal Namen \(UPN\) Ansprüche zu senden, die mit @fabrikamenden.  
+Mithilfe der Regel Vorlage zum durchlaufen oder Filtern einer eingehenden Anspruchs Regel in Active Directory-Verbunddienste (AD FS) \(AD FS\)können Sie alle eingehenden Ansprüche mit einem ausgewählten Anspruchstyp weiterleiten. Sie können die Werte eingehender Ansprüche mit einem ausgewählten Anspruchstyp auch filtern. Sie können beispielswiese diese Regelvorlage verwenden, um eine Regel zu erstellen, die alle eingehenden Gruppenansprüche sendet. Sie können diese Regel auch verwenden, um nur den Benutzer Prinzipal Namen \(UPN\) Ansprüche zu senden, die mit @fabrikamenden.  
   
 Mithilfe des folgenden Verfahrens können Sie eine Anspruchs Regel mit dem AD FS-Verwaltungs-Snap\-in erstellen.  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe **Administratoren** oder eine gleichwertige Berechtigung auf dem lokalen Computer erforderlich.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
 
 ## <a name="to-create-a-rule-to-pass-through-or-filter-an-incoming-claim-on-a-relying-party-trust-in-windows-server-2016"></a>So erstellen Sie eine Regel zum Weiterleiten oder Filtern eines eingehenden Anspruchs für eine Vertrauensstellung der vertrauenden Seite in Windows Server 2016 
 

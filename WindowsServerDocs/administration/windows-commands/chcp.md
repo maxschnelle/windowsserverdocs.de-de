@@ -1,28 +1,22 @@
 ---
 title: chcp
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle-Thema für CHCP, das die aktive Konsolen Codepage ändert.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dc7b1c71-7b80-443d-9cf1-9bcf305aa1fd
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d5784b052ff1d7084d68cca0589caf518b8e44a8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e644cf8544d135c5d21c344b0fd0a3364c7f89c1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379528"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847943"
 ---
 # <a name="chcp"></a>chcp
-
-
 
 Ändert die aktive Konsolen Codepage. Bei Verwendung ohne Parameter zeigt **chcp** die Nummer der aktiven Konsolen Codepage an.
 
@@ -34,11 +28,11 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 chcp [<NNN>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<NNN >|Gibt die Codepage an.|
+|\<nnn >|Gibt die Codepage an.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 In der folgenden Tabelle werden die einzelnen unterstützten Codeseiten und deren Land/Region oder Sprache aufgeführt:
@@ -64,7 +58,7 @@ In der folgenden Tabelle werden die einzelnen unterstützten Codeseiten und dere
 -   Sie müssen keine Codepages vorbereiten (wie in MS MS-DOS).
 -   Programme, die Sie starten, nachdem Sie eine neue Codepage zugewiesen haben, verwenden die neue Codepage. Allerdings verwenden Programme (mit Ausnahme von "cmd. exe"), die Sie starten, bevor Sie die neue Codepage zuweisen, die ursprüngliche Codepage.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Geben Sie Folgendes ein, um die Einstellung der aktiven Codepage anzuzeigen:
 ```
@@ -82,6 +76,6 @@ Wenn die angegebene Codepage ungültig ist, wird die folgende Fehlermeldung ange
 
 `Invalid code page`
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

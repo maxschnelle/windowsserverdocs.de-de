@@ -1,26 +1,22 @@
 ---
-title: more
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+title: Weitere
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ded14f6a-d82f-4aeb-a2d8-7ec1c94dfb8f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/26/2019
-ms.openlocfilehash: d505f99511d8702f11ac0c70edba3d62c8cf7996
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4c627e003e71cb2265c717669e082d48564dd483
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373906"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839423"
 ---
-# <a name="more"></a>more
+# <a name="more"></a>Weitere
 
 
 
@@ -36,7 +32,7 @@ more [[/c] [/p] [/s] [/t<N>] [+<N>]] < [<Drive>:][<Path>]<FileName>
 more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |           Parameter            |                               Beschreibung                               |
 |--------------------------------|-------------------------------------------------------------------------|
@@ -54,7 +50,7 @@ more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 
 -   Die folgenden Unterbefehle werden an **der Eingabeaufforderung** (`-- More --`) akzeptiert. 
 
-    | Schlüssel | Aktion |
+    | Key | Aktion |
     | --- | ------ |
     | Leertaste | Zeigt die nächste Seite an. |
     | EINGABETASTE | Zeigt die nächste Zeile an. |
@@ -68,7 +64,7 @@ more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 -   Bei Verwendung des-Umleitungs Zeichens ( **<** ) müssen Sie einen Dateinamen als Quelle angeben. Wenn Sie die Pipe ( **\|** ) verwenden, können Sie diese Befehle wie **dir**, **Sort**und **Type**verwenden.
 -   Der **Weitere** Befehl mit unterschiedlichen Parametern ist über die Wiederherstellungskonsole verfügbar.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Geben Sie einen der folgenden Befehle ein, um den ersten Bildschirm der Informationen einer Datei mit dem Namen Clients. New anzuzeigen:
 ```
@@ -114,6 +110,6 @@ Die folgenden Beispiele können an **der Eingabeaufforderung** (`-- More --`) ve
   ```  
   Geben Sie die Anzahl der zu über springenden Zeilen ein, und drücken Sie die EINGABETASTE. **Mehr** überspringt die angegebene Anzahl von Zeilen und zeigt den nächsten Bildschirm der Informationen an.
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

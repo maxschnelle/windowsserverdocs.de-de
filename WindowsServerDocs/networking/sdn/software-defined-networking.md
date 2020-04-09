@@ -1,20 +1,20 @@
 ---
 title: Software-Defined Networking (SDN)
 description: Software-Defined Networking (Softwaredefinierte Netzwerke, SDN) bietet eine Methode, mit der Sie physische und virtuelle Netzwerkgeräte wie Router, Switches und Gateways in Ihrem Datencenter zentral konfigurieren und verwalten können. In diesem Thema erfahren Sie mehr über die Software-Defined Networking (SDN)-Technologien, die in Windows Server, System Center und Microsoft Azure bereitgestellt werden.
-manager: dougkim
+manager: grcusanz
 ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: 9a1ea73c-20cd-42c5-95ad-b003b9cc6d64
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/09/2018
-ms.openlocfilehash: a1283c6afcebe7b6abc12f9847865d6305bd3f2c
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 355375b17132a46f070d5ef34cd6ea02a36868e0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317278"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854333"
 ---
 # <a name="sdn-in-windows-server-overview"></a>SDN in Windows Server-Übersicht
 

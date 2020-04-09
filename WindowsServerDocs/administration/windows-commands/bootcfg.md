@@ -1,35 +1,35 @@
 ---
 title: bootcfg
-description: 'Windows-Befehle-Thema für **bootcfg** : konfiguriert, fragt oder ändert die Datei Einstellungen der Boot. ini-Datei.'
-ms.custom: na
+description: Windows-Befehle-Thema für bootcfg, mit dem die Einstellungen der Boot. ini-Datei konfiguriert, abgefragt oder geändert werden.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3deb354c-5717-4066-bc79-b9323d559e44
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2d66296327a2221093e5434f69e15e7c55df1f6b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a977b857242c030515a09a67eb0d284ade7a0beb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379851"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80848383"
 ---
 # <a name="bootcfg"></a>bootcfg
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Ermöglicht das Konfigurieren, Abfragen oder Ändern von Einstellungen in der Datei „Boot.ini“.  
-## <a name="syntax"></a>Syntax  
+Ermöglicht das Konfigurieren, Abfragen oder Ändern von Einstellungen in der Datei „Boot.ini“.
+
+## <a name="syntax"></a>Syntax
+
 ```  
 bootcfg <parameter> [arguments...]  
-```  
-## <a name="parameters"></a>Parameter  
+```
+
+### <a name="parameters"></a>Parameter
+
 |Parameter|Beschreibung|  
 |-------|--------|  
 |[bootcfg addsw](bootcfg-addsw.md)|Fügt Optionen für das Laden von Betriebssystemen für einen angegebenen Betriebssystem Eintrag hinzu.|  

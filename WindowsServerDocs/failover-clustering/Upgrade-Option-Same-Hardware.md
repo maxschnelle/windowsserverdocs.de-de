@@ -1,25 +1,26 @@
 ---
 title: Aktualisieren von Failoverclustern mit der gleichen Hardware
+description: In diesem Artikel wird beschrieben, wie Sie einen Failovercluster mit zwei Knoten mithilfe derselben Hardware aktualisieren.
 ms.prod: windows-server
-ms.manager: eldenc
+manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
+ms.author: johnmar
 ms.date: 02/28/2019
-description: In diesem Artikel wird beschrieben, wie Sie einen Failovercluster mit zwei Knoten mithilfe derselben Hardware aktualisieren.
 ms.localizationpriority: medium
-ms.openlocfilehash: 5fe93f1d43e0c3a1bc4269b585cb9d021d3461aa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b2d9866417908b3979a4ee17b25dd0d3a404bb1c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361397"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828183"
 ---
 # <a name="upgrading-failover-clusters-on-the-same-hardware"></a>Aktualisieren von Failoverclustern auf derselben Hardware
 
 > Gilt für: Windows Server 2019, Windows Server 2016
 
-Ein Failovercluster besteht aus einer Gruppe von unabhängigen Computern, die miteinander interagieren und somit die Verfügbarkeit von Anwendungen und Diensten erhöhen. Die Clusterserver (sogenannte Knoten) sind durch physische Kabel und durch Software miteinander verbunden. Wenn auf einem der Clusterknoten ein Fehler auftritt, werden seine Aufgaben sofort auf einen anderen Knoten übertragen. Dies wird als Failover bezeichnet. So ergeben sich für die Benutzer nur minimale Unterbrechungen des Betriebs.
+Ein Failovercluster besteht aus einer Gruppe von unabhängigen Computern, die miteinander interagieren und somit die Verfügbarkeit von Anwendungen und Diensten erhöhen. Die geclusterten Server ("Knoten") sind physisch über Kabel sowie durch Software verbunden. Wenn auf einem der Clusterknoten ein Fehler auftritt, werden seine Aufgaben sofort auf einen anderen Knoten übertragen. Dies wird als Failover bezeichnet. So ergeben sich für die Benutzer nur minimale Unterbrechungen des Betriebs.
 
 In dieser Anleitung werden die Schritte zum Aktualisieren der Cluster Knoten auf Windows Server 2019 oder Windows Server 2016 von einer früheren Version mit derselben Hardware beschrieben.
 
@@ -37,7 +38,7 @@ Stellen Sie vor dem Start eines Upgrades sicher, dass eine aktuelle Sicherung, e
 
 Im folgenden Beispiel ist der Name des Failoverclusters Cluster, und die Knoten Namen lauten Node1 und Node2.
 
-## <a name="step-1-evict-first-node-and-upgrade-to-windows-server-2016"></a>Schritt 1: Entfernen des ersten Knotens und Upgrade auf Windows Server 2016
+## <a name="step-1-evict-first-node-and-upgrade-to-windows-server-2016"></a>Schritt 1: Entfernen des ersten Knotens und Aktualisieren auf Windows Server 2016
 
 1. Entfernen Sie in Failovercluster-Manager alle Ressourcen von Node1 zu Node2, indem Sie mit der rechten Maustaste auf den Knoten klicken und **Rollen**anhalten und **Entfernen auswählen.**  Alternativ können Sie den PowerShell [-Befehl Suspend-clusternode](https://docs.microsoft.com/powershell/module/failoverclusters/suspend-clusternode)verwenden.
 
@@ -85,7 +86,7 @@ Nachdem Sie überprüft haben, dass alles wie erforderlich funktioniert, kann No
 
 5. Entfernen Sie alle Ressourcen von Node1 zu Node2, indem Sie mit der rechten Maustaste auf den Knoten klicken und **Rollen**anhalten und **Entfernen auswählen.**  Alternativ können Sie den PowerShell [-Befehl Suspend-clusternode](https://docs.microsoft.com/powershell/module/failoverclusters/suspend-clusternode)verwenden.  Stellen Sie sicher, dass alle Ressourcen online sind und wie Sie funktionieren.
 
-## <a name="step-3-rebuild-first-node-to-windows-server-2019"></a>Schritt 3: Neuerstellen des ersten Knotens auf Windows Server 2019
+## <a name="step-3-rebuild-first-node-to-windows-server-2019"></a>Schritt 3: Erneutes Erstellen des ersten Knotens in Windows Server 2019
 
 1. Entfernen Sie Node1 aus dem Cluster, und trennen Sie die Verbindung zwischen dem Speicher und dem Knoten.
 

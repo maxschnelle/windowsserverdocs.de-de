@@ -1,35 +1,32 @@
 ---
 title: clean
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle-Thema für den Befehl "Diskpart Clean", mit dem alle Partitionen bzw. volumeformatierung aus dem Datenträger mit dem Fokus entfernt werden.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9bbe6fd3-e07e-487b-9035-910957a1d326
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f871ad1d13e06bf0cbb886ba64a52e7a55a9a797
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d573a0480c24a2a622618197dea7dccaeddac271
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379322"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847753"
 ---
 # <a name="clean"></a>clean
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Der "Diskpart Clean"-Befehl entfernt alle Partitionen bzw. volumeformatierung von der Festplatte mit dem Fokus.
+
 ## <a name="syntax"></a>Syntax
 ```
 clean [all]
 ```
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 | Parameter |                                                        Beschreibung                                                        |
 |-----------|---------------------------------------------------------------------------------------------------------------------------|
@@ -39,10 +36,12 @@ clean [all]
 - Auf Master Boot Record (MBR)-Datenträgern werden nur die MBR-Partitionierungs Informationen und die Informationen zu verborgenen Sektoren überschrieben.
 - Für GPT-Datenträger (GUID-Partitionstabelle) werden die GPT-Partitionierungs Informationen, einschließlich des schutzmbr, überschrieben. Es sind keine ausgeblendeten Sektorinformationen vorhanden.
 - Ein Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl Datenträger **auswählen** einen Datenträger aus, und verschieben Sie den Fokus auf den Datenträger.
-  ## <a name="BKMK_examples"></a>Beispiele
+
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
   Geben Sie Folgendes ein, um die gesamte Formatierung des ausgewählten Datenträgers zu entfernen:
   ```
   clean
   ```
 
+## <a name="additional-references"></a>Weitere Verweise
 [Clear-Disk](https://technet.microsoft.com/library/hh848661.aspx)

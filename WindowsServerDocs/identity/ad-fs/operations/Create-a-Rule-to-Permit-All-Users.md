@@ -1,7 +1,6 @@
 ---
 ms.assetid: 8c179884-f0d9-4c7a-973d-820119cf3c38
 title: Erstellen einer Regel zum Zulassen aller Benutzer
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 1356218c5f9f47073f007286e8acfdf4c3608b73
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 894857813115002f3998a9ab5000d57b944fd448
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407622"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816783"
 ---
 # <a name="create-a-rule-to-permit-all-users"></a>Erstellen einer Regel zum Zulassen aller Benutzer
 
@@ -24,7 +23,7 @@ Sie können zusätzliche Autorisierungs Regeln verwenden, um den Zugriff weiter 
   
 Mithilfe der folgenden Verfahren können Sie eine Anspruchs Regel mit dem AD FS-Verwaltungs-Snap\-in erstellen.  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477). 
+Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe **Administratoren** oder eine gleichwertige Berechtigung auf dem lokalen Computer erforderlich.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477). 
 
 ## <a name="to-create-a-rule-to-permit-all-users-in-windows-server-2016"></a>So erstellen Sie eine Regel zum Zulassen aller Benutzer in Windows Server 2016
 

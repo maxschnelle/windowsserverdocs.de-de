@@ -8,12 +8,12 @@ ms.date: 07/10/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2a3cf6cd523f5cfd69785104fed7aa3938d79525
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6c2f9c8079eb2dfaf208c8835940351a925d0a16
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359390"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857503"
 ---
 # <a name="migrate-active-directory-federation-services-role-services-to-windows-server-2012-r2"></a>Migrieren von Rollendiensten der Active Directory Federation zu Windows Server 2012 R2
  Dieses Dokument enthält Anweisungen zum Migrieren der folgenden Rollen Dienste zu Active Directory-Verbunddienste (AD FS) (AD FS), der mit Windows Server 2012 R2 installiert wird:  
@@ -59,8 +59,8 @@ ms.locfileid: "71359390"
   
 |Von|So AD FS mit Windows Server 2012 R2 installiert|  
 |----------|----------------------------------------------------------------------------------------------|  
-|AD FS 2,0-Verbund Server, installiert unter Windows Server 2008 oder Windows Server 2008 R2|Die Migration auf demselben Server wird unterstützt. Weitere Informationen finden Sie unter:<br /><br /> [Vorbereiten der Migration des AD FS Verbund Servers](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [Migrieren des AD FS Verbund Servers](migrate-ad-fs-fed-server-r2.md)|  
-|AD FS Verbund Server, installiert unter Windows Server 2012|Die Migration auf demselben Server wird unterstützt.  Weitere Informationen finden Sie unter:<br /><br /> [Vorbereiten der Migration des AD FS Verbund Servers](prepare-migrate-ad-fs-server-r2.md)<br /><br /> [Migrieren des AD FS Verbund Servers](migrate-ad-fs-fed-server-r2.md)|  
+|AD FS 2,0-Verbund Server, installiert unter Windows Server 2008 oder Windows Server 2008 R2|Die Migration auf demselben Server wird unterstützt. Weitere Informationen finden Sie unter:<p> [Vorbereiten der Migration des AD FS Verbund Servers](prepare-migrate-ad-fs-server-r2.md)<p> [Migrieren des AD FS Verbund Servers](migrate-ad-fs-fed-server-r2.md)|  
+|AD FS Verbund Server, installiert unter Windows Server 2012|Die Migration auf demselben Server wird unterstützt.  Weitere Informationen finden Sie unter folgenden Themen:<p> [Vorbereiten der Migration des AD FS Verbund Servers](prepare-migrate-ad-fs-server-r2.md)<p> [Migrieren des AD FS Verbund Servers](migrate-ad-fs-fed-server-r2.md)|  
   
 ## <a name="next-steps"></a>Nächste Schritte
  [Vorbereiten der Migration des AD FS Verbund Servers](prepare-migrate-ad-fs-server-r2.md)   

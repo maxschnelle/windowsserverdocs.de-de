@@ -1,7 +1,6 @@
 ---
 ms.assetid: de7e1e4a-f96d-4b59-ac9b-f65f5d37a96f
 title: Bereitstellen des Zugriffs auf Ihre Ansprüche unterstützenden Anwendungen und Dienste für die Benutzer anderer Organisationen
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a0b2429599036f2893f23df7921a11c8232d9f67
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2e47197a980c9bcb576d6634a0031a8ae13afbfd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359071"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858603"
 ---
 # <a name="provide-users-in-another-organization-access-to-your-claims-aware-applications-and-services"></a>Bereitstellen des Zugriffs auf Ihre Ansprüche unterstützenden Anwendungen und Dienste für die Benutzer anderer Organisationen
 
@@ -33,7 +32,7 @@ Die folgenden Komponenten sind für dieses Bereitstellungsziel erforderlich:
   
 -   **Active Directory Domain Services \(AD DS\):** Der Ressourcen Partner Verbund Server muss einer Active Directory Domäne beitreten.  
   
--   **Umkreis-DNS:** Domain Name System \(DNS-\) sollte einen einfachen Host \(einen\) Ressourcen Daten Satz enthalten, sodass Client Computer den Ressourcen Partner Verbund Server und den Webserver finden können. Der DNS-Server kann andere DNS-Einträge hosten, die auch im Umkreisnetzwerk erforderlich sind. Weitere Informationen finden Sie unter [Name Resolution Requirements for Federation Servers](Name-Resolution-Requirements-for-Federation-Servers.md).  
+-   **Umkreis-DNS:** Domain Name System \(DNS-\) sollte einen einfachen Host \(einen\) Ressourcen Daten Satz enthalten, sodass Client Computer den Ressourcen Partner Verbund Server und den Webserver finden können. Der DNS-Server kann andere DNS-Einträge hosten, die auch im Umkreisnetzwerk erforderlich sind. Weitere Informationen finden Sie unter [Anforderungen an die Namensauflösung für Verbundserver](Name-Resolution-Requirements-for-Federation-Servers.md).  
   
 -   **Ressourcen Partner-Verbund Server:** Der Ressourcen Partner Verbund Server überprüft AD FS Token, die von den Konto Partnern gesendet werden. Die Ermittlung von Konto Partnern erfolgt über diesen Verbund Server. Weitere Informationen finden Sie unter [Review the Role of the Federation Server in the Resource Partner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
   

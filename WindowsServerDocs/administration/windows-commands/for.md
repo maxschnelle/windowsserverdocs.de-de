@@ -1,24 +1,20 @@
 ---
 title: als Typ für
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e275726c-035f-4a74-8062-013c37f5ded1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: db0bf54e35e4226cb020b040d5fc36ddd88dc02b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e7040e4cb8e0f38e58ce5e868535dcfb2d897fbd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377123"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844533"
 ---
 # <a name="for"></a>als Typ für
 
@@ -34,13 +30,13 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|{%%\|%}\<Variable >|Erforderlich. Stellt einen austauschbaren Parameter dar. Verwenden Sie ein einzelnes Prozentzeichen ( **%** ), um den **for** -Befehl an der Eingabeaufforderung auszuführen. Verwenden Sie doppelte Prozentzeichen ( **%%** ), um den **for** -Befehl in einer Batchdatei auszuführen. Bei Variablen wird die Groß-/Kleinschreibung beachtet, und Sie müssen mit einem alphabetischen Wert wie **% A**, **% B**oder **% C**dargestellt werden.|
-|(\<festgelegte >)|Erforderlich. Gibt eine oder mehrere Dateien, Verzeichnisse oder Text Zeichenfolgen oder einen Wertebereich an, für den der Befehl ausgeführt werden soll. Die Klammern sind erforderlich.|
-|\<Befehl >|Erforderlich. Gibt den Befehl an, den Sie für jede Datei, jedes Verzeichnis oder jede Text *Zeichenfolge*ausführen möchten, oder für den Wertebereich, der in Set enthalten ist.|
+|{%%\|%}\<Variable >|Erforderlich Stellt einen austauschbaren Parameter dar. Verwenden Sie ein einzelnes Prozentzeichen ( **%** ), um den **for** -Befehl an der Eingabeaufforderung auszuführen. Verwenden Sie doppelte Prozentzeichen ( **%%** ), um den **for** -Befehl in einer Batchdatei auszuführen. Bei Variablen wird die Groß-/Kleinschreibung beachtet, und Sie müssen mit einem alphabetischen Wert wie **% A**, **% B**oder **% C**dargestellt werden.|
+|(\<festgelegte >)|Erforderlich Gibt eine oder mehrere Dateien, Verzeichnisse oder Text Zeichenfolgen oder einen Wertebereich an, für den der Befehl ausgeführt werden soll. Die Klammern sind erforderlich.|
+|\<Befehl >|Erforderlich Gibt den Befehl an, den Sie für jede Datei, jedes Verzeichnis oder jede Text *Zeichenfolge*ausführen möchten, oder für den Wertebereich, der in Set enthalten ist.|
 |\<commandLineOptions >|Gibt alle Befehlszeilenoptionen an, die Sie mit dem angegebenen Befehl verwenden möchten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
@@ -104,17 +100,17 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 
     Die Syntaxen lauten:  
     ```
-    for /f ["<ParsingKeywords>"] {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
-    for /f ["<ParsingKeywords>"] {%%|%}<Variable> in ("<LiteralString>") do <Command> [<CommandLineOptions>]
-    for /f ["<ParsingKeywords>"] {%%|%}<Variable> in ('<Command>') do <Command> [<CommandLineOptions>]
+    for /f [<ParsingKeywords>] {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
+    for /f [<ParsingKeywords>] {%%|%}<Variable> in (<LiteralString>) do <Command> [<CommandLineOptions>]
+    for /f [<ParsingKeywords>] {%%|%}<Variable> in ('<Command>') do <Command> [<CommandLineOptions>]
     ```  
     Das *Set* -Argument gibt mindestens einen Dateinamen an. Alle Dateien werden vor dem Wechsel zur nächsten Datei in *festgelegt*, gelesen und verarbeitet. Um das standardmäßige Parametrisierungsverhalten zu überschreiben, geben Sie " *Parser Keywords*" Dies ist eine Zeichenfolge in Anführungszeichen, die ein oder mehrere Schlüsselwörter enthält, um verschiedene Optionen für die Verarbeitung anzugeben.
 
     Wenn Sie die Option **usebackq** verwenden, verwenden Sie eine der folgenden Syntaxen:  
     ```
-    for /f ["usebackq <ParsingKeywords>"] {%%|%}<Variable> in ("<Set>") do <Command> [<CommandLineOptions>]
-    for /f ["usebackq <ParsingKeywords>"] {%%|%}<Variable> in ('<LiteralString>') do <Command> [<CommandLineOptions>]
-    for /f ["usebackq <ParsingKeywords>"] {%%|%}<Variable> in (`<Command>`) do <Command> [<CommandLineOptions>]
+    for /f [usebackq <ParsingKeywords>] {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
+    for /f [usebackq <ParsingKeywords>] {%%|%}<Variable> in ('<LiteralString>') do <Command> [<CommandLineOptions>]
+    for /f [usebackq <ParsingKeywords>] {%%|%}<Variable> in (`<Command>`) do <Command> [<CommandLineOptions>]
     ```  
     In der folgenden Tabelle sind die Schlüsselwörter aufgeführt, die Sie für die Verwendung von *para*Metern verwenden können.  
 
@@ -133,7 +129,7 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
 
     |Variable mit Modifizierer|Beschreibung|
     |----------------------|-----------|
-    |% ~ I|Erweitert **% I** und entfernt alle umgebenden Anführungszeichen ("").|
+    |% ~ I|Erweitert **% I** und entfernt alle umgebenden Anführungszeichen ().|
     |% ~ fI|Erweitert **% I** in einen voll qualifizierten Pfadnamen.|
     |% ~ dI|" **% I** " wird nur in einen Laufwerk Buchstaben erweitert.|
     |% ~ pI|" **% I** " wird nur in einen Pfad erweitert.|
@@ -160,12 +156,12 @@ for {%%|%}<Variable> in (<Set>) do <Command> [<CommandLineOptions>]
     Durch die Verwendung von Großbuchstaben (z. b. **% I**) können Sie den Code besser lesbar machen und Verwirrung mit den Modifizierer vermeiden, bei denen die Groß-/Kleinschreibung nicht beachtet wird.
 - Eine Zeichenfolge wird verarbeitet.
 
-  Sie können die **for/f** -parameterlogik in einer unmittelbaren Zeichenfolge verwenden, indem Sie *\<Literalstring-\>* in doppelte Anführungszeichen (*ohne* "usebackq") oder in einfache Anführungszeichen (*mit* "usebackq") einschließen, z. b. ("myString") oder ("myString"). *\<Literalstring-\>* wird als eine einzelne Zeile der Eingabe aus einer Datei behandelt. Wenn *\<Literalstring* in doppelte Anführungszeichen\>werden, werden Befehls Symbole (z. b. **\\ \& \|** \> \< \^) als normale Zeichen behandelt.
+  Sie können die **for/f** -parameterlogik in einer unmittelbaren Zeichenfolge verwenden, indem Sie *\<Literalstring-\>* entweder in doppelte Anführungszeichen (*ohne* usebackq) oder in einfache Anführungszeichen (*mit* usebackq) einschließen, z. b. (myString) oder (' myString '). *\<Literalstring-\>* wird als eine einzelne Zeile der Eingabe aus einer Datei behandelt. Wenn *\<Literalstring* in doppelte Anführungszeichen\>werden, werden Befehls Symbole (z. b. **\\ \& \|** \> \< \^) als normale Zeichen behandelt.
 - Ausgabe wird verarbeitet
 
   Sie können den **for/f** -Befehl verwenden, um die Ausgabe eines Befehls zu analysieren, indem Sie einen *\<Befehl* in der backanführungs Zeichen\>zwischen den Klammern platzieren. Sie wird als Befehlszeile behandelt, die an eine untergeordnete Datei "cmd. exe" übergeben wird. Die Ausgabe wird im Arbeitsspeicher aufgezeichnet und so analysiert, als ob es sich um eine Datei handelt.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Verwenden Sie die folgende Syntax, um **für** in einer Batchdatei zu verwenden:
 ```
@@ -179,17 +175,17 @@ Im vorherigen Beispiel wird jede Datei mit der Erweiterung ". doc" oder ". txt" 
 
 Geben Sie Folgendes ein, um eine Datei zu analysieren und kommentierte Zeilen zu ignorieren:
 ```
-for /f "eol=; tokens=2,3* delims=," %i in (myfile.txt) do @echo %i %j %k
+for /f eol=; tokens=2,3* delims=, %i in (myfile.txt) do @echo %i %j %k
 ```
-Dieser Befehl analysiert jede Zeile in MyFile. txt. Sie ignoriert Zeilen, die mit einem Semikolon beginnen, und übergibt das zweite und dritte Token von jeder Zeile an den **für** Text (Token werden durch Kommas oder Leerzeichen getrennt). Der Text der **for** -Anweisung verweist auf " **% i** ", um das zweite Token zu erhalten, **% j** , um das dritte Token zu erhalten, und " **% k** ", um alle verbleibenden Token zu erhalten. Wenn die von Ihnen angegebenen Dateinamen Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. "Dateiname"). Zum Verwenden von Anführungszeichen müssen Sie **usebackq**verwenden. Andernfalls werden die Anführungszeichen als Definieren einer Literalzeichenfolge interpretiert, die analysiert werden soll.
+Dieser Befehl analysiert jede Zeile in MyFile. txt. Sie ignoriert Zeilen, die mit einem Semikolon beginnen, und übergibt das zweite und dritte Token von jeder Zeile an den **für** Text (Token werden durch Kommas oder Leerzeichen getrennt). Der Text der **for** -Anweisung verweist auf " **% i** ", um das zweite Token zu erhalten, **% j** , um das dritte Token zu erhalten, und " **% k** ", um alle verbleibenden Token zu erhalten. Wenn die von Ihnen bereitgestellten Dateinamen Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. Dateiname). Zum Verwenden von Anführungszeichen müssen Sie **usebackq**verwenden. Andernfalls werden die Anführungszeichen als Definieren einer Literalzeichenfolge interpretiert, die analysiert werden soll.
 
-**% i** ist explizit in der **for** -Anweisung deklariert. **% j** und **% k** werden implizit mithilfe von **Tokens =** deklariert. Sie können **Tokens =** zum Angeben von bis zu 26 Token verwenden, vorausgesetzt, es wird nicht versucht, eine Variable zu deklarieren, die höher ist als der Buchstabe "z" oder "z".
+**% i** ist explizit in der **for** -Anweisung deklariert. **% j** und **% k** werden implizit mithilfe von **Tokens =** deklariert. Sie können **Tokens =** zum Angeben von bis zu 26 Token verwenden, vorausgesetzt, es wird nicht versucht, eine Variable zu deklarieren, die höher als der Buchstabe z oder z ist.
 
 Im folgenden Beispiel werden die Namen der Umgebungsvariablen in der aktuellen Umgebung aufgelistet. Um die Ausgabe eines Befehls zu analysieren, indem Sie eine *Menge* zwischen den Klammern platzieren, geben Sie Folgendes ein:
 ```
-for /f "usebackq delims==" %i in ('set') do @echo %i 
+for /f usebackq delims== %i in ('set') do @echo %i 
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
