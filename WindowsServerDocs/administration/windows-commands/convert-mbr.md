@@ -1,28 +1,22 @@
 ---
 title: MBR konvertieren
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Artikel zum Konvertieren von MBR, der einen leeren Basis Datenträger mit dem Partitions Stil der GUID-Partitionstabelle (GPT) in einen Basis Datenträger mit dem Partitions Stil Master Boot Record (MBR) konvertiert.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a635a4c0-af73-4330-b021-51d483424537
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 47001415158b3bdb0b06af9114b995a6f0634da1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: eeaf79a380fb5f1074d2bbef004537804caa0d8d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71379073"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80847203"
 ---
 # <a name="convert-mbr"></a>MBR konvertieren
-
-
 
 Konvertiert einen leeren Basis Datenträger mit dem GPT-Partitions Stil (GUID-Partitionstabelle) in einen Basis Datenträger mit dem Partitions Stil Master Boot Record (MBR).
 
@@ -37,7 +31,7 @@ Anweisungen zur Verwendung dieses Befehls finden Sie unter [Ändern eines Datent
 convert mbr [noerr]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -47,14 +41,14 @@ convert mbr [noerr]
 
 -   Ein Basis Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt wird. Verwenden Sie den Befehl Datenträger **auswählen** , um einen Basis Datenträger auszuwählen und den Fokus darauf zu verschieben.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Zum Konvertieren eines Basis Datenträgers aus dem GPT-Partitions Stil in den MBR-Partitions Stil geben Sie >:
 ```
 convert mbr
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

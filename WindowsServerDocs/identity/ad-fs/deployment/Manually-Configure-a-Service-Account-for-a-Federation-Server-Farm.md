@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5a1ae56b-adcb-447e-9e34-c0629d7cb241
 title: Manuelles Konfigurieren eines Dienstkontos für eine Verbundserverfarm
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 8240903b3c446d4f02ca93dc053e520480f5e8ca
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c30215f5f8e39bb97452fccaaef8d1bb0469dc31
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359489"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855343"
 ---
 # <a name="manually-configure-a-service-account-for-a-federation-server-farm"></a>Manuelles Konfigurieren eines Dienstkontos für eine Verbundserverfarm
 
@@ -24,13 +23,13 @@ Wenn Sie beabsichtigen, eine Verbund Serverfarm-Umgebung in Active Directory-Ver
 > Ab AD FS 3,0 (Windows Server 2012 R2) unterstützt AD FS die Verwendung eines [Gruppen verwalteten Dienst Kontos](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) \(GMSA\) als Dienst Konto.  Dies ist die empfohlene Option, da es nicht mehr erforderlich ist, das Dienst Konto Kennwort über einen Zeitraum zu verwalten.  In diesem Dokument wird der Alternative Fall der Verwendung eines herkömmlichen Dienst Kontos behandelt, z. b. in Domänen, die noch eine Domänen Funktionsebene von Windows Server 2008 R2 oder früher \(DFL\)ausführen.
 
 > [!NOTE]  
-> Die Aufgaben in dieser Prozedur müssen Sie nur einmal für die gesamte Verbundserverfarm ausführen. Wenn Sie später einen Verbund Server mithilfe des Konfigurations-Assistenten für AD FS-Verbund Server erstellen, müssen Sie dieses Konto auf der Assistenten Seite **Dienst Konto** auf jedem Verbund Server in der Farm angeben.  
+> Die Aufgaben in dieser Prozedur müssen Sie nur einmal für die gesamte Verbundserverfarm ausführen. Wenn Sie später einen Verbundserver mithilfe des Assistenten für die Konfiguration des AD FS-Verbundservers erstellen, müssen Sie dieses Konto auf der Assistentenseite **Dienstkonto** für jeden Verbundserver in der Farm angeben.  
   
 #### <a name="create-a-dedicated-service-account"></a>Erstellen eines dedizierten Dienstkontos  
   
 1.  Erstellen Sie ein dediziertes Benutzer\/Dienst Konto in der Active Directory-Gesamtstruktur, die sich in der Identitäts Anbieter Organisation befindet. Dieses Konto ist erforderlich, damit das Kerberos-Authentifizierungsprotokoll in einem Farm Szenario funktioniert und Pass\-durch Authentifizierung auf jedem der Verbund Server zulässt. Verwenden Sie dieses Konto nur für die Verbund Serverfarm.  
   
-2.  Bearbeiten Sie die Benutzerkonteneigenschaften, und aktivieren Sie das Kontrollkästchen **Kennwort läuft nie ab** . Mit dieser Aktion stellen Sie sicher, dass die Funktion dieses Dienstkontos nicht aufgrund von Änderungsanforderungen für das Domänenkennwort unterbrochen wird.  
+2.  Bearbeiten Sie die Benutzerkontoeigenschaften, und aktivieren Sie das Kontrollkästchen **Kennwort läuft nie ab**. Damit stellen Sie sicher, dass die Funktion dieses Kontos nicht durch Änderungsanforderungen für das Domänenkennwort unterbrochen wird.  
   
     > [!NOTE]  
     > Die Verwendung des Netzwerkdienstkontos für dieses dedizierte Konto führt zu beliebigen Fehlern, wenn ein Zugriff über die integrierte Windows-Authentifizierung versucht wird, da Kerberos-Tickets nicht von einem Server zu einem anderen validiert werden.  

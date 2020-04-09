@@ -1,28 +1,22 @@
 ---
 title: Ausführlich festlegen
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für Set ausführliche, das angibt, ob die ausführliche Ausgabe während der Erstellung von Schatten Kopien bereitgestellt wird.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 93cb93c9-666f-4c74-814b-1c404a949935
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dcd9dbf5d3f2d371bc348400db932100de2c0523
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f06400259004095fcc4ec81b2ed3cb25678a4b7d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370938"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834463"
 ---
 # <a name="set-verbose"></a>Ausführlich festlegen
-
-
 
 Gibt an, ob die ausführliche Ausgabe während der Erstellung der Schatten Kopie bereitgestellt wird. Wenn Sie ohne Parameter verwendet wird, wird in " **ausführliche** " die Hilfe an der Eingabeaufforderung angezeigt.
 
@@ -32,16 +26,16 @@ Gibt an, ob die ausführliche Ausgabe während der Erstellung der Schatten Kopie
 set verbose {on | off}
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 | Parameter | Beschreibung |
 |-----------|-------------|
-|    {on    |    abgeschrieben     |
+|    {on    |    off}     |
 
 ## <a name="remarks"></a>Hinweise
 
 -   Wenn der ausführliche Modus auf on **festgelegt** ist, stellt Set Details zum einschließen oder Ausschließen von Writer und Details zur metadatenkomprimierung und-Extraktion bereit.
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -2,18 +2,18 @@
 title: Übersicht über DFS-Namespaces
 ms.prod: windows-server
 ms.author: jgerend
-ms.manager: daveba
+manager: daveba
 ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 06/07/2019
 description: In diesem Thema wird beschrieben, wie Sie mithilfe des Rollendiensts für DFS-Namespaces in Windows Server freigegebene Ordner, die sich auf verschiedenen Servern befinden, in logisch strukturierten Namespaces gruppieren.
-ms.openlocfilehash: f4ff1bc394ddb57a290e5ffab1a89f596fc48d05
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 07f6ac857164257810b297f9e2b83db4e4bd42be
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949727"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858983"
 ---
 # <a name="dfs-namespaces-overview"></a>Übersicht über DFS-Namespaces
 
@@ -44,14 +44,14 @@ Server, auf denen die folgenden Betriebssysteme ausgeführt werden, können zus�
 
 - Windows Server 2019
 - Windows Server 2016
-- Windows Server 2012 R2
-- WindowsServer 2012
+- Windows Server 2012 R2
+- Windows Server 2012
 - Windows Server 2008 R2 Datacenter und Enterprise Edition
 - Windows Server (Halbjährlicher Kanal)
 
 Server, auf denen die folgenden Betriebssysteme ausgeführt werden, können einen einzelnen eigenständigen Namespace hosten:
 
-- Windows Server 2008 R2 Standard
+- Windows Server 2008 R2 Standard
 
 Die folgende Tabelle enthält zusätzliche zu berücksichtigende Faktoren, wenn Sie Server zum Hosten eines Namespaces auswählen.
 
@@ -69,7 +69,7 @@ Installieren Sie DFS-Namespaces mithilfe des [Windows Admin Centers](../../manag
 
 ### <a name="to-install-dfs-by-using-server-manager"></a>So installieren Sie DFS mithilfe des Server-Managers
 
-1. Klicken Sie im Server-Manager auf **Verwalten**und anschließend auf **Rollen und Features hinzufügen**. Der Assistent zum Hinzufügen von Rollen und Features erscheint.
+1. Klicken Sie im Server-Manager auf **Verwalten** und anschließend auf **Rollen und Features hinzufügen**. Der Assistent zum Hinzufügen von Rollen und Features erscheint.
 
 2. Wählen Sie auf der Seite **Serverauswahl** den Server oder die virtuelle Festplatte (Virtual Hard Disk, VHD) eines virtuellen Computers im Offlinemodus aus, auf dem Sie DFS installieren möchten.
 
@@ -77,13 +77,13 @@ Installieren Sie DFS-Namespaces mithilfe des [Windows Admin Centers](../../manag
 
     - Um den DFS-Namespaces-Dienst auf der Seite **Serverrollen** zu installieren, wählen Sie **DFS-Namespaces** aus.
 
-    - Erweitern Sie auf der Seite **Features** die Option **Remoteserver-Verwaltungstools**, erweitern Sie **Rollenverwaltungstools**, erweitern Sie **Tools für Dateidienste**, und wählen Sie anschließend **DFS-Verwaltungstools**aus.
+    - Erweitern Sie auf der Seite **Features** die Option **Remoteserver-Verwaltungstools**, erweitern Sie **Rollenverwaltungstools**, erweitern Sie **Tools für Dateidienste**, und wählen Sie anschließend **DFS-Verwaltungstools** aus.
 
-         Im Rahmen der **DFS-Verwaltungstools** werden auf dem Server das DFS-Verwaltungs-Snap-In, das DFS-Namespaces-Modul für Windows PowerShell sowie Befehlszeilentools, aber keine DFS-Dienste installiert.
+         Im Rahmen der DFS-Verwaltungstools werden auf dem Server das DFS-Verwaltungs-Snap-In, das DFS-Namespaces-Modul für Windows PowerShell sowie Befehlszeilentools, aber keine DFS-Dienste installiert.
 
 ### <a name="to-install-dfs-by-using-windows-powershell"></a>So installieren Sie DFS mithilfe von Windows PowerShell
 
-Öffnen Sie eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten, und geben Sie dann den folgenden Befehl ein, wobei < Name\> der Rollen Dienst oder das Feature ist, das Sie installieren möchten (in der folgenden Tabelle finden Sie eine Liste der relevanten Rollen Dienst-oder Featurenamen):
+Öffne eine Windows PowerShell-Sitzung mit erhöhten Benutzerrechten, und gib den folgenden Befehl ein, wobei <name\> für den zu installierenden Rollendienst bzw. für das zu installierende Feature steht. Eine Liste mit relevanten Rollendienst- oder Featurenamen findest du in der folgenden Tabelle:
 
 ```PowerShell
 Install-WindowsFeature <name>
@@ -116,11 +116,11 @@ Die Verwendung von DFS-Namespaces auf Microsoft Azure wurde getestet, es gibt je
 
 Weitere Informationen zu den ersten Schritten mit virtuellen Azure-Computern finden Sie in der [Dokumentation für virtuelle Azure-Computer](https://docs.microsoft.com/azure/virtual-machines/).
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 Weitere verwandte Informationen finden Sie in den folgenden Ressourcen:
 
-| Inhaltstyp        | Verweise |
+| Art des Inhalts        | Verweise |
 | ------------------  | ----------------|
 | **Produktbewertung** | [Neues in DFS-Namespaces und DFS-Replikation in Windows Server](https://technet.microsoft.com/library/dn281957(v=ws.11).aspx) |
 | **Bereitstellung**    | [Überlegungen zur Skalierbarkeit von DFS-Namespaces](https://blogs.technet.com/b/filecab/archive/2012/08/26/dfs-namespace-scalability-considerations.aspx) |

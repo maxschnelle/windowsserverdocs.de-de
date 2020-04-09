@@ -1,31 +1,27 @@
 ---
 title: Variablen mit Auswirkung auf die Leistung von MultiPoint Services-Systemen
 description: Leistungsinformationen für Multipoint Services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0f3e8875-1b5e-4789-b16c-d06d6e31f38e
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: cba973e3b0a89c26f886a67154c27831adb2c8cc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 44f268c958ed32e527b66cebe1a10d33652eb9b0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394826"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858913"
 ---
 # <a name="variables-affecting-multipoint-services-system-performance"></a>Variablen mit Auswirkung auf die Leistung von MultiPoint Services-Systemen
 Viele Variablen können sich auf die Gesamtleistung Ihres Multipoint Services-Systems auswirken. Sie sollten diese beim Entwerfen Ihres Systems in Erwägung gezogen werden.  
   
 ## <a name="usage"></a>Verwendung  
   
--   **Anwendungen** Der Typ und die Anzahl von Anwendungen, die gleichzeitig ausgeführt werden,\-insbesondere grafikintensive oder speicherintensive Anwendungen, wirken sich auf die Gesamtleistung des Systems aus. Weitere Informationen finden Sie unter [Anwendungen und Internet Inhalte](hardware-and-performance-recommendations.md#applications-and-internet-content).  
+-   **Anwendungen** Der Typ und die Anzahl der Anwendungen, die gleichzeitig ausgeführt werden, insbesondere Grafiken\-starker oder Speicher intensiver Anwendungen, wirken sich auf die Gesamtleistung des Systems aus. Weitere Informationen finden Sie unter [Anwendungen und Internet Inhalte](hardware-and-performance-recommendations.md#applications-and-internet-content).  
   
 -   **Internet Nutzung** Stellen Sie sich vor, wenn Ihre Benutzer Multimedia-Inhalte oder Webseiten anzeigen, die Videos mit vollständiger Bewegung verwenden. Dieser Inhaltstyp kann das System überladen, wenn zu viele Benutzer gleichzeitig anzeigen.  
   

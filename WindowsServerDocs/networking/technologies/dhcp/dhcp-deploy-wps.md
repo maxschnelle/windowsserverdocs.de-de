@@ -8,12 +8,12 @@ ms.assetid: 7110ad21-a33e-48d5-bb3c-129982913bc8
 manager: brianlic
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: a5b2e750bd7a0103382f6d91c515f4e283a112cb
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 1e962948feaf6bb37beeb3c241d3ae3369be77dc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80312660"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860703"
 ---
 # <a name="deploy-dhcp-using-windows-powershell"></a>Bereitstellung von DHCP mit Windows PowerShell
 
@@ -207,7 +207,7 @@ Weitere Beispiel Konfigurationselemente für AD DS und DNS finden Sie in der fol
 |Bindungen für die Netzwerkverbindung|Ethernet|
 |DNS-Servereinstellungen|DC1.corp.contoso.com|
 |Bevorzugte IP-Adresse des DNS-Servers|10.0.0.2|
-|Bereichs Werte<br /><br />1. Bereichs Name<br />2. Start-IP-Adresse<br />3. IP-Endadresse<br />4. Subnetzmaske<br />5. Standard Gateway (optional)<br />6. Leasedauer|1. primäres Subnetz<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6.8 Tage|
+|Bereichs Werte<p>1. Bereichs Name<br />2. Start-IP-Adresse<br />3. IP-Endadresse<br />4. Subnetzmaske<br />5. Standard Gateway (optional)<br />6. Leasedauer|1. primäres Subnetz<br />2.10.0.0.1<br />3.10.0.0.254<br />4.255.255.255.0<br />5.10.0.0.1<br />6.8 Tage|
 |Betriebsmodus des IPv6-DHCP-Servers|Nicht aktiviert|
 
 ## <a name="using-this-guide-in-a-test-lab"></a><a name="bkmk_lab"></a>Verwenden dieses Handbuchs in einer Test Umgebung

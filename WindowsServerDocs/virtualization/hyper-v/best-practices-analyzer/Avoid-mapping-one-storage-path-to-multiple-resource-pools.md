@@ -2,20 +2,19 @@
 title: Vermeiden Sie die Zuordnung von einem Speicherpfad zu mehreren Ressourcenpools.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 24992453-762b-4892-9a50-55d237b9b7f2
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: e89c0382d20d586d8c0b50396ddbd56d6fdadf0b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 53ef04a2dde875b26dd109075a2cfa4484ebd5cd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365263"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857753"
 ---
 # <a name="avoid-mapping-one-storage-path-to-multiple-resource-pools"></a>Vermeiden Sie die Zuordnung von einem Speicherpfad zu mehreren Ressourcenpools.
 
@@ -38,9 +37,9 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 ## <a name="impact"></a>**Auswirkt**  
 *Für den angegebenen Speicher Pooltyp verwenden die folgenden über-und untergeordneten Pools denselben Speicherpfad:*  
   
-\<liste der Pools >  
+\<Liste der Pools >  
   
-## <a name="resolution"></a>**Auflösung**  
+## <a name="resolution"></a>**Lösung**  
 *Verwenden Sie Windows PowerShell, um die Speicherressourcen Pools so neu zu konfigurieren, dass mehrere Pools nicht denselben Speicherpfad verwenden.*  
   
 

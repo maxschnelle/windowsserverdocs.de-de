@@ -1,58 +1,53 @@
 ---
-title: System Insights – häufig gestellte Fragen
-description: System Insights – häufig gestellte Fragen
-ms.custom: na
+title: FAQ zu System Insights
+description: FAQ zu System Insights
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: system-insights
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.assetid: ''
 author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 5/23/2018
-ms.openlocfilehash: 13767e1336d1ff729d1fbbe6cae3ed57d68cefc4
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 9d6ddd682def579796089266065be7d39ce361d1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59851061"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856253"
 ---
-# <a name="system-insights-faq"></a>System Insights – häufig gestellte Fragen
+# <a name="system-insights-faq"></a>FAQ zu System Insights
 
->Gilt für: Windows Server 2019
+>Gilt für: Windows Server 2019
 
-## <a name="how-can-you-use-system-insights-with-azure-monitor-or-system-center-operations-manager"></a>Wie können Sie System Insights mit Azure Monitor oder System Center Operations Manager verwenden?
+## <a name="how-can-you-use-system-insights-with-azure-monitor-or-system-center-operations-manager"></a>Wie können Sie System Einblicke mit Azure Monitor oder System Center Operations Manager verwenden?
 
-[Azure Monitor](https://azure.microsoft.com/services/monitor/) und [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/welcome?view=sc-om-1807) bieten Informationen zu Vorgängen innerhalb Ihrer Bereitstellungen helfen Ihnen beim Verwalten Ihrer Infrastruktur. System Insights im Gegensatz dazu ist eine Windows Server-Funktion, die lokalen predictive Analytics-Funktionen eingeführt werden. Zusammen können System Insights und Azure Monitor oder SCOM die Vorhersagen für eine Auffüllung von Geräten Oberfläche:
+In [Azure Monitor](https://azure.microsoft.com/services/monitor/) und [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/welcome?view=sc-om-1807) werden Betriebsinformationen für Ihre bereit Stellungen bereitgestellt, um Ihnen die Verwaltung Ihrer Infrastruktur zu erleichtern. System Insights ist dagegen eine Windows Server-Funktion, die lokale Predictive Analytics Funktionen einführt. Mithilfe von System Insights und Azure Monitor oder SCOM können Sie die Vorhersagen über eine Population von Geräten hinweg ermitteln:
 
- Azure Monitor oder SCOM kann aus der Ereignisse, die vom System Insights erstellt gedrückt, während System Insights das Ergebnis der einzelnen Vorhersagen in das Ereignisprotokoll ausgegeben. Sie können diese computerspezifischen Vorhersagen für eine ganze Reihe von Windows-Servern und ermöglicht Ihnen, einen einheitlichen Überblick über diese Vorhersagen für eine Gruppe von Server-Instanzen in Erscheinung treten. 
+ Azure Monitor oder SCOM können die von System Insights erstellten Ereignisse als Schlüssel ausgeben, da System Einblicke das Ergebnis jeder Vorhersage an das Ereignisprotokoll übergibt. Diese computerspezifischen Vorhersagen können über eine Flotte von Windows-Servern hinweg angezeigt werden, sodass Sie über eine einheitliche Ansicht dieser Vorhersagen für eine Gruppe von Server Instanzen verfügen. 
  
- Finden Sie unter den Kanal und Ereignis-IDs, für jede Vorhersage [hier](https://docs.microsoft.com/windows-server/manage/system-insights/managing-capabilities#retrieving-capability-results).
+ Sehen Sie sich die Kanal-und Ereignis-IDs für [jede Vorhersage](https://docs.microsoft.com/windows-server/manage/system-insights/managing-capabilities#retrieving-capability-results)an.
 
-## <a name="how-does-system-insights-relate-to-windows-ml"></a>In welcher Beziehung steht System Insights auf Windows-ML?
+## <a name="how-does-system-insights-relate-to-windows-ml"></a>Wie verhält sich System Insights mit Windows ml?
 
-[Windows-ML](https://docs.microsoft.com/windows/uwp/machine-learning/) ist eine Plattform, mit der Entwickler zum Importieren und vorab trainierten Machine Learning-Modelle auf Windows-Geräten zu bewerten. Diese Modelle profitieren, die Hardwarebeschleunigung, und sie lokal bewertet werden können. 
+[Windows ml](https://docs.microsoft.com/windows/uwp/machine-learning/) ist eine Plattform, die es Entwicklern ermöglicht, vorab trainierte Machine Learning-Modelle auf Windows-Geräten zu importieren und zu bewerten. Diese Modelle profitieren von der Hardwarebeschleunigung und können lokal bewertet werden. 
 
-System Insights ist ein Feature in Windows Server-2019, die lokale Vorhersagefunktionen sowie eine umfassende Verwaltungsoberfläche, einschließlich der Integration von PowerShell und Windows Admin Center bietet. 
+System Insights ist ein Feature in Windows Server 2019, das lokale Vorhersagefunktionen sowie eine komplette Verwaltungs Umgebung bietet, einschließlich der PowerShell-und Windows Admin Center-Integration. 
 
-## <a name="can-i-use-system-insights-for-my-cluster"></a>Kann ich für meinen Cluster System Insights verwenden? 
+## <a name="can-i-use-system-insights-for-my-cluster"></a>Kann ich für meinen Cluster System Einblicke verwenden? 
 
-Ja. System-Einblicke können unabhängig voneinander auf jedem einzelnen Failoverclusterknoten und das Standardverhalten des System-Insights-Vorhersagen-Nutzung über den lokalen Speicher, Datenträger, CPU und Netzwerk ausgeführt. **Sie können auch aktivieren, für den Clusterspeicher Prognose**, sodass die Funktionen des forecasting-Nutzung für die gruppierten Volumes und Storage Vorhersagen. 
+Ja. System Insights kann unabhängig voneinander auf jedem einzelnen Failoverclusterknoten ausgeführt werden, und das Standardverhalten von System Insights prognostiziert die Verwendung von lokalem Speicher, Volume, CPU und Netzwerk. **Sie können auch die Vorhersage für Cluster Speicher aktivieren**, sodass die Speicher Prognose Funktionen die Nutzung für gruppierte Volumes und Speicher Vorhersagen. 
 
-Sie können diese Einstellungen in Windows Admin Center oder PowerShell verwalten, und ausführlichere Informationen zu dieser Funktionalität ist verfügbar [hier](https://blogs.technet.microsoft.com/filecab/2018/10/03/using-system-insights-to-forecast-clustered-storage-usage/).
+Sie können diese Einstellungen im Windows Admin Center oder PowerShell verwalten. ausführlichere Informationen zu dieser Funktionalität finden Sie [hier](https://blogs.technet.microsoft.com/filecab/2018/10/03/using-system-insights-to-forecast-clustered-storage-usage/).
  
 
-## <a name="how-expensive-is-it-to-run-the-default-capabilities"></a>Wie aufwändig ist die Standardfunktionen ausgeführt?
+## <a name="how-expensive-is-it-to-run-the-default-capabilities"></a>Wie teuer ist das Ausführen der Standardfunktionen?
 
-Jede Standardfunktion ist kostengünstig ausführen. Jede Funktion dauert länger, auszuführen, wie Sie mehr Daten erfassen, aber sie in der Regel sollte in einer nur wenige Sekunden abgeschlossen. 
+Jede Standardfunktion ist für die Durchführung von kostengünstiger. Die Ausführung der Funktionen dauert länger, wenn Sie mehr Daten sammeln, aber Sie sollten in der Regel in wenigen Sekunden fertiggestellt werden. 
 
 ## <a name="see-also"></a>Siehe auch
-Weitere Informationen zum System Insights können Sie die folgenden Ressourcen:
+Weitere Informationen zu System Insights finden Sie in den folgenden Ressourcen:
 
-- [System-Insights-Übersicht](overview.md)
+- [Übersicht über System Einblicke](overview.md)
 - [Grundlegendes zu Funktionen](understanding-capabilities.md)
 - [Verwalten von Funktionen](managing-capabilities.md)
-- [Hinzufügen und die Entwicklung von Funktionen](adding-and-developing-capabilities.md)
+- [Hinzufügen und Entwickeln von Funktionen](adding-and-developing-capabilities.md)

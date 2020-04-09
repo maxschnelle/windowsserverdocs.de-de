@@ -1,7 +1,6 @@
 ---
 ms.assetid: 68db7f26-d6e3-4e67-859b-80f352e6ab6a
 title: Rolle der AD FS-Konfigurationsdatenbank
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,22 +8,22 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 22047a93ab67d3f21b3e2318fcce497feab8f996
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9ffdd1876e2dfbc044cebb65d7d6ef80880a64b8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385585"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860163"
 ---
 # <a name="the-role-of-the-ad-fs-configuration-database"></a>Rolle der AD FS-Konfigurationsdatenbank
-Die AD FS Konfigurations Datenbank speichert alle Konfigurationsdaten, die eine einzelne Instanz von Active Directory-Verbunddienste (AD FS) \(AD FS\) \(Verbunddienst\). In der AD FS-Konfigurationsdatenbank sind die Parameter definiert, die für einen Verbunddienst benötigt werden, um Partner, Zertifikate, Attributspeicher, Ansprüche und verschiedene Daten zu diesen zugeordneten Entitäten zu identifizieren. Sie können diese Konfigurationsdaten entweder in einer Microsoft SQL Server®-Datenbank oder in der internen Windows-Datenbank \(wid\) Feature speichern, das in Windows Server® 2008, Windows Server 2008 R2 und Windows Server® 2012 enthalten ist.  
+Die AD FS Konfigurations Datenbank speichert alle Konfigurationsdaten, die eine einzelne Instanz von Active Directory-Verbunddienste (AD FS) \(AD FS\) \(Verbunddienst\). In der AD FS-Konfigurationsdatenbank sind die Parameter definiert, die für einen Verbunddienst benötigt werden, um Partner, Zertifikate, Attributspeicher, Ansprüche und verschiedene Daten zu diesen zugeordneten Entitäten zu identifizieren. Sie können diese Konfigurationsdaten entweder in einer Microsoft SQL Server&reg;-Datenbank oder in der internen Windows-Datenbank \(wid\) Feature speichern, das in Windows Server&reg; 2008, Windows Server 2008 R2 und Windows Server&reg; 2012 enthalten ist.  
   
 > [!NOTE]  
 > Sämtliche Inhalte der AD FS-Konfigurationsdatenbank können entweder in einer Instanz der internen Windows-Datenbank oder in einer Instanz der SQL-Datenbank gespeichert werden, jedoch nicht in beiden. Das bedeutet, Sie können nicht über einige Verbundserver verfügen, die die interne Windows-Datenbank verwenden, während andere Verbundserver eine SQL Server-Datenbank für dieselbe Instanz der AD FS-Konfigurationsdatenbank verwenden.  
   
 Weitere Informationen zu den Vor- und Nachteilen bei der Wahl zwischen interner Windows-Datenbank oder SQL Server zum Speichern der AD FS-Konfigurationsdatenbank erhalten Sie in den folgenden Informationen in diesem Abschnitt sowie in den unter [Überlegungen zur AD FS-Bereitstellungstopologie](https://technet.microsoft.com/library/gg982489.aspx) bereitgestellten Inhalten:  
   
-WID verwendet einen relationalen Datenspeicher und verfügt nicht über eine eigene Verwaltungs Benutzeroberfläche \(UI-\). Stattdessen können Administratoren den Inhalt der AD FS Konfigurations Datenbank entweder mithilfe der AD FS Verwaltungs-Snap\-in, fsconfig. exe oder Windows PowerShell-™-Cmdlets ändern.  
+WID verwendet einen relationalen Datenspeicher und verfügt nicht über eine eigene Verwaltungs Benutzeroberfläche \(UI-\). Stattdessen können Administratoren den Inhalt der AD FS Konfigurations Datenbank entweder mithilfe der AD FS Verwaltungs-Snap\-in, fsconfig. exe oder Windows PowerShell-&trade;-Cmdlets ändern.  
   
 ## <a name="using-wid-to-store-the-ad-fs-configuration-database"></a>Verwenden der internen Windows-Datenbank zum Speichern der AD FS-Konfigurationsdatenbank  
 Sie können die AD FS Konfigurations Datenbank mithilfe von wid als Speicher erstellen, indem Sie entweder das\-Befehlszeilen Tool "fsconfig. exe" oder den Assistenten für die Konfiguration des AD FS-Verbund Servers verwenden. Wenn Sie eines dieser Tools verwenden, können Sie eine der folgenden Optionen zum Erstellen Ihrer Verbundservertopologie auswählen. Jede dieser Optionen verwendet die interne Windows-Datenbank zum Speichern der AD FS-Konfigurationsdatenbank:  
@@ -48,7 +47,7 @@ Wenn Sie die Option zum Hinzufügen eines Verbundservers auswählen, wird die in
 In diesem Abschnitt werden wichtige Konzepte erläutert, die beschreiben, wie die Verbundserverfarm mit internen Windows-Datenbanken Daten zwischen einem primären Verbundserver und sekundären Verbundservern replizieren. .  
   
 #### <a name="primary-federation-server"></a>Primärer Verbundserver  
-Ein primärer Verbund Server ist ein Computer, auf dem Windows Server 2008, Windows Server 2008 R2 oder Windows Server® 2012 ausgeführt wird, der in der Verbund Server Rolle mit dem Konfigurations-Assistenten für AD FS-Verbund Server konfiguriert wurde und der über eine Lese-/Schreibkopie der AD FS Konfigurations Datenbank verfügt. Der primäre Verbund Server wird immer erstellt, wenn Sie den Konfigurations-Assistenten für den AD FS-Verbund Server verwenden und die Option zum Erstellen eines neuen Verbunddienst auswählen und diesen Computer zum ersten Verbund Server in der Farm machen. Alle anderen Verbundserver in dieser Farm, die auch als sekundäre Verbundserver bezeichnet werden, müssen die am primären Verbundserver vorgenommenen Änderungen mit einer Kopie der AD FS-Konfigurationsdatenbank synchronisieren, die lokal gespeichert wird.  
+Ein primärer Verbund Server ist ein Computer, auf dem Windows Server 2008, Windows Server 2008 R2 oder Windows Server&reg; 2012 ausgeführt wird, der in der Verbund Server Rolle mit dem Konfigurations-Assistenten für AD FS-Verbund Server konfiguriert wurde und der über eine Lese-/Schreibkopie der AD FS Konfigurations Datenbank verfügt. Der primäre Verbund Server wird immer erstellt, wenn Sie den Konfigurations-Assistenten für den AD FS-Verbund Server verwenden und die Option zum Erstellen eines neuen Verbunddienst auswählen und diesen Computer zum ersten Verbund Server in der Farm machen. Alle anderen Verbundserver in dieser Farm, die auch als sekundäre Verbundserver bezeichnet werden, müssen die am primären Verbundserver vorgenommenen Änderungen mit einer Kopie der AD FS-Konfigurationsdatenbank synchronisieren, die lokal gespeichert wird.  
   
 #### <a name="secondary-federation-servers"></a>Sekundäre Verbundserver  
 Sekundäre Verbund Server speichern eine Kopie der AD FS Konfigurations Datenbank vom primären Verbund Server, diese Kopien werden jedoch nur\-gelesen. Sekundäre Verbundserver stellen eine Verbindung zum primären Verbundserver in der Farm her und führen eine Synchronisierung durch, indem sie den Server in regelmäßigen Intervallen abfragen, um auf geänderte Daten zu prüfen. Die sekundären Verbund Server sind vorhanden, um Fehlertoleranz für den primären Verbund Server zu gewährleisten und gleichzeitig zu Lasten\-auszugleichen, die an verschiedenen Standorten in der gesamten Netzwerkumgebung vorgenommen werden.  
@@ -79,7 +78,7 @@ Sie können die AD FS Konfigurations Datenbank mithilfe einer einzelnen SQL Serv
   
 -   Es bietet Funktionen zur Unterstützung von SAML-artefaktauflösung und SAML/WS\-\(der Verbund Token-Wiedergabe, die unten\)beschrieben werden.  
   
-Der Begriff "primärer Verbundserver" trifft nicht zu, wenn die AD FS-Konfigurationsdatenbank in einer SQL-Datenbankinstanz gespeichert wird, da alle Verbundserver gleichermaßen aus der AD FS-Konfigurationsdatenbank lesen bzw. in diese schreiben können, die dieselbe SQL Server-Clusterinstanz verwendet, wie in der folgenden Abbildung veranschaulicht.  
+Der Begriff "primärer Verbund Server" trifft nicht zu, wenn die AD FS Konfigurations Datenbank in einer SQL-Daten Bank Instanz gespeichert wird, da alle Verbund Server gleichermaßen Lese-und Schreibzugriff auf die AD FS Konfigurations Datenbank haben, die dieselbe gruppierte SQL Server Instanz verwendet, wie in der folgenden Abbildung dargestellt.  
   
 ![Rollen AD FS](media/adfs2_SQL.png)  
   

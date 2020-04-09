@@ -2,20 +2,19 @@
 title: Die Anzahl der für SR-IOV konfigurierten virtuellen Computer sollte nicht die Anzahl der virtuellen Funktionen überschreiten, die für die virtuellen Maschinen verfügbar sind.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 8bd4af5e-9e7d-4710-8950-39435a8bb373
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 0887035c84ebc4b7d93163533387f2f8ab20fb87
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3c58e980471284c950f41551b02b92bf74aca7cc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364610"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854613"
 ---
 # <a name="the-number-of-running-virtual-machines-configured-for-sr-iov-should-not-exceed-the-number-of-virtual-functions-available-to-the-virtual-machines"></a>Die Anzahl der für SR-IOV konfigurierten virtuellen Computer sollte nicht die Anzahl der virtuellen Funktionen überschreiten, die für die virtuellen Maschinen verfügbar sind.
 
@@ -38,7 +37,7 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 ## <a name="impact"></a>Auswirkungen  
 *Die Netzwerkleistung ist auf den folgenden virtuellen Computern möglicherweise nicht optimal:*  
    
-\<list of Virtual Machines >  
+\<Liste der virtuellen Computer >  
   
 ## <a name="resolution"></a>Auflösung  
 *Deaktivieren Sie ggf. SR-IOV auf einem oder mehreren virtuellen Computern, für die keine virtuelle SR-IOV-Funktion erforderlich ist.*  

@@ -4,15 +4,15 @@ description: Skripterstellung für die Leistung in PowerShell
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: JasonSh
+ms.author: jasonsh
 author: lzybkr
 ms.date: 10/16/2017
-ms.openlocfilehash: 2898cf5ee965da77c9f6a3473e55c1cee6b53f2b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f22a4f1ba5c0f048e2aa01c744feb3b2b83007a0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71354975"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851923"
 ---
 # <a name="powershell-scripting-performance-considerations"></a>Überlegungen zur PowerShell-Skript Leistung
 
@@ -36,14 +36,14 @@ Die Zuweisung zu `$null` oder die Umwandlung in `[void]` ist ungefähr gleichwer
 $arrayList.Add($item) > $null
 ```
 
-Die Datei Umleitung zu "`$null`" ist nahezu so gut wie die vorherigen Alternativen. die meisten Skripts würden den Unterschied nie bemerken.
+Die Datei Umleitung zu `$null` ist nahezu so gut wie die vorherigen Alternativen. die meisten Skripts würden den Unterschied nie bemerken.
 Abhängig vom Szenario führt die Datei Umleitung jedoch zu einem gewissen Aufwand.
 
 ```PowerShell
 $arrayList.Add($item) | Out-Null
 ```
 
-Die Weiterleitung an `Out-Null` hat gegenüber den alternativen einen erheblichen mehr Aufwand.
+Die Weiterleitung an `Out-Null` hat im Vergleich zu den alternativen einen erheblichen mehr Aufwand.
 Dies sollte bei Leistungs sensiblem Code vermieden werden.
 
 ```PowerShell
@@ -53,8 +53,8 @@ $null = . {
 }
 ```
 
-Wenn Sie einen Skriptblock einführen und ihn aufrufen (indem Sie die Punkt Ermittlung verwenden oder andernfalls), dann wird das Ergebnis `$null` verwendet, um die Ausgabe eines großen Skript Blocks zu unterdrücken.
-Diese Vorgehensweise erfolgt ungefähr so gut wie die Weiterleitung an `Out-Null` und sollte in einem Leistungs sensiblen Skript vermieden werden.
+Wenn Sie einen Skriptblock einführen und ihn aufrufen (indem Sie die Punkt Ermittlung verwenden oder andernfalls), dann wird das Ergebnis `$null` eine bequeme Methode zum Unterdrücken der Ausgabe eines großen Skript Blocks.
+Dieses Verfahren führt ungefähr so gut wie die Weiterleitung an `Out-Null` und sollte in einem Leistungs sensiblen Skript vermieden werden.
 Der zusätzliche mehr Aufwand in diesem Beispiel ergibt sich aus der Erstellung und dem Aufrufen eines Skript Blocks, der zuvor Inline Skript war.
 
 
@@ -84,8 +84,8 @@ $results.AddRange((Do-SomethingElse))
 $results
 ```
 
-Wenn Sie ein Array benötigen, können Sie Ihre eigene `ArrayList` verwenden und einfach `ArrayList.ToArray` aufzurufen, wenn Sie das Array verwenden möchten.
-Alternativ können Sie PowerShell die `ArrayList` und `Array` für Sie erstellen lassen:
+Wenn Sie ein Array benötigen, können Sie Ihre eigenen `ArrayList` verwenden und einfach `ArrayList.ToArray`, wenn Sie das Array verwenden möchten.
+Alternativ können Sie PowerShell die `ArrayList` erstellen und `Array` für Sie erstellen:
 
 ```PowerShell
 $results = @(
@@ -94,8 +94,8 @@ $results = @(
 )
 ```
 
-In diesem Beispiel erstellt PowerShell einen `ArrayList`, um die Ergebnisse zu speichern, die in die Pipeline innerhalb des Array Ausdrucks geschrieben werden.
-Direkt vor der Zuweisung zu "`$results`" konvertiert PowerShell den `ArrayList` in einen `object[]`.
+In diesem Beispiel erstellt PowerShell eine `ArrayList`, um die Ergebnisse zu speichern, die in die Pipeline innerhalb des Array Ausdrucks geschrieben werden.
+Direkt vor der Zuweisung zu `$results`konvertiert PowerShell die `ArrayList` in eine `object[]`.
 
 ## <a name="processing-large-files"></a>Verarbeitungs große Dateien
 
@@ -129,7 +129,7 @@ finally
 
 Es ist in der Regel eine schlechte Übung, Ausgaben direkt in die Konsole zu schreiben. wenn es aber sinnvoll ist, verwenden viele Skripts `Write-Host`.
 
-Wenn Sie viele Nachrichten in die Konsole schreiben müssen, kann `Write-Host` eine Größenordnung sein, die langsamer als `[Console]::WriteLine()` ist. Beachten Sie jedoch, dass "`[Console]::WriteLine()`" nur eine geeignete Alternative für bestimmte Hosts wie "PowerShell. exe" oder "powershell_ise. exe" ist. es ist nicht garantiert, dass Sie in allen Hosts funktioniert.
+Wenn Sie viele Nachrichten in die Konsole schreiben müssen, kann `Write-Host` eine Größenordnung sein, die langsamer als `[Console]::WriteLine()`ist. Beachten Sie jedoch, dass `[Console]::WriteLine()` nur eine geeignete Alternative für bestimmte Hosts wie "PowerShell. exe" oder "powershell_ise. exe" ist. es ist nicht garantiert, dass Sie in allen Hosts funktioniert.
 
-Anstatt `Write-Host` zu verwenden, sollten Sie die Verwendung von [Write-Output](/powershell/module/Microsoft.PowerShell.Utility/Write-Output?view=powershell-5.1)in Erwägung gezogen.
+Anstatt `Write-Host`zu verwenden, sollten Sie " [Write-Output](/powershell/module/Microsoft.PowerShell.Utility/Write-Output?view=powershell-5.1)" verwenden.
 

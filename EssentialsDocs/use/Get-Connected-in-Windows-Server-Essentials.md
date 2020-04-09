@@ -1,23 +1,19 @@
 ---
 title: Herstellen einer Verbindung in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
-ms.custom: na
 ms.date: 05/07/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 149a5d34-43b7-4b9e-99e7-9f2294ab9ddb
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 14acbff8b538224546884e5bb51c40a22b8849b4
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 7591efcc896dd382afd50cf0e360e28e0cb08f3e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318557"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852153"
 ---
 # <a name="get-connected-in-windows-server-essentials"></a>Herstellen einer Verbindung in Windows Server Essentials
 

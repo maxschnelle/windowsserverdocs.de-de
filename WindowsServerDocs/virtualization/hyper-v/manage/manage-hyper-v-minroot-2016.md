@@ -1,19 +1,16 @@
 ---
 title: Minroot
 description: Konfigurieren von Host-CPU-Ressourcen Steuerungen
-keywords: Windows 10, Hyper-V
 author: allenma
 ms.date: 12/15/2017
 ms.topic: article
-ms.prod: windows-10-hyperv
-ms.service: windows-10-hyperv
-ms.assetid: ''
-ms.openlocfilehash: 92de899a39aed05e2f598fcb3aae3fbae3f1cb67
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.prod: windows-server
+ms.openlocfilehash: de621b3bfdc9792e61e6d21d9f3774da76c55df6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872041"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860783"
 ---
 # <a name="hyper-v-host-cpu-resource-management"></a>Verwaltung von CPU-Ressourcen für Hyper-V-Hosts
 
@@ -39,7 +36,7 @@ Dies sind wichtige Konzepte für diesen Artikel:
 
 ## <a name="the-minimum-root-or-minroot-configuration"></a>Die minimale Stamm-oder minroot-Konfiguration
 
-Für frühe Versionen von Hyper-V gab es eine Obergrenze von 64 VPS pro Partition.  Dies gilt sowohl für die Stamm-als auch für die Gast Partitionen.  Da Systeme mit mehr als 64 logischen Prozessoren auf High-End-Servern auftraten, hat Hyper-V auch seine Host Skalierungs Grenzwerte entwickelt, um diese größeren Systeme zu unterstützen. zu einem Punkt, der einen Host mit bis zu 320 LPS unterstützt.  Allerdings hat das Limit von 64 VP pro Partition zu diesem Zeitpunkt eine Reihe von Herausforderungen und die Komplexität eingeführt, die die Unterstützung von mehr als 64 VPS pro Partition beeinträchtigen.  Um dies zu beheben, beschränkte Hyper-V die Anzahl der VPS, die auf die Stamm Partition festgestellt wurden, auf 64, auch wenn auf dem zugrunde liegenden Computer Viele logische Prozessoren verfügbar waren.  Der Hypervisor verwendet weiterhin alle verfügbaren LPs für das Ausführen von Gast-VPS, aber die Stamm Partition wird bei 64 künstlich gekappt.  Diese Konfiguration wurde als "minimale Stamm"-oder "minroot"-Konfiguration bezeichnet.  Leistungstests haben bestätigt, dass der Stamm selbst bei großen Systemen mit mehr als 64 LPs nicht mehr als 64 Stamm-VPS benötigt, um eine ausreichende Unterstützung für eine große Anzahl von Gast-VMS und Gast-VPS zu bieten – tatsächlich waren viel weniger als 64 Stamm-VPS häufig ausreichend. , abhängig von der Anzahl und Größe der Gast-VMS, der ausgeführter Workloads usw.
+Für frühe Versionen von Hyper-V gab es eine Obergrenze von 64 VPS pro Partition.  Dies gilt sowohl für die Stamm-als auch für die Gast Partitionen.  Da Systeme mit mehr als 64 logischen Prozessoren auf High-End-Servern auftraten, hat Hyper-V auch seine Host Skalierungs Grenzwerte entwickelt, um diese größeren Systeme zu unterstützen. zu einem Punkt, der einen Host mit bis zu 320 LPS unterstützt.  Allerdings hat das Limit von 64 VP pro Partition zu diesem Zeitpunkt eine Reihe von Herausforderungen und die Komplexität eingeführt, die die Unterstützung von mehr als 64 VPS pro Partition beeinträchtigen.  Um dies zu beheben, beschränkte Hyper-V die Anzahl der VPS, die auf die Stamm Partition festgestellt wurden, auf 64, auch wenn auf dem zugrunde liegenden Computer Viele logische Prozessoren verfügbar waren.  Der Hypervisor verwendet weiterhin alle verfügbaren LPs für das Ausführen von Gast-VPS, aber die Stamm Partition wird bei 64 künstlich gekappt.  Diese Konfiguration wurde als "minimale Stamm"-oder "minroot"-Konfiguration bezeichnet.  Leistungstests bestätigten, dass der Stamm selbst bei großen Systemen mit mehr als 64 LPs nicht mehr als 64 Stamm-VPS benötigt, um eine ausreichende Unterstützung für eine große Anzahl von Gast-VMS und Gast-VPS zu bieten – tatsächlich waren viel weniger als 64 Stamm-VPS häufig ausreichend, abhängig von der Anzahl und Größe der Gast-VMS. , die jeweils ausgeführter Workloads usw.
 
 Dieses "minroot"-Konzept wird heute weiterhin verwendet.  Auch wenn Windows Server 2016 Hyper-V seine maximale Architekturunterstützung für Host LPs auf 512 LPs erweitert hat, ist die Stamm Partition weiterhin auf maximal 320 LPs beschränkt.
 
@@ -51,7 +48,7 @@ Mit dem hohen Standard Schwellenwert von 320 LPs in Windows Server 2016 Hyper-V 
 Die minroot-Konfiguration wird über Hypervisor-BCD-Einträge gesteuert. So aktivieren Sie minroot von einer cmd-Eingabeaufforderung mit Administratorrechten:
 
 ```
-    bcdedit /set hypervisorrootproc n
+     bcdedit /set hypervisorrootproc n
 ```
 Dabei steht n für die Anzahl der Stamm-VPS. 
 

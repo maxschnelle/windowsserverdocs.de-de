@@ -1,23 +1,19 @@
 ---
 title: Vorbereiten des Quell Servers für Windows Server Essentials Migration1
 description: Beschreibt die Verwendung von Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f5861ae9-77cb-4d37-b4c5-8f0757213385
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 503b8edc645b43da1dc5c5fb37547e8e0245d4a2
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: d7a718e9e84866b6a1f626499b7e2bec58de498f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318815"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852403"
 ---
 # <a name="prepare-your-source-server-for-windows-server-essentials-migration1"></a>Vorbereiten des Quell Servers für Windows Server Essentials Migration1
 
@@ -81,7 +77,7 @@ Führen Sie vorab folgende Schritte aus, um sicherzustellen, dass eine erfolgrei
 #### <a name="run-the-windows-server-solutions-best-practices-analyzer"></a>Führen Sie den Best Practices Analyzer für Windows Server Solutions aus  
  Sie können den Best Practices Analyzer (BPA) für Windows Server Solutions ausführen, um sicherzustellen, dass keine Probleme auf Ihrem Server, Netzwerk, oder Ihrer Domäne vor Beginn des Migrationsvorgangs vorliegen. Das BPA erfasst Konfigurationsinformationen aus den folgenden Quellen:  
   
--   Active Directory® Windows Management Instrumentation (Windows-Verwaltungsinstrumentation, WMI)  
+-   Active Directory&reg; Windows-Verwaltungsinstrumentation (WMI)  
   
 -   Registrierung  
   

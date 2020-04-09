@@ -2,22 +2,18 @@
 title: Schritt 2 Vorbereiten von Cluster Servern
 description: Dieses Thema ist Teil des Handbuchs Bereitstellen des Remote Zugriffs in einem Cluster unter Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 35d68abb-6914-42e0-91e8-803933cf785e
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 74aac416a5aa69a0cd935d58e3ecb931e4b5fd02
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: e53557f1fb2715f1d0318adc12aebb8f84423519
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308339"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861443"
 ---
 # <a name="step-2-prepare-cluster-servers"></a>Schritt 2 Vorbereiten von Cluster Servern
 
@@ -27,7 +23,7 @@ Bevor Sie eine Cluster Bereitstellung konfigurieren können, bereiten Sie zusät
   
 |Aufgabe|Beschreibung|  
 |----|--------|  
-|[2,1 Konfigurieren der Remote Zugriffs Infrastruktur](#BKMK_config)|Konfigurieren Sie auf jedem Server, den Sie dem Cluster hinzufügen möchten, die Server Topologie, die IP-Adressierung, das Routing und die Weiterleitung. Wenn Sie einen Cluster mit Lastenausgleich für virtuelle Computer konfigurieren, müssen Sie die virtuellen Computer so konfigurieren, dass Sie das Spoofing von Mac-Adressen verwenden.<br /><br />Fügen Sie außerdem jeden Server derselben Domäne hinzu, und verbinden Sie alle Server mit dem gleichen Subnetz.|  
+|[2,1 Konfigurieren der Remote Zugriffs Infrastruktur](#BKMK_config)|Konfigurieren Sie auf jedem Server, den Sie dem Cluster hinzufügen möchten, die Server Topologie, die IP-Adressierung, das Routing und die Weiterleitung. Wenn Sie einen Cluster mit Lastenausgleich für virtuelle Computer konfigurieren, müssen Sie die virtuellen Computer so konfigurieren, dass Sie das Spoofing von Mac-Adressen verwenden.<p>Fügen Sie außerdem jeden Server derselben Domäne hinzu, und verbinden Sie alle Server mit dem gleichen Subnetz.|  
 |[2,2 Installieren der Remote Zugriffs Rolle](#BKMK_Install)|Installieren Sie auf jedem zusätzlichen Server, den Sie dem Cluster hinzufügen möchten, die Remote Zugriffs Rolle.|  
 |[2,3 Installieren von NLB](#BKMK_NLB)|Installieren Sie auf dem bereitgestellten Remote Zugriffs Server und auf jedem zusätzlichen Server, den Sie dem Cluster hinzufügen möchten, das NLB-Feature. Beachten Sie, dass dieser Schritt bei der Verwendung eines externen Load Balancer nicht erforderlich ist.|  
   

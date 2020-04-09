@@ -1,52 +1,45 @@
 ---
 title: 'BI-admin getproxylist: Ruft die Proxy Liste für den angegebenen Auftrag ab.'
-description: 'Windows-Befehls Thema für **bigsadmin getproxylist** : Ruft die Proxy Liste für den angegebenen Auftrag ab.'
-ms.custom: na
+description: Windows-Befehls Thema für **bigsadmin getproxylist**, das die Proxy Liste für den angegebenen Auftrag abruft.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: eebfa727-d8f1-4ae3-9382-6d8ffe8c3df3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6f176d268c816725b183da0a948afcb25272b2fb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0c0d26fb074bd1b792caa7fe2ce8fd31b64365e2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381312"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850523"
 ---
 # <a name="bitsadmin-getproxylist"></a>bitsadmin getproxylist
 
-Ruft die Proxy Liste für den angegebenen Auftrag ab.
+Ruft die durch Trennzeichen getrennte Liste der Proxy Server ab, die für den angegebenen Auftrag verwendet werden sollen.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-bitsadmin /GetProxyList <Job>
+bitsadmin /getproxylist <job>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+| Parameter | Beschreibung |
+| -------------- | -------------- |
+| Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="remarks"></a>Hinweise
-
-Die Proxy Liste ist die Liste der zu verwendenden Proxy Server. Die Liste ist durch Kommas getrennt.
-
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Im folgenden Beispiel wird die Proxy Liste für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
+
 ```
-C:\>bitsadmin /GetProxyList myDownloadJob
+C:\>bitsadmin /getproxylist myDownloadJob
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -2,19 +2,18 @@
 title: Konfigurieren Sie die TCP/IP-Failover-Einstellungen, die der virtuelle Replikat Computer im Falle eines Failovers verwenden soll.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 3f2681694d87b34369b29be6216ebec9210c6024
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d2db5fdedbe2f19c01b7dd172f18b6fec969e828
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366288"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80862053"
 ---
 # <a name="configure-the-failover-tcpip-settings-that-you-want-the-replica-virtual-machine-to-use-in-the-event-of-a-failover"></a>Konfigurieren Sie die TCP/IP-Failover-Einstellungen, die der virtuelle Replikat Computer im Falle eines Failovers verwenden soll.
 
@@ -35,9 +34,9 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 *Virtuelle Replikat Computer, die mit einer statischen IP-Adresse konfiguriert sind, müssen so konfiguriert werden, dass Sie im Fall eines Failovers eine andere IP-Adresse von Ihrem primären virtuellen Computer verwenden.*  
   
 ## <a name="impact"></a>Auswirkungen  
-*clients, die die Arbeitsauslastung verwenden, die vom primären virtuellen Computer unterstützt wird, können nach einem Failover möglicherweise keine Verbindung mit dem virtuellen Replikat Computer herstellen. Außerdem ist die ursprüngliche IP-Adresse des primären virtuellen Computers in der Netzwerktopologie des virtuellen Replikat Computers nicht gültig. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
+*Clients, die die Arbeitsauslastung verwenden, die vom primären virtuellen Computer unterstützt wird, können nach einem Failover möglicherweise keine Verbindung mit dem virtuellen Replikat Computer herstellen. Außerdem ist die ursprüngliche IP-Adresse des primären virtuellen Computers in der Netzwerktopologie des virtuellen Replikat Computers nicht gültig. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
   
-\<list of Virtual Machines >  
+\<Liste der virtuellen Computer >  
   
 ## <a name="resolution"></a>Auflösung  
 *Verwenden Sie den Hyper-V-Manager, um die IP-Adresse zu konfigurieren, die vom virtuellen Replikat Computer bei einem Failover verwendet werden soll.*  

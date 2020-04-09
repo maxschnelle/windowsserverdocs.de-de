@@ -1,24 +1,20 @@
 ---
 title: Scwcmd-Transformation
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 640dd892-0bb9-416d-8318-60a26605bcf4
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 36ee3a99828c7fdd9d4fc0ca14cbc0e203b01ea0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1fed9ff6369e6c966d9d1f5295db7db6648a1ab1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384311"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835123"
 ---
 # <a name="scwcmd-transform"></a>scwcmd: transform
 
@@ -39,7 +35,7 @@ Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_
 scwcmd transform /p:<Policyfile.xml> /g:<GPODisplayName>
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -51,13 +47,13 @@ scwcmd transform /p:<Policyfile.xml> /g:<GPODisplayName>
 
 Scwcmd. exe ist nur auf Computern verfügbar, auf denen Windows Server 2008 R2, Windows Server 2008 oder Windows Server 2003 ausgeführt wird.
 
-## <a name="BKMK_Examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
 
 Geben Sie Folgendes ein, um ein Gruppenrichtlinien Objekt namens fileserversecurity aus einer Datei namens fileserverpolicy. XML zu erstellen:
 ```
 scwcmd transform /p:FileServerPolicy.xml /g:FileServerSecurity
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -2,20 +2,19 @@
 title: Konfigurieren Sie mindestens die erforderliche Arbeitsspeicher Menge für einen virtuellen Computer, auf dem Windows 7 ausgeführt wird und für den dynamischer Arbeitsspeicher aktiviert ist.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 119965bf-6154-414d-b3a1-aa5b30eac5f6
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: f0865866c3494a0b3719f49f3dd85e85fb48c4e9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 56b9a1105af1bf3c9b7bef7729a3e47b7299b516
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365093"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80862143"
 ---
 # <a name="configure-at-least-the-required-amount-of-memory-for-a-virtual-machine-running-windows-7-and-enabled-for-dynamic-memory"></a>Konfigurieren Sie mindestens die erforderliche Arbeitsspeicher Menge für einen virtuellen Computer, auf dem Windows 7 ausgeführt wird und für den dynamischer Arbeitsspeicher aktiviert ist.
 
@@ -27,7 +26,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
 |**Produkt/Feature**|Hyper-V|  
-|**Zunehmen**|Fehler|  
+|**Zunehmen**|Error|  
 |**Kategorie**|Konfiguration|  
   
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
@@ -38,14 +37,14 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 ## <a name="impact"></a>Auswirkungen  
 *Das Gast Betriebssystem auf den folgenden virtuellen Computern wird möglicherweise nicht ausgeführt oder kann nicht zuverlässig ausgeführt werden:*  
   
-\<list of Virtual Machines >  
+\<Liste der virtuellen Computer >  
   
 ## <a name="resolution"></a>Auflösung  
 *Verwenden Sie den Hyper-V-Manager oder Windows PowerShell, um den minimalen Arbeitsspeicher auf mindestens 256 MB und den Start Speicher und den maximalen Arbeitsspeicher auf mindestens 512 MB zu erhöhen.*  
   
 ### <a name="increase-memory-using-hyper-v-manager"></a>Erhöhen des Arbeitsspeichers mit dem Hyper-V-Manager  
   
-1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie**in Server-Manager auf Extras  > **Hyper-V-Manager**.)  
+1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie** in Server-Manager auf Extras > **Hyper-V-Manager**.)  
   
 2.  Klicken Sie in der Liste der virtuellen Computer mit der rechten Maustaste auf das gewünschte, und klicken Sie dann auf **Einstellungen**.  
   

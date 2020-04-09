@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: c4496cfec94823ae177bc6de4fac83dc977fb61d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 587ff48bd0af80667f9a336323641b87be808b1d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376697"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80843933"
 ---
 # <a name="fsutil-volume"></a>Volume "Volume"
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
@@ -34,7 +34,7 @@ fsutil volume [list]
 fsutil volume [querycluster] <VolumePath> <Cluster> [<Cluster>] … …
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |-------------|---------------|
@@ -43,12 +43,12 @@ fsutil volume [querycluster] <VolumePath> <Cluster> [<Cluster>] … …
 |DiskFree|Fragt das Festplattenlaufwerk ab, um die Menge des freien Speicherplatzes zu bestimmen.|
 |Aufheben der Bereitstellung|Hebt die Bereitstellung eines Volumes auf.|
 |filelayout|Zeigt die NTFS-Metadaten für die angegebene Datei an.|
-|\<fleid >|Gibt die Datei-ID an.|
+|\<>|Gibt die Datei-ID an.|
 |list|Listet alle Volumes im System auf.|
-|querycluster|Ermittelt, welche Datei einen angegebenen Cluster verwendet. Sie können mehrere Cluster mit dem **querycluster** -Parameter angeben.<br /><br />Dieser Parameter gilt für:  Windows Server 2008 R2 und Windows 7.|
-|\<cluster >|Gibt die logische Cluster Nummer (LCN) an.|
+|querycluster|Ermittelt, welche Datei einen angegebenen Cluster verwendet. Sie können mehrere Cluster mit dem **querycluster** -Parameter angeben.<p>Dieser Parameter gilt für: Windows Server 2008 R2 und Windows 7.|
+|\<Cluster >|Gibt die logische Cluster Nummer (LCN) an.|
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
 Geben Sie Folgendes ein, um einen zugeordneten Cluster Bericht anzuzeigen:
 
 ```
@@ -87,8 +87,8 @@ Geben Sie Folgendes ein, um die Dateien zu finden, die die Cluster verwenden, di
 fsutil volume querycluster C: 50 0x2000
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
-[Erläuterung zur Befehlszeilensyntax](Command-Line-Syntax-Key.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)
 

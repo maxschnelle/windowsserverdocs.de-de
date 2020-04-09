@@ -1,7 +1,6 @@
 ---
 ms.assetid: 6618b3ce-0e94-4009-b887-d8e05453358b
 title: Verbundserverfarm mit SQL Server
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 358199fd37cdbb320bc8f3e3e5b2900d261986f0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 862cbc74833e2d4e9f385ba961b58a1f703e6611
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359150"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853133"
 ---
 # <a name="federation-server-farm-using-sql-server"></a>Verbundserverfarm mit SQL Server
 
@@ -51,7 +50,7 @@ Die folgenden SQL Server-Versionen werden mit AD FS unterstützt, die mit Window
   
 -   SQL Server 2008 \/ R2  
   
--   SQL Server 2012  
+-   SQL Server 2012  
   
 ## <a name="server-placement-and-network-layout-recommendations"></a>Empfehlungen zur Server Platzierung und zum Netzwerk Layout  
 Ähnlich der Verbund Serverfarm mit der wid-Topologie sind alle Verbund Server in der Farm für die Verwendung eines Clusters konfiguriert Domain Name System \(DNS-\) Name \(der den Verbunddienst Namen\) und eine Cluster-IP-Adresse als Teil des Netzwerk Lastenausgleichs \(Cluster Konfiguration\) NLB darstellt. Dadurch kann der NLB-Host Client Anforderungen den einzelnen Verbund Servern zuordnen. Verbund Server Proxys können zum Proxy von Client Anforderungen an die Verbund Serverfarm verwendet werden.  

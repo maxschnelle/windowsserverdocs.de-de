@@ -2,20 +2,19 @@
 title: Windows Server 2016 sollte mit der empfohlenen Menge an Arbeitsspeicher konfiguriert werden.
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 7860e609-d278-42a3-85a4-ca92c8b6b2ad
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 20d18efecdfd53e17e2e140d3e044f2baa2c1676
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dfe95500e18b7fb32de34efa986ec2ee5ebc8229
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393016"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860933"
 ---
 # <a name="windows-server-2016-should-be-configured-with-the-recommended-amount-of-memory"></a>Windows Server 2016 sollte mit der empfohlenen Menge an Arbeitsspeicher konfiguriert werden.
 
@@ -36,11 +35,11 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 *Ein virtueller Computer, auf dem Windows Server 2016 ausgeführt wird, ist mit weniger als der empfohlene RAM-Größe (1 GB) konfiguriert.*  
   
 ## <a name="impact"></a>**Auswirkt**  
-*Das Gast Betriebssystem und Anwendungen funktionieren möglicherweise nicht gut. Möglicherweise ist nicht genügend Arbeitsspeicher vorhanden, um mehrere Anwendungen gleichzeitig auszuführen. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
+*Das Gast Betriebssystem und die Anwendungen funktionieren möglicherweise nicht gut. Möglicherweise ist nicht genügend Arbeitsspeicher vorhanden, um mehrere Anwendungen gleichzeitig auszuführen. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
   
-\<list of Virtual Machines > 
+\<Liste der virtuellen Computer > 
   
-## <a name="resolution"></a>**Auflösung**  
+## <a name="resolution"></a>**Lösung**  
 *Verwenden Sie den Hyper-V-Manager, um den Arbeitsspeicher, der diesem virtuellen Computer zugeordnet ist, auf mindestens 1 GB zu erhöhen.*  
   
 #### <a name="increase-the-memory-using-hyper-v-manager"></a>Vergrößern des Arbeitsspeichers mit dem Hyper-V-Manager  
@@ -67,7 +66,7 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 Set-VMMemory <MyVM> -StartupBytes 1GB  
 ```  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Set-vmmemory](https://technet.microsoft.com/library/hh848572.aspx)  
   
 

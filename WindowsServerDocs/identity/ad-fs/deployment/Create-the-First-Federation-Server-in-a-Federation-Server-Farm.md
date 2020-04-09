@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5e334c4e-75a7-453c-83e8-5ab4243cc685
 title: Erstellen des ersten Verbundservers in einer Verbundserverfarm
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 09b577ddcf722c6eac17ea145f29f9583d1cdb00
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0fe5c3160f661357536ef3bd60762873063c8ed0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408422"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855473"
 ---
 # <a name="create-the-first-federation-server-in-a-federation-server-farm"></a>Erstellen des ersten Verbundservers in einer Verbundserverfarm
 
@@ -29,39 +28,39 @@ Zum Ausführen dieses Verfahrens müssen Sie mindestens Mitglied in der Gruppe �
   
 ### <a name="to-create-the-first-federation-server-in-a-federation-server-farm"></a>So erstellen Sie den ersten Verbundserver in einer Verbundserverfarm  
   
-1.  Es gibt zwei Möglichkeiten, den Assistenten für die Konfiguration des AD FS-Verbund Servers zu starten. Führen Sie zum Starten des Assistenten eine der folgenden Aktionen aus:  
+1.  Es gibt zwei Möglichkeiten, den AD FS-Assistenten für die Konfiguration des Verbundservers zu starten. Führen Sie zum Starten des Assistenten eine der folgenden Aktionen aus:  
   
     -   Öffnen Sie nach Abschluss der Installation des Verbunddienst Rollen Dienstanbieter das\-Snap-in AD FS Verwaltung, und klicken Sie auf der Seite **Übersicht** oder im Bereich **Aktionen** auf den Link Konfigurations-Assistent für AD FS-Verbund **Server** .  
   
     -   Öffnen Sie nach Abschluss des Setup-Assistenten den Windows-Explorer, navigieren Sie zum Ordner **C:\\Windows\\ADFS** , und Doppel\-klicken Sie dann auf **fsconfigwizard. exe**.  
   
-2.  Stellen Sie auf der Seite **Willkommen** sicher, dass **Neuen Verbunddienst erstellen** ausgewählt ist, und klicken Sie dann auf **Weiter**.  
+2.  Vergewissern Sie sich auf der **Willkommen**-Seite, dass **Neuen Verbunddienst erstellen** ausgewählt ist, und klicken Sie dann auf **Weiter**.  
   
 3.  Klicken Sie auf der Seite **\-eigenständige oder Farm Bereitstellung auswählen** auf **neue Verbund Server Farm**, und klicken Sie dann auf **weiter**.  
   
-4.  Überprüfen Sie auf der Seite **Angeben eines Verbunddienstnamens**, ob das angezeigte **SSL-Zertifikat** korrekt ist. Falls nicht das korrekte Zertifikat angezeigt wird, wählen Sie das geeignete Zertifikat aus der Liste **SSL-Zertifikat** aus.  
+4.  Vergewissern Sie sich auf der Seite **Name des Verbunddiensts angeben**, dass das angezeigte **SSL-Zertifikat** richtig ist. Ist dieses Zertifikat nicht das richtige Zertifikat, wählen Sie das entsprechende Zertifikat in der Liste **SSL-Zertifikat** aus.  
   
-    Dieses Zertifikat wird aus den Secure Sockets Layer \(SSL-\)-Einstellungen für die Standard Website generiert. Wenn für die Standardwebsite nur ein SSL-Zertifikat konfiguriert ist, wird dieses Zertifikat angezeigt und automatisch zur Verwendung ausgewählt. Wenn mehrere SSL-Zertifikate für die Standardwebsite konfiguriert sind, werden alle diese Zertifikate hier aufgelistet, und Sie müssen eins daraus auswählen. Wemm für die Standardwebsite keine SSL-Einstellungen konfiguriert sind, wird die Liste aus den Zertifikaten generiert, die im persönlichen Zertifikatspeicher auf dem lokalen Computer vorhanden sind.  
+    Dieses Zertifikat wird aus den Secure Sockets Layer \(SSL-\)-Einstellungen für die Standard Website generiert. Ist für die Standardwebsite nur ein SSL-Zertifikat konfiguriert, wird dieses Zertifikat angezeigt und automatisch zur Nutzung ausgewählt. Sind mehrere Zertifikate für die Standardwebsite konfiguriert, werden hier alle Zertifikate aufgelistet, und Sie müssen eines dieser Zertifikate auswählen. Sind keine SSL-Einstellungen für die Standardwebsite konfiguriert, wird die Liste mit den Zertifikaten generiert, die im persönlichen Zertifikatespeicher des lokalen Computers verfügbar sind.  
   
     > [!NOTE]  
-    > Der Assistent lässt nicht zu, dass Sie das Zertifikat außer Kraft setzen, wenn für IIS ein SSL-Zertifikat konfiguriert ist. Damit wird sichergestellt, dass eine frühere vorgesehene IIS-Konfiguration für SSL-Zertifikate beibehalten wird. Sie können diese Einschränkung umgehen, indem Sie das Zertifikat entfernen oder manuell mit der IIS-Verwaltungskonsole neu konfigurieren.  
+    > Der Assistent lässt das Überschreiben des Zertifikats nicht zu, wenn für IIS ein SSL-Zertifikat konfiguriert ist. Damit wird sichergestellt, dass eine ggf. zuvor festgelegte IIS-Konfiguration für SSL-Zertifikate beibehalten wird. Sie können diese Einschränkung umgehen, indem Sie das Zertifikat entfernen oder manuell mit der IIS-Verwaltungskonsole neu konfigurieren.  
   
-5.  Wenn die AD FS Datenbank, die Sie ausgewählt haben, bereits vorhanden ist, wird die Seite **vorhandene AD FS Konfigurations Datenbank erkannt** angezeigt. Wenn diese Seite angezeigt wird, klicken Sie auf **Datenbank löschen** und dann auf **Weiter**.  
+5.  Wenn die AD FS Datenbank, die Sie ausgewählt haben, bereits vorhanden ist, wird die Seite **vorhandene AD FS Konfigurations Datenbank erkannt** angezeigt. Wenn diese Seite angezeigt wird, klicken Sie auf **Datenbank löschen**, und klicken Sie dann auf **Weiter**.  
   
     > [!CAUTION]  
-    > Wählen Sie diese Option nur aus, wenn Sie sicher sind, dass die Daten in dieser AD FS Datenbank nicht wichtig sind oder nicht in einer Produktions-Verbund Serverfarm verwendet werden.  
+    > Wählen Sie diese Option nur aus, wenn Sie sicher sind, dass die Daten in dieser AD FS-Datenbank unwichtig sind bzw. nicht in einer Produktions-Verbundserverfarm verwendet werden.  
   
-6.  Klicken Sie auf der Seite **Angeben eines Dienstkontos** auf **Durchsuchen**. Suchen Sie im Dialogfeld **Durchsuchen** nach dem Domänenkonto, das in dieser neuen Verbundserverfarm als Dienstkonto verwendet wird, und klicken Sie dann auf **OK**. Geben Sie das Kennwort für dieses Konto ein, und klicken Sie dann auf **Weiter**.  
+6.  Klicken Sie auf der Seite **Dienstkonto angeben** auf **Durchsuchen**. Suchen Sie im Dialogfeld **Durchsuchen** nach dem Domänenkonto, das in dieser neuer Verbundserverfarm als Dienstkonto verwendet werden soll, und klicken Sie dann auf **OK**. Geben Sie das Kennwort für dieses Konto ein, bestätigen Sie es, und klicken Sie auf **Weiter**.  
   
     > [!NOTE]  
     > Weitere Informationen zum Angeben eines Dienst Kontos für eine Verbund Serverfarm finden Sie unter [Manuelles Konfigurieren eines Dienst Kontos für eine Verbund Serverfarm](Manually-Configure-a-Service-Account-for-a-Federation-Server-Farm.md) . Jeder Verbund Server in der Verbund Serverfarm muss das gleiche Dienst Konto angeben, damit die Farm betriebsbereit ist. Wenn das erstellte Dienst Konto z. b. die\\Datei "ADFS2SVC" lautet, muss für jeden Computer, den Sie für die Verbund Server Rolle konfigurieren und der Teil derselben Farm sein wird, in diesem Schritt im Assistenten zum Konfigurieren von Verbund Servern die Angabe von "\\ADFS2SVC" angegeben werden, damit die Farm betriebsbereit ist.  
   
-7.  Überprüfen Sie die Details auf der Seite **Bereit zum Anwenden der Einstellungen**. Wenn die Einstellungen korrekt zu sein scheinen, klicken Sie auf **weiter** , um mit dem Konfigurieren von AD FS mit diesen Einstellungen zu beginnen.  
+7.  Überprüfen Sie auf der Seite **Bereit zum Übernehmen der Einstellungen** die Details. Wenn die Einstellungen richtig sind, klicken Sie auf **Weiter**, um AD FS mit diesen Einstellungen zu konfigurieren.  
   
 8.  Überprüfen Sie die Ergebnisse auf der Seite **Konfigurationsergebnisse**. Wenn alle Konfigurationsschritte abgeschlossen sind, klicken Sie auf **Schließen** , um den Assistenten zu beenden.  
   
     > [!IMPORTANT]  
-    > Für eine sichere Bereitstellung sind die Artefaktauflösung und Antworterkennung deaktiviert, wenn Sie den Assistenten für die Konfiguration eines AD FS-Verbundservers verwenden, um eine Verbundserverfarm zu konfigurieren. Dieser Assistent konfiguriert automatisch die interne Windows-Datenbank zum Speichern von Dienstkonfigurationsdaten. Sie können diese Änderung jedoch versehentlich rückgängig machen, indem Sie den artefaktauflösungs-Endpunkt entweder über den Knoten **Endpunkte** im AD FS Verwaltungs-Snap\-in oder über das Cmdlet\-adbsendpoint aktivieren in Windows PowerShell aktivieren. Achten Sie sorgfältig darauf, die Standardeinstellung nicht erneut zu konfiguieren, damit dieser Endpunkt deaktiviert bleibt, wenn Sie eine Verbundserverfarm und die interne Windows-Datenbank gemeinsam verwenden.  
+    > Aus Gründen einer sicheren Bereitstellung sind Artefaktauflösung und Antworterkennung deaktiviert, wenn Sie mit dem Assistenten für die Konfiguration eines AD FS-Verbundservers eine Verbundserverfarm konfigurieren. Dieser Assistent konfiguriert die interne Windows-Datenbank zur Speicherung von Dienstkonfigurationsdaten. Sie können diese Änderung jedoch versehentlich rückgängig machen, indem Sie den artefaktauflösungs-Endpunkt entweder über den Knoten **Endpunkte** im AD FS Verwaltungs-Snap\-in oder über das Cmdlet\-adbsendpoint aktivieren in Windows PowerShell aktivieren. Achten Sie darauf, dass Sie die Standardeinstellung nicht neu konfigurieren, sodass der Endpunkt deaktiviert bleibt, wenn Sie eine Verbundserverfarm und die interne Windows-Datenbank zusammen verwenden.  
   
 ## <a name="additional-references"></a>Weitere Verweise  
 [Prüfliste: Einrichten eines Verbund Servers](Checklist--Setting-Up-a-Federation-Server.md)  

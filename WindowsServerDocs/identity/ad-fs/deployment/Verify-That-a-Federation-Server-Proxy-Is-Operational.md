@@ -1,7 +1,6 @@
 ---
 ms.assetid: d555041a-709e-42c7-920a-8dfd2c7e0488
 title: Überprüfen der Betriebsbereitschaft eines Verbundserverproxys
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 24f4fe2a152244dc904be82c4c10abe71abffcc4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3e74af4a63476040ca44522ceb7c0ae22e914fec
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359966"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855853"
 ---
 # <a name="verify-that-a-federation-server-proxy-is-operational"></a>Überprüfen der Betriebsbereitschaft eines Verbundserverproxys
 
@@ -24,7 +23,7 @@ Mithilfe des folgenden Verfahrens können Sie überprüfen, ob der Verbund Serve
 > [!IMPORTANT]  
 > Das Ergebnis dieses Tests besteht im erfolgreichen Generieren eines bestimmten Ereignisses in der Ereignisanzeige auf dem Verbundserverproxy-Computer.  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe **Administratoren** oder eine gleichwertige Berechtigung auf dem lokalen Computer erforderlich.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 ### <a name="to-verify-that-a-federation-server-proxy-is-operational"></a>So überprüfen Sie die Funktionstüchtigkeit eines Verbund Server Proxys  
   

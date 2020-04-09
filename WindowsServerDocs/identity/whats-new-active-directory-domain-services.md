@@ -1,7 +1,6 @@
 ---
 ms.assetid: 6a852428-c1ec-4703-b3b3-a4bfdf8cbb9d
-title: '&#39;Neues in Active Directory Domain Services in Windows Server 2016'
-description: ''
+title: Neues in Active Directory Domain Services in Windows Server 2016
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,22 +8,22 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1ef77613919ea6caf39a7cb41ba575652680466d
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: a82f45772e5e35afffc632de2b40c02c75b5e5e4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950118"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856283"
 ---
-# <a name="whats-new-in-active-directory-domain-services-for-windows-server-2016"></a>Neuerungen in Active Directory Domain Services für Windows Server 2016
+# <a name="whats-new-in-active-directory-domain-services-for-windows-server-2016"></a>Neues in Active Directory Domain Services für Windows Server 2016
 
->Gilt für: Windows Server 2016
+>Gilt für: Windows Server 2016
 
-Die folgenden neuen Features in Active Directory Domain Services (AD DS) verbessern die Fähigkeit von Organisationen, Active Directory Umgebungen zu schützen und Sie bei der Migration zu reinen cloudbereitstellungen und Hybrid Bereitstellungen zu unterstützen, bei denen einige Anwendungen und Dienste in der Cloud gehostet und andere lokal gehostet. Die Verbesserungen umfassen:  
+Die folgenden neuen Features in Active Directory Domain Services (AD DS) verbessern die Fähigkeit von Organisationen, Active Directory Umgebungen zu schützen und Sie bei der Migration zu reinen cloudbereitstellungen und Hybrid Bereitstellungen zu unterstützen, bei denen einige Anwendungen und Dienste in der Cloud gehostet werden und andere lokal gehostet werden. Zu den Verbesserungen gehören:  
   
 - [Privilegierte Zugriffs Verwaltung](https://docs.microsoft.com/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services)  
   
-- [Erweitern von Cloudfunktionen auf Windows 10-Geräte über Azure Active Directory Join](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)
+- [Erweitern von cloudfunktionen auf Windows 10-Geräte über Azure Active Directory Join](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-overview/)
   
 - [Verbinden von in die Domäne eingebundenen Geräten mit Azure AD für Windows 10-Umgebungen](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)
   
@@ -66,7 +65,7 @@ Vorteile:
 - **Verfügbarkeit moderner Einstellungen** auf Windows-Geräten, die im Besitz von Corp sind. Bei den Sauerstoff Diensten ist keine persönliche Microsoft-Konto mehr erforderlich: Sie werden nun von den vorhandenen Arbeits Konten der Benutzer entfernt, um die Konformität zu gewährleisten. Die Sauerstoff Dienste können auf PCs verwendet werden, die einer lokalen Windows-Domäne angehören, und PCs und Geräten, die mit Ihrem Azure AD Mandanten ("clouddomäne") verknüpft sind. Dazu zählen die folgenden Einstellungen:  
 
    - Roaming oder Personalisierung, Barrierefreiheits Einstellungen und Anmelde Informationen  
-   - Sicherung und Wiederherstellung  
+   - Sichern und Wiederherstellen  
    - Zugriff auf Microsoft Store mit Geschäftskonto  
    - Live-Kacheln und-Benachrichtigungen  
   

@@ -2,21 +2,19 @@
 title: Verwenden der Live Migration ohne Failoverclustering zum Verschieben einer virtuellen Maschine
 description: Bietet Voraussetzungen und Anweisungen zum Durchführen einer Live Migration in einer eigenständigen Umgebung.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 75c32e42-97f7-48df-aac9-1d82d34825e1
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 01/17/2017
-ms.openlocfilehash: 55c96ff4696871e4013c3abd6247209d0d4517c0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 41d5edb02d4384955e711024d4e4d68cee5d3937
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392554"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858923"
 ---
 # <a name="use-live-migration-without-failover-clustering-to-move-a-virtual-machine"></a>Verwenden der Live Migration ohne Failoverclustering zum Verschieben einer virtuellen Maschine
 
@@ -36,7 +34,7 @@ Um dies zu erreichen, benötigen Sie Folgendes:
    
 ## <a name="use-hyper-v-manager-to-move-a-running-virtual-machine"></a>Verwenden des Hyper-V-Managers zum Verschieben eines laufenden virtuellen Computers  
   
-1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie**in Server-Manager auf Extras  >>**Hyper-V-Manager**.)  
+1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie** in Server-Manager auf Extras >>**Hyper-V-Manager**.)  
   
 2.  Wählen Sie im Navigationsbereich einen der Server aus. (Falls nicht aufgeführt, klicken Sie mit der rechten Maustaste auf **Hyper-V-Manager**, klicken Sie auf **Verbindung mit Server herstellen**, geben Sie den Servernamen ein, und klicken Sie auf **OK** Wiederholen Sie den Vorgang, um weitere Server hinzuzufügen.  
   
@@ -48,7 +46,7 @@ Um dies zu erreichen, benötigen Sie Folgendes:
 
 ## <a name="use-windows-powershell-to-move-a-running-virtual-machine"></a>Verwenden von Windows PowerShell zum Verschieben eines laufenden virtuellen Computers
   
-Im folgenden Beispiel wird das Cmdlet Move-VM verwendet, um einen virtuellen Computer mit dem Namen *lmtest* auf einen Zielserver mit dem Namen *Bezeichnung testserver02* zu verschieben und die virtuellen Festplatten und anderen Dateien, z. b. Prüfpunkte und Smart Paging-Dateien, in *d:\lmtest* zu verschieben. Verzeichnis auf dem Zielserver.  
+Im folgenden Beispiel wird das Cmdlet Move-VM verwendet, um eine virtuelle Maschine mit dem Namen *lmtest* auf einen Zielserver mit dem Namen *Bezeichnung testserver02* zu verschieben und die virtuellen Festplatten und andere Dateien, z. b. Prüfpunkte und Smart Paging-Dateien, in das Verzeichnis *d:\lmtest* auf dem Zielserver zu verschieben.  
   
 ```  
 PS C:\> Move-VM LMTest TestServer02 -IncludeStorage -DestinationStoragePath D:\LMTest  
@@ -61,7 +59,7 @@ PS C:\> Move-VM LMTest TestServer02 -IncludeStorage -DestinationStoragePath D:\L
 Wenn Sie die eingeschränkte Delegierung noch nicht eingerichtet haben, müssen Sie sich beim Quell Server anmelden, bevor Sie einen virtuellen Computer verschieben können. Wenn Sie dies nicht tun, schlägt der Authentifizierungs Versuch fehl, es tritt ein Fehler auf, und die Meldung wird angezeigt:  
   
 "Fehler beim Migrations Vorgang für den virtuellen Computer bei der Migrations Quelle.  
-Fehler beim Herstellen einer Verbindung mit dem Host *Computernamen*: Im Sicherheitspaket 0x8009030E sind keine Anmelde Informationen verfügbar. "
+Fehler beim Herstellen einer Verbindung mit dem Host *Computernamen*: im Sicherheitspaket 0x8009030E sind keine Anmelde Informationen verfügbar. "
   
  Um dieses Problem zu beheben, melden Sie sich beim Quell Server an, und wiederholen Sie den Vorgang. Um zu vermeiden, dass Sie sich vor einer Live Migration bei einem Quell Server anmelden müssen, richten Sie die eingeschränkte Delegierung ein. Zum Einrichten der eingeschränkten Delegierung benötigen Sie Domänen Administrator-Anmelde Informationen. Anweisungen hierzu finden [Sie unter Einrichten von Hosts für die Live Migration](../deploy/Set-up-hosts-for-live-migration-without-Failover-Clustering.md). 
  
@@ -69,7 +67,7 @@ Fehler beim Herstellen einer Verbindung mit dem Host *Computernamen*: Im Sicherh
  
  Wenn für einen virtuellen Computer die Prozessor Kompatibilität nicht aktiviert ist und eine oder mehrere Momentaufnahmen vorhanden sind, schlägt der Verschiebe Vorgang fehl, wenn die Hosts über unterschiedliche Prozessor Versionen verfügen. Es tritt ein Fehler auf, und diese Meldung wird angezeigt:
  
-**der virtuelle Computer kann nicht auf den Zielcomputer verschoben werden. Die Hardware auf dem Zielcomputer ist nicht mit den Hardwareanforderungen dieser virtuellen Maschine kompatibel.**
+**Der virtuelle Computer kann nicht auf den Zielcomputer verschoben werden. Die Hardware auf dem Zielcomputer ist mit den Hardwareanforderungen dieser virtuellen Maschine nicht kompatibel.**
  
  Um dieses Problem zu beheben, fahren Sie den virtuellen Computer herunter, und aktivieren Sie die Einstellung für die Prozessor Kompatibilität.
  

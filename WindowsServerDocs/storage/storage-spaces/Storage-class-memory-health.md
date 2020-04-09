@@ -3,18 +3,18 @@ ms.assetid: 2bab6bf6-90e7-46a7-b917-14a7a8f55366
 title: Integritätsverwaltung für Speicherklassenspeicher (NVDIMM-N) in Windows
 ms.prod: windows-server
 ms.author: jgerend
-ms.manager: dongill
+manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: JasonGerend
 ms.date: 06/25/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 03d986832e14e0dd7b80324de3c9f14d0537dba5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 07fdd682683be00ad7643bfa20b6e95270471f62
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402903"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859143"
 ---
 # <a name="storage-class-memory-nvdimm-n-health-management-in-windows"></a>Integritätsverwaltung für Speicherklassenspeicher (NVDIMM-N) in Windows
 
@@ -75,11 +75,11 @@ Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 | | Beschreibung |
 | --- | --- |
 | Wahrscheinliche Bedingung | Der NVDIMM-N-Warnungsschwellenwert wurde überschritten. |
-| Ursache | NVDIMM-N-Geräte überwachen eine Reihe von Schwellenwerten, z. B. für Temperatur, NVM-Lebensdauer und/oder Lebensdauer der Energiequelle. Wenn einer dieser Schwellenwerte überschritten wird, wird das Betriebssystem benachrichtigt. |
+| Grundursache | NVDIMM-N-Geräte überwachen eine Reihe von Schwellenwerten, z. B. für Temperatur, NVM-Lebensdauer und/oder Lebensdauer der Energiequelle. Wenn einer dieser Schwellenwerte überschritten wird, wird das Betriebssystem benachrichtigt. |
 | Allgemeines Verhalten | Das Gerät bleibt voll funktionsfähig. Dies ist eine Warnung, kein Fehler. |
 | Speicherplatzverhalten | Das Gerät bleibt voll funktionsfähig. Dies ist eine Warnung, kein Fehler. |
 | Weitere Informationen | OperationalStatus-Feld des PhysicalDisk-Objekts. EventLog – Microsoft-Windows-ScmDisk0101/Operational |
-| Erforderlich | Abhängig davon, welcher Warnungsschwellenwert überschritten wurde, kann es sinnvoll sein, das NVDIMM-N-Gerät vollständig oder teilweise zu ersetzen. Wenn z. B. der Schwellenwert zur NVM-Lebensdauer überschritten wurde, sollte das NVDIMM-N-Gerät ersetzt werden. |
+| Aktion | Abhängig davon, welcher Warnungsschwellenwert überschritten wurde, kann es sinnvoll sein, das NVDIMM-N-Gerät vollständig oder teilweise zu ersetzen. Wenn z. B. der Schwellenwert zur NVM-Lebensdauer überschritten wurde, sollte das NVDIMM-N-Gerät ersetzt werden. |
 
 ## <a name="writes-to-an-nvdimm-n-fail"></a>Fehler bei Schreibvorgängen auf einem NVDIMM-N-Gerät
 
@@ -88,18 +88,18 @@ Diese Bedingung liegt vor, wenn beim Überprüfen der Integrität eines Speicher
 | SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
 | --- | --- | --- | --- |
 | 802c-01-1602-117cb5fc | Fehlerfrei | OK | |
-| 802c-01-1602-117cb64f | Unhealthy | {Stale Metadata, IO Error, Transient Error} | {Lost Data Persistence, Lost Data, NV...} |
+| 802c-01-1602-117cb64f | Fehlerhaft | {Stale Metadata, IO Error, Transient Error} | {Lost Data Persistence, Lost Data, NV...} |
 
 Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 
 | | Beschreibung |
 | --- | --- |
 | Wahrscheinliche Bedingung | Unterbrechung der Energiequelle für Persistenz/Sicherungen |
-|Ursache|Um Persistenz sicherzustellen, hängen NVDIMM-N-Geräte von einer Energiequelle für Sicherungen ab – üblicherweise ein Akku oder Superkondensator. Wenn diese Energiequelle nicht verfügbar ist oder das Gerät aus einem anderen Grund keine Sicherung durchführen kann (Controller-/Flash-Fehler), besteht das Risiko von Datenverlust. Windows verhindert daher, dass weitere Schreibvorgänge auf den betroffenen Geräten durchgeführt werden. Lesevorgänge sind weiterhin möglich, um Daten zu verschieben.|
+|Grundursache|Um Persistenz sicherzustellen, hängen NVDIMM-N-Geräte von einer Energiequelle für Sicherungen ab – üblicherweise ein Akku oder Superkondensator. Wenn diese Energiequelle nicht verfügbar ist oder das Gerät aus einem anderen Grund keine Sicherung durchführen kann (Controller-/Flash-Fehler), besteht das Risiko von Datenverlust. Windows verhindert daher, dass weitere Schreibvorgänge auf den betroffenen Geräten durchgeführt werden. Lesevorgänge sind weiterhin möglich, um Daten zu verschieben.|
 |Allgemeines Verhalten|Die Bereitstellung des NTFS-Volumes wird aufgehoben.<br>Im Integritätsstatusfeld PhysicalDisk wird der Status „Unhealthy“ für alle betroffenen NVDIMM-N-Geräte angezeigt.|
 |Speicherplatzverhalten|Sofern nur ein NVDIMM-N-Gerät betroffen ist, ist der Speicherplatz weiterhin verfügbar. Wenn mehrere Geräte betroffen sind, werden Schreibvorgänge auf dem Speicherplatz mit einem Fehler beendet. <br>Im Integritätsstatusfeld PhysicalDisk wird der Status „Unhealthy“ für alle betroffenen NVDIMM-N-Geräte angezeigt.|
 |Weitere Informationen|OperationalStatus-Feld des PhysicalDisk-Objekts.<br>EventLog – Microsoft-Windows-ScmDisk0101/Operational|
-|Erforderlich|Die Daten des betroffenen NVDIMM-N-Geräts sollten gesichert werden. Um Lesezugriff zu erhalten, können Sie den Datenträger manuell verfügbar machen (er wird als schreibgeschütztes NTFS-Volume angezeigt).<br><br>Um dieses Problem vollständig zu lösen, muss die Ursache behandelt werden (abhängig vom Problem muss die Stromversorgung wiederhergestellt oder das NVDIMM-N-Gerät ersetzt werden). Außerdem muss das Volume auf dem NVDIMM-N-Gerät offline und dann erneut online geschaltet bzw. das System neu gestartet werden.<br><br>Um das NVDIMM-N-Gerät erneut im Speicherplatzfeature nutzen zu können, verwenden Sie das Cmdlet **Reset-PhysicalDisk**, mit dem das Gerät erneut integriert und der Reparaturvorgang gestartet wird.|
+|Aktion|Die Daten des betroffenen NVDIMM-N-Geräts sollten gesichert werden. Um Lesezugriff zu erhalten, können Sie den Datenträger manuell verfügbar machen (er wird als schreibgeschütztes NTFS-Volume angezeigt).<br><br>Um dieses Problem vollständig zu lösen, muss die Ursache behandelt werden (abhängig vom Problem muss die Stromversorgung wiederhergestellt oder das NVDIMM-N-Gerät ersetzt werden). Außerdem muss das Volume auf dem NVDIMM-N-Gerät offline und dann erneut online geschaltet bzw. das System neu gestartet werden.<br><br>Um das NVDIMM-N-Gerät erneut im Speicherplatzfeature nutzen zu können, verwenden Sie das Cmdlet **Reset-PhysicalDisk**, mit dem das Gerät erneut integriert und der Reparaturvorgang gestartet wird.|
 
 ## <a name="nvdimm-n-is-shown-with-a-capacity-of-0-bytes-or-as-a-generic-physical-disk"></a>Das NVDIMM-N-Gerät wird mit einer Kapazität von 0 Byte oder als „Generic Physical Disk“ angezeigt
 
@@ -115,11 +115,11 @@ Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 ||Beschreibung|
 |---|---|
 |Wahrscheinliche Bedingung|Das BIOS hat NVDIMM-N nicht für das Betriebssystem offengelegt.|
-|Ursache|NVDIMM-N-Geräte sind DRAM-basiert. Wenn auf eine beschädigte DRAM-Adresse verwiesen wird, initiieren die meisten CPUs eine Computerprüfung und starten den Server neu. Einige Serverplattformen heben dann die Zuordnung des NVDIMM-Geräts auf und verhindern damit, dass das Betriebssystem darauf zugreifen kann. Außerdem wird durch diesen Vorgang möglicherweise erneut eine Computerprüfung ausgelöst. Diese Situation kann auch eintreten, wenn das BIOS ermittelt, dass das NVDIMM-N-Gerät ausgefallen ist und ersetzt werden muss.|
+|Grundursache|NVDIMM-N-Geräte sind DRAM-basiert. Wenn auf eine beschädigte DRAM-Adresse verwiesen wird, initiieren die meisten CPUs eine Computerprüfung und starten den Server neu. Einige Serverplattformen heben dann die Zuordnung des NVDIMM-Geräts auf und verhindern damit, dass das Betriebssystem darauf zugreifen kann. Außerdem wird durch diesen Vorgang möglicherweise erneut eine Computerprüfung ausgelöst. Diese Situation kann auch eintreten, wenn das BIOS ermittelt, dass das NVDIMM-N-Gerät ausgefallen ist und ersetzt werden muss.|
 |Allgemeines Verhalten|Das NVDIMM-N-Gerät wird als nicht initialisiert und mit einer Kapazität von 0 Bytes angezeigt. Es können keine Schreib- oder Lesevorgängen für dieses Gerät ausgeführt werden.|
 |Speicherplatzverhalten|Das Speicherplatzfeature bleibt funktionsfähig (sofern nur ein NVDIMM-N-Gerät betroffen ist).<br>Für das PhysicalDisk-Objekt des NVDIMM-N-Geräts wird der Integritätsstatus „Warning“ angezeigt. Außerdem wird dieses Objekt als „General Physical Disk“ aufgeführt.|
 |Weitere Informationen|OperationalStatus-Feld des PhysicalDisk-Objekts. <br>EventLog – Microsoft-Windows-ScmDisk0101/Operational|
-|Erforderlich|Das NVDIMM-N-Gerät muss ersetzt oder bereinigt werden, damit die Serverplattform das Gerät erneut für das Hostbetriebssystem offenlegt. Da weitere nicht behebbare Fehler auftreten können, sollte das Gerät ersetzt werden. Zum Hinzufügen eines Ersatzgeräts zu einer Speicherplatzkonfiguration kann das Cmdlet **Add-Physicaldisk** verwendet werden.|
+|Aktion|Das NVDIMM-N-Gerät muss ersetzt oder bereinigt werden, damit die Serverplattform das Gerät erneut für das Hostbetriebssystem offenlegt. Da weitere nicht behebbare Fehler auftreten können, sollte das Gerät ersetzt werden. Zum Hinzufügen eines Ersatzgeräts zu einer Speicherplatzkonfiguration kann das Cmdlet **Add-Physicaldisk** verwendet werden.|
 
 ## <a name="nvdimm-n-is-shown-as-a-raw-or-empty-disk-after-a-reboot"></a>Das NVDIMM-N-Gerät wird nach einem Neustart als Rohdatenträger oder leerer Datenträger angezeigt
 
@@ -128,18 +128,18 @@ Diese Bedingung liegt vor, wenn beim Überprüfen der Integrität eines Speicher
 | SerialNumber | HealthStatus | OperationalStatus | OperationalDetails |
 | --- | --- | --- | --- |
 |802c-01-1602-117cb5fc|Fehlerfrei|OK|{Unknown}|
-|802c-01-1602-117cb64f|Unhealthy|{Unrecognized Metadata, Stale Metadata}|{Unknown}|
+|802c-01-1602-117cb64f|Fehlerhaft|{Unrecognized Metadata, Stale Metadata}|{Unknown}|
 
 Die folgende Tabelle enthält Informationen zu dieser Bedingung.
 
 ||Beschreibung|
 |---|---|
 |Wahrscheinliche Bedingung|Sicherungs-/Wiederherstellungsfehler|
-|Ursache|Ein Fehler beim Sicherungs- oder Wiederherstellungsvorgang hat wahrscheinlich den Verlust aller Daten zur Folge, die sich auf dem NVDIMM-N-Gerät befinden. Beim Laden des Betriebssystems wird das Gerät als neues NVDIMM-N-Gerät ohne Partition oder Dateisystem, also als Rohdatenträger angezeigt.|
+|Grundursache|Ein Fehler beim Sicherungs- oder Wiederherstellungsvorgang hat wahrscheinlich den Verlust aller Daten zur Folge, die sich auf dem NVDIMM-N-Gerät befinden. Beim Laden des Betriebssystems wird das Gerät als neues NVDIMM-N-Gerät ohne Partition oder Dateisystem, also als Rohdatenträger angezeigt.|
 |Allgemeines Verhalten|Das NVDIMM-N-Gerät befindet sich im schreibgeschützten Modus. Um das Gerät erneut zu verwenden, muss der Benutzer eine explizite Aktion ausführen.|
 |Speicherplatzverhalten|Das Speicherplatzfeature bleibt funktionsfähig (sofern nur ein NVDIMM-Gerät betroffen ist).<br>Für das physische Datenträgerobjekt des NVDIMM-N-Geräts wird der Integritätsstatus „Unhealthy“ angezeigt, und das Gerät wird nicht vom Speicherplatzfeature verwendet.|
 |Weitere Informationen|OperationalStatus-Feld des PhysicalDisk-Objekts.<br>EventLog – Microsoft-Windows-ScmDisk0101/Operational|
-|Erforderlich|Wenn der Benutzer das betroffene Gerät nicht ersetzen möchte, kann er mithilfe des Cmdlets **Reset-PhysicalDisk** den Schreibschutz des betroffenen NVDIMM-N-Geräts entfernen. In einer Speicherplatzumgebung wird dabei außerdem versucht, das NVDIMM-N-Gerät erneut in das Speicherplatzfeature zu integrieren und den Reparaturvorgang zu starten.|
+|Aktion|Wenn der Benutzer das betroffene Gerät nicht ersetzen möchte, kann er mithilfe des Cmdlets **Reset-PhysicalDisk** den Schreibschutz des betroffenen NVDIMM-N-Geräts entfernen. In einer Speicherplatzumgebung wird dabei außerdem versucht, das NVDIMM-N-Gerät erneut in das Speicherplatzfeature zu integrieren und den Reparaturvorgang zu starten.|
 
 ## <a name="interleaved-sets"></a>Überlappende Gruppen
 

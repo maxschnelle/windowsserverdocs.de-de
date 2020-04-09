@@ -4,14 +4,15 @@ ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 11/21/2018
-ms.openlocfilehash: 621d4175894bb235475155507a896a251dec0f7e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 50e35939031a74173fb031cf963af97bf8bb6dba
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386339"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856353"
 ---
 # <a name="upgrade-a-guarded-fabric-to-windows-server-2019"></a>Upgrade eines überwachten Fabric auf Windows Server 2019
 
@@ -19,7 +20,7 @@ ms.locfileid: "71386339"
 
 In diesem Artikel werden die Schritte beschrieben, die erforderlich sind, um ein vorhandenes geschütztes Fabric von Windows Server 2016, Windows Server Version 1709 oder Windows Server Version 1803 auf Windows Server 2019 zu aktualisieren.
 
-## <a name="whats-new-in-windows-server-2019"></a>Neuigkeiten in Windows Server 2019
+## <a name="whats-new-in-windows-server-2019"></a>Neuerungen in Windows Server 2019
 
 Wenn Sie ein überwachtes Fabric unter Windows Server 2019 ausführen, können Sie mehrere neue Features nutzen:
 
@@ -33,7 +34,7 @@ Der **Host Schlüssel** Nachweis ist unser neuester Nachweis Modus, der so konzi
 
 **TPM-Host Bindung** : für die sichersten Workloads, bei denen eine abgeschirmte VM nur auf dem ersten Host ausgeführt werden soll, auf dem Sie erstellt wurde, können Sie die VM nun mithilfe des TPM des Hosts an diesen Host binden. Dies eignet sich am besten für Arbeitsstationen mit privilegiertem Zugriff und nicht für allgemeine Rechenzentrums Workloads, die zwischen Hosts migriert werden müssen.
 
-## <a name="compatibility-matrix"></a>Kompatibilitäts Matrix
+## <a name="compatibility-matrix"></a>Kompatibilitätsmatrix
 
 Bevor Sie das geschützte Fabric auf Windows Server 2019 aktualisieren, sollten Sie die folgende Kompatibilitäts Matrix überprüfen, um festzustellen, ob Ihre Konfiguration unterstützt wird.
 
@@ -54,8 +55,8 @@ Wenn Sie Ihren HGS-Cluster aktualisieren, müssen Sie einen Knoten temporär aus
 
 Um Ihr HGS-Cluster zu aktualisieren, führen Sie die folgenden Schritte auf jedem Knoten des Clusters, jeweils jeweils einem Knoten aus:
 
-1.  Entfernen Sie den HGS-Server aus Ihrem Cluster `Clear-HgsServer` , indem Sie an einer PowerShell-Eingabeaufforderung mit erhöhten Rechten ausführen Mit diesem Cmdlet werden der replizierte HGS-Speicher, die HGS-Websites und der Knoten aus dem Failovercluster entfernt.
-2.  Wenn es sich bei dem HGS-Server um einen Domänen Controller (Standardkonfiguration) handelt `adprep /forestprep` , `adprep /domainprep` müssen Sie und auf dem ersten Knoten ausführen, der aktualisiert wird, um die Domäne für ein Betriebssystem Upgrade vorzubereiten. Weitere Informationen finden Sie in der [Active Directory Domain Services Upgradedokumentation](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/upgrade-domain-controllers#supported-in-place-upgrade-paths) .
+1.  Entfernen Sie den HGS-Server aus Ihrem Cluster durch Ausführen von `Clear-HgsServer` an einer PowerShell-Eingabeaufforderung mit erhöhten Rechten. Mit diesem Cmdlet werden der replizierte HGS-Speicher, die HGS-Websites und der Knoten aus dem Failovercluster entfernt.
+2.  Wenn es sich bei dem HGS-Server um einen Domänen Controller (Standardkonfiguration) handelt, müssen Sie `adprep /forestprep` ausführen und `adprep /domainprep` auf dem ersten Knoten ausführen, der aktualisiert wird, um die Domäne für ein Betriebssystem Upgrade vorzubereiten. Weitere Informationen finden Sie in der [Active Directory Domain Services Upgradedokumentation](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/upgrade-domain-controllers#supported-in-place-upgrade-paths) .
 3.  Führen Sie ein direktes Upgrade auf Windows Server 2019 [aus](../../get-started-19/install-upgrade-migrate-19.md) .
 4.  Führen Sie [Initialize-hgsserver](guarded-fabric-configure-additional-hgs-nodes.md) aus, um den Knoten wieder zum Cluster hinzuzufügen.
 
@@ -72,7 +73,7 @@ Bevor Sie ein Upgrade für Ihre Hyper-v-Hosts auf Windows Server 2019 durchführ
 1.  Wenn Sie Windows Defender-Anwendungs Steuerungs Code-Integritäts Richtlinien auf dem Server verwenden (immer bei der Verwendung des TPM-Nachweis), stellen Sie sicher, dass die Richtlinie entweder im Überwachungsmodus oder deaktiviert ist, bevor Sie versuchen, den Server zu aktualisieren. [Erfahren Sie, wie Sie eine WDac-Richtlinie deaktivieren](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/disable-windows-defender-application-control-policies)
 2.  Befolgen Sie die Anweisungen im [Windows Server-upgradeinhalt](../../upgrade/upgrade-overview.md) , um Ihren Host auf Windows Server 2019 zu aktualisieren. Wenn Ihr Hyper-V-Host Teil eines Failoverclusters ist, können Sie ein paralleles [Upgrade des Cluster Betriebssystems](../../failover-clustering/Cluster-Operating-System-Rolling-Upgrade.md)in Erwägung gezogen.
 3.  Testen Sie Ihre Windows Defender-Anwendungs Steuerungs Richtlinie, [und aktivieren](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/audit-windows-defender-application-control-policies) Sie Sie erneut, wenn Sie vor dem Upgrade eine aktiviert haben.
-4.  Führen `Get-HgsClientConfiguration` Sie aus, um zu überprüfen, ob **ishostbewacht = true**lautet. Dies bedeutet, dass der Host erfolgreich mit Ihrem HGS-Server übergeben wird.
+4.  Führen Sie `Get-HgsClientConfiguration` aus, um zu überprüfen, ob **ishostbewacht = true**ist. Dies bedeutet, dass der Host erfolgreich mit Ihrem HGS-Server übergeben wird.
 5.  Wenn Sie einen TPM-Nachweis verwenden, müssen Sie [die TPM-Baseline oder die Code Integritätsrichtlinie](guarded-fabric-add-host-information-for-tpm-trusted-attestation.md) nach dem Upgrade erneut erfassen, um den Nachweis zu erfüllen.
 6.  Erneutes Ausführen von abgeschirmten VMS auf dem Host
 

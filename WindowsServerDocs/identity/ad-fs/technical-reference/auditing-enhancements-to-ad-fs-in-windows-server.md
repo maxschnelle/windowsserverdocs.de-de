@@ -1,7 +1,6 @@
 ---
 ms.assetid: 208928eb-bb17-4984-a312-23fff43133e3
 title: Überwachung von Erweiterungen für AD FS unter Windows Server 2016
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,21 +8,21 @@ ms.date: 10/25/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4eb93513d12b2bba2620ff16be24f62ace5dee85
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 191ecf5b3c7bf6c8c44d4d3553cd6e98b5543351
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407258"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853803"
 ---
 # <a name="auditing-enhancements-to-ad-fs-in-windows-server-2016"></a>Überwachung von Erweiterungen für AD FS unter Windows Server 2016
 
 
-Derzeit gibt es in AD FS für Windows Server 2012 R2 zahlreiche Überwachungs Ereignisse, die für eine einzelne Anforderung generiert werden, und die relevanten Informationen zu einer Anmelde-oder tokenausstellungsaktivität sind entweder nicht vorhanden (in einigen Versionen AD FS) oder auf mehrere Überwachungs Ereignisse verteilt. Standardmäßig sind die AD FS Überwachungs Ereignisse aufgrund ihrer ausführlichen Art deaktiviert.  
+Derzeit gibt es in AD FS für Windows Server 2012 R2 zahlreiche Überwachungs Ereignisse, die für eine einzelne Anforderung generiert werden, und die relevanten Informationen zu einer Anmelde-oder tokenausstellungsaktivität sind entweder nicht vorhanden (in einigen Versionen AD FS) oder auf mehrere Überwachungs Ereignisse verteilt. Die AD FS-Überwachungsereignisse sind aufgrund ihrer Ausführlichkeit standardmäßig deaktiviert.  
     Mit der Veröffentlichung von AD FS in Windows Server 2016 wird die Überwachung optimiert und ist weniger ausführlich.  
   
 ## <a name="auditing-levels-in-ad-fs-for-windows-server-2016"></a>Überwachungs Stufen in AD FS für Windows Server 2016  
-Standardmäßig ist für AD FS in Windows Server 2016 die grundlegende Überwachung aktiviert.  Bei der grundlegenden Überwachung sehen Administratoren maximal 5 oder weniger Ereignisse für eine einzelne Anforderung.  Dies kennzeichnet einen signifikanten Rückgang der Anzahl von Ereignissen, die Administratoren untersuchen müssen, um eine einzelne Anforderung anzuzeigen.   Die Überwachungs Ebene kann mithilfe des PowerShell-cmdlt ausgelöst oder verringert werden:  Set-ADF sproperties-AuditLevel.  In der folgenden Tabelle werden die verfügbaren Überwachungs Stufen erläutert.  
+Standardmäßig ist für AD FS in Windows Server 2016 die grundlegende Überwachung aktiviert.  Bei der grundlegenden Überwachung sehen Administratoren maximal 5 oder weniger Ereignisse für eine einzelne Anforderung.  Dies kennzeichnet einen signifikanten Rückgang der Anzahl von Ereignissen, die Administratoren untersuchen müssen, um eine einzelne Anforderung anzuzeigen.   Die Überwachungs Ebene kann mithilfe von PowerShell-cmdlt: Set-adtsproperties-AuditLevel ausgelöst oder gesenkt werden.  In der folgenden Tabelle werden die verfügbaren Überwachungs Stufen erläutert.  
   
 ||||  
 |-|-|-|  
@@ -32,11 +31,11 @@ Standardmäßig ist für AD FS in Windows Server 2016 die grundlegende Überwach
 |Basic (Standard)|Set-ADF sproperties-AuditLevel Basic|Für eine einzelne Anforderung werden höchstens 5 Ereignisse protokolliert.|  
 |Ausführlich|Set-ADF sproperties-AuditLevel Verbose|Alle Ereignisse werden protokolliert.  Dadurch wird eine beträchtliche Menge an Informationen pro Anforderung protokolliert.|  
   
-Zum Anzeigen der aktuellen Überwachungs Ebene können Sie das PowerShell-Cmdlet verwenden:  Get-ADF sproperties.  
+Zum Anzeigen der aktuellen Überwachungs Ebene können Sie das PowerShell-Cmdlet "Get-adfsproperties" verwenden.  
   
 ![Überwachungs Erweiterungen](media/Auditing-Enhancements-to-AD-FS-in-Windows-Server-2016/ADFS_Audit_1.PNG)  
   
-Die Überwachungs Ebene kann mithilfe des PowerShell-cmdlt ausgelöst oder verringert werden:  Set-ADF sproperties-AuditLevel.  
+Die Überwachungs Ebene kann mithilfe von PowerShell-cmdlt: Set-adtsproperties-AuditLevel ausgelöst oder gesenkt werden.  
   
 ![Überwachungs Erweiterungen](media/Auditing-Enhancements-to-AD-FS-in-Windows-Server-2016/ADFS_Audit_2.png)  
   

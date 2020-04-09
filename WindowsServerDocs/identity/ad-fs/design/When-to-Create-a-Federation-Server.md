@@ -1,7 +1,6 @@
 ---
 ms.assetid: 824005ae-c3c1-459b-9baa-1660158918ab
 title: Wann sollte ein Verbundserver erstellt werden?
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 91c260dad1bd260a7dad7320fecd15e6472c50a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b1e58e8940d024b2fbca9ada5d5fa430aeab70a7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407886"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858473"
 ---
 # <a name="when-to-create-a-federation-server"></a>Wann sollte ein Verbundserver erstellt werden?
 
@@ -29,9 +28,9 @@ In den folgenden Abschnitten werden einige der wichtigsten Entscheidungen beschr
 ## <a name="determine-the-organizational-role-for-the-federation-server"></a>Bestimmen der Organisationsrollen für den Verbundserver  
 Um eine fundierte Entscheidung darüber zu treffen, wann ein neuer Verbund Server erstellt werden soll, müssen Sie zuerst feststellen, in welcher Organisation der Server gespeichert werden soll. Die Rolle, die ein Verbund Server in einer Organisation spielt, hängt davon ab, ob Sie den Verbund Server in der Konto Partnerorganisation oder in der Ressourcen Partnerorganisation platzieren.  
   
-Wenn ein Verbund Server im Unternehmensnetzwerk des Konto Partners platziert wird, besteht seine Rolle darin, die Benutzer Anmelde Informationen des Browsers, des Webdiensts oder der Identitäts Auswahl Clients zu authentifizieren und Sicherheits Token an Clients zu senden. Weitere Informationen finden Sie unter [Überprüfen der Rolle des Verbundservers beim Kontopartner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
+Wenn ein Verbund Server im Unternehmensnetzwerk des Konto Partners platziert wird, besteht seine Rolle darin, die Benutzer Anmelde Informationen des Browsers, des Webdiensts oder der Identitäts Auswahl Clients zu authentifizieren und Sicherheits Token an Clients zu senden. Weitere Informationen finden Sie unter [Review the Role of the Federation Server in the Account Partner](Review-the-Role-of-the-Federation-Server-in-the-Account-Partner.md).  
   
-Wenn ein Verbund Server im Unternehmensnetzwerk des Ressourcen Partners platziert wird, besteht seine Rolle darin, Benutzer basierend auf einem Sicherheits Token zu authentifizieren, das von einem Verbund Server in der Ressourcen Partnerorganisation ausgestellt wird, oder die Rolle besteht darin, Tokenanforderungen von Konfigurieren von Webanwendungen oder Webdiensten für die Konto Partnerorganisation, zu der der Client gehört. Weitere Informationen finden Sie unter [Review the Role of the Federation Server in the Resource Partner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
+Wenn ein Verbund Server im Unternehmensnetzwerk des Ressourcen Partners platziert wird, besteht seine Rolle darin, Benutzer basierend auf einem Sicherheits Token zu authentifizieren, das von einem Verbund Server in der Ressourcen Partnerorganisation ausgestellt wird, oder die Rolle besteht darin, Tokenanforderungen von konfigurierten Webanwendungen oder Webdiensten an die Konto Partnerorganisation zu leiten, der der Client angehört. Weitere Informationen finden Sie unter [Review the Role of the Federation Server in the Resource Partner](Review-the-Role-of-the-Federation-Server-in-the-Resource-Partner.md).  
   
 ## <a name="determine-which-ad-fs-design-to-deploy"></a>Ermitteln des AD FS-Entwurfs für die Bereitstellung  
 Sie erstellen Verbund Server in Ihrer Organisation, wenn Sie einen der folgenden AD FS Entwürfe bereitstellen möchten:  
@@ -66,7 +65,7 @@ Sie können einen Verbund Server mithilfe des Konfigurations-Assistenten für de
   
 -   Erstellen des ersten Verbundservers in einer Verbundserverfarm  
   
-    Weitere Informationen zum Einrichten des ersten Verbundservers oder zum Hinzufügen eines Verbundservers zu einer Farm finden Sie unter [Erstellen des ersten Verbundservers in einer Verbundserverfarm](../../ad-fs/deployment/Create-the-First-Federation-Server-in-a-Federation-Server-Farm.md).  
+    Weitere Informationen zum Einrichten des ersten Verbundservers oder zum Hinzufügen eines Verbundservers zu einer Farm finden Sie unter [Create the First Federation Server in a Federation Server Farm](../../ad-fs/deployment/Create-the-First-Federation-Server-in-a-Federation-Server-Farm.md).  
   
 -   Hinzufügen eines Verbundservers zu einer Verbundserverfarm  
   

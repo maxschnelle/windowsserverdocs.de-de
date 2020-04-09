@@ -1,6 +1,5 @@
 ---
 title: Einführen der tokenbindung
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 4623a48c-cefd-4a27-9173-2af58ac212f2
@@ -8,12 +7,12 @@ manager: alanth
 author: justinha
 ms.technology: security-authentication
 ms.date: 11/09/2016
-ms.openlocfilehash: 52ba35808b34eb07ecd6ac92819e9dc7a693b15b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d067db04fe881193143104ce9f75a0c9932907e7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403328"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855893"
 ---
 # <a name="introducing-token-binding"></a>Einführen der tokenbindung
 
@@ -30,7 +29,7 @@ Versions Unterstützung:
     - Tokenbindungsprotokoll aktualisiert [[Draft-IETF-tokbind-Protocol-01]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-protocol/01/)
     - TLS-Erweiterung für [tokenbindungs-Aushandlung hinzugefügt [Draft-Popov-tokbind-Aushandlung-00]](https://tools.ietf.org/html/draft-popov-tokbind-negotiation-00)
     - WinInet & http. SYS-Unterstützung der [tokenbindung über HTTP aktualisiert [Draft-IETF-tokbind-HTTPS-02]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-https/02/)
-- Windows 10, Version 1507 mit Wartungsupdate [KB4034668](https://support.microsoft.com/kb/KB4034668), Windows 10, Version 1511 mit Wartungsupdate [KB4034660](https://support.microsoft.com/kb/KB4034660), Windows 10, Version 1607 und Windows Server 2016 mit Wartungsupdate [KB4034658](https://support.microsoft.com/kb/KB4034658) Unterstützungs Token-Bindungs Protokoll Version 0,10 – standardmäßig aktiviert
+- Windows 10, Version 1507 mit Wartungsupdate [KB4034668](https://support.microsoft.com/kb/KB4034668), Windows 10, Version 1511 mit Wartungsupdate [KB4034660](https://support.microsoft.com/kb/KB4034660), Windows 10, Version 1607 und Windows Server 2016 mit Wartungsupdate [KB4034658](https://support.microsoft.com/kb/KB4034658) Support Token Binding Protocol Version 0,10 – on default
     - Tokenbindungsprotokoll aktualisiert [[Draft-IETF-tokbind-Protocol-10]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-protocol/10/)
     - TLS-Erweiterung für [tokenbindungs-Aushandlung hinzugefügt [Draft-IETF-tokbind-Aushandlung-05]](https://tools.ietf.org/html/draft-ietf-tokbind-negotiation-05)
     - WinInet & http. SYS-Unterstützung der [tokenbindung über HTTP aktualisiert [Draft-IETF-tokbind-HTTPS-06]](https://datatracker.ietf.org/doc/draft-ietf-tokbind-https/06/)

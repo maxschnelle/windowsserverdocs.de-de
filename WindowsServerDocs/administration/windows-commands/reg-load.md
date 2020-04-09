@@ -1,24 +1,20 @@
 ---
 title: reg laden
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3b0b2b1b-f510-4108-9e9d-7057e924aa6e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: db661e311e3fe8c393750716de5dab375e7817f4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 140c6b51b9f88081a8686ebebbc9400f241b5ef6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384697"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836383"
 ---
 # <a name="reg-load"></a>reg laden
 
@@ -34,7 +30,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 reg load KeyName FileName
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -48,16 +44,16 @@ In der folgenden Tabelle sind die Rückgabewerte für den **reg-Lade** Vorgang a
 
 |Wert|Beschreibung|
 |-----|-----------|
-|0|Möglich|
+|0|Erfolgreich|
 |1|Nicht möglich|
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Wenn Sie die Datei mit dem Namen temphive. HIV in den Schlüssel hklm\temphive laden möchten, geben Sie Folgendes ein:
 ```
 REG LOAD HKLM\TempHive TempHive.hiv
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

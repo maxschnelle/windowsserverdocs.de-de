@@ -1,28 +1,22 @@
 ---
-title: Herunterfahren
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+title: shutdown
+description: Windows-Befehle für das Herunterfahren, sodass Sie lokale oder Remote Computer einzeln Herunterfahren oder neu starten können.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c432f5cf-c5aa-4665-83af-0ec52c87112e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e8a5170fa214d4ed639ff3b817cf949a9f44ebd6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 649695fb8ec936375057cf730eb215047c97e19e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383887"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834183"
 ---
-# <a name="shutdown"></a>Herunterfahren
-
-
+# <a name="shutdown"></a>shutdown
 
 Ermöglicht das Herunterfahren oder Neustarten von jeweils einem lokalen Computer oder Remotecomputer.
 
@@ -31,10 +25,10 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 ## <a name="syntax"></a>Syntax
 
 ```
-shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t <XXX>] [/d [p|u:]<XX>:<YY> [/c "comment"]] 
+shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t <XXX>] [/d [p|u:]<XX>:<YY> [/c comment]] 
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -50,7 +44,7 @@ shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t 
 |/m \\\\\<Computername >|Gibt den Zielcomputer an. Kann nicht mit der **/l** -Option verwendet werden.|
 |/t \<xxx >|Legt den Timeout Zeitraum oder die Verzögerung auf *xxx* Sekunden vor einem Neustart oder Herunterfahren fest. Dies bewirkt, dass eine Warnung in der lokalen Konsole angezeigt wird. Sie können 0-600 Sekunden angeben. Wenn Sie **/t**nicht verwenden, beträgt der Timeout Zeitraum standardmäßig 30 Sekunden.|
 |/d [p\|u:]\<xx >:\<yy >|Listet den Grund für den Neustart oder das Herunterfahren des Systems auf. Im folgenden werden die Parameterwerte aufgeführt:</br>**p** gibt an, dass der Neustart oder das Herunterfahren geplant ist.</br>**u** gibt an, dass der Grund Benutzer definiert ist.</br>Hinweis: Wenn **p** oder **u** nicht angegeben wird, ist der Neustart oder das Herunterfahren nicht geplant.</br>*Xx* gibt die Hauptgrund Zahl an (positive ganze Zahl kleiner als 256).</br>*J* Gibt die neben Grund Nummer an (positive Ganzzahl kleiner als 65536).|
-|/c "\<Kommentar >"|Hier können Sie detaillierte Kommentare zum Grund für das Herunterfahren eingeben. Sie müssen zuerst einen Grund angeben, indem Sie die Option **/d** verwenden. Sie müssen Kommentare in Anführungszeichen einschließen. Sie können maximal 511 Zeichen verwenden.|
+|/c \<Kommentar >|Hier können Sie detaillierte Kommentare zum Grund für das Herunterfahren eingeben. Sie müssen zuerst einen Grund angeben, indem Sie die Option **/d** verwenden. Sie müssen Kommentare in Anführungszeichen einschließen. Sie können maximal 511 Zeichen verwenden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an, einschließlich einer Liste der Haupt-und neben Gründe, die auf dem lokalen Computer definiert sind.|
 
 ## <a name="remarks"></a>Hinweise
@@ -63,17 +57,17 @@ shutdown [/i | /l | /s | /r | /a | /p | /h | /e] [/f] [/m \\<ComputerName>] [/t 
 -   Wenn Sie Haupt-und Nebengrund Codes angeben, müssen Sie diese Ursachen Codes zunächst auf jedem Computer definieren, auf dem Sie die Gründe verwenden möchten. Wenn die Ursachen Codes nicht auf dem Zielcomputer definiert sind, kann die Shutdown-Ereignisprotokollierung den richtigen Grund Text nicht protokollieren.
 -   Denken Sie daran, dass ein Herunterfahren mithilfe des Parameters " **p:** " geplant ist. **P:** gibt an, dass ein Herunterfahren nicht geplant ist. Wenn Sie **p:** gefolgt von dem Ursachen Code für ein ungeplantes Herunterfahren eingeben, führt der Befehl das Herunterfahren nicht aus. Wenn Sie hingegen **p:** weglassen und den Grund Code für ein geplantes Herunterfahren eingeben, führt der Befehl das Herunterfahren nicht aus.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
-So erzwingen Sie das Schließen und Neustarten des lokalen Computers nach einer Verzögerung von einer Minute mit dem Grund "Anwendung: Wartung (geplant)" und dem Kommentar "Neukonfiguration von MyApp. exe":
+So erzwingen Sie die Beendigung und Neustarts des lokalen Computers nach einer Verzögerung von einer Minute mit dem Grund für die Anwendung: Wartung (geplant) und den Kommentar Neukonfiguration von MyApp. exe:
 ```
-shutdown /r /t 60 /c "Reconfiguring myapp.exe" /f /d p:4:1
+shutdown /r /t 60 /c Reconfiguring myapp.exe /f /d p:4:1
 ```
 Wenn Sie den Remote Computer \\\\Servername mit denselben Parametern neu starten möchten, geben Sie Folgendes ein:
 ```
-shutdown /r /m \\servername /t 60 /c "Reconfiguring myapp.exe" /f /d p:4:1
+shutdown /r /m \\servername /t 60 /c Reconfiguring myapp.exe /f /d p:4:1
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

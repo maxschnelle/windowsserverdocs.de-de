@@ -1,24 +1,20 @@
 ---
 title: Kerberos Constrained Delegation Overview
 description: Windows Server-Sicherheit
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-kerberos
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 51923b0a-0c1a-47b2-93a0-d36f8e295589
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: e6e62effcb875c0e3a1cdd6c886f3d74923e1b94
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 07717743017c15a7bdabd3c3ce38d75a02980460
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403418"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858863"
 ---
 # <a name="kerberos-constrained-delegation-overview"></a>Kerberos Constrained Delegation Overview
 
@@ -42,7 +38,7 @@ Die Implementierung des Kerberos-Protokolls in Windows Server 2012 R2 und Window
 
 Die eingeschränkte Delegierung bietet Dienst Administratoren die Möglichkeit, Anwendungs Vertrauensstellungs Grenzen anzugeben und zu erzwingen, indem Sie den Bereich einschränken, in dem Anwendungsdienste im Auftrag eines Benutzers agieren können. Dienstadministratoren können konfigurieren, welche Front-End-Dienstkonten die Authentifizierung an ihre Back-End-Dienste delegieren können.
 
-Durch die Unterstützung der Domänen übergreifenden eingeschränkten Delegierung in Windows Server 2012 R2 und Windows Server 2012, Front-End-Dienste wie Microsoft Internet Security and Acceleration (ISA) Server, Microsoft Forefront Threat Management Gateway, Microsoft Exchange Outlook Webzugriff (OWA) und Microsoft SharePoint Server können für die Verwendung der eingeschränkten Delegierung für die Authentifizierung bei Servern in anderen Domänen konfiguriert werden. So können domänenübergreifende Dienstlösungen mit einer vorhandenen Kerberos-Infrastruktur unterstützt werden. Die eingeschränkte Kerberos-Delegierung kann von Domänenadministratoren oder Dienstadministratoren verwaltet werden.
+Durch die Unterstützung der Domänen übergreifenden eingeschränkten Delegierung in Windows Server 2012 R2 und Windows Server 2012 können Front-End-Dienste wie Microsoft Internet Security and Acceleration (ISA) Server, Microsoft Forefront Threat Management Gateway, Microsoft Exchange Outlook Webzugriff (OWA) und Microsoft SharePoint Server für die Verwendung der eingeschränkten Delegierung für die Authentifizierung bei Servern in anderen Domänen konfiguriert werden. So können domänenübergreifende Dienstlösungen mit einer vorhandenen Kerberos-Infrastruktur unterstützt werden. Die eingeschränkte Kerberos-Delegierung kann von Domänenadministratoren oder Dienstadministratoren verwaltet werden.
 
 ## <a name="resource-based-constrained-delegation-across-domains"></a>Domänenübergreifende, ressourcenbasierte eingeschränkte Delegierung
 
@@ -83,7 +79,7 @@ Verwenden Sie Windows PowerShell-Cmdlets, um einen Ressourcendienst zum Zulassen
 
 -   Um den Ressourcen Dienst zu konfigurieren, verwenden Sie die Cmdlets **New-adcomputer**, **New-ADServiceAccount**, **New-ADUser**, **Set-adcomputer**, **Set-ADServiceAccount**und **Set-ADUser** mit dem **principalsallowedtodelegatetoaccount** -Parameter.
 
-## <a name="BKMK_SOFT"></a>Software Anforderungen
+## <a name="software-requirements"></a><a name="BKMK_SOFT"></a>Software Anforderungen
 Die ressourcenbasierte eingeschränkte Delegierung kann nur auf einem Domänen Controller unter Windows Server 2012 R2 und Windows Server 2012 konfiguriert werden, kann jedoch in einer Gesamtstruktur mit gemischtem Modus angewendet werden.
 
 Sie müssen den folgenden Hotfix auf allen Domänen Controllern unter Windows Server 2012 in Benutzerkonto Domänen auf dem Verweispfad zwischen den Front-End-und Back-End-Domänen anwenden, die Betriebssysteme vor Windows Server ausführen: ressourcenbasierte eingeschränkte Delegierung KDC_ERR_POLICY Fehler in Umgebungen mit Windows Server 2008 R2-basierten Domänen Controllern (https://support.microsoft.com/en-gb/help/2665790/resource-based-constrained-delegation-kdc-err-policy-failure-in-enviro).

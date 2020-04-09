@@ -1,28 +1,22 @@
 ---
 title: tsecimp
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für TSecImp, das Zuweisungs Informationen aus einer Extensible Markup Language-Datei (XML) in die TAPI-Server Sicherheits Datei (Tsec. ini) importiert.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d7488ec6-0eff-45ff-89ee-9cbe752416bf
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1c596d6d24a611882c0ecf234c22c83a268ec53c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 30a097bcd25e981f72a421b81b80b595343404ba
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71363930"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80832503"
 ---
 # <a name="tsecimp"></a>tsecimp
-
-
 
 Importiert Zuweisungs Informationen aus einer Extensible Markup Language-Datei (XML) in die TAPI-Server Sicherheits Datei (Tsec. ini). Sie können diesen Befehl auch verwenden, um die Liste der TAPI-Anbieter und der zugehörigen Geräte anzuzeigen, die Struktur der XML-Datei zu überprüfen, ohne den Inhalt zu importieren, und die Domänen Mitgliedschaft zu überprüfen.
 
@@ -33,11 +27,11 @@ tsecimp /f <Filename> [{/v | /u}]
 tsecimp /d
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|/f \<filename->|Erforderlich. Gibt den Namen der XML-Datei an, die die Zuweisungs Informationen enthält, die Sie importieren möchten.|
+|/f \<Dateiname >|Erforderlich Gibt den Namen der XML-Datei an, die die Zuweisungs Informationen enthält, die Sie importieren möchten.|
 |/v|Überprüft die Struktur der XML-Datei, ohne die Informationen in die Datei "tsec. ini" zu importieren.|
 |/u|Überprüft, ob jeder Benutzer ein Mitglied der Domäne ist, die in der XML-Datei angegeben ist. Der Computer, auf dem Sie diesen Parameter verwenden, muss mit dem Netzwerk verbunden sein. Dieser Parameter kann die Leistung erheblich verlangsamen, wenn Sie eine große Menge an Benutzer Zuweisungs Informationen verarbeiten.|
 |/d|Zeigt eine Liste installierter Telefonieanbieter an. Für jeden Telefonieanbieter werden die zugeordneten liniengeräte sowie die den einzelnen Zeilen Geräten zugeordneten Adressen und Benutzer aufgelistet.|
@@ -72,7 +66,7 @@ tsecimp /d
   - Mit dem folgenden Code werden alle Linien Geräte entfernt, die user1 zugewiesen sind.  
     ```
     <UserList>
-      <User NoMerge="1">
+      <User NoMerge=1>
         <DomainUser>domain1\user1</DomainUser>
       </User>
     </UserList>
@@ -80,7 +74,7 @@ tsecimp /d
   - Mit dem folgenden Code werden alle Zeilen Geräte entfernt, die user1 zugewiesen sind, bevor eine Zeile mit der Adresse 99999 zugewiesen wird. User1 werden keine anderen Linien Geräte zugewiesen, unabhängig davon, ob zuvor Zeilen Geräte zugewiesen wurden.  
     ```
     <UserList>
-      <User NoMerge="1">
+      <User NoMerge=1>
         <DomainUser>domain1\user1</DomainUser>
         <FriendlyName>User1</FriendlyName>
         <LineList>
@@ -115,7 +109,7 @@ tsecimp /d
           <Line>
             <Address>99999</Address>
           </Line>
-          <Line Remove="1">
+          <Line Remove=1>
             <Address>88888</Address>
           </Line>
         </LineList>
@@ -132,7 +126,7 @@ tsecimp /d
           <Line>
             <PermanentID>1000</PermanentID>
           </Line>
-          <Line Remove="1">
+          <Line Remove=1>
             <Address>88888</Address>
           </Line>
         </LineList>
@@ -143,23 +137,23 @@ tsecimp /d
 -   Die folgende Beispielausgabe wird angezeigt, nachdem die Befehlszeilenoption **/d** angegeben wurde, um die aktuelle TAPI-Konfiguration anzuzeigen. Für jeden Telefonieanbieter werden die zugeordneten liniengeräte sowie die den einzelnen Zeilen Geräten zugeordneten Adressen und Benutzer aufgelistet.  
     ```
     NDIS Proxy TAPI Service Provider
-            Line: "WAN Miniport (L2TP)"
+            Line: WAN Miniport (L2TP)
                     Permanent ID: 12345678910
 
     NDIS Proxy TAPI Service Provider
-            Line: "LPT1DOMAIN1\User1"
+            Line: LPT1DOMAIN1\User1
                     Permanent ID: 12345678910
 
     Microsoft H.323 Telephony Service Provider
-            Line: "H323 Line"
+            Line: H323 Line
                     Permanent ID: 123456
                     Addresses:
                             BLDG1-TAPI32
 
     ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 [Übersicht über Befehlsshell](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)

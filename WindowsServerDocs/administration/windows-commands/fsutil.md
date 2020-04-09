@@ -9,12 +9,12 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 08/21/2018
-ms.openlocfilehash: 0f338c80dca0ed88ca206aea5aeb415bc191e03a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 717c287995be2ab56bd49f2f24d46001f77e0e68
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376669"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80843903"
 ---
 # <a name="fsutil"></a>Fsutil
 
@@ -32,14 +32,14 @@ Führt Aufgaben im Zusammenhang mit Datei Zuordnungs Tabellen-und NTFS-Dateisyst
 >```
 > Sie werden aufgefordert, den Computer nach der Installation neu zu starten. Nachdem der Computer neu gestartet wurde, können Sie **fsutil** als Administrator ausführen.
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Unterbefehl |Beschreibung|
 |---|---|
 |["F", "8dot3name"](fsutil-8dot3name.md) | Abfragen oder Ändern der Einstellungen für das Kurznamen Verhalten im System, z. b. Generieren von Dateinamen mit einer Länge von 8,3 Zeichen. Entfernt Kurznamen für alle Dateien in einem Verzeichnis. Scannt ein Verzeichnis und identifiziert Registrierungsschlüssel, die möglicherweise betroffen sind, wenn Kurznamen aus den Dateien im Verzeichnis entfernt wurden.|
 |[Verhalten von "f"](fsutil-behavior.md) |Fragt das Volumen Verhalten ab oder legt es fest.|
 |[Nicht geändert](fsutil-dirty.md)| Fragt ab, ob das geänderte Bit des Volumes festgelegt ist, oder legt das geänderte Bit eines Volumes fest. Wenn das geänderte Bit eines Volumes festgelegt ist, überprüft **Autochk** automatisch das Volume auf Fehler, wenn der Computer das nächste Mal neu gestartet wird.|
-|[Datei "Datei"](fsutil-file.md)|Sucht eine Datei anhand des Benutzernamens (Wenn Datenträger Kontingente aktiviert sind), fragt zugeordnete Bereiche für eine Datei ab, legt den Kurznamen einer Datei fest, legt die gültige Daten Länge einer Datei fest, legt für eine Datei null fest, erstellt eine neue Datei mit einer angegebenen Größe, ermittelt eine Datei-ID, wenn der Name angegeben wird. , oder sucht einen Datei Verknüpfungs Namen für eine angegebene Datei-ID.|
+|[Datei "Datei"](fsutil-file.md)|Sucht eine Datei anhand des Benutzernamens (wenn die Datenträger Kontingente aktiviert sind), fragt zugeordnete Bereiche für eine Datei ab, legt den Kurznamen einer Datei fest, legt die gültige Daten Länge einer Datei fest, legt die Daten für eine Datei fest, erstellt eine neue Datei mit einer angegebenen Größe, sucht eine Datei-ID, wenn der Name angegeben wird, oder sucht einen Datei Verknüpfungs Namen für|
 |[F-Datei (f)](fsutil-fsinfo.md)|Listet alle Laufwerke auf und fragt den Laufwerkstyp, die Volumeinformationen, die NTFS-spezifischen Volumeinformationen oder die Statistiken des Dateisystems ab.|
 |[Mit hardlink "f"](fsutil-hardlink.md)|Listet feste Links für eine Datei auf oder erstellt einen festen Link (einen Verzeichniseintrag für eine Datei). Jede Datei kann als mindestens eine feste Verknüpfung angesehen werden. Auf NTFS-Volumes kann jede Datei über mehrere feste Links verfügen, sodass eine einzelne Datei in vielen Verzeichnissen (oder sogar im gleichen Verzeichnis mit unterschiedlichen Namen) angezeigt werden kann. Da alle Links auf dieselbe Datei verweisen, können Programme alle Links öffnen und die Datei ändern. Eine Datei wird nur dann aus dem Dateisystem gelöscht, nachdem alle Verknüpfungen damit gelöscht wurden. Nachdem Sie einen festen Link erstellt haben, kann er von Programmen wie jeder andere Dateiname verwendet werden.|
 |[' F '-ObjectID](fsutil-objectid.md)|Verwaltet Objekt Bezeichner, die vom Windows-Betriebssystem zum Nachverfolgen von Objekten wie Dateien und Verzeichnissen verwendet werden.|
@@ -55,4 +55,4 @@ Führt Aufgaben im Zusammenhang mit Datei Zuordnungs Tabellen-und NTFS-Dateisyst
 |[Wim](fsutil-wim.md)|Stellt Funktionen zum Ermitteln und Verwalten von Wim-gestützten Dateien bereit.|
 
 ## <a name="see-also"></a>Siehe auch
-[Erläuterung zur Befehlszeilensyntax](Command-Line-Syntax-Key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

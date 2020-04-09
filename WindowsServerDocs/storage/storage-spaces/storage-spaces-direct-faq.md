@@ -1,7 +1,6 @@
 ---
 title: 'Direkte Speicherplätze: häufig gestellte Fragen'
 description: Weitere Informationen zu direkte Speicherplätze
-keywords: Speicherplätze
 ms.prod: windows-server
 ms.author: kaushik
 ms.technology: storage-spaces
@@ -9,12 +8,12 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 19dcc1c57fe7c7eea74b003553a0b0a6ab5508aa
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 18384ab3c9e520ace9237b68474a45c8ec349502
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950230"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856103"
 ---
 # <a name="storage-spaces-direct---frequently-asked-questions-faq"></a>Direkte Speicherplätze: häufig gestellte Fragen (FAQ)
 
@@ -36,13 +35,13 @@ Ja, Sie können das NTFS-Dateisystem mit direkte Speicherplätze verwenden. Refs
 
 Nachdem Sie die neue Fehler Domäne hinzugefügt haben, werden die neuen virtuellen Datenträger, die Sie erstellen, in die 3-Wege-Spiegelung springen. Allerdings bleibt die vorhandene virtuelle Festplatte ein Datenträger mit 2-Wege-Spiegelung. Sie können die Daten aus den vorhandenen Volumes auf die neuen virtuellen Datenträger kopieren, um die Vorteile der neuen Resilienz zu erhalten.
  
-## <a name="the-storage-spaces-direct-was-created-using-the-autoconfig0-switch-and-the-pool-created-manually-when-i-try-to-query-the-storage-spaces-direct-pool-to-create-a-new-volume-i-get-a-message-that-says-enable-clusters2d-again-what-should-i-do"></a>Der direkte Speicherplätze wurde mithilfe von AutoConfig: 0 erstellt. und der Pool manuell erstellt. Wenn ich versuche, den direkte Speicherplätze Pool abzufragen, um ein neues Volume zu erstellen, erhalte ich eine Meldung, die besagt, dass "Enable-ClusterS2D Again" lautet. Was soll ich tun?
+## <a name="the-storage-spaces-direct-was-created-using-the-autoconfig0-switch-and-the-pool-created-manually-when-i-try-to-query-the-storage-spaces-direct-pool-to-create-a-new-volume-i-get-a-message-that-says-enable-clusters2d-again-what-should-i-do"></a>Der direkte Speicherplätze wurde mithilfe von AutoConfig: 0 erstellt. und der Pool manuell erstellt. Wenn ich versuche, den direkte Speicherplätze Pool abzufragen, um ein neues Volume zu erstellen, erhalte ich eine Meldung, die besagt, dass "Enable-ClusterS2D Again" lautet. Wie gehe ich vor?
 
 Wenn Sie direkte Speicherplätze mithilfe des Cmdlets "Enable-S2D" konfigurieren, führt das Cmdlet standardmäßig alles für Sie aus. Der Pool und die Ebenen werden erstellt. Bei Verwendung von AutoConfig: 0 muss alles manuell erfolgen. Wenn Sie nur den Pool erstellt haben, wird die Ebene nicht notwendigerweise erstellt. Sie erhalten die Fehlermeldung "Enable-ClusterS2D Again", wenn Sie keine Ebenen auf allen oder nicht erstellten Ebenen auf eine Weise erstellt haben, die den angefügten Geräten entspricht. Es wird empfohlen, den AutoConfig-Switch nicht in einer Produktionsumgebung zu verwenden. 
  
 ## <a name="is-it-possible-to-add-a-spinning-disk-hdd-to-the-storage-spaces-direct-pool-after-you-have-created-storage-spaces-direct-with-ssd-devices"></a>Ist es möglich, einen spindatenträger (HDD) zum direkte Speicherplätze Pool hinzuzufügen, nachdem Sie direkte Speicherplätze mit SSD-Geräten erstellt haben?
 
-Nein Wenn Sie zum Erstellen des Pools den einzelnen Gerätetyp verwenden, werden standardmäßig keine Cache Datenträger konfiguriert, und alle Datenträger werden für die Kapazität verwendet. Sie können nvme-Datenträger zur Konfiguration hinzufügen, und nvme-Datenträger werden für den Cache konfiguriert.
+Nein. Wenn Sie zum Erstellen des Pools den einzelnen Gerätetyp verwenden, werden standardmäßig keine Cache Datenträger konfiguriert, und alle Datenträger werden für die Kapazität verwendet. Sie können nvme-Datenträger zur Konfiguration hinzufügen, und nvme-Datenträger werden für den Cache konfiguriert.
  
 ## <a name="i-have-configured-a-2-rack-fault-domain-rack-1-has-2-fault-domains-rack-2-has-1-fault-domain-each-server-has-4-capacity-100-gb-devices-can-i-use-all-1200-gb-of-space-from-the-pool"></a>Ich habe eine 2-Rack-Fehler Domäne konfiguriert: Rack 1 hat zwei Fehler Domänen, Rack 2 hat eine Fehler Domäne. Jeder Server verfügt über vier Kapazität 100 GB-Geräte. Kann ich alle 1.200 GB Speicherplatz aus dem Pool verwenden?
 
@@ -58,7 +57,7 @@ Verwenden Sie das integrierte Hilfsprogramm Perfmon, um die Cache Fehler zu übe
  
 ## <a name="is-there-a-calculator-that-shows-the-exact-size-of-the-disks-that-are-being-set-aside-for-cache-capacity-and-resiliency-that-would-enable-me-to-plan-better"></a>Gibt es einen Rechner, der die genaue Größe der Datenträger anzeigt, die für den Cache, die Kapazität und die Resilienz reserviert werden, sodass ich besser planen kann?
 
-Sie können den Speicherplatz Rechner verwenden, um Sie bei der Planung zu unterstützen. Es ist unter https://aka.ms/s2dcalc verfügbar.
+Sie können den Speicherplatz Rechner verwenden, um Sie bei der Planung zu unterstützen. Es ist unter https://aka.ms/s2dcalcverfügbar.
  
 ## <a name="what-is-the-best-configuration-that-you-would-recommend-when-configuring-6-servers-and-3-racks"></a>Was ist die beste Konfiguration, die Sie beim Konfigurieren von 6 Servern und 3 Racks empfehlen sollten?
 
@@ -87,5 +86,5 @@ Direkte Speicherplätze verwendet die SCSI-Gehäuse Dienste (SES), um sicherzust
 Dieses:
 
 ```powershell
-get-virtualdisk -friendlyname “xyz” | get-physicalextent
+get-virtualdisk -friendlyname "xyz" | get-physicalextent
 ```

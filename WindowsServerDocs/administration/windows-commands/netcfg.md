@@ -1,24 +1,20 @@
 ---
 title: netcfg
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e2daaab7-12db-4e36-b70c-db8906d084f7 vhorne
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bfbe8cd757f78bfa3e808a9126af7d1698579885
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 4895928ffdd5d923d370f82e699d69f42c0f81a5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79320004"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838933"
 ---
 # <a name="netcfg"></a>netcfg
 
@@ -29,7 +25,7 @@ Installiert den Windows Preinstallation Environment (WinPE), eine für die Berei
 ```
 netcfg [/v] [/e] [/winpe] [/l ] /c /i
 ```
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
 |/v|Ausführliches **(detaillierter** ) Modus ausführen|
@@ -38,11 +34,11 @@ netcfg [/v] [/e] [/winpe] [/l ] /c /i
 |/l|Gibt den **Speicherort** von INF an.|
 |/c|Stellt die **Klasse** der zu installierenden Komponente bereit. Protokoll, Dienst oder Client|
 |/i|Gibt die Komponenten- **ID** an.|
-|/s|Stellt den Typ der **anzuzeigenden**Komponenten bereit.<br /><br />\ta = Adapter, n = NET Components|
+|/s|Stellt den Typ der **anzuzeigenden**Komponenten bereit.<p>\ta = Adapter, n = NET Components|
 |/b|Zeigt die **Bindungs Pfade**an, wenn eine Zeichenfolge mit dem Namen des Pfads folgt.|
 |/?|Zeigt die **Hilfe** an der Eingabeaufforderung an.|
 
-## <a name="BKMK_Examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
 
 So installieren Sie das Protokoll *Beispiel* mithilfe von "c:\oemdir\example.inf":
 ```
@@ -73,4 +69,4 @@ So zeigen Sie Bindungs Pfade mit *MS_TCPIP*an:
 netcfg /b ms_tcpip
 ```
 ## <a name="additional-references"></a>Weitere Verweise
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

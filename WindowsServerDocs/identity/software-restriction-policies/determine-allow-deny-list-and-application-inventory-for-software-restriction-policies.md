@@ -1,28 +1,24 @@
 ---
 title: Festlegen der Zulassen bzw. Verweigern-Liste und des Anwendungsinventars für Richtlinien für die Softwareeinschränkung
 description: Windows Server-Sicherheit
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-software-restriction-policies
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0abb73b6-b5d8-4505-8ab1-2f29e4bf0411
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 4ddea6daeb2150bd9fd3131a8457a6a4b408cfc3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7609ebb0fdcb6d429cd40d99399eaaedb732df08
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357659"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855093"
 ---
 # <a name="determine-allow-deny-list-and-application-inventory-for-software-restriction-policies"></a>Festlegen der Zulassen bzw. Verweigern-Liste und des Anwendungsinventars für Richtlinien für die Softwareeinschränkung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema für IT-Experten wird beschrieben, wie Sie eine Zulassungs-und Verweigerungs Liste für Anwendungen erstellen, die mit Software Einschränkungs Richtlinien (SRP) ab Windows Server 2008 und Windows Vista verwaltet werden.
 
@@ -37,8 +33,8 @@ Informationen zum Ausführen bestimmter Aufgaben mithilfe von SRP finden Sie in 
 
 -   [Verwenden von Richtlinien für Software Einschränkung zum Schutz Ihres Computers vor einem e-Mail-Virus](use-software-restriction-policies-to-help-protect-your-computer-against-an-email-virus.md)
 
-### <a name="what-default-rule-to-choose-allow-or-deny"></a>Die Standardregel, die ausgewählt werden soll: Zulassen oder verweigern
-Software Einschränkungs Richtlinien können in einem von zwei Modi bereitgestellt werden, die die Basis ihrer Standardregel sind: Liste zulassen oder verweigern. Sie können eine Richtlinie erstellen, die jede Anwendung identifiziert, die in Ihrer Umgebung ausgeführt werden darf. die Standardregel in der Richtlinie ist eingeschränkt und blockiert alle Anwendungen, die nicht explizit ausgeführt werden dürfen. Oder Sie können eine Richtlinie erstellen, die jede Anwendung identifiziert, die nicht ausgeführt werden kann. die Standardregel ist uneingeschränkt und schränkt nur die Anwendungen ein, die Sie explizit aufgelistet haben.
+### <a name="what-default-rule-to-choose-allow-or-deny"></a>Folgende Standardregel auswählen: zulassen oder verweigern
+Software Einschränkungs Richtlinien können in einem von zwei Modi bereitgestellt werden, die die Basis ihrer Standardregel sind: Zulassungsliste oder Verweigerungs Liste. Sie können eine Richtlinie erstellen, die jede Anwendung identifiziert, die in Ihrer Umgebung ausgeführt werden darf. die Standardregel in der Richtlinie ist eingeschränkt und blockiert alle Anwendungen, die nicht explizit ausgeführt werden dürfen. Oder Sie können eine Richtlinie erstellen, die jede Anwendung identifiziert, die nicht ausgeführt werden kann. die Standardregel ist uneingeschränkt und schränkt nur die Anwendungen ein, die Sie explizit aufgelistet haben.
 
 > [!IMPORTANT]
 > Der Ablehnungs Listenmodus ist möglicherweise eine hoch Wartungsstrategie für Ihre Organisation in Bezug auf die Anwendungssteuerung. Das Erstellen und Verwalten einer sich entwickelnden Liste, die alle Malware und andere problematische Anwendungen untersagt, wäre zeitaufwändig und anfällig für Fehler.
@@ -52,9 +48,9 @@ Um die Zulassungs Standardregel effektiv verwenden zu können, müssen Sie genau
 
 2.  Erstellen Sie den folgenden Registrierungs Wert, um das Feature erweiterte Protokollierung zu aktivieren, und legen Sie den Pfad auf den Speicherort der Protokolldatei fest.
 
-    **"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Safer\ CodeIdentifier"**
+    **"HKEY_LOCAL_MACHINE \software\policies\microsoft\windows\safer\codeidentifiers"**
 
-    Zeichen folgen Wert: *Namelogfile-Pfad zu namelogfile*
+    Zeichen folgen Wert: *namelogfile-Pfad zu namelogfile*
 
     Da SRP alle Anwendungen evaluiert, wenn diese ausgeführt werden, wird jedes Mal, wenn die Anwendung ausgeführt wird, ein Eintrag in die Protokolldatei *namelogfile* geschrieben.
 

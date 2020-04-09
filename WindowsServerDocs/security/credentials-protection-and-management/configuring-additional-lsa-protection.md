@@ -1,24 +1,20 @@
 ---
 title: Konfigurieren von zusätzlichem LSA-Schutz
 description: Windows Server-Sicherheit
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-credential-protection
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 038e7c2b-c032-491f-8727-6f3f01116ef9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 40e489089fc0c15c3e6ebf7b654377f4d6f7e482
-ms.sourcegitcommit: 3d76683718ec6f38613f552f518ebfc6a5db5401
+ms.openlocfilehash: 1c923cfe39892ba105c437cf73843c2f6d07e49b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74829628"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857073"
 ---
 # <a name="configuring-additional-lsa-protection"></a>Konfigurieren von zusätzlichem LSA-Schutz
 
@@ -94,7 +90,7 @@ Zum Aktivieren des Überwachungsmodus für mehrere Computer in einer Domäne kö
 
 ##### <a name="to-create-the-auditlevel-value-setting-in-a-gpo"></a>So erstellen Sie die Einstellung des AuditLevel-Werts in einem Gruppenrichtlinienobjekt
 
-1.  Öffnen Sie die Gruppenrichtlinien-Verwaltungskonsole (Group Policy Management Console, GPMC).
+1.  Öffnen Sie die Gruppenrichtlinien-Verwaltungskonsole (GPMC).
 
 2.  Erstellen Sie ein neues Gruppenrichtlinienobjekt (Group Policy Object, GPO), das auf der Domänenebene verknüpft ist oder das mit der Organisationseinheit verknüpft ist, die Ihre Computerkonten enthält. Alternativ dazu können Sie ein GPO auswählen, das schon bereitgestellt wurde.
 
@@ -134,7 +130,7 @@ Anschließend werden diese Ereignisse möglicherweise in Ereignisanzeige angezei
 
 Freigegebene Abschnitte sind in der Regel das Ergebnis von Programmiertechniken, bei denen Instanzdaten mit anderen Prozessen interagieren können, für die der gleiche Sicherheitskontext verwendet wird. Dies kann zu Sicherheitsrisiken führen.
 
-## <a name="BKMK_HowToConfigure"></a>Konfigurieren des zusätzlichen LSA-Schutzes für Anmelde Informationen
+## <a name="how-to-configure-additional-lsa-protection-of-credentials"></a><a name="BKMK_HowToConfigure"></a>Konfigurieren des zusätzlichen LSA-Schutzes für Anmelde Informationen
 Auf Geräten mit Windows 8.1 (mit oder ohne sicheren Start oder UEFI) ist die Konfiguration möglich, indem die in diesem Abschnitt beschriebenen Verfahren ausgeführt werden. Bei Geräten, auf denen Windows RT 8,1 ausgeführt wird, ist der Schutz von LSASS. exe immer aktiviert und kann nicht deaktiviert werden.
 
 ### <a name="on-x86-based-or-x64-based-devices-using-secure-boot-and-uefi-or-not"></a>Auf x86-basierten oder x64-basierten Geräten mit oder ohne %%amp;quot;Sicherer Start%%amp;quot; und UEFI
@@ -154,7 +150,7 @@ Sie können die folgenden Verfahren verwenden, um den LSA-Schutz zu aktivieren o
 
 ##### <a name="to-enable-lsa-protection-using-group-policy"></a>So aktivieren Sie den LSA-Schutz mithilfe der Gruppenrichtlinie
 
-1.  Öffnen Sie die Gruppenrichtlinien-Verwaltungskonsole (Group Policy Management Console, GPMC).
+1.  Öffnen Sie die Gruppenrichtlinien-Verwaltungskonsole (GPMC).
 
 2.  Erstellen Sie ein neues Gruppenrichtlinienobjekt, das auf der Domänenebene verknüpft ist oder das mit der Organisationseinheit verknüpft ist, die Ihre Computerkonten enthält. Alternativ dazu können Sie ein GPO auswählen, das schon bereitgestellt wurde.
 

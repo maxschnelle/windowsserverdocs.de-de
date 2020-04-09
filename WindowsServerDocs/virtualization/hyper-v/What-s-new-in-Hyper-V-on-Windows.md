@@ -2,21 +2,19 @@
 title: Neues in Hyper-V unter Windows Server 2016
 description: Bietet eine Zusammenfassung der neuen Features in Hyper-V
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1a65a98e-54b6-4c41-9732-1e3d32fe3a5f
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 09/21/2017
-ms.openlocfilehash: 195d78ff8de75ca9e3a88d4300bb2f52cd45632f
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 5fc82d8eea78ad5605dceb6a21e8d543f9d9c88e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322302"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857963"
 ---
 # <a name="whats-new-in-hyper-v-on-windows-server"></a>Neues in Hyper-V unter Windows Server
 
@@ -42,19 +40,19 @@ Weitere Informationen finden Sie unter [Server Core-App-Kompatibilitätsfeature]
 
 - **Verbesserungen für Filialen**
 
-    Sie können nun abgeschirmte virtuelle Maschinen auf Maschinen mit intermittierender Konnektivität zum Host Guardian-Dienst ausführen, indem Sie die neuen [Fallback-HGS](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office#fallback-configuration)- und [Offline-Modus](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office#offline-mode)-Funktionen nutzen. Fallback HGS ermöglicht es Ihnen, einen zweiten Satz von URLs für Hyper-V zu konfigurieren, um zu prüfen, ob Ihr primärer HGS-Server erreicht werden kann.
+    Sie können nun abgeschirmte virtuelle Computer auf Computern mit intermittierender Konnektivität zum Host-Überwachungsdienst (Host Guardian Service, HGS) ausführen, indem Sie die neuen [Fallback-HGS](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office#fallback-configuration)- und [Offline-Modus](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-manage-branch-office#offline-mode)-Features nutzen. Fallback HGS ermöglicht es Ihnen, einen zweiten Satz von URLs für Hyper-V zu konfigurieren, um zu prüfen, ob Ihr primärer HGS-Server erreicht werden kann.
 
     Im Offline-Modus können Sie Ihre abgeschirmten VMs auch dann starten, wenn HGS nicht erreichbar ist, sofern die VM einmal erfolgreich gestartet wurde und sich die Sicherheitskonfiguration des Hosts nicht geändert hat.
 
 - **Verbesserungen bei der Problembehandlung**
 
-    Darüber hinaus haben wir die Fehlerbehebung für Ihre [abgeschirmten virtuellen Maschinen](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-troubleshoot-shielded-vms) vereinfacht, indem wir den erweiterten VMConnect-Sitzungsmodus und PowerShell Direct unterstützen. Diese Tools sind besonders nützlich, wenn Sie die Netzwerkverbindung zu Ihrer VM verloren haben und ihre Konfiguration aktualisieren müssen, um den Zugriff wiederherzustellen.
+    Darüber hinaus haben wir die Problembehandlung bei Ihren [abgeschirmten virtuellen Computern](https://docs.microsoft.com/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-troubleshoot-shielded-vms) vereinfacht, indem wir den erweiterten VMConnect-Sitzungsmodus und PowerShell Direct unterstützen. Diese Tools sind besonders nützlich, wenn Sie die Netzwerkverbindung zu Ihrer VM verloren haben und ihre Konfiguration aktualisieren müssen, um den Zugriff wiederherzustellen.
 
-    Diese Funktionen müssen nicht konfiguriert werden, und sie werden automatisch zur Verfügung gestellt, wenn eine abgeschirmte VM auf einem Hyper-V-Host mit Windows Server Version 1803 oder höher ausgeführt wird.
+    Diese Features müssen nicht konfiguriert werden, und sie werden automatisch zur Verfügung gestellt, wenn eine abgeschirmte VM auf einem Hyper-V-Host mit Windows Server, Version 1803 oder höher, ausgeführt wird.
 
 - **Linux-Unterstützung**
 
-    Wenn Sie Umgebungen mit gemischten Betriebssystemen ausführen, unterstützt Windows Server 2019 jetzt die Ausführung von Ubuntu, Red Hat Enterprise Linux und SUSE Linux Enterprise Server in abgeschirmten virtuellen Maschinen.
+    Wenn Sie Umgebungen mit gemischten Betriebssystemen ausführen, unterstützt Windows Server 2019 jetzt die Ausführung von Ubuntu, Red Hat Enterprise Linux und SUSE Linux Enterprise Server in abgeschirmten virtuellen Computern.
 
 ## <a name="windows-server-2016"></a>Windows Server 2016
 

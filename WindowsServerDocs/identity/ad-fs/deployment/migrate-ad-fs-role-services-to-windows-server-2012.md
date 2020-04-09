@@ -1,5 +1,5 @@
 ---
-title: Migrieren von Rollendiensten der Active Directory-Verbunddienste (AD FS) zu Windows Server 2012
+title: Migrieren von Rollendiensten der Active Directory-Verbunddienste zu Windows Server 2012
 description: Enthält Anweisungen zum Migrieren des AD FS Dienstanbieter zu Windows Server 2012.
 author: billmath
 ms.author: billmath
@@ -8,14 +8,14 @@ ms.date: 06/28/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: cdb5523ade5c3c7572656d62d1b4f744683ec96e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 36d37eb2cc886d9831b995aa8cfdda16765994b8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408274"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857513"
 ---
-# <a name="migrate-active-directory-federation-services-role-services-to-windows-server-2012"></a>Migrieren von Rollendiensten der Active Directory-Verbunddienste (AD FS) zu Windows Server 2012
+# <a name="migrate-active-directory-federation-services-role-services-to-windows-server-2012"></a>Migrieren von Rollendiensten der Active Directory-Verbunddienste zu Windows Server 2012
 
 Im folgenden finden Sie Anweisungen zum Migrieren der folgenden Rollen Dienste zu Active Directory-Verbunddienste (AD FS) (AD FS) unter Windows Server 2012:  
   
@@ -70,10 +70,10 @@ Im folgenden finden Sie Anweisungen zum Migrieren der folgenden Rollen Dienste z
 |AD FS 1,0-Agent, der Ansprüche unterstützt und mit Windows Server 2003 R2 installiert wurde)|Migration wird nicht unterstützt|  
 |AD FS 1,1-Verbund Server, installiert mit Windows Server 2008 oder Windows Server 2008 R2|Migration wird nicht unterstützt|  
 |AD FS 1,1-Verbund Server Proxy, installiert mit Windows Server 2008 oder Windows Server 2008 R2|Migration wird nicht unterstützt|  
-|AD FS 1,1 Windows-Token-basierter Agent, installiert mit Windows Server 2008 oder Windows Server 2008 R2|Die Migration auf demselben Server wird unterstützt, aber der migrierte AD FS Windows-Token-basierte Agent funktioniert nur mit einem AD FS 1,1-Verbund Dienst, der mit Windows Server 2008 oder Windows Server 2008 R2 installiert ist. Weitere Informationen finden Sie unter:<br /><br /> [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)<br /><br /> [Interagieren mit AD FS 1.x](Interoperating-with-AD-FS-1.x.md)|  
-|AD FS 1,1-Agent, der Ansprüche unterstützt und mit Windows Server 2008 oder Windows Server 2008 R2 installiert wurde)|Die Migration auf demselben Server wird unterstützt. Der migrierte AD FS 1,1-Web-Agent funktioniert mit folgendem:<br /><br /> AD FS 1,1-Verbund Dienst, installiert mit Windows Server 2008 oder Windows Server 2008 R2<br /><br /> AD FS 2,0-Verbund Dienst, installiert unter Windows Server 2008 oder Windows Server 2008 R2<br /><br /> AD FS Verbund Dienst, der mit Windows Server 2012 installiert wurde<br /><br /> Weitere Informationen finden Sie unter:<br /><br /> [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)<br /><br /> [Interagieren mit AD FS 1.x](Interoperating-with-AD-FS-1.x.md)|  
-|AD FS 2,0-Verbund Server, installiert unter Windows Server 2008 oder Windows Server 2008 R2|Die Migration auf demselben Server wird unterstützt. Weitere Informationen finden Sie unter:<br /><br /> [Vorbereiten der Migration des AD FS 2.0-Verbundservers](prepare-to-migrate-ad-fs-fed-server.md)<br /><br /> [Migrieren des AD FS 2.0-Verbundservers](migrate-the-ad-fs-fed-server.md)|  
-|AD FS 2,0-Verbund Server Proxy, installiert unter Windows Server 2008 oder Windows Server 2008 R2|Die Migration auf demselben Server wird unterstützt.  Weitere Informationen finden Sie unter:<br /><br /> [Vorbereiten der Migration des AD FS 2.0-Verbundserverproxys](prepare-to-migrate-ad-fs-fed-proxy.md)<br /><br /> [Migrieren des AD FS 2.0-Verbundserverproxys](migrate-the-ad-fs-2-fed-server-proxy.md)|  
+|AD FS 1,1 Windows-Token-basierter Agent, installiert mit Windows Server 2008 oder Windows Server 2008 R2|Die Migration auf demselben Server wird unterstützt, aber der migrierte AD FS Windows-Token-basierte Agent funktioniert nur mit einem AD FS 1,1-Verbund Dienst, der mit Windows Server 2008 oder Windows Server 2008 R2 installiert ist. Weitere Informationen finden Sie unter:<p> [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)<p> [Interagieren mit AD FS 1.x](Interoperating-with-AD-FS-1.x.md)|  
+|AD FS 1,1-Agent, der Ansprüche unterstützt und mit Windows Server 2008 oder Windows Server 2008 R2 installiert wurde)|Die Migration auf demselben Server wird unterstützt. Der migrierte AD FS 1,1-Web-Agent funktioniert mit folgendem:<p> AD FS 1,1-Verbund Dienst, installiert mit Windows Server 2008 oder Windows Server 2008 R2<p> AD FS 2,0-Verbund Dienst, installiert unter Windows Server 2008 oder Windows Server 2008 R2<p> AD FS Verbund Dienst, der mit Windows Server 2012 installiert wurde<p> Weitere Informationen finden Sie unter:<p> [Migrieren der AD FS 1.1-Web-Agents](migrate-the-ad-fs-web-agent.md)<p> [Interagieren mit AD FS 1.x](Interoperating-with-AD-FS-1.x.md)|  
+|AD FS 2,0-Verbund Server, installiert unter Windows Server 2008 oder Windows Server 2008 R2|Die Migration auf demselben Server wird unterstützt. Weitere Informationen finden Sie unter:<p> [Vorbereiten der Migration des AD FS 2.0-Verbundservers](prepare-to-migrate-ad-fs-fed-server.md)<p> [Migrieren des AD FS 2.0-Verbundservers](migrate-the-ad-fs-fed-server.md)|  
+|AD FS 2,0-Verbund Server Proxy, installiert unter Windows Server 2008 oder Windows Server 2008 R2|Die Migration auf demselben Server wird unterstützt.  Weitere Informationen finden Sie unter folgenden Themen:<p> [Vorbereiten der Migration des AD FS 2.0-Verbundserverproxys](prepare-to-migrate-ad-fs-fed-proxy.md)<p> [Migrieren des AD FS 2.0-Verbundserverproxys](migrate-the-ad-fs-2-fed-server-proxy.md)|  
   
 ## <a name="see-also"></a>Weitere Informationen  
  [Vorbereiten der Migration des AD FS 2,0](prepare-to-migrate-ad-fs-fed-server.md) -Verbund Servers   

@@ -1,530 +1,530 @@
 ---
 ms.assetid: e6fa9069-ec9c-4615-b266-957194b49e11
-title: Aktualisieren von AD RMS auf WindowsServer 2016
-description: ''
+title: Aktualisieren von AD RMS auf Windows Server 2016
 author: msmbaldwin
 ms.author: esaggese
 ms.date: 05/30/2019
+ms.prod: windows-server
 ms.topic: article
-ms.openlocfilehash: f5d621a0ba06f5b1beb97ccdbffb8376b5503168
-ms.sourcegitcommit: 927adf32faa6052234ad08f21125906362e593dc
+ms.openlocfilehash: 88af85f8e670b9c23b503e0f79af2ce8f10d045e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67033341"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854853"
 ---
-# <a name="upgrading-ad-rms-to-windows-server-2016"></a>Aktualisieren von AD RMS auf WindowsServer 2016
+# <a name="upgrading-ad-rms-to-windows-server-2016"></a>Aktualisieren von AD RMS auf Windows Server 2016
 
 ## <a name="introduction"></a>Einführung
 
-Active Directory Rights Management Services (AD RMS) ist ein Microsoft-Dienst, der vertraulichen Dokumente und e-Mails geschützt werden. Im Gegensatz zu herkömmlichen Schutzmethoden, wie Firewalls und Zugriffssteuerungslisten sind AD RMS-Verschlüsselung und Schutz persistenten unabhängig von der, in dem eine Datei geht und wie diese übermittelt werden. 
+Active Directory Rights Management Services (AD RMS) ist ein Microsoft-Dienst, der sensible Dokumente und e-Mails schützt. Im Gegensatz zu herkömmlichen Schutzmethoden wie Firewalls und ACLs sind AD RMS Verschlüsselung und Schutz immer persistent, unabhängig davon, wo sich eine Datei befindet oder wie Sie transportiert wird. 
 
-Dieses Dokument enthält Anleitungen zum Migrieren von Windows Server 2012 R2 mit SQL Server 2012 zu Windows Server 2016 und SQL Server 2016. Genauso kann zum Migrieren von älteren aber unterstützten Versionen von AD RMS verwendet werden.
-Bitte beachten Sie, dass Active Directory Rights Management Services nicht mehr in der aktiven Entwicklung ist, und für die neuesten Funktionen Kunden erwägen sollten, Migrieren zu [Azure Information Protection](https://azure.microsoft.com/services/information-protection/), dem bietet es sich um eine noch viel mehr umfassende Reihe von Funktionen mit vollständige Geräte- und anwendungsunterstützung. 
+Dieses Dokument enthält Anleitungen zum Migrieren von Windows Server 2012 R2 mit SQL Server 2012 zu Windows Server 2016 und SQL Server 2016. Der gleiche Prozess kann für die Migration von älteren, aber unterstützten Versionen von AD RMS verwendet werden.
+Beachten Sie, dass sich Active Directory Rights Management Services nicht mehr in der aktiven Entwicklung befindet, und für die neuesten Funktionen sollten Kunden in Erwägung gezogen werden, zu [Azure Information Protection](https://azure.microsoft.com/services/information-protection/)zu migrieren, der einen weitaus umfassenderen Satz an Features bietet, bei denen die Geräte-und Anwendungsunterstützung vollständiger ist 
 
-Informationen zum Migrieren zu Azure Information Protection von AD RMS ohne erneutes Schützen Ihrer Inhalte finden Sie unter [der Dokumentation zur Migration von Azure Information Protection](https://docs.microsoft.com/azure/information-protection/migrate-from-ad-rms-to-azure-rms).
+Informationen zum Migrieren zu Azure Information Protection von AD RMS, ohne den Inhalt erneut schützen zu müssen, finden Sie in [der Dokumentation zur Azure Information Protection Migration](https://docs.microsoft.com/azure/information-protection/migrate-from-ad-rms-to-azure-rms).
 
-## <a name="about-the-environment-used-in-this-guide"></a>Über die Umgebung, die in diesem Handbuch verwendeten
+## <a name="about-the-environment-used-in-this-guide"></a>Informationen zur in diesem Handbuch verwendeten Umgebung
 
-AD FS ist eine optionale Komponente von einem AD RMS-Installation. In diesem Handbuch wird die Verwendung von ADFS ausgegangen. Wenn AD FS in Ihrer Umgebung verwendet wurde noch nicht für die Unterstützung von AD RMS-Benutzer, können Sie alle Schritte überspringen, die auf AD FS verweisen.
+AD FS ist eine optionale Komponente einer AD RMS-Installation. In dieser Anleitung wird davon ausgegangen, dass ADFS verwendet wird. Wenn AD FS in Ihrer Umgebung nicht für die Unterstützung von AD RMS Benutzern verwendet wurde, können Sie alle Schritte überspringen, die auf ADFS verweisen.
 
-In diesem Handbuch wird die SQL Server durch Ausführen einer parallelen Installation, und Verschieben von Datenbanken über über eine Sicherung auf SQL Server 2016 aktualisiert. Auch wenn Sie Ihre AD RMS und AD FS-Datenbankserver Direktes SQL Server 2016 aktualisieren können, können Sie mit dem nächsten Abschnitt in diesem Dokument verschieben nach müssen ausgeführt werden, ohne dass Sie die Schritte in diesem Abschnitt.  
+In diesem Handbuch wird SQL Server auf SQL Server 2016 aktualisiert, indem eine parallele Installation durchgeführt und die Datenbanken über eine Sicherung verschoben werden. Wenn Sie ein Upgrade Ihrer AD RMS-und ADFS-Datenbankserver auf SQL Server 2016 direkt durchführen können, können Sie mit dem nächsten Abschnitt in diesem Dokument fortfahren, ohne die Schritte in diesem Abschnitt ausführen zu müssen.  
 
 ## <a name="installation"></a>Installation
 
-### <a name="configuring-sql-server-2016"></a>Konfigurieren von SQLServer 2016
+### <a name="configuring-sql-server-2016"></a>Konfigurieren von SQL Server 2016
 
-Die folgenden Abschnitt Details Implementierungsaufgaben im Zusammenhang direkt an die SQL Server 2016-Konfiguration. Dieser Leitfaden konzentriert sich auf den Server-Manager und SQL Server Management Studio zum Ausführen dieser Aufgaben verwenden.
+Im folgenden Abschnitt werden die Implementierungsaufgaben erläutert, die direkt mit der Konfiguration von SQL Server 2016 verknüpft sind. Dieser Leitfaden konzentriert sich auf die Verwendung der Server-Manager und des SQL Server Management Studio, um diese Aufgaben auszuführen.
 
-Diese Schritte müssen in einer SQL Server 2016-Installation ausgeführt werden. Installieren Sie SQL Server 2016 auf geeigneter Hardware gemäß den Standardmethoden Ihres Unternehmens und Richtlinien. 
+Diese Schritte müssen bei einer SQL Server 2016-Installation ausgeführt werden. Installieren Sie SQL Server 2016 auf geeigneter Hardware gemäß den Standardverfahren und-Richtlinien Ihres Unternehmens. 
 
-#### <a name="preparing-the-sql-server"></a>Vorbereiten von SQLServer
+#### <a name="preparing-the-sql-server"></a>Vorbereiten der SQL Server
 
-Im folgende Abschnitt wird erläutert, wie die SQL-Server vorbereiten, damit sie auf SQL Server 2016 aktualisiert werden kann, vor dem Upgrade von anderen Diensten in der AD RMS-Plattform Windows Server 2016 verwenden.
+Im folgenden Abschnitt wird erläutert, wie Sie die SQL Server so vorbereiten, dass Sie auf SQL Server 2016 aktualisiert werden kann, bevor Sie andere Dienste in der AD RMS Plattform für die Verwendung von Windows Server 2016 aktualisieren können.
 
-##### <a name="adding-cname-for-sql-server-2016-to-dns"></a>DNS CNAME-Eintrag für SQLServer 2016 hinzufügt
+##### <a name="adding-cname-for-sql-server-2016-to-dns"></a>Hinzufügen von CNAME für SQL Server 2016 zu DNS
 
-Der CNAME-Eintrag wird verwendet, um sicherzustellen, dass das Windows Server 2016-Setup die erforderlichen Daten erhalten werden wird, da wurde an den neuen SQL Server 2016 gezeigt werden, wird. **Hinweis: Wenn Sie bereits einen CNAME-Eintrag für den AD FS und AD RMS-Dienst verwenden, können Sie mit den nächsten Schritten fortfahren.**
+Der CNAME wird verwendet, um sicherzustellen, dass das Windows Server 2016-Setup die entsprechenden Daten erhält, da auf den neuen SQL Server 2016 verwiesen wird. **Hinweis: Wenn Sie bereits einen CNAME-Dienst für den ADFS-und AD RMS-Dienst verwenden, können Sie mit den nächsten Schritten fortfahren.**
 
 
-**So DNS einen CNAME-Eintrag für SQL Server 2016 hinzu**
+**So fügen Sie einen CNAME-Namen für SQL Server 2016 zu DNS hinzu**
 
-1.  Melden Sie sich bei dem Windows Server 2012 R2-Domänencontroller mit Domain-Administratoranmeldeinformationen an.
+1.  Melden Sie sich mit den Anmelde Informationen des Domänen Administrators beim Windows Server 2012 R2-Domänen Controller an.
 
-2.  Öffnen Sie den Server-Manager.
+2.  Öffnen Sie Server-Manager.
 
-3.  Klicken Sie auf **Tools** , und wählen Sie **DNS** zu DNS-Manager zu öffnen.
+3.  Klicken **Sie auf Extras und dann** auf **DNS** , um den DNS-Manager zu öffnen
 
-4.  Erweitern Sie den DC aus im linken Navigationsbereich, und öffnen Sie **Forward-Lookupzonen**.
+4.  Erweitern Sie im linken Navigationsbereich den Domänen Controller, und öffnen Sie **Forward-Lookupzonen**.
 
-5.  Öffnen Sie die Ressourcen der entsprechenden Domäne und dann klicken Sie mit der rechten Maustaste im rechten Ansicht aus, und wählen **neuer Alias (CNAME)** zu beginnen, den CNAME-Eintrag zu erstellen.
+5.  Öffnen Sie die entsprechenden Domänen Ressourcen, klicken Sie mit der rechten Maustaste in den rechten Ansichts Bereich, und wählen Sie **Neuer Alias (CNAME)** aus
 
-6.  Für der Aliasnamen ein. Geben Sie in ein logischer Namen für die Unterscheidung von anderen (ex möglicherweise vorhanden SQLADRMS oder SQLADFS)
+6.  Geben Sie für den Aliasnamen einen logischen Namen ein, um ihn von anderen zu unterscheiden (z. Sqladrms oder sqladfs)
 
-7.  Geben Sie nach Eingabe des Namens den FQDN für den Zielhost, der den neuen SQL Server 2016-Server ist. (z. b. SQL2016.contoso.com)
+7.  Nachdem Sie den Namen eingegeben haben, geben Sie den voll qualifizierten Namen des Zielhosts an, der als neuer SQL Server 2016-Server verwendet wird. fern. SQL2016.contoso.com)
 
-8.  Nachdem alle Informationen eingegeben wurde, klicken Sie auf **OK**.
+8.  Nachdem Sie alle Informationen eingegeben haben, klicken Sie auf **OK**.
 
-##### <a name="backup-the-ad-rms-and-adfs-databases"></a>Sichern der AD RMS und AD FS-Datenbanken
+##### <a name="backup-the-ad-rms-and-adfs-databases"></a>Sichern der AD RMS-und AD FS-Datenbanken
 
-Die AD RMS und AD FS-Datenbanken enthalten wichtigen Informationen zu AD RMS, z. B. den öffentlichen Schlüssel des der Lizenzgebenden Serverzertifikats, Vorlagen für Benutzerrechterichtlinien, AD FS-Konfigurationsdaten und Protokollieren von Informationen erforderlich. Ohne diese Datenbanken können keine Clients Verwaltungslizenzen für die Nutzung geschützter Inhalte, neben anderen Problemen ausstellen.
+Die AD RMS-und ADFS-Datenbanken enthalten wichtige Informationen, die für die AD RMS erforderlich sind, wie z. b. den öffentlichen Schlüssel des Lizenzgebers des Servers, Rechte Richtlinien Vorlagen, ADFS-Konfigurationsdaten und Protokollierungs Informationen. Ohne diese Datenbanken können Clients keine Lizenzen ausstellen, um geschützte Inhalte zu nutzen.
 
-Die Datenbanken, die AD RMS-Konfigurationsdatenbank gilt als am wichtigsten, speichert der SLC rights Richtlinienvorlagen Benutzer Schlüssel und Konfigurationsinformationen. Wenn Sie darauf achten sollten, um alle AD RMS und AD FS-Datenbanken zu sichern, sollten Sie daher die Konfigurationsdatenbank, regelmäßig zu sichern planen.
+Von den-Datenbanken wird die AD RMS Konfigurations Datenbank als wichtigste betrachtet, da Sie SLC, Rechte Richtlinien Vorlagen, Benutzerschlüssel und Konfigurationsinformationen speichert. Obwohl Sie die Sicherungskopie aller AD RMS-und AD FS-Datenbanken sorgfältig durchführen sollten, sollten Sie die Konfigurations Datenbank regelmäßig sichern.
 
-Die Datenbank speichert Informationen zu den benutzeranforderungen zum AD RMS-Clusters für Zertifikate und Nutzungslizenzen. Ihre Sicherungsstrategie für diese Datenbank sollte Ihrer Unternehmensrichtlinie für die Beibehaltung dieser Art von Informationen basieren.
+Die Protokollierungs Datenbank speichert Informationen zu Benutzer Anforderungen an den AD RMS Cluster für Zertifikate und verwendet Lizenzen. Ihre Sicherungsstrategie für diese Datenbank sollte auf der Unternehmensrichtlinie basieren, um diese Art von Informationen beizubehalten.
 
-Der Directory Services-Datenbank ist nicht entscheidend für AD RMS-Funktionalität und, wenn die neuesten Daten verloren geht, die Datenbank neu Auffüllen mit Informationen, wie der AD RMS-Server Anforderungen für Zertifikate empfängt und Lizenzen verwenden. Sie müssen sich nicht um diese Datenbank regelmäßig zu sichern, aber Sie müssen mindestens eine Kopie der Datenbank haben, wie es ursprünglich nach der Bereitstellung von AD RMS konfiguriert wurde.
+Die Verzeichnisdienst Datenbank ist für AD RMS Funktionalität nicht entscheidend. wenn die neuesten Daten verloren gehen, wird die Datenbank erneut mit Informationen aufgefüllt, da der AD RMS Serveranforderungen für Zertifikate empfängt und Lizenzen verwendet. Sie müssen diese Datenbank nicht regelmäßig sichern, aber Sie benötigen mindestens eine Kopie der Datenbank, da Sie nach dem Bereitstellen von AD RMS ursprünglich konfiguriert wurde.
 
-**Sicherung einer AD RMS bzw. AD FS-Datenbank mit Microsoft SQL Server**
+**So sichern Sie eine AD RMS-und/oder ADFS-Datenbank mit Microsoft SQL Server**
 
-1.  Melden Sie sich an den Windows Server 2012 R2 AD RMS-Datenbank-Server mit SQL 2012.
+1.  Melden Sie sich mit SQL 2012 beim Windows Server 2012 R2 AD RMS-Daten Bank Server an.
 
-2.  Klicken Sie auf **starten**, klicken Sie auf **Programme**, klicken Sie auf **Microsoft SQL Server**, und klicken Sie auf **SQL Server Management Studio**.
+2.  Klicken Sie im **Startmenü**auf **Alle Programme**, klicken Sie auf **Microsoft SQL Server**, und klicken Sie auf **SQL Server Management Studio**.
 
-3.  In der **Herstellen einer Verbindung mit Server** Fenster bestätigen, dass der Hostserver für AD RMS-Datenbanken der **Servernamen** ein, und klicken Sie auf **Connect**.
+3.  Vergewissern Sie sich im Fenster **mit Server verbinden** , dass der Server **, auf dem**die AD RMS-Datenbanken gehostet wird, im Feld **Server Name** angezeigt wird, und klicken Sie
 
-4.  Erweitern Sie **Datenbanken**. Klicken Sie mit der rechten Maustaste auf die entsprechende Datenbank (**DRMS** und **Adfs**), zeigen Sie auf **Aufgaben**, und wählen Sie **Sicherung**.
+4.  Erweitern Sie **Datenbanken**. Klicken Sie mit der rechten Maustaste auf die entsprechende Datenbank (**DRMS** und **ADFS**), zeigen Sie auf **Tasks**, und wählen Sie **Sicherung**aus.
 
-5.  Wiederholen Sie Schritt 4 für die verbleibenden Datenbanken aus.
+5.  Wiederholen Sie Schritt 4 für die verbleibenden Datenbanken.
 
-6.  Stellen Sie sicher, dass die Sicherung der Datenbanken von anderen Computern im Netzwerk oder einem Speichergerät verwenden, da sie während der Migration für die Verwendung in späteren Schritten benötigt werden, zugegriffen werden kann.
+6.  Stellen Sie sicher, dass auf die Sicherung der Datenbanken von anderen Computern im Netzwerk oder über ein Speichergerät zugegriffen werden kann, da diese für spätere Schritte während der Migration erforderlich sind.
 
-Jetzt können Sie die Kopien der Datenbank an einem sicheren Ort speichern. Denken Sie daran, Ihre Datenbanken regelmäßig sichern.
+Nun können Sie die Daten Bank Kopien an einem sicheren Speicherort speichern. Denken Sie daran, die Datenbanken häufig zu sichern.
 
-##### <a name="adding-domain-admin-sql-ad-rms-andor-adfs-service-account-to-sql-server-2016"></a>Hinzufügen von Domänen-Admins-Konto SQL, AD RMS und/oder AD FS-Dienst auf SQLServer 2016
+##### <a name="adding-domain-admin-sql-ad-rms-andor-adfs-service-account-to-sql-server-2016"></a>Hinzufügen von Domänen Administrator-, SQL-, AD RMS-und/oder ADFS-Dienst Konten zu SQL Server 2016
 
-Die folgenden Schritte aus Gerätepalette wie die verschiedenen Dienstkonten auf SQL Server 2016 zur Unterstützung beim Migrieren von Daten aus der Windows Server 2012 R2-Umgebung hinzugefügt. Dadurch erhalten die erforderlichen Berechtigungen, beim Versuch, den Zugriff auf den Inhalt und verarbeiten die Daten.
+In den folgenden Schritten wird erläutert, wie die verschiedenen Dienst Konten SQL Server 2016 hinzugefügt werden, um die Migration der Daten aus der Windows Server 2012 R2-Umgebung zu unterstützen. Dadurch erhalten Sie die richtigen Berechtigungen, wenn Sie versuchen, auf den Inhalt zuzugreifen und die Daten zu verarbeiten.
 
-**SQL-Server die Domänen-Admins, SQL, AD RMS und/oder AD FS-Dienstkonto hinzu**
+**So fügen Sie das Domänen Administrator-, SQL-, AD RMS-und/oder ADFS-Dienst Konto SQL Server**
 
-1.  Melden Sie sich an den Server mit SQL Server 2016 als das lokale Administratorkonto an.
+1.  Melden Sie sich mit SQL Server 2016 als lokales Administrator Konto beim Server an.
 
-2.  Klicken Sie auf **starten**, klicken Sie auf **Programme**, klicken Sie auf **Microsoft SQL Server**, und klicken Sie auf **SQL Server Management Studio**.
+2.  Klicken Sie im **Startmenü**auf **Alle Programme**, klicken Sie auf **Microsoft SQL Server**, und klicken Sie auf **SQL Server Management Studio**.
 
-3.  In der **Herstellen einer Verbindung mit Server** Fenster bestätigen, dass der Hostserver für AD RMS-Datenbanken der **Servernamen** und dann für die Authentifizierung klicken Sie auf das Dropdownmenü und wählen Sie **SQL Server Authentifizierung**.
+3.  Vergewissern Sie sich im Fenster **mit Server verbinden** , dass sich der Server, der die AD RMS Datenbanken gehostet, im Feld **Server Name** befindet, und klicken Sie dann zur Authentifizierung auf das Dropdown Menü, und wählen Sie **SQL Server Authentifizierung**aus.
 
-4.  In der **Anmeldung** Feld Geben Sie den Namen des lokalen Administratorkontos (z.B.) LocalAdmin), und klicken Sie dann das entsprechende Kennwort angeben, und klicken Sie auf **Connect**.
+4.  Geben Sie im Feld **Anmelde** Name den Namen des lokalen Administrator Kontos ein (Beispiel: LocalAdmin), geben Sie dann das entsprechende Kennwort ein, und klicken Sie auf **verbinden**.
 
-5.  Erweitern Sie **Sicherheit** , und klicken Sie dann mit der rechten Maustaste **Anmeldungen** , und wählen Sie **NewLogin** aus dem Kontextmenü, das angezeigt wird.
+5.  Erweitern Sie **Sicherheit** , und klicken Sie dann mit der rechten Maustaste auf **Anmeldungen** , und wählen Sie im angezeigten Kontextmenü die Option **neue Anmeldung** aus.
 
-6.  Wenn das Fenster angezeigt wird, geben Sie in das Konto "Domänen-Admins" in der **Anmeldename** Feld (z.B.) Contoso\\ContosoAdmin)
+6.  Sobald das Fenster angezeigt wird, geben Sie im Feld **Anmelde Name den Namen** des Domänen Administrator Kontos ein (Beispiel: Con\\conadsoadmin)
 
-7.  Wählen Sie im linken Navigationsbereich **Serverrollen**.
+7.  Wählen Sie im linken Navigationsbereich **Server Rollen**aus.
 
-8.  Klicken Sie dann das Kontrollkästchen für **Sysadmin** unter der Server-Rollen und auf **OK**.
+8.  Markieren Sie dann das Kontrollkästchen für **sysadmin** unter den Server Rollen, und klicken Sie auf **OK**.
 
-9.  Starten Sie neu **SQL Server-Verwaltung**.
+9.  Starten Sie **SQL Server Verwaltung**neu.
 
-10. In der **Herstellen einer Verbindung mit Server** Fenster bestätigen, dass der Hostserver für AD RMS-Datenbanken der **Servernamen** und dann für die Authentifizierung klicken Sie auf das Dropdownmenü und wählen Sie **Windows Authentifizierung** , und klicken Sie auf **Connect**.
+10. Vergewissern Sie sich im Fenster **mit Server verbinden** , dass sich der Server, der die AD RMS Datenbanken gehostet, im Feld **Server Name** befindet, und klicken Sie zur Authentifizierung auf das Dropdown Menü, und wählen Sie **Windows-Authentifizierung** **aus.**
 
-##### <a name="restoring-the-ad-rms-and-adfs-databases-to-sql-server-2016"></a>Wiederherstellen der AD RMS und AD FS-Datenbanken zu SQLServer 2016
+##### <a name="restoring-the-ad-rms-and-adfs-databases-to-sql-server-2016"></a>Wiederherstellen der AD RMS-und ADFS-Datenbanken in SQL Server 2016
 
-Die folgenden Schritte werden die Wiederherstellung von Daten aus der vorherigen SQL Server-Instanz zur neuen 2016-Instanz zu veranschaulichen. Dadurch wird die neue SQL relevante Konfigurationen für Daten aus den vorherigen AD RMS und AD FS-Datenbanken nutzen können.
+In den folgenden Schritten wird erläutert, wie die Daten aus der vorherigen SQL Server Instanz in der neuen 2016-Instanz wieder hergestellt werden. Dadurch kann das neue SQL die relevanten Konfigurationsdaten aus den vorherigen AD RMS-und AD FS-Datenbanken verwenden.
 
-**Zum Wiederherstellen der Daten aus der vorherigen SQL Server auf den neuen SQL Server**
+**So stellen Sie die Daten aus dem vorherigen SQL Server in der neuen SQL Server wieder her**
 
-1.  Melden Sie sich an den Server mit SQL Server 2016 mit dem entsprechenden Konto an.
+1.  Melden Sie sich mit dem entsprechenden Konto beim Server mit SQL Server 2016 an.
 
-2.  Klicken Sie im linken Navigationsbereich mit der Maustaste **Datenbanken** , und wählen Sie **Restore Database** um den Wiederherstellungsprozess zu starten.
+2.  Klicken Sie im linken Navigationsbereich mit der rechten Maustaste auf **Datenbanken** , und wählen Sie **Datenbank wiederherstellen** , um den Wiederherstellungs Vorgang zu starten
 
-3.  Klicken Sie unter **Quelle** wählen **Gerät** und navigieren Sie dann für den Speicherort, in dem die Datenbankdateien in den vorherigen Schritten gespeichert wurden.
+3.  Wählen Sie unter **Quelle** die Option **Gerät** aus, und suchen Sie dann nach dem Speicherort der Datenbankdateien in den vorherigen Schritten.
 
-4.  Nachdem die Dateien ausgewählt wurden, klicken Sie auf **OK**.
+4.  Nachdem Sie die Dateien ausgewählt haben, klicken Sie auf **OK**.
 
-5.  Stellen Sie sicher, dass alle Datenbankdateien hinzugefügt wurden, und schließen den Prozess, indem Sie auf **OK**.
+5.  Stellen Sie sicher, dass alle Datenbankdateien hinzugefügt wurden, und schließen Sie den Prozess ab, indem Sie auf **OK**
 
-### <a name="configuring-windows-server-2016-active-directory-federation-services-ad-fs"></a>Konfigurieren von Windows Server 2016 Active Directory-Verbunddienste (AD FS)
+### <a name="configuring-windows-server-2016-active-directory-federation-services-ad-fs"></a>Konfigurieren von Windows Server 2016 Active Directory-Verbunddienste (AD FS) (AD FS)
 
-AD FS wurde bereitgestellt, um einmaliges Anmelden (SSO) den Zugriff auf AD RMS als eine Anwendung bereitzustellen. Es wurde auch mit AD RMS Mobile Device Extension (MDE), konfiguriert die Mac- und Unterstützung für Benutzer mobiler Geräte ermöglicht.
+AD FS wurde bereitgestellt, um Single Sign-on (SSO)-Zugriff auf AD RMS als Anwendung bereitzustellen. Es wurde auch mit der AD RMS-Mobile Geräte Erweiterung (MDE) konfiguriert, die die Unterstützung von Mac-und mobilen Geräten für Endbenutzer ermöglicht.
 
-Die folgenden Abschnitte enthalten Anleitungen auf operative Aufgaben müssen Sie möglicherweise für Ihre AD FS-Bereitstellung ausführen.
+Die folgenden Abschnitte enthalten Anleitungen zu betrieblichen Aufgaben, die Sie möglicherweise für Ihre AD FS-Bereitstellung ausführen müssen.
 
-#### <a name="adding-a-2016-ad-fs-server-to-the-farm"></a>Hinzufügen eines 2016 AD FS-Servers zur Farm
+#### <a name="adding-a-2016-ad-fs-server-to-the-farm"></a>Hinzufügen eines 2016-AD FS Servers zur Farm
 
-Sie können zusätzliche AD FS-Server zur Unterstützung von AD RMS-Bereitstellung bereitstellen. Sie können zum Ausführen dieser Aktion bei stärkerer Datenverkehr zu den AD RMS-Server oder zusätzliche Anwendungen oder wenn Sie einen der Server derzeit für AD FS verwendeten außer Kraft setzen möchten.
+Sie können zusätzliche AD FS Server bereitstellen, um die AD RMS Bereitstellung zu unterstützen. Sie können diese Aktion im Falle eines größeren Datenverkehrs an die AD RMS Server oder zusätzliche Anwendungen ausführen, oder wenn Sie einen der derzeit für AD FS verwendeten Server außer Kraft setzen müssen.
 
-**Auf den 2016-AD FS-Server der Farm hinzufügen**
+**So fügen Sie der Farm 2016 AD FS Server hinzu**
 
-1.  Azure AD Connect-Server, doppelklicken klicken Sie auf die **Azure AD Connect** Symbol, um den Azure AD Connect-Assistenten zu starten.
+1.  Doppelklicken Sie auf dem Azure AD Connect Server auf das Symbol **Azure AD Connect** , um den Azure AD Connect-Assistenten zu starten.
 
-2.  Klicken Sie auf der Seite Willkommen auf **konfigurieren**.
+2.  Klicken Sie auf der Willkommensseite auf **Konfigurieren**.
 
-3.  Klicken Sie auf der Seite zusätzliche Tasks auf **weiteren Verbundserver bereitstellen** , und klicken Sie dann auf **Weiter**.
+3.  Klicken Sie auf der Seite Weitere Aufgaben auf **zusätzlichen Verbund Server** bereitstellen, und klicken Sie dann auf **weiter**.
 
-4.  Verbindung mit Azure AD-Seite herstellen, geben Sie den Benutzernamen und das Kennwort eines Kontos mit globalen Administratorberechtigungen, und klicken Sie dann auf **Weiter**.
+4.  Geben Sie auf der Seite mit Azure AD verbinden den Benutzernamen und das Kennwort eines Kontos mit globalen Administrator Berechtigungen ein, und klicken Sie dann auf **weiter**.
 
-5.  In der Seite der Domänenadministrator-Anmeldeinformationen eingeben den Benutzernamen und das Kennwort eines Kontos mit Domänen-Admins-Berechtigungen, und klicken Sie auf **Weiter**.
+5.  Geben Sie auf der Seite Domänen Administrator-Anmelde Informationen den Benutzernamen und das Kennwort eines Kontos mit Domänen Administrator Berechtigungen ein, und klicken Sie auf **weiter**.
 
-6.  Klicken Sie auf **Durchsuchen** und wählen Sie die Zertifikatdatei wird, wenn verwendet Konfigurieren von Azure AD Connect mit AD FS-Farm.
+6.  Klicken Sie auf **Durchsuchen** , und wählen Sie die Zertifikat Datei aus, die beim Konfigurieren der AD FS Azure AD Connect Farm verwendet wurde.
 
-7.  Klicken Sie auf **Geben Sie das Kennwort** das Zertifikatkennwort ein Dialogfeld zu öffnen.
+7.  Klicken Sie zum Öffnen des Dialog Felds Zertifikat Kennwort auf **Kennwort eingeben** .
 
-8.  Geben Sie das Kennwort des Zertifikats in das Feld "Kennwort", und klicken Sie dann auf **OK**.
+8.  Geben Sie im Feld Kennwort das Kennwort des Zertifikats ein, und klicken Sie dann auf **OK**.
 
 9.  Klicken Sie auf **Weiter**.
 
-10. Geben Sie auf der AD FS-Server ein, den Namen oder die IP-Adresse des neuen AD FS-Servers ein, und klicken Sie auf **hinzufügen**.
+10. Geben Sie auf der Seite AD FS Server den Namen oder die IP-Adresse des neuen AD FS Servers ein, und klicken Sie auf **Hinzufügen**.
 
-11. Die bereit für die Seite "konfigurieren", klicken Sie auf **installieren**.
+11. Klicken Sie auf der Seite bereit zur Konfiguration auf **Installieren**.
 
-12. Klicken Sie auf der Seite Installation ist abgeschlossen auf **beenden**.
+12. Klicken Sie auf der Seite Installation ist fertig auf **Beenden**.
 
-#### <a name="raising-the-adfs-farm-behavior-level"></a>Die AD FS-Farm mit Verhaltensebene auslösen
+#### <a name="raising-the-adfs-farm-behavior-level"></a>Erhöhen der Verhaltens Stufe der AD FS-Farm
 
-Wenn Sie einen ADFs-Server bereitstellen, der die aktuelle Umgebungsebene, z. B. überschreitet, müssen eine AD FS unter Windows Server 2012 R2 und klicken Sie dann auf Hinzufügen, dass eine AD FS Windows Server 2016, die Farmen mit Verhaltensebene erhöht werden müssen. Dies ist erforderlich, um sicherzustellen, dass die Umgebung die neuesten Informationen und Funktionen verwendet wird.
+Wenn Sie einen AD FS-Server bereitstellen, der die aktuelle Umgebungs Ebene überschreitet, z. b. über einen ADFS unter Windows Server 2012 R2 und anschließendes Hinzufügen eines AD FS-Windows-Servers 2016, muss die Ebene des Farm Verhaltens erhöht werden. Dies ist erforderlich, um sicherzustellen, dass die Umgebung die aktuellsten Informationen und Funktionen verwendet.
 
-**Die AD FS-Farm mit Verhaltensebene ausgelöst werden soll.**
+**So erhöhen Sie die Verhaltensebene der AD FS-Farm**
 
-1.  Navigieren Sie zu den Windows Server 2016-ADFS.
+1.  Navigieren Sie zu Windows Server 2016 ADFS.
 
 2.  Öffnen Sie eine Administrator-PowerShell-Sitzung.
 
-3.  Geben Sie den folgenden Befehl:  **\$Cred = Get-Credential**
+3.  Geben Sie den folgenden Befehl ein: **\$-ID = Get-Credential** .
 
-4.  Geben Sie mit der ein Fenster wird angezeigt, in der die Anmeldeinformationen in den Anmeldeinformationen von Domänenadministratoren.
+4.  Ein Fenster wird angezeigt, in dem Sie zur Eingabe von Anmelde Informationen aufgefordert werden.
 
-5.  Geben Sie dann diesen Befehl aus: **Invoke-AdfsFarmBehaviorLevelRaise -Credential \$cred**
+5.  Geben Sie dann den folgenden Befehl ein: " **aufrufen-adfsfarmverhalorlevelraise-Credential \$** ".
 
-6.  Eine Aufforderung erscheint werden Sie gefragt: **möchten Sie den Vorgang fortsetzen?** Geben Sie dann **eine** , akzeptieren die Eingabeaufforderung.
+6.  Es wird eine Eingabeaufforderung mit der Frage angezeigt. möchten **Sie den Vorgang fortsetzen?** Geben Sie dann **ein ein** , um die Aufforderung zu akzeptieren.
 
-7.  Nachdem der Befehl abgeschlossen ist, wird die Farmen mit Verhaltensebene eingerichtet werden und bereit sind.
+7.  Nachdem der Befehl abgeschlossen wurde, wird die Farm Verhaltensebene eingerichtet und ist bereit.
 
-#### <a name="enabling-mobile-device-extension-logging"></a>Aktivieren der Protokollierung für Mobile Geräte-Erweiterung
+#### <a name="enabling-mobile-device-extension-logging"></a>Aktivieren der Protokollierung der mobilen Geräte Erweiterung
 
-Die Erweiterung für Mobile Geräte können Anforderungen protokollieren, die Empfang von Endbenutzergeräten. Protokollierung ist standardmäßig deaktiviert, und es wird empfohlen, nur Aktivieren der Protokollierung, die zur Problembehandlung. Alle Anforderungen von mobilen Geräten und Desktopcomputern, bootstrap, oder erwerben einer Lizenz für die Endbenutzer werden in der Datenbank für AD RMS-Protokollierung oder Azure Storage-Konto protokolliert. MDE-Protokollierung erstellt zwei weitere Tabellen mit der SQL Server mithilfe von AD RMS verwendet: den Client zu debuggen, Tabelle und der Client-Performance-Protokolltabelle.
+Mit der Erweiterung für mobile Geräte können von Endbenutzer Geräten empfangene Anforderungen protokolliert werden. Die Protokollierung ist standardmäßig deaktiviert. es wird empfohlen, die Protokollierung nur in einem Problem Behandlungs Szenario zu aktivieren Alle Anforderungen von mobilen Geräten und Desktop Computern zum Bootstrapping oder zum Erwerb einer Endbenutzer Lizenz werden in der AD RMS Protokollierungs Datenbank oder im Azure Storage-Konto protokolliert. Die MDE-Protokollierung erstellt zwei zusätzliche Tabellen für die SQL Server, die von AD RMS verwendet werden: die Client-Debug-Protokoll Tabelle und die Client Leistungs Protokoll-Tabelle.
 
-**Zum Aktivieren der Protokollierung der Erweiterung für Mobile Geräte**
+**So aktivieren Sie die Protokollierung mobiler Geräte**
 
-1.  Öffnen Sie in einem AD RMS-Server Windows PowerShell als Administrator aus.
+1.  Öffnen Sie auf einem AD RMS Server Windows PowerShell als Administrator.
 
-2.  Geben Sie den folgenden Befehl und drücken Sie **EINGABETASTE**: **Import-Module AdRmsAdmin**
+2.  Geben Sie den folgenden Befehl ein, und drücken **Sie die Eingabe**Taste: **Import-Module ADRMSADMIN** .
 
-3.  Geben Sie den folgenden Befehl und drücken Sie **EINGABETASTE**: **New-PSDrive-Namen AdrmsCluster - PsProvider AdRmsAdmin-Stamm https://localhost**
+3.  Geben Sie den folgenden Befehl ein, und drücken **Sie die Eingabe**Taste: **New-PSDrive-Name adrmscluster-psprovider ADRMSADMIN-root https://localhost**
 
-4.  Geben Sie den folgenden Befehl und drücken Sie **EINGABETASTE**: **Set-ItemProperty-Path AdrmsCluster:\\ -IsLoggingEnabled von Name-Wert \$"true"**
+4.  Geben Sie den folgenden Befehl ein, und drücken **Sie die Eingabe**Taste: **Set-ItemProperty-Path adrmscluester:\\-Name isloggingenabled-Value \$true**
 
-Wenn Sie für die Problembehandlung MDE-Protokollierung verwenden, wird empfohlen, sie nach Behebung des Problems zu deaktivieren.
+Wenn Sie die MDE-Protokollierung für die Problembehandlung verwenden, empfiehlt es sich, diese nach der Behebung des Problems zu deaktivieren.
 
-**Zum Deaktivieren der Protokollierung der Erweiterung für Mobile Geräte**
+**So deaktivieren Sie die Protokollierung der mobilen Geräte Erweiterung**
 
-1.  Öffnen Sie in einem AD RMS-Server Windows PowerShell als Administrator aus.
+1.  Öffnen Sie auf einem AD RMS Server Windows PowerShell als Administrator.
 
-2.  Geben Sie den folgenden Befehl und drücken Sie **EINGABETASTE**: **Import-Module AdRmsAdmin**
+2.  Geben Sie den folgenden Befehl ein, und drücken **Sie die Eingabe**Taste: **Import-Module ADRMSADMIN** .
 
-3.  Geben Sie den folgenden Befehl und drücken Sie **EINGABETASTE**: **New-PSDrive-Namen AdrmsCluster - PsProvider AdRmsAdmin-Stamm https://localhost**
+3.  Geben Sie den folgenden Befehl ein, und drücken **Sie die Eingabe**Taste: **New-PSDrive-Name adrmscluster-psprovider ADRMSADMIN-root https://localhost**
 
-4.  Geben Sie den folgenden Befehl und drücken Sie **EINGABETASTE**: **Set-ItemProperty-Path AdrmsCluster:\\ -IsLoggingEnabled von Name-Wert \$"false"**
+4.  Geben Sie den folgenden Befehl ein, und drücken **Sie die Eingabe**Taste: **Set-ItemProperty-Path adrmscluester:\\-Name isloggingenabled-Value \$false**
 
-### <a name="upgrading-ad-rms-to-windows-server-2016"></a>Aktualisieren von AD RMS auf WindowsServer 2016
+### <a name="upgrading-ad-rms-to-windows-server-2016"></a>Aktualisieren von AD RMS auf Windows Server 2016
 
-Die folgenden Abschnitte enthalten Anleitungen zum Hinzufügen einer Windows Server 2016-basierten AD RMS-Server in der aktuellen Windows Server 2012 R2-Cluster. Der Server wird mit dem Cluster hinzugefügt werden, und die Informationen werden darin repliziert werden, so, dass der vorherige AD RMS-Server als veraltet markiert werden kann, um Ressourcen freizugeben.
+Die folgenden Abschnitte enthalten Anleitungen zum Hinzufügen eines Windows Server 2016-basierten AD RMS Servers zum aktuellen Windows Server 2012 R2-Cluster. Der Server wird dem Cluster hinzugefügt, und die Informationen werden darauf repliziert, sodass der vorherige AD RMS Server als veraltet markiert werden kann, um Ressourcen freizugeben.
 
-Nachdem Sie eines, die Ihre AD RMS-Cluster Windows Server 2016-basierten AD RMS-Server hinzugefügt wurde hinzufügen, werden alle Knoten, die unter älteren Versionen von Windows nach inaktiv. Anschließend können Sie diese Server (z. B. Herunterfahren, wiederverwenden oder mit Windows Server 2016 auf dem AD RMS-Cluster beitreten neu installieren müssen) Bereitstellung aufheben. 
+Nachdem Sie einen Windows Server 2016-basierten AD RMS Server hinzugefügt haben, der dem AD RMS Cluster hinzugefügt wurde, werden alle Knoten, die auf älteren Versionen von Windows basieren, inaktiv. Anschließend können Sie die Bereitstellung dieser Server aufheben (z. b. Herunterfahren, neu zuweisen oder mit Windows Server 2016 neu installieren, um dem AD RMS Cluster beizutreten). 
 
-Sie können zusätzliche AD RMS-Server bereitstellen, mit dem Cluster, um die Last auf Ihrem AD RMS-Bereitstellung zu unterstützen. Sie können auch zum Ausführen dieser Aktion bei stärkerer Datenverkehr zu den AD RMS-Server auswählen.
+Sie können zusätzliche AD RMS Server für den Cluster bereitstellen, um die Auslastung Ihrer AD RMS-Bereitstellung zu unterstützen. Sie können diese Aktion auch ausführen, wenn Sie den Datenverkehr an die AD RMS Server erhöhen.
 
-Dieses Handbuch behandelt nicht, die erforderlichen Schritte zum Ändern des Lastenausgleich Mechanismen, die Sie möglicherweise in Ihrer Umgebung verwenden auf die Servern zu ausschließen, die Sie als veraltet markiert werden und die einzuschließen, die Sie mit dem Cluster hinzufügen. 
+Dieses Handbuch behandelt nicht die Schritte, die zum Ändern der in Ihrer Umgebung verwendeten Lasten Ausgleichsmechanismen erforderlich sind, um die von Ihnen veralteten Server auszuschließen und diejenigen einzuschließen, die Sie dem Cluster hinzufügen. 
 
-#### <a name="adding-a-2016-ad-rms-server"></a>Hinzufügen eines 2016 AD RMS-Servers
+#### <a name="adding-a-2016-ad-rms-server"></a>Hinzufügen eines 2016-AD RMS Servers
 
-Wenn Ihr AD RMS-Cluster ein Hardwaresicherheitsmodul statt einem zentral verwalteten Schlüssel für die Lizenzgebenden Serverzertifikats verwendet wird, müssen Sie die Software und andere HSM-Artefakte (z. B. Schlüssel und die Sendeaktivität-Dateien) auf dem Server zu installieren, bevor die Installation von AD RMS. Sie müssen auch das HSM auf dem Server, entweder physisch oder über die Konfigurationen im relevanten Netzwerk zu verbinden. Führen Sie die HSM-Prozessleitfaden für die folgenden Schritte aus. 
+Wenn Ihr AD RMS Cluster ein Hardware Sicherheitsmodul anstelle eines zentral verwalteten Schlüssels für das Lizenzgeber Zertifikat eines Servers verwendet, müssen Sie die Software und andere HSM-Artefakte (z. b. Schlüssel-und Konfigurationsdateien) auf dem Server installieren, bevor Sie AD RMS installieren. Außerdem müssen Sie das HSM entweder physisch oder über die relevanten Netzwerkkonfigurationen mit dem Server verbinden. Befolgen Sie die Anleitung zum HSM für diese Schritte. 
 
-**Hinzufügen eines 2016 AD RMS-Servers**
+**So fügen Sie einen 2016-AD RMS Server hinzu**
 
-1.  Installieren Sie die AD RMS-Serverrolle, auf die gewünschte Windows Server 2016-Bereitstellung.
+1.  Installieren Sie die AD RMS Rolle auf der gewünschten Windows Server 2016-Bereitstellung.
 
-2.  Nach Abschluss der Installation wählen Sie den Link, um **zusätzliche Einstellungen konfigurieren**.
+2.  Nachdem die Installation abgeschlossen ist, klicken Sie auf den Link, um **zusätzliche Konfigurationen auszuführen**.
 
-3.  Wählen Sie **beitreten zu einem vorhandenen AD RMS-Cluster** , und klicken Sie auf **Weiter**.
+3.  Wählen Sie **vorhandenen AD RMS Cluster beitreten** aus, und klicken Sie auf **weiter**.
 
-4.  Auf der **Konfigurationsdatenbank wählen** geben den CNAME-Eintrag im DNS für den 2016 SQLServer (FQDN) angegeben.
+4.  Geben Sie auf der Seite **Konfigurations Datenbank auswählen** den in DNS für den 2016 SQL Server (vollständig) angegebenen CNAME-Namen ein.
 
-5.  Klicken Sie auf **Liste** auf der zweiten Zeile und wählen die **DefaultInstance** aus der Dropdownliste aus.
+5.  Klicken Sie in der zweiten Zeile auf Liste, und wählen Sie in der Dropdown **Liste** den **Eintrag defaultinstance** aus.
 
-6.  Klicken Sie unter **Name der Standardkonfigurationsdatenbank**, wählen Sie im Dropdown-Menü, und wählen Sie die DRMS-Konfiguration, die angezeigt wird. Klicken Sie dann auf **Weiter**.
+6.  Wählen Sie unter **Name der Konfigurations Datenbank**das Dropdown Menü aus, und wählen Sie die angezeigte DRMS-Konfiguration aus. Klicken Sie dann auf **Weiter**.
 
-7.  Auf der **Datenbankinformationen** geben das Clusterschlüsselkennwort in das dafür vorgesehene Feld. Klicken Sie danach auf **Weiter**.
+7.  Geben Sie auf der Seite **Datenbankinformationen** das Cluster Schlüssel Kennwort in das angegebene Feld ein. Klicken Sie danach auf **weiter**.
 
-8.  In der nächsten Seite des Assistenten geben Sie den AD RMS-Dienstkonto, und geben Sie das Kennwort dafür, und klicken Sie auf **Weiter** Nachdem sie überprüft wurde.
+8.  Geben Sie auf der nächsten Seite des Assistenten das AD RMS Dienst Konto an, geben Sie das Kennwort für das Konto an, und klicken Sie dann auf **weiter** , sobald es überprüft wurde.
 
-9.  Sobald die **Clusterwebsite** Seite angezeigt wird, einfach sicherstellen, dass die entsprechende Website ausgewählt wurde, und klicken Sie auf **Weiter**.
+9.  Nachdem die Seite **Cluster Website** angezeigt wird, stellen Sie einfach sicher, dass die entsprechende Website ausgewählt ist, und klicken Sie auf **weiter**.
 
-10. Auf der **wählen Sie ein Serverauthentifizierungszertifikat** Seite, wählen Sie das importierte SSL-Zertifikat aus, und klicken Sie auf **Weiter**.
+10. Wählen Sie auf der Seite **Server Authentifizierungszertifikat auswählen** das importierte SSL-Zertifikat aus, und klicken Sie auf **weiter**.
 
 11. Klicken Sie auf **Installieren**, um die Installation zu starten.
 
-12. Nach der Konfiguration abgeschlossen ist, müssen Sie sich ab- und wieder anmelden, um AD RMS verwalten.
+12. Nachdem die Konfiguration abgeschlossen ist, müssen Sie sich ab-und wieder anmelden, um AD RMS zu verwalten.
 
-13. Öffnen Sie nach der Anmeldung Back **Server-Manager** wählen **Tools** und dann **Active Directory Rights Management**. Das Fenster "Verwaltung" angezeigt werden soll, und um anzugeben, dass der Cluster die zusätzlichen Server im Cluster verfügt.
+13. Nachdem Sie sich wieder angemeldet haben, öffnen Sie **Server-Manager** **Tools** auswählen und **Active Directory Rights Management**. Das Fenster "Verwaltung" sollte angezeigt werden und angeben, dass der Cluster über den zusätzlichen Server im Cluster verfügt.
 
-14. Wenn die AD RMS-Erweiterung für Mobile Geräte in der ursprünglichen AD RMS-Cluster installiert wurde, müssen Sie auch MDE in den aktualisierten Clusterknoten installiert werden. Folgen Sie den Anweisungen in der Dokumentation zu MDE MDE Ihrer AD RMS-Cluster hinzu. An diesem Punkt können alle bereits vorhandenen Knoten wiederverwenden oder ein upgrade auf Windows Server 2016 und verknüpfen Sie sie erneut mit AD RMS-Clusters mit dem oben beschriebenen Verfahren. 
+14. Wenn die AD RMS Mobile-Geräte Erweiterung im ursprünglichen AD RMS-Cluster installiert wurde, müssen Sie auch die MDE in den aktualisierten Cluster Knoten installieren. Befolgen Sie die Anweisungen in der MDE-Dokumentation, um MDE zu Ihrem AD RMS Cluster hinzuzufügen. An diesem Punkt können Sie alle bereits vorhandenen Knoten wieder verwenden oder Sie auf Windows Server 2016 aktualisieren und mit dem oben beschriebenen Prozess erneut mit dem AD RMS Cluster verknüpfen. 
 
-### <a name="configuring-windows-server-2016-web-application-proxy-wap"></a>Konfigurieren von Windows Server 2016-Webanwendungsproxy (WAP)
+### <a name="configuring-windows-server-2016-web-application-proxy-wap"></a>Konfigurieren von Windows Server 2016-webanwendungsproxy (WAP)
 
-Die folgenden Abschnitte enthalten Anleitungen auf operative Aufgaben, die Sie möglicherweise auf Ihre Web Application Proxy-Bereitstellung vornehmen müssen. Dies ist ein optionaler Schritt, nicht erforderlich, wenn Sie AD RMS auf andere Art mit dem Internet veröffentlichen. 
+Die folgenden Abschnitte enthalten Anleitungen zu betrieblichen Aufgaben, die Sie möglicherweise für die Bereitstellung des webanwendungsproxys ausführen müssen. Dies ist ein optionaler Schritt, der nicht erforderlich ist, wenn Sie AD RMS über andere Mechanismen im Internet veröffentlichen. 
 
 #### <a name="adding-a-windows-server-2016-wap-server"></a>Hinzufügen eines Windows Server 2016-WAP-Servers
 
-Sie können die zusätzlichen Webanwendungs-Proxyserver zur Unterstützung von AD RMS-Bereitstellung bereitstellen. Sie können zum Durchführen dieser Aktion im Fall von stärkerer Datenverkehr zu den AD RMS-Server oder wenn Sie einen der Server wird derzeit für den Webanwendungsproxy verwendet außer Kraft setzen müssen.
+Sie können zusätzliche webanwendungsproxy-Server zur Unterstützung der AD RMS Bereitstellung bereitstellen Sie können diese Aktion im Falle eines größeren Datenverkehrs an die AD RMS Server ausführen, oder wenn Sie einen der derzeit für den webanwendungsproxy verwendeten Server außer Kraft setzen müssen.
 
-**Hinzufügen eines 2016 Webanwendungsproxy-Servers**
+**So fügen Sie einen 2016-webanwendungsproxy**
 
-1.  Vom Server Sie Setup als Webanwendungs-Proxyserver möchten, navigieren Sie zu der Server-Manager-Konsole, und klicken Sie auf **Rollen und Features hinzufügen**.
+1.  Navigieren Sie auf dem Server, den Sie als webanwendungsproxy einrichten möchten, zur Server-Manager Konsole, und klicken Sie auf **Rollen und Features hinzufügen**.
 
-2.  In der **Hinzufügen von Rollen und Features Assistenten**, klicken Sie auf **Weiter** bis Sie auf dem Auswahlbildschirm des Server-Rolle.
+2.  Klicken Sie im **Assistenten zum Hinzufügen von Rollen und Features**auf **weiter** , bis Sie zum Bildschirm Server Rollenauswahl gelangen.
 
-3.  Wählen Sie auf der Seite Serverrollen auswählen **RAS**, und klicken Sie dann auf **Weiter** bis Sie wieder auf dem Bildschirm Serverrollen auswählen können.
+3.  Wählen Sie auf dem Bildschirm Server Rollen auswählen die Option **Remote Zugriff**aus, und klicken Sie dann auf **weiter** , bis Sie sich wieder auf dem Bildschirm Server Rollen auswählen befinden.
 
-4.  Wählen Sie auf der Seite Serverrollen auswählen **Web Application Proxy**, klicken Sie auf **Features hinzufügen**, und klicken Sie dann auf **Weiter**.
+4.  Wählen Sie im Bildschirm Server Rollen auswählen die Option **webanwendungsproxy**aus, klicken Sie auf **Features hinzufügen**und dann auf **weiter**.
 
-5.  Klicken Sie auf dem Bildschirm "Installationsauswahl bestätigen" auf **installieren**.
+5.  Klicken Sie auf dem Bildschirm Installations Auswahl bestätigen auf **Installieren**.
 
-6.  Nachdem die Installation abgeschlossen ist, klicken Sie auf **schließen**.
+6.  Klicken Sie nach Abschluss der Installation auf **Schließen**.
 
-7.  Jetzt ist es Zeit für den Server zu konfigurieren. Zu diesem Zweck öffnen Sie die Remotezugriffs-Verwaltungskonsole auf dem Webanwendungsproxy-Server. Öffnen der **starten** Menü, Typ **RAMgmtUI.exe**, und wählen Sie dann die Anwendung.
+7.  Nun ist es an der Zeit, den Server zu konfigurieren. Öffnen Sie hierzu die Remote Zugriffs-Verwaltungskonsole auf dem webanwendungsproxy-Server. Öffnen Sie das **Startmenü** , geben Sie **ramgmtui. exe**ein, und wählen Sie dann die Anwendung aus.
 
-8.  Klicken Sie im Navigationsbereich auf **Web Application Proxy**.
+8.  Klicken Sie im Navigationsbereich auf **Webanwendungsproxy**.
 
-9.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole auf **führen Sie die Web Application Proxy-Konfigurationsassistenten**. Einmal klicken Sie im Assistenten auf **Weiter**.
+9.  Klicken Sie in der Remote Zugriffs-Verwaltungskonsole auf **Assistent zum Konfigurieren des webanwendungsproxy ausführen**. Klicken Sie im Assistenten auf **weiter**.
 
-10. Geben Sie den vollqualifizierten Domänennamen des AD FS-Servers (ex, auf dem Verbundserver-Bildschirm "ADFS.contoso.com"), und geben Sie Anmeldeinformationen für einen Administrator auf dem AD FS-Server.
+10. Geben Sie auf dem Bildschirm Verbund Server den voll qualifizierten Domänen Namen des AD FS Servers ein (z. ADFS.contoso.com), und geben Sie dann Anmelde Informationen für einen Administrator auf dem AD FS Server ein.
 
-11. Wählen Sie auf dem Bildschirm "AD FS-Proxyzertifikat" in der Liste der derzeit auf dem Webanwendungsproxy-Server installierten Zertifikate ein Zertifikat vom Webanwendungsproxy für AD FS-Proxy verwendet werden, und klicken Sie dann auf **Weiter**.
+11. Wählen Sie auf dem Bildschirm AD FS Proxy Zertifikat in der Liste der derzeit auf dem webanwendungsproxy-Server installierten Zertifikate ein Zertifikat aus, das vom webanwendungsproxy für AD FS Proxy verwendet werden soll, und klicken Sie dann auf **weiter**.
 
-12. Klicken Sie auf dem Bestätigungsbildschirm, überprüfen Sie die Einstellungen, und klicken Sie auf **konfigurieren**.
+12. Überprüfen Sie auf dem Bestätigungsbildschirm die Einstellungen, und klicken Sie dann auf **Konfigurieren**.
 
-13. Nachdem die Konfiguration abgeschlossen ist, klicken Sie auf **schließen**.
+13. Nachdem die Konfiguration abgeschlossen ist, klicken Sie auf **Schließen**.
 
-#### <a name="dns-configuration-for-2016-wap-server"></a>DNS-Konfiguration für 2016-WAP-Servers
+#### <a name="dns-configuration-for-2016-wap-server"></a>DNS-Konfiguration für 2016-WAP-Server
 
-Sobald der Windows Server 2016-Webanwendungsproxy-Server direktes abgelegten müssen einige DNS-Änderungen vorgenommen werden. Dies erfordert, dass ein Dienst z. B. GoDaddy, zeigen Sie die AD FS und AD RMS-Dienste auf dem WAP-Server 2016 verwenden.
+Nachdem der Windows Server 2016-webanwendungsproxy-Server eingerichtet wurde, müssen einige DNS-Änderungen vorgenommen werden. Hierfür muss ein Dienst wie GoDaddy verwendet werden, um die AD FS-und AD RMS Dienste auf dem 2016-WAP-Server zu verweisen.
 
-**Um das DNS auf dem WAP-Server zu verweisen**
+**So zeigen Sie den DNS auf dem WAP-Server an**
 
-1.  Navigieren Sie zur Ihres Anbieters-Website (z. b. GoDaddy).
+1.  Navigieren Sie zur Website Ihres Anbieters (z. GoDaddy).
 
-2.  Wechseln Sie zur Domänenverwaltung, und klicken Sie dann DNS-Verwaltung.
+2.  Wechseln Sie zur Domänen Verwaltung und dann zu DNS-Verwaltung.
 
-3.  Suchen Sie den AD FS und AD RMS-Dienst, und Ersetzen Sie die **verweist auf** Teil mit der öffentlichen IP-Adresse des 2016 WAP-Servers und **speichern**.
+3.  Suchen Sie nach den ADFS-und AD RMS Dienst, und ersetzen Sie die Punkte durch die öffentliche IP-Adresse des 2016 WAP-Servers, und **Speichern** **Sie Sie** .
 
-4.  Die Änderungen dauern verteilt werden, aber sobald sie dies getan haben dieses Setup nicht abgeschlossen.
+4.  Die Weitergabe der Änderungen kann einige Zeit in Anspruch nehmen, aber sobald diese abgeschlossen ist, wird das Setup abgeschlossen.
 
-#### <a name="enabling-debugging-logs"></a>Aktivieren der Debug-Protokolle
+#### <a name="enabling-debugging-logs"></a>Aktivieren von Debugprotokollen
 
-Detaillierte Protokollinformationen ist auf den Webanwendungsproxy-Servern verfügbar. Sie können die erweiterten Debug-Protokollierung mithilfe der Ereignisanzeige konfigurieren. Zusätzliche Einstellungen können auch ausgewählt werden für die Größe der Protokolle, um sicherzustellen, dass die Analyse in der Ereignisanzeige nützlich sind.
+Detaillierte Protokollierungs Informationen sind auf den webanwendungsproxy-Servern verfügbar. Sie können die Erweiterte Debugprotokollierung mithilfe des Ereignisanzeige konfigurieren. Weitere Einstellungen können auch für die Größe der Protokolle ausgewählt werden, um sicherzustellen, dass die Analyse für den Viewer hilfreich ist.
 
-**Aktivieren Debuggen Protokolle für den Webanwendungsproxy**
+**Aktivieren von Debugprotokollen für webanwendungsproxy**
 
-1.  Öffnen der **Ereignisanzeige** -Konsole auf den Webanwendungsproxy.
+1.  Öffnen Sie die **Ereignisanzeige** -Konsole auf dem webanwendungsproxy.
 
-2.  Erweitern Sie die **Microsoft** Knoten.
+2.  Erweitern Sie den Knoten **Microsoft** .
 
-3.  Erweitern Sie die **Windows** Knoten.
+3.  Erweitern Sie den Knoten **Windows** .
 
-4.  Öffnen der **Web Application Proxy** Protokolle.
+4.  Öffnen Sie die **webanwendungsproxy** -Protokolle.
 
-5.  Sie werden dann in der Lage sind, öffnen Sie die **Admin** Protokolle.
+5.  Sie werden dann in der Lage sein, die **Administrator** Protokolle zu öffnen.
 
-6.  Öffnen der **Aktion** Menü befindet sich in der oberen linken Ecke, und wählen **Eigenschaften**.
+6.  Öffnen Sie das Menü **Aktion** in der oberen linken Ecke, und wählen Sie **Eigenschaften**aus.
 
-7.  Unter den **allgemeine** Registerkarte, wählen Sie die Option **Aktivieren der Protokollierung**.
+7.  Wählen Sie auf der Registerkarte **Allgemein** die Option zum **Aktivieren der Protokollierung**aus.
 
-8.  Schließlich können Sie sich zum Anpassen der maximalen Dateigröße und was geschieht, wenn die Maximalgröße des Ereignisprotokolls erreicht wird.
+8.  Schließlich können Sie die maximale Protokoll Größe anpassen und was passiert, wenn die maximale Ereignisprotokoll Größe erreicht wird.
 
-### <a name="configuring-high-availability-for-windows-server-2016-services"></a>Konfigurieren der hohen Verfügbarkeit für Windows Server 2016-Dienste
+### <a name="configuring-high-availability-for-windows-server-2016-services"></a>Konfigurieren von Hochverfügbarkeit für Windows Server 2016-Dienste
 
-Die folgenden Abschnitte enthalten Anleitungen auf operative Aufgaben, die Sie möglicherweise Ihre Windows Server 2016-Umgebung hochverfügbarkeit einrichten müssen.
+Die folgenden Abschnitte enthalten Anleitungen zu betrieblichen Aufgaben, die möglicherweise erforderlich sind, um Ihre Windows Server 2016-Umgebung in Hochverfügbarkeit einzurichten.
 
-#### <a name="adding-a-2016-ad-rms-server-for-high-availability"></a>Hinzufügen eines 2016 AD RMS-Servers für hohe Verfügbarkeit
+#### <a name="adding-a-2016-ad-rms-server-for-high-availability"></a>Hinzufügen eines 2016-AD RMS Servers für hohe Verfügbarkeit
 
-Sie können zusätzliche AD RMS-Server zum Einrichten von Hochverfügbarkeit bereitstellen. Sie können auswählen, zum Ausführen dieser Aktion bei stärkerer Datenverkehr zu den AD RMS-Server.
+Sie können zusätzliche AD RMS Server bereitstellen, um Hochverfügbarkeit einzurichten. Sie können diese Aktion im Fall von erhöhtem Datenverkehr zu den AD RMS Servern ausführen.
 
-**Hinzufügen einen 2016 AD RMS-Server für hohe Verfügbarkeit**
+**So fügen Sie einen 2016-AD RMS Server für hohe Verfügbarkeit hinzu**
 
-1.  Installieren Sie die AD RMS-Serverrolle, auf die gewünschte Windows Server 2016-Bereitstellung.
+1.  Installieren Sie die AD RMS Rolle auf der gewünschten Windows Server 2016-Bereitstellung.
 
-2.  Nach Abschluss der Installation wählen Sie den Link, um **zusätzliche Einstellungen konfigurieren**.
+2.  Nachdem die Installation abgeschlossen ist, klicken Sie auf den Link, um **zusätzliche Konfigurationen auszuführen**.
 
-3.  Wählen Sie **beitreten zu einem vorhandenen AD RMS-Cluster** , und klicken Sie auf **Weiter**.
+3.  Wählen Sie **vorhandenen AD RMS Cluster beitreten** aus, und klicken Sie auf **weiter**.
 
-4.  Auf der **Konfigurationsdatenbank wählen** geben den CNAME-Eintrag im DNS für den 2016 SQLServer (FQDN) angegeben.
+4.  Geben Sie auf der Seite **Konfigurations Datenbank auswählen** den in DNS für den 2016 SQL Server (vollständig) angegebenen CNAME-Namen ein.
 
-5.  Klicken Sie auf **Liste** auf der zweiten Zeile und wählen die **DefaultInstance** aus der Dropdownliste aus.
+5.  Klicken Sie in der zweiten Zeile auf Liste, und wählen Sie in der Dropdown **Liste** den **Eintrag defaultinstance** aus.
 
-6.  Klicken Sie unter **Name der Standardkonfigurationsdatenbank**, wählen Sie im Dropdown-Menü, und wählen Sie die DRMS-Konfiguration, die angezeigt wird. Klicken Sie dann auf **Weiter**.
+6.  Wählen Sie unter **Name der Konfigurations Datenbank**das Dropdown Menü aus, und wählen Sie die angezeigte DRMS-Konfiguration aus. Klicken Sie dann auf **Weiter**.
 
-7.  Auf der **Datenbankinformationen** geben das Clusterschlüsselkennwort in das dafür vorgesehene Feld. Klicken Sie danach auf **Weiter**.
+7.  Geben Sie auf der Seite **Datenbankinformationen** das Cluster Schlüssel Kennwort in das angegebene Feld ein. Klicken Sie danach auf **weiter**.
 
-8.  In der nächsten Seite des Assistenten geben Sie den AD RMS-Dienstkonto, und geben Sie das Kennwort dafür, und klicken Sie auf **Weiter** Nachdem sie überprüft wurde.
+8.  Geben Sie auf der nächsten Seite des Assistenten das AD RMS Dienst Konto an, geben Sie das Kennwort für das Konto an, und klicken Sie dann auf **weiter** , sobald es überprüft wurde.
 
-9.  Sobald die **Clusterwebsite** Seite angezeigt wird, einfach sicherstellen, dass die entsprechende Website ausgewählt wurde, und klicken Sie auf **Weiter**.
+9.  Nachdem die Seite **Cluster Website** angezeigt wird, stellen Sie einfach sicher, dass die entsprechende Website ausgewählt ist, und klicken Sie auf **weiter**.
 
-10. Auf der **wählen Sie ein Serverauthentifizierungszertifikat** Seite, wählen Sie das importierte SSL-Zertifikat aus, und klicken Sie auf **Weiter**.
+10. Wählen Sie auf der Seite **Server Authentifizierungszertifikat auswählen** das importierte SSL-Zertifikat aus, und klicken Sie auf **weiter**.
 
 11. Klicken Sie auf **Installieren**, um die Installation zu starten.
 
-12. Nach der Konfiguration abgeschlossen ist, müssen Sie sich ab- und wieder anmelden, um AD RMS verwalten.
+12. Nachdem die Konfiguration abgeschlossen ist, müssen Sie sich ab-und wieder anmelden, um AD RMS zu verwalten.
 
-13. Öffnen Sie nach der Anmeldung Back **Server-Manager** wählen **Tools** und dann **Active Directory Rights Management**. Das Fenster "Verwaltung" angezeigt werden soll, und um anzugeben, dass der Cluster die zusätzlichen Server im Cluster verfügt.
+13. Nachdem Sie sich wieder angemeldet haben, öffnen Sie **Server-Manager** **Tools** auswählen und **Active Directory Rights Management**. Das Fenster "Verwaltung" sollte angezeigt werden und angeben, dass der Cluster über den zusätzlichen Server im Cluster verfügt.
 
-14. Nach der Bestätigung des Server-Setups, können konfigurieren Sie den Lastenausgleich-Dienst für den Lastenausgleich zwischen den anderen AD RMS-Servern im Cluster.
+14. Nachdem Sie die Server Einrichtung bestätigt haben, konfigurieren Sie den Lasten Ausgleichs Dienst, um die Last zwischen den verschiedenen AD RMS Servern im Cluster auszugleichen.
 
 #### <a name="adding-a-windows-server-2016-ad-fs-server-for-high-availability"></a>Hinzufügen eines Windows Server 2016 AD FS-Servers für hohe Verfügbarkeit
 
-Sie können zusätzliche AD FS-Server zum Einrichten von Hochverfügbarkeit bereitstellen. Sie können auswählen, um diese Aktion bei stärkerer Datenverkehr zu den AD FS-Servern auszuführen. **Hinweis: nach dem Auslösen der Farmen mit verhaltensebene, ein neuen Datenbankeintrag eingegeben werden in den SQL Server 2016 (Adfs Configv3), und die alte Konfigurationsdatenbank muss gelöscht werden, bevor Sie mit den folgenden Schritten fortfahren.**
+Sie können zusätzliche AD FS Server bereitstellen, um Hochverfügbarkeit einzurichten. Sie können diese Aktion im Fall von erhöhtem Datenverkehr zu den AD FS Servern ausführen. **Hinweis: nach dem erhöhen der Farm Verhaltensebene wird ein neuer Datenbankeintrag in den SQL Server 2016 (ADFS Configv3) eingegeben, und die alte Konfigurations Datenbank muss gelöscht werden, bevor Sie mit diesen Schritten fortfahren können.**
 
-**Hinzufügen von Windows Server 2016 AD FS-Server für hohe Verfügbarkeit**
+**So fügen Sie Windows Server 2016 AD FS Server für hohe Verfügbarkeit hinzu**
 
-1.  Installieren Sie die AD RMS-Serverrolle, auf die gewünschte Windows Server 2016-Bereitstellung.
+1.  Installieren Sie die AD RMS Rolle auf der gewünschten Windows Server 2016-Bereitstellung.
 
-2.  Nach Abschluss der Installation wählen Sie den Link, um **konfigurieren Sie den Verbunddienst auf diesem Server**.
+2.  Nachdem die Installation abgeschlossen ist, wählen Sie den Link zum **Konfigurieren des Verbund Dienstanbieter auf diesem Server aus**.
 
-3.  Wählen Sie im Abschnitt Willkommen des Assistenten die Option zum **Hinzufügen eines Verbundservers zu einer Verbundserverfarm** , und klicken Sie dann auf **Weiter**.
+3.  Wählen Sie im Abschnitt Willkommen des Assistenten die Option zum **Hinzufügen eines Verbund Servers zu einer Verbund Serverfarm** aus, und klicken Sie dann auf **weiter**.
 
-4.  Geben Sie das richtige Administratorkonto ein, und klicken Sie auf **Weiter**.
+4.  Geben Sie das richtige Administrator Konto an, und klicken Sie auf **weiter**.
 
-5.  Auf der **Farm angeben** Seite, wählen Sie die **Geben Sie an der Datenbank für eine vorhandene Farm mithilfe von SQL Server** dann geben Sie den CNAME-Eintrag für den SQL-Dienst für den Hostnamen für die Datenbank, und klicken Sie auf **Weiter**.
+5.  Wählen Sie auf der Seite **Farm angeben** den **Speicherort der Datenbank für eine vorhandene Farm mit aus SQL Server** geben Sie dann den CNAME für den SQL-Dienst für den Datenbank-Hostnamen an, und klicken Sie auf **weiter**.
 
-6.  Unter den **angeben des Dienstkontos** Bereich des Assistenten geben Sie die Anmeldeinformationen für das AD FS-Dienstkonto, und klicken Sie dann auf **Weiter**.
+6.  Geben Sie im Bereich **Dienst Konto angeben** des Assistenten die Anmelde Informationen für das AD FS Dienst Konto ein, und klicken Sie dann auf **weiter**.
 
-7.  In **Optionen prüfen**, klicken Sie auf **Weiter**.
+7.  Klicken Sie unter **Überprüfungs Optionen**auf **weiter**.
 
-8.  Klicken Sie auf **konfigurieren** Wenn die Schaltfläche verfügbar wird.
+8.  Klicken Sie auf **Konfigurieren** , wenn die Schaltfläche verfügbar wird.
 
-9.  Starten Sie nach der Konfiguration den Computer neu.
+9.  Starten Sie den Computer nach der Konfiguration neu.
 
-10. Nach der Bestätigung des Server-Setups, Load Balancer die AD FS-Server nach Bedarf.
+10. Nachdem Sie die Server Einrichtung bestätigt haben, können Sie die AD FS Server nach Bedarf ausgleichen.
 
 #### <a name="adding-a-windows-server-2016-wap-server-for-high-availability"></a>Hinzufügen eines Windows Server 2016-WAP-Servers für hohe Verfügbarkeit
 
-Sie können die zusätzlichen WAP-Server zum Einrichten von Hochverfügbarkeit bereitstellen. Sie können auswählen, zum Ausführen dieser Aktion bei stärkerer Datenverkehr zu den AD RMS-Server.
+Sie können zusätzliche WAP-Server zum Einrichten der Hochverfügbarkeit bereitstellen. Sie können diese Aktion im Fall von erhöhtem Datenverkehr zu den AD RMS Servern ausführen.
 
-**Hinzufügen eines Windows Server 2016-Webanwendungsproxy-Servers für hohe Verfügbarkeit**
+**So fügen Sie einen Windows Server 2016-webanwendungsproxy-Server hinzu**
 
-1.  Vom Server Sie Setup als Webanwendungs-Proxyserver möchten, navigieren Sie zu der Server-Manager-Konsole, und klicken Sie auf **Rollen und Features hinzufügen**.
+1.  Navigieren Sie auf dem Server, den Sie als webanwendungsproxy einrichten möchten, zur Server-Manager Konsole, und klicken Sie auf **Rollen und Features hinzufügen**.
 
-2.  In der **Hinzufügen von Rollen und Features Assistenten**, klicken Sie auf **Weiter** bis Sie auf dem Auswahlbildschirm des Server-Rolle.
+2.  Klicken Sie im **Assistenten zum Hinzufügen von Rollen und Features**auf **weiter** , bis Sie zum Bildschirm Server Rollenauswahl gelangen.
 
-3.  Wählen Sie auf der Seite Serverrollen auswählen **RAS**, und klicken Sie dann auf **Weiter** bis Sie wieder auf dem Bildschirm Serverrollen auswählen können.
+3.  Wählen Sie auf dem Bildschirm Server Rollen auswählen die Option **Remote Zugriff**aus, und klicken Sie dann auf **weiter** , bis Sie sich wieder auf dem Bildschirm Server Rollen auswählen befinden.
 
-4.  Wählen Sie auf der Seite Serverrollen auswählen **Web Application Proxy**, klicken Sie auf **Features hinzufügen**, und klicken Sie dann auf **Weiter**.
+4.  Wählen Sie im Bildschirm Server Rollen auswählen die Option **webanwendungsproxy**aus, klicken Sie auf **Features hinzufügen**und dann auf **weiter**.
 
-5.  Klicken Sie auf dem Bildschirm "Installationsauswahl bestätigen" auf **installieren**.
+5.  Klicken Sie auf dem Bildschirm Installations Auswahl bestätigen auf **Installieren**.
 
-6.  Nachdem die Installation abgeschlossen ist, klicken Sie auf **schließen**.
+6.  Klicken Sie nach Abschluss der Installation auf **Schließen**.
 
-7.  Jetzt ist es Zeit für den Server zu konfigurieren. Zu diesem Zweck öffnen Sie die Remotezugriffs-Verwaltungskonsole auf dem Webanwendungsproxy-Server. Öffnen der **starten** Menü, Typ **RAMgmtUI.exe**, und wählen Sie dann die Anwendung.
+7.  Nun ist es an der Zeit, den Server zu konfigurieren. Öffnen Sie hierzu die Remote Zugriffs-Verwaltungskonsole auf dem webanwendungsproxy-Server. Öffnen Sie das **Startmenü** , geben Sie **ramgmtui. exe**ein, und wählen Sie dann die Anwendung aus.
 
-8.  Klicken Sie im Navigationsbereich auf **Web Application Proxy**.
+8.  Klicken Sie im Navigationsbereich auf **Webanwendungsproxy**.
 
-9.  Klicken Sie in der Remotezugriffs-Verwaltungskonsole auf **führen Sie die Web Application Proxy-Konfigurationsassistenten**. Einmal klicken Sie im Assistenten auf **Weiter**.
+9.  Klicken Sie in der Remote Zugriffs-Verwaltungskonsole auf **Assistent zum Konfigurieren des webanwendungsproxy ausführen**. Klicken Sie im Assistenten auf **weiter**.
 
-10. Geben Sie den vollqualifizierten Domänennamen des AD FS-Servers (ex, auf dem Verbundserver-Bildschirm "ADFS.contoso.com"), und geben Sie Anmeldeinformationen für einen Administrator auf dem AD FS-Server.
+10. Geben Sie auf dem Bildschirm Verbund Server den voll qualifizierten Domänen Namen des AD FS Servers ein (z. ADFS.contoso.com), und geben Sie dann Anmelde Informationen für einen Administrator auf dem AD FS Server ein.
 
-11. Wählen Sie auf dem Bildschirm "AD FS-Proxyzertifikat" in der Liste der derzeit auf dem Webanwendungsproxy-Server installierten Zertifikate ein Zertifikat vom Webanwendungsproxy für AD FS-Proxy verwendet werden, und klicken Sie dann auf **Weiter**.
+11. Wählen Sie auf dem Bildschirm AD FS Proxy Zertifikat in der Liste der derzeit auf dem webanwendungsproxy-Server installierten Zertifikate ein Zertifikat aus, das vom webanwendungsproxy für AD FS Proxy verwendet werden soll, und klicken Sie dann auf **weiter**.
 
-12. Klicken Sie auf dem Bestätigungsbildschirm, überprüfen Sie die Einstellungen, und klicken Sie auf **konfigurieren**.
+12. Überprüfen Sie auf dem Bestätigungsbildschirm die Einstellungen, und klicken Sie dann auf **Konfigurieren**.
 
-13. Nachdem die Konfiguration abgeschlossen ist, klicken Sie auf **schließen**.
+13. Nachdem die Konfiguration abgeschlossen ist, klicken Sie auf **Schließen**.
 
-14. Nach der Bestätigung des Server-Setups, einen Lastenausgleich der WAP-Server im Umkreisnetzwerk.
+14. Nachdem Sie die Server Einrichtung bestätigt haben, verteilen Sie den Lastenausgleich für die WAP-Server in der DMZ.
 
-#### <a name="adding-a-sql-server-2016-node-for-always-on-high-availability"></a>Hinzufügen eines SQL Server 2016-Knotens für hohe Verfügbarkeit mit AlwaysOn
+#### <a name="adding-a-sql-server-2016-node-for-always-on-high-availability"></a>Hinzufügen eines Knotens "SQL Server 2016" für Always on Hochverfügbarkeit
 
-Sie können zusätzliche SQL Server für hohe Verfügbarkeit mit AlwaysOn-setup bereitstellen. Sie können auswählen, zum Ausführen dieser Aktion bei stärkerer Datenverkehr zu den AD RMS-Server. **Hinweis: Stellen Sie sicher, dass beide SQL Server, den eingehenden Port 5022 geöffnet haben.**
+Sie können zusätzliche SQL Server-Server bereitstellen, um Always on Hochverfügbarkeit einzurichten. Sie können diese Aktion im Fall von erhöhtem Datenverkehr zu den AD RMS Servern ausführen. **Hinweis: Stellen Sie sicher, dass für beide SQL Server der eingehende Port 5022 geöffnet ist.**
 
-**So fügen Sie einem SQL Server 2016-Server für hohe Verfügbarkeit mit AlwaysOn hinzu**
+**So fügen Sie einen SQL Server 2016-Server für Always on Hochverfügbarkeit hinzu**
 
-1.  Vom Server Sie Setup als zusätzliche SQL Server 2016-Server möchten, navigieren Sie zu der Server-Manager-Konsole, und klicken Sie auf **Rollen und Features hinzufügen**.
+1.  Navigieren Sie auf dem Server, den Sie als zusätzlichen SQL Server 2016-Server einrichten möchten, zur Server-Manager Konsole, und klicken Sie auf **Rollen und Features hinzufügen**.
 
-2.  Klicken Sie auf **Weiter** bis der **Features auswählen** Dialogfeld.
+2.  Klicken Sie auf **weiter** , bis das Dialogfeld **Features auswählen** angezeigt wird.
 
-3.  Wählen Sie die **Failover-Clusterunterstützung** Kontrollkästchen. **Hinweis: Führen Sie diesen Schritt bei der ursprünglichen SQL Server 2016-Server aus, sodass beide SQL Server das Feature "Failoverclustering".**
+3.  Aktivieren Sie das Kontrollkästchen **Failoverclustering** . **Hinweis: führen Sie diesen Schritt für den ursprünglichen SQL Server 2016-Server aus, damit beide SQL Server über das Failoverclustering-Feature verfügen.**
 
-4.  Klicken Sie auf **installieren** zum Installieren des Failoverclustering-Features.
+4.  Klicken Sie auf **Installieren** , um das Feature Failoverclustering zu installieren.
 
-5.  Öffnen Sie nun **Server-Manager** , und wählen Sie **Tools** dann **Failovercluster-Manager**.
+5.  Öffnen Sie jetzt **Server-Manager** , und **Tools** klicken Sie auf Extras und dann auf **Failovercluster-Manager**.
 
-6.  Klicken Sie im linken Menü Maustaste **Failovercluster-Manager** , und wählen Sie **Erstellen von Clustern**
+6.  Klicken Sie im linken Menübereich mit der rechten Maustaste auf **Failovercluster-Manager** , und wählen Sie **Cluster erstellen** aus.
 
-7.  Dies öffnet die **Clustererstellungs-Assistenten**.
+7.  Der Clustererstellungs- **Assistent**wird geöffnet.
 
-8.  Suchen Sie den SQL Server 2016-Servern, die für hohe Verfügbarkeit mit AlwaysOn verwendet werden, und geben Sie diese im klicken Sie dann auf **Weiter**.
+8.  Suchen Sie nach den SQL Server 2016-Servern, die für Always on Hochverfügbarkeit verwendet werden, und geben Sie Sie ein, und klicken Sie dann auf **weiter**.
 
-9.  Sie erhalten eine validierungswarnung. Wählen Sie **Ja** , überprüfen die Clusterknoten, und klicken Sie dann auf **Weiter**.
+9.  Sie erhalten eine Validierungs Warnung. Wählen Sie **Ja** aus, um die Cluster Knoten zu überprüfen, und klicken Sie auf **weiter**
 
-10. Unter den **Testoptionen** Seite, wählen Sie die Option **Ausführen aller Tests** , und klicken Sie auf **weiter.**
+10. Wählen Sie auf der Seite **Test Optionen** die Option **alle Tests ausführen** aus, und klicken Sie auf **Weiter.**
 
-11. **Hinweis: Den Clusterüberprüfungs-Assistenten wird erwartet, einige Warnmeldungen, zurückgeben, insbesondere dann, wenn Sie nicht über freigegebenen Speicher verwenden. Davon abgesehen, wenn Sie alle Fehlermeldungen finden müssen Sie vor dem Erstellen von Windows Server Failover Cluster Problembehebung**.
+11. **Hinweis: der clusterüberprüfungs-Assistent gibt mehrere Warnmeldungen zurück, insbesondere dann, wenn Sie keinen freigegebenen Speicher verwenden werden. Wenn Sie Fehlermeldungen finden, müssen Sie diese vor dem Erstellen des Windows Server-Failoverclusters beheben**.
 
-12. In der **Zugriffspunkt zum Verwalten des Clusters** Dialogfeld Geben Sie den Clusternamen und die virtuelle IP-Adresse für den Windows Server-Failovercluster, und klicken Sie dann **Weiter**.
+12. Geben Sie im Dialogfeld **Zugriffspunkt für die Cluster Verwaltung** den Cluster Namen und die virtuelle IP-Adresse für den Windows Server-Failovercluster ein, und klicken Sie dann auf **weiter**.
 
-13. Stellen Sie sicher, dass die Konfiguration erfolgreich **Zusammenfassung** , und klicken Sie auf **Fertig stellen**.
+13. Überprüfen Sie, ob die Konfiguration erfolgreich war **, und klicken Sie auf** **Fertig**stellen.
 
-14. In der **Failovercluster-Manager** mit der rechten Maustaste auf Ihr Cluster, und wählen **Weitere Aktionen** wählen Sie dann **Clusterquorumeinstellungen konfigurieren**
+14. Klicken Sie im **Failovercluster-Manager** mit der rechten Maustaste auf den Cluster, wählen Sie **Weitere Aktionen** aus, und wählen Sie dann **Cluster Quorum Einstellungen konfigurieren** aus.
 
-15. Klicken Sie auf **Weiter** und wählen Sie dann die Option für **quorumzeugen auswählen** und klicken Sie auf **Weiter** erneut aus.
+15. Klicken Sie auf **weiter** , und wählen Sie dann die Option **Quorum Zeugen auswählen** aus, und klicken Sie dann erneut auf **weiter** .
 
-16. In der **Quorumzeuge auswählen** Seite die **konfigurieren ein dateifreigabezeugen** Option. Klicken Sie dann auf **Weiter**.
+16. Wählen Sie auf der Seite **Quorum Zeugen auswählen** die Option **Dateifreigabe Zeugen konfigurieren** aus. Klicken Sie dann auf **Weiter**.
 
-17. Wählen Sie **Durchsuchen** und suchen Sie den Pfad der Dateifreigabe, die Sie in das Dialogfeld für die Freigabe Pfad verwenden möchten. Klicken Sie auf **Weiter**.
+17. Wählen Sie **Durchsuchen** aus, und suchen Sie im Dialogfeld Dateifreigabe Pfad den Pfad der Dateifreigabe, die Sie verwenden möchten. Klicken Sie auf **Weiter**.
 
-18. Klicken Sie auf der Bestätigungsseite auf **Weiter**.
+18. Klicken Sie auf der Seite Bestätigung auf **weiter**.
 
-19. Klicken Sie auf der Seite Zusammenfassung auf **Fertig stellen**.
+19. Klicken Sie auf der Seite Zusammenfassung auf **Fertig**stellen.
 
-20. Öffnen Sie nun die **starten** Menü, und suchen Sie nach **SQL Server-Konfigurations-Manager**.
+20. Öffnen Sie nun das **Startmenü** , und suchen Sie nach **SQL Server-Konfigurations-Manager**.
 
-21. Mit der rechten Maustaste in des SQL Server-Namens, und wählen Sie **Eigenschaften**.
+21. Klicken Sie mit der rechten Maustaste auf den SQL Server Namen, und wählen Sie **Eigenschaften**
 
-22. Wählen Sie im Dialogfeld "Eigenschaften" die **hohe Verfügbarkeit mit AlwaysOn** Registerkarte. Überprüfen Sie die **AlwaysOn-Verfügbarkeitsgruppen aktivieren** Kontrollkästchen. Klicken Sie auf **OK**. **Hinweis: dies sowohl auf SQLServer 2016-Servern.**
+22. Wählen Sie im Dialogfeld Eigenschaften die Registerkarte **hohe Verfügbarkeit (AlwaysOn** ) aus. Aktivieren Sie das Kontrollkästchen **AlwaysOn-Verfügbarkeitsgruppen aktivieren** . Klicken Sie auf **OK**. **Hinweis: führen Sie dies auf beiden SQL Server 2016-Servern aus.**
 
-23. Klicken Sie dann starten Sie den SQL Server-Dienst neu.
+23. Starten Sie dann den SQL Server-Dienst neu.
 
-24. Öffnen Sie nun die **starten** Menü, und suchen Sie nach **SQL Server Management Studio** , und klicken Sie im linken Navigationsbereich mit der Maustaste **Verfügbarkeitsgruppen** , und klicken Sie auf **Assistenten für neue Verfügbarkeitsgruppen** klicken Sie dann auf **Weiter**.
+24. Öffnen Sie nun das **Startmenü** , und suchen Sie nach **SQL Server Management Studio** **und klicken Sie**im linken Navigationsbereich mit der rechten Maustaste auf **Verfügbarkeits Gruppen** , und klicken Sie dann auf Assistent für **neue Verfügbarkeits** Gruppen.
 
-25. In der **Namen der Verfügbarkeitsgruppe angeben** Seite Wählen Sie einen Gruppennamen (Ex.SQLAvailabilityGroup2016). Klicken Sie dann auf **Weiter**.
+25. Wählen Sie auf der Seite **Namen der Verfügbarkeits Gruppe angeben** einen Gruppennamen aus (z. b. SQLAvailabilityGroup2016). Klicken Sie dann auf **Weiter**.
 
-26. Unter den **Datenbanken auswählen** Abschnitt, der die Datenbanken angeben. Klicken Sie anschließend auf Weiter. **Hinweis: Einige Datenbank muss u. u. erneut gesichert oder fügen Sie in der vollständige Wiederherstellungsmodus**.
+26. Geben Sie im Abschnitt **Datenbanken auswählen** die Datenbanken an. Klicken Sie dann auf Weiter. **Hinweis: Einige Datenbanken müssen möglicherweise erneut gesichert oder in den vollständigen Wiederherstellungs Modus versetzt werden**.
 
-27. Einmal auf die **Replikate angeben** klicken Sie auf die **Hinzufügen von Replikaten** Schaltfläche, und wählen Sie Ihre 2016 SQL Server.
+27. Klicken Sie auf der Seite **Replikate angeben** auf die Schaltfläche **Replikat hinzufügen** , und wählen Sie die andere 2016-SQL Server
 
-28. Nach dem Hinzufügen des andere Servers, klicken Sie auf die Kontrollkästchen, und legen Sie den sekundären Server ein lesbares sekundäres Replikat sein.
+28. Klicken Sie nach dem Hinzufügen des anderen Servers auf die Kontrollkästchen, und legen Sie für den sekundären Server eine lesbare sekundäre Datenbank fest.
 
-29. Navigieren Sie zu der **Endpunkte** Registerkarte, und klicken Sie auf die **aktualisieren** Option. Und auch hier einen Bildlauf durch, und stellen Sie sicher, dass das gleiche Dienstkonto auf dem primären und sekundären Knoten ist.
+29. Navigieren Sie zur Registerkarte **Endpunkte** , und klicken Sie auf die Option **Aktualisieren** . Scrollen Sie auch hier zu, und stellen Sie sicher, dass sich das gleiche Dienst Konto auf dem primären und dem sekundären Knoten befindet.
 
-30. Wählen Sie nun die **Sicherungseinstellungen** Registerkarte, und wählen Sie die **sekundären bevorzugen** Option.
+30. Wählen Sie nun die Registerkarte **Sicherungs Einstellungen** aus, und wählen Sie die Option **Sekundär bevorzugen** aus.
 
-31. Fahren mit dem **Listener** Registerkarte.
+31. Wechseln Sie zur Registerkarte **Listener** .
 
-32. Geben Sie einen Namen (z.B.) SqlListener weitergegeben) und stellen Sie sicher, dass der Port **1433** , und klicken Sie dann auf **Weiter**.
+32. Geben Sie einen Namen an (z. SqlListener), stellen Sie sicher, dass der Port **1433** ist, und klicken Sie dann auf **weiter**.
 
-33. In der **anfängliche Datensynchronisierung auswählen** Seite des Assistenten wählen Sie die **vollständige** aus, und geben Sie Speicherort im Netzwerk zugegriffen werden kann, indem alle SQL Server, und klicken Sie dann auf **Weiter**.
+33. Wählen Sie auf der Seite **anfängliche Datensynchronisierung auswählen** des Assistenten die Option **vollständig** aus, und geben Sie den für alle SQL Server verfügbaren Netzwerk Speicherort an. Klicken Sie dann auf **weiter**.
 
-34. Klicken Sie abschließend auf **Fertig stellen** und der Vorgang wird abgeschlossen.
+34. Klicken Sie abschließend auf **Fertig** stellen, damit der Vorgang abgeschlossen wird.
 
 ### <a name="decommission-windows-server-2012-r2-nodes"></a>Außerbetriebnahme von Windows Server 2012 R2-Knoten
 
-Die folgenden Abschnitte enthalten Hinweise auf operative Aufgaben, die Sie möglicherweise Ihre Windows Server 2012 R2-Server entfernen, die nach der erfolgreichen Aktualisierung von AD RMS-Clusters auf Windows Server 2016.
+Die folgenden Abschnitte enthalten Anleitungen zu Betriebs Aufgaben, die Sie möglicherweise benötigen, um Ihre Windows Server 2012 R2-Server zu entfernen, nachdem Sie das AD RMS-Cluster erfolgreich auf Windows Server 2016 aktualisiert haben.
 
-#### <a name="removing-a-windows-server-2012-r2-ad-rms-server"></a>Entfernen ein Windows Server 2012 R2 AD RMS-Server
+#### <a name="removing-a-windows-server-2012-r2-ad-rms-server"></a>Entfernen eines Windows Server 2012 R2-AD RMS Servers
 
-Sie können nicht benötigte AD RMS-Server nach dem Upgrade entfernen. Sie können auswählen, um diese Aktion auszuführen, wenn er für die Außerbetriebnahme von AD RMS-Server benötigt wird.
+Nach einem Upgrade können Sie unnötige AD RMS Server entfernen. Sie können diese Aktion durchführen, wenn Sie für die Außerbetriebnahme von AD RMS Servern benötigt wird.
 
-**So entfernen Sie eine** **Windows Server 2012 R2 AD RMS-Server**
+So **Entfernen Sie einen** **Windows Server 2012 R2-AD RMS Server**
 
-1.  Wählen Sie auf dem Windows Server 2012 R2 AD RMS-Server im Server-Manager **verwalten** von oben nach rechts Menüs, und wählen Sie dann **Entfernen von Rollen und Features**.
+1.  Wählen Sie auf dem Windows Server 2012 R2-AD RMS Server in Server-Manager in den oberen rechten Menüs die Option **Verwalten** aus, und wählen Sie dann **Rollen und Features entfernen**aus.
 
-2.  Die **Entfernen von Rollen und Features Assistenten** wird geöffnet, oben "und" auf die **Vorbemerkungen** auf **Weiter**.
+2.  Der **Assistent zum Entfernen von Rollen und Features** wird geöffnet, und klicken Sie auf dem Bildschirm **Vorbemerkungen** auf **weiter**.
 
-3.  Auf der **Serverauswahl** Bildschirm, klicken Sie auf **Weiter**.
+3.  Klicken Sie auf dem Bildschirm **Server Auswahl** auf **weiter**.
 
-4.  Auf der **Serverrollen** Bildschirm, entfernen Sie das Kontrollkästchen neben **Active Directory Rights Management Services** , und klicken Sie auf **Weiter**.
+4.  Entfernen Sie auf dem Bildschirm **Server Rollen** die Option neben **Active Directory Rights Management Services** , und klicken Sie auf **weiter**.
 
-5.  Auf der **Features** Bildschirm, klicken Sie auf **Weiter**.
+5.  Klicken Sie auf dem Bildschirm **Features** auf **weiter**.
 
-6.  Auf der **Bestätigung** Bildschirm, klicken Sie auf **entfernen**.
+6.  Klicken Sie auf dem **Bestätigungs** Bildschirm auf **Entfernen**.
 
-7.  Sobald dies abgeschlossen ist, starten Sie den Server neu.
+7.  Nachdem dieser Vorgang abgeschlossen ist, starten Sie den Server neu.
 
-8.  Sie können jetzt Herunterfahren auf diesem Server und die Ressourcen neu zuteilt, je nach Bedarf.
+8.  Sie können diesen Server jetzt Herunterfahren und die Ressourcen bei Bedarf neu zuordnen.

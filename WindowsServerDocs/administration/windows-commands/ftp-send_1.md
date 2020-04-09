@@ -1,35 +1,31 @@
 ---
 title: FTP-send_1
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 000aa80a-60a0-4b51-815f-3237a4f3e0f4 vhorne
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bd9f658b4fbfa5f6c9fa9a58fb0c524ad53627bc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: df6ea9eda6fced91babca37639cd6efe981ba7de
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376000"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80843003"
 ---
 # <a name="ftp-send_1"></a>FTP: send_1
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Kopiert eine lokale Datei mit dem aktuellen Datei Übertragungstyp auf den Remote Computer.   
 ## <a name="syntax"></a>Syntax  
 ```  
 send <LocalFile> [<remoteFile>]  
 ```  
-### <a name="parameters"></a>Parameter  
+#### <a name="parameters"></a>Parameter  
 
 |  Parameter   |                    Beschreibung                    |
 |--------------|---------------------------------------------------|
@@ -39,7 +35,7 @@ send <LocalFile> [<remoteFile>]
 ## <a name="remarks"></a>Hinweise  
 - Der **Send** -Befehl ist mit dem **Put** -Befehl identisch.  
 - Wenn *remotefile* nicht angegeben wird, erhält die Datei den Namen *LocalFile* .  
-  ## <a name="BKMK_Examples"></a>Beispiele  
+  ## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele  
   Kopieren Sie die lokale Datei " **Test. txt** ", und nennen Sie Sie " **test1. txt** " auf dem Remote Computer.  
   ```  
   send test.txt test1.txt  
@@ -49,4 +45,4 @@ send <LocalFile> [<remoteFile>]
   send program.exe  
   ```  
   ## <a name="additional-references"></a>Weitere Verweise  
-- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
+- - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

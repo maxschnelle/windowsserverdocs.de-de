@@ -1,28 +1,24 @@
 ---
 title: logman Start | anzuhalten
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a40006a1-876e-474b-aaf1-f365c730deea
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 395d325b31ee596e1394e7ed796a444f159d15fc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2bd81a33779aa58e7528d0173a7a4b49489de8f9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374409"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840623"
 ---
 # <a name="logman-start--stop"></a>logman Start | anzuhalten
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Starten Sie einen Datensammler, und legen Sie die Startzeit auf manuell fest, oder beenden Sie einen Datensammler Satz, und legen Sie die Endzeit auf manuell fest.  
 
@@ -31,7 +27,7 @@ Starten Sie einen Datensammler, und legen Sie die Startzeit auf manuell fest, od
 logman start <[-n] <name>> [options]  
 logman stop <[-n] <name>> [options]  
 ```  
-## <a name="parameters"></a>Parameter  
+### <a name="parameters"></a>Parameter  
 
 |     Parameter      |                                 Beschreibung                                  |
 |--------------------|------------------------------------------------------------------------------|
@@ -42,10 +38,10 @@ logman stop <[-n] <name>> [options]
 |        -ETS        | Direktes Senden von Befehlen an Ereignis Ablauf Verfolgungs Sitzungen, ohne zu speichern oder zu planen. |
 |        -AS         |               Führt den angeforderten Vorgang asynchron aus.                |
 
-## <a name="BKMK_examples"></a>Beispiele  
-Mit dem folgenden Befehl wird der Datensammler perf_log auf dem Remote Computer server_1 gestartet.  
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
+Der folgende Befehl startet den Datensammler perf_log auf dem Remote Computer server_1.  
 ```  
 logman start perf_log -s server_1  
 ```  
-#### <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Weitere Verweise  
 [logman](logman.md)  

@@ -1,19 +1,18 @@
 ---
 title: Leistungs Verlauf für Server
 ms.author: cosdar
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 02/05/2018
-Keywords: Direkte Speicherplätze
 ms.localizationpriority: medium
-ms.openlocfilehash: bbfc92f7926b93f5f6716514e64672f4aa304c0f
-ms.sourcegitcommit: e817a130c2ed9caaddd1def1b2edac0c798a6aa2
+ms.openlocfilehash: cf4bdabb132c832370e5dffec215c24b54aebdd7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74945250"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856193"
 ---
 # <a name="performance-history-for-servers"></a>Leistungs Verlauf für Server
 
@@ -28,7 +27,7 @@ In diesem Unterthema des [Leistungs Verlaufs für direkte Speicherplätze](perfo
 
 Diese Reihen werden für jeden berechtigten Server erfasst:
 
-| Reihen                           | Einheit    |
+| Reihe                           | Einheit    |
 |----------------------------------|---------|
 | `clusternode.cpu.usage`          | percent |
 | `clusternode.cpu.usage.guest`    | percent |
@@ -43,7 +42,7 @@ Außerdem werden Laufwerks Reihen wie `physicaldisk.size.total` für alle berech
 
 ## <a name="how-to-interpret"></a>Interpretieren
 
-| Reihen                           | Interpretieren                                                      |
+| Reihe                           | Interpretieren                                                      |
 |----------------------------------|-----------------------------------------------------------------------|
 | `clusternode.cpu.usage`          | Prozentsatz der Prozessorzeit, die sich nicht im Leerlauf befindet.                        |
 | `clusternode.cpu.usage.guest`    | Prozentsatz der Prozessorzeit, die für die Anforderung des Gasts (virtueller Computer) verwendet wird |
@@ -60,7 +59,7 @@ Die `cpu.*` Reihe wird abhängig davon, ob Hyper-V aktiviert ist, von verschiede
 
 Wenn Hyper-V aktiviert ist:
 
-| Reihen                           | Quellen Counter |
+| Reihe                           | Quellen Counter |
 |----------------------------------|----------------|
 | `clusternode.cpu.usage`          | `Hyper-V Hypervisor Logical Processor` > `_Total` > `% Total Run Time`      |
 | `clusternode.cpu.usage.guest`    | `Hyper-V Hypervisor Virtual Processor` > `_Total` > `% Total Run Time`      |
@@ -70,10 +69,10 @@ Mit den `% Total Run Time` Indikatoren wird sichergestellt, dass der Leistungs V
 
 Wenn Hyper-V nicht aktiviert ist:
 
-| Reihen                           | Quellen Counter |
+| Reihe                           | Quellen Counter |
 |----------------------------------|----------------|
 | `clusternode.cpu.usage`          | `Processor` > `_Total` > `% Processor Time` |
-| `clusternode.cpu.usage.guest`    | *zero* |
+| `clusternode.cpu.usage.guest`    | *Zins* |
 | `clusternode.cpu.usage.host`     | *identisch mit der Gesamtauslastung* |
 
 Ungeachtet der unvollkommenen Synchronisierung ist `clusternode.cpu.usage` immer `clusternode.cpu.usage.host` Plus `clusternode.cpu.usage.guest`.
@@ -93,6 +92,6 @@ Verwenden [Sie das Get-clusternode-](https://docs.microsoft.com/powershell/modul
 Get-ClusterNode <Name> | Get-ClusterPerf
 ```
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 - [Leistungs Verlauf für direkte Speicherplätze](performance-history.md)

@@ -2,20 +2,19 @@
 title: Der Windows-Hypervisor muss ausgeführt werden.
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 501a9beb-c464-46c0-88c5-e3e7e3e70101
-author: KBDAzure
+author: kbdazure
 ms.date: 10/03/2016
-ms.openlocfilehash: 51f863425bd1107894fb5e4d44ed7c742a806394
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b24700e0ed617177af888013e36f971870d0ac59
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393046"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860953"
 ---
 # <a name="windows-hypervisor-must-be-running"></a>Der Windows-Hypervisor muss ausgeführt werden.
 
@@ -40,9 +39,9 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
   
 ## <a name="resolution"></a>Auflösung  
   
-*über prüfen Sie den Windows Server-Katalog, um festzustellen, ob dieser Server zum Ausführen von Hyper-V qualifiziert ist. Stellen Sie als nächstes sicher, dass das BIOS für die Hardware gestützte Virtualisierung und die durch die Hardware erzwungene Daten Ausführungs Verhinderung aktiviert ist. Überprüfen Sie dann das Hyper-V-Hypervisor-Ereignisprotokoll.*  
+*Überprüfen Sie den Windows Server-Katalog, um festzustellen, ob dieser Server zum Ausführen von Hyper-V qualifiziert ist. Stellen Sie als nächstes sicher, dass das BIOS für die Hardware gestützte Virtualisierung und die durch die Hardware erzwungene Daten Ausführungs Verhinderung aktiviert ist. Überprüfen Sie dann das Hyper-V-Hypervisor-Ereignisprotokoll.*  
   
-Informationen zum Überprüfen des Katalogs finden Sie unter [Windows Server-Katalog](https://go.microsoft.com/fwlink/?LinkId=111228) (https://go.microsoft.com/fwlink/?LinkId=111228).  
+Informationen zum Überprüfen des Katalogs finden Sie im [Windows Server-Katalog](https://go.microsoft.com/fwlink/?LinkId=111228) (https://go.microsoft.com/fwlink/?LinkId=111228).  
   
 > [!CAUTION]  
 > Wenn bestimmte Parameter im System-BIOS eines Computers geändert werden, kann dies dazu führen, dass der Computer das Betriebssystem nicht mehr lädt oder Hardware Geräte, z. b. Festplattenlaufwerke, nicht mehr verfügbar machen. Wenden Sie sich stets an das Benutzerhandbuch für den Computer, um zu bestimmen, wie das System-BIOS ordnungsgemäß konfiguriert werden kann. Außerdem ist es immer ratsam, die von Ihnen ändernden Parameter und deren ursprünglichen Wert nachzuverfolgen, damit Sie Sie später bei Bedarf wiederherstellen können. Wenn nach dem Ändern der Parameter im System-BIOS Probleme auftreten, versuchen Sie, die Standardeinstellungen zu laden (eine Option ist normalerweise im BIOS-Konfigurations Hilfsprogramm verfügbar), oder wenden Sie sich an den Computerhersteller, um Unterstützung zu erhalten.  
@@ -78,7 +77,7 @@ Informationen zum Überprüfen des Katalogs finden Sie unter [Windows Server-Kat
   
 1.  Öffnen Sie die Ereignisanzeige. Klicken Sie auf **Start**, klicken Sie auf **Verwaltung**, und klicken Sie dann auf **Ereignisanzeige**.  
   
-2.  Öffnen Sie das Hyper-V-Hypervisor-Ereignisprotokoll. Erweitern Sie im Navigationsbereich die Option **Anwendungs-und Dienst Protokolle** >> **Microsoft** >> **Windows** >> **Hyper-V-Hypervisor**, und klicken Sie dann auf **Operational**.  
+2.  Öffnen Sie das Hyper-V-Hypervisor-Ereignisprotokoll. Erweitern Sie im Navigationsbereich die Option **Anwendungs-und Dienst Protokolle** >> **Microsoft** >> **Windows** >> **Hyper-V-Hypervisor**, und klicken Sie dann auf **betriebsbereit**.  
   
 3.  Wenn der Windows-Hypervisor ausgeführt wird, ist keine weitere Aktion erforderlich. Wenn Windows-Hypervisor nicht ausgeführt wird, gehen Sie wie folgt vor:  
   
@@ -88,7 +87,7 @@ Informationen zum Überprüfen des Katalogs finden Sie unter [Windows Server-Kat
     1. Klicken Sie im Bereich **Aktionen** auf **Aktuelles Protokoll filtern**. Geben Sie für **Ereignis Quellen**"Hyper-V-Hypervisor" an.   
     2. Suchen Sie nach Ereignissen, die Probleme melden. Die Ereignis-ID 41 zeigt beispielsweise ein Problem mit der BIOS-Konfiguration an: "Fehler beim Starten von Hyper-V. VMX ist im BIOS nicht vorhanden oder nicht aktiviert. "  
   
-### <a name="see-also"></a>Siehe auch  
+### <a name="see-also"></a>Weitere Informationen  
 Ausführliche Informationen zur Verwendung von Hyper-v unter Windows 10, einschließlich der Überprüfung, ob Hyper-v auf Ihrem Computer ausgeführt werden kann, finden Sie unter [System Anforderungen für Windows 10 Hyper-v](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility). 
 
 

@@ -1,28 +1,22 @@
 ---
 title: setlocal
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für SETLOCAL, das die Lokalisierung von Umgebungsvariablen in einer Batchdatei startet.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e4e4b6d3-3f1a-4851-a782-25ee2470e16e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 997c996854f488bb1776f135e3288e3b094e683c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 24ed41289bb517d41db11fd3ebc41e5751b7afd9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384089"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834363"
 ---
 # <a name="setlocal"></a>setlocal
-
-
 
 Startet die Lokalisierung von Umgebungsvariablen in einer Batchdatei. Die Lokalisierung wird fortgesetzt, bis ein entsprechender **endlocal** -Befehl gefunden wird oder das Ende der Batchdatei erreicht wird.
 
@@ -63,9 +57,9 @@ setlocal [enableextensions | disableextensions] [enabledelayedexpansion | disabl
     verify other 2>nul
     if errorlevel 1 echo Unable to enable extensions
     ```  
-    Da **cmd** die ERRORLEVEL-Variable nicht festgelegt, wenn die Befehls Erweiterungen deaktiviert sind, initialisiert der **Verify** -Befehl die ERRORLEVEL-Variable auf einen Wert ungleich 0 (null), wenn Sie Sie mit einem ungültigen Argument verwenden. Wenn Sie den Befehl **setlocal** mit den Argumenten {**ENABLEEXTENSIONS** | **DISABLEEXTENSIONS**} oder {**enabledelayedexpansion** | **disabledelayedexpansion**} verwenden, wird die ERRORLEVEL-Variable nicht festgelegt. auf **1**sind keine Befehls Erweiterungen verfügbar.
+    Da **cmd** die ERRORLEVEL-Variable nicht festgelegt, wenn die Befehls Erweiterungen deaktiviert sind, initialisiert der **Verify** -Befehl die ERRORLEVEL-Variable auf einen Wert ungleich 0 (null), wenn Sie Sie mit einem ungültigen Argument verwenden. Wenn Sie den Befehl **setlocal** mit den Argumenten {**ENABLEEXTENSIONS** | **DISABLEEXTENSIONS**} oder {**enabledelayedexpansion** | **disabledelayedexpansion**} verwenden und die ERRORLEVEL-Variable nicht auf **1**festgelegt ist, sind keine Befehls Erweiterungen verfügbar.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Sie können Umgebungsvariablen in einer Batchdatei lokalisieren, wie im folgenden Beispielskript gezeigt:
 ```
@@ -82,6 +76,6 @@ endlocal
 start notepad c:\superapp.out
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

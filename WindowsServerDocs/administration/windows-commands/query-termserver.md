@@ -1,24 +1,20 @@
 ---
 title: termserver Abfragen
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3b89d3b4-236f-4376-90b6-939a0ec4b288
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 95a2e102a147bd7ebee24995d1e1fcd4147f8174
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d63bd158dad74203aa7ee3fd4e43dffb97c4c873
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371891"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836923"
 ---
 # <a name="query-termserver"></a>termserver Abfragen
 
@@ -27,12 +23,12 @@ ms.locfileid: "71371891"
 Zeigt eine Liste aller Remotedesktop-Sitzungshost Server (RD-Sitzungs Host Server) im Netzwerk an.
 Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
+> In Windows Server 2008 R2 wurde „Terminaldienste“ umbenannt in „Remotedesktopdienste“. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
 > ## <a name="syntax"></a>Syntax
 > ```
 > query termserver [<ServerName>] [/domain:<Domain>] [/address] [/continue]
 > ```
-> ## <a name="parameters"></a>Parameter
+> ### <a name="parameters"></a>Parameter
 > 
 > |    Parameter     |                                                                        Beschreibung                                                                         |
 > |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -46,7 +42,7 @@ Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_
 > - **query termserver** durchsucht das Netzwerk nach allen angeschlossenen RD-Sitzungs Host Servern und gibt die folgenden Informationen zurück:
 >   - Der Name des Servers.
 >   - Das Netzwerk (und die Knotenadresse, wenn die/Address-Option verwendet wird)
->     ## <a name="BKMK_examples"></a>Beispiele
+>     ## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 > - Geben Sie Folgendes ein, um Informationen über alle RD-Sitzungs Host Server im Netzwerk anzuzeigen:
 >   ```
 >   query termserver
@@ -63,7 +59,7 @@ Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_
 >   ```
 >   query termserver Server3 /address
 >   ```
->   #### <a name="additional-references"></a>Weitere Verweise
->   [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+>   ## <a name="additional-references"></a>Weitere Verweise
+>   - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
 >   [Abfrage](query.md)
->   [Remotedesktopdienste &#40;Befehlsreferenz&#41; für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)
+>   [Remotedesktopdienste Befehls Verweis (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)

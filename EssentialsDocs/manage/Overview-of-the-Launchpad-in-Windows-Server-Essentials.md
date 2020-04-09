@@ -1,23 +1,19 @@
 ---
 title: Übersicht über das Launchpad in Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 198d16cb-3d07-4706-be89-ad14a5f7dc47
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 63a161057f7068dcb9e02faa353270f0150200b4
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: ffff090e360282933723465bb3bbde6c0285a97b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310665"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852663"
 ---
 # <a name="overview-of-the-launchpad-in-windows-server-essentials"></a>Übersicht über das Launchpad in Windows Server Essentials
 
@@ -77,7 +73,7 @@ Beim Windows Server Essentials-Launchpad handelt es sich um eine kleine Anwendun
  Warnungen, die auf dem Launchpad angezeigt werden, bieten einen schnellen Überblick hinsichtlich der aktuellen Integrität des Computers. Klicken Sie zum Anzeigen von Informationen zu einer Integritätswarnung auf ein Warnsymbol, um die Meldungsanzeige zu öffnen. Integritätswarnungen erscheinen basierend auf dem Schweregrad in der Anzeige. Die schwerwiegendsten Warnungen werden zuerst in der Liste angezeigt. Weniger schwerwiegende Warnungen werden weiter unten in der Liste angezeigt. Weitere Informationen zu Integritäts Warnungen für Computer finden Sie unter [Verwalten der System](Manage-System-Health-in-Windows-Server-Essentials.md)Integrität.  
   
 ##  <a name="use-the-launchpad-with-a-mac-computer"></a><a name="BKMK_Mac"></a>Verwenden des LaunchPads mit einem Macintosh-Computer  
- Sie können einen Mac® Computer, auf dem Mac OS X® 10,5 oder höher ausgeführt wird, mit Windows Server Essentials, Windows Server Essentials oder Windows Server 2012 R2 verbinden oder die Connector-Software herunterladen und installieren. Wenn Sie die Installation der Connector-Software beendet haben, können Sie auswählen, dass das Launchpad beim Systemstart automatisch gestartet wird.  
+ Sie können einen Mac&reg; Computer, auf dem Mac OS X&reg; 10,5 oder höher ausgeführt wird, mit Windows Server Essentials, Windows Server Essentials oder Windows Server 2012 R2 verbinden oder die Connector-Software herunterladen und installieren. Wenn Sie die Installation der Connector-Software beendet haben, können Sie auswählen, dass das Launchpad beim Systemstart automatisch gestartet wird.  
   
  Beim Launchpad handelt es sich um eine kleine Anwendung, die authentifizierten Benutzern Zugriff auf die wichtigsten Features des Servers bietet, dazu zählen u. a. freigegebene Dateien und Medien, Add-Ins und der Remotewebzugriff. Das Launchpad bietet auch Echtzeitinformationen und Benachrichtigungen über den Zustand des Computers.  
   

@@ -1,24 +1,20 @@
 ---
 title: tasklist
 description: Erfahren Sie, wie Sie eine Liste der Prozesse anzeigen, die auf dem lokalen Computer oder Remote Computer ausgeführt werden.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8dbe30ee-1484-46be-917b-5ca3ff4fdc9c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f7ad61dfe8beb86c8299dd71bec1d862805e50e0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b43f4c9a89fa60f2244253d48d3dca646fe8e02d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383681"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80833433"
 ---
 # <a name="tasklist"></a>tasklist
 
@@ -32,7 +28,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 tasklist [/s <Computer> [/u [<Domain>\]<UserName> [/p <Password>]]] [{/m <Module> | /svc | /v}] [/fo {table | list | csv}] [/nh] [/fi <Filter> [/fi <Filter> [ ... ]]]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |          Parameter           |                                                                                                                                            Beschreibung                                                                                                                                             |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -51,15 +47,15 @@ tasklist [/s <Computer> [/u [<Domain>\]<UserName> [/p <Password>]]] [{/m <Module
 
 | Filter Name |    Gültige Operatoren     |                                                                 Gültige Werte                                                                 |
 |-------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-|   Stands    |         eq, ne         |                                                                   Drängt                                                                    |
+|   STATUS    |         eq, ne         |                                                                   WIRD AUSGEFÜHRT                                                                    |
 |  ImageName  |         eq, ne         |                                                                  Bildname                                                                  |
 |     PID     | eq, ne, gt, lt, ge, le |                                                                  PID-Wert                                                                   |
-|   Sitzung   | eq, ne, gt, lt, ge, le |                                                                Sitzungsnummer                                                                |
+|   SITZUNG   | eq, ne, gt, lt, ge, le |                                                                Sitzungsnummer                                                                |
 | Sessionname |         eq, ne         |                                                                 Sitzungsname                                                                 |
 |   CPUTIME   | eq, ne, gt, lt, ge, le | CPU-Zeit im Format <em>HH</em> **:** <em>mm</em> **:** <em>SS</em>, wobei *mm* und *SS* zwischen 0 und 59 liegen und *HH* eine beliebige Zahl ohne Vorzeichen ist. |
 |  MEMUSAGE   | eq, ne, gt, lt, ge, le |                                                              Speicherauslastung in KB                                                              |
-|  User   |         eq, ne         |                                                             Gültiger Benutzername                                                              |
-|  Betreuung   |         eq, ne         |                                                                 Dienstname                                                                 |
+|  BENUTZERNAME   |         eq, ne         |                                                             Gültiger Benutzername                                                              |
+|  DIENSTE   |         eq, ne         |                                                                 Dienstname                                                                 |
 | WindowTitle |         eq, ne         |                                                                 Fenstertitel                                                                 |
 |   Modulen   |         eq, ne         |                                                                   DLL-Name                                                                   |
 
@@ -67,7 +63,7 @@ tasklist [/s <Computer> [/u [<Domain>\]<UserName> [/p <Password>]]] [{/m <Module
 
 Die Filter WindowTitle und Status werden nicht unterstützt, wenn ein Remote System angegeben wird.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
 
 Wenn Sie alle Aufgaben mit einer Prozess-ID größer als 1000 auflisten und im CSV-Format anzeigen möchten, geben Sie Folgendes ein:
 ```
@@ -94,6 +90,6 @@ Um die Prozesse auf dem Remote Computer "srvmain" mit den Anmelde Informationen 
 tasklist /s srvmain /u maindom\hiropln /p p@ssW23
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,7 +1,6 @@
 ---
 ms.assetid: ee008835-7d3b-4977-adcb-7084c40e5918
 title: Deploy Implementing Retention of Information on File Servers (Demonstration Steps)
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 994eadfa205b62c5a512ab130c71fa6c22d1cff6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a6b6a5d9e153949db6c89ef503b575039ec6022b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357540"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861213"
 ---
 # <a name="deploy-implementing-retention-of-information-on-file-servers-demonstration-steps"></a>Deploy Implementing Retention of Information on File Servers (Demonstration Steps)
 
@@ -35,12 +34,12 @@ Mithilfe der Dateiklassifizierungsinfrastruktur und dem Ressourcen-Manager für 
 -   [Schritt 4: Manuelles klassifizieren einer Datei](Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-.md#BKMK_Step4)  
   
 > [!NOTE]  
-> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit deren Hilfe einige beschriebene Verfahren automatisiert werden können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="prerequisites"></a>Voraussetzungen  
+## <a name="prerequisites"></a>Erforderliche Komponenten  
 Für die Schritte in diesem Thema wird angenommen, dass Sie einen SMTP-Server für Dateiablaufbenachrichtigungen konfiguriert haben.  
   
-## <a name="BKMK_Step1"></a>Schritt 1: Erstellen von Ressourcen Eigenschafts Definitionen  
+## <a name="step-1-create-resource-property-definitions"></a><a name="BKMK_Step1"></a>Schritt 1: Erstellen von Ressourcen Eigenschafts Definitionen  
 In diesem Schritt werden die Ressourceneigenschaften für Aufbewahrungsdauer und Erkennbarkeit aktiviert, sodass diese Ressourceneigenschaften von der Dateiklassifizierungsinfrastruktur zum Kennzeichnen von Dateien verwendet werden können, die in einem freigegebenen Netzwerkordner gescannt werden.  
   
 [Führen Sie diesen Schritt mithilfe von Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep1)  
@@ -49,9 +48,9 @@ In diesem Schritt werden die Ressourceneigenschaften für Aufbewahrungsdauer und
   
 1.  Melden Sie sich auf dem Domänencontroller beim Server als Mitglied der Sicherheitsgruppe "Domänen-Admins" an.  
   
-2.  Öffnen Sie das Active Directory-Verwaltungscenter. Klicken Sie in Server-Manager auf **Extras** und dann auf **Active Directory-Verwaltungscenter**.  
+2.  Öffnen Sie das Active Directory-Verwaltungscenter. Klicken Sie im Server-Manager auf **Extras** und dann auf **Active Directory-Verwaltungscenter**.  
   
-3.  Erweitern Sie **Dynamische Zugriffsteuerung**, und klicken Sie dann auf **Ressourceneigenschaften**.  
+3.  Erweitern Sie **Dynamische Zugriffssteuerung**, und klicken Sie dann auf **Ressourceneigenschaften**.  
   
 4.  Klicken Sie mit der rechten Maustaste auf **Aufbewahrungsdauer**, und klicken Sie dann auf **Aktivieren**.  
   
@@ -59,14 +58,14 @@ In diesem Schritt werden die Ressourceneigenschaften für Aufbewahrungsdauer und
   
 ![projektmappenanleitung für](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 ```  
 Set-ADResourceProperty -Enabled:$true -Identity:'CN=RetentionPeriod_MS,CN=Resource Properties,CN=Claims Configuration,CN=Services,CN=Configuration,DC=contoso,DC=com'  
 Set-ADResourceProperty -Enabled:$true -Identity:'CN=Discoverability_MS,CN=Resource Properties,CN=Claims Configuration,CN=Services,CN=Configuration,DC=contoso,DC=com'  
 ```  
   
-## <a name="BKMK_Step2"></a>Schritt 2: Konfigurieren von Benachrichtigungen  
+## <a name="step-2-configure-notifications"></a><a name="BKMK_Step2"></a>Schritt 2: Konfigurieren von Benachrichtigungen  
 In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver zum Konfigurieren des SMTP-Servers, der Standard-E-Mail-Adresse des Administrators und der Standard-E-Mail-Adresse verwendet, mit der die Berichte gesendet werden.  
   
 [Führen Sie diesen Schritt mithilfe von Windows PowerShell aus.](assetId:///4a96cdaf-0081-4824-aab8-f0d51be501ac#BKMK_PSstep2)  
@@ -75,7 +74,7 @@ In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver 
   
 1.  Melden Sie sich als Mitglied der Sicherheitsgruppe "Administratoren" beim Dateiserver an.  
   
-2.  Geben Sie an der Windows PowerShell-Eingabeaufforderung **Update-FsrmClassificationPropertyDefinition** ein, und drücken Sie die EINGABETASTE. Dadurch werden die Eigenschaftsdefinitionen, die auf dem Domänencontroller erstellt wurden, mit dem Dateiserver synchronisiert.  
+2.  Geben Sie an der PowerShell-Eingabeaufforderung **Update-FsrmClassificationPropertyDefinition** ein, und drücken Sie dann die EINGABETASTE. Dadurch werden die Eigenschaftsdefinitionen, die auf dem Domänencontroller erstellt wurden, mit dem Dateiserver synchronisiert.  
   
 3.  Öffnen Sie den Ressourcen-Manager für Dateiserver. Klicken Sie in Server-Manager auf **Extras** und dann auf **Ressourcen-Manager für Dateiserver**.  
   
@@ -93,13 +92,13 @@ In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver 
   
 ![projektmappenanleitung für](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 ```  
 Set-FsrmSetting -SmtpServer IP address of SMTP server -FromEmailAddress "FromEmailAddress" -AdminEmailAddress "AdministratorEmailAddress"  
 ```  
   
-## <a name="BKMK_Step3"></a>Schritt 3: Erstellen einer Datei Verwaltungsaufgabe  
+## <a name="step-3-create-a-file-management-task"></a><a name="BKMK_Step3"></a>Schritt 3: Erstellen einer Datei Verwaltungsaufgabe  
 In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver zum Erstellen einer Dateiverwaltungsaufgabe verwendet, die am letzten Tag im Monat ausgeführt wird und alle Dateien mit den folgenden Kriterien als abgelaufen kennzeichnet:  
   
 -   Die Datei ist nicht mit zugewiesener rechtlicher Aufbewahrungspflicht klassifiziert.  
@@ -120,7 +119,7 @@ In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver 
   
 4.  Geben Sie auf der Registerkarte **Allgemein** im Feld **Aufgabenname** einen Namen für die Dateiverwaltungsaufgabe ein, z. B. "Aufbewahrungsaufgabe".  
   
-5.  Klicken Sie auf der Registerkarte **Bereich** auf **Hinzufügen**, und wählen Sie die Ordner aus, die in diese Regel einbezogen werden sollen, z. B. "D:\Finance Documents".  
+5.  Klicken Sie auf der Registerkarte **Bereich** auf **Hinzufügen**, und wählen Sie die Ordner aus, die in dieser Regel einbezogen werden sollen, wie beispielsweise „D:\Finance Documents“.  
   
 6.  Klicken Sie auf der Registerkarte **Aktion** im Feld **Typ** auf **Dateiablauf**. Geben Sie in das Feld **Ablaufverzeichnis** einen Pfad zu einem Ordner auf dem lokalen Dateiserver ein, in den die abgelaufenen Dateien verschoben werden. Dieser Ordner sollte über eine Zugriffssteuerungsliste verfügen, die nur Dateiserveradministratoren den Zugriff erteilt.  
   
@@ -128,7 +127,7 @@ In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver 
   
     -   Aktivieren Sie das Kontrollkästchen **E-Mail an folgende Administratoren senden**.  
   
-    -   Aktivieren Sie das Kontrollkästchen **E-Mail an Benutzer senden, deren Dateien betroffen sind** , und klicken Sie dann auf **OK**.  
+    -   Aktivieren Sie das Kontrollkästchen **E-Mail an Benutzer senden, deren Dateien betroffen sind**, und klicken Sie dann auf **OK**.  
   
 8.  Klicken Sie auf der Registerkarte **Bedingung** auf **Hinzufügen**, und fügen Sie dann die folgenden Eigenschaften hinzu:  
   
@@ -136,15 +135,15 @@ In diesem Schritt wird die Konsole für den Ressourcen-Manager für Dateiserver 
   
     -   Klicken Sie in der Liste **Eigenschaft** auf **Aufbewahrungsdauer**. Klicken Sie in der Liste **Operator** auf **Gleich**. Klicken Sie in der Liste **Wert** auf **Langfristig**.  
   
-9. Aktivieren Sie auf der Registerkarte **Bedingung** das Kontrollkästchen **Tage seit der letzten Dateiänderung** , und legen Sie dann den Wert auf **3650**fest.  
+9. Aktivieren Sie auf der Registerkarte **Bedingung** das Kontrollkästchen **Tage seit der letzten Dateiänderung**, und legen Sie dann den Wert auf **3650** fest.  
   
-10. Klicken Sie auf der Registerkarte **Zeitplan** auf die Option **Monatlich** , und aktivieren Sie dann das Kontrollkästchen **Letzter** .  
+10. Klicken Sie auf der Registerkarte **Zeitplan** auf die Option **Monatlich**, und aktivieren Sie dann das Kontrollkästchen **Letzter**.  
   
 11. Klicken Sie auf **OK**.  
   
 ![projektmappenanleitung für](media/Deploy-Implementing-Retention-of-Information-on-File-Servers--Demonstration-Steps-/PowerShellLogoSmall.gif)***<em>entsprechende Windows PowerShell-Befehle</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 ```  
 $fmjexpiration = New-FSRMFmjAction -Type 'Expiration' -ExpirationFolder folder  
@@ -158,7 +157,7 @@ $schedule = New-FsrmScheduledTask -Time $date -Monthly @(-1)
 $fmj1=New-FSRMFileManagementJob -Name "Retention Task" -Namespace @('D:\Finance Documents') -Action $fmjexpiration -Schedule $schedule -Notification @($fmjNotification) -Condition @( $fmjCondition1, $fmjCondition2, $fmjCondition3)  
 ```  
   
-## <a name="BKMK_Step4"></a>Schritt 4: Manuelles klassifizieren einer Datei  
+## <a name="step-4-classify-a-file-manually"></a><a name="BKMK_Step4"></a>Schritt 4: Manuelles klassifizieren einer Datei  
 In diesem Schritt wird eine Datei mit zugewiesener rechtlicher Aufbewahrungspflicht klassifiziert. Der übergeordnete Ordner dieser Datei wird mit einer langfristigen Aufbewahrungsdauer klassifiziert.  
   
 #### <a name="to-manually-classify-a-file"></a>So klassifizieren Sie eine Datei manuell  
@@ -173,17 +172,17 @@ In diesem Schritt wird eine Datei mit zugewiesener rechtlicher Aufbewahrungspfli
   
 5.  Klicken Sie mit der rechten Maustaste auf eine Datei in diesem Ordner, und klicken Sie dann auf **Eigenschaften**.  
   
-6.  Klicken Sie auf der Registerkarte **Klassifizierung** auf **Erkennbarkeit**. Klicken Sie auf **Halten**, dann auf **Anwenden**, und klicken Sie anschließend auf **OK**.  
+6.  Klicken Sie auf der Registerkarte **Klassifizierung** auf **Erkennbarkeit**. Klicken Sie auf **Halten**, dann auf **Anwenden** und anschließend auf **OK**.  
   
 7.  Führen Sie auf dem Dateiserver die Dateiverwaltungsaufgabe mithilfe der Konsole für den Ressourcen-Manager für Dateiserver aus. Nachdem die Dateiverwaltungsaufgabe abgeschlossen ist, prüfen Sie den Ordner und stellen Sie sicher, dass die Datei nicht in das Ablaufverzeichnis verschoben wurde.  
   
 8.  Klicken Sie mit der rechten Maustaste auf dieselbe Datei in diesem Ordner, und klicken Sie dann auf **Eigenschaften**.  
   
-9. Klicken Sie auf der Registerkarte **Klassifizierung** auf **Erkennbarkeit**. Klicken Sie auf **Nicht zutreffend**, dann auf **Anwenden**und anschließend auf **OK**.  
+9. Klicken Sie auf der Registerkarte **Klassifizierung** auf **Erkennbarkeit**. Klicken Sie auf **Nicht zutreffend**, dann auf **Anwenden** und anschließend auf **OK**.  
   
 10. Führen Sie auf dem Dateiserver die Dateiverwaltungsaufgabe mithilfe der Konsole für den Ressourcen-Manager für Dateiserver erneut aus. Nachdem die Dateiverwaltungsaufgabe abgeschlossen ist, prüfen Sie den Ordner und stellen Sie sicher, dass diese Datei in das Ablaufverzeichnis verschoben wurde.  
   
-## <a name="BKMK_Links"></a>Siehe auch  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Siehe auch  
   
 -   [Szenario: Implementieren der Aufbewahrung von Informationen auf Dateiservern](Scenario--Implement-Retention-of-Information-on-File-Servers.md)  
   

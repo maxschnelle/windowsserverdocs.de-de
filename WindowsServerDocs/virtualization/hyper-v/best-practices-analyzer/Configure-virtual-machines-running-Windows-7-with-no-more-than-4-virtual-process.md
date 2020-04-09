@@ -2,20 +2,19 @@
 title: Konfigurieren virtueller Computer, auf denen Windows 7 ausgeführt wird, ohne mehr als vier virtuelle Prozessoren
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 8fcf0868-b543-4f94-aee7-35324346da55
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 14b5e0637ad2e6462e13f0e1f18af651bbcc5fc3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: da58833b33f25a8ce724dcbe46161ae99c8d1224
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366266"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80862033"
 ---
 # <a name="configure-virtual-machines-running-windows-7-with-no-more-than-4-virtual-processors"></a>Konfigurieren virtueller Computer, auf denen Windows 7 ausgeführt wird, ohne mehr als vier virtuelle Prozessoren
 
@@ -27,7 +26,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
 |**Produkt/Feature**|Hyper-V|  
-|**Zunehmen**|Fehler|  
+|**Zunehmen**|Error|  
 |**Kategorie**|Konfiguration|  
   
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.  
@@ -38,9 +37,9 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 ## <a name="impact"></a>**Auswirkt**  
 *Microsoft unterstützt nicht die Konfiguration der folgenden virtuellen Computer:*  
   
-\<list of Virtual Machines >  
+\<Liste der virtuellen Computer >  
   
-## <a name="resolution"></a>**Auflösung**  
+## <a name="resolution"></a>**Lösung**  
 *Fahren Sie den virtuellen Computer herunter, und entfernen Sie einen oder mehrere virtuelle Prozessoren.*  
   
 #### <a name="to-remove-virtual-processors"></a>So entfernen Sie virtuelle Prozessoren  

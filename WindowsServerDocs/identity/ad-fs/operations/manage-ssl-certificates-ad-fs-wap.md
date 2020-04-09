@@ -9,12 +9,12 @@ ms.date: 10/02/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 230fdaac28f4766c33e62362ca4c7e4d20f22c8e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b832756e123bee0223738ee804ac3a4db2371e84
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357737"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855293"
 ---
 # <a name="managing-ssl-certificates-in-ad-fs-and-wap-in-windows-server-2016"></a>Verwalten von SSL-Zertifikaten in AD FS und WAP in Windows Server 2016
 
@@ -38,7 +38,7 @@ Informationen zu Anforderungen einschließlich Benennung, Stamm der Vertrauensst
 
 ## <a name="replacing-the-ssl-certificate-for-ad-fs"></a>Ersetzen des SSL-Zertifikats für AD FS
 > [!NOTE]
-> Das AD FS SSL-Zertifikat ist nicht mit dem AD FS Dienst Kommunikations Zertifikat identisch, das im Snap-in "AD FS-Verwaltung" gefunden wurde. Um das AD FS SSL-Zertifikat zu ändern, müssen Sie PowerShell verwenden.
+> Das AD FS SSL-Zertifikat ist nicht identisch mit dem Zertifikat für die AD FS-Dienstkommunikation, das im Snap-in „AD FS-Verwaltung“ enthalten ist. Um das AD FS SSL-Zertifikat zu ändern, müssen Sie PowerShell verwenden.
 
 Legen Sie zunächst fest, in welchem Zertifikat Bindungs Modus Ihre AD FS Server ausgeführt werden: Standard Zertifikat-Authentifizierungs Bindung oder alternativer Client-TLS-Bindungs Modus.
 

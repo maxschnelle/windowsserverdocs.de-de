@@ -1,24 +1,20 @@
 ---
 title: Einrichten einer Station mit direkt Videoverbindung in Multipoint Services
 description: Erfahren Sie, wie Sie eine Station mit direkt Videos in Multipoint Services erstellen.
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 82ba3517-9743-4cde-8eea-63a17edb016f
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: ab57f3d996cfe9196fd256a76516a44dc146043b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4bab07a21c6e2de529797e240325b3ff27446fe0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389363"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859353"
 ---
 # <a name="set-up-a-direct-video-connected-station-in-multipoint-services"></a>Einrichten einer Station mit direkt Videoverbindung in Multipoint Services
 Auf einer direkt mit dem Video verbundenen Station ist der Monitor direkt mit einem Videoport auf dem Multipoint Server-Computer verbunden. Eine Tastatur und eine Maus werden dann mit einem USB-Hub verbunden und dem Monitor zugeordnet.  

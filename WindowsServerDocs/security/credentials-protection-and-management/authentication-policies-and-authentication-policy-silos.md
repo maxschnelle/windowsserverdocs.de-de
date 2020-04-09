@@ -1,28 +1,24 @@
 ---
 title: Authentifizierungsrichtlinien und Authentifizierungsrichtliniensilos
 description: Windows Server-Sicherheit
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-credential-protection
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7eb0e640-033d-49b5-ab44-3959395ad567
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 6b0b841930df246bd784d990916b6029f12a1f96
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 48171657b42ec8b6ba09aa6a35a2f898d6775d07
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403817"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857083"
 ---
 # <a name="authentication-policies-and-authentication-policy-silos"></a>Authentifizierungsrichtlinien und Authentifizierungsrichtliniensilos
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Thema für IT-Spezialisten werden Authentifizierungsrichtliniensilos und die Richtlinien beschrieben, mit denen Konten auf diese Silos beschränkt werden können. Zudem wird erklärt, wie der Bereich von Konten mit Authentifizierungsrichtlinien eingeschränkt werden kann.
 
@@ -45,7 +41,7 @@ Mit einem Authentifizierungsrichtliniensilo wird gesteuert, welche Konten durch 
 |--------|--------|
 |Authentifizierungsrichtliniensilo|Eine Instanz dieser Klasse definiert die Authentifizierungsrichtlinien und das zugehörige Verhalten für die zugewiesenen Benutzer, Computer und Dienste.|
 |Authentifizierungsrichtliniensilos|Ein Container dieser Klasse kann Authentifizierungsrichtliniensilo-Objekte enthalten.|
-|Authentication Policy Silo Enforced (Authentifizierungsrichtliniensilo erzwungen)|Gibt an, ob das Authentifizierungsrichtliniensilo erzwungen wird.<br /><br />Wenn es nicht erzwungen wird, dann ist für die Richtlinie standardmäßig der Überwachungsmodus aktiviert. Es werden Ereignisse generiert, die potenzielle Erfolge und Fehler anzeigen, aber es werden keine Schutzmaßnahmen auf das System angewendet.|
+|Authentication Policy Silo Enforced (Authentifizierungsrichtliniensilo erzwungen)|Gibt an, ob das Authentifizierungsrichtliniensilo erzwungen wird.<p>Wenn es nicht erzwungen wird, dann ist für die Richtlinie standardmäßig der Überwachungsmodus aktiviert. Es werden Ereignisse generiert, die potenzielle Erfolge und Fehler anzeigen, aber es werden keine Schutzmaßnahmen auf das System angewendet.|
 |Assigned Authentication Policy Silo Backlink (Rückverweis für zugewiesenes Authentifizierungsrichtliniensilo)|Dieses Attribut ist der Rückverweis für msDS-AssignedAuthNPolicySilo.|
 |Authentication Policy Silo Members (Authentifizierungsrichtliniensilo-Mitglieder)|Gibt an, welche Prinzipale dem AuthNPolicySilo-Objekt zugewiesen sind.|
 |Authentication Policy Silo Members Backlink (Rückverweis für Authentifizierungsrichtliniensilo-Mitglieder)|Dieses Attribut ist der Rückverweis für msDS-AuthNPolicySiloMembers.|
@@ -65,7 +61,7 @@ Authentifizierungsrichtlinien definieren die Lebensdauereigenschaften des Ticket
 
 Der Active Directory Kontotyp bestimmt die Rolle des Aufrufers als einer der folgenden:
 
--   **Benutzer**
+-   **User**
 
     Benutzer sollten immer Mitglied der Sicherheitsgruppe "Geschützte Benutzer" sein, die Authentifizierungsversuche über NTLM standardmäßig nicht zulässt.
 
@@ -90,11 +86,11 @@ Die Richtlinien für die Active Directory-Objekte für Benutzer, Computer und Di
 
 |Typ|Anzeigename|Beschreibung|
 |----|--------|--------|
-|Richtlinie|Authentifizierungsrichtlinie|Eine Instanz dieser Klasse definiert Authentifizierungsrichtlinienverhalten für die zugewiesenen Prinzipale.|
-|Richtlinie|Authentifizierungsrichtlinien|Ein Container dieser Klasse kann Authentifizierungsrichtlinien-Objekte enthalten.|
-|Richtlinie|Authentication Policy Enforced (Authentifizierungsrichtlinien erzwungen)|Gibt an, ob die Authentifizierungsrichtlinie erzwungen wird.<br /><br />Wenn sie nicht erzwungen wird, dann ist für die Richtlinie standardmäßig der Überwachungsmodus aktiviert, und es werden Ereignisse zum Anzeigen potenzieller Erfolge oder Fehler generiert, aber keine Schutzmaßnahmen auf das System angewendet.|
-|Richtlinie|Assigned Authentication Policy Backlink (Rückverweis für zugewiesene Authentifizierungsrichtlinie)|Dieses Attribut ist der Rückverweis für msDS-AssignedAuthNPolicy.|
-|Richtlinie|Assigned Authentication Policy (Zugewiesene Authentifizierungsrichtlinie)|Gibt an, welches AuthNPolicy-Objekt auf diesen Prinzipal angewendet werden soll.|
+|Policy (Richtlinie)|Authentifizierungsrichtlinie|Eine Instanz dieser Klasse definiert Authentifizierungsrichtlinienverhalten für die zugewiesenen Prinzipale.|
+|Policy (Richtlinie)|Authentifizierungsrichtlinien|Ein Container dieser Klasse kann Authentifizierungsrichtlinien-Objekte enthalten.|
+|Policy (Richtlinie)|Authentication Policy Enforced (Authentifizierungsrichtlinien erzwungen)|Gibt an, ob die Authentifizierungsrichtlinie erzwungen wird.<p>Wenn sie nicht erzwungen wird, dann ist für die Richtlinie standardmäßig der Überwachungsmodus aktiviert, und es werden Ereignisse zum Anzeigen potenzieller Erfolge oder Fehler generiert, aber keine Schutzmaßnahmen auf das System angewendet.|
+|Policy (Richtlinie)|Assigned Authentication Policy Backlink (Rückverweis für zugewiesene Authentifizierungsrichtlinie)|Dieses Attribut ist der Rückverweis für msDS-AssignedAuthNPolicy.|
+|Policy (Richtlinie)|Assigned Authentication Policy (Zugewiesene Authentifizierungsrichtlinie)|Gibt an, welches AuthNPolicy-Objekt auf diesen Prinzipal angewendet werden soll.|
 |Benutzer|User Authentication Policy (Benutzerauthentifizierungsrichtlinie)|Gibt an, welches AuthNPolicy-Objekt auf die Benutzer, die diesem Siloobjekt zugewiesen wurden, angewendet werden soll.|
 |Benutzer|User Authentication Policy Backlink (Rückverweis für Benutzerauthentifizierungsrichtlinie)|Dieses Attribut ist der Rückverweis für msDS-UserAuthNPolicy.|
 |Benutzer|ms-DS-User-Allowed-To-Authenticate-To|Mit diesem Attribut wird bestimmt, welcher Gruppe von Prinzipalen erlaubt wird, sich gegenüber einem Dienst, der unter dem Benutzerkonto ausgeführt wird, zu authentifizieren.|
@@ -112,7 +108,7 @@ Die Richtlinien für die Active Directory-Objekte für Benutzer, Computer und Di
 
 Authentifizierungsrichtlinien können mit der Active Directory-Verwaltungskonsole oder Windows PowerShell für jedes Silo konfiguriert werden. Weitere Informationen finden Sie unter [Konfigurieren geschützter Konten](how-to-configure-protected-accounts.md).
 
-## <a name="how-it-works"></a>Funktionsweise
+## <a name="how-it-works"></a>So funktioniert's
 In diesem Abschnitt wird die Funktionsweise von Authentifizierungsrichtliniensilos und Authentifizierungsrichtlinien in Verbindung mit der Sicherheitsgruppe "Geschützte Benutzer" und die Implementierung des Kerberos-Protokolls in Windows beschrieben.
 
 -   [Verwendung des Kerberos-Protokolls mit Authentifizierungs Silos und-Richtlinien](#BKMK_HowKerbUsed)
@@ -143,7 +139,7 @@ Authentifizierungsrichtliniensilos und Authentifizierungsrichtlinien nutzen die 
 
 -   [Änderungen bei der Kerberos-Authentifizierung](https://technet.microsoft.com/library/dd560670(v=ws.10).aspx) (Windows Server 2008 R2 und Windows 7)
 
-### <a name="BKMK_HowKerbUsed"></a>Verwendung des Kerberos-Protokolls mit Authentifizierungs Richtlinien Silos und-Richtlinien
+### <a name="how-the-kerberos-protocol-is-used-with-authentication-policy-silos-and-policies"></a><a name="BKMK_HowKerbUsed"></a>Verwendung des Kerberos-Protokolls mit Authentifizierungs Richtlinien Silos und-Richtlinien
 Wenn ein Domänenkonto mit einem Authentifizierungsrichtliniensilo verknüpft wird und der Benutzer sich anmeldet, fügt der Sicherheitskonto-Manager den Anspruchstyp "Authentifizierungsrichtliniensilo" hinzu, der das Silo als Wert enthält. Dieser Anspruch im Konto bietet Zugriff auf das betreffende Silo.
 
 Wenn eine Authentifizierungsrichtlinie erzwungen wird und die Authentifizierungsdienstanforderung für ein Domänenkonto beim Domänencontroller eingeht, dann gibt der Domänencontroller ein nicht erneuerbares TGT mit der konfigurierten Lebensdauer zurück (sofern das Domänen-TGT keine kürzere Lebensdauer hat).
@@ -161,7 +157,7 @@ Wenn eine Authentifizierungsrichtlinie erzwungen wird und der Authentifizierungs
 > [!NOTE]
 > Das Domänenkonto muss entweder direkt oder indirekt über die Silomitgliedschaft mit der Richtlinie verknüpft werden.
 
-Wenn sich eine Authentifizierungs Richtlinie im Überwachungsmodus befindet und ein Ticket Erteilungs Service Request vom Domänen Controller für ein Domänen Konto empfangen wird, prüft der Domänen Controller, ob die Authentifizierung basierend auf dem Ticket Berechtigungs Attribut für die Anforderung zulässig ist. (PAC)-Daten und protokolliert eine Warnmeldung, wenn Sie fehlschlägt. Das PAC enthält verschiedene Arten von Autorisierungsdaten, darunter die Gruppen, denen der Benutzer als Mitglied angehört, die Rechte des Benutzers und die Richtlinien, die für den Benutzer gelten. Diese Informationen werden verwendet, um das Zugriffs Token des Benutzers zu generieren. Handelt es sich um eine erzwungene Authentifizierungs Richtlinie, die die Authentifizierung für einen Benutzer, ein Gerät oder einen Dienst ermöglicht, prüft der Domänen Controller, ob die Authentifizierung auf der Grundlage der PAC-Daten der Anforderung zulässig ist. Wenn ein Fehler auftritt, gibt der Domänencontroller eine Fehlermeldung zurück und protokolliert ein Ereignis.
+Wenn sich eine Authentifizierungs Richtlinie im Überwachungsmodus befindet und ein Ticket Erstellungs Service Request vom Domänen Controller für ein Domänen Konto empfangen wird, prüft der Domänen Controller, ob die Authentifizierung gemäß den PAC-Daten (Ticket Privilege Attribute Certificate) der Anforderung zulässig ist, und protokolliert eine Warnmeldung, wenn ein Fehler auftritt. Das PAC enthält verschiedene Arten von Autorisierungsdaten, darunter die Gruppen, denen der Benutzer als Mitglied angehört, die Rechte des Benutzers und die Richtlinien, die für den Benutzer gelten. Diese Informationen werden verwendet, um das Zugriffs Token des Benutzers zu generieren. Handelt es sich um eine erzwungene Authentifizierungs Richtlinie, die die Authentifizierung für einen Benutzer, ein Gerät oder einen Dienst ermöglicht, prüft der Domänen Controller, ob die Authentifizierung auf der Grundlage der PAC-Daten der Anforderung zulässig ist. Wenn ein Fehler auftritt, gibt der Domänencontroller eine Fehlermeldung zurück und protokolliert ein Ereignis.
 
 > [!NOTE]
 > Das Domänenkonto muss entweder direkt oder indirekt über die Silomitgliedschaft mit einer überwachten Richtlinie verknüpft werden, welche die Authentifizierung eines Benutzers, Geräts oder Diensts zulässt.
@@ -170,7 +166,7 @@ Sie können eine Authentifizierungsrichtlinie für alle Mitglieder eines Silos o
 
 Authentifizierungsrichtlinien können mit der Active Directory-Verwaltungskonsole oder Windows PowerShell für jedes Silo konfiguriert werden. Weitere Informationen finden Sie unter [Konfigurieren geschützter Konten](how-to-configure-protected-accounts.md).
 
-### <a name="BKMK_HowRestrictingSignOn"></a>Funktionsweise der Benutzeranmeldung
+### <a name="how-restricting-a-user-sign-in-works"></a><a name="BKMK_HowRestrictingSignOn"></a>Funktionsweise der Benutzeranmeldung
 Weil diese Authentifizierungsrichtlinien auf ein Konto angewendet werden, gelten sie auch für Konten, die von Diensten verwendet werden. Wenn Sie die Verwendung eines Kennworts für einen Dienst auf bestimmte Hosts beschränken möchten, ist diese Einstellung hilfreich. Beispielsweise werden gruppenverwaltete Dienstkonten so konfiguriert, dass die Hosts das Kennwort von den Active Directory-Domänendiensten abrufen können. Allerdings kann dieses Kennwort auf jedem Host zur anfänglichen Authentifizierung verwendet werden. Durch die Anwendung einer Zugriffssteuerungsbedingung kann eine zusätzliche Schutzebene eingeführt werden, indem das Kennwort nur auf die Gruppe von Hosts begrenzt wird, welche das Kennwort abrufen können.
 
 Wenn von Diensten, die als System, Netzwerkdienst oder andere Identität des lokalen Diensts ausgeführt werden, eine Verbindung mit Netzwerkdiensten hergestellt wird, wird das Computer Konto des Hosts verwendet. Computerkonten können nicht beschränkt werden. Selbst wenn der Dienst ein Computerkonto verwendet, das nicht für einen Windows-Host vorgesehen ist, kann dieses nicht eingeschränkt werden.
@@ -204,7 +200,7 @@ Selbst wenn das Betriebssystem Kerberos Armoring unterstützt, können Zugriffss
 
 3.  Der Domänencontroller antwortet mit einer geschützten Antwort (AS-REP), und die Authentifizierung wird fortgesetzt.
 
-### <a name="BKMK_HowRestrictingServiceTicket"></a>Funktionsweise der Dienst Ticket Ausstellung
+### <a name="how-restricting-service-ticket-issuance-works"></a><a name="BKMK_HowRestrictingServiceTicket"></a>Funktionsweise der Dienst Ticket Ausstellung
 Wenn ein Konto nicht zulässig ist und ein Benutzer, der ein TGT verwendet, eine Verbindung mit dem Dienst herstellt (z. b. durch Öffnen einer Anwendung, die eine Authentifizierung bei einem Dienst erfordert, der durch den Dienst Prinzipal Namen (SPN) des Dienstanbieter identifiziert wird, erfolgt die folgende Sequenz:
 
 1.  Bei einem Versuch, von SPN eine Verbindung mit SPN1 herzustellen, sendet Windows eine TGS-REQ an den Domänencontroller, der ein Dienstticket für SPN1 anfordert.
@@ -215,7 +211,7 @@ Wenn ein Konto nicht zulässig ist und ein Benutzer, der ein TGT verwendet, eine
 
 4.  Der Domänencontroller weist die Anforderung zurück.
 
-Wenn ein Konto zulässig ist, weil das Konto die von der Authentifizierungs Richtlinie festgelegten Zugriffs Steuerungs Bedingungen erfüllt, und ein Benutzer, der ein TGT hat, versucht, eine Verbindung mit dem Dienst herzustellen (z. b. durch Öffnen einer Anwendung, die eine Authentifizierung für einen Dienst erfordert, der identifiziert durch den Dienst Prinzipal Namen (SPN), wird die folgende Sequenz ausgeführt:
+Wenn ein Konto zulässig ist, weil das Konto die von der Authentifizierungs Richtlinie festgelegten Zugriffs Steuerungs Bedingungen erfüllt und ein Benutzer, der ein TGT hat, versucht, eine Verbindung mit dem Dienst herzustellen (z. b. durch Öffnen einer Anwendung, die eine Authentifizierung bei einem Dienst erfordert, der durch den Dienst Prinzipal Namen identifiziert wird), erfolgt die folgende Sequenz:
 
 1.  Bei einem Versuch, eine Verbindung mit SPN1 herzustellen, sendet Windows eine TGS-REQ an den Domänencontroller, der ein Dienstticket für SPN1 anfordert.
 
@@ -225,7 +221,7 @@ Wenn ein Konto zulässig ist, weil das Konto die von der Authentifizierungs Rich
 
 4.  Der Domänencontroller beantwortet die Anforderung mit einer Ticket erteilenden Dienstantwort (TGS-REP).
 
-## <a name="BKMK_ErrorandEvents"></a>Zugehörige Fehler-und Informations Ereignismeldungen
+## <a name="associated-error-and-informational-event-messages"></a><a name="BKMK_ErrorandEvents"></a>Zugehörige Fehler-und Informations Ereignismeldungen
 In der folgenden Tabelle werden die Ereignisse, die mit der Sicherheitsgruppe "Geschützte Benutzer" zusammenhängen, und die Authentifizierungsrichtlinien, die für Authentifizierungsrichtliniensilos gelten, beschrieben.
 
 Die Ereignisse werden in den Anwendungs- und Dienstprotokollen unter **Microsoft\Windows\Authentication** verzeichnet.
@@ -234,11 +230,11 @@ Informationen zu Problembehandlungsschritten mit diesen Ereignissen finden Sie u
 
 |Ereignis-ID und Protokoll|Beschreibung|
 |----------|--------|
-|101<br /><br />**AuthenticationPolicyFailures-DomainController**|Grund: Es tritt ein NTLM-Anmeldefehler auf, weil die Authentifizierungsrichtlinie konfiguriert ist.<br /><br />Auf dem Domänencontroller wird ein Ereignis protokolliert, das anzeigt, dass die NTLM-Authentifizierung fehlgeschlagen ist, weil Zugriffssteuerungseinschränkungen erfüllt werden müssen und diese Einschränkungen nicht auf NTLM anwendbar sind.<br /><br />Zeigt den Kontonamen, Gerätenamen, Richtliniennamen und Silonamen an.|
-|105<br /><br />**AuthenticationPolicyFailures-DomainController**|Grund: Es tritt ein Kerberos-Einschränkungsfehler auf, weil die Authentifizierung von einem bestimmten Gerät nicht zugelassen wurde.<br /><br />Auf dem Domänencontroller wird ein Ereignis protokolliert, das anzeigt, dass ein Kerberos-TGT verweigert wurde, weil das Gerät nicht die erzwungenen Zugriffssteuerungseinschränkungen erfüllte.<br /><br />Zeigt Kontonamen, Gerätenamen, Richtliniennamen, Silonamen und TGT-Lebensdauer an.|
-|305<br /><br />**AuthenticationPolicyFailures-DomainController**|Grund: Es tritt möglicherweise ein potenzieller Kerberos-Einschränkungsfehler auf, weil die Authentifizierung von einem bestimmten Gerät nicht zugelassen wurde.<br /><br />Im Überwachungsmodus wird auf dem Domänencontroller ein Ereignis protokolliert, das anzeigt, dass ein Kerberos-TGT verweigert wurde, weil das Gerät nicht die erzwungenen Zugriffssteuerungseinschränkungen erfüllt.<br /><br />Zeigt Kontonamen, Gerätenamen, Richtliniennamen, Silonamen und TGT-Lebensdauer an.|
-|106<br /><br />**AuthenticationPolicyFailures-DomainController**|Grund: Es tritt ein Kerberos-Einschränkungsfehler auf, weil der Benutzer oder das Gerät sich nicht gegenüber dem Server authentifizieren durfte.<br /><br />Auf dem Domänencontroller wird ein Ereignis protokolliert, das anzeigt, dass ein Kerberos-Dienstticket verweigert wurde, weil der Benutzer, das Gerät oder beide nicht die erzwungenen Zugriffssteuerungseinschränkungen erfüllen.<br /><br />Zeigt den Gerätenamen, Richtliniennamen und Silonamen an.|
-|306<br /><br />**AuthenticationPolicyFailures-DomainController**|Grund: Möglicherweise tritt ein Kerberos-Einschränkungsfehler auf, weil der Benutzer oder das Gerät sich nicht gegenüber dem Server authentifizieren durfte.<br /><br />Im Überwachungsmodus wird auf dem Domänencontroller ein Ereignis protokolliert, das anzeigt, dass ein Kerberos-Dienstticket verweigert wurde, weil der Benutzer, das Gerät oder beide nicht die Zugriffssteuerungseinschränkungen erfüllen.<br /><br />Zeigt den Gerätenamen, Richtliniennamen und Silonamen an.|
+|101<p>**AuthenticationPolicyFailures-DomainController**|Grund: ein NTLM-Anmeldefehler tritt auf, weil die Authentifizierungs Richtlinie konfiguriert ist.<p>Auf dem Domänencontroller wird ein Ereignis protokolliert, das anzeigt, dass die NTLM-Authentifizierung fehlgeschlagen ist, weil Zugriffssteuerungseinschränkungen erfüllt werden müssen und diese Einschränkungen nicht auf NTLM anwendbar sind.<p>Zeigt den Kontonamen, Gerätenamen, Richtliniennamen und Silonamen an.|
+|105<p>**AuthenticationPolicyFailures-DomainController**|Ursache: ein Kerberos-Einschränkungs Fehler tritt auf, weil die Authentifizierung von einem bestimmten Gerät nicht zugelassen wurde.<p>Auf dem Domänencontroller wird ein Ereignis protokolliert, das anzeigt, dass ein Kerberos-TGT verweigert wurde, weil das Gerät nicht die erzwungenen Zugriffssteuerungseinschränkungen erfüllte.<p>Zeigt Kontonamen, Gerätenamen, Richtliniennamen, Silonamen und TGT-Lebensdauer an.|
+|305<p>**AuthenticationPolicyFailures-DomainController**|Ursache: Möglicherweise tritt ein potenzieller Kerberos-Einschränkungs Fehler auf, weil die Authentifizierung von einem bestimmten Gerät nicht zugelassen wurde.<p>Im Überwachungsmodus wird auf dem Domänencontroller ein Ereignis protokolliert, das anzeigt, dass ein Kerberos-TGT verweigert wurde, weil das Gerät nicht die erzwungenen Zugriffssteuerungseinschränkungen erfüllt.<p>Zeigt Kontonamen, Gerätenamen, Richtliniennamen, Silonamen und TGT-Lebensdauer an.|
+|106<p>**AuthenticationPolicyFailures-DomainController**|Ursache: ein Kerberos-Einschränkungs Fehler tritt auf, weil der Benutzer oder das Gerät nicht für die Authentifizierung beim Server berechtigt war.<p>Auf dem Domänencontroller wird ein Ereignis protokolliert, das anzeigt, dass ein Kerberos-Dienstticket verweigert wurde, weil der Benutzer, das Gerät oder beide nicht die erzwungenen Zugriffssteuerungseinschränkungen erfüllen.<p>Zeigt den Gerätenamen, Richtliniennamen und Silonamen an.|
+|306<p>**AuthenticationPolicyFailures-DomainController**|Ursache: Möglicherweise tritt ein Kerberos-Einschränkungs Fehler auf, weil der Benutzer oder das Gerät nicht auf dem Server authentifiziert werden darf.<p>Im Überwachungsmodus wird auf dem Domänencontroller ein Ereignis protokolliert, das anzeigt, dass ein Kerberos-Dienstticket verweigert wurde, weil der Benutzer, das Gerät oder beide nicht die Zugriffssteuerungseinschränkungen erfüllen.<p>Zeigt den Gerätenamen, Richtliniennamen und Silonamen an.|
 
 ## <a name="see-also"></a>Siehe auch
 [Konfigurieren geschützter Konten](how-to-configure-protected-accounts.md)

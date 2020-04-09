@@ -1,24 +1,20 @@
 ---
 title: Wbadmin delete-Katalog
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Artikel für den Wbadmin delete-Katalog, mit dem der auf dem lokalen Computer gespeicherte Sicherungs Katalog gelöscht wird.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d3041407-4577-4716-a39f-2c8ab48818d1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 58b8bc6043437755675af28c084257ba0d8b176d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5cf069163cb18c1763de2842b518f269b9fa57dd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362527"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829903"
 ---
 # <a name="wbadmin-delete-catalog"></a>Wbadmin delete-Katalog
 
@@ -35,7 +31,7 @@ wbadmin delete catalog
 [-quiet]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -45,8 +41,8 @@ wbadmin delete catalog
 
 Wenn Sie den Sicherungs Katalog für einen Computer löschen, sind Sie nicht in der Lage, mit dem Windows Server-Sicherung-Snap-in auf die Sicherungen zuzugreifen, die von diesem Computer erstellt wurden. Wenn Sie in diesem Fall auf einen anderen Sicherungs Speicherort zugreifen können, verwenden Sie den **Wbadmin restore catalog** , um den Sicherungs Katalog von diesem Speicherort wiederherzustellen. Sie sollten eine neue Sicherung erstellen, sobald der Sicherungs Katalog gelöscht wurde.
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Remove-wbcatalog](https://technet.microsoft.com/library/jj902445.aspx)

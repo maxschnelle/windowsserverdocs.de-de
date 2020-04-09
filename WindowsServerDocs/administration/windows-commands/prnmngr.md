@@ -1,24 +1,20 @@
 ---
 title: prnmngr
 description: Erfahren Sie, wie Sie Drucker und Verbindungen hinzufügen, löschen und auflisten.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 39eee1a8-4b41-4c9f-941e-486495135eb8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 12981519a1d3bfc079a58e5883bc845955b8a8c6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 621bd6ef68b4243fc010c5c704c286a22028cd6e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372067"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837233"
 ---
 # <a name="prnmngr"></a>prnmngr
 
@@ -33,7 +29,7 @@ cscript Prnmngr {-a | -d | -x | -g | -t | -l | -?}[c] [-s <ServerName>]
 [-w <Password>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |           Parameter           |                                                                                                                                                                                        Beschreibung                                                                                                                                                                                        |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -52,13 +48,13 @@ cscript Prnmngr {-a | -d | -x | -g | -t | -l | -?}[c] [-s <ServerName>]
 |              /?               |                                                                                                                                                                           Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                            |
 
 ## <a name="remarks"></a>Hinweise
--   Der **prndrvr** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis "%windir%\SYSTEM32\ printing_Admin_Scripts\\<language>" befindet. Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** gefolgt vom vollständigen Pfad zur Datei **Prnmngr** ein, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Zum Beispiel:
+-   Der **prndrvr** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis "%windir%\SYSTEM32\ printing_Admin_Scripts\\<language>" befindet. Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** gefolgt vom vollständigen Pfad zur Datei **Prnmngr** ein, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Beispiel:
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnmngr
     ```
 -   Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. `"computer Name"`).
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
 Wenn Sie einen Drucker mit dem Namen colorprinter_2 hinzufügen möchten, der auf dem lokalen Computer mit LPT1 verbunden ist und einen Druckertreiber namens Color Printer Driver1 erfordert, geben Sie Folgendes ein:
 ```
 cscript prnmngr -a -p colorprinter_2 -m "color printer Driver1" -r lpt1:
@@ -68,6 +64,6 @@ Geben Sie Folgendes ein, um den Drucker mit dem Namen colorprinter_2 vom Remote 
 cscript prnmngr -d -s HRServer -p colorprinter_2 
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
-[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
 [Print-Befehlsreferenz](print-command-reference.md)

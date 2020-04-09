@@ -1,105 +1,100 @@
 ---
-title: Systemdatenquellen für Insights
-description: Wenn eine neue Funktion im System Insights zu schreiben, können Sie vorhandene oder neue Datenquellen, um lokal zu erfassen und Analysieren von angeben. Dieses Thema beschreibt die Datenquellen, die Sie auswählen können, wenn Sie eine neue Funktion zu registrieren.
-ms.custom: na
+title: System Insights-Datenquellen
+description: Wenn Sie eine neue Funktion in System Insights schreiben, können Sie vorhandene oder neue Datenquellen angeben, die lokal erfasst und analysiert werden sollen. In diesem Thema werden die Datenquellen beschrieben, die Sie auswählen können, wenn Sie eine neue Funktion registrieren.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: system-insights
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.assetid: ''
 author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 7/31/2018
-ms.openlocfilehash: 9b46db90787d24a173ffa472ec1ecb8eaffe054b
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 920c5fa5919fd2c35edb99cc4e724745715091c7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59845411"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858423"
 ---
-# <a name="system-insights-data-sources"></a>Systemdatenquellen für Insights
+# <a name="system-insights-data-sources"></a>System Insights-Datenquellen
 
->Gilt für: Windows Server 2019
+>Gilt für: Windows Server 2019
 
-System Insights stellt erweiterbare Funktionalität für die modelldatensammlung. Wenn Sie eine neue Funktion zu schreiben, können Sie vorhandene oder neue Datenquellen, um lokal zu erfassen und Analysieren von angeben. Dieses Thema beschreibt die Datenquellen, die Sie auswählen können, wenn Sie eine neue Funktion zu registrieren.
+Mit System Insights werden erweiterbare Funktionen für die Datensammlung eingeführt. Wenn Sie eine neue Funktion schreiben, können Sie vorhandene oder neue Datenquellen angeben, die lokal erfasst und analysiert werden sollen. In diesem Thema werden die Datenquellen beschrieben, die Sie auswählen können, wenn Sie eine neue Funktion registrieren.
 
 ## <a name="data-sources"></a>Datenquellen
-Wenn Sie eine neue Funktion zu schreiben, müssen Sie die bestimmte Datenquellen zum Sammeln von für die einzelnen Funktionen identifizieren. Datenquellen, die Sie angeben, erfasst und direkt auf Ihrem Computer gespeichert werden, und Sie können aus drei Arten von Datenquellen auswählen:
+Wenn Sie eine neue Funktion schreiben, müssen Sie die spezifischen Datenquellen identifizieren, die für jede Funktion erfasst werden sollen. Die von Ihnen angegebenen Datenquellen werden gesammelt und direkt auf Ihrem Computer gespeichert, und Sie können drei Arten von Datenquellen auswählen:
 
 - **Leistungsindikatoren**: 
-    - Geben Sie den Zählerpfad, Name und Instanzen, und System-Insights erfasst die relevanten Daten, die von dieser Leistungsindikatoren gemeldet. 
+    - Geben Sie den Indikator Pfad, den Namen und die Instanzen an, und System Insights sammelt die relevanten Daten, die von diesen Leistungsindikatoren gemeldet werden. 
 
-- **Systemereignisse**:
-    - Geben Sie den Kanal und die Ereignis-ID, und Insights von System wird aufgezeichnet, wie oft dieses Ereignis ist aufgetreten.
+- **System Ereignisse**:
+    - Geben Sie den Channelnamen und die Ereignis-ID an, und mit System Insights wird aufgezeichnet, wie oft das Ereignis aufgetreten ist.
 
-- **Well-Known-Serie**
-    - System Insights erfasst einige grundlegende Informationen, auf dem Computer für einige, klar definierte Ressourcen. Diese Reihe wird für die Standardfunktionen verwendet, aber sie können auch durch eine benutzerdefinierte Funktion verwendet werden. Diese sammeln Sie die folgende Informationen:
+- **Bekannte Reihe**
+    - System Insights sammelt einige grundlegende Informationen auf Ihrem Computer für einige klar definierte Ressourcen. Diese Reihen werden für die Standardfunktionen verwendet, Sie können aber auch von jeder benutzerdefinierten Funktion verwendet werden. Folgende Informationen werden gesammelt:
 
-        - **Datenträger**: 
-            - *Eigenschaften*: Guid
+        - Daten **Träger:** 
+            - *Eigenschaften*: GUID
             - *Daten*: Größe
         - **Volume**:
-            - *Eigenschaften*: UniqueId, DriveLetter, FileSystemLabel, Size
-            - *Daten*: Verwendete Größe
-        - **Netzwerkadapter**:
-            - *Eigenschaften*: InterfaceGuid, InterfaceDescription, Speed
-            - *Daten*: Bytes empfangen/s, gesendete Protokollbytes/Sek, Gesamtanzahl Bytes/Sek.
+            - *Eigenschaften*: UniqueId, DriveLetter, filesystemlabel, size
+            - *Daten*: verwendete Größe
+        - **Netzwerk Adapter**:
+            - *Eigenschaften*: interfaceguid, interfacedescription, Speed
+            - *Daten*: empfangene Bytes/Sek., gesendete Bytes/Sek., Bytes gesamt/Sek.
         - **CPU**: 
             - *Eigenschaften*:-
             - *Daten*: Prozessorzeit (%)
 
-    - Geben Sie eine bekannte Reihe und Insights von System wird von dieser Serie gesammelten Daten zurück. 
+    - Geben Sie eine bekannte Reihe an, und System Insights gibt die Daten zurück, die von dieser Reihe gesammelt werden. 
 
 
-## <a name="retention-timelines-and-collection-intervals"></a>Aufbewahrungsintervalle Zeitachsen und Sammlung
-Die oben aufgeführten Datenquellen haben unterschiedliche aufbewahrungsintervalle Zeitachsen und der Auflistung. Die folgende Tabelle zeigt, wie lang und wie oft jede Datenquelle gesammelt werden:
+## <a name="retention-timelines-and-collection-intervals"></a>Beibehaltungs Zeitachsen und Sammlungs Intervalle
+Die oben aufgeführten Datenquellen haben unterschiedliche Beibehaltungs Zeiträume und Sammlungs Intervalle. Die folgende Tabelle zeigt, wie lange und wie oft die einzelnen Datenquellen gesammelt werden:
 
-| Datenquelle | Zeitachse der Aufbewahrung | Sammlungsintervall |
+| Datenquelle | Aufbewahrungs Zeitachse | Sammlungs Intervall |
 | --------------- | --------------- | ----------- |
 | Leistungsindikatoren | 3 Monate | 15 Minuten |
-| Systemereignisse | 3 Monate | 15 Minuten |
-| Well-Known-Serie | 1 Jahr | 1 Stunden |
+| System Ereignisse | 3 Monate | 15 Minuten |
+| Bekannte Reihe | 1 Jahr | 1 Stunde |
 
 
-### <a name="aggregation-types"></a>Aggregationstypen
-Da jede Reihe nur einen Datenpunkt für jedes Sammlungsintervall aufzeichnen jeder Reihe ist eine Aggregation Typ zugeordnetes es. In der folgenden Tabelle werden die Datenquelle und den entsprechenden Aggregationstyp beschrieben:
+### <a name="aggregation-types"></a>Aggregations Typen
+Da jede Reihe nur einen Datenpunkt für jedes Sammlungs Intervall aufzeichnen, verfügt jede Reihe über einen Aggregationstyp. In der folgenden Tabelle werden die Datenquelle und der zugehörige Aggregationstyp beschrieben:
 
 >[!NOTE]
->Für Leistungsindikatoren können Sie über ein paar unterschiedliche Aggregationstypen auswählen.
+>Für Leistungsindikatoren können Sie aus einigen unterschiedlichen Aggregations Typen auswählen.
 
-| Datenquelle | Aggregationstypen |
+| Datenquelle | Aggregations Typen |
 | --------------- | --------------- |
-| Leistungsindikatoren | SUM, Average, max, min |
-| Systemereignisse | Anzahl |
-| Bekannte Disk-Serie | Letzte (neueste Wert in das Intervall der Datensammlung) |
-| Bekannte Reihe von Volume | Letzte (neueste Wert in das Intervall der Datensammlung) |
-| Bekannte CPU-Serie | Durchschnitt |
-| Bekannte Network-Serie | Durchschnitt |
+| Leistungsindikatoren | Sum, Average, Max, min |
+| System Ereignisse | Anzahl |
+| Bekannte Reihe zu Datenträgern | Last (aktueller Wert im Sammlungs Intervall) |
+| Well-Known-Reihe von Volumes | Last (aktueller Wert im Sammlungs Intervall) |
+| Well-Known-Serie (CPU) | Durchschnitt |
+| Bekannte Serie zu Netzwerken | Durchschnitt |
 
-## <a name="data-footprint"></a>Speicherbedarf
+## <a name="data-footprint"></a>Daten Bedarf
 
-System Insights erfasst alle Daten, die lokal auf dem Laufwerk "C:" ("c:") vorhanden sind. Im Allgemeinen ist, den Platzbedarf der System-Insights-Daten. Es abhängt, direkt auf den Typ und Anzahl der Datenquellen, die jede Funktion gibt an, und in der folgenden Tabelle werden die speichernutzung für jeden Datentyp:
+System Insights sammelt alle Daten lokal auf Ihrem Laufwerk c (c:). Im Allgemeinen ist der Daten Speicherbedarf der System Insights gering. Dies hängt direkt vom Typ und der Anzahl der Datenquellen ab, die jede Funktion angibt, und in der folgenden Tabelle wird die Speicherauslastung für die einzelnen Datentypen ausführlich erläutert:
 
-| Datenquelle | Maximale Speicherbedarf |
+| Datenquelle | Maximaler Speicherbedarf |
 | --------------- | --------------- |
 | Leistungsindikatoren | 240 KB |
-| Systemereignisse | 200 KB |
-| Bekannte Disk-Serie | 200 KB pro Datenträger |
-| Bekannte Reihe von Volume | 300 KB pro volume |
-| Bekannte CPU-Serie | 100 KB |
-| Bekannte Network-Serie | 300 KB pro Netzwerkadapter |
+| System Ereignisse | 200 KB |
+| Bekannte Reihe zu Datenträgern | 200 KB pro Datenträger |
+| Well-Known-Reihe von Volumes | 300 KB pro Volume |
+| Well-Known-Serie (CPU) | 100 KB |
+| Bekannte Serie zu Netzwerken | 300 KB pro Netzwerkadapter |
 
 >[!NOTE]
->**Für den standardmäßigen Prognosefunktionen sollte der maximale Speicherbedarf weniger als 10 MB für die meisten eigenständigen Computer.** 
+>**Bei den standardmäßigen Vorhersagefunktionen muss der maximale Speicherplatz für die meisten eigenständigen Computer weniger als 10 MB betragen.** 
 
 ## <a name="see-also"></a>Siehe auch
-Weitere Informationen zum System Insights können Sie die folgenden Ressourcen:
+Weitere Informationen zu System Insights finden Sie in den folgenden Ressourcen:
 
-- [System-Insights-Übersicht](overview.md)
+- [Übersicht über System Einblicke](overview.md)
 - [Grundlegendes zu Funktionen](understanding-capabilities.md)
 - [Verwalten von Funktionen](managing-capabilities.md)
-- [Hinzufügen und die Entwicklung von Funktionen](adding-and-developing-capabilities.md)
-- [System Insights – häufig gestellte Fragen](faq.md)
+- [Hinzufügen und Entwickeln von Funktionen](adding-and-developing-capabilities.md)
+- [FAQ zu System Insights](faq.md)

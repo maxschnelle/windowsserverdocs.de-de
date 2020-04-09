@@ -1,19 +1,20 @@
 ---
 title: Notfall Wiederherstellungs Szenarien für hyperkonvergierte Infrastrukturen
 ms.prod: windows-server
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: johnmarlin-msft
+ms.author: johnmar
 ms.date: 03/29/2018
 description: In diesem Artikel werden die heute für die Notfall Wiederherstellung von Microsoft HCI (direkte Speicherplätze) verfügbaren Szenarios beschrieben.
 ms.localizationpriority: medium
-ms.openlocfilehash: 8e6372ec7b4759f672c13f4bd822172afaf3faf3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5f3159e0c215d898848df71c6488cd491b7ded38
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393748"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859163"
 ---
 # <a name="disaster-recovery-with-storage-spaces-direct"></a>Notfall Wiederherstellung mit direkte Speicherplätze
 
@@ -45,10 +46,10 @@ In diesem Szenario gibt es zwei separate unabhängige Cluster. Zum Konfigurieren
 
 Beim Bereitstellen des Speicher Replikats gelten die folgenden Überlegungen. 
 
-1.  Das Konfigurieren der Replikation erfolgt außerhalb des Failoverclustering. 
-2.  Die Auswahl der Replikations Methode hängt von der Netzwerk Latenz und den RPO-Anforderungen ab. Synchron repliziert die Daten in Netzwerken mit geringer Latenz mit Absturz Konsistenz, um zu einem Zeitpunkt, an dem ein Fehler aufgetreten ist, keinen Datenverlust sicherzustellen. Asynchrone repliziert die Daten über Netzwerke mit höheren Wartezeiten, aber die einzelnen Standorte verfügen möglicherweise nicht über identische Kopien, wenn ein Fehler aufgetreten ist. 
-3.  Bei einem Notfall erfolgen Failover zwischen den Clustern nicht automatisch und müssen manuell über die PowerShell-Cmdlets des Speicher Replikats orchestriert werden. In der obigen Abbildung ist clustera das primäre Element, und clusterb ist das sekundäre Objekt. Wenn clustera ausfällt, müssen Sie "clusterb" manuell als "Primär" festlegen, bevor Sie die Ressourcen übernehmen können. Nach der Wiederherstellung von clustera müssen Sie es als sekundär festlegen. Nachdem alle Daten synchronisiert wurden, nehmen Sie die Änderung vor, und tauschen Sie die Rollen so zurück, wie Sie ursprünglich festgelegt wurden.
-4.  Da das Speicher Replikat nur die Daten replizieren, muss ein neuer virtueller Computer oder Scale Out Datei Server (sofs), der diese Daten nutzt, in Failovercluster-Manager auf dem Replikat Partner erstellt werden.
+1.    Das Konfigurieren der Replikation erfolgt außerhalb des Failoverclustering. 
+2.    Die Auswahl der Replikations Methode hängt von der Netzwerk Latenz und den RPO-Anforderungen ab. Synchron repliziert die Daten in Netzwerken mit geringer Latenz mit Absturz Konsistenz, um zu einem Zeitpunkt, an dem ein Fehler aufgetreten ist, keinen Datenverlust sicherzustellen. Asynchrone repliziert die Daten über Netzwerke mit höheren Wartezeiten, aber die einzelnen Standorte verfügen möglicherweise nicht über identische Kopien, wenn ein Fehler aufgetreten ist. 
+3.    Bei einem Notfall erfolgen Failover zwischen den Clustern nicht automatisch und müssen manuell über die PowerShell-Cmdlets des Speicher Replikats orchestriert werden. In der obigen Abbildung ist clustera das primäre Element, und clusterb ist das sekundäre Objekt. Wenn clustera ausfällt, müssen Sie "clusterb" manuell als "Primär" festlegen, bevor Sie die Ressourcen übernehmen können. Nach der Wiederherstellung von clustera müssen Sie es als sekundär festlegen. Nachdem alle Daten synchronisiert wurden, nehmen Sie die Änderung vor, und tauschen Sie die Rollen so zurück, wie Sie ursprünglich festgelegt wurden.
+4.    Da das Speicher Replikat nur die Daten replizieren, muss ein neuer virtueller Computer oder Scale Out Datei Server (sofs), der diese Daten nutzt, in Failovercluster-Manager auf dem Replikat Partner erstellt werden.
 
 Das Speicher Replikat kann verwendet werden, wenn Sie über virtuelle Computer oder einen sofs verfügen, die in Ihrem Cluster ausgeführt werden. Das Online schalten von Ressourcen im Replikat-HCI kann durch die Verwendung von PowerShell-Skripts manuell oder automatisiert erfolgen.
 
@@ -60,14 +61,14 @@ Das [Hyper-V-](https://docs.microsoft.com/windows-server/virtualization/hyper-v/
 
 Mit dem Hyper-v-Replikat wird die Replikation von Hyper-v übernommen. Wenn Sie zum ersten Mal einen virtuellen Computer für die Replikation aktivieren, gibt es drei Möglichkeiten, wie die anfängliche Kopie an die entsprechenden Replikat Cluster gesendet werden soll.
 
-1.  Erste Kopie über das Netzwerk senden
-2.  Senden Sie die anfängliche Kopie an externe Medien, damit Sie manuell auf den Server kopiert werden kann.
-3.  Vorhandenen virtuellen Computer verwenden, der bereits auf den Replikat Hosts erstellt wurde
+1.    Erste Kopie über das Netzwerk senden
+2.    Senden Sie die anfängliche Kopie an externe Medien, damit Sie manuell auf den Server kopiert werden kann.
+3.    Vorhandenen virtuellen Computer verwenden, der bereits auf den Replikat Hosts erstellt wurde
 
 Die andere Option ist, wenn Sie möchten, dass diese erste Replikation stattfindet.
 
-1.  Replikation sofort starten
-2.  Planen Sie einen Zeitpunkt, zu dem die erste Replikation stattfindet. 
+1.    Replikation sofort starten
+2.    Planen Sie einen Zeitpunkt, zu dem die erste Replikation stattfindet. 
 
 Weitere Aspekte, die Sie benötigen, sind:
 
@@ -78,9 +79,9 @@ Weitere Aspekte, die Sie benötigen, sind:
 
 Wenn HCI an einem Hyper-v-Replikat teilnimmt, muss die [Hyper-v-Replikat Broker](https://blogs.technet.microsoft.com/virtualization/2012/03/27/why-is-the-hyper-v-replica-broker-required/) -Ressource in jedem Cluster erstellt werden. Diese Ressource führt verschiedene Aktionen aus:
 
-1.  Bietet Ihnen einen einzelnen Namespace für jeden Cluster, mit dem das Hyper-V-Replikat eine Verbindung herstellen soll.
-2.  Bestimmt, auf welchem Knoten sich das Replikat (oder das erweiterte Replikat) beim ersten Erhalt der Kopie befindet.
-3.  Verfolgt, welcher Knoten das Replikat (oder das erweiterte Replikat) besitzt, falls der virtuelle Computer auf einen anderen Knoten verschoben wird. Dies muss nachverfolgt werden, damit die Informationen bei der Replikation an den entsprechenden Knoten gesendet werden können.
+1.    Bietet Ihnen einen einzelnen Namespace für jeden Cluster, mit dem das Hyper-V-Replikat eine Verbindung herstellen soll.
+2.    Bestimmt, auf welchem Knoten sich das Replikat (oder das erweiterte Replikat) beim ersten Erhalt der Kopie befindet.
+3.    Verfolgt, welcher Knoten das Replikat (oder das erweiterte Replikat) besitzt, falls der virtuelle Computer auf einen anderen Knoten verschoben wird. Dies muss nachverfolgt werden, damit die Informationen bei der Replikation an den entsprechenden Knoten gesendet werden können.
 
 ## <a name="backup-and-restore"></a>Sicherung und Wiederherstellung
 
@@ -102,13 +103,13 @@ Wenn eine autoritative Wiederherstellung auf einem Cluster Knoten initiiert wird
 
 Zum Ausführen einer autorisierenden Wiederherstellung können die folgenden Schritte ausgeführt werden.
 
-1.  Führen Sie Wbadmin aus. EXE von einer Administrator Eingabeaufforderung aus, um die neueste Version der zu installierenden Sicherungen zu erhalten und sicherzustellen, dass der System Status eine der Komponenten ist, die Sie wiederherstellen können.
+1.    Führen Sie Wbadmin aus. EXE von einer Administrator Eingabeaufforderung aus, um die neueste Version der zu installierenden Sicherungen zu erhalten und sicherzustellen, dass der System Status eine der Komponenten ist, die Sie wiederherstellen können.
 
     ```powershell
     Wbadmin get versions
     ```
 
-2.  Stellen Sie fest, ob die Versions Sicherung, die Sie besitzen, über die Cluster Registrierungsinformationen als Komponente verfügt. Es gibt einige Elemente, die Sie mit diesem Befehl benötigen, die Version und die Anwendung bzw. Komponente für die Verwendung in Schritt 3. Für die Version, z. b.: die Sicherung wurde am 3. Januar 2018 um 2:04uhr durchgeführt, und das ist das, das Sie wiederherstellen müssen.
+2.    Stellen Sie fest, ob die Versions Sicherung, die Sie besitzen, über die Cluster Registrierungsinformationen als Komponente verfügt. Es gibt einige Elemente, die Sie mit diesem Befehl benötigen, die Version und die Anwendung bzw. Komponente für die Verwendung in Schritt 3. Für die Version, z. b.: die Sicherung wurde am 3. Januar 2018 um 2:04uhr durchgeführt, und das ist das, das Sie wiederherstellen müssen.
 
     ```powershell
     wbadmin get items -backuptarget:\\backupserver\location

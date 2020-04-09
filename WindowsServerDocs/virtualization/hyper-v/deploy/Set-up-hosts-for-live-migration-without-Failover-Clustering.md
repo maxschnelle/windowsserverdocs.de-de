@@ -2,21 +2,19 @@
 title: Einrichten von Hosts für die Live Migration ohne Failoverclustering
 description: Enthält Anweisungen zum Einrichten einer Live Migration in einer nicht geclusterten Umgebung.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b5e3c405-cb76-4ff2-8042-c2284448c435
-author: KBDAzure
+author: kbdazure
 ms.author: kathydav
 ms.date: 9/30/2016
-ms.openlocfilehash: 3f0c13ba44eb498635b9b0c049b2921776049840
-ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
+ms.openlocfilehash: 2c2f671bf59e95de2604c91944fab3d65f82410e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72591066"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860883"
 ---
 # <a name="set-up-hosts-for-live-migration-without-failover-clustering"></a>Einrichten von Hosts für die Live Migration ohne Failoverclustering
 
@@ -52,12 +50,12 @@ Beachten Sie, wie Sie Folgendes einrichten möchten:
 
 -  **Netzwerk Präferenz**: lässt Sie Live Migration-Datenverkehr über ein beliebiges verfügbares Netzwerk zu, oder isolieren Sie den Datenverkehr für bestimmte Netzwerke? Als bewährte Sicherheitsmethode wird empfohlen, den Datenverkehr auf vertrauenswürdige, private Netzwerken zu isolieren, da der Datenverkehr für die Livemigration beim Senden über das Netzwerk nicht verschlüsselt wird. Die Netzwerkisolation kann über ein physisch isoliertes Netzwerk oder über eine andere vertrauenswürdige Netzwerktechnologie, z. B. VLANs, erreicht werden.
 
-## <a name="BKMK_Step1"></a>Schritt 1: Konfigurieren der eingeschränkten Delegierung (optional)
+## <a name="step-1-configure-constrained-delegation-optional"></a><a name="BKMK_Step1"></a>Schritt 1: Konfigurieren der eingeschränkten Delegierung (optional)
 Wenn Sie sich für die Verwendung von Kerberos zum Authentifizieren des Datenverkehrs für die Live Migration entschieden haben, konfigurieren Sie die eingeschränkte Delegierung mithilfe eines Kontos, das Mitglied der Gruppe Domänen Administratoren ist.
 
 ### <a name="use-the-users-and-computers-snap-in-to-configure-constrained-delegation"></a>Verwenden des Snap-Ins "Benutzer und Computer" zum Konfigurieren der eingeschränkten Delegierung
 
-1.  Öffnen Sie das Snap-In %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;. (Wählen Sie unter Server-Manager den Server aus, wenn er nicht ausgewählt ist **, klicken Sie** auf Extras  >> **Active Directory Benutzer und Computer**).
+1.  Öffnen Sie das Snap-In %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;. (Wählen Sie unter Server-Manager den Server aus, wenn er nicht ausgewählt ist **, klicken Sie** auf Extras >> **Active Directory Benutzer und Computer**).
 
 2.  Wählen Sie im Navigationsbereich von **Active Directory Benutzer und Computer**die Domäne aus, und doppelklicken Sie auf den Ordner **Computer** .
 
@@ -67,7 +65,7 @@ Wenn Sie sich für die Verwendung von Kerberos zum Authentifizieren des Datenver
 
 5.  Wählen Sie auf der Registerkarte Delegierung die Option **Computer nur bei Delegierungen angegebener Dienste vertrauen aus** , und wählen Sie dann **beliebiges Authentifizierungsprotokoll verwenden**aus.
 
-6.  Klicken Sie auf **Add**.
+6.  Klicken Sie auf **Hinzufügen**.
 
 7.  Klicken Sie unter **Dienste hinzufügen**auf **Benutzer oder Computer**.
 
@@ -75,7 +73,7 @@ Wenn Sie sich für die Verwendung von Kerberos zum Authentifizieren des Datenver
 
 9. Führen Sie in der Liste der verfügbaren Dienste unter **Dienste hinzufügen**die folgenden Schritte aus, und klicken Sie dann auf **OK**:
 
-    -   Wenn Sie den Speicher des virtuellen Computers entfernen möchten, wählen Sie **cifs**aus. Dies ist erforderlich, wenn Sie den Speicher zusammen mit dem virtuellen Computer verschieben möchten, und wenn Sie nur den Speicher eines virtuellen Computers verschieben möchten. Wenn der Server für die Verwendung des SMB-Speichers für Hyper-V konfiguriert ist, wurde diese Auswahl bereits getroffen.
+    -   Wenn Sie den Speicher des virtuellen Computers entfernen möchten, wählen Sie **cifs** aus. Dies ist erforderlich, wenn Sie den Speicher zusammen mit dem virtuellen Computer verschieben möchten, und wenn Sie nur den Speicher eines virtuellen Computers verschieben möchten. Wenn der Server für die Verwendung des SMB-Speichers für Hyper-V konfiguriert ist, wurde diese Auswahl bereits getroffen.
 
     -   Wenn Sie virtuelle Computer verschieben möchten, wählen Sie den **Migrationsdienst für virtuelles System von Microsoft** aus.
 
@@ -88,22 +86,22 @@ Die Konfigurationsänderungen treten in Kraft, nachdem die beiden folgenden Akti
   -  Die Änderungen werden auf die Domänen Controller repliziert, bei denen die Server, auf denen Hyper-V ausgeführt wird, angemeldet sind.
   -  Der Domänen Controller gibt ein neues Kerberos-Ticket aus.
 
-## <a name="BKMK_Step2"></a>Schritt 2: Einrichten der Quell-und Zielcomputer für die Live Migration
+## <a name="step-2-set-up-the-source-and-destination-computers-for-live-migration"></a><a name="BKMK_Step2"></a>Schritt 2: Einrichten der Quell-und Zielcomputer für die Live Migration
 Dieser Schritt umfasst die Auswahl von Optionen für die Authentifizierung und das Netzwerk. Als bewährte Sicherheitsmaßnahme empfiehlt es sich, bestimmte Netzwerke auszuwählen, die für den Datenverkehr für die Live Migration verwendet werden sollen, wie oben erläutert. Außerdem wird in diesem Schritt gezeigt, wie Sie die Option Leistung auswählen.
 
 ### <a name="use-hyper-v-manager-to-set-up-the-source-and-destination-computers-for-live-migration"></a>Verwenden des Hyper-V-Managers zum Einrichten der Quell-und Zielcomputer für die Live Migration
 
-1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie** in Server-Manager auf Extras  >>**Hyper-V-Manager**.)
+1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie** in Server-Manager auf Extras >>**Hyper-V-Manager**.)
 
 2.  Wählen Sie im Navigationsbereich einen der Server aus. (Falls nicht aufgeführt, klicken Sie mit der rechten Maustaste auf **Hyper-V-Manager**, klicken Sie auf **Verbindung mit Server herstellen**, geben Sie den Servernamen ein, und klicken Sie auf **OK** Wiederholen Sie den Vorgang, um weitere Server hinzuzufügen.
 
-3.  Klicken Sie im Bereich **Aktion** auf **Hyper-V-Einstellungen**  >>**Live Migrationen**.
+3.  Klicken Sie im Bereich **Aktion** auf **Hyper-V-Einstellungen** >>**Live Migrationen**.
 
 4.  Aktivieren Sie im Bereich **Livemigrationen** die Option **Ein- und ausgehende Livemigrationen ermöglichen**.
 
 5.  Geben Sie unter **gleichzeitige Live Migrationen**eine andere Zahl an, wenn Sie nicht den Standardwert von 2 verwenden möchten.
 
-6.  Wenn spezielle Netzwerkverbindungen den Datenverkehr für die Livemigration akzeptieren sollen, klicken Sie unter **Eingehende Livemigrationen**auf **Hinzufügen** , um die IP-Adressinformationen einzugeben. Klicken Sie anderenfalls auf **Beliebiges Netzwerk für Livemigration verwenden**. Klicken Sie auf **OK**.
+6.  Wenn spezielle Netzwerkverbindungen den Datenverkehr für die Livemigration akzeptieren sollen, klicken Sie unter **Eingehende Livemigrationen** auf **Hinzufügen**, um die IP-Adressinformationen einzugeben. Klicken Sie anderenfalls auf **Beliebiges Netzwerk für Livemigration verwenden**. Klicken Sie auf **OK**.
 
 7.  Um die Kerberos-und Leistungsoptionen auszuwählen, erweitern Sie **Live Migrationen** , und wählen Sie dann **Erweiterte Funktionen**aus.
 
@@ -143,7 +141,7 @@ In dieser Tabelle wird beschrieben, wie die Leistungsoptionen funktionieren.
 |----------|---------------|
     |TCP/IP|Der Arbeitsspeicher des virtuellen Computers wird über eine TCP/IP-Verbindung auf den Zielserver kopiert.|
     |Komprimierung|Komprimiert den Speicherinhalt der virtuellen Maschine, bevor Sie über eine TCP/IP-Verbindung auf den Zielserver kopiert wird. **Hinweis:** Dies ist die **Standard** Einstellung.|
-    |SMB|Der Arbeitsspeicher des virtuellen Computers wird über eine SMB 3,0-Verbindung auf den Zielserver kopiert.<br /><br />-SMB Direct wird verwendet, wenn für die Netzwerkadapter auf den Quell-und Ziel Servern RDMA (Remote Direct Memory Access)-Funktionen aktiviert sind.<br />-SMB Multichannel erkennt und verwendet automatisch mehrere Verbindungen, wenn eine entsprechende SMB Multichannel-Konfiguration identifiziert wird.<br /><br />Weitere Informationen finden Sie unter [Improve Performance of a File Server with SMB Direct](https://technet.microsoft.com/library/jj134210(WS.11).aspx).|
+    |SMB|Der Arbeitsspeicher des virtuellen Computers wird über eine SMB 3,0-Verbindung auf den Zielserver kopiert.<p>-SMB Direct wird verwendet, wenn für die Netzwerkadapter auf den Quell-und Ziel Servern RDMA (Remote Direct Memory Access)-Funktionen aktiviert sind.<br />-SMB Multichannel erkennt und verwendet automatisch mehrere Verbindungen, wenn eine entsprechende SMB Multichannel-Konfiguration identifiziert wird.<p>Weitere Informationen finden Sie unter [Optimieren der Leistung von Dateiservern mit %%amp;quot;SMB Direct%%amp;quot;](https://technet.microsoft.com/library/jj134210(WS.11).aspx).|
 
  ## <a name="next-steps"></a>Nächste Schritte
 

@@ -8,18 +8,18 @@ ms.author: ifufondu
 manager: chhuybre
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: 515831df6b97271b52c4a715fd979f2afff4a3a1
-ms.sourcegitcommit: f73662069329b1abf6aa950c2a826bc113718857
+ms.openlocfilehash: 1165ce58cf781d6ef5f905cb8b01c00fa4552edb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73240342"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860263"
 ---
 # <a name="enable-intel-performance-monitoring-hardware-in-a-hyper-v-virtual-machine"></a>Aktivieren der Intel Performance Monitoring-Hardware auf einem virtuellen Hyper-V-Computer
 
 Intel-Prozessoren enthalten Features, die als Leistungs Überwachungs Hardware bezeichnet werden (z. b. PMU, ETB, LBR). Diese Features werden von der Leistungs optimierenden Software wie Intel VTune-Verstärker verwendet, um die Softwareleistung zu analysieren.  Vor Windows Server 2019 und Windows 10, Version 1809, konnten weder das Host Betriebssystem noch virtuelle Hyper-v-Gastcomputer bei Aktivierung von Hyper-v Hardware zur Leistungsüberwachung verwenden.  Ab Windows Server 2019 und Windows 10, Version 1809, hat das Host Betriebssystem standardmäßig Zugriff auf die Leistungs Überwachungs Hardware.  Virtuelle Hyper-v-Gastcomputer haben standardmäßig keinen Zugriff, aber Hyper-v-Administratoren können den Zugriff auf mindestens einen virtuellen Gastcomputer gewähren.  In diesem Dokument werden die erforderlichen Schritte zum Bereitstellen der Hardware für die Leistungsüberwachung für virtuelle Gastcomputer beschrieben.
 
-## <a name="requirements"></a>Anforderungen
+## <a name="requirements"></a>Voraussetzungen
 
 Zum Aktivieren der Leistungs Überwachungs Hardware auf einem virtuellen Computer benötigen Sie Folgendes:
 

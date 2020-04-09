@@ -1,7 +1,6 @@
 ---
 ms.assetid: 67d8a8d7-2fbd-4ed7-bb41-75769f942024
 title: Konfigurieren der Leistungsüberwachung
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 37dd52b8771eda695069dd996fbd920e31f80ef1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 94ff5a5e4ca16bdd1851a2997fdca1fd36741888
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71359809"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854913"
 ---
 # <a name="configure-performance-monitoring"></a>Konfigurieren der Leistungsüberwachung
   
@@ -60,7 +59,7 @@ AD FS umfasst eigene dedizierte Leistungsindikatoren, die Sie beim Überwachen d
 ## <a name="ad-fs-performance-counters"></a>AD FS Leistungsindikatoren  
 In der folgenden Tabelle sind die AD FS Leistungsindikatoren aufgelistet. Außerdem wird beschrieben, wie Sie für die Überwachung von Aktivitäten nützlich sind, die entweder mit einem Verbund Server oder einem Verbund Server Proxy verknüpft sind.  
   
-|Indikator|Beschreibung|Kann für Folgendes verwendet werden: 
+|Leistungsindikator|Beschreibung|Kann für Folgendes verwendet werden: 
 |-----------|---------------|------------------- 
 |Tokenanforderungen|Überwacht die Anzahl der Tokenanforderungen, die an den Verbund Server gesendet wurden, einschließlich ssoauth-Tokenanforderungen.|Verbundserver 
 |Tokenanforderungen\/Sek.|Überwacht die Anzahl der Tokenanforderungen, die an den Verbund Server gesendet werden, einschließlich ssoauth-Tokenanforderungen pro Sekunde.|Verbundserver  

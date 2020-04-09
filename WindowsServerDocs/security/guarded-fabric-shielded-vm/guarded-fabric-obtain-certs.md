@@ -1,19 +1,19 @@
 ---
 title: Zertifikate für HGS abrufen
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: f4b4d1a8-bf6d-4881-9150-ddeca8b48038
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: e8f4a3696ec5096281ba1ffd130aa97004530cc1
-ms.sourcegitcommit: de71970be7d81b95610a0977c12d456c3917c331
+ms.openlocfilehash: da1ae4bacd5a6b2e38b22930aacf06f65b16bb29
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71940735"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856533"
 ---
 # <a name="obtain-certificates-for-hgs"></a>Zertifikate für HGS abrufen
 
@@ -37,7 +37,7 @@ Zertifikat Vorlagen Eigenschaft | Erforderlicher Wert
 ------------------------------|----------------
 Kryptografieanbieter               | Alle Schlüsselspeicher Anbieter (Key Storage Provider, KSP). Ältere Kryptografiedienstanbieter (CSPs) werden **nicht** unterstützt.
 Schlüssel Algorithmus                 | RSA
-Minimale Schlüsselgröße              | 2048 Bits
+Minimale Schlüsselgröße              | 2\.048 Bits
 Signatur Algorithmus           | Empfohlen: SHA256
 Schlüsselverwendung                     | Digitale Signatur *und* Datenverschlüsselung
 Erweiterte Schlüssel Verwendung            | Serverauthentifizierung
@@ -74,7 +74,7 @@ Remove-Item $encCert.PSPath
 
 ## <a name="request-an-ssl-certificate"></a>Anfordern eines SSL-Zertifikats
 
-Alle Schlüssel und vertraulichen Informationen, die zwischen Hyper-V-Hosts und HGS übertragen werden, werden auf der Nachrichten Ebene verschlüsselt, d. h., die Informationen werden mit Schlüsseln verschlüsselt, die HGS oder Hyper-v genannt werden, sodass jemand daran gehindert wird, den Netzwerk Datenverkehr zu übermitteln und Schlüssel zu stehlen für ihre VMs.
+Alle Schlüssel und vertraulichen Informationen, die zwischen Hyper-V-Hosts und HGS übertragen werden, werden auf der Nachrichten Ebene verschlüsselt, d. h., die Informationen werden mit Schlüsseln verschlüsselt, die HGS oder Hyper-v genannt werden. Dadurch wird verhindert, dass ein Benutzer den Netzwerk Datenverkehr ausfängt und Schlüssel für Ihre VMS stiehlt.
 Wenn Sie jedoch Kompatibilitätsanforderungen haben oder einfach die gesamte Kommunikation zwischen Hyper-V und HGS verschlüsseln möchten, können Sie HGS mit einem SSL-Zertifikat konfigurieren, mit dem alle Daten auf der Transport Ebene verschlüsselt werden.
 
 Die Hyper-V-Hosts und HGS-Knoten müssen das von Ihnen bereitgestellte SSL-Zertifikat als vertrauenswürdig einstufen. Daher wird empfohlen, dass Sie das SSL-Zertifikat von Ihrer Unternehmens Zertifizierungsstelle anfordern. Wenn Sie das Zertifikat anfordern, müssen Sie Folgendes angeben:

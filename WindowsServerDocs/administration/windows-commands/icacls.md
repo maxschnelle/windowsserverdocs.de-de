@@ -1,24 +1,20 @@
 ---
 title: icacls
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 403edfcc-328a-479d-b641-80c290ccf73e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: 494c87073cfd78c7f5e17c72d4c65bec33a49b98
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 59d10b9ed681b7e0af120798dde9f200182d67d3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375490"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80842263"
 ---
 # <a name="icacls"></a>icacls
 
@@ -33,7 +29,7 @@ icacls <FileName> [/grant[:r] <Sid>:<Perm>[...]] [/deny <Sid>:<Perm>[...]] [/rem
 icacls <Directory> [/substitute <SidOld> <SidNew> [...]] [/restore <ACLfile> [/c] [/l] [/q]]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -141,18 +137,18 @@ Geben Sie Folgendes ein, um die DACLs für jede Datei in aclfile wiederherzustel
 icacls c:\windows\ /restore aclfile
 ```
 
-Geben Sie Folgendes ein, um dem Benutzer user1 Berechtigungen zum Löschen und Schreiben von DAC für eine Datei mit dem Namen "test1" zu erteilen:
+Geben Sie Folgendes ein, um dem Benutzer user1 Berechtigungen zum Löschen und Schreiben von DAC für eine Datei namens Test1 zu erteilen:
 
 ```
 icacls test1 /grant User1:(d,wdac)
 ```
 
-Geben Sie Folgendes ein, um dem Benutzer, der durch sid S-1-1-0 definiert ist, DAC-Berechtigungen für eine Datei mit dem Namen "test2" zu erteilen:
+Geben Sie Folgendes ein, um dem Benutzer, der durch sid S-1-1-0 definiert ist, DAC-Berechtigungen für eine Datei mit dem Namen test2 zu erteilen:
 
 ```
 icacls test2 /grant *S-1-1-0:(d,wdac)
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

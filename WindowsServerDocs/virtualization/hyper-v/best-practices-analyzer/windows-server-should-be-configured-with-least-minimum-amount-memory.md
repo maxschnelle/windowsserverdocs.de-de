@@ -2,20 +2,19 @@
 title: Windows Server 2016 sollte mit mindestens der Mindestmenge an Arbeitsspeicher konfiguriert werden.
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: d324af73-af73-40b0-bd5b-8003ba3e921b
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: b3e4b29c11e2c501b9e9df6b1089a297dcced125
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dc5d95e7f974d41792221f1970049fb56011cada
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364368"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860943"
 ---
 # <a name="windows-server-2016-should-be-configured-with-at-least-the-minimum-amount-of-memory"></a>Windows Server 2016 sollte mit mindestens der Mindestmenge an Arbeitsspeicher konfiguriert werden.
 
@@ -27,7 +26,7 @@ Weitere Informationen zu bewährten Methoden und Scans finden Sie unter [Ausfüh
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
 |**Produkt/Feature**|Hyper-V|  
-|**Zunehmen**|Fehler|  
+|**Zunehmen**|Error|  
 |**Kategorie**|Konfiguration|  
   
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.
@@ -38,9 +37,9 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 ## <a name="impact"></a>**Auswirkt**  
 *Das Gast Betriebssystem auf den folgenden virtuellen Computern wird möglicherweise nicht ausgeführt oder kann nicht zuverlässig ausgeführt werden:*  
   
-\<list of Virtual Machines >  
+\<Liste der virtuellen Computer >  
   
-## <a name="resolution"></a>**Auflösung**  
+## <a name="resolution"></a>**Lösung**  
 *Verwenden Sie den Hyper-V-Manager, um den Arbeitsspeicher, der diesem virtuellen Computer zugeordnet ist, auf mindestens 512 MB zu erhöhen.*  
   
 #### <a name="increase-the-memory-using-hyper-v-manager"></a>Vergrößern des Arbeitsspeichers mit dem Hyper-V-Manager  
@@ -61,13 +60,13 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
   
 2.  Klicken Sie mit der rechten Maustaste auf **Windows PowerShell** und dann auf **als Administrator ausführen**.  
   
-3.  Führen Sie den folgenden Befehl aus, nachdem Sie \<myvm > durch den Namen des virtuellen Computers ersetzt haben:  
+3.  Führen Sie den folgenden Befehl aus, nachdem Sie \<MyVM > durch den Namen des virtuellen Computers ersetzt haben:  
   
 ```  
 Set-VMMemory <MyVM> -StartupBytes 512MB  
 ```  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Set-vmmemory](https://technet.microsoft.com/library/hh848572.aspx)  
   
 

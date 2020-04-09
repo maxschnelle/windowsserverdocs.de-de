@@ -1,18 +1,18 @@
 ---
 title: Verwalten des Host-Überwachungs Diensts
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: eecb002e-6ae5-4075-9a83-2bbcee2a891c
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
-ms.openlocfilehash: 41912c90beacbb0c0c285ea4da8305c1afdf2a51
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 2eb9107427ff005c1b3c27e7064d677429d817ee
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322602"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856553"
 ---
 # <a name="managing-the-host-guardian-service"></a>Verwalten des Host-Überwachungs Diensts
 
@@ -706,7 +706,7 @@ Führen Sie für jede abgeschirmte VM die folgenden Schritte aus:
    $updatedKP = Get-Content -Path .\updatedVM001.kp
    Set-VMKeyProtector -VMName VM001 -KeyProtector $updatedKP
    ```
-12. Starten Sie die VM, und stellen Sie sicher, dass Sie erfolgreich ausgeführt wird.
+12.    Starten Sie die VM, und stellen Sie sicher, dass Sie erfolgreich ausgeführt wird.
 
 > [!NOTE]
 > Wenn der VM-Besitzer eine falsche Schlüssel Schutzvorrichtung auf dem virtuellen Computer festlegt und Ihr Fabric nicht zum Ausführen des virtuellen Computers autorisiert, können Sie den abgeschirmten virtuellen Computer nicht starten.

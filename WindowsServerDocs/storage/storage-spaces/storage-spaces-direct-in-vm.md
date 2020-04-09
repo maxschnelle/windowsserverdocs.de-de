@@ -2,19 +2,19 @@
 title: Verwenden von direkte Speicherplätze auf einem virtuellen Computer
 ms.prod: windows-server
 ms.author: eldenc
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: eldenchristensen
 ms.date: 10/25/2017
 description: Bereitstellen von direkte Speicherplätze in einem Gast Cluster für virtuelle Maschinen, z. b. in Microsoft Azure.
 ms.localizationpriority: medium
-ms.openlocfilehash: 34241183a56cdb9be4690e1edd68b56320cc01de
-ms.sourcegitcommit: a6ec589a39ef104ec2be958cd09d2f679816a5ab
+ms.openlocfilehash: 74b1b90a780a0b238a356e942f8348e2a483d94a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78261919"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856113"
 ---
 # <a name="using-storage-spaces-direct-in-guest-virtual-machine-clusters"></a>Verwenden von direkte Speicherplätze in Clustern virtueller Gastcomputer
 
@@ -33,9 +33,9 @@ Sie können direkte Speicherplätze auf einem Cluster physischer Server oder auf
 ## <a name="requirements"></a>Voraussetzungen
 
 Beim Bereitstellen von direkte Speicherplätze in einer virtualisierten Umgebung gelten die folgenden Überlegungen.
-
-> [!TIP]
-> Azure-Vorlagen konfigurieren automatisch die folgenden Überlegungen für Sie und sind bei der Bereitstellung auf Azure-IaaS-VMS empfehlenswert.
+       
+>        !TIP]
+>        zure templates will automatically configure the below considerations for you and are the recommended solution when deploying in Azure IaaS VMs.
 
 -   Mindestens 2 Knoten und maximal 3 Knoten
 
@@ -59,32 +59,33 @@ Beim Bereitstellen von direkte Speicherplätze in einer virtualisierten Umgebung
 
     Diese Zahl unterscheidet sich von Bare-Metal-bereit Stellungen, da die virtuellen Datenträger als Dateien implementiert werden können, die nicht anfällig für physische Fehler sind.
 
--   Deaktivieren Sie die automatischen Laufwerk Ersetzungs Funktionen in der Integritätsdienst, indem Sie das folgende PowerShell-Cmdlet ausführen:
+-   Deaktivieren Sie die automatische Laufwerk Ersetzung "apab"-lities im Integritätsdienst, indem Sie das folgende PowerShell-Cmdlet ausführen:
 
     ```powershell
-    Get-storagesubsystem clus* | set-storagehealthsetting -name “System.Storage.PhysicalDisk.AutoReplace.Enabled” -value “False”
-    ```
+          Get-storagesubsystem clus* | set-storagehealthsetting -name "System.Storage.PhysicalDisk.AutoReplace.Enabled" -value "False"
+          ```
 
--   Erhöhen Sie den Wert für den e/a-Timeout Wert für Speicherplätze, um der möglichen Speicherlatenz von VHD/vhdx/VMDK in Gast Clustern eine höhere Resilienz zu ermöglichen:
+-   To give greater resiliency to possible VHD / VHDX / VMDK storage latency in guest clusters, increase the Storage Spaces I/O timeout value:
 
     `HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\spaceport\\Parameters\\HwTimeout`
 
     `dword: 00007530`
 
-    Das Dezimaltrennzeichen von hexadezimal 7530 ist 30000 (30 Sekunden). Beachten Sie, dass der Standardwert 1770 hexadezimal ist, oder 6000 Decimal, d. h. 6 Sekunden.
+    The decimal equivalent of Hexadecimal 7530 is 30000, which is 30 seconds. Note that the default value is 1770 Hexadecimal, or 6000 Decimal, which is 6 seconds.
 
-## <a name="not-supported"></a>Nicht unterstützt
+## Not supported
 
--   Momentaufnahme/Wiederherstellung virtueller Datenträger auf Hostebene
+-   Host level virtual disk snapshot/restore
 
-    Verwenden Sie stattdessen herkömmliche Sicherungslösungen auf Gast Ebene, um die Daten auf den direkte Speicherplätze Volumes zu sichern und wiederherzustellen.
+    Instead use traditional guest level backup solutions to backup and restore the data on the Storage Spaces Direct volumes.
 
--   Änderung der Größe virtueller Datenträger auf Hostebene
+-   Host level virtual disk size change
 
-    Die virtuellen Datenträger, die über den virtuellen Computer verfügbar gemacht werden, müssen dieselbe Größe und dieselben Merkmale aufweisen. Das Hinzufügen von mehr Kapazität zum Speicherpool kann erreicht werden, indem jeder virtuellen Maschine weitere virtuelle Datenträger hinzugefügt und dem Pool hinzugefügt werden. Es wird dringend empfohlen, virtuelle Datenträger mit derselben Größe und denselben Merkmalen wie die aktuellen virtuellen Datenträger zu verwenden.
+    The virtual disks exposed through the virtual machine must retain the same size and characteristics. Adding more capacity to the storage pool can be accomplished by adding more virtual disks to each of the virtual machines and adding them to the pool. It's highly recommended to use virtual disks of the same size and characteristics as the current virtual disks.
 
-## <a name="see-also"></a>Siehe auch
+## See also
 
-[Weitere Azure-IaaS-VM-Vorlagen zum Bereitstellen von direkte Speicherplätze, Videos und Schritt-für-Schritt-Anleitungen](https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126).
+[Additional Azure Iaas VM templates for deploying Storage Spaces Direct, videos, and step-by-step guides](https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126).
 
-[Weitere direkte Speicherplätze Übersicht](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+[Additional Storage Spaces Direct Overview](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
+""""""''''                                                                                                                                                                        """"""''''                                                                                                                                                                        

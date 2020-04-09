@@ -1,6 +1,5 @@
 ---
 title: Schnellstart für die geschützte Fabric-Bereitstellung
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: e060e052-39a0-4154-90bb-b97cc6dde68e
@@ -9,12 +8,12 @@ author: justinha
 ms.author: justinha
 ms.technology: security-guarded-fabric
 ms.date: 01/30/2019
-ms.openlocfilehash: e2b8400fc7b7f0e01e000fcb2f6472bdb4059ac8
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c0e29abf14ff1dded12e7e20a0c0a74f80a91d8e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949803"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856743"
 ---
 # <a name="quick-start-for-guarded-fabric-deployment"></a>Schnellstart für die geschützte Fabric-Bereitstellung
 
@@ -105,9 +104,9 @@ Anders ausgedrückt: die strengen Validierungs Schritte, die für den TPM-Modus 
 
 Für den TPM-Modus sind drei Schritte erforderlich: 
 
-1.  Einen _öffentlichen Endorsement Key_ (oder _ekpub_) von TPM 2,0 auf jedem und jedem Hyper-V-Host. Verwenden Sie zum Erfassen der ekpub-`Get-PlatformIdentifier`. 
-2.  Eine _hardwarebaseline_. Wenn jeder ihrer Hyper-V-Hosts identisch ist, benötigen Sie nur eine einzige Baseline. Wenn dies nicht der Fall ist, benötigen Sie für jede Hardware Klasse einen. Die Baseline hat die Form einer Trusted Computing Group Logfile oder tcglog. Tcglog enthält alle Elemente, die der Host von der UEFI-Firmware über den Kernel verwendet hat, und zwar direkt bis zu dem Ort, an dem der Host vollständig gestartet wurde. Zum Erfassen der hardwarebaseline installieren Sie die Hyper-v-Rolle und die Hyper-v-Unterstützung des Host-Überwachungs Diensts und verwenden `Get-HgsAttestationBaselinePolicy`. 
-3.  Eine _Code Integritätsrichtlinie_. Wenn jeder ihrer Hyper-V-Hosts identisch ist, benötigen Sie nur eine einzige CI-Richtlinie. Wenn dies nicht der Fall ist, benötigen Sie für jede Hardware Klasse einen. Windows Server 2016 und Windows 10 verfügen jeweils über eine neue Form der Erzwingung für CI-Richtlinien, die als _Hypervisor-erzwungene Code Integrität (hvci)_ bezeichnet wird. Hvci bietet eine starke Erzwingung und stellt sicher, dass ein Host nur Binärdateien ausführen darf, die von einem vertrauenswürdigen Administrator ausgeführt werden dürfen. Diese Anweisungen sind in einer CI-Richtlinie umschließt, die zu HGS hinzugefügt wird. HGS misst die CI-Richtlinie jedes Hosts, bevor Sie geschützte VMS ausführen dürfen. Verwenden Sie zum Erfassen einer CI-Richtlinie `New-CIPolicy`. Die Richtlinie muss dann mithilfe von `ConvertFrom-CIPolicy`in das binäre Formular konvertiert werden.
+1.    Einen _öffentlichen Endorsement Key_ (oder _ekpub_) von TPM 2,0 auf jedem und jedem Hyper-V-Host. Verwenden Sie zum Erfassen der ekpub-`Get-PlatformIdentifier`. 
+2.    Eine _hardwarebaseline_. Wenn jeder ihrer Hyper-V-Hosts identisch ist, benötigen Sie nur eine einzige Baseline. Wenn dies nicht der Fall ist, benötigen Sie für jede Hardware Klasse einen. Die Baseline hat die Form einer Trusted Computing Group Logfile oder tcglog. Tcglog enthält alle Elemente, die der Host von der UEFI-Firmware über den Kernel verwendet hat, und zwar direkt bis zu dem Ort, an dem der Host vollständig gestartet wurde. Zum Erfassen der hardwarebaseline installieren Sie die Hyper-v-Rolle und die Hyper-v-Unterstützung des Host-Überwachungs Diensts und verwenden `Get-HgsAttestationBaselinePolicy`. 
+3.    Eine _Code Integritätsrichtlinie_. Wenn jeder ihrer Hyper-V-Hosts identisch ist, benötigen Sie nur eine einzige CI-Richtlinie. Wenn dies nicht der Fall ist, benötigen Sie für jede Hardware Klasse einen. Windows Server 2016 und Windows 10 verfügen jeweils über eine neue Form der Erzwingung für CI-Richtlinien, die als _Hypervisor-erzwungene Code Integrität (hvci)_ bezeichnet wird. Hvci bietet eine starke Erzwingung und stellt sicher, dass ein Host nur Binärdateien ausführen darf, die von einem vertrauenswürdigen Administrator ausgeführt werden dürfen. Diese Anweisungen sind in einer CI-Richtlinie umschließt, die zu HGS hinzugefügt wird. HGS misst die CI-Richtlinie jedes Hosts, bevor Sie geschützte VMS ausführen dürfen. Verwenden Sie zum Erfassen einer CI-Richtlinie `New-CIPolicy`. Die Richtlinie muss dann mithilfe von `ConvertFrom-CIPolicy`in das binäre Formular konvertiert werden.
 
 ![Extrahieren von Identitäten, Baseline und CI-Richtlinie](../media/Guarded-Fabric-Shielded-VM/guarded-fabric-deployment-step-three-extract-identity-baseline-ci-policy.png)
 

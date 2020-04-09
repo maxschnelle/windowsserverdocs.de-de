@@ -1,24 +1,20 @@
 ---
 title: FTP-literal_1
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fb81aa2d-07fa-4e79-bf44-1fb5526fdf14 vhorne
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 393dea27e8567a72a5bd25c927282ade93e317c9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f502bb56c94734870962f56cfb85dcc17ddc3f93
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71376273"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80843393"
 ---
 # <a name="ftp-literal_1"></a>FTP: literal_1
 
@@ -28,7 +24,7 @@ ms.locfileid: "71376273"
 ```  
 literal <Argument> [ ]  
 ```  
-### <a name="parameters"></a>Parameter  
+#### <a name="parameters"></a>Parameter  
 
 | Parameter  |                    Beschreibung                    |
 |------------|---------------------------------------------------|
@@ -36,11 +32,11 @@ literal <Argument> [ ]
 
 ## <a name="remarks"></a>Hinweise  
 Der **literalbefehl** ist identisch mit dem **Anführungs** Zeichen Befehl.  
-## <a name="BKMK_Examples"></a>Beispiele  
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele  
 Senden Sie einen Befehl zum **Beenden** an den FTP-Remote Server.  
 ```  
 literal quit  
 ```  
 ## <a name="additional-references"></a>Weitere Verweise  
 -   [FTP: Anführungszeichen](ftp-quote.md)  
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

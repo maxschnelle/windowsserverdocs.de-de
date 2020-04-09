@@ -1,24 +1,20 @@
 ---
 title: reg entladen
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1d07791d-ca27-454e-9797-27d7e84c5048
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 32df397b597291269dcfb1449d00e86b2f4f5836
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e5fd1436ed1122a09eea11d358a3711aedddf2c1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384619"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836273"
 ---
 # <a name="reg-unload"></a>reg entladen
 
@@ -34,7 +30,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 reg unload <KeyName>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -47,10 +43,10 @@ In der folgenden Tabelle sind die Rückgabewerte für die Option zum **Entladen 
 
 |Wert|Beschreibung|
 |-----|-----------|
-|0|Möglich|
+|0|Erfolgreich|
 |1|Nicht möglich|
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Zum Entladen der Hive-temphive in der Datei HKLM geben Sie Folgendes ein:
 ```
@@ -60,6 +56,6 @@ REG UNLOAD HKLM\TempHive
 > [!CAUTION]
 > Bearbeiten Sie die Registrierung nur dann direkt, wenn Sie keine Alternative haben. Der Registrierungs-Editor umgeht Standard-Sicherheitsvorkehrungen und ermöglicht Einstellungen, die die Leistung beeinträchtigen, das System beschädigen oder sogar die Neuinstallation von Windows erfordern. Sie können die meisten Registrierungs Einstellungen sicher ändern, indem Sie die Programme in der Systemsteuerung oder Microsoft Management Console (MMC) verwenden. Wenn Sie die Registrierung direkt bearbeiten müssen, sichern Sie Sie zuerst.
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

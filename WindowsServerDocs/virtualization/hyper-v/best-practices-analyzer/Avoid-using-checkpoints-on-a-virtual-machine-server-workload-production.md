@@ -2,20 +2,19 @@
 title: Vermeiden Sie die Verwendung von Prüfpunkten auf einem virtuellen Computer, auf dem eine Serverauslastung in einer Produktionsumgebung ausgeführt wird.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 1be75890-d316-495a-b9b7-be75fc1aac10
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: f2486093e31143b7493665d3d1254f7034ad1415
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f0e9d40fa6e28b515621402b853012cb59086a07
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365218"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857713"
 ---
 # <a name="avoid-using-checkpoints-on-a-virtual-machine-that-runs-a-server-workload-in-a-production-environment"></a>Vermeiden Sie die Verwendung von Prüfpunkten auf einem virtuellen Computer, auf dem eine Serverauslastung in einer Produktionsumgebung ausgeführt wird.
 
@@ -43,13 +42,13 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
   
 ## <a name="impact"></a>Auswirkungen  
   
-auf dem physischen Datenträger, auf dem die Prüf Punkt Dateien gespeichert werden, kann *verfüg barer Speicherplatz verfügbar sein. In diesem Fall können keine weiteren Datenträger Vorgänge für den physischen Speicher ausgeführt werden. Jeder virtuelle Computer, der auf dem physischen Speicher basiert, kann betroffen sein.*  
+*Verfügbarer Speicherplatz auf dem physischen Datenträger, auf dem die Prüf Punkt Dateien gespeichert sind In diesem Fall können keine weiteren Datenträger Vorgänge für den physischen Speicher ausgeführt werden. Jeder virtuelle Computer, der auf dem physischen Speicher basiert, kann beeinträchtigt werden.*  
   
-Wenn physischer Speicherplatz auf dem Datenträger ausgeführt wird, werden alle ausgeführten virtuellen Computer, die auf diesem Datenträger gespeicherte Prüfpunkte oder virtuelle Festplatten aufweisen, möglicherweise automatisch angehalten. Der Hyper-V-Manager zeigt den Status dieser virtuellen Computer als "angehalten-kritisch" an.  
+Wenn physischer Speicherplatz auf dem Datenträger ausgeführt wird, werden alle ausgeführten virtuellen Computer, die auf diesem Datenträger gespeicherte Prüfpunkte oder virtuelle Festplatten aufweisen, möglicherweise automatisch angehalten. Der Hyper-V-Manager zeigt den Status dieser virtuellen Computer als angehalten-kritisch an.  
   
 ## <a name="resolution"></a>Auflösung  
   
-*wenn der virtuelle Computer in einer Produktionsumgebung eine Server Arbeitsauslastung ausführt, schalten Sie den virtuellen Computer offline, und verwenden Sie dann den Hyper-V-Manager, um die Prüfpunkte anzuwenden oder zu löschen. Zum Löschen von Prüfpunkten müssen Sie den virtuellen Computer Herunterfahren, um den Vorgang abzuschließen.*  
+*Wenn auf dem virtuellen Computer eine Server Arbeitsauslastung in einer Produktionsumgebung ausgeführt wird, schalten Sie den virtuellen Computer offline, und verwenden Sie dann den Hyper-V-Manager, um die Prüfpunkte anzuwenden oder zu löschen. Zum Löschen von Prüfpunkten müssen Sie den virtuellen Computer Herunterfahren, um den Vorgang abzuschließen.*  
   
 > [!NOTE]  
 > Produktions Prüfpunkte sind nun als Alternative zu Standard Prüfpunkten verfügbar. Weitere Informationen finden [Sie unter Auswählen zwischen Standard-oder Produktions Prüfpunkten](../manage/Choose-between-standard-or-production-checkpoints-in-Hyper-V.md).  

@@ -1,24 +1,20 @@
 ---
 title: Wbadmin-Get-Versionen
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Artikel für Wbadmin Get-Versionen, die Details zu den verfügbaren Sicherungen auflisten, die auf dem lokalen Computer oder einem anderen Computer gespeichert sind.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b986acc4-d083-4d32-9434-862314ed5e97
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0b7ba0749c8ef347e27590bde4eed7bbcf25af7e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 61353d4d607f87878d8001a626279016274c8eff
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362361"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829733"
 ---
 # <a name="wbadmin-get-versions"></a>Wbadmin-Get-Versionen
 
@@ -38,7 +34,7 @@ wbadmin get versions
 [-machine:BackupMachineName]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -49,7 +45,7 @@ wbadmin get versions
 
 Zum Auflisten von Elementen, die für die Wiederherstellung aus einer bestimmten Sicherung verfügbar sind, verwenden **Sie Wbadmin Get Items**.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Geben Sie Folgendes ein, um eine Liste der verfügbaren Sicherungen anzuzeigen, die auf Volume h gespeichert sind:
 ```
@@ -60,8 +56,8 @@ Wenn Sie eine Liste der verfügbaren Sicherungen anzeigen möchten, die im freig
 wbadmin get versions -backupTarget:\\servername\share -machine:server01
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   Cmdlet " [Get-wbbackuptarget](https://technet.microsoft.com/library/jj902447.aspx) "

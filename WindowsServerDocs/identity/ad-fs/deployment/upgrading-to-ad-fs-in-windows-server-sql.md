@@ -1,6 +1,5 @@
 ---
 title: Aktualisieren auf AD FS in Windows Server 2016 mit SQL Server
-description: ''
 author: billmath
 manager: mtillman
 ms.date: 04/11/2018
@@ -9,12 +8,12 @@ ms.prod: windows-server
 ms.assetid: 70f279bf-aea1-4f4f-9ab3-e9157233e267
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: dd843724faf1c7a8101def84091484a5e7f7900f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e9488357eecb4a2093d6989e4ebfcc195ce68567
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408237"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854003"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-with-sql-server"></a>Aktualisieren auf AD FS in Windows Server 2016 mit SQL Server
 
@@ -33,7 +32,7 @@ Ein Windows Server 2016 AD FS-Server kann einer Windows Server 2012 R2-Farm hinz
 
 -   Administratoren können einer vorhandenen Windows Server 2012 R2-Farm neue Windows Server 2016-Verbund Server hinzufügen.  Daher befindet sich die Farm im gemischten Modus und arbeitet die Verhaltensebene der Windows Server 2012 R2-Farm.  Um ein konsistentes Verhalten in der Farm sicherzustellen, können neue Windows Server 2016-Features in diesem Modus nicht konfiguriert oder verwendet werden.  
 
--   Nachdem alle Windows Server 2012 R2-Verbund Server aus der Farm im gemischten Modus entfernt wurden und im Fall einer wid-Farm einer der neuen Verbund Server mit 2016 Windows Server in die Rolle des primären Knotens herauf gestuft wurde, kann der Administrator das FBL aus Win herauf Stufen. Dows Server 2012 R2 auf Windows Server 2016.  Folglich können alle neuen AD FS Windows Server 2016-Features konfiguriert und verwendet werden.  
+-   Nachdem alle Windows Server 2012 R2-Verbund Server aus der Farm im gemischten Modus entfernt wurden und im Fall einer wid-Farm einer der neuen Verbund Server mit Windows-Dienst 2016 auf die Rolle des primären Knotens herauf gestuft wurde, kann der Administrator den FBL von Windows Server 2012 R2 auf Windows Server 2016 herauf Stufen.  Folglich können alle neuen AD FS Windows Server 2016-Features konfiguriert und verwendet werden.  
 
 -   Aufgrund der Funktion für gemischte Farmen AD FS Windows Server 2012 R2-Unternehmen, die ein Upgrade auf Windows Server 2016 durchführen möchten, keine vollständig neue Farm bereitstellen und Konfigurationsdaten exportieren und importieren.  Stattdessen können Sie Windows Server 2016-Knoten zu einer vorhandenen Farm hinzufügen, während Sie online ist, und nur die relativ kurze Ausfallzeit der FBL auslösen.  
 

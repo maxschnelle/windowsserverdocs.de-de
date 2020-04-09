@@ -2,21 +2,19 @@
 title: Unterstützte virtuelle Debian-Computer auf Hyper-V
 description: Listet die in jeder Version enthaltenen Linux-Integrationsdienste und-Funktionen auf.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3cc62c10-02a3-4633-960c-23bf91a45bd5
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: 7a717acf5c132d68d6ee041aeb5af5a430aa171b
-ms.sourcegitcommit: 9f7cc76b8c9add44dcbbd97f77b4f881d5a2c073
+ms.openlocfilehash: db4d29ce2fa54c2a6d9006cbd0af909c92d36590
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80613003"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855963"
 ---
 # <a name="supported-debian-virtual-machines-on-hyper-v"></a>Unterstützte virtuelle Debian-Computer auf Hyper-V
 
@@ -93,7 +91,7 @@ Die folgende featureverteilungskarte gibt die Funktionen an, die in den einzelne
    ```
 8. Die neuesten upstreamkernel-Funktionen sind nur verfügbar, wenn der mit dem Kernel enthaltene [debian-backports](https://wiki.debian.org/Backports)verwendet wird.
 
-Siehe auch
+Weitere Informationen
 
 * [Unterstützte virtuelle Computer der CentOS-und Red Hat Enterprise Linux auf Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 

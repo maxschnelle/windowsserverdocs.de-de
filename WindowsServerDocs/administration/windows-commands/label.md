@@ -1,24 +1,20 @@
 ---
 title: label
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bbae8bdd-97d4-4566-9118-7c95aa07645f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e66a2d9a7d28462b287084e3f8b129ffc03800bd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7ccb86e2167682e1048161f2d5f5386a8b5cf6ed
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374790"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841173"
 ---
 # <a name="label"></a>label
 
@@ -34,13 +30,13 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 label [/mp] [<Volume>] [<Label>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
 |/mp|Gibt an, dass das Volume als Einstellungspunkt oder Volumename behandelt werden soll.|
-|\<volume >|Gibt einen Laufwerk Buchstaben (gefolgt von einem Doppelpunkt), einen Einfügepunkt oder einen Volumenamen an. Wenn ein Volumename angegeben wird, ist der **/MP** -Parameter nicht erforderlich.|
-|die Bezeichnung "\<" >|Gibt die Bezeichnung für das Volume an.|
+|\<Volume >|Gibt einen Laufwerk Buchstaben (gefolgt von einem Doppelpunkt), einen Einfügepunkt oder einen Volumenamen an. Wenn ein Volumename angegeben wird, ist der **/MP** -Parameter nicht erforderlich.|
+|\<Bezeichnung >|Gibt die Bezeichnung für das Volume an.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
@@ -59,7 +55,7 @@ label [/mp] [<Volume>] [<Label>]
   ```  
   Drücken Sie Y, um die Bezeichnung zu löschen, oder drücken Sie N, um die Bezeichnung beizubehalten.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Geben Sie Folgendes ein, um einen Datenträger in Laufwerk a mit Umsatz Informationen für Juli zu bezeichnen:
 ```
@@ -82,6 +78,6 @@ Um die aktuelle Bezeichnung für Laufwerk C zu löschen, führen Sie die folgend
    ```  
 3. Drücken Sie Y, um die aktuelle Bezeichnung zu löschen.
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

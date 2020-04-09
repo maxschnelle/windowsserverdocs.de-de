@@ -1,24 +1,20 @@
 ---
 title: move
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fde290a8-d385-450f-8987-ee837fed667d
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4302a3403f73892500c3f9deb608e9489c7e91ae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: efd0cd0716c564a9570647820056ab9c38e41274
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373527"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839373"
 ---
 # <a name="move"></a>move
 
@@ -34,7 +30,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 move [{/y | /-y}] [<Source>] [<Target>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -49,13 +45,13 @@ move [{/y | /-y}] [<Source>] [<Target>]
 -   Die Befehlszeilenoption **/y** kann in der COPYCMD-Umgebungsvariablen voreingestellt sein. Sie können dies mit **/-y** in der Befehlszeile überschreiben. Der Standardwert ist die Eingabeaufforderung vor dem Überschreiben von Dateien, es sei denn, der **Kopier** Befehl wird innerhalb eines Batch Skripts ausgeführt.
 -   Das Verschieben verschlüsselter Dateien auf ein Volume, das Verschlüsselndes Dateisystem (EFS) nicht unterstützt, führt zu einem Fehler. Entschlüsseln Sie zuerst die Dateien, oder verschieben Sie die Dateien auf ein Volume, das EFS unterstützt.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Wenn Sie alle Dateien mit der Erweiterung. xls aus dem Verzeichnis \Data in das Verzeichnis \ Second_Q \Reports verschieben möchten, geben Sie Folgendes ein:
 ```
 move \data\*.xls \second_q\reports\ 
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

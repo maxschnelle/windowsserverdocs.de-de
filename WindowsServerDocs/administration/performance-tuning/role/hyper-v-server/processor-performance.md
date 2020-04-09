@@ -4,15 +4,15 @@ description: Überlegungen zur Prozessorleistung bei der Hyper-V-Leistungsoptimi
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Asmahi; SandySp; JoPoulso
+ms.author: asmahi; sandysp; jopoulso
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: 5d61d0e37bd80033bfcfb0cf5c601d8bcedda104
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fc1d6bdb848ea9662ba9b3d3119f286af3476688
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71370041"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851753"
 ---
 # <a name="hyper-v-processor-performance"></a>Hyper-V-Prozessorleistung
 
@@ -27,7 +27,7 @@ Hyper-V in Windows Server 2016 unterstützt maximal 240 virtuelle Prozessoren pr
 
 Erhöhen Sie die Anzahl virtueller Prozessoren, wenn der virtuelle Computer bei Spitzenlast mehr als eine CPU-Verarbeitung erfordert.
 
-## <a name="background-activity"></a>Hintergrund Aktivität
+## <a name="background-activity"></a>Hintergrundaktivität
 
 Wenn Sie die Hintergrund Aktivität auf virtuellen Computern im Leerlauf minimieren, werden CPU-Zyklen freigegeben, die von anderen virtuellen Maschinen verwendet werden können. Windows-Gäste verwenden normalerweise weniger als einen Prozentsatz einer CPU, wenn Sie sich im Leerlauf befinden. Im folgenden finden Sie einige bewährte Methoden zum Minimieren der CPU-Auslastung eines virtuellen Computers:
 
@@ -55,7 +55,7 @@ Im folgenden finden Sie weitere bewährte Methoden zum Konfigurieren einer *Clie
 
 -   Deaktivieren Sie geplante Aufgaben, z. b. geplante Defragmentierung.
 
-## <a name="virtual-numa"></a>Virtuelle NUMA
+## <a name="virtual-numa"></a>Virtueller NUMA
 
 Um die Virtualisierung von großen hochskalierbaren Arbeits Auslastungen zu ermöglichen, wurden von Hyper-V in Windows Server 2016 die Skalierungs Grenzwerte virtueller Computer erweitert. Einem einzelnen virtuellen Computer können bis zu 240 virtuelle Prozessoren und 12 TB Arbeitsspeicher zugewiesen werden. Wenn Sie solche großen virtuellen Maschinen erstellen, wird wahrscheinlich der Arbeitsspeicher von mehreren NUMA-Knoten auf dem Host System genutzt. Wenn virtuelle Prozessoren und Arbeitsspeicher nicht über denselben NUMA-Knoten zugeordnet werden, kann es bei der Konfiguration einer virtuellen Maschine zu einer ungültigen Leistung kommen, da die NUMA-Optimierungen nicht genutzt werden können.
 

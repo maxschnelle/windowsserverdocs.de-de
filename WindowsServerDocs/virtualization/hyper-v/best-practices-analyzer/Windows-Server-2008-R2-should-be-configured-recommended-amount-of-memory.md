@@ -2,20 +2,19 @@
 title: Windows Server 2008 R2 sollte mit der empfohlenen Menge an Arbeitsspeicher konfiguriert werden.
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 26872519-ccf0-4757-827f-8df2a7a2b9f9
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: e5b103ed5f41b3d63320a0d9be85c7e52781041d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4be2409c0acbe5a14d12163bf3dd2d5fea000f2b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71393172"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860023"
 ---
 # <a name="windows-server-2008-r2-should-be-configured-with-the-recommended-amount-of-memory"></a>Windows Server 2008 R2 sollte mit der empfohlenen Menge an Arbeitsspeicher konfiguriert werden.
 
@@ -38,9 +37,9 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
   
 ## <a name="impact"></a>Auswirkungen  
   
-*Das Gast Betriebssystem und Anwendungen funktionieren möglicherweise nicht gut. Möglicherweise ist nicht genügend Arbeitsspeicher vorhanden, um mehrere Anwendungen gleichzeitig auszuführen. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
+*Das Gast Betriebssystem und die Anwendungen funktionieren möglicherweise nicht gut. Möglicherweise ist nicht genügend Arbeitsspeicher vorhanden, um mehrere Anwendungen gleichzeitig auszuführen. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
   
-\<liste der Namen der virtuellen Computer >  
+\<Liste der Namen der virtuellen Computer >  
   
 ## <a name="resolution"></a>Auflösung  
   
@@ -64,13 +63,13 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
   
 2.  Klicken Sie mit der rechten Maustaste auf **Windows PowerShell** und dann auf **als Administrator ausführen**.  
   
-3.  Führen Sie den folgenden Befehl aus, nachdem Sie \<myvm > durch den Namen des virtuellen Computers ersetzt haben:  
+3.  Führen Sie den folgenden Befehl aus, nachdem Sie \<MyVM > durch den Namen des virtuellen Computers ersetzt haben:  
   
 ```  
 Set-VMMemory <MyVM> -StartupBytes 2GB  
 ```  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Set-vmmemory](https://technet.microsoft.com/library/hh848572.aspx)  
   
 

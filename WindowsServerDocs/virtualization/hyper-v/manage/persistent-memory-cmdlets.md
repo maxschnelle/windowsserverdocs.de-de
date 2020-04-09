@@ -2,24 +2,21 @@
 title: Cmdlets zum Konfigurieren von persistenten Speichergeräten für Hyper-V-VMS
 description: Konfigurieren von persistenten Speichergeräten für Hyper-V-VMS
 ms.prod: windows-server
-ms.service: na
-manager: jasgroce
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b5715c02-a90f-4de9-a71e-0fc08039ba1d
 author: coreyp-at-msft
 ms.author: coreyp
-ms.openlocfilehash: ecae1fe96bc5088fa840c6e2e24a75bb72a9e8f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b58e2a4e2f31c5bf3e49b89da912b77060e334ed
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392541"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860423"
 ---
 # <a name="cmdlets-for-configuring-persistent-memory-devices-for-hyper-v-vms"></a>Cmdlets zum Konfigurieren von persistenten Speichergeräten für Hyper-V-VMS
 
->Gilt für: Windows Server 2019
+>Gilt für: Windows Server 2019
 
 Dieser Artikel bietet Systemadministratoren und IT-Experten Informationen zum Konfigurieren von Hyper-V-VMS mit persistentem Speicher (Speicher Klassen Speicher oder nvdimm). Jdec-kompatible nvdimm-N persistente Speichergeräte werden in Windows Server 2016 und Windows 10 unterstützt und ermöglichen den Zugriff auf bytebene auf nicht flüchtige Geräte mit sehr geringer Latenzzeit. Persistente VM-Speichergeräte werden in Windows Server 2019 unterstützt. 
 
@@ -35,7 +32,7 @@ Verwenden Sie das Cmdlet **[New-VHD](https://docs.microsoft.com/powershell/modul
 
 Verwenden Sie das **Cmdlet New-VM** , um einen virtuellen Computer der Generation 2 mit der angegebenen Speichergröße und dem Pfad zu einem vhdx-Image zu erstellen. Verwenden Sie dann **Add-vmpmemcontroller** , um einem virtuellen Computer einen persistenten Speichercontroller hinzuzufügen.
 
-**Beispiel** 
+**Beispiel:** 
     
     New-VM -Name "ProductionVM1" -MemoryStartupBytes 1GB -VHDPath c:\vhd\BaseImage.vhdx
 

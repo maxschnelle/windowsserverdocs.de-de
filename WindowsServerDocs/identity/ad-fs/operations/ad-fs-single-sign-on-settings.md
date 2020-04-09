@@ -1,7 +1,6 @@
 ---
 ms.assetid: 1a443181-7ded-4912-8e40-5aa447faf00c
 title: 'AD FS 2016: Einstellungen für einmaliges Anmelden'
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 08/17/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 76c34dc518f4578b4ae2ead3459f1d79c191b3d7
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: bad6ad9a95618239825366187c8083c1fe77ae94
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949189"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860083"
 ---
 # <a name="ad-fs-single-sign-on-settings"></a>AD FS Einstellungen für einmaliges Anmelden
 
@@ -40,7 +39,7 @@ AD FS unterstützt verschiedene Arten von einmaligem Anmelden:
   
      Im OAuth-Szenario wird ein Aktualisierungs Token verwendet, um den SSO-Status des Benutzers innerhalb des Gültigkeits Bereichs einer bestimmten Anwendung beizubehalten.  
   
-     Wenn ein Gerät registriert ist, legt AD FS die Ablaufzeit eines Aktualisierungs Tokens basierend auf der Dauer der persistenten SSO-Cookies für ein registriertes Gerät fest, das standardmäßig 7 Tage für AD FS 2012r2 und bis zu einem Maximum von 90 Tagen mit AD FS 2016 ist, wenn Sie Ihr Gerät für greifen Sie in einem 14-tägigen Fenster auf AD FS Ressourcen zu. 
+     Wenn ein Gerät registriert ist, legt AD FS die Ablaufzeit eines Aktualisierungs Tokens basierend auf der Dauer der dauerhaften SSO-Cookies für ein registriertes Gerät fest, das standardmäßig 7 Tage für AD FS 2012r2 und maximal 90 Tage mit AD FS 2016 ist, wenn Sie über Ihr Gerät auf AD FS Ressourcen innerhalb eines 14-tägigen Fensters zugreifen. 
 
 Wenn das Gerät nicht registriert ist, aber ein Benutzer die Option "angemeldet bleiben" auswählt, entspricht die Ablaufzeit des Aktualisierungs Tokens der dauerhaften SSO-Cookies-Gültigkeitsdauer für "angemeldet bleiben". die Standardeinstellung ist 1 Tag und der Höchstwert 7 Tage. Andernfalls entspricht die Gültigkeitsdauer des Aktualisierungs Tokens dem Sitzungs-SSO-Cookie, das standardmäßig 8 Stunden beträgt  
   
@@ -96,14 +95,14 @@ Set-AdfsProperties –KmsiLifetimeMins <Int32\>
 ```   
 
 ## <a name="multi-factor-authentication-mfa-behavior"></a>Multi-Factor Authentication (MFA)-Verhalten  
-Es ist wichtig zu beachten, dass bei einer relativ langen Zeitspanne für das einmalige Anmelden AD FS eine zusätzliche Authentifizierung (Multi-Factor Authentication) durchführt, wenn eine vorherige Anmeldung auf primären Anmelde Informationen basiert und nicht auf MFA, sondern auf der aktuellen Anmeldung. erfordert MFA.  Dies ist unabhängig von der SSO-Konfiguration. Wenn AD FS eine Authentifizierungsanforderung empfängt, bestimmt zuerst, ob ein SSO-Kontext (z. b. ein Cookie) vorhanden ist. wenn MFA erforderlich ist (z. b., wenn die Anforderung von außerhalb eingeht), wird überprüft, ob der SSO-Kontext MFA enthält.  Wenn dies nicht der Wert ist, wird MFA aufgefordert.  
+Es ist wichtig zu beachten, dass bei der Bereitstellung relativ langer Zeiträume für das einmalige Anmelden AD FS eine zusätzliche Authentifizierung (Multi-Factor Authentication) angefordert wird, wenn ein vorheriger Anmeldevorgang auf primären Anmelde Informationen basiert und nicht auf MFA, aber für die aktuelle Anmeldung ist MFA erforderlich.  Dies ist unabhängig von der SSO-Konfiguration. Wenn AD FS eine Authentifizierungsanforderung empfängt, bestimmt zuerst, ob ein SSO-Kontext (z. b. ein Cookie) vorhanden ist. wenn MFA erforderlich ist (z. b., wenn die Anforderung von außerhalb eingeht), wird überprüft, ob der SSO-Kontext MFA enthält.  Wenn dies nicht der Wert ist, wird MFA aufgefordert.  
 
 
   
 ## <a name="psso-revocation"></a>PSSO-Sperrung  
  Um die Sicherheit zu schützen, lehnt AD FS alle permanenten SSO-Cookies ab, die zuvor ausgegeben wurden, wenn die folgenden Bedingungen erfüllt sind. Dies erfordert, dass der Benutzer seine Anmelde Informationen bereitstellt, um sich erneut bei AD FS zu authentifizieren. 
   
-- Änderung des Kennworts durch den Benutzer  
+- Kennwort für Benutzer Änderungen  
   
 - Die Einstellung für persistentes SSO ist in AD FS deaktiviert.  
   
@@ -165,27 +164,27 @@ Zusammenfassung:
  <tr align="center">
     <td>SSO =&gt;Set Refresh Token =&gt;</td>
     <td>8 Std.</td>
-    <td>NICHT ZUTREFFEND</td>
-    <td>NICHT ZUTREFFEND</td>
+    <td>N/V</td>
+    <td>N/V</td>
     <th></th>
     <td>8 Std.</td>
-    <td>NICHT ZUTREFFEND</td>
-    <td>NICHT ZUTREFFEND</td>
+    <td>N/V</td>
+    <td>N/V</td>
   </tr>
 
  <tr align="center">
     <td>PSSO =&gt;Set Refresh Token =&gt;</td>
-    <td>NICHT ZUTREFFEND</td>
+    <td>N/V</td>
     <td>24 Stunden</td>
     <td>7 Tage</td>
     <th></th>
-    <td>NICHT ZUTREFFEND</td>
+    <td>N/V</td>
     <td>24 Stunden</td>
     <td>Max. 90 Tage mit 14 Tagen (Fenster)</td>
   </tr>
 
  <tr align="center">
-    <td>Tokengültigkeitsdauer</td>
+    <td>Lebensdauer von Token</td>
     <td>1 Std.</td>
     <td>1 Std.</td>
     <td>1 Std.</td>

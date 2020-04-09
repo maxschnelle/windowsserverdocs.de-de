@@ -1,24 +1,20 @@
 ---
 title: nslookup set
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1fe5b36d-e93e-468b-abca-43b0204b32d1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4e584a9727fc0cd552d0c07840ccb12b555428af
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3883e6b032c5a4542711ad14a4e45b31fb605485
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372733"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838143"
 ---
 # <a name="nslookup-set"></a>nslookup set
 
@@ -29,7 +25,7 @@ ms.locfileid: "71372733"
 ```
 set <KeyWord>[=<Value>]
 ```
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |    Parameter    |                                                                                                                    Beschreibung                                                                                                                    |
 |-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -40,5 +36,5 @@ set <KeyWord>[=<Value>]
 ## <a name="remarks"></a>Hinweise
 Verwenden Sie **alle festlegen** , um eine Liste der aktuellen Einstellungen anzuzeigen.
 ## <a name="additional-references"></a>Weitere Verweise
-[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
 [nslookup alle festlegen](nslookup-set-all.md)

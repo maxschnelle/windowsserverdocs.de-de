@@ -2,20 +2,19 @@
 title: Es sollten mehrere Netzwerkadapter verfügbar sein.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 59940e56-e06a-490f-90ea-cf30d9f80b09
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 6b043900c6fde4522e5805a1f0c1a635de335e31
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 56cb747ac44d48b115dbf105ea96e4623d458b28
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364797"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861893"
 ---
 # <a name="more-than-one-network-adapter-should-be-available"></a>Es sollten mehrere Netzwerkadapter verfügbar sein.
 
@@ -27,7 +26,7 @@ Weitere Informationen zu bewährten Methoden und Überprüfungen finden Sie unte
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
 |**Produkt/Feature**|Hyper-V|  
-|**Zunehmen**|Fehler|  
+|**Zunehmen**|Error|  
 |**Kategorie**|Konfiguration|  
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.
@@ -42,7 +41,7 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
   
 ## <a name="resolution"></a>Auflösung  
   
-*fügen Sie diesem Computer weitere Netzwerkadapter hinzu. Um einen Netzwerkadapter für die ausschließliche Verwendung durch das Verwaltungs Betriebssystem zu reservieren, konfigurieren Sie ihn nicht für die Verwendung mit einem externen virtuellen Netzwerk.*  
+*Fügen Sie diesem Computer weitere Netzwerkadapter hinzu. Um einen Netzwerkadapter für die ausschließliche Verwendung durch das Verwaltungs Betriebssystem zu reservieren, sollten Sie ihn nicht für die Verwendung mit einem externen virtuellen Netzwerk konfigurieren.*  
   
 Weitere Informationen zum Hinzufügen eines Netzwerkadapters zum Computer finden Sie in der Dokumentation für den Computer oder den Netzwerkadapter. Um es dann ausschließlich für das Verwaltungs Betriebssystem zu reservieren, verbinden Sie es nicht mit einem virtuellen Switch.   
   

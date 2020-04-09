@@ -4,15 +4,15 @@ description: Überlegungen zur Server Hardware Leistung
 ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
-ms.author: Qizha;TristanB
+ms.author: qizha;tristanb
 author: phstee
 ms.date: 10/16/2017
-ms.openlocfilehash: a9d4653824d497ea0c42337260aa788bab354ba3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 865899e5f33bde97dff97efaff6010b95aafd3e6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71355015"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851983"
 ---
 # <a name="server-hardware-power-considerations"></a>Überlegungen zur Server Hardware Leistung
 
@@ -62,12 +62,12 @@ Die in diesem Thema verwendete Prozessor Terminologie reflektiert die Hierarchie
 
 -   Prozessor Socket
 -   NUMA-Knoten
--   Core
+-   Kern
 -   Logischer Prozessor
 
 ![Prozessor Terminologie](../media/perftune-guide-figure-1.png)
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 - [Überlegungen zur Server Hardware Leistung](index.md)
 - [Power and Performance Tuning](power/power-performance-tuning.md) (Leistungs- und Energieoptimierung)
 - [Processor Power Management (PPM) Tuning for the Windows Server Balanced Power Plan](power/processor-power-management-tuning.md) (Optimieren der Prozessorenergieverwaltung (Processor Power Management (PPM)) für den ausgewogenen Energiesparplan von Windows Server)

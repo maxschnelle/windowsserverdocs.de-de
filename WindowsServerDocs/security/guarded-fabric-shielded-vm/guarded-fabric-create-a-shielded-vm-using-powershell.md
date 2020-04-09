@@ -1,18 +1,18 @@
 ---
 title: Erstellen einer abgeschirmten VM mithilfe von PowerShell
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: 6111b3fbff508c3c485f2a998bab8c0b16beaed6
-ms.sourcegitcommit: 471464a674a53c468a2f1e28575c91245ce9badf
+ms.openlocfilehash: 09e09fa30a38ef5f6046f623e24be0bc7b6ce87e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75548180"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856753"
 ---
 # <a name="create-a-shielded-vm-using-powershell"></a>Erstellen einer abgeschirmten VM mithilfe von PowerShell
 
@@ -22,7 +22,7 @@ In der Produktionsumgebung verwenden Sie in der Regel einen Fabric-Manager (z. b
 
 Kurz gesagt, erstellen Sie einen Vorlagen Datenträger, eine geschützte Datendatei, eine Antwortdatei für die unbeaufsichtigte Installation und andere Sicherheits Artefakte auf einem beliebigen Computer. Kopieren Sie diese Dateien dann auf einen überwachten Host, und stellen Sie die abgeschirmte VM bereit.
 
-## <a name="create-a-signed-template-disk"></a>Erstellen eines signierten Vorlagedatenträgers
+## <a name="create-a-signed-template-disk"></a>Erstellen einer signierten Vorlagen Festplatte
 
 Zum Erstellen einer neuen abgeschirmten VM benötigen Sie zunächst einen abgeschirmten VM-Vorlagen Datenträger, der mit dem zugehörigen Betriebssystem Volume (bzw. Start-und Stamm Partitionen unter Linux) vorverschlüsselt ist.
 Befolgen Sie die nachstehenden Links, um weitere Informationen zum Erstellen eines Vorlagen Datenträgers zu finden.

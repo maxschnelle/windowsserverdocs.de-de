@@ -1,24 +1,20 @@
 ---
 title: rem
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1a45b585-a83c-4ff6-badd-ff40f34cec23
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2da0b6e42858582c1485659f3bf8f59e8e2ed97e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 94428e6d5ec6fdb482a5d0d15bd1120e45ffea80
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384573"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836113"
 ---
 # <a name="rem"></a>rem
 
@@ -34,11 +30,11 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 rem [<Comment>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<comment >|Gibt eine Zeichenfolge an, die als Kommentar eingeschlossen werden soll.|
+|\<Kommentar >|Gibt eine Zeichenfolge an, die als Kommentar eingeschlossen werden soll.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
@@ -47,7 +43,7 @@ rem [<Comment>]
 -   Ein Umleitungs Zeichen ( **<** oder **>** ) oder eine Pipe ( **|** ) kann nicht in einem Batchdatei Kommentar verwendet werden.
 -   Obwohl Sie **REM** ohne einen Kommentar zum Hinzufügen von vertikaler Abstände zu einer Batchdatei verwenden können, können Sie auch leere Zeilen verwenden. Leere Zeilen werden ignoriert, wenn ein Batch-Programm verarbeitet wird.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Das folgende Beispiel zeigt eine Batchdatei, die Hinweise auf Kommentare und einen vertikalen Abstand verwendet:
 ```
@@ -65,6 +61,6 @@ rem Set prompt to indicate current directory
 prompt $p$g
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

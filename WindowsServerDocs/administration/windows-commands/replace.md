@@ -1,24 +1,20 @@
 ---
 title: replace
 description: Erfahren Sie, wie Sie den Replace-Befehl verwenden, um Dateien zu ersetzen.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6143661e-d90f-4812-b265-6669b567dd1f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 0e96be58106847a3ff6451cdb7792a197ec40227
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d44e4f8383a77582177f4d9b161210207ce46e63
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384511"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835903"
 ---
 # <a name="replace"></a>replace
 
@@ -35,12 +31,12 @@ replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/a] [/p] [/r] [/w]
 replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] [/u] 
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[\<drive1 >:] [\<path1 >] \<filename >|Gibt den Speicherort und den Namen der Quelldatei oder des Satzes von Dateien an. *Dateiname* ist erforderlich und kann Platzhalter Zeichen **&#42;** (und **?** ) enthalten.|
-|[\<drive2 >:] [\<path2 >]|Gibt den Speicherort der Zieldatei an. Sie können keinen Dateinamen für die Dateien angeben, die Sie ersetzen. Wenn Sie kein Laufwerk oder einen Pfad angeben, wird durch **Replace** das aktuelle Laufwerk und Verzeichnis als Ziel verwendet.|
+|[\<Drive1 >:] [\<Path1 >]\<Dateiname >|Gibt den Speicherort und den Namen der Quelldatei oder des Satzes von Dateien an. *Dateiname* ist erforderlich und kann Platzhalter Zeichen **&#42;** (und **?** ) enthalten.|
+|[\<drive2 >:] [\<Path2 >]|Gibt den Speicherort der Zieldatei an. Sie können keinen Dateinamen für die Dateien angeben, die Sie ersetzen. Wenn Sie kein Laufwerk oder einen Pfad angeben, wird durch **Replace** das aktuelle Laufwerk und Verzeichnis als Ziel verwendet.|
 |/a|Fügt dem Zielverzeichnis neue Dateien hinzu, anstatt vorhandene Dateien zu ersetzen. Sie können diese Befehlszeilenoption nicht mit der Befehlszeilenoption **/s** oder **/u** verwenden.|
 |/p|Sie werden zur Bestätigung aufgefordert, bevor Sie eine Zieldatei ersetzen oder eine Quelldatei hinzufügen.|
 |/r|Ersetzt schreibgeschützte und ungeschützte Dateien. Wenn Sie versuchen, eine schreibgeschützte Datei zu ersetzen, aber **/r**nicht angeben, wird ein Fehler ausgegeben, und der Ersetzungs Vorgang wird beendet.|
@@ -74,12 +70,12 @@ replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] 
 > [!NOTE]
 > Sie können den ERRORLEVEL-Parameter in der **if** -Befehlszeile in einem Batch Programm verwenden, um Exitcodes zu verarbeiten, die durch **Replace**zurückgegeben werden.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um alle Versionen einer Datei mit dem Namen "Phones. CLI" (die in mehreren Verzeichnissen auf Laufwerk C angezeigt wird) mit der neuesten Version der Datei "Phones. CLI" von einer Diskette in Laufwerk a zu aktualisieren:
 
 `replace a:\phones.cli c:\ /s`
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

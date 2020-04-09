@@ -1,28 +1,22 @@
 ---
 title: typeperf
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für typeperf, das Leistungsdaten in das Befehlsfenster oder in eine Protokolldatei schreibt.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0c7ca89a-03b3-4626-afcf-ef8565e90043
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 087b201c51d5aec8e6f61c7469c59307d3ed8b4d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ac5f7def37939a472eb8f47cf65edf184a2fe2fc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392297"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80832363"
 ---
 # <a name="typeperf"></a>typeperf
-
-
 
 Mit dem Befehl **typeperf** werden Leistungsdaten in das Befehlsfenster oder in eine Protokolldatei geschrieben. Drücken Sie zum Abbrechen von **typeperf**STRG + C.
 
@@ -37,7 +31,7 @@ typeperf -q [object] [options]
 typeperf -qx [object] [options]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -62,11 +56,11 @@ typeperf -qx [object] [options]
 |            -s \<computer_name >             |                   Gibt einen Remote Computer an, der überwacht werden soll, wenn im Verbindungs Pfad kein Computer angegeben ist.                    |
 |                     -y                     |                                        Antworten Sie auf Ja, um alle Fragen zu beantworten.                                        |
 
-## <a name="BKMK_EXAMPLES"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_EXAMPLES></a>Beispiele
 
 - Im folgenden Beispiel werden die Werte für den Leistungsdaten Bereich des lokalen Computers **\\\\Prozessorzeit (_Total)\% Prozessorzeit** in das Befehlsfenster in einem standardmäßigen Stichproben Intervall von 1 Sekunde geschrieben, bis STRG + C gedrückt wird.  
   ```
-  typeperf "\Processor(_Total)\% Processor Time"
+  typeperf \Processor(_Total)\% Processor Time
   ```  
 - Im folgenden Beispiel werden die Werte für die Liste der Leistungsindikatoren in der Datei **Counters. txt** in die durch Tabstopps getrennte Datei **Domäne2. TSV** in einem Stichproben Intervall von 5 Sekunden geschrieben, bis 50 Stichproben erfasst wurden.  
   ```

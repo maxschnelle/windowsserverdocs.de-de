@@ -1,27 +1,23 @@
 ---
 title: Erstellen eines Kontos für MultiPoint-Dashboardbenutzer
-ms.custom: na
 description: Erstellen eines Kontos für die Verwendung mit dem Dashboard
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: eb9d7da1-eb5e-42c0-8d59-bb6d7b007ea9
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: b4e5fb85ae1dcaf7bd698f052e990e6ac1ac8dbc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b94c02fe514b4f7a694b908600127eda7c664c09
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389772"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859793"
 ---
 # <a name="create-a-multipoint-dashboard-user-account"></a>Erstellen eines Kontos für MultiPoint-Dashboardbenutzer
-Erstellen Sie Multipoint-dashboardbenutzerkonten für die Benutzer, die regelmäßig auf Stationen zugreifen, aber nicht das Multipoint Services-System verwalten. Benutzer mit Multipoint-dashboardbenutzerkonten können die meisten Anwendungen ausführen und Dateien speichern, aber nicht den Multipoint-Manager ausführen. Um festzustellen, wer über Multipoint-dashboardbenutzerzugriff verfügt, klicken Sie in Multipoint Manager auf die Registerkarte **Benutzer** . MultiPoint-Dashboardbenutzerkonten werden in der Spalte Kontotyp als **MultiPoint-Dashboardbenutzer** angezeigt.  
+Erstellen Sie MultiPoint-Dashboardbenutzerkonten für die Benutzer, die regelmäßig auf Stationen zugreifen, das MultiPoint Services-System aber nicht verwalten. Benutzer mit Multipoint-dashboardbenutzerkonten können die meisten Anwendungen ausführen und Dateien speichern, aber nicht den Multipoint-Manager ausführen. Um zu sehen, wer über Multipoint-dashboardbenutzerzugriff verfügt, klicken Sie in Multipoint Manager auf die Registerkarte **Benutzer** . Multipoint-dashboardbenutzerkonten werden in der Spalte **Kontotyp** als **Multipoint-Dashboardbenutzer**  
   
 Wenn Ihre MultiPoint Services-Benutzer private Dokumente in Windows speichern, sollte sich jeder Benutzer mit einem eindeutigen Benutzernamen und Kennwort am MultiPoint Services-System anmelden.  
   
@@ -46,5 +42,5 @@ Wenn Ihre MultiPoint Services-Benutzer private Dokumente in Windows speichern, s
   
 8.  Klicken Sie auf **Fertig stellen**.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Überlegungen zu Benutzerkonten](User-Account-Considerations.md)

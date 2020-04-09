@@ -1,28 +1,22 @@
 ---
 title: Partition löschen
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Artikel zum Löschen einer Partition, die die Partition mit dem Fokus löscht.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 65752312-cb16-46f6-870f-1b95c507b101
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 46a214f26e7c21f6ae08eb16d95fd898bd949b0f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a24c18cf98f2899fbb57f1f5f2d2776824d637b7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71378663"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80846573"
 ---
 # <a name="delete-partition"></a>Partition löschen
-
-
 
 Löscht die Partition mit dem Fokus.
 
@@ -32,11 +26,11 @@ Löscht die Partition mit dem Fokus.
 delete partition [noerr] [override]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Dire|Ermöglicht DiskPart das Löschen beliebiger Partitionen unabhängig vom Typ. In der Regel gestattet DiskPart nur das Löschen bekannter Daten Partitionen.|
+|override|Ermöglicht DiskPart das Löschen beliebiger Partitionen unabhängig vom Typ. In der Regel gestattet DiskPart nur das Löschen bekannter Daten Partitionen.|
 |Noerr|Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|
 
 ## <a name="remarks"></a>Hinweise
@@ -46,14 +40,14 @@ delete partition [noerr] [override]
 > -   Sie können die Systempartition, die Start Partition oder eine beliebige Partition, die die aktive Auslagerungs Datei oder die Absturz Abbild Informationen enthält, nicht löschen.
 > -   Eine Partition muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt wird. Wählen Sie mit dem Befehl **Partition auswählen** eine Partition aus, und verschieben Sie den Fokus auf die Partition.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Um die Partition mit dem Fokus zu löschen, geben Sie Folgendes ein:
 ```
 delete partition
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

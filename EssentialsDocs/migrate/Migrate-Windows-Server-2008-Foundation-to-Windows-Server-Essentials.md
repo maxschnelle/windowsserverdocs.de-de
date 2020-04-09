@@ -1,29 +1,25 @@
 ---
 title: Migration von Windows Server 2008 Foundation zu Windows Server Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f22fc0a4-cb82-4e60-afe6-2d03145745e7
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1d6fe336692e5775a6a7b98f3a50bda1958058a7
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 52763340ae2df60f37757dc2fb1344fb891c8f7a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318955"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852543"
 ---
 # <a name="migrate-windows-server-2008-foundation-to-windows-server-essentials"></a>Migration von Windows Server 2008 Foundation zu Windows Server Essentials
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-In diesem Leitfaden wird beschrieben, wie Sie eine vorhandene Windows Server 2008 Foundation-Domäne zu Windows Server® 2012 Essentials auf neuer Hardware migrieren und dann die Einstellungen und Daten migrieren. Außerdem wird in diesem Handbuch beschrieben, wie Sie den vorhandenen Server aus dem Windows Server Essentials-Netzwerk entfernen, nachdem Sie die Migration abgeschlossen haben.  
+In diesem Leitfaden wird beschrieben, wie Sie eine vorhandene Windows Server 2008 Foundation-Domäne zu Windows Server&reg; 2012 Essentials auf neuer Hardware migrieren und dann die Einstellungen und Daten migrieren. Außerdem wird in diesem Handbuch beschrieben, wie Sie den vorhandenen Server aus dem Windows Server Essentials-Netzwerk entfernen, nachdem Sie die Migration abgeschlossen haben.  
   
 > [!NOTE]
 >  Um Probleme während der Migration zu vermeiden, empfiehlt das Windows Server Essentials-Produktentwicklungsteam dringend, dieses Dokument zu lesen, bevor Sie mit der Migration beginnen.  

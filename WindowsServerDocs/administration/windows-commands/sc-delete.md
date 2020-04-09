@@ -1,24 +1,20 @@
 ---
 title: SC löschen
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2fe94fb3-e4d1-47b5-b999-39995ecbb644
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ad64d0f7c772b8d29a191b5f3e690d74c8765717
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 05b276de04d4250cc03e4b2976bf8c1330ef82ce
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371277"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835383"
 ---
 # <a name="sc-delete"></a>SC löschen
 
@@ -34,7 +30,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#exampl
 sc [<ServerName>] delete [<ServiceName>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -53,6 +49,6 @@ Um den Dienst Unterschlüssel **newserv** aus der Registrierung auf dem lokalen 
 sc delete newserv
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

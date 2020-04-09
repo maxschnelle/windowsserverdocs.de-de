@@ -1,28 +1,24 @@
 ---
 title: logman Update-Warnung
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ede94a76-931c-40ed-9fda-6766bed8ff72 britw
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dc32e3de6078489e59fe24c97f02fb440e86628d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 13bd7fbef96b75d9308b1e2c8475389d10bbb921
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374386"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840603"
 ---
 # <a name="logman-update-alert"></a>logman Update-Warnung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Aktualisieren Sie die Eigenschaften eines vorhandenen Warnungs Daten Sammlers.  
 
@@ -30,7 +26,7 @@ Aktualisieren Sie die Eigenschaften eines vorhandenen Warnungs Daten Sammlers.
 ```  
 logman update alert <[-n] <name>> [options]  
 ```  
-## <a name="parameters"></a>Parameter  
+### <a name="parameters"></a>Parameter  
 
 |                 Parameter                  |                                                                               Beschreibung                                                                               |
 |--------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -38,7 +34,7 @@ logman update alert <[-n] <name>> [options]
 |             -s <computer name>             |                                                          Führen Sie den Befehl auf dem angegebenen Remote Computer aus.                                                          |
 |              -config <value>               |                                                         Gibt die Einstellungsdatei an, die Befehlsoptionen enthält.                                                         |
 |                [-n] <name>                 |                                                                       Der Name des Zielobjekts.                                                                        |
-|          -[-] u < Benutzer [Kennwort] >           | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie einen \* für das Kennwort eingeben, wird eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
+|          -[-] u < Benutzer [Kennwort] >           | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie einen \* für das Kennwort eingeben, wird eine Eingabeaufforderung angezeigt. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
 | -m < [Start] [Ende] [[Start] [Ende] [...]] > |                                                Wechseln Sie zu "manueller Start" oder "beenden" anstelle eines geplanten Anfangs-oder Endzeit Zeitraums.                                                 |
 |             -RF < [[hh:] mm:] SS >             |                                                        Führt den Datensammler für den angegebenen Zeitraum aus.                                                         |
 |     -b < M/d/yyyy h:mm: SS [am&#124;pm] >      |                                                              Beginnt mit dem Sammeln von Daten zum angegebenen Zeitpunkt.                                                               |
@@ -62,11 +58,11 @@ logman update alert <[-n] <name>> [options]
 
 ## <a name="remarks"></a>Hinweise  
 Wenn [-] aufgeführt ist, wird die-Option durch ein extra negiert.  
-## <a name="BKMK_examples"></a>Beispiele  
-Im folgenden Beispiel wird der vorhandene Datensammler new_alert aktualisiert. dabei wird der Schwellenwert für den Leistungs Schwellenwert% Processor Time in der Prozessor-(_Total)-Leistungs Zählers auf 40% festgelegt.  
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
+Im folgenden Beispiel wird der vorhandene Datensammler new_alert aktualisiert. dabei wird der Schwellenwert für den Leistungs Schwellenwert "% Processor Time" in der Leistungsdaten Gruppe "Prozessor" (_Total) auf 40% festgelegt.  
 ```  
-logman update alert new_alert -th "\Processor(_Total)\% Processor time>40"  
+logman update alert new_alert -th \Processor(_Total)\% Processor time>40  
 ```  
-#### <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Weitere Verweise  
 [logman](logman.md)  
 [Warnung zu logman Create](logman-create-alert.md)  

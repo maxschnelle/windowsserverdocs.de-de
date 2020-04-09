@@ -1,24 +1,20 @@
 ---
 title: nslookup root
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9c29edc3-ec49-43f2-bc49-86bf0612d816
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3eb3375df3a109685fc8dc5d23f0c5008339d09e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d11179ff3cd22acd9df67261e7ab752aa159201a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373388"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838643"
 ---
 # <a name="nslookup-root"></a>nslookup root
 
@@ -29,7 +25,7 @@ ms.locfileid: "71373388"
 ```
 root 
 ```
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |    Parameter    |                      Beschreibung                      |
 |-----------------|-------------------------------------------------------|
@@ -38,5 +34,5 @@ root
 ## <a name="remarks"></a>Hinweise
 - Derzeit wird der NS.nic.DDN.mil Nameserver verwendet. Dieser Befehl ist ein Synonym für lserver NS.nic.DDN.mil. Sie können den Namen des Stamm Servers mit dem Befehl " **root festlegen** " ändern.
   ## <a name="additional-references"></a>Weitere Verweise
-  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+  - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
   [nslookup](nslookup-set-root.md) -Stammgruppe

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 20d183f0-ef94-44bb-9dfc-ed93799dd1a6
 title: Wann sollte eine benutzerdefinierte Anspruchsregel verwendet werden?
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c784c4b6dbfee7034dd9302dc87fc74b896763f5
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 41e7ea7c2bc627f2fce198e5c7227148e8b03d88
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950143"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853823"
 ---
 # <a name="when-to-use-a-custom-claim-rule"></a>Wann sollte eine benutzerdefinierte Anspruchsregel verwendet werden?
 Sie schreiben eine benutzerdefinierte Anspruchs Regel in Active Directory-Verbunddienste (AD FS) \(AD FS\) mithilfe der Anspruchs Regel Sprache, bei der es sich um das Framework handelt, das die Anspruchs Ausstellungs-Engine verwendet, um Ansprüche Programm gesteuert zu generieren, zu transformieren, weiterzuleiten und zu filtern. Mithilfe einer benutzerdefinierten Regel können Sie Regeln mit komplexerer Logik als bei einer Standardvorlage erstellen. Erwägen Sie eine benutzerdefinierte Regel, wenn Sie Folgendes vorhaben:  
@@ -39,7 +38,7 @@ Sie können auch eine benutzerdefinierte Regel verwenden, wenn der Anspruchswert
   
 Die Anspruchsregelsprache ist regelbasiert. Sie hat einen Bedingungsteil und einen Ausführungsteil. Sie können die Syntax der Anspruchsregelsprache verwenden, um Ansprüche gemäß den Bedürfnissen Ihrer Organisation aufzulisten, hinzuzufügen, zu löschen oder zu ändern. Weitere Informationen zur Funktionsweise der einzelnen Teile finden Sie [unter der Rolle der Anspruchs Regel Sprache](The-Role-of-the-Claim-Rule-Language.md).  
   
-Die folgenden Abschnitte bieten eine grundlegende Einführung in Anspruchsregeln. Sie bieten außerdem Details dazu, wann eine benutzerdefinierte Anspruchsregel verwendet werden sollte.  
+Die folgenden Abschnitte enthalten eine grundlegende Einführung in Anspruchsregeln. Sie bieten außerdem Details dazu, wann eine benutzerdefinierte Anspruchsregel verwendet werden sollte.  
   
 ## <a name="about-claim-rules"></a>Informationen zu Anspruchsregeln  
 Eine Anspruchs Regel stellt eine Instanz der Geschäftslogik dar, die einen eingehenden Anspruch annimmt, eine Bedingung darauf anwenden \(wenn x, dann y\) und einen ausgehenden Anspruch basierend auf den Bedingungs Parametern erzeugt.  
@@ -47,7 +46,7 @@ Eine Anspruchs Regel stellt eine Instanz der Geschäftslogik dar, die einen eing
 > [!IMPORTANT]  
 > -   Im AD FS Verwaltungs-Snap\-in können Anspruchs Regeln nur mithilfe von Anspruchs Regel Vorlagen erstellt werden.  
 > -   Anspruchs Regeln verarbeiten eingehende Ansprüche entweder direkt von einem Anspruchs Anbieter \(z. b. Active Directory oder einer anderen Verbunddienst\) oder aus der Ausgabe der Akzeptanz Transformationsregeln für eine Anspruchs Anbieter-Vertrauensstellung.  
-> -   Anspruchsregeln werden von der Anspruchsausstellungs-Engine chronologisch nach einem bestimmten Regelsatz verarbeitet. Indem Sie eine Rangfolge der Regeln festlegen, können Sie Ansprüche, die durch vorausgehende Regeln in einem bestimmten Regelsatz generiert werden, weiter optimieren oder filtern.  
+> -   Anspruchsregeln werden vom Anspruchsausstellungsmodul chronologisch nach einem bestimmten Regelsatz verarbeitet. Indem Sie eine Rangfolge der Regeln festlegen, können Sie Ansprüche, die durch vorausgehende Regeln in einem bestimmten Regelsatz generiert werden, weiter optimieren oder filtern.  
 > -   Anspruchsregelvorlagen erfordern immer, dass Sie einen eingehenden Anspruchstyp angeben. Allerdings können Sie mehrere Anspruchswerte mit dem gleichen Anspruchstyp mithilfe einer einzigen Regel verarbeiten.  
   
 Ausführlichere Informationen zu Anspruchs Regeln und Anspruchs Regelsätzen finden Sie [unter Rolle der Anspruchs Regeln](The-Role-of-Claim-Rules.md). Weitere Informationen zur Verarbeitung von Regeln finden Sie [unter The Role of the Claims Engine](The-Role-of-the-Claims-Engine.md). Weitere Informationen zur Verarbeitung von Anspruchs Regelsätzen finden Sie [unter der Rolle der Anspruchs Pipeline](The-Role-of-the-Claims-Pipeline.md).  
@@ -57,7 +56,7 @@ Sie erstellen diese Regel, indem Sie zunächst die für Ihren Vorgang benötigte
   
 Diese Regelvorlage bietet die folgenden Optionen:  
   
--   Angeben eines Anspruchsregelnamens  
+-   Anspruchsregelname angeben  
   
 -   Geben Sie eine oder mehrere optionale Bedingungen und eine Ausstellungs Anweisung mithilfe der AD FS Anspruchs Regel Sprache ein.  
   
@@ -70,12 +69,12 @@ Weitere Informationen zum Verwenden der Anspruchs Regel Sprache finden Sie [unte
 ## <a name="using-the-claim-rule-language"></a>Verwenden der Anspruchsregelsprache  
   
 ### <a name="example-how-to-combine-first-and-last-names-based-on-a-users-name-attribute-values"></a>Beispiel: Kombinieren von vor-und Nachnamen basierend auf den Namensattribut Werten eines Benutzers  
-Die folgende Regelsyntax kombiniert Vor- und Nachnamen aus Attributwerten in einem bestimmten Attributspeicher. Die Richtlinien-Engine bildet ein kartesisches Produkt mit den Ergebnissen für jede Bedingung. Beispielsweise ist die Ausgabe für Vornamen {"Frank", "Alan"} und Nachnamen {"Miller", "Shen"} {"Frank Miller", "Frank Shen", "Alan Miller", "Alan Shen"}:  
+Die folgende Regelsyntax kombiniert Vor- und Nachnamen aus Attributwerten in einem bestimmten Attributspeicher. Das Richtlinienmodul bildet ein kartesisches Produkt mit den Ergebnissen für jede Bedingung. Beispielsweise ist die Ausgabe für den Vornamen {"Frank", "Alan"} und Nachnamen {"Miller", "Shen"} {"Frank Miller", "Frank Shen", "Alan Miller", "Alan Shen"}:  
   
 ```  
 c1:[type == "http://exampleschema/firstname" ]  
 &&  c2:[type == "http://exampleschema/lastname",]   
-=> issue(type = "http://exampleschema/name", value = c1.value + “  “ + c2.value);  
+=> issue(type = "http://exampleschema/name", value = c1.value + "  " + c2.value);  
 ```  
   
 ### <a name="example-how-to-issue-a-manager-claim-based-on-whether-users-have-direct-reports"></a>Beispiel: Ausstellen eines Vorgesetztenanspruchs basierend darauf, ob Benutzer direkt unterstellte Mitarbeiter haben  
@@ -83,7 +82,7 @@ Die folgende Regel stellt einen Vorgesetztenanspruch nur aus, wenn der Benutzer 
   
 ```  
 c:[type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"] => add(store = "SQL Store", types = ("http://schemas.xmlsoap.org/claims/Reports"), query = "SELECT Reports FROM dbo.DirectReports WHERE UserName = {0}", param = c.value );  
-count([type == “http://schemas.xmlsoap.org/claims/Reports“] ) > 0 => issue(= "http://schemas.xmlsoap.org/claims/ismanager", value = "true");  
+count([type == "http://schemas.xmlsoap.org/claims/Reports"] ) > 0 => issue(= "http://schemas.xmlsoap.org/claims/ismanager", value = "true");  
 ```  
   
 ### <a name="example-how-to-issue-a-ppid-claim-based-on-an-ldap-attribute"></a>Beispiel: Ausstellen eines PPID-Anspruchs basierend auf einem LDAP-Attribut  

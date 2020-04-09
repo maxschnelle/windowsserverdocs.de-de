@@ -1,25 +1,20 @@
 ---
 title: Planen einer Software-Defined Networking-Infrastruktur
 description: Dieses Thema enthält Informationen zum Planen der Bereitstellung von Software definierten Netzwerken (SDN).
-manager: dougkim
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.service: virtual-network
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/10/2018
-ms.openlocfilehash: 83f94d3770c475fca7f5d4b8cc2f5a5ade1a20d7
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 1542ff2c81ec0b6b4bc598dd5039578a67d0fc3e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317463"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854403"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Planen einer Software-Defined Networking-Infrastruktur
 
@@ -238,7 +233,7 @@ In der folgenden Tabelle werden die Mindestanforderungen an die Hardware und Sof
 
 Host|Hardwareanforderungen|Softwareanforderungen|  
 --------|-------------------------|-------------------------  
-|Physischer Hyper-v-Host|4-Kern-CPU mit 2,66 GHz<br /><br />32 GB RAM<br /><br />300 GB Speicherplatz<br /><br />1 GB/s (oder schneller) physischer Netzwerkadapter|Betriebssystem: Windows Server 2016<br /><br />Hyper-V-Rolle installiert|  
+|Physischer Hyper-v-Host|4-Kern-CPU mit 2,66 GHz<p>32 GB RAM<p>300 GB Speicherplatz<p>1 GB/s (oder schneller) physischer Netzwerkadapter|Betriebssystem: Windows Server 2016<p>Hyper-V-Rolle installiert|  
 
 
 **Rollenanforderungen für virtuelle Computer in der Sdn-Infrastruktur**  
@@ -247,8 +242,8 @@ Rolle|vCPU-Anforderungen|Arbeitsspeicheranforderungen|Datenträgeranforderungen|
 --------|---------------------|-----------------------|---------------------  
 |Netzwerk Controller (drei Knoten)|4 vCPUs|4 GB min. (8 GB empfohlen)|75 GB für das Betriebssystem Laufwerk  
 |SLB/Mux (drei Knoten)|8 vCPUs|8 GB empfohlen|75 GB für das Betriebssystem Laufwerk  
-|RAS-Gateway<br /><br />(einzelner Pool von drei Knoten Gateways, zwei aktiv, ein passiv)|8 vCPUs|8 GB empfohlen|75 GB für das Betriebssystem Laufwerk  
-|RAS-Gateway-BGP-Router für SLB/MUX-Peering<br /><br />(Alternativ können Sie den Tor-Switch als BGP-Router verwenden)|2 vCPUs|2 GB|75 GB für das Betriebssystem Laufwerk|  
+|RAS-Gateway<p>(einzelner Pool von drei Knoten Gateways, zwei aktiv, ein passiv)|8 vCPUs|8 GB empfohlen|75 GB für das Betriebssystem Laufwerk  
+|RAS-Gateway-BGP-Router für SLB/MUX-Peering<p>(Alternativ können Sie den Tor-Switch als BGP-Router verwenden)|2 vCPUs|2 GB|75 GB für das Betriebssystem Laufwerk|  
 
 
 Wenn Sie VMM für die Bereitstellung verwenden, sind zusätzliche Infrastruktur Ressourcen für virtuelle Maschinen für VMM und andere nicht-Sdn-Infrastrukturen erforderlich. Weitere Informationen finden Sie unter [Minimal Hardware Empfehlungen für System Center Technical Preview.](https://technet.microsoft.com/library/dn997303.aspx)  

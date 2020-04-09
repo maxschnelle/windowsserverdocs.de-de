@@ -1,7 +1,5 @@
 ---
-ms.assetid: ''
 title: Client Access Control Richtlinien in AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +7,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: c00a13076b3c3cf28f9efa0a5127f50e34219c84
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f9939662c22e9500235bae014b7fb9064afd911b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358629"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858113"
 ---
 # <a name="controlling-access-to-organizational-data-with-active-directory-federation-services"></a>Steuern des Zugriffs auf Organisationsdaten mit Active Directory-Verbunddienste (AD FS)
 
@@ -32,7 +30,7 @@ AD FS bietet die lokale Komponente der Richtlinie für bedingten Zugriff in eine
 
 Wenn Sie z. b. Geräte mit Azure AD für den bedingten Zugriff auf cloudressourcen registrieren, werden die Geräte Registrierungsinformationen von der Funktion zum Zurückschreiben von Azure AD Connect Geräten lokal zur Verfügung gestellt, damit AD FS Richtlinien genutzt und erzwungen werden.  Auf diese Weise haben Sie einen konsistenten Ansatz für die Zugriffs Steuerungs Richtlinien sowohl für lokale als auch für cloudressourcen.  
 
-![Bedingter Zugriff](../deployment/media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
+![bedingter Zugriff](../deployment/media/Plan-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
 
 
 ### <a name="the-evolution-of-client-access-policies-for-office-365"></a>Die Weiterentwicklung von Client Zugriffsrichtlinien für Office 365

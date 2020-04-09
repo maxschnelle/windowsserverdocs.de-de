@@ -8,12 +8,12 @@ ms.topic: get-started-article
 author: nedpyle
 ms.date: 4/26/2019
 ms.assetid: e9b18e14-e692-458a-a39f-d5b569ae76c5
-ms.openlocfilehash: d95feb67001dc7b5eff68a0062d5f944672bad80
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 33626dd632dc8c065d2e32b3a21d9f4c9cf77fa7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465229"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861073"
 ---
 # <a name="storage-replica-overview"></a>Übersicht über Speicherreplikate
 
@@ -36,7 +36,7 @@ Mit Speicherreplikaten können Sie vorhandene Dateireplikationssysteme wie die D
 
 Für größere Bereiche und Netzwerke mit höherer Latenz unterstützt das Speicherreplikatfeature zudem die asynchrone Replikation. Da es sich nicht um einen Prüfpunkt handelt und stattdessen ständig repliziert wird, ist das Delta der Änderungen tendenziell weitaus niedriger als auf Momentaufnahme basierte Produkte. Darüber hinaus wird das Speicherreplikatfeature auf Partitionsebene ausgeführt, sodass alle von Windows Server oder Sicherungssoftware erstellten VSS-Momentaufnahmen repliziert werden. Dadurch können anwendungskonsistente Momentaufnahmen von Daten für eine Zeitpunktwiederherstellung verwendet werden. Dies gilt insbesondere für unstrukturierte Benutzerdaten, die asynchron repliziert wurden.  
 
-## <a name="BKMK_SRSupportedScenarios"></a>Unterstützte Konfigurationen
+## <a name="supported-configurations"></a><a name="BKMK_SRSupportedScenarios"></a>Unterstützte Konfigurationen
 
 Sie können das Speicher Replikat in einem Stretch-Cluster zwischen Cluster-zu-Cluster-und Server-zu-Server-Konfigurationen bereitstellen (siehe Abbildung 1-3).
 
@@ -61,7 +61,7 @@ Eine **Server-zu-Server-Konfiguration** ermöglicht eine synchrone und asynchron
 > [!NOTE]
 > Sie können auch eine Server-to-Self-Replikation konfigurieren, bei der vier separate Volumes auf einem einzigen Computer verwendet werden. Dieses Szenario wird in diesem Leitfaden jedoch nicht abgedeckt.  
 
-## <a name="BKMK_SR2"></a> Speicher Replikat Features  
+## <a name="storage-replica-features"></a><a name="BKMK_SR2"> </a> Speicher Replikat Features  
 
 * **Replikation auf Blockebene ohne Datenverlust**. Bei der synchronen Replikation besteht kein Risiko von Datenverlust. Bei der Replikation auf Blockebene besteht kein Risiko von Dateisperrungen.  
 
@@ -109,7 +109,7 @@ Das Speicher Replikat umfasst die folgenden Features:
 
 *Möglicherweise sind Geräte und Kabel für große Entfernungen erforderlich.  
 
-## <a name="BKMK_SR3"></a>Speicher Replikat Voraussetzungen
+## <a name="storage-replica-prerequisites"></a><a name="BKMK_SR3"></a>Speicher Replikat Voraussetzungen
 
 * Active Directory Domain Services-Gesamtstruktur.
 * Speicherplätze mit SAS JBODs, „Direkte Speicherplätze“, Fibre Channel-SAN, freigegebene VHDX, iSCSI-Ziel oder lokalem SAS/SCSI/SATA-Speicher. Für Replikationsprotokolllaufwerke werden mindestens SSDs empfohlen. Microsoft empfiehlt, dass die Protokollspeicherung schneller als die Datenspeicherung durchgeführt wird. Protokollvolumes dürfen niemals für andere Workloads verwendet werden.
@@ -122,7 +122,7 @@ Das Speicher Replikat umfasst die folgenden Features:
   * Das Speicher Replikat repliziert ein einzelnes Volume anstelle einer unbegrenzten Anzahl von Volumes.
   * Volumes können eine Größe von bis zu 2 TB anstelle einer unbegrenzten Größe aufweisen.
 
-##  <a name="BKMK_SR4"></a> Hintergrund
+##  <a name="background"></a><a name="BKMK_SR4"> </a> Hintergrund
 
 Dieser Abschnitt enthält Informationen zu allgemeinen Begriffen aus der Branche, synchroner und asynchroner Replikation und zu Schlüsselverhalten.
 
@@ -140,7 +140,7 @@ Wenn Anwendungsschreibvorgänge für die Quelldatenkopie ausgeführt werden, bes
 
 | Modus | Diagramm | Schritte |
 | -------- | ----------- | --------- |
-| **Synchrone**<br /><br />Kein Datenverlust<br /><br />RPO | ![Diagramm das zeigt, wie das Speicherreplikat Daten in die synchrone Replikation schreibt](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  Anwendung schreibt Daten<br />2.  Protokolldaten werden geschrieben, und die Daten werden am Remotestandort repliziert<br />3.  Protokolldaten werden am Remotestandort geschrieben<br />4.  Bestätigung durch den Remotestandort<br />5.  Anwendungsschreibvorgang wird bestätigt<br /><br />t & t1: Daten werden auf das Volume geleert, Protokolle werden immer geschrieben |
+| **Synchrone**<p>Kein Datenverlust<p>RPO | ![Diagramm das zeigt, wie das Speicherreplikat Daten in die synchrone Replikation schreibt](./media/Storage-Replica-Overview/Storage_SR_SynchronousV2.png) | 1.  Anwendung schreibt Daten<br />2.  Protokolldaten werden geschrieben, und die Daten werden am Remotestandort repliziert<br />3.  Protokolldaten werden am Remotestandort geschrieben<br />4.  Bestätigung durch den Remotestandort<br />5.  Anwendungsschreibvorgang wird bestätigt<p>t & t1: Daten werden auf das Volume geleert, Protokolle werden immer geschrieben |
 
 ### <a name="asynchronous-replication"></a>Asynchrone Replikation
 
@@ -152,7 +152,7 @@ Da der RPO-Wert bei der asynchronen Replikation größer Null ist, ist dieser Re
 
 | Modus | Diagramm | Schritte |
 | -------- | ----------- | --------- |
-| **Asynchronen**<br /><br />Praktisch keinerlei Datenverlust<br /><br />(von verschiedenen Faktoren abhängig)<br /><br />RPO | ![Diagramm das zeigt, wie das Speicherreplikat Daten in die asynchrone Replikation schreibt](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  Anwendung schreibt Daten<br />2.  Protokolldaten werden geschrieben<br />3.  Anwendungsschreibvorgang wird bestätigt<br />4.  Daten werden am Remotestandort repliziert<br />5.  Protokolldaten werden am Remotestandort geschrieben<br />6.  Bestätigung durch den Remotestandort<br /><br />t & t1: Daten werden auf das Volume geleert, Protokolle werden immer geschrieben |
+| **Asynchronen**<p>Praktisch keinerlei Datenverlust<p>(von verschiedenen Faktoren abhängig)<p>RPO | ![Diagramm das zeigt, wie das Speicherreplikat Daten in die asynchrone Replikation schreibt](./media/Storage-Replica-Overview/Storage_SR_AsynchronousV2.png)|1.  Anwendung schreibt Daten<br />2.  Protokolldaten werden geschrieben<br />3.  Anwendungsschreibvorgang wird bestätigt<br />4.  Daten werden am Remotestandort repliziert<br />5.  Protokolldaten werden am Remotestandort geschrieben<br />6.  Bestätigung durch den Remotestandort<p>t & t1: Daten werden auf das Volume geleert, Protokolle werden immer geschrieben |
 
 ### <a name="key-evaluation-points-and-behaviors"></a>Wichtige Bewertungspunkte und Verhalten  
 

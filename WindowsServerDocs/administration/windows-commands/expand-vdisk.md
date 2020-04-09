@@ -1,28 +1,24 @@
 ---
 title: Erweitern von Vdisk
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3ae547b4-3813-4b86-bacd-bc273c028a2a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8fb5d7b58b7aa4bc9557086c73020820cfa04284
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 272714372a35f7f205b5a2e70cb2f2669b3a0634
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377292"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844893"
 ---
 # <a name="expand-vdisk"></a>Erweitern von Vdisk
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 erweitert eine virtuelle Festplatte (VHD) auf die Größe, die Sie angeben.
 > [!NOTE]
@@ -31,21 +27,21 @@ erweitert eine virtuelle Festplatte (VHD) auf die Größe, die Sie angeben.
 > ```
 > expand vdisk maximum=<n>
 > ```
-> ## <a name="parameters"></a>Parameter
+> ### <a name="parameters"></a>Parameter
 > 
 > |  Parameter  |                      Beschreibung                      |
 > |-------------|-------------------------------------------------------|
-> | Maximum = <n> | Gibt die neue Größe für die VHD in Megabyte (MB) an. |
+> | Maximum =<n> | Gibt die neue Größe für die VHD in Megabyte (MB) an. |
 > 
 > ## <a name="remarks"></a>Hinweise
 > - Es muss eine VHD ausgewählt und getrennt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Vdisk auswählen** ein Volume aus, und verschieben Sie den Fokus auf das Volume.
->   ## <a name="BKMK_Examples"></a>Beispiele
+>   ## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
 >   Geben Sie Folgendes ein, um die ausgewählte VHD auf 20 GB zu erweitern:
 >   ```
 >   expand vdisk maximum=20000
 >   ```
 >   ## <a name="additional-references"></a>Weitere Verweise
-> - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+> - - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 > - [Vdisk anfügen](attach-vdisk.md)
 > - [Compact Vdisk](compact-vdisk.md)
 

@@ -1,24 +1,20 @@
 ---
 title: Gastclustering in einem virtuellen Netzwerk
 description: Virtuelle Computer, die mit einem virtuellen Netzwerk verbunden sind, dürfen nur die IP-Adressen verwenden, die der Netzwerk Controller für die Kommunikation im Netzwerk zugewiesen hat.  Clustering-Technologien, die eine Floating IP-Adresse erfordern, z. b. Microsoft-Failoverclustering, erfordern einige zusätzliche Schritte, um ordnungsgemäß zu funktionieren
-manager: dougkim
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8e9e5c81-aa61-479e-abaf-64c5e95f90dc
 ms.author: grcusanz
-author: eross-msft
+author: AnirbanPaul
 ms.date: 08/26/2018
-ms.openlocfilehash: 200d53d856d4b37daffde0c6213ec4f5eb26773d
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 6889b58f5d49a4932ef8277b11e1002e85606f3f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80317569"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854453"
 ---
 # <a name="guest-clustering-in-a-virtual-network"></a>Gastclustering in einem virtuellen Netzwerk
 
@@ -146,7 +142,7 @@ Mit den folgenden Schritten können Sie einen Failovercluster konfigurieren.
    
    $ClusterNetworkName = "Cluster Network 1"
    $IPResourceName =  
-   $ILBIP = “192.168.2.100” 
+   $ILBIP = "192.168.2.100" 
 
    $nodes = @("DB1", "DB2")
    ```

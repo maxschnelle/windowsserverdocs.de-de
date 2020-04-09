@@ -1,24 +1,20 @@
 ---
 title: Wbadmin-Wiederherstellung starten
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Artikel für die Wbadmin-start Wiederherstellung, mit der ein Wiederherstellungs Vorgang basierend auf den von Ihnen angegebenen Parametern ausgeführt wird.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 52381316-a0fa-459f-b6a6-01e31fb21612
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: edb287573dc76619502faf58018f48c464140629
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6b5a65e67e7a34ca5263c85c1038820e0a4fc1ed
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362349"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829613"
 ---
 # <a name="wbadmin-start-recovery"></a>Wbadmin-Wiederherstellung starten
 
@@ -48,7 +44,7 @@ wbadmin start recovery
 [-quiet]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -73,7 +69,7 @@ wbadmin start recovery
 >     [!NOTE]
 >     Before using **wbadmin** to perform an install from media operation, you should consider using the **ntdsutil** command because **ntdsutil** only copies the minimum amount of data needed, and it uses a more secure data transport method.
 
-## <a name="BKMK_Examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
 
 Geben Sie Folgendes ein, um eine Wiederherstellung der Sicherung ab dem 31. März 2013 (um 9:00 Uhr) von Volume d: durchzuführen:
 ```
@@ -97,9 +93,9 @@ Zum Ausführen einer Wiederherstellung der Sicherung ab dem 30. April 2013 (um 9
 wbadmin start recovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Start-wbfilerecovery](https://technet.microsoft.com/library/jj902457.aspx) -Cmdlet
 -   [Start-wbhypervrecovery](https://technet.microsoft.com/library/jj902463.aspx) -Cmdlet

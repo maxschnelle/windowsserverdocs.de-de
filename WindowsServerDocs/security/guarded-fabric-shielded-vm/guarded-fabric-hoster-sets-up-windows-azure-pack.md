@@ -1,19 +1,19 @@
 ---
 title: 'Abgeschirmte VMs: Hosting-Anbieter richtet Windows Azure Pack ein'
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: d528c689-58b0-425c-9740-25e2553ed689
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 7336637bd3186f885db6d94eeffd0d2311edf3ac
-ms.sourcegitcommit: 3f9bcd188dda12dc5803defb47b2c3a907504255
+ms.openlocfilehash: 1d759af575f98d305a67734d0e23680f701f6b72
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001839"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856713"
 ---
 # <a name="shielded-vms---hosting-service-provider-sets-up-windows-azure-pack"></a>Abgeschirmte VMs: Hosting-Anbieter richtet Windows Azure Pack ein
 
@@ -113,7 +113,7 @@ Damit Mandanten VMs in WAP erstellen können, müssen Sie zuerst einen Hostingpl
 
     An diesem Punkt ist Windows Azure Pack konfiguriert, und Mandanten können den soeben erstellten Plan abonnieren und abgeschirmte VMS bereitstellen. Weitere Schritte, die Mandanten ausführen müssen, finden Sie unter [abgeschirmte VMs für Mandanten: Bereitstellen einer abgeschirmten VM mithilfe von Windows Azure Pack](guarded-fabric-shielded-vm-windows-azure-pack.md).
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 - [Konfigurationsschritte des hostingdienstanbieters für geschützte Hosts und abgeschirmte VMS](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

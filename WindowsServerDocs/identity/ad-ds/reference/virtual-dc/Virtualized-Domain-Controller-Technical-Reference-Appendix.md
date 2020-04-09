@@ -1,7 +1,6 @@
 ---
 ms.assetid: 73a4deba-7da6-4eae-8fdd-2a4d369f9cbb
 title: Technische Referenz für virtualisierte Domänencontroller, Anhang
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e1018d5bbff5922df5a696e5c4fad12dc9f6ec3d
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: ee5a46781a61b8546fef113763c0d8ef9ca9f6cc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323132"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853983"
 ---
 # <a name="virtualized-domain-controller-technical-reference-appendix"></a>Technische Referenz für virtualisierte Domänencontroller, Anhang
 
@@ -26,7 +25,7 @@ In diesem Thema werden folgende Inhalte behandelt:
   
 -   ["Fixvdcberechtigungen. ps1"](../../../ad-ds/reference/virtual-dc/../../../ad-ds/reference/virtual-dc/Virtualized-Domain-Controller-Technical-Reference-Appendix.md#BKMK_FixPDCPerms)  
   
-## <a name="BKMK_Terms"></a>Begriffs  
+## <a name="terminology"></a><a name="BKMK_Terms"></a>Begriffs  
   
 -   **Snapshot** : der Zustand einer virtuellen Maschine zu einem bestimmten Zeitpunkt. Es hängt von der Kette früherer, auf der Hardware und der Virtualisierungsplattform ausgeführten Momentaufnahmen ab.  
   
@@ -44,7 +43,7 @@ In diesem Thema werden folgende Inhalte behandelt:
   
 -   **Import/Export** : eine Hyper-V-Funktion, die es dem Benutzer ermöglicht, den gesamten virtuellen Computer (VM-Dateien, VHD und die Computerkonfiguration) zu speichern. Anschließend können Benutzer diesen Satz von Dateien verwenden, um den Computer auf demselben Computer wie dieselbe VM (Wiederherstellung), auf einem anderen Computer wie die gleiche VM (verschieben) oder auf einem neuen virtuellen Computer (Kopie) wiederherzustellen.  
   
-## <a name="BKMK_FixPDCPerms"></a>"Fixvdcberechtigungen. ps1"  
+## <a name="fixvdcpermissionsps1"></a><a name="BKMK_FixPDCPerms"></a>"Fixvdcberechtigungen. ps1"  
   
 ```  
 # Unsigned script, requires use of set-executionpolicy remotesigned -force  

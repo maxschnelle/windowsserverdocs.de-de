@@ -1,7 +1,6 @@
 ---
 ms.assetid: 22f53391-8c6a-4873-a1f4-08b4760ea621
 title: Rolle von Ansprüchen
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 851a70bbed606530ca8292f65bc4f776eae77fae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2477152231489e309fc48fd57d38e09a9bf658eb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407342"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860173"
 ---
 # <a name="the-role-of-claims"></a>Rolle von Ansprüchen
 Im Anspruchs\-basierten Identitäts Modell spielen Ansprüche eine entscheidende Rolle im Verbund Prozess, Sie sind die wichtigste Komponente, mit der das Ergebnis aller auf Web\-basierenden Authentifizierungs-und Autorisierungs Anforderungen bestimmt wird. Dieses Modell ermöglicht es Organisationen, digitale Identitäten und Bezugsrechte bzw. *Ansprüche* über Sicherheits- und Unternehmensgrenzen hinweg auf standardisierte Weise sicher zu planen.  
@@ -45,7 +44,7 @@ Der diesen Prozess verwendende Anspruchsverlauf wird als *Anspruchspipeline* bez
 Weitere Informationen finden Sie unter [Rolle der Anspruchspipeline](The-Role-of-the-Claims-Pipeline.md).  
   
 ### <a name="how-claims-are-issued"></a>Ausstellen von Ansprüchen  
-Beim Erstellen von Anspruchsregeln hängt die Quelle der eingehenden Ansprüche für die Anspruchsregeln davon ab, ob Sie die Regeln für die Vertrauensstellung eines Anspruchsanbieters oder einer vertrauenden Seite erstellen. Wenn Sie Anspruchsregeln für eine Anspruchsanbieter-Vertrauensstellung erstellen, entsprechen die eingehenden Ansprüche den Ansprüchen, die vom vertrauenswürdigen Anspruchsanbieter an den Verbunddienst gesendet werden. Wenn Sie Regeln für die Vertrauensstellung der vertrauenden Seite erstellen, entsprechen die eingehenden Ansprüche den Ansprüchen, die von den Anspruchsregeln der maßgeblichen Anspruchsanbieter-Vertrauensstellung ausgegeben werden. Weitere Informationen zu ein- und ausgehenden Ansprüchen finden Sie unter [Rolle der Anspruchspipeline](The-Role-of-the-Claims-Pipeline.md) und [Rolle des Anspruchsmoduls](The-Role-of-the-Claims-Engine.md).  
+Beim Erstellen von Anspruchsregeln hängt die Quelle der eingehenden Ansprüche für die Anspruchsregeln davon ab, ob Sie die Regeln für die Vertrauensstellung eines Anspruchsanbieters oder einer vertrauenden Seite erstellen. Wenn Sie Anspruchsregeln für eine Anspruchsanbieter-Vertrauensstellung erstellen, entsprechen die eingehenden Ansprüche den Ansprüchen, die vom vertrauenswürdigen Anspruchsanbieter an den Verbunddienst gesendet werden. Wenn Sie Regeln für die Vertrauensstellung der vertrauenden Seite erstellen, entsprechen die eingehenden Ansprüche den Ansprüchen, die von den Anspruchsregeln der maßgeblichen Anspruchsanbieter-Vertrauensstellung ausgegeben werden. Weitere Informationen zu ein- und ausgehenden Ansprüchen finden Sie unter [Rolle der Anspruchspipeline](The-Role-of-the-Claims-Pipeline.md) und [Rolle der Anspruchs-Engine](The-Role-of-the-Claims-Engine.md).  
   
 ## <a name="what-are-claim-types"></a>Was sind Anspruchstypen?  
 Ein Anspruchstyp stellt den Kontext für den Anspruchswert bereit. Sie wird in der Regel als Uniform Resource Identifier \(URI\)ausgedrückt. AD FS können jeden Anspruchstyp unterstützen, und er wird standardmäßig mit den Anspruchs Typen in der folgenden Tabelle konfiguriert.  
@@ -53,17 +52,17 @@ Ein Anspruchstyp stellt den Kontext für den Anspruchswert bereit. Sie wird in d
 |Name|Beschreibung|URI|  
 |--------|---------------|-------|  
 |E\-E-Mail-Adresse|E\-e-Mail-Adresse des Benutzers|http:\/\/Schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/EmailAddress|  
-|Angegebener Name|Angegebener Name des Benutzers|http:\/\/Schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/givenName|  
+|Vorname|Angegebener Name des Benutzers|http:\/\/Schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/givenName|  
 |Name|Eindeutiger Name des Benutzers|http:\/\/Schemas.xmlsoap.org\/WS\/2005\/05\/Name der Identität\/Ansprüche\/|  
 |UPN|Der Benutzer Prinzipal Name \(UPN\) des Benutzers.|http:\/\/Schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/UPN|  
 |Allgemeiner Name|Allgemeiner Name des Benutzers|http:\/\/Schemas.xmlsoap.org\/Claims\/CommonName|  
 |AD FS 1. x E\-E-Mail-Adresse|E\-e-Mail-Adresse des Benutzers bei der Interaktion mit AD FS 1,1 oder ADFS 1,0|http:\/\/Schemas.xmlsoap.org\/Claims\/EmailAddress|  
 |Gruppe|Eine Gruppe, in der der Benutzer Mitglied ist|http:\/\/Schemas.xmlsoap.org\/Claims\/Group|  
 |AD FS 1.x UPN|UPN des Benutzers bei der Interaktion mit AD FS 1.1 oder AD FS 1.0|http:\/\/Schemas.xmlsoap.org\/Claims\/UPN|  
-|Role-Eigenschaft|Eine Rolle, über die der Benutzer verfügt|http:\/\/Schemas.Microsoft.com\/WS\/2008\/06\/\/Rolle "Identity\/Claims"|  
+|Rolle|Eine Rolle, über die der Benutzer verfügt|http:\/\/Schemas.Microsoft.com\/WS\/2008\/06\/\/Rolle "Identity\/Claims"|  
 |Nachname|Nachname des Benutzers|http:\/\/Schemas.xmlsoap.org\/WS\/2005\/05\/Identität\/Ansprüche\/Nachname|  
 |PPID|Private ID des Benutzers|http:\/\/Schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/PrivatePersonalIdentifier|  
-|Namensbezeichner|SAML-Namensbezeichner des Benutzers|http:\/\/Schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/NameIdentifier|  
+|Namenbezeichner|SAML-Namensbezeichner des Benutzers|http:\/\/Schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/NameIdentifier|  
 |Authentifizierungsmethode|Zur Authentifizierung des Benutzers verwendete Methode|http:\/\/Schemas.Microsoft.com\/WS\/2008\/06\/Identity\/Claims\/AuthenticationMethod|  
 |Nur Gruppen-SID verweigern|Die SID\-nur Gruppen-SID des Benutzers|http:\/\/Schemas.xmlsoap.org\/WS\/2005\/05\/Identity\/Claims\/denyonlysid|  
 |Nur primäre SID verweigern|Die Deny-\-einzige primäre SID des Benutzers|http:\/\/Schemas.Microsoft.com\/WS\/2008\/06\/Identity\/Claims\/denyonlyprimarysid|  

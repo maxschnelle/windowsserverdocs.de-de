@@ -1,24 +1,20 @@
 ---
 title: 'secedit: Validate'
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9fb06354-f55a-4ca4-9fbc-9a872eb9b9cf
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ece0a0324b77eb4226b679bc29f7bd599f15a120
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b9425f7a1fb821f4ecbaa7c1689c3baabbff6223
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371101"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834873"
 ---
 # <a name="seceditvalidate"></a>secedit: Validate
 
@@ -33,11 +29,11 @@ Secedit /validate <configuration file name>
 
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|Name der Konfigurationsdatei|Erforderlich.</br>Gibt den Pfad und den Dateinamen für die Sicherheits Vorlage an, die überprüft wird.|
+|Name der Konfigurationsdatei|Erforderlich</br>Gibt den Pfad und den Dateinamen für die Sicherheits Vorlage an, die überprüft wird.|
 
 ## <a name="remarks"></a>Hinweise
 
@@ -47,17 +43,17 @@ Eine ungültige Sicherheits Vorlage wird nicht angewendet.
 
 Die Protokolldatei wird nicht aktualisiert.
 
-In Windows Server 2008 `Secedit /refreshpolicy` wurde durch `gpupdate`ersetzt. Weitere Informationen zum Aktualisieren von Sicherheitseinstellungen finden Sie unter [gpupdate](gpupdate.md).
+In Windows Server 2008 wurde `Secedit /refreshpolicy` durch `gpupdate`ersetzt. Weitere Informationen zum Aktualisieren von Sicherheitseinstellungen finden Sie unter [gpupdate](gpupdate.md).
 
-## <a name="BKMK_Examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
 
 Nachdem ein Rollback für eine Sicherheits Vorlage ausgeführt wurde, sollten Sie überprüfen, ob die Rollback-INF-Datei "secrbkconfiguration. inf" gültig ist.
 ```
 Secedit /validate secRBKcontoso.inf
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Secedit:generaterollback](secedit-generaterollback.md)
 -   [Secedit](secedit.md)
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

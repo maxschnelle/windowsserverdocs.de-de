@@ -2,17 +2,17 @@
 title: 'Robustes Dateisystem (ReFS) : Übersicht'
 ms.prod: windows-server
 ms.author: gawatu
-ms.manager: mchad
+manager: mchad
 ms.technology: storage-file-systems
 ms.topic: article
 author: gawatu
 ms.date: 06/17/2019
-ms.openlocfilehash: 91fdd5aa696c170cacc8903a65e996beb71c4b8f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8d32ef6bc4ce169ff73f9ab147783ac0607617f2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403020"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857543"
 ---
 # <a name="resilient-file-system-refs-overview"></a>Robustes Dateisystem (ReFS) : Übersicht
 
@@ -39,7 +39,7 @@ Zusätzlich zur Verbesserungen der Resilienz führt ReFS neue Features für leis
 
     - Um eine hohe Leistung und effiziente Speicherkapazität zu übermitteln, teilt ReFS ein Volume in zwei logische Speichergruppen ein, die als Ebenen bezeichnet werden. Diese Ebenen können ihre eigenen Laufwerke und Resilienztypen haben, die jeder Ebene die Optimierung von Kapazität oder Leistung ermöglicht. Zu den Beispielkonfigurationen gehören: 
     
-      | Leistungsebene | Kapazitätsebene |
+      | Leistungsstufe | Kapazitätsebene |
       | ---------------- | ----------------- |
       | Gespiegelte SSD | Gespiegelte HDD |
       | Gespiegelte SSD | Paritäts-SSD: |
@@ -64,7 +64,7 @@ ReFS unterstützt besonders große Datensätze--Millionen Terabytes-- ohne sich 
 
 ## <a name="supported-deployments"></a>Unterstützte Bereitstellungen
 
-Microsoft hat NTFS speziell für die allgemeine Verwendung mit einer Vielzahl von Konfigurationen und Arbeits Auslastungen entwickelt. für Kunden, die speziell die Verfügbarkeit, Resilienz und/oder Skalierung benötigen, die von refs bereitgestellt werden, unterstützt Microsoft jedoch Refs für die Verwendung unter die folgenden Konfigurationen und Szenarien. 
+Microsoft hat NTFS speziell für die allgemeine Verwendung mit einer Vielzahl von Konfigurationen und Arbeits Auslastungen entwickelt. für Kunden, die insbesondere die Verfügbarkeit, Resilienz und/oder Skalierung benötigen, die von refs bereitgestellt werden, unterstützt Microsoft jedoch Refs für die Verwendung in den folgenden Konfigurationen und Szenarien. 
 
 > [!NOTE]
 > Alle von refs unterstützten Konfigurationen müssen die [Windows Server-Katalog](https://www.WindowsServerCatalog.com) zertifizierte Hardware verwenden und die Anwendungsanforderungen erfüllen.
@@ -110,7 +110,7 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 |----------------|------------------------------------------------|-----------------------|
 | Maximale Dateinamenslänge | 255 Unicode-Zeichen  | 255 Unicode-Zeichen               |
 | Maximale Pfadnamenslänge |32.000 Unicode-Zeichen | 32.000 Unicode-Zeichen                |
-| Maximale Dateigröße | 35 PB (Petabyte)  | 256 TB               |
+| Maximale Dateigröße | 35 PB (Peer tabytes)  | 256 TB               |
 | Maximale Volumegröße | 35-PB                           | 256 TB                |
 
 ### <a name="functionality"></a>Funktionalität
@@ -168,7 +168,7 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Empfehlungen für die Cluster Größe für Refs und NTFS](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
+- [Empfehlungen für die Clustergröße für ReFS und NTFS](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
 - [Übersicht über direkte Speicherplätze](../storage-spaces/storage-spaces-direct-overview.md)
 - [Neuklonen von refs-Blöcken](block-cloning.md)
 - [Refs-Integritäts Datenströme](integrity-streams.md)

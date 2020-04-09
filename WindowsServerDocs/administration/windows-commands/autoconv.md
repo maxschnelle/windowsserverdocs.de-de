@@ -1,34 +1,37 @@
 ---
 title: autoconv
-description: 'Das Thema "Windows-Befehle" für **autovs** : konvertiert Dateizuordnungs-und FAT32-Volumes in das NTFS-Dateisystem.'
-ms.custom: na
+description: Windows-Befehls Thema für **Autov**, das Datei Zuordnungs Tabellen-und FAT32-Volumes in das NTFS-Dateisystem konvertiert.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 17281e54-0b18-4e84-94ac-24586c82df4e
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bf36be6bcf3dd8f6c61c6ab0d8780ed77dd8903a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fe0e388a1d4fd79567ef0562197e3181bbbc46f4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383448"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851113"
 ---
 # <a name="autoconv"></a>autoconv
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-konvertiert Dateizuordnungs-und FAT32-Volumes in das NTFS-Dateisystem, wobei vorhandene Dateien und Verzeichnisse beim Start nach der Ausführung von **Autochk** intakt bleiben. Volumes, die in das NTFS-Dateisystem konvertiert werden, können nicht zurück in FAT oder FAT32 konvertiert werden.
+Konvertiert Dateizuordnungs-und FAT32-Volumes in das NTFS-Dateisystem, wobei vorhandene Dateien und Verzeichnisse beim Start nach der Ausführung von **Autochk** intakt bleiben. Volumes, die in das NTFS-Dateisystem konvertiert werden, können nicht zurück in FAT oder FAT32 konvertiert werden.
+
 ## <a name="remarks"></a>Hinweise
+
 **Autov** kann nicht in der Befehlszeile ausgeführt werden. Diese wird nur beim Start ausgeführt, wenn Sie durch **Convert. exe**festgelegt wird.
+
 ## <a name="additional-references"></a>Weitere Verweise
-[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[Autochk](autochk.md)
-[konvertieren](convert.md)von 
-[Arbeiten mit Dateisystemen](https://go.microsoft.com/fwlink/?LinkId=4509)
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [autochk](autochk.md)
+
+- [convert](convert.md)
+
+- [Arbeiten mit Dateisystemen](https://go.microsoft.com/fwlink/?LinkId=4509)

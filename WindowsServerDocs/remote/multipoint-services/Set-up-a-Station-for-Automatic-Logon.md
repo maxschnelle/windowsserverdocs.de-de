@@ -1,24 +1,20 @@
 ---
 title: Einrichten einer Station für das automatische Anmelden
 description: Erfahren Sie, wie Sie die automatische Anmeldung für Multipoint Services-Stationen konfigurieren.
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7a326085-7438-41de-9874-59aca393fa4a
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: d1b082cb9115951676685ec71e0b0ba54f698ec7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cd6de249e8bca7bebb03ec3c0947f8cdf7b395ee
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389380"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855633"
 ---
 # <a name="set-up-a-station-for-automatic-logon"></a>Einrichten einer Station für das automatische Anmelden
 Bei der automatischen Anmeldung kann jede Station automatisch angemeldet werden, wenn der Computer, auf dem Multipoint Services ausgeführt wird, gestartet wird und der Desktop angezeigt wird. Administratoren können dieses Feature für einzelne oder für alle Stationen festlegen.  
@@ -35,5 +31,5 @@ Bei der automatischen Anmeldung kann jede Station automatisch angemeldet werden,
   
 6.  Klicken Sie auf **OK**. Die Seite wird geschlossen. Der Kontoname wird in der Spalte für die **automatische Anmeldung** angezeigt.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Verwalten von Benutzerstationen](Manage-User-Stations.md)

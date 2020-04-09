@@ -1,24 +1,20 @@
 ---
 title: Abfrageprozess
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 36ce3ffc-0092-4eb1-a374-28e6616ca946
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 714a77c5fabf507b84090f37104203abd37a6f0f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5ee42286691444c3a667801be3174514a81441c6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371913"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836963"
 ---
 # <a name="query-process"></a>Abfrageprozess
 
@@ -28,12 +24,12 @@ Zeigt Informationen zu Prozessen an, die auf einem Remotedesktop-Sitzungshost Se
 Mit diesem Befehl können Sie herausfinden, welche Programme von einem bestimmten Benutzer ausgeführt werden und welche Benutzer ein bestimmtes Programm ausführen.
 Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
+> In Windows Server 2008 R2 wurde „Terminaldienste“ umbenannt in „Remotedesktopdienste“. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
 > ## <a name="syntax"></a>Syntax
 > ```
 > query process [* | <ProcessID> | <UserName> | <SessionName> | /id:<nn> | <ProgramName>] [/server:<ServerName>]
 > ```
-> ## <a name="parameters"></a>Parameter
+> ### <a name="parameters"></a>Parameter
 > 
 > |      Parameter       |                                                                 Beschreibung                                                                  |
 > |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
@@ -57,7 +53,7 @@ Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_
 >   -   Der Name des Prozesses.
 >   -   Die ID des Prozesses.
 > - Wenn der **Abfrageprozess** Informationen zurückgibt, wird vor jedem Prozess, der zur aktuellen Sitzung gehört, ein größer-als-Symbol (>) angezeigt.
->   ## <a name="BKMK_examples"></a>Beispiele
+>   ## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 > - Zum Anzeigen von Informationen zu den Prozessen, die von allen Sitzungen verwendet werden, geben Sie Folgendes ein:
 >   ```
 >   query process *
@@ -66,7 +62,7 @@ Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_
 >   ```
 >   query process /ID:2
 >   ```
->   #### <a name="additional-references"></a>Weitere Verweise
->   [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+>   ## <a name="additional-references"></a>Weitere Verweise
+>   - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
 >   [Abfrage](query.md)
->   [Remotedesktopdienste &#40;Befehlsreferenz&#41; für Terminal Dienste](remote-desktop-services-terminal-services-command-reference.md)
+>   [Remotedesktopdienste Befehls Verweis (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)

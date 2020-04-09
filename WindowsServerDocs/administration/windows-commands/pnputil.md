@@ -1,24 +1,20 @@
 ---
 title: pnputil
 description: Erfahren Sie, wie Sie den Treiber Speicher mit dem Hilfsprogramm "PnPUtil. exe" verwalten.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fab686b8-09d3-4f6c-afa2-630e6036f44c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: f20c60bfd9ae33497dd356c7797b9fb1d2b51d18
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 134e6ce4b1fc44450047de3287b7daac67da4b6a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372289"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837513"
 ---
 # <a name="pnputil"></a>pnputil
 
@@ -30,7 +26,7 @@ ms.locfileid: "71372289"
 pnputil.exe [-f | -i] [ -? | -a | -d | -e ] <INF name>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -45,7 +41,7 @@ pnputil.exe [-f | -i] [ -? | -a | -d | -e ] <INF name>
 ## <a name="examples"></a>Beispiele
 
 -   pnputil. exe-a a:\. INF fügt die von "Start" angegebene INF-Datei hinzu. INF
--   pnputil. exe-a c:\ Drivers\*.inf fügt alle INF-Dateien in "c:\drivers\" hinzu.
+-   pnputil. exe: ein c:\drivers\*. inf fügt alle INF-Dateien in "c:\drivers\" hinzu.
 -   pnputil. exe-i-a a:\herbcam\ebcam. INF fügt den angegebenen Treiber hinzu und installiert ihn.
 -   pnputil. exe – e listet alle Treiber von Drittanbietern auf.
 -   pnputil. exe-d oem0. inf löscht die angegebene.
@@ -53,6 +49,6 @@ pnputil.exe [-f | -i] [ -? | -a | -d | -e ] <INF name>
 
 ## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 [Popd](popd.md)

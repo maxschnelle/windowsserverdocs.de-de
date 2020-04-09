@@ -1,24 +1,20 @@
 ---
 title: reg-Abfrage
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0e6a0d7c-ed9b-4318-833d-33f265a81f39
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d2f616fb33974df4327c7b2536b3143b75d116be
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bf21933e1ce9928048f0f07ed502dfcab75d1783
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371719"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836393"
 ---
 # <a name="reg-query"></a>reg-Abfrage
 
@@ -34,7 +30,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 reg query <KeyName> [{/v <ValueName> | /ve}] [/s] [/se <Separator>] [/f <Data>] [{/k | /d}] [/c] [/e] [/t <Type>] [/z]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -58,10 +54,10 @@ In der folgenden Tabelle sind die Rückgabewerte für den **reg-Abfrage** Vorgan
 
 |Wert|Beschreibung|
 |-----|-----------|
-|0|Möglich|
+|0|Erfolgreich|
 |1|Nicht möglich|
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Geben Sie Folgendes ein, um den Wert der namens Wert Version im Schlüssel "HKLM\Software\Microsoft\ResKit" anzuzeigen:
 ```
@@ -88,6 +84,6 @@ Geben Sie Folgendes ein, um den Wert und die Daten für Werte Namen von NULL (St
 REG QUERY HKLM\SOFTWARE /ve
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

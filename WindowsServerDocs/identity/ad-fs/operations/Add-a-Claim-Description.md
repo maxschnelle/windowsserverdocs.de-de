@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7d230527-f4fe-4572-8838-0b354ee0b06b
 title: Hinzufügen einer Anspruchsbeschreibung
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ff50ac8d41a5bbde282b1d5b93c85610f841b5ab
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9c5293dc6070c9483054ce1dd827a20ec377573b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407787"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859713"
 ---
 # <a name="add-a-claim-description"></a>Hinzufügen einer Anspruchsbeschreibung
 
@@ -25,7 +24,7 @@ In einer Ressourcen Partnerorganisation erstellen Administratoren entsprechende 
 
 Mit dem folgenden Verfahren können Sie einen Anspruch hinzufügen.
 
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).
+Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe **Administratoren** oder eine gleichwertige Berechtigung auf dem lokalen Computer erforderlich.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).
 
 ## <a name="to-add-a-claim-description"></a>So fügen Sie eine Anspruchs Beschreibung hinzu
 
@@ -55,5 +54,5 @@ Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entspr
 ![Anspruchs Beschreibung hinzufügen](media/Add-a-Claim-Description/claimdesc2.png)
 
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md) 

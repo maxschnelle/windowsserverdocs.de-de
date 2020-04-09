@@ -2,20 +2,19 @@
 title: Ein virtueller Computer mit Windows 7, der mit dynamischer Arbeitsspeicher konfiguriert ist, sollte die empfohlenen Werte für die Speichereinstellungen verwenden.
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: c3a0292a-a619-4d1c-8f9d-391c741411c1
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 151ee0d02ca6e0df298c4f06cc25d6890630fa4c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 74ec5984a632e376878358df035f3acea0036448
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365393"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857923"
 ---
 # <a name="a-virtual-machine-running-windows-7-and-configured-with-dynamic-memory-should-use-recommended-values-for-memory-settings"></a>Ein virtueller Computer mit Windows 7, der mit dynamischer Arbeitsspeicher konfiguriert ist, sollte die empfohlenen Werte für die Speichereinstellungen verwenden.
 
@@ -38,14 +37,14 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 ### <a name="impact"></a>Auswirkungen  
 *Das Gast Betriebssystem auf den folgenden virtuellen Computern wird möglicherweise nicht ausgeführt oder kann nicht zuverlässig ausgeführt werden:*  
   
-\<list of Virtual Machines >  
+\<Liste der virtuellen Computer >  
   
 ## <a name="resolution"></a>Auflösung  
 *Verwenden Sie den Hyper-V-Manager oder Windows PowerShell, um den minimalen Arbeitsspeicher auf mindestens 256 MB und den Start Speicher und den maximalen Arbeitsspeicher auf mindestens 512 MB zu erhöhen.*  
   
 #### <a name="increase-memory-using-hyper-v-manager"></a>Erhöhen des Arbeitsspeichers mit dem Hyper-V-Manager  
   
-1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie**in Server-Manager auf Extras  > **Hyper-V-Manager**.)  
+1.  Öffnen Sie den Hyper-V-Manager. ( **Klicken Sie** in Server-Manager auf Extras > **Hyper-V-Manager**.)  
   
 2.  Klicken Sie in der Liste der virtuellen Computer mit der rechten Maustaste auf das gewünschte, und klicken Sie dann auf **Einstellungen**.  
   

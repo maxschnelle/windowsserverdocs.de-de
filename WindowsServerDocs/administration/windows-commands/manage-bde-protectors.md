@@ -1,24 +1,20 @@
 ---
 title: manage-bde-Schutzvorrichtungen
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1f9b22c5-cc93-45df-9165-bedee94998da
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/06/2018
-ms.openlocfilehash: 86e170e199c7286d883f1248610c6f195add5b01
-ms.sourcegitcommit: a33404f92867089bb9b0defcd50960ff231eef3f
+ms.openlocfilehash: 1a2e2c851ec9bc93ec434a35f14c6f92ec831876
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013035"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839953"
 ---
 # <a name="manage-bde-protectors"></a>manage-bde: Schutzvorrichtungen
 
@@ -29,15 +25,15 @@ Verwaltet die Schutzmethoden, die für den BitLocker-Verschlüsselungsschlüssel
 ```
 manage-bde -protectors [{-get|-add|-delete|-disable|-enable|-adbackup|-aadbackup}] <Drive> [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |   Parameter   |                                                                                                                                                                                           Beschreibung                                                                                                                                                                                            |
 |---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     -Get      |                                                                                                                                            Zeigt alle auf dem Laufwerk aktivierten Schlüsselschutz Methoden an und gibt ihren Typ und Bezeichner (ID) an.                                                                                                                                             |
 |     -Hinzufügen      |                                                                                                                                   Fügt mit zusätzlichen [Parametern hinzufügen](manage-bde-protectors.md#BKMK_addprotectors)Schlüsselschutz Methoden hinzu.                                                                                                                                    |
-|    -Löschen    | Löscht Schlüsselschutz Methoden, die von BitLocker verwendet werden. Alle Schlüssel Schutzvorrichtungen werden von einem Laufwerk entfernt, es sei denn, die [Parameter "-Delete](manage-bde-protectors.md#BKMK_deleteprotectors) " werden verwendet, um anzugeben, welche Schutzvorrichtungen gelöscht werden sollen. Wenn die letzte Schutzvorrichtung auf einem Laufwerk gelöscht wird, wird der BitLocker-Schutz des Laufwerks deaktiviert, um sicherzustellen, dass der Zugriff auf die Daten nicht versehentlich verloren geht. |
-|   -Deaktivieren    |                      Deaktiviert den Schutz, mit dem jeder auf verschlüsselte Daten zugreifen kann, indem der Verschlüsselungsschlüssel auf dem Laufwerk nicht gesichert wird. Es werden keine Schlüssel Schutzvorrichtungen entfernt. Der Schutz wird beim nächsten Start von Windows fortgesetzt, es sei denn, mit den optionalen [Parametern "-deaktivieren](manage-bde-protectors.md#BKMK_disableprot) " können Sie die Neustart Anzahl angeben.                       |
-|    -Aktivieren    |                                                                                                                             Ermöglicht den Schutz, indem der unsichere Verschlüsselungsschlüssel vom Laufwerk entfernt wird. Alle konfigurierten Schlüssel Schutzvorrichtungen auf dem Laufwerk werden erzwungen.                                                                                                                             |
+|    -delete    | Löscht Schlüsselschutz Methoden, die von BitLocker verwendet werden. Alle Schlüssel Schutzvorrichtungen werden von einem Laufwerk entfernt, es sei denn, die [Parameter "-Delete](manage-bde-protectors.md#BKMK_deleteprotectors) " werden verwendet, um anzugeben, welche Schutzvorrichtungen gelöscht werden sollen. Wenn die letzte Schutzvorrichtung auf einem Laufwerk gelöscht wird, wird der BitLocker-Schutz des Laufwerks deaktiviert, um sicherzustellen, dass der Zugriff auf die Daten nicht versehentlich verloren geht. |
+|   -disable    |                      Deaktiviert den Schutz, mit dem jeder auf verschlüsselte Daten zugreifen kann, indem der Verschlüsselungsschlüssel auf dem Laufwerk nicht gesichert wird. Es werden keine Schlüssel Schutzvorrichtungen entfernt. Der Schutz wird beim nächsten Start von Windows fortgesetzt, es sei denn, mit den optionalen [Parametern "-deaktivieren](manage-bde-protectors.md#BKMK_disableprot) " können Sie die Neustart Anzahl angeben.                       |
+|    -enable    |                                                                                                                             Ermöglicht den Schutz, indem der unsichere Verschlüsselungsschlüssel vom Laufwerk entfernt wird. Alle konfigurierten Schlüssel Schutzvorrichtungen auf dem Laufwerk werden erzwungen.                                                                                                                             |
 |   -adbackup   |                                                                          Sichert alle Wiederherstellungs Informationen für das angegebene Laufwerk Active Directory Domain Services (AD DS). Wenn Sie nur einen einzelnen Wiederherstellungs Schlüssel in AD DS sichern möchten, fügen Sie den Parameter **-ID** an, und geben Sie die ID eines bestimmten Wiederherstellungs Schlüssels an, der gesichert werden soll.                                                                           |
 |  -aadbackup   |                                                                            Sichert alle Wiederherstellungs Informationen für das angegebene Laufwerk Azure Active Directory (Azure AD). Wenn Sie nur einen einzelnen Wiederherstellungs Schlüssel in Azure AD sichern möchten, fügen Sie den Parameter **-ID** an, und geben Sie die ID eines bestimmten Wiederherstellungs Schlüssels an, der gesichert werden soll.                                                                             |
 |    <Drive>    |                                                                                                                                                                          Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.                                                                                                                                                                          |
@@ -46,7 +42,7 @@ manage-bde -protectors [{-get|-add|-delete|-disable|-enable|-adbackup|-aadbackup
 |   -? oder /?    |                                                                                                                                                                            Zeigt eine kurze Hilfe an der Eingabeaufforderung an.                                                                                                                                                                            |
 |  -Help oder-h  |                                                                                                                                                                          Zeigt die gesamte Hilfe an der Eingabeaufforderung an.                                                                                                                                                                           |
 
-### <a name="BKMK_addprotectors"></a>-Hinzufügen von Syntax und Parametern
+### <a name="-add-syntax-and-parameters"></a><a name=BKMK_addprotectors></a>-Hinzufügen von Syntax und Parametern
 ```
 manage-bde  -protectors  -add [<Drive>] [-forceupgrade] [-recoverypassword <NumericalPassword>] [-recoverykey <pathToExternalKeydirectory>]
 [-startupkey <pathToExternalKeydirectory>] [-certificate {-cf <pathToCertificateFile>|-ct <CertificateThumbprint>}] [-tpm] [-tpmandpin] 
@@ -64,19 +60,19 @@ manage-bde  -protectors  -add [<Drive>] [-forceupgrade] [-recoverypassword <Nume
 |         -startupkey          |                                                                                                                                 Fügt eine externe Schlüssel Schutzvorrichtung zum Starten hinzu. Sie können auch **-SK** als abgekürzte Version dieses Befehls verwenden.                                                                                                                                 |
 | <pathToExternalKeydirectory> |                                                                                                                                                                Stellt den Verzeichnispfad zum Systemstart Schlüssel dar.                                                                                                                                                                |
 |         -Zertifikat         |                                                                                                                               Fügt eine Schutzvorrichtung für ein öffentliches Schlüssel für ein Daten Laufwerk hinzu. Sie können auch **-CERT** als abgekürzte Version dieses Befehls verwenden.                                                                                                                               |
-|             -CF              |                                                                                                                                              Gibt an, dass eine Zertifikatsdatei verwendet wird, um das Zertifikat für öffentliche Schlüssel bereitzustellen.                                                                                                                                              |
+|             -cf              |                                                                                                                                              Gibt an, dass eine Zertifikatsdatei verwendet wird, um das Zertifikat für öffentliche Schlüssel bereitzustellen.                                                                                                                                              |
 |   <pathToCertificateFile>    |                                                                                                                                                             Stellt den Verzeichnispfad zur Zertifikatsdatei dar.                                                                                                                                                              |
 |             -CT              |                                                                                                                                           Gibt an, dass ein Zertifikat Fingerabdruck verwendet wird, um das Zertifikat für öffentliche Schlüssel zu identifizieren.                                                                                                                                           |
-|   <CertificateThumbprint>    |                                                       Gibt den Wert der Eigenschaft "Fingerabdruck" des Zertifikats an, das Sie verwenden möchten. Beispielsweise sollte der Wert des Zertifikat Fingerabdrucks "A9 09 50 2D D8 2a E4 14 33 E6 F8 38 86 B0 0d 42 77 a3 2a 7B" als "a909502dd82ae41433e6f83886b00d4277a32a7b" angegeben werden.                                                        |
+|   <CertificateThumbprint>    |                                                       Gibt den Wert der Eigenschaft "Fingerabdruck" des Zertifikats an, das Sie verwenden möchten. Beispielsweise sollte der Wert des Zertifikat Fingerabdrucks A9 09 50 2D D8 2a E4 14 33 E6 F8 38 86 B0 0d 42 77 a3 2a 7B als a909502dd82ae41433e6f83886b00d4277a32a7b angegeben werden.                                                        |
 |          -TPMAndPIN          |                                                                                           Fügt ein Trusted Platform Module (TPM) und eine PIN-Schutzvorrichtung (Personal Identification Number) für das Betriebssystem Laufwerk hinzu. Sie können auch **-tp** als abgekürzte Version dieses Befehls verwenden.                                                                                           |
 |      -TPMAndStartupKey       |                                                                                                                    Fügt ein TPM und eine Systemstart Schlüssel-Schutzvorrichtung für das Betriebssystem Laufwerk hinzu. Sie können auch **-TSK** als abgekürzte Version dieses Befehls verwenden.                                                                                                                    |
 |   -tpmandpinandstartupkey    |                                                                                                                Fügt ein TPM, eine PIN und eine Start Schlüsselschutzvorrichtung für das Betriebssystem Laufwerk hinzu. Sie können auch **-tpsk** als abgekürzte Version dieses Befehls verwenden.                                                                                                                 |
-|          -Kennwort           |                                                                                                                              Fügt eine Kenn Wort Schlüssel-Schutzvorrichtung für das Daten Laufwerk hinzu. Sie können auch **-PW** als abgekürzte Version dieses Befehls verwenden.                                                                                                                              |
+|          -password           |                                                                                                                              Fügt eine Kenn Wort Schlüssel-Schutzvorrichtung für das Daten Laufwerk hinzu. Sie können auch **-PW** als abgekürzte Version dieses Befehls verwenden.                                                                                                                              |
 |      -adaccountorgroup       | Fügt eine Sicherheits-ID (SID)-basierte Identitäts Schutzvorrichtung für das Volume hinzu.  Sie können auch **-sid** als abgekürzte Version dieses Befehls verwenden. **Wichtig:** Standardmäßig ist es nicht möglich, eine adaccountorgroup-Schutzvorrichtung mithilfe von WMI oder manage-bde Remote hinzuzufügen.  Wenn Ihre Bereitstellung die Möglichkeit erfordert, diese Schutzvorrichtung Remote hinzuzufügen, müssen Sie die eingeschränkte Delegierung aktivieren. |
 |        -Computername         |                                                                                                       Gibt an, dass "Manage-BDE" verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden.                                                                                                       |
 |            <Name>            |                                                                                                         Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers.                                                                                                         |
 
-### <a name="BKMK_deleteprotectors"></a>-Löschen von Syntax und Parametern
+### <a name="-delete-syntax-and-parameters"></a><a name=BKMK_deleteprotectors></a>-Löschen von Syntax und Parametern
 ```
 manage-bde  -protectors  -delete <Drive> [-type {recoverypassword|externalkey|certificate|tpm|tpmandstartupkey|tpmandpin|tpmandpinandstartupkey|Password|Identity}] 
 [-id <KeyProtectorID>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
@@ -88,12 +84,12 @@ manage-bde  -protectors  -delete <Drive> [-type {recoverypassword|externalkey|ce
 |         -Typ          |                               Identifiziert die zu löschende Schlüssel Schutzvorrichtung. Sie können auch **-t** als abgekürzte Version dieses Befehls verwenden.                               |
 |    RecoveryPassword    |                                                 Gibt an, dass alle Schutz Kennwort-Schlüssel Schutzvorrichtungen gelöscht werden sollen.                                                 |
 |      ExternalKey       |                                        Gibt an, dass alle dem Laufwerk zugeordneten externen Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                         |
-|      stellt       |                                       Gibt an, dass alle dem Laufwerk zugeordneten Zertifikat Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                       |
+|      Zertifikat       |                                       Gibt an, dass alle dem Laufwerk zugeordneten Zertifikat Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                       |
 |          TPM           |                                        Gibt an, dass alle dem Laufwerk zugeordneten TPM-Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                         |
 |    TPMAndStartupKey    |                                Gibt an, dass alle dem Laufwerk zugeordneten TPM-und systemeigenen Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                |
 |       TPMAndPIN        |                                    Gibt an, dass alle dem Laufwerk zugeordneten TPM-und PIN-basierten Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                    |
 | tpmandpinandstartupkey |                             Gibt an, dass alle dem Laufwerk zugeordneten TPM-, PIN-und Start Schlüssel-Schlüssel Schutzvorrichtungen gelöscht werden sollen.                             |
-|        Kennwort        |                                        Gibt an, dass alle dem Laufwerk zugeordneten Kennwort-Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                         |
+|        password        |                                        Gibt an, dass alle dem Laufwerk zugeordneten Kennwort-Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                         |
 |        Identität        |                                        Gibt an, dass alle dem Laufwerk zugeordneten Identitätsschlüssel Schutzvorrichtungen gelöscht werden sollen.                                         |
 |          -ID           |                Identifiziert die zu löschende Schlüssel Schutzvorrichtung mithilfe des Schlüssel Bezeichners. Dieser Parameter ist eine alternative Option für den **-Type-** Parameter.                 |
 |    <KeyProtectorID>    |        Identifiziert eine einzelne Schlüssel Schutzvorrichtung auf dem zu löschenden Laufwerk. Schlüsselschutzschutzids können mithilfe des Befehls **manage-bde-Protector-Get** angezeigt werden.         |
@@ -102,7 +98,7 @@ manage-bde  -protectors  -delete <Drive> [-type {recoverypassword|externalkey|ce
 |        -? oder /?        |                                                               Zeigt eine kurze Hilfe an der Eingabeaufforderung an.                                                               |
 |      -Help oder-h       |                                                             Zeigt die gesamte Hilfe an der Eingabeaufforderung an.                                                              |
 
-### <a name="BKMK_disableprot"></a>-Deaktivieren von Syntax und Parametern
+### <a name="-disable-syntax-and-parameters"></a><a name=BKMK_disableprot></a>-Deaktivieren von Syntax und Parametern
 ```
 manage-bde  -protectors  -disable <Drive> [-RebootCount <integer 0 - 15>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
@@ -116,10 +112,10 @@ manage-bde  -protectors  -disable <Drive> [-RebootCount <integer 0 - 15>] [-comp
 |   -? oder /?    |                                                                                                                                                                                                    Zeigt eine kurze Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                                    |
 |  -Help oder-h  |                                                                                                                                                                                                  Zeigt die gesamte Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                                   |
 
-## <a name="BKMK_Examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
 Das folgende Beispiel veranschaulicht die Verwendung des Befehls **-** Protector zum Hinzufügen einer durch eine Zertifikatsdatei identifizierten Zertifikat Schlüssel Schutzvorrichtung zu Laufwerk E.
 ```
-manage-bde  -protectors  -add E: -certificate  -cf "c:\File Folder\Filename.cer"
+manage-bde  -protectors  -add E: -certificate  -cf c:\File Folder\Filename.cer
 ```
 Das folgende Beispiel veranschaulicht die Verwendung des Befehls "-Protector" zum Hinzufügen einer **adaccountorgroup** **-** Schlüssel Schutzvorrichtung, die durch Domäne und Benutzername identifiziert wird, zu Laufwerk E.
 ```
@@ -138,5 +134,5 @@ Das folgende Beispiel veranschaulicht die Verwendung des Befehls " **-** Protect
 manage-bde  -protectors  -adbackup C:
 ```
 ## <a name="additional-references"></a>Weitere Verweise
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [manage-bde](manage-bde.md)

@@ -1,28 +1,24 @@
 ---
 title: logman Create-API
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2ecc0a75-2613-464a-8616-c5dc404bb736
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 512602213fcfd95770af0e27b721a589ed489771
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3beca5ddafcb1d4fbfc6fbe179e219553f7acaf8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374596"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840913"
 ---
 # <a name="logman-create-api"></a>logman Create-API
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Erstellen eines API-Ablauf Verfolgungs Daten Sammlers.  
 
@@ -30,7 +26,7 @@ Erstellen eines API-Ablauf Verfolgungs Daten Sammlers.
 ```  
 logman create api <[-n] <name>> [options]  
 ```  
-## <a name="parameters"></a>Parameter  
+### <a name="parameters"></a>Parameter  
 
 |                    Parameter                     |                                                                               Beschreibung                                                                               |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -39,7 +35,7 @@ logman create api <[-n] <name>> [options]
 |                 -config <value>                  |                                                         Gibt die Einstellungsdatei an, die Befehlsoptionen enthält.                                                         |
 |                   [-n] <name>                    |                                                                       Der Name des Zielobjekts.                                                                        |
 | -f < bin&#124;bincirc&#124;CSV&#124;TSV&#124;SQL > |                                                            Gibt das Protokoll Format für den Datensammler an.                                                             |
-|             -[-] u < Benutzer [Kennwort] >              | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie einen \* für das Kennwort eingeben, wird eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
+|             -[-] u < Benutzer [Kennwort] >              | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie einen \* für das Kennwort eingeben, wird eine Eingabeaufforderung angezeigt. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
 |    -m < [Start] [Ende] [[Start] [Ende] [...]] >    |                                                Wechseln Sie zu "manueller Start" oder "beenden" anstelle eines geplanten Anfangs-oder Endzeit Zeitraums.                                                 |
 |                -RF < [[hh:] mm:] SS >                |                                                        Führt den Datensammler für den angegebenen Zeitraum aus.                                                         |
 |        -b < M/d/yyyy h:mm: SS [am&#124;pm] >         |                                                              Beginnt mit dem Sammeln von Daten zum angegebenen Zeitpunkt.                                                               |
@@ -63,18 +59,18 @@ logman create api <[-n] <name>> [options]
 
 ## <a name="remarks"></a>Hinweise  
 Wenn [-] aufgeführt ist, wird die-Option durch ein extra negiert.  
-## <a name="BKMK_examples"></a>Beispiele  
-Der folgende Befehl erstellt einen API-Ablaufverfolgungs-Counter namens trace_notepad für die ausführbare Datei c:\windows\notepad.exe und gibt die Ergebnisse in der Datei c:\notepad.ETL.  
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
+Der folgende Befehl erstellt einen API-Ablaufverfolgungs-Counter namens "trace_notepad" für die ausführbare Datei "c:\windows\notepad.exe" und gibt die Ergebnisse in der Datei "c:\notepad.ETL" aus.  
 ```  
 logman create api trace_notepad -exe c:\windows\notepad.exe -o c:\notepad.etl  
 ```  
-Der folgende Befehl erstellt einen API-Ablaufverfolgungs-Counter mit dem Namen trace_notepad für die ausführbare Datei c:\windows\notepad.exe, die vom Modul c:\windows\system32\advapi32.dll. erzeugte Werte sammelt.  
+Mit dem folgenden Befehl wird ein API-Ablaufverfolgungs-Counter mit dem Namen "trace_notepad" für die ausführbare Datei "c:\windows\notepad.exe" erstellt, die vom Modul "c:\windows\system32\advapi32.dll.  
 ```  
 logman create api trace_notepad -exe c:\windows\notepad.exe -mods c:\windows\system32\advapi32.dll  
 ```  
-Der folgende Befehl erstellt einen API-Ablaufverfolgungs-Leistungs betitel namens trace_notepad für die ausführbare Datei c:\windows\notepad.exe ohne den API-Aufruf TlsGetValue, der vom Modul Kernel32. dll erzeugt wird.  
+Der folgende Befehl erstellt einen API-Ablaufverfolgungs-Leistungs beausdruck namens "trace_notepad" für die ausführbare Datei "c:\windows\notepad.exe" ohne den API-Aufruf "TlsGetValue", der vom Modul Kernel32. dll  
 ```  
 logman create api trace_notepad -exe c:\windows\notepad.exe -exapis kernel32.dll!TlsGetValue  
 ```  
-#### <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Weitere Verweise  
 [logman](logman.md)  

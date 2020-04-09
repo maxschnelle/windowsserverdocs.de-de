@@ -2,21 +2,19 @@
 title: Unterstützte virtuelle SuSE-Computer auf Hyper-V
 description: Listet die in jeder Version enthaltenen Linux-Integrationsdienste und-Funktionen auf.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7ec0e14c-4498-4bd9-8fe6-b94260198efc
 author: shirgall
 ms.author: kathydav
 ms.date: 10/03/2016
-ms.openlocfilehash: 45517c1d381ba55c819b09b53ae563092e161b1e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c5daa73e2e0c59a262565237d979d2e1e544ae4f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366726"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858003"
 ---
 # <a name="supported-suse-virtual-machines-on-hyper-v"></a>Unterstützte virtuelle SuSE-Computer auf Hyper-V
 
@@ -24,7 +22,7 @@ ms.locfileid: "71366726"
 
 Im folgenden finden Sie eine featureverteilungskarte, die die Features in jeder Version angibt. Die bekannten Probleme und Problem Umgehungen für die einzelnen Verteilungen werden nach der Tabelle aufgelistet.
 
-Die integrierten SUSE Linux Enterprise Service-Treiber für Hyper-V sind von SUSE zertifiziert. Ein Beispiel für eine Konfiguration kann in diesem Bulletin angezeigt werden: [SUSE Yes-Zertifizierungs Bulletin](https://www.suse.com/nbswebapp/yesBulletin.jsp?bulletinNumber=144176).
+Die integrierten SUSE Linux Enterprise Service-Treiber für Hyper-V sind von SUSE zertifiziert. Ein Beispiel für eine Konfiguration kann in diesem Bulletin angezeigt werden: [SUSE Yes Certification Bulletin](https://www.suse.com/nbswebapp/yesBulletin.jsp?bulletinNumber=144176).
 
 ## <a name="table-legend"></a>Tabellen Legende
 
@@ -36,7 +34,7 @@ Die integrierten SUSE Linux Enterprise Service-Treiber für Hyper-V sind von SUS
 
 SLES12 + ist nur 64 Bit.
 
-|**Funktion**|**Windows Server-Betriebssystemversion**|**SLES 15**|**SLES 12 SP3/SP4**|**SLES 12 SP2**|**SLES 12 SP1**|**SLES 11 SP4**|**SLES 11 SP3**|
+|**Feature**|**Windows Server-Betriebssystemversion**|**SLES 15**|**SLES 12 SP3/SP4**|**SLES 12 SP2**|**SLES 12 SP1**|**SLES 11 SP4**|**SLES 11 SP3**|
 |-|-|-|-|-|-|-|-|
 |**Verfügbarkeit**||Integrierte|Integrierte|Integrierte|Integrierte|Integrierte|Integrierte|
 |**[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**|2019, 2016, 2012 R2, 2012, 2008 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
@@ -56,7 +54,7 @@ SLES12 + ist nur 64 Bit.
 |Trim-Unterstützung|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;||
 |SCSI-WWN|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;||||
 |**[Gedenkens](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**||||||||
-|Unterstützung für den unterstützten Kernel|2019, 2016, 2012 R2, 2012, 2008 R2|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|Nicht zutreffend|&#10004;|&#10004;|
+|Unterstützung für den unterstützten Kernel|2019, 2016, 2012 R2, 2012, 2008 R2|N/V|N/V|N/V|N/V|&#10004;|&#10004;|
 |MMIO-Lücke konfigurieren|2019, 2016, 2012 R2|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|&#10004;|
 |Dynamischer Arbeitsspeicher-Hot-Add|2019, 2016, 2012 R2, 2012|&#10004;Hinweis 5, 6|&#10004;Hinweis 5, 6|&#10004;Hinweis 5, 6|&#10004;Hinweis 5, 6|&#10004;Hinweis 4, 5, 6|&#10004;Hinweis 4, 5, 6|
 |Dynamischer Arbeitsspeicher-Ballooning|2019, 2016, 2012 R2, 2012|&#10004;Hinweis 5, 6|&#10004;Hinweis 5, 6|&#10004;Hinweis 5, 6|&#10004;Hinweis 5, 6|&#10004;Hinweis 4, 5, 6|&#10004;Hinweis 4, 5, 6|
@@ -74,7 +72,7 @@ SLES12 + ist nur 64 Bit.
 |Starten mithilfe von UEFI|2019, 2016, 2012 R2|&#10004;Hinweis 9|&#10004;Hinweis 9|&#10004;Hinweis 9|&#10004;Hinweis 9|&#10004;Hinweis 9||
 |Sicherer Start|2019, 2016|&#10004;|&#10004;|&#10004;|&#10004;|||
 
-## <a name="BKMK_notes"></a>Anmerkungen
+## <a name="notes"></a><a name="BKMK_notes"></a>Anmerkungen
 
 1. Die statische IP-Injektion funktioniert möglicherweise nicht, wenn der **Netzwerk-Manager** für einen bestimmten, für Hyper-V spezifischen Netzwerkadapter auf dem virtuellen Computer konfiguriert wurde. Stellen Sie sicher, dass der Netzwerk-Manager vollständig ausgeschaltet ist oder für einen bestimmten Netzwerkadapter über seine **ifcfg-ethX-** Datei ausgeschaltet wurde, um eine reibungslose Funktionsweise der statischen IP-Injektion sicherzustellen.
 
@@ -103,7 +101,7 @@ SLES12 + ist nur 64 Bit.
 
    ```
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 * [Set-vmfirmware](https://technet.microsoft.com/library/dn464287.aspx)
 

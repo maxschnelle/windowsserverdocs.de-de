@@ -1,24 +1,20 @@
 ---
 title: reg hinzufügen
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d9ad143e-dc10-4e2e-a229-408393c40079
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5b478ce0c98ec77f1387d8f894364f53cf8d2142
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: df59477c980169699dac897e36836e5226b6a0fa
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371761"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836593"
 ---
 # <a name="reg-add"></a>reg hinzufügen
 
@@ -32,7 +28,7 @@ reg add <KeyName> [{/v ValueName | /ve}] [/t DataType] [/s Separator] [/d Data] 
 ```
 Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |      Parameter      |                                                                                                                                                                                                                                                                   Beschreibung                                                                                                                                                                                                                                                                   |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -52,12 +48,12 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 
 | Wert | Beschreibung |
 |-------|-------------|
-|   0   |   Möglich   |
+|   0   |   Erfolgreich   |
 |   1   |   Nicht möglich   |
 
--   Verwenden Sie für den REG_EXPAND_SZ Schlüsseltyp das Caretzeichen ( **^** ) mit **%** "innerhalb des/d-Parameters.
+-   Verwenden Sie für den REG_EXPAND_SZ Schlüsseltyp das Caretzeichen ( **^** ) mit **%** innerhalb des/d-Parameters.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Geben Sie Folgendes ein, um den Schlüssel HKLM\Software\MyCo auf Remote Computer ABC hinzuzufügen:
 ```
@@ -76,6 +72,6 @@ Zum Hinzufügen eines erweiterten Registrierungs Eintrags zu "HKLM\Software\MyCo
 REG ADD HKLM\Software\MyCo /v Path /t REG_EXPAND_SZ /d ^%systemroot^%
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 777aab65-c9c7-4dc9-a807-9ab73fac87b8
 title: Konfigurieren von AD FS extranetsperrschutz
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 02/01/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: bb5958f8205271fe3ab2258ed9812ae03f2a0be0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: defe77972dd66f4de27b38bfad3fb172c1f7bee0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358211"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859913"
 ---
 # <a name="configure-ad-fs-extranet-lockout-protection"></a>Konfigurieren von AD FS extranetsperrschutz
 
@@ -67,10 +66,10 @@ Sehen wir uns zunächst die AD-Sperr Richtlinie an. Es gibt drei Einstellungen f
 
 Sehen wir uns nun zwei Beispiele an, und Sie sehen, wie **BadPwdCount** sich im Laufe der Zeit auf der Grundlage unterschiedlicher Einstellungen und Zustände ändert. Nehmen wir an, dass in beiden Beispielen **Konto Sperr Schwellenwert** = 4 und **extranetlockoutthreshold** = 2. Der **Rote** Pfeil stellt einen ungültigen Kenn Wort Versuch dar, der **grüne** Pfeil stellt einen guten Kenn Wort Versuch dar. Beispiel #1: **extranetobservationwindow** &gt; den **Konto Sperr Wert nach Zurücksetzen**. Beispiel #2: **extranetobservationwindow** &lt; den **Konto Sperr Wert nach Zurücksetzen**. 
 
-### <a name="example-1"></a>Beispiel 1
+### <a name="example-1"></a>Beispiel 1
 !["Example1"](media/Configure-AD-FS-Extranet-Lockout-Protection/one.png)
 
-### <a name="example-2"></a>Beispiel 2
+### <a name="example-2"></a>Beispiel 2
 !["Example1"](media/Configure-AD-FS-Extranet-Lockout-Protection/two.png)
 
 Wie Sie oben sehen können, gibt es zwei Bedingungen, wenn **BadPwdCount** auf 0 zurückgesetzt wird. Eine ist, wenn eine erfolgreiche Anmeldung vorliegt. Der andere Zeitpunkt liegt vor, wenn dieser Leistungswert zurückgesetzt werden soll, wie unter **Zurücksetzen des Konto Sperrungs Zählers nach** der Einstellung definiert. Beim **Zurücksetzen des Konto Sperrungs Zählers nach** &lt; **extranetobservationwindow**besteht kein Risiko, dass das Konto durch AD gesperrt wird. Wenn Sie die **Kontosperrung jedoch nach** &gt; **extranetobservationwindow**zurücksetzen, besteht die Möglichkeit, dass ein Konto möglicherweise durch AD gesperrt wird, aber in einer "verzögerten Art". Abhängig von Ihrer Konfiguration kann es eine Weile dauern, bis ein Konto von AD gesperrt ist, da AD FS während des Überwachungs Fensters nur einen ungültigen Kenn Wort Versuch zulässt, bis **BadPwdCount** den **Schwellenwert für die Kontosperrung**erreicht.

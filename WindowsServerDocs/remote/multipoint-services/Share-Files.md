@@ -1,24 +1,20 @@
 ---
 title: Freigeben von Dateien
 description: Erfahren Sie, wie Sie Dateien in Multipoint Services mithilfe von freigegebenen Ordnern und dem Netzwerk freigeben.
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5e138e01-39e3-4d60-ad3c-5a33b1e0b076
 author: lizap
 manager: dongill
 ms.date: 08/04/2016
 ms.author: elizapo
-ms.openlocfilehash: f050691603ed0989ab3b0ea3aac34a5fd74e1fbd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: db2707803a6be2db83ac574e7b50c8698d6bd0b5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394985"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855613"
 ---
 # <a name="share-files"></a>Freigeben von Dateien
 Inhalte können für andere MultiPoint Services-Benutzer freigegeben werden, indem sie in einem öffentlichen Ordner im Windows-Explorer gespeichert werden. Alle Inhalte, die in einem MultiPoint Services-System in öffentlichen Ordnern im Windows-Explorer gespeichert werden, sind für alle Benutzer im MultiPoint Services-System zugänglich.  
@@ -45,7 +41,7 @@ Sie können Dateien auch auf mehreren Computern freigeben, die MultiPoint Servic
   
 5.  Wählen Sie bestimmte Benutzer aus, oder klicken Sie auf **Jeder**.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Verwalten von Benutzerdateien](Manage-User-Files.md)  
 [Speichern und Freigeben von Dateien auf einem USB-Flashlaufwerk](Save-and-Share-Files-on-a-USB-Flash-Drive.md)  
 [Schützen von Dateien](Keep-Files-Private.md) 

@@ -1,23 +1,19 @@
 ---
 title: Wiederherstellen eines vollständigen Systems aus einer vorhandenen Clientcomputersicherung
 description: Beschreibt die Verwendung von Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 47e498a6-1b71-47de-88f6-8c13c221d108
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b9629f41c4e8eb707b19914a297d9d8b88c6aead
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 37e4d45f6bd34d77fbbf3cbabcd66a776b624c19
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310654"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852643"
 ---
 # <a name="restore-a-full-system-from-an-existing-client-computer-backup"></a>Wiederherstellen eines vollständigen Systems aus einer vorhandenen Clientcomputersicherung
 
@@ -91,7 +87,7 @@ ms.locfileid: "80310654"
  Das Sichern von RAID-Datenträgern (Redundant Array of Independent Disks) und dynamischen Datenträgern wird nicht unterstützt.  
   
 ##  <a name="how-does-the-system-restore-environment-work"></a><a name="BKMK_HowDoes"></a>Wie funktioniert die Umgebung für die Systemwiederherstellung?  
- Das mit Windows Server-® 2012 Essentials bereitgestellte System Wiederherstellungs Medium wird Windows Preinstallation Environment (Windows PE) auf dem Computer installiert. Windows PE hat die MS-DOS-Umgebung abgelöst und enthält die wichtigen Programmdateien für Windows. In Windows Server Essentials gibt es zwei unterstützte Methoden zum Wiederherstellen eines Systems: mit dem Client Wiederherstellungs Dienst, der ein Netzwerk verwendet und nicht von einem Medium abhängig ist, oder über den USB-Speicherstick.  
+ Das mit Windows Server-&reg; 2012 Essentials bereitgestellte System Wiederherstellungs Medium wird Windows Preinstallation Environment (Windows PE) auf dem Computer installiert. Windows PE hat die MS-DOS-Umgebung abgelöst und enthält die wichtigen Programmdateien für Windows. In Windows Server Essentials gibt es zwei unterstützte Methoden zum Wiederherstellen eines Systems: mit dem Client Wiederherstellungs Dienst, der ein Netzwerk verwendet und nicht von einem Medium abhängig ist, oder über den USB-Speicherstick.  
   
 > [!NOTE]
 >  Windows PE unterstützt keine Funkverbindungen. Daher muss der wiederherzustellende Computer physisch mit dem kleinen Firmennetzwerk verbunden sein.  

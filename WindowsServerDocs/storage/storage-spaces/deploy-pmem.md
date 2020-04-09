@@ -1,7 +1,6 @@
 ---
 title: Verstehen und Bereitstellen von persistentem Speicher
 description: Ausführliche Informationen dazu, was beständiger Speicher ist und wie Sie ihn mit "direkte Speicherplätze" in Windows Server 2019 einrichten können.
-keywords: Direkte Speicherplätze, persistenter Speicher, pMem, Speicher, S2D
 ms.prod: windows-server
 ms.author: adagashe
 ms.technology: storage-spaces
@@ -9,12 +8,12 @@ ms.topic: article
 author: adagashe
 ms.date: 1/27/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: a9070d2e2ab73c7882f4b2ef585ccb01986695bb
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 43268986f0ef42aabc218062ac19f1d98f27be6d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822313"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861033"
 ---
 # <a name="understand-and-deploy-persistent-memory"></a>Verstehen und Bereitstellen von persistentem Speicher
 
@@ -38,11 +37,11 @@ Alle Speichersysteme, die Fehlertoleranz bereitstellen, machen notwendigerweise 
 
 Wenn Sie das Video genau ansehen, werden Sie feststellen, dass die Latenz durch eine noch größere Anzahl von Unterbrechungen sinkt. Sogar bei mehr als 13,7 Mio. IOPS meldet das Dateisystem in Windows eine Latenzzeit, die konstant weniger als 40 μs! (Das ist das Symbol für Mikrosekunden, ein Millionstel einer Sekunde.) Diese Geschwindigkeit ist eine höhere Reihenfolge, als Sie heutzutage von allen Flash Anbietern angekündigt werden.
 
-Direkte Speicherplätze in Windows Server 2019 und Intel® optane™ DC persistente Arbeitsspeicher bieten eine bahnbrechende Leistung. Dieser branchenführende HCI-Benchmark mit mehr als 13,7 Mio. IOPS, eine vorhersagbare und extrem geringe Latenzzeit, ist größer als der bisherige branchenführende Benchmarkwert von 6.7 Mio. IOPS. Weitere Informationen: dieses Mal benötigte ich nur 12 Server Knoten&mdash;25% vor weniger als zwei Jahren.
+Direkte Speicherplätze in Windows Server 2019 und Intel&reg; optane&trade; DC persistente Arbeitsspeicher bieten eine bahnbrechende Leistung. Dieser branchenführende HCI-Benchmark mit mehr als 13,7 Mio. IOPS, eine vorhersagbare und extrem geringe Latenzzeit, ist größer als der bisherige branchenführende Benchmarkwert von 6.7 Mio. IOPS. Weitere Informationen: dieses Mal benötigte ich nur 12 Server Knoten&mdash;25% vor weniger als zwei Jahren.
 
 ![IOPS-Zuwachs](media/deploy-pmem/iops-gains.png)
 
-Die Testhardware war ein 12-Server-Cluster, der für die Verwendung von drei-Wege-Spiegelung und getrennten Refs-Volumes konfiguriert wurde. **12** x Intel® S2600WFT, **384 gib** Memory, 2 x 28-Core "cascadelake", **1,5 TB** Intel® optane™ DC persistente Speicher as Cache, **32 TB** nvme (4 x 8 TB Intel® DC P4510) als Kapazität, **2** x Mellanox ConnectX-4 25 Gbit/s.
+Die Testhardware war ein 12-Server-Cluster, der für die Verwendung von drei-Wege-Spiegelung und getrennten Refs-Volumes konfiguriert wurde. **12** x Intel&reg; S2600WFT, **384 gib** Memory, 2 x 28-Core "cascadelake", **1,5 TB** Intel&reg; optane&trade; DC persistente Speicher as Cache, **32 TB** nvme (4 x 8 TB Intel&reg; DC P4510) als Kapazität, **2** x Mellanox ConnectX-4 25 Gbit/s.
 
 In der folgenden Tabelle werden die vollständigen Leistungszahlen angezeigt.  
 
@@ -59,14 +58,14 @@ In der folgenden Tabelle wird die unterstützte persistente Speicherhardware fü
 | Persistente Speichertechnologie                                      | Windows Server 2016 | Windows Server 2019 |
 |-------------------------------------------------------------------|--------------------------|--------------------------|
 | **Nvdimm-N** im persistenten Modus                                  | Unterstützt                | Unterstützt                |
-| **Intel optane™ persistenter Speicher** im App-direkt Modus             | Nicht unterstützt            | Unterstützt                |
-| **Intel optane™ persistenter Speicher** im Speicher Modus | Unterstützt            | Unterstützt                |
+| **Intel optane&trade; persistenter Speicher** im App-direkt Modus             | Nicht unterstützt            | Unterstützt                |
+| **Intel optane&trade; persistenter Speicher** im Speicher Modus | Unterstützt            | Unterstützt                |
 
 > [!NOTE]  
 > Intel optane unterstützt sowohl den *Speicher* Modus (flüchtig) als auch den *App Direct* -Modus (persistent).
    
 > [!NOTE]  
-> Wenn Sie ein System neu starten, das über mehrere Intel® optane™ pMem-Module im App Direct-Modus verfügt, die in mehrere Namespaces aufgeteilt sind, verlieren Sie möglicherweise den Zugriff auf einige oder alle zugehörigen logischen Speicher Datenträger. Dieses Problem tritt auf Windows Server 2019-Versionen auf, die älter sind als Version 1903.
+> Wenn Sie ein System neu starten, das über mehrere Intel&reg; optane&trade; pMem-Module im App Direct-Modus verfügt, die in mehrere Namespaces aufgeteilt sind, verlieren Sie möglicherweise den Zugriff auf einige oder alle zugehörigen logischen Speicher Datenträger. Dieses Problem tritt auf Windows Server 2019-Versionen auf, die älter sind als Version 1903.
 >   
 > Dieser Verlust des Zugriffs tritt auf, weil ein pMem-Modul untrainiert ist oder andernfalls fehlschlägt, wenn das System gestartet wird. In einem solchen Fall schlagen alle Storage-Namespaces in einem beliebigen pMem-Modul im System fehl, einschließlich Namespaces, die dem fehlerhaften Modul nicht physisch zugeordnet werden.
 >   
@@ -159,7 +158,7 @@ Direkte Speicherplätze unter Windows Server 2019 unterstützt die Verwendung vo
 
 ### <a name="understanding-dax"></a>Grundlegendes zu DAX
 
-Es gibt zwei Methoden, um auf permanenten Speicher zuzugreifen. Diese Berichte sind:
+Es gibt zwei Methoden, um auf permanenten Speicher zuzugreifen. Sie lauten folgendermaßen:
 
 1. **Direkter Zugriff (DAX)** , der wie der Arbeitsspeicher funktioniert, um die geringste Latenz zu erzielen. Die app ändert den persistenten Speicher direkt, wobei der Stapel umgangen wird. Beachten Sie, dass Sie DAX nur in Kombination mit NTFS verwenden können.
 1. **Blockieren**Sie den Zugriff, der wie der Speicher für die APP-Kompatibilität funktioniert. In dieser configuraion fließen die Daten durch den Stapel. Sie können diese Konfiguration in Kombination mit NTFS und Refs verwenden.
@@ -310,7 +309,7 @@ Initializing the physical persistent memory device. This may take a few moments.
 > [!IMPORTANT]  
 > **Initialize-pmemphysicaldevice** führt zu Datenverlusten im persistenten Speicher. Verwenden Sie es als letzten Ausweg, um persistente speicherbezogene Probleme zu beheben.
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 - [Übersicht über direkte Speicherplätze](storage-spaces-direct-overview.md)
 - [Integritäts Verwaltung für Speicher Klassen Speicher (nvdimm-N) in Windows](storage-class-memory-health.md)

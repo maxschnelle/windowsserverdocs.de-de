@@ -2,19 +2,17 @@
 title: Planen der Bereitstellung von Geräten mit diskreter Geräte Zuweisung
 description: Weitere Informationen zur Funktionsweise von DDA in Windows Server
 ms.prod: windows-server
-ms.service: na
 ms.technology: hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 author: chrishuybregts
 ms.author: chrihu
 ms.date: 08/21/2019
-ms.openlocfilehash: 114dd87b86bfffd1070229af57ae65deea2c2db0
-ms.sourcegitcommit: 81198fbf9e46830b7f77dcd345b02abb71ae0ac2
+ms.openlocfilehash: 9cc9614524c424398df550351aa2abfa7d173d43
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72923864"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856093"
 ---
 # <a name="plan-for-deploying-devices-using-discrete-device-assignment"></a>Planen der Bereitstellung von Geräten mit diskreter Geräte Zuweisung
 >Gilt für: Microsoft Hyper-V Server 2016, Windows Server 2016, Microsoft Hyper-V Server 2019, Windows Server 2019
@@ -29,11 +27,11 @@ Weitere Informationen zu anderen Methoden der GPU-Virtualisierung finden Sie unt
 Für VMS der Generation 1 oder 2 wird eine diskrete Geräte Zuweisung unterstützt.  Zu den unterstützten Gästen zählen zusätzlich Windows 10, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 mit angewendetem [KB 3133690](https://support.microsoft.com/kb/3133690) und verschiedene Verteilungen des [Linux-Betriebssystems.](../supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows.md)
 
 ## <a name="system-requirements"></a>Systemanforderungen
-Zusätzlich zu den [Systemanforderungen für Windows Server](../../../get-started/System-Requirements--and-Installation.md) und den [Systemanforderungen für Hyper-V](../System-requirements-for-Hyper-V-on-Windows.md)erfordert die diskrete Geräte Zuweisung Server Klassen Hardware, die die Betriebs System Steuerung über das Konfigurieren des PCIe erteilen kann. Fabric (System eigenes PCI Express-Steuerelement). Außerdem muss das komplexe PCIe-Stammverzeichnis "Access Control Services (ACS)" unterstützen, mit dem Hyper-V den gesamten PCIe-Datenverkehr über die e/a-MMU erzwingen kann.
+Zusätzlich zu den [Systemanforderungen für Windows Server](../../../get-started/System-Requirements--and-Installation.md) und den [Systemanforderungen für Hyper-V](../System-requirements-for-Hyper-V-on-Windows.md)erfordert die diskrete Geräte Zuweisung Server Klassen Hardware, die dem Betriebs System die Steuerung der Konfiguration des PCIe-Fabrics (System eigenes PCI Express-Steuerelement) gewähren kann. Außerdem muss das komplexe PCIe-Stammverzeichnis "Access Control Services (ACS)" unterstützen, mit dem Hyper-V den gesamten PCIe-Datenverkehr über die e/a-MMU erzwingen kann.
 
 Diese Funktionen werden in der Regel nicht direkt im BIOS des Servers verfügbar gemacht und sind häufig hinter anderen Einstellungen verborgen.  Beispielsweise sind die gleichen Funktionen für die SR-IOV-Unterstützung erforderlich, und im BIOS müssen Sie möglicherweise "SR-IOV aktivieren" festlegen.  Wenden Sie sich an Ihren Systemhersteller, wenn Sie die richtige Einstellung in Ihrem BIOS nicht identifizieren können.
 
-Um sicherzustellen, dass die Hardware von der Hardware diskret Geräte zugewiesen werden kann, haben unsere Techniker ein [Machine profile-Skript](#machine-profile-script) eingefügt, das Sie auf einem Hyper-V-fähigen Host ausführen können, um zu testen, ob der Server ordnungsgemäß eingerichtet ist und welche Geräte in der Lage sind. Diskrete Geräte Zuweisung.
+Um sicherzustellen, dass Hardware für die Hardware eine diskrete Geräte Zuweisung ermöglicht, haben unsere Techniker ein [Machine profile-Skript](#machine-profile-script) eingefügt, das Sie auf einem Hyper-V-fähigen Host ausführen können, um zu testen, ob der Server ordnungsgemäß eingerichtet ist und welche Geräte eine diskrete Geräte Zuweisung unterstützen.
 
 ## <a name="device-requirements"></a>Geräteanforderungen
 Nicht jedes PCIe-Gerät kann mit diskreter Geräte Zuweisung verwendet werden.  Beispielsweise werden ältere Geräte, die Legacy-PCI-Interrupts (intX) nutzen, nicht unterstützt. Die [Blogbeiträge](https://blogs.technet.microsoft.com/virtualization/2015/11/20/discrete-device-assignment-machines-and-devices/) von Jake Oshin werden ausführlicher behandelt, aber für den Consumer wird bei der Ausführung des [Machine profile-Skripts](#machine-profile-script) angezeigt, welche Geräte für die diskrete Geräte Zuweisung eingesetzt werden können.
@@ -52,7 +50,7 @@ Aufgrund der Art, wie die diskrete Geräte Zuweisung implementiert ist, werden e
 - Die Verwendung von dynamischem Arbeitsspeicher
 - Hinzufügen des virtuellen Computers zu einem hoch Verfügbarkeits Cluster (ha)
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicherheit
 Die diskrete Geräte Zuweisung übergibt das gesamte Gerät an den virtuellen Computer.  Dies bedeutet, dass alle Funktionen dieses Geräts über das Gast Betriebssystem zugänglich sind. Einige Funktionen, wie z. b. Firmwareupdates, können sich negativ auf die Stabilität des Systems auswirken. Daher werden dem Administrator beim Aufheben der Einbindung des Geräts vom Host zahlreiche Warnungen angezeigt. Es wird dringend empfohlen, die diskrete Geräte Zuweisung nur dann zu verwenden, wenn die Mandanten der VMS vertrauenswürdig sind.  
 
 Wenn der Administrator ein Gerät mit einem nicht vertrauenswürdigen Mandanten verwenden möchte, haben wir Geräteherstellern die Möglichkeit gegeben, einen geräteentschärfungs-Treiber zu erstellen, der auf dem Host installiert werden kann.  Wenden Sie sich an den Gerätehersteller, um zu erfahren, ob er einen Geräte Entschärfungs Treiber bereitstellt.

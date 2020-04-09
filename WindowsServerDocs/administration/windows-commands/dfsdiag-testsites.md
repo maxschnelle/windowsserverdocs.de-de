@@ -1,62 +1,51 @@
 ---
 title: Dfsdiag Testsites
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für Dfsdiag Testsites, das die Konfiguration von Active Directory-Domänen Diensten (AD DS) überprüft, indem überprüft wird, ob Server, die als Namespace Server oder Ordner (Verknüpfungs Ziele) fungieren, auf allen Domänen Controllern über die gleichen Standort Zuordnungen verfügen.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 39a0d415-7eb7-4a26-861b-7ff00c45dcda
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: af72da64dd20d4b37824355a494cb8f97f597b28
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 80cc9095748dafb030b204130bfa2ccb61ec69ea
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71378388"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80846223"
 ---
 # <a name="dfsdiag-testsites"></a>Dfsdiag Testsites
 
 >Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Überprüft die Konfiguration der Active Directory-Domänen Dienste \(AD DS\)-Standorte, indem überprüft wird, ob Server, die als Namespace Server oder Ordner \(Link\)-Ziele fungieren, über die gleichen Standort Zuordnungen auf allen Domänen Controllern verfügen  
-  
-  
-  
+Hiermit wird die Konfiguration der Active Directory-Domänen Dienste (AD DS) überprüft, indem überprüft wird, ob Server, die als Namespace Server oder Ordner (Verknüpfungs Ziele) fungieren, auf allen Domänen Controllern über dieselben Standort Zuordnungen verfügen.
+
 ## <a name="syntax"></a>Syntax  
   
 ```  
 dfsdiag /TestSites </Machine:<server name>| /DFSpath:<namespace root or DFS folder> [/Recurse]> [/Full]  
 ```  
   
-### <a name="parameters"></a>Parameter  
+#### <a name="parameters"></a>Parameter  
   
 |Parameter|Beschreibung|  
 |-------|--------|  
 |\/Computer:<server name>|Der Name des Servers, auf dem die Standort Zuordnung überprüft werden soll.|  
-|\/dfspath:<namespace root or DFS folder>|Der Namespace Stamm oder verteiltes Dateisystem \(DFS-\) Ordners \(Link\) mit Zielen, für die die Standort Zuordnung überprüft werden soll.|  
+|\/dfspath:<namespace root or DFS folder>|Der Namespace Stamm oder verteiltes Dateisystem Ordner (DFS) (Link) mit Zielen, für die die Standort Zuordnung überprüft werden soll.|  
 |\/recurse|Listet die Site Zuordnungen für alle Ordner Ziele unter dem angegebenen Namespace Stamm auf und überprüft sie.|  
 |\/voll|überprüft, ob AD DS und die Registrierung des-Servers dieselben Standort Zuordnungs Informationen enthalten.|  
   
-## <a name="BKMK_Examples"></a>Beispiele  
-Geben Sie in TBD Folgendes ein:  
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele  
   
 ```  
 dfsdiag /TestSites /Machine:MyServer  
 ```  
-  
-Geben Sie in TBD Folgendes ein:  
-  
+ 
 ```  
 dfsdiag /TestSites /DFSpath:\\Contoso.com\Namespace1\Folder1 /Full  
 ```  
-  
-Geben Sie in TBD Folgendes ein:  
   
 ```  
 dfsdiag /TestSites /DFSpath:\\Contoso.com\Namespace2 /Recurse /Full  
@@ -64,7 +53,7 @@ dfsdiag /TestSites /DFSpath:\\Contoso.com\Namespace2 /Recurse /Full
   
 ## <a name="additional-references"></a>Weitere Verweise  
   
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 -   [Dfsdiag](dfsdiag.md)  
   

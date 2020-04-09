@@ -1,24 +1,20 @@
 ---
 title: scwcmd
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 188ae881-c7d4-4a7a-b967-8fdc79f5f345
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fae9476f94af5faa6e942239e7d91cf589bb1776
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 014bb8b26f6eebaefa3a9997a71fbaaf543a75dc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384259"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835043"
 ---
 # <a name="scwcmd"></a>scwcmd
 
@@ -40,7 +36,7 @@ Wenn Sie **scwcmd** verwenden, um eine Richtlinie auf einem Remote Server zu kon
 scwcmd <command> [<subcommand>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Unterbefehl|Beschreibung|
 |----------|-----------|
@@ -52,6 +48,6 @@ scwcmd <command> [<subcommand>]
 |/view|Rendert eine XML-Datei mithilfe einer angegebenen XSL-Transformation.</br>Informationen zur Syntax und zu Optionen finden Sie unter [scwcmd: View](scwcmd-view.md) .|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

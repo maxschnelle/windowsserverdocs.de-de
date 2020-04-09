@@ -1,24 +1,20 @@
 ---
 title: Starten oder Schließen von Anwendungen auf einer Station
 description: Erfahren Sie, wie Sie mit Anwendungen in Multipoint Services arbeiten.
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: efede045-c20b-4541-9db0-dc96848b987a
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: dbf926cd934a14334785a400763d58fcea581973
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d1725a4bed34541b6b6737bbe45b0898a32202a3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389660"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853693"
 ---
 # <a name="launch-or-close-applications-on-a-station"></a>Starten oder Schließen von Anwendungen auf einer Station
 Als Multipoint-Dashboardbenutzer können Sie eine Anwendung auf dem Desktop eines Benutzers, auf ausgewählten Desktops oder auf allen Desktops öffnen oder schließen.  
@@ -47,6 +43,6 @@ Als Multipoint-Dashboardbenutzer können Sie eine Anwendung auf dem Desktop eine
   
 3.  Wählen Sie den Namen des Elements (Anwendung, Ordner, Dokument oder Internetressource), das geschlossen werden soll, und klicken Sie dann auf **Anwendung schließen**.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Verwalten von Benutzer Desktops](manage-user-desktops-using-multipoint-dashboard.md)  
   

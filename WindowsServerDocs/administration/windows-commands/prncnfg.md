@@ -1,24 +1,20 @@
 ---
 title: prncnfg
 description: Erfahren Sie, wie Sie mit dem Befehl Prncfg einen Drucker konfigurieren.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 38a4e8fa-3122-495b-a125-35b926bc6415
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 5cbbf82e832c50d168e0bef06b2b7c3022dd90e8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3db99c06232e4ed6b3ad5df4ee189d38bffb14c2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71372139"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80837323"
 ---
 # <a name="prncnfg"></a>prncnfg
 
@@ -31,14 +27,14 @@ Konfiguriert oder zeigt Konfigurationsinformationen zu einem Drucker an.
 cscript Prncnfg {-g | -t | -x | -?} [-S <ServerName>] [-P <printerName>] [-z <NewprinterName>] [-u <UserName>] [-w <Password>] [-r <PortName>] [-l <Location>] [-h <Sharename>] [-m <Comment>] [-f <SeparatorFileName>] [-y <Datatype>] [-st <starttime>] [-ut <Untiltime>] [-i <DefaultPriority>] [-o <Priority>] [<+|->shared] [<+|->direct] [<+|->hidden] [<+|->published] [<+|->rawonly] [<+|->queued] [<+|->enablebidi] [<+|->keepprintedjobs] [<+|->workoffline] [<+|->enabledevq] [<+|->docompletefirst]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 |Parameter|Beschreibung|
 |-------|--------|
 |-g|Zeigt Konfigurationsinformationen zu einem Drucker an.|
 |-t|Konfiguriert einen Drucker.|
 |-x|benennt einen Drucker um.|
 |-S \<Servername\>|Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet.|
-|-P \<PrinterName\>|Gibt den Namen des Druckers an, den Sie verwalten möchten. Erforderlich.|
+|-P \<PrinterName\>|Gibt den Namen des Druckers an, den Sie verwalten möchten. Erforderlich|
 |-z \<NewPrinterName\>|Gibt den neuen Drucker Namen an. Erfordert die Parameter **-x** und **-P** .|
 |-u \<Benutzername\>-w \<Kennwort ein\>|Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert.|
 |-r \<Portname\>|Gibt den Port an, mit dem der Drucker verbunden ist. Wenn es sich um einen parallelen oder seriellen Anschluss handelt, verwenden Sie die ID des Ports (z. b. LPT1 oder COM1). Wenn dies ein TCP/IP-Port ist, verwenden Sie den Portnamen, der beim Hinzufügen des Ports angegeben wurde.|
@@ -65,13 +61,13 @@ cscript Prncnfg {-g | -t | -x | -?} [-S <ServerName>] [-P <printerName>] [-z <Ne
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="remarks"></a>Hinweise
--   Der **prncnfg** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis "%windir%\SYSTEM32\ printing_Admin_Scripts\\<language>" befindet. Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** ein, gefolgt vom vollständigen Pfad zur Datei prncnfg, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Zum Beispiel:
+-   Der **prncnfg** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis "%windir%\SYSTEM32\ printing_Admin_Scripts\\<language>" befindet. Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** ein, gefolgt vom vollständigen Pfad zur Datei prncnfg, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Beispiel:
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prncnfg
     ```
 -   Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. `"computer Name"`).
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
 Zum Anzeigen von Konfigurationsinformationen für den Drucker mit dem Namen colorprinter_2 mit einer Druck Warteschlange, die vom Remote Computer mit dem Namen HRServer gehostet wird, geben Sie
 ```
 cscript prncnfg -g -S HRServer -P colorprinter_2 
@@ -87,6 +83,6 @@ Geben Sie Folgendes ein, um den Namen eines Druckers auf dem Remote Computer mit
 cscript prncnfg -x -S HRServer -P colorprinter_2 -z "colorprinter 3" 
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
-[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+## <a name="additional-references"></a>Weitere Verweise
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
 [Print-Befehlsreferenz](print-command-reference.md)

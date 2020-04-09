@@ -2,20 +2,19 @@
 title: Die Zertifikat basierte Authentifizierung ist konfiguriert, aber das angegebene Zertifikat ist nicht auf dem Replikat Server oder den Failoverclusterknoten installiert.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 4cabbce3-9367-4ddc-a108-1e5e1ab2bcff
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 0b107a4760cc3470c7f80d53feef00a2f8f789c5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cc89aa201de4b25e4c221b770e6f88908785c859
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365202"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857683"
 ---
 # <a name="certificate-based-authentication-is-configured-but-the-specified-certificate-is-not-installed-on-the-replica-server-or-failover-cluster-nodes"></a>Die Zertifikat basierte Authentifizierung ist konfiguriert, aber das angegebene Zertifikat ist nicht auf dem Replikat Server oder den Failoverclusterknoten installiert.
 
@@ -29,7 +28,7 @@ ms.locfileid: "71365202"
 |-|-|  
 |**Betriebssystem**|Windows Server 2016|  
 |**Produkt/Feature**|Hyper-V|  
-|**Zunehmen**|Fehler|  
+|**Zunehmen**|Error|  
 |**Kategorie**|Konfiguration|  
 
 In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best Practices Analyzer Tool für dieses Problem angezeigt wird.
@@ -40,9 +39,9 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
   
 ## <a name="impact"></a>Auswirkungen  
   
-*bei einem Cluster Failover oder zum Verschieben auf einen anderen Knoten wird die Hyper-V-Replikation angehalten, wenn auf dem neuen Knoten nicht auch das entsprechende Zertifikat installiert ist. Dies wirkt sich auf die folgenden Knoten aus:*  
+*Wenn ein Cluster Failover oder ein Wechsel zu einem anderen Knoten ausgeführt wird, wird die Hyper-V-Replikation angehalten, wenn auf dem neuen Knoten nicht auch das entsprechende Zertifikat installiert ist. Dies wirkt sich auf die folgenden Knoten aus:*  
   
-\<liste der Knoten >  
+\<Liste der Knoten >  
   
 ## <a name="resolution"></a>Auflösung  
   

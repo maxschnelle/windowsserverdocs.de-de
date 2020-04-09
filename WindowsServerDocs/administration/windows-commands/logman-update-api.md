@@ -1,28 +1,24 @@
 ---
 title: logman Update-API
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6f322e52-0f9f-42b1-bd64-8b8f8fe086fc britw
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c8e5a45270ec0ed70928688728abceb5bcb8bb29
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7739098343f7b98b0812a9b7199dea2da044786e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374372"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840593"
 ---
 # <a name="logman-update-api"></a>logman Update-API
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Aktualisieren Sie die Eigenschaften eines vorhandenen API-Ablauf Verfolgungs Daten Sammlers.  
 
@@ -30,7 +26,7 @@ Aktualisieren Sie die Eigenschaften eines vorhandenen API-Ablauf Verfolgungs Dat
 ```  
 logman update api <[-n] <name>> [options]  
 ```  
-## <a name="parameters"></a>Parameter  
+### <a name="parameters"></a>Parameter  
 
 |                    Parameter                     |                                                                               Beschreibung                                                                               |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -39,7 +35,7 @@ logman update api <[-n] <name>> [options]
 |                 -config <value>                  |                                                         Gibt die Einstellungsdatei an, die Befehlsoptionen enthält.                                                         |
 |                   [-n] <name>                    |                                                                       Der Name des Zielobjekts.                                                                        |
 | -f < bin&#124;bincirc&#124;CSV&#124;TSV&#124;SQL > |                                                            Gibt das Protokoll Format für den Datensammler an.                                                             |
-|             -[-] u < Benutzer [Kennwort] >              | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie einen \* für das Kennwort eingeben, wird eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
+|             -[-] u < Benutzer [Kennwort] >              | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie einen \* für das Kennwort eingeben, wird eine Eingabeaufforderung angezeigt. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
 |    -m < [Start] [Ende] [[Start] [Ende] [...]] >    |                                                Wechseln Sie zu "manueller Start" oder "beenden" anstelle eines geplanten Anfangs-oder Endzeit Zeitraums.                                                 |
 |                -RF < [[hh:] mm:] SS >                |                                                        Führt den Datensammler für den angegebenen Zeitraum aus.                                                         |
 |        -b < M/d/yyyy h:mm: SS [am&#124;pm] >         |                                                              Beginnt mit dem Sammeln von Daten zum angegebenen Zeitpunkt.                                                               |
@@ -63,11 +59,11 @@ logman update api <[-n] <name>> [options]
 
 ## <a name="remarks"></a>Hinweise  
 Wenn [-] aufgeführt ist, wird die-Option durch ein extra negiert.  
-## <a name="BKMK_examples"></a>Beispiele  
-Mit dem folgenden Befehl wird der vorhandene API-Ablaufverfolgungs-Leistungs beausdruck "trace_notepad" für die ausführbare Datei "c:\windows\notepad.exe" aktualisiert, indem der API-Aufruf "TlsGetValue", der vom Modul Kernel32  
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
+Der folgende Befehl aktualisiert den vorhandenen API-Ablaufverfolgungs-Leistungs beausdruck "trace_notepad" für die ausführbare Datei "c:\windows\notepad.exe", indem er den API-Aufruf "TlsGetValue" ausschließt, der vom Modul Kernel32  
 ```  
 logman create api trace_notepad -exe c:\windows\notepad.exe -exapis kernel32.dll!TlsGetValue  
 ```  
-#### <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Weitere Verweise  
 [logman](logman.md)  
 [logman Create-API](logman-create-api.md)  

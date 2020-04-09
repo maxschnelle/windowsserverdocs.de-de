@@ -2,20 +2,19 @@
 title: Serielle Ports dürfen nicht auf virtuellen Maschinen der Generation 2 konfiguriert werden.
 description: Online Version des Texts für diese Best Practices Analyzer Regel.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 87061193-dd3f-4398-aa5d-4cee83cadfa3
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: 8a8c15076921efa0e1e791a18c6a45ea1bf27b0e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d9cfb8db2dc3fdff32544670d9443632c2d2264e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364727"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861783"
 ---
 # <a name="serial-ports-should-not-be-configured-on-generation-2-virtual-machines"></a>Serielle Ports dürfen nicht auf virtuellen Maschinen der Generation 2 konfiguriert werden.
 
@@ -38,10 +37,10 @@ In den folgenden Abschnitten gibt kursiv formatics den UI-Text an, der im Best P
 ## <a name="impact"></a>**Auswirkt**  
 *Die Leistung kann für die folgenden virtuellen Computer beeinträchtigt werden:*  
   
-\<list of Virtual Machines >  
+\<Liste der virtuellen Computer >  
   
-## <a name="resolution"></a>**Auflösung**  
-*wenn dies beabsichtigt ist, ist keine weitere Aktion erforderlich. Andernfalls sollten Sie den Hyper-V-Manager oder Windows PowerShell verwenden, um die Verbindungs Zeichenfolge aus den seriellen Anschlüssen auf dem virtuellen Computer zu entfernen.*  
+## <a name="resolution"></a>**Lösung**  
+*Wenn dies beabsichtigt ist, ist keine weitere Aktion erforderlich. Andernfalls sollten Sie den Hyper-V-Manager oder Windows PowerShell verwenden, um die Verbindungs Zeichenfolge aus den seriellen Anschlüssen auf dem virtuellen Computer zu entfernen.*  
   
 
 

@@ -1,24 +1,20 @@
 ---
 title: 'Ksetup: Delta Type'
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4fc25ef3-e271-4229-a712-72c507df55aa
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e3810d83c06b9ea08766451e13390b02b1867c83
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c650b973ac34e28394d5b6ec38142a058ad76338
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375160"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841763"
 ---
 # <a name="ksetupdelenctypeattr"></a>Ksetup: Delta Type
 
@@ -32,11 +28,11 @@ Entfernt das Verschlüsselungstyp Attribut für die Domäne. Beispiele für die 
 ksetup /delenctypeattr <DomainName> 
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<domainname >|Der Name der Domäne, zu der Sie eine Verbindung herstellen möchten. Verwenden Sie den voll qualifizierten Domänen Namen oder eine einfache Form des Namens, z. b. Corp.contoso.com oder Configuration Manager.|
+|\<Domainname >|Der Name der Domäne, zu der Sie eine Verbindung herstellen möchten. Verwenden Sie den voll qualifizierten Domänen Namen oder eine einfache Form des Namens, z. b. Corp.contoso.com oder Configuration Manager.|
 
 ## <a name="remarks"></a>Hinweise
 
@@ -44,9 +40,9 @@ Um den Verschlüsselungstyp für das Kerberos-Ticket Erteilungs Ticket (TGT) und
 
 Bei erfolgreicher oder fehlgeschlagener Ausführung wird eine Statusmeldung angezeigt.
 
-Um die Domäne festzulegen, mit der Sie eine Verbindung herstellen und verwenden möchten, führen Sie den Befehl **Ksetup/Domain \<domainname >** aus.
+Um die Domäne festzulegen, mit der Sie eine Verbindung herstellen und verwenden möchten, führen Sie den Befehl **Ksetup/Domain \<Domainname >** aus.
 
-## <a name="BKMK_Examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
 
 Bestimmen Sie die aktuellen Verschlüsselungstypen, die auf diesem Computer festgelegt sind:
 ```
@@ -65,11 +61,11 @@ Entfernen Sie das Set encryption type-Attribut für die Domäne mit.contoso.com:
 ksetup /delenctypeattr mit.contoso.com
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Klist](klist.md)
 -   [Ksetup:domain](ksetup-domain.md)
 -   [Ksetup:addenctypeattr](ksetup-addenctypeattr.md)
 -   [Ksetup:setenctypeattr](ksetup-setenctypeattr.md)
 -   [Ksetup:delenctypeattr](ksetup-delenctypeattr.md)
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

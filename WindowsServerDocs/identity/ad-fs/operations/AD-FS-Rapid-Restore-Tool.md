@@ -1,7 +1,6 @@
 ---
 ms.assetid: 4deff06a-d0ef-4e5a-9701-5911ba667201
 title: 'AD FS: Schnelles Wiederherstellungstool'
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 07/02/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2570aae52da2925a62dd6c9262af325fb5461fff
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 506734812689a42ec17768652ac715f5c7e24401
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465264"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858103"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>AD FS: Schnelles Wiederherstellungstool
 
@@ -79,7 +78,7 @@ Parameter Sätze
 
 - **Backupdkm** : sichert den Active Directory DKM-Container, der die AD FS Schlüssel in der Standardkonfiguration enthält (automatisch generierte tokensignier-und entschlüsselungszertifikate). Dabei wird ein Ad-Tool "Ldifde" verwendet, um den AD-Container und alle zugehörigen Unterstrukturen zu exportieren.
 
-- -**StorageType &lt;Zeichenfolge&gt;** -der Typ des Speichers, den der Benutzer verwenden möchte. "File System" gibt an, dass der Benutzer ihn lokal oder im Netzwerk "Azure Azure Storage" in einem Ordner speichern möchte, wenn der Benutzer die Sicherung durchführt, und wählt den Sicherungs Speicherort aus, entweder im Datei System oder im Cloud. Damit Azure verwendet werden kann, müssen Azure Storage Anmelde Informationen an das Cmdlet übergeben werden. Die Speicher Anmelde Informationen enthalten den Kontonamen und den Schlüssel. Zusätzlich muss auch ein Container Name übergebenen werden. Wenn der Container nicht vorhanden ist, wird er während der Sicherung erstellt. Damit das Dateisystem verwendet werden kann, muss ein Speicherpfad angegeben werden. In diesem Verzeichnis wird für jede Sicherung ein neues Verzeichnis erstellt. Jedes erstellte Verzeichnis enthält die gesicherten Dateien. 
+- -**StorageType &lt;Zeichenfolge&gt;** -der Typ des Speichers, den der Benutzer verwenden möchte. "File System" gibt an, dass der Benutzer ihn lokal oder im Netzwerk "Azure Azure Storage" in einem Ordner speichern möchte, wenn der Benutzer die Sicherung durchführt, und wählt den Sicherungs Speicherort aus, entweder im Datei System oder in der Cloud. Damit Azure verwendet werden kann, müssen Azure Storage Anmelde Informationen an das Cmdlet übergeben werden. Die Speicher Anmelde Informationen enthalten den Kontonamen und den Schlüssel. Zusätzlich muss auch ein Container Name übergebenen werden. Wenn der Container nicht vorhanden ist, wird er während der Sicherung erstellt. Damit das Dateisystem verwendet werden kann, muss ein Speicherpfad angegeben werden. In diesem Verzeichnis wird für jede Sicherung ein neues Verzeichnis erstellt. Jedes erstellte Verzeichnis enthält die gesicherten Dateien. 
 
 - **Verschlüsselungskennwort &lt;Zeichenfolge&gt;** : das Kennwort, das verwendet wird, um alle gesicherten Dateien vor dem Speichern zu verschlüsseln.
 
@@ -117,7 +116,7 @@ Backup-ADFS -StorageType "Azure" -AzureConnectionCredentials $cred -AzureStorage
 
 ### <a name="backup-the-ad-fs-configuration-without-the-dkm-to-the-file-system"></a>Sichern der AD FS Konfiguration ohne DKM im Datei System
 
-```powershell   
+```powershell     
 Backup-ADFS -StorageType "FileSystem" -StoragePath "C:\Users\administrator\testExport\" -EncryptionPassword "password" -BackupComment "Clean Install of ADFS (FS)"
 ```
 

@@ -1,24 +1,20 @@
 ---
 title: wbadmin
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Artikel für Wbadmin, mit dem Sie Betriebssystem, Volumes, Dateien, Ordner und Anwendungen über eine Eingabeaufforderung sichern und wiederherstellen können.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4b0b3f32-d21f-4861-84bb-b2eadbf1e7b8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6a0fe9b999e788af1316ca0dbbf50b84e80cb08e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0ca9bdc54cd77f11239d0a61cf052e7b12b02b22
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362472"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829473"
 ---
 # <a name="wbadmin"></a>wbadmin
 
@@ -50,7 +46,7 @@ Sie müssen **Wbadmin** über eine Eingabeaufforderung mit erhöhten Rechten aus
 |[Wbadmin restore catalog](wbadmin-restore-catalog.md)|Stellt einen Sicherungs Katalog von einem angegebenen Speicherort wieder her, wenn der Sicherungs Katalog auf dem lokalen Computer beschädigt ist.|
 |[Wbadmin delete catalog](wbadmin-delete-catalog.md)|Löscht den Sicherungs Katalog auf dem lokalen Computer. Verwenden Sie diesen Unterbefehl nur, wenn der Sicherungs Katalog auf diesem Computer beschädigt ist und Sie keine Sicherungen an einem anderen Speicherort gespeichert haben, der zum Wiederherstellen des Katalogs verwendet werden kann.|
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Sicherung und Wiederherstellung](https://go.microsoft.com/fwlink/?LinkID=195054)
 -   [Windows Server-Sicherung-Cmdlets in Windows PowerShell](https://technet.microsoft.com/library/jj902428.aspx)

@@ -1,19 +1,19 @@
 ---
 title: 'Abgeschirmte VMS: Vorbereiten einer VHD für ein VM-Schutz Hilfsprogramm'
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 0e3414cf-98ca-4e91-9e8d-0d7bce56033b
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 2ab9d4afb6e4219c6e6aae23d2d58052f20d3998
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 9972ec77b78c6c4efa2d52fffd44d27d71a1afe0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950325"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856363"
 ---
 # <a name="shielded-vms---preparing-a-vm-shielding-helper-vhd"></a>Abgeschirmte VMS: Vorbereiten einer VHD für ein VM-Schutz Hilfsprogramm
 
@@ -59,7 +59,7 @@ Der Schutz Vorgang für vorhandene VMS ist nur für VMS verfügbar, die die folg
 
 ![VMM-Einstellungen für den Host-Überwachungsdienst](../media/Guarded-Fabric-Shielded-VM/guarded-host-vmm-hgs-settings-01.png)
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 - [Konfigurationsschritte des hostingdienstanbieters für geschützte Hosts und abgeschirmte VMS](guarded-fabric-configuration-scenarios-for-shielded-vms-overview.md)
 - [Geschütztes Fabric und abgeschirmte VMs](guarded-fabric-and-shielded-vms-top-node.md)

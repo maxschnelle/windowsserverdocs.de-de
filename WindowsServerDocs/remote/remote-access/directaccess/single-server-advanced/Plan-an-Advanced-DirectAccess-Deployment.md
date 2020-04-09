@@ -2,22 +2,18 @@
 title: Planen einer erweiterten DirectAccess-Bereitstellung
 description: Dieses Thema ist Teil des Handbuchs Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen für Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d486735e-71fe-4443-9878-4b784cd588a7
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: ea8c87960501abff5895bce2bfe1755684fe20bd
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 97ec349b9aaf7b0e44be1096d6e202c8ee21ad27
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309140"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859503"
 ---
 # <a name="plan-an-advanced-directaccess-deployment"></a>Planen einer erweiterten DirectAccess-Bereitstellung
 

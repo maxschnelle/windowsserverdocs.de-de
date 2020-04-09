@@ -2,32 +2,32 @@
 title: Direkte Speicherplätze für die
 ms.prod: windows-server
 ms.author: jgerend
-ms.manager: dansimp
+manager: dansimp
 ms.technology: storagespaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 03/15/2019
-ms.openlocfilehash: ea1c4b2c249759634e00f6a1ac2caa34f8085ae1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ac4edccf0c1f8882dd2544b2544c3d8555bbc716
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402864"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857343"
 ---
 # <a name="nested-resiliency-for-storage-spaces-direct"></a>Direkte Speicherplätze für die
 
 > Gilt für: Windows Server 2019
 
-Die geschlagene Resilienz ist eine neue Funktion von [direkte Speicherplätze](storage-spaces-direct-overview.md) in Windows Server 2019, mit der ein Cluster mit zwei Servern gleichzeitig mit mehreren Hardwarefehlern zu tun kann, ohne dass Speicherverfügbarkeit verloren geht, d. h. Benutzer, Apps und virtuelle Computer Führen Sie den Vorgang ohne Unterbrechung fort. In diesem Thema wird erläutert, wie es funktioniert, eine Schritt-für-Schritt-Anleitung für den Einstieg bietet und die am häufigsten gestellten Fragen beantwortet.
+Geschlagene Resilienz ist eine neue Funktion von [direkte Speicherplätze](storage-spaces-direct-overview.md) in Windows Server 2019, mit der ein Cluster mit zwei Servern gleichzeitig mit mehreren Hardwarefehlern arbeiten kann, ohne dass Speicherverfügbarkeit verloren geht, sodass Benutzer, Apps und virtuelle Computer weiterhin ohne Unterbrechung ausgeführt werden. In diesem Thema wird erläutert, wie es funktioniert, eine Schritt-für-Schritt-Anleitung für den Einstieg bietet und die am häufigsten gestellten Fragen beantwortet.
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
-### <a name="green-checkmark-iconmedianested-resiliencysupportedpng-consider-nested-resiliency-if"></a>![Grünes Häkchen.](media/nested-resiliency/supported.png) Beachten Sie die folgenden Punkte:
+### <a name="green-checkmark-icon-consider-nested-resiliency-if"></a>![Grünes Häkchen.](media/nested-resiliency/supported.png) Beachten Sie die folgenden Punkte:
 
 - Ihr Cluster führt Windows Server 2019; aus. immer
 - Ihr Cluster weist genau 2 Server Knoten auf.
 
-### <a name="red-x-iconmedianested-resiliencyunsupportedpng-you-cant-use-nested-resiliency-if"></a>![Rotes X-Symbol.](media/nested-resiliency/unsupported.png) Es ist nicht möglich, die nicht in der folgenden Einstellung zu verwenden:
+### <a name="red-x-icon-you-cant-use-nested-resiliency-if"></a>![Rotes X-Symbol.](media/nested-resiliency/unsupported.png) Es ist nicht möglich, die nicht in der folgenden Einstellung zu verwenden:
 
 - Ihr Cluster führt Windows Server 2016; aus. noch
 - Der Cluster verfügt über drei oder mehr Server Knoten.
@@ -40,9 +40,9 @@ Volumes, die geschlagene Resilienz verwenden, können **online bleiben und zugä
 
 Der Nachteil besteht darin, dass die **Leistungsfähigkeit der gespiegelten Sicherheit eine geringere Kapazitäts Effizienz aufweist als**bei der klassischen bidirektionalen Spiegelung Weitere Informationen finden Sie unten im Abschnitt [Kapazitäts Effizienz](#capacity-efficiency) .
 
-## <a name="how-it-works"></a>Funktionsweise
+## <a name="how-it-works"></a>So funktioniert's
 
-### <a name="inspiration-raid-51"></a>Idee RAID 5 + 1
+### <a name="inspiration-raid-51"></a>Inspiration: RAID 5 + 1
 
 RAID 5 + 1 ist eine bewährte Form der Resilienz verteilter Speicher, die hilfreiche Hintergrundinformationen zur besseren besseren Sicherheit bietet. In RAID 5 + 1 wird die lokale Resilienz innerhalb der einzelnen Server durch RAID-5 oder eine *einzelne Parität*bereitgestellt, um vor dem Verlust einzelner Laufwerke zu schützen. Anschließend wird die Resilienz durch RAID-1 oder die bidirektionale *Spiegelung*zwischen den beiden Servern bereitgestellt, die vor dem Verlust der beiden Server geschützt werden sollen.
 
@@ -86,9 +86,9 @@ Beachten Sie, dass die Kapazitäts Effizienz der klassischen bidirektionalen Spi
 
 Sie können bekannte Storage-Cmdlets in PowerShell verwenden, um Volumes mit der Schattens-Resilienz zu erstellen.
 
-### <a name="step-1-create-storage-tier-templates"></a>Schritt 1: Erstellen von Speicherebenen-Vorlagen
+### <a name="step-1-create-storage-tier-templates"></a>Schritt 1: Erstellen von Speicherebenen-Vorlagen
 
-Erstellen Sie zunächst mithilfe des Cmdlets "`New-StorageTier`" neue speicherebenenvorlagen. Sie müssen dies nur einmal durchführen, und dann kann jedes neu erstellte Volume auf diese Vorlage verweisen. Geben Sie den `-MediaType` Ihres Kapazitäts Laufwerks und optional den `-FriendlyName` Ihrer Wahl an. Ändern Sie die anderen Parameter nicht.
+Erstellen Sie zunächst mit dem-Cmdlet "`New-StorageTier`" neue Speicherebenen Vorlagen. Sie müssen dies nur einmal durchführen, und dann kann jedes neu erstellte Volume auf diese Vorlage verweisen. Geben Sie die `-MediaType` der Kapazitäts Laufwerke und optional die `-FriendlyName` Ihrer Wahl an. Ändern Sie die anderen Parameter nicht.
 
 Wenn Ihre Kapazitäts Laufwerke Festplattenlaufwerke (HDD) sind, starten Sie PowerShell als Administrator, und führen Sie Folgendes aus:
 
@@ -103,7 +103,7 @@ New-StorageTier -StoragePoolFriendlyName S2D* -FriendlyName NestedParity -Resili
 Wenn es sich bei den Kapazitäts Laufwerken um SSD (Solid-State Drives) handelt, legen Sie den `-MediaType` stattdessen auf `SSD` fest. Ändern Sie die anderen Parameter nicht.
 
 > [!TIP]
-> Überprüfen Sie, ob die Tarife mit `Get-StorageTier` erfolgreich erstellt wurden.
+> Überprüfen Sie die erfolgreich erstellten Tarife mit `Get-StorageTier`.
 
 ### <a name="step-2-create-volumes"></a>Schritt 2: Erstellen von Volumes
 
@@ -111,7 +111,7 @@ Erstellen Sie dann mit dem Cmdlet "`New-Volume`" neue Volumes.
 
 #### <a name="nested-two-way-mirror"></a>Zwei-Wege-Spiegelung
 
-Wenn Sie eine zwei-Wege-Spiegelung verwenden möchten, verweisen Sie auf die Vorlage "`NestedMirror`" und geben die Größe an. Zum Beispiel:
+Wenn Sie eine zwei-Wege-Spiegelung verwenden möchten, verweisen Sie auf die Vorlage `NestedMirror` Ebene, und geben Sie die Größe an. Beispiel:
 
 ```PowerShell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName Volume01 -StorageTierFriendlyNames NestedMirror -StorageTierSizes 500GB
@@ -119,21 +119,21 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName Volume01 -StorageTierFrie
 
 #### <a name="nested-mirror-accelerated-parity"></a>Gespiegelte gespiegelte Spiegelung
 
-Verweisen Sie auf die ebenenvorlagen "`NestedMirror`" und "`NestedParity`", und legen Sie zwei Größen fest, eine für jeden Teil des Volumes (Spiegelung zuerst, Parität Sekunde). Führen Sie beispielsweise Folgendes aus, um ein Volume mit einer Größe von 20% mit einer zwei-Wege-Spiegelung und einer 80%-Parität zu 1 500 erstellen:
+Wenn Sie die Geviert beschleunigte Parität der Spiegelung verwenden möchten, verweisen Sie sowohl auf die Vorlagen für `NestedMirror` als auch auf `NestedParity` Ebene, und geben Sie zwei Größen an, eine für jeden Teil des Volumes (Spiegelung zuerst, Parität Sekunde). Führen Sie beispielsweise Folgendes aus, um ein Volume mit einer Größe von 20% mit einer zwei-Wege-Spiegelung und einer 80%-Parität zu 1 500 erstellen:
 
 ```PowerShell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName Volume02 -StorageTierFriendlyNames NestedMirror, NestedParity -StorageTierSizes 100GB, 400GB
 ```
 
-### <a name="step-3-continue-in-windows-admin-center"></a>Schritt 3: Im Windows Admin Center fortfahren
+### <a name="step-3-continue-in-windows-admin-center"></a>Schritt 3: fortfahren im Windows Admin Center
 
 Volumes, die die Schattens-Resilienz verwenden, werden im [Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/windows-admin-center) mit eindeutiger Bezeichnung angezeigt, wie im folgenden Screenshot dargestellt. Nachdem Sie erstellt wurden, können Sie Sie mithilfe des Windows Admin Centers wie jedes andere Volume in direkte Speicherplätze verwalten und überwachen.
 
 ![](media/nested-resiliency/windows-admin-center.png)
 
-### <a name="optional-extend-to-cache-drives"></a>Optional: Auf Cache Laufwerke erweitern
+### <a name="optional-extend-to-cache-drives"></a>Optional: erweitern auf Cache Laufwerke
 
-Mit den Standardeinstellungen schützt die Unterbrechung der Sicherheit vor dem Verlust von mehreren Kapazitäts Laufwerken zur gleichen Zeit oder einem Server und einem Kapazitäts Laufwerk zur gleichen Zeit. Zur Erweiterung dieses Schutzes auf das Zwischenspeichern von [Laufwerken](understand-the-cache.md) ist ein zusätzlicher Aspekt zu beachten: da Cache Laufwerke häufig Lese *-und Schreib* Vorgänge für *mehrere* Kapazitäts Laufwerke bereitstellen, ist die einzige Möglichkeit sicherzustellen, dass Sie den Verlust eines Cache Laufwerks tolerieren können, wenn die der andere Server ist nicht in der Zwischenspeicherung von Schreibvorgängen, sondern wirkt sich auf die Leistung aus.
+Mit den Standardeinstellungen schützt die Unterbrechung der Sicherheit vor dem Verlust von mehreren Kapazitäts Laufwerken zur gleichen Zeit oder einem Server und einem Kapazitäts Laufwerk zur gleichen Zeit. Um diesen Schutz auf [Cache Laufwerke](understand-the-cache.md) auszuweiten, ist ein zusätzlicher Aspekt zu beachten: da Cache Laufwerke häufig Lese *-und Schreib* Vorgänge für *mehrere* Kapazitäts Laufwerke bereitstellen, ist die einzige Möglichkeit sicherzustellen, dass Sie den Verlust eines Cache Laufwerks tolerieren können, wenn der andere Server nicht ausgelastet ist. Dies wirkt sich jedoch auf die Leistung aus.
 
 Um dieses Szenario zu beheben, bietet direkte Speicherplätze die Option zum automatischen Deaktivieren des Schreib Caches, wenn ein Server in einem Cluster mit zwei Servern nicht aktiv ist, und aktiviert dann das Schreiben Zwischenspeichern, sobald der Server wieder aktiv ist. Um routinemäßige Neustarts ohne Leistungseinbußen zuzulassen, wird der Schreib Cache nicht deaktiviert, bis der Server 30 Minuten lang herunter gesetzt wurde. Wenn der Schreib Cache deaktiviert ist, wird der Inhalt des Schreib Caches auf Kapazitäts Geräte geschrieben. Danach kann der Server ein fehlerhafter Cache Gerät auf dem Online Server tolerieren, obwohl Lesevorgänge aus dem Cache verzögert werden oder fehlschlagen, wenn ein Cache Gerät ausfällt.
 
@@ -159,7 +159,7 @@ Nein, Volumes können nicht zwischen resilienztypen konvertiert werden. Bei neue
 
 ### <a name="can-i-use-nested-resiliency-with-multiple-types-of-capacity-drives"></a>Kann ich die Sicherheit von Netzwerken mit mehreren Typen von Kapazitäts Laufwerken verwenden?
 
-Ja, geben Sie einfach die `-MediaType` der einzelnen Ebenen in [Schritt 1](#step-1-create-storage-tier-templates) an. Bei nvme, SSD und HDD im gleichen Cluster stellt der nvme z. b. einen Cache bereit, während die beiden beiden Kapazitäten Kapazität bereitstellen: Legen Sie die `NestedMirror`-Ebene auf `-MediaType SSD` und die `NestedParity`-Ebene auf `-MediaType HDD` fest. Beachten Sie in diesem Fall, dass die Kapazitäts Effizienz der Parität nur von der Anzahl von HDD-Laufwerken abhängt, und Sie benötigen mindestens 4 von Ihnen pro Server.
+Ja, geben Sie in [Schritt 1](#step-1-create-storage-tier-templates) die `-MediaType` der einzelnen Ebenen entsprechend an. Bei nvme, SSD und HDD im gleichen Cluster stellt der nvme z. b. einen Cache bereit, während die beiden beiden die Kapazität bereitstellen: Legen Sie die `NestedMirror`-Ebene auf `-MediaType SSD` und die `NestedParity`-Ebene auf `-MediaType HDD`fest. Beachten Sie in diesem Fall, dass die Kapazitäts Effizienz der Parität nur von der Anzahl von HDD-Laufwerken abhängt, und Sie benötigen mindestens 4 von Ihnen pro Server.
 
 ### <a name="can-i-use-nested-resiliency-with-3-or-more-servers"></a>Kann ich die Ausfallsicherheit mit drei oder mehr Servern verwenden?
 

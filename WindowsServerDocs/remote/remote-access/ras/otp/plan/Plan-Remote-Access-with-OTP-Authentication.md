@@ -2,22 +2,18 @@
 title: Planen des Remotezugriffs mit OTP-Authentifizierung
 description: Dieses Thema ist Teil des Handbuchs Bereitstellen des Remote Zugriffs mit OTP-Authentifizierung in Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 762bc463-eead-46ac-8b90-32355743c27c
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 1f0b030667b0b10a22b4e90d1ddff87086c04aa0
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: ddcfa2898f4b90bf724a547bb16244cfad4ab3ff
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313604"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858193"
 ---
 # <a name="plan-remote-access-with-otp-authentication"></a>Planen des Remotezugriffs mit OTP-Authentifizierung
 

@@ -1,19 +1,19 @@
 ---
 title: Erstellen eines virtuellen Linux-VM-Vorlagen Datenträgers
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: d0e1d4fb-97fc-4389-9421-c869ba532944
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 66d5f70f747a6209f2856afde58b6f486ea597f8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1a6325a5d8e931f1e62c83ba4013d94760e39f86
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386706"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856793"
 ---
 # <a name="create-a-linux-shielded-vm-template-disk"></a>Erstellen eines virtuellen Linux-VM-Vorlagen Datenträgers
 
@@ -72,7 +72,7 @@ Diese Schritte führen Sie durch die Mindestanforderungen für eine Linux-VM, di
 5.  Konfigurieren Sie mit dem Hyper-V-Manager [einen externen Switch](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) auf dem Virtualisierungsserver, damit die Linux-VM auf das Internet zugreifen kann, um Updates abzurufen.
 
 6.  Erstellen Sie als nächstes einen neuen virtuellen Computer, auf dem das Linux-Betriebssystem installiert werden soll.
-    Klicken Sie im Aktionsbereich auf **neu** > **virtueller Computer** , um den Assistenten zu beenden.
+    Klicken Sie im Aktionsbereich auf **neu** > **virtuellen Computer** , um den Assistenten zu aktivieren.
     Geben Sie einen anzeigen Amen für den virtuellen Computer an, z. b. "Pre--Vorlagen-Linux", und klicken Sie auf **weiter**.
 
 7.  Wählen Sie auf der zweiten Seite des Assistenten **Generation 2** aus, um sicherzustellen, dass die VM mit einem UEFI-basierten firmwareprofil bereitgestellt wird.
@@ -169,7 +169,7 @@ Das Zertifikat muss die folgenden Anforderungen erfüllen:
 Zertifikat Eigenschaft | Erforderlicher Wert
 ---------------------|---------------
 Schlüssel Algorithmus | RSA
-Minimale Schlüsselgröße | 2048 Bits
+Minimale Schlüsselgröße | 2\.048 Bits
 Signatur Algorithmus | SHA256 (empfohlen)
 Schlüsselverwendung | Digitale Signatur
 
@@ -187,7 +187,7 @@ New-SelfSignedCertificate -Subject "CN=Linux Shielded VM Template Disk Signing C
 ### <a name="process-the-disk-with-the-template-disk-wizard-cmdlet"></a>Verarbeiten des Datenträgers mit dem Datenträger-Assistenten-Cmdlet
 
 Kopieren Sie den Vorlagen Datenträger und das Zertifikat auf einen Computer unter Windows Server, Version 1709, und führen Sie dann die folgenden Befehle aus, um den Signatur Prozess zu initiieren
-Die vhdx-Datei, die Sie für den Parameter "`-Path`" bereitstellen, wird mit dem aktualisierten Vorlagen Datenträger überschrieben. Achten Sie daher darauf, dass Sie vor dem Ausführen des Befehls
+Die vhdx, die Sie dem `-Path`-Parameter bereitstellen, wird mit dem aktualisierten Vorlagen Datenträger überschrieben. Stellen Sie daher sicher, dass Sie vor dem Ausführen des Befehls eine Kopie erstellen
 
 > [!IMPORTANT]
 > Der Remoteserver-Verwaltungstools, der unter Windows Server 2016 oder Windows 10 verfügbar ist, kann nicht verwendet werden, um einen Linux-Vorlagen Datenträger für geschützte

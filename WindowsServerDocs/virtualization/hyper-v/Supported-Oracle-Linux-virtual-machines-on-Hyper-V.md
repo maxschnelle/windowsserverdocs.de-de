@@ -2,21 +2,19 @@
 title: Unterstützte Oracle Linux virtuellen Maschinen auf Hyper-V
 description: Listet die in jeder Version enthaltenen Linux-Integrationsdienste und-Funktionen auf.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c02fdb5b-62f3-43cb-a190-ab74b3ebcf77
 author: shirgall
 ms.author: kathydav
 ms.date: 06/01/2017
-ms.openlocfilehash: cc2a864ddb1b2bcbc972c895fbb79105107a84b8
-ms.sourcegitcommit: 9687d3eb221b89061a48bf1e73fb3b25bee69f9a
+ms.openlocfilehash: edf92689f1dbe93c387c65e64694c64635fe3958
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78169630"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858013"
 ---
 # <a name="supported-oracle-linux-virtual-machines-on-hyper-v"></a>Unterstützte Oracle Linux virtuellen Maschinen auf Hyper-V
 
@@ -42,7 +40,7 @@ In diesem Abschnitt:
 
 * **UEK rxuy** -Unbreakable Enterprise Kernel (UEK), wobei x die Releasenummer und y das vierteljährliche Update ist.
 
-## <a name="BKMK_rhc"></a>Features von Oracle Linux Releases mit dem mit red hat kompatiblen Kernel
+## <a name="features-of-oracle-linux-releases-with-the-red-hat-compatible-kernel"></a><a name="BKMK_rhc"></a>Features von Oracle Linux Releases mit dem mit red hat kompatiblen Kernel
 
 Der 32-Bit-Kernel für die 6. x-Reihe ist "PE" aktiviert. Es gibt keine integrierte LIS-Unterstützung für Oracle Linux rhck 6.0-6.3. Oracle Linux 7. x-Kernel sind nur 64 Bit.
 
@@ -85,7 +83,7 @@ Der 32-Bit-Kernel für die 6. x-Reihe ist "PE" aktiviert. Es gibt keine integrie
 | Sicherer Start                                                                                                                                  | 2019, 2016                         | &#10004;           | &#10004;            |                                                                     |                                                                     |                          |                          |                          |                           |                           |
 
 
-## <a name="BKMK_uek"></a>Oracle Linux Releases mit dem Unbreakable Enterprise Kernel (UEK)
+## <a name="oracle-linux-releases-with-the-unbreakable-enterprise-kernel-uek"></a><a name="BKMK_uek"></a>Oracle Linux Releases mit dem Unbreakable Enterprise Kernel (UEK)
 
 Oracle Linux mit dem Unbreakable Enterprise Kernel (UEK) ist nur 64 Bit und verfügt über eine integrierte LIS-Unterstützung. 
 
@@ -127,7 +125,7 @@ Oracle Linux mit dem Unbreakable Enterprise Kernel (UEK) ist nur 64 Bit und verf
 | Starten mithilfe von UEFI                                                                                                                              | 2019, 2016, 2012 R2                | &#10004;                  | &#10004;                  |                           |                           |                      |
 | Sicherer Start                                                                                                                                  | 2019, 2016                         | &#10004;                  | &#10004;                  |                           |                           |                      |
 
-## <a name="BKMK_notes"></a>Anmerkungen
+## <a name="notes"></a><a name="BKMK_notes"></a>Anmerkungen
 
 1. Für diese Oracle Linux Version funktioniert das VLAN-Tagging, aber VLAN-abkürzen nicht.
 
@@ -176,7 +174,7 @@ Oracle Linux mit dem Unbreakable Enterprise Kernel (UEK) ist nur 64 Bit und verf
 14. Die statische IP-Injektion funktioniert möglicherweise nicht, wenn der Netzwerk-Manager für einen bestimmten synthetischen Netzwerkadapter auf dem virtuellen Computer konfiguriert wurde. Stellen Sie für eine reibungslose Verwendung statischer IP-Einschleusung sicher, dass entweder der Netzwerk-Manager entweder vollständig ausgeschaltet ist oder für einen bestimmten Netzwerkadapter über seine ifcfg-ethX-Datei ausgeschaltet wurde.
 
 
-Siehe auch
+Weitere Informationen
 
 * [Set-vmfirmware](https://technet.microsoft.com/library/dn464287.aspx)
 

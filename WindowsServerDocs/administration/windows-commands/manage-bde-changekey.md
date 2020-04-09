@@ -1,24 +1,20 @@
 ---
 title: manage-bde ChangeKey
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 69463db9-7e03-47ff-b233-a95d5055725f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0fc273bc84e0bc25a7409941af6dca02b6042640
-ms.sourcegitcommit: 479ad84a0d6c7c7b8308122b8bac8308cb36fe9b
+ms.openlocfilehash: 2885723f7712ee507fb43465035513bc8c7a1b2b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80391703"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80840193"
 ---
 # <a name="manage-bde-changekey"></a>manage-bde: ChangeKey
 
@@ -32,7 +28,7 @@ ms.locfileid: "80391703"
 manage-bde -changekey [<Drive>] [<PathToExternalKeyDirectory>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -43,14 +39,14 @@ manage-bde -changekey [<Drive>] [<PathToExternalKeyDirectory>] [-computername <N
 |-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung an.|
 |-Help oder-h|Zeigt die gesamte Hilfe an der Eingabeaufforderung an.|
 
-## <a name="examples"></a><a name="BKMK_Examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
 
 Im folgenden Beispiel wird veranschaulicht, wie mit dem Befehl **-ChangeKey** ein neuer Systemstart Schlüssel auf Laufwerk E erstellt wird, der mit der BitLocker-Verschlüsselung auf Laufwerk C verwendet werden soll.
 ```
 manage-bde -changekey C: E:\
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Manage-bde](manage-bde.md)

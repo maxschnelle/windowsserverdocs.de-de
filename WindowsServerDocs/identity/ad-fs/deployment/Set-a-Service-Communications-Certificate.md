@@ -1,7 +1,6 @@
 ---
 ms.assetid: 638c89bd-87e6-484b-9d2e-8ae2a74227e5
 title: Festlegen eines Dienstkommunikationszertifikats
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: d0464853c73f88ed76545921ffc8a4bf8551c800
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6e0f9e6cca4fe915d3faed77fd5b5db543596d70
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408323"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855303"
 ---
 # <a name="set-a-service-communications-certificate"></a>Festlegen eines Dienstkommunikationszertifikats
 
@@ -30,7 +29,7 @@ Mithilfe des folgenden Verfahrens können Sie das Dienst Kommunikations Zertifik
 > [!NOTE]  
 > Der AD FS-Verwaltungs-Snap\-in bezieht sich auf Server Authentifizierungs Zertifikate für Verbund Server als Dienst Kommunikations Zertifikate.  
 
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.Microsoft.com\/\/. LinkId\=83477\).   
+Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe **Administratoren** oder eine gleichwertige Berechtigung auf dem lokalen Computer erforderlich.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477) \(http:\/\/go.Microsoft.com\/\/. LinkId\=83477\).   
 
 ### <a name="to-set-a-service-communications-certificate"></a>So legen Sie ein Dienst Kommunikations Zertifikat fest  
 

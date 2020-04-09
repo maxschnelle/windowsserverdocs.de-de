@@ -1,24 +1,20 @@
 ---
 title: mountvol
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fea8ad4d-f04a-4aaa-a3e5-75931e867b39
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a3de8e5744c50acff3fdad0c7cf1dabf14fb144
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 34a98a273274f7982bfdd970710c04178fed4f5a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373579"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80839383"
 ---
 # <a name="mountvol"></a>mountvol
 
@@ -40,12 +36,12 @@ mountvol [/n | /e]
 mountvol <Drive>: /s
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[\<laufwerk >:] <Path>|Gibt das vorhandene NTFS-Verzeichnis an, in dem sich der Einstellungspunkt befinden soll.|
-|\<volumename >|Gibt den Volumenamen an, der das Ziel des Bereitstellungs Punkts ist. Der Volumename verwendet die folgende Syntax, wobei *GUID* eine Globally Unique Identifier ist:</br>`\\\\?\Volume\{GUID}\`</br>Die Klammern "{}" sind erforderlich.|
+|[\<Laufwerk >:]<Path>|Gibt das vorhandene NTFS-Verzeichnis an, in dem sich der Einstellungspunkt befinden soll.|
+|\<Volumename >|Gibt den Volumenamen an, der das Ziel des Bereitstellungs Punkts ist. Der Volumename verwendet die folgende Syntax, wobei *GUID* eine Globally Unique Identifier ist:</br>`\\\\?\Volume\{GUID}\`</br>Die Klammern "{}" sind erforderlich.|
 |/d|Entfernt den volumeeinstellungspunkt aus dem angegebenen Ordner.|
 |/l|Listet den Namen des bereitgestellten Volumes für den angegebenen Ordner auf.|
 |/p|Der Volumebereitstellungspunkt wird aus dem angegebenen Verzeichnis entfernt, die Bereitstellung des Basis Volumes wird aufgehoben, und das Basis Volume wird offline geschaltet. Wenn das Volume von anderen Prozessen verwendet wird, schließt **mountvol** alle geöffneten Handles, bevor das Volume getrennt wird.|
@@ -58,16 +54,16 @@ mountvol <Drive>: /s
 ## <a name="remarks"></a>Hinweise
 
 -   Mithilfe von **mountvol** können Sie Volumes verknüpfen, ohne einen Laufwerk Buchstaben zu benötigen.
--   Volumes, die mit **/p** disbereit gestellt werden, werden in der Liste der Volumes als "nicht bereitgestellt, bis ein Volume-Einfügepunkt erstellt wurde" aufgeführt. Wenn das Volume über mehrere Einfügepunkte verfügt, verwenden Sie **/d** , um die zusätzlichen Einfügepunkte vor der Verwendung von **/p**zu entfernen. Sie können das Basisvolume erneut einbinden, indem Sie einen Volumebereitstellungspunkt zuweisen.
+-   Volumes, die mit **/p** disbereit gestellt werden, werden in der Liste Volumes als nicht bereitgestellt aufgeführt, bis ein volumeeinstellungspunkt erstellt wurde. Wenn das Volume über mehrere Einfügepunkte verfügt, verwenden Sie **/d** , um die zusätzlichen Einfügepunkte vor der Verwendung von **/p**zu entfernen. Sie können das Basisvolume erneut einbinden, indem Sie einen Volumebereitstellungspunkt zuweisen.
 -   Wenn Sie den volumespeicherplatz erweitern müssen, ohne eine Festplatte neu zu formatieren oder zu ersetzen, können Sie einen Einfügungs Pfad einem anderen Volume hinzufügen. Der Vorteil der Verwendung eines Volumes mit mehreren einstellungenpfaden besteht darin, dass Sie mit einem einzelnen Laufwerk Buchstaben (z. b. `C:`) auf alle lokalen Volumes zugreifen können. Sie müssen nicht merken, welches Volume welchem Laufwerk Buchstaben entspricht – obwohl Sie trotzdem lokale Volumes einbinden und Ihnen Laufwerk Buchstaben zuweisen können.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Geben Sie zum Erstellen eines Einfügepunkts Folgendes ein:
 ```
 mountvol \sysmount \\?\Volume\{2eca078d-5cbc-43d3-aff8-7e8511f60d0e}\
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

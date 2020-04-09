@@ -1,41 +1,38 @@
 ---
 title: tsdiscon
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für "zdiscon", das eine Sitzung von einem Remote Desktop-Sitzungs Host Server trennt.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 13139674-7dee-4965-8cac-32f4928e8b9a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 577ff8ee672583b85c907642bd21256124aa8034
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b008fa920290043b64e7421e91a545123634f1e7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369868"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80832513"
 ---
 # <a name="tsdiscon"></a>tsdiscon
 
 >Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Trennt eine Sitzung von einem Remotedesktop-Sitzungshost Server (RD-Sitzungs Host).
-Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+Trennt eine Sitzung von einem Remotedesktop-Sitzungshost Server.
+
+Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
+> In Windows Server 2008 R2 wurde „Terminaldienste“ umbenannt in „Remotedesktopdienste“. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
 
 ## <a name="syntax"></a>Syntax
 ```
 tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |-------|--------|
@@ -52,7 +49,7 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
 -   Der **/Server** -Parameter ist nur erforderlich, wenn Sie "out" von einem Remote **Server verwenden.**
 -   Die Verbindung mit der Konsolen Sitzung kann nicht getrennt werden.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 - Geben Sie zum Trennen der aktuellen Sitzung Folgendes ein:
   ```
   tsdiscon
@@ -65,6 +62,6 @@ tsdiscon [<SessionID> | <SessionName>] [/server:<ServerName>] [/v]
   ```
   tsdiscon TERM04
   ```
-  #### <a name="additional-references"></a>Weitere Verweise
-  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-  [Remotedesktopdienste &#40;Terminal Dienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+  ## <a name="additional-references"></a>Weitere Verweise
+  - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+  [Remotedesktopdienste Befehlsreferenz (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)

@@ -2,20 +2,19 @@
 title: Windows 10 muss mit der empfohlenen Menge an Arbeitsspeicher konfiguriert werden.
 description: Enthält Anweisungen zum Beheben des Problems, das von dieser Best Practices Analyzer Regel gemeldet wird.
 ms.prod: windows-server
-ms.service: na
 manager: dongill
 ms.technology: compute-hyper-v
 ms.author: kathydav
 ms.topic: article
 ms.assetid: 0c810b82-b06a-4382-b598-5c642e8534be
-author: KBDAzure
+author: kbdazure
 ms.date: 8/16/2016
-ms.openlocfilehash: a2722f9ecdfbab037de67ef77af7cec2eed4f0b9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5e38ca9d00ad502fc2ae3f2784a9e3f1a159d13a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71364566"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854983"
 ---
 # <a name="windows-10-should-be-configured-with-the-recommended-amount-of-memory"></a>Windows 10 muss mit der empfohlenen Menge an Arbeitsspeicher konfiguriert werden.
 
@@ -36,11 +35,11 @@ Die folgenden Abschnitte enthalten Details zu dem jeweiligen Problem. Kursiv For
 *Ein virtueller Computer, auf dem Windows 10 ausgeführt wird, ist weniger als die empfohlene RAM-Größe (1 GB).*  
   
 ## <a name="impact"></a>**Auswirkt**  
-*Das Gast Betriebssystem und Anwendungen funktionieren möglicherweise nicht gut. Möglicherweise ist nicht genügend Arbeitsspeicher vorhanden, um mehrere Anwendungen gleichzeitig auszuführen. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
+*Das Gast Betriebssystem und die Anwendungen funktionieren möglicherweise nicht gut. Möglicherweise ist nicht genügend Arbeitsspeicher vorhanden, um mehrere Anwendungen gleichzeitig auszuführen. Dies wirkt sich auf die folgenden virtuellen Computer aus:*  
 ```  
 <list of virtual machines>  
 ```  
-## <a name="resolution"></a>**Auflösung**  
+## <a name="resolution"></a>**Lösung**  
 *Verwenden Sie den Hyper-V-Manager, um den Arbeitsspeicher, der diesem virtuellen Computer zugeordnet ist, auf mindestens 1 GB zu erhöhen.*  
   
 #### <a name="increase-the-memory-using-hyper-v-manager"></a>Vergrößern des Arbeitsspeichers mit dem Hyper-V-Manager  
@@ -61,13 +60,13 @@ Die folgenden Abschnitte enthalten Details zu dem jeweiligen Problem. Kursiv For
   
 2.  Klicken Sie mit der rechten Maustaste auf **Windows PowerShell** und dann auf **als Administrator ausführen**.  
   
-3.  Führen Sie den folgenden Befehl aus, nachdem Sie \<myvm > durch den Namen des virtuellen Computers ersetzt haben:  
+3.  Führen Sie den folgenden Befehl aus, nachdem Sie \<MyVM > durch den Namen des virtuellen Computers ersetzt haben:  
   
 ```  
 Set-VMMemory <MyVM> -StartupBytes 1GB  
 ```  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Set-vmmemory](https://technet.microsoft.com/library/hh848572.aspx)  
   
 

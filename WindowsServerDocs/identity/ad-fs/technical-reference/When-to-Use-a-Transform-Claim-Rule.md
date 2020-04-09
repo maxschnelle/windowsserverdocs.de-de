@@ -1,7 +1,6 @@
 ---
 ms.assetid: 77aa61bf-9c04-4889-a5d2-6f45bc1b8bd2
 title: Wann sollten Sie eine Transformationsanspruchsregel verwenden?
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b7cdf68783db1b6b775209e4e42dc6b6ccf0e1b8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2b69156d1e2825f4287112735493ebc5cc8469d2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385420"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853783"
 ---
 # <a name="when-to-use-a-transform-claim-rule"></a>Wann sollten Sie eine Transformationsanspruchsregel verwenden?
 Sie können diese Regel in Active Directory-Verbunddienste (AD FS) \(AD FS\) verwenden, wenn Sie einem ausgehenden Anspruchstyp einen eingehenden Anspruchstyp zuordnen und dann eine Aktion anwenden, die bestimmt, welche Ausgabe basierend auf den Werten, die aus dem eingehenden Anspruch stammen, ausgelöst werden soll. Wenn Sie diese Regel verwenden, leiten Sie Ansprüche weiter bzw. transformieren Sie Ansprüche, die der folgenden Regellogik entsprechen. Dies geschieht auf Basis der Optionen, die Sie in der Regel konfigurieren, wie in der folgenden Tabelle beschrieben.  
@@ -40,7 +39,7 @@ Eine Anspruchs Regel stellt eine Instanz der Geschäftslogik dar, die einen eing
   
 Ausführlichere Informationen zu Anspruchs Regeln und Anspruchs Regelsätzen finden Sie [unter Rolle der Anspruchs Regeln](The-Role-of-Claim-Rules.md). Weitere Informationen zur Verarbeitung von Regeln finden Sie [unter The Role of the Claims Engine](The-Role-of-the-Claims-Engine.md). Weitere Informationen zur Verarbeitung von Anspruchs Regelsätzen finden Sie [unter der Rolle der Anspruchs Pipeline](The-Role-of-the-Claims-Pipeline.md).  
   
-## <a name="pass-through-all-claim-values"></a>Alle Anspruchswerte weiterleiten  
+## <a name="pass-through-all-claim-values"></a>Alle Anspruchswerte zulassen  
 Wenn Sie diese Aktion verwenden, werden alle eingehenden Anspruchswerte, die auf einen angegebenen eingehenden Anspruchstyp abgestimmt sind, einem angegebenen ausgehenden Anspruchstyp zugeordnet, bevor sie als ausgehende Ansprüche in Tokens gesendet werden, die durch den Verbunddienst signiert sind.  
   
 Wenn eine Regel z. B. mit der Optionslogik **Alle Anspruchswerte weiterleiten** festgelegt und der eingehende Anspruchstyp "Gruppe" und der ausgehende Anspruchstyp "Rolle" angegeben ist, werden alle eingehenden Anspruchswerte, die vom Aussteller einfließen, einzeln mit dem Anspruchstyp "Rolle" in neue ausgehende Ansprüche kopiert.  
@@ -67,7 +66,7 @@ Sie erstellen diese Regel entweder mithilfe der Anspruchs Regel Sprache oder mit
   
 -   Transformieren eines bestimmten eingehenden Anspruchstyps in einen bestimmten ausgehenden Anspruchstyp  
   
--   Alle Anspruchswerte weiterleiten  
+-   Alle Anspruchswerte zulassen  
   
 -   Ersetzen Sie einen eingehenden Anspruchswert durch einen anderen ausgehenden Anspruchswert  
   
@@ -76,13 +75,13 @@ Sie erstellen diese Regel entweder mithilfe der Anspruchs Regel Sprache oder mit
 Weitere Anweisungen zum Erstellen dieser Vorlage finden Sie unter [Erstellen einer Regel zum Transformieren eines eingehenden Anspruchs](https://technet.microsoft.com/library/dd807068.aspx) im AD FS Bereitstellungs Handbuch.  
   
 ## <a name="using-the-claim-rule-language"></a>Verwenden der Anspruchsregelsprache  
-Wenn der ausgehende Anspruch aus dem Inhalt mehrerer eingehender Ansprüche erstellt werden muss, müssen Sie stattdessen eine benutzerdefinierte Regel verwenden. Wenn der Anspruchswert des ausgehenden Anspruchs auf dem Wert des eingehenden Anspruchs basieren muss – jedoch mit zusätzlichem Inhalt – müssen Sie auch in diesem Kontext eine benutzerdefinierte Regel verwenden. Weitere Informationen finden Sie unter [verwenden Sie eine benutzerdefinierte Anspruchsregel](When-to-Use-a-Custom-Claim-Rule.md).  
+Wenn der ausgehende Anspruch aus dem Inhalt mehrerer eingehender Ansprüche erstellt werden muss, müssen Sie stattdessen eine benutzerdefinierte Regel verwenden. Wenn der Anspruchswert des ausgehenden Anspruchs auf dem Wert des eingehenden Anspruchs basieren muss – jedoch mit zusätzlichem Inhalt – müssen Sie auch in diesem Kontext eine benutzerdefinierte Regel verwenden. Weitere Informationen finden Sie unter [When to Use a Custom Claim Rule](When-to-Use-a-Custom-Claim-Rule.md).  
   
 ### <a name="examples-of-how-to-construct-a-transform-rule-syntax"></a>Beispiele zum Erstellen einer Transformationsregelsyntax  
-Bei Verwendung der Anspruchsregel-Sprachsyntax zum Transformieren von Ansprüchen können Sie für eine Eigenschaft des transformierten Anspruchs einen neuen literalen Wert festlegen. Beispielsweise ändert die folgende Regel unter Beibehaltung des Anspruchstyps den Wert der Rollenansprüche von "Administrators" in "Root":  
+Bei Verwendung der Anspruchsregel-Sprachsyntax zum Transformieren von Ansprüchen können Sie für eine Eigenschaft des transformierten Anspruchs einen neuen literalen Wert festlegen. Beispielsweise wird durch die folgende Regel der Wert von Rollen Ansprüchen von "Administratoren" in "root" geändert, während derselbe Anspruchstyp beibehalten wird:  
   
 ```  
-c:[type == “https://schemas.microsoft.com/ws/2008/06/identity/claims/role”, value == “Administrators”]  => issue(type = c.type, value = “root”);  
+c:[type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/role", value == "Administrators"]  => issue(type = c.type, value = "root");  
 ```  
   
 Reguläre Ausdrücke können auch für Anspruchstransformationen verwendet werden. Mit der folgenden Regel wird z. b. die Domäne in Windows-Benutzernamen Ansprüchen in Domänen\\Benutzer Format auf Fabrikam festgelegt:  
@@ -97,7 +96,7 @@ Anspruchstransformationen können mithilfe grundlegender Filterfunktionen selekt
 |Anspruchseigenschaft|Beschreibung|  
 |------------------|---------------|  
 |Type, Value, ValueType|Diese Eigenschaften werden am häufigsten für Zuweisungen verwendet. Für den resultierenden transformierten Anspruch müssen zumindest Typ und Wert angegeben werden.|  
-|Aussteller|Die Anspruchsregelsprache erlaubt zwar, den Aussteller eines Anspruchs festzulegen, jedoch wird dies im Allgemeinen nicht empfohlen. Der Aussteller eines Anspruchs ist im Token nicht serialisiert. Beim Empfang eines Tokens wird die Eigenschaft "Issuer" aller Ansprüche auf den Bezeichner des Verbundservers festgelegt, der das Token signiert hat. Folglich hat das Festlegen des Ausstellers eines Anspruchs in den Regeln keinen Einfluss auf den Inhalt des Tokens, und die Einstellung geht verloren, sobald der Anspruch in einem Token verpackt wird. Das einzige Szenario, in dem das Festlegen des Ausstellers eines Anspruchs sinnvoll ist, liegt vor, wenn er im Anspruchsanbieter-Regelsatz auf einen bestimmten Wert gesetzt ist, und der Regelsatz der vertrauenden Seite mit Regeln erstellt ist, die auf diesen bestimmten Wert verweisen. Wenn die Eigenschaft "Issuer" nicht explizit auf einen Wert in einer Anspruchsregel festgelegt ist, setzt das Anspruchsausstellungsmodul sie auf "LOCAL AUTHORITY".|  
+|Aussteller|Die Anspruchsregelsprache erlaubt zwar, den Aussteller eines Anspruchs festzulegen, jedoch wird dies im Allgemeinen nicht empfohlen. Der Aussteller eines Anspruchs ist im Token nicht serialisiert. Beim Empfang eines Tokens wird die Eigenschaft "Issuer" aller Ansprüche auf den Bezeichner des Verbundservers festgelegt, der das Token signiert hat. Folglich hat das Festlegen des Ausstellers eines Anspruchs in den Regeln keinen Einfluss auf den Inhalt des Tokens, und die Einstellung geht verloren, sobald der Anspruch in einem Token verpackt wird. Das einzige Szenario, in dem das Festlegen des Ausstellers eines Anspruchs sinnvoll ist, liegt vor, wenn er im Anspruchsanbieter-Regelsatz auf einen bestimmten Wert gesetzt ist, und der Regelsatz der vertrauenden Seite mit Regeln erstellt ist, die auf diesen bestimmten Wert verweisen. Wenn die Aussteller Eigenschaft nicht explizit auf einen Wert in einer Anspruchs Regel festgelegt ist, legt die Anspruchs Ausstellungs-Engine diese auf "Local Authority" fest.|  
 |OriginalIssuer|Genau wie "Issuer" sollte "OriginalIssuer" im Allgemeinen nicht explizit ein Wert zugewiesen werden. Im Gegensatz zu "Issuer" wird die Eigenschaft "OriginalIssuer" im Token serialisiert, aber Tokennutzer gehen davon aus, dass sie, sofern festgelegt, den Bezeichner des Verbundservers enthält, der ursprünglich einen Anspruch ausgestellt hat.|  
 |Eigenschaften|Wie im vorherigen Abschnitt beschrieben, wird die Eigenschaftensammlung eines Anspruchs im Token nicht beibehalten, sodass Zuweisungen zu Eigenschaften nur erfolgen sollten, wenn die nachfolgenden lokalen Richtlinien auf die in der Eigenschaft gespeicherten Informationen verweisen.|  
   

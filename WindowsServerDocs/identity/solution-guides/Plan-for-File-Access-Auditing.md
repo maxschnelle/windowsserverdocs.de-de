@@ -1,7 +1,6 @@
 ---
 ms.assetid: 3ea48a72-20a2-4da4-84e4-26b5728513ce
 title: Planen der Dateizugriffsüberwachung
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 25d6e1c3dd3ab0d10f04cef3e88a7671957b51db
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ffe8843f9ace604bc0904ba2d1eaef78d2872b99
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407087"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861163"
 ---
 # <a name="plan-for-file-access-auditing"></a>Planen der Dateizugriffsüberwachung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Die Informationen in diesem Thema erläutern die Sicherheits Überwachungs Erweiterungen, die in Windows Server 2012 eingeführt wurden, und neue Überwachungs Einstellungen, die Sie beim Bereitstellen dynamischer Access Control in Ihrem Unternehmen berücksichtigen sollten. Welche Überprüfungsrichtlinieneinstellungen Sie letztlich bereitstellen, hängt von Ihren Zielen ab. Dazu können die Überprüfung der Einhaltung rechtlicher Bestimmungen, die Überwachung, die forensische Analyse und die Problembehandlung gehören.  
   

@@ -1,19 +1,19 @@
 ---
 title: Erstellen einer Antwortdatei für die BS-Spezialisierung
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: 299aa38e-28d2-4cbe-af16-5b8c533eba1f
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 4920f9a90bd0190d390a9d35b3d265023d69efac
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: be099a234b7e2e73375d23b19161e59876f71d61
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386504"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856503"
 ---
 # <a name="create-os-specialization-answer-file"></a>Erstellen einer Antwortdatei für die BS-Spezialisierung
 
@@ -31,9 +31,9 @@ Sie können die Funktion **New-shieldingdatabeantworsdatei** aus dem [PowerShell
 Install-Module GuardedFabricTools -Repository PSGallery -MinimumVersion 1.0.0
 ```
 
-Die `unattend.xml`-Ausgabe kann zusammen mit zusätzlichen Artefakten in die Schutz Daten gepackt werden, damit Sie zum Erstellen von abgeschirmten VMS aus Vorlagen verwendet werden kann.
+Die `unattend.xml` Ausgabe kann zusammen mit zusätzlichen Artefakten in die Schutz Daten gepackt werden, damit Sie zum Erstellen von abgeschirmten VMS aus Vorlagen verwendet werden kann.
 
-In den folgenden Abschnitten wird gezeigt, wie Sie die Funktionsparameter für eine `unattend.xml`-Datei mit verschiedenen Optionen verwenden können:
+In den folgenden Abschnitten wird gezeigt, wie Sie die Funktionsparameter für eine `unattend.xml` Datei mit verschiedenen Optionen verwenden können:
 
 - [Grundlegende Windows-Antwortdatei](#basic-windows-answer-file)
 - [Windows-Antwortdatei mit Domänen Beitritt](#windows-answer-file-with-domain-join)
@@ -76,7 +76,7 @@ New-ShieldingDataAnswerFile -Path '.\ShieldedVMAnswerFile.xml' -AdminCredentials
 
 Die folgenden Befehle erstellen eine Windows-Antwortdatei, die statische IP-Adressen verwendet, die während der Bereitstellung vom Fabric-Manager bereitgestellt werden, z. b. System Center Virtual Machine Manager
 
-Virtual Machine Manager stellt mithilfe eines IP-Pools drei Komponenten für die statische IP-Adresse bereit: IPv4-Adresse, IPv6-Adresse, Gatewayadresse und DNS-Adresse. Wenn Sie möchten, dass zusätzliche Felder eingeschlossen werden oder eine benutzerdefinierte Netzwerkkonfiguration erforderlich ist, müssen Sie die vom Skript erstellte Antwortdatei manuell bearbeiten.
+Virtual Machine Manager stellt der statischen IP-Adresse drei Komponenten mithilfe eines IP-Pools bereit: IPv4-Adresse, IPv6-Adresse, Gatewayadresse und DNS-Adresse. Wenn Sie möchten, dass zusätzliche Felder eingeschlossen werden oder eine benutzerdefinierte Netzwerkkonfiguration erforderlich ist, müssen Sie die vom Skript erstellte Antwortdatei manuell bearbeiten.
 
 Die folgenden Screenshots zeigen die IP-Adress Pools, die Sie in Virtual Machine Manager konfigurieren können. Diese Pools sind erforderlich, wenn Sie statische IP-Adressen verwenden möchten.
 
@@ -92,7 +92,7 @@ Sie müssen Ihren Netzwerkadapter für den virtuellen Computer konfigurieren. De
 
 ![Konfigurieren der Hardware zur Verwendung statischer IP-Adressen](../media/Guarded-Fabric-Shielded-VM/guarded-host-unattend-static-ip-address-pool-network-adapter-settings.png)
 
-Anschließend können Sie den `-StaticIPPool`-Parameter verwenden, um die statischen IP-Elemente in die Antwortdatei einzuschließen. Die Parameter `@IPAddr-1@`, `@NextHop-1-1@` und `@DNSAddr-1-1@` in der Antwortdatei werden dann durch die tatsächlichen Werte ersetzt, die Sie zum Zeitpunkt der Bereitstellung in Virtual Machine Manager angegeben haben.
+Anschließend können Sie den `-StaticIPPool`-Parameter verwenden, um die statischen IP-Elemente in die Antwortdatei einzuschließen. Die Parameter `@IPAddr-1@`, `@NextHop-1-1@`und `@DNSAddr-1-1@` in der Antwortdatei werden dann durch die tatsächlichen Werte ersetzt, die Sie zum Zeitpunkt der Bereitstellung in Virtual Machine Manager angegeben haben.
 
 ```powershell
 $adminCred = Get-Credential -Message "Local administrator account"

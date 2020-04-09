@@ -1,19 +1,18 @@
 ---
-title: Problembehandlung bei DNS-Servern
+title: DNS-Server
 description: In diesem Artikel wird beschrieben, wie Sie DNS-Probleme auf Serverseite beheben.
 manager: dcscontentpm
-ms.prod: ''
 ms.technology: networking-dns
 ms.topic: article
 ms.author: delhan
 ms.date: 8/8/2019
 author: Deland-Han
-ms.openlocfilehash: 23e51adafa5ab6da0a9317a1b0fad88bd3901073
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 4413c60072c43b623f386d5037e3da7ed5dc128d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265802"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861323"
 ---
 # <a name="troubleshooting-dns-servers"></a>DNS-Server
 
@@ -30,7 +29,7 @@ In diesem Artikel wird erläutert, wie Sie Probleme auf DNS-Servern beheben.
    ```cmd
    nslookup <name> <IP address of the DNS server>
    ```
-   Zum Beispiel: 
+   Beispiel: 
    ```cmd
    nslookup app1 10.0.0.1
    ```
@@ -129,7 +128,7 @@ Wenn dieser Server Abfragen an einen anderen Server weiterleitet, überprüfen S
 
 Wenn der Server fehlerfrei ist und Abfragen weiterleiten kann, wiederholen Sie diesen Schritt, und überprüfen Sie den Server, an den dieser Server Abfragen weiterleitet.
 
-Wenn von diesem Server keine Abfragen an einen anderen Server weiterleiten werden, testen Sie, ob dieser Server einen Stamm Server Abfragen kann. Geben Sie zu diesem Zweck folgenden Befehl ein:
+Wenn von diesem Server keine Abfragen an einen anderen Server weiterleiten werden, testen Sie, ob dieser Server einen Stamm Server Abfragen kann. Führen Sie hierzu den folgenden Befehl aus:
 
 ```cmd
 nslookup

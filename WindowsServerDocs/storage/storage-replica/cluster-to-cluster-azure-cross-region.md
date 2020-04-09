@@ -1,7 +1,6 @@
 ---
 title: Cluster-zu-Cluster Storage Replica cross-Bereich in Azure
 description: Regions übergreifender Cluster-zu-Cluster-Speicher Replikation in Azure
-keywords: Speicher Replikat, Server-Manager, Windows Server, Azure, Cluster, Regions übergreifend, unterschiedliche Regionen
 author: arduppal
 ms.author: arduppal
 ms.date: 12/19/2018
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: storage-replica
 manager: mchad
-ms.openlocfilehash: 806857d5de067c0f4640344ed80338b474dd758e
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: ee4f508cf0a65b59c3253d6865c649cc9652c569
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950062"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856303"
 ---
 # <a name="cluster-to-cluster-storage-replica-cross-region-in-azure"></a>Cluster-zu-Cluster Storage Replica cross-Bereich in Azure
 
@@ -38,7 +37,7 @@ Sehen Sie sich das Video unten an, um eine umfassende Exemplarische Vorgehenswei
     - Verfügbarkeits Gruppe (**az2azAS1**) in (**SR-AZ2AZ**)
     - Verfügbarkeits Gruppe (**azcross-as**) in (**SR-azcross**)
 
-3. Erstellen zweier virtueller Netzwerke
+3. Erstellen von zwei virtuellen Netzwerken
    - Erstellen Sie das [virtuelle Netzwerk](https://ms.portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) (**az2az-vnet**) in der ersten Ressourcengruppe (**SR-az2az**) mit einem Subnetz und einem gatewaysubnetz.
    - Erstellen Sie das [virtuelle Netzwerk](https://ms.portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) (**azcross-vnet**) in der zweiten Ressourcengruppe (**SR-azcross**) mit einem Subnetz und einem gatewaysubnetz.
 
@@ -135,7 +134,7 @@ Sehen Sie sich das Video unten an, um eine umfassende Exemplarische Vorgehenswei
      $IPResourceName = "Cluster IP Address" # IP Address cluster resource name.
      $ILBIP = "10.3.0.100" # IP Address in Internal Load Balancer (ILB) - The static IP address for the load balancer configured in the Azure portal.
      [int]$ProbePort = 59999
-     Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";”ProbeFailureThreshold”=5;"EnableDhcp"=0}  
+     Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"ProbeFailureThreshold"=5;"EnableDhcp"=0}  
     ```
 
 12. Führen Sie den folgenden Befehl von einem beliebigen Knoten aus **azcross1**/**azcross2**
@@ -144,7 +143,7 @@ Sehen Sie sich das Video unten an, um eine umfassende Exemplarische Vorgehenswei
      $IPResourceName = "Cluster IP Address" # IP Address cluster resource name.
      $ILBIP = "10.0.0.10" # IP Address in Internal Load Balancer (ILB) - The static IP address for the load balancer configured in the Azure portal.
      [int]$ProbePort = 59999
-     Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";”ProbeFailureThreshold”=5;"EnableDhcp"=0}  
+     Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"ProbeFailureThreshold"=5;"EnableDhcp"=0}  
     ```
 
     Stellen Sie sicher, dass beide Cluster eine Verbindung herstellen und miteinander kommunizieren können.
@@ -190,7 +189,7 @@ Sehen Sie sich das Video unten an, um eine umfassende Exemplarische Vorgehenswei
       - Volumespeicherort:-c:\clusterstorage\datadiskcross
       - Protokoll Speicherort:-g:
 
-Führen Sie den Befehl aus:
+Führen Sie den folgenden Befehl aus:
 
 ```powershell
 PowerShell

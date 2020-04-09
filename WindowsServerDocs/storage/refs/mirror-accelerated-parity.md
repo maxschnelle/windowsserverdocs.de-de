@@ -2,18 +2,18 @@
 title: Durch Spiegelung beschleunigte Parität
 ms.prod: windows-server
 ms.author: gawatu
-ms.manager: masriniv
+manager: masriniv
 ms.technology: storage-file-systems
 ms.topic: article
 author: gawatu
 ms.date: 10/17/2018
 ms.assetid: ''
-ms.openlocfilehash: 2721f1c744c5c03d8e4bce0508fd23fa5237f95f
-ms.sourcegitcommit: 9a6a692a7b2a93f52bb9e2de549753e81d758d28
+ms.openlocfilehash: 752073e4f12db3b994261a70a9306d45b9a00d77
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72591097"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861513"
 ---
 # <a name="mirror-accelerated-parity"></a>Durch Spiegelung beschleunigte Parität
 
@@ -53,17 +53,17 @@ Wenn Daten von der Spiegelung auf die Parität verschoben werden, werden die Dat
 
     - **1a.** wenn der eingehende Schreibvorgang vorhandene Daten in der Spiegelung ändert, ändert ReFS die vorhandenen Daten.
     - **1B.** Wenn der eingehende Schreibvorgang ein neuer Schreibvorgang ist und ReFS erfolgreich genügend freien Speicherplatz in der Spiegelung für den Schreibvorgang findet, schreibt schreibt ReFS auf die Spiegelung.
-    ![Write-zu-Spiegelung ](media/mirror-accelerated-parity/Write-to-Mirror.png)
+    ![Schreib-zu-Spiegelung](media/mirror-accelerated-parity/Write-to-Mirror.png)
 
 2. **Schreibvorgänge in Spiegelung, neu zugeordnet aus Parität:**
 
     Wenn der eingehende Schreibvorgang Daten ändert, die gleichwertig sind, und Refs den freien Speicherplatz in der Spiegelung erfolgreich finden kann, um den eingehenden Schreibvorgang zu verarbeiten, werden die vorherigen Daten von refs zunächst in der Parität ungültig und anschließend in die Spiegelung geschrieben. Diese Ungültigkeit ist ein schneller und kostengünstiger Metadatenvorgang, der nennenswerten dazu beiträgt, die Leistung der Schreibvorgänge für die Parität zu verbessern.
-    ![Reallocated-Schreib ](media/mirror-accelerated-parity/Reallocated-Write.png)
+    ![erneut zugeordneter Schreib](media/mirror-accelerated-parity/Reallocated-Write.png)
 
 3. **Schreibvorgänge in Parität:**
     
     Wenn ReFS nicht genügend freien Speicherplatz in der Spiegelung finden kann, schreibt ReFS neue Daten auf die Parität oder ändert direkt vorhandene Daten in der Parität. Der Abschnitt "Leistungsoptimierungen" enthält Richtlinien, die die Schreibvorgänge auf die Parität minimieren.
-    ![Write-zu-Parität-](media/mirror-accelerated-parity/Write-to-Parity.png)
+    ![Schreib-zu-Parität-](media/mirror-accelerated-parity/Write-to-Parity.png)
 
 **Lesevorgänge:** ReFS liest direkt aus der Ebene der relevanten Daten. Wenn die Parität mit HDDs erstellt wird, wird der Cache in den direkten Speicherplätzen diese Daten zur Beschleunigung zukünftiger Lesevorgänge zwischenspeichern. 
 
@@ -153,7 +153,7 @@ Das folgende PowerShell-Cmdlet erstellt ein durch Spiegelung beschleunigtes Pari
 New-Volume – FriendlyName “TestVolume” -FileSystem CSVFS_ReFS -StoragePoolFriendlyName “StoragePoolName” -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes 200GB, 800GB
 ```
 
-## <a name="see-also"></a>Weitere Informationen:
+## <a name="see-also"></a>Siehe auch
 
 -   [Übersicht über Refs](refs-overview.md)
 -   [Neuklonen von refs-Blöcken](block-cloning.md)

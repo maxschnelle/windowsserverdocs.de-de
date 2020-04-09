@@ -1,7 +1,6 @@
 ---
 ms.assetid: 81c55015-82e5-4ba1-b15e-cc7b49af28fc
 title: Szenario implementieren der Aufbewahrung von Informationen auf Dateiservern
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,20 +8,20 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: b6df28987e9e6d2fa1382b00e9403f2d112fc226
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2f6b55d8a98a0f4fb0c286e16d752a18e61dce1a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406982"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861103"
 ---
 # <a name="scenario-implement-retention-of-information-on-file-servers"></a>Szenario: Implementieren der Aufbewahrung von Informationen auf Dateiservern
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Aufbewahrungsdauer bezeichnet den Zeitraum, den ein Dokument aufbewahrt werden sollte, bevor es als abgelaufen gilt. Die Aufbewahrungsdauer kann sich je nach Organisation unterscheiden. Sie können Dateien in einem Ordner nach kurzer, mittlerer oder langer Aufbewahrungsdauer klassifizieren und anschließend einen Zeitraum für jede Dauer zuweisen. Sie können eine Datei unbegrenzt aufbewahren, in dem sie ihr eine rechtliche Aufbewahrungspflicht zuweisen.  
   
-## <a name="BKMK_OVER"></a>Szenariobeschreibung  
+## <a name="scenario-description"></a><a name="BKMK_OVER"></a>Szenariobeschreibung  
 Die Dateiklassifizierungsinfrastruktur und der Ressourcen-Manager für Dateiserver verwenden Dateiverwaltungsaufgaben und die Dateiklassifizierung, um eine Aufbewahrungsdauer auf einen Satz von Dateien anzuwenden. Sie können einem Ordner eine Aufbewahrungsdauer zuweisen und anschließend eine Dateiverwaltungsaufgabe verwenden, um die Dauer einer zugewiesenen Aufbewahrungsdauer zu konfigurieren. Wenn das Ablaufen der Dateien im Ordner bevorsteht, erhält der Besitzer der Dateien eine E-Mail-Benachrichtigung. Sie können einer Datei auch eine rechtliche Aufbewahrungspflicht zuweisen, damit die Dateiverwaltungsaufgabe das Ablaufen der Datei verhindert.  
   
 Sie können Informationen für das Konfigurieren der Aufbewahrungsdauer in [Planen der Aufbewahrung von Informationen auf Dateiservern](assetId:///edf13190-7077-455a-ac01-f534064a9e0c) finden.  
@@ -35,9 +34,9 @@ Schritte zum klassifizierens von Dateien für die gesetzliche Aufbewahrung und z
 ## <a name="in-this-scenario"></a>Inhalt dieses Szenarios  
 Dieses Szenario ist ein Bestandteil des Szenarios für die dynamische Zugriffssteuerung. Weitere Informationen zur dynamischen Zugriffssteuerung finden Sie unter:  
   
--   [Dynamische Zugriffsteuerung: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
+-   [Dynamisches Access Control: Szenarioübersicht](Dynamic-Access-Control--Scenario-Overview.md)  
   
-## <a name="BKMK_NEW"></a>In diesem Szenario enthaltene Features  
+## <a name="features-included-in-this-scenario"></a><a name="BKMK_NEW"></a>In diesem Szenario enthaltene Features  
 In der folgenden Tabelle werden die Features dieses Szenarios und die Art der bereitgestellten Unterstützung aufgeführt.  
   
 |Feature|Auf welche Weise dieses Szenario unterstützt wird|  

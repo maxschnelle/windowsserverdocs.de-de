@@ -1,70 +1,65 @@
 ---
 title: Hinzufügen, Entfernen und Aktualisieren von Funktionen
-description: System-Insights können Sie neue Funktionen zu erstellen, die vorhandenen Datensammlung und Verwaltungsfunktionen zu nutzen. Es ist wichtig, dass auch die Plattform unterstützt das Hinzufügen, entfernen, und Updates für diese Funktionen zu verwalten. Dieses Thema beschreibt die allgemeine Funktionalität zum Hinzufügen, entfernen und Aktualisieren von Funktionen in System Insights.
-ms.custom: na
+description: Mit System Insights können Sie neue Funktionen erstellen, die die vorhandene Daten Sammlungs-und-Verwaltungs Funktionalität nutzen. Es ist wichtig, dass Sie auch über die Platt Form Unterstützung verfügen, um das Hinzufügen, entfernen und Aktualisieren dieser Funktionen zu verwalten. In diesem Thema werden die Funktionen auf hoher Ebene zum Hinzufügen, entfernen und Aktualisieren von Funktionen in System Insights beschrieben.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: system-insights
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.assetid: ''
 author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 7/31/2018
-ms.openlocfilehash: 07fb036d1c4aa4a63107594ec1f81cb5be1c7724
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 0a760f25de79bc89b2aa67aec6bb1e3a493c1310
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59880161"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856263"
 ---
 # <a name="adding-removing-and-updating-capabilities"></a>Hinzufügen, Entfernen und Aktualisieren von Funktionen
 
->Gilt für: Windows Server 2019
+>Gilt für: Windows Server 2019
 
-System-Insights können Sie neue Funktionen zu erstellen, die vorhandenen Datensammlung und Verwaltungsfunktionen zu nutzen. Nachdem dieser Funktionen erstellt wurden, ist es jedoch ebenso wichtig, dass auch die Plattform unterstützt das Hinzufügen, entfernen, und Updates für diese Funktionen zu verwalten. 
+Mit System Insights können Sie neue Funktionen erstellen, die die vorhandene Daten Sammlungs-und-Verwaltungs Funktionalität nutzen. Nachdem diese Funktionen erstellt wurden, ist es ebenso wichtig, dass Sie auch über die Platt Form Unterstützung verfügen, um das Hinzufügen, entfernen und Aktualisieren dieser Funktionen zu verwalten. 
 
-Dieses Thema beschreibt die allgemeine Funktionalität zum Hinzufügen, entfernen und Aktualisieren von Funktionen in System Insights. 
+In diesem Thema werden die Funktionen auf hoher Ebene zum Hinzufügen, entfernen und Aktualisieren von Funktionen in System Insights beschrieben. 
 
-## <a name="adding-a-capability"></a>Eine Funktion hinzufügen
-System Insights können Sie zum Hinzufügen neuer Funktionen, die jederzeit mithilfe der **hinzufügen-InsightsCapability** Cmdlet. Die **hinzufügen-InsightsCapability** müssen Sie einen Namen für die Funktion und die Funktion-Bibliothek angeben. Die Funktion-Bibliothek enthält die Beschreibung der Funktion, Datenquellen und Vorhersage Logik.
+## <a name="adding-a-capability"></a>Hinzufügen einer Funktion
+Mit System Insights können Sie jederzeit neue Funktionen mithilfe des **Add-insightscapability** -Cmdlets hinzufügen. Die **Add-insightscapability** erfordert, dass Sie einen Funktionsnamen und die Funktionsbibliothek angeben. Die Funktionsbibliothek enthält die Beschreibung, Datenquellen und Vorhersage Logik der Funktion.
 
 ```PowerShell
-Add-InsightsCapability -Name "Sample capability" -Library "C:\SampleCapability.dll"
+Add-InsightsCapability -Name Sample capability -Library C:\SampleCapability.dll
 ```
 
-Nachdem eine Funktion zum System Insights hinzugefügt wurde, können Sie direkt aufrufen und die Möglichkeit, die mithilfe von PowerShell oder Windows Admin Center verwalten. 
+Nachdem Sie System Insights eine Funktion hinzugefügt haben, können Sie die Funktion sofort mithilfe von PowerShell oder Windows Admin Center aufrufen und verwalten. 
 
-## <a name="updating-a-capability"></a>Eine Funktion wird aktualisiert.
-System Insights können Sie eine mithilfe der Funktion aktualisiert auch die **Update-InsightsCapability** Cmdlet.
+## <a name="updating-a-capability"></a>Aktualisieren einer Funktion
+System Insights ermöglicht Ihnen außerdem, eine Funktion mithilfe des Cmdlets " **Update-insightscapability** " zu aktualisieren.
 
 ```PowerShell
-Update-InsightsCapability -Name "Sample capability" -Library "C:\SampleCapabilityv2.dll"
+Update-InsightsCapability -Name Sample capability -Library C:\SampleCapabilityv2.dll
 ```
 
-Eine Funktion wird aktualisiert, können Sie eine neue Bibliothek für die Funktion angeben, die Ihnen ermöglicht, die Beschreibung der Funktion, die Datenquellen und die Vorhersage Logik für diese Funktion zu ändern. Aktualisieren eine Funktion behält wichtig ist, dass alle Konfigurations- und Verlaufsinformationen zu dieser Funktion, einschließlich benutzerdefinierte Zeitpläne, Aktionen und historische Vorhersageergebnisse. 
+Durch das Aktualisieren einer Funktion können Sie eine neue Funktionsbibliothek angeben, die es Ihnen ermöglicht, die Funktionsbeschreibung, die Datenquellen und die dieser Funktion zugeordnete Vorhersage Logik zu ändern. Wichtig ist, dass das Aktualisieren einer Funktion alle Konfigurations-und Verlaufs Informationen zu dieser Funktion beibehält, einschließlich benutzerdefinierter Zeitpläne, Aktionen und Verlaufs Vorhersage Ergebnisse. 
 
-## <a name="removing-a-capability"></a>Entfernen eine Funktion
-Sie können auch Funktionen entfernen, im System Insights verwenden die **Remove-InsightsCapability** Cmdlet. 
+## <a name="removing-a-capability"></a>Entfernen einer Funktion
+Mithilfe des Cmdlets **Remove-insightscapability** können Sie auch Funktionen in System Insights entfernen. 
 
 ```PowerShell
-Remove-InsightsCapability -Name "Sample capability" 
+Remove-InsightsCapability -Name Sample capability 
 ```
 >[!NOTE]
->Der Standardwert Prognosefunktionen kann nicht entfernt werden.
+>Die standardmäßigen Vorhersagefunktionen können nicht entfernt werden.
 
-Eine Funktion dauerhaft zu entfernen, löscht der Funktion und alle zugehörigen Informationen, einschließlich des Zeitplans, alle Aktionen zur Problembehebung und letzten Vorhersageergebnisse. 
+Durch das Entfernen einer Funktion werden die Funktionen und alle zugehörigen Informationen, einschließlich des Zeitplans, der Wiederherstellungs Aktionen und der bisherigen Vorhersage Ergebnisse, dauerhaft gelöscht. 
 
 >[!TIP]
->Erwägen Sie eine Funktion zu deaktivieren, anstatt ihn zu entfernen, wenn Sie über alle Informationen im Zusammenhang mit der Funktion dauerhaft zu löschen. 
+>Deaktivieren Sie ggf. eine Funktion, anstatt Sie zu entfernen, wenn Sie sich Sorgen machen, dass alle der Funktion zugeordneten Informationen dauerhaft gelöscht werden. 
 
 ## <a name="see-also"></a>Siehe auch
-Weitere Informationen zum System Insights können Sie die folgenden Ressourcen:
+Weitere Informationen zu System Insights finden Sie in den folgenden Ressourcen:
 
-- [System-Insights-Übersicht](overview.md)
+- [Übersicht über System Einblicke](overview.md)
 - [Grundlegendes zu Funktionen](understanding-capabilities.md)
 - [Verwalten von Funktionen](managing-capabilities.md)
-- [Hinzufügen und die Entwicklung von Funktionen](adding-and-developing-capabilities.md)
-- [System Insights – häufig gestellte Fragen](faq.md)
+- [Hinzufügen und Entwickeln von Funktionen](adding-and-developing-capabilities.md)
+- [FAQ zu System Insights](faq.md)

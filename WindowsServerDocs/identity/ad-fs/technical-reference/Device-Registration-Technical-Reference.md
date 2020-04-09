@@ -1,7 +1,6 @@
 ---
 ms.assetid: 69ec592a-5499-4249-8ba0-afa356a8ff75
 title: Technische Referenz zur Geräteregistrierung
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ab78a5847c52650f2a608dfc89e2001cc43153ff
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0b921e4a88940477ec7d0d4b2fa165880bd41150
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407354"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860223"
 ---
 # <a name="device-registration-technical-reference"></a>Technische Referenz zur Geräteregistrierung
 Der Geräte Registrierungsdienst \(DRS\) ist ein neuer Windows-Dienst, der in der Active Directory Verbunddienst-Rolle unter Windows Server 2012 R2 enthalten ist.  Der DRS muss auf allen Verbundservern der AD FS-Farm installiert und konfiguriert sein.  Informationen zum Bereitstellen des DRS finden Sie unter [Konfigurieren eines Verbundservers mit dem Geräteregistrierungsdienst](https://technet.microsoft.com/library/dn486831.aspx).  

@@ -1,23 +1,19 @@
 ---
 title: 'Schritt 3: Hinzufügen von Computern zum neuen Windows Server Essentials-Server'
 description: Beschreibt die Verwendung von Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a0e07d1a-8409-429b-87d7-0f4a7e14d668
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1ca1e3a031c95f19fb68aadcf203b13fa39d7558
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 3d004d89f6606c8b38360c9139f882f087b7c554
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318762"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852363"
 ---
 # <a name="step-3-join-computers-to-the-new-windows-server-essentials-server"></a>Schritt 3: Hinzufügen von Computern zum neuen Windows Server Essentials-Server
 

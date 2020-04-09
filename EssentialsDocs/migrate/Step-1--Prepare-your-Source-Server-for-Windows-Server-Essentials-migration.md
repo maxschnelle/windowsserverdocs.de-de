@@ -1,27 +1,23 @@
 ---
 title: 'Schritt 1: Vorbereiten des Quellservers für die Migration nach Windows Server Essentials'
 description: Beschreibt die Verwendung von Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 244c8a06-04c6-4863-8b52-974786455373
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: cb0cffdda0e0f1528887d3c94a1905a99c5c55c3
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: b673f9987aa3617b6f3f5298223372dc9edfe646
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318785"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852383"
 ---
-# <a name="step-1-prepare-your-source-server-for-windows-server-essentials-migration"></a>Schritt 1: Vorbereiten des Quellservers für die Migration nach Windows Server Essentials
-
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+
+# <a name="step-1-prepare-your-source-server-for-windows-server-essentials-migration"></a>Schritt 1: Vorbereiten des Quellservers für die Migration nach Windows Server Essentials
 
 In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systemintegrität des Quellservers prüfen, die aktuellen Service Packs und Fixes installieren und die Netzwerkkonfiguration überprüfen.  
 

@@ -1,28 +1,22 @@
 ---
 title: set
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für Set, das cmd anzeigt, festlegt oder entfernt. EXE-Umgebungsvariablen.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5fdd60d6-addf-4574-8c92-8aa53fa73d76
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 12dce38bf8ad050c65a7a8c0fca4a71267cca93f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7477caa47ef8f728b2ebe99fe0bbf961888b846e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384103"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834393"
 ---
 # <a name="set"></a>set
-
-
 
 Hiermit wird cmd angezeigt, festgelegt oder entfernt. EXE-Umgebungsvariablen. Bei Verwendung ohne Parameter zeigt **Set** die aktuellen Umgebungsvariablen Einstellungen an.
 
@@ -36,7 +30,7 @@ set [/p] <Variable>=[<PromptString>]
 set /a <Variable>=<Expression>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -55,7 +49,7 @@ set /a <Variable>=<Expression>
   Wenn Befehls Erweiterungen aktiviert sind (Standardeinstellung) und Sie **Set** mit einem Wert ausführen, werden alle Variablen angezeigt, die mit diesem Wert beginnen.
 - Verwenden von Sonderzeichen
 
-  Die Zeichen **<** , **>** , **|** , **&** , **^** sind spezielle befehlsshellzeichen, und Ihnen muss das Escapezeichen ( **^** ) vorangestellt oder in Anführungszeichen eingeschlossen werden, wenn Sie in einer *Zeichenfolge* verwendet werden (z. b. **"stringenthaltende & Symbol"** ). Wenn Sie in Anführungszeichen eine Zeichenfolge mit einem der Sonderzeichen einschließen, werden die Anführungszeichen als Teil des Umgebungsvariablen Werts festgelegt.
+  Die Zeichen **<** , **>** , **|** , **&** , **^** sind spezielle befehlsshellzeichen, und Ihnen muss das Escapezeichen ( **^** ) vorangestellt oder in Anführungszeichen eingeschlossen werden, wenn Sie in einer *Zeichenfolge* verwendet werden (z. b. **stringenthaltende & Symbol**). Wenn Sie in Anführungszeichen eine Zeichenfolge mit einem der Sonderzeichen einschließen, werden die Anführungszeichen als Teil des Umgebungsvariablen Werts festgelegt.
 - Verwenden von Umgebungsvariablen
 
   Verwenden Sie Umgebungsvariablen, um das Verhalten einiger Batch Dateien und-Programme zu steuern und die Art und Weise zu steuern, wie Windows und das MS-DOS-Subsystem angezeigt werden und funktionieren. Der **Set** -Befehl wird häufig in der Datei Autoexec. NT verwendet, um Umgebungsvariablen festzulegen.
@@ -77,7 +71,7 @@ set /a <Variable>=<Expression>
   |          ! ~ -          |        Unär         |
   |         \*/%          |      Rechen      |
   |           + -           |      Rechen      |
-  |          < < > >          |    Logische Verschiebung     |
+  |          << >>          |    Logische Verschiebung     |
   |            &            |     Bitweises and      |
   |            ^            | Bitweises exklusives OR |
   |                         |                      |
@@ -105,7 +99,7 @@ set /a <Variable>=<Expression>
 
   Der **Set** -Befehl mit unterschiedlichen Parametern ist über die Wiederherstellungskonsole verfügbar.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Geben Sie Folgendes ein, um eine Umgebungsvariable mit dem Namen Test ^ 1 festzulegen:
 ```
@@ -115,11 +109,11 @@ set testVar=test^^1
 > [!NOTE]
 > Mit dem **Set** -Befehl werden alle Elemente, die dem Gleichheitszeichen (=) folgen, dem Wert der Variablen zugewiesen. Wenn Sie Folgendes eingeben:
 > ```
-> set testVar="test^1"
+> set testVar=test^1
 > ```
 > Sie erhalten folgendes Ergebnis:
 > ```
-> testVar="test^1"
+> testVar=test^1
 > ```
 > Geben Sie Folgendes ein, um eine Umgebungsvariable mit dem Namen Test & 1 festzulegen:
 > ```
@@ -135,7 +129,7 @@ set testVar=test^^1
 > ```
 > Wenn dieser Befehl verarbeitet wird, ersetzt die Zeichenfolge c:\inc **% include%** .
 
-Sie können auch **Set** in einem Batch-Programm verwenden, das der PATH-Umgebungsvariablen ein neues Verzeichnis hinzufügt. Zum Beispiel:
+Sie können auch **Set** in einem Batch-Programm verwenden, das der PATH-Umgebungsvariablen ein neues Verzeichnis hinzufügt. Beispiel:
 ```
 @echo off
 rem ADDPATH.BAT adds a new directory
@@ -151,6 +145,6 @@ set p
 > [!NOTE]
 > Dieser Befehl erfordert Befehls Erweiterungen, die standardmäßig aktiviert sind.
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

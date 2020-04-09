@@ -1,31 +1,30 @@
 ---
-title: Leistungsverlauf für Cluster
+title: Leistungs Verlauf für Cluster
 ms.author: cosdar
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 02/02/2018
-Keywords: Direkte Speicherplätze
 ms.localizationpriority: medium
-ms.openlocfilehash: 68596cbdcf8593cd3017c8ae5d0836891c78229c
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: 7a5eec986d6e7d633f1917c599ab6fcd244c7008
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59818771"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856203"
 ---
-# <a name="performance-history-for-clusters"></a>Leistungsverlauf für Cluster
+# <a name="performance-history-for-clusters"></a>Leistungs Verlauf für Cluster
 
-> Gilt für: Windows Server-Insider – Vorschau
+> Gilt für: Windows Server 2019
 
-Dieser Unterabschnitt von [– Leistungsverlauf für "direkte Speicherplätze"](performance-history.md) beschreibt den Leistungsverlauf für Cluster gesammelt.
+In diesem Unterthema des [Leistungs Verlaufs für direkte Speicherplätze](performance-history.md) wird der Leistungs Verlauf beschrieben, der für Cluster erfasst wurde.
 
-Es sind keine Reihen, die auf der Clusterebene stammen. Stattdessen Server Reihe, z. B. `clusternode.cpu.usage`, werden für alle Server im Cluster aggregiert. Volume-Serie, wie z. B. `volume.iops.total`, werden für alle Volumes im Cluster aggregiert. Und Serie wie z. B. `physicaldisk.size.total`, werden für alle Laufwerke im Cluster aggregiert.
+Es sind keine Reihen vorhanden, die von der Cluster Ebene stammen. Stattdessen werden Server Reihen, wie z. b. `clusternode.cpu.usage`, für alle Server im Cluster aggregiert. Volumereihen, wie z. b. `volume.iops.total`, werden für alle Volumes im Cluster aggregiert. Und Laufwerks Reihen, wie z. b. `physicaldisk.size.total`, werden für alle Laufwerke im Cluster aggregiert.
 
 ## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
-Verwenden der [Get-Cluster](https://docs.microsoft.com/powershell/module/failoverclusters/get-cluster) Cmdlet:
+Verwenden Sie das Cmdlet " [Get-Cluster](https://docs.microsoft.com/powershell/module/failoverclusters/get-cluster) ":
 
 ```PowerShell
 Get-Cluster | Get-ClusterPerf
@@ -33,4 +32,4 @@ Get-Cluster | Get-ClusterPerf
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Leistungsverlauf für "direkte Speicherplätze"](performance-history.md)
+- [Leistungs Verlauf für direkte Speicherplätze](performance-history.md)

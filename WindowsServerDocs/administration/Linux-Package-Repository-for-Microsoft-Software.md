@@ -1,9 +1,7 @@
 ---
 title: Linux-Softwarerepository für Microsoft-Produkte
 description: In diesem Dokument wird beschrieben, wie Sie Linux-Softwarepakete für Microsoft-Produkte verwenden und installieren.
-ms.custom: na
 ms.prod: windows-server
-ms.service: na
 manager: szark
 ms.technology: compute
 ms.topic: article
@@ -11,12 +9,12 @@ ms.assetid: b5387444-595f-4f38-abb7-163a70ea1895
 author: szarkos
 ms.author: szark
 ms.date: 10/16/2017
-ms.openlocfilehash: e32c11dac1d887ba0ae0192bb658f71ece77a42c
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: b57a1e7243f989a4529a666880572a9ceaa57644
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947246"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852063"
 ---
 # <a name="linux-software-repository-for-microsoft-products"></a>Linux-Softwarerepository für Microsoft-Produkte
 
@@ -30,7 +28,7 @@ Das Linux-Softwarerepository von Microsoft besteht aus mehreren untergeordneten 
  - MSSQL-Server: diese Depots enthalten Pakete für Microsoft SQL Server für Linux-siehe auch: [SQL Server für Linux](https://www.microsoft.com/sql-server/sql-server-vnext-including-Linux).
 
 > [!Note]
-> Pakete in den Linux-Softwarerepositorys unterliegen den Lizenzbedingungen, die sich in den Paketen befinden. Lesen Sie vor Verwendung des Pakets die Lizenzbedingungen. Durch die Installation und Nutzung des Pakets erklären Sie sich mit diesen Bedingungen einverstanden. Wenn Sie mit den Lizenzbedingungen nicht einverstanden sind, verwenden Sie das Paket nicht.
+> Pakete in den Linux-Softwarerepositorys unterliegen den Lizenzbedingungen, die sich in den Paketen befinden. Lesen Sie die Lizenzbedingungen vor der Verwendung des Pakets. Die Installation und Verwendung des Pakets ergibt Ihre Zustimmung zu diesen Bedingungen. Wenn Sie den Lizenzbedingungen nicht zustimmen, verwenden Sie das Paket nicht.
 
 
 ## <a name="configuring-the-repositories"></a>Konfigurieren der Depots
@@ -63,19 +61,19 @@ Depots können automatisch durch Installieren des Linux-Pakets konfiguriert werd
 
  - Ubuntu 18,04 (Bionic)
 
-        curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/18.04/prod
         sudo apt-get update
 
  - Ubuntu 18,10 (kosmisch)
 
-        curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/18.10/prod
         sudo apt-get update
 
  - Ubuntu 19,04 (Disco)
 
-        curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+         curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
         sudo apt-add-repository https://packages.microsoft.com/ubuntu/19.04/prod
         sudo apt-get update
 

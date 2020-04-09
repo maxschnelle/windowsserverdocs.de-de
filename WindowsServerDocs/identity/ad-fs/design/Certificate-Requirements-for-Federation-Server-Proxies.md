@@ -1,7 +1,6 @@
 ---
 ms.assetid: dc24adb7-385d-4a92-ab81-78ba73df0118
 title: Zertifikatanforderungen für Verbundserverproxys
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: dab77c3e3226e89eb3ac9b74e7db9b6df8f181bf
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cc32288d01d7e1386f146716f45f0e49ced3d48e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408147"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858123"
 ---
 # <a name="certificate-requirements-for-federation-server-proxies"></a>Zertifikatanforderungen für Verbundserverproxys
 
@@ -22,7 +21,7 @@ Server, die in Active Directory-Verbunddienste (AD FS) \(AD FS\) in der Verbund 
   
 Verbund Server Proxys werden in der Regel für Computer im Internet verfügbar gemacht, die nicht in der Public Key-Infrastruktur Ihres Unternehmens \(PKI\)enthalten sind. Verwenden Sie deshalb ein Server Authentifizierungszertifikat, das von einer öffentlichen \(dritten\-Partei\) Zertifizierungsstelle \(ca-\)ausgestellt wird, z. b. VeriSign.  
   
-Wenn Sie über eine Verbund Server Proxy-Farm verfügen, müssen alle Verbund Server Proxy-Computer das gleiche Server Authentifizierungszertifikat verwenden. Weitere Informationen finden Sie unter [Wann sollte eine Verbundserverproxy-Farm erstellt werden?](When-to-Create-a-Federation-Server-Proxy-Farm.md).  
+Wenn Sie über eine Verbund Server Proxy-Farm verfügen, müssen alle Verbund Server Proxy-Computer das gleiche Server Authentifizierungszertifikat verwenden. Weitere Informationen finden Sie unter [When to Create a Federation Server Proxy Farm](When-to-Create-a-Federation-Server-Proxy-Farm.md).  
   
 Es ist wichtig sicherzustellen, dass der Antragsteller Name im Server Authentifizierungszertifikat mit dem Wert für Verbunddienst Name übereinstimmt, der im\-Snap-in für die AD FS Verwaltung angegeben ist. Öffnen Sie zum Suchen dieses Werts das Snap-in\-in, klicken Sie mit der rechten\-auf **Dienst**, klicken Sie auf **Verbunddienst Eigenschaften bearbeiten**, und suchen Sie dann den Wert im Textfeld **Verbunddienst Name** .  
   

@@ -1,29 +1,25 @@
 ---
 title: Verwalten der Stationshardware
 description: Bietet einen Überblick über die Verwaltung von Hardware für Multipoint-Stationen.
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 429b8539-b17a-4e01-9576-860600466451
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 9ca65352a6f016d5d18bdd92b39b737cdddb9057
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8ffb6fd714293471a0e9aa020390943b201261c4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395237"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853523"
 ---
 # <a name="manage-station-hardware"></a>Verwalten der Stationshardware
-Ein Multipoint Services-System besteht aus einem einzelnen Computer und mindestens einer Station. Stations Hardware besteht in der Regel aus einem stationshub, einer Maus, einer Tastatur und einem Videomonitor. Stationen sind üblicherweise physisch mit dem Computer verbunden.  
+Ein MultiPoint Services-System besteht aus einem einzelnen Computer und mindestens einer Station. Bei der Stationshardware handelt es sich normalerweise um einem Stationshub, eine Maus, eine Tastatur und einen Videomonitor. Stationen sind üblicherweise physisch mit dem Computer verbunden.  
   
-Die folgende Abbildung zeigt ein Beispiellayout für ein MultiPoint Services-System mit vier Stationen. Jede Station ist mit dem Multipoint Services-Computer verbunden, indem ein USB-Hub und Multi-Monitor-Grafikkarten verwendet werden. Diese Abbildung stellt keine Stationen dar, die mithilfe von multifunktionshub Hubs verbunden sind.  
+Die folgende Abbildung zeigt ein Beispiellayout für ein MultiPoint Services-System mit vier Stationen. Jede Station ist mit dem Multipoint Services-Computer verbunden, indem ein USB-Hub und Multi-Monitor-Grafikkarten verwendet werden. Diese Abbildung zeigt keine Stationen, die mithilfe von Multifunktionshubs angeschlossen sind.  
    
 ![Abbildung des USB-basierten Multipoint Services-systemlayouts](./media/WMSMultiPointServerUSBSystemLayout.gif)  
   
@@ -47,7 +43,7 @@ Im Thema [Einrichten einer Station](Set-Up-a-Station.md) wird beschrieben, wie d
   
 Beide Arten von Stationshubs werden über ein USB-Kabel an den Computer angeschlossen. Mit den Verfahren im Thema [Einrichten einer Station](Set-Up-a-Station.md) wird beschrieben, wie Hardwaregeräte an die unterschiedlichen Stationshubs angeschlossen werden.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Anzeigen des Hardwarestatus](View-Hardware-Status.md)  
 [Arbeiten mit USB-Geräten](Work-with-USB-Devices.md)  
 [Arbeiten mit Videogeräten](Work-with-Video-Devices.md)  
