@@ -1,7 +1,6 @@
 ---
 ms.assetid: 45a65504-70b5-46ea-b2e0-db45263fabaa
 title: Unterstützung für Hyper-V-Replikate als virtualisierte Domänencontroller
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 92324ef7c0fab81e80974a1f05eeec4833f09875
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d882fc5a8e519c461e17a7a82c8abfc6c16fbe9c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390431"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824503"
 ---
 # <a name="support-for-using-hyper-v-replica-for-virtualized-domain-controllers"></a>Unterstützung für Hyper-V-Replikate als virtualisierte Domänencontroller
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema wird die Unterstützung für die Verwendung eines Hyper-V-Replikats für die Replikation eines virtuellen Computers (VM) dargestellt, auf dem ein Domänencontroller ausgeführt wird. Das Hyper-V-Replikat ist eine neue Funktion von Hyper-V, die mit Windows Server 2012 eingeführt wurde und einen integrierten Replikationsmechanismus auf VM-Ebene bereitstellt.  
   
@@ -56,15 +55,15 @@ Virtuelle Computer mit früheren Versionen von Windows Server werden für geplan
   
 Diese Aussage zur Unterstützung basiert auf Tests, die in einer Gesamtstruktur mit einer einzelnen Domäne durchgeführt wurden, obwohl auch Gesamtstrukturkonfigurationen mit mehreren Domänen unterstützt werden. Für diese Tests sind die virtualisierten Domänencontroller DC1 und DC2 Active Directory-Replikationspartner am selben Standort, die auf einem Server mit Hyper-V unter Windows Server 2012 gehostet werden. Auf dem VM-Gast, auf dem DC2 ausgeführt wird, wurde das Hyper-V-Replikat aktiviert. Der Replikatserver wird in einem anderen, geografisch entfernten Rechenzentrum gehostet. Für eine einfachere Erklärung der unten aufgeführten Testfallprozesse wird der virtuelle Computer, der auf dem Replikatserver ausgeführt wird, als DC2-Rec bezeichnet (obwohl er in der Praxis denselben Namen beibehält wie der ursprüngliche virtuelle Computer).  
   
-### <a name="windows-server-2012"></a>Windows Server 2012
+### <a name="windows-server-2012"></a>Windows Server 2012
 
 In der folgenden Tabelle werden die Unterstützung für virtualisierte Domänencontroller mit Windows Server 2012 und Testfälle dargestellt.  
   
 |||  
 |-|-|  
-|Geplantes Failover|Ungeplantes Failover|  
+|Geplantes Failover|Nicht geplantes Failover|  
 |Unterstützt|Unterstützt|  
-|Testfall:<br /><br />-DC1 und DC2 führen Windows Server 2012 aus.<br /><br />-DC2 wird heruntergefahren, und auf DC2-REC wird ein Failover durchgeführt. Das Failover kann geplant oder ungeplant sein.<br /><br />-Nach dem Start von DC2-REC wird überprüft, ob der Wert von vmgenid in der Datenbank mit dem Wert des vom Hyper-V-Replikat Server gespeicherten virtuellen Computer Treibers identisch ist.<br /><br />Folglich löst DC2-REC virtualisierungssicherheitsmaßnahmen aus. Das heißt, dass die invocationID zurückgesetzt, der RID-Pool verworfen und eine anfängliche Synchronisierungs Anforderung festgelegt wird, bevor eine Betriebs Master Rolle angenommen wird. Weitere Information zur Anforderung für die anfängliche Synchronisierung finden Sie unter .<br /><br />-DC2-REC speichert dann den neuen Wert von vmgenid in der Datenbank und führt einen Commit für alle nachfolgenden Aktualisierungen im Kontext der neuen invocationID aus.<br /><br />Aufgrund des zurück Setzens von invocationID wird DC1 bei allen AD-Änderungen, die von DC2-REC eingeführt wurden, auch dann, wenn ein Rollback erfolgt ist, zusammengeführt, was bedeutet, dass alle AD-Aktualisierungen, die auf DC2-REC nach dem Failover ausgeführt werden, sicher aufeinander|Für ein geplantes Failover ist der Testfall gleich, mit den folgenden Ausnahmen:<br /><br />-Alle AD-Updates, die auf DC2 empfangen, aber noch nicht von AD an einen Replikations Partner repliziert wurden, bevor das failoverereignis verloren geht.<br /><br />-AD-Updates, die nach dem Zeitpunkt des von AD an DC1 replizierten Wiederherstellungs Punkts auf DC2 empfangen werden, werden von DC1 zurück auf DC2-REC repliziert.|  
+|Testfall:<p>-DC1 und DC2 führen Windows Server 2012 aus.<p>-DC2 wird heruntergefahren, und auf DC2-REC wird ein Failover durchgeführt. Das Failover kann entweder geplant oder ungeplant sein.<p>-Nach dem Start von DC2-REC wird überprüft, ob der Wert von vmgenid in der Datenbank mit dem Wert des vom Hyper-V-Replikat Server gespeicherten virtuellen Computer Treibers identisch ist.<p>Folglich löst DC2-REC virtualisierungssicherheitsmaßnahmen aus. Das heißt, dass die invocationID zurückgesetzt, der RID-Pool verworfen und eine anfängliche Synchronisierungs Anforderung festgelegt wird, bevor eine Betriebs Master Rolle angenommen wird. Weitere Information zur Anforderung für die anfängliche Synchronisierung finden Sie unter .<p>-DC2-REC speichert dann den neuen Wert von vmgenid in der Datenbank und führt einen Commit für alle nachfolgenden Aktualisierungen im Kontext der neuen invocationID aus.<p>Aufgrund des zurück Setzens von invocationID wird DC1 bei allen AD-Änderungen, die von DC2-REC eingeführt wurden, auch dann, wenn ein Rollback erfolgt ist, zusammengeführt, was bedeutet, dass alle AD-Aktualisierungen, die auf DC2-REC nach dem Failover ausgeführt werden, sicher aufeinander|Für ein geplantes Failover ist der Testfall gleich, mit den folgenden Ausnahmen:<p>-Alle AD-Updates, die auf DC2 empfangen, aber noch nicht von AD an einen Replikations Partner repliziert wurden, bevor das failoverereignis verloren geht.<p>-AD-Updates, die nach dem Zeitpunkt des von AD an DC1 replizierten Wiederherstellungs Punkts auf DC2 empfangen werden, werden von DC1 zurück auf DC2-REC repliziert.|  
   
 ### <a name="windows-server-2008-r2-and-earlier-versions"></a>Windows Server 2008 R2 und frühere Versionen
 
@@ -72,6 +71,6 @@ In der folgenden Tabelle werden die Unterstützung für virtualisierte Domänenc
   
 |||  
 |-|-|  
-|Geplantes Failover|Ungeplantes Failover|  
-|Unterstützt, aber nicht empfohlen, da Domänencontroller mit diesen Versionen von Windows Server keine Unterstützung für VMGenID bieten oder damit verbundene Virtualisierungssicherheitsmaßnahmen verwenden. Damit entsteht das Risiko von einem USN-Rollback. Weitere Informationen finden Sie unter " [US-v" und "Wiederverwendungs-Rollback](https://technet.microsoft.com/library/d2cae85b-41ac-497f-8cd1-5fbaa6740ffe(v=ws.10))".|Nicht unterstützte **Notiz:** Ein ungeplantes Failover würde unterstützt werden, wenn ein USN-Rollback kein Risiko ist, beispielsweise bei einem einzelnen Domänencontroller in der Gesamtstruktur (eine Konfiguration, die nicht empfehlenswert ist).|  
-|Testfall:<br /><br />-DC1 und DC2 führen Windows Server 2008 R2 aus.<br /><br />-DC2 wird heruntergefahren, und auf DC2-REC wird ein Geplantes Failover ausgeführt. Alle Daten auf DC2 werden an DC2-Rec repliziert, bevor das Herunterfahren abgeschlossen ist.<br /><br />-Nach dem Start von DC2-REC wird die Replikation mit DC1 mit der gleichen invocationID wie DC2 fortgesetzt.|Nicht zutreffend|  
+|Geplantes Failover|Nicht geplantes Failover|  
+|Unterstützt, aber nicht empfohlen, da Domänencontroller mit diesen Versionen von Windows Server keine Unterstützung für VMGenID bieten oder damit verbundene Virtualisierungssicherheitsmaßnahmen verwenden. Damit entsteht das Risiko von einem USN-Rollback. Weitere Informationen finden Sie unter " [US-v" und "Wiederverwendungs-Rollback](https://technet.microsoft.com/library/d2cae85b-41ac-497f-8cd1-5fbaa6740ffe(v=ws.10))".|Nicht unterstützt **:** das nicht geplante Failover wird unterstützt, wenn ein Rollback für die Wiederverwendung kein Risiko ist, z. b. ein einzelner Domänen Controller in der Gesamtstruktur (eine Konfiguration, die nicht empfohlen wird).|  
+|Testfall:<p>-DC1 und DC2 führen Windows Server 2008 R2 aus.<p>-DC2 wird heruntergefahren, und auf DC2-REC wird ein Geplantes Failover ausgeführt. Alle Daten auf DC2 werden auf DC2-REC repliziert, bevor das Herunterfahren beendet ist.<p>-Nach dem Start von DC2-REC wird die Replikation mit DC1 mit der gleichen invocationID wie DC2 fortgesetzt.|N/V|  

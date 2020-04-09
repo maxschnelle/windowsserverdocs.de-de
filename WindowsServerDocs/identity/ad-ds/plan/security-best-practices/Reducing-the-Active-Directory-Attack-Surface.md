@@ -1,7 +1,6 @@
 ---
 ms.assetid: 864ad4bc-8428-4a8b-8671-cb93b68b0c03
 title: Reduzieren der Angriffsfläche für Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 94bc65d42fa90dd7c93ba759a41d34edec10de09
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dcd0b412e7a0005bc6574638e0f6fce4554c6487
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367649"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821053"
 ---
 # <a name="reducing-the-active-directory-attack-surface"></a>Reduzieren der Angriffsfläche für Active Directory
 
@@ -32,7 +31,7 @@ Dieser Abschnitt konzentriert sich auf technische Kontrollen, die implementiert 
 Dieser Abschnitt enthält Hintergrundinformationen zu privilegierten Konten und Gruppen in Active Directory, die die Gemeinsamkeiten und Unterschiede zwischen privilegierten Konten und Gruppen in Active Directory erläutern sollen. Wenn Sie diese Unterschiede verstehen, ob Sie die Empfehlungen in der [Implementierung von Verwaltungs Modellen mit geringsten Rechten](../../../ad-ds/plan/security-best-practices/../../../ad-ds/plan/security-best-practices/Implementing-Least-Privilege-Administrative-Models.md) wörtlich implementieren oder Sie für Ihre Organisation anpassen möchten, verfügen Sie über die Tools, die Sie zum sicheren schützen der einzelnen Gruppen und Konten benötigen.  
   
 ### <a name="built-in-privileged-accounts-and-groups"></a>Integrierte privilegierte Konten und Gruppen  
-Active Directory ermöglicht die Delegierung der Verwaltung und unterstützt das Prinzip der geringsten Rechte bei der Zuweisung von Rechten und Berechtigungen. "Reguläre" Benutzer, die über Konten in einer Domäne verfügen, sind standardmäßig in der Lage, einen Großteil der im Verzeichnis gespeicherten Daten zu lesen, aber nur eine sehr begrenzte Menge von Daten im Verzeichnis ändern zu können. Benutzern, die zusätzliche Berechtigungen benötigen, kann die Mitgliedschaft in verschiedenen "privilegierten" Gruppen erteilt werden, die in das Verzeichnis integriert sind, damit Sie bestimmte Aufgaben im Zusammenhang mit ihren Rollen ausführen können, aber keine Aufgaben ausführen können, die für ihre Aufgaben nicht relevant sind. Organisationen können auch Gruppen erstellen, die auf bestimmte Auftrags Zuständigkeiten zugeschnitten sind und über differenzierte Rechte und Berechtigungen verfügen, mit denen IT-Mitarbeiter alltägliche administrative Funktionen ausführen können, ohne Rechte und Berechtigungen zu erteilen, die überschreiten. ist für diese Funktionen erforderlich.  
+Active Directory ermöglicht die Delegierung der Verwaltung und unterstützt das Prinzip der geringsten Rechte bei der Zuweisung von Rechten und Berechtigungen. "Reguläre" Benutzer, die über Konten in einer Domäne verfügen, sind standardmäßig in der Lage, einen Großteil der im Verzeichnis gespeicherten Daten zu lesen, aber nur eine sehr begrenzte Menge von Daten im Verzeichnis ändern zu können. Benutzern, die zusätzliche Berechtigungen benötigen, kann die Mitgliedschaft in verschiedenen "privilegierten" Gruppen erteilt werden, die in das Verzeichnis integriert sind, damit Sie bestimmte Aufgaben im Zusammenhang mit ihren Rollen ausführen können, aber keine Aufgaben ausführen können, die für ihre Aufgaben nicht relevant sind. Organisationen können auch Gruppen erstellen, die auf bestimmte Auftrags Zuständigkeiten zugeschnitten sind und über differenzierte Rechte und Berechtigungen verfügen, mit denen IT-Mitarbeiter alltägliche administrative Funktionen ausführen können, ohne Rechte und Berechtigungen zu erteilen, die überschreiten, was für diese Funktionen erforderlich ist.  
   
 In Active Directory sind drei integrierte Gruppen die höchsten Berechtigungs Gruppen im Verzeichnis: Organisations-Admins, Domänen-Admins und Administratoren. Die Standardkonfiguration und-Funktionen der einzelnen Gruppen werden in den folgenden Abschnitten beschrieben:  
   
@@ -43,7 +42,7 @@ Enterprise Admins (EA) ist eine Gruppe, die nur in der Stamm Domäne der Gesamts
   
 ##### <a name="domain-admins"></a>Domänen-Admins  
 
-Jede Domäne in einer Gesamtstruktur verfügt über eine eigene Domänen-Admins-Gruppe, die Mitglied der Administratoren Gruppe dieser Domäne und Mitglied der lokalen Administratoren Gruppe auf allen Computern ist, die der Domäne hinzugefügt werden. Das einzige Standard Mitglied der Gruppe "da" für eine Domäne ist das integrierte Administrator Konto für diese Domäne. Das ist in ihren Domänen "All-leistenfähig", während EAS über eine Gesamtstruktur weite Berechtigung verfügt. In einem ordnungsgemäß entworfenen und implementierten Delegierungs Modell sollten Domänen-Admins nur in Szenarios mit Unterbrechung erforderlich sein (z. b. in Situationen, in denen ein Konto mit hohen Berechtigungsstufen auf jedem Computer in der Domäne erforderlich ist). Obwohl das systemeigene Active Directory Delegierungs Mechanismen die Delegierung in die Verwendung von da-Konten nur in Notfallszenarien ermöglicht, kann das Erstellen eines effektiven Delegierungs Modells sehr zeitaufwändig sein, und viele Organisationen nutzen Tools von Drittanbietern, um den Prozess zu beschleunigen.  
+Jede Domäne in einer Gesamtstruktur verfügt über eine eigene Domänen-Admins-Gruppe, die Mitglied der Administratoren Gruppe dieser Domäne und Mitglied der lokalen Administratoren Gruppe auf allen Computern ist, die der Domäne hinzugefügt werden. Das einzige Standard Mitglied der Gruppe "da" für eine Domäne ist das integrierte Administrator Konto für diese Domäne. Das ist in ihren Domänen "All-leistenfähig", während EAS über eine Gesamtstruktur weite Berechtigung verfügt. In einem ordnungsgemäß entworfenen und implementierten Delegierungs Modell sollten Domänen-Admins nur in Szenarios mit Unterbrechung erforderlich sein (z. b. in Situationen, in denen ein Konto mit hohen Berechtigungsstufen auf jedem Computer in der Domäne erforderlich ist). Obwohl die systemeigene Active Directory Delegierungs Mechanismen die Delegierung in den Genuss der Verwendung von da-Konten nur in Notfallszenarien ermöglichen, kann das Erstellen eines effektiven Delegierungs Modells sehr zeitaufwändig sein, und viele Organisationen nutzen Tools von Drittanbietern, um den Prozess zu beschleunigen.  
   
 ##### <a name="administrators"></a>Administratoren  
 Die dritte Gruppe ist die integrierte Domänen lokale Administratoren Gruppe (BA), in der die und EAS gruppiert sind. Dieser Gruppe werden viele direkte Rechte und Berechtigungen im Verzeichnis und auf Domänen Controllern erteilt. Die Gruppe "Administratoren" für eine Domäne hat jedoch keine Berechtigungen für Mitglieds Server oder Arbeitsstationen. Dies erfolgt über die Mitgliedschaft in der lokalen Administrator Gruppe der Computer, der die Berechtigung local gewährt wird.  
@@ -55,7 +54,7 @@ Die dritte Gruppe ist die integrierte Domänen lokale Administratoren Gruppe (BA
 
 Eine vierte privilegierte Gruppe, Schema-Admins (SA), ist nur in der Stamm Domäne der Gesamtstruktur vorhanden und verfügt nur über das integrierte Administrator Konto dieser Domäne als Standard Mitglied, ähnlich der Gruppe "Organisations-Admins". Die Gruppe "Schema-Admins" soll nur vorübergehend und gelegentlich aufgefüllt werden (wenn eine Änderung des AD DS Schema erforderlich ist).  
   
-Obwohl die Gruppe SA die einzige Gruppe ist, die das Active Directory Schema ändern kann (d. h., die zugrunde liegenden Datenstrukturen des Verzeichnisses, z. b. Objekte und Attribute), ist der Gültigkeitsbereich der Berechtigungen und Berechtigungen der SA-Gruppe stärker eingeschränkt als die zuvor beschriebenen. Musik. Außerdem wird häufig feststellen, dass Unternehmen geeignete Verfahren für die Verwaltung der Mitgliedschaft in der SA-Gruppe entwickelt haben, da die Mitgliedschaft in der Gruppe in der Regel nur selten benötigt wird und nur für kurze Zeiträume. Dies gilt technisch gesehen auch für die Gruppen "EA", "da" und "BA" in Active Directory, aber es ist weitaus weniger üblich, dass Organisationen ähnliche Praktiken für diese Gruppen wie für die Gruppe "SA" implementiert haben.  
+Obwohl die Gruppe SA die einzige Gruppe ist, die das Active Directory Schema ändern kann (d. h., die zugrunde liegenden Datenstrukturen des Verzeichnisses, z. b. Objekte und Attribute), ist der Umfang der Rechte und Berechtigungen der SA-Gruppe stärker eingeschränkt als die zuvor beschriebenen Gruppen. Außerdem wird häufig feststellen, dass Unternehmen geeignete Verfahren für die Verwaltung der Mitgliedschaft in der SA-Gruppe entwickelt haben, da die Mitgliedschaft in der Gruppe in der Regel nur selten benötigt wird und nur für kurze Zeiträume. Dies gilt technisch gesehen auch für die Gruppen "EA", "da" und "BA" in Active Directory, aber es ist weitaus weniger üblich, dass Organisationen ähnliche Praktiken für diese Gruppen wie für die Gruppe "SA" implementiert haben.  
   
 #### <a name="protected-accounts-and-groups-in-active-directory"></a>Geschützte Konten und Gruppen in Active Directory  
 Innerhalb Active Directory werden ein Standardsatz privilegierter Konten und Gruppen, die als "geschützte" Konten und Gruppen bezeichnet werden, anders gesichert als andere Objekte im Verzeichnis. Alle Konten, die über eine direkte oder transitiv Mitgliedschaft in einer geschützten Gruppe verfügen (unabhängig davon, ob die Mitgliedschaft von Sicherheits-oder Verteiler Gruppen abgeleitet ist), erben diese eingeschränkte Sicherheit.  
@@ -79,7 +78,7 @@ In der folgenden Tabelle sind die standardmäßigen geschützten Konten und Grup
 |Domänen-Admins|Sicherungsoperatoren|Sicherungsoperatoren|Sicherungsoperatoren|  
 ||Zertifikatherausgeber|||  
 ||Domänen-Admins|Domänen-Admins|Domänen-Admins|  
-|Organisations-Admins|{1}Domänencontroller{2}|{1}Domänencontroller{2}|{1}Domänencontroller{2}|  
+|Organisations-Admins|Domänencontroller|Domänencontroller|Domänencontroller|  
 ||Organisations-Admins|Organisations-Admins|Organisations-Admins|  
 ||Krbtgt|Krbtgt|Krbtgt|  
 ||Druck-Operatoren|Druck-Operatoren|Druck-Operatoren|  
@@ -100,7 +99,7 @@ Die Vererbung von Berechtigungen ist für geschützte Gruppen und Konten deaktiv
 ###### <a name="adminsdholder-ownership"></a>Besitz von AdminSDHolder  
 Die meisten Objekte in Active Directory befinden sich im Besitz der BA-Gruppe der Domäne. Das AdminSDHolder-Objekt ist jedoch standardmäßig im Besitz der-da-Gruppe der Domäne. (Dies ist eine Situation, in der das Ihre Rechte und Berechtigungen nicht über die Mitgliedschaft in der Gruppe "Administratoren" für die Domäne ableitet.)  
   
-In früheren Windows-Versionen als Windows Server 2008 können Besitzer eines Objekts die Berechtigungen des Objekts ändern. Dies schließt auch Berechtigungen ein, die Sie ursprünglich nicht haben. Daher verhindern die Standard Berechtigungen für das AdminSDHolder-Objekt einer Domäne, dass Benutzer, die Mitglied von BA-oder EA-Gruppen sind, die Berechtigungen für das AdminSDHolder-Objekt einer Domäne ändern können. Allerdings können Mitglieder der Gruppe "Administratoren" für die Domäne den Besitz des Objekts übernehmen und sich selbst zusätzliche Berechtigungen erteilen. Dies bedeutet, dass dieser Schutz rudimentär ist und nur das Objekt vor versehentlichen Änderungen durch Benutzer schützt, die keine Mitglieder der Gruppe "da" in der Domäne. Außerdem verfügen die Gruppen BA und EA (falls zutreffend) über die Berechtigung, die Attribute des AdminSDHolder-Objekts in der lokalen Domäne (Stamm Domäne für EA) zu ändern.  
+In früheren Windows-Versionen als Windows Server 2008 können Besitzer eines Objekts die Berechtigungen des Objekts ändern. Dies schließt auch Berechtigungen ein, die Sie ursprünglich nicht haben. Daher verhindern die Standard Berechtigungen für das AdminSDHolder-Objekt einer Domäne, dass Benutzer, die Mitglied von BA-oder EA-Gruppen sind, die Berechtigungen für das AdminSDHolder-Objekt einer Domäne ändern können. Allerdings können Mitglieder der Gruppe "Administratoren" für die Domäne den Besitz des Objekts übernehmen und sich selbst zusätzliche Berechtigungen erteilen. Dies bedeutet, dass dieser Schutz rudimentär ist und nur das Objekt vor versehentlichen Änderungen durch Benutzer schützt, die keine Mitglieder der Gruppe "da" in der Domäne sind. Außerdem verfügen die Gruppen BA und EA (falls zutreffend) über die Berechtigung, die Attribute des AdminSDHolder-Objekts in der lokalen Domäne (Stamm Domäne für EA) zu ändern.  
   
 > [!NOTE]  
 > Ein Attribut für das AdminSDHolder-Objekt dSHeuristics ermöglicht die eingeschränkte Anpassung (Entfernung) von Gruppen, die als geschützte Gruppen angesehen werden und von AdminSDHolder und SDPROP betroffen sind. Diese Anpassung sollte in Erwägung gezogen werden, wenn Sie implementiert wird. es gibt jedoch gültige Situationen, in denen die Änderung von dSHeuristics auf AdminSDHolder nützlich ist. Weitere Informationen zum Ändern des dSHeuristics-Attributs für ein AdminSDHolder-Objekt finden Sie in den Microsoft-Support Artikeln [817433](https://support.microsoft.com/?id=817433) und [973840](https://support.microsoft.com/kb/973840)und in [Anhang C: geschützte Konten und Gruppen in Active Directory](Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md).  

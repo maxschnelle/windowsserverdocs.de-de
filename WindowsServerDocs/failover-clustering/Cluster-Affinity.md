@@ -1,18 +1,19 @@
 ---
 title: Cluster Affinität
 ms.prod: windows-server
-ms.manager: eldenc
+manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
+ms.author: johnmar
 ms.date: 03/07/2019
 description: In diesem Artikel werden Failovercluster-Affinität und antiaffinitäts Stufen beschrieben
-ms.openlocfilehash: 9a269d2b14e953daee849008a473c750dfbfe84b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c9910cac602802b753391fad1009fb7f1fa3d2f2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361458"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828283"
 ---
 # <a name="cluster-affinity"></a>Cluster Affinität
 
@@ -86,7 +87,7 @@ In einer PowerShell-Auflistung der Gruppen würden Sie Folgendes sehen:
 - Beachten Sie, dass in einem Szenario mit zwei Knoten und clusterenforcedantiaffinität, wenn ein Knoten instand ist, beide Gruppen nicht ausgeführt werden.  
 
 - Die Verwendung bevorzugter Besitzer für Gruppen kann mit der antiaffinität in einem Cluster mit drei oder mehr Knoten kombiniert werden.
-- Die Einstellungen für "AntiAffinityClassNames" und "clusterenforcedantiaffinität" werden erst nach der Wiederverwendung der Ressourcen ausgeführt. Z.B. Sie können diese festlegen, aber wenn beide Gruppen auf dem gleichen Knoten online sind, wenn Sie festgelegt sind, bleiben beide weiterhin online.
+- Die Einstellungen für "AntiAffinityClassNames" und "clusterenforcedantiaffinität" werden erst nach der Wiederverwendung der Ressourcen ausgeführt. z.b. Sie können diese festlegen, aber wenn beide Gruppen auf dem gleichen Knoten online sind, wenn Sie festgelegt sind, bleiben beide weiterhin online.
 
 
 

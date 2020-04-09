@@ -1,6 +1,5 @@
 ---
 title: Wiederherstellung der AD-Gesamtstruktur - häufig gestellte Fragen
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: ac9e5a3d-8b1e-41b7-8e02-f64b7acf1359
 ms.technology: identity-adds
-ms.openlocfilehash: 49cd12621c6ddf89393f0463e4856555ca241491
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f32111cf7cc81f8f49b7b1058cc1a0ccc780da7f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369115"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824003"
 ---
 # <a name="ad-forest-recovery---faq"></a>Wiederherstellung der AD-Gesamtstruktur - häufig gestellte Fragen
 
@@ -24,7 +23,7 @@ Dieses Dokument enthält häufig gestellte Fragen (FAQs) bezüglich der Wiederhe
 
 ## <a name="general-recovery"></a>Allgemeine Wiederherstellung
 
-**Q1 Was kann ich tun, um die Wiederherstellung zu beschleunigen?**
+**F: Was kann ich tun, um die Wiederherstellung zu beschleunigen?**
 
 Obwohl die Geschwindigkeit der Wiederherstellung nicht das Hauptziel dieses Handbuchs ist, können Sie kürzere Wiederherstellungszeiten erzielen, indem Sie folgende Schritte ausführen:  
   
@@ -57,7 +56,7 @@ Sie können AD DS Installationen auch beschleunigen, indem Sie die Funktion "Ins
   
 Unternehmen mit einer aggressiveren Vereinbarung zum Service Level (SLA) können die Wiederherstellungsverfahren für die Gesamtstruktur ändern, um die Wiederherstellung zu beschleunigen.  
   
-**Q1 Kann ich den Wiederherstellungsprozess für die Gesamtstruktur automatisieren?**
+**F: kann ich den Wiederherstellungsprozess für die Gesamtstruktur automatisieren?**
 
 Aufgrund der komplexen und kritischen Natur des Wiederherstellungsprozesses der Gesamtstruktur gibt es zurzeit keine End-to-End-Automatisierung. Der Wiederherstellungsprozess der Gesamtstruktur ist eher eine logistische und organisatorische Herausforderung bei der Wiederherstellung der Geschäftskontinuität als ein technisches Problem bei der Prozessautomatisierung. Aus diesem Grund sollte die Person, die die Umgebung verwaltet, einen Wiederherstellungs Plan für die Gesamtstruktur erstellen, der für diese Umgebung spezifisch ist, und dann Abschnitte davon automatisieren, die erfolgreich automatisiert werden können.  
   

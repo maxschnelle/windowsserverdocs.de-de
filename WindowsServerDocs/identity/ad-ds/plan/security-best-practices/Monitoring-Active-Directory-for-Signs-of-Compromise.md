@@ -1,7 +1,6 @@
 ---
 ms.assetid: a7ef2fba-b05c-4be2-93b2-b9456244c3ad
 title: Überwachen von Active Directory auf Anzeichen für einen Kompromiss
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e51b7ea151db1ca5d53a8cacef3b042e345175de
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 1d00ab702ab6b4ff4307f96f9e266a1cb3420197
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949636"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821143"
 ---
 # <a name="monitoring-active-directory-for-signs-of-compromise"></a>Überwachen von Active Directory auf Anzeichen für einen Kompromiss
 
@@ -48,7 +47,7 @@ Vor Windows Vista und Windows Server 2008 verfügte Windows nur über neun Kateg
   
 * Konto Anmelde Ereignisse  
 * Kontenverwaltung  
-* Directory Service Access  
+* Verzeichnisdienst Zugriff  
 * Anmelde Ereignisse  
 * Objektzugriff  
 * Richtlinienänderung  
@@ -101,7 +100,7 @@ System Ereignisse sind fast eine generische Catch-All-Kategorie, bei der verschi
 
 Ab Windows Vista und Windows Server 2008 hat Microsoft die Auswahlmöglichkeiten für die Ereignisprotokoll Kategorie verbessert, indem Unterkategorien unter jeder Haupt Überwachungs Kategorie erstellt werden. Unterkategorien ermöglichen eine weitaus differenziertere Überwachung, als andernfalls die Hauptkategorien. Mithilfe von Unterkategorien können Sie nur Teile einer bestimmten Hauptkategorie aktivieren und das Erstellen von Ereignissen, für die Sie keine Verwendung haben, überspringen. Jede Unterkategorie der Überwachungsrichtlinie kann für Ereignisse durch Erfolg, Fehler oder Erfolg und Fehler aktiviert werden.  
   
-Überprüfen Sie zum Auflisten aller verfügbaren Überwachungs Unterkategorien den erweiterten Überwachungs Richtlinien Container in einem Gruppenrichtlinie Objekt, oder geben Sie an einer Eingabeaufforderung auf einem beliebigen Computer unter Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008, Windows 8 Folgendes ein: Windows 7 oder Windows Vista:  
+Überprüfen Sie zum Auflisten aller verfügbaren Überwachungs Unterkategorien den erweiterten Überwachungs Richtlinien Container in einem Gruppenrichtlinie Objekt, oder geben Sie an einer Eingabeaufforderung auf einem beliebigen Computer unter Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008, Windows 8, Windows 7 oder Windows Vista Folgendes ein:  
   
 `auditpol /list /subcategory:*`
   
@@ -123,7 +122,7 @@ Unterkategorien der Überwachungsrichtlinie aktivieren die folgenden Ereignispro
   
 #### <a name="account-logon"></a>Kontoanmeldung  
   
-##### <a name="credential-validation"></a>Überprüfung der Anmeldeinformationen  
+##### <a name="credential-validation"></a>Validieren der Anmeldeinformationen  
 Diese Unterkategorie meldet die Ergebnisse von Validierungstests bei Anmelde Informationen, die für eine Benutzerkonto-Anmelde Anforderung gesendet wurden. Diese Ereignisse treten auf dem Computer auf, der für die Anmeldeinformationen autoritativ ist. Bei Domänen Konten ist der Domänen Controller autorisierend, während für lokale Konten der lokale Computer autorisierend ist.  
   
 In Domänen Umgebungen werden die meisten Konto Anmelde Ereignisse im Sicherheitsprotokoll der Domänen Controller protokolliert, die für die Domänen Konten autorisierend sind. Diese Ereignisse können jedoch auf anderen Computern in der Organisation auftreten, wenn lokale Konten verwendet werden, um sich anzumelden.  
@@ -182,15 +181,15 @@ In dieser Unterkategorie werden Aufrufe an die DPAPI (Data Protection Applicatio
 ##### <a name="rpc-events"></a>RPC-Ereignisse  
 Diese Unterkategorie meldet Remote Prozedur Aufruf-Verbindungs Ereignisse (RPC).  
   
-#### <a name="directory-service-access"></a>Directory Service Access  
+#### <a name="directory-service-access"></a>Verzeichnisdienst Zugriff  
   
-##### <a name="directory-service-access"></a>Directory Service Access  
+##### <a name="directory-service-access"></a>Verzeichnisdienst Zugriff  
 Diese Unterkategorie meldet, wenn auf ein AD DS Objekt zugegriffen wird. Nur Objekte mit konfigurierten SACLs bewirken, dass Überwachungs Ereignisse generiert werden, und zwar nur, wenn auf Sie in einer Weise zugegriffen wird, die mit den SACL-Einträgen übereinstimmt. Diese Ereignisse ähneln den Verzeichnisdienst-Zugriffs Ereignissen in früheren Versionen von Windows Server. Diese Unterkategorie gilt nur für Domänen Controller.  
   
 ##### <a name="directory-service-changes"></a>Verzeichnisdienst Änderungen  
 Diese Unterkategorie meldet Änderungen an Objekten in AD DS. Die gemeldeten Änderungs Typen sind Create-, Modify-, Move-und Wiederherstellen-Vorgänge, die für ein-Objekt ausgeführt werden. Die Verzeichnisdienst-Änderungs Überwachung gibt ggf. die alten und neuen Werte der geänderten Eigenschaften der Objekte an, die geändert wurden. Nur Objekte mit SACLs bewirken, dass Überwachungs Ereignisse generiert werden, und zwar nur, wenn auf Sie in einer Weise darauf zugegriffen wird, dass Sie mit ihren SACL-Einträgen übereinstimmt. Einige Objekte und Eigenschaften lösen aufgrund der Einstellungen der Objektklasse im Schema keine Überwachungsereignisse aus. Diese Unterkategorie gilt nur für Domänen Controller.  
   
-##### <a name="directory-service-replication"></a>Verzeichnisdienstreplikation  
+##### <a name="directory-service-replication"></a>Verzeichnisdienst-Replikation  
 Diese Unterkategorie meldet, wenn die Replikation zwischen zwei Domänen Controllern beginnt und endet.  
   
 ##### <a name="detailed-directory-service-replication"></a>Ausführliche Verzeichnisdienst Replikation  
@@ -198,7 +197,7 @@ Diese Unterkategorie meldet ausführliche Informationen zu den Informationen, di
   
 #### <a name="logonlogoff"></a>Anmeldung/Abmeldung  
   
-##### <a name="logon"></a>Anmelden  
+##### <a name="logon"></a>Anmeldung  
 Diese Unterkategorie meldet, wenn ein Benutzer versucht, sich am System anzumelden. Diese Ereignisse erfolgen auf dem Computer, auf den zugegriffen wird. Bei interaktiven Anmeldungen tritt die Generierung dieser Ereignisse auf dem Computer auf, der bei angemeldet ist. Wenn für den Zugriff auf eine Freigabe eine Netzwerk Anmeldung erfolgt, werden diese Ereignisse auf dem Computer generiert, der die Ressource hostet, auf die zugegriffen wird. Wenn diese Einstellung auf **keine**Überwachung konfiguriert ist, ist es schwierig oder unmöglich, zu ermitteln, auf welchen Benutzer zugegriffen wurde oder ob er auf Organisations Computer zugegriffen hat.  
   
 ##### <a name="network-policy-server"></a>Netzwerkrichtlinienserver  
@@ -213,7 +212,7 @@ Diese Unterkategorie meldet die Ergebnisse von AuthIP während der Aushandlungen
 ##### <a name="other-logonlogoff-events"></a>Andere Anmelde-/Abmelde Ereignisse  
 Diese Unterkategorie meldet andere Anmelde-und Abmelde bezogene Ereignisse, z. b. Remotedesktopdienste Sitzung die Verbindung trennt und die Verbindung wiederherstellt, mithilfe von runas Prozesse unter einem anderen Konto ausführen und eine Arbeitsstation sperren und entsperren.  
   
-##### <a name="logoff"></a>Abmelden (Logoff)  
+##### <a name="logoff"></a>Abmelden  
 Diese Unterkategorie meldet, wenn sich ein Benutzer beim System anmeldet. Diese Ereignisse erfolgen auf dem Computer, auf den zugegriffen wird. Bei interaktiven Anmeldungen tritt die Generierung dieser Ereignisse auf dem Computer auf, der bei angemeldet ist. Wenn für den Zugriff auf eine Freigabe eine Netzwerk Anmeldung erfolgt, werden diese Ereignisse auf dem Computer generiert, der die Ressource hostet, auf die zugegriffen wird. Wenn diese Einstellung auf **keine**Überwachung konfiguriert ist, ist es schwierig oder unmöglich, zu ermitteln, auf welchen Benutzer zugegriffen wurde oder ob er auf Organisations Computer zugegriffen hat.  
   
 ##### <a name="account-lockout"></a>Kontosperrung  
@@ -248,10 +247,10 @@ In dieser Unterkategorie werden andere Arten von Sicherheitsrichtlinien Änderun
 #### <a name="privilege-use"></a>Verwendung von Berechtigungen  
   
 ##### <a name="sensitive-privilege-use"></a>Verwendung vertraulicher Berechtigungen  
-In dieser Unterkategorie wird berichtet, wenn ein Benutzerkonto oder ein Dienst vertrauliche Berechtigungen verwendet. Eine vertrauliche Berechtigung umfasst die folgenden Benutzerrechte: agieren als Teil des Betriebssystems, Sichern von Dateien und Verzeichnissen, Erstellen eines Tokenobjekts, Debuggen von Programmen, Aktivieren von Computer-und Benutzerkonten für die Delegierung, Generieren von Sicherheits Überwachungen, annehmen der Identität eines Clients nach der Authentifizierung, laden und Entladen von Gerätetreibern, Verwalten von Überwachungs-und Sicherheitsprotokollen, Ändern von firmwareumgebungswerten, Ersetzen eines Tokens auf Prozessebene, Wiederherstellen von Dateien und Verzeichnissen und übernehmen des Besitzes von Dateien oder anderen Objekten. Durch das Überwachen dieser Unterkategorie wird eine große Anzahl von Ereignissen erzeugt.  
+In dieser Unterkategorie wird berichtet, wenn ein Benutzerkonto oder ein Dienst vertrauliche Berechtigungen verwendet. Eine vertrauliche Berechtigung umfasst die folgenden Benutzerrechte: agieren als Teil des Betriebssystems, Sichern von Dateien und Verzeichnissen, Erstellen eines Tokenobjekts, Debuggen von Programmen, Aktivieren von Computer-und Benutzerkonten für die Delegierung, Generieren von Sicherheits Überwachungen, annehmen der Identität eines Clients nach der Authentifizierung, laden und Entladen von Gerätetreibern, Verwalten der Überwachung und des Sicherheitsprotokolls , Wiederherstellen von Dateien und Verzeichnissen und übernehmen des Besitzes von Dateien oder anderen Objekten. Durch das Überwachen dieser Unterkategorie wird eine große Anzahl von Ereignissen erzeugt.  
   
 ##### <a name="nonsensitive-privilege-use"></a>Verwendung nicht sensibler Berechtigungen  
-Diese Unterkategorie meldet, wenn ein Benutzerkonto oder ein Dienst eine nicht vertrauliche Berechtigung verwendet. Eine nicht vertrauliche Berechtigung umfasst die folgenden Benutzerrechte: Access Credential Manager als vertrauenswürdiger Aufrufer, zugreifen auf diesen Computer über das Netzwerk, Hinzufügen von Arbeitsstationen zur Domäne, Anpassen von Speicher Kontingenten für einen Prozess, zulassen der lokalen Anmeldung, zulassen der Anmeldung über Remote Desktop Dienste, Umgehung der traversierungs Überprüfung, Ändern der Systemzeit, Erstellen einer Pagefile, Erstellen von globalen Objekten, Erstellen dauerhafter frei gegebener Objekte, Erstellen von symbolischen Verknüpfungen, verweigern des Zugriffs auf diesen Computer über das Netzwerk, verweigern als Batch Auftrag, verweigern von "Anmelden als Dienst", verweigern von "Anmelden als Dienst" Verweigern der lokalen Anmeldung, verweigern der Anmeldung über Remotedesktopdienste, Erzwingen des herunter Fahrens von einem Remote System, erhöhen eines Prozess Arbeits Satzes, erhöhen der Planungs Priorität, Sperren von Seiten im Arbeitsspeicher, anmelden als Batch Auftrag, anmelden als Dienst, Ändern einer Objekt Bezeichnung, Ausführen eines Volumes Wartungs Tasks, Profilerstellung für Einzelprozesse, Profilsystem Leistung, Computer von Docking Station entfernen, System Herunterfahren und Verzeichnisdienst Daten synchronisieren. Durch das Überwachen dieser Unterkategorie wird eine sehr hohe Anzahl von Ereignissen erzeugt.  
+Diese Unterkategorie meldet, wenn ein Benutzerkonto oder ein Dienst eine nicht vertrauliche Berechtigung verwendet. Eine nicht vertrauliche Berechtigung umfasst die folgenden Benutzerrechte: Access Credential Manager als vertrauenswürdiger Aufrufer, zugreifen auf diesen Computer über das Netzwerk, Hinzufügen von Arbeitsstationen zur Domäne, Anpassen von Speicher Kontingenten für einen Prozess, zulassen der lokalen Anmeldung, zulassen der Anmeldung über Remotedesktopdienste, umgehen der traversierungs Überprüfung, Ändern der Systemzeit, Erstellen einer Pagefile, Erstellen globaler Objekte , verweigern Sie den Zugriff auf diesen Computer über das Netzwerk, verweigern Sie die Anmeldung als Batch Auftrag, verweigern Sie die Anmeldung als Dienst, verweigern Sie die Protokollierung, verweigern Sie die Anmeldung über Remotedesktopdienste, erzwingen Sie das Herunterfahren von einem Remote System, ändern Sie die Zeit, und ändern Sie eine Objekt Bezeichnung. , Ausführen von volumewartungstasks, Profilerstellung für einen einzelnen Prozess, Profilsystem Leistung, Computer von Docking Station entfernen, das System Herunterfahren und Verzeichnisdienst Daten synchronisieren. Durch das Überwachen dieser Unterkategorie wird eine sehr hohe Anzahl von Ereignissen erzeugt.  
   
 ##### <a name="other-privilege-use-events"></a>Andere Berechtigungs Verwendungs Ereignisse  
 Diese Sicherheitsrichtlinien Einstellung wird derzeit nicht verwendet.  
@@ -336,7 +335,7 @@ Erweiterte Überwachungs Richtlinien können mithilfe von Active Directory oder 
 
 "Auditpol. exe" (zum Festlegen der Windows-Überwachungsrichtlinie) wurde in Windows Server 2008 und Windows Vista eingeführt. Anfänglich konnte nur "Auditpol. exe" zum Festlegen der erweiterten Überwachungsrichtlinie verwendet werden, aber Gruppenrichtlinie kann in Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008, Windows 8 und Windows 7 verwendet werden.  
   
-Auditpol. exe ist ein Befehlszeilen-Hilfsprogramm. Die Syntax sieht wie folgt aus:  
+Auditpol. exe ist ein Befehlszeilen-Hilfsprogramm. Die Syntax lautet wie folgt:  
   
 `auditpol /set /<Category|Subcategory>:<audit category> /<success|failure:> /<enable|disable>`
   

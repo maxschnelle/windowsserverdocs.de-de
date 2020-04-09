@@ -1,7 +1,6 @@
 ---
 ms.assetid: 9ad81367-f3fe-4b2e-bd7c-5900b2b9f77f
 title: Entwerfen der logischen Struktur
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 8d72d7ed9617d18b42f1be10daeafbac994dad88
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: de56205c163abff1b05d57ea90954fa93606abce
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402639"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822613"
 ---
 # <a name="designing-the-logical-structure"></a>Entwerfen der logischen Struktur
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Mit Active Directory Domain Services (AD DS) können Organisationen eine skalierbare, sichere und verwaltbare Infrastruktur für die Benutzer-und Ressourcenverwaltung erstellen. Sie ermöglicht außerdem die Unterstützung von Verzeichnis fähigen Anwendungen.  
   
@@ -42,7 +41,7 @@ Eine gut entworfene Active Directory logische Struktur vereinfacht die effizient
   
 Wenn Sie eine Active Directory logische Struktur entwerfen, bevor Sie AD DS bereitstellen, können Sie den Bereitstellungs Prozess optimieren, um Active Directory Features optimal zu nutzen. Um die Active Directory logische Struktur zu entwerfen, identifiziert das Entwurfs Team zuerst die Anforderungen für Ihre Organisation und entscheidet basierend auf diesen Informationen, wo die Gesamtstruktur-und Domänen Grenzen zu platzieren sind. Anschließend entscheidet das Entwurfs Team, wie die Domain Name System (DNS)-Umgebung konfiguriert wird, um die Anforderungen der Gesamtstruktur zu erfüllen. Zum Schluss identifiziert das Entwurfs Team die Struktur der Organisationseinheit (OU), die zum Delegieren der Verwaltung von Ressourcen in Ihrer Organisation erforderlich ist.  
   
-## <a name="in-this-guide"></a>Inhalt dieser Anleitung  
+## <a name="in-this-guide"></a>In diesem Handbuch  
   
 -   [Grundlegendes zum Active Directory logisches Modell](../../ad-ds/plan/Understanding-the-Active-Directory-Logical-Model.md)  
   
@@ -56,7 +55,7 @@ Wenn Sie eine Active Directory logische Struktur entwerfen, bevor Sie AD DS bere
   
 -   [Erstellen eines Organisationseinheitsentwurfs](../../ad-ds/plan/Creating-an-Organizational-Unit-Design.md)  
   
--   [Anhang A: DNS-Inventur](../../ad-ds/plan/Appendix-A--DNS-Inventory.md)  
+-   [Anhang A: DNS-Inventur](../../ad-ds/plan/Appendix-A--DNS-Inventory.md)  
   
 
 

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 87bca912-b912-4bbe-9533-2c34a7abc52d
 title: Bestimmen der Anzahl der erforderlichen Domänen
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 87214178fdda0cd70c79aed2e46e056deecb6291
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 32093409150e54f30eec5385ea80fc1c30851142
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402605"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822563"
 ---
 # <a name="determining-the-number-of-domains-required"></a>Bestimmen der Anzahl der erforderlichen Domänen
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Jede Gesamtstruktur beginnt mit einer einzelnen Domäne. Die maximale Anzahl von Benutzern, die eine einzelne Domänen Gesamtstruktur enthalten kann, basiert auf der langsamsten Verknüpfung, die die Replikation zwischen Domänen Controllern und der verfügbaren Bandbreite, die Sie Active Directory Domain Services (AD DS) zuweisen möchten, unterstützen muss. In der folgenden Tabelle ist die maximale Anzahl empfohlener Benutzer aufgeführt, die eine Domäne basierend auf einer einzelnen Domänen Gesamtstruktur, der Geschwindigkeit der langsamsten Verbindung und dem Prozentsatz der Bandbreite, die Sie für die Replikation reservieren möchten, enthalten kann. Diese Informationen gelten für Gesamtstrukturen, die maximal 100.000 Benutzer enthalten und über eine Konnektivität von 28,8 kbit pro Sekunde (Kbit/s) oder höher verfügen. Empfehlungen, die für Gesamtstrukturen gelten, die mehr als 100.000 Benutzer oder Verbindungen mit weniger als 28,8 Kbit/s enthalten, finden Sie in einem erfahrenen Active Directory-Designer. Die Werte in der folgenden Tabelle basieren auf dem Replikations Datenverkehr, der in einer Umgebung mit den folgenden Merkmalen generiert wird:  
   
@@ -34,13 +33,13 @@ Jede Gesamtstruktur beginnt mit einer einzelnen Domäne. Die maximale Anzahl von
   
 |Langsamster Link zum Verbinden eines Domänen Controllers (Kbit/s)|Maximale Anzahl von Benutzern, wenn eine Bandbreite von 1 Prozent verfügbar ist|Maximale Anzahl von Benutzern, wenn eine Bandbreite von 5 Prozent verfügbar ist|Maximale Anzahl von Benutzern, wenn eine Bandbreite von 10 Prozent verfügbar ist|  
 | --- | --- | --- | --- |  
-|28,8|10.000|25.000|40.000|  
-|32|10.000|25.000|50,000|  
-|56|10.000|50,000|100.000|  
-|64|10.000|50,000|100.000|  
+|28,8|10.000|25.000|40,000|  
+|32|10.000|25.000|50.000|  
+|56|10.000|50.000|100.000|  
+|64|10.000|50.000|100.000|  
 |128|25.000|100.000|100.000|  
-|256|50,000|100.000|100.000|  
-|512|80.000|100.000|100.000|  
+|256|50.000|100.000|100.000|  
+|512|80,000|100.000|100.000|  
 |1\.500|100.000|100.000|100.000|  
 
 So verwenden Sie die folgende Tabelle:  
@@ -49,7 +48,7 @@ So verwenden Sie die folgende Tabelle:
 
 2. Suchen Sie in der Zeile, die der langsamsten Verbindungsgeschwindigkeit entspricht, die Spalte, die die Prozentsatz Bandbreite darstellt, die Sie AD DS zuordnen möchten. Der Wert an diesem Speicherort ist die maximale Anzahl von Benutzern, die die Domäne in einer einzelnen Domänen Gesamtstruktur enthalten kann.  
 
-Wenn Sie feststellen, dass die Gesamtzahl der Benutzer in Ihrer Gesamtstruktur kleiner ist als die maximale Anzahl von Benutzern, die Ihre Domäne enthalten kann, können Sie eine einzelne Domäne verwenden. Stellen Sie sicher, dass Sie bei dieser Bestimmung für ein geplantes zukünftiges Wachstum sorgen. Wenn Sie feststellen, dass die Gesamtzahl der Benutzer in Ihrer Gesamtstruktur größer ist als die maximale Anzahl der Benutzer, die Ihre Domäne enthalten kann, müssen Sie einen höheren Prozentsatz an Bandbreite für die Replikation reservieren, die Verbindungsgeschwindigkeit erhöhen oder Ihre Organisation in regionale Domänen.  
+Wenn Sie feststellen, dass die Gesamtzahl der Benutzer in Ihrer Gesamtstruktur kleiner ist als die maximale Anzahl von Benutzern, die Ihre Domäne enthalten kann, können Sie eine einzelne Domäne verwenden. Stellen Sie sicher, dass Sie bei dieser Bestimmung für ein geplantes zukünftiges Wachstum sorgen. Wenn Sie feststellen, dass die Gesamtzahl der Benutzer in Ihrer Gesamtstruktur größer ist als die maximale Anzahl der Benutzer, die Ihre Domäne enthalten kann, müssen Sie einen höheren Prozentsatz an Bandbreite für die Replikation reservieren, die Verbindungsgeschwindigkeit erhöhen oder Ihre Organisation in regionale Domänen aufteilen.  
   
 ## <a name="dividing-the-organization-into-regional-domains"></a>Aufteilen der Organisation in regionale Domänen
 
@@ -72,11 +71,11 @@ Bestimmen Sie zunächst die maximale Anzahl von Benutzern, die von der Gesamtstr
   
 |Langsamster Link zum Verbinden eines Domänen Controllers (Kbit/s)|Maximale Anzahl von Benutzern, wenn eine Bandbreite von 1 Prozent verfügbar ist|Maximale Anzahl von Benutzern, wenn eine Bandbreite von 5 Prozent verfügbar ist|Maximale Anzahl von Benutzern, wenn eine Bandbreite von 10 Prozent verfügbar ist|  
 | --- | --- | --- | --- |  
-|28,8|10.000|50,000|75.000|  
-|32|10.000|50,000|75.000|  
+|28,8|10.000|50.000|75.000|  
+|32|10.000|50.000|75.000|  
 |56|10.000|75.000|100.000|  
 |64|25.000|75.000|100.000|  
-|128|50,000|100.000|100.000|  
+|128|50.000|100.000|100.000|  
 |256|75.000|100.000|100.000|  
 |512|100.000|100.000|100.000|  
 |1\.500|100.000|100.000|100.000|  
@@ -106,13 +105,13 @@ Bestimmen Sie die Anzahl der Benutzer, die in jeder Region gehostet werden müss
   
 |Langsamster Link zum Verbinden eines Domänen Controllers (Kbit/s)|Maximale Anzahl von Benutzern, wenn eine Bandbreite von 1 Prozent verfügbar ist|Maximale Anzahl von Benutzern, wenn eine Bandbreite von 5 Prozent verfügbar ist|Maximale Anzahl von Benutzern, wenn eine Bandbreite von 10 Prozent verfügbar ist|  
 | --- | --- | --- | --- |  
-|28,8|10.000|18.000|40.000|  
-|32|10.000|20.000|50,000|  
-|56|10.000|40.000|100.000|  
-|64|10.000|50,000|100.000|  
+|28,8|10.000|18.000|40,000|  
+|32|10.000|20.000|50.000|  
+|56|10.000|40,000|100.000|  
+|64|10.000|50.000|100.000|  
 |128|15.000|100.000|100.000|  
 |256|30.000|100.000|100.000|  
-|512|80.000|100.000|100.000|  
+|512|80,000|100.000|100.000|  
 |1\.500|100.000|100.000|100.000|  
 
 So verwenden Sie die folgende Tabelle:  
@@ -129,4 +128,4 @@ Obwohl die Gesamtzahl der Benutzer, die Sie in einer Domäne in einer Gesamtstru
 
 Nachdem Sie Ihre Organisation in regionale Domänen aufgeteilt haben, dokumentieren Sie die Regionen, die Sie darstellen möchten, sowie die Anzahl der Benutzer, die in jeder Region vorhanden sein werden. Beachten Sie außerdem die Geschwindigkeit der langsamsten Links in den einzelnen Regionen, die Sie für die Active Directory Replikation verwenden werden. Diese Informationen werden verwendet, um zu bestimmen, ob zusätzliche Domänen oder Gesamtstrukturen benötigt werden.  
 
-Für ein Arbeitsblatt, das Sie bei der Dokumentation der identifizierten Regionen unterstützt, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558) herunter, und öffnen Sie "Identifizierungs Regionen" (dsslogi). _4. doc).  
+Für ein Arbeitsblatt, das Sie bei der Dokumentation der identifizierten Regionen unterstützt, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den [Auftrags Hilfen für das Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558) herunter, und öffnen Sie "Identifizierungs Regionen" (DSSLOGI_4. doc).  

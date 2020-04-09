@@ -1,7 +1,6 @@
 ---
 ms.assetid: ef63d40c-a262-4a18-938d-b95c10680c0b
-title: Autonomie im Vergleich zu Isolierung
-description: ''
+title: Autonomie im Vergleich zur Isolation
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c3430ae9320ed2d39768d91f768adb3f9ab1c716
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9d836804f1de84ed9d10a978876db9cbecc23123
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402644"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822833"
 ---
-# <a name="autonomy-vs-isolation"></a>Autonomie im Vergleich zu Isolierung
+# <a name="autonomy-vs-isolation"></a>Autonomie im Vergleich zur Isolation
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Sie können Ihre Active Directory logische Struktur entwerfen, um eine der folgenden Optionen zu erreichen:  
   
@@ -44,7 +43,7 @@ Die Anzahl der Gesamtstrukturen, die Sie bereitstellen müssen, basiert auf den 
 ### <a name="data-isolation"></a>Daten Isolation  
 Die Daten Isolation umfasst die exklusive Kontrolle über Daten durch die Gruppe oder Organisation, die die Daten besitzt. Es ist wichtig zu beachten, dass Dienst Administratoren die Möglichkeit haben, die Kontrolle über eine Ressource von Daten Administratoren zu entfernen. -Und-Daten Administratoren können nicht verhindern, dass Dienst Administratoren auf die von Ihnen kontrollierten Ressourcen zugreifen können. Daher können Sie keine Daten Isolation erreichen, wenn eine andere Gruppe innerhalb des Unternehmens für die Dienst Verwaltung verantwortlich ist. Wenn eine Gruppe eine Daten Isolation erfordert, muss diese Gruppe auch für die Dienst Verwaltung verantwortlich sein.  
   
-Da Daten, die in AD DS und auf mit AD DS verbundenen Computern gespeichert sind, nicht von Dienst Administratoren isoliert werden können, besteht die einzige Möglichkeit für eine Gruppe innerhalb einer Organisation darin, eine separate Gesamtstruktur für diese Daten zu erstellen. Organisationen, für die die Konsequenzen eines Angriffs durch Schadsoftware oder einen erzwungenen Dienst Administrator beträchtlich sind, können eine separate Gesamtstruktur erstellen, um die Daten Isolation zu erreichen. Gesetzliche Anforderungen machen in der Regel einen Bedarf an dieser Art von Daten Isolation. Zum Beispiel:  
+Da Daten, die in AD DS und auf mit AD DS verbundenen Computern gespeichert sind, nicht von Dienst Administratoren isoliert werden können, besteht die einzige Möglichkeit für eine Gruppe innerhalb einer Organisation darin, eine separate Gesamtstruktur für diese Daten zu erstellen. Organisationen, für die die Konsequenzen eines Angriffs durch Schadsoftware oder einen erzwungenen Dienst Administrator beträchtlich sind, können eine separate Gesamtstruktur erstellen, um die Daten Isolation zu erreichen. Gesetzliche Anforderungen machen in der Regel einen Bedarf an dieser Art von Daten Isolation. Beispiel:  
   
 -   Ein Finanzinstitut ist gesetzlich vorgeschrieben, um den Zugriff auf Daten zu beschränken, die zu Clients in einem bestimmten Zuständigkeitsbereich gehören, und zwar für Benutzer, Computer und Administratoren, die sich in diesem Bereich befinden. Obwohl die-Einrichtung Dienst Administratoren vertraut, die außerhalb des geschützten Bereichs arbeiten, kann die Einrichtung bei Verstößen gegen die Zugriffsbeschränkung nicht mehr Unternehmen in diesem Zuständigkeitsbereich durchführen. Daher muss die Finanz Einrichtung Daten von Dienst Administratoren außerhalb dieses Gerichts nicht isolieren. Beachten Sie, dass die Verschlüsselung nicht immer eine Alternative zu dieser Lösung ist. Bei der Verschlüsselung werden Daten von Dienst Administratoren möglicherweise nicht geschützt.  
   
@@ -61,7 +60,7 @@ Durch die Daten Autonomie wird nicht verhindert, dass Dienst Administratoren in 
 ### <a name="service-isolation"></a>Dienst Isolation  
 Die Dienst Isolation umfasst die exklusive Kontrolle der Active Directory Infrastruktur. Für Gruppen, die eine Dienst Isolation erfordern, ist es erforderlich, dass kein Administrator außerhalb der Gruppe den Betrieb des Verzeichnis Dienstanbieter beeinträchtigt.  
   
-Betriebliche oder gesetzliche Anforderungen bilden in der Regel einen Bedarf an Dienst Isolation. Zum Beispiel:  
+Betriebliche oder gesetzliche Anforderungen bilden in der Regel einen Bedarf an Dienst Isolation. Beispiel:  
   
 -   Ein Fertigungsunternehmen verfügt über eine wichtige Anwendung, die die Geräte auf dem Werks Niveau steuert. Unterbrechungen im Dienst in anderen Teilen des Netzwerks der Organisation dürfen den Betrieb des werksbodens nicht beeinträchtigen.  
   
@@ -70,7 +69,7 @@ Betriebliche oder gesetzliche Anforderungen bilden in der Regel einen Bedarf an 
 ### <a name="service-autonomy"></a>Dienst Autonomie  
 Die Dienst Autonomie umfasst die Möglichkeit, die Infrastruktur zu verwalten, ohne dass exklusive Kontrolle erforderlich ist. Dies ist beispielsweise der Fall, wenn eine Gruppe Änderungen an der Infrastruktur vornehmen möchte (z. b. das Hinzufügen oder Entfernen von Domänen, das Ändern des Domain Name System (DNS)-Namespace oder das Ändern des Schemas), ohne den Gesamtstruktur Besitzer zu genehmigen.  
   
-Für eine Gruppe, die in der Lage sein soll, die Dienst Ebene AD DS zu steuern (durch Hinzufügen und Entfernen von Domänen Controllern, bei Bedarf), oder für eine Gruppe, die Verzeichnis aktivierte Anwendungen installieren muss, die Schema Erweiterungen erforderlich.  
+Für eine Gruppe, die in der Lage sein soll, die Dienst Ebene AD DS zu steuern (durch Hinzufügen und Entfernen von Domänen Controllern, bei Bedarf), oder für eine Gruppe, die in der Lage sein muss, Verzeichnis aktivierte Anwendungen zu installieren, für die Schema Erweiterungen erforderlich sind.  
   
 ## <a name="limited-connectivity"></a>Eingeschränkte Konnektivität  
 Wenn eine Gruppe in Ihrer Organisation über Netzwerke verfügt, die durch Geräte getrennt sind, die die Konnektivität zwischen Netzwerken einschränken oder beschränken (z. b. Firewalls und NAT-Geräte (Network Address Translation)), kann dies Auswirkungen auf den Gesamtstruktur Entwurf haben. Wenn Sie die Gesamtstruktur-Entwurfs Anforderungen ermitteln, achten Sie darauf, dass Sie die Speicherorte beachten, an denen Sie eine begrenzte Netzwerkverbindung haben Diese Informationen sind erforderlich, damit Sie Entscheidungen bezüglich des Gesamtstruktur Entwurfs treffen können.  

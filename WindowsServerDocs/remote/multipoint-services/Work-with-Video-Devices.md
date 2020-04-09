@@ -1,24 +1,20 @@
 ---
 title: Arbeiten mit Videogeräten
 description: Erfahren Sie, wie Videomonitore und Projektoren mit Stationen in Multipoint Services funktionieren.
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2f7f5a97-efd2-4184-8ad3-cf029d615eab
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: b7019000c99295204f196ee918129cded02e084f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6b967d4523058fe1dfcb086e5918f84257bd51bf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389248"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820443"
 ---
 # <a name="work-with-video-devices"></a>Arbeiten mit Videogeräten
 Erfahren Sie, wie Videogeräte, z.B. Monitore oder Projektoren, funktionieren, wenn sie an einen Computer in Ihrem MultiPoint Services-System oder an eine MultiPoint Services-*Station* angeschlossen werden.  
@@ -53,12 +49,12 @@ Bei beiden Optionen müssen Sie Folgendes beachten:
   
 -   Eventuell müssen Sie sich Adapter oder Konverter zur Signalumwandlung zwischen DVI- und VGA-Steckern besorgen.  
   
--   Die Verwendung eines „Y“-Splitterkabels kann die Videoqualität auf beiden Videogeräten verschlechtern.  
+-   Die Verwendung eines "Y"-Splitter Kabels kann die Videoqualität auf beiden Videogeräten verringern.  
   
--   Bei Verwendung eines Projektors und eines Monitors über ein „Y“-Splitterkabel passt MultiPoint Services die Bildschirmauflösung beider Geräte auf die niedrigste Maximalauflösung eines der beiden Geräte an. In der Regel ist dies der Projektor.  
+-   Wenn Sie einen Projektor und einen Monitor über ein "Y"-Splitter Kabel verwenden, passt Multipoint Services die Bildschirmauflösung beider Geräte an die niedrigste maximale Auflösung der beiden Geräte an – in der Regel den Projektor.  
   
 -   Multipoint Services unterstützt nicht die Erweiterung der Anzeige einer einzelnen Station über mehrere Monitore hinweg.  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Verwalten der Stationshardware](Manage-Station-Hardware.md)  
 [Einrichten einer Station](Set-Up-a-Station.md) 

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 155abe09-6360-4913-8dd9-7392d71ea4e6
 title: Konfigurieren eines Computers für die Problembehandlung
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 53af8acd7da8f9008c88ad7c6c14b00e63801847
-ms.sourcegitcommit: 1f3ffff0af340868dcf3a2cfef5b8f8aea69d96d
+ms.openlocfilehash: d9d279615dc1f70ffdcff9e49a4aa619f0106a93
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78278555"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822973"
 ---
 # <a name="configuring-a-computer-for-troubleshooting"></a>Konfigurieren eines Computers für die Problembehandlung
 
@@ -36,7 +35,7 @@ Weitere Informationen zum Installieren von RSAT finden Sie im Artikel [Remoteser
 
 ### <a name="configure-reliability-and-performance-monitor"></a>Konfigurieren der Zuverlässigkeit und des Leistungs Monitors
 
-Windows Server enthält den Windows-Zuverlässigkeits-und Leistungs Monitor, bei dem es sich um ein MMC-Snap-in (Microsoft Management Console) handelt, das die Funktionalität vorheriger eigenständiger Tools, einschließlich Leistungsprotokolle und-Warnungen, Server Performance Advisor, und System Monitor. Dieses Snap-in stellt eine grafische Benutzeroberfläche (GUI) zum Anpassen von Datensammler Sätzen und Ereignis Ablauf Verfolgungs Sitzungen bereit.
+Windows Server enthält den Windows-Zuverlässigkeits-und Leistungs Monitor, bei dem es sich um ein MMC-Snap-in (Microsoft Management Console) handelt, das die Funktionalität vorheriger eigenständiger Tools, einschließlich Leistungsprotokolle und-Warnungen, Server Performance Advisor und System Monitor, kombiniert. Dieses Snap-in stellt eine grafische Benutzeroberfläche (GUI) zum Anpassen von Datensammler Sätzen und Ereignis Ablauf Verfolgungs Sitzungen bereit.
 
 Die Zuverlässigkeits-und Leistungsüberwachung umfasst auch die Zuverlässigkeits Überwachung, ein MMC-Snap-in, das Änderungen am System nachverfolgt und Sie mit Änderungen in der Systemstabilität vergleicht und eine grafische Ansicht der Beziehung bietet.
 

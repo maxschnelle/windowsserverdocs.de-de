@@ -4,18 +4,18 @@ title: Neues beim Failoverclustering unter Windows Server
 ms.prod: windows-server
 ms.technology: storage-failover-clustering
 ms.topic: get-started-article
-manager: dongill
+manager: lizross
 author: JasonGerend
 ms.author: jgerend
 ms.date: 10/18/2018
-ms.openlocfilehash: 40342f43f7afbf020ba20f27586650767218fe83
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 0d4b648a54e1937aedfe3fd087977c5733110787
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948030"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827333"
 ---
-# <a name="whats-new-in-failover-clustering"></a>Neuigkeiten in Failoverclustering
+# <a name="whats-new-in-failover-clustering"></a>What's new in Failover Clustering (Neues beim Failoverclustering)
 
 > Gilt für: Windows Server 2019, Windows Server 2016
 
@@ -29,22 +29,22 @@ In diesem Thema werden die neuen und geänderten Funktionen in Failoverclusterin
     Mit Cluster Sätzen können Sie virtuelle Online Computer (Live Migration) zwischen Clustern innerhalb des Cluster Satzes verschieben.
 
     Weitere Informationen finden Sie unter [Cluster Sets](../storage/storage-spaces/cluster-sets.md).
+                
+- **Azure erkennende Cluster**                
+                
+    Failovercluster erkennen jetzt automatisch den DTH-Runn-Runn-ng-Vorgang auf virtuellen Azure-IaaS-Computern und optimieren die Konfiguration, um das proaktive Failover und die Protokollierung von geplanten Azure-Wartungs Ereignissen zu gewährleisten, um die höchste Verfügbarkeit Die Bereitstellung wird auch vereinfacht, da der Load Balancer mit dem dynamischen Netzwerknamen für den Cluster Namen nicht konfiguriert werden muss.
+                
+- **DOM-DOM in c-uste-MiG-Zeichen**
+                
+    Failovercluster können nun dynamisch von einer Active Directory Domäne zu einer anderen migrieren, um die Domänen Konsolidierung zu vereinfachen und Cluster zu b "von Hardwarepartnern erstellt und später der Kunden Domäne beitreten zu lassen.    
+- **USB-Zeugen**                
 
-- **Azure erkennende Cluster**
-
-    Failovercluster erkennen nun automatisch, wenn Sie auf virtuellen Azure-IaaS-Computern ausgeführt werden, und optimieren die Konfiguration, um ein proaktives Failover und die Protokollierung von geplanten Azure-Wartungs Ereignissen bereitzustellen, um die höchste Verfügbarkeit zu erreichen Die Bereitstellung wird auch vereinfacht, da der Load Balancer mit dem dynamischen Netzwerknamen für den Cluster Namen nicht konfiguriert werden muss.
-
-- **Domänenübergreifende Clustermigration**
-
-    Failovercluster können nun dynamisch von einer Active Directory Domäne zu einer anderen migrieren, sodass die Domänen Konsolidierung vereinfacht wird und Cluster von Hardwarepartnern erstellt und später der Kunden Domäne hinzugefügt werden können.
-- **USB-Zeugen**
-
-    Sie können jetzt ein einfaches USB-Laufwerk, das mit einem Netzwerk Switch verbunden ist, als Zeuge zum Ermitteln des Quorums für einen Cluster verwenden. Dadurch wird der Datei frei gaben Zeuge erweitert, um beliebige SMB2-kompatible Geräte zu unterstützen.
-
-- **Verbesserungen der Clusterinfrastruktur**
-
-    Der CSV-Cache ist jetzt standardmäßig aktiviert, um die Leistung virtueller Computer zu steigern. MSDTC unterstützt nun Cluster Shared Volumes, um die Bereitstellung von MSDTC-Workloads auf Storage Spaces Direct, z. B. mit SQL Server, zu ermöglichen. Verbesserte Logik zum Erkennen von partitionierten Knoten mit Selbstkorrektur, um Knoten zur Clustermitgliedschaft zurückzugeben. Verbesserte Erkennung von Clusternetzwerkrouten und Selbstkorrektur.
-
+    Sie können jetzt ein an einen Netzwerk Switch angefügtes Si-PLE-USB-Laufwerk als Zeuge zum Ermitteln des Quorums für einen Cluster verwenden. Dadurch wird der Datei frei gaben Zeuge erweitert, um beliebige SMB2-kompatible Geräte zu unterstützen.
+                
+- **Cluster-INFRAS Rei Prov ments**
+                
+    Der CSV-Cache ist jetzt durch die Leistung des virtuellen Computers von d faul für Oost aktiviert. MSDTC unterstützt nun Cluster Shared Volumes, um die Bereitstellung von MSDTC-Workloads auf Storage Spaces Direct, z. B. mit SQL Server, zu ermöglichen. Verbesserte Logik zum Erkennen von partitionierten Knoten mit Selbstkorrektur, um Knoten zur Clustermitgliedschaft zurückzugeben. Verbesserte Erkennung von Clusternetzwerkrouten und Selbstkorrektur.
+                
 - **Clusterfähiges Aktualisieren unterstützt „Direkte Speicherplätze“**
 
     Cluster Aware Updating (CAU) ist nun integriert und berücksichtigt Storage Spaces Direct, wodurch die Datensynchronisierung auf jedem Knoten überprüft und sichergestellt wird. Das Cluster fähige aktualisieren prüft Updates auf einen intelligenten Neustart, wenn dies erforderlich ist. Dies ermöglicht das orchestrieren von Neustarts aller Server im Cluster für eine geplante Wartung.
@@ -64,9 +64,9 @@ In diesem Thema werden die neuen und geänderten Funktionen in Failoverclusterin
     Failovercluster verwenden nicht mehr die NTLM-Authentifizierung. Stattdessen wird die Kerberos-Authentifizierung und die Zertifikat basierte Authentifizierung exklusiv verwendet. Für den Benutzer oder die Bereitstellungs Tools sind keine Änderungen erforderlich, um diese Sicherheits Erweiterung nutzen zu können. Außerdem können Failovercluster in Umgebungen bereitgestellt werden, in denen NTLM deaktiviert wurde. 
 
 
-## <a name="whats-new-in-windows-server-2016"></a>Neuerungen in Windows Server 2016
+## <a name="whats-new-in-windows-server-2016"></a>Neues in Windows Server 2016
 
-### <a name="BKMK_RollingUpgrade"></a>Paralleles Upgrade des Cluster Betriebssystems
+### <a name="cluster-operating-system-rolling-upgrade"></a><a name="BKMK_RollingUpgrade"></a>Paralleles Upgrade des Cluster Betriebssystems
 
 Das parallele Upgrade des Cluster Betriebssystems ermöglicht einem Administrator, das Betriebssystem der Cluster Knoten von Windows Server 2012 R2 auf eine neuere Version zu aktualisieren, ohne die Hyper-V-oder die Dateiserver mit horizontaler Skalierung Arbeits Auslastungen zu beenden. Mit diesem Feature können die Downtimesanktionen laut Vereinbarungen zum Servicelevel (Service Level Agreements, SLA) vermieden werden. 
 
@@ -94,8 +94,8 @@ Die Cluster Betriebssysteme für das Upgrade in Phasen lauten wie folgt für jed
 
 Weitere Informationen finden Sie unter [Cluster Operating System Rolling Upgrade](cluster-operating-system-rolling-upgrade.md). 
 
-### <a name="BKMK_SR"></a>Speicher Replikat  
-Das Speicher Replikat ist ein neues Feature, das Speicher agnostische, synchrone Replikation auf Blockebene zwischen Servern oder Clustern für die Notfall Wiederherstellung sowie das Strecken eines Failoverclusters Zwischenstand Orten ermöglicht. Die synchrone Replikation ermöglicht die Spiegelung von Daten an physischen Standorten mit ausfallsicheren Volumes, um auf Dateisystemebene sicherzustellen, dass kein Datenverlust auftritt. Asynchrone Replikation ermöglicht die Standorterweiterung über regionale Bereiche hinaus mit der Möglichkeit von Datenverlusten. 
+### <a name="storage-replica"></a><a name="BKMK_SR"></a>Speicher Replikat  
+Das Speicher Replikat ist ein neues Feature, das Speicher agnostische, synchrone Replikation auf Blockebene zwischen Servern oder Clustern für die Notfall Wiederherstellung sowie das Strecken eines Failoverclusters Zwischenstand Orten ermöglicht. Die synchrone Replikation ermöglicht die Spiegelung von Daten an physischen Standorten mit ausfallsicheren Volumes, um auf Dateisystemebene sicherzustellen, dass kein Datenverlust auftritt. Die asynchrone Replikation ermöglicht die Standorterweiterung über regionale Bereiche hinaus mit der Möglichkeit von Datenverlusten. 
 
 **Welchen Nutzen bietet diese Änderung?**  
 
@@ -126,7 +126,7 @@ Mithilfe des Speicher Replikats können Sie folgende Aufgaben ausführen:
 Weitere Informationen finden Sie unter [Speicherreplikate in Windows Server 2016](../storage/storage-replica/storage-replica-overview.md). 
 
 
-### <a name="BKMK_CloudWitness"></a>Cloudzeuge  
+### <a name="cloud-witness"></a><a name="BKMK_CloudWitness"></a>Cloudzeuge  
 Der Cloudzeuge ist ein neuer Failovercluster-Quorumzeugen-Typ in Windows Server 2016, der Microsoft Azure als Vermittlungspunkt nutzt. Der Cloudzeuge erhält wie jeder andere Quorumzeuge ein Votum und kann an der Quorumberechnung teilnehmen. Sie können den Cloudzeugen als Quorumzeugen konfigurieren, indem Sie den Assistenten zum Konfigurieren eines Clusterquorums verwenden. 
 
 **Welchen Nutzen bietet diese Änderung?**  
@@ -147,7 +147,7 @@ Weitere Informationen finden Sie unter Bereitstellen [eines cloudzeugen für ein
 
 Dies ist eine neue Funktion in Windows Server 2016. 
 
-### <a name="BKMK_VMs"></a>Resilienz virtueller Computer  
+### <a name="virtual-machine-resiliency"></a><a name="BKMK_VMs"></a>Resilienz virtueller Computer  
 **Computeresilienz** Windows Server 2016 umfasst höhere computeresilienz von virtuellen Computern, um Probleme bei der Cluster Kommunikation in Ihrem Computecluster wie folgt zu reduzieren: 
 
 -   **Resilienzoptionen, die für virtuelle Computer verfügbar sind:**  Nun können Sie die resilienzoptionen für virtuelle Computer konfigurieren, die das Verhalten der virtuellen Computer während vorübergehender Fehler definieren:  
@@ -166,17 +166,17 @@ Wenn ein virtueller Computer die Verbindung mit dem zugrunde liegenden Speicher 
 
 In Windows Server 2016 ist die Resilienz von Speicher für virtuelle Computer für Gast Cluster auch bekannt und optimiert. 
 
-### <a name="BKMK_Diagnostics"></a>Diagnose Verbesserungen bei Failoverclustering  
+### <a name="diagnostic-improvements-in-failover-clustering"></a><a name="BKMK_Diagnostics"></a>Diagnose Verbesserungen bei Failoverclustering  
 Zum Diagnostizieren von Problemen mit Failoverclustern umfasst Windows Server 2016 Folgendes:  
 
 -   Mehrere Verbesserungen an Cluster Protokolldateien (z. b. Zeitzoneninformationen und diagnosticverbose-Protokoll), die das Beheben von Problemen mit dem Failoverclustering erleichtern. Weitere Informationen finden Sie unter [Windows Server 2016-Failovercluster-Problembehandlung bei Verbesserungen-Cluster Protokoll](https://blogs.msdn.com/b/clustering/archive/2015/05/15/10614930.aspx). 
 
 -   Ein neuer dumptyp des **aktiven Speicher Abbilds**, das die meisten Speicherseiten filtert, die virtuellen Maschinen zugeordnet sind. Dadurch wird der Speicher. dmp wesentlich kleiner und leichter zu speichern oder zu kopieren. Weitere Informationen finden Sie unter [Verbesserungen bei der Problembehandlung für Windows Server 2016-Failovercluster-aktives Dump](https://blogs.msdn.com/b/clustering/archive/2015/05/18/10615526.aspx) 
 
-### <a name="BKMK_SiteAware"></a>Site abhängige Failovercluster  
+### <a name="site-aware-failover-clusters"></a><a name="BKMK_SiteAware"></a>Site abhängige Failovercluster  
 Windows Server 2016 umfasst standortabhängige Failovercluster, die Gruppenknoten in gestreckten Clustern basierend auf dem physischen Standort (Standort) aktivieren. Cluster Site-Awareness erweitert wichtige Vorgänge während des Cluster Lebenszyklus, z. b. Failoververhalten, Platzierungs Richtlinien, Takt zwischen den Knoten und Quorum Verhalten. Weitere Informationen finden Sie unter [Site-Aware Failover Clusters in Windows Server 2016](https://blogs.msdn.com/b/clustering/archive/2015/08/19/10636304.aspx). 
 
-### <a name="BKMK_multidomainclusters"></a>Arbeitsgruppen und Cluster mit mehreren Domänen  
+### <a name="workgroup-and-multi-domain-clusters"></a><a name="BKMK_multidomainclusters"></a>Arbeitsgruppen und Cluster mit mehreren Domänen  
 In Windows Server 2012 R2 und früheren Versionen kann ein Cluster nur zwischen Mitglieds Knoten erstellt werden, die mit derselben Domäne verknüpft sind. Windows Server 2016 beseitigt diese Hindernisse und führt die Möglichkeit zum Erstellen eines Failoverclusters ohne Active Directory-Abhängigkeiten ein. Sie können jetzt in den folgenden Konfigurationen Failovercluster erstellen:  
 
 -   **Einzel Domänen Cluster.** Cluster mit allen Knoten, die mit derselben Domäne verknüpft sind. 
@@ -186,17 +186,17 @@ In Windows Server 2012 R2 und früheren Versionen kann ein Cluster nur zwischen 
 -   **Arbeitsgruppen Cluster.** Cluster mit Knoten, die Mitglied Server/Arbeitsgruppe sind (nicht mit der Domäne verknüpft). 
 
 Weitere Informationen finden Sie unter [Arbeitsgruppe und Cluster mit mehreren Domänen in Windows Server 2016](https://blogs.msdn.com/b/clustering/archive/2015/08/17/10635825.aspx) .  
-### <a name="BKMK_VMLoadBalancing"></a>Lastenausgleich für virtuelle Computer  
+### <a name="virtual-machine-load-balancing"></a><a name="BKMK_VMLoadBalancing"></a>Lastenausgleich für virtuelle Computer  
 Der Lastenausgleich für virtuelle Computer ist ein neues Feature in Failoverclustering, das den nahtlosen Lastenausgleich virtueller Maschinen über die Knoten in einem Cluster hinweg ermöglicht. Über belegte Knoten werden basierend auf dem Arbeitsspeicher der virtuellen Maschine und der CPU-Auslastung auf dem Knoten identifiziert. Virtuelle Computer werden dann (Live migriert) von einem übergeordneten Knoten zu Knoten mit verfügbarer Bandbreite (falls zutreffend) verschoben. Die Aggressivität des Ausgleichs kann optimiert werden, um eine optimale Leistung und Auslastung des Clusters sicherzustellen. Der Lastenausgleich ist in Windows Server 2016 Technical Preview standardmäßig aktiviert. Der Lastenausgleich ist jedoch deaktiviert, wenn die dynamische SCVMM-Optimierung aktiviert ist. 
 
-### <a name="BKMK_VMStartOrder"></a>Start Reihenfolge der virtuellen Maschine  
+### <a name="virtual-machine-start-order"></a><a name="BKMK_VMStartOrder"></a>Start Reihenfolge der virtuellen Maschine  
 Die Start Reihenfolge des virtuellen Computers ist ein neues Feature in Failoverclustering, das die Orchestrierung starten für virtuelle Computer (und alle Gruppen) in einem Cluster einführt. Virtuelle Computer können nun in Ebenen gruppiert werden, und es können Start Auftrags Abhängigkeiten zwischen unterschiedlichen Ebenen erstellt werden. Dadurch wird sichergestellt, dass die wichtigsten virtuellen Computer (z. b. Domänen Controller oder virtuelle Computer des-Hilfsprogramms) zuerst gestartet werden. Virtuelle Computer werden erst gestartet, wenn die virtuellen Maschinen, von denen Sie abhängig sind, ebenfalls gestartet werden. 
 
-### <a name="BKMK_SMBMultiChannel"></a>Vereinfachte SMB Multichannel-und Multi-NIC-Cluster Netzwerke  
+### <a name="simplified-smb-multichannel-and-multi-nic-cluster-networks"></a><a name="BKMK_SMBMultiChannel"></a>Vereinfachte SMB Multichannel-und Multi-NIC-Cluster Netzwerke  
 Failoverclusternetzwerke sind nicht mehr auf eine einzelne NIC pro Subnetz/Netzwerk beschränkt. Bei vereinfachten SMB Multichannel-und Multi-NIC-Cluster Netzwerken erfolgt die Netzwerkkonfiguration automatisch, und jede NIC im Subnetz kann für Cluster-und workloaddatenverkehr verwendet werden. Diese Erweiterung ermöglicht es Kunden, den Netzwerk Durchsatz für Hyper-V, SQL Server-Failoverclusterinstanz und andere SMB-Arbeits Auslastungen zu maximieren. 
 
 Weitere Informationen finden Sie unter [vereinfachte SMB Multichannel-und Multi-NIC-Cluster Netzwerke](smb-multichannel.md).
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 * [Speicher](../storage/storage.md)  
 * [Neuerungen beim Speicher in Windows Server 2016](../storage/whats-new-in-storage.md)  

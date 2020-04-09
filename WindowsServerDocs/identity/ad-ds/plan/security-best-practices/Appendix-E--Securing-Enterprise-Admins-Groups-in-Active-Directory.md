@@ -1,7 +1,6 @@
 ---
 ms.assetid: f643099e-f9c6-476f-9378-5a9228c39b33
 title: 'Anhang E: Sichern von Organisations-Admins-Gruppen in Active Directory'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 51337e5d4940a490045e146d32408d4f709bb6ed
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5294be945ce4a93ffeb1c27cffa8a82470920e7b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408715"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821633"
 ---
 # <a name="appendix-e-securing-enterprise-admins-groups-in-active-directory"></a>Anhang E: Schützen von Organisationsadministratorgruppen in Active Directory
 
@@ -44,7 +43,7 @@ Für die Gruppe "Organisations-Admins" in der Gesamtstruktur:
 
 ### <a name="step-by-step-instructions-for-removing-all-members-from-the-enterprise-admins-group"></a>Schritt-für-Schritt-Anleitung zum Entfernen aller Mitglieder aus der Gruppe "Organisations-Admins"  
 
-1.  KlickenSie in Server-Manager **auf Extras, und**klicken Sie dann auf **Active Directory Benutzer und Computer**.  
+1.  Klicken **Server Manager**Sie in Server-Manager **auf Extras, und**klicken Sie dann auf **Active Directory Benutzer und Computer**.  
 
 2.  Wenn Sie die Stamm Domäne für die Gesamtstruktur nicht verwalten, klicken Sie in der Konsolen Struktur mit der rechten Maustaste auf <Domain>, und klicken Sie dann auf **Domäne ändern** (wobei <Domain> der Name der Domäne ist, die Sie gerade verwalten).  
 
@@ -66,7 +65,7 @@ Für die Gruppe "Organisations-Admins" in der Gesamtstruktur:
 
 ### <a name="step-by-step-instructions-to-secure-enterprise-admins-in-active-directory"></a>Schritt-für-Schritt-Anleitungen zum Schützen von Organisations-Admins in Active Directory  
 
-1.  KlickenSie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
+1.  Klicken **Server Manager**Sie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
 
 2.  Erweitern Sie in der Konsolen Struktur <Forest>\domains\\<Domain>, und klicken Sie dann auf **Gruppenrichtlinie Objekte** (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
 
@@ -182,7 +181,7 @@ Für die Gruppe "Organisations-Admins" in der Gesamtstruktur:
 > [!IMPORTANT]  
 > Wenn für die Verwaltung von Domänen Controllern und Active Directory Jump-Server verwendet werden, stellen Sie sicher, dass sich die jumpserver in einer Organisationseinheit befinden, mit der diese GPOs nicht verknüpft sind  
 
-### <a name="verification-steps"></a>Überprüfungs Schritte  
+### <a name="verification-steps"></a>Überprüfungsschritte  
 
 #### <a name="verify-deny-access-to-this-computer-from-the-network-gpo-settings"></a>GPO-Einstellungen "Zugriff auf diesen Computer über das Netzwerk verweigern"  
 Versuchen Sie auf einem Mitglieds Server oder einer Arbeitsstation, der nicht von den GPO-Änderungen (z. b. einem "Sprung Server") betroffen ist, auf einen Mitglieds Server oder eine Arbeitsstation über das Netzwerk zuzugreifen, das von den GPO-Änderungen betroffen ist. Um die GPO-Einstellungen zu überprüfen, versuchen Sie, das Systemlaufwerk mithilfe des **net use** -Befehls zuzuordnen, indem Sie die folgenden Schritte ausführen:  
@@ -217,7 +216,7 @@ Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die 
 
 4.  Klicken Sie auf **Datei**und dann auf **Speichern**unter.  
 
-5.  Geben Sie im Feld Dateiname **<Filename>. bat** ein (wobei <Filename> der Name der neuen Batchdatei ist).  
+5.  Geben Sie **File** im Feld Dateiname **<Filename>. bat** ein (wobei <Filename> der Name der neuen Batchdatei ist).  
 
 ##### <a name="schedule-a-task"></a>Planen einer Aufgabe  
 

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5c8c6cc0-0d22-4f27-a111-0aa90db7d6c8
 title: Planen der AD FS-Bereitstellungstopologie
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,18 +8,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 9cd036e9dd0b249197fb475504c9cad532ead0ea
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 53364e076a8c3b7d95e8c834a5a7621071ed6061
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408039"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858673"
 ---
 # <a name="plan-your-ad-fs-deployment-topology"></a>Planen der AD FS-Bereitstellungstopologie
 
 Der erste Schritt bei der Planung einer Bereitstellung von Active Directory-Verbunddienste (AD FS) \(AD FS\) besteht darin, die geeignete Bereitstellungs Topologie festzulegen, um die Anforderungen Ihrer Organisation zu erfüllen.  
   
-Bevor Sie dieses Thema lesen, überprüfen Sie, wie AD FS Daten auf anderen Verbund Servern in einer Verbund Serverfarm gespeichert und repliziert werden, und stellen Sie sicher, dass Sie den Zweck und die Replikations Methoden verstehen, die für die im AD FS con gespeicherten zugrunde liegenden Daten verwendet werden können. figuration-Datenbank.  
+Bevor Sie dieses Thema lesen, überprüfen Sie, wie AD FS Daten auf anderen Verbund Servern in einer Verbund Serverfarm gespeichert und repliziert werden, und stellen Sie sicher, dass Sie den Zweck und die Replikations Methoden verstehen, die für die zugrunde liegenden Daten in der AD FS Konfigurations Datenbank verwendet werden können.  
   
 Es gibt zwei Datenbanktypen, die Sie verwenden können, um AD FS Konfigurationsdaten zu speichern: interne Windows-Datenbank \(wid\) und Microsoft SQL Server. Weitere Informationen finden Sie unter [Die Rolle der AD FS-Konfigurationsdatenbank](../../ad-fs/technical-reference/The-Role-of-the-AD-FS-Configuration-Database.md). Informieren Sie sich über die verschiedenen Vorteile und Einschränkungen der Verwendung von wid oder SQL Server als AD FS Konfigurations Datenbank, zusammen mit den verschiedenen Anwendungsszenarien, die Sie unterstützen, und treffen Sie dann Ihre Auswahl.  
   
@@ -53,7 +52,7 @@ Die Auswirkung auf Hardwareressourcen auf einem Verbundserver, der in einer Farm
   
 Im Vergleich dazu müssen Verbundserver, die in einer Farm mit der SQL Server-Datenbank bereitgestellt werden, nicht unbedingt eine lokale Instanz der AD FS-Konfigurationsdatenbank enthalten. Daher stellen diese etwas geringere Ansprüche an die Hardwareressourcen.  
   
-## <a name="BKMK_1"></a>Speicherort für einen Verbund Server  
+## <a name="where-to-place-a-federation-server"></a><a name="BKMK_1"></a>Speicherort für einen Verbund Server  
 Stellen Sie als bewährte Sicherheitsmaßnahme AD FS Verbund Server vor einer Firewall her, und verbinden Sie Sie mit Ihrem Unternehmensnetzwerk, um eine Gefährdung im Internet zu verhindern. Dies ist wichtig, da Verbund Server über eine vollständige Autorisierung zum Erteilen von Sicherheits Token verfügen. Daher sollten sie den gleichen Schutz wie Domänencontroller haben. Wenn ein Verbund Server kompromittiert ist, kann ein böswilliger Benutzer voll Zugriffs Token für alle Webanwendungen und Verbund Server ausstellen, die durch AD FS geschützt sind.  
   
 > [!NOTE]  

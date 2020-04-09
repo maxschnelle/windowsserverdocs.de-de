@@ -1,7 +1,6 @@
 ---
 ms.assetid: d92731f1-e4d8-4223-9b07-ca1f40bb0e1f
 title: Zusammenhangloser Namespace
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5abe67c89ce4c2f4b5056f6197242b5db8db340e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b21e849bb69068f66b1b80c6b1a3afbdef91459f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408858"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822533"
 ---
 # <a name="disjoint-namespace"></a>Zusammenhangloser Namespace
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ein Zusammenhang loser Namespace tritt auf, wenn ein oder mehrere Domänen Mitglieds Computer ein primäres Domain Name Service-Suffix (DNS) aufweisen, das nicht dem DNS-Namen der Active Directory Domäne entspricht, der die Computer angehören. Beispielsweise verwendet ein Mitglieds Computer, der ein primäres DNS-Suffix von Corp.fabrikam.com in einer Active Directory Domäne mit dem Namen na.Corp.fabrikam.com verwendet, einen Zusammenhang losen Namespace.  
   
@@ -81,7 +80,7 @@ Die Verwendung eines Zusammenhang losen Namespace kann folgende Nachteile haben:
   
 -   Sie müssen alle Anwendungen sorgfältig auf Kompatibilitätsprobleme testen.  
   
-Weitere Informationen zu den Schritten, die Sie durchführen können, um diese Nachteile zu beheben, finden Sie unter Erstellen eines separaten Namespace ([https://go.microsoft.com/fwlink/?LinkId=106638](https://go.microsoft.com/fwlink/?LinkId=106638)).  
+Weitere Informationen zu den Schritten, die Sie ergreifen können, um diese Nachteile zu beheben, finden Sie unter Erstellen eines disjunkten Namespace ([https://go.microsoft.com/fwlink/?LinkId=106638](https://go.microsoft.com/fwlink/?LinkId=106638)).  
   
 ### <a name="planning-a-namespace-transition"></a>Planen eines Namespace Übergangs  
 Bevor Sie einen Namespace ändern, überprüfen Sie die folgenden Überlegungen, die für Übergänge von zusammenhängenden Namespaces zu disjunkten Namespaces (oder umgekehrt) gelten:  
@@ -94,7 +93,7 @@ Bevor Sie einen Namespace ändern, überprüfen Sie die folgenden Überlegungen,
   
     -   Wenn Sie Berechtigungen zum Ändern von SPNs für untergeordnete Administratoren delegieren möchten, finden Sie weitere Informationen unter Delegieren der Autorisierungs Stelle zum Ändern von SPNs ([https://go.microsoft.com/fwlink/?LinkId=106639](https://go.microsoft.com/fwlink/?LinkId=106639)).  
   
--   Wenn Sie Lightweight Directory Access Protocol (LDAP) über Secure Sockets Layer (SSL) (LDAPS) mit einer Zertifizierungsstelle in einer Bereitstellung mit Domänen Controllern verwenden, die in einem Zusammenhang losen Namespace konfiguriert sind, müssen Sie den entsprechenden Active Directory Domänen Namen und Primäres DNS-Suffix beim Konfigurieren der LDAPS-Zertifikate.  
+-   Wenn Sie Lightweight Directory Access Protocol (LDAP) über Secure Sockets Layer (SSL) (LDAPS) mit einer Zertifizierungsstelle in einer Bereitstellung verwenden, die über Domänen Controller verfügt, die in einem Zusammenhang losen Namespace konfiguriert sind, müssen Sie beim Konfigurieren der LDAPS-Zertifikate den entsprechenden Active Directory Domänen Namen und das primäre DNS-Suffix verwenden.  
   
     Weitere Informationen zu Domänen Controller-Zertifikat Anforderungen finden Sie im Artikel 321051 in der Microsoft Knowledge Base ([https://go.microsoft.com/fwlink/?LinkId=102307](https://go.microsoft.com/fwlink/?LinkId=102307)).  
   

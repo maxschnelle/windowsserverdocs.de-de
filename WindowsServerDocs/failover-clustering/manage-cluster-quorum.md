@@ -5,15 +5,16 @@ ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
+manager: lizross
 ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 03e155cb9d30bc32da407f0d9ae915308f31494a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 16f141eceb4831f588e33aca5284425f69e9e417
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361024"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827513"
 ---
 # <a name="configure-and-manage-quorum"></a>Konfigurieren und Verwalten des Quorums
 
@@ -27,7 +28,7 @@ Das Quorum für einen Cluster wird über die Anzahl der Knoten mit Stimmen besti
 
 ## <a name="quorum-configuration-options"></a>Optionen für die Quorum Konfiguration
 
-Das Quorum Modell in Windows Server ist flexibel. Wenn Sie die Quorum Konfiguration für Ihren Cluster ändern müssen, können Sie den Assistenten zum Konfigurieren des Cluster Quorums oder die Windows PowerShell-Cmdlets für Failovercluster verwenden. Schritte und Überlegungen zur Quorumkonfiguration finden Sie unter [„Konfigurieren des Clusterquorums“](#configure-the-cluster-quorum) weiter unten in diesem Thema.
+Das Quorum Modell in Windows Server ist flexibel. Wenn Sie die Quorum Konfiguration für Ihren Cluster ändern müssen, können Sie den Assistenten zum Konfigurieren des Cluster Quorums oder die Windows PowerShell-Cmdlets für Failovercluster verwenden. Schritte und Überlegungen zur Quorumkonfiguration finden Sie weiter unten in diesem Thema unter [Konfigurieren des Clusterquorums](#configure-the-cluster-quorum).
 
 In der folgenden Tabelle werden die drei Quorumkonfigurationsoptionen aufgelistet, die im Assistenten zum Konfigurieren des Clusterquorums verfügbar sind.
 
@@ -125,7 +126,7 @@ Die erforderlichen Mindestberechtigungen zur Ausführung dieses Vorgangs ist die
 ### <a name="change-the-quorum-configuration-in-a-failover-cluster-by-using-failover-cluster-manager"></a>Ändern Sie die Quorum Konfiguration in einem Failovercluster, indem Sie Failovercluster-Manager
 
 1. Wählen Sie im Failovercluster-Manager den zu ändernden Cluster aus, oder geben Sie ihn an.
-2. Wählen Sie bei ausgewähltem Cluster unter **Aktionen**die Option **Weitere Aktionen**aus, und klicken Sie dann auf **Cluster Quorum Einstellungen konfigurieren**. Der Assistent zum Konfigurieren des Clusterquorums wird angezeigt. Wählen Sie **Weiter** aus.
+2. Wählen Sie bei ausgewähltem Cluster unter **Aktionen**die Option **Weitere Aktionen**aus, und klicken Sie dann auf **Cluster Quorum Einstellungen konfigurieren**. Der Assistent zum Konfigurieren des Clusterquorums wird angezeigt. Klicken Sie auf **Weiter**.
 3. Wählen Sie auf der Seite **Quorumkonfigurationsoption auswählen** eine der drei verfügbaren Konfigurationsoptionen aus, und führen Sie dann die Schritte für diese Option aus. Bevor Sie die Quorumeinstellungen konfigurieren, können Sie Ihre Auswahl überprüfen. Weitere Informationen zu den Optionen finden Sie Untergrund Legendes zu [Quorums](#understanding-quorum)weiter oben in diesem Thema.
 
     - Um dem Cluster das automatische Zurücksetzen der Quorum Einstellungen zu ermöglichen, die für Ihre aktuelle Cluster Konfiguration optimal sind, wählen Sie **typische Einstellungen verwenden** aus, und schließen Sie dann den Assistenten ab.
@@ -139,7 +140,7 @@ Die erforderlichen Mindestberechtigungen zur Ausführung dieses Vorgangs ist die
       2. Wenn Sie die Option zum Konfigurieren eines Datenträgerzeugen auswählen, wählen Sie auf der Seite **Speicherzeugen konfigurieren** das Speichervolume aus, das Sie als Datenträgerzeugen zuweisen möchten, und schließen Sie dann den Assistenten ab.
       3. Wenn Sie die Option zum Konfigurieren eines Dateifreigabezeugen auswählen, geben Sie auf der Seite **Dateifreigabezeugen konfigurieren** eine Dateifreigabe ein, oder navigieren Sie zu dieser Freigabe, die als Zeugenressource verwendet wird, und schließen Sie dann den Assistenten ab.
 
-    - Um die Einstellungen für die Quorum Verwaltung zu konfigurieren und den Quorum Zeugen hinzuzufügen oder zu ändern, wählen Sie **Erweiterte Quorum Konfiguration und Zeugen Auswahl**aus, und führen Sie dann die folgenden Schritte aus. Informationen und Überlegungen zu den erweiterten Einstellungen zur Quorumkonfiguration finden Sie unter [„Knotenvotumszuweisung“](#node-vote-assignment) und [„Dynamische Quorumverwaltung“](#dynamic-quorum-management) weiter oben in diesem Thema.
+    - Um die Einstellungen für die Quorum Verwaltung zu konfigurieren und den Quorum Zeugen hinzuzufügen oder zu ändern, wählen Sie **Erweiterte Quorum Konfiguration und Zeugen Auswahl**aus, und führen Sie dann die folgenden Schritte aus. Weitere Informationen und Überlegungen zu den erweiterten Quorumkonfigurationseinstellungen finden Sie in diesem Thema unter [Knotenvotumszuweisung](#node-vote-assignment) und [Dynamische Quorumverwaltung](#dynamic-quorum-management).
 
       1. Wählen Sie auf der Seite **Votierungskonfiguration auswählen** eine Option zum Zuweisen von Stimmen zu Knoten aus. Standardmäßig wird allen Knoten eine Stimme zugewiesen. In bestimmten Szenarien können Sie Stimmen jedoch nur zu einer Teilmenge von Knoten zuweisen.
 
@@ -150,19 +151,19 @@ Die erforderlichen Mindestberechtigungen zur Ausführung dieses Vorgangs ist die
       3. Wählen Sie auf der Seite **Quorumzeugen auswählen** eine Option zum Konfigurieren eines Datenträgerzeugen oder eines Dateifreigabezeugen aus. Der Assistent zeigt die Zeugenauswahloptionen an, die für Ihren Cluster empfohlen werden.
 
           > [!NOTE]
-          > Sie können auch die Option **Keinen Quorumzeugen konfigurieren**auswählen und dann den Assistenten abschließen. Wenn Sie über eine gerade Anzahl von abstimmenden Knoten in Ihrem Cluster verfügen, ist dies möglicherweise nicht die empfohlene Konfiguration.
+          > Sie können auch die Option **Keinen Quorumzeugen konfigurieren** auswählen und dann den Assistenten abschließen. Wenn Sie über eine gerade Anzahl von abstimmenden Knoten in Ihrem Cluster verfügen, ist dies möglicherweise nicht die empfohlene Konfiguration.
 
       4. Wenn Sie die Option zum Konfigurieren eines Datenträgerzeugen auswählen, wählen Sie auf der Seite **Speicherzeugen konfigurieren** das Speichervolume aus, das Sie als Datenträgerzeugen zuweisen möchten, und schließen Sie dann den Assistenten ab.
       5. Wenn Sie die Option zum Konfigurieren eines Dateifreigabezeugen auswählen, geben Sie auf der Seite **Dateifreigabezeugen konfigurieren** eine Dateifreigabe ein, oder navigieren Sie zu dieser Freigabe, die als Zeugenressource verwendet wird, und schließen Sie dann den Assistenten ab.
 
-4. Wählen Sie **Weiter** aus. Bestätigen Sie Ihre Auswahl auf der angezeigten Bestätigungsseite, und klicken Sie dann auf **weiter**.
+4. Klicken Sie auf **Weiter**. Bestätigen Sie Ihre Auswahl auf der angezeigten Bestätigungsseite, und klicken Sie dann auf **weiter**.
 
 Wenn Sie den Assistenten ausführen und die Seite **Zusammenfassung** angezeigt wird, klicken Sie auf **Bericht anzeigen**, wenn Sie einen Bericht über die vom Assistenten durchgeführten Aufgaben anzeigen möchten. Der neueste Bericht verbleibt im Ordner <em>systemroot</em> **\\Cluster\\Reports** mit dem Namen **quorenconfiguration. MHT**.
 
 > [!NOTE]
 > Nachdem Sie das Clusterquorum konfiguriert haben, wird empfohlen, dass Sie den Test **Quorumkonfiguration überprüfen** ausführen, um die aktualisierten Quorumeinstellungen zu überprüfen.
 
-### <a name="windows-powershell-equivalent-commands"></a>Gleichwertige Windows PowerShell-Befehle
+### <a name="windows-powershell-equivalent-commands"></a>Befehle, die mit Windows PowerShell gleichwertig sind
 
 In den folgenden Beispielen wird gezeigt, wie das Cmdlet [Set-Clusterquorum](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterquorum?view=win10-ps) und andere Windows PowerShell-Cmdlets zum Konfigurieren des Cluster Quorums verwendet werden.
 
@@ -196,7 +197,7 @@ Im folgenden Beispiel wird die Quorumstimme zum Knoten *ContosoFCNode1* auf dem 
 (Get-ClusterNode ContosoFCNode1).NodeWeight=1
 ```
 
-Im folgenden Beispiel wird die **DynamicQuorum** -Eigenschaft des Clusters *CONTOSO-FC1* aktiviert (wenn diese zuvor deaktiviert war):
+Im folgenden Beispiel wird die **DynamicQuorum**-Eigenschaft des Clusters *CONTOSO-FC1* aktiviert (wenn diese zuvor deaktiviert war):
 
 ```PowerShell
 (Get-Cluster CONTOSO-FC1).DynamicQuorum=1
@@ -217,7 +218,7 @@ Nachdem Sie ermittelt haben, dass Ihr Cluster nicht wiederhergestellt werden kan
 
 Der erzwungene Start eines Clusters ohne Quorum ist möglicherweise besonders hilfreich für Cluster mit mehreren Standorten. Betrachten Sie ein Notfallwiederherstellungsszenario mit einem Cluster, der separat angeordnete primäre Standorte und Sicherungsstandorte, *SiteA* und *SiteB*, enthält. Wenn bei *SiteA* ein ernsthafter Notfall eintritt, könnte es sehr lange dauern, bis der Standort wieder online ist. Sie würden dann für *SiteB* sicherlich erzwingen wollen, dass dieser Standort online gestellt wird, auch wenn er kein Quorum besitzt.
 
-Wenn ein Cluster im **ForceQuorum** -Modus gestartet wird und er ausreichend Quorumstimmen zurückgewonnen hat, verlässt der Cluster automatisch den erzwungenen Status und verhält sich normal. Daher ist es nicht erforderlich, den Cluster erneut normal zu starten. Wenn der Cluster einen Knoten und dann das Quorum verliert, wird er offline gestellt, da er sich nicht mehr im erzwungenen Status befindet. Damit der Cluster wieder online geschaltet werden kann, wenn er nicht über ein Quorum verfügt, muss der Cluster ohne Quorum gestartet werden.
+Wenn ein Cluster im **ForceQuorum**-Modus gestartet wird und er ausreichend Quorumstimmen zurückgewonnen hat, verlässt der Cluster automatisch den erzwungenen Status und verhält sich normal. Daher ist es nicht erforderlich, den Cluster erneut normal zu starten. Wenn der Cluster einen Knoten und dann das Quorum verliert, wird er offline gestellt, da er sich nicht mehr im erzwungenen Status befindet. Damit der Cluster wieder online geschaltet werden kann, wenn er nicht über ein Quorum verfügt, muss der Cluster ohne Quorum gestartet werden.
 
 > [!IMPORTANT]
 > * Nachdem der Start eines Clusters erzwungen wurde, verfügt der Administrator über die vollständige Kontrolle über den Cluster.
@@ -246,7 +247,7 @@ So stellen Sie den Cluster mit Failovercluster-Manager wieder her:
 
 #### <a name="windows-powershell-equivalent-commands-start-clusternode"></a>Entsprechende Windows PowerShell-Befehle (Start-clusternode)
 
-Im folgenden Beispiel wird gezeigt, wie das **Start-ClusterNode** -Cmdlet verwendet wird, um den Start des Clusters auf dem Knoten *ContosoFCNode1*zu erzwingen.
+Im folgenden Beispiel wird gezeigt, wie das **Start-ClusterNode**-Cmdlet verwendet wird, um den Start des Clusters auf dem Knoten *ContosoFCNode1* zu erzwingen.
 
 ```PowerShell
 Start-ClusterNode –Node ContosoFCNode1 –FQ
@@ -258,7 +259,7 @@ Alternativ können Sie den folgenden Befehl lokal auf dem Knoten eingeben:
 Net Start ClusSvc /FQ
 ```
 
-Im folgenden Beispiel wird gezeigt, wie das **Start-ClusterNode** -Cmdlet verwendet wird, um den Clusterdienst mit dem auf Knoten *ContosoFCNode1*verhinderten Quorum zu starten.
+Im folgenden Beispiel wird gezeigt, wie das **Start-ClusterNode**-Cmdlet verwendet wird, um den Clusterdienst mit dem auf Knoten *ContosoFCNode1* verhinderten Quorum zu starten.
 
 ```PowerShell
 Start-ClusterNode –Node ContosoFCNode1 –PQ
@@ -286,7 +287,7 @@ In der folgenden Tabelle sind die Überlegungen und Empfehlungen für diese Konf
 | „Knotenvotumszuweisung“     |  Knotenstimmen sollten nicht entfernt werden, da alle Knoten gleich wichtig sind       |
 | „Dynamische Quorumverwaltung“     |   Sollte aktiviert sein      |
 | „Zeugenkonfiguration“     |  Es wird ein Dateifreigabezeuge empfohlen, der an einem Standort konfiguriert ist, der sich von Clusterstandorten unterscheidet       |
-| Arbeitsauslastungen     |  Arbeitsauslastungen können an einem beliebigen Standort konfiguriert werden       |
+| Workloads     |  Arbeitsauslastungen können an einem beliebigen Standort konfiguriert werden       |
 
 #### <a name="additional-considerations-for-automatic-failover"></a>Weitere Überlegungen zum automatischen Failover
 
@@ -294,7 +295,7 @@ In der folgenden Tabelle sind die Überlegungen und Empfehlungen für diese Konf
 
 ### <a name="manual-failover"></a>Manuelles Failover
 
-In dieser Konfiguration besteht der Cluster aus einem primären Standort, *SiteA*, und einem Sicherungsstandort (Wiederherstellungsstandort), *SiteB*. Clusterrollen werden am Standort *SiteA*gehostet. Wenn auf allen Knoten in *SiteA* ein Fehler auftritt, beendet der Cluster aufgrund der Clusterquorumkonfiguration seine Funktion. In diesem Szenario muss der Administrator ein manuelles Failover für die Clusterdienste zum Standort *SiteB* durchführen und weitere Schritte zum Wiederherstellen des Clusters ausführen.
+In dieser Konfiguration besteht der Cluster aus einem primären Standort, *SiteA*, und einem Sicherungsstandort (Wiederherstellungsstandort), *SiteB*. Clusterrollen werden am Standort *SiteA* gehostet. Wenn auf allen Knoten in *SiteA* ein Fehler auftritt, beendet der Cluster aufgrund der Clusterquorumkonfiguration seine Funktion. In diesem Szenario muss der Administrator ein manuelles Failover für die Clusterdienste zum Standort *SiteB* durchführen und weitere Schritte zum Wiederherstellen des Clusters ausführen.
 
 In der folgenden Tabelle sind die Überlegungen und Empfehlungen für diese Konfiguration zusammengefasst.
 
@@ -303,7 +304,7 @@ In der folgenden Tabelle sind die Überlegungen und Empfehlungen für diese Konf
 | Anzahl von Knotenstimmen pro Standort     |  <ul><li> Knotenstimmen sollten nicht von Knoten am primären Standort, **SiteA**, entfernt werden.</li><li>Knotenstimmen sollten von Knoten am Sicherungsstandort, **SiteB**, entfernt werden.</li><li>Wenn am Standort **SiteA** ein langfristiger Ausfall eintritt, müssen die Stimmen zu Knoten am Standort **SiteB** zugewiesen werden, um im Rahmen der Wiederherstellung eine Quorummehrheit an diesem Standort zu aktivieren.</li>       |
 | „Dynamische Quorumverwaltung“     |  Sollte aktiviert sein       |
 | „Zeugenkonfiguration“     |  <ul><li>Konfigurieren eines Zeugen bei ungerader Anzahl der Knoten am Standort **SiteA**</li><li>Wenn ein Zeuge erforderlich ist, konfigurieren Sie entweder einen Dateifreigabezeugen oder einen Datenträgerzeugen, auf den nur Knoten am Standort **SiteA** zugreifen können (gelegentlich als asymmetrischer Datenträgerzeuge bezeichnet).</li>       |
-| Arbeitsauslastungen     |  Verwenden bevorzugter Besitzer, damit Arbeitsauslastungen auf Knoten von Standort **SiteA** erhalten bleiben       |
+| Workloads     |  Verwenden bevorzugter Besitzer, damit Arbeitsauslastungen auf Knoten von Standort **SiteA** erhalten bleiben       |
 
 #### <a name="additional-considerations-for-manual-failover"></a>Weitere Überlegungen zum manuellen Failover
 

@@ -1,24 +1,20 @@
 ---
 title: xcopy
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema für xcopy, w hich kopiert Dateien und Verzeichnisse, einschließlich Unterverzeichnissen.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 76a310d7-9925-4571-a252-0e28960d5f89
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: 885729f2bca100d7ac89a3463135d56f48c8b75a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 660ef69a5f1df99c3b959a588984719c9d4dea6b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361787"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828923"
 ---
 # <a name="xcopy"></a>xcopy
 
@@ -32,11 +28,11 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#exampl
 Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-DD-YYYY]] [/u] [/i] [/s [/e]] [/t] [/k] [/r] [/h] [{/a | /m}] [/n] [/o] [/x] [/exclude:FileName1[+[FileName2]][+[FileName3]] [{/y | /-y}] [/z] [/b] [/j]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|> der \<Quelle|Erforderlich. Gibt den Speicherort und die Namen der Dateien an, die Sie kopieren möchten. Dieser Parameter muss entweder ein Laufwerk oder einen Pfad enthalten.|
+|> der \<Quelle|Erforderlich Gibt den Speicherort und die Namen der Dateien an, die Sie kopieren möchten. Dieser Parameter muss entweder ein Laufwerk oder einen Pfad enthalten.|
 |[\<Ziel >]|Gibt das Ziel der Dateien an, die Sie kopieren möchten. Dieser Parameter kann einen Laufwerk Buchstaben, einen Doppelpunkt, einen Verzeichnisnamen, einen Dateinamen oder eine Kombination dieser Parameter enthalten.|
 |/w|Zeigt die folgende Meldung an und wartet auf die Antwort, bevor mit dem Kopieren von Dateien begonnen wird:</br>**Drücken Sie eine beliebige Taste, um mit dem Kopieren von Dateien zu beginnen.**|
 |/p|Sie werden aufgefordert, zu bestätigen, ob Sie die einzelnen Zieldateien erstellen möchten.|
@@ -210,7 +206,7 @@ rem  3 File(s) copied
 
 Im vorangehenden Beispiel Kopieren dieser bestimmte Quellparameter Wert **.\\Inhalts\*. yml** dieselben drei Dateien, auch wenn die beiden Pfad Zeichen **.\\** entfernt wurden. Es werden jedoch keine Dateien kopiert, wenn der Platzhalter Platzhalter aus dem Quellparameter entfernt wurde, sodass nur **.\\** ".
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
 -   [Kopieren](copy.md)
 -   [Verschieben](move.md)
@@ -218,4 +214,4 @@ Im vorangehenden Beispiel Kopieren dieser bestimmte Quellparameter Wert **.\\Inh
 -   [Attrib](attrib.md)
 -   [DISKCOPY](diskcopy.md)
 -   [Sei](if.md)
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

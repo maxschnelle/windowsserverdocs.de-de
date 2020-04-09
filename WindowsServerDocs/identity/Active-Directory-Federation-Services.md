@@ -1,7 +1,6 @@
 ---
 ms.assetid: 24c4d183-100f-4c05-a463-e2584e45f860
-title: Active Directory-Verbunddienste (AD FS)
-description: ''
+title: Active Directory-Verbunddienste
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 04fa13983242a7e4b02a89fbd34158c9f75dbc40
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b32102b1bbae49f4cbd03745b575ccfa01dcf864
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391190"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825813"
 ---
-# <a name="active-directory-federation-services"></a>Active Directory-Verbunddienste (AD FS)
+# <a name="active-directory-federation-services"></a>Active Directory-Verbunddienste
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 
   
 Dieses Dokument enthält eine Liste aller Dokumentations Bereiche für AD FS für Windows Server 2016, 2012 R2 und 2012.  Dazu gehören unter anderem:  
   

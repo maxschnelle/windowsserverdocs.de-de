@@ -1,24 +1,20 @@
 ---
 title: Wbadmin-Wiederherstellungs Katalog
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für den Wbadmin-Wiederherstellungs Katalog, der einen Sicherungs Katalog für den lokalen Computer von einem von Ihnen angegebenen Speicherort wiederherstellt.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ce1e24a0-821d-4353-b09d-8f82c5c4ad56
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b0d646440ca9b30f9fa30fb1ac3ff08458b8e44d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0ce9182e4e405b1538277db25f06b6a49d7240f9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362327"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829703"
 ---
 # <a name="wbadmin-restore-catalog"></a>Wbadmin-Wiederherstellungs Katalog
 
@@ -39,7 +35,7 @@ wbadmin restore catalog
 [-quiet]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -51,7 +47,7 @@ wbadmin restore catalog
 
 Wenn der Speicherort (Datenträger, DVD oder frei gegebener Remote Ordner), in dem Sie die Sicherungen speichern, beschädigt ist oder verloren geht und nicht zum Wiederherstellen des Sicherungs Katalogs verwendet werden kann, verwenden Sie **Wbadmin delete catalog** , um den beschädigten Katalog zu löschen. In diesem Fall sollten Sie eine neue Sicherung erstellen, sobald der Sicherungs Katalog gelöscht wurde.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Um einen Katalog aus einer auf Datenträger d: gespeicherten Sicherung wiederherzustellen, geben Sie Folgendes ein:
 ```
@@ -62,8 +58,8 @@ Wenn Sie einen Katalog aus einer Sicherung wiederherstellen möchten, die im fre
 wbadmin restore catalog -backupTarget:\\servername\share -machine:server01
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Restore-wbcatalog-](https://technet.microsoft.com/library/jj902437.aspx) Cmdlet

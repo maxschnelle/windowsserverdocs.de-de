@@ -9,12 +9,12 @@ ms.author: jgerend
 manager: dongill
 ms.date: 06/26/2019
 ms.prod: windows-server
-ms.openlocfilehash: 5cb26bcff99d9cf3a1ee8b3a937ad6098a913c3d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9d68e2becbf9c6522be7e1ff6e6742d44f3a8247
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362061"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829233"
 ---
 # <a name="windows-commands"></a>Windows-Befehle
 
@@ -29,17 +29,35 @@ Wenn Sie Informationen zu einem bestimmten Befehl suchen möchten, klicken Sie i
 [C](#c) | 
 [D](#d) | 
 [E](#e) | 
-[F](#f)1[G](#g)3[H](#h)5[I](#i)7[J](#j)9[K](#k)1[L ](#l)3[MIO](#m). @NO__T-[25 N](#n)7[O](#o)9[P](#p)@NO__T-[31 Q](#q)3[R](#r)5[S](#s)7[T](#t)9[U](#u)1[V](#v)3 [W](#w)5[X](#x) | J | Z
+[F](#f) | 
+[G](#g) | 
+[H](#h) | 
+[I](#i) |
+[J](#j) | 
+[K](#k) | 
+[L](#l) | 
+[M](#m) | 
+[N](#n) | 
+[O](#o) | 
+[P](#p) | 
+[Q](#q) | 
+[R](#r) | 
+[S](#s) | 
+[t](#t) | 
+[U](#u) | 
+[V](#v) | 
+[W](#w) | 
+[X](#x) | J | Z
 
 ## <a name="prerequisites"></a>Erforderliche Komponenten
 
 Die in diesem Thema enthaltenen Informationen gelten für:
 
 -   Windows Server 2019
--   Windows Server (Semi-Annual Channel)
+-   Windows Server (Halbjährlicher Kanal)
 -   Windows Server 2016
--   Windows Server 2012 R2
--   Windows Server 2012 
+-   Windows Server 2012 R2
+-   Windows Server 2012 
 -   Windows Server 2008 R2
 -   WindowsServer 2008
 -   Windows 10
@@ -49,7 +67,7 @@ Die in diesem Thema enthaltenen Informationen gelten für:
 
 Die Befehlsshell war die erste Shell, die in Windows integriert wurde, um Routineaufgaben wie die Verwaltung von Benutzerkonten oder nächtliche Sicherungen mit Batch Dateien (BAT-Dateien) zu automatisieren. Mit Windows Script Host können Sie komplexere Skripts in der Befehlsshell ausführen. Weitere Informationen finden Sie unter [cscript](cscript.md) oder [WScript](wscript.md). Sie können Vorgänge effizienter mithilfe von Skripts ausführen, als dies mithilfe der Benutzeroberfläche möglich ist. Skripts akzeptieren alle Befehle, die in der Befehlszeile verfügbar sind.
 
-Windows verfügt über zwei Befehls Shells: Die Befehlsshell und [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6). Bei jeder Shell handelt es sich um ein Softwareprogramm, das eine direkte Kommunikation zwischen Ihnen und dem Betriebssystem oder der Anwendung ermöglicht und eine Umgebung zum Automatisieren des IT-betriebsbereit stellt
+Windows verfügt über zwei Befehls Shells: die Befehlsshell und [PowerShell](https://docs.microsoft.com/powershell/scripting/powershell-scripting?view=powershell-6). Bei jeder Shell handelt es sich um ein Softwareprogramm, das eine direkte Kommunikation zwischen Ihnen und dem Betriebssystem oder der Anwendung ermöglicht und eine Umgebung zum Automatisieren des IT-betriebsbereit stellt
 
 PowerShell wurde entwickelt, um die Funktionen der Befehlsshell zum Ausführen von PowerShell-Befehlen zu erweitern, die als Cmdlets bezeichnet werden. Cmdlets ähneln Windows-Befehlen, bieten jedoch eine erweiterbare Skriptsprache. Sie können Windows-Befehle und PowerShell-Cmdlets in PowerShell ausführen, aber in der Befehlsshell können nur Windows-Befehle und keine PowerShell-Cmdlets ausgeführt werden.
 
@@ -58,14 +76,14 @@ Bei der stabilsten aktuellen Windows-Automatisierung empfiehlt es sich, PowerShe
 >Sie können auch [PowerShell Core](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6)herunterladen und installieren, die Open Source-Version von PowerShell. 
 
 > [!CAUTION]
-> Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie die folgenden Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Daten auf dem Computer sichern.
+> Eine fehlerhafte Bearbeitung der Registrierung kann Ihr System schwer beschädigen. Bevor Sie die folgenden Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Daten auf dem Computer sichern.
 
 > [!NOTE]
-> Führen Sie **Regedit. exe** aus, und legen Sie den folgenden **reg_DWOrd-Wert**fest, um die Vervollständigung von Datei-und Verzeichnisnamen in der Befehlsshell für eine Computer-oder Benutzer Anmelde Sitzung zu aktivieren bzw
+> Führen Sie **Regedit. exe** aus, und legen Sie den folgenden **reg_DWOrd Wert**fest, um die Vervollständigung von Datei-und Verzeichnisnamen in der Befehlsshell für eine Computer-oder Benutzer Anmelde Sitzung zu aktivieren oder deaktivieren
 > 
-> HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor\completionChar\reg_DWOrd
+> HKEY_LOCAL_MACHINE \software\microsoft\command processor\completionchar\ reg_DWOrd
 > 
-> Um den **reg_DWOrd** -Wert festzulegen, verwenden Sie den Hexadezimalwert eines Steuer Zeichens für eine bestimmte Funktion (z. b. **0 9** ist Tab und **0 08** ist RÜCKTASTE). Benutzerdefinierte Einstellungen haben Vorrang vor Computereinstellungen, und Befehlszeilenoptionen haben Vorrang vor den Registrierungs Einstellungen.
+> Um den **reg_DWOrd** Wert festzulegen, verwenden Sie den Hexadezimalwert eines Steuer Zeichens für eine bestimmte Funktion (z. b. **0 9** ist Tab und **0 08** ist RÜCKTASTE). Benutzerdefinierte Einstellungen haben Vorrang vor Computereinstellungen, und Befehlszeilenoptionen haben Vorrang vor den Registrierungs Einstellungen.
 
 ## <a name="command-line-reference-a-z"></a>Befehlszeilen Referenz A-Z
 
@@ -76,7 +94,25 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
 [C](#c) | 
 [D](#d) | 
 [E](#e) | 
-[F](#f)1[G](#g)3[H](#h)5[I](#i)7[J](#j)9[K](#k)1[L ](#l)3[MIO](#m). @NO__T-[25 N](#n)7[O](#o)9[P](#p)@NO__T-[31 Q](#q)3[R](#r)5[S](#s)7[T](#t)9[U](#u)1[V](#v)3 [W](#w)5[X](#x) | J | Z
+[F](#f) | 
+[G](#g) | 
+[H](#h) | 
+[I](#i) |
+[J](#j) | 
+[K](#k) | 
+[L](#l) | 
+[M](#m) | 
+[N](#n) | 
+[O](#o) | 
+[P](#p) | 
+[Q](#q) | 
+[R](#r) | 
+[S](#s) | 
+[t](#t) | 
+[U](#u) | 
+[V](#v) | 
+[W](#w) | 
+[X](#x) | J | Z
 
 ### <a name="a"></a>A
 -   [append](append.md)
@@ -169,7 +205,7 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
   -   [bootcfg timeout](bootcfg-timeout.md)
 - [break](break_1.md)
 
-### <a name="c"></a>c
+### <a name="c"></a>A
 - [cacls](cacls_1.md)
 - [call](call.md)
 - [cd](cd.md)
@@ -234,7 +270,7 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
 -   [expand](expand.md)
 -   [extract](extract.md)
 
-### <a name="f"></a>V
+### <a name="f"></a>C
 - [fc](fc.md)
 - [find](find.md)
 - [findstr](findstr.md)
@@ -288,7 +324,7 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
 -   [ipxroute](ipxroute.md)
 -   [irftp](irftp.md)
 
-### <a name="j"></a>ISTGH
+### <a name="j"></a>J
 -   [jetpack](jetpack.md)
 
 ### <a name="k"></a>K
@@ -348,13 +384,13 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
   -   [manage-bde: Schutzvorrichtungen](manage-bde-protectors.md)
   -   [manage-bde: TPM](manage-bde-tpm.md)
   -   [manage-bde:-Objekt-tifier](manage-bde-setidentifier.md)
-  -   [manage-BDE: ForceRecovery](manage-bde-forcerecovery.md)
+  -   [manage-bde: forcerecovery](manage-bde-forcerecovery.md)
   -   [manage-bde: ChangePassword](manage-bde-changepassword.md)
   -   [manage-bde: changepin](manage-bde-changepin.md)
   -   [manage-bde: ChangeKey](manage-bde-changekey.md)
-  -   [manage-BDE: KeyPackage](manage-bde-keypackage.md)
+  -   [manage-bde: KeyPackage](manage-bde-keypackage.md)
   -   [manage-bde: Upgrade](manage-bde-upgrade.md)
-  -   [manage-BDE: WipeFreeSpace](manage-bde-wipefreespace.md)
+  -   [manage-bde: wipeer FreeSpace](manage-bde-wipefreespace.md)
 - [mapadmin](mapadmin.md)
 - [Md](Md.md)
 - [mkdir](mkdir.md)
@@ -445,7 +481,7 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
 ### <a name="q"></a>Q
 -   [qappsrv](qappsrv.md)
 -   [qprocess](qprocess.md)
--   [query](query.md)
+-   [Frage](query.md)
 -   [quser](quser.md)
 -   [qwinsta](qwinsta.md)
 
@@ -548,12 +584,12 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
 ### <a name="u"></a>U
 -   [unlodctr](unlodctr_1.md)
 
-### <a name="v"></a>B
+### <a name="v"></a>V
 -   [ver](ver.md)
 -   [verifier](verifier.md)
 -   [verify](verify_1.md)
 -   [vol](vol.md)
--   [vssadmin](vssadmin.md)-- 
+-   [vssadmin](vssadmin.md) -- 
 
 ### <a name="w"></a>W
 - [waitfor](waitfor.md)
@@ -582,7 +618,6 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
 - [winnt32](winnt32.md)
 - [winpop](winpop.md)
 - [winrs](winrs.md)
-- [WLBS](wlbs_1.md)
 - [wmic](wmic.md)
 - [wscript](wscript.md)
 

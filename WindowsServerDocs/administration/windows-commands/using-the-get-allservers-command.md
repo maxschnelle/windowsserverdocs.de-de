@@ -1,28 +1,22 @@
 ---
-title: Verwenden des Befehls Get-allservers
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+title: "\"Get-allservers\""
+description: Windows-Befehls Artikel für Get-allservers, der Informationen zu allen Windows-Bereitstellungsdiensteserver abruft.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fe2e3c69-8f2e-457d-af55-d249ebf70f53
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8dd7f9917a54a80b3c570b07fe1a87bd3bcbe4d6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b400d5a2be69e8e89a05b233cc2e8f29bec848f6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71363256"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80831213"
 ---
-# <a name="using-the-get-allservers-command"></a>Verwenden des Befehls Get-allservers
-
-
+# <a name="get-allservers"></a>"Get-allservers"
 
 Ruft Informationen zu allen Windows-Bereitstellungsdiensteserver ab.
 
@@ -35,15 +29,15 @@ Ruft Informationen zu allen Windows-Bereitstellungsdiensteserver ab.
 WDSUTIL [Options] /Get-AllServers /Show:{Config | Images | All} [/Detailed] [/Forest:{Yes | No}]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |   Parameter   |                                                                                                                 Beschreibung                                                                                                                  |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /Show: {config |                                                                                                                    Abbilder                                                                                                                    |
+| /Show: {config |                                                                                                                    Bilder                                                                                                                    |
 |  /Detailed  | Wenn Sie in Verbindung mit **/Show: Images** oder **/Show: all**verwendet wird, gibt alle Bild Metadaten aus jedem Bild zurück. Wenn die **/detailed** -Option nicht angegeben ist, besteht das Standardverhalten darin, den Image Namen, die Beschreibung und den Dateinamen zurückzugeben. |
 | [/Forest: {Ja |                                                                                                                     Nein}]                                                                                                                     |
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Geben Sie Folgendes ein, um Informationen zu allen Servern anzuzeigen:
 ```
@@ -54,6 +48,6 @@ Wenn Sie ausführliche Informationen zu allen Servern anzeigen möchten, geben S
 WDSUTIL /Verbose /Get-AllServers /Show:All /Detailed /Forest:Yes
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

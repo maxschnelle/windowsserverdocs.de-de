@@ -1,20 +1,20 @@
 ---
 title: Übersicht über die clusterfähige Aktualisierung.
+description: Das Cluster fähige aktualisieren (Cluster-Aware Update, Cau) automatisiert die Installation von Software Updates auf Clustern unter Windows Server.
 ms.topic: article
 ms.prod: windows-server
-ms.manager: dongill
+manager: lizross
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 08/06/2018
-description: Das Cluster fähige aktualisieren (Cluster-Aware Update, Cau) automatisiert die Installation von Software Updates auf Clustern unter Windows Server.
 ms.assetid: 3c2993b4-aa81-452b-a5c3-3724ad95d892
-ms.openlocfilehash: e96223e0b4b44e87ade9dc8eb875f9aa7104f451
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6a2b6ad06b8a003f9cbf020956994b08cb8cf194
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361253"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827993"
 ---
 # <a name="cluster-aware-updating-overview"></a>Übersicht über die clusterfähige Aktualisierung.
 
@@ -25,7 +25,7 @@ Dieses Thema enthält eine Übersicht über die Cluster\-bewusste Aktualisierung
 > [!NOTE]
 > Wenn Sie [direkte Speicherplätze](../storage/storage-spaces/storage-spaces-direct-overview.md) Cluster aktualisieren, empfiehlt es sich, das Cluster fähige aktualisieren zu verwenden.
   
-## <a name="BKMK_OVER"></a>Funktionsbeschreibung  
+## <a name="feature-description"></a><a name="BKMK_OVER"></a>Featurebeschreibung  
 Das Cluster fähige aktualisieren ist ein automatisiertes Feature, mit dem Sie Server in einem [Failovercluster](failover-clustering-overview.md) mit geringem oder ohne Verfügbarkeit während des Aktualisierungs Vorgangs aktualisieren können. Während einer Update Ausführung führt das Cluster fähige aktualisieren transparent die folgenden Aufgaben aus:  
 
 1. Versetzt jeden Knoten des Clusters in den Knoten Wartungsmodus.
@@ -95,7 +95,7 @@ Sie müssen die Failoverclusteringtools wie folgt installieren, um die verschied
   
 > [!NOTE]  
 > -   Sie können die Failoverclustering-Tools unter Windows Server 2012 nicht verwenden, um das Cluster fähige Update auf einer neueren Version von Windows Server zu verwalten. 
-> -   Die Installation der failoverclusteringtools auf den Cluster Knoten ist nicht erforderlich, um Cau nur im Remote\-Aktualisierungs Modus zu verwenden. Bestimmte CAU-Features sind dann jedoch nicht verfügbar. Weitere Informationen finden Sie unter [Anforderungen und Best Practices für clusterfähiges Aktualisieren\-](cluster-aware-updating-requirements.md).  
+> -   Die Installation der failoverclusteringtools auf den Cluster Knoten ist nicht erforderlich, um Cau nur im Remote\-Aktualisierungs Modus zu verwenden. Bestimmte CAU-Features sind dann jedoch nicht verfügbar. Weitere Informationen finden Sie unter [Requirements and Best Practices for Cluster\-Aware Update](cluster-aware-updating-requirements.md).  
 > -   Der Computer, auf dem die Cau-Tools installiert und die Updates koordiniert werden, kann nicht Mitglied des Failoverclusters sein, es sei denn, Sie verwenden Cau nur im Modus für die selbst\-Aktualisierung.  
   
 ### <a name="enabling-self-updating-mode"></a>Aktivieren des selbst Aktualisierungs Modus
@@ -123,10 +123,10 @@ Ausführliche Informationen zu Anforderungen und bewährten Methoden für die Ve
   
     -   Wenn mindestens ein Cluster Knoten oder der Cluster zu Server-Manager hinzugefügt wird, klicken Sie auf der Seite **alle Server** mit der rechten\-auf den Namen eines Knotens \(oder den Namen des Clusters\), und klicken Sie dann auf **Cluster aktualisieren**.  
   
-## <a name="see-also"></a>Weitere Informationen  
+## <a name="see-also"></a>Siehe auch  
 Die folgenden Links enthalten weitere Informationen zur Verwendung des Cluster fähigen Updates.  
   
--   [Anforderungen und bewährte Methoden für Cluster\-fähiges aktualisieren](cluster-aware-updating.md)  
+-   [Anforderungen und bewährte Methoden für clusterfähiges Aktualisieren\-  
   
 -   [Cluster\-fähiges aktualisieren: häufig gestellte Fragen](cluster-aware-updating-faq.md)  
   

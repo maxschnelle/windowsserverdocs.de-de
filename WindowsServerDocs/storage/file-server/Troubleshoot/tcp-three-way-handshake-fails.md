@@ -3,22 +3,21 @@ title: Bidirektionaler TCP-Handshake-Fehler während der SMB-Verbindung
 description: Führt den TCP-drei-Wege-Hand Shake Fehler während der SMB-Verbindung ein.
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 8cef47e164b8768747cb383f4d7012130c7cb516
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: cb88fa89344172cfc1ed036865a4496ed73e9a22
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654631"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815323"
 ---
 # <a name="tcp-three-way-handshake-failure-during-smb-connection"></a>Bidirektionaler TCP-Handshake-Fehler während der SMB-Verbindung
 
 Wenn Sie eine Netzwerk Ablauf Verfolgung analysieren, bemerken Sie, dass ein TCP-Fehler (Transmission Control Protocol) mit drei-Wege-Handshake auftritt, der das SMB-Problem verursacht. In diesem Artikel wird beschrieben, wie Sie dieses Problem beheben.
 
-## <a name="troubleshooting"></a>Fehlerbehebung
+## <a name="troubleshooting"></a>Problembehandlung
 
 Im Allgemeinen ist die Ursache eine lokale oder Infrastruktur Firewall, die den Datenverkehr blockiert. Dieses Problem kann in einem der folgenden Szenarien auftreten:
 

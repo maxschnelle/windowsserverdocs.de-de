@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7b7ae389-5032-44f7-9c0a-94398c3e4d88
 title: Erstellen einer Ansprüche nicht unterstützenden Vertrauensstellung der vertrauenden Seite
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b0ea877170a07db6abe9ac82e72d1722600ec933
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c6886145e910b76edbe99549266d651cdd7c3edf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358113"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816923"
 ---
 # <a name="create-a-non-claims-aware-relying-party-trust"></a>Erstellen einer Ansprüche nicht unterstützenden Vertrauensstellung der vertrauenden Seite
 
@@ -25,7 +24,7 @@ Ein nicht\-Ansprüche\-die Vertrauensstellung der vertrauenden Seite ist eine Ve
   
 Führen Sie das folgende Verfahren aus, um eine neue, nicht\-Ansprüche\-\-AD FS die Vertrauensstellung der vertrauenden Seite in der Vertrauensstellung der vertrauenden Seite hinzuzufügen.  
   
-Sie müssen mindestens Mitglied der Gruppe **Administratoren** oder einer entsprechenden Gruppe auf dem lokalen Computer sein, um dieses Verfahren ausführen zu können.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
+Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe **Administratoren** oder eine gleichwertige Berechtigung auf dem lokalen Computer erforderlich.  Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [lokale und Domänen Standard Gruppen](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 ## <a name="to-create-a-non-claims-aware-relying-party-trust-manually"></a>So erstellen Sie eine nicht Ansprüche unterstützende Vertrauensstellung der vertrauenden Seite manuell 
 1. Klicken Sie in Server-Manager **auf Extras**, und wählen Sie dann **AD FS Verwaltung**aus.  

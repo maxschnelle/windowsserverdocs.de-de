@@ -1,7 +1,6 @@
 ---
 ms.assetid: c911d6c6-98c6-4532-b1db-5724e1ceb96c
 title: Anhang für vereinfachte Verwaltung
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ffc2849fa5e18f7984814d6187cf83d68566409b
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 545d0541d1f51da7d2df793b9961657e214c789c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323242"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825003"
 ---
 # <a name="simplified-administration-appendix"></a>Anhang für vereinfachte Verwaltung
 
@@ -31,7 +30,7 @@ ms.locfileid: "79323242"
   
 -   [Ntdsutil. exe-Installation von Medien Änderungen](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM)  
   
-## <a name="BKMK_AddServers"></a>Dialog Server-Manager "Server hinzufügen" (Active Directory)  
+## <a name="server-manager-add-servers-dialog-active-directory"></a><a name="BKMK_AddServers"></a>Dialog Server-Manager "Server hinzufügen" (Active Directory)  
 
 Im Dialogfeld **Server hinzufügen können Sie** Active Directory nach Servern, nach Betriebssystem, unter Verwendung von Platzhaltern und nach Standort suchen. Im Dialogfeld können DNS-Abfragen auch mit einem voll qualifizierten Domänen Namen oder Präfix Namen verwendet werden. Diese Suchvorgänge verwenden systemeigene DNS-und LDAP-Protokolle, die über .NET implementiert werden, nicht AD Windows PowerShell für das AD-Verwaltungs Gateway über SOAP. Dies bedeutet, dass die von Server-Manager verbundenen Domänen Controller sogar Windows Server 2003 ausführen können. Sie können auch eine Datei mit Servernamen zu Bereitstellungs Zwecken importieren.  
   
@@ -57,12 +56,12 @@ Die Active Directory Suche gibt die folgenden Attribute zurück:
   
 ```  
   
-## <a name="BKMK_ServerMgrStatus"></a>Status des Remote Servers Server-Manager  
+## <a name="server-manager-remote-server-status"></a><a name="BKMK_ServerMgrStatus"></a>Status des Remote Servers Server-Manager  
 Server-Manager testet die Barrierefreiheit des Remote Servers mithilfe des Adress Routing Protokolls. Alle Server, die nicht auf ARP-Anforderungen reagieren, werden nicht aufgeführt, auch wenn Sie sich im Pool befinden.  
   
 Wenn ARP antwortet, werden DCOM-und WMI-Verbindungen zum Server hergestellt, um Statusinformationen zurückzugeben. Wenn RPC, DCOM und WMI nicht erreichbar sind, kann der Server von Server-Manager nicht vollständig verwaltet werden.  
   
-## <a name="BKMK_PSLoadModule"></a>Laden von Windows PowerShell-Modulen  
+## <a name="windows-powershell-module-loading"></a><a name="BKMK_PSLoadModule"></a>Laden von Windows PowerShell-Modulen  
 Windows PowerShell 3,0 implementiert dynamisches Laden von Modulen. Die Verwendung des **Import-Module-** Cmdlets ist in der Regel nicht mehr erforderlich. Stattdessen wird das Modul durch einfaches Aufrufen des Cmdlets, des Alias oder der Funktion automatisch geladen.  
   
 Verwenden Sie das Cmdlet **Get-Module** , um geladene Module anzuzeigen.  
@@ -90,10 +89,10 @@ dir
   
 ```  
   
-## <a name="BKMK_Rid"></a>Hotfixes für die RID-Ausstellung für vorherige Betriebssysteme  
+## <a name="rid-issuance-hotfixes-for-previous-operating-systems"></a><a name="BKMK_Rid"></a>Hotfixes für die RID-Ausstellung für vorherige Betriebssysteme  
 Weitere Informationen finden [Sie unter ein Update ist verfügbar, um zu viel Verbrauch des globalen RID-Pools auf einem Domänen Controller mit Windows Server 2008 R2 zu erkennen und zu vermeiden](https://support.microsoft.com/kb/2618669).  
   
-## <a name="BKMK_IFM"></a>Ntdsutil. exe-Installation von Medien Änderungen  
+## <a name="ntdsutilexe-install-from-media-changes"></a><a name="BKMK_IFM"></a>Ntdsutil. exe-Installation von Medien Änderungen  
 Windows Server 2012 fügt dem Befehlszeilen Tool "Ntdsutil. exe" für das **IFM-Menü (IFM-Medien Erstellung)** zwei zusätzliche Optionen hinzu. Diese ermöglichen es Ihnen, IFM-Speicher zu erstellen, ohne zuvor eine Offline-decofragmentierung der exportierten NTDS auszuführen. DIT-Datenbankdatei. Wenn der Speicherplatz kein Premium-Speicherplatz ist, spart das Erstellen der IFM Zeit.  
   
 In der folgenden Tabelle werden die zwei neuen Menü Elemente beschrieben:  

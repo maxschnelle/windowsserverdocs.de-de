@@ -2,22 +2,19 @@
 title: WSUS-Nachrichten und Tipps zur Problembehandlung
 description: 'Windows Server Update Service (WSUS)-Thema: Problembehandlung bei Verwendung von WSUS-Nachrichten'
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9f6317f7-bfe0-42d9-87ce-d8f038c728ca
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c66e655ea6b6c44ee3ba375f75e6532fab74bfb
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: e4fe14eeaba3fc82e125288f8c47fb445f6e00b0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948488"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828313"
 ---
 # <a name="wsus-messages-and-troubleshooting-tips"></a>WSUS-Nachrichten und Tipps zur Problembehandlung
 
@@ -25,13 +22,13 @@ ms.locfileid: "75948488"
 
 Dieses Thema enthält Informationen zu den folgenden WSUS-Meldungen:
 
--   "Der Computer hat den Status nicht gemeldet"
+-   Der Computer hat den Status nicht gemeldet.
 
--   "Nachrichten-ID 6703-Fehler bei der WSUS-Synchronisierung"
+-   Meldungs-ID 6703-Fehler beim Synchronisieren der WSUS
 
--   "Fehler 0x80070643: Schwerwiegender Fehler während der Installation"
+-   Fehler 0x80070643: Schwerwiegender Fehler bei der Installation.
 
--   "Einige Dienste werden nicht ausgeführt. Überprüfen Sie die folgenden Dienste [...] ".
+-   Einige Dienste werden nicht ausgeführt. Überprüfen Sie die folgenden Dienste [...]
 
 ## <a name="computer-has-not-reported-status"></a>Der Computer hat den Status nicht gemeldet.
 Diese Meldung wird in der WSUS-Konsole generiert, wenn ein WSUS-Client Computer keine Informationen an den WSUS-Server sendet, um den aktuellen Aktualisierungs Status anzugeben. Dieses Problem tritt normalerweise durch den WSUS-Client Computer und nicht durch den WSUS-Server auf.
@@ -90,6 +87,6 @@ Um dieses Problem zu beheben, erteilen Sie System Administrator Berechtigungen f
     
   - **MSSQLSERVER** (wenn Sie WMSDE oder MSDE verwenden, oder wenn Sie SQL Server verwenden und den Standardinstanznamen für den Instanznamen verwenden)
     
-  - **MSSQL $ WSUS** (wenn Sie eine SQL Server Datenbank verwenden und die Daten Bank Instanz "WSUS" benannt haben)
+  - **MSSQL $ WSUS** (wenn Sie eine SQL Server Datenbank verwenden und die WSUS-Daten Bank Instanz benannt haben)
     
     Klicken Sie mit der rechten Maustaste auf den Dienst, und klicken Sie dann auf **starten** , wenn der Dienst nicht ausgeführt wird, oder **neu starten** , um den Dienst zu aktualisieren, falls er ausgeführt wird

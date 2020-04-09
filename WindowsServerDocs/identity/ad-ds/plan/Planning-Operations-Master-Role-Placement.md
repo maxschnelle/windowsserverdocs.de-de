@@ -1,7 +1,6 @@
 ---
 ms.assetid: bd64a766-5362-4f29-b963-5465c2bb79e7
 title: Planen der Platzierung der Rolle „Betriebsmaster“
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: eb17ed55ba7d7ba23d21162fd41f4022821948fe
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 990f93d44189a6061653d5e190a176b049a280c4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402531"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822103"
 ---
 # <a name="planning-operations-master-role-placement"></a>Planen der Platzierung der Rolle „Betriebsmaster“
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Active Directory Domain Services (AD DS) unterstützt die Multimasterreplikation von Verzeichnis Daten. Dies bedeutet, dass jeder Domänen Controller Verzeichnisänderungen annehmen und die Änderungen auf allen anderen Domänen Controllern replizieren kann. Bestimmte Änderungen, wie z. b. Schema Änderungen, sind jedoch unpraktisch für die Ausführung im multimasterstil. Aus diesem Grund enthalten bestimmte Domänen Controller, die als Betriebs Master bezeichnet werden, Rollen, die für die Annahme von Anforderungen für bestimmte spezifische Änderungen zuständig sind.  
   
@@ -52,11 +51,11 @@ Außerdem sollten Sie Standby-Betriebs Master (Alternate) für alle Betriebs Mas
 
 Der PDC-Emulator verarbeitet Client Kennwort-Änderungen. Nur ein Domänen Controller fungiert in jeder Domäne in der Gesamtstruktur als PDC-Emulator.  
   
-Auch wenn alle Domänen Controller auf Windows 2000, Windows Server 2003 und Windows Server 2008 aktualisiert wurden und die Domäne auf der systemeigenen Windows 2000-Funktionsebene ausgeführt wird, empfängt der PDC-Emulator die bevorzugte Replikation von Kenn Wort Änderungen. von anderen Domänen Controllern in der Domäne. Wenn ein Kennwort kürzlich geändert wurde, nimmt diese Änderung Zeit in die Replikation auf allen Domänen Controllern in der Domäne. Wenn die Anmelde Authentifizierung auf einem anderen Domänen Controller aufgrund eines ungültigen Kennworts fehlschlägt, leitet dieser Domänen Controller die Authentifizierungsanforderung an den PDC-Emulator weiter, bevor er entscheidet, ob der Anmeldeversuch angenommen oder abgelehnt wird.  
+Auch wenn alle Domänen Controller auf Windows 2000, Windows Server 2003 und Windows Server 2008 aktualisiert wurden und die Domäne auf der systemeigenen Windows 2000-Funktionsebene ausgeführt wird, empfängt der PDC-Emulator die bevorzugte Replikation von Kenn Wort Änderungen, die von anderen Domänen Controllern in der Domäne ausgeführt werden. Wenn ein Kennwort kürzlich geändert wurde, nimmt diese Änderung Zeit in die Replikation auf allen Domänen Controllern in der Domäne. Wenn die Anmelde Authentifizierung auf einem anderen Domänen Controller aufgrund eines ungültigen Kennworts fehlschlägt, leitet dieser Domänen Controller die Authentifizierungsanforderung an den PDC-Emulator weiter, bevor er entscheidet, ob der Anmeldeversuch angenommen oder abgelehnt wird.  
   
 Platzieren Sie den PDC-Emulator an einem Speicherort, der bei Bedarf eine große Anzahl von Benutzern aus dieser Domäne für Vorgänge zur Kenn Wort Weiterleitung enthält. Stellen Sie außerdem sicher, dass der Standort mit anderen Standorten verbunden ist, um die Replikations Latenz zu minimieren.  
   
-Ein Arbeitsblatt unterstützt Sie bei der Dokumentation der Informationen zum Platzieren von PDC-Emulatoren und der Anzahl der Benutzer für jede Domäne, die an jedem Standort dargestellt wird, Unterauftrags Hilfen für Windows Server 2003 Deployment Kit ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)), Download Auftrag _Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Open Domain Controller Placement (DSSTOPO_4. doc).  
+Ein Arbeitsblatt unterstützt Sie bei der Dokumentation der Informationen zum Platzieren von PDC-Emulatoren und der Anzahl der Benutzer für jede Domäne, die an jedem Standort dargestellt wird, Unterauftrags Hilfen für das Windows Server 2003 Deployment Kit ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)), herunterladen Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Open Domain Controller Placement (DSSTOPO_4. doc).  
   
 Sie müssen die Informationen zu Standorten, an denen Sie PDC-Emulatoren platzieren müssen, auf die Bereitstellung regionaler Domänen verweisen. Weitere Informationen zum Bereitstellen von regionalen Domänen finden Sie unter Bereitstellen von [regionalen Windows Server 2008-Domänen](https://technet.microsoft.com/library/cc755118.aspx).  
   
@@ -83,7 +82,7 @@ Obwohl diese Konfiguration zu einer erfolgreichen Replikation zwischen allen Sta
 - Domänen Controller an Standorten C und D können keine Verzeichnis-, DNS-oder benutzerdefinierten Anwendungs Partitionen hinzufügen oder entfernen.  
 - Die Domänen Controller an den Standorten C und D können keine Schema Änderungen vornehmen.  
   
-Ein Arbeitsblatt, das Sie bei der Planung der Platzierung von Betriebs Master Rollen unterstützt, finden Sie unter [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Herunterladen von Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Öffnen von Domänen Controllern. Platzierung (DSSTOPO_4. doc).  
+Ein Arbeitsblatt, das Sie bei der Planung der Platzierung von Betriebs Master Rollen unterstützt, finden Sie unter [Job Aids for Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), Download Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip und Open Domain Controller Placement (DSSTOPO_4. doc).  
   
 Sie müssen diese Informationen beachten, wenn Sie die Stamm Domäne der Gesamtstruktur und die regionalen Domänen erstellen. Weitere Informationen zum Bereitstellen der Stamm Domäne der Gesamtstruktur finden Sie unter Bereitstellen einer [Windows Server 2008](https://technet.microsoft.com/library/cc731174.aspx)-Gesamtstruktur-Stamm Domäne. Weitere Informationen zum Bereitstellen von regionalen Domänen finden Sie unter Bereitstellen von [regionalen Windows Server 2008-Domänen](https://technet.microsoft.com/library/cc755118.aspx).  
 

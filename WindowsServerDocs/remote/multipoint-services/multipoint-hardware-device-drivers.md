@@ -1,24 +1,20 @@
 ---
 title: Erfassen von der für die Installation benötigten Hardware und Gerätetreiber
 description: Informationen zu Treibern, die für Multipoint Services installiert werden müssen
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4cf5fdbe-b871-4360-b003-d65ac43b491e
 author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: cfbb8c8b68768c72b869df539c93f05e7e01d256
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 57e47b357d5b6311c69cf54a74e3eaff7913da53
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394703"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858723"
 ---
 # <a name="collect-hardware-and-device-drivers-needed-for-the-installation"></a>Erfassen von der für die Installation benötigten Hardware und Gerätetreiber
 Bevor Sie mit der Bereitstellung Ihres Multipoint Services-Systems beginnen, benötigen Sie Folgendes:  
@@ -34,4 +30,4 @@ Bevor Sie mit der Bereitstellung Ihres Multipoint Services-Systems beginnen, ben
     > Für eine Multipoint Services-Installation müssen Sie die 64-Bit-Version der Treiber installieren.  
   
 > [!TIP]  
-> Wenn Sie Multipoint Services auf einem Computer installieren, auf dem bereits eine andere Version von Windows installiert ist, sollten Sie vor dem Starten der Windows Server-Installation die Grafikkarte und das Modell in Geräte-Manager ermitteln und sicherstellen, dass Sie Treiber abrufen können, die verfügbar für Windows Server 2016. Öffnen Sie Geräte-Manager, und öffnen Sie die **Computer Verwaltung** über den **Start** Bildschirm. Klicken Sie dann in der Konsolen Struktur auf **Geräte-Manager**.
+> Wenn Sie Multipoint Services auf einem Computer installieren, auf dem bereits eine andere Version von Windows installiert ist, sollten Sie vor dem Starten der Windows Server-Installation das Videokarten-und-Modell in Geräte-Manager finden und sicherstellen, dass Sie Treiber abrufen können, die für Windows Server 2016 verfügbar sind. Öffnen Sie Geräte-Manager, und öffnen Sie die **Computer Verwaltung** über den **Start** Bildschirm. Klicken Sie dann in der Konsolen Struktur auf **Geräte-Manager**.

@@ -1,29 +1,25 @@
 ---
 title: Umstellung von Windows Server Essentials auf Windows Server 2012 Standard
 description: Beschreibt die Verwendung von Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 51bcf124-c215-4e9d-9fa8-a90fa2c2fa22
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 0d7ed80f61dcfa313f867afda5689b2c64b1406a
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: aace7849244bb65ec0042971e6ec899f554a62d2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318708"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852303"
 ---
 # <a name="transition-from-windows-server-essentials-to-windows-server-2012-standard"></a>Umstellung von Windows Server Essentials auf Windows Server 2012 Standard
 
 >Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
- Windows Server® 2012 Essentials unterstützt bis zu 25 Benutzer und 50 Geräte. Wenn Ihr Geschäftsbedarf den Grenzwert überschreitet, können Sie eine direkte Lizenz Umstellung von Windows Server Essentials auf Windows Server 2012 Standard durchführen, um die Lizenz Konformität zu gewährleisten.  
+ Windows Server&reg; 2012 Essentials unterstützt bis zu 25 Benutzer und 50 Geräte. Wenn Ihr Geschäftsbedarf den Grenzwert überschreitet, können Sie eine direkte Lizenz Umstellung von Windows Server Essentials auf Windows Server 2012 Standard durchführen, um die Lizenz Konformität zu gewährleisten.  
   
 ## <a name="how-the-transition-affects-user-and-device-limits"></a>So wirkt sich die Umstellung auf Benutzer- und Gerätebegrenzungen aus  
  Nach dem Wechsel zu Windows Server 2012 Standard werden die Benutzerkonten-und Geräte Limits entfernt, aber die Features, die für Windows Server Essentials eindeutig sind (z. b. das Dashboard, die Remote Webzugriff und die Client Computer Sicherung), bleiben weiterhin verfügbar. Aufgrund technischer Einschränkungen für diese Funktionen werden jedoch höchstens 75 Benutzerkonten und 75 Geräte unterstützt. Wenn es erforderlich ist, mehr als 75 Benutzerkonten oder Geräte hinzuzufügen, sollten Sie die Windows Server Essentials-Features deaktivieren und die systemeigenen Windows Server 2012-Tools zum Verwalten von Benutzerkonten und Geräten verwenden.  

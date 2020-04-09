@@ -1,24 +1,22 @@
 ---
 ms.assetid: eca5bbf0-088e-4753-bf49-4d6c1125f689
 title: Suchen zusätzlicher Ressourcen für den Entwurf der Windows Server 2008 Active Directory-Standorttopologie
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: 1b94197e850b0bf0865c9281281ad063102c29eb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 49709ca40c515c8fdb7df62598e9a9dc766029c8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408829"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822453"
 ---
-# <a name="finding-additional-resources-for-windows-server-2008-active-directory-site-topology-design"></a>Suchen zusätzlicher Ressourcen für den Entwurf der Windows Server 2008 Active Directory-Standorttopologie
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+# <a name="finding-additional-resources-for-windows-server-2008-active-directory-site-topology-design"></a>Suchen nach zusätzlichen resou # RCEs für Windows Server 2008 Active Directory Standort Topologieentwurf
 
 Die folgende Dokumentation zu Active Directory Domain Services (AD DS) finden Sie auf den Windows Server 2003-und Windows Server 2008 TechCenter-Websites:  
   
@@ -34,7 +32,7 @@ Die folgende Dokumentation zu Active Directory Domain Services (AD DS) finden Si
   
 -   Arbeitsblätter für die Dokumentation Ihres Windows Server 2008 AD DS-Topologieentwurfs finden Sie unter Job Aids for Windows Server 2003 Deployment Kit ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)).  
   
--   Weitere Informationen über Verknüpfungs Vertrauensstellungen zwischen Domänen finden Sie Untergrund Legendes zu den Gründen für das Erstellen einer Vertrauensstellungs Abkürzung ([https://go.microsoft.com/fwlink/?LinkId=107061](https://go.microsoft.com/fwlink/?LinkId=107061))  
+-   Weitere Informationen zu Verknüpfungs Vertrauensstellungen zwischen Domänen finden Sie Untergrund Legendes zu den Gründen für das Erstellen einer[https://go.microsoft.com/fwlink/?LinkId=107061](https://go.microsoft.com/fwlink/?LinkId=107061)Vertrauensstellungs Abkürzung  
   
 -   Weitere Informationen zum Bereitstellen der Stamm Domäne der Gesamtstruktur finden Sie unter Bereitstellen [einer Windows Server 2008](https://technet.microsoft.com/library/cc731174.aspx)-Gesamtstruktur-Stamm Domäne.  
   
@@ -42,7 +40,7 @@ Die folgende Dokumentation zu Active Directory Domain Services (AD DS) finden Si
   
 -   Weitere Informationen zum Bereitstellen von regionalen Domänen finden Sie unter Bereitstellen von [regionalen Windows Server 2008-Domänen](https://technet.microsoft.com/library/cc755118.aspx).  
   
--   Weitere Informationen zur Funktionsweise des universellen Gruppen Caching finden Sie unter Funktionsweise des globalen Katalogs ([https://go.microsoft.com/fwlink/?LinkId=107063](https://go.microsoft.com/fwlink/?LinkId=107063)).  
+-   Weitere Informationen zur Funktionsweise des universellen Gruppen Caching finden Sie unter How the Global Catalog Works ([https://go.microsoft.com/fwlink/?LinkId=107063](https://go.microsoft.com/fwlink/?LinkId=107063)).  
   
 -   Weitere Informationen zum Erstellen von Standort Objekten finden Sie unter Erstellen einer Website ([https://go.microsoft.com/fwlink/?LinkId=107067](https://go.microsoft.com/fwlink/?LinkId=107067)).  
   
@@ -52,7 +50,7 @@ Die folgende Dokumentation zu Active Directory Domain Services (AD DS) finden Si
   
 -   Informationen zum Verwalten der Replikation über Firewalls finden Sie unter Active Directory in Netzwerken, die durch Firewalls segmentiert sind ([https://go.microsoft.com/fwlink/?LinkId=37928](https://go.microsoft.com/fwlink/?LinkId=37928)).  
   
--   Weitere Informationen zu den Features für schreibgeschützte Domänen Controller (RODC) finden Sie unter AD DS: Schreibgeschützte Domänen Controller ([https://go.microsoft.com/fwlink/?LinkID=106616](https://go.microsoft.com/fwlink/?LinkID=106616)).  
+-   Weitere Informationen zu den Features für schreibgeschützte Domänen Controller (RODC) finden Sie unter AD DS: schreibgeschützte Domänen Controller ([https://go.microsoft.com/fwlink/?LinkID=106616](https://go.microsoft.com/fwlink/?LinkID=106616)).  
   
 -   Informationen zum Bereitstellen eines RODC finden Sie in der Schritt-für-Schritt-Anleitung für schreibgeschützte Domänen Controller ([https://go.microsoft.com/fwlink/?LinkID=92728](https://go.microsoft.com/fwlink/?LinkID=92728)).  
   

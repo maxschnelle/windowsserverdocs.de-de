@@ -1,7 +1,6 @@
 ---
 ms.assetid: c54b544f-cc32-4837-bb2d-a8656b22f3de
 title: Einführung in die Active Directory-Replikation und Topologieverwaltung mithilfe von Windows PowerShell (Stufe 100)
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c8a5863865d465d55f1d5865fdcbdeeb942ce194
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 63ecad01ec6d4b4d72b7aaff315b74541cb0fadc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71409082"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822983"
 ---
 # <a name="introduction-to-active-directory-replication-and-topology-management-using-windows-powershell-level-100"></a>Einführung in die Active Directory-Replikation und Topologieverwaltung mithilfe von Windows PowerShell (Stufe 100)
 
@@ -37,7 +36,7 @@ Die folgenden Szenarios wurden für Administratoren entwickelt, um sich mit den 
 
 -   Abrufen einer Liste aller Domänencontroller und ihrer entsprechenden Standorte
 
--   Verwalten der Replikationstopologie
+-   Replikationstopologie verwalten
 
 -   Anzeigen von Replikationsstatus und -informationen
 
@@ -79,7 +78,7 @@ Damit Sie die Schritte in den folgenden Verfahren ausführen können, müssen Si
 
     Dieser Befehl gibt die Hostnamen der Domänencontroller sowie ihre Standortzuordnungen zurück.
 
-## <a name="manage-replication-topology"></a>Verwalten der Replikationstopologie
+## <a name="manage-replication-topology"></a>Replikationstopologie verwalten
 Im vorherigen Schritt wurde `Get-ADDomainController -Filter * | ft Hostname,Site`DC2 **nach dem Ausführen des Befehls** als Teil des Standorts **CORPORATE** aufgeführt. In den folgenden Prozeduren erstellen Sie den neuen Filialstandort **BRANCH1** sowie eine neue Standortverknüpfung, legen die Kosten und die Replikationsfrequenz für die Standortverknüpfung fest und verschieben **DC2** anschließend nach **BRANCH1**.
 
 Damit Sie die Schritte in den folgenden Verfahren ausführen können, müssen Sie ein Mitglied der Gruppe der Domänenadministratoren sein oder über vergleichbare Berechtigungen verfügen.

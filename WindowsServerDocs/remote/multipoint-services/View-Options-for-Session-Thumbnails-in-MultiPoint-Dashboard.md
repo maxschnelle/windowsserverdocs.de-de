@@ -1,24 +1,20 @@
 ---
 title: Anzeigeoptionen für Sitzungsminiaturansichten auf dem MultiPoint-Dashboard
 description: Erfahren Sie, wie Sie Ihre Ansichtsoptionen für Multipoint Services anpassen.
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 288a6504-418c-4489-acc6-930410c47cdb
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: 9b6fa08a6f3215140a528dab0fb55bac23c60ccc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 87e60a048b3933bac988014717d66e8784676ca8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394799"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820433"
 ---
 # <a name="view-options-for-session-thumbnails-in-multipoint-dashboard"></a>Anzeigeoptionen für Sitzungsminiaturansichten auf dem MultiPoint-Dashboard
 Eine einfache Möglichkeit, Benutzeraktivitäten auf einzelnen Desktops zu überwachen, ist die Anzeige von Miniaturbildern jedes aktiven Desktops in Ihrem MultiPoint Services-System. Standardmäßig werden auf der Registerkarte Home auf der Registerkarte **Home** auf dem Multipoint-Dashboard Images von Desktops angezeigt.  
@@ -56,5 +52,5 @@ Mithilfe des Multipoint-Dashboards können Sie die folgenden Aktionen ausführen
 >[!NOTE] 
 > Klicken Sie mit der rechten Maustaste auf eine oder mehrere Miniaturansichten, um zu zusätzlichen Aktionen zu gelangen, die Sie in aktiven oder inaktiven Sitzungen ausführen können, wie **Ausgewählte Benutzer abmelden**. Weitere Informationen finden Sie unter [Abmelden von Benutzersitzungen](Log-Off-User-Sessions.md).
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Verwalten von Benutzerdesktops mit dem MultiPoint-Dashboard](Manage-User-Desktops-Using-MultiPoint-Dashboard.md)

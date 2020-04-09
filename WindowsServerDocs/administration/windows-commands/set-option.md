@@ -1,28 +1,22 @@
 ---
 title: Set-Option
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für die Set-Option, die die Optionen für die Erstellung von Schatten Kopien festlegt.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4d8d4921-9fdd-4a3c-bb0f-9df5458c4b84
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9b9174f219654e99eb9441abe3342c31b5089ef5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a956c74619f3a6c33dfcaa62ee4c810cd93b21f1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71384049"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834493"
 ---
 # <a name="set-option"></a>Set-Option
-
-
 
 Legt die Optionen für die Erstellung von Schatten Kopien fest. Bei Verwendung ohne Parameter zeigt die **Option Set die Option** Hilfe an der Eingabeaufforderung an.
 
@@ -32,7 +26,7 @@ Legt die Optionen für die Erstellung von Schatten Kopien fest. Bei Verwendung o
 set option {[differential | plex] [transportable] [[rollbackrecover] [txfrecover] | [noautorecover]]}
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |     Parameter     |                                                                                                  Beschreibung                                                                                                  |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,6 +36,6 @@ set option {[differential | plex] [transportable] [[rollbackrecover] [txfrecover
 |   [txfrecover]    |                                                               Fordert VSS auf, die schattenkopiekonsistenz während der Erstellung Transaktions konsistent zu machen.                                                                |
 |  [noautorecover]  | Hindert Writer und das Dateisystem daran, Wiederherstellungs Änderungen an der Schatten Kopie in einem Transaktions konsistenten Zustand auszuführen. **Noautorecover** kann nicht mit **txfrecover** oder **rollbackrecover**verwendet werden. |
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,7 +1,6 @@
 ---
 ms.assetid: e6da5984-d99d-4c34-9c11-4a18cd413f06
 title: Installieren eines Windows Server 2012-Domänencontrollerreplikats in einer vorhandenen Domäne (Stufe 200)
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5e72c18d3aa49774cf73d5365748e7bf20764b22
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 12068e5a062358463cf208f777144091e1de8257
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390843"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825203"
 ---
 # <a name="install-a-replica-windows-server-2012-domain-controller-in-an-existing-domain-level-200"></a>Installieren eines Windows Server 2012-Domänencontrollerreplikats in einer vorhandenen Domäne (Stufe 200)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dieser Artikel beschreibt die erforderlichen Schritte für die Aktualisierung bestehender Gesamtstrukturen oder Domänen auf Windows Server 2012, entweder via Server-Manager oder Windows PowerShell. Sie erfahren, wie Sie die Domänencontroller, auf denen Windows Server 2012 ausgeführt wird, zu einer Domäne hinzufügen können.  
   
@@ -28,22 +27,22 @@ Dieser Artikel beschreibt die erforderlichen Schritte für die Aktualisierung be
   
 -   [Bereitstellung](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md#BKMK_Dep)  
   
-## <a name="BKMK_Workflow"></a>Upgrade-und Replikat Workflow  
+## <a name="upgrade-and-replica-workflow"></a><a name="BKMK_Workflow"></a>Upgrade-und Replikat Workflow  
 Das folgende Diagramm zeigt den Konfigurationsprozess für Active Directory-Domänendienste, wenn Sie die AD DS-Rolle zuvor installiert haben und den Konfigurations-Assistenten für die Active Directory-Domänendienste über den Server-Manager gestartet haben, um einen neuen Domänencontroller in einer existierenden Domäne zu erstellen.  
   
 ![Installieren eines Replikats](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/adds_forestupgrade.png)  
   
-## <a name="BKMK_PS"></a>Upgrade und Replikat von Windows PowerShell  
+## <a name="upgrade-and-replica-windows-powershell"></a><a name="BKMK_PS"></a>Upgrade und Replikat von Windows PowerShell  
   
 |||  
 |-|-|  
 |**Cmdlet "ADDSDeployment"**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|Install-AddsDomainController|-SkipPreChecks<br /><br />***-Domain Name***<br /><br />*-SafeModeAdministratorPassword*<br /><br />*-Sitename*<br /><br />*-Adprepcredential*<br /><br />-ApplicationPartitionsToReplicate<br /><br />*-Allowdomaincontrollerreinstall*<br /><br />-Confirm<br /><br />*-"-Kreatednsdelegation"*<br /><br />***-Credential***<br /><br />-CriticalReplicationOnly<br /><br />*-DatabasePath*<br /><br />*-Dnsdelegationcredential*<br /><br />-Force<br /><br />*-Installationmediapath*<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />-MoveInfrastructureOperationMasterRoleIfNecessary<br /><br />-NoDnsOnNetwork<br /><br />*-Noglobalcatalog*<br /><br />-Norebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />-SkipAutoConfigureDNS<br /><br />-SiteName<br /><br />*-System Key*<br /><br />*-Sysvolpath*<br /><br />*-UseExistingAccount*<br /><br />*-WhatIf*|  
+|Install-AddsDomainController|-SkipPreChecks<p>***-Domain Name***<p>*-SafeModeAdministratorPassword*<p>*-Sitename*<p>*-Adprepcredential*<p>-ApplicationPartitionsToReplicate<p>*-Allowdomaincontrollerreinstall*<p>-Confirm<p>*-"-Kreatednsdelegation"*<p>***-Credential***<p>-CriticalReplicationOnly<p>*-DatabasePath*<p>*-Dnsdelegationcredential*<p>-Force<p>*-Installationmediapath*<p>*-InstallDNS*<p>*-LogPath*<p>-MoveInfrastructureOperationMasterRoleIfNecessary<p>-NoDnsOnNetwork<p>*-Noglobalcatalog*<p>-Norebootoncompletion<p>*-ReplicationSourceDC*<p>-SkipAutoConfigureDNS<p>-SiteName<p>*-System Key*<p>*-Sysvolpath*<p>*-UseExistingAccount*<p>*-WhatIf*|  
   
 > [!NOTE]  
 > Das Argument **-credential** wird nur benötigt, wenn Sie nicht bereits als Mitglied der Gruppen Organisations-Admins und Schema-Admins (für Upgrades der Gesamtstruktur) oder der Gruppe Domänen-Admins (beim Hinzufügen eines neuen Domänencontrollers zu einer existierenden Domäne) angemeldet sind.  
   
-## <a name="BKMK_Dep"></a>Nutzung  
+## <a name="deployment"></a><a name="BKMK_Dep"></a>Nutzung  
   
 ### <a name="deployment-configuration"></a>Bereitstellungskonfiguration  
 ![Installieren eines Replikats](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeDeployConfig.png)  
@@ -122,7 +121,7 @@ Sie können eine sichere Zeichenfolge auch als konvertierte Klartextvariable ang
   
 ```  
   
-Zuletzt sollten Sie das verborgene Kennwort in einer Datei speichern und später wiederverwenden, ohne dass jemals das Klartextkennwort erscheint. Zum Beispiel:  
+Zuletzt sollten Sie das verborgene Kennwort in einer Datei speichern und später wiederverwenden, ohne dass jemals das Klartextkennwort erscheint. Beispiel:  
   
 ```  
 $file = "c:\pw.txt"  
@@ -221,7 +220,7 @@ Auf der Seite **Optionen prüfen** können Sie vor dem Starten der Installation 
   
 Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen.  Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt.  
   
-Zum Beispiel:  
+Beispiel:  
   
 ```  
 #  
@@ -249,7 +248,7 @@ Install-ADDSDomainController `
   
 ![Installieren eines Replikats](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSWhatIf.png)  
   
-### <a name="prerequisites-check"></a>Voraussetzungsüberprüfung  
+### <a name="prerequisites-check"></a>Überprüfung der Voraussetzungen  
 ![Installieren eines Replikats](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradePrereqCheck.png)  
   
 Die **Voraussetzungsüberprüfung** ist ein neues Feature in der AD DS-Domänenkonfiguration. Diese neue Phase prüft, ob Domäne und Gesamtstruktur in der Lage sind, einen neuen Windows Server 2012-Domänencontroller zu unterstützen.  
@@ -258,7 +257,7 @@ Bei der Installation eines neuen Domänencontrollers führt der Konfigurations-A
   
 Bei der **Voraussetzungsüberprüfung** werden außerdem relevante Informationen wie z. B. Sicherheitsänderungen angezeigt, die ältere Betriebssysteme betreffen.  
   
-Weitere Informationen zu den spezifischen Voraussetzungsprüfungen finden Sie unter [Prerequisite Checking](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking).  
+Weitere Informationen zu den Voraussetzungsprüfungen finden Sie unter [Voraussetzungsüberprüfung](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking).  
   
 Bei Verwendung des Server-Managers können Sie die **Voraussetzungsüberprüfung** nicht überspringen. Sie können diese jedoch mit dem folgenden Argument überspringen, wenn Sie das Cmdlet „ADDSDeployment“ verwenden:  
   
@@ -312,12 +311,12 @@ Um einen Domänen Controller Remote mithilfe von Windows PowerShell zu konfiguri
 invoke-command {install-addsdomaincontroller "domainname <domain> -credential (get-credential)} -computername <dc name>  
 ```  
   
-Zum Beispiel:  
+Beispiel:  
   
 ![Installieren eines Replikats](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSUpgradeExample.gif)  
   
 > [!NOTE]  
-> Weitere Informationen zur Installation und zum Adprep-Prozess finden Sie unter [Troubleshooting Domain Controller Deployment](../../ad-ds/deploy/Troubleshooting-Domain-Controller-Deployment.md).  
+> Weitere Informationen zur Installation und zum Adprep-Prozess finden Sie unter [Problembehandlung der Domänencontrollerbereitstellung](../../ad-ds/deploy/Troubleshooting-Domain-Controller-Deployment.md).  
   
 ### <a name="results"></a>Ergebnisse  
 ![Installieren eines Replikats](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_ForestSignOff.png)  

@@ -5,15 +5,16 @@ ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
+manager: lizross
 ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: da0f541c34c7f8687822bec365364fdd406fa3c3
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 1d275e0379b5374899437bcf1f0387b304350840
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322692"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827743"
 ---
 # <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Verwenden von freigegebenen Clustervolumes in einem Failovercluster
 
@@ -31,7 +32,7 @@ CSV stellen ein allgemeines Cluster Dateisystem bereit, das über NTFS (oder Ref
 
 In Windows Server 2012 wurde die CSV-Funktionalität erheblich verbessert. Abhängigkeiten von Active Directory-Domänendiensten wurden z. B. entfernt. Für die funktionalen Verbesserungen in **chkdsk**, für die Interoperabilität mit Antiviren- und Sicherungsanwendungen sowie für die Integration mit allgemeinen Speicherfeatures wie BitLocker-verschlüsselte Volumes und Speicherplätze wurde die entsprechende Unterstützung hinzugefügt. Eine Übersicht über die CSV-Funktionalität, die in Windows Server 2012 eingeführt wurde, finden Sie unter [What es New in Failover Clustering in Windows Server 2012 \[umgeleitet\]](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
 
-Windows Server 2012 R2 bietet zusätzliche Funktionen, z. b. den verteilten CSV-Besitz, eine erhöhte Resilienz durch die Verfügbarkeit des Server Dienstanbieter, eine größere Flexibilität bei der Menge an physischem Arbeitsspeicher, die Sie dem CSV-Cache zuordnen können. Diagnose und erweiterte Interoperabilität, die die Unterstützung für Refs und die Deduplizierung umfasst. Weitere Informationen finden Sie unter [Neues beim Failoverclustering](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
+Windows Server 2012 R2 bietet zusätzliche Funktionen, wie z. b. den verteilten CSV-Besitz, eine erhöhte Resilienz durch die Verfügbarkeit des Server dienstanbietes, eine größere Flexibilität bei der Menge an physischem Speicher, die Sie dem CSV-Cache zuweisen können, eine bessere Diagnose und eine verbesserte Interoperabilität, die Unterstützung für Refs und Deduplizierung umfasst. Weitere Informationen finden Sie unter [Neues beim Failoverclustering](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
 
 > [!NOTE]
 > Informationen zur Verwendung der Datendeduplizierung auf freigegebenen Clustervolumes für VDI-Szenarien (Virtual Desktop Infrastructure) finden Sie in den Blogbeiträgen [Deploying Data Deduplication for VDI storage in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/deploying-data-deduplication-for-vdi-storage-in-windows-server-2012-r2.aspx) und [Extending Data Deduplication to new workloads in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/extending-data-deduplication-to-new-workloads-in-windows-server-2012-r2.aspx)(beide in englischer Sprache).
@@ -65,7 +66,7 @@ Eine Übersicht über die Hardware-, Netzwerk- und Speicheranforderungen für Fa
 
 #### <a name="about-io-synchronization-and-io-redirection-in-csv-communication"></a>Informationen zur E/A-Synchronisierung und E/A-Umleitung bei der CSV-Kommunikation
 
-- E **/a-Synchronisierung**: CSV ermöglicht mehreren Knoten den gleichzeitigen Lese-/Schreibzugriff auf denselben freigegebenen Speicher. Wenn ein Knoten Datenträgereingaben/-ausgaben (E/A) für ein CSV-Volume ausführt, kommuniziert der Knoten direkt mit dem Speicher, z. B. über ein SAN (Storage Area Network). Zu jedem Zeitpunkt ist jedoch ein einzelner Knoten (auch als Koordinatorknoten bezeichnet) „Besitzer“ der physischen Datenträgerressource, die dieser LUN zugeordnet ist. Der Koordinatorknoten für ein CSV-Volume wird im Failovercluster-Manager unter **Datenträger** als **Besitzerknoten** angezeigt. Sie wird auch in der Ausgabe des Windows PowerShell-Cmdlets [Get-clustersharedvolume](https://docs.microsoft.com/powershell/module/failoverclusters/get-clustersharedvolume?view=win10-ps) angezeigt.
+- E **/a-Synchronisierung**: CSV ermöglicht mehreren Knoten den gleichzeitigen Lese-/Schreibzugriff auf denselben freigegebenen Speicher. Wenn ein Knoten Datenträgereingaben/-ausgaben (E/A) für ein CSV-Volume ausführt, kommuniziert der Knoten direkt mit dem Speicher, z. B. über ein SAN (Storage Area Network). Zu jedem Zeitpunkt ist jedoch ein einzelner Knoten (als koordinatorknoten bezeichnet) "Besitzer" der physischen Datenträger Ressource, die der LUN zugeordnet ist. Der Koordinatorknoten für ein CSV-Volume wird im Failovercluster-Manager unter **Datenträger** als **Besitzerknoten** angezeigt. Sie wird auch in der Ausgabe des Windows PowerShell-Cmdlets [Get-clustersharedvolume](https://docs.microsoft.com/powershell/module/failoverclusters/get-clustersharedvolume?view=win10-ps) angezeigt.
 
   >[!NOTE]
   >In Windows Server 2012 R2 ist der CSV-Besitz gleichmäßig auf die Failoverclusterknoten verteilt, basierend auf der Anzahl der CSV-Volumes, die für die einzelnen Knoten gehören. Zudem wird das Besitzrecht automatisch ausgeglichen, wenn z. B. folgende Bedingungen auftreten: CSV-Failover, ein Knoten wird dem Cluster erneut hinzugefügt, ein Knoten wird zum Cluster hinzugefügt, ein Clusterknoten wird neu gestartet, der Failovercluster wird nach dem Herunterfahren wieder gestartet.

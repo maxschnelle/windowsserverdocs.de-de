@@ -2,26 +2,23 @@
 title: Assistent für die Serverbereinigung
 description: 'Thema zu Windows Server Update Service (WSUS): Verwenden des Assistenten zum Bereinigen von Servern zum Verwalten von Speicherplatz'
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7c351797-2716-4442-a668-60d5b4e77751
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e285e59a27b6bf0ef1bf3b1ab0f78a96efa60c87
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 12049e2bba28f2381e6e80db07768b4e180861d6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361533"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828534"
 ---
 # <a name="the-server-cleanup-wizard"></a>Assistent für die Serverbereinigung
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Der Server Bereinigung-Assistent ist in die Benutzeroberfläche integriert und kann verwendet werden, um Ihnen bei der Verwaltung des Speicherplatzes zu helfen. Mit diesem Assistenten können die folgenden Vorgänge ausgeführt werden:
 
@@ -51,7 +48,7 @@ Der Server Bereinigung-Assistent ist in die Benutzeroberfläche integriert und k
   > [!IMPORTANT]
   >  Wenn Sie unnötige Inhalte mit dem Server Bereinigungs-Assistenten entfernen, werden alle privaten Update Dateien, die Sie von der Microsoft Update Katalog-Website heruntergeladen haben, ebenfalls entfernt. Sie müssen diese Dateien nach dem Ausführen des Server Bereinigungs-Assistenten erneut importieren. 
 
-Wenn Updates mithilfe einer Regel für die automatische Genehmigung genehmigt werden, befinden Sie sich möglicherweise weiterhin im Status "genehmigt" und werden nicht durch den Server Bereinigungs-Assistenten entfernt. Zum Entfernen automatisch genehmigter Updates, die den Status "genehmigt" aufweisen, muss der WSUS-Administrator mindestens manuell den Genehmigungs Status der abgelösten Updates auf "nicht genehmigt" festlegen, damit Sie vom Server Bereinigungs-Assistenten zur Entschlüsselung berechtigt werden. Der Server Bereinigung-Assistent stellt sicher, dass ein neueres Update genehmigt wird und dass das Update von keinem Client System nach Bedarf gemeldet wird, bevor das Update als "abgelehnt" markiert wird.
+Wenn Updates mithilfe einer Regel für die automatische Genehmigung genehmigt werden, sind Sie möglicherweise immer noch im genehmigten Zustand und werden nicht durch den Server Bereinigungs-Assistenten entfernt. Zum Entfernen automatisch genehmigter Updates, die den Status "genehmigt" aufweisen, muss der WSUS-Administrator mindestens manuell den Genehmigungs Status der abgelösten Updates auf "nicht genehmigt" festlegen, damit Sie vom Server Bereinigungs-Assistenten zum Entschlüsseln berechtigt werden. Der Server Bereinigung-Assistent stellt sicher, dass ein neueres Update genehmigt wird und dass das Update von keinem Client System nach Bedarf gemeldet wird, bevor das Update als abgelehnt gekennzeichnet wird.
 
 
 

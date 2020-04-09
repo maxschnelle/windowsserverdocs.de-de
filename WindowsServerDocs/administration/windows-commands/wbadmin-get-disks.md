@@ -1,24 +1,20 @@
 ---
 title: Wbadmin Get Disks
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Artikel für Wbadmin Get Disks, das die internen und externen Datenträger auflistet, die derzeit für den lokalen Computer online sind.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 320edef1-df11-446b-a183-9f81811ef938
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3440e061a97e54c32179ef7d71f469093e9fae00
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0243edce77febddccc3497df34685113f2a1b48f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362419"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829763"
 ---
 # <a name="wbadmin-get-disks"></a>Wbadmin Get Disks
 
@@ -34,12 +30,12 @@ Zum Auflisten der Datenträger, die mit diesem Unterbefehl online sind, müssen 
 wbadmin get disks
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 Dieser Unterbefehl weist keine Parameter auf.
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   Cmdlet " [Get-wbdisk](https://technet.microsoft.com/library/jj902446.aspx) "

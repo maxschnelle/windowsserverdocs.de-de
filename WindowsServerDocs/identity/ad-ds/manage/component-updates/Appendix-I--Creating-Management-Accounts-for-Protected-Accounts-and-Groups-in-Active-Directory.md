@@ -1,7 +1,6 @@
 ---
 ms.assetid: 13fe87d9-75cf-45bc-a954-ef75d4423839
 title: 'Anhang I: Erstellen von Verwaltungs Konten für geschützte Konten und Gruppen in Active Directory'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 834aa2611ff2b965c9184524fa6782fb4477a4cd
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c2141e4fad564579fd687b2dfc7e4a12e1634acb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949137"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823483"
 ---
 # <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Anhang I: Erstellen von Verwaltungskonten für geschützte Konten und Gruppen in Active Directory
 
@@ -22,14 +21,14 @@ ms.locfileid: "75949137"
 
 Eine der Herausforderungen bei der Implementierung eines Active Directory Modells, das sich nicht auf die permanente Mitgliedschaft in sehr privilegierten Gruppen stützt, besteht darin, dass es einen Mechanismus zum Auffüllen dieser Gruppen geben muss, wenn eine temporäre Mitgliedschaft in den Gruppen erforderlich ist. Einige privilegierte Identitäts Verwaltungslösungen erfordern, dass den Dienst Konten der Software permanente Mitgliedschaft in Gruppen wie z. b. da oder Administratoren in jeder Domäne in der Gesamtstruktur gewährt wird. Es ist jedoch technisch nicht erforderlich, dass Privileged Identity Management (PIM)-Lösungen ihre Dienste in solch hoch privilegierten Kontexten ausführen.  
   
-Dieser Anhang enthält Informationen, die Sie für nativ implementierte oder Drittanbieter-PIM-Lösungen zum Erstellen von Konten mit eingeschränkten Berechtigungen verwenden können. Sie können jedoch auch mit der stringdirektionellen Kontrolle verwendet werden. Sie können jedoch auch zum Auffüllen privilegierter Gruppen in Active Directory verwendet werden. eine temporäre Erhöhung ist erforderlich. Wenn Sie PIM als systemeigene Lösung implementieren, können diese Konten von Administratoren verwendet werden, um die temporäre Gruppen Population durchzuführen. Wenn Sie PIM über Software von Drittanbietern implementieren, können Sie diese Konten möglicherweise an die Funktion als Dienst anpassen. Buchhaltungs.  
+Dieser Anhang enthält Informationen, die Sie für nativ implementierte oder Drittanbieter-PIM-Lösungen zum Erstellen von Konten mit eingeschränkten Berechtigungen verwenden können. Sie können jedoch auch für das Auffüllen privilegierter Gruppen in Active Directory verwendet werden, wenn eine temporäre Erhöhung erforderlich ist. Wenn Sie PIM als native Lösung implementieren, können diese Konten von Administratoren verwendet werden, um die temporäre Gruppen Population durchzuführen. Wenn Sie PIM über Software von Drittanbietern implementieren, können Sie diese Konten möglicherweise als Dienst Konten anpassen.  
   
 > [!NOTE]  
 > Die in diesem Anhang beschriebenen Verfahren bieten einen Ansatz für die Verwaltung von Gruppen mit hohen Berechtigungen in Active Directory. Sie können diese Prozeduren an Ihre Anforderungen anpassen, zusätzliche Einschränkungen hinzufügen oder einige der hier beschriebenen Einschränkungen weglassen.  
   
 ## <a name="creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Erstellen von Verwaltungs Konten für geschützte Konten und Gruppen in Active Directory
 
-Das Erstellen von Konten, die zum Verwalten der Mitgliedschaft privilegierter Gruppen verwendet werden können, ohne dass die Verwaltungs Konten übermäßige Rechte und Berechtigungen verfügen müssen, besteht aus vier allgemeinen Aktivitäten, die in den Schritt-für-Schritt-Anweisungen beschrieben werden. Führen Sie  
+Das Erstellen von Konten, die zum Verwalten der Mitgliedschaft privilegierter Gruppen verwendet werden können, ohne dass den Verwaltungs Konten übermäßige Rechte und Berechtigungen gewährt werden müssen, besteht aus vier allgemeinen Aktivitäten, die in den folgenden schrittweisen Anweisungen beschrieben werden:  
   
 1.  Zuerst sollten Sie eine Gruppe erstellen, die die Konten verwaltet, da diese Konten von einer begrenzten Anzahl vertrauenswürdiger Benutzer verwaltet werden sollen. Wenn Sie nicht bereits über eine OE-Struktur verfügen, die das Trennen privilegierter und geschützter Konten und Systeme von der allgemeinen Einwohnerzahl in der Domäne unterscheidet, sollten Sie eine erstellen. Obwohl in diesem Anhang keine speziellen Anweisungen bereitgestellt werden, zeigen Screenshots ein Beispiel für eine solche Organisationseinheiten Hierarchie an.  
   
@@ -39,7 +38,7 @@ Das Erstellen von Konten, die zum Verwalten der Mitgliedschaft privilegierter Gr
   
 4.  Konfigurieren Sie die Berechtigungen für das AdminSDHolder-Objekt in jeder Domäne, damit die Verwaltungs Konten die Mitgliedschaft der privilegierten Gruppen in der Domäne ändern können.  
   
-Sie sollten alle diese Prozeduren gründlich testen und Sie nach Bedarf für Ihre Umgebung ändern, bevor Sie Sie in einer Produktionsumgebung implementieren. Sie sollten außerdem überprüfen, ob alle Einstellungen erwartungsgemäß funktionieren (einige Testverfahren werden in diesem Anhang bereitgestellt), und Sie sollten ein Notfall Wiederherstellungs Szenario testen, in dem die Verwaltungs Konten nicht zur Verwendung zum Auffüllen geschützter Gruppen für die Wiederherstellung verfügbar sind. verwendet. Weitere Informationen zum Sichern und Wiederherstellen Active Directory finden Sie in der [schrittweisen Anleitung zur AD DS Sicherung und](https://technet.microsoft.com/library/cc771290(v=ws.10).aspx)Wiederherstellung.  
+Sie sollten alle diese Prozeduren gründlich testen und Sie nach Bedarf für Ihre Umgebung ändern, bevor Sie Sie in einer Produktionsumgebung implementieren. Sie sollten außerdem überprüfen, ob alle Einstellungen erwartungsgemäß funktionieren (einige Test Prozeduren werden in diesem Anhang bereitgestellt), und Sie sollten ein Notfall Wiederherstellungs Szenario testen, in dem die Verwaltungs Konten nicht zur Verwendung zum Auffüllen geschützter Gruppen zu Wiederherstellungs Zwecken verwendet werden können. Weitere Informationen zum Sichern und Wiederherstellen Active Directory finden Sie in der [schrittweisen Anleitung zur AD DS Sicherung und](https://technet.microsoft.com/library/cc771290(v=ws.10).aspx)Wiederherstellung.  
   
 > [!NOTE]  
 > Durch die Implementierung der in diesem Anhang beschriebenen Schritte erstellen Sie Konten, die in der Lage sind, die Mitgliedschaft aller geschützten Gruppen in den einzelnen Domänen zu verwalten, nicht nur die Active Directory Gruppen mit den höchsten Berechtigungen wie EAS, das und Bas. Weitere Informationen zu geschützten Gruppen in Active Directory finden Sie unter [Anhang C: geschützte Konten und Gruppen in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md).  
@@ -48,7 +47,7 @@ Sie sollten alle diese Prozeduren gründlich testen und Sie nach Bedarf für Ihr
   
 #### <a name="creating-a-group-to-enable-and-disable-management-accounts"></a>Erstellen einer Gruppe zum Aktivieren und Deaktivieren von Verwaltungs Konten
 
-Die Kenn Wörter der Verwaltungs Konten sollten bei jeder Verwendung zurückgesetzt werden und sollten deaktiviert werden, wenn die Aktivitäten, die Sie benötigen, fertiggestellt werden Obwohl Sie ggf. auch die Implementierung von Smartcard-Anmelde Anforderungen für diese Konten in Erwägung gezogen haben, handelt es sich um eine optionale Konfiguration. diese Anweisungen gehen davon aus, dass die Verwaltungs Konten mit einem Benutzernamen und einem langen, komplexen Kennwort konfiguriert werden. Steuerelemente. In diesem Schritt erstellen Sie eine Gruppe, die über die Berechtigung zum Zurücksetzen des Kennworts für die Verwaltungs Konten und zum Aktivieren und Deaktivieren der Konten verfügt.  
+Die Kenn Wörter der Verwaltungs Konten sollten bei jeder Verwendung zurückgesetzt werden und sollten deaktiviert werden, wenn die Aktivitäten, die Sie benötigen, fertiggestellt werden Obwohl Sie ggf. auch die Smartcard-Anmelde Anforderungen für diese Konten implementieren, handelt es sich um eine optionale Konfiguration. bei diesen Anweisungen wird davon ausgegangen, dass die Verwaltungs Konten mit einem Benutzernamen und einem langen, komplexen Kennwort als minimale Kontrolle konfiguriert werden. In diesem Schritt erstellen Sie eine Gruppe, die über die Berechtigung zum Zurücksetzen des Kennworts für die Verwaltungs Konten und zum Aktivieren und Deaktivieren der Konten verfügt.  
   
 Führen Sie die folgenden Schritte aus, um eine Gruppe zum Aktivieren und Deaktivieren von Verwaltungs Konten zu erstellen:  
   
@@ -56,7 +55,7 @@ Führen Sie die folgenden Schritte aus, um eine Gruppe zum Aktivieren und Deakti
   
     ![Erstellen von Verwaltungs Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_115.png)  
   
-2.  Geben Sie im Dialogfeld **Neues Objekt-Gruppe** einen Namen für die Gruppe ein. Wenn Sie beabsichtigen, diese Gruppe zu verwenden, um alle Verwaltungs Konten in Ihrer Gesamtstruktur zu aktivieren, legen Sie Sie als universelle Sicherheitsgruppe fest. Wenn Sie über eine Gesamtstruktur mit einer einzelnen Domäne verfügen oder beabsichtigen, eine Gruppe in jeder Domäne zu erstellen, können Sie eine globale Sicherheitsgruppe erstellen. Klicken Sie auf **OK** , um die Gruppe zu erstellen.  
+2.  Geben Sie im Dialogfeld **Neues Objekt-Gruppe** einen Namen für die Gruppe ein. Wenn Sie beabsichtigen, diese Gruppe zu verwenden, um alle Verwaltungs Konten in Ihrer Gesamtstruktur zu aktivieren, legen Sie Sie als universelle Sicherheitsgruppe fest. Wenn Sie über eine Gesamtstruktur mit einer einzelnen Domäne verfügen oder beabsichtigen, eine Gruppe in jeder Domäne zu erstellen, können Sie eine globale Sicherheitsgruppe erstellen. Klicken Sie auf **OK**, um die Gruppe zu erstellen.  
   
     ![Erstellen von Verwaltungs Konten](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_116.png)  
   
@@ -106,7 +105,7 @@ Führen Sie die folgenden Schritte aus, um eine Gruppe zum Aktivieren und Deakti
   
 #### <a name="creating-the-management-accounts"></a>Erstellen der Verwaltungs Konten
 
-Sie sollten mindestens ein Konto erstellen, das zum Verwalten der Mitgliedschaft privilegierter Gruppen in der Active Directory-Installation verwendet wird, vorzugsweise ein zweites Konto, das als Sicherungskopie dienen soll. Unabhängig davon, ob Sie die Verwaltungs Konten in einer einzelnen Domäne in der Gesamtstruktur erstellen und Ihnen Verwaltungsfunktionen für die geschützten Gruppen der Domänen gewähren oder ob Sie Verwaltungs Konten in jeder Domäne in der Gesamtstruktur implementieren möchten, werden die Prozeduren effektiv identisch.  
+Sie sollten mindestens ein Konto erstellen, das zum Verwalten der Mitgliedschaft privilegierter Gruppen in der Active Directory-Installation verwendet wird, vorzugsweise ein zweites Konto, das als Sicherungskopie dienen soll. Unabhängig davon, ob Sie die Verwaltungs Konten in einer einzelnen Domäne in der Gesamtstruktur erstellen und Ihnen Verwaltungsfunktionen für die geschützten Gruppen der Domänen gewähren oder ob Sie Verwaltungs Konten in jeder Domäne in der Gesamtstruktur implementieren möchten, sind die Prozeduren tatsächlich identisch.  
   
 > [!NOTE]  
 > Bei den Schritten in diesem Dokument wird davon ausgegangen, dass Sie noch keine rollenbasierten Zugriffs Steuerungen und privilegierte Identitätsverwaltung für Active Directory implementiert haben. Daher müssen einige Prozeduren von einem Benutzer ausgeführt werden, dessen Konto Mitglied der Gruppe "Domänen-Admins" für die betreffende Domäne ist.  
@@ -133,7 +132,7 @@ Führen Sie die folgenden Schritte aus, um die Verwaltungs Konten zu erstellen:
 
 7. Klicken Sie mit der rechten Maustaste auf das soeben erstellte Benutzerobjekt, und klicken Sie auf **Eigenschaften**.  
 
-8. Klicken Sie auf die Registerkarte **Konto**.  
+8. Klicken Sie auf die Registerkarte **Konto** .  
 
 9. Wählen Sie im Feld **Konto Optionen** das Flag **Konto ist vertraulich und kann nicht delegiert werden** aus, wählen Sie das **Konto unterstützt Kerberos AES 128 Bit Encryption** und/oder das kennflag **dieses Konto unterstützt Kerberos AES 256 encryption** aus, und klicken Sie auf **OK**.  
 
@@ -178,11 +177,11 @@ Führen Sie die folgenden Schritte aus, um die Verwaltungs Konten zu erstellen:
     > [!NOTE]  
     > Es ist unwahrscheinlich, dass dieses Konto für die Anmeldung bei schreibgeschützten Domänen Controllern (Read-Only Domain Controllers, RODCs) in Ihrer Umgebung verwendet wird. Sollte es jedoch erforderlich sein, dass sich das Konto bei einem RODC anmelden muss, sollten Sie dieses Konto der abgelehnten RODC-Kenn Wort Replikations Gruppe hinzufügen, damit das zugehörige Kennwort nicht auf dem RODC zwischengespeichert wird.  
     >
-    > Obwohl das Kennwort des Kontos nach jeder Verwendung zurückgesetzt werden sollte und das Konto deaktiviert werden soll, hat die Implementierung dieser Einstellung keine Auswirkungen auf das Konto, und es kann hilfreich sein, wenn ein Administrator das Zurücksetzen des Kontos vergisst. Kennwort und deaktivieren.  
+    > Obwohl das Kennwort des Kontos nach jeder Verwendung zurückgesetzt werden sollte und das Konto deaktiviert werden soll, hat die Implementierung dieser Einstellung keine Auswirkungen auf das Konto, und es kann hilfreich sein, wenn ein Administrator das Kennwort des Kontos zurücksetzen und deaktivieren muss.  
 
 17. Klicken Sie auf die Registerkarte **Mitglied von**.  
 
-18. Klicken Sie auf **Add**.  
+18. Klicken Sie auf **Hinzufügen**.  
 
 19. Geben Sie im Dialogfeld **Benutzer, Kontakte und Computer auswählen** die Option **verweigerte RODC-Kenn Wort Replikations Gruppe ein** , und klicken Sie auf **Namen** Wenn der Name der Gruppe in der Objektauswahl unterstrichen ist, klicken Sie auf **OK** , und überprüfen Sie, ob das Konto nun Mitglied der beiden Gruppen ist, die im folgenden Screenshot angezeigt werden. Fügen Sie das Konto nicht zu geschützten Gruppen hinzu.  
 
@@ -239,7 +238,7 @@ Unabhängig davon, wie Sie eine Gruppe erstellen, in die Sie die Verwaltungs Kon
 
 Sie sollten die Überwachung für das Konto so konfigurieren, dass mindestens alle Schreibvorgänge in das Konto protokolliert werden. Auf diese Weise können Sie nicht nur die erfolgreiche Aktivierung des Kontos und das Zurücksetzen des Kennworts während der autorisierten Verwendung ermitteln, sondern auch Versuche von nicht autorisierten Benutzern, das Konto zu manipulieren. Fehlerhafte Schreibvorgänge für das Konto sollten in Ihrem Siem-System (Security Information and Event Monitoring, Sicherheits-und Ereignisüberwachung) aufgezeichnet werden. Außerdem sollten Warnungen ausgegeben werden, die die Mitarbeiter informieren, die für die Untersuchung potenzieller Kompromisse verantwortlich sind.  
   
-Siem-Lösungen nehmen Ereignis Informationen aus den beteiligten Sicherheitsquellen (z. b. Ereignisprotokolle, Anwendungsdaten, Netzwerkstreams, antischadsoftwareprodukte und Quellen zum Erkennen von Eindring Versuchen), sortieren die Daten und versuchen, intelligente Ansichten und proaktive Aktionen zu erstellen . Es gibt viele kommerzielle Siem-Lösungen, und viele Unternehmen erstellen private Implementierungen. Eine gut entworfene und ordnungsgemäß implementierte Siem-Lösung kann die Sicherheitsüberwachung und die Reaktionsfähigkeit von Vorfällen erheblich verbessern Die Funktionen und die Genauigkeit variieren jedoch sehr stark zwischen den Lösungen. Siems geht über den Rahmen dieses Artikels hinaus, aber die spezifischen Ereignis Empfehlungen sollten von jeder Siem-Implementierung berücksichtigt werden.  
+Siem-Lösungen übernehmen Ereignis Informationen aus beteiligten Sicherheitsquellen (z. b. Ereignisprotokolle, Anwendungsdaten, Netzwerkstreams, Antischadsoftware-Produkte und Quellen zur Erkennung von Eindring Versuchen), sortieren die Daten und versuchen, intelligente Ansichten und proaktive Aktionen zu erstellen. Es gibt viele kommerzielle Siem-Lösungen, und viele Unternehmen erstellen private Implementierungen. Eine gut entworfene und ordnungsgemäß implementierte Siem-Lösung kann die Sicherheitsüberwachung und die Reaktionsfähigkeit von Vorfällen erheblich verbessern Die Funktionen und die Genauigkeit variieren jedoch sehr stark zwischen den Lösungen. Siems geht über den Rahmen dieses Artikels hinaus, aber die spezifischen Ereignis Empfehlungen sollten von jeder Siem-Implementierung berücksichtigt werden.  
   
 Weitere Informationen zu empfohlenen Überwachungs Konfigurationseinstellungen für Domänen Controller finden Sie unter [Monitoring Active Directory for Anzeichen of Kompromittierung](../../../ad-ds/plan/security-best-practices/Monitoring-Active-Directory-for-Signs-of-Compromise.md). Domänen Controller spezifische Konfigurationseinstellungen werden im [Überwachungs Active Directory für Anzeichen einer](../../../ad-ds/plan/security-best-practices/Monitoring-Active-Directory-for-Signs-of-Compromise.md)Gefährdung bereitgestellt.  
   
@@ -309,7 +308,7 @@ In diesem Fall erteilen Sie die neu erstellten Verwaltungs Konten, damit Sie das
   
 #### <a name="verifying-group-and-account-configuration-settings"></a>Überprüfen der Konfigurationseinstellungen für Gruppen und Konten
 
-Nachdem Sie nun Verwaltungs Konten erstellt und konfiguriert haben, mit denen die Mitgliedschaft geschützter Gruppen in der Domäne geändert werden kann (einschließlich der am stärksten privilegierten EA-, da-und BA-Gruppen), sollten Sie überprüfen, ob die Konten und deren Verwaltungsgruppe ordnungsgemäß erstellt. Die Überprüfung besteht aus diesen allgemeinen Aufgaben:  
+Nachdem Sie nun Verwaltungs Konten erstellt und konfiguriert haben, mit denen die Mitgliedschaft geschützter Gruppen in der Domäne geändert werden kann (einschließlich der am stärksten privilegierten EA-, da-und BA-Gruppen), sollten Sie überprüfen, ob die Konten und deren Verwaltungsgruppe ordnungsgemäß erstellt wurden. Die Überprüfung besteht aus diesen allgemeinen Aufgaben:  
   
 1.  Testen Sie die Gruppe, die Verwaltungs Konten aktivieren und deaktivieren kann, um zu überprüfen, ob Mitglieder der Gruppe die Konten aktivieren und deaktivieren und ihre Kenn Wörter zurücksetzen können, aber keine anderen administrativen Aktivitäten auf den Verwaltungs Konten ausführen können.  
   

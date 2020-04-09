@@ -1,18 +1,17 @@
 ---
 title: Konfigurieren von Zertifikatregistrierungs-Webdienst für die Zertifikat Schlüssel basierte Erneuerung an einem benutzerdefinierten Port
-description: ''
 author: Deland-Han
 ms.author: delhan
 manager: dcscontentpm
 ms.date: 11/12/2019
 ms.topic: article
 ms.prod: windows-server
-ms.openlocfilehash: 3d3d08d6abe9daa571dd7365815c1fc61f926501
-ms.sourcegitcommit: e5df3fd267352528eaab5546f817d64d648b297f
+ms.openlocfilehash: a21a34448248658d2ceffcad07d2a4e6e17b9348
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74163099"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856343"
 ---
 # <a name="configuring-certificate-enrollment-web-service-for-certificate-key-based-renewal-on-a-custom-port"></a>Konfigurieren von Zertifikatregistrierungs-Webdienst für die Zertifikat Schlüssel basierte Erneuerung an einem benutzerdefinierten Port
 
@@ -21,7 +20,7 @@ Ankit Tyagi-Support Techniker mit der Windows-Gruppe
 
 ## <a name="summary"></a>Zusammenfassung
 
-Dieser Artikel enthält Schritt-für-Schritt-Anleitungen zum Implementieren der Zertifikatregistrierungsrichtlinien-Webdienst (CEP) und Zertifikatregistrierungs-Webdienst (CES) an einem anderen benutzerdefinierten Port als 443 für die Zertifikat Schlüssel basierte Erneuerung, um die Vorteile der automatischen Erneuerungs Feature von CEP und CES.
+Dieser Artikel enthält Schritt-für-Schritt-Anleitungen zum Implementieren der Zertifikatregistrierungsrichtlinien-Webdienst (CEP) und Zertifikatregistrierungs-Webdienst (CES) an einem anderen benutzerdefinierten Port als 443 für die Zertifikat Schlüssel basierte Erneuerung, um das Feature für die automatische Erneuerung von CEP und CES zu nutzen.
 
 In diesem Artikel wird auch erläutert, wie CEP und CES funktionieren, und es werden Setup Richtlinien bereitstellt.
 
@@ -46,7 +45,7 @@ In diesem Beispiel basieren die Anweisungen auf einer Umgebung, in der die folge
 
 ![Bereitstellung](media/certificate-enrollment-certificate-key-based-renewal-1.png)
 
-## <a name="configuration-instructions"></a>Konfigurations Anweisungen
+## <a name="configuration-instructions"></a>Konfigurationsanweisungen
 
 ### <a name="overview"></a>Übersicht 
 
@@ -128,7 +127,7 @@ Dieser Befehl installiert die Zertifikatregistrierungsrichtlinien-Webdienst (CEP
 Install-AdcsEnrollmentWebService -ApplicationPoolIdentity -CAConfig "CA1.contoso.com\contoso-CA1-CA" -SSLCertThumbprint "sslCertThumbPrint" -AuthenticationType Username
 ```
 
-Mit diesem Befehl werden die Zertifikatregistrierungs-Webdienst (CES) installiert, um die Zertifizierungsstelle für den Computernamen CA1.contoso.com und den allgemeinen Namen der Zertifizierungsstelle von "" von " " zu **verwenden.** Die Identität der CES ist als standardmäßige Anwendungs Pool Identität angegeben. Der Authentifizierungstyp ist " **username**". Sslcertthumbprint ist der Fingerabdruck des Zertifikats, das zum Binden von IIS verwendet wird.
+Mit diesem Befehl werden die Zertifikatregistrierungs-Webdienst (CES) installiert, um die Zertifizierungsstelle für den Computernamen CA1.contoso.com und den allgemeinen Namen der Zertifizierungsstelle von "" von " **CA1.contoso.com** " zu **verwenden.** Die Identität der CES ist als standardmäßige Anwendungs Pool Identität angegeben. Der Authentifizierungstyp ist " **username**". Sslcertthumbprint ist der Fingerabdruck des Zertifikats, das zum Binden von IIS verwendet wird.
 
 ##### <a name="step-2-check-the-internet-information-services-iis-manager-console"></a>Schritt 2 Überprüfen der Internetinformationsdienste (IIS)-Manager-Konsole
 
@@ -160,7 +159,7 @@ Bei der Schlüssel basierten Erneuerung können Zertifikat Clients ihre Zertifik
 Install-AdcsEnrollmentWebService -CAConfig "CA1.contoso.com\contoso-CA1-CA" -SSLCertThumbprint "sslCertThumbPrint" -AuthenticationType Certificate -ServiceAccountName "Contoso\cepcessvc" -ServiceAccountPassword (read-host "Set user password" -assecurestring) -RenewalOnly -AllowKeyBasedRenewal
 ```
 
-Mit diesem Befehl werden die Zertifikatregistrierungs-Webdienst (CES) installiert, um die Zertifizierungsstelle für den Computernamen CA1.contoso.com und den allgemeinen Namen der Zertifizierungsstelle von "" von " " zu **verwenden.** 
+Mit diesem Befehl werden die Zertifikatregistrierungs-Webdienst (CES) installiert, um die Zertifizierungsstelle für den Computernamen CA1.contoso.com und den allgemeinen Namen der Zertifizierungsstelle von "" von " **CA1.contoso.com** " zu **verwenden.** 
 
 In diesem Befehl wird die Identität des Zertifikatregistrierungs-Webdienst als **cepcessvc** -Dienst Konto angegeben. Der Authentifizierungstyp ist " **Certificate**". **Sslcertthumbprint** ist der Fingerabdruck des Zertifikats, das zum Binden von IIS verwendet wird.
 
@@ -224,7 +223,7 @@ Set-ADUser -Identity cepcessvc -Add @{'msDS-AllowedToDelegateTo'=@('HOST/CA1.con
    
    CN = entca, CN = Registrierungsdienste, CN = Public Key Services, CN = Services, CN = Configuration, DC = ca. DC = com
 
-3. Klicken Sie mit der rechten Maustaste, und bearbeiten Sie das Objekt Ändern Sie das **mspki-** Anmeldungs Server-Attribut, indem Sie den benutzerdefinierten Port mit ihren CEP-und CES-Server-URIs verwenden, die in den Anwendungseinstellungen gefunden wurden. Zum Beispiel:
+3. Klicken Sie mit der rechten Maustaste, und bearbeiten Sie das Objekt Ändern Sie das **mspki-** Anmeldungs Server-Attribut, indem Sie den benutzerdefinierten Port mit ihren CEP-und CES-Server-URIs verwenden, die in den Anwendungseinstellungen gefunden wurden. Beispiel:
 
    ```
    140https://cepces.contoso.com:49999/ENTCA_CES_UsernamePassword/service.svc/CES0   
@@ -287,7 +286,7 @@ Führen Sie den folgenden Befehl aus:
 certreq -machine -q -enroll -cert <thumbprint> renew
 ```
 
-![-Befehl.](media/certificate-enrollment-certificate-key-based-renewal-14.png)
+![Befehl](media/certificate-enrollment-certificate-key-based-renewal-14.png)
 
 ### <a name="method-2"></a>Methode 2
 
@@ -297,7 +296,7 @@ Die Zertifikat Vorlage verfügt beispielsweise über eine Einstellung von 2 Tage
 
 Wenn Sie also die Zeit auf 8:10 Uhr verschieben. am 19. Nachdem das Erneuerungs Fenster in der Vorlage auf 8 Stunden festgelegt wurde, wird das Zertifikat durch Ausführen von certutil-Pulse (zum auslöst der AE-Engine) für Sie registriert.
 
-![-Befehl.](media/certificate-enrollment-certificate-key-based-renewal-15.png)
+![Befehl](media/certificate-enrollment-certificate-key-based-renewal-15.png)
  
 Nachdem der Test abgeschlossen ist, setzen Sie die Zeiteinstellung auf den ursprünglichen Wert zurück, und starten Sie den Client Computer neu.
 
@@ -314,7 +313,7 @@ Nachdem der Test abgeschlossen ist, setzen Sie die Zeiteinstellung auf den urspr
 
 [Install-adcsenrollmentwebservice](https://docs.microsoft.com/powershell/module/adcsdeployment/install-adcsenrollmentwebservice?view=win10-ps)
 
-Weitere Informationen:
+Siehe auch
 
 [Windows Server-Sicherheits Forum](https://aka.ms/adcsforum)
 

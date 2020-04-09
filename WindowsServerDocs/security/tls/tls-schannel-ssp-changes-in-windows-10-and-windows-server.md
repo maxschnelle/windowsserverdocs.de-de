@@ -1,6 +1,5 @@
 ---
 title: TLS (Schannel SSP)
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: ebd3c40c-b4c0-4f6d-a00c-f90eda4691df
@@ -8,16 +7,16 @@ manager: alanth
 author: justinha
 ms.technology: security-authentication
 ms.date: 05/16/2018
-ms.openlocfilehash: e103e985592e6aed150ccd3e1a87e56f19621dbe
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3547c77e8c58bcbb219a7b017c3186f198007805
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403389"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820163"
 ---
 # <a name="tls-schannel-ssp-changes-in-windows-10-and-windows-server-2016"></a>TLS-Änderungen (Schannel SSP) in Windows 10 und Windows Server 2016
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016 und Windows 10
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016 und Windows 10
 
 ## <a name="cipher-suite-changes"></a>Verschlüsselungs Sammlungs Änderungen
 
@@ -54,9 +53,9 @@ Windows 10, Version 1507 und Windows Server 2016 fügen Sie Registrierungs Konfi
 
 Weitere Informationen finden Sie unter [keyexchangealgorithmus-Diffie-Hellman-Schlüsselgrößen](tls-registry-settings.md#keyexchangealgorithm---diffie-hellman-key-sizes).
 
-### <a name="sch_use_strong_crypto-option-changes"></a>SCH_USE_STRONG_CRYPTO-Optionen ändern
+### <a name="sch_use_strong_crypto-option-changes"></a>SCH_USE_STRONG_CRYPTO Option "Änderungen"
 
-Mit Windows 10, Version 1507 und Windows Server 2016, deaktiviert die [SCH_USE_STRONG_CRYPTO](https://msdn.microsoft.com/library/windows/desktop/aa379810.aspx) -Option jetzt NULL-, MD5-, des-und Export Chiffren.
+Mit Windows 10, Version 1507 und Windows Server 2016, deaktiviert [SCH_USE_STRONG_CRYPTO](https://msdn.microsoft.com/library/windows/desktop/aa379810.aspx) Option jetzt NULL-, MD5-, des-und Export Chiffren.
 
 ## <a name="elliptical-curve-changes"></a>Änderungen der elliptischen Kurve
 
@@ -81,7 +80,7 @@ Windows 10, Version 1607 und Windows Server 2016, Unterstützung für DTLS 1,2 (
 
 Windows 10, Version 1607 und Windows Server 2016 fügen Sie die Registrierungs Konfiguration der Größe des Thread Pools hinzu, der zum Verarbeiten von TLS-Handshakes für HTTP verwendet wird. Einsetzt.
 
-Registrierungs Pfad: 
+Registrierungspfad: 
 
 HKLM\System\CurrentControlSet\Control\LSA
 
@@ -110,9 +109,9 @@ Windows 10, Version 1507 und Windows Server 2016 bieten im Vergleich zu Windows 
 
 ## <a name="session-hash-and-extended-master-secret-extension"></a>Sitzungs Hash und erweiterte Erweiterung für den geheimen Hauptschlüssel
 
-Windows 10, Version 1507 und Windows Server 2016, Unterstützung für RFC 7627 hinzufügen: Transport Layer Security (TLS)-Sitzungs Hash und erweiterte Erweiterung für den geheimen Hauptschlüssel.
+Windows 10, Version 1507 und Windows Server 2016 fügen Unterstützung für den RFC 7627: Transport Layer Security (TLS)-Sitzungs Hash und die erweiterte Erweiterung für den geheimen Hauptschlüssel hinzu.
 
-Aufgrund dieser Änderung sind für Windows 10 und Windows Server [2016 Updates von Drittanbietern](https://msdn.microsoft.com/library/windows/desktop/ff468652.aspx) erforderlich, um NCRYPT_SSL_INTERFACE_VERSION_3 zu unterstützen und diese neue Schnittstelle zu beschreiben.
+Aufgrund dieser Änderung sind für Windows 10 und Windows Server 2016 Updates von Drittanbieter- [SSL-Anbietern](https://msdn.microsoft.com/library/windows/desktop/ff468652.aspx) erforderlich, um NCRYPT_SSL_INTERFACE_VERSION_3 zu unterstützen und diese neue Schnittstelle zu beschreiben.
 
 
 ## <a name="ssl-support"></a>SSL-Unterstützung
@@ -125,9 +124,9 @@ Ab Windows 10, Version 1607 und Windows Server 2016, wurde SSL 2,0 entfernt und 
 
 In TLS 1,2 verwendet der Client die [Erweiterung "signature_algorithms"](https://tools.ietf.org/html/rfc5246#section-7.4.1.4.1) , um dem Server mitzuteilen, welche Signatur-/Hashalgorithmus-Paare in digitalen Signaturen (d. h. Server Zertifikate und Server Schlüsselaustausch) verwendet werden können. Die TLS 1,2-RFC erfordert auch, dass die Serverzertifikat Nachricht die Erweiterung "signature_algorithms" berücksichtigt:
 
-"Wenn der Client eine" signature_algorithms "-Erweiterung bereitgestellt hat, müssen alle vom Server bereitgestellten Zertifikate von einem Hash-/signaturalgorithmuspaar signiert werden, das in dieser Erweiterung angezeigt wird."
+"Wenn der Client eine Erweiterung vom Typ" signature_algorithms "bereitgestellt hat, müssen alle vom Server bereitgestellten Zertifikate von einem Hash-/signaturalgorithmuspaar signiert werden, das in dieser Erweiterung angezeigt wird.
 
-In der Praxis stimmen einige TLS-Clients von Drittanbietern nicht mit TLS 1,2 RFC überein und können nicht alle Signatur-und Hash Algorithmus-Paare einschließen, die Sie in der Erweiterung "signature_algorithms" akzeptieren möchten, oder die Erweiterung weglassen (letzteres gibt an der Server, den der Client nur SHA1 mit RSA, DSA oder ECDSA unterstützt.
+In der Praxis entsprechen einige TLS-Clients von Drittanbietern nicht der TLS 1,2-RFC und können nicht alle Signatur-und Hash Algorithmus-Paare einschließen, die Sie in der Erweiterung "signature_algorithms" akzeptieren möchten, oder die Erweiterung weglassen (letztere gibt dem Server an, dass der Client nur SHA1 mit RSA, DSA oder ECDSA unterstützt).
 
 Ein TLS-Server verfügt häufig nur über ein Zertifikat, das pro Endpunkt konfiguriert ist. Dies bedeutet, dass der Server nicht immer ein Zertifikat bereitstellen kann, das die Anforderungen des Clients erfüllt.
 

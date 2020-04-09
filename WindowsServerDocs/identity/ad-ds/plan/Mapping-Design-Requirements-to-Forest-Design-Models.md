@@ -1,7 +1,6 @@
 ---
 ms.assetid: c0d64566-5530-482e-a332-af029a5fb575
 title: Zuordnung von Entwurfs Anforderungen zu Gesamtstruktur-Entwurfs Modellen
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d65b03dc255de5523c48c2bb9359530b8e7c3167
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9e5a1d17cbbc5a17b98dff2abf72359ce22142f1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408764"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822233"
 ---
 # <a name="mapping-design-requirements-to-forest-design-models"></a>Zuordnung von Entwurfs Anforderungen zu Gesamtstruktur-Entwurfs Modellen
 
@@ -24,26 +23,26 @@ Die meisten Gruppen in Ihrer Organisation können eine einzelne Organisations Ge
 
 Da die anfängliche Organisations Gesamtstruktur mehrere Gruppen in der Organisation hosten kann, muss der Gesamtstruktur Besitzer Vereinbarungen zum Service Level für jede Gruppe einrichten, damit alle Parteien verstehen, was erwartet wird. Dadurch werden sowohl die einzelnen Gruppen als auch der Gesamtstruktur Besitzer durch die Einrichtung vereinbarter Dienst Erwartungen geschützt.  
 
-Wenn nicht alle Gruppen in Ihrer Organisation eine einzelne Organisations Gesamtstruktur gemeinsam nutzen können, müssen Sie den Gesamtstruktur Entwurf erweitern, um den Anforderungen der unterschiedlichen Gruppen gerecht zu werden. Dies umfasst die Identifizierung der Entwurfs Anforderungen, die für die Gruppen gelten, basierend auf Ihren Anforderungen für Autonomie und Isolation und der Tatsache, ob Sie über ein Netzwerk mit eingeschränkter Konnektivität verfügen, und identifiziert dann das Gesamtstruktur Modell, das Sie verwenden können, um diese zu berücksichtigen. Bedingungen. In der folgenden Tabelle werden die Szenarien für das Gesamtstruktur-Entwurfs Modell basierend auf den Faktoren Autonomie, Isolation und Konnektivität aufgelistet. Nachdem Sie das Gesamtstruktur-Entwurfs Szenario identifiziert haben, das Ihren Anforderungen am besten entspricht, stellen Sie fest, ob Sie zusätzliche Entscheidungen treffen müssen, um die Entwurfs Spezifikationen zu erfüllen.  
+Wenn nicht alle Gruppen in Ihrer Organisation eine einzelne Organisations Gesamtstruktur gemeinsam nutzen können, müssen Sie den Gesamtstruktur Entwurf erweitern, um den Anforderungen der unterschiedlichen Gruppen gerecht zu werden. Dies umfasst die Identifizierung der Entwurfs Anforderungen, die für die Gruppen gelten, basierend auf Ihren Anforderungen an Autonomie und Isolation und ob Sie über ein Netzwerk mit eingeschränkter Konnektivität verfügen. Anschließend wird das Gesamtstruktur Modell identifiziert, das Sie zum erfüllen dieser Anforderungen verwenden können. In der folgenden Tabelle werden die Szenarien für das Gesamtstruktur-Entwurfs Modell basierend auf den Faktoren Autonomie, Isolation und Konnektivität aufgelistet. Nachdem Sie das Gesamtstruktur-Entwurfs Szenario identifiziert haben, das Ihren Anforderungen am besten entspricht, stellen Sie fest, ob Sie zusätzliche Entscheidungen treffen müssen, um die Entwurfs Spezifikationen zu erfüllen.  
 
 > [!NOTE]  
 > Wenn ein Faktor als "N/v" aufgeführt ist, wird er nicht berücksichtigt, da andere Anforderungen auch diesen Faktor berücksichtigen.  
 
 |Szenario|Eingeschränkte Konnektivität|Daten Isolation|Daten Autonomie|Dienst Isolation|Dienst Autonomie|  
 |------------|------------------------|------------------|-----------------|---------------------|--------------------|  
-|[Szenario 1: beitreten zu einer vorhandenen Gesamtstruktur für die Daten Autonomie](#BKMK_1)|nein|nein|Ja|nein|nein|  
-|[Szenario 2: Verwenden einer Organisations Gesamtstruktur oder Domäne für die Dienst Autonomie](#BKMK_2)|nein|nein|N/V|nein|Ja|  
-|[Szenario 3: Verwenden einer Organisations-oder Ressourcen Gesamtstruktur für die Dienst Isolation](#BKMK_3)|nein|nein|N/V|Ja|N/V|  
+|[Szenario 1: beitreten zu einer vorhandenen Gesamtstruktur für die Daten Autonomie](#BKMK_1)|Nein|Nein|Ja|Nein|Nein|  
+|[Szenario 2: Verwenden einer Organisations Gesamtstruktur oder Domäne für die Dienst Autonomie](#BKMK_2)|Nein|Nein|N/V|Nein|Ja|  
+|[Szenario 3: Verwenden einer Organisations-oder Ressourcen Gesamtstruktur für die Dienst Isolation](#BKMK_3)|Nein|Nein|N/V|Ja|N/V|  
 |[Szenario 4: Verwenden einer Gesamtstruktur der Organisation oder eines eingeschränkten Zugriffs für die Daten Isolation](#BKMK_4)|N/V|Ja|N/V|N/V|N/V|  
-|[Szenario 5: Verwenden einer Organisations Gesamtstruktur oder Neukonfigurieren der Firewall für eingeschränkte Konnektivität](#BKMK_5)|Ja|nein|N/V|nein|nein|  
-|[Szenario 6: Verwenden einer Organisations Gesamtstruktur oder Domäne und Neukonfigurieren der Firewall für Dienst Autonomie mit eingeschränkter Konnektivität](#BKMK_6)|Ja|nein|N/V|nein|Ja|  
-|[Szenario 7: Verwenden einer Ressourcen Gesamtstruktur und Neukonfigurieren der Firewall für die Dienst Isolation mit eingeschränkter Konnektivität](#BKMK_7)|Ja|nein|N/V|Ja|N/V|  
+|[Szenario 5: Verwenden einer Organisations Gesamtstruktur oder Neukonfigurieren der Firewall für eingeschränkte Konnektivität](#BKMK_5)|Ja|Nein|N/V|Nein|Nein|  
+|[Szenario 6: Verwenden einer Organisations Gesamtstruktur oder Domäne und Neukonfigurieren der Firewall für Dienst Autonomie mit eingeschränkter Konnektivität](#BKMK_6)|Ja|Nein|N/V|Nein|Ja|  
+|[Szenario 7: Verwenden einer Ressourcen Gesamtstruktur und Neukonfigurieren der Firewall für die Dienst Isolation mit eingeschränkter Konnektivität](#BKMK_7)|Ja|Nein|N/V|Ja|N/V|  
 
-## <a name="BKMK_1"></a>Szenario 1: beitreten zu einer vorhandenen Gesamtstruktur für die Daten Autonomie  
+## <a name="scenario-1-join-an-existing-forest-for-data-autonomy"></a><a name="BKMK_1"></a>Szenario 1: beitreten zu einer vorhandenen Gesamtstruktur für die Daten Autonomie  
 
 Sie können eine Anforderung für die Daten Autonomie erfüllen, indem Sie die Gruppe einfach in Organisationseinheiten (OUs) in einer vorhandenen Organisations Gesamtstruktur durchsuchen. Delegieren Sie die Steuerung der Organisationseinheiten an Daten Administratoren aus dieser Gruppe, um die Daten Autonomie zu erreichen. Weitere Informationen zur Delegierung der Steuerung mithilfe von Organisationseinheiten finden Sie unter [Erstellen eines Entwurfs einer Organisationseinheit](../../ad-ds/plan/Creating-an-Organizational-Unit-Design.md).  
   
-## <a name="BKMK_2"></a>Szenario 2: Verwenden einer Organisations Gesamtstruktur oder Domäne für die Dienst Autonomie  
+## <a name="scenario-2-use-an-organizational-forest-or-domain-for-service-autonomy"></a><a name="BKMK_2"></a>Szenario 2: Verwenden einer Organisations Gesamtstruktur oder Domäne für die Dienst Autonomie  
 
 Wenn eine Gruppe in Ihrer Organisation die Dienst Autonomie als Anforderung identifiziert, empfiehlt es sich, diese Anforderung zunächst zu überdenken. Das erreichen von Dienst Autonomie führt zu mehr Verwaltungsaufwand und zusätzlichen Kosten für die Organisation. Stellen Sie sicher, dass die Voraussetzung für die Dienst Autonomie nicht einfach ist, und dass Sie die Kosten für die Erfüllung dieser Anforderung rechtfertigen können.  
   
@@ -55,7 +54,7 @@ Sie können eine Anforderung für die Dienst Autonomie erfüllen, indem Sie eine
 
 Weitere Informationen zum Verwenden von Organisations Domänen finden Sie unter [Verwenden des Domänen](../../ad-ds/plan/../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md)Gesamtstruktur Modells.  
 
-## <a name="BKMK_3"></a>Szenario 3: Verwenden einer Organisations-oder Ressourcen Gesamtstruktur für die Dienst Isolation  
+## <a name="scenario-3-use-an-organizational-forest-or-resource-forest-for-service-isolation"></a><a name="BKMK_3"></a>Szenario 3: Verwenden einer Organisations-oder Ressourcen Gesamtstruktur für die Dienst Isolation  
 
 Sie können eine Anforderung für die Dienst Isolation erfüllen, indem Sie eine der folgenden Aktionen ausführen:  
 
@@ -77,7 +76,7 @@ Zu den Überlegungen zur Dienst Isolation zählen die folgenden:
 
 - Die Dienst Isolation erfordert die Erstellung einer zusätzlichen Gesamtstruktur. Evaluieren Sie, ob die Kosten für die Verwaltung der Infrastruktur zur Unterstützung der zusätzlichen Gesamtstruktur die Kosten für den Verlust des Zugriffs auf Ressourcen überwiegen, weil eine Organisations Gesamtstruktur nicht verfügbar ist.  
 
-## <a name="BKMK_4"></a>Szenario 4: Verwenden einer Gesamtstruktur der Organisation oder eines eingeschränkten Zugriffs für die Daten Isolation  
+## <a name="scenario-4-use-an-organizational-forest-or-restricted-access-forest-for-data-isolation"></a><a name="BKMK_4"></a>Szenario 4: Verwenden einer Gesamtstruktur der Organisation oder eines eingeschränkten Zugriffs für die Daten Isolation  
 
 Sie können eine Daten Isolation erzielen, indem Sie eine der folgenden Aktionen ausführen:  
 
@@ -104,12 +103,12 @@ Sie können eine Daten Isolation erzielen, indem Sie eine der folgenden Aktionen
 
 - Möglicherweise müssen Sie eine Firewall zwischen der Organisations Gesamtstruktur und den anderen Gesamtstrukturen in der Organisation einrichten, um den Benutzer Zugriff auf Informationen außerhalb Ihrer Gesamtstruktur zu beschränken.  
 
-- Obwohl das Erstellen einer separaten Gesamtstruktur die Daten Isolation ermöglicht, werden die Domänen Controller in der isolierten Gesamtstruktur und die Computer, auf denen geschützte Informationen gehostet werden, in einem Netzwerk zugänglich sein, und Sie unterliegen Angriffen, die von Computern in diesem Netzwerk gestartet werden. Organisationen, die entscheiden, dass das Risiko eines Angriffs zu hoch ist oder dass die Folge von Angriffen oder Sicherheitsverletzungen zu groß ist, um den Zugriff auf das Netzwerk oder die Netzwerke zu beschränken, die die Domänen Controller und die Computer, auf denen die geschützten Daten gehostet werden, zu unterliegen. . Das Einschränken des Zugriffs kann mithilfe von Technologien wie Firewalls und Internet Protokoll Sicherheit (IPSec) erfolgen. In Extremfällen können Organisationen die geschützten Daten in einem unabhängigen Netzwerk aufbewahren, das über keine physische Verbindung mit einem anderen Netzwerk in der Organisation verfügt.  
+- Obwohl das Erstellen einer separaten Gesamtstruktur die Daten Isolation ermöglicht, werden die Domänen Controller in der isolierten Gesamtstruktur und die Computer, auf denen geschützte Informationen gehostet werden, in einem Netzwerk zugänglich sein, und Sie unterliegen Angriffen, die von Computern in diesem Netzwerk gestartet werden. Organisationen, die entscheiden, dass das Risiko eines Angriffs zu hoch ist oder dass die Folge eines Angriffs oder der Sicherheitsverletzung zu groß ist, muss den Zugriff auf das Netzwerk oder die Netzwerke beschränken, die die Domänen Controller und die Computer, auf denen die geschützten Daten gehostet werden, unterliegen. Das Einschränken des Zugriffs kann mithilfe von Technologien wie Firewalls und Internet Protokoll Sicherheit (IPSec) erfolgen. In Extremfällen können Organisationen die geschützten Daten in einem unabhängigen Netzwerk aufbewahren, das über keine physische Verbindung mit einem anderen Netzwerk in der Organisation verfügt.  
 
    > [!NOTE]  
    > Wenn eine Netzwerkverbindung zwischen einer eingeschränkten Zugriffs Gesamtstruktur und einem anderen Netzwerk besteht, besteht die Möglichkeit, dass Daten im eingeschränkten Bereich an das andere Netzwerk übertragen werden.  
 
-## <a name="BKMK_5"></a>Szenario 5: Verwenden einer Organisations Gesamtstruktur oder Neukonfigurieren der Firewall für eingeschränkte Konnektivität  
+## <a name="scenario-5-use-an-organizational-forest-or-reconfigure-the-firewall-for-limited-connectivity"></a><a name="BKMK_5"></a>Szenario 5: Verwenden einer Organisations Gesamtstruktur oder Neukonfigurieren der Firewall für eingeschränkte Konnektivität  
 
 Zum erfüllen einer begrenzten Verbindungsanforderung können Sie eine der folgenden Aktionen ausführen:  
 
@@ -119,7 +118,7 @@ Zum erfüllen einer begrenzten Verbindungsanforderung können Sie eine der folge
 
 Weitere Informationen zum Konfigurieren von Firewalls für die Verwendung mit Active Directory Domain Services (AD DS) finden Sie unter [Active Directory in Netzwerken, die durch Firewalls segmentiert](https://go.microsoft.com/fwlink/?LinkId=37928)sind.  
 
-## <a name="BKMK_6"></a>Szenario 6: Verwenden einer Organisations Gesamtstruktur oder Domäne und Neukonfigurieren der Firewall für Dienst Autonomie mit eingeschränkter Konnektivität  
+## <a name="scenario-6-use-an-organizational-forest-or-domain-and-reconfigure-the-firewall-for-service-autonomy-with-limited-connectivity"></a><a name="BKMK_6"></a>Szenario 6: Verwenden einer Organisations Gesamtstruktur oder Domäne und Neukonfigurieren der Firewall für Dienst Autonomie mit eingeschränkter Konnektivität  
 
 Wenn eine Gruppe in Ihrer Organisation die Dienst Autonomie als Anforderung identifiziert, empfiehlt es sich, diese Anforderung zunächst zu überdenken. Das erreichen von Dienst Autonomie führt zu mehr Verwaltungsaufwand und zusätzlichen Kosten für die Organisation. Stellen Sie sicher, dass die Voraussetzung für die Dienst Autonomie nicht einfach ist, und dass Sie die Kosten für die Erfüllung dieser Anforderung rechtfertigen können.  
 
@@ -131,7 +130,7 @@ Wenn eine begrenzte Konnektivität ein Problem ist und Sie eine Anforderung für
 
 Außerdem müssen Sie die Firewall so öffnen, dass die Active Directory Datenverkehr durchlaufen werden kann. Weitere Informationen zum Konfigurieren von Firewalls für die Verwendung mit AD DS finden Sie unter [Active Directory in Netzwerken, die durch Firewalls segmentiert](https://go.microsoft.com/fwlink/?LinkId=37928)sind.  
 
-## <a name="BKMK_7"></a>Szenario 7: Verwenden einer Ressourcen Gesamtstruktur und Neukonfigurieren der Firewall für die Dienst Isolation mit eingeschränkter Konnektivität  
+## <a name="scenario-7-use-a-resource-forest-and-reconfigure-the-firewall-for-service-isolation-with-limited-connectivity"></a><a name="BKMK_7"></a>Szenario 7: Verwenden einer Ressourcen Gesamtstruktur und Neukonfigurieren der Firewall für die Dienst Isolation mit eingeschränkter Konnektivität  
 
 Wenn eine begrenzte Konnektivität ein Problem ist und Sie eine Anforderung für die Dienst Isolation haben, können Sie eine der folgenden Aktionen ausführen:  
 

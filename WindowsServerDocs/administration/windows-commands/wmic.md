@@ -1,24 +1,20 @@
 ---
 title: wmic
-description: 'Windows-Befehls Thema für * * * *- '
-ms.custom: na
+description: Windows-Befehls Thema für WMIC, das WMI-Informationen in einer interaktiven Befehlsshell anzeigt.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 76397c72-d06f-4cea-88cf-c7603315a983
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f5096ab82ebbd01cb4f3a7dc0cf0b15e4b9fae8e
-ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
+ms.openlocfilehash: 03ba4ecb4b12b03e010318bf6ca260dec00f28f3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781327"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829053"
 ---
 # <a name="wmic"></a>wmic
 
@@ -42,10 +38,10 @@ Die folgenden Unterbefehle sind jederzeit verfügbar:
 |-----------|-----------|
 |Klasse|Schützt den Standardalias Modus von WMIC, um direkt auf Klassen im WMI-Schema zuzugreifen.|
 |path|Gibt einen Escapezeichen aus dem Standardalias Modus von WMIC für den direkten Zugriff auf Instanzen im WMI-Schema aus.|
-|Kontext|Zeigt die aktuellen Werte aller globalen Switches an.|
+|context|Zeigt die aktuellen Werte aller globalen Switches an.|
 |[beenden \| beenden]|Beendet die WMIC-Befehlsshell.|
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Geben Sie Folgendes ein, um die aktuellen Werte aller globalen Switches anzuzeigen:
 ```
@@ -75,6 +71,6 @@ Wenn Sie die von der Befehlszeile verwendete Sprach-ID in Englisch (Gebiets Sche
 wmic /locale:ms_409
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

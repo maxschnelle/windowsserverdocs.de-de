@@ -1,7 +1,6 @@
 ---
 title: Direkte Speicherplätze Problembehandlung
 description: Erfahren Sie, wie Sie Probleme bei der direkte Speicherplätze Bereitstellung behandeln.
-keywords: Speicherplätze
 ms.prod: windows-server
 ms.author: ''
 ms.technology: storage-spaces
@@ -9,12 +8,12 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ace19b711445106956ae223f17afb6b4181d352d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 429eddf30fddf6bfd035d1f928196a3b66d14646
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365936"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820943"
 ---
 # <a name="troubleshoot-storage-spaces-direct"></a>Problembehandlung direkte Speicherplätze
 
@@ -38,10 +37,10 @@ Die Knoten eines direkte Speicherplätze Systems werden aufgrund eines Absturzes
 
 |FriendlyName|ResiliencySettingName| OperationalStatus| HealthStatus| IsManualAttach|Größe| PSComputerName|
 |------------|---------------------| -----------------| ------------| --------------|-----| --------------|
-|Disk4| Spiegelung| OK|  Fehlerfrei| True|  10 TB|  Knoten-01....|
-|Disk3         |Spiegelung                 |OK                          |Fehlerfrei       |True            |10 TB | Knoten-01....|
-|Disk2         |Spiegelung                 |Keine Redundanz               |Unhealthy     |True            |10 TB | Knoten-01....|
-|Disk1         |Spiegelung                 |{Keine Redundanz, INService}  |Unhealthy     |True            |10 TB | Knoten-01....| 
+|Disk4| Spiegel| OK|  Fehlerfrei| True|  10 TB|  Knoten-01....|
+|Disk3         |Spiegel                 |OK                          |Fehlerfrei       |True            |10 TB | Knoten-01....|
+|Disk2         |Spiegel                 |Keine Redundanz               |Fehlerhaft     |True            |10 TB | Knoten-01....|
+|Disk1         |Spiegel                 |{Keine Redundanz, INService}  |Fehlerhaft     |True            |10 TB | Knoten-01....| 
 
 Außerdem werden nach dem Versuch, den virtuellen Datenträger online zu schalten, die folgenden Informationen im Cluster Protokoll (diskherstellungsaction) protokolliert.  
 
@@ -101,10 +100,10 @@ Im folgenden finden Sie ein Beispiel für die Ausgabe des Cmdlets **Get-virtuald
 
 |FriendlyName|  ResiliencySettingName|  OperationalStatus|   HealthStatus|  IsManualAttach|  Größe|   PSComputerName|
 |-|-|-|-|-|-|-|
-|Disk4|         Spiegelung|                 OK|                  Fehlerfrei|       True|            10 TB|  Knoten-01....|
-|Disk3|         Spiegelung|                 OK|                  Fehlerfrei|       True|            10 TB|  Knoten-01....|
-|Disk2|         Spiegelung|                 „Getrennt“|            Unbekannt|       True|            10 TB|  Knoten-01....|
-|Disk1|         Spiegelung|                 „Getrennt“|            Unbekannt|       True|            10 TB|  Knoten-01....| 
+|Disk4|         Spiegel|                 OK|                  Fehlerfrei|       True|            10 TB|  Knoten-01....|
+|Disk3|         Spiegel|                 OK|                  Fehlerfrei|       True|            10 TB|  Knoten-01....|
+|Disk2|         Spiegel|                 „Getrennt“|            Unbekannt|       True|            10 TB|  Knoten-01....|
+|Disk1|         Spiegel|                 „Getrennt“|            Unbekannt|       True|            10 TB|  Knoten-01....| 
 
 
 Außerdem können die folgenden Ereignisse auf den Knoten protokolliert werden:
@@ -151,7 +150,7 @@ DeviceName:
 Volume Name:
 ``` 
 
-Der **getrennte Betriebs Status** kann auftreten, wenn das DRT-Protokoll (Dirty Region Tracking) voll ist. Speicherplätze verwenden die Änderungs Bereichs Überwachung (Dirty Region Tracking, DRT) für gespiegelte Speicherplätze, um sicherzustellen, dass bei einem Stromausfall alle in-Flight-Aktualisierungen der Metadaten protokolliert werden, um sicherzustellen, dass der Speicherplatz Vorgänge wiederholen oder rückgängig machen kann, um den Speicherplatz wieder in einen flexiblen und der konsistente Zustand, wenn die Stromversorgung wieder hergestellt wird und das System wieder hergestellt wird. Wenn das DRT-Protokoll voll ist, kann der virtuelle Datenträger erst online geschaltet werden, wenn die DRT-Metadaten synchronisiert und geleert wurden. Dieser Vorgang erfordert das Ausführen einer vollständigen Überprüfung, die mehrere Stunden in Anspruch nehmen kann.
+Der **getrennte Betriebs Status** kann auftreten, wenn das DRT-Protokoll (Dirty Region Tracking) voll ist. Speicherplätze verwenden die Änderungs Bereichs Überwachung (Dirty Region Tracking, DRT) für gespiegelte Speicherplätze, um sicherzustellen, dass bei einem Stromausfall alle in-Flight-Aktualisierungen der Metadaten protokolliert werden, um sicherzustellen, dass der Speicherplatz Vorgänge wiederholen oder rückgängig machen kann, um den Speicherplatz wieder in einen flexiblen und konsistenten Zustand zu bringen, wenn die Energie wieder hergestellt wird Wenn das DRT-Protokoll voll ist, kann der virtuelle Datenträger erst online geschaltet werden, wenn die DRT-Metadaten synchronisiert und geleert wurden. Dieser Vorgang erfordert das Ausführen einer vollständigen Überprüfung, die mehrere Stunden in Anspruch nehmen kann.
 
 Um dieses Problem zu beheben, führen Sie die folgenden Schritte aus:
 1. Entfernen Sie die betroffenen virtuellen Datenträger aus dem CSV.
@@ -206,9 +205,9 @@ Weitere Informationen finden Sie unter [Problembehandlung direkte Speicherplätz
 ## <a name="event-5120-with-status_io_timeout-c00000b5"></a>Ereignis 5120 mit STATUS_IO_TIMEOUT c00000b5 
 
 > [!Important]
-> **Für Windows Server 2016:** Um die Wahrscheinlichkeit zu verringern, dass diese Symptome beim Anwenden des Updates behoben werden, empfiehlt es sich, die unten stehende Prozedur für den Speicher Wartungsmodus zu verwenden, um den [18. Oktober 2018, das kumulative Update für Windows Server 2016](https://support.microsoft.com/help/4462928) oder eine höhere Version zu installieren. Wenn auf den Knoten derzeit ein kumulatives Update für Windows Server 2016 installiert wurde, das vom [8. Mai 2018](https://support.microsoft.com/help/4103723) bis zum [9. Oktober 2018](https://support.microsoft.com/help/KB4462917)veröffentlicht wurde.
+> **Für Windows Server 2016:** Um die Wahrscheinlichkeit zu verringern, dass diese Symptome beim Anwenden des Updates behoben werden, empfiehlt es sich, die nachfolgende Prozedur für den Speicher Wartungsmodus zu verwenden, um den [18. Oktober 2018, das kumulative Update für Windows Server 2016](https://support.microsoft.com/help/4462928) oder eine höhere Version zu installieren, wenn auf den Knoten ein kumulatives Update für Windows Server 2016 installiert ist, das vom [8. Mai, 2018](https://support.microsoft.com/help/4103723) bis [2018 9](https://support.microsoft.com/help/KB4462917).
 
-Sie können das Ereignis 5120 mit STATUS_IO_TIMEOUT c00000b5 erhalten, nachdem Sie einen Knoten unter Windows Server 2016 mit dem kumulativen Update neu gestartet haben, das vom [8. Mai 2018 KB 4103723](https://support.microsoft.com/help/4103723) bis [2018 9](https://support.microsoft.com/help/4462917) .
+Möglicherweise wird das Ereignis 5120 mit STATUS_IO_TIMEOUT c00000b5, nachdem Sie einen Knoten unter Windows Server 2016 mit dem kumulativen Update neu gestartet haben, das vom [8. Mai 2018 KB 4103723](https://support.microsoft.com/help/4103723) bis [9, KB 2018](https://support.microsoft.com/help/4462917) , installiert wurde.
 
 Wenn Sie den Knoten neu starten, wird das Ereignis 5120 im System Ereignisprotokoll protokolliert. es enthält einen der folgenden Fehlercodes:
 
@@ -217,7 +216,7 @@ Event Source: Microsoft-Windows-FailoverClustering
 Event ID: 5120
 Description:    Cluster Shared Volume 'CSVName' ('Cluster Virtual Disk (CSVName)') has entered a paused state because of 'STATUS_IO_TIMEOUT(c00000b5)'. All I/O will temporarily be queued until a path to the volume is reestablished. 
 
-Cluster Shared Volume ‘CSVName' ('Cluster Virtual Disk (CSVName)') has entered a paused state because of 'STATUS_CONNECTION_DISCONNECTED(c000020c)'. All I/O will temporarily be queued until a path to the volume is reestablished.    
+Cluster Shared Volume 'CSVName' ('Cluster Virtual Disk (CSVName)') has entered a paused state because of 'STATUS_CONNECTION_DISCONNECTED(c000020c)'. All I/O will temporarily be queued until a path to the volume is reestablished.    
 ```
 
 Wenn ein Ereignis 5120 protokolliert wird, wird ein livedump generiert, um Debuginformationen zu sammeln, die möglicherweise zusätzliche Symptome verursachen oder einen Leistungs Effekt haben. Durch das Erstellen des liveabbilds wird eine kurze Pause erstellt, um das Erstellen einer Momentaufnahme des Speichers zum Schreiben der Dumpdatei zu ermöglichen Systeme mit sehr viel Arbeitsspeicher und hoher Belastung können dazu führen, dass Knoten die Cluster Mitgliedschaft verwerfen und auch das folgende Ereignis 1135 protokolliert werden.
@@ -274,14 +273,14 @@ Es gibt zwei Methoden zum Deaktivieren von livedumps, wie unten beschrieben.
 #### <a name="method-1-recommended-in-this-scenario"></a>Methode 1 (in diesem Szenario empfohlen)
 Führen Sie die folgenden Schritte aus, um alle Abbilder vollständig zu deaktivieren, einschließlich des systemweiten Live Abbilder:
 
-1. Erstellen Sie den folgenden Registrierungsschlüssel: Hklm\system\currentcontrolset\control\crashcontrol\forcedumpsdeaktiviert
+1. Erstellen Sie den folgenden Registrierungsschlüssel: hklm\system\currentcontrolset\control\crashcontrol\forcedumpsdeaktiviert
 2. Erstellen Sie unter dem neuen **forcedumpsdeaktiviert** -Schlüssel eine REG_DWORD-Eigenschaft als "guardedhost", und legen Sie Ihren Wert auf "0x10000000" fest.
 3. Wenden Sie den neuen Registrierungsschlüssel auf jeden Cluster Knoten an.
 
 >[!NOTE]
 >Sie müssen den Computer neu starten, damit die nRegistrierungseinstellung mit-Änderung wirksam wird.
 
-Nachdem dieser Registrierungsschlüssel festgelegt wurde, schlägt die Erstellung des Live dumpbacks fehl und generiert den Fehler "STATUS_NOT_SUPPORTED".
+Nachdem dieser Registrierungsschlüssel festgelegt wurde, schlägt die Erstellung des Live Abbilds fehl und generiert den Fehler "STATUS_NOT_SUPPORTED".
 
 #### <a name="method-2"></a>Methode 2
 Standardmäßig lässt Windows-Fehlerberichterstattung nur einen livedump pro Berichtstyp pro Berichtstyp und 7 Tagen zu und nur 1 livedump pro Computer und 5 Tagen. Sie können dies ändern, indem Sie die folgenden Registrierungsschlüssel so festlegen, dass nur ein livedump auf dem Computer unbegrenzt zugelassen wird.
@@ -311,7 +310,7 @@ Es gibt zwei Möglichkeiten, um Folgendes zu überprüfen:
 
 1. Verwenden des Cluster Protokolls. Öffnen Sie das Cluster Protokoll im Text-Editor Ihrer Wahl, und suchen Sie nach "[= = = SBL Disks = = =]". Dabei handelt es sich um eine Liste der Datenträger auf dem Knoten, auf dem das Protokoll generiert wurde. 
 
-     Beispiel für Cache aktivierte Datenträger: Beachten Sie, dass der Status "cachediskstateinitializedandbound" lautet und dass hier eine GUID vorhanden ist. 
+     Beispiel für Cache aktivierte Datenträger: Beachten Sie, dass der Status "cachediskstateinitializedandbound" lautet und hier eine GUID vorhanden ist. 
 
    ```
    [=== SBL Disks ===]
@@ -358,25 +357,25 @@ Der nächste Schritt besteht darin, den Phantom Speicherpool zu entfernen:
 
 Wenn Sie nun **Get-PhysicalDisk** auf einem der Knoten ausführen, werden alle Datenträger im Pool angezeigt. Beispielsweise können Sie in einem Lab mit einem 4-Knoten-Cluster mit vier SAS-Datenträgern jeweils 100 GB für jeden Knoten darstellen. In diesem Fall, wenn Sie " **Get-PhysicalDisk" deaktiviert haben und "Get-PhysicalDisk**" ausführen, sollten Sie 4 Datenträger mit Ausnahme des lokalen Betriebssystem Datenträgers melden, wenn Sie "Get-PhysicalDisk" ausführen. Stattdessen wird stattdessen "16" gemeldet. Dies ist für alle Knoten im Cluster identisch. Wenn Sie einen **Get-Disk-** Befehl ausführen, werden die lokal angeschlossenen Datenträger als 0, 1, 2 usw. angezeigt, wie in der folgenden Beispielausgabe gezeigt:
 
-|Number| Angezeigter Name| Seriennummer|HealthStatus|OperationalStatus|Gesamtgröße| Partitions Stil|
+|Number| Geeigneter Name| Seriennummer|HealthStatus|OperationalStatus|Gesamtgröße| Partitions Stil|
 |-|-|-|-|-|-|-|-|
 |0|MSFT Virtu...  ||Fehlerfrei | Online|  127 GB| GPT|
-||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| STOFFES|
-||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| STOFFES|
-||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| STOFFES|
-||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| STOFFES|
-|1|MSFT Virtu...||Fehlerfrei| Offline| 100 GB| STOFFES|
-||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| STOFFES|
-|2|MSFT Virtu...||Fehlerfrei| Offline| 100 GB| STOFFES|
-||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| STOFFES|
-||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| STOFFES|
-||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| STOFFES|
-||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| STOFFES|
-|4|MSFT Virtu...||Fehlerfrei| Offline| 100 GB| STOFFES|
-|3|MSFT Virtu...||Fehlerfrei| Offline| 100 GB| STOFFES|
-||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| STOFFES|
-||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| STOFFES|
-||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| STOFFES|
+||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| RAW|
+||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| RAW|
+||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| RAW|
+||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| RAW|
+|1|MSFT Virtu...||Fehlerfrei| Offline| 100 GB| RAW|
+||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| RAW|
+|2|MSFT Virtu...||Fehlerfrei| Offline| 100 GB| RAW|
+||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| RAW|
+||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| RAW|
+||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| RAW|
+||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| RAW|
+|4|MSFT Virtu...||Fehlerfrei| Offline| 100 GB| RAW|
+|3|MSFT Virtu...||Fehlerfrei| Offline| 100 GB| RAW|
+||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| RAW|
+||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| RAW|
+||MSFT Virtu... ||Fehlerfrei| Offline| 100 GB| RAW|
 
 
 ## <a name="error-message-about-unsupported-media-type-when-you-create-an-storage-spaces-direct-cluster-using-enable-clusters2d"></a>Fehlermeldung zu "nicht unterstützter Medientyp" beim Erstellen eines direkte Speicherplätze Clusters mithilfe von "Enable-ClusterS2D"  
@@ -394,7 +393,7 @@ Im Überprüfungsbericht werden die folgenden Informationen angezeigt:
     Disk <identifier> connected to node <nodename> returned a SCSI Port Association and the corresponding enclosure device could not be found. The hardware is not compatible with Storage Spaces Direct (S2D), contact the hardware vendor to verify support for SCSI Enclosure Services (SES). 
 
 
-Das Problem liegt bei der HPE-SAS-Expander-Karte zwischen den Datenträgern und der HBA-Karte. Der SAS-Expander erstellt eine doppelte ID zwischen dem ersten Laufwerk, das mit dem Expander verbunden ist, und der Expander selbst.  Dies wurde in [HPE-SAS-Expander-Firmware aufgelöst: 4,02](https://support.hpe.com/hpsc/swd/public/detail?sp4ts.oid=7304566&swItemId=MTX_ef8d0bf4006542e194854eea6a&swEnvOid=4184#tab3).
+Das Problem liegt bei der HPE-SAS-Expander-Karte zwischen den Datenträgern und der HBA-Karte. Der SAS-Expander erstellt eine doppelte ID zwischen dem ersten Laufwerk, das mit dem Expander verbunden ist, und der Expander selbst.  Diese Lösung wurde in [HPE Smart Array Controllers SAS Expander Firmware: 4,02](https://support.hpe.com/hpsc/swd/public/detail?sp4ts.oid=7304566&swItemId=MTX_ef8d0bf4006542e194854eea6a&swEnvOid=4184#tab3).
 
 ## <a name="intel-ssd-dc-p4600-series-has-a-non-unique-nguid"></a>Intel SSD-DC P4600-Serie weist eine nicht eindeutige "nguid" auf.
 Möglicherweise wird ein Problem auftreten, bei dem ein Gerät mit Intel SSD-DC P4600 eine ähnliche 16 Byte-nguid für mehrere Namespaces meldet, wie z. b. 0100000001000000e4d25c000014e214 oder 0100000001000000e4d25c0000eee214 im folgenden Beispiel.
@@ -402,11 +401,11 @@ Möglicherweise wird ein Problem auftreten, bei dem ein Gerät mit Intel SSD-DC 
 
 |               UniqueId               | DeviceID | MediaType | BusType |               serialNumber               |      size      | canpool | FriendlyName | OperationalStatus |
 |--------------------------------------|----------|-----------|---------|------------------------------------------|----------------|---------|--------------|-------------------|
-|           5000 CCA251D12E30           |    0     |    HDD    |   SAS   |                 7PKR197G                 | 10000831348736 |  False  |     HGST     |  HUH721010AL4200  |
-| EUI. 0100000001000000e4d25c000014e214 |    4     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  True   |    INTEL     |   SSDPE2KE016T7   |
-| EUI. 0100000001000000e4d25c000014e214 |    5     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  True   |    INTEL     |   SSDPE2KE016T7   |
-| EUI. 0100000001000000e4d25c0000eee214 |    6     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_00EE_E214. | 1600321314816  |  True   |    INTEL     |   SSDPE2KE016T7   |
-| EUI. 0100000001000000e4d25c0000eee214 |    7     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_00EE_E214. | 1600321314816  |  True   |    INTEL     |   SSDPE2KE016T7   |
+|           5000 cca251d12e30           |    0     |    HDD    |   SAS   |                 7pkr197g                 | 10000831348736 |  False  |     HGST     |  HUH721010AL4200  |
+| EUI. 0100000001000000e4d25c000014e214 |    4     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  True   |    Intel     |   SSDPE2KE016T7   |
+| EUI. 0100000001000000e4d25c000014e214 |    5     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  True   |    Intel     |   SSDPE2KE016T7   |
+| EUI. 0100000001000000e4d25c0000eee214 |    6     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_00EE_E214. | 1600321314816  |  True   |    Intel     |   SSDPE2KE016T7   |
+| EUI. 0100000001000000e4d25c0000eee214 |    7     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_00EE_E214. | 1600321314816  |  True   |    Intel     |   SSDPE2KE016T7   |
 
 Aktualisieren Sie die Firmware auf den Intel-Laufwerken auf die neueste Version, um dieses Problem zu beheben.  Die Firmwareversion QDV101B1 von Mai 2018 ist bekannt, um dieses Problem zu beheben.
 

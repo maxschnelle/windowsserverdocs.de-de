@@ -1,24 +1,20 @@
 ---
 title: Auswählen von Hardware für Ihr MultiPoint Services-System
 description: Überlegungen zur Hardware für Multipoint Services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e74961a2-bd38-48ae-b1c0-4b3eff761b4a
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 9cfd6572c82bf5c3754165420e61054ec12b9617
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3dca1b68564c977394c1b71f72db0fde5727c861
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389003"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859073"
 ---
 # <a name="selecting-hardware-for-your-multipoint-services-system"></a>Auswählen von Hardware für Ihr MultiPoint Services-System
 Wenn Sie ein Multipoint Services-System erstellen, sollten Sie einen Computer auswählen, der die Systemanforderungen für Windows Server 2016 erfüllt. Wenn Sie entscheiden, welche Komponenten ausgewählt werden sollen, berücksichtigen Sie Folgendes:  
@@ -81,7 +77,7 @@ Beachten Sie bei der Erstellung eines Multipoint Services-Systems die folgenden 
   
     -   Tastatur und Maus Geräte  
   
-    -   Monitore  
+    -   Monitor  
   
 -   Peripheriegeräte  
   
@@ -129,7 +125,7 @@ USB-Clients enthalten einen externen Videocontroller, um eine Verbindung zwische
   
 Wählen Sie einen USB-Client aus, wenn Sie die Unterstützung für zusätzliche Monitore aktivieren möchten, ohne den Computer zu öffnen, oder wenn Sie mehr Stationen als verfügbare Video Ausgaben unterstützen möchten. Wenn Sie z. b. zuvor vier Monitore an interne Grafikkarten\-angeschlossen haben und zwei weitere Monitore hinzufügen möchten, können Sie\-in zwei externen Video Controllern an den Computer anschließen und Platz für zwei weitere Monitore haben. Auf diese Weise können Sie einen USB-Zero-Client mit dem Videocontroller kombinieren und keine zusätzlichen PCI-oder PCIe-Slots auf der Hauptplatine verwenden.  
   
-## <a name="BKMK_Selectingdirect-video-connectedorUSBzeroclientstationdevices"></a>Auswählen von direkt\-Video\-verbundenen oder USB-Client Station-Geräten  
+## <a name="selecting-direct-video-connected-or-usb-zero-client-station-devices"></a><a name="BKMK_Selectingdirect-video-connectedorUSBzeroclientstationdevices"></a>Auswählen von direkt\-Video\-verbundenen oder USB-Client Station-Geräten  
 Eine Multipoint Services-Station besteht aus einem stationshub oder einem USB-Null-Client mit einer Tastatur-und Maus\-in und einem Monitor, der mit dem Host Computer verbunden\-ist, oder in einem USB-Null-Client. Andere Peripheriegeräte können\-an den stationshub oder den USB-Client angeschlossen werden, sind jedoch nicht erforderlich, um eine Multipoint-Station zu erstellen. Diese anderen Peripheriegeräte werden unter [Auswählen anderer Station-Peripheriegeräte](#selecting-other-station-peripheral-devices)beschrieben.  
   
 Die Geräte, die Sie zum Erstellen einer Multipoint Services-Station auswählen, müssen die Mindestanforderungen erfüllen, um mit Multipoint Services arbeiten zu können. Ausführliche Informationen zu den Anforderungen für die folgenden Multipoint Services-Stations Geräte finden Sie in diesem Thema:  
@@ -144,7 +140,7 @@ Die in einem Multipoint Services-System verwendeten USB-Hubs können ein generis
   
 Ein weiterer Aspekt ist die Verwendung eines *extern betriebenen* Hubs anstelle eines *Bus-\--gestützten* Hubs. Bei einem Bus-\-Hub muss die Menge der aktuellen, die vom Host Computer bereitgestellt wird, ausreichen, damit alle Peripheriegeräte, die mit dem Hub verbunden sind, an den Hub\-angeschlossen werden, ohne dass die Systemleistung beeinträchtigt wird. Ein extern gestützter Hub ermöglicht es Ihnen, mehr Peripheriegeräte zu verbinden und ausreichend Leistung für alle bereitzustellen. Die Verwendung extern gestützter Hubs kann dabei helfen, Leistungsprobleme, Port Ausfälle und andere vorübergehende Probleme zu vermeiden.  
   
-Wenn Sie einen USB-Hub für Ihr Multipoint Services-System auswählen, sollten Sie dessen Verwendung in Erwägung gezogen. Der Hub kann als *stationshub*, als *Zwischenhub*oder als downstreamhubverwendet werden. In der folgenden Tabelle finden Sie Beschreibungen zu den einzelnen Hub-Typen. Wir empfehlen, dass alle USB-Geräte USB-2,0 oder höher sind.
+Wenn Sie einen USB-Hub für Ihr Multipoint Services-System auswählen, sollten Sie dessen Verwendung in Erwägung gezogen. Der Hub kann als *stationshub*, als *Zwischenhub*oder als downstreamhub *downstream hub*verwendet werden. In der folgenden Tabelle finden Sie Beschreibungen zu den einzelnen Hub-Typen. Wir empfehlen, dass alle USB-Geräte USB-2,0 oder höher sind.
   
 ||Fahrzeuge|  
 |-|-----------|  
@@ -186,14 +182,14 @@ Multipoint Services unterstützt Peripheriegeräte, die mit einem stationshub, e
   
 ||Verbunden mit Host Computer|Verbunden mit stationshub oder downstreamhub|  
 |-|------------------------------|----------------------------------------------|  
-|Tastatur|Nicht funktionsfähig, es sei denn, Sie ist Teil einer PS/2-Station. |Für einzelne Station verfügbar<br /><br />Es kann keine Verbindung mit einem Downstream-Hub hergestellt werden.|  
+|Tastatur|Nicht funktionsfähig, es sei denn, Sie ist Teil einer PS/2-Station. |Für einzelne Station verfügbar<p>Es kann keine Verbindung mit einem Downstream-Hub hergestellt werden.|  
 |Maus|Nicht funktionsfähig, es sei denn, Sie ist Teil einer PS/2-Station. |Für einzelne Station verfügbar|  
 |Redner/Kopfhörer|Nicht funktionsfähig, es sei denn, Sie ist Teil einer PS/2-Station.|Für einzelne Station verfügbar|  
 |USB-Speichergerät|Für alle Stationen verfügbar|Für einzelne Station verfügbar|  
 |HID-Consumersteuerelement|Nicht funktionsfähig|Für einzelne Station verfügbar|  
 |Andere USB-Geräte, z. b. Kameras, Dokument Leser und DVD-Laufwerke|Verfügbar für alle Stationen, sofern von Windows Server 2012 unterstützt|Verfügbar für alle Stationen, wenn dies von Windows Server 2008 R2 unterstützt wird Remotedesktopdienste|  
   
-## <a name="BKMK_SelectingRDP-over-LAN-connectedstationhardware"></a>Auswählen von RDP-\-über\-LAN\-Connected Station-Hardware  
+## <a name="selecting-rdp-over-lan-connected-station-hardware"></a><a name="BKMK_SelectingRDP-over-LAN-connectedstationhardware"></a>Auswählen von RDP-\-über\-LAN\-Connected Station-Hardware  
 Jeder LAN-Client, der mithilfe von Remotedesktopprotokoll eine Verbindung mit Remotedesktopdienste herstellen kann, kann zu einer Multipoint Services-Station werden.  
   
 Wenn Sie möchten, dass der LAN-Client nur als Multipoint-Station verwendet werden kann, können Sie Ihren LAN-Client "Sperren". Konfigurieren Sie z. b. ihren Thin Client so, dass er nur eine Verbindung mit einer Multipoint Services-Sitzung herstellen kann, oder konfigurieren Sie die Desktop Computer so, dass der Zugriff auf Desktop Symbole und Start Menü Elemente (z. b. ein Webbrowser) entfernt wird, um direkten Internet Zugriff zu verhindern. Sie können diese Konfigurationen mit ihren LAN-Client Konfigurationstools oder-Gruppen oder lokalen Richtlinien vornehmen.  

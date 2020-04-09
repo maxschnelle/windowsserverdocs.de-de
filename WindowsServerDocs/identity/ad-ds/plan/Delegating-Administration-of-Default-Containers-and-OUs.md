@@ -1,7 +1,6 @@
 ---
 ms.assetid: ac6604b0-7459-4ff3-af1c-4936897f5d14
 title: Delegieren der Verwaltung von Standardcontainern und Organisationseinheiten
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 15c6688e32a7ebefbb2dd0fa1e53a4d72baef267
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a8523ee738b991714a9c8673b6faaff7d9003987
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408936"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822653"
 ---
 # <a name="delegating-administration-of-default-containers-and-ous"></a>Delegieren der Verwaltung von Standardcontainern und Organisationseinheiten
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Jede Active Directory Domäne enthält einen Standardsatz von Containern und Organisationseinheiten (OUs), die während der Installation von Active Directory Domain Services (AD DS) erstellt werden. Beispiele:  
   
@@ -52,7 +51,7 @@ Standardmäßig werden mehrere bekannte Benutzer und Gruppen und integrierte Kon
   
 |Bekannte Benutzer und Gruppen|Integrierte Konten|  
 |--------------------------------|----------------------|  
-|Zertifikatherausgeber<br /><br />Domänencontroller<br /><br />Gruppenrichtlinienersteller-Besitzer<br /><br />KRBTGT<br /><br />Domänen-Gäste<br /><br />Administrator<br /><br />Domänen-Admins<br /><br />Schema-Admins (nur Gesamtstruktur-Stamm Domäne)<br /><br />Organisations-Admins (nur Gesamtstruktur-Stamm Domäne)<br /><br />Domänenbenutzer|Administrator<br /><br />Gast<br /><br />Gäste<br /><br />Konten-Operatoren<br /><br />Administratoren<br /><br />Sicherungsoperatoren<br /><br />Gesamtstruktur-Vertrauens Stellungen<br /><br />Druck-Operatoren<br /><br />Prä-Windows 2000 kompatibler Zugriff<br /><br />Server-Operatoren<br /><br />Benutzer|  
+|Zertifikatherausgeber<p>Domänencontroller<p>Gruppenrichtlinienersteller-Besitzer<p>KRBTGT<p>Domänen-Gäste<p>Administrator<p>Domänen-Admins<p>Schema-Admins (nur Gesamtstruktur-Stamm Domäne)<p>Organisations-Admins (nur Gesamtstruktur-Stamm Domäne)<p>Domänenbenutzer|Administrator<p>Gast<p>Gäste<p>Konten-Operatoren<p>Administratoren<p>Sicherungsoperatoren<p>Gesamtstruktur-Vertrauens Stellungen<p>Druck-Operatoren<p>Prä-Windows 2000 kompatibler Zugriff<p>Server-Operatoren<p>Benutzer|  
   
 ## <a name="domain-controller-ou"></a>Domänen Controller-OE  
 Wenn Domänen Controller der Domäne hinzugefügt werden, werden Ihre Computer Objekte der Organisationseinheit des Domänen Controllers automatisch hinzugefügt. Auf diese Organisationseinheit wird ein Standardsatz an Richtlinien angewendet. Um sicherzustellen, dass diese Richtlinien einheitlich auf alle Domänen Controller angewendet werden, wird empfohlen, dass Sie die Computer Objekte der Domänen Controller nicht aus dieser Organisationseinheit verschieben. Fehler beim Anwenden der Standardrichtlinien können dazu führen, dass ein Domänen Controller nicht ordnungsgemäß funktioniert.  

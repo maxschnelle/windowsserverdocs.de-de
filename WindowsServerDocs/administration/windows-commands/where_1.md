@@ -1,26 +1,22 @@
 ---
-title: where
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+title: '. Hierbei gilt:'
+description: Windows-Befehls Thema für WHERE, in dem der Speicherort der Dateien angezeigt wird, die dem angegebenen Suchmuster entsprechen.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0b3486a5-896b-4d92-84b8-e463a0b76487
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: abebe5799075653d2ace1af4eadbdd5d477d97a6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1b32424622e8a893023aad9365b6aec4a91764fa
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362156"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829333"
 ---
-# <a name="where"></a>where
+# <a name="where"></a>. Hierbei gilt:
 
 
 
@@ -34,7 +30,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 where [/r <Dir>] [/q] [/f] [/t] [$<ENV>:|<Path>:]<Pattern>[ ...] 
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -48,9 +44,9 @@ where [/r <Dir>] [/q] [/f] [/t] [$<ENV>:|<Path>:]<Pattern>[ ...]
 ## <a name="remarks"></a>Hinweise
 
 -   Wenn Sie keine Dateinamenerweiterung angeben, werden die in der PATHEXT-Umgebungsvariablen aufgelisteten Erweiterungen standardmäßig an das Muster angehängt.
--   Dabei können rekursive Suchvorgänge ausführen, Dateiinformationen wie Datum oder Größe anzeigen und Umgebungsvariablen anstelle von Pfaden auf lokalen Computern akzeptieren.
+-   **Where** Dabei können rekursive Suchvorgänge ausführen, Dateiinformationen wie Datum oder Größe anzeigen und Umgebungsvariablen anstelle von Pfaden auf lokalen Computern akzeptieren.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Wenn Sie alle Dateien mit dem Namen Test in Laufwerk C des aktuellen Computers und dessen Unterverzeichnisse suchen möchten, geben Sie Folgendes ein:
 ```
@@ -65,6 +61,6 @@ Geben Sie Folgendes ein, um alle Dateien mit dem Namen Notepad in Laufwerk C des
 where /r \\computer1\c notepad.*
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

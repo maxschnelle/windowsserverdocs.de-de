@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 49bee3deac463b68fda94097bb183bcbf1c89810
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cadbacb5225e28118ec71e9cbad6b3c57a6086e0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362593"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80830063"
 ---
 # <a name="vssadmin-list-shadows"></a>Schatten der vssadmin-Liste
 
@@ -27,12 +27,12 @@ Listet alle vorhandenen Schatten Kopien eines angegebenen Volumes auf. Wenn Sie 
 vssadmin list shadows [/for=<ForVolumeSpec>] [/shadow=<ShadowID>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---|---|
-|/for = \<forvolumespec >|Gibt an, für welches Volume die Schatten Kopien aufgeführt werden.|
-|/Shadow = \<shadowid >|Listet die von shadowid angegebene Schatten Kopie auf. Verwenden Sie den Befehl " **vssadmin list shadows** ", um die Schattenkopiekennung zu erhalten. Wenn Sie eine schattenkopienkennung eingeben, verwenden Sie das folgende Format, wobei jedes *X* ein hexadezimales Zeichen darstellt:<br><br>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX|
+|/for =\<forvolumespec >|Gibt an, für welches Volume die Schatten Kopien aufgeführt werden.|
+|/Shadow =\<shadowid >|Listet die von shadowid angegebene Schatten Kopie auf. Verwenden Sie den Befehl " **vssadmin list shadows** ", um die Schattenkopiekennung zu erhalten. Wenn Sie eine schattenkopienkennung eingeben, verwenden Sie das folgende Format, wobei jedes *X* ein hexadezimales Zeichen darstellt:<br><br>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
 ## <a name="additional-references"></a>Weitere Verweise
 

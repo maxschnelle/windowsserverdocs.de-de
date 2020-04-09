@@ -1,27 +1,19 @@
 ---
 title: Active Directory-Verbunddienste (AD FS) in Azure | Microsoft-Dokumentation
 description: In diesem Dokument erfahren Sie, wie Sie AD FS in Azure bereitstellen, um eine hohe Verfügbarkeit zu erhalten.
-services: active-directory
-documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15ebf21973f78ad705aca77e178005dfa9529cf2
-ms.sourcegitcommit: f6490192d686f0a1e0c2ebe471f98e30105c0844
+ms.openlocfilehash: 5701e7955a3baff248c0f7efc0b1de03088a8aa0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70868220"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854953"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Bereitstellen von Active Directory-Verbunddienste (AD FS) in Azure
 AD FS bietet vereinfachte, gesicherte Funktionen für Identitäts Verbund und Web Single Sign-on (SSO). Der Verbund mit Azure AD oder O365 ermöglicht es Benutzern, sich mit lokalen Anmelde Informationen zu authentifizieren und auf alle Ressourcen in der Cloud zuzugreifen. Daher ist es wichtig, dass Sie über eine hoch verfügbare AD FS-Infrastruktur verfügen, um den Zugriff auf Ressourcen sowohl lokal als auch in der Cloud sicherzustellen. Wenn Sie AD FS in Azure bereitstellen, können Sie die Hochverfügbarkeit mit minimalem Aufwand erreichen.
@@ -39,11 +31,11 @@ Das obige Diagramm zeigt die empfohlene grundlegende Topologie, um mit der Berei
 
 * **DC/ADFS-Server**: Wenn Sie weniger als 1.000 Benutzer haben, können Sie einfach AD FS Rolle auf Ihren Domänen Controllern installieren. Wenn Sie keine Auswirkungen auf die Leistung der Domänen Controller haben oder mehr als 1.000 Benutzer haben, stellen Sie AD FS auf separaten Servern bereit.
 * **WAP-Server** – es ist erforderlich, webanwendungsproxy-Server bereitzustellen, damit Benutzer die AD FS erreichen können, wenn Sie sich auch nicht im Unternehmensnetzwerk befinden.
-* **DMZ**: Die webanwendungsproxy-Server werden in der DMZ platziert, und nur der TCP/443-Zugriff ist zwischen der DMZ und dem internen Subnetz zulässig.
-* **Lasten Ausgleichs**Module: Um die Hochverfügbarkeit von AD FS und webanwendungsproxy-Servern sicherzustellen, empfehlen wir die Verwendung eines internen Load Balancers für AD FS Server und Azure Load Balancer für webanwendungsproxy-Server
-* **Verfügbarkeits Gruppen**: Um Redundanz für Ihre AD FS-Bereitstellung bereitzustellen, empfiehlt es sich, mindestens zwei virtuelle Computer in einer Verfügbarkeits Gruppe für ähnliche Workloads zu gruppieren. Durch diese Konfiguration wird sichergestellt, dass während eines geplanten oder ungeplanten Wartungs Ereignisses mindestens ein virtueller Computer verfügbar ist.
+* **DMZ**: die webanwendungsproxy-Server werden in der DMZ platziert, und nur der TCP/443-Zugriff ist zwischen der DMZ und dem internen Subnetz zulässig.
+* **Lasten Ausgleichs**Module: um die Hochverfügbarkeit von AD FS-und webanwendungsproxy-Servern sicherzustellen, empfehlen wir die Verwendung eines internen Load Balancers für AD FS Server und Azure Load Balancer für webanwendungsproxyserver.
+* **Verfügbarkeits Gruppen**: um Redundanz für Ihre AD FS-Bereitstellung bereitzustellen, empfiehlt es sich, mindestens zwei virtuelle Computer in einer Verfügbarkeits Gruppe für ähnliche Workloads zu gruppieren. Durch diese Konfiguration wird sichergestellt, dass während eines geplanten oder ungeplanten Wartungs Ereignisses mindestens ein virtueller Computer verfügbar ist.
 * **Speicher Konten**: Es wird empfohlen, zwei Speicher Konten zu haben. Ein einzelnes Speicherkonto kann dazu führen, dass eine Single Point of Failure erstellt wird, und kann dazu führen, dass die Bereitstellung in einem unwahrscheinlichen Szenario, in dem das Speicherkonto ausfällt, nicht mehr verfügbar ist. Zwei Speicher Konten helfen dabei, ein Speicherkonto für jede Fehler Zeile zuzuordnen.
-* **Netzwerk Trennung**:  Webanwendungsproxy-Server sollten in einem separaten DMZ-Netzwerk bereitgestellt werden. Sie können ein virtuelles Netzwerk in zwei Subnetze aufteilen und dann die webanwendungsproxy-Server in einem isolierten Subnetz bereitstellen. Sie können einfach die Einstellungen für die Netzwerk Sicherheitsgruppe für jedes Subnetz konfigurieren und nur die erforderliche Kommunikation zwischen den beiden Subnetzen zulassen. Je nach Bereitstellungs Szenario werden weitere Details angegeben.
+* **Netzwerk Trennung**: webanwendungsproxy-Server sollten in einem separaten DMZ-Netzwerk bereitgestellt werden. Sie können ein virtuelles Netzwerk in zwei Subnetze aufteilen und dann die webanwendungsproxy-Server in einem isolierten Subnetz bereitstellen. Sie können einfach die Einstellungen für die Netzwerk Sicherheitsgruppe für jedes Subnetz konfigurieren und nur die erforderliche Kommunikation zwischen den beiden Subnetzen zulassen. Je nach Bereitstellungs Szenario werden weitere Details angegeben.
 
 ## <a name="steps-to-deploy-ad-fs-in-azure"></a>Schritte zum Bereitstellen von AD FS in Azure
 In den Schritten in diesem Abschnitt wird erläutert, wie Sie die unten dargestellte AD FS-Infrastruktur in Azure bereitstellen.
@@ -70,7 +62,7 @@ Der nächste Schritt besteht darin, dem Netzwerk ein weiteres Subnetz hinzuzufü
 **1,2. Erstellen der Netzwerk Sicherheitsgruppen**
 
 Eine Netzwerk Sicherheitsgruppe (NSG) enthält eine Liste von Regeln für die Access Control Liste (ACL), mit denen Netzwerk Datenverkehr für Ihre VM-Instanzen in einem Virtual Network zugelassen oder verweigert wird. Nsgs können entweder Subnetzen oder einzelnen VM-Instanzen in diesem Subnetz zugeordnet werden. Wenn eine NSG einem Subnetz zugeordnet ist, gelten die ACL-Regeln für alle VM-Instanzen in diesem Subnetz.
-Im Rahmen dieser Anleitung werden zwei nsgs erstellt: jeweils eine für ein internes Netzwerk und eine DMZ. Sie werden als NSG_INT bzw. NSG_DMZ bezeichnet.
+Im Rahmen dieser Anleitung werden zwei nsgs erstellt: jeweils eine für ein internes Netzwerk und eine DMZ. Sie werden als NSG_INT und NSG_DMZ bezeichnet.
 
 ![Erstellen einer NSG](./media/how-to-connect-fed-azure-adfs/creatensg1.png)
 
@@ -93,7 +85,7 @@ Nach der Konfiguration sollte der Bereich für Subnetze wie folgt aussehen:
 
 Wir benötigen eine Verbindung mit dem lokalen Standort, um den Domänen Controller (DC) in Azure bereitzustellen. Azure bietet verschiedene Konnektivitätsoptionen, um Ihre lokale Infrastruktur mit ihrer Azure-Infrastruktur zu verbinden.
 
-* Punkt-zu-Standort
+* Point-to-Site
 * Standort-zu-Standort-Virtual Network
 * ExpressRoute
 
@@ -108,27 +100,27 @@ Um Hochverfügbarkeit zu gewährleisten und die Abhängigkeit von einem einzelne
 ### <a name="3-create-availability-sets"></a>3. Erstellen von Verfügbarkeits Gruppen
 Erstellen Sie für jede Rolle (DC/AD FS und WAP) Verfügbarkeits Gruppen, die mindestens zwei Computer enthalten. Dadurch erhalten Sie eine höhere Verfügbarkeit für jede Rolle. Beim Erstellen der Verfügbarkeits Gruppen ist es von entscheidender Bedeutung, Folgendes zu bestimmen:
 
-* **Fehler Domänen**: Virtuelle Computer in derselben Fehler Domäne nutzen denselben Stromquellen-und physischen Netzwerk Switch. Es werden mindestens 2 Fehler Domänen empfohlen. Der Standardwert ist 3, und Sie können ihn für diese Bereitstellung unverändert lassen.
+* **Fehler Domänen**: virtuelle Computer in derselben Fehler Domäne verwenden denselben Stromquellen-und physischen Netzwerk Switch. Es werden mindestens 2 Fehler Domänen empfohlen. Der Standardwert ist 3, und Sie können ihn für diese Bereitstellung unverändert lassen.
 * **Update Domänen**: Computer, die derselben Update Domäne angehören, werden während eines Updates neu gestartet. Sie möchten mindestens zwei Update Domänen haben. Der Standardwert ist 5, und Sie können ihn für diese Bereitstellung unverändert lassen.
 
-![Verfügbarkeits Gruppen](./media/how-to-connect-fed-azure-adfs/availabilityset1.png)
+![Verfügbarkeitsgruppen](./media/how-to-connect-fed-azure-adfs/availabilityset1.png)
 
 Erstellen Sie die folgenden Verfügbarkeits Gruppen.
 
-| Verfügbarkeits Gruppe | Rolle | Fehlerdomänen | Aktualisieren von Domänen |
+| Verfügbarkeitsgruppe | Rolle | Fehlerdomänen | Updatedomänen |
 |:---:|:---:|:---:|:--- |
 | Conto sodcset |DC/ADFS |3 |5 |
 | "Configuration Manager-apset" |WAP |3 |5 |
 
-### <a name="4-deploy-virtual-machines"></a>4. Bereitstellung virtueller Maschinen
+### <a name="4-deploy-virtual-machines"></a>4. Bereitstellen von virtuellen Maschinen
 Der nächste Schritt besteht darin, virtuelle Computer bereitzustellen, auf denen die verschiedenen Rollen in Ihrer Infrastruktur gehostet werden. Mindestens zwei Computer werden in jeder Verfügbarkeits Gruppe empfohlen. Erstellen Sie vier virtuelle Computer für die grundlegende Bereitstellung.
 
 | Computer | Rolle | Subnetz | Verfügbarkeitsgruppe | Speicherkonto | IP-Adresse |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| contosodc1 |DC/ADFS |INT |Conto sodcset |contososac1 |Statisch |
-| contosodc2 |DC/ADFS |INT |Conto sodcset |contososac2 |Statisch |
-| contosowap1 |WAP |DMZ |"Configuration Manager-apset" |contososac1 |Statisch |
-| contosowap2 |WAP |DMZ |"Configuration Manager-apset" |contososac2 |Statisch |
+| contosodc1 |DC/ADFS |INT |Conto sodcset |contososac1 |Static |
+| contosodc2 |DC/ADFS |INT |Conto sodcset |contososac2 |Static |
+| contosowap1 |WAP |DMZ |"Configuration Manager-apset" |contososac1 |Static |
+| contosowap2 |WAP |DMZ |"Configuration Manager-apset" |contososac2 |Static |
 
 Wie Sie vielleicht bemerkt haben, wurde keine NSG angegeben. Dies liegt daran, dass Sie mit Azure NSG auf Subnetzebene verwenden können. Anschließend können Sie den Computernetzwerk Datenverkehr mithilfe der einzelnen NSG steuern, die entweder dem Subnetz oder dem NIC-Objekt zugeordnet ist. Weitere Informationen finden Sie unter [Was ist eine Netzwerk Sicherheitsgruppe (NSG)](https://aka.ms/Azure/NSG)?.
 Die statische IP-Adresse wird empfohlen, wenn Sie das DNS verwalten. Sie können Azure DNS und stattdessen in den DNS-Einträgen für Ihre Domäne verwenden. Weitere Informationen hierzu finden Sie unter den neuen Computern Ihrer Azure-FQDNs.
@@ -136,7 +128,7 @@ Der Bereich Ihres virtuellen Computers sollte nach Abschluss der Bereitstellung 
 
 ![Virtual Machines bereitgestellt](./media/how-to-connect-fed-azure-adfs/virtualmachinesdeployed_noadfs.png)
 
-### <a name="5-configuring-the-domain-controller--ad-fs-servers"></a>5. Konfigurieren der Domänen Controller/AD FS Server
+### <a name="5-configuring-the-domain-controller--ad-fs-servers"></a>5. Konfigurieren des Domänen Controllers/AD FS Servers
  Um eingehende Anforderungen zu authentifizieren, muss AD FS den Domänen Controller kontaktieren. Es wird empfohlen, ein Replikat des Domänen Controllers in Azure bereitzustellen, um die teure Reise von Azure zum lokalen DC für die Authentifizierung zu sparen. Um Hochverfügbarkeit zu erreichen, empfiehlt es sich, eine Verfügbarkeits Gruppe von mindestens zwei Domänen Controllern zu erstellen.
 
 | Domänencontroller | Rolle | Speicherkonto |
@@ -147,7 +139,7 @@ Der Bereich Ihres virtuellen Computers sollte nach Abschluss der Bereitstellung 
 * Herauf Stufen der beiden Server als Replikat Domänen Controller mit DNS
 * Konfigurieren Sie die AD FS Server, indem Sie die AD FS Rolle mithilfe des Server-Managers installieren.
 
-### <a name="6-deploying-internal-load-balancer-ilb"></a>6. Bereitstellen interner Load Balancer (ILB)
+### <a name="6-deploying-internal-load-balancer-ilb"></a>6. bereitstellen interner Load Balancer (ILB)
 **6,1. Erstellen des ILB**
 
 Wählen Sie zum Bereitstellen eines ILB im Azure-Portal die Option Load Balancer aus, und klicken Sie auf hinzufügen (+).
@@ -160,12 +152,12 @@ Wählen Sie zum Bereitstellen eines ILB im Azure-Portal die Option Load Balancer
 ![Lasten Ausgleichs Modul durchsuchen](./media/how-to-connect-fed-azure-adfs/browseloadbalancer.png)
 
 * **Name**: Legen Sie dem Load Balancer einen passenden Namen zu.
-* **Schema**: Da dieser Load Balancer vor den AD FS Servern platziert wird und nur für interne Netzwerkverbindungen gedacht ist, wählen Sie "intern" aus.
+* **Schema**: da dieser Load Balancer vor den AD FS Servern platziert wird und nur für interne Netzwerkverbindungen gedacht ist, wählen Sie "intern" aus.
 * **Virtual Network**: Wählen Sie das virtuelle Netzwerk aus, in dem Sie Ihre AD FS bereitstellen.
 * **Subnetz**: Wählen Sie hier das interne Subnetz aus.
-* **IP-Adresszuweisung**: Statisch
+* **IP-Adresszuweisung**: statisch
 
-![Interner Load Balancer](./media/how-to-connect-fed-azure-adfs/ilbdeployment1.png)
+![Internes Lastenausgleichsmodul](./media/how-to-connect-fed-azure-adfs/ilbdeployment1.png)
 
 Nachdem Sie auf Erstellen und das ILB bereitgestellt haben, sollte es in der Liste der Load Balancer angezeigt werden:
 
@@ -173,7 +165,7 @@ Nachdem Sie auf Erstellen und das ILB bereitgestellt haben, sollte es in der Lis
 
 Im nächsten Schritt konfigurieren Sie den Back-End-Pool und den Back-End-Test.
 
-**6,2. ILB-Backend-Pool konfigurieren**
+**6,2. Konfigurieren des ILB-Back-End-Pools**
 
 Wählen Sie im Bereich "Lasten Ausgleichs Module" den neu erstellten ILB aus. Der Bereich "Einstellungen" wird geöffnet. 
 
@@ -189,7 +181,7 @@ Wählen Sie im Bereich "Lasten Ausgleichs Module" den neu erstellten ILB aus. De
 Wählen Sie im Bereich ILB-Einstellungen die Option Integritätstests aus.
 
 1. Klicken Sie auf Hinzufügen
-2. Stellen Sie Details für Test a bereit. **Name**: Testname b. **Protokoll**: HTTP c. **Port**: 80 (http) d. **Pfad**:/ADFS/Probe e. **Intervall**: 5 (Standardwert) – Dies ist das Intervall, in dem ILB die Computer im Back-End-Pool f testet. Fehlerhafter **Schwellenwert Grenzwert**: 2 (Standardwert) – Dies ist der Schwellenwert von aufeinander folgenden Test Fehlern, nach denen der ILB einen Computer im Back-End-Pool als nicht reagierend deklariert und keinen Datenverkehr mehr an ihn sendet.
+2. Stellen Sie Details für Test a bereit. **Name**: Testname b. **Protokoll**: http c. **Port**: 80 (http) d. **Pfad**:/ADFS/Probe e. **Intervall**: 5 (Standardwert) – Dies ist das Intervall, in dem ILB die Computer im Back-End-Pool f testet. Fehlerhafter **Schwellen**Wert: 2 (Standardwert) – Dies ist der Schwellenwert von aufeinander folgenden Test Fehlern, nach denen der ILB einen Computer im Back-End-Pool als nicht reagierend deklariert und das Senden von Datenverkehr an ihn beendet.
 
 ![ILB-Test konfigurieren](./media/how-to-connect-fed-azure-adfs/ilbdeployment4.png)
 
@@ -201,11 +193,11 @@ Um den Datenverkehr effektiv auszugleichen, sollte der ILB mit Lasten Ausgleichs
 
 1. Wählen Sie im Bereich "Einstellungen" des ILB die Lasten Ausgleichs Regel aus.
 2. Klicken Sie im Bereich "Lasten Ausgleichs Regel" auf hinzufügen.
-3. Im Bereich "Lasten Ausgleichs Regel hinzufügen". **Name**: Geben Sie einen Namen für die Regel b an. **Protokoll**: Wählen Sie TCP c aus. **Port**: 443 d. **Backend-Port**: 443 e. **Backend-Pool**: Wählen Sie den Pool aus, den Sie zuvor für den AD FS Cluster f erstellt haben. Test: Wählen Sie den zuvor für AD FS Server erstellten Test aus.
+3. Im Bereich "Lasten Ausgleichs Regel hinzufügen". **Name**: Geben Sie einen Namen für die Regel b an. **Protokoll**: Wählen Sie TCP c aus. **Port**: 443 d. Back-End- **Port**: 443 e. Back-End- **Pool**: Wählen Sie den Pool aus, den Sie zuvor für den AD FS Cluster erstellt haben. Test **: Wählen**Sie den zuvor für AD FS Server erstellten Test aus.
 
 ![Konfigurieren von ILB-Ausgleichs Regeln](./media/how-to-connect-fed-azure-adfs/ilbdeployment5.png)
 
-**6,5. Aktualisieren von DNS mit ILB**
+**6,5. Aktualisieren des DNS mit ILB**
 
 Wechseln Sie zu Ihrem DNS-Server, und erstellen Sie einen CNAME für den ILB. Der CNAME muss für den Verbund Dienst mit der IP-Adresse sein, die auf die IP-Adresse des ILB verweist. Wenn die ILB-DIP-Adresse beispielsweise 10.3.0.8 und der Verbund Dienst FS.contoso.com lautet, erstellen Sie einen CNAME für FS.contoso.com, der auf 10.3.0.8 zeigt.
 Dadurch wird sichergestellt, dass die gesamte Kommunikation bezüglich FS.contoso.com am ILB endet und entsprechend weitergeleitet wird.
@@ -220,16 +212,16 @@ Um sicherzustellen, dass webanwendungsproxy-Server die AD FS Server hinter dem I
 Nachdem Sie sichergestellt haben, dass webanwendungsproxy-Server die AD FS Server hinter ILB erreichen können, können Sie als nächstes die webanwendungsproxy-Server installieren. Webanwendungsproxy-Server müssen nicht der Domäne hinzugefügt werden. Installieren Sie die webanwendungsproxy-Rollen auf den beiden webanwendungsproxy-Servern, indem Sie die Rolle RAS Der Server-Manager führt Sie durch den Abschluss der WAP-Installation.
 Weitere Informationen zum Bereitstellen von WAP finden Sie unter [Installieren und Konfigurieren des webanwendungsproxy-Servers](https://technet.microsoft.com/library/dn383662.aspx).
 
-### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Bereitstellen der (öffentlichen) Load Balancer mit Internet Zugriff
-**8,1.  Erstellen (Public) mit Internet Zugriff (öffentlich) Load Balancer**
+### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8. Bereitstellen der (öffentlichen) Load Balancer mit Internet Zugriff
+**8,1. Erstellen einer Load Balancer mit Internet Zugriff (Public)**
 
 Wählen Sie im Azure-Portal die Option Lasten Ausgleichs Module aus, und klicken Sie dann auf hinzufügen. Geben Sie im Panel Load Balancer erstellen die folgenden Informationen ein:
 
 1. **Name**: Name des Load Balancers
-2. **Schema**: Öffentlich – diese Option weist Azure an, dass dieser Load Balancer eine öffentliche Adresse benötigt.
-3. **IP-Adresse**: Neue IP-Adresse erstellen (dynamisch)
+2. **Schema**: Public – diese Option weist Azure an, dass für diesen Load Balancer eine öffentliche Adresse benötigt wird.
+3. **IP-Adresse**: neue IP-Adresse erstellen (dynamisch)
 
-![Load Balancer mit Internet Zugriff](./media/how-to-connect-fed-azure-adfs/elbdeployment1.png)
+![Lastenausgleich mit Internetzugriff](./media/how-to-connect-fed-azure-adfs/elbdeployment1.png)
 
 Nach der Bereitstellung wird der Load Balancer in der Liste der Lasten Ausgleichs Module angezeigt.
 
@@ -253,7 +245,7 @@ Führen Sie dieselben Schritte wie bei der Erstellung des internen Load Balancer
 
 ![Konfigurieren des Back-End-Pools für Load Balancer mit Internet Zugriff](./media/how-to-connect-fed-azure-adfs/elbdeployment5.png)
 
-**8,4. Test konfigurieren**
+**8,4. Konfigurieren des Tests**
 
 Führen Sie dieselben Schritte wie beim Konfigurieren des internen Load Balancers aus, um den Test für den Back-End-Pool von WAP-Servern zu konfigurieren.
 
@@ -272,8 +264,8 @@ Insgesamt benötigen Sie die folgenden Regeln, um das interne Subnetz effizient 
 
 | Regel | Beschreibung | Fluss |
 |:--- |:--- |:---:|
-| "Zuweisung" |HTTPS-Kommunikation mit DMZ zulassen |Inbound |
-| Denyinternetoutbound |Kein Zugriff auf das Internet |Outbound |
+| "Zuweisung" |HTTPS-Kommunikation mit DMZ zulassen |Eingehende |
+| Denyinternetoutbound |Kein Zugriff auf das Internet |Ausgehende |
 
 ![INT-Zugriffsregeln (eingehend)](./media/how-to-connect-fed-azure-adfs/nsg_int.png)
 
@@ -281,8 +273,8 @@ Insgesamt benötigen Sie die folgenden Regeln, um das interne Subnetz effizient 
 
 | Regel | Beschreibung | Fluss |
 |:--- |:--- |:---:|
-| "Zuweisung mit dem Internet" |HTTPS aus dem Internet mit der DMZ zulassen |Inbound |
-| Denyinternetoutbound |Alles außer HTTPS und Internet ist blockiert. |Outbound |
+| "Zuweisung mit dem Internet" |HTTPS aus dem Internet mit der DMZ zulassen |Eingehende |
+| Denyinternetoutbound |Alles außer HTTPS und Internet ist blockiert. |Ausgehende |
 
 ![EXT-Zugriffsregeln (eingehend)](./media/how-to-connect-fed-azure-adfs/nsg_dmz.png)
 
@@ -296,7 +288,7 @@ Die einfachste Möglichkeit besteht darin, AD FS auf der Seite idpinitiatedsigno
 
 1. Führen Sie das folgende Cmdlet auf dem AD FS Server mithilfe von PowerShell aus, um es auf "aktiviert" festzulegen.
    Set-ADF sproperties-enableidpinitiatedsignonpage $true 
-2. Greifen Sie von einem beliebigen externen Computer aus\/auf https:/ADFS-Server.contoso.com/adfs/ls/IdpInitiatedSignon.aspx zu.  
+2. Greifen Sie auf einem beliebigen externen Computer auf https:\//ADFS-Server.contoso.com/adfs/ls/IdpInitiatedSignon.aspx zu.  
 3. Die AD FS Seite sollte wie folgt angezeigt werden:
 
 ![Test Anmeldeseite](./media/how-to-connect-fed-azure-adfs/test1.png)
@@ -314,7 +306,7 @@ Beim Bereitstellen dieser Vorlage können Sie ein vorhandenes virtuelles Netzwer
 
 | Parameter | Beschreibung |
 |:--- |:--- |
-| Speicherort |Die Region, in der die Ressourcen bereitgestellt werden sollen, z.b. "USA, Osten". |
+| Location |Die Region, in der die Ressourcen bereitgestellt werden sollen, z.b. "USA, Osten". |
 | StorageAccountType |Der Typ des erstellten Speicher Kontos. |
 | Virtualnetworkusage |Gibt an, ob ein neues virtuelles Netzwerk erstellt oder ein vorhandenes virtuelles Netzwerk verwendet wird. |
 | VirtualNetworkName |Der Name des zu erstellenden Virtual Network, erforderlich für die Verwendung vorhandener oder neuer virtueller Netzwerke |
@@ -340,7 +332,7 @@ Beim Bereitstellen dieser Vorlage können Sie ein vorhandenes virtuelles Netzwer
 | AdminUserName |Der Name des lokalen Administrators der virtuellen Computer |
 | AdminPassword |Das Kennwort für das lokale Administrator Konto der virtuellen Computer |
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="additional-resources"></a>Weitere Ressourcen
 * [Verfügbarkeits Gruppen](https://aka.ms/Azure/Availability) 
 * [Azure Load Balancer](https://aka.ms/Azure/ILB)
 * [Interner Load Balancer](https://aka.ms/Azure/ILB/Internal)

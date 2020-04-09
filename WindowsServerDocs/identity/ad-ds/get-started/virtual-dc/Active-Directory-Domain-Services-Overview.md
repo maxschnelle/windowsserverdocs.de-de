@@ -1,7 +1,6 @@
 ---
 ms.assetid: f052dfcd-dace-4485-8d0a-cc7df5cf3751
 title: Übersicht über Active Directory Domain Services
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 2d5630ece940e5bd7895510c245d14b67c847a70
-ms.sourcegitcommit: 4a03f263952c993dfdf339dd3491c73719854aba
+ms.openlocfilehash: 3c11e4a925eae89355da301d0b0facb62a53a942
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791122"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824563"
 ---
 # <a name="active-directory-domain-services-overview"></a>Übersicht über Active Directory Domain Services
 
@@ -23,7 +22,7 @@ ms.locfileid: "74791122"
 
 Ein Verzeichnis ist eine hierarchische Struktur, in der Informationen zu Objekten im Netzwerk gespeichert werden. Ein Verzeichnisdienst, wie z. b. Active Directory Domain Services (AD DS), stellt die Methoden zum Speichern von Verzeichnis Daten und zum Bereitstellen dieser Daten für Netzwerk Benutzer und Administratoren bereit. AD DS speichert beispielsweise Informationen über Benutzerkonten, z. b. Namen, Kenn Wörter, Telefonnummern usw., und ermöglicht anderen autorisierten Benutzern im gleichen Netzwerk den Zugriff auf diese Informationen.
 
-Active Directory speichert Informationen zu Objekten im Netzwerk und erleichtert Administratoren und Benutzern das Auffinden und Verwenden dieser Informationen. Active Directory verwendet einen strukturierten Datenspeicher als Grundlage für eine logische, hierarchische Organisation der Verzeichnisinformationen.
+In Active Directory werden Informationen zu Objekten im Netzwerk gespeichert, sodass sie von Administratoren und Benutzern leicht gefunden und verwendet werden können. Für Active Directory wird ein strukturierter Datenspeicher als Basis für eine logische, hierarchische Organisation von Verzeichnisinformationen eingesetzt.
 
 Dieser Datenspeicher, auch als Verzeichnis bezeichnet, enthält Informationen über Active Directory Objekte. Diese Objekte umfassen in der Regel freigegebene Ressourcen, z. b. Server, Volumes, Drucker und Netzwerk Benutzer-und Computer Konten. Weitere Informationen zum Active Directory Datenspeicher finden Sie unter [Verzeichnis Datenspeicher](https://technet.microsoft.com/library/cc736627(v=ws.10).aspx).
 

@@ -1,6 +1,5 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Übernahme einer Betriebs Master Rolle'
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 7e6bb370-f840-4416-b5e2-86b0ba715f4f
 ms.technology: identity-adds
-ms.openlocfilehash: 672dc119845acbe9cf38f82c793bd377d31db3b2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b229215eb7dde23bd1c17e6023b1c5eace0a56bf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390282"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823533"
 ---
 # <a name="ad-forest-recovery---seizing-an-operations-master-role"></a>AD-Gesamtstruktur Wiederherstellung: Übernahme einer Betriebs Master Rolle  
 
@@ -24,7 +23,7 @@ Mithilfe des folgenden Verfahrens können Sie eine Betriebs Master Rolle (auch a
   
 ## <a name="to-seize-an-operations-master-role"></a>So übernehmen Sie eine Betriebs Master Rolle  
   
-1. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie die EINGABETASTE:  
+1. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:  
 
    ```  
    ntdsutil  
@@ -60,11 +59,11 @@ Mithilfe des folgenden Verfahrens können Sie eine Betriebs Master Rolle (auch a
 
 6. Geben Sie in Abhängigkeit von der Rolle, die Sie übernehmen möchten, den entsprechenden Befehl **in der folgenden** Tabelle ein, und drücken Sie dann die EINGABETASTE.  
   
-|Role-Eigenschaft|Anmeldeinformationen|Befehl|  
+|Rolle|Anmeldeinformationen|Befehl|  
 |----------|-----------------|-------------|  
 |Domänen Namen Master|Organisations-Admins|**Benennungs Master**|  
 |Schema Master|Schema-Admins|**Schema Master übernehmen**|  
-|Infrastruktur Master **Hinweis:**  Nachdem Sie die Infrastruktur Master Rolle übernommen haben, erhalten Sie möglicherweise später eine Fehlermeldung, wenn Sie adprep/rodcprep. ausführen müssen. Weitere Informationen finden Sie im KB-Artikel [949257](https://support.microsoft.com/kb/949257).|Domänen-Admins|**Infrastruktur Master übernehmen**|  
+|Infrastruktur Master **Hinweis:** nachdem Sie die Infrastruktur Master Rolle übernommen haben, erhalten Sie möglicherweise später eine Fehlermeldung, wenn Sie adprep/rodcprep. ausführen müssen. Weitere Informationen finden Sie im KB-Artikel [949257](https://support.microsoft.com/kb/949257).|Domänen-Admins|**Infrastruktur Master übernehmen**|  
 |PDC-Emulator-Master|Domänen-Admins|**PDC übernehmen**|  
 |-RID-Master|Domänen-Admins|**RID-Master übernehmen**|  
 

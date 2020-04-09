@@ -1,7 +1,6 @@
 ---
 ms.assetid: 64142026-07b5-4601-840a-c8dcf6ab9814
 title: Erstellen eines Entwurfs für Standortverknüpfungsbrücken
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 79e91481c357d05617ee0ddc716e2bf6e90b8b27
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f75feb34b64e2ab41859dd708147a2e8d05a768a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408960"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822763"
 ---
 # <a name="creating-a-site-link-bridge-design"></a>Erstellen eines Entwurfs für Standortverknüpfungsbrücken
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Eine Standort Verknüpfungs Brücke verbindet zwei oder Mehrstandort Verknüpfungen und ermöglicht Transitivität Zwischenstandort Verknüpfungen. Jede Standort Verknüpfung in einer Bridge muss über einen gemeinsamen Standort mit einer anderen Standort Verknüpfung in der Bridge verfügen. Die Konsistenzprüfung (KCC) verwendet die Informationen an den einzelnen Standort Verknüpfungen, um die Kosten für die Replikation Zwischenstand Orten in einer Standort Verknüpfung und Standorte in den anderen Standort Verknüpfungen der Bridge zu berechnen. Ohne eine gemeinsame Site Zwischenstandort Verknüpfungen kann die KCC auch keine direkten Verbindungen zwischen Domänen Controllern an den Standorten einrichten, die über dieselbe Standort Verknüpfungs Brücke verbunden sind.  
   
@@ -39,4 +38,4 @@ Wenn Ihre Organisation über eine Hub-und-Sprachnetzwerk Topologie verfügt, sol
   
 ### <a name="controlling-replication-through-a-firewall"></a>Steuern der Replikation über eine Firewall
 
-Wenn zwei Domänen Controller, die dieselbe Domäne auf zwei verschiedenen Standorten darstellen, ausdrücklich miteinander kommunizieren dürfen, können Sie **alle Standort Verknüpfungen überbrücken und Standort Verknüpfungs** Brücken für Standorte auf der gleichen Seite des Brand. Wenn Ihr Netzwerk durch Firewalls getrennt ist, wird daher empfohlen, die Transitivität von Standort Verknüpfungen zu deaktivieren und Standort Verknüpfungs Brücken für das Netzwerk auf einer Seite der Firewall zu erstellen. Informationen zum Verwalten der Replikation über Firewalls finden Sie im Artikel [Active Directory in von Firewalls segmentierten Netzwerken](https://go.microsoft.com/fwlink/?LinkId=107074).
+Wenn zwei Domänen Controller, die dieselbe Domäne auf zwei verschiedenen Standorten darstellen, ausdrücklich miteinander kommunizieren dürfen, können Sie **alle Standort Verknüpfungen überbrücken und Standort Verknüpfungs** Brücken für Standorte auf derselben Seite der Firewall erstellen. Wenn Ihr Netzwerk durch Firewalls getrennt ist, wird daher empfohlen, die Transitivität von Standort Verknüpfungen zu deaktivieren und Standort Verknüpfungs Brücken für das Netzwerk auf einer Seite der Firewall zu erstellen. Informationen zum Verwalten der Replikation über Firewalls finden Sie im Artikel [Active Directory in von Firewalls segmentierten Netzwerken](https://go.microsoft.com/fwlink/?LinkId=107074).

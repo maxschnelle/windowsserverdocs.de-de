@@ -1,7 +1,6 @@
 ---
 ms.assetid: 341614c6-72c2-444f-8b92-d2663aab7070
 title: Architektur virtualisierter Domänencontroller
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e8673b9e66a0aa3b6bea89b91ae5022efb26c65c
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: fa8645198374d91911f8ec7dc15f04bea4865e38
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323152"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824443"
 ---
 # <a name="virtualized-domain-controller-architecture"></a>Architektur virtualisierter Domänencontroller
 
@@ -26,7 +25,7 @@ Dieser Artikel behandelt die Architektur für das Klonen und die sichere Wiederh
   
 -   [Architektur der sicheren Wiederherstellung virtualisierter Domänen Controller](../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_SafeRestoreArch)  
   
-## <a name="BKMK_CloneArch"></a>Klonen von virtualisierten Domänen Controllern  
+## <a name="virtualized-domain-controller-cloning-architecture"></a><a name="BKMK_CloneArch"></a>Klonen von virtualisierten Domänen Controllern  
   
 ### <a name="overview"></a>Übersicht  
 Das Klonen virtualisierter Domänencontroller benötigt einen von der Hypervisor-Plattform bereitgestellten Bezeichner mit dem Namen **VM-Generations-ID**, mit dem die Erstellung virtueller Computer erkannt wird. AD DS speichert diesen Bezeichner bei der Heraufstufung des Domänencontrollers in der Datenbank (NTDS.DIT). Beim Hochfahren des virtuellen Computers wird der aktuelle Wert der VM-Generations-ID des virtuellen Computers mit dem Wert in der Datenbank verglichen. Unterscheiden sich die beiden Werte, wird die Aufrufkennung zurückgesetzt und der RID-Pool verworfen, um das erneute Verwenden der USN oder mögliche doppelt vergebene Sicherheitsprinzipale zu verhindern. Anschließend sucht der Domänencontroller nach der Datei DCCloneConfig.xml an den in Schritt 3 unter [Details zum Klonprozess](../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/../../../ad-ds/get-started/virtual-dc/Virtualized-Domain-Controller-Architecture.md#BKMK_CloneProcessDetails) beschriebenen Orten. Wenn die Datei DCCloneConfig.xml gefunden wird, geht der DC davon aus, dass er als Klon bereitgestellt wird und initialisiert das Klonen, um sich selbst durch erneute Heraufstufung als zusätzlicher Domänencontroller bereitzustellen. Dabei werden die vom Quellmedium kopierten Inhalte von NTDS.DIT und SYSVOL verwendet.  
@@ -35,7 +34,7 @@ In gemischten Umgebungen, in denen nicht alle Hypervisoren die VM-Generations-ID
   
 Wenn das Klon-Medium auf einem Hypervisor bereitgestellt wird, der die VM-Generations-ID unterstützt, und keine DCCloneConfig.xml-Datei vorhanden ist, löst der DC Schutzmaßnahmen gegen USN-Wiederverwendung und doppelte SIDs aus, wenn er eine Änderung der VM-Generations-ID zwischen seiner eigenen DIT und der neuen DIT aus der VM erkennt. Der Klonvorgang wird jedoch nicht gestartet, sodass der sekundäre Domänencontroller weiterhin unter derselben Identität wie der Quell-DC laufen kann. Der sekundäre DC sollte schnellstmöglich aus dem Netzwerk entfernt werden, um Inkonsistenzen in der Umgebung zu vermeiden. Weitere Informationen dazu, wie Sie diesen sekundären Domänencontroller freigeben und gleichzeitig sicherstellen, dass Updates ausgehend repliziert werden, finden Sie im Microsoft KB-Artikel [2742970](https://support.microsoft.com/kb/2742970).  
   
-### <a name="BKMK_CloneProcessDetails"></a>Ausführliche Verarbeitung Klonen  
+### <a name="cloning-detailed-processing"></a><a name="BKMK_CloneProcessDetails"></a>Ausführliche Verarbeitung Klonen  
 Das folgende Diagramm zeigt die Architektur für den ursprünglichen Klonprozess und für Wiederholungen des Klonprozesses. Diese Prozesse werden im Verlauf dieses Artikels genauer beschrieben.  
   
 **Ursprünglicher Klon Vorgang**  
@@ -142,7 +141,7 @@ In den folgenden Schritten wird der Prozess genauer beschrieben:
   
 26. Der Gast wird neu gestartet. Er ist nun ein normaler Domänencontroller mit Ankündigungen.  
   
-## <a name="BKMK_SafeRestoreArch"></a>Architektur der sicheren Wiederherstellung virtualisierter Domänen Controller  
+## <a name="virtualized-domain-controller-safe-restore-architecture"></a><a name="BKMK_SafeRestoreArch"></a>Architektur der sicheren Wiederherstellung virtualisierter Domänen Controller  
   
 ### <a name="overview"></a>Übersicht  
 AD DS benötigt einen von der Hypervisor-Plattform bereitgestellten Bezeichner mit dem Namen **VM-Generations-ID** , um die Wiederherstellung einer Momentaufnahme eines virtuellen Computers zu erkennen. AD DS speichert diesen Bezeichner bei der Heraufstufung des Domänencontrollers in der Datenbank (NTDS.DIT). Wenn ein Administrator den virtuellen Computer aus einem früheren Momentaufnahme wiederherstellt, wird der aktuelle Wert der VM-Generations-ID des virtuellen Computers mit einem Wert in der Datenbank verglichen. Unterscheiden sich die beiden Werte, wird die Aufrufkennung zurückgesetzt und der RID-Pool verworfen, um das erneute Verwenden der USN oder mögliche doppelt vergebene Sicherheitsprinzipale zu verhindern. Die sichere Wiederherstellung kann in zwei Szenarien erfolgen:  

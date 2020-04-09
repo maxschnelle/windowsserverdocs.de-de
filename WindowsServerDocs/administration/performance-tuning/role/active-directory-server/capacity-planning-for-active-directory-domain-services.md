@@ -5,14 +5,14 @@ ms.prod: windows-server
 ms.technology: performance-tuning-guide
 ms.topic: article
 ms.author: v-tea; kenbrunf
-author: Teresa-Motiv
+author: teresa-motiv
 ms.date: 7/3/2019
-ms.openlocfilehash: c1cad3242d3abf2838a5aaf71d21c68152bc9b7f
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 61efdad658385b3dd57dbe9a41b6168d4d849b87
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947269"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851943"
 ---
 # <a name="capacity-planning-for-active-directory-domain-services"></a>Kapazitätsplanung für Active Directory Domain Services
 
@@ -27,9 +27,9 @@ Die Kapazitätsplanung ist nicht mit der Problembehandlung bei Leistungs Vorfäl
   
 Bei der Kapazitätsplanung kann eine Organisation in Spitzenzeiten ein Baseline-Ziel von 40% der Prozessorauslastung aufweisen, um die Anforderungen an die Client Leistung zu erfüllen und die erforderliche Zeit zum Aktualisieren der Hardware im Daten Center zu erfüllen. Um jedoch über ungewöhnliche Leistungs Vorfälle benachrichtigt zu werden, kann ein Schwellenwert für die Überwachungs Warnung in einem Intervall von 5 Minuten auf 90% festgelegt werden.
 
-Der Unterschied besteht darin, dass ein Kapazitäts Verwaltungs Schwellenwert immer dann, wenn ein Kapazitäts Verwaltungs Schwellenwert überschritten wird (ein einmaligen Ereignis ist kein Problem ist), eine Lösung ist oder der Dienst auf mehrere Server skaliert werden kann. Not. Schwellenwerte für die Leistungs Warnung deuten darauf hin, dass die Client Leistung derzeit beeinträchtigt wird und dass sofortige Schritte zum Beheben des Problems erforderlich sind.
+Der Unterschied besteht darin, dass bei einer kontinuierlichen Überschreitung eines Kapazitäts Verwaltungs Schwellenwerts eine Lösung besteht, wenn der Schwellenwert für die Kapazitäts Verwaltung ständig überschritten wird (ein einmalige Ereignis ist kein Problem). das Hinzufügen von Kapazität (d. h. das Hinzufügen von mehr oder schnelleren Prozessoren) ist eine Lösung, oder der Dienst Schwellenwerte für die Leistungs Warnung deuten darauf hin, dass die Client Leistung derzeit beeinträchtigt wird und dass sofortige Schritte zum Beheben des Problems erforderlich sind.
 
-Eine Analogie: das Capacity Management besteht darin, einen fahrzeugunfall zu verhindern (defensives Fahrverhalten, sicherzustellen, dass die Bremsen ordnungsgemäß funktionieren usw.), während die Problembehandlung bei der Leistung von der Polizei, der feuerwehrabteilung und den medizinischen notfallspezialisten durchzuführen ist. nach einem Unfall. Dabei geht es um "defensives treiben", Active Directory Stil.
+Eine Analogie: das Capacity Management besteht darin, einen fahrzeugunfall zu verhindern (defensives Fahrverhalten, sicherzustellen, dass die Bremsen ordnungsgemäß funktionieren usw.), während die Problembehandlung bei der Leistung von der Polizei, der feuerwehrabteilung und den medizinischen notfallspezialisten nach einem Unfall erfolgt. Dabei geht es um "defensives treiben", Active Directory Stil.
 
 In den letzten Jahren hat sich der Leitfaden zur Kapazitätsplanung für Systeme mit horizontaler Skalierung erheblich verändert. Die folgenden Änderungen an Systemarchitekturen haben grundlegende Annahmen über das Entwerfen und Skalieren eines diendienstanzdienstanz
 
@@ -46,7 +46,7 @@ Außerdem wird der Ansatz von einer serverbasierten Kapazitäts Planungsübung z
 In diesem Artikel werden die folgenden grundlegenden Anforderungen erwartet:
 
 - Leser haben Lese-und Lesezugriff [auf die Richtlinien zur Leistungsoptimierung für Windows Server 2012 R2](https://docs.microsoft.com/previous-versions//dn529133(v=vs.85)).
-- Die Windows Server-Plattform ist eine x64-basierte Architektur. Auch wenn Ihre Active Directory-Umgebung auf Windows Server 2003 x86 installiert ist (jetzt über das Ende des Support Lebenszyklus hinaus) und eine Verzeichnis Informationsstruktur (DIT) mit einer Größe von weniger als 1,5 GB aufweist und problemlos im Speicher gehalten werden kann, gelten die Richtlinien von diesem der Artikel ist weiterhin anwendbar.
+- Die Windows Server-Plattform ist eine x64-basierte Architektur. Auch wenn Ihre Active Directory-Umgebung unter Windows Server 2003 x86 installiert ist (jetzt über das Ende des Support Lebenszyklus hinaus) und eine Verzeichnis Informationsstruktur (DIT) mit einer Größe von weniger 1,5 GB aufweist, die im Arbeitsspeicher problemlos aufbewahrt werden kann, gelten die Richtlinien aus diesem Artikel weiterhin.
 - Die Kapazitätsplanung ist ein kontinuierlicher Prozess, und Sie sollten regelmäßig überprüfen, wie gut die Umgebung die Erwartungen erfüllt.
 - Die Optimierung erfolgt über mehrere Hardware Lebenszyklen, wenn sich die Hardwarekosten ändern. Beispielsweise wird der Arbeitsspeicher günstiger, die Kosten pro Kern werden verringert, oder der Preis für verschiedene Speicheroptionen ändert sich.
 - Planen Sie den Spitzen Zeitraum des Tages. Es wird empfohlen, dies in Intervallen von 30 Minuten oder Stunden zu überprüfen. Durch einen größeren Wert können die tatsächlichen Spitzen ausgeblendet werden, und alle anderen werden möglicherweise durch "vorübergehende Spitzen" verzerrt.
@@ -79,15 +79,15 @@ Wenn Sie diese Überlegungen beachten, ist der Kapazitäts Planungszeitraum ein 
 
 Um die Leistung zu optimieren, stellen Sie sicher, dass diese Hauptkomponenten ordnungsgemäß ausgewählt und auf die Anwendungs Auslastung abgestimmt sind:
 
-1. Speicher
+1. Arbeitsspeicher
 1. Netzwerk
-1. „Speicher“.
-1. Auftragsverarbeiter
+1. Speicher
+1. Prozessor
 1. Anmeldedienst
 
-Die grundlegenden Speicheranforderungen von AD DS und das allgemeine Verhalten von gut geschriebenen Client Software ermöglichen Umgebungen mit bis zu 10.000 bis 20.000 Benutzern, große Investitionen in die Kapazitätsplanung in Bezug auf physische Hardware, wie fast jeden modernen Server, zu unterbinden. die Last wird von Class System verarbeitet. In der folgenden Tabelle wird jedoch zusammengefasst, wie eine vorhandene Umgebung ausgewertet wird, um die richtige Hardware auszuwählen. Jede Komponente wird in den nachfolgenden Abschnitten ausführlich analysiert, damit AD DS Administratoren ihre Infrastruktur mithilfe von baselineempfehlungen und Umgebungs spezifischen Prinzipalen auswerten können.
+Die grundlegenden Speicheranforderungen von AD DS und das allgemeine Verhalten von gut geschriebenen Client Software ermöglichen Umgebungen mit bis zu 10.000 bis 20.000 Benutzern, hohe Investitionen in die Kapazitätsplanung in Bezug auf die physische Hardware zu vermeiden, da fast alle modernen Server Klassensysteme die Last verarbeiten. In der folgenden Tabelle wird jedoch zusammengefasst, wie eine vorhandene Umgebung ausgewertet wird, um die richtige Hardware auszuwählen. Jede Komponente wird in den nachfolgenden Abschnitten ausführlich analysiert, damit AD DS Administratoren ihre Infrastruktur mithilfe von baselineempfehlungen und Umgebungs spezifischen Prinzipalen auswerten können.
 
-Allgemein:
+Im allgemeinen:
 
 - Jede Größe, die auf aktuellen Daten basiert, wird nur für die aktuelle Umgebung genau sein.
 - Erwarten Sie bei geschätzten Schätzungen, dass die Nachfrage über den Lebenszyklus der Hardware wächst.
@@ -99,39 +99,39 @@ Allgemein:
 
 #### <a name="new-environment"></a>Neue Umgebung
 
-| Component | Schätzungen |
+| Komponente | Experten |
 |-|-|
 |Speicher/Datenbankgröße|40 KB bis 60 KB für jeden Benutzer|
 |RAM|Datenbankgröße<br />Empfehlungen des Basis Betriebssystems<br />Anwendungen von Drittanbietern|
-|Netzwerk|1 GB|
+|Netzwerk|1 GB|
 |CPU|1000 gleichzeitige Benutzer für jeden Kern|
 
 #### <a name="high-level-evaluation-criteria"></a>Allgemeine Evaluierungs Kriterien
 
-| Component | Auswertungskriterien | Planungsüberlegungen |
+| Komponente | Bewertungskriterien | Planungsüberlegungen |
 |-|-|-|
 |Speicher/Datenbankgröße|Der Abschnitt "So aktivieren Sie die Protokollierung von Speicherplatz, der durch Defragmentierung freigegeben wird" in [Speicher Limits](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc961769(v=technet.10))| |
-|Speicherung/Datenbankleistung|<ul><li>"LogicalDisk ( *\<NTDS-Daten\>Bank Laufwerk*) \Mittlere Sek./Lesevorgänge", "LogicalDisk ( *\<NTDS\>-Daten Bank Laufwerk*) \Durchschnittl. Sek./Schreibvorgang", "LogicalDisk" ( *\<NTDS-Daten Bank Laufwerk )\>* \ Mittlere Sek./Übertragung "</li><li>"LogicalDisk ( *\<NTDS-Daten\>Bank Laufwerk*) \ Lesevorgänge/Sek." "LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \ Schreibvorgänge/Sek." "LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \ Übertragungen/Sek. "</li></ul>|<ul><li>Für den Speicher sind zwei Aspekte zu berücksichtigen.<ul><li>Verfügbarer Speicherplatz, der für die meisten AD-Umgebungen von der Größe der aktuellen Spindel basierten und SSD-basierten Speicherung abhängig ist.</li> <li>E/a-Vorgänge (e/a-Vorgänge) verfügbar – in vielen Umgebungen wird dies oft übersehen. Es ist jedoch wichtig, nur Umgebungen auszuwerten, in denen nicht genügend RAM vorhanden ist, um die gesamte NTDS-Datenbank in den Arbeitsspeicher zu laden.</li></ul><li>Der Speicher kann ein komplexes Thema sein und sollte Hardwarehersteller-Fachkenntnisse für eine ordnungsgemäße Größenanpassung umfassen. Besonders bei komplexeren Szenarien, wie z. b. San-, NAS-und iSCSI-Szenarios. Im Allgemeinen werden Kosten pro GB Speicher jedoch häufig direkt gegen die Kosten pro e/a-Vorgänge unterstellt:<ul><li>RAID 5 hat niedrigere Kosten pro Gigabyte als RAID 1, RAID 1 hat jedoch niedrigere Kosten pro e/a.</li><li>Bei Spindel basierten Festplatten fallen niedrigere Kosten pro Gigabyte an, SSDs haben jedoch niedrigere Kosten pro e/a.</li></ul><li>Nach einem Neustart des Computers oder des Active Directory Domain Services Dienstanbieter ist der ESE-Cache (Extensible Storage Engine) leer, und die Leistung wird Datenträger gebunden, während der Cache erwärmt wird.</li><li>In den meisten Umgebungen ist AD intensive e/a-Vorgänge in zufälligen Mustern auf Datenträgern, was den Vorteil von zwischen Speicherungs-und Lese Optimierungsstrategien neiert.  Außerdem bietet AD einen viel größeren Cache im Speicher als die meisten Speichersystem Caches.</li></ul>
+|Speicherung/Datenbankleistung|<ul><li>"LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \Mittlere Sek./Lesevorgänge", "LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \Durchschnittl. Sek./Schreibvorgänge", "LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \Durchschnittl Sek./Übertragung"</li><li>"LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \ Lesevorgänge/Sek." "LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \ Schreibvorgänge/Sek." LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \ Übertragungen/Sek. "</li></ul>|<ul><li>Für den Speicher sind zwei Aspekte zu berücksichtigen.<ul><li>Verfügbarer Speicherplatz, der für die meisten AD-Umgebungen von der Größe der aktuellen Spindel basierten und SSD-basierten Speicherung abhängig ist.</li> <li>E/a-Vorgänge (e/a-Vorgänge) verfügbar – in vielen Umgebungen wird dies oft übersehen. Es ist jedoch wichtig, nur Umgebungen auszuwerten, in denen nicht genügend RAM vorhanden ist, um die gesamte NTDS-Datenbank in den Arbeitsspeicher zu laden.</li></ul><li>Der Speicher kann ein komplexes Thema sein und sollte Hardwarehersteller-Fachkenntnisse für eine ordnungsgemäße Größenanpassung umfassen. Besonders bei komplexeren Szenarien, wie z. b. San-, NAS-und iSCSI-Szenarios. Im Allgemeinen werden Kosten pro GB Speicher jedoch häufig direkt gegen die Kosten pro e/a-Vorgänge unterstellt:<ul><li>RAID 5 hat niedrigere Kosten pro Gigabyte als RAID 1, RAID 1 hat jedoch niedrigere Kosten pro e/a.</li><li>Bei Spindel basierten Festplatten fallen niedrigere Kosten pro Gigabyte an, SSDs haben jedoch niedrigere Kosten pro e/a.</li></ul><li>Nach einem Neustart des Computers oder des Active Directory Domain Services Dienstanbieter ist der ESE-Cache (Extensible Storage Engine) leer, und die Leistung wird Datenträger gebunden, während der Cache erwärmt wird.</li><li>In den meisten Umgebungen ist AD intensive e/a-Vorgänge in zufälligen Mustern auf Datenträgern, was den Vorteil von zwischen Speicherungs-und Lese Optimierungsstrategien neiert.  Außerdem bietet AD einen viel größeren Cache im Speicher als die meisten Speichersystem Caches.</li></ul>
 |RAM|<ul><li>Datenbankgröße</li><li>Empfehlungen des Basis Betriebssystems</li><li>Anwendungen von Drittanbietern</li></ul>|<ul><li>Storage ist die langsamste Komponente eines Computers. Umso mehr, was sich im RAM befinden kann, desto weniger müssen Sie auf den Datenträger wechseln.</li><li>Stellen Sie sicher, dass genügend RAM zum Speichern des Betriebssystems, der Agents (Antivirus, Sicherung, Überwachung), NTDS-Datenbank und Wachstum im Laufe der Zeit zugeordnet ist.</li><li>Für Umgebungen, in denen das Maximieren der RAM-Größe nicht kostengünstig ist (z. b. bei Satellitenstandorten) oder nicht möglich ist (DIT ist zu groß), verweisen Sie auf den Abschnitt Speicher, um sicherzustellen, dass die Größe des Speichers korrekt ist</li></ul>|
 |Netzwerk|<ul><li>"Netzwerkschnittstelle (\*) \Empfangene Bytes/Sek."</li><li>"Netzwerkschnittstelle (\*) \Gesendete Bytes/Sek."|<ul><li>Im Allgemeinen überschreitet der Datenverkehr, der von einem DC gesendet wird, den an einen DC gesendeten Datenverkehr</li><li>Wenn eine Umgeschaltete Ethernet-Verbindung Vollduplex ist, muss der eingehende und ausgehende Netzwerk Datenverkehr unabhängig voneinander dimensioniert werden.</li><li>Das Konsolidieren der Anzahl von DCS erhöht den Umfang der Bandbreite, der zum Senden von Antworten an Client Anforderungen für die einzelnen Domänen Controller verwendet wird. Sie ist jedoch für den gesamten Standort nahezu gleich.</li><li>Wenn Sie satellitenspeicherort-DCS entfernen, vergessen Sie nicht, die Bandbreite für den Satelliten Controller zu den Hub-DCS hinzuzufügen und zu ermitteln, wie viel WAN-Datenverkehr vorhanden sein wird.</li></ul>|
 |CPU|<ul><li>"Logischer Datenträger ( *\<NTDS-Daten Bank Laufwerk\>* ) \ Mittlere Sek./Lesevorgänge"</li><li>"Prozess (LSASS)\\Prozessorzeit (%)"</li></ul>|<ul><li>Nachdem Sie den Speicher als Engpass eliminiert haben, müssen Sie die benötigte computestrommenge beheben.</li><li>Die Anzahl der Prozessorkerne, die für alle Server innerhalb eines bestimmten Bereichs (z. b. einer Website) beansprucht werden, kann zwar nicht perfekt linear sein, aber die Anzahl der Prozessoren, die zur Unterstützung der gesamten Client Last erforderlich sind, kann verwendet werden. Fügen Sie die erforderliche Mindestanzahl hinzu, um die aktuelle Dienst Ebene für alle Systeme innerhalb des Bereichs beizubehalten.</li><li>Änderungen an der Prozessorgeschwindigkeit, einschließlich der Energie verwaltungsbezogenen Änderungen, wirken sich auf die von der aktuellen Umgebung abgeleiteten Zahlen aus. Im Allgemeinen ist es nicht möglich, genau zu bewerten, wie von einem 2,5 GHz-Prozessor zu einem 3-GHz-Prozessor die Anzahl der benötigten CPUs verringert wird.</li></ul>|
 |Anmeldedienst|<ul><li>"Netlogon (\*) \semaphore Ruft ab"</li><li>"Netlogon (\*) \semaphore Timeouts"</li><li>"Netlogon (\*) \average Semaphore Hold Time"</li></ul>|<ul><li>Der sichere Kanal für die Netzwerk Anmeldung/MaxConcurrentApi wirkt sich nur auf Umgebungen mit NTLM-Authentifizierungen und/oder PAC-Überprüfung aus. Die PAC-Überprüfung ist in Betriebssystemversionen vor Windows Server 2008 standardmäßig aktiviert. Dies ist eine Client Einstellung, sodass die DCS beeinträchtigt werden, bis diese auf allen Client Systemen ausgeschaltet ist.</li><li>Umgebungen mit erheblicher vertrauenswürdiger Authentifizierung, die Gesamtstruktur übergreifende Vertrauens Stellungen einschließt, haben ein höheres Risiko, wenn Sie nicht ordnungsgemäß skaliert werden.</li><li>Server Konsolidierungen erhöhen die Parallelität der vertrauenswürdigen Authentifizierung.</li><li>Die Übertragungen müssen berücksichtigt werden, wie z. b. Cluster-Failover, da Benutzer die Massen Authentifizierung für den neuen Cluster Knoten durchführen.</li><li>Einzelne Client Systeme (z. b. ein Cluster) müssen möglicherweise ebenfalls optimiert werden.</li></ul>|
 
-## <a name="planning"></a>Planen
+## <a name="planning"></a>Planung
 
-Für einen längeren Zeitraum ist die Empfehlung der Community für die Größenanpassung von AD DS, "in so viel RAM wie die Datenbankgröße" zu versetzen. Zum größten Teil ist diese Empfehlung alles, was für die meisten Umgebungen sorgen muss. Das Ökosystem, das AD DS beansprucht AD DS, hat sich jedoch seit seiner Einführung in 1999 erheblich vergrößert. Obwohl der Anstieg der computeleistung und der Wechsel von x86-Architekturen zu x64-Architekturen dazu geführt haben, dass die subleraspekte der Größenanpassung für eine größere Anzahl von Kunden, die AD DS auf physischer Hardware ausführen, nicht relevant sind, hat das Wachstum der Virtualisierung die Optimierungsprobleme wurden wieder in eine größere Zielgruppe als zuvor eingeführt.
+Für einen längeren Zeitraum ist die Empfehlung der Community für die Größenanpassung von AD DS, "in so viel RAM wie die Datenbankgröße" zu versetzen. Zum größten Teil ist diese Empfehlung alles, was für die meisten Umgebungen sorgen muss. Das Ökosystem, das AD DS beansprucht AD DS, hat sich jedoch seit seiner Einführung in 1999 erheblich vergrößert. Obwohl der Anstieg der computeleistung und der Wechsel von x86-Architekturen zu x64-Architekturen dazu geführt haben, dass die untergeordneten Aspekte der Größenanpassung für eine größere Anzahl von Kunden, die AD DS auf physischer Hardware ausgeführt haben, nicht relevant sind, wurden die Optimierungsprobleme durch das Wachstum der Virtualisierung auf eine größere Zielgruppe zurückgesetzt als bisher.
 
 Im folgenden wird erläutert, wie Sie die Anforderungen Active Directory as-as-a-Service ermitteln und planen, unabhängig davon, ob Sie in physischer, virtueller/physischer Mischung oder in einem reinen virtualisierten Szenario bereitgestellt wird. Daher wird die Auswertung auf jede der vier Hauptkomponenten unterteilen: Speicher, Arbeitsspeicher, Netzwerk und Prozessor. Kurz gesagt, um die Leistung auf AD DS zu maximieren, besteht das Ziel darin, so nah wie möglich an den Prozessor gebunden zu werden.
 
 ## <a name="ram"></a>RAM
 
-Ganz einfach: umso mehr, die im RAM zwischengespeichert werden können, desto weniger müssen Sie auf den Datenträger wechseln. Um die Skalierbarkeit des Servers zu maximieren, muss die Mindestgröße des Arbeitsspeichers die Summe aus der aktuellen Datenbankgröße, der SYSVOL-Gesamtgröße, dem empfohlenen Betriebssystem Betrag und den Lieferanten Empfehlungen für die Agents (Antivirus, Monitoring, Backup usw.) sein. ). Eine zusätzliche Menge sollte hinzugefügt werden, um das Wachstum der Server Lebensdauer zu berücksichtigen. Dies wird auf der Grundlage von Schätzungen des Daten Bank Wachstums auf der Grundlage von Umgebungs Änderungen umweltfreundlich sein.
+Ganz einfach: umso mehr, die im RAM zwischengespeichert werden können, desto weniger müssen Sie auf den Datenträger wechseln. Um die Skalierbarkeit des Servers zu maximieren, sollte die Mindestmenge an RAM die Summe aus der aktuellen Datenbankgröße, der gesamten SYSVOL-Größe, dem empfohlenen Betriebssystem Betrag und den Lieferanten Empfehlungen für die Agents (Antivirus, Monitoring, Backup usw.) sein. Eine zusätzliche Menge sollte hinzugefügt werden, um das Wachstum der Server Lebensdauer zu berücksichtigen. Dies wird auf der Grundlage von Schätzungen des Daten Bank Wachstums auf der Grundlage von Umgebungs Änderungen umweltfreundlich sein.
 
 Für Umgebungen, in denen das Maximieren der RAM-Größe nicht kostengünstig ist (z. b. Satellitenstandorte) oder nicht möglich ist (DIT ist zu groß), verweisen Sie auf den Abschnitt Storage, um sicherzustellen, dass der Speicher ordnungsgemäß entworfen wurde.
 
 Eine Konsequenz, die im allgemeinen Kontext bei der Größenanpassung des Arbeitsspeichers erscheint, ist die Größe der Auslagerungs Datei. Im gleichen Kontext wie der gesamte Arbeitsspeicher, ist das Ziel, die Umstellung auf den viel langsameren Datenträger zu minimieren. Daher sollte die Frage lauten: "wie sollte die Auslagerungs Datei skaliert werden?" wie viel RAM ist erforderlich, um das Paging zu minimieren? Die Antwort auf die letztere Frage wird im restlichen Teil dieses Abschnitts beschrieben. Dadurch wird der größte Teil der Erörterung der Auslagerungs Datei in den Bereich allgemeiner Empfehlungen des Betriebssystems und die Notwendigkeit, das System für Speicher Abbilder zu konfigurieren, die nicht mit AD DS Leistung zusammenhängen.
 
-### <a name="evaluating"></a>Auswertung
+### <a name="evaluating"></a>Überprüft
 
 Der Arbeitsspeicher, der von einem Domänen Controller (DC) benötigt wird, ist aus folgenden Gründen eine komplexe Übung:
 
@@ -142,7 +142,7 @@ Der Arbeitsspeicher, der von einem Domänen Controller (DC) benötigt wird, ist 
 - Umso mehr, die im Arbeitsspeicher zwischengespeichert werden können, desto weniger müssen Sie auf den Datenträger wechseln. 
 - Der Speicher ist bei weitem die langsamste Komponente eines Computers. Der Zugriff auf Daten auf Spindel-und SSD-Speichermedien erfolgt in der Reihenfolge von 1, 000, 000X langsamer als der Zugriff auf Daten im Arbeitsspeicher.
 
-Um die Skalierbarkeit des Servers zu maximieren, ist die Mindestgröße des RAM die Summe aus der aktuellen Datenbankgröße, der SYSVOL-Gesamtgröße, dem empfohlenen Betriebssystem Betrag und den Lieferanten Empfehlungen für die Agents (Antivirus, Monitoring, Backup, usw.). Fügen Sie zusätzliche Beträge hinzu, um das Wachstum während der Lebensdauer des Servers zu unterstützen. Dies wird auf der Grundlage von Schätzungen des Daten Bank Wachstums umweltfreundlich sein. Für Satellitenstandorte mit einer kleinen Gruppe von Endbenutzern können diese Anforderungen jedoch gelockert werden, da diese Websites nicht so viel Zwischenspeichern müssen, um die meisten Anforderungen zu erfüllen.
+Um die Skalierbarkeit des Servers zu maximieren, ist die Mindestgröße des RAM die Summe aus der aktuellen Datenbankgröße, der SYSVOL-Gesamtgröße, dem empfohlenen Betriebssystem Betrag und den Lieferanten Empfehlungen für die Agents (Antivirus, Monitoring, Backup usw.). Fügen Sie zusätzliche Beträge hinzu, um das Wachstum während der Lebensdauer des Servers zu unterstützen. Dies wird auf der Grundlage von Schätzungen des Daten Bank Wachstums umweltfreundlich sein. Für Satellitenstandorte mit einer kleinen Gruppe von Endbenutzern können diese Anforderungen jedoch gelockert werden, da diese Websites nicht so viel Zwischenspeichern müssen, um die meisten Anforderungen zu erfüllen.
 
 Für Umgebungen, in denen das Maximieren der RAM-Größe nicht kostengünstig ist (z. b. bei Satellitenstandorten) oder nicht möglich ist (DIT ist zu groß), verweisen Sie auf den Abschnitt Speicher, um sicherzustellen, dass die Größe des Speichers korrekt ist
 
@@ -155,14 +155,14 @@ Vermeiden Sie den über-Commit-Speicher auf dem Host. Das grundlegende Ziel bei 
 
 ### <a name="calculation-summary-example"></a>Beispiel für Berechnungs Zusammenfassung
 
-|Component|Geschätzter Speicher (Beispiel)|
+|Komponente|Geschätzter Speicher (Beispiel)|
 |-|-|
 |Empfohlenen RAM für das Basis Betriebssystem (Windows Server 2008)|2 GB|
 |Interne LSASS-Aufgaben|200 MB|
 |Überwachungs-Agent|100 MB|
 |Antivirensoftware|100 MB|
 |Datenbank (globaler Katalog)|8,5 GB sind sicher???|
-|Die Sicherung wird für die Sicherung ausgeführt, Administratoren können sich ohne Auswirkung anmelden.|1 GB|
+|Die Sicherung wird für die Sicherung ausgeführt, Administratoren können sich ohne Auswirkung anmelden.|1 GB|
 |Gesamt|12 GB|
 
 **Empfohlen: 16 GB**
@@ -171,7 +171,7 @@ Im Laufe der Zeit kann angenommen werden, dass der Datenbank weitere Daten hinzu
 
 ## <a name="network"></a>Netzwerk
 
-### <a name="evaluating"></a>Auswertung
+### <a name="evaluating"></a>Überprüft
 In diesem Abschnitt geht es darum, die Anforderungen im Hinblick auf den Replikations Datenverkehr zu bewerten, der sich auf den Datenverkehr im WAN konzentriert und in [Active Directory Replikations Datenverkehr](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/bb742457(v=technet.10))gründlich behandelt wird, als es um die Auswertung der Gesamtbandbreite und der benötigten Netzwerkkapazität geht, einschließlich Client Abfragen, Gruppenrichtlinie Anwendungen usw. Für vorhandene Umgebungen kann diese mithilfe der Leistungsindikatoren "Netzwerkschnittstelle (\*) \Empfangene Bytes/Sek." und "Netzwerkschnittstelle (\*) \Gesendete Bytes/Sek." erfasst werden. Beispiel Intervalle für Netzwerkschnittstellen Zähler in 15, 30 oder 60 Minuten. Für gute Messungen sind normalerweise weniger als flüchtig. alles höhere wird die tägliche anwirkung übermäßig stark glätten.
 
 > [!NOTE]
@@ -241,16 +241,16 @@ DC 2|6,25 MB/s|
 
 Im Laufe der Zeit kann die Annahme, dass sich die Client Auslastung erhöht, und dieses Wachstum sollte so am besten wie möglich geplant werden. Der empfohlene Betrag für die Planung von ermöglicht ein geschätztes Wachstum des Netzwerkverkehrs von 50%.
 
-## <a name="storage"></a>„Speicher“.
+## <a name="storage"></a>Speicher
 
 Der Planungs Speicher besteht aus zwei Komponenten:
 
 - Kapazität oder Speichergröße
 - Leistung
 
-Es wird viel Zeit und Dokumentation für die Kapazitätsplanung aufgewendet, sodass die Leistung häufig nicht übersehen wird. Mit den aktuellen Hardwarekosten sind die meisten Umgebungen nicht so groß, dass eine dieser Umgebungen wirklich von Bedeutung ist, und die Empfehlung, "in so viel RAM wie die Datenbankgröße" zu versetzen, deckt in der Regel den Rest ab, obwohl Sie für Satellitenstandorte in größerem Umfang außer Kraft gesetzt werden kann. Umgebungen.
+Es wird viel Zeit und Dokumentation für die Kapazitätsplanung aufgewendet, sodass die Leistung häufig nicht übersehen wird. Mit den aktuellen Hardwarekosten sind die meisten Umgebungen nicht so groß, dass eine der beiden Bereiche wirklich von Bedeutung ist, und die Empfehlung, "in so viel RAM wie die Datenbankgröße" zu versetzen, deckt in der Regel den Rest ab, obwohl dies für Satellitenstandorte in größeren Umgebungen möglicherweise übertrieben ist.
 
-### <a name="sizing"></a>Größenanpassung
+### <a name="sizing"></a>Größe ändern
 
 #### <a name="evaluating-for-storage"></a>Auswerten von Speicher
 
@@ -320,7 +320,7 @@ Diese sollten in Intervallen von 15/30/60 Minuten getestet werden, um die Anford
 #### <a name="evaluating-the-results"></a>Auswerten der Ergebnisse
 
 > [!NOTE]
-> Der Schwerpunkt liegt auf Lesevorgängen aus der Datenbank, da dies in der Regel die anspruchsvollste Komponente ist. die gleiche Logik kann auf Schreibvorgänge in die Protokolldatei angewendet werden, indem LogicalDisk ( *\<NTDS-Protokoll\>* ) \Durchschnittl. Sek./Schreibvorgang und LogicalDisk (*NTDS-\>Protokoll) \ Schreibvorgänge/Sek.):\<*
+> Der Schwerpunkt liegt auf Lesevorgängen aus der Datenbank, da dies in der Regel die anspruchsvollste Komponente ist, die gleiche Logik auf Schreibvorgänge in die Protokolldatei angewendet werden kann, indem logischer Datenträger ( *\<NTDS-Protokoll\>* ) \Durchschnittl. Sek./Schreibvorgang und LogicalDisk ( *\<NTDS-Protokoll\>* ) \ Schreibvorgänge/Sek.):
 >  
 > - LogicalDisk ( *\<NTDS\>* ) \Mittlere Sek./Lesevorgänge gibt an, ob der aktuelle Speicher angemessen ist.  Wenn die Ergebnisse ungefähr gleich der Datenträger Zugriffszeit für den Daten Satztyp sind, ist LogicalDisk ( *\<NTDS\>* ) \ Reads/sec ein gültiges Measure.  Überprüfen Sie die Hersteller Spezifikationen für den Speicher auf dem Back-End, aber gute Bereiche für LogicalDisk ( *\<NTDS\>* ) \Mittlere Sek./Lesevorgänge lauten ungefähr wie folgt:
 >   - 7200 – 9 bis 12,5 Millisekunden (MS)
@@ -341,9 +341,9 @@ Diese sollten in Intervallen von 15/30/60 Minuten getestet werden, um die Anford
 
 #### <a name="virtualization-considerations-for-performance"></a>Überlegungen zur Virtualisierung hinsichtlich der Leistung
 
-Ähnlich wie bei allen vorherigen virtualisierungsdiskussionen besteht der Schlüssel darin darin, sicherzustellen, dass die zugrunde liegende freigegebene Infrastruktur die DC-Last und die anderen Ressourcen unterstützt, die die zugrunde liegenden freigegebenen Medien und alle Pfade verwenden. Dies gilt unabhängig davon, ob ein physischer Domänen Controller die gleichen zugrunde liegenden Medien in einer San-, NAS-oder iSCSI-Infrastruktur wie andere Server oder Anwendungen gemeinsam verwendet, ob es sich um einen Gast mit Pass-Through-Zugriff auf eine San-, NAS-oder iSCSI-Infrastruktur handelt, die das zugrunde liegende Medien oder, wenn der Gast eine VHD-Datei verwendet, die sich lokal auf freigegebenen Medien oder eine San-, NAS-oder iSCSI-Infrastruktur befindet. Bei der Planungsübung geht es darum, sicherzustellen, dass die zugrunde liegenden Medien die Gesamtlast aller Consumer unterstützen können.
+Ähnlich wie bei allen vorherigen virtualisierungsdiskussionen besteht der Schlüssel darin darin, sicherzustellen, dass die zugrunde liegende freigegebene Infrastruktur die DC-Last und die anderen Ressourcen unterstützt, die die zugrunde liegenden freigegebenen Medien und alle Pfade verwenden. Dies gilt unabhängig davon, ob ein physischer Domänen Controller die gleichen zugrunde liegenden Medien in einer San-, NAS-oder iSCSI-Infrastruktur wie andere Server oder Anwendungen gemeinsam verwendet, ob es sich um einen Gast mit Pass-Through-Zugriff auf eine San-, NAS-oder iSCSI-Infrastruktur handelt, die die zugrunde liegenden Medien gemeinsam nutzt , NAS oder iSCSI-Infrastruktur. Bei der Planungsübung geht es darum, sicherzustellen, dass die zugrunde liegenden Medien die Gesamtlast aller Consumer unterstützen können.
 
-Aus Sicht des Gasts, da weitere Codepfade vorhanden sind, die durchlaufen werden müssen, wirkt sich dies auf die Leistung aus, wenn Sie einen Host für den Zugriff auf Speicher benötigen. Es ist nicht überraschend, dass Speicher Leistungstests darauf hindeuten, dass die Virtualisierung Auswirkungen auf den Durchsatz hat, der für die Prozessorauslastung des Host Systems subjektiv ist (siehe Anhang A: CPU-Größen Kriterien), die offensichtlich von den Ressourcen von der vom Gast angeforderte Host. Dies trägt zu den Überlegungen zur Virtualisierung in Bezug auf die Verarbeitungsanforderungen in einem virtualisierten Szenario bei. (Weitere Informationen finden Sie unter [Überlegungen zur Virtualisierung](#virtualization-considerations-for-processing)
+Aus Sicht des Gasts, da weitere Codepfade vorhanden sind, die durchlaufen werden müssen, wirkt sich dies auf die Leistung aus, wenn Sie einen Host für den Zugriff auf Speicher benötigen. Es ist nicht überraschend, dass Speicher Leistungstests darauf hindeuten, dass die Virtualisierung Auswirkungen auf den Durchsatz hat, der für die Prozessorauslastung des Host Systems subjektiv ist (siehe Anhang A: CPU-Größen Kriterien), die offensichtlich von den Ressourcen des Hosts beeinflusst wird, der vom Gast gefordert wird. Dies trägt zu den Überlegungen zur Virtualisierung in Bezug auf die Verarbeitungsanforderungen in einem virtualisierten Szenario bei. (Weitere Informationen finden Sie unter [Überlegungen zur Virtualisierung](#virtualization-considerations-for-processing)
 
 Diese Komplexität zu vereinfachen, besteht darin, dass eine Vielzahl verschiedener Speicheroptionen verfügbar ist, die alle unterschiedliche Auswirkungen auf die Leistung haben. Verwenden Sie als sichere Schätzung bei der Migration von physisch zu virtuell einen Multiplikator von 1,10, um verschiedene Speicheroptionen für virtualisierte Gäste in Hyper-V anzupassen, z. b. Pass-Through-Speicher, SCSI-Adapter oder IDE. Die Anpassungen, die bei der Übertragung zwischen den verschiedenen Speicher Szenarien vorgenommen werden müssen, sind unerheblich, ob der Speicher lokal, San, NAS oder iSCSI ist.
 
@@ -353,15 +353,15 @@ Ermitteln der Menge an e/a-Vorgängen, die für ein fehlerfreies System unter no
 
 - LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \ Übertragungen/Sek. während des Zeitraums von 15 Minuten 
 - So bestimmen Sie die Menge an e/a-Vorgängen, die für den Speicher erforderlich sind
-  >*Benötigtes IOPS* = (LogicalDisk *\<(NTDS-\>Daten Bank Laufwerk*) \Mittlere Sek. &divide; /Lesevorgänge/Lese &times; *\<Vorgänge für\>Mittlere Sek./Lese* Vorgänge) LogicalDisk ( *\< NTDS-Daten\>Bank Laufwerk*) \ Lesevorgänge/Sek.
+  >*Benötigtes IOPS* = (LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \Durchschnittl. Sek./Lesevorgänge &divide;\<Ziel-Mittlere Sek. */Lesevorgänge\>* ) &times; LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \ Lesevorgänge/Sek.
 
-|Zähler|Value|
+|Leistungsindikator|Wert|
 |-|-|
 |Tatsächlicher LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \Durchschnittl. Sek./Übertragung|.02 Sekunden (20 Millisekunden)|
 |Ziel LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \Durchschnittl. Sek./Übertragung|.01 Sekunden|
 |Multiplikator für Änderung in verfügbarem e/a|0,02 &divide; 0,01 = 2|  
   
-|Wertname|Value|
+|Wertname|Wert|
 |-|-|
 |LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \ Übertragungen/Sek.|400|
 |Multiplikator für Änderung in verfügbarem e/a|2|
@@ -381,7 +381,7 @@ Beachten Sie, dass die berechnete Rate nicht exakt ist, weil zuvor geladene Seit
 |Maximal zulässige Zeit zum Aufwärmen|10 Minuten (600 Sekunden)
 |Datenbankgröße|2 GB|  
   
-|Berechnungsschritt|Formula|Ergebnis|
+|Berechnungsschritt|Formel|Ergebnis|
 |-|-|-|
 |Berechnen der Größe der Datenbank auf Seiten|(2 GB &times; 1024 &times; 1024) = *Größe der Datenbank in KB*|2\.097.152 KB|
 |Berechnen der Anzahl von Seiten in der Datenbank|2\.097.152 KB &divide; 8 KB = *Anzahl von Seiten*|262.144 Seiten|
@@ -393,9 +393,9 @@ Beachten Sie, dass die berechnete Rate nicht exakt ist, weil zuvor geladene Seit
 
 In den meisten Umgebungen werden Speicher, RAM und Netzwerke gemäß der Beschreibung im Abschnitt "Planung" ordnungsgemäß optimiert, und die Verwaltung der Verarbeitungskapazität ist die Komponente, die die größte Aufmerksamkeit verdient. Bei der Auswertung der benötigten CPU-Kapazität gibt es zwei Herausforderungen:
 
-- Unabhängig davon, ob sich die Anwendungen in der Umgebung in einer gemeinsamen Dienst Infrastruktur gut Verhalten, und wird im Abschnitt "nachverfolgen kostspieliger und ineffizienter Suchvorgänge" im Artikel Erstellen von effizienterem Microsoft Active behandelt. Verzeichnis aktivierte Anwendungen oder Migrieren von untergeordneten Sam-Aufrufen von LDAP-aufrufen.  
+- Unabhängig davon, ob sich die Anwendungen in der Umgebung in einer gemeinsamen Dienst Infrastruktur gut Verhalten, und wird im Abschnitt "nachverfolgen kostspieliger und ineffizienter Suchvorgänge" im Artikel erstellen effizienterer, Microsoft Active Directory-fähiger Anwendungen oder Migrieren von auf der Ebene von Sam-aufrufen zu LDAP-aufrufen behandelt.  
   
-  In größeren Umgebungen ist es wichtig, dass schlecht codierte Anwendungen Schwankungen bei der CPU-Auslastung erreichen, eine übermäßig große CPU-Zeit von anderen Anwendungen stehlen, Kapazitätsanforderungen künstlich erhöhen und die Last gleichmäßig verteilen. die DCS.  
+  In größeren Umgebungen ist es wichtig, dass schlecht codierte Anwendungen Schwankungen bei der CPU-Auslastung erreichen, eine übermäßig große CPU-Zeit von anderen Anwendungen stehlen, den Kapazitätsbedarf künstlich erhöhen und die Last auf die DCS verteilen.  
 - Da AD DS eine verteilte Umgebung mit einer Vielzahl potenzieller Clients ist, ist das Einschätzen der Kosten eines "einzelnen Clients" aufgrund von Verwendungs Mustern und dem Typ oder der Anzahl von Anwendungen, die AD DS nutzen, umweltfreundlich. Kurz gesagt, ähnlich wie im Abschnitt "Netzwerk", ist dies für eine umfassende Anwendbarkeit besser von der Perspektive der Auswertung der Gesamtkapazität, die in der Umgebung benötigt wird.
 
 Für vorhandene Umgebungen, wie die Speichergrößen Änderung bereits erläutert wurde, wird davon ausgegangen, dass der Speicher nun ordnungsgemäß dimensioniert ist und daher die Daten bezüglich der Prozessorauslastung gültig sind. Zur Wiederholung ist es wichtig, sicherzustellen, dass der Engpass im System nicht die Leistung des Speichers darstellt. Wenn ein Engpass vorhanden ist und der Prozessor wartet, gibt es Status im Leerlauf, die nach dem Entfernen des Engpasses entfernt werden.  Da die Warte Zustände des Prozessors entfernt werden, erhöht sich die CPU-Auslastung definitionsgemäß, da Sie nicht mehr auf die Daten warten muss. Erfassen Sie daher Leistungsindikatoren "logischer Datenträger ( *\<NTDS-Daten Bank Laufwerk\>* ) \Durchschnittl Sek./Lesevorgang" und "Prozess (LSASS)\\Prozessorzeit (%)". Die Daten in "Process (LSASS)\\% Processor Time" sind künstlich niedrig, wenn "logischer Datenträger ( *\<NTDS-Daten Bank Laufwerk\>* ) \ Mittlere Sek./Lesevorgänge" 10 bis 15 ms überschreitet. Dies ist ein allgemeiner Schwellenwert, den der Microsoft-Support zur Behandlung von speicherbezogenen Leistungsproblemen verwendet. Wie zuvor wird empfohlen, dass es sich bei den Beispiel Intervallen um 15, 30 oder 60 Minuten handelt. Für gute Messungen sind normalerweise weniger als flüchtig. alles höhere wird die tägliche anwirkung übermäßig stark glätten.
@@ -436,7 +436,7 @@ Analysieren der Daten im Diagramm (Prozessor Informationen (_Total)\% Prozessor 
 
 ### <a name="calculating-cpu-demands"></a>Berechnen von CPU-Anforderungen
 
-Der Leistungs Objekt-Leistungs Objektwert "Prozess\\% Prozessorzeit" summiert die Gesamtzeit, die alle Threads einer Anwendung für die CPU aufwenden, und dividiert durch die Gesamtmenge der bestandenen Systemzeit. Dies hat den Grund, dass eine Multithread-Anwendung auf einem Multi-CPU-System eine CPU-Zeit von 100% überschreiten kann. Sie wird sehr anders interpretiert als "Prozessor Informationen\\Prozessor-Hilfsprogramm (%)". In der Praxis kann die "Process (LSASS)\\% Processor Time" als Anzahl der CPUs angezeigt werden, die bei 100% ausgeführt werden und zur Unterstützung der Anforderungen des Prozesses erforderlich sind. Der Wert 200% bedeutet, dass 2 CPUs, jeweils um 100%, erforderlich sind, um die vollständige AD DS Last zu unterstützen. Obwohl eine CPU mit einer Kapazität von 100% die kostengünstigste ist, aus der Perspektive von Geld für CPUs und Stromversorgung und Energieverbrauch, erfolgt aus verschiedenen Gründen, die in Anhang a ausführlich beschrieben werden, eine bessere Reaktionsfähigkeit auf einem Multithread-System, wenn das System wird nicht um 100% ausgeführt.
+Der Leistungs Objekt-Leistungs Objektwert "Prozess\\% Prozessorzeit" summiert die Gesamtzeit, die alle Threads einer Anwendung für die CPU aufwenden, und dividiert durch die Gesamtmenge der bestandenen Systemzeit. Dies hat den Grund, dass eine Multithread-Anwendung auf einem Multi-CPU-System eine CPU-Zeit von 100% überschreiten kann. Sie wird sehr anders interpretiert als "Prozessor Informationen\\Prozessor-Hilfsprogramm (%)". In der Praxis kann die "Process (LSASS)\\% Processor Time" als Anzahl der CPUs angezeigt werden, die bei 100% ausgeführt werden und zur Unterstützung der Anforderungen des Prozesses erforderlich sind. Der Wert 200% bedeutet, dass 2 CPUs, jeweils um 100%, erforderlich sind, um die vollständige AD DS Last zu unterstützen. Obwohl eine CPU mit einer Kapazität von 100% die kostengünstigste ist, aus der Perspektive von Geld, die für CPUs und Energieverbrauch aufgewendet wurde, wird aus verschiedenen Gründen, die in Anhang a erläutert werden, eine bessere Reaktionsfähigkeit auf einem Multithread-System ausgelöst, wenn das System nicht bei 100% ausgeführt wird.
 
 Zur Unterstützung vorübergehender Spitzen bei der Client Auslastung empfiehlt es sich, eine Spitzenzeit-CPU von zwischen 40% und 60% der Systemkapazität als Ziel zu erreichen. Wenn Sie mit dem obigen Beispiel arbeiten, bedeutet dies, dass zwischen 3,33 (60% Target) und 5 (40% Ziel) CPUs für die AD DS-Auslastung (LSASS-Prozess) benötigt werden. Zusätzliche Kapazität sollte gemäß den Anforderungen des Basis Betriebssystems und anderen erforderlichen Agents (z. b. Antivirus, Sicherung, Überwachung usw.) hinzugefügt werden. Obwohl die Auswirkung von Agents pro Umgebung ausgewertet werden muss, kann eine Schätzung zwischen 5% und 10% einer einzelnen CPU vorgenommen werden. Im aktuellen Beispiel würde dies darauf hindeuten, dass bei Spitzenzeiten zwischen 3,43-CPUs (60% Target) und 5,1-CPUs (40% Ziel) erforderlich sind.
 
@@ -465,7 +465,7 @@ Es gibt verschiedene Szenarien, in denen die Optimierung von [LdapSrvWeight](htt
 
 Es gibt zwei Häufige Gründe, um LDAP-Gewichtungen zu optimieren:
 
-- Der PDC-Emulator ist ein Beispiel, das sich auf jede Umgebung auswirkt, für die das Ladeverhalten von Benutzern oder Anwendungen nicht gleichmäßig verteilt ist. Wenn bestimmte Tools und Aktionen auf den PDC-Emulator abzielen, z. b. die Gruppenrichtlinie Verwaltungs Tools, bei Authentifizierungs Fehlern, bei der Vertrauensstellung usw., werden CPU-Ressourcen auf dem PDC-Emulator möglicherweise stärker gefordert als an anderer Stelle in die Site.
+- Der PDC-Emulator ist ein Beispiel, das sich auf jede Umgebung auswirkt, für die das Ladeverhalten von Benutzern oder Anwendungen nicht gleichmäßig verteilt ist. Wenn bestimmte Tools und Aktionen auf den PDC-Emulator abzielen, z. b. die Gruppenrichtlinie Verwaltungs Tools, bei Authentifizierungs Fehlern, bei der Vertrauensstellung usw., werden CPU-Ressourcen auf dem PDC-Emulator möglicherweise stärker gefordert als an anderen Standorten.
   - Es ist nur hilfreich, dies zu optimieren, wenn es einen spürbaren Unterschied in der CPU-Auslastung gibt, um die Last auf dem PDC-Emulator zu verringern und die Last auf anderen Domänen Controllern zu erhöhen, was eine gleichmäßige Verteilung der Last ermöglicht.
   - Legen Sie in diesem Fall LdapSrvWeight zwischen 50 und 75 für den PDC-Emulator fest.
 - Server mit unterschiedlicher Anzahl von CPUs (und Geschwindigkeiten) an einem Standort.  Angenommen, es gibt 2 8-Kernserver und 1 4-Core-Server.  Der letzte Server verfügt über die Hälfte der Prozessoren der anderen beiden Server.  Dies bedeutet, dass die durchschnittliche CPU-Auslastung im vier Kern-Feld durch eine gut verteilte Client Auslastung ungefähr doppelt so groß wie die acht Kern Felder erhöht wird.
@@ -527,14 +527,14 @@ Wenn Sie sich aufgrund der Wichtigkeit dieses Punkts wiederholen, *denken Sie da
 
 #### <a name="evaluating-cross-trust-client-authentication-load"></a>Auswerten der vertrauenswürdigen Client Authentifizierungs Last
 
-Viele Umgebungen haben möglicherweise eine oder mehrere Domänen, die über eine Vertrauensstellung verbunden sind. Eine Authentifizierungsanforderung für eine Identität in einer anderen Domäne, die nicht die Kerberos-Authentifizierung verwendet, muss eine Vertrauensstellung durchlaufen, indem der sichere Kanal des Domänen Controllers zu einem anderen Domänen Controller entweder in der Zieldomäne oder in der nächsten Domäne im Pfad verwendet wird. in die Zieldomäne. Die Anzahl gleichzeitiger Aufrufe mithilfe des sicheren Kanals, den ein Domänen Controller für einen Domänen Controller in einer vertrauenswürdigen Domäne ausführen kann, wird durch eine Einstellung, die als **MaxConcurrentApi**bezeichnet wird, gesteuert. Bei Domänen Controllern kann sichergestellt werden, dass der sichere Kanal den Lade Aufwand für einen von zwei Ansätzen erreicht: Optimieren von **MaxConcurrentApi** oder innerhalb einer Gesamtstruktur, Erstellen von Verknüpfungs Vertrauensstellungen. Informationen zum Messen des Datenverkehrs Volumens über eine individuelle Vertrauensstellung finden Sie unter [Verwenden der Leistungsoptimierung für die NTLM-Authentifizierung mithilfe der Einstellung "MaxConcurrentApi](https://support.microsoft.com/kb/2688798)".
+Viele Umgebungen haben möglicherweise eine oder mehrere Domänen, die über eine Vertrauensstellung verbunden sind. Eine Authentifizierungsanforderung für eine Identität in einer anderen Domäne, die nicht die Kerberos-Authentifizierung verwendet, muss eine Vertrauensstellung durchlaufen, indem der sichere Kanal des Domänen Controllers zu einem anderen Domänen Controller entweder in der Zieldomäne oder in der nächsten Domäne im Pfad zur Zieldomäne verwendet wird. Die Anzahl gleichzeitiger Aufrufe mithilfe des sicheren Kanals, den ein Domänen Controller für einen Domänen Controller in einer vertrauenswürdigen Domäne ausführen kann, wird durch eine Einstellung, die als **MaxConcurrentApi**bezeichnet wird, gesteuert. Bei Domänen Controllern kann sichergestellt werden, dass der sichere Kanal den Lade Aufwand für einen von zwei Ansätzen erreicht: Optimieren von **MaxConcurrentApi** oder innerhalb einer Gesamtstruktur, Erstellen von Verknüpfungs Vertrauensstellungen. Informationen zum Messen des Datenverkehrs Volumens über eine individuelle Vertrauensstellung finden Sie unter [Verwenden der Leistungsoptimierung für die NTLM-Authentifizierung mithilfe der Einstellung "MaxConcurrentApi](https://support.microsoft.com/kb/2688798)".
 
 Während der Datensammlung muss dieser, wie in allen anderen Szenarien, während der Spitzenzeiten des Tages gesammelt werden, damit die Daten nützlich sind.
 
 > [!NOTE]
 > In der Gesamtstruktur und in den Gesamtstruktur übergreifenden Szenarien kann die Authentifizierung mehrere Vertrauens Stellungen durchlaufen, und jede Phase muss optimiert werden.
 
-#### <a name="planning"></a>Planen
+#### <a name="planning"></a>Planung
 
 Es gibt eine Reihe von Anwendungen, die standardmäßig die NTLM-Authentifizierung verwenden, oder Sie verwenden Sie in einem bestimmten Konfigurations Szenario. Anwendungsserver wachsen in der Kapazität und bedienen eine wachsende Anzahl aktiver Clients. Es gibt auch einen Trend, dass Clients die Sitzungen für einen begrenzten Zeitraum offen halten und stattdessen regelmäßig eine Verbindung herstellen (z. b. e-Mail-Pull Sync). Ein weiteres häufiges Beispiel für eine hohe NTLM-Auslastung sind WebProxy Server, für die eine Authentifizierung für den Internet Zugriff erforderlich ist.
 
@@ -548,17 +548,17 @@ Es gibt mehrere Ansätze für die Verwaltung von vertrauenswürdiger Auslastung,
 
 Zum Optimieren von **MaxConcurrentApi** auf einem vorhandenen Server lautet die Gleichung:
 
-> *New_MaxConcurrentApi_setting* &ge; (*semaphore_acquires*  +  *semaphore_time-outs*) &times; *average_semaphore_hold_time* &divide; *time_collection_length*
+> *New_MaxConcurrentApi_setting* &ge; (*semaphore_acquires* + *semaphore_time-Outs* *) &times; average_semaphore_hold_time* &divide; *time_collection_length*
 
 Weitere Informationen finden Sie [im KB-Artikel 2688798: Verwenden der Leistungsoptimierung für die NTLM-Authentifizierung mithilfe der Einstellung "MaxConcurrentApi](https://support.microsoft.com/kb/2688798)".
 
-## <a name="virtualization-considerations"></a>Überlegungen zur Virtualisierung
+## <a name="virtualization-considerations"></a>Virtualisierung: Überlegungen
 
 Keine, dies ist eine Optimierungs Einstellung für das Betriebssystem.
 
 ### <a name="calculation-summary-example"></a>Beispiel für Berechnungs Zusammenfassung
 
-|Datentyp|Value|
+|Datentyp|Wert|
 |-|-|
 |Semaphore (minimal)|6\.161|
 |Semaphore erhält (Maximum)|6\.762|
@@ -574,14 +574,14 @@ Für dieses System sind die Standardwerte zulässig.
 
 In diesem Artikel wurde erläutert, dass die Planung und Skalierung zu Verwendungs Zielen geführt hat. Im folgenden finden Sie ein Übersichts Diagramm der empfohlenen Schwellenwerte, die überwacht werden müssen, um sicherzustellen, dass die Systeme innerhalb von ausreichenden Kapazitäts Schwellenwerten betrieben werden. Beachten Sie, dass es sich hierbei nicht um Leistungs Schwellenwerte, sondern um Schwellenwerte zur Kapazitätsplanung handelt. Ein Server, der über diese Schwellenwerte hinausgeht, funktioniert, ist jedoch Zeit, zu überprüfen, ob alle Anwendungen gut funktionieren. Wenn die genannten Anwendungen gut funktionieren, ist es an der Zeit, mit der Bewertung von Hardware Upgrades oder anderen Konfigurationsänderungen zu beginnen.
 
-|Kategorie|Leistungsindikator|Intervall/Stichprobenentnahme|Ziel|Warning|
+|Kategorie|Leistungsindikator|Intervall/Stichprobenentnahme|Ziel|Warnung|
 |-|-|-|-|-|
-|Auftragsverarbeiter|Prozessor Informationen (_Total)\\Prozessor Programm "%"|60 Min.|40 %|60 %|
-|RAM (Windows Server 2008 R2 oder früher)|Speicher \ verfügbare MB|< 100 MB|NICHT ZUTREFFEND|< 100 MB|
-|RAM (Windows Server 2012)|Memory\langterm durchschnittliche standbycache-Lebensdauer (n)|30 Min.|Muss getestet werden|Muss getestet werden|
-|Netzwerk|Netzwerkschnittstelle (\*) \Gesendete Bytes/Sek.<br /><br />Netzwerkschnittstelle (\*) \Empfangene Bytes/Sek.|30 Min.|40 %|60 %|
-|„Speicher“.|LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \Durchschnittl. Sek./Lesevorgang<br /><br />LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \Durchschnittl. Sek./Schreibvorgang|60 Min.|10 ms|15 ms|
-|AD-Dienste|Netlogon (\*) \average Semaphore Haltezeit|60 Min.|0|1 Sekunde|
+|Prozessor|Prozessor Informationen (_Total)\\Prozessor Programm "%"|60 min.|40 %|60 %|
+|RAM (Windows Server 2008 R2 oder früher)|Speicher \ verfügbare MB|< 100 MB|N/V|< 100 MB|
+|RAM (Windows Server 2012)|Memory\langterm durchschnittliche standbycache-Lebensdauer (n)|30 Minuten|Muss getestet werden|Muss getestet werden|
+|Netzwerk|Netzwerkschnittstelle (\*) \Gesendete Bytes/Sek.<p>Netzwerkschnittstelle (\*) \Empfangene Bytes/Sek.|30 Minuten|40 %|60 %|
+|Speicher|LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \Durchschnittl. Sek./Lesevorgang<p>LogicalDisk ( *\<NTDS-Daten Bank Laufwerk\>* ) \Durchschnittl. Sek./Schreibvorgang|60 min.|10 ms|15 ms|
+|AD-Dienste|Netlogon (\*) \average Semaphore Haltezeit|60 min.|0|1 Sekunde|
 
 ## <a name="appendix-a-cpu-sizing-criteria"></a>Anhang A: CPU-Größen Kriterien
 
@@ -636,7 +636,7 @@ Dabei ist *U* k der Auslastungs Prozentsatz, *B* ist die Zeitspanne, die ausgela
 
 Die queuingtheorie bietet auch die Formel: *N* = *U* k &divide; (1 &ndash; *u* k), um die Anzahl der wartenden Elemente basierend auf der Auslastung zu schätzen ( *N* ist die Länge der Warteschlange). Wenn Sie dies über alle Auslastungs Intervalle hinaus übernehmen, erhalten Sie die folgenden Schätzungen, wie lange die Warteschlange für den Prozessor eine beliebige CPU-Auslastung hat.
 
-![Warteschlangenlänge](media/capacity-planning-considerations-queue-length.png)
+![Warteschlangen Länge](media/capacity-planning-considerations-queue-length.png)
 
 Es ist zu beachten, dass die CPU-Auslastung nach 50% im Durchschnitt immer auf ein anderes Element in der Warteschlange wartet, mit einer deutlich schnelleren Zunahme nach einer CPU-Auslastung von etwa 70%.
 
@@ -645,7 +645,7 @@ Zurückkehren zur Fahr Weise, die weiter oben in diesem Abschnitt verwendet wird
 - Die ausgelasteten Zeiten von "Mid-Afternoon" würden hypothetisch in den Bereich zwischen 40 und 70% fallen. Der Datenverkehr ist so hoch, dass die Fähigkeit, eine beliebige Strecke auszuwählen, nicht grob eingeschränkt ist, und die Gefahr, dass ein anderer Treiber auf dem Weg ist, während er hoch ist, erfordert nicht, dass eine sichere Lücke zwischen anderen Autos auf dem Weg gefunden wird.
 - Beachten Sie, dass das Straßensystem bei geöffnetes Aufkommen von Datenverkehr eine Kapazität von 100% erreicht. Das Ändern von Bereichen kann sehr schwierig werden, da Autos so nah beieinander liegen, dass eine größere Vorsicht geboten werden muss.
 
-Aus diesem Grund können die langfristigen Durchschnittswerte für die Kapazität, die auf 40% geschätzt wird, für ungewöhnliche Spitzen beim Laden einen Vorsprung schaffen, ganz gleich, ob die Spitzen vorübergehendes (z. b. schlecht codierte Abfragen, die für einige Minuten ausgeführt werden) oder ungewöhnliche Spitzen bei allgemeiner Auslastung (der Morgen von der erste Tag nach einem langen Wochenende).
+Aus diesem Grund bietet der langfristige Durchschnittswert für die Kapazität, die auf 40% geschätzt wird, für ungewöhnliche Spitzen beim Laden einen Spitzen Raum, unabhängig davon, ob es sich um ein vorübergehendes vorübergehendes (z. b. schlecht codierte Abfragen, die einige Minuten dauern) oder um nicht normale Spitzen bei allgemeiner Auslastung (der Morgen des ersten Tags nach einem langen Wochenende) handelt.
 
 Die oben genannte Anweisung bezieht sich auf die Berechnung von% Prozessorzeit, die dem Nutzungs Gesetz entspricht, das eine gewisse Vereinfachung der Erleichterung des allgemeinen Readers ist. Für diese mathematisch strenger:  
 - Übersetzen der [PERF_100NSEC_TIMER_INV](https://docs.microsoft.com/previous-versions/windows/embedded/ms901169(v=msdn.10))
@@ -660,7 +660,7 @@ Die oben genannte Anweisung bezieht sich auf die Berechnung von% Prozessorzeit, 
 
 ### <a name="applying-the-concepts-to-capacity-planning"></a>Anwenden der Konzepte auf die Kapazitätsplanung
 
-Die vorangehende Mathematik kann Determinationen hinsichtlich der Anzahl der logischen Prozessoren, die für ein System erforderlich sind, als überwältigend komplex erscheinen. Aus diesem Grund liegt der Ansatz der Größenanpassung der Systeme auf der Ermittlung der maximalen Ziel Auslastung basierend auf der aktuellen Auslastung und der Berechnung der Anzahl der logischen Prozessoren, die benötigt werden. Außerdem hat die Geschwindigkeit von logischen Prozessoren erhebliche Auswirkungen auf die Leistung, die Cache Effizienz, die Anforderungen an die Speicher Kohärenz, die Thread Planung und-Synchronisierung und eine nicht perfekt ausgeglichene Client Auslastung. Leistung, die sich auf Server Basis unterscheiden kann. Mit den relativ günstigen Kosten der computeleistung wird der Versuch, die perfekte Anzahl der benötigten CPUs zu analysieren und zu bestimmen, zu einer akademischen Übung, als der Geschäftswert bereitgestellt wird.
+Die vorangehende Mathematik kann Determinationen hinsichtlich der Anzahl der logischen Prozessoren, die für ein System erforderlich sind, als überwältigend komplex erscheinen. Aus diesem Grund liegt der Ansatz der Größenanpassung der Systeme auf der Ermittlung der maximalen Ziel Auslastung basierend auf der aktuellen Auslastung und der Berechnung der Anzahl der logischen Prozessoren, die benötigt werden. Außerdem hat die Geschwindigkeit logischer Prozessor Zeiten erhebliche Auswirkungen auf die Leistung, die Cache Effizienz, die Anforderungen an die Speicher Kohärenz, die Thread Planung und-Synchronisierung und eine nicht vollständig ausgeglichene Client Auslastung. Dies wirkt sich erheblich auf die Leistung aus. Mit den relativ günstigen Kosten der computeleistung wird der Versuch, die perfekte Anzahl der benötigten CPUs zu analysieren und zu bestimmen, zu einer akademischen Übung, als der Geschäftswert bereitgestellt wird.
 
 40 Prozent sind keine harte und schnelle Anforderung, es ist ein angemessener Start. Verschiedene Consumer von Active Directory erfordern verschiedene Ebenen der Reaktionsfähigkeit. Möglicherweise gibt es Szenarien, in denen Umgebungen mit einer Auslastung von 80% oder 90% als dauerhafter Durchschnitt ausgeführt werden können, da sich die zunehmenden Wartezeiten für den Zugriff auf den Prozessor nicht merklich auf die Client Leistung auswirken. Es ist wichtig, erneut zu durchlaufen, dass im System viele Bereiche vorhanden sind, die wesentlich langsamer sind als der logische Prozessor im System, einschließlich des Zugriffs auf RAM, des Zugriffs auf die Festplatte und der Übertragung der Antwort über das Netzwerk. Alle diese Elemente müssen zusammen abgestimmt werden. Beispiele:
 
@@ -691,12 +691,12 @@ In den Abschnitten zur Prozessor Auswahl wird die Annahme angenommen, dass der P
 
 Wenn die Prozessorgeschwindigkeit bei der Ersatz Hardware niedriger ist als die aktuelle Hardware, wäre es auch sicher, die Schätzung der Prozessoren zu erhöhen, die von einem angemessenen Betrag benötigt werden. Beispielsweise wird berechnet, dass 10 Prozessoren benötigt werden, um die Last an einem Standort aufrechtzuerhalten, und die aktuellen Prozessoren werden mit 3,3 GHz ausgeführt, und Ersatz Prozessoren werden mit 2,6 GHz ausgeführt. Dies ist eine Verringerung der Geschwindigkeit von 21%. In diesem Fall wäre der empfohlene Betrag bei 12 Prozessoren.
 
-Dies bedeutet, dass die Kapazitäts Verwaltungs Ziele bei der Prozessorauslastung durch diese Variabilität nicht geändert werden. Wenn die Prozessor Taktzeiten basierend auf der geforderten Auslastung dynamisch angepasst werden, wird durch das Ausführen des Systems unter höheren Lasten ein Szenario erzeugt, bei dem die CPU mehr Zeit in einem höheren Takt Zustand verbringt, was das ultimative Ziel ist, eine Auslastung von 40% in einem 100% zu erzielen. Taktfrequenz Status bei Spitzenwert. Alles, was kleiner ist als, generiert Stromeinsparungen, da die CPU-Geschwindigkeiten außerhalb der Spitzenzeiten gedrosselt werden.
+Dies bedeutet, dass die Kapazitäts Verwaltungs Ziele bei der Prozessorauslastung durch diese Variabilität nicht geändert werden. Wenn die Prozessor Taktfrequenz basierend auf der geforderten Auslastung dynamisch angepasst wird, wird durch das Ausführen des Systems unter höherer Auslastung ein Szenario generiert, bei dem die CPU mehr Zeit in einem höheren Takt Zustand verbringt, was das ultimative Ziel ist, bei einer Auslastung von 40% mit einem Wert von 100% Taktgeschwindigkeit bei Spitzen Auslastung zu sein. Alles, was kleiner ist als, generiert Stromeinsparungen, da die CPU-Geschwindigkeiten außerhalb der Spitzenzeiten gedrosselt werden.
 
 > [!NOTE]
 > Eine Option wäre das Deaktivieren der Energie Verwaltung auf den Prozessoren (Festlegen des Energie Sparplans auf **hohe Leistung**), während die Daten gesammelt werden. Dadurch würde eine genauere Darstellung der CPU-Auslastung auf dem Zielserver zur Verfügung stehen.
 
-Zum Anpassen der Schätzwerte für verschiedene Prozessoren war es sicher und mit Ausnahme anderer System Engpässe, die oben beschrieben wurden, zu übernehmen, dass die doppelte Prozessorgeschwindigkeit den Umfang der verarbeiteten Verarbeitung verdoppelt.  Heutzutage unterscheidet sich die interne Architektur der Prozessoren zwischen den Prozessoren, sodass eine sicherere Möglichkeit zum Messen der Auswirkungen der Verwendung verschiedener Prozessoren als bei der Verwendung des SPECint_rate2006 benchmarkwerts aus der Standard Leistungsbewertung besteht. Unternehmen.
+Zum Anpassen der Schätzwerte für verschiedene Prozessoren war es sicher und mit Ausnahme anderer System Engpässe, die oben beschrieben wurden, zu übernehmen, dass die doppelte Prozessorgeschwindigkeit den Umfang der verarbeiteten Verarbeitung verdoppelt.  Heutzutage unterscheidet sich die interne Architektur der Prozessoren zwischen den Prozessoren, sodass eine sicherere Möglichkeit zum Messen der Auswirkungen der Verwendung verschiedener Prozessoren als die von den Daten erfassten Daten darin besteht, den SPECint_rate2006 Benchmarkwert von der Standard Performance Evaluation Corporation zu nutzen.
 
 1. Suchen Sie nach den SPECint_rate2006 Bewertungen für den verwendeten Prozessor, und verwenden Sie diesen Plan.
     1. Wählen Sie auf der Website der Standard Performance Evaluation Corporation **Ergebnisse**, markieren Sie **CPU2006**, und wählen Sie **alle SPECint_rate2006 Ergebnisse suchen**aus.
@@ -769,10 +769,10 @@ Nachdem Sie die Komponenten identifiziert haben, können Sie berechnen, wie viel
   
   |E/a-Unterstützung durch SCSI-Bus pro Blockgröße|Blockgröße 2 KB|Blockgröße 8 KB (AD Jet) (SQL Server 7.0/SQL Server 2000)
   |-|-|-|
-  |20 MB/s|10,000|2,500|
-  |40 MB/s|20.000|5,000|
+  |20 MB/s|10.000|2\.500|
+  |40 MB/s|20.000|5\.000|
   |128 MB/s|65.536|16.384|
-  |320 MB/s|160.000|40.000|
+  |320 MB/s|160.000|40,000|
 
   Wie von diesem Diagramm bestimmt werden kann, ist im Szenario, unabhängig von der Art der Verwendung, der Bus nie ein Engpass, da der maximale spinspinwert 100-e/a-Vorgänge unter einem der oben genannten Schwellenwerte liegt.
 
@@ -794,17 +794,17 @@ Nach der Analyse der Komponenten dieses Speicher Subsystems ist die Spindel der 
 
 Nachdem Sie nun eine einfache Konfiguration analysiert haben, zeigt die folgende Tabelle, wo der Engpass auftritt, wenn Komponenten im Speichersubsystem geändert oder hinzugefügt werden.
 
-|Anmerkungen|Engpass-Analyse|Festplatte|Bus|Adapter|PCI-Bus|
+|Hinweise|Engpass-Analyse|Datenträger|Bus|Adapter|PCI-Bus|
 |-|-|-|-|-|-|
-|Dies ist die Konfiguration des Domänen Controllers nach dem Hinzufügen eines zweiten Datenträgers. Die Datenträger Konfiguration stellt den Engpass bei 800 KB/s dar.|1 Datenträger hinzufügen (Gesamt = 2)<br /><br />E/a ist zufällig<br /><br />Blockgröße 4 KB<br /><br />10.000 rpm HD|200 I/OS Gesamt<br />800 KB/s insgesamt.| | | |
-|Nach dem Hinzufügen von 7 Datenträgern stellt die Datenträger Konfiguration weiterhin den Engpass bei 3200 KB/s dar.|**7 Datenträger hinzufügen (Gesamt = 8)**  <br /><br />E/a ist zufällig<br /><br />Blockgröße 4 KB<br /><br />10.000 rpm HD|800 I/OS gesamt.<br />3200 KB/s insgesamt| | | |
-|Nachdem die e/a-Vorgänge in eine sequenzielle Änderung geändert wurden, wird der Netzwerkadapter zum Engpass, weil er auf 1000 IOPS beschränkt ist.|7 Datenträger hinzufügen (Gesamt = 8)<br /><br />**E/a ist sequenziell**<br /><br />Blockgröße 4 KB<br /><br />10.000 rpm HD| | |2400 e/a-Sek. können auf den Datenträger gelesen/geschrieben werden, Controller beschränkt auf 1000 IOPS| |
-|Nachdem Sie den Netzwerkadapter durch einen SCSI-Adapter ersetzt haben, der 10.000 IOPS unterstützt, kehrt der Engpass zur Datenträger Konfiguration zurück.|7 Datenträger hinzufügen (Gesamt = 8)<br /><br />E/a ist zufällig<br /><br />Blockgröße 4 KB<br /><br />10.000 rpm HD<br /><br />**SCSI-Adapter aktualisieren (unterstützt jetzt 10.000-e/a)**|800 I/OS gesamt.<br />3\.200 KB/s insgesamt| | | |
-|Nachdem die Blockgröße auf 32 KB erhöht wurde, wird der Bus zum Engpass, da er nur 20 MB/s unterstützt.|7 Datenträger hinzufügen (Gesamt = 8)<br /><br />E/a ist zufällig<br /><br />**Blockgröße 32 KB**<br /><br />10.000 rpm HD| |800 I/OS gesamt. 25.600 KB/s (25 MB/s) können auf den Datenträger gelesen/geschrieben werden.<br /><br />Der Bus unterstützt nur 20 MB/s.| | |
-|Nachdem Sie den Bus aktualisiert und weitere Datenträger hinzugefügt haben, bleibt der Datenträger als Engpass.|**13 Datenträger hinzufügen (Gesamt = 14)**<br /><br />Hinzufügen eines zweiten SCSI-Adapters mit 14 Datenträgern<br /><br />E/a ist zufällig<br /><br />Blockgröße 4 KB<br /><br />10.000 rpm HD<br /><br />**Upgrade auf 320 MB/s SCSI-Bus**|2800 I/OS<br /><br />11.200 KB/s (10,9 MB/s)| | | |
-|Nach dem Ändern des e/a-Vorgängen in den sequenziellen Datenträger bleibt der Datenträger|13 Datenträger hinzufügen (Gesamt = 14)<br /><br />Hinzufügen eines zweiten SCSI-Adapters mit 14 Datenträgern<br /><br />**E/a ist sequenziell**<br /><br />Blockgröße 4 KB<br /><br />10.000 rpm HD<br /><br />Upgrade auf 320 MB/s SCSI-Bus|8\.400 I/OS<br /><br />33.600 kb\s<br /><br />(32,8 mb\s)| | | |
-|Nachdem Sie schnellere Festplatten hinzugefügt haben, bleibt der Datenträger als Engpass fest.|13 Datenträger hinzufügen (Gesamt = 14)<br /><br />Hinzufügen eines zweiten SCSI-Adapters mit 14 Datenträgern<br /><br />E/a ist sequenziell<br /><br />Blockgröße 4 KB<br /><br />**15.000 rpm HD**<br /><br />Upgrade auf 320 MB/s SCSI-Bus|14.000 I/OS<br /><br />56.000 KB/s<br /><br />(54,7 MB/s)| | | |
-|Nachdem die Blockgröße auf 32 KB erhöht wurde, wird der PCI-Bus zu einem Engpass.|13 Datenträger hinzufügen (Gesamt = 14)<br /><br />Hinzufügen eines zweiten SCSI-Adapters mit 14 Datenträgern<br /><br />E/a ist sequenziell<br /><br />**Blockgröße 32 KB**<br /><br />15.000 rpm HD<br /><br />Upgrade auf 320 MB/s SCSI-Bus| | | |14.000 I/OS<br /><br />448.000 KB/s<br /><br />(437 MB/s) ist das Lese-/schreiblimit für die Spindel.<br /><br />Der PCI-Bus unterstützt ein theoretisches Maximum von 133 MB/s (75% effizient).|
+|Dies ist die Konfiguration des Domänen Controllers nach dem Hinzufügen eines zweiten Datenträgers. Die Datenträger Konfiguration stellt den Engpass bei 800 KB/s dar.|1 Datenträger hinzufügen (Gesamt = 2)<p>E/a ist zufällig<p>Blockgröße 4 KB<p>10.000 rpm HD|200 I/OS Gesamt<br />800 KB/s insgesamt.| | | |
+|Nach dem Hinzufügen von 7 Datenträgern stellt die Datenträger Konfiguration weiterhin den Engpass bei 3200 KB/s dar.|**7 Datenträger hinzufügen (Gesamt = 8)**  <p>E/a ist zufällig<p>Blockgröße 4 KB<p>10.000 rpm HD|800 I/OS gesamt.<br />3200 KB/s insgesamt| | | |
+|Nachdem die e/a-Vorgänge in eine sequenzielle Änderung geändert wurden, wird der Netzwerkadapter zum Engpass, weil er auf 1000 IOPS beschränkt ist.|7 Datenträger hinzufügen (Gesamt = 8)<p>**E/a ist sequenziell**<p>Blockgröße 4 KB<p>10.000 rpm HD| | |2400 e/a-Sek. können auf den Datenträger gelesen/geschrieben werden, Controller beschränkt auf 1000 IOPS| |
+|Nachdem Sie den Netzwerkadapter durch einen SCSI-Adapter ersetzt haben, der 10.000 IOPS unterstützt, kehrt der Engpass zur Datenträger Konfiguration zurück.|7 Datenträger hinzufügen (Gesamt = 8)<p>E/a ist zufällig<p>Blockgröße 4 KB<p>10.000 rpm HD<p>**SCSI-Adapter aktualisieren (unterstützt jetzt 10.000-e/a)**|800 I/OS gesamt.<br />3\.200 KB/s insgesamt| | | |
+|Nachdem die Blockgröße auf 32 KB erhöht wurde, wird der Bus zum Engpass, da er nur 20 MB/s unterstützt.|7 Datenträger hinzufügen (Gesamt = 8)<p>E/a ist zufällig<p>**Blockgröße 32 KB**<p>10.000 rpm HD| |800 I/OS gesamt. 25.600 KB/s (25 MB/s) können auf den Datenträger gelesen/geschrieben werden.<p>Der Bus unterstützt nur 20 MB/s.| | |
+|Nachdem Sie den Bus aktualisiert und weitere Datenträger hinzugefügt haben, bleibt der Datenträger als Engpass.|**13 Datenträger hinzufügen (Gesamt = 14)**<p>Hinzufügen eines zweiten SCSI-Adapters mit 14 Datenträgern<p>E/a ist zufällig<p>Blockgröße 4 KB<p>10.000 rpm HD<p>**Upgrade auf 320 MB/s SCSI-Bus**|2800 I/OS<p>11.200 KB/s (10,9 MB/s)| | | |
+|Nach dem Ändern des e/a-Vorgängen in den sequenziellen Datenträger bleibt der Datenträger|13 Datenträger hinzufügen (Gesamt = 14)<p>Hinzufügen eines zweiten SCSI-Adapters mit 14 Datenträgern<p>**E/a ist sequenziell**<p>Blockgröße 4 KB<p>10.000 rpm HD<p>Upgrade auf 320 MB/s SCSI-Bus|8\.400 I/OS<p>33.600 kb\s<p>(32,8 mb\s)| | | |
+|Nachdem Sie schnellere Festplatten hinzugefügt haben, bleibt der Datenträger als Engpass fest.|13 Datenträger hinzufügen (Gesamt = 14)<p>Hinzufügen eines zweiten SCSI-Adapters mit 14 Datenträgern<p>E/a ist sequenziell<p>Blockgröße 4 KB<p>**15.000 rpm HD**<p>Upgrade auf 320 MB/s SCSI-Bus|14.000 I/OS<p>56.000 KB/s<p>(54,7 MB/s)| | | |
+|Nachdem die Blockgröße auf 32 KB erhöht wurde, wird der PCI-Bus zu einem Engpass.|13 Datenträger hinzufügen (Gesamt = 14)<p>Hinzufügen eines zweiten SCSI-Adapters mit 14 Datenträgern<p>E/a ist sequenziell<p>**Blockgröße 32 KB**<p>15.000 rpm HD<p>Upgrade auf 320 MB/s SCSI-Bus| | | |14.000 I/OS<p>448.000 KB/s<p>(437 MB/s) ist das Lese-/schreiblimit für die Spindel.<p>Der PCI-Bus unterstützt ein theoretisches Maximum von 133 MB/s (75% effizient).|
 
 ### <a name="introducing-raid"></a>Einführung in RAID
 
@@ -820,15 +820,15 @@ In RAID 1 werden die Daten für Redundanz über ein Spindeln-paar hinweg gespieg
 
 Wenn das Verhältnis zwischen Lese-und Schreibvorgängen und der Anzahl der Spindeln bekannt ist, kann die folgende Gleichung von der obigen Gleichung abgeleitet werden, um die maximale e/a zu identifizieren, die vom Array unterstützt werden kann:  
 
-> *Maximaler IOPS pro Spindel* &times; 2 Spindeln &times; [( *%Liest* +  *%Schreibt*) &divide; ( *%Liest* + 2 &times; *%Schreibt*)] = *Gesamt-IOPS*
+> *Maximaler IOPS-Wert pro Spindel* &times; 2 Spindeln &times; [( *% Lese* Vorgänge +  *% Schreibvorgänge*) &divide; ( *% Lese* Vorgänge + 2 &times; *% Schreibvorgänge*)] = *IOPS Gesamt*
 
-RAID 1 + 0 verhält sich in Bezug auf das Lesen und Schreiben genauso wie RAID 1. Die e/a-Vorgänge werden jedoch jetzt über jeden gespiegelten Satz verteilt. Wenn  
+RAID 1 + 0 verhält sich in Bezug auf das Lesen und Schreiben genauso wie RAID 1. Die e/a-Vorgänge werden jedoch jetzt über jeden gespiegelten Satz verteilt. Wenn virtuelle Maschinen mit  
 
-> *Maximaler IOPS pro Spindel* &times; 2 Spindeln &times; [( *%Liest* +  *%Schreibt*) &divide; ( *%Liest* + 2 &times; *%Schreibt*)] = *Gesamt-IOPS*  
+> *Maximaler IOPS-Wert pro Spindel* &times; 2 Spindeln &times; [( *% Lese* Vorgänge +  *% Schreibvorgänge*) &divide; ( *% Lese* Vorgänge + 2 &times; *% Schreibvorgänge*)] = *Gesamtzahl* der e/a-Vorgänge  
 
 Wenn in einem RAID 1-Satz eine Multiplizität (*N*) von RAID 1-Sätzen festgelegt ist, wird die Gesamtzahl der e/a-Vorgänge, die verarbeitet werden können, N &times; e/a pro RAID 1-Satz:  
 
-> *N* &times; {*Maximaler IOPS pro Spindel* &times; 2 spindels &times; [( *%Liest* +  *%Schreibt*) &divide; ( *%Liest* + 2 &times; *%Schreibt*)] } = *Gesamt-IOPS*
+> *N* &times; {*Maximale IOPS pro Spindel* &times; 2 Spindeln &times; [( *% Lesevorgänge* +  *% Schreibvorgänge*) &divide; ( *% Lese* Vorgänge + 2 &times; *% Schreibvorgänge*)]} = *IOPS Gesamt*
 
 In RAID 5 (manchmal auch als " *n* + 1 RAID" bezeichnet) werden die Daten auf *n* Spindeln verteilt, und Paritätsinformationen werden in die "+ 1"-Spindel geschrieben. RAID 5 ist jedoch viel kostengünstiger, wenn e/a-Vorgänge als RAID 1 oder 1 + 0 durchgeführt werden. RAID 5 führt den folgenden Prozess jedes Mal aus, wenn ein e/a-Schreibvorgang an das Array übermittelt wird:
 
@@ -843,7 +843,7 @@ Da für jede Schreib-e/a-Anforderung, die vom Betriebssystem an den Array Contro
 
 Entsprechend kann in einer RAID 1-Gruppe die folgende Gleichung abgeleitet werden, wenn das Verhältnis zwischen Lese-und Schreibvorgängen und der Anzahl der Spindeln bekannt ist, um die maximale e/a zu ermitteln, die vom Array unterstützt werden kann. (Beachten Sie, dass die Gesamtzahl der Spindeln nicht das "Laufwerk" umfasst, das auf Parität geht):  
 
-> *IOPS per spindel* &times; (*Spindel* – 1) &times; [( *%Liest* +  *%Schreibt*) &divide; ( *%Liest* + 4 &times; *%Schreibt*)] = *Gesamt IOPS*
+> *IOPS pro Spindel* &times; (*Spindles* – 1) &times; [( *% Lese* Vorgänge +  *% Schreibvorgänge*) &divide; ( *% Lese* Vorgänge + 4 &times; *% Schreibvorgänge*)] = *IOPS Gesamt*
 
 ### <a name="introducing-sans"></a>Einführung in Sans
 
@@ -857,7 +857,7 @@ Wenn Sie die Komplexität des Speicher Subsystems erweitern, wenn ein San in die
 - HBA (s)
 - Der PCI-Bus
 
-Wenn Sie ein System für Redundanz entwerfen, sind zusätzliche Komponenten enthalten, um das mögliche Auftreten von Fehlern zu ermöglichen. Bei der Kapazitätsplanung ist es sehr wichtig, die redundante Komponente von verfügbaren Ressourcen auszuschließen. Wenn das San z. b. über zwei Controller Module verfügt, muss die e/a-Kapazität eines Controller Moduls für den gesamten e/a-Durchsatz verwendet werden, der für das System verfügbar ist. Dies liegt daran, dass bei einem Ausfall eines Controllers die gesamte von allen verbundenen Systemen geforderte e/a-Last vom verbleibenden Controller verarbeitet werden muss. Da die gesamte Kapazitätsplanung für Spitzenzeiten durchgeführt wird, sollten redundante Komponenten nicht in den verfügbaren Ressourcen berücksichtigt werden, und die geplante Spitzen Auslastung sollte die Sättigung des Systems von 80% nicht überschreiten (um Spitzen oder anomale Systeme zu berücksichtigen). Verhalten). Ebenso sollten der redundante SAN-Switch, die Speichereinheit und die Spindeln nicht in die e/a-Berechnungen einbezogen werden.
+Wenn Sie ein System für Redundanz entwerfen, sind zusätzliche Komponenten enthalten, um das mögliche Auftreten von Fehlern zu ermöglichen. Bei der Kapazitätsplanung ist es sehr wichtig, die redundante Komponente von verfügbaren Ressourcen auszuschließen. Wenn das San z. b. über zwei Controller Module verfügt, muss die e/a-Kapazität eines Controller Moduls für den gesamten e/a-Durchsatz verwendet werden, der für das System verfügbar ist. Dies liegt daran, dass bei einem Ausfall eines Controllers die gesamte von allen verbundenen Systemen geforderte e/a-Last vom verbleibenden Controller verarbeitet werden muss. Da die gesamte Kapazitätsplanung für Spitzen Auslastungs Zeiträume erfolgt, sollten redundante Komponenten nicht in den verfügbaren Ressourcen berücksichtigt werden, und die geplante Spitzen Auslastung sollte die Sättigung des Systems von 80% nicht überschreiten (um das Verhalten von Spitzen oder anomalen Systemen zu berücksichtigen). Ebenso sollten der redundante SAN-Switch, die Speichereinheit und die Spindeln nicht in die e/a-Berechnungen einbezogen werden.
 
 Wenn Sie das Verhalten der SCSI-oder Fibre Channel Festplatte analysieren, wird die Methode zum Analysieren des Verhaltens wie zuvor beschrieben nicht geändert. Obwohl jedes Protokoll bestimmte vor-und Nachteile hat, ist der einschränkende Faktor pro Datenträger die mechanische Einschränkung der Festplatte.
 

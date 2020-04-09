@@ -1,24 +1,20 @@
 ---
 title: wevtutil
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Artikel für wevtutil, mit dem Sie Informationen über Ereignisprotokolle und Herausgeber abrufen können.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d4c791e0-7e59-45c5-aa55-0223b77a4822 vhorne
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 21f3b721a2a08a7fa101ec09f1f11b5e984f0113
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 62be2b14373457a3b114e8d067e1c7aa32b2182d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362168"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829353"
 ---
 # <a name="wevtutil"></a>wevtutil
 
@@ -40,7 +36,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 [{cl | clear-log} <Logname> [/bu:<Backup>]] [/r:<Remote>] [/u:<Username>] [/p:<Password>] [/a:<Auth>] [/uni:<Unicode>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -87,7 +83,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 |   /BU:\<Backup >    |                                                                                                                                                                                                      Gibt den Pfad zu einer Datei an, in der die gelöschten Ereignisse gespeichert werden. Fügen Sie die Erweiterung. evtx in den Namen der Sicherungsdatei ein.                                                                                                                                                                                                       |
 |    /r:\<Remote >    |                                                                                                                                                                                            Führt den Befehl auf einem Remote Computer aus. \<Remote > ist der Name des Remote Computers. Der **im** -und der **um** -Parameter unterstützen keinen Remote Vorgang.                                                                                                                                                                                            |
 |   /u:\<Benutzername >   |                                                                                                                                                                          Gibt einen anderen Benutzer an, der sich an einem Remote Computer anmelden soll. \<username > ist ein Benutzername im Format "Domäne \ Benutzer" oder "Benutzer". Diese Option ist nur anwendbar, wenn die **/r** -Option angegeben wird.                                                                                                                                                                          |
-|   /p:\<Kennwort >   |                                                                                                                                               Gibt das Kennwort für den Benutzer an. Wenn die **/u** -Option verwendet wird und diese Option nicht angegeben ist oder \<Kennwort >*den Wert "" hat, wird der Benutzer zur Eingabe eines Kennworts aufgefordert. Diese Option ist nur anwendbar, wenn die Option \*\*/u*\* angegeben ist.                                                                                                                                                |
+|   /p:\<Kennwort >   |                                                                                                                                               Gibt das Kennwort für den Benutzer an. Wenn die **/u** -Option verwendet wird und diese Option nicht angegeben ist oder \<Kennwort > ist *, wird der Benutzer zur Eingabe eines Kennworts aufgefordert. Diese Option ist nur anwendbar, wenn die Option \*\*/u*\* angegeben ist.                                                                                                                                                |
 |     /a:\<auth >     |                                                                                                                                                                                             Definiert den Authentifizierungstyp zum Herstellen einer Verbindung mit einem Remote Computer. \<auth > kann Default, Aushandlungs, Kerberos oder NTLM sein. Der Standardwert ist "aushandeln".                                                                                                                                                                                              |
 |  /Uni:\<Unicode->   |                                                                                                                                                                                                             Zeigt die Ausgabe in Unicode an. \<Unicode-> kann "true" oder "false" sein. Wenn <Unicode> den Wert true hat, erfolgt die Ausgabe in Unicode.                                                                                                                                                                                                             |
 
@@ -97,9 +93,9 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
 
     Bei der Konfigurationsdatei handelt es sich um eine XML-Datei, die das gleiche Format wie die Ausgabe von wevtutil GL \<logName >/f: XML hat. Das folgende Beispiel zeigt das Format einer Konfigurationsdatei, die die Beibehaltung aktiviert, die automatische Sicherung aktiviert und die maximale Protokoll Größe für das Anwendungsprotokoll festlegt:  
     ```
-    <?xml version="1.0" encoding="UTF-8"?>
-    <channel name="Application" isolation="Application"
-    xmlns="https://schemas.microsoft.com/win/2004/08/events">
+    <?xml version=1.0 encoding=UTF-8?>
+    <channel name=Application isolation=Application
+    xmlns=https://schemas.microsoft.com/win/2004/08/events>
     <logging>
     <retention>true</retention>
     <autoBackup>true</autoBackup>
@@ -110,7 +106,7 @@ wevtutil [{el | enum-logs}] [{gl | get-log} <Logname> [/f:<Format>]]
     </channel>
     ```
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Auflisten der Namen aller Protokolle:
 ```
@@ -155,4 +151,4 @@ wevtutil cl Application /bu:C:\admin\backups\a10306.evtx
 
 #### <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

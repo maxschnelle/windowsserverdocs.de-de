@@ -1,7 +1,6 @@
 ---
 ms.assetid: ac727bd1-a892-47ed-a7ba-439b34187d4e
 title: Seitenbeschreibungen für den Assistenten zum Installieren und Entfernen von AD DS
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 3563c30e86c53435c10cafc840a71c7b8c526943
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 7370dfed68e22ca88030aec913db4eb52eef9ec3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323252"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825453"
 ---
 # <a name="ad-ds-installation-and-removal-wizard-page-descriptions"></a>Seitenbeschreibungen für den Assistenten zum Installieren und Entfernen von AD DS
 
@@ -50,7 +49,7 @@ Dieses Thema enthält Beschreibungen zu den Steuerelementen auf den folgenden As
   
 -   [Rollen Entfernungs Auswahl bestätigen](../../ad-ds/deploy/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions.md#BKMK_ConfirmRoleRemovalPage)  
   
-## <a name="BKMK_DepConfigPage"></a>Bereitstellungs Konfiguration  
+## <a name="deployment-configuration"></a><a name="BKMK_DepConfigPage"></a>Bereitstellungs Konfiguration  
 In Server-Manager beginnt jede Domänencontrollerinstallation auf der Seite **Bereitstellungskonfiguration**. Die restlichen Optionen und erforderlichen Felder auf dieser Seite und den folgenden Seiten variieren in Abhängigkeit von dem von Ihnen ausgewählten Bereitstellungsvorgang. Wenn Sie z. b. eine neue Gesamtstruktur erstellen, wird die Seite **Vorbereitungs Optionen** nicht angezeigt. Dies geschieht jedoch, wenn Sie den ersten Domänen Controller installieren, auf dem Windows Server 2012 in einer vorhandenen Gesamtstruktur oder Domäne ausgeführt wird.  
   
 Auf dieser Seite werden einige Validierungstests ausgeführt. Diese Tests werden später im Rahmen der Voraussetzungsüberprüfungen wiederholt. Wenn Sie z. b. versuchen, den ersten Windows Server 2012-Domänen Controller in einer Gesamtstruktur mit Windows 2000-Funktionsebene zu installieren, wird ein Fehler auf dieser Seite angezeigt.  
@@ -96,14 +95,14 @@ Beim Hinzufügen eines neuen Domänencontrollers zu einer vorhandenen Domäne we
   
 Weitere Informationen zum Hinzufügen eines Domänen Controllers zu einer vorhandenen Domäne finden Sie unter [Installieren eines Windows Server 2012-Replikat Domänen Controllers &#40;in einer&#41;vorhandenen Domänen Ebene 200](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md).  
   
-## <a name="BKMK_DCOptionsPage"></a>Domänen Controller Optionen  
+## <a name="domain-controller-options"></a><a name="BKMK_DCOptionsPage"></a>Domänen Controller Optionen  
 Wenn Sie eine neue Gesamtstruktur erstellen, werden auf der Seite %%amp;quot;Domänencontrolleroptionen%%amp;quot; die folgenden Optionen angezeigt:  
   
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_DCOptions_Forest.gif)  
   
 -   Die Gesamtstruktur-und Domänen Funktionsebenen werden standardmäßig auf Windows Server 2012 festgelegt.  
   
-    Auf der Windows Server 2012-Domänen Funktionsebene ist ein neues Feature verfügbar: die Unterstützung für dynamische Access Control und die Kerberos armoring-Richtlinie für administrative Vorlagen mit KDC verfügt über zwei Einstellungen (Ansprüche immer bereitstellen und nicht hochgerüstete Authentifizierung ausführen). Anforderungen), die die Windows Server 2012-Domänen Funktionsebene erfordern. Weitere Informationen finden Sie unter "Unterstützung für Ansprüche, Verbund Authentifizierung und Kerberos armoring" unter [Neuerungen bei der Kerberos-Authentifizierung](https://technet.microsoft.com/library/hh831747.aspx).    
+    Auf der Windows Server 2012-Domänen Funktionsebene ist ein neues Feature verfügbar: die Unterstützung für dynamische Access Control und die Kerberos armoring-Richtlinie für administrative Vorlagen für virtuelle KDC-Vorlagen verfügt über zwei Einstellungen (immer Ansprüche bereitstellen und nicht hochgerüstete Authentifizierungsanforderungen fehlschlagen), für die die Domänen Funktionsebene 2012 Windows Weitere Informationen finden Sie unter "Unterstützung für Ansprüche, Verbund Authentifizierung und Kerberos armoring" unter [Neuerungen bei der Kerberos-Authentifizierung](https://technet.microsoft.com/library/hh831747.aspx).    
     Die Windows Server 2012-Gesamtstruktur Funktionsebene bietet keine neuen Features, stellt jedoch sicher, dass alle in der Gesamtstruktur erstellten neuen Domänen automatisch auf der Domänen Funktionsebene von Windows Server 2012 ausgeführt werden. Die Domänen Funktionsebene Windows Server 2012 bietet neben der Unterstützung für dynamische Access Control und Kerberos armoring keine neuen anderen Features, stellt jedoch sicher, dass alle Domänen Controller in der Domäne Windows Server 2012 ausführen. Weitere Informationen zu weiteren Features, die auf verschiedenen Funktionsebenen verfügbar sind, finden Sie unter [Understanding Active Directory Domain Services (AD DS) Functional Levels](../active-directory-functional-levels.md).  
   
     Neben Funktionsebenen bietet ein Domänen Controller, auf dem Windows Server 2012 ausgeführt wird, zusätzliche Features, die auf einem Domänen Controller, auf dem eine frühere Version von Windows Server ausgeführt wird, nicht verfügbar sind. Beispielsweise kann ein Domänen Controller mit Windows Server 2012 zum Klonen virtueller Domänen Controller verwendet werden, während ein Domänen Controller, auf dem eine frühere Version von Windows Server ausgeführt wird, nicht ausgeführt werden kann.  
@@ -141,7 +140,7 @@ Wenn Sie einer Domäne einen Domänencontroller hinzufügen, werden auf der Seit
   
 Weitere Informationen zum Hinzufügen eines Domänen Controllers zu einer vorhandenen Domäne finden Sie unter [Installieren eines Windows Server 2012-Replikat Domänen Controllers &#40;in einer&#41;vorhandenen Domänen Ebene 200](../../ad-ds/deploy/../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md).  
   
-## <a name="BKMK_DNSOptionsPage"></a>DNS-Optionen  
+## <a name="dns-options"></a><a name="BKMK_DNSOptionsPage"></a>DNS-Optionen  
 Wenn Sie DNS-Server installieren, wird die folgende Seite mit **DNS-Optionen** angezeigt:  
   
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_DNSOptions_Replica.gif)  
@@ -168,7 +167,7 @@ Weitere Informationen zur Delegierung finden Sie Untergrund Legendes zur [Zonen 
   
 -   Grundlegendes zu weiter [Leitungen (https://go.microsoft.com/fwlink/?LinkId=164778)](https://go.microsoft.com/fwlink/?LinkId=164778)  
   
-## <a name="BKMK_RODCOptionsPage"></a>RODC-Optionen  
+## <a name="rodc-options"></a><a name="BKMK_RODCOptionsPage"></a>RODC-Optionen  
 Beim Installieren eines schreibgeschützten Domänencontrollers (Read-Only Domain Controller, RODC) werden die folgenden Optionen angezeigt.  
   
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_RODCOptions.gif)  
@@ -183,7 +182,7 @@ Beim Installieren eines schreibgeschützten Domänencontrollers (Read-Only Domai
   
 Weitere Informationen zum Installieren von RODCs finden [Sie unter Installieren eines Windows Server 2012 Active Directory schreibgeschützten Domänen &#40;Controller-&#41; &#40;RODC&#41;-Ebene 200](../../ad-ds/deploy/RODC/Install-a-Windows-Server-2012-Active-Directory-Read-Only-Domain-Controller--RODC---Level-200-.md).  
   
-## <a name="BKMK_AdditionalOptionsPage"></a>Zusätzliche Optionen  
+## <a name="additional-options"></a><a name="BKMK_AdditionalOptionsPage"></a>Zusätzliche Optionen  
 Die folgende Option wird auf der Seite **Zusätzliche Optionen** angezeigt, wenn Sie eine neue Domäne erstellen:  
   
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_AdditionalOptions_Child.gif)  
@@ -198,7 +197,7 @@ Die folgenden Optionen werden auf der Seite **Zusätzliche Optionen** angezeigt,
   
 Weitere Informationen zum Erstellen einer Domäne finden Sie unter [install a New Windows Server 2012 Active Directory Kind or Tree Domain &#40;Level 200&#41;](../../ad-ds/deploy/../../ad-ds/deploy/../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md). Weitere Informationen zum Hinzufügen eines Domänen Controllers zu einer vorhandenen Domäne finden Sie unter [Installieren eines Windows Server 2012-Replikat Domänen Controllers &#40;in einer&#41;vorhandenen Domänen Ebene 200](../../ad-ds/deploy/../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md).  
   
-## <a name="BKMK_Paths"></a>Tramp  
+## <a name="paths"></a><a name="BKMK_Paths"></a>Tramp  
 Auf der Seite **Pfade** werden die folgenden Optionen angezeigt.  
   
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_Paths.gif)  
@@ -207,7 +206,7 @@ Auf der Seite **Pfade** werden die folgenden Optionen angezeigt.
   
 Geben Sie den Speicherort für die AD DS-Datenbank (NTDS.DIT), die Protokolldateien und für SYSVOL an. Bei einer lokalen Installation können Sie zu dem Speicherort navigieren, unter dem Sie die Dateien speichern möchten.  
   
-## <a name="BKMK_AdprepCreds"></a>Vorbereitungs Optionen  
+## <a name="preparation-options"></a><a name="BKMK_AdprepCreds"></a>Vorbereitungs Optionen  
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_PreparationOptions.gif)  
   
 Wenn Sie derzeit nicht mit den zum Ausführen von adprep.exe-Befehlen erforderlichen Anmeldeinformationen angemeldet sind und Adprep zum Abschließen der AD DS-Installation erforderlich ist, werden Sie zum Angeben von Anmeldeinformationen aufgefordert, mit denen %%amp;quot;adprep.exe%%amp;quot; ausgeführt werden kann. Zum Hinzufügen des ersten Domänen Controllers, auf dem Windows Server 2012 ausgeführt wird, zu einer vorhandenen Domäne oder Gesamtstruktur muss adprep ausgeführt werden. Insbesondere:  
@@ -220,14 +219,14 @@ Wenn Sie derzeit nicht mit den zum Ausführen von adprep.exe-Befehlen erforderli
   
 Weitere Informationen zu Adprep. exe finden Sie unter [Integration von Adprep. exe](../../ad-ds/deploy/What-s-New-in-Active-Directory-Domain-Services-Installation-and-Removal.md#BKMK_NewAdprep) und unter [Ausführen von adprep](https://technet.microsoft.com/library/dd464018(WS.10).aspx). exe.  
   
-## <a name="BKMK_ViewInstallOptionsPage"></a>Überprüfungs Optionen  
+## <a name="review-options"></a><a name="BKMK_ViewInstallOptionsPage"></a>Überprüfungs Optionen  
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_ReviewOptions.gif)  
   
 -   Auf der Seite **Optionen prüfen** können Sie vor dem Starten der Installation Ihre Einstellungen validieren und sicherstellen, dass Ihre Anforderungen erfüllt werden. Dies ist jedoch nicht die letzte Möglichkeit, um die Installation mit Server-Manager zu stoppen. Diese Seite ermöglicht Ihnen lediglich das Überprüfen und Bestätigen Ihrer Einstellungen, bevor Sie die Konfiguration fortsetzen.  
   
 -   Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen. Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt.  
   
-## <a name="BKMK_PrerqCheckPage"></a>Voraussetzungs Prüfung  
+## <a name="prerequisites-check"></a><a name="BKMK_PrerqCheckPage"></a>Voraussetzungs Prüfung  
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_PrerequisitesCheck.gif)  
   
 Einige der auf dieser Seite angezeigten Warnungen lauten wie folgt:  
@@ -240,7 +239,7 @@ Einige der auf dieser Seite angezeigten Warnungen lauten wie folgt:
   
 Weitere Informationen zu den für die AD DS-Installation spezifischen Voraussetzungsüberprüfungen finden Sie unter [Voraussetzungsüberprüfungen](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_ADDSInstallPrerequisiteTests).  
   
-## <a name="BKMK_Results"></a>Folgen  
+## <a name="results"></a><a name="BKMK_Results"></a>Folgen  
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_SMI_SMResultsBeta.gif)  
   
 Auf dieser Seite können Sie die Ergebnisse der Installation überprüfen.  
@@ -249,7 +248,7 @@ Zudem können Sie festlegen, dass der Zielserver nach Abschluss des Assistenten 
   
 Wenn der Neustart des Zielservers in diesem Fall nicht gelingt, müssen Sie ihn manuell neu starten. Ein Neustart mithilfe von Tools wie %%amp;quot;shutdown.exe%%amp;quot; oder Windows PowerShell ist nicht möglich. Über die Remotedesktopdienste können Sie sich anmelden und den Zielserver per Remoteverbindung herunterfahren.  
   
-## <a name="BKMK_RemovalCredsPage"></a>Anmelde Informationen zur Rollen Löschung  
+## <a name="role-removal-credentials"></a><a name="BKMK_RemovalCredsPage"></a>Anmelde Informationen zur Rollen Löschung  
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_RRW_Credentials.gif)  
   
 Auf der Seite **Anmeldeinformationen** werden Herabstufungsoptionen konfiguriert. Geben Sie in der folgenden Liste die zum Ausführen der Herabstufung erforderlichen Anmeldeinformationen an:  
@@ -263,7 +262,7 @@ Auf der Seite **Anmeldeinformationen** werden Herabstufungsoptionen konfiguriert
   
 Weitere Informationen zum Entfernen von AD DS finden Sie unter [Remove Active Directory Domain Services (Stufe 100)](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c) und herab [Stufen von Domänen &#40;Controllern&#41;und Domänen Ebene 200](Demoting-Domain-Controllers-and-Domains--Level-200-.md).  
   
-## <a name="BKMK_RemovalOptionsPage"></a>AD DS Entfernungs Optionen und Warnungen  
+## <a name="ad-ds-removal-options-and-warnings"></a><a name="BKMK_RemovalOptionsPage"></a>AD DS Entfernungs Optionen und Warnungen  
 Hilfe zur Seite %%amp;quot;Optionen prüfen%%amp;quot; finden Sie unter %%amp;quot;Überprüfungsoptionen%%amp;quot;.  
   
 Wenn der Domänencontroller zusätzliche Rollen hostet (z. B. die DNS-Serverrolle oder den globalen Katalogserver) wird die folgende Warnseite angezeigt:  
@@ -298,14 +297,14 @@ Wenn es sich bei dem Domänencontroller um einen DNS-Server handelt, der zum Hos
   
 Weitere Informationen zum Entfernen von AD DS finden Sie unter [Remove Active Directory Domain Services (Stufe 100)](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c) und herab [Stufen von Domänen &#40;Controllern&#41;und Domänen Ebene 200](Demoting-Domain-Controllers-and-Domains--Level-200-.md).  
   
-## <a name="BKMK_NewAdminPwdPage"></a>Neues Administrator Kennwort  
+## <a name="new-administrator-password"></a><a name="BKMK_NewAdminPwdPage"></a>Neues Administrator Kennwort  
 Auf der Seite **Neues Administrator Kennwort** müssen Sie ein Kennwort für das Administrator Konto des integrierten lokalen Computers angeben, nachdem die Herabstufung abgeschlossen und der Computer zu einem Domänen Mitglieds Server oder Arbeitsgruppen Computer wird.  
   
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_RRW_NewAdminPwd.gif)  
   
 Weitere Informationen zum Entfernen von AD DS finden Sie unter [Remove Active Directory Domain Services (Stufe 100)](assetId:///99b97af0-aa7e-41ed-8c81-4eee6c03eb4c) und herab [Stufen von Domänen &#40;Controllern&#41;und Domänen Ebene 200](Demoting-Domain-Controllers-and-Domains--Level-200-.md).  
   
-## <a name="BKMK_ConfirmRoleRemovalPage"></a>Überprüfungs Optionen  
+## <a name="review-options"></a><a name="BKMK_ConfirmRoleRemovalPage"></a>Überprüfungs Optionen  
 Auf der Seite **Optionen prüfen** können Sie die Konfigurationseinstellungen für die Herabstufung in ein Windows PowerShell-Skript exportieren, sodass Sie zusätzliche Herabstufungen automatisieren können. Klicken Sie auf **Tiefer stufen**, um AD DS zu entfernen.  
   
 ![AD DS Installation](media/AD-DS-Installation-and-Removal-Wizard-Page-Descriptions/ADDS_RRW_ReviewOptions.gif)  

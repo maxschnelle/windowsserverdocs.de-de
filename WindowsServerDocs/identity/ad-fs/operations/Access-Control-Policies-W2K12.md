@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5728847d-dcef-4694-9080-d63bfb1fe24b
 title: Zugriffssteuerungsrichtlinien in AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 06/05/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 7ae66fd47953017652ed1e753279e344e0a6c478
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 7355ff9ed49a5e4ee8bca3a3d266a0ec1ecc0780
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949412"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814893"
 ---
 # <a name="access-control-policies-in-windows-server-2012-r2-and-windows-server-2012-ad-fs"></a>Access Control Richtlinien in Windows Server 2012 R2 und Windows Server 2012 AD FS
 
@@ -66,7 +65,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 ## <a name="enabling-client-access-policy"></a>Aktivieren der Client Zugriffs Richtlinie  
  Um die Client Zugriffs Richtlinie in AD FS in Windows Server 2012 R2 zu aktivieren, müssen Sie die Vertrauensstellung der vertrauenden Seite Microsoft Office 365 Identity Platform aktualisieren. Wählen Sie eines der unten aufgeführten Beispielszenarien aus, um die Anspruchs Regeln für die **Microsoft Office 365-Identitäts Plattform** -Vertrauensstellung der vertrauenden Seite zu konfigurieren, die den Anforderungen Ihrer Organisation am besten entspricht.  
 
-###  <a name="scenario1"></a>Szenario 1: Blockieren des gesamten externen Zugriffs auf Office 365  
+###  <a name="scenario-1-block-all-external-access-to-office-365"></a><a name="scenario1"></a>Szenario 1: Blockieren des gesamten externen Zugriffs auf Office 365  
  Dieses Client Zugriffsrichtlinien-Szenario ermöglicht den Zugriff von allen internen Clients und blockiert alle externen Clients basierend auf der IP-Adresse des externen Clients. Mithilfe der folgenden Verfahren können Sie die richtigen Ausstellungs Autorisierungs Regeln zur Office 365-Vertrauensstellung der vertrauenden Seite für Ihr ausgewähltes Szenario hinzufügen.  
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365"></a>So erstellen Sie Regeln, die den gesamten externen Zugriff auf Office 365 blockieren  
@@ -89,7 +88,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
      ![Regeln für die Ausstellungs Authentifizierung](media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1")  
 
-###  <a name="scenario2"></a>Szenario 2: Blockieren des gesamten externen Zugriffs auf Office 365 mit Ausnahme von Exchange ActiveSync  
+###  <a name="scenario-2-block-all-external-access-to-office-365-except-exchange-activesync"></a><a name="scenario2"></a>Szenario 2: Blockieren des gesamten externen Zugriffs auf Office 365 mit Ausnahme von Exchange ActiveSync  
  Im folgenden Beispiel wird der Zugriff auf alle Office 365-Anwendungen einschließlich Exchange Online von internen Clients einschließlich Outlook ermöglicht. Der Zugriff von Clients, die sich außerhalb des Unternehmensnetzwerks befinden, wird durch die Client-IP-Adresse, mit Ausnahme von Exchange ActiveSync-Clients wie Smartphones, blockiert.  
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-exchange-activesync"></a>So erstellen Sie Regeln, um den gesamten externen Zugriff auf Office 365 mit Ausnahme von Exchange ActiveSync zu blockieren  
@@ -145,7 +144,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
     ![Ausstellungsautorisierungsregeln](media/Access-Control-Policies-W2K12/clientaccess2.png )  
 
-###  <a name="scenario3"></a>Szenario 3: Blockieren des gesamten externen Zugriffs auf Office 365 außer auf browserbasierten Anwendungen  
+###  <a name="scenario-3-block-all-external-access-to-office-365-except-browser-based-applications"></a><a name="scenario3"></a>Szenario 3: Blockieren des gesamten externen Zugriffs auf Office 365 außer auf browserbasierten Anwendungen  
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-browser-based-applications"></a>So erstellen Sie Regeln, um den gesamten externen Zugriff auf Office 365 außer browserbasierten Anwendungen zu blockieren  
 
@@ -180,7 +179,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
     ![Ausstellung](media/Access-Control-Policies-W2K12/clientaccess3.png)  
 
-###  <a name="scenario4"></a>Szenario 4: Blockieren des gesamten externen Zugriffs auf Office 365 mit Ausnahme der vorgesehenen Active Directory Gruppen  
+###  <a name="scenario-4-block-all-external-access-to-office-365-except-for-designated-active-directory-groups"></a><a name="scenario4"></a>Szenario 4: Blockieren des gesamten externen Zugriffs auf Office 365 mit Ausnahme der vorgesehenen Active Directory Gruppen  
  Im folgenden Beispiel wird der Zugriff von internen Clients basierend auf der IP-Adresse ermöglicht. Der Zugriff von Clients außerhalb des Unternehmensnetzwerks, die über eine externe Client-IP-Adresse verfügen, wird blockiert, mit Ausnahme der Einzelpersonen in einer angegebenen Active Directory Gruppe. führen Sie die folgenden Schritte aus, um die richtigen Ausstellungs Autorisierungs Regeln mithilfe des Anspruchs Regel-Assistenten der **Microsoft Office 365 Identity Platform** -Vertrauensstellung der vertrauenden Seite hinzuzufügen:  
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-for-designated-active-directory-groups"></a>So erstellen Sie Regeln, die den gesamten externen Zugriff auf Office 365 blockieren, mit Ausnahme der vorgesehenen Active Directory Gruppen  
@@ -228,7 +227,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
      ![Ausstellung](media/Access-Control-Policies-W2K12/clientaccess4.png)  
 
-##  <a name="buildingip"></a>Der Ausdruck für den IP-Adressbereich wird aufgebaut  
+##  <a name="building-the-ip-address-range-expression"></a><a name="buildingip"></a>Der Ausdruck für den IP-Adressbereich wird aufgebaut  
  Der "x-ms-weitergeleitete Client-IP"-Anspruch wird mit einem HTTP-Header aufgefüllt, der zurzeit nur von Exchange Online festgelegt ist. dieser Wert füllt den Header auf, wenn die Authentifizierungsanforderung an AD FS übergeben wird. Der Wert des Anspruchs kann eines der folgenden sein:  
 
 > [!NOTE]
@@ -240,7 +239,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 > - Die IP-Adresse eines Clients im Unternehmensnetzwerk wird als IP-Adresse der externen Schnittstelle des ausgehenden Proxys oder Gateways der Organisation angezeigt.  
 >   -   Clients, die über ein VPN oder Microsoft DirectAccess (da) mit dem Unternehmensnetzwerk verbunden sind, werden je nach Konfiguration von VPN oder da möglicherweise als interne Unternehmens Clients oder als externe Clients angezeigt.  
 
--   Mindestens eine IP-Adresse: Wenn Exchange Online die IP-Adresse des Clients, der die Verbindung herstellt, nicht ermitteln kann, wird der Wert basierend auf dem Wert des x-weitergeleiteten für-Headers festgelegt, einem nicht standardmäßigen Header, der in http-basierten Anforderungen eingeschlossen werden kann und von vielen unterstützt wird. Clients, Lasten Ausgleichs Module und Proxys auf dem Markt.  
+-   Mindestens eine IP-Adresse: Wenn Exchange Online die IP-Adresse des Clients, der die Verbindung herstellt, nicht ermitteln kann, wird der Wert auf Grundlage des Werts des x-weitergeleiteten für-Headers festgelegt, ein nicht standardmäßiger Header, der in http-basierten Anforderungen eingeschlossen werden kann und von vielen Clients, Lasten Ausgleichs Modulen und Proxys auf dem Markt unterstützt wird.  
 
 > [!NOTE]
 > 1. Mehrere IP-Adressen, die die Client-IP-Adresse und die Adresse der einzelnen Proxys angeben, die die Anforderung übermittelt haben, werden durch Kommas getrennt.  
@@ -307,7 +306,7 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
 -   Mindestens eine IP-Adresse  
 
-    -   Wenn Exchange Online die IP-Adresse des Clients, der die Verbindung herstellt, nicht ermitteln kann, wird der Wert auf Grundlage des Werts des x-weitergeleiteten-für-Headers festgelegt, ein nicht standardmäßiger Header, der in http-basierten Anforderungen eingeschlossen werden kann und von vielen Clients, Lasten Ausgleichs Modulen und unterstützt wird. Proxys auf dem Markt.  
+    -   Wenn Exchange Online die IP-Adresse des Clients, der die Verbindung herstellt, nicht ermitteln kann, wird der Wert auf Grundlage des Werts des x-weitergeleiteten-für-Headers festgelegt, ein nicht standardmäßiger Header, der in http-basierten Anforderungen eingeschlossen werden kann und von vielen Clients, Lasten Ausgleichs Modulen und Proxys auf dem Markt unterstützt wird.  
 
     -   Mehrere IP-Adressen, die angeben, dass die Client-IP-Adresse und die Adresse der einzelnen Proxys, die die Anforderung bestehen, durch Kommas getrennt werden  
 
@@ -386,5 +385,5 @@ Die in diesem Artikel beschriebenen Richtlinien sollten immer mit einer anderen 
 
  Der Wert des Anspruchs ist der Name des AD FS Dienstanbieter, der die Anforderung empfangen hat.  
 
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
  [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)

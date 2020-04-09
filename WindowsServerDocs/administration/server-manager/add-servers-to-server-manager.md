@@ -1,12 +1,8 @@
 ---
 title: Hinzufügen von Servern zu Server-Manager
 description: Server-Manager
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-server-manager
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aab895f2-fe4d-4408-b66b-cdeadbd8969e
 author: coreyp-at-msft
@@ -14,12 +10,12 @@ ms.author: coreyp
 manager: dongill
 ms.localizationpriority: medium
 ms.date: 02/01/2018
-ms.openlocfilehash: ad30a8f1c4c1e0aa317512eb68fffbd76413175b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f7b5a5b358fa2df54777e0f1f88b1e86a7dafd80
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71383259"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851573"
 ---
 # <a name="add-servers-to-server-manager"></a>Hinzufügen von Servern zu Server-Manager
 
@@ -36,13 +32,13 @@ In diesem Thema wird beschrieben, wie Sie dem Server-Manager-Serverpool Server h
 > 
 > Server-Manager kann nicht verwendet werden, um eine neuere Version des Betriebssystems Windows Server zu verwalten. Server-Manager auf Windows Server 2012 R2, Windows Server 2012, Windows 8.1 oder Windows 8 kann nicht verwendet werden, um Server unter Windows Server 2016 zu verwalten.
 
-Dieses Thema enthält die folgenden Abschnitte:
+Dieses Thema enthält folgende Abschnitte:
 
 -   [Hinzufügen von zu verwaltenden Servern](#BKMK_add)
 
 -   [Angeben von Anmelde Informationen mit dem Befehl "verwalten als"](#BKMK_creds)
 
-## <a name="BKMK_creds"></a>Angeben von Anmelde Informationen mit dem Befehl "verwalten als"
+## <a name="provide-credentials-with-the-manage-as-command"></a><a name=BKMK_creds></a>Angeben von Anmelde Informationen mit dem Befehl "verwalten als"
 Wenn Sie dem Server-Manger Remoteserver hinzufügen, sind für den Zugriff auf einige dieser Server sowie für deren Verwaltung unterschiedliche Benutzerkonten-Anmeldeinformationen erforderlich. Um Anmeldeinformationen für einen verwalteten Server anzugeben, die sich von denen unterscheiden, die Sie verwenden, um sich bei dem Computer anzumelden, auf dem Sie den Server-Managern ausführen, verwenden Sie den Befehl **Verwalten als**, nachdem Sie dem Server-Manager einen Server hinzugefügt haben. Hierzu klicken Sie mit der rechten Maustaste auf der Kachel **Server** einer Rollen- oder Gruppen-Homepage auf den Eintrag für einen verwalteten Server. Beim Klicken auf **Verwalten als** wird das Dialogfeld **Windows-Sicherheit** geöffnet, in dem Sie einen Benutzernamen, der auf dem verwalteten Server über Zugriffsrechte verfügt, in einem der folgenden Formate eingeben können.
 
 -   *Benutzername*
@@ -64,7 +60,7 @@ Nachdem Sie anhand der in diesem Thema beschriebenen Verfahren zu verwaltende Se
 > [!NOTE]
 > Zu den Rollen und Features, die den Befehl **Verwalten als** nicht unterstützen, zählen Remotedesktopdienste (Remotedesktopdienste, RDS) und IP-Adressverwaltung-Server (IP Address Management, IPAM). Wenn Sie den RDS oder IPAM-Server nicht mit den gleichen Anmeldeinformationen verwalten können, die Sie auf dem Computer verwenden, auf dem Sie den Server-Manager ausführen, versuchen Sie, das Konto, das Sie in der Regel verwenden, um diese Remoteserver zu verwalten, der Gruppe "Administratoren" auf dem Computer hinzuzufügen, der den Server-Manager ausführt. Melden Sie sich dann bei dem Computer, auf dem der Server-Manager ausgeführt wird, mit dem Konto an, das Sie verwenden, um den Remoteserver zu verwalten, auf dem RDS oder IPAM ausgeführt wird.
 
-## <a name="BKMK_add"></a>Hinzufügen von zu verwaltenden Servern
+## <a name="add-servers-to-manage"></a><a name=BKMK_add></a>Hinzufügen von zu verwaltenden Servern
 Sie können Server-Manager zu verwaltende Server hinzufügen, indem Sie eine der drei Methoden verwenden, die im Dialogfeld **Server hinzufügen** verfügbaren sind.
 
 -   **Active Directory Domain Servicese (AD DS)** Fügen Sie zu verwaltende Server hinzu, die von Active Directory in derselben Domäne gefunden werden, in der sich der lokale Computer befindet.
@@ -83,11 +79,11 @@ Sie können Server-Manager zu verwaltende Server hinzufügen, indem Sie eine der
 
 2.  Klicken Sie im Menü **Verwalten** auf **Server hinzufügen**.
 
-3.  Führen Sie eine der folgenden Aktionen aus.
+3.  Führen Sie einen der folgenden Schritte aus:
 
     -   Wählen Sie auf der Registerkarte **Active Directory** die Server aus, die sich in der aktuellen Domäne befinden. Halten Sie die STRG-Taste gedrückt, um mehrere Server auszuwählen. Klicken Sie auf die Schaltfläche mit dem Pfeil nach rechts, um die ausgewählten Server in die Liste **ausgewählt** zu verschieben.
 
-    -   Geben Sie auf der Registerkarte **DNS** die ersten Zeichen eines Computernamens oder einer IP-Adresse ein, und drücken Sie dann die EINGABETASTE , oder klicken Sie auf **Suchen**. Wählen Sie die hinzuzufügenden Server aus, und klicken Sie dann auf die Schaltfläche mit dem Pfeil nach rechts.
+    -   Geben Sie auf der Registerkarte **DNS** die ersten Zeichen eines Computernamens oder einer IP-Adresse ein, und drücken Sie dann die EINGABETASTE, oder klicken Sie auf **Suchen**. Wählen Sie die hinzuzufügenden Server aus, und klicken Sie dann auf die Schaltfläche mit dem Pfeil nach rechts.
 
     -   Suchen Sie auf der Registerkarte **Import** nach einer Textdatei mit den DNS-Namen oder IP-Adressen der Computer, die Sie hinzufügen möchten (die Datei enthält jeweils einen Namen oder eine IP-Adresse pro Zeile).
 
@@ -129,7 +125,7 @@ Diese oder ähnliche Fehler können unter den folgenden Bedingungen auftreten.
 3.  > [!IMPORTANT]
     > Durch das Ausführen des Cmdlets in diesem Schritt werden Mechanismen der Benutzerkontensteuerung außer Kraft gesetzt, die die Ausführung von Prozessen mit erhöhen Rechten auf Arbeitsgruppencomputern verhindern, sofern die Prozesse nicht über das integrierte Administrator- oder Systemkonto ausgeführt werden. Das Cmdlet ermöglicht es, dass Mitglieder der Administratorengruppe den Arbeitsgruppenserver verwalten, ohne dass sie sich über das integrierte Administratorkonto anmelden müssen. Wenn zusätzlichen Benutzern das Verwalten des Arbeitsgruppenservers ermöglicht wird, kann dies die Sicherheit des Servers herabsetzen. Diese Vorgehensweise ist jedoch sicherer, als die Anmeldeinformationen des integrierten Administratorkontos möglicherweise einer ganzen Gruppe von Personen zur Verfügung zu stellen, die für die Verwaltung des Arbeitsgruppenservers zuständig sind.
 
-    Wenn Sie für Prozesse, die mit erhöhen Rechten auf Arbeitsgruppencomputern ausgeführt werden, die Einschränkungen der Benutzerkontensteuerung (UAC) überschreiben möchten, erstellen Sie auf dem Arbeitsgruppenserver einen Registrierungseintrag namens **LocalAccountTokenFilterPolicy** , indem Sie das folgende Cmdlet ausführen.
+    Wenn Sie für Prozesse, die mit erhöhen Rechten auf Arbeitsgruppencomputern ausgeführt werden, die Einschränkungen der Benutzerkontensteuerung (UAC) überschreiben möchten, erstellen Sie auf dem Arbeitsgruppenserver einen Registrierungseintrag namens **LocalAccountTokenFilterPolicy**, indem Sie das folgende Cmdlet ausführen.
 
     ```
     New-ItemProperty -Name LocalAccountTokenFilterPolicy -path HKLM:\SOFTWARE\Microsoft\Windows\Currentversion\Policies\System -propertytype DWord -value 1

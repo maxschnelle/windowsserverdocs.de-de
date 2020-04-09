@@ -1,7 +1,6 @@
 ---
 ms.assetid: 8f994e2e-6c07-43f0-aef4-75f8b2c9a144
 title: Beibehalten einer sicheren Umgebung
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,18 +8,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: b058fb084b0c46010ba03a11a45e840aa902c7b5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a22b1a0d776540e8ee2f2c223a1087bd88adaa47
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367683"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821173"
 ---
 # <a name="maintaining-a-more-secure-environment"></a>Beibehalten einer sicheren Umgebung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-*law-Nummer 10: Technologie ist kein Allheilmittel.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](https://technet.microsoft.com/library/cc722488.aspx)  
+*Recht Nummer 10: die Technologie ist kein Allheilmittel.* - [10 unveränderliche Gesetze der Sicherheitsverwaltung](https://technet.microsoft.com/library/cc722488.aspx)  
   
 Wenn Sie eine verwaltbare, sichere Umgebung für Ihre wichtigen Geschäftsressourcen erstellt haben, sollten Sie sich mit dem Schwerpunkt befassen, um sicherzustellen, dass Sie sicher verwaltet werden. Obwohl Sie über spezielle technische Kontrollen verfügen, um die Sicherheit Ihrer AD DS-Installationen zu erhöhen, bietet Technologie allein keine Umgebung, in der Sie nicht in Zusammenarbeit mit dem Unternehmen zusammenarbeitet, um eine sichere, nutzbare Infrastruktur zu erhalten. Die Empfehlungen in diesem Abschnitt sind für die Verwendung als Richtlinien gedacht, mit denen Sie nicht nur eine effektive Sicherheit, sondern auch eine effektive Lebenszyklus Verwaltung entwickeln können.  
   
@@ -40,12 +39,12 @@ Wenn Daten und Systeme in Active Directory ohne designierte Besitzer, Geschäfts
 ### <a name="assign-a-business-owner-to-active-directory-data"></a>Active Directory Daten einen Geschäfts Besitzer zuweisen  
 Daten in Active Directory sollten einen identifizierten Geschäfts Besitzer haben, d. h. eine angegebene Abteilung oder ein Benutzer, der der Kontaktpunkt für Entscheidungen über den Lebenszyklus des Assets ist. In einigen Fällen ist der Geschäftsinhaber einer Komponente von Active Directory eine IT-Abteilung oder ein Benutzer. Infrastrukturkomponenten, wie z. b. Domänen Controller, DHCP-und DNS-Server, und Active Directory werden wahrscheinlich von ihr als "Besitzer" verwendet. Für Daten, die AD DS zur Unterstützung des Unternehmens hinzugefügt werden (z. b. neue Mitarbeiter, neue Anwendungen und neue Informations Depots), sollte eine bestimmte Geschäftseinheit oder ein bestimmtes Benutzer mit den Daten verknüpft werden.  
   
-Unabhängig davon, ob Sie Active Directory verwenden, um den Besitz von Daten im Verzeichnis aufzuzeichnen, oder ob Sie eine separate Datenbank zum Nachverfolgen von IT-Ressourcen implementieren, kein Benutzerkonto erstellt werden muss, kein Server oder keine Arbeitsstation installiert werden muss und keine Anwendung bereitgestellt werden soll. ohne einen festgelegten Besitzer des Datensatzes. Der Versuch, den Besitz von Systemen nach der Bereitstellung in der Produktion einzurichten, kann in manchen Fällen eine Herausforderung darstellen. Daher sollte der Besitz zu dem Zeitpunkt eingerichtet werden, zu dem die Daten in Active Directory eingeführt werden.  
+Unabhängig davon, ob Sie Active Directory verwenden, um den Besitz von Daten im Verzeichnis aufzuzeichnen, oder ob Sie eine separate Datenbank zum Nachverfolgen von IT-Ressourcen implementieren, kein Benutzerkonto erstellt werden muss, kein Server oder keine Arbeitsstation installiert werden muss und keine Anwendung ohne einen festgelegten Besitzer des Datensatzes bereitgestellt werden soll. Der Versuch, den Besitz von Systemen nach der Bereitstellung in der Produktion einzurichten, kann in manchen Fällen eine Herausforderung darstellen. Daher sollte der Besitz zu dem Zeitpunkt eingerichtet werden, zu dem die Daten in Active Directory eingeführt werden.  
   
 ### <a name="implement-business-driven-lifecycle-management"></a>Implementieren der geschäftsorientierten Lebenszyklus Verwaltung  
 Die Lebenszyklus Verwaltung sollte für alle Daten in Active Directory implementiert werden. Wenn z. b. eine neue Anwendung in eine Active Directory Domäne eingeführt wird, sollte der Geschäfts Besitzer der Anwendung in regelmäßigen Abständen die fortgesetzte Verwendung der Anwendung bestätigen. Wenn eine neue Version einer Anwendung veröffentlicht wird, sollte der Geschäftsinhaber der Anwendung informiert werden und entscheiden, ob und wann die neue Version implementiert wird.  
   
-Wenn ein Geschäftsinhaber entscheidet, die Bereitstellung einer neuen Version einer Anwendung nicht zu genehmigen, sollte dieser Geschäftsinhaber auch über das Datum benachrichtigt werden, an dem die aktuelle Version nicht mehr unterstützt wird, und für die Festlegung verantwortlich sein soll, ob die Anwendung außer Betrieb genommen oder ersetzt werden. Das Ausführen von Legacy Anwendungen und die nicht unterstützte Option sollte keine Option sein.  
+Wenn ein Geschäftsinhaber entscheidet, die Bereitstellung einer neuen Version einer Anwendung nicht zu genehmigen, sollte dieser Geschäftsinhaber auch über das Datum benachrichtigt werden, an dem die aktuelle Version nicht mehr unterstützt wird, und für die Festlegung verantwortlich sein soll, ob die Anwendung außer Betrieb genommen oder ersetzt wird. Das Ausführen von Legacy Anwendungen und die nicht unterstützte Option sollte keine Option sein.  
   
 Wenn Benutzerkonten in Active Directory erstellt werden, sollten ihre Vorgesetzten von Datensätzen bei der Objekt Erstellung benachrichtigt werden, und Sie müssen in regelmäßigen Abständen die Gültigkeit des Kontos bestätigen. Durch die Implementierung eines Geschäfts-und regulären Nachweis der Gültigkeit der Daten sind die Personen, die am besten zur Identifizierung von Anomalien in den Daten gerüstet sind, die Personen, die die Daten überprüfen.  
   
@@ -60,7 +59,7 @@ Einige Organisationen implementieren Richtlinien für die Datenklassifizierung, 
   
 In Ihrem Daten Klassifizierungs Modell sollten Sie die Klassifizierung für AD DS Daten wie die folgenden einschließen.  
   
-### <a name="systems"></a>Systeme  
+### <a name="systems"></a>Systems  
 Sie sollten nicht nur Daten klassifizieren, sondern auch deren Server Population. Sie sollten für jeden Server wissen, welches Betriebssystem installiert ist, welche allgemeinen Rollen der Server bereitstellt, welche Anwendungen auf dem Server ausgeführt werden, der IT-Besitzer des Datensatzes und den Geschäftsinhaber des Datensatzes (falls zutreffend). Für alle Daten oder Anwendungen, die auf dem Server ausgeführt werden, benötigen Sie eine Klassifizierung, und der Server sollte gemäß den Anforderungen für die unterstützten Workloads und die auf das System und die Daten geltenden Klassifizierungen gesichert werden. Sie können Server auch nach der Klassifizierung ihrer Arbeits Auslastungen gruppieren, sodass Sie schnell die Server identifizieren können, die am ehesten überwacht und am ehesten konfiguriert werden sollen.  
   
 ### <a name="applications"></a>Anwendungen  
@@ -69,11 +68,11 @@ Sie sollten Anwendungen nach Funktionalität klassifizieren (was Sie tun), Benut
 ### <a name="users"></a>Benutzer  
 Unabhängig davon, ob Sie als "VIP"-Benutzer oder als kritische Konten bezeichnet werden oder eine andere Bezeichnung verwenden, sollten die Konten in Ihren Active Directory Installationen, die höchstwahrscheinlich von Angreifern betroffen sind, markiert und überwacht werden. In den meisten Organisationen ist es einfach nicht möglich, alle Aktivitäten aller Benutzer zu überwachen. Wenn Sie jedoch die kritischen Konten in der Active Directory-Installation identifizieren können, können Sie diese Konten auf Änderungen überwachen, wie weiter oben in diesem Dokument beschrieben.  
   
-Sie können auch beginnen, eine Datenbank mit "erwartetem Verhalten" für diese Konten zu erstellen, während Sie die Konten überwachen. Wenn Sie z. b. feststellen, dass ein bestimmter Executive seine gesicherte Arbeitsstation verwendet, um von seinem Büro und von seinem Zuhause aus auf geschäftskritische Daten zuzugreifen, aber nur selten von anderen Standorten aus, wenn Sie versuchen, auf Daten zuzugreifen, indem er sein Konto von einem nicht autorisierten Computer oder einem der Standort in der Mitte, an dem Sie wissen, dass sich die Führungskraft zurzeit nicht befindet, können Sie dieses anormale Verhalten schneller identifizieren und untersuchen.  
+Sie können auch beginnen, eine Datenbank mit "erwartetem Verhalten" für diese Konten zu erstellen, während Sie die Konten überwachen. Wenn Sie z. b. feststellen, dass ein bestimmter Executive seine gesicherte Arbeitsstation verwendet, um von seinem Büro und von seinem Zuhause aus auf geschäftskritische Daten zuzugreifen, aber nur selten von anderen Standorten aus, wenn Sie versuchen, auf Daten zuzugreifen, indem er sein Konto auf einem nicht autorisierten Computer oder einen Standort in der Nähe eines Standorts auf der ganzen Welt verwendet.  
   
 Wenn Sie Geschäftsinformationen in Ihre Infrastruktur integrieren, können Sie diese Geschäftsinformationen verwenden, um falsch positive Ergebnisse zu identifizieren. Wenn z. b. Executive Travel in einem Kalender aufgezeichnet wird, der für das Überwachen der Umgebung verantwortliche IT-Personal verfügbar ist, können Sie Verbindungsversuche mit den bekannten Standorten der Führungskräfte korrelieren.  
   
-Nehmen wir an, Executive a befindet sich normalerweise in Chicago und verwendet eine gesicherte Arbeitsstation, um von seinem Schreibtisch auf geschäftskritische Daten zuzugreifen, und ein Ereignis wird durch einen fehlgeschlagenen Versuch ausgelöst, auf die Daten von einer nicht geschützten Arbeitsstation in Atlanta zuzugreifen. Wenn Sie überprüfen können, ob der Executive zurzeit in Atlanta ausgeführt wird, können Sie das Ereignis lösen, indem Sie sich an den Executive oder den Assistenten für Führungskräfte wenden, um zu ermitteln, ob der Zugriffsfehler das Ergebnis der Überprüfung der gesicherten Arbeitsstation war. greifen Sie auf die Daten zu. Wenn Sie ein Programm erstellen, das die in [Planen](../../../ad-ds/plan/security-best-practices/Planning-for-Compromise.md)der Gefährdung beschriebenen Ansätze verwendet, können Sie damit beginnen, eine Datenbank mit erwartetem Verhalten für die wichtigsten Konten in Ihrer Active Directory Installation zu erstellen, die Ihnen möglicherweise mehr helfen. erkennen und reagieren Sie schnell auf Angriffe.  
+Nehmen wir an, Executive a befindet sich normalerweise in Chicago und verwendet eine gesicherte Arbeitsstation, um von seinem Schreibtisch auf geschäftskritische Daten zuzugreifen, und ein Ereignis wird durch einen fehlgeschlagenen Versuch ausgelöst, auf die Daten von einer nicht geschützten Arbeitsstation in Atlanta zuzugreifen. Wenn Sie überprüfen können, ob der Executive zurzeit in Atlanta ist, können Sie das Ereignis auflösen, indem Sie sich an den Executive oder den Assistenten des Executive wenden, um zu ermitteln, ob es sich bei dem Zugriffsfehler um das Ergebnis der Überprüfung der gesicherten Arbeitsstation zum Zugreifen auf die Daten handelt. Wenn Sie ein Programm erstellen, das die in [Planen](../../../ad-ds/plan/security-best-practices/Planning-for-Compromise.md)der Gefährdung beschriebenen Ansätze verwendet, können Sie damit beginnen, eine Datenbank mit erwartetem Verhalten für die wichtigsten Konten in Ihrer Active Directory-Installation zu erstellen, die Ihnen helfen können, Angriffe schneller zu erkennen und darauf zu reagieren.  
   
 
 

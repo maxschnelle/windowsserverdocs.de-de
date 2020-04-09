@@ -1,7 +1,6 @@
 ---
 ms.assetid: 99a68050-8d19-4c58-ad86-e08a3dcdb4f7
 title: Anhang L-zu überwachende Ereignisse
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 07/30/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e069fe004d9256682e5754fc90ae6cba88ee7cb3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e47b1fbe2df16aca9514e8a29c82d56d8dc96cba
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402725"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822853"
 ---
 # <a name="appendix-l-events-to-monitor"></a>Anhang L: Zu überwachende Ereignisse
 
@@ -29,25 +28,25 @@ Eine mögliche Wichtigkeit von "High" bedeutet, dass ein Vorkommen des Ereigniss
 |||||  
 |-|-|-|-|  
 |**Aktuelle Windows-Ereignis-ID**|**Ältere Windows-Ereignis-ID**|**Potenzielle Gefährlichkeit**|**Ereignis Zusammenfassung**|  
-|4618|Nicht zutreffend|Hoch|Ein überwachtes Sicherheitsmuster ist aufgetreten.|  
-|4649|Nicht zutreffend|Hoch|Ein Replay-Angriff wurde erkannt. Kann aufgrund eines fehl Konfigurations Fehlers ein harmloses falsch positives Ergebnis sein.|  
+|4618|N/V|Hoch|Ein überwachtes Sicherheitsmuster ist aufgetreten.|  
+|4649|N/V|Hoch|Ein Replay-Angriff wurde erkannt. Kann aufgrund eines fehl Konfigurations Fehlers ein harmloses falsch positives Ergebnis sein.|  
 |4719|612|Hoch|Die Systemüberwachungsrichtlinie wurde geändert.|  
-|4765|Nicht zutreffend|Hoch|Der SID-Verlauf eines Kontos wurde hinzugefügt.|  
-|4766|Nicht zutreffend|Hoch|Fehler beim Versuch, den SID-Verlauf einem Konto hinzuzufügen.|  
-|4794|Nicht zutreffend|Hoch|Es wurde versucht, den Verzeichnisdienst-Wiederherstellungsmodus einzustellen.|  
+|4765|N/V|Hoch|Der SID-Verlauf eines Kontos wurde hinzugefügt.|  
+|4766|N/V|Hoch|Fehler beim Versuch, den SID-Verlauf einem Konto hinzuzufügen.|  
+|4794|N/V|Hoch|Es wurde versucht, den Verzeichnisdienst-Wiederherstellungsmodus einzustellen.|  
 |4897|801|Hoch|Rollentrennung ist aktiviert:|  
-|4964|Nicht zutreffend|Hoch|Sondergruppen wurden einer neuen Anmeldung zugewiesen.|  
-|5124|Nicht zutreffend|Hoch|Eine Sicherheitseinstellung wurde für den OCSP-Responder-Dienst aktualisiert.|  
-|Nicht zutreffend|550|Mittel bis hoch|Möglicher DOS-Angriff (Denial-of-Service)|  
+|4964|N/V|Hoch|Sondergruppen wurden einer neuen Anmeldung zugewiesen.|  
+|5124|N/V|Hoch|Eine Sicherheitseinstellung wurde für den OCSP-Responder-Dienst aktualisiert.|  
+|N/V|550|Mittel bis hoch|Möglicher DOS-Angriff (Denial-of-Service)|  
 |1102|517|Mittel bis hoch|Das Überwachungs Protokoll wurde gelöscht.|  
-|4621|Nicht zutreffend|Mittel|Der Administrator hat das System nach einem CrashOnAuditFail wiederhergestellt. Benutzer ohne Administratorrechte können sich jetzt anmelden. Einige überwachbare Aktivitäten wurden möglicherweise nicht aufgezeichnet.|  
-|4675|Nicht zutreffend|Mittel|SIDs wurden gefiltert.|  
-|4692|Nicht zutreffend|Mittel|Es wurde versucht, den Datenschutz-Hauptschlüssel zu sichern.|  
-|4693|Nicht zutreffend|Mittel|Es wurde versucht, den Datenschutz-Hauptschlüssel wiederherzustellen.|  
+|4621|N/V|Mittel|Der Administrator hat das System nach einem CrashOnAuditFail wiederhergestellt. Benutzer ohne Administratorrechte können sich jetzt anmelden. Einige überwachbare Aktivitäten wurden möglicherweise nicht aufgezeichnet.|  
+|4675|N/V|Mittel|SIDs wurden gefiltert.|  
+|4692|N/V|Mittel|Es wurde versucht, den Datenschutz-Hauptschlüssel zu sichern.|  
+|4693|N/V|Mittel|Es wurde versucht, den Datenschutz-Hauptschlüssel wiederherzustellen.|  
 |4706|610|Mittel|Eine neue Vertrauensstellung zu einer Domäne wurde erstellt.|  
 |4713|617|Mittel|Die Kerberos-Richtlinie wurde geändert.|  
 |4714|618|Mittel|Die Wiederherstellungsrichtlinie für verschlüsselte Daten wurde geändert.|  
-|4715|Nicht zutreffend|Mittel|Die Überwachungsrichtlinie (SACL) für ein Objekt wurde geändert.|  
+|4715|N/V|Mittel|Die Überwachungsrichtlinie (SACL) für ein Objekt wurde geändert.|  
 |4716|620|Mittel|Die Informationen bei einer vertrauenswürdigen Domäne wurden geändert.|  
 |4724|628|Mittel|Es wurde versucht, das Kennwort eines Kontos zurückzusetzen.|  
 |4727|631|Mittel|Eine sicherheitsaktivierte globale Gruppe wurde erstellt.|  
@@ -59,10 +58,10 @@ Eine mögliche Wichtigkeit von "High" bedeutet, dass ein Vorkommen des Ereigniss
 |4764|667|Mittel|Eine Sicherheits deaktivierte Gruppe wurde gelöscht.|  
 |4764|668|Mittel|Der Typ einer Gruppe wurde geändert.|  
 |4780|684|Mittel|Die ACL wurde für Konten festgelegt, die Mitglieder der Gruppe „Administratoren“ sind.|  
-|4816|Nicht zutreffend|Mittel|Der Remoteprozeduraufruf (RPC) hat bei der Entschlüsselung einer eingehenden Nachricht eine Integritätsverletzung festgestellt.|  
-|4865|Nicht zutreffend|Mittel|Ein Informationseintrag für eine vertrauenswürdige Gesamtstruktur wurde hinzugefügt.|  
-|4866|Nicht zutreffend|Mittel|Ein Informationseintrag für eine vertrauenswürdige Gesamtstruktur wurde entfernt.|  
-|4867|Nicht zutreffend|Mittel|Ein Informationseintrag für eine vertrauenswürdige Gesamtstruktur wurde geändert.|  
+|4816|N/V|Mittel|Der Remoteprozeduraufruf (RPC) hat bei der Entschlüsselung einer eingehenden Nachricht eine Integritätsverletzung festgestellt.|  
+|4865|N/V|Mittel|Ein Informationseintrag für eine vertrauenswürdige Gesamtstruktur wurde hinzugefügt.|  
+|4866|N/V|Mittel|Ein Informationseintrag für eine vertrauenswürdige Gesamtstruktur wurde entfernt.|  
+|4867|N/V|Mittel|Ein Informationseintrag für eine vertrauenswürdige Gesamtstruktur wurde geändert.|  
 |4868|772|Mittel|Die Zertifikatverwaltung hat eine anstehende Zertifikatanforderung abgelehnt.|  
 |4870|774|Mittel|Die Zertifikatdienste haben ein Zertifikat gesperrt.|  
 |4882|786|Mittel|Die Sicherheitsberechtigungen für die Zertifikatdienste wurden geändert.|  
@@ -70,53 +69,53 @@ Eine mögliche Wichtigkeit von "High" bedeutet, dass ein Vorkommen des Ereigniss
 |4890|794|Mittel|Die Zertifikatverwaltungseinstellungen für die Zertifikatdienste wurden geändert.|  
 |4892|796|Mittel|Es wurde eine Eigenschaft der Zertifikatdienste geändert.|  
 |4896|800|Mittel|Eine oder mehrere Zeilen wurden aus der Zertifikatdatenbank gelöscht.|  
-|4906|Nicht zutreffend|Mittel|Der CrashOnAuditFail-Wert wurde geändert.|  
-|4907|Nicht zutreffend|Mittel|Die Überwachungseinstellungen für das Objekt wurden geändert.|  
-|4908|Nicht zutreffend|Mittel|Eine Anmeldetabelle für Sondergruppen wurde geändert.|  
+|4906|N/V|Mittel|Der CrashOnAuditFail-Wert wurde geändert.|  
+|4907|N/V|Mittel|Die Überwachungseinstellungen für das Objekt wurden geändert.|  
+|4908|N/V|Mittel|Eine Anmeldetabelle für Sondergruppen wurde geändert.|  
 |4912|807|Mittel|Eine Benutzerüberwachungsrichtlinie wurde geändert.|  
-|4960|Nicht zutreffend|Mittel|IPsec hat ein eingehendes Paket verworfen, das eine Integritätsüberprüfung nicht bestanden hat Wenn dieses Problem weiterhin besteht, kann dies darauf hinweisen, dass ein Netzwerkproblem vorliegt oder Pakete während der Übertragung an diesen Computer geändert werden. Vergewissern Sie sich, dass die vom Remotecomputer gesendeten Pakete mit den von diesem Computer empfangenen Paketen identisch sind. Dieser Fehler kann auch auf Interoperabilitätsprobleme mit anderen IPsec-Implementierungen hinweisen.|  
-|4961|Nicht zutreffend|Mittel|IPsec hat ein eingehendes Paket verworfen, das eine Rahmenprüfung nicht bestanden hat. Wenn dieses Problem weiterhin besteht, kann dies auf einen Replay-Angriff auf diesen Computer hinweisen.|  
-|4962|Nicht zutreffend|Mittel|IPsec hat ein eingehendes Paket verworfen, das eine Rahmenprüfung nicht bestanden hat. Die Sequenznummer des eingehenden Pakets war zu niedrig, um zu gewährleisten, dass es sich nicht um einen Replay-Angriff handelt.|  
-|4963|Nicht zutreffend|Mittel|IPsec hat ein eingehendes Klartextpaket verworfen, das geschützt hätte sein sollen. Dies ist normalerweise darauf zurückzuführen, dass der Remotecomputer seine IPsec-Richtlinie ändert, ohne diesen Computer zu informieren. Es kann auch auf einen versuchten Spoofingangriff hinweisen.|  
-|4965|Nicht zutreffend|Mittel|IPsec hat von einem Remotecomputer ein Paket mit einem falschen Sicherheitsparameterindex (SPI) empfangen. Dies ist normalerweise auf eine fehlerhafte Hardware zurückzuführen, die Pakete beschädigt. Vergewissern Sie sich, dass die vom Remotecomputer gesendeten Pakete mit den von diesem Computer empfangenen Paketen identisch sind, wenn diese Fehler weiterhin auftreten. Dieser Fehler kann auch auf Interoperabilitätsprobleme mit anderen IPsec-Implementierungen hinweisen. In diesem Fall können diese Ereignisse ignoriert werden, sofern die Konnektivität nicht beeinträchtigt ist.|  
-|4976|Nicht zutreffend|Mittel|Während der Hauptmodusverhandlung hat IPsec ein ungültiges Verhandlungspaket empfangen. Wenn dieses Problem weiterhin besteht, kann dies darauf hinweisen, dass ein Netzwerkproblem vorliegt oder versucht wird, diese Verhandlung zu ändern oder durch einen Replay-Angriff zu manipulieren.|  
-|4977|Nicht zutreffend|Mittel|Während der Schnellmodusverhandlung hat IPsec ein ungültiges Verhandlungspaket empfangen. Wenn dieses Problem weiterhin besteht, kann dies darauf hinweisen, dass ein Netzwerkproblem vorliegt oder versucht wird, diese Verhandlung zu ändern oder durch einen Replay-Angriff zu manipulieren.|  
-|4978|Nicht zutreffend|Mittel|Während der Erweiterungsmodusverhandlung hat IPsec ein ungültiges Verhandlungspaket empfangen. Wenn dieses Problem weiterhin besteht, kann dies darauf hinweisen, dass ein Netzwerkproblem vorliegt oder versucht wird, diese Verhandlung zu ändern oder durch einen Replay-Angriff zu manipulieren.|  
-|4983|Nicht zutreffend|Mittel|Fehler bei der Verhandlung des IPsec-Erweiterungsmodus. Die entsprechende Sicherheitszuordnung des Hauptmodus wurde gelöscht.|  
-|4984|Nicht zutreffend|Mittel|Fehler bei der Verhandlung des IPsec-Erweiterungsmodus. Die entsprechende Sicherheitszuordnung des Hauptmodus wurde gelöscht.|  
-|5027|Nicht zutreffend|Mittel|Der Windows-Firewalldienst konnte die Sicherheitsrichtlinie nicht aus dem lokalen Speicher abrufen. Der Dienst wendet weiterhin die aktuelle Richtlinie an.|  
-|5028|Nicht zutreffend|Mittel|Der Windows-Firewalldienst konnte die neue Sicherheitsrichtlinie nicht analysieren. Der Dienst wendet weiterhin die aktuelle Richtlinie an.|  
-|5029|Nicht zutreffend|Mittel|Der Windows-Firewalldienst konnte den Treiber nicht initialisieren. Der Dienst wendet weiterhin die aktuelle Richtlinie an.|  
-|5030|Nicht zutreffend|Mittel|Der Windows-Firewalldienst konnte nicht gestartet werden.|  
-|5035|Nicht zutreffend|Mittel|Der Windows-Firewalltreiber konnte nicht gestartet werden.|  
-|5037|Nicht zutreffend|Mittel|Der Windows-Firewalltreiber hat einen kritischen Laufzeitfehler erkannt. Der Treiber wird beendet.|  
-|5038|Nicht zutreffend|Mittel|Die Codeintegrität hat festgestellt, dass der Abbildhash einer Datei nicht gültig ist. Die Datei wurde möglicherweise durch eine nicht autorisierte Änderung beschädigt. Dieses Problem kann auch auf einen potenziellen Fehler des Datenträgergeräts hinweisen.|  
-|5120|Nicht zutreffend|Mittel|OCSP-Responder-Dienst wurde gestartet.|  
-|5121|Nicht zutreffend|Mittel|OCSP-Responder-Dienst wurde beendet.|  
-|5122|Nicht zutreffend|Mittel|Ein Konfigurationseintrag wurde im OCSP-Responder-Dienst geändert.|  
-|5123|Nicht zutreffend|Mittel|Ein Konfigurationseintrag wurde im OCSP-Responder-Dienst geändert.|  
-|5376|Nicht zutreffend|Mittel|Anmeldeinformationen der Anmeldeinformationsverwaltung wurden gesichert.|  
-|5377|Nicht zutreffend|Mittel|Anmeldeinformationen der Anmeldeinformationsverwaltung wurden von einer Sicherung wiederhergestellt.|  
-|5453|Nicht zutreffend|Mittel|Eine IPsec-Aushandlung mit einem Remotecomputer war nicht erfolgreich, da der IKE- und AuthIP IPsec-Schlüsselerstellungsmodul-Dienst (IKEEXT) nicht gestartet wurde.|  
-|5480|Nicht zutreffend|Mittel|Die IPsec-Dienste konnten die vollständige Liste von Netzwerkschnittstellen auf dem Computer nicht abrufen. Dies stellt ein potenzielles Sicherheitsrisiko dar, da einige Netzwerkschnittstellen möglicherweise nicht durch die angewendeten IPsec-Filter geschützt werden. Verwenden Sie das Snap-In „IP-Sicherheitsmonitor“, um das Problem zu diagnostizieren.|  
-|5483|Nicht zutreffend|Mittel|Die IPsec-Dienste konnten den RPC-Server nicht initialisieren. Die IPsec-Dienste konnten nicht gestartet werden.|  
-|5484|Nicht zutreffend|Mittel|In den IPsec-Diensten ist ein kritischer Fehler aufgetreten, und die Dienste wurden beendet. Das Beenden der IPsec-Dienste kann das Risiko von Netzwerkangriffen auf den Computer und potenzielle Sicherheitsrisiken erhöhen.|  
-|5485|Nicht zutreffend|Mittel|Die IPsec-Dienste konnten einige IPsec-Filter für ein Plug-and-Play-Ereignis für Netzwerkschnittstellen nicht verarbeiten. Dies stellt ein potenzielles Sicherheitsrisiko dar, da einige Netzwerkschnittstellen möglicherweise nicht durch die angewendeten IPsec-Filter geschützt werden. Verwenden Sie das Snap-In „IP-Sicherheitsmonitor“, um das Problem zu diagnostizieren.|  
-|6145|Nicht zutreffend|Mittel|Beim Verarbeiten der Sicherheitsrichtlinie in den Gruppenrichtlinie Objekten ist mindestens ein Fehler aufgetreten.|  
-|6273|Nicht zutreffend|Mittel|Der Netzwerkrichtlinienserver verweigerte einem Benutzer den Zugriff.|  
-|6274|Nicht zutreffend|Mittel|Der Netzwerkrichtlinienserver hat die Anforderung für einen Benutzer verworfen.|  
-|6275|Nicht zutreffend|Mittel|Der Netzwerkrichtlinienserver hat die Kontoführungsanforderung für einen Benutzer verworfen.|  
-|6276|Nicht zutreffend|Mittel|Der Netzwerkrichtlinienserver hat einen Benutzer unter Quarantäne gestellt.|  
-|6277|Nicht zutreffend|Mittel|Der Netzwerkrichtlinienserver hat einem Benutzer den Zugriff gewährt, ihn aber auf Probe gesetzt, da der Host die definierten Integritätsrichtlinien nicht erfüllt.|  
-|6278|Nicht zutreffend|Mittel|Der Netzwerkrichtlinienserver hat einem Benutzer Vollzugriff erteilt, da der Host die Integritätsrichtlinien erfüllt.|  
-|6279|Nicht zutreffend|Mittel|Der Netzwerkrichtlinienserver hat das Benutzerkonto aufgrund mehrerer erfolgloser Authentifizierungsversuche gesperrt.|  
-|6280|Nicht zutreffend|Mittel|Der Netzwerkrichtlinienserver hat die Sperre des Benutzerkontos aufgehoben.|  
+|4960|N/V|Mittel|IPsec hat ein eingehendes Paket verworfen, das eine Integritätsüberprüfung nicht bestanden hat Wenn dieses Problem weiterhin besteht, kann dies darauf hinweisen, dass ein Netzwerkproblem vorliegt oder Pakete während der Übertragung an diesen Computer geändert werden. Vergewissern Sie sich, dass die vom Remotecomputer gesendeten Pakete mit den von diesem Computer empfangenen Paketen identisch sind. Dieser Fehler kann auch auf Interoperabilitätsprobleme mit anderen IPsec-Implementierungen hinweisen.|  
+|4961|N/V|Mittel|IPsec hat ein eingehendes Paket verworfen, das eine Rahmenprüfung nicht bestanden hat. Wenn dieses Problem weiterhin besteht, kann dies auf einen Replay-Angriff auf diesen Computer hinweisen.|  
+|4962|N/V|Mittel|IPsec hat ein eingehendes Paket verworfen, das eine Rahmenprüfung nicht bestanden hat. Die Sequenznummer des eingehenden Pakets war zu niedrig, um zu gewährleisten, dass es sich nicht um einen Replay-Angriff handelt.|  
+|4963|N/V|Mittel|IPsec hat ein eingehendes Klartextpaket verworfen, das geschützt hätte sein sollen. Dies ist normalerweise darauf zurückzuführen, dass der Remotecomputer seine IPsec-Richtlinie ändert, ohne diesen Computer zu informieren. Es kann auch auf einen versuchten Spoofingangriff hinweisen.|  
+|4965|N/V|Mittel|IPsec hat von einem Remotecomputer ein Paket mit einem falschen Sicherheitsparameterindex (SPI) empfangen. Dies ist normalerweise auf eine fehlerhafte Hardware zurückzuführen, die Pakete beschädigt. Vergewissern Sie sich, dass die vom Remotecomputer gesendeten Pakete mit den von diesem Computer empfangenen Paketen identisch sind, wenn diese Fehler weiterhin auftreten. Dieser Fehler kann auch auf Interoperabilitätsprobleme mit anderen IPsec-Implementierungen hinweisen. In diesem Fall können diese Ereignisse ignoriert werden, sofern die Konnektivität nicht beeinträchtigt ist.|  
+|4976|N/V|Mittel|Während der Hauptmodusverhandlung hat IPsec ein ungültiges Verhandlungspaket empfangen. Wenn dieses Problem weiterhin besteht, kann dies darauf hinweisen, dass ein Netzwerkproblem vorliegt oder versucht wird, diese Verhandlung zu ändern oder durch einen Replay-Angriff zu manipulieren.|  
+|4977|N/V|Mittel|Während der Schnellmodusverhandlung hat IPsec ein ungültiges Verhandlungspaket empfangen. Wenn dieses Problem weiterhin besteht, kann dies darauf hinweisen, dass ein Netzwerkproblem vorliegt oder versucht wird, diese Verhandlung zu ändern oder durch einen Replay-Angriff zu manipulieren.|  
+|4978|N/V|Mittel|Während der Erweiterungsmodusverhandlung hat IPsec ein ungültiges Verhandlungspaket empfangen. Wenn dieses Problem weiterhin besteht, kann dies darauf hinweisen, dass ein Netzwerkproblem vorliegt oder versucht wird, diese Verhandlung zu ändern oder durch einen Replay-Angriff zu manipulieren.|  
+|4983|N/V|Mittel|Fehler bei der Verhandlung des IPsec-Erweiterungsmodus. Die entsprechende Sicherheitszuordnung des Hauptmodus wurde gelöscht.|  
+|4984|N/V|Mittel|Fehler bei der Verhandlung des IPsec-Erweiterungsmodus. Die entsprechende Sicherheitszuordnung des Hauptmodus wurde gelöscht.|  
+|5027|N/V|Mittel|Der Windows-Firewalldienst konnte die Sicherheitsrichtlinie nicht aus dem lokalen Speicher abrufen. Der Dienst wendet weiterhin die aktuelle Richtlinie an.|  
+|5028|N/V|Mittel|Der Windows-Firewalldienst konnte die neue Sicherheitsrichtlinie nicht analysieren. Der Dienst wendet weiterhin die aktuelle Richtlinie an.|  
+|5029|N/V|Mittel|Der Windows-Firewalldienst konnte den Treiber nicht initialisieren. Der Dienst wendet weiterhin die aktuelle Richtlinie an.|  
+|5030|N/V|Mittel|Der Windows-Firewalldienst konnte nicht gestartet werden.|  
+|5035|N/V|Mittel|Der Windows-Firewalltreiber konnte nicht gestartet werden.|  
+|5037|N/V|Mittel|Der Windows-Firewalltreiber hat einen kritischen Laufzeitfehler erkannt. Der Treiber wird beendet.|  
+|5038|N/V|Mittel|Die Codeintegrität hat festgestellt, dass der Abbildhash einer Datei nicht gültig ist. Die Datei wurde möglicherweise durch eine nicht autorisierte Änderung beschädigt. Dieses Problem kann auch auf einen potenziellen Fehler des Datenträgergeräts hinweisen.|  
+|5120|N/V|Mittel|OCSP-Responder-Dienst wurde gestartet.|  
+|5121|N/V|Mittel|OCSP-Responder-Dienst wurde beendet.|  
+|5122|N/V|Mittel|Ein Konfigurationseintrag wurde im OCSP-Responder-Dienst geändert.|  
+|5123|N/V|Mittel|Ein Konfigurationseintrag wurde im OCSP-Responder-Dienst geändert.|  
+|5376|N/V|Mittel|Anmeldeinformationen der Anmeldeinformationsverwaltung wurden gesichert.|  
+|5377|N/V|Mittel|Anmeldeinformationen der Anmeldeinformationsverwaltung wurden von einer Sicherung wiederhergestellt.|  
+|5453|N/V|Mittel|Eine IPsec-Aushandlung mit einem Remotecomputer war nicht erfolgreich, da der IKE- und AuthIP IPsec-Schlüsselerstellungsmodul-Dienst (IKEEXT) nicht gestartet wurde.|  
+|5480|N/V|Mittel|Die IPsec-Dienste konnten die vollständige Liste von Netzwerkschnittstellen auf dem Computer nicht abrufen. Dies stellt ein potenzielles Sicherheitsrisiko dar, da einige Netzwerkschnittstellen möglicherweise nicht durch die angewendeten IPsec-Filter geschützt werden. Verwenden Sie das Snap-In „IP-Sicherheitsmonitor“, um das Problem zu diagnostizieren.|  
+|5483|N/V|Mittel|Die IPsec-Dienste konnten den RPC-Server nicht initialisieren. Die IPsec-Dienste konnten nicht gestartet werden.|  
+|5484|N/V|Mittel|In den IPsec-Diensten ist ein kritischer Fehler aufgetreten, und die Dienste wurden beendet. Das Beenden der IPsec-Dienste kann das Risiko von Netzwerkangriffen auf den Computer und potenzielle Sicherheitsrisiken erhöhen.|  
+|5485|N/V|Mittel|Die IPsec-Dienste konnten einige IPsec-Filter für ein Plug-and-Play-Ereignis für Netzwerkschnittstellen nicht verarbeiten. Dies stellt ein potenzielles Sicherheitsrisiko dar, da einige Netzwerkschnittstellen möglicherweise nicht durch die angewendeten IPsec-Filter geschützt werden. Verwenden Sie das Snap-In „IP-Sicherheitsmonitor“, um das Problem zu diagnostizieren.|  
+|6145|N/V|Mittel|Beim Verarbeiten der Sicherheitsrichtlinie in den Gruppenrichtlinie Objekten ist mindestens ein Fehler aufgetreten.|  
+|6273|N/V|Mittel|Der Netzwerkrichtlinienserver verweigerte einem Benutzer den Zugriff.|  
+|6274|N/V|Mittel|Der Netzwerkrichtlinienserver hat die Anforderung für einen Benutzer verworfen.|  
+|6275|N/V|Mittel|Der Netzwerkrichtlinienserver hat die Kontoführungsanforderung für einen Benutzer verworfen.|  
+|6276|N/V|Mittel|Der Netzwerkrichtlinienserver hat einen Benutzer unter Quarantäne gestellt.|  
+|6277|N/V|Mittel|Der Netzwerkrichtlinienserver hat einem Benutzer den Zugriff gewährt, ihn aber auf Probe gesetzt, da der Host die definierten Integritätsrichtlinien nicht erfüllt.|  
+|6278|N/V|Mittel|Der Netzwerkrichtlinienserver hat einem Benutzer Vollzugriff erteilt, da der Host die Integritätsrichtlinien erfüllt.|  
+|6279|N/V|Mittel|Der Netzwerkrichtlinienserver hat das Benutzerkonto aufgrund mehrerer erfolgloser Authentifizierungsversuche gesperrt.|  
+|6280|N/V|Mittel|Der Netzwerkrichtlinienserver hat die Sperre des Benutzerkontos aufgehoben.|  
 |-|640|Mittel|Allgemeine Konto Datenbank geändert|  
 |-|619|Mittel|Quality of Service Richtlinie geändert|  
-|24586|Nicht zutreffend|Mittel|Beim Umrechnen des Volumes ist ein Fehler aufgetreten.|  
-|24592|Nicht zutreffend|Mittel|Fehler beim automatischen Neustart der Konvertierung auf Volume "% 2".|  
-|24593|Nicht zutreffend|Mittel|Metadaten schreiben: Volume "% 2" gibt beim Versuch, Metadaten zu ändern, Fehler zurück. Wenn Fehler weiterhin auftreten, entschlüsseln Sie das Volume.|  
-|24594|Nicht zutreffend|Mittel|Metadatenneu Erstellung: Fehler beim Schreiben einer Kopie der Metadaten auf Volume "% 2". möglicherweise wird eine Datenträger Beschädigung angezeigt. Wenn der Fehler weiterhin besteht, entschlüsseln Sie das Volume.|  
+|24586|N/V|Mittel|Beim Umrechnen des Volumes ist ein Fehler aufgetreten.|  
+|24592|N/V|Mittel|Fehler beim automatischen Neustart der Konvertierung auf Volume "%2".|  
+|24593|N/V|Mittel|Metadaten schreiben: Volume %2 gibt Fehler zurück, wenn versucht wird, Metadaten zu ändern. Wenn Fehler weiterhin auftreten, entschlüsseln Sie das Volume.|  
+|24594|N/V|Mittel|Metadatenneu Erstellung: Fehler beim Schreiben einer Kopie der Metadaten auf Volume "%2". Wenn der Fehler weiterhin besteht, entschlüsseln Sie das Volume.|  
 |4608|512|Niedrig|Windows wird gestartet.|  
 |4609|513|Niedrig|Windows wird heruntergefahren.|  
 |4610|514|Niedrig|Ein Authentifizierungspaket wurde durch die lokale Sicherheitsinstanz geladen.|  
@@ -125,43 +124,43 @@ Eine mögliche Wichtigkeit von "High" bedeutet, dass ein Vorkommen des Ereigniss
 |4614|518|Niedrig|Die Sicherheitskontenverwaltung hat ein Benachrichtigungspaket geladen.|  
 |4615|519|Niedrig|Unzulässige Verwendung des LPC-Ports.|  
 |4616|520|Niedrig|Die Systemzeit wurde geändert.|  
-|4622|Nicht zutreffend|Niedrig|Die LSA (Local Security Authority) hat ein Sicherheitspaket geladen.|  
+|4622|N/V|Niedrig|Die LSA (Local Security Authority) hat ein Sicherheitspaket geladen.|  
 |4624|528.540|Niedrig|Ein Konto wurde erfolgreich angemeldet.|  
 |4625|529-537539|Niedrig|Fehler beim Anmelden eines Kontos.|  
 |4634|538|Niedrig|Ein Konto wurde abgemeldet.|  
-|4646|Nicht zutreffend|Niedrig|Der IKE-DoS-Präventions Modus wurde gestartet.|  
+|4646|N/V|Niedrig|Der IKE-DoS-Präventions Modus wurde gestartet.|  
 |4647|551|Niedrig|Benutzerinitiierte Abmeldung.|  
 |4648|552|Niedrig|Anmeldeversuch mit expliziten Anmeldeinformationen.|  
-|4650|Nicht zutreffend|Niedrig|Eine Sicherheitszuordnung des IPsec-Hauptmodus wurde eingerichtet. Der Erweiterungsmodus wurde nicht aktiviert. Zertifikatauthentifizierung wurde nicht verwendet.|  
-|4651|Nicht zutreffend|Niedrig|Eine Sicherheitszuordnung des IPsec-Hauptmodus wurde eingerichtet. Der Erweiterungsmodus wurde nicht aktiviert. Zertifikatauthentifizierung wurde verwendet.|  
-|4652|Nicht zutreffend|Niedrig|Fehler bei einer IPsec-Hauptmodusverhandlung.|  
-|4653|Nicht zutreffend|Niedrig|Fehler bei einer IPsec-Hauptmodusverhandlung.|  
-|4654|Nicht zutreffend|Niedrig|Fehler bei der IPSec-Schnellmodus-Aushandlung.|  
-|4655|Nicht zutreffend|Niedrig|Beendigung einer IPsec-Hauptmodusverhandlung.|  
+|4650|N/V|Niedrig|Eine Sicherheitszuordnung des IPsec-Hauptmodus wurde eingerichtet. Der Erweiterungsmodus wurde nicht aktiviert. Zertifikatauthentifizierung wurde nicht verwendet.|  
+|4651|N/V|Niedrig|Eine Sicherheitszuordnung des IPsec-Hauptmodus wurde eingerichtet. Der Erweiterungsmodus wurde nicht aktiviert. Zertifikatauthentifizierung wurde verwendet.|  
+|4652|N/V|Niedrig|Fehler bei einer IPsec-Hauptmodusverhandlung.|  
+|4653|N/V|Niedrig|Fehler bei einer IPsec-Hauptmodusverhandlung.|  
+|4654|N/V|Niedrig|Fehler bei der IPSec-Schnellmodus-Aushandlung.|  
+|4655|N/V|Niedrig|Beendigung einer IPsec-Hauptmodusverhandlung.|  
 |4656|560|Niedrig|Ein Handle zu einem Objekt wurde angefordert.|  
 |4657|567|Niedrig|Ein Registrierungswert wurde geändert.|  
 |4658|562|Niedrig|Ein Handle zu einem Objekt wurde geschlossen.|  
-|4659|Nicht zutreffend|Niedrig|Ein Handle zu einem Objekt wurde angefordert mit der Absicht, es zu löschen.|  
+|4659|N/V|Niedrig|Ein Handle zu einem Objekt wurde angefordert mit der Absicht, es zu löschen.|  
 |4660|564|Niedrig|Ein Objekt wurde gelöscht.|  
 |4661|565|Niedrig|Ein Handle zu einem Objekt wurde angefordert.|  
 |4662|566|Niedrig|Für ein Objekt wurde ein Vorgang ausgeführt.|  
 |4663|567|Niedrig|Es wurde versucht, auf ein Objekt zuzugreifen.|  
-|4664|Nicht zutreffend|Niedrig|Es wurde versucht, eine feste Verknüpfung herzustellen.|  
-|4665|Nicht zutreffend|Niedrig|Es wurde versucht, einen Anwendungsclientkontext zu erstellen.|  
-|4666|Nicht zutreffend|Niedrig|Eine Anwendung hat einen Vorgang versucht:|  
-|4667|Nicht zutreffend|Niedrig|Löschung des Anwendungsclientkontexts.|  
-|4668|Nicht zutreffend|Niedrig|Initialisierung einer Anwendung.|  
-|4670|Nicht zutreffend|Niedrig|Berechtigungen für ein Objekt wurden geändert.|  
-|4671|Nicht zutreffend|Niedrig|Eine Anwendung hat versucht, über den TBS-Dienst auf eine blockierte Ordnungszahl zuzugreifen.|  
-|4672|576|Niedrig|Einer neuen Anmeldung wurden besondere Rechte zugewiesen.|  
+|4664|N/V|Niedrig|Es wurde versucht, eine feste Verknüpfung herzustellen.|  
+|4665|N/V|Niedrig|Es wurde versucht, einen Anwendungsclientkontext zu erstellen.|  
+|4666|N/V|Niedrig|Eine Anwendung hat einen Vorgang versucht:|  
+|4667|N/V|Niedrig|Löschung des Anwendungsclientkontexts.|  
+|4668|N/V|Niedrig|Initialisierung einer Anwendung.|  
+|4670|N/V|Niedrig|Berechtigungen für ein Objekt wurden geändert.|  
+|4671|N/V|Niedrig|Eine Anwendung hat versucht, über den TBS-Dienst auf eine blockierte Ordnungszahl zuzugreifen.|  
+|4672|576|Niedrig|Besondere Rechte bei neuer Anmeldung.|  
 |4673|577|Niedrig|Ein privilegierter Dienst wurde aufgerufen.|  
 |4674|578|Niedrig|Es wurde versucht, einen Vorgang für ein privilegiertes Objekt auszuführen.|  
-|4688|592|Niedrig|Ein neuer Prozess wurde erstellt.|  
+|4688|592|Niedrig|Ein neuer Vorgangs wurde erstellt.|  
 |4689|593|Niedrig|Ein Prozess wurde beendet.|  
 |4690|594|Niedrig|Es wurde versucht, ein Handle zu einem Objekt zu duplizieren.|  
 |4691|595|Niedrig|Der indirekte Zugriff auf ein Objekt wurde angefordert.|  
-|4694|Nicht zutreffend|Niedrig|Es wurde versucht, überwachbare geschützte Daten zu schützen.|  
-|4695|Nicht zutreffend|Niedrig|Es wurde versucht, den Schutz überwachbarer geschützter Daten aufzuheben.|  
+|4694|N/V|Niedrig|Es wurde versucht, überwachbare geschützte Daten zu schützen.|  
+|4695|N/V|Niedrig|Es wurde versucht, den Schutz überwachbarer geschützter Daten aufzuheben.|  
 |4696|600|Niedrig|Ein primäres Token wurde der Verarbeitung zugewiesen.|  
 |4697|601|Niedrig|Es wurde versucht, einen Dienst zu installieren|  
 |4698|602|Niedrig|Eine geplante Aufgabe wurde erstellt.|  
@@ -172,10 +171,10 @@ Eine mögliche Wichtigkeit von "High" bedeutet, dass ein Vorkommen des Ereigniss
 |4704|608|Niedrig|Eine Benutzerberechtigung wurde zugewiesen.|  
 |4705|609|Niedrig|Eine Benutzerberechtigung wurde entfernt.|  
 |4707|611|Niedrig|Eine Vertrauensstellung zu einer Domäne wurde entfernt.|  
-|4709|Nicht zutreffend|Niedrig|Die IPsec-Dienste wurden gestartet.|  
-|4710|Nicht zutreffend|Niedrig|Die IPsec-Dienste wurden deaktiviert.|  
-|4711|Nicht zutreffend|Niedrig|Kann eines der folgenden Elemente enthalten: Das PAStore-Modul hat eine lokal zwischengespeicherte Kopie der Active Directory-Speicher-IPsec-Richtlinie auf dem Computer angewendet. Das PAStore-Modul hat eine Active Directory-Speicher-IPsec-Richtlinie auf dem Computer angewendet. Das PAStore-Modul hat eine Speicher-IPsec-Richtlinie der lokalen Registrierung auf dem Computer angewendet. Das PAStore-Modul konnte die lokal zwischengespeicherte Kopie der Active Directory-Speicher-IPsec-Richtlinie nicht auf dem Computer anwenden. Das PAStore-Modul konnte die Active Directory-Speicher-IPsec-Richtlinie nicht auf dem Computer anwenden. Das PAStore-Modul konnte die Speicher-IPsec-Richtlinie der lokalen Registrierung nicht auf dem Computer anwenden. Das PAStore-Modul konnte einige Regeln der aktiven IPsec-Richtlinie nicht auf dem Computer anwenden. Das PAStore-Modul konnte die Verzeichnisspeicher-IPsec-Richtlinie nicht auf dem Computer laden. Das PAStore-Modul hat die Verzeichnisspeicher-IPsec-Richtlinie auf dem Computer geladen. Das PAStore-Modul konnte die lokale Speicher-IPsec-Richtlinie nicht auf dem Computer laden. Die Speicher-Engine hat die IPSec-Richtlinie des lokalen Speichers auf dem Computer geladen. Die Store-Engine hat Änderungen an der aktiven IPSec-Richtlinie abgerufen, und es wurden keine Änderungen erkannt. |  
-|4712|Nicht zutreffend|Niedrig|Schwerwiegender Fehler beim IPsec-Dienst.|  
+|4709|N/V|Niedrig|Die IPsec-Dienste wurden gestartet.|  
+|4710|N/V|Niedrig|Die IPsec-Dienste wurden deaktiviert.|  
+|4711|N/V|Niedrig|Kann eine der folgenden folgenden Zeichen enthalten: eine lokal zwischengespeicherte Kopie der IPSec-Richtlinie des Active Directory Speichers auf dem Computer. Das PAStore-Modul hat eine Active Directory-Speicher-IPsec-Richtlinie auf dem Computer angewendet. Das PAStore-Modul hat eine Speicher-IPsec-Richtlinie der lokalen Registrierung auf dem Computer angewendet. Das PAStore-Modul konnte die lokal zwischengespeicherte Kopie der Active Directory-Speicher-IPsec-Richtlinie nicht auf dem Computer anwenden. Das PAStore-Modul konnte die Active Directory-Speicher-IPsec-Richtlinie nicht auf dem Computer anwenden. Das PAStore-Modul konnte die Speicher-IPsec-Richtlinie der lokalen Registrierung nicht auf dem Computer anwenden. Das PAStore-Modul konnte einige Regeln der aktiven IPsec-Richtlinie nicht auf dem Computer anwenden. Das PAStore-Modul konnte die Verzeichnisspeicher-IPsec-Richtlinie nicht auf dem Computer laden. Das PAStore-Modul hat die Verzeichnisspeicher-IPsec-Richtlinie auf dem Computer geladen. Das PAStore-Modul konnte die lokale Speicher-IPsec-Richtlinie nicht auf dem Computer laden. Die Speicher-Engine hat die IPSec-Richtlinie des lokalen Speichers auf dem Computer geladen. Die Store-Engine hat Änderungen an der aktiven IPSec-Richtlinie abgerufen, und es wurden keine Änderungen erkannt. |  
+|4712|N/V|Niedrig|Schwerwiegender Fehler beim IPsec-Dienst.|  
 |4717|621|Niedrig|Einem Konto wurde der Zugriff auf die Systemsicherheit gewährt.|  
 |4718|622|Niedrig|Der Zugriff auf die Systemsicherheit wurde von einem Konto entfernt.|  
 |4720|624|Niedrig|Ein Benutzerkonto wurde erstellt.|  
@@ -221,25 +220,25 @@ Eine mögliche Wichtigkeit von "High" bedeutet, dass ein Vorkommen des Ereigniss
 |4774|678|Niedrig|Ein Konto wurde für die Anmeldung zugeordnet.|  
 |4775|679|Niedrig|Es konnte kein Konto für die Anmeldung zugeordnet werden.|  
 |4776|680.681|Niedrig|Der Domänencontroller hat versucht, die Anmeldeinformationen für ein Konto zu bestätigen.|  
-|4777|Nicht zutreffend|Niedrig|Der Domänencontroller konnte die Anmeldeinformationen für ein Konto nicht bestätigen.|  
+|4777|N/V|Niedrig|Der Domänencontroller konnte die Anmeldeinformationen für ein Konto nicht bestätigen.|  
 |4778|682|Niedrig|Eine Sitzung wurde erneut mit einer Arbeitsstation verbunden.|  
 |4779|683|Niedrig|Eine Sitzung wurde von einer Arbeitsstation getrennt.|  
 |4781|685|Niedrig|Der Name eines Kontos wurde geändert:|  
-|4782|Nicht zutreffend|Niedrig|Der Kenn Wort Hash, auf den ein Konto zugegriffen hat.|  
+|4782|N/V|Niedrig|Der Kenn Wort Hash, auf den ein Konto zugegriffen hat.|  
 |4783|667|Niedrig|Eine Basisanwendungsgruppe wurde erstellt.|  
-|4784|Nicht zutreffend|Niedrig|Eine Basisanwendungsgruppe wurde geändert.|  
+|4784|N/V|Niedrig|Eine Basisanwendungsgruppe wurde geändert.|  
 |4785|689|Niedrig|Einer Basisanwendungsgruppe wurde ein Mitglied hinzugefügt.|  
 |4786|690|Niedrig|Ein Mitglied einer Basisanwendungsgruppe wurde entfernt.|  
 |4787|691|Niedrig|Ein nicht Mitglied wurde einer einfachen Anwendungs Gruppe hinzugefügt.|  
 |4788|692|Niedrig|Ein nicht Mitglied wurde aus einer einfachen Anwendungs Gruppe entfernt.|  
 |4789|693|Niedrig|Eine Basisanwendungsgruppe wurde gelöscht.|  
 |4790|694|Niedrig|Eine LDAP-Abfragegruppe wurde erstellt.|  
-|4793|Nicht zutreffend|Niedrig|Die Kennwortrichtlinienprüfungs-API wurde aufgerufen.|  
-|4800|Nicht zutreffend|Niedrig|Die Arbeitsstation wurde gesperrt.|  
-|4801|Nicht zutreffend|Niedrig|Die Arbeitsstation wurde entsperrt.|  
-|4802|Nicht zutreffend|Niedrig|Der Bildschirmschoner wurde aktiviert.|  
-|4803|Nicht zutreffend|Niedrig|Der Bildschirmschoner wurde deaktiviert.|  
-|4864|Nicht zutreffend|Niedrig|Ein Namespacekonflikt wurde erkannt.|  
+|4793|N/V|Niedrig|Die Kennwortrichtlinienprüfungs-API wurde aufgerufen.|  
+|4800|N/V|Niedrig|Die Arbeitsstation wurde gesperrt.|  
+|4801|N/V|Niedrig|Die Arbeitsstation wurde entsperrt.|  
+|4802|N/V|Niedrig|Der Bildschirmschoner wurde aktiviert.|  
+|4803|N/V|Niedrig|Der Bildschirmschoner wurde deaktiviert.|  
+|4864|N/V|Niedrig|Ein Namespacekonflikt wurde erkannt.|  
 |4869|773|Niedrig|Die Zertifikatdienste haben eine erneut eingereichte Zertifikatanforderung erhalten.|  
 |4871|775|Niedrig|Die Zertifikatdienste haben eine Anforderung zum Veröffentlichen der Zertifikatssperrliste erhalten.|  
 |4872|776|Niedrig|Die Zertifikatdienste haben die Zertifikatsperrliste veröffentlicht.|  
@@ -263,155 +262,155 @@ Eine mögliche Wichtigkeit von "High" bedeutet, dass ein Vorkommen des Ereigniss
 |4894|798|Niedrig|Zertifikatdienste haben einen Schlüssel importiert und archiviert.|  
 |4895|799|Niedrig|Die Zertifikatdienste haben das Zertifizierungsstellenzertifikat bei den Active Directory-Domänendiensten veröffentlicht.|  
 |4898|802|Niedrig|Die Zertifikatdienste haben eine Vorlage geladen.|  
-|4902|Nicht zutreffend|Niedrig|Eine Benutzerrichtlinien-Überwachungstabelle wurde erstellt.|  
-|4904|Nicht zutreffend|Niedrig|Es wurde versucht, eine Sicherheitsereignisquelle zu registrieren|  
-|4905|Nicht zutreffend|Niedrig|Es wurde versucht, die Registrierung einer Sicherheitsereignisquelle aufzuheben.|  
-|4909|Nicht zutreffend|Niedrig|Die lokalen Richtlinieneinstellungen für den TBS-Dienst wurden geändert.|  
-|4910|Nicht zutreffend|Niedrig|Die Gruppenrichtlinie Einstellungen für die TSB wurden geändert.|  
-|4928|Nicht zutreffend|Niedrig|Ein Namenskontext für Active Directory-Replikatquellen wurde eingerichtet.|  
-|4929|Nicht zutreffend|Niedrig|Ein Namenskontext für Active Directory-Replikatquellen wurde entfernt.|  
-|4930|Nicht zutreffend|Niedrig|Ein Namenskontext für Active Directory-Replikatquellen wurde geändert.|  
-|4931|Nicht zutreffend|Niedrig|Ein Namenskontext für Active Directory-Replikatziele wurde eingerichtet.|  
-|4932|Nicht zutreffend|Niedrig|Die Synchronisierung eines Replikats eines Active Directory-Namenskontextes wurde gestartet.|  
-|4933|Nicht zutreffend|Niedrig|Die Synchronisierung eines Replikats eines Active Directory-Namenskontextes wurde beendet.|  
-|4934|Nicht zutreffend|Niedrig|Die Attribute eines Active Directory-Objekts wurden repliziert.|  
-|4935|Nicht zutreffend|Niedrig|Beginn des Replikationsfehlers.|  
-|4936|Nicht zutreffend|Niedrig|Ende des Replikationsfehlers.|  
-|4937|Nicht zutreffend|Niedrig|Ein veraltetes Objekt wurde aus einem Replikat entfernt.|  
-|4944|Nicht zutreffend|Niedrig|Die folgende Richtlinie war beim Start der Windows-Firewall aktiv.|  
-|4945|Nicht zutreffend|Niedrig|Beim Start der Windows-Firewall wurde eine Regel aufgelistet.|  
-|4946|Nicht zutreffend|Niedrig|Die Ausnahmeliste der Windows-Firewall wurde geändert. Eine Regel wurde hinzugefügt.|  
-|4947|Nicht zutreffend|Niedrig|Die Ausnahmeliste der Windows-Firewall wurde geändert. Eine Regel wurde geändert.|  
-|4948|Nicht zutreffend|Niedrig|Die Ausnahmeliste der Windows-Firewall wurde geändert. Eine Regel wurde gelöscht.|  
-|4949|Nicht zutreffend|Niedrig|Die Einstellungen der Windows-Firewall wurden auf die Standardwerte zurückgesetzt.|  
-|4950|Nicht zutreffend|Niedrig|Eine Windows-Firewalleinstellung wurde geändert.|  
-|4951|Nicht zutreffend|Niedrig|Eine Regel wurde ignoriert, da ihre Hauptversionsnummer nicht von der Windows-Firewall erkannt wurde.|  
-|4952|Nicht zutreffend|Niedrig|Eine Regel wurde teilweise ignoriert, da ihre Nebenversionsnummer nicht von der Windows-Firewall erkannt wurde. Die anderen Teile der Regel werden angewendet.|  
-|4953|Nicht zutreffend|Niedrig|Eine Regel wurde von der Windows-Firewall ignoriert, da die Regel nicht analysiert werden konnte.|  
-|4954|Nicht zutreffend|Niedrig|Die Windows-Firewall-Gruppenrichtlinieneinstellungen wurden geändert. Die neuen Einstellungen wurden angewendet.|  
-|4956|Nicht zutreffend|Niedrig|Die Windows-Firewall hat das aktive Profil geändert.|  
-|4957|Nicht zutreffend|Niedrig|Die Windows-Firewall hat die folgende Regel nicht angewendet:|  
-|4958|Nicht zutreffend|Niedrig|Die Windows-Firewall hat die folgende Regel nicht angewendet, da die Regel auf Elemente verweist, die auf diesem Computer nicht konfiguriert sind:|  
-|4979|Nicht zutreffend|Niedrig|Sicherheitszuordnungen für den IPsec-Hauptmodus und -Erweiterungsmodus wurden eingerichtet.|  
-|4980|Nicht zutreffend|Niedrig|Sicherheitszuordnungen für den IPsec-Hauptmodus und -Erweiterungsmodus wurden eingerichtet.|  
-|4981|Nicht zutreffend|Niedrig|Sicherheitszuordnungen für den IPsec-Hauptmodus und -Erweiterungsmodus wurden eingerichtet.|  
-|4982|Nicht zutreffend|Niedrig|Sicherheitszuordnungen für den IPsec-Hauptmodus und -Erweiterungsmodus wurden eingerichtet.|  
-|4985|Nicht zutreffend|Niedrig|Der Status einer Transaktion wurde geändert.|  
-|5024|Nicht zutreffend|Niedrig|Der Windows-Firewalldienst wurde erfolgreich gestartet.|  
-|5025|Nicht zutreffend|Niedrig|Der Windows-Firewalldienst wurde beendet.|  
-|5031|Nicht zutreffend|Niedrig|Der Windows-Firewalldienst hat eine Anwendung blockiert, sodass sie keine eingehenden Verbindungen im Netzwerk annehmen kann|  
-|5032|Nicht zutreffend|Niedrig|Der Windows-Firewalldienst konnte den Benutzer nicht darüber benachrichtigen, dass eine Anwendung blockiert wurde und keine eingehenden Verbindungen im Netzwerk annehmen kann.|  
-|5033|Nicht zutreffend|Niedrig|Der Windows-Firewalltreiber wurde erfolgreich gestartet.|  
-|5034|Nicht zutreffend|Niedrig|Der Windows-Firewalltreiber wurde beendet.|  
-|5039|Nicht zutreffend|Niedrig|Ein Registrierungsschlüssel wurde virtualisiert.|  
-|5040|Nicht zutreffend|Niedrig|Die IPSec-Einstellungen wurden geändert. Ein Authentifizierungssatz wurde hinzugefügt.|  
-|5041|Nicht zutreffend|Niedrig|Die IPSec-Einstellungen wurden geändert. Ein Authentifizierungssatz wurde geändert.|  
-|5042|Nicht zutreffend|Niedrig|Die IPSec-Einstellungen wurden geändert. Ein Authentifizierungssatz wurde gelöscht.|  
-|5043|Nicht zutreffend|Niedrig|Die IPSec-Einstellungen wurden geändert. Eine Verbindungssicherheitsregel wurde hinzugefügt.|  
-|5044|Nicht zutreffend|Niedrig|Die IPSec-Einstellungen wurden geändert. Eine Verbindungssicherheitsregel wurde geändert.|  
-|5045|Nicht zutreffend|Niedrig|Die IPSec-Einstellungen wurden geändert. Eine Verbindungssicherheitsregel wurde gelöscht.|  
-|5046|Nicht zutreffend|Niedrig|Die IPSec-Einstellungen wurden geändert. Ein Kryptografiesatz wurde hinzugefügt.|  
-|5047|Nicht zutreffend|Niedrig|Die IPSec-Einstellungen wurden geändert. Ein Kryptografiesatz wurde geändert.|  
-|5048|Nicht zutreffend|Niedrig|Die IPSec-Einstellungen wurden geändert. Ein Kryptografiesatz wurde gelöscht.|  
-|5050|Nicht zutreffend|Niedrig|Es wurde versucht, die Windows-Firewall mithilfe eines INetFwProfile. firewallaktivierten Aufrufens (false) Programm gesteuert zu deaktivieren.|  
-|5051|Nicht zutreffend|Niedrig|Eine Datei wurde virtualisiert.|  
-|5056|Nicht zutreffend|Niedrig|Ein kryptografischer Self-Test wurde ausgeführt.|  
-|5057|Nicht zutreffend|Niedrig|Fehler bei einem einfachen kryptografischen Vorgang.|  
-|5058|Nicht zutreffend|Niedrig|Schlüsseldateivorgang.|  
-|5059|Nicht zutreffend|Niedrig|Schlüsselmigrationsvorgang.|  
-|5060|Nicht zutreffend|Niedrig|Fehler bei der Überprüfung der Kryptografiesignatur.|  
-|5061|Nicht zutreffend|Niedrig|Kryptografievorgang.|  
-|5062|Nicht zutreffend|Niedrig|Ein kryptografischer kernelmodustest wurde ausgeführt.|  
-|5063|Nicht zutreffend|Niedrig|Es wurde versucht, einen Kryptografieanbietervorgang auszuführen.|  
-|5064|Nicht zutreffend|Niedrig|Es wurde versucht, einen Kryptografiekontextvorgang auszuführen.|  
-|5065|Nicht zutreffend|Niedrig|Es wurde versucht, einen Kryptografiekontext zu ändern.|  
-|5066|Nicht zutreffend|Niedrig|Es wurde versucht, einen Kryptografiefunktionsvorgang auszuführen.|  
-|5067|Nicht zutreffend|Niedrig|Es wurde versucht, eine Kryptografiefunktion zu ändern.|  
-|5068|Nicht zutreffend|Niedrig|Es wurde versucht, einen Vorgang für einen Kryptografiefunktionsanbieter auszuführen.|  
-|5069|Nicht zutreffend|Niedrig|Es wurde versucht, einen Vorgang für eine Kryptografiefunktionseigenschaft auszuführen.|  
-|5070|Nicht zutreffend|Niedrig|Es wurde versucht, eine Kryptografiefunktionseigenschaft zu ändern.|  
-|5125|Nicht zutreffend|Niedrig|Eine Anforderung wurde an den OCSP-Responder-Dienst übermittelt.|  
-|5126|Nicht zutreffend|Niedrig|Das Signaturzertifikat wurde vom OCSP-Responder-Dienst automatisch aktualisiert.|  
-|5127|Nicht zutreffend|Niedrig|Der OCSP-Sperr Anbieter hat die Sperrinformationen erfolgreich aktualisiert.|  
+|4902|N/V|Niedrig|Eine Benutzerrichtlinien-Überwachungstabelle wurde erstellt.|  
+|4904|N/V|Niedrig|Es wurde versucht, eine Sicherheitsereignisquelle zu registrieren|  
+|4905|N/V|Niedrig|Es wurde versucht, die Registrierung einer Sicherheitsereignisquelle aufzuheben.|  
+|4909|N/V|Niedrig|Die lokalen Richtlinieneinstellungen für den TBS-Dienst wurden geändert.|  
+|4910|N/V|Niedrig|Die Gruppenrichtlinie Einstellungen für die TSB wurden geändert.|  
+|4928|N/V|Niedrig|Ein Namenskontext für Active Directory-Replikatquellen wurde eingerichtet.|  
+|4929|N/V|Niedrig|Ein Namenskontext für Active Directory-Replikatquellen wurde entfernt.|  
+|4930|N/V|Niedrig|Ein Namenskontext für Active Directory-Replikatquellen wurde geändert.|  
+|4931|N/V|Niedrig|Ein Namenskontext für Active Directory-Replikatziele wurde eingerichtet.|  
+|4932|N/V|Niedrig|Die Synchronisierung eines Replikats eines Active Directory-Namenskontextes wurde gestartet.|  
+|4933|N/V|Niedrig|Die Synchronisierung eines Replikats eines Active Directory-Namenskontextes wurde beendet.|  
+|4934|N/V|Niedrig|Die Attribute eines Active Directory-Objekts wurden repliziert.|  
+|4935|N/V|Niedrig|Beginn des Replikationsfehlers.|  
+|4936|N/V|Niedrig|Ende des Replikationsfehlers.|  
+|4937|N/V|Niedrig|Ein veraltetes Objekt wurde aus einem Replikat entfernt.|  
+|4944|N/V|Niedrig|Die folgende Richtlinie war beim Start der Windows-Firewall aktiv.|  
+|4945|N/V|Niedrig|Beim Start der Windows-Firewall wurde eine Regel aufgelistet.|  
+|4946|N/V|Niedrig|Die Ausnahmeliste der Windows-Firewall wurde geändert. Eine Regel wurde hinzugefügt.|  
+|4947|N/V|Niedrig|Die Ausnahmeliste der Windows-Firewall wurde geändert. Eine Regel wurde geändert.|  
+|4948|N/V|Niedrig|Die Ausnahmeliste der Windows-Firewall wurde geändert. Eine Regel wurde gelöscht.|  
+|4949|N/V|Niedrig|Die Einstellungen der Windows-Firewall wurden auf die Standardwerte zurückgesetzt.|  
+|4950|N/V|Niedrig|Eine Windows-Firewalleinstellung wurde geändert.|  
+|4951|N/V|Niedrig|Eine Regel wurde ignoriert, da ihre Hauptversionsnummer nicht von der Windows-Firewall erkannt wurde.|  
+|4952|N/V|Niedrig|Eine Regel wurde teilweise ignoriert, da ihre Nebenversionsnummer nicht von der Windows-Firewall erkannt wurde. Die anderen Teile der Regel werden angewendet.|  
+|4953|N/V|Niedrig|Eine Regel wurde von der Windows-Firewall ignoriert, da die Regel nicht analysiert werden konnte.|  
+|4954|N/V|Niedrig|Die Windows-Firewall-Gruppenrichtlinieneinstellungen wurden geändert. Die neuen Einstellungen wurden angewendet.|  
+|4956|N/V|Niedrig|Die Windows-Firewall hat das aktive Profil geändert.|  
+|4957|N/V|Niedrig|Die Windows-Firewall hat die folgende Regel nicht angewendet:|  
+|4958|N/V|Niedrig|Die Windows-Firewall hat die folgende Regel nicht angewendet, da die Regel auf Elemente verweist, die auf diesem Computer nicht konfiguriert sind:|  
+|4979|N/V|Niedrig|Sicherheitszuordnungen für den IPsec-Hauptmodus und -Erweiterungsmodus wurden eingerichtet.|  
+|4980|N/V|Niedrig|Sicherheitszuordnungen für den IPsec-Hauptmodus und -Erweiterungsmodus wurden eingerichtet.|  
+|4981|N/V|Niedrig|Sicherheitszuordnungen für den IPsec-Hauptmodus und -Erweiterungsmodus wurden eingerichtet.|  
+|4982|N/V|Niedrig|Sicherheitszuordnungen für den IPsec-Hauptmodus und -Erweiterungsmodus wurden eingerichtet.|  
+|4985|N/V|Niedrig|Der Status einer Transaktion wurde geändert.|  
+|5024|N/V|Niedrig|Der Windows-Firewalldienst wurde erfolgreich gestartet.|  
+|5025|N/V|Niedrig|Der Windows-Firewalldienst wurde beendet.|  
+|5031|N/V|Niedrig|Der Windows-Firewalldienst hat eine Anwendung blockiert, sodass sie keine eingehenden Verbindungen im Netzwerk annehmen kann|  
+|5032|N/V|Niedrig|Der Windows-Firewalldienst konnte den Benutzer nicht darüber benachrichtigen, dass eine Anwendung blockiert wurde und keine eingehenden Verbindungen im Netzwerk annehmen kann.|  
+|5033|N/V|Niedrig|Der Windows-Firewalltreiber wurde erfolgreich gestartet.|  
+|5034|N/V|Niedrig|Der Windows-Firewalltreiber wurde beendet.|  
+|5039|N/V|Niedrig|Ein Registrierungsschlüssel wurde virtualisiert.|  
+|5040|N/V|Niedrig|Die IPSec-Einstellungen wurden geändert. Ein Authentifizierungssatz wurde hinzugefügt.|  
+|5041|N/V|Niedrig|Die IPSec-Einstellungen wurden geändert. Ein Authentifizierungssatz wurde geändert.|  
+|5042|N/V|Niedrig|Die IPSec-Einstellungen wurden geändert. Ein Authentifizierungssatz wurde gelöscht.|  
+|5043|N/V|Niedrig|Die IPSec-Einstellungen wurden geändert. Eine Verbindungssicherheitsregel wurde hinzugefügt.|  
+|5044|N/V|Niedrig|Die IPSec-Einstellungen wurden geändert. Eine Verbindungssicherheitsregel wurde geändert.|  
+|5045|N/V|Niedrig|Die IPSec-Einstellungen wurden geändert. Eine Verbindungssicherheitsregel wurde gelöscht.|  
+|5046|N/V|Niedrig|Die IPSec-Einstellungen wurden geändert. Ein Kryptografiesatz wurde hinzugefügt.|  
+|5047|N/V|Niedrig|Die IPSec-Einstellungen wurden geändert. Ein Kryptografiesatz wurde geändert.|  
+|5048|N/V|Niedrig|Die IPSec-Einstellungen wurden geändert. Ein Kryptografiesatz wurde gelöscht.|  
+|5050|N/V|Niedrig|Es wurde versucht, die Windows-Firewall mithilfe eines INetFwProfile. firewallaktivierten Aufrufens (false) Programm gesteuert zu deaktivieren.|  
+|5051|N/V|Niedrig|Eine Datei wurde virtualisiert.|  
+|5056|N/V|Niedrig|Ein kryptografischer Self-Test wurde ausgeführt.|  
+|5057|N/V|Niedrig|Fehler bei einem einfachen kryptografischen Vorgang.|  
+|5058|N/V|Niedrig|Schlüsseldateivorgang.|  
+|5059|N/V|Niedrig|Schlüsselmigrationsvorgang.|  
+|5060|N/V|Niedrig|Fehler bei der Überprüfung der Kryptografiesignatur.|  
+|5061|N/V|Niedrig|Kryptographischer Vorgang.|  
+|5062|N/V|Niedrig|Ein kryptografischer kernelmodustest wurde ausgeführt.|  
+|5063|N/V|Niedrig|Es wurde versucht, einen Kryptografieanbietervorgang auszuführen.|  
+|5064|N/V|Niedrig|Es wurde versucht, einen Kryptografiekontextvorgang auszuführen.|  
+|5065|N/V|Niedrig|Es wurde versucht, einen Kryptografiekontext zu ändern.|  
+|5066|N/V|Niedrig|Es wurde versucht, einen Kryptografiefunktionsvorgang auszuführen.|  
+|5067|N/V|Niedrig|Es wurde versucht, eine Kryptografiefunktion zu ändern.|  
+|5068|N/V|Niedrig|Es wurde versucht, einen Vorgang für einen Kryptografiefunktionsanbieter auszuführen.|  
+|5069|N/V|Niedrig|Es wurde versucht, einen Vorgang für eine Kryptografiefunktionseigenschaft auszuführen.|  
+|5070|N/V|Niedrig|Es wurde versucht, eine Kryptografiefunktionseigenschaft zu ändern.|  
+|5125|N/V|Niedrig|Eine Anforderung wurde an den OCSP-Responder-Dienst übermittelt.|  
+|5126|N/V|Niedrig|Das Signaturzertifikat wurde vom OCSP-Responder-Dienst automatisch aktualisiert.|  
+|5127|N/V|Niedrig|Der OCSP-Sperr Anbieter hat die Sperrinformationen erfolgreich aktualisiert.|  
 |5136|566|Niedrig|Ein Verzeichnisdienstobjekt wurde geändert|  
 |5137|566|Niedrig|Ein Verzeichnisdienstobjekt wurde erstellt.|  
-|5138|Nicht zutreffend|Niedrig|Ein Verzeichnisdienstobjekt wurde wiederhergestellt.|  
-|5139|Nicht zutreffend|Niedrig|Ein Verzeichnisdienstobjekt wurde verschoben.|  
-|5140|Nicht zutreffend|Niedrig|Es wurde auf ein Netzwerkfreigabeobjekt zugegriffen.|  
-|5141|Nicht zutreffend|Niedrig|Ein Verzeichnisdienstobjekt wurde gelöscht.|  
-|5152|Nicht zutreffend|Niedrig|Die Windows-Filterplattform hat ein Paket blockiert.|  
-|5153|Nicht zutreffend|Niedrig|Ein stärker einschränkender Windows-Filterplattformfilter hat ein Paket blockiert.|  
-|5154|Nicht zutreffend|Niedrig|Die Windows-Filterplattform hat es einer Anwendung oder einem Dienst gestattet, einen Port auf eingehende Verbindungen abzuhören.|  
-|5155|Nicht zutreffend|Niedrig|Die Windows-Filterplattform hat eine Anwendung oder einen Dienst daran gehindert, einen Port auf eingehende Verbindungen abzuhören.|  
-|5156|Nicht zutreffend|Niedrig|Die Windows-Filterplattform hat eine Verbindung zugelassen.|  
-|5157|Nicht zutreffend|Niedrig|Die Windows-Filterplattform hat eine Verbindung blockiert.|  
-|5158|Nicht zutreffend|Niedrig|Die Windows-Filterplattform hat eine Bindung an einen lokalen Port zugelassen.|  
-|5159|Nicht zutreffend|Niedrig|Die Windows-Filterplattform hat eine Bindung an einen lokalen Port blockiert.|  
-|5378|Nicht zutreffend|Niedrig|Die angeforderte Delegierung von Anmeldeinformationen wurde von einer Richtlinie nicht zugelassen.|  
-|5440|Nicht zutreffend|Niedrig|Beim Start des Basisfiltermoduls der Windows-Filterplattform war der folgende Callout vorhanden.|  
-|5441|Nicht zutreffend|Niedrig|Beim Start des Basisfiltermoduls der Windows-Filterplattform war der folgende Filter vorhanden.|  
-|5442|Nicht zutreffend|Niedrig|Beim Start des Basisfiltermoduls der Windows-Filterplattform war der folgende Anbieter vorhanden.|  
-|5443|Nicht zutreffend|Niedrig|Beim Start des Basisfiltermoduls der Windows-Filterplattform war der folgende Anbieterkontext vorhanden|  
-|5444|Nicht zutreffend|Niedrig|Die folgende untergeordnete Ebene war vorhanden, als die Basis Filter-Engine der Windows-Filter Plattform gestartet wurde.|  
-|5446|Nicht zutreffend|Niedrig|Ein Callout der Windows-Filterplattform wurde geändert.|  
-|5447|Nicht zutreffend|Niedrig|Ein Filter der Windows-Filterplattform wurde geändert.|  
-|5448|Nicht zutreffend|Niedrig|Ein Anbieter der Windows-Filterplattform wurde geändert.|  
-|5449|Nicht zutreffend|Niedrig|Ein Anbieterkontext der Windows-Filterplattform wurde geändert.|  
-|5450|Nicht zutreffend|Niedrig|Eine Windows-Filter Platt Form Unterschicht wurde geändert.|  
-|5451|Nicht zutreffend|Niedrig|Eine IPsec-Schnellmodus-Sicherheitszuordnung wurde eingerichtet.|  
-|5452|Nicht zutreffend|Niedrig|Eine IPsec-Schnellmodus-Sicherheitszuordnung wurde beendet.|  
-|5456|Nicht zutreffend|Niedrig|Das PAStore-Modul hat eine Active Directory-Speicher-IPsec-Richtlinie auf dem Computer angewendet.|  
-|5457|Nicht zutreffend|Niedrig|Das PAStore-Modul konnte die Active Directory-Speicher-IPsec-Richtlinie nicht auf dem Computer anwenden.|  
-|5458|Nicht zutreffend|Niedrig|Das PAStore-Modul hat eine lokal zwischengespeicherte Kopie der Active Directory-Speicher-IPsec-Richtlinie auf dem Computer angewendet.|  
-|5459|Nicht zutreffend|Niedrig|Das PAStore-Modul konnte die lokal zwischengespeicherte Kopie der Active Directory-Speicher-IPsec-Richtlinie nicht auf dem Computer anwenden.|  
-|5460|Nicht zutreffend|Niedrig|Das PAStore-Modul hat eine Speicher-IPsec-Richtlinie der lokalen Registrierung auf dem Computer angewendet.|  
-|5461|Nicht zutreffend|Niedrig|Das PAStore-Modul konnte die Speicher-IPsec-Richtlinie der lokalen Registrierung nicht auf dem Computer anwenden.|  
-|5462|Nicht zutreffend|Niedrig|Das PAStore-Modul konnte einige Regeln der aktiven IPsec-Richtlinie nicht auf dem Computer anwenden. Verwenden Sie das Snap-In „IP-Sicherheitsmonitor“, um das Problem zu diagnostizieren.|  
-|5463|Nicht zutreffend|Niedrig|Das PAStore-Modul hat die aktive IPSec-Richtlinie auf Änderungen überprüft und keine Änderungen ermittelt.|  
-|5464|Nicht zutreffend|Niedrig|Das PAStore-Modul hat beim Abfragen von Änderungen für die aktive IPsec-Richtlinie Änderungen erkannt und diese auf die IPsec-Dienste angewendet.|  
-|5465|Nicht zutreffend|Niedrig|Das PAStore-Modul hat eine Steuerung, die das erneute Laden der IPSec-Richtlinie erzwingt, ermittelt, und hat die Steuerung erfolgreich verarbeitet.|  
-|5466|Nicht zutreffend|Niedrig|Das PAStore-Modul hat beim Abfragen von Änderungen für die Active Directory-IPsec-Richtlinie festgestellt, dass Active Directory nicht erreichbar ist. Stattdessen wird die zwischengespeicherte Kopie der Active Directory-IPsec-Richtlinie verwendet. Alle seit der letzten Abfrage an der Active Directory-IPsec-Richtlinie vorgenommenen Änderungen konnten nicht angewendet werden.|  
-|5467|Nicht zutreffend|Niedrig|Das PAStore-Modul hat beim Abfragen von Änderungen für die Active Directory-IPsec-Richtlinie festgestellt, dass Active Directory erreichbar ist und keine Änderungen der Richtlinie vorliegen. Die zwischengespeicherte Kopie der Active Directory-IPsec-Richtlinie wird nicht mehr verwendet.|  
-|5468|Nicht zutreffend|Niedrig|Das PAStore-Modul hat beim Abfragen von Änderungen für die Active Directory-IPsec-Richtlinie festgestellt, dass Active Directory erreichbar ist und Änderungen der Richtlinie vorliegen. Die gefundenen Änderungen wurden angewendet. Die zwischengespeicherte Kopie der Active Directory-IPsec-Richtlinie wird nicht mehr verwendet.|  
-|5471|Nicht zutreffend|Niedrig|Das PAStore-Modul hat die lokale Speicher-IPsec-Richtlinie auf dem Computer geladen.|  
-|5472|Nicht zutreffend|Niedrig|Das PAStore-Modul konnte die lokale Speicher-IPsec-Richtlinie nicht auf dem Computer laden.|  
-|5473|Nicht zutreffend|Niedrig|Das PAStore-Modul hat die Verzeichnisspeicher-IPsec-Richtlinie auf dem Computer geladen.|  
-|5474|Nicht zutreffend|Niedrig|Das PAStore-Modul konnte die Verzeichnisspeicher-IPsec-Richtlinie nicht auf dem Computer laden.|  
-|5477|Nicht zutreffend|Niedrig|Das PAStore-Modul konnte den Schnellmodusfilter nicht laden.|  
-|5479|Nicht zutreffend|Niedrig|Die IPsec-Dienste wurden erfolgreich beendet. Das Beenden der IPsec-Dienste kann das Risiko von Netzwerkangriffen auf den Computer und potenzielle Sicherheitsrisiken erhöhen.|  
-|5632|Nicht zutreffend|Niedrig|Die Authentifizierung bei einem Drahtlosnetzwerk wurde angefordert.|  
-|5633|Nicht zutreffend|Niedrig|Die Authentifizierung bei einem verkabelten Netzwerk wurde angefordert.|  
-|5712|Nicht zutreffend|Niedrig|Es wurde versucht, einen Remoteprozeduraufruf (RPC) auszuführen.|  
-|5888|Nicht zutreffend|Niedrig|Ein Objekt im COM+-Katalog wurde geändert.|  
-|5889|Nicht zutreffend|Niedrig|Ein Objekt wurde aus dem COM+-Katalog gelöscht.|  
-|5890|Nicht zutreffend|Niedrig|Dem COM+-Katalog wurde ein Objekt hinzugefügt.|  
-|6008|Nicht zutreffend|Niedrig|Das vorherige System wurde unerwartet heruntergefahren.|  
-|6144|Nicht zutreffend|Niedrig|Die Sicherheitsrichtlinie in den Gruppenrichtlinie Objekten wurde erfolgreich angewendet.|  
-|6272|Nicht zutreffend|Niedrig|Der Netzwerkrichtlinienserver hat einem Benutzer den Zugriff gewährt.|  
-|Nicht zutreffend|561|Niedrig|Ein Handle zu einem Objekt wurde angefordert.|  
-|Nicht zutreffend|563|Niedrig|Objekt zum Löschen geöffnet|  
-|Nicht zutreffend|625|Niedrig|Benutzer Kontotyp geändert|  
-|Nicht zutreffend|613|Niedrig|IPSec-Richtlinien-Agent gestartet|  
-|Nicht zutreffend|614|Niedrig|IPSec-Richtlinien-Agent deaktiviert|  
-|Nicht zutreffend|615|Niedrig|IPSec-Richtlinien-Agent|  
-|Nicht zutreffend|616|Niedrig|Schwerwiegender Fehler bei IPSec-Richtlinien-Agent.|  
-|24577|Nicht zutreffend|Niedrig|Verschlüsselung des Volumes wurde gestartet.|  
-|24578|Nicht zutreffend|Niedrig|Die Verschlüsselung des Volumes wurde beendet.|  
-|24579|Nicht zutreffend|Niedrig|Verschlüsselung des Volumes abgeschlossen|  
-|24580|Nicht zutreffend|Niedrig|Die Entschlüsselung des Volumes wurde gestartet.|  
-|24581|Nicht zutreffend|Niedrig|Die Entschlüsselung des Volumes wurde beendet.|  
-|24582|Nicht zutreffend|Niedrig|Entschlüsselung des Volumes abgeschlossen|  
-|24583|Nicht zutreffend|Niedrig|Konvertierungsarbeitsthread für das Volume wurde gestartet.|  
-|24584|Nicht zutreffend|Niedrig|Der konvertierungsarbeitsthread für das Volume wurde vorübergehend beendet.|  
-|24588|Nicht zutreffend|Niedrig|Fehler beim Konvertierungs Vorgang auf Volume "% 2". Überprüfen Sie die Daten auf diesem Volume.|  
-|24595|Nicht zutreffend|Niedrig|Volume "% 2" enthält fehlerhafte Cluster. Diese Cluster werden während der Konvertierung übersprungen.|  
-|24621|Nicht zutreffend|Niedrig|Anfängliche Status Überprüfung: Parallele volumekonvertierungstransaktion auf% 2.|  
-|5049|Nicht zutreffend|Niedrig|Eine IPSec-Sicherheitszuordnung wurde gelöscht.|  
-|5478|Nicht zutreffend|Niedrig|Die IPSec-Dienste wurden erfolgreich gestartet.|  
+|5138|N/V|Niedrig|Ein Verzeichnisdienstobjekt wurde wiederhergestellt.|  
+|5139|N/V|Niedrig|Ein Verzeichnisdienstobjekt wurde verschoben.|  
+|5140|N/V|Niedrig|Es wurde auf ein Netzwerkfreigabeobjekt zugegriffen.|  
+|5141|N/V|Niedrig|Ein Verzeichnisdienstobjekt wurde gelöscht.|  
+|5152|N/V|Niedrig|Die Windows-Filterplattform hat ein Paket blockiert.|  
+|5153|N/V|Niedrig|Ein stärker einschränkender Windows-Filterplattformfilter hat ein Paket blockiert.|  
+|5154|N/V|Niedrig|Die Windows-Filterplattform hat es einer Anwendung oder einem Dienst gestattet, einen Port auf eingehende Verbindungen abzuhören.|  
+|5155|N/V|Niedrig|Die Windows-Filterplattform hat eine Anwendung oder einen Dienst daran gehindert, einen Port auf eingehende Verbindungen abzuhören.|  
+|5156|N/V|Niedrig|Die Windows-Filterplattform hat eine Verbindung zugelassen.|  
+|5157|N/V|Niedrig|Die Windows-Filterplattform hat eine Verbindung blockiert.|  
+|5158|N/V|Niedrig|Die Windows-Filterplattform hat eine Bindung an einen lokalen Port zugelassen.|  
+|5159|N/V|Niedrig|Die Windows-Filterplattform hat eine Bindung an einen lokalen Port blockiert.|  
+|5378|N/V|Niedrig|Die angeforderte Delegierung von Anmeldeinformationen wurde von einer Richtlinie nicht zugelassen.|  
+|5440|N/V|Niedrig|Beim Start des Basisfiltermoduls der Windows-Filterplattform war der folgende Callout vorhanden.|  
+|5441|N/V|Niedrig|Beim Start des Basisfiltermoduls der Windows-Filterplattform war der folgende Filter vorhanden.|  
+|5442|N/V|Niedrig|Beim Start des Basisfiltermoduls der Windows-Filterplattform war der folgende Anbieter vorhanden.|  
+|5443|N/V|Niedrig|Beim Start des Basisfiltermoduls der Windows-Filterplattform war der folgende Anbieterkontext vorhanden|  
+|5444|N/V|Niedrig|Die folgende untergeordnete Ebene war vorhanden, als die Basis Filter-Engine der Windows-Filter Plattform gestartet wurde.|  
+|5446|N/V|Niedrig|Ein Callout der Windows-Filterplattform wurde geändert.|  
+|5447|N/V|Niedrig|Ein Filter der Windows-Filterplattform wurde geändert.|  
+|5448|N/V|Niedrig|Ein Anbieter der Windows-Filterplattform wurde geändert.|  
+|5449|N/V|Niedrig|Ein Anbieterkontext der Windows-Filterplattform wurde geändert.|  
+|5450|N/V|Niedrig|Eine Windows-Filter Platt Form Unterschicht wurde geändert.|  
+|5451|N/V|Niedrig|Eine IPsec-Schnellmodus-Sicherheitszuordnung wurde eingerichtet.|  
+|5452|N/V|Niedrig|Eine IPsec-Schnellmodus-Sicherheitszuordnung wurde beendet.|  
+|5456|N/V|Niedrig|Das PAStore-Modul hat eine Active Directory-Speicher-IPsec-Richtlinie auf dem Computer angewendet.|  
+|5457|N/V|Niedrig|Das PAStore-Modul konnte die Active Directory-Speicher-IPsec-Richtlinie nicht auf dem Computer anwenden.|  
+|5458|N/V|Niedrig|Das PAStore-Modul hat eine lokal zwischengespeicherte Kopie der Active Directory-Speicher-IPsec-Richtlinie auf dem Computer angewendet.|  
+|5459|N/V|Niedrig|Das PAStore-Modul konnte die lokal zwischengespeicherte Kopie der Active Directory-Speicher-IPsec-Richtlinie nicht auf dem Computer anwenden.|  
+|5460|N/V|Niedrig|Das PAStore-Modul hat eine Speicher-IPsec-Richtlinie der lokalen Registrierung auf dem Computer angewendet.|  
+|5461|N/V|Niedrig|Das PAStore-Modul konnte die Speicher-IPsec-Richtlinie der lokalen Registrierung nicht auf dem Computer anwenden.|  
+|5462|N/V|Niedrig|Das PAStore-Modul konnte einige Regeln der aktiven IPsec-Richtlinie nicht auf dem Computer anwenden. Verwenden Sie das Snap-In „IP-Sicherheitsmonitor“, um das Problem zu diagnostizieren.|  
+|5463|N/V|Niedrig|Das PAStore-Modul hat die aktive IPSec-Richtlinie auf Änderungen überprüft und keine Änderungen ermittelt.|  
+|5464|N/V|Niedrig|Das PAStore-Modul hat beim Abfragen von Änderungen für die aktive IPsec-Richtlinie Änderungen erkannt und diese auf die IPsec-Dienste angewendet.|  
+|5465|N/V|Niedrig|Das PAStore-Modul hat eine Steuerung, die das erneute Laden der IPSec-Richtlinie erzwingt, ermittelt, und hat die Steuerung erfolgreich verarbeitet.|  
+|5466|N/V|Niedrig|Das PAStore-Modul hat beim Abfragen von Änderungen für die Active Directory-IPsec-Richtlinie festgestellt, dass Active Directory nicht erreichbar ist. Stattdessen wird die zwischengespeicherte Kopie der Active Directory-IPsec-Richtlinie verwendet. Alle seit der letzten Abfrage an der Active Directory-IPsec-Richtlinie vorgenommenen Änderungen konnten nicht angewendet werden.|  
+|5467|N/V|Niedrig|Das PAStore-Modul hat beim Abfragen von Änderungen für die Active Directory-IPsec-Richtlinie festgestellt, dass Active Directory erreichbar ist und keine Änderungen der Richtlinie vorliegen. Die zwischengespeicherte Kopie der Active Directory-IPsec-Richtlinie wird nicht mehr verwendet.|  
+|5468|N/V|Niedrig|Das PAStore-Modul hat beim Abfragen von Änderungen für die Active Directory-IPsec-Richtlinie festgestellt, dass Active Directory erreichbar ist und Änderungen der Richtlinie vorliegen. Die gefundenen Änderungen wurden angewendet. Die zwischengespeicherte Kopie der Active Directory-IPsec-Richtlinie wird nicht mehr verwendet.|  
+|5471|N/V|Niedrig|Das PAStore-Modul hat die lokale Speicher-IPsec-Richtlinie auf dem Computer geladen.|  
+|5472|N/V|Niedrig|Das PAStore-Modul konnte die lokale Speicher-IPsec-Richtlinie nicht auf dem Computer laden.|  
+|5473|N/V|Niedrig|Das PAStore-Modul hat die Verzeichnisspeicher-IPsec-Richtlinie auf dem Computer geladen.|  
+|5474|N/V|Niedrig|Das PAStore-Modul konnte die Verzeichnisspeicher-IPsec-Richtlinie nicht auf dem Computer laden.|  
+|5477|N/V|Niedrig|Das PAStore-Modul konnte den Schnellmodusfilter nicht laden.|  
+|5479|N/V|Niedrig|Die IPsec-Dienste wurden erfolgreich beendet. Das Beenden der IPsec-Dienste kann das Risiko von Netzwerkangriffen auf den Computer und potenzielle Sicherheitsrisiken erhöhen.|  
+|5632|N/V|Niedrig|Die Authentifizierung bei einem Drahtlosnetzwerk wurde angefordert.|  
+|5633|N/V|Niedrig|Die Authentifizierung bei einem verkabelten Netzwerk wurde angefordert.|  
+|5712|N/V|Niedrig|Es wurde versucht, einen Remoteprozeduraufruf (RPC) auszuführen.|  
+|5888|N/V|Niedrig|Ein Objekt im COM+-Katalog wurde geändert.|  
+|5889|N/V|Niedrig|Ein Objekt wurde aus dem COM+-Katalog gelöscht.|  
+|5890|N/V|Niedrig|Dem COM+-Katalog wurde ein Objekt hinzugefügt.|  
+|6008|N/V|Niedrig|Das vorherige System wurde unerwartet heruntergefahren.|  
+|6144|N/V|Niedrig|Die Sicherheitsrichtlinie in den Gruppenrichtlinie Objekten wurde erfolgreich angewendet.|  
+|6272|N/V|Niedrig|Der Netzwerkrichtlinienserver hat einem Benutzer den Zugriff gewährt.|  
+|N/V|561|Niedrig|Ein Handle zu einem Objekt wurde angefordert.|  
+|N/V|563|Niedrig|Objekt zum Löschen geöffnet|  
+|N/V|625|Niedrig|Benutzer Kontotyp geändert|  
+|N/V|613|Niedrig|IPSec-Richtlinien-Agent gestartet|  
+|N/V|614|Niedrig|IPSec-Richtlinien-Agent deaktiviert|  
+|N/V|615|Niedrig|IPSec-Richtlinien-Agent|  
+|N/V|616|Niedrig|Schwerwiegender Fehler bei IPSec-Richtlinien-Agent.|  
+|24577|N/V|Niedrig|Verschlüsselung des Volumes wurde gestartet.|  
+|24578|N/V|Niedrig|Die Verschlüsselung des Volumes wurde beendet.|  
+|24579|N/V|Niedrig|Verschlüsselung des Volumes abgeschlossen|  
+|24580|N/V|Niedrig|Die Entschlüsselung des Volumes wurde gestartet.|  
+|24581|N/V|Niedrig|Die Entschlüsselung des Volumes wurde beendet.|  
+|24582|N/V|Niedrig|Entschlüsselung des Volumes abgeschlossen|  
+|24583|N/V|Niedrig|Konvertierungsarbeitsthread für das Volume wurde gestartet.|  
+|24584|N/V|Niedrig|Der konvertierungsarbeitsthread für das Volume wurde vorübergehend beendet.|  
+|24588|N/V|Niedrig|Fehler beim Konvertierungs Vorgang auf Volume "%2". Überprüfen Sie die Daten auf diesem Volume.|  
+|24595|N/V|Niedrig|Volume "%2" enthält fehlerhafte Cluster. Diese Cluster werden während der Konvertierung übersprungen.|  
+|24621|N/V|Niedrig|Anfängliche Status Überprüfung: parallele volumekonvertierungstransaktion auf %2.|  
+|5049|N/V|Niedrig|Eine IPSec-Sicherheitszuordnung wurde gelöscht.|  
+|5478|N/V|Niedrig|Die IPSec-Dienste wurden erfolgreich gestartet.|  
   
 > [!NOTE]  
 > Eine Liste mit vielen Sicherheits Ereignis-IDs und deren Bedeutung finden Sie unter [Windows-Sicherheits Überwachungs Ereignisse](https://www.microsoft.com/download/details.aspx?id=50034) .  
 >
 > Führen Sie **wevtutil GP Microsoft-Windows-Security-Auditing/GE/GM: true** aus, um eine sehr ausführliche Liste aller Sicherheits Ereignis-IDs abzurufen.  
   
-Weitere Informationen zu den Windows-Sicherheits Ereignis-IDs und deren Bedeutung finden Sie im Microsoft-Support Artikel [Beschreibung von Sicherheits Ereignissen in Windows 7 und Windows Server 2008 R2](https://support.microsoft.com/kb/977519). Sie können auch [Sicherheits Überwachungs Ereignisse für Windows 7-und Windows Server 2008 R2](https://www.microsoft.com/download/details.aspx?id=21561) -und Windows [8-und Windows Server 2012-Sicherheits Ereignis Details](https://www.microsoft.com/download/details.aspx?id=35753)herunterladen, die ausführliche Ereignis Informationen für die in der Tabelle referenzierten Betriebssysteme bereitstellen. Ges.  
+Weitere Informationen zu den Windows-Sicherheits Ereignis-IDs und deren Bedeutung finden Sie im Microsoft-Support Artikel [Beschreibung von Sicherheits Ereignissen in Windows 7 und Windows Server 2008 R2](https://support.microsoft.com/kb/977519). Sie können auch [Sicherheits Überwachungs Ereignisse für Windows 7-und Windows Server 2008 R2](https://www.microsoft.com/download/details.aspx?id=21561) -und Windows [8-und Windows Server 2012-Sicherheits Ereignis Details](https://www.microsoft.com/download/details.aspx?id=35753)herunterladen, die ausführliche Ereignis Informationen für die Betriebssysteme, auf die verwiesen wird, im Tabellenformat bereitstellen.  

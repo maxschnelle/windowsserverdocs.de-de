@@ -1,7 +1,6 @@
 ---
 ms.assetid: 40bc24b1-2e7d-4e77-bd0f-794743250888
 title: SPN- und UPN-Eindeutigkeit
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ded707276471fccd28f0ec17afef0a24015ff32f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f182f79b5bb97e45f1cfd34ad59cf52322f09063
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390029"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823063"
 ---
 # <a name="spn-and-upn-uniqueness"></a>SPN- und UPN-Eindeutigkeit
 
@@ -37,7 +36,7 @@ Doppelte UPN-Werte unterbrechen die Synchronisierung zwischen lokalem AD und Off
   
 **Table-Tabelle \\\* Arabisch 1: UPN-und SPN-Eindeutigkeit**  
   
-|Feature|Kommentar|  
+|Feature|Anmerkungen|  
 |-----------|-----------|  
 |UPN-Eindeutigkeit|Doppelte UPNs unterbrechen die Synchronisierung von lokalen AD-Konten mit Windows Azure AD-basierten Diensten wie z. b. Office 365.|  
 |SPN-Eindeutigkeit|Kerberos erfordert SPNs für die gegenseitige Authentifizierung.  Doppelte SPNs führen zu Authentifizierungs Fehlern.|  
@@ -51,7 +50,7 @@ Fehlercodes 8467 oder 8468 oder Ihre hexadezimalen, symbolischen oder Zeichen fo
   
 **Table-Tabelle \\\* Arabisch 2: Fehlercodes für die UPN-und SPN-Eindeutigkeit**  
   
-|Mierte|Hex|Trächtigsten|Zeichenfolge|  
+|mierte|Hex|Trächtigsten|String|  
 |-----------|-------|------------|----------|  
 |8467|21c7|ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST|Der Vorgang ist fehlgeschlagen, weil der für Addition/Änderung angegebene SPN-Wert nicht eindeutig Gesamtstruktur weit ist.|  
 |8648|21c8|ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST|Der Vorgang ist fehlgeschlagen, weil der für Addition/Änderung angegebene UPN-Wert nicht eindeutig Gesamtstruktur weit ist.|  
@@ -240,7 +239,7 @@ servicePrincipalName Value=<SPN>
   
             -   Wenn die zurückgegebenen Einträge! = 0-> Schreibvorgang fehlschlägt  
   
-                -   Ereignis protokolliert  
+                -   Protokolliertes Ereignis  
   
                 -   Außerdem wird der erweiterte Fehler zurückgegeben:  
   
@@ -256,7 +255,7 @@ servicePrincipalName Value=<SPN>
   
             -   Wenn die zurückgegebenen Einträge! = 0-> Schreibvorgang fehlschlägt  
   
-                -   Ereignis protokolliert  
+                -   Protokolliertes Ereignis  
   
                 -   Außerdem wird der erweiterte Fehler zurückgegeben:  
   
@@ -280,7 +279,7 @@ servicePrincipalName Value=<SPN>
   
             -   Wenn die zurückgegebenen Einträge! = 0-> Schreibvorgang fehlschlägt  
   
-                -   Ereignis protokolliert  
+                -   Protokolliertes Ereignis  
   
                 -   Außerdem wird der erweiterte Fehler zurückgegeben:  
   
@@ -296,7 +295,7 @@ servicePrincipalName Value=<SPN>
   
             -   Wenn die zurückgegebenen Einträge! = 0-> Schreibvorgang fehlschlägt  
   
-                -   Ereignis protokolliert  
+                -   Protokolliertes Ereignis  
   
                 -   Außerdem wird der erweiterte Fehler zurückgegeben:  
   

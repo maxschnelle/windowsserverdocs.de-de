@@ -1,7 +1,6 @@
 ---
 ms.assetid: 074e63e9-976c-49da-8cba-9ae0b3325e34
 title: Einführung in die Erweiterungen des ActiveDirectory-Verwaltungscenters (Stufe100)
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a3bd82feb3a0caf827091bd0cb10edf991921b3c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f3f33673d254b66688aa6623837d990e17d7181a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390622"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824663"
 ---
 # <a name="introduction-to-active-directory-administrative-center-enhancements-level-100"></a>Einführung in die Erweiterungen des ActiveDirectory-Verwaltungscenters (Stufe100)
 
@@ -26,7 +25,7 @@ Der Active Directory-Verwaltungscenter in Windows Server umfasst Verwaltungsfunk
 - [Differenzierte Kenn Wort Richtlinie](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#fine_grained_pswd_policy_mgmt)
 - [Windows PowerShell-Verlaufs Anzeige](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#windows_powershell_history_viewer)
 
-## <a name="ad_recycle_bin_mgmt"></a>Papierkorb Active Directory
+## <a name="active-directory-recycle-bin"></a><a name="ad_recycle_bin_mgmt"></a>Papierkorb Active Directory
 
 Versehentliches Löschen von Active Directory-Objekten kommt bei Benutzern von AD DS (Active Directory Domain Services) und AD LDS (Active Directory Lightweight Directory Services) häufig vor. In früheren Versionen von Windows Server, vor Windows Server 2008 R2, konnte versehentlich gelöschte Objekte in Active Directory wieder hergestellt werden, aber die Lösungen hatten Nachteile.
 
@@ -38,7 +37,7 @@ Der Active Directory-Papierkorb baut ab Windows Server 2008 R2 auf der vorhanden
 
 Wenn Sie den Active Directory-Papierkorb aktivieren, bleiben alle Attribute mit verknüpften Werten und mit nicht verknüpften Werten der gelöschten Active Directory-Objekte erhalten, und die Objekte werden vollständig in ihrem durchgängig logischen Zustand, den sie vor dem Löschen aufwiesen, wiederhergestellt. So erhalten beispielsweise wiederhergestellte Benutzerkonten automatisch alle Gruppenmitgliedschaften und entsprechenden Zugriffsrechte zurück, die sie unmittelbar vor dem Löschen sowohl innerhalb als auch zwischen den Domänen innehatten. Der Active Directory-Papierkorb kann in AD DS- und in AD LDS-Umgebungen verwendet werden. Eine ausführliche Beschreibung des Active Directory-Papierkorbs finden Sie unter [What's New in AD DS: Active Directory Recycle Bin](https://technet.microsoft.com/library/dd391916(WS.10).aspx).
 
-**Was ist neu?** In Windows Server 2012 und höher wurde die Active Directory Papierkorb Funktion mit einer neuen grafischen Benutzeroberfläche erweitert, damit Benutzer gelöschte Objekte verwalten und wiederherstellen können. Benutzer können gelöschte Objekte jetzt in einer Liste anzeigen und an ihren ursprünglichen oder an neuen Standorten wiederherstellen.
+**Neuigkeiten** In Windows Server 2012 und höher wurde die Active Directory Papierkorb Funktion mit einer neuen grafischen Benutzeroberfläche erweitert, damit Benutzer gelöschte Objekte verwalten und wiederherstellen können. Benutzer können gelöschte Objekte jetzt in einer Liste anzeigen und an ihren ursprünglichen oder an neuen Standorten wiederherstellen.
 
 Wenn Sie planen, Active Directory Papierkorb in Windows Server zu aktivieren, berücksichtigen Sie Folgendes:
 
@@ -63,7 +62,7 @@ In den folgenden Schritten verwenden Sie ADAC, um die folgenden Active Directory
 > [!NOTE]
 > Um die folgenden Schritte durchführen zu können, müssen Sie Mitglied in der Gruppe der Unternehmensadministratoren sein oder über gleichwertige Berechtigungen verfügen.
 
-### <a name="bkmk_raise_ffl"></a>Schritt 1: erhöhen der Gesamtstruktur Funktionsebene
+### <a name="step-1-raise-the-forest-functional-level"></a><a name="bkmk_raise_ffl"></a>Schritt 1: erhöhen der Gesamtstruktur Funktionsebene
 
 In diesem Schritt werden Sie die Funktionsebene der Gesamtstruktur heraufstufen. Sie müssen zuerst die Funktionsebene für die Ziel Gesamtstruktur auf Windows Server 2008 R2 erhöhen, bevor Sie Active Directory Papierkorb aktivieren.
 
@@ -71,13 +70,13 @@ In diesem Schritt werden Sie die Funktionsebene der Gesamtstruktur heraufstufen.
 
 1. Klicken Sie mit der rechten Maustaste auf das Windows PowerShell-Symbol, klicken Sie auf **als Administrator ausführen** , und geben Sie **Dsac. exe** ein,
 
-2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen** , und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
+2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen**, und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
 
 3. Klicken Sie auf die Zieldomäne im linken Navigationsbereich, und klicken Sie im Bereich **Aufgaben** auf **Gesamtstrukturfunktionsebene heraufstufen**. Wählen Sie eine Gesamtstruktur Funktionsebene aus, die mindestens Windows Server 2008 R2 oder höher ist, und klicken Sie dann auf **OK**.
 
 ![Einführung in die](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>entsprechenden Windows PowerShell-Befehle</em> in AD Admin Center***
 
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.
 
 ```powershell
 Set-ADForestMode -Identity contoso.com -ForestMode Windows2008R2Forest -Confirm:$false
@@ -85,7 +84,7 @@ Set-ADForestMode -Identity contoso.com -ForestMode Windows2008R2Forest -Confirm:
 
 Geben Sie für das Argument **-Identity** den voll qualifizierten DNS-Domänen Namen an.
 
-### <a name="bkmk_enable_recycle_bin"></a>Schritt 2: Papierkorb aktivieren
+### <a name="step-2-enable-recycle-bin"></a><a name="bkmk_enable_recycle_bin"></a>Schritt 2: Papierkorb aktivieren
 
 In diesem Schritt aktivieren Sie den Papierkorb zum Wiederherstellen gelöschter Objekte in AD DS.
 
@@ -93,7 +92,7 @@ In diesem Schritt aktivieren Sie den Papierkorb zum Wiederherstellen gelöschter
 
 1. Klicken Sie mit der rechten Maustaste auf das Windows PowerShell-Symbol, klicken Sie auf **als Administrator ausführen** , und geben Sie **Dsac. exe** ein,
 
-2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen** , und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
+2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen**, und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
 
 3. Klicken Sie im Bereich **Aufgaben** auf **Papierkorb aktivieren...** , klicken Sie im Warnhinweisfeld auf **OK**, und klicken Sie dann auf **OK**, um die ADAC-Meldung zu aktualisieren.
 
@@ -101,13 +100,13 @@ In diesem Schritt aktivieren Sie den Papierkorb zum Wiederherstellen gelöschter
 
 ![Einführung in die](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>entsprechenden Windows PowerShell-Befehle</em> in AD Admin Center***
 
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.
 
 ```powershell
 Enable-ADOptionalFeature -Identity 'CN=Recycle Bin Feature,CN=Optional Features,CN=Directory Service,CN=Windows NT,CN=Services,CN=Configuration,DC=contoso,DC=com' -Scope ForestOrConfigurationSet -Target 'contoso.com'
 ```
 
-### <a name="bkmk_create_test_env"></a>Schritt 3: Erstellen von Test Benutzern, Gruppe und Organisationseinheit
+### <a name="step-3-create-test-users-group-and-organizational-unit"></a><a name="bkmk_create_test_env"></a>Schritt 3: Erstellen von Test Benutzern, Gruppe und Organisationseinheit
 
 Mit den folgenden Schritten erstellen Sie zwei Testbenutzer. Anschließend werden Sie eine Testgruppe erstellen und ihr die Testbenutzer zuweisen. Außerdem erstellen Sie eine Organisationseinheit.
 
@@ -115,7 +114,7 @@ Mit den folgenden Schritten erstellen Sie zwei Testbenutzer. Anschließend werde
 
 1. Klicken Sie mit der rechten Maustaste auf das Windows PowerShell-Symbol, klicken Sie auf **als Administrator ausführen** , und geben Sie **Dsac. exe** ein,
 
-2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen** , und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
+2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen**, und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
 
 3. Klicken Sie im Bereich **Aufgaben** auf **Neu** und dann auf **Benutzer**.
 
@@ -133,18 +132,18 @@ Mit den folgenden Schritten erstellen Sie zwei Testbenutzer. Anschließend werde
 #### <a name="to-create-a-test-group-and-add-users-to-the-group"></a>So erstellen Sie eine Testgruppe und fügen ihr Benutzer hinzu
 
 1. Klicken Sie mit der rechten Maustaste auf das Windows PowerShell-Symbol, klicken Sie auf **als Administrator ausführen** , und geben Sie **Dsac. exe** ein,
-2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen** , und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
+2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen**, und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
 3. Klicken Sie im Bereich **Aufgaben** auf **Neu**, und klicken Sie dann auf **Gruppe**.
 4. Geben Sie unter **Gruppe** die folgenden Informationen ein, und klicken Sie anschließend auf **OK**:
 
     -   **Gruppenname: group1**
 
 5. Klicken Sie auf **group1**, und klicken Sie dann unter dem Bereich **Aufgaben** auf **Eigenschaften**.
-6. Klicken Sie auf **Mitglieder**, klicken Sie auf **Hinzufügen**, geben Sie **test1;test2**ein, und klicken Sie dann auf **OK**.
+6. Klicken Sie auf **Mitglieder**, klicken Sie auf **Hinzufügen**, geben Sie **test1;test2** ein, und klicken Sie dann auf **OK**.
 
 ![Einführung in die](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>entsprechenden Windows PowerShell-Befehle</em> in AD Admin Center***
 
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.
 
 ```powershell
 Add-ADGroupMember -Identity group1 -Member test1
@@ -154,14 +153,14 @@ Add-ADGroupMember -Identity group1 -Member test1
 
 1. Klicken Sie mit der rechten Maustaste auf das Windows PowerShell-Symbol, klicken Sie auf **als Administrator ausführen** , und geben Sie **Dsac. exe** ein,
 2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigations Knoten hinzufügen** , wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigations Knoten hinzufügen** aus, und klicken Sie auf * * OK
-3. Klicken Sie im Bereich **Aufgaben** auf **Neu** , und klicken Sie dann auf **Organisationseinheit**.
+3. Klicken Sie im Bereich **Aufgaben** auf **Neu**, und klicken Sie dann auf **Organisationseinheit**.
 4. Geben Sie unter **Organisationseinheit** die folgenden Informationen ein, und klicken Sie anschließend auf **OK**:
 
    - **NameOU1**
 
 ![Einführung in die](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>entsprechenden Windows PowerShell-Befehle</em> in AD Admin Center***
 
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.
 
 ```powershell
 1..2 | ForEach-Object {New-ADUser -SamAccountName test$_ -Name "test$_" -Path "DC=fabrikam,DC=com" -AccountPassword (ConvertTo-SecureString -AsPlainText "p@ssword1" -Force) -Enabled $true}
@@ -169,34 +168,34 @@ New-ADGroup -Name "group1" -SamAccountName group1 -GroupCategory Security -Group
 New-ADOrganizationalUnit -Name OU1 -Path "DC=fabrikam,DC=com"
 ```
 
-### <a name="bkmk_restore_del_obj"></a>Schritt 4: Wiederherstellen gelöschter Objekte
+### <a name="step-4-restore-deleted-objects"></a><a name="bkmk_restore_del_obj"></a>Schritt 4: Wiederherstellen gelöschter Objekte
 
-In den folgenden Anleitungen stellen Sie gelöschte Objekte aus dem Container **Gelöschte Objekte** an ihrem ursprünglichen Speicherort und an einem anderen Speicherort wieder her.
+In den folgenden Anleitungen stellen Sie gelöschte Objekte aus dem Container **Deleted Objects** an ihrem ursprünglichen Speicherort und an einem anderen Speicherort wieder her.
 
 #### <a name="to-restore-deleted-objects-to-their-original-location"></a>So stellen Sie gelöschte Objekte an ihrem ursprünglichen Speicherort wieder her
 
 1. Klicken Sie mit der rechten Maustaste auf das Windows PowerShell-Symbol, klicken Sie auf **als Administrator ausführen** , und geben Sie **Dsac. exe** ein,
 
-2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen** , und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
+2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen**, und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
 
-3. Wählen Sie die Benutzer **test1** und **test2**aus, klicken Sie auf **Löschen** im Bereich **Aufgaben** , und klicken Sie dann auf **Ja** , um den Löschvorgang zu bestätigen.
+3. Wählen Sie die Benutzer **test1** und **test2** aus, klicken Sie auf **Löschen** im Bereich **Aufgaben**, und klicken Sie dann auf **Ja**, um den Löschvorgang zu bestätigen.
 
     ![Einführung in die](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>entsprechenden Windows PowerShell-Befehle</em> in AD Admin Center***
 
-    Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
+    Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.
 
     ```powershell
     Get-ADUser -Filter 'Name -Like "*test*"'|Remove-ADUser -Confirm:$false
     ```
 
-4. Navigieren Sie zu dem Container **Gelöschte Objekte** , wählen Sie **test2** und **test1** aus, und klicken Sie dann auf **Wiederherstellen** im Bereich **Aufgaben** .
+4. Navigieren Sie zu dem Container **Deleted Objects**, wählen Sie **test2** und **test1** aus, und klicken Sie dann auf **Wiederherstellen** im Bereich **Aufgaben**.
 
 5. Wenn Sie sich davon überzeugen möchten, dass die Objekte an ihrem ursprünglichen Speicherort wiederhergestellt wurden, navigieren Sie zu der Zieldomäne und überprüfen Sie, dass die Benutzerkonten dort aufgeführt sind.
 
     > [!NOTE]
     > Wenn Sie zu den **Eigenschaften** der Benutzerkonten **test1** und **test2** navigieren und dann auf **Mitglied von** klicken, können Sie sehen, dass auch deren Gruppenmitgliedschaft wiederhergestellt wurde.
 
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.
 
 ![Einführung in die](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>entsprechenden Windows PowerShell-Befehle</em> in AD Admin Center***
 
@@ -208,11 +207,11 @@ Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADOb
 
 1. Klicken Sie mit der rechten Maustaste auf das Windows PowerShell-Symbol, klicken Sie auf **als Administrator ausführen** , und geben Sie **Dsac. exe** ein,
 
-2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen** , und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
+2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen**, und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
 
-3. Wählen Sie die Benutzer **test1** und **test2**aus, klicken Sie auf **Löschen** im Bereich **Aufgaben** , und klicken Sie dann auf **Ja** , um den Löschvorgang zu bestätigen.
+3. Wählen Sie die Benutzer **test1** und **test2** aus, klicken Sie auf **Löschen** im Bereich **Aufgaben**, und klicken Sie dann auf **Ja**, um den Löschvorgang zu bestätigen.
 
-4. Navigieren Sie zu dem Container **Gelöschte Objekte** , wählen Sie **test2** und **test1** aus, und klicken Sie dann auf **Wiederherstellen in** im Bereich **Aufgaben** .
+4. Navigieren Sie zu dem Container **Deleted Objects**, wählen Sie **test2** und **test1** aus, und klicken Sie dann auf **Wiederherstellen in** im Bereich **Aufgaben**.
 
 5. Wählen Sie **OU1** aus, und klicken Sie dann auf **OK**.
 
@@ -220,19 +219,19 @@ Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADOb
 
 ![Einführung in die](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>entsprechenden Windows PowerShell-Befehle</em> in AD Admin Center***
 
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.
 
 ```powershell
 Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADObject -TargetPath "OU=OU1,DC=contoso,DC=com"
 ```
 
-## <a name="fine_grained_pswd_policy_mgmt"></a>Differenzierte Kenn Wort Richtlinie
+## <a name="fine-grained-password-policy"></a><a name="fine_grained_pswd_policy_mgmt"></a>Differenzierte Kenn Wort Richtlinie
 
 Windows Server 2008 bietet Organisationen die Möglichkeit, für verschiedene Gruppen von Benutzern in einer Domäne unterschiedliche Kennwort- und Kontosperrungsrichtlinien festzulegen. In Active Directory-Domänen vor Windows Server 2008 konnten auf alle Benutzer in der Domäne nur eine Kennwortrichtlinie und nur eine Kontosperrungsrichtlinie angewendet werden. Diese Richtlinien wurden in der Standarddomänenrichtlinie für die Domäne angegeben. Daher mussten Organisationen, die mehrere Kennwort- und Kontosperrungseinstellungen für verschiedene Gruppen von Benutzern haben wollten, entweder einen Kennwortfilter erstellen oder mehrere Domänen bereitstellen. Beide Optionen sind aufwändig.
 
 Mithilfe differenzierter Kennwortrichtlinien können mehrere Kennwortrichtlinien innerhalb einer einzigen Domäne festgelegt und für verschiedene Gruppen von Benutzern in einer Domäne unterschiedliche Einschränkungen bei Kennwort- und Kontosperrungsrichtlinien angewendet werden. So könnten zum Beispiel für privilegierte Konten strengere Einstellungen und für die Konten der anderen Benutzer weniger strenge Einstellungen gelten. In anderen Fällen könnte es für Konten, deren Kennwörter mit anderen Datenquellen synchronisiert werden, eine spezielle Kennwortrichtlinie geben. Eine ausführliche Beschreibung differenzierter Kennwortrichtlinien finden Sie unter [AD DS: Differenzierte Kennwortrichtlinien](https://technet.microsoft.com/library/cc770394(WS.10).aspx)
 
-**Was ist neu?**
+**Neuigkeiten**
 
 In Windows Server 2012 und höher wird die differenzierte Kenn Wort Richtlinien Verwaltung einfacher und visueller, indem eine Benutzeroberfläche für AD DS Administratoren bereitgestellt wird, die Sie in ADAC verwalten möchten. Administratoren können jetzt die resultierende Richtlinie eines bestimmten Benutzers anzeigen, alle Kenn Wort Richtlinien innerhalb einer bestimmten Domäne anzeigen und sortieren sowie einzelne Kenn Wort Richtlinien visuell verwalten.
 
@@ -261,7 +260,7 @@ In den folgenden Schritten werden Sie mithilfe des Active Directory-Verwaltungsc
 > [!NOTE]
 > Um die folgenden Schritte durchführen zu können, müssen Sie Mitglied in der Gruppe der Domänenadministratoren sein oder über gleichwertige Berechtigungen verfügen.
 
-#### <a name="bkmk_raise_dfl"></a>Schritt 1: erhöhen der Domänen Funktionsebene
+#### <a name="step-1-raise-the-domain-functional-level"></a><a name="bkmk_raise_dfl"></a>Schritt 1: erhöhen der Domänen Funktionsebene
 
 Im folgenden Verfahren wird die Domänen Funktionsebene der Zieldomäne auf Windows Server 2008 oder höher angehoben. Zum Aktivieren differenzierter Kenn Wort Richtlinien ist eine Domänen Funktionsebene von Windows Server 2008 oder höher erforderlich.
 
@@ -269,23 +268,23 @@ Im folgenden Verfahren wird die Domänen Funktionsebene der Zieldomäne auf Wind
 
 1. Klicken Sie mit der rechten Maustaste auf das Windows PowerShell-Symbol, klicken Sie auf **als Administrator ausführen** , und geben Sie **Dsac. exe** ein,
 
-2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen** , und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
+2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen**, und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
 
 3. Klicken Sie auf die Zieldomäne im linken Navigationsbereich, und klicken Sie im **Aufgabenbereich** auf **Domänenfunktionsebene heraufstufen**. Wählen Sie eine Gesamtstruktur Funktionsebene aus, die mindestens Windows Server 2008 oder höher ist, und klicken Sie dann auf **OK**.
 
 ![Einführung in die](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>entsprechenden Windows PowerShell-Befehle</em> in AD Admin Center***
 
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.
 
 ```powershell
 Set-ADDomainMode -Identity contoso.com -DomainMode 3
 ```
 
-#### <a name="bkmk2_test_fgpp"></a>Schritt 2: Erstellen von Test Benutzern, Gruppe und Organisationseinheit
+#### <a name="step-2-create-test-users-group-and-organizational-unit"></a><a name="bkmk2_test_fgpp"></a>Schritt 2: Erstellen von Test Benutzern, Gruppe und Organisationseinheit
 
 Um die für diesen Schritt benötigten Test Benutzer und-Gruppen zu erstellen, befolgen Sie die hier beschriebenen Verfahren: [Schritt 3: Erstellen von Test Benutzern, Gruppe und Organisationseinheit](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_test_env) (Sie müssen nicht die Organisationseinheit erstellen, um eine differenzierte Kenn Wort Richtlinie zu veranschaulichen).
 
-#### <a name="bkmk_create_fgpp"></a>Schritt 3: Erstellen einer neuen differenzierten Kenn Wort Richtlinie
+#### <a name="step-3-create-a-new-fine-grained-password-policy"></a><a name="bkmk_create_fgpp"></a>Schritt 3: Erstellen einer neuen differenzierten Kenn Wort Richtlinie
 
 In der folgenden Anleitung erstellen Sie mithilfe der grafischen Benutzeroberfläche der Active Directory-Verwaltungstools (ADAC) eine neue differenzierte Kennwortrichtlinie.
 
@@ -293,13 +292,13 @@ In der folgenden Anleitung erstellen Sie mithilfe der grafischen Benutzeroberfl�
 
 1. Klicken Sie mit der rechten Maustaste auf das Windows PowerShell-Symbol, klicken Sie auf **als Administrator ausführen** , und geben Sie **Dsac. exe** ein,
 
-2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen** , und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
+2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen**, und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
 
 3. Öffnen Sie im ADAC-Navigationsbereich den Container **System**, und klicken Sie dann auf **Password Settings Container**.
 
 4. Klicken Sie im Bereich **Aufgaben** auf **Neu**, und klicken Sie dann auf **Kennworteinstellungen**.
 
-    Nehmen Sie in den Feldern auf der Eigenschaftenseite die gewünschten Eintragungen oder Änderungen vor, um ein neues **Kennworteinstellungsobjekt** zu erstellen. Die Felder **Name** und **Rangfolge** sind erforderlich.
+    Nehmen Sie in den Feldern auf der Eigenschaftenseite die gewünschten Eintragungen oder Änderungen vor, ein neues Objekt für **Kennworteinstellungen** zu erstellen. Die Felder **Name** und **Rangfolge** sind erforderlich.
 
     ![Einführung in das AD Admin Center](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/ADDS_ADACNewFGPP.gif)
 
@@ -307,26 +306,26 @@ In der folgenden Anleitung erstellen Sie mithilfe der grafischen Benutzeroberfl�
 
     Dadurch wird das Kennworteinstellungsobjekt mit den Mitgliedern der globalen Gruppe verknüpft, die Sie für die Testumgebung erstellt haben.
 
-6. Klicken Sie auf **OK** , um die Erstellung zu übermitteln.
+6. Klicken Sie auf **OK**, um die Erstellung zu übermitteln.
 
 ![Einführung in die](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>entsprechenden Windows PowerShell-Befehle</em> in AD Admin Center***
 
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.
 
 ```powershell
 New-ADFineGrainedPasswordPolicy TestPswd -ComplexityEnabled:$true -LockoutDuration:"00:30:00" -LockoutObservationWindow:"00:30:00" -LockoutThreshold:"0" -MaxPasswordAge:"42.00:00:00" -MinPasswordAge:"1.00:00:00" -MinPasswordLength:"7" -PasswordHistoryCount:"24" -Precedence:"1" -ReversibleEncryptionEnabled:$false -ProtectedFromAccidentalDeletion:$true
 Add-ADFineGrainedPasswordPolicySubject TestPswd -Subjects group1
 ```
 
-#### <a name="bkmk_view_resultant_fgpp"></a>Schritt 4: Anzeigen eines Richtlinien Ergebnissatzes für einen Benutzer
+#### <a name="step-4-view-a-resultant-set-of-policies-for-a-user"></a><a name="bkmk_view_resultant_fgpp"></a>Schritt 4: Anzeigen eines Richtlinien Ergebnissatzes für einen Benutzer
 
-In dem folgenden Verfahren zeigen Sie die Kennworteinstellungen an, die sich für einen Benutzer ergeben, der Mitglied der Gruppe ist, der Sie in [Step 3: Create a new fine-grained password policy](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp)eine differenzierte Kennwortrichtlinie zugewiesen haben.
+In dem folgenden Verfahren zeigen Sie die Kennworteinstellungen an, die sich für einen Benutzer ergeben, der Mitglied der Gruppe ist, der Sie in [Schritt 3: Erstellen einer neuen differenzierten Kennwortrichtlinie](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp) eine differenzierte Kennwortrichtlinie zugewiesen haben.
 
 ##### <a name="to-view-a-resultant-set-of-policies-for-a-user"></a>So zeigen Sie einen Richtlinienergebnissatz für einen Benutzer an
 
 1. Klicken Sie mit der rechten Maustaste auf das Windows PowerShell-Symbol, klicken Sie auf **als Administrator ausführen** , und geben Sie **Dsac. exe** ein,
 
-2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen** , und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
+2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen**, und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
 
 3. Wählen Sie einen Benutzer (**test1**) aus, der zu der Gruppe **group1** gehört, die Sie in [Schritt 3: Erstellen einer neuen differenzierten Kennwortrichtlinie](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp) mit einer differenzierten Kennwortrichtlinie verknüpft haben.
 
@@ -336,13 +335,13 @@ In dem folgenden Verfahren zeigen Sie die Kennworteinstellungen an, die sich fü
 
 ![Einführung in die](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>entsprechenden Windows PowerShell-Befehle</em> in AD Admin Center***
 
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.
 
 ```powershell
 Get-ADUserResultantPasswordPolicy test1
 ```
 
-#### <a name="bkmk_edit_fgpp"></a>Schritt 5: Bearbeiten einer differenzierten Kenn Wort Richtlinie
+#### <a name="step-5-edit-a-fine-grained-password-policy"></a><a name="bkmk_edit_fgpp"></a>Schritt 5: Bearbeiten einer differenzierten Kenn Wort Richtlinie
 
 In dem folgenden Verfahren bearbeiten Sie die differenzierte Kennwortrichtlinie, die Sie in [Schritt 3: Erstellen einer neuen differenzierten Kennwortrichtlinie](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp) erstellt haben.
 
@@ -350,11 +349,11 @@ In dem folgenden Verfahren bearbeiten Sie die differenzierte Kennwortrichtlinie,
 
 1. Klicken Sie mit der rechten Maustaste auf das Windows PowerShell-Symbol, klicken Sie auf **als Administrator ausführen** , und geben Sie **Dsac. exe** ein,
 
-2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen** , und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
+2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen**, und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
 
 3. Erweitern Sie im ADAC-**Navigationsbereich** das Element **System**, und klicken Sie dann auf **Kennworteinstellungscontainer**.
 
-4. Wählen Sie die differenzierte Kennwortrichtlinie aus, die Sie in [Step 3: Create a new fine-grained password policy](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp) erstellt haben, und klicken Sie dann im Bereich **Aufgaben** auf **Eigenschaften** .
+4. Wählen Sie die differenzierte Kennwortrichtlinie aus, die Sie in [Schritt 3: Erstellen einer neuen differenzierten Kennwortrichtlinie](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp) erstellt haben, und klicken Sie dann auf **Eigenschaften** im Bereich **Aufgaben**.
 
 5. Ändern Sie unter **Kennwortchronik erzwingen** den Wert von **Anzahl der gespeicherten Kennwörter** auf **30**.
 
@@ -362,23 +361,23 @@ In dem folgenden Verfahren bearbeiten Sie die differenzierte Kennwortrichtlinie,
 
 ![Einführung in die](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>entsprechenden Windows PowerShell-Befehle</em> in AD Admin Center***
 
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.
 
 ```powershell
 Set-ADFineGrainedPasswordPolicy TestPswd -PasswordHistoryCount:"30"
 ```
 
-#### <a name="bkmk_delete_fgpp"></a>Schritt 6: Löschen einer differenzierten Kenn Wort Richtlinie
+#### <a name="step-6-delete-a-fine-grained-password-policy"></a><a name="bkmk_delete_fgpp"></a>Schritt 6: Löschen einer differenzierten Kenn Wort Richtlinie
 
 ##### <a name="to-delete-a-fine-grained-password-policy"></a>So löschen Sie eine differenzierte Kennwortrichtlinie
 
 1. Klicken Sie mit der rechten Maustaste auf das Windows PowerShell-Symbol, klicken Sie auf **als Administrator ausführen** , und geben Sie **Dsac. exe** ein,
 
-2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen** , und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
+2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen**, und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
 
-3. Erweitern Sie im ADAC-Navigationsbereich das Element **System** , und klicken Sie dann auf **Kennworteinstellungscontainer**.
+3. Erweitern Sie im ADAC-Navigationsbereich das Element **System**, und klicken Sie dann auf **Kennworteinstellungscontainer**.
 
-4. Wählen Sie die differenzierte Kennwortrichtlinie aus, die Sie in [Step 3: Create a new fine-grained password policy](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp) erstellt haben, und klicken Sie im Bereich **Aufgaben** auf **Eigenschaften**.
+4. Wählen Sie die differenzierte Kennwortrichtlinie aus, die Sie in [Schritt 3: Erstellen einer neuen differenzierten Kennwortrichtlinie](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp) erstellt haben, und klicken Sie dann im Bereich **Aufgaben** auf **Eigenschaften**.
 
 5. Deaktivieren Sie das Kontrollkästchen **Vor versehentlichem Löschen schützen**, und klicken Sie auf **OK**.
 
@@ -388,14 +387,14 @@ Set-ADFineGrainedPasswordPolicy TestPswd -PasswordHistoryCount:"30"
 
 ![Einführung in die](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>entsprechenden Windows PowerShell-Befehle</em> in AD Admin Center***
 
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.
 
 ```powershell
 Set-ADFineGrainedPasswordPolicy -Identity TestPswd -ProtectedFromAccidentalDeletion $False
 Remove-ADFineGrainedPasswordPolicy TestPswd -Confirm
 ```
 
-## <a name="windows_powershell_history_viewer"></a>Windows PowerShell-Verlaufs Anzeige
+## <a name="windows-powershell-history-viewer"></a><a name="windows_powershell_history_viewer"></a>Windows PowerShell-Verlaufs Anzeige
 
 ADAC ist ein Benutzeroberflächentool, das auf Windows PowerShell basiert. In Windows Server 2012 und höher können IT-Administratoren ADAC nutzen, um Windows PowerShell für Active Directory Cmdlets mithilfe von Windows PowerShell History Viewer kennenzulernen. Beim Ausführen von Aktionen in der Benutzeroberfläche werden dem Benutzer die entsprechenden Windows PowerShell-Befehle in Windows PowerShell History Viewer angezeigt. Dies ermöglicht es Administratoren, automatisierte Skripte zu erstellen und sich wiederholende Aufgaben zu reduzieren, wodurch sich die IT-Produktivität verbessert. Außerdem reduziert dieses Feature die Zeit, um Windows PowerShell für Active Directory zu erlernen und das Vertrauen der Benutzer in die Richtigkeit Ihrer Automatisierungs Skripts zu erhöhen.
 
@@ -412,15 +411,15 @@ Beachten Sie bei der Verwendung von Windows PowerShell History Viewer in Windows
 
 ### <a name="windows-powershell-history-viewer-step-by-step"></a>Schrittweise Anleitung zu Windows PowerShell History Viewer
 
-In der folgenden Anleitung verwenden Sie Windows PowerShell History Viewer in ADAC, um ein Windows PowerShell-Skript zu erstellen.  Bevor Sie damit beginnen, müssen Sie den Benutzer **test1** aus der Gruppe **group1**entfernen.
+In der folgenden Anleitung verwenden Sie Windows PowerShell History Viewer in ADAC, um ein Windows PowerShell-Skript zu erstellen.  Bevor Sie damit beginnen, müssen Sie den Benutzer **test1** aus der Gruppe **group1** entfernen.
 
 #### <a name="to-construct-a-script-using-powershell-history-viewer"></a>So erstellen Sie ein Skript mithilfe von PowerShell History Viewer
 
 1. Klicken Sie mit der rechten Maustaste auf das Windows PowerShell-Symbol, klicken Sie auf **als Administrator ausführen** , und geben Sie **Dsac. exe** ein,
 
-2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen** , und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
+2. Klicken Sie auf **Verwalten**, klicken Sie auf **Navigationsknoten hinzufügen**, und wählen Sie die entsprechende Zieldomäne im Dialogfeld **Navigationsknoten hinzufügen** aus. Klicken Sie anschließend auf **OK**.
 
-3. Erweitern Sie unten im ADAC-Bildschirm den Bereich **Windows PowerShell History**.
+3. Erweitern Sie unten im ADAC-Bildschirm den Bereich **Windows PowerShell-Verlauf**.
 
 4. Wählen Sie den Benutzer **test1** aus.
 
@@ -428,7 +427,7 @@ In der folgenden Anleitung verwenden Sie Windows PowerShell History Viewer in AD
 
 6. Navigieren Sie zu **group1**, und klicken Sie im Dialogfeld auf **OK**.
 
-7. Wechseln Sie zu dem Bereich **Windows PowerShell History** , und suchen Sie den Befehl, der gerade generiert wurde.
+7. Wechseln Sie zu dem Bereich **Windows PowerShell-Verlauf**, und suchen Sie den Befehl, der gerade generiert wurde.
 
 8. Kopieren Sie den Befehl und fügen Sie ihn in einen Editor Ihrer Wahl ein, um Ihr Skript zu erstellen.
 

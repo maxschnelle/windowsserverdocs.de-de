@@ -1,7 +1,6 @@
 ---
 ms.assetid: 22c514b2-401e-49e1-a87e-0cbaa2c1dac1
 title: Standortfunktionen
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 109f576bfdacf68a0eadc7dd84ddb9a4148e6dd9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4443e5a0cfeba0eaee767404359febec256209d4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408676"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821843"
 ---
 # <a name="site-functions"></a>Standortfunktionen
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
  Windows Server 2008 verwendet Standortinformationen für viele Zwecke, einschließlich Routing Replikation, Client Affinität, System Volume-Replikation (SYSVOL), verteiltes Dateisystem Namespaces (DFSN) und Dienst Speicherort.  
   
@@ -28,9 +27,9 @@ Active Directory Domain Services (AD DS) verwendet eine Multimaster-, Speicher-u
 Innerhalb von Standorten wird die Replikation für die Geschwindigkeit optimiert, die Replikation von Daten Updates löst die Replikation aus, und die Daten werden ohne den von der Datenkomprimierung Umgekehrt wird die Replikation Zwischenstand Orten komprimiert, um die Kosten für die Übertragung über WAN-Verbindungen (Wide Area Network) zu minimieren. Wenn die Replikation Zwischenstand Orten erfolgt, sammelt und speichert ein einzelner Domänen Controller pro Domäne an jedem Standort die Verzeichnisänderungen und kommuniziert sie zu einem geplanten Zeitpunkt an einen Domänen Controller an einem anderen Standort.  
   
 ## <a name="client-affinity"></a>Clientaffinität  
-Von Domänen Controllern werden Standortinformationen verwendet, um Active Directory Clients Informationen über Domänen Controller zu informieren, die sich am nächstgelegenen Standort befinden. Nehmen wir beispielsweise an, ein Client am Standort Seattle kennt seine Standort Zugehörigkeit nicht und kontaktiert einen Domänen Controller am Standort Atlanta. Basierend auf der IP-Adresse des Clients bestimmt der Domänen Controller in Atlanta, von welchem Standort der Client tatsächlich stammt, und sendet die Standortinformationen an den Client zurück. Der Domänen Controller informiert den Client auch darüber, ob der gewählte Domänen Controller der nächstgelegene Domänen Controller ist. Der Client speichert die Standortinformationen, die vom Domänen Controller in Atlanta bereitgestellt werden, und fragt den Ressourcen Daten Satz für den standortspezifischen Dienst (SRV) (einen Domain Name System (DNS)-Ressourcen Daten Satz ab, der zum Suchen von Domänen Controllern für AD DS) verwendet wird. Controller innerhalb desselben Standorts.  
+Von Domänen Controllern werden Standortinformationen verwendet, um Active Directory Clients Informationen über Domänen Controller zu informieren, die sich am nächstgelegenen Standort befinden. Nehmen wir beispielsweise an, ein Client am Standort Seattle kennt seine Standort Zugehörigkeit nicht und kontaktiert einen Domänen Controller am Standort Atlanta. Basierend auf der IP-Adresse des Clients bestimmt der Domänen Controller in Atlanta, von welchem Standort der Client tatsächlich stammt, und sendet die Standortinformationen an den Client zurück. Der Domänen Controller informiert den Client auch darüber, ob der gewählte Domänen Controller der nächstgelegene Domänen Controller ist. Der Client speichert die Standortinformationen, die vom Domänen Controller in Atlanta bereitgestellt werden, und fragt den Ressourcen Daten Satz für den standortspezifischen Dienst (SRV) (einen Domain Name System (DNS)-Ressourcen Daten Satz ab, der zum Suchen von Domänen Controllern für AD DS) verwendet wird, und findet einen Domänen Controller innerhalb desselben Standorts.  
   
-Wenn Sie einen Domänen Controller am selben Standort finden, vermeidet der Client die Kommunikation über WAN-Verbindungen. Wenn keine Domänen Controller am Client Standort gefunden werden, wird ein Domänen Controller mit den geringsten Kosten Verbindungen im Vergleich zu anderen verbundenen Standorten zur Verfügung gestellt (registriert einen standortspezifischen Dienst (SRV)-Ressourcen Daten Satz in DNS) an dem Standort, der nicht über eine Domänen Controller. Die Domänen Controller, die in DNS veröffentlicht werden, sind die, die von der Standort Topologie am nächstgelegenen Standort definiert werden. Dadurch wird sichergestellt, dass jeder Standort über einen bevorzugten Domänen Controller für die Authentifizierung verfügt.  
+Wenn Sie einen Domänen Controller am selben Standort finden, vermeidet der Client die Kommunikation über WAN-Verbindungen. Wenn keine Domänen Controller am Client Standort gefunden werden, wird ein Domänen Controller mit den geringsten Kosten Verbindungen im Vergleich zu anderen verbundenen Standorten zur Verfügung gestellt (registriert einen standortspezifischen Dienst (SRV)-Ressourcen Daten Satz in DNS) an dem Standort, der nicht über einen Domänen Controller verfügt. Die Domänen Controller, die in DNS veröffentlicht werden, sind die, die von der Standort Topologie am nächstgelegenen Standort definiert werden. Dadurch wird sichergestellt, dass jeder Standort über einen bevorzugten Domänen Controller für die Authentifizierung verfügt.  
   
 Weitere Informationen zum Auffinden eines Domänen Controllers finden Sie unter Active Directory Sammlung ([https://go.microsoft.com/fwlink/?LinkID=88626](https://go.microsoft.com/fwlink/?LinkID=88626)).  
   

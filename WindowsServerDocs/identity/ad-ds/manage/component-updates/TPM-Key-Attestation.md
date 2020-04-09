@@ -1,7 +1,6 @@
 ---
 ms.assetid: 16a344a9-f9a6-4ae2-9bea-c79a0075fd04
 title: TPM-Schlüsselnachweis
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d7104daaa10cf7093370cb309e0366e1ab2b9b51
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: de5a38ff6f811046d06c52a1ca4598f9650b3cfe
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389859"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823013"
 ---
 # <a name="tpm-key-attestation"></a>TPM-Schlüsselnachweis
 
@@ -67,7 +66,7 @@ Im allgemeinen basiert der TPM-Schlüssel Nachweis auf folgenden Säulen:
   
 4.  Die Zertifizierungsstelle gibt ein Zertifikat mit einer speziellen Ausstellungs Richtlinien-OID aus, um anzugeben, dass der Schlüssel nun von einem TPM geschützt wird.  
   
-## <a name="BKMK_DeploymentOverview"></a>Bereitstellungs Übersicht  
+## <a name="deployment-overview"></a><a name="BKMK_DeploymentOverview"></a>Bereitstellungs Übersicht  
 Bei dieser Bereitstellung wird davon ausgegangen, dass eine Windows Server 2012 R2-Unternehmens Zertifizierungsstelle eingerichtet ist. Außerdem werden-Clients (Windows 8.1) für die Registrierung für die Unternehmens Zertifizierungsstelle mithilfe von Zertifikat Vorlagen konfiguriert. 
 
 Zum Bereitstellen eines TPM-Schlüssel Attestation sind drei Schritte erforderlich:  
@@ -101,9 +100,9 @@ Zum Bereitstellen eines TPM-Schlüssel Attestation sind drei Schritte erforderli
     > -   Der TPM-Schlüssel Nachweis wird für eine eigenständige Zertifizierungsstelle nicht unterstützt.  
     > -   Der TPM-Schlüssel Nachweis unterstützt die [nicht persistente Zertifikat Verarbeitung](https://technet.microsoft.com/library/ff934598)nicht.  
   
-## <a name="BKMK_DeploymentDetails"></a>Bereitstellungs Details  
+## <a name="deployment-details"></a><a name="BKMK_DeploymentDetails"></a>Bereitstellungs Details  
   
-### <a name="BKMK_ConfigCertTemplate"></a>Konfigurieren einer Zertifikat Vorlage  
+### <a name="configure-a-certificate-template"></a><a name="BKMK_ConfigCertTemplate"></a>Konfigurieren einer Zertifikat Vorlage  
 Führen Sie die folgenden Konfigurationsschritte aus, um die Zertifikat Vorlage für den TPM-Schlüssel Nachweis zu konfigurieren:  
   
 1.  Registerkarte **Kompatibilität**  
@@ -165,7 +164,7 @@ Führen Sie die folgenden Konfigurationsschritte aus, um die Zertifikat Vorlage 
     > [!TIP]  
     > Eine mögliche Verwendung der OID im Zertifikat besteht darin, den Zugriff auf VPN oder drahtlos Netzwerke auf bestimmte Geräte zu beschränken. Beispielsweise kann Ihre Zugriffs Richtlinie die Verbindung (oder den Zugriff auf ein anderes VLAN) zulassen, wenn OID 1.3.6.1.4.1.311.21.30 im Zertifikat vorhanden ist. Dies ermöglicht es Ihnen, den Zugriff auf Geräte einzuschränken, deren TPM-EK in der ekpub-Liste vorhanden ist.  
   
-### <a name="BKMK_CAConfig"></a>Zertifizierungsstellen Konfiguration  
+### <a name="ca-configuration"></a><a name="BKMK_CAConfig"></a>Zertifizierungsstellen Konfiguration  
   
 1.  **Einrichten von ekca-und ekroot-Zertifikat speichern auf einer ausstellenden Zertifizierungsstelle**  
   
@@ -201,7 +200,7 @@ Führen Sie die folgenden Konfigurationsschritte aus, um die Zertifikat Vorlage 
   
         |Wertname|Typ|Daten|  
         |--------------|--------|--------|  
-        |Endoranmentkeylistdirectories|REG_MULTI_SZ|< lokalen oder UNC-Pfad zu ekpub-Zulassungs Listen ><br /><br />Beispiel:<br /><br />*\\\blueCA.contoso.com\ekpub*<br /><br />*\\\bluecluster1.contoso.com\ekpub*<br /><br />D:\ekpub|  
+        |Endoranmentkeylistdirectories|REG_MULTI_SZ|< lokalen oder UNC-Pfad zu ekpub-Zulassungs Listen ><p>Beispiel:<p>*\\\blueCA.contoso.com\ekpub*<p>*\\\bluecluster1.contoso.com\ekpub*<p>D:\ekpub|  
   
         Hklm\system\currentcontrolset\services\cerzvc\configuration\\<CA Sanitized Name>  
   

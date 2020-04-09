@@ -1,7 +1,6 @@
 ---
 ms.assetid: da7b6dcf-53ec-4394-88c0-c087d92f3893
 title: 'Dienstadministrator: Autoritätsumfang'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 2c54279f591545c6207dfec1536f16e29e69aa99
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3a891ade46fdee1dffc35df31a11c6d138e71e8a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408660"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821893"
 ---
 # <a name="service-administrator-scope-of-authority"></a>Dienstadministrator: Autoritätsumfang
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Wenn Sie sich für die Teilnahme an einer Active Directory Gesamtstruktur entscheiden, müssen Sie dem Gesamtstruktur Besitzer und den Dienst Administratoren Vertrauen. Die Gesamtstruktur Besitzer sind dafür verantwortlich, die Dienst Administratoren auszuwählen und zu verwalten. Wenn Sie einen Gesamtstruktur Besitzer als vertrauenswürdig einstufen, Vertrauen Sie daher auch den Dienst Administratoren, die der Gesamtstruktur Besitzer verwaltet. Diese Dienst Administratoren haben Zugriff auf alle Ressourcen in der Gesamtstruktur. Bevor Sie sich für die Teilnahme an einer Gesamtstruktur entscheiden, ist es wichtig zu verstehen, dass der Gesamtstruktur Besitzer und die Dienst Administratoren vollen Zugriff auf Ihre Daten haben. Dieser Zugriff kann nicht verhindert werden.  
   
@@ -38,7 +37,7 @@ Aus diesem Grund müssen Gruppen, die Daten in Organisationseinheiten (OUs) in d
   
 -   Der Gesamtstruktur Besitzer kann als vertrauenswürdig eingestuft werden, um in den Interessen der Gruppe zu agieren, und es besteht keine Begründung, um für die Gruppe böswillig zu agieren.  
   
--   Der Gesamtstruktur Besitzer schränkt den physischen Zugriff auf Domänen Controller entsprechend ein. Domänen Controller innerhalb einer Gesamtstruktur können nicht voneinander isoliert werden. Ein Angreifer, der überphysischen Zugriff auf einen einzelnen Domänen Controller verfügt, kann offline Änderungen an der Verzeichnis Datenbank vornehmen. Dadurch stören Sie den Betrieb von Domänen in der Gesamtstruktur, zeigen Sie Daten an, die an beliebiger Stelle in der Gesamtstruktur gespeichert sind, oder bearbeiten Sie Sie. und können Daten anzeigen oder bearbeiten, die auf einem Computer gespeichert sind, der der Gesamtstruktur hinzugefügt wurde. Aus diesem Grund muss der physische Zugriff auf Domänen Controller auf vertrauenswürdige Mitarbeiter beschränkt sein.  
+-   Der Gesamtstruktur Besitzer schränkt den physischen Zugriff auf Domänen Controller entsprechend ein. Domänen Controller innerhalb einer Gesamtstruktur können nicht voneinander isoliert werden. Ein Angreifer, der überphysischen Zugriff auf einen einzelnen Domänen Controller verfügt, kann offline Änderungen an der Verzeichnis Datenbank vornehmen. Dadurch stören Sie den Betrieb von Domänen in der Gesamtstruktur, zeigen oder bearbeiten Sie Daten, die an beliebiger Stelle in der Gesamtstruktur gespeichert sind, und zeigen Sie die Daten an, die auf jedem Computer, der der Gesamtstruktur hinzugefügt wurde, gespeichert sind. Aus diesem Grund muss der physische Zugriff auf Domänen Controller auf vertrauenswürdige Mitarbeiter beschränkt sein.  
   
 -   Sie verstehen und übernehmen das potenzielle Risiko, dass vertrauenswürdige Dienst Administratoren die Sicherheit des Systems beeinträchtigen können.  
   

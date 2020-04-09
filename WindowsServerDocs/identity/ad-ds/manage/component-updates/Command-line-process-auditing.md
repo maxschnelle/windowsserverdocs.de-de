@@ -1,7 +1,6 @@
 ---
 ms.assetid: c8597cc8-bdcb-4e59-a09e-128ef5ebeaf8
 title: Überwachen von Befehlszeilenprozessen
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5d5ab971327ab7ec16bf2748571882458cc38f72
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dc6cba306a36589d8b585b23ecb43e7d16b7d201
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71368987"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823073"
 ---
 # <a name="command-line-process-auditing"></a>Überwachen von Befehlszeilenprozessen
 
@@ -74,7 +73,7 @@ Ereignisvolumen: Niedrig bis mittel, je nach Systemnutzung
 |**Man**|**Befehlszeile in Prozess Erstellungs Ereignisse einschließen**|  
 |**Standardeinstellung**|Nicht konfiguriert (nicht aktiviert)|  
 |**Unterstützt für:**|?|  
-|**Beschreibung**|Mit dieser Richtlinien Einstellung wird festgelegt, welche Informationen in Sicherheits Überwachungs Ereignissen protokolliert werden, wenn ein neuer Prozess erstellt wurde.<br /><br />Diese Einstellung gilt nur, wenn die Richtlinie für die Überwachungsprozess Erstellung aktiviert ist. Wenn Sie diese Richtlinien Einstellung aktivieren, werden die Befehlszeilen Informationen für jeden Prozess im Rahmen des Überwachungsprozess Erstellungs Ereignisses 4688, "ein neuer Prozess wurde erstellt" auf den Arbeitsstationen und Servern, auf denen diese Richtlinie erstellt wurde, als nur-Text im Sicherheits Ereignisprotokoll protokolliert. die Einstellung wird angewendet.<br /><br />Wenn Sie diese Richtlinien Einstellung deaktivieren oder nicht konfigurieren, werden die Befehlszeilen Informationen des Prozesses nicht in Überwachungsprozess-Erstellungs Ereignisse eingeschlossen.<br /><br />Standard: Nicht konfiguriert<br /><br />Hinweis: Wenn diese Richtlinien Einstellung aktiviert ist, kann jeder Benutzer mit Zugriff zum Lesen der Sicherheitsereignisse die Befehlszeilenargumente für jeden erfolgreich erstellten Prozess lesen. Befehlszeilenargumente können vertrauliche oder private Informationen (z. b. Kenn Wörter oder Benutzerdaten) enthalten.|  
+|**Beschreibung**|Mit dieser Richtlinien Einstellung wird festgelegt, welche Informationen in Sicherheits Überwachungs Ereignissen protokolliert werden, wenn ein neuer Prozess erstellt wurde.<p>Diese Einstellung gilt nur, wenn die Richtlinie für die Überwachungsprozess Erstellung aktiviert ist. Wenn Sie diese Richtlinien Einstellung aktivieren, werden die Befehlszeilen Informationen für jeden Prozess im Rahmen des Überwachungsprozess Erstellungs Ereignisses 4688, "ein neuer Prozess wurde erstellt", auf den Arbeitsstationen und Servern, auf denen diese Richtlinien Einstellung angewendet wird, als nur-Text im Sicherheits Ereignisprotokoll protokolliert.<p>Wenn Sie diese Richtlinien Einstellung deaktivieren oder nicht konfigurieren, werden die Befehlszeilen Informationen des Prozesses nicht in Überwachungsprozess-Erstellungs Ereignisse eingeschlossen.<p>Standard: Nicht konfiguriert<p>Hinweis: Wenn diese Richtlinien Einstellung aktiviert ist, kann jeder Benutzer mit Zugriff zum Lesen der Sicherheitsereignisse die Befehlszeilenargumente für jeden erfolgreich erstellten Prozess lesen. Befehlszeilenargumente können vertrauliche oder private Informationen (z. b. Kenn Wörter oder Benutzerdaten) enthalten.|  
   
 ![Überprüfung der Befehlszeile](media/Command-line-process-auditing/GTR_ADDS_IncludeCLISetting.gif)  
   
@@ -89,17 +88,17 @@ Das folgende Verfahren veranschaulicht, wie Sie Konflikte verhindern, indem Sie 
   
 1.  Öffnen Sie die Gruppenrichtlinie-Verwaltungskonsole.  
   
-2.  Klicken Sie mit der rechten Maustaste auf Standard Domänen Richtlinie, und klicken Sie auf Bearbeiten.  
+2.  Klicken Sie mit der rechten Maustaste auf Standarddomänenrichtlinie, und klicken Sie dann auf Bearbeiten.  
   
-3.  Doppelklicken Sie auf Computer Konfiguration, doppelklicken Sie auf Richtlinien, und doppelklicken Sie dann auf Windows-Einstellungen.  
+3.  Doppelklicken Sie auf Computerkonfiguration, doppelklicken Sie auf Richtlinien, und doppelklicken Sie dann auf Windows-Einstellungen.  
   
 4.  Doppelklicken Sie auf Sicherheitseinstellungen, doppelklicken Sie auf lokale Richtlinien, und klicken Sie dann auf Sicherheitsoptionen.  
   
-5.  Doppelklicken Sie auf Überwachung: Einstellungen für die Unterkategorie der Überwachungsrichtlinie erzwingen (Windows Vista oder höher), um die Einstellungen der Überwachungs Richtlinien Kategorie zu überschreiben, und klicken Sie dann auf diese Richtlinien Einstellung definieren.  
+5.  Doppelklicken Sie auf Überwachung: Unterkategorieeinstellungen der Überwachungsrichtlinie erzwingen (Windows Vista oder höher), um Kategorieeinstellungen der Überwachungsrichtlinie außer Kraft zu setzen, und klicken Sie dann auf Diese Richtlinieneinstellung definieren.  
   
 6.  Klicken Sie auf aktiviert, und klicken Sie dann auf OK.  
   
-## <a name="additional-resources"></a>Weitere Ressourcen  
+## <a name="additional-resources"></a>Zusätzliche Ressourcen  
 [Prozesserstellung überwachen](https://technet.microsoft.com/library/dd941613(v=WS.10).aspx)  
   
 [Schritt-für-Schritt-Anleitung für die erweiterte Sicherheits Überwachungsrichtlinie](https://technet.microsoft.com/library/dd408940(v=WS.10).aspx)  

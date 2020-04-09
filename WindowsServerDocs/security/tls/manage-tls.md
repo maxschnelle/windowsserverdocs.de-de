@@ -1,23 +1,19 @@
 ---
 title: Verwalten von Transport Layer Security (TLS)
 description: Windows Server-Sicherheit
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-tls-ssl
-ms.tgt_pltfrm: na
 ms.topic: article
 author: justinha
 ms.author: justinha
-manager: brianlic-msft
+manager: brianlic
 ms.date: 05/16/2018
-ms.openlocfilehash: a4ac1ea5b0648dbb80f103c146ad3df23fc04ab7
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 065c8932667eed12d347e796c29cc7ee013c0383
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322682"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852933"
 ---
 # <a name="manage-transport-layer-security-tls"></a>Verwalten von Transport Layer Security (TLS)
 
@@ -121,11 +117,11 @@ Eine benannte Kurve kann nicht verwendet werden, nachdem ein Administrator die K
 Organisationen können Kurven Parameter mithilfe von Gruppenrichtlinie und der Registrierungs Erweiterung Gruppenrichtlinie Einstellungen an Enterprise, in eine Domäne eingebundenen Computer verteilen.  
 Der Prozess zum Verteilen einer Kurve ist:
 
-1.  Verwenden Sie unter Windows 10 und Windows Server 2016 " **certutil. exe** ", um Windows eine neue registrierte benannte Kurve hinzuzufügen.
-2.  Öffnen Sie auf demselben Computer die Gruppenrichtlinien-Verwaltungskonsole (GPMC), erstellen Sie ein neues Gruppenrichtlinie Objekt, und bearbeiten Sie es.
-3.  Navigieren Sie zu **Computer Konfiguration | Einstellungen | Windows-Einstellungen | Registrierung**.  Klicken mit der rechten Maustaste auf **Registrierung**. Zeigen Sie auf **neu** , und wählen Sie **Sammel Element**aus. Benennen Sie das Sammel Element so um, dass es dem Namen der Kurve entspricht. Sie erstellen ein Registrierungs Sammel Element für jeden Registrierungsschlüssel unter *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters*.
-4.  Konfigurieren Sie die neu erstellte Gruppenrichtlinie Einstellungs Registrierungs Sammlung, indem Sie ein neues **Registrierungs Element** für jeden Registrierungs Wert hinzufügen, der unter *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters\[currvename]* aufgeführt ist.
-5.  Stellen Sie das Gruppenrichtlinie Objekt, das Gruppenrichtlinie Registrierungs Sammel Element enthält, für Windows 10-und Windows Server 2016-Computer bereit, die die neuen benannten Kurven erhalten sollen.
+1.    Verwenden Sie unter Windows 10 und Windows Server 2016 " **certutil. exe** ", um Windows eine neue registrierte benannte Kurve hinzuzufügen.
+2.    Öffnen Sie auf demselben Computer die Gruppenrichtlinien-Verwaltungskonsole (GPMC), erstellen Sie ein neues Gruppenrichtlinie Objekt, und bearbeiten Sie es.
+3.    Navigieren Sie zu **Computer Konfiguration | Einstellungen | Windows-Einstellungen | Registrierung**.  Klicken mit der rechten Maustaste auf **Registrierung**. Zeigen Sie auf **neu** , und wählen Sie **Sammel Element**aus. Benennen Sie das Sammel Element so um, dass es dem Namen der Kurve entspricht. Sie erstellen ein Registrierungs Sammel Element für jeden Registrierungsschlüssel unter *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters*.
+4.    Konfigurieren Sie die neu erstellte Gruppenrichtlinie Einstellungs Registrierungs Sammlung, indem Sie ein neues **Registrierungs Element** für jeden Registrierungs Wert hinzufügen, der unter *HKEY_LOCAL_MACHINE \currentcontrolset\control\cryptography\eccparameters\[currvename]* aufgeführt ist.
+5.    Stellen Sie das Gruppenrichtlinie Objekt, das Gruppenrichtlinie Registrierungs Sammel Element enthält, für Windows 10-und Windows Server 2016-Computer bereit, die die neuen benannten Kurven erhalten sollen.
 
     ![Kurven der GPP-Verteilung](../media/Transport-Layer-Security-protocol/gpp-distribute-curves.png)
 
@@ -133,7 +129,7 @@ Der Prozess zum Verteilen einer Kurve ist:
 
 ## <a name="managing-tls-ecc-order"></a>Verwalten der TLS ECC-Reihenfolge
 
-Ab Windows 10 und Windows Server 2016 können die Gruppenrichtlinien Einstellungen für die ECC-Kurven Sortierung verwendet werden, um die standardmäßige TLS ECC-Kurven Reihenfolge zu konfigurieren. Mithilfe der generischen ECC und dieser Einstellung können Organisationen ihre eigenen vertrauenswürdigen benannten Kurven (die für die Verwendung mit TLS genehmigt werden) dem Betriebssystem hinzufügen und diese benannten Kurven dann der Einstellung für die Kurven Priorität Gruppenrichtlinie hinzufügen, um sicherzustellen, dass Sie in zukünftigen TLS verwendet werden. Handshakes. Neue Kurven Prioritäts Listen werden beim nächsten Neustart nach dem Empfang der Richtlinien Einstellungen aktiv.     
+Ab Windows 10 und Windows Server 2016 können die Gruppenrichtlinien Einstellungen für die ECC-Kurven Sortierung verwendet werden, um die standardmäßige TLS ECC-Kurven Reihenfolge zu konfigurieren. Mithilfe des generischen ECC und dieser Einstellung können Organisationen eigene vertrauenswürdige benannte Kurven (die für die Verwendung mit TLS genehmigt werden) dem Betriebssystem hinzufügen und diese benannten Kurven dann der Kurven Prioritäts Gruppenrichtlinie Einstellung hinzufügen, um sicherzustellen, dass Sie in zukünftigen TLS-Handshakes verwendet werden. Neue Kurven Prioritäts Listen werden beim nächsten Neustart nach dem Empfang der Richtlinien Einstellungen aktiv.     
 
 ![Kurven der GPP-Verteilung](../media/Transport-Layer-Security-protocol/gp-managing-tls-curve-priority-order.png)
 

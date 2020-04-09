@@ -1,19 +1,19 @@
 ---
 title: 'Abgeschirmte VMs für Mandanten: Erstellen eines Vorlagen Datenträgers (optional)'
-ms.custom: na
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: c1992f8b-6f88-4dbc-b4a5-08368bba2787
 manager: dongill
 author: rpsqrd
+ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 08/29/2018
-ms.openlocfilehash: 8e5080dd74506e86687dddb7be0fd35af92f5b56
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1f51a0f90f60847929f6fe46732c98f355a6a859
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403439"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856443"
 ---
 # <a name="shielded-vms-for-tenants---creating-a-template-disk-optional"></a>Abgeschirmte VMs für Mandanten: Erstellen eines Vorlagen Datenträgers (optional)
 
@@ -80,7 +80,7 @@ Führen Sie die folgenden Schritte auf einem Computer aus, auf dem Windows Serve
 
 7. Geben Sie auf der Seite Signatur Katalog einen anzeigen **Amen** und eine **Version** des Datenträgers an. Diese Felder sind vorhanden, damit Sie den Datenträger nach der Signierung identifizieren können.
 
-    Beispielsweise können Sie für den Datenträger Namen _WS2016_ und für **Version**, _1.0.0.0_ eingeben.
+    Beispielsweise können Sie **disk name** für den Datenträger Namen _WS2016_ und für **Version**, _1.0.0.0_ eingeben.
 
 8. Überprüfen Sie Ihre Auswahl auf der Seite Einstellungen überprüfen des Assistenten. Wenn Sie auf **generieren**klicken, aktiviert der Assistent BitLocker auf dem Vorlagen Datenträger, berechnet den Hash des Datenträgers und erstellt den volumensignaturkatalog, der in den vhdx-Metadaten gespeichert ist.
 

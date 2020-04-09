@@ -1,7 +1,6 @@
 ---
 ms.assetid: 87196b65-a356-409f-9af0-b5950797d668
 title: 'Anhang A: Überprüfen der Schlüssel AD DS Bedingungen'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 81beba874440f7a75c2d7932357fae70f046d996
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ad8c1cf769c0c2a22e2d55f7bd2d111095410afe
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71409012"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822863"
 ---
-# <a name="appendix-a-reviewing-key-ad-ds-terms"></a>Anhang A: Überprüfen der Schlüssel AD DS Bedingungen
+# <a name="appendix-a-reviewing-key-ad-ds-terms"></a>Anhang A: Die wichtigsten AD DS-Begriffe
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Die folgenden Begriffe sind für den Bereitstellungs Prozess für Windows Server 2008 Active Directory Domain Services (AD DS) relevant.  
   
@@ -35,7 +34,7 @@ Eine administrative Einheit in einem Computernetzwerk, die zur einfacheren Verwa
   
 -   **Replikation** Eine Domäne definiert eine Partition der Verzeichnisstruktur, die Daten bereitstellt, die für die Bereitstellung erforderlicher Dienste geeignet sind und zwischen Domänen Controllern repliziert werden. Auf diese Weise handelt es sich bei allen Domänen Controllern um Peers in einer Domäne, die als Einheit verwaltet werden.  
   
-## <a name="active-directory-forest"></a>Active Directory Gesamtstruktur  
+## <a name="active-directory-forest"></a>Active Directory-Gesamtstruktur  
 Eine Auflistung von einer oder mehreren Active Directory Domänen, die über eine gemeinsame logische Struktur, ein gemeinsames Verzeichnisschema und eine gemeinsame Netzwerkkonfiguration verfügen, sowie automatische, bidirektionale transitiv Vertrauens Stellungen. Jede Gesamtstruktur ist eine einzelne Instanz des Verzeichnisses und definiert eine Sicherheitsgrenze.  
   
 ## <a name="active-directory-functional-level"></a>Funktionsebene "Active Directory"  
@@ -54,7 +53,7 @@ Ein Umstrukturierungsprozess, bei dem AD DS Domänen durch Zusammenführen des I
 Der Prozess, bei dem der Verzeichnisdienst einer Domäne auf eine spätere Version des Verzeichnis Dienstanbieter aktualisiert wird. Dies umfasst das Upgrade des Betriebssystems auf allen Domänen Controllern und das Erhöhen der AD DS Funktionsebene, sofern zutreffend.  
   
 ## <a name="in-place-domain-upgrade"></a>Direktes Domänen Upgrade  
-Der Upgradevorgang für die Betriebssysteme aller Domänen Controller in einer bestimmten Domäne, z. b. ein Upgrade von Windows Server 2003 auf Windows Server 2008 und das Erhöhen der Funktionsebene der Domäne (falls zutreffend), ohne Domänen Objekte, wie z. b. Benutzer und Gruppen vorhanden sind.  
+Der Upgradevorgang für die Betriebssysteme aller Domänen Controller in einer bestimmten Domäne, z. b. ein Upgrade von Windows Server 2003 auf Windows Server 2008 und das Erhöhen der Funktionsebene der Domäne (falls zutreffend), ohne Domänen Objekte (z. b. Benutzer und Gruppen) zu belassen.  
   
 ## <a name="forest-root-domain"></a>Gesamtstruktur-Stamm Domäne  
 Die erste Domäne, die in der Active Directory Gesamtstruktur erstellt wird. Diese Domäne wird automatisch als Stamm Domäne der Gesamtstruktur bezeichnet. Sie bildet die Grundlage für die Infrastruktur der Active Directory Gesamtstruktur.  

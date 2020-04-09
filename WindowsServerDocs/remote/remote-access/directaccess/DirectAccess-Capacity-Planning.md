@@ -2,22 +2,18 @@
 title: DirectAccess-Kapazitätsplanung
 description: Sie können dieses Thema für einen Bericht über die DirectAccess-Serverleistung von Windows Server 2012 verwenden, um Sie bei der Kapazitätsplanung für DirectAccess in Windows Server 2016 zu unterstützen.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 456e5971-3aa7-4a24-bc5d-0c21fec7687e
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: e63b4c4f266d286b766c89b61676493328aa8652
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 413dc88ce9ec551a318b63f3df44ed256f289219
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310986"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815793"
 ---
 # <a name="directaccess-capacity-planning"></a>DirectAccess-Kapazitätsplanung
 
@@ -37,7 +33,7 @@ Die folgende Tabelle enthält die Ergebnisse, die mit der Testumgebung zum Ermit
 ||||  
 |-|-|-|  
 |Konfiguration-Hardware|Lowend-Hardware (4 GB RAM, 4 Core)|Highend-Hardware (8 GB RAM, 8 Core)|  
-|Doppelter Tunnel<br /><br />-PKI<br /><br />-Einschließlich DNS64/NAT64|750 gleichzeitige Verbindungen bei 50 % CPU, 50 % Arbeitsspeicher mit Corpnet-NIC-Durchsatz von 75 MBit/s. Das %%amp;quot;Stretch Target%%amp;quot; beträgt 1.000 Benutzer bei 50 % CPU.|1500 gleichzeitige Verbindungen bei 50% CPU, 50% Arbeitsspeicher mit Corpnet-NIC-Durchsatz 150 Mbit/s.|  
+|Doppelter Tunnel<p>-PKI<p>-Einschließlich DNS64/NAT64|750 gleichzeitige Verbindungen bei 50 % CPU, 50 % Arbeitsspeicher mit Corpnet-NIC-Durchsatz von 75 MBit/s. Das %%amp;quot;Stretch Target%%amp;quot; beträgt 1.000 Benutzer bei 50 % CPU.|1500 gleichzeitige Verbindungen bei 50% CPU, 50% Arbeitsspeicher mit Corpnet-NIC-Durchsatz 150 Mbit/s.|  
 ## <a name="test-environment"></a>Testumgebung
 
 **Perf Bench-Topologie**  

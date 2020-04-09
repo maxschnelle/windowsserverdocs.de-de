@@ -1,6 +1,5 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: autoritative Synchronisierung von SYSVOL'
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 38a1c543-c76d-4b8e-a06b-53742aaa172f
 ms.technology: identity-adds
-ms.openlocfilehash: 051e3fdb1c801ab6f19b276b66599ea555026845
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4c797c98fc8d41621954077ebf470f1f52604cf7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369383"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824303"
 ---
 # <a name="ad-forest-recovery---performing-an-authoritative-synchronization-of-dfsr-replicated-sysvol"></a>AD-Gesamtstruktur Wiederherstellung: Ausführen einer autoritativen Synchronisierung von DFSR-replizierten SYSVOL  
 
@@ -26,7 +25,7 @@ Führen Sie die folgenden Schritte aus, um eine autoritative Synchronisierung vo
 
 ## <a name="to-perform-an-authoritative-synchronization-of-dfsr-replicated-sysvol"></a>So führen Sie eine autoritative Synchronisierung von DFSR-replizierten SYSVOL durch  
 
-1. Öffnen Sie %%amp;quot;Active Directory-Benutzer und -Computer%%amp;quot;.  
+1. Öffnen Sie Active Directory-Benutzer und -Computer.  
 2. Klicken Sie auf **anzeigen**, und wählen Sie dann **Benutzer, Kontakte, Gruppen und Computer als Container** und **Erweiterte Features**aus. 
 
    ![SYSVOL](media/AD-Forest-Recovery-Authoritative-Recovery-SYSVOL/sysvol1.png) 

@@ -3,21 +3,21 @@ ms.assetid: 13210461-1e92-48a1-91a2-c251957ba256
 title: Problembehandlung für Updates der Laufwerkfirmware
 ms.prod: windows-server
 ms.author: toklima
-ms.manager: masriniv
+manager: masriniv
 ms.technology: storage
 ms.topic: article
 author: toklima
 ms.date: 04/18/2017
-ms.openlocfilehash: 9c9c1083def53e09b063a0ca9879e4d4527e98c0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b62fdfe64ea579f61239dc582c639fb10ec1371c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365894"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820883"
 ---
 # <a name="troubleshooting-drive-firmware-updates"></a>Problembehandlung für Updates der Laufwerkfirmware
 
->Gilt für: Windows 10, Windows Server (halbjährlicher Kanal),
+>Gilt für: Windows 10, Windows Server (Semi-Annual Channel)
 
 Version 1703 von Windows 10 und höher sowie Windows Server (Semi-Annual Channel) verfügt über eine Funktion zum Aktualisieren der Firmware von HDDs und SSDs, die mit dem Firmware Upgradeable AQ (Additional Qualifier) per PowerShell zertifiziert wurden.
 
@@ -41,7 +41,7 @@ In Bezug auf die Architektur basiert diese neue Funktion auf APIs, die im Window
 Die folgenden Abschnitte enthalten Informationen zur Problembehandlung (unterteilt danach, ob Treiber von Microsoft oder von Drittanbietern verwendet werden).
 
 ## <a name="identifying-inappropriate-hardware"></a>Identifizieren falscher Hardware
-Die schnellste und einfachste Möglichkeit zur Ermittlung, ob ein Gerät den richtigen Befehlssatz unterstützt, ist das Starten von PowerShell und das Übergeben eines Datenträgers, der das PhysicalDisk-Objekt darstellt, an das Get-StorageFirmwareInfo-Cmdlet. Beispiel:
+Die schnellste und einfachste Möglichkeit zur Ermittlung, ob ein Gerät den richtigen Befehlssatz unterstützt, ist das Starten von PowerShell und das Übergeben eines Datenträgers, der das PhysicalDisk-Objekt darstellt, an das Get-StorageFirmwareInfo-Cmdlet. Hier ist ein Beispiel:
 
 ```powershell
 Get-PhysicalDisk -SerialNumber 15140F55976D | Get-StorageFirmwareInformation
@@ -64,7 +64,7 @@ Im Feld „SupportsUpdate“ wird für mit SAS verbundene Geräte immer „True�
 
 Es gibt zwei Optionen, um zu überprüfen, ob ein SAS-Gerät den erforderlichen Befehlssatz unterstützt:
 1.  Ausprobieren per Update-StorageFirmware-Cmdlet mit einem passenden Firmwareimage
-2.  Sehen Sie sich den Windows Server-Katalog an, um zu ermitteln, welche SAS-Geräte erfolgreich das FW-Update https://www.windowsservercatalog.com/)
+2.  Sehen Sie sich den Windows Server-Katalog an, um zu ermitteln, welche SAS-Geräte erfolgreich das FW-Update AQ (https://www.windowsservercatalog.com/)
 
 ### <a name="remediation-options"></a>Lösungsoptionen
 Wenn ein bestimmtes zu testendes Gerät den richtigen Befehlssatz nicht unterstützt, können Sie entweder bei Ihrem Anbieter anfragen, ob eine aktualisierte Firmware mit dem erforderlichen Befehlssatz verfügbar ist, oder Sie können mit dem Windows Server-Katalog Geräte ermitteln, die den richtigen Befehlssatz implementieren.
@@ -81,7 +81,7 @@ Dieser Kanal zeichnet Informationen zu den Windows-APIs, die an die Miniport-Tre
 ```powershell
 Get-PhysicalDisk -SerialNumber 44GS103UT5EW | Update-StorageFirmware -ImagePath C:\Firmware\J3E160@3.enc -SlotNumber 0
 ```
-Hier ist ein Beispiel für die Ausgabe angegeben:
+Dies ist ein Beispiel für die Ausgabe:
 
 ```
 Update-StorageFirmware : Failed
@@ -142,7 +142,7 @@ Die Diagnoseprotokolle werden nicht standardmäßig angezeigt und können aktivi
 
 Um diese erweiterten Protokolleinträge zu sammeln, aktivieren Sie das Protokoll, reproduzieren den Fehler beim Firmwareupdate und speichern das Diagnoseprotokoll.
 
-Im folgenden finden Sie ein Beispiel für ein Firmwareupdate auf einem SATA-Gerät, da das herunter zuladende Image ungültig ist (Ereignis-ID: 258):
+Hier ist ein Beispiel für einen Fehler bei einem Firmwareupdate auf einem SATA-Gerät angegeben. Der Fehler ist aufgetreten, weil das herunterzuladende Image ungültig ist (Ereignis-ID: 258):
 
 ``` 
 EventData
@@ -174,11 +174,11 @@ Parameter8Value 0
 ```
 
 Das obige Ereignis enthält in den Parameterwerten 2 bis 6 ausführliche Geräteinformationen. Hier sind verschiedene ATA-Registerwerte aufgeführt. Die ATA-ACS-Spezifikation kann zum Decodieren der unten angegebenen Werte in Bezug auf das Fehlschlagen eines Befehls zum Herunterladen von Microcode (Download Microcode) verwendet werden:
-- Rückgabe Code: 0 (0000 0000) (N/v-bedeutungslos, weil keine Nutzlast übertragen wurde)
+- Rückgabecode: 0 (0000 0000) (N/V – bedeutungslos, da keine Nutzlast übertragen wurde)
 - Features: 15 (0000 1111) (Bit 1 ist auf "1" festgelegt und gibt "Abort" an)
-- Sector count: 0 (0000 0000) (N/V)
-- Drivehead: 160 (1010 0000) (N/v – nur veraltete Bits sind festgelegt)
-- S 146 (1001 0010) (Bit 1 ist auf ' 1 ' festgelegt, um die Verfügbarkeit von Sense-Daten anzugeben)
+- SectorCount: 0 (0000 0000) (N/V)
+- DriveHead: 160 (1010 0000) (N/V – nur veraltete Bits sind festgelegt)
+- Befehl: 146 (1001 0010) (Bit 1 ist auf "1" festgelegt, um die Verfügbarkeit von Sense-Daten anzugeben)
 
 Hier erfahren wir, dass der Vorgang zur Aktualisierung der Firmware vom Gerät abgebrochen wurde.
 

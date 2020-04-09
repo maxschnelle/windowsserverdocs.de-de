@@ -1,28 +1,24 @@
 ---
 title: Problembehandlung bei Richtlinien für Softwareeinschränkung
 description: Windows Server-Sicherheit
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-software-restriction-policies
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4fd53736-03e7-4bf9-ba90-d1212d93e19a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 8dff3e1542afcc3cba3645b6834981bd6ed33f58
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c6b3a475f21925b506d073bd3618d78e2ee0c1d7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407161"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80819723"
 ---
 # <a name="troubleshoot-software-restriction-policies"></a>Problembehandlung bei Richtlinien für Softwareeinschränkung
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In diesem Thema werden häufige Probleme und ihre Lösungen bei der Problembehandlung von Software Einschränkungs Richtlinien (SRP) ab Windows Server 2008 und Windows Vista beschrieben.
 
@@ -49,7 +45,7 @@ Benutzer erhalten eine Meldung mit dem Hinweis, dass das Programm von Windows ni
 
 2.  Aktualisieren Sie die Richtlinie, indem Sie sich vom Netzwerk abmelden und sich dann erneut beim Netzwerk anmelden. Wenn eine Richtlinie über Gruppenrichtlinie angewendet wird, werden diese Richtlinien durch die Protokollierung wieder in aktualisiert.
 
-3.  Sie können die Richtlinien Einstellungen mithilfe des Befehlszeilen-Hilfsprogramms gpupdate aktualisieren, oder indem Sie sich von abmelden und sich dann wieder bei Ihrem Computer anmelden. Führen Sie gpupdate aus, und melden Sie sich dann wieder bei Ihrem Computer an, um optimale Ergebnisse zu erzielen. Im Allgemeinen werden die Sicherheitseinstellungen alle 90 Minuten auf einer Arbeitsstation oder einem Server und alle fünf Minuten auf einem Domänen Controller aktualisiert. Die Einstellungen werden außerdem alle 16 Stunden aktualisiert, unabhängig davon, ob Änderungen erfolgt sind. Diese Einstellungen können konfiguriert werden, sodass sich die Aktualisierungsintervalle in jeder Domäne unterscheiden können.
+3.  Sie können die Richtlinien Einstellungen mithilfe des Befehlszeilen-Hilfsprogramms gpupdate aktualisieren, oder indem Sie sich von abmelden und sich dann wieder bei Ihrem Computer anmelden. Führen Sie gpupdate aus, und melden Sie sich dann wieder bei Ihrem Computer an, um optimale Ergebnisse zu erzielen. Im Allgemeinen werden die Sicherheitseinstellungen alle 90 Minuten auf einer Arbeitsstation oder einem Server und alle fünf Minuten auf einem Domänen Controller aktualisiert. Die Einstellungen werden zudem alle 16 Stunden aktualisiert, auch wenn keine Änderungen vorhanden sind. Diese Einstellungen können konfiguriert werden, sodass sich die Aktualisierungsintervalle in jeder Domäne unterscheiden können.
 
 4.  Überprüfen Sie die geltenden Richtlinien. Überprüfen Sie Richtlinien auf Domänen Ebene auf **keine Überschreibungs** Einstellungen
 

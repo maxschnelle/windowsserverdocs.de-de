@@ -1,7 +1,6 @@
 ---
 ms.assetid: 0abe0976-4b49-45d6-a7b3-81d28bdb8210
-title: Audit Policy Recommendations
-description: ''
+title: Empfehlungen zu Überwachungsrichtlinien
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,14 +8,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 6cecf2edcb834a963c706fa4a63e7d15b13f7888
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c25df61246bf6a7c731e08e11cee54fd87d6ae4c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949620"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821343"
 ---
-# <a name="audit-policy-recommendations"></a>Audit Policy Recommendations
+# <a name="audit-policy-recommendations"></a>Empfehlungen zu Überwachungsrichtlinien
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8.1, Windows 7
 
@@ -36,17 +35,17 @@ Dieser Abschnitt enthält Tabellen, in denen die Empfehlungen für die Überwach
 
 -   Windows Server 2016 
 
--   WindowsServer 2012  
+-   Windows Server 2012  
 
--   Windows Server 2012 R2  
+-   Windows Server 2012 R2  
 
--   Windows Server 2008  
+-   WindowsServer 2008  
 
--   Windows-10
+-   Windows 10
 
 -   Windows 8.1  
 
--   Windows 7  
+-   Windows 7  
 
 Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empfehlungen und die stärkeren Empfehlungen für diese Betriebssysteme.  
 
@@ -57,7 +56,7 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 |**Angabe**|**Empfehlung**|  
 |JA|In allgemeinen Szenarien aktivieren|  
 |NEIN|**Nicht** in allgemeinen Szenarien aktivieren|  
-|WENN|Aktivieren Sie bei Bedarf für ein bestimmtes Szenario oder, wenn eine Rolle oder ein Feature, für das die Überwachung gewünscht ist, auf dem Computer installiert ist.|  
+|IF|Aktivieren Sie bei Bedarf für ein bestimmtes Szenario oder, wenn eine Rolle oder ein Feature, für das die Überwachung gewünscht ist, auf dem Computer installiert ist.|  
 |DC|Aktivieren auf Domänen Controllern|  
 |Blitz|Keine Empfehlung|  
 
@@ -65,18 +64,18 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 
 **Überwachungsrichtlinie**  
 
-|Kategorie oder Unterkategorie der Überwachungsrichtlinie|Windows-Standard<br /><br />Erfolgs Fehler|Grundlegende Empfehlung<br /><br />Erfolgs Fehler|Stärkere Empfehlung<br /><br />Erfolgs Fehler|  
+|Kategorie oder Unterkategorie der Überwachungsrichtlinie|Windows-Standard<p>Erfolgs Fehler|Grundlegende Empfehlung<p>Erfolgs Fehler|Stärkere Empfehlung<p>Erfolgs Fehler|  
 |----------------------------------------|------------------------------------------|--------------------------------------------------|--------------------------------------------------|  
 |**Kontoanmeldung**||||  
 |Überprüfen der Anmeldeinformationen überwachen|Nein, nein|Ja Nein|Ja, ja|  
 |Kerberos-Authentifizierungsdienst überwachen|||Ja, ja|  
 |Ticketvorgänge des Kerberos-Diensts überwachen|||Ja, ja|  
 |Andere Kontoanmeldungsereignisse überwachen|||Ja, ja|  
-|**Kontenverwaltung**||||  
+|**Kontoverwaltung**||||  
 |Anwendungsgruppenverwaltung überwachen||||  
 |Computerkontoverwaltung überwachen||Ja Nein|Ja, ja|  
 |Verteilergruppenverwaltung überwachen||||  
-|Überwachen anderer Kontoverwaltungsereignisse||Ja Nein|Ja, ja|  
+|Andere Kontoverwaltungsereignisse überwachen||Ja Nein|Ja, ja|  
 |Sicherheitsgruppenverwaltung überwachen||Ja Nein|Ja, ja|  
 |Benutzerkontenverwaltung überwachen|Ja Nein|Ja Nein|Ja, ja|  
 |**Ausführliche Nachverfolgung**||||  
@@ -120,13 +119,13 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 |Authentifizierungsrichtlinienänderung überwachen|Ja Nein|Ja Nein|Ja, ja|  
 |Autorisierungsrichtlinienänderung überwachen||||  
 |Filterplattform-Richtlinienänderung überwachen||||  
-|MPSSVC-Richtlinienänderung auf Regelebene überwachen|||„Ja“  |  
+|MPSSVC-Richtlinienänderung auf Regelebene überwachen|||Ja  |  
 |Andere Richtlinienänderungsereignisse überwachen||||  
 |**Berechtigungs Verwendung**||||  
 |Nicht sensible Verwendung von Rechten überwachen||||  
 |Andere Rechteverwendungsereignisse überwachen||||  
 |Sensible Verwendung von Rechten überwachen||||  
-|**System**||||  
+|**Anlage**||||  
 |IPsec-Treiber überwachen||Ja, ja|Ja, ja|  
 |Andere Systemereignisse überwachen|Ja, ja|||  
 |Sicherheitsstatusänderung überwachen|Ja Nein|Ja, ja|Ja, ja|  
@@ -143,18 +142,18 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 
 **Empfehlungen zu Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 und Windows Server 2008 Überwachungs Einstellungen**  
 
-|Kategorie oder Unterkategorie der Überwachungsrichtlinie|Windows-Standard<br /><br />Erfolgs Fehler|Grundlegende Empfehlung<br /><br />Erfolgs Fehler|Stärkere Empfehlung<br /><br />Erfolgs Fehler|  
+|Kategorie oder Unterkategorie der Überwachungsrichtlinie|Windows-Standard<p>Erfolgs Fehler|Grundlegende Empfehlung<p>Erfolgs Fehler|Stärkere Empfehlung<p>Erfolgs Fehler|  
 |----------------------------------------|------------------------------------------|--------------------------------------------------|--------------------------------------------------|  
 |**Kontoanmeldung**||||  
 |Überprüfen der Anmeldeinformationen überwachen|Nein, nein|Ja, ja|Ja, ja|  
 |Kerberos-Authentifizierungsdienst überwachen|||Ja, ja|  
 |Ticketvorgänge des Kerberos-Diensts überwachen|||Ja, ja|  
 |Andere Kontoanmeldungsereignisse überwachen|||Ja, ja|  
-|**Kontenverwaltung**||||  
+|**Kontoverwaltung**||||  
 |Anwendungsgruppenverwaltung überwachen||||  
 |Computerkontoverwaltung überwachen||Ja, DC|Ja, ja|  
 |Verteilergruppenverwaltung überwachen||||  
-|Überwachen anderer Kontoverwaltungsereignisse||Ja, ja|Ja, ja|  
+|Andere Kontoverwaltungsereignisse überwachen||Ja, ja|Ja, ja|  
 |Sicherheitsgruppenverwaltung überwachen||Ja, ja|Ja, ja|  
 |Benutzerkontenverwaltung überwachen|Ja Nein|Ja, ja|Ja, ja|  
 |**Ausführliche Nachverfolgung**||||  
@@ -198,13 +197,13 @@ Diese Tabellen enthalten die Windows-Standardeinstellung, die grundlegenden Empf
 |Authentifizierungsrichtlinienänderung überwachen|Ja Nein|Ja Nein|Ja, ja|  
 |Autorisierungsrichtlinienänderung überwachen||||  
 |Filterplattform-Richtlinienänderung überwachen||||  
-|MPSSVC-Richtlinienänderung auf Regelebene überwachen|||„Ja“  |  
+|MPSSVC-Richtlinienänderung auf Regelebene überwachen|||Ja  |  
 |Andere Richtlinienänderungsereignisse überwachen||||  
 |**Berechtigungs Verwendung**||||  
 |Nicht sensible Verwendung von Rechten überwachen||||  
 |Andere Rechteverwendungsereignisse überwachen||||  
 |Sensible Verwendung von Rechten überwachen||||  
-|**System**||||  
+|**Anlage**||||  
 |IPsec-Treiber überwachen||Ja, ja|Ja, ja|  
 |Andere Systemereignisse überwachen|Ja, ja|||  
 |Sicherheitsstatusänderung überwachen|Ja Nein|Ja, ja|Ja, ja|  

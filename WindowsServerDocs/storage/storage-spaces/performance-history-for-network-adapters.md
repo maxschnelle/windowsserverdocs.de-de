@@ -1,34 +1,33 @@
 ---
-title: Leistungsverlauf für Netzwerkadapter
+title: Leistungs Verlauf für Netzwerkadapter
 ms.author: cosdar
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 02/02/2018
-Keywords: Direkte Speicherplätze
 ms.localizationpriority: medium
-ms.openlocfilehash: 340999a8f440975d3736277b1a30dddbb942785d
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2379ce540cb26c02bc79f591d2a597874ab287c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59849981"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856213"
 ---
-# <a name="performance-history-for-network-adapters"></a>Leistungsverlauf für Netzwerkadapter
+# <a name="performance-history-for-network-adapters"></a>Leistungs Verlauf für Netzwerkadapter
 
-> Gilt für: Windows Server-Insider – Vorschau
+> Gilt für: Windows Server 2019
 
-Dieser Unterabschnitt von [– Leistungsverlauf für "direkte Speicherplätze"](performance-history.md) beschreibt ausführlich den Leistungsverlauf für Netzwerkadapter erfasst. Leistungsverlauf für Netzwerkadapter wird für jede physische Netzwerkkarte auf jedem Server im Cluster verfügbar. Leistungsverlauf für Remote Direct Memory Access (RDMA) steht für alle physischen Netzwerkadapter mit RDMA-fähigen zur Verfügung.
+In diesem Unterthema des [Leistungs Verlaufs für direkte Speicherplätze](performance-history.md) wird der Leistungs Verlauf ausführlich beschrieben, der für Netzwerkadapter erfasst wurde. Der Leistungs Verlauf für Netzwerkadapter ist für jeden physischen Netzwerkadapter auf jedem Server im Cluster verfügbar. Der RDMA (Remote Direct Memory Access)-Leistungs Verlauf ist für jeden physischen Netzwerkadapter mit aktiviertem RDMA verfügbar.
 
    > [!NOTE]
-   > Leistungsverlauf für kann nicht für die Netzwerkadapter auf einem Server gesammelt werden, die nicht verfügbar ist. Sammlung wird automatisch fortgesetzt, wenn der Server wieder verfügbar ist.
+   > Der Leistungs Verlauf kann für Netzwerkadapter auf einem nicht herunter zufügenden Server nicht erfasst werden. Die Sammlung wird automatisch fortgesetzt, wenn der Server wieder verfügbar ist.
 
-## <a name="series-names-and-units"></a>Namen von Datenreihen und Einheiten
+## <a name="series-names-and-units"></a>Reihen Namen und Einheiten
 
-Dieser Reihe werden für alle berechtigten Netzwerkadapter gesammelt:
+Diese Reihen werden für jeden berechtigten Netzwerkadapter erfasst:
 
-| Serie                               | Einheit            |
+| Reihe                               | Einheit            |
 |--------------------------------------|-----------------|
 | `netadapter.bandwidth.inbound`       | Bits pro Sekunde |
 | `netadapter.bandwidth.outbound`      | Bits pro Sekunde |
@@ -38,43 +37,43 @@ Dieser Reihe werden für alle berechtigten Netzwerkadapter gesammelt:
 | `netadapter.bandwidth.rdma.total`    | Bits pro Sekunde |
 
    > [!NOTE]
-   > Leistungsverlauf für Netzwerkadapter wird im aufgezeichnet **Bits** pro Sekunde, anstelle von Bytes pro Sekunde. Eine 10-GbE-Netzwerkadapter senden und empfangen ungefähr 1.000.000.000 Bits = 125,000,000 Bytes = 1,25 GB pro Sekunde und die theoretischen Maximum.
+   > Der Leistungs Verlauf für Netzwerkadapter wird in **Bits** pro Sekunde aufgezeichnet, nicht in Bytes pro Sekunde. 1 10 der GbE-Netzwerkadapter kann ungefähr 1 Milliarde Bits = 125 Millionen Bytes = 1,25 GB pro Sekunde an das theoretische Maximum senden und empfangen.
 
-## <a name="how-to-interpret"></a>Gewusst wie: interpretieren
+## <a name="how-to-interpret"></a>Interpretieren
 
-| Serie                               | Gewusst wie: interpretieren                                                      |
+| Reihe                               | Interpretieren                                                      |
 |--------------------------------------|-----------------------------------------------------------------------|
 | `netadapter.bandwidth.inbound`       | Rate der vom Netzwerkadapter empfangenen Daten.                         |
 | `netadapter.bandwidth.outbound`      | Rate der vom Netzwerkadapter gesendeten Daten.                             |
-| `netadapter.bandwidth.total`         | Gesamtrate Daten empfangen, oder es vom Netzwerkadapter gesendet.           |
-| `netadapter.bandwidth.rdma.inbound`  | Rate der Daten, die über RDMA vom Netzwerkadapter empfangen.               |
-| `netadapter.bandwidth.rdma.outbound` | Rate der Daten, die über RDMA vom Netzwerkadapter gesendet.                   |
-| `netadapter.bandwidth.rdma.total`    | Gesamtrate Daten empfangen oder gesendet, die über RDMA vom Netzwerkadapter. |
+| `netadapter.bandwidth.total`         | Die Gesamtrate der vom Netzwerkadapter empfangenen oder gesendeten Daten.           |
+| `netadapter.bandwidth.rdma.inbound`  | Rate der Daten, die über RDMA vom Netzwerkadapter empfangen werden.               |
+| `netadapter.bandwidth.rdma.outbound` | Rate der über RDMA vom Netzwerkadapter gesendeten Daten.                   |
+| `netadapter.bandwidth.rdma.total`    | Gesamtrate der vom Netzwerkadapter über RDMA empfangenen oder gesendeten Daten. |
 
-## <a name="where-they-come-from"></a>Wo diese herkommen
+## <a name="where-they-come-from"></a>Woher Sie stammen
 
-Die `bytes.*` Reihe werden gesammelt, aus der `Network Adapter` Leistungsindikator auf dem Server festgelegt werden, auf dem der Netzwerkadapter installiert ist, eine Instanz pro Netzwerkadapter.
+Die `bytes.*` Reihe wird auf dem Server, auf dem der Netzwerkadapter installiert ist, auf dem Server, auf dem der Netzwerkadapter installiert ist, und einer Instanz pro Netzwerkadapter `Network Adapter` erfasst.
 
-| Serie                           | Source-Indikator           |
+| Reihe                           | Quellen Counter           |
 |----------------------------------|--------------------------|
 | `netadapter.bandwidth.inbound`   | 8 × `Bytes Received/sec` |
 | `netadapter.bandwidth.outbound`  | 8 × `Bytes Sent/sec`     |
 | `netadapter.bandwidth.total`     | 8 × `Bytes Total/sec`    |
 
-Der `rdma.*` Reihe werden gesammelt, aus der `RDMA Activity` Leistungsindikator auf dem Server festgelegt werden, auf dem der Netzwerkadapter installiert ist, eine Instanz pro Netzwerkadapter mit RDMA-fähig.
+Die `rdma.*` Reihe wird auf dem Server, auf dem der Netzwerkadapter installiert ist, auf dem Server, auf dem der Netzwerkadapter installiert ist, und einer Instanz pro Netzwerkadapter mit aktiviertem RDMA `RDMA Activity` gesammelt.
 
-| Serie                               | Source-Indikator           |
+| Reihe                               | Quellen Counter           |
 |--------------------------------------|--------------------------|
 | `netadapter.bandwidth.rdma.inbound`  | 8 × `Inbound bytes/sec`  |
 | `netadapter.bandwidth.rdma.outbound` | 8 × `Outbound bytes/sec` |
-| `netadapter.bandwidth.rdma.total`    | 8 x *Summe der oben genannten*   |
+| `netadapter.bandwidth.rdma.total`    | 8 × *Summe der oben genannten*   |
 
    > [!NOTE]
-   > Leistungsindikatoren werden anhand des gesamten Intervalls, nicht entnommen gemessen. Wenn der Netzwerkadapter für 9 Sekunden aber 200 Bits-Übertragungen im zweiten 10. im Leerlauf ist z. B. die `netadapter.bandwidth.total` aufgezeichnet werden als 20 Bits pro Sekunde durchschnittliche Intervall 10 Sekunden. Dadurch wird der Leistungsverlauf erfasst alle Aktivitäten und ist stabil, um Rauschen.
+   > Leistungsindikatoren werden über das gesamte Intervall gemessen, nicht als Stichprobe. Wenn sich der Netzwerkadapter z. b. für 9 Sekunden im Leerlauf befindet, aber 200 Bits in der 10. Sekunde überträgt, wird sein `netadapter.bandwidth.total` im Durchschnitt in diesem 10-Sekunden-Intervall als 20 Bits pro Sekunde aufgezeichnet. Dadurch wird sichergestellt, dass der Leistungs Verlauf alle Aktivitäten erfasst und stabil ist.
 
 ## <a name="usage-in-powershell"></a>Verwendung in PowerShell
 
-Verwenden der [Get-NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter) Cmdlet:
+Verwenden Sie das Cmdlet " [Get-netadapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter) ":
 
 ```PowerShell
 Get-NetAdapter <Name> | Get-ClusterPerf
@@ -82,4 +81,4 @@ Get-NetAdapter <Name> | Get-ClusterPerf
 
 ## <a name="see-also"></a>Siehe auch
 
-- [Leistungsverlauf für "direkte Speicherplätze"](performance-history.md)
+- [Leistungs Verlauf für direkte Speicherplätze](performance-history.md)

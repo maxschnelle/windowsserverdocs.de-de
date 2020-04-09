@@ -3,17 +3,17 @@ ms.assetid: 0f2a7f7b-aca8-4e5d-ad67-4258e88bc52f
 title: Neuerungen beim Speicher in Windows Server
 ms.prod: windows-server
 ms.author: jgerend
-ms.manager: dongill
+manager: dongill
 ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 05/29/2019
-ms.openlocfilehash: ffcff036a7e30018e523def055ce3aeb8d30c225
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 0de83c8642629b3a7ff21c9accadec5f9331178e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322332"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820853"
 ---
 # <a name="whats-new-in-storage-in-windows-server"></a>Neuerungen beim Speicher in Windows Server
 
@@ -63,9 +63,9 @@ Um fair zu sein, ist Windows Admin Center ein separater Download, der unter Wind
 
 ### <a name="storage-migration-service"></a>Speichermigrationsdienst
 
-Der Speichermigrationsdienst ist eine neue Technologie, mit der Server leichter auf eine neuere Version von Windows Server migriert werden können. Es bietet ein grafisches Tool, das Daten auf Servern inventarisiert, Daten und Konfiguration auf neuere Server überträgt und dann optional die Identitäten der alten Server auf die neuen Server überträgt, sodass Apps und Benutzer nichts ändern müssen. Weitere Informationen finden Sie unter [Speichermigrationsdienst)](storage-migration-service/overview.md).
+Der Speichermigrationsdienst ist eine neue Technologie, mit der Server einfacher auf eine neuere Version von Windows Server migriert werden können. Er bietet ein grafisches Tool, das Daten auf Servern inventarisiert, Daten und Konfiguration auf neuere Server überträgt und dann optional die Identitäten der alten Server auf die neuen Server überträgt, sodass Apps und Benutzer nichts ändern müssen. Weitere Informationen finden Sie unter [Speichermigrationsdienst)](storage-migration-service/overview.md).
 
-### <a id="storage-spaces-direct"></a>Direkte Speicherplätze (nur Windows Server 2019)
+### <a name="storage-spaces-direct-windows-server-2019-only"></a><a id="storage-spaces-direct"></a>Direkte Speicherplätze (nur Windows Server 2019)
 
 Es gibt eine Reihe von Verbesserungen bei der direkte Speicherplätze in Windows Server 2019 (direkte Speicherplätze ist nicht in Windows Server enthalten, halbjährlicher Kanal):
 
@@ -109,7 +109,7 @@ Es gibt eine Reihe von Verbesserungen bei der direkte Speicherplätze in Windows
 
     Dadurch können Administratoren die Zuordnung von Volumes in direkte Speicherplätze manuell begrenzen. Dadurch kann die Fehlertoleranz unter bestimmten Bedingungen erheblich erhöht werden, es werden jedoch einige zusätzliche Überlegungen zur Verwaltung und Komplexität auferlegt. Weitere Informationen finden Sie unter [begrenzen der Zuordnung von Volumes](storage-spaces/delimit-volume-allocation.md).
 
-### <a name="storage-replica2019"></a>Speicher Replikat
+### <a name="storage-replica"></a><a name="storage-replica2019"></a>Speicher Replikat
 
 In dieser Version gibt es eine Reihe von Verbesserungen für das [Speicher Replikat](storage-replica/storage-replica-overview.md) :
 
@@ -143,9 +143,9 @@ Das Speicher Replikat enthält auch folgende Verbesserungen:
 
 ### <a name="smb"></a>SMB
 
-- **Entfernen der Server Message Block-und Gast Authentifizierung**: Windows Server installiert nicht mehr standardmäßig den Server Message Block-Client und-Server. Darüber hinaus ist die Möglichkeit deaktiviert, sich als Gast in SMB2 und höher standardmäßig zu authentifizieren. Weitere Informationen finden Sie unter [SMBv1 wird nicht standardmäßig in Windows 10, Version 1709 und Windows Server, Version 1709, installiert](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
+- **Entfernen der Server Message Block-und Gast Authentifizierung**: Windows Server installiert nicht mehr standardmäßig den Server Message Block-Client und-Server. Darüber hinaus ist die Möglichkeit deaktiviert, sich als Gast in SMB2 und höher standardmäßig zu authentifizieren. Weitere Informationen finden Sie unter [SMBv1 wird für Windows 10, Version 1709, und Windows Server, Version 1709, standardmäßig nicht installiert](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
 
-- **SMB2/SMB3-Sicherheit und Kompatibilität**: Es wurden zusätzliche Optionen für die Sicherheits- und Anwendungskompatibilität hinzugefügt, einschließlich der Möglichkeit, Oplocks SMB2+ für Legacy-Anwendungen zu deaktivieren, sowie die Signierung oder Verschlüsselung, die auf Basis jeder einzelnen Verbindung von einem Client erforderlich ist. Weitere Informationen finden Sie in der SMBShare PowerShell-Modul-Hilfe.
+- **SMB2/SMB3-Sicherheit und Kompatibilität**: Es wurden zusätzliche Optionen für die Sicherheits- und Anwendungskompatibilität hinzugefügt, einschließlich der Möglichkeit, Oplocks SMB2+ für Legacy-Anwendungen zu deaktivieren, sowie die Signierung oder Verschlüsselung, die auf Basis jeder einzelnen Verbindung von einem Client erforderlich ist. Weitere Informationen finden Sie in der Hilfe zum SMBShare PowerShell-Modul.
 
 ### <a name="data-deduplication"></a>Datendeduplizierung
 
@@ -154,13 +154,13 @@ Das Speicher Replikat enthält auch folgende Verbesserungen:
 
 ### <a name="file-server-resource-manager"></a>Ressourcen-Manager für Dateiserver
 
-Windows Server 2019 bietet die Möglichkeit, zu verhindern, dass der Datei Server Ressourcen-Manager Dienstanbieter ein Änderungs Journal (auch als USN-Journal bezeichnet) auf allen Volumes erstellt, wenn der Dienst gestartet wird. Dies kann Speicherplatz auf jedem Datenträger sparen, deaktiviert allerdings in Echtzeit die Dateiklassifizierung. Weitere Informationen finden Sie unter [Übersicht über den Ressourcen-Manager für Dateiserver](fsrm/fsrm-overview.md).
+Windows Server 2019 bietet die Möglichkeit, zu verhindern, dass der Datei Server Ressourcen-Manager Dienstanbieter ein Änderungs Journal (auch als USN-Journal bezeichnet) auf allen Volumes erstellt, wenn der Dienst gestartet wird. Dies kann Speicherplatz auf jedem Volume sparen, deaktiviert allerdings in Echtzeit die Dateiklassifizierung. Weitere Informationen finden Sie unter [Ressourcen-Manager für Dateiserver – Übersicht](fsrm/fsrm-overview.md).
 
 ## <a name="whats-new-in-storage-in-windows-server-version-1803"></a>Neuerungen beim Speicher in Windows Server, Version 1803
 
 ### <a name="file-server-resource-manager"></a>Ressourcen-Manager für Dateiserver
 
-Windows Server, Version 1803, bietet die Möglichkeit, zu verhindern, dass der Datei Server Ressourcen-Manager Dienstanbieter ein Änderungs Journal (auch als USN-Journal bezeichnet) auf allen Volumes erstellt, wenn der Dienst gestartet wird. Dies kann Speicherplatz auf jedem Datenträger sparen, deaktiviert allerdings in Echtzeit die Dateiklassifizierung. Weitere Informationen finden Sie unter [Übersicht über den Ressourcen-Manager für Dateiserver](fsrm/fsrm-overview.md).
+Windows Server, Version 1803, bietet die Möglichkeit, zu verhindern, dass der Datei Server Ressourcen-Manager Dienstanbieter ein Änderungs Journal (auch als USN-Journal bezeichnet) auf allen Volumes erstellt, wenn der Dienst gestartet wird. Dies kann Speicherplatz auf jedem Volume sparen, deaktiviert allerdings in Echtzeit die Dateiklassifizierung. Weitere Informationen finden Sie unter [Ressourcen-Manager für Dateiserver – Übersicht](fsrm/fsrm-overview.md).
 
 ## <a name="whats-new-in-storage-in-windows-server-version-1709"></a>Neuerungen beim Speicher in Windows Server, Version 1709
 
@@ -172,7 +172,7 @@ Weitere Informationen finden Sie unter [Übersicht: Windows Server, Semi-Annual 
 
 Der durch das Speicher Replikat hinzugefügte Schutz durch die Notfall Wiederherstellung wird nun erweitert
 
-- **Testen des Failovers**: die Option zum Bereitstellen des Ziel-Speichers ist jetzt mit der Funktion zum Testen des Failovers möglich. Sie können einen Snapshot des replizierten Speichers auf Zielknoten vorübergehend zu Test- und Sicherungszwecken bereitstellen. Weitere Informationen finden Sie unter [Häufig gestellte Fragen zu Speicherreplikaten](https://aka.ms/srfaq).
+- **Testen des Failovers**: Die Option zum Bereitstellen des Zielspeichers ist jetzt mit der Funktion zum Testen des Failovers möglich. Sie können eine Momentaufnahme des replizierten Speichers auf Zielknoten vorübergehend zu Test- und Sicherungszwecken bereitstellen. Weitere Informationen finden Sie unter [Häufig gestellte Fragen zu Speicherreplikaten](https://aka.ms/srfaq).
 - **Windows Admin Center-Unterstützung**: die Unterstützung für die grafische Verwaltung der Replikation ist jetzt über das Server-Manager Tool im Windows Admin Center verfügbar. Dies schließt die Server-zu-Server-Replikation, Cluster-zu-Cluster sowie die Stretch-Cluster Replikation ein.
 
 Das Speicher Replikat enthält auch folgende Verbesserungen:
@@ -182,9 +182,9 @@ Das Speicher Replikat enthält auch folgende Verbesserungen:
 
 ### <a name="smb"></a>SMB
 
-- **SMB1 und das das Entfernen der Gastauthentifizierung**: In Windows Server, Version 1709, wird der SMB1-Client und -Server nicht mehr standardmäßig installiert. Darüber hinaus ist die Möglichkeit deaktiviert, sich als Gast in SMB2 und höher standardmäßig zu authentifizieren. Weitere Informationen finden Sie unter [SMBv1 wird nicht standardmäßig in Windows 10, Version 1709 und Windows Server, Version 1709, installiert](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
+- **SMB1 und das das Entfernen der Gastauthentifizierung**: In Windows Server, Version 1709, wird der SMB1-Client und -Server nicht mehr standardmäßig installiert. Darüber hinaus ist die Möglichkeit deaktiviert, sich als Gast in SMB2 und höher standardmäßig zu authentifizieren. Weitere Informationen finden Sie unter [SMBv1 wird für Windows 10, Version 1709, und Windows Server, Version 1709, standardmäßig nicht installiert](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
 
-- **SMB2/SMB3-Sicherheit und Kompatibilität**: Es wurden zusätzliche Optionen für die Sicherheits- und Anwendungskompatibilität hinzugefügt, einschließlich der Möglichkeit, Oplocks SMB2+ für Legacy-Anwendungen zu deaktivieren, sowie die Signierung oder Verschlüsselung, die auf Basis jeder einzelnen Verbindung von einem Client erforderlich ist. Weitere Informationen finden Sie in der SMBShare PowerShell-Modul-Hilfe.
+- **SMB2/SMB3-Sicherheit und Kompatibilität**: Es wurden zusätzliche Optionen für die Sicherheits- und Anwendungskompatibilität hinzugefügt, einschließlich der Möglichkeit, Oplocks SMB2+ für Legacy-Anwendungen zu deaktivieren, sowie die Signierung oder Verschlüsselung, die auf Basis jeder einzelnen Verbindung von einem Client erforderlich ist. Weitere Informationen finden Sie in der Hilfe zum SMBShare PowerShell-Modul.
 
 ### <a name="data-deduplication"></a>Datendeduplizierung
 
@@ -193,7 +193,7 @@ Das Speicher Replikat enthält auch folgende Verbesserungen:
 
 ## <a name="whats-new-in-storage-in-windows-server-2016"></a>Neuerungen beim Speicher in Windows Server 2016
 
-### <a name="s2d"></a>Direkte Speicherplätze  
+### <a name="storage-spaces-direct"></a><a name="s2d"></a>Direkte Speicherplätze  
 Mit direkten Speicherplätzen kann hoch verfügbarer und skalierbarer Speicher unter Verwendung von Servern mit lokalem Speicher erstellt werden. Mit diesem Feature wird die Bereitstellung und die Verwaltung von softwaredefinierten Speichersystemen vereinfacht und auch der Weg zur Nutzung neuer Datenträgerklassen wie z. B. SATA-SSD und NVMe geebnet, was vorher bei gruppierten Speicherplätzen mit freigegebenen Datenträgern nicht möglich war.  
 
 **Welchen Nutzen bietet diese Änderung?**  
@@ -205,7 +205,7 @@ Weitere Informationen finden Sie unter [Direkte Speicherplätze in Windows Serve
 **Worin bestehen die Unterschiede?**  
 Dies ist eine neue Funktion in Windows Server 2016.  
 
-### <a name="storage-replica"></a>Speicher Replikat
+### <a name="storage-replica"></a><a name="storage-replica"></a>Speicher Replikat
 
 Speicherreplikat ermöglicht eine speicheragnostische, synchrone Replikation auf Blockebene zwischen Servern oder Clustern für die Notfallwiederherstellung sowie das Strecken eines Failoverclusters zwischen Standorten. Die synchrone Replikation ermöglicht die Spiegelung von Daten an physischen Standorten mit ausfallsicheren Volumes, um auf Dateisystemebene sicherzustellen, dass kein Datenverlust auftritt. Die asynchrone Replikation ermöglicht die Standorterweiterung über regionale Bereiche hinaus mit der Möglichkeit von Datenverlusten.  
 
@@ -229,7 +229,7 @@ Weitere Informationen finden Sie unter [Speicherreplikate in Windows Server 2016
 **Worin bestehen die Unterschiede?**  
 Dies ist eine neue Funktion in Windows Server 2016.  
 
-### <a name="storage-qos"></a>Speicher Quality of Service  
+### <a name="storage-quality-of-service"></a><a name="storage-qos"></a>Speicher Quality of Service  
 Sie können Quality of Service (QoS) für Speicher jetzt nutzen, um die End-to-End-Speicherleistung zu überwachen und Verwaltungsrichtlinien unter Verwendung von Hyper-V- und CSV-Clustern in Windows Server 2016 zu erstellen.  
 
 **Welchen Nutzen bietet diese Änderung?**  
@@ -248,7 +248,7 @@ Dies ist eine neue Funktion in Windows Server 2016. Das Verwalten von Mindestres
 
 Weitere Informationen finden Sie unter [Storage Quality of Service](storage-qos/storage-qos-overview.md) (Speicher-QoS).
 
-### <a name="dedup"></a>Datendeduplizierung  
+### <a name="data-deduplication"></a><a name="dedup"></a>Datendeduplizierung  
 | Funktionalität | Neu oder aktualisiert | Beschreibung |
 |---------------|----------------|-------------|
 | [Unterstützung für große Volumes](data-deduplication/whats-new.md#large-volume-support) | Aktualisiert | Vor Windows Server 2016 musste die Größe der Volumes speziell für die erwartete Änderung konfiguriert werden, wobei Volumes mit über 10 TB keine geeigneten Kandidaten für die Deduplizierung waren. In Windows Server 2016 unterstützt die Datendeduplizierung Volumegrößen von **bis zu 64 TB**. |
@@ -257,7 +257,7 @@ Weitere Informationen finden Sie unter [Storage Quality of Service](storage-qos/
 | [Vereinfachte Unterstützung von Sicherungen](data-deduplication/whats-new.md#simple-backup-support) | Neu | In Windows Server 2012 R2 mussten eine Reihe manueller Konfigurationsschritte ausgeführt werden, um virtualisierte Sicherungsanwendungen wie Microsoft [Data Protection Manager](https://technet.microsoft.com/library/hh758173.aspx) zu unterstützten. In Windows Server 2016 wurde ein neuer Standardverwendungstyp „Sicherung“ hinzugefügt, um eine nahtlose Bereitstellung der Datendeduplizierung für virtualisierte Sicherungsanwendungen zu ermöglichen. |
 | [Unterstützung für parallele Upgrades des Cluster Betriebssystems](data-deduplication/whats-new.md#cluster-upgrade-support) | Neu | Die Datendeduplizierung bietet vollständige Unterstützung für das neue Feature für [parallele Upgrades des Clusterbetriebssystems](..//failover-clustering/cluster-operating-system-rolling-upgrade.md) von Windows Server 2016. |
 
-### <a name="smb-hardening-improvements"></a>SMB-Härtungs Verbesserungen für SYSVOL-und Netlogon-Verbindungen  
+### <a name="smb-hardening-improvements-for-sysvol-and-netlogon-connections"></a><a name="smb-hardening-improvements"></a>SMB-Härtungs Verbesserungen für SYSVOL-und Netlogon-Verbindungen  
 In Windows 10 und Windows Server 2016 ist für Clientverbindungen mit den SYSVOL- und NETLOGON-Standardfreigaben von Active Directory Domain Services jetzt die SMB-Signierung und gegenseitige Authentifizierung (z. B. Kerberos) erforderlich.   
 
 **Welchen Nutzen bietet diese Änderung?**  

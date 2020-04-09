@@ -1,24 +1,20 @@
 ---
 title: Arbeiten mit Regeln der Richtlinien für die Softwareeinschränkung
 description: Windows Server-Sicherheit
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-software-restriction-policies
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4a8047d5-9bb9-4bed-bc8f-583a237731e2
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: bb5e56fe541a06b1100de2f25fc10f4db46b8d24
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 249426f7b0ef1b427d903e8d0cac9ca2e0747b68
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322952"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820983"
 ---
 # <a name="work-with-software-restriction-policies-rules"></a>Arbeiten mit Regeln der Richtlinien für die Softwareeinschränkung
 
@@ -47,7 +43,7 @@ Mit Richtlinien für Software Einschränkung können Sie Ihre Computerumgebung v
 
 Informationen zu anderen Aufgaben für die Verwaltung von Richtlinien für Software Einschränkung finden Sie unter [Verwalten von Richtlinien für Software Einschränkung](administer-software-restriction-policies.md).
 
-## <a name="BKMK_Cert_Rules"></a>Arbeiten mit Zertifikat Regeln
+## <a name="working-with-certificate-rules"></a><a name="BKMK_Cert_Rules"></a>Arbeiten mit Zertifikat Regeln
 Software Einschränkungs Richtlinien können auch Software anhand ihres Signatur Zertifikats identifizieren. Sie können eine Zertifikatregel erstellen, die Software identifiziert und anschließend ihre Ausführung abhängig von der Sicherheitsstufe zulässt oder verweigert. Sie können Zertifikatregeln beispielsweise verwenden, um Software aus einer vertrauenswürdigen Quelle in einer Domäne automatisch ohne Benutzeraufforderung zu vertrauen. Sie können mithilfe von Zertifikatregeln auch Dateien in nicht zulässigen Bereichen des Betriebssystems ausführen. Zertifikatregeln sind nicht standardmäßig aktiviert.
 
 Wenn Regeln für die Domäne mithilfe von Gruppenrichtlinie erstellt werden, müssen Sie über Berechtigungen zum Erstellen oder Ändern eines Gruppenrichtlinie Objekts verfügen. Beim Erstellen von Regeln für den lokalen Computer benötigen Sie Administratorrechte für diesen Computer.
@@ -82,7 +78,7 @@ Abhängig von Ihrer Umgebung stehen verschiedene Vorgehensweisen zum Aktivieren 
 
 -   [Nur für Domänen Controller, und Sie befinden sich auf einem Domänen Controller oder auf einer Arbeitsstation, auf der das Remoteserver-Verwaltungstools Pack installiert ist.](#BKMK_4)
 
-#### <a name="BKMK_1"></a>So aktivieren Sie Zertifikat Regeln für den lokalen Computer
+#### <a name="to-enable-certificate-rules-for-your-local-computer"></a><a name="BKMK_1"></a>So aktivieren Sie Zertifikat Regeln für den lokalen Computer
 
 1.  Öffnen Sie %%amp;quot;Lokale Sicherheitseinstellungen%%amp;quot;.
 
@@ -96,7 +92,7 @@ Abhängig von Ihrer Umgebung stehen verschiedene Vorgehensweisen zum Aktivieren 
 
     -   Klicken Sie zum Deaktivieren von Zertifikatregeln auf **Deaktiviert**.
 
-#### <a name="BKMK_2"></a>So aktivieren Sie Zertifikat Regeln für ein Gruppenrichtlinie Objekt, und Sie befinden sich auf einem Server, der einer Domäne hinzugefügt wird
+#### <a name="to-enable-certificate-rules-for-a-group-policy-object-and-you-are-on-a-server-that-is-joined-to-a-domain"></a><a name="BKMK_2"></a>So aktivieren Sie Zertifikat Regeln für ein Gruppenrichtlinie Objekt, und Sie befinden sich auf einem Server, der einer Domäne hinzugefügt wird
 
 1.  Öffnen Sie die Microsoft Management Console (MMC).
 
@@ -122,7 +118,7 @@ Abhängig von Ihrer Umgebung stehen verschiedene Vorgehensweisen zum Aktivieren 
 
     -   Klicken Sie zum Deaktivieren von Zertifikatregeln auf **Deaktiviert**.
 
-#### <a name="BKMK_3"></a>So aktivieren Sie Zertifikat Regeln für ein Gruppenrichtlinie Objekt, und Sie befinden sich auf einem Domänen Controller oder einer Arbeitsstation, auf der die Remoteserver-Verwaltungstools installiert ist
+#### <a name="to-enable-certificate-rules-for-a-group-policy-object-and-you-are-on-a-domain-controller-or-on-a-workstation-that-has-the-remote-server-administration-tools-installed"></a><a name="BKMK_3"></a>So aktivieren Sie Zertifikat Regeln für ein Gruppenrichtlinie Objekt, und Sie befinden sich auf einem Domänen Controller oder einer Arbeitsstation, auf der die Remoteserver-Verwaltungstools installiert ist
 
 1.  Öffnen Sie Active Directory-Benutzer und -Computer.
 
@@ -144,7 +140,7 @@ Abhängig von Ihrer Umgebung stehen verschiedene Vorgehensweisen zum Aktivieren 
 
     -   Klicken Sie zum Deaktivieren von Zertifikatregeln auf **Deaktiviert**.
 
-#### <a name="BKMK_4"></a>So aktivieren Sie Zertifikat Regeln nur für Domänen Controller, und Sie befinden sich auf einem Domänen Controller oder einer Arbeitsstation, auf der die Remoteserver-Verwaltungstools installiert ist
+#### <a name="to-enable-certificate-rules-for-only-domain-controllers-and-you-are-on-a-domain-controller-or-on-a-workstation-that-has-the-remote-server-administration-tools-installed"></a><a name="BKMK_4"></a>So aktivieren Sie Zertifikat Regeln nur für Domänen Controller, und Sie befinden sich auf einem Domänen Controller oder einer Arbeitsstation, auf der die Remoteserver-Verwaltungstools installiert ist
 
 1.  Öffnen Sie die Domänencontroller-Sicherheitseinstellungen.
 
@@ -218,7 +214,7 @@ Mit den Richtlinieneinstellungen auf der Registerkarte **Vertrauenswürdige Hera
 
 6.  Aktivieren Sie das Kontrollkästchen **Diese Richtlinieneinstellungen definieren**, implementieren Sie die gewünschten Änderungen, und klicken Sie dann auf **OK**, um die neuen Einstellungen zu übernehmen.
 
-## <a name="BKMK_Hash_Rules"></a>Arbeiten mit Hash Regeln
+## <a name="working-with-hash-rules"></a><a name="BKMK_Hash_Rules"></a>Arbeiten mit Hash Regeln
 Ein Hash ist eine Reihe von Bytes mit einer festen Länge, der eindeutig ein Softwareprogramm oder eine Datei angibt. Der Hash wird durch einen Hashalgorithmus berechnet. Wenn für ein Softwareprogramm eine Hashregel erstellt wird, wird von den Softwareeinschränkungsrichtlinien ein Hash des Programms berechnet. Wenn ein Benutzer versucht, ein Softwareprogramm zu öffnen, wird ein Hash des Programms mit vorhandenen Hashregeln für Softwareeinschränkungsrichtlinien verglichen. Der Hash eines Softwareprogramms ist immer gleich, unabhängig vom Speicherort des Programms auf dem Computer. Wird ein Softwareprogramm jedoch in irgendeiner Weise geändert, ändert sich auch sein Hash. Er entspricht dann nicht mehr dem Hash in der Hashregel für Softwareeinschränkungsrichtlinien.
 
 Sie können beispielsweise eine Hashregel erstellen und als Sicherheitsstufe **Nicht erlaubt** festlegen, um die Ausführung einer bestimmten Datei durch Benutzer zu verhindern. Eine Datei kann umbenannt oder in einen anderen Ordner verschoben werden – der Hash bleibt derselbe. Durch Änderungen an der Datei selbst ändert sich jedoch auch der Hashwert, und die Datei kann dadurch Einschränkungen umgehen.
@@ -248,7 +244,7 @@ Sie können beispielsweise eine Hashregel erstellen und als Sicherheitsstufe **N
 > -   Damit Richtlinien für Software Einschränkung wirksam werden, müssen Benutzer die Richtlinien Einstellungen aktualisieren, indem Sie sich von abmelden und sich bei ihren Computern anmelden.
 > -   Wenn mehr als eine Regel für Software Einschränkungs Richtlinien auf Richtlinien Einstellungen angewendet wird, gibt es eine Rangfolge der Regeln für die Behandlung von Konflikten.
 
-## <a name="BKMK_Internet_Zone_Rules"></a>Arbeiten mit Internet Zonen Regeln
+## <a name="working-with-internet-zone-rules"></a><a name="BKMK_Internet_Zone_Rules"></a>Arbeiten mit Internet Zonen Regeln
 Internetzonenregeln gelten nur für Windows Installer-Pakete. Mit einer Zonenregel kann Software aus einer durch Internet Explorer angegebenen Zone identifiziert werden. Diese Zonen sind %%amp;quot;Internet%%amp;quot;, %%amp;quot;Lokales Intranet%%amp;quot;, %%amp;quot;Eingeschränkte Sites%%amp;quot;, %%amp;quot;Vertrauenswürdige Sites%%amp;quot; und %%amp;quot;Eigener Computer%%amp;quot;. Eine Internet Zonen Regel ist so konzipiert, dass Benutzer das herunterladen und Installieren von Software verhindern können.
 
 #### <a name="to-create-an-internet-zone-rule"></a>So erstellen Sie eine Internetzonenregel
@@ -267,7 +263,7 @@ Internetzonenregeln gelten nur für Windows Installer-Pakete. Mit einer Zonenre
 > -   Damit Richtlinien für Software Einschränkung wirksam werden, müssen Benutzer die Richtlinien Einstellungen aktualisieren, indem Sie sich von abmelden und sich bei ihren Computern anmelden.
 > -   Wenn mehr als eine Regel für Software Einschränkungs Richtlinien auf Richtlinien Einstellungen angewendet wird, gibt es eine Rangfolge der Regeln für die Behandlung von Konflikten.
 
-## <a name="BKMK_Path_Rules"></a>Arbeiten mit Pfad Regeln
+## <a name="working-with-path-rules"></a><a name="BKMK_Path_Rules"></a>Arbeiten mit Pfad Regeln
 Eine Pfadregel identifiziert Software anhand des Dateipfads. Wenn auf einem Computer beispielsweise die Standardsicherheitsstufe **Nicht erlaubt** festgelegt ist, können Sie jedem Benutzer dennoch unbeschränkten Zugriff auf einen bestimmten Ordner gewähren. Sie können eine Pfadregel erstellen, indem Sie den Dateipfad verwenden und als Sicherheitsstufe der Pfadregel **Nicht eingeschränkt** festlegen. Häufig verwendete Pfade für diesen Regeltyp: %userprofile%, %windir%, %appdata%, %programfiles%, und %temp%. Außerdem können Sie Registrierungspfadregeln erstellen, die den Registrierungsschlüssel der Software als Pfad verwenden.
 
 Da diese Regeln anhand des Pfads angegeben werden, gilt die Pfadregel nicht mehr, wenn ein Softwareprogramm verschoben wird.

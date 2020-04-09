@@ -2,22 +2,19 @@
 title: Anzeigen und Verwalten von Updates
 description: 'Thema zu Windows Server Update Service (WSUS): anzeigen und Verwalten von Updates in der WSUS-Konsole'
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ac70192b-0309-4385-b697-2e8eda51911c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: de2d12ad34ba11f948baa390546747a6bf4b635c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a2a9f7e1f1f3f648a0cba22d599ccc64e7b424d8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361491"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828443"
 ---
 # <a name="viewing-and-managing-updates"></a>Anzeigen und Verwalten von Updates
 
@@ -98,7 +95,7 @@ Die neue Ansicht wird im Struktur Ansichts Bereich unter Updates angezeigt. Sie 
 
     -   In der Titelleiste wird der Titel des Updates angezeigt. Beispiel: Sicherheits Update für Windows Media Player 9 (KB911565).
 
-    -   Der Abschnitt Status zeigt den Installations Status des Updates an (die Computer, auf denen er installiert werden muss, Computer, auf denen er mit Fehlern installiert wurde, Computer, auf denen er installiert wurde oder nicht anwendbar ist) und Computer, die nicht gemeldet wurden. Status für das Update) sowie allgemeine Informationen (das Veröffentlichungsdatum für KB und MSRC-Nummern usw.).
+    -   Der Abschnitt "Status" zeigt den Installationsstatus des Updates an (die Computer, auf denen er installiert werden muss, Computer, auf denen er mit Fehlern installiert wurde, Computer, auf denen er installiert wurde oder die nicht anwendbar sind, sowie Computer, auf denen der Status für das Update nicht gemeldet wurde) sowie allgemeine Informationen (KB-und MSRC-Versions Datum usw.).
 
     -   Im Abschnitt Beschreibung wird eine kurze Beschreibung des Updates angezeigt.
 
@@ -123,7 +120,7 @@ Beachten Sie, dass Sie diese Prozedur nur auf jeweils einem Update ausführen k�
 ## <a name="managing-updates-with-wsus"></a>Verwalten von Updates mit WSUS
 Updates werden für die Aktualisierung oder die Bereitstellung einer vollständigen Datei Ersetzung für Software verwendet, die auf einem Computer installiert ist. Jedes Update, das auf Microsoft Update verfügbar ist, besteht aus zwei Komponenten:
 
--   Metadaten: stellt Informationen zum Update bereit. Metadaten liefern z. b. Informationen für die Eigenschaften eines Updates, sodass Sie ermitteln können, was das Update nützlich ist. Metadaten enthalten auch die Microsoft-Software-Lizenzbedingungen. Das für ein Update heruntergeladene Metadatenpaket ist in der Regel viel kleiner als das tatsächliche Update Dateipaket.
+-   Metadaten: stellt Informationen zum Update bereit. Metadaten bieten beispielsweise Informationen über die Eigenschaften eines Updates und ermöglichen es Ihnen so herauszufinden, wofür das Update nützlich ist. Zu den Metadaten gehören auch die Microsoft-Software-Lizenzbedingungen. Das Metadatenpaket, das für ein Update heruntergeladen wird, ist in der Regel wesentlich kleiner als das eigentliche Updatedateipaket.
 
 -   Update Dateien: die eigentlichen Dateien, die zum Installieren eines Updates auf einem Computer erforderlich sind.
 
@@ -160,8 +157,8 @@ Update Klassifizierungen stellen den Typ des Updates dar. Für ein bestimmtes Pr
 
 | Updateklassifizierungen  | Beschreibung   |
 |--|--|
-|Wichtige Updates|Im großen und ganzen finden Sie Korrekturen für bestimmte Probleme, die kritische, nicht sicherheitsrelevante Fehler behandeln.|
-|Definitions Updates|Updates für Viren-oder andere Definitions Dateien.|
+|Kritische Updates|Im großen und ganzen finden Sie Korrekturen für bestimmte Probleme, die kritische, nicht sicherheitsrelevante Fehler behandeln.|
+|Definitionsupdates|Updates für Viren-oder andere Definitions Dateien.|
 |Treiber|Software Komponenten, die zur Unterstützung neuer Hardware entwickelt wurden.|
 |Feature Packs|Neue featurereleases, die normalerweise in der nächsten Version in Produkte eingeführt werden.|
 |Sicherheitsupdates|Allgemein veröffentlichte Korrekturen für bestimmte Produkte, die Sicherheitsprobleme behandeln.|

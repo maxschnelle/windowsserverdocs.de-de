@@ -1,24 +1,20 @@
 ---
 title: Installieren von Software auf Ihrem Multipoint Services-System
-descrption: Learn how to install software for users in MultiPoint Services
-ms.custom: na
+description: Erfahren Sie, wie Sie Software für Benutzer in Multipoint Services installieren.
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d4fb5b8b-2d57-40bb-afc7-7cfefc2ae232
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.openlocfilehash: 12da3044e1801b61c4ee11cdbbc6887afff2e653
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6c31d5a4f6ecb7adef6d8e5e5eb77fc3f64c0b4a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389101"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820273"
 ---
 # <a name="install-software-on-your-multipoint-services-system"></a>Installieren von Software auf Ihrem Multipoint Services-System
 Wenn Sie als Administrator angemeldet sind, können Sie neue Programme entweder im Konsolenmodus oder, von einer Station im Stations Modus installieren. Es wird jedoch empfohlen, Programme im Konsolenmodus zu installieren.  

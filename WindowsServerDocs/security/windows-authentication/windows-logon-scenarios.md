@@ -1,28 +1,24 @@
 ---
 title: Windows-Anmeldeszenarios
 description: Windows Server-Sicherheit
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-windows-auth
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 66b7c568-67b7-4ac9-a479-a5a3b8a66142
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 07bfb538e1b43fc0c734b3c59b906c027ef985c9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9a953b22b39a20557103fa84a5d6d5e42e753444
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403301"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861703"
 ---
 # <a name="windows-logon-scenarios"></a>Windows-Anmeldeszenarios
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
 
 In diesem Referenz Thema für IT-Experten werden gängige Windows-Anmelde-und-Anmelde Szenarien zusammengefasst.
 
@@ -34,7 +30,7 @@ Darüber hinaus können Anwendungen und Dienste erfordern, dass sich Benutzer an
 
 Informationen zur Funktionsweise der Authentifizierung finden Sie unter [Konzepte der Windows-Authentifizierung](windows-authentication-concepts.md).
 
-In diesem Thema werden die folgenden Szenarios beschrieben:
+In diesem Thema werden folgende Szenarien beschrieben:
 
 -   [Interaktive Anmeldung](#BKMK_InteractiveLogon)
 
@@ -44,7 +40,7 @@ In diesem Thema werden die folgenden Szenarios beschrieben:
 
 -   [Biometrische Anmeldung](#BKMK_BioLogon)
 
-## <a name="BKMK_InteractiveLogon"></a>Interaktive Anmeldung
+## <a name="interactive-logon"></a><a name="BKMK_InteractiveLogon"></a>Interaktive Anmeldung
 Der Anmeldevorgang beginnt entweder dann, wenn ein Benutzer Anmelde Informationen im Dialogfeld Anmelde Informationen eingibt, oder wenn der Benutzer eine Smartcard in den Smartcardleser einfügt oder wenn der Benutzer mit einem biometrischen Gerät interagiert. Benutzer können eine interaktive Anmeldung durchführen, indem Sie ein lokales Benutzerkonto oder ein Domänen Konto verwenden, um sich an einem Computer anzumelden.
 
 Das folgende Diagramm zeigt die interaktiven Anmelde Elemente und den Anmeldevorgang.
@@ -53,7 +49,7 @@ Das folgende Diagramm zeigt die interaktiven Anmelde Elemente und den Anmeldevor
 
 **Architektur der Windows-Client Authentifizierung**
 
-### <a name="BKMK_LocaDomainLogon"></a>Lokale und Domänen Anmeldung
+### <a name="local-and-domain-logon"></a><a name="BKMK_LocaDomainLogon"></a>Lokale und Domänen Anmeldung
 Die Anmelde Informationen, die der Benutzer für eine Domänen Anmeldung anzeigt, enthalten alle Elemente, die für eine lokale Anmeldung erforderlich sind, z. b. Konto Name, Kennwort oder Zertifikat und Active Directory Domänen Informationen. Der Prozess bestätigt die Identifizierung des Benutzers für die Sicherheitsdatenbank auf dem lokalen Computer des Benutzers oder einer Active Directory Domäne. Dieser obligatorische Anmeldevorgang kann nicht für Benutzer in einer Domäne ausgeschaltet werden.
 
 Benutzer können auf zwei Arten eine interaktive Anmeldung an einem Computer ausführen:
@@ -74,12 +70,12 @@ Eine lokale Anmeldung gewährt einem Benutzer die Berechtigung für den Zugriff 
 
 Eine Domänen Anmeldung gewährt einem Benutzer die Berechtigung, auf lokale und Domänen Ressourcen zuzugreifen. Eine Domänen Anmeldung erfordert, dass der Benutzer über ein Benutzerkonto in Active Directory verfügt. Der Computer muss über ein Konto in der Active Directory Domäne verfügen und physisch mit dem Netzwerk verbunden sein. Benutzer müssen auch über die Benutzerrechte verfügen, um sich an einem lokalen Computer oder einer Domäne anzumelden. Informationen zu Domänen Benutzerkonten und Gruppenmitgliedschaften werden verwendet, um den Zugriff auf Domänen-und lokale Ressourcen zu verwalten.
 
-### <a name="BKMK_RemoteLogon"></a>Remote Anmeldung
+### <a name="remote-logon"></a><a name="BKMK_RemoteLogon"></a>Remote Anmeldung
 In Windows basiert der Zugriff auf einen anderen Computer über die Remote Anmeldung auf der Remotedesktopprotokoll (RDP). Da sich der Benutzer vor dem Versuch, eine Remote Verbindung herzustellen, bereits erfolgreich am Client Computer angemeldet haben muss, wurden interaktive Anmeldevorgänge erfolgreich abgeschlossen.
 
 RDP verwaltet die Anmelde Informationen, die der Benutzer mit dem Remotedesktop-Client eingibt. Diese Anmelde Informationen sind für den Zielcomputer gedacht, und der Benutzer muss über ein Konto auf diesem Bereitstellungs Zielcomputer verfügen. Außerdem muss der Bereitstellungs Zielcomputer so konfiguriert sein, dass eine Remote Verbindung akzeptiert wird. Zum Versuch, den Authentifizierungsprozess auszuführen, werden die Anmelde Informationen des Ziel Computers gesendet. Wenn die Authentifizierung erfolgreich ist, wird der Benutzer mit lokalen Ressourcen und Netzwerkressourcen verbunden, auf die über die angegebenen Anmelde Informationen zugegriffen werden kann.
 
-## <a name="BKMK_NetworkLogon"></a>Netzwerk Anmeldung
+## <a name="network-logon"></a><a name="BKMK_NetworkLogon"></a>Netzwerk Anmeldung
 Eine Netzwerk Anmeldung kann nur verwendet werden, nachdem eine Benutzer-, Dienst-oder Computer Authentifizierung stattfindet. Während der Netzwerk Anmeldung verwendet der Prozess nicht die Anmelde Informationen für die Anmelde Informationen, um Daten zu sammeln. Stattdessen werden zuvor festgelegte Anmelde Informationen oder eine andere Methode zum Sammeln von Anmelde Informationen verwendet. Bei diesem Vorgang wird die Identität des Benutzers an jeden Netzwerkdienst bestätigt, auf den der Benutzer zugreifen möchte. Dieser Prozess ist in der Regel für den Benutzer unsichtbar, es sei denn, es müssen alternative Anmelde Informationen angegeben werden.
 
 Um diese Art der Authentifizierung bereitzustellen, umfasst das Sicherheitssystem die folgenden Authentifizierungsmechanismen:
@@ -96,7 +92,7 @@ Um diese Art der Authentifizierung bereitzustellen, umfasst das Sicherheitssyste
 
 Informationen zu den Elementen und Prozessen finden Sie im obigen interaktiven Anmelde Diagramm.
 
-## <a name="BKMK_SmartCardLogon"></a>Smartcardanmeldung
+## <a name="smart-card-logon"></a><a name="BKMK_SmartCardLogon"></a>Smartcardanmeldung
 Smartcards können verwendet werden, um sich ausschließlich bei Domänen Konten anzumelden, nicht bei lokalen Konten. Die Smartcard-Authentifizierung erfordert die Verwendung des Kerberos-Authentifizierungs Protokolls. In Windows 2000 Server eingeführt wurde, wird in Windows-basierten Betriebssystemen eine Erweiterung des öffentlichen Schlüssels für die anfängliche Authentifizierungsanforderung des Kerberos-Protokolls implementiert. Im Gegensatz zur Kryptografie mit dem gemeinsamen geheimen Schlüssel ist die Kryptografie mit öffentlichem Schlüssel asymmetrisch, d. h., es sind zwei verschiedene Schlüssel erforderlich: eine zum Verschlüsseln, eine andere zum Entschlüsseln. Die Schlüssel, die zum Ausführen beider Vorgänge erforderlich sind, bilden gemeinsame private/öffentliche Schlüsselpaare.
 
 Um eine typische Anmelde Sitzung zu initiieren, muss ein Benutzer seine Identität nachweisen, indem er Informationen bereitstellt, die nur dem Benutzer und der zugrunde liegenden Kerberos-Protokoll Infrastruktur bekannt sind. Die geheimen Informationen sind ein kryptografischer, gemeinsam verwendeter Schlüssel, der aus dem Kennwort des Benutzers abgeleitet wurde. Ein gemeinsamer geheimer Schlüssel ist symmetrisch. Dies bedeutet, dass derselbe Schlüssel sowohl für die Verschlüsselung als auch für die Entschlüsselung verwendet wird.
@@ -111,10 +107,10 @@ Wenn eine Smartcard anstelle eines Kennworts verwendet wird, wird ein privates/�
 
 Weitere Informationen zum Anmeldevorgang für Smartcards in Windows finden Sie unter [Funktionsweise der Smartcard-Anmeldung in Windows](https://technet.microsoft.com/library/ff404285.aspx).
 
-## <a name="BKMK_BioLogon"></a>Biometrische Anmeldung
+## <a name="biometric-logon"></a><a name="BKMK_BioLogon"></a>Biometrische Anmeldung
 Ein Gerät wird zum Erfassen und Erstellen eines digitalen Merkmals eines Artefakts verwendet, z. b. eines Fingerabdrucks. Diese digitale Darstellung wird dann mit einem Beispiel desselben Artefakts verglichen, und wenn die beiden erfolgreich verglichen werden, kann die Authentifizierung erfolgen. Computer mit einem der in der Liste **gilt für** am Anfang dieses Themas angegebenen Betriebssysteme können so konfiguriert werden, dass Sie diese Art der Anmeldung akzeptieren. Wenn die biometrische Anmeldung jedoch nur für die lokale Anmeldung konfiguriert ist, muss der Benutzer beim Zugriff auf eine Active Directory Domäne Domänen Anmelde Informationen darstellen.
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## <a name="additional-resources"></a>Weitere Ressourcen
 Informationen zur Verwaltung von Anmelde Informationen, die während der Anmeldung übermittelt werden, finden Sie unter [Verwaltung von Anmelde Informationen in der Windows-Authentifizierung](https://technet.microsoft.com/library/dn169014.aspx).
 
 [Technische Übersicht über die Windows-Anmeldung und-Authentifizierung](https://technet.microsoft.com/library/dn169029.aspx)

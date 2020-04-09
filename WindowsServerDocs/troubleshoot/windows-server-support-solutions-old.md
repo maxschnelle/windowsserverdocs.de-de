@@ -2,19 +2,18 @@
 title: Die wichtigsten Supportlösungen für Windows Server
 description: Links zu Lösungen für Probleme mit Windows Server
 ms.prod: windows-server
-ms.service: na
 manager: alant
 ms.technology: server-general
 ms.date: 03/16/2018
 ms.topic: article
 author: kaushika-msft
 ms.author: elizapo
-ms.openlocfilehash: 61c10f25ac97934f73c4f393e2c91c9b36fc59fd
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 6bd0d22c7df7344e6c4bfbf8360532ab0f36d117
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950173"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820753"
 ---
 # <a name="top-support-solutions-for-windows-server-2016"></a>Die wichtigsten Supportlösungen für Windows Server 2016
 
@@ -31,7 +30,7 @@ Hierbei handelt es sich um die wichtigsten Microsoft-Support-Lösungen für häu
 - [Wartungs Stapel Update für Windows 10, Version 1607 und Windows Server 2016:8. August 2017](https://support.microsoft.com/help/4035631)
 - [Kompatibilitäts Update für das Upgrade auf Windows 10, Version 1607 und Windows Server 2016:3. August 2017](https://support.microsoft.com/help/4033524)
 - [Ein direktes System Upgrade wird auf Windows-basierten Azure-VMS nicht unterstützt.](https://support.microsoft.com/help/4014997)
-- [Upgrade and conversion options for Windows Server 2016 (Upgrade- und Konvertierungsoptionen für Windows Server 2016)](../get-started/supported-upgrade-paths.md)
+- [Upgrade-und Konvertierungsoptionen für Windows Server 2016](../get-started/supported-upgrade-paths.md)
 - [Server Rollen Upgrade und Migrations Matrix für Windows Server 2016](../get-started/server-role-upgradeability-table.md)
 - [Windows Server-Installation und-Upgrade](../get-started/installation-and-upgrade.md)
 - [Anmerkungen zu dieser Version: wichtige Probleme in Windows Server 2016](../get-started/windows-server-2016-ga-release-notes.md)
@@ -39,7 +38,7 @@ Hierbei handelt es sich um die wichtigsten Microsoft-Support-Lösungen für häu
 
 ## <a name="solutions-for-volume-activation"></a>Lösungen zur Volumenaktivierung
 - [Windows Server 2016-Aktivierung](../get-started/server-2016-activation.md)
-- [Überprüfen und Auswählen von Aktivierungsmethoden](https://technet.microsoft.com/library/jj134256(ws.11).aspx)
+- [Aktivierungsmethoden überprüfen und auswählen](https://technet.microsoft.com/library/jj134256(ws.11).aspx)
 - [Aktivierungs Fehler Codes für die Volumen Aktivierung](https://technet.microsoft.com/library/dn502528.aspx)
 - [Behandeln von Problemen mit dem Schlüssel Verwaltungsdienst (Key Management Service, KMS)](https://technet.microsoft.com/library/ee939272.aspx)
 - [Problembehandlung bei Volumen Aktivierung](https://technet.microsoft.com/library/ff793439.aspx)
@@ -52,11 +51,11 @@ Hierbei handelt es sich um die wichtigsten Microsoft-Support-Lösungen für häu
 - [Exchange Server-Unterstützung für Windows Server 2016](https://technet.microsoft.com/library/ff728623(v=exchg.150).aspx)
 - [Verwenden von "Ntdsutil. exe" zum übertragen und übernehmen von FSMO-Rollen an einen Domänen](https://support.microsoft.com/kb/255504)
 - [Behandeln von Problemen bei der Domänencontrollerbereitstellung](../identity/ad-ds/deploy/troubleshooting-domain-controller-deployment.md)
-- [Troubleshooting Active Directory Installation Wizard Problems](https://msdn.microsoft.com/library/bb727058.aspx) (Behandeln von Problemen mit dem Assistenten für die Active Directory-Installation)
+- [Problembehandlung bei Active Directory-Installations-Assistenten](https://msdn.microsoft.com/library/bb727058.aspx)
 - [Bekannte Probleme beim Installieren und Entfernen von AD DS](https://technet.microsoft.com/library/cc754463(v=ws.10).aspx)
 
 ## <a name="solutions-for-active-directory-federation-services-ad-fs"></a>Lösungen für Active Directory-Verbunddienste (AD FS)
-- [Es wird beschrieben, wie Sie die automatische Registrierung von in die Domäne eingebundenen Windows-Geräten mit Azure Active Directory konfigurieren.](/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup)
+- [Konfigurieren der automatischen Registrierung von in die Domäne eingebundenen Windows-Geräten mit Azure Active Directory](/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup)
 - [Einrichten der Ausstellung von Ansprüchen](/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup#step-2-setup-issuance-of-claims)
 - [Konfigurieren von AD FS zum Authentifizieren von Benutzern, die in LDAP-Verzeichnissen gespeichert sind](../identity/ad-fs/operations/configure-ad-fs-to-authenticate-users-stored-in-ldap-directories.md)
 - [AD FS: Unterstützung der alternativen Hostnamenbindung für die Zertifikatauthentifizierung](../identity/ad-fs/operations/ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md)

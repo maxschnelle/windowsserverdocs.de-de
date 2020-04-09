@@ -1,7 +1,6 @@
 ---
 ms.assetid: 02580b2f-a339-4470-947c-d700b2d55f3f
 title: Wann sollte eine Verbundserverfarm erstellt werden?
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: fcfc7d640d3688bf0e23557af9bd56082418ef37
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 61e5c2c31ef4f6771c379c93e61b78640f4a180a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358940"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858503"
 ---
 # <a name="when-to-create-a-federation-server-farm"></a>Wann sollte eine Verbundserverfarm erstellt werden?
 
@@ -32,7 +31,7 @@ Weitere Informationen zum Konfigurieren eines Cluster-FQDN mit Microsoft NLB-Tec
 ## <a name="best-practices-for-deploying-a-federation-server-farm"></a>Bewährte Methoden zum Bereitstellen einer Verbundserverfarm  
 Wir empfehlen die folgenden bewährten Methoden für die Bereitstellung eines Verbund Servers in einer Produktionsumgebung:  
   
--   Wenn Sie mehrere Verbund Server gleichzeitig bereitstellen oder wissen, dass Sie der Farm über einen Zeitraum weitere Server hinzufügen werden, sollten Sie in Erwägung gezogen werden, ein Server Abbild eines vorhandenen Verbund Servers in der Farm zu erstellen und dann bei Bedarf von diesem Abbild zu installieren. erhöhen Sie schnell zusätzliche Verbund Server.  
+-   Wenn Sie mehrere Verbund Server gleichzeitig bereitstellen oder wissen, dass Sie der Farm über einen Zeitraum weitere Server hinzufügen werden, sollten Sie in Erwägung gezogen werden, ein Server Abbild eines vorhandenen Verbund Servers in der Farm zu erstellen und dann von diesem Abbild zu installieren, wenn Sie zusätzliche Verbund Server schnell erstellen müssen.  
   
     > [!NOTE]  
     > Wenn Sie sich dafür entscheiden, die Server Abbild Methode zum Bereitstellen zusätzlicher Verbund Server zu verwenden, müssen Sie die Aufgaben in Prüfliste [: Einrichten eines Verbund Servers](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md) jedes Mal ausführen, wenn Sie der Farm einen neuen Server hinzufügen möchten.  
@@ -49,7 +48,7 @@ In der folgenden Tabelle werden die Aufgaben beschrieben, die durchgeführt werd
 |Aufgabe|Beschreibung|  
 |--------|---------------|  
 |Wenn Sie SQL Server zum Speichern der AD FS-Konfigurationsdatenbank verwenden|Eine Verbund Serverfarm besteht aus zwei oder mehr Verbund Servern, die dieselben AD FS Konfigurations Datenbank und Token\-Signatur Zertifikaten gemeinsam verwenden. Die Konfigurationsdatenbank kann in jeder internen Windows-Datenbank oder in einer SQL Server-Datenbank gespeichert werden. Wenn Sie beabsichtigen, die Konfigurations Datenbank in einer SQL-Datenbank zu speichern, stellen Sie sicher, dass der Zugriff auf die Konfigurations Datenbank möglich ist, damit von allen neuen Verbund Servern, die an der Farm teilnehmen, auf Sie zugegriffen werden kann. **Hinweis:** Bei Farm Szenarios ist es wichtig, dass sich die Konfigurations Datenbank auf einem Computer befindet, der nicht auch als Verbund Server in der Farm verwendet wird. Microsoft NLB erlaubt den Computern, die an einer Farm teilnehmen, nicht, miteinander zu kommunizieren. **Hinweis:** Stellen Sie sicher, dass die Identität des AD FS AppPool in Internetinformationsdienste \(IIS-\)\)auf jedem Verbund Server, der an der Farm teilnimmt, über Lesezugriff auf die Konfigurations Datenbank verfügt.|  
-|Abrufen und Freigeben von Zertifikaten|Sie können ein einzelnes Server Authentifizierungszertifikat von einer öffentlichen Zertifizierungsstelle \(ca\)abrufen, z. –. VeriSign. Anschließend können Sie das Zertifikat so konfigurieren, dass alle Verbund Server den gleichen privaten Schlüsselteil des Zertifikats gemeinsam verwenden. Weitere Informationen zur gemeinsamen Nutzung des gleichen Zertifikats finden Sie unter [Checklist: Setting Up a Federation Server](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md). **Hinweis:** Der AD FS-Verwaltungs-Snap\-in bezieht sich auf Server Authentifizierungs Zertifikate für Verbund Server als Dienst Kommunikations Zertifikate.<br /><br />Weitere Informationen finden Sie unter [Certificate Requirements for Federation Servers](Certificate-Requirements-for-Federation-Servers.md).|  
+|Abrufen und Freigeben von Zertifikaten|Sie können ein einzelnes Server Authentifizierungszertifikat von einer öffentlichen Zertifizierungsstelle \(ca\)abrufen, z. –. VeriSign. Anschließend können Sie das Zertifikat so konfigurieren, dass alle Verbund Server den gleichen privaten Schlüsselteil des Zertifikats gemeinsam verwenden. Weitere Informationen zur gemeinsamen Nutzung des gleichen Zertifikats finden Sie unter [Checklist: Setting Up a Federation Server](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server.md). **Hinweis:** Der AD FS-Verwaltungs-Snap\-in bezieht sich auf Server Authentifizierungs Zertifikate für Verbund Server als Dienst Kommunikations Zertifikate.<p>Weitere Informationen finden Sie unter [Certificate Requirements for Federation Servers](Certificate-Requirements-for-Federation-Servers.md).|  
 |Zeigen auf die gleiche SQL Server-Instanz|Wenn die AD FS Konfigurations Datenbank in einer SQL-Datenbank gespeichert wird, muss der neue Verbund Server auf dieselbe SQL Server Instanz verweisen, die von anderen Verbund Servern in der Farm verwendet wird, damit der neue Server an der Farm teilnehmen kann.|  
   
 ## <a name="see-also"></a>Weitere Informationen

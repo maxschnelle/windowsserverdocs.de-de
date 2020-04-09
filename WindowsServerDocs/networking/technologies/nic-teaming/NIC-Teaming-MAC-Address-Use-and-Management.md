@@ -2,22 +2,18 @@
 title: NIC-Teaming-MAC-Adresse verwenden und Verwaltung
 description: Wenn Sie ein NIC-Team mit dem Switch-unabhängigen Modus und entweder Address Hash oder Dynamic Load Distribution konfigurieren, verwendet das Team die Media Access Control (Mac)-Adresse des primären NIC-Teammitglieds für ausgehenden Datenverkehr. Das primäre NIC-Team Mitglied ist ein Netzwerkadapter, der vom Betriebssystem aus der anfänglichen Gruppe von Team Mitgliedern ausgewählt wird.
 manager: dougkim
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-nict
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 26d105e0-afc3-44b5-bb5e-0c884a4c5d62
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: d8e7130d5774c19cc3d51045786bfef319cf7d16
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: a1671b16bdadfcd159bc728f2d39ec45ad82fc0f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80316435"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854723"
 ---
 # <a name="nic-teaming-mac-address-use-and-management"></a>NIC-Teaming-MAC-Adresse verwenden und Verwaltung
 

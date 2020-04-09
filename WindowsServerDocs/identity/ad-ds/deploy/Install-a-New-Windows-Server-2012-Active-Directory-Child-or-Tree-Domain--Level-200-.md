@@ -1,7 +1,6 @@
 ---
 ms.assetid: e3d55565-ad45-4504-ad73-8103d1a92170
 title: Installieren einer neuen untergeordneten oder Active Directory-Gesamtstrukturdomäne in Windows Server 2012 (Stufe 200)
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d0944377739f43ea5d9b8d0d9c94c13e9f18985f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f7244b76364c8e2ce7249af8e76825a08b2a75c8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390888"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825333"
 ---
 # <a name="install-a-new-windows-server-2012-active-directory-child-or-tree-domain-level-200"></a>Installieren einer neuen untergeordneten oder Active Directory-Gesamtstrukturdomäne in Windows Server 2012 (Stufe 200)
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dieser Artikel beschreibt, wie Sie untergeordnete und Strukturdomänen mithilfe von Server-Manager oder Windows PowerShell zu einer existierenden Windows Server 2012-Gesamtstruktur hinzufügen können.  
   
@@ -28,22 +27,22 @@ Dieser Artikel beschreibt, wie Sie untergeordnete und Strukturdomänen mithilfe 
   
 -   [Bereitstellung](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_Deployment)  
   
-## <a name="BKMK_Workflow"></a>Workflow für untergeordnete und Struktur Domänen  
+## <a name="child-and-tree-domain-workflow"></a><a name="BKMK_Workflow"></a>Workflow für untergeordnete und Struktur Domänen  
 Das folgende Diagramm zeigt den Konfigurationsprozess für Active Directory-Domänendienste, wenn Sie die AD DS-Rolle zuvor installiert haben und den Konfigurations-Assistenten für die Active Directory-Domänendienste über den Server-Manager gestartet haben, um eine neue Domäne in einer existierenden Gesamtstruktur zu erstellen.  
   
 ![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/adds_childtreedeploy_beta1.png)  
   
-## <a name="BKMK_PS"></a>Untergeordnete und Struktur Domänen Windows PowerShell  
+## <a name="child-and-tree-domain-windows-powershell"></a><a name="BKMK_PS"></a>Untergeordnete und Struktur Domänen Windows PowerShell  
   
 |||  
 |-|-|  
 |**Addsdeployment-Cmdlet**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|**Install-addsdomain**|-SkipPreChecks<br /><br />***-NewDomainName***<br /><br />***-ParentDomainName***<br /><br />***-SafeModeAdministratorPassword***<br /><br />*-Adprepcredential*<br /><br />-AllowDomainReinstall<br /><br />-Confirm<br /><br />*-"-Kreatednsdelegation"*<br /><br />***-Credential***<br /><br />*-DatabasePath*<br /><br />*-Dnsdelegationcredential*<br /><br />-NoDNSOnNetwork<br /><br />*-DomainMode*<br /><br />***-DomainType***<br /><br />-Force<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />*-Newdomainnetbiosname*<br /><br />*-Noglobalcatalog*<br /><br />-NoNorebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />*-Sitename*<br /><br />-SkipAutoConfigureDNS<br /><br />*-Sysvolpath*<br /><br />*-WhatIf*|  
+|**Install-addsdomain**|-SkipPreChecks<p>***-NewDomainName***<p>***-ParentDomainName***<p>***-SafeModeAdministratorPassword***<p>*-Adprepcredential*<p>-AllowDomainReinstall<p>-Confirm<p>*-"-Kreatednsdelegation"*<p>***-Credential***<p>*-DatabasePath*<p>*-Dnsdelegationcredential*<p>-NoDNSOnNetwork<p>*-DomainMode*<p>***-DomainType***<p>-Force<p>*-InstallDNS*<p>*-LogPath*<p>*-Newdomainnetbiosname*<p>*-Noglobalcatalog*<p>-NoNorebootoncompletion<p>*-ReplicationSourceDC*<p>*-Sitename*<p>-SkipAutoConfigureDNS<p>*-Sysvolpath*<p>*-WhatIf*|  
   
 > [!NOTE]  
 > Das Argument **-credential** ist nur erforderlich, wenn Sie derzeit nicht als Mitglied der Gruppe Organisations-Admins angemeldet sind. Das Argument **-NewDomainNetBIOSName** ist erforderlich, wenn Sie den automatisch generierten 15-stelligen Namen, der auf dem DNS-Domänennamenspräfix basiert, ändern möchten oder wenn der Name mehr als 15 Zeichen enthält.  
   
-## <a name="BKMK_Deployment"></a>Nutzung  
+## <a name="deployment"></a><a name="BKMK_Deployment"></a>Nutzung  
   
 ### <a name="deployment-configuration"></a>Bereitstellungskonfiguration  
 Der folgende Screenshot zeigt die Optionen beim Hinzufügen einer untergeordneten Domäne:  
@@ -135,7 +134,7 @@ Sie können eine sichere Zeichenfolge auch als konvertierte Klartextvariable ang
   
 ```  
   
-Zuletzt sollten Sie das verborgene Kennwort in einer Datei speichern und später wiederverwenden, ohne dass jemals das Klartextkennwort erscheint. Zum Beispiel:  
+Zuletzt sollten Sie das verborgene Kennwort in einer Datei speichern und später wiederverwenden, ohne dass jemals das Klartextkennwort erscheint. Beispiel:  
   
 ```  
 $file = "c:\pw.txt"  
@@ -215,7 +214,7 @@ Die **Pfade** -Argumente für das Cmdlet „ADDSDeployment“ sind:
   
 Auf der Seite **Optionen prüfen** können Sie vor dem Starten der Installation Ihre Einstellungen überprüfen und sicherstellen, dass Ihre Anforderungen erfüllt werden. Dies ist jedoch nicht die letzte Möglichkeit, um die Installation mit Server-Manager zu stoppen. Dies ist lediglich eine Option zum Bestätigen Ihrer Einstellungen, bevor Sie die Konfiguration fortsetze  
   
-Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen.  Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Zum Beispiel:  
+Die Seite **Optionen prüfen** im Server-Manager bietet zudem die optionale Schaltfläche **Skript anzeigen** zum Erstellen einer Unicode-Textdatei, die die aktuelle ADDSDeployment-Konfiguration als einzelnes Windows PowerShell-Skript enthält. Dies ermöglicht Ihnen die Verwendung der grafischen Oberfläche von Server-Manager als Windows PowerShell-Bereitstellungsstudio. Mithilfe des Konfigurations-Assistenten für die Active Directory-Domänendienste können Sie Optionen konfigurieren, die Konfiguration exportieren und den Assistenten abbrechen.  Bei diesem Prozess wird ein gültiges und syntaktisch korrektes Muster zur weiteren Änderung oder direkten Verwendung erstellt. Beispiel:  
   
 ```  
 #  
@@ -249,7 +248,7 @@ Verwenden Sie das optionale **Whatif** -Argument für das Cmdlet **Install-ADDSF
   
 ![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildWhatIf.png)  
   
-### <a name="prerequisites-check"></a>Voraussetzungsüberprüfung  
+### <a name="prerequisites-check"></a>Überprüfung der Voraussetzungen  
 ![Neues untergeordnetes Ad-Element installieren](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/ADDS_SMI_TR_ChildPrereqCheck.png)  
   
 Die **Voraussetzungsüberprüfung** ist ein neues Feature in der AD DS-Domänenkonfiguration. Diese neue Phase prüft, ob die Serverkonfiguration in der Lage ist, eine neue AD DS-Domäne zu unterstützen.  
@@ -258,7 +257,7 @@ Bei der Installation einer neuen Gesamtstruktur-Stammdomäne ruft der Konfigurat
   
 Bei der **Voraussetzungsüberprüfung** werden außerdem relevante Informationen wie z. B. Sicherheitsänderungen angezeigt, die ältere Betriebssysteme betreffen.  
   
-Weitere Informationen zu den Voraussetzungsprüfungen finden Sie unter [Prerequisite Checking](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking).  
+Weitere Informationen zu den Voraussetzungsprüfungen finden Sie unter [Voraussetzungsüberprüfung](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking).  
   
 Bei Verwendung des Server-Managers können Sie die **Voraussetzungsüberprüfung** nicht überspringen. Sie können diese jedoch mit dem folgenden Argument überspringen, wenn Sie das Cmdlet „ADDSDeployment“ verwenden:  
   

@@ -1,42 +1,39 @@
 ---
 title: BI-admin-gethelperthkensid
-description: 'Thema Windows-Befehle für **BITSAdmin gethelpertokensid** : gibt die SID des Hilfsobjekts eines Bits-Übertragungs Auftrags zurück, sofern ein solches festgelegt ist.'
-ms.custom: na
+description: Windows-Befehls Thema für **BITSAdmin gethelpertokensid**, das die SID des Hilfsobjekts eines Bits-Übertragungs Auftrags zurückgibt, sofern ein solches festgelegt ist.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: a8c2a9f319defd8ac9acd36063ee079c24ad8ae0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a2e26ff459b068595529fbd24e6165c130660570
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71381594"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80850643"
 ---
 # <a name="bitsadmin-gethelpertokensid"></a>BI-admin-gethelperthkensid
 
-Gibt die sid für das [Hilfsobjekt](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs)eines Bits-Übertragungs Auftrags zurück, sofern ein solches festgelegt ist.
+Gibt die sid für das [Hilfsobjekt](https://docs.microsoft.com/windows/win32/bits/helper-tokens-for-bits-transfer-jobs)eines Bits-Übertragungs Auftrags zurück, sofern ein solches festgelegt ist.
 
-**Bits 3,0 und früher**: Nicht unterstützt.
+> [!NOTE]
+> Dieser Befehl wird von Bits 3,0 und früheren Versionen nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-bitsadmin /GetHelperTokensID <Job>
+bitsadmin /gethelpertokensid <job>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
+| Parameter | Beschreibung |
+| -------------- | -------------- |
+| Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

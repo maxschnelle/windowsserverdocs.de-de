@@ -1,7 +1,6 @@
 ---
 ms.assetid: 0f21951c-b1bf-43bb-a329-bbb40c58c876
 title: 'Replikationsfehler 1753: Die Endpunktzuordnung hat keine weiteren Endpunkte verfügbar'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 64b479663dfc930ec9a6d2055b4c9ad5755b30fc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2e63d177abd0a6880c1825b821d265c8fa233a22
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389969"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823163"
 ---
 # <a name="replication-error-1753-there-are-no-more-endpoints-available-from-the-endpoint-mapper"></a>Replikationsfehler 1753: Die Endpunktzuordnung hat keine weiteren Endpunkte verfügbar
 
@@ -22,7 +21,7 @@ ms.locfileid: "71389969"
 
 In diesem Artikel werden Symptome, Ursachen und Lösungsschritte für Active Directory Vorgänge beschrieben, die mit dem Win32-Fehler 1753 fehlschlagen: "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar."
 
-Dcdiag meldet, dass der Verbindungstest, Active Directory Replikationen oder der KnowsOfRoleHolders-Test mit dem Fehler 1753 fehlgeschlagen ist: "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar."
+Dcdiag meldet, dass der Konnektivitätstest, Active Directory Replikationen oder der KnowsOfRoleHolders-Test fehlgeschlagen ist. Fehler 1753: "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar."
 
 ```
 Testing server: <site><DC Name>
@@ -63,10 +62,10 @@ Verify machine is not hung during boot.
 REPADMIN. EXE meldet, dass der Replikations Versuch mit Status 1753 fehlgeschlagen ist.
 Repadmin-Befehle, die häufig den 1753-Status angeben, enthalten u. a. die folgenden:
 
-* REPADMIN/REPLSUM
-* REPADMIN/SHOWREPL
-* REPADMIN/SHOWREPS
-* REPADMIN/SYNCALL
+* repadmin/REPLSUM
+* repadmin/SHOWREPL
+* repadmin/SHOWREPS
+* repadmin/SYNCALL
 
 Die Beispielausgabe von "repadmin/SHOWREPS", die die eingehende Replikation von "Configuration Manager" zu "" darstellt, wird nachstehend angezeigt:
 
@@ -90,18 +89,18 @@ Der Befehl **Replikations Topologie überprüfen** in Active Directory Sites und
 
 Wenn Sie von einem Quell Domänen Controller mit der rechten Maustaste auf das Verbindungs Objekt klicken und **Replikations Topologie überprüfen** auswählen, tritt ein Fehler auf, weil keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar sind. Die Bildschirm Fehlermeldung wird unten angezeigt:
 
-Text des Dialog Titels: Dialog Meldungs Text der Replikations Topologie prüfen: Fehler beim Versuch, den Domänen Controller zu kontaktieren: Von der Endpunkt Zuordnung sind keine weiteren Endpunkte verfügbar.
+Dialogfeld Titeltext: Dialogfeld Meldungs Text der Replikations Topologie überprüfen: beim Versuch, eine Verbindung mit dem Domänen Controller aufzunehmen, ist folgender Fehler aufgetreten: Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar.
 
 Der Befehl " **Jetzt replizieren** " in Active Directory Sites und Dienste gibt "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar".
 Wenn Sie von einem Quell Domänen Controller mit der rechten Maustaste auf das Verbindungs Objekt klicken und **Jetzt replizieren** auswählen, tritt ein Fehler mit der Option "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar".
 Die Bildschirm Fehlermeldung wird unten angezeigt:
 
-Text des Dialog Titels: Dialog Meldungs Text "Jetzt replizieren": Fehler beim Versuch, den namens Kontext \<% Verzeichnis Partitions Name% > vom Domänen Controller \<source-Domänen Controller > zum Domänen Controller \<destination DC > zu synchronisieren:
+Dialogfeld Titel Text: Dialog Meldungs Text replizieren: der folgende Fehler ist beim Versuch aufgetreten, den namens Kontext \<% Directory Partitions Name% > vom Domänen Controller \<Quell Domänen Controller > zum Domänen Controller \<Ziel-DC > zu synchronisieren:
 
 Von der Endpunkt Zuordnung sind keine weiteren Endpunkte verfügbar.
 Der Vorgang wird nicht fortgesetzt.
 
-NTDS-KCC-, NTDS-allgemeine oder Microsoft-Windows-ActiveDirectory_DomainService-Ereignisse mit dem Status "-2146893022" werden im Verzeichnisdienste-Protokoll Ereignisanzeige protokolliert.
+NTDS-KCC-, NTDS-allgemeine oder Microsoft-Windows-ActiveDirectory_DomainService-Ereignisse mit dem Status-2146893022 werden in der Verzeichnisdienst Anmeldung Ereignisanzeige protokolliert.
 
 Active Directory Ereignisse, die den Status "-2146893022" häufig erwähnen, sind u. a. die folgenden:
 
@@ -145,18 +144,18 @@ Der Fehler 1753 wird nicht durch Folgendes verursacht:
 
 Überprüfen Sie, ob der Dienst, der seinen Dienst bei der Endpunkt Zuordnung registriert, gestartet wurde.
 
-* Für Windows 2000-und Windows Server 2003-DCS: Stellen Sie sicher, dass der Quell Domänen Controller im normalen Modus gestartet wird.
-* Für Windows Server 2008 oder Windows Server 2008 R2: Starten Sie in der-Konsole des Quell Domänen Controllers Dienste-Manager (Services. msc), und vergewissern Sie sich, dass der Active Directory Domain Services-Dienst ausgeführt wird.
+* Für Windows 2000 und Windows Server 2003 DCS: Stellen Sie sicher, dass der Quell-DC im normalen Modus gestartet wird.
+* Für Windows Server 2008 oder Windows Server 2008 R2: Starten Sie in der-Konsole des Quell Domänen Controllers den Dienst-Manager (Services. msc), und überprüfen Sie, ob der Active Directory Domain Services-Dienst ausgeführt wird.
 
 Überprüfen, ob der RPC-Client (Ziel-DC) mit dem gewünschten RPC-Server (Quell Domänen Controller)
 
-Alle DCS in einer allgemeinen Active Directory Gesamtstruktur registrieren einen Domänen Controller-CNAME-Datensatz in der _msdcs. \<gesamt Struktur-Stamm Domäne > DNS-Zone, unabhängig davon, in welcher Domäne Sie sich innerhalb der Gesamtstruktur befinden. Der DC CNAME-Datensatz wird vom objectGUID-Attribut des NTDS-Einstellungs Objekts für jeden Domänen Controller abgeleitet.
+Alle DCS in einer allgemeinen Active Directory Gesamtstruktur registrieren einen Domänen Controller-CNAME-Datensatz im _msdcs. \<-Gesamtstruktur-Stamm Domäne > DNS-Zone unabhängig davon, in welcher Domäne Sie sich innerhalb der Gesamtstruktur befinden. Der DC CNAME-Datensatz wird vom objectGUID-Attribut des NTDS-Einstellungs Objekts für jeden Domänen Controller abgeleitet.
 
 Beim Ausführen von Replikations basierten Vorgängen fragt ein Ziel-DC DNS nach dem CNAME-Datensatz des Quell-DCS ab. Der CNAME-Datensatz enthält den voll qualifizierten Domänen Namen des Quell Domänen Controllers, der verwendet wird, um die IP-Adresse des Quell Domänen Controllers über DNS-Client Cache Suche, Host/Lmhost-Dateisuche, Host A/AAAA-Datensatz in DNS oder WINS zu ableiten.
 
 Veraltete NTDS-Einstellungs Objekte und ungültige namens-zu-IP-Zuordnungen in DNS-, WINS-, Host-und Lmhost-Dateien können bewirken, dass der RPC-Client (Ziel-DC) eine Verbindung mit dem falschen RPC-Server (Quell-DC) herstellt Darüber hinaus kann die Zuordnung von "fehlerhafter Name zu IP" dazu führen, dass der RPC-Client (Ziel-DC) eine Verbindung mit einem Computer herstellt, auf dem nicht einmal die von Interesse ist (in diesem Fall die Active Directory Rolle). (Beispiel: ein veralteter Host Daten Satz für DC2 enthält die IP-Adresse von DC3 oder eines Mitglieds Computers).
 
-Vergewissern Sie sich, dass die objectGUID für den Quell Domänen Controller, der in der Ziel-DCS-Kopie von Active Directory vorhanden ist, der Quell-DC-objectGUID entspricht, die in der Quell-DCS-Active Directory Kopie Wenn eine Diskrepanz vorliegt, verwenden Sie Repadmin/showobjmeta für das NTDS-Einstellungs Objekt, um festzustellen, welcher Wert der letzten herauf Stufung des Quell Domänen Controllers entspricht (Hinweis: Vergleichen von Datumsstempeln für das NTDS-Einstellungs Objekt Create Date from/showobjmeta mit dem Datum der letzten Promotion im Quell-DCS Dcpromo. Log-Datei. Möglicherweise müssen Sie das Datum der letzten Änderung/Erstellung der Dcpromo-Datei verwenden. Protokolldatei selbst). Wenn die Objekt-GUIDs nicht identisch sind, verfügt der Ziel-DC wahrscheinlich über ein veraltetes NTDS-Einstellungs Objekt für den Quell Domänen Controller, dessen CNAME-Datensatz auf einen Host Daten Satz mit einem ungültigen Namen für die IP-Zuordnung verweist.
+Vergewissern Sie sich, dass die objectGUID für den Quell Domänen Controller, der in der Ziel-DCS-Kopie von Active Directory vorhanden ist, der Quell-DC-objectGUID entspricht, die in der Quell-DCS-Active Directory Kopie Wenn eine Abweichung vorliegt, verwenden Sie Repadmin/showobjmeta für das NTDS-Einstellungs Objekt, um festzustellen, welcher Wert der letzten herauf Stufung des Quell Domänen Controllers entspricht (Hinweis: Vergleichen von Datumsstempeln für das NTDS-Einstellungs Objekt Create Date from/showobjmeta mit dem Datum der letzten herauf Stufung in der Quelldatei DCS Dcpromo. log. Möglicherweise müssen Sie das Datum der letzten Änderung/Erstellung der Dcpromo-Datei verwenden. Protokolldatei selbst). Wenn die Objekt-GUIDs nicht identisch sind, verfügt der Ziel-DC wahrscheinlich über ein veraltetes NTDS-Einstellungs Objekt für den Quell Domänen Controller, dessen CNAME-Datensatz auf einen Host Daten Satz mit einem ungültigen Namen für die IP-Zuordnung verweist.
 
 Führen Sie auf dem Ziel-DC ipconfig/all aus, um zu ermitteln, welche DNS-Server der Ziel-DC für die Namensauflösung verwendet:
 
@@ -218,7 +217,7 @@ Es gibt eine Reihe von Möglichkeiten, diese Aufgabe zu erledigen, aber eine ist
 portquery -n <source DC> -e 135 > file.txt
 ```
 
-Notieren Sie in der PortQry-Ausgabe die Portnummern, die von der "MS NT Directory DRS Interface" (UUID = 351...) für das ncacn_ip_tcp-Protokoll dynamisch registriert werden. Der folgende Code Ausschnitt zeigt eine Beispiel-PortQuery-Ausgabe eines Windows Server 2008 R2-DC:
+Beachten Sie in der PortQry-Ausgabe die Portnummern, die von der "MS NT Directory DRS Interface" (UUID = 351...) für das ncacn_ip_tcp Protokoll dynamisch registriert werden. Der folgende Code Ausschnitt zeigt eine Beispiel-PortQuery-Ausgabe eines Windows Server 2008 R2-DC:
 
 ```
 UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
@@ -289,17 +288,17 @@ F# SRC    DEST    Operation
 
 Bei Frame **10**fragt der Ziel-DC die Quell-DCS-Endpunkt Zuordnung über Port 135 für die Active Directory Replikations Dienstklasse UUID E351...
 
-In Frame **11**ist der Quell Domänen Controller, in diesem Fall ein Mitglieds Computer, der die DC-Rolle noch nicht hostet und daher die E351 nicht registriert hat... Die UUID für den Replikations Dienst mit dem lokalen EPM antwortet mit einem symbolischen Fehler EP_S_NOT_REGISTERED dieser wird dem dezimalen Fehler 1753, Hex-Fehler 0x6d9 und dem anzeigen Amen "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar" zugeordnet.
+In Frame **11**ist der Quell Domänen Controller, in diesem Fall ein Mitglieds Computer, der die DC-Rolle noch nicht hostet und daher die E351 nicht registriert hat... Die UUID für den Replikations Dienst mit dem lokalen EPM antwortet mit einem symbolischen Fehler EP_S_NOT_REGISTERED der dem dezimalen Fehler 1753, Hex-Fehler 0x6d9 und dem anzeigen Amen "Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar" zugeordnet ist.
 
 Später wird der Mitglieds Computer mit der IP-Adresse x. x. 1.2 als Replikat "mayberrydc" in der contoso.com-Domäne herauf gestuft. Der Befehl " **Jetzt replizieren** " wird verwendet, um die Replikation zu initiieren. dieses Mal schlägt jedoch mit dem Bildschirm Fehler "der Ziel Prinzipal Name ist falsch" fehl. Der Computer, dessen Netzwerkadapter der IP-Adresse x. x. 1.2 zugewiesen ist, ist ein Domänen Controller, wird zurzeit im normalen Modus gestartet und hat den E351 registriert... die UUID des Replikations Diensts mit dem lokalen EPM ist aber nicht der Besitzer des Namens oder der Sicherheitsidentität von DC2 und kann die Kerberos-Anforderung nicht von DC1 entschlüsseln, sodass die Anforderung jetzt mit dem Fehler "der Ziel Prinzipal Name ist falsch" fehlschlägt. Der Fehler wird dem dezimalen Fehler-2146893022/Hex-Fehler 0x80090322 zugeordnet.
 
 Solche ungültigen Host-zu-IP-Zuordnungen können durch veraltete Einträge in Host-/LM-Host-Dateien, Host A/AAAA-Registrierungen in DNS oder WINS verursacht werden.
 
-Zusammenfassung Bei diesem Beispiel ist ein Fehler aufgetreten, weil eine ungültige Host-zu-IP-Zuordnung (in diesem Fall in der Hostdatei) bewirkt hat, dass der Ziel-DC zu einem "Source"-Domänen Controller aufgelöst wird, auf dem der Active Directory Domain Services-Dienst nicht ausgeführt wird (oder der dafür überhaupt installiert wurde). SPN wurde noch nicht registriert, und der Quell-DC hat den Fehler 1753 zurückgegeben. Im zweiten Fall hat eine ungültige Host-zu-IP-Zuordnung (wieder in der Hostdatei) bewirkt, dass der Domänen Controller eine Verbindung mit einem Domänen Controller herstellt, der die E351 registriert hat... der Replikations-SPN, aber diese Quelle besaß einen anderen Hostnamen und eine andere Sicherheitsidentität als der vorgesehene Quell Domänen Controller, sodass bei den versuchen Fehler 2146893022 aufgetreten sind: Der Ziel Prinzipal Name ist falsch.
+Zusammenfassung: Dieses Beispiel ist fehlgeschlagen, weil eine ungültige Host-zu-IP-Zuordnung (in diesem Fall in der Hostdatei) bewirkt hat, dass der Domänen Controller zu einem "Quell Domänen Controller" aufgelöst 1753 wurde, auf dem der Active Directory Domain Services-Dienst nicht ausgeführt wird (bzw Im zweiten Fall hat eine ungültige Host-zu-IP-Zuordnung (wieder in der Hostdatei) bewirkt, dass der Domänen Controller eine Verbindung mit einem Domänen Controller herstellt, der die E351 registriert hat... der Replikations-SPN, aber diese Quelle besaß einen anderen Hostnamen und eine andere Sicherheitsidentität als der beabsichtigte Quell Domänen Controller, sodass bei den versuchen Fehler-2146893022: der Ziel Prinzipal Name falsch ist.
 
 ## <a name="related-topics"></a>Verwandte Themen
 
-* [troubleshooting Active Directory Vorgänge, die mit Fehler 1753 fehlschlagen: Von der Endpunkt Zuordnung sind keine weiteren Endpunkte verfügbar. ](https://support.microsoft.com/kb/2089874)
+* [Problembehandlung bei Active Directory Vorgängen mit Fehler 1753: Es sind keine weiteren Endpunkte von der Endpunkt Zuordnung verfügbar.](https://support.microsoft.com/kb/2089874)
 * [KB-Artikel 839880 Beheben von Fehlern bei der RPC-Endpunkt Zuordnung mithilfe der Windows Server 2003-Support Tools von der Produkt-CD](https://support.microsoft.com/kb/839880)
 * [KB-Artikel 832017 Dienst Übersicht und Netzwerk Port Anforderungen für das Windows Server-System](https://support.microsoft.com/kb/832017/)
 * [KB-Artikel 224196 einschränken Active Directory Replikations Datenverkehrs und RPC-Client Datenverkehr zu einem bestimmten Port](https://support.microsoft.com/kb/224196/)

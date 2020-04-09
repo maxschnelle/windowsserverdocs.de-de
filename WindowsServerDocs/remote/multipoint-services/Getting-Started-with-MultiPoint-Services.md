@@ -1,24 +1,20 @@
 ---
 title: Einstieg in Multipoint Services
 description: In werden Multipoint Services eingeführt und die Verwendung der Anwendung gestartet.
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aca5f0be-f253-46b5-b1e7-0bffa15f3227
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: cf31e62345b006ef9572a2ea97a23e3e0bf41b64
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2213c734831c1cde88ad0e2b6fb172f99a31b89c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395369"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859233"
 ---
 # <a name="getting-started-with-multipoint-services"></a>Einstieg in Multipoint Services
 Das Multipoint Services-System ermöglicht vielen Benutzern die Verwendung mehrerer Stationen, die physisch verbunden sind, indem Sie Station Hubs nur auf einem Computer verwenden. Jede Station besteht in der Regel aus einem stationshub, einer Maus, einer Tastatur und einem Videomonitor. Jeder Benutzer an einer Multipoint Services-Station verfügt über eine eindeutige Windows Computing-Sitzung, die Sie mithilfe von Multipoint Manager verwalten können.  
@@ -59,14 +55,14 @@ Zu den Aktionen, die Sie mithilfe von Multipoint Manager ausführen können, zä
   
 -   **Wechseln in den Konsolenmodus:** Sie können das Multipoint Services-System in den Konsolenmodus ändern, um neue Software auf Ihrem Multipoint Services-System zu installieren. Sie können angeben, dass die Software von allen Benutzern ausgeführt werden kann. Dies ist abhängig von den Installations-und Lizenzierungsoptionen der Software.  
   
--   **Problem** Wenn Sie Probleme mit Multipoint Services haben, finden Sie [im Abschnitt zur Problembehandlung](Troubleshooting.md) weitere Themen, die Ihnen helfen können, das Problem zu beheben.  
+-   **Problembehandlung:** Wenn Sie Probleme mit Multipoint Services haben, finden Sie [im Abschnitt zur Problembehandlung](Troubleshooting.md) weitere Themen, die Ihnen helfen können, das Problem zu beheben.  
   
 ## <a name="overview-of-multipoint-dashboard"></a>Übersicht über das Multipoint-Dashboard  
 Das Multipoint-Dashboard bietet eine Multifunktionsleisten-Benutzer Karte, in der Sie zwischen zwei Registerkarten für den Zugriff auf gängige tägliche Aufgaben wählen  
   
 Die Registerkarten lauten wie folgt:  
   
--   **Registerkarte Home:** Sperren oder Entsperren von Stationen, Festlegen von webeinschränkungs Optionen, Projekt Desktops auf andere Desktops, starten oder Schließen von Anwendungen, kommunizieren über Instant Messaging, unterstützen anderer Benutzer über die Remote Desktop Steuerung, Anpassen von Desktop-Miniaturansichten und aktivieren oder deaktivieren sofortiges Messaging und Automatischer Anwendungsstart. Weitere Informationen finden Sie im Thema [Verwalten von Benutzer Desktops mithilfe des Multipoint-Dashboards](Manage-User-Desktops-Using-MultiPoint-Dashboard.md) .  
+-   **Registerkarte Home:** Sperren oder Entsperren von Stationen, Festlegen von webeinschränkungs Optionen, Projekt Desktops auf andere Desktops, starten oder Schließen von Anwendungen, kommunizieren über Instant Messaging, unterstützen anderer Benutzer über die Remote Desktop Steuerung, Anpassen von Desktop-Miniaturansichten und aktivieren oder Deaktivieren von Instant Messaging und automatisches Starten von Anwendungen. Weitere Informationen finden Sie im Thema [Verwalten von Benutzer Desktops mithilfe des Multipoint-Dashboards](Manage-User-Desktops-Using-MultiPoint-Dashboard.md) .  
   
 -   **Registerkarte Systeme:** Neustarten, Herunterfahren oder Neuzuordnen aller oder ausgewählter Systeme. Weitere Informationen finden Sie im Thema [Verwalten von Multipoint-Systemen mithilfe des Multipoint-Dashboards](Manage-MultiPoint-Systems-Using-MultiPoint-Dashboard.md) .  
   
@@ -95,7 +91,7 @@ Weitere Informationen zum Speichern und Verwalten von privaten und öffentlichen
   
 -   Wenn ein Benutzer ein Kennwort vergisst, können Sie das Kennwort von der Registerkarte " **Benutzer** " zurücksetzen, die Standardfunktionen für die Windows-Benutzerkonten Verwaltung verwendet. Weitere Informationen finden Sie im Thema [aktualisieren oder Löschen eines Benutzerkontos](Update-or-Delete-a-User-Account.md) .  
   
-## <a name="see-also"></a>Siehe auch  
+## <a name="see-also"></a>Weitere Informationen  
 [Verwalten des Multipoint-Server Systems](managing-your-multipoint-services-system.md)  
 [Wichtige Informationen zur Software Lizenz Konformität](Important-Information-about-Software-License-Compliance.md)  
 [Verwalten von Systemaufgaben mithilfe des MultiPoint-Managers](Manage-System-Tasks-Using-MultiPoint-Manager.md)  

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 4baefbd3-038f-44c0-85ba-f24e9722b757
 title: 'Anhang G: Sichern von Administratoren Gruppen in Active Directory'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: cdea04e211b1873ff51c4bc3dc9ff24e746ead69
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f113dc7fc5b131a2c0ef10433125ef12a775707c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408641"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821523"
 ---
 # <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>Anhang G: Schützen von Administratorgruppen in Active Directory
 
@@ -40,9 +39,9 @@ Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
 3.  Bei der Organisationseinheit "Domänen Controller" in jeder Domäne in der Gesamtstruktur sollten der Gruppe "Administratoren" die folgenden Benutzerrechte erteilt werden:  
 
-    -   Auf diesen Computer vom Netzwerk aus zugreifen.  
+    -   Auf diesen Computer vom Netzwerk aus zugreifen  
 
-    -   Lokale Anmeldung zulassen  
+    -   Lokal anmelden zulassen  
 
     -   Anmelden über Remotedesktopdienste zulassen  
 
@@ -50,7 +49,7 @@ Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
 #### <a name="step-by-step-instructions-for-removing-all-members-from-the-administrators-group"></a>Schritt-für-Schritt-Anleitung zum Entfernen aller Mitglieder aus der Gruppe "Administratoren"  
 
-1.  KlickenSie in Server-Manager **auf Extras, und**klicken Sie dann auf **Active Directory Benutzer und Computer**.  
+1.  Klicken **Server Manager**Sie in Server-Manager **auf Extras, und**klicken Sie dann auf **Active Directory Benutzer und Computer**.  
 
 2.  Um alle Mitglieder aus der Gruppe "Administratoren" zu entfernen, führen Sie die folgenden Schritte aus:  
 
@@ -64,7 +63,7 @@ Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
 #### <a name="step-by-step-instructions-to-secure-administrators-groups-in-active-directory"></a>Schritt-für-Schritt-Anleitung zum Sichern von Administratoren Gruppen in Active Directory  
 
-1.  KlickenSie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
+1.  Klicken **Server Manager**Sie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
 
 2.  Erweitern Sie in der Konsolen Struktur &lt;Gesamtstruktur&gt;\Domänen\\&lt;Domäne&gt;, und Gruppenrichtlinie Sie dann **Objekte** (wobei &lt;Gesamtstruktur&gt; der Name der Gesamtstruktur und &lt;Domäne&gt; der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
 
@@ -148,7 +147,7 @@ Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
 #### <a name="step-by-step-instructions-to-grant-user-rights-to-the-administrators-group"></a>Schritt-für-Schritt-Anleitung zum Erteilen von Benutzerrechten für die Administratoren Gruppe  
 
-1.  KlickenSie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
+1.  Klicken **Server Manager**Sie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
 
 2.  Erweitern Sie in der Konsolen Struktur <Forest>\domains\\<Domain>, und klicken Sie dann auf **Gruppenrichtlinie Objekte** (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
 
@@ -216,7 +215,7 @@ Für die Gruppe "Administratoren" in jeder Domäne in der Gesamtstruktur:
 
         ![sichere Administrator Gruppen](media/Appendix-G--Securing-Administrators-Groups-in-Active-Directory/SAD_96.gif)  
 
-#### <a name="verification-steps"></a>Überprüfungs Schritte  
+#### <a name="verification-steps"></a>Überprüfungsschritte  
 
 ##### <a name="verify-deny-access-to-this-computer-from-the-network-gpo-settings"></a>GPO-Einstellungen "Zugriff auf diesen Computer über das Netzwerk verweigern"  
 Versuchen Sie auf einem Mitglieds Server oder einer Arbeitsstation, der nicht von den GPO-Änderungen (z. b. einem "Sprung Server") betroffen ist, auf einen Mitglieds Server oder eine Arbeitsstation über das Netzwerk zuzugreifen, das von den GPO-Änderungen betroffen ist. Um die GPO-Einstellungen zu überprüfen, versuchen Sie, das Systemlaufwerk mithilfe des Befehls **net use** zuzuordnen.  

@@ -2,22 +2,18 @@
 title: Bereitstellen des Remotezugriffs mit OTP-Authentifizierung
 description: Dieses Thema ist Teil des Handbuchs Bereitstellen des Remote Zugriffs mit OTP-Authentifizierung in Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-ras
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b1b2fe70-7956-46e8-a3e3-43848868df09
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 5b86cbe970c60f0684f3f6e5198fa91bbb9745b1
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 47a92db6c451b2e1e9bb44393ab987f242cc0ef5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80313687"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858253"
 ---
 # <a name="deploy-remote-access-with-otp-authentication"></a>Bereitstellen des Remotezugriffs mit OTP-Authentifizierung
 
@@ -74,8 +70,8 @@ Die folgende Tabelle enthält die für dieses Szenario erforderlichen Rollen und
   
 |Rollen\/Funktion|Auf welche Weise dieses Szenario unterstützt wird|  
 |---------|-----------------|  
-|*Rollen für die Remote Zugriffs Verwaltung*|Diese Rolle wird mithilfe der Server-Manager-Konsole installiert und deinstalliert. Diese Rolle umfasst DirectAccess (zuvor ein Feature in Windows Server 2008 R2) sowie die Routing-und RAS-Dienste, die zuvor ein Rollen Dienst unter der Netzwerk Richtlinien-und Zugriffs Dienste \(NPAS\) Server Rolle waren. Die Remotezugriffs-Rolle besteht aus zwei Komponenten:<br /><br />1. DirectAccess-und Routing-und RAS-Dienste \(RRAS\) VPN-DirectAccess und VPN werden in der Remote Zugriffs-Verwaltungskonsole verwaltet.<br />2. RRAS-Routing-RRAS-Routing Features werden in der Legacy-Routing-und Remote Zugriffs Konsole verwaltet.<br /><br />Die Remotezugriffsrolle ist von den folgenden Serverfeatures abhängig:<br /><br />-Internetinformationsdienste \(IIS\)-Webserver: dieses Feature ist erforderlich, um den Netzwerkadressen Server zu konfigurieren, die OTP-Authentifizierung zu verwenden und den Standardweb Test zu konfigurieren.<br />-Interne Windows-Datenbank: wird für die lokale Kontoführung auf dem Remote Zugriffs Server verwendet.|  
-|Feature %%amp;quot;Tools für die Remotezugriffsverwaltung%%amp;quot;|So installieren Sie dieses Feature:<br /><br />-Sie wird standardmäßig auf einem RAS-Server installiert, wenn die Remote Zugriffs Rolle installiert ist, und unterstützt die Benutzeroberfläche der Remote Verwaltungskonsole.<br />-Es kann optional auf einem Server installiert werden, auf dem die Remote Zugriffs-Server Rolle nicht ausgeführt wird. In diesem Fall wird es für die Remoteverwaltung eines RAS-Computers verwendet, der DirectAccess und VPN ausführt.<br /><br />Das Feature "Tools für die Remotezugriffsverwaltung" besteht aus den folgenden Komponenten:<br /><br />-Remote Zugriffs-GUI und Befehlszeilen Tools<br />-Remote Zugriffs Modul für Windows PowerShell<br /><br />Abhängigkeiten umfassen:<br /><br />-Gruppenrichtlinien-Verwaltungskonsole<br />-RAS-Verbindungs-Manager-Verwaltungskit \(CMAK\)<br />-Windows PowerShell 3,0<br />-Tools und Infrastruktur für die grafische Verwaltung|  
+|*Rollen für die Remote Zugriffs Verwaltung*|Diese Rolle wird mithilfe der Server-Manager-Konsole installiert und deinstalliert. Diese Rolle umfasst DirectAccess (zuvor ein Feature in Windows Server 2008 R2) sowie die Routing-und RAS-Dienste, die zuvor ein Rollen Dienst unter der Netzwerk Richtlinien-und Zugriffs Dienste \(NPAS\) Server Rolle waren. Die Remotezugriffs-Rolle besteht aus zwei Komponenten:<p>1. DirectAccess-und Routing-und RAS-Dienste \(RRAS\) VPN-DirectAccess und VPN werden in der Remote Zugriffs-Verwaltungskonsole verwaltet.<br />2. RRAS-Routing-RRAS-Routing Features werden in der Legacy-Routing-und Remote Zugriffs Konsole verwaltet.<p>Die Remotezugriffsrolle ist von den folgenden Serverfeatures abhängig:<p>-Internetinformationsdienste \(IIS\)-Webserver: dieses Feature ist erforderlich, um den Netzwerkadressen Server zu konfigurieren, die OTP-Authentifizierung zu verwenden und den Standardweb Test zu konfigurieren.<br />-Interne Windows-Datenbank: wird für die lokale Kontoführung auf dem Remote Zugriffs Server verwendet.|  
+|Feature %%amp;quot;Tools für die Remotezugriffsverwaltung%%amp;quot;|So installieren Sie dieses Feature:<p>-Sie wird standardmäßig auf einem RAS-Server installiert, wenn die Remote Zugriffs Rolle installiert ist, und unterstützt die Benutzeroberfläche der Remote Verwaltungskonsole.<br />-Es kann optional auf einem Server installiert werden, auf dem die Remote Zugriffs-Server Rolle nicht ausgeführt wird. In diesem Fall wird es für die Remoteverwaltung eines RAS-Computers verwendet, der DirectAccess und VPN ausführt.<p>Das Feature "Tools für die Remotezugriffsverwaltung" besteht aus den folgenden Komponenten:<p>-Remote Zugriffs-GUI und Befehlszeilen Tools<br />-Remote Zugriffs Modul für Windows PowerShell<p>Abhängigkeiten umfassen:<p>-Gruppenrichtlinien-Verwaltungskonsole<br />-RAS-Verbindungs-Manager-Verwaltungskit \(CMAK\)<br />-Windows PowerShell 3,0<br />-Tools und Infrastruktur für die grafische Verwaltung|  
   
 ## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Hardwareanforderungen  
 Für dieses Szenario müssen die folgenden Hardwareanforderungen erfüllt werden:  

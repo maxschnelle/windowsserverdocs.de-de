@@ -1,24 +1,20 @@
 ---
 title: Hardwareanforderungen und Empfehlungen zur Leistung
 description: Bietet Hardware-und Leistungsanforderungen sowie Empfehlungen für Multipoint Services
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 99a5c9c2-270f-4753-a28c-434882c03125
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 284131028b308ee86389f25102d934390ba2f16d
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: dcb139cddf6a7838511365c6a85dc12bd06a81eb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322082"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820343"
 ---
 # <a name="hardware-requirements-and-performance-recommendations"></a>Hardwareanforderungen und Empfehlungen zur Leistung
 In diesem Thema wird die Hardware beschrieben, die zum Ausführen eines Multipoint Services-Systems und zum unterstützen von Anwendungsszenarien für Benutzer erforderlich ist. Das Benutzer Szenario wirkt sich direkt auf die CPU-, RAM-und Netzwerk Bandbreitenanforderungen aus.  
@@ -41,9 +37,9 @@ Verwenden Sie die Richtlinien in der folgenden Tabelle, wenn Sie Ihr System plan
   
 |Anwendungsszenario|Bis zu 5 Stationen|6-8-Stationen|9-12-Stationen|13-16-Stationen|17-20-Stationen|21-24-Stationen|  
 |------------------------|----------------------|-------------------|------------------|-------------------|-------------------|-----------------|  
-|**Fak**<br /><br />Office, Webbrowser, Branchen Anwendungen|CPU: 2C<br /><br />RAM: 2 GB|CPU: 2C<br /><br />RAM: 4 GB|CPU: 4C<br /><br />RAM: 6 GB|CPU: 4C<br /><br />RAM: 8 GB|CPU: 4C + MT oder 6C<br /><br />RAM: 10 GB| CPU: 6C + MT<br /><br />RAM: 12 GB|
-|**Mischen**<br /><br />Office, Webbrowser, Branchen Anwendungen und gelegentlich von einigen Benutzern verwendete Video Verwendung|CPU: 2C<br /><br />RAM: 2 GB|CPU: 2C<br /><br />RAM: 4 GB|CPU: 4C<br /><br />RAM: 6 GB|CPU: 4C + MT oder 6C<br /><br />RAM: 8 GB|CPU: 6C + MT<br /><br />RAM: 10 GB| CPU: 6C + MT<br /><br />RAM: 12 GB| 
-|**Video intensiv**<br /><br />Office, Webbrowser, Branchen Anwendungen und häufig von allen Benutzern verwendende Videos **:** Videotests wurden mit dem Video "360p H. 264" bei der systemeigenen Auflösung ausgeführt.|CPU: 4C + MT<br /><br />RAM: 2 GB|CPU: 6C + MT<br /><br />RAM: 4 GB|CPU: 8c + MT<br /><br />RAM: 6 GB|CPU: 12C + MT<br /><br />RAM: 8 GB|CPU: 16C + MT<br /><br />RAM: 10 GB<br /><br />-Thin Client: remotefx<br />-USB-Video nicht empfehlenswert| CPU: 20C + MT<br /><br />RAM: 12 GB<br /><br />-Thin Client: remotefx<br />-USB-Video nicht empfehlenswert|   
+|**Fak**<p>Office, Webbrowser, Branchen Anwendungen|CPU: 2C<p>RAM: 2 GB|CPU: 2C<p>RAM: 4 GB|CPU: 4C<p>RAM: 6 GB|CPU: 4C<p>RAM: 8 GB|CPU: 4C + MT oder 6C<p>RAM: 10 GB| CPU: 6C + MT<p>RAM: 12 GB|
+|**Mischen**<p>Office, Webbrowser, Branchen Anwendungen und gelegentlich von einigen Benutzern verwendete Video Verwendung|CPU: 2C<p>RAM: 2 GB|CPU: 2C<p>RAM: 4 GB|CPU: 4C<p>RAM: 6 GB|CPU: 4C + MT oder 6C<p>RAM: 8 GB|CPU: 6C + MT<p>RAM: 10 GB| CPU: 6C + MT<p>RAM: 12 GB| 
+|**Video intensiv**<p>Office, Webbrowser, Branchen Anwendungen und häufig von allen Benutzern verwendende Videos **:** Videotests wurden mit dem Video "360p H. 264" bei der systemeigenen Auflösung ausgeführt.|CPU: 4C + MT<p>RAM: 2 GB|CPU: 6C + MT<p>RAM: 4 GB|CPU: 8c + MT<p>RAM: 6 GB|CPU: 12C + MT<p>RAM: 8 GB|CPU: 16C + MT<p>RAM: 10 GB<p>-Thin Client: remotefx<br />-USB-Video nicht empfehlenswert| CPU: 20C + MT<p>RAM: 12 GB<p>-Thin Client: remotefx<br />-USB-Video nicht empfehlenswert|   
   
 ## <a name="minimum-recommended-hardware-for-running-full-windows-10-virtual-desktops"></a>Empfohlene Hardware für die Ausführung vollständiger virtueller Windows 10-Desktops  
 Das Ausführen einer vollständigen virtuellen Betriebssystem Instanz für jede Station ist Rechen intensiver als die Ausführung der standardmäßigen Multipoint Desktop-Sitzungen, sodass die Host Hardwareanforderungen pro Station höher sind:  

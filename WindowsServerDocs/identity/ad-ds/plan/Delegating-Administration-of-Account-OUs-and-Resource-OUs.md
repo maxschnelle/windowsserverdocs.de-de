@@ -1,7 +1,6 @@
 ---
 ms.assetid: 19feca0e-a6d0-4d27-93b0-cb44f8c26484
 title: Delegieren der Verwaltung von Konten- und Ressourcenorganisationseinheiten
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 63fda63d5a34404563bab44ee54ba2e22d852782
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3043aaf79b2c0894fffe2f896a235ad519222e05
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402701"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822743"
 ---
 # <a name="delegating-administration-of-account-ous-and-resource-ous"></a>Delegieren der Verwaltung von Konten- und Ressourcenorganisationseinheiten
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Konto Organisationseinheiten (OUs) enthalten Benutzer-, Gruppen-und Computer Objekte. Die Ressourcen Organisationseinheiten enthalten Ressourcen und die Konten, die für die Verwaltung dieser Ressourcen zuständig sind. Der Gesamtstruktur Besitzer ist dafür verantwortlich, eine OE-Struktur zu erstellen, um diese Objekte und Ressourcen zu verwalten und die Steuerung dieser Struktur an den Besitzer der Organisationseinheit zu delegieren.  
   
@@ -45,7 +44,7 @@ In der folgenden Abbildung ist ein Beispiel für einen administrativen Gruppen E
   
 Gruppen, die die untergeordneten Organisationseinheiten verwalten, erhalten Vollzugriff nur über die spezifische Klasse von Objekten, für deren Verwaltung Sie zuständig sind.  
   
-Die Typen von Gruppen, die Sie verwenden, um die Steuerung innerhalb einer Organisations Einheits Struktur zu delegieren, basieren darauf, wo sich die Konten befinden, in Bezug auf die zu verwaltende OE-Struktur. Wenn die Administrator Benutzerkonten und die OE-Struktur alle innerhalb einer einzelnen Domäne vorhanden sind, müssen die Gruppen, die Sie für die Delegierung verwenden, globale Gruppen sein. Wenn Ihre Organisation über eine Abteilung verfügt, die ihre eigenen Benutzerkonten verwaltet und in mehr als einer geografischen Region vorhanden ist, verfügen Sie möglicherweise über eine Gruppe von Daten Administratoren, die für die Verwaltung der Konto Organisationseinheiten in mehr als einer Domäne verantwortlich sind. Wenn die Konten der Daten Administratoren alle in einer einzelnen Domäne vorhanden sind und Sie über OE-Strukturen in mehreren Domänen verfügen, für die Sie die Kontrolle delegieren müssen, nehmen Sie diese Administrator Konten als Mitglieder globaler Gruppen an, und delegieren Sie die Kontrolle über die Organisationseinheiten Strukturen. Domäne zu diesen globalen Gruppen. Wenn die Daten Administratoren, an die Sie die Steuerung einer OE-Struktur delegieren, von mehreren Domänen stammen, müssen Sie eine universelle Gruppe verwenden. Universelle Gruppen können Benutzer aus unterschiedlichen Domänen enthalten und können daher zum Delegieren der Steuerung in mehreren Domänen verwendet werden.  
+Die Typen von Gruppen, die Sie verwenden, um die Steuerung innerhalb einer Organisations Einheits Struktur zu delegieren, basieren darauf, wo sich die Konten befinden, in Bezug auf die zu verwaltende OE-Struktur. Wenn die Administrator Benutzerkonten und die OE-Struktur alle innerhalb einer einzelnen Domäne vorhanden sind, müssen die Gruppen, die Sie für die Delegierung verwenden, globale Gruppen sein. Wenn Ihre Organisation über eine Abteilung verfügt, die ihre eigenen Benutzerkonten verwaltet und in mehr als einer geografischen Region vorhanden ist, verfügen Sie möglicherweise über eine Gruppe von Daten Administratoren, die für die Verwaltung der Konto Organisationseinheiten in mehr als einer Domäne verantwortlich sind. Wenn die Konten der Daten Administratoren alle in einer einzelnen Domäne vorhanden sind und Sie über OE-Strukturen in mehreren Domänen verfügen, für die Sie die Steuerung delegieren müssen, nehmen Sie diese administrativen Konten als Mitglieder globaler Gruppen an, und delegieren Sie die Kontrolle über die Organisationseinheiten Strukturen in jeder Domäne an diese globalen Gruppen. Wenn die Daten Administratoren, an die Sie die Steuerung einer OE-Struktur delegieren, von mehreren Domänen stammen, müssen Sie eine universelle Gruppe verwenden. Universelle Gruppen können Benutzer aus unterschiedlichen Domänen enthalten und können daher zum Delegieren der Steuerung in mehreren Domänen verwendet werden.  
   
 ## <a name="delegating-administration-of-resource-ous"></a>Delegieren der Verwaltung von Ressourcen-OUs  
 Ressourcen-OUs werden verwendet, um den Zugriff auf Ressourcen zu verwalten. Der Besitzer der Ressourcen-Organisationseinheit erstellt Computer Konten für Server, die der Domäne hinzugefügt werden, die Ressourcen wie Dateifreigaben, Datenbanken und Drucker enthält. Der Besitzer der Ressourcen-Organisationseinheit erstellt außerdem Gruppen zum Steuern des Zugriffs auf diese Ressourcen.  

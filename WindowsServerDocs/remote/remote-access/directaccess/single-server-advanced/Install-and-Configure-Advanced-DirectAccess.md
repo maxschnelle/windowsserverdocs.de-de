@@ -2,22 +2,18 @@
 title: Installieren und Konfigurieren von DirectAccess (erweitert)
 description: Dieses Thema ist Teil des Handbuchs Bereitstellen eines einzelnen DirectAccess-Servers mit erweiterten Einstellungen für Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f45e5b6f-fc66-4deb-bed4-a1baa3cc6dae
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: cbc4e3ca18443152ca9af45c8b47130394f4b8df
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 6f8237051843b7bf58482cdea68f0c9b35806061
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309171"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859513"
 ---
 # <a name="install-and-configure-advanced-directaccess"></a>Installieren und Konfigurieren von DirectAccess (erweitert)
 

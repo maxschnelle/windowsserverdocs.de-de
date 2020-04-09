@@ -1,6 +1,5 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Ausführen der ersten Wiederherstellung'
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: a369347fe889c7f6675d0091d05a6dee93cb4434
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7d592198187d44927f643b45e7a8bb4c2eec2a69
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369074"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823903"
 ---
 # <a name="perform-initial-recovery"></a>Anfängliche Wiederherstellung ausführen  
 
@@ -53,11 +52,11 @@ Führen Sie dann die folgenden Schritte aus. Verfahren zum Ausführen bestimmter
 
       **Hklm\system\currentcontrolset\services\ntds\parameters\repl führt anfängliche Synchronisierung aus.**  
   
-      Erstellen Sie den Eintrag mit dem-Datentyp **REG_DWORD** und einem Wert von **0**. Nachdem die Gesamtstruktur vollständig wieder hergestellt wurde, können Sie den Wert dieses Eintrags auf **1**zurücksetzen. hierfür ist ein Domänen Controller erforderlich, der neu gestartet wird und Betriebs Master Rollen für die erfolgreiche AD DS eingehender und ausgehender Replikation mit dem bekannten Replikat enthält. Partner, bevor Sie sich selbst als Domänen Controller ankündigen und damit beginnen, Dienste für Clients bereitzustellen. Weitere Informationen zu den Anforderungen für die anfängliche Synchronisierung finden Sie im KB-Artikel [305476](https://support.microsoft.com/kb/305476). 
+      Erstellen Sie den Eintrag mit dem Datentyp **REG_DWORD** und dem Wert **0**. Nachdem die Gesamtstruktur vollständig wieder hergestellt wurde, können Sie den Wert dieses Eintrags auf den Wert **1**zurücksetzen. hierfür ist ein Domänen Controller erforderlich, der neu gestartet wird und Betriebs Master Rollen enthält, damit er erfolgreich AD DS eingehende und ausgehende Replikation mit den bekannten Replikat Partnern durchführt, bevor er sich selbst als Domänen Controller bereitstellt und Dienst Weitere Informationen zu den Anforderungen für die anfängliche Synchronisierung finden Sie im KB-Artikel [305476](https://support.microsoft.com/kb/305476). 
   
       Fahren Sie mit den nächsten Schritten erst fort, nachdem Sie die Daten wieder hergestellt und überprüft haben und bevor Sie diesen Computer dem Produktionsnetzwerk hinzufügen. 
   
-4. Wenn Sie vermuten, dass sich der Gesamtstruktur weite Fehler auf einen Netzwerk Eingriff oder böswillige Angriffe bezieht, setzen Sie die Konto Kennwörter für alle Administrator Konten zurück, einschließlich der Mitglieder der Organisations-Admins, Domänen-Admins, Schema Administratoren, Server Operatoren, Konto Operatoren Gruppen usw. Die zurück Setzung von Administrator Konto Kennwörtern sollte abgeschlossen werden, bevor während der nächsten Phase der Gesamtstruktur Wiederherstellung zusätzliche Domänen Controller installiert werden. 
+4. Wenn Sie vermuten, dass der Gesamtstruktur weite Fehler in Zusammenhang mit dem Netzwerk Eingriff oder böswilligen Angriffen aufgetreten ist, setzen Sie die Konto Kennwörter für alle Administrator Konten zurück, einschließlich der Mitglieder der Organisations-Admins, Domänen-Admins, Schema-Admins, Server Operatoren, Konto-Operatorgruppen usw. Die zurück Setzung von Administrator Konto Kennwörtern sollte abgeschlossen werden, bevor während der nächsten Phase der Gesamtstruktur Wiederherstellung zusätzliche Domänen Controller installiert werden. 
 5. Nehmen Sie auf dem ersten wiederhergestellten DC in der Stamm Domäne der Gesamtstruktur alle Domänen weiten und Gesamtstruktur weiten Betriebs Master Rollen an. Organisations-Admins und Schema-Admins-Anmelde Informationen sind erforderlich, um Gesamtstruktur weite Betriebs Master Rollen zu übernehmen. 
   
      Nehmen Sie in jeder untergeordneten Domäne Domänen weite Betriebs Master Rollen an. Obwohl Sie die Betriebs Master Rollen auf dem wiederhergestellten DC nur vorübergehend beibehalten können, gewährleistet die Übernahme dieser Rollen, dass Sie an diesem Punkt des Wiederherstellungsprozesses der Gesamtstruktur diese Hosts hosten. Im Rahmen des Prozesses nach der Wiederherstellung können Sie die Betriebs Master Rollen nach Bedarf weiterverteilen. Weitere Informationen zum Übernehmen von Betriebs Master Rollen finden Sie unter übernehmen [einer Betriebs Master Rolle](AD-forest-recovery-seizing-operations-master-role.md). Empfehlungen zum Platzieren von Betriebs Master Rollen finden Sie unter [Was sind Betriebs Master?](https://technet.microsoft.com/library/cc779716.aspx). 
@@ -77,7 +76,7 @@ Führen Sie dann die folgenden Schritte aus. Verfahren zum Ausführen bestimmter
   
      Konfigurieren Sie in jeder untergeordneten Domäne den wiederhergestellten DC mit der IP-Adresse des ersten DNS-Servers in der Stamm Domäne der Gesamtstruktur als bevorzugten DNS-Server. Sie können diese Einstellung in den TCP/IP-Eigenschaften des LAN-Adapters konfigurieren. Weitere Informationen finden Sie unter [Konfigurieren von TCP/IP für die Verwendung von DNS](https://technet.microsoft.com/library/cc779282\(WS.10\).aspx). 
   
-     Löschen Sie in den DNS-Zonen _msdcs und Domain die NS-Einträge von DCS, die nach der Metadatenbereinigung nicht mehr vorhanden sind. Überprüfen Sie, ob die SRV-Einträge der bereinigten DCS entfernt wurden. Führen Sie Folgendes aus, um die Entfernung von DNS-SRV-Einträgen zu beschleunigen:  
+     Löschen Sie in der DNS-Zone _msdcs und der Domäne NS-Einträge von DCS, die nach der Metadatenbereinigung nicht mehr vorhanden sind. Überprüfen Sie, ob die SRV-Einträge der bereinigten DCS entfernt wurden. Führen Sie Folgendes aus, um die Entfernung von DNS-SRV-Einträgen zu beschleunigen:  
   
     ```  
     nltest.exe /dsderegdns:server.domain.tld  
@@ -111,7 +110,7 @@ Führen Sie dann die folgenden Schritte aus. Verfahren zum Ausführen bestimmter
   
      Ein zweites Problem besteht darin, dass ein Benutzerkonto, das nicht mehr vorhanden ist, möglicherweise weiterhin in der globalen Adressliste angezeigt wird. Ein drittes Problem besteht darin, dass eine universelle Gruppe, die nicht mehr vorhanden ist, möglicherweise weiterhin im Zugriffs Token eines Benutzers angezeigt wird. 
   
-     Wenn Sie einen Domänen Controller wieder hergestellt haben, der ein globaler Katalog war – entweder versehentlich oder weil es sich dabei um die alleinige vertrauenswürdige Sicherung handelt, die Sie als vertrauenswürdig eingestuft haben – wird empfohlen, dass Sie das Vorkommen veralteter Objekte verhindern, indem Sie den globalen Katalog kurz nach dem Wiederherstellungs Vorgang ganz. Das Deaktivieren des globalen katalogitätsflags führt dazu, dass der Computer alle partiellen Replikate (Partitionen) verliert und sich in den regulären DC-Status verlagert. 
+     Wenn Sie einen Domänen Controller wieder hergestellt haben, der ein globaler Katalog war – entweder versehentlich oder weil es sich dabei um die alleinige vertrauenswürdige Sicherung handelt, die Sie als vertrauenswürdig eingestuft haben – wird empfohlen, das Vorkommen veralteter Objekte zu verhindern, indem Sie den globalen Katalog kurz nach Abschluss des Wiederherstellungs Vorgangs deaktivieren. Das Deaktivieren des globalen katalogitätsflags führt dazu, dass der Computer alle partiellen Replikate (Partitionen) verliert und sich in den regulären DC-Status verlagert. 
   
 13. Konfigurieren Sie den Windows-Zeit Dienst. Konfigurieren Sie den PDC-Emulator in der Stamm Domäne der Gesamtstruktur so, dass er die Zeit von einer externen Zeit Quelle synchronisiert. Weitere Informationen finden Sie unter [Konfigurieren des Windows-Zeit Diensts auf dem PDC-Emulator in der Stamm Domäne der](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29)Gesamtstruktur. 
   
@@ -126,7 +125,7 @@ Fügen Sie nach der Überprüfung die DCS zum Produktionsnetzwerk hinzu, und fü
 
 - Um die Namensauflösung zu beheben, erstellen Sie DNS-Delegierungs Einträge und konfigurieren DNS-Weiterleitung und Stamm Hinweise nach Bedarf. Führen Sie **repadmin/replsum** zum Überprüfen der Replikation zwischen DCS aus. 
 - Wenn die wiederhergestellten Domänen Controller keine direkten Replikations Partner sind, wird die Replikations Wiederherstellung erheblich beschleunigt, indem temporäre Verbindungs Objekte zwischen Ihnen erstellt werden. 
-- Um die Metadatenbereinigung zu überprüfen, führen Sie **repadmin/viewlist \\** * für eine Liste aller DCS in der Gesamtstruktur aus. Führen Sie **nltest/DCList:** *<\> Domäne* aus, um eine Liste aller DCS in der Domäne zu finden. 
+- Um die Metadatenbereinigung zu überprüfen, führen Sie **repadmin/viewlist \\** * für eine Liste aller DCS in der Gesamtstruktur aus. Führen Sie **nltest/DCList:** *< Domänen\>* aus, um eine Liste aller DCS in der Domäne zu finden. 
 - Führen Sie dcdiag/v aus, um Fehler für alle DCS in der Gesamtstruktur zu melden. 
 
 ## <a name="add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain"></a>Hinzufügen des globalen Katalogs zu einem Domänen Controller in der Stamm Domäne der Gesamtstruktur

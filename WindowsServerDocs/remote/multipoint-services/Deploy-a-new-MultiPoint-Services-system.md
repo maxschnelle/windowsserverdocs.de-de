@@ -1,24 +1,20 @@
 ---
 title: Bereitstellen eines neuen Windows MultiPoint Services-Systems
 description: Erforderliche Schritte zum Bereitstellen einer neuen Multipoint Services-Umgebung
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4bac9d1b-bd21-4bc8-8f72-0dd9bb2b3f5d
 author: evaseydl
 ms.author: evas
 manager: scottman
-ms.openlocfilehash: a4ee5145af0dd8cc7d90a2fd7c02ed810157de21
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e152d8d259d0d838147ff11d88423b9ad2204009
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389709"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859753"
 ---
 # <a name="deploy-a-new-windows-multipoint-services-system"></a>Bereitstellen eines neuen Windows MultiPoint Services-Systems
 In den Themen in diesem Abschnitt wird erläutert, wie Sie Ihr Multipoint Services-System einrichten. Sie installieren und konfigurieren einen Multipoint-Server. Einrichten der Stationen Installieren von Treibern, Updates und Software optional einer Domäne beitreten Multipoint-Server aktivieren; und fügen Client Zugriffs Lizenzen (Client Access Licenses, CALs) für jede Station hinzu.  

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5b2876ac-fe7d-4054-bfba-b692e57bc0d2
 title: 'Anhang C: geschützte Konten und Gruppen in Active Directory'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 606b3a42d70ee5c2a3479f9c9df2f95a495d6afd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3036176127cbb5401c582d81ddb2704d790a209a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408724"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821683"
 ---
 # <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>Anhang C: Geschützte Konten und Gruppen in Active Directory
 
@@ -22,7 +21,7 @@ ms.locfileid: "71408724"
 
 ## <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>Anhang C: Geschützte Konten und Gruppen in Active Directory
 
-Innerhalb Active Directory werden ein Standardsatz von Konten und Gruppen mit hohen Berechtigungen als geschützte Konten und Gruppen angesehen. Bei den meisten Objekten in Active Directory können Delegierte Administratoren (Benutzer, die Berechtigungen zum Verwalten von Active Directory Objekten delegiert haben) die Berechtigungen für die Objekte ändern, einschließlich der Änderung von Berechtigungen, um das Ändern von Mitgliedschaften von die Gruppen, z. b.  
+Innerhalb Active Directory werden ein Standardsatz von Konten und Gruppen mit hohen Berechtigungen als geschützte Konten und Gruppen angesehen. Bei den meisten Objekten in Active Directory können Delegierte Administratoren (Benutzer, die Berechtigungen zum Verwalten von Active Directory Objekten delegiert haben) die Berechtigungen für die Objekte ändern, einschließlich der Änderung von Berechtigungen, um die Gruppenmitgliedschaften zu ändern, z. b.  
 
 Bei geschützten Konten und Gruppen werden die Berechtigungen der Objekte jedoch über einen automatischen Prozess festgelegt und erzwungen, der sicherstellt, dass die Berechtigungen für die Objekte konsistent bleiben, auch wenn die Objekte das Verzeichnis verschieben. Auch wenn jemand die Berechtigungen eines geschützten Objekts manuell ändert, stellt dieser Vorgang sicher, dass die Berechtigungen schnell auf ihre Standardwerte zurückgegeben werden.  
 
@@ -40,7 +39,7 @@ In der folgenden Tabelle sind die geschützten Gruppen in Active Directory aufge
 |Sicherungsoperatoren|Sicherungsoperatoren|Sicherungsoperatoren|Sicherungsoperatoren|
 |Zertifikatherausgeber|||
 |Domänen-Admins|Domänen-Admins|Domänen-Admins|Domänen-Admins|
-|{1}Domänencontroller{2}|{1}Domänencontroller{2}|{1}Domänencontroller{2}|{1}Domänencontroller{2}|
+|Domänencontroller|Domänencontroller|Domänencontroller|Domänencontroller|
 |Organisations-Admins|Organisations-Admins|Organisations-Admins|Organisations-Admins|
 ||||Enterprise Key-Administratoren|
 ||||Haupt Administratoren|

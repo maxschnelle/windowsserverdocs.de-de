@@ -1,28 +1,24 @@
 ---
 title: atmadm
-description: 'Das Thema Windows-Befehle für **atmadm** : überwacht Verbindungen und Adressen, die vom ATM-Telefon-Manager in einem Netzwerk mit einem asynchronen Übertragungsmodus (ATM) registriert werden.'
-ms.custom: na
+description: Windows-Befehls Thema für **atmadm**, das Verbindungen und Adressen überwacht, die vom ATM-Telefon-Manager in einem Netzwerk mit einem asynchronen Übertragungsmodus (ATM) registriert werden.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 37156c2e-c4d4-4fd8-a03d-245fb60bf996
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fdb0070063f2bfc6be7b762d71e2f30216f9d8d0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cbfb787c472eaad4cbef5f86e7546f7b6f1da305
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71382627"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80851273"
 ---
 # <a name="atmadm"></a>atmadm
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Überwacht die Verbindungen und Adressen, die vom ATM-Telefon-Manager in einem Netzwerk mit einem Netzwerk im asynchronen Übertragungsmodus (ATM) registriert werden. Sie können " **atmadm** " verwenden, um Statistiken für eingehende und ausgehende Aufrufe von atM-Adaptern anzuzeigen. **Atmadm** wird ohne Parameter verwendet und zeigt Statistiken zum Überwachen des Status aktiver atM-Verbindungen an. 
 
@@ -32,14 +28,14 @@ ms.locfileid: "71382627"
 atmadm [/c][/a][/s]
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|-------|--------|
-|/c|Zeigt die Telefon Informationen für alle aktuellen Verbindungen mit dem auf diesem Computer installierten atM-Netzwerkadapter an.|
-|/a|Zeigt die registrierte Netzwerkdienst-Netzwerkdienst-Netzwerkadresse (Network Service Access Point, NSAP) für jeden auf diesem Computer installierten Adapter an.|
-|/s|Zeigt eine Statistik zum Überwachen des Status aktiver atM-Verbindungen an.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+| Parameter | Beschreibung |
+| ------- | -------- |
+| /c | Zeigt die Telefon Informationen für alle aktuellen Verbindungen mit dem auf diesem Computer installierten atM-Netzwerkadapter an. |
+| /a | Zeigt die registrierte Netzwerkdienst-Netzwerkdienst-Netzwerkadresse (Network Service Access Point, NSAP) für jeden auf diesem Computer installierten Adapter an. |
+| /s | Zeigt eine Statistik zum Überwachen des Status aktiver atM-Verbindungen an. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 ## <a name="remarks"></a>Hinweise
 
@@ -75,21 +71,21 @@ atmadm [/c][/a][/s]
                               Tx:UBR,Peak 0,Avg 0,MaxSdu 0
                               Rx:UBR,Peak 16953936,Avg 16953936,MaxSdu 9180
     ```
-    
+
     Die folgende Tabelle enthält Beschreibungen der einzelnen Elemente in der/c-Beispielausgabe von **atmadm** .
-    
-    |Datentyp|Bildschirm Anzeige|Beschreibung|
-    |--------|---------|--------|
-    |Verbindungsinformationen|Eingabe/Ausgabe|die Richtung des Aufrufes.  **In** ist der atM-Netzwerkadapter von einem anderen Gerät aus.  **Out** ist vom atM-Netzwerkadapter auf ein anderes Gerät.|
-    ||PMP|Punkt-zu-Multipoint-Aufrufe.|
-    ||P-P|Punkt-zu-Punkt-Aufrufe.|
-    ||SVC|Die Verbindung befindet sich in einer umschwechselten virtuellen Verbindung.|
-    ||ANGEBOTENE|Die Verbindung befindet sich in einer permanenten virtuellen Verbindung.|
-    |VPI/VCI-Informationen|VPI/VCI|Virtueller Pfad und virtueller Kanal des eingehenden oder ausgehenden Aufrufes.|
-    |Remote Adresse/Medien Parameter|47000580FFE1000000F21A2E180000C110081500|NSAP-Adresse des aufrufenden **(in)** oder aufgerufenen **(Out)** atM-Geräts.|
-    ||**Llte**|Der Parameter **TX** umfasst die folgenden drei Elemente:<br /><br />-Default oder der angegebene Bitrate-Typ (UBR, CBR, VBR oder ABR)<br />-Standard oder angegebene Zeilen Geschwindigkeit<br />-Angegebene SDU-Größe (Service Data Unit)|
-    ||**RX**|Der **RX** -Parameter umfasst die folgenden drei Elemente:<br /><br />-Default oder der angegebene Bitrate-Typ (UBR, CBR, VBR oder ABR)<br />-Standard oder angegebene Zeilen Geschwindigkeit<br />-Angegebene SDU-Größe|
-    
+
+    | Datentyp | Bildschirm Anzeige | Beschreibung |
+    | -------- | --------- | -------- |
+    | Verbindungsinformationen | Ein/Aus | Die Richtung des Aufrufes. **In** ist der atM-Netzwerkadapter von einem anderen Gerät aus.  **Out** ist vom atM-Netzwerkadapter auf ein anderes Gerät. |
+    | PMP | Punkt-zu-Multipoint-Aufrufe. |
+    | p-p | Punkt-zu-Punkt-Aufrufe. |
+    | SVC | Die Verbindung befindet sich in einer umschwechselten virtuellen Verbindung. |
+    | Angebotene | Die Verbindung befindet sich in einer permanenten virtuellen Verbindung. |
+    | VPI/VCI-Informationen | VPI/VCI | Virtueller Pfad und virtueller Kanal des eingehenden oder ausgehenden Aufrufes. |
+    | Remote Adresse/Medien Parameter | 47000580ffe1000000f21a2e180000c110081500 | NSAP-Adresse des aufrufenden **(in)** oder aufgerufenen **(Out)** atM-Geräts. |
+    | Llte | Der Parameter **TX** umfasst die folgenden drei Elemente:<p>-Default oder der angegebene Bitrate-Typ (UBR, CBR, VBR oder ABR)<p>-Standard oder angegebene Zeilen Geschwindigkeit<p>-Angegebene SDU-Größe (Service Data Unit). |
+    | RX | Der **RX** -Parameter umfasst die folgenden drei Elemente:<p>-Default oder der angegebene Bitrate-Typ (UBR, CBR, VBR oder ABR)<p>-Standard oder angegebene Zeilen Geschwindigkeit<p>-Angegebene SDU-Größe. |
+
 - Der Befehl **atmadm/a** erzeugt eine Ausgabe ähnlich der folgenden:
 
     ```
@@ -97,7 +93,7 @@ atmadm [/c][/a][/s]
     atM addresses for Interface : [009] Olicom atM PCI 155 Adapter
     47000580FFE1000000F21A2E180000C110081500
     ```
-    
+
 - Der Befehl **atmadm/s** erzeugt eine Ausgabe ähnlich der folgenden:
 
     ```
@@ -113,22 +109,22 @@ atmadm [/c][/a][/s]
     Signaling and ILMI Packets Sent            = 33655
     Signaling and ILMI Packets Received        = 34989
     ```
-    
+
     Die folgende Tabelle enthält Beschreibungen der einzelnen Elemente in der/s-Beispielausgabe von **atmadm** .
-    
-    |Statistik zum CallManager|Beschreibung|
-    |-------------|--------|
-    |Aktuelle aktive Aufrufe|Aufrufe, die zurzeit auf dem auf diesem Computer installierten atM-Adapter aktiv sind.|
-    |Gesamtanzahl erfolgreicher eingehender Aufrufe|Aufrufe, die von anderen Geräten in diesem atM-Netzwerk erfolgreich empfangen wurden.|
-    |Erfolgreiche ausgehende Aufrufe gesamt|Aufrufe wurden von diesem Computer aus an andere atM-Geräte in diesem Netzwerk erfolgreich abgeschlossen.|
-    |Nicht erfolgreiche eingehende Aufrufe|Eingehende Aufrufe, bei denen keine Verbindung mit diesem Computer hergestellt werden konnte.|
-    |Nicht erfolgreiche ausgehende Aufrufe|Ausgehende Aufrufe, bei denen keine Verbindung mit einem anderen Gerät im Netzwerk hergestellt werden konnte.|
-    |durch Remote geschlossene Aufrufe|Aufrufe, die von einem Remote Gerät im Netzwerk geschlossen werden.|
-    |lokal geschlossene Aufrufe|Aufrufe, die von diesem Computer geschlossen werden.|
-    |Signalisierung und gesendete ILMI-Pakete|Anzahl der integrierten ILMI-Pakete (Local Management Interface), die an den Switch gesendet werden, mit dem dieser Computer eine Verbindung herstellt.|
-    |Signalisierungs-und ILMI-Pakete empfangen|Anzahl der vom atM-Schalter empfangenen ILMI-Pakete.|
-    
-## <a name="BKMK_Examples"></a>Beispiele
+
+    | Statistik zum CallManager | Beschreibung |
+    | ------------- | -------- |
+    | Aktuelle aktive Aufrufe | Aufrufe, die zurzeit auf dem auf diesem Computer installierten atM-Adapter aktiv sind. |
+    | Gesamtanzahl erfolgreicher eingehender Aufrufe | Aufrufe, die von anderen Geräten in diesem atM-Netzwerk erfolgreich empfangen wurden. |
+    | Erfolgreiche ausgehende Aufrufe gesamt | Aufrufe wurden von diesem Computer aus an andere atM-Geräte in diesem Netzwerk erfolgreich abgeschlossen. |
+    | Nicht erfolgreiche eingehende Aufrufe | Eingehende Aufrufe, bei denen keine Verbindung mit diesem Computer hergestellt werden konnte. |
+    | Nicht erfolgreiche ausgehende Aufrufe | Ausgehende Aufrufe, bei denen keine Verbindung mit einem anderen Gerät im Netzwerk hergestellt werden konnte. |
+    | Durch Remote geschlossene Aufrufe | Aufrufe, die von einem Remote Gerät im Netzwerk geschlossen werden. |
+    | Lokal geschlossene Aufrufe | Aufrufe, die von diesem Computer geschlossen werden. |
+    | Signalisierung und gesendete ILMI-Pakete | Anzahl der integrierten ILMI-Pakete (Local Management Interface), die an den Switch gesendet werden, mit dem dieser Computer eine Verbindung herstellt. |
+    | Signalisierungs-und ILMI-Pakete empfangen | Anzahl der vom atM-Schalter empfangenen ILMI-Pakete. |
+
+## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
 
 Geben Sie Folgendes ein, um die Aufrufen von Informationen für alle aktuellen Verbindungen mit dem auf diesem Computer installierten atM-Netzwerkadapter anzuzeigen:
 

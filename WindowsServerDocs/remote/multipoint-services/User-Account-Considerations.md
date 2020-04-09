@@ -1,27 +1,23 @@
 ---
 title: Überlegungen zu Benutzerkonten
 description: Bietet Überlegungen zu Benutzerkonto, Benutzername und Kennwort für Multipoint Services
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e225900b-cee9-48c9-b21c-394dc5e72b78
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: c81d14d46e96d39676e1fb6fa31892e0d5e1b683
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 732100a79adbdd7d9fbe4ade742c43084d6b54f6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389257"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820573"
 ---
 # <a name="user-account-considerations"></a>Überlegungen zu Benutzerkonten
-In diesem Thema werden Probleme beschrieben, die Sie als Administrator beim Erstellen und Verwalten von Benutzerkonten berücksichtigen sollten. Sie verwalten Benutzerkonten auf der Registerkarte Benutzer im Multipoint-Manager. Weitere Informationen finden Sie unter [Verwalten von Benutzerkonten](Manage-User-Accounts.md).  
+In diesem Thema werden Probleme beschrieben, die von Ihnen als Administrator beim Erstellen und Verwalten von Benutzerkonten berücksichtigt werden sollten. Sie verwalten Benutzerkonten auf der Registerkarte Benutzer im Multipoint-Manager. Weitere Informationen finden Sie unter [Verwalten von Benutzerkonten](Manage-User-Accounts.md).  
   
 ## <a name="user-account-types"></a>Typen von Benutzerkonten  
 Bei einem Benutzerkonto handelt es sich um eine Sammlung von Informationen, die Multipoint Services mitteilt, auf welche Dateien und Ordner ein Benutzer zugreifen kann, welche Änderungen Sie an dem Multipoint Services-System vornehmen können und welche Einstellungen für jeden Benutzer, wie z. b. Desktop Hintergrund. Jede Person greift mit einem eindeutigen Benutzernamen und einem Kennwort auf ihr eigenes Benutzerkonto zu. Multipoint Services unterstützt drei Arten von Benutzerkonten:  

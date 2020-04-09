@@ -1,6 +1,5 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: RID-Pools werden erhöht'
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: c37bc129-a5e0-4219-9ba7-b4cf3a9fc9a4
 ms.technology: identity-adds
-ms.openlocfilehash: aa1f5e8b40aa43fa2601bc6f11efe2fcd4ccd05e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 308dce9be53194eb7db91944964ae5de03345ab6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369060"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823853"
 ---
 # <a name="ad-forest-recovery---raising-the-value-of-available-rid-pools"></a>AD-Gesamtstruktur Wiederherstellung: erhöhen des Werts verfügbarer RID-Pools 
 
@@ -51,11 +50,11 @@ Wenn Sie den Wert der großen Ganzzahl vergrößern, erhöhen Sie den Wert des u
 7. Wenn Sie Strg + c oder den Befehl **Kopieren** im Menü **Bearbeiten** verwenden, kopieren Sie den Wert in die Zwischenablage. 
 8. Fügen Sie im Dialogfeld "Bearbeiten" von ADSIEdit den neuen Wert ein. 
    ![ADSI-Bearbeitungs](media/AD-Forest-Recovery-Raise-RID-Pool/adsi5.png) 
-9. Klicken Sie im Dialogfeld auf OK **, und über** nehmen Sie das Eigenschaften Blatt, um das **ridavailablepool** -Attribut zu aktualisieren. 
+9. Klicken **OK** Sie im Dialogfeld auf OK **, und über** nehmen Sie das Eigenschaften Blatt, um das **ridavailablepool** -Attribut zu aktualisieren. 
   
 ### <a name="to-raise-the-value-of-available-rid-pools-using-ldp"></a>So erhöhen Sie den Wert der verfügbaren RID-Pools mithilfe von LDP  
   
-1. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie die EINGABETASTE:  
+1. Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:  
    **LDP**  
 2. Klicken Sie auf **Verbindung**, auf **verbinden**, geben Sie den Namen des RID-Managers ein, und klicken Sie dann auf **OK**. 
    ![LDP](media/AD-Forest-Recovery-Raise-RID-Pool/ldp1.png)

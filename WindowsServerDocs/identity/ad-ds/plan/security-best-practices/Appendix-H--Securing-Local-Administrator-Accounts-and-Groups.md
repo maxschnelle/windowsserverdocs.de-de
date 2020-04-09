@@ -1,7 +1,6 @@
 ---
 ms.assetid: ea015cbc-dea9-4c72-a9d8-d6c826d07608
 title: 'Anhang H: Sichern von lokalen Administrator Konten und-Gruppen'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 7e0cff62851250009d8af6ec7d87ec8191dcaec0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9c5cb76ff137912893c5bc0322d5b79bee2203fe
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408631"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821463"
 ---
 # <a name="appendix-h-securing-local-administrator-accounts-and-groups"></a>Anhang H: Schützen lokaler Administratorkonten und -gruppen
 
@@ -44,7 +43,7 @@ Für das lokale Administrator Konto in jeder Domäne in der Gesamtstruktur sollt
 
 ###### <a name="configuring-gpos-to-restrict-administrator-account-on-domain-joined-systems"></a>Konfigurieren von GPOs, um das Administrator Konto auf in die Domäne eingebundenen Systemen einzuschränken  
 
-1.  KlickenSie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
+1.  Klicken **Server Manager**Sie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
 
 2.  Erweitern Sie in der Konsolen Struktur <Forest>\domains\\<Domain>, und klicken Sie dann auf **Gruppenrichtlinie Objekte** (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
 
@@ -70,7 +69,7 @@ Für das lokale Administrator Konto in jeder Domäne in der Gesamtstruktur sollt
 
         ![sichere lokale Administrator Konten und-Gruppen](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_104.png)  
 
-    3.  Klicken Sie auf „OK“.  
+    3.  Klicken Sie auf OK.  
 
         > [!IMPORTANT]  
         > Wenn Sie diesem Einstellungen das Administrator Konto hinzufügen, geben Sie an, ob Sie ein lokales Administrator Konto oder ein Domänen Administrator Konto konfigurieren, indem Sie die Bezeichnung der Konten angeben. Wenn Sie z. b. das Administrator Konto der tailspintoys-Domäne diesen Ablehnungs rechten hinzufügen möchten, navigieren Sie zum Administrator Konto für die tailspintoys-Domäne, die als TAILSPINTOYS\Administrator. angezeigt wird. Wenn Sie in der Gruppenrichtlinienobjekt-Editor in diese Benutzerrechte Einstellungen **Administrator** eingeben, beschränken Sie das lokale Administrator Konto auf jedem Computer, auf den das Gruppenrichtlinien Objekt angewendet wird, wie zuvor beschrieben.  
@@ -132,7 +131,7 @@ Für das lokale Administrator Konto in jeder Domäne in der Gesamtstruktur sollt
 
     5.  Erstellen Sie Links zu allen anderen Organisationseinheiten, die Mitglieds Server enthalten.  
 
-#### <a name="verification-steps"></a>Überprüfungs Schritte  
+#### <a name="verification-steps"></a>Überprüfungsschritte  
 
 ##### <a name="verify-deny-access-to-this-computer-from-the-network-gpo-settings"></a>GPO-Einstellungen "Zugriff auf diesen Computer über das Netzwerk verweigern"  
 

@@ -1,24 +1,20 @@
 ---
 title: Installieren der Server Sicherung auf dem Multipoint-Server
 description: Führt Sie durch die Schritte zum Installieren der Sicherungs-und Wiederherstellungs Tools
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e4331370-ba07-4529-92ab-db14a41bfc3b
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 933a24ee91fa1f5ccbe31ff4cb722a7c3eb54e4b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f8fe5ac8b57105d421af431b12c8dc17250b622d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395120"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820333"
 ---
 # <a name="install-server-backup-on-your-multipoint-server"></a>Installieren der Server Sicherung auf dem Multipoint-Server
 Es wird empfohlen, dass Sie einen Sicherungs-und Wiederherstellungs Plan für Ihre Multipoint-Server in Erwägung gezogen.
@@ -56,7 +52,7 @@ Verwenden Sie die folgenden Verfahren, um den erforderlichen Sicherungstyp einzu
   
     -   Um das Windows Server-Sicherung Snap-in zu öffnen, geben Sie auf dem **Start** Bildschirm **Backup**ein, und klicken Sie dann in den Ergebnissen auf **Windows Server-Sicherung** .  
   
-    -   So starten Sie das Wbadmin-Tool und zeigen die Syntax für seine Befehle an: Geben Sie auf dem **Start** Bildschirm **Command**ein. Klicken Sie in den Ergebnissen mit der rechten Maustaste auf **Eingabeaufforderung**, klicken Sie unten auf der Seite auf **als Administrator ausführen** , und klicken Sie dann an der Bestätigungsaufforderung auf **Ja** . Geben Sie an der Eingabeaufforderung **Wbadmin/?** ein. und drücken Sie die EINGABETASTE. Es sollten Befehlssyntax und Beschreibungen für das Tool angezeigt werden.  
+    -   Zum Starten des Wbadmin-Tools und Anzeigen der Syntax für die zugehörigen Befehle: Geben Sie auf dem **Start** Bildschirm **Command**ein. Klicken Sie in den Ergebnissen mit der rechten Maustaste auf **Eingabeaufforderung**, klicken Sie unten auf der Seite auf **als Administrator ausführen** , und klicken Sie dann an der Bestätigungsaufforderung auf **Ja** . Geben Sie an der Eingabeaufforderung **Wbadmin/?** ein. und drücken Sie die EINGABETASTE. Es sollten Befehlssyntax und Beschreibungen für das Tool angezeigt werden.  
   
 ## <a name="configure-backups-using-windows-server-backup"></a>Konfigurieren von Sicherungen mithilfe von Windows Server-Sicherung  
   

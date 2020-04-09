@@ -1,7 +1,6 @@
 ---
 ms.assetid: 8a3cf2ae-2511-4eea-afd5-a43179a78613
-title: Directory Services-Komponentenupdates
-description: ''
+title: Aktualisierungen an Verzeichnisdienstkomponenten
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,18 +8,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d79f31572bc30d0f4fa3af45671c58b799e40f02
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cde839feda47d55415b2b6cc1026a7a3e6515a44
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390019"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823093"
 ---
-# <a name="directory-services-component-updates"></a>Directory Services-Komponentenupdates
+# <a name="directory-services-component-updates"></a>Aktualisierungen an Verzeichnisdienstkomponenten
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-**Autor**: Justin Turner, Senior Support Eskalations Ingenieur bei der Windows-Gruppe  
+**Autor**: Justin Turner, Senior Support Eskalations Techniker mit der Windows-Gruppe  
   
 > [!NOTE]  
 > Dieser Inhalt wurde von einem Mitarbeiter des Microsoft-Kundendiensts geschrieben und richtet sich an erfahrene Administratoren und Systemarchitekten, die einen tieferen technischen Einblick in die Funktionen und Lösungen von Windows Server 2012 R2 suchen, als Ihnen die Themen im TechNet bieten können. Allerdings wurde er nicht mit der gleichen linguistischen Sorgfalt überprüft wie für die Artikel des TechNet üblich, so dass die Sprache gelegentlich holprig klingen mag.  
@@ -42,7 +41,7 @@ Erläutern der folgenden neuen Updates der Verzeichnisdienst Komponente:
   
     -   [Durchsatzverbesserung bei der Active Directory-Replikation](../../../ad-ds/manage/component-updates/Directory-Services-component-updates.md#BKMK_ADRepl)  
   
-## <a name="BKMK_FL"></a>Domänen-und Gesamtstruktur Funktionsebenen  
+## <a name="domain-and-forest-functional-levels"></a><a name="BKMK_FL"></a>Domänen-und Gesamtstruktur Funktionsebenen  
   
 ### <a name="overview"></a>Übersicht  
 Der Abschnitt enthält eine kurze Einführung in die Änderungen an der Domänen-und Gesamtstruktur Funktionsebene.  
@@ -50,9 +49,9 @@ Der Abschnitt enthält eine kurze Einführung in die Änderungen an der Domänen
 ### <a name="new-dfl-and-ffl"></a>Neue DFL und FFL  
 Mit der-Version gibt es neue Domänen-und Gesamtstruktur Funktionsebenen:  
   
--   Gesamtstrukturfunktionsebene: Windows Server 2012 R2  
+-   Gesamtstruktur Funktionsebene: Windows Server 2012 R2  
   
--   Domänen Funktionsebene: Windows Server 2012 R2  
+-   Domänen Funktionsebene: Windows Server 2012 R2  
   
 ### <a name="the-windows-server-2012-r2-domain-functional-level-enables-support-for-the-following"></a>Die Domänen Funktionsebene Windows Server 2012 R2 bietet Unterstützung für Folgendes:  
   
@@ -60,13 +59,13 @@ Mit der-Version gibt es neue Domänen-und Gesamtstruktur Funktionsebenen:
   
     *Geschützte Benutzer* , die sich bei einer Windows Server 2012 R2-Domäne authentifizieren, können **nicht mehr**:  
   
-    -   Authentifizieren mit NTLM-Authentifizierung  
+    -   Authentifizieren mit der NTLM-Authentifizierung  
   
-    -   Verwenden von des-oder RC4-Verschlüsselungs Sammlungen in der Kerberos-Vorauthentifizierung  
+    -   Verwenden von DES- oder RC4-Verschlüsselungssammlungen bei der Kerberos-Vorauthentifizierung  
   
-    -   Delegiert mit eingeschränkter oder eingeschränkter Delegierung  
+    -   Delegierung mit eingeschränkter oder nicht eingeschränkter Delegierung  
   
-    -   Verlängern von Benutzer Tickets (TGTs) über die anfängliche Dauer von 4 Stunden hinaus  
+    -   Erneuern von Benutzertickets (TGTs) jenseits der ursprünglichen vierstündigen Lebensdauer  
   
 2.  Authentifizierungsrichtlinien  
   
@@ -112,7 +111,7 @@ Erstellung einer neuen Domäne in einer vorhandenen Gesamtstruktur
   
 ![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_FFL.gif)  
   
-### <a name="adprep"></a>ADPREP  
+### <a name="adprep"></a>Adprep  
 In dieser Version sind keine neuen Gesamtstruktur-oder Domänen Vorgänge vorhanden.  
   
 Diese LDF-Dateien enthalten Schema Änderungen für den **Geräte Registrierungsdienst**.  
@@ -145,7 +144,7 @@ Diese LDF-Dateien enthalten Schema Änderungen für den **Geräte Registrierungs
   
 2.  Sch69  
   
-## <a name="BKMK_NTFRS"></a>Veraltung von NTFRS  
+## <a name="deprecation-of-ntfrs"></a><a name="BKMK_NTFRS"></a>Veraltung von NTFRS  
   
 ### <a name="overview"></a>Übersicht  
 FRS ist in Windows Server 2012 R2 veraltet.  Die Veraltung von FRS erfolgt durch Erzwingen einer minimalen Domänen Funktionsebene (Windows Server 2008).  Diese Erzwingung ist nur vorhanden, wenn die neue Domäne mithilfe von Server-Manager oder Windows PowerShell erstellt wird.  
@@ -156,7 +155,7 @@ Verwenden Sie den-DomainMode-Parameter mit den Cmdlets install-addsforest oder i
   
 ![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_PS_InstallDFL2.gif)  
   
-## <a name="BKMK_LDAPQuery"></a>Änderungen am LDAP-Abfrageoptimierer  
+## <a name="ldap-query-optimizer-changes"></a><a name="BKMK_LDAPQuery"></a>Änderungen am LDAP-Abfrageoptimierer  
   
 ### <a name="overview"></a>Übersicht  
 Der Algorithmus für den LDAP-Abfrageoptimierer wurde neu ausgewertet und weiter optimiert.  Das Ergebnis ist die Leistungsverbesserung bei der LDAP-Such Effizienz und der LDAP-Suchzeit komplexer Abfragen.  
@@ -268,7 +267,7 @@ Log Record Bytes Generated: 0
   
         ![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_Event1644.gif)  
   
-### <a name="BKMK_EnableStats"></a>So aktivieren Sie das stats-Steuerelement in LDP  
+### <a name="to-enable-the-stats-control-in-ldp"></a><a name="BKMK_EnableStats"></a>So aktivieren Sie das stats-Steuerelement in LDP  
   
 1.  Öffnen Sie "Ldp. exe", und verbinden und binden Sie einen Domänen Controller.  
   
@@ -308,7 +307,7 @@ Führen Sie Folgendes auf einem Domänen Controller oder einem in eine Domäne e
   
 [951581](https://support.microsoft.com/kb/951581) LDAP-Abfragen werden langsamer als erwartet im AD-oder LDS/ADAM-Verzeichnisdienst ausgeführt, und die Ereignis-ID 1644 kann protokolliert werden.  
   
-## <a name="BKMK_1644"></a>1644 Ereignis Verbesserungen  
+## <a name="1644-event-improvements"></a><a name="BKMK_1644"></a>1644 Ereignis Verbesserungen  
   
 ### <a name="overview"></a>Übersicht  
 Dieses Update fügt der Ereignis-ID 1644 zusätzliche Ergebnisse der LDAP-Suchergebnisse hinzu, um die Problembehandlung zu unterstützen.  Außerdem gibt es einen neuen Registrierungs Wert, der verwendet werden kann, um die Protokollierung für einen zeitbasierten Schwellenwert zu aktivieren.  Diese Verbesserungen wurden in Windows Server 2012 und Windows Server 2008 R2 SP1 über KB [2800945](https://support.microsoft.com/kb/2800945) verfügbar gemacht und werden für Windows Server 2008 SP2 zur Verfügung gestellt.  
@@ -368,7 +367,7 @@ Windows Registry Editor Version 5.00
 ```  
   
 #### <a name="comparison-of-the-old-and-new-event-id-1644"></a>Vergleich der alten und neuen Ereignis-ID 1644  
-JÄHRIGEN  
+Jährigen  
   
 ![Verzeichnisdienst Updates](media/Directory-Services-component-updates/GTR_ADDS_Event1644_2012.gif)  
   
@@ -386,7 +385,7 @@ NEU
   
 4.  Führen Sie eine LDAP-Suche durch, die vom Abfrageoptimierer nicht optimiert werden kann, da mindestens ein Attribut nicht indiziert ist.  
   
-## <a name="BKMK_ADRepl"></a>Active Directory Replikations Durchsatz Verbesserung  
+## <a name="active-directory-replication-throughput-improvement"></a><a name="BKMK_ADRepl"></a>Active Directory Replikations Durchsatz Verbesserung  
   
 ### <a name="overview"></a>Übersicht  
 Die AD-Replikation verwendet RPC für den Replikations Transport. Standardmäßig verwendet RPC einen 8-k-Übertragungs Puffer und eine Paketgröße von 5K. Dies hat den Nettoeffekt, bei dem die sendende Instanz drei Pakete überträgt (ca. 15K Daten) und dann auf einen Netzwerkroundtrip warten muss, bevor mehr gesendet wird. Bei einer Roundtrip-Zeit von 3 MS beträgt der höchste Durchsatz etwa 40 MBit/s, auch bei Netzwerken mit 1 Gbit/s oder 10 Gbit/s.  

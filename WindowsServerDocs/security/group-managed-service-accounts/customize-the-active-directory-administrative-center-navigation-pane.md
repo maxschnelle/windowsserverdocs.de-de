@@ -2,21 +2,17 @@
 title: Active Directory-Verwaltungscenter Navigationsbereich anpassen
 ms.prod: windows-server
 description: Windows Server-Sicherheit
-ms.custom: na
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.assetid: c9933d16-e153-435a-b5b7-3e594db42d5c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 63038014207acd3846cb8db20c7836718615df51
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0053fc4e4f3e22a8fd98e242e38fc7c4e2002867
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403753"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857003"
 ---
 # <a name="customize-the-active-directory-administrative-center-navigation-pane"></a>Active Directory-Verwaltungscenter Navigationsbereich anpassen
 
@@ -37,7 +33,7 @@ ms.locfileid: "71403753"
 
 2. Klicken Sie auf einen der folgenden Befehle:
 
-   -   **Umbenennen**
+   -   **Benen**
 
    -   **Duplizierten Knoten erstellen**
 

@@ -1,24 +1,20 @@
 ---
 title: Einrichten von Updatesynchronisierungen
 description: 'Windows Server Update Service (WSUS)-Thema: Einrichten und Konfigurieren von Update synchronierungen'
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ddd5c395-451b-44a0-8e08-a05db26d2282
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9c7bca5be7a8ec0e857cba65680fbc3b967af4f8
-ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
+ms.openlocfilehash: f4da028b2100d824b55c00c185f8b90df7d787bf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80639752"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828542"
 ---
 # <a name="setting-up-update-synchronizations"></a>Einrichten von Updatesynchronisierungen
 
@@ -89,7 +85,7 @@ Zum Anpassen der Synchronisierung des WSUS-Servers mit der Update Quelle stehen 
 
 -   Sie können einen benutzerdefinierten Port für die Synchronisierung angeben. Weitere Informationen zum Konfigurieren von Ports finden Sie unter [Schritt 3: Konfigurieren von WSUS](../deploy/2-configure-wsus.md) im WSUS-Bereitstellungs Handbuch.
 
--   Sie können Secure Socket Layer (SSL) verwenden, um die Synchronisierung von Update Informationen zwischen WSUS-Servern zu sichern. Weitere Informationen zur Verwendung von SSL finden Sie im Abschnitt "3,5. Sichern Sie WSUS mit dem Secure Sockets Layer-Protokoll "von [Schritt 3: Konfigurieren von WSUS](../deploy/2-configure-wsus.md) im WSUS-Bereitstellungs Handbuch.
+-   Sie können Secure Socket Layer (SSL) verwenden, um die Synchronisierung von Update Informationen zwischen WSUS-Servern zu sichern. Weitere Informationen zur Verwendung von SSL finden Sie im Abschnitt 3,5. Sichern Sie WSUS mit dem Secure Sockets Layer-Protokoll von [Schritt 3: Konfigurieren von WSUS](../deploy/2-configure-wsus.md) im WSUS-Bereitstellungs Handbuch.
 
 ## <a name="synchronizing-manually-or-automatically"></a>Manuelles oder Automatisches Synchronisieren
 Sie können entweder den WSUS-Server manuell synchronisieren oder eine Uhrzeit für die automatische Synchronisierung angeben.

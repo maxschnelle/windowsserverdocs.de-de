@@ -1,7 +1,6 @@
 ---
 ms.assetid: fd427da3-3869-428f-bf2a-56c4b7d99b40
 title: Block-Clone-Vorgänge auf ReFS
-description: ''
 author: gawatu
 ms.author: gawatu
 manager: gawatu
@@ -9,22 +8,22 @@ ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage-file-systems
-ms.openlocfilehash: 81186624e19f9235cbdf8c7f0d44bd2927a68099
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b133e518c4226c516974ca89a457cf0aa64cac7e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394022"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861353"
 ---
 # <a name="block-cloning-on-refs"></a>Block-Clone-Vorgänge auf ReFS
 
->Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (halbjährlicher Kanal)
+>Gilt für: Windows Server 2019, Windows Server 2016, Windows Server (Semi-Annual Channel)
 
 Block-Clone-Vorgänge weisen das Dateisystem an, den Bytewert von Dateien im Namen einer Anwendung zu kopieren, bei der die Zieldatei entweder der Ausgangsdatei gleicht oder nicht. Kopiervorgänge sind leider sehr kostspielig, da sie teure Lese- und Schreibvorgänge für die zugrunde liegenden, physischen Daten auslösen. 
 
 Block-Clone-Vorgänge auf ReFS führen jedoch Kopien als kostengünstige Metadatenvorgänge aus, anstatt Lese- und Schreibvorgänge auf Dateidaten durchzuführen. ReFS ermöglicht mehreren Dateien, die gleichen logischen Cluster (physische Speicherorte auf einem Datenträger) zu teilen, wodurch Kopiervorgänge nur einer Region der Datei auf einem separaten physischen Speicherort zugeordnet werden müssen und der teure, physische Vorgang zu einem schnellen logischen Vorgang konvertiert wird. Dadurch werden Kopien schneller erstellt und es wird weniger E/A im zugrunde liegenden Speicher generiert. Diese Verbesserung ist auch von Vorteil für Virtualisierungs-Workloads, da VHDX-Prüfpunkt-Mergevorgängen bei der Verwendung von Block-Clone-Vorgängen erheblich beschleunigt werden. Da mehrere Dateien die gleichen logischen Cluster teilen können, werden identische Daten physisch nicht mehrmals gespeichert, was die Speicherkapazität verbessert. 
   
-## <a name="how-it-works"></a>Funktionsweise 
+## <a name="how-it-works"></a>So funktioniert's 
 
 Block-Clone-Vorgänge auf ReFS konvertieren eine Dateidatenoperation in einen Metadatenvorgang. Um diese Optimierung vorzunehmen, führt ReFS Referenzzähler in die Metadaten für die kopierten Regionen ein. Diese Referenzzähler zeichnen die Anzahl der eindeutigen Dateiregionen auf, die die gleichen physischen Regionen aufweisen. Dadurch können mehrere Dateien die gleichen physischen Daten gemeinsam nutzen:
 

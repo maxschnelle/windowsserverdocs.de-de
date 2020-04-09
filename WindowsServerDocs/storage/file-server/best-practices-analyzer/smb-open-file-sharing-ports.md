@@ -1,18 +1,17 @@
 ---
-title: 'SMB: Datei- und Ports sollte geöffnet sein'
-TOCTitle: 'SMB: File and printer sharing ports should be open'
+title: SMB-Datei-und Druckerfreigabe Ports müssen geöffnet sein.
 ms.date: 07/02/2012
 ms.prod: windows-server
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 80cc75f983d4593e4ee98309d1fa39c024b7b379
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: a7e98129c2fb4f2259364c547b426d46f0a24ef3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950297"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859463"
 ---
 # <a name="smb-file-and-printer-sharing-ports-should-be-open"></a>SMB: Datei- und Ports sollte geöffnet sein
 
@@ -39,7 +38,7 @@ Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 und 
 <td><p>Dateidienste</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>Schweregrad</strong></p></td>
+<td><p><strong>Zunehmen</strong></p></td>
 <td><p>Error</p></td>
 </tr>
 <tr class="even">
@@ -71,9 +70,9 @@ Zum Ausführen dieser Prozedur müssen Sie Mitglied der Gruppe **Administratoren
 
 3.  Suchen Sie unter **Eingehende Regeln**die Regel **Datei und die Druckerfreigabe (NB-Session-in)** und **Datei-und Druckerfreigabe (SMB-in)** .
 
-4.  Klicken Sie mit der rechten Maustaste auf jede Regel, und klicken Sie dann auf **Regel aktivieren**.
+4.  Klicken Sie für jede Regel mit der rechten Maustaste auf die Regel, und klicken Sie dann auf **Regel aktivieren**.
 
 ## <a name="additional-references"></a>Weitere Verweise
 
-[Grundlegendes zu freigegebenen Ordnern und die Windows-Firewall](https://technet.microsoft.com/library/cc731402.aspx)(https://technet.microsoft.com/library/cc731402.aspx)
+Grundlegendes [zu freigegebenen Ordnern und der Windows-Firewall](https://technet.microsoft.com/library/cc731402.aspx)(https://technet.microsoft.com/library/cc731402.aspx)
 

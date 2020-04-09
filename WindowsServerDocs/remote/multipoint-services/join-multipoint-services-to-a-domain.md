@@ -1,24 +1,20 @@
 ---
 title: Verknüpfen von Multipoint Services mit einer Domäne (optional)
 Description: Enthält die Schritte zum Verknüpfen von Multipoint Services mit Ihrer Domäne.
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 623b7c21-dcbb-402e-8b5a-8e434cd225bd
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 79bd9e594f94c7b3acd06265891dd646b3853b50
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 03b60b1d3a7a776448eaa18d926a87a00f56fc30
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394743"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820243"
 ---
 # <a name="join-the-multipoint-services-computer-to-a-domain-optional"></a>Hinzufügen des Multipoint Services-Computers zu einer Domäne (optional)
 Wenn Sie über eine Active Directory Domäne auf den Multipoint Services-Computer zugreifen werden, besteht der nächste Schritt darin, den Computer der Domäne hinzuzufügen.  
@@ -26,9 +22,9 @@ Wenn Sie über eine Active Directory Domäne auf den Multipoint Services-Compute
 > [!IMPORTANT]  
 > Sie müssen die Zeitzone überprüfen, bevor Sie den Computer einer Domäne hinzufügen. Anweisungen finden Sie unter [Festlegen von Datum, Uhrzeit und](Set-the-date--time--and-time-zone.md)Zeitzone.  
    
-1.  Öffnen Sie auf der **Startseite die ****Systemsteuerung**. Klicken Sie auf **System und Sicherheit**, und klicken Sie dann auf **System**.  
+1.  Öffnen Sie auf derStartseite dieSystemsteuerung. Klicken Sie auf **System und Sicherheit**, und klicken Sie dann auf **System**.  
   
-2.  Klicken Sie unter **Einstellungen für Computernamen, Domäne und Arbeitsgruppe**auf **Einstellungen ändern**.  
+2.  Klicken Sie unter **Einstellungen für Computernamen, Domäne und Arbeitsgruppe** auf **Einstellungen ändern**.  
   
 3.  Klicken Sie auf der Registerkarte **Computer Name** auf **ändern**.  
   

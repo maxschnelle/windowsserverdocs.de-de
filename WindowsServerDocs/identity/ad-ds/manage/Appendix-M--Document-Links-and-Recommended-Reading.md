@@ -1,7 +1,6 @@
 ---
 ms.assetid: 6785de86-4f7d-4ed1-9055-8de0871d59b5
 title: 'Anhang M: Dokument Verknüpfungen und empfohlene Lesevorgänge'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c48b5330ee1b9a186885645aaa4c1ac79f1782e7
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: f1c13f0a7054f236f1ba35201ad9ad62c978d08f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822743"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823293"
 ---
 # <a name="appendix-m-document-links-and-recommended-reading"></a>Anhang M: Links zu Dokumenten und empfohlene Lektüre
 
@@ -28,7 +27,7 @@ Die folgende Tabelle enthält eine Liste mit Links zu externen Dokumenten und de
   
 |||  
 |-|-|  
-|**Links**|**Del**|  
+|**Verweist**|**Del**|  
 |[10 unveränderliche Gesetze der Sicherheitsverwaltung](https://technet.microsoft.com/library/cc722488.aspx)|[https://technet.microsoft.com/library/cc722488.aspx](https://technet.microsoft.com/library/cc722488.aspx)|  
 |[Microsoft Security Compliance Manager](https://technet.microsoft.com/library/cc677002.aspx)|[https://technet.microsoft.com/library/cc677002.aspx](https://technet.microsoft.com/library/cc677002.aspx)|  
 |[Gartner-Symposium-ITxpo](http://www.gartner.com/technology/symposium/orlando/)|[http://www.gartner.com/technology/symposium/orlando/](http://www.gartner.com/technology/symposium/orlando/)|  
@@ -195,18 +194,18 @@ In der folgenden Tabelle finden Sie eine Liste der empfohlenen Informationen, di
 |Die [Authentifizierungsmechanismus-Sicherung für AD DS in der Schritt-für-Schritt-Anleitung für Windows Server 2008 R2](https://technet.microsoft.com/library/dd378897(WS.10).aspx).|  
 |[Strikte KDC-Überprüfung](https://www.microsoft.com/download/details.aspx?id=6382)|  
   
-#### <a name="copyright-information"></a>Copyright-Informationen  
+#### <a name="copyright-information"></a>Copyrightinformationen  
 Die in diesem Dokument enthaltenen Informationen zu den erörterten Problemen entsprechend dem Standpunkt der Microsoft Corporation zum Zeitpunkt der Veröffentlichung. Da Microsoft auf wechselnde Marktbedingungen reagieren muss, sollten diese Informationen nicht als verbindlich interpretiert werden, und Microsoft kann nicht für die Genauigkeit von Informationen garantieren, die nach dem Veröffentlichungsdatum vorlegt werden.  
   
 Dieses Whitepaper dient nur zu Informationszwecken. Microsoft übernimmt in diesem Dokument keine Gewährleistung, weder ausdrücklich noch konkludent.  
   
-Es liegt in der Verantwortung des Nutzers, alle anwendbaren Urheberrechtsgesetze einzuhalten. Ohne Einschränkung der Rechte unter Copyright kann kein Teil dieses Dokuments reproduziert, in einem Abrufsystem gespeichert oder in ein Abrufsystem eingefügt oder in irgendeiner Form oder auf irgendeine Weise (elektronisch, mechanisch, durch Kopieren, aufzeichnen oder anderweitig) oder für beliebige Zwecke übertragen werden. ohne die ausdrückliche schriftliche Berechtigung der Microsoft Corporation.  
+Der Benutzer ist für die Einhaltung der geltenden Urheberrechtsgesetze verantwortlich. Unabhängig von der Anwendbarkeit der entsprechenden Urheberrechtsgesetze darf kein Teil dieses Dokuments ohne ausdrückliche schriftliche Erlaubnis der Microsoft Corporation für irgendwelche Zwecke vervielfältigt oder in einem Datenempfangssystem gespeichert oder darin eingelesen werden, unabhängig davon, auf welche Art und Weise oder mit welchen Mitteln (elektronisch, mechanisch, durch Fotokopieren, Aufzeichnen usw.) dies geschieht.  
   
-Microsoft verfügt möglicherweise über Patente, Patentanmeldungen, Marken, Urheberrechte oder andere geistige Eigentumsrechte, die sich auf den Gegenstand dieses Dokuments beziehen. Das Bereitstellen dieses Dokuments gibt Ihnen jedoch keinen Anspruch auf diese Patente, Marken, Urheberrechte oder auf sonstiges geistiges Eigentum, es sei denn, dies wird ausdrücklich in den schriftlichen Lizenzverträgen von Microsoft eingeräumt.  
+Microsoft besitzt möglicherweise Rechte an Patenten bzw. angemeldeten Patenten, an Marken, Urheberrechten oder sonstigem geistigen Eigentum, die sich auf den fachlichen Inhalt dieses Dokuments beziehen. Sofern nicht ausdrücklich in einem schriftlichen Lizenzvertrag von Microsoft vereinbart, haben Sie durch die Bereitstellung dieses Dokuments keinerlei Anspruch auf diese Patente, Marken, Urheberrechte oder auf sonstiges geistiges Eigentum.  
   
-Microsoft, Active Directory, BitLocker, Hyper-V, Internet Explorer, Windows Vista, Windows und Windows Server sind entweder eingetragene Marken oder Marken der Microsoft Corporation in der USA und/oder anderen Ländern. Alle anderen Marken sind Eigentum der jeweiligen Inhaber.  
+Microsoft, Active Directory, BitLocker, Hyper-V, Internet Explorer, Windows Vista, Windows und Windows Server sind entweder eingetragene Marken oder Marken der Microsoft Corporation in der USA und/oder anderen Ländern. Alle weiteren Marken sind Eigentum der jeweiligen Inhaber.  
   
-Die hier dargestellten Beispiel Unternehmen, Organisationen, Produkte, Domänen Namen, e-Mail-Adressen, Logos, Personen, Orte und Ereignisse sind frei erfunden. Jede Ähnlichkeit mit bestehenden Firmen, Organisationen, Produkten, Domänennamen, E-Mail-Adressen, Logos, Personen, Orten und Ereignissen ist rein zufällig.  
+Die in den Beispielen verwendeten Firmen, Organisationen, Produkte, Domänennamen, E-Mail-Adressen, Logos, Personen, Orte und Ereignisse sind frei erfunden. Ähnlichkeiten mit realen Firmen, Organisationen, Produkten, Domänennamen, E-Mail-Adressen, Logos, Personen, Orten und Ereignissen sind weder beabsichtigt noch als solche zu verstehen.  
   
 ? 2013 Microsoft Corporation. Alle Rechte vorbehalten.  
   

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 85ca191c-0cc7-4453-a72c-42060ddf2ea2
-title: Kurzfassung
-description: ''
+title: Abstrakt
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,29 +8,29 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 53f51d3a7a777ae378ce733ea9e66de66da5351a
-ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
+ms.openlocfilehash: 75b98e3f8078f33098512c8ecd01d3bb49a1c8ed
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781337"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823043"
 ---
-# <a name="executive-summary"></a>Kurzfassung
+# <a name="executive-summary"></a>Abstrakt
 
 >Gilt für: Windows Server 2012
 
 >[!IMPORTANT] 
 >Die folgende Dokumentation wurde in 2013 geschrieben und wird nur zu historischen Zwecken bereitgestellt.  Zurzeit überprüfen wir diese Dokumentation und unterliegen Änderungen.  Die aktuellen bewährten Methoden werden möglicherweise nicht angezeigt.
 
-Keine Organisation mit einer IT-Infrastruktur (IT-Infrastruktur) ist gegen Angriffe geschützt, aber wenn geeignete Richtlinien, Prozesse und Kontrollen implementiert werden, um die Schlüsselsegmente der Computerinfrastruktur eines Unternehmens zu schützen, kann es möglich sein, verhindern, dass ein Verletzungs Ereignis zu einem umfassenden Kompromiss der Computerumgebung wächst.  
+Keine Organisation mit einer IT-Infrastruktur ist gegen Angriffe immun, aber wenn geeignete Richtlinien, Prozesse und Kontrollen implementiert werden, um die Schlüsselsegmente der Computerinfrastruktur eines Unternehmens zu schützen, kann es möglich sein, ein Sicherheitsrisiko zu verhindern, das zu einem umfassenden Kompromiss der Computerumgebung wächst.  
   
-Diese Zusammenfassung ist als eigenständiges Dokument gedacht, das den Inhalt des Dokuments zusammenfasst, das Empfehlungen enthält, die Organisationen bei der Verbesserung der Sicherheit Ihrer Active Directory-Installationen unterstützen. Durch die Implementierung dieser Empfehlungen können Organisationen Sicherheitsaktivitäten identifizieren und priorisieren, Schlüsselsegmente der Computerinfrastruktur Ihres Unternehmens schützen und Steuerelemente erstellen, die die Wahrscheinlichkeit von erfolgreiche Angriffe gegen wichtige Komponenten der IT-Umgebung.  
+Diese Zusammenfassung ist als eigenständiges Dokument gedacht, das den Inhalt des Dokuments zusammenfasst, das Empfehlungen enthält, die Organisationen bei der Verbesserung der Sicherheit Ihrer Active Directory-Installationen unterstützen. Durch die Implementierung dieser Empfehlungen können Organisationen Sicherheitsaktivitäten identifizieren und priorisieren, Schlüsselsegmente der Computerinfrastruktur Ihres Unternehmens schützen und Steuerelemente erstellen, die die Wahrscheinlichkeit erfolgreicher Angriffe auf kritische Komponenten der IT-Umgebung erheblich verringern.  
   
 Obwohl in diesem Dokument die häufigsten Angriffe gegen Active Directory und Gegenmaßnahmen erläutert werden, um die Angriffsfläche zu reduzieren, enthält es auch Empfehlungen für die Wiederherstellung im Fall eines umfassenden kompromittierten Problems. Die einzige Möglichkeit zur Wiederherstellung im Falle einer umfassenden Gefährdung von Active Directory besteht darin, dass Sie vor dem Auftreten der Kompromittierung vorbereitet werden.  
   
 Die Hauptabschnitte dieses Dokuments lauten:  
   
--   Wege der Gefährdung  
+-   Angriffswege  
   
 -   Reduzieren der Angriffsfläche für Active Directory  
   
@@ -39,8 +38,8 @@ Die Hauptabschnitte dieses Dokuments lauten:
   
 -   Planen der Gefährdung  
   
-## <a name="avenues-to-compromise"></a>Wege der Gefährdung  
-Dieser Abschnitt enthält Informationen zu einigen der am häufigsten genutzten Sicherheitsrisiken, die von Angreifern zum kompromittieren der Infrastruktur von Kunden verwendet werden. Sie enthält allgemeine Kategorien von Sicherheitsrisiken und deren Verwendung, um die Infrastruktur der Kunden zu anfänglich zu durchdringen, Kompromittierung über zusätzliche Systeme hinweg weiterzuleiten und schließlich Active Directory und Domänen Controllern für den Abschluss Kontrolle über die Gesamtstrukturen der Organisation. Es bietet keine detaillierten Empfehlungen zur Behandlung der einzelnen Sicherheitsrisiken, insbesondere in den Bereichen, in denen die Sicherheitsrisiken nicht zum direkten Ziel Active Directory verwendet werden. Allerdings haben wir für jede Art von Sicherheits Anfälligkeit Links zu zusätzlichen Informationen bereitgestellt, die zum Entwickeln von Gegenmaßnahmen und zur Verringerung der Angriffsfläche der Organisation verwendet werden.  
+## <a name="avenues-to-compromise"></a>Angriffswege  
+Dieser Abschnitt enthält Informationen zu einigen der am häufigsten genutzten Sicherheitsrisiken, die von Angreifern zum kompromittieren der Infrastruktur von Kunden verwendet werden. Sie enthält allgemeine Kategorien von Sicherheitsrisiken und deren Verwendung zum anfänglichen durchdringen der Kunden Infrastrukturen, propagieren der Gefährdung über zusätzliche Systeme und schließlich Active Directory und Domänen Controllern, um die vollständige Kontrolle über die Gesamtstrukturen der Organisation zu erhalten. Es bietet keine detaillierten Empfehlungen zur Behandlung der einzelnen Sicherheitsrisiken, insbesondere in den Bereichen, in denen die Sicherheitsrisiken nicht zum direkten Ziel Active Directory verwendet werden. Allerdings haben wir für jede Art von Sicherheits Anfälligkeit Links zu zusätzlichen Informationen bereitgestellt, die zum Entwickeln von Gegenmaßnahmen und zur Verringerung der Angriffsfläche der Organisation verwendet werden.  
   
 Die folgenden Themen sind enthalten:  
   
@@ -134,7 +133,7 @@ Dieser Abschnitt enthält die folgenden Themen:
 -   **Empfehlungen** zu Überwachungs Richtlinien: in diesem Abschnitt werden die Standardeinstellungen für die Überwachungsrichtlinie von Windows, die Überwachungs Richtlinien Einstellungen, die von Microsoft empfohlen werden, sowie aggressivere Empfehlungen für Organisationen zum Überwachen kritischer Server und Arbeitsstationen beschrieben.  
   
 ## <a name="planning-for-compromise"></a>Planen der Gefährdung  
-Dieser Abschnitt enthält Empfehlungen, die Organisationen dabei unterstützen, sich vor dem Eintreten auf eine Kompromittierung vorzubereiten, Steuerelemente zu implementieren, die ein Kompromittierung-Ereignis erkennen können, bevor eine vollständige Sicherheitsverletzung aufgetreten ist, und Richtlinien zur Reaktion und Wiederherstellung für Fälle eine komplette Gefährdung des Verzeichnisses wird von Angreifern erreicht. Dieser Abschnitt enthält die folgenden Themen:  
+Dieser Abschnitt enthält Empfehlungen, die Organisationen dabei unterstützen, sich vor dem Eintreten auf eine Kompromittierung vorzubereiten, Steuerelemente zu implementieren, die ein Kompromittierung-Ereignis erkennen können, bevor eine vollständige Sicherheitsverletzung aufgetreten ist, und Richtlinien für die Reaktion und Wiederherstellung in Fällen bereitstellen, in denen eine vollständige Gefährdung des Verzeichnisses Dieser Abschnitt enthält die folgenden Themen:  
   
 -   **Vorgehensweise** : enthält Grundsätze und Richtlinien zum Erstellen sicherer Umgebungen, in denen eine Organisation Ihre kritischsten Ressourcen platzieren kann. Diese Richtlinien lauten wie folgt:  
   
@@ -194,8 +193,8 @@ Die Vorgehensweise wird in der ungefähren Reihenfolge der Priorität aufgeführ
 |18|Vereinfachen Sie die Sicherheit für Endbenutzer.|Strategisch|Vorbeugende|  
 |19|Verwenden Sie Host basierte Firewalls zum Steuern und Sichern der Kommunikation.|Taktisch|Vorbeugende|  
 |20|Patchen von Geräten.|Taktisch|Vorbeugende|  
-|21|Implementieren Sie die geschäftsorientierte Lebenszyklus Verwaltung für IT-Ressourcen.|Strategisch|n. v.|  
-|22|Erstellen oder aktualisieren Sie Wiederherstellungs Pläne für Vorfälle.|Strategisch|n. v.|  
+|21|Implementieren Sie die geschäftsorientierte Lebenszyklus Verwaltung für IT-Ressourcen.|Strategisch|N/V|  
+|22|Erstellen oder aktualisieren Sie Wiederherstellungs Pläne für Vorfälle.|Strategisch|N/V|  
   
 
 

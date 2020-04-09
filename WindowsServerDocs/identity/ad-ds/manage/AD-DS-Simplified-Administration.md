@@ -1,7 +1,6 @@
 ---
 ms.assetid: f74eec9a-2485-4ee0-a0d8-cce01250a294
 title: Vereinfachte Verwaltung für AD DS
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 4f12b1e88414a17c8fb82a707bd4399505df4c6c
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: e1989630cadd7d63f8ed041174135722d568484f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323162"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824423"
 ---
 # <a name="ad-ds-simplified-administration"></a>Vereinfachte Verwaltung für AD DS
 
@@ -173,7 +172,7 @@ Der zuvor in ADprep.exe untergebrachte AD-Vorbereitungscode ist nun in adprep.dl
 > [!IMPORTANT]  
 > Es existiert kein 32-Bit Adprep32.exe-Tool für Windows Server 2012. Sie benötigen mindestens einen Computer unter Windows Server 2008 x64, Windows Server 2008 R2 oder Windows Server 2012, der als Domänencontroller, Mitgliedsserver oder in einer Arbeitsgruppe läuft, um Gesamtstruktur und Domäne vorbereiten zu können. Adprep.exe läuft nicht unter Windows Server 2003 x64.  
   
-## <a name="BKMK_PrereuisiteChecking"></a>Voraussetzungs Prüfung
+## <a name="prerequisite-checking"></a><a name="BKMK_PrereuisiteChecking"></a>Voraussetzungs Prüfung
 
 Das in den verwalteten Code von ADDSDeployment Windows PowerShell integrierte System zur Voraussetzungsprüfung funktioniert je nach Operation auf unterschiedliche Arten. Die folgenden Tabellen beschreiben die einzelnen Tests, deren jeweilige Anwendungsfälle und erläutern, was und wie genau geprüft wird. Diese Tabellen sind hilfreich, wenn Probleme auftreten, bei denen die Prüfung fehlschlägt und die Fehlermeldung nicht zur Problembehandlung ausreicht.  
   
@@ -191,23 +190,23 @@ Für jedes Domänencontroller-Bereitstellungs-Cmdlet existiert ein ADDSDeploymen
 
 Diese Cmdlets müssen normalerweise nicht ausgeführt werden, da sie standardmäßig automatisch von den Bereitstellungs-Cmdlets aufgerufen werden.  
 
-#### <a name="BKMK_ADDSInstallPrerequisiteTests"></a>Voraussetzungs Tests
+#### <a name="prerequisite-tests"></a><a name="BKMK_ADDSInstallPrerequisiteTests"></a>Voraussetzungs Tests
 
 ||||  
 |-|-|-|  
-|Testname|Protokolle<br /><br />verwendet|Erklärung und Hinweise|  
-|VerifyAdminTrusted<br /><br />ForDelegationProvider|LDAP|Prüft, ob Sie die Berechtigung "Ermöglichen, dass Computer- und Benutzerkonten für Delegierungszwecke vertraut wird" (SeEnableDelegationPrivilege) auf dem existierenden Partner-Domänencontroller haben. Hierfür wird Zugriff auf Ihr konstruiertes tokenGroups-Attribut benötigt.<br /><br />Wird nicht verwendet, wenn ein Microsoft Windows Server 2003-Domänencontroller kontaktier wird. Sie müssen diese Berechtigung vor der Heraufstufung manuell bestätigen|  
-|VerifyADPrep<br /><br />Voraussetzungen (Gesamtstruktur)|LDAP|Sucht und kontaktiert den Schemamaster mithilfe des rootDSE namingContexts-Attributs und dem Schema-Namenskontext-Attribut fsmoRoleOwner. Ermittelt, welche Vorbereitungsoperationen (forestprep, domainprep oder rodcprep) für die AD DS-Installation benötigt werden. Prüft, ob objectVersion für das Schema wie erwartet ist und ob eine weitere Erweiterung benötigt wird.|  
-|VerifyADPrep<br /><br />Voraussetzungen (Domäne und RODC)|LDAP|Sucht und kontaktiert den Infrastruktur-Master mithilfe des rootDSE namingContexts-Attributs und dem Infrastrukturcontainer-Attribut fsmoRoleOwner. Im Fall einer RODC-Installation wird bei dieser Prüfung der Domänennamenmaster gesucht und sichergestellt, dass dieser online ist.|  
-|CheckGroup<br /><br />Mitgliedschaft (Membership)|LDAP,<br /><br />RPC über SMB (LSARPC)|Prüft, ob der Benutzer Mitglied der Gruppen Domänen-Admins bzw. Unternehmens-Admins ist, je nach Operation (DA beim Hinzufügen oder Herabstufen eines Domänencontrollers, UA beim Hinzufügen oder Entfernen einer Domäne)|  
-|CheckForestPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC über SMB (LSARPC)|Prüft, ob der Benutzer Mitglied der Gruppen Schema-Admins und Unternehmens-Admins ist und ob er die Berechtigung zur Verwaltung der Überwachungs- und Sicherheitsereignisprotokolle (SesScurityPrivilege) auf den existierenden Domänencontrollern hat|  
-|CheckDomainPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC über SMB (LSARPC)|Prüft, ob der Benutzer Mitglied der Gruppe Domänen-Admins ist und ob er die Berechtigung zur Verwaltung der Überwachungs- und Sicherheitsereignisprotokolle (SesScurityPrivilege) auf den existierenden Domänencontrollern hat|  
-|CheckRODCPrep<br /><br />GroupMembership|LDAP,<br /><br />RPC über SMB (LSARPC)|Prüft, ob der Benutzer Mitglied der Gruppe Unternehmens-Admins ist und ob er die Berechtigung zur Verwaltung der Überwachungs- und Sicherheitsereignisprotokolle (SesScurityPrivilege) auf den existierenden Domänencontrollern hat|  
-|VerifyInitSync<br /><br />AfterReboot|LDAP|Prüft, ob der Schemamaster seit dem Neustart mindestens einmal repliziert wurde, indem ein Dummywert für das rootDSE-Attribut becomeSchemaMaster gesetzt wird|  
-|VerifySFUHotFix<br /><br />Angewendet|LDAP|Prüft, ob das existierende Gesamtstruktur-Schema bekannte problematische SFU2-Erweiterungen für das UID-Attribut mit OID 1.2.840.113556.1.4.7000.187.102 enthält<br /><br />([https://support.microsoft.com/kb/821732](https://support.microsoft.com/kb/821732))|  
-|VerifyExchange<br /><br />SchemaFixed|LDAP, WMI, DCOM, RPC|Überprüfen Sie, ob das vorhandene Gesamtstruktur Schema noch keine Problem Austausch 2000-Erweiterungen ms-Exch-Assistant-Name, ms-Exch-LabeledURI und MS-Exch-House-Identifier ([https://support.microsoft.com/kb/314649](https://support.microsoft.com/kb/314649)) enthält.|  
-|VerifyWin2KSchema<br /><br />Konsistenz|LDAP|Prüft, ob das existierende Gesamtstruktur-Schema konsistente (nicht auf falsche Weise extern modifizierte) Core-Attribute und Klassen enthält.|  
-|DCPromo|DRSR über RPC,<br /><br />LDAP,<br /><br />DNS<br /><br />RPC über SMB (SAMR)|Prüft die an den Heraufstufungscode übergebene Befehlszeilensyntax und testet die Heraufstufung. Prüft, ob die Gesamtstruktur bzw. Domäne bereits existiert, falls diese neu erstellt werden.|  
-|VerifyOutbound<br /><br />ReplicationEnabled|LDAP, DRSR über SMB, RPC über SMB (LSARPC)|Prüft, ob die Replikation in ausgehender Richtund in dem als Replikationspartner angegebenen Domänencontroller aktiviert ist. Dazu wird das Optionsattribut des NTDS-Einstellungsobjekts für NTDSDSA_OPT_DISABLE_OUTBOUND_REPL (0x00000004) ausgelesen|  
-|VerifyMachineAdmin<br /><br />Kennwort|DRSR über RPC,<br /><br />LDAP,<br /><br />DNS<br /><br />RPC über SMB (SAMR)|Prüft, ob das für DSRM eingestellte Wiederherstellungskennwort für den abgesicherten Modus die Komplexitätsanforderungen erfüllt.|  
+|Testname|Protokolle<p>verwendet|Erklärung und Hinweise|  
+|VerifyAdminTrusted<p>ForDelegationProvider|LDAP|Prüft, ob Sie die Berechtigung "Ermöglichen, dass Computer- und Benutzerkonten für Delegierungszwecke vertraut wird" (SeEnableDelegationPrivilege) auf dem existierenden Partner-Domänencontroller haben. Hierfür wird Zugriff auf Ihr konstruiertes tokenGroups-Attribut benötigt.<p>Wird nicht verwendet, wenn ein Microsoft Windows Server 2003-Domänencontroller kontaktier wird. Sie müssen diese Berechtigung vor der Heraufstufung manuell bestätigen|  
+|VerifyADPrep<p>Voraussetzungen (Gesamtstruktur)|LDAP|Sucht und kontaktiert den Schemamaster mithilfe des rootDSE namingContexts-Attributs und dem Schema-Namenskontext-Attribut fsmoRoleOwner. Ermittelt, welche Vorbereitungsoperationen (forestprep, domainprep oder rodcprep) für die AD DS-Installation benötigt werden. Prüft, ob objectVersion für das Schema wie erwartet ist und ob eine weitere Erweiterung benötigt wird.|  
+|VerifyADPrep<p>Voraussetzungen (Domäne und RODC)|LDAP|Sucht und kontaktiert den Infrastruktur-Master mithilfe des rootDSE namingContexts-Attributs und dem Infrastrukturcontainer-Attribut fsmoRoleOwner. Im Fall einer RODC-Installation wird bei dieser Prüfung der Domänennamenmaster gesucht und sichergestellt, dass dieser online ist.|  
+|CheckGroup<p>Mitgliedschaft (Membership)|LDAP,<p>RPC über SMB (LSARPC)|Prüft, ob der Benutzer Mitglied der Gruppen Domänen-Admins bzw. Unternehmens-Admins ist, je nach Operation (DA beim Hinzufügen oder Herabstufen eines Domänencontrollers, UA beim Hinzufügen oder Entfernen einer Domäne)|  
+|CheckForestPrep<p>GroupMembership|LDAP,<p>RPC über SMB (LSARPC)|Prüft, ob der Benutzer Mitglied der Gruppen Schema-Admins und Unternehmens-Admins ist und ob er die Berechtigung zur Verwaltung der Überwachungs- und Sicherheitsereignisprotokolle (SesScurityPrivilege) auf den existierenden Domänencontrollern hat|  
+|CheckDomainPrep<p>GroupMembership|LDAP,<p>RPC über SMB (LSARPC)|Prüft, ob der Benutzer Mitglied der Gruppe Domänen-Admins ist und ob er die Berechtigung zur Verwaltung der Überwachungs- und Sicherheitsereignisprotokolle (SesScurityPrivilege) auf den existierenden Domänencontrollern hat|  
+|CheckRODCPrep<p>GroupMembership|LDAP,<p>RPC über SMB (LSARPC)|Prüft, ob der Benutzer Mitglied der Gruppe Unternehmens-Admins ist und ob er die Berechtigung zur Verwaltung der Überwachungs- und Sicherheitsereignisprotokolle (SesScurityPrivilege) auf den existierenden Domänencontrollern hat|  
+|VerifyInitSync<p>AfterReboot|LDAP|Prüft, ob der Schemamaster seit dem Neustart mindestens einmal repliziert wurde, indem ein Dummywert für das rootDSE-Attribut becomeSchemaMaster gesetzt wird|  
+|VerifySFUHotFix<p>Angewendet|LDAP|Prüft, ob das existierende Gesamtstruktur-Schema bekannte problematische SFU2-Erweiterungen für das UID-Attribut mit OID 1.2.840.113556.1.4.7000.187.102 enthält<p>([https://support.microsoft.com/kb/821732](https://support.microsoft.com/kb/821732))|  
+|VerifyExchange<p>SchemaFixed|LDAP, WMI, DCOM, RPC|Überprüfen Sie, ob das vorhandene Gesamtstruktur Schema noch keine Problem Austausch 2000-Erweiterungen ms-Exch-Assistant-Name, ms-Exch-LabeledURI und MS-Exch-House-Identifier ([https://support.microsoft.com/kb/314649](https://support.microsoft.com/kb/314649)) enthält.|  
+|VerifyWin2KSchema<p>Konsistenz|LDAP|Prüft, ob das existierende Gesamtstruktur-Schema konsistente (nicht auf falsche Weise extern modifizierte) Core-Attribute und Klassen enthält.|  
+|DCPromo|DRSR über RPC,<p>LDAP,<p>DNS<p>RPC über SMB (SAMR)|Prüft die an den Heraufstufungscode übergebene Befehlszeilensyntax und testet die Heraufstufung. Prüft, ob die Gesamtstruktur bzw. Domäne bereits existiert, falls diese neu erstellt werden.|  
+|VerifyOutbound<p>ReplicationEnabled|LDAP, DRSR über SMB, RPC über SMB (LSARPC)|Prüft, ob die Replikation in ausgehender Richtund in dem als Replikationspartner angegebenen Domänencontroller aktiviert ist. Dazu wird das Optionsattribut des NTDS-Einstellungsobjekts für NTDSDSA_OPT_DISABLE_OUTBOUND_REPL (0x00000004) ausgelesen|  
+|VerifyMachineAdmin<p>Kennwort|DRSR über RPC,<p>LDAP,<p>DNS<p>RPC über SMB (SAMR)|Prüft, ob das für DSRM eingestellte Wiederherstellungskennwort für den abgesicherten Modus die Komplexitätsanforderungen erfüllt.|  
 |VerifySafeModePassword|*N/V*|Prüft, ob das lokale Administratorkennwort die Komplexitätsanforderungen der Computer-Sicherheitsrichtlinie erfüllt.|  
