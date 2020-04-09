@@ -1,7 +1,6 @@
 ---
 ms.assetid: 276a7f7d-5faa-4c00-a51c-3fa511fe52f9
 title: Einrichten einer AD FS-Laborumgebung
-description: ''
 author: billmath
 manager: femila
 ms.date: 05/31/2017
@@ -9,31 +8,31 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 921cf4b4b5629df735b20ba59f239abfd6b0d6d6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a4472557929df4b2ff5d830937e7e83f49fee7bc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407504"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816113"
 ---
 # <a name="set-up-an-ad-fs-lab-environment"></a>Einrichten einer AD FS-Laborumgebung
 
 In diesem Thema sind die Schritte für die Konfiguration einer Testumgebung aufgeführt, die für das Abschließen der explemplarischen Vorgehensweisen in den folgenden Handbüchern mit exemplarischer Vorgehensweise verwendet werden können:  
   
--   [Exemplarische Vorgehensweise: Arbeitsplatzbeitritt mit einem iOS-Gerät](Walkthrough--Workplace-Join-with-an-iOS-Device.md)  
+-   [Exemplarische Vorgehensweise: Workplace Join mit einem IOS-Gerät](Walkthrough--Workplace-Join-with-an-iOS-Device.md)  
   
--   [Exemplarische Vorgehensweise: Arbeitsplatzbeitritt mit einem Windows-Gerät](Walkthrough--Workplace-Join-with-a-Windows-Device.md)  
+-   [Exemplarische Vorgehensweise: Workplace Join mit einem Windows-Gerät](Walkthrough--Workplace-Join-with-a-Windows-Device.md)  
   
--   [Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit der bedingten Zugriffssteuerung](Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)  
+-   [Leitfaden mit exemplarischen Vorgehensweisen: Verwalten von Risiken mit bedingtem Access Control](Walkthrough-Guide--Manage-Risk-with-Conditional-Access-Control.md)  
   
--   [Handbuch mit exemplarischer Vorgehensweise: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)  
+-   [Leitfaden für die exemplarische Vorgehensweise: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](Walkthrough-Guide--Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md)  
   
 > [!NOTE]  
 > Sie sollten den Webserver und den Verbundserver nicht auf demselben Computer installieren.  
   
 Führen Sie zum Einrichten dieser Testumgebung die folgenden Schritte durch:  
   
-1.  [Schritt 1: Konfigurieren des Domänen Controllers (DC1)](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_1)  
+1.  [Schritt 1: Konfigurieren des Domänen Controllers (DC1)](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_1)  
   
 2.  [Schritt 2: Konfigurieren des Verbund Servers (ADFS1) mit dem Geräte Registrierungsdienst](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_4)  
   
@@ -41,23 +40,23 @@ Führen Sie zum Einrichten dieser Testumgebung die folgenden Schritte durch:
   
 4.  [Schritt 4: Konfigurieren des Client Computers (CLIENT1)](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_10)  
   
-## <a name="BKMK_1"></a>Schritt 1: Konfigurieren des Domänencontrollers (DC1)  
-Für diese Testumgebung können Sie Ihre Stamm Active Directory Domäne **contoso.com** und als Administrator Kennwort angeben <strong>pass@word1</strong> .  
+## <a name="step-1-configure-the-domain-controller-dc1"></a><a name="BKMK_1"></a>Schritt 1: Konfigurieren des Domänen Controllers (DC1)  
+Für diese Testumgebung können Sie Ihre Stamm Active Directory Domäne **contoso.com** und <strong>pass@word1</strong> als Administrator Kennwort angeben.  
   
--   Installieren Sie den AD DS-Rollen Dienst, und installieren Sie Active Directory Domain Services (AD DS), um Ihren Computer zu einem Domänen Controller in Windows Server 2012 R2 zu machen. Durch diese Aktion wird das AD DS Schema als Teil der Domänen Controller Erstellung aktualisiert. Weitere Informationen und Schritt-für-Schritt-Anleitungen finden[ https://technet.microsoft.com/ Sie unter Library/hh472162. aspx](https://technet.microsoft.com/library/hh472162.aspx).  
+-   Installieren Sie den AD DS-Rollen Dienst, und installieren Sie Active Directory Domain Services (AD DS), um Ihren Computer zu einem Domänen Controller in Windows Server 2012 R2 zu machen. Durch diese Aktion wird das AD DS Schema als Teil der Domänen Controller Erstellung aktualisiert. Weitere Informationen und Schritt-für-Schritt-Anweisungen finden Sie unter[https://technet.microsoft.com/ Library/hh472162. aspx](https://technet.microsoft.com/library/hh472162.aspx).  
   
-### <a name="BKMK_2"></a>Erstellen von Test Active Directory Konten  
+### <a name="create-test-active-directory-accounts"></a><a name="BKMK_2"></a>Erstellen von Test Active Directory Konten  
 Nachdem der Domänencontroller funktionsfähig ist, können Sie eine Testgruppe und Testbenutzerkonten in dieser Domäne erstellen und das Benutzerkonto zum Gruppenkonto hinzufügen. Sie verwenden diese Konten, um die exemplarischen Vorgehensweisen in den Handbüchern mit exemplarischer Vorgehensweise abzuschließen, die zu Beginn dieses Themas aufgeführt sind.  
   
 Erstellen Sie die folgenden Konten:  
   
-- Benutzer: **Robert Hatley** mit den folgenden Anmeldeinformationen: Benutzername: **Roberth** und Kennwort:<strong>P@ssword</strong>  
+- Benutzer: **Robert Hatley** mit den folgenden Anmelde Informationen: Benutzername: **roberth** und Kennwort: <strong>P@ssword</strong>  
   
-- Gruppe: **Finanzierungen**  
+- Gruppe: **Finance**  
   
-Informationen zum Erstellen von Benutzer-und Gruppenkonten in Active Directory (AD) finden [https://technet.microsoft.com/library/cc783323%28v=ws.10%29.aspx](https://technet.microsoft.com/library/cc783323%28v=ws.10%29.aspx)Sie unter.  
+Informationen zum Erstellen von Benutzer-und Gruppenkonten in Active Directory (AD) finden Sie unter [https://technet.microsoft.com/library/cc783323%28v=ws.10%29.aspx](https://technet.microsoft.com/library/cc783323%28v=ws.10%29.aspx).  
   
-Fügen Sie das Konto **Robert Hatley** zur Gruppe **Finance** hinzu. Informationen zum Hinzufügen eines Benutzers zu einer Gruppe in Active Directory finden [https://technet.microsoft.com/library/cc737130%28v=ws.10%29.aspx](https://technet.microsoft.com/library/cc737130%28v=ws.10%29.aspx)Sie unter.  
+Fügen Sie das Konto **Robert Hatley** zur Gruppe **Finance** hinzu. Informationen zum Hinzufügen eines Benutzers zu einer Gruppe in Active Directory finden Sie unter [https://technet.microsoft.com/library/cc737130%28v=ws.10%29.aspx](https://technet.microsoft.com/library/cc737130%28v=ws.10%29.aspx).  
   
 ### <a name="create-a-gmsa-account"></a>Erstellen eines GMSA-Kontos  
 Das Gruppen verwaltete Dienst Konto (Group Managed Service Account, GMSA) ist während der Installation und Konfiguration des Active Directory-Verbunddienste (AD FS) (AD FS) erforderlich.  
@@ -72,10 +71,10 @@ Das Gruppen verwaltete Dienst Konto (Group Managed Service Account, GMSA) ist w�
   
     ```  
   
-## <a name="BKMK_4"></a>Schritt 2: Konfigurieren des Verbundservers (ADFS1) mit dem Geräteregistrierungsdienst  
+## <a name="step-2-configure-the-federation-server-adfs1-by-using-device-registration-service"></a><a name="BKMK_4"></a>Schritt 2: Konfigurieren des Verbund Servers (ADFS1) mit dem Geräte Registrierungsdienst  
 Um einen anderen virtuellen Computer einzurichten, installieren Sie Windows Server 2012 R2, und verbinden Sie es mit der Domäne **contoso.com**. Richten Sie den Computer ein, nachdem Sie ihn der Domäne hinzugefügt haben, und fahren Sie dann mit der Installation und Konfiguration der AD FS-Rolle fort.  
   
-Ein Video finden [Sie unter Active Directory-Verbunddienste (AD FS)-Videoserie: Installieren einer AD FS-Server](https://technet.microsoft.com/video/dn469436)Farm.  
+Ein Video hierzu finden Sie unter [Active Directory-Verbunddienste – Videoreihe mit exemplarischer Vorgehensweise: Installieren einer AD FS-Serverfarm](https://technet.microsoft.com/video/dn469436).  
   
 ### <a name="install-a-server-ssl-certificate"></a>Installieren eines SSL-Zertifikats  
 Sie müssen ein Secure Socket Layer (SSL)-Serverzertifikat auf dem ADFS1-Server im lokalen Computerspeicher installieren. Das Zertifikat MUSS über die folgenden Attribute verfügen:  
@@ -88,7 +87,7 @@ Sie müssen ein Secure Socket Layer (SSL)-Serverzertifikat auf dem ADFS1-Server 
   
 Weitere Informationen zum Einrichten von SSL-Zertifikaten finden Sie unter [Configure SSL/TLS on a Web site in the domain with an Enterprise CA](https://social.technet.microsoft.com/wiki/contents/articles/12485.configure-ssltls-on-a-web-site-in-the-domain-with-an-enterprise-ca.aspx).  
   
-[Active Directory-Verbunddienste (AD FS)-Video Serie: Aktualisieren von](https://technet.microsoft.com/video/adfs-updating-certificates)Zertifikaten.  
+[Active Directory-Verbunddienste – Videoreihe mit exemplarischer Vorgehensweise: Aktualisieren von Zertifikaten](https://technet.microsoft.com/video/adfs-updating-certificates).  
   
 ### <a name="install-the-ad-fs-server-role"></a>Installieren der AD FS-Serverrolle  
   
@@ -96,9 +95,9 @@ Weitere Informationen zum Einrichten von SSL-Zertifikaten finden Sie unter [Conf
   
 1. Melden Sie sich mit dem Domänen Administrator Konto administrator@contoso.combeim Server an.  
   
-2. Starten Sie den Server-Manager. Klicken Sie zum Starten des Server-Managers auf dem Windows- **Startbildschirm** auf **Server-Manager** , oder klicken Sie in der Windows-Taskleiste auf dem Windows-Desktop auf **Server-Manager** . Klicken Sie auf der Seite **Dashboard** auf der Kachel **Willkommen** in der Registerkarte **Schnellstart** auf **Rollen und Features hinzufügen**. Alternativ können Sie im Menü **Verwalten** auf **Rollen und Features hinzufügen** klicken.  
+2. Starten Sie den Server-Manager. Klicken Sie zum Starten des Server-Managers auf dem Windows-**Startbildschirm** auf **Server-Manager**, oder klicken Sie in der Windows-Taskleiste auf dem Windows-Desktop auf **Server-Manager**. Klicken Sie auf der Seite **Dashboard** auf der Kachel **Willkommen** in der Registerkarte **Schnellstart** auf **Rollen und Features hinzufügen**. Sie können alternativ im Menü **Verwalten** auf **Rollen und Features hinzufügen** klicken.  
   
-3. Klicken Sie auf der Seite **Vorbereitung** auf **Weiter**.  
+3. Klicken Sie auf der Seite **Bevor Sie beginnen** auf **Weiter**.  
   
 4. Klicken Sie auf der Seite **Installationstyp auswählen** auf **Rollenbasierte oder featurebasierte Installation**, und klicken Sie anschließend auf **Weiter**.  
   
@@ -110,20 +109,20 @@ Weitere Informationen zum Einrichten von SSL-Zertifikaten finden Sie unter [Conf
   
 8. Klicken Sie auf der Seite **Active Directory-Verbunddienst (AD FS)** auf **Weiter**.  
   
-9. Nachdem Sie die Informationen auf der Seite **Installationsauswahl bestätigen** überprüft haben, aktivieren Sie das Kontrollkästchen **Zielserver bei Bedarf automatisch neu starten** , und klicken Sie dann auf **Installieren**.  
+9. Nachdem Sie die Informationen auf der Seite **Installationsauswahl bestätigen** geprüft haben, aktivieren Sie das Kontrollkästchen **Zielserver bei Bedarf automatisch neu starten**, und klicken Sie dann auf **Installieren**.  
   
-10. Überprüfen Sie auf der Seite **Installationsfortschritt** , ob alles ordnungsgemäß installiert wurden, und klicken Sie dann auf **Schließen**.  
+10. Vergewissern Sie sich auf der Seite **Installationsfortschritt**, dass alles ordnungsgemäß installiert wurde, und klicken Sie dann auf **Schließen**.  
   
 ### <a name="configure-the-federation-server"></a>Konfigurieren des Verbundservers  
 Der nächste Schritt ist die Konfiguration des Verbundservers.  
   
 ##### <a name="to-configure-the-federation-server"></a>So konfigurieren Sie den Verbundserver  
   
-1.  Klicken Sie auf der Seite **Dashboard** im Server-Manager auf das Kennzeichen **Benachrichtigungen** , und klicken Sie dann auf **Verbunddienst auf den Server konfigurieren**.  
+1.  Klicken Sie im Server-Manager auf der Seite **Dashboard** auf das **Benachrichtigungs**-Flag und dann auf **Konfigurieren Sie den Verbunddienst auf diesem Server**.  
   
     Der **Konfigurations-Assistent für Active Directory-Verbunddienste** wird geöffnet.  
   
-2.  Wählen Sie auf der Seite **Willkommen** **Erstellen des ersten Verbundservers in einer Verbundserverfarm**aus, und klicken Sie dann auf **Weiter**.  
+2.  Wählen Sie auf der Seite **Willkommen** **Erstellen des ersten Verbundservers in einer Verbundserverfarm** aus, und klicken Sie dann auf **Weiter**.  
   
 3.  Geben Sie auf der Seite **Verbinden mit AD DS** ein Konto mit Domänenadministratorrechten für die Active Directory-Domäne **contoso.com** an, der dieser Computer angehört, und klicken Sie dann auf **Weiter**.  
   
@@ -133,20 +132,20 @@ Der nächste Schritt ist die Konfiguration des Verbundservers.
   
     -   Zum Bereitstellen eines Namens für Ihren Verbunddienst geben Sie **adfs1.contoso.com** ein. Das ist derselbe Wert, den Sie beim Registrieren eines SSL-Zertifikats bei den Active Directory-Zertifikatdiensten (AD CS) angegeben haben.  
   
-    -   Geben Sie als Anzeigenamen für den Verbunddienst **Contoso Corporation**ein.  
+    -   Zum Bereitstellen eines Anzeigenamens für Ihren Verbunddienst geben Sie **Contoso Corporation** ein.  
   
-5.  Wählen Sie auf der Seite **Dienstkonto angeben** die Option **Vorhandenes Domänenbenutzerkonto oder gruppenverwaltetes Dienstkonto verwenden**aus, und geben Sie dann das GMSA-Konto **fsgmsa** an, das Sie beim Erstellen des Domänencontrollers erstellt haben.  
+5.  Wählen Sie auf der Seite **Angeben eines Dienstkontos** die Option **Vorhandenes Domänenbenutzerkonto oder gruppenverwaltetes Dienstkonto verwenden** aus, und geben Sie dann das GMSA-Konto **fsgmsa** an, das Sie beim Erstellen des Domänencontrollers erstellt haben.  
   
-6.  Wählen Sie auf der Seite **Angeben der Konfigurationsdatenbank** die Option **Erstellen einer Datenbank auf diesem Server mit der internen Windows-Datenbank**aus, und klicken Sie dann auf **Weiter**.  
+6.  Wählen Sie auf der Seite **Angeben der Konfigurationsdatenbank** die Option **Erstellen einer Datenbank auf diesem Server mit der internen Windows-Datenbank** aus, und klicken Sie dann auf **Weiter**.  
   
-7.  Überprüfen Sie Ihre Konfigurationsauswahl auf der Seite **Optionen prüfen** , und klicken Sie dann auf **Weiter**.  
+7.  Überprüfen Sie Ihre Konfigurationsauswahl auf der Seite **Optionen prüfen**, und klicken Sie dann auf **Weiter**.  
   
-8.  Überprüfen Sie auf der Seite **Voraussetzungsprüfungen** , ob alle Voraussetzungsprüfungen erfolgreich abgeschlossen wurden, und klicken Sie dann auf **Konfigurieren**.  
+8.  Überprüfen Sie auf der Seite **Voraussetzungsprüfungen**, ob alle Voraussetzungsprüfungen erfolgreich abgeschlossen wurden, und klicken Sie dann auf **Konfigurieren**.  
   
-9. Überprüfen Sie die Ergebnisse auf der Seite **Ergebnisse** , prüfen Sie, ob die Konfiguration erfolgreich abgeschlossen wurden, und klicken Sie dann auf **Weitere Schritte, die zum Abschluss der Bereitstellung des Verbunddiensts erforderlich sind**.  
+9. Überprüfen Sie die Ergebnisse auf der Seite **Ergebnisse**, prüfen Sie, ob die Konfiguration erfolgreich abgeschlossen wurden, und klicken Sie dann auf **Weitere Schritte, die zum Abschluss der Bereitstellung des Verbunddiensts erforderlich sind**.  
   
 ### <a name="configure-device-registration-service"></a>Konfigurieren des Geräteregistrierungsdiensts  
-Der nächste Schritt ist die Konfiguration des Geräteregistrierungsdiensts auf dem ADFS1-Server. Ein Video finden [Sie unter Active Directory-Verbunddienste (AD FS)-Videoserie: Aktivieren des Geräte Registrierungs Dienstanbieter](https://technet.microsoft.com/video/adfs-how-to-enabling-the-device-registration-service).  
+Der nächste Schritt ist die Konfiguration des Geräteregistrierungsdiensts auf dem ADFS1-Server. Ein Video hierzu finden Sie unter [Active Directory-Verbunddienste – Videoreihe mit exemplarischer Vorgehensweise: Aktivieren des Geräteregistrierungsdiensts](https://technet.microsoft.com/video/adfs-how-to-enabling-the-device-registration-service).  
   
 ##### <a name="to-configure-device-registration-service-for-windows-server-2012-rtm"></a>So konfigurieren Sie den Geräteregistrierungsdienst für Windows Server 2012 RTM  
   
@@ -167,19 +166,19 @@ Der nächste Schritt ist die Konfiguration des Geräteregistrierungsdiensts auf 
     Enable-AdfsDeviceRegistration  
     ```  
   
-2.  Navigieren Sie auf dem ADFS1-Server in der **AD FS-Verwaltungskonsole** zu **Authentifizierungsrichtlinien**. Wählen Sie **Globale primäre Authentifizierung bearbeiten**aus. Aktivieren Sie das Kontrollkästchen neben **Geräteauthentifizierung aktivieren**, und klicken Sie dann auf **OK**.  
+2.  Navigieren Sie auf dem ADFS1-Server in der **AD FS-Verwaltungskonsole** zu **Authentifizierungsrichtlinien**. Wählen Sie **Globale primäre Authentifizierung bearbeiten** aus. Aktivieren Sie das Kontrollkästchen neben **Geräteauthentifizierung aktivieren**, und klicken Sie dann auf **OK**.  
   
 ### <a name="add-host-a-and-alias-cname-resource-records-to-dns"></a>Hinzufügen von Host- (A) und Aliasressourcendatensätzen (CNAME) zu DNS  
 Auf DC1 müssen Sie sicherstellen, dass die folgenden DNS-Datensätze für den Geräteregistrierungsdienst erstellt werden.  
   
-|Eingabe|Typ|Adresse|  
+|Eintrag|Typ|Adresse|  
 |---------|--------|-----------|  
 |adfs1|Host (A)|IP-Adresse des AD FS Servers|  
 |enterpriseregistration|Alias (CNAME)|adfs1.contoso.com|  
   
 Sie können wie folgt vorgehen, um einen Hostressourcendatensatz (A) zu DNS-Unternehmensnamenservern für den Verbundserver und den Geräteregistrierungsdienst hinzuzufügen.  
   
-Sie müssen mindestens Mitglied der Gruppe Administratoren oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren ausführen können. Überprüfen Sie die Details zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften im<https://go.microsoft.com/fwlink/?LinkId=83477>Hyperlink "" lokale und Domänen<https://go.microsoft.com/fwlink/p/?LinkId=83477>Standard Gruppen ().  
+Sie müssen mindestens Mitglied der Gruppe Administratoren oder einer entsprechenden Gruppe sein, damit Sie dieses Verfahren ausführen können. Überprüfen Sie die Details zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften im Hyperlink "<https://go.microsoft.com/fwlink/?LinkId=83477>" lokaler und Domänen Standard Gruppen (<https://go.microsoft.com/fwlink/p/?LinkId=83477>).  
   
 ##### <a name="to-add-a-host-a-and-alias-cname-resource-records-to-dns-for-your-federation-server"></a>So fügen Sie einen Host (A) und Aliasressourcendatensätze (CNAME) zu DNS für Ihren Verbundserver hinzu  
   
@@ -187,9 +186,9 @@ Sie müssen mindestens Mitglied der Gruppe Administratoren oder einer entspreche
   
 2.  Erweitern Sie in der Konsolenstruktur DC1 und **Forward-Lookupzonen**, klicken Sie mit der rechten Maustaste auf **contoso.com**, und klicken Sie dann auf **Neuer Host (A oder AAAA)** .  
   
-3.  Geben Sie unter **Name** den gewünschten Namen für Ihre AD FS-Farm ein. Geben Sie für diese exemplarische Vorgehensweise **adfs1**ein.  
+3.  Geben Sie unter **Name** den gewünschten Namen für Ihre AD FS-Farm ein. Verwenden Sie für die exemplarische Vorgehensweise **adfs1**.  
   
-4.  Geben Sie im Feld **IP-Adresse**die IP-Adresse des ADFS1-Servers ein. Klicken Sie auf **Host hinzufügen**.  
+4.  Geben Sie im Feld **IP-Adresse** die IP-Adresse des ADFS1-Servers ein. Klicken Sie auf **Host hinzufügen**.  
   
 5.  Klicken Sie mit der rechten Maustaste auf **contoso.com**, und klicken Sie dann auf **Neuer Alias (CNAME)** .  
   
@@ -200,12 +199,12 @@ Sie müssen mindestens Mitglied der Gruppe Administratoren oder einer entspreche
     > [!IMPORTANT]  
     > Wenn Ihr Unternehmen in einer realen Bereitstellung über mehrere Benutzerprinzipalnamen-Suffixe (User Principal Name, UPN) verfügt, müssen Sie mehrere CNAME-Datensätze erstellen, jeweils einen für die UPN-Suffixe in DNS.  
   
-## <a name="BKMK_5"></a>Schritt 3: Konfigurieren des Webservers (WebServ1) und einer ansprchsbasierten Beispielanwendung  
+## <a name="step-3-configure-the-web-server-webserv1-and-a-sample-claims-based-application"></a><a name="BKMK_5"></a>Schritt 3: Konfigurieren des Webservers (WebServ1) und einer Anspruchs basierten Beispielanwendung  
 Richten Sie einen virtuellen Computer (WebServ1) ein, indem Sie das Betriebssystem Windows Server 2012 R2 installieren, und verbinden Sie es mit der Domäne **contoso.com**. Nachdem der Computer der Domäne hinzugefügt ist, können Sie mit der Installation und Konfiguration der Webserverrolle fortfahren.  
   
 Zum Abschließen der zu Beginn dieses Themas aufgeführten exemplarischen Vorgehensweisen müssen Sie eine Beispielanwendung haben, die von Ihrem Verbundserver (ADFS1) gesichert wird.  
   
-Sie können das Windows Identity Foundation SDK ([https://www.microsoft.com/download/details.aspx?id=4451](https://www.microsoft.com/download/details.aspx?id=4451)) herunterladen, das eine Anspruchs basierte Beispielanwendung enthält.  
+Sie können das Windows Identity Foundation SDK ([https://www.microsoft.com/download/details.aspx?id=4451](https://www.microsoft.com/download/details.aspx?id=4451)herunterladen, das eine Anspruchs basierte Beispielanwendung enthält.  
   
 Sie müssen die folgenden Schritte durchführen, um einen Webserver mit dieser anspruchsbasierten Beispielanwendung einzurichten.  
   
@@ -220,48 +219,48 @@ Sie müssen die folgenden Schritte durchführen, um einen Webserver mit dieser a
   
 4.  [Erstellen einer Vertrauensstellung der vertrauenden Seite auf dem Verbund Server](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_11)  
   
-### <a name="BKMK_15"></a>Installieren der Webserver Rolle und von Windows Identity Foundation  
+### <a name="install-the-web-server-role-and-windows-identity-foundation"></a><a name="BKMK_15"></a>Installieren der Webserver Rolle und von Windows Identity Foundation  
   
 1. > [!NOTE]  
    > Sie müssen Zugriff auf die Windows Server 2012 R2-Installationsmedien haben.  
   
    Melden Sie sich mit <strong>administrator@contoso.com</strong> und dem Kennwort <strong>pass@word1</strong>bei WebServ1 an.  
   
-2. Klicken Sie im Server-Manager auf der Seite **Dashboard** auf der Kachel **Willkommen** in der Registerkarte **Schnellstart** auf **Rollen und Features hinzufügen**. Alternativ können Sie im Menü **Verwalten** auf **Rollen und Features hinzufügen** klicken.  
+2. Klicken Sie im Server-Manager auf der Seite **Dashboard** auf der Kachel **Willkommen** in der Registerkarte **Schnellstart** auf **Rollen und Features hinzufügen**. Sie können alternativ im Menü **Verwalten** auf **Rollen und Features hinzufügen** klicken.  
   
-3. Klicken Sie auf der Seite **Vorbereitung** auf **Weiter**.  
+3. Klicken Sie auf der Seite **Bevor Sie beginnen** auf **Weiter**.  
   
 4. Klicken Sie auf der Seite **Installationstyp auswählen** auf **Rollenbasierte oder featurebasierte Installation**, und klicken Sie anschließend auf **Weiter**.  
   
 5. Klicken Sie auf der Seite  **Zielserver auswählen** auf **Einen Server aus dem Serverpool auswählen**, überprüfen Sie, ob der Zielcomputer ausgewählt ist, und klicken Sie dann auf **Weiter**.  
   
-6. Aktivieren Sie auf der Seite **Serverrollen auswählen** das Kontrollkästchen neben **Webserver (IIS)** , und klicken Sie auf **Features hinzufügen**und dann auf **Weiter**.  
+6. Aktivieren Sie auf der Seite **Serverrollen auswählen** das Kontrollkästchen neben **Webserver (IIS)** , und klicken Sie auf **Features hinzufügen** und dann auf **Weiter**.  
   
 7. Wählen Sie auf der Seite **Features auswählen** die Option **Windows Identity Foundation 3.5** aus, und klicken Sie dann auf **Weiter**.  
   
-8. Klicken Sie auf der Seite **Webserverrolle (IIS)** auf **Weiter**.  
+8. Klicken Sie auf der Seite **Rolle "Webserver (IIS)"** auf **Weiter**.  
   
-9. Wählen Sie auf der Seite **Rollendienste auswählen** **Anwendungsentwicklung** aus, und erweitern Sie die Option. Wählen Sie **ASP.NET 3.5**aus, und klicken Sie auf **Features hinzufügen**und dann auf **Weiter**.  
+9. Wählen Sie auf der Seite **Rollendienste auswählen** **Anwendungsentwicklung** aus, und erweitern Sie die Option. Wählen Sie **ASP.NET 3.5** aus, und klicken Sie auf **Features hinzufügen** und dann auf **Weiter**.  
   
-10. Klicken Sie auf der Seite **Installationsauswahl bestätigen** auf **Alternativen Quellpfad angeben**. Geben Sie den Pfad zum SxS-Verzeichnis ein, das sich auf dem Windows Server 2012 R2-Installationsmedium befindet. Beispiel: d:sourcessxs. Klicken Sie auf **OK**und dann auf **Installieren**.  
+10. Klicken Sie auf der Seite **Installationsauswahl bestätigen** auf **Alternativen Quellpfad angeben**. Geben Sie den Pfad zum SxS-Verzeichnis ein, das sich auf dem Windows Server 2012 R2-Installationsmedium befindet. Beispiel: d:sourcessxs. Klicken Sie auf **OK** und dann auf **Installieren**.  
   
-### <a name="BKMK_13"></a>Installieren des Windows Identity Foundation SDK  
+### <a name="install-windows-identity-foundation-sdk"></a><a name="BKMK_13"></a>Installieren des Windows Identity Foundation SDK  
   
-1.  Führen Sie Sie "windowsidentityfoundation-SDK-3.5. msi aus, um das Windows Identity Foundation https://www.microsoft.com/download/details.aspx?id=4451) SDK 3,5 () zu installieren. Wählen Sie alle Standardoptionen aus.  
+1.  Führen Sie Sie "windowsidentityfoundation-SDK-3.5. msi aus, um das Windows Identity Foundation SDK 3,5 (https://www.microsoft.com/download/details.aspx?id=4451)zu installieren. Wählen Sie alle Standardoptionen aus.  
   
-### <a name="BKMK_9"></a>Konfigurieren der einfachen Anspruchs-app in IIS  
+### <a name="configure-the-simple-claims-app-in-iis"></a><a name="BKMK_9"></a>Konfigurieren der einfachen Anspruchs-app in IIS  
   
 1.  Installieren Sie ein gültiges SSL-Zertifikat im Zertifikatspeicher des Computers. Das Zertifikat sollte den Namen Ihres Webservers, **webserv1.contoso.com**, enthalten.  
   
 2.  Kopieren Sie den Inhalt von c:Program Files (x86) Windows Identity Foundation sdkv 3.5 samplesquick startweb applicationpassiveredirectbasedclaimsawarewebapp nach c:inetpubclaimapp.  
   
-3.  Bearbeiten Sie die Datei **Default.aspx.cs** , damit keine Anspruchsfilterung stattfindet. Mit diesem Schritt wird sichergestellt, dass die Beispielanwendung alle Ansprüche anzeigt, die vom Verbundserver ausgegeben werden. Gehen Sie wie folgt vor:  
+3.  Bearbeiten Sie die Datei **Default.aspx.cs**, damit keine Anspruchsfilterung stattfindet. Mit diesem Schritt wird sichergestellt, dass die Beispielanwendung alle Ansprüche anzeigt, die vom Verbundserver ausgegeben werden. Gehen Sie wie folgt vor:  
   
     1.  Öffnen Sie **Default.aspx.cs** in einem Text-Editor.  
   
     2.  Durchsuchen Sie die Datei nach der zweiten Instanz von `ExpectedClaims`.  
   
-    3.  Kommentieren Sie die gesamte `IF` -Anweisung einschließlich der Klammern aus. Weisen Sie auf Kommentare hin, indem Sie am Anfang einer Zeile „//“ eingeben (ohne Anführungszeichen).  
+    3.  Kommentieren Sie die gesamte `IF` -Anweisung einschließlich der Klammern aus. Geben Sie Kommentare ein, indem Sie am Anfang einer Zeile "//" (ohne Anführungszeichen) eingeben.  
   
     4.  Ihre `FOREACH` -Anweisung sollte jetzt wie im folgenden Codebeispiel aussehen.  
   
@@ -280,7 +279,7 @@ Sie müssen die folgenden Schritte durchführen, um einen Webserver mit dieser a
   
     5.  Speichern und schließen Sie **Default.aspx.cs**.  
   
-    6.  Öffenen Sie **web.config** in einem Text-Editor.  
+    6.  Öffnen Sie **web.config** in einem Text-Editor.  
   
     7.  Entfernen Sie den gesamten Abschnitt `<microsoft.identityModel>` . Entfernen Sie alles ab `including <microsoft.identityModel>` bis einschließlich `</microsoft.identityModel>`.  
   
@@ -290,11 +289,11 @@ Sie müssen die folgenden Schritte durchführen, um einen Webserver mit dieser a
   
     1.  Öffnen Sie **Internetinformationsdienste-Manager (IIS)** .  
   
-    2.  Navigieren Sie zu **Anwendungspools**, und klicken Sie mit der rechten Maustasge auf **DefaultAppPool**, um **Erweiterte Einstellungen** auszuwählen. Setzen Sie **Benutzerprofil laden** auf **True**, und klicken Sie dann auf **OK**.  
+    2.  Navigieren Sie zu **Anwendungspools**, und klicken Sie mit der rechten Maustaste auf **DefaultAppPool**, um **Erweiterte Einstellungen** auszuwählen. Setzen Sie **Benutzerprofil laden** auf **True**, und klicken Sie dann auf **OK**.  
   
-    3.  Klicken Sie mit der rechten Maustaste auf **DefaultAppPool** , um **Grundeinstellungen**auszuwählen. Ändern Sie **.NET CLR-Version** in **.NET CLR Version v2.0.50727**.  
+    3.  Klicken Sie mit der rechten Maustaste auf **DefaultAppPool**, um **Grundeinstellungen** auszuwählen. Ändern Sie **.NET CLR-Version** in **.NET CLR Version v2.0.50727**.  
   
-    4.  Klicken Sie mit der rechten Maustaste auf **Standardwebsite** , um **Bindungen bearbeiten**auszuwählen.  
+    4.  Klicken Sie mit der rechten Maustaste auf **Standardwebsite**, um **Bindungen bearbeiten** auszuwählen.  
   
     5.  Fügen Sie eine **HTTPS**-Bindung zu Port **443** mit dem von Ihnen installierten SSL-Zertifikat hinzu.  
   
@@ -306,28 +305,28 @@ Sie müssen die folgenden Schritte durchführen, um einen Webserver mit dieser a
   
     1.  Führen Sie "fedutil. exe" aus, das sich in " **c:Program Files (x86) Windows Identity Foundation sdkv 3.5**" befindet.  
   
-    2.  Legen Sie den Speicherort der Anwendungskonfiguration auf **c:inetputclaimappweb.config** fest, und legen Sie den Anwendungs-URI auf die URL Ihrer Website,  **https://webserv1.contoso.com /claimapp/** , fest. Klicken Sie auf **Weiter**.  
+    2.  Legen Sie den Speicherort der Anwendungskonfiguration auf **c:inetputclaimappweb.config** fest, und legen Sie den Anwendungs-URI auf die URL für Ihre Website fest, **https://webserv1.contoso.com/claimapp/** . Klicken Sie auf **Weiter**.  
   
-    3.  Wählen Sie **vorhandenen STS verwenden** aus, und navigieren Sie zur Metadaten-URL **https://adfs1.contoso.com/federationmetadata/2007-06/federationmetadata.xml** Ihres AD FS Servers. Klicken Sie auf **Weiter**.  
+    3.  Wählen Sie **vorhandenen STS verwenden** aus, und navigieren Sie zur Metadaten-URL Ihres AD FS Servers **https://adfs1.contoso.com/federationmetadata/2007-06/federationmetadata.xml** . Klicken Sie auf **Weiter**.  
   
-    4.  Wählen Sie **Überprüfung der Zertifikatkette deaktivieren**aus, und klicken Sie dann auf **Weiter**.  
+    4.  Wählen Sie **Überprüfung der Zertifikatkette deaktivieren** aus, und klicken Sie dann auf **Weiter**.  
   
-    5.  Wählen Sie **Keine Verschlüsselung**aus, und klicken Sie auf **Weiter**. Klicken Sie auf der Seite **Angebotene Ansprüche** auf **Weiter**.  
+    5.  Wählen Sie **Keine Verschlüsselung** aus, und klicken Sie auf **Weiter**. Klicken Sie auf der Seite **Angebotene Ansprüche** auf **Weiter**.  
   
     6.  Aktivieren Sie das Kontrollkästchen neben **Planen einer Aufgabe zur Durchführung täglicher WS-Verbundmetadatenupdates**. Klicken Sie auf **Fertig stellen**.  
   
     7.  Ihre Beispielanwendung ist jetzt konfiguriert. Wenn Sie die Anwendungs-URL **https://webserv1.contoso.com/claimapp** testen, sollten Sie Sie an den Verbund Server weiterleiten. Der Verbundserver sollte eine Fehlerseite anzeigen, da Sie die Vertrauensstellung der vertrauenden Seite noch nicht konfiguriert haben. Anders ausgedrückt, haben Sie diese Testanwendung nicht durch AD FS gesichert.  
   
-Sie müssen jetzt Ihre Beispielanwendung, die auf dem Webserver ausgeführt wird, mit AD FS sichern. Dies erreichen Sie, indem Sie eine Vertrauensstellung der vertrauenden Seite auf Ihrem Verbundserver (ADFS1) hinzufügen. Ein Video finden [Sie unter Active Directory-Verbunddienste (AD FS)-Videoserie: Fügt eine Vertrauensstellung der](https://technet.microsoft.com/video/adfs-how-to-add-a-relying-party-trust)vertrauenden Seite hinzu.  
+Sie müssen jetzt Ihre Beispielanwendung, die auf dem Webserver ausgeführt wird, mit AD FS sichern. Dies erreichen Sie, indem Sie eine Vertrauensstellung der vertrauenden Seite auf Ihrem Verbundserver (ADFS1) hinzufügen. Ein Video hierzu finden Sie unter [Active Directory-Verbunddienste – Videoreihe mit exemplarischer Vorgehensweise: Hinzufügen einer Vertrauensstellung der vertrauenden Seite](https://technet.microsoft.com/video/adfs-how-to-add-a-relying-party-trust).  
   
-### <a name="BKMK_11"></a>Erstellen einer Vertrauensstellung der vertrauenden Seite auf dem Verbund Server  
+### <a name="create-a-relying-party-trust-on-your-federation-server"></a><a name="BKMK_11"></a>Erstellen einer Vertrauensstellung der vertrauenden Seite auf dem Verbund Server  
   
 1.  Navigieren Sie auf Ihrem Verbundserver (ADFS1) in der **AD FS-Verwaltungskonsole** zu **Vertrauensstellungen der vertrauenden Seite**, und klicken Sie dann auf **Vertrauensstellung der vertrauenden Seite hinzufügen**.  
   
-2.  Wählen Sie auf der Seite **Auswählen einer Datenquelle** die Option **Online oder in einem lokalen Netzwerk veröffentlichte Daten über die vertrauende Seite importieren**aus, geben Sie die Metadaten-URL für **claimapp**ein, und klicken Sie dann auf **Weiter**. Bei der Ausführung von FedUtil.exe wurde eine Metadaten-XML-Datei erstellt. Sie befindet sich unter   
+2.  Wählen Sie auf der Seite **Auswählen einer Datenquelle** die Option **Online oder in einem lokalen Netzwerk veröffentlichte Daten über die vertrauende Seite importieren** aus, geben Sie die Metadaten-URL für **claimapp** ein, und klicken Sie dann auf **Weiter**. Bei der Ausführung von FedUtil.exe wurde eine Metadaten-XML-Datei erstellt. Sie befindet sich unter   
     **https://webserv1.contoso.com/claimapp/federationmetadata/2007-06/federationmetadata.xml** .  
   
-3.  Geben Sie auf der Seite **Anzeigenamen angeben** den **Anzeigenamen** für Ihre Vertrauensstellung der vertrauenden Seite ( **claimapp**) an, und klicken Sie dann auf **Weiter**.  
+3.  Geben Sie auf der Seite **Angeben des Anzeigenamens** den **Anzeigenamen** für Ihre Vertrauensstellung der vertrauenden Seite, **claimapp**, ein, und klicken Sie dann auf **Weiter**.  
   
 4.  Wählen Sie auf der Seite **Jetzt mehrstufige Authentifizierung konfigurieren?** die Option **Ich möchte jetzt keine mehrstufige Authentifizierungseinstellung für diese Vertrauensstellung der vertrauenden Seite angeben**, und klicken Sie auf **Weiter**.  
   
@@ -337,7 +336,7 @@ Sie müssen jetzt Ihre Beispielanwendung, die auf dem Webserver ausgeführt wird
   
 7.  Klicken Sie im Dialogfeld **Anspruchsregeln bearbeiten** auf **Regel hinzufügen**.  
   
-8.  Wählen Sie auf der Seite **Auswählen eines Regeltyps** die Option **Senden von Ansprüchen mit benutzerdefinierter Regel**aus, und klicken Sie dann auf **Weiter**.  
+8.  Wählen Sie auf der Seite **Auswählen eines Regeltyps** die Option **Senden von Ansprüchen mit benutzerdefinierter Regel** aus, und klicken Sie dann auf **Weiter**.  
   
 9. Geben Sie auf der Seite **Konfigurieren einer Anspruchsregel** in das Feld **Name der Anspruchsregel** **All Claims** ein. Geben Sie im Feld **Benutzerdefinierte Regel** die folgende Anspruchsregel ein.  
   
@@ -349,17 +348,17 @@ Sie müssen jetzt Ihre Beispielanwendung, die auf dem Webserver ausgeführt wird
   
 10. Klicken Sie auf **Fertig stellen**, und klicken Sie dann auf **OK**.  
   
-## <a name="BKMK_10"></a>Schritt 4: Konfigurieren des Clientcomputers (Client1)  
+## <a name="step-4-configure-the-client-computer-client1"></a><a name="BKMK_10"></a>Schritt 4: Konfigurieren des Client Computers (CLIENT1)  
 Richten Sie einen weiteren virtuellen Computer ein, und installieren Sie Windows 8.1. Dieser virtuelle Computer muss sich im selben virtuellen Netzwerk befinden wie die anderen Computer. Dieser Computer sollte NICHT zur Contoso-Domäne hinzugefügt werden.  
   
-Der Client muss dem SSL-Zertifikat vertrauen, das für den Verbund Server (ADFS1) verwendet wird, den Sie in [Schritt 2: Konfigurieren Sie den Verbund Server (ADFS1) mit dem Geräte](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_4)Registrierungsdienst. Darüber hinaus muss er die Zertifikatsperrinformationen für das Zertifikat validieren können.  
+Der Client MUSS dem SSL-Zertifikat vertrauen, das für den in [Step 2: Configure the federation server (ADFS1) with Device Registration Service](../../ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md#BKMK_4)eingerichteten Verbundserver (ADFS1) verwendet wird. Darüber hinaus muss er die Zertifikatsperrinformationen für das Zertifikat validieren können.  
   
 Sie müssen außerdem ein Microsoft-Konto einrichten und verwenden, um sich bei Client1 anzumelden.  
   
-## <a name="see-also"></a>Siehe auch  
-[Active Directory-Verbunddienste (AD FS)-Video Serie: Installieren einer AD FS-Server Farm](https://technet.microsoft.com/video/dn469436)  
-[Active Directory-Verbunddienste (AD FS)-Video Serie: Aktualisieren von Zertifikaten](https://technet.microsoft.com/video/adfs-updating-certificates)  
-[Active Directory-Verbunddienste (AD FS)-Video Serie: Vertrauensstellung der vertrauenden Seite hinzufügen](https://technet.microsoft.com/video/adfs-how-to-add-a-relying-party-trust)  
-[Active Directory-Verbunddienste (AD FS)-Video Serie: Aktivieren des Geräte Registrierungs Dienstanbieter](https://technet.microsoft.com/video/adfs-how-to-enabling-the-device-registration-service)  
-[Active Directory-Verbunddienste (AD FS)-Video Serie: Installieren des webanwendungsproxy](https://technet.microsoft.com/video/dn469438)  
+## <a name="see-also"></a>Weitere Informationen  
+[Active Directory-Verbunddienste (AD FS)-Video Serie: Installieren einer AD FS Server Farm](https://technet.microsoft.com/video/dn469436)  
+[Active Directory-Verbunddienste (AD FS)-Video Reihe zur Vorgehensweise: Aktualisieren von Zertifikaten](https://technet.microsoft.com/video/adfs-updating-certificates)  
+[Active Directory-Verbunddienste (AD FS): Hinzufügen einer Vertrauensstellung der vertrauenden Seite](https://technet.microsoft.com/video/adfs-how-to-add-a-relying-party-trust)  
+[Active Directory-Verbunddienste (AD FS): Aktivieren des Geräte Registrierungs Dienstanbieter](https://technet.microsoft.com/video/adfs-how-to-enabling-the-device-registration-service)  
+[Active Directory-Verbunddienste (AD FS)-Video Serie: Installieren des webanwendungsproxys](https://technet.microsoft.com/video/dn469438)  
   

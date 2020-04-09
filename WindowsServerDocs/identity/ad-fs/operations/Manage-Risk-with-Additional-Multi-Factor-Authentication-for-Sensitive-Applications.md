@@ -1,7 +1,6 @@
 ---
 ms.assetid: 934ac796-e2ee-490d-8265-6a818be5ee79
 title: Verwalten von Risiken mit zusätzlicher mehrstufiger Authentifizierung für sensible Anwendungen
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 79319f54ceb14195dffd56b5a4dfe1b17f048df9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dc6608713ddd60d20b0b717d4133d93d23fc7b25
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407521"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816253"
 ---
 # <a name="manage-risk-with-additional-multi-factor-authentication-for-sensitive-applications"></a>Verwalten von Risiken mit zusätzlicher mehrstufiger Authentifizierung für sensible Anwendungen
 
@@ -27,7 +26,7 @@ ms.locfileid: "71407521"
 
 -   [Konfigurieren zusätzlicher Authentifizierungsmethoden für AD FS](../../ad-fs/operations/Configure-Additional-Authentication-Methods-for-AD-FS.md)
 
-## <a name="in-this-guide"></a>Inhalt dieser Anleitung
+## <a name="in-this-guide"></a>In diesem Handbuch
 Dieses Handbuch enthält die folgenden Informationen:
 
 -   [Authentifizierungsmechanismen in AD FS](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md#BKMK_1) -Beschreibung der in Active Directory-Verbunddienste (AD FS) (AD FS) verfügbaren Authentifizierungsmechanismen in Windows Server 2012 R2
@@ -39,10 +38,10 @@ Dieses Handbuch enthält die folgenden Informationen:
 
     Ausführliche Schritt-für-Schritt-Anleitungen zum Konfigurieren und überprüfen dieses Szenarios finden Sie unter Exemplarische Vorgehensweise [: Verwalten von Risiken mit zusätzlichen Multi-Factor Authentication für sensible Anwendungen](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md).
 
-## <a name="BKMK_1"></a>Schlüsselkonzepte: Authentifizierungsmechanismen in AD FS
+## <a name="key-concepts---authentication-mechanisms-in-ad-fs"></a><a name="BKMK_1"></a>Schlüsselkonzepte: Authentifizierungsmechanismen in AD FS
 
 ### <a name="benefits-of-authentication-mechanisms-in-ad---fs"></a>Vorteile der Authentifizierungsmechanismen in AD FS
-Active Directory-Verbunddienste (AD FS) (AD FS) in Windows Server 2012 R2 bietet IT-Administratoren einen umfassenderen, flexiblere Satz von Tools zum Authentifizieren von Benutzern, die auf Unternehmensressourcen zugreifen möchten. Sie ermöglicht Administratoren eine flexible Steuerung der primären und zusätzlichen Authentifizierungsmethoden, bietet eine umfassende Verwaltungs Oberfläche für die Konfiguration von Authentifizierungs Richtlinien (sowohl über die Benutzeroberfläche als auch über Windows PowerShell) und verbessert die Benutzeroberflächen für Endbenutzer, die auf von AD FS gesicherte Anwendungen und Dienste zugreifen. Im folgenden finden Sie einige der Vorteile, die sich aus der Sicherung Ihrer Anwendung und ihrer Dienste mit AD FS in Windows Server 2012 R2 ergeben:
+Active Directory-Verbunddienste (AD FS) (AD FS) in Windows Server 2012 R2 bietet IT-Administratoren einen umfassenderen, flexiblere Satz von Tools zum Authentifizieren von Benutzern, die auf Unternehmensressourcen zugreifen möchten. Dadurch können Administratoren die primären und zusätzlichen Authentifizierungsmethoden flexibel steuern. Außerdem bietet Sie eine umfassende Verwaltungs Oberfläche für die Konfiguration von Authentifizierungs Richtlinien (sowohl über die Benutzeroberfläche als auch über Windows PowerShell) und verbessert die Benutzerfreundlichkeit für Endbenutzer, die auf die von AD FS gesicherten Anwendungen und Dienste zugreifen. Im folgenden finden Sie einige der Vorteile, die sich aus der Sicherung Ihrer Anwendung und ihrer Dienste mit AD FS in Windows Server 2012 R2 ergeben:
 
 -   Globale Authentifizierungs Richtlinie: eine zentrale Verwaltungsfunktion, von der ein IT-Administrator auswählen kann, welche Authentifizierungsmethoden zum Authentifizieren von Benutzern basierend auf dem Netzwerk Speicherort verwendet werden, von dem aus Sie auf geschützte Ressourcen zugreifen. Dies ermöglicht Administratoren Folgendes:
 
@@ -118,7 +117,7 @@ Für MFA-Einstellungen (Bedingungen, unter denen die MFA erforderlich ist) stehe
 
 -   Sie können die MFA verlangen, wenn die Zugriffsanforderung für die geschützten Ressourcen über das Extranet oder das Intranet erfolgt.
 
-## <a name="BKMK_2"></a>Szenarioübersicht
+## <a name="scenario-overview"></a><a name="BKMK_2"></a>Szenarioübersicht
 In diesem Szenario aktivieren Sie die MFA auf Grundlage der Gruppen Mitgliedschafts Daten eines Benutzers für eine bestimmte Anwendung. In anderen Worten: Sie richten eine Authentifizierungsrichtlinie auf dem Verbundserver so ein, dass die MFA erforderlich ist, wenn Benutzer aus einer bestimmten Gruppe Zugriff auf eine spezielle auf einem Webserver gehostete Anwendung anfordern.
 
 Genauer gesagt aktivieren Sie in diesem Szenario eine Authentifizierungsrichtlinie für eine anspruchsbasierte Testanwendung namens **claimapp**. Dabei muss der AD-Benutzer **Robert Hatley** die MFA durchlaufen, da er zur AD-Gruppe **Finance** gehört.

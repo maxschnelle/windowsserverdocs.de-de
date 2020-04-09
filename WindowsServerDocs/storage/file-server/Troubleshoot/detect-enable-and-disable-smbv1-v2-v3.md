@@ -3,16 +3,15 @@ title: Erkennen, aktivieren und Deaktivieren von SMBv1, SMBv2 und SMBv3 in Windo
 description: Beschreibt das Aktivieren und Deaktivieren des Server Message Block-Protokolls (SMBv1, SMBv2 und SMBv3) in Windows-Client-und-Server Umgebungen.
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 9da4d6f2b5616dc6f8aec3fefb1ae7141ed88b0b
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: d6c47843dedaf45842f70d1bb408b59d63c03eb4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654391"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815503"
 ---
 # <a name="how-to-detect-enable-and-disable-smbv1-smbv2-and-smbv3-in-windows"></a>Erkennen, aktivieren und Deaktivieren von SMBv1, SMBv2 und SMBv3 in Windows
 
@@ -76,7 +75,7 @@ Weitere Informationen zu den Funktionen der SMBv2-und SMBv3-Funktionen finden Si
   Disable-WindowsOptionalFeature -Online -FeatureName smb1protocol
   ```
 
-- Aktivieren Sie: 
+- Fähigen 
 
   ```PowerShell
   Enable-WindowsOptionalFeature -Online -FeatureName smb1protocol
@@ -96,7 +95,7 @@ Weitere Informationen zu den Funktionen der SMBv2-und SMBv3-Funktionen finden Si
   Set-SmbServerConfiguration -EnableSMB2Protocol $false
   ```
 
-- Aktivieren Sie:
+- Fähigen
 
   ```PowerShell
   Set-SmbServerConfiguration -EnableSMB2Protocol $true 
@@ -124,7 +123,7 @@ Weitere Informationen zu den Funktionen der SMBv2-und SMBv3-Funktionen finden Si
   Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
   ```
 
-- Aktivieren Sie: 
+- Fähigen 
 
   ```PowerShell
   Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
@@ -144,7 +143,7 @@ Weitere Informationen zu den Funktionen der SMBv2-und SMBv3-Funktionen finden Si
   Set-SmbServerConfiguration –EnableSMB2Protocol $false
   ```
 
-- Aktivieren Sie:
+- Fähigen
 
   ```PowerShell
   Set-SmbServerConfiguration –EnableSMB2Protocol $true
@@ -179,7 +178,7 @@ Sie müssen den Computer nach dem Ausführen des Cmdlets " **Set-smbserverconfig
   Set-SmbServerConfiguration -EnableSMB1Protocol $false
   ```
 
-- Aktivieren Sie: 
+- Fähigen 
   ```PowerShell
   Set-SmbServerConfiguration -EnableSMB1Protocol $true
   ```
@@ -199,7 +198,7 @@ Weitere Informationen finden Sie unter [Server Speicher bei Microsoft](https://t
   Set-SmbServerConfiguration -EnableSMB2Protocol $false
   ```
 
-- Aktivieren Sie:
+- Fähigen
   
   ```PowerShell
   Set-SmbServerConfiguration -EnableSMB2Protocol $true
@@ -230,7 +229,7 @@ Ier
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
 ```
 
-Aktivieren Sie:  
+Fähigen  
 
 ```PowerShell
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 1 –Force
@@ -251,7 +250,7 @@ Ier
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB2 -Type DWORD -Value 0 –Force  
 ```
 
-Aktivieren Sie:
+Fähigen
 
 ```PowerShell
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB2 -Type DWORD -Value 1 –Force 
@@ -263,7 +262,7 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 #### <a name="registry-editor"></a>Registrierungs-Editor
 
 > [!IMPORTANT]
-> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/help/322756) für den Fall, dass Probleme auftreten.
+> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wenn Ihnen beim Bearbeiten der Registrierung ein Fehler unterläuft, kann dies zu schwerwiegenden Problemen führen. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/help/322756) für den Fall, dass Probleme auftreten.
  
 Um SMBv1 auf dem SMB-Server zu aktivieren oder zu deaktivieren, konfigurieren Sie den folgenden Registrierungsschlüssel:
 
@@ -312,7 +311,7 @@ Default: 1 = Enabled (No registry key is created)
   sc.exe config mrxsmb10 start= disabled
   ```
 
-- Aktivieren Sie:
+- Fähigen
 
   ```cmd
   sc.exe config lanmanworkstation depend= bowser/mrxsmb10/mrxsmb20/nsi
@@ -335,7 +334,7 @@ Weitere Informationen finden Sie unter [Server Speicher bei Microsoft](https://b
   sc.exe config mrxsmb20 start= disabled 
   ```
 
-- Aktivieren Sie:
+- Fähigen
 
   ```cmd
   sc.exe config lanmanworkstation depend= bowser/mrxsmb10/mrxsmb20/nsi
@@ -358,7 +357,7 @@ Mit diesem Verfahren wird das folgende neue Element in der Registrierung konfigu
 
 Führen Sie die folgenden Schritte aus, um dies mithilfe Gruppenrichtlinie zu konfigurieren:
  
-1. Öffnen Sie die **Gruppenrichtlinien-Verwaltungskonsole**. Klicken Sie mit der rechten Maustaste auf das Gruppenrichtlinienobjekt (Group Policy Object, GPO), das das neue Einstellungselement enthalten soll, und klicken Sie dann auf **Bearbeiten**.
+1. Öffnen Sie die **Gruppenrichtlinien-Verwaltungskonsole**. Klicken Sie mit der rechten Maustaste auf das Gruppenrichtlinienobjekt (GPO, Group Policy Object), das das neue Einstellungselement enthalten soll, und klicken Sie dann auf **Bearbeiten**.
 
 2. Erweitern Sie in der Konsolen **Struktur unter Computer Konfiguration**den Ordner **Einstellungen** , und erweitern Sie dann den Ordner **Windows-Einstellungen** .
 
@@ -404,7 +403,7 @@ Registrierungs Eintrag: **DependOnService** REG_MULTI_SZ: **"Bowser", "MRxSmb20"
 
 Führen Sie die folgenden Schritte aus, um dies mithilfe Gruppenrichtlinie zu konfigurieren:
  
-1. Öffnen Sie die **Gruppenrichtlinien-Verwaltungskonsole**. Klicken Sie mit der rechten Maustaste auf das Gruppenrichtlinienobjekt (Group Policy Object, GPO), das das neue Einstellungselement enthalten soll, und klicken Sie dann auf **Bearbeiten**.
+1. Öffnen Sie die **Gruppenrichtlinien-Verwaltungskonsole**. Klicken Sie mit der rechten Maustaste auf das Gruppenrichtlinienobjekt (GPO, Group Policy Object), das das neue Einstellungselement enthalten soll, und klicken Sie dann auf **Bearbeiten**.
 
 2. Erweitern Sie in der Konsolen **Struktur unter Computer Konfiguration**den Ordner **Einstellungen** , und erweitern Sie dann den Ordner **Windows-Einstellungen** .
 
@@ -430,7 +429,7 @@ Führen Sie die folgenden Schritte aus, um dies mithilfe Gruppenrichtlinie zu ko
    - **Schlüssel Pfad**: system\currentcontrolset\services\lanmanworkstation
    - **Wertname**: DependOnService
    - **Werttyp**: REG_MULTI_SZ 
-   - **Wertdaten:**
+   - **Wertdaten**:
       - Bowsermodus
       - MRxSmb20
       - NSI

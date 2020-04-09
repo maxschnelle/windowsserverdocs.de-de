@@ -1,24 +1,20 @@
 ---
 title: Wbadmin-Status "Get"
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Artikel zum Abrufen des Status von Wbadmin, der den Status des aktuell laufenden Sicherungs-oder Wiederherstellungs Vorgangs meldet.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2911b944-7b95-46aa-8c1e-1d55a2fcc94c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0270a29e557ec135301753dd66c1f5f2404a8acc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f8ebf1a078632f78dc8d58c232550345f0de78f2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362387"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829743"
 ---
 # <a name="wbadmin-get-status"></a>Wbadmin-Status "Get"
 
@@ -34,7 +30,7 @@ Um diesen Unterbefehl verwenden zu können, müssen Sie Mitglied der Gruppe " **
 wbadmin get status
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 Dieser Unterbefehl weist keine Parameter auf.
 
@@ -43,8 +39,8 @@ Dieser Unterbefehl weist keine Parameter auf.
 -   Dieser Unterbefehl wird erst beendet, wenn der aktuelle Sicherungs-oder Wiederherstellungs Vorgang abgeschlossen ist – der Unterbefehl wird weiterhin ausgeführt, auch wenn Sie das Befehlsfenster schließen.
 -   Wenn Sie den aktuellen Sicherungs-oder Wiederherstellungs Vorgang abbrechen möchten, verwenden Sie den Unterbefehl zum Abbrechen des Auftrags unter " **Wbadmin** ".
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Get-wbjob](https://technet.microsoft.com/library/jj902426.aspx) -Cmdlet

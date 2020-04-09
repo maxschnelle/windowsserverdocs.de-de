@@ -1,24 +1,20 @@
 ---
 title: rdpsign
 description: Erfahren Sie, wie Sie eine RDP-Datei digital signieren.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4a6fa8ce-3d32-49a5-b056-bcc1a23391f5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 406563a07d3760c2846c201410f3a7b8f1c2829b
-ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
+ms.openlocfilehash: c9df46ab09b758cbd86334d5b418c876c41f0eff
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72588055"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80836673"
 ---
 # <a name="rdpsign"></a>rdpsign
 
@@ -28,14 +24,14 @@ Ermöglicht das digitale Signieren einer Remotedesktopprotokoll Datei (. RDP).
 Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
+> In Windows Server 2008 R2 wurde „Terminaldienste“ umbenannt in „Remotedesktopdienste“. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
 
 ## <a name="syntax"></a>Syntax
 ```
 rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |-------|--------|
@@ -56,7 +52,7 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
 -   Die signierten Ausgabedateien überschreiben die Eingabedateien.
 -   Wenn eine der RDP-Dateien nicht gelesen oder geschrieben werden kann, wird das Tool mit der nächsten Datei fortgesetzt, wenn mehrere Dateien angegeben sind.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
 - Zum Signieren einer RDP-Datei mit dem Namen file1. RDP navigieren Sie zu dem Ordner, in dem Sie die RDP-Datei gespeichert haben, und geben Sie dann Folgendes ein:
   ```
   rdpsign /sha1 hash file1.rdp
@@ -72,5 +68,5 @@ rdpsign /sha1 <hash> [/q | /v |] [/l] <file_name.rdp>
   rdpsign /sha1 hash file1.rdp file2.rdp file3.rdp
   ```
   ## <a name="see-also"></a>Weitere Informationen
-  [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-  [Remotedesktopdienste &#40;Terminal Dienste&#41; -Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+  - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+  [Remotedesktopdienste Befehlsreferenz (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 11f36f2b-9981-4da0-9e7c-4eca78035f37
 title: 'Anhang D: sichern integrierter Administrator Konten in Active Directory'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: cc91ccd00c951863f4f9802f3d669e36ff3f3d9a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3e0060e4b732fe77de4371c7b84b77da21de9e20
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367837"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821663"
 ---
 # <a name="appendix-d-securing-built-in-administrator-accounts-in-active-directory"></a>Anhang D: Schützen integrierter Administratorkonten in Active Directory
 
@@ -68,7 +67,7 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
         -   Anmelden über Remotedesktopdienste verweigern  
 
 > [!NOTE]  
-> Mit diesen Einstellungen wird sichergestellt, dass das integrierte Administrator Konto der Domäne nicht zum Herstellen einer Verbindung mit einem Domänen Controller verwendet werden kann, obwohl sich das Konto, wenn es aktiviert ist, lokal bei Domänen Controllern anmelden kann. Da dieses Konto nur für Notfall Wiederherstellungs Szenarien aktiviert und verwendet werden soll, wird davon abgerechnet, dass der physische Zugriff auf mindestens einen Domänen Controller verfügbar ist oder dass andere Konten mit Berechtigungen für den Remote Zugriff auf Domänen Controller daran.  
+> Mit diesen Einstellungen wird sichergestellt, dass das integrierte Administrator Konto der Domäne nicht zum Herstellen einer Verbindung mit einem Domänen Controller verwendet werden kann, obwohl sich das Konto, wenn es aktiviert ist, lokal bei Domänen Controllern anmelden kann. Da dieses Konto nur aktiviert und in Notfall Wiederherstellungs Szenarien verwendet werden sollte, wird davon abgerechnet, dass der physische Zugriff auf mindestens einen Domänen Controller verfügbar ist oder dass andere Konten verwendet werden können, die über Berechtigungen für den Remote Zugriff auf Domänen Controller verfügen.  
 
 -   Konfigurieren der Überwachung von Administrator Konten  
 
@@ -76,7 +75,7 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 
 #### <a name="step-by-step-instructions-to-secure-built-in-administrator-accounts-in-active-directory"></a>Schritt-für-Schritt-Anleitung zum Sichern integrierter Administrator Konten in Active Directory  
 
-1.  KlickenSie in Server-Manager **auf Extras, und**klicken Sie dann auf **Active Directory Benutzer und Computer**.  
+1.  Klicken **Server Manager**Sie in Server-Manager **auf Extras, und**klicken Sie dann auf **Active Directory Benutzer und Computer**.  
 
 2.  Führen Sie die folgenden Schritte aus, um zu verhindern, dass Angriffe, die die Delegierung nutzen, die Anmelde Informationen des Kontos auf anderen Systemen verwenden  
 
@@ -103,7 +102,7 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 > [!WARNING]  
 > Dieses GPO sollte nie auf Domänen Ebene verknüpft werden, da es das integrierte Administrator Konto auch in Notfall Wiederherstellungs Szenarien unbrauchbar machen kann.  
 
-1.  KlickenSie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
+1.  Klicken **Server Manager**Sie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
 
 2.  Erweitern Sie in der Konsolen Struktur <Forest>\domains\\<Domain>, und klicken Sie dann auf **Gruppenrichtlinie Objekte** (wobei <Forest> der Name der Gesamtstruktur und <Domain> der Name der Domäne ist, in der Sie die Gruppenrichtlinie erstellen möchten).  
 
@@ -190,7 +189,7 @@ Für das integrierte Administrator Konto in jeder Domäne in der Gesamtstruktur 
 > [!IMPORTANT]  
 > Wenn Sie diesem Einstellungen das Administrator Konto hinzufügen, geben Sie an, ob Sie ein lokales Administrator Konto oder ein Domänen Administrator Konto konfigurieren, indem Sie die Bezeichnung der Konten angeben. Wenn Sie z. b. das Administrator Konto der tailspintoys-Domäne diesen Ablehnungs rechten hinzufügen möchten, navigieren Sie zum Administrator Konto für die tailspintoys-Domäne, die als TAILSPINTOYS\Administrator. angezeigt wird. Wenn Sie in den Gruppenrichtlinienobjekt-Editor "Administrator" in den Einstellungen für Benutzerrechte eingeben, schränken Sie das lokale Administrator Konto auf allen Computern ein, auf die das Gruppenrichtlinien Objekt angewendet wird, wie zuvor beschrieben.  
 
-#### <a name="verification-steps"></a>Überprüfungs Schritte  
+#### <a name="verification-steps"></a>Überprüfungsschritte  
 Die hier beschriebenen Überprüfungs Schritte gelten speziell für Windows 8 und Windows Server 2012.  
 
 ##### <a name="verify-smart-card-is-required-for-interactive-logon-account-option"></a>Überprüfen Sie die Konto Option "Smartcard ist für die interaktive Anmeldung erforderlich".  

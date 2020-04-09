@@ -3,16 +3,15 @@ title: Aushandeln, Einrichten von Sitzungen und Fehler bei der Baum Verbindung
 description: Erläutert die Problembehandlung bei den Fehlern beim Aushandeln, beim Einrichten der Sitzung und bei der Baum Verbindung.
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 0ccd8d882060432dcfc27ee47b82d0c61e3aad4d
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: 13124176e530aa7b74d18a38c906bf5297be511e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654371"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815383"
 ---
 # <a name="negotiate-session-setup-and-tree-connect-failures"></a>Aushandeln, Einrichten von Sitzungen und Fehler bei der Baum Verbindung
 
@@ -30,7 +29,7 @@ Wenn Sie Windows Server 2008 R2 verwenden, gibt es Hotfixes für dieses Problem.
 
 Der SMB-Server empfängt eine SMB-Sitzung\_Setup Anforderung von einem SMB-Client, konnte jedoch nicht Antworten.
 
-Wenn der voll qualifizierte Domänen Name (Fully Qualified Domain Name, FQDN) oder der NetBIOS-Name (Network Basic Input/Output System) des Servers im UNC-Pfad (Universal Naming Convention) verwendet wird, verwendet Windows Kerberos für die Authentifizierung.
+Wenn der voll qualifizierte Domänen Name (Fully Qualified Domain Name, FQDN) oder der NetBIOS-Name (Network Basic Input/Output System) des Servers im UNC-Pfad (Universal Naming Convention) angezeigt wird, verwendet Windows Kerberos für die Authentifizierung.
 
 Nach der Aushandlungs Antwort wird versucht, ein Kerberos-Ticket für den CIFS-Dienst Prinzipal Namen (Common Internet File System, SPN) des Servers zu erhalten. Überprüfen Sie den Kerberos-Datenverkehr an TCP-Port 88, um sicherzustellen, dass keine Kerberos-Fehler auftreten, wenn der SMB-Client das Token erhält.
 
@@ -61,7 +60,7 @@ Stellen Sie sicher, dass die Freigabe auf dem Server vorhanden ist und dass Sie 
 
 Vergewissern Sie sich, dass der von der Freigabe verwendete Datenträger und Ordner vorhanden sind und darauf zugegriffen werden kann.
 
-Wenn Sie SMBv3 oder höher verwenden, überprüfen Sie, ob für den Server und die Freigabe eine Verschlüsselung erforderlich ist, der Client jedoch keine Verschlüsselung unterstützt. Führen Sie dazu die folgenden Aktionen aus:
+Wenn Sie SMBv3 oder höher verwenden, überprüfen Sie, ob für den Server und die Freigabe eine Verschlüsselung erforderlich ist, der Client jedoch keine Verschlüsselung unterstützt. Führen Sie hierzu die folgenden Aktionen aus:
 
 - Überprüfen Sie den Server, indem Sie den folgenden Befehl ausführen.
 

@@ -1,24 +1,20 @@
 ---
 title: schtasks
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2e713203-3dd8-491b-b9e1-9423618dc7e8
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8029bff5907c044e51b0a371265c3bde452e1366
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0d4c28072a8e4d01ea3a045314796bcda32c8a59
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371273"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835243"
 ---
 # <a name="schtasks"></a>schtasks
 
@@ -51,7 +47,7 @@ Um die Befehlssyntax anzuzeigen, klicken Sie auf einen der folgenden Befehle:
   ```  
   Beschädigte Tasks können nicht wieder hergestellt werden. Um die Aufgaben Planungs Features des Systems wiederherzustellen, verwenden Sie " **Schtasks. exe** " oder " **geplante Tasks** ", um die Aufgaben aus dem System zu löschen und Sie neu zu planen.
 
-## <a name="BKMK_create"></a>schtasks erstellen
+## <a name="schtasks-create"></a><a name=BKMK_create></a>schtasks erstellen
 
 Plant einen Task.
 
@@ -76,7 +72,7 @@ Plant einen Task.
 -   [So planen Sie einen Task, der mehr als ein Programm ausführt](#BKMK_multi_progs)
 -   [So planen Sie einen Task, der auf einem Remote Computer ausgeführt wird](#BKMK_remote)
 
-### <a name="BKMK_syntax"></a>Kombinierte Syntax und Parameter Beschreibungen
+### <a name="combined-syntax-and-parameter-descriptions"></a><a name=BKMK_syntax></a>Kombinierte Syntax und Parameter Beschreibungen
 
 #### <a name="syntax"></a>Syntax
 
@@ -84,7 +80,7 @@ Plant einen Task.
 schtasks /create /sc <ScheduleType> /tn <TaskName> /tr <TaskRun> [/s <Computer> [/u [<Domain>\]<User> [/p <Password>]]] [/ru {[<Domain>\]<User> | System}] [/rp <Password>] [/mo <Modifier>] [/d <Day>[,<Day>...] | *] [/m <Month>[,<Month>...]] [/i <IdleTime>] [/st <StartTime>] [/ri <Interval>] [{/et <EndTime> | /du <Duration>} [/k]] [/sd <StartDate>] [/ed <EndDate>] [/it] [/z] [/f]
 ```
 
-#### <a name="parameters"></a>Parameter
+##### <a name="parameters"></a>Parameter
 
 ##### <a name="sc-scheduletype"></a>/SC \<ScheduleType >
 
@@ -132,7 +128,7 @@ Führt den Task mit den Berechtigungen des angegebenen Benutzerkontos aus. Stand
 |       Wert        |                                                    Beschreibung                                                    |
 |--------------------|-------------------------------------------------------------------------------------------------------------------|
 | [\<Domänen >\]<User> |                                       Gibt ein alternatives Benutzerkonto an.                                        |
-|    System oder ""    | Gibt das lokale System Konto an, ein Konto mit hohen Privilegien, das vom Betriebssystem und den System Diensten verwendet wird. |
+|    System oder     | Gibt das lokale System Konto an, ein Konto mit hohen Privilegien, das vom Betriebssystem und den System Diensten verwendet wird. |
 
 ##### <a name="rp-password"></a>/RP aus \<Kennwort >
 
@@ -142,13 +138,13 @@ Verwenden Sie den **/RP aus** -Parameter nicht für Aufgaben, die mit den Anmeld
 
 ##### <a name="mo-modifier"></a>/Monat \<Modifizierer >
 
-Gibt an, wie oft die Aufgabe innerhalb Ihres Zeit Plan Typs ausgeführt wird. Dieser Parameter ist gültig, aber optional für eine Minute, stündlich, täglich, wöchentlich und monatlich. Der Standardwert ist 1.
+Gibt an, wie oft die Aufgabe innerhalb Ihres Zeit Plan Typs ausgeführt wird. Dieser Parameter ist gültig, aber optional für eine Minute, stündlich, täglich, wöchentlich und monatlich. Der Standardwert lautet 1.
 
 |Zeit Plantyp|Modifiziererwerte|Beschreibung|
 |-------------|---------------|-----------|
 |Tiges|1 - 1439|Der Task wird alle \<N > Minuten ausgeführt.|
 |Lohns|1 - 23|Der Task wird alle \<N > Stunden ausgeführt.|
-|Tä|1 - 365|Der Task wird alle \<N > Tage ausgeführt.|
+|DAILY|1 - 365|Der Task wird alle \<N > Tage ausgeführt.|
 |Arbei|1 - 52|Der Task wird alle \<N > Wochen ausgeführt.|
 |Einmal|Keine Modifizierer.|Der Task wird einmal ausgeführt.|
 |ONSTART|Keine Modifizierer.|Der Task wird beim Start ausgeführt.|
@@ -167,7 +163,7 @@ Gibt einen Tag (oder Tage) der Woche oder einen Tag (oder Tage) eines Monats an.
 |---------------|------------------------------------|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Arbei     |               1 - 52               | Mon-Sun [, Mon-Sun...] |                                                                                                     \*                                                                                                      |
 |    MONATLICH    | erster, zweiter, Dritter, Vierter, Letzter |        Mon-Sun         |                                                                                   Für einen bestimmten Wochen Zeitplan erforderlich.                                                                                    |
-|    MONATLICH    |          None oder {1-12}          |          1 - 31          | Optional und gültig nur ohne modifiziererparameter ( **/Monat**) (ein bestimmtes Datums Zeitplan) oder wenn **/Monat** 1-12 ist (ein "alle \<N > Monate"-Zeitplan). Der Standardwert ist Day 1 (der erste Tag des Monats). |
+|    MONATLICH    |          None oder {1-12}          |          1 - 31          | Optional und gültig nur ohne modifiziererparameter ( **/Monat**) (ein bestimmtes Datums Zeitplan) oder wenn die **/Monat** 1-12 ist (ein Zeitplan pro \<N > Monaten). Der Standardwert ist Day 1 (der erste Tag des Monats). |
 
 ##### <a name="m-monthmonth"></a>/m Monat [, Monat...]
 
@@ -190,21 +186,21 @@ Gibt das Wiederholungsintervall in Minuten an. Dies gilt nicht für Zeit Plan Ty
 Gibt die Uhrzeit an, zu der ein Minuten-oder stündlicher Aufgaben Zeitplan in \<hh: mm > 24-Stunden-Format endet. Nach der angegebenen Endzeit startet **Schtasks** die Aufgabe erst wieder, wenn die Startzeit wiederholt wird. Standardmäßig haben Aufgaben Zeitpläne keine Endzeit. Dieser Parameter ist optional und nur mit einem Minuten-oder stündlichen Zeitplan gültig.
 
 Ein Beispiel finden Sie unter:
--   "So planen Sie einen Task, der während außerhalb der Geschäftszeiten alle 100 Minuten ausgeführt wird" im **, um eine Aufgabe zu planen, die alle** \<N > **Minuten** Abschnitt ausgeführt wird.
+-   Planen Sie einen Task, der alle 100 Minuten außerhalb der Geschäftszeiten in ausgeführt wird, **um eine Aufgabe zu planen, die alle** \<N > **Minuten** Abschnitt ausgeführt wird.
 
 ##### <a name="du-duration"></a>/Du \<Dauer >
 
 Gibt eine maximale Zeitdauer für eine Minute oder einen stündlichen Zeitplan in \<HHHH: mm > 24-Stunden-Format an. Nachdem die angegebene Zeit abgelaufen ist, startet **Schtasks** die Aufgabe erst wieder, wenn die Startzeit wiederholt wird. Standardmäßig haben Aufgaben Zeitpläne keine maximale Dauer. Dieser Parameter ist optional und nur mit einem Minuten-oder stündlichen Zeitplan gültig.
 
 Ein Beispiel finden Sie unter:
--   "So planen Sie einen Task, der für 10 Stunden alle drei Stunden ausgeführt wird" im **, um eine Aufgabe zu planen, die alle** \<N > **Stunden** Abschnitt ausgeführt wird.
+-   Um einen Task, der alle drei Stunden ausgeführt wird, 10 Stunden lang zu planen, **um eine Aufgabe zu planen, die alle** \<N > **Stunden** Abschnitt ausgeführt wird.
 
 ##### <a name="k"></a>/k
 
 Beendet das Programm, das der Task ausführt, zu dem Zeitpunkt, der durch **/et** oder **/du**angegeben wird. Ohne **/k**startet **Schtasks** das Programm nicht erneut, nachdem es die von **/et** oder **/du**angegebene Zeit erreicht hat, aber das Programm wird nicht beendet, wenn es noch ausgeführt wird. Dieser Parameter ist optional und nur mit einem Minuten-oder stündlichen Zeitplan gültig.
 
 Ein Beispiel finden Sie unter:
--   "So planen Sie einen Task, der während außerhalb der Geschäftszeiten alle 100 Minuten ausgeführt wird" im **, um eine Aufgabe zu planen, die alle** \<N > **Minuten** Abschnitt ausgeführt wird.
+-   Planen Sie einen Task, der alle 100 Minuten außerhalb der Geschäftszeiten in ausgeführt wird, **um eine Aufgabe zu planen, die alle** \<N > **Minuten** Abschnitt ausgeführt wird.
 
 ##### <a name="sd-startdate"></a>/SD \<StartDate >
 
@@ -238,13 +234,13 @@ Die gültigen Datumsformate sind in der folgenden Tabelle aufgeführt. Verwenden
 
 ##### <a name="it"></a>/it
 
-Gibt an, dass die Aufgabe nur ausgeführt wird, wenn der Benutzer, unter dem der Task ausgeführt wird, auf dem Computer angemeldet ist. Dieser Parameter hat keine Auswirkung auf Aufgaben, die mit System Berechtigungen ausgeführt werden.
+Gibt an, dass die Aufgabe nur ausgeführt werden soll, wenn die Ausführung als Benutzer (das Benutzerkonto, unter dem der Task ausgeführt wird) auf dem Computer angemeldet ist. Dieser Parameter hat keine Auswirkung auf Aufgaben, die mit System Berechtigungen ausgeführt werden.
 
-Standardmäßig ist der Benutzer "Ausführen als" der aktuelle Benutzer des lokalen Computers, wenn der Task geplant ist, oder das durch den **/u** -Parameter angegebene Konto (sofern verwendet). Wenn der Befehl jedoch den **/ru** -Parameter enthält, ist der Benutzer "Ausführen als" das Konto, das durch den **/ru** -Parameter angegeben wird.
+Standardmäßig ist der Benutzer, der als Benutzer ausgeführt wird, der aktuelle Benutzer des lokalen Computers, wenn der Task geplant ist, oder das durch den **/u** -Parameter angegebene Konto (sofern verwendet). Wenn der Befehl jedoch den **/ru** -Parameter enthält, ist das Konto "Ausführen als" das Konto, das durch den **/ru** -Parameter angegeben wird.
 
 Beispiele finden Sie unter:
--   "Um eine Aufgabe zu planen, die alle 70 Tage ausgeführt wird, wenn ich angemeldet bin" in der **, um eine Aufgabe zu planen, die alle** *N* **Tage** läuft.
--   "So führen Sie eine Aufgabe nur aus, wenn ein bestimmter Benutzer angemeldet ist" im **, um eine Aufgabe zu planen, die mit unterschiedlichen Berechtigungen** ausgeführt wird.
+-   Um einen Task zu planen, der alle 70 Tage ausgeführt wird, wenn ich im angemeldet bin **, um eine Aufgabe zu planen, die alle** *N* **Tage** ausgeführt wird.
+-   Zum Ausführen einer Aufgabe nur, wenn ein bestimmter Benutzer im angemeldet ist **, um eine Aufgabe zu planen, die mit unterschiedlichen Berechtigungen** ausgeführt wird.
 
 ##### <a name="z"></a>"/z
 
@@ -258,7 +254,7 @@ Gibt an, dass die Aufgabe erstellt und Warnungen unterdrückt werden sollen, wen
 
 Zeigt die Hilfe an der Eingabeaufforderung an.
 
-### <a name="BKMK_minutes"></a>So planen Sie eine Aufgabe, die alle N Minuten ausgeführt wird
+### <a name="to-schedule-a-task-that-runs-every-n-minutes"></a><a name=BKMK_minutes></a>So planen Sie eine Aufgabe, die alle N Minuten ausgeführt wird
 
 #### <a name="minute-schedule-syntax"></a>Syntax für Minuten Zeitplan
 
@@ -278,17 +274,17 @@ Der folgende Befehl plant, dass ein Sicherheits Skript, "s. VSB", alle 20 Minute
 
 Da der Befehl kein Startdatum oder keine Uhrzeit enthält, wird die Aufgabe 20 Minuten nach Abschluss des Befehls gestartet und dann alle 20 Minuten ausgeführt, wenn das System ausgeführt wird. Beachten Sie, dass sich die Sicherheits Skript-Quelldatei auf einem Remote Computer befindet, aber dass der Task geplant und auf dem lokalen Computer ausgeführt wird.
 ```
-schtasks /create /sc minute /mo 20 /tn "Security Script" /tr \\central\data\scripts\sec.vbs
+schtasks /create /sc minute /mo 20 /tn Security Script /tr \\central\data\scripts\sec.vbs
 ```
 
 #### <a name="to-schedule-a-task-that-runs-every-100-minutes-during-non-business-hours"></a>So planen Sie einen Task, der während außerhalb der Geschäftszeiten alle 100 Minuten ausgeführt wird
 
 Der folgende Befehl plant, dass ein Sicherheits Skript, "s. VSB", alle 100 Minuten zwischen 5:00 Uhr auf dem lokalen Computer ausgeführt wird. und 7:59 Uhr jeden Tag. Der Befehl verwendet den **/SC** -Parameter, um einen Minuten Zeitplan anzugeben, und den **/Monat** -Parameter, um ein Intervall von 100 Minuten anzugeben. Er verwendet die Parameter **/St** und **/et** , um die Startzeit und Endzeit des Zeitplans für jeden Tag anzugeben. Außerdem verwendet er den **/k** -Parameter, um das Skript zu unterbinden, wenn es noch um 7:59 Uhr morgens ausgeführt wird. Ohne **/k**wird das Skript von **Schtasks** nach 7:59 Uhr nicht gestartet, aber wenn die Instanz um 6:20 Uhr gestartet wurde. wird noch ausgeführt, wird Sie nicht angehalten.
 ```
-schtasks /create /tn "Security Script" /tr sec.vbs /sc minute /mo 100 /st 17:00 /et 08:00 /k
+schtasks /create /tn Security Script /tr sec.vbs /sc minute /mo 100 /st 17:00 /et 08:00 /k
 ```
 
-### <a name="BKMK_hours"></a>So planen Sie eine Aufgabe, die alle N Stunden ausgeführt wird
+### <a name="to-schedule-a-task-that-runs-every-n-hours"></a><a name=BKMK_hours></a>So planen Sie eine Aufgabe, die alle N Stunden ausgeführt wird
 
 #### <a name="hourly-schedule-syntax"></a>Syntax für stündliche Zeitpläne
 
@@ -308,14 +304,14 @@ Der folgende Befehl plant, dass das MyApp-Programm alle fünf Stunden ab dem ers
 
 Da der lokale Computer auf die Option **Englisch (Simbabwe)** in den Regions **-und Sprachoptionen** in der **Systemsteuerung**festgelegt ist, ist das Format für das Startdatum mm/dd/yyyy (03/01/2002).
 ```
-schtasks /create /sc hourly /mo 5 /sd 03/01/2002 /tn "My App" /tr c:\apps\myapp.exe
+schtasks /create /sc hourly /mo 5 /sd 03/01/2002 /tn My App /tr c:\apps\myapp.exe
 ```
 
 #### <a name="to-schedule-a-task-that-runs-every-hour-at-five-minutes-past-the-hour"></a>So planen Sie einen Task, der stündlich in fünf Minuten nach der vollen Stunde ausgeführt wird
 
 Mit dem folgenden Befehl wird das Programm "MyApp" auf Stundenbasis mit fünf Minuten nach Mitternacht geplant. Da der **/Monat** -Parameter weggelassen wird, verwendet der Befehl den Standardwert für den stündlichen Zeitplan, der alle (1) Stunde beträgt. Wenn dieser Befehl nach 12:05 Uhr ausgeführt wird, wird das Programm bis zum nächsten Tag nicht ausgeführt.
 ```
-schtasks /create /sc hourly /st 00:05 /tn "My App" /tr c:\apps\myapp.exe
+schtasks /create /sc hourly /st 00:05 /tn My App /tr c:\apps\myapp.exe
 ```
 
 #### <a name="to-schedule-a-task-that-runs-every-3-hours-for-10-hours"></a>So planen Sie einen Task, der alle drei Stunden ausgeführt wird, für 10 Stunden
@@ -324,11 +320,11 @@ Der folgende Befehl plant, dass das MyApp-Programm 10 Stunden lang alle drei Stu
 
 Der Befehl verwendet den **/SC** -Parameter, um einen stündlichen Zeitplan anzugeben, und den **/Monat** -Parameter, um das Intervall von drei Stunden anzugeben. Er verwendet den **/St** -Parameter, um den Zeitplan um Mitternacht zu starten, und den **/du** -Parameter, um die rekurrenzen nach 10 Stunden zu beenden. Da das Programm nur wenige Minuten ausgeführt wird, ist der **/k** -Parameter, der das Programm beendet, wenn es noch ausgeführt wird, wenn die Dauer abläuft, nicht erforderlich.
 ```
-schtasks /create /tn "My App" /tr myapp.exe /sc hourly /mo 3 /st 00:00 /du 0010:00
+schtasks /create /tn My App /tr myapp.exe /sc hourly /mo 3 /st 00:00 /du 0010:00
 ```
 In diesem Beispiel wird die Aufgabe um 12:00 Uhr, 3:00 Uhr, 6:00 Uhr und 9:00 Uhr ausgeführt. Da die Dauer 10 Stunden beträgt, wird die Aufgabe nicht erneut um 12:00 Uhr ausgeführt. Stattdessen wird er um 12:00 Uhr wieder gestartet. der nächste Tag.
 
-### <a name="BKMK_days"></a>So planen Sie einen Task, der alle N Tage ausgeführt wird
+### <a name="to-schedule-a-task-that-runs-every-n-days"></a><a name=BKMK_days></a>So planen Sie einen Task, der alle N Tage ausgeführt wird
 
 #### <a name="daily-schedule-syntax"></a>Syntax für den täglichen Zeitplan
 
@@ -348,7 +344,7 @@ Im folgenden Beispiel wird das Programm "MyApp" für jeden Tag um 8:00 Uhr gepla
 
 Da in diesem Beispiel das lokale Computersystem auf die Option **Englisch (Großbritannien)** in den Regions **-und Sprachoptionen** in der **Systemsteuerung**festgelegt ist, ist das Format für das Enddatum dd/mm/yyyy (31/12/2002).
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc daily /st 08:00 /ed 31/12/2002
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc daily /st 08:00 /ed 31/12/2002
 ```
 
 #### <a name="to-schedule-a-task-that-runs-every-12-days"></a>So planen Sie einen Task, der alle 12 Tage ausgeführt wird
@@ -357,20 +353,20 @@ Im folgenden Beispiel wird geplant, dass das Programm MyApp alle zwölf Tage um 
 
 Da das System in diesem Beispiel auf die Option **Englisch (Simbabwe)** in den Regions **-und Sprachoptionen** in der System **Steuerung**festgelegt ist, ist das Format für das Enddatum mm/dd/yyyy (12/31/2002).
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc daily /mo 12 /sd 12/31/2002 /st 13:00
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc daily /mo 12 /sd 12/31/2002 /st 13:00
 ```
 
 #### <a name="to-schedule-a-task-that-runs-every-70-days-if-i-am-logged-on"></a>So planen Sie einen Task, der alle 70 Tage bei der Anmeldung ausgeführt wird
 
 Der folgende Befehl plant, dass ein Sicherheits Skript, "s. VSB", alle 70 Tage ausgeführt wird. Der Befehl verwendet den **/Monat** -Parameter, um ein Intervall von 70 Tagen anzugeben. Außerdem wird der **/IT** -Parameter verwendet, um anzugeben, dass der Task nur ausgeführt wird, wenn der Benutzer, der den Task ausführt, auf dem Computer angemeldet ist. Da die Aufgabe mit den Berechtigungen des Benutzerkontos ausgeführt wird, wird die Aufgabe nur dann ausgeführt, wenn Sie angemeldet sind.
 ```
-schtasks /create /tn "Security Script" /tr sec.vbs /sc daily /mo 70 /it
+schtasks /create /tn Security Script /tr sec.vbs /sc daily /mo 70 /it
 ```
 
 > [!NOTE]
 > Verwenden Sie eine ausführliche Abfrage **(/Query "aus/v**), um Aufgaben mit der interaktiven ( **/IT**)-Eigenschaft zu identifizieren. In einer ausführlichen Abfrage Anzeige einer Aufgabe mit **/IT**hat das Feld **Anmeldemodus** den Wert **interaktiv**.
 
-### <a name="BKMK_weeks"></a>So planen Sie eine Aufgabe, die alle N Wochen ausgeführt wird
+### <a name="to-schedule-a-task-that-runs-every-n-weeks"></a><a name=BKMK_weeks></a>So planen Sie eine Aufgabe, die alle N Wochen ausgeführt wird
 
 #### <a name="weekly-schedule-syntax"></a>Syntax für den wöchentlichen Zeitplan
 
@@ -394,17 +390,17 @@ Dieser Befehl verwendet auch den **/s** -Parameter, um den Remote Computer anzug
 
 Da der Befehl auch remote ausgeführt wird, verweisen alle Pfade im Befehl, einschließlich des Pfads zu "MyApp. exe", auf Pfade auf dem Remote Computer.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc weekly /mo 6 /s Server16 /u Admin01
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc weekly /mo 6 /s Server16 /u Admin01
 ```
 
 #### <a name="to-schedule-a-task-that-runs-every-other-week-on-friday"></a>So planen Sie einen Task, der alle anderen Wochen am Freitag ausgeführt wird
 
 Der folgende Befehl plant einen Task, der an jedem anderen Freitag ausgeführt wird. Er verwendet den **/Monat** -Parameter, um das zweiwöchige Intervall anzugeben, und den **/d** -Parameter zum Angeben des Wochentags. Um einen Task zu planen, der jeden Freitag ausgeführt wird, lassen Sie den **/Monat** -Parameter Weg, oder legen Sie ihn auf 1 fest.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc weekly /mo 2 /d FRI
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc weekly /mo 2 /d FRI
 ```
 
-### <a name="BKMK_months"></a>So planen Sie einen Task, der alle N Monate ausgeführt wird
+### <a name="to-schedule-a-task-that-runs-every-n-months"></a><a name=BKMK_months></a>So planen Sie einen Task, der alle N Monate ausgeführt wird
 
 #### <a name="syntax"></a>Syntax
 
@@ -422,14 +418,14 @@ In diesem Zeit Plantyp ist der **monatliche/SC** -Parameter erforderlich. Der **
 
 Der folgende Befehl plant, dass das MyApp-Programm am ersten Tag jedes Monats ausgeführt wird. Da der Wert 1 der Standardwert für den Parameter **/Monat** (Modifier) und den Parameter **/d** (Day) ist, werden diese Parameter im Befehl ausgelassen.
 ```
-schtasks /create /tn "My App" /tr myapp.exe /sc monthly
+schtasks /create /tn My App /tr myapp.exe /sc monthly
 ```
 
 #### <a name="to-schedule-a-task-that-runs-every-three-months"></a>So planen Sie einen Task, der alle drei Monate ausgeführt wird
 
 Der folgende Befehl plant, dass das Programm MyApp alle drei Monate ausgeführt wird. Er verwendet den **/Monat** -Parameter, um das Intervall anzugeben.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc monthly /mo 3
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc monthly /mo 3
 ```
 
 #### <a name="to-schedule-a-task-that-runs-at-midnight-on-the-21st-day-of-every-other-month"></a>So planen Sie einen Task, der am 21. Tag jedes anderen Monats um Mitternacht ausgeführt wird
@@ -438,10 +434,10 @@ Der folgende Befehl plant, dass das Programm MyApp jeden anderen Monat am 21. Ta
 
 Der Befehl verwendet den **/Monat** -Parameter, um das monatliche Intervall (alle zwei Monate), den **/d** -Parameter, um das Datum anzugeben, und die **/St** zum Angeben der Zeit anzugeben. Außerdem werden der **/SD** -und der **/Ed** -Parameter verwendet, um das Startdatum bzw. das Enddatum anzugeben. Da der lokale Computer auf die Option **Englisch (Südafrika)** in den Regions **-und Sprachoptionen** in der **Systemsteuerung**festgelegt ist, werden die Datumsangaben im lokalen Format yyyy/mm/dd angegeben.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc monthly /mo 2 /d 21 /st 00:00 /sd 2002/07/01 /ed 2003/06/30 
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc monthly /mo 2 /d 21 /st 00:00 /sd 2002/07/01 /ed 2003/06/30 
 ```
 
-### <a name="BKMK_spec_day"></a>So planen Sie einen Task, der an einem bestimmten Tag der Woche ausgeführt wird
+### <a name="to-schedule-a-task-that-runs-on-a-specific-day-of-the-week"></a><a name=BKMK_spec_day></a>So planen Sie einen Task, der an einem bestimmten Tag der Woche ausgeführt wird
 
 #### <a name="weekly-schedule-syntax"></a>Syntax für den wöchentlichen Zeitplan
 
@@ -451,7 +447,7 @@ schtasks /create /tn <TaskName> /tr <TaskRun> /sc weekly [/d {<MON - SUN>[,MON -
 
 #### <a name="remarks"></a>Hinweise
 
-Der Zeitplan "Wochentag" ist eine Variation des wöchentlichen Zeitplans. In einem wöchentlichen Zeitplan ist der **wöchentliche/SC** -Parameter erforderlich. Der **/Monat** -Parameter (Modifier) ist optional und gibt die Anzahl der Wochen zwischen den einzelnen Tasks der Aufgabe an. Der Standardwert für **/Monat** ist 1 (jede Woche). Der optionale Parameter **/d** plant, dass der Task an bestimmten Wochentagen oder an allen Tagen (\*) ausgeführt wird. Der Standardwert ist Mon (Montag). Die Option für jeden Tag ( **/d \*** ) entspricht dem Planen einer täglichen Aufgabe.
+Der Zeitplan für den Wochentag ist eine Variation des wöchentlichen Zeitplans. In einem wöchentlichen Zeitplan ist der **wöchentliche/SC** -Parameter erforderlich. Der **/Monat** -Parameter (Modifier) ist optional und gibt die Anzahl der Wochen zwischen den einzelnen Tasks der Aufgabe an. Der Standardwert für **/Monat** ist 1 (jede Woche). Der optionale Parameter **/d** plant, dass der Task an bestimmten Wochentagen oder an allen Tagen (\*) ausgeführt wird. Der Standardwert ist Mon (Montag). Die Option für jeden Tag ( **/d \*** ) entspricht dem Planen einer täglichen Aufgabe.
 
 #### <a name="examples"></a>Beispiele
 
@@ -459,17 +455,17 @@ Der Zeitplan "Wochentag" ist eine Variation des wöchentlichen Zeitplans. In ein
 
 Der folgende Befehl plant, dass das Programm MyApp jede Woche am Mittwoch ausgeführt wird. Der Befehl verwendet den **/d** -Parameter zum Angeben des Wochentags. Da der Befehl den **/Monat** -Parameter auslässt, wird die Aufgabe jede Woche ausgeführt.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc weekly /d WED
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc weekly /d WED
 ```
 
 #### <a name="to-schedule-a-task-that-runs-every-eight-weeks-on-monday-and-friday"></a>So planen Sie einen Task, der alle acht Wochen am Montag und Freitag ausgeführt wird
 
 Der folgende Befehl plant, dass eine Aufgabe am Montag und Freitag jeder acht Woche ausgeführt wird. Er verwendet den **/d** -Parameter, um die Tage anzugeben, und den **/Monat** -Parameter, um das achtwöchige Intervall anzugeben.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc weekly /mo 8 /d MON,FRI
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc weekly /mo 8 /d MON,FRI
 ```
 
-### <a name="BKMK_spec_week"></a>So planen Sie einen Task, der in einer bestimmten Woche des Monats ausgeführt wird
+### <a name="to-schedule-a-task-that-runs-on-a-specific-week-of-the-month"></a><a name=BKMK_spec_week></a>So planen Sie einen Task, der in einer bestimmten Woche des Monats ausgeführt wird
 
 #### <a name="specific-week-syntax"></a>Syntax für bestimmte Wochen
 
@@ -487,17 +483,17 @@ In diesem Zeit Plantyp sind der **/SC monatlich** -Parameter, der **/Monat** -Pa
 
 Der folgende Befehl plant, dass das Programm MyApp am zweiten Sonntag jeden Monats ausgeführt wird. Er verwendet den **/Monat** -Parameter, um die zweite Woche des Monats anzugeben, und den **/d** -Parameter, um den Tag anzugeben.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc monthly /mo SECOND /d SUN
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc monthly /mo SECOND /d SUN
 ```
 
 #### <a name="to-schedule-a-task-for-the-first-monday-in-march-and-september"></a>So planen Sie einen Task für den ersten Montag im März und September
 
 Der folgende Befehl plant, dass das MyApp-Programm am ersten Montag im März und September ausgeführt wird. Er verwendet den **/Monat** -Parameter, um die erste Woche des Monats anzugeben, und den **/d** -Parameter, um den Tag anzugeben. Er verwendet den **/m** -Parameter, um den Monat anzugeben, wobei die Month-Argumente durch ein Komma getrennt werden.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc monthly /mo FIRST /d MON /m MAR,SEP
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc monthly /mo FIRST /d MON /m MAR,SEP
 ```
 
-### <a name="BKMK_spec_date"></a>So planen Sie einen Task, der monatlich an einem bestimmten Datum ausgeführt wird
+### <a name="to-schedule-a-task-that-runs-on-a-specific-date-each-month"></a><a name=BKMK_spec_date></a>So planen Sie einen Task, der monatlich an einem bestimmten Datum ausgeführt wird
 
 #### <a name="specific-date-syntax"></a>Bestimmte Datums Syntax
 
@@ -517,17 +513,17 @@ Der **/m** -Parameter (month) ist für diesen Zeit Plantyp optional, und der Sta
 
 Der folgende Befehl plant, dass das MyApp-Programm am ersten Tag jedes Monats ausgeführt wird. Da der Standardmodifizierer None (kein Modifizierer), der Standardtag 1 ist und der Standard Monat jeden Monat ist, benötigt der Befehl keine zusätzlichen Parameter.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc monthly
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc monthly
 ```
 
 #### <a name="to-schedule-a-task-for-the-15th-days-of-may-and-june"></a>So planen Sie eine Aufgabe für die 15. Tage von Mai und Juni
 
 Der folgende Befehl plant, dass das MyApp-Programm am 15. Mai und 15. Juni um 3:00 Uhr ausgeführt wird. (15:00). Er verwendet den **/m** -Parameter, um das Datum anzugeben, und den **/m** -Parameter, um die Monate anzugeben. Außerdem verwendet er den **/St** -Parameter, um die Startzeit anzugeben.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc monthly /d 15 /m MAY,JUN /st 15:00
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc monthly /d 15 /m MAY,JUN /st 15:00
 ```
 
-### <a name="BKMK_last_day"></a>So planen Sie einen Task, der am letzten Tag eines Monats ausgeführt wird
+### <a name="to-schedule-a-task-that-runs-on-the-last-day-of-a-month"></a><a name=BKMK_last_day></a>So planen Sie einen Task, der am letzten Tag eines Monats ausgeführt wird
 
 #### <a name="last-day-syntax"></a>Syntax des letzten Tags
 
@@ -545,17 +541,17 @@ Im Zeit Plantyp für den letzten Tag sind der **/SC monatlich** -Parameter, der 
 
 Der folgende Befehl plant, dass das Programm MyApp am letzten Tag jedes Monats ausgeführt wird. Er verwendet den **/Monat** -Parameter, um den letzten Tag anzugeben, und den **/m** -Parameter mit dem Platzhalter Zeichen (*), um anzugeben, dass das Programm monatlich ausgeführt wird.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc monthly /mo lastday /m *
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc monthly /mo lastday /m *
 ```
 
 #### <a name="to-schedule-a-task-at-600-pm-on-the-last-days-of-february-and-march"></a>So planen Sie eine Aufgabe um 6:00 Uhr in den letzten Tagen von Februar und März
 
 Mit dem folgenden Befehl wird das Programm "MyApp" für den letzten Tag von Februar und den letzten Tag des März um 6:00 Uhr geplant. Er verwendet den **/Monat** -Parameter, um den letzten Tag anzugeben, den **/m** -Parameter, um die Monate anzugeben, und den **/St** -Parameter, um die Startzeit anzugeben.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc monthly /mo lastday /m FEB,MAR /st 18:00
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc monthly /mo lastday /m FEB,MAR /st 18:00
 ```
 
-### <a name="BKMK_once"></a>So planen Sie einen Task, der einmal ausgeführt wird
+### <a name="to-schedule-a-task-that-runs-once"></a><a name=BKMK_once></a>So planen Sie einen Task, der einmal ausgeführt wird
 
 #### <a name="syntax"></a>Syntax
 
@@ -577,10 +573,10 @@ Der folgende Befehl plant, dass das MyApp-Programm am 1. Januar 2003 um Mitterna
 
 Da der lokale Computer die Option **Englisch (USA)** in den Regions **-und Sprachoptionen** in der **Systemsteuerung**verwendet, ist das Format für das Startdatum mm/dd/yyyy.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc once /sd 01/01/2003 /st 00:00
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc once /sd 01/01/2003 /st 00:00
 ```
 
-### <a name="BKMK_startup"></a>So planen Sie einen Task, der bei jedem Systemstart ausgeführt wird
+### <a name="to-schedule-a-task-that-runs-every-time-the-system-starts"></a><a name=BKMK_startup></a>So planen Sie einen Task, der bei jedem Systemstart ausgeführt wird
 
 #### <a name="syntax"></a>Syntax
 
@@ -600,10 +596,10 @@ Der folgende Befehl plant das MyApp-Programm bei jedem Start des Systems, beginn
 
 Da der lokale Computer die Option **Englisch (USA)** in den Regions **-und Sprachoptionen** in der **Systemsteuerung**verwendet, ist das Format für das Startdatum mm/dd/yyyy.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc onstart /sd 03/15/2001
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc onstart /sd 03/15/2001
 ```
 
-### <a name="BKMK_logon"></a>So planen Sie einen Task, der ausgeführt wird, wenn sich ein Benutzer anmeldet
+### <a name="to-schedule-a-task-that-runs-when-a-user-logs-on"></a><a name=BKMK_logon></a>So planen Sie einen Task, der ausgeführt wird, wenn sich ein Benutzer anmeldet
 
 #### <a name="syntax"></a>Syntax
 
@@ -613,7 +609,7 @@ schtasks /create /tn <TaskName> /tr <TaskRun> /sc onlogon [/sd <StartDate>] [/it
 
 #### <a name="remarks"></a>Hinweise
 
-Mit dem Zeit Plantyp "on LOGON" wird eine Aufgabe geplant, die immer dann ausgeführt wird, wenn sich ein Benutzer am Computer anmeldet. Im Zeit Plantyp "bei der Anmeldung" ist der Parameter " **/SC pro** " erforderlich. Der Parameter **/SD** (Startdatum) ist optional, und der Standardwert ist das aktuelle Datum.
+Mit dem Typ bei Anmelde Zeitplan wird eine Aufgabe geplant, die immer dann ausgeführt wird, wenn sich ein Benutzer am Computer anmeldet. Im Typ des Anmeldungs Zeitplans ist der **/SC pro** -Parameter erforderlich. Der Parameter **/SD** (Startdatum) ist optional, und der Standardwert ist das aktuelle Datum.
 
 #### <a name="examples"></a>Beispiele
 
@@ -621,10 +617,10 @@ Mit dem Zeit Plantyp "on LOGON" wird eine Aufgabe geplant, die immer dann ausgef
 
 Der folgende Befehl plant die Ausführung einer Batchdatei, wenn sich ein Benutzer (Benutzer) am Remote Computer anmeldet. Er verwendet den **/s** -Parameter, um den Remote Computer anzugeben. Da der Befehl Remote ist, beziehen sich alle Pfade im Befehl, einschließlich des Pfads zur Batchdatei, auf einen Pfad auf dem Remote Computer.
 ```
-schtasks /create /tn "Start Web Site" /tr c:\myiis\webstart.bat /sc onlogon /s Server23
+schtasks /create /tn Start Web Site /tr c:\myiis\webstart.bat /sc onlogon /s Server23
 ```
 
-### <a name="BKMK_idle"></a>So planen Sie einen Task, der ausgeführt wird, wenn das System im Leerlauf ist
+### <a name="to-schedule-a-task-that-runs-when-the-system-is-idle"></a><a name=BKMK_idle></a>So planen Sie einen Task, der ausgeführt wird, wenn das System im Leerlauf ist
 
 #### <a name="syntax"></a>Syntax
 
@@ -634,7 +630,7 @@ schtasks /create /tn <TaskName> /tr <TaskRun> /sc onidle /i {1 - 999} [/sd <Star
 
 #### <a name="remarks"></a>Hinweise
 
-Der Zeit Plantyp "im Leerlauf" plant eine Aufgabe, die ausgeführt wird, wenn keine Benutzeraktivität innerhalb der durch den **/i** -Parameter angegebenen Zeit vorhanden ist. Im "on Idle"-Zeit Plantyp sind der **/sc onidle** -Parameter und der **/i** -Parameter erforderlich. **/SD** (Startdatum) ist optional, und der Standardwert ist das aktuelle Datum.
+Mit dem Zeitplan für Leerlauf Zeitpläne wird eine Aufgabe geplant, die immer dann ausgeführt wird, wenn keine Benutzeraktivität innerhalb der durch den **/i** -Parameter angegebenen Zeit vorhanden ist. Im Leerlaufzeit Plantyp sind der **/sc onidle** -Parameter und der **/i** -Parameter erforderlich. **/SD** (Startdatum) ist optional, und der Standardwert ist das aktuelle Datum.
 
 #### <a name="examples"></a>Beispiele
 
@@ -642,12 +638,12 @@ Der Zeit Plantyp "im Leerlauf" plant eine Aufgabe, die ausgeführt wird, wenn ke
 
 Der folgende Befehl plant die Ausführung des MyApp-Programms, wenn sich der Computer im Leerlauf befindet. Er verwendet den erforderlichen **/i** -Parameter, um anzugeben, dass der Computer vor dem Start der Aufgabe 10 Minuten lang im Leerlauf bleiben muss.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc onidle /i 10
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc onidle /i 10
 ```
 
-### <a name="BKMK_now"></a>So planen Sie einen Task, der jetzt ausgeführt wird
+### <a name="to-schedule-a-task-that-runs-now"></a><a name=BKMK_now></a>So planen Sie einen Task, der jetzt ausgeführt wird
 
-**Schtasks** haben keine "jetzt ausführen"-Option, Sie können diese Option aber simulieren, indem Sie eine Aufgabe erstellen, die ein Mal ausgeführt wird und innerhalb weniger Minuten gestartet wird.
+" **Schtasks** " verfügt nicht über eine Option "jetzt ausführen", aber Sie können diese Option simulieren, indem Sie eine Aufgabe erstellen, die ein Mal ausgeführt wird und innerhalb weniger Minuten gestartet wird.
 
 #### <a name="syntax"></a>Syntax
 
@@ -663,10 +659,10 @@ Der folgende Befehl plant, dass eine Aufgabe einmal am 13. November 2002 um 2:18
 
 Da der lokale Computer die Option **Englisch (USA)** in den Regions **-und Sprachoptionen** in der **Systemsteuerung**verwendet, ist das Format für das Startdatum mm/dd/yyyy.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc once /st 14:18 /sd 11/13/2002
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc once /st 14:18 /sd 11/13/2002
 ```
 
-### <a name="BKMK_diff_perms"></a>So planen Sie einen Task, der mit unterschiedlichen Berechtigungen ausgeführt wird
+### <a name="to-schedule-a-task-that-runs-with-different-permissions"></a><a name=BKMK_diff_perms></a>So planen Sie einen Task, der mit unterschiedlichen Berechtigungen ausgeführt wird
 
 Sie können die Ausführung von Aufgaben aller Typen mit Berechtigungen eines alternativen Kontos auf dem lokalen Computer und auf einem Remote Computer planen. Zusätzlich zu den Parametern, die für den jeweiligen Zeit Plantyp erforderlich sind, ist der **/ru** -Parameter erforderlich, und der **/RP aus** -Parameter ist optional.
 
@@ -676,12 +672,12 @@ Sie können die Ausführung von Aufgaben aller Typen mit Berechtigungen eines al
 
 Der folgende Befehl plant, dass das MyApp-Programm auf dem lokalen Computer ausgeführt wird. Er verwendet **/ru** , um anzugeben, dass der Task mit den Berechtigungen des Administrator Kontos des Benutzers (Admin06) ausgeführt werden soll. In diesem Beispiel ist die Ausführung der Aufgabe jeden Dienstag geplant, aber Sie können einen beliebigen Zeit Plantyp für eine Aufgabe verwenden, die mit alternativen Berechtigungen ausgeführt wird.
 ```
-schtasks /create /tn "My App" /tr myapp.exe /sc weekly /d TUE /ru Admin06
+schtasks /create /tn My App /tr myapp.exe /sc weekly /d TUE /ru Admin06
 ```
-Als Antwort fordert " **Schtasks. exe** " das "Ausführen als"-Kennwort für das Admin06-Konto an und zeigt dann eine Erfolgsmeldung an.
+Als Antwort fordert " **Schtasks. exe** " die Ausführung als Kennwort für das Admin06-Konto an und zeigt dann eine Erfolgsmeldung an.
 ```
 Please enter the run as password for Admin06: ********
-SUCCESS: The scheduled task "My App" has successfully been created.
+SUCCESS: The scheduled task My App has successfully been created.
 ```
 
 #### <a name="to-run-a-task-with-alternate-permissions-on-a-remote-computer"></a>So führen Sie einen Task mit alternativen Berechtigungen auf einem Remote Computer aus
@@ -692,7 +688,7 @@ Der Befehl verwendet den **/SC** -Parameter, um einen täglichen Zeitplan anzuge
 
 Der Befehl verwendet den **/s** -Parameter, um den Namen des Remote Computers anzugeben, und den **/u** -Parameter, um ein Konto anzugeben, das über die Berechtigung zum Planen eines Tasks auf dem Remote Computer verfügt ("Admin01" auf dem Marketing Computer). Außerdem wird der **/ru** -Parameter verwendet, um anzugeben, dass der Task mit den Berechtigungen des nicht-Administrator Kontos des Benutzers (USER01 in der reskits-Domäne) ausgeführt werden soll. Ohne den **/ru** -Parameter wird die Aufgabe mit den Berechtigungen des Kontos ausgeführt, das von **/u**angegeben wird.
 ```
-schtasks /create /tn "My App" /tr myapp.exe /sc daily /mo 4 /s Marketing /u Marketing\Admin01 /ru Reskits\User01
+schtasks /create /tn My App /tr myapp.exe /sc daily /mo 4 /s Marketing /u Marketing\Admin01 /ru Reskits\User01
 ```
 **Schtasks** fordert zuerst das Kennwort des Benutzers an, der durch den **/u** -Parameter benannt wird (zum Ausführen des Befehls) und fordert dann das Kennwort des Benutzers an, der durch den **/ru** -Parameter benannt wird (zum Ausführen der Aufgabe). Nach der Authentifizierung der Kenn Wörter zeigt **Schtasks** eine Meldung mit dem Hinweis an, dass die Aufgabe geplant ist.
 ```
@@ -700,7 +696,7 @@ Type the password for Marketing\Admin01:********
 
 Please enter the run as password for Reskits\User01: ********
 
-SUCCESS: The scheduled task "My App" has successfully been created.
+SUCCESS: The scheduled task My App has successfully been created.
 ```
 
 #### <a name="to-run-a-task-only-when-a-particular-user-is-logged-on"></a>So führen Sie eine Aufgabe nur aus, wenn ein bestimmter Benutzer angemeldet ist
@@ -711,14 +707,14 @@ Der Befehl verwendet den **/SC** -Parameter zum Angeben eines wöchentlichen Zei
 
 Der Befehl verwendet den **/s** -Parameter, um den Namen des Remote Computers anzugeben, und den **/u** -Parameter, um ein Konto anzugeben, das über die Berechtigung zum Planen eines Tasks auf dem Remote Computer verfügt. Außerdem verwendet er den **/ru** -Parameter, um die Aufgabe so zu konfigurieren, dass Sie mit den Berechtigungen des Administrators des öffentlichen Computers (Public\Admin01) und des Parameters **/IT** ausgeführt wird, um anzugeben, dass der Task nur ausgeführt wird, wenn das Konto Public\Admin01 angemeldet ist.
 ```
-schtasks /create /tn "Check Admin" /tr AdminCheck.exe /sc weekly /d FRI /st 04:00 /s Public /u Domain3\Admin06 /ru Public\Admin01 /it
+schtasks /create /tn Check Admin /tr AdminCheck.exe /sc weekly /d FRI /st 04:00 /s Public /u Domain3\Admin06 /ru Public\Admin01 /it
 ```
 **Hinweis**
 -   Verwenden Sie eine ausführliche Abfrage **(/Query "aus/v**), um Aufgaben mit der interaktiven ( **/IT**)-Eigenschaft zu identifizieren. In einer ausführlichen Abfrage Anzeige einer Aufgabe mit **/IT**hat das Feld **Anmeldemodus** den Wert **interaktiv**.
 
-### <a name="BKMK_sys_perms"></a>So planen Sie einen Task, der mit System Berechtigungen ausgeführt wird
+### <a name="to-schedule-a-task-that-runs-with-system-permissions"></a><a name=BKMK_sys_perms></a>So planen Sie einen Task, der mit System Berechtigungen ausgeführt wird
 
-Tasks aller Typen können mit Berechtigungen des System Kontos auf dem lokalen Computer und auf einem Remote Computer ausgeführt werden. Zusätzlich zu den Parametern, die für den jeweiligen Zeit Plantyp erforderlich sind, ist der Parameter **/ru System** (oder **/ru**) erforderlich, und der **/RP aus** -Parameter ist ungültig.
+Tasks aller Typen können mit Berechtigungen des System Kontos auf dem lokalen Computer und auf einem Remote Computer ausgeführt werden. Zusätzlich zu den Parametern, die für den jeweiligen Zeit Plantyp erforderlich sind, ist der Parameter **/ru System** (oder * */ru * *) erforderlich, und der **/RP aus** -Parameter ist ungültig.
 
 **Wichtig**
 -   Das System Konto verfügt nicht über interaktive Anmelde Rechte. Benutzer können weder Programme noch Aufgaben, die mit System Berechtigungen ausgeführt werden, sehen oder mit ihnen interagieren.
@@ -736,12 +732,12 @@ Mit dem folgenden Befehl wird das Programm MyApp auf dem lokalen Computer mit de
 
 Der Befehl verwendet den **/ru-System** Parameter, um den System Sicherheitskontext anzugeben. Da System Tasks kein Kennwort verwenden, wird der **/RP aus** -Parameter ausgelassen.
 ```
-schtasks /create /tn "My App" /tr c:\apps\myapp.exe /sc monthly /d 15 /ru System
+schtasks /create /tn My App /tr c:\apps\myapp.exe /sc monthly /d 15 /ru System
 ```
 Als Antwort zeigt " **Schtasks. exe** " eine Informations Meldung und eine Erfolgsmeldung an. Sie werden nicht zur Eingabe eines Kennworts aufgefordert.
 ```
-INFO: The task will be created under user name ("NT AUTHORITY\SYSTEM").
-SUCCESS: The Scheduled task "My App" has successfully been created.
+INFO: The task will be created under user name (NT AUTHORITY\SYSTEM).
+SUCCESS: The Scheduled task My App has successfully been created.
 ```
 
 #### <a name="to-run-a-task-with-system-permissions-on-a-remote-computer"></a>So führen Sie einen Task mit System Berechtigungen auf einem Remote Computer aus
@@ -752,24 +748,24 @@ Der Befehl verwendet den **/TN** -Parameter, um den Task zu benennen, und den **
 
 Der Befehl verwendet den **/s** -Parameter, um den Namen des Remote Computers anzugeben, und den **/u** -Parameter, um ein Konto anzugeben, das über die Berechtigung zum Planen eines Tasks auf dem Remote Computer verfügt. Außerdem verwendet er den **/ru** -Parameter, um anzugeben, dass die Aufgabe unter dem System Konto ausgeführt werden soll. Ohne den **/ru** -Parameter wird die Aufgabe mit den Berechtigungen des Kontos ausgeführt, das von **/u**angegeben wird.
 ```
-schtasks /create /tn "My App" /tr myapp.exe /sc daily /st 04:00 /s Finance01 /u Admin01 /ru System
+schtasks /create /tn My App /tr myapp.exe /sc daily /st 04:00 /s Finance01 /u Admin01 /ru System
 ```
 **Schtasks** fordert das Kennwort des Benutzers an, der vom **/u** -Parameter benannt wird, und zeigt nach der Authentifizierung des Kennworts eine Meldung an, die angibt, dass die Aufgabe erstellt wurde und mit Berechtigungen des System Kontos ausgeführt wird.
 ```
 Type the password for Admin01:**********
 
-INFO: The Schedule Task "My App" will be created under user name ("NT AUTHORITY\
-SYSTEM").
-SUCCESS: The scheduled task "My App" has successfully been created.
+INFO: The Schedule Task My App will be created under user name (NT AUTHORITY\
+SYSTEM).
+SUCCESS: The scheduled task My App has successfully been created.
 ```
 
-### <a name="BKMK_multi_progs"></a>So planen Sie einen Task, der mehr als ein Programm ausführt
+### <a name="to-schedule-a-task-that-runs-more-than-one-program"></a><a name=BKMK_multi_progs></a>So planen Sie einen Task, der mehr als ein Programm ausführt
 
 Jeder Task führt nur ein Programm aus. Sie können jedoch eine Batchdatei erstellen, die mehrere Programme ausführt, und dann eine Aufgabe für die Ausführung der Batchdatei planen. Diese Methode wird im folgenden Verfahren veranschaulicht:
 1. Erstellen Sie eine Batchdatei, mit der die Programme gestartet werden, die Sie ausführen möchten.
 
    In diesem Beispiel erstellen Sie eine Batchdatei, die Ereignisanzeige (eventvwr. exe) und den System Monitor (Perfmon. exe) startet.  
-   - Öffnen Sie einen Text-Editor, z. B. Notepad.
+   - Öffnen Sie einen Text-Editor, z. B. Editor.
    - Geben Sie den Namen und den voll qualifizierten Pfad zur ausführbaren Datei für jedes Programm ein. In diesem Fall enthält die Datei die folgenden Anweisungen.  
      ```
      C:\Windows\System32\Eventvwr.exe 
@@ -784,7 +780,7 @@ Jeder Task führt nur ein Programm aus. Sie können jedoch eine Batchdatei erste
    ```  
    Wenn sich ein Benutzer am Computer anmeldet, startet der Task als Ergebnis dieses Befehls sowohl Ereignisanzeige als auch System Monitor.
 
-### <a name="BKMK_remote"></a>So planen Sie einen Task, der auf einem Remote Computer ausgeführt wird
+### <a name="to-schedule-a-task-that-runs-on-a-remote-computer"></a><a name=BKMK_remote></a>So planen Sie einen Task, der auf einem Remote Computer ausgeführt wird
 
 Wenn Sie planen, dass ein Task auf einem Remote Computer ausgeführt werden soll, müssen Sie den Task dem Zeitplan des Remote Computers hinzufügen. Aufgaben aller Typen können auf einem Remote Computer geplant werden, aber die folgenden Bedingungen müssen erfüllt sein.
 -   Sie müssen über die Berechtigung zum Planen der Aufgabe verfügen. Daher müssen Sie auf dem lokalen Computer mit einem Konto angemeldet sein, das Mitglied der Gruppe "Administratoren" auf dem Remote Computer ist, oder Sie müssen den **/u** -Parameter verwenden, um die Anmelde Informationen eines Administrators für den Remote Computer anzugeben.
@@ -799,7 +795,7 @@ Der folgende Befehl plant, dass das MyApp-Programm alle zehn Tage, beginnend, al
 
 Beachten Sie, dass alle Parameter beim Planen von Aufgaben auf einem Remote Computer auf den Remote Computer verweisen. Daher verweist die durch den **/TR** -Parameter angegebene ausführbare Datei auf die Kopie von "MyApp. exe" auf dem Remote Computer.
 ```
-schtasks /create /s SRV01 /tn "My App" /tr "c:\program files\corpapps\myapp.exe" /sc daily /mo 10
+schtasks /create /s SRV01 /tn My App /tr c:\program files\corpapps\myapp.exe /sc daily /mo 10
 ```
 Als Antwort zeigt **Schtasks** eine Erfolgsmeldung an, die angibt, dass der Task geplant ist.
 
@@ -807,7 +803,7 @@ Als Antwort zeigt **Schtasks** eine Erfolgsmeldung an, die angibt, dass der Task
 
 Der folgende Befehl plant, dass das Programm MyApp alle drei Stunden auf dem Remote Computer SRV06 ausgeführt wird. Da Administrator Berechtigungen erforderlich sind, um eine Aufgabe zu planen, verwendet der Befehl die Parameter **/u** und **/p** , um die Anmelde Informationen des Administrator Kontos des Benutzers ("Admin01" in der reskits-Domäne) bereitzustellen. Diese Berechtigungen werden standardmäßig auch verwendet, um die Aufgabe auszuführen. Da der Task jedoch keine Administrator Berechtigungen zum Ausführen benötigt, enthält der Befehl die Parameter **/u** und **/RP aus** , um die Standardeinstellung zu überschreiben und die Aufgabe mit der Berechtigung des nicht Administrator Kontos des Benutzers auf dem Remote Computer auszuführen.
 ```
-schtasks /create /s SRV06 /tn "My App" /tr "c:\program files\corpapps\myapp.exe" /sc hourly /mo 3 /u reskits\admin01 /p R43253@4$ /ru SRV06\user03 /rp MyFav!!Pswd
+schtasks /create /s SRV06 /tn My App /tr c:\program files\corpapps\myapp.exe /sc hourly /mo 3 /u reskits\admin01 /p R43253@4$ /ru SRV06\user03 /rp MyFav!!Pswd
 ```
 Als Antwort zeigt **Schtasks** eine Erfolgsmeldung an, die angibt, dass der Task geplant ist.
 
@@ -815,15 +811,15 @@ Als Antwort zeigt **Schtasks** eine Erfolgsmeldung an, die angibt, dass der Task
 
 Der folgende Befehl plant, dass das Programm MyApp auf dem Remote Computer SRV02 am letzten Tag jedes Monats ausgeführt wird. Da der lokale aktuelle Benutzer (user03) kein Administrator des Remote Computers ist, verwendet der Befehl den **/u** -Parameter, um die Anmelde Informationen des Administrator Kontos des Benutzers ("Admin01" in der reskits-Domäne) bereitzustellen. Die Administrator Konto Berechtigungen werden verwendet, um die Aufgabe zu planen und die Aufgabe auszuführen.
 ```
-schtasks /create /s SRV02 /tn "My App" /tr "c:\program files\corpapps\myapp.exe" /sc monthly /mo LASTDAY /m * /u reskits\admin01
+schtasks /create /s SRV02 /tn My App /tr c:\program files\corpapps\myapp.exe /sc monthly /mo LASTDAY /m * /u reskits\admin01
 ```
 Da der Befehl den Parameter **/p** (Password) nicht enthielt, fordert **Schtasks** das Kennwort an. Daraufhin wird eine Erfolgsmeldung angezeigt, in diesem Fall eine Warnung.
 ```
 Type the password for reskits\admin01:********
 
-SUCCESS: The scheduled task "My App" has successfully been created.
+SUCCESS: The scheduled task My App has successfully been created.
 
-WARNING: The Scheduled task "My App" has been created, but may not run because
+WARNING: The Scheduled task My App has been created, but may not run because
 the account information could not be set.
 ```
 Diese Warnung gibt an, dass die Remote Domäne das vom Parameter **/u** angegebene Konto nicht authentifizieren konnte. In diesem Fall konnte die Remote Domäne das Benutzerkonto nicht authentifizieren, da der lokale Computer kein Mitglied einer Domäne ist, der die Remote Computer Domäne vertraut. In diesem Fall wird der Aufgaben Auftrag in der Liste der geplanten Aufgaben angezeigt, aber der Task ist tatsächlich leer und wird nicht ausgeführt.
@@ -877,7 +873,7 @@ Power Management: Disabled
 -   Jeder Task führt nur ein Programm aus. Sie können jedoch eine Batchdatei erstellen, die mehrere Aufgaben startet, und dann eine Aufgabe planen, die die Batchdatei ausführt.
 -   Sie können eine Aufgabe testen, sobald Sie Sie erstellen. Verwenden Sie den **Run** -Vorgang, um die Aufgabe zu testen, und überprüfen Sie dann die Datei "SchedLgU. txt" (*systemroot*\SchedLgU.txt) auf Fehler.
 
-## <a name="BKMK_change"></a>schtasks ändern
+## <a name="schtasks-change"></a><a name=BKMK_change></a>schtasks ändern
 
 Ändert eine oder mehrere der folgenden Eigenschaften einer Aufgabe.
 -   Das Programm, das die Aufgabe ausführt ( **/TR**).
@@ -891,7 +887,7 @@ Power Management: Disabled
 schtasks /change /tn <TaskName> [/s <Computer> [/u [<Domain>\]<User> [/p <Password>]]] [/ru {[<Domain>\]<User> | System}] [/rp <Password>] [/tr <TaskRun>] [/st <StartTime>] [/ri <Interval>] [{/et <EndTime> | /du <Duration>} [/k]] [/sd <StartDate>] [/ed <EndDate>] [/{ENABLE | DISABLE}] [/it] [/z]
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |          Begriff           |                                                                                                                                                                                                                                                                                                                                     Definition                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -911,7 +907,7 @@ schtasks /change /tn <TaskName> [/s <Computer> [/u [<Domain>\]<User> [/p <Passwo
 |     /Ed \<EndDate >      |                                                                                                                                                                                                                                                                                                 Gibt das letzte Datum an, an dem die Aufgabe ausgeführt werden soll. Das Format ist "mm/dd/yyyy".                                                                                                                                                                                                                                                                                                  |
 |         /ENABLE         |                                                                                                                                                                                                                                                                                                                       Gibt an, dass die geplante Aufgabe aktiviert werden soll.                                                                                                                                                                                                                                                                                                                       |
 |        /Disable         |                                                                                                                                                                                                                                                                                                                      Gibt an, dass die geplante Aufgabe deaktiviert werden soll.                                                                                                                                                                                                                                                                                                                       |
-|           /it           | Gibt an, dass die geplante Aufgabe nur ausgeführt werden soll, wenn der Benutzer, unter dem der Task ausgeführt wird, auf dem Computer angemeldet ist.</br>Dieser Parameter hat keine Auswirkung auf Aufgaben, die mit System Berechtigungen oder Tasks ausgeführt werden, für die die interaktive Eigenschaft bereits festgelegt ist. Sie können einen Change-Befehl nicht verwenden, um die interaktive Eigenschaft aus einer Aufgabe zu entfernen.</br>Standardmäßig ist der Benutzer "Ausführen als" der aktuelle Benutzer des lokalen Computers, wenn der Task geplant ist, oder das durch den **/u** -Parameter angegebene Konto (sofern verwendet). Wenn der Befehl jedoch den **/ru** -Parameter enthält, ist der Benutzer "Ausführen als" das Konto, das durch den **/ru** -Parameter angegeben wird. |
+|           /it           | Gibt an, dass die geplante Aufgabe nur ausgeführt werden soll, wenn die Ausführung als Benutzer (das Benutzerkonto, unter dem der Task ausgeführt wird) auf dem Computer angemeldet ist.</br>Dieser Parameter hat keine Auswirkung auf Aufgaben, die mit System Berechtigungen oder Tasks ausgeführt werden, für die die interaktive Eigenschaft bereits festgelegt ist. Sie können einen Change-Befehl nicht verwenden, um die interaktive Eigenschaft aus einer Aufgabe zu entfernen.</br>Standardmäßig ist der Benutzer, der als Benutzer ausgeführt wird, der aktuelle Benutzer des lokalen Computers, wenn der Task geplant ist, oder das durch den **/u** -Parameter angegebene Konto (sofern verwendet). Wenn der Befehl jedoch den **/ru** -Parameter enthält, ist das Konto "Ausführen als" das Konto, das durch den **/ru** -Parameter angegeben wird. |
 |           "/z            |                                                                                                                                                                                                                                                                                                          Gibt an, dass die Aufgabe nach Abschluss des Zeitplans gelöscht wird.                                                                                                                                                                                                                                                                                                          |
 |           /?            |                                                                                                                                                                                                                                                                                                                        Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                                                                                                                                                         |
 
@@ -930,11 +926,11 @@ schtasks /change /tn <TaskName> [/s <Computer> [/u [<Domain>\]<User> [/p <Passwo
 
 Mit dem folgenden Befehl wird das Programm, das der Virus Check Task ausführt, von "virscheck. exe" in "VirusCheck2. exe" geändert. Dieser Befehl verwendet den **/TN** -Parameter, um die Aufgabe zu identifizieren, und den **/TR** -Parameter, um das neue Programm für die Aufgabe anzugeben. (Sie können den Namen der Aufgabe nicht ändern.)
 ```
-schtasks /change /tn "Virus Check" /tr C:\VirusCheck2.exe
+schtasks /change /tn Virus Check /tr C:\VirusCheck2.exe
 ```
 In der Antwort zeigt " **Schtasks. exe** " die folgende Erfolgsmeldung an:
 ```
-SUCCESS: The parameters of the scheduled task "Virus Check" have been changed.
+SUCCESS: The parameters of the scheduled task Virus Check have been changed.
 ```
 Als Ergebnis dieses Befehls führt der Virus Check Task jetzt VirusCheck2. exe aus.
 
@@ -948,7 +944,7 @@ schtasks /change /tn RemindMe /s Svr01 /rp p@ssWord3
 ```
 In der Antwort zeigt " **Schtasks. exe** " die folgende Erfolgsmeldung an:
 ```
-SUCCESS: The parameters of the scheduled task "RemindMe" have been changed.
+SUCCESS: The parameters of the scheduled task RemindMe have been changed.
 ```
 Aufgrund dieses Befehls wird die RemindMe-Aufgabe nun unter dem ursprünglichen Benutzerkonto ausgeführt, jedoch mit einem neuen Kennwort.
 
@@ -960,7 +956,7 @@ Der Befehl verwendet den **/TN** -Parameter, um die Aufgabe zu identifizieren. E
 
 Der Parameter **/ru**und **/RP aus** , der das Kennwort für das Benutzerkonto bereitstellt, wird ausgelassen. Sie müssen ein Kennwort für das Konto angeben. Sie können jedoch den Parameter **/ru**und **/RP aus** verwenden und das Kennwort als Klartext eingeben. Alternativ können Sie auf " **Schtasks. exe** " warten, um ein Kennwort einzugeben, und das Kennwort dann in den verdeckten Text eingeben.
 ```
-schtasks /change /tn ChkNews /tr "c:\program files\Internet Explorer\iexplore.exe" /ru DomainX\Admin01
+schtasks /change /tn ChkNews /tr c:\program files\Internet Explorer\iexplore.exe /ru DomainX\Admin01
 ```
 Als Antwort fordert " **Schtasks. exe** " das Kennwort für das Benutzerkonto an. Dadurch wird der von Ihnen Typisierungs Text verdeckt, sodass das Kennwort nicht angezeigt wird.
 ```
@@ -970,26 +966,26 @@ Beachten Sie, dass der **/TN** -Parameter die Aufgabe identifiziert und dass die
 
 In der Antwort zeigt " **Schtasks. exe** " die folgende Erfolgsmeldung an:
 ```
-SUCCESS: The parameters of the scheduled task "ChkNews" have been changed.
+SUCCESS: The parameters of the scheduled task ChkNews have been changed.
 ```
 Durch diesen Befehl führt die ChkNews-Aufgabe nun Internet Explorer mit den Berechtigungen eines Administrator Kontos aus.
 
 ### <a name="to-change-a-program-to-the-system-account"></a>So ändern Sie ein Programm in das System Konto
 
-Mit dem folgenden Befehl wird der securityscript-Task so geändert, dass er mit den Berechtigungen des System Kontos ausgeführt wird. Er verwendet den **/ru-Parameter ""** , um das System Konto anzugeben.
+Mit dem folgenden Befehl wird der securityscript-Task so geändert, dass er mit den Berechtigungen des System Kontos ausgeführt wird. Er verwendet den * */ru * *-Parameter, um das System Konto anzugeben.
 ```
-schtasks /change /tn SecurityScript /ru ""
+schtasks /change /tn SecurityScript /ru 
 ```
 In der Antwort zeigt " **Schtasks. exe** " die folgende Erfolgsmeldung an:
 ```
-INFO: The run as user name for the scheduled task "SecurityScript" will be changed to "NT AUTHORITY\SYSTEM".
-SUCCESS: The parameters of the scheduled task "SecurityScript" have been changed.
+INFO: The run as user name for the scheduled task SecurityScript will be changed to NT AUTHORITY\SYSTEM.
+SUCCESS: The parameters of the scheduled task SecurityScript have been changed.
 ```
 Da Aufgaben, die mit System Konto Berechtigungen ausgeführt werden, kein Kennwort erfordern, werden Sie von " **Schtasks. exe** " nicht dazu aufgefordert.
 
 ### <a name="to-run-a-program-only-when-i-am-logged-on"></a>So führen Sie ein Programm nur aus, wenn ich angemeldet bin
 
-Mit dem folgenden Befehl wird die interaktive Eigenschaft zu MyApp hinzugefügt, eine vorhandene Aufgabe. Diese Eigenschaft stellt sicher, dass der Task nur ausgeführt wird, wenn der Benutzer "Ausführen als", d. h. das Benutzerkonto, unter dem der Task ausgeführt wird, auf dem Computer angemeldet ist.
+Mit dem folgenden Befehl wird die interaktive Eigenschaft zu MyApp hinzugefügt, eine vorhandene Aufgabe. Diese Eigenschaft stellt sicher, dass der Task nur ausgeführt wird, wenn die Ausführung als Benutzer, d. h. das Benutzerkonto, unter dem der Task ausgeführt wird, auf dem Computer angemeldet ist.
 
 Der Befehl verwendet den **/TN** -Parameter, um die Aufgabe zu identifizieren, und den **/IT** -Parameter, um der Aufgabe die interaktive Eigenschaft hinzuzufügen. Da der Task bereits mit den Berechtigungen des Benutzerkontos ausgeführt wird, muss der **/ru** -Parameter für die Aufgabe nicht geändert werden.
 ```
@@ -997,10 +993,10 @@ schtasks /change /tn MyApp /it
 ```
 In der Antwort zeigt " **Schtasks. exe** " die folgende Erfolgsmeldung an.
 ```
-SUCCESS: The parameters of the scheduled task "MyApp" have been changed.
+SUCCESS: The parameters of the scheduled task MyApp have been changed.
 ```
 
-## <a name="BKMK_run"></a>schtasks ausführen
+## <a name="schtasks-run"></a><a name=BKMK_run></a>schtasks ausführen
 
 Startet eine geplante Aufgabe sofort. Der **Ausführungs Vorgang ignoriert den Zeitplan** , verwendet jedoch den Programmdatei Speicherort, das Benutzerkonto und das Kennwort, die in der Aufgabe gespeichert sind, um den Task sofort auszuführen.
 
@@ -1010,11 +1006,11 @@ Startet eine geplante Aufgabe sofort. Der **Ausführungs Vorgang ignoriert den Z
 schtasks /run /tn <TaskName> [/s <Computer> [/u [<Domain>\]<User> [/p <Password>]]]
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |         Begriff          |                                                                                                                                                                 Definition                                                                                                                                                                  |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /TN \<Taskname >    |                                                                                                                                                       Erforderlich. Identifiziert den Task.                                                                                                                                                        |
+|    /TN \<Taskname >    |                                                                                                                                                       Erforderlich Identifiziert den Task.                                                                                                                                                        |
 |    /s \<Computer >     |                                                                                                           Gibt den Namen oder die IP-Adresse eines Remote Computers an (mit oder ohne umgekehrte Schrägstriche). Der Standardwert ist der lokale Computer.                                                                                                           |
 | /u [\<Domänen >\]<User> | Führt diesen Befehl mit den Berechtigungen des angegebenen Benutzerkontos aus. Standardmäßig wird der Befehl mit den Berechtigungen des aktuellen Benutzers auf dem lokalen Computer ausgeführt.</br>Das angegebene Benutzerkonto muss ein Mitglied der Gruppe "Administratoren" auf dem Remote Computer sein. Die Parameter **/u** und **/p** sind nur gültig, wenn Sie **/s**verwenden. |
 |    /p \<Kennwort >     |                          Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist. Wenn Sie den **/u** -Parameter verwenden, aber den **/p** -Parameter oder das Password-Argument weglassen, werden Sie von **Schtasks** aufgefordert, ein Kennwort einzugeben.</br>Die Parameter **/u** und **/p** sind nur gültig, wenn Sie **/s**verwenden.                           |
@@ -1030,13 +1026,13 @@ schtasks /run /tn <TaskName> [/s <Computer> [/u [<Domain>\]<User> [/p <Password>
 
 ### <a name="to-run-a-task-on-the-local-computer"></a>So führen Sie einen Task auf dem lokalen Computer aus
 
-Mit dem folgenden Befehl wird die Aufgabe "Sicherheits Skript" gestartet.
+Mit dem folgenden Befehl wird der Sicherheits Skript Task gestartet.
 ```
-schtasks /run /tn "Security Script"
+schtasks /run /tn Security Script
 ```
 Als Antwort startet " **Schtasks. exe** " das Skript, das mit der Aufgabe verknüpft ist, und zeigt die folgende Meldung an:
 ```
-SUCCESS: Attempted to run the scheduled task "Security Script".
+SUCCESS: Attempted to run the scheduled task Security Script.
 ```
 Wie die Meldung impliziert, versucht **Schtasks** , das Programm zu starten, aber es kann nicht sehr sein, dass das Programm tatsächlich gestartet wurde.
 
@@ -1048,11 +1044,11 @@ schtasks /run /tn Update /s Svr01
 ```
 In diesem Fall zeigt " **Schtasks. exe** " die folgende Fehlermeldung an:
 ```
-ERROR: Unable to run the scheduled task "Update".
+ERROR: Unable to run the scheduled task Update.
 ```
 Um die Ursache des Fehlers zu ermitteln, sehen Sie sich das Transaktionsprotokoll für geplante Aufgaben an, c:\windows\schedlgu.txt auf SVR01. In diesem Fall wird der folgende Eintrag im Protokoll angezeigt:
 ```
-"Update.job" (update.exe) 3/26/2001 1:15:46 PM ** ERROR **
+Update.job (update.exe) 3/26/2001 1:15:46 PM ** ERROR **
 The attempt to log on to the account associated with the task failed, therefore, the task did not run.
 The specific error is:
 0x8007052e: Logon failure: unknown user name or bad password.
@@ -1064,11 +1060,11 @@ schtasks /change /tn Update /s Svr01 /ru Administrator /rp PassW@rd3
 ```
 Nachdem der **Änderungs** Befehl abgeschlossen wurde, wird der Befehl " **Run** " wiederholt. Dieses Mal wird das Update. exe-Programm gestartet, und " **Schtasks. exe** " zeigt die folgende Meldung an:
 ```
-SUCCESS: Attempted to run the scheduled task "Update".
+SUCCESS: Attempted to run the scheduled task Update.
 ```
 Wie die Meldung impliziert, versucht **Schtasks** , das Programm zu starten, aber es kann nicht sehr sein, dass das Programm tatsächlich gestartet wurde.
 
-## <a name="BKMK_end"></a>schtasks beenden
+## <a name="schtasks-end"></a><a name=BKMK_end></a>schtasks beenden
 
 Beendet ein Programm, das von einer Aufgabe gestartet wurde.
 
@@ -1078,11 +1074,11 @@ Beendet ein Programm, das von einer Aufgabe gestartet wurde.
 schtasks /end /tn <TaskName> [/s <Computer> [/u [<Domain>\]<User> [/p <Password>]]]
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |         Begriff          |                                                                                                                                                               Definition                                                                                                                                                                |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /TN \<Taskname >    |                                                                                                                                         Erforderlich. Identifiziert den Task, der das Programm gestartet hat.                                                                                                                                         |
+|    /TN \<Taskname >    |                                                                                                                                         Erforderlich Identifiziert den Task, der das Programm gestartet hat.                                                                                                                                         |
 |    /s \<Computer >     |                                                                                                                        Gibt den Namen oder die IP-Adresse eines Remote Computers an. Der Standardwert ist der lokale Computer.                                                                                                                        |
 | /u [\<Domänen >\]<User> | Führt diesen Befehl mit den Berechtigungen des angegebenen Benutzerkontos aus. Standardmäßig wird der Befehl mit den Berechtigungen des aktuellen Benutzers auf dem lokalen Computer ausgeführt. Das angegebene Benutzerkonto muss ein Mitglied der Gruppe "Administratoren" auf dem Remote Computer sein. Die Parameter **/u** und **/p** sind nur gültig, wenn Sie **/s**verwenden. |
 |    /p \<Kennwort >     |                        Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist. Wenn Sie den **/u** -Parameter verwenden, aber den **/p** -Parameter oder das Password-Argument weglassen, werden Sie von **Schtasks** aufgefordert, ein Kennwort einzugeben.</br>Die Parameter **/u** und **/p** sind nur gültig, wenn Sie **/s**verwenden.                         |
@@ -1098,11 +1094,11 @@ schtasks /end /tn <TaskName> [/s <Computer> [/u [<Domain>\]<User> [/p <Password>
 
 Der folgende Befehl beendet die Instanz von "Notepad. exe", die von der My Editor-Aufgabe gestartet wurde:
 ```
-schtasks /end /tn "My Notepad"
+schtasks /end /tn My Notepad
 ```
 Als Antwort hält " **Schtasks. exe** " die Instanz von "Notepad. exe" an, die vom Task gestartet wurde, und zeigt die folgende Erfolgsmeldung an:
 ```
-SUCCESS: The scheduled task "My Notepad" has been terminated successfully.
+SUCCESS: The scheduled task My Notepad has been terminated successfully.
 ```
 
 ### <a name="to-end-a-task-on-a-remote-computer"></a>So beenden Sie eine Aufgabe auf einem Remote Computer
@@ -1113,10 +1109,10 @@ schtasks /end /tn InternetOn /s Svr01
 ```
 Als Antwort hält " **Schtasks. exe** " die Internet Explorer-Instanz an, die die Aufgabe gestartet hat, und zeigt die folgende Erfolgsmeldung an:
 ```
-SUCCESS: The scheduled task "InternetOn" has been terminated successfully.
+SUCCESS: The scheduled task InternetOn has been terminated successfully.
 ```
 
-## <a name="BKMK_delete"></a>schtasks löschen
+## <a name="schtasks-delete"></a><a name=BKMK_delete></a>schtasks löschen
 
 Löscht einen geplanten Task.
 
@@ -1126,7 +1122,7 @@ Löscht einen geplanten Task.
 schtasks /delete /tn {<TaskName> | *} [/f] [/s <Computer> [/u [<Domain>\]<User> [/p <Password>]]]
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |         Begriff          |                                                                                                                                                                 Definition                                                                                                                                                                  |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1146,14 +1142,14 @@ schtasks /delete /tn {<TaskName> | *} [/f] [/s <Computer> [/u [<Domain>\]<User> 
 
 ### <a name="to-delete-a-task-from-the-schedule-of-a-remote-computer"></a>So löschen Sie einen Task aus dem Zeitplan eines Remote Computers
 
-Der folgende Befehl löscht den Task "e-Mail starten" aus dem Zeitplan eines Remote Computers. Er verwendet den **/s** -Parameter, um den Remote Computer zu identifizieren.
+Der folgende Befehl löscht den Task "Mail starten" aus dem Zeitplan eines Remote Computers. Er verwendet den **/s** -Parameter, um den Remote Computer zu identifizieren.
 ```
-schtasks /delete /tn "Start Mail" /s Svr16
+schtasks /delete /tn Start Mail /s Svr16
 ```
 In der Antwort zeigt " **Schtasks. exe** " die folgende Bestätigungsmeldung an. Drücken Sie Y, um die Aufgabe zu löschen<strong>.</strong> Um den Befehl abzubrechen, geben Sie **n**ein:
 ```
-WARNING: Are you sure you want to remove the task "Start Mail" (Y/N )? 
-SUCCESS: The scheduled task "Start Mail" was successfully deleted.
+WARNING: Are you sure you want to remove the task Start Mail (Y/N )? 
+SUCCESS: The scheduled task Start Mail was successfully deleted.
 ```
 
 ### <a name="to-delete-all-tasks-scheduled-for-the-local-computer"></a>So löschen Sie alle Aufgaben, die für den lokalen Computer geplant sind
@@ -1164,9 +1160,9 @@ schtasks /delete /tn * /f
 ```
 In der Antwort zeigt " **Schtasks. exe** " die folgenden Erfolgsmeldungen an, die angeben, dass nur die geplante Aufgabe "securescript" gelöscht wurde.
 
-`SUCCESS: The scheduled task "SecureScript" was successfully deleted.`
+`SUCCESS: The scheduled task SecureScript was successfully deleted.`
 
-## <a name="BKMK_query"></a>schtasks-Abfrage
+## <a name="schtasks-query"></a><a name=BKMK_query></a>schtasks-Abfrage
 
 Zeigt Tasks an, die für die Ausführung auf dem Computer geplant sind.
 
@@ -1176,12 +1172,12 @@ Zeigt Tasks an, die für die Ausführung auf dem Computer geplant sind.
 schtasks [/query] [/fo {TABLE | LIST | CSV}] [/nh] [/v] [/s <Computer> [/u [<Domain>\]<User> [/p <Password>]]]
 ```
 
-### <a name="parameters"></a>Parameter
+#### <a name="parameters"></a>Parameter
 
 |         Begriff          |                                                                                                                                                                 Definition                                                                                                                                                                  |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |       /Query "aus        |                                                                                                                        Der Vorgangs Name ist optional. Wenn Sie **Schtasks** ohne Parameter eingeben, wird eine Abfrage ausgeführt.                                                                                                                         |
-|      /FO {Table       |                                                                                                                                                                    List                                                                                                                                                                     |
+|      /FO {Table       |                                                                                                                                                                    LIST                                                                                                                                                                     |
 |          /nh          |                                                                                                            Lässt Spaltenüberschriften aus der Tabellen Anzeige aus. Dieser Parameter ist mit den **Tabellen** -und **CSV** -Ausgabeformaten gültig.                                                                                                             |
 |          /v           |                                                                                                         Fügt der Anzeige erweiterte Eigenschaften der Aufgaben hinzu.</br>Abfragen, die **/v** verwenden, sollten als **Liste** oder **CSV**formatiert sein.                                                                                                          |
 |    /s \<Computer >     |                                                                                                           Gibt den Namen oder die IP-Adresse eines Remote Computers an (mit oder ohne umgekehrte Schrägstriche). Der Standardwert ist der lokale Computer.                                                                                                           |
@@ -1262,6 +1258,6 @@ schtasks /query /s Reskit16 /fo csv /nh >> \\svr01\data\tasklogs\p0102.csv
 ```
 Als Antwort fügt " **Schtasks. exe** " die Aufgaben, die für den Computer "Reskit16" geplant sind, der Datei p0102. CSV auf dem lokalen Computer Svr01 hinzu.
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

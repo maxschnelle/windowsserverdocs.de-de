@@ -1,24 +1,20 @@
 ---
 title: Wbadmin-Sicherung starten
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Artikel für die Wbadmin-start Sicherung, bei der mithilfe der angegebenen Parameter eine Sicherung erstellt wird.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 56f3e752-d99a-4c3d-8e97-10303c37dd78
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c8eb017e8bf49191c33cd2d9f0cf4a62b08ebb07
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: afce1cd70f5481410071ff48d427be73b178744a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362341"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829653"
 ---
 # <a name="wbadmin-start-backup"></a>Wbadmin-Sicherung starten
 
@@ -63,7 +59,7 @@ Wbadmin start backup
 [-quiet]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -76,13 +72,13 @@ Wbadmin start backup
 |-SystemState|Für Windows 7 und Windows Server 2008 R2 und höher erstellt eine Sicherung, die zusätzlich zu allen anderen Elementen, die Sie mit dem Parameter " **-include** " angegeben haben, auch den Systemstatus enthält. Der Systemstatus enthält Startdateien (Boot. ini, ndtldr, NTDetect.com), die Windows-Registrierung einschließlich com-Einstellungen, SYSVOL (Gruppenrichtlinien und Anmelde Skripts), die Active Directory und NTDS. DIT auf Domänen Controllern und im Zertifikat Speicher, wenn der Zertifikat Dienst installiert ist. Wenn die Webserver Rolle auf dem Server installiert ist, wird das IIS-Metaverzeichnis eingeschlossen. Wenn der Serverteil eines Clusters ist, werden auch Cluster Dienst Informationen eingeschlossen.|
 |-noVerify|Gibt an, dass auf einem Wechselmedium (z. b. einer DVD) gespeicherte Sicherungen nicht auf Fehler überprüft werden. Wenn Sie diesen Parameter nicht verwenden, werden Sicherungen, die auf einem Wechsel Datenträger gespeichert werden, auf Fehler überprüft.|
 |-Benutzer|Wenn die Sicherung in einem freigegebenen Remote Ordner gespeichert wird, gibt Sie den Benutzernamen mit der Schreib Berechtigung für den Ordner an.|
-|-Kennwort|Gibt das Kennwort für den Benutzernamen an, der vom Parameter **-User**bereitgestellt wird.|
+|-password|Gibt das Kennwort für den Benutzernamen an, der vom Parameter **-User**bereitgestellt wird.|
 |-nogeerbt ACL|Wendet die Zugriffs Steuerungs Listen-Berechtigungen, die den von den Parametern " **-User** " und " **-Password** " bereitgestellten Anmelde Informationen entsprechen, auf \\\\\<Servername >\\\<ShareName >\\Windows Image Backup\\\<> ComputerBackedUp\\ (der Ordner, der die Sicherung enthält) an. Wenn Sie später auf die Sicherung zugreifen möchten, müssen Sie diese Anmelde Informationen verwenden oder Mitglied der Gruppe "Administratoren" oder der Gruppe "Sicherungs-Operatoren" auf dem Computer mit dem freigegebenen Ordner sein. Wenn **-nogeerbt ACL** nicht verwendet wird, werden die ACL-Berechtigungen aus dem freigegebenen Remote Ordner standardmäßig auf den \\\<ComputerBackedUp > Ordner angewendet, sodass jeder Benutzer mit Zugriff auf den freigegebenen Remote Ordner auf die Sicherung zugreifen kann.|
-|-vssfull|Führt eine vollständige Sicherungskopie mithilfe des Volumeschattenkopie-Dienst (VSS) aus. Alle Dateien werden gesichert, der Verlauf jeder Datei wird aktualisiert, um widerzuspiegeln, dass Sie gesichert wurde, und die Protokolle vorheriger Sicherungen werden möglicherweise abgeschnitten. Wenn dieser Parameter nicht verwendet wird, wird bei der **Start Sicherung von Wbadmin** eine Kopier Sicherung durchgeführt, aber der Verlauf der zu sichernden Dateien wird nicht aktualisiert.</br>Vorsicht: Verwenden Sie diesen Parameter nicht, wenn Sie ein anderes Produkt als Windows Server-Sicherung zum Sichern von Anwendungen verwenden, die sich auf den Volumes befinden, die in der aktuellen Sicherung enthalten sind. Dadurch kann der inkrementelle, differenzielle oder andere Sicherungstyp, der vom anderen Sicherungs Produkt erstellt wird, möglicherweise nicht mehr ausgeführt werden, da der Verlauf, auf den Sie sich verlassen, bestimmt, wie viele Daten gesichert werden können, und Sie können eine vollständige Sicherung durchführen. tigerweise.|
+|-vssfull|Führt eine vollständige Sicherungskopie mithilfe des Volumeschattenkopie-Dienst (VSS) aus. Alle Dateien werden gesichert, der Verlauf jeder Datei wird aktualisiert, um widerzuspiegeln, dass Sie gesichert wurde, und die Protokolle vorheriger Sicherungen werden möglicherweise abgeschnitten. Wenn dieser Parameter nicht verwendet wird, wird bei der **Start Sicherung von Wbadmin** eine Kopier Sicherung durchgeführt, aber der Verlauf der zu sichernden Dateien wird nicht aktualisiert.</br>Vorsicht: Verwenden Sie diesen Parameter nicht, wenn Sie ein anderes Produkt als Windows Server-Sicherung zum Sichern von Anwendungen verwenden, die sich auf den Volumes befinden, die in der aktuellen Sicherung enthalten sind. Dadurch kann der inkrementelle, differenzielle oder andere Sicherungstyp, den das andere Sicherungs Produkt erstellt, möglicherweise nicht mehr ausgeführt werden, da der Verlauf, auf den Sie sich verlassen, bestimmt, wie viele Daten gesichert werden können, und Sie können unnötig eine vollständige Sicherung durchführen.|
 |-vsscopy|Für Windows 7 und Windows Server 2008 R2 und höher wird eine Kopiesicherung mithilfe von VSS durchführt. Alle Dateien werden gesichert, aber der Verlauf der Dateien, die gesichert werden, wird nicht aktualisiert, sodass Sie alle Informationen darüber erhalten, wo die Dateien geändert, gelöscht usw. sowie beliebige Anwendungsprotokoll Dateien. Die Verwendung dieser Art von Sicherung wirkt sich nicht auf die Sequenz von inkrementellen und differenziellen Sicherungen aus, die unabhängig von dieser Kopier Sicherung auftreten können. Dies ist der Standardwert.</br>Warnung: eine Kopier Sicherung kann nicht für inkrementelle oder differenzielle Sicherungen oder Wiederherstellungen verwendet werden.|
 |-quiet|Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus.|
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 In den folgenden Beispielen wird gezeigt, wie der Befehl **Wbadmin start Backup** in verschiedenen sicherungsszenarien verwendet werden kann:
 
@@ -107,7 +103,7 @@ Szenario #1
   wbadmin start backup –backupTarget: \\backupshare\backup1 -noinheritacl -nonrecurseinclude:d:\folder1
   ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

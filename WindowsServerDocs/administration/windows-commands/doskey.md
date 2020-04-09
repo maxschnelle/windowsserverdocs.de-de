@@ -1,24 +1,20 @@
 ---
 title: doskey
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4874fd43-d5ea-45f3-ae24-388ae925ed76
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d45a2ddfeba7ec136add07eac11c3a8522ef872b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 72a5a362a225f57245a015de43a7538928c0937e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377691"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845263"
 ---
 # <a name="doskey"></a>doskey
 
@@ -34,7 +30,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/insert | /overstrike] [/exename=<ExeName>] [/macrofile=<FileName>] [<MacroName>=[<Text>]]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |       Parameter        |                                                                                                                          Beschreibung                                                                                                                           |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,7 +56,7 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
 
   Wenn Sie einen Befehl abrufen möchten, können Sie nach dem Starten von DOSKEY. exe einen der folgenden Schlüssel verwenden. Wenn Sie "Doskey. exe" innerhalb eines Programms verwenden, haben die schlüsselzuweisungen dieses Programms Vorrang.  
 
-  |    Schlüssel     |                              Beschreibung                              |
+  |    Key     |                              Beschreibung                              |
   |------------|-----------------------------------------------------------------------|
   |  NACH-OBEN-TASTE  |  Gibt den Befehl an, den Sie vor dem angezeigten Befehl verwendet haben.  |
   | NACH-UNTEN-TASTE |  Gibt den Befehl an, den Sie nach dem angezeigten Befehl verwendet haben.   |
@@ -90,10 +86,10 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
   |           F5           |                                                                                                                                   Kopiert die Vorlage in die aktuelle Befehlszeile.                                                                                                                                    |
   |           F6           |                                                                                                                    Fügt ein Dateiendezeichen (STRG + Z) an der aktuellen Position der Einfügemarke ein.                                                                                                                    |
   |           F7           | Zeigt (in einem Dialogfeld) alle Befehle für dieses Programm an, die im Arbeitsspeicher gespeichert sind. Verwenden Sie die nach-oben-Taste und die nach-unten-Taste, um den gewünschten Befehl auszuwählen, und drücken Sie die EINGABETASTE, um den Befehl auszuführen. Sie können auch die sequenzielle Zahl vor dem Befehl notieren und diese Zahl in Verbindung mit der F9-Taste verwenden. |
-  |         Alt + F7         |                                                                                                                          Löscht alle im Arbeitsspeicher gespeicherten Befehle für den aktuellen Verlaufs Puffer.                                                                                                                          |
+  |         ALT+F7         |                                                                                                                          Löscht alle im Arbeitsspeicher gespeicherten Befehle für den aktuellen Verlaufs Puffer.                                                                                                                          |
   |           F8           |                                                                                                           Zeigt alle Befehle im Verlaufs Puffer an, die mit den Zeichen im aktuellen Befehl beginnen.                                                                                                            |
   |           F9           |                                             Fordert Sie zur Eingabe einer Verlaufs Puffer-Befehls Nummer auf und zeigt dann den Befehl an, der der von Ihnen angegebenen Zahl zugeordnet ist. Drücken Sie die EINGABETASTE, um den Befehl auszuführen. Drücken Sie F7, um alle Zahlen und die zugehörigen Befehle anzuzeigen.                                             |
-  |        ALT + F10         |                                                                                                                                             Löscht alle Makro Definitionen.                                                                                                                                              |
+  |        ALT+F10         |                                                                                                                                             Löscht alle Makro Definitionen.                                                                                                                                              |
 
 
 - Verwenden von **doskey** innerhalb eines Programms
@@ -116,7 +112,7 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
 
   Sie können "Doskey. exe" verwenden, um Makros zu erstellen, die einen oder mehrere Befehle ausführen. In der folgenden Tabelle sind Sonderzeichen aufgeführt, mit denen Sie Befehls Vorgänge steuern können, wenn Sie ein-Makro definieren.  
 
-  |   Art   |                                                                                                                                                                               Beschreibung                                                                                                                                                                               |
+  |   Zeichen   |                                                                                                                                                                               Beschreibung                                                                                                                                                                               |
   |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   |   $G oder $g    |                                                                                   Leitet die Ausgabe um. Verwenden Sie eines dieser Sonderzeichen, um die Ausgabe an ein Gerät oder eine Datei statt an den Bildschirm zu senden. Dieses Zeichen entspricht dem Umleitungs Symbol für Output ( **>** ).                                                                                    |
   | $G $ g oder $g $ g  |                                                         Fügt die Ausgabe an das Ende einer Datei an. Verwenden Sie eines dieser doppelten Zeichen, um die Ausgabe an eine vorhandene Datei anzufügen, anstatt die Daten in der Datei zu ersetzen. Diese doppelten Zeichen entsprechen dem anfügebweiterleitungs-Symbol für die Ausgabe ( **>>** ).                                                         |
@@ -143,7 +139,7 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
   doskey <MacroName> =
   ```
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Die Befehlszeilenoptionen **/Macros** und **/History** sind nützlich zum Erstellen von Batch Programmen zum Speichern von Makros und Befehlen. Geben Sie z. b. Folgendes ein, um alle aktuellen **doskey** -Makros zu speichern:
 ```
@@ -196,6 +192,6 @@ Zum Löschen eines Makros namens Vlist geben Sie Folgendes ein:
 doskey vlist =
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

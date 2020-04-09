@@ -1,28 +1,22 @@
 ---
-title: shift
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+title: Schiebeoperatoren
+description: Windows-Befehls Thema für Shift, das die Position von Batch-Parametern in einer Batchdatei ändert.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b56574e8-570a-4cc9-bbac-1b94fbf6a47a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f74e0f1f9041a4a7b95d83772ea79376c82876de
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9c242fe90a8bf32eda5a3db511910e3d7aa4610f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371247"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80834263"
 ---
-# <a name="shift"></a>shift
-
-
+# <a name="shift"></a>Schiebeoperatoren
 
 Ändert die Position von Batch Parametern in einer Batchdatei.
 
@@ -34,7 +28,7 @@ Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_e
 shift [/n <N>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |Parameter|Beschreibung|
 |---------|-----------|
@@ -49,7 +43,7 @@ shift [/n <N>]
 - Der **Shift** -Befehl hat keine Auswirkung auf den **%\\** * Batch-Parameter.
 - Es ist kein rückwärts **Verschiebungs** Befehl vorhanden. Nachdem Sie den Befehl **Shift** implementiert haben, können Sie den Batch Parameter ( **%0**), der vor der Verschiebung vorhanden war, nicht wiederherstellen.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
 Die folgenden Zeilen aus einer Beispiel Batchdatei namens mycopy. bat veranschaulichen, wie Sie **Shift** mit einer beliebigen Anzahl von Batch-Parametern verwenden. In diesem Beispiel kopiert mycopy. bat eine Liste von Dateien in ein bestimmtes Verzeichnis. Die Batch Parameter werden durch das Verzeichnis und die Dateinamen Argumente dargestellt.
 ```
@@ -61,7 +55,7 @@ rem mycopy dir file1 file2 ...
 set todir=%1
 :getfile
 shift
-if "%1"=="" goto end
+if %1== goto end
 copy %1 %todir%
 goto getfile
 :end
@@ -69,6 +63,6 @@ set todir=
 echo All done
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

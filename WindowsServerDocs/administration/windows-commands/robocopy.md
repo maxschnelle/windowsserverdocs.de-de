@@ -1,24 +1,20 @@
 ---
 title: robocopy
 description: Erfahren Sie, wie Sie Dateien mit dem Robocopy-Befehl in Windows und Windows Server kopieren.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d4c6e8e9-fcb3-4a4a-9d04-2d8c367b6354
 author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 07/25/2018
-ms.openlocfilehash: f675f66eaafbfd79ac6b452a92417159d8ebb28c
-ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
+ms.openlocfilehash: 27a08aabbfd1c2f19f4c70120182f4092cc2a6c9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259036"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835673"
 ---
 # <a name="robocopy"></a>robocopy
 
@@ -30,7 +26,7 @@ Kopiert Datei Daten.
 robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |   Parameter    |                                                                                            Beschreibung                                                                                           |
 |----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -46,9 +42,9 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/s|Kopiert Unterverzeichnisse. Beachten Sie, dass bei dieser Option leere Verzeichnisse ausgeschlossen werden.|
 |/e|Kopiert Unterverzeichnisse. Beachten Sie, dass diese Option leere Verzeichnisse umfasst. Weitere Informationen finden Sie unter " [Hinweise](#remarks)".|
 |/Lev:\<N >|Kopiert nur die obersten *N* Ebenen der Quellverzeichnis Struktur.|
-|/z|Kopiert Dateien im neu startbaren Modus.|
+|"/z|Kopiert Dateien im neu startbaren Modus.|
 |/b|Kopiert Dateien im Sicherungsmodus.|
-|/zb|Verwendet den Modus für Neustarts. Wenn der Zugriff verweigert wird, wird der Sicherungsmodus verwendet.|
+|/zB|Verwendet den Modus für Neustarts. Wenn der Zugriff verweigert wird, wird für diese Option der Sicherungs Modus verwendet.|
 |/efsraw|Kopiert alle verschlüsselten Dateien im EFS-RAW-Modus.|
 |/Copy:\<copyflags >|Gibt die zu kopierenden Dateieigenschaften an. Im folgenden sind die gültigen Werte für diese Option aufgeführt:</br>**D-** Daten</br>**Attribute**</br>**T** -Zeitstempel</br>**S** NTFS-Zugriffs Steuerungs Liste (ACL)</br>**O** -Besitzer Informationen</br>**U** -Überwachungsinformationen</br>Der Standardwert für **copyflags** ist **DAT** (Daten, Attribute und Zeitstempel).|
 |/DCOPY:\<copyflags\>|Definiert, was für Verzeichnisse kopiert werden soll. Der Standardwert ist da. Optionen sind D = Data, A = Attribute und T = Timestamps.|
@@ -63,12 +59,12 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |"/Move|Verschiebt Dateien und Verzeichnisse und löscht sie aus der Quelle, nachdem Sie kopiert wurden.|
 |/a +: [RASHCNET]|Fügt die angegebenen Attribute den kopierten Dateien hinzu.|
 |/a--Befehl: [RASHCNET]|Entfernt die angegebenen Attribute aus den kopierten Dateien.|
-|/Create|Erstellt nur eine Verzeichnisstruktur und Dateien der Länge 0 (null).|
+|/create|Erstellt nur eine Verzeichnisstruktur und Dateien der Länge 0 (null).|
 |/fat|Erstellt Zieldateien mit nur-FAT-Dateinamen mit einer Länge von 8,3 Zeichen.|
 |/256|Deaktiviert die Unterstützung für sehr lange Pfade (mehr als 256 Zeichen).|
 |/Mon:\<N >|Überwacht die Quelle und wird erneut ausgeführt, wenn mehr als *N* Änderungen erkannt werden.|
 |/Mot:\<M >|Überwacht die Quelle und wird in *M* Minuten erneut ausgeführt, wenn Änderungen erkannt werden.|
-|/MT[:N]|Erstellt multithreadkopien mit *N* Threads. *N* muss eine ganze Zahl zwischen 1 und 128 sein. Der Standardwert für *N* ist 8.</br>Der **/MT** -Parameter kann nicht mit den Parametern **/IPG** und **/EFSRAW** verwendet werden.</br>Leiten Sie die Ausgabe mit der Option **/Log** für eine bessere Leistung um.</br>Hinweis: der/MT-Parameter gilt für Windows Server 2008 R2 und Windows 7.|
+|/MT [: N]|Erstellt multithreadkopien mit *N* Threads. *N* muss eine ganze Zahl zwischen 1 und 128 sein. Der Standardwert für *N* ist 8.</br>Der **/MT** -Parameter kann nicht mit den Parametern **/IPG** und **/EFSRAW** verwendet werden.</br>Leiten Sie die Ausgabe mit der Option **/Log** für eine bessere Leistung um.</br>Hinweis: der/MT-Parameter gilt für Windows Server 2008 R2 und Windows 7.|
 |/RH: hhmm-HHMM|Gibt die Laufzeiten an, in denen neue Kopien gestartet werden können.|
 |/PF|Überprüft die Laufzeiten für eine Datei pro Datei (nicht pro Durchlauf).|
 |/IPG: n|Gibt die zwischen Paket Lücke an, um die Bandbreite in langsamen Zeilen freizugeben.|
@@ -97,7 +93,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/xo|Schließt ältere Dateien aus.|
 |/xx|Schließt zusätzliche Dateien und Verzeichnisse aus.|
 |/xl|Schließt "einsame" Dateien und Verzeichnisse aus.|
-|/is|Schließt die gleichen Dateien ein.|
+|/is|Schließt dieselben Dateien ein.|
 |/it|Enthält "tweaked"-Dateien.|
 |/Max:\<N >|Gibt die maximale Dateigröße an (um Dateien auszuschließen, die größer als *N* Bytes sind).|
 |/Min:\<N >|Gibt die minimale Dateigröße an (um Dateien auszuschließen, die kleiner als *N* Bytes sind).|
@@ -106,7 +102,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/maxlad:\<N >|Gibt das maximale Datum des letzten Zugriffs an (schließt nicht verwendete Dateien seit *N*).|
 |/minlad:\<N >|Gibt das minimale letzte Zugriffs Datum an (schließt Dateien aus, die seit *n*verwendet werden), wenn *n* kleiner als 1900 ist, *n* gibt die Anzahl der Tage an. Andernfalls gibt *N* ein Datum im Format YYYYMMDD an.|
 |/xj|Schließt Verknüpfungs Punkte aus, die normalerweise standardmäßig enthalten sind.|
-|/fft|Setzt FAT-Dateizeitangaben voraus (Zwei-Sekunden-Genauigkeit).|
+|/fft|Nimmt die FAT-Datei Zeiten an (zwei Sekunden Genauigkeit).|
 |/DST|Kompensiert einstündige DST-Zeitunterschiede.|
 |/xjd|Schließt Verknüpfungs Punkte für Verzeichnisse aus.|
 |/xjf|Schließt Verknüpfungs Punkte für Dateien aus.|
@@ -115,12 +111,12 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 
 |Option|Beschreibung|
 |------|-----------|
-|/r:\<N >|Gibt die Anzahl von Wiederholungsversuchen für fehlerhafte Kopiervorgänge an. Der Standardwert von *N* ist 1 Million (1 Million Wiederholungen).|
-|/w:\<N >|Gibt die Wartezeit zwischen Wiederholungen in Sekunden an. Der Standardwert von *N* ist 30 (Wartezeit 30 Sekunden).|
+|/r:\<N >|Gibt die Anzahl der Wiederholungs Versuche für fehlgeschlagene Kopien an. Der Standardwert von *N* ist 1 Million (1 Million Wiederholungen).|
+|/w:\<N >|Gibt die Wartezeit zwischen Wiederholungs versuchen in Sekunden an. Der Standardwert von *N* ist 30 (Wartezeit 30 Sekunden).|
 |/reg|Speichert die in den Optionen **/r** und **/w** angegebenen Werte als Standardeinstellungen in der Registrierung.|
 |/tbd|Gibt an, dass das System auf die Definition von Freigabe Namen wartet (Wiederholungs Fehler 67).|
 
-### <a name="logging-options"></a>Protokollierungsoptionen
+### <a name="logging-options"></a>Protokollierungs Optionen
 
 |Option|Beschreibung|
 |------|-----------|
@@ -128,15 +124,15 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/x|Meldet alle zusätzlichen Dateien, nicht nur die, die ausgewählt sind.|
 |/v|Erzeugt eine ausführliche Ausgabe und zeigt alle übersprungenen Dateien an.|
 |/ts|Schließt die Zeitstempel der Quelldatei in die Ausgabe ein.|
-|/fp|Schließt die vollständigen Pfadnamen der Dateien in der Ausgabe ein.|
+|/FP|Schließt die vollständigen Pfadnamen der Dateien in der Ausgabe ein.|
 |/bytes|Druckt Größen als Bytes.|
 |/ns|Gibt an, dass Dateigrößen nicht protokolliert werden sollen.|
 |/nc|Gibt an, dass Datei Klassen nicht protokolliert werden sollen.|
 |/nfl|Gibt an, dass Dateinamen nicht protokolliert werden sollen.|
 |/ndl|Gibt an, dass Verzeichnisnamen nicht protokolliert werden sollen.|
-|/np|Gibt an, dass der Status des Kopiervorgangs (die Anzahl bisher kopierter Dateien oder Verzeichnisse) nicht angezeigt wird.|
+|/np|Gibt an, dass der Fortschritt des Kopiervorgangs (die bisher kopierte Anzahl von Dateien oder Verzeichnissen) nicht angezeigt wird.|
 |/eta|Zeigt die geschätzte Ankunftszeit (ETA) der kopierten Dateien an.|
-|/Log:\<Protokolldatei >|Schreibt die Statusausgabe in die Protokolldatei (vorhandene Protokolldatei wird überschrieben).|
+|/Log:\<Protokolldatei >|Schreibt die Status Ausgabe in die Protokolldatei (überschreibt die vorhandene Protokolldatei).|
 |/Log +:\<Protokolldatei >|Schreibt die Status Ausgabe in die Protokolldatei (fügt die Ausgabe an die vorhandene Protokolldatei an).|
 |/unicode|Zeigt die Status Ausgabe als Unicode-Text an.|
 |/Unilog:\<Protokolldatei >|Schreibt die Status Ausgabe als Unicode-Text in die Protokolldatei (überschreibt die vorhandene Protokolldatei).|
@@ -158,7 +154,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 
 ### <a name="exit-return-codes"></a>Exit-Codes (Return)
 
-Value | Beschreibung
+Wert | Beschreibung
 -- | --
 0 | Es wurden keine Dateien kopiert. Es wurde kein Fehler gefunden.  Keine Dateien stimmen nicht überein. Die Dateien sind bereits im Zielverzeichnis vorhanden. Daher wurde der Kopiervorgang übersprungen.
 1 | Alle Dateien wurden erfolgreich kopiert.
@@ -178,6 +174,6 @@ Value | Beschreibung
     -   Wenn das Zielverzeichnis mit den Optionen **/e** Plus **/Purge** vorhanden ist, werden die Sicherheitseinstellungen des Zielverzeichnisses nicht überschrieben.
     -   Wenn das Zielverzeichnis vorhanden ist und die Option **/mir** vorhanden ist, werden die Sicherheitseinstellungen des Zielverzeichnisses überschrieben.
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
