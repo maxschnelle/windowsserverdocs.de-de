@@ -1,23 +1,20 @@
 ---
 title: Ausführen des WSUS-Replikatmodus
-description: 'Thema zu Windows Server Update Service (WSUS): Konfigurieren des Replikat Modus '
+description: 'Thema zu Windows Server Update Service (WSUS): Konfigurieren des Replikat Modus'
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d218cd6b-3b6b-4429-913b-31d412ce3356
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b7da68fa9cbe71f8a67e74671d64d11908ae4654
-ms.sourcegitcommit: 9687d3eb221b89061a48bf1e73fb3b25bee69f9a
+ms.openlocfilehash: 0680cba35066d0fb752a714424729eed7f47211a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78169560"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828613"
 ---
 # <a name="running-wsus-replica-mode"></a>Ausführen des WSUS-Replikatmodus
 

@@ -1,24 +1,20 @@
 ---
 title: waitfor
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Thema für WAITFOR, das ein Signal an ein System sendet oder darauf wartet. **WAITFOR** wird zum Synchronisieren von Computern in einem Netzwerk verwendet.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a48ef70d-4d28-4035-b6b0-7d7b46ac2157
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aecea0ad19ee42e61396eb8b8ccd579b9ce2057b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4542fc9d231b8150ab89e07e173d9671d6b7a3f3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362599"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829933"
 ---
 # <a name="waitfor"></a>waitfor
 
@@ -35,7 +31,7 @@ waitfor [/s <Computer> [/u [<Domain>\]<User> [/p [<Password>]]]] /si <SignalName
 waitfor [/t <Timeout>] <SignalName>
 ```
 
-## <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 |       Parameter       |                                                                                         Beschreibung                                                                                          |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -57,9 +53,9 @@ waitfor [/t <Timeout>] <SignalName>
 -   Computer können nur Signale empfangen, wenn Sie sich in derselben Domäne befinden wie der Computer, der das Signal sendet.
 -   Sie können **WAITFOR** verwenden, wenn Sie softwarebuilds testen. Beispielsweise kann der kompilierenden Computer ein Signal an mehrere Computer senden, auf denen **WAITFOR** ausgeführt wird, nachdem die Kompilierung erfolgreich abgeschlossen wurde. Beim Empfang des Signals kann die Batchdatei, die **WAITFOR** enthält, die Computer anweisen, sofort mit der Installation von Software zu beginnen oder Tests für den kompilierten Build ausführen.
 
-## <a name="BKMK_examples"></a>Beispiele
+## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
 
-Um zu warten, bis das Signal "espresso\build007" empfangen wurde, geben Sie Folgendes ein:
+Um zu warten, bis das Signal espresso\build007 empfangen wurde, geben Sie Folgendes ein:
 ```
 waitfor espresso\build007
 ```
@@ -69,11 +65,11 @@ Wenn Sie 10 Sekunden warten möchten, bis das Signal "espresso\compile007" empfa
 ```
 waitfor /t 10 espresso\build007
 ```
-Um das Signal "espresso\build007" manuell zu aktivieren, geben Sie Folgendes ein:
+Um das espresso\build007-Signal manuell zu aktivieren, geben Sie Folgendes ein:
 ```
 waitfor /si espresso\build007
 ```
 
-#### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Weitere Verweise
 
-[Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,5 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Konfigurieren des DNS-Server'
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -8,12 +7,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 2c1f2f68509c9136735fb13e24c86a1da40660eb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 144a45f2a835d9cca60b5be5aac7569809c45b7c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369246"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824173"
 ---
 # <a name="ad-forest-recovery---configuring-the-dns-server-service"></a>AD-Gesamtstruktur Wiederherstellung: Konfigurieren des DNS-Server Dienstes
 
@@ -47,7 +46,7 @@ Führen Sie die folgenden Schritte zur Installation und Konfiguration aus.
 1. Öffnen Sie Server-Manager, klicken Sie auf **Extras und dann auf** **DNS**.
    ![DNS-Server](media/AD-Forest-Recovery-Configure-DNS/dns2.png)
 2. Erstellen Sie DNS-Zonen für die gleichen DNS-Domänen Namen, die vor dem kritischen Funktionsfehler auf den DNS-Servern gehostet wurden. Weitere Informationen finden Sie unter Hinzufügen einer Forward-Lookupzone ([https://go.microsoft.com/fwlink/?LinkId=74574](https://go.microsoft.com/fwlink/?LinkId=74574)).
-3. Konfigurieren Sie die DNS-Daten so, wie Sie vor den kritischen Fehlern vorhanden waren. Zum Beispiel:  
+3. Konfigurieren Sie die DNS-Daten so, wie Sie vor den kritischen Fehlern vorhanden waren. Beispiel:  
 
    - Konfigurieren Sie DNS-Zonen, die in AD DS gespeichert werden sollen. Weitere Informationen finden Sie unter Ändern des Zonen Typs ([https://go.microsoft.com/fwlink/?LinkId=74579](https://go.microsoft.com/fwlink/?LinkId=74579)).
    - Konfigurieren Sie die DNS-Zone, die für Domänen Controller-Serverlocatorpunkt-Ressourcen Einträge (DC Serverlocatorpunkt) autorisierend ist, um sicheres dynamisches Update zuzulassen. Weitere Informationen finden Sie unter nur sichere dynamische Updates zulassen ([https://go.microsoft.com/fwlink/?LinkId=74580](https://go.microsoft.com/fwlink/?LinkId=74580)).
@@ -58,7 +57,7 @@ Führen Sie die folgenden Schritte zur Installation und Konfiguration aus.
    > [!NOTE]
    > Sichere dynamische Updates funktionieren nur, wenn ein globaler Katalogserver verfügbar ist. 
 
-   Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie die EINGABETASTE:  
+   Geben Sie an der Eingabeaufforderung den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE:  
 
    **NET stoppt Netlogon**  
 

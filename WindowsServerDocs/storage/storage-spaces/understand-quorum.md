@@ -1,21 +1,20 @@
 ---
 title: Grundlegendes zum Cluster- und Poolquorum
 description: Grundlegendes zum Cluster-und Pool Quorum mit speziellen Beispielen, um die Feinheiten zu überschreiten.
-keywords: Direkte Speicherplätze, Quorum, Zeuge, S2D, Cluster Quorum, Pool Quorum, Cluster, Pool
 ms.prod: windows-server
 ms.author: adagashe
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: adagashe
 ms.date: 01/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 8950e9d09e3bd07dc02228c295ab223ead969ea6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f13affc3ef15c3a39f4fd3839506897f7807d93a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366011"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820993"
 ---
 # <a name="understanding-cluster-and-pool-quorum"></a>Grundlegendes zum Cluster- und Poolquorum
 
@@ -62,7 +61,7 @@ Das Konzept der *Mehrheit* funktioniert jedoch nur ordnungsgemäß, wenn die Ges
 Es gibt zwei Möglichkeiten, wie der Cluster die *Gesamtzahl der Stimmen* ungerade machen kann:
 
 1. Zuerst können *Sie einen* *Zeugen* mit einer zusätzlichen Stimme hinzufügen. Hierfür ist ein Benutzer Setup erforderlich.
-2.  Oder Sie können einen Schritt *nach unten* durchlaufen, indem Sie die Stimme eines nicht glücklichen Knotens NULLS (erfolgt bei Bedarf automatisch).
+2.    Oder Sie können einen Schritt *nach unten* durchlaufen, indem Sie die Stimme eines nicht glücklichen Knotens NULLS (erfolgt bei Bedarf automatisch).
 
 Wenn die Überprüfung erfolgreich ist, ob die Knoten die *Mehrheit*sind, wird die Definition der *Mehrheit* so aktualisiert, dass Sie nur zu den übergeordneten Knoten gehört. Dadurch kann der Cluster einen Knoten verlieren, dann einen anderen Knoten usw. Dieses Konzept der *Gesamtzahl der Stimmen* , die sich nach aufeinander folgenden Fehlern anpasst, wird als ***dynamisches Quorum***bezeichnet.  
 
@@ -98,63 +97,63 @@ Die Stimme eines Knotens wird auf NULL gesetzt, sodass die *Mehrheit* der Stimme
 
 ![Quorum, das im Fall von zwei Knoten ohne Zeugen erläutert wird](media/understand-quorum/2-node-no-witness.png)
 
-- Kann einen Server Fehler überstehen: **50-prozentige Wahrscheinlichkeit**.
-- Kann einen Server Fehler überstehen, und einen anderen: **Nein**:
-- Kann zwei Server Fehler gleichzeitig überstehen: **Nein**: 
+- Kann einen Server Fehler überstehen: **50-prozentige Chance**.
+- Kann einen Server Fehler überstehen, dann ein weiterer: **Nein**.
+- Kann zwei Server Fehler gleichzeitig überstehen: **Nein**. 
 
 #### <a name="two-nodes-with-a-witness"></a>Zwei Knoten mit einem Zeugen. 
 Beide Knoten Stimmen zusammen mit den Zeugen Stimmen, sodass die *Mehrzahl* aus insgesamt **3 Stimmen**ergibt. Wenn ein Knoten ausfällt, verfügt der Survivor über 2/3, und der Cluster wird noch nicht angezeigt.
 
 ![Quorum, das im Fall von zwei Knoten mit einem Zeugen erläutert wird](media/understand-quorum/2-node-witness.png)
 
-- Kann einen Server Fehler überstehen: **Ja**:
-- Kann einen Server Fehler überstehen, und einen anderen: **Nein**:
-- Kann zwei Server Fehler gleichzeitig überstehen: **Nein**: 
+- Kann einen Server Fehler überstehen: **Ja**.
+- Kann einen Server Fehler überstehen, dann ein weiterer: **Nein**.
+- Kann zwei Server Fehler gleichzeitig überstehen: **Nein**. 
 
 #### <a name="three-nodes-without-a-witness"></a>Drei Knoten ohne Zeugen.
 Alle Knoten Stimmen ab, sodass die *Mehrheit* von insgesamt **3 Stimmen**bestimmt wird. Wenn ein Knoten ausfällt, sind die Überlebenden 2/3, und der Cluster wird nicht mehr vorhanden sein. Der Cluster wird zu zwei Knoten ohne Zeugen – zu diesem Zeitpunkt befinden Sie sich in Szenario 1.
 
 ![Das Quorum wird im Fall von drei Knoten ohne Zeugen erläutert.](media/understand-quorum/3-node-no-witness.png)
 
-- Kann einen Server Fehler überstehen: **Ja**:
-- Kann einen Server Fehler überstehen, und einen anderen: **50-prozentige Wahrscheinlichkeit**.
-- Kann zwei Server Fehler gleichzeitig überstehen: **Nein**: 
+- Kann einen Server Fehler überstehen: **Ja**.
+- Kann einen Server Fehler überstehen, dann ein weiterer Wert: **50 Prozent**.
+- Kann zwei Server Fehler gleichzeitig überstehen: **Nein**. 
 
 #### <a name="three-nodes-with-a-witness"></a>Drei Knoten mit einem Zeugen.
 Alle Knoten Stimmen ab, sodass der Zeuge nicht anfänglich stimmt. Die *Mehrheit* wird aus insgesamt **3 Stimmen**ermittelt. Nach einem Fehler verfügt der Cluster über zwei Knoten mit einem Zeugen – der wieder zu Szenario 2 gehört. Nun stimmen die beiden Knoten und der Zeuge ab.
 
 ![Quorum, das im Fall von drei Knoten mit einem Zeugen erläutert wird](media/understand-quorum/3-node-witness.png)
 
-- Kann einen Server Fehler überstehen: **Ja**:
-- Kann einen Server Fehler überstehen, und einen anderen: **Ja**:
-- Kann zwei Server Fehler gleichzeitig überstehen: **Nein**: 
+- Kann einen Server Fehler überstehen: **Ja**.
+- Kann einen Server Fehler überstehen, dann einen weiteren: **Ja**.
+- Kann zwei Server Fehler gleichzeitig überstehen: **Nein**. 
 
 #### <a name="four-nodes-without-a-witness"></a>Vier Knoten ohne Zeugen
 Die Stimme eines Knotens wird als nulloverwert festgelegt, sodass die *Mehrheit* aus insgesamt **3 Stimmen**ergibt. Nach einem Fehler wird der Cluster zu drei Knoten, und Sie sind in Szenario 3.
 
 ![Das Quorum wird im Fall von vier Knoten ohne Zeugen erläutert.](media/understand-quorum/4-node-no-witness.png)
 
-- Kann einen Server Fehler überstehen: **Ja**:
-- Kann einen Server Fehler überstehen, und einen anderen: **Ja**:
-- Kann zwei Server Fehler gleichzeitig überstehen: **50-prozentige Wahrscheinlichkeit**. 
+- Kann einen Server Fehler überstehen: **Ja**.
+- Kann einen Server Fehler überstehen, dann einen weiteren: **Ja**.
+- Kann zwei Serverausfälle gleichzeitig überstehen: **50 Prozent der Chance**. 
 
 #### <a name="four-nodes-with-a-witness"></a>Vier Knoten mit einem Zeugen.
 Alle Knoten Stimmen und der Zeuge Stimmen ab, sodass die *Mehrheit* von insgesamt **5 Stimmen**bestimmt wird. Nach einem Fehler sind Sie in Szenario 4. Nach zwei gleichzeitigen Fehlern überspringen Sie das Szenario 2.
 
 ![Quorum, das im Fall von vier Knoten mit einem Zeugen erläutert wird](media/understand-quorum/4-node-witness.png)
 
-- Kann einen Server Fehler überstehen: **Ja**:
-- Kann einen Server Fehler überstehen, und einen anderen: **Ja**:
-- Kann zwei Server Fehler gleichzeitig überstehen: **Ja**: 
+- Kann einen Server Fehler überstehen: **Ja**.
+- Kann einen Server Fehler überstehen, dann einen weiteren: **Ja**.
+- Kann zwei Server Fehler gleichzeitig überstehen: **Ja**. 
 
 #### <a name="five-nodes-and-beyond"></a>Fünf Knoten und darüber hinaus.
 Alle Knoten Stimmen oder nur eine Stimme ab, je nachdem, was das Gesamtergebnis ist. Direkte Speicherplätze können nicht mehr als zwei Knoten gleich sehen. an diesem Punkt ist daher kein Zeuge erforderlich oder nützlich.
 
 ![Das Quorum wird im Fall von fünf Knoten und darüber hinaus erläutert.](media/understand-quorum/5-nodes.png)
 
-- Kann einen Server Fehler überstehen: **Ja**:
-- Kann einen Server Fehler überstehen, und einen anderen: **Ja**:
-- Kann zwei Server Fehler gleichzeitig überstehen: **Ja**: 
+- Kann einen Server Fehler überstehen: **Ja**.
+- Kann einen Server Fehler überstehen, dann einen weiteren: **Ja**.
+- Kann zwei Server Fehler gleichzeitig überstehen: **Ja**. 
 
 Nachdem wir nun wissen, wie das Quorum funktioniert, betrachten wir die Typen von Quorum Zeugen.
 
@@ -199,25 +198,25 @@ Jedes der 16 Laufwerke verfügt über eine Stimme, und Knoten zwei hat ebenfalls
 
 ![Pool Quorum 1](media/understand-quorum/pool-1.png)
 
-- Kann einen Server Fehler überstehen: **Ja**:
-- Kann einen Server Fehler überstehen, und einen anderen: **Ja**:
-- Kann zwei Server Fehler gleichzeitig überstehen: **Ja**: 
+- Kann einen Server Fehler überstehen: **Ja**.
+- Kann einen Server Fehler überstehen, dann einen weiteren: **Ja**.
+- Kann zwei Server Fehler gleichzeitig überstehen: **Ja**. 
 
 #### <a name="four-nodes-with-a-symmetrical-layout-and-drive-failure"></a>Vier Knoten mit einem symmetrischen Layout und Laufwerk Fehler. 
 Alle 16 Laufwerke haben eine Stimme, und Knoten 2 verfügt auch über eine Stimme (da es sich um den Besitzer der Pool Ressource handelt). Die *Mehrheit* wird von insgesamt **16 Stimmen**bestimmt. Zuerst wird Laufwerk 7 heruntergefahren. Wenn die Knoten drei und vier ausfallen, verfügt die verbleibende Teilmenge über 7 Laufwerke und den Pool Ressourcen Besitzer (8/16 Stimmen). Der Pool hat also keine Mehrheit und ist nicht mehr vorhanden.
 
 ![Pool Quorum 2](media/understand-quorum/pool-2.png)
 
-- Kann einen Server Fehler überstehen: **Ja**:
-- Kann einen Server Fehler überstehen, und einen anderen: **Nein**:
-- Kann zwei Server Fehler gleichzeitig überstehen: **Nein**: 
+- Kann einen Server Fehler überstehen: **Ja**.
+- Kann einen Server Fehler überstehen, dann ein weiterer: **Nein**.
+- Kann zwei Server Fehler gleichzeitig überstehen: **Nein**. 
 
 #### <a name="four-nodes-with-a-non-symmetrical-layout"></a>Vier Knoten mit einem nicht symmetrischen Layout. 
 Jedes der 24 Laufwerke verfügt über eine Stimme, und Knoten zwei hat ebenfalls eine Stimme (da es sich um den Pool Ressourcen Besitzer handelt). Die *Mehrheit* wird von insgesamt **24 Stimmen**bestimmt. Wenn die Knoten drei und vier ausfallen, verfügt die verbleibende Teilmenge über 8 Laufwerke und den Pool Ressourcen Besitzer (9/24 Stimmen). Der Pool hat also keine Mehrheit und ist nicht mehr vorhanden.
 
 ![Pool Quorum 3](media/understand-quorum/pool-3.png)
 
-- Kann einen Server Fehler überstehen: **Ja**:
+- Kann einen Server Fehler überstehen: **Ja**.
 - Kann einen Server Fehler überstehen, ein anderes: * * hängt von * * ab (kann nicht überleben, wenn beide Knoten drei und vier ausfallen, aber alle anderen Szenarien überstehen können.
 - Kann zwei Server Fehler gleichzeitig überstehen: * * hängt von * * ab (kann nicht überleben, wenn beide Knoten drei und vier ausfallen, aber alle anderen Szenarien überstehen können.
 

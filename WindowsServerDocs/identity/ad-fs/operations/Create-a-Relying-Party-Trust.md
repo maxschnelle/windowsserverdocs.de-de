@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5b9fc9c1-5d12-4ad4-8ddc-3b8a6d45b217
 title: Erstellen einer Vertrauensstellung der vertrauenden Seite
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a0d32edd7ebc23fa724439710c6511642d9c49a3
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: c9134360498184ab578b02809634279a84753e43
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323052"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816843"
 ---
 # <a name="create-a-relying-party-trust"></a>Erstellen einer Vertrauensstellung der vertrauenden Seite
 
@@ -64,7 +63,7 @@ Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der Gruppe
 
 ## <a name="to-create-a-claims-aware-relying-party-trust-using-federation-metadata"></a>So erstellen Sie eine Ansprüche unterstützende Vertrauensstellung der vertrauenden Seite mit Verbund Metadaten
 
-Zum Hinzufügen einer neuen Vertrauensstellung der vertrauenden Seite verwenden Sie das Snap-in "AD FS-Verwaltung", indem Sie Konfigurationsdaten über den Partner automatisch aus Verbund Metadaten importieren, die der Partner in einem lokalen Netzwerk oder im Internet veröffentlicht hat. führen Sie dazu das folgende Verfahren auf einem Verbund Server in der Konto Partnerorganisation.
+Zum Hinzufügen einer neuen Vertrauensstellung der vertrauenden Seite verwenden Sie das AD FS-Verwaltungs-Snap-in, indem Sie Konfigurationsdaten zum Partner aus Verbund Metadaten, die der Partner in einem lokalen Netzwerk oder im Internet veröffentlicht hat, automatisch importieren. führen Sie dazu das folgende Verfahren auf einem Verbund Server in der Konto Partnerorganisation aus.
 
 >[!NOTE]
 >Obwohl es seit langem üblich ist, Zertifikate mit nicht qualifizierten Hostnamen wie z. b. https://myserverzu verwenden, haben diese Zertifikate keinen Sicherheitswert und können einem Angreifer ermöglichen, die Identität eines Verbunddienst anzunehmen, der Verbund Metadaten veröffentlicht. Daher sollten Sie beim Abfragen von Verbund Metadaten nur einen voll qualifizierten Domänen Namen verwenden, z. b. https://myserver.contoso.com.

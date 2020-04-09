@@ -3,16 +3,15 @@ title: Erweiterte Problembehandlung für Server Message Block (SMB)
 description: In werden die erweiterten SMB-Methoden (Server Message Block) eingeführt.
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 433221f9846e9e071557b5537974b5739131742b
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 654cb1b0eea65457d521d201739721ed8c3c0203
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949696"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815193"
 ---
 # <a name="advanced-troubleshooting-server-message-block-smb"></a>Erweiterte Problembehandlung für Server Message Block (SMB)
 
@@ -137,7 +136,7 @@ Vergleichen Sie die Befehle und Vorgänge mit der Protokollspezifikation, um sic
 
 3. Wenn alle anderen Optionen fehlschlagen, erfassen Sie eine t. cmd-Datei, wenn Sie vermuten, dass das Problem in SMB selbst auftritt oder wenn keine der anderen Daten ausreichend ist, um eine Grundursache zu ermitteln.
 
-Zum Beispiel:
+Beispiel:
 
 - Sie können langsame Dateiübertragungen zu einem einzelnen Dateiserver durcharbeiten.
 
@@ -158,7 +157,7 @@ Sowohl der SMB-Client als auch der SMB-Server verfügen über eine detaillierte 
 
 ## <a name="smb-related-system-files"></a>SMB-bezogene Systemdateien
 
-In diesem Abschnitt werden die SMB-bezogenen Systemdateien aufgelistet. Stellen Sie sicher, dass das aktuellste [Updaterollup ](https://support.microsoft.com/help/4498140/windows-10-update-history) installiert ist, um die Systemdateien zu aktualisieren.
+In diesem Abschnitt werden die SMB-bezogenen Systemdateien aufgelistet. Stellen Sie sicher, dass das aktuellste Updaterollup [update rollup](https://support.microsoft.com/help/4498140/windows-10-update-history) installiert ist, um die Systemdateien zu aktualisieren.
 
 SMB-Client Binärdateien, die unter **% windir%\\System32\\-Treibern**aufgeführt sind:
 
@@ -200,6 +199,6 @@ Es wird empfohlen, dass Sie die folgenden Komponenten aktualisieren, bevor Sie S
 
 - Aktualisieren Sie Windows Core, um eine bessere Leistung und Stabilität zu erzielen.
 
-## <a name="reference"></a>Referenz
+## <a name="reference"></a>Verweis
 
 [Microsoft SMB Protocol-Paket Austausch Szenario](https://docs.microsoft.com/windows/win32/fileio/microsoft-smb-protocol-packet-exchange-scenario)

@@ -1,7 +1,6 @@
 ---
 ms.assetid: b146f47e-3081-4c8e-bf68-d0f993564db2
 title: Bereitstellung und Konfiguration virtualisierter Domänencontroller
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: be2c919e4379cf615fe25d68446855229ace87dd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 97d726f8bfbbe664dfdfd6b7000988f009174631
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390698"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824693"
 ---
 # <a name="virtualized-domain-controller-deployment-and-configuration"></a>Bereitstellung und Konfiguration virtualisierter Domänencontroller
 
@@ -34,7 +33,7 @@ In diesem Thema werden folgende Inhalte behandelt:
   
     Hier werden die Überprüfungen bei der sicheren Wiederherstellung des virtualisierten Domänencontrollers ausführlich erläutert.  
   
-## <a name="BKMK_InstallConsiderations"></a>Überlegungen zur Installation  
+## <a name="installation-considerations"></a><a name="BKMK_InstallConsiderations"></a>Überlegungen zur Installation  
 Es gibt keine spezielle Rollen- oder Featureinstallation für virtualisierte Domänencontroller, sondern alle Domänencontroller enthalten automatisch Funktionen für das Klonen und die sichere Wiederherstellung. Sie können diese Funktionen nicht entfernen oder deaktivieren.  
   
 Für die Verwendung von Windows Server 2012-Domänencontrollern sind die Windows Server 2012 AD DS-Schemaversion 56 oder höher und eine Windows Server 2003 Native oder höher entsprechende Gesamtstrukturfunktionsebene erforderlich.  
@@ -44,7 +43,7 @@ Sowohl beschreibbare als auch schreibgeschützte Domänencontroller unterstütze
 > [!IMPORTANT]  
 > Der Halter der FSMO-Rolle für den Emulator des primären Domänencontrollers (PDC) muss online sein, wenn das Klonen beginnt.  
   
-### <a name="BKMK_PlatformReqs"></a>Platt Form Anforderungen  
+### <a name="platform-requirements"></a><a name="BKMK_PlatformReqs"></a>Platt Form Anforderungen  
 Für das Klonen von virtualisierten Domänencontrollern ist Folgendes erforderlich:  
   
 -   FSMO-Rolle für den PDC-Emulator, gehostet auf einem Windows Server 2012-Domänencontroller  
@@ -93,7 +92,7 @@ Keiner dieser Vorgänge ist unter der Semantik der VM-Generations-ID abgedeckt, 
   
 Weitere Informationen zu USN-Blasen und veralteten Objekten finden Sie unter [Problembehandlung für Active Directory-Vorgänge, bei denen der Fehler 8606 „Es wurden nicht genügend Attribute übergeben, um ein Objekt zu erstellen“ auftritt](https://support.microsoft.com/kb/2028495).  
   
-## <a name="BKMK_VDCCloning"></a>Klonen von virtualisierten Domänen Controllern  
+## <a name="virtualized-domain-controller-cloning"></a><a name="BKMK_VDCCloning"></a>Klonen von virtualisierten Domänen Controllern  
 Es gibt eine Reihe von Phasen und Schritten für das Klonen eines virtualisierten Domänencontrollers, unabhängig von der Verwendung grafischer Tools oder der Windows PowerShell. Allgemein gesagt, gibt es die drei folgenden Phasen:  
   
 **Vorbereiten der Umgebung**  
@@ -268,7 +267,7 @@ Sie führen das Cmdlet auf dem vorgeschlagenen Quelldomänencontroller aus, den 
   
 ||||  
 |-|-|-|  
-|**ActiveDirectory**<br /><br />**Cmdlet**|**Argumente**|**Ausführlich**|  
+|**ActiveDirectory**<p>**Cmdlet**|**Argumentation**|**Ausführlich**|  
 |**New-addccloneconfigfile**|*<no argument specified>*|Erstellt eine leere „DcCloneConfig.xml“-Datei im DSA-Arbeitsverzeichnis (Standard: %systemroot%\ntds)|  
 ||-CloneComputerName|Gibt den Computernamen des geklonten Domänencontrollers an. Zeichenfolgendatentyp.|  
 ||-Path|Gibt den Ordner für die Erstellung der DcCloneConfig.xml-Datei an. Falls nicht angegeben, wird die Datei in das DSA-Arbeitsverzeichnis (Standard: %systemroot%\ntds) geschrieben. Zeichenfolgendatentyp.|  
@@ -451,7 +450,7 @@ So exportieren Sie beispielsweise die gesamte Kette der Festplattenmomentaufnahm
   
 ![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSConvertVhd.png)  
   
-#### <a name="BKMK_Offline"></a>Hinzufügen von XML zum Offline System Datenträger  
+#### <a name="adding-xml-to-the-offline-system-disk"></a><a name="BKMK_Offline"></a>Hinzufügen von XML zum Offline System Datenträger  
 Wenn Sie die Datei Dccloneconfig.xml auf den ausgeführten Quelldomänencontroller kopiert haben, müssen Sie jetzt die aktualisierte dccloneconfig.xml-Datei an den kopierten/exportierten Offlinesystemdatenträger kopieren. Je nachdem, welche installierten Anwendungen zuvor mit Get-ADDCCloningExcludedApplicationList erkannt wurden, müssen Sie möglicherweise auch die Datei CustomDCCloneAllowList.xml auf den Datenträger kopieren.  
   
 Die Datei DcCloneConfig.xml kann sich an den folgenden Speicherorten befinden:  
@@ -546,7 +545,7 @@ copy-item <xml file path><destination path>\dccloneconfig.xml
 dismount-vhd <disk path>  
 ```  
   
-Zum Beispiel:  
+Beispiel:  
   
 ![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSMountVHD.png)  
   
@@ -640,7 +639,7 @@ Get-VMSnapshot
 Remove-VMSnapshot  
 ```  
   
-Zum Beispiel:  
+Beispiel:  
   
 ![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSGetVMSnap.png)  
   
@@ -664,13 +663,13 @@ Wenn Sie Windows PowerShell zum Starten eines virtuellen Computers verwenden, wi
 Start-VM  
 ```  
   
-Zum Beispiel:  
+Beispiel:  
   
 ![Virtualisierte DC-Bereitstellung](media/Virtualized-Domain-Controller-Deployment-and-Configuration/ADDS_VDC_PSStartVM.png)  
   
 Wenn der Computer nach dem Klonen neu gestartet wird, ist er ein Domänencontroller, und Sie können sich normal anmelden, um den ordnungsgemäßen Betrieb zu bestätigen. Falls Fehler auftreten, ist der Server dafür eingerichtet, im Verzeichnisdienst-Wiederherstellungsmodus zu starten, um die Fehler zu untersuchen.  
   
-## <a name="BKMK_VDCSafeRestore"></a>Virtualisierungsschutzvorrichtungen  
+## <a name="virtualization-safeguards"></a><a name="BKMK_VDCSafeRestore"></a>Virtualisierungsschutzvorrichtungen  
 Im Gegensatz zum Klonen virtualisierter Domänencontroller haben die Windows Server 2012-Virtualisierungssicherheitsmaßnahmen keine Konfigurationsschritte. Das Feature funktioniert ohne Eingriffe, solange Sie einige einfache Bedingungen einhalten:  
   
 -   Der Hypervisor unterstützt die VM-Generations-ID.  

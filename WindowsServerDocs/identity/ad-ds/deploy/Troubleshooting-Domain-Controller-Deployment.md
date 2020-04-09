@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5ab76733-804d-4f30-bee6-cb672ad5075a
 title: Problembehandlung der Domänencontrollerbereitstellung
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 88fc0e14569c395bd1479ead338d83bffc2fd72f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 41e2740c5e11b6a54a544d5c895d6bee27232680
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369623"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824923"
 ---
 # <a name="troubleshooting-domain-controller-deployment"></a>Problembehandlung der Domänencontrollerbereitstellung
 
@@ -30,13 +29,13 @@ Dieser Artikel behandelt detaillierte Methoden für die Problembehandlung bei Ko
 
 Die integrierten Protokolle sind das wichtigste Hilfsmittel für die Fehlerbehebung bei Herauf- und Herabstufung von Domänencontrollern. All diese Protokolle sind standardmäßig aktiviert und für maximale Ausführlichkeit konfiguriert.  
 
-|Phase|Log|  
+|Phase|Protokoll|  
 |---------|-------|  
-|Server-Manager- bzw. ADDSDeployment-Windows PowerShell-Operationen|-%systemroot%\debug\dcpromoui.log<br /><br />-%systemroot%\debug\dcpromoui *. log|  
-|Installation/Heraufstufung des Domänencontrollers|-%systemroot%\debug\dcpromo.log<br /><br />-%systemroot%\debug\dcpromo *. log<br /><br />-Ereignisviewer\windows-Protokolle\System<br /><br />-Ereignisviewer\windows-Protokolle\Anwendung<br /><br />-Ereignisviewer\anwendungs-und dienstprotokolle\verzeichnisdienst<br /><br />-Ereignisviewer\anwendungs-und dienstprotokolle\datei Replikations Dienst<br /><br />-Ereignisviewer\anwendungs-und dienstprotokolle\dfs-Replikation|  
-|Upgrade von Gesamtstruktur oder Domäne|-%systemroot%\debug\adprep\\<datetime>\adprep.log<br /><br />-%systemroot%\debug\adprep\\<datetime>\csv.log<br /><br />-%systemroot%\debug\adprep\\<datetime>\dspecup.log<br /><br />-%systemroot%\debug\adprep\\<datetime>\ldif.log *|  
+|Server-Manager- bzw. ADDSDeployment-Windows PowerShell-Operationen|-%systemroot%\debug\dcpromoui.log<p>-%systemroot%\debug\dcpromoui *. log|  
+|Installation/Heraufstufung des Domänencontrollers|-%systemroot%\debug\dcpromo.log<p>-%systemroot%\debug\dcpromo *. log<p>-Ereignisviewer\windows-Protokolle\System<p>-Ereignisviewer\windows-Protokolle\Anwendung<p>-Ereignisviewer\anwendungs-und dienstprotokolle\verzeichnisdienst<p>-Ereignisviewer\anwendungs-und dienstprotokolle\datei Replikations Dienst<p>-Ereignisviewer\anwendungs-und dienstprotokolle\dfs-Replikation|  
+|Upgrade von Gesamtstruktur oder Domäne|-%systemroot%\debug\adprep\\<datetime>\adprep.log<p>-%systemroot%\debug\adprep\\<datetime>\csv.log<p>-%systemroot%\debug\adprep\\<datetime>\dspecup.log<p>-%systemroot%\debug\adprep\\<datetime>\ldif.log *|  
 |Server-Manager ADDSDeployment Windows PowerShell Bereitstellungsmodul|-Ereignisviewer\anwendungs-und dienstprotokolle\microsoft\windows\directoriyservices-deployment\operational|  
-|Windows-Wartung|-%systemroot%\Logs\CBS\\*<br /><br />-%systemroot%\servicing\sessions\sessions.XML<br /><br />-%systemroot%\winsxs\poqexec.log<br /><br />-%systemroot%\winsxs\pding.XML|  
+|Windows-Wartung|-%systemroot%\Logs\CBS\\*<p>-%systemroot%\servicing\sessions\sessions.XML<p>-%systemroot%\winsxs\poqexec.log<p>-%systemroot%\winsxs\pding.XML|  
 
 ### <a name="tools-and-commands-for-troubleshooting-domain-controller-configuration"></a>Tools und Befehle für die Problembehandlung bei der Domänencontroller-Konfiguration
 
@@ -96,14 +95,14 @@ Bei der Herauf- und Herabstufung von Domänencontrollern wird am Ende der Operat
 
 1. Wenn Sie Server-Manager verwenden, wird das Heraufstufungsergebnis in den zehn Sekunden vor dem automatischen Neustart angezeigt.  
 
-2. Wenn Sie ADDSDeployment Windows PowerShell verwenden, wird das Heraufstufungsergebnis in den zehn Sekunden vor dem automatischen Neustart angezeigt. Alternativ können Sie sich entscheiden, nach Abschluss keinen automatischen Neustart durchzuführen. Sie sollten die **Format-List**-Pipeline hinzufügen, um die Ausgabe leichter lesbar zu machen. Zum Beispiel:  
+2. Wenn Sie ADDSDeployment Windows PowerShell verwenden, wird das Heraufstufungsergebnis in den zehn Sekunden vor dem automatischen Neustart angezeigt. Alternativ können Sie sich entscheiden, nach Abschluss keinen automatischen Neustart durchzuführen. Sie sollten die **Format-List**-Pipeline hinzufügen, um die Ausgabe leichter lesbar zu machen. Beispiel:  
 
    ```  
    Install-addsdomaincontroller <options> -norebootoncompletion:$true | format-list  
 
    ```  
 
-   Im Fehlerfall bei der Voraussetzungsprüfung wird kein Neustart durchgeführt, daher sind diese Fehler in jedem Fall sichtbar. Zum Beispiel:  
+   Im Fehlerfall bei der Voraussetzungsprüfung wird kein Neustart durchgeführt, daher sind diese Fehler in jedem Fall sichtbar. Beispiel:  
 
    ![Problembehandlung](media/Troubleshooting-Domain-Controller-Deployment/ADDS_PSPrereqError.png)  
 
@@ -114,19 +113,19 @@ Bei der Herauf- und Herabstufung von Domänencontrollern wird am Ende der Operat
 
 ### <a name="promotion-and-demotion-success-codes"></a>Erfolgs Codes für herauf Stufung und Herabstufung
 
-|Fehlercode|Erläuterung|Hinweis:|  
+|Fehlercode|Erklärung|Hinweis|  
 |--------------|---------------|--------|  
 |1|Ende, Erfolg|Der Neustart muss dennoch ausgeführt werden. Dieser Code weist lediglich darauf hin, dass die Kennzeichnung für den automatischen Neustart entfernt wurde|  
 |2|Ende, Erfolg, Neustart erforderlich||  
-|3|Ende, Erfolg mit nicht-kritischem Fehler|Wird normalerweise bei einer DNS-Delegierungswarnung zurückgegeben. Verwenden Sie ohne DNS-Delegierung den folgenden Parameter:<br /><br />-creatednsdelegation:$false|  
-|4|Ende, Erfolg mit nicht-kritischem Fehler, Neustart erforderlich|Wird normalerweise bei einer DNS-Delegierungswarnung zurückgegeben. Verwenden Sie ohne DNS-Delegierung den folgenden Parameter:<br /><br />-creatednsdelegation:$false|  
+|3|Ende, Erfolg mit nicht-kritischem Fehler|Wird normalerweise bei einer DNS-Delegierungswarnung zurückgegeben. Verwenden Sie ohne DNS-Delegierung den folgenden Parameter:<p>-creatednsdelegation:$false|  
+|4|Ende, Erfolg mit nicht-kritischem Fehler, Neustart erforderlich|Wird normalerweise bei einer DNS-Delegierungswarnung zurückgegeben. Verwenden Sie ohne DNS-Delegierung den folgenden Parameter:<p>-creatednsdelegation:$false|  
 
 ### <a name="promotion-and-demotion-failure-codes"></a>Fehlercodes für herauf Stufung und Herabstufung
 
 Bei Herauf- und Herabstufung werden die folgenden Ergebnis-Fehlercodes zurückgegeben. Zusätzlich existiert vermutlich eine erweiterte Fehlermeldung. Lesen Sie stets die gesamte Fehlermeldung sorgfältig, nicht nur den numerischen Teil.  
 
 
-| Fehlercode |                                                           Erläuterung                                                            |                                                                                                                            Lösungsvorschlag                                                                                                                            |
+| Fehlercode |                                                           Erklärung                                                            |                                                                                                                            Lösungsvorschlag                                                                                                                            |
 |------------|----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     11     |                                          Domänencontroller-Heraufstufung wird bereits ausgeführt                                          |                                                                                 Führen Sie niemals mehr als eine Domänencontroller-Heraufstufung gleichzeitig für denselben Zielcomputer aus                                                                                  |
 |     12     |                                                    Benutzer muss Administrator sein                                                    |                                                                                        Melden Sie sich mit einem integrierten Administratorkonto an und heben Sie die Rechte mit UAC an                                                                                        |
@@ -223,7 +222,7 @@ Es folgt eine Liste gängiger Probleme beim Windows Server 2012-Entwicklungsproz
 |Problem|Nach der Herabstufung eines Domänencontrollers bleibt DNS ohne Zonen zurück|  
 |---------|-----------------------------------------------------------------|  
 |Symptome|Server antwortet weiterhin auf DNS-Anfragen, hat jedoch keine Zoneninformationen|  
-|Lösung und Hinweise|Entfernen Sie beim Löschen der AD DS-Rolle ebenfalls die DNS-Serverrolle oder markieren Sie den DNS-Serverdienst als deaktiviert. Der DNS-Client darf dabei nicht auf sich selbst als Server zeigen. Falls Sie Windows PowerShell verwenden, führen Sie nach der Herabstufung des Servers den folgenden Befehl aus:<br /><br />Code-Uninstall-Windows Feature DNS<br /><br />oder<br /><br />Codesatz-Dienst-DNS-StartType deaktiviert<br />Dienst-DNS-Dienst|  
+|Lösung und Hinweise|Entfernen Sie beim Löschen der AD DS-Rolle ebenfalls die DNS-Serverrolle oder markieren Sie den DNS-Serverdienst als deaktiviert. Der DNS-Client darf dabei nicht auf sich selbst als Server zeigen. Falls Sie Windows PowerShell verwenden, führen Sie nach der Herabstufung des Servers den folgenden Befehl aus:<p>Code-Uninstall-Windows Feature DNS<p>oder<p>Codesatz-Dienst-DNS-StartType deaktiviert<br />Dienst-DNS-Dienst|  
 
 |Problem|Beim Heraufstufen eines Windows Server 2012 in eine existierende einteilige Domäne wird updatetopleveldomain=1 bzw. allowsinglelabeldnsdomain=1 nicht konfiguriert|  
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------------|  
@@ -232,7 +231,7 @@ Es folgt eine Liste gängiger Probleme beim Windows Server 2012-Entwicklungsproz
 
 |Problem|Herabstufung des letzten Domänencontrollers in einer Domäne schlägt fehl, wenn vorab erstellte und nicht belegte RODC-Konten existieren|  
 |---------|------------------------------------------------------------------------------------------------------------|  
-|Symptome|Herabstufung schlägt mit der folgenden Nachricht fehl:<br /><br />**Dcpromo. General. 54**<br /><br />Active Directory-Domänendienste konnten keinen weiteren Active Directory-Domänencontroller finden, um die verbleibenden Daten in der Verzeichnispartition CN=Schema,CN=Configuration,DC=corp,DC=contoso,DC=com zu übertragen.<br /><br />"Das Format des angegebenen Domänennamens ist ungültig."|  
+|Symptome|Herabstufung schlägt mit der folgenden Nachricht fehl:<p>**Dcpromo. General. 54**<p>Active Directory-Domänendienste konnten keinen weiteren Active Directory-Domänencontroller finden, um die verbleibenden Daten in der Verzeichnispartition CN=Schema,CN=Configuration,DC=corp,DC=contoso,DC=com zu übertragen.<p>"Das Format des angegebenen Domänennamens ist ungültig."|  
 |Lösung und Hinweise|Entfernen Sie alle verbleibenden vorab erstellten RODC-Konten, bevor Sie eine Domäne herabstufen. Verwenden Sie dazu **Dsa.msc** oder **Ntdsutil.exe metadata cleanup**.|  
 
 |Problem|Automatische Gesamtstruktur- und Domänenvorbereitung führt GPPREP nicht aus|  
@@ -242,28 +241,28 @@ Es folgt eine Liste gängiger Probleme beim Windows Server 2012-Entwicklungsproz
 
 |Problem|Die Install from Media-Prüfung schlägt fehl, wenn ein UNC-Pfad verwendet wird|  
 |---------|------------------------------------------------------------------|  
-|Symptome|Zurückgegebener Fehler:<br /><br />Code-der Medien Pfad konnte nicht überprüft werden. Ausnahme beim Aufrufen von "getDatabaseInfo" mit "2"-Argumenten. Der Ordner ist ungültig.|  
+|Symptome|Zurückgegebener Fehler:<p>Code-der Medien Pfad konnte nicht überprüft werden. Ausnahme beim Aufrufen von "getDatabaseInfo" mit "2"-Argumenten. Der Ordner ist ungültig.|  
 |Lösung und Hinweise|Sie müssen IFM-Dateien auf einem lokalen Laufwerk speichern, nicht auf einem remote UNC-Pfad. Diese beabsichtigte Sperre verhindert die teilweise Heraufstufung von Servern bei Netzwerkunterbrechungen.|  
 
 |Problem|DNS-Delegierungswarnung wird bei der Domänencontroller-Heraufstufung zweimal angezeigt|  
 |---------|-------------------------------------------------------------------------|  
-|Symptome|Die Warnung wurde bei der herauf Stufung mit addsdeployment Windows PowerShell *zweimal* zurückgegeben:<br /><br />Code: "eine Delegierung für diesen DNS-Server kann nicht erstellt werden, da die autorisierende übergeordnete Zone nicht gefunden werden kann oder kein Windows-DNS-Server ausgeführt wird. Wenn Sie eine Integration in eine vorhandene DNS-Infrastruktur durchführen, sollten Sie manuell eine Delegierung zu diesem DNS-Server in der übergeordneten Zone erstellen, um eine zuverlässige Namensauflösung von außerhalb der Domäne sicherzustellen. Andernfalls ist keine Aktion erforderlich. "|  
-|Lösung und Hinweise|Ignorieren. ADDSDeployment Windows PowerShell zeigt die Warnung zuerst bei der Voraussetzungsprüfung und dann erneut bei der Konfiguration des Domänencontrollers an. Verwenden Sie dsas folgende Argument, falls Sie keine DNS-Delegierung konfigurieren möchten:<br /><br />Code--kreatednsdelegation: $false<br /><br />Überspringen Sie *niemals* die Voraussetzungsprüfung, um diese Nachricht zu unterdrücken|  
+|Symptome|Die Warnung wurde bei der herauf Stufung mit addsdeployment Windows PowerShell *zweimal* zurückgegeben:<p>Code: "eine Delegierung für diesen DNS-Server kann nicht erstellt werden, da die autorisierende übergeordnete Zone nicht gefunden werden kann oder kein Windows-DNS-Server ausgeführt wird. Wenn Sie eine Integration in eine vorhandene DNS-Infrastruktur durchführen, sollten Sie manuell eine Delegierung zu diesem DNS-Server in der übergeordneten Zone erstellen, um eine zuverlässige Namensauflösung von außerhalb der Domäne sicherzustellen. Andernfalls ist keine Aktion erforderlich. "|  
+|Lösung und Hinweise|Ignorieren Sie diesen Fehler. ADDSDeployment Windows PowerShell zeigt die Warnung zuerst bei der Voraussetzungsprüfung und dann erneut bei der Konfiguration des Domänencontrollers an. Verwenden Sie dsas folgende Argument, falls Sie keine DNS-Delegierung konfigurieren möchten:<p>Code--kreatednsdelegation: $false<p>Überspringen Sie *niemals* die Voraussetzungsprüfung, um diese Nachricht zu unterdrücken|  
 
 |Problem|Bei der Angabe von UPN-Anmeldeinformationen oder solchen, die nicht zu einer Domäne gehören, werden bei der Konfiguration irreführende Fehler zurückgegeben|  
 |---------|--------------------------------------------------------------------------------------------|  
-|Symptome|Server-Manager gibt den folgenden Fehler zurück:<br /><br />Code Ausnahme Aufruf von "dnsoption" mit "6"-Argumenten<br /><br />ADDSDeployment Windows PowerShell gibt den folgenden Fehler zurück:<br /><br />Code-Überprüfung der Benutzerberechtigungen ist fehlgeschlagen. Sie müssen den Namen der Domäne angeben, zu der dieses Benutzerkonto gehört.|  
+|Symptome|Server-Manager gibt den folgenden Fehler zurück:<p>Code Ausnahme Aufruf von "dnsoption" mit "6"-Argumenten<p>ADDSDeployment Windows PowerShell gibt den folgenden Fehler zurück:<p>Code-Überprüfung der Benutzerberechtigungen ist fehlgeschlagen. Sie müssen den Namen der Domäne angeben, zu der dieses Benutzerkonto gehört.|  
 |Lösung und Hinweise|Stellen Sie sicher, dass Sie gültige Domänen-Anmeldeinformationen im Format **domain\user** angegeben haben.|  
 
 |Problem|Der Server startet nicht, nachdem die DirectoryServices-DomainController-Rolle mithilfe von Dism.exe entfernt wurde|  
 |---------|---------------------------------------------------------------------------------------------------|  
-|Symptome|Falls Sie Dism.exe zum Entfernen der AD DS-Rolle verwenden, bevor Sie einen Domänencontroller ordnungsgemäß herabgestuft haben, startet der Server nicht mehr normal und zeigt den folgenden Fehler an:<br /><br />Code-Status: 0x000000000<br />Info: ein unerwarteter Fehler ist aufgetreten.|  
+|Symptome|Falls Sie Dism.exe zum Entfernen der AD DS-Rolle verwenden, bevor Sie einen Domänencontroller ordnungsgemäß herabgestuft haben, startet der Server nicht mehr normal und zeigt den folgenden Fehler an:<p>Code-Status: 0x000000000<br />Info: ein unerwarteter Fehler ist aufgetreten.|  
 |Lösung und Hinweise|Drücken Sie *Umschalt+F8*, um den Verzeichnisdienst-Wiederherstellungsmodus zu starten. Fügen Sie die AD DS-Rolle wieder hinzu und erzwingen Sie die Herabstufung des Domänencontrollers. Alternativ können Sie das Systems mithilfe der Sicherung wiederherstellen. Verwenden Sie niemale Dism.exe zum Entfernen von AD DS-Rollen, da dieses Tool keine Kenntnis von Domänencontrollern hat.|  
 
 |Problem|Die Installation einer neuen Gesamtstruktur mit dem Gesamtstrukturmodus Win2012 schlägt fehl|  
 |---------|--------------------------------------------------------------------|  
-|Symptome|Bei der Heraufstufung mit ADDSDeployment Windows PowerShell wird der folgende Fehler zurückgegeben:<br /><br />Code-Test. verifydcpromocore. Dcpromo. General. 74<br /><br />Fehler bei der Überprüfung der Voraussetzungen für die Domänen Controller- Die angegebene Domänen Funktionsebene ist ungültig.|  
-|Lösung und Hinweise|Verwenden Sie die Gesamtstrukturfunktionsebene Win2012 nur, wenn Sie *ebenfalls* die Domänenfunktionsebene Win2012 angeben. Hier ist ein Beispiel, das fehlerfrei funktioniert:<br /><br />Code--ForestMode Win2012-DomainMode Win2012]|  
+|Symptome|Bei der Heraufstufung mit ADDSDeployment Windows PowerShell wird der folgende Fehler zurückgegeben:<p>Code-Test. verifydcpromocore. Dcpromo. General. 74<p>Fehler bei der Überprüfung der Voraussetzungen für die Domänen Controller- Die angegebene Domänen Funktionsebene ist ungültig.|  
+|Lösung und Hinweise|Verwenden Sie die Gesamtstrukturfunktionsebene Win2012 nur, wenn Sie *ebenfalls* die Domänenfunktionsebene Win2012 angeben. Hier ist ein Beispiel, das fehlerfrei funktioniert:<p>Code--ForestMode Win2012-DomainMode Win2012]|  
 
 |||  
 |-|-|  
@@ -275,19 +274,19 @@ Es folgt eine Liste gängiger Probleme beim Windows Server 2012-Entwicklungsproz
 |-|-|  
 |Problem|Bei der Herabstufung mit Server-Manager wird vor dem Abschluss kein Feedback zurückgegeben.|  
 |Symptome|Wenn Sie Server-Manager zum Entfernen der AD DS-Rolle und zum Herabstufen eines Domänencontrollers verwenden, erhalten Sie keinerlei Feedback, bevor die Herabstufung fehlschlägt bzw. abgeschlossen ist.|  
-|Lösung und Hinweise|Dies ist eine Einschränkung von Server-Manager. Verwenden Sie das ADDSDeployment Windows PowerShell-Cmdlet, um Feedback zu erhalten:<br /><br />Code-Uninstall-addsdomaincontroller|  
+|Lösung und Hinweise|Dies ist eine Einschränkung von Server-Manager. Verwenden Sie das ADDSDeployment Windows PowerShell-Cmdlet, um Feedback zu erhalten:<p>Code-Uninstall-addsdomaincontroller|  
 
 |||  
 |-|-|  
 |Problem|Die Install from Media-Prüfung erkennt nicht, dass ein RODC-Medium für einen beschreibbaren Domänencontroller angegeben wurde, oder umgekehrt.|  
-|Symptome|Wenn Sie einen neuen Domänencontroller mit IFM heraufstufen und dabei ein RODC-Medium für einen beschreibbaren Domänencontroller oder ein RWDC-Medium für einen RODC angeben, gibt die "Prüfen"-Schaltfläche keinen Fehler zurück. Später schlägt die Heraufstufung dann mit dem folgenden Fehler fehl:<br /><br />Code: Fehler beim Konfigurieren dieses Computers als Domänen Controller. <br />Die herauf Stufung des schreibgeschützten Domänen Controllers kann nicht gestartet werden, da die angegebene Quelldatenbank nicht zulässig ist. Nur Datenbanken aus anderen RODCs können für die IFM-herauf Stufung eines RODC verwendet werden.|  
+|Symptome|Wenn Sie einen neuen Domänencontroller mit IFM heraufstufen und dabei ein RODC-Medium für einen beschreibbaren Domänencontroller oder ein RWDC-Medium für einen RODC angeben, gibt die "Prüfen"-Schaltfläche keinen Fehler zurück. Später schlägt die Heraufstufung dann mit dem folgenden Fehler fehl:<p>Code: Fehler beim Konfigurieren dieses Computers als Domänen Controller. <br />Die herauf Stufung des schreibgeschützten Domänen Controllers kann nicht gestartet werden, da die angegebene Quelldatenbank nicht zulässig ist. Nur Datenbanken aus anderen RODCs können für die IFM-herauf Stufung eines RODC verwendet werden.|  
 |Lösung und Hinweise|Die Prüfung prüft nur die Gesamtintegrität von IFM. Verwenden Sie immer den korrekten IFM-Typ für den jeweiligen Server. Starten Sie den Server neu, bevor Sie die Heraufstufung erneut mit dem korrekten Medium vornehmen.|  
 
 |||  
 |-|-|  
 |Problem|Die Heraufstufung eines RODC mit einem vorab erstellten Computerkonto schlägt fehl|  
-|Symptome|Beim Heraufstufen eines neuen RODC mit ADDSDeployment Windows PowerShell und einem gestaffelten Computerkonto erhalten Sie den folgenden Fehler:<br /><br />Der Code Parametersatz kann mit den angegebenen benannten Parametern nicht aufgelöst werden.    <br />Invalidargument: parameterbindingexception<br />    + Fullyqualifiederrorid: ambiguousparameterset, Microsoft. Director yservices. Deployment. PowerShell. Commands. Install|  
-|Lösung und Hinweise|Geben Sie keine Parameter an, die bereits in einem vorab erstellten RODC-Konto vorhanden sind. Dazu gehören:<br /><br />Code--"leseronlyreplica"<br />-InstallDNS<br />-donotkonfigurireglobalcatalog<br />-Sitename<br />-InstallDNS|  
+|Symptome|Beim Heraufstufen eines neuen RODC mit ADDSDeployment Windows PowerShell und einem gestaffelten Computerkonto erhalten Sie den folgenden Fehler:<p>Der Code Parametersatz kann mit den angegebenen benannten Parametern nicht aufgelöst werden.    <br />Invalidargument: parameterbindingexception<br />    + Fullyqualifiederrorid: ambiguousparameterset, Microsoft. Director yservices. Deployment. PowerShell. Commands. Install|  
+|Lösung und Hinweise|Geben Sie keine Parameter an, die bereits in einem vorab erstellten RODC-Konto vorhanden sind. Dazu gehören:<p>Code--"leseronlyreplica"<br />-InstallDNS<br />-donotkonfigurireglobalcatalog<br />-Sitename<br />-InstallDNS|  
 
 |||  
 |-|-|  
@@ -298,44 +297,44 @@ Es folgt eine Liste gängiger Probleme beim Windows Server 2012-Entwicklungsproz
 |||  
 |-|-|  
 |Problem|Dcpromo.log enthält die Zeile "[Fehler] Sicherheitseinstellung für Serverdateien fehlgeschlagen mit 2"|  
-|Symptome|Die Herabstufung eines Domänencontrollers läuft ohne Fehler ab, aber das dcpromo-Protokoll enthält den folgenden Fehler:<br /><br />Code-[Fehler] Fehler beim Festlegen der Sicherheit für Server Dateien mit 2|  
+|Symptome|Die Herabstufung eines Domänencontrollers läuft ohne Fehler ab, aber das dcpromo-Protokoll enthält den folgenden Fehler:<p>Code-[Fehler] Fehler beim Festlegen der Sicherheit für Server Dateien mit 2|  
 |Lösung und Hinweise|Ignorieren, dieser Fehler ist zu erwarten und kosmetischer Natur.|  
 
 |||  
 |-|-|  
 |Problem|Bei der adprep-Voraussetzungsprüfung wird der Fehler "Für die Domäne konnte keine Exchange-Schemakonfliktüberprüfung ausgeführt werden" angezeigt|  
-|Symptome|Beim Versuch, einen Windows Server 2012-Domänencontroller in eine existierende Windows Server 2003, Windows Server 2008 oder Windows Server 2008 R2-Gesamtstruktur heraufzustufen, wird bei der Voraussetzungsprüfung der folgende Fehler angezeigt:<br /><br />Code-Überprüfung der Voraussetzungen für AD prep fehlgeschlagen. Die Exchange-Schema Konflikt Überprüfung für Domänen *<domain name>* kann nicht ausgeführt werden (Ausnahme: der RPC-Server ist nicht verfügbar).<br /><br />adprep.log enthält den folgenden Fehler:<br /><br />Code-Adprep konnte keine Daten vom Server abrufen *<domain controller>*<br /><br />über Windows-Verwaltungsinstrumentation (WMI).|  
-|Lösung und Hinweise|Der neue Domänencontroller hat keinen Zugriff auf WMI über die DCOM/RPC-Protokolle für die existierenden Domänencontroller. Aktuell existieren drei Ursachen für diesen Fehler:<br /><br />-Eine Firewallregel blockiert den Zugriff auf die vorhandenen Domänen Controller.<br /><br />-Das Netzwerkdienst Konto fehlt in der Berechtigung "Anmelden als Dienst" (SeServiceLogonRight) auf den vorhandenen Domänen Controllern.<br /><br />-NTLM ist auf Domänen Controllern mithilfe von Sicherheitsrichtlinien, [die in Einführung der Einschränkung der NTLM-Authentifizierung](https://technet.microsoft.com/library/dd560653(WS.10).aspx) beschrieben werden, deaktiviert.|  
+|Symptome|Beim Versuch, einen Windows Server 2012-Domänencontroller in eine existierende Windows Server 2003, Windows Server 2008 oder Windows Server 2008 R2-Gesamtstruktur heraufzustufen, wird bei der Voraussetzungsprüfung der folgende Fehler angezeigt:<p>Code-Überprüfung der Voraussetzungen für AD prep fehlgeschlagen. Die Exchange-Schema Konflikt Überprüfung für Domänen *<domain name>* kann nicht ausgeführt werden (Ausnahme: der RPC-Server ist nicht verfügbar).<p>adprep.log enthält den folgenden Fehler:<p>Code-Adprep konnte keine Daten vom Server abrufen *<domain controller>*<p>über Windows-Verwaltungsinstrumentation (WMI).|  
+|Lösung und Hinweise|Der neue Domänencontroller hat keinen Zugriff auf WMI über die DCOM/RPC-Protokolle für die existierenden Domänencontroller. Aktuell existieren drei Ursachen für diesen Fehler:<p>-Eine Firewallregel blockiert den Zugriff auf die vorhandenen Domänen Controller.<p>-Das Netzwerkdienst Konto fehlt in der Berechtigung "Anmelden als Dienst" (SeServiceLogonRight) auf den vorhandenen Domänen Controllern.<p>-NTLM ist auf Domänen Controllern mithilfe von Sicherheitsrichtlinien, [die in Einführung der Einschränkung der NTLM-Authentifizierung](https://technet.microsoft.com/library/dd560653(WS.10).aspx) beschrieben werden, deaktiviert.|  
 
 |||  
 |-|-|  
 |Problem|Beim Erstellen einer neuen Gesamtstruktur wird immer eine DNS-Warnung angezeigt|  
-|Symptome|Wenn Sie eine neue AD DS-Gesamtstruktur erstellen und die DNS-Zone auf dem neuen Domänencontroller für sich selbst erstellen, erhalten Sie immer die folgende Warnmeldung:<br /><br />Code: in der DNS-Konfiguration wurde ein Fehler erkannt. <br />Keiner der von diesem Computer verwendeten DNS-Server hat innerhalb des Timeout Intervalls geantwortet.<br />(Fehlercode 0x000005b4 "ERROR_TIMEOUT")|  
-|Lösung und Hinweise|Ignorieren. Diese Warnung ist beabsichtigt für den ersten Domänencontroller in der Stammdomäne einer neuen Gesamtstruktur, für den Fall, dass Sie auf einen existierenden DNS-Server und eine existierende Zone verweisen möchten.|  
+|Symptome|Wenn Sie eine neue AD DS-Gesamtstruktur erstellen und die DNS-Zone auf dem neuen Domänencontroller für sich selbst erstellen, erhalten Sie immer die folgende Warnmeldung:<p>Code: in der DNS-Konfiguration wurde ein Fehler erkannt. <br />Keiner der von diesem Computer verwendeten DNS-Server hat innerhalb des Timeout Intervalls geantwortet.<br />(Fehlercode 0x000005b4 "ERROR_TIMEOUT")|  
+|Lösung und Hinweise|Ignorieren Sie diesen Fehler. Diese Warnung ist beabsichtigt für den ersten Domänencontroller in der Stammdomäne einer neuen Gesamtstruktur, für den Fall, dass Sie auf einen existierenden DNS-Server und eine existierende Zone verweisen möchten.|  
 
 |||  
 |-|-|  
 |Problem|Das Windows PowerShell-Argument -whatif liefert falsche DNS-Serverinformationen zurück|  
-|Symptome|Falls Sie das Argument **-whatif** beim Konfigurieren eines Domänencontrollers mit implizitem oder explizitem **-installdns:$true** verwenden, wird die folgende Ausgabe angezeigt:<br /><br />Code: "DNS-Server: Nein"|  
-|Lösung und Hinweise|Ignorieren. DNS ist installiert und funktioniert korrekt.|  
+|Symptome|Falls Sie das Argument **-whatif** beim Konfigurieren eines Domänencontrollers mit implizitem oder explizitem **-installdns:$true** verwenden, wird die folgende Ausgabe angezeigt:<p>Code: "DNS-Server: Nein"|  
+|Lösung und Hinweise|Ignorieren Sie diesen Fehler. DNS ist installiert und funktioniert korrekt.|  
 
 |||  
 |-|-|  
 |Problem|Nach der Heraufstufung schlägt die Anmeldung fehl mit "Zum Verarbeiten des Befehls ist nicht genügend Speicherplatz verfügbar"|  
-|Symptome|Wenn Sie sich nach der Heraufstufung eines neuen Domänencontrollers abmelden und anschließend versuchen, sich interaktiv anzumelden, erhalten Sie den folgenden Fehler:<br /><br />Der Code ist nicht genügend Speicher verfügbar, um diesen Befehl zu verarbeiten.|  
+|Symptome|Wenn Sie sich nach der Heraufstufung eines neuen Domänencontrollers abmelden und anschließend versuchen, sich interaktiv anzumelden, erhalten Sie den folgenden Fehler:<p>Der Code ist nicht genügend Speicher verfügbar, um diesen Befehl zu verarbeiten.|  
 |Lösung und Hinweise|Der Domänencontroller wurde nach der Heraufstufung nicht neu gestartet, entweder aufgrund eines Fehlers oder weil Sie das ADDSDeployment Windows PowerShell-Argument **-norebootoncompletion** verwendet haben. Starten Sie den Domänencontroller neu.|  
 
 |||  
 |-|-|  
 |Problem|Schaltfläche "Weiter" ist auf der Seite mit den Domänencontrolleroptionen nicht verfügbar|  
 |Symptome|Die Schaltfläche **Weiter** auf der Seite **Domänencontrolleroptionen** in Server-Manager ist nicht verfügbar, obwohl Sie ein Kennwort eingestellt haben. Das Menü **Sitename** enthält keine Sites.|  
-|Lösung und Hinweise|Sie haben mehrere AD DS-Sites, und mindestens einer dieser Sites fehlen Subnetze. Dieser zukünftige Domänencontroller gehört zu einem dieser Subnetze. Wählen Sie das Subnetz aus dem Dropdown-Menü Sitename manuell aus. Sie sollten außerdem alle AD-Sites mithilfe von DSSITE.MSC oder mit dem folgenden Windows PowerShell-Befehl prüfen, um alle fehlenden Subnetze zu identifizieren:<br /><br />Code-Get-adreplicationsite-Filter \*-eigenschaftensubnetze &#124; Where-Object {! $ _. Subnetze-EQ "\*&#124; "} Format-Tabellenname|  
+|Lösung und Hinweise|Sie haben mehrere AD DS-Sites, und mindestens einer dieser Sites fehlen Subnetze. Dieser zukünftige Domänencontroller gehört zu einem dieser Subnetze. Wählen Sie das Subnetz aus dem Dropdown-Menü Sitename manuell aus. Sie sollten außerdem alle AD-Sites mithilfe von DSSITE.MSC oder mit dem folgenden Windows PowerShell-Befehl prüfen, um alle fehlenden Subnetze zu identifizieren:<p>Code-Get-adreplicationsite-Filter \*-eigenschaftensubnetze &#124; Where-Object {! $ _. Subnetze-EQ "\*&#124; "} Format-Tabellenname|  
 
 |||  
 |-|-|  
 |Problem|Herauf- oder Herabstufung schlägt fehl mit "Der Dienst kann nicht gestartet werden"|  
-|Symptome|Beim Heraufstufen, Herabstufen oder Klonen eines Domänencontrollers erhalten Sie den folgenden Fehler:<br /><br />Code-der Dienst kann nicht gestartet werden, da er entweder deaktiviert ist oder ihm keine aktivierten Geräte zugeordnet sind "(0x80070422.)<br /><br />Der Fehler kann interaktiv oder als Ereignis angezeigt oder in eines der Protokolle wie z. B. dcpromoui.log oder dcpromo.log geschrieben werden|  
-|Lösung und Hinweise|Der DS-Rollenserverdienst (DsRoleSvc) ist deaktiviert. Dieser Dienst wird bei der Installation der AD DS-Rolle automatisch installiert und auf den Starttyp manuell gesetzt. Deaktivieren Sie diesen Dienst nicht. Setzen Sie den Starttyp wieder auf manuell und erlauben Sie den DS-Rollenoperationen, den Dienst bei Bedarf zu starten und anzuhalten. Dieses Verhalten ist entwurfsbedingt.|  
+|Symptome|Beim Heraufstufen, Herabstufen oder Klonen eines Domänencontrollers erhalten Sie den folgenden Fehler:<p>Code-der Dienst kann nicht gestartet werden, da er entweder deaktiviert ist oder ihm keine aktivierten Geräte zugeordnet sind "(0x80070422.)<p>Der Fehler kann interaktiv oder als Ereignis angezeigt oder in eines der Protokolle wie z. B. dcpromoui.log oder dcpromo.log geschrieben werden|  
+|Lösung und Hinweise|Der DS-Rollenserverdienst (DsRoleSvc) ist deaktiviert. Dieser Dienst wird bei der Installation der AD DS-Rolle automatisch installiert und auf den Starttyp manuell gesetzt. Deaktivieren Sie diesen Dienst nicht. Setzen Sie den Starttyp wieder auf manuell und erlauben Sie den DS-Rollenoperationen, den Dienst bei Bedarf zu starten und anzuhalten. Dieses Verhalten ist beabsichtigt.|  
 
 |||  
 |-|-|  
@@ -357,10 +356,10 @@ Es folgt eine Liste gängiger Probleme beim Windows Server 2012-Entwicklungsproz
 
 |Problem|Dcpromo /unattend erlaubt nicht unterstützte funktionale Ebenen|  
 |-|-|  
-|Symptome|Wenn Sie einen Domänencontroller mithilfe von dcpromo /unattend und der folgenden Beispiel-Antwortdatei heraufstufen:<br /><br />Ordnung<br /><br />[DCInstall]<br />NewDomain = Gesamtstruktur<br /><br />Replicaornewdomain = Domäne<br /><br />NewDomainDNSName = Corp. Configuration. com<br /><br />SafeModeAdminPassword =Safepassword@6<br /><br />DomainNetbiosName = Corp<br /><br />Dnsonnetwork = ja<br /><br />AutoConfigDNS = ja<br /><br />Rebootonsuccess = noandnoprompteither<br /><br />RebootOnCompletion = Nein<br /><br />*DomainLevel = 0*<br /><br />*ForestLevel = 0*<br /><br />Die Heraufstufung schlägt mit den folgenden Fehlern in dcpromoui.log fehl:<br /><br />Code-Dcpromoui EA 4.5 B8 0089 13:31:50.783 Enter cargumentsspec:: validateargument DomainLevel<br /><br />Dcpromoui EA 4.5 B8 008a 13:31:50.783 Wert für DomainLevel ist 0<br /><br />Dcpromoui EA 4.5 B8 008b 13:31:50.783 Exitcode ist 77<br /><br />Dcpromoui EA 4.5 B8 008c 13:31:50.783 das angegebene Argument ist ungültig.<br /><br />Dcpromoui EA 4.5 B8 008d 13:31:50.783 Schließ Endes Protokoll<br /><br />Dcpromoui EA 4.5 B8 0032 13:31:50.830 Exitcode ist 77<br /><br />Level 0 steht für Windows 2000 und wird unter Windows Server 2012 nicht unterstützt.|  
+|Symptome|Wenn Sie einen Domänencontroller mithilfe von dcpromo /unattend und der folgenden Beispiel-Antwortdatei heraufstufen:<p>Ordnung<p>[DCInstall]<br />NewDomain = Gesamtstruktur<p>Replicaornewdomain = Domäne<p>NewDomainDNSName = Corp. Configuration. com<p>SafeModeAdminPassword =Safepassword@6<p>DomainNetbiosName = Corp<p>Dnsonnetwork = ja<p>AutoConfigDNS = ja<p>Rebootonsuccess = noandnoprompteither<p>RebootOnCompletion = Nein<p>*DomainLevel = 0*<p>*ForestLevel = 0*<p>Die Heraufstufung schlägt mit den folgenden Fehlern in dcpromoui.log fehl:<p>Code-Dcpromoui EA 4.5 B8 0089 13:31:50.783 Enter cargumentsspec:: validateargument DomainLevel<p>Dcpromoui EA 4.5 B8 008a 13:31:50.783 Wert für DomainLevel ist 0<p>Dcpromoui EA 4.5 B8 008b 13:31:50.783 Exitcode ist 77<p>Dcpromoui EA 4.5 B8 008c 13:31:50.783 das angegebene Argument ist ungültig.<p>Dcpromoui EA 4.5 B8 008d 13:31:50.783 Schließ Endes Protokoll<p>Dcpromoui EA 4.5 B8 0032 13:31:50.830 Exitcode ist 77<p>Level 0 steht für Windows 2000 und wird unter Windows Server 2012 nicht unterstützt.|  
 |Lösung und Hinweise|Sie sollten den veralteten Befehl dcpromo /unattend nicht verwenden, da dieser die Angabe ungültiger Einstellungen erlaubt, die später zu Fehlern führen. Dieses Verhalten ist zu erwarten und entwurfsbedingt.|  
 
 |Problem|Herauf Stufung "hängt" beim Erstellen des NTDS-Einstellungs Objekts, nie abgeschlossen|  
 |-|-|  
 |Symptome|Wenn Sie einen Replikat-DC oder RODC herauf Stufen, erreicht die herauf Stufung das "Erstellen eines NTDS-Einstellungs Objekts" und wird nie fortgesetzt oder abgeschlossen Die Protokolle werden ebenfalls nicht mehr aktualisiert.|  
-|Lösung und Hinweise|Dies ist ein bekanntes Problem und entsteht, wenn die Anmeldeinformationen des integrierten lokalen Administratorkontos mit dem Kennwort des integrierten Domänenadministratorkontos angegeben werden. Dabei entsteht ein Fehler im zentralen Setupmodul und das Modul wird in eine Art Endlosschleife versetzt. Dies wird erwartet, auch wenn unerwünschtes Verhalten.<br /><br />So reparieren Sie den Server:<br /><br />1. Starten Sie ihn neu.<br /><br />1. löschen Sie in AD das Mitglieds Computer Konto dieses Servers (es ist noch kein DC-Konto).<br /><br />1. deaktivieren Sie auf diesem Server das Aufheben der Verknüpfung von der Domäne.<br /><br />1. entfernen Sie auf diesem Server die AD DS Rolle.<br /><br />1. Neustart<br /><br />1. Fügen Sie die AD DS Rolle erneut hinzu, und wiederholen Sie die herauf Stufung, und stellen Sie sicher, dass Sie die Anmelde Informationen für ***Domänen \ Administratoren*** immer für die DC-herauf Stufung und nicht nur für das integrierte lokale Administrator Konto angeben|  
+|Lösung und Hinweise|Dies ist ein bekanntes Problem und entsteht, wenn die Anmeldeinformationen des integrierten lokalen Administratorkontos mit dem Kennwort des integrierten Domänenadministratorkontos angegeben werden. Dabei entsteht ein Fehler im zentralen Setupmodul und das Modul wird in eine Art Endlosschleife versetzt. Dies wird erwartet, auch wenn unerwünschtes Verhalten.<p>So reparieren Sie den Server:<p>1. Starten Sie ihn neu.<p>1. löschen Sie in AD das Mitglieds Computer Konto dieses Servers (es ist noch kein DC-Konto).<p>1. deaktivieren Sie auf diesem Server das Aufheben der Verknüpfung von der Domäne.<p>1. entfernen Sie auf diesem Server die AD DS Rolle.<p>1. Neustart<p>1. Fügen Sie die AD DS Rolle erneut hinzu, und wiederholen Sie die herauf Stufung, und stellen Sie sicher, dass Sie die Anmelde Informationen für ***Domänen \ Administratoren*** immer für die DC-herauf Stufung und nicht nur für das integrierte lokale Administrator Konto angeben|  

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 1ea2e1be-874f-4df3-bc9a-eb215002da91
 title: Konfigurieren AD FS Unterstützung für die Benutzerzertifikat Authentifizierung
-description: ''
 author: jenfieldmsft
 ms.author: billmath
 manager: samueld
@@ -9,12 +8,12 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6c8a3b30a337c164227bf344b5704cc7e782461a
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.openlocfilehash: 5f2416e45fad8ca47cd756526dc6a554b3a952b1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517515"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80817073"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Konfigurieren von AD FS für die Benutzerzertifikat Authentifizierung
 
@@ -27,7 +26,7 @@ Die Benutzerzertifikat Authentifizierung wird hauptsächlich in zwei Anwendungsf
 1) Bestimmen Sie den Modus der AD FS Benutzerzertifikat Authentifizierung, die Sie aktivieren möchten, mithilfe eines der Modi, die in [diesem Artikel](ad-fs-support-for-alternate-hostname-binding-for-certificate-authentication.md) beschrieben werden.
 2) Stellen Sie sicher, dass die Vertrauenskette des Benutzer Zertifikats installiert ist & von allen AD FS-und WAP-Servern einschließlich aller zwischen Zertifizierungsstellen als vertrauenswürdig eingestuft. Dies erfolgt in der Regel über das Gruppenrichtlinien Objekt auf AD FS/WAP-Servern.
 3)  Stellen Sie sicher, dass das Stamm Zertifikat der Vertrauenskette für ihre Benutzerzertifikate im NTAuth-Speicher in Active Directory
-4) Wenn Sie AD FS im alternativen Zertifikat Authentifizierungsmodus verwenden, stellen Sie sicher, dass Ihre AD FS-und WAP-Server über SSL-Zertifikate verfügen, die den AD FS Hostnamen enthalten, dem das Präfix "certauth" vorangestellt ist, z. b. "certauth.fs.contoso.com" durch die Firewall
+4) Wenn Sie AD FS im alternativen Zertifikat Authentifizierungsmodus verwenden, stellen Sie sicher, dass Ihre AD FS-und WAP-Server über SSL-Zertifikate verfügen, die den AD FS Hostnamen enthalten, dem das Präfix "certauth" vorangestellt ist, z. b. "certauth.fs.contoso.com"
 5) Wenn Sie die Zertifikat Authentifizierung über das Extranet verwenden, stellen Sie sicher, dass mindestens eine AIA und mindestens ein CDP-oder OCSP-Speicherort aus der Liste, die in ihren Zertifikaten angegeben ist, über das Internet zugänglich sind.
 6) Außerdem muss für die Azure AD Zertifikat Authentifizierung für Exchange ActiveSync-Clients das Client Zertifikat über die Routing fähige e-Mail-Adresse des Benutzers in Exchange Online verfügen, entweder mit dem Prinzipal Namen oder dem Wert des RFC822-namens im Feld "alternativer Antragsteller Name". (Azure Active Directory ordnet den RFC822-Wert dem Proxy Adress Attribut im Verzeichnis zu.)
 

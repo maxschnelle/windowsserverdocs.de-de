@@ -1,7 +1,6 @@
 ---
 ms.assetid: 017b88a6-f29b-4787-99b6-b5c8eaf8c3df
 title: 'Anhang F: Sichern von Domänen-Admins-Gruppen in Active Directory'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 4f453aa9f076b0272821849840106dae0c52fbbc
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d1df7403b7e50fa50894bb4dbaa0cac9c6f42727
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408695"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821503"
 ---
 # <a name="appendix-f-securing-domain-admins-groups-in-active-directory"></a>Anhang F: Schützen von Domänenadministratorgruppen in Active Directory
 
@@ -46,7 +45,7 @@ Für die Gruppe "Domänen-Admins" in jeder Domäne in der Gesamtstruktur:
 
 #### <a name="step-by-step-instructions-for-removing-all-members-from-the-domain-admins-group"></a>Schritt-für-Schritt-Anleitung zum Entfernen aller Mitglieder aus der Gruppe "Domänen-Admins"  
 
-1.  KlickenSie in Server-Manager **auf Extras, und**klicken Sie dann auf **Active Directory Benutzer und Computer**.  
+1.  Klicken **Server Manager**Sie in Server-Manager **auf Extras, und**klicken Sie dann auf **Active Directory Benutzer und Computer**.  
 
 2.  Um alle Mitglieder aus der Gruppe "da" zu entfernen, führen Sie die folgenden Schritte aus:  
 
@@ -60,7 +59,7 @@ Für die Gruppe "Domänen-Admins" in jeder Domäne in der Gesamtstruktur:
 
 #### <a name="step-by-step-instructions-to-secure-domain-admins-in-active-directory"></a>Schritt-für-Schritt-Anleitung zum Sichern von Domänen Administratoren in Active Directory  
 
-1.  KlickenSie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
+1.  Klicken **Server Manager**Sie in Server-Manager **auf Extras, und**klicken Sie auf **Gruppenrichtlinie Verwaltung**.  
 
 2.  Erweitern Sie in der Konsolen Struktur \<Gesamtstruktur\>\\Domänen\\\<Domäne\>, und Gruppenrichtlinie Sie dann **Objekte** (wobei \<Gesamtstruktur\> der Name der Gesamtstruktur und \<Domäne\> der Name der Domäne ist, in der Sie die Gruppenrichtlinie festlegen möchten).  
 
@@ -159,7 +158,7 @@ Für die Gruppe "Domänen-Admins" in jeder Domäne in der Gesamtstruktur:
         > [!IMPORTANT]  
         > Wenn für die Verwaltung von Domänen Controllern und Active Directory Jump-Server verwendet werden, stellen Sie sicher, dass sich die jumpserver in einer Organisationseinheit befinden, mit der diese GPOs nicht verknüpft sind  
 
-#### <a name="verification-steps"></a>Überprüfungs Schritte  
+#### <a name="verification-steps"></a>Überprüfungsschritte  
 
 ##### <a name="verify-deny-access-to-this-computer-from-the-network-gpo-settings"></a>GPO-Einstellungen "Zugriff auf diesen Computer über das Netzwerk verweigern"  
 Versuchen Sie auf einem Mitglieds Server oder einer Arbeitsstation, der nicht von den GPO-Änderungen (z. b. einem "Sprung Server") betroffen ist, auf einen Mitglieds Server oder eine Arbeitsstation über das Netzwerk zuzugreifen, das von den GPO-Änderungen betroffen ist. Um die GPO-Einstellungen zu überprüfen, versuchen Sie, das Systemlaufwerk mithilfe des Befehls **net use** zuzuordnen.  
@@ -194,7 +193,7 @@ Melden Sie sich lokal bei allen Mitglieds Servern oder Arbeitsstationen an, die 
 
 4.  Klicken Sie auf **Datei**und dann auf **Speichern**unter.  
 
-5.  Geben Sie im Feld Dateiname **\<filename\>. bat** ein (wobei \<filename\> der Name der neuen Batchdatei ist).  
+5.  Geben Sie **File** im Feld Dateiname **\<filename\>. bat** ein (wobei \<filename\> der Name der neuen Batchdatei ist).  
 
 ###### <a name="schedule-a-task"></a>Planen einer Aufgabe  
 

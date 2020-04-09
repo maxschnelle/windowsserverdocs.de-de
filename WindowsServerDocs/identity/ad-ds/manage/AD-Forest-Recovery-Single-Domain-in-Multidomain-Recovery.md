@@ -1,6 +1,5 @@
 ---
 title: 'Wiederherstellung der AD-Gesamtstruktur: Wiederherstellen einer einzelnen Domäne in einer Gesamtstruktur mit mehreren'
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 267541be-2ea7-4af6-ab34-8b5a3fedee2d
 ms.technology: identity-adds
-ms.openlocfilehash: 2582ffacb169b59692c0510469131b58be09d5f3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 13153358f50302de722109bfe101911e3bac4708
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71368935"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823443"
 ---
 # <a name="ad-forest-recovery---recovering-a-single-domain-in-a-multidomain-forest"></a>Wiederherstellung der AD-Gesamtstruktur: Wiederherstellen einer einzelnen Domäne in einer Gesamtstruktur mit mehreren
 

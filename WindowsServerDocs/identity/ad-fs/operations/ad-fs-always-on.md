@@ -1,6 +1,5 @@
 ---
 title: Einrichten einer AD FS-Bereitstellung mit AlwaysOn-Verfügbarkeitsgruppen
-description: ''
 author: billmath
 ms.author: billmath
 manager: daveba
@@ -8,12 +7,12 @@ ms.date: 01/20/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2ea32943f8b46718b90c30024da883c1a35f3888
-ms.sourcegitcommit: b649047f161cb605df084f18b573f796a584753b
+ms.openlocfilehash: ddec398be56aba6d354b1863a98c8d641831415c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76162744"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816093"
 ---
 # <a name="setting-up-an-ad-fs-deployment-with-alwayson-availability-groups"></a>Einrichten einer AD FS-Bereitstellung mit AlwaysOn-Verfügbarkeitsgruppen
 Eine hochverfügbare georedunverteilte Topologie bietet Folgendes:
@@ -32,10 +31,10 @@ Das folgende Diagramm zeigt eine AD FS SQL Server Farm mit AlwaysOn-Verfügbarke
 
 ![Serverfarm mit SQL](media/ad-fs-always-on/SQLoverview.png)
 
-Eine Always on Verfügbarkeits Gruppe (Availability Group, AG) ist eine oder mehrere Benutzer Datenbanken, für die ein Failover ausgeführt wird. Eine Verfügbarkeits Gruppe besteht aus einem primären Verfügbarkeits Replikat und einem bis vier sekundären Replikaten, die durch SQL Server Protokoll basierten Daten Verschiebung für den Datenschutz ohne freigegebenen Speicher verwaltet werden. Jedes Replikat wird von einer Instanz von SQL Server auf einem anderen wsfc-Knoten gehostet. Die Verfügbarkeitsgruppe und ein entsprechender virtueller Netzwerkname werden als Ressourcen im WSFC-Cluster registriert.
+Eine Always on Verfügbarkeits Gruppe (Availability Group, AG) ist eine oder mehrere Benutzer Datenbanken, für die ein Failover ausgeführt wird. Eine Verfügbarkeits Gruppe besteht aus einem primären Verfügbarkeits Replikat und einem bis vier sekundären Replikaten, die durch SQL Server Protokoll basierten Daten Verschiebung für den Datenschutz ohne freigegebenen Speicher verwaltet werden. Jedes Replikat wird von einer Instanz von SQL Server auf einem anderen wsfc-Knoten gehostet. Die Verfügbarkeits Gruppe und ein entsprechender virtueller Netzwerkname werden als Ressourcen im wsfc-Cluster registriert.
 
 Ein verfügbarkeitsgruppenlistener im Knoten des primären Replikats antwortet auf eingehende Client Anforderungen zum Herstellen einer Verbindung mit dem virtuellen Netzwerknamen. basierend auf Attributen in der Verbindungs Zeichenfolge wird jede Anforderung an die entsprechende SQL Server Instanz umgeleitet.
-Wenn bei einem Failover der Besitz von freigegebenen physischen Ressourcen nicht auf einen anderen Knoten übertragen wird, wird wsfc genutzt, um ein sekundäres Replikat auf einer anderen SQL Server Instanz neu zu konfigurieren, um das primäre Replikat der Verfügbarkeits Gruppe zu werden. Die virtuelle Netzwerknamenressource der Verfügbarkeitsgruppe wird dann auf diese Instanz übertragen.
+Wenn bei einem Failover der Besitz von freigegebenen physischen Ressourcen nicht auf einen anderen Knoten übertragen wird, wird wsfc genutzt, um ein sekundäres Replikat auf einer anderen SQL Server Instanz neu zu konfigurieren, um das primäre Replikat der Verfügbarkeits Gruppe zu werden. Die virtuelle Netzwerknamen Ressource der Verfügbarkeits Gruppe wird dann auf diese Instanz übertragen.
 Zu einem beliebigen Zeitpunkt kann nur eine einzelne SQL Server Instanz das primäre Replikat der Datenbanken einer Verfügbarkeits Gruppe hosten. alle zugeordneten sekundären Replikate müssen sich jeweils auf einer separaten Instanz befinden, und jede Instanz muss sich auf separaten physischen Knoten befinden.
 
 > [!NOTE] 
@@ -46,7 +45,7 @@ Eine weitere Übersicht über AlwaysOn-Verfügbarkeitsgruppen finden Sie unter [
 > [!NOTE] 
 > Wenn die Organisation ein Failover über mehrere Daten Center hinweg erfordert, empfiehlt es sich, in jedem Daten Center eine artefaktdatenbank zu erstellen und einen Hintergrund Cache zu aktivieren, der die Latenzzeit während der Anforderungs Verarbeitung reduziert. Befolgen Sie die Anweisungen für die [Feinabstimmung von SQL und die Reduzierung der Latenz](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/adfs-sql-latency)Zeit.
 
-## <a name="deployment-guidance"></a>Bereitstellungsrichtlinien
+## <a name="deployment-guidance"></a>Leitfaden zur Bereitstellung
 
 1. <b>Beachten Sie die richtige Datenbank für die Ziele der AD FS Bereitstellung.</b> In AD FS wird eine Datenbank zum Speichern der Konfiguration und in einigen Fällen Transaktionsdaten verwendet, die sich auf die Verbunddienst beziehen. Sie können mit AD FS Software entweder die interne Windows-Datenbank (WID) oder Microsoft SQL Server 2008 oder höher auswählen, um die Daten im Verbund Dienst zu speichern.
 In der folgenden Tabelle werden die Unterschiede in den unterstützten Funktionen zwischen einer wid und einer SQL-Datenbank beschrieben.
@@ -54,11 +53,11 @@ In der folgenden Tabelle werden die Unterschiede in den unterstützten Funktione
 
 | Kategorie      | Feature       | Unterstützt von wid  | Von SQL unterstützt |
 | ------------------ |:-------------:| :---:|:---: |
-| AD FS Features     | Bereitstellung einer Verbundserverfarm | „Ja“  | „Ja“ |
-| AD FS Features     | SAML-Artefaktauflösung. Hinweis: Dies ist für SAML-Anwendungen nicht üblich.     |   Nein | Nein  |
-| AD FS Features | Wiedergabe Erkennung für SAML/WS-Verbund Token. Hinweis: Dies ist nur erforderlich, wenn AD FS Token von externen IDPs empfängt. Dies ist nicht erforderlich, wenn AD FS nicht als IDP fungiert.      |    Nein  | „Ja“ |
+| AD FS Features     | Bereitstellung einer Verbundserverfarm | Ja  | Ja |
+| AD FS Features     | SAML-artefaktauflösung. Hinweis: Dies ist für SAML-Anwendungen nicht üblich.     |   Nein | Nein  |
+| AD FS Features | Wiedergabe Erkennung für SAML/WS-Verbund Token. Hinweis: Dies ist nur erforderlich, wenn AD FS Token von externen IDPs empfängt. Dies ist nicht erforderlich, wenn AD FS nicht als IDP fungiert.      |    Nein  | Ja |
 | Datenbankfunktionen     |   Grundlegende Daten Bank Redundanz mithilfe der Pull-Replikation, bei der ein oder mehrere Server, die eine schreibgeschützte Kopie der Datenbank hosten, Änderungen anfordern, die auf einem Quell Server eine Lese-/Schreibkopie der Datenbank durchgeführt haben.    |   Nein | Nein  |
-| Datenbankfunktionen | Daten Bank Redundanz mithilfe von Lösungen für Hochverfügbarkeit, z. b. Clustering oder Spiegelung (auf Datenbankebene)      |    Nein  | „Ja“ |
+| Datenbankfunktionen | Daten Bank Redundanz mithilfe von Lösungen für Hochverfügbarkeit, z. b. Clustering oder Spiegelung (auf Datenbankebene)      |    Nein  | Ja |
 
 Wenn Sie ein großes Unternehmen mit mehr als 100 Vertrauens Stellungen sind, die sowohl interne als auch externe Benutzer mit einmaligem Anmelden für Verbund Anwendungen oder-Dienste bereitstellen müssen, ist SQL die empfohlene Option.
 
@@ -148,7 +147,7 @@ Ein Neustart des Servers ist für das Failoverclusteringfeature nicht erforderli
 6. Wählen Sie auf der Seite Bestätigung die Option weiter aus.
 Auf der Seite zur Ausführung der Überprüfung wird der Status der aktiven Tests angezeigt.
 7. Führen Sie auf der Seite Zusammenfassung eine der folgenden Aktionen aus:
-- Wenn die Ergebnisse angeben, dass die Tests erfolgreich abgeschlossen wurden und die Konfiguration für das Clustering geeignet ist, und Sie den Cluster sofort erstellen möchten, stellen Sie sicher, dass das Kontrollkästchen Cluster jetzt mit den überprüften Knoten erstellen aktiviert ist, und wählen Sie dann Ins. Fahren Sie anschließend mit Schritt 4 des [Verfahrens erstellen des Failoverclusters](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster#create-the-failover-cluster)fort.
+- Wenn die Ergebnisse auf eine erfolgreiche Ausführung der Tests hinweisen und die Konfiguration für das Clustering geeignet ist und Sie den Cluster sofort erstellen möchten, stellen Sie sicher, dass das Kontrollkästchen Cluster jetzt mit den überprüften Knoten erstellen aktiviert ist, und klicken Sie dann auf Fertigstellen. Fahren Sie anschließend mit Schritt 4 des [Verfahrens erstellen des Failoverclusters](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster#create-the-failover-cluster)fort.
 
 ![Konfigurations Bild überprüfen](media/ad-fs-always-on/clusterValidationResults.png)
 
@@ -156,7 +155,7 @@ Auf der Seite zur Ausführung der Überprüfung wird der Status der aktiven Test
 
 > [!NOTE]
 > Wenn Sie eine Warnung für den Test "Permanente Reservierung für Speicherplatz überprüfen" erhalten, finden Sie weitere Informationen im Blogbeitrag [Windows Failover Cluster validation warning indicates your disks don't support the persistent reservations for Storage Spaces](https://blogs.msdn.microsoft.com/clustering/2013/05/24/validate-storage-spaces-persistent-reservation-test-results-with-warning/) .
-> Weitere Informationen zu Hardwareüberprüfungstests finden Sie unter [Validate Hardware for a Failover Cluster](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v%3dws.11)).
+> Weitere Informationen zu Hardwarevalidierungstests finden Sie unter [Überprüfen der Hardware für einen Failovercluster](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v%3dws.11)).
 
 ## <a name="create-the-failover-cluster"></a>Erstellen des Failoverclusters
 
@@ -184,7 +183,7 @@ Der Clustererstellungs-Assistent wird geöffnet.
 
 8.  Überprüfen Sie auf der Seite Bestätigung die Einstellungen. Das Kontrollkästchen Der gesamte geeignete Speicher soll dem Cluster hinzugefügt werden ist standardmäßig aktiviert. Deaktivieren Sie dieses Kontrollkästchen, wenn Sie eine der folgenden Optionen ausführen möchten:
 -   Sie möchten den Speicher später konfigurieren.
--   Sie planen die Erstellung von Clusterspeicherplätzen über den Failovercluster-Manager oder mithilfe von Windows PowerShell-Cmdlets für Failoverclustering und haben bisher keine Speicherplätze in den Datei- und Speicherdiensten erstellt. Weitere Informationen finden Sie unter [Deploy Clustered Storage Spaces](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11)).
+-   Sie planen die Erstellung von Clusterspeicherplätzen über den Failovercluster-Manager oder mithilfe von Windows PowerShell-Cmdlets für Failoverclustering und haben bisher keine Speicherplätze in den Datei- und Speicherdiensten erstellt. Weitere Informationen finden Sie unter [Bereitstellen von Clusterspeicherplätzen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11)).
 9.  Wählen Sie weiter aus, um den Failovercluster zu erstellen.
 10. Bestätigen Sie auf der Seite Zusammenfassung die erfolgreiche Erstellung des Failoverclusters. Wenn Warnungen oder Fehler aufgetreten sind, zeigen Sie die Ausgabe der Zusammenfassung an, oder wählen Sie Bericht anzeigen aus, um den vollständigen Bericht anzuzeigen. Wählen Sie Fertig stellen aus.
 11. Überprüfen Sie, ob der Clustername in der Navigationsstruktur unter Failovercluster-Manager aufgeführt ist, um die Erstellung des Clusters zu bestätigen. Sie können den Cluster Namen erweitern und dann unter Knoten, Speicher oder Netzwerke Elemente auswählen, um die zugeordneten Ressourcen anzuzeigen.
@@ -200,7 +199,7 @@ Beachten Sie, dass es einen Moment dauern kann, bevor der Clustername im DNS erf
 4.  Wählen Sie die Registerkarte Always on Hochverfügbarkeit aus.
 5.  Überprüfen Sie, ob das Feld Name des Windows-Failoverclusters den Namen des lokalen Failoverclusters enthält. Wenn dieses Feld leer ist, unterstützt diese Serverinstanz derzeit keine Always on-Verfügbarkeitsgruppen. Entweder der lokale Computer ist kein Cluster Knoten, der wsfc-Cluster wurde heruntergefahren, oder diese Edition von SQL Server, die Always on-Verfügbarkeitsgruppen nicht unterstützt.
 6.  Aktivieren Sie das Kontrollkästchen Always on Verfügbarkeits Gruppen aktivieren, und klicken Sie auf OK.
-Der SQL Server-Konfigurations-Manager speichert die Änderung. Dann müssen Sie den SQL Server-Dienst manuell neu starten. Dies ermöglicht die Auswahl einer für die Geschäftsanforderungen optimalen Neustartzeit. Wenn der SQL Server-Dienst neu gestartet wird, wird Always on aktiviert, und die ishadrenabled-Server Eigenschaft wird auf 1 festgelegt.
+Der SQL Server-Konfigurations-Manager speichert die Änderung. Dann müssen Sie den SQL Server-Dienst manuell neu starten. Auf diese Weise können Sie eine Neustartzeit auswählen, die für Ihre Geschäftsanforderungen am besten geeignet ist. Wenn der SQL Server-Dienst neu gestartet wird, wird Always on aktiviert, und die ishadrenabled-Server Eigenschaft wird auf 1 festgelegt.
 
 ![Aktivieren von AOA](media/ad-fs-always-on/enableAoAGroup.png)
 
@@ -213,44 +212,44 @@ Sichern Sie das AD FS-artefaktverzeichnis und die Konfigurations Datenbanken.
 
 ## <a name="create-new-availability-group"></a>Neue Verfügbarkeits Gruppe erstellen
 
-1.  Stellen Sie im Objekt-Explorer eine Verbindung mit der Serverinstanz her, die das primäre Replikat hostet.
+1.  Stellen Sie in Objekt-Explorer eine Verbindung mit der Serverinstanz her, die das primäre Replikat hostet
 2.  Erweitern Sie den Knoten Always on Hochverfügbarkeit und den Knoten Verfügbarkeits Gruppen.
 3.  Um den Assistenten für neue Verfügbarkeitsgruppen zu starten, wählen Sie den Befehl Assistent für neue Verfügbarkeitsgruppen aus.
 4.  Wenn Sie den Assistenten zum ersten Mal ausführen, wird eine Einführungsseite angezeigt. Damit diese Seite in Zukunft nicht mehr angezeigt wird, klicken Sie auf Diese Seite nicht mehr anzeigen. Nachdem Sie diese Seite gelesen haben, klicken Sie auf Weiter.
-5.  Geben Sie auf der Seite Optionen für die Verfügbarkeits Gruppe angeben den Namen der neuen Verfügbarkeits Gruppe in das Feld Name der Verfügbarkeits Gruppe ein. Dieser Name muss ein gültiger SQL Server Bezeichner sein, der im Cluster und in Ihrer Domäne als Ganzes eindeutig ist. Die maximale Länge eines Verfügbarkeitsgruppennamens beträgt 128 Zeichen. e
+5.  Geben Sie auf der Seite Optionen für die Verfügbarkeits Gruppe angeben den Namen der neuen Verfügbarkeits Gruppe in das Feld Name der Verfügbarkeits Gruppe ein. Dieser Name muss ein gültiger SQL Server Bezeichner sein, der im Cluster und in Ihrer Domäne als Ganzes eindeutig ist. Die maximale Länge für einen Verfügbarkeits Gruppennamen beträgt 128 Zeichen. e
 6.  Geben Sie als nächstes den Clustertyp an. Die möglichen Cluster Typen hängen von der SQL Server Version und dem Betriebssystem ab. Wählen Sie entweder wsfc, extern oder None aus. Weitere Informationen finden Sie unter [angeben der Name der Verfügbarkeits Gruppe](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/specify-availability-group-name-page?view=sql-server-ver15)
 
 ![Name der Gruppe "AOA" und Cluster](media/ad-fs-always-on/createAoAName.png)
 
-7.  Auf der Seite Datenbanken auswählen sind im Raster die Benutzerdatenbanken auf der verbundenen Serverinstanz aufgeführt, die Verfügbarkeitsdatenbanken werden können. Wählen Sie eine oder mehrere der aufgelisteten Datenbanken aus, um diese in der Verfügbarkeitsgruppe zu verwenden. Diese Datenbanken sind anfänglich die ursprünglichen primären Datenbanken.
-Für jede aufgelistete Datenbank zeigt die Spalte Größe die Datenbankgröße an (wenn bekannt). In der Spalte Status wird angegeben, ob eine bestimmte Datenbank die [Voraussetzungen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability?view=sql-server-ver15) für Verfügbarkeits Datenbanken erfüllt. Wenn die Voraussetzungen nicht erfüllt werden, gibt eine kurze Statusbeschreibung den Grund an, warum die Datenbank nicht geeignet ist, z. B. wenn sie nicht das vollständige Wiederherstellungsmodell verwendet. Klicken Sie auf die Statusbeschreibung, um weitere Informationen zu erhalten.
+7.  Auf der Seite Datenbanken auswählen sind im Raster die Benutzerdatenbanken auf der verbundenen Serverinstanz aufgeführt, die Verfügbarkeitsdatenbanken werden können. Wählen Sie mindestens eine der aufgelisteten Datenbanken aus, die an der neuen Verfügbarkeits Gruppe teilnehmen sollen. Diese Datenbanken sind anfänglich die ursprünglichen primären Datenbanken.
+Für jede aufgelistete Datenbank zeigt die Spalte Größe die Datenbankgröße an (wenn bekannt). In der Spalte Status wird angegeben, ob eine bestimmte Datenbank die [Voraussetzungen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability?view=sql-server-ver15) für Verfügbarkeits Datenbanken erfüllt. Die Voraussetzungen sind nicht erfüllt, eine kurze Statusbeschreibung gibt den Grund an, warum die Datenbank nicht geeignet ist. Dies ist beispielsweise der Fall, wenn das vollständige Wiederherstellungs Modell nicht verwendet wird. Klicken Sie auf die Statusbeschreibung, um weitere Informationen zu erhalten.
 Wenn Sie eine Datenbank so ändern, dass sie verwendet werden kann, klicken Sie auf Aktualisieren, um das Raster für die Datenbanken zu aktualisieren.
 Wenn die Datenbank einen Datenbank-Hauptschlüssel enthält, geben Sie das Kennwort für den Datenbank-Hauptschlüssel in die Spalte Kennwort ein.
 
 ![Datenbanken für AOA auswählen](media/ad-fs-always-on/createAoASelectDb.png)
 
-8. Geben Sie auf der Seite Replikate angeben mindestens ein Replikat für die neue Verfügbarkeits Gruppe an, und konfigurieren Sie es. Diese Seite enthält vier Registerkarten. In der folgenden Tabelle werden diese Registerkarten eingeführt. Weitere Informationen finden Sie auf der [Seite Replikate angeben (Assistent für neue Verfügbarkeits Gruppen: Assistent zum Hinzufügen von Replikaten)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/specify-replicas-page-new-availability-group-wizard-add-replica-wizard?view=sql-server-ver15) .
+8. Geben Sie auf der Seite Replikate angeben mindestens ein Replikat für die neue Verfügbarkeits Gruppe an, und konfigurieren Sie es. Diese Seite enthält vier Registerkarten. In der folgenden Tabelle werden diese Registerkarten vorgestellt. Weitere Informationen finden Sie auf der [Seite Replikate angeben (Assistent für neue Verfügbarkeits Gruppen: Assistent zum Hinzufügen von Replikaten)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/specify-replicas-page-new-availability-group-wizard-add-replica-wizard?view=sql-server-ver15) .
 
-| TAB      | Kurze Beschreibung       |
+| TAB      | Kurzbeschreibung       |
 | ------------------ |:-------------:|
 | Replikate     | Auf dieser Registerkarte können Sie jede Instanz von SQL Server angeben, die ein sekundäres Replikat hostet. Beachten Sie, dass die Serverinstanz, mit der Sie gerade verbunden sind, das primäre Replikat hosten muss. |
-| Endpunkte     | Auf dieser Registerkarte können Sie vorhandene Endpunkte für die Datenbankspiegelung überprüfen und automatisch einen Endpunkt erstellen, falls er auf einer Serverinstanz fehlt, deren Dienstkonten die Windows-Authentifizierung nutzen.|
-| Sicherungseinstellungen | Geben Sie mit dieser Registerkarte die Sicherungseinstellungen für die Verfügbarkeitsgruppe als Ganzes und die Sicherungsprioritäten für die einzelnen Verfügbarkeitsreplikate an.      |
-| Listener     | Verwenden Sie diese Registerkarte, um einen Verfügbarkeitsgruppenlistener zu erstellen. Standardmäßig erstellt der Assistent keinen Listener.      |
+| Endpunkte     | Verwenden Sie diese Registerkarte, um vorhandene Datenbankspiegelungs-Endpunkte zu überprüfen und auch, wenn dieser Endpunkt auf einer Serverinstanz fehlt, deren Dienst Konten die Windows-Authentifizierung verwenden, um den Endpunkt automatisch zu erstellen.|
+| Sicherungseinstellungen | Verwenden Sie diese Registerkarte, um die Sicherungs Einstellung für die Verfügbarkeits Gruppe als Ganzes und die Sicherungs Prioritäten für die einzelnen Verfügbarkeits Replikate anzugeben.      |
+| Listener     | Mithilfe dieser Registerkarte können Sie einen verfügbarkeitsgruppenlistener erstellen. Standardmäßig erstellt der Assistent keinen Listener.      |
 
 ![Replikat Details angeben](media/ad-fs-always-on/createAoAchooseReplica.png)
 
 9. Wählen Sie auf der Seite Anfängliche Datensynchronisierung auswählen aus, wie die neuen sekundären Datenbanken erstellt und mit der Verfügbarkeitsgruppe verknüpft werden sollen. Wählen Sie eine der folgenden Optionen aus:
 -   Automatisches Seeding
- - SQL Server erstellt die sekundären Replikate für jede Datenbank in der Gruppe automatisch. Automatisches Seeding erfordert, dass die Pfade für Daten- und Protokolldateien für jede SQL Server-Instanz der Gruppe identisch sind. Verfügbar auf SQL Server 2016 (13. x) und höher. Siehe [Automatisches Initialisieren von Always on Verfügbarkeits Gruppen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group?view=sql-server-ver15).
+ - SQL Server erstellt automatisch die sekundären Replikate für jede Datenbank in der Gruppe. Das automatische Seeding erfordert, dass die Daten-und Protokolldatei Pfade auf jeder SQL Server-Instanz, die Teil der Gruppe ist, identisch sind. Verfügbar auf SQL Server 2016 (13. x) und höher. Siehe [Automatisches Initialisieren von Always on Verfügbarkeits Gruppen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group?view=sql-server-ver15).
 - Vollständige Datenbank-und Protokoll Sicherung
  - Wählen Sie diese Option aus, wenn Ihre Umgebung die Anforderungen zum automatischen Starten der anfänglichen Datensynchronisierung erfüllt (Weitere Informationen finden Sie unter [Voraussetzungen, Einschränkungen und Empfehlungen weiter oben in diesem Thema)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-ver15#Prerequisites).
-Wenn Sie Vollständig auswählen, werden vom Assistenten nach der Erstellung der Verfügbarkeitsgruppe alle primären Datenbanken und ihre Transaktionsprotokolle auf einer Netzwerkfreigabe gesichert und die Sicherungen auf allen Serverinstanzen wiederhergestellt, die ein sekundäres Replikat hosten. Der Assistent verknüpft anschließend alle sekundären Datenbanken mit der Verfügbarkeitsgruppe.
-Legen Sie im Feld zum Angeben eines freigegebenen Netzwerkspeicherorts, auf den von allen Replikaten zugegriffen werden kann, eine Sicherungsfreigabe fest, für die alle Serverinstanzen, die Replikate hosten, Lese-/Schreibzugriff besitzen. Weitere Informationen finden Sie weiter oben in diesem Thema unter Voraussetzungen. Im Validierungsschritt führt der Assistent Tests durch, um sicherzustellen, dass die angegebene Netzwerkadresse gültig ist. Durch den Test wird eine Datenbank mit dem Namen „BackupLocDb_“ gefolgt von einer GUID auf dem primären Replikat erstellt, und es wird eine Sicherung an der angegebenen Netzwerkadresse durchgeführt. Anschließend wird diese auf dem sekundären Replikat wiederherstellt. Diese Datenbank kann mit dem dazugehörigen Sicherungsverlauf und der Sicherungsdatei gelöscht werden, falls der Assistent dies nicht getan hat.
+Wenn Sie Vollständig auswählen, werden vom Assistenten nach der Erstellung der Verfügbarkeitsgruppe alle primären Datenbanken und ihre Transaktionsprotokolle auf einer Netzwerkfreigabe gesichert und die Sicherungen auf allen Serverinstanzen wiederhergestellt, die ein sekundäres Replikat hosten. Anschließend wird jede sekundäre Datenbank mit der Verfügbarkeits Gruppe verknüpft.
+Legen Sie im Feld zum Angeben eines freigegebenen Netzwerkspeicherorts, auf den von allen Replikaten zugegriffen werden kann, eine Sicherungsfreigabe fest, für die alle Serverinstanzen, die Replikate hosten, Lese-/Schreibzugriff besitzen. Weitere Informationen finden Sie weiter oben in diesem Thema unter Voraussetzungen. Im Überprüfungs Schritt führt der Assistent einen Test aus, um sicherzustellen, dass der angegebene Netzwerkort gültig ist. der Test erstellt eine Datenbank auf dem primären Replikat mit dem Namen "BackupLocDb_" gefolgt von einer GUID und führt eine Sicherung am angegebenen Netzwerkort aus und stellt Sie dann auf den sekundären Replikaten wieder her. Es ist sicher, diese Datenbank zusammen mit dem Sicherungs Verlauf und der Sicherungsdatei zu löschen, falls Sie vom Assistenten nicht gelöscht werden konnte.
 - Nur verknüpfen
- - Wenn Sie sekundäre Datenbanken auf den Serverinstanzen, die die sekundären Replikate hosten, manuell vorbereitet haben, können Sie diese Option aktivieren. Der Assistent verknüpft die vorhandenen sekundären Datenbanken mit der Verfügbarkeitsgruppe.
+ - Wenn Sie sekundäre Datenbanken auf den Server Instanzen, die die sekundären Replikate hosten werden, manuell vorbereitet haben, können Sie diese Option auswählen. Der Assistent verknüpft die vorhandenen sekundären Datenbanken mit der Verfügbarkeits Gruppe.
 - Ursprüngliche Datensynchronisierung überspringen
- - Aktivieren Sie diese Option, wenn Sie eigene Datenbank- und Protokollsicherungen der primären Datenbanken verwenden möchten. Weitere Informationen finden Sie unter [Start Data Movement on a Always on secondary Database (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/start-data-movement-on-an-always-on-secondary-database-sql-server?view=sql-server-ver15).
+ - Wählen Sie diese Option aus, wenn Sie eigene Datenbank-und Protokoll Sicherungen der primären Datenbanken verwenden möchten. Weitere Informationen finden Sie unter [Start Data Movement on a Always on secondary Database (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/start-data-movement-on-an-always-on-secondary-database-sql-server?view=sql-server-ver15).
 
 ![Option "Datensynchronisierung auswählen"](media/ad-fs-always-on/createAoADataSync.png)
 
@@ -263,7 +262,7 @@ Legen Sie im Feld zum Angeben eines freigegebenen Netzwerkspeicherorts, auf den 
 > Wenn Sie mit der Auswahl zufrieden sind, können Sie optional auf Skript klicken, um ein Skript der Schritte zu erstellen, die der Assistent ausführt. Klicken Sie dann zum Erstellen und Konfigurieren der neuen Verfügbarkeitsgruppe auf Fertig stellen.
 
 11. Auf der Seite Status wird der Status der Schritte zum Erstellen der Verfügbarkeitsgruppe angezeigt (Konfigurieren von Endpunkten, Erstellen der Verfügbarkeitsgruppe und Hinzufügen des sekundären Replikats zu der Gruppe).
-12. Wenn diese Schritte abgeschlossen sind, wird auf der Seite Ergebnisse das Ergebnis der einzelnen Schritte angezeigt. Wenn all diese Schritte erfolgreich sind, ist die neue Verfügbarkeitsgruppe vollständig konfiguriert. Wenn einer der Schritte zu einem Fehler führt, müssen Sie die Konfiguration möglicherweise manuell abschließen oder einen Assistenten für den fehlerhaften Schritt ausführen. Klicken Sie in der Spalte Ergebnis auf den zugehörigen Fehlerlink, um weitere Informationen zur Ursache eines bestimmten Fehlers zu erhalten.
+12. Wenn diese Schritte abgeschlossen sind, wird auf der Seite Ergebnisse das Ergebnis der einzelnen Schritte angezeigt. Wenn alle diese Schritte erfolgreich ausgeführt wurden, wird die neue Verfügbarkeits Gruppe vollständig konfiguriert. Wenn einer der Schritte zu einem Fehler führt, müssen Sie die Konfiguration möglicherweise manuell ausführen oder einen Assistenten für den fehlerhaften Schritt verwenden. Klicken Sie in der Spalte Ergebnis auf den zugehörigen Fehlerlink, um weitere Informationen zur Ursache eines bestimmten Fehlers zu erhalten.
 Klicken Sie nach Abschluss des Assistenten auf Schließen, um den Assistenten zu beenden.
 
 ![Validierung ist beendet](media/ad-fs-always-on/createAoAValidation.png)
@@ -280,9 +279,9 @@ Klicken Sie nach Abschluss des Assistenten auf Schließen, um den Assistenten zu
 
 ## <a name="join-availability-replica-to-an-availability-group"></a>Verknüpfen eines Verfügbarkeits Replikats mit einer Verfügbarkeits Gruppe
 
-1.  Stellen Sie im Objekt-Explorer eine Verbindung mit der Serverinstanz her, die das sekundäre Replikat hostet, und klicken Sie auf den Servernamen, um die Serverstruktur zu erweitern.
+1.  Stellen Sie in Objekt-Explorer eine Verbindung mit der Serverinstanz her, auf der das sekundäre Replikat gehostet wird, und klicken Sie auf den Servernamen, um die Serverstruktur
 2.  Erweitern Sie den Knoten Always on Hochverfügbarkeit und den Knoten Verfügbarkeits Gruppen.
-3.  Wählen Sie die Verfügbarkeitsgruppe des sekundären Replikats aus, zu dem eine Verbindung besteht.
+3.  Wählen Sie die Verfügbarkeits Gruppe des sekundären Replikats aus, mit dem Sie verbunden sind.
 4.  Klicken Sie mit der rechten Maustaste auf das sekundäre Replikat, und klicken Sie auf Verfügbarkeitsgruppe beitreten.
 5.  Das Dialogfeld Replikat mit Verfügbarkeitsgruppe verknüpfen wird geöffnet.
 6.  Klicken Sie auf OK, um das sekundäre Replikat mit der Verfügbarkeitsgruppe zu verknüpfen.

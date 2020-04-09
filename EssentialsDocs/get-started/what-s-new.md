@@ -1,23 +1,19 @@
 ---
 title: Neues in Windows Server 2016 Essentials
 description: Beschreibt die Verwendung von Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: affff774-5fa6-4944-887a-9bfde05f6a3f
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1d5176a69136e9bad36e22472b8fadbd6d0e9e79
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 420d3b043959b8b1201aad7a5b3210fd9bd6a0da
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310306"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80817753"
 ---
 # <a name="whats-new-in-windows-server-2016-essentials"></a>Neues in Windows Server 2016 Essentials
 
@@ -27,7 +23,7 @@ Im folgenden finden Sie neue und erweiterte Features in Windows Server 2016 Esse
 
 ## <a name="integration-with-azure-site-recovery-services"></a>[Integration in Azure Site Recovery Services](azure-site-recovery-services-integration.md)
 
-Funktions **Weise: Wenn** bei einem geschützten virtuellen Computer ein Fehler auftritt oder wenn der Host Server, auf dem der geschützte virtuelle Computer ausgeführt wird, fehlschlägt, behält das Failover mit Azure Site Recovery Services die Geschäftskontinuität bei, bis der lokale virtuelle Computer oder der lokale Host Server repariert und verfügbar ist. 
+** --&reg;** , wenn ein virtueller Computer, der geschützt ist, fehlschlägt oder der Host Server, auf dem der geschützte virtuelle Computer ausgeführt wird, fehlschlägt, behält das Failover mit Azure Site Recovery Diensten die Geschäftskontinuität bei, bis der lokale virtuelle Computer oder der lokale Host Server repariert und verfügbar ist. 
 
 **Funktionsweise** : Azure Site Recovery Dienste, die in Microsoft Azure angeboten werden, ermöglichen die Echt Zeit Replikation ihrer virtuellen Computer in einem Sicherungs Tresor in Azure. Wenn Ihr Server oder Standort aufgrund eines Hardwarefehlers oder eines anderen Fehlers ausfällt, können Sie ein Failover mit Azure Site Recovery-Diensten ausführen, sodass das in Ihrem Sicherungs Tresor gespeicherte VM-Image als laufender virtueller Computer in Azure bereitgestellt wird. In Kombination mit einem virtuellen Azure-Netzwerk stellen Client-PCs, die zuvor mit dem lokalen Server verbunden waren, eine transparente Verbindung mit dem Server her, der in Azure ausgeführt wird.     
                                                                                                                                                                                                                                                                                                                
@@ -52,4 +48,4 @@ Einige größere kleine Unternehmen benötigen mehr Funktionalität und Kapazit�
 <a name="see-also"></a>Siehe auch
 --------
 
-[Erste Schritte in Windows Server Essentials](get-started.md)
+[Beginnen Sie mit der Verwendung von Windows Server Essentials](get-started.md) &copy;&reg;

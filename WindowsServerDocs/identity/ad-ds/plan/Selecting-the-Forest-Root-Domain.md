@@ -1,7 +1,6 @@
 ---
 ms.assetid: ef4ef4a9-8969-4ad0-bd17-b2bb24f36ef6
 title: Auswählen der Stammdomäne der Gesamtstruktur
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,16 +8,16 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 80d39a5910d06559b98211eaf55a4cd0c82442a1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3fddf5179e2944800d57568f0b8e52262c04cd43
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402508"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821903"
 ---
 # <a name="selecting-the-forest-root-domain"></a>Auswählen der Stammdomäne der Gesamtstruktur
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Die erste Domäne, die Sie in einer Active Directory Gesamtstruktur bereitstellen, wird als Gesamtstruktur-Stamm Domäne bezeichnet. Diese Domäne bleibt für den Lebenszyklus der AD DS Bereitstellung die Gesamtstruktur-Stamm Domäne.  
   
@@ -79,7 +78,7 @@ Wenn Sie eine regionale Domäne ausgewählt haben, die als Gesamtstruktur-Stamm 
   
 In der folgenden Tabelle sind die Regeln aufgeführt, mit denen ein Präfix für einen registrierten DNS-Namen ausgewählt wird.  
   
-|Regel|Erläuterung|  
+|Regel|Erklärung|  
 |--------|---------------|  
 |Wählen Sie ein Präfix aus, das wahrscheinlich nicht mehr veraltet ist.|Vermeiden Sie Namen wie z. b. eine Produktlinie oder ein Betriebssystem, die sich in der Zukunft ändern können. Es wird empfohlen, generische Namen wie Corp oder DS zu verwenden.|  
 |Wählen Sie ein Präfix aus, das nur Internet Standard Zeichen enthält.|A-z, a-z, 0-9 und (-), aber nicht vollständig numerisch.|  

@@ -1,7 +1,5 @@
 ---
-ms.assetid: ''
 title: Client Access Control Richtlinien in Active Directory-Verbunddienste (AD FS) 2,0
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +7,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4f5d2cfa8383bcf3c0813b272f8c4828473b8df9
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 6ae1f34343e8574ce776fcc5761c078b12bc9977
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948608"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814823"
 ---
 # <a name="client-access-control-policies-in-ad-fs-20"></a>Client Access Control Richtlinien in AD FS 2,0
 Mit den Client Zugriffsrichtlinien in Active Directory-Verbunddienste (AD FS) 2,0 können Sie Benutzern den Zugriff auf Ressourcen einschränken oder gewähren.  In diesem Dokument wird beschrieben, wie Sie Client Zugriffsrichtlinien in AD FS 2,0 aktivieren und die gängigsten Szenarien konfigurieren.
@@ -45,7 +43,7 @@ Erstellen Sie auf der Active Directory Anspruchs Anbieter-Vertrauensstellung ein
 5. Geben Sie auf der Seite Regel konfigurieren unter Anspruchs Regel Name den anzeigen Amen für diese Regel ein. Geben Sie unter Typ des eingehenden Anspruchs die folgende Anspruchstyp-URL ein, und wählen Sie dann alle Anspruchs Werte durchlaufen aus.</br>
         `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`</br>
 6. Um die Regel zu überprüfen, wählen Sie Sie in der Liste aus, klicken Sie auf Regel bearbeiten und dann auf Regel Sprache anzeigen. Die Anspruchs Regel Sprache sollte wie folgt aussehen: `c:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip"] => issue(claim = c);`
-7. Klicken Sie auf Fertigstellen.
+7. Klicken Sie auf Fertig stellen.
 8. Klicken Sie im Dialogfeld Anspruchs Regeln bearbeiten auf OK, um die Regeln zu speichern.
 9. Wiederholen Sie die Schritte 2 bis 6, um eine zusätzliche Anspruchs Regel für jeden der verbleibenden vier Anspruchs Typen zu erstellen, bis alle fünf Regeln erstellt wurden.
 
@@ -83,7 +81,7 @@ Dieses Client Zugriffsrichtlinien-Szenario ermöglicht den Zugriff von allen int
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");` 
-6. Klicken Sie auf Fertigstellen. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
+6. Klicken Sie auf Fertig stellen. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
 7. Um die Regel zu speichern, klicken Sie im Dialogfeld Anspruchs Regeln bearbeiten auf OK.
 
 >[!NOTE]
@@ -110,7 +108,7 @@ Im folgenden Beispiel wird der Zugriff auf alle Office 365-Anwendungen einschlie
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");`
-6. Klicken Sie auf Fertigstellen. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
+6. Klicken Sie auf Fertig stellen. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
 7. Um die Regel zu speichern, klicken Sie im Dialogfeld Anspruchs Regeln bearbeiten auf OK.
 
 >[!NOTE]
@@ -136,12 +134,12 @@ Der Regelsatz basiert auf der standardmäßigen Ausstellungs Autorisierungs Rege
     Value=~"customer-provided public ip address regex"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value == "/adfs/ls/"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");`
-6. Klicken Sie auf Fertigstellen. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
+6. Klicken Sie auf Fertig stellen. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
 7. Um die Regel zu speichern, klicken Sie im Dialogfeld Anspruchs Regeln bearbeiten auf OK.
 
 ### <a name="scenario-4-block-all-external-access-to-office-365-for-designated-active-directory-groups"></a>Szenario 4: Blockieren des gesamten externen Zugriffs auf Office 365 für bestimmte Active Directory Gruppen
 
-Im folgenden Beispiel wird der Zugriff von internen Clients basierend auf der IP-Adresse ermöglicht. Der Zugriff von Clients außerhalb des Unternehmensnetzwerks, die über eine externe Client-IP-Adresse verfügen, wird blockiert, mit Ausnahme der Einzelpersonen in einer angegebenen Active Directory Gruppe. der Regelsatz basiert auf der standardmäßigen Ausstellungs Autorisierungs Regel mit dem Titel zulassen des Zugriffs auf Alle Benutzer. Gehen Sie folgendermaßen vor, um der Microsoft Office 365 Identity Platform-Vertrauensstellung der vertrauenden Seite mithilfe des Anspruchs Regel-Assistenten eine Ausstellungs Autorisierungs Regel hinzuzufügen:
+Im folgenden Beispiel wird der Zugriff von internen Clients basierend auf der IP-Adresse ermöglicht. Der Zugriff von Clients außerhalb des Unternehmensnetzwerks, die über eine externe Client-IP-Adresse verfügen, wird blockiert, mit Ausnahme der Einzelpersonen in einer angegebenen Active Directory Gruppe. der Regelsatz basiert auf der standardmäßigen Ausstellungs Autorisierungs Regel mit dem Titel zulassen des Zugriffs für alle Benutzer. Gehen Sie folgendermaßen vor, um der Microsoft Office 365 Identity Platform-Vertrauensstellung der vertrauenden Seite mithilfe des Anspruchs Regel-Assistenten eine Ausstellungs Autorisierungs Regel hinzuzufügen:
 
 #### <a name="to-create-a-rule-to-block-all-external-access-to-office-365-for-designated-active-directory-groups"></a>So erstellen Sie eine Regel, um den gesamten externen Zugriff auf Office 365 für bestimmte Active Directory Gruppen zu blockieren
 
@@ -156,7 +154,7 @@ Im folgenden Beispiel wird der Zugriff von internen Clients basierend auf der IP
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");`
-6. Klicken Sie auf Fertigstellen. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
+6. Klicken Sie auf Fertig stellen. Vergewissern Sie sich, dass die neue Regel direkt unterhalb der Regel Zugriff auf alle Benutzer zulassen in der Liste Ausstellungs Autorisierungs Regeln angezeigt wird.
 7. Um die Regel zu speichern, klicken Sie im Dialogfeld Anspruchs Regeln bearbeiten auf OK.
 
 
@@ -187,7 +185,7 @@ Eine einzelne IP-Adresse: die IP-Adresse des Clients, der direkt mit Exchange On
 
 Clients, die über ein VPN oder Microsoft DirectAccess (da) mit dem Unternehmensnetzwerk verbunden sind, werden je nach Konfiguration von VPN oder da möglicherweise als interne Unternehmens Clients oder als externe Clients angezeigt.
 
-Mindestens eine IP-Adresse: Wenn Exchange Online die IP-Adresse des Clients, der die Verbindung herstellt, nicht ermitteln kann, wird der Wert basierend auf dem Wert des x-weitergeleiteten für-Headers festgelegt, einem nicht standardmäßigen Header, der in http-basierten Anforderungen eingeschlossen werden kann und von vielen unterstützt wird. Clients, Lasten Ausgleichs Module und Proxys auf dem Markt.
+Mindestens eine IP-Adresse: Wenn Exchange Online die IP-Adresse des Clients, der die Verbindung herstellt, nicht ermitteln kann, wird der Wert auf Grundlage des Werts des x-weitergeleiteten für-Headers festgelegt, ein nicht standardmäßiger Header, der in http-basierten Anforderungen eingeschlossen werden kann und von vielen Clients, Lasten Ausgleichs Modulen und Proxys auf dem Markt unterstützt wird.
 
 >[!Note]
 >Mehrere IP-Adressen, die die Client-IP-Adresse und die Adresse der einzelnen Proxys angeben, die die Anforderung übermittelt haben, werden durch Kommas getrennt.
@@ -271,6 +269,6 @@ AD FS Ablauf Verfolgungs Ereignisse werden im Debugprotokoll AD FS 2,0 protokoll
 
 Nachdem Sie die Ablauf Verfolgung aktiviert haben, verwenden Sie die folgende Befehlszeilen Syntax, um den ausführlichen Protokolliergrad zu aktivieren: wevtutil. exe SL "AD FS 2,0 Tracing/Debug"/l: 5  
 
-## <a name="related"></a>Verwandte Themen
+## <a name="related"></a>Verknüpft
 Weitere Informationen zu den neuen Anspruchs Typen finden Sie unter [AD FS Anspruchs Typen](AD-FS-Claims-Types.md).
 

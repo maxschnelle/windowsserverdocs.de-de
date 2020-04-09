@@ -1,6 +1,5 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Schritte zum Wiederherstellen der Gesamtstruktur'
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: 07a043c4361f8eaae30b1dea665c604c0df42333
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 537543bedd68bff002054f637d96240a71f75793
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390292"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823403"
 ---
 # <a name="ad-forest-recovery---steps-for-restoring-the-forest"></a>AD-Gesamtstruktur Wiederherstellung: Schritte zum Wiederherstellen der Gesamtstruktur
 
@@ -30,7 +29,7 @@ In der folgenden Liste sind die Wiederherstellungsschritte auf hoher Ebene zusam
   
 2. [Entscheiden, wie die Gesamtstruktur wieder hergestellt werden soll](AD-Forest-Recovery-Determine-how-to-Recover.md)  
 
-   Nachdem Sie festgestellt haben, dass die Wiederherstellung der Gesamtstruktur erforderlich ist, führen Sie die vorbereitenden Schritte für die Vorbereitung aus: bestimmen Sie die aktuelle Gesamtstruktur, ermitteln Sie die Funktionen, die von den einzelnen Domänen Controllern ausgeführt werden, und entscheiden Sie, welcher DC für jede Domäne wieder hergestellt werden soll werden offline geschaltet.  
+   Nachdem Sie festgestellt haben, dass die Wiederherstellung der Gesamtstruktur erforderlich ist, führen Sie die vorbereitenden Schritte für die Vorbereitung aus: bestimmen Sie die aktuelle Gesamtstruktur, ermitteln Sie die Funktionen, die von den einzelnen Domänen Controllern ausgeführt werden, und legen Sie fest, welcher Domänen Controller für jede Domäne wieder hergestellt werden soll.  
 
 3. [Anfängliche Wiederherstellung ausführen](AD-Forest-Recovery-Perform-initial-recovery.md)  
 

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 65ed5956-6140-4e06-8d99-8771553637d1
 title: Tieferstufen von Domänencontrollern und Domänen (Stufe 200)
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e3f320b67196a2400ebedbaeaf0a5b59969400e8
-ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
+ms.openlocfilehash: b8c5502f50b065e8c75d0167328868ac129dfad1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72588092"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825429"
 ---
 # <a name="demoting-domain-controllers-and-domains"></a>Herabstufen von Domänen Controllern und Domänen
 
@@ -36,15 +35,15 @@ Dieser Artikel beschreibt die Deinstallation von AD DS mit Server-Manager oder W
 |||  
 |-|-|  
 |**Addsdeployment-und Server Manager-Cmdlets**|Argumente (erforderliche Argumente sind **fett** markiert. Argumente in *Kursivschrift* können mithilfe von Windows PowerShell oder dem AD DS-Konfigurations-Assistenten angegeben werden.)|  
-|Uninstall-ADDSDomainController|-SkipPreChecks<br /><br />*-LocalAdministratorPassword*<br /><br />-Confirm<br /><br />***-Credential***<br /><br />-DemoteOperationMasterRole<br /><br />*-Dnsdelegationremovalcredential*<br /><br />-Force<br /><br />*-Forceremoval*<br /><br />*-Ignorelastdcindomainmismatch*<br /><br />*-Ignorelastdnsserverforzone*<br /><br />*-Lastdomaincontrollerindomain*<br /><br />-Norebootoncompletion<br /><br />*-RemoveApplicationPartitions*<br /><br />*-Removednsdelegation*<br /><br />-RetainDCMetadata|  
-|Uninstall-WindowsFeature/Remove-WindowsFeature|***-Name***<br /><br />***-Includemanagementtools***<br /><br />*-Neu starten*<br /><br />-Remove<br /><br />-Force<br /><br />-ComputerName<br /><br />-Credential<br /><br />-LogPath<br /><br />-Vhd|  
+|Uninstall-ADDSDomainController|-SkipPreChecks<p>*-LocalAdministratorPassword*<p>-Confirm<p>***-Credential***<p>-DemoteOperationMasterRole<p>*-Dnsdelegationremovalcredential*<p>-Force<p>*-Forceremoval*<p>*-Ignorelastdcindomainmismatch*<p>*-Ignorelastdnsserverforzone*<p>*-Lastdomaincontrollerindomain*<p>-Norebootoncompletion<p>*-RemoveApplicationPartitions*<p>*-Removednsdelegation*<p>-RetainDCMetadata|  
+|Uninstall-WindowsFeature/Remove-WindowsFeature|***-Name***<p>***-Includemanagementtools***<p>*-Neu starten*<p>-Remove<p>-Force<p>-ComputerName<p>-Credential<p>-LogPath<p>-Vhd|  
   
 > [!NOTE]  
 > Das **-credential**-Argument wird nur benötigt, wenn Sie nicht bereits als Mitglied der Gruppe Unternehmens-Admins (Herabstufung des letzten DC in einer Domäne) oder der Gruppe Domänen-Admins (Herabstufung eines Replikat-DC) angemeldet sind. Das **-includemanagementtools**-Argument wird nur benötigt, wenn Sie alle AD DS-Verwaltungshilfsprogramme entfernen möchten.  
   
 ## <a name="demote"></a>Tiefer stufen  
   
-### <a name="remove-roles-and-features"></a>Entfernen von Rollen und Features
+### <a name="remove-roles-and-features"></a>Rollen und Features entfernen
 
 Server-Manager bietet zwei Benutzeroberflächen zum Entfernen der Active Directory-Domänendienste-Rolle:  
   
@@ -170,7 +169,7 @@ Beispielsweise können Sie manuell mithilfe des Cmdlets **Read-Host** nach einem
 > [!WARNING]
 > Da mit den beiden vorherigen Optionen das Kennwort nicht bestätigt wird, gehen Sie äußerst vorsichtig vor: das Kennwort ist nicht sichtbar.
 
-Sie können eine sichere Zeichenfolge auch als konvertierte Klartextvariable angeben, obwohl davon dringend abgeraten wird. Zum Beispiel:
+Sie können eine sichere Zeichenfolge auch als konvertierte Klartextvariable angeben, obwohl davon dringend abgeraten wird. Beispiel:
 
 ```
 -localadministratorpassword (convertto-securestring "Password1" -asplaintext -force)
@@ -193,7 +192,7 @@ Uninstall-ADDSDomainController
 
 Verwenden Sie das optionale **Whatif**-Argument für das **Uninstall-ADDSDomainController**-Cmdlet, um die Konfigurationsinformationen zu überprüfen. Auf diese Weise können Sie die expliziten und impliziten Werte der Argumente eines Cmdlets anzeigen.
 
-Zum Beispiel:
+Beispiel:
 
 ![PowerShell Uninstall-addsdomaincontroller-Beispiel](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstall.png)
 

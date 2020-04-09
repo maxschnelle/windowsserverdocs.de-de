@@ -1,6 +1,5 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Bestimmen der Wiederherstellung der Gesamtstruktur'
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: d604efded5b6a2ff3911a92f52817498f43c9933
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fea55dc5551198f7bc06afb2ec38077398b9cf77
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369168"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824053"
 ---
 # <a name="determine-how-to-recover-the-forest"></a>Festlegen der Wiederherstellung der Gesamtstruktur
 
@@ -26,7 +25,7 @@ Zum Wiederherstellen einer gesamten Active Directory Gesamtstruktur wird entwede
 - Alle Updates, die seit der letzten vertrauenswürdigen Sicherung an vorhandenen Objekten vorgenommen wurden
 - Alle Änderungen, die seit der letzten vertrauenswürdigen Sicherung an der Konfigurations Partition oder der Schema Partition in AD DS vorgenommen wurden (z. b. Schema Änderungen).
 
-Für jede Domäne in der Gesamtstruktur muss das Kennwort eines Domänen Administrator Kontos bekannt sein. Vorzugsweise ist dies das Kennwort des integrierten Administrator Kontos. Außerdem müssen Sie das DSRM-Kennwort kennen, um eine Systemstatus Wiederherstellung eines Domänen Controllers auszuführen. Im Allgemeinen empfiehlt es sich, das Administrator Konto und den DSRM-Kenn Wort Verlauf an einem sicheren Ort zu archivieren, solange die Sicherungen gültig sind, d. h. innerhalb der Tombstone-Lebensdauer oder innerhalb der Lebensdauer des gelöschten Objekts, wenn Active Directory wieder verwendet wird. Bin ist aktiviert. Sie können das DSRM-Kennwort auch mit einem Domänen Benutzerkonto synchronisieren, um es einfacher zu merken. Weitere Informationen finden Sie im KB-Artikel [961320](https://support.microsoft.com/kb/961320). Die Synchronisierung des DSRM-Kontos muss im Vorfeld der Gesamtstruktur Wiederherstellung im Rahmen der Vorbereitung erfolgen.
+Für jede Domäne in der Gesamtstruktur muss das Kennwort eines Domänen Administrator Kontos bekannt sein. Vorzugsweise ist dies das Kennwort des integrierten Administrator Kontos. Außerdem müssen Sie das DSRM-Kennwort kennen, um eine Systemstatus Wiederherstellung eines Domänen Controllers auszuführen. Im Allgemeinen empfiehlt es sich, das Administrator Konto und den DSRM-Kenn Wort Verlauf an einem sicheren Ort zu archivieren, solange die Sicherungen gültig sind, d. h. innerhalb der Tombstone-Lebensdauer oder innerhalb der Lebensdauer des gelöschten Objekts, wenn Active Directory Papierkorb aktiviert ist. Sie können das DSRM-Kennwort auch mit einem Domänen Benutzerkonto synchronisieren, um es einfacher zu merken. Weitere Informationen finden Sie im KB-Artikel [961320](https://support.microsoft.com/kb/961320). Die Synchronisierung des DSRM-Kontos muss im Vorfeld der Gesamtstruktur Wiederherstellung im Rahmen der Vorbereitung erfolgen.
 
 > [!NOTE]
 > Das Administrator Konto ist standardmäßig Mitglied der integrierten Gruppe "Administratoren", ebenso wie die Gruppen "Domänen-Admins" und "Organisations-Admins". Diese Gruppe verfügt über vollständige Kontrolle über alle DCS in der Domäne.
@@ -53,7 +52,7 @@ Wenn der Zeitpunkt des Auftretens des Fehlers unbekannt ist, untersuchen Sie wei
 
 Wenn Active Directory Papierkorb aktiviert ist, ist die Sicherungs Lebensdauer gleich dem **deletedObjectLifetime** -Wert oder dem **tombstoneLifetime** -Wert, je nachdem, welcher Wert kleiner ist. Weitere Informationen finden Sie unter [schrittweise Anleitung zum Active Directory Papierkorb](https://go.microsoft.com/fwlink/?LinkId=178657) (https://go.microsoft.com/fwlink/?LinkId=178657).
 
-Als Alternative können Sie auch das Active Directory Database-Bereitstellungs Tool (Dsamain. exe) und ein Lightweight Directory Access Protocol (LDAP)-Tool (z. b. "Ldp. exe" oder Active Directory Benutzer und Computer) verwenden, um zu ermitteln, welche Sicherung den letzten sicheren Zustand des Ökosysteme. Das Active Directory-Daten Bank Bereitstellungs Tool, das in Windows Server 2008 und späteren Windows Server-Betriebssystemen enthalten ist, macht Active Directory Daten verfügbar, die in Sicherungen oder Momentaufnahmen als LDAP-Server gespeichert sind. Anschließend können Sie ein LDAP-Tool verwenden, um die Daten zu durchsuchen. Dieser Ansatz hat den Vorteil, dass Sie keinen Domänen Controller im Verzeichnisdienst-Wiederherstellungs Modus (Directory Services Restore Mode, DSRM) neu starten müssen, um den Inhalt der Sicherung AD DS zu untersuchen.
+Als Alternative können Sie auch das Active Directory Database-Bereitstellungs Tool (Dsamain. exe) und ein Lightweight Directory Access Protocol (LDAP)-Tool (z. b. LDP. exe) oder Active Directory Benutzer und Computer verwenden, um zu ermitteln, welche Sicherung den letzten sicheren Zustand der Gesamtstruktur aufweist. Das Active Directory-Daten Bank Bereitstellungs Tool, das in Windows Server 2008 und späteren Windows Server-Betriebssystemen enthalten ist, macht Active Directory Daten verfügbar, die in Sicherungen oder Momentaufnahmen als LDAP-Server gespeichert sind. Anschließend können Sie ein LDAP-Tool verwenden, um die Daten zu durchsuchen. Dieser Ansatz hat den Vorteil, dass Sie keinen Domänen Controller im Verzeichnisdienst-Wiederherstellungs Modus (Directory Services Restore Mode, DSRM) neu starten müssen, um den Inhalt der Sicherung AD DS zu untersuchen.
 
 Weitere Informationen zur Verwendung des Active Directory-Daten Bank Bereitstellungs Tools finden Sie in der [schrittweisen Anleitung für die Active Directory-Daten Bank](https://technet.microsoft.com/library/cc753609\(WS.10\).aspx)Bereitstellung.
 
@@ -68,7 +67,7 @@ Der einfache Wiederherstellungs Vorgang ist ein wichtiger Faktor bei der Entsche
 
 Wählen Sie einen DC aus, der am besten die folgenden Kriterien erfüllt:
 
-- Ein Domänen Controller, der beschreibbar ist. Dies ist obligatorisch.
+- Ein Domänen Controller, der beschreibbar ist. Diese ist obligatorisch.
 
 - Ein Domänen Controller, auf dem Windows Server 2012 als virtueller Computer auf einem Hypervisor ausgeführt wird, der die VM-generationid unterstützt. Dieser Domänen Controller kann als Quelle für das Klonen verwendet werden.
 - Ein Domänen Controller, auf den zugegriffen werden kann, entweder physisch oder in einem virtuellen Netzwerk und vorzugsweise in einem Rechenzentrum. Auf diese Weise können Sie Sie während der Wiederherstellung der Gesamtstruktur problemlos vom Netzwerk isolieren.
@@ -90,26 +89,26 @@ Bestimmen Sie die aktuelle Gesamtstruktur Struktur, indem Sie alle Domänen in d
 
 Bereiten Sie eine Tabelle vor, die die Funktionen der einzelnen Domänen Controller in der Domäne anzeigt, wie im folgenden Beispiel gezeigt. Auf diese Weise können Sie nach der Wiederherstellung auf die Konfiguration der Gesamtstruktur vor dem Ausfall zurückgreifen.
 
-|DC-Name|Betriebssystem|FSMO|GC|RODC|Sicherung|DNS|Server Core|Virtuelle Maschine|VM-GenID|  
+|DC-Name|Betriebssystem|FSMO|GC|RODC|Backup|DNS|Server Core|VM|VM-GenID|  
 |-------------|----------------------|----------|--------|----------|------------|---------|-----------------|--------|---------------|  
-|DC_1|Windows Server 2012|Schema Master, Domänen Namen Master|Ja|nein|Ja|nein|nein|Ja|Ja|  
-|DC_2|Windows Server 2012|Keine|Ja|nein|Ja|Ja|nein|Ja|Ja|  
-|DC_3|Windows Server 2012|Infrastrukturmaster|nein|nein|nein|Ja|Ja|Ja|Ja|  
-|DC_4|Windows Server 2012|PDC-Emulator, RID-Master|Ja|nein|nein|nein|nein|Ja|nein|  
-|DC_5|Windows Server 2012|Keine|nein|nein|Ja|Ja|nein|Ja|Ja|  
-|RODC_1|Windows Server 2008 R2|Keine|Ja|Ja|Ja|Ja|Ja|Ja|nein|  
-|RODC_2|WindowsServer 2008|Keine|Ja|Ja|nein|Ja|Ja|Ja|nein|  
+|DC_1|Windows Server 2012|Schema Master, Domänen Namen Master|Ja|Nein|Ja|Nein|Nein|Ja|Ja|  
+|DC_2|Windows Server 2012|Keine|Ja|Nein|Ja|Ja|Nein|Ja|Ja|  
+|DC_3|Windows Server 2012|Infrastrukturmaster|Nein|Nein|Nein|Ja|Ja|Ja|Ja|  
+|DC_4|Windows Server 2012|PDC-Emulator, RID-Master|Ja|Nein|Nein|Nein|Nein|Ja|Nein|  
+|DC_5|Windows Server 2012|Keine|Nein|Nein|Ja|Ja|Nein|Ja|Ja|  
+|RODC_1|Windows Server 2008 R2|Keine|Ja|Ja|Ja|Ja|Ja|Ja|Nein|  
+|RODC_2|WindowsServer 2008|Keine|Ja|Ja|Nein|Ja|Ja|Ja|Nein|  
 
 Identifizieren Sie für jede Domäne in der Gesamtstruktur einen einzelnen beschreibbaren DC, der über eine vertrauenswürdige Sicherung der Active Directory-Datenbank für diese Domäne verfügt. Gehen Sie vorsichtig vor, wenn Sie eine Sicherung zum Wiederherstellen eines Domänen Controllers auswählen. Wenn der Tag und die Ursache des Fehlers ungefähr bekannt sind, empfiehlt es sich, eine Sicherung zu verwenden, die ein paar Tage vor diesem Datum erstellt wurde.
   
 In diesem Beispiel gibt es vier Sicherungs Kandidaten: DC_1, DC_2, DC_4 und DC_5. Diese Sicherungs Kandidaten stellen nur eine wieder her. Der empfohlene Domänen Controller wird aus den folgenden Gründen DC_5:  
 
-- Sie erfüllt die Anforderungen für die Verwendung als Quelle für das Klonen virtualisierter Domänen Controller, d. h., Sie führt Windows Server 2012 als virtuellen Domänen Controller auf einem Hypervisor aus, der "VM-generationid" unterstützt, führt Software aus, die geklont werden darf (oder die entfernt werden kann, wenn Sie nicht geklont werden kann). d). Nach der Wiederherstellung wird die PDC-Emulatorrolle für diesen Server übernommen und kann der Gruppe klonbare Domänen Controller für die Domäne hinzugefügt werden.  
+- Sie erfüllt die Anforderungen für die Verwendung als Quelle für das Klonen virtualisierter Domänen Controller, d. h., Sie führt Windows Server 2012 als virtuellen Domänen Controller auf einem Hypervisor aus, der "VM-generationid" unterstützt, führt Software aus, die geklont werden darf (oder die entfernt werden kann, wenn Sie nicht geklont werden kann). Nach der Wiederherstellung wird die PDC-Emulatorrolle für diesen Server übernommen und kann der Gruppe klonbare Domänen Controller für die Domäne hinzugefügt werden.  
 - Sie führt eine vollständige Installation von Windows Server 2012 aus. Ein Domänen Controller, auf dem eine Server Core-Installation ausgeführt wird, kann als Ziel für die Wiederherstellung weniger praktisch sein  
 - Dabei handelt es sich um einen DNS-Server. Daher muss DNS nicht neu installiert werden.  
 
 > [!NOTE]
-> Da DC_5 kein globaler Katalogserver ist, hat er auch den Vorteil, dass der globale Katalog nach der Wiederherstellung nicht entfernt werden muss. Ob der DC auch ein globaler Katalogserver ist, ist jedoch kein entscheidender Faktor, da ab Windows Server 2012 alle DCS standardmäßig als globale Katalogserver fungieren und der globale Katalog nach der Wiederherstellung als Teil der Gesamtstruktur empfohlen wird. Wiederherstellungsprozess in jedem Fall.  
+> Da DC_5 kein globaler Katalogserver ist, hat er auch den Vorteil, dass der globale Katalog nach der Wiederherstellung nicht entfernt werden muss. Ob der DC auch ein globaler Katalogserver ist, ist jedoch kein entscheidender Faktor, da ab Windows Server 2012 alle DCS standardmäßig globale Katalogserver sind. das Entfernen und Hinzufügen des globalen Katalogs nach der Wiederherstellung wird in jedem Fall als Teil der Gesamtstruktur Wiederherstellung empfohlen.  
 
 ## <a name="recover-the-forest-in-isolation"></a>Wiederherstellen der Gesamtstruktur isoliert
 
@@ -125,7 +124,7 @@ Wenn Sie virtualisierte DCS ausführen, können Sie Sie in ein virtuelles Netzwe
 
 Wenn Sie DCS auf physischer Hardware ausführen, trennen Sie das Netzwerkkabel des ersten DC, den Sie wiederherstellen möchten, in der Stamm Domäne der Gesamtstruktur. Trennen Sie nach Möglichkeit auch die Netzwerkkabel aller anderen DCS. Dadurch wird verhindert, dass DCS replizieren, wenn Sie versehentlich während des Wiederherstellungsprozesses der Gesamtstruktur gestartet werden.  
 
-In einer großen Gesamtstruktur, die über mehrere Standorte verteilt ist, kann es schwierig sein, sicherzustellen, dass alle beschreibbaren DCS heruntergefahren werden. Aus diesem Grund sind die Wiederherstellungsschritte – z. b. das Zurücksetzen des Computer Kontos und des krbtgt-Kontos, zusätzlich zur Metadatenbereinigung – so konzipiert, dass sichergestellt ist, dass die wiederhergestellten beschreibbaren DCS nicht mit gefährlichen Schreib baren DCS repliziert werden (Falls einige noch online sind). Gesamtstruktur).  
+In einer großen Gesamtstruktur, die über mehrere Standorte verteilt ist, kann es schwierig sein, sicherzustellen, dass alle beschreibbaren DCS heruntergefahren werden. Aus diesem Grund sind die Wiederherstellungsschritte – beispielsweise das Zurücksetzen des Computer Kontos und des krbtgt-Kontos, zusätzlich zur Metadatenbereinigung – so konzipiert, dass sichergestellt wird, dass die wiederhergestellten Schreib baren DCS nicht mit gefährlichen beschreibbaren DCS repliziert werden (Falls einige in der Gesamtstruktur noch online sind).  
   
 Allerdings können Sie nur, wenn Sie schreibgeschützte DCS offline nehmen, sicherstellen, dass die Replikation nicht erfolgt. Daher sollten Sie nach Möglichkeit eine Remote Verwaltungs Technologie bereitstellen, mit der Sie die beschreibbaren DCS während der Wiederherstellung der Gesamtstruktur Herunterfahren und physisch isolieren können.  
   

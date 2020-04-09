@@ -1,6 +1,5 @@
 ---
 title: 'AD-Gesamtstruktur Wiederherstellung: Ausführen einer vollständigen Server Wiederherstellung'
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 1a1182a6-4462-4a13-806e-0e642a0d5db2
 ms.technology: identity-adds
-ms.openlocfilehash: 1ade1f2e316387fbe84209c1bc7a986fff6f2a71
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bf321ae769aa6f0da1cebce7700ea429161a0956
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390538"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824013"
 ---
 # <a name="ad-forest-recovery---performing-a-full-server-recovery"></a>AD-Gesamtstruktur Wiederherstellung: Ausführen einer vollständigen Server Wiederherstellung 
 
@@ -120,7 +119,7 @@ Wenn Sie einen Netzwerkadapter von der Eingabeaufforderung aus für die Wiederhe
    set address "Name of Network Adapter" static IPv4 Address SubnetMask IPv4 Gateway Address 1  
    ```  
 
-   Zum Beispiel:  
+   Beispiel:  
   
    ```  
    set address "Local Area Connection" static 192.168.1.2 255.0.0.0 192.168.1.1 1  

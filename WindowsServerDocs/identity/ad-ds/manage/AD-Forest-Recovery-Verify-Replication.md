@@ -1,6 +1,5 @@
 ---
 title: Wiederherstellung der AD-Gesamtstruktur-Replikation
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 302e522a-fb40-43bc-bc63-83dcc87ebde5
 ms.technology: identity-adds
-ms.openlocfilehash: f6bee5164849d6643c1744ce121b9ce91b5e7f7f
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: af0946674d9185651c7b22a822dcc3a2dd5a1c5d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949041"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823393"
 ---
 # <a name="resources-to-verify-replication-is-working"></a>Ressourcen zum Überprüfen, ob die Replikation funktioniert 
 
@@ -27,7 +26,7 @@ Nachdem Sie alle Domänen Controller wieder hergestellt oder neu installiert hab
 
 Überprüfen Sie die DFS-Replikation Ereignisanzeige für Ereignis-ID 4602 (oder Datei Replikations Dienst Ereignis-ID 13516), die anzeigt, dass SYSVOL initialisiert wurde.  
 
-Wenn der erste wiederhergestellte Domänen Controller die Ereignis-ID 4614 ("der Domänen Controller wartet auf die anfängliche Replikation) protokolliert. Der replizierte Ordner verbleibt im Status der erst Synchronisierung, bis er mit seinem DFS-Replikation Partner repliziert wurde, und die Ereignis-ID 4602 wird nicht angezeigt, und Sie müssen die folgenden manuellen Schritte ausführen, um SYSVOL wiederherzustellen, wenn es von DFSR  
+Wenn der erste wiederhergestellte Domänen Controller die Ereignis-ID 4614 ("der Domänen Controller wartet auf die anfängliche Replikation) protokolliert. Der replizierte Ordner verbleibt so lange im Status der erst Synchronisierung, bis er mit dem Partner ") im DFS-Replikation Protokoll repliziert wurde. Anschließend wird die Ereignis-ID 4602 nicht angezeigt, und Sie müssen die folgenden manuellen Schritte ausführen, um SYSVOL wiederherzustellen, wenn es von DFSR repliziert wird:  
 
 1. Wenn das DFSR-Ereignis 4612 auf dem ersten wiederhergestellten Domänen Controller angezeigt wird, führen Sie eine manuelle autorisierende Wiederherstellung durch, wie in [2218556: Erzwingen einer autorisierenden und nicht autoritativen Synchronisierung für DFSR-repliziertes SYSVOL (wie "D4/D2" für FRS)](https://support.microsoft.com/kb/2218556) (https://support.microsoft.com/kb/2218556).  
 2. Legen Sie das **sysvolready-Flag** manuell auf 1 fest, wie unter [947022 die Netlogon-Freigabe ist nach der Installation von Active Directory Domain Services auf einem neuen vollständigen oder schreibgeschützten Windows Server 2008-basierten Domänen Controller nicht vorhanden](https://support.microsoft.com/kb/947022).  

@@ -5,15 +5,14 @@ manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
 ms.topic: article
-ms.assetid: ''
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: 11af69d1c6f32205b87ad4605edebacb59b0b710
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 913a596a46720718a165295345cb02e3e2baa1de
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369707"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827563"
 ---
 # <a name="health-service-faults"></a>Integritätsdienst Fehler
 > Gilt für: Windows Server 2019, Windows Server 2016
@@ -24,7 +23,7 @@ Der Integritätsdienst überwacht ständig ihren direkte Speicherplätze Cluster
 
 Jeder Fehler enthält fünf wichtige Felder:  
 
--   Nach Schweregrad
+-   Schweregrad
 -   Beschreibung des Problems
 -   Empfohlene nächste Schritte zum Beheben des Problems
 -   Identifizierende Informationen zur fehlerbehafteten Entität
@@ -287,7 +286,7 @@ In einigen Fällen können jedoch Fehler von der Integritätsdienst (z. b. nach 
 
 Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Objekts. Überprüfen Sie für das vollständige Schema die Klasse **MSFT\_storagediagnoseresult** in *storagewmi. MOF*.
 
-| **Eigenschaft**              | **Beispiel**                                                     |
+| **Property**              | **Beispiel**                                                     |
 |---------------------------|-----------------------------------------------------------------|
 | Faultid                   | {12345-12345-12345-12345-12345}                                 |
 | FaultType                 | Microsoft. Health. faultType. Volume. Capacity                      |
@@ -313,7 +312,7 @@ Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Ereignisses. Ü
 
 Beachten Sie den **ChangeType**, der angibt, ob ein Fehler erstellt, entfernt oder aktualisiert wird, und die **faultid**. Ein Ereignis enthält auch alle Eigenschaften des betroffenen Fehlers.
 
-| **Eigenschaft**              | **Beispiel**                                                     |
+| **Property**              | **Beispiel**                                                     |
 |---------------------------|-----------------------------------------------------------------|
 | ChangeType                | 0                                                               |
 | Faultid                   | {12345-12345-12345-12345-12345}                                 |
@@ -521,6 +520,6 @@ In Windows Server 2016 stellt die Integritätsdienst die folgende Fehlerabdeckun
 >[!NOTE]
 > Die Integrität von Speichergehäusekomponenten wie Lüfter, Netzteile und Sensoren wird von SES (SCSI Enclosure Services) abgeleitet. Wenn Ihr Anbieter diese Informationen nicht bereitstellt, kann der Integritätsdienst sie nicht anzeigen.  
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 - [Integritätsdienst in Windows Server 2016](health-service-overview.md)

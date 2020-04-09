@@ -1,6 +1,5 @@
 ---
 title: AD-Gesamtstruktur Wiederherstellung-nicht autoritative Wiederherstellung
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: e4ce1d18-d346-492a-8bca-f85513aa3ac1
 ms.technology: identity-adds
-ms.openlocfilehash: d7792cd739931d758125c8946606beb043ce19dd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4fe4905bba944c86d168eaa46ae699ad25ba0194
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369091"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823953"
 ---
 # <a name="performing-a-nonauthoritative-restore-of-active-directory-domain-services"></a>Ausführen einer nicht autoritativen Wiederherstellung von Active Directory Domain Services 
 
@@ -24,7 +23,7 @@ Führen Sie das folgende Verfahren aus, um eine nicht autoritative Wiederherstel
   
 In den folgenden Verfahren wird Wbadmin. exe verwendet, um eine nicht autoritative Wiederherstellung von Active Directory oder Active Directory Domain Services (AD DS) auszuführen. Wenn Sie eine andere Sicherungs Lösung verwenden oder wenn Sie beabsichtigen, die autoritative Wiederherstellung von SYSVOL später im Wiederherstellungsprozess der Gesamtstruktur abzuschließen, können Sie eine autoritative Wiederherstellung von SYSVOL mithilfe der folgenden alternativen Methoden ausführen:  
   
-- Wenn Sie den Datei Replikations Dienst (File Replication Service, FRS) zum Replizieren von SYSVOL verwenden, befolgen Sie die Schritte im [Artikel 290762](https://go.microsoft.com/fwlink/?LinkId=148443) in der Microsoft Knowledge Base. verwenden Sie dazu den **BurFlags** -Registrierungsschlüssel, um FRS-Replikat 315457 [Gruppen erneut zu initialisieren 315457](https://support.microsoft.com/kb/315457)zum erneuten Erstellen der SYSVOL-Struktur. Um zu ermitteln, ob SYSVOL von FRS repliziert wird, finden Sie unter [bestimmen, ob der SYSVOL-Ordner eines Domänen Controllers von DFSR oder FRS repliziert wird](https://msdn.microsoft.com/library/windows/desktop/cc507518.aspx#determining_whether_a_domain_controller_s_sysvol_folder_is_replicated_by_dfsr_or_frs).  
+- Wenn Sie den Datei Replikations Dienst (File Replication Service, FRS) zum Replizieren von SYSVOL verwenden, befolgen Sie die Schritte im [Artikel 290762](https://go.microsoft.com/fwlink/?LinkId=148443) in der Microsoft Knowledge Base. verwenden Sie dazu den **BurFlags** -Registrierungsschlüssel, um FRS-Replikat [315457](https://support.microsoft.com/kb/315457)315457 Gruppen erneut zu initialisieren Um zu ermitteln, ob SYSVOL von FRS repliziert wird, finden Sie unter [bestimmen, ob der SYSVOL-Ordner eines Domänen Controllers von DFSR oder FRS repliziert wird](https://msdn.microsoft.com/library/windows/desktop/cc507518.aspx#determining_whether_a_domain_controller_s_sysvol_folder_is_replicated_by_dfsr_or_frs).  
 - Wenn Sie die Replikation von SYSVOL mithilfe der DFS-Replikation (verteiltes Dateisystem) replizieren, finden Sie unter [Ausführen einer autorisierenden Synchronisierung von DFSR-replizierten SYSVOL](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md)  
 
 ## <a name="performing-a-nonauthoritative-restore"></a>Ausführen einer nicht autorisierenden Wiederherstellung
@@ -39,7 +38,7 @@ Verwenden Sie das folgende Verfahren, um eine nicht autoritative Wiederherstellu
    wbadmin start systemstaterecovery <otheroptions> -authsysvol  
    ```  
 
-   Zum Beispiel:  
+   Beispiel:  
 
    ```  
    wbadmin start systemstaterecovery -version:11/20/2012-13:00 -authsysvol  

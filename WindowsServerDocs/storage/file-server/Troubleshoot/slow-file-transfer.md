@@ -3,16 +3,15 @@ title: Langsame Übertragungsgeschwindigkeit bei SMB-Dateien
 description: Erläutert die Behandlung von Problemen bei der Übertragung von SMB-Dateien.
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 0e6c049404f464eba872075a8ef5060b303920c8
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: af05daa164b5b2c5eca73eff51d97d4c25ba1ca3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654561"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815393"
 ---
 # <a name="slow-smb-files-transfer-speed"></a>Langsame Übertragungsgeschwindigkeit bei SMB-Dateien
 
@@ -38,7 +37,7 @@ Wenn Sie langsame Übertragungen großer Dateien bemerken, sollten Sie die folge
 
 - Stellen Sie für SMBv3 und spätere Versionen sicher, dass SMB Multichannel aktiviert ist und funktioniert.
 
-- Aktivieren Sie auf dem SMB-Client große MTU in SMB, und deaktivieren Sie die Bandbreitendrosselung. Geben Sie zu diesem Zweck folgenden Befehl ein:  
+- Aktivieren Sie auf dem SMB-Client große MTU in SMB, und deaktivieren Sie die Bandbreitendrosselung. Führen Sie hierzu den folgenden Befehl aus:  
   
   ```PowerShell
   Set-SmbClientConfiguration -EnableBandwidthThrottling 0 -EnableLargeMtu 1
@@ -46,7 +45,7 @@ Wenn Sie langsame Übertragungen großer Dateien bemerken, sollten Sie die folge
 
 ## <a name="small-file-transfer-is-slow"></a>Kleine Dateiübertragung ist langsam
 
-Eine langsame Übertragung von kleinen Dateien über SMB erfolgt am häufigsten, wenn viele Dateien vorhanden sind. Dies entspricht dem erwarteten Verhalten.
+Eine langsame Übertragung von kleinen Dateien über SMB erfolgt am häufigsten, wenn viele Dateien vorhanden sind. Dies ist ein erwartetes Verhalten.
 
 Während der Dateiübertragung verursacht die Dateierstellung sowohl einen hohen Protokoll Aufwand als auch einen hohen Aufwand für das Dateisystem. Bei großen Dateiübertragungen treten diese Kosten nur einmal auf. Wenn eine große Anzahl von kleinen Dateien übertragen wird, werden die Kosten wiederholt und verursachen langsame Übertragungen.
 

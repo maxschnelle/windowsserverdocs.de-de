@@ -5,16 +5,16 @@ ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
-ms.manager: daveba
+manager: lizross
 ms.technology: storage-failover-clustering
 ms.date: 05/09/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 56bf122923525de6e0005dd6d866220221dc9ce1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b14561a05778ed30e71363a2cd3b3b6fdf24f78e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392069"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827473"
 ---
 # <a name="prestage-cluster-computer-objects-in-active-directory-domain-services"></a>Vorab Bereitstellen von Cluster Computer Objekten in Active Directory Domain Services
 
@@ -73,12 +73,12 @@ So erteilen Sie dem Benutzerberechtigungen zum Erstellen des Clusters:
 2. Suchen Sie das CNO, klicken Sie mit der rechten Maustaste darauf, und wählen Sie dann **Eigenschaften**aus.
 3. Wählen Sie auf der Registerkarte **Sicherheit** die Option **Hinzufügen**.
 4. Geben Sie im Dialogfeld **Benutzer, Computer oder Gruppen auswählen** das Benutzerkonto oder die Gruppe an, dem bzw. der Sie Berechtigungen erteilen möchten, und klicken Sie dann auf **OK**.
-5. Wählen Sie das gerade hinzugefügte Benutzerkonto bzw. die gerade hinzugefügte Gruppe aus, und aktivieren Sie dann neben **Vollzugriff**das Kontrollkästchen **Zulassen** .
+5. Wählen Sie das gerade hinzugefügte Benutzerkonto bzw. die gerade hinzugefügte Gruppe aus, und aktivieren Sie dann neben **Vollzugriff** das Kontrollkästchen **Zulassen**.
   
    ![Erteilen der Benutzer- oder Gruppenberechtigungen zum Erstellen des Clusters](media/prestage-cluster-adds/granting-full-control-to-the-user-create-the-cluster.png)
   
    **Abbildung 2. Gewähren der vollständigen Kontrolle für den Benutzer oder die Gruppe, der den Cluster erstellt**
-6. Wählen Sie **OK** aus.
+6. Wählen Sie **OK**.
 
 Nach Abschluss dieses Schritts kann der Benutzer, dem Sie Berechtigungen erteilt haben, den Failovercluster erstellen. Wenn sich das CNO jedoch in einer Organisationseinheit befindet, kann der Benutzer erst dann Clusterrollen erstellen, für die ein Clientzugriffspunkt erforderlich ist, wenn Sie Schritt 3 abgeschlossen haben.
 
@@ -132,7 +132,7 @@ Ein Administrator des Failoverclusters kann jetzt Clusterrollen mit Clientzugrif
 8. Wählen Sie im Dialogfeld **Benutzer, Computer, Dienst Konto oder Gruppen auswählen** die **Objekttypen**aus, aktivieren Sie das Kontrollkästchen **Computer** , und klicken Sie dann auf **OK**.
 9. Geben Sie unter **Geben Sie die zu ausgewäfenden Objektnamen**ein den Namen des CNO ein, wählen Sie **Namen überprüfen**aus, und klicken Sie dann auf **OK**. Wenn Sie eine Warnmeldung erhalten, die besagt, dass Sie im Begriff sind, ein deaktiviertes Objekt hinzuzufügen, klicken Sie auf **OK**.
 10. Stellen Sie sicher, dass das CNO ausgewählt ist, und aktivieren Sie dann neben **Vollzugriff** das Kontrollkästchen **Zulassen**.
-11. Wählen Sie **OK** aus.
+11. Wählen Sie **OK**.
 
 Ein Administrator des Failoverclusters kann jetzt die Clusterrolle mit einem Clientzugriffspunkt erstellen, die dem vorab bereitgestellten VCO-Namen entspricht, und die Ressource online schalten.
 

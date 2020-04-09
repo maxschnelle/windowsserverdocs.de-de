@@ -1,7 +1,6 @@
 ---
 ms.assetid: ce3be131-06ad-41dc-a26b-1168fa68c8ed
 title: Zuordnen Ihren Anforderungen zu einer AD DS-Bereitstellungsstrategie
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,18 +8,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 412e1ccb13b4d92801faf019b1ed6d01eff8b8d4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1e2d089919f8f09cd241f336748a66c4f52f19d4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402540"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822214"
 ---
 # <a name="mapping-your-requirements-to-an-ad-ds-deployment-strategy"></a>Zuordnen Ihren Anforderungen zu einer AD DS-Bereitstellungsstrategie
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Nachdem Sie die Entwurfs-und Bereitstellungs Anforderungen für Active Directory Domain Services (AD DS) überprüft und identifiziert haben und Sie feststellen, welche von Ihnen mit ihrer spezifischen Bereitstellung in Zusammenhang stehen, können Sie diese Anforderungen einer bestimmten AD DS Bereitstellung zuordnen. Strategie.  
+Nachdem Sie die Entwurfs-und Bereitstellungs Anforderungen für Active Directory Domain Services (AD DS) überprüft und identifiziert haben und Sie feststellen, welche von Ihnen mit ihrer spezifischen Bereitstellung in Zusammenhang stehen, können Sie diese Anforderungen einer bestimmten AD DS Bereitstellungs Strategie zuordnen.  
   
 Verwenden Sie die folgende Tabelle, um zu bestimmen, welche AD DS Bereitstellungs Strategie der entsprechenden Kombination von AD DS Entwurfs-und Bereitstellungs Anforderungen für Ihre Organisation entspricht. ("Ja" bedeutet, dass eine bestimmte Anforderung für Ihre Bereitstellungs Strategie erforderlich ist. "Nein" bedeutet, dass eine bestimmte Anforderung für Ihre Bereitstellungs Strategie nicht erforderlich ist.)  
   
@@ -43,7 +42,7 @@ Sie können jedoch eine Hybrid-oder benutzerdefinierte AD DS Bereitstellungs Str
 |[Bereitstellen von regionalen Windows Server 2008-Domänen](https://technet.microsoft.com/library/cc755118.aspx)|Ja|Ja|Ja|  
 |[Aktivieren erweiterter Funktionen für die AD DS](../../ad-ds/plan/Enabling-Advanced-Features-for-AD-DS.md)|Ja|Ja, allerdings müssen alle Domänen Controller in der Umgebung Windows Server 2008 ausführen, bevor Sie die Domänen-oder Gesamtstruktur Funktionsebene auf Windows Server 2008 festlegen.|Ja, allerdings müssen alle Domänen Controller in der Umgebung Windows Server 2008 ausführen, bevor Sie die Domänen-oder Gesamtstruktur Funktionsebene auf Windows Server 2008 festlegen.|  
 |[Aktualisieren von Active Directory Domänen auf Windows Server 2008 und Windows Server 2008 R2 AD DS Domänen](https://technet.microsoft.com/library/cc731188.aspx)|Nein|Ja|Ja|  
-|[Umstrukturierung von AD DS Domänen zwischen Gesamtstrukturen](https://go.microsoft.com/fwlink/?LinkId=93678)|Ja, wenn Sie eine Pilot Domäne in Ihre Produktionsumgebung migrieren möchten, führen Sie eine Zusammenführung mit einer anderen Organisation durch, konsolidieren Sie die beiden IT-Infrastrukturen, oder konsolidieren Sie Ressourcen und Konto Domänen, die Sie direkt von Windows aktualisiert haben. 2000-oder Windows Server 2003-Umgebungen.|Ja, wenn Sie mit einer anderen Organisation zusammenführen und die beiden IT-Infrastrukturen konsolidieren oder Ressourcen-und Konto Domänen konsolidieren möchten, die Sie direkt aus den Umgebungen Windows 2000 oder Windows Server 2003 aktualisiert haben.|Ja, wenn Sie mit einer anderen Organisation zusammenführen und die beiden IT-Infrastrukturen konsolidieren oder Ressourcen-und Konto Domänen konsolidieren möchten, die Sie direkt aus den Umgebungen Windows 2000 oder Windows Server 2003 aktualisiert haben.|  
+|[Umstrukturierung von AD DS Domänen zwischen Gesamtstrukturen](https://go.microsoft.com/fwlink/?LinkId=93678)|Ja, wenn Sie eine Pilot Domäne in Ihre Produktionsumgebung migrieren möchten, führen Sie eine Zusammenführung mit einer anderen Organisation durch, und konsolidieren Sie die beiden IT-Infrastrukturen, oder konsolidieren Sie Ressourcen-und Konto Domänen, die Sie direkt aus den Umgebungen Windows 2000 oder Windows Server 2003 aktualisiert haben.|Ja, wenn Sie mit einer anderen Organisation zusammenführen und die beiden IT-Infrastrukturen konsolidieren oder Ressourcen-und Konto Domänen konsolidieren möchten, die Sie direkt aus den Umgebungen Windows 2000 oder Windows Server 2003 aktualisiert haben.|Ja, wenn Sie mit einer anderen Organisation zusammenführen und die beiden IT-Infrastrukturen konsolidieren oder Ressourcen-und Konto Domänen konsolidieren möchten, die Sie direkt aus den Umgebungen Windows 2000 oder Windows Server 2003 aktualisiert haben.|  
 |[Umstrukturierung AD DS Domänen in](https://go.microsoft.com/fwlink/?LinkId=82740)Gesamtstrukturen)|Nein|Ja, wenn Sie die Anzahl der Domänen reduzieren müssen, verringern Sie den Replikations Datenverkehr und die erforderliche Benutzer-und Gruppenverwaltung, oder vereinfachen Sie die Verwaltung von Gruppenrichtlinie.|Ja, wenn Sie die Anzahl der Domänen reduzieren müssen, verringern Sie den Replikations Datenverkehr und die erforderliche Benutzer-und Gruppenverwaltung, oder vereinfachen Sie die Verwaltung von Gruppenrichtlinie.|  
   
 

@@ -1,26 +1,23 @@
 ---
 title: Behandeln von Problemen mit einem Failovercluster mithilfe von Windows-Fehlerberichterstattung
 description: Problembehandlung bei einem Failovercluster mithilfe von wer-Berichten mit spezifischen Details zum Erfassen von Berichten und diagnostizieren allgemeiner Probleme.
-keywords: Failovercluster, wer meldet, Diagnose, Cluster, Windows-Fehlerberichterstattung
 ms.prod: windows-server
 ms.technology: storage-failover-clustering
 ms.author: vpetter
-ms.topic: article
-author: vpetter
+author: dcuomo
 ms.date: 03/27/2018
-ms.localizationpriority: ''
-ms.openlocfilehash: 46c633af8cf82ac43d2a787a7193685d88ad0ecc
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: e8db88dc4fe3ad9176299c5b423a7aac6093f254
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322152"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827353"
 ---
 # <a name="troubleshooting-a-failover-cluster-using-windows-error-reporting"></a>Behandeln von Problemen mit einem Failovercluster mithilfe von Windows-Fehlerberichterstattung 
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server
 
-Windows-Fehlerberichterstattung (wer) ist eine flexible ereignisbasierte Feedback Infrastruktur, mit der erweiterte Administratoren oder Support von Ebene 3 Informationen zu den Hardware-und Softwareproblemen sammeln können, die von Windows erkannt werden können, und die Informationen an Microsoft übertragen. und bieten Benutzern alle verfügbaren Lösungen. Diese [Referenz](https://docs.microsoft.com/powershell/module/windowserrorreporting/) enthält Beschreibungen und Syntax für alle windowserrorreporting-Cmdlets.
+Bei Windows-Fehlerberichterstattung (wer) handelt es sich um eine flexible ereignisbasierte Feedback Infrastruktur, mit der erweiterte Administratoren oder Support von Unterstützung von Windows Informationen zu den Hardware-und Softwareproblemen sammeln können, die von Windows erkannt werden können, die Informationen an Microsoft gemeldet werden und Benutzern alle verfügbaren Lösungen bereitgestellt werden. Diese [Referenz](https://docs.microsoft.com/powershell/module/windowserrorreporting/) enthält Beschreibungen und Syntax für alle windowserrorreporting-Cmdlets.
 
 Die folgenden Informationen zur Problembehandlung sind hilfreich bei der Behebung erweiterter Probleme, die eskaliert wurden und möglicherweise erfordern, dass Daten für die Selektierung an Microsoft gesendet werden.
 
@@ -39,7 +36,7 @@ Um diese Probleme zu vermeiden, können Sie Ereignis Kanäle beim Starten des Cl
 PS C:\Windows\system32> (get-cluster).EnabledEventLogs
 ```
 
-Hier ist ein Beispiel für die Ausgabe angegeben:
+Dies ist ein Beispiel für die Ausgabe:
 ```
 Microsoft-Windows-Hyper-V-VmSwitch-Diagnostic,4,0xFFFFFFFD
 Microsoft-Windows-SMBDirect/Debug,4
@@ -109,7 +106,7 @@ Im Ordner **wer** enthält der Ordner **reportsqueue** Berichte, die darauf wart
 PS C:\Windows\system32> dir c:\ProgramData\Microsoft\Windows\WER\ReportQueue
 ```
 
-Hier ist ein Beispiel für die Ausgabe angegeben:
+Dies ist ein Beispiel für die Ausgabe:
 ```
 Volume in drive C is INSTALLTO
 Volume Serial Number is 4031-E397
@@ -146,7 +143,7 @@ Im Ordner **wer** enthält der Ordner **reportsarchive** Berichte, die bereits i
 PS C:\Windows\system32> dir C:\ProgramData\Microsoft\Windows\WER\ReportArchive
 ```
 
-Hier ist ein Beispiel für die Ausgabe angegeben:
+Dies ist ein Beispiel für die Ausgabe:
 ```
 Volume in drive C is INSTALLTO
 Volume Serial Number is 4031-E397
@@ -174,7 +171,7 @@ Navigieren Sie zum Bericht "Wer-Bericht", um dieses Problem zu diagnostizieren:
 PS C:\Windows\system32> dir C:\ProgramData\Microsoft\Windows\WER\ReportArchive\Critical_PhysicalDisk_b46b8883d892cfa8a26263afca228b17df8133d_00000000_cab_08abc39c
 ```
 
-Hier ist ein Beispiel für die Ausgabe angegeben:
+Dies ist ein Beispiel für die Ausgabe:
 ```
 Volume in drive C is INSTALLTO
 Volume Serial Number is 4031-E397
@@ -261,7 +258,7 @@ Da die Ressource nicht online geschaltet werden konnte, wurden keine Abbilder er
 PS C:\Windows\system32> (Get-ClusterResourceType -Name "Physical Disk").DumpLogQuery
 ```
 
-Hier ist ein Beispiel für die Ausgabe angegeben:
+Dies ist ein Beispiel für die Ausgabe:
 ```
 <QueryList><Query Id="0"><Select Path="Microsoft-Windows-Kernel-PnP/Configuration">*[System[TimeCreated[timediff(@SystemTime) &lt;= 600000]]]</Select></Query></QueryList>
 <QueryList><Query Id="0"><Select Path="Microsoft-Windows-ReFS/Operational">*[System[TimeCreated[timediff(@SystemTime) &lt;= 600000]]]</Select></Query></QueryList>
@@ -315,7 +312,7 @@ Navigieren Sie zum Bericht, um dieses Problem zu diagnostizieren. Der Ordner ent
 PS C:\Windows\system32> dir C:\ProgramData\Microsoft\Windows\WER\ReportArchive\Critical_PhysicalDisk_64acaf7e4590828ae8a3ac3c8b31da9a789586d4_00000000_cab_1d94712e
 ```
 
-Hier ist ein Beispiel für die Ausgabe angegeben:
+Dies ist ein Beispiel für die Ausgabe:
 ```
 Volume in drive C is INSTALLTO
 Volume Serial Number is 4031-E397

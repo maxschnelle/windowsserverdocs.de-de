@@ -3,17 +3,17 @@ ms.assetid: 6416d125-bcaf-433d-971a-2f0283bca2c2
 title: 'Cluster fähiges aktualisieren: häufig gestellte Fragen'
 ms.topic: article
 ms.prod: windows-server
-manager: dongill
+manager: lizross
 ms.author: jgerend
 author: JasonGerend
 ms.date: 04/28/2017
 description: Hier erhalten Sie Antworten auf häufig gestellte Fragen zum Cluster fähigen aktualisieren in Windows Server.
-ms.openlocfilehash: 736b49222ae4c9e2a27229341f0d886bd3e0343c
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: ca81e952c0524af36ab6d241a205bd1cc971c74a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822133"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828103"
 ---
 # <a name="cluster-aware-updating-frequently-asked-questions"></a>Clusterfähiges Aktualisieren: Häufig gestellte Fragen
 
@@ -25,10 +25,10 @@ Das [Cluster fähige aktualisieren](cluster-aware-updating.md) \(Cau-\) ist ein 
 Ja. Cau unterstützt das Aktualisieren von [direkte Speicherplätze](../storage/storage-spaces/storage-spaces-direct-overview.md) Clustern unabhängig vom Bereitstellungstyp: hyperkonvergiert oder konvergiert. Insbesondere wird durch die Orchestrierung von Cau sichergestellt, dass das Anhalten der einzelnen Cluster Knoten darauf wartet, dass der zugrunde liegende Cluster Speicherplatz fehlerfrei ist.
 
 ## <a name="does-cau-work-with-windowsserver-2008r2-or-windows7"></a>Kann CAU für Windows Server 2008 R2 oder Windows 7 verwendet werden?  
-Nein Cau koordiniert den Cluster Aktualisierungs Vorgang nur auf Computern, auf denen Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8.1 oder Windows 8 ausgeführt wird. Auf dem zu Aktualisier Ende Failovercluster muss Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt werden.
+Nein. Cau koordiniert den Cluster Aktualisierungs Vorgang nur auf Computern, auf denen Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows 10, Windows 8.1 oder Windows 8 ausgeführt wird. Auf dem zu Aktualisier Ende Failovercluster muss Windows Server 2016, Windows Server 2012 R2 oder Windows Server 2012 ausgeführt werden.
   
 ## <a name="is-cau-limited-to-specific-clustered-applications"></a>Ist Cau auf bestimmte Cluster Anwendungen beschränkt?  
-Nein CAU ist der Typ der Clusteranwendung unbekannt. Cau ist eine externe Cluster\-Update Lösung, die oberhalb der Clustering-APIs und PowerShell-Cmdlets angeordnet ist. Daher kann mit Cau die Aktualisierung für eine beliebige geclusterte Anwendung koordiniert werden, die in einem Windows Server-Failovercluster konfiguriert ist.  
+Nein. CAU ist der Typ der Clusteranwendung unbekannt. Cau ist eine externe Cluster\-Update Lösung, die oberhalb der Clustering-APIs und PowerShell-Cmdlets angeordnet ist. Daher kann mit Cau die Aktualisierung für eine beliebige geclusterte Anwendung koordiniert werden, die in einem Windows Server-Failovercluster konfiguriert ist.  
   
 > [!NOTE]  
 > Derzeit werden die folgenden geclusterten Arbeits Auslastungen für Cau getestet und zertifiziert: SMB, Hyper\-V, DFS-Replikation, DFS-Namespaces, iSCSI und NFS.  
@@ -86,10 +86,10 @@ Standardmäßig wird die Reihenfolge der zu aktualisierenden Knoten von CAU basi
 Der Administrator, der die Aktualisierungsausführung initiiert, kann den zulässigen Schwellenwert für die Anzahl von Knoten angeben, die offline sein können. Daher kann eine Aktualisierungsausführung selbst dann auf einem Cluster fortgesetzt werden, wenn keiner der Clusterknoten online ist.  
   
 ## <a name="can-i-use-cau-to-update-only-a-single-node"></a>Kann ich Cau verwenden, um nur einen einzelnen Knoten zu aktualisieren?  
-Nein Cau ist ein Cluster\-Tool für das Bereichs bezogene Update, sodass Sie nur zu Aktualisier Ende Cluster auswählen können. Wenn Sie einen einzelnen Knoten aktualisieren möchten, können Sie vorhandene Serveraktualisierungstools außerhalb von CAU verwenden.  
+Nein. Cau ist ein Cluster\-Tool für das Bereichs bezogene Update, sodass Sie nur zu Aktualisier Ende Cluster auswählen können. Wenn Sie einen einzelnen Knoten aktualisieren möchten, können Sie vorhandene Serveraktualisierungstools außerhalb von CAU verwenden.  
   
 ## <a name="can-cau-report-updates-that-are-initiated-from-outside-cau"></a>Können von Cau Updates gemeldet werden, die außerhalb von Cau initiiert wurden?  
-Nein Von CAU können nur Aktualisierungsausführungen gemeldet werden, die innerhalb von CAU initiiert wurden. Wenn jedoch eine nachfolgende Cau-Aktualisierungs Laufzeit gestartet wird, werden Updates, die über nicht\-Cau-Methoden installiert wurden, entsprechend berücksichtigt, um die zusätzlichen Updates zu bestimmen, die möglicherweise für die einzelnen Cluster Knoten gelten.  
+Nein. Von CAU können nur Aktualisierungsausführungen gemeldet werden, die innerhalb von CAU initiiert wurden. Wenn jedoch eine nachfolgende Cau-Aktualisierungs Laufzeit gestartet wird, werden Updates, die über nicht\-Cau-Methoden installiert wurden, entsprechend berücksichtigt, um die zusätzlichen Updates zu bestimmen, die möglicherweise für die einzelnen Cluster Knoten gelten.  
   
 ## <a name="can-cau-support-my-unique-it-process-needs"></a>Kann Cau meine individuellen Anforderungen an IT-Prozesse unterstützen?  
 Ja. CAU bietet die folgenden Dimensionen der Flexibilität, um den individuellen IT-Prozessanforderungen von Unternehmenskunden gerecht zu werden:  
@@ -118,11 +118,11 @@ Cau bietet Exportoptionen über die Befehls\--Zeilen Schnittstelle und über die
   
 **Benutzeroberflächen Optionen:**  
   
--   Kopieren Sie die Berichtsergebnisse aus dem Bildschirm **Vorschau der Updates anzeigen** . Ausgabe: CSV  
+-   Kopieren Sie die Berichtsergebnisse aus dem Bildschirm **Vorschau der Updates anzeigen**. Ausgabe: CSV  
   
--   Kopieren Sie die Berichtsergebnisse aus dem Bildschirm **Bericht generieren** . Ausgabe: CSV  
+-   Kopieren Sie die Berichtsergebnisse aus dem Bildschirm **Bericht generieren**. Ausgabe: CSV  
   
--   Exportieren Sie die Berichtsergebnisse aus dem Bildschirm **Bericht generieren** . Ausgabe: HTML  
+-   Exportieren Sie die Berichtsergebnisse aus dem Bildschirm **Bericht generieren**. Ausgabe: HTML  
   
 ## <a name="how-do-i-install-cau"></a>Wie installiere ich CAU?  
 Eine CAU-Installation ist nahtlos in das Feature "Failoverclustering" integriert. CAU wird wie folgt installiert:  
@@ -158,7 +158,7 @@ Ja. Von CAU werden einige Aktualisierungsausführungsoptionen unterstützt, mit 
   
 -   [Plug-in für Cluster fähiges aktualisieren (Plug\-in Beispiel](https://code.msdn.microsoft.com/windowsdesktop/Cluster-Aware-Updating-6a8854c9)  
   
-## <a name="see-also"></a>Weitere Informationen:  
+## <a name="see-also"></a>Siehe auch  
   
--   [Clusterfähige Aktualisierung – Übersicht](cluster-aware-updating.md)  
+-   [Clusterfähige Aktualisierung – Übersicht\-  
   

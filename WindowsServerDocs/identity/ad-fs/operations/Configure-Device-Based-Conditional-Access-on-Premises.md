@@ -1,7 +1,6 @@
 ---
 ms.assetid: 35de490f-c506-4b73-840c-b239b72decc2
 title: Konfigurieren des gerätebasierten bedingten lokalen Zugriffs
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,27 +8,27 @@ ms.date: 08/11/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0eb0271dd27791e6f59e896e43bf79b15b89e730
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 19e139df53cd1c076f8d5597c1c68b8ffe2cfe91
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949458"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80817173"
 ---
 # <a name="configure-on-premises-conditional-access-using-registered-devices"></a>Konfigurieren des lokalen bedingten Zugriffs mithilfe registrierter Geräte
 
 
 Das folgende Dokument führt Sie durch die Installation und Konfiguration des lokalen bedingten Zugriffs mit registrierten Geräten.
 
-![Bedingter Zugriff](media/Using-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
+![bedingter Zugriff](media/Using-Device-based-Conditional-Access-on-Premises/ADFS_ITPRO4.png)  
 
 ## <a name="infrastructure-pre-requisites"></a>Voraussetzungen für die Infrastruktur
 Die folgenden erforderlichen Komponenten sind erforderlich, bevor Sie mit dem lokalen bedingten Zugriff beginnen können. 
 
-|Anforderungen|Beschreibung
+|Anforderung|Beschreibung
 |-----|-----
 |Ein Azure AD-Abonnement mit Azure AD Premium | [Eine kostenlose Testversion ist in Ordnung](https://azure.microsoft.com/trial/get-started-active-directory/) , um das Zurückschreiben von Geräten für den lokalen bedingten Zugriff zu aktivieren.  
-|Intune-Abonnement|nur erforderlich für die MDM-Integration für Geräte Kompatibilitäts Szenarien:[eine kostenlose Testversion ist in Ordnung](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0) .
+|InTune-Abonnement|nur erforderlich für die MDM-Integration für Geräte Kompatibilitäts Szenarien:[eine kostenlose Testversion ist in Ordnung](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0) .
 |Azure AD Connect|QFE vom November 2015 oder höher.  Holen Sie sich [hier](https://www.microsoft.com/download/details.aspx?id=47594)die neueste Version.  
 |Windows Server 2016|Build 10586 oder neuer für AD FS  
 |Windows Server 2016-Active Directory Schema|Die Schema Ebene 85 oder höher ist erforderlich.
@@ -45,7 +44,7 @@ Um den lokalen bedingten Zugriff mit registrierten Geräten zu verwenden, müsse
     - Dies ist nur für die Gesamtstruktur erforderlich, der AD FS hinzugefügt wurde.
 
 > [!NOTE]
-> Wenn Sie Azure AD Connect vor dem Upgrade auf die Schema Version (Stufe 85 oder höher) in Windows Server 2016 installiert haben, müssen Sie die Azure AD Connect Installation erneut ausführen und das lokale AD-Schema aktualisieren, um sicherzustellen, dass die Synchronisierungs Regel für MSDS-keykredentiallink ist konfiguriert.
+> Wenn Sie Azure AD Connect vor dem Upgrade auf die Schema Version (Stufe 85 oder höher) in Windows Server 2016 installiert haben, müssen Sie die Azure AD Connect Installation erneut ausführen und das lokale AD-Schema aktualisieren, um sicherzustellen, dass die Synchronisierungs Regel für MSDS-keykredentiallink konfiguriert ist.
 
 ### <a name="verify-your-schema-level"></a>Überprüfen der Schema Ebene
 Gehen Sie folgendermaßen vor, um die Schema Ebene zu überprüfen:
@@ -166,7 +165,7 @@ Als Referenz sind in der nachstehenden umfassenden Liste AD DS-Geräte, Containe
  
 
 
-- Objekt vom Typ ms-DS-DeviceContainer für CN=RegisteredDevices,DC=&lt;domain&gt;        
+- Objekt vom Typ ms-DS-DeviceContainer für CN=RegisteredDevices,DC=&lt;domain&gt;          
     - Lesezugriff auf das AD FS-Dienstkonto   
     - Lese- und Schreibzugriff auf das Synchronisierung-AD-Konnektorkonto von Azure AD Connect</br></br>
 
@@ -210,7 +209,7 @@ Informationen zum Aktivieren von Windows 10 mit Microsoft Passport for Work find
 ### <a name="automatic-mdm-enrollment"></a>Automatische MDM-Registrierung   
 Um die automatische MDM-Registrierung registrierter Geräte so zu aktivieren, dass Sie den iscompliance-Anspruch in ihrer Zugriffs Steuerungs Richtlinie verwenden können, führen Sie die hier beschriebenen Schritte aus [.](https://blogs.technet.microsoft.com/ad/2015/08/14/windows-10-azure-ad-and-microsoft-intune-automatic-mdm-enrollment-powered-by-the-cloud/)  
 
-## <a name="troubleshooting"></a>Fehlerbehebung  
+## <a name="troubleshooting"></a>Problembehandlung  
 1.  Wenn Sie eine Fehler `Initialize-ADDeviceRegistration` Meldung erhalten, die ein bereits im falschen Zustand vorhandenes Objekt meldet (z. b. "das DRS-Dienst Objekt wurde ohne alle erforderlichen Attribute gefunden"), haben Sie möglicherweise zuvor Azure AD Connect PowerShell-Befehle ausgeführt und verfügen über eine partielle Konfiguration in AD DS.  Versuchen Sie, die Objekte unter **CN = Device Registration Configuration, CN = Services, CN = Configuration, DC =&lt;Domain&gt;** manuell zu löschen, und versuchen Sie es erneut.  
 2.  Für mit der Domäne verbundene Windows 10-Clients  
     1. Um zu überprüfen, ob die Geräte Authentifizierung funktioniert, melden Sie sich beim in die Domäne eingebundener Client als Test Benutzerkonto an. Zum schnellen lösen der Bereitstellung Sperren und Entsperren Sie den Desktop mindestens einmal.   
@@ -222,7 +221,7 @@ Um die automatische MDM-Registrierung registrierter Geräte so zu aktivieren, da
     4. Geräteregistrierung oder Registrierung erneut versuchen  
 
 ### <a name="related-articles"></a>Verwandte Artikel  
-* [Sichern des Zugriffs auf Office 365 und andere mit Azure Active Directory verbundene Apps](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/)  
+* [Sichern des Zugriffs auf Office 365 und andere apps, die mit Azure Active Directory verbunden sind](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/)  
 * [Geräte Richtlinien für den bedingten Zugriff für Office 365-Dienste](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-device-policies/)  
-* [Einrichten des lokalen bedingten Zugriffs mithilfe der Azure Active Directory-Geräteregistrierung](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)  
-* [Benutzererfahrungen beim Verknüpfen von in die Domäne eingebundenen Windows 10-Geräten mit Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)  
+* [Einrichten des lokalen bedingten Zugriffs mit Azure Active Directory Device Registration](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)  
+* [Verbinden von in die Domäne eingebundenen Geräten mit Azure AD für Windows 10-Umgebungen](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)  

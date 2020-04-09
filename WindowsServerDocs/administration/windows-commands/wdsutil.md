@@ -1,28 +1,24 @@
 ---
 title: wdsutil
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehls Artikel für WDSUTIL, ein Befehlszeilen-Hilfsprogramm, das zum Verwalten des Windows-Bereitstellungsdiensteserver verwendet wird.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3a1965a0-8677-40cc-9495-30ae806808d1
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0072008c4af32f05c9924cf85c0559cd924cff7c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f57411c1b000355940772003c7ac5343c82838cd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362199"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829439"
 ---
 # <a name="wdsutil"></a>wdsutil
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 WDSUTIL ist ein Befehlszeilenprogramm, das zum Verwalten des Windows-Bereitstellungsdiensteserver verwendet wird. Klicken Sie zum Ausführen dieser Befehle auf **Start**, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.  
 ## <a name="commands"></a>Befehle  

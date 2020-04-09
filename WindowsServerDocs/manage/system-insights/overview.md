@@ -1,79 +1,74 @@
 ---
-title: System-Insights-Übersicht
-description: System Insights ist ein neues predictive Analytics-Feature in Windows Server-2019. Die System Insights Vorhersagefunktionen - jeweils von einem Machine Learning-Modell - gesicherten lokal Windows Server Systemdaten analysieren, wie Leistungsindikatoren und Ereignisse, die Einblicke in die Funktionsweise von Ihren Servern und unterstützen Sie reduzieren die Betriebsausgaben reaktiv Verwaltung Probleme in Ihren Bereitstellungen zugeordnet.
-ms.custom: na
+title: 'Systemdaten: Übersicht'
+description: System Insights ist ein neues Predictive Analytics Feature in Windows Server 2019. Die Vorhersagefunktionen von System Insights, die jeweils durch ein Machine Learning-Modell unterstützt werden, analysieren lokal Windows Server-System Daten (z. b. Leistungsindikatoren und Ereignisse), um Einblicke in die Funktionsweise Ihrer Server zu erhalten und die Betriebskosten zu reduzieren, die mit der reaktiven Verwaltung von Problemen in ihren bereit Stellungen einhergehen.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: system-insights
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.assetid: ''
 author: gawatu
 ms.author: gawatu
 manager: mallikarjun.chadalapaka
 ms.date: 5/23/2018
-ms.openlocfilehash: ca471e5e747c7aaa369f5725290e16deab7a6660
-ms.sourcegitcommit: 0d0b32c8986ba7db9536e0b8648d4ddf9b03e452
+ms.openlocfilehash: e2530ff9ecb4bcf69f2f9a3a452f51696b4466d2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59887241"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815943"
 ---
-# <a name="system-insights-overview"></a>System-Insights-Übersicht
+# <a name="system-insights-overview"></a>Systemdaten: Übersicht
 
->Gilt für: Windows Server 2019
+>Gilt für: Windows Server 2019
 
-System Insights ist ein neues predictive Analytics-Feature in Windows Server-2019. Die System Insights Vorhersagefunktionen - jeweils von einem Machine Learning-Modell - gesicherten lokal Windows Server Systemdaten analysieren, wie Leistungsindikatoren und Ereignisse, die Einblicke in die Funktionsweise von Ihren Servern und unterstützen Sie reduzieren die Betriebsausgaben reaktiv Verwaltung Probleme in Ihren Bereitstellungen zugeordnet. 
+System Insights ist ein neues Predictive Analytics Feature in Windows Server 2019. Die Vorhersagefunktionen von System Insights, die jeweils durch ein Machine Learning-Modell unterstützt werden, analysieren lokal Windows Server-System Daten (z. b. Leistungsindikatoren und Ereignisse), um Einblicke in die Funktionsweise Ihrer Server zu erhalten und die Betriebskosten zu reduzieren, die mit der reaktiven Verwaltung von Problemen in ihren bereit Stellungen einhergehen. 
 
-In Windows Server-2019 Lieferumfang vier Standardfunktionen konzentriert sich auf Kapazität, Prognosen, Vorhersagen der zukünftigen Ressourcenverwendung für COMPUTE-, Netzwerk- und Speicherressourcen basierend auf Ihren vorherigen Verwendungsmustern System Insights. Außerdem Lieferumfang System Insights eine [erweiterbare Infrastruktur](adding-and-developing-capabilities.md), sodass Microsoft und 3. neue Vorhersagefunktionen System Insights hinzufügen können ohne Aktualisierung des Betriebssystems. 
+In Windows Server 2019 wird System Insights mit vier Standardfunktionen ausgeliefert, die sich auf die Kapazitäts Vorhersage konzentrieren, und zukünftige Ressourcen für Compute-, Netzwerk-und Speicherressourcen basierend auf Ihren vorherigen Verwendungs Mustern Vorhersagen. System Insights ist auch mit einer [erweiterbaren Infrastruktur](adding-and-developing-capabilities.md)ausgeliefert, sodass von Microsoft und Drittanbietern neue Vorhersagefunktionen zu System Insights hinzugefügt werden können, ohne das Betriebs System zu aktualisieren. 
 
-Sie können System Insights verwalten, über eine intuitive [Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/overview) Erweiterung oder [direkt über PowerShell](https://aka.ms/SystemInsightsPowerShell), System Insights können Sie jede Vorhersagefunktion konfigurieren separat entsprechend den Anforderungen Ihrer Bereitstellung. Alle Vorhersageergebnisse werden in das Ereignisprotokoll, die Sie verwenden können veröffentlicht [Azure Monitor](https://azure.microsoft.com/services/monitor/) oder [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/welcome?view=sc-om-1807) auf einfache Weise zu aggregieren und Vorhersagen für eine Gruppe von Computern angezeigt.
+Sie können System Einblicke über eine intuitive [Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/overview) -Erweiterung oder [direkt über PowerShell](https://aka.ms/SystemInsightsPowerShell)verwalten. mit System Insights können Sie jede Vorhersagefunktion separat entsprechend den Anforderungen Ihrer Bereitstellung konfigurieren. Alle Vorhersage Ergebnisse werden im Ereignisprotokoll veröffentlicht, sodass Sie [Azure Monitor](https://azure.microsoft.com/services/monitor/) oder [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/welcome?view=sc-om-1807) verwenden können, um auf einfache Weise Vorhersagen für eine Gruppe von Computern zu aggregieren und anzuzeigen.
 
-![System-Insights-Erweiterung in Windows Admin Center, CPU-Kapazität, die Funktion mit einem Diagramm zeichnen die Vorhersage Vorhersagen anzeigen](media/cpu-forecast-2.png)
+![System Insights-Erweiterung im Windows Admin Center und zeigt die Prognose der CPU-Kapazität mit einem Diagramm, das die Vorhersage gezeichnet.](media/cpu-forecast-2.png)
 
-## <a name="local-functionality"></a>Lokale Funktionen
-System Insights wird vollständig lokal unter Windows Server ausgeführt. Verwenden neue Funktionen, eingeführt in Windows Server-2019, all Ihre Daten erfasst, beibehalten, und analysiert, die direkt auf Ihrem Computer ermöglichen Ihnen, predictive Analytics-Funktionen, ohne alle Cloud-Konnektivität zu erzielen.
+## <a name="local-functionality"></a>Lokale Funktionalität
+System Insights wird vollständig lokal unter Windows Server ausgeführt. Mithilfe der neuen Funktionen, die in Windows Server 2019 eingeführt wurden, werden alle Ihre Daten direkt auf Ihrem Computer gesammelt, gespeichert und analysiert, sodass Sie Predictive Analytics Funktionen ohne cloudkonnektivität umsetzen können.
 
-Die Systemdaten auf Ihrem Computer gespeichert und analysiert diese Daten von Vorhersagefunktionen, die keine erfordern das erneute trainieren, in der Cloud. Mit System Einblicke können Sie Ihre Daten auf dem Computer beibehalten und dennoch von predictive Analytics-Funktionen profitieren. 
+Die Systemdaten werden auf dem Computer gespeichert, und diese Daten werden anhand von Vorhersagefunktionen analysiert, die in der Cloud nicht umgeschult werden müssen. Mit System Insights können Sie Ihre Daten auf Ihrem Computer speichern und weiterhin von Predictive Analytics Funktionen profitieren. 
 
-## <a name="get-started"></a>Beginnen
+## <a name="get-started"></a>Erste Schritte
 
-<iframe src="https://www.youtube-nocookie.com/embed/AJxQkx5WSaA" width="560" height="315" allowfullscreen></iframe>
+<iframe src=https://www.youtube-nocookie.com/embed/AJxQkx5WSaA width=560 height=315 allowfullscreen></iframe>
 
 >[!TIP]
->Sehen Sie sich in diesen kurzen Videos finden Sie die Informationen, die Sie benötigen, zu beginnen und zuverlässig verwalten System Insights: [Erste Schritte mit System Einblicke in 10 Minuten](https://blogs.technet.microsoft.com/filecab/2018/07/24/getting-started-with-system-insights-in-10-minutes/)
+>Sehen Sie sich diese kurzen Videos an, um die Informationen zu erhalten, die Sie für die ersten Schritte und die zuverlässige Verwaltung von System Insights benötigen: [Getting Started with System Insights in 10](https://blogs.technet.microsoft.com/filecab/2018/07/24/getting-started-with-system-insights-in-10-minutes/)
 
-### <a name="requirements"></a>Anforderungen
-System Insights ist in einer Instanz von Windows Server-2019 verfügbar. Es wird auf Host- und Gastbetriebssysteme Computern, auf jedem Hypervisor, und klicken Sie in einer Cloud ausgeführt.
+### <a name="requirements"></a>Voraussetzungen
+System Insights ist auf jeder Windows Server 2019-Instanz verfügbar. Es wird auf Host-und Gast Computern, auf jedem Hypervisor und in jeder Cloud ausgeführt.
 
-### <a name="install-system-insights"></a>Installieren Sie das System Insights
+### <a name="install-system-insights"></a>Installieren von System Insights
 >[!IMPORTANT]
->System Insights sammelt und speichert bis zu den Zeitraum eines Jahres, der auf einem lokalen Computer. Wenn Sie Ihre Daten beibehalten werden soll, wenn das Betriebssystem aktualisieren möchten **stellen sicher, dass Sie ein direktes Upgrade**.
+>System Insights sammelt und speichert die Daten in einem Jahr vor einem Jahr. Wenn Sie Ihre Daten beim Upgrade Ihres Betriebssystems beibehalten möchten, **Stellen Sie sicher, dass Sie ein direktes Upgrade verwenden**.
 
-#### <a name="install-the-feature"></a>Installieren Sie das feature
-Sie können System-Einblicke, die mit der Erweiterung in Windows Admin Center installieren:
+#### <a name="install-the-feature"></a>Installieren des Features
+Sie können System Insights mit der Erweiterung im Windows Admin Center installieren:
 
-![Day-0-Erfahrung für System-Insights-Erweiterung.](media/day-0-2.png)
+![Day 0-Vorgang für die System Insights-Erweiterung.](media/day-0-2.png)
 
-Sie können auch System Insights direkt über den Server-Manager installieren, durch das Hinzufügen der **System Insights** Feature oder mithilfe von PowerShell:
+Sie können System Insights auch direkt über Server-Manager installieren, indem Sie das **System-Insights** -Feature hinzufügen oder PowerShell verwenden:
 
 ```PowerShell
 Add-WindowsFeature System-Insights -IncludeManagementTools
 ```
 
 ## <a name="provide-feedback"></a>Feedback bereitstellen
-Wir würden gerne erfahren Sie, Ihr Feedback, um dieses Feature zu verbessern. Sie können die folgenden Kanäle verwenden, um Feedback zu senden:
-- **Feedback Hub**: Verwenden Sie das Feedback Hub-Tool unter Windows 10, in der Datei ein Fehler oder ein Feedback. Dabei geben:
+Wir freuen uns über Ihr Feedback, um uns bei der Verbesserung dieses Features zu unterstützen. Sie können die folgenden Kanäle verwenden, um Feedback zu senden:
+- **Feedback-Hub**: Verwenden Sie das Feedback-Hub-Tool in Windows 10, um einen Fehler oder ein Feedback zu melden. Geben Sie dabei Folgendes an:
     - **Kategorie**: Server 
-    - **Unterkategorie**: Systemdaten
-- **UserVoice**: Übermitteln Sie featureanforderungen durch unsere [UserVoice-Seite](https://windowsserver.uservoice.com/forums/295071-management-tools). Mit Ihren Kollegen gemeinsam auf nach oben zu Voten-Elemente, die für Sie wichtig sind.
-- **E-Mail-Adresse**: Wenn Sie Ihr Feedback an das Feature-Team privat übermitteln möchten, senden Sie eine e-Mail an system-insights-feed@microsoft.com. Bewahren Sie bedenken, dass wir Ihnen die Verwendung der Feedback-Hub oder UserVoice weiterhin anfordern kann.
+    - **SubCategory**: System Insights
+- **UserVoice**: übermitteln Sie Featureanforderungen über unsere [UserVoice-Seite](https://windowsserver.uservoice.com/forums/295071-management-tools). Teilen Sie den Kollegen mit, dass Sie die für Sie wichtigen Elemente upstimmen.
+- **E-Mail**: Wenn Sie Ihr Feedback privat an das Featureteam senden möchten, senden Sie eine e-Mail an system-insights-feed@microsoft.com. Beachten Sie, dass wir Sie möglicherweise bitten, Feedback-Hub oder UserVoice zu verwenden.
 
 ## <a name="see-also"></a>Siehe auch
-Weitere Informationen zum System Insights können Sie die folgenden Ressourcen:
+Weitere Informationen zu System Insights finden Sie in den folgenden Ressourcen:
 
 - [Grundlegendes zu Funktionen](understanding-capabilities.md)
 - [Verwalten von Funktionen](managing-capabilities.md)
-- [Hinzufügen und die Entwicklung von Funktionen](adding-and-developing-capabilities.md)
-- [System Insights – häufig gestellte Fragen](faq.md)
+- [Hinzufügen und Entwickeln von Funktionen](adding-and-developing-capabilities.md)
+- [FAQ zu System Insights](faq.md)

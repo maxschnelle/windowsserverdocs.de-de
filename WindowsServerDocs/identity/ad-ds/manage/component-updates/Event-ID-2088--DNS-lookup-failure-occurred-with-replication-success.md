@@ -1,7 +1,6 @@
 ---
 ms.assetid: 0fd7b6aa-3e50-45a3-a3a6-56982844363e
 title: 'Ereignis-ID 2088: DNS-Suche-Fehler bei erfolgreicher Replikation'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d51cbcc93a8decbcb72a1e91854a09345507511d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f84fd7be45995e9e0b318b42c8b4152af244a9da
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71368909"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823053"
 ---
 # <a name="event-id-2088-dns-lookup-failure-occurred-with-replication-success"></a>Ereignis-ID 2088: DNS-Lookup-Problem bei erfolgreicher Replikation aufgetreten
 
@@ -54,7 +53,7 @@ Registrierungs Pfad: hklm\system\currentcontrolset\services\ntds\diagnostics\22 
 
 Benutzeraktion: 
 
-1) Wenn der Quell Domänen Controller nicht mehr funktionsfähig ist oder das Betriebssystem mit einem anderen Computernamen oder einer NTDSDSA-Objekt-GUID neu installiert wurde, entfernen Sie die Metadaten des Quell Domänen Controllers mit "Ntdsutil. exe", indem Sie die im MSKB-Artikel beschriebenen Schritte ausführen. 216498. 
+1) Wenn der Quell Domänen Controller nicht mehr funktionsfähig ist oder das Betriebssystem mit einem anderen Computernamen oder einer NTDSDSA-Objekt-GUID neu installiert wurde, entfernen Sie die Metadaten des Quell Domänen Controllers mit "Ntdsutil. exe", indem Sie die im MSKB-Artikel 216498 beschriebenen Schritte ausführen. 
 
 2) Vergewissern Sie sich, dass auf dem Quell Domänen Controller Active Directory ausgeführt wird und der Zugriff auf das Netzwerk möglich ist, indem Sie "net View \\&lt;Name des Quell Domänen Controllers&gt;" oder "Ping &lt;Source DC Name&gt;" eingeben. 
 
