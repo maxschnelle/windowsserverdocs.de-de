@@ -1,12 +1,8 @@
 ---
 title: 'Remotedesktopclient: unterstützte Konfiguration'
 description: Hier erfährst du, auf welche PCs du mithilfe von Remotedesktopclients zugreifen kannst.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bb932dad-6f74-484f-8f7b-dd957b615d44
 author: lizap
@@ -14,29 +10,29 @@ manager: dongill
 ms.author: elizapo
 ms.date: 06/05/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 2dc8eb68aebc904640aa4adc3e75cdeda34e97b2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1480a2a14a1c3fc23c4e5122e366741d37d9091f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387646"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856013"
 ---
 # <a name="remote-desktop-client---supported-configuration"></a>Remotedesktopclient: unterstützte Konfiguration
 
 ## <a name="supported-pcs"></a>Unterstützte PCs
 Du kannst eine Verbindung mit PCs unter den folgenden Windows-Betriebssystemen herstellen:
-- Windows 10 Pro
-- Windows 10 Enterprise
+- Windows 10 Pro
+- Windows 10 Enterprise
 - Windows 8 Enterprise
 - Windows 8 Professional
-- Windows 7 Professional
+- Windows 7 Professional
 - Windows 7 Enterprise
 - Windows 7 Ultimate
 - Windows 7 Ultimate
 - WindowsServer 2008
 - Windows Server 2008 R2
 - Windows Server 2012
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 - Windows Server 2016
 - Windows MultiPoint Server 2011
 - Windows MultiPoint Server 2012
@@ -48,14 +44,14 @@ Auf den folgenden Computern kann das Remotedesktopgateway ausgeführt werden:
 - WindowsServer 2008
 - Windows Server 2008 R2
 - Windows Server 2012
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 - Windows Server 2016
 - Windows Small Business Server 2011
 
 Die folgenden Betriebssysteme können als Server mit Web Access für Remotedesktop oder als RemoteApp-Server fungieren:
 - Windows Server 2008 R2
 - Windows Server 2012
-- Windows Server 2012 R2
+- Windows Server 2012 R2
 - Windows Server 2016
 
 ## <a name="unsupported-windows-versions-and-editions"></a>Nicht unterstützte Windows-Versionen und -Editionen

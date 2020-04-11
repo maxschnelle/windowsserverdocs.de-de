@@ -1,28 +1,24 @@
 ---
 title: 'Anmerkungen zu dieser Version: Wichtige Probleme in Windows Server, Version 1803'
 description: Erfahren Sie mehr über bekannte Probleme, Einschränkungen oder andere Informationen, die Sie vor der Installation von Windows Server, Version 1803, benötigen
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 05/07/2018
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 ms.author: elizapo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: a250f83a4f46966666556ba3d078d2faf3ea8e06
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a511c9888f27fe97fdeaf65cde022e5c2aa999d4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391457"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826083"
 ---
 # <a name="release-notes-important-issues-in-windows-server-version-1803"></a>Versionshinweise: Wichtige Probleme in Windows Server, Version 1803
 
->Gilt für: Windows Server (Semi-Annual Channel)
+>Gilt für: Windows Server (Halbjährlicher Kanal)
 
 In diesen Anmerkungen zur Version sind die wichtigsten Probleme zusammengefasst, die im Windows Server-Betriebssystem auftreten können, und Sie erfahren, wie Sie diese Probleme gegebenenfalls umgehen können. Weitere Informationen zu neuen Features in diesem Release finden Sie unter [Neuerungen in Windows Server, Version 1803](whats-new-in-windows-server-1803.md). Ziehen Sie die [Informationen zu Windows-Containern](https://docs.microsoft.com/virtualization/windowscontainers/about/) zurate, wenn Sie daran interessiert sind, einen Windows Server-Container, Version 1803, auszuführen. 
 

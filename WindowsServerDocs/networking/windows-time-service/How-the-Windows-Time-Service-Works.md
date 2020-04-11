@@ -1,20 +1,19 @@
 ---
 ms.assetid: d1953097-63ea-4a0e-b860-2f3b7c175c41
 title: Funktionsweise des Windows-Zeitdiensts
-description: ''
-author: eross-msft
-ms.author: lizross
+author: dcuomo
+ms.author: dacuo
 manager: dougkim
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: d8532dedb6473a34591a1f160a94a785cc4ba367
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: b8b30893abe4cdfe8d7e8c5a95ede651f85643a9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80315176"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861663"
 ---
 # <a name="how-the-windows-time-service-works"></a>Funktionsweise des Windows-Zeitdiensts
 
@@ -207,10 +206,10 @@ In der folgenden Tabelle sind die Abfragen aufgelistet, die von einem Domänenco
 |----------------|---------------------|------------|------------------------------|  
 |1|Übergeordneter Domänencontroller|Standortintern|Bevorzugt eine zuverlässige Zeitquelle, kann sich aber mit einer nicht zuverlässigen Zeitquelle synchronisieren, wenn nichts anderes verfügbar ist.|  
 |2|Lokaler Domänencontroller|Standortintern|Synchronisiert sich nur mit einer zuverlässigen Zeitquelle.|  
-|3|Lokaler PDC-Emulator|Standortintern|Nicht anwendbar.<br /><br />Ein Domänencontroller versucht nicht, sich mit sich selbst zu synchronisieren.|  
+|3|Lokaler PDC-Emulator|Standortintern|Nicht anwendbar.<p>Ein Domänencontroller versucht nicht, sich mit sich selbst zu synchronisieren.|  
 |4|Übergeordneter Domänencontroller|Außerhalb des Standorts|Bevorzugt eine zuverlässige Zeitquelle, kann sich aber mit einer nicht zuverlässigen Zeitquelle synchronisieren, wenn nichts anderes verfügbar ist.|  
 |5|Lokaler Domänencontroller|Außerhalb des Standorts|Synchronisiert sich nur mit einer zuverlässigen Zeitquelle.|  
-|6|Lokaler PDC-Emulator|Außerhalb des Standorts|Nicht anwendbar.<br /><br />Ein Domänencontroller versucht nicht, sich mit sich selbst zu synchronisieren.| 
+|6|Lokaler PDC-Emulator|Außerhalb des Standorts|Nicht anwendbar.<p>Ein Domänencontroller versucht nicht, sich mit sich selbst zu synchronisieren.| 
   
 **Hinweis**  
   

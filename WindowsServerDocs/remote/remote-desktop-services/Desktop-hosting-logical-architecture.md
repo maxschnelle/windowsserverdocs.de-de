@@ -1,24 +1,20 @@
 ---
 title: Architektur der Remotedesktopdienste
 description: Architekturdiagramme für RDS
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 02/10/2017
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7f73bb0a-ce98-48a4-9d9f-cf7438936ca1
 author: lizap
 manager: dongill
-ms.openlocfilehash: 7cd46cadf5ed5424e50556ee0c91a80804108113
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 441b0b24fd4b4dc18d3afd65283bbf7ff2417048
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323672"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80818436"
 ---
 # <a name="remote-desktop-services-architecture"></a>Architektur der Remotedesktopdienste
 
@@ -32,8 +28,8 @@ Im Anschluss findest du verschiedene Konfigurationen für die Bereitstellung der
 ## <a name="standard-rds-deployment-architectures"></a>Standardarchitekturen für die RDS-Bereitstellung
 
 Für die Remotedesktopdienste stehen zwei Standardarchitekturen zur Verfügung:
--   Einfache Bereitstellung: Enthält die erforderliche Mindestanzahl von Servern für eine effektive RDS-Umgebung.
--   Hoch verfügbare Bereitstellung: Enthält alle erforderlichen Komponenten, um die höchstmögliche garantierte Betriebszeit für deine RDS-Umgebung zu erzielen.
+-    Einfache Bereitstellung: Enthält die erforderliche Mindestanzahl von Servern für eine effektive RDS-Umgebung.
+-    Hoch verfügbare Bereitstellung: Enthält alle erforderlichen Komponenten, um die höchstmögliche garantierte Betriebszeit für deine RDS-Umgebung zu erzielen.
 
 ### <a name="basic-deployment"></a>Einfache Bereitstellung
 

@@ -1,24 +1,20 @@
 ---
 title: Lokale Komponenten von Mandanten
 description: Dieser Artikel beschreibt die lokalen Komponenten deiner RDS-Bereitstellung.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 08/01/2016
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b3eebb38-a835-4fa6-9e41-1966014bf2cb
 author: lizap
 manager: dongill
-ms.openlocfilehash: 5ae0a711d146de5b7eff272916cc7f06568848e6
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: 849b0e3eb751c4e45a7c23da4230c7c4eb6bfcb1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812264"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854703"
 ---
 # <a name="tenant-on-premises-components"></a>Lokale Komponenten von Mandanten
 
@@ -37,7 +33,7 @@ Weitere Informationen:
 [Mac App Store – Microsoft-Remotedesktop](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417?mt=12)  
 [Microsoft-Remotedesktop im App Store](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8)  
   
-##  <a name="active-directory-domain-services"></a>Active Directory Domain Services  
+##  <a name="active-directory-domain-services"></a>Active Directory-Domänendienste (AD DS)  
 Einige größere und komplexere Mandanten entscheiden sich möglicherweise dafür, einen AD DS-Server (Active Directory Domain Services) lokal zu hosten. In diesem Fall ist der AD DS-Server in der Umgebung des Mandanten in der Regel ein Replikat eines lokalen AD DS-Servers des Mandanten. Dies wird unterstützt, indem ein virtuelles Netzwerk in der Umgebung des Mandanten erstellt wird. Dann wird über das Azure-VPN eine Site-to-Site-Verbindung zwischen dem lokalen Mandantennetzwerk zum virtuellen Mandantennetzwerk im Azure-Rechenzentrum erstellt.  
   
 Weitere Informationen:  

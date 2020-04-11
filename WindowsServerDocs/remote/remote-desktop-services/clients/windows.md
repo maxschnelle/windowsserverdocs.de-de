@@ -1,12 +1,8 @@
 ---
 title: Erste Schritte mit dem Windows Store-Client
 description: Enthält grundlegende Einrichtungsschritte für den Remotedesktopclient für Windows Store.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: lizap
@@ -14,16 +10,16 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 13fbe22ef33ea7861ae4c8677792b5758f37ad0f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 64362c6f6da77ee15a95ddcbaf33c6cb9ecd5cf4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387610"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861433"
 ---
 # <a name="get-started-with-the-windows-store-client"></a>Erste Schritte mit dem Windows Store-Client
 
->Gilt für: Windows 10
+>Gilt für: Windows 10
 
 Du kannst den Remotedesktopclient für Windows verwenden, um Windows-Apps und -Desktops über ein anderes Windows-Gerät per Remotezugriff zu nutzen.
 
@@ -62,7 +58,7 @@ Gehe wie folgt vor, um eine Remotedesktopverbindung zu erstellen:
    - **Zwischenablage**: Wenn diese Option aktiviert ist, kannst du Text und Bilder auf den bzw. vom Remote-PC kopieren.
    - **Audiowiedergabe**: Wähle das Gerät aus, das während der Remotesitzung für Audiodaten verwendet werden soll. Du kannst auswählen, ob Sound auf den lokalen Geräten, auf dem Remote-PC oder überhaupt nicht wiedergegeben werden soll.
    - **Audioaufzeichnung**: Wenn diese Option aktiviert ist, kannst du für Anwendungen auf dem Remote-PC ein lokales Mikrofon nutzen.
-4. Tippe auf **Speichern**.
+4. Tippen Sie auf **Speichern**.
 
 Musst du diese Einstellungen bearbeiten? Tippe auf das Überlaufmenü ( **...** ) neben dem Namen des Desktops und dann auf **Bearbeiten**.
 
@@ -135,10 +131,10 @@ Erstelle wie folgt ein neues Benutzerkonto:
 
 1. Tippe im Connection Center auf **Einstellungen**.
 2. Tippe neben dem Benutzerkonto auf **+** , um ein neues Benutzerkonto hinzuzufügen.
-3. Gib die folgenden Informationen ein:
+3. Geben Sie die folgenden Informationen ein:
    - **Benutzername**: Der Name des Benutzers, der zur Verwendung für eine Remoteverbindung gespeichert werden soll. Du kannst den Benutzernamen in einem der folgenden Formate eingeben: „user_name“, „domain\user_name“ oder user_name@domain.com.
    - **Kennwort**: Das Kennwort für den angegebenen Benutzer. Du kannst diese Option leer lassen, damit bei der Verbindungsherstellung ein Kennwort abgefragt wird.
-4. Tippe auf **Speichern**.
+4. Tippen Sie auf **Speichern**.
 
 Lösche ein Benutzerkonto wie folgt:
 

@@ -2,7 +2,6 @@
 title: 'Schritt 3: Genehmigen und Bereitstellen von Updates in WSUS'
 description: 'WSUS-Thema (Windows Server Update Services): Genehmigen und Bereitstellen von Updates in WSUS – Dritter Schritt eines Prozesses mit vier Schritten für die Bereitstellung von WSUS'
 ms.prod: windows-server
-ms.reviewer: na
 ms.technology: manage-wsus
 ms.topic: article
 ms.assetid: 8d728ff9-170f-47e6-aefe-52be93315a75
@@ -10,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7731cc84f946bfab7f53a3446ed90d1be92cae75
-ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
+ms.openlocfilehash: d8758c4f957d2d9abb156652a568b23634cb1bf0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80639801"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828853"
 ---
 # <a name="step-3-approve-and-deploy-updates-in-wsus"></a>Schritt 3: Genehmigen und Bereitstellen von Updates in WSUS
 
@@ -29,7 +28,7 @@ Computer in einer Computergruppe kontaktieren innerhalb der nächsten 24 Stunden
 |[3.2. Konfigurieren von Regeln für die automatische Genehmigung](3-approve-and-deploy-updates-in-wsus.md#BKM_3.2.a.)|Konfigurieren Sie WSUS für die automatische Genehmigung der Installation von Updates für ausgewählte Gruppen sowie die Art der Genehmigung von Revisionen für vorhandene Updates.|
 |[3.3. Überprüfen von installierten Updates anhand von WSUS-Berichten](3-approve-and-deploy-updates-in-wsus.md#BKM_3.3.)|Verwenden Sie das WSUS-Berichtsfeature zum Überprüfen von installierten Updates, der Computer auf denen sie installiert wurden sowie weiterer Details.|
 
-## <a name="31-approve-and-deploy-wsus-updates"></a><a name="BKM_3.1."></a>3.1. Genehmigen und Bereitstellen von WSUS-Updates
+## <a name="31-approve-and-deploy-wsus-updates"></a><a name=BKM_3.1.></a>3.1. Genehmigen und Bereitstellen von WSUS-Updates
 Verwenden Sie das folgende Verfahren, um Updates zu genehmigen und bereitzustellen.
 
 #### <a name="to-approve-and-deploy-wsus-updates"></a>So genehmigen Sie WSUS-Updates und stellen sie bereit
@@ -48,7 +47,7 @@ Verwenden Sie das folgende Verfahren, um Updates zu genehmigen und bereitzustell
 
 7.  Das Fenster **Status der Genehmigung** wird angezeigt. Darin wird der Fortschritt der Aufgaben angezeigt, die sich auf die Updategenehmigung auswirken. Klicken Sie nach Abschluss des Genehmigungsprozesses auf **Schließen**.
 
-## <a name="32-configure-auto-approval-rules"></a><a name="BKM_3.2.a."></a>3.2. Konfigurieren von Regeln für die automatische Genehmigung
+## <a name="32-configure-auto-approval-rules"></a><a name=BKM_3.2.a.></a>3.2. Konfigurieren von Regeln für die automatische Genehmigung
 Mit automatischen Genehmigungen können Sie angeben, wie die automatische Genehmigung der Installation von Updates für ausgewählte Gruppen erfolgen soll und wie vorhandene Updates genehmigt werden sollen.
 
 #### <a name="to-configure-automatic-approvals"></a>So konfigurieren Sie die automatische Genehmigung
@@ -73,7 +72,7 @@ Mit automatischen Genehmigungen können Sie angeben, wie die automatische Genehm
 
 7.  Klicken Sie auf **OK** , um das Dialogfeld „Automatische Genehmigungen“ zu schließen.
 
-## <a name="33-review-installed-updates-with-wsus-reports"></a><a name="BKM_3.3."></a>3.3. Überprüfen von installierten Updates anhand von WSUS-Berichten
+## <a name="33-review-installed-updates-with-wsus-reports"></a><a name=BKM_3.3.></a>3.3. Überprüfen von installierten Updates anhand von WSUS-Berichten
 24 Stunden nach dem Genehmigen der Updates können Sie mithilfe des WSUS-Berichtsfeatures feststellen, ob die Updates auf den Testgruppencomputern bereitgestellt wurden. Verwenden Sie das WSUS-Berichtsfeature folgendermaßen, um den Status eines Updates zu überprüfen.
 
 #### <a name="to-review-updates"></a>So überprüfen Sie Updates

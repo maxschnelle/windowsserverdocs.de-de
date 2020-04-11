@@ -1,24 +1,20 @@
 ---
 title: 'RDS: Partner für das Hosten von Desktops und Apps'
 description: Hier findest du eine Liste der Partner, die Desktops und Apps über RDS hosten können.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 04/27/2017
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9a3cb426-fb39-40c5-ae07-26dbe9e3aed9
 author: lizap
 manager: dongill
-ms.openlocfilehash: 4d9a6d4885566204bf9fc29cd9513d25d1b39deb
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 503a9917e271c69a78e5f26db6556d788254c823
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949857"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861363"
 ---
 # <a name="remote-desktop-services-hosting-partners-and-assessment"></a>Remotedesktopdienste – Hostingpartner und Bewertung
 
@@ -36,7 +32,7 @@ Bist du bereits Microsoft-Partner und hast Fragen? Wende dich unter dieser Adres
 
 ## <a name="partners-who-have-passed-the-learning-path-assessment"></a>Partner, die die Bewertung im Lernpfad bestanden haben 
 
-Wenn du Kunde bist und nach einem Partner suchst, der dich beim Hosten von Windows-Desktops und -Anwendungen in Azure für deine Benutzer unterstützt, haben wir eine Liste mit Partnern zusammengestellt, die diese Bewertung erfolgreich abgeschlossen haben. Du kannst eine [Liste dieser Partner](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs/remote/remote-desktop-services/RDS-Hosting-Partners.pdf) herunterladen (Stand: 28.3.2017).
+Wenn du Kunde bist und nach einem Partner suchst, der dich beim Hosten von Windows-Desktops und -Anwendungen in Azure für deine Benutzer unterstützt, haben wir eine Liste mit Partnern zusammengestellt, die diese Bewertung erfolgreich abgeschlossen haben. Du kannst eine [Liste dieser Partner](rds-hosting-partners.md) herunterladen (Stand: 28.3.2017).
 
 Weitere Informationen zu den einzelnen Partnern findest du auf folgende Weise:
 

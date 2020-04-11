@@ -8,18 +8,18 @@ author: greg-lindsay
 ms.author: greg-lindsay
 ms.localizationpriority: high
 ms.date: 05/07/2018
-ms.openlocfilehash: 211a0e2b49e9f15682a251f96dc338d124e2f998
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8b359ac883c24d559e2c3d47db5b68e4f5341338
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391380"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826003"
 ---
 # <a name="whats-new-in-windows-server-version-1803"></a>Neuerungen in Windows Server, Version 1803
 
 >Gilt für: Windows Server (Halbjährlicher Kanal)
 
-<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Weitere Informationen zu den neuesten Features in Windows finden Sie unter [Neuerungen in Windows Server](whats-new-in-windows-server.md). In diesem Abschnitt wird beschrieben, was in Windows Server, Version 1803, neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung. Informationen finden Sie unter [Update für Windows Server (Halbjährlicher Kanal)](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/).
+<img src=../media/landing-icons/new.png style='float:left; padding:.5em;' alt=Icon showing a newspaper>&nbsp;Weitere Informationen zu den neuesten Features in Windows finden Sie unter [Neuerungen in Windows Server](whats-new-in-windows-server.md). In diesem Abschnitt wird beschrieben, was in Windows Server, Version 1803, neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung. Informationen finden Sie unter [Update für Windows Server (Halbjährlicher Kanal)](https://cloudblogs.microsoft.com/windowsserver/2018/03/29/windows-server-semi-annual-channel-update/).
 
 ## <a name="windows-admin-center"></a>Windows Admin Center
 
@@ -39,7 +39,7 @@ Basierend auf Feedback und Telemetrie, haben diese Kanäle demonstriert, dass si
 
 Die spezifischen Szenarien für den halbjährlichen Kanal und Long-Term Servicing Channel lauten wie folgt:
 
-|   | Long Term Servicing Channel |  Semi-Annual Channel |
+|   | Long Term Servicing Channel |  Halbjährlicher Kanal |
 | ------------- | ------------- | ------------ |
 | Empfohlene Szenarien     | Dateiserver für allgemeine Zwecke, Erst- und Drittanbieter-Arbeitslasten, herkömmliche Apps, Infrastrukturrollen, softwaredefiniertes Rechenzentrum und hyperkonvergente Infrastruktur  | Anwendungen in Containern, Container-Hosts und Anwendungsszenarien, die von schneller Innovation profitieren |
 | Neue Versionen  | Alle 2–3 Jahre  | Alle 6 Monate |
@@ -108,7 +108,7 @@ Den folgenden Windows PowerShell-Befehl können Sie verwenden, um den Transport-
 Install-WindowsFeature -Name WDS
 ```
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 [Dateiinformationen für die Windows Server-Version](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)<br>
 [Neues in Windows 10, Version 1803 – Infos für IT-Experten](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1803)

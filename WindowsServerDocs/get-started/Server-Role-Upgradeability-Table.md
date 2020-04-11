@@ -1,25 +1,21 @@
 ---
 title: Serverrollenupgrade und Migrationsmatrix für Windows Server 2016
 description: Zeigt, welche Serverrollen zu Windows Server 2016 aktualisiert oder migriert werden können.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 10/05/2016
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7e031a64-b1e6-4cf6-994a-e7c575835f6a
 author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 84500d3012eda99ff3b3c857fc4b5c154d0d0fe5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4e1b783c43eb435e61c7caaccaf842a0137b5eec
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360179"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826523"
 ---
 # <a name="server-role-upgrade-and-migration-matrix-for-windows-server-2016"></a>Serverrollenupgrade und Migrationsmatrix für Windows Server 2016
 
@@ -29,20 +25,20 @@ Das Raster auf dieser Seite veranschaulicht Ihre Optionen für Serverrollenupgra
 
 |Serverrolle|Upgrade von Windows Server 2012 R2 möglich?|Upgrade von Windows Server 2012 möglich?|Wird die Migration unterstützt?|Kann die Migration ohne Downtime abgeschlossen werden?|  
 |-------------------|----------|--------------|--------------|----------|  
-|Active Directory-Zertifikatdienste| Ja|    Ja|    Ja|    Nein|
-|Active Directory Domain Services|  Ja|    Ja|    Ja|    Ja|
-|Active Directory-Verbunddienste|  Nein| Nein| Ja|    Nein (neue Knoten müssen zur Farm hinzugefügt werden)|
-|Active Directory Lightweight Directory Services|   Ja|    Ja|    Ja|    Ja|
-|Active Directory-Rechteverwaltungsdienste|   Ja|    Ja|    Ja|    Nein|
-|DHCP-Server|   Ja|    Ja|    Ja|    Ja|
+|Active Directory-Zertifikatdienste|    Ja|    Ja|    Ja|    Nein|
+|Active Directory-Domänendienste (AD DS)|    Ja|    Ja|    Ja|    Ja|
+|Active Directory-Verbunddienste|    Nein|    Nein|    Ja|    Nein (neue Knoten müssen zur Farm hinzugefügt werden)|
+|Active Directory Lightweight Directory Services|    Ja|    Ja|    Ja|    Ja|
+|Active Directory-Rechteverwaltungsdienste|    Ja|    Ja|    Ja|    Nein|
+|DHCP-Server|    Ja|    Ja|    Ja|    Ja|
 |DNS-Server|    Ja|    Ja|    Ja|    Nein|
-|Failovercluster|Ja mit dem Prozess [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade), der Pause-Drain und Evict von Knoten, Upgrade auf Windows Server 2016 und das wieder Zusammenführen von Knoten zu einem ursprünglichen Cluster umfasst. Ja, wenn der Server für ein Upgrade vom Cluster entfernt und dann zu einem anderen Cluster hinzugefügt wird.|Nicht wenn der Server Teil eines Clusters ist. Ja, wenn der Server für ein Upgrade vom Cluster entfernt und dann zu einem anderen Cluster hinzugefügt wird.  |Ja|Nicht für Windows Server 2012-Failovercluster. Ja, für Windows Server 2012 R2-Failovercluster mit virtuellen Hyper-V Computern, oder für Windows Server 2012 R2-Failovercluster, die die Rolle des Dateiservers mit horizontaler Skalierung ausführen. Weitere Informationen finden Sie unter [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade).|
-|Datei- und Speicherdienste| Ja|    Ja|    Variiert je nach Sub-Feature|  Nein|
+|Failovercluster|Ja mit dem Prozess [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade), der Pause-Drain und Evict von Knoten, Upgrade auf Windows Server 2016 und das wieder Zusammenführen von Knoten zu einem ursprünglichen Cluster umfasst. Ja, wenn der Server für ein Upgrade vom Cluster entfernt und dann zu einem anderen Cluster hinzugefügt wird.|Nicht wenn der Server Teil eines Clusters ist. Ja, wenn der Server für ein Upgrade vom Cluster entfernt und dann zu einem anderen Cluster hinzugefügt wird.    |Ja|Nicht für Windows Server 2012-Failovercluster. Ja, für Windows Server 2012 R2-Failovercluster mit virtuellen Hyper-V Computern, oder für Windows Server 2012 R2-Failovercluster, die die Rolle des Dateiservers mit horizontaler Skalierung ausführen. Weitere Informationen finden Sie unter [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade).|
+|Datei- und Speicherdienste|    Ja|    Ja|    Variiert je nach Sub-Feature|    Nein|
 |Hyper-V| Ja. (Wenn der Host Teil eines Clusters mit dem Prozess Cluster OS Rolling Upgrade ist, der Pause-Drain und Evict von Knoten, Upgrade auf Windows Server 2016 und das wieder Zusammenführen von Knoten zu einem ursprünglichen Cluster umfasst.)|  Nein|   Ja|  Nicht für Windows Server 2012-Failovercluster. Ja, für Windows Server 2012 R2-Failovercluster mit virtuellen Hyper-V Computern, oder für Windows Server 2012 R2-Failovercluster, die die Rolle des Dateiservers mit horizontaler Skalierung ausführen. Weitere Informationen finden Sie unter [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade).| 
-|Druck- und Faxdienste|    Nein| Nein| Ja (Printbrm.exe)| Nein|
-|Remotedesktopdienste|   Ja, für alle untergeordneten Rollen. Die Farm im gemischten Modus wird jedoch nicht unterstützt|   Ja, für alle untergeordneten Rollen. Die Farm im gemischten Modus wird jedoch nicht unterstützt|   Ja|    Nein|
-|Webserver (IIS)|  Ja|    Ja|    Ja|    Nein|
-|Windows Server Essentials Experience|  Ja|    N/V – neues Feature|  Ja|    Nein|
+|Druck- und Faxdienste|    Nein|    Nein|    Ja (Printbrm.exe)|    Nein|
+|Remotedesktopdienste|    Ja, für alle untergeordneten Rollen. Die Farm im gemischten Modus wird jedoch nicht unterstützt|    Ja, für alle untergeordneten Rollen. Die Farm im gemischten Modus wird jedoch nicht unterstützt|    Ja|    Nein|
+|Webserver (IIS)|    Ja|    Ja|    Ja|    Nein|
+|Windows Server Essentials Experience|    Ja|    N/V – neues Feature|    Ja|    Nein|
 |Windows Server Update Services|    Ja|    Ja|    Ja|    Nein|
-|Arbeitsordner|  Ja|    Ja|    Ja|    Ja, vom Cluster WS 2012 R2, wenn [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) ausgeführt wird.|
+|Arbeitsordner|    Ja|    Ja|    Ja|    Ja, vom Cluster WS 2012 R2, wenn [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) ausgeführt wird.|
 

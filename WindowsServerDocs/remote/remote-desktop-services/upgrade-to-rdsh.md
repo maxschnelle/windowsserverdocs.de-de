@@ -1,28 +1,24 @@
 ---
 title: Aktualisieren deines Remotedesktop-Sitzungshosts auf Windows Server 2016
-description: In diesem Artikel wird beschrieben, wie du deine vorhandenen Bereitstellungen der Remotedesktopdienste auf Windows Server 2016 aktualisierst.
-ms.custom: na
+description: In diesem Artikel wird beschrieben, wie Sie Ihre vorhandenen Bereitstellungen der Remotedesktopdienste auf Windows Server 2016 aktualisieren.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: spatnaik
 ms.date: 08/01/2016
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5c9b98b8-4eca-4a39-b10b-2bac729f7f44
 author: spatnaik
 manager: scottman
-ms.openlocfilehash: 784eb7c0ccc37eb31b514fbbeaa9e99c3a39a9e9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e685c51a003a7121dab19c74d82796311ef0889a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387057"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857123"
 ---
 # <a name="upgrading-your-remote-desktop-session-host-to-windows-server-2016"></a>Aktualisieren deines Remotedesktop-Sitzungshosts auf Windows Server 2016
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016
 
 > [!IMPORTANT]
 > Alle Anwendungen müssen vor dem Upgrade deinstalliert und nach dem Upgrade neu installiert werden, um App-Kompatibilitätsprobleme zu vermeiden, die infolge des Upgrades auftreten können.

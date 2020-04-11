@@ -2,18 +2,18 @@
 ms.assetid: ''
 title: Konfigurieren von Systemen für hohe Genauigkeit
 description: Die Zeitsynchronisierung in Windows 10 und Windows Server 2016 wurde erheblich verbessert.  Unter angemessenen Betriebsbedingungen können Systeme so konfiguriert werden, dass sie eine Genauigkeit von 1 ms (Millisekunden) oder besser (in Bezug auf die UTC) aufrechterhalten.
-author: eross-msft
+author: dcuomo
 ms.author: dacuo
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 8cdded0eb0dc663d352011fb1a6765a2ed358764
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 25472e4ba4837bd68c9b6914e22c2219c91d3ac0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80315034"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861653"
 ---
 # <a name="configuring-systems-for-high-accuracy"></a>Konfigurieren von Systemen für hohe Genauigkeit
 >Gilt für: Windows Server 2016 und Windows 10, Version 1607 oder höher

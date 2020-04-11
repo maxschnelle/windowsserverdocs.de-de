@@ -8,12 +8,12 @@ ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
-ms.openlocfilehash: 1ce821c2e793792032e2f91aa806b1bd8d8a76f6
-ms.sourcegitcommit: b9ec35416a06854c1bc875a2b731d42a436fe313
+ms.openlocfilehash: 6c424d19c006cfae6343d577dc08ff3553a5616b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73956069"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825873"
 ---
 # <a name="whats-new-in-windows-server"></a>Neues in Windows Server
 
@@ -35,7 +35,7 @@ Releases im halbjährlichen Kanal:
 
 Releases von Windows Server (halbjährlicher Kanal) stellen in kürzeren Abständen neue Betriebssystemfunktionen zur Verfügung. Alle sechs Monate wird ein neues Release veröffentlicht, und es wird 18 Monate Support bereitgestellt. In den [Versionsinformationen zu Windows Server](windows-server-release-info.md) und auf der [Microsoft Lifecycle-Seite](https://support.microsoft.com/lifecycle) finden Sie Informationen zum Supportlifecycle. Verwenden Sie möglichst immer das neueste Release.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 - [Versionshinweise: Wichtige Probleme in Windows Server 2019](../get-started-19/rel-notes-19.md)
 - [Versionshinweise: Wichtige Probleme in Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)

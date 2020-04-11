@@ -6,12 +6,12 @@ ms.author: daveba
 ms.date: 10/17/2017
 ms.topic: article
 author: daveba
-ms.openlocfilehash: ce835d25811680a5dcb49f8a66005e12b31d3089
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 255d962bf1db5d20eddaff2655f6133710ae98e5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391256"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825863"
 ---
 # <a name="technology-in-windows-server-2016"></a>Technologie in Windows Server 2016 
 
@@ -22,7 +22,7 @@ ms.locfileid: "71391256"
 
 
 >[!Note]
-> Weitere Informationen zum Download von Windows Server 2016 finden Sie unter [Windows Server-Evaluierungsversionen](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016).
+> Weitere Informationen zum Download von Windows Server 2016 finden Sie unter [Windows Server Evaluierungsversionen](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016).
 
 *Stellen Sie hier neue und aufregende Features vor.*
 
@@ -36,7 +36,7 @@ ms.locfileid: "71391256"
 ### <a name="link-to-article-about-sub-technology"></a>Link zum Artikel über untergeordnete Technologie
 
 ## <a name="sub-technology"></a>Untergeordnete Technologie
-
+    
 ### <a name="link-to-article-about-sub-technology"></a>Link zum Artikel über untergeordnete Technologie
 
 ### <a name="link-to-article-about-sub-technology"></a>Link zum Artikel über untergeordnete Technologie
@@ -49,3 +49,4 @@ ms.locfileid: "71391256"
 ### <a name="link-to-article-about-sub-technology"></a>Link zum Artikel über untergeordnete Technologie
 
 ### <a name="link-to-article-about-sub-technology"></a>Link zum Artikel über untergeordnete Technologie
+    

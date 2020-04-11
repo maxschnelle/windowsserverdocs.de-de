@@ -1,24 +1,20 @@
 ---
 title: Verwalten von Benutzern in Ihrer RDS-Sammlung
 description: Erfahren Sie, wie Sie Benutzer in Remotedesktopdiensten verwalten.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2727e1ab-69b8-46f3-9f6d-2540324fe596
 author: christianmontoya
 ms.author: chrimo
 ms.date: 03/27/2018
 manager: scottman
-ms.openlocfilehash: 870a6360f685c2de31485135202b0f1415c90d85
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 430c38f98dd9aec3034e023d737952e3015622eb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403858"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858683"
 ---
 # <a name="manage-users-in-your-rds-collection"></a>Verwalten von Benutzern in Ihrer RDS-Sammlung
 
@@ -26,8 +22,8 @@ ms.locfileid: "71403858"
 
 Als Administrator können Sie direkt verwalten, welche Benutzer Zugriff auf bestimmte Sammlungen haben. Auf diese Weise können Sie eine Sammlung mit Standardanwendungen für Information Worker erstellen und dann eine separate Sammlung mit grafikintensiven Modellierungsanwendungen für Ingenieure. Es gibt zwei Hauptschritte beim Verwalten des Benutzerzugriffs in einer Remotedesktopdienste-Bereitstellung (RDS):
 
-1.  [Erstellen von Benutzern und Gruppen in Active Directory](#create-your-users-and-groups-in-active-directory)
-2.  [Zuweisen von Benutzern und Gruppen zu Sammlungen](#assign-users-and-groups-to-collections)
+1.    [Erstellen von Benutzern und Gruppen in Active Directory](#create-your-users-and-groups-in-active-directory)
+2.    [Zuweisen von Benutzern und Gruppen zu Sammlungen](#assign-users-and-groups-to-collections)
 
 
 ## <a name="create-your-users-and-groups-in-active-directory"></a>Erstellen von Benutzern und Gruppen in Active Directory

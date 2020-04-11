@@ -2,22 +2,19 @@
 title: Erste Schritte mit Windows Server Update Services (WSUS)
 description: 'WSUS-Thema (Windows Server Update Services): Übersicht über die Serverrolle und praktische Anwendungsfälle'
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: get-started article
 ms.assetid: 90e3464c-49d8-4861-96db-ee6f8a09ec5b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 5/22/2017
-ms.openlocfilehash: 89247f91f616233fc6e4967a0457ff34fac221da
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3bb365c627840d4152b0dc450e24dd83d82103ca
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361646"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828632"
 ---
 # <a name="windows-server-update-services-wsus"></a>Windows Server Update Services (WSUS)
 
@@ -28,7 +25,7 @@ Windows Server Update Services (WSUS) ermöglicht IT-Administratoren das Bereits
 ## <a name="wsus-server-role-description"></a>Beschreibung der WSUS-Serverrolle
 Ein WSUS-Server stellt Features bereit, die du zum Verwalten und Verteilen von Updates über eine Verwaltungskonsole verwenden kannst. Ein WSUS-Server kann auch als Updatequelle für andere WSUS-Server in der Organisation dienen. Der als Updatequelle eingesetzte WSUS-Server wird als Upstreamserver bezeichnet. In einer WSUS-Implementierung muss mindestens ein WSUS-Server im Netzwerk eine Verbindung mit Microsoft Update herstellen können, um verfügbare Updateinformationen herunterzuladen. Als Administrator kannst du – basierend auf der Netzwerksicherheit und -konfiguration – festlegen, wie viele weitere WSUS-Server eine direkte Verbindung mit Microsoft Update herstellen.
 
-### <a name="practical-applications"></a>Praktische Anwendungsfälle
+### <a name="practical-applications"></a>Praktische Anwendung
 Unter der Updateverwaltung versteht man das Steuern der Bereitstellung und Wartung von Zwischensoftwareversionen in Produktionsumgebungen. Sie hilft Ihnen, die betriebliche Effizienz zu wahren, Sicherheitsrisiken zu bewältigen und die Stabilität der Produktionsumgebung aufrecht zu erhalten. Wenn Ihre Organisation nicht in der Lage ist, eine bekannte Vertrauensebene in den Betriebssystemen und der Anwendungssoftware herzustellen und aufrecht zu erhalten, können verschiedene Sicherheitsrisiken auftreten, die – sofern sie ausgenutzt werden – zu einem Verlust von Umsatzerlösen und geistigem Eigentum führen können. Um diese Gefahr zu minimieren, müssen Sie Ihre Systeme korrekt konfigurieren, die aktuelle Software verwenden und die empfohlenen Softwareupdates installieren.
 
 In den folgenden Szenarien kann Ihr Unternehmen von WSUS profitieren:

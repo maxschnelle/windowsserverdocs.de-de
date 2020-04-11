@@ -1,6 +1,5 @@
 ---
 title: Identität | Zugriff
-description: ''
 author: billmath
 manager: femila
 layout: LandingPage
@@ -10,12 +9,12 @@ ms.assetid: c248b41f-0de3-4247-9a25-b4b08e50ebf0
 ms.topic: landing-page
 ms.author: billmath
 ms.localizationpriority: high
-ms.openlocfilehash: c4e3589a8aecd01d06301b702cf5286a6d8d175d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ecc943878c18525ec10b03d870b8825269628101
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391150"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825683"
 ---
 # <a name="identity--access"></a>Identität | Zugriff
 
@@ -39,7 +38,7 @@ Zugriffs- und Identitätstechnologien ermöglichen sichere Active Directory-Umge
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h2>Das ist neu:</h2>
+                                            <h2>Neuigkeiten</h2>
                                             <p>Erfahren Sie, was neu in Active Directory-Verbunddienste (AD FS) ist</p>
                                         </div>
                                     </div>
@@ -99,7 +98,7 @@ Zugriffs- und Identitätstechnologien ermöglichen sichere Active Directory-Umge
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Active Directory Domain Services</h3><hr />
+                        <h3>Active Directory-Domänendienste (AD DS)</h3><hr />
                         <p>Detaillierte Dokumentation aller neuen Features für AD DS in Windows Server.</p>
                     </div>
                 </div>
@@ -118,7 +117,7 @@ Zugriffs- und Identitätstechnologien ermöglichen sichere Active Directory-Umge
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Active Directory-Verbunddienste (AD FS)</h3><hr />
+                        <h3>Active Directory-Verbunddienste</h3><hr />
                         <p>Detaillierte Dokumentation aller neuen Features für AD DS in Windows Server.</p>
                     </div>
                 </div>
