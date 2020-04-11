@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 38cf00dc48ff036e7d710fb7436f00fd9381dd0b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 312226b73b91385436e15c4afbb49df161258768
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849873"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81123107"
 ---
 # <a name="bitsadmin-removeclientcertificate"></a>removeclientcertificate für biout admin
 
@@ -32,7 +32,7 @@ bitsadmin /removeclientcertificate <job>
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Im folgenden Beispiel wird das Client Zertifikat aus dem Auftrag mit dem Namen *mydownloadjob*entfernt.
 

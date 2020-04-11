@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setreplyfilename
-description: Windows-Befehls Thema für BITSAdmin * treplyfilename, das den Pfad der Datei angibt, in der die Serverantwort enthalten ist.
+description: Windows-Befehls Thema für **BITSAdmin * treplyfilename**, das den Pfad der Datei angibt, die den Server Upload-Reply enthält.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,41 +9,39 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fd45174a7deac89cc943fb19d544e372c0198139
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6c476073cb22ff66bcefc75a45fcd0526cdf3d25
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849183"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122739"
 ---
 # <a name="bitsadmin-setreplyfilename"></a>bitsadmin setreplyfilename
 
-Gibt den Pfad der Datei an, die die Serverantwort enthält.
+Gibt den Pfad der Datei an, in der der Server Upload-Reply enthalten ist.
 
-**Bits 1,2 und früher**: nicht unterstützt.
+> [!NOTE]
+> Dieser Befehl wird von Bits 1,2 und früheren Versionen nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-bitsadmin /SetReplyFileName <Job> <Path>
+bitsadmin /setreplyfilename <job> <file_path>
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
-|Path|Speicherort für die Serverantwort|
+| Parameter | Beschreibung |
+| -------------- | -------------- |
+| Auftrag | Der Anzeige Name oder GUID des Auftrags. |
+| file_path | Speicherort für den Server Upload-Reply. |
 
-## <a name="remarks"></a>Hinweise
+## <a name="examples"></a>Beispiele
 
-Nur für Upload-Antwort-Aufträge gültig.
+Im folgenden Beispiel wird der Datei Pfad für den Upload-Reply-Dateinamen für den Auftrag *mydownloadjob*festgelegt.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
-
-Im folgenden Beispiel wird der Antwort Dateiname für den Auftrag mit dem Namen *mydownloadjob*festgelegt.
 ```
-C:\>bitsadmin /SetReplyFileName myDownloadJob c:\reply
+C:\>bitsadmin /setreplyfilename myDownloadJob c:\upload-reply
 ```
 
 ## <a name="additional-references"></a>Weitere Verweise

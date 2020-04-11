@@ -8,12 +8,12 @@ ms.date: 04/30/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: web-app-proxy
-ms.openlocfilehash: 18851463b82afc1dc34615e6faaa14622c80224a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f859d40ed04cc25285212968e6cd186cffe760ae
+ms.sourcegitcommit: 5c93c685dca3cafeea916cedcc0f915c528484ca
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80818683"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81119248"
 ---
 # <a name="publishing-applications-with-sharepoint-exchange-and-rdg"></a>Veröffentlichen von Anwendungen mit SharePoint, Exchange und RDG
 
@@ -112,7 +112,7 @@ Wenn Sie den Zugriff auf das Remote Zugriffs Gateway einschränken und die Vorau
 5.  Wenn sich der externe und interne voll qualifizierte Dateityp unterscheiden, sollten Sie die Übersetzung der Anforderungs Kopfzeile für die RDWeb-Veröffentlichungs Regel nicht deaktivieren. Dies kann durch Ausführen des folgenden PowerShell-Skripts auf dem webanwendungsproxy-Server erreicht werden, sollte jedoch standardmäßig aktiviert sein:
 
     ```PowerShell
-    Get-WebApplicationProxyApplication applicationname | Set-WebApplicationProxyApplication -DisableTranslateUrlInRequestHeaders:$false
+    Get-WebApplicationProxyApplication applicationname | Set-WebApplicationProxyApplication -DisableTranslateUrlInRequestHeaders:$true
     ```
 
 6.  Deaktivieren Sie die HttpOnly-Cookie-Eigenschaft im webanwendungsproxy für die veröffentlichte RDG-Anwendung. Um dem RDG-ActiveX-Steuerelement Zugriff auf das webanwendungsproxy-Authentifizierungs Cookie zu ermöglichen, müssen Sie die HttpOnly-Eigenschaft im webanwendungsproxy-Cookie deaktivieren.

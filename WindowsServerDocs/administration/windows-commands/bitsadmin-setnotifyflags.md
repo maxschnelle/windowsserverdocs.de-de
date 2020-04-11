@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setnotifyflags
-description: Windows-Befehls Thema für bitadmin setnotifyflags, mit dem die ereignisbenachrichtigungsflags für den angegebenen Auftrag festgelegt werden.
+description: Windows-Befehls Thema für **bitadmin setnotifyflags**, mit dem die ereignisbenachrichtigungsflags für den angegebenen Auftrag festgelegt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fd3001fa4ae7f51cab92556f4f2f498511cca5ae
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 73c088ce2bae8d2ad99b313417c14449ddd822b5
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849283"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122792"
 ---
 # <a name="bitsadmin-setnotifyflags"></a>bitsadmin setnotifyflags
 
@@ -23,27 +23,22 @@ Legt die ereignisbenachrichtigungsflags für den angegebenen Auftrag fest.
 ## <a name="syntax"></a>Syntax
 
 ```
-bitsadmin /SetNotifyFlags <Job> <NotifyFlags>
+bitsadmin /setnotifyflags <job> <notifyflags>
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
-|Notifyflags|Siehe Hinweise|
+| Parameter | Beschreibung |
+| --------- | ----------- |
+| Auftrag | Der Anzeige Name oder GUID des Auftrags. |
+| notifyflags | Kann eine oder mehrere der folgenden Benachrichtigungs Flags enthalten, einschließlich:<ul><li>**1.** generiert ein Ereignis, wenn alle Dateien im Auftrag übertragen wurden.</li><li>**2.** generiert ein Ereignis, wenn ein Fehler auftritt.</li><li>**3.** generiert ein Ereignis, wenn alle Dateien die Übertragung abgeschlossen haben oder wenn ein Fehler auftritt.</li><li>**4.** deaktiviert Benachrichtigungen.</li></ul> |
 
-## <a name="remarks"></a>Hinweise
+## <a name="examples"></a>Beispiele
 
-Der **notifyflags** -Parameter kann eine oder mehrere der folgenden Benachrichtigungs Flags enthalten.
+Im folgenden Beispiel werden die Benachrichtigungs Flags so festgelegt, dass bei Auftreten eines Fehlers für einen Auftrag mit dem Namen *mydownloadjob*ein Ereignis generiert wird.
 
-|-----|-----| | 1 | Generiert ein Ereignis, wenn alle Dateien im Auftrag übertragen wurden. | 2 | Generiert ein Ereignis, wenn ein Fehler auftritt. | | 4 | Benachrichtigungen deaktivieren. |
-
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
-
-Im folgenden Beispiel werden die Benachrichtigungs Flags für übertragene Aufträge und Fehler Ereignis Aufträge für einen Auftrag mit dem Namen *mydownloadjob*festgelegt.
 ```
-C:\>bitsadmin /SetNotifyFlags myDownloadJob 3
+C:\>bitsadmin /setnotifyflags myDownloadJob 2
 ```
 
 ## <a name="additional-references"></a>Weitere Verweise

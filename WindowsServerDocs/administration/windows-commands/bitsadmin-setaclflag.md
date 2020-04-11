@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setaclflag
-description: Windows-Befehls Thema für BITSAdmin setaclflag, mit dem die weitergabesteuerungsflags für Zugriffs Steuerungs Listen festgelegt werden.
+description: Windows-Befehls Thema für **BITSAdmin setaclflag**, mit dem die Zugriffs Steuerungs Listen-Weitergabeflags festgelegt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,41 +9,42 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4ac47e554dde6a555e891d89668cd12fec3179d4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f0aae550e94d04db518edccafb1d6bcf46d0320b
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849673"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81123063"
 ---
 # <a name="bitsadmin-setaclflag"></a>bitsadmin setaclflag
 
-Legt die weitergabesteuerungsflags für die Zugriffs Steuerungs Liste (ACL) für den Auftrag fest. Die Flags geben an, dass Sie den Besitzer und die ACL-Informationen mit der heruntergeladenen Datei verwalten möchten. Um z. b. den Besitzer und die Gruppe mit der Datei beizubehalten, legen Sie **Flags** auf `OG`fest.
+Legt die weitergabesteuerungsflags für die Zugriffs Steuerungs Liste (ACL) für den Auftrag fest. Die Flags geben an, dass Sie den Besitzer und die ACL-Informationen mit der heruntergeladenen Datei verwalten möchten. Um z. b. den Besitzer und die Gruppe mit der Datei beizubehalten, legen Sie den **Flags** -Parameter auf `og`fest.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-bitsadmin /SetAclFlags <Job> <Flags>
+bitsadmin /setaclflag <job> <flags>
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
-|Flags|Geben Sie mindestens einen der folgenden Flagwerte an:</br>-O: Besitzer Informationen in Datei kopieren.</br>-G: Kopieren von Gruppeninformationen mit der Datei.</br>-D: DACL-Informationen werden mit der Datei kopiert.</br>-S: Kopieren Sie SACL-Informationen mit der Datei.|
+| Parameter | Beschreibung |
+| --------- | ----------- |
+| Auftrag | Der Anzeige Name oder GUID des Auftrags. |
+| flags | Geben Sie einen oder mehrere der Werte an, einschließlich:<ul><li>**o** -Besitzer Informationen mit Datei kopieren.</li><li>**g** -Gruppeninformationen in Datei kopieren.</li><li>**d** : Kopieren Sie die DACL-Informationen ("-Zugriffs Steuerungs Liste") mit der Datei.</li><li>**s** -Informationen zur System Zugriffs Steuerungs Liste (SACL) mit Datei kopieren.</li></ul> |
 
 ## <a name="remarks"></a>Hinweise
 
-Der Schalter "staclflags" wird verwendet, um Besitzer-und Zugriffs Steuerungs Listen-Informationen beizubehalten, wenn ein Auftrag Daten aus einer Windows-Freigabe (SMB) herunterlädt.
+Der Schalter/setaclflag wird verwendet, um Besitzer-und Zugriffs Steuerungs Listen-Informationen beizubehalten, wenn ein Auftrag Daten aus einer Windows-Freigabe (SMB) herunterlädt.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Im folgenden Beispiel werden die Weitergabeflags für die Zugriffs Steuerungs Liste für den Auftrag *mydownloadjob* festgelegt, um die Besitzer-und Gruppeninformationen mit den heruntergeladenen Dateien beizubehalten.
+
 ```
-C:\>bitsadmin /setaclflags myDownloadJob OG
+C:\>bitsadmin /setaclflags myDownloadJob og
 ```
 
 ## <a name="additional-references"></a>Weitere Verweise
 
-- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+[Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)&reg;'    

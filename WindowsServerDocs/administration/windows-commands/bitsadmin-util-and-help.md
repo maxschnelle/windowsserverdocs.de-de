@@ -1,6 +1,6 @@
 ---
 title: BIFS admin util und Hilfe
-description: Windows-Befehls Thema für bitionadmin util und Help, das die Befehlszeilen Verwendung für die util-Switches anzeigt.
+description: Windows-Befehls Thema für **bitionadmin util und Help**, das die Befehlszeilen Verwendung für die util-Switches anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fac449fea329cf8f03985ab8bc036c4046a5dd24
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3cbfcb5a630d6670202551a433ca3acc4b9b7fa0
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80848903"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122483"
 ---
 # <a name="bitsadmin-util-and-help"></a>BIFS admin util und Hilfe
 
@@ -23,14 +23,15 @@ Zeigt die Befehlszeilen Verwendung für die **util** -Switches an.
 ## <a name="syntax"></a>Syntax
 
 ```
-Bitsadmin /Util /Help 
+bitsadmin /util /help
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Der folgende Befehl zeigt die Befehlszeilen Hilfe für die **util** -Switches an.
+
 ```
-Bitsadmin /Util /Help
+C:\>bitsadmin /util /help
 ```
 
 ## <a name="additional-references"></a>Weitere Verweise

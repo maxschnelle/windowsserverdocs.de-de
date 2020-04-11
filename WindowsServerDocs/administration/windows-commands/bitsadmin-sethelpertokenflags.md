@@ -1,6 +1,6 @@
 ---
 title: bitadmin-eingabeflags
-description: Windows-Befehls Thema für BITSAdmin sethelpertokenflags, mit dem die nutzungsflags für ein Hilfsobjekt festgelegt werden, das einem Bits-Übertragungs Auftrag zugeordnet ist.
+description: Windows-Befehls Thema für **BITSAdmin sethelpertokenflags**, mit dem die nutzungsflags für ein Hilfsobjekt festgelegt werden, das einem Bits-Übertragungs Auftrag zugeordnet ist.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -8,31 +8,32 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: c644e82026cfc1d62f3fb5d20e3925002b871036
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 77fac03dba2bb0686a98206405622e2eb398953e
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849493"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122974"
 ---
 # <a name="bitsadmin-sethelpertokenflags"></a>bitadmin-eingabeflags
 
-Legt die nutzungsflags für ein [Hilfsobjekt](/windows/desktop/bits/helper-tokens-for-bits-transfer-jobs) fest, das einem Bits-Übertragungs Auftrag zugeordnet ist.
+Legt die nutzungsflags für ein [Hilfsobjekt](https://docs.microsoft.com/windows/win32/bits/helper-tokens-for-bits-transfer-jobs) fest, das einem Bits-Übertragungs Auftrag zugeordnet ist.
 
-**Bits 3,0 und früher**: nicht unterstützt.
+> [!NOTE]
+> Dieser Befehl wird von Bits 3,0 und früheren Versionen nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-bitsadmin /SetHelperTokenFlags <Job> <Flags>
+bitsadmin /sethelpertokenflags <job> <flags>
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|Auftrag|Der Anzeige Name oder GUID des Auftrags.|
-|Flags|Folgende Werte sind möglich: 0x0001&mdash;das Hilfsobjekt wird verwendet, um die lokale Datei eines uploadauftrags zu öffnen, um die temporäre Datei eines Download Auftrags zu erstellen oder umzubenennen oder um die Antwortdatei eines Upload-Antwort-Auftrags zu erstellen oder umzubenennen. 0x0002&mdash;das Hilfsobjekt wird zum Öffnen der Remote Datei eines Server Message Block (SMB) Upload-oder Download Auftrags oder als Reaktion auf eine HTTP-Server-oder Proxy Aufforderung für implizite NTLM-oder Kerberos-Anmelde Informationen verwendet. Sie müssen `/SetCredentialsJob TargetScheme NULL NULL` aufgerufen werden, damit die Anmelde Informationen über HTTP gesendet werden können.|
+| Parameter | Beschreibung |
+| --------- | ----------- |
+| Auftrag | Der Anzeige Name oder GUID des Auftrags. |
+| flags | Mögliche hilfstokenwerte, einschließlich:<ul><li>**0x0001.** Dient zum Öffnen der lokalen Datei eines uploadauftrags, zum Erstellen oder Umbenennen der temporären Datei eines Download Auftrags oder zum Erstellen oder Umbenennen der Antwortdatei eines Upload-Antwort-Auftrags.</li><li>**0x0002.** Wird verwendet, um die Remote Datei eines Server Message Block-Uploads (SMB) zum Hochladen oder herunterladen oder als Reaktion auf eine HTTP-Server-oder Proxy Aufforderung für implizite NTLM-oder Kerberos-Anmelde Informationen zu öffnen.</li></ul>Sie müssen `/setcredentialsjob targetscheme null null` aufgerufen werden, um die Anmelde Informationen über HTTP zu senden. |
 
 ## <a name="additional-references"></a>Weitere Verweise
 
