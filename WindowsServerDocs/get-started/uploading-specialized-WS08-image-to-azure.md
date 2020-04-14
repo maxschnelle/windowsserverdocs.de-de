@@ -7,15 +7,14 @@ ms.sitesec: library
 author: mikeblodge
 ms.author: mikeblodge
 ms.date: 07/11/2018
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.openlocfilehash: 19e4abf1573b8d3ee99b8e8828c1674f24d27695
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: de9233e31c5530abd207a1bbba0e1e16a07d1561
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391502"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826123"
 ---
 # <a name="upload-a-windows-server-20082008-r2-specialized-image-to-azure"></a>Hochladen eines spezialisierten Windows Server 2008/2008 R2-Images auf Azure 
 
@@ -86,26 +85,26 @@ In diesem Abschnitt stellen Sie die Image-VHD auf Azure bereit.
 > [!IMPORTANT]
 > Verwenden Sie auf Azure keine vordefinierten Benutzer-Images.
 
-1.  Erstellen Sie eine neue [Ressourcengruppe](https://docs.microsoft.com/rest/api/resources/resourcegroups/createorupdate). 
-2.  Erstellen Sie innerhalb der Ressourcengruppe ein neues [Speicherblob](https://docs.microsoft.com/rest/api/storageservices/put-blob).
-3.  Erstellen Sie innerhalb des Speicherblobs einen [Container](https://docs.microsoft.com/rest/api/storageservices/create-container).
-4.  Kopieren Sie die URL des Blobspeichers aus den Eigenschaften.
-5.  Verwenden Sie das oben bereitgestellte Skript, um Ihr Image in das neue Speicherblob hochzuladen.
-6.  Erstellen Sie einen [Datenträger](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) für Ihre virtuelle Festplatte.   
-     a. Wechseln Sie zu „Datenträger“, und klicken Sie auf **Hinzufügen**.  
-     b. Geben Sie einen Namen für den Datenträger ein. Wählen Sie das Abonnement aus, das Sie verwenden möchten, legen Sie die Region fest, und wählen Sie den Kontotyp aus.   
+1.    Erstellen Sie eine neue [Ressourcengruppe](https://docs.microsoft.com/rest/api/resources/resourcegroups/createorupdate). 
+2.    Erstellen Sie innerhalb der Ressourcengruppe ein neues [Speicherblob](https://docs.microsoft.com/rest/api/storageservices/put-blob).
+3.    Erstellen Sie innerhalb des Speicherblobs einen [Container](https://docs.microsoft.com/rest/api/storageservices/create-container).
+4.    Kopieren Sie die URL des Blobspeichers aus den Eigenschaften.
+5.    Verwenden Sie das oben bereitgestellte Skript, um Ihr Image in das neue Speicherblob hochzuladen.
+6.    Erstellen Sie einen [Datenträger](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) für Ihre virtuelle Festplatte.   
+     ein.    Wechseln Sie zu „Datenträger“, und klicken Sie auf **Hinzufügen**.  
+     b.    Geben Sie einen Namen für den Datenträger ein. Wählen Sie das Abonnement aus, das Sie verwenden möchten, legen Sie die Region fest, und wählen Sie den Kontotyp aus.   
      c. Wählen Sie für den Quelltyp „Speicher“ aus. Navigieren Sie anhand des Skripts zum Speicherort der Blob-VHD.  
      d. Wählen Sie den Betriebssystemtyp „Windows“ und die Größe „(Standard: 1023)“ aus.   
      e. Klicken Sie auf **Erstellen**.   
 
-7.  Wechseln Sie zum erstellten Datenträger, und klicken Sie auf **VM erstellen**.   
-     a. Benennen Sie die VM.   
-     b. Wählen Sie die vorhandene Gruppe aus, die Sie in Schritt 5 erstellt und in die Sie den Datenträger hochgeladen haben.   
-     c. Wählen Sie eine Größe und einen SKU-Plan für Ihre VM aus.   
-     d. Wählen Sie auf der Seite „Einstellungen“ eine Netzwerkschnittstelle aus. Stellen Sie sicher, dass bei der Netzwerkschnittstelle die folgende Regel angegeben wurde:
+7.    Wechseln Sie zum erstellten Datenträger, und klicken Sie auf **VM erstellen**.   
+     ein.    Benennen Sie die VM.   
+     b.    Wählen Sie die vorhandene Gruppe aus, die Sie in Schritt 5 erstellt und in die Sie den Datenträger hochgeladen haben.   
+     c.    Wählen Sie eine Größe und einen SKU-Plan für Ihre VM aus.   
+     d.    Wählen Sie auf der Seite „Einstellungen“ eine Netzwerkschnittstelle aus. Stellen Sie sicher, dass bei der Netzwerkschnittstelle die folgende Regel angegeben wurde:
  
-        PORT:3389 Protocol: TCP Action: Allow Priority: 1000 Name: ‘RDP-Rule'.   
-     e. Klicken Sie auf **Erstellen**.
+        PORT:3389 Protokoll: TCP-Aktion: Priorität zulassen: 1000 Name: 'RDP-Rule'.   
+     e.    Klicken Sie auf **Erstellen**.
 
 
 
