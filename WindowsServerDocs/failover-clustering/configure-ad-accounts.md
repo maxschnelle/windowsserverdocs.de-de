@@ -4,14 +4,14 @@ ms.date: 11/12/2012
 ms.prod: windows-server
 ms.technology: storage-failover-clustering
 author: JasonGerend
-manager: elizapo
+manager: lizross
 ms.author: jgerend
-ms.openlocfilehash: 47f3a515379eb79f628a0ee97ef2c7965c4d8d50
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c087b3f86dcb70c07221a5436d921b09fb5a917f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948154"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827893"
 ---
 # <a name="configuring-cluster-accounts-in-active-directory"></a>Konfigurieren von Clusterkonten in Active Directory
 
@@ -30,7 +30,7 @@ In diesem Abschnitt werden die Active Directory-Computerkonten (auch als Active 
       
     Wenn Sie beispielsweise einen Cluster mit dem Namen Cluster1 erstellen und dann versuchen, in dem Cluster einen Clusterdruckerserver mit dem Namen PrintServer1 zu konfigurieren, muss das Konto Cluster1 in Active Directory die erforderlichen Berechtigungen beibehalten, damit es verwendet werden kann, um ein Computerkonto mit dem Namen PrintServer1 zu erstellen.  
       
-    Das Clusternamenkonto wird im Standardcontainer für Computerkonten in Active Directory erstellt. Standardmäßig ist dies der Container "Computer", der Domänenadministrator kann es jedoch zu einem anderen Container oder einer Organisationseinheit umleiten.  
+    Das Clusternamenkonto wird im Standardcontainer für Computerkonten in Active Directory erstellt. Standardmäßig handelt es sich hierbei um den Container "Computer", aber der Domänen Administrator kann ihn an einen anderen Container oder eine Organisationseinheit (OU) umleiten.  
       
   - **Das Computer Konto (Computer Objekt) eines geclusterten Dienstanbieter oder einer geclusterten Anwendung.** Diese Konten werden automatisch vom Assistenten für hohe Verfügbarkeit im Rahmen der Erstellung der meisten Typen von geclusterten Diensten und Anwendungen erstellt, mit Ausnahme von virtuellen Hyper-V-Computern. Dem Cluster Namen Konto werden die erforderlichen Berechtigungen zum Steuern dieser Konten gewährt.  
       
@@ -47,7 +47,7 @@ In der folgenden Tabelle werden die erforderlichen Berechtigungen für diese Kon
 </colgroup>
 <thead>
 <tr class="header">
-<th>„Konto“</th>
+<th>Konto</th>
 <th>Details zu Berechtigungen</th>
 </tr>
 </thead>
@@ -107,7 +107,7 @@ Wie in den vorausgehenden drei Abschnitten beschrieben, müssen bestimmte Anford
           
       - Dem Konto (oder der Gruppe, deren Mitglied das Konto ist) müssen die Berechtigungen zum Erstellen von Computerobjektenund zum Lesen aller Eigenschaftenin dem Container erteilt werden, der in der Domäne für Computerkonten verwendet wird. Weitere Informationen finden Sie weiter unten in dieser Anleitung unter [Schritte zum Konfigurieren des Kontos für die Person, die den Cluster installiert](#steps-for-configuring-the-account-for-the-person-who-installs-the-cluster).  
           
-      - Wenn die Organisation sich dafür entscheidet, das Clusternamenkonto (ein Computerkonto mit dem gleichen Namen wie der Cluster) vorab bereitzustellen, muss das vorab bereitgestellte Clusternamenkonto dem Konto der Person, die den Cluster installiert, die Berechtigung "Vollzugriff" erteilen. Weitere wichtige Details zur Vorabbereitstellung des Clusternamenkontos finden Sie weiter unten in dieser Anleitung unter [Schritte für die Vorabbereitstellung des Clusternamenkontos](#steps-for-prestaging-the-cluster-name-account).  
+      - Wenn Ihre Organisation die vorab Bereitstellung des Cluster Namen Kontos (einem Computer Konto mit dem gleichen Namen wie der Cluster) auswählt, muss das Konto des vorab bereitgestellten Cluster namens dem Konto der Person, die den Cluster installiert, die Berechtigung "Vollzugriff" erteilen. Weitere wichtige Details zur Vorabbereitstellung des Clusternamenkontos finden Sie weiter unten in dieser Anleitung unter [Schritte für die Vorabbereitstellung des Clusternamenkontos](#steps-for-prestaging-the-cluster-name-account).  
           
 
 ### <a name="planning-ahead-for-password-resets-and-other-account-maintenance"></a>Vorausplanung für Kennwortzurücksetzungen und andere Kontowartungsmaßnahmen
@@ -143,7 +143,7 @@ Die zum Ausführen des folgenden Verfahrens minimal erforderliche Gruppenmitglie
 
 3. Wenn das in Schritt 1 erstellte oder abgerufene Konto ein Domänenadministratorkonto ist, überspringen Sie den Rest dieses Verfahrens. Erteilen Sie andernfalls dem Konto die Berechtigungen zum Erstellen von Computerobjektenund zum Lesen aller Eigenschaftenin dem Container, der in der Domäne für Computerkonten verwendet wird:
     
-   1.  Klicken Sie auf einem Domänencontroller auf **Start**, auf **Verwaltung** und dann auf **Active Directory-Benutzer und -Computer**. Wenn das Dialogfeld **Benutzerkontensteuerung** eingeblendet wird, bestätigen Sie die angegebene Aktion und klicken dann auf **Weiter**.  
+   1.  Klicken Sie auf einem Domänencontroller auf **Start**, auf **Verwaltung** und dann auf **Active Directory-Benutzer und -Computer**. Wenn das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf **Weiter**.  
           
    2.  Stellen Sie sicher, dass im Menü **Ansicht** die Option **Erweiterte Funktionen** ausgewählt ist.  
           
@@ -169,7 +169,7 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entspr
 
 1.  Stellen Sie sicher, dass Sie den Namen, den der Cluster erhalten wird, und den Namen des Benutzerkontos, das von der Person verwendet wird, die den Cluster erstellt, kennen. (Beachten Sie, dass Sie dieses Konto verwenden können, um dieses Verfahren auszuführen.)
 
-2.  Klicken Sie auf einem Domänencontroller auf **Start**, auf **Verwaltung** und dann auf **Active Directory-Benutzer und -Computer**. Wenn das Dialogfeld **Benutzerkontensteuerung** eingeblendet wird, bestätigen Sie die angegebene Aktion und klicken dann auf **Weiter**.
+2.  Klicken Sie auf einem Domänencontroller auf **Start**, auf **Verwaltung** und dann auf **Active Directory-Benutzer und -Computer**. Wenn das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf **Weiter**.
 
 3.  Klicken Sie in der Konsolenstruktur mit der rechten Maustaste auf **Computer** oder den Standardcontainer, in dem Computerkonten in der Domäne erstellt werden. **Computer** befinden sich unter <b>Active Directory Benutzer und Computer/</b><i>Domäne-Knoten</i><b>/Computers</b>.
 
@@ -203,7 +203,7 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entspr
           
     2.  Klicken Sie mit der rechten Maustaste auf das gerade erstellte Konto, und klicken Sie dann auf **Eigenschaften**.  
           
-    3.  Klicken Sie auf der Registerkarte **Sicherheit** auf **Hinzufügen**. Wenn das Dialogfeld **Benutzerkontensteuerung** eingeblendet wird, bestätigen Sie die angegebene Aktion und klicken dann auf **Weiter**.  
+    3.  Klicken Sie auf der Registerkarte **Sicherheit** auf **Hinzufügen**. Wenn das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf **Weiter**.  
           
     4.  Geben Sie im Dialogfeld **Benutzer, Computer oder Gruppen auswählen** das Benutzerkonto an, das zum Erstellen des Clusters verwendet werden soll. Klicken Sie dann auf **OK**.  
           
@@ -221,7 +221,7 @@ Sie müssen mindestens Mitglied der Gruppe **Konten-Operatoren** oder einer ents
 
 1.  Stellen Sie sicher, dass Sie den Namen des Clusters und den Namen, den der geclusterte Dienst oder die geclusterte Anwendung erhalten wird, kennen.
 
-2.  Klicken Sie auf einem Domänencontroller auf **Start**, auf **Verwaltung** und dann auf **Active Directory-Benutzer und -Computer**. Wenn das Dialogfeld **Benutzerkontensteuerung** eingeblendet wird, bestätigen Sie die angegebene Aktion und klicken dann auf **Weiter**.
+2.  Klicken Sie auf einem Domänencontroller auf **Start**, auf **Verwaltung** und dann auf **Active Directory-Benutzer und -Computer**. Wenn das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf **Weiter**.
 
 3.  Klicken Sie in der Konsolenstruktur mit der rechten Maustaste auf **Computer** oder den Standardcontainer, in dem Computerkonten in der Domäne erstellt werden. **Computer** befinden sich unter <b>Active Directory Benutzer und Computer/</b><i>Domäne-Knoten</i><b>/Computers</b>.
 
@@ -262,7 +262,7 @@ Ereignismeldungen, die der vorstehenden Beschreibung entsprechen, geben an, dass
 
 Informationen zum Sicherstellen, dass Clusteradministratoren die erforderlichen Berechtigungen haben, das folgende Verfahren ordnungsgemäß auszuführen, finden Sie weiter oben in dieser Anleitung unter Vorausplanung für Kennwortzurücksetzungen und andere Kontowartungsmaßnahmen.
 
-Grundvoraussetzung zur Ausführung dieses Vorgangs ist die Mitgliedschaft in der lokalen Gruppe **Administratoren** oder eine gleichwertige Mitgliedschaft. Außerdem muss Ihr Konto über die Berechtigung **Kennwort zurücksetzen** für das Clusternamenkonto verfügen (es sei denn, das Konto ist ein **Domänen-Admins**-Konto oder Ersteller-Besitzer des Clusternamenkontos). Das Konto, das von der Person verwendet wurde, die den Cluster installiert hat, kann für dieses Verfahren verwendet werden. Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [https://go.microsoft.com/fwlink/?LinkId=83477](https://go.microsoft.com/fwlink/?linkid=83477).
+Zum Ausführen dieses Verfahrens ist mindestens die Mitgliedschaft in der lokalen Gruppe **Administratoren** oder eine gleichwertige Berechtigung erforderlich. Außerdem muss Ihr Konto über die Berechtigung **Kennwort zurücksetzen** für das Clusternamenkonto verfügen (es sei denn, das Konto ist ein **Domänen-Admins**-Konto oder Ersteller-Besitzer des Clusternamenkontos). Das Konto, das von der Person verwendet wurde, die den Cluster installiert hat, kann für dieses Verfahren verwendet werden. Ausführliche Informationen zur Verwendung der entsprechenden Konten und Gruppenmitgliedschaften finden Sie unter [https://go.microsoft.com/fwlink/?LinkId=83477](https://go.microsoft.com/fwlink/?linkid=83477).
 
 #### <a name="to-troubleshoot-password-problems-with-the-cluster-name-account"></a>So beheben Sie Kennwortprobleme mit dem Clusternamenkonto
 
@@ -282,7 +282,7 @@ Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins** oder einer entspr
 
 #### <a name="to-troubleshoot-problems-caused-by-changes-in-cluster-related-active-directory-accounts"></a>So beheben Sie Probleme, die durch Änderungen an clusterbezogenen Active Directory-Konten verursacht wurden
 
-1.  Klicken Sie auf einem Domänencontroller auf **Start**, auf **Verwaltung** und dann auf **Active Directory-Benutzer und -Computer**. Wenn das Dialogfeld **Benutzerkontensteuerung** eingeblendet wird, bestätigen Sie die angegebene Aktion und klicken dann auf **Weiter**.
+1.  Klicken Sie auf einem Domänencontroller auf **Start**, auf **Verwaltung** und dann auf **Active Directory-Benutzer und -Computer**. Wenn das Dialogfeld **Benutzerkontensteuerung** angezeigt wird, vergewissern Sie sich, dass die gewünschte Aktion angezeigt wird, und klicken Sie dann auf **Weiter**.
 
 2.  Erweitern Sie den Standardcontainer **Computer** bzw. den Ordner, in dem sich das Clusternamenkonto (das Computerkonto für den Cluster) befindet. **Computer** befinden sich unter <b>Active Directory Benutzer und Computer/</b><i>Domäne-Knoten</i><b>/Computers</b>.
 

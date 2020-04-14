@@ -2,18 +2,18 @@
 ms.assetid: 72a90d00-56ee-48a9-9fae-64cbad29556c
 title: Genaue Uhrzeit für Windows Server 2016
 description: Die Genauigkeit der Zeitsynchronisierung in Windows Server 2016 wurde erheblich verbessert, während gleichzeitig die vollständige NTP-Abwärtskompatibilität mit älteren Windows-Versionen erhalten blieb.
-author: eross-msft
+author: dcuomo
 ms.author: dacuo
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 3320c67d52978f0e9abaae7d5bec9b4fcb727fd6
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 0486033ee52432191cb35f2ce38c44d5b7728a2e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80315082"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861683"
 ---
 # <a name="accurate-time-for-windows-server-2016"></a>Genaue Uhrzeit für Windows Server 2016
 
@@ -46,7 +46,7 @@ Domänen- und eigenständige Konfigurationen funktionieren unterschiedlich.
 Da Hyper-V-Gästen mindestens zwei Windows-Zeitanbieter zur Auswahl stehen, die Hostzeit und NTP, kommt es eventuell zu unterschiedlichem Verhalten bei Domäne oder eigenständigem Computer, wenn die Ausführung als Gast erfolgt.
 
 > [!NOTE] 
-> Weitere Informationen zur Domänenhierarchie und zum Bewertungssystem findest du im Blogbeitrag [Was ist der Windows-Zeitdienst?](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) .
+> Weitere Informationen zur Domänenhierarchie und zum Bewertungssystem findest du im Blogbeitrag [„Was ist der Windows-Zeitdienst?“](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) .
 
 > [!NOTE]
 > Stratum ist ein Konzept, das sowohl bei NTP- als auch bei Hyper-V-Anbietern verwendet wird, und dessen Wert den Standort der Uhr in der Hierarchie angibt.  Stratum 1 ist für die Uhr der höchsten Ebene reserviert, und Stratum 0 ist für die Hardware, die als exakt angesehen wird und nur wenig oder gar keine Verzögerung aufweist.  Stratum 2 kommuniziert mit Stratum 1-Servern, Stratum 3 mit Stratum 2 usw.  Obwohl ein niedrigeres Stratum häufig auf eine genauere Uhr hinweist, ist es möglich, Abweichungen zu finden.  Auch akzeptiert W32Time nur Zeiten von Stratum 15 oder niedriger.  Um das Stratum eines Clients anzuzeigen, verwende *w32tm /query /status*.

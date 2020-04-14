@@ -7,15 +7,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 04/17/2019
 ms.topic: article
-ms.custom: it-pro
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 48d93f515a5f3e5f8ce2c3ff9a1b40f300ca57ed
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: a1041bdc189238c7da32896e6f867f730e392d24
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265742"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814430"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS – Häufig gestellte Fragen (FAQ)
 
@@ -232,14 +231,14 @@ Dieses Ereignis wird normalerweise bei einem ungültigen Ressourcenzugriff auf A
 
 ### <a name="why-am-i-seeing-a-warning-for-failure-to-add-the-ad-fs-service-account-to-the-enterprise-key-admins-group"></a>Warum wird eine Warnung angezeigt, dass beim Hinzufügen des AD FS-Dienstkontos zur Gruppe “Enterprise Key Admins“ ein Fehler aufgetreten ist?
 Diese Gruppe wird nur erstellt, wenn ein Windows 2016-Domänencontroller mit der FSMO-PDC-Rolle in der Domäne vorhanden ist. Zur Behebung des Fehlers können Sie die Gruppe manuell erstellen und die nachstehenden Schritte ausführen, um die erforderliche Berechtigung zu erteilen, nachdem Sie das Dienstkonto als Gruppenmitglied hinzugefügt haben.
-1.  Öffnen Sie **Active Directory-Benutzer und -Computer**.
-2.  Klicken Sie im Navigationsbereich **mit der rechten Maustaste** auf Ihren Domänennamen, und **klicken** Sie dann auf „Eigenschaften“.
-3.  **Klicken** Sie auf „Sicherheit“ (wenn die Registerkarte „Sicherheit“ nicht vorhanden ist, aktivieren Sie über das Menü „Ansicht“ die Option „Erweiterte Funktionen“).
-4.  **Klicken** Sie auf „Erweitert“. **Klicken** Sie auf „Hinzufügen“. **Klicken** Sie auf „Prinzipal auswählen“.
-5.  Das Dialogfeld „Benutzer, Computer, Dienstkonto oder Gruppe auswählen“ wird geöffnet.  Geben Sie im Textfeld „Geben Sie den zu verwendenden Objektnamen ein“ den Namen „Key Admin-Gruppe“ ein.  Klicken Sie auf OK.
-6.  Wählen Sie im Listenfeld „Gilt für“ die Option **Nachgeordnete Benutzerobjekte** aus.
-7.  Scrollen Sie mit der Bildlaufleiste zum unteren Bereich der Seite, und **klicken** Sie auf „Alle löschen“.
-8.  Wählen Sie im Abschnitt **Eigenschaften** die Optionen **msDS-KeyCredentialLink lesen** und **msDS-KeyCredentialLink schreiben** aus.
+1.    Öffnen Sie **Active Directory-Benutzer und -Computer**.
+2.    Klicken Sie im Navigationsbereich **mit der rechten Maustaste** auf Ihren Domänennamen, und **klicken** Sie dann auf „Eigenschaften“.
+3.    **Klicken** Sie auf „Sicherheit“ (wenn die Registerkarte „Sicherheit“ nicht vorhanden ist, aktivieren Sie über das Menü „Ansicht“ die Option „Erweiterte Funktionen“).
+4.    **Klicken** Sie auf „Erweitert“. **Klicken** Sie auf „Hinzufügen“. **Klicken** Sie auf „Prinzipal auswählen“.
+5.    Das Dialogfeld „Benutzer, Computer, Dienstkonto oder Gruppe auswählen“ wird geöffnet.  Geben Sie im Textfeld „Geben Sie den zu verwendenden Objektnamen ein“ den Namen „Key Admin-Gruppe“ ein.  Klicken Sie auf OK.
+6.    Wählen Sie im Listenfeld „Gilt für“ die Option **Nachgeordnete Benutzerobjekte** aus.
+7.    Scrollen Sie mit der Bildlaufleiste zum unteren Bereich der Seite, und **klicken** Sie auf „Alle löschen“.
+8.    Wählen Sie im Abschnitt **Eigenschaften** die Optionen **msDS-KeyCredentialLink lesen** und **msDS-KeyCredentialLink schreiben** aus.
 
 ### <a name="why-does-modern-authentication-from-android-devices-fail-if-the-server-does-not-send-all-the-intermediate-certificates-in-the-chain-with-the-ssl-cert"></a>Warum schlägt die moderne Authentifizierung von Android-Geräten fehl, wenn der Server nicht alle Zwischenzertifikate in der Kette mit dem SSL-Zertifikat sendet?
 

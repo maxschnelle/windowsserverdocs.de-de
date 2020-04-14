@@ -1,20 +1,19 @@
 ---
 ms.assetid: e34622ff-b2d0-4f81-8d00-dacd5d6c215e
 title: Windows-Zeitdienst
-description: ''
-author: eross-msft
-ms.author: lizross
+author: dcuomo
+ms.author: dacuo
 manager: dougkim
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 4b8b1e91f56ec4d6c070037a0f3cc5ec4d50c63e
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 5dbb0db20f7100ed7dbe99587f201f38abf632ad
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80314925"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815903"
 ---
 # <a name="windows-time-service-w32time"></a>Windows-Zeitdienst (W32Time)
 
@@ -33,7 +32,7 @@ Im Thema „Windows-Zeitdienst (W32Time)“ findest du folgenden Inhalt:
 
 
 ## <a name="related-topics"></a>Verwandte Themen
-Weitere Informationen zur Domänenhierarchie und zum Bewertungssystem findest du im Blogbeitrag [Was ist der Windows-Zeitdienst?](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) .
+Weitere Informationen zur Domänenhierarchie und zum Bewertungssystem findest du im Blogbeitrag [„Was ist der Windows-Zeitdienst?“](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) .
 
 Das Windows-Zeitanbieter-Plug-In-Modell ist [auf TechNet dokumentiert](https://msdn.microsoft.com/library/windows/desktop/ms725475%28v=vs.85%29.aspx).
 

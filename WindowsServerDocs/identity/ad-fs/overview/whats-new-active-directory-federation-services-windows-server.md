@@ -1,7 +1,6 @@
 ---
 ms.assetid: aa892a85-f95a-4bf1-acbb-e3c36ef02b0d
 title: Neuerungen in Active Directory-Verbunddienste für Windows Server 2016
-description: ''
 author: billmath
 ms.author: billmath
 manager: daveba
@@ -9,12 +8,12 @@ ms.date: 01/22/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 8061f41dab0f02bccd59a659e0bcd209bd73a249
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.openlocfilehash: e88297bdbd55d2f834f1bff72b6d05bdf356bb85
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77517555"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860253"
 ---
 # <a name="whats-new-in-active-directory-federation-services"></a>Neuerungen in Active Directory-Verbunddienste
 
@@ -72,7 +71,7 @@ Die folgenden Verbesserungen der Unterstützbarkeit sind nicht Teil von AD FS 
 Die folgenden Bereitstellungsaktualisierungen sind jetzt in AD FS 2019 enthalten:
 - **Farmverhaltensebene 2019**: Wie in AD FS 2016 gibt es eine neue Version der Farmverhaltensebene, die zum Aktivieren von neuen Funktionen erforderlich ist, die oben erläutert werden. Dies ermöglicht einen Wechsel von:
     - 2012 R2 -> 2019
-    - 2016 -> 2019   
+    - 2016 -> 2019     
 
 ### <a name="saml-updates"></a>SAML-Updates
 In AD FS 2019 ist das folgende SAML-Update enthalten:

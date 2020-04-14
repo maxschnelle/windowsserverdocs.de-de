@@ -1,18 +1,18 @@
 ---
 title: Übersicht zu Windows Server-Upgrades | Microsoft-Dokumentation
 description: Erhalten Sie einige allgemeine Informationen zu Windows Server, zusammen mit einer Zusammenstellung der vor dem Upgrade zu berücksichtigenden Punkte.
-ms.prod: windows server
+ms.prod: windows-server
 ms.technology: server-general
 ms.topic: upgrade
 author: RobHindman
 ms.author: robhind
 ms.date: 09/10/2019
-ms.openlocfilehash: 6f57e52657ca3c80c92d56c54ea87e43aabd1e99
-ms.sourcegitcommit: 27f0caf74e88781054250455c3c1adf06deb6234
+ms.openlocfilehash: 1ac4cbe8b9bda4ac2de2c7ad7ec27b1534c0de72
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124790"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854233"
 ---
 # <a name="overview-about-windows-server-upgrades"></a>Übersicht zu Windows Server-Upgrades
 
@@ -42,3 +42,4 @@ Es ist uns jedoch bewusst, dass dies nicht immer möglich ist. Mithilfe des folg
 Windows Server kann normalerweise beim Upgrade mindestens eine Version überspringen, manchmal auch zwei. Beispielsweise kann sowohl für Windows Server 2012 R2 als auch für Windows Server 2016 ein direktes Upgrade auf Windows Server 2019 ausgeführt werden.
 
 Außerdem können Sie von einer Evaluierungsversion des Betriebssystems auf eine Verkaufsversion, von einer älteren Verkaufsversion auf eine neuere Version oder in manchen Fällen von einer Volumenlizenzedition des Betriebssystems auf eine normale Verkaufsedition aktualisieren. Weitere Informationen zu anderen Upgradeoptionen als dem direkten Upgrade finden Sie unter [Upgrade- und Konvertierungsoptionen für Windows Server](../get-started/supported-upgrade-paths.md).
+""'

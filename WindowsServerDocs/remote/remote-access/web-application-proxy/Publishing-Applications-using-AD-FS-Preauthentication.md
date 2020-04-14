@@ -1,19 +1,18 @@
 ---
 ms.assetid: 5f733510-c96e-4d3a-85d2-4407de95926e
 title: Veröffentlichen von Anwendungen mit ADFS-Vorauthentifizierung
-description: ''
-author: kgremban
-manager: femila
+ms.author: kgremban
+author: eross-msft
 ms.date: 07/13/2016
 ms.topic: article
 ms.prod: windows-server
 ms.technology: web-app-proxy
-ms.openlocfilehash: bd5c4c97e01942e7c5ab8ed1aba3fcf92030ac59
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 97bfae42c873ecf7196138920a21d96714239da9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404263"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80818703"
 ---
 # <a name="publishing-applications-using-ad-fs-preauthentication"></a>Veröffentlichen von Anwendungen mit ADFS-Vorauthentifizierung
 
@@ -70,9 +69,9 @@ Der allgemeine Ablauf der AD FS Vorauthentifizierung lautet wie folgt:
 > Achten Sie beim Konfigurieren der externen URL und der URL für den Back-End-Server darauf, dass Sie den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) und keine IP-Adresse einfügen.  
   
 > [!NOTE]  
-> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit denen Sie einige der beschriebenen Vorgehensweisen automatisieren können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> Dieses Thema enthält Windows PowerShell-Beispiel-Cmdlets, mit deren Hilfe einige beschriebene Verfahren automatisiert werden können. Weitere Informationen finden Sie unter [Verwenden von Cmdlets](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_1.1"></a>Veröffentlichen einer Anspruchs basierten Anwendung für Webbrowser Clients  
+## <a name="publish-a-claims-based-application-for-web-browser-clients"></a><a name="BKMK_1.1"></a>Veröffentlichen einer Anspruchs basierten Anwendung für Webbrowser Clients  
 Um eine Anwendung zu veröffentlichen, die Ansprüche für die Authentifizierung verwendet, müssen Sie dem Verbunddienst eine Vertrauensstellung der vertrauenden Seite für die Anwendung hinzufügen.  
   
 Beim Veröffentlichen von anspruchsbasierten Anwendungen, auf die über einen Browser zugegriffen wird, ist der allgemeine Authentifizierungsablauf wie folgt:  
@@ -105,7 +104,7 @@ In diesem Verfahren wird beschrieben, wie Sie eine anspruchsbasierte Anwendung v
   
 3.  Klicken Sie auf der Seite **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS) (AD FS)** , und klicken Sie dann auf **weiter**.  
   
-4.  Wählen Sie auf der Seite **Unterstützte Clients** die Option **Web und MSOFBA**aus, und klicken Sie dann auf **Weiter**.  
+4.  Wählen Sie auf der Seite **Unterstützte Clients** die Option **Web und MSOFBA** aus, und klicken Sie dann auf **Weiter**.  
   
 5.  Wählen Sie auf der Seite **Vertrauende Seite** in der Liste die vertrauende Seite für die zu veröffentlichende Anwendung aus, und klicken Sie dann auf **Weiter**.  
   
@@ -130,7 +129,7 @@ In diesem Verfahren wird beschrieben, wie Sie eine anspruchsbasierte Anwendung v
   
 ![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)von  ***<em>entsprechenden Windows PowerShell-Befehlen</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 ```  
 Add-WebApplicationProxyApplication  
@@ -142,7 +141,7 @@ Add-WebApplicationProxyApplication
     -ADFSRelyingPartyName 'SP_Relying_Party'  
 ```  
   
-## <a name="BKMK_1.2"></a>Veröffentlichen einer integrierten Windows Authenticated-basierten Anwendung für Webbrowser Clients  
+## <a name="publish-an-integrated-windows-authenticated-based-application-for-web-browser-clients"></a><a name="BKMK_1.2"></a>Veröffentlichen einer integrierten Windows Authenticated-basierten Anwendung für Webbrowser Clients  
 Webanwendungsproxy kann zum Veröffentlichen von Anwendungen verwendet werden, die die integrierte Windows-Authentifizierung verwenden. Das heißt, der webanwendungsproxy führt die Vorauthentifizierung nach Bedarf durch und kann dann SSO für die veröffentlichte Anwendung durchführen, die die integrierte Windows-Authentifizierung verwendet. Um eine Anwendung zu veröffentlichen, die die integrierte Windows-Authentifizierung verwendet, müssen Sie dem Verbunddienst eine Ansprüche nicht unterstützende Vertrauensstellung der vertrauenden Seite für die Anwendung hinzufügen.  
   
 Damit der webanwendungsproxy Single Sign-on (SSO) ausführen und die Delegierung von Anmelde Informationen mithilfe der eingeschränkten Kerberos-Delegierung durchführen kann, muss der webanwendungsproxy-Server einer Domäne beitreten Siehe [Plan Active Directory](https://technet.microsoft.com/library/dn383648.aspx#BKMK_AD).  
@@ -185,7 +184,7 @@ In diesem Verfahren wird beschrieben, wie Sie eine Anwendung mit integrierter Wi
   
 3.  Klicken Sie auf der Seite **Vorauthentifizierung** auf **Active Directory-Verbunddienste (AD FS) (AD FS)** , und klicken Sie dann auf **weiter**.  
   
-4.  Wählen Sie auf der Seite **Unterstützte Clients** die Option **Web und MSOFBA**aus, und klicken Sie dann auf **Weiter**.  
+4.  Wählen Sie auf der Seite **Unterstützte Clients** die Option **Web und MSOFBA** aus, und klicken Sie dann auf **Weiter**.  
   
 5.  Wählen Sie auf der Seite **Vertrauende Seite** in der Liste die vertrauende Seite für die zu veröffentlichende Anwendung aus, und klicken Sie dann auf **Weiter**.  
   
@@ -212,7 +211,7 @@ In diesem Verfahren wird beschrieben, wie Sie eine Anwendung mit integrierter Wi
   
 ![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)von  ***<em>entsprechenden Windows PowerShell-Befehlen</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 ```  
 Add-WebApplicationProxyApplication  
@@ -225,7 +224,7 @@ Add-WebApplicationProxyApplication
     -ADFSRelyingPartyName 'Non-Claims_Relying_Party'  
 ```  
   
-## <a name="BKMK_1.3"></a>Veröffentlichen einer Anwendung, die MS-ofba verwendet  
+## <a name="publish-an-application-that-uses-ms-ofba"></a><a name="BKMK_1.3"></a>Veröffentlichen einer Anwendung, die MS-ofba verwendet  
 Webanwendungsproxy unterstützt den Zugriff von Microsoft Office Clients wie Microsoft Word, die auf Dokumente und Daten auf Back-End-Servern zugreifen Der einzige Unterschied zwischen diesen Anwendungen und einem Standardbrowser besteht darin, dass die Umleitung zum Sicherheitstokendienst nicht über eine reguläre HTTP-Umleitung erfolgt, sondern mit speziellen MS-ofba-Headern, wie in: [https://msdn.microsoft.com/library/dd773463(v=office.12).aspx](https://msdn.microsoft.com/library/dd773463(v=office.12).aspx)angegeben. Die Back-End-Anwendung kann die anspruchsbasierte Authentifizierung oder die integrierte Windows-Authentifizierung verwenden.   
 Zum Veröffentlichen einer Anwendung für Clients, die MS-ofba verwenden, müssen Sie der Verbunddienst eine Vertrauensstellung der vertrauenden Seite für die Anwendung hinzufügen. Je nach Anwendung können Sie die anspruchsbasierte Authentifizierung oder die integrierte Windows-Authentifizierung verwenden. Daher muss die entsprechende Vertrauensstellung der vertrauenden Seite für die Anwendung hinzugefügt werden.  
   
@@ -312,7 +311,7 @@ Im folgenden Verfahren wird erläutert, wie http-Basisanwendungen veröffentlich
   
 ![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)von  ***<em>entsprechenden Windows PowerShell-Befehlen</em>***  
   
-Die folgenden Windows PowerShell-Cmdlets erfüllen dieselbe Funktion wie das vorhergehende Verfahren. Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Die folgenden Windows PowerShell-Cmdlets führen dieselbe Funktion wie das vorherige Verfahren aus. Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 Dieses Windows PowerShell-Skript ermöglicht die Vorauthentifizierung für alle Geräte, nicht nur für Arbeitsplatz verbundene Geräte.  
   
@@ -339,7 +338,7 @@ Add-WebApplicationProxyApplication
      -ADFSRelyingPartyName 'EAS_Relying_Party'  
 ```  
   
-## <a name="BKMK_1.4"></a>Veröffentlichen einer Anwendung, die OAuth2 verwendet, z. b. eine Microsoft Store-App  
+## <a name="publish-an-application-that-uses-oauth2-such-as-a-microsoft-store-app"></a><a name="BKMK_1.4"></a>Veröffentlichen einer Anwendung, die OAuth2 verwendet, z. b. eine Microsoft Store-App  
 Zum Veröffentlichen einer Anwendung für Microsoft Store-Apps müssen Sie der Verbunddienst eine Vertrauensstellung der vertrauenden Seite für die Anwendung hinzufügen.  
   
 Damit der webanwendungsproxy Single Sign-on (SSO) ausführen und die Delegierung von Anmelde Informationen mithilfe der eingeschränkten Kerberos-Delegierung durchführen kann, muss der webanwendungsproxy-Server einer Domäne beitreten Siehe [Plan Active Directory](https://technet.microsoft.com/library/dn383648.aspx#BKMK_AD).  
@@ -347,7 +346,7 @@ Damit der webanwendungsproxy Single Sign-on (SSO) ausführen und die Delegierung
 > [!NOTE]  
 > Webanwendungsproxy unterstützt die Veröffentlichung nur für Microsoft Store-Apps, die das OAuth 2,0-Protokoll verwenden  
   
-In der AD FS-Verwaltungskonsole müssen Sie sicherstellen, dass der OAuth-Endpunkt Proxy aktiviert ist. Öffnen Sie dazu die AD FS-Verwaltungskonsole, erweitern Sie den Knoten **Dienst**, klicken Sie auf **Endpunkte**, suchen Sie in der Liste **Endpunkte** nach dem OAuth-Endpunkt, und vergewissern Sie sich, dass in der Spalte **Proxy aktiviert** der Wert **Ja**angezeigt wird.  
+In der AD FS-Verwaltungskonsole müssen Sie sicherstellen, dass der OAuth-Endpunkt Proxy aktiviert ist. Öffnen Sie dazu die AD FS-Verwaltungskonsole, erweitern Sie den Knoten **Dienst**, klicken Sie auf **Endpunkte**, suchen Sie in der Liste **Endpunkte** nach dem OAuth-Endpunkt, und vergewissern Sie sich, dass in der Spalte **Proxy aktiviert** der Wert **Ja** angezeigt wird.  
   
 Der Authentifizierungs Ablauf für Clients, die Microsoft Store-Apps verwenden, wird im folgenden beschrieben:  
   
@@ -418,7 +417,7 @@ Hier wird beschrieben, wie Sie eine Anwendung für OAuth2 veröffentlichen. Dies
   
 8.  Überprüfen Sie auf der Seite **Ergebnisse**, ob die Anwendung veröffentlicht wurde, und klicken Sie dann auf **Schließen**.  
   
-Geben Sie die einzelnen Cmdlets in einer einzelnen Zeile ein, auch wenn es den Anschein hat, dass aufgrund von Formatierungseinschränkungen Zeilenumbrüche vorhanden sind.  
+Jedes Cmdlet sollte in einer eigenen Zeile eingegeben werden, obwohl sie hier aufgrund von Formateinschränkungen auf mehrere Zeilen umbrochen sein können.  
   
 So legen Sie die URL für die OAuth-Authentifizierung für eine Verbund Server Adresse von FS.contoso.com und den URL-Pfad/ADFS/oauth2/fest:  
   
@@ -439,7 +438,7 @@ Add-WebApplicationProxyApplication
     -UseOAuthAuthentication  
 ```  
   
-## <a name="BKMK_Links"></a>Siehe auch  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Siehe auch  
   
 -   [Problembehandlung: Webanwendungsproxy](https://technet.microsoft.com/library/dn770156.aspx)  
   

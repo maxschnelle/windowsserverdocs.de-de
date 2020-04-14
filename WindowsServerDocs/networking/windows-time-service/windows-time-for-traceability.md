@@ -1,20 +1,19 @@
 ---
-ms.assetid: ''
 title: Windows-Zeitdienst für Nachverfolgbarkeit.
 description: Bestimmungen in vielen Sektoren erfordern, dass Systeme bezogen auf UTC ablaufverfolgbar sind.  Dies bedeutet, dass die Abweichung eines Systems in Bezug auf die UTC nachgewiesen werden kann.
-author: eross-msft
+author: dcuomo
 ms.author: dacuo
 manager: dougkim
 ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: e7f7a68d61729813583255d64afbf172475969e3
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 30952c7a15109ccdd8bcbb09d7c8dda44f716d5d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80314938"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859813"
 ---
 # <a name="windows-time-for-traceability"></a>Windows-Zeitdienst für Nachverfolgbarkeit.
 >Gilt für: Windows Server 2016, Version 1709 oder höher, und Windows 10, Version 1703 oder höher
