@@ -8,18 +8,18 @@ ms.author: jol
 ms.date: 06/06/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: d761ba61ae5680373c334889799e82e5d092a0d4
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: f51070abfeed3a790055b12f733fc61be383472c
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950100"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269257"
 ---
 # <a name="enabling-the-extension-discovery-banner"></a>Aktivieren des Banner zum Ermitteln der Erweiterung
 
 >Gilt für: Windows Admin Center, Windows Admin Center Vorschau
 
-Ein neues Feature, das in der Windows Admin Center Preview 1903 verfügbar ist, ist das Banner zur Ermittlung von Erweiterungen. Diese Funktion ermöglicht einer Erweiterung das Deklarieren des Server Hardwareherstellers und der von ihr unterstützten Modelle. Wenn ein Benutzer eine Verbindung mit einem Server oder Cluster herstellt, für den eine Erweiterung verfügbar ist, wird ein Benachrichtigungs Banner angezeigt, um die Erweiterung zu installieren. Erweiterungs Entwickler können eine höhere Sichtbarkeit für Ihre Erweiterungen erzielen, und Benutzer können auf einfache Weise weitere Verwaltungsfunktionen für Ihre Server ermitteln.
+Das Erweiterungs Ermittlungs Banner-Feature wurde in der Version Windows Admin Center Preview 1903 eingeführt. Diese Funktion ermöglicht einer Erweiterung das Deklarieren des Server Hardwareherstellers und der von ihr unterstützten Modelle. Wenn ein Benutzer eine Verbindung mit einem Server oder Cluster herstellt, für den eine Erweiterung verfügbar ist, wird ein Benachrichtigungs Banner angezeigt, um die Erweiterung zu installieren. Erweiterungs Entwickler können eine höhere Sichtbarkeit für Ihre Erweiterungen erzielen, und Benutzer können auf einfache Weise weitere Verwaltungsfunktionen für Ihre Server ermitteln.
 
 ![Banner für die Erweiterungs Ermittlung](../../media/extend-guides-extension-discovery-banner/extension-discovery-banner.png)
 
@@ -36,7 +36,7 @@ Die "Tags"-Metadaten in der nuspec-Datei werden verwendet, um die von der Erweit
 Nehmen wir an, ich habe eine Erweiterung entwickelt, die Server von einem Unternehmen mit dem Namen "Configuration Manager" mit dem Modellnamen "R3xx" und "R4xx" unterstützt.
 
 1. Das Tag für den Hersteller wird ``"Manufacturer_/Contoso Inc./"``. Das Tag für die Modelle kann ``"Model_/^R[34][0-9]{2}$/"``werden. Abhängig davon, wie genau die Übereinstimmungs Bedingung definiert werden soll, gibt es verschiedene Möglichkeiten zum Definieren des regulären Ausdrucks. Sie können auch die Hersteller-oder Modell Tags in mehrere Tags aufteilen, beispielsweise könnte auch das modelltag ``"Model_/R3../ Model_/R4../"``werden.
-2. Sie können den regulären Ausdruck mit der devtools-Konsole Ihres Webbrowsers testen. Drücken Sie in Microsoft Edge oder Chrome F12, um das devtools-Fenster zu öffnen, und geben Sie auf der Registerkarte Konsole Folgendes ein, und drücken Sie die EINGABETASTE:
+2. Sie können den regulären Ausdruck mit der devtools-Konsole Ihres Webbrowsers testen. Drücken Sie in Edge oder Chrome F12, um das devtools-Fenster zu öffnen, und geben Sie auf der Registerkarte Konsole Folgendes ein, und drücken Sie die EINGABETASTE:
 
    ```javascript
    var regex = /^R[34][0-9]{2}$/

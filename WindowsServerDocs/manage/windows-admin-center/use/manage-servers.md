@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 11/21/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: ddc8eea67cde9d6677836af1201e169c911e77e0
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: cbcb5c2357a60d6d12551a7d08055cacecd515b7
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950479"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269237"
 ---
 # <a name="manage-servers-with-windows-admin-center"></a>Verwalten von Servern mit dem Windows Admin Center
 
@@ -23,7 +23,7 @@ ms.locfileid: "75950479"
 > Neu bei Windows Admin Center?
 > [Weitere Informationen zum Windows Admin Center finden Sie hier](../overview.md).
 
-## <a name="managing-windows-server-machines"></a>Verwalten von Windows Server-Maschinen
+## <a name="managing-windows-server-machines"></a>Verwalten von Windows Server-Computern
 
 Sie können dem Windows Admin Center einzelne Server unter Windows Server 2012 oder höher hinzufügen, um den Server mit einem umfassenden Satz von Tools wie Zertifikaten, Geräten, Ereignissen, Prozessen, Rollen und Features, Updates, Virtual Machines und mehr zu verwalten.
 
@@ -51,23 +51,23 @@ Die folgenden Tools sind für Serververbindungen verfügbar:
 | ---- | ----------- |
 | [Übersicht](#overview) | Anzeigen von Server Details und Steuern des Serverstatus |
 | [Active Directory](#active-directory-preview) | Verwalten von Active Directory |
-| [Backup](#backup) | Azure Backup anzeigen und konfigurieren |  
+| [Mindestsicherung](#backup) | Azure Backup anzeigen und konfigurieren |  
 | [Zertifikate](#certificates) | Anzeigen und Ändern von Zertifikaten |
 | [Container](#containers) | Container anzeigen |
 | [Geräte](#devices) | Anzeigen und Ändern von Geräten |
-| [DHCP](#dhcp) | Anzeigen und Verwalten der DHCP-Serverkonfiguration |
+| [Konfiguriert](#dhcp) | Anzeigen und Verwalten der DHCP-Serverkonfiguration |
 | [DNS](#dns) | Anzeigen und Verwalten der DNS-Serverkonfiguration |
-| [Ereignisse](#events) | Veranstaltungen anzeigen |
-| [Dateien](#files) | Durchsuchen von Dateien und Ordnern |
-| [Firewall](#firewall) | Anzeigen und Ändern von Firewallregeln |
+| [Fall](#events) | Ereignisse anzeigen |
+| [Dateien](#files) | Dateien und Ordner durchsuchen |
+| [Brand](#firewall) | Anzeigen und Ändern von Firewallregeln |
 | [Installierte apps](#installed-apps) | Anzeigen und Entfernen installierter apps |
 | [Lokale Benutzer und Gruppen](#local-users-and-groups) | Anzeigen und ändern lokaler Benutzer und Gruppen |
-| [Network](#network) | Anzeigen und Ändern von Netzwerkgeräten |
+| [Netzwerk](#network) | Anzeigen und Ändern von Netzwerkgeräten |
 | [Paket Überwachung](https://aka.ms/wac1908) | Überwachen von Netzwerk Paketen |
 | [System Monitor](https://aka.ms/perfmon-blog) | Anzeigen von Leistungsindikatoren und Berichten |
 | [PowerShell](#powershell) | Interagieren mit dem Server über PowerShell |
 | [Prozesse](#processes) | Anzeigen und Ändern von laufenden Prozessen |
-| [Registry](#registry) | Anzeigen und Ändern von Registrierungs Einträgen |
+| [Registrierungs](#registry) | Anzeigen und Ändern von Registrierungs Einträgen |
 | [Remotedesktop](#remote-desktop) | Interagieren mit dem Server über Remotedesktop |
 | [Rollen und Features](#roles-and-features) | Anzeigen und Ändern von Rollen und Features |
 | [Geplante Aufgaben](#scheduled-tasks) | Anzeigen und Ändern geplanter Aufgaben |
@@ -93,7 +93,7 @@ Die folgenden Funktionen werden in Server-Manager Übersicht unterstützt:
 - Anzeigen der CPU-Aktivität
 - Arbeitsspeicher Aktivität anzeigen
 - Netzwerkaktivität anzeigen
-- Neustarten des Servers
+- Server neu starten
 - Server herunterfahren
 - Datenträger auf dem Server aktivieren
 - Computer-ID auf Server bearbeiten
@@ -121,7 +121,7 @@ Die folgenden Active Directory Verwaltung sind verfügbar:
 
 [**Anzeigen von Feedback und vorgeschlagenen Features für Active Directory**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BActive%20Directory%5D).
 
-## <a name="backup"></a>Sicherung
+## <a name="backup"></a>Backup
 
 Mit **Backup** können Sie Ihren Windows-Server vor Beschädigungen, Angriffen oder Notfällen schützen, indem Sie den Server direkt auf Microsoft Azure sichern.
 [Erfahren Sie mehr über Azure Backup.](https://aka.ms/windows-admin-center-backup)
@@ -150,7 +150,7 @@ Die folgenden Funktionen werden in Zertifikaten unterstützt:
 - Durchsuchen und Durchsuchen vorhandener Zertifikate
 - Anzeigen von Zertifikat Details
 - Exportieren von Zertifikaten
-- Erneuern von Zertifikaten
+- Zertifikate erneuern
 - Neue Zertifikate anfordern
 - Löschen von Zertifikaten
 
@@ -171,7 +171,7 @@ Mithilfe von **Geräten** können Sie verbundene Geräte auf einem Computer oder
 Die folgenden Funktionen werden von Geräten unterstützt:
 
 - Suchen und suchen von Geräten
-- Anzeigen von Gerätedetails
+- Anzeigen von Geräte Details
 - Deaktivieren eines Geräts
 - Aktualisieren eines Treibers auf einem Gerät
 
@@ -189,7 +189,7 @@ Mit **DHCP** können Sie verbundene Geräte auf einem Computer oder Server verwa
 
 [**Anzeigen von Feedback und vorgeschlagenen Features für DHCP**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BDHCP%5D).
 
-## <a name="dns"></a>Domain Name System
+## <a name="dns"></a>DNS
 
 Mithilfe von **DNS** können Sie verbundene Geräte auf einem Computer oder Server verwalten.
 
@@ -204,7 +204,7 @@ Mithilfe von **DNS** können Sie verbundene Geräte auf einem Computer oder Serv
 
 [**Anzeigen von Feedback und vorgeschlagenen Features für DHCP**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BDNS%5D).
 
-## <a name="events"></a>Veranstaltungen
+## <a name="events"></a>Ereignisse
 
 **Ereignisse** ermöglichen es Ihnen, Ereignisprotokolle auf einem Computer oder Server zu verwalten.
 
@@ -227,14 +227,15 @@ Mithilfe von **Dateien** können Sie Dateien und Ordner auf einem Computer oder 
 
 Die folgenden Funktionen werden in Dateien unterstützt:
 
-- Durchsuchen von Dateien und Ordnern
+- Dateien und Ordner durchsuchen
 - Nach einer Datei oder einem Ordner suchen
-- Erstellen eines neuen Ordners
+- Neuen Ordner erstellen
 - Löschen einer Datei oder eines Ordners
 - Herunterladen einer Datei oder eines Ordners
-- Hochladen von Dateien oder Ordnern
+- Hochladen einer Datei oder eines Ordners
 - Umbenennen einer Datei oder eines Ordners
 - Extrahieren einer ZIP-Datei
+- Kopieren und Verschieben von Dateien und Ordnern
 - Anzeigen von Datei-oder Ordnereigenschaften
 - Hinzufügen, bearbeiten oder Entfernen von Dateifreigaben
 - Ändern von Benutzer-und Gruppenberechtigungen für Dateifreigaben
@@ -388,7 +389,7 @@ Die folgenden Funktionen werden in geplanten Tasks unterstützt:
 
 [**Anzeigen von Feedback und vorgeschlagenen Features für geplante Aufgaben**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BScheduled%20Tasks%5D).
 
-## <a name="services"></a>„Dienste“
+## <a name="services"></a>Dienste
 
 **Dienste** ermöglichen es Ihnen, Dienste auf einem Computer oder Server zu verwalten.
 
@@ -400,11 +401,12 @@ Die folgenden Funktionen werden in-Diensten unterstützt:
 - Anzeigen von Details zu einem Dienst
 - Starten eines Diensts
 - Dienst anhalten
+- Neustart eines Dienstanbieter
 - Bearbeiten der Eigenschaften eines Dienstanbieter
 
 [**Anzeigen von Feedback und vorgeschlagenen Features für Dienste**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BServices%5D).
 
-## <a name="settings"></a>„Einstellungen“
+## <a name="settings"></a>Einstellungen
 
 **Einstellungen** ist ein zentraler Ort zum Verwalten von Einstellungen auf einem Computer oder Server.
 
@@ -417,7 +419,7 @@ Die folgenden Funktionen werden in-Diensten unterstützt:
 - Anzeigen und Ändern der rollenbasierten Zugriffs Steuerungseinstellungen
 - Anzeigen und Ändern von Hyper-V-Host Einstellungen (falls zutreffend)
 
-## <a name="storage"></a>„Speicher“.
+## <a name="storage"></a>Speicher
 
 Mithilfe von **Speicher** können Sie Speichergeräte auf einem Computer oder Server verwalten.
 
@@ -434,7 +436,7 @@ Die folgenden Funktionen werden im Speicher unterstützt:
 - Formatieren eines Volumes
 - Ändern der Größe eines Volumes
 - Volumeeigenschaften bearbeiten
-- Löschen von Volumes
+- Löschen eines Volumes
 - Installieren der Kontingent Verwaltung
 - Verwalten von Dateiservern Ressourcen-Manager Kontingente [Storage-> Create/Update-Kontingent](https://docs.microsoft.com/windows-server/storage/fsrm/quota-management)
 

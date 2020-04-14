@@ -8,16 +8,16 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 829cbf6df8cc2738bf4066b36210b860595774ed
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5bcaaa452a2b42a54cbc3b1d8f9a296504054e34
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385229"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269227"
 ---
 # <a name="use-a-custom-gateway-plugin-in-your-tool-extension"></a>Verwenden eines benutzerdefinierten Gateway-Plug-Ins in der Tool-Erweiterung
 
->Gilt für: Windows Admin Center, Windows Admin Center-Vorschau
+>Gilt für: Windows Admin Center, Windows Admin Center Vorschau
 
 In diesem Artikel wird ein benutzerdefiniertes Gateway-Plug-in in einer neuen, leeren Tool Erweiterung verwendet, die wir mit der Windows Admin Center-CLI erstellt haben.
 
@@ -61,14 +61,14 @@ export class PluginService {
 }
 ```
 
-Ändern Sie die Verweise auf ```Sample Uno``` und ```Sample%20Uno``` entsprechend Ihrem Funktionsnamen.
+Ändern Sie die Verweise auf ```Sample Uno```, und ```Sample%20Uno``` Sie nach Bedarf auf den Funktionsnamen.
 
-[!WARNING]
-> Es wird empfohlen, den integrierten ```this.appContextService.node``` zum Aufrufen einer API zu verwenden, die in Ihrem benutzerdefinierten Gateway-Plug-in definiert ist. Dadurch wird sichergestellt, dass, wenn Anmelde Informationen in Ihrem Gateway-Plug-in erforderlich sind, diese ordnungsgemäß verarbeitet werden.
+> [!WARNING]
+> Es wird empfohlen, die integrierte ```this.appContextService.node``` zum Aufrufen einer API zu verwenden, die in Ihrem benutzerdefinierten Gateway-Plug-in definiert ist. Dadurch wird sichergestellt, dass, wenn Anmelde Informationen in Ihrem Gateway-Plug-in erforderlich sind, diese ordnungsgemäß verarbeitet werden.
 
 ### <a name="modify-modulets"></a>Modify Module. TS
 
-Öffnen Sie die Datei ```module.ts``` des neuen Moduls, das Sie zuvor erstellt haben (d. h. ```{!Module-Name}.module.ts```):
+Öffnen Sie die ```module.ts``` Datei des neuen Moduls, das Sie zuvor erstellt haben (d. h. ```{!Module-Name}.module.ts```):
 
 Fügen Sie die folgenden Import-Anweisungen hinzu:
 
@@ -91,7 +91,7 @@ Fügen Sie die folgenden Anbieter hinzu (nach Deklarationen):
 
 ### <a name="modify-componentts"></a>Component. TS ändern
 
-Öffnen Sie die Datei ```component.ts``` des neuen Moduls, das Sie zuvor erstellt haben (d. h. ```{!Module-Name}.component.ts```):
+Öffnen Sie die ```component.ts``` Datei des neuen Moduls, das Sie zuvor erstellt haben (d. h. ```{!Module-Name}.component.ts```):
 
 Fügen Sie die folgenden Import-Anweisungen hinzu:
 
@@ -135,7 +135,7 @@ Fügen Sie die folgenden Variablen hinzu:
 
 ### <a name="modify-componenthtml"></a>Component. HTML ändern ###
 
-Öffnen Sie die Datei ```component.html``` des neuen Moduls, das Sie zuvor erstellt haben (d. h. ```{!Module-Name}.component.html```):
+Öffnen Sie die ```component.html``` Datei des neuen Moduls, das Sie zuvor erstellt haben (d. h. ```{!Module-Name}.component.html```):
 
 Fügen Sie der HTML-Datei den folgenden Inhalt hinzu:
 ``` html
