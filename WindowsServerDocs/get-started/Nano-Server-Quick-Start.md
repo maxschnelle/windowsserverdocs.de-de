@@ -2,28 +2,26 @@
 title: Nano Server-Schnellstart
 description: Schritte zum schnellen Bereitstellen einer einfachen Nano Server-Instanz auf einem physischen oder virtuellen Computer
 ms.prod: windows-server
-ms.service: na
 manager: DonGill
 ms.technology: server-nano
 ms.date: 09/05/2017
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 5de589d9da1c7d4fc9eb116e6ea1f6a326d1ad7c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7729b853f2e54c7f99d428fcb821a68d7a22aef0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391717"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826813"
 ---
 # <a name="nano-server-quick-start"></a>Nano Server-Schnellstart
 
 >Gilt für: Windows Server 2016
 
 > [!IMPORTANT]
-> Ab Windows Server, Version 1709, steht Nano Server nur als [Basis-Betriebssystemimage für Container](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image) zur Verfügung. Sieh dir die [Änderungen an Nano Server](nano-in-semi-annual-channel.md) an, und erfahre, was dies bedeutet. 
+> Ab Windows Server, Version 1709, steht Nano Server nur als [Basis-Betriebssystemimage für Container](/virtualization/windowscontainers/quick-start/using-insider-container-images#install-base-container-image) zur Verfügung. Sieh dir [Änderungen an Nano Server](nano-in-semi-annual-channel.md) an und erfahre, was dies bedeutet. 
 
 Führen Sie die Schritte in diesem Abschnitt aus, wenn Sie schnell mit einer einfachen Bereitstellung von Nano Server mithilfe von DHCP zum Abrufen einer IP-Adresse beginnen möchten. Sie können eine Nano Server-VHD entweder auf einem virtuellen Computer ausführen oder von einem physischen Computer aus starten. Die Schritte unterscheiden sich leicht.
 

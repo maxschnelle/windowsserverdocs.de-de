@@ -4,19 +4,18 @@ description: Abrufen und Installieren einer Server Core-Installation unter Windo
 ms.prod: windows-server
 ms.date: 05/21/2019
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2d22818c-fbb7-487a-bb82-81ef0a3f7ede
 author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: e6264a59a837003e49e82529750cfb153cc37b92
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 13d36c233094511216483f0fb37dc6a004212a50
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360336"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826973"
 ---
 # <a name="install-server-core"></a>Installieren von Server Core
 
@@ -27,15 +26,15 @@ Wenn du Windows Server zum ersten Mal installierst, stehen dir folgende Installa
 >[!NOTE]
 > In der folgenden Liste sind Editionen ohne „Desktopdarstellung“ die Server Core-Installationsoptionen.
 
--   Windows Server Standard
--   Windows Server Standard mit Desktopdarstellung
--   Windows Server Datacenter
--   Windows Server Datacenter mit Desktopdarstellung
+-    Windows Server Standard
+-    Windows Server Standard mit Desktopdarstellung
+-    Windows Server Datacenter
+-    Windows Server Datacenter mit Desktopdarstellung
 
 Wenn du Windows Server (halbjährlicher Kanal) installierst, stehen dir folgende Installationsoptionen zur Verfügung:
 
--   Windows Server Standard 
--   Windows Server Datacenter
+-    Windows Server Standard 
+-    Windows Server Datacenter
 
 Die Option „Server Core“ erfordert weniger Speicherplatz auf dem Datenträger und reduziert die potenzielle Angriffsfläche. Daher empfiehlt es sich, die Server Core-Installation auszuwählen, sofern du die zusätzlichen Benutzeroberflächenelemente oder grafischen Verwaltungstools, die in der Option „Server mit Desktopdarstellung“ enthalten sind, nicht unbedingt benötigst. Wenn du die zusätzlichen Benutzeroberflächenelemente benötigst, findest du Informationen dazu unter [Installieren des Servers mit Desktopdarstellung](Getting-Started-with-Server-with-Desktop-Experience.md). 
 
@@ -59,7 +58,7 @@ Bei der Server Core-Option wird die Standardbenutzeroberfläche (die Desktopdars
 **Beispiele für verfügbare Serverrollen**:
 
 - Active Directory-Zertifikatdienste
-- Active Directory Domain Services
+- Active Directory-Domänendienste (AD DS)
 - DHCP-Server
 - DNS-Server
 - Dateidienste (einschließlich Ressourcen-Manager für Dateiserver)

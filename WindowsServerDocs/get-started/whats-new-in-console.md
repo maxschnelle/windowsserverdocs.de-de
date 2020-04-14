@@ -1,27 +1,23 @@
 ---
-title: Neues in der Windows-Konsole in Windows Server 2016
+title: Neuerungen in der Windows-Konsole von Windows Server 2016
 description: Listet wichtige neue Features in der Konsole von Windows Server 2016 auf.
-ms.custom: na
 ms.prod: windows-server
 ms.technology: server-general
-ms.reviewer: na
-ms.suite: na
 ms.date: 10/04/2016
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: da9fc582-033b-4973-84e7-0c6024ecfcbc
 author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 305363646aa1714504b0cfb4838170b994ce5da9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b055c379e1d5ee632e420ffd1362389878d3dfd1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391440"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825963"
 ---
-# <a name="whats-new-in-the-windows-console-in-windows-server-2016"></a>Neues in der Windows-Konsole in Windows Server 2016
+# <a name="whats-new-in-the-windows-console-in-windows-server-2016"></a>Neuerungen in der Windows-Konsole von Windows Server 2016
 >Gilt für: Windows Server 2016
 
 Der Konsolenhost (d. h. der zugrunde liegende Code, der alle Zeichenmodusanwendungen wie z. B. die Windows-Eingabeaufforderung, die Eingabeaufforderung von Windows PowerShell und andere unterstützt) wurde in mehrfacher Hinsicht aktualisiert und durch eine Reihe von neuen Funktionen ergänzt.  
@@ -57,7 +53,7 @@ Das neue Konsolenfenster unterstützt jetzt Zeilenumbrüche. Wenn Sie jedoch mit
 
 Das Konsolenfenster kann jetzt halbtransparent dargestellt werden (bis zu einer Mindesttransparenz von 30 %). Sie können die Transparenz über das Menü „Eigenschaften“ oder mithilfe der folgenden Tastaturbefehle anpassen:  
 
-|Gehen Sie dazu wie folgt vor:|Tastenkombination:|  
+|Aufgabe:|Tastenkombination:|  
 |---------------|-----------------------------|  
 |Transparenz erhöhen|STRG+UMSCHALT+Plus (+) oder STRG+UMSCHALTT+Mausrad nach oben drehen|  
 |Transparenz verringern|STRG+UMSCHALT+Minus (-) oder STRG+UMSCHALTT+Mausrad nach unten drehen|  
@@ -72,7 +68,7 @@ Sie können jetzt auch außerhalb des QuickEdit-Modus einen Textabschnitt durch 
 
 **Textauswahl**  
 
-|Gehen Sie dazu wie folgt vor:|Tastenkombination:|  
+|Aufgabe:|Tastenkombination:|  
 |---------------|-----------------------------|  
 |Cursor um ein Zeichen nach links verschieben und die Markierung erweitern|UMSCHALT+NACH-LINKS-TASTE|  
 |Cursor um ein Zeichen nach rechts verschieben und die Markierung erweitern|UMSCHALT+NACH-RECHTS-TASTE|  
@@ -94,7 +90,7 @@ Sie können jetzt auch außerhalb des QuickEdit-Modus einen Textabschnitt durch 
 
 Sie können nun mithilfe von Tastaturbefehlen in der Konsole Text kopieren und einfügen. STRG+C hat jetzt zwei Funktionen. Wenn bei der Verwendung des Tastaturbefehls kein Text markiert ist, wird wie gewohnt der BREAK-Befehl gesendet. Wenn Text markiert ist, wird dieser Text durch die erste Verwendung des Befehls kopiert und die Markierung aufgehoben. Die zweite Verwendung sendet den BREAK-Befehl. Außerdem können folgende Befehle zum Bearbeiten von Text verwendet werden:  
 
-|Gehen Sie dazu wie folgt vor:|Tastenkombination:|  
+|Aufgabe:|Tastenkombination:|  
 |---------------|-----------------------------|  
 |Text in die Befehlszeile einfügen|STRG+V|  
 |Den markierten Text in die Zwischenablage kopieren|STRG+EINFG|  
@@ -105,7 +101,7 @@ Sie können nun mithilfe von Tastaturbefehlen in der Konsole Text kopieren und e
 
 Sie können zu jedem Zeitpunkt in den Markierungsmodus wechseln. Dazu klicken Sie mit der rechten Maustaste auf eine beliebige Stelle in der Titelleiste der Konsole, zeigen auf **Bearbeiten** und wählen im nun angezeigten Menü **Markieren** aus. Sie können auch STRG+M eingeben. Wenn der Markierungsmodus aktiviert ist, verwenden Sie die ALT-TASTE, um den Beginn einer Markierung mit Zeilenumbruch anzugeben. (Wenn **Auswahl des Zeilenumbruchs aktivieren** deaktiviert ist, wird im Markierungsmodus der Text als Block markiert.) Wenn der Markierungsmodus aktiviert ist, werden mit STRG+UMSCHALT+NACH-LINKS-TASTE oder STRG+UMSCHALT+NACH-RECHTS-TASTE einzelne Buchstaben markiert und nicht ganze Wörter wie im normalen Modus. Zusätzlich zu den unter **Bearbeiten von Text** beschriebenen Auswahltasten stehen im Markierungsmodus folgende Tastenkombinationen zur Verfügung:  
 
-|Gehen Sie dazu wie folgt vor:|Tastenkombination:|  
+|Aufgabe:|Tastenkombination:|  
 |---------------|-----------------------------|  
 |Markierungsmodus aufrufen, um den Cursor im Fenster verschieben zu können|STRG+M|  
 |Beginn einer Markierung mit Zeilenumbruch im Markierungsmodus, zusammen mit anderen Tastenkombinationen|ALT|  
@@ -116,7 +112,7 @@ Sie können zu jedem Zeitpunkt in den Markierungsmodus wechseln. Dazu klicken Si
 
 **Navigieren im Verlauf**  
 
-|Gehen Sie dazu wie folgt vor:|Tastenkombination:|  
+|Aufgabe:|Tastenkombination:|  
 |---------------|-----------------------------|  
 |Im Ausgabeverlauf eine Zeile nach oben springen|STRG+NACH-OBEN-TASTE|  
 |Im Ausgabeverlauf eine Zeile nach unten springen|STRG+NACH-UNTEN-TASTE|  
@@ -125,7 +121,7 @@ Sie können zu jedem Zeitpunkt in den Markierungsmodus wechseln. Dazu klicken Si
 
 **Weitere Tastaturbefehle**  
 
-|Gehen Sie dazu wie folgt vor:|Tastenkombination:|  
+|Aufgabe:|Tastenkombination:|  
 |---------------|-----------------------------|  
 |Dialogfeld „Suchen“ öffnen|STRG+F|  
 |Konsolenfenster schließen|ALT+F4|  

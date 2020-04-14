@@ -1,23 +1,19 @@
 ---
 title: 'Anmerkungen zu dieser Version: Wichtige Probleme in Windows Server 2016'
 description: Nachfolgend sind wichtige Probleme aufgeführt, für die eine Problemumgehung erforderlich ist, um einen Absturz, das Aufhängen des Systems, einen Installationsfehler oder Datenverlust zu verhindern.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 11/13/2018
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 134aab85-664f-4d44-87ef-9e5fd389071f
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: f4568e1781dbe385d8abe8a96f07841391506738
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 8ceff837c2b85466f5583eed03f39e73f32fd4a4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822163"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826383"
 ---
 # <a name="release-notes-important-issues-in-windows-server-2016"></a>Versionshinweise: Wichtige Probleme in Windows Server 2016
 
@@ -42,7 +38,7 @@ Legen Sie den Druckspooler nach dem ersten Start auf „Deaktiviert“ fest, um 
 ## <a name="containers"></a>Container
 
 [comment]: # (ID: 371; Übermittler: taylorb; Status: abgemeldet)
-- Installiere vor der Verwendung von Containern das [Bereitstellungsstapel-Update für Windows 10 Version 1607: 23. August 2016](https://support.microsoft.com/kb/3176936) oder spätere Updates, die verfügbar sind. Andernfalls können verschiedene Probleme (unter anderem beim Erstellen, Starten oder Ausführen von Containern) sowie Fehler wie der folgende auftreten: „CreateProcess failed in Win32: The RPC server is unavailable“ (Fehler bei CreateProcess in Win32: Der RPC-Server ist nicht verfügbar).
+- Installiere vor der Verwendung von Containern das [Bereitstellungsstapel-Update für Windows 10 Version 1607: 23. August 2016](https://support.microsoft.com/kb/3176936) oder spätere Updates, die verfügbar sind. Andernfalls können verschiedene Probleme (unter anderem beim Erstellen, Starten oder Ausführen von Containern) sowie Fehler wie der folgende auftreten: „CreateProcess failed in Win32: The RPC server is unavailable“, Fehler bei CreateProcess in Win32: Der RPC-Server ist nicht verfügbar.
 
 [comment]: # (ID: 373; Übermittler: plang; Status: abgemeldet)
 - Der NanoServerPackage OneGet-Anbieter funktioniert nicht in Windows-Containern. Um dieses Problem zu umgehen, verwenden Sie Find-NanoServerPackage und Save-NanoServerPackage auf einem anderen Computer (nicht auf einem Container), um das benötigte Paket herunterzuladen. Anschließend kopieren Sie die Pakete in den Container und installieren sie.

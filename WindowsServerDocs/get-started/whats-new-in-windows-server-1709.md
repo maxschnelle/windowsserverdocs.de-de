@@ -8,18 +8,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
 ms.date: 06/03/2019
-ms.openlocfilehash: 5dbbdc19707f2eadfa3b2c919af95b58645de441
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 07479bc5bd2fdf661db8a30e3a9f20c7cce0513e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391368"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825993"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Neuerungen in Windows Server, Version 1709
 
 >Gilt für: Windows Server (Halbjährlicher Kanal)
 
-<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Weitere Informationen zu den neuesten Features in Windows finden Sie unter [Neuerungen in Windows Server](whats-new-in-windows-server.md). In diesem Abschnitt wird beschrieben, was in Windows Server, Version 1709, neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung. Weitere Informationen finden Sie unter [Windows Server, Version 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
+<img src=../media/landing-icons/new.png style='float:left; padding:.5em;' alt=Icon showing a newspaper>&nbsp;Weitere Informationen zu den neuesten Features in Windows finden Sie unter [Neuerungen in Windows Server](whats-new-in-windows-server.md). In diesem Abschnitt wird beschrieben, was in Windows Server, Version 1709, neu ist und was sich geändert hat. Die hier aufgeführten Neuerungen und Änderungen haben bei der Arbeit in dieser Version vermutlich die größte Auswirkung. Weitere Informationen finden Sie unter [Windows Server, Version 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
 
 > [!IMPORTANT]
 > Der Support von Windows Server, Version 1709, ist seit dem 9. April 2019 beendet.
@@ -33,7 +33,7 @@ Ab diesem Release haben Sie zwei Optionen für den Empfang von Funktionsupdates 
 
 Veröffentlichungskanäle werden in der folgenden Tabelle zusammengefasst.
 
-|   | Semi-Annual Channel | Long Term Servicing Channel |
+|   | Halbjährlicher Kanal | Long Term Servicing Channel |
 | ------------- | ------------- | ------------ |
 | Versionsrhythmus  | Zweimal pro Jahr (Frühling und Herbst)  | Alle 2-3 Jahre |
 | Supportzeitplan  | 18 Monate Mainstream-Production Support  | 5 Jahre Mainstreamsupport + 5 Jahre erweiterter Support |
@@ -56,7 +56,7 @@ Weitere Informationen finden Sie unter [Änderungen bei Nano Server im nächsten
 Das [Projekt Honolulu](https://docs.microsoft.com/windows-server/manage/honolulu/honolulu) bietet eine vereinfachte, integrierte und sichere Umgebung, die IT-Administratoren bei der Verwaltung von Problembehandlungs-, Konfigurations- und Wartungsszenarien hilft.  Projekt Honolulu enthält die nächste Generation an Tools und bietet eine vereinfachte, integrierte, sichere und erweiterbare Benutzeroberfläche.
 Projekt Honolulu enthält eine intuitive neue Verwaltungsoberfläche für die Verwaltung von PCs, Windows Server-Instanzen, Failoverclustern sowie hyperkonvergenter Infrastruktur auf Basis von direkten Speicherplätzen (Storage Spaces Direct), was die Betriebskosten reduziert.
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Computer:
 
 **Nano-Container und Server Core-Container**: Zuallererst geht es in diesem Release darum, Anwendungsinnovationen voranzutreiben. Nano Server oder Nano als Host ist veraltet und wird durch Nano-Container (ein Nano, der als Containerimage ausgeführt wird) ersetzt. 
 
@@ -76,7 +76,7 @@ Weitere Informationen zu Containern finden Sie unter [Übersicht über Container
 
 **Format der Konfigurationsdatei für virtuelle Computer (aktualisiert)** . Für virtuelle Computer mit der Konfigurationsversion 8.2 und höher wurde eine weitere Datei (.vmgs) hinzugefügt. VMGS steht für „VM Guest State” und ist eine neue interne Datei, die den Gerätezustand enthält, der zuvor Teil der VM-Laufzeitstatusdatei war.
 
-## <a name="security-and-assurance"></a>Sicherheit und Zusicherungen
+## <a name="security-and-assurance"></a>Sicherheit und Assurance
 
 **Netzwerkverschlüsselung** ermöglicht das schnelle Verschlüsseln von Netzwerksegmenten in einer softwaredefinierten Netzwerkinfrastruktur, um Sicherheits- und Compliance-Anforderungen zu erfüllen.
 

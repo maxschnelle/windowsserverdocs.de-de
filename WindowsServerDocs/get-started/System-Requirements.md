@@ -1,25 +1,21 @@
 ---
 title: Systemanforderungen
 description: Welche Mindestanforderungen gelten für Speicher, CPU, Netzwerk, Arbeitsspeicher und RAM bei einer Neuinstallation jeder Installationsoption?
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 10/17/2017
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4a8b42d7-9fe5-4efe-9ea1-ace2131fe068
 author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 9e8b0c04137ff3b11cdaa7aba3c7899ca6300848
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: cd4666f9ac0677ce8893041ae4e937cca41e8164
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947743"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826493"
 ---
 # <a name="system-requirements"></a>Systemanforderungen
 
@@ -35,12 +31,12 @@ Dieses Thema behandelt die Mindestsystemanforderungen zum Ausführen von Windows
 
 
 ## <a name="review-system-requirements"></a>Überprüfen der Systemanforderungen  
-Nachfolgend sind die geschätzten Systemanforderungen für Windows Server 2016 aufgeführt. Erfüllt der Computer diese Mindestanforderungen nicht, kann das Produkt nicht ordnungsgemäß installiert werden. Die tatsächlichen Anforderungen sind von der Systemkonfiguration und den installierten Anwendungen und Features abhängig.
+Nachfolgend sind die geschätzten Systemanforderungen für Windows Server 2016 aufgeführt. Wenn der Computer die Mindestanforderungen nicht erfüllt, kann das Produkt nicht ordnungsgemäß installiert werden. Die tatsächlichen Anforderungen sind von der Systemkonfiguration und den installierten Anwendungen und Features abhängig.
 
 Sofern nicht anders angegeben gelten diese Mindestanforderungen für alle Installationsoptionen (Server Core, Server mit Desktopdarstellung und Nano Server) auf jeweils der Standard- und der Datacenter Edition.  
 
 > [!IMPORTANT]  
-> Aufgrund des beachtlichen Ausmaßes an potenziellen Bereitstellungen ist es unrealistisch, „empfohlene“ Systemanforderungen anzugeben, die allgemein gültig sind. Ziehen Sie für jede Serverrolle, die Sie bereitstellen möchten, die Dokumentation zu Rate, um weitere Informationen über die Ressourcenanforderungen bestimmter Serverrollen zu erhalten. Die besten Ergebnisse erzielen Sie, indem Sie Testbereitstellungen durchführen, um die entsprechenden Systemanforderungen für bestimme Bereitstellungsszenarien zu ermitteln.  
+> Aufgrund des beachtlichen Ausmaßes an potenziellen Bereitstellungen ist es unrealistisch, empfohlene Systemanforderungen anzugeben, die allgemein gültig sind. Ziehen Sie für jede Serverrolle, die Sie bereitstellen möchten, die Dokumentation zu Rate, um weitere Informationen über die Ressourcenanforderungen bestimmter Serverrollen zu erhalten. Die besten Ergebnisse erzielen Sie, indem Sie Testbereitstellungen durchführen, um die entsprechenden Systemanforderungen für bestimme Bereitstellungsszenarien zu ermitteln.  
 
 
 ## <a name="processor"></a>Prozessor  

@@ -1,23 +1,21 @@
 ---
 title: Entwickeln von PowerShell-Cmdlets für Nano Server
-description: 'Portieren von CIM, .NET-Cmdlets, C++ '
+description: Portieren von CIM, .NET-Cmdlets, C++
 ms.prod: windows-server
-ms.service: na
 manager: DonGill
 ms.technology: server-nano
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7b4267f0-1c91-4a40-9262-5daf4659f686
 author: jaimeo
 ms.author: jaimeo
 ms.date: 09/06/2017
 ms.localizationpriority: medium
-ms.openlocfilehash: 434b79508dbf88a90348840573255c3084d6e989
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 3965e453483b3515e4957ecfaba39cf9a0b8104f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948455"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827073"
 ---
 # <a name="developing-powershell-cmdlets-for-nano-server"></a>Entwickeln von PowerShell-Cmdlets für Nano Server
 
@@ -74,7 +72,7 @@ CompatiblePSEditions Property   System.Collections.Generic.IEnumerable[string] C
 ```  
 Beim Abrufen einer Liste der verfügbaren Module können Sie die Liste nach PowerShell-Edition filtern.  
 ```powershell  
-Get-Module -ListAvailable | ? CompatiblePSEditions -Contains "Desktop"  
+Get-Module -ListAvailable | ? CompatiblePSEditions -Contains Desktop  
   
     Directory: C:\Program Files\WindowsPowerShell\Modules  
   
@@ -83,21 +81,21 @@ ModuleType Version    Name                                ExportedCommands
 ---------- -------    ----                                ----------------  
 Manifest   1.0        ModuleWithPSEditions  
   
-Get-Module -ListAvailable | ? CompatiblePSEditions -Contains "Core" | % CompatiblePSEditions  
+Get-Module -ListAvailable | ? CompatiblePSEditions -Contains Core | % CompatiblePSEditions  
 Desktop  
 Core  
   
 ```  
 Skriptautoren können verhindern, dass ein Skript ausgeführt wird, es sei denn, es wird auf einer kompatiblen Edition von PowerShell mithilfe des PSEdition-Parameters auf einer #requires-Anweisung ausgeführt.  
 ```powershell  
-Set-Content C:\script.ps1 -Value "#requires -PSEdition Core  
-Get-Process -Name PowerShell"  
+Set-Content C:\script.ps1 -Value #requires -PSEdition Core  
+Get-Process -Name PowerShell  
 Get-Content C:\script.ps1  
 #requires -PSEdition Core  
 Get-Process -Name PowerShell  
   
 C:\script.ps1  
-C:\script.ps1 : The script 'script.ps1' cannot be run because it contained a "#requires" statement for PowerShell editions 'Core'. The edition of PowerShell that is required by the script does not match the currently running PowerShell Desktop edition.  
+C:\script.ps1 : The script 'script.ps1' cannot be run because it contained a #requires statement for PowerShell editions 'Core'. The edition of PowerShell that is required by the script does not match the currently running PowerShell Desktop edition.  
 At line:1 char:1  
 + C:\script.ps1  
 + ~~~~~~~~~~~~~  
@@ -214,7 +212,7 @@ public class TestNetConnectionResult
 '@  
 # Create object and set properties  
 $result = New-Object TestNetConnectionResult  
-$result.ComputerName = "Foo"  
+$result.ComputerName = Foo  
 $result.RemoteAddress = 1.1.1.1  
   
 ```  
@@ -231,7 +229,7 @@ class TestNetConnectionResult
 }  
 # Create object and set properties  
 $result = [TestNetConnectionResult]::new()  
-$result.ComputerName = "Foo"  
+$result.ComputerName = Foo  
 $result.RemoteAddress = 1.1.1.1  
   
 ```  

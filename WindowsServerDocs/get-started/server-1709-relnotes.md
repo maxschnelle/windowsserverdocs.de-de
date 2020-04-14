@@ -1,25 +1,21 @@
 ---
 title: 'Anmerkungen zu dieser Version: Wichtige Probleme in Windows Server, Version 1709'
 description: Nachfolgend sind wichtige Probleme aufgeführt, für die eine Problemumgehung erforderlich ist, um einen Absturz, das Aufhängen des Systems, einen Installationsfehler oder Datenverlust zu verhindern.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 04/23/2018
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 134aab85-664f-4d44-87ef-9e5fd389071f
 author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: dcd50b287ad0f3dd49a0df3c1fe531379bd4078e
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: fea4b259986d1ca6e2f992168f7b0c2e1a177916
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948235"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826103"
 ---
 # <a name="release-notes-important-issues-in-windows-server-version-1709"></a>Versionshinweise: Wichtige Probleme in Windows Server, Version 1709
 

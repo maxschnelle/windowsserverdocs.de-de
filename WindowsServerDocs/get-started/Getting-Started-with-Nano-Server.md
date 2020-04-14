@@ -2,22 +2,20 @@
 title: Installieren von Nano Server
 description: Neuinstallation, Upgrade, Migration und Evaluierung von Nano Server
 ms.prod: windows-server
-ms.service: na
 manager: dougkim
 ms.technology: server-nano
 ms.date: 09/06/2017
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 2c2fa45b-6f3b-4663-b421-2da6ecc463bf
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 09f031c19c8f6d1105d47b9f22d52db30e9c57ef
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 68de1697c8655075041cd9e598ccd2bbc2e6237b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822153"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826983"
 ---
 # <a name="install-nano-server"></a>Installieren von Nano Server
 
@@ -30,7 +28,7 @@ Windows Server 2016 bietet eine neue Installationsoption: Nano Server. Nano Serv
 
 Nano Server eignet sich sehr gut für eine Anzahl von Szenarios:  
   
--   Als „Serverhost“ für virtuelle Hyper-V-Computer, entweder in Clustern oder nicht  
+-   Als „Computehost“ für virtuelle Hyper-V-Computer, entweder in Clustern oder nicht  
   
 -   Als Speicherhost für einen Dateiserver mit horizontaler Skalierung  
   
@@ -42,9 +40,9 @@ Nano Server eignet sich sehr gut für eine Anzahl von Szenarios:
   
 ## <a name="important-differences-in-nano-server"></a>Wichtige Unterschiede in Nano Server
 
-Da Nano Server als schlankes Betriebssystem für die Ausführung von „nativen Cloudanwendungen“ basierend auf Containern und Microservices oder als flexibler und kosteneffizienter Datencenterhost mit deutlich reduziertem Ressourcenbedarf optimiert ist, gibt es wichtige Unterschiede zwischen Nano Server- und Server Core- bzw. „Server mit Desktopdarstellung“-Installationen:
+Da Nano Server als schlankes Betriebssystem für die Ausführung von nativen Cloudanwendungen basierend auf Containern und Microservices oder als flexibler und kosteneffizienter Datencenterhost mit deutlich reduziertem Ressourcenbedarf optimiert ist, gibt es wichtige Unterschiede zwischen Nano Server- und Server Core- bzw. „Server mit Desktopdarstellung“-Installationen:
 
-- Nano Server ist „monitorlos“, d.h. Nano Server verfügt über keine grafische Benutzeroberfläche, und es gibt keine Möglichkeit zur lokalen Anmeldung.
+- Nano Server ist monitorlos, d. h. Nano Server verfügt über keine grafische Benutzeroberfläche, und es gibt keine Möglichkeit zur lokalen Anmeldung.
 - Nur 64-Bit-Anwendungen, -Tools und -Agents werden unterstützt.
 - Sie können Nano Server nicht als Active Directory-Domänencontroller verwenden.
 - Gruppenrichtlinien werden nicht unterstützt. Sie können jedoch [DSC](https://msdn.microsoft.com/powershell/dsc/nanoDsc) (Desired State Configuration) verwenden, um Einstellungen bedarfsgerecht anzuwenden.

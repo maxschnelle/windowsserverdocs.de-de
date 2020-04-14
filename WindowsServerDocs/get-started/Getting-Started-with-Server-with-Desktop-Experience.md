@@ -1,25 +1,21 @@
 ---
 title: Installieren des Servers mit Desktopdarstellung
-description: 'Erläutert, wie Sie eine Installation des Servers mit Desktopdarstellung erhalten und durchführen '
-ms.custom: na
+description: Erläutert, wie Sie eine Installation des Servers mit Desktopdarstellung erhalten und durchführen
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 01/18/2017
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5b38b8a0-4dfc-4130-be00-fc58bba99595
 author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 2d92ae9e0013d622c1e0a6b8b6a1662dc82360f2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 18c454d9ef4deb8c9ea681a486e85f356ad5c9cd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391786"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826943"
 ---
 # <a name="install-server-with-desktop-experience"></a>Installieren des Servers mit Desktopdarstellung
 > Gilt für: Windows Server 2016
@@ -33,7 +29,7 @@ Die Option „Server mit Desktopdarstellung“ installiert die Standardbenutzero
 >
 > Im Gegensatz zu einigen früheren Versionen von Windows Server ist eine Konvertierung zwischen Server Core und Servern mit Desktopdarstellung nach der Installation nicht möglich. Wenn Sie Server mit Desktopdarstellung installieren und später Server Core verwenden möchten, sollten Sie eine Neuinstallation durchführen.
 
-**Benutzeroberfläche:** standardmäßige grafische Benutzeroberfläche („Servergrafikshell“). Die Servergrafikshell enthält die neue Windows 10-Shell. Die standardmäßig mit dieser Option installierten spezifischen Windows-Features sind User-Interfaces-Infra, Server-GUI-Shell, Server-GUI-Mgmt-Infra, InkAndHandwritingServices, ServerMediaFoundation und Desktopdarstellung. Diese Features werden zwar im Server-Manager in dieser Version angezeigt, doch ihre Deinstallierung wird nicht unterstützt, und sie werden in zukünftigen Versionen nicht verfügbar sein.
+**Benutzeroberfläche:** standardmäßige grafische Benutzeroberfläche (Servergrafikshell). Die Servergrafikshell enthält die neue Windows 10-Shell. Die standardmäßig mit dieser Option installierten spezifischen Windows-Features sind User-Interfaces-Infra, Server-GUI-Shell, Server-GUI-Mgmt-Infra, InkAndHandwritingServices, ServerMediaFoundation und Desktopdarstellung. Diese Features werden zwar im Server-Manager in dieser Version angezeigt, doch ihre Deinstallierung wird nicht unterstützt, und sie werden in zukünftigen Versionen nicht verfügbar sein.
 
 **Lokales Installieren, Konfigurieren und Deinstallieren von Serverrollen:** mit Server-Manager oder Windows PowerShell
 
@@ -74,12 +70,12 @@ Werden in der rechten Spalte mehrere Editionen angezeigt, wird das Upgrade auf *
 
 |Ausgeführte Edition:|Zieleditionen:|  
 |-------------------|----------|  
-|Windows Server2012 Standard|Windows Server 2016 Standard oder Datacenter|
+|Windows Server 2012 Standard|Windows Server 2016 Standard oder Datacenter|
 |Windows Server 2012 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Standard|Windows Server 2016 Standard oder Datacenter|
 |Windows Server 2012 R2 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Essentials|Windows Server 2016 Essentials|
-|Windows Storage Server2012 Standard|Windows Storage Server 2016 Standard|
+|Windows Storage Server 2012 Standard|Windows Storage Server 2016 Standard|
 |Windows Storage Server 2012 Workgroup|Windows Storage Server 2016 Workgroup|
 |Windows Storage Server 2012 R2 Standard|Windows Storage Server 2016 Standard|
 |Arbeitsgruppe unter Windows Storage Server 2012 R2|Windows Storage Server 2016 Workgroup|
@@ -93,19 +89,19 @@ Die Fähigkeit zur Migration unterscheidet sich bei verschiedenen Serverrollen. 
 
 |Serverrolle|Upgrade von Windows Server 2012 R2 möglich?|Upgrade von Windows Server 2012 möglich?|Wird die Migration unterstützt?|Kann die Migration ohne Downtime abgeschlossen werden?|  
 |-------------------|----------|--------------|--------------|----------|  
-|Active Directory-Zertifikatdienste| Ja|    Ja|    Ja|    Nein|
-|Active Directory Domain Services|  Ja|    Ja|    Ja|    Ja|
-|Active Directory-Verbunddienste|  Nein| Nein| Ja|    Nein (neue Knoten müssen zur Farm hinzugefügt werden)|
-|Active Directory Lightweight Directory Services|   Ja|    Ja|    Ja|    Ja|
-|Active Directory-Rechteverwaltungsdienste|   Ja|    Ja|    Ja|    Nein|
-|Failovercluster|Ja mit dem Prozess [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade), der Pause-Drain und Evict von Knoten, Upgrade auf Windows Server 2016 und das wieder Zusammenführen von Knoten zu einem ursprünglichen Cluster umfasst. Ja, wenn der Server für ein Upgrade vom Cluster entfernt und dann zu einem anderen Cluster hinzugefügt wird.|Nicht wenn der Server Teil eines Clusters ist. Ja, wenn der Server für ein Upgrade vom Cluster entfernt und dann zu einem anderen Cluster hinzugefügt wird.  |Ja|Nicht für Windows Server 2012-Failovercluster. Ja, für Windows Server 2012 R2-Failovercluster mit virtuellen Hyper-V Computern, oder für Windows Server 2012 R2-Failovercluster, die die Rolle des Dateiservers mit horizontaler Skalierung ausführen. Weitere Informationen finden Sie unter [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade).|
-|Datei- und Speicherdienste| Ja|    Ja|    Variiert je nach Sub-Feature|  Nein|
-|Druck- und Faxdienste|    Nein| Nein| Ja (Printbrm.exe)| Nein|
-|Remotedesktopdienste|   Ja, für alle untergeordneten Rollen. Die Farm im gemischten Modus wird jedoch nicht unterstützt|   Ja, für alle untergeordneten Rollen. Die Farm im gemischten Modus wird jedoch nicht unterstützt|   Ja|    Nein|
-|Webserver (IIS)|  Ja|    Ja|    Ja|    Nein|
-|Windows Server Essentials Experience|  Ja|    N/V – neues Feature|  Ja|    Nein|
+|Active Directory-Zertifikatdienste|    Ja|    Ja|    Ja|    Nein|
+|Active Directory-Domänendienste (AD DS)|    Ja|    Ja|    Ja|    Ja|
+|Active Directory-Verbunddienste|    Nein|    Nein|    Ja|    Nein (neue Knoten müssen zur Farm hinzugefügt werden)|
+|Active Directory Lightweight Directory Services|    Ja|    Ja|    Ja|    Ja|
+|Active Directory-Rechteverwaltungsdienste|    Ja|    Ja|    Ja|    Nein|
+|Failovercluster|Ja mit dem Prozess [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade), der Pause-Drain und Evict von Knoten, Upgrade auf Windows Server 2016 und das wieder Zusammenführen von Knoten zu einem ursprünglichen Cluster umfasst. Ja, wenn der Server für ein Upgrade vom Cluster entfernt und dann zu einem anderen Cluster hinzugefügt wird.|Nicht wenn der Server Teil eines Clusters ist. Ja, wenn der Server für ein Upgrade vom Cluster entfernt und dann zu einem anderen Cluster hinzugefügt wird.    |Ja|Nicht für Windows Server 2012-Failovercluster. Ja, für Windows Server 2012 R2-Failovercluster mit virtuellen Hyper-V Computern, oder für Windows Server 2012 R2-Failovercluster, die die Rolle des Dateiservers mit horizontaler Skalierung ausführen. Weitere Informationen finden Sie unter [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade).|
+|Datei- und Speicherdienste|    Ja|    Ja|    Variiert je nach Sub-Feature|    Nein|
+|Druck- und Faxdienste|    Nein|    Nein|    Ja (Printbrm.exe)|    Nein|
+|Remotedesktopdienste|    Ja, für alle untergeordneten Rollen. Die Farm im gemischten Modus wird jedoch nicht unterstützt|    Ja, für alle untergeordneten Rollen. Die Farm im gemischten Modus wird jedoch nicht unterstützt|    Ja|    Nein|
+|Webserver (IIS)|    Ja|    Ja|    Ja|    Nein|
+|Windows Server Essentials Experience|    Ja|    N/V – neues Feature|    Ja|    Nein|
 |Windows Server Update Services|    Ja|    Ja|    Ja|    Nein|
-|Arbeitsordner|  Ja|    Ja|    Ja|    Ja, vom Cluster WS 2012 R2, wenn [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) ausgeführt wird.|
+|Arbeitsordner|    Ja|    Ja|    Ja|    Ja, vom Cluster WS 2012 R2, wenn [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) ausgeführt wird.|
 
 > [!IMPORTANT]  
 > Sobald die Installation abgeschlossen ist und alle Serverrollen und Features, die Sie benötigen, installiert sind, suchen und installieren Sie verfügbare Updates für Windows Server 2016 mithilfe von Windows Update oder anderen Update-Methoden.
