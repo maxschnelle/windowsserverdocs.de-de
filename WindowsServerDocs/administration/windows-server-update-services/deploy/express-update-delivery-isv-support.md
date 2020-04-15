@@ -2,21 +2,18 @@
 title: ISV-Unterstützung für Express-Updatebereitstellung
 description: 'WSUS-Thema (Windows Server Update Services): Konfigurieren der Express-Updatebereitstellung durch unabhängige Softwarehersteller (ISVs) per WSUS'
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: get-started article
 author: sakitong
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: 13568bb320a3d70bfd6a70d2b9731b460be6f346
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 60d01ef425ed96160cd76afdd7c27c081c778add
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948493"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828773"
 ---
 # <a name="express-update-delivery-isv-support"></a>ISV-Unterstützung für Express-Updatebereitstellung
 
@@ -58,11 +55,11 @@ ISVs können WSUS und den WU-Client verwenden, um die Express-Updatebereitstellu
    - Mit dem ISV-Client-Agent wird festgelegt, welche Updates genehmigt und wann Updates heruntergeladen und installiert werden.
    - Mit dem WU-Client werden die herunterzuladenden Bytebereiche ermittelt, und die Downloadanforderung wird initiiert.
 
-### <a name="BKMK_1"></a>Schritt 1: Konfigurieren von WSUS
+### <a name="step-1-configure-wsus"></a><a name=BKMK_1></a>Schritt 1: Konfigurieren von WSUS
 
 WSUS dient als Schnittstelle für Windows Update und zum Verwalten aller Metadaten zur Beschreibung von Express-Paketen, die heruntergeladen werden müssen. Informationen zur Bereitstellung findest du unter [**Übersicht über Windows Server Update Services 3.0 SP2**](https://technet.microsoft.com/library/dd939931(v=ws.10).aspx). Nachdem WSUS bereitgestellt wurde, musst du zunächst die Entscheidung treffen, ob Updateinhalte lokal auf dem WSUS-Server gespeichert werden sollen. Beim Konfigurieren von WSUS empfehlen wir, Updates nicht lokal zu speichern. Hierbei wird angenommen, dass du bereits über Software verfügst, mit der die Bereitstellung dieser Pakete in deiner Umgebung gesteuert wird. Weitere Informationen zur Konfiguration des lokalen WSUS-Speichers findest du unter [**Festlegen des Speicherorts für Updates**](https://technet.microsoft.com/library/cc720494(v=ws.10).aspx).
 
-### <a name="BKMK_2"></a>Schritt 2: Angeben und Füllen des ISV-Dateicaches 
+### <a name="step-2-specify-and-populate-the-isv-file-cache"></a><a name=BKMK_2></a>Schritt 2: Angeben und Füllen des ISV-Dateicaches 
 
 #### <a name="specify-the-isv-file-cache"></a>Angeben des ISV-Dateicaches
 
@@ -105,7 +102,7 @@ Der ISV-Dateicache muss mit Dateien gefüllt werden, die den auf verwalteten Cli
 
      Der HTTP-Server (bzw. „localhost“) sollte so eingerichtet werden, dass **HTTP GET**-Anforderungen, in denen auf den MU-Ordnerpfad und den zugehörigen Dateinamen verwiesen wird, an den Speicherort der ISV-Datei umgeleitet werden.
 
-### <a name="BKMK_3"></a>Schritt 3: Einrichten eines ISV-Client-Agents zum Steuern von WU-Clientvorgängen
+### <a name="step-3-set-up-an-isv-client-agent-to-direct-wu-client-operations"></a><a name=BKMK_3></a>Schritt 3: Einrichten eines ISV-Client-Agents zum Steuern von WU-Clientvorgängen
 
 Der ISV-Client-Agent orchestriert den Download und die Installation von genehmigten Updates, indem der folgende Workflow verwendet wird:
 

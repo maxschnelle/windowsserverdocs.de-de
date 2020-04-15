@@ -1,5 +1,5 @@
 ---
-title: Bereitstellen von Ordnerumleitung mit Offlinedateien
+title: Bereitstellen von Ordnerumleitung mit Offlinedateien, Bereitstellen von Ordnerumleitung mit Offlinedateien
 description: Verwenden von Windows Server zum Bereitstellen von Ordnerumleitung mit Offlinedateien auf Windows-Clientcomputern.
 ms.prod: windows-server
 ms.topic: article
@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 6d8f6bf0df67b76028945403352bd135e6641a5a
-ms.sourcegitcommit: ab3967d71dcbb962079af194875de58e7c32c4e2
+ms.openlocfilehash: e8e6e5a29c75c117f6faa3c1d1b3f288582d81a2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76967419"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855883"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Bereitstellen von Ordnerumleitung mit Offlinedateien
 
@@ -30,7 +30,7 @@ Eine Liste der zuletzt vorgenommenen Änderungen an diesem Thema finden Sie unte
 
 ### <a name="hardware-requirements"></a>Hardwareanforderungen
 
-Für die Ordnerumleitung ist ein x64- oder x86-basierter Computer erforderlich, von Windows® RT wird sie nicht unterstützt.
+Für die Ordnerumleitung ist ein x64- oder x86-basierter Computer erforderlich, von Windows&reg; RT wird sie nicht unterstützt.
 
 ### <a name="software-requirements"></a>Softwareanforderungen
 
@@ -93,13 +93,13 @@ So wird eine Dateifreigabe unter Windows Server 2019, Windows Server 2016 und 
 
 ### <a name="required-permissions-for-the-file-share-hosting-redirected-folders"></a>Erforderliche Berechtigungen für die Dateifreigabe, die umgeleitete Ordner hostet
 
-| Benutzerkonto  | Access  | Betrifft  |
+| Benutzerkonto  | Access  | Gilt für  |
 | --------- | --------- | --------- |
-| Benutzerkonto | Access | Betrifft |
+| Benutzerkonto | Access | Gilt für |
 | System     | Vollzugriff        |    Dieser Ordner, die Unterordner und Dateien     |
 | Administratoren     | Vollzugriff       | Nur dieser Ordner        |
 | Ersteller/Besitzer     |   Vollzugriff      |   Nur Unterordner und Dateien      |
-| Sicherheitsgruppe der Benutzer, die Daten in der Freigabe speichern müssen (Benutzer der Ordnerumleitung)     |   Ordner auflisten/Daten lesen *(Erweiterte Berechtigungen)* <br /><br />Ordner erstellen/Daten anfügen *(Erweiterte Berechtigungen)* <br /><br />Attribute lesen *(Erweiterte Berechtigungen)* <br /><br />Erweiterte Attribute lesen *(Erweiterte Berechtigungen)* <br /><br />Leseberechtigungen *(Erweiterte Berechtigungen)*      |  Nur dieser Ordner       |
+| Sicherheitsgruppe der Benutzer, die Daten in der Freigabe speichern müssen (Benutzer der Ordnerumleitung)     |   Ordner auflisten/Daten lesen *(Erweiterte Berechtigungen)* <p>Ordner erstellen/Daten anfügen *(Erweiterte Berechtigungen)* <p>Attribute lesen *(Erweiterte Berechtigungen)* <p>Erweiterte Attribute lesen *(Erweiterte Berechtigungen)* <p>Leseberechtigungen *(Erweiterte Berechtigungen)*      |  Nur dieser Ordner       |
 | Andere Gruppen und Konten     |  Keine (entfernen)       |         |
 
 ## <a name="step-3-create-a-gpo-for-folder-redirection"></a>Schritt 3: Erstellen eines Gruppenrichtlinienobjekts für die Ordnerumleitung
@@ -175,7 +175,7 @@ So testen Sie die Ordnerumleitung:
 
 ## <a name="appendix-a-checklist-for-deploying-folder-redirection"></a>Anhang A: Checkliste zum Bereitstellen der Ordnerumleitung
 
-| Status           | Aktion |
+| Status           | Action |
 | ---              | ---    |
 | ☐<br>☐<br>☐    | 1. Bereiten Sie die Domäne vor<br>– Fügen Sie der Domäne Computer hinzu<br>– Erstellen Sie Benutzerkonten |
 | ☐<br><br><br>   | 2. Erstellen einer Sicherheitsgruppe für die Ordnerumleitung<br>– Gruppenname:<br>– Mitglieder: |

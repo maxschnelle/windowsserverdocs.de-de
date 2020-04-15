@@ -2,21 +2,18 @@
 title: ISV-Unterstützung für monatliche Delta-Updates ohne WSUS
 description: 'WSUS-Thema (Windows Server Update Service): Temporäre Verwendung monatlicher Delta-Updates für unabhängige Softwarehersteller (ISV) anstelle der WSUS-Express-Updatebereitstellung zum Reduzieren der Paketgröße'
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: get-started article
 author: sakitong
 ms.author: coreyp
 manager: dougkim
 ms.date: 10/16/2017
-ms.openlocfilehash: 4607827d73c34f50f721a2774fa498eb95f9dbb8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3ccddd3bfd55ae340dc5273905bb475e7d2cb98a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361728"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828743"
 ---
 # <a name="monthly-delta-update-isv-support-without-wsus"></a>ISV-Unterstützung für monatliche Delta-Updates ohne WSUS
 

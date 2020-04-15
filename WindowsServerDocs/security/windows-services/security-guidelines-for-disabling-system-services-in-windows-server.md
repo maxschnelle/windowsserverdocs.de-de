@@ -1,21 +1,19 @@
 ---
 title: Sicherheitsrichtlinien für Systemdienste in Windows Server 2016
 description: Sicherheitsrichtlinien für das Deaktivieren von Diensten in Windows Server 2016 mit Desktopdarstellung
-ms.custom: na
 ms.prod: windows-server
 ms.technology: techgroup-security
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.assetid: b886b2fd-3567-4f0a-8aa3-4ba7923d2d21
 author: nirb
 ms.author: nirb
-ms.openlocfilehash: 1711eb94b622775feaf02f6bada596fe03b08ea9
-ms.sourcegitcommit: b8e120fc574450e9eee13e7315424137a43e6a6c
+ms.openlocfilehash: f7bb6f73fb2d898c3e5170dda96fef5aea611a88
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74044807"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855053"
 ---
 # <a name="guidance-on-disabling-system-services-on-windows-server-2016-with-desktop-experience"></a>Anleitungen zur Deaktivierung von Systemdiensten unter Windows Server 2016 mit Desktopdarstellung
 
@@ -23,7 +21,7 @@ Gilt für: Windows Server 2016
 
 Das Windows-Betriebssystem enthält viele Systemdienste, mit denen wichtige Funktionen bereitgestellt werden. Die Dienste verfügen über unterschiedliche Standardrichtlinien für den Start: einige werden standardmäßig gestartet (automatisch), einige bei Bedarf (manuell) und einige sind standardmäßig deaktiviert und müssen explizit aktiviert werden, bevor sie ausgeführt werden können. Diese Standardeinstellungen wurden für jeden Dienst sorgfältig gewählt, um für typische Kunden eine gute Abstimmung in Bezug auf Leistung, Funktionalität und Sicherheit zu erzielen.
 
-Einige Unternehmenskunden ziehen für ihre Windows-PCs und -Server aber ggf. einen stärker auf Sicherheit ausgerichteten Ansatz vor, bei dem die Angriffsfläche auf das absolute Minimum reduziert ist. Diese Kunden möchten daher alle Dienste vollständig deaktivieren, die in ihren jeweiligen Umgebungen nicht benötigt werden. Für diese Kunden stellt Microsoft® diese Anleitung bereit, die Hinweise dazu enthält, welche Dienste zu diesem Zweck deaktiviert werden können.
+Einige Unternehmenskunden ziehen für ihre Windows-PCs und -Server aber ggf. einen stärker auf Sicherheit ausgerichteten Ansatz vor, bei dem die Angriffsfläche auf das absolute Minimum reduziert ist. Diese Kunden möchten daher alle Dienste vollständig deaktivieren, die in ihren jeweiligen Umgebungen nicht benötigt werden. Für diese Kunden stellt Microsoft&reg; diese Anleitung bereit, die Hinweise dazu enthält, welche Dienste zu diesem Zweck deaktiviert werden können.
 
 Die Anleitung gilt nur für Windows Server 2016 mit Desktopdarstellung (nicht bei Nutzung als Desktopersatz für Endbenutzer). Ab Windows Server 2019 sind diese Richtlinien standardmäßig konfiguriert. Die Dienste des Systems sind jeweils wie folgt kategorisiert:
 
@@ -97,7 +95,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht die Überprüfung der Benutzerkontensteuerung für die Installation von ActiveX-Steuerelementen über das Internet und die Verwaltung der Installation von ActiveX-Steuerelementen basierend auf Gruppenrichtlinieneinstellungen. Dieser Dienst wird bedarfsgesteuert gestartet, und wenn er deaktiviert ist, verhält sich die Installation von ActiveX-Steuerelementen gemäß den Einstellungen des Standardbrowsers.    |
 |   **Dienstname**    |   AxInstSV    |
 |   **Installation**    |   Nur mit Desktopdarstellung    |
-|   **Starttyp**   |   Manual  |
+|   **Starttyp**   |   Manuell  |
 |   **Empfehlung**  |   Deaktivierung OK   |
 |   **Kommentare**    |   Die Deaktivierung ist in Ordnung, wenn das Feature nicht benötigt wird. |
 
@@ -111,7 +109,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Leitet AllJoyn-Mitteilungen für die lokalen AllJoyn-Clients um. Wenn dieser Dienst angehalten wird, können die AllJoyn-Clients, die nicht über eigene gebündelte Router verfügen, nicht ausgeführt werden. |
 |   **Dienstname**    |   AJRouter    |
 |   **Installation**    |   Nur mit Desktopdarstellung    |
-|   **Starttyp**   |   Manual  |
+|   **Starttyp**   |   Manuell  |
 |   **Empfehlung**  | Kein Hinweis       |
 |   **Kommentare**    |       |
 | | |
@@ -125,7 +123,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 **Dienstbeschreibung** |   Bereitet Apps für die Nutzung vor, wenn sich ein Benutzer zum ersten Mal am PC anmeldet und neue Apps hinzugefügt werden.
 **Dienstname**    |   AppReadiness
 **Installation**    |   Nur mit Desktopdarstellung
-**Starttyp**   |   Manual
+**Starttyp**   |   Manuell
 **Empfehlung**  |   Nicht deaktivieren
 **Kommentare**    |   
 | | |
@@ -139,7 +137,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 **Dienstbeschreibung** |   Ermittelt und überprüft die Identität einer Anwendung. Wenn dieser Dienst deaktiviert wird, kann AppLocker nicht erzwungen werden.
 **Dienstname**    |   AppIDSvc
 **Installation**    |   Immer installiert
-**Starttyp**   |   Manual
+**Starttyp**   |   Manuell
 **Empfehlung**  |Kein Hinweis    
 **Kommentare**    |   
 |||     
@@ -153,7 +151,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht das Ausführen von interaktiven Anwendungen mit zusätzlichen Administratorrechten.  Wenn dieser Dienst beendet wird, können Benutzer keine Anwendungen mit den zusätzlichen Administratorrechten mehr starten, die sie für bestimmte Benutzeraufgaben unter Umständen benötigen.
 |   **Dienstname**    |   Appinfo
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   Unterstützt die Rechteerweiterung für die Benutzerkontensteuerung auf demselben Desktop
 |||     
@@ -167,7 +165,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt Unterstützung für Drittanbieterprotokoll-Plug-Ins für die gemeinsame Nutzung der Internetverbindung bereit.
 |   **Dienstname**    |   ALG
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |Kein Hinweis    
 |   **Kommentare**    |   
 |||     
@@ -181,7 +179,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Verarbeitet Installations-, Entfernungs und Enumerationsanforderungen für Software, die über die Gruppenrichtlinie bereitgestellt wird. Wenn der Dienst deaktiviert wird, können Benutzer keine Software mehr installieren, entfernen oder enumerieren, die per Gruppenrichtlinie bereitgestellt wird. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
 |   **Dienstname**    |   AppMgmt
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -195,7 +193,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt Infrastrukturunterstützung für die Bereitstellung von Store-Anwendungen bereit. Dieser Dienst wird bedarfsgesteuert gestartet. Wenn er deaktiviert wird, werden Store-Anwendungen nicht für das System bereitgestellt und funktionieren ggf. nicht richtig.
 |   **Dienstname**    |   AppXSvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -223,7 +221,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Überträgt Dateien im Hintergrund, indem ungenutzte Netzwerkbandbreite verwendet wird. Wenn der Dienst deaktiviert wird, können alle Anwendungen, die von BITS abhängig sind, z. B. Windows Update oder MSN Explorer, Programme und andere Informationen nicht automatisch herunterladen.
 |   **Dienstname**    |   BITS
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -266,7 +264,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Der Bluetooth-Dienst unterstützt die Ermittlung und Zuordnung von externen Bluetooth-Geräten.  Das Beenden oder Deaktivieren dieses Diensts kann dazu führen, dass bereits installierte Bluetooth-Geräte nicht mehr richtig funktionieren und verhindert wird, dass neue Geräte ermittelt oder zugeordnet werden können.
 |   **Dienstname**    |   bthserv
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   Die Deaktivierung ist in Ordnung, wenn der Dienst nicht verwendet wird. Ein weiterer Mechanismus für die Deaktivierung: https://technet.microsoft.com/library/dd252791.aspx
 |||         
@@ -296,7 +294,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Kopiert Benutzer- und Stammzertifikate von Smartcards in den Zertifikatspeicher des aktuellen Benutzers, erkennt das Einlegen einer Smartcard in einen Smartcardleser und installiert bei Bedarf den zugehörigen Plug & Play-Minitreiber.
 |   **Dienstname**    |   CertPropSvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -310,7 +308,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt Infrastrukturunterstützung für den Microsoft Store bereit. Dieser Dienst wird bedarfsgesteuert gestartet, und wenn er deaktiviert wird, verhalten sich über den Microsoft Store gekaufte Anwendungen nicht korrekt.
 |   **Dienstname**    |   ClipSVC
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -324,7 +322,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Der CNG-Schlüsselisolationsdienst wird im LSA-Prozess gehostet. Der Dienst stellt eine Schlüsselprozessisolation für private Schlüssel und zugehörige Kryptografievorgänge gemäß den Anforderungen der allgemeinen Kriterien bereit. Der Dienst speichert und verwendet langlebige Schlüssel in einem sicheren Prozess in Übereinstimmung mit den Anforderungen der allgemeinen Kriterien.
 |   **Dienstname**    |   KeyIso
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -352,7 +350,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Verwaltet die Komponentenkonfiguration und -überwachung von COM+-basierten Komponenten. Nach dem Beenden des Diensts sind die meisten COM+-basierten Komponenten nicht ordnungsgemäß funktionsfähig. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
 |   **Dienstname**    |   COMSysApp
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -408,7 +406,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Indiziert Kontaktdaten für die schnelle Kontaktsuche. Wenn du diesen Dienst beendest oder deaktivierst, können Kontakte in den Suchergebnissen fehlen.
 |   **Dienstname**    |   PimIndexMaintenanceSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   Benutzerdienstvorlage
 |||         
@@ -436,7 +434,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht die sichere Speicherung und den Abruf von Anmeldeinformationen für Benutzer, Anwendungen und Sicherheitspakete.
 |   **Dienstname**    |   VaultSvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -464,7 +462,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Dient als Datenbroker zwischen Anwendungen.
 |   **Dienstname**    |   DsSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -478,7 +476,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Der Dienst für die Erfassung und Veröffentlichung von Daten (Data Collection and Publishing, DCP) unterstützt Erstanbieter-Apps zum Hochladen von Daten in die Cloud.
 |   **Dienstname**    |   DcpSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -506,7 +504,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht die Kopplung zwischen dem System und verkabelten Geräten oder Drahtlosgeräten.
 |   **Dienstname**    |   DeviceAssociationService
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -520,7 +518,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht einem Computer die Erkennung und Anpassung an Hardwareänderungen mit nur wenigen oder ganz ohne Benutzereingaben. Das Beenden oder Deaktivieren dieses Diensts führt zu Instabilität des Systems.
 |   **Dienstname**    |   DeviceInstall
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis
 |   **Kommentare**    |
 |||
@@ -534,7 +532,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Führt Aktivitäten der Geräteregistrierung für die Geräteverwaltung durch.
 |   **Dienstname**    |   DmEnrollmentSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -548,7 +546,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht die Erkennung, den Download und die Installation von gerätebezogener Software. Wenn dieser Dienst deaktiviert wird, werden die Geräte ggf. mit veralteter Software konfiguriert und funktionieren unter Umständen nicht richtig.
 |   **Dienstname**    |   DsmSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -562,7 +560,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht Apps die Ermittlung von Geräten per Hintergrundaufgabe.
 |   **Dienstname**    |   DevQueryBroker
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -604,7 +602,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Der Diagnosediensthost wird vom Diagnoserichtliniendienst als Host für Diagnosen verwendet, die im Kontext eines lokalen Diensts ausgeführt werden müssen.  Wird dieser Dienst beendet, funktionieren alle davon abhängigen Diagnosen nicht mehr ordnungsgemäß.
 |   **Dienstname**    |   WdiServiceHost
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -618,7 +616,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Der Diagnosesystemhost wird vom Diagnoserichtliniendienst verwendet, um Diagnosen zu hosten, die für einen lokalen Dienst durchgeführt werden müssen.  Wird dieser Dienst beendet, funktionieren alle davon abhängigen Diagnosen nicht mehr ordnungsgemäß.
 |   **Dienstname**    |   WdiSystemHost
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -660,7 +658,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   WAP Push-Nachrichtenroutingdienst
 |   **Dienstname**    |   dmwappushservice
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   Dieser Dienst wird auf Clientgeräten für Intune, MDM und ähnlichen Verwaltungstechnologien sowie für einheitliche Schreibfilter benötigt. Für Server ist der Dienst nicht erforderlich.
 |||         
@@ -702,7 +700,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Der Dienst „Eingebetteter Modus“ ermöglicht Szenarien, die sich auf Hintergrundanwendungen beziehen.  Wenn dieser Dienst deaktiviert wird, wird die Aktivierung von Hintergrundanwendungen verhindert.
 |   **Dienstname**    |   embeddedmode
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -716,7 +714,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** | Eine wichtige Dateiverschlüsselungstechnologie zum Speichern verschlüsselter Dateien auf Volumes mit dem Dateisystem NTFS. Wenn dieser Dienst beendet oder deaktiviert wird, können Anwendungen nicht mehr auf verschlüsselte Dateien zugreifen.            
 |   **Dienstname**  |  EFS            
 |   **Installation**  |  Immer installiert           
-|   **Starttyp**   |  Manual           
+|   **Starttyp**   |  Manuell           
 |   **Empfehlung**  | Kein Hinweis           
 |   **Kommentare**   |
 |||                 
@@ -730,7 +728,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht die Verwaltung von Unternehmensanwendungen.
 |   **Dienstname**    |   EntAppSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -744,7 +742,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Der EAP-Dienst (Extensible Authentication Protocol) stellt in folgenden Szenarios eine Netzwerkauthentifizierung bereit: 802.1X (verkabelt und drahtlos), VPN und NAP (Network Access Protection).  EAP stellt darüber hinaus APIs (Application Programming Interface, Anwendungsprogrammierschnittstelle) bereit, die von Netzwerkzugriffclients, einschließlich Drahtlosclients und VPN-Clients, beim Authentifizierungsvorgang verwendet werden.  Wenn du diesen Dienst deaktivierst, kann dieser Computer nicht mehr auf Netzwerke zugreifen, die eine EAP-Authentifizierung verwenden.
 |   **Dienstname**    |   EapHost
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -758,7 +756,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Der FDPHOST-Dienst dient zum Hosten der Netzwerkerkennungsanbieter für die Funktionssuche (Function Discovery, FD). Von diesen FD-Anbietern werden Netzwerkerkennungsdienste für das Simple Services Discovery-Protokoll (SSDP) und das Web Services – Discovery (WS-D)-Protokoll bereitgestellt. Durch das Beenden oder Deaktivieren des FDPHOST-Diensts wird bei Verwendung von FD die Netzwerkerkennung für diese Protokolle deaktiviert. Ist dieser Dienst nicht verfügbar, können mit Netzwerkdiensten, von denen FD und diese Erkennungsprotokolle verwendet werden, keine Netzwerkgeräte oder -ressourcen gesucht werden.
 |   **Dienstname**    |   fdPHost
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -772,7 +770,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Veröffentlicht diesen Computer und die daran angeschlossenen Ressourcen, damit sie über das Netzwerk gesucht werden können.  Wenn dieser Dienst beendet wird, werden die Netzwerkressourcen nicht mehr veröffentlicht, damit sie von anderen Computern im Netzwerk gesucht werden können.
 |   **Dienstname**    |   FDResPub
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -786,7 +784,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Dieser Dienst überwacht den aktuellen Standort des Systems und verwaltet Geofences (geografische Standorte mit zugeordneten Ereignissen).  Wenn du diesen Dienst deaktivierst, sind Anwendungen nicht in der Lage, Benachrichtigungen zu Geolocations oder Geofences zu nutzen oder zu empfangen.
 |   **Dienstname**    |   lfsvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   Wenn der Dienst deaktiviert wird, funktionieren Apps nicht mehr, die den Dienst benötigen. Die Aktivierung ist kein Problem, wenn der Dienst von Apps nicht benötigt wird.
 |||         
@@ -815,7 +813,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Aktiviert und unterstützt die Verwendung von Abkürzungstasten auf Tastaturen, Fernbedienungen und anderen Multimediageräten. Wir empfehlen dir, diesen Dienst auszuführen.
 |   **Dienstname**    |   hidserv
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -829,7 +827,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt eine Schnittstelle für den Hyper-V-Hypervisor bereit, um für das Hostbetriebssystem Leistungsindikatoren pro Partition verfügbar zu machen.
 |   **Dienstname**    |   HvHost
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   Leistungsoptimierungen für Gast-VMs. Wird heutzutage meist nicht mehr verwendet (mit Ausnahme von explizit aufgefüllten VMs), aber der Dienst wird für Application Guard eingesetzt.
 |||         
@@ -843,7 +841,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt einen Mechanismus zum Austauschen von Daten zwischen dem virtuellen Computer und dem Betriebssystem bereit, das auf dem physischen Computer ausgeführt wird.
 |   **Dienstname**    |   vmickvpexchange
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   Siehe „HvHost“.
 |||         
@@ -857,7 +855,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt eine Schnittstelle für den Hyper-V-Host für die Interaktion mit bestimmten Diensten bereit, die auf dem virtuellen Computer ausgeführt werden.
 |   **Dienstname**    |   vmicguestinterface
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   Siehe „HvHost“.
 |||         
@@ -871,7 +869,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt einen Mechanismus zum Herunterfahren des Betriebssystems dieses virtuellen Computers über die Verwaltungsschnittstellen auf dem physischen Computer bereit.
 |   **Dienstname**    |   vmicshutdown
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   Siehe „HvHost“.
 |||         
@@ -884,7 +882,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Überwacht den Zustand dieses virtuellen Computers, indem in regelmäßigen Abständen ein Heartbeat gemeldet wird. Mit diesem Dienst kannst du ausgeführte virtuelle Computer identifizieren, die nicht mehr reagieren.
 |   **Dienstname**    |   vmicheartbeat
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   Siehe „HvHost“.
 |||
@@ -898,7 +896,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt einen Mechanismus bereit, um einen virtuellen Computer mit PowerShell über eine VM-Sitzung ohne virtuelles Netzwerk zu verwalten.
 |   **Dienstname**    |   vmicvmsession
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   Siehe „HvHost“.
 |||         
@@ -912,7 +910,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt eine Plattform für die Kommunikation zwischen dem virtuellen Computer und dem Betriebssystem bereit, das auf dem physischen Computer ausgeführt wird.
 |   **Dienstname**    |   vmicrdv
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   Siehe „HvHost“.
 |||         
@@ -926,7 +924,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Synchronisiert die Systemzeit dieses virtuellen Computers mit der Systemzeit des physischen Computers.
 |   **Dienstname**    |   vmictimesync
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   Siehe „HvHost“.
 |||         
@@ -940,7 +938,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Koordiniert die Kommunikation, die erforderlich ist, damit der Volumeschattenkopie-Dienst zum Sichern von Anwendungen und Daten auf diesem virtuellen Computer basierend auf dem Betriebssystem des physischen Computers verwendet werden kann.
 |   **Dienstname**    |   vmicvss
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   Siehe „HvHost“.
 |||         
@@ -954,7 +952,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Die IKEEXT-Diensthosts der Schlüsselerstellungsmodule für IKE (Internet Key Exchange) und Auth-IP (Authenticated Internet Protocol). Diese Schlüsselerstellungsmodule werden für die Authentifizierung und den Schlüsselaustausch in Internet Protocol Security (IPsec) verwendet. Wenn du den IKEEXT-Dienst anhältst oder deaktivierst, wird der IKE/AuthIP-Schlüsselaustausch mit Peercomputern deaktiviert. IPsec ist im Allgemeinen für die Verwendung von IKE/AuthIP konfiguriert, und das Anhalten oder Deaktivieren des IKEEXT-Diensts kann zu einem IPsec-Fehler führen und die Sicherheit des Systems gefährden. Wir empfehlen dir dringend, den Dienst IKEEXT auszuführen.
 |   **Dienstname**    |   IKEEXT
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |    
 |||         
@@ -968,7 +966,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Aktiviert die Benutzerbenachrichtigung von Benutzereingaben für interaktive Dienste. Dies ermöglicht den Zugriff auf von interaktiven Diensten erstellte Dialogfelder, wenn diese angezeigt werden. Wenn dieser Dienst beendet wird, funktionieren Benachrichtigungen über neue interaktive Dienstdialogfelder nicht mehr, und der Zugriff auf Dialogfelder von interaktiven Diensten ist eventuell nicht möglich. Wenn dieser Dienst deaktiviert wird, funktionieren weder die Benachrichtigung über noch der Zugriff auf neue interaktive Dienstdialogfelder.
 |   **Dienstname**    |   UI0Detect
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -982,7 +980,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt die Dienste für die Netzwerkadressenübersetzung, Adressierung, Namensauflösung bzw. Verhinderung von Eindringversuchen für ein Heimnetzwerk oder ein Netzwerk eines kleinen Büros bereit.
 |   **Dienstname**    |   SharedAccess
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   Ist für Clients erforderlich, die als WLAN-Hotspots genutzt werden, und außerdem an beiden Enden einer Miracast-Projektion. Die gemeinsame Nutzung der Internetverbindung kann mit der GPO-Einstellung „Verwendung der gemeinsam genutzten Internetverbindung im eigenen DNS-Domänennetzwerk nicht zulassen“ blockiert werden.
 |||         
@@ -1011,7 +1009,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   IPsec (Internetprotokollsicherheit) unterstützt die Peerauthentifizierung auf Netzwerkebene, die Datenursprungsauthentifizierung, die Datenintegrität, die Datenvertraulichkeit (Verschlüsselung) und den Replay-Schutz.  Dieser Dienst erzwingt IPsec-Richtlinien, die mit dem Snap-In „IP-Sicherheitsrichtlinien“ oder dem Befehlszeilentool „netsh ipsec“ erstellt wurden.  Wenn du diesen Dienst beendest, treten unter Umständen Probleme mit der Netzwerkkonnektivität auf, falls es für deine Richtlinie erforderlich ist, dass für Verbindungen IPsec genutzt wird.  Darüber hinaus ist die Remoteverwaltung der Windows-Firewall nicht verfügbar, wenn dieser Dienst beendet wird.
 |   **Dienstname**    |   PolicyAgent
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1025,7 +1023,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Der KDC-Proxyserverdienst wird auf Edgeservern ausgeführt, um als Proxy für Kerberos-Protokollnachrichten für Domänencontroller im Unternehmensnetzwerk zu fungieren.
 |   **Dienstname**    |   KPSSVC
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis    
 |   **Kommentare**    |   
 |||         
@@ -1039,7 +1037,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Koordiniert Transaktionen zwischen dem Distributed Transaction Coordinator (MSDTC) und dem Kerneltransaktions-Manager (KTM). Wir empfehlen dir, diesen Dienst zu beenden, falls er nicht benötigt wird. Falls der Dienst benötigt wird, wird er sowohl vom MSDTC als auch vom KTM automatisch gestartet. Wenn dieser Dienst deaktiviert ist, tritt für alle MSDTC-Transaktionen, die mit einem Kernelressourcen-Manager interagieren, ein Fehler auf. Alle Dienste, die explizit davon abhängen, können nicht gestartet werden.
 |   **Dienstname**    |   KtmRm
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1053,7 +1051,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Erstellt eine Netzwerkübersicht mit Computer- und Gerätetopologieinformationen (d. h. Konnektivitätsinformationen) sowie Metadaten, die jeden PC und jedes Gerät beschreiben.  Wenn dieser Dienst deaktiviert wird, funktioniert die Netzwerkübersicht nicht richtig.
 |   **Dienstname**    |   lltdsvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   Kann deaktiviert werden, wenn keine Abhängigkeiten von der Netzwerkübersicht bestehen.
 |||         
@@ -1094,7 +1092,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht die Benutzeranmeldung über die Identitätsdienste des Microsoft-Kontos. Wenn dieser Dienst beendet wird, können sich Benutzer nicht mehr mit ihrem Microsoft-Konto am Computer anmelden.
 |   **Dienstname**    |   wlidsvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   Microsoft-Konten sind unter Windows Server nicht verfügbar.
 |||
@@ -1122,7 +1120,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Dient zum Verwalten von iSCSI-Sitzungen (Internet SCSI) von diesem Computer zu iSCSI-Remotezielgeräten. Wenn dieser Dienst beendet wird, kann sich dieser Computer nicht an iSCSI-Zielen anmelden und nicht darauf zugreifen. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
 |   **Dienstname**    |   MSiSCSI
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   Unsere Diagnosedaten deuten darauf hin, dass dieser Dienst auf Clients und auf Servern genutzt wird. Die Deaktivierung hat keinerlei Vorteile.
 |||         
@@ -1136,7 +1134,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht eine Prozessisolation für Kryptografieschlüssel, die zum Authentifizieren der zugeordneten Identitätsanbieter eines Benutzers verwendet werden. Wenn dieser Dienst deaktiviert wird, ist die gesamte Anwendung und Verwaltung dieser Schlüssel nicht verfügbar. Dies gilt auch für die Computeranmeldung und einmaliges Anmelden für Apps und Websites. Dieser Dienst wird automatisch gestartet und beendet. Wir empfehlen dir, diesen Dienst nicht neu zu konfigurieren.
 |   **Dienstname**    |   NgcSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   Wird für PIN/Hello-Anmeldungen benötigt, die auf dem Server nicht unterstützt werden.
 |||         
@@ -1150,7 +1148,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Verwaltet lokale Benutzeridentitätsschlüssel, um Benutzer für Identitätsanbieter und virtuelle TPM-Smartcards zu authentifizieren. Wenn dieser Dienst deaktiviert wird, kann nicht auf lokale Benutzeridentitätsschlüssel und virtuelle TPM-Smartcards zugegriffen werden. Wir empfehlen dir, diesen Dienst nicht neu zu konfigurieren.
 |   **Dienstname**    |   NgcCtnrSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
@@ -1164,7 +1162,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Verwaltet softwarebasierte Volumeschattenkopien des Volumeschattenkopie-Diensts. Softwarebasierte Volumeschattenkopien können nicht verwaltet werden, wenn dieser Dienst beendet wird. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
 |   **Dienstname**    |   swprv
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1178,7 +1176,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Hostdienst für den Microsoft-Verwaltungsanbieter für Speicherplätze. Wird dieser Dienst beendet oder deaktiviert, ist die Verwaltung von Speicherplätzen nicht mehr möglich.
 |   **Dienstname**    |   smphost
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   Für APIs für die Speicherverwaltung tritt ohne diesen Dienst ein Fehler auf. Beispiel: "Get-WmiObject -class MSFT_Disk -Namespace Root\Microsoft\Windows\Storage".
 |||         
@@ -1206,7 +1204,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Dient zum Verwalten eines sicheren Kanals zwischen diesem Computer und dem Domänencontroller für die Authentifizierung von Benutzern und Diensten. Wenn dieser Dienst angehalten wird, kann der Computer Benutzer und Dienste möglicherweise nicht authentifizieren, und der Domänencontroller kann keine DNS-Datensätze registrieren. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
 |   **Dienstname**    |   Netlogon
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1220,7 +1218,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Fungiert als Broker für Verbindungen, über die Microsoft Store-Apps Benachrichtigungen über das Internet empfangen können.
 |   **Dienstname**    |   NcbService
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
@@ -1234,7 +1232,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Verwaltet Objekte im Ordner „Netzwerk- und Wählverbindungen“, in dem LAN- und Remoteverbindungen angezeigt werden.
 |   **Dienstname**    |   Netman
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1248,7 +1246,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt die Benachrichtigung zum DirectAccess-Status für Komponenten der Benutzeroberfläche bereit.
 |   **Dienstname**    |   NcaSvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1262,7 +1260,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Identifiziert die Netzwerke, mit denen der Computer eine Verbindung hergestellt hat, sammelt und speichert Eigenschaften für diese Netzwerke und benachrichtigt Anwendungen, wenn sich diese Eigenschaften ändern.
 |   **Dienstname**    |   netprofm
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1290,7 +1288,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Der Netzwerkeinrichtungsdienst verwaltet die Installation von Netzwerktreibern und ermöglicht die Konfiguration von Netzwerkeinstellungen auf unterer Ebene.  Wenn der Dienst beendet wird, werden aktuell ausgeführte Treiberinstallationen unter Umständen abgebrochen.
 |   **Dienstname**    |   NetSetupSvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1332,7 +1330,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Unterstützt den Computer bei einer effizienteren Ausführung durch das Optimieren von Dateien auf Speicherlaufwerken.
 |   **Dienstname**    |   defragsvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1346,7 +1344,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht Remotebenutzern und 64-Bit-Prozessen die Abfrage von Leistungsindikatoren, die von 32-Bit-DLLs bereitgestellt werden. Wenn dieser Dienst beendet wird, können nur lokale Benutzer und 32-Bit-Prozesse die von den 32-Bit-DLLs bereitgestellten Leistungsindikatoren abfragen.
 |   **Dienstname**    |   PerfHost
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis    
 |   **Kommentare**    |   
 |||         
@@ -1360,7 +1358,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   „Leistungsprotokolle und -warnungen“ sammelt Leistungsdaten von lokalen oder Remotecomputern basierend auf vorkonfigurierten Zeitplanparametern und schreibt die Daten dann in ein Protokoll oder löst eine Warnung aus. Wenn dieser Dienst beendet wird, werden keine Leistungsinformationen erfasst. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
 |   **Dienstname**    |   pla
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1374,7 +1372,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Verwaltet den Telefoniestatus des Geräts.
 |   **Dienstname**    |   PhoneSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   Wird von modernen VoIP-Apps verwendet.
 |||         
@@ -1388,7 +1386,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht einem Computer die Erkennung und Anpassung an Hardwareänderungen mit nur wenigen oder ganz ohne Benutzereingaben. Das Beenden oder Deaktivieren dieses Diensts führt zu Instabilität des Systems.
 |   **Dienstname**    |   PlugPlay
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1402,19 +1400,19 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Erzwingt Gruppenrichtlinien für Wechsel-Massenspeichergeräte. Ermöglicht Anwendungen wie Windows Media Player und dem Bildimport-Assistenten, Inhalte unter Verwendung von Wechsel-Massenspeichergeräten zu übertragen und zu synchronisieren.
 |   **Dienstname**    |   WPDBusEnum
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
 
 
 
-## <a name="power"></a>Stromversorgung            
+## <a name="power"></a>Leistung            
 
 | | |           
 |---|---|       
 |   **Dienstbeschreibung** |   Verwaltet die Energierichtlinie und die Zustellung der Energierichtlinienbenachrichtigung.
-|   **Dienstname**    |   Stromversorgung
+|   **Dienstname**    |   Leistung
 |   **Installation**    |   Immer installiert
 |   **Starttyp**   |   Automatisch
 |   **Empfehlung**  | Kein Hinweis   
@@ -1423,7 +1421,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 
 
 
-## <a name="print-spooler"></a>Druckspooler:            
+## <a name="print-spooler"></a>Druckspooler            
 
 | | |           
 |---|---|   
@@ -1444,7 +1442,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Mit diesem Dienst werden benutzerdefinierte Druckerdialogfelder geöffnet und Benachrichtigungen von einem Remotedruckerserver oder Drucker verarbeitet. Wenn du diesen Dienst deaktivierst, werden keine Druckererweiterungen oder Benachrichtigungen angezeigt.
 |   **Dienstname**    |   PrintNotify
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Kann deaktiviert werden, wenn es sich nicht um einen Druckerserver handelt.
 |   **Kommentare**    |   
 |||         
@@ -1458,7 +1456,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Dieser Dienst bietet Unterstützung für das Anzeigen, Senden und Löschen von Problemberichten auf Systemebene für das Applet „Lösungen für Probleme“ in der Systemsteuerung.
 |   **Dienstname**    |   wercplsupport
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1479,14 +1477,14 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 
 
 
-##  <a name="quality-windows-audio-video-experience"></a>Verbessertes Audio-/Videostreaming unter Windows      
+##  <a name="quality-windows-audio-video-experience"></a>Verbessertes Windows-Audio-/Video-Streaming      
 
 | | |           
 |---|---|   
 |   **Dienstbeschreibung** |   Der Windows-Dienst für verbessertes Audio/Video-Streaming (qWave) ist eine Netzwerkplattform für Audio/Video-Streaminganwendungen (AV) in privaten IP-Netzwerken. qWave verbessert die AV-Streamingleistung und -zuverlässigkeit, indem Netzwerk-QoS (Quality-of-Service) für AV-Anwendungen sichergestellt wird. Es werden Mechanismen für Zugangssteuerung, Laufzeitüberwachung und -erzwingung, Anwendungsfeedback sowie Verkehrspriorisierung bereitgestellt.
 |   **Dienstname**    |   QWAVE
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   Clientseitiger QoS-Dienst
 |||         
@@ -1500,7 +1498,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Dienst für Funkverwaltung und Flugzeugmodus
 |   **Dienstname**    |   RmSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
@@ -1514,7 +1512,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Erstellt eine Verbindung mit einem Remotenetzwerk, wenn ein Programm auf einen Remote-DNS- oder -NetBIOS-Namen (bzw. eine Adresse) verweist.
 |   **Dienstname**    |   RasAuto
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1528,7 +1526,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Verwaltet Einwähl- und VPN-Verbindungen zwischen diesem Computer und dem Internet oder anderen Remotenetzwerken. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
 |   **Dienstname**    |   RasMan
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1542,7 +1540,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Der Remotedesktop-Konfigurationsdienst (Remote Desktop Configuration Service, RDCS) ist für alle Konfigurations- und Sitzungsverwaltungsaktivitäten im Zusammenhang mit den Remotedesktopdiensten und Remotedesktop zuständig, die den SYSTEM-Kontext erfordern. Dazu gehören die sitzungsspezifischen temporären Ordner, Remotedesktopthemen und Remotedesktopzertifikate.
 |   **Dienstname**    |   SessionEnv
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   
 |||         
@@ -1556,7 +1554,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht Benutzern das Herstellen einer interaktiven Verbindung mit einem Remotecomputer. Remotedesktop und Remotedesktop-Hostserver können nur zusammen mit diesem Dienst verwendet werden.  Wenn du die Remoteverwendung dieses Computers verhindern möchtest, muss du die Kontrollkästchen auf der Registerkarte „Remote“ in den Systemsteuerungsoptionen deaktivieren.
 |   **Dienstname**    |   TermService
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   
 |||         
@@ -1570,7 +1568,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht die Umleitung von Druckern, Laufwerken und Anschlüssen für RDP-Verbindungen.
 |   **Dienstname**    |   UmRdpService
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   Unterstützt Umleitungen auf der Serverseite der Verbindung.
 |||         
@@ -1598,7 +1596,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Unter Windows 2003 und früheren Windows-Versionen wird mit dem RPC-Locatordienst (Remote Procedure Call) die RPC-Namensdienstdatenbank verwaltet. Unter Windows Vista und höheren Windows-Versionen stellt dieser Dienst keine Funktionalität bereit und ist nur für Zwecke der Anwendungskompatibilität vorhanden.   |
 |   **Dienstname**    |   RpcLocator  |
 |   **Installation**    |   Nur mit Desktopdarstellung    |
-|   **Starttyp**   |   Manual  |
+|   **Starttyp**   |   Manuell  |
 |   **Empfehlung**  | Kein Hinweis   |
 |   **Kommentare**    |       |
 |||             
@@ -1626,7 +1624,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt einen Netzwerkdienst bereit, der Anforderungen zum Simulieren der Anwendung von Gruppenrichtlinieneinstellungen auf einen Zielbenutzer oder -computer in verschiedenen Situationen verarbeitet und einen sich daraus ergebenden Satz von Richtlinieneinstellungen berechnet.
 |   **Dienstname**    |   RSoPProv
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |Kein Hinweis    
 |   **Kommentare**    |   
 |||         
@@ -1668,7 +1666,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Aktiviert das Starten von Prozessen mit verschiedenen Anmeldeinformationen. Wenn dieser Dienst beendet wird, ist dieser Typ von Anmeldezugriff nicht mehr verfügbar. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
 |   **Dienstname**    |   seclogon
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1682,7 +1680,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Unterstützt SSTP (Secure Socket Tunneling-Protokoll), um über VPN eine Verbindung mit Remotecomputern herzustellen. Wenn dieser Dienst deaktiviert ist, können Benutzer SSTP nicht für den Zugriff auf Remoteserver verwenden.    |
 |   **Dienstname**    |   SstpSvc |
 |   **Installation**    |   Immer installiert    |
-|   **Starttyp**   |   Manual  |
+|   **Starttyp**   |   Manuell  |
 |   **Empfehlung**  |   Nicht deaktivieren  |
 |   **Kommentare**    |   Wenn der Dienst deaktiviert wird, treten RRAS-Fehler auf.   |
 |||             
@@ -1710,7 +1708,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Liefert Daten von verschiedenen Sensoren.
 |   **Dienstname**    |   SensorDataService
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
@@ -1724,7 +1722,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Überwacht verschiedene Sensoren, um Daten verfügbar zu machen und eine Anpassung an den System- und Benutzerstatus vorzunehmen.  Wird dieser Dienst beendet oder deaktiviert, wird die Anzeigehelligkeit nicht an die Lichtbedingungen der Umgebung angepasst. Das Beenden des Diensts kann auch andere Systemfeatures betreffen.
 |   **Dienstname**    |   SensrSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
@@ -1736,7 +1734,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ein Sensordienst, der die Funktionen verschiedener Sensoren verwaltet. Er verwaltet SDO (Simple Device Orientation) und den Verlauf für Sensoren und lädt den SDO-Sensor, der Änderungen der Geräteausrichtung meldet.  Wenn der Dienst beendet oder deaktiviert wird, wird der SDO-Sensor nicht geladen, und es findet keine automatische Drehung statt. Die Sammlung von Verlaufsdaten von den Sensoren wird ebenfalls beendet.
 |   **Dienstname**    |   SensorService
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |
 |||
@@ -1790,7 +1788,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Erstellt Softwaregeräteknoten für alle Smartcardleser, die einer bestimmten Sitzung zur Verfügung stehen. Wird dieser Dienst deaktiviert, können von WinRT-APIs keine Smartcardleser aufgezählt werden.   |
 |   **Dienstname**    |   ScDeviceEnum    |
 |   **Installation**    |   Immer installiert    |
-|   **Starttyp**   |   Manual  |
+|   **Starttyp**   |   Manuell  |
 |   **Empfehlung**  |   Deaktivierung OK   |
 |   **Kommentare**    |   Wird fast ausschließlich für WinRT-Apps benötigt.    |
 |||             
@@ -1804,7 +1802,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Lässt eine Konfiguration des Systems zu, bei der der Benutzerdesktop beim Entfernen der Smartcard gesperrt wird.
 |   **Dienstname**    |   SCPolicySvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1818,7 +1816,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Empfängt Trap-Nachrichten, die von lokalen oder Remote-SNMP-Agents generiert wurden, und leitet die Nachrichten an SNMP-Verwaltungsprogramme weiter, die auf diesem Computer ausgeführt werden. SNMP-basierte Programme auf diesem Computer empfangen keine SNMP-Trap-Nachrichten, falls dieser Dienst beendet wird. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
 |   **Dienstname**    |   SNMPTRAP
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1846,7 +1844,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht Administratoren über die Notverwaltungsdienste (Emergency Management Services, EMS) den Remotezugriff auf eine Eingabeaufforderung.
 |   **Dienstname**    |   sacsvr
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1860,7 +1858,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Überprüft mögliche Beschädigungen des Dateisystems.
 |   **Dienstname**    |   svsvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1874,7 +1872,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Sucht nach Netzwerkgeräten und -diensten, die das SSDP-Suchprotokoll verwenden, z. B. UPnP-Geräte. Kündigt zudem SSDP-Geräte und -dienste an, die auf dem lokalen Computer ausgeführt werden. Wenn dieser Dienst beendet wird, werden SSDP-basierte Geräte nicht entdeckt. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
 |   **Dienstname**    |   SSDPSRV
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
@@ -1888,7 +1886,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Bietet die erforderliche Infrastrukturunterstützung für das Anwendungsmodell.
 |   **Dienstname**    |   StateRepository
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1902,7 +1900,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Startet Anwendungen im Zusammenhang mit Ereignissen zum Abrufen von Standbildern.
 |   **Dienstname**    |   WiaRpc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
@@ -1916,7 +1914,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt Unterstützungsdienste für Speichereinstellungen und externe Speichererweiterung bereit.
 |   **Dienstname**    |   StorSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1930,7 +1928,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Optimiert die Verteilung der Daten auf den Speicherstufen für alle mehrstufigen Speicherplätze im System.
 |   **Dienstname**    |   TieringEngineService
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -1944,7 +1942,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Verwaltet und verbessert die Systemleistung im Zeitablauf.
 |   **Dienstname**    |   SysMain
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -2014,7 +2012,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Bietet Unterstützung für den NetBIOS-über-TCP/IP-Dienst (NetBT) und die NetBIOS-Namensauflösung für Clients im Netzwerk, sodass Benutzer Daten gemeinsam nutzen, drucken und sich am Netzwerk anmelden können. Diese Funktionen sind nicht mehr verfügbar, falls dieser Dienst beendet wird. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
 |   **Dienstname**    |   lmhosts
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -2028,7 +2026,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Bietet Telefonie-API-Unterstützung (TAPI) für Programme, die lokale und über das LAN auf Servern (die diesen Dienst ebenfalls ausführen) angebundene Telefoniegeräte steuern.
 |   **Dienstname**    |   TapiSrv
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   Wenn der Dienst deaktiviert wird, treten RRAS-Fehler auf.
 |||         
@@ -2070,7 +2068,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Koordiniert die Ausführung der Hintergrundvorgänge für WinRT-Anwendungen. Wird dieser Dienst beendet oder deaktiviert, werden die Hintergrundvorgänge unter Umständen nicht ausgelöst.
 |   **Dienstname**    |   TimeBrokerSvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   In der Beschreibung wird nur die Nutzung für WinRT-Apps erwähnt, aber der Dienst wird auch für die Aufgabenplanung, den Brokerinfrastrukturdienst und andere interne Komponenten benötigt.
 |||         
@@ -2084,7 +2082,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Aktiviert die Stift- und Freihandfunktionalität der Bildschirmtastatur und des Schreibbereichs.
 |   **Dienstname**    |   TabletInputService
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
@@ -2098,7 +2096,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Verwaltet Windows-Updates. Wenn der Dienst beendet wird, können auf deinen Geräten keine aktuellen Updates heruntergeladen und installiert werden.
 |   **Dienstname**    |   UsoSvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   In v1607 hat die Dienstbeschreibung gefehlt. Dieser Dienst wird für Windows Update (inkl. WSUS) benötigt.
 |||         
@@ -2112,7 +2110,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht es, dass UPnP-Geräte auf diesem Computer gehostet werden können. Wenn dieser Dienst beendet wird, sind alle gehosteten UPnP-Geräte nicht mehr betriebsbereit, und es können keine weiteren gehosteten Geräte hinzugefügt werden. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
 |   **Dienstname**    |   upnphost
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
@@ -2140,7 +2138,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht Apps den Zugriff auf strukturierte Benutzerdaten, z. B. Kontaktinformationen, Kalender, Nachrichten und andere Inhalte. Wenn du diesen Dienst beendest oder deaktivierst, funktionieren Apps, die diese Daten verwenden, möglicherweise nicht ordnungsgemäß.
 |   **Dienstname**    |   UserDataSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   Benutzerdienstvorlage
 |||         
@@ -2154,7 +2152,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Verarbeitet die Speicherung strukturierter Benutzerdaten, z. B. Kontaktinformationen, Kalender, Nachrichten und andere Inhalte. Wenn du diesen Dienst beendest oder deaktivierst, funktionieren Apps, die diese Daten verwenden, möglicherweise nicht ordnungsgemäß.
 |   **Dienstname**    |   UnistoreSvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   Benutzerdienstvorlage
 |||         
@@ -2210,7 +2208,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt Verwaltungsdienste für Datenträger, Volumes, Dateisysteme und Speicherarrays bereit.
 |   **Dienstname**    |   vds
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Kein Hinweis
 |   **Kommentare**    |   
 |||         
@@ -2224,7 +2222,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Verwaltet und implementiert Volumeschattenkopien, die zu Sicherungs- und anderen Zwecken verwendet werden. Wenn dieser Dienst beendet wird, sind keine Schattenkopien für Sicherungen verfügbar, und die Sicherung kann eventuell fehlschlagen. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
 |   **Dienstname**    |   VSS
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Kein Hinweis
 |   **Kommentare**    |   
 |||         
@@ -2238,7 +2236,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Von Clients der Funktion „Brieftasche“ verwendete Hostobjekte.
 |   **Dienstname**    |   WalletService
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
@@ -2252,7 +2250,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Verwaltet Audioinhalte für Windows-basierte Programme.  Wenn dieser Dienst beendet wird, funktionieren Audiogeräte und -effekte nicht ordnungsgemäß.  Wenn der Dienst deaktiviert wird, können Dienste, die explizit von diesem Dienst abhängig sind, nicht gestartet werden.
 |   **Dienstname**    |   Audiosrv
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
@@ -2266,7 +2264,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Verwaltet Audiogeräte für den Windows-Audiodienst.  Wenn dieser Dienst beendet wird, funktionieren Audiogeräte und -effekte nicht ordnungsgemäß.  Wenn der Dienst deaktiviert wird, können Dienste, die explizit von diesem Dienst abhängig sind, nicht gestartet werden.
 |   **Dienstname**    |   AudioEndpointBuilder
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
@@ -2280,7 +2278,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Mit dem Windows-Biometriedienst können in Clientanwendungen biometrische Daten erfasst, verglichen, geändert und gespeichert werden, ohne dass ein direkter Zugriff auf biometrische Hardware oder Proben erfolgt. Der Dienst wird in einem privilegierten SVCHOST-Prozess gehostet.
 |   **Dienstname**    |   WbioSrvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -2294,7 +2292,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht mehreren Clients den Zugriff auf Videoframes von Kameras.
 |   **Dienstname**    |   FrameServer
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
@@ -2322,7 +2320,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Schützt gegen Eindringversuche bei bekannten und neu erkannten Sicherheitsrisiken von Netzwerkprotokollen.
 |   **Dienstname**    |   WdNisSvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis    
 |   **Kommentare**    |   
 |||         
@@ -2350,7 +2348,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Erstellt und verwaltet Benutzermodus-Treiberprozesse. Der Dienst kann nicht beendet werden.
 |   **Dienstname**    |   wudfsvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -2364,7 +2362,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Der Hostdienst für Windows Encryption Provider vermittelt Verschlüsselungsfunktionen von Drittanbieter-Verschlüsselungsanbietern an Prozesse, die EAS-Richtlinien bewerten und anwenden müssen. Wenn dieser Dienst beendet wird, sind die EAS-Kompatibilitätsüberprüfungen gefährdet, die von den verbundenen E-Mail-Konten eingerichtet wurden.
 |   **Dienstname**    |   WEPHOSTSVC
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -2378,7 +2376,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht die Berichterstattung von Fehlern bei nicht mehr funktionierenden und reagierenden Programmen und das Angeben von Lösungen. Ermöglicht außerdem das Generieren von Protokollen für Diagnose- und Reparaturdienste. Wenn dieser Dienst beendet wird, funktioniert die Fehlerberichterstattung möglicherweise nicht ordnungsgemäß, und die Ergebnisse von Diagnosediensten und Reparaturen werden möglicherweise nicht angezeigt.
 |   **Dienstname**    |   WerSvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   Erfasst und sendet Daten zu Abstürzen und zum Hängen, die sowohl von MS als auch von Dritten (ISVs/IHVs) genutzt werden. Die Daten werden zum Diagnostizieren von Fehlern verwendet, die zu Abstürzen führen können. Dies können auch Sicherheitsfehler sein. Wird auch für die Fehlerberichterstattung in Unternehmen benötigt.
 |||         
@@ -2392,7 +2390,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Dieser Dienst verwaltet permanente Abonnements für Ereignisse von Remotequellen, die das WS-Verwaltungsprotokoll unterstützen. Hierzu gehören Windows Vista-Ereignisprotokolle sowie Hardware- und IPMI-fähige Ereignisquellen. Der Dienst speichert weitergeleitete Ereignisse in einem lokalen Ereignisprotokoll. Falls dieser Dienst beendet oder deaktiviert wird, können Ereignisabonnements nicht erstellt und weitergeleitete Ereignisse nicht angenommen werden.
 |   **Dienstname**    |   Wecsvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   Erfasst ETW-Ereignisse (z. B. Sicherheitsereignisse) für Verwaltungs- und Diagnosezwecke.  Von diesem Dienst sind viele Features und Drittanbietertools abhängig, z. B. Tools für die Sicherheitsüberwachung.
 |||         
@@ -2448,7 +2446,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt Bilderfassungsdienste für Scanner und Kameras zur Verfügung.
 |   **Dienstname**    |   stisvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
@@ -2462,7 +2460,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   wisvc
 |   **Dienstname**    |   wisvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   Für Server wird das Test-Flighting nicht unterstützt, sodass darauf kein Vorgang durchgeführt wird. Das Feature kann auch per Gruppenrichtlinie deaktiviert werden.
 |||         
@@ -2476,7 +2474,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Fügt Anwendungen, die als Windows Installer-Paket (*.msi, *.msp) angeboten werden, hinzu bzw. ändert oder entfernt sie. Wenn dieser Dienst deaktiviert ist, können alle Dienste, die explizit davon abhängen, nicht gestartet werden.
 |   **Dienstname**    |   msiserver
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -2490,7 +2488,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt Infrastrukturunterstützung für den Microsoft Store bereit.  Der Dienst wird bei Bedarf gestartet, und bei einer Deaktivierung verhalten sich im Windows Store erworbene Inhalte nicht ordnungsgemäß.
 |   **Dienstname**    |   LicenseManager
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -2518,7 +2516,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht die Freigabe einer Datenverbindung für ein anderes Gerät.
 |   **Dienstname**    |   icssvc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   
 |||         
@@ -2532,7 +2530,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Ermöglicht das Installieren, Ändern und Entfernen von Windows-Updates und optionalen Komponenten. Wenn dieser Dienst deaktiviert ist, können beim Installieren oder Deinstallieren von Windows-Updates auf diesem Computer Fehler auftreten.
 |   **Dienstname**    |   TrustedInstaller
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -2560,7 +2558,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Dieser Dienst hostet die Windows-Benachrichtigungsplattform, die lokale Benachrichtigungen und Pushbenachrichtigungen unterstützt. Unterstützt werden Kachel-, Popup- und unformatierte Benachrichtigungen.
 |   **Dienstname**    |   WpnUserService
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung OK
 |   **Kommentare**    |   Benutzerdienstvorlage
 |||         
@@ -2615,7 +2613,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Erkennung, Download und Installation von Updates für Windows und andere Programme. Wenn der Dienst deaktiviert ist, können „Windows Update“ bzw. das Feature „Automatische Updates“ nicht verwendet werden. Außerdem können Programme dann die Windows Update-Agent-Anwendungsprogrammierschnittstelle (WUA API) nicht verwenden.
 |   **Dienstname**    |   wuauserv
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -2629,7 +2627,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   WinHTTP implementiert den HTTP-Clientstapel und bietet Entwicklern eine Win32-API und COM-Automatisierungskomponente zum Senden von HTTP-Anforderungen und zum Empfangen von Antworten. Außerdem unterstützt WinHTTP die automatische Erkennung von Proxykonfigurationen über die entsprechende Implementierung des WPAD-Protokolls (Web Proxy Auto-Discovery).
 |   **Dienstname**    |   WinHttpAutoProxySvc
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Nicht deaktivieren
 |   **Kommentare**    |   Alle Elemente, die den Netzwerkstapel nutzen, können über eine funktionale Abhängigkeit von diesem Dienst verfügen. Er wird von vielen Organisationen genutzt, um das Routing von HTTP-Proxys für interne Netzwerke zu konfigurieren.  Ohne diesen Dienst tritt für alle HTTP-Internetverbindungen mit internem Ursprung ein Fehler auf.
 |||         
@@ -2643,7 +2641,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Mit dem Dienst für die automatische Konfiguration von Kabelnetzwerken (DOT3SVC) wird eine IEEE 802.1X-Authentifizierung an Ethernet-Schnittstellen ausgeführt. Wenn bei der aktuellen verkabelten Netzwerkbereitstellung die 802.1X-Authentifizierung erzwungen wird, muss der DOT3SVC-Dienst so konfiguriert werden, dass eine Konnektivität auf der 2. Schicht hergestellt bzw. Zugriff auf Netzwerkressourcen ermöglicht wird. Der DOT3SVC-Dienst wirkt sich nicht auf Kabelnetzwerke aus, bei denen die 802.1X-Authentifizierung nicht erzwungen wird.
 |   **Dienstname**    |   dot3svc
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis   
 |   **Kommentare**    |   
 |||         
@@ -2657,7 +2655,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Bietet Leistungsbibliotheksinformationen der Windows-Verwaltungsinstrumentationsanbieter für Clients im Netzwerk. Dieser Dienst wird nur ausgeführt, wenn das Leistungsdaten-Hilfsprogramm aktiviert ist.
 |   **Dienstname**    |   wmiApSrv
 |   **Installation**    |   Immer installiert
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  | Kein Hinweis       
 |   **Kommentare**    |   
 |||         
@@ -2685,7 +2683,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Stellt Authentifizierungs- und Autorisierungsservices für Xbox Live bereit. Wenn dieser Dienst beendet wird, funktionieren einige Anwendungen möglicherweise nicht korrekt.
 |   **Dienstname**    |   XblAuthManager
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung empfohlen
 |   **Kommentare**    |   
 |||         
@@ -2699,7 +2697,7 @@ Die folgenden Tabellen enthalten Microsoft-Anleitungen zum Deaktivieren von Syst
 |   **Dienstbeschreibung** |   Dieser Dienst synchronisiert für Xbox Live-Spiele gespeicherte Daten.  Wenn der Dienst beendet wird, werden die gespeicherten Spieldaten für Xbox Live nicht hochgeladen bzw. heruntergeladen.
 |   **Dienstname**    |   XblGameSave
 |   **Installation**    |   Nur mit Desktopdarstellung
-|   **Starttyp**   |   Manual
+|   **Starttyp**   |   Manuell
 |   **Empfehlung**  |   Deaktivierung empfohlen
 |   **Kommentare**    |   Dieser Dienst synchronisiert für Xbox Live-Spiele gespeicherte Daten.  Wenn der Dienst beendet wird, werden die gespeicherten Spieldaten für Xbox Live nicht hochgeladen bzw. heruntergeladen.
 |||         

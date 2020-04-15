@@ -1,6 +1,6 @@
 ---
 title: Verwenden von Robocopy, um ein Vorab-Dateiseeding für die DFS-Replikation auszuführen
-description: Informationen zur Verwendung von „Robocopy.exe“, um ein Vorab-Dateiseeding für die DFS-Replikation auszuführen
+description: Informationen zur Verwendung von „Robocopy.exe“, um ein Vorab-Dateiseeding für die DFS-Replikation auszuführen.
 ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
@@ -8,14 +8,14 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ea5cd954dde6d4fa8fcaa7874f75cb9588115ab1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8ff800fc2a0885cec39ca104607d7207f0bd8ce0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402125"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815603"
 ---
-# <a name="use-robocopy-to-preseed-files-for-dfs-replication"></a>Verwenden von Robocopy, um ein Vorab-Dateiseeding für die DFS-Replikation auszuführen
+# <a name="use-robocopy-to-pre-seed-files-for-dfs-replication"></a>Verwenden von Robocopy, um ein Vorab-Dateiseeding für die DFS-Replikation auszuführen
 
 >Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
@@ -85,7 +85,7 @@ Nachdem du die Anzahl der Sperren für die zu replizierenden Dateien verringert 
 >[!NOTE]
 >Robocopy kann entweder auf dem Quellcomputer oder auf dem Zielcomputer ausgeführt werden. Im folgenden Verfahren wird die Ausführung von Robocopy auf dem Zielserver beschrieben, auf dem normalerweise ein aktuelleres Betriebssystem ausgeführt wird. So können alle zusätzlichen Robocopy-Funktionen genutzt werden, die das neuere Betriebssystem möglicherweise bereitstellt.
 
-### <a name="preseed-the-replicated-files-onto-the-destination-server-with-robocopy"></a>Verwenden von Robocopy, um für die replizierten Dateien ein Vorab-Seeding auf den Zielserver auszuführen
+### <a name="pre-seed-the-replicated-files-onto-the-destination-server-with-robocopy"></a>Verwenden von Robocopy, um für die replizierten Dateien ein Vorab-Seeding auf den Zielserver auszuführen
 
 1. Melde dich mit einem Konto beim Zielserver an, das Mitglied der lokalen Administratorgruppe auf dem Quell- und dem Zielserver ist.
 
@@ -117,7 +117,7 @@ Nachdem du die Anzahl der Sperren für die zu replizierenden Dateien verringert 
     Beispiel: Mit dem folgenden Befehl werden Dateien vom replizierten Quellordner „E:\\RF01“ auf das Datenlaufwerk „D“ auf dem Zielserver repliziert:
     
     ```PowerShell
-    robocopy.exe "\\srv01\e$\rf01" "d:\rf01" /e /b /copyall /r:6 /w:5 /MT:64 /xd DfsrPrivate /tee /log:c:\temp\preseedsrv02.log
+    robocopy.exe "\\srv01\e$\rf01" "d:\rf01" /e /b /copyall /r:6 /w:5 /MT:64 /xd DfsrPrivate /tee /log:c:\temp\pre-seedsrv02.log
     ```
     
     >[!NOTE]

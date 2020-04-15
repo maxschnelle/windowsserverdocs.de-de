@@ -1,7 +1,6 @@
 ---
 title: Zuweisen eines Ordnerpfads mit Bereitstellungspunkt zu einem Laufwerk
 description: In diesem Artikel wird beschrieben, wie du einem Laufwerk einen Ordnerpfad mit Bereitstellungspunkt (anstelle eines Laufwerkbuchstaben) zuweist.
-keywords: Virtualisierung, Sicherheit, Schadsoftware
 ms.date: 06/07/2019
 ms.prod: windows-server
 ms.technology: storage
@@ -9,12 +8,12 @@ ms.topic: article
 author: JasonGerend
 manager: brianlic
 ms.author: jgerend
-ms.openlocfilehash: 1255eadd50adb0eaaf44774e150d69f6dad8adae
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b2fda216b57fbf036ce20c40b4c8b38d44404f3c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71386049"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815533"
 ---
 # <a name="assign-a-mount-point-folder-path-to-a-drive"></a>Zuweisen eines Ordnerpfads mit Bereitstellungspunkt zu einem Laufwerk
 
@@ -50,14 +49,14 @@ Du kannst die Datenträgerverwaltung verwenden, um dem Laufwerk einen Ordnerpfad
 
 -   Klicke zum Entfernen des Ordnerpfads mit Bereitstellungspunkt auf den Pfad und dann auf **Entfernen**.
 
-| Wert | Beschreibung |
+| Value | Beschreibung |
 | --- | --- |
 | **list volume** | Zeigt eine Liste der Basisvolumes und dynamischen Volumes auf allen Datenträgern an. |
 | **select volume**        | Wählt das angegebene Volume aus und weist ihm den Fokus zu. (<em>volumenumber</em> ist die Nummer des Volumes.) Ohne Volumeangabe führt der Befehl **select** die aktuellen Volumes mit Fokus auf. Das Volume kann anhand der Nummer, des Laufwerkbuchstabens oder des Ordnerpfads mit Bereitstellungspunkt angegeben werden. Wenn bei einer Basisfestplatte ein Volume ausgewählt wird, erhält die entsprechende Partition den Fokus.|
 | **assign** | <ul><li> Weist dem Volume mit Fokus einen Laufwerkbuchstaben oder einen Ordnerpfad mit Bereitstellungspunkt zu. Ist kein Laufwerkbuchstaben oder Ordnerpfad mit Bereitstellungspunkt angegeben, wird der nächste verfügbare Laufwerkbuchstabe zugewiesen. Wird der Laufwerkbuchstabe oder Ordnerpfad mit Bereitstellungspunkt bereits verwendet, wird ein Fehler ausgegeben.</li>  <li>Mit dem Befehl **assign** kannst du den einem Wechseldatenträger zugeordneten Laufwerkbuchstaben ändern.</li> <li> Startvolumes oder Volumes mit der Auslagerungsdatei können keine Laufwerkbuchstaben zugewiesen werden. Darüber hinaus kannst du einer OEM-Partition (Original Equipment Manufacturer, Originalgerätehersteller), einer EFI-Systempartition oder einer GPT-Partition, die keine einfache Datenpartition ist, keinen Laufwerkbuchstaben zuweisen.</li></ul> |
 | **mount=** <em>path</em> | Gibt einen leeren, vorhandenen NTFS-Ordner für das bereitgestellte Laufwerk an.  |
 
-## <a name="additional-considerations"></a>Weitere Aspekte
+## <a name="additional-considerations"></a>Weitere Überlegungen
 
 -   Wenn du einen lokalen Computer oder einen Remotecomputer verwaltest, kannst du die NTFS-Ordner auf diesem Computer durchsuchen.
 -   Ordnerpfade mit Bereitstellungspunkt sind nur für leere Ordner mit NTFS-Basisvolumes oder dynamischen NTFS-Volumes verfügbar.
@@ -65,7 +64,7 @@ Du kannst die Datenträgerverwaltung verwenden, um dem Laufwerk einen Ordnerpfad
 -   Verwende beim Zuweisen eines Ordnerpfads mit Bereitstellungspunkt zu einem Laufwerk die **Ereignisanzeige**, um das Systemprotokoll auf Clusterdienstfehler oder -warnungen zu überprüfen, die auf Fehler beim Ordnerpfad mit Bereitstellungspunkt hinweisen. Diese Fehler werden in der Spalte **Quelle** als **ClusSvc** und in der Spalte **Kategorie** als **Physische Datenträgerressource** aufgeführt.
 -   Du kannst ein bereitgestelltes Laufwerk auch mit dem Befehl [mountvol](https://go.microsoft.com/fwlink/?linkid=64111) erstellen.
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 -   [Command-line syntax notation](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx) (Notation der Befehlszeilensyntax)
 
 

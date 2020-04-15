@@ -1,17 +1,17 @@
 ---
-title: 'DFS-Replikation: Häufig gestellte Fragen'
+title: 'DFS-Replikation: Häufig gestellte Fragen (FAQ)'
 ms.date: 06/18/2014
 ms.prod: windows-server
 ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: e92ada07140b88ef4178a5aecdb263b825380c2d
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 1e11f6c596d7e5eb0bdf379adcf47d21e74e9f6b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950282"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815623"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>DFS-Replikation: Häufig gestellte Fragen
 
@@ -74,7 +74,7 @@ Ja. Die DFS-Replikation wird auf Volumes des Volumeschattenkopie-Diensts (Volume
 
 Nein. Die Windows-Sicherung (Ntbackup.exe) kann auf einem Computer mit Windows Server 2003 oder früher nicht verwendet werden, um den Inhalt eines replizierten Ordners auf einem Computer mit Windows Server 2012, Windows Server 2008 R2 oder Windows Server 2008 zu sichern.
 
-Verwende zum Sichern von Dateien, die in einem replizierten Ordner gespeichert sind, die Windows Server-Sicherung oder Microsoft® System Center Data Protection Manager. Informationen zu Sicherungs- und Wiederherstellungsfunktionen in Windows Server 2008 R2 und Windows Server 2008 findest du unter [Sicherung und Wiederherstellung](https://technet.microsoft.com/library/Cc754097). Weitere Informationen findest du unter [System Center Data Protection Manager](https://go.microsoft.com/fwlink/?linkid=182261) (https://go.microsoft.com/fwlink/?LinkId=182261).
+Verwende zum Sichern von Dateien, die in einem replizierten Ordner gespeichert sind, die Windows Server-Sicherung oder Microsoft&reg; System Center Data Protection Manager. Informationen zu Sicherungs- und Wiederherstellungsfunktionen in Windows Server 2008 R2 und Windows Server 2008 findest du unter [Sicherung und Wiederherstellung](https://technet.microsoft.com/library/Cc754097). Weitere Informationen findest du unter [System Center Data Protection Manager](https://go.microsoft.com/fwlink/?linkid=182261) (https://go.microsoft.com/fwlink/?LinkId=182261).
 
 ### <a name="do-file-system-policies-impact-dfs-replication"></a>Wirken sich Dateisystemrichtlinien auf die DFS-Replikation aus?
 
@@ -129,7 +129,7 @@ Antivirenanwendungen können zu einer übermäßigen Replikation führen, wenn d
 
 ### <a name="what-are-the-benefits-of-using-dfs-replication-instead-of-windows-sharepoint-services"></a>Welche Vorteile bietet die Verwendung der DFS-Replikation anstelle von Windows SharePoint Services?
 
-Windows® SharePoint® Services bietet eine starke Kohärenz in Form einer Funktion zum Auschecken von Dateien, die die DFS-Replikation nicht aufweist. Wenn vermieden werden soll, dass mehrere Personen dieselbe Datei bearbeiten, empfehlen wir die Verwendung von Windows SharePoint Services. Windows SharePoint Services 2.0 mit Service Pack 2 ist als Teil von Windows Server 2003 R2 verfügbar. Windows SharePoint Services kann von der Microsoft-Website heruntergeladen werden. In neueren Versionen von Windows Server ist die Lösung nicht enthalten. Wenn jedoch Daten über mehrere Standorte repliziert werden und Benutzer nicht dieselben Dateien zur selben Zeit bearbeiten, bietet die DFS-Replikation eine größere Bandbreite und eine einfachere Verwaltung.
+Windows&reg; SharePoint&reg; Services bietet eine starke Kohärenz in Form einer Funktion zum Auschecken von Dateien, die die DFS-Replikation nicht aufweist. Wenn vermieden werden soll, dass mehrere Personen dieselbe Datei bearbeiten, empfehlen wir die Verwendung von Windows SharePoint Services. Windows SharePoint Services 2.0 mit Service Pack 2 ist als Teil von Windows Server 2003 R2 verfügbar. Windows SharePoint Services kann von der Microsoft-Website heruntergeladen werden. In neueren Versionen von Windows Server ist die Lösung nicht enthalten. Wenn jedoch Daten über mehrere Standorte repliziert werden und Benutzer nicht dieselben Dateien zur selben Zeit bearbeiten, bietet die DFS-Replikation eine größere Bandbreite und eine einfachere Verwaltung.
 
 ## <a name="limitations-and-requirements"></a>Einschränkungen und Anforderungen
 
@@ -152,7 +152,7 @@ Mit der DFS-Replikation können Dateien im persönlichen Ordner von Microsoft Ou
 
 ### <a name="can-i-use-dfs-replication-in-a-workgroup"></a>Kann ich die DFS-Replikation in einer Arbeitsgruppe verwenden?
 
-Nein Die DFS-Replikation wird über Active Directory® Domain Services konfiguriert und funktioniert nur in einer Domäne.
+Nein Die DFS-Replikation wird über Active Directory&reg; Domain Services konfiguriert und funktioniert nur in einer Domäne.
 
 ### <a name="can-more-than-one-folder-be-replicated-on-a-single-server"></a>Können auf einem einzelnen Server auch mehrere Ordner repliziert werden?
 
@@ -343,7 +343,7 @@ Die DFS-Replikation in Windows Server 2008 umfasst mehrere Leistungsverbesserun
 
 ### <a name="how-does-dfs-replication-performance-compare-with-frs"></a>Welche Leistung bietet die DFS-Replikation im Vergleich mit FRS?
 
-Die DFS-Replikation ist viel schneller als FRS, und zwar insbesondere dann, wenn kleine Änderungen an großen Dateien vorgenommen werden und RDC aktiviert ist. Mit RDC kann eine kleine Änderung an einer PowerPoint®-Präsentation von 2 MB beispielsweise bewirken, dass nur 60 KB über das Netzwerk gesendet werden, was eine Einsparung von 97 Prozent an übertragenen Bytes bedeutet.
+Die DFS-Replikation ist viel schneller als FRS, und zwar insbesondere dann, wenn kleine Änderungen an großen Dateien vorgenommen werden und RDC aktiviert ist. Mit RDC kann eine kleine Änderung an einer PowerPoint&reg;-Präsentation von 2 MB beispielsweise bewirken, dass nur 60 KB über das Netzwerk gesendet werden, was eine Einsparung von 97 Prozent an übertragenen Bytes bedeutet.
 
 RDC wird bei Dateien unter 64 KB nicht verwendet und bietet bei Hochgeschwindigkeits-LANs, bei denen die Netzwerkbandbreite nicht begrenzt ist, u. U. keine Vorteile. RDC kann mithilfe der DFS-Verwaltung jeweils verbindungsbasiert deaktiviert werden.
 
