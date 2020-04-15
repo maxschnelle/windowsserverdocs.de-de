@@ -1,24 +1,19 @@
 ---
 title: Clients können keine Verbindung herstellen und erhalten den Fehler „Keine Lizenzen verfügbar“
 description: Beheben des Fehlers „Keine Lizenzen verfügbar“ bei der Remotedesktopverbindung
-audience: itpro
-ms.custom: na
 ms.reviewer: rklemen
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.assetid: ''
 author: kaushika-msft
 manager: dcscontentpm
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 74b4656216d5568f546d1a13722eeec748f1f9b5
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: f163908277b2ab8cc0e3bfbcbc4ae5e8001a2b4a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265892"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857173"
 ---
 # <a name="clients-cant-connect-and-see-no-licenses-available-error"></a>Clients können keine Verbindung herstellen und erhalten den Fehler „Keine Lizenzen verfügbar“
 

@@ -1,12 +1,8 @@
 ---
 title: Erste Schritte mit dem Android-Client
 description: Allgemeine Informationen über den Android-Client.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: heidilohr
@@ -14,12 +10,12 @@ manager: lizross
 ms.author: helohr
 ms.date: 03/12/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: d4ef08107c816aebf6563e57e5e76b12b793d472
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: a9cb49f2570b297c81f41412ad041215090538d0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323422"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856233"
 ---
 # <a name="get-started-with-the-android-client"></a>Erste Schritte mit dem Android-Client
 
@@ -72,7 +68,7 @@ Müssen Sie diese Einstellungen bearbeiten? Tippe auf das Menü **Weitere Option
 Möchtest du die Verbindung entfernen? Tippe erneut auf das Menü **Weitere Optionen** ( **...** ) und dann auf **Entfernen**.
 
 >[!TIP]
-> Wenn Sie den Fehler 0xf07 zu einem falschen Kennwort (die Fehlermeldung „Es konnte keine Verbindung mit dem Remote-PC hergestellt werden, da das dem Benutzerkonto zugeordnete Kennwort abgelaufen ist“) erhalten, ändern Sie das Kennwort, und versuchen Sie es erneut.
+> Wenn Du den Fehler 0xf07 zu einem falschen Kennwort erhältst (die Fehlermeldung „Es konnte keine Verbindung mit dem Remote-PC hergestellt werden, da das dem Benutzerkonto zugeordnete Kennwort abgelaufen ist“), ändere das Kennwort, und versuche es erneut.
 
 ### <a name="add-remote-resources"></a>Hinzufügen von Remoteressourcen
 

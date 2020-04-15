@@ -1,30 +1,56 @@
 ---
 title: Neues beim macOS-Client
 description: Hier erfährst du mehr über aktuelle Änderungen beim Remotedesktopclient für Mac.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 01/06/2020
+ms.date: 04/08/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: ef2a9966da7046a14fb1d9d4562f0ef9b1a09a45
-ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
+ms.openlocfilehash: c378d8c4a87b6aa0cf4f6b4f30f3bd5524dbb7a9
+ms.sourcegitcommit: f95d0e6904b103fc30dcae13e9199e138c287e2b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75919860"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80980852"
 ---
 # <a name="whats-new-in-the-macos-client"></a>Neues beim macOS-Client
 
 Der [Remotedesktopclient für macOS](remote-desktop-mac.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Hier findest du die neuesten Updates.
 
 Bei Problemen kannst du dich jederzeit gern über **Hilfe** > **Problem melden** an uns wenden.
+
+## <a name="updates-for-version-1039"></a>Updates für Version 10.3.9
+
+*Veröffentlicht am: 6.4.20*
+
+In diesem Release haben wir einige Änderungen vorgenommen, um die Interoperabilität mit dem [Windows Virtual Desktop-Dienst](https://azure.microsoft.com/services/virtual-desktop/) zu verbessern. Darüber hinaus haben wir die folgenden Aktualisierungen aufgenommen:
+
+- STRG+WAHL+ENTF löst jetzt die Sequenz STRG+ALT+ENTF aus (zuvor musste die Taste Fn gedrückt werden).
+- Das Farbschema der Tastaturmodus-Benachrichtigung für den hellen Modus wurde korrigiert.
+- Szenarien, in denen mit der RDP-Dateieigenschaft „GatewayAccessToken“ initiierte Verbindungen nicht funktionierten, wurden korrigiert.
+
+>[!NOTE]
+>Dies ist das letzte Release, das mit macOS 10.12 kompatibel ist.
+
+## <a name="updates-for-version-1038"></a>Updates für Version 10.3.8
+
+*Veröffentlicht am: 12.2.20*
+
+Es ist Zeit für unser erstes Release in 2020!
+
+Mit diesem Update kannst du zwischen den Modi Scancode (STRG+BEFEHL+K) und Unicode (STRG+BEFEHL+U) wechseln, wenn du zur Tastatureingabe wechselst. Der Unicode-Modus ermöglicht das Eingeben erweiterter Zeichen mithilfe der WAHLTASTE auf einer Mac-Tastatur. Beispielsweise wird auf einer US-Tastatur auf dem Mac mit WAHL+2 das Markensymbol (&trade;) eingeben. Du kannst auch Zeichen mit Akzenten im Unicode-Modus eingeben. Wenn Du z. B. auf einer US-Tastatur auf dem Mac gleichzeitig WAHL+E und den Buchstaben „A“ eingibst, wird in der Remotesitzung das Zeichen „á“ angezeigt.
+
+Weitere Updates in diesem Release sind:
+
+- Die Arbeitsbereich aktualisieren-Erfahrung und -Benutzeroberfläche wurden bereinigt.
+- Ein Problem bei Smartcardumleitungen wurde behoben, das dazu führte, dass die Remotesitzung auf dem Anmeldebildschirm nicht mehr reagierte, wenn die Meldung „Status wird geprüft“ angezeigt wurde.
+- Die Zeit zum Erstellen temporärer Dateien für das Kopieren und Einfügen von Dateien über die Zwischenablage wurde verkürzt.
+- Temporäre Dateien, die zum Kopieren und Einfügen von Dateien über die Zwischenablage verwendet werden, werden nun automatisch gelöscht, wenn du die App verlässt, anstatt zu warten, bis sie von macOS gelöscht werden.
+- PC-Lesezeichenaktionen werden nun in der oberen rechten Ecke der Miniaturansichten gerendert.
+- Korrekturen wurden vorgenommen, um durch Absturztelemetrie gemeldete Probleme zu beheben.
 
 ## <a name="updates-for-version-1037"></a>Updates für Version 10.3.7
 
@@ -310,7 +336,7 @@ Seit der letzten Aktualisierung sind einige Wochen vergangen, aber wir haben in 
 - Du kannst jetzt eine Verbindung starten, indem du auf einer Desktopkachel die EINGABETASTE drückst.
 - Im Vollbildmodus wird BEFEHLSTASTE+M jetzt ordnungsgemäß zu WINDOWS-TASTE+M zugeordnet.
 - Die Fenster „Connection Center“, „Einstellungen“ und „Info“ reagieren jetzt auf BEFEHLSTASTE+M.
-- Du kannst mit dem Erkunden von Feeds beginnen, indem du auf der Seite **Remoteressourcen hinzufügen** die EINGABETASTE drückst.
+- Du kannst mit dem Erkunden von Feeds beginnen, indem du auf der Seite „*Remoteressourcen hinzufügen*- die EINGABETASTE drückst.
 - Ein Fehler wurde behoben, der dazu führte, dass ein neuer Remoteressourcenfeed im Connection Center leer war, bis die Anzeige aktualisiert wurde.
 
 ## <a name="updates-for-version-1016"></a>Updates für Version 10.1.6

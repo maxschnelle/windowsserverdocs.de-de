@@ -1,24 +1,20 @@
 ---
 title: Georedundante RDS-Rechenzentren in Azure
 description: Hier erfährst du, wie du eine RDS-Bereitstellung erstellst, die mehrere Rechenzentren nutzt, um Hochverfügbarkeit über mehrere geografische Standorte hinweg zu bieten.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 61c36528-cf47-4af0-83c1-a883f79a73a5
 author: haley-rowland
 ms.author: elizapo
 ms.date: 06/14/2017
 manager: dongill
-ms.openlocfilehash: 55b96c112dd7f7294ff674ee4675501af4287da4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5c0f5d6937a79f36df264597400fe71af3f3779b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403959"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855593"
 ---
 # <a name="create-a-geo-redundant-multi-data-center-rds-deployment-for-disaster-recovery"></a>Erstellen einer georedundanten RDS-Bereitstellung mit mehreren Rechenzentren für die Notfallwiederherstellung
 
@@ -86,13 +82,13 @@ Möchtest du mehr über das Verwalten der Replikation erfahren? Dann lies den Ar
 Führe zum Aktivieren von UPDs in beiden Bereitstellungen folgende Schritte aus:
 
 1. Führe das Cmdlet [Set-RDSessionCollectionConfiguration](https://docs.microsoft.com/powershell/module/remotedesktop/set-rdsessioncollectionconfiguration) aus, um die Benutzerprofil-Datenträger für die primäre (aktive) Bereitstellung zu aktivieren. Gib einen Pfad zu der Dateifreigabe auf dem Quellvolume an (das du in Bereitstellungsschritt 7 erstellt hast).
-2. Kehre die Richtung des Speicherreplikats um, sodass das Zielvolume zum Quellvolume wird (dadurch wird das Volume eingebunden, und die sekundäre Bereitstellung kann darauf zugreifen). Zu diesem Zweck kannst du das Cmdlet **Set-SRPartnership** ausführen. Zum Beispiel:
+2. Kehre die Richtung des Speicherreplikats um, sodass das Zielvolume zum Quellvolume wird (dadurch wird das Volume eingebunden, und die sekundäre Bereitstellung kann darauf zugreifen). Zu diesem Zweck kannst du das Cmdlet **Set-SRPartnership** ausführen. Beispiel:
 
    ```powershell
    Set-SRPartnership -NewSourceComputerName "cluster-b-s2d-c" -SourceRGName "cluster-b-s2d-c" -DestinationComputerName "cluster-a-s2d-c" -DestinationRGName "cluster-a-s2d-c"
    ```
 3. Aktiviere die Benutzerprofil-Datenträger in der sekundären (passiven) Bereitstellung. Führe die gleichen Aktionen aus wie für die primäre Bereitstellung in Schritt 1.
-4. Kehre die Richtung des Speicherreplikats erneut um, sodass das ursprüngliche Quellvolume wieder zum Quellvolume in der Speicherreplikat-Partnerschaft wird. Nun kann die primäre Bereitstellung auf die Dateifreigabe zugreifen. Zum Beispiel:
+4. Kehre die Richtung des Speicherreplikats erneut um, sodass das ursprüngliche Quellvolume wieder zum Quellvolume in der Speicherreplikat-Partnerschaft wird. Nun kann die primäre Bereitstellung auf die Dateifreigabe zugreifen. Beispiel:
 
    ```powershell
    Set-SRPartnership -NewSourceComputerName "cluster-a-s2d-c" -SourceRGName "cluster-a-s2d-c" -DestinationComputerName "cluster-b-s2d-c" -DestinationRGName "cluster-b-s2d-c"
@@ -103,7 +99,7 @@ Führe zum Aktivieren von UPDs in beiden Bereitstellungen folgende Schritte aus:
 
 Erstelle ein [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview)-Profil, und wähle die Routingmethode **Priorität** aus. Lege die beiden Endpunkte auf die öffentlichen IP-Adressen jeder Bereitstellung fest. Ändere unter **Konfiguration** das Protokoll zu HTTPS (statt HTTP) und den Port zu 443 (statt 80). Lege die **DNS-Gültigkeitsdauer** auf einen für deine Failoveranforderungen geeigneten Wert fest. 
 
-Beachte, dass Endpunkte bei GET-Anforderungen „200 OK“ zurückgeben müssen, um von Traffic Manager als „fehlerfrei“ markiert zu werden. Das aus den RDS-Vorlagen erstellte publicIP-Objekt funktioniert. Füge jedoch keinen Pfadzusatz hinzu. Stattdessen kannst du Endbenutzern die Traffic Manager-URL mit angefügtem „/RDWeb“ zur Verfügung stellen, z.B.: ```http://deployment.trafficmanager.net/RDWeb```.
+Beachte, dass Endpunkte bei GET-Anforderungen „200 OK“ zurückgeben müssen, um von Traffic Manager als „fehlerfrei“ markiert zu werden. Das aus den RDS-Vorlagen erstellte publicIP-Objekt funktioniert. Füge jedoch keinen Pfadzusatz hinzu. Stattdessen kannst du Endbenutzern die Traffic Manager-URL mit angefügtem „/RDWeb“ zur Verfügung stellen, z. B.: ```http://deployment.trafficmanager.net/RDWeb```.
 
 Durch Bereitstellung von Azure Traffic Manager mit der prioritätsbasierten Routingmethode verhinderst du, dass Endbenutzer auf die passive Bereitstellung zugreifen, während die aktive Bereitstellung funktionsfähig ist. Wenn Endbenutzer auf die passive Bereitstellung zugreifen und die Richtung des Speicherreplikats nicht zum Failover geändert wurde, reagiert die Benutzeranmeldung nicht, weil die Bereitstellung erfolglos versucht, auf dem passiven Cluster mit direkten Speicherplätzen auf die Dateifreigabe zuzugreifen. Letztendlich erhält der Benutzer ein temporäres Profil.  
 
@@ -123,7 +119,7 @@ Beim Aktualisieren von RDSH-Images zum Bereitstellen von Softwareupdates oder ne
 
 ## <a name="failover"></a>Failover
 
-Im Fall der Aktiv-Passiv-Bereitstellung ist es für ein Failover erforderlich, die VMs der sekundären Bereitstellung zu starten. Du kannst dies manuell oder mit einem Automatisierungsskript durchführen. Sollte ein schwerwiegender Ausfall des Scale-Out-Dateiservers mit direkten Speicherplätzen eintreten, ändere die Richtung der Speicherreplikat-Partnerschaft, sodass das Zielvolume zum Quellvolume wird. Zum Beispiel:
+Im Fall der Aktiv-Passiv-Bereitstellung ist es für ein Failover erforderlich, die VMs der sekundären Bereitstellung zu starten. Du kannst dies manuell oder mit einem Automatisierungsskript durchführen. Sollte ein schwerwiegender Ausfall des Scale-Out-Dateiservers mit direkten Speicherplätzen eintreten, ändere die Richtung der Speicherreplikat-Partnerschaft, sodass das Zielvolume zum Quellvolume wird. Beispiel:
 
    ```powershell
    Set-SRPartnership -NewSourceComputerName "cluster-b-s2d-c" -SourceRGName "cluster-b-s2d-c" -DestinationComputerName "cluster-a-s2d-c" -DestinationRGName "cluster-a-s2d-c"

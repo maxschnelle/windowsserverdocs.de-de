@@ -1,25 +1,21 @@
 ---
-title: Remote Desktop – Die Clients im Vergleich
-description: Erfahren Sie, wie die verschiedenen Remotedesktopclients in Bezug auf die unterstützten Features und Funktionen im Vergleich abschneiden.
-ms.custom: na
+title: Remote Desktop – Die Client-Apps im Vergleich
+description: Erfahren Sie, wie die verschiedenen Remotedesktop-Apps in Bezug auf die unterstützten Features und Funktionen im Vergleich abschneiden.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 12efe858-6b76-4e08-9f72-b9603aceb0fc
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 03/28/2020
+ms.date: 04/06/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 11c91ac951db27915d9313f7f98e5e2cfc56b726
-ms.sourcegitcommit: 78c00944b6990702d28bdcc4a9215927ca901bfb
+ms.openlocfilehash: 8c41d2691f22e7feb89518a02736f3607940a2f6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80440373"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856223"
 ---
 # <a name="compare-the-clients"></a>Vergleichen der Clients
 
@@ -57,11 +53,11 @@ Wenn Sie die USB-Anschlussumleitung aktivieren, werden alle am USB-Anschluss ang
 
 | Umleitung         | Windows-Posteingang</br>(MSTSC) | Windows Desktop</br>(MSRDC) | Windows Store | Android | iOS         | macOS                           | Webclient    |
 |---------------------|---------------------------|-----------------------------|---------------|---------|-------------|---------------------------------|---------------|
-| Kameras             | X                         | X                           |               |         |             | X                               |               |
-| Zwischenablage           | X                         | X                           | X             | Text    | Text, Bild | X                               | Text          |
-| Lokales Laufwerk/lokaler Speicher | X                         | X                           |               | X       |             | X                               |               |
+| Kameras             | X                         | X                           |               |         |   X         | X                               |               |
+| Zwischenablage           | X                         | X                           | X             | Text    | Text, Bilder | X                               | Text          |
+| Lokales Laufwerk/lokaler Speicher | X                         | X                           |               | X       |   X        | X                               |               |
 | Speicherort            | X                         | X                           |               |         |             |                                 |               |
-| Mikrofone         | X                         | X                           | X             |         |             | X                               |               |
+| Mikrofone         | X                         | X                           | X             |         |  X          | X                               |               |
 | Drucker            | X                         | X                           |               |         |             | X (nur CUPS)                   | PDF-Ausgabe     |
 | Scanner            | X                         | X                           |               |         |             |                                 |               |
 | Smart Cards         | X                         | X                           |               |         |             | X (Windows-Anmeldung wird nicht unterstützt) |               |

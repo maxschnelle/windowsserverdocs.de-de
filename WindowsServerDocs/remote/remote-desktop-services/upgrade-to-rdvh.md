@@ -1,24 +1,20 @@
 ---
 title: Aktualisieren deines Remotedesktop-Virtualisierungshosts auf Windows Server 2016
 description: In diesem Artikel wird beschrieben, wie du deine vorhandenen Bereitstellungen der Remotedesktopdienste auf Windows Server 2016 aktualisierst.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: spatnaik
 ms.date: 08/01/2016
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5aed8ba7-f541-4416-b01c-4d3b1712e2b1
 author: spatnaik
 manager: scottman
-ms.openlocfilehash: 319074987ae161e2b567c15e9e56cce0e2106a1f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7bbf5f6a81a18303d4f9f4b02a1b8dead3c9a53a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403788"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857113"
 ---
 # <a name="upgrading-your-remote-desktop-virtualization-host-to-windows-server-2016"></a>Aktualisieren deines Remotedesktop-Virtualisierungshosts auf Windows Server 2016
 
@@ -67,7 +63,7 @@ Diese Server müssen gleichzeitig aktualisiert werden. Führe die folgenden Schr
        > [!NOTE]
        > Wie bereits erwähnt, musst du bereits vor diesem Schritt einen neuen Zielunterordner erstellt haben. Das Dialogfeld „Ordner auswählen“ lässt in diesem Schritt nicht zu, einen Unterordner zu erstellen. 
     
-       Klicken Sie auf **Weiter** und dann auf **Fertig stellen**. 
+       Klicken Sie auf **Weiter**und dann auf **Fertig stellen**. 
 11. Nachdem die virtuellen Computer verschoben sind, füge sie als Clusterobjekte mit **Hoher Verfügbarkeit** hinzu:
      1. Öffne den Failovercluster-Manager auf einem aktualisierten Remotedesktop-Virtualisierungshostserver. 
      1. Klicke mit der rechten Maustaste auf den Knoten **Rollen**, und klicke dann auf **Rolle konfigurieren**. Klicke auf der Seite **Start** des Assistenten für hohe Verfügbarkeit auf **Weiter**. 

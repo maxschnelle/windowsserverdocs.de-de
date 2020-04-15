@@ -3,19 +3,19 @@ ms.assetid: 898d72f1-01e7-4b87-8eb3-a8e0e2e6e6da
 title: Hinzufügen von Servern oder Laufwerken zu „direkten Speicherplätzen“
 ms.prod: windows-server
 ms.author: cosdar
-ms.manager: dongill
+manager: dongill
 ms.technology: storage-spaces
 ms.topic: article
 author: cosmosdarwin
 ms.date: 11/06/2017
 description: Vorgehensweise beim Hinzufügen von Servern oder Laufwerken zu einem direkte Speicherplätze Cluster
 ms.localizationpriority: medium
-ms.openlocfilehash: f5fb9da903bb76de3a075fa7feeeaba468d802c2
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: be79a2d3e0e8c56afc409298518d967c9bc80453
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465624"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859123"
 ---
 # <a name="adding-servers-or-drives-to-storage-spaces-direct"></a>Hinzufügen von Servern oder Laufwerken zu „direkten Speicherplätzen“
 
@@ -23,7 +23,7 @@ ms.locfileid: "77465624"
 
 In diesem Thema wird beschrieben, wie Sie Server oder Laufwerke zu „direkten Speicherplätzen“ hinzufügen.
 
-## <a name="adding-servers"></a>Hinzufügen von Servern
+## <a name="adding-servers"></a><a name="adding-servers"></a>Hinzufügen von Servern
 
 Das Hinzufügen von Servern wird häufig auch als Skalierung bezeichnet. Es fügt Speicherkapazität hinzu, kann die Speicherleistung verbessern und erhöht die Speichereffizienz. Bei einer hyperkonvergenten Bereitstellung werden durch Hinzufügen von Servern zudem mehr Computing-Ressourcen für Ihren Workload bereitgestellt.
 
@@ -55,7 +55,7 @@ Add-ClusterNode -Name NewNode
 
 ![Hinzufügen eines dritten Servers zu einem Cluster mit zwei Knoten](media/add-nodes/Scaling-2-to-3.png)
 
-Mit zwei Servern können Sie nur Volumes mit Zwei-Wege-Spiegelung erstellen (vgl. verteiltes RAID-1). Mit drei Servern können Sie Volumes mit Drei-Wege-Spiegelungen für eine bessere Fehlertoleranz erstellen. Es wird empfohlen, wenn möglich, immer die Drei-Wege-Spiegelung zu verwenden.
+Mit zwei Servern können Sie nur Volumes mit Zwei-Wege-Spiegelung erstellen (vgl. verteiltes RAID-1). Mit drei Servern können Sie Volumes mit Drei-Wege-Spiegelungen für eine bessere Fehlertoleranz erstellen. Es wird empfohlen, wann immer möglich, die Drei-Wege-Spiegelung zu verwenden.
 
 Volumes mit Zwei-Wege-Spiegelungen können nicht direkt auf Volumes mit Drei-Wege-Spiegelungen aktualisiert werden. Erstellen Sie stattdessen ein neues Volume und migrieren Sie (kopieren Sie, z. B. mithilfe von [Speicher Replikat](../storage-replica/server-to-server-storage-replication.md)) Ihre Daten. Entfernen Sie anschließend das alte Volume.
 
@@ -130,7 +130,7 @@ New-StorageTier -StoragePoolFriendlyName S2D* -MediaType HDD -PhysicalDiskRedund
 New-StorageTier -StoragePoolFriendlyName S2D* -MediaType HDD -PhysicalDiskRedundancy 2 -ResiliencySettingName Parity -FriendlyName Capacity
 ```
 
-Das war's. Sie können nun mithilfe dieser Ebenenvorlage Volumes mit einer durch Spiegelung beschleunigten Parität erstellen.
+Das ist alles! Sie können nun mithilfe dieser Ebenenvorlage Volumes mit einer durch Spiegelung beschleunigten Parität erstellen.
 
 #### <a name="example"></a>Beispiel
 
@@ -148,7 +148,7 @@ Weitere Informationen finden Sie unter [Fehlertoleranz und Speichereffizienz](st
 
 ### <a name="adding-servers-when-using-chassis-or-rack-fault-tolerance"></a>Hinzufügen von Servern bei Verwendung von Gehäuse- oder Rackfehlertoleranz
 
-Wenn Ihre Bereitstellung Gehäuse- oder Rackfehlertoleranz verwendet, müssen Sie Gehäuse oder Rack neuer Server angeben, bevor Sie sie zum Cluster hinzufügen. Dadurch kann der „direkte Speicherplatz“ bestimmen, wie die Daten am besten verteilt werden sollen, um die Fehlertoleranz zu maximieren.
+Wenn Ihre Bereitstellung Gehäuse- oder Rackfehlertoleranz verwendet, müssen Sie Gehäuse oder Rack neuer Server angeben, bevor Sie sie zum Cluster hinzufügen. Dadurch kann „Direkte Speicherplätze“ bestimmen, wie die Daten am besten verteilt werden sollen, um die Fehlertoleranz zu maximieren.
 
 1. Erstellen Sie eine temporäre Fehlerdomäne für den Knoten, indem Sie eine PowerShell-Sitzung mit erhöhten Rechten öffnen und dann den folgenden Befehl eingeben, wobei *\<NewNode >* der Name des neuen Clusterknotens ist:
 
@@ -166,7 +166,7 @@ Wenn Ihre Bereitstellung Gehäuse- oder Rackfehlertoleranz verwendet, müssen Si
 
 3. Fügen Sie den Server zum Cluster hinzu, wie unter [Hinzufügen von Servern](#adding-servers) beschrieben. Wenn der neue Server dem Cluster hinzugefügt wird, wird er automatisch der Platzhalterfehlerdomäne (anhand des Namens) zugeordnet.
 
-## <a name="adding-drives"></a>Laufwerke werden hinzugefügt
+## <a name="adding-drives"></a><a name="adding-drives"></a>Laufwerke werden hinzugefügt
 
 Hinzufügen von Laufwerken (auch als zentrales Hochskalieren bezeichnet) fügt Speicherkapazität hinzu und kann die Leistung verbessern. Wenn Sie über freie Steckplätze verfügen, können Sie jedem Server Laufwerke hinzufügen, um die Speicherkapazität zu erweitern, ohne Server hinzuzufügen. Sie können unabhängig voneinander jederzeit Cache- oder Kapazitätslaufwerke hinzufügen.
 
@@ -200,7 +200,7 @@ Die Optimierung verwendet zwei Aufträge: eine mit dem Namen " *optimieren* " un
 Get-StorageJob
 ```
 
-Sie können einen Speicherpool mithilfe des Cmdlets " [optimieren-storagepool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) " manuell optimieren. Beispiel:
+Sie können einen Speicherpool mithilfe des Cmdlets " [optimieren-storagepool](https://docs.microsoft.com/powershell/module/storage/optimize-storagepool?view=win10-ps) " manuell optimieren. Im Folgenden ein Beispiel:
 
 ```powershell
 Get-StoragePool <PoolName> | Optimize-StoragePool
