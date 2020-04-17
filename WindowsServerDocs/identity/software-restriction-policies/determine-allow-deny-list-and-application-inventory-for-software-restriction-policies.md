@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 7609ebb0fdcb6d429cd40d99399eaaedb732df08
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c0fdb5c1d7c4b03610a173c6cd0575d39646a7d0
+ms.sourcegitcommit: af1cf89632d62a94943d3ad9f6b5234b88499278
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855093"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81524905"
 ---
 # <a name="determine-allow-deny-list-and-application-inventory-for-software-restriction-policies"></a>Festlegen der Zulassen bzw. Verweigern-Liste und des Anwendungsinventars für Richtlinien für die Softwareeinschränkung
 
@@ -50,7 +50,7 @@ Um die Zulassungs Standardregel effektiv verwenden zu können, müssen Sie genau
 
     **"HKEY_LOCAL_MACHINE \software\policies\microsoft\windows\safer\codeidentifiers"**
 
-    Zeichen folgen Wert: *namelogfile-Pfad zu namelogfile*
+    Zeichen folgen Wert: *LogFileName Pfad zu LogFileName*
 
     Da SRP alle Anwendungen evaluiert, wenn diese ausgeführt werden, wird jedes Mal, wenn die Anwendung ausgeführt wird, ein Eintrag in die Protokolldatei *namelogfile* geschrieben.
 
@@ -69,5 +69,4 @@ Um die Zulassungs Standardregel effektiv verwenden zu können, müssen Sie genau
     Ein Beispiel für die Ausgabe, die in eine Protokolldatei geschrieben wird:
 
 **Explorer. exe (PID = 4728) identifiedc: \ windows\system32\onenote.exe als unbeschränkte usingpath-Regel, GUID = {320bd852-AA7C-4674-82c5-9a80321670a3}**    Alle Anwendungen und zugeordneten Code, die von SRP überprüft und auf Block festgelegt werden, werden in der Protokolldatei vermerkt. Diese können Sie dann verwenden, um zu bestimmen, welche ausführbaren Dateien für die zulässige Liste berücksichtigt werden sollen.
-
 
