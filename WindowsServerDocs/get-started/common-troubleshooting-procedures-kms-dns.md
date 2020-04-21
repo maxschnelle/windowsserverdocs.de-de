@@ -6,12 +6,12 @@ ms.technology: server-general
 author: Teresa-Motiv
 ms.author: v-tea
 ms.localizationpriority: medium
-ms.openlocfilehash: 6cd94e997deaaf358c72793e6ff35d51a9ab3df6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 76665d91cc1e2997a837721ffbc51b0513dd7c1a
+ms.sourcegitcommit: af1cf89632d62a94943d3ad9f6b5234b88499278
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80826184"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81524935"
 ---
 # <a name="guidelines-for-troubleshooting-dns-related-activation-issues"></a>Richtlinien für die Problembehandlung von Aktivierungsproblemen im Zusammenhang mit DNS
 
@@ -241,7 +241,7 @@ Wie unter [Manuelles Zuweisen eines KMS-Hosts zu einem KMS-Client](#manually-ass
 - Für Computer, die einer Domäne beigetreten sind, die von DNS zugewiesene Domäne des Computers, z. B. AD DS-DNS (Active Directory Domain Services).
 - Für Arbeitsgruppencomputer die per DHCP (Dynamic Host Configuration Protocol) zugewiesene Domäne des Computers. Dieser Domänenname wird durch die Option mit dem Codewert 15 in RFC 2132 (Request for Comments) definiert.
 
-Standardmäßig registriert ein KMS-Host seine SRV-Einträge in der DNS-Zone, die der Domäne des KMS-Hostcomputers entspricht. Angenommen, ein KMS-Host tritt der Domäne „contoso.com“ bei. In diesem Szenario registriert der KMS-Host den _vmlcs-SRV-Eintrag in der DNS-Zone „contoso.com“. Daher identifiziert der Eintrag den Dienst als „VLMCS._TCP.CONTOSO.COM“.
+Standardmäßig registriert ein KMS-Host seine SRV-Einträge in der DNS-Zone, die der Domäne des KMS-Hostcomputers entspricht. Angenommen, ein KMS-Host tritt der Domäne „contoso.com“ bei. In diesem Szenario registriert der KMS-Host den _vmlcs-SRV-Eintrag in der DNS-Zone „contoso.com“. Daher identifiziert der Eintrag den Dienst als „_VLMCS._TCP.CONTOSO.COM“.
 
 Wenn der KMS-Host und die KMS-Clients unterschiedliche DNS-Zonen verwenden, müssen Sie den KMS-Host so konfigurieren, dass seine SRV-Einträge automatisch in mehreren DNS-Domänen veröffentlicht werden. Gehen Sie hierzu folgendermaßen vor:
 

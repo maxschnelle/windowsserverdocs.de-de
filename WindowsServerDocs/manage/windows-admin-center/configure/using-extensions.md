@@ -7,12 +7,12 @@ author: daniellee-msft
 ms.author: jol
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 7c1a70e36dfac9b23ded8f920ffcc8cccbfff023
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 2b8a9f5ebab22891b8b97c9c56bba3837cbb9371
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323582"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269297"
 ---
 # <a name="install-and-manage-extensions"></a>Installieren und Verwalten von Erweiterungen
 
@@ -36,7 +36,7 @@ Das Windows Admin Center unterstützt mehrere Feeds, und du kannst Pakete aus me
 1. Klicke oben rechts auf die Schaltfläche **Einstellungen**, und klicke im linken Bereich auf **Erweiterungen**.
 2. Klicke im rechten Bereich auf die Registerkarte **Feeds**.
 3. Klicke auf die Schaltfläche **Hinzufügen**, um einen anderen Feed hinzuzufügen. Gib für einen NuGet-Feed die URL des NuGet V2-Feeds ein. Der NuGet-Feedanbieter oder -administrator sollte dir die URL-Informationen bereitstellen können. Gib für eine Dateifreigabe den vollständigen Pfad der Dateifreigabe ein, auf der die Erweiterungspaketdateien (NUPKG) gespeichert sind.
-4. Klicken Sie auf **Hinzufügen**. Wenn das Gateway im Modus mit erhöhten Rechten ausgeführt werden muss, um diese Änderung vorzunehmen, wird dir eine Eingabeaufforderung der Benutzerkontensteuerung (UAC) für erhöhte Rechte angezeigt.
+4. Klicken Sie auf **Hinzufügen**. Wenn das Gateway im Modus mit erhöhten Rechten ausgeführt werden muss, um diese Änderung vorzunehmen, wird dir eine Eingabeaufforderung der Benutzerkontensteuerung (UAC) für erhöhte Rechte angezeigt. Diese Aufforderung wird nur angezeigt, wenn Sie das Windows Admin Center im Desktopmodus ausführen.
 
 In der Liste **Verfügbare Erweiterungen** werden Erweiterungen aus allen registrierten Feeds angezeigt. Du kannst anhand der Spalte **Paketfeed** überprüfen, aus welchem Feed die jeweilige Erweiterung stammt.
 

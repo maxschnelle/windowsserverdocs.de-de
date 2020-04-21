@@ -7,14 +7,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 03/24/2020
+ms.date: 04/14/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 34f5fdb5a2826173edf471fd65248008761863dd
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 016a88999b93d686faff73134a660014fd602765
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80861413"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81279696"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -27,7 +27,26 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 |Benutzergruppe |Version  |
 |-----------|---------|
 |Öffentlich     |1.2.790  |
-|Insider    |1.2.790  |
+|Insider    |1.2.940  |
+
+## <a name="updates-for-version-12940"></a>Updates für Version 1.2.940
+
+*Veröffentlicht am: 14.04.2020*
+
+Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4txZU), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4txZV), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4tM6I)
+
+- Es wurden neue Optionen für Anzeigeeinstellungen für Desktopverbindungen hinzugefügt, die beim Klicken mit der rechten Maustaste auf ein Desktopsymbol im Connection Center verfügbar sind.
+  - Es gibt jetzt drei Anzeigekonfigurationsoptionen: **Alle Displays**, **Einzeldisplay** und **Displays auswählen**.
+  - Es werden jetzt nur die verfügbaren Einstellungen angezeigt, wenn eine Anzeigekonfiguration ausgewählt ist.
+  - Im Modus „Display auswählen“ ermöglicht eine neue Option **Auf aktuelle Displays maximieren** Ihnen, die für die Sitzung verwendeten Displays dynamisch zu ändern, ohne die Verbindung erneut herstellen zu müssen. Ist diese Option aktiviert, bewirkt das Maximieren der Sitzung, dass diese auf allen betroffenen Displays im Vollbildmodus angezeigt wird.
+  - Eine neue Option **Einzeldisplay bei Fenstermodus** für alle Displays und „Displays auswählen“-Modi wurde hinzugefügt. Diese Option schaltet Ihre Sitzung automatisch auf ein einziges Display um, wenn Sie den Vollbildmodus verlassen, und kehrt automatisch zu mehreren Displays zurück, wenn Sie das Fenster maximieren.
+- Dem Systemmenü, das angezeigt wird, wenn Sie mit der rechten Maustaste auf die Titelleiste einer im Fenstermodus angezeigten Desktopsitzung klicken, wurde eine neue **Anzeigeeinstellungen**-Gruppe hinzugefügt. Auf diese Weise können Sie einige Einstellungen während einer Sitzung dynamisch ändern. Sie können z. B. die neuen Einstellungen **Einzeldisplaymodus bei Fenstermodus** und **Auf aktuelle Displays maximieren** anzeigen.
+- Wenn Sie den Vollbildschirm verlassen, kehrt das Sitzungsfenster an seine ursprüngliche Position zurück, an der Sie zum ersten Mal in den Vollbildmodus gewechselt sind.
+- Das Zurücksetzen Ihrer Benutzerdaten über die Seite „Info“ leitet Sie jetzt nach Abschluss des Vorgangs zum Connection Center um, anstatt den Client zu schließen.
+- Es wurden einige Barrierefreiheitsprobleme bei der Registerkartennavigation und Sprachausgabe behoben.
+- Ein Problem mit Flackern und Schrumpfen beim Ziehen eines Desktopsitzungsfensters zwischen Displays mit unterschiedlichen Skalierungsfaktoren wurde behoben.
+- Ein Fehler, der beim Umleiten von Kameras aufgetreten ist, wurde korrigiert.
+- Mehrere Ursachen für Abstürze wurden beseitigt, um die Zuverlässigkeit zu verbessern.
 
 ## <a name="updates-for-version-12790"></a>Updates für Version 1.2.790
 

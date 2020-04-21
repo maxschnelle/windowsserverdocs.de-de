@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: 110e1442b6660c24dc1e3fd9649138390117ffd6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cb4e3ab2bf98a0c2d51483642fe5388e468dbbb4
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406812"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269267"
 ---
 # <a name="what-is-windows-admin-center"></a>Was ist Windows Admin Center?
 
@@ -27,7 +27,7 @@ Windows Admin Center ist die moderne Weiterentwicklung von integrierten Verwaltu
 
 ## <a name="how-does-windows-admin-center-work"></a>Funktionsweise von Windows Admin Center
 
-Windows Admin Center wird in einem Webbrowser ausgeführt und dient zur Verwaltung von Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows 10 und weiteren Versionen über das unter Windows Server 10 oder Windows 10 installierte **Windows Admin Center-Gateway**. Das Gateway verwaltet Server unter Verwendung von Remote-PowerShell und WMI über WinRM. Das Gateway ist als einzelnes MSI-Paket im Lieferumfang von Windows Admin Center enthalten und kann [hier](https://aka.ms/windowsadmincenter) heruntergeladen werden.
+Windows Admin Center wird in einem Webbrowser ausgeführt und dient zur Verwaltung von Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows 10 und weiteren Versionen über das unter Windows Server 10 oder in Domänen eingebundenen Windows 10-Instanzen installierte **Windows Admin Center-Gateway**. Das Gateway verwaltet Server unter Verwendung von Remote-PowerShell und WMI über WinRM. Das Gateway ist als einzelnes MSI-Paket im Lieferumfang von Windows Admin Center enthalten und kann [hier](https://aka.ms/windowsadmincenter) heruntergeladen werden.
 
 Wenn das Windows Admin Center-Gateway im DNS veröffentlicht und ihm Zugriff durch entsprechende Unternehmensfirewalls gewährt wurde, kannst du damit unabhängig vom Standort über Microsoft Edge oder Google Chrome eine Verbindung mit deinen Servern herstellen und diese verwalten.
 

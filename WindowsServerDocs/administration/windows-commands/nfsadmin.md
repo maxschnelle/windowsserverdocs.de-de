@@ -1,28 +1,24 @@
 ---
 title: nfsadmin
-description: 'Windows-Befehle Thema ****- '
-ms.custom: na
+description: Windows-Befehle Thema ****-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7375b2cf-c6b8-45b5-abf6-6c10e462defd
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2658cf610e4328d382b9224f4230d68a022d1cc3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6134ac7737cd761e752082b336e851dead23bd14
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373219"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838983"
 ---
 # <a name="nfsadmin"></a>nfsadmin
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Mit **nfsadmin** können Sie Server für NFS und Client für NFS verwalten.  
   
@@ -109,7 +105,7 @@ Legt die Datei fest, die von *File* als Überwachungs Datei angegeben wird. Der 
 Größe **\=** \=*Größe*  
 Legt die *Größe* als maximale Größe der Überwachungs Datei in Megabyte fest. Die maximale Standardgröße beträgt 7 MB.  
   
-**Audit\=** \[ **\+** | **\-** \] **\[** \+ **|** \- **\]** \[\+| **\-** \] **\[** \+ **|** \- **\]** \[ **\+** | **\-\]** **Löschen** \[ **\+** | **\-** \] **\[** \+ **|** \- **\]**  
+**\=** \[ **\+** | **\-** **\]\[\+** | **\-** \] **\[** \+ **|\-** \]\[ **\+** |\-\]\[\+|\-**create**\]\[ **\+** | **\-** \] **\[\+** **|\-** \]**locking** **\+** **\-** **all** **\+** **\+** **write** **\+** **\-**  
 Gibt die zu protokollierenden Ereignisse an. Um mit der Protokollierung eines Ereignisses zu beginnen, geben Sie ein Pluszeichen ein, \( **\+** vor dem Ereignis Namen\). Wenn Sie das Protokollieren eines Ereignisses beenden möchten, geben Sie ein Minuszeichen \( **\-** vor dem Ereignis Namen\). Wenn das Vorzeichen weggelassen wird, wird das Pluszeichen angenommen. Verwenden Sie nicht **all** mit einem anderen Ereignis Namen.  
   
 **Sperr Zeitraum\=** <em>Sekunden</em>  
@@ -163,7 +159,7 @@ DWORD ObCaseInsensitive
 **ntsscase\=** {**Lower** | **Upper** | **Preserve**}  
 Gibt an, ob die Groß-/Kleinschreibung von Zeichen in den Namen von Dateien im NTFS-Dateisystem in Kleinbuchstaben, Großbuchstaben oder in der im Verzeichnis gespeicherten Form zurückgegeben wird. Die Standardeinstellung ist " **Preserve**". Diese Einstellung kann nicht geändert werden, wenn **casesensitivelookups** auf **Yes**festgelegt ist.  
   
-*Name der namens* Gruppe  
+**creategroup** *Name der namens* Gruppe  
 erstellt eine neue Clientgruppe unter Angabe des angegebenen *namens*.  
   
 **Parameter List Groups**  
@@ -199,7 +195,7 @@ Beendet den Client für den NFS-Dienst.
 Gibt allgemeine Einstellungen für Client für NFS an. Sie müssen mindestens eine der folgenden Optionen mit dem **Konfigurations** Befehls Argument angeben:  
   
 **File Access-\=** <em>Modus</em>  
--   Gibt den Standard Berechtigungs Modus für Dateien an, die auf Network File System \(NFS\)-Servern erstellt werden. Das *Mode* -Argument besteht aus drei Ziffern zwischen 0 und 7 \(inklusiven\) die die Standard Berechtigungen darstellen, die der Benutzer, die Gruppe und andere \(jeweils\)erteilt haben. Die Ziffern werden wie folgt in UNIX-\-Format Berechtigungen übersetzt: 0\=None, 1\=x, 2\=w, 3\=WX, 4\=r, 5\=RX, 6\=RW und 7\=rwx. Beispielsweise erteilt **File Access\=750** dem Besitzer, der RX-Berechtigung für die Gruppe und keinen Zugriffsberechtigungen für andere Benutzer die rwx-Berechtigung.  
+-   Gibt den Standard Berechtigungs Modus für Dateien an, die auf Network File System \(NFS\)-Servern erstellt werden. Das *Mode* -Argument besteht aus drei Ziffern zwischen 0 und 7 \(inklusiven\) die die Standard Berechtigungen darstellen, die der Benutzer, die Gruppe und andere \(jeweils\)erteilt haben. Die Ziffern werden wie folgt in UNIX-\--Format Berechtigungen übersetzt: 0\=keine, 1\=x, 2\=w, 3\=WX, 4\=r, 5\=RX, 6\=RW und 7\=rwx. Beispielsweise erteilt **File Access\=750** dem Besitzer, der RX-Berechtigung für die Gruppe und keinen Zugriffsberechtigungen für andere Benutzer die rwx-Berechtigung.  
   
 **mapsvr-\=** <em>Server</em>  
 Legt *Server* als Benutzernamenzuordnung Server für den Client für NFS fest. Obwohl diese Option weiterhin für die Kompatibilität mit früheren Versionen unterstützt wird, sollten Sie stattdessen das Dienstprogramm **sfuadmin** verwenden.  
@@ -208,7 +204,7 @@ Legt *Server* als Benutzernamenzuordnung Server für den Client für NFS fest. O
 Gibt den Standard Einstellungstyp an. Bei einer festen Bereitstellung wird der Client für NFS so lange wiederholt, bis er erfolgreich ausgeführt wird. Für eine weiche Bereitstellung gibt Client für NFS einen Fehler an die aufrufende Anwendung zurück, nachdem der Aufruf so oft wie durch die **Wiederholungs** Option angegeben wurde.  
   
 **Wiederholungs\=** <em>Nummer</em>  
-Gibt an, wie oft versucht werden soll, eine Verbindung für eine weiche Feststellung herzustellen. Dieser Wert muss zwischen 1 und 10 (einschließlich) liegen. Der Standardwert ist 1.  
+Gibt an, wie oft versucht werden soll, eine Verbindung für eine weiche Feststellung herzustellen. Dieser Wert muss zwischen 1 und 10 (einschließlich) liegen. Der Standard ist 1.  
   
 **Timeout\=** <em>Sekunden</em>  
 Gibt die Anzahl der Sekunden an, die auf eine Verbindung \(Remote Prozedur Aufruf\)gewartet werden soll. Dieser Wert muss 0,8, 0,9 oder eine ganze Zahl zwischen 1 und 60 einschließlich sein. Der Standardwert ist 0,8.  
@@ -236,7 +232,7 @@ Stellt die folgenden Leistungseinstellungen in den Standardwerten wieder her:
 -   **wsize**  
   
 **File Access-\=** <em>Modus</em>  
-Gibt den Standard Berechtigungs Modus für Dateien an, die auf Network File System \(NFS\)-Servern erstellt werden. Das *Mode* -Argument besteht aus drei Ziffern zwischen 0 und 7 \(inklusiven\) die die Standard Berechtigungen darstellen, die der Benutzer, die Gruppe und andere \(jeweils\)erteilt haben. Die Ziffern werden wie folgt in UNIX-\-Format Berechtigungen übersetzt: 0\=None, 1\=x, 2\=w, 3\=WX, 4\=r, 5\=RX, 6\=RW und 7\=rwx. Beispielsweise erteilt **File Access\=750** dem Besitzer, der RX-Berechtigung für die Gruppe und keinen Zugriffsberechtigungen für andere Benutzer die rwx-Berechtigung.  
+Gibt den Standard Berechtigungs Modus für Dateien an, die auf Network File System \(NFS\)-Servern erstellt werden. Das *Mode* -Argument besteht aus drei Ziffern zwischen 0 und 7 \(inklusiven\) die die Standard Berechtigungen darstellen, die der Benutzer, die Gruppe und andere \(jeweils\)erteilt haben. Die Ziffern werden wie folgt in UNIX-\--Format Berechtigungen übersetzt: 0\=keine, 1\=x, 2\=w, 3\=WX, 4\=r, 5\=RX, 6\=RW und 7\=rwx. Beispielsweise erteilt **File Access\=750** dem Besitzer, der RX-Berechtigung für die Gruppe und keinen Zugriffsberechtigungen für andere Benutzer die rwx-Berechtigung.  
   
 Wenn Sie keine Befehls Option oder ein Argument angeben, zeigt der **NF Sadmin-Client** den aktuellen Client für NFS-Konfigurationseinstellungen an.  
   
