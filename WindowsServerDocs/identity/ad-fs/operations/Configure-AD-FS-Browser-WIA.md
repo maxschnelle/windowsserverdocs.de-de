@@ -19,7 +19,7 @@ ms.locfileid: "80859933"
 
 Standardmäßig ist die integrierte Windows-Authentifizierung (WIA) in Active Directory-Verbunddienste (AD FS) (AD FS) in Windows Server 2012 R2 für Authentifizierungsanforderungen aktiviert, die im internen Netzwerk (Intranet) der Organisation für alle Anwendungen erfolgen, die einen Browser für die Authentifizierung verwenden.
 
-AD FS 2016 verfügt jetzt über eine verbesserte Standardeinstellung, die es dem Edge-Browser ermöglicht, WIA zu tun, während er nicht gleichzeitig Windows Phone abfängt:
+AD FS 2016 verfügt jetzt über eine verbesserte Standardeinstellung, die es dem Microsoft Edge-Browser ermöglicht, WIA zu tun, während er nicht gleichzeitig Windows Phone abfängt:
 
     =~Windows\s*NT.*Edge
 

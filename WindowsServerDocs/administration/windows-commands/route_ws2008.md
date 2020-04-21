@@ -1,28 +1,24 @@
 ---
 title: route_ws2008
 description: Erfahren Sie, wie Einträge in der lokalen IP-Routing Tabelle geändert und angezeigt werden.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: afcd666c-0cef-47c2-9bcc-02d202b983b3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: cc68dd5634ae4832376924c1678dc10a0427f2b2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a0287fed8452cb155ea858ff0a544962dd765c3a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71371424"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835603"
 ---
 # <a name="route_ws2008"></a>route_ws2008
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt die Einträge in der lokalen IP-Routing Tabelle an und ändert Sie. Wird ohne Parameter verwendet, die **Route** zeigt Hilfe an.   
 
@@ -31,13 +27,13 @@ Zeigt die Einträge in der lokalen IP-Routing Tabelle an und ändert Sie. Wird o
 route [/f] [/p] [<Command> [<Destination>] [mask <Netmask>] [<Gateway>] [metric <Metric>]] [if <Interface>]]  
 ```  
 
-### <a name="parameters"></a>Parameter  
+#### <a name="parameters"></a>Parameter  
 
 |Parameter|Beschreibung|  
 |-------|--------|  
-|/f|Löscht die Routing Tabelle aller Einträge, die keine Host Routen sind (Routen mit einer Netzmaske von 255.255.255.255), der Loopback-Netzwerk Route (Routen mit dem Ziel 127.0.0.0 und einer Netzmaske von 255.0.0.0) oder einer Multicast Route (Routen mit dem Ziel 224.0.0.0). und eine Netzwerk Maske von 240.0.0.0). Wenn dies in Verbindung mit einem der Befehle (z. b. "hinzufügen", "ändern" oder "Löschen") verwendet wird, wird die Tabelle vor dem Ausführen des Befehls gelöscht.|  
+|/f|Löscht die Routing Tabelle aller Einträge, die keine Host Routen sind (Routen mit einer Netzmaske von 255.255.255.255), der Loopback-Netzwerk Route (Routen mit dem Ziel 127.0.0.0 und einer Netzmaske von 255.0.0.0) oder einer Multicast Route (Routen mit dem Ziel 224.0.0.0 und einer Netzmaske von 240.0.0.0). Wenn dies in Verbindung mit einem der Befehle (z. b. "hinzufügen", "ändern" oder "Löschen") verwendet wird, wird die Tabelle vor dem Ausführen des Befehls gelöscht.|  
 |/p|Bei Verwendung mit dem Add-Befehl wird die angegebene Route der Registrierung hinzugefügt und zum Initialisieren der IP-Routing Tabelle verwendet, wenn das TCP/IP-Protokoll gestartet wird. Standardmäßig werden hinzugefügte Routen nicht beibehalten, wenn das TCP/IP-Protokoll gestartet wird. Bei Verwendung mit dem Print-Befehl wird die Liste der persistenten Routen angezeigt. Dieser Parameter wird für alle anderen Befehle ignoriert. Persistente Routen werden am Registrierungs Speicherort **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\tcpip\parameters\persistentroutes**gespeichert.|  
-|\<Befehl >|Gibt den Befehl an, den Sie ausführen möchten. In der folgenden Tabelle sind die gültigen Befehle aufgeführt:<br /><br />-   **hinzufügen:** fügt eine Route hinzu.<br />-   **Änderung:** ändert eine vorhandene Route.<br />-   **delete:** löscht eine Route oder Routen.<br />-   **Print:** druckt eine Route oder Routen.|  
+|\<Befehl >|Gibt den Befehl an, den Sie ausführen möchten. In der folgenden Tabelle sind die gültigen Befehle aufgeführt:<p>-   **hinzufügen:** fügt eine Route hinzu.<br />-   **Änderung:** ändert eine vorhandene Route.<br />-   **delete:** löscht eine Route oder Routen.<br />-   **Print:** druckt eine Route oder Routen.|  
 |\<Ziel >|Gibt das Netzwerk Ziel der Route an. Bei dem Ziel kann es sich um eine IP-Netzwerkadresse (bei der die Hostbits der Netzwerkadresse auf 0 festgelegt sind), eine IP-Adresse für eine Hostroute oder 0.0.0.0 für die Standardroute handeln.|  
 |Maske \<Netzmaske >|Gibt das Netzwerk Ziel der Route an. Bei dem Ziel kann es sich um eine IP-Netzwerkadresse (bei der die Hostbits der Netzwerkadresse auf 0 festgelegt sind), eine IP-Adresse für eine Hostroute oder 0.0.0.0 für die Standardroute handeln.|  
 |\<Gateway >|Gibt die IP-Adresse für den Weiterleitungs-oder nächsten Hop an, über die die vom Netzwerk Ziel und der Subnetzmaske definierten Adressen erreichbar sind. Bei lokal angehängten Subnetzrouten ist die Gatewayadresse die IP-Adresse, die der Schnittstelle zugewiesen ist, die mit dem Subnetz verbunden ist. Bei Remote Routen, die auf einem oder mehreren Routern verfügbar sind, ist die Gatewayadresse eine direkt erreichbare IP-Adresse, die einem benachbarten Router zugewiesen wird.|  
@@ -48,12 +44,12 @@ route [/f] [/p] [<Command> [<Destination>] [mask <Netmask>] [<Gateway>] [metric 
 ## <a name="remarks"></a>Hinweise  
 - Große Werte in der Spalte **Metrik** der Routing Tabelle sind das Ergebnis, dass TCP/IP die Metrik für Routen in der Routing Tabelle basierend auf der Konfiguration von IP-Adresse, Subnetzmaske und Standard Gateway für jede LAN-Schnittstelle automatisch ermitteln kann. Die automatische Bestimmung der Schnittstellen Metrik, die standardmäßig aktiviert ist, bestimmt die Geschwindigkeit der einzelnen Schnittstellen und passt die Metriken der Routen für jede Schnittstelle an, sodass mit der schnellsten Schnittstelle die Routen mit der niedrigsten Metrik erstellt werden. Deaktivieren Sie zum Entfernen der großen Metriken die automatische Ermittlung der Schnittstellen Metrik aus den erweiterten Eigenschaften des TCP/IP-Protokolls für jede LAN-Verbindung.  
 - Namen können für das *Ziel* verwendet werden, wenn ein entsprechender Eintrag in der lokalen Netzwerkdatei vorhanden ist, die im Ordner <strong>systemroot\system32\drivers\\</strong>usw. gespeichert ist. Namen können für das *Gateway* verwendet werden, sofern Sie über standardmäßige Host namens Auflösungs Techniken wie Domain Name System (DNS)-Abfragen in eine IP-Adresse aufgelöst werden können, die im Ordner <strong>systemroot\system32\drivers\\</strong>usw. gespeicherte Datei local Hosts und die NetBIOS-Namensauflösung.  
-- Wenn der Befehl **gedruckt** oder **gelöscht**wird, kann der Gatewayparameter ausgelassen werden, und Platzhalter können für das Ziel und das Gateway verwendet werden. Der *Zielwert* kann ein Platzhalter Wert sein, der durch ein Sternchen (*) angegeben wird. Wenn das angegebene Ziel ein Sternchen (\*) oder ein Fragezeichen (?) enthält, wird es als Platzhalter behandelt, und nur übereinstimmende Ziel Routen werden gedruckt oder gelöscht. Das Sternchen entspricht einer beliebigen Zeichenfolge, und das Fragezeichen entspricht einem beliebigen einzelnen Zeichen. Beispiel: 10.\*. 1, 192,168.\*, 127.\*und \*224\* sind alle gültigen Verwendungen des Sternchen-Platzhalters.  
+- Wenn der Befehl **gedruckt** oder **gelöscht**wird, kann der Gatewayparameter ausgelassen werden, und Platzhalter können für das Ziel und das Gateway verwendet werden. *Gateway* Der *Zielwert* kann ein Platzhalter Wert sein, der durch ein Sternchen (*) angegeben wird. Wenn das angegebene Ziel ein Sternchen (\*) oder ein Fragezeichen (?) enthält, wird es als Platzhalter behandelt, und nur übereinstimmende Ziel Routen werden gedruckt oder gelöscht. Das Sternchen entspricht einer beliebigen Zeichenfolge, und das Fragezeichen entspricht einem beliebigen einzelnen Zeichen. Beispiel: 10.\*. 1, 192,168.\*, 127.\*und \*224\* sind alle gültigen Verwendungen des Sternchen-Platzhalters.  
 - Wenn Sie eine ungültige Kombination eines Werts für Ziel und Subnetzmaske (netmask) verwenden, wird die Fehlermeldung "Route: Ungültige Gatewayadresse netmask" angezeigt. Diese Fehlermeldung wird angezeigt, wenn das Ziel ein oder mehrere Bits enthält, die in Bitpositionen auf 1 festgelegt sind, wenn das entsprechende Subnetzmaske-Bit auf 0 festgelegt ist. Um diese Bedingung zu testen, können Sie das Ziel und die Subnetzmaske mithilfe der Binär Notation Ausdrücken. Die Subnetzmaske in der binären Notation besteht aus einer Reihe von 1 Bits, die den Netzwerk Adress Teil des Ziels darstellen, und einer Reihe von 0 Bits, die den Host Adress Teil des Ziels darstellt. Überprüfen Sie, ob im Ziel Bits vorhanden sind, die für den Teil des Ziels, der die Host Adresse ist (wie durch die Subnetzmaske definiert), auf 1 festgelegt sind.  
 - Der **/p** -Parameter wird nur auf dem Routen Befehl für Windows NT 4,0, Windows 2000, Windows Millennium Edition, Windows XP und Windows Server 2003 unterstützt. Dieser Parameter wird vom **Routen** Befehl für Windows 95 oder Windows 98 nicht unterstützt.  
 - Dieser Befehl ist nur verfügbar, wenn das TCP/IP-Protokoll (Internet Protocol) als Komponente in den Eigenschaften eines Netzwerkadapters in Netzwerkverbindungen installiert ist.  
 
-## <a name="BKMK_Examples"></a>Beispiele  
+## <a name="examples"></a><a name="BKMK_Examples"></a>Beispiele  
 Geben Sie Folgendes ein, um den gesamten Inhalt der IP-Routing Tabelle anzuzeigen:  
 ```  
 route print  
@@ -96,4 +92,4 @@ route change 10.41.0.0 mask 255.255.0.0 10.27.0.25
 ```  
 
 ## <a name="additional-references"></a>Weitere Verweise  
--   [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
+-   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

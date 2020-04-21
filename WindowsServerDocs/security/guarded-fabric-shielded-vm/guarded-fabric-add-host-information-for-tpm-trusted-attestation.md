@@ -22,7 +22,7 @@ ms.locfileid: "80856933"
 Für den TPM-Modus erfasst der Fabric-Administrator drei Arten von Hostinformationen, die jeweils der HGS-Konfiguration hinzugefügt werden müssen:
 
 - Eine TPM-Kennung (ekpub) für jeden Hyper-V-Host
-- Code Integritäts Richtlinien, eine weiße Liste zulässiger Binärdateien für die Hyper-V-Hosts
+- Code Integritäts Richtlinien, eine  Liste zulässiger Binärdateien für die Hyper-V-Hosts
 - Eine TPM-Baseline (Start Messungen), die eine Gruppe von Hyper-V-Hosts darstellt, die auf derselben Hardware Klasse ausgeführt werden
     
 AF: der Fabric-Administrator erfasst die Informationen und fügt Sie der HGS-Konfiguration hinzu, wie im folgenden Verfahren beschrieben.

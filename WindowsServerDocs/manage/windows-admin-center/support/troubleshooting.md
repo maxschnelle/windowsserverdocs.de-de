@@ -191,9 +191,9 @@ netsh http delete sslcert ipport=0.0.0.0:443
 netsh http delete urlacl url=https://+:443/
 ```
 
-## <a name="azure-features-dont-work-properly-in-edge"></a>Azure-Features funktionieren in Edge nicht ordnungsgemäß
+## <a name="azure-features-dont-work-properly-in-edge"></a>Azure-Features funktionieren in Microsoft Edge nicht ordnungsgemäß
 
-Edge hat [bekannte Probleme](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Known-issues-on-Edge) im Zusammenhang mit Sicherheitszonen, die sich auf die Azure-Anmeldung im Windows Admin Center auswirken. Wenn Sie Probleme bei der Verwendung von Azure-Features bei der Verwendung von Edge haben, versuchen Sie, https://login.microsoftonline.com, https://login.live.com und die URL Ihres Gateways als vertrauenswürdige Sites und zulässige Sites für die Einstellungen für den Popup Blocker im Client seitigen Browser hinzuzufügen. 
+Microsoft Edge hat [bekannte Probleme](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Known-issues-on-Edge) im Zusammenhang mit Sicherheitszonen, die sich auf die Azure-Anmeldung im Windows Admin Center auswirken. Wenn Sie Probleme bei der Verwendung von Azure-Features bei der Verwendung von Microsoft Edge haben, versuchen Sie, https://login.microsoftonline.com, https://login.live.com und die URL Ihres Gateways als vertrauenswürdige Sites und zulässige Sites für die Einstellungen für den Popup Blocker im Client seitigen Browser hinzuzufügen. 
 
 Dazu gehen Sie folgendermaßen vor:
 1. **Internet Optionen** im Windows-Startmenü suchen
