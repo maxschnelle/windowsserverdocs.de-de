@@ -10,10 +10,10 @@ author: heidilohr
 manager: lizross
 ms.date: 02/19/2020
 ms.openlocfilehash: 44aa465773674625fa392a644ffb188140138bde
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "77519595"
 ---
 # <a name="optimizing-windows-10-version-1909-for-a-virtual-desktop-infrastructure-vdi-role"></a>Optimieren von Windows 10, Version 1909, für eine VDI-Rolle (Virtual Desktop Infrastructure)
@@ -464,7 +464,7 @@ Die folgenden Einstellungen wurden ausgewählt, weil sie nicht mit einer Einstel
 | *Microsoft Edge | Microsoft-Kompatibilitätsliste zulassen |  | Deaktiviert. Wenn du diese Einstellung deaktivierst, wird die Microsoft-Kompatibilitätsliste während der Browsernavigation nicht verwendet. |
 | *Microsoft Edge | Webinhalte auf der Seite „Neuer Tab“ zulassen |  | Deaktiviert. Weist Microsoft Edge an, eine neue Registerkarte ohne Inhalt zu öffnen. |
 | *Microsoft Edge | AutoAusfüllen konfigurieren |  | Deaktiviert. Deaktiviert automatisches Ausfüllen der Adressleiste. |
-| *Microsoft Edge | DNT konfigurieren |  | Aktiviert. Wenn du diese Einstellung aktivierst, werden Do Not Track-Anforderungen (nicht verfolgen) immer an Websites gesendet, die Nachverfolgungsinformationen anfordern. |
+| *Microsoft Edge | DNT konfigurieren |  | Aktiviert. Wenn Sie diese Einstellung aktivieren, werden Do Not Track-Anforderungen (nicht verfolgen) immer an Websites gesendet, die Nachverfolgungsinformationen anfordern. |
 | *Microsoft Edge | Kennwort-Manager konfigurieren |  | Deaktiviert. Wenn du diese Einstellung deaktivierst, können Mitarbeiter mithilfe des Kennwort-Managers ihr Kennwort nicht lokal speichern. |
 | *Microsoft Edge | Suchvorschläge in Adressleiste konfigurieren |  | Deaktiviert. Benutzer sehen keine Suchvorschläge in der Adressleiste von Microsoft Edge. |
 | *Microsoft Edge | Startseiten konfigurieren |  | Aktiviert. Wenn du diese Einstellung aktivierst, kannst du mindestens eine Startseite konfigurieren. Ist diese Einstellung aktiviert, musst du den Seiten auch URLs hinzufügen. Trenne dabei mehrere Seiten durch spitze Klammern, und verwende folgendes Format: <support.contoso.com><support.microsoft.com> Windows 10, Version 1703 oder höher: Wenn du keinen Datenverkehr an Microsoft senden möchtest, kannst du den Wert <about:blank> unabhängig davon verwenden, ob das Gerät mit einer Domäne verbunden ist oder nicht, wenn es die einzige konfigurierte URL ist. |
@@ -686,7 +686,7 @@ Einige der unter **Ereignisablaufverfolgungssitzungen** und **Startereignis-Erei
 
 4. Klicke auf das Kontrollkästchen **Aktiviert**, um das Häkchen zu entfernen.
 
-5. Klicke auf **OK**.
+5. Klicken Sie auf **OK**.
 
 Für die folgenden Systemablaufverfolgungen kommt eine Deaktivierung bei der Verwendung von VDI infrage:
 

@@ -9,10 +9,10 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 6db73f963766e480f8ec478657354a51bcb1f456
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71385819"
 ---
 # <a name="move-disks-to-another-computer"></a>Verschieben von Datenträgern auf einen anderen Computer
@@ -63,7 +63,7 @@ Deinstalliere mithilfe des Geräte-Managers die Datenträger, die verschoben wer
 3. Klicke mit der rechten Maustaste auf einen Datenträger mit der Kennzeichnung **Fremd**. 
 4. Klicke auf **Fremde Datenträger importieren**, und befolge die Bildschirmanweisungen.
 
-## <a name="additional-considerations"></a>Weitere Aspekte
+## <a name="additional-considerations"></a>Weitere Überlegungen
 
 -   Beim Verschieben auf einen anderen Computer erhalten Basisvolumes den nächsten verfügbaren Laufwerkbuchstaben auf dem Computer. 
 -   Dynamische Volumes behalten den Laufwerkbuchstaben, den sie auf dem vorherigen Computer hatten. War einem dynamischen Volume auf dem vorherigen Computer kein Laufwerkbuchstabe zugewiesen, erhält es beim Verschieben auf einen anderen Computer keinen Laufwerkbuchstaben. Wird der Laufwerkbuchstabe auf dem Computer bereits verwendet, auf den das Volume verschoben wird, erhält das Volume den nächsten verfügbaren Laufwerkbuchstaben.

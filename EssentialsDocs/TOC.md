@@ -83,7 +83,7 @@
 ### [Vorbereiten des Quellservers für die Migration zu Windows Server Essentials](migrate/Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md)
 ### [Von Windows Server Essentials Best Practices Analyzer (BPA) verwendete Regeln](migrate/Rules-used-by-the-Windows-Server-Essentials-Best-Practices-Analyzer--BPA--Tool.md)
 ### [Ausführen des Best Practices Analyzer für Windows Server Essentials](migrate/Run-the-Windows-Server-Essentials-Best-Practices-Analyzer.md)
-### [Schritt 1: Vorbereiten des Quellservers für die Migration zu Windows Server Essentials](migrate/Step-1--Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md)
+### [Schritt 1: Vorbereiten des Quellservers für die Migration zu Windows Server Essentials](migrate/Step-1--Prepare-your-Source-Server-for-Windows-Server-Essentials-migration.md)
 ### [Schritt 2: Installieren von Windows Server Essentials als neuen Replikatsdomänencontroller](migrate/Step-2--Install-Windows-Server-Essentials-as-a-new-replica-domain-controller.md)
 ### [Schritt 3: Hinzufügen von Computern zum neuen Windows Server Essentials-Server](migrate/Step-3--Join-computers-to-the-new-Windows-Server-Essentials-server.md)
 ### [Schritt 4: Verschieben von Einstellungen und Daten auf den Zielserver für die Migration zu Windows Server Essentials](migrate/Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md)

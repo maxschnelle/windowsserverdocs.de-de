@@ -66,13 +66,11 @@
 #### [Verwenden eines benutzerdefinierten Gateway-Plug-Ins in der Toolerweiterung](extend/guides/use-custom-gateway-plugin.md)
 #### [Erstellen eines Verbindungsanbieters](extend/guides/create-connection-provider.md)
 #### [Ändern des Stammnavigationsverhaltens](extend/guides/modify-root-navigation.md)
-#### [Änderungen am Clusterverbindungstyp in Windows Admin Center v1909](extend/guides/cluster-connection-change-wac-1909.md)
 #### [Steuern der Sichtbarkeit des Tools](extend/guides/dynamic-tool-display.md)
 #### [Zeichenfolgen und Lokalisierung](extend/guides/strings-localization.md)
 #### [UI-Text- und Design-Styleguide](extend/guides/ui-text-style-guide.md)
 #### [Verwenden von PowerShell in Erweiterungen](extend/guides/powershell.md)
 #### [Anleitung zu CSS-Symbolen](extend/guides/cssicons.md)
-#### [Migrieren zum neuesten SDK](extend/guides/migration-guide-0_1-1_0.md)
 #### [Aktivieren des Erweiterungsermittlungsbanners](extend/guides/extension-discovery-banner.md)
 ### [Veröffentlichen von Erweiterungen](extend/publish-extensions.md)
 ### Fallstudien

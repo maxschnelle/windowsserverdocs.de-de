@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 12/02/2019
 ms.prod: windows-server
-ms.openlocfilehash: 4ce42420430e9a12dd6123ec18c9ded25abc97bb
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 185902d332e2036eace5b0b332eabd2803b5eb00
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323542"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "81650116"
 ---
 # <a name="windows-admin-center-frequently-asked-questions"></a>Häufig gestellte Fragen zu Windows Admin Center
 
@@ -150,7 +150,7 @@ Es stehen zwei Versionen von Windows Admin Center zum Download zur Verfügung:
 ### <a name="windows-admin-center-preview"></a>Windows Admin Center – Vorschau
 
 * Dies ist die richtige Version für IT-Administratoren, die die neuesten und tollsten Features in regelmäßiger Folge erhalten möchten. Es ist unser Ziel, etwa monatlich Updatereleases zur Verfügung zu stellen. Die Kernplattform ist weiterhin produktionsgeeignet, und die Lizenz erteilt Nutzungsrechte für die Produktion. Beachten Sie jedoch, dass Sie mit der Einführung neuer Tools und Funktionen rechnen müssen, die eindeutig als VORSCHAU gekennzeichnet sind und zur Bewertung und für Tests geeignet sind.
-* Um die neueste Insider Preview-Version zu erhalten, können registrierte Insider die Windows Admin Center-Vorschauversion direkt von der [Downloadseite für Windows Server Insider Preview](https://www.microsoft.com/software-download/windowsinsiderpreviewserver) über die Dropdownliste „Weitere Downloads“ herunterladen. Wenn Sie noch nicht als Insider registriert sind, lesen Sie [Erste Schritte mit Windows Server](https://insider.windows.com/en-us/for-business-getting-started-server/) auf dem Windows Insiders for Business-Portal.
+* Um die neueste Insider Preview-Version zu erhalten, können registrierte Insider die Windows Admin Center-Vorschauversion direkt von der [Downloadseite für Windows Server Insider Preview](https://microsoft.com/en-us/software-download/windowsinsiderpreviewserver) über die Dropdownliste „Weitere Downloads“ herunterladen. Wenn Sie noch nicht als Insider registriert sind, lesen Sie [Erste Schritte mit Windows Server](https://insider.windows.com/en-us/for-business-getting-started-server/) auf dem Windows Insiders for Business-Portal.
 
 ## <a name="why-was-windows-admin-center-chosen-as-the-final-name-for-project-honolulu"></a>Warum wurde „Windows Admin Center“ als endgültiger Name für „Projekt Honolulu“ gewählt?
 

@@ -9,10 +9,10 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 6bd97802fbef342520e92a857a1a53acf3e8d7a3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71385937"
 ---
 # <a name="convert-an-mbr-disk-into-a-gpt-disk"></a>Konvertieren eines MBR-Datenträgers in einen GPT-Datenträger
@@ -45,7 +45,7 @@ Führe die folgenden Schritte aus, um einen leeren MBR-Datenträger in einen GPT
 
 2.  Öffne eine Eingabeaufforderung mit erhöhten Rechten, indem du mit der rechten Maustaste auf **Eingabeaufforderung** klickst und dann **Als Administrator ausführen** auswählst.
 
-3. Geben Sie `diskpart` ein. Wenn der Datenträger keine Partitionen oder Volumes enthält, fahre mit Schritt 6 fort.
+3. Geben Sie `diskpart`ein. Wenn der Datenträger keine Partitionen oder Volumes enthält, fahre mit Schritt 6 fort.
 
 4.  Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `list disk`. Notiere die Nummer des Datenträgers, der konvertiert werden soll.
 
@@ -58,7 +58,7 @@ Führe die folgenden Schritte aus, um einen leeren MBR-Datenträger in einen GPT
 
 7.  Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `convert gpt`.
 
-| Wert  | Beschreibung  |
+| Value  | Beschreibung  |
 | ----- | ---- |
 | **list disk** | Zeigt eine Liste der Festplatten und ihre Informationen an, etwa ihre Größe, den verfügbaren freien Speicherplatz, ob es sich um eine Basisfestplatte oder einen dynamischen Datenträger handelt und ob der Datenträger den MBR- oder den GPT-Partitionsstil verwendet. Der mit einem Sternchen (*) gekennzeichnete Datenträger hat den Fokus. |
 | **select disk** *disknumber* | Wählt den angegebenen Datenträger aus und weist ihm den Fokus zu. (*disknumber* ist die Nummer des Datenträgers.) |

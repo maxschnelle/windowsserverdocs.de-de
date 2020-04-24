@@ -1,5 +1,5 @@
 # [Windows-Befehle](windows-commands.md)
-## - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+## [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 ## [Befehle nach Serverrolle](commands-by-server-role.md)
 ### [Druckbefehlsreferenz](print-command-reference.md)
 ### [Dienste für Network File System-Befehlsreferenz](services-for-network-file-system-command-reference.md)

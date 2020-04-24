@@ -9,17 +9,17 @@ ms.author: v-tea
 manager: dcscontentpm
 ms.localizationpriority: medium
 ms.openlocfilehash: 8a5835cd601b2eb327c8605d70bf075e6c8e8414
-ms.sourcegitcommit: 9855d6b59b1f8722f39ae74ad373ce1530da0ccf
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71962996"
 ---
 # <a name="rebuild-the-tokensdat-file"></a>Neuerstellen der Tokens.dat-Datei
 
 Wenn Sie Probleme bei der Windows-Aktivierung behandeln, müssen Sie möglicherweise die Datei „Tokens.dat“ neu erstellen. In diesem Artikel wird ausführlich beschrieben, wie dies geschieht.
 
-## <a name="resolution"></a>Auflösung
+## <a name="resolution"></a>Lösung
 
 Führen Sie die folgenden Schritte aus, um die Tokens.dat-Datei neu zu erstellen:
 

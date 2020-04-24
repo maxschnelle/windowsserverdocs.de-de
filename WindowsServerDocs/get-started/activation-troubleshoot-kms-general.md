@@ -9,10 +9,10 @@ ms.author: v-tea
 manager: dcscontentpm
 ms.localizationpriority: medium
 ms.openlocfilehash: fc673d2c3e1404dbd750d4c0ef05ec6db50017aa
-ms.sourcegitcommit: 9855d6b59b1f8722f39ae74ad373ce1530da0ccf
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/04/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71963076"
 ---
 # <a name="guidelines-for-troubleshooting-the-key-management-service-kms"></a>Richtlinien für die Problembehandlung des Schlüsselverwaltungsdiensts (KMS)
@@ -133,7 +133,7 @@ Wenn du den Support anrufen musst, um eine Problembehandlung bei der Aktivierung
 - **Slmgr.vbs**-Ausgabe des KMS-Hosts und der KMS-Clientsysteme. Unabhängig davon, ob du den Befehl mit „wscript“ oder „cscript“ ausführst, kannst du die Ausgabe mithilfe von STRG+C kopieren und dann in Editor einfügen, um sie an den Supportkontakt zu senden.
 - Ereignisprotokolle sowohl vom KMS-Host (Schlüsselverwaltungsdienst-Protokoll) und den KMS-Clientsystemen (Anwendungsprotokoll).
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 - [Ask the Core Team: #Activation](https://blogs.technet.microsoft.com/askcore/tag/Activation/)
 
 

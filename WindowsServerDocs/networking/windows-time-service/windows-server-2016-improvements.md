@@ -9,10 +9,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
 ms.openlocfilehash: 2723868251f90429fb0ad5e966c9222a6a22ab0c
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "77520704"
 ---
 # <a name="windows-server-2016-improvements"></a>Windows Server 2016-Verbesserungen
@@ -321,7 +321,7 @@ Zur Einhaltung von Bestimmungen für die Zeitablaufverfolgung kannst du w32tm-Pr
 ### <a name="event-logging"></a>Ereignisprotokollierung
 Um das volle Bild zu erhalten, benötigst du auch Ereignisprotokollinformationen. Durch das Erfassen des Systemereignisprotokolls und Filtern nach „Time-Server“, „Microsoft-Windows-Kernel-Boot“, „Microsoft-Windows-Kernel-General“ kannst du eventuell ermitteln, ob andere Einflüsse vorliegen, die die Zeit geändert haben, z. B. Drittanbieter. Diese Protokolle sind möglicherweise erforderlich, um externe Störungen auszuschließen. Eine Gruppenrichtlinie kann Einfluss darauf haben, welche Ereignisprotokolle in das Protokoll geschrieben werden. Weitere Informationen findest du oben im Abschnitt unter „Verwenden von Gruppenrichtlinien“.
 
-### <a name="W32Logging"></a>W32time-Protokollierung
+### <a name="w32time-debug-logging"></a><a name="W32Logging"></a>W32time-Protokollierung
 Um w32tm zu Überwachungszwecken zu aktivieren, aktiviert der folgende Befehl die Protokollierung, die die regelmäßigen Aktualisierungen der Uhr sowie die Quellenuhr anzeigt. Starte den Dienst neu, um die neue Protokollierung zu aktivieren. 
 
 Weitere Informationen findest du unter [Aktivieren der Debugprotokollierung im Windows-Zeitdienst](https://support.microsoft.com/kb/816043).

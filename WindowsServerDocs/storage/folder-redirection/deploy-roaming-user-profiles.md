@@ -9,10 +9,10 @@ manager: brianlic
 ms.date: 06/07/2019
 ms.author: jgerend
 ms.openlocfilehash: 8feed2adb606edfb6068d7fe10c18baf142077ac
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "76822343"
 ---
 # <a name="deploying-roaming-user-profiles"></a>Bereitstellen von Roamingbenutzerprofilen
@@ -120,7 +120,7 @@ So erstellen Sie eine Dateifreigabe unter Windows Server:
 
 1. Wählen Sie im Navigationsbereich des Server-Managers **Datei- und Speicherdienste** aus, und klicken Sie anschließend auf **Freigaben**, um die Seite „Freigaben“ anzuzeigen.
 2. Wählen Sie auf der Kachel „Freigaben“ die Option **Aufgaben** aus, und wählen Sie dann **Neue Freigabe** aus. Der Assistent für neue Freigaben wird angezeigt.
-3. Wählen Sie auf der Seite **Profil auswählen** die Option **SMB-Freigabe – Schnell** aus. Wenn Sie den Ressourcen-Manager für Dateiserver installiert haben und Ordnerverwaltungseigenschaften verwenden, wählen Sie stattdessen **SMB-Freigabe - Erweitert** aus.
+3. Wählen Sie auf der Seite **Profil auswählen** die Option **SMB-Freigabe – Schnell** aus. Wenn Sie den Ressourcen-Manager für Dateiserver installiert haben und Ordnerverwaltungseigenschaften verwenden, wählen Sie stattdessen **SMB-Freigabe – Erweitert** aus.
 4. Wählen Sie auf der Seite **Freigabeort** den Server und das Volume aus, auf dem Sie die Freigabe erstellen möchten.
 5. Geben Sie auf der Seite **Freigabename** einen Namen für die Freigabe ein (z. B. **Benutzerprofile$** ) in dem Feld **Freigabename** .
 

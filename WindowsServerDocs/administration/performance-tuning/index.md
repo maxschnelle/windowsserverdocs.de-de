@@ -8,10 +8,10 @@ ms.author: phstee
 author: phstee
 ms.date: 10/16/2017
 ms.openlocfilehash: f684a87b091ffd95bb65c0b5f3aa0dfc9f405825
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71355039"
 ---
 # <a name="performance-tuning-guidelines-for-windows-server-2016"></a>Richtlinien zur Optimierung der Leistung für Windows Server 2016
@@ -31,7 +31,7 @@ Die Leitfäden zu Leistung und Optimierung für Windows Server 2016 sind in dies
 |[Überlegungen zur Hardwareleistung](hardware/index.md) |[Active Directory-Server](role/active-directory-server/index.md) |[Cache- und Arbeitsspeicherverwaltung](subsystem/cache-memory-management/index.md)|
 |[Überlegungen zum Hardwareenergiebedarf](hardware/power.md)|[Dateiserver](role/file-server/index.md)|[Netzwerksubsystem](../../networking/technologies/network-subsystem/net-sub-performance-top.md)|
 ||[Hyper-V-Server](role/hyper-v-server/index.md)|[Direkte Speicherplätze](subsystem/storage-spaces-direct/index.md)|
-||[Remotedesktopdienste (RDS)](role/remote-desktop/session-hosts.md)|[Software-Defined Networking (SDN)](subsystem/software-defined-networking/index.md)|
+||[Remotedesktopdienste](role/remote-desktop/session-hosts.md)|[Software-Defined Networking (SDN)](subsystem/software-defined-networking/index.md)|
 ||[Webserver](role/web-server/index.md)||
 ||[Windows Server-Container](role/windows-server-container/index.md)||
 

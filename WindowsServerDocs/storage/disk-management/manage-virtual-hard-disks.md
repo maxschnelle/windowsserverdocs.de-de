@@ -9,10 +9,10 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 6ffa7e9dc769b8d8c892d0af1ceae5246df62d3e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71385809"
 ---
 # <a name="manage-virtual-hard-disks-vhd"></a>Verwalten virtueller Festplatten (Virtual Hard Disk, VHD)
@@ -48,7 +48,7 @@ So machst du eine virtuelle Festplatte für die Verwendung verfügbar (entweder 
 
 Wenn du die virtuelle Festplatte trennen möchtest, hebe ihre Verfügbarkeit auf: Klicke mit der rechten Maustaste auf den Datenträger, und wähle **Virtuelle Festplatte trennen** und dann **OK** aus. Beim Trennen einer virtuellen Festplatte wird weder die virtuelle Festplatte noch werden die darauf gespeicherte Daten gelöscht.
 
-## <a name="additional-considerations"></a>Weitere Aspekte
+## <a name="additional-considerations"></a>Weitere Überlegungen
 
 -   Der Pfad zur Angabe des Speicherorts für die virtuelle Festplatte muss vollständig qualifiziert sein und kann sich nicht im Verzeichnis „\\Windows“ befinden.
 -   Die Mindestgröße für eine virtuelle Festplatte beträgt 3 Megabyte (MB).

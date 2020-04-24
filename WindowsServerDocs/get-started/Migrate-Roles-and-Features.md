@@ -11,10 +11,10 @@ ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: 33c1aa654e4c660b4fe2f3305bfaf78b5191220a
-ms.sourcegitcommit: e58e1646ffd75d4a89576d967b2dbbbb84764303
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "70119201"
 ---
 # <a name="migrating-roles-and-features-in-windows-server"></a>Migrieren von Rollen und Features in Windows Server
@@ -25,7 +25,7 @@ Diese Seite enthält Links zu Informationen und Tools, die dich durch den Migrat
 
 Die Migrationshandbücher unterstützen Migrationen von angegebenen Rollen und Features zwischen Servern (keine direkten Upgrades). Sofern in den Anleitungen nicht anders angegeben, werden Migrationen zwischen physischen und virtuellen Computern sowie zwischen vollständigen Windows Server-Installationen und Servern mit Server Core-Installation unterstützt.
 
-## <a name="before-you-begin"></a>Vorbemerkungen
+## <a name="before-you-begin"></a>Vorbereitung
 
 Vergewissere dich vor Beginn der Migration von Rollen und Features, dass Quell- und Zielserver über die neuesten Service Packs verfügen, die für das jeweilige Betriebssystem verfügbar sind. 
 
@@ -47,7 +47,7 @@ Hier findest du die Migrationshandbücher zu Windows Server 2016. Beachte, dass 
 
 Wir empfehlen die Verwendung des [Speichermigrationsdiensts](../storage/storage-migration-service/overview.md) zum Migrieren von Dateiservern zu Windows Server 2019 oder Windows Server 2016.
 
-## <a name="windows-server-2012-r2"></a>Windows Server 2012 R2
+## <a name="windows-server-2012-r2"></a>Windows Server 2012 R2
 
 Führe die Schritte in diesen Handbüchern aus, um Rollen und Features von Servern unter Windows Server 2003, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 oder Windows Server 2012 R2 zu Windows Server 2012 R2 zu migrieren. Windows Server-Migrationstools in Windows Server 2012 R2 unterstützen subnetzübergreifende Migrationen.
 

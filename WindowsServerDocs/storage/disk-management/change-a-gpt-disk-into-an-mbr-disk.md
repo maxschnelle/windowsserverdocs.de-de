@@ -9,10 +9,10 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 5c6efb0697af663b32ce6f0e27634c3962eca492
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71402108"
 ---
 # <a name="convert-a-gpt-disk-into-an-mbr-disk"></a>Konvertieren eines GPT-Datenträgers in einen MBR-Datenträger
@@ -43,7 +43,7 @@ Du kannst einen GPT-Datenträger in einen MBR-Datenträger ändern, sofern der D
 
 2.  Öffne eine Eingabeaufforderung mit erhöhten Rechten, indem du mit der rechten Maustaste auf **Eingabeaufforderung** klickst und dann **Als Administrator ausführen** auswählst.
 
-3. Geben Sie `diskpart` ein. Wenn der Datenträger keine Partitionen oder Volumes enthält, fahre mit Schritt 6 fort.
+3. Geben Sie `diskpart`ein. Wenn der Datenträger keine Partitionen oder Volumes enthält, fahre mit Schritt 6 fort.
 
 4.  Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `list disk`. Notiere die Nummer des Datenträgers, der gelöscht werden soll.
 
@@ -56,7 +56,7 @@ Du kannst einen GPT-Datenträger in einen MBR-Datenträger ändern, sofern der D
 
 7.  Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `convert mbr`.
 
-|                Wert                  |      Beschreibung   |
+|                Value                  |      Beschreibung   |
 | ------------------------------------- | -----------------  |
 |  <strong>list disk</strong>  | Zeigt eine Liste der Festplatten und ihre Informationen an, etwa ihre Größe, den verfügbaren freien Speicherplatz, ob es sich um eine Basisfestplatte oder einen dynamischen Datenträger handelt und ob der Datenträger den MBR- oder den GPT-Partitionsstil verwendet. Der mit einem Sternchen (\*) gekennzeichnete Datenträger hat den Fokus. |
 | <strong>select disk</strong> |                                                                                                          Wählt den angegebenen Datenträger aus und weist ihm den Fokus zu. (<em>disknumber</em> ist die Nummer des Datenträgers.)                                                                                                           |
