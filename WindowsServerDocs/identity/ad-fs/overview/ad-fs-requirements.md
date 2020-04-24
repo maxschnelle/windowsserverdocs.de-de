@@ -10,10 +10,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: a2f4c9ac05e72083fab3e3a926dbdd2876214a7b
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "77517535"
 ---
 # <a name="ad-fs-requirements"></a>AD FS-Anforderungen
@@ -38,7 +38,7 @@ Im Folgenden sind die Anforderungen für die Bereitstellung von AD FS aufgefüh
   
 -   [Berechtigungsanforderungen](ad-fs-requirements.md#BKMK_13)  
   
-## <a name="BKMK_1"></a>Zertifikatanforderungen  
+## <a name="certificate-requirements"></a><a name="BKMK_1"></a>Zertifikatanforderungen  
   
 ### <a name="ssl-certificates"></a>SSL-Zertifikate
 
@@ -90,7 +90,7 @@ Dieses Zertifikat wird von Anspruchsanbietern verwendet, die an AD FS ausgegeben
 ### <a name="user-certificates"></a>Benutzerzertifikate
 - Bei Verwendung der x509-Benutzerzertifikatauthentifizierung mit AD FS müssen alle Benutzerzertifikate zu einer Stammzertifizierungsstelle führen, der die Active Directory-Verbunddienste (AD FS) und Webanwendungsproxy-Server vertrauen.
 
-## <a name="BKMK_2"></a>Hardwareanforderungen  
+## <a name="hardware-requirements"></a><a name="BKMK_2"></a>Hardwareanforderungen  
 Die Hardwareanforderungen für AD FS und den Webanwendungsproxy (physisch oder virtuell) werden auf die CPU abgegrenzt, daher solltest du die Größe deiner Farm auf die Verarbeitungskapazität ausrichten.  
 - Verwende das Tabellenblatt [Kapazitätsplanung für AD FS 2016](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx), um die Anzahl der benötigten AD FS- und Webanwendungsproxy-Server zu bestimmen.
 
@@ -106,7 +106,7 @@ Die Anforderungen an Arbeitsspeicher und Datenträger für AD FS sind relativ st
 
 Wenn du SQL Server für die AD FS-Konfigurationsdatenbank verwendest, dimensioniere den SQL Server entsprechend den grundlegendsten SQL Server-Empfehlungen.  Die AD FS-Datenbank ist sehr klein, und AD FS belastet die Datenbankinstanz nicht wesentlich bei der Verarbeitung.  AD FS verbindet sich jedoch während einer Authentifizierung mehrfach mit der Datenbank, sodass die Netzwerkverbindung zuverlässig sein sollte.  Leider wird SQL Azure für die AD FS-Konfigurationsdatenbank nicht unterstützt.
   
-## <a name="BKMK_3"></a>Proxyanforderungen  
+## <a name="proxy-requirements"></a><a name="BKMK_3"></a>Proxyanforderungen  
   
 -   Für den Extranetzugriff muss der Webanwendungsproxy-Rollendienst \- als Teil der Remotezugriffs-Serverrolle bereitgestellt werden. 
 
@@ -116,7 +116,7 @@ Wenn du SQL Server für die AD FS-Konfigurationsdatenbank verwendest, dimensioni
   
 -   Ein Verbundserver und der Webanwendungsproxy-Rollendienst können nicht auf demselben Computer installiert werden.  
   
-## <a name="BKMK_4"></a>AD DS-Anforderungen  
+## <a name="ad-ds-requirements"></a><a name="BKMK_4"></a>AD DS-Anforderungen  
 **Anforderungen an den Domänencontroller**  
   
 - AD FS erfordert Domänencontroller mit Windows Server 2008 oder höher.
@@ -165,7 +165,7 @@ Wenn du SQL Server für die AD FS-Konfigurationsdatenbank verwendest, dimensioni
   
 -   Das AD FS-Dienstkonto muss über Berechtigungen zum Lesen von Benutzerattributen in jeder Domäne verfügen, die Benutzer enthält, die sich gegenüber dem AD FS-Dienst authentifizieren.  
   
-## <a name="BKMK_5"></a>Anforderungen an die Konfigurationsdatenbank  
+## <a name="configuration-database-requirements"></a><a name="BKMK_5"></a>Anforderungen an die Konfigurationsdatenbank  
 In diesem Abschnitt werden die Anforderungen und Einschränkungen für AD FS-Farmen beschrieben, die als Datenbank die interne Windows-Datenbank (WID) oder SQL Server verwenden:  
   
 **WID**  
@@ -188,7 +188,7 @@ Die folgende Tabelle bietet eine Übersicht, wie viele AD FS-Server in einer WID
 
 - In einer SQL Server-Farm werden sowohl die SAML-Artefaktauflösung als auch die Tokenwiederholungserkennung unterstützt.  
   
-## <a name="BKMK_6"></a>Browseranforderungen  
+## <a name="browser-requirements"></a><a name="BKMK_6"></a>Browseranforderungen  
 Wenn die AD FS-Authentifizierung über einen Browser oder ein Browsersteuerelement durchgeführt wird, muss der Browser die folgenden Anforderungen erfüllen:  
   
 - JavaScript muss aktiviert sein  
@@ -200,7 +200,7 @@ Wenn die AD FS-Authentifizierung über einen Browser oder ein Browsersteuereleme
 - Für die Benutzerzertifikat- und Gerätezertifikatauthentifizierung muss der Browser die SSL-Clientzertifikatauthentifizierung unterstützen.  
 
 - Für eine problemlose Anmeldung unter Verwendung der integrierten Windows-Authentifizierung muss der Name des Verbunddiensts (z. B. https:\/\/fs.contoso.com) in der lokalen Intranetzone oder der Zone der vertrauenswürdigen Sites konfiguriert werden.
-  ## <a name="BKMK_7"></a>Netzwerkanforderungen  
+  ## <a name="network-requirements"></a><a name="BKMK_7"></a>Netzwerkanforderungen  
  
 **Firewallanforderungen**  
   
@@ -237,7 +237,7 @@ Weitere Informationen findest du unter [Bewährte Methoden für die Sicherung vo
 - Es wird NICHT empfohlen, DNS-Roundrobin als eine Möglichkeit zum Lastenausgleich zu verwenden. Die Verwendung dieser Art des Lastenausgleichs bietet keine automatische Möglichkeit, einen Knoten mithilfe von Integritätstests aus dem Lastenausgleich zu entfernen. 
 - Es wird NICHT empfohlen, die IP-basierte Sitzungsaffinität oder „persistente Sitzungen“ für den Authentifizierungsdatenverkehr zu AD FS innerhalb des Lastenausgleichs zu verwenden. Dies kann zu einer Überlastung bestimmter Knoten führen, wenn das Legacyauthentifizierungsprotokoll für E-Mail-Clients verwendet wird, um eine Verbindung mit den E-Mail-Diensten von Office 365 (Exchange Online) herzustellen. 
 
-## <a name="BKMK_13"></a>Berechtigungsanforderungen  
+## <a name="permissions-requirements"></a><a name="BKMK_13"></a>Berechtigungsanforderungen  
 Der Administrator, der die Installation und die Erstkonfiguration von AD FS durchführt, muss über lokale Administratorrechte auf dem AD FS-Server verfügen.  Wenn der lokale Administrator nicht über die Berechtigung zum Erstellen von Objekten in Active Directory verfügt, muss er zunächst von einem Domänenadministrator die erforderlichen AD-Objekte erstellen lassen und dann die AD FS-Farm mit dem Parameter „AdminConfiguration“ konfigurieren.  
   
   
