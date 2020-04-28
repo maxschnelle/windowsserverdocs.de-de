@@ -11,10 +11,10 @@ ms.author: helohr
 ms.date: 03/12/2020
 ms.localizationpriority: medium
 ms.openlocfilehash: a9cb49f2570b297c81f41412ad041215090538d0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80856233"
 ---
 # <a name="get-started-with-the-android-client"></a>Erste Schritte mit dem Android-Client
@@ -99,7 +99,7 @@ Der Remotedesktopclient unterstützt das Anheften von Verbindungen an den Startb
 
 1. Tippe auf **Apps**, um das Menü der Apps zu starten.
 2. Tippe auf **Widgets**.
-3. Navigiere per Wischbewegung durch die Widgets, und suche nach dem Remotedesktopsymbol mit der Beschreibung „Remotedesktop anheften“.
+3. Navigieren Sie per Wischbewegung durch die Widgets, und suchen Sie nach dem Remotedesktopsymbol mit der Beschreibung „Remotedesktop anheften“.
 4. Tippen Sie auf das Remotedesktop-Widget, halten Sie es gedrückt, und verschieben Sie es auf den Startbildschirm.
 5. Wenn Sie das Symbol loslassen, werden die gespeicherten Remotedesktops angezeigt. Wählen Sie die Verbindung aus, die Sie auf dem Startbildschirm speichern möchten.
 

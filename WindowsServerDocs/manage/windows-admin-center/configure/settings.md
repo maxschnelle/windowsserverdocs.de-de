@@ -1,6 +1,6 @@
 ---
-title: Einstellungen
-description: Weitere Informationen zu Einstellungen finden Sie im Windows Admin Center (Project Honolulu). Benutzereinstellungen ermöglichen es Benutzern, Ihre Sprache/Region und andere Einstellungen zu ändern. Mit den Gatewayeinstellungen können Administratoren das Gateway konfigurieren.
+title: Settings
+description: Weitere Informationen zu Einstellungen im Windows Admin Center (Projekt Honolulu). Mit den Benutzereinstellungen können Benutzer ihre Sprache/Region und andere Einstellungen ändern. Mit den Gatewayeinstellungen können Administratoren das Gateway konfigurieren.
 ms.technology: manage
 ms.topic: article
 author: haley-rowland
@@ -9,21 +9,21 @@ ms.date: 04/12/2018
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: e0fd6618f275058d4e22fe9abb9e484d4752ac9a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
-ms.translationtype: MT
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71407054"
 ---
-# <a name="windows-admin-center-settings"></a>Windows Admin Center-Einstellungen
+# <a name="windows-admin-center-settings"></a>Windows Admin Center – Einstellungen
 
 > Gilt für: Windows Admin Center
 
-Die Einstellungen des Windows Admin Centers bestehen aus Einstellungen auf Benutzer-und Gatewayebene. Eine Änderung an einer Einstellung auf Benutzerebene wirkt sich nur auf das Profil des aktuellen Benutzers aus, während eine Änderung an einer Einstellung auf Gatewayebene alle Benutzer dieses Windows Admin Center-Gateways betrifft.
+Die Einstellungen im Windows Admin Centers umfassen Einstellungen auf Benutzer- und Gatewayebene. Eine Änderung einer Einstellung auf Benutzerebene wirkt sich nur auf das Profil des aktuellen Benutzers aus, während eine Änderung an einer Einstellung auf Gatewayebene alle Benutzer dieses Windows Admin Center-Gateways betrifft.
 
 ## <a name="user-settings"></a>Benutzereinstellungen
 
-Die Einstellungen auf Benutzerebene bestehen aus den folgenden Abschnitten:
+Die Einstellungen auf Benutzerebene umfassen die folgenden Abschnitte:
 
 - Konto
 - Personalization
@@ -31,31 +31,31 @@ Die Einstellungen auf Benutzerebene bestehen aus den folgenden Abschnitten:
 - Vorschläge
 - Erweitert
 
-Auf der Registerkarte **Konto** können Benutzer die Anmelde Informationen überprüfen, die Sie für die Authentifizierung beim Windows Admin Center verwendet haben. Wenn Azure AD als Identitäts Anbieter konfiguriert ist, kann sich der Benutzer von seinem Azure AD Konto auf dieser Registerkarte abmelden.
+Auf der Registerkarte **Konto** können Benutzer die Anmeldeinformationen überprüfen, die sie für die Authentifizierung beim Windows Admin Center verwendet haben. Wenn Azure AD als Identitätsanbieter konfiguriert ist, kann sich der Benutzer auf dieser Registerkarte von seinem Azure AD-Konto abmelden.
 
-Auf der Registerkarte **Personalisierung** können Benutzer zu einem dunklen UI-Design wechseln.
+Auf der Registerkarte **Personalisierung** können Benutzer zu einem dunklen Benutzeroberflächendesign wechseln.
 
-Auf der Registerkarte **Sprache/Region** können Benutzer die von Windows Admin Center angezeigten sprach-und Regions Formate ändern.
+Auf der Registerkarte **Sprache/Region** können Benutzer die im Windows Admin Center angezeigten Sprach- und Regionsformate ändern.
 
 Auf der Registerkarte **Vorschläge** können Benutzer Vorschläge zu Azure-Diensten und neuen Features umschalten.
 
-Die Registerkarte **erweitert** bietet Entwicklern Windows Admin Center-Erweiterungen zusätzliche Funktionen.
+Die Registerkarte **Erweitert** stellt Entwicklern von Erweiterungen für das Windows Admin Center zusätzliche Funktionen zur Verfügung.
 
 ## <a name="gateway-settings"></a>Gatewayeinstellungen
 
-Einstellungen auf Gatewayebene bestehen aus den folgenden Abschnitten:
+Die Einstellungen auf Gatewayebene umfassen die folgenden Abschnitte:
 
 - Extensions
-- Zugriff
+- Access
 - Azure
-- Freigegebene Verbindungen
+- Gemeinsam genutzte Verbindungen
 
-Diese Einstellungen können nur von gatewayadministratoren angezeigt und geändert werden. Änderungen an diesen Einstellungen ändern die Konfiguration des Gateways und wirken sich auf alle Benutzer des Windows Admin Center-Gateways aus.
+Diese Einstellungen können nur von Gatewayadministratoren angezeigt und geändert werden. Änderungen an diesen Einstellungen ändern die Konfiguration des Gateways und wirken sich auf alle Benutzer des Windows Admin Center-Gateways aus.
 
-Auf der Registerkarte **Erweiterungen** können Administratoren gatewayerweiterungen installieren, deinstallieren oder aktualisieren. [Erfahren Sie mehr über Erweiterungen.](using-extensions.md)
+Auf der Registerkarte **Erweiterungen** können Administratoren Gatewayerweiterungen installieren, deinstallieren oder aktualisieren. [Weitere Informationen zu Erweiterungen.](using-extensions.md)
 
-Auf der Registerkarte " **Zugriff** " können Administratoren konfigurieren, wer auf das Windows Admin Center-Gateway zugreifen kann, sowie den Identitäts Anbieter, der zum Authentifizieren von Benutzern verwendet wird. [Erfahren Sie mehr über das Steuern des Zugriffs auf das Gateway.](user-access-control.md)
+Auf der Registerkarte **Zugriff** können Administratoren konfigurieren, wer auf das Windows Admin Center-Gateway zugreifen kann und welcher Identitätsanbieter zum Authentifizieren von Benutzern verwendet wird. [Erfahren Sie mehr über das Steuern des Zugriffs auf das Gateway.](user-access-control.md)
 
-Auf der Registerkarte **Azure** können Administratoren das Gateway bei Azure registrieren, um die [Azure-Integrations Features](azure-integration.md) im Windows Admin Center zu aktivieren.
+Auf der Registerkarte **Azure** können Administratoren das Gateway bei Azure registrieren, um [Azure-Integrationsfeatures](azure-integration.md) im Windows Admin Center zu aktivieren.
 
-Mithilfe der Registerkarte frei **gegebene Verbindungen** können Administratoren eine einzelne Liste von Verbindungen konfigurieren, die für alle Benutzer des Windows Admin Center-Gateways freigegeben werden. [Erfahren Sie mehr über das einmalige Konfigurieren von Verbindungen für alle Benutzer eines Gateways.](shared-connections.md)
+Mithilfe der Registerkarte **Gemeinsam genutzte Verbindungen** können Administratoren eine Liste von Verbindungen konfigurieren, die für alle Benutzer des Windows Admin Center-Gateways freigegeben werden. [Erfahren Sie mehr über das einmalige Konfigurieren von Verbindungen für alle Benutzer eines Gateways.](shared-connections.md)

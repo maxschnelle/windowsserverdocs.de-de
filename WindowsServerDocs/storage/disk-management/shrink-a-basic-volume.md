@@ -9,10 +9,10 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 2baf24ed656ef06d44dff93180701d25e6852500
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71385857"
 ---
 # <a name="shrink-a-basic-volume"></a>Verkleinern eines Basisvolumes
@@ -53,7 +53,7 @@ Wenn du eine Partition verkleinerst, werden alle normalen Dateien automatisch au
 
 4.  Gib an der Eingabeaufforderung **DISKPART** Folgendes ein: `shrink [desired=<desiredsize>] [minimum=<minimumsize>]`. Verkleinert das ausgewählte Volume nach Möglichkeit auf *desiredsize* (in MB) oder auf *minimumsize*, falls *desiredsize* zu groß ist.
 
-| Wert             | Beschreibung |
+| Value             | Beschreibung |
 | ---               | ----------- |
 | **list volume** | Zeigt eine Liste der Basisvolumes und dynamischen Volumes auf allen Datenträgern an. |
 | **select volume** | Wählt das angegebene Volume aus und weist ihm den Fokus zu. (<em>volumenumber</em> ist die Nummer des Volumes.) Ohne Volumeangabe führt der Befehl **select** die aktuellen Volumes mit Fokus auf. Das Volume kann anhand von Nummer, Laufwerkbuchstabe oder Bereitstellungspunktpfad angegeben werden. Wenn bei einer Basisfestplatte ein Volume ausgewählt wird, erhält die entsprechende Partition den Fokus. |
@@ -61,7 +61,7 @@ Wenn du eine Partition verkleinerst, werden alle normalen Dateien automatisch au
 | **desired=** <em>desiredsize</em> | Der Speicherplatz in Megabyte, der für die aktuelle Partition freigegeben werden soll. |
 | **minimum=** <em>minimumsize</em> | Der minimale Speicherplatz in Megabyte, der für die aktuelle Partition freigegeben werden soll. Ohne Angabe einer gewünschten oder minimalen Größe gibt der Befehl die maximal mögliche Menge an Speicherplatz frei. |
 
-## <a name="additional-considerations"></a>Weitere Aspekte
+## <a name="additional-considerations"></a>Weitere Überlegungen
 
 -   Beim Verkleinern einer Partition können bestimmte Dateien (z. B. die Auslagerungsdatei und der Schattenkopiespeicherbereich) nicht automatisch verschoben werden, und du kannst den zugewiesenen Speicherplatz nur bis zu dem Punkt verkleinern, an dem sich die Systemdateien befinden. Sollte der Verkleinerungsvorgang nicht erfolgreich sein, suche im Anwendungsprotokoll nach dem Ereignis 259, das die nicht verschiebbare Datei identifiziert. Falls du die Cluster kennst, die der Datei zugeordnet sind, durch die der Verkleinerungsvorgang verhindert wird, kannst du an der Eingabeaufforderung auch den Befehl **fsutil** ausführen. (Gib **fsutil volume querycluster /?** ein, um die Syntax anzuzeigen.) Bei Angabe des Parameters **querycluster** identifiziert der Ausgabebefehl die nicht verschiebbare Datei, die den Verkleinerungsvorgang verhindert.
 Manchmal lässt sich die Datei vorübergehend verschieben. Wenn du beispielsweise die Partition weiter verkleinern musst, kannst du die Auslagerungsdatei oder die gespeicherten Schattenkopien über die Systemsteuerung auf einen anderen Datenträger verschieben, die gespeicherten Schattenkopien löschen, das Volume verkleinern und die Auslagerungsdatei wieder auf den Datenträger verschieben. Wenn von der dynamischen erneuten Zuordnung eine zu hohe Anzahl fehlerhafter Cluster erkannt wird, kann die Partition nicht verkleinert werden. In diesem Fall empfiehlt es sich, die Daten zu verschieben und den Datenträger auszutauschen.

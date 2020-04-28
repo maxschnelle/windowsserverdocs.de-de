@@ -7,18 +7,33 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 01/02/2020
+ms.date: 04/20/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 540630ce4baa8246d654b0d50f203623705286c5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5fd9e353c18293d22b18c6ffb6a57ad97a819a4a
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859733"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "81650042"
 ---
 # <a name="whats-new-in-the-windows-store-client"></a>Neuigkeiten zum Windows Store-Client
 
 Der [Windows-Store-Client](windows.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Hier findest du die neuesten Updates.
+
+## <a name="updates-for-version-1011215"></a>Updates für Version 10.1.1215
+
+*Veröffentlicht am: 20.04.2020*
+
+- Die Zeichenfolge des Benutzer-Agents für Windows Virtual Desktop wurde aktualisiert.
+
+## <a name="updates-for-version-1011195"></a>Updates für Version 10.1.1195
+
+*Veröffentlicht am: 06.03.2020*
+
+- Die Audioausgabe der Sitzung wird nun auch dann wiedergegeben, wenn die App minimiert oder im Hintergrund angezeigt wird.
+- Es wurde ein Problem behoben, durch das die Umschalttasten (FESTSTELLTASTE, NUM-TASTE usw.) des lokalen Computer und des Remote-PCs nicht synchron waren.
+- Leistungsverbesserungen auf 64-Bit-Geräten.
+- Die Ursache für einen Absturz wurde beseitigt, der auftrat, wenn die App angehalten wurde.
 
 ## <a name="updates-for-version-1011107"></a>Updates für Version 10.1.1107
 

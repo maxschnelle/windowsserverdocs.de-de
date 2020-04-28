@@ -32,19 +32,34 @@ sections:
             html: '<p>Virtualisiert Speicherhardware, sodass Sie Volumes auf einem virtualisierten Pool von Laufwerken erstellen können, die in einem hyperkonvergenten Cluster auf Server verteilt sind.</p>'
             image:
               src: ../media/i-store.svg
-            title: Direkte Speicherplätze
+            title: Speicherplätze DAS
           - href: ../failover-clustering/failover-clustering-overview.md
             html: '<p>Gruppiert mehrere Server, sodass Workloads wie z.B. virtuelle Computer auf einem beliebigen Server im Cluster ausgeführt werden können, wobei Lastenausgleich und Failover ordnungsgemäß auf die Server verteilt werden.</p>'
             image:
               src: ../media/i-cluster.svg
-            title: Failoverclustering
+            title: Failoverclusterunterstützung
           - href: 'https://docs.microsoft.com/windows-server/networking/sdn/'
             html: '<p>Virtualisiert die Netzwerkhardware, sodass Sie Netzwerke und Richtlinien, die Ihre Workloads aus zugrunde liegenden physischen Netzwerken abstrahieren, dynamisch erstellen und verwalten können.</p>'
             image:
               src: ../media/i-network.svg
             title: Software-Defined Networking
+          - href: ../manage/windows-admin-center/overview.md
+            html: <p>Verwaltet Ihren Cluster und andere Windows-Server.</p>
+            image:
+              src: ../media/i-admin-center.svg
+            title: Windows Admin Center
+          - href: ../azure-hybrid-services.md
+            html: '<p>Verbindet Ihren Cluster mit Azure-Hybriddiensten für Site Recovery, Überwachung und mehr.</p>'
+            image:
+              src: ../media/i-microsoft-azure.svg
+            title: Herstellen einer Verbindung mit Azure-Hybriddiensten
+          - href: ../azure-stack-hci
+            html: '<p>Koppelt Virtualisierungs- und Clustertechnologien von Windows Server 2019 mit überprüften Hardwarelösungen des Partners Ihrer Wahl, sodass Sie bei der Optimierung eines softwaredefinierten Rechenzentrums nichts dem Zufall überlassen müssen.</p>'
+            image:
+              src: ../media/i-azure-stack.svg
+            title: Azure Stack HCI
           - href: 'https://www.microsoft.com/cloud-platform/software-defined-datacenter'
-            html: '<p>Koppelt Virtualisierungs- und Clustertechnologien von Windows Server mit überprüften Hardwarelösungen des Partners Ihrer Wahl, sodass Sie bei der Optimierung eines softwaredefinierten Rechenzentrums nichts dem Zufall überlassen müssen.</p>'
+            html: '<p>Koppelt Virtualisierungs- und Clustertechnologien von Windows Server 2016 mit überprüften Hardwarelösungen des Partners Ihrer Wahl, sodass Sie bei der Optimierung eines softwaredefinierten Rechenzentrums nichts dem Zufall überlassen müssen.</p>'
             image:
               src: 'https://docs.microsoft.com/media/common/i_data-collection.svg'
             title: Windows Server Software-Defined (WSSD)
