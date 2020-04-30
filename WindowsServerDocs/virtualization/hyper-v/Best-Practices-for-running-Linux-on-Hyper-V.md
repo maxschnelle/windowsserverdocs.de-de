@@ -8,13 +8,13 @@ ms.topic: article
 ms.assetid: a08648eb-eea0-4e2b-87fb-52bfe8953491
 author: shirgall
 ms.author: kathydav
-ms.date: 3/1/2019
-ms.openlocfilehash: 7baf71af401b8318ccd136fe12d6eb810cf9434e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.date: 04/15/2020
+ms.openlocfilehash: d8861369abe24ea0d34dce209a5d98e854c4c95d
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80853303"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82072236"
 ---
 # <a name="best-practices-for-running-linux-on-hyper-v"></a>Bewährte Methoden für die Ausführung von Linux unter Hyper-V
 
@@ -49,7 +49,7 @@ Da die Legacy-Hardware auf virtuellen Computern der Generation 2 aus der Emulati
 
 Da der boxtimer nicht in der Generation 2 Virtual Machines vorhanden ist, können Netzwerkverbindungen mit dem PXE-TFTP-Server vorzeitig beendet werden und verhindern, dass der Bootloader die GRUB-Konfiguration liest und einen Kernel vom Server lädt.
 
-In RHEL 6. x kann der Legacy-, grub v 0,97 EFI-Bootloader anstelle von grub2 verwendet werden, wie hier beschrieben: [https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html)
+In RHEL 6. x kann der Legacy-, grub v 0,97 EFI-Bootloader anstelle von grub2 verwendet werden, wie hier beschrieben:[https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html)
 
 In anderen Linux-Distributionen als RHEL 6. x können ähnliche Schritte ausgeführt werden, um GRUB v 0,97 zum Laden von Linux-Kernels von einem PXE-Server zu konfigurieren.
 
@@ -74,13 +74,15 @@ Virtuelle Linux-Computer, die mithilfe des Failoverclustering bereitgestellt wer
 
 Konfigurieren und verwenden Sie den virtuellen Ethernet-Adapter, bei dem es sich um eine Hyper-V-spezifische Netzwerkkarte mit verbesserter Leistung handelt. Wenn sowohl Legacy-als auch Hyper-V-spezifische Netzwerkadapter an einen virtuellen Computer angefügt sind, können die Netzwerknamen in der Ausgabe von **ifconfig-a** zufällige Werte wie **_tmp12000801310**anzeigen. Entfernen Sie alle älteren Netzwerkadapter, wenn Sie Hyper-V-spezifische Netzwerkadapter auf einem virtuellen Linux-Computer verwenden, um dieses Problem zu vermeiden.
 
-## <a name="use-io-scheduler-noop-for-better-disk-io-performance"></a>Verwenden des e/a-Scheduler-NOOP zur Verbesserung der Datenträger-e/a-Leistung
+## <a name="use-io-scheduler-noopnone-for-better-disk-io-performance"></a>E/a-Scheduler NOOP/None für bessere Datenträger-e/a-Leistung verwenden
 
-Der Linux-Kernel verfügt über vier verschiedene e/a-Planer zum erneuten Anordnen von Anforderungen mit unterschiedlichen Algorithmen. NOOP ist eine First-in-First-Out-Warteschlange, die die vom Hypervisor vorgenommene Zeit Plan Entscheidung übergibt. Es wird empfohlen, NOOP als Scheduler zu verwenden, wenn Sie virtuelle Linux-Computer unter Hyper-V ausführen. Wenn Sie den Scheduler für ein bestimmtes Gerät ändern möchten, fügen Sie in der Konfiguration des Start Laders (z. b./etc/grub.conf) den Kernel Parametern " **Lift = NOOP** " hinzu, und starten Sie dann neu.
+Der Linux-Kernel bietet zwei Sätze von Datenträger-e/a-Zeit Planungs Modulen für die Neuanordnung von Anforderungen.  Ein Satz gilt für das ältere ' BLK '-Subsystem, und ein Satz ist für das neuere ' BLK-mq '-Subsystem. In beiden Fällen empfiehlt es sich, einen Scheduler zu verwenden, der die Planungsentscheidungen an den zugrunde liegenden Hyper-V-Hypervisor übergibt. Bei Linux-Kernels, die das "BLK"-Subsystem verwenden, handelt es sich hierbei um den "NOOP"-Scheduler. Bei Linux-Kernels, die das "BLK-MQ"-Subsystem verwenden, handelt es sich hierbei um den Scheduler "None".
+
+Bei einem bestimmten Datenträger können die verfügbaren Planer an diesem Dateisystem Speicherort angezeigt werden:`<diskname>`/sys/class/Block//Queue/Scheduler, wobei der aktuell ausgewählte Planer in eckigen Klammern steht. Sie können den Scheduler ändern, indem Sie an diesem Dateisystem Speicherort schreiben. Die Änderung muss zu einem Initialisierungs Skript hinzugefügt werden, damit Sie über Neustarts hinweg beibehalten werden. Weitere Informationen finden Sie in der Dokumentation zur Linux-Distribution.
 
 ## <a name="numa"></a>NUMA
 
-Linux-Kernel Versionen vor 2.6.37 unterstützen keine NUMA-Unterstützung für Hyper-V mit größeren VM-Größen. Dieses Problem betrifft in erster Linie ältere Verteilungen, die den 2.6.32-upstreamtyp verwenden, und wurde in Red Hat Enterprise Linux (RHEL) 6,6 (Kernel-2.6.32-504) behoben. Systeme, auf denen benutzerdefinierte Kernel älter als 2.6.37 oder RHEL-basierte Kernel älter als 2.6.32-504 ausgeführt werden, müssen den Startparameter `numa=off` in der Kernel Befehlszeile in grub. conf festlegen. Weitere Informationen finden Sie unter [red hat KB 436883](https://access.redhat.com/solutions/436883).
+Linux-Kernelversionen vor Version 2.6.37 unterstützen keinen NUMA (Non-Uniform Memory Access, nicht einheitlicher Speicherzugriff) auf Hyper-V mit größeren VM-Größen. Dieses Problem betrifft in erster Linie ältere Distributionen, die den Red Hat 2.6.32-Upstreamkernel verwenden, und wurde in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504) behoben. Systeme, auf denen benutzerdefinierte Kernel ausgeführt werden, die älter als 2.6.37 sind, bzw. RHEL-basierte Kernel, die älter als 2.6.32-504 sind, müssen in „grub.conf“ in der Kernelbefehlszeile den Startparameter `numa=off` festlegen. Weitere Informationen finden Sie unter [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
 
 ## <a name="reserve-more-memory-for-kdump"></a>Reservieren von mehr Speicher für kdump
 
@@ -92,7 +94,7 @@ Hyper-V ermöglicht das Verkleinern von virtuellen Festplatten Dateien (vhdx) oh
 
 Nachdem die Größe einer VHD-oder vhdx-Datei geändert wurde, sollten Administratoren ein Hilfsprogramm wie fdisk oder parted verwenden, um die Größe der Partition, des Volumes und des Dateisystems zu aktualisieren und die Größe des Datenträgers widerzuspiegeln. Das Verkleinern oder Erweitern der Größe einer VHD oder vhdx mit einer GUID-Partitionstabelle (GPT) führt zu einer Warnung, wenn ein Partitions Verwaltungs Tool zum Überprüfen des Partitionslayouts verwendet wird, und der Administrator wird gewarnt, den ersten und sekundären GPT-Header zu korrigieren. Dieser manuelle Schritt kann ohne Datenverlust sicher durchgeführt werden.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 * [Unterstützte virtuelle Linux-und FreeBSD-Computer für Hyper-V unter Windows](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
 
@@ -102,4 +104,4 @@ Nachdem die Größe einer VHD-oder vhdx-Datei geändert wurde, sollten Administr
 
 * [Erstellen von Linux-Images für Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)
 
-* [Optimieren Ihrer Linux-VM in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/optimization)
+* [Optimieren virtueller Linux-Computer in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/optimization)

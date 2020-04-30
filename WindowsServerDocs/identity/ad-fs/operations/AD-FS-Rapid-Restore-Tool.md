@@ -4,16 +4,16 @@ title: 'AD FS: Schnelles Wiederherstellungstool'
 author: billmath
 ms.author: billmath
 manager: femila
-ms.date: 07/02/2019
+ms.date: 04/24/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 506734812689a42ec17768652ac715f5c7e24401
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dde9d60278a32ae4e6ba0baf35bc11ce631d4e02
+ms.sourcegitcommit: 371e59315db0cca5bdb713264a62b215ab43fd0f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80858103"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192601"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>AD FS: Schnelles Wiederherstellungstool
 
@@ -62,7 +62,7 @@ import-module 'C:\Program Files (x86)\ADFS Rapid Recreation Tool\ADFSRapidRecrea
 - Die erforderliche .NET Framework-Version ist mindestens 4,0. 
 - Die Wiederherstellung muss auf einem AD FS Server mit derselben Version wie die Sicherung durchgeführt werden, die dasselbe Active Directory Konto wie das AD FS Dienst Konto verwendet.
 
-## <a name="create-a-backup"></a>Erstellen einer Sicherung
+## <a name="create-a-backup"></a>So erstellen Sie eine Sicherung
 Verwenden Sie das Backup-ADFS-Cmdlet, um eine Sicherung zu erstellen. Dieses Cmdlet sichert die AD FS Konfiguration, Datenbank, SSL-Zertifikate usw. 
 
 Der Benutzer muss mindestens ein lokaler Administrator sein, um dieses Cmdlet ausführen zu können. Zum Sichern des Active Directory DKM-Containers (erforderlich in der standardmäßigen AD FS Konfiguration) muss der Benutzer entweder Domänen Administrator sein, muss die Anmelde Informationen des AD FS Dienst Kontos übergeben oder Zugriff auf den DKM-Container haben.  Wenn Sie ein GMSA-Konto verwenden, muss der Benutzer ein Domänen Administrator sein oder über Berechtigungen für den Container verfügen. die GMSA-Anmelde Informationen können nicht bereitgestellt werden. 
@@ -74,23 +74,23 @@ Parameter Sätze
 
 ![AD FS: Schnelles Wiederherstellungstool](media/AD-FS-Rapid-Restore-Tool/parameter1.png)
 
-### <a name="detailed-description"></a>Ausführliche Beschreibung
+### <a name="detailed-description"></a>Detaillierte Beschreibung
 
 - **Backupdkm** : sichert den Active Directory DKM-Container, der die AD FS Schlüssel in der Standardkonfiguration enthält (automatisch generierte tokensignier-und entschlüsselungszertifikate). Dabei wird ein Ad-Tool "Ldifde" verwendet, um den AD-Container und alle zugehörigen Unterstrukturen zu exportieren.
 
-- -**StorageType &lt;Zeichenfolge&gt;** -der Typ des Speichers, den der Benutzer verwenden möchte. "File System" gibt an, dass der Benutzer ihn lokal oder im Netzwerk "Azure Azure Storage" in einem Ordner speichern möchte, wenn der Benutzer die Sicherung durchführt, und wählt den Sicherungs Speicherort aus, entweder im Datei System oder in der Cloud. Damit Azure verwendet werden kann, müssen Azure Storage Anmelde Informationen an das Cmdlet übergeben werden. Die Speicher Anmelde Informationen enthalten den Kontonamen und den Schlüssel. Zusätzlich muss auch ein Container Name übergebenen werden. Wenn der Container nicht vorhanden ist, wird er während der Sicherung erstellt. Damit das Dateisystem verwendet werden kann, muss ein Speicherpfad angegeben werden. In diesem Verzeichnis wird für jede Sicherung ein neues Verzeichnis erstellt. Jedes erstellte Verzeichnis enthält die gesicherten Dateien. 
+- -**StorageType &lt;String&gt; ** : der Typ des Speichers, den der Benutzer verwenden möchte. "File System" gibt an, dass der Benutzer ihn lokal oder im Netzwerk "Azure Azure Storage" in einem Ordner speichern möchte, wenn der Benutzer die Sicherung durchführt, und wählt den Sicherungs Speicherort aus, entweder im Datei System oder in der Cloud. Damit Azure verwendet werden kann, müssen Azure Storage Anmelde Informationen an das Cmdlet übergeben werden. Die Speicher Anmelde Informationen enthalten den Kontonamen und den Schlüssel. Zusätzlich muss auch ein Container Name übergebenen werden. Wenn der Container nicht vorhanden ist, wird er während der Sicherung erstellt. Damit das Dateisystem verwendet werden kann, muss ein Speicherpfad angegeben werden. In diesem Verzeichnis wird für jede Sicherung ein neues Verzeichnis erstellt. Jedes erstellte Verzeichnis enthält die gesicherten Dateien. 
 
-- **Verschlüsselungskennwort &lt;Zeichenfolge&gt;** : das Kennwort, das verwendet wird, um alle gesicherten Dateien vor dem Speichern zu verschlüsseln.
+- **Verschlüsselungs Kennwort &lt;-&gt; Zeichenfolge** : das Kennwort, das zum Verschlüsseln aller gesicherten Dateien vor der Speicherung verwendet wird.
 
-- **Azureconnection-Anmelde Informationen &lt;PSCredential&gt;** -der Kontoname und Schlüssel für das Azure-Speicherkonto
+- **Azureconnectionanmelde &lt;Informationen PSCredential&gt; ** : Name und Schlüssel des Kontos für das Azure Storage-Konto
 
-- **Azurestoragecontainer &lt;Zeichenfolge&gt;** -der Speicher Container, in dem die Sicherung in Azure gespeichert wird.
+- **Azurestoragecontainer &lt;String&gt; ** : der Speicher Container, in dem die Sicherung in Azure gespeichert wird.
 
-- **Storagepath &lt;Zeichenfolge&gt;** -der Speicherort, in dem die Sicherungen gespeichert werden.
+- **Storagepath &lt;-&gt; Zeichenfolge** : der Speicherort, in dem die Sicherungen gespeichert werden
 
-- **Serviceaccountcredential &lt;PSCredential&gt;** : gibt das Dienst Konto an, das für den derzeit ausgelaufenden AD FS-Dienst verwendet wird. Dieser Parameter ist nur erforderlich, wenn der Benutzer DKM sichern und nicht als Domänen Administrator oder nicht auf den Inhalt des Containers zugreifen möchte. 
+- **Serviceaccountcredential &lt;PSCredential&gt; ** : gibt das Dienst Konto an, das für den derzeit ausgelaufenden AD FS-Dienst verwendet wird. Dieser Parameter ist nur erforderlich, wenn der Benutzer DKM sichern und nicht als Domänen Administrator oder nicht auf den Inhalt des Containers zugreifen möchte. 
 
-- **Backupcomment &lt;Zeichenfolge []&gt;** -eine Informations Zeichenfolge zur Sicherung, die während der Wiederherstellung angezeigt wird, ähnlich wie das Konzept der Hyper-V-Prüf Punkt Benennung. Der Standardwert ist eine leere Zeichenfolge.
+- **Backupcomment &lt;-Zeichenfolge&gt; []** : eine Informations Zeichenfolge zur Sicherung, die während der Wiederherstellung angezeigt wird, ähnlich wie das Konzept der Hyper-V-Prüf Punkt Benennung. Der Standardwert ist eine leere Zeichenfolge.
 
  
 ## <a name="backup-examples"></a>Beispiele für Sicherungen
@@ -123,7 +123,7 @@ Backup-ADFS -StorageType "FileSystem" -StoragePath "C:\Users\administrator\testE
 ## <a name="restore-from-backup"></a>Aus Sicherung wiederherstellen
 Verwenden Sie das Cmdlet Restore-ADFS, um eine Konfiguration, die mithilfe von Backup-ADFS erstellt wurde, auf eine neue AD FS-Installation anzuwenden.
 
-Dieses Cmdlet erstellt eine neue AD FS Farm mithilfe des-Cmdlets `Install-AdfsFarm` und stellt die AD FS Konfiguration, Datenbank, Zertifikate usw. wieder her.  Wenn die AD FS Rolle nicht auf dem Server installiert wurde, wird Sie vom Cmdlet installiert.  Mit dem-Cmdlet wird der Wiederherstellungs Speicherort für vorhandene Sicherungen überprüft, und der Benutzer wird aufgefordert, eine geeignete Sicherung basierend auf dem Datum und der Uhrzeit der Erstellung und jedem Sicherungs Kommentar, den der Benutzer möglicherweise an die Sicherung angefügt hat, auszuwählen. Wenn mehrere AD FS Konfigurationen mit unterschiedlichen Verbund Dienstnamen vorhanden sind, wird der Benutzer aufgefordert, zuerst die entsprechende AD FS Konfiguration auszuwählen.
+Dieses Cmdlet erstellt eine neue AD FS Farm mithilfe des Cmdlets `Install-AdfsFarm` und stellt die AD FS Konfiguration, Datenbank, Zertifikate usw. wieder her.  Wenn die AD FS Rolle nicht auf dem Server installiert wurde, wird Sie vom Cmdlet installiert.  Mit dem-Cmdlet wird der Wiederherstellungs Speicherort für vorhandene Sicherungen überprüft, und der Benutzer wird aufgefordert, eine geeignete Sicherung basierend auf dem Datum und der Uhrzeit der Erstellung und jedem Sicherungs Kommentar, den der Benutzer möglicherweise an die Sicherung angefügt hat, auszuwählen. Wenn mehrere AD FS Konfigurationen mit unterschiedlichen Verbund Dienstnamen vorhanden sind, wird der Benutzer aufgefordert, zuerst die entsprechende AD FS Konfiguration auszuwählen.
 Der Benutzer muss sowohl lokal als auch Domänen Administrator sein, um dieses Cmdlet ausführen zu können.
 
 
@@ -134,30 +134,30 @@ Das-Cmdlet übernimmt die folgenden Parameter:
 
 ![AD FS: Schnelles Wiederherstellungstool](media/AD-FS-Rapid-Restore-Tool/parameter2.png)
 
-### <a name="detailed-description"></a>Ausführliche Beschreibung
+### <a name="detailed-description"></a>Detaillierte Beschreibung
 
-- **StorageType &lt;Zeichenfolge&gt;** -der Typ des Speichers, den der Benutzer verwenden möchte.
+- **StorageType &lt;String&gt; ** : der Typ des Speichers, den der Benutzer verwenden möchte.
  "File System" gibt an, dass der Benutzer ihn lokal oder im Netzwerk "Azure" in einem Ordner speichern möchte, wenn der Benutzer ihn im Azure Storage Container speichern möchte.
 
-- **Decryptionpassword &lt;Zeichenfolge&gt;** -das Kennwort, das zum Verschlüsseln aller gesicherten Dateien verwendet wurde. 
+- **Decryptionpassword &lt;String&gt; ** : das Kennwort, das zum Verschlüsseln aller gesicherten Dateien verwendet wurde. 
 
-- **Azureconnection-Anmelde Informationen &lt;PSCredential&gt;** -der Kontoname und Schlüssel für das Azure-Speicherkonto
+- **Azureconnectionanmelde &lt;Informationen PSCredential&gt; ** : Name und Schlüssel des Kontos für das Azure Storage-Konto
 
-- **Azurestoragecontainer &lt;Zeichenfolge&gt;** -der Speicher Container, in dem die Sicherung in Azure gespeichert wird.
+- **Azurestoragecontainer &lt;String&gt; ** : der Speicher Container, in dem die Sicherung in Azure gespeichert wird.
 
-- **Storagepath &lt;Zeichenfolge&gt;** -der Speicherort, in dem die Sicherungen gespeichert werden.
+- **Storagepath &lt;-&gt; Zeichenfolge** : der Speicherort, in dem die Sicherungen gespeichert werden
 
-- **Adfsname &lt; Zeichenfolge &gt;** -der Name des Verbunds, der gesichert und wieder hergestellt werden soll. Wenn diese nicht bereitgestellt wird und nur ein Verbund Dienst Name vorhanden ist, wird dieser verwendet. Wenn mehrere Verbund Dienste am Standort gesichert sind, wird der Benutzer aufgefordert, einen der gesicherten Verbund Dienste auszuwählen.
+- **Adfsname &lt; String &gt; ** : der Name des Verbunds, der gesichert und wieder hergestellt wird. Wenn diese nicht bereitgestellt wird und nur ein Verbund Dienst Name vorhanden ist, wird dieser verwendet. Wenn mehrere Verbund Dienste am Standort gesichert sind, wird der Benutzer aufgefordert, einen der gesicherten Verbund Dienste auszuwählen.
 
-- **Serviceaccountcredential &lt; PSCredential &gt;** : gibt das Dienst Konto an, das für den neuen AD FS Dienst, der wieder hergestellt wird, verwendet wird. 
+- **Serviceaccountcredential &lt; PSCredential &gt; ** : gibt das Dienst Konto an, das für die wieder herzustellende neue AD FS-Dienst verwendet wird. 
 
-- **Groupserviceaccountidentifier &lt;Zeichenfolge&gt;** -der GMSA, den der Benutzer für den neuen AD FS Dienst verwenden möchte, der wieder hergestellt wird. Wenn keines der beiden bereitgestellt wird, wird der gesicherte Konto Name verwendet, wenn es sich um ein GMSA handelt, andernfalls wird der Benutzer aufgefordert, ein Dienst Konto einzufügen.
+- **Groupserviceaccountidentifier &lt;-&gt; Zeichenfolge** : das GMSA, das der Benutzer für den neuen AD FS Dienst verwenden möchte, der wieder hergestellt wird. Wenn keines der beiden bereitgestellt wird, wird der gesicherte Konto Name verwendet, wenn es sich um ein GMSA handelt, andernfalls wird der Benutzer aufgefordert, ein Dienst Konto einzufügen.
 
-- **DbConnectionString &lt;Zeichenfolge&gt;** : Wenn der Benutzer eine andere Datenbank für die Wiederherstellung verwenden möchte, sollten Sie die SQL-Verbindungs Zeichenfolge oder den Typ in wid für wid übergeben.
+- **DbConnectionString &lt;-&gt; Zeichenfolge** : Wenn der Benutzer eine andere Datenbank für die Wiederherstellung verwenden möchte, sollte er die SQL-Verbindungs Zeichenfolge oder den Typ in wid für wid übergeben.
 
-- **Erzwingen &lt;bool&gt;** -überspringen Sie die Eingabe Aufforderungen, die das Tool möglicherweise hat, nachdem die Sicherung ausgewählt wurde.
+- **Erzwingen &lt;von bool&gt; ** : Überspringen der Eingabe Aufforderungen, die das Tool möglicherweise hat, nachdem die Sicherung ausgewählt wurde
 
-- **Restoredkm &lt;bool&gt;** -stellen Sie den DKM-Container in der AD-Datenbank wieder her, sollte festgelegt werden, wenn Sie zu einer neuen AD-Installation wechseln und DKM anfänglich gesichert wurde.
+- **Restoredkm &lt;bool&gt; ** : Stellen Sie den DKM-Container in der AD-Datenbank wieder her, sollte festgelegt werden, wenn Sie zu einer neuen AD-Installation wechseln und die DKM-Datei anfänglich gesichert
 
 ## <a name="restore-examples"></a>Wiederherstellungs Beispiele
 
@@ -217,12 +217,23 @@ Jedes Mal, wenn eine Sicherung oder Wiederherstellung ausgeführt wird, wird ein
 >[!NOTE]
 > Beim Ausführen einer Wiederherstellung kann eine PostRestore_Instructions Datei erstellt werden, die eine Übersicht über die zusätzlichen Authentifizierungs Anbieter, Attribut Speicher und lokalen Anspruchs Anbieter-Vertrauens Stellungen enthält, die vor dem Starten des AD FS Dienstanbieters manuell installiert werden müssen.
 
-## <a name="version-release-history"></a>Versions Veröffentlichungs Verlauf
+## <a name="version-release-history"></a>Verlauf der Versionsveröffentlichungen
+
+### <a name="version-10823"></a>Version 1.0.82.3
+Release: 2020
+
+**Behobene Probleme:**
+
+
+- Unterstützung für CNG-basierte Zertifikate hinzugefügt
+
 
 ### <a name="version-10820"></a>Version 1.0.82.0
 Release: 2019
 
 **Behobene Probleme:**
+
+
 - Programmfehler Behebung für AD FS Dienst Kontonamen, die LDAP-Escapezeichen enthalten
 
 

@@ -8,16 +8,16 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 55e19728e247240ca35bf7cc7b47b36171f1f195
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 75e31a435e8d8411fbe4db242e6d31fd7676fe4e
+ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80822503"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624248"
 ---
 # <a name="enabling-clients-to-locate-the-next-closest-domain-controller"></a>Ermöglichen, dass Clients den nächstgelegenen Domänencontroller finden
 
->Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Wenn Sie über einen Domänen Controller verfügen, auf dem Windows Server 2008 oder höher ausgeführt wird, können Sie auf Client Computern, auf denen Windows Vista oder höher oder Windows Server 2008 oder höher ausgeführt wird, das Auffinden von Domänen Controllern ermöglichen, indem Sie die Einstellung **nächsten Standort Gruppenrichtlinie testen** aktivieren. Diese Einstellung verbessert den Domänencontrollerlocator (Domänencontrollerlocator), indem der Netzwerkverkehr optimiert wird, insbesondere in großen Unternehmen, die über viele Zweigstellen und Standorte verfügen.
 
@@ -31,7 +31,7 @@ Standardmäßig ist die Einstellung **nächstgelegene Site testen** nicht aktivi
 - Wenn kein Domänen Controller am selben Standort verfügbar ist, versuchen Sie, einen beliebigen Domänen Controller in der Domäne zu finden.
 
 > [!NOTE]
-> Dabei handelt es sich um denselben Algorithmus, den der DC-Locator in früheren Versionen von Active Directory verwendet hat. Weitere Informationen finden Sie im Artikel über die [Funktionsweise der DNS-Unterstützung für Active Directory](https://go.microsoft.com/fwlink/?LinkId=108587).
+> Dabei handelt es sich um denselben Algorithmus, den der DC-Locator in früheren Versionen von Active Directory verwendet hat. Weitere Informationen finden Sie im Artikel über die [Funktionsweise der DNS-Unterstützung für Active Directory](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc759550(v=ws.10)).
 
 Wenn Sie die Einstellung für den nächst **gelegenen Standort testen** aktivieren, verwendet der Domänen Controller-Locator den folgenden Algorithmus, um einen Domänen Controller zu finden:
 
@@ -54,4 +54,4 @@ Wenn die Einstellung nicht aktiviert ist, versucht der Client, einen Domänen Co
 > [!NOTE]
 > Die Einstellung am **nächsten gelegenen Standort testen** funktioniert mit der automatischen Standort Abdeckung. Wenn beispielsweise der nächstgelegene Standort keinen Domänen Controller aufweist, versucht der Domänencontrollerlocator, den Domänen Controller zu finden, der die automatische Standort Abdeckung für diesen Standort ausführt.
 
-Sie können ein Gruppenrichtlinie Objekt (GPO) erstellen und mit dem entsprechenden Objekt für Ihre Organisation verknüpfen **, indem Sie die Standard** Domänen Richtlinie so ändern, dass Sie sich auf alle Clients auswirkt, auf denen Windows Vista oder höher bzw. Windows Server 2008 oder höher in der Domäne ausgeführt wird. Weitere Informationen zum Festlegen der nächst **gelegenen Site** -Einstellung finden Sie unter Aktivieren von [Clients zum Auffinden eines Domänen Controllers am nächstgelegenen Standort](https://technet.microsoft.com/library/cc772592.aspx).
+Sie können ein Gruppenrichtlinie Objekt (GPO) erstellen und mit dem entsprechenden Objekt für Ihre Organisation verknüpfen **, indem Sie die Standard** Domänen Richtlinie so ändern, dass Sie sich auf alle Clients auswirkt, auf denen Windows Vista oder höher bzw. Windows Server 2008 oder höher in der Domäne ausgeführt wird. Weitere Informationen zum Festlegen der nächst **gelegenen Site** -Einstellung finden Sie unter Aktivieren von [Clients zum Auffinden eines Domänen Controllers am nächstgelegenen Standort](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772592(v=ws.10)).

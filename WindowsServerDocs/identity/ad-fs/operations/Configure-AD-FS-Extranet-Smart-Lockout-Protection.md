@@ -8,14 +8,14 @@ ms.date: 05/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 28f7fc4a8c7129d9f88cc030b1b150db44321bf9
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 843ed0b3ebf25d662d0b90c17f8fe23548829a7e
+ms.sourcegitcommit: 371e59315db0cca5bdb713264a62b215ab43fd0f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859943"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192600"
 ---
-# <a name="ad-fs-extranet-lockout-and-extranet-smart-lockout"></a>AD FS extranetsperr-und Extranet-Smart Lockout
+# <a name="ad-fs-extranet-lockout-and-extranet-smart-lockout"></a>AD FS Extranet Lockout und Extranet Smart Lockout
 
 ## <a name="overview"></a>Übersicht
 
@@ -34,7 +34,7 @@ Extranet Smart Lockout in AD FS 2019 bietet im Vergleich zu AD FS 2016 die folge
 ### <a name="configuration-information"></a>Konfigurationsinformationen
 Wenn ESL aktiviert ist, wird eine neue Tabelle in der artefaktdatenbank adfsartifactstore. accountactivity erstellt, und in der AD FS Farm wird ein Knoten als Master Benutzeraktivität ausgewählt. In einer wid-Konfiguration ist dieser Knoten immer der primäre Knoten. In einer SQL-Konfiguration wird ein Knoten als Benutzer Aktivitäts Master ausgewählt.  
 
-, Um den ausgewählten Knoten als Benutzer Aktivitäts Master anzuzeigen. Get-adfsfarminformation. farmrollen
+, Um den ausgewählten Knoten als Benutzer Aktivitäts Master anzuzeigen. (Get-adfsfarminformation). Farmrollen
 
 Alle sekundären Knoten wenden sich bei jeder neuen Anmeldung über Port 80 an den Master Knoten, um den aktuellen Wert der Anzahl fehlerhafter Kenn Wörter und neuer bekannter Standort Werte zu ermitteln und den Knoten nach der Verarbeitung der Anmeldung zu aktualisieren.
 
@@ -57,7 +57,7 @@ Alle sekundären Knoten wenden sich bei jeder neuen Anmeldung über Port 80 an d
 IPv4-und IPv6-Adressen werden unterstützt.
 
 ### <a name="anatomy-of-a-transaction"></a>Anatomie einer Transaktion
-- **Vorauthentifizierungs Überprüfung**: während einer Authentifizierungsanforderung prüft ESL alle dargestellten IPS. Diese IPS bestehen aus einer Kombination aus Netzwerk-IP, weiter geleiteter IP-Adresse und der optionalen x-weitergeleiteten IP-Adresse. In den Überwachungsprotokollen werden diese IP-Adressen im Feld <IpAddress> in der Reihenfolge x-ms-weitergeleitet-Client-IP, x-weitergeleitet-für, x-ms-Proxy-Client-IP aufgelistet.
+- **Vorauthentifizierungs Überprüfung**: während einer Authentifizierungsanforderung prüft ESL alle dargestellten IPS. Diese IPS bestehen aus einer Kombination aus Netzwerk-IP, weiter geleiteter IP-Adresse und der optionalen x-weitergeleiteten IP-Adresse. In den Überwachungsprotokollen werden diese IP-Adressen im <IpAddress> Feld in der Reihenfolge von "x-ms-weitergeleitet-Client-IP", "x-weitergeleitet-für", "x-ms-Proxy-Client-IP" aufgeführt.
 
   Basierend auf diesen IPS wird von ADFS ermittelt, ob die Anforderung von einem vertrauten oder unbekannten Speicherort aus erfolgt. Anschließend wird überprüft, ob der entsprechende BadPwdCount-Wert kleiner als der festgelegte Schwellenwert ist oder ob der letzte **fehlgeschlagene** Versuch länger als der Zeitrahmen des Beobachtungs Fensters erfolgt ist. Wenn eine dieser Bedingungen zutrifft, ermöglicht ADFS dieser Transaktion die weitere Verarbeitung und Überprüfung der Anmelde Informationen. Wenn beide Bedingungen false sind, befindet sich das Konto bereits in einem gesperrten Zustand, bis das Überwachungs Fenster vorbei ist. Nachdem das Überwachungs Fenster weitergeleitet wurde, ist der Benutzer berechtigt, sich zu authentifizieren. Beachten Sie, dass ADFS in 2019 anhand des entsprechenden Schwellenwerts überprüft, ob die IP-Adresse mit einem vertrauten Speicherort übereinstimmt oder nicht.
 - **Erfolgreiche Anmeldung**: Wenn die Anmeldung erfolgreich ist, werden die IP-Adressen aus der Anforderung der vertrauten Standort-IP-Liste des Benutzers hinzugefügt.  
@@ -81,7 +81,7 @@ Die Tabelle accountactivity wird im Modus "nur Protokoll" und im Modus "erzwinge
 1. **Installieren von Updates auf allen Knoten in der Farm**
 
    Stellen Sie zunächst sicher, dass alle Windows Server 2016-AD FS Server ab den Windows-Updates vom Juni 2018 auf dem neuesten Stand sind und dass die AD FS 2016-Farm auf der Ebene der 2016-Farm ausgeführt wird.
-1. **Berechtigungen überprüfen**
+1. **Überprüfen von Berechtigungen**
 
    Extranet Smart Lockout erfordert, dass die Windows-Remote Verwaltung auf allen AD FS Server aktiviert ist.
 3. **Aktualisieren von artefaktdatenbankberechtigungen**
@@ -143,10 +143,10 @@ Die Tabelle accountactivity wird im Modus "nur Protokoll" und im Modus "erzwinge
 ### <a name="ensure-ad-fs-security-audit-logging-is-enabled"></a>Sicherstellen, dass AD FS Protokollierung der Sicherheitsüberwachung aktiviert ist
 Diese Funktion nutzt Sicherheits Überwachungs Protokolle, sodass die Überwachung sowohl in AD FS als auch in der lokalen Richtlinie auf allen AD FS Servern aktiviert werden muss.
 
-### <a name="configuration-instructions"></a>Konfigurations Anweisungen
-Extranet Smart Lockout verwendet die ADFS-Eigenschaft **extranetlockoutenabled**. Diese Eigenschaft wurde zuvor zum Steuern der "Extranet Soft Lockout" in Server 2012r2 verwendet. Wenn die extranetsperre aktiviert war, führen Sie ` Get-AdfsProperties` aus, um die aktuelle Eigenschaften Konfiguration anzuzeigen.
+### <a name="configuration-instructions"></a>Konfigurationsanweisungen
+Extranet Smart Lockout verwendet die ADFS-Eigenschaft **extranetlockoutenabled**. Diese Eigenschaft wurde zuvor zum Steuern der "Extranet Soft Lockout" in Server 2012r2 verwendet. Wenn Extranet Soft Lockout aktiviert war, führen ` Get-AdfsProperties` Sie aus, um die aktuelle Eigenschaften Konfiguration anzuzeigen.
 
-### <a name="configuration-recommendations"></a>Konfigurations Empfehlungen
+### <a name="configuration-recommendations"></a>Konfigurationsempfehlungen
 Wenn Sie die Smart Lockout-Extranet konfigurieren, befolgen Sie die bewährten Methoden zum Festlegen von Schwellenwerten:  
 
 `ExtranetObservationWindow (new-timespan -Minutes 30)`
@@ -236,9 +236,13 @@ Dieses Verhalten kann überschrieben werden, indem der-Server-Parameter übergeb
 ## <a name="event-logging--user-activity-information-for-ad-fs-extranet-lockout"></a>Ereignisprotokollierung & Benutzer Aktivitäts Informationen für AD FS extranetsperre
 
 ### <a name="connect-health"></a>Connect Health
-Die empfohlene Vorgehensweise zum Überwachen der Benutzerkonto Aktivität erfolgt über Connect Health. Connect Health generiert eine herunterladbare Berichterstellung für riskante IPS und ungültige Kenn Wort Versuche. Jedes Element im Bericht über riskante IP-Adressen enthält aggregierte Informationen zu fehlgeschlagenen AD FS Anmelde Aktivitäten, die den angegebenen Schwellenwert überschreiten. E-Mail-Benachrichtigungen können mithilfe von anpassbaren e-Mail-Einstellungen auf Benachrichtigungs Administratoren festgelegt werden. Weitere Informationen und Installationsanweisungen finden Sie in der [Connect Health-Dokumentation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs).
+Die empfohlene Vorgehensweise zum Überwachen der Benutzerkonto Aktivität erfolgt über Connect Health. Connect Health generiert eine herunterladbare Berichterstellung für riskante IPS und ungültige Kenn Wort Versuche. Jeder Eintrag im Bericht über riskante IP-Adressen enthält aggregierte Informationen zu fehlgeschlagenen AD FS-Anmeldeaktivitäten, für die der angegebene Schwellenwert überschritten wurde. E-Mail-Benachrichtigungen können mithilfe von anpassbaren e-Mail-Einstellungen auf Benachrichtigungs Administratoren festgelegt werden. Weitere Informationen und Installationsanweisungen finden Sie in der [Connect Health-Dokumentation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs).
 
 ### <a name="ad-fs-extranet-smart-lockout-events"></a>AD FS Extranet-Smart Lockout-Ereignisse.
+
+>[!NOTE]
+> Problembehandlung für die Extranet-Smart Sperrungs mit dem Handbuch zur Problembehandlung für die [AD FS-Hilfe-Extranet](https://adfshelp.microsoft.com/TroubleshootingGuides/Workflow/a73d5843-9939-4c03-80a1-adcbbf3ccec8)
+
 Für das Schreiben von extranetsmarlockout-Ereignissen muss die Funktion im Modus "nur Protokoll" oder "erzwingen" aktiviert werden, und die ADFS-Sicherheitsüberwachung ist aktiviert.
 AD FS schreibt extranetsperrungsereignisse in das Sicherheits Überwachungs Protokoll:
 - Wenn ein Benutzer gesperrt ist (erreicht den Sperr Schwellenwert für fehlgeschlagene Anmeldeversuche)
@@ -247,7 +251,7 @@ AD FS schreibt extranetsperrungsereignisse in das Sicherheits Überwachungs Prot
 Im Modus "nur Protokoll" können Sie das Sicherheits Überwachungs Protokoll auf Sperr Ereignisse überprüfen. Für gefundene Ereignisse können Sie den Benutzer Zustand mithilfe des Cmdlets Get-adfsaccountactivity überprüfen, um festzustellen, ob die Sperre von vertrauten oder unbekannten IP-Adressen aufgetreten ist, und die Liste der vertrauten IP-Adressen für diesen Benutzer zu überprüfen.
 
 
-|Ereignis-ID|Beschreibung|
+|Ereignis-ID|BESCHREIBUNG|
 |-----|-----|
 |1203|Dieses Ereignis wird für jeden ungültigen Kennwort-Versuch geschrieben. Sobald BadPwdCount den in extranetlockoutthreshold angegebenen Wert erreicht, wird das Konto für die in extranetobservationwindow angegebene Dauer in ADFS gesperrt.</br>Aktivitäts-ID: %1</br>XML: %2|
 |1201|Dieses Ereignis wird jedes Mal geschrieben, wenn ein Benutzer gesperrt wird. </br>Aktivitäts-ID: %1</br>XML: %2|
@@ -266,11 +270,11 @@ A: Wenn für die AD FS-Smart Lockout der Modus "erzwingen" festgelegt ist, wird 
 
 **Was geschieht, wenn ESL aktiviert ist und der ungültige Akteur ein Benutzer Kennwort hat?** 
 
-A: das typische Ziel des Brute-Force-Angriffs Szenarios besteht darin, ein Kennwort zu erraten und sich erfolgreich anzumelden.  Wenn ein Benutzer ein Kennwort enthält oder ein Kennwort erraten wird, blockiert das ESL-Feature den Zugriff nicht, da die Anmeldung den "erfolgreichen" Kriterien des korrekten Kennworts und der neuen IP-Adresse entspricht. Die IP-Adresse des ungültigen Actors würde dann als "vertrauter" angezeigt werden. Die beste Entschärfung in diesem Szenario besteht darin, die Aktivität des Benutzers in AD FS zu löschen und die Multi-Factor Authentication für die Benutzer anzufordern. Es wird dringend empfohlen, den Aad-Kenn Wort Schutz zu installieren, mit dem sichergestellt wird, dass die Kenn Wörter nicht in das System
+A: das typische Ziel des Brute-Force-Angriffs Szenarios besteht darin, ein Kennwort zu erraten und sich erfolgreich anzumelden.Wenn ein Benutzer ein Kennwort enthält oder ein Kennwort erraten wird, blockiert das ESL-Feature den Zugriff nicht, da die Anmeldung den "erfolgreichen" Kriterien des korrekten Kennworts und der neuen IP-Adresse entspricht. Die IP-Adresse des ungültigen Actors würde dann als "vertrauter" angezeigt werden.Die beste Entschärfung in diesem Szenario besteht darin, die Aktivität des Benutzers in AD FS zu löschen und die Multi-Factor Authentication für die Benutzer anzufordern. Es wird dringend empfohlen, den Aad-Kenn Wort Schutz zu installieren, mit dem sichergestellt wird, dass die Kenn Wörter nicht in das System
 
 **Wenn sich der Benutzer nie erfolgreich von einer IP-Adresse angemeldet hat und dann mehrmals versucht, sich mit einem falschen Kennwort anzumelden?** 
 
-A: Wenn ein Benutzer mehrere ungültige Kenn Wörter übermittelt (d. h. die falsche Typisierung) und bei folgendem Versuch das Kennwort richtig ist, wird der Benutzer sich sofort erfolgreich anmelden.  Dadurch wird die Anzahl fehlerhafter Kenn Wörter gelöscht und dieser IP-Adresse hinzugefügt.  Wenn Sie jedoch den Schwellenwert fehlerhafter Anmeldungen über den unbekannten Speicherort überschreiten, werden Sie in den Sperr Zustand versetzt, und Sie müssen auf das Überwachungs Fenster warten und sich mit einem gültigen Kennwort anmelden, oder es muss ein Administrator Eingriff erforderlich sein, um Ihr Konto zurückzusetzen.  
+A: Wenn ein Benutzer mehrere ungültige Kenn Wörter übermittelt (d. h. die falsche Typisierung) und bei folgendem Versuch das Kennwort richtig ist, wird der Benutzer sich sofort erfolgreich anmelden. Dadurch wird die Anzahl fehlerhafter Kenn Wörter gelöscht und dieser IP-Adresse hinzugefügt.Wenn Sie jedoch den Schwellenwert fehlerhafter Anmeldungen über den unbekannten Speicherort überschreiten, werden Sie in den Sperr Zustand versetzt, und Sie müssen auf das Überwachungs Fenster warten und sich mit einem gültigen Kennwort anmelden, oder es muss ein Administrator Eingriff erforderlich sein, um Ihr Konto zurückzusetzen.  
  
 **Funktioniert ESL auch im Intranet?**
 
@@ -278,12 +282,12 @@ A: Wenn die Clients eine direkte Verbindung mit den AD FS-Servern herstellen und
 
 **Ich sehe Microsoft-IP-Adressen im Feld "Client-IP". Blockiert die ESL-Angriffe mit Brute-Force-Angriffen.**  
 
-A: ESL funktioniert gut, um Exchange Online-oder andere ältere Authentifizierungs Szenarien für Brute-Force-Angriffe zu verhindern. Eine Legacy Authentifizierung hat eine "Aktivitäts-ID" von 00000000-0000-0000-0000-000000000000. In diesen Angriffen nutzt der schlechte Akteur die Exchange Online-Standard Authentifizierung (auch als ältere Authentifizierung bezeichnet), sodass die Client-IP-Adresse als Microsoft-Adresse angezeigt wird. Die Exchange Online-Server im cloudproxy die Authentifizierungs Überprüfung für den Outlook-Client. In diesen Szenarien wird die IP-Adresse des bösartigen submitters in "x-ms-weitergeleitet-Client-IP" angezeigt, und die IP-Adresse von Microsoft Exchange Online Server ist im Wert x-MS-Client-IP.
+A: ESL funktioniert gut, um Exchange Online-oder andere ältere Authentifizierungs Szenarien für Brute-Force-Angriffe zu verhindern. Eine Legacy Authentifizierung hat eine "Aktivitäts-ID" von 00000000-0000-0000-0000-000000000000.In diesen Angriffen nutzt der schlechte Akteur die Exchange Online-Standard Authentifizierung (auch als ältere Authentifizierung bezeichnet), sodass die Client-IP-Adresse als Microsoft-Adresse angezeigt wird. Die Exchange Online-Server im cloudproxy die Authentifizierungs Überprüfung für den Outlook-Client. In diesen Szenarien wird die IP-Adresse des bösartigen submitters in "x-ms-weitergeleitet-Client-IP" angezeigt, und die IP-Adresse von Microsoft Exchange Online Server ist im Wert x-MS-Client-IP.
 Extranet Smart Lockout überprüft Netzwerk-IP-Adressen, weitergeleitete IPS, den Wert x-weitergeleitete Client-IP und den Wert x-MS-Client-IP. Wenn die Anforderung erfolgreich ist, werden alle IPS der vertrauten Liste hinzugefügt. Wenn eine Anforderung empfangen wird und eine der dargestellten IPS nicht in der vertrauten Liste enthalten ist, wird die Anforderung als unbekannt gekennzeichnet. Der vertraute Benutzer kann sich erfolgreich anmelden, während Anforderungen von den unbekannten Standorten blockiert werden.  
 
-\* * F: kann ich die Größe von adfsartifactstore vor dem Aktivieren von ESL schätzen?
+* * F: kann ich die Größe von adfsartifactstore vor dem Aktivieren von ESL schätzen?
 
-A: bei aktiviertem ESL werden AD FS die Kontoaktivität und die bekannten Speicherorte für Benutzer in der adfsartifactstore-Datenbank nachverfolgt. Die Größe dieser Datenbank wird relativ zur Anzahl der nachverfolgten Benutzer und bekannten Standorte skaliert. Beim Planen der Aktivierung von ESL können Sie die Größenzunahme für die ADFSArtifactStore-Datenbank auf eine Rate von bis zu 1 GB pro 100.000 Benutzer schätzen. Wenn die AD FS-Farm die interne Windows-Datenbank (WID) verwendet, lautet der Standard Speicherort für die Datenbankdateien c:\windows\wid\data\. Um das Auffüllen dieses Laufwerks zu verhindern, stellen Sie sicher, dass mindestens 5 GB freier Speicherplatz verfügbar sind, bevor Sie ESL aktivieren. Planen Sie zusätzlich zum Datenträgerspeicher, dass der gesamte Prozessspeicher nach der Aktivierung von ESL um bis zu weitere 1 GB RAM für Benutzerauffüllungen von maximal 500.000 größer wird.
+A: bei aktiviertem ESL werden AD FS die Kontoaktivität und die bekannten Speicherorte für Benutzer in der adfsartifactstore-Datenbank nachverfolgt. Die Größe dieser Datenbank wird relativ zur Anzahl der Benutzer und bekannten Standorte skaliert. Wenn Sie die Aktivierung von ESL planen, können Sie die Größe der adfsartifactstore-Datenbank mit einer Rate von bis zu 1 GB pro 100.000 Benutzer schätzen. Wenn die AD FS-Farm die interne Windows-Datenbank (WID) verwendet, lautet der Standard Speicherort für die Datenbankdateien c:\windows\wid\data\. Um das Auffüllen dieses Laufwerks zu verhindern, stellen Sie sicher, dass mindestens 5 GB freier Speicherplatz verfügbar sind, bevor Sie die ESL aktivieren. Planen Sie zusätzlich zum Datenträger Speicher den gesamten Prozess Arbeitsspeicher, der nach dem Aktivieren von ESL erweitert werden soll, um bis zu 1 GB RAM für die Benutzer Population von 500.000 oder weniger.
 
 
 ## <a name="additional-references"></a>Weitere Verweise  

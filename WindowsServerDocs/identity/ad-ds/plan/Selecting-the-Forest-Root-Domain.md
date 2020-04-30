@@ -8,16 +8,16 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: abc02bec101b39a66a78da871f838d2585d89377
-ms.sourcegitcommit: af1cf89632d62a94943d3ad9f6b5234b88499278
+ms.openlocfilehash: 1abf845ce69b395bf46a0f155db2c683c359207c
+ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81524925"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81623878"
 ---
 # <a name="selecting-the-forest-root-domain"></a>Auswählen der Stammdomäne der Gesamtstruktur
 
-> Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Die erste Domäne, die Sie in einer Active Directory Gesamtstruktur bereitstellen, wird als Gesamtstruktur-Stamm Domäne bezeichnet. Diese Domäne bleibt für den Lebenszyklus der AD DS Bereitstellung die Gesamtstruktur-Stamm Domäne.
 
@@ -68,7 +68,7 @@ So wählen Sie ein Suffix für die Stamm Domäne der Gesamtstruktur aus:
 Es wird empfohlen, DNS-Namen zu verwenden, die im Active Directory-Namespace mit einer Internet Autorität registriert sind. Es ist garantiert, dass nur registrierte Namen global eindeutig sind. Wenn eine andere Organisation später denselben DNS-Domänen Namen registriert (oder wenn Ihre Organisation mit einem anderen Unternehmen zusammenarbeitet, das denselben DNS-Namen verwendet), können die beiden Infrastrukturen nicht miteinander interagieren.
 
 > [!CAUTION]
-> Verwenden Sie keine DNS-Namen mit einer einzelnen Bezeichnung. Weitere Informationen finden Sie unter ([Bereitstellung und Betrieb von Active Directory Domänen, die mit DNS-Namen mit einer einzelnen Bezeichnung konfiguriert sind](https://go.microsoft.com/fwlink/?LinkId=106631)). Außerdem wird die Verwendung von nicht registrierten Suffixen, wie z. b. local, nicht empfohlen.
+> Verwenden Sie keine DNS-Namen mit einer einzelnen Bezeichnung. Weitere Informationen finden Sie unter [Bereitstellung und Betrieb von Active Directory Domänen, die mithilfe von DNS-Namen mit nur einer Bezeichnung konfiguriert](https://support.microsoft.com/help/300684/)wurden. Außerdem wird die Verwendung von nicht registrierten Suffixen, wie z. b.. local, nicht empfohlen.
 
 ### <a name="selecting-a-prefix"></a>Auswählen eines Präfixes
 
@@ -78,14 +78,14 @@ Wenn Sie eine regionale Domäne ausgewählt haben, die als Gesamtstruktur-Stamm 
 
 In der folgenden Tabelle sind die Regeln aufgeführt, mit denen ein Präfix für einen registrierten DNS-Namen ausgewählt wird.
 
-|Regel|Erklärung|
-|--------|---------------|
-|Wählen Sie ein Präfix aus, das wahrscheinlich nicht mehr veraltet ist.|Vermeiden Sie Namen wie z. b. eine Produktlinie oder ein Betriebssystem, die sich in der Zukunft ändern können. Es wird empfohlen, generische Namen wie Corp oder DS zu verwenden.|
-|Wählen Sie ein Präfix aus, das nur Internet Standard Zeichen enthält.|A-z, a-z, 0-9 und (-), aber nicht vollständig numerisch.|
-|Fügen Sie im Präfix höchstens 15 Zeichen ein.|Wenn Sie eine Präfix Länge von höchstens 15 Zeichen auswählen, ist der NetBIOS-Name das gleiche wie das Präfix.|
+| Regel     | Erklärung |
+| -------- | --------------- |
+| Wählen Sie ein Präfix aus, das wahrscheinlich nicht mehr veraltet ist. | Vermeiden Sie Namen wie z. b. eine Produktlinie oder ein Betriebssystem, die sich in der Zukunft ändern können. Es wird empfohlen, generische Namen wie Corp oder DS zu verwenden.|
+| Wählen Sie ein Präfix aus, das nur Internet Standard Zeichen enthält. | A-z, a-z, 0-9 und (-), aber nicht vollständig numerisch. |
+| Fügen Sie im Präfix höchstens 15 Zeichen ein. | Wenn Sie eine Präfix Länge von höchstens 15 Zeichen auswählen, ist der NetBIOS-Name das gleiche wie das Präfix. |
 
 Es ist wichtig, dass der Active Directory DNS-Besitzer mit dem DNS-Besitzer für die Organisation zusammenarbeitet, um den Besitz des Namens zu erhalten, der für den Active Directory-Namespace verwendet wird. Weitere Informationen zum Entwerfen einer DNS-Infrastruktur zur Unterstützung von AD DS finden Sie unter [Erstellen eines DNS-Infrastruktur Entwurfs](../../ad-ds/plan/Creating-a-DNS-Infrastructure-Design.md).
 
 ## <a name="documenting-the-forest-root-domain-name"></a>Dokumentieren des Gesamtstruktur-Stamm Domänen Namens
 
-Dokumentieren Sie das DNS-Präfix und das Suffix, das Sie für die Stamm Domäne der Gesamtstruktur auswählen. Identifizieren Sie an diesem Punkt, welche Domäne der Gesamtstruktur Stamm sein wird. Sie können dem Arbeitsblatt "Domänen Planung", das Sie erstellt haben, die Namen der Gesamtstruktur-Stamm Domäne hinzufügen, um den Plan für neue und aktualisierte Domänen und ihre Domänen Namen zu dokumentieren. Um es zu öffnen, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://www.microsoft.com/download/details.aspx?id=9608) herunter, und öffnen Sie "Domänen Planung" (DSSLOGI_5. doc).
+Dokumentieren Sie das DNS-Präfix und das Suffix, das Sie für die Stamm Domäne der Gesamtstruktur auswählen. Identifizieren Sie an diesem Punkt, welche Domäne der Gesamtstruktur Stamm sein wird. Sie können dem Arbeitsblatt "Domänen Planung", das Sie erstellt haben, die Namen der Gesamtstruktur-Stamm Domäne hinzufügen, um den Plan für neue und aktualisierte Domänen und ihre Domänen Namen zu dokumentieren. Um es zu öffnen, laden Sie Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip aus den [Auftrags Hilfen für Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608) herunter, und öffnen Sie "Domänen Planung" (DSSLOGI_5. doc).
