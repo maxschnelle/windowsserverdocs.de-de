@@ -1,6 +1,6 @@
 ---
 ms.assetid: e863ab80-4e4c-48d3-bdaa-31815ef36bae
-title: Konfigurieren von AD FS zum Authentifizieren von Benutzern, die in LDAP-Verzeichnissen gespeichert sind
+title: Konfigurieren von AD FS zum Authentifizieren von Benutzern in LDAP-Verzeichnissen gespeichert
 author: billmath
 ms.author: billmath
 manager: femila
@@ -8,14 +8,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 9c194128cb5d96bf84e19b11b9d8803c61e34490
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a3e429d43fd644cd2b8ba3a5b123deecc2696f24
+ms.sourcegitcommit: 912a5a402ecc6b39c1584338ea635a2ac11a4eb9
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859903"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82219284"
 ---
-# <a name="configure-ad-fs-to-authenticate-users-stored-in-ldap-directories"></a>Konfigurieren von AD FS zum Authentifizieren von Benutzern, die in LDAP-Verzeichnissen gespeichert sind
+# <a name="configure-ad-fs-to-authenticate-users-stored-in-ldap-directories-in-windows-server-2016-or-later"></a>Konfigurieren von AD FS zum Authentifizieren von Benutzern, die in LDAP-Verzeichnissen in Windows Server 2016 oder höher gespeichert sind
 
 Im folgenden Thema wird die Konfiguration beschrieben, die erforderlich ist, um Ihre AD FS-Infrastruktur zum Authentifizieren von Benutzern zu aktivieren, deren Identitäten in LDAP-kompatiblen Verzeichnissen (Lightweight Directory Access Protocol) gespeichert sind.
 
@@ -49,7 +49,7 @@ Führen Sie die folgenden Schritte aus, um die AD FS-Farm zum Authentifizieren v
    > [!NOTE]
    > Es wird empfohlen, ein neues Verbindungs Objekt für jeden LDAP-Server zu erstellen, mit dem Sie eine Verbindung herstellen möchten. AD FS können eine Verbindung mit mehreren Replikat-LDAP-Servern herstellen und automatisch ein Failover ausführen, falls ein bestimmter LDAP-Server ausfällt. In einem solchen Fall können Sie für jeden dieser LDAP-Replikat Server eine adfsldapserverconnection erstellen und dann das Array der Verbindungs Objekte mithilfe des Parameters-**ldapserverconnection** des Cmdlets **Add-adfslocalclaimsprovidertrust** hinzufügen.
 
-   **Hinweis:** Der Versuch, Get-Credential zu verwenden und einen DN und ein Kennwort einzugeben, die für die Bindung an eine LDAP-Instanz verwendet werden, kann aufgrund der Benutzeroberflächen Anforderung für bestimmte Eingabeformate, z. b. Domäne \ Benutzername oder user@domain.tld, zu einem Fehler führen. Stattdessen können Sie das ConvertTo-SecureString-Cmdlet wie folgt verwenden (im Beispiel unten wird UID = admin, ou = System als DN der Anmelde Informationen verwendet, die für die Bindung an die LDAP-Instanz verwendet werden sollen):
+   **Hinweis:** Der Versuch, Get-Credential zu verwenden und einen DN und ein Kennwort einzugeben, die für die Bindung an eine LDAP-Instanz verwendet werden, kann aufgrund der Benutzeroberflächen Anforderung für bestimmte Eingabeformate (z. b. Domäne \ Benutzer user@domain.tldName oder) zu einem Fehler führen. Stattdessen können Sie das ConvertTo-SecureString-Cmdlet wie folgt verwenden (im Beispiel unten wird UID = admin, ou = System als DN der Anmelde Informationen verwendet, die für die Bindung an die LDAP-Instanz verwendet werden sollen):
 
    ```
    $ldapuser = ConvertTo-SecureString -string "uid=admin,ou=system" -asplaintext -force
@@ -92,9 +92,8 @@ Führen Sie die folgenden Schritte aus, um die AD FS-Farm zum Authentifizieren v
    -OrganizationalAccountSuffix "vendors.contoso.com"
    ```
 
-   Im obigen Beispiel erstellen Sie eine lokale Anspruchs Anbieter-Vertrauensstellung mit dem Namen "Lieferanten". Sie geben Verbindungsinformationen für AD FS an, um eine Verbindung mit dem LDAP-Verzeichnis herzustellen, das diese lokale Anspruchs Anbieter-Vertrauensstellung darstellt, indem Sie dem `-LdapServerConnection` Parameter `$vendorDirectory` zuweisen. Beachten Sie, dass Sie in Schritt 1 `$vendorDirectory` eine Verbindungs Zeichenfolge zugewiesen haben, die beim Herstellen einer Verbindung mit Ihrem spezifischen LDAP-Verzeichnis verwendet werden soll. Schließlich geben Sie an, dass die `$GivenName`-, `$Surname`-und `$CommonName` LDAP-Attribute (die Sie den AD FS Ansprüchen zugeordnet haben) für die bedingte Zugriffs Steuerung verwendet werden sollen, einschließlich Multi-Factor Authentication-Richtlinien und Ausstellungs Autorisierungs Regeln sowie für die Ausstellung über Ansprüche in AD FS ausgestellte Sicherheits Token. Um aktive Protokolle wie WS-Trust mit AD FS zu verwenden, müssen Sie den organizationalaccountsuffix-Parameter angeben, der es AD FS ermöglicht, bei der Wartung einer aktiven Autorisierungs Anforderung zwischen lokalen Anspruchs Anbieter-Vertrauens Stellungen zu unterscheiden.
+   Im obigen Beispiel erstellen Sie eine lokale Anspruchs Anbieter-Vertrauensstellung mit dem Namen "Lieferanten". Sie geben Verbindungsinformationen für AD FS zum Herstellen einer Verbindung mit dem LDAP-Verzeichnis an, das diese lokale Anspruchs `$vendorDirectory` Anbieter- `-LdapServerConnection` Vertrauensstellung darstellt, indem Sie dem-Parameter zuweisen. Beachten Sie, dass Sie in Schritt 1 eine `$vendorDirectory` Verbindungs Zeichenfolge zugewiesen haben, die beim Herstellen einer Verbindung mit Ihrem spezifischen LDAP-Verzeichnis verwendet werden soll. Schließlich geben Sie an, dass die `$GivenName`LDAP `$Surname`-Attribute `$CommonName` , und (die Sie den AD FS Ansprüchen zugeordnet haben) für die bedingte Zugriffs Steuerung verwendet werden sollen, einschließlich Multi-Factor Authentication-Richtlinien und Ausstellungs Autorisierungs Regeln sowie für die Ausstellung über Ansprüche in AD FS ausgestellten Sicherheits Token. Um aktive Protokolle wie WS-Trust mit AD FS zu verwenden, müssen Sie den organizationalaccountsuffix-Parameter angeben, der es AD FS ermöglicht, bei der Wartung einer aktiven Autorisierungs Anforderung zwischen lokalen Anspruchs Anbieter-Vertrauens Stellungen zu unterscheiden.
 
 ## <a name="see-also"></a>Weitere Informationen
 [AD FS-Vorgänge](../../ad-fs/AD-FS-2016-Operations.md)
-
 
