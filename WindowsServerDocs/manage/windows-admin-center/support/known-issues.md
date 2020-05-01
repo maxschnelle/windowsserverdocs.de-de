@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: 5c9e8b7e1e11deaa82fbec6f451b4f194609c299
-ms.sourcegitcommit: 1d83ca198c50eef83d105151551c6be6f308ab94
+ms.openlocfilehash: d7dc3455c5d7c6b00940008ceea646436b40bed0
+ms.sourcegitcommit: e51dd9dabec82c59e805e7a04c27e56c83773857
 ms.translationtype: MT
 ms.contentlocale: de-DE
 ms.lasthandoff: 04/30/2020
-ms.locfileid: "82605550"
+ms.locfileid: "82613732"
 ---
 # <a name="windows-admin-center-known-issues"></a>Bekannte Probleme im Windows Admin Center
 
@@ -28,6 +28,8 @@ Wenn Sie ein Problem feststellen, das nicht auf dieser Seite beschrieben wird, [
 - Die Verwendung von Port unter 1024 wird nicht unterstützt. Im Dienst Modus können Sie optional Port 80 für die Umleitung an den angegebenen Port konfigurieren.
 
 ## <a name="general"></a>Allgemein
+
+- In der 1910,2-Version des Windows Admin Centers können Sie möglicherweise keine Verbindung zu Hyper-V-Servern auf bestimmter Hardware herstellen. Wenn dieses Problem blockiert ist, laden Sie [den vorherigen Build herunter](https://aka.ms/wacprevious). 
 
 - Wenn Sie Windows Admin Center als Gateway unter **Windows Server 2016** unter starker Verwendung installiert haben, stürzt der Dienst möglicherweise mit einem Fehler im Ereignisprotokoll ab, der ```Faulting application name: sme.exe``` und ```Faulting module name: WsmSvc.dll```enthält. Der Grund hierfür ist ein Fehler, der in Windows Server 2019 behoben wurde. Der Patch für Windows Server 2016 enthielt das kumulative Update vom Februar 2019, [KB4480977](https://www.catalog.update.microsoft.com/Search.aspx?q=4480977).
 
