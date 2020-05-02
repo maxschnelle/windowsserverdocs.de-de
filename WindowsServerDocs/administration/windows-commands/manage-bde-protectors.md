@@ -1,6 +1,6 @@
 ---
 title: manage-bde-Schutzvorrichtungen
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,25 +9,25 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/06/2018
-ms.openlocfilehash: 1a2e2c851ec9bc93ec434a35f14c6f92ec831876
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e01049a5fb3dc419e219fe4ec8b11dcdc790f919
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839953"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724110"
 ---
 # <a name="manage-bde-protectors"></a>manage-bde: Schutzvorrichtungen
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Verwaltet die Schutzmethoden, die für den BitLocker-Verschlüsselungsschlüssel verwendet werden. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
+Verwaltet die Schutzmethoden, die für den BitLocker-Verschlüsselungsschlüssel verwendet werden.
 ## <a name="syntax"></a>Syntax
 ```
 manage-bde -protectors [{-get|-add|-delete|-disable|-enable|-adbackup|-aadbackup}] <Drive> [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
 #### <a name="parameters"></a>Parameter
 
-|   Parameter   |                                                                                                                                                                                           Beschreibung                                                                                                                                                                                            |
+|   Parameter   |                                                                                                                                                                                           BESCHREIBUNG                                                                                                                                                                                            |
 |---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     -Get      |                                                                                                                                            Zeigt alle auf dem Laufwerk aktivierten Schlüsselschutz Methoden an und gibt ihren Typ und Bezeichner (ID) an.                                                                                                                                             |
 |     -Hinzufügen      |                                                                                                                                   Fügt mit zusätzlichen [Parametern hinzufügen](manage-bde-protectors.md#BKMK_addprotectors)Schlüsselschutz Methoden hinzu.                                                                                                                                    |
@@ -50,7 +50,7 @@ manage-bde  -protectors  -add [<Drive>] [-forceupgrade] [-recoverypassword <Nume
 [{-?|/?}] [{-help|-h}]
 ```
 
-|          Parameter           |                                                                                                                                                                                   Beschreibung                                                                                                                                                                                   |
+|          Parameter           |                                                                                                                                                                                   BESCHREIBUNG                                                                                                                                                                                   |
 |------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |           <Drive>            |                                                                                                                                                                 Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.                                                                                                                                                                  |
 |      -wiederherstellungkennwort       |                                                                                                                                    Fügt eine numerische Kennwort-Schutzvorrichtung hinzu. Sie können auch **-RP** als abgekürzte Version dieses Befehls verwenden.                                                                                                                                     |
@@ -78,19 +78,19 @@ manage-bde  -protectors  -delete <Drive> [-type {recoverypassword|externalkey|ce
 [-id <KeyProtectorID>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
 
-|       Parameter        |                                                                              Beschreibung                                                                               |
+|       Parameter        |                                                                              BESCHREIBUNG                                                                               |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |        <Drive>         |                                                             Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.                                                             |
 |         -Typ          |                               Identifiziert die zu löschende Schlüssel Schutzvorrichtung. Sie können auch **-t** als abgekürzte Version dieses Befehls verwenden.                               |
 |    RecoveryPassword    |                                                 Gibt an, dass alle Schutz Kennwort-Schlüssel Schutzvorrichtungen gelöscht werden sollen.                                                 |
 |      ExternalKey       |                                        Gibt an, dass alle dem Laufwerk zugeordneten externen Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                         |
 |      Zertifikat       |                                       Gibt an, dass alle dem Laufwerk zugeordneten Zertifikat Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                       |
-|          TPM           |                                        Gibt an, dass alle dem Laufwerk zugeordneten TPM-Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                         |
+|          tpm           |                                        Gibt an, dass alle dem Laufwerk zugeordneten TPM-Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                         |
 |    TPMAndStartupKey    |                                Gibt an, dass alle dem Laufwerk zugeordneten TPM-und systemeigenen Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                |
 |       TPMAndPIN        |                                    Gibt an, dass alle dem Laufwerk zugeordneten TPM-und PIN-basierten Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                    |
 | tpmandpinandstartupkey |                             Gibt an, dass alle dem Laufwerk zugeordneten TPM-, PIN-und Start Schlüssel-Schlüssel Schutzvorrichtungen gelöscht werden sollen.                             |
 |        password        |                                        Gibt an, dass alle dem Laufwerk zugeordneten Kennwort-Schlüsselschutz Vorrichtungen gelöscht werden sollen.                                         |
-|        Identität        |                                        Gibt an, dass alle dem Laufwerk zugeordneten Identitätsschlüssel Schutzvorrichtungen gelöscht werden sollen.                                         |
+|        identity        |                                        Gibt an, dass alle dem Laufwerk zugeordneten Identitätsschlüssel Schutzvorrichtungen gelöscht werden sollen.                                         |
 |          -ID           |                Identifiziert die zu löschende Schlüssel Schutzvorrichtung mithilfe des Schlüssel Bezeichners. Dieser Parameter ist eine alternative Option für den **-Type-** Parameter.                 |
 |    <KeyProtectorID>    |        Identifiziert eine einzelne Schlüssel Schutzvorrichtung auf dem zu löschenden Laufwerk. Schlüsselschutzschutzids können mithilfe des Befehls **manage-bde-Protector-Get** angezeigt werden.         |
 |     -Computername      | Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
@@ -103,7 +103,7 @@ manage-bde  -protectors  -delete <Drive> [-type {recoverypassword|externalkey|ce
 manage-bde  -protectors  -disable <Drive> [-RebootCount <integer 0 - 15>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
 
-|   Parameter   |                                                                                                                                                                                                                   Beschreibung                                                                                                                                                                                                                    |
+|   Parameter   |                                                                                                                                                                                                                   BESCHREIBUNG                                                                                                                                                                                                                    |
 |---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    <Drive>    |                                                                                                                                                                                                  Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.                                                                                                                                                                                                  |
 |  Rebootcount  | Ab Windows 8 gibt an, dass der Schutz für das Betriebssystem Volume angehalten wurde und fortgesetzt wird, sobald Windows neu gestartet wurde, und zwar so oft wie im Parameter "rebootcount" angegeben. Geben Sie 0 an, um den Schutz unbegrenzt anzuhalten. Wenn dieser Parameter nicht angegeben wird, wird der BitLocker-Schutz automatisch fortgesetzt, wenn Windows neu gestartet wird. Sie können auch **-RC** als abgekürzte Version dieses Befehls verwenden. |
@@ -112,27 +112,27 @@ manage-bde  -protectors  -disable <Drive> [-RebootCount <integer 0 - 15>] [-comp
 |   -? oder /?    |                                                                                                                                                                                                    Zeigt eine kurze Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                                    |
 |  -Help oder-h  |                                                                                                                                                                                                  Zeigt die gesamte Hilfe an der Eingabeaufforderung an.                                                                                                                                                                                                   |
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
-Das folgende Beispiel veranschaulicht die Verwendung des Befehls **-** Protector zum Hinzufügen einer durch eine Zertifikatsdatei identifizierten Zertifikat Schlüssel Schutzvorrichtung zu Laufwerk E.
+## <a name="examples"></a>Beispiele
+Veranschaulicht die Verwendung des Befehls " **-** Protector" zum Hinzufügen einer durch eine Zertifikatsdatei identifizierten Zertifikat Schlüssel Schutzvorrichtung für Laufwerk E.
 ```
 manage-bde  -protectors  -add E: -certificate  -cf c:\File Folder\Filename.cer
 ```
-Das folgende Beispiel veranschaulicht die Verwendung des Befehls "-Protector" zum Hinzufügen einer **adaccountorgroup** **-** Schlüssel Schutzvorrichtung, die durch Domäne und Benutzername identifiziert wird, zu Laufwerk E.
+Veranschaulicht die Verwendung des Befehls "-Protector" zum Hinzufügen einer durch Domäne und Benutzername identifizierten **adaccountorgroup** **-** Schlüssel Schutzvorrichtung zu Laufwerk E.
 ```
 manage-bde  -protectors  -add E: -sid DOMAIN\user
 ```
-Das folgende Beispiel **veranschaulicht die Verwendung des Befehls** "Protector", um den Schutz so lange zu deaktivieren, bis der Computer dreimal neu gestartet wurde.
+Veranschaulicht die Verwendung des **Befehls "** Protector", um den Schutz so lange zu deaktivieren, bis der Computer dreimal neu gestartet wurde.
 ```
 manage-bde  -protectors  -disable C: -rc 3
 ```
-Das folgende Beispiel veranschaulicht die Verwendung des Befehls-Protector, um alle TPM **-** und systemeigenen Schlüssel Schutzvorrichtungen auf Laufwerk C zu löschen.
+Veranschaulicht die Verwendung des Befehls "-Protector", um alle TPM **-** und systemeigenen Schlüsselschutz Vorrichtungen auf Laufwerk C zu löschen.
 ```
 manage-bde  -protectors -delete C: -type tpmandstartupkey
 ```
-Das folgende Beispiel veranschaulicht die Verwendung des Befehls " **-** Protector", um alle Wiederherstellungs Informationen für das Laufwerk C zu AD DS zu sichern.
+Veranschaulicht die Verwendung des Befehls " **-** Protector", um alle Wiederherstellungs Informationen für das Laufwerk C zu AD DS zu sichern.
 ```
 manage-bde  -protectors  -adbackup C:
 ```
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [manage-bde](manage-bde.md)

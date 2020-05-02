@@ -1,6 +1,6 @@
 ---
-title: Befehl nslookup finger
-description: Windows-Befehle Thema ****-
+title: Befehl „nslookup finger“
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9cfdf60478ca917fb373d07a72f018cf09056b49
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 428c9e7e775c85992f861e30ae9628ea27f7ee70
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838783"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723725"
 ---
-# <a name="nslookup-finger-command"></a>Befehl nslookup finger
+# <a name="nslookup-finger-command"></a>Befehl „nslookup finger“
 
 
 
@@ -30,12 +30,12 @@ finger [<UserName>] [{[>] <FileName>|[>>] <FileName>}]
 
 ### <a name="parameters"></a>Parameter
 
-|  Parameter  |                                                                               Beschreibung                                                                               |
+|  Parameter  |                                                                               BESCHREIBUNG                                                                               |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \<Benutzername > |                                                               Gibt den Namen des Benutzers an, der gesucht werden soll.                                                                |
-| \<Dateiname > | Gibt einen Dateinamen an, in dem die Ausgabe gespeichert werden soll. Sie können die Zeichen "größer als" (>) und "Double größer als" (> >) verwenden, um die Ausgabe auf die übliche Weise umzuleiten. |
+| \<Benutzername> |                                                               Gibt den Namen des Benutzers an, der gesucht werden soll.                                                                |
+| \<Dateiname> | Gibt einen Dateinamen an, in dem die Ausgabe gespeichert werden soll. Sie können die Zeichen "größer als" (>) und "Double größer als" (>>) verwenden, um die Ausgabe auf die übliche Weise umzuleiten. |
 |    {Hilfe    |                                                                                   ?}                                                                                    |
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

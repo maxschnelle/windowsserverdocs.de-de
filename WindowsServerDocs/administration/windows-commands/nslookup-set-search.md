@@ -1,6 +1,6 @@
 ---
 title: nslookup set search
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9972919eae1be21d5dd30820d64dd1576b935666
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2e3f5bce42d3614b535b2dfb00c4c9ea9cac2346
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838303"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723566"
 ---
 # <a name="nslookup-set-search"></a>nslookup set search
 
@@ -30,12 +30,12 @@ set [no]search
 
 ### <a name="parameters"></a>Parameter
 
-|  Parameter   |                                                                          Beschreibung                                                                          |
+|  Parameter   |                                                                          BESCHREIBUNG                                                                          |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **noSearch** |                            Beendet das Anfügen der Domain Name System (DNS)-Domänen Namen in der DNS-Domänen Suchliste an die Anforderung.                            |
-|  **Such**  | Fügt Domain Name System die DNS-Domänen Namen (DNS) in der DNS-Domänen Suchliste an die Anforderung an, bis eine Antwort empfangen wird. Die Standard Syntax lautet **Search**. |
+|  **search**  | Fügt Domain Name System die DNS-Domänen Namen (DNS) in der DNS-Domänen Suchliste an die Anforderung an, bis eine Antwort empfangen wird. Die Standard Syntax lautet **Search**. |
 |    {Hilfe     |                                                                              ?}                                                                               |
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

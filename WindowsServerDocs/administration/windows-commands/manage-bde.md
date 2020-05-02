@@ -1,6 +1,6 @@
 ---
 title: manage-bde
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 816e20152ec40ce54c1192f3075c6f4556aed3db
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 567e0ed45f6bef42e82c3a68b3c0cbbb352b12d9
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839693"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724030"
 ---
 # <a name="manage-bde"></a>manage-bde
 
 
 
-Dient zum Aktivieren oder Deaktivieren von BitLocker, zum Angeben von entsperrungs Mechanismen, zum Aktualisieren von Wiederherstellungsmethoden und zum Entsperren von mit BitLocker geschützten Daten Laufwerken. Dieses Befehlszeilen Tool kann anstelle des **BitLocker-Laufwerkverschlüsselung** System Steuerungs Elements verwendet werden. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
+Dient zum Aktivieren oder Deaktivieren von BitLocker, zum Angeben von entsperrungs Mechanismen, zum Aktualisieren von Wiederherstellungsmethoden und zum Entsperren von mit BitLocker geschützten Daten Laufwerken. Dieses Befehlszeilen Tool kann anstelle des **BitLocker-Laufwerkverschlüsselung** System Steuerungs Elements verwendet werden.
 
 ## <a name="syntax"></a>Syntax
 
@@ -31,7 +31,7 @@ manage-bde [-status] [–on] [–off] [–pause] [–resume] [–lock] [–unloc
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |[Manage-bde: status](manage-bde-status.md)|Enthält Informationen zu allen Laufwerken auf dem Computer, unabhängig davon, ob Sie durch BitLocker geschützt sind.|
 |[Manage-bde: on](manage-bde-on.md)|Verschlüsselt das Laufwerk und schaltet BitLocker ein.|
@@ -44,32 +44,32 @@ manage-bde [-status] [–on] [–off] [–pause] [–resume] [–lock] [–unloc
 |[Manage-bde: protectors](manage-bde-protectors.md)|Verwaltet Schutzmethoden für den Verschlüsselungsschlüssel.|
 |[Manage-bde: tpm](manage-bde-tpm.md)|Konfiguriert den Trusted Platform Module des Computers (TPM). Dieser Befehl wird auf Computern, auf denen Windows 8 oder **win8_server_2**ausgeführt wird, nicht unterstützt. Um das TPM auf diesen Computern zu verwalten, verwenden Sie entweder das TPM-Verwaltungs-MMC-Snap-in oder die TPM-Verwaltungs-Cmdlets für Windows PowerShell.|
 |[Manage-bde: setidentifier](manage-bde-setidentifier.md)|Legt das Feld Laufwerks-ID auf dem Laufwerk auf den Wert fest, der in der Einstellung **Geben Sie die eindeutigen Bezeichner für Ihre Organisation** Gruppenrichtlinie festgelegt ist.|
-|[Manage-bde: forcerecovery](manage-bde-forcerecovery.md)|Erzwingt ein durch BitLocker geschütztes Laufwerk beim Neustart in den Wiederherstellungs Modus. Dieser Befehl löscht alle TPM-bezogenen Schlüsselschutz Vorrichtungen vom Laufwerk. Wenn der Computer neu gestartet wird, kann nur ein Wiederherstellungs Kennwort oder ein Wiederherstellungs Schlüssel verwendet werden, um das Laufwerk zu entsperren.|
+|[Manage-bde: ForceRecovery](manage-bde-forcerecovery.md)|Erzwingt ein durch BitLocker geschütztes Laufwerk beim Neustart in den Wiederherstellungs Modus. Dieser Befehl löscht alle TPM-bezogenen Schlüsselschutz Vorrichtungen vom Laufwerk. Wenn der Computer neu gestartet wird, kann nur ein Wiederherstellungs Kennwort oder ein Wiederherstellungs Schlüssel verwendet werden, um das Laufwerk zu entsperren.|
 |[Manage-bde: changepassword](manage-bde-changepassword.md)|Ändert das Kennwort für ein Daten Laufwerk.|
 |[Manage-bde: changepin](manage-bde-changepin.md)|Ändert die PIN für ein Betriebssystem Laufwerk.|
 |[Manage-bde: changekey](manage-bde-changekey.md)|Ändert den Systemstart Schlüssel für ein Betriebssystem Laufwerk.|
 |[Manage-bde: KeyPackage](manage-bde-keypackage.md)|Generiert ein Schlüssel Paket für ein Laufwerk.|
 |[Manage-bde: upgrade](manage-bde-upgrade.md)|Aktualisiert die BitLocker-Version.|
-|[Manage-bde: wipeer FreeSpace](manage-bde-wipefreespace.md)|Löscht den freien Speicherplatz auf einem Laufwerk.|
+|[Manage-bde: WipeFreeSpace](manage-bde-wipefreespace.md)|Löscht den freien Speicherplatz auf einem Laufwerk.|
 |-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung an.|
 |-Help oder-h|Zeigt die gesamte Hilfe an der Eingabeaufforderung an.|
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel werden die Laufwerke auf dem Computer angezeigt, und es wird ermittelt, ob Sie durch BitLocker geschützt sind, und der aktuelle Verschlüsselungs Status.
+Zeigt die Laufwerke auf dem Computer an und gibt an, ob Sie durch BitLocker geschützt sind, sowie den aktuellen Verschlüsselungs Status.
 ```
 manage-bde -status
 ```
-Das folgende Beispiel veranschaulicht das Aktivieren von BitLocker auf Laufwerk C mit der Option eines Wiederherstellungs Kennworts. Das Wiederherstellungs Kennwort wird von BitLocker generiert und auf dem Bildschirm angezeigt, sodass Sie es aufzeichnen können.
+Veranschaulicht das Aktivieren von BitLocker auf Laufwerk C mit der Option eines Wiederherstellungs Kennworts. Das Wiederherstellungs Kennwort wird von BitLocker generiert und auf dem Bildschirm angezeigt, sodass Sie es aufzeichnen können.
 ```
 manage-bde –on C: -recoverypassword
 ```
-Im folgenden Beispiel wird veranschaulicht, wie ein durch BitLocker geschütztes Laufwerk mithilfe eines Wiederherstellungs Kennworts entsperrt wird.
+Veranschaulicht das Entsperren eines durch BitLocker geschützten Laufwerks mithilfe eines Wiederherstellungs Kennworts.
 ```
 manage-bde –unlock E: -recoverypassword 111111-222222-333333-444444-555555-666666-777777-888888
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Aktivieren von BitLocker über die Befehlszeile](https://technet.microsoft.com/library/dd894351(v=ws.10).aspx)

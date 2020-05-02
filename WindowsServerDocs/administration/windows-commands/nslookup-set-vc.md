@@ -1,6 +1,6 @@
 ---
 title: nslookup set vc
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b7429612ba25b2eab25ec29f01493aaee5de2c9d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a4cd465ecfbf9da540b8e693a6f0f3938e5752a4
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838183"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723528"
 ---
 # <a name="nslookup-set-vc"></a>nslookup set vc
 
@@ -30,12 +30,12 @@ set [no]vc
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter |                                              Beschreibung                                               |
+| Parameter |                                              BESCHREIBUNG                                               |
 |-----------|--------------------------------------------------------------------------------------------------------|
 | **novc**  | Gibt an, dass beim Senden von Anforderungen an den Server nie eine virtuelle Verbindung verwendet werden soll. Der Standardwert ist **novc**. |
 |  **PVC**   |             Gibt an, dass beim Senden von Anforderungen an den Server immer eine virtuelle Verbindung verwendet werden soll.             |
 |   {Hilfe   |                                                   ?}                                                   |
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

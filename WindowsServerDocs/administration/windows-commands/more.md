@@ -1,6 +1,6 @@
 ---
-title: Weitere
-description: Windows-Befehle Thema ****-
+title: )
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/26/2019
-ms.openlocfilehash: 4c627e003e71cb2265c717669e082d48564dd483
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f600d25dac32be2e7a0ebc2504a03dbf01235169
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839423"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723943"
 ---
-# <a name="more"></a>Weitere
+# <a name="more"></a>)
 
 
 
 Zeigt jeweils einen Bildschirm der Ausgabe an.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,37 +34,37 @@ more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 
 ### <a name="parameters"></a>Parameter
 
-|           Parameter            |                               Beschreibung                               |
+|           Parameter            |                               BESCHREIBUNG                               |
 |--------------------------------|-------------------------------------------------------------------------|
-|           \<Befehl >           |      Gibt einen Befehl an, für den die Ausgabe angezeigt werden soll.      |
-|               /c               |               Löscht den Bildschirm, bevor eine Seite angezeigt wird.               |
+|           \<Befehls>           |      Gibt einen Befehl an, für den die Ausgabe angezeigt werden soll.      |
+|               /C               |               Löscht den Bildschirm, bevor eine Seite angezeigt wird.               |
 |               /p               |                      Erweitert Formular-Feed-Zeichen.                      |
 |               /s               |          Zeigt mehrere leere Zeilen als einzelne Leerzeile an.          |
-|             /t\<N >             |         Zeigt Registerkarten als Anzahl von Leerzeichen an, die durch *N*angegeben werden.         |
-|             +\<N >              |     Zeigt die erste Datei an, die in der durch *N*angegebenen Zeile beginnt.     |
-| [\<Laufwerk >:] [\<Pfad >]\<Dateiname > |          Gibt den Speicherort und den Namen einer Datei an, die angezeigt werden soll.          |
-|            \<Dateien >            | Gibt eine Liste der anzuzeigenden Dateien an. Trennen Sie die Dateinamen durch ein Leerzeichen. |
+|             /t\<N>             |         Zeigt Registerkarten als Anzahl von Leerzeichen an, die durch *N*angegeben werden.         |
+|             +\<N>              |     Zeigt die erste Datei an, die in der durch *N*angegebenen Zeile beginnt.     |
+| [\<Laufwerk>:] [\<Pfad>] \<Dateiname> |          Gibt den Speicherort und den Namen einer Datei an, die angezeigt werden soll.          |
+|            \<Dateien>            | Gibt eine Liste der anzuzeigenden Dateien an. Trennen Sie die Dateinamen durch ein Leerzeichen. |
 |               /?               |                  Zeigt die Hilfe an der Eingabeaufforderung an.                   |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
--   Die folgenden Unterbefehle werden an **der Eingabeaufforderung** (`-- More --`) akzeptiert. 
+-   Die folgenden Unterbefehle werden an der **ausführlicheren** Eingabeaufforderung`-- More --`() akzeptiert. 
 
-    | Key | Aktion |
+    | Schlüssel | Aktion |
     | --- | ------ |
-    | Leertaste | Zeigt die nächste Seite an. |
+    | LEERTASTE | Zeigt die nächste Seite an. |
     | EINGABETASTE | Zeigt die nächste Zeile an. |
     | f | Zeigt die nächste Datei an. |
     | q | Beendet den **weiteren** Befehl. |
     | = | Zeigt die Zeilennummer an. |
-    | p \<N > | Zeigt die nächsten *N* Zeilen an. |
-    | s \<N > |S kippt die nächsten *N* Zeilen. |
+    | p \<N> | Zeigt die nächsten *N* Zeilen an. |
+    | s \<N> |S kippt die nächsten *N* Zeilen. |
     | ? | Zeigt die Befehle an, die an der **ausführlicheren** Eingabeaufforderung verfügbar sind.| 
     
--   Bei Verwendung des-Umleitungs Zeichens ( **<** ) müssen Sie einen Dateinamen als Quelle angeben. Wenn Sie die Pipe ( **\|** ) verwenden, können Sie diese Befehle wie **dir**, **Sort**und **Type**verwenden.
+-   Wenn Sie das-Umleitungs**<** Zeichen () verwenden, müssen Sie einen Dateinamen als Quelle angeben. Wenn Sie die Pipe (**\|**) verwenden, können Sie diese Befehle wie **dir**, **Sort**und **Type**verwenden.
 -   Der **Weitere** Befehl mit unterschiedlichen Parametern ist über die Wiederherstellungskonsole verfügbar.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Geben Sie einen der folgenden Befehle ein, um den ersten Bildschirm der Informationen einer Datei mit dem Namen Clients. New anzuzeigen:
 ```
@@ -89,13 +89,13 @@ Der Befehl **Weitere** zeigt den ersten Bildschirm der Informationen von Clients
 
 ### <a name="using-more-subcommands"></a>Verwenden von weiteren unter Befehlen
 
-Die folgenden Beispiele können an **der Eingabeaufforderung** (`-- More --`) verwendet werden.
+Die folgenden Beispiele können an der **ausführlicheren** Eingabeaufforderung (`-- More --`) verwendet werden.
 - Drücken **Sie die EINGABETASTE,** um die Datei nacheinander anzuzeigen.
 - Um den nächsten Bildschirm anzuzeigen, drücken Sie die Leertaste an **der Eingabeaufforderung** .
 - Wenn Sie die nächste Datei anzeigen möchten, die in der Befehlszeile aufgelistet ist, geben Sie **f** **an der Eingabe** Aufforderung ein.
 - **Geben Sie** ein, um die verfügbaren Befehle anzuzeigen. an der **ausführlicheren** Aufforderung.
 - Um **Weitere Informationen**zu erhalten, geben Sie **q** **an der Eingabe** Aufforderung ein.
-- Geben Sie **=** an der **Eingabeaufforderung ein, um die aktuelle** Zeilennummer anzuzeigen. Die aktuelle Zeilennummer wird wie folgt der **weiteren** Eingabeaufforderung hinzugefügt:  
+- Wenn Sie die aktuelle Zeilennummer anzeigen möchten **=** , geben Sie **an der Eingabe** Aufforderung ein. Die aktuelle Zeilennummer wird wie folgt der **weiteren** Eingabeaufforderung hinzugefügt:  
   ```
   -- More [Line: 24] --
   ```  
@@ -110,6 +110,6 @@ Die folgenden Beispiele können an **der Eingabeaufforderung** (`-- More --`) ve
   ```  
   Geben Sie die Anzahl der zu über springenden Zeilen ein, und drücken Sie die EINGABETASTE. **Mehr** überspringt die angegebene Anzahl von Zeilen und zeigt den nächsten Bildschirm der Informationen an.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

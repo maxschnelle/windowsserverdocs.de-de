@@ -1,6 +1,6 @@
 ---
 title: msinfo32
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a77cf9ae4c5f054e66839ff5b5b057e031b36ff
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0db8a4549ac26ef61d4aa8f435a01d3224501a77
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839113"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723847"
 ---
 # <a name="msinfo32"></a>msinfo32
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Öffnet das System Informationstool, um eine umfassende Ansicht der Hardware, der System Komponenten und der Softwareumgebung auf dem lokalen Computer anzuzeigen. 
 ## <a name="syntax"></a>Syntax
@@ -27,7 +27,7 @@ msinfo32 [/pch] [/nfo <path>] [/report <path>] [/computer <computerName>] [/show
 ```
 #### <a name="parameters"></a>Parameter
 
-|    Parameter    |                                                                                                                                 Beschreibung                                                                                                                                  |
+|    Parameter    |                                                                                                                                 BESCHREIBUNG                                                                                                                                  |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     <path>      | Gibt die Datei an, die im Format *c:\folder1\file1.xxx*geöffnet werden soll, wobei *C* der Laufwerk Buchstabe, *"Ordner1"* der Ordner, *file1* der Dateiname und *xxx* die Dateinamenerweiterung ist.<p>Bei dieser Datei kann es sich um eine **nfo**-, **XML**-, **txt**-oder **. cab** -Datei handeln. |
 | <computerName>  |                                                                             Gibt den Namen des Ziel Computers oder des lokalen Computers an. Dabei kann es sich um einen UNC-Namen, eine IP-Adresse oder einen vollständigen Computernamen handeln.                                                                              |
@@ -41,9 +41,9 @@ msinfo32 [/pch] [/nfo <path>] [/report <path>] [/computer <computerName>] [/show
 |   /categories   |                          startet System Informationen, wobei nur die angegebene Kategorie oder die angegebenen Kategorien angezeigt werden. Außerdem wird die Ausgabe auf die ausgewählte Kategorie oder die ausgewählten Kategorien beschränkt. Verwenden Sie **/showcategories** , um eine Liste der verfügbaren kategorieids anzuzeigen.                          |
 |       /?        |                                                                                                                     Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                     |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 Einige System Informationskategorien enthalten große Datenmengen. Sie können den Befehl **Start/Wait** verwenden, um die Bericht Erstellungs Leistung für diese Kategorien zu optimieren. Weitere Informationen finden Sie unter [System Informationen](https://technet.microsoft.com/library/cc783305(v=ws.10).aspx).
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 Geben Sie Folgendes ein, um die verfügbaren Kategorie-IDs aufzulisten:
 ```
 msinfo32 /showcategories
@@ -60,6 +60,6 @@ Geben Sie Folgendes ein, um Ressourcen Konflikt Informationen anzuzeigen und ein
 ```
 msinfo32 /nfo conflicts.nfo /categories    +componentsproblemdevices+resourcesconflicts+resourcesforcedhardware
 ```
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

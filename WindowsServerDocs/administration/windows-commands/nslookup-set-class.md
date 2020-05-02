@@ -1,6 +1,6 @@
 ---
 title: nslookup set class
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bc3bb4e36582f01584c0b89a12d43874322c3190
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b1ae3a5336815a5273aafa976b1dcad8b60fac9b
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838583"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723654"
 ---
 # <a name="nslookup-set-class"></a>nslookup set class
 
@@ -30,11 +30,11 @@ set class=<Class>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter |                                                                                                                                    Beschreibung                                                                                                                                    |
+| Parameter |                                                                                                                                    BESCHREIBUNG                                                                                                                                    |
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \<-Klasse >  | Die Standardklasse ist in. Im folgenden werden die gültigen Werte für diesen Befehl aufgeführt.</br>-IN: gibt die Internet Klasse an.</br>-Chaos: gibt die Chaos-Klasse an.</br>-Hesiod: gibt die mit-Athena-Hesiod-Klasse an.</br>-ANY: gibt eine der zuvor aufgeführten Platzhalter an. |
+| \<Class>  | Die Standardklasse ist in. Im folgenden werden die gültigen Werte für diesen Befehl aufgeführt.</br>-IN: gibt die Internet Klasse an.</br>-Chaos: gibt die Chaos-Klasse an.</br>-Hesiod: gibt die mit-Athena-Hesiod-Klasse an.</br>-ANY: gibt eine der zuvor aufgeführten Platzhalter an. |
 |   {Hilfe   |                                                                                                                                        ?}                                                                                                                                         |
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: msdt
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 87c1e4e8cd6d9de036b47de590867a6531d0335a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e5d31b1b5a73d975aec08d675aaff04ee29c7d3c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839253"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723875"
 ---
 # <a name="msdt"></a>msdt
 
@@ -33,11 +33,11 @@ msdt </id <name> | /path <name> | /cab < name>> <</parameter> [options] … <par
 In der folgenden Tabelle sind die Parameter und Optionen enthalten, die von MSDT. exe unterstützt werden.
 
 
-|      Parameter      |                                                                                            Beschreibung                                                                                             |
+|      Parameter      |                                                                                            BESCHREIBUNG                                                                                             |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /ID \<Paketname > |        Gibt an, welches Diagnosepaket ausgeführt werden soll. Eine Liste der verfügbaren Pakete finden Sie in der Problem Behandlungspaket-ID im Abschnitt Verfügbare Problem Behandlungspakete weiter unten in diesem Thema.         |
+| /ID \<Paketname> |        Gibt an, welches Diagnosepaket ausgeführt werden soll. Eine Liste der verfügbaren Pakete finden Sie in der Problem Behandlungspaket-ID im Abschnitt Verfügbare Problem Behandlungspakete weiter unten in diesem Thema.         |
 |  /Path \<Verzeichnis  |                                                                                           . diagpkg-Datei                                                                                            |
-|   /DCI \<>   |                                        Füllt das Hauptschlüssel-Feld in MSDT vorab auf. Dieser Parameter wird nur verwendet, wenn ein Support Anbieter einen Passkey bereitgestellt hat.                                         |
-|  /DT \<Verzeichnis >   | Zeigt den Verlauf der Problembehandlung im angegebenen Verzeichnis an. Diagnoseergebnisse werden in den Verzeichnissen " **%LocalAppData%\diagnostics** " oder " **%LocalAppData%\elevateddiagnostics** " des Benutzers gespeichert. |
-| /AF \<Antwortdatei >  |                                               Gibt eine Antwortdatei im XML-Format an, die Antworten auf eine oder mehrere Diagnose Interaktionen enthält.                                               |
+|   /DCI \<Hauptschlüssel->   |                                        Füllt das Hauptschlüssel-Feld in MSDT vorab auf. Dieser Parameter wird nur verwendet, wenn ein Support Anbieter einen Passkey bereitgestellt hat.                                         |
+|  /DT \<Verzeichnis>   | Zeigt den Verlauf der Problembehandlung im angegebenen Verzeichnis an. Diagnoseergebnisse werden in den Verzeichnissen " **%LocalAppData%\diagnostics** " oder " **%LocalAppData%\elevateddiagnostics** " des Benutzers gespeichert. |
+| /AF \<Antwortdatei>  |                                               Gibt eine Antwortdatei im XML-Format an, die Antworten auf eine oder mehrere Diagnose Interaktionen enthält.                                               |
 

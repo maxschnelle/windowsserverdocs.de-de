@@ -1,6 +1,6 @@
 ---
 title: nslookup
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 15062d81992ee1b6e55d47cb9e49822350e4f2bc
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 35f790a3a537959501afe7c3173317f22b934ec6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838093"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723490"
 ---
 # <a name="nslookup"></a>nslookup
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt Informationen an, die Sie verwenden können, um Domain Name System (DNS)-Infrastruktur zu diagnostizieren. Bevor Sie dieses Tool verwenden, sollten Sie mit der Funktionsweise von DNS vertraut sein. Das Befehlszeilen Tool nslookup ist nur verfügbar, wenn Sie das TCP/IP-Protokoll installiert haben.
 ## <a name="syntax"></a>Syntax
@@ -55,7 +55,7 @@ nslookup /view <FileName>
 
 ### <a name="parameters"></a>Parameter
 
-|                       Parameter                       |                                                                                                         Beschreibung                                                                                                         |
+|                       Parameter                       |                                                                                                         BESCHREIBUNG                                                                                                         |
 |-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   [Befehl „nslookup exit“](nslookup-exit-command.md)   |                                                                                                     Beendet **nslookup**.                                                                                                     |
 | [Befehl „nslookup finger“](nslookup-finger-command.md) |                                                                                  Stellt eine Verbindung mit dem Finger Server auf dem aktuellen Computer her.                                                                                   |
@@ -84,7 +84,7 @@ nslookup /view <FileName>
 |         [nslookup set vc](nslookup-set-vc.md)         |                                                                     Gibt an, dass beim Senden von Anforderungen an den Server eine virtuelle Verbindung verwendet oder nicht verwendet werden soll.                                                                      |
 |           [nslookup view](nslookup-view.md)           |                                                                          Sortiert die Ausgabe der vorherigen **ls** -Unterbefehle und listet Sie auf.                                                                          |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 - Wenn *computertofind* eine IP-Adresse ist und die Abfrage für einen-oder PTR-Ressourcen Daten Satz-Typ ist, wird der Name des Computers zurückgegeben. Wenn *computertofind* ein Name ist und keinen nachfolgenden Zeitraum hat, wird der Standard-DNS-Domänen Name an den Namen angehängt. Dieses Verhalten ist abhängig vom Status der folgenden **Set** -Unterbefehle: " **Domain**", " **srchlist**", " **defname**" und " **Search**".
 - Wenn Sie anstelle von *computertofind*einen Bindestrich (-) eingeben, wird die Eingabeaufforderung in den interaktiven **nslookup** -Modus geändert.
 - Die Befehlszeilen Länge muss weniger als 256 Zeichen umfassen.
@@ -93,7 +93,7 @@ nslookup /view <FileName>
   Wenn Sie mehr als ein Datenelement suchen müssen, können Sie den interaktiven Modus verwenden. Geben Sie einen Bindestrich (-) für den ersten Parameter und den Namen oder die IP-Adresse eines DNS-Namen Servers für den zweiten Parameter ein. Oder lassen Sie beide Parameter aus, und **nslookup** verwendet den Standard-DNS-Namen Server. Im folgenden finden Sie einige Tipps zum Arbeiten im interaktiven Modus:
   -   Wenn Sie interaktive Befehle jederzeit unterbrechen möchten, drücken Sie STRG + B.
   -   Zum Beenden geben Sie **Exit**ein.
-  -   Um einen integrierten Befehl als Computernamen zu behandeln, müssen Sie ihm das Escapezeichen (\\) voranstellen.
+  -   Um einen integrierten Befehl als Computernamen zu behandeln, stellen Sie ihm das Escapezeichen (\\) voran.
   -   Ein nicht erkannter Befehl wird als Computername interpretiert.
 - Wenn die Such Anforderung fehlschlägt, gibt **nslookup** eine Fehlermeldung aus. In der folgenden Tabelle sind mögliche Fehlermeldungen aufgeführt.
   |**Fehlermeldung**|**Beschreibung**|
@@ -102,7 +102,7 @@ nslookup /view <FileName>
   |`No response from server`|Auf dem Server Computer wird kein DNS-Namen Server ausgeführt.|
   |`No records`|Der DNS-Namen Server weist keine Ressourcen Einträge des aktuellen Abfrage Typs für den Computer auf, obwohl der Computername gültig ist. Der Abfragetyp wird mit dem **Set QueryType** -Befehl angegeben.|
   |`Nonexistent domain`|Der Computer-oder DNS-Domänen Name ist nicht vorhanden.|
-  |`Connection refused`<p>\- oder -<p>`Network is unreachable`|Die Verbindung mit dem DNS-Namen Server oder dem Finger Server konnte nicht hergestellt werden. Dieser Fehler tritt häufig bei **ls** -und **Finger** Anforderungen auf.|
+  |`Connection refused`<p>Oder<p>`Network is unreachable`|Die Verbindung mit dem DNS-Namen Server oder dem Finger Server konnte nicht hergestellt werden. Dieser Fehler tritt häufig bei **ls** -und **Finger** Anforderungen auf.|
   |`Server failure`|Der DNS-Namen Server hat eine interne Inkonsistenzen in der Datenbank festgestellt und konnte keine gültige Antwort zurückgeben.|
   |`Refused`|Der DNS-Namen Server hat die Anforderung der Anforderung verweigert.|
   |`format error`|Der DNS-Namen Server hat festgestellt, dass das Anforderungspaket nicht im richtigen Format vorliegt. Dies kann auf einen Fehler in **nslookup**hindeuten.|

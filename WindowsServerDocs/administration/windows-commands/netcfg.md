@@ -1,6 +1,6 @@
 ---
 title: netcfg
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4895928ffdd5d923d370f82e699d69f42c0f81a5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a5945da45ee01fd5bf5f89a7835c4bae0b5534c4
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838933"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723806"
 ---
 # <a name="netcfg"></a>netcfg
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Installiert den Windows Preinstallation Environment (WinPE), eine für die Bereitstellung von Arbeitsstationen verwendete Lightweight-Version von Windows.
 ## <a name="syntax"></a>Syntax
@@ -26,19 +26,19 @@ Installiert den Windows Preinstallation Environment (WinPE), eine für die Berei
 netcfg [/v] [/e] [/winpe] [/l ] /c /i
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |/v|Ausführliches **(detaillierter** ) Modus ausführen|
 |/e|Verwenden von Wartungs **Umgebungs** Variablen während der Installation und Deinstallation|
 |/winpe|Installiert TCP/IP, NetBIOS und den Microsoft-Client für Windows Preinstallation Environment (WinPE).|
 |/l|Gibt den **Speicherort** von INF an.|
-|/c|Stellt die **Klasse** der zu installierenden Komponente bereit. Protokoll, Dienst oder Client|
+|/C|Stellt die **Klasse** der zu installierenden Komponente bereit. Protokoll, Dienst oder Client|
 |/i|Gibt die Komponenten- **ID** an.|
 |/s|Stellt den Typ der **anzuzeigenden**Komponenten bereit.<p>\ta = Adapter, n = NET Components|
 |/b|Zeigt die **Bindungs Pfade**an, wenn eine Zeichenfolge mit dem Namen des Pfads folgt.|
 |/?|Zeigt die **Hilfe** an der Eingabeaufforderung an.|
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 So installieren Sie das Protokoll *Beispiel* mithilfe von "c:\oemdir\example.inf":
 ```
@@ -68,5 +68,5 @@ So zeigen Sie Bindungs Pfade mit *MS_TCPIP*an:
 ```
 netcfg /b ms_tcpip
 ```
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

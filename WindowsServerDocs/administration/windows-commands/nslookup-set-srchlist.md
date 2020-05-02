@@ -1,6 +1,6 @@
 ---
 title: nslookup set srchlist
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bbeb09501474ade670147a6021abd2bb25291d71
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8936daa3505b02295ae2f09c2910dead8d4c0ff8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838283"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723551"
 ---
 # <a name="nslookup-set-srchlist"></a>nslookup set srchlist
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 ändert den Domain Name System Standard-DNS-Domänen Namen und die Suchliste.
 
@@ -28,19 +28,19 @@ Set srchlist=<DomainName>[/...]
 ```
 ### <a name="parameters"></a>Parameter
 
-|    Parameter    |                                                                                        Beschreibung                                                                                        |
+|    Parameter    |                                                                                        BESCHREIBUNG                                                                                        |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  <DomainName>   | Gibt neue Namen für die DNS-Standard Domäne und-Suchliste an. Der Standardwert für den Domänen Namen basiert auf dem Hostnamen. Sie können maximal sechs Namen angeben, die durch Schrägstriche (/) getrennt sind. |
-| {Help &#124; ?} |                                                                   Zeigt eine kurze Zusammenfassung der **nslookup** -Unterbefehle an.                                                                   |
+| {Help &#124;?} |                                                                   Zeigt eine kurze Zusammenfassung der **nslookup** -Unterbefehle an.                                                                   |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 - Der Befehl **set srchlist**überschreibt den Standard-DNS-Domänen Namen und die Suchliste des Befehls **Set Domain** . Verwenden Sie den Befehl **alle festlegen** , um die Liste anzuzeigen.
-  ## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
-  Im folgenden Beispiel wird die DNS-Domäne auf MFG.widgets.com und die Suchliste auf die drei Namen festgelegt:
+  ## <a name="examples"></a>Beispiele
+  So legen Sie die DNS-Domäne auf MFG.widgets.com und die Suchliste auf die drei Namen fest:
   ```
   set srchlist=mfg.widgets.com/mrp2.widgets.com/widgets.com
   ```
-  ## <a name="additional-references"></a>Weitere Verweise
+  ## <a name="additional-references"></a>Zusätzliche Referenzen
   - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-  [nslookup-Domäne festlegen](nslookup-set-domain.md)
-  [nslookup alle festlegen](nslookup-set-all.md)
+  [nslookup legen Sie Domäne](nslookup-set-domain.md)
+  [nslookup alle festlegen fest](nslookup-set-all.md) .

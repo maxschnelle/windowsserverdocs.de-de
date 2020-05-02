@@ -1,6 +1,6 @@
 ---
 title: mqbkup
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5ff6fc2f483bceb99b970cd0c48f56985ecd485b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 25bc5a0b5da0c78ccc68cf7b8fc70a5b4ec11a1f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839353"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723904"
 ---
 # <a name="mqbkup"></a>mqbkup
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Sichert MSMQ-Nachrichten Dateien und Registrierungs Einstellungen auf einem Speichergerät und stellt zuvor gespeicherte Nachrichten und Einstellungen wieder her.   
 Der lokale MSMQ-Dienst wird durch die Sicherung und den Wiederherstellungs Vorgang beendet. Wenn der MSMQ-Dienst zuvor gestartet wurde, versucht das Hilfsprogramm, den MSMQ-Dienst am Ende der Sicherung oder des Wiederherstellungs Vorgangs neu zu starten. Wenn der Dienst vor der Ausführung des Hilfsprogramms bereits beendet wurde, wird nicht versucht, den Dienst neu zu starten.  
@@ -28,13 +28,13 @@ Vor der Verwendung des Dienstprogramms MSMQ-Nachrichten Sicherung/Wiederherstell
 mqbkup {/b | /r} <folder path_to_storage_device>  
 ```  
 #### <a name="parameters"></a>Parameter  
-|Parameter|Beschreibung|  
+|Parameter|BESCHREIBUNG|  
 |-------|--------|  
 |/b|Gibt den Sicherungs Vorgang an|  
 |/r|Gibt Wiederherstellungs Vorgang an|  
-|< Ordner path_to_storage\_Gerät >|Gibt den Pfad an, in dem die MSMQ-Nachrichten Dateien und Registrierungs Einstellungen gespeichert werden.|  
+|<Ordner path_to_storage\_Gerät>|Gibt den Pfad an, in dem die MSMQ-Nachrichten Dateien und Registrierungs Einstellungen gespeichert werden.|  
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|  
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele  
+## <a name="examples"></a>Beispiele  
 So sichern Sie alle MSMQ-Nachrichten Dateien und-Registrierungs Einstellungen und speichern Sie im Ordner " *msmqbkup* " auf Laufwerk "C:".  
 ```  
 mqbkup /b c:\msmqbkup  
@@ -49,5 +49,5 @@ So stellen Sie MSMQ-Nachrichten und Registrierungs Einstellungen wieder her:
 mqbkup /r c:\msmqbkup  
 ```  
 Die Speicherorte von Ordnern, die zum Speichern von MSMQ-Nachrichten Dateien verwendet werden, werden in der Registrierung gespeichert. Folglich stellt das Hilfsprogramm MSMQ-Nachrichten Dateien in den Ordnern wieder her, die in der Registrierung angegeben sind, und nicht für die Speicherordner, die vor dem Wiederherstellungs Vorgang verwendet werden. Wenn die in der Registrierung angegebenen Ordner nicht vorhanden sind, werden Sie durch den Wiederherstellungs Vorgang automatisch erstellt. Wenn Ordner Verzeichnisse vorhanden sind und nicht leer sind, werden Sie vom Hilfsprogramm aufgefordert, die Berechtigung zum Löschen des aktuellen Inhalts dieser Ordner zu löschen.  
-## <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Zusätzliche Referenzen  
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

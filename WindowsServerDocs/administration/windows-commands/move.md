@@ -1,6 +1,6 @@
 ---
-title: move
-description: Windows-Befehle Thema ****-
+title: Verschieben
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: efd0cd0716c564a9570647820056ab9c38e41274
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1df37753239fea5d5ba9ba22256706a47d4c6a2f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839373"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723913"
 ---
-# <a name="move"></a>move
+# <a name="move"></a>Verschieben
 
 
 
 Verschiebt eine oder mehrere Dateien aus einem Verzeichnis in ein anderes Verzeichnis.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,26 +32,26 @@ move [{/y | /-y}] [<Source>] [<Target>]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/y|Unterdrückt die Eingabeaufforderung, um zu bestätigen, dass Sie eine vorhandene Zieldatei überschreiben möchten.|
 |/-y|Bewirkt, dass die Aufforderung bestätigt, dass Sie eine vorhandene Zieldatei überschreiben möchten.|
-|> der \<Quelle|Gibt den Pfad und den Namen der zu verschiebenden Dateien an. Wenn Sie ein Verzeichnis verschieben oder umbenennen möchten, sollte *Quelle* der aktuelle Verzeichnispfad und-Name sein.|
-|\<Ziel >|Gibt den Pfad und den Namen zum Verschieben von Dateien an. Wenn Sie ein Verzeichnis verschieben oder umbenennen möchten, sollte *Ziel* der gewünschte Verzeichnispfad und-Name sein.|
+|\<Quell>|Gibt den Pfad und den Namen der zu verschiebenden Dateien an. Wenn Sie ein Verzeichnis verschieben oder umbenennen möchten, sollte *Quelle* der aktuelle Verzeichnispfad und-Name sein.|
+|\<Target>|Gibt den Pfad und den Namen zum Verschieben von Dateien an. Wenn Sie ein Verzeichnis verschieben oder umbenennen möchten, sollte *Ziel* der gewünschte Verzeichnispfad und-Name sein.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Die Befehlszeilenoption **/y** kann in der COPYCMD-Umgebungsvariablen voreingestellt sein. Sie können dies mit **/-y** in der Befehlszeile überschreiben. Der Standardwert ist die Eingabeaufforderung vor dem Überschreiben von Dateien, es sei denn, der **Kopier** Befehl wird innerhalb eines Batch Skripts ausgeführt.
 -   Das Verschieben verschlüsselter Dateien auf ein Volume, das Verschlüsselndes Dateisystem (EFS) nicht unterstützt, führt zu einem Fehler. Entschlüsseln Sie zuerst die Dateien, oder verschieben Sie die Dateien auf ein Volume, das EFS unterstützt.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Wenn Sie alle Dateien mit der Erweiterung. xls aus dem Verzeichnis \Data in das Verzeichnis \ Second_Q \Reports verschieben möchten, geben Sie Folgendes ein:
 ```
 move \data\*.xls \second_q\reports\ 
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

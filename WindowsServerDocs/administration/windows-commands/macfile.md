@@ -1,6 +1,6 @@
 ---
 title: macfile
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0156be5a3209bf8cedf13b35ceab61ef38a0f49a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a4384ce8d4f23966aea278e90b9ddddc42da6e77
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80840313"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724234"
 ---
 # <a name="macfile"></a>macfile
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Verwaltet den Datei Server für Macintosh-Server, Volumes, Verzeichnisse und Dateien. Sie können administrative Aufgaben automatisieren, indem Sie eine Reihe von Befehlen in Batch Dateien einschließen und manuell oder zu vordefinierten Zeiten starten. 
 -   [So ändern Sie Verzeichnisse in auf Macintosh zugänglichen Volumes](#BKMK_Moddirs)
@@ -34,21 +34,21 @@ macfile directory[/server:\\<computerName>] /path:<directory> [/owner:<OwnerName
 ```
 
 #### <a name="parameters"></a>Parameter
--   /Server:\\\\<computerName> gibt den Server an, auf dem ein Verzeichnis geändert werden soll. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt.
+-   /Server:\\ \\ <computerName> gibt den Server an, auf dem ein Verzeichnis geändert werden soll. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt.
 -   /Path:<directory> erforderlich. Gibt den Pfad zu dem Verzeichnis an, das Sie ändern möchten. Das Verzeichnis muss vorhanden sein. im **MacFile-Verzeichnis** werden keine Verzeichnisse erstellt.
 -   /Owner:<OwnerName> ändert den Besitzer des Verzeichnisses. Wenn die Angabe ausgelassen wird, bleibt der Besitzer unverändert.
 -   /Group:<GroupName> gibt die primäre Macintosh-Gruppe an, die dem Verzeichnis zugeordnet ist, oder ändert Sie. Wenn diese Angabe ausgelassen wird, bleibt die primäre Gruppe unverändert.
--   /Permissions:<Permissions> Berechtigungen für das Verzeichnis für den Besitzer, die primäre Gruppe und die Welt (alle) festgelegt. Zum Festlegen von Berechtigungen wird eine elf stellige Zahl verwendet. Die Zahl 1 erteilt die Berechtigung und die Berechtigung "0 widerruft" (z. b. 11111011000). Wenn die Angabe weggelassen wird, bleiben die Berechtigungen unverändert.
+-   /Permissions:<Permissions> legt Berechtigungen für das Verzeichnis für den Besitzer, die primäre Gruppe und die Welt (alle) fest. Zum Festlegen von Berechtigungen wird eine elf stellige Zahl verwendet. Die Zahl 1 erteilt die Berechtigung und die Berechtigung "0 widerruft" (z. b. 11111011000). Wenn die Angabe weggelassen wird, bleiben die Berechtigungen unverändert.
     Die Position der Ziffer bestimmt, welche Berechtigung festgelegt wird, wie in der folgenden Tabelle beschrieben.
 
     |Position|Legt die Berechtigung für|
     |------|------------|
-    |First|Besitzer Dateien|
-    |Zweite|Besitzer Ordner|
-    |3\.|Besitzmakechanges|
-    |4\.|GroupSeeFiles|
-    |5\.|Groupseedner|
-    |6\.|GroupMakeChanges|
+    |First (Erster)|Besitzer Dateien|
+    |Sekunde|Besitzer Ordner|
+    |Dritter|Besitzmakechanges|
+    |Vierter|GroupSeeFiles|
+    |5.|Groupseedner|
+    |6.|GroupMakeChanges|
     |Siebten|Worldseefiles|
     |Platz|Worldseedner|
     |När|WorldMakeChanges|
@@ -58,11 +58,11 @@ macfile directory[/server:\\<computerName>] /path:<directory> [/owner:<OwnerName
 -   /?
     Zeigt die Hilfe an der Eingabeaufforderung an.
 
-### <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 - Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z. b. * * * *<em>Computer Name</em>* * * *).
 - Verwenden Sie **macfiledirectory** , um ein vorhandenes Verzeichnis auf einem auf Macintosh zugänglichen Volume für Macintosh-Benutzer verfügbar zu machen. Mit dem Befehl " **macfiledirectory** " werden keine Verzeichnisse erstellt. Erstellen Sie mit dem Datei-Manager, der Eingabeaufforderung oder dem **Macintosh New Folder** -Befehl ein Verzeichnis auf einem auf Macintosh zugänglichen Volume, bevor Sie den Befehl " **Macfile Directory** " verwenden.
-  ### <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
-  Im folgenden Beispiel werden die Berechtigungen für das Unterverzeichnis Sales Sales in the Macintosh-barrierefreie Volume Statistics auf dem Laufwerk E des lokalen Servers geändert. Im Beispiel werden die Dateien Siehe Dateien, Ordner und Änderungs Berechtigungen für den Besitzer zugewiesen, und es werden Dateien angezeigt und Ordner Berechtigungen für alle anderen Benutzer angezeigt. gleichzeitig wird verhindert, dass das Verzeichnis umbenannt, verschoben oder gelöscht wird.
+  ### <a name="examples"></a>Beispiele
+  Um die Berechtigungen des Unterverzeichnisses für den Vertrieb in der über Macintosh zugänglichen Volumen Statistik auf dem E-Laufwerk des lokalen Servers zu ändern. Im Beispiel werden die Dateien Siehe Dateien, Ordner und Änderungs Berechtigungen für den Besitzer zugewiesen, und es werden Dateien angezeigt und Ordner Berechtigungen für alle anderen Benutzer angezeigt. gleichzeitig wird verhindert, dass das Verzeichnis umbenannt, verschoben oder gelöscht wird.
   ```
   macfile directory /path:e:\statistics\may sales /permissions:11111011000
   ```
@@ -76,17 +76,17 @@ macfile forkize[/server:\\<computerName>] [/creator:<CreatorName>] [/type:<typeN
 
 #### <a name="parameters"></a>Parameter
 
-|         Parameter          |                                                                                                           Beschreibung                                                                                                            |
+|         Parameter          |                                                                                                           BESCHREIBUNG                                                                                                            |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /Server:\\\\<computerName> |                                                            Gibt den Server an, auf dem Dateien verknüpft werden sollen. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt.                                                            |
-|   /Creator:<CreatorName>   |                                      Gibt den Ersteller der Datei an. Der Macintosh-Finder verwendet die Befehlszeilenoption **/Creator** , um die Anwendung zu ermitteln, die die Datei erstellt hat.                                       |
-|      /Type:<typeName>      |                                 Gibt den Dateityp an. Der Macintosh-Finder verwendet die Befehlszeilenoption **/Type** , um den Dateityp innerhalb der Anwendung zu ermitteln, von der die Datei erstellt wurde.                                 |
-|    /DATAFORK:<Filepath>    |                                                                   Gibt den Speicherort der Daten Verzweigung an, die verknüpft werden soll. Sie können einen Remote Pfad angeben.                                                                   |
+| /Server\\\\<computerName> |                                                            Gibt den Server an, auf dem Dateien verknüpft werden sollen. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt.                                                            |
+|   Hersteller<CreatorName>   |                                      Gibt den Ersteller der Datei an. Der Macintosh-Finder verwendet die Befehlszeilenoption **/Creator** , um die Anwendung zu ermitteln, die die Datei erstellt hat.                                       |
+|      /Type<typeName>      |                                 Gibt den Dateityp an. Der Macintosh-Finder verwendet die Befehlszeilenoption **/Type** , um den Dateityp innerhalb der Anwendung zu ermitteln, von der die Datei erstellt wurde.                                 |
+|    /datafork:<Filepath>    |                                                                   Gibt den Speicherort der Daten Verzweigung an, die verknüpft werden soll. Sie können einen Remote Pfad angeben.                                                                   |
 |  /resourcefork:<Filepath>  |                                                                 Gibt den Speicherort der Ressourcenverzweigung an, der verknüpft werden soll. Sie können einen Remote Pfad angeben.                                                                 |
-|   /targetfile:<Filepath>   | Erforderlich Gibt den Speicherort der Datei an, die durch den Beitritt zu einer Daten Verzweigung und einer Ressourcen Verzweigung erstellt wird, oder gibt den Speicherort der Datei an, deren Typ oder Ersteller Sie ändern. Die Datei muss sich auf dem angegebenen Server befinden. |
+|   targetfile<Filepath>   | Erforderlich. Gibt den Speicherort der Datei an, die durch den Beitritt zu einer Daten Verzweigung und einer Ressourcen Verzweigung erstellt wird, oder gibt den Speicherort der Datei an, deren Typ oder Ersteller Sie ändern. Die Datei muss sich auf dem angegebenen Server befinden. |
 |             /?             |                                                                                               Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                               |
 
-### <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 - Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z. b. * * * *<em>Computer Name</em>* * * *).
 
 ### <a name="examples"></a>Beispiele
@@ -94,7 +94,7 @@ Zum Erstellen der Datei treeapp auf dem Macintosh-zugänglichen Volume d:\Releas
 ```
 macfile forkize /resourcefork:c:\cross\mac\appcode /type:APPL /creator:MAGNOLIA /targetfile:D:\Release\treeapp
 ```
-Um den Datei Ersteller in Microsoft Word 5,1 zu ändern, geben Sie für die Datei "Word. txt" im Verzeichnis "d:\Word documents\group Files" auf der Server \\\servera Folgendes ein:
+Um den Datei Ersteller in Microsoft Word 5,1 zu ändern, geben Sie für die Datei "Word. txt" im Verzeichnis "d:\Word documents\group Files" auf dem Server \\"\servera" Folgendes ein:
 ```
 macfile forkize /server:\\servera /creator:MSWD /type:TEXT /targetfile:d:\Word documents\Group files\Word.txt
 ```
@@ -107,14 +107,14 @@ macfile server [/server:\\<computerName>] [/maxsessions:{Number | unlimited}] [/
 
 #### <a name="parameters"></a>Parameter
 
-|               Parameter                |                                                                                                                                                                           Beschreibung                                                                                                                                                                            |
+|               Parameter                |                                                                                                                                                                           BESCHREIBUNG                                                                                                                                                                            |
 |----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|       /Server:\\\\<computerName>       |                                                                                                                        Gibt den Server an, auf dem die Parameter geändert werden sollen. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt.                                                                                                                         |
+|       /Server\\\\<computerName>       |                                                                                                                        Gibt den Server an, auf dem die Parameter geändert werden sollen. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt.                                                                                                                         |
 | /MaxSessions: {Number &#124; Unlimited} |                                                                                         Gibt die maximale Anzahl von Benutzern an, die gleichzeitig Datei-und Druckserver für Macintosh verwenden können. Wenn der Wert nicht angegeben wird, bleibt die **MaxSessions** -Einstellung für den Server unverändert.                                                                                         |
-|        /LOGINMESSAGE:<Message>         | ändert die Nachricht, die Macintosh-Benutzer bei der Anmeldung beim Datei Server für Macintosh-Server sehen. Die maximale Anzahl von Zeichen für die Anmelde Nachricht beträgt 199. Wenn der Wert nicht ausgelassen wird, bleibt die **loginmessage** -Nachricht für den Server unverändert. Wenn Sie eine vorhandene Anmelde Nachricht entfernen möchten, schließen Sie den **/loginmessage** -Parameter ein, lassen Sie die *Nachrichten* Variable jedoch leer. |
+|        /loginmessage:<Message>         | ändert die Nachricht, die Macintosh-Benutzer bei der Anmeldung beim Datei Server für Macintosh-Server sehen. Die maximale Anzahl von Zeichen für die Anmelde Nachricht beträgt 199. Wenn der Wert nicht ausgelassen wird, bleibt die **loginmessage** -Nachricht für den Server unverändert. Wenn Sie eine vorhandene Anmelde Nachricht entfernen möchten, schließen Sie den **/loginmessage** -Parameter ein, lassen Sie die *Nachrichten* Variable jedoch leer. |
 |                   /?                   |                                                                                                                                                               Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                               |
 
-### <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 - Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z. b. * * * *<em>Computer Name</em>* * * *).
 
 ### <a name="examples"></a>Beispiele
@@ -132,20 +132,20 @@ macfile volume /remove[/server:\\<computerName>] /name:<volumeName>
 
 #### <a name="parameters"></a>Parameter
 
-|              Parameter               |                                                                                                                                                                       Beschreibung                                                                                                                                                                        |
+|              Parameter               |                                                                                                                                                                       BESCHREIBUNG                                                                                                                                                                        |
 |--------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|          {/Add &#124; /Set}          |                                                                                                                      Erforderlich, wenn Sie ein auf Macintosh zugängliches Volume hinzufügen oder ändern. Fügt das angegebene Volume hinzu oder ändert es.                                                                                                                       |
-|      /Server:\\\\<computerName>      |                                                                                                             Gibt den Server an, auf dem ein Volume hinzugefügt, geändert oder entfernt werden soll. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt.                                                                                                              |
-|          /Name:<volumeName>          |                                                                                                                                          Erforderlich Gibt den Volumenamen an, der hinzugefügt, geändert oder entfernt werden soll.                                                                                                                                           |
-|          /Path:<directory>           |                                                                                                                Erforderlich und gültig nur, wenn Sie ein Volume hinzufügen. Gibt den Pfad zum Stammverzeichnis des hinzu zufügenden Volumes an.                                                                                                                 |
+|          {/Add &#124;/Set}          |                                                                                                                      Erforderlich, wenn Sie ein auf Macintosh zugängliches Volume hinzufügen oder ändern. Fügt das angegebene Volume hinzu oder ändert es.                                                                                                                       |
+|      /Server\\\\<computerName>      |                                                                                                             Gibt den Server an, auf dem ein Volume hinzugefügt, geändert oder entfernt werden soll. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt.                                                                                                              |
+|          /Name<volumeName>          |                                                                                                                                          Erforderlich. Gibt den Volumenamen an, der hinzugefügt, geändert oder entfernt werden soll.                                                                                                                                           |
+|          /Path<directory>           |                                                                                                                Erforderlich und gültig nur, wenn Sie ein Volume hinzufügen. Gibt den Pfad zum Stammverzeichnis des hinzu zufügenden Volumes an.                                                                                                                 |
 |    /ReadOnly: {true &#124; false}     | Gibt an, ob Benutzer Dateien im Volume ändern können. Geben Sie true ein, um anzugeben, dass Benutzer die Dateien im Volume nicht ändern können. Geben Sie false ein, um anzugeben, dass Benutzer Dateien im Volume ändern können. Wenn beim Hinzufügen eines Volumes weggelassen wird, sind Änderungen an Dateien zulässig. Wenn beim Ändern eines Volumes ausgelassen wird, bleibt die Schreib **geschützte Einstellung für** das Volume unverändert. |
 |  /guestsallowed: {true &#124; false}  |      Gibt an, ob Benutzer, die sich als Gäste anmelden, das Volume verwenden können. Geben Sie true ein, um anzugeben, dass Gäste das Volume verwenden können. Geben Sie false ein, um anzugeben, dass Gäste das Volume nicht verwenden können. Wenn Sie beim Hinzufügen eines Volumes ausgelassen werden, können Gäste das Volume verwenden. Wenn beim Ändern eines Volumes ausgelassen wird, bleibt die Einstellung **GUESTSALLOWED** für das Volume unverändert.       |
-|         /Password:<Password>         |                                                                               Gibt ein Kennwort an, das für den Zugriff auf das Volume erforderlich ist. Wenn beim Hinzufügen eines Volumes kein Kennwort angegeben wird, wird kein Kennwort erstellt. Wenn beim Ändern eines Volumes kein Kennwort angegeben wird, bleibt das Kennwort unverändert.                                                                               |
+|         /Password<Password>         |                                                                               Gibt ein Kennwort an, das für den Zugriff auf das Volume erforderlich ist. Wenn beim Hinzufügen eines Volumes kein Kennwort angegeben wird, wird kein Kennwort erstellt. Wenn beim Ändern eines Volumes kein Kennwort angegeben wird, bleibt das Kennwort unverändert.                                                                               |
 | /maxUsers: {<Number>>&#124;unbegrenzt} |                                                 Gibt die maximale Anzahl von Benutzern an, die die Dateien auf dem Volume gleichzeitig verwenden können. Wenn der Wert beim Hinzufügen eines Volumes weggelassen wird, kann das Volume von einer unbegrenzten Anzahl von Benutzern verwendet werden. Wenn beim Ändern eines Volumes ausgelassen wird, bleibt der Wert **maxUsers** unverändert.                                                 |
 |               /remove                |                                                                                                                                Erforderlich, wenn Sie ein Macintosh-accesible-Volume entfernen. entfernt das angegebene Volume.                                                                                                                                |
 |                  /?                  |                                                                                                                                                           Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                           |
 
-### <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 - Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z. b. * * * *<em>Computer Name</em>* * * *).
 
 ### <a name="examples"></a>Beispiele
@@ -157,7 +157,7 @@ Geben Sie Folgendes ein, um das oben erstellte Volume so zu ändern, dass es sch
 ```
 macfile volume /set /name:US Marketing Statistics /readonly:true /password:saturn /maxusers:5
 ```
-Geben Sie zum Hinzufügen eines Volumes namens Landscape Design auf dem Server \\\magnolia unter Verwendung des Trees-Verzeichnisses im Laufwerk E ein, und geben Sie Folgendes ein, um den Zugriff auf das Volume durch Gäste anzugeben:
+Geben Sie Folgendes ein, um ein Volume Namens Landscape Design \\auf dem Server \magnolia zu verwenden, indem Sie das Verzeichnis Trees im Laufwerk E verwenden und angeben, dass auf das Volume von Gästen zugegriffen werden kann:
 ```
 macfile volume /add /server:\\Magnolia /name:Landscape Design /path:e:\trees
 ```
@@ -166,5 +166,5 @@ Geben Sie Folgendes ein, um das Volume namens Sales Reports auf dem lokalen Serv
 macfile volume /remove /name:Sales Reports
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

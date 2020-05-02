@@ -1,6 +1,6 @@
 ---
 title: PowerShell_ise
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b6ae96dcd40c894e0a528c06b461173f626fb2d2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5fb143c3d365b47f66aee5c64bfdc7dc26e5794f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837393"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723280"
 ---
 # <a name="powershell_ise"></a>PowerShell_ise
 
@@ -55,7 +55,7 @@ Sie können **PowerShell_ISE. exe** verwenden, um eine Windows PowerShell-Sitzun
 
 Weitere Informationen zu anderen Möglichkeiten zum Starten von Windows PowerShell ISE finden Sie unter [Starten von Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=135259).
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Windows PowerShell wird auf der Server Core-Installationsoption von Windows Server-Betriebssystemen ausgeführt. Da Windows PowerShell ISE jedoch eine grafische Benutzeroberfläche erfordert, kann es nicht auf Server Core-Installationen ausgeführt werden.
 
@@ -64,4 +64,4 @@ Windows PowerShell wird auf der Server Core-Installationsoption von Windows Serv
 [about_PowerShell_Ise. exe](https://go.microsoft.com/fwlink/?LinkId=256512)
 [about_PowerShell. exe](https://go.microsoft.com/fwlink/?LinkID=113439)
 [Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=107116)
-[Skripterstellung mit Windows PowerShell](https://technet.microsoft.com/scriptcenter/dd742419) siehe auch
+-[Skripterstellung mit Windows PowerShell](https://technet.microsoft.com/scriptcenter/dd742419) siehe auch

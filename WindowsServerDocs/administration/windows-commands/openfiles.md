@@ -1,6 +1,6 @@
 ---
 title: openfiles
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f684acc48fbb279ced8ce1dfb3a930ff15f3bf13
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 050e3f31435949ecce2a9a06a70d86eacd745687
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837823"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723392"
 ---
 # <a name="openfiles"></a>openfiles
 
@@ -39,15 +39,15 @@ openfiles /disconnect [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]]
 
 #### <a name="parameters"></a>Parameter
 
-|            Parameter             |                                                                                                                                 Beschreibung                                                                                                                                  |
+|            Parameter             |                                                                                                                                 BESCHREIBUNG                                                                                                                                  |
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|           /s \<System >           | Gibt das Remote System an, mit dem eine Verbindung hergestellt werden soll (nach Name oder IP-Adresse). Verwenden Sie keine umgekehrten Schrägstriche. Wenn Sie die Option **/s** nicht verwenden, wird der Befehl standardmäßig auf dem lokalen Computer ausgeführt. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
-|    /u [\<Domänen >\]<UserName>     |                                                          Führt den Befehl mit den Berechtigungen des angegebenen Benutzerkontos aus. Wenn Sie die Option **/u** nicht verwenden, werden standardmäßig System Berechtigungen verwendet.                                                           |
-|         /p [\<Password >]         |                                               Gibt das Kennwort des Benutzerkontos an, das in der **/u** -Option angegeben ist. Wenn Sie die Option **/p** nicht verwenden, wird eine Kenn Wort Eingabeaufforderung angezeigt, wenn der Befehl ausgeführt wird.                                                |
-|        /ID \<openfleid >         |                                       Trennt geöffnete Dateien mit der angegebenen Datei-ID. Das Platzhalter Zeichen **&#42;** () kann mit diesem Parameter verwendet werden.</br>Hinweis: Sie können den Befehl **openfiles/Query "aus** verwenden, um die Datei-ID zu suchen.                                       |
-|         /a \<Access sedby->         |                                                Trennt alle geöffneten Dateien, die mit dem im *Access sedby* -Parameter angegebenen Benutzernamen verknüpft sind. Das Platzhalter Zeichen **&#42;** () kann mit diesem Parameter verwendet werden.                                                 |
-| /o {read \| Schreib \| Lese-/Schreibzugriff} |                                               Trennt alle geöffneten Dateien mit dem angegebenen Wert für den offenen Modus. Gültige Werte sind Lese-, Schreib-oder Lese-/Schreibzugriff. Das Platzhalter Zeichen **&#42;** () kann mit diesem Parameter verwendet werden.                                                |
-|         /OP \<OpenFile->          |                                                           Trennt alle geöffneten Datei Verbindungen, die mit einem bestimmten geöffneten Dateinamen erstellt werden. Das Platzhalter Zeichen **&#42;** () kann mit diesem Parameter verwendet werden.                                                           |
+|           /s \<System>           | Gibt das Remote System an, mit dem eine Verbindung hergestellt werden soll (nach Name oder IP-Adresse). Verwenden Sie keine umgekehrten Schrägstriche. Wenn Sie die Option **/s** nicht verwenden, wird der Befehl standardmäßig auf dem lokalen Computer ausgeführt. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
+|    /u [\<Domänen>\]<UserName>     |                                                          Führt den Befehl mit den Berechtigungen des angegebenen Benutzerkontos aus. Wenn Sie die Option **/u** nicht verwenden, werden standardmäßig System Berechtigungen verwendet.                                                           |
+|         /p [\<Kennwort>]         |                                               Gibt das Kennwort des Benutzerkontos an, das in der **/u** -Option angegeben ist. Wenn Sie die Option **/p** nicht verwenden, wird eine Kenn Wort Eingabeaufforderung angezeigt, wenn der Befehl ausgeführt wird.                                                |
+|        /ID \<openfleid>         |                                       Trennt geöffnete Dateien mit der angegebenen Datei-ID. Das Platzhalter Zeichen (**&#42;**) kann mit diesem Parameter verwendet werden.</br>Hinweis: Sie können den Befehl **openfiles/Query "aus** verwenden, um die Datei-ID zu suchen.                                       |
+|         /a \<accessedby>         |                                                Trennt alle geöffneten Dateien, die mit dem im *Access sedby* -Parameter angegebenen Benutzernamen verknüpft sind. Das Platzhalter Zeichen (**&#42;**) kann mit diesem Parameter verwendet werden.                                                 |
+| /o {Lese \| - \| /Schreibzugriff schreiben} |                                               Trennt alle geöffneten Dateien mit dem angegebenen Wert für den offenen Modus. Gültige Werte sind Lese-, Schreib-oder Lese-/Schreibzugriff. Das Platzhalter Zeichen (**&#42;**) kann mit diesem Parameter verwendet werden.                                                |
+|         /OP \<OpenFile->          |                                                           Trennt alle geöffneten Datei Verbindungen, die mit einem bestimmten geöffneten Dateinamen erstellt werden. Das Platzhalter Zeichen (**&#42;**) kann mit diesem Parameter verwendet werden.                                                           |
 |                /?                |                                                                                                                     Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                     |
 
 ### <a name="examples"></a>Beispiele
@@ -64,7 +64,7 @@ Geben Sie Folgendes ein, um alle geöffneten Dateien und Verzeichnisse mit dem L
 ```
 openfiles /disconnect /o read/write
 ```
-Geben Sie Folgendes ein, um die Verbindung zwischen dem Verzeichnis und dem geöffneten Dateinamen "c:\testshare"\, unabhängig davon, wer darauf zugreift,:
+Geben Sie Folgendes ein, um das Verzeichnis mit dem geöffneten Dateinamen "\, c:\testshare" zu trennen, unabhängig davon, wer darauf zugreift:
 ```
 openfiles /disconnect /a * /op c:\testshare\
 ```
@@ -85,11 +85,11 @@ openfiles /query [/s <System> [/u [<Domain>\]<UserName> [/p [<Password>]]]] [/fo
 
 #### <a name="parameters"></a>Parameter
 
-|          Parameter           |                                                                                                                                 Beschreibung                                                                                                                                  |
+|          Parameter           |                                                                                                                                 BESCHREIBUNG                                                                                                                                  |
 |------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         /s \<System >         | Gibt das Remote System an, mit dem eine Verbindung hergestellt werden soll (nach Name oder IP-Adresse). Verwenden Sie keine umgekehrten Schrägstriche. Wenn Sie die Option **/s** nicht verwenden, wird der Befehl standardmäßig auf dem lokalen Computer ausgeführt. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
-|  /u [\<Domänen >\]<UserName>   |                                                          Führt den Befehl mit den Berechtigungen des angegebenen Benutzerkontos aus. Wenn Sie die Option **/u** nicht verwenden, werden standardmäßig System Berechtigungen verwendet.                                                           |
-|       /p [\<Password >]       |                                               Gibt das Kennwort des Benutzerkontos an, das in der **/u** -Option angegeben ist. Wenn Sie die Option **/p** nicht verwenden, wird eine Kenn Wort Eingabeaufforderung angezeigt, wenn der Befehl ausgeführt wird.                                                |
+|         /s \<System>         | Gibt das Remote System an, mit dem eine Verbindung hergestellt werden soll (nach Name oder IP-Adresse). Verwenden Sie keine umgekehrten Schrägstriche. Wenn Sie die Option **/s** nicht verwenden, wird der Befehl standardmäßig auf dem lokalen Computer ausgeführt. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
+|  /u [\<Domänen>\]<UserName>   |                                                          Führt den Befehl mit den Berechtigungen des angegebenen Benutzerkontos aus. Wenn Sie die Option **/u** nicht verwenden, werden standardmäßig System Berechtigungen verwendet.                                                           |
+|       /p [\<Kennwort>]       |                                               Gibt das Kennwort des Benutzerkontos an, das in der **/u** -Option angegeben ist. Wenn Sie die Option **/p** nicht verwenden, wird eine Kenn Wort Eingabeaufforderung angezeigt, wenn der Befehl ausgeführt wird.                                                |
 | [/FO {Table \| List \| CSV}] |                             Zeigt die Ausgabe im angegebenen Format an. Gültige Werte für das *Format* :</br>Table: zeigt die Ausgabe in einer Tabelle an.</br>List: zeigt die Ausgabe in einer Liste an.</br>CSV: zeigt die Ausgabe im Format mit Komma getrennten Werten an.                              |
 |             /nh              |                                                                                Unterdrückt die Spaltenüberschrift in der Ausgabe. Nur gültig, wenn der **/FO** -Parameter auf **Table** oder **CSV**festgelegt ist.                                                                                 |
 |              /v              |                                                                                                       Gibt an, dass ausführliche Informationen in der Ausgabe angezeigt werden.                                                                                                        |
@@ -129,12 +129,12 @@ openfiles /local [on | off]
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|[on \| off]|Aktiviert oder deaktiviert das globale Flag für die Liste der System verwalteten Objekte, das lokale Datei Handles nachverfolgt.|
+|\| [ein]|Aktiviert oder deaktiviert das globale Flag für die Liste der System verwalteten Objekte, das lokale Datei Handles nachverfolgt.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-### <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 
 -   Wenn Sie das globale Flag zum Verwalten von Objekten aktivieren, kann das System verlangsamt werden.
 -   Änderungen, die mithilfe der Option **on** oder **Off** vorgenommen wurden, werden erst wirksam, wenn Sie das System neu starten.
@@ -163,6 +163,6 @@ Geben Sie Folgendes ein, um das globale Flag zum Verwalten von Objekten zu deakt
 openfiles /local off
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

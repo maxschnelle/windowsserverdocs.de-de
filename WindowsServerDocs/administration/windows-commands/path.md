@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cb77cac3871dcf4a411638409de68d038a317d24
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 52d4a99d21574f9cae3120201dcd4db0cd9a2202
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837713"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723377"
 ---
 # <a name="path"></a>path
 
@@ -22,7 +22,7 @@ ms.locfileid: "80837713"
 
 Legt den Befehlspfad in der PATH-Umgebungsvariablen fest (der Satz von Verzeichnissen, der zum Suchen nach ausführbaren Dateien verwendet wird). Bei Verwendung ohne Parameter zeigt **path** den aktuellen Befehlspfad an.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -33,14 +33,14 @@ path ;
 
 ### <a name="parameters"></a>Parameter
 
-|     Parameter     |                                                                                                     Beschreibung                                                                                                      |
+|     Parameter     |                                                                                                     BESCHREIBUNG                                                                                                      |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [\<Laufwerk >:]<Path> |                                                                            Gibt das Laufwerk und das Verzeichnis an, die im Befehlspfad festgelegt werden sollen.                                                                             |
+| [\<Laufwerk>:]<Path> |                                                                            Gibt das Laufwerk und das Verzeichnis an, die im Befehlspfad festgelegt werden sollen.                                                                             |
 |         ;         | Trennt Verzeichnisse im Befehlspfad. Wenn es ohne andere Parameter verwendet wird, löscht die vorhandenen Befehls Pfade aus der PATH-Umgebungsvariablen und leitet "cmd. exe" so **um, dass** Sie nur im aktuellen Verzeichnis suchen. |
 |      ADS       |                                                         Fügt den Befehlspfad an den vorhandenen Satz von Verzeichnissen an, der in der PATH-Umgebungsvariablen aufgelistet ist.                                                         |
 |        /?         |                                                                                         Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                         |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Wenn Sie " **% path%** " in die Syntax einschließen, ersetzt "cmd. exe" diese durch die in der PATH-Umgebungsvariablen gefundenen Befehlspfad Werte, sodass diese Werte in der Eingabeaufforderung nicht manuell eingegeben werden müssen.
 -   Das aktuelle Verzeichnis wird immer vor den im Befehlspfad angegebenen Verzeichnissen durchsucht.
@@ -56,6 +56,6 @@ Geben Sie Folgendes ein, um die Pfade c:\user\steuern, b:\user\invest und b:\bin
 
 `path c:\user\taxes;b:\user\invest;b:\bin`
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
