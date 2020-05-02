@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getreplyprogress
-description: Windows-Befehls Thema für **BITSAdmin getreplyprogress**, das die Größe und den Fortschritt der Server Upload-Antwort abruft.
+description: Referenz Thema für den BITSAdmin getreplyprogress-Befehl, der die Größe und den Fortschritt des Server Uploads (Upload-Reply) abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 195ed669817bc0aca7ebc432e7f3c66ab1548162
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7c355c796d480e9deb444b8fd9ee7570136cade6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850483"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717589"
 ---
 # <a name="bitsadmin-getreplyprogress"></a>bitsadmin getreplyprogress
 
-Ruft die Größe und den Fortschritt der Server Upload-Antwort ab.
+Ruft die Größe und den Fortschritt des Server Uploads-Antwort-Vorgangs ab.
 
 > [!NOTE]
 > Dieser Befehl wird von Bits 1,2 und früheren Versionen nicht unterstützt.
@@ -31,19 +31,20 @@ bitsadmin /getreplyprogress <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
+## <a name="examples"></a>Beispiele
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
-
-Im folgenden Beispiel wird der Status der Upload-Antwort für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
+So rufen Sie den Upload-Antwort-Status für den Auftrag *mydownloadjob*ab:
 
 ```
-C:\>bitsadmin /getreplyprogress myDownloadJob
+bitsadmin /getreplyprogress myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

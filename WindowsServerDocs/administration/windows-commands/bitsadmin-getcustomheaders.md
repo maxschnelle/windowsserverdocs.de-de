@@ -1,6 +1,6 @@
 ---
-title: biout admin getcustomheaders
-description: Windows-Befehls Thema für **BI-admin getcustomheaders**, das die benutzerdefinierten HTTP-Header aus dem Auftrag abruft.
+title: bitsadmin getcustomheaders
+description: Referenz Thema für den bizadmin getcustomheaders-Befehl, der die benutzerdefinierten HTTP-Header aus dem Auftrag abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 80a3d1230fd541f0b986434ce373da4c8bb0c761
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7fe839cd0e629af88b3ee3642abcce339442d03a
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850733"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718097"
 ---
-# <a name="bitsadmin-getcustomheaders"></a>biout admin getcustomheaders
+# <a name="bitsadmin-getcustomheaders"></a>bitsadmin getcustomheaders
 
 Ruft die benutzerdefinierten HTTP-Header aus dem Auftrag ab.
 
@@ -28,18 +28,20 @@ bitsadmin /getcustomheaders <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel werden die benutzerdefinierten Header für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
+So erhalten Sie die benutzerdefinierten Header für den Auftrag mit dem Namen *mydownloadjob*:
 
 ```
-C:\>bitsadmin /getcustomheaders myDownloadJob
+bitsadmin /getcustomheaders myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

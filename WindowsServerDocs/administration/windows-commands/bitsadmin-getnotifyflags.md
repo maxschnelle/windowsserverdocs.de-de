@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getnotifyflags
-description: Windows-Befehls Thema für **bitadmin getnotifyflags**, das die Benachrichtigungs Flags für den angegebenen Auftrag abruft.
+description: Referenz Thema für den bizadmin getnotifyflags-Befehl, der die Benachrichtigungs-Flags für den angegebenen Auftrag abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3138baea05f793cfb587d3f8fb669d446daea6b5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 36e4c3584b2e3be9c9985756aeaec08b40e74b0c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850583"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717768"
 ---
 # <a name="bitsadmin-getnotifyflags"></a>bitsadmin getnotifyflags
 
-Ruft die Benachrichtigungs Flags für den angegebenen Auftrag ab.
+Ruft die benachrichtigungflags für den angegebenen Auftrag ab.
 
 ## <a name="syntax"></a>Syntax
 
@@ -28,29 +28,31 @@ bitsadmin /getnotifyflags <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Der Auftrag kann eine oder mehrere der folgenden Benachrichtigungs Flags enthalten:
 
-| Flag | Beschreibung |
+| Flag | BESCHREIBUNG |
 | ----- | ----- |
 | 0x001 | Generiert ein Ereignis, wenn alle Dateien im Auftrag übertragen wurden. |
 | 0x002 | Generiert ein Ereignis, wenn ein Fehler auftritt. |
 | 0x004 | Deaktivieren Sie Benachrichtigungen. |
 | 0x008 | Generieren Sie ein Ereignis, wenn der Auftrag geändert oder der Übertragungs Fortschritt durchgeführt wird. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel werden die Benachrichtigungs Flags für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
+So rufen Sie die Benachrichtigungs-Flags für den Auftrag mit dem Namen *mydownloadjob*ab:
 
 ```
-C:\>bitsadmin /getnotifyflags myDownloadJob
+bitsadmin /getnotifyflags myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

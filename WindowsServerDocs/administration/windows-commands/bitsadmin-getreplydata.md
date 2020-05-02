@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getreplydata
-description: Windows-Befehls Thema für **BITSAdmin getreplydata**, das die uploadantwortdaten des Servers im Hexadezimal Format für den Auftrag abruft.
+description: Referenz Thema für den BITSAdmin getreplydata-Befehl, der die Upload-Antwort-Daten des Servers im Hexadezimal Format für den Auftrag abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fb83ca93f8e73445788d926e0d5e6db4c774d759
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ea2a82403fe05776abbbf65e87a4b6e72c8767b8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850503"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717627"
 ---
 # <a name="bitsadmin-getreplydata"></a>bitsadmin getreplydata
 
-Ruft die uploadantwortdaten des Servers im Hexadezimal Format für den Auftrag ab.
+Ruft die Upload-Antwort-Daten des Servers im Hexadezimal Format für den Auftrag ab.
 
 > [!NOTE]
 > Dieser Befehl wird von Bits 1,2 und früheren Versionen nicht unterstützt.
@@ -31,18 +31,20 @@ bitsadmin /getreplydata <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel werden die uploadantwortdaten für den Auftrag *mydownloadjob*abgerufen.
+Zum Abrufen der Upload-Antwort-Daten für den Auftrag mit dem Namen *mydownloadjob*:
 
 ```
-C:\>bitsadmin /getreplydata myDownloadJob
+bitsadmin /getreplydata myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

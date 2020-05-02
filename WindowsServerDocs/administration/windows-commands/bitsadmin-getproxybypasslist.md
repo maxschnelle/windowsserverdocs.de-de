@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getproxybypasslist
-description: Windows-Befehls Thema für **bigsadmin getproxybypasslist**, das die Proxy Umgehungs Liste für den angegebenen Auftrag abruft.
+description: Referenz Thema für den bizadmin getproxybypasslist-Befehl, der die Proxy Umgehungs Liste für den angegebenen Auftrag abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9cd81aaef22c4173f198b765246b78b3d3bae136
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3b4f37d09521c28d55104975ed754a10e8df011e
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850533"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717662"
 ---
 # <a name="bitsadmin-getproxybypasslist"></a>bitsadmin getproxybypasslist
 
@@ -28,22 +28,24 @@ bitsadmin /getproxybypasslist <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 
-Die Umgehungs Liste enthält die Hostnamen oder IP-Adressen, die nicht über einen Proxy weitergeleitet werden sollen. Die Liste kann `<local>` enthalten, um auf alle Server im gleichen LAN zu verweisen. Die Liste kann ein Semikolon (;) oder durch Leerzeichen voneinander getrennt.
+Die Umgehungs Liste enthält die Hostnamen oder IP-Adressen, die nicht über einen Proxy weitergeleitet werden sollen. Die Liste kann enthalten `<local>` , um auf alle Server im gleichen LAN zu verweisen. Die Liste kann ein Semikolon (;) oder durch Leerzeichen voneinander getrennt.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird die Proxy Umgehungs Liste für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
+Zum Abrufen der Proxy Umgehungs Liste für den Auftrag mit dem Namen *mydownloadjob*:
 
 ```
-C:\>bitsadmin /getproxybypasslist myDownloadJob
+bitsadmin /getproxybypasslist myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getaclflags
-description: Windows-Befehls Thema für **BITSAdmin getaclflags**, das die weitergabesteuerungsflags der Zugriffs Steuerungs Liste (ACL) abruft.
+description: Referenz Thema für den BITSAdmin getaclflags-Befehl, der die weitergabeweitergabeflags der Zugriffs Steuerungs Liste (ACL) abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d53018e2fa5c659c8cf4b0ec985beda848a8c1af
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a9ca541b488c3c83e7a64a138bae0914001778e3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850793"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718175"
 ---
 # <a name="bitsadmin-getaclflags"></a>bitsadmin getaclflags
 
@@ -28,13 +28,13 @@ bitsadmin /getaclflags <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 
-Zeigt einen oder mehrere der folgenden Flagwerte an:
+Gibt einen oder mehrere der folgenden Flagwerte zurück:
 
 - **o** -Besitzer Informationen mit Datei kopieren.
 
@@ -44,14 +44,16 @@ Zeigt einen oder mehrere der folgenden Flagwerte an:
 
 - **s** -Informationen zur System Zugriffs Steuerungs Liste (SACL) mit Datei kopieren.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel werden die Weitergabeflags für die Zugriffs Steuerungs Liste für den Auftrag mit dem Namen *mydownloadjob*abgerufen.
+Zum Abrufen der Weitergabeflags für die Zugriffs Steuerungs Liste für den Auftrag *mydownloadjob*:
 
 ```
-C:\>bitsadmin /getaclflags myDownloadJob
+bitsadmin /getaclflags myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

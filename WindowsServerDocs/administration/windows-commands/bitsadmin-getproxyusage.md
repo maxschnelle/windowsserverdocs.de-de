@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getproxyusage
-description: Windows-Befehls Thema für **biungadmin getproxyusage**, das die Proxy Verwendungs Einstellung für den angegebenen Auftrag abruft.
+description: Referenz Thema für den bizadmin-Befehl getproxyusage, der die Proxy Verwendungs Einstellung für den angegebenen Auftrag abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 01c9bb9a1d413fa847482f652e18eed30ad76109
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 13a3f216b1ed3c77dbbefee37d73a657525daa36
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850513"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717650"
 ---
 # <a name="bitsadmin-getproxyusage"></a>bitsadmin getproxyusage
 
@@ -28,13 +28,13 @@ bitsadmin /getproxyusage <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="remarks"></a>Hinweise
+#### <a name="output"></a>Output
 
-Die Proxy Verwendungs Werte umfassen Folgendes:
+Die zurückgegebenen Proxy Verwendungs Werte können wie folgt lauten:
 
 - **Preconfig** : Verwenden Sie die Internet Explorer-Standardeinstellungen des Besitzers.
 
@@ -44,14 +44,16 @@ Die Proxy Verwendungs Werte umfassen Folgendes:
 
 - **Autodetect** : die Proxy Einstellungen werden automatisch erkannt.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird die Proxy Verwendung für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
+So rufen Sie die Proxy Verwendung für den Auftrag mit dem Namen *mydownloadjob*ab
 
 ```
-C:\>bitsadmin /getproxyusage myDownloadJob
+bitsadmin /getproxyusage myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

@@ -1,6 +1,6 @@
 ---
-title: BI-admin getclientcertificate
-description: Windows-Befehls Thema für **BI-admin getclientcertificate**, das das Client Zertifikat aus dem Auftrag abruft.
+title: bitsadmin getclientcertificate
+description: Referenz Thema für den bizadmin getclientcertificate-Befehl, mit dem das Client Zertifikat aus dem Auftrag abgerufen wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c29d5c64fd172cfdd2d5d93c5ed22d519077806
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d2582950dd02ca1880e4765fb974c83c423b22bb
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850763"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718123"
 ---
-# <a name="bitsadmin-getclientcertificate"></a>BI-admin getclientcertificate
+# <a name="bitsadmin-getclientcertificate"></a>bitsadmin getclientcertificate
 
 Ruft das Client Zertifikat aus dem Auftrag ab.
 
@@ -28,18 +28,20 @@ bitsadmin /getclientcertificate <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird das Client Zertifikat für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
+So rufen Sie das Client Zertifikat für den Auftrag mit dem Namen *mydownloadjob*ab
 
 ```
-C:\>bitsadmin /getclientcertificate myDownloadJob
+bitsadmin /getclientcertificate myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

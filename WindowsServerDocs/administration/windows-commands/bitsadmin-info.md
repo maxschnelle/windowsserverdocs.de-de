@@ -1,6 +1,6 @@
 ---
-title: bitsadmin Informationen
-description: Windows-Befehls Thema für **bizadmin-Informationen**, die zusammenfassende Informationen zum angegebenen Auftrag anzeigen.
+title: bitsadmin info
+description: Referenz Thema für den Befehl bizadmin Info, mit dem zusammenfassende Informationen zum angegebenen Auftrag angezeigt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 20b8358caba3e0c07b0c985cb24e8f7bde43b06c
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 904f70c82ab4bcc4fb25f759898674cc719b1954
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81123116"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717441"
 ---
-# <a name="bitsadmin-info"></a>bitsadmin Informationen
+# <a name="bitsadmin-info"></a>bitsadmin info
 
 Zeigt zusammenfassende Informationen zum angegebenen Auftrag an.
 
@@ -28,20 +28,20 @@ bitsadmin /info <job> [/verbose]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | /verbose | Optional. Stellt ausführliche Informationen zu jedem Auftrag bereit. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel werden Informationen zum Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
+So rufen Sie Informationen zum Auftrag mit dem Namen *mydownloadjob*ab:
 
 ```
-C:\>bitsadmin /info myDownloadJob
+bitsadmin /info myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

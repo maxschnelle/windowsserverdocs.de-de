@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getfilestotal
-description: Windows-Befehls Thema für **bizadmin getfilestotal**, das die Anzahl der Dateien im angegebenen Auftrag abruft.
+description: Referenz Thema für den bizadmin getfilestotal-Befehl, mit dem die Anzahl der Dateien im angegebenen Auftrag abgerufen wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bad42a8bef57ca4c4a1411a12f20979e4a95d178
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5cf3b33c15bb18c8a141408f82fdd72a6e710817
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850683"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717978"
 ---
 # <a name="bitsadmin-getfilestotal"></a>bitsadmin getfilestotal
 
@@ -28,18 +28,20 @@ bitsadmin /getfilestotal <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird die Anzahl der Dateien abgerufen, die im Auftrag mit dem Namen *mydownloadjob*enthalten sind.
+So rufen Sie die Anzahl der Dateien ab, die im Auftrag mit dem Namen *mydownloadjob*enthalten sind:
 
 ```
-C:\>bitsadmin /getfilestotal myDownloadJob
+bitsadmin /getfilestotal myDownloadJob
 ```
 
 ## <a name="see-also"></a>Weitere Informationen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

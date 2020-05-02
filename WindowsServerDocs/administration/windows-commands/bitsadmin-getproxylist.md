@@ -1,6 +1,6 @@
 ---
 title: 'BI-admin getproxylist: Ruft die Proxy Liste für den angegebenen Auftrag ab.'
-description: Windows-Befehls Thema für **bigsadmin getproxylist**, das die Proxy Liste für den angegebenen Auftrag abruft.
+description: Referenz Thema für den bizadmin getproxylist-Befehl, der die Proxy Liste für den angegebenen Auftrag abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c0d26fb074bd1b792caa7fe2ce8fd31b64365e2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a92703d83cc872204d3dc488c15d703dfd50a780
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850523"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717658"
 ---
 # <a name="bitsadmin-getproxylist"></a>bitsadmin getproxylist
 
@@ -28,18 +28,20 @@ bitsadmin /getproxylist <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird die Proxy Liste für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
+Zum Abrufen der Proxy Liste für den Auftrag mit dem Namen *mydownloadjob*:
 
 ```
-C:\>bitsadmin /getproxylist myDownloadJob
+bitsadmin /getproxylist myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getdisplayname
-description: Windows-Befehls Thema für **bizadmin GetDisplayName**, der den anzeigen amen des angegebenen Auftrags abruft.
+description: Referenz Thema für den bizadmin GetDisplayName-Befehl, der den anzeigen amen des angegebenen Auftrags abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6944dc2b7a63ca986fb285d26796f350c1052295
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f7c92fdb7c743c1a4c71f076764f5d1da2d95a6f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850713"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718030"
 ---
 # <a name="bitsadmin-getdisplayname"></a>bitsadmin getdisplayname
 
@@ -28,18 +28,20 @@ bitsadmin /getdisplayname <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird der Anzeige Name für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
+So rufen Sie den anzeigen Amen für den Auftrag mit dem Namen *mydownloadjob*ab
 
 ```
-C:\>bitsadmin /getdisplayname myDownloadJob
+bitsadmin /getdisplayname myDownloadJob
 ```
 
 ## <a name="additional-references"></a>Weitere Verweise
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)
