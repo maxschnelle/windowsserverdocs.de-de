@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: e57826b0997f2cde1dc437ea171d93eb6fc8dd15
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 694c32d9bbb8a873f34132e90c7201d3c9fe5132
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833453"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721565"
 ---
 # <a name="tapicfg"></a>tapicfg
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Erstellt, entfernt oder zeigt eine TAPI-Anwendungsverzeichnis Partition an oder legt eine standardmäßige TAPI-Anwendungsverzeichnis Partition fest. TAPI 3,1-Clients können die Informationen in dieser Anwendungsverzeichnis Partition mit dem Verzeichnisdienst-Serverlocatorpunkt-Dienst verwenden, um TAPI-Verzeichnisse zu suchen und mit Ihnen zu kommunizieren. Sie können auch " **tapicfg** " verwenden, um Dienst Verbindungspunkte zu erstellen oder zu entfernen, die TAPI-Clients ermöglichen, die TAPI-Anwendungsverzeichnis Partitionen in einer Domäne effizient zu finden. Weitere Informationen finden Sie unter "Hinweise". Um die Befehlssyntax anzuzeigen, klicken Sie auf einen Befehl. 
 -   [tapicfg-Installation](#BKMK_install)
@@ -36,10 +36,10 @@ Erstellt eine TAPI-Anwendungsverzeichnis Partition.
 tapicfg install /directory:<PartitionName> [/server:<DCName>] [/forcedefault]
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
-|Installieren von/Directory:\<partitionName >|Erforderlich Gibt den DNS-Namen der zu erstellenden TAPI-Anwendungsverzeichnis Partition an. Dieser Name muss ein voll qualifizierter Domänen Name sein.|
-|/Server: \<DCNAME >|Gibt den DNS-Namen des Domänen Controllers an, auf dem die TAPI-Anwendungsverzeichnis Partition erstellt wird. Wenn der Domänen Controller Name nicht angegeben ist, wird der Name des lokalen Computers verwendet.|
+|Installieren von/Directory\<: partitionName>|Erforderlich. Gibt den DNS-Namen der zu erstellenden TAPI-Anwendungsverzeichnis Partition an. Dieser Name muss ein voll qualifizierter Domänen Name sein.|
+|/Server: \<DCNAME->|Gibt den DNS-Namen des Domänen Controllers an, auf dem die TAPI-Anwendungsverzeichnis Partition erstellt wird. Wenn der Domänen Controller Name nicht angegeben ist, wird der Name des lokalen Computers verwendet.|
 |/forcedefault|Gibt an, dass dieses Verzeichnis die standardmäßige TAPI-Anwendungsverzeichnis Partition für die Domäne ist. Es können mehrere TAPI-Anwendungsverzeichnis Partitionen in einer Domäne vorhanden sein.<p>Wenn dieses Verzeichnis die erste TAPI-Anwendungsverzeichnis Partition ist, die in der Domäne erstellt wurde, wird es automatisch als Standard festgelegt, unabhängig davon, ob Sie die Option **/forcedefault** verwenden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
@@ -51,9 +51,9 @@ Entfernt eine TAPI-Anwendungsverzeichnis Partition.
 tapicfg remove /directory:<PartitionName>
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
-|Remove/Directory:\<partitionName >|Erforderlich Gibt den DNS-Namen der zu entfernenden TAPI-Anwendungsverzeichnis Partition an. Beachten Sie, dass dieser Name ein voll qualifizierter Domänen Name sein muss.|
+|Remove/Directory:\<partitionName>|Erforderlich. Gibt den DNS-Namen der zu entfernenden TAPI-Anwendungsverzeichnis Partition an. Beachten Sie, dass dieser Name ein voll qualifizierter Domänen Name sein muss.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="tapicfg-publishscp"></a><a name="BKMK_publishscp"></a>tapicfg publishscp
@@ -64,10 +64,10 @@ Erstellt einen Dienst Verbindungspunkt zum Veröffentlichen einer TAPI-Anwendung
 tapicfg publishscp /directory:<PartitionName> [/domain:<DomainName>] [/forcedefault]
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
-|publishscp/Directory:\<partitionName >|Erforderlich Gibt den DNS-Namen der TAPI-Anwendungsverzeichnis Partition an, die vom Dienst Verbindungspunkt veröffentlicht wird.|
-|/Domain:\<Domain Name >|Gibt den DNS-Namen der Domäne an, in der der Dienst Verbindungspunkt erstellt wird. Wenn der Domänen Name nicht angegeben wird, wird der Name der lokalen Domäne verwendet.|
+|publishscp/Directory:\<partitionName>|Erforderlich. Gibt den DNS-Namen der TAPI-Anwendungsverzeichnis Partition an, die vom Dienst Verbindungspunkt veröffentlicht wird.|
+|/Domain:\<Domänen Name>|Gibt den DNS-Namen der Domäne an, in der der Dienst Verbindungspunkt erstellt wird. Wenn der Domänen Name nicht angegeben wird, wird der Name der lokalen Domäne verwendet.|
 |/forcedefault|Gibt an, dass dieses Verzeichnis die standardmäßige TAPI-Anwendungsverzeichnis Partition für die Domäne ist. Es können mehrere TAPI-Anwendungsverzeichnis Partitionen in einer Domäne vorhanden sein.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
@@ -79,10 +79,10 @@ Entfernt einen Dienst Verbindungspunkt für eine TAPI-Anwendungsverzeichnis Part
 tapicfg removescp /directory:<PartitionName> [/domain:<DomainName>]
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
-|removescp/Directory:\<partitionName >|Erforderlich Gibt den DNS-Namen der TAPI-Anwendungsverzeichnis Partition an, für die ein Dienst Verbindungspunkt entfernt wird.|
-|/Domain: \<Domain Name >|Gibt den DNS-Namen der Domäne an, aus der der Dienst Verbindungspunkt entfernt wird. Wenn der Domänen Name nicht angegeben wird, wird der Name der lokalen Domäne verwendet.|
+|removescp/Directory:\<partitionName>|Erforderlich. Gibt den DNS-Namen der TAPI-Anwendungsverzeichnis Partition an, für die ein Dienst Verbindungspunkt entfernt wird.|
+|/Domain: \<Domänen Name>|Gibt den DNS-Namen der Domäne an, aus der der Dienst Verbindungspunkt entfernt wird. Wenn der Domänen Name nicht angegeben wird, wird der Name der lokalen Domäne verwendet.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="tapicfg-show"></a><a name="BKMK_show"></a>tapicfg anzeigen
@@ -93,10 +93,10 @@ Zeigt die Namen und Speicherorte der TAPI-Anwendungsverzeichnis Partitionen in d
 tapicfg show [/defaultonly][ /domain:<DomainName>]
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |/defaultonly|Zeigt die Namen und Speicherorte der standardmäßigen TAPI-Anwendungsverzeichnis Partition in der Domäne an.|
-|/Domain: \<Domain Name >|Gibt den DNS-Namen der Domäne an, für die die TAPI-Anwendungsverzeichnis Partitionen angezeigt werden. Wenn der Domänen Name nicht angegeben wird, wird der Name der lokalen Domäne verwendet.|
+|/Domain: \<Domänen Name>|Gibt den DNS-Namen der Domäne an, für die die TAPI-Anwendungsverzeichnis Partitionen angezeigt werden. Wenn der Domänen Name nicht angegeben wird, wird der Name der lokalen Domäne verwendet.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="tapicfg-makedefault"></a><a name="BKMK_makedefault"></a>tapicfg MakeDefault
@@ -107,12 +107,12 @@ Legt die standardmäßige TAPI-Anwendungsverzeichnis Partition für die Domäne 
 tapicfg makedefault /directory:<PartitionName> [/domain:<DomainName>]  
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
-|MakeDefault/Directory:\<partitionName >|Erforderlich Gibt den DNS-Namen der TAPI-Anwendungsverzeichnis Partition an, die als Standard Partition für die Domäne festgelegt ist. Beachten Sie, dass dieser Name ein voll qualifizierter Domänen Name sein muss. Gibt den DNS-Namen der Domäne an, für die die TAPI-Anwendungsverzeichnis Partition als Standard festgelegt ist. Wenn der Domänen Name nicht angegeben wird, wird der Name der lokalen Domäne verwendet.|
+|MakeDefault/Directory:\<partitionName>|Erforderlich. Gibt den DNS-Namen der TAPI-Anwendungsverzeichnis Partition an, die als Standard Partition für die Domäne festgelegt ist. Beachten Sie, dass dieser Name ein voll qualifizierter Domänen Name sein muss. Gibt den DNS-Namen der Domäne an, für die die TAPI-Anwendungsverzeichnis Partition als Standard festgelegt ist. Wenn der Domänen Name nicht angegeben wird, wird der Name der lokalen Domäne verwendet.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 Sie müssen Mitglied der Gruppe "Organisations-Admins" in Active Directory sein, um entweder die Installation von " **tapicfg** " (zum Erstellen einer TAPI-Anwendungsverzeichnis Partition) oder " **tapicfg Remove** " (zum Entfernen einer TAPI-Anwendungsverzeichnis Partition) auszuführen.
 
 Dieses Befehlszeilen Tool kann auf einem beliebigen Computer ausgeführt werden, der Mitglied der Domäne ist.

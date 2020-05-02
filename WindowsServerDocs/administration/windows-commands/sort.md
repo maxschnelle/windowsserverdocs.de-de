@@ -1,6 +1,6 @@
 ---
 title: sort
-description: Windows-Befehls Thema für Sort, das Eingaben liest, Daten sortiert und die Ergebnisse auf den Bildschirm, in eine Datei oder auf ein anderes Gerät schreibt.
+description: Referenz Thema für Sort, das Eingaben liest, Daten sortiert und die Ergebnisse auf den Bildschirm, in eine Datei oder auf ein anderes Gerät schreibt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 853a9d5dc0928eec78199c8e0d0fe1715ea64808
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6eb86724a6f22f85ebad39b11a79853d0f090574
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834083"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721770"
 ---
 # <a name="sort"></a>sort
 
 Liest Eingaben, sortiert Daten und schreibt die Ergebnisse auf den Bildschirm, in eine Datei oder auf ein anderes Gerät.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,23 +30,23 @@ sort [/r] [/+<N>] [/m <Kilobytes>] [/l <Locale>] [/rec <Characters>] [[<Drive1>:
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/r|Kehrt die Sortierreihenfolge um (d. h., sortiert von Z bis A und zwischen 9 und 0).|
-|/+\<N >|Gibt die Zeichen Positionsnummer an, an der der **Sortier** Vorgang beginnt. *N* kann eine beliebige gültige ganze Zahl sein.|
-|/m \<Kilobyte >|Gibt die Größe des Hauptspeichers an, der für die Sortierung in Kilobyte (KB) verwendet werden soll.|
-|/l \<Gebiets Schema >|Überschreibt die Sortierreihenfolge von Zeichen, die vom Standard Gebiets Schema des Systems definiert werden (d. h. die Sprache und das Land/die Region, die während der Installation ausgewählt wurden)|
-|/REC \<Zeichen >|Gibt die maximale Anzahl von Zeichen in einem Datensatz oder eine Zeile der Eingabedatei an (der Standardwert ist 4.096 und der Höchstwert 65.535).|
-|[\<Drive1 >:] [\<Path1 >]\<FileName1 >|Gibt die Datei an, die sortiert werden soll. Wenn kein Dateiname angegeben wird, wird die Standardeingabe sortiert. Die Angabe der Eingabedatei ist schneller als das Umleiten derselben Datei als Standardeingabe.|
-|/t [\<drive2 >:] [\<Path2 >]|Gibt den Pfad des Verzeichnisses an, in dem der Arbeitsspeicher des **Sortier** Befehls enthalten sein soll, wenn die Daten nicht in den Hauptspeicher passen. Standardmäßig wird das temporäre System Verzeichnis verwendet.|
-|/o [\<Drive3 >:] [\<Path3 >]\<FileName3 >|Gibt die Datei an, in der die sortierte Eingabe gespeichert werden soll. Wenn kein Wert angegeben ist, werden die Daten in die Standardausgabe geschrieben. Die Angabe der Ausgabedatei ist schneller als das Umleiten der Standardausgabe in dieselbe Datei.|
+|/+\<N>|Gibt die Zeichen Positionsnummer an, an der der **Sortier** Vorgang beginnt. *N* kann eine beliebige gültige ganze Zahl sein.|
+|/m \<Kilobyte>|Gibt die Größe des Hauptspeichers an, der für die Sortierung in Kilobyte (KB) verwendet werden soll.|
+|/l \<Gebiets Schema>|Überschreibt die Sortierreihenfolge von Zeichen, die vom Standard Gebiets Schema des Systems definiert werden (d. h. die Sprache und das Land/die Region, die während der Installation ausgewählt wurden)|
+|/REC \<-Zeichen>|Gibt die maximale Anzahl von Zeichen in einem Datensatz oder eine Zeile der Eingabedatei an (der Standardwert ist 4.096 und der Höchstwert 65.535).|
+|[\<Drive1>:] [\<Path1>] \<FileName1>|Gibt die Datei an, die sortiert werden soll. Wenn kein Dateiname angegeben wird, wird die Standardeingabe sortiert. Die Angabe der Eingabedatei ist schneller als das Umleiten derselben Datei als Standardeingabe.|
+|/t [\<drive2>:] [\<Path2>]|Gibt den Pfad des Verzeichnisses an, in dem der Arbeitsspeicher des **Sortier** Befehls enthalten sein soll, wenn die Daten nicht in den Hauptspeicher passen. Standardmäßig wird das temporäre System Verzeichnis verwendet.|
+|/o [\<Drive3>:] [\<Path3>]\<FileName3>|Gibt die Datei an, in der die sortierte Eingabe gespeichert werden soll. Wenn kein Wert angegeben ist, werden die Daten in die Standardausgabe geschrieben. Die Angabe der Ausgabedatei ist schneller als das Umleiten der Standardausgabe in dieselbe Datei.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
--   Verwenden der Befehlszeilenoption " **/+** "
+-   Verwenden der **/+** Befehlszeilenoption
 
-    Standardmäßig beginnen Vergleiche mit dem ersten Zeichen jeder Zeile. Mit der **/+** -Befehlszeilenoption werden Vergleiche mit dem durch *N*angegebenen Zeichen gestartet. Beispielsweise gibt `/+3` an, dass jeder Vergleich mit dem dritten Zeichen jeder Zeile beginnen soll. Zeilen mit weniger als *N* Zeichen, die vor anderen Zeilen sortiert werden.
+    Standardmäßig beginnen Vergleiche mit dem ersten Zeichen jeder Zeile. Die **/+** Befehlszeilenoption startet Vergleiche mit dem durch *N*angegebenen Zeichen. `/+3` Gibt z. b. an, dass jeder Vergleich mit dem dritten Zeichen jeder Zeile beginnen soll. Zeilen mit weniger als *N* Zeichen, die vor anderen Zeilen sortiert werden.
 -   Verwenden der Befehlszeilenoption **/m**
 
     Der verwendete Arbeitsspeicher beträgt immer mindestens 160 KB. Wenn die Arbeitsspeicher Größe angegeben wird, wird der genaue angegebene Betrag für die Sortierung verwendet (muss mindestens 160 KB betragen), unabhängig davon, wie viel Hauptspeicher verfügbar ist.
@@ -57,8 +57,8 @@ sort [/r] [/+<N>] [/m <Kilobytes>] [/l <Locale>] [/rec <Characters>] [[<Drive1>:
     Derzeit ist die einzige Alternative zum Standard Gebiets Schema das C-Gebiets Schema, das schneller ist als das Sortieren in natürlicher Sprache (es sortiert Zeichen gemäß Ihren binären Codierungen).
 -   Verwenden von Umleitungs Symbolen mit dem **Sort** -Befehl
 
-    Sie können das Pipe-Symbol ( **|** ) verwenden, um Eingabedaten von einem anderen Befehl an den **Sortier** Befehl weiterzuleiten oder um die sortierte Ausgabe an einen anderen Befehl weiterzuleiten. Eingabe-und Ausgabedateien können mithilfe von Umleitungs Symbolen ( **<** oder **>** ) angegeben werden. Sie kann schneller und effizienter (insbesondere bei großen Dateien) sein, um die Eingabedatei direkt anzugeben (wie von *FileName1* in der Befehlssyntax definiert), und dann die Ausgabedatei mit dem **/o** -Parameter anzugeben.
--   Unterscheidung nach Groß-/Kleinschreibung
+    Sie können das Pipe-Symbol (**|**) verwenden, um Eingabedaten von einem anderen Befehl an den **Sortier** Befehl weiterzuleiten oder um die sortierte Ausgabe an einen anderen Befehl weiterzuleiten. Eingabe-und Ausgabedateien können mithilfe von Umleitungs Symbolen (**<** oder **>**) angegeben werden. Sie kann schneller und effizienter (insbesondere bei großen Dateien) sein, um die Eingabedatei direkt anzugeben (wie von *FileName1* in der Befehlssyntax definiert), und dann die Ausgabedatei mit dem **/o** -Parameter anzugeben.
+-   Groß- und Kleinschreibung
 
     Der **Sort** -Befehl unterscheidet nicht zwischen Groß-und Kleinbuchstaben.
 -   Grenzwerte für die Dateigröße
@@ -71,7 +71,7 @@ sort [/r] [/+<N>] [/m <Kilobytes>] [/l <Locale>] [/rec <Characters>] [[<Drive1>:
 
     Wenn die Sortierung innerhalb der maximalen Arbeitsspeicher Größe (standardmäßig festgelegt oder im **/m** -Parameter festgelegt) passt, wird die Sortierung in einem einzelnen Durchlauf ausgeführt. Andernfalls wird die Sortierung in zwei separaten Sortier-und Zusammenführungen durchgeführt, und die für beide Durchlauf verwendeten Speichermengen sind gleich. Wenn zwei Durchläufen ausgeführt werden, werden die teilweise sortierten Daten in einer temporären Datei auf dem Datenträger gespeichert. Wenn nicht genügend Arbeitsspeicher vorhanden ist, um die Sortierung in zwei Durchläufen auszuführen, wird ein Laufzeitfehler ausgegeben. Wenn die Befehlszeilenoption **/m** verwendet wird, um mehr Arbeitsspeicher anzugeben, als tatsächlich verfügbar ist, kann eine Leistungsminderung oder ein Laufzeitfehler auftreten.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 **Sortieren einer Datei**
 
@@ -95,6 +95,6 @@ Wenn Sie Tastatureingaben sortieren und die Ergebnisse alphabetisch auf dem Bild
 
 Geben Sie dann den gewünschten Text ein, und drücken Sie die EINGABETASTE am Ende jeder Zeile. Wenn Sie mit der Eingabe von Text fertig sind, drücken Sie STRG + Z, und drücken Sie dann die EINGABETASTE. Der **Sortier** Befehl zeigt den eingegebenen Text an, der alphabetisch sortiert ist.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

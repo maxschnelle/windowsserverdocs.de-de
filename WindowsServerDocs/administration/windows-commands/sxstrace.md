@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ece727b68eb620e839cbfb8efe02dbe775666498
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 212e2d45b77f09b9460555733de15488a4420842
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833613"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721597"
 ---
 # <a name="sxstrace"></a>sxstrace
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Diagnostizieren paralleler Probleme    
 
@@ -28,21 +28,21 @@ sxstrace [{[trace -logfile:<FileName> [-nostop]|[parse -logfile:<FileName> -outf
 ```  
 
 #### <a name="parameters"></a>Parameter  
-|Parameter|Beschreibung|  
+|Parameter|BESCHREIBUNG|  
 |-------|--------|  
-|Ablauf Verfolgungs|Aktiviert die Ablauf Verfolgung für SxS (Seite an Seite).|  
+|Ablaufverfolgung|Aktiviert die Ablauf Verfolgung für SxS (Seite an Seite).|  
 |-Logfile|Gibt die unformatierte Protokolldatei an.|  
-|\<Dateiname >|Speichert das Ablauf Verfolgungs Protokoll in *filename*.|  
+|\<Dateiname>|Speichert das Ablauf Verfolgungs Protokoll in *filename*.|  
 |-nostoppt|Gibt keine Aufforderung zum Abbrechen der Ablauf Verfolgung an.|  
-|analysieren|Übersetzt die RAW-Ablauf Verfolgungs Datei.|  
+|parse|Übersetzt die RAW-Ablauf Verfolgungs Datei.|  
 |-outfile|Gibt den Ausgabe Dateinamen an.|  
-|> der \<-Datei|Gibt den Dateinamen der analysierten Datei an.|  
-|-Filter|Ermöglicht das Filtern der Ausgabe.|  
-|\<appname >|Gibt den Namen der Anwendung an.|  
+|\<> für das von Dateien|Gibt den Dateinamen der analysierten Datei an.|  
+|-filter|Ermöglicht das Filtern der Ausgabe.|  
+|\<AppName->|Gibt den Namen der Anwendung an.|  
 |stoptrace|Beenden Sie die Ablauf Verfolgung, wenn Sie noch nicht beendet wurde.|  
 |-?|Zeigt die Hilfe an der Eingabeaufforderung an.|  
 
-## <a name="examples"></a><a name="BKMK_Examples"></a>Beispiele  
+## <a name="examples"></a>Beispiele  
 Aktivieren Sie die Ablauf Verfolgung, und speichern Sie die Ablauf Verfolgungs Datei in **sxstrace. ETL**:  
 ```  
 sxstrace trace -logfile:sxstrace.etl  

@@ -1,6 +1,6 @@
 ---
-title: echo
-description: Windows-Befehle Thema ****-
+title: Echo
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5e6e9c3c79cc8006efba0c97a574e3d6d94a6f7e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 05b42e4df38c3eafd3dcf3a92ced7b7b2c088e2b
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845243"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720870"
 ---
-# <a name="echo"></a>echo
+# <a name="echo"></a>Echo
 
 
 
@@ -33,19 +33,19 @@ echo [on | off]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|[on \| off]|Aktiviert oder deaktiviert die Funktion zum Wiederholen von Befehlen. Die Befehls Echo Prüfung ist standardmäßig aktiviert.|
-|\<Meldung >|Gibt den Text an, der auf dem Bildschirm angezeigt werden soll.|
+|\| [ein]|Aktiviert oder deaktiviert die Funktion zum Wiederholen von Befehlen. Die Befehls Echo Prüfung ist standardmäßig aktiviert.|
+|\<Message>|Gibt den Text an, der auf dem Bildschirm angezeigt werden soll.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Der Befehl **Echo** *Message* ist besonders nützlich, wenn **Echo** deaktiviert ist. Um eine Meldung anzuzeigen, die mehrere Zeilen lang ist, ohne Befehle anzuzeigen, können Sie nach dem Befehl **echo off** im Batch Programm mehrere **Echo** *Message* -Befehle einschließen.
 -   Wenn **Echo** ausgeschaltet ist, wird die Eingabeaufforderung nicht im Eingabe Aufforderungs Fenster angezeigt. Geben Sie **Echo on** ein, um die Eingabeaufforderung anzuzeigen.
 -   Wenn Sie in einer Batchdatei verwendet werden, haben **Echo on** und **echo off** keine Auswirkung auf die Einstellung an der Eingabeaufforderung.
 -   Um zu verhindern, dass ein bestimmter Befehl in einer Batchdatei wiederholt wird, fügen Sie vor dem Befehl ein @-Zeichen ein. Um zu verhindern, dass alle Befehle in einer Batchdatei wiedergegeben werden, schließen Sie den Befehl **echo off** am Anfang der Datei ein.
--   Um eine Pipe ( **|** ) oder ein Umleitungs Zeichen ( **<** oder **>** ) anzuzeigen, wenn Sie **Echo**verwenden, verwenden Sie ein Caretzeichen (^) direkt vor der Pipe oder dem Umleitungs Zeichen (z. b. **^|** , **^>** oder **^<** ). Zum Anzeigen einer Einfügemarke geben Sie zwei Einfügemarke in Folge ( **^^** ) ein.
+-   **|** Um eine Pipe () oder ein Umleitungs Zeichen**<** ( **>** oder) anzuzeigen, wenn **Sie Echo**verwenden, verwenden Sie ein Caretzeichen (^) direkt vor der Pipe oder dem Umleitungs Zeichen (z **^|** **^>**. b., oder **^<**). Wenn Sie ein Caretzeichen anzeigen möchten, geben Sie zwei Einfügemarke in Folge (**^^**) ein.
 
 ## <a name="examples"></a>Beispiele
 
@@ -113,6 +113,6 @@ File2.txt
 File3.txt
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

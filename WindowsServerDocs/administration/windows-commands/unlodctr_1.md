@@ -1,6 +1,6 @@
 ---
 title: unlodctr
-description: Windows-Befehls Thema für unlodctr, mit dem Namen von Leistungs Zählern und der Erläuterung von Text für einen Dienst oder einen Gerätetreiber aus der Systemregistrierung entfernt werden
+description: Referenz Thema für unlodctr, mit dem Namen von Leistungs Zählern und der erläuternde Text für einen Dienst oder einen Gerätetreiber aus der Systemregistrierung entfernt werden
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fe7fc3c9eafefd59a5daab625e3af06b6addd292
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 56b6310dd48537c1f68780666efef750e12daf7d
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832257"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721174"
 ---
 # <a name="unlodctr"></a>unlodctr
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Entfernt die Namen von **Leistungs Zählern** und **erläutert** den Text für einen Dienst oder einen Gerätetreiber aus der Systemregistrierung.   
 
@@ -27,18 +27,18 @@ Entfernt die Namen von **Leistungs Zählern** und **erläutert** den Text für e
 Unlodctr <DriverName>   
 ```  
 #### <a name="parameters"></a>Parameter  
-|Parameter|Beschreibung|  
+|Parameter|BESCHREIBUNG|  
 |-------|--------|  
-|\<DriverName >|entfernt die Namen Einstellungen des Leistungs Zählers und den erläuternden Text für Treiber-oder Dienst <DriverName> aus der Windows Server 2003-Registrierung.|  
+|\<DriverName>|entfernt die Namen Einstellungen des Leistungs Zählers und den erläuternden <DriverName> Text für Treiber oder Dienst aus der Windows Server 2003-Registrierung.|  
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|  
 
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
 > [!WARNING]  
-> Eine fehlerhafte Bearbeitung der Registrierung kann Ihr System schwer beschädigen. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.  
+> Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Computerdaten sichern.  
 
-Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z. b. <DriverName>).  
+Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen <DriverName>(z. b.).  
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele  
+## <a name="examples"></a>Beispiele  
 So entfernen Sie die aktuellen Registrierungs Einstellungen für die Leistung und den leistungsstarken Text für den Simple Mail Transfer Protocol (SMTP)-Dienst:  
 ```  
 unlodctr SMTPSVC  

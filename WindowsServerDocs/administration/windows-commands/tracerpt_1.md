@@ -1,6 +1,6 @@
 ---
 title: tracerpt
-description: Windows-Befehls Thema für tracerpt, das Ereignis Ablauf Verfolgungs Protokolle, Protokolldateien, die vom System Monitor generiert werden, und echt Zeitablauf Verfolgungs Anbieter analysiert.
+description: Referenz Thema für tracerpt, mit dem Ereignis Ablauf Verfolgungs Protokolle, Protokolldateien, die vom System Monitor generiert werden, und echt Zeitablauf Verfolgungs Anbieter analysiert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 17bed5b1cb084392ed3169ca963ce03c1ee2b0d2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 79eac1db4d91bfcfe52cf71cbab683b7489d5287
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832683"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721313"
 ---
 # <a name="tracerpt"></a>tracerpt
 
 Der **tracerpt** -Befehl kann zum Analysieren von Ereignis Ablauf Verfolgungs Protokollen, Protokolldateien, die vom System Monitor generiert werden, und Echtzeit-Ereignis Ablauf Verfolgungs Anbietern verwendet werden. Er generiert Dumpdateien, Berichtsdateien und Berichts Schemas.
-
-Beispiele für die Verwendung von **tracerpt**finden Sie unter [Beispiele](#BKMK_EXAMPLES).
 
 ## <a name="syntax"></a>Syntax
 
@@ -28,24 +26,24 @@ Beispiele für die Verwendung von **tracerpt**finden Sie unter [Beispiele](#BKMK
 tracerpt <[-l] <value [value [...]]>|-rt <session_name [session_name [...]]>> [options]
 ```
 
-## <a name="options"></a>Optionen
+## <a name="options"></a>Tastatur
 
-|              Optionsflag               |                                                                    Beschreibung                                                                    |
+|              Optionsflag               |                                                                    BESCHREIBUNG                                                                    |
 |----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 |                   -?                   |                                                         Zeigt kontextabhängige Hilfe an.                                                          |
-|          -config \<filename >           |                                                 Lädt eine Einstellungsdatei, die Befehlsoptionen enthält.                                                  |
+|          -Konfigurations \<Dateiname>           |                                                 Lädt eine Einstellungsdatei, die Befehlsoptionen enthält.                                                  |
 |                   -y                   |                                                  Antworten Sie auf Ja, um alle Fragen zu beantworten.                                                   |
-|            -f \<XML-\|HTML->             |                                                                  Berichtsformat.                                                                   |
-|         -\<CSV-\|evtx\|XML->          |                                                         Dumpformat, der Standardwert ist XML.                                                          |
-|            -DF \<Dateiname >             |                                            Erstellen Sie eine Microsoft-spezifische zählungs-/Berichterstattungs-Schema Datei.                                            |
-|            -int \<Dateiname >            |                                            Die interpretierte Ereignis Struktur wird in der angegebenen Datei gespeichert.                                            |
+|            -f \<XML\|-HTML->             |                                                                  Berichtsformat.                                                                   |
+|         -von \<CSV\|-evtx\|-XML->          |                                                         Dumpformat, der Standardwert ist XML.                                                          |
+|            -DF \<Dateiname>             |                                            Erstellen Sie eine Microsoft-spezifische zählungs-/Berichterstattungs-Schema Datei.                                            |
+|            -int \<Dateiname>            |                                            Die interpretierte Ereignis Struktur wird in der angegebenen Datei gespeichert.                                            |
 |                  -RTS                  |                        Berichts rohzeit Stempel im Ereignis Ablauf Verfolgungs Header. Kann nur mit-o, nicht-Report oder-Summary verwendet werden.                         |
-|            -TMF \<Dateiname >            |                                                  Geben Sie eine Definitionsdatei für die Ablauf Verfolgungs Meldung an.                                                  |
-|              -TP \<Wert >              |                            Geben Sie den TMF-Datei Suchpfad an. Es können mehrere Pfade verwendet werden, die durch ein Semikolon (;) getrennt sind.                            |
-|              -i \<Wert >               | Geben Sie den Pfad des Anbieter Images an. Die übereinstimmende PDB wird auf dem Symbol Server gefunden. Es können mehrere Pfade verwendet werden, getrennt durch ein Semikolon (;). |
-|             -PDB-\<Wert >              |                             Geben Sie den Pfad des Symbol Servers an. Es können mehrere Pfade verwendet werden, getrennt durch ein Semikolon (;).                             |
+|            -TMF \<Dateiname>            |                                                  Geben Sie eine Definitionsdatei für die Ablauf Verfolgungs Meldung an.                                                  |
+|              -TP \<-Wert>              |                            Geben Sie den TMF-Datei Suchpfad an. Es können mehrere Pfade verwendet werden, die durch ein Semikolon (;) getrennt sind.                            |
+|              -i \<-Wert>               | Geben Sie den Pfad des Anbieter Images an. Die übereinstimmende PDB wird auf dem Symbol Server gefunden. Es können mehrere Pfade verwendet werden, getrennt durch ein Semikolon (;). |
+|             -PDB \<-Wert>              |                             Geben Sie den Pfad des Symbol Servers an. Es können mehrere Pfade verwendet werden, getrennt durch ein Semikolon (;).                             |
 |                  -GMT                  |                                              Konvertieren von WPP-Nutz Last Zeitstempel in Greenwich Mean Time.                                               |
-|              -RL \<Wert >              |                                               Definieren Sie die System Berichts Ebene zwischen 1 und 5. Der Standardwert ist 1.                                               |
+|              -RL \<-Wert>              |                                               Definieren Sie die System Berichts Ebene zwischen 1 und 5. Der Standardwert ist 1.                                               |
 |          -Summary [Dateiname]           |                                  Generieren Sie eine Zusammenfassungs Bericht-Textdatei. Der Dateiname, wenn er nicht angegeben ist                                   |
 |             -o [Dateiname]              |                                      Generiert eine Textausgabe Datei. Dateiname, wenn nicht angegeben                                      |
 |           -Bericht [Dateiname]           |                                  Generiert eine textausgabeberichtsdatei. Der Dateiname, wenn er nicht angegeben wird                                   |
@@ -54,7 +52,7 @@ tracerpt <[-l] <value [value [...]]>|-rt <session_name [session_name [...]]>> [o
 |       [-l] \<Wert [Wert [...]] >        |                                                   Geben Sie die zu verarbeitende Ereignis Ablauf Verfolgungs Protokoll-Datei an.                                                    |
 | -RT \<session_name [session_name [...]] > |                                                Geben Sie Datenquellen für Ereignis Ablauf Verfolgungs Sitzungen in Echtzeit an.                                                |
 
-## <a name="examples"></a><a name=BKMK_EXAMPLES></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 - In diesem Beispiel wird ein Bericht erstellt, der auf den beiden Ereignisprotokollen **logfile1. ETL** und **logfile2. ETL** basiert und die Dumpdatei **logdump. XML** im XML-Format erstellt.  
   ```

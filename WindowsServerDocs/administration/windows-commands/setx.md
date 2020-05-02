@@ -1,6 +1,6 @@
 ---
 title: setx
-description: Windows-Befehls Thema für SETX, das Umgebungsvariablen in der Benutzer-oder Systemumgebung erstellt oder ändert, ohne dass Programmieren oder Skripts erforderlich sind.
+description: Referenz Thema für SETX, das Umgebungsvariablen in der Benutzer-oder Systemumgebung erstellt oder ändert, ohne dass Programmieren oder Skripts erforderlich sind.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 19f6625ffaaf745ae2af26e52986e97382f42702
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 63cfb28770f635f97c8f3c7a701d9e959cee4a05
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834343"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721854"
 ---
 # <a name="setx"></a>setx
 
 Erstellt oder ändert Umgebungsvariablen in der Benutzer-oder Systemumgebung, ohne dass Programmieren oder Skripts erforderlich sind. Der **setx** -Befehl ruft auch die Werte von Registrierungs Schlüsseln ab und schreibt Sie in Textdateien.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,23 +32,23 @@ setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <FileName>
 
 ### <a name="parameters"></a>Parameter
 
-|         Parameter          |                                                                                                                                              Beschreibung                                                                                                                                              |
+|         Parameter          |                                                                                                                                              BESCHREIBUNG                                                                                                                                              |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|       /s \<Computer >       |                                                                                  Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Der Standardwert ist der Name des lokalen Computers.                                                                                  |
-| /u [\<Domänen >\]<User name> |                                                                                           Führt das Skript mit den Anmelde Informationen des angegebenen Benutzerkontos aus. Der Standardwert ist die System Berechtigungen.                                                                                            |
-|      /p [\<Password >]      |                                                                                                         Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                                                                         |
-|        \<Variable >         |                                                                                                                 Gibt den Namen der Umgebungsvariablen an, die Sie festlegen möchten.                                                                                                                  |
-|          \<Wert >          |                                                                                                                Gibt den Wert an, auf den die Umgebungsvariable festgelegt werden soll.                                                                                                                 |
-|         /k \<Pfad >         | Gibt an, dass die Variable auf der Grundlage von Informationen aus einem Registrierungsschlüssel festgelegt wird. Der p-*ATH* verwendet die folgende Syntax:</br>`\\<HIVE>\<KEY>\...\<Value>`</br>Sie können z. b. den folgenden Pfad angeben:</br>`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName` |
-|      /f \<Dateiname >       |                                                                                                                               Gibt die Datei an, die Sie verwenden möchten.                                                                                                                                |
-|        /a \<X >,<Y>         |                                                                                                                    Gibt absolute Koordinaten und einen Offset als Suchparameter an.                                                                                                                    |
-|   /r \<X >,<Y> <String>   |                                                                                                            Gibt relative Koordinaten und einen Offset von der **Zeichenfolge** als Suchparameter an.                                                                                                            |
+|       /s \<Computer>       |                                                                                  Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Der Standardwert ist der Name des lokalen Computers.                                                                                  |
+| /u [\<Domänen>\]<User name> |                                                                                           Führt das Skript mit den Anmelde Informationen des angegebenen Benutzerkontos aus. Der Standardwert ist die System Berechtigungen.                                                                                            |
+|      /p [\<Kennwort>]      |                                                                                                         Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                                                                         |
+|        \<Variable>         |                                                                                                                 Gibt den Namen der Umgebungsvariablen an, die Sie festlegen möchten.                                                                                                                  |
+|          \<Wert>          |                                                                                                                Gibt den Wert an, auf den die Umgebungsvariable festgelegt werden soll.                                                                                                                 |
+|         /k \<Pfad>         | Gibt an, dass die Variable auf der Grundlage von Informationen aus einem Registrierungsschlüssel festgelegt wird. Der p-*ATH* verwendet die folgende Syntax:</br>`\\<HIVE>\<KEY>\...\<Value>`</br>Sie können z. b. den folgenden Pfad angeben:</br>`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation\StandardName` |
+|      /f \<-Dateiname>       |                                                                                                                               Gibt die Datei an, die Sie verwenden möchten.                                                                                                                                |
+|        /a \<X><Y>         |                                                                                                                    Gibt absolute Koordinaten und einen Offset als Suchparameter an.                                                                                                                    |
+|   /r \<X><Y><String>   |                                                                                                            Gibt relative Koordinaten und einen Offset von der **Zeichenfolge** als Suchparameter an.                                                                                                            |
 |             /m             |                                                                                                Gibt an, dass die Variable in der Systemumgebung festgelegt wird. Die Standardeinstellung ist die lokale Umgebung.                                                                                                 |
 |             /x             |                                                                                                       Zeigt Datei Koordinaten an, wobei die Befehlszeilenoptionen **/a**, **/r**und **/d** ignoriert werden.                                                                                                        |
-|      /d \<Trennzeichen >      |                    Gibt Trennzeichen wie oder **\\** **an, die** zusätzlich zu den vier integrierten Trennzeichen verwendet werden können – Leerzeichen, Tabstopps, Eingabe und Zeilenvorschub. Gültige Trennzeichen sind beliebige ASCII-Zeichen. Die maximale Anzahl von Trennzeichen beträgt 15, einschließlich integrierter Trennzeichen.                    |
+|      /d \<Delimiters>      |                    Gibt Trennzeichen **\\** wie **oder an, die** zusätzlich zu den vier integrierten Trennzeichen verwendet werden können – Leerzeichen, Tabstopps, EINGABETASTE und Zeilenvorschub. Gültige Trennzeichen sind beliebige ASCII-Zeichen. Die maximale Anzahl von Trennzeichen beträgt 15, einschließlich integrierter Trennzeichen.                    |
 |             /?             |                                                                                                                                 Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                  |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Der **setx** -Befehl ähnelt dem UNIX-Hilfsprogramm setenv.
 -   **Setx** stellt die einzige Befehlszeile oder programmgesteuerte Möglichkeit bereit, um System Umgebungs Werte direkt und dauerhaft festzulegen. System Umgebungsvariablen können manuell über die System **Steuerung** oder über einen Registrierungs-Editor konfiguriert werden. Mit dem SET-Befehl, der für den Befehls Interpreter (cmd. exe) intern ist, werden Benutzer Umgebungsvariablen nur für das aktuelle Konsolenfenster **fest** gelegt.
@@ -60,7 +60,7 @@ setx [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <FileName>
 -   REG_DWORD Registrierungs Werte werden extrahiert und im Hexadezimal Modus verwendet.
 -   Im Dateimodus wird nur das Übertragen von Textdateien in Wagen Rücklauf-und Zeilenvorschub (CRLF) unterstützt.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um die Computer Umgebungsvariable in der lokalen Umgebung auf den Wert Brand1 festzulegen:
 ```
@@ -74,7 +74,7 @@ Geben Sie Folgendes ein, um die Umgebungsvariable myPath in der lokalen Umgebung
 ```
 setx MYPATH %PATH%
 ```
-Geben Sie Folgendes ein, um die Umgebungsvariable myPath in der lokalen Umgebung so festzulegen, dass Sie den Suchpfad verwendet, der in der PATH-Umgebungsvariablen definiert ist, nachdem **~** durch **%**
+Um die myPath-Umgebungsvariable in der lokalen Umgebung so festzulegen, dass Sie den Suchpfad verwendet, der in **~** der **%** PATH-Umgebungsvariablen nach dem Ersetzen von definiert ist, geben Sie
 ```
 setx MYPATH ~PATH~ 
 ```
@@ -110,7 +110,7 @@ Geben Sie Folgendes ein, um die Umgebungsvariable ipaddr in der lokalen Umgebung
 ```
 setx IPADDR /f ipconfig.out /a 5,11
 ```
-Zum Festlegen der OCTET1-Umgebungsvariablen in der lokalen Umgebung auf den Wert in der-Koordinate 5, 3 in der Datei ipconfig. out mit Trennzeichen **#$\*.** geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die OCTET1-Umgebungsvariable in der lokalen Umgebung auf den Wert festzulegen, der in der-Koordinate 5, 3 in ** #$ \*** der Datei "ipconfig. out" mit Trennzeichen. angezeigt wird:
 ```
 setx OCTET1 /f ipconfig.out /a 5,3 /d #$*. 
 ```
@@ -123,6 +123,6 @@ Geben Sie Folgendes ein, um den Inhalt einer Datei mit dem Namen ipconfig. out �
 setx /s computer1 /u maindom\hiropln /p p@ssW23 /f ipconfig.out /x 
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

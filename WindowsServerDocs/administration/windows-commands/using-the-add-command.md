@@ -1,6 +1,6 @@
 ---
 title: add
-description: Windows-Befehls Thema für die verschiedenen Add-Befehle.
+description: Referenz Thema für die verschiedenen Add-Befehle.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,19 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 057db2ece58b2b02adc138bc2645489c47ebe258
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3320a6074a1eb385eeca36207ac699287b0258f9
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832213"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721149"
 ---
 # <a name="add"></a>add
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 ## <a name="subcommands"></a>Unterbefehle
-|Unterbefehl|Beschreibung|
+|Unterbefehl|BESCHREIBUNG|
 |-------|--------|
 |[Verwenden des Befehls "Add-Device"](using-the-add-device-command.md)|Vorab Stufen eines Computers in Active Directory.|
 |[Verwenden des Befehls "Add-Image"](using-the-add-image-command.md)|Hiermit werden Start-oder Installations Images hinzugefügt.|

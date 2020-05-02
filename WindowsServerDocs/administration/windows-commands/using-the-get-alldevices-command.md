@@ -1,6 +1,6 @@
 ---
 title: "\"Get-alldevices\""
-description: Windows-Befehls Thema für "Get-alldevices", das die Eigenschaften der Windows-Bereitstellungs Dienste aller vorab bereitgestellten Computer anzeigt.
+description: Referenz Thema zu "Get-alldevices", in dem die Eigenschaften der Windows-Bereitstellungs Dienste aller vorab bereitgestellten Computer angezeigt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 929a74b6cccaed6e85015648538c1ca875b62208
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 26e114be7ecf104687da237636b54b79e4114591
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80831413"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720904"
 ---
 # <a name="get-alldevices"></a>"Get-alldevices"
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt die Eigenschaften der Windows-Bereitstellungs Dienste aller vorab bereitgestellten Computer an. Ein vorab bereitgestellter Computer ist ein physischer Computer, der mit einem Computer Konto in den Active Directory-Domänen Diensten verknüpft ist.
 
@@ -27,18 +27,18 @@ Zeigt die Eigenschaften der Windows-Bereitstellungs Dienste aller vorab bereitge
 wdsutil [Options] /Get-AllDevices [/forest:{Yes | No}] [/ReferralServer:<Server name>]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
-|[/Forest: {Yes &#124; No}]|Gibt an, ob die Windows-Bereitstellungs Dienste Computer in der Gesamtstruktur oder in der lokalen Domäne zurückgeben sollen. Die Standardeinstellung ist " **Nein**". Dies bedeutet, dass nur die Computer in der lokalen Domäne zurückgegeben werden.|
+|[/Forest: {yes &#124; No}]|Gibt an, ob die Windows-Bereitstellungs Dienste Computer in der Gesamtstruktur oder in der lokalen Domäne zurückgeben sollen. Die Standardeinstellung ist " **Nein**". Dies bedeutet, dass nur die Computer in der lokalen Domäne zurückgegeben werden.|
 |[/ReferralServer:<Server name>]|Gibt nur die Computer zurück, die für den angegebenen Server vorab bereitgestellt werden.|
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 Geben Sie eine der folgenden Informationen ein, um alle Computer anzuzeigen:
 ```
 wdsutil /Get-AllDevices
 wdsutil /verbose /Get-AllDevices /forest:Yes /ReferralServer:MyWDSServer
 ```
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[Unterbefehl: Set-Device](subcommand-set-device.md)
-[mithilfe des Befehls "Add-Device](using-the-add-device-command.md) "
-[mithilfe des Befehls "Get-Device](using-the-get-device-command.md) "
+[Unterbefehl: setzen Sie das Gerät](subcommand-set-device.md)
+[mithilfe des Befehls](using-the-add-device-command.md)
+"Add-Device"[mithilfe des Befehls "Get-Device](using-the-get-device-command.md) ".

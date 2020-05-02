@@ -1,6 +1,6 @@
 ---
 title: Update-Server Files
-description: Windows-Befehle Topic für Update-serverfiles, mit dem Dateien im freigegebenen Ordner "REMINST" aktualisiert werden, indem die neuesten Dateien verwendet werden, die im Ordner "%windir%\system32\reminst" des Servers gespeichert sind.
+description: Referenz Thema für Update-serverfiles, das Dateien im freigegebenen Ordner "REMINST" mithilfe der neuesten Dateien aktualisiert, die im Ordner "%windir%\system32\reminst" des Servers gespeichert sind.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 37cbb880246cf5e5ff6a9e007dbe720de8dd1cbe
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0005d8e198300c4aad9fdfc772957b460d6fee74
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832953"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721383"
 ---
 # <a name="update-serverfiles"></a>Update-Server Files
 
@@ -28,11 +28,11 @@ WDSUTIL [Options] /Update-ServerFiles [/Server:<Server name>]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|[/Server:\<Server Name >]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
+|[/Server:\<Server Name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Um die Dateien zu aktualisieren, geben Sie eine der folgenden Informationen ein:
 ```
@@ -40,6 +40,6 @@ WDSUTIL /Update-ServerFiles
 WDSUTIL /Verbose /Progress /Update-ServerFiles /Server:MyWDSServer
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

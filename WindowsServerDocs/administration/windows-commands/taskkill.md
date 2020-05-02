@@ -1,6 +1,6 @@
 ---
 title: taskkill
-description: Windows-Befehls Thema für taskkill, mit dem eine oder mehrere Tasks oder Prozesse beendet werden.
+description: Referenz Thema für taskkill, mit dem eine oder mehrere Tasks oder Prozesse beendet werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9e915f9cbeac0e310b65cb660b2edb93b5d002de
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 425133f0ec4a9410a83e800f7c252326c9b2f459
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833423"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721549"
 ---
 # <a name="taskkill"></a>taskkill
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Beendet eine oder mehrere Aufgaben oder Prozesse. Prozesse können nach Prozess-ID oder Imagename beendet werden. **taskkill** ersetzt das **Kill** -Tool.
 
@@ -32,14 +32,14 @@ taskkill [/s <computer> [/u [<Domain>\]<UserName> [/p [<Password>]]]] {[/fi <Fil
 
 ### <a name="parameters"></a>Parameter
 
-|         Parameter         |                                                                                                                                        Beschreibung                                                                                                                                        |
+|         Parameter         |                                                                                                                                        BESCHREIBUNG                                                                                                                                        |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      /s \<Computer >       |                                                                                    Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer.                                                                                     |
-| /u \<Domänen >\\\<Benutzernamen > | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch *username* oder *Domain*\\*username*angegeben wird. **/u** kann nur angegeben werden, wenn **/s** angegeben wird. Der Standardwert sind die Berechtigungen des Benutzers, der zurzeit an dem Computer angemeldet ist, der den Befehl ausgibt. |
-|      /p \<Kennwort >       |                                                                                                   Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                                                                   |
-|       /fi \<Filter >       |          Wendet einen Filter an, um einen Satz von Tasks auszuwählen. Sie können mehr als einen Filter verwenden oder das Platzhalter Zeichen ( **\\** \*) verwenden, um alle Aufgaben oder Bildnamen anzugeben. [Gültige Filternamen](#filter-names-operators-and-values), Operatoren und Werte finden Sie in der folgenden Tabelle.           |
-|     /PID \<ProcessID >     |                                                                                                                 Gibt die Prozess-ID des Prozesses an, der beendet werden soll.                                                                                                                 |
-|     /im-Befehl \<ImageName >      |                                                                                Gibt den Bildnamen des Prozesses an, der beendet werden soll. Verwenden Sie das Platzhalter Zeichen ( **\\** \*), um alle Bildnamen anzugeben.                                                                                |
+|      /s \<Computer>       |                                                                                    Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer.                                                                                     |
+| /u \<Domäne>\\ \<Benutzername> | Führt den Befehl mit den Konto Berechtigungen des Benutzers aus, der durch *Benutzername* oder *Domäne*\\*Benutzername*angegeben ist. **/u** kann nur angegeben werden, wenn **/s** angegeben wird. Der Standardwert sind die Berechtigungen des Benutzers, der zurzeit an dem Computer angemeldet ist, der den Befehl ausgibt. |
+|      /p \<Password>       |                                                                                                   Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                                                                   |
+|       /fi \<Filtern>       |          Wendet einen Filter an, um einen Satz von Tasks auszuwählen. Sie können mehr als einen Filter verwenden oder das Platzhalter Zeichen (**\\**\*) verwenden, um alle Aufgaben oder Bildnamen anzugeben. [Gültige Filternamen](#filter-names-operators-and-values), Operatoren und Werte finden Sie in der folgenden Tabelle.           |
+|     /PID \<ProcessID>     |                                                                                                                 Gibt die Prozess-ID des Prozesses an, der beendet werden soll.                                                                                                                 |
+|     /im-Befehl \<ImageName>      |                                                                                Gibt den Bildnamen des Prozesses an, der beendet werden soll. Verwenden Sie das Platzhalter**\\**\*Zeichen (), um alle Bildnamen anzugeben.                                                                                |
 |            /f             |                                                                    Gibt an, dass Prozesse erzwungen werden. Dieser Parameter wird bei Remote Prozessen ignoriert. Alle Remote Prozesse werden erzwungen.                                                                     |
 |            /t             |                                                                                                          Beendet den angegebenen Prozess und alle von ihm gestarteten untergeordneten Prozesse.                                                                                                          |
 
@@ -47,20 +47,20 @@ taskkill [/s <computer> [/u [<Domain>\]<UserName> [/p [<Password>]]]] {[/fi <Fil
 
 | Filter Name |    Gültige Operatoren     |                                                                Gültiger Wert (e)                                                                |
 |-------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-|   STATUS    |         eq, ne         |                                                 Ausführen &#124; von nicht &#124; reagierendem unbekannter                                                 |
-|  ImageName  |         eq, ne         |                                                                  Bildname                                                                  |
+|   STATUS    |         eq, ne         |                                                 Ausführung &#124; antwortet &#124; unbekannt                                                 |
+|  ImageName  |         eq, ne         |                                                                  Imagename                                                                  |
 |     PID     | eq, ne, gt, lt, ge, le |                                                                  PID-Wert                                                                   |
-|   SITZUNG   | eq, ne, gt, lt, ge, le |                                                                Sitzungsnummer                                                                |
-|   CPUtime   | eq, ne, gt, lt, ge, le | CPU-Zeit im Format <em>HH</em> **:** <em>mm</em> **:** <em>SS</em>, wobei *mm* und *SS* zwischen 0 und 59 liegen und *HH* eine beliebige Zahl ohne Vorzeichen ist. |
+|   SESSION   | eq, ne, gt, lt, ge, le |                                                                Sitzungsnummer                                                                |
+|   CPUtime   | eq, ne, gt, lt, ge, le | CPU-Zeit im Format <em>HH</em>**:**<em>mm</em>**:**<em>SS</em>, wobei *mm* und *SS* zwischen 0 und 59 liegen und *HH* eine beliebige Zahl ohne Vorzeichen ist. |
 |  MEMUSAGE   | eq, ne, gt, lt, ge, le |                                                              Speicherauslastung in KB                                                              |
-|  BENUTZERNAME   |         eq, ne         |                                               Gültiger*Benutzername (Benutzer* oder *Domäne*\\*Benutzer*)                                               |
+|  USERNAME   |         eq, ne         |                                               Gültiger Benutzername (*Benutzer* oder *Domänen*\\*Benutzer*)                                               |
 |  DIENSTE   |         eq, ne         |                                                                 Dienstname                                                                 |
 | WindowTitle |         eq, ne         |                                                                 Fenstertitel                                                                 |
 |   Modulen   |         eq, ne         |                                                                   DLL-Name                                                                   |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 * Die Filter WindowTitle und Status werden nicht unterstützt, wenn ein Remote System angegeben wird.
-* Das Platzhalter Zeichen ( **\\** <em>) wird nur dann für die Option * */im-Befehl</em> akzeptiert* , wenn ein Filter angewendet wird.
+* Das Platzhalter Zeichen**\\**(<em>) wird nur für die Option **/im-Befehl</em> akzeptiert* , wenn ein Filter angewendet wird.
 * Die Beendigung von Remote Prozessen wird immer erzwungen, unabhängig davon, ob die **/f** -Option angegeben ist.
 * Wenn Sie einen Computernamen für den Host Namen Filter bereitstellen, wird ein Herunterfahren ausgelöst, und alle Prozesse werden beendet.
 * Sie können **tasklist** verwenden, um die Prozess-ID (PID) für die Beendigung des Prozesses zu bestimmen.
@@ -97,5 +97,5 @@ Um alle Prozesse zu beenden, die eine Prozess-ID haben, die größer oder gleich
 taskkill /f /fi PID ge 1000 /im *
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

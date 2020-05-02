@@ -1,6 +1,6 @@
 ---
 title: telnet
-description: Windows-Befehls Thema für Telnet, das mit einem Computer kommuniziert, auf dem der Telnet-Server Dienst ausgeführt wird.
+description: Referenz Thema für Telnet, das mit einem Computer kommuniziert, auf dem der Telnet-Server Dienst ausgeführt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b59a3891dd276c6ab0b8e7a8a0a2d11a6b6b55c0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1dd65c0b4cc9709b54f95a6850c7d118f1d6963f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833133"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721446"
 ---
 # <a name="telnet"></a>telnet
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Kommuniziert mit einem Computer, auf dem der Telnet-Server Dienst ausgeführt wird.
  
@@ -27,21 +27,21 @@ Kommuniziert mit einem Computer, auf dem der Telnet-Server Dienst ausgeführt wi
 telnet [/a] [/e <EscapeChar>] [/f <FileName>] [/l <UserName>] [/t {vt100 | vt52 | ansi | vtnt}] [<Host> [<Port>]] [/?]
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |/a|versuchen Sie die automatische Anmeldung. Identisch mit der Option/l, mit der Ausnahme, dass der Name des aktuell angemeldeten Benutzers verwendet wird.|
-|/e \<escapechar >|Escapezeichen für die Eingabe der Telnet-Client Eingabeaufforderung.|
-|/f \<Dateiname >|Der für die Client seitige Protokollierung verwendete Dateiname.|
-|/l \<Benutzername >|Gibt den Benutzernamen für die Anmeldung auf dem Remote Computer an.|
+|/e \<escapechar->|Escapezeichen für die Eingabe der Telnet-Client Eingabeaufforderung.|
+|/f \<filename->|Der für die Client seitige Protokollierung verwendete Dateiname.|
+|/l \<username->|Gibt den Benutzernamen für die Anmeldung auf dem Remote Computer an.|
 |/t {VT100 &#124; VT52 &#124; ANSI &#124; VTNT}|Gibt den Terminaltyp an. Unterstützte Terminal Typen sind VT100, vt52, ANSI und VTNT.|
-|\<Host > [\<Port >]|Gibt den Hostnamen oder die IP-Adresse des Remote Computers an, mit dem eine Verbindung hergestellt werden soll, und optional den zu verwendenden TCP-Port (standardmäßig TCP-Port 23).|
+|\<Host> [\<Port>]|Gibt den Hostnamen oder die IP-Adresse des Remote Computers an, mit dem eine Verbindung hergestellt werden soll, und optional den zu verwendenden TCP-Port (standardmäßig TCP-Port 23).|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an. Alternativ können Sie/h. eingeben.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 -   Sie müssen die Telnet-Client Software installieren, bevor Sie diesen Befehl ausführen können. Weitere Informationen finden Sie unter [Installieren von Telnet](https://technet.microsoft.com/library/cc754293(v=ws.10).aspx).
--   Sie können Telnet ohne Parameter ausführen, um den Telnet-Kontext einzugeben, der durch die Telnet-Eingabeaufforderung (**Microsoft Telnet >** ) angegeben wird. Über die Telnet-Eingabeaufforderung können Sie den Computer, auf dem der Telnet-Client ausgeführt wird, mit Telnet-Befehlen verwalten.
+-   Sie können Telnet ohne Parameter ausführen, um den Telnet-Kontext einzugeben, der durch die Telnet-Eingabeaufforderung (**Microsoft Telnet>**) angegeben wird. Über die Telnet-Eingabeaufforderung können Sie den Computer, auf dem der Telnet-Client ausgeführt wird, mit Telnet-Befehlen verwalten.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 Verwenden Sie Telnet zum Herstellen einer Verbindung mit dem Computer, auf dem der Telnet-Server Dienst unter Telnet.Microsoft.com ausgeführt wird
 ```
 telnet telnet.microsoft.com
@@ -51,7 +51,7 @@ Stellen Sie mithilfe von Telnet eine Verbindung mit dem Computer her, auf dem de
 telnet /f telnetlog.txt telnet.microsoft.com 44
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 -   [Installieren von Telnet](https://technet.microsoft.com/library/cc754293(v=ws.10).aspx)
 -   [Technische Referenz für Telnet](https://technet.microsoft.com/library/cc754987(v=ws.10).aspx)
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
