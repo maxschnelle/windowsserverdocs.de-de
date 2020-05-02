@@ -1,6 +1,6 @@
 ---
 title: findstr
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dbdc1b741b5934f53340bda773909fb5035e449b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 97cc58d2b87190c43137e8b193f0217fb98c006c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844633"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725599"
 ---
 # <a name="findstr"></a>findstr
 
@@ -30,7 +30,7 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |/b|Entspricht dem Textmuster, wenn es sich am Anfang einer Zeile befindet.|
 |/e|Entspricht dem Textmuster, wenn es sich am Ende einer Zeile befindet.|
@@ -45,16 +45,16 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 |/o|Druckt den Zeichen Offset vor jeder übereinstimmenden Zeile.|
 |/p|Überspringt Dateien mit nicht druckbaren Zeichen.|
 |/Off [Zeile]|Überspringt keine Dateien, für die das Offline-Attribut festgelegt ist.|
-|/f:\<Datei >|Ruft eine Datei Liste aus der angegebenen Datei ab.|
-|/c:\<Zeichenfolge >|Verwendet den angegebenen Text als Literale Such Zeichenfolge.|
-|/g:\<Datei >|Ruft Such Zeichenfolgen aus der angegebenen Datei ab.|
-|/d:\<dirlist->|Durchsucht die angegebene Liste von Verzeichnissen. Jedes Verzeichnis muss durch ein Semikolon (z. b.;) `dir1;dir2;dir3`getrennt werden.|
-|/a:\<ColorAttribute >|Gibt Farb Attribute mit zwei hexadezimal Ziffern an. Geben Sie `color /?` für weitere Informationen ein.|
-|\<Zeichen folgen >|Gibt den Text an, nach dem in *filename*gesucht werden soll. Erforderlich|
-|[\<Laufwerk >:] [<Path>]<FileName>[...]|Gibt den Speicherort und die Datei an, die durchsucht werden sollen. Mindestens ein Dateiname ist erforderlich.|
+|/f:\<Datei>|Ruft eine Datei Liste aus der angegebenen Datei ab.|
+|/c:\<Zeichenfolge>|Verwendet den angegebenen Text als Literale Such Zeichenfolge.|
+|/g:\<Datei>|Ruft Such Zeichenfolgen aus der angegebenen Datei ab.|
+|/d:\<dirlist->|Durchsucht die angegebene Liste von Verzeichnissen. Jedes Verzeichnis muss durch ein Semikolon (z `dir1;dir2;dir3`. b.;) getrennt werden.|
+|/a:\<ColorAttribute->|Gibt Farb Attribute mit zwei hexadezimal Ziffern an. Geben `color /?` Sie für zusätzliche Informationen ein.|
+|\<Zeichen folgen>|Gibt den Text an, nach dem in *filename*gesucht werden soll. Erforderlich.|
+|[\<Laufwerk>:] [<Path>]<FileName>[ ...]|Gibt den Speicherort und die Datei an, die durchsucht werden sollen. Mindestens ein Dateiname ist erforderlich.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 - Alle **findstr** -Befehlszeilenoptionen müssen den Zeichen *folgen* und *filename* in der Befehls Zeichenfolge vorangestellt sein.
 - Reguläre Ausdrücke verwenden sowohl Literalzeichen als auch Metazeichen, um Textmuster zu suchen, anstelle von exakten Zeichen folgen. Ein Literalzeichen ist ein Zeichen, das in der Syntax für reguläre Ausdrücke keine besondere Bedeutung hat – es entspricht einem Vorkommen dieses Zeichens. Buchstaben und Ziffern sind z. b. Literalzeichen. Ein Metazeichen ist ein Symbol mit spezieller Bedeutung (Operator oder Trennzeichen) in der Syntax für reguläre Ausdrücke.
@@ -71,8 +71,8 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
   |[^-Klasse]|Inverse Klasse: ein beliebiges Zeichen, das nicht in einer Menge vorhanden ist|
   |[x-y]|Range: beliebige Zeichen innerhalb des angegebenen Bereichs|
   |\x|Escape: Literale Verwendung eines Metazeichens x|
-  |\\< Zeichenfolge|Word-Position: Anfang des Worts|
-  |Zeichen folgen\>|Word-Position: Ende des Worts|
+  |\\<Zeichenfolge|Word-Position: Anfang des Worts|
+  |string\>|Word-Position: Ende des Worts|
 
   Die Sonderzeichen in der Syntax regulärer Ausdrücke haben die größte Potenz, wenn Sie Sie gleichzeitig verwenden. Verwenden Sie beispielsweise die folgende Kombination aus dem Platzhalter Zeichen (.) und dem Wiederholungs Zeichen (*), um eine beliebige Zeichenfolge abzugleichen:
 
@@ -138,6 +138,6 @@ Geben Sie Folgendes ein, um alle Dateien mit dem Wort Computer und alle anderen 
 findstr /s /i /m \<comp.* *.*
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

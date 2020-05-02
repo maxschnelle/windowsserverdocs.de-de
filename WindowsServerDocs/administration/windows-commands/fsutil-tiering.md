@@ -9,15 +9,15 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 8227fafc6b29471e2f09db171645012967553429
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 71bf1e82222626b2808258154352aaca2b3860c6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844053"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725424"
 ---
 # <a name="fsutil-tiering"></a>Untergeordnetes Tiering
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows 10
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows 10
 
 Ermöglicht die Verwaltung von Funktionen für die Speicher Ebene, z. b. das Festlegen und Deaktivieren von Flags und das Auflisten von Ebenen.
 
@@ -33,10 +33,10 @@ fsutil tiering [tierlist] <volume>
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------------|---------------|
 |ClearFlags|Deaktiviert die Tiering-verhaltenflags eines Volumes.|
-|\<Volume >|Gibt das Volume an.|
+|\<Volume>|Gibt das Volume an.|
 |/TrNH|Bei Volumes mit mehrstufigen Speicher wird die Wärme Erfassung deaktiviert.<br /><br>Gilt nur für NTFS und refs.|
 |queryflags|Fragt die Tiering-verhaltenflags eines Volumes ab.|
 |regionlist|Listet die mehrstufigen Bereiche eines Volumes und die jeweiligen Speicherebenen auf.|

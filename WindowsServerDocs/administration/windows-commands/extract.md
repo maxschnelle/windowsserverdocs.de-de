@@ -1,6 +1,6 @@
 ---
 title: extract
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d66682126f1cc3c924c42b4605a537a997e8ac52
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1cca89a356530e49fbf2b0610ff3ced1c5733847
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844773"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725658"
 ---
 # <a name="extract"></a>extract
 
@@ -30,7 +30,7 @@ EXTRACT [/Y] /C source destination
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |KEs|Die Datei enthält mindestens zwei Dateien.|
 |filename|Der Name der Datei, die aus der CAB-Datei extrahiert werden soll. Platzhalter und mehrere Dateinamen (durch Leerzeichen getrennt) können verwendet werden.|
@@ -43,6 +43,6 @@ EXTRACT [/Y] /C source destination
 |/L dir|Speicherort für extrahierte Dateien (Standardwert ist Aktuelles Verzeichnis).|
 |/Y|Keine Eingabeaufforderung, bevor eine vorhandene Datei überschrieben wird.|
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

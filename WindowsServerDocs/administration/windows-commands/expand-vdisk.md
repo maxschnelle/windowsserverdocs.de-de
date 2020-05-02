@@ -1,6 +1,6 @@
 ---
 title: Erweitern von Vdisk
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 272714372a35f7f205b5a2e70cb2f2669b3a0634
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c2380045de45397888777f58e3420c75bb6915ae
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844893"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725694"
 ---
 # <a name="expand-vdisk"></a>Erweitern von Vdisk
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 erweitert eine virtuelle Festplatte (VHD) auf die Größe, die Sie angeben.
 > [!NOTE]
@@ -29,20 +29,20 @@ erweitert eine virtuelle Festplatte (VHD) auf die Größe, die Sie angeben.
 > ```
 > ### <a name="parameters"></a>Parameter
 > 
-> |  Parameter  |                      Beschreibung                      |
+> |  Parameter  |                      BESCHREIBUNG                      |
 > |-------------|-------------------------------------------------------|
 > | Maximum =<n> | Gibt die neue Größe für die VHD in Megabyte (MB) an. |
 > 
-> ## <a name="remarks"></a>Hinweise
+> ## <a name="remarks"></a>Bemerkungen
 > - Es muss eine VHD ausgewählt und getrennt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Vdisk auswählen** ein Volume aus, und verschieben Sie den Fokus auf das Volume.
->   ## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
+>   ## <a name="examples"></a>Beispiele
 >   Geben Sie Folgendes ein, um die ausgewählte VHD auf 20 GB zu erweitern:
 >   ```
 >   expand vdisk maximum=20000
 >   ```
->   ## <a name="additional-references"></a>Weitere Verweise
+>   ## <a name="additional-references"></a>Zusätzliche Referenzen
 > - - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
-> - [Vdisk anfügen](attach-vdisk.md)
+> - [attach vdisk](attach-vdisk.md)
 > - [Compact Vdisk](compact-vdisk.md)
 
 -   [Vdisk trennen](detach-vdisk.md)

@@ -1,6 +1,6 @@
 ---
-title: Erweitern
-description: Windows-Befehle Thema ****-
+title: extend
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 11991f9fc338dca5201d8f9c9c598b9d7dcf239b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5c5dfeeaec966bfab3c1de2bb91bf79c9d870401
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844783"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725663"
 ---
-# <a name="extend"></a>Erweitern
+# <a name="extend"></a>extend
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-erweitert das Volume oder die Partition mit dem Fokus und dem zugehörigen Dateisystem in freien \(nicht zugeordneten\) Speicherplatz auf einem Datenträger.  
+erweitert das Volume oder die Partition mit dem Fokus und dem zugehörigen Datei \(System in\) freien, nicht zugeordneten Speicherplatz auf einem Datenträger.  
   
   
   
@@ -33,18 +33,18 @@ extend filesystem [noerr]
   
 ### <a name="parameters"></a>Parameter  
   
-| Parameter  |                                                                                             Beschreibung                                                                                              |
+| Parameter  |                                                                                             BESCHREIBUNG                                                                                              |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Größe\=<n>  |      Gibt die Größe des Speicherplatzes in Megabyte \(MB an\) der dem aktuellen Volume oder der Partition hinzugefügt werden soll. Wenn keine Größe angegeben wird, wird der gesamte zusammenhängende freie Speicherplatz verwendet, der auf dem Datenträger verfügbar ist.       |
-| Datenträger\=<n>  |                          Gibt den Datenträger an, auf dem das Volume oder die Partition erweitert wird. Wenn kein Datenträger angegeben ist, wird das Volume oder die Partition auf dem aktuellen Datenträger erweitert.                          |
-| Verwendet |                                   erweitert das Dateisystem des Volumes mit dem Fokus. Zur Verwendung nur auf Datenträgern, auf denen das Dateisystem nicht mit dem Volume erweitert wurde.                                    |
-|   Noerr    | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
+| Größe\=<n>  |      Gibt den Speicherplatz in Megabyte ( \(MB\) ) an, der dem aktuellen Volume oder der Partition hinzugefügt werden soll. Wenn keine Größe angegeben wird, wird der gesamte zusammenhängende freie Speicherplatz verwendet, der auf dem Datenträger verfügbar ist.       |
+| Diskette\=<n>  |                          Gibt den Datenträger an, auf dem das Volume oder die Partition erweitert wird. Wenn kein Datenträger angegeben ist, wird das Volume oder die Partition auf dem aktuellen Datenträger erweitert.                          |
+| verwendet |                                   erweitert das Dateisystem des Volumes mit dem Fokus. Zur Verwendung nur auf Datenträgern, auf denen das Dateisystem nicht mit dem Volume erweitert wurde.                                    |
+|   Noerr    | nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
   
--   Auf Basis Datenträgern muss sich der freie Speicherplatz auf demselben Datenträger wie das Volume oder die Partition mit dem Fokus befinden. Er muss auch unmittelbar auf das Volume oder die Partition mit dem Fokus \(, d. h., er muss beim nächsten sektoroffset\)beginnen.  
+-   Auf Basis Datenträgern muss sich der freie Speicherplatz auf demselben Datenträger wie das Volume oder die Partition mit dem Fokus befinden. Er muss auch direkt auf das Volume oder die Partition folgen \(, wobei der Schwerpunkt darauf liegt, dass er beim\)nächsten sektoroffset beginnen muss.  
   
--   Auf dynamischen Datenträgern mit einfachen oder übergreifenden Volumes kann ein Volume auf einen beliebigen freien Speicherplatz auf jedem dynamischen Datenträger erweitert werden. Mit diesem Befehl können Sie ein einfaches dynamisches Volume in ein übergreifendes dynamisches Volume konvertieren. Gespiegelte RAID-\-5-und Stripesetvolumes können nicht erweitert werden.  
+-   Auf dynamischen Datenträgern mit einfachen oder übergreifenden Volumes kann ein Volume auf einen beliebigen freien Speicherplatz auf jedem dynamischen Datenträger erweitert werden. Mit diesem Befehl können Sie ein einfaches dynamisches Volume in ein übergreifendes dynamisches Volume konvertieren. Gespiegelte,\-RAID 5-und Stripesetvolumes können nicht erweitert werden.  
   
 -   Wenn die Partition zuvor mit dem NTFS-Dateisystem formatiert wurde, wird das Dateisystem automatisch erweitert, um die größere Partition auszufüllen, und es tritt kein Datenverlust auf.  
   
@@ -54,7 +54,7 @@ extend filesystem [noerr]
   
 -   Die Partition muss über ein zugeordnetes Volume verfügen, bevor Sie erweitert werden kann.  
   
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
+## <a name="examples"></a>Beispiele  
 Geben Sie Folgendes ein, um das Volume oder die Partition mit dem Fokus um 500 Megabyte zu erweitern:  
   
 ```  
@@ -67,7 +67,7 @@ Um das Dateisystem eines Volumes nach der Erweiterung zu erweitern, geben Sie Fo
 extend filesystem  
 ```  
   
-## <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Zusätzliche Referenzen  
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 

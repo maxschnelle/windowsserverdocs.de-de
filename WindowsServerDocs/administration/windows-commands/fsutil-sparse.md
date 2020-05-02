@@ -9,19 +9,19 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 70c881cc02f31614160920766d32d73a3a939315
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3d0df4e8e8dc16818273393062989ef7c0455c51
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844063"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725449"
 ---
 # <a name="fsutil-sparse"></a>Geringe Dichte
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Verwaltet Dateien mit geringer Dichte.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -34,7 +34,7 @@ fsutil sparse [setrange] <FileName> <BeginningOffset> <Length>
 
 ### <a name="parameters"></a>Parameter
 
-|     Parameter     |                                                    Beschreibung                                                    |
+|     Parameter     |                                                    BESCHREIBUNG                                                    |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
 |     queryflag     |                                                  Abfragen mit geringer Dichte.                                                  |
 |    queryrange     |                        Scannt eine Datei und sucht nach Bereichen, die möglicherweise Daten enthalten, die nicht NULL sind.                        |
@@ -44,7 +44,7 @@ fsutil sparse [setrange] <FileName> <BeginningOffset> <Length>
 | <BeginningOffset> |                              Gibt den Offset in der Datei an, der als Sparse markiert werden soll.                              |
 |     <Length>      |                 Gibt die Länge des Bereichs in der Datei an, der als Sparse (in Bytes) gekennzeichnet werden soll.                 |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Eine sparsedatei ist eine Datei mit einer oder mehreren Regionen nicht zugeordneter Daten. Die nicht zugeordneten Regionen werden von einem Programm als Bytes mit dem Wert 0 (null) angezeigt, es wird jedoch kein Speicherplatz zur Darstellung dieser Nullen verwendet. Alle aussagekräftigen Daten oder Daten, die nicht NULL sind, werden zugeordnet, während alle nicht aussagekräftigen Daten (große Daten Zeichenfolgen aus Nullen) nicht zugeordnet werden. Wenn eine sparsedatei gelesen wird, werden zugeordnete Daten als gespeichert zurückgegeben, und nicht zugeordnete Daten werden standardmäßig als Nullen in Übereinstimmung mit der C2-Sicherheits Anforderungsspezifikation zurückgegeben. Unterstützung für die Unterstützung von geringer Dichte ermöglicht die Zuordnung von Daten von jedem beliebigen Speicherort in der Datei
 
@@ -61,7 +61,7 @@ Geben Sie Folgendes ein, um eine Datei mit dem Namen Sample. txt im Verzeichnis 
 fsutil sparse setflag c:\temp\sample.txt 
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)

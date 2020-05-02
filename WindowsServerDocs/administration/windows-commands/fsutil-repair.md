@@ -9,19 +9,19 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 6de102daed2bedfeb41da16e06b7db483af70da0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1a7931314f7064a62e45d2319e48d58162ab0e11
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844193"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725467"
 ---
 # <a name="fsutil-repair"></a>Nicht reparieren
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Verwaltet und überwacht die Selbstreparatur Vorgänge von NTFS.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,21 +36,21 @@ fsutil repair [wait][<WaitType>] <VolumePath>
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------------|---------------|
 |Auflisten|Listet die entids des Beschädigungs Protokolls eines Volumes auf.|
-|\<volumepath >|Gibt das Volume als den Namen des Laufwerks gefolgt von einem Doppelpunkt an.|
-|\<logName >|$Corrupt: der Satz bestätigter Beschädigungen auf dem Volume.<br />$Verify: ein Satz potenzieller, nicht überprüfter Beschädigungen auf dem Volume.|
+|\<volumepath->|Gibt das Volume als den Namen des Laufwerks gefolgt von einem Doppelpunkt an.|
+|\<LogName>|$Corrupt: der Satz bestätigter Beschädigungen auf dem Volume.<br />$Verify: ein Satz potenzieller, nicht überprüfter Beschädigungen auf dem Volume.|
 |setzen|Initiiert die Selbstreparatur von NTFS.|
-|\<filereferenzierung >|Gibt die NTFS-volumespezifische Datei-ID (Datei Verweis Nummer) an. Der Datei Verweis enthält die Segment Nummer der Datei.|
+|\<> "filereferenzierung"|Gibt die NTFS-volumespezifische Datei-ID (Datei Verweis Nummer) an. Der Datei Verweis enthält die Segment Nummer der Datei.|
 |Abfrage|Fragt den selbst reparierenden Zustand des NTFS-Volumes ab.|
 |set|Legt den Selbstheilungs Zustand des Volumes fest.|
-|\<Flags >|Gibt die zu verwendende Reparaturmethode an, wenn der Selbstreparatur Zustand des Volumes festgelegt wird.<p>Der **Flags** -Parameter kann auf drei Werte festgelegt werden:<p>-   **0x01**: ermöglicht die allgemeine Reparatur.<br />-   **0x09**: warnt vor einem möglichen Datenverlust ohne Reparatur.<br />-   **0x00**: deaktiviert die Reparatur Vorgänge für die Selbstreparatur von NTFS.|
+|\<Flags>|Gibt die zu verwendende Reparaturmethode an, wenn der Selbstreparatur Zustand des Volumes festgelegt wird.<p>Der **Flags** -Parameter kann auf drei Werte festgelegt werden:<p>-   **0x01**: ermöglicht die allgemeine Reparatur.<br />-   **0x09**: warnt vor einem möglichen Datenverlust ohne Reparatur.<br />-   **0x00**: deaktiviert die Reparatur Vorgänge für die Selbstreparatur von NTFS.|
 |state|Fragt den Beschädigungs Status des Systems oder für ein bestimmtes Volume ab.|
-|Warte|Wartet auf den Abschluss der Reparatur (en). Wenn NTFS auf einem Volume, auf dem es repariert wird, ein Problem festgestellt hat, kann mit dieser Option gewartet werden, bis die Reparatur abgeschlossen ist, bevor ausstehende Skripts ausgeführt werden.|
-|[Waittype {0&#124;1}]|Gibt an, ob auf den Abschluss der aktuellen Reparatur gewartet werden soll oder ob auf den Abschluss aller Reparaturen gewartet werden soll. " *Waittype* " kann auf die folgenden Werte festgelegt werden:<p>-   **0**: wartet auf den Abschluss aller Reparaturen. (Standardwert)<br />-   **1**: wartet auf den Abschluss der aktuellen Reparatur.|
+|wait|Wartet auf den Abschluss der Reparatur (en). Wenn NTFS auf einem Volume, auf dem es repariert wird, ein Problem festgestellt hat, kann mit dieser Option gewartet werden, bis die Reparatur abgeschlossen ist, bevor ausstehende Skripts ausgeführt werden.|
+|[Waittype {0&#124;1}]|Gibt an, ob auf den Abschluss der aktuellen Reparatur gewartet werden soll oder ob auf den Abschluss aller Reparaturen gewartet werden soll. " *Waittype* " kann auf die folgenden Werte festgelegt werden:<p>-   **0**: wartet auf den Abschluss aller Reparaturen.  (Standardwert)<br />-   **1**: wartet auf den Abschluss der aktuellen Reparatur.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Die Selbstreparatur von NTFS versucht, die Beschädigungen des NTFS-Dateisystems online zu korrigieren, ohne dass " **Chkdsk. exe** " ausgeführt werden muss. Diese Funktion wurde in Windows Server 2008 eingeführt. Weitere Informationen finden Sie unter [Self-Healing-NTFS](https://go.microsoft.com/fwlink/?LinkID=165401).
 
@@ -74,7 +74,7 @@ Geben Sie Folgendes ein, um die Reparatur der Selbstreparatur auf Laufwerk C zu 
 fsutil repair set c: 0
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)

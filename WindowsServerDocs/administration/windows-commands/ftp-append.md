@@ -1,6 +1,6 @@
 ---
 title: FTP-Anfüge Ende
-description: Windows-Befehls Thema für FTP-anfügen
+description: Referenz Thema für FTP-anfügen
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 44ce1d6e7259dc8745da35ed462e6378f0fce8ba
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b53228473b8ea16a0955c244d60fae77cf4f7d7f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843823"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725405"
 ---
 # <a name="ftp-append"></a>FTP: Anfügen
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Fügt eine lokale Datei mithilfe der aktuellen Dateityp Einstellung an eine Datei auf dem Remote Computer an.   
 ## <a name="syntax"></a>Syntax  
@@ -27,14 +27,14 @@ append <LocalFile> [remoteFile]
 ```  
 #### <a name="parameters"></a>Parameter  
 
-|  Parameter   |                               Beschreibung                                |
+|  Parameter   |                               BESCHREIBUNG                                |
 |--------------|--------------------------------------------------------------------------|
 | <LocalFile>  |                     Gibt die hinzu zufügende lokale Datei an.                     |
-| [remotefile] | Gibt die Datei auf dem Remote Computer an, der <LocalFile> hinzugefügt wird. |
+| [remotefile] | Gibt die Datei auf dem Remote Computer an, <LocalFile> der hinzugefügt wird. |
 
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
 Wenn *remotefile* weggelassen wird, wird der Name der *LocalFile* anstelle des Remote Dateinamens verwendet.  
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele  
+## <a name="examples"></a>Beispiele  
 Fügen Sie file1. txt an file2. txt auf dem Remote Computer an.  
 ```  
 append file1.txt file2.txt  
@@ -43,5 +43,5 @@ Fügen Sie die lokale Datei "file1. txt" an eine Datei mit dem Namen "file1. txt
 ```  
 append file1.txt  
 ```  
-## <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Zusätzliche Referenzen  
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

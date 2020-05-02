@@ -1,6 +1,6 @@
 ---
 title: FTP-rmdir_1
-description: Windows-Befehls Thema für FTP-rmdir_1
+description: Referenz Thema für FTP-rmdir_1
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e557b96cbb571f4cee7261ba9171902d3b8bfcc
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 856e3ba50fd42a5947c290cb6ca5c4dbbcbeb64a
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843863"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725415"
 ---
 # <a name="ftp-rmdir_1"></a>FTP: rmdir_1
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Löscht ein Remote Verzeichnis.   
 ## <a name="syntax"></a>Syntax  
@@ -27,14 +27,14 @@ rmdir <directory>
 ```  
 #### <a name="parameters"></a>Parameter  
 
-|  Parameter  |                      Beschreibung                      |
+|  Parameter  |                      BESCHREIBUNG                      |
 |-------------|-------------------------------------------------------|
 | <directory> | Gibt den Namen des zu löschenden Remote Verzeichnisses an. |
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele  
+## <a name="examples"></a>Beispiele  
 Löschen Sie das Remote Verzeichnis der **Bilder** .  
 ```  
 rmdir Pictures  
 ```  
-## <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Zusätzliche Referenzen  
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

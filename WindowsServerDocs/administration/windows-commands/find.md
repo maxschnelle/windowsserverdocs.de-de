@@ -1,6 +1,6 @@
 ---
-title: find
-description: Windows-Befehle Thema ****-
+title: Suchen
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 82b966db4117e9273ae6aed8d30baec76362de2f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3cd731ef64912644965ef6bb96d060a46f0a6067
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844693"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725626"
 ---
-# <a name="find"></a>find
+# <a name="find"></a>Suchen
 
 
 
 Sucht in einer Datei oder in Dateien nach einer Text Zeichenfolge und zeigt Textzeilen an, die die angegebene Zeichenfolge enthalten.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,18 +32,18 @@ find [/v] [/c] [/n] [/i] [/off[line]] <String> [[<Drive>:][<Path>]<FileName>[...
 
 ### <a name="parameters"></a>Parameter
 
-|           Parameter           |                                              Beschreibung                                               |
+|           Parameter           |                                              BESCHREIBUNG                                               |
 |-------------------------------|--------------------------------------------------------------------------------------------------------|
-|              /v               |                    Zeigt alle Zeilen an, die nicht die angegebene \<Zeichenfolge > enthalten.                     |
-|              /c               |              Zählt die Zeilen, die die angegebene \<Zeichenfolge > enthalten, und zeigt die Summe an.              |
+|              /v               |                    Zeigt alle Zeilen an, die nicht die angegebene \<Zeichenfolge> enthalten.                     |
+|              /C               |              Zählt die Zeilen, die die angegebene \<Zeichenfolge enthalten>und zeigt die Summe an.              |
 |              /n               |                            Vor jeder Zeile mit der Zeilennummer der Datei.                             |
 |              /i               |                            Gibt an, dass bei der Suche keine Groß-/Kleinschreibung beachtet wird                            |
 |         [/OFF [Zeile]]          |                        Überspringt keine Dateien, für die das Offline-Attribut festgelegt ist.                        |
-|          \<Zeichenfolge >          | Erforderlich Gibt die Gruppe von Zeichen (in Anführungszeichen eingeschlossen) an, nach denen Sie suchen möchten. |
-| [\<Laufwerk >:] [<Path>]<FileName> |        Gibt den Speicherort und den Namen der Datei an, in der nach der angegebenen Zeichenfolge gesucht werden soll.        |
+|          \<Zeichen folgen>          | Erforderlich. Gibt die Gruppe von Zeichen (in Anführungszeichen eingeschlossen) an, nach denen Sie suchen möchten. |
+| [\<Laufwerk>:] [<Path>]<FileName> |        Gibt den Speicherort und den Namen der Datei an, in der nach der angegebenen Zeichenfolge gesucht werden soll.        |
 |              /?               |                                  Zeigt die Hilfe an der Eingabeaufforderung an.                                  |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Angeben einer Zeichenfolge
 
@@ -58,7 +58,7 @@ find [/v] [/c] [/n] [/i] [/off[line]] <String> [[<Drive>:][<Path>]<FileName>[...
     Sie können Parameter und Befehlszeilenoptionen **für den Befehl Suchen in** beliebiger Reihenfolge eingeben.
 -   Verwenden von Platzhaltern
 
-    Sie können keine Platzhalter ( **&#42;** und **?** ) in Dateinamen oder Erweiterungen verwenden, die Sie mit dem Befehl **Suchen** angeben. Wenn Sie in einem Satz von Dateien, die Sie mit Platzhaltern angeben, nach einer Zeichenfolge suchen möchten, können **Sie den Befehl** suchen in einem **for** -Befehl verwenden.
+    Sie können keine Platzhalter (**&#42;** und **?**) in Dateinamen oder Erweiterungen verwenden, die Sie mit dem Befehl **Suchen** angeben. Wenn Sie in einem Satz von Dateien, die Sie mit Platzhaltern angeben, nach einer Zeichenfolge suchen möchten, können **Sie den Befehl** suchen in einem **for** -Befehl verwenden.
 -   Verwenden von **/v** oder **/n** mit **/c**
 
     Wenn Sie **/c** und **/v** in derselben Befehlszeile verwenden, zeigt **Find** die Anzahl der Zeilen an, die die angegebene Zeichenfolge nicht enthalten. Wenn Sie " **/c** " und " **/n** " in derselben Befehlszeile angeben, ignoriert " **Find** " **/n**.
@@ -66,7 +66,7 @@ find [/v] [/c] [/n] [/i] [/off[line]] <String> [[<Drive>:][<Path>]<FileName>[...
 
     Der **Find** -Befehl erkennt keine Wagen Rückläufe. Wenn Sie suchen **verwenden,** um in einer Datei, die Wagen Rückläufe enthält, nach Text zu suchen, müssen Sie die Such Zeichenfolge auf Text beschränken, der Zwischenwagen Rückgaben (d. h. eine Zeichenfolge, die wahrscheinlich nicht durch einen Wagen Rücklauf unterbrochen wird) gefunden wird. Beispielsweise meldet **Find** keine Entsprechung für die Zeichen folgen-Steuerdatei, wenn ein Wagen Rücklauf zwischen den Wörtern "Tax" und "file" auftritt.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um alle Zeilen aus Pencil.AD anzuzeigen, die den zeichenfolgenstift-schärzer enthalten
 ```
@@ -86,6 +86,6 @@ dir c:\ /s /b | find CPU
 ```
 Da **bei** Such Suchvorgängen die Groß-/Kleinschreibung beachtet wird und **dir** die Großbuchstaben Ausgabe erzeugt, müssen Sie entweder die Zeichen folgen-CPU in Großbuchstaben eingeben oder die Befehlszeilenoption **/i** with **Find**verwenden.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
