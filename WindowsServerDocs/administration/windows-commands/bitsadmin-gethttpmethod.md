@@ -1,6 +1,6 @@
 ---
-title: bizadmin gethttpmethod
-description: Windows-Befehls Thema für **bitadmin gethttpmethod**, das das für den Auftrag zu verwendende HTTP-Verb abruft.
+title: bitsadmin gethttpmethod
+description: Referenz Thema für den bizadmin gethttpmethod-Befehl, mit dem das HTTP-Verb abgerufen wird, das mit dem Auftrag verwendet werden soll.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -8,14 +8,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 4b5f131c8502545e3c4ea4107167d6da56c68d8c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a458322a5ace69df74df054a537a7365da9e7329
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850653"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717884"
 ---
-# <a name="bitsadmin-gethttpmethod"></a>bizadmin gethttpmethod
+# <a name="bitsadmin-gethttpmethod"></a>bitsadmin gethttpmethod
 
 Ruft das HTTP-Verb ab, das mit dem Auftrag verwendet werden soll.
 
@@ -27,10 +27,20 @@ bitsadmin /gethttpmethod <Job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="examples"></a>Beispiele
+
+So rufen Sie das HTTP-Verb für die Verwendung mit dem Auftrag *mydownloadjob*ab:
+
+```
+bitsadmin /gethttpmethod myDownloadJob
+```
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

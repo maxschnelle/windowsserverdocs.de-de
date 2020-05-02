@@ -1,6 +1,6 @@
 ---
-title: BI-admin getmaxdownloadtime
-description: Windows-Befehls Thema für **bistiadmin getmaxdownloadtime**, das das Download Timeout in Sekunden abruft.
+title: bitsadmin getmaxdownloadtime
+description: Referenz Thema für den bistiadmin getmaxdownloadtime-Befehl, der das Download Timeout in Sekunden abruft.
 ms.prod: windows-servemr
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8b6e4a45da76d5ba39edae151454ad7f28a74085
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c63acee7629267ed10df11fb8cf4eeb0c911e118
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850633"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717864"
 ---
-# <a name="bitsadmin-getmaxdownloadtime"></a>BI-admin getmaxdownloadtime
+# <a name="bitsadmin-getmaxdownloadtime"></a>bitsadmin getmaxdownloadtime
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ruft das Download Timeout in Sekunden ab.
 
@@ -30,18 +30,20 @@ bitsadmin /getmaxdownloadtime <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird die maximale Downloadzeit für den Auftrag mit dem Namen *mydownloadjob* in Sekunden abgerufen.
+So erhalten Sie die maximale Downloadzeit für den Auftrag mit dem Namen *mydownloadjob* in Sekunden:
 
 ```
-C:\>bitsadmin /getmaxdownloadtime myDownloadJob
+bitsadmin /getmaxdownloadtime myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

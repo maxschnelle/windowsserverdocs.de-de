@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getnoprogresstimeout
-description: 'Windows-Befehls Thema für **bistiadmin getnoprogresstimeout**: Hiermit wird die Zeitspanne (in Sekunden) abgerufen, die der Dienst versucht, die Datei zu übertragen, nachdem ein vorübergehender Fehler aufgetreten ist.'
+description: Referenz Thema für den bistiadmin getnoprogresstimeout-Befehl, der die Zeitspanne (in Sekunden) angibt, die der Dienst versucht, die Datei zu übertragen, nachdem ein vorübergehender Fehler auftritt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cf2cfd77b494e221b60c8816ff46eed5f9252f39
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3ee0377bde8a438f23ca571bc9859deef92f18fb
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850603"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717815"
 ---
 # <a name="bitsadmin-getnoprogresstimeout"></a>bitsadmin getnoprogresstimeout
 
@@ -28,18 +28,20 @@ bitsadmin /getnoprogresstimeout <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird der Wert für den Status Timeout für den Auftrag mit dem Namen " *mydownloadjob*" abgerufen.
+So rufen Sie den Wert für den Status Timeout Wert für den Auftrag *mydownloadjob*ab:
 
 ```
-C:\>bitsadmin /getnoprogresstimeout myDownloadJob
+bitsadmin /getnoprogresstimeout myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)
