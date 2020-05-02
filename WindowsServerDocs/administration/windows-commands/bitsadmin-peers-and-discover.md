@@ -1,6 +1,6 @@
 ---
-title: Biers admin Peers und Discover
-description: Windows-Befehls Thema für **BI-admin Peers** und **Discover**, das Peers erneut ermittelt.
+title: bitsadmin peers and discover
+description: Referenz Thema für den bizadmin-Peers und den Discover-Befehl, mit dem Peers erneut ermittelt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f6f25ed65f58c12374c43953a0f6276c20b1a06
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 094580bcf27b0968ebfab2d064a4a74dc8358a74
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850013"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717170"
 ---
-# <a name="bitsadmin-peers-and-discover"></a>Biers admin Peers und Discover
+# <a name="bitsadmin-peers-and-discover"></a>bitsadmin peers and discover
 
 Ermittelt Peers erneut.
 
@@ -26,14 +26,18 @@ Ermittelt Peers erneut.
 bitsadmin /peers /discover
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel werden Peers erkannt.
+So ermitteln Sie Peers erneut:
 
 ```
-C:\>bitsadmin /peers /discover
+bitsadmin /peers /discover
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)
+
+- [Befehl "bipadmin Peers"](bitsadmin-peers.md)

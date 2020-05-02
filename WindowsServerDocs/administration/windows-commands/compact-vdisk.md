@@ -1,6 +1,6 @@
 ---
 title: Compact Vdisk
-description: Windows-Befehle Topic forcompact Vdisk, wodurch die physische Größe einer dynamisch erweiterbaren virtuellen Festplatten Datei (VHD) reduziert wird.
+description: Referenz Thema für den Compact Vdisk-Befehl, mit dem die physische Größe einer dynamisch erweiterbaren virtuellen Festplatten Datei (VHD) reduziert wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,45 +9,45 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9691be21c188fbc2c3b2e782acde127270decf56
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c4ae5c653645c9f6f3ef97501a59932682c24be3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80847423"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82711147"
 ---
 # <a name="compact-vdisk"></a>Compact Vdisk
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Verringert die physische Größe einer dynamisch erweiterbaren virtuellen Festplatten Datei (VHD). Dieser Parameter ist nützlich, da sich dynamisch erweiternde VHDs vergrößern, wenn Sie Dateien hinzufügen, aber Sie reduzieren beim Löschen von Dateien nicht automatisch die Größe.
 
-> [!NOTE]
-> Dieser Befehl gilt nur für Windows 7 und Windows Server 2008 R2.
-
 ## <a name="syntax"></a>Syntax
+
 ```
 compact vdisk
 ```
 
-## <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 
-- Eine dynamisch erweiterbare virtuelle Festplatte muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt wird. Wählen Sie mit dem Befehl **Vdisk auswählen** eine VHD aus, und verschieben Sie den Fokus darauf.
+- Eine dynamisch erweiterbare virtuelle Festplatte muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt wird. Wählen Sie mit dem [Befehl Vdisk auswählen](select-vdisk.md) eine VHD aus, und verschieben Sie den Fokus darauf.
 
-- Sie können dynamisch erweiterbare VHDs, die getrennt oder als schreibgeschützt angefügt sind, nur komprimieren.
+- Sie können nur kompakte dynamisch erweiterbare virtuelle Festplatten verwenden, die getrennt oder als schreibgeschützt angefügt sind.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
-Geben Sie Folgendes ein, um eine dynamisch erweiterbare VHD zu komprimieren:
-```
-compact vdisk
-```
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-## <a name="additional-references"></a>Weitere Verweise
-- - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
-- [Vdisk anfügen](attach-vdisk.md)
-- [Detail-Vdisk](detail-vdisk.md)
-- [Vdisk trennen](detach-vdisk.md)
-- [Erweitern von Vdisk](expand-vdisk.md)
-- [Vdisk zusammenführen](merge-vdisk.md)
-- [Vdisk auswählen](select-vdisk.md)
-- [list_1](list_1.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "Vdisk anfügen"](attach-vdisk.md)
+
+- [Detail-Vdisk-Befehl](detail-vdisk.md)
+
+- [Befehl "Vdisk trennen"](detach-vdisk.md)
+
+- [Vdisk-Befehl erweitern](expand-vdisk.md)
+
+- [Befehl "Vdisk zusammenführen"](merge-vdisk.md)
+
+- [Vdisk-Befehl auswählen](select-vdisk.md)
+
+- [List-Befehl](list.md)

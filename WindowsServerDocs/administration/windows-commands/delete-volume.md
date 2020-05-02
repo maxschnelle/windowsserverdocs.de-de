@@ -1,6 +1,6 @@
 ---
 title: Volume löschen
-description: Windows-Befehls Artikel zum Löschen von Volumes, wodurch das ausgewählte Volume gelöscht wird.
+description: Referenz Thema zum Löschen von Volumes, mit dem das ausgewählte Volume gelöscht wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f2e958785c278306563999b09c1fecc0fdfa7ecb
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b9a8ae0fc863cec5c1a3f6debccf8201e96badd0
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846553"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82716684"
 ---
-# <a name="delete-volume"></a>Volume löschen
+# <a name="delete-volume"></a>delete volume
 
 Löscht das ausgewählte Volume.
 
@@ -28,23 +28,23 @@ delete volume [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Systemvolume, Startvolume und Volumes, die die aktive Auslagerungsdatei oder das Absturzabbild (Speicherabbild) enthalten, können nicht gelöscht werden.
 -   Ein Volume muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Volume auswählen** ein Volume aus, und verschieben Sie den Fokus auf das Volume.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Um das Volume mit dem Fokus zu löschen, geben Sie Folgendes ein:
 ```
 delete volume
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

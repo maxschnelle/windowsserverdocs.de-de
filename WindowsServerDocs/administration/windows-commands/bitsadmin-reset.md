@@ -1,6 +1,6 @@
 ---
-title: bitsadmin zurücksetzen
-description: Windows-Befehls Artikel zum **Zurücksetzen von bitadmin**, bei dem alle Aufträge in der Übertragungs Warteschlange des aktuellen Benutzers abgebrochen werden.
+title: bitsadmin reset
+description: Referenz Thema für den Befehl bizadmin Reset, der alle Aufträge in der Übertragungs Warteschlange des aktuellen Benutzers abbricht.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,19 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b73bd3b9c66b24330a0f9444836b9c8bd1730722
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: a6aea1d3cb0a89def1e23f42272bf0503022ac54
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81123083"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717008"
 ---
-# <a name="bitsadmin-reset"></a>bitsadmin zurücksetzen
+# <a name="bitsadmin-reset"></a>bitsadmin reset
 
-Bricht alle Aufträge in der Übertragungs Warteschlange ab, die im Besitz des aktuellen Benutzers sind. > Sie keine Aufträge zurücksetzen können, die vom lokalen System erstellt wurden. Stattdessen müssen Sie Administrator sein und den Taskplaner verwenden, um diesen Befehl mithilfe der Anmelde Informationen für das lokale System als Task zu planen.
+Bricht alle Aufträge in der Übertragungs Warteschlange ab, die im Besitz des aktuellen Benutzers sind. Die vom lokalen System erstellten Aufträge können nicht zurückgesetzt werden. Stattdessen müssen Sie Administrator sein und den Taskplaner verwenden, um diesen Befehl mithilfe der Anmelde Informationen für das lokale System als Task zu planen.
 
 > [!NOTE]
-> Wenn Sie in BI-admin 1,5 und früher über Administratorrechte verfügen, werden die Aufträge in der Warteschlange durch den Schalter/Reset abgebrochen. Darüber hinaus wird die/ALLUSERS-Option nicht unterstützt.
+> Wenn Sie über Administratorrechte in BI-admin 1,5 und früher verfügen, werden alle Aufträge in der Warteschlange durch den Schalter/Reset abgebrochen. Darüber hinaus wird die/ALLUSERS-Option nicht unterstützt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -31,18 +31,20 @@ bitsadmin /reset [/allusers]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | /ALLUSERS | Optional. Bricht alle Aufträge in der Warteschlange ab, die sich im Besitz des aktuellen Benutzers befinden. Sie müssen über Administratorrechte verfügen, um diesen Parameter zu verwenden. |
 
 ## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel werden alle Aufträge in der Übertragungs Warteschlange des aktuellen Benutzers abgebrochen.
+, Wenn alle Aufträge in der Übertragungs Warteschlange für den aktuellen Benutzer abgebrochen werden sollen.
 
 ```
-C:\>bitsadmin /reset
+bitsadmin /reset
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

@@ -1,6 +1,6 @@
 ---
-title: erstellen
-description: Windows-Befehls Artikel zum Erstellen, bei dem eine Partition auf einem Datenträger, ein Volume auf einem oder mehreren Datenträgern oder eine virtuelle Festplatte (VHD) erstellt wird.
+title: create
+description: Referenz Thema zu CREATE, das eine Partition auf einem Datenträger, ein Volume auf einem oder mehreren Datenträgern oder eine virtuelle Festplatte (VHD) erstellt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 76ff641757de78a10980b10a1ba4921dd2a57f0c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8d1e0f11a2e7011792da9c9d81d592fcfd7aa307
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846843"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82716847"
 ---
-# <a name="create"></a>erstellen
+# <a name="create"></a>create
 
 Erstellt eine Partition auf einem Datenträger, einem Volume auf einem oder mehreren Datenträgern oder einer virtuellen Festplatte (VHD).
 

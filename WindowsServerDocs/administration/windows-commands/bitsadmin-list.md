@@ -1,6 +1,6 @@
 ---
-title: bitsadmin Liste
-description: Windows-Befehls Thema für die **bitadmin-Liste**, die die Übertragungs Aufträge auflistet, die sich im Besitz des aktuellen Benutzers befinden.
+title: bitsadmin list
+description: Referenz Thema für den Befehl "bizadmin List", der die Übertragungs Aufträge auflistet, die sich im Besitz des aktuellen Benutzers befinden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1883da7bfa71a41952f6f67e25eca4dbbdd3353c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 262589293a147cc1bae98da8fdca047c5f914094
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850323"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717423"
 ---
-# <a name="bitsadmin-list"></a>bitsadmin Liste
+# <a name="bitsadmin-list"></a>bitsadmin list
 
 Listet die Übertragungs Aufträge auf, die sich im Besitz des aktuellen Benutzers befinden.
 
@@ -28,19 +28,21 @@ bitsadmin /list [/allusers][/verbose]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | /ALLUSERS | Optional. Listet die Aufträge für alle Benutzer auf. Sie müssen über Administratorrechte verfügen, um diesen Parameter zu verwenden. |
 | /verbose | Optional. Stellt ausführliche Informationen zu jedem Auftrag bereit. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel werden Informationen zu Aufträgen abgerufen, die sich im Besitz des aktuellen Benutzers befinden.
+Zum Abrufen von Informationen zu Aufträgen, die sich im Besitz des aktuellen Benutzers befinden.
 
 ```
-C:\>bitsadmin /list
+bitsadmin /list
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

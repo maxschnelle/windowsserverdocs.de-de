@@ -1,6 +1,6 @@
 ---
-title: bitadmin-setpeer-cachingflags
-description: Windows-Befehls Thema für **BITSAdmin setpeercachingflags**, mit dem Flags festgelegt werden, die bestimmen, ob die Dateien des Auftrags zwischengespeichert und für Peers bereitgestellt werden können und ob der Auftrag Inhalt von Peers herunterladen kann.
+title: bitsadmin setpeercachingflags
+description: Referenz Thema für den BITSAdmin setpeercachingflags-Befehl, mit dem Flags festgelegt werden, die bestimmen, ob die Dateien des Auftrags zwischengespeichert und für Peers bereitgestellt werden können und ob der Auftrag Inhalt von Peers herunterladen kann.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1b4a7807975fb46440301e30b1fdbd01784d7c85
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 8b66b169c38ac050ecaaf6546365547148faa9cf
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122774"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717270"
 ---
-# <a name="bitsadmin-setpeercachingflags"></a>bitadmin-setpeer-cachingflags
+# <a name="bitsadmin-setpeercachingflags"></a>bitsadmin setpeercachingflags
 
 Legt Flags fest, die bestimmen, ob die Dateien des Auftrags zwischengespeichert und für Peers bereitgestellt werden können und ob der Auftrag Inhalt von Peers herunterladen kann.
 
@@ -28,19 +28,21 @@ bitsadmin /setpeercachingflags <job> <value>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
-| Wert | Eine Ganzzahl ohne Vorzeichen, einschließlich:<ul><li>**1.** der Auftrag kann Inhalt von Peers herunterladen.</li><li>**2.** die Dateien des Auftrags können zwischengespeichert und für Peers bereitgestellt werden.</li></ul> |
+| value | Eine Ganzzahl ohne Vorzeichen, einschließlich:<ul><li>**1.** der Auftrag kann Inhalt von Peers herunterladen.</li><li>**2.** die Dateien des Auftrags können zwischengespeichert und für Peers bereitgestellt werden.</li></ul> |
 
 ## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel werden Flags für den Auftrag mit dem Namen *mydownloadjob*festgelegt, sodass Inhalt von Peers heruntergeladen werden kann.
+So lassen Sie zu, dass der Auftrag mit dem Namen *mydownloadjob* Inhalt von Peers herunterlädt:
 
 ```
-C:\>bitsadmin /setpeercachingflags myDownloadJob 1
+bitsadmin /setpeercachingflags myDownloadJob 1
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

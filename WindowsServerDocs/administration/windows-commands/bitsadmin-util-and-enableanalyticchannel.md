@@ -1,6 +1,6 @@
 ---
-title: bizadmin util und enableanalyticchannel
-description: Windows-Befehls Thema für **BITSAdmin util und enableanalyticchannel**, das den analysekanal des BITS-Clients aktiviert oder deaktiviert.
+title: bitsadmin util and enableanalyticchannel
+description: Referenz Thema für den BITSAdmin-Befehl util und enableanalyticchannel, der den analysekanal des BITS-Clients aktiviert oder deaktiviert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f8ff1f835415979036fdc0f8aa637fe693e57d46
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: c1f5c8c924d1011928aca6ec1bcebd4d71abb015
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122686"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82707762"
 ---
-# <a name="bitsadmin-util-and-enableanalyticchannel"></a>bizadmin util und enableanalyticchannel
+# <a name="bitsadmin-util-and-enableanalyticchannel"></a>bitsadmin util and enableanalyticchannel
 
 Aktiviert oder deaktiviert den analysekanal des BITS-Clients.
 
@@ -26,18 +26,22 @@ Aktiviert oder deaktiviert den analysekanal des BITS-Clients.
 bitsadmin /util /enableanalyticchannel TRUE|FALSE
 ```
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ---------- |
 | TRUE oder false | **True** schaltet die Inhalts Überprüfung für die angegebene Datei ein, während **false** Sie deaktiviert. |
 
 ## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird der analysekanal des BITS-Clients aktiviert.
+, Um den analysekanal des BITS-Clients ein-oder auszuschalten.
 
 ```
-C:\>bitsadmin /util / enableanalyticchannel TRUE
+bitsadmin /util / enableanalyticchannel TRUE
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "BIFS admin util"](bitsadmin-util.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

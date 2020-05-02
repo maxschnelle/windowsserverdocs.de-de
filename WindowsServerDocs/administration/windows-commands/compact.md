@@ -1,6 +1,6 @@
 ---
 title: compact
-description: Windows-Befehls Thema für Compact, das die Komprimierung von Dateien oder Verzeichnissen auf NTFS-Partitionen anzeigt oder ändert.
+description: Referenz Thema für den Compact-Befehl, der die Komprimierung von Dateien oder Verzeichnissen auf NTFS-Partitionen anzeigt oder ändert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,56 +9,59 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e9e6a3ba71ecc0c8e264ac4af8dc1da42d23fdc2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 52830530fa281025fcfd970b7675b98004e2a918
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80847353"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82710950"
 ---
 # <a name="compact"></a>compact
 
 Zeigt die Komprimierung von Dateien oder Verzeichnissen auf NTFS-Partitionen an oder ändert diese. Bei Verwendung ohne Parameter zeigt **Compact** den Komprimierungs Status des aktuellen Verzeichnisses und der darin enthaltenen Dateien an.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
-
 ## <a name="syntax"></a>Syntax
 
 ```
-compact [/c | /u] [/s[:<Dir>]] [/a] [/i] [/f] [/q] [<FileName>[...]]
+compact [/c | /u] [/s[:<dir>]] [/a] [/i] [/f] [/q] [<filename>[...]]
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|/c|Komprimiert das angegebene Verzeichnis oder die angegebene Datei.|
-|/u|Deinstalkomprimiert das angegebene Verzeichnis oder die angegebene Datei.|
-|/s [:\<dir >]|Wendet den **Compact** -Befehl auf alle Unterverzeichnisse des angegebenen Verzeichnisses an (bzw. auf das aktuelle Verzeichnis, wenn kein Wert angegeben ist).|
-|/a|Zeigt ausgeblendete oder Systemdateien an.|
-|/i|Ignoriert Fehler.|
-|/f|Erzwingt die Komprimierung oder Dekomprimierung des angegebenen Verzeichnisses oder der Datei. **/f** wird im Fall einer Datei verwendet, die teilweise komprimiert wurde, als der Vorgang durch einen Systemabsturz unterbrochen wurde. Um zu erzwingen, dass die Datei vollständig komprimiert wird, verwenden Sie die Parameter **/c** und **/f** , und geben Sie die teilweise komprimierte Datei an.|
-|/q|Meldet nur die wichtigsten Informationen.|
-|\<Dateiname >|Gibt die Datei oder das Verzeichnis an. Sie können mehrere Dateinamen verwenden, und **&#42;** und **?** Platzhalter Zeichen.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| /C | Komprimiert das angegebene Verzeichnis oder die angegebene Datei. |
+| /U | Deinstalkomprimiert das angegebene Verzeichnis oder die angegebene Datei. |
+| /s [:`<dir>`] | Wendet den **Compact** -Befehl auf alle Unterverzeichnisse des angegebenen Verzeichnisses an (bzw. auf das aktuelle Verzeichnis, wenn kein Wert angegeben ist). |
+| /a | Zeigt ausgeblendete oder Systemdateien an. |
+| /i | Ignoriert Fehler. |
+| /f | Erzwingt die Komprimierung oder Dekomprimierung des angegebenen Verzeichnisses oder der Datei. **/f** wird im Fall einer Datei verwendet, die teilweise komprimiert wurde, als der Vorgang durch einen Systemabsturz unterbrochen wurde. Um zu erzwingen, dass die Datei vollständig komprimiert wird, verwenden Sie die Parameter **/c** und **/f** , und geben Sie die teilweise komprimierte Datei an. |
+| /q | Meldet nur die wichtigsten Informationen. |
+| `<filename>` | Gibt die Datei oder das Verzeichnis an. Sie können mehrere Dateinamen verwenden, und die **&#42;** und **?** Platzhalter Zeichen. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
--   Der **Compact** -Befehl ist die Befehlszeilenversion des NTFS-Dateisystem Komprimierungs Features. Der Komprimierungs Status eines Verzeichnisses gibt an, ob Dateien automatisch komprimiert werden, wenn Sie dem Verzeichnis hinzugefügt werden. Wenn Sie den Komprimierungs Status eines Verzeichnisses festlegen, wird der Komprimierungs Status von Dateien, die sich bereits im Verzeichnis befinden, nicht notwendigerweise geändert.
--   Sie können **Compact** nicht zum Lesen, schreiben oder einbinden von Volumes verwenden, die mit DriveSpace oder DoubleSpace komprimiert wurden.
--   Sie können **Compact** nicht zum Komprimieren von Datei Zuordnungs Tabellen (FAT) oder FAT32-Partitionen verwenden.
+- Dieser Befehl ist die Befehlszeilenversion des NTFS-Dateisystem Komprimierungs Features. Der Komprimierungs Status eines Verzeichnisses gibt an, ob Dateien automatisch komprimiert werden, wenn Sie dem Verzeichnis hinzugefügt werden. Wenn Sie den Komprimierungs Status eines Verzeichnisses festlegen, wird der Komprimierungs Status von Dateien, die sich bereits im Verzeichnis befinden, nicht notwendigerweise geändert.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+- Mit diesem Befehl können Sie mithilfe von DriveSpace oder DoubleSpace komprimierte Volumes nicht lesen, schreiben oder einbinden. Sie können diesen Befehl auch nicht verwenden, um FAT-oder FAT32-Partitionen zu komprimieren.
+
+## <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um den Komprimierungs Status des aktuellen Verzeichnisses, seiner Unterverzeichnisse und vorhandener Dateien festzulegen:
+
 ```
-compact /c /s 
+compact /c /s
 ```
+
 Um den Komprimierungs Status von Dateien und Unterverzeichnissen innerhalb des aktuellen Verzeichnisses festzulegen, ohne den Komprimierungs Status des aktuellen Verzeichnisses zu ändern, geben Sie Folgendes ein:
+
 ```
 compact /c /s *.*
 ```
+
 Zum Komprimieren eines Volumes geben Sie aus dem Stammverzeichnis des Volumes Folgendes ein:
+
 ```
 compact /c /i /s:\
 ```
@@ -66,19 +69,24 @@ compact /c /i /s:\
 > [!NOTE]
 > In diesem Beispiel wird der Komprimierungs Status aller Verzeichnisse (einschließlich des Stamm Verzeichnisses auf dem Volume) festgelegt und jede Datei auf dem Volume komprimiert. Der **/i** -Parameter verhindert, dass Fehlermeldungen den Komprimierungs Prozess unterbrechen.
 
-Wenn Sie alle Dateien mit der Dateinamenerweiterung ". bmp" im Verzeichnis "\tmp" und alle Unterverzeichnisse von \tmp komprimieren möchten, ohne das komprimierte Attribut der Verzeichnisse zu ändern, geben Sie Folgendes ein:
+Wenn Sie alle Dateien mit der Dateinamenerweiterung ". bmp" im Verzeichnis "" \tmp "und alle Unterverzeichnisse von" \tmp komprimieren möchten, ohne das komprimierte Attribut der Verzeichnisse zu ändern, geben Sie Folgendes ein:
+
 ```
 compact /c /s:\tmp *.bmp
 ```
-Geben Sie Folgendes ein, um die vollständige Komprimierung der Datei "Zebra. bmp" zu erzwingen, die während eines Systemabsturzes teilweise komprimiert wurde:
+
+Geben Sie Folgendes ein, um die vollständige Komprimierung der Datei " *Zebra. bmp*" zu erzwingen, die während eines Systemabsturzes teilweise komprimiert wurde:
+
 ```
 compact /c /f zebra.bmp
 ```
+
 Um das komprimierte Attribut aus dem Verzeichnis "c:\tmp" zu entfernen, ohne den Komprimierungs Status von Dateien in diesem Verzeichnis zu ändern, geben Sie Folgendes ein:
+
 ```
 compact /u c:\tmp
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

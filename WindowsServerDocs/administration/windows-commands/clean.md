@@ -1,6 +1,6 @@
 ---
 title: clean
-description: Windows-Befehle-Thema für den Befehl "Diskpart Clean", mit dem alle Partitionen bzw. volumeformatierung aus dem Datenträger mit dem Fokus entfernt werden.
+description: Referenz Thema für den "Diskpart Clean"-Befehl, mit dem alle Partitionen oder volumeformatierung aus dem Datenträger mit dem Fokus entfernt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,39 +9,52 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d573a0480c24a2a622618197dea7dccaeddac271
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 45a23919dc07c8c1525808859471fdcb9f9e9403
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80847753"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82712875"
 ---
 # <a name="clean"></a>clean
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Der "Diskpart Clean"-Befehl entfernt alle Partitionen bzw. volumeformatierung von der Festplatte mit dem Fokus.
+Entfernt alle Partitionen oder volumeformatierung von der Festplatte mit dem Fokus.
+
+>[!NOTE]
+> Eine PowerShell-Version dieses Befehls finden Sie unter [Clear-Disk-Befehl](https://docs.microsoft.com/powershell/module/storage/clear-disk).
 
 ## <a name="syntax"></a>Syntax
+
 ```
 clean [all]
 ```
+
 ### <a name="parameters"></a>Parameter
 
-| Parameter |                                                        Beschreibung                                                        |
-|-----------|---------------------------------------------------------------------------------------------------------------------------|
-|    all    | Gibt an, dass jeder und jeder Sektor auf dem Datenträger auf NULL festgelegt ist, wodurch alle Daten auf dem Datenträger vollständig gelöscht werden. |
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| all | Gibt an, dass jeder und jeder Sektor auf dem Datenträger auf NULL festgelegt ist, wodurch alle Daten auf dem Datenträger vollständig gelöscht werden. |
 
-## <a name="remarks"></a>Hinweise
-- Auf Master Boot Record (MBR)-Datenträgern werden nur die MBR-Partitionierungs Informationen und die Informationen zu verborgenen Sektoren überschrieben.
+#### <a name="remarks"></a>Bemerkungen
+
+- Auf Master Boot Record (MBR)-Datenträgern werden nur die MBR-Partitionierungs Informationen und die Informationen zum verborgenen Sektor überschrieben.
+
 - Für GPT-Datenträger (GUID-Partitionstabelle) werden die GPT-Partitionierungs Informationen, einschließlich des schutzmbr, überschrieben. Es sind keine ausgeblendeten Sektorinformationen vorhanden.
+
 - Ein Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl Datenträger **auswählen** einen Datenträger aus, und verschieben Sie den Fokus auf den Datenträger.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
-  Geben Sie Folgendes ein, um die gesamte Formatierung des ausgewählten Datenträgers zu entfernen:
-  ```
-  clean
-  ```
+## <a name="examples"></a>Beispiele
 
-## <a name="additional-references"></a>Weitere Verweise
-[Clear-Disk](https://technet.microsoft.com/library/hh848661.aspx)
+Geben Sie Folgendes ein, um die gesamte Formatierung des ausgewählten Datenträgers zu entfernen:
+
+```
+clean
+```
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Befehl "Clear-Disk"](https://docs.microsoft.com/powershell/module/storage/clear-disk)
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

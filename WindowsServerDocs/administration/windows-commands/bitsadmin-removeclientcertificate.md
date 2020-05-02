@@ -1,6 +1,6 @@
 ---
-title: removeclientcertificate für biout admin
-description: Windows-Befehls Thema für **bigsadmin removeclientcertificate**, das das Client Zertifikat aus dem Auftrag entfernt.
+title: bitsadmin removeclientcertificate
+description: Referenz Thema für den Befehl "bizadmin removeclientcertificate", der das Client Zertifikat aus dem Auftrag entfernt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 312226b73b91385436e15c4afbb49df161258768
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 513830f6048f78aa528fa22cb590571e718452c2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81123107"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717067"
 ---
-# <a name="bitsadmin-removeclientcertificate"></a>removeclientcertificate für biout admin
+# <a name="bitsadmin-removeclientcertificate"></a>bitsadmin removeclientcertificate
 
 Entfernt das Client Zertifikat aus dem Auftrag.
 
@@ -28,18 +28,20 @@ bitsadmin /removeclientcertificate <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
 ## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird das Client Zertifikat aus dem Auftrag mit dem Namen *mydownloadjob*entfernt.
+So entfernen Sie das Client Zertifikat aus dem Auftrag *mydownloadjob*:
 
 ```
-C:\>bitsadmin /removeclientcertificate myDownloadJob 
+bitsadmin /removeclientcertificate myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

@@ -1,6 +1,6 @@
 ---
-title: biout admin Peers und Clear
-description: Windows-Befehls Thema für **BI-admin Peers** und **Clear**, wodurch die Peer Liste gelöscht wird.
+title: bitsadmin peers and clear
+description: Referenz Thema für die bizadmin-Peers und den Clear-Befehl, mit dem die Peer Liste gelöscht wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 87c33d011f38e0ebda2383fc468cad9b30ab22c5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 445ce0db00abb3d46f2dc7379c066624cef7afae
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850023"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717208"
 ---
-# <a name="bitsadmin-peers-and-clear"></a>biout admin Peers und Clear
+# <a name="bitsadmin-peers-and-clear"></a>bitsadmin peers and clear
 
 Löscht die Peerliste.
 
@@ -26,14 +26,18 @@ Löscht die Peerliste.
 bitsadmin /peers /clear
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird die Liste der Peers gelöscht.
+, Wenn die Peer Liste gelöscht werden soll.
 
 ```
-C:\>bitsadmin /peers /clear
+bitsadmin /peers /clear
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)
+
+- [Befehl "bipadmin Peers"](bitsadmin-peers.md)

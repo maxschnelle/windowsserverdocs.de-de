@@ -1,6 +1,6 @@
 ---
-title: BIFS admin util und GETIEPROXY
-description: Windows-Befehls Thema für **bizadmin util und GETIEPROXY**, das die Proxy Verwendung für das angegebene Dienst Konto abruft.
+title: bitsadmin util and getieproxy
+description: Referenz Thema für den bizadmin-Befehl util und GETIEPROXY, der die Proxy Verwendung für das angegebene Dienst Konto abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 22b24c4f9c0941c88c70b488a82de47c7901bd8b
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 576f308bc7fb9a4e448638d06621f95eebef0cd0
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122470"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82707662"
 ---
-# <a name="bitsadmin-util-and-getieproxy"></a>BIFS admin util und GETIEPROXY
+# <a name="bitsadmin-util-and-getieproxy"></a>bitsadmin util and getieproxy
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ruft die Proxy Verwendung für das angegebene Dienst Konto ab. Dieser Befehl zeigt den Wert für jede Proxy Verwendung an, nicht nur die Proxy Verwendung, die Sie für das Dienst Konto angegeben haben. Ausführliche Informationen zum Festlegen der Proxy Verwendung für bestimmte Dienst Konten finden Sie unter dem Befehl [bizadmin util und SETIEPROXY](bitsadmin-util-and-setieproxy.md) .
 
@@ -30,19 +30,23 @@ bitsadmin /util /getieproxy <account> [/conn <connectionname>]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ---------- |
-| Konto | Gibt das Dienst Konto an, dessen Proxy Einstellungen Sie abrufen möchten. Mögliche Werte:<ul><li>LOCALSYSTEM</li><li>   Network Service</li><li>LOCALSERVICE.</li></ul> |
+| account | Gibt das Dienst Konto an, dessen Proxy Einstellungen Sie abrufen möchten. Mögliche Werte sind:<ul><li>LOCALSYSTEM</li><li>   Network Service</li><li>LOCALSERVICE.</li></ul> |
 | ConnectionName | Optional. Wird zusammen mit dem **/conn** -Parameter verwendet, um anzugeben, welche Modemverbindung verwendet werden soll. Wenn Sie den **/conn** -Parameter nicht angeben, verwendet Bits die LAN-Verbindung. |
 
 ## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird die Proxy Verwendung für das Netzwerkdienst Konto angezeigt.
+So zeigen Sie die Proxy Verwendung für das Netzwerkdienst Konto an
 
 ```
-C:\>bitsadmin /util /getieproxy NETWORKSERVICE
+bitsadmin /util /getieproxy NETWORKSERVICE
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "BIFS admin util"](bitsadmin-util.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

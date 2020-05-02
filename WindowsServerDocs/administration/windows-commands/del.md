@@ -1,6 +1,6 @@
 ---
 title: del
-description: Windows-Befehls Thema für del, mit dem eine oder mehrere Dateien gelöscht werden.
+description: Referenz Thema für del, mit dem eine oder mehrere Dateien gelöscht werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7069ee50a810296d31e1a034b24955299918020a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 703597ae422518a5b401b656ace0b4cd73418be8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846663"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82716746"
 ---
 # <a name="del"></a>del
 
 Löscht eine oder mehrere Dateien. Dieser Befehl ist mit dem Befehl zum **Löschen** identisch.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -31,17 +31,17 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|\<Namen >|Gibt eine Liste von mindestens einer Datei oder einem Verzeichnis an. Platzhalter können verwendet werden, um mehrere Dateien zu löschen. Wenn ein Verzeichnis angegeben wird, werden alle Dateien im Verzeichnis gelöscht.|
+|\<Namen>|Gibt eine Liste von mindestens einer Datei oder einem Verzeichnis an. Platzhalter können verwendet werden, um mehrere Dateien zu löschen. Wenn ein Verzeichnis angegeben wird, werden alle Dateien im Verzeichnis gelöscht.|
 |/p|Fordert vor dem Löschen der angegebenen Datei eine Bestätigung an.|
 |/f|Erzwingt das Löschen Schreib geschützter Dateien.|
 |/s|Löscht die angegebenen Dateien aus dem aktuellen Verzeichnis und allen Unterverzeichnissen. Zeigt die Namen der Dateien an, während Sie gelöscht werden.|
 |/q|Gibt den stillen Modus an. Sie werden nicht zur Bestätigung des Löschvorgangs aufgefordert.|
-|/a [:]\<Attribute >|Löscht Dateien basierend auf den folgenden Dateiattributen:</br>schreibgeschützte **r** -Dateien</br>**h** ausgeblendete Dateien</br>indizierte Dateien **sind nicht Inhalts**</br>**s** -System Dateien</br>**Dateien,** die für die Archivierung bereit sind</br>**l** -Analyse Punkte</br>-Prefix Bedeutung "Not"|
+|/a [:]\<Attribute>|Löscht Dateien basierend auf den folgenden Dateiattributen:</br>schreibgeschützte **r** -Dateien</br>**h** ausgeblendete Dateien</br>indizierte Dateien **sind nicht Inhalts**</br>**s** -System Dateien</br>**Dateien,** die für die Archivierung bereit sind</br>**l** -Analyse Punkte</br>-Prefix Bedeutung "Not"|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 > [!CAUTION]
 > Wenn Sie die **Datei zum Löschen** einer Datei auf dem Datenträger verwenden, kann Sie nicht abgerufen werden.
@@ -56,7 +56,7 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
   ```
   del \work
   ```  
-- Sie können Platzhalter ( **&#42;** und **?** ) verwenden, um mehrere Dateien gleichzeitig zu löschen. Um zu vermeiden, dass Dateien unbeabsichtigt gelöscht werden, sollten Sie Platzhalter mit dem Befehl " **del** " vorsichtig verwenden. Wenn Sie z. b. den folgenden Befehl eingeben:  
+- Sie können Platzhalter (**&#42;** und **?**) verwenden, um mehrere Dateien gleichzeitig zu löschen. Um zu vermeiden, dass Dateien unbeabsichtigt gelöscht werden, sollten Sie Platzhalter mit dem Befehl " **del** " vorsichtig verwenden. Wenn Sie z. b. den folgenden Befehl eingeben:  
   ```
   del *.*
   ```  
@@ -71,7 +71,7 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 
 -   Der Befehl " **del** " mit unterschiedlichen Parametern ist über die Wiederherstellungskonsole verfügbar.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Wenn Sie alle Dateien in einem Ordner mit dem Namen Test auf Laufwerk C löschen möchten, geben Sie eine der folgenden Optionen ein:
 ```
@@ -87,6 +87,6 @@ Wenn Sie alle schreibgeschützten Dateien im aktuellen Verzeichnis löschen möc
 del /a:r *.*
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setpriority
-description: Windows-Befehls Thema für **bitadmin SetPriority**, mit dem die Priorität des angegebenen Auftrags festgelegt wird.
+description: Referenz Thema für den Befehl "bizadmin SetPriority", mit dem die Priorität des angegebenen Auftrags festgelegt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9348680a61649b938267b3277de9aa5aa521361f
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 556a1d94700780ea22acc1e4c2f32961c0e43342
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122765"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717252"
 ---
 # <a name="bitsadmin-setpriority"></a>bitsadmin setpriority
 
@@ -28,19 +28,21 @@ bitsadmin /setpriority <job> <priority>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
-| priority | Legt die Priorität des Auftrags fest, einschließlich:<ul><li>FOREGROUND (Vordergrund)</li><li>HIGH (Hoch)</li><li>NORMAL</li><li>LOW (Niedrig)</li></ul> |
+| priority | Legt die Priorität des Auftrags fest, einschließlich:<ul><li>FOREGROUND (Vordergrund)</li><li>HIGH</li><li>NORMAL</li><li>LOW</li></ul> |
 
 ## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird die Priorität für den Auftrag mit dem Namen *mydownloadjob* auf Normal festgelegt.
+So legen Sie die Priorität des Auftrags mit dem Namen *mydownloadjob* auf Normal fest:
 
 ```
-C:\>bitsadmin /setpriority myDownloadJob NORMAL
+bitsadmin /setpriority myDownloadJob NORMAL
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

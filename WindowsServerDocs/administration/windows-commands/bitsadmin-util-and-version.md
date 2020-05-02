@@ -1,6 +1,6 @@
 ---
-title: BIFS admin util und Version
-description: Windows-Befehls Thema für **BITSAdmin util und Version**, das die Version des Bits-diensdienstanbieter anzeigt.
+title: bitsadmin util and version
+description: Referenz Thema für den Befehl BITSAdmin util und Version, der die Version des Bits-diensdienstanweises anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2c2518eb7a8f15d9a592ed9a77dd67a6f8d8afac
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 20c3db6e6fcd5ef3d00287f36c9f9624ab5224dd
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122474"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82707591"
 ---
-# <a name="bitsadmin-util-and-version"></a>BIFS admin util und Version
+# <a name="bitsadmin-util-and-version"></a>bitsadmin util and version
 
 Zeigt die Version des Bits-Dienstanbieter an (z. b. 2,0).
 
@@ -31,18 +31,22 @@ bitsadmin /util /version [/verbose]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /verbose | Verwenden Sie diesen Schalter, um die Dateiversion für jede Bits-bezogene dll anzuzeigen und zu überprüfen, ob der BITS-Dienst gestartet werden kann.|
 
 ## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird die Version des Bits-Dienstanbieter veranschaulicht.
+, Um die Version des Bits-Dienes anzuzeigen.
 
 ```
-C:\>bitsadmin /util /version
+bitsadmin /util /version
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "BIFS admin util"](bitsadmin-util.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

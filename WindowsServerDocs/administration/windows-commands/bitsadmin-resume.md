@@ -1,6 +1,6 @@
 ---
-title: bitsadmin fortsetzen
-description: Windows-Befehls Artikel zum Fortsetzen von **bitadmin**, wodurch ein neuer oder angehaltene Auftrag in der Übertragungs Warteschlange aktiviert wird.
+title: bitsadmin resume
+description: Referenz Thema für den Befehl bizadmin Resume, der einen neuen oder angehaltenen Auftrag in der Übertragungs Warteschlange aktiviert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e81bd80232cd4ec8fbba70c86cd97bb9695680f8
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: ba4cd57ddeeb3c35ca0871c2953fd409ddb57e73
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81123071"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82716995"
 ---
-# <a name="bitsadmin-resume"></a>bitsadmin fortsetzen
+# <a name="bitsadmin-resume"></a>bitsadmin resume
 
-Aktiviert einen neuen oder angehaltenen Auftrag in der Übertragungs Warteschlange.
+Aktiviert einen neuen oder angehaltenen Auftrag in der Übertragungs Warteschlange. Wenn Sie Ihren Auftrag versehentlich fortsetzen oder den Auftrag einfach aussetzen müssen, können Sie den Schalter [bigsadmin Suspend](bitsadmin-suspend.md) zum Aussetzen des Auftrags verwenden.
 
 ## <a name="syntax"></a>Syntax
 
@@ -28,18 +28,22 @@ bitsadmin /resume <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
 ## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird der Auftrag mit dem Namen *mydownloadjob*fortgesetzt.
+So setzen Sie den Auftrag mit dem Namen " *mydownloadjob*" fort
 
 ```
-C:\>bitsadmin /resume myDownloadJob
+bitsadmin /resume myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "biout admin Suspend"](bitsadmin-suspend.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

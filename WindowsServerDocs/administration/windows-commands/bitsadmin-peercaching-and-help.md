@@ -1,6 +1,6 @@
 ---
-title: bipadmin-Peer Caching und-Hilfe
-description: Windows-Befehls Thema für **bitionadmin-Peer Caching** und **Help**, das die Befehlszeilen Verwendung für die/Peercaching-Switches anzeigt.
+title: bitsadmin peercaching and help
+description: Referenz Thema für **bizadmin-Peer Caching** und- **Hilfe**, das die Befehlszeilen Verwendung für die/Peercaching-Switches anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 29d530d721b9e82eff180abcbed8cf60bf8c9281
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 08cb792989470d7492ff2da4b63ddd686b35b232
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850163"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717247"
 ---
-# <a name="bitsadmin-peercaching-and-help"></a>bipadmin-Peer Caching und-Hilfe
+# <a name="bitsadmin-peercaching-and-help"></a>bitsadmin peercaching and help
 
 Zeigt die Verwendung der Befehlszeile für die **/Peercaching** -Switches an.
 
@@ -26,14 +26,18 @@ Zeigt die Verwendung der Befehlszeile für die **/Peercaching** -Switches an.
 bitsadmin /peercaching /help
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Der folgende Befehl zeigt die Befehlszeilen Hilfe für die **Peer Caching** -Switches an.
+So zeigen Sie die Befehlszeilen Hilfe für die **/Peercaching** -Switches an:
 
 ```
-C:\> bitsadmin /peercaching /help
+bitsadmin /peercaching /help
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)
+
+- [bipadmin-Befehl "Peer Caching"](bitsadmin-peercaching.md)
