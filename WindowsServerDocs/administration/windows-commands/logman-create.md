@@ -1,6 +1,6 @@
 ---
 title: logman create
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2ec0b62bf859e7a3713e2f691e9947a177c301f8
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e584e6f4a5632967a6e62408afe971b1681d8493
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80840843"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724402"
 ---
 # <a name="logman-create"></a>logman create
 
@@ -28,7 +28,7 @@ logman create <counter | trace | alert | cfg | api> <[-n] <name>> [options]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |[logman Create Counter](logman-create-counter.md)|Erstellen Sie einen Counter-Datensammler.|
 |[logman Create Trace](logman-create-trace.md)|Erstellen eines Ablauf Verfolgungs Daten Sammlers.|
@@ -36,4 +36,4 @@ logman create <counter | trace | alert | cfg | api> <[-n] <name>> [options]
 |[logman Create cfg](logman-create-cfg.md)|Erstellen Sie einen Konfigurationsdaten Sammler.|
 |[logman Create-API](logman-create-api.md)|Erstellen eines API-Ablauf Verfolgungs Daten Sammlers.|
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen

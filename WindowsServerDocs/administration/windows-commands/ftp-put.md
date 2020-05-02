@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/30/2020
-ms.openlocfilehash: ecd579a313fe1cad1b8a5b4a622aaaec2d6a6d63
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d86ba8418f4c43c26f3745a9f70e676ca790c640
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843133"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725177"
 ---
 # <a name="ftp-put"></a>FTP: Put
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Kopiert eine lokale Datei mit dem aktuellen Datei Übertragungstyp auf den Remote Computer.
 ## <a name="syntax"></a>Syntax
@@ -27,15 +27,15 @@ put <LocalFile> [<remoteFile>]
 ```
 #### <a name="parameters"></a>Parameter
 
-|    Parameter     |                    Beschreibung                    |
+|    Parameter     |                    BESCHREIBUNG                    |
 |------------------|---------------------------------------------------|
 |   `<LocalFile>`  |         Gibt die zu Kopier lokale Datei an.         |
 | `[<remoteFile>]` | Gibt den Namen an, der auf dem Remote Computer verwendet werden soll. |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 - Der **Put** -Befehl ist mit dem **Send** -Befehl identisch.
 - Wenn *remotefile* nicht angegeben wird, erhält die Datei den Namen *LocalFile* .
-  ## <a name="examples"></a><a name="BKMK_Examples"></a>Beispiele
+  ## <a name="examples"></a>Beispiele
   Kopieren Sie die lokale Datei " **Test. txt** ", und nennen Sie Sie " **test1. txt** " auf dem Remote Computer.
   ```
   put test.txt test1.txt
@@ -44,7 +44,7 @@ put <LocalFile> [<remoteFile>]
   ```
   put program.exe
   ```
-  ## <a name="additional-references"></a>Weitere Verweise
+  ## <a name="additional-references"></a>Zusätzliche Referenzen
 - [FTP: ASCII](ftp-ascii.md)
 - [FTP: binär](ftp-binary.md)
 - - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

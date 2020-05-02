@@ -1,6 +1,6 @@
 ---
 title: klist
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b693e4496f4fc1275e1f2b364900564ce86e97cb
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f83a46f158cd83aa8393630aa0138271e8868575
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841963"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724756"
 ---
 # <a name="klist"></a>klist
 
 
 
-Zeigt eine Liste der derzeit zwischengespeicherten Kerberos-Tickets an. Diese Informationen gelten für Windows Server 2012. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
+Zeigt eine Liste der derzeit zwischengespeicherten Kerberos-Tickets an. Diese Informationen gelten für Windows Server 2012.
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,7 +30,7 @@ klist [-lh <LogonId.HighPart>] [-li <LogonId.LowPart>] tickets | tgt | purge | s
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |-LH|Gibt den hohen Teil des lokalen eindeutigen Bezeichners (LUID) des Benutzers an, ausgedrückt als hexadezimal. Wenn weder – LH noch – Li vorhanden ist, wird für den Befehl standardmäßig die LUID des aktuell angemeldeten Benutzers verwendet.|
 |-Li|Gibt den unteren Teil des lokalen eindeutigen Bezeichners (LUID) des Benutzers an, ausgedrückt als hexadezimal. Wenn weder – LH noch – Li vorhanden ist, wird für den Befehl standardmäßig die LUID des aktuell angemeldeten Benutzers verwendet.|
@@ -46,7 +46,7 @@ klist [-lh <LogonId.HighPart>] [-li <LogonId.LowPart>] tickets | tgt | purge | s
 |kdcoptions|Zeigt die in RFC 4120 angegebenen Optionen für das Schlüsselverteilungscenter (KDC) an.|
 |/?|Zeigt die Hilfe für diesen Befehl an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Sie müssen mindestens Mitglied der Gruppe **Domänen-Admins**oder einer entsprechenden Gruppe sein, um alle Parameter dieses Befehls ausführen zu können.
 
@@ -70,7 +70,7 @@ In den Parametern werden die folgenden Informationen angezeigt:
     Listet das erste Kerberos-TGT und die folgenden Attribute des aktuell zwischengespeicherten Tickets auf:  
     -   LogonId: identifiziert in Hexadezimal
     -   ServiceName: krbtgt
-    -   TargetName \<SPN >: krbtgt
+    -   TargetName \<-SPN>: krbtgt
     -   Domain Name: Name der Domäne, die das TGT ausgibt
     -   TargetDomainName: Domäne, an die das TGT ausgegeben wird
     -   Alttargetdomainname: Domäne, an die das TGT ausgegeben wird
@@ -93,7 +93,7 @@ In den Parametern werden die folgenden Informationen angezeigt:
 
     Hiermit können Sie die Informationen zum eingeschränkten Kerberos-Delegierungs Cache anzeigen.  
     -   LogonId: Wenn angegeben, werden die Cache Informationen für die Anmelde Sitzung anhand des angegebenen Werts angezeigt. Wenn nicht angegeben, werden die Cache Informationen für die Anmelde Sitzung des aktuellen Benutzers angezeigt.
--   **Erhalten**
+-   **get**
 
     Ermöglicht es Ihnen, ein Ticket für das vom SPN angegebene Ziel anzufordern.  
     -   Anmelde-ID: Wenn angegeben, wird ein Ticket angefordert, indem die Anmelde Sitzung mit dem angegebenen Wert verwendet wird. Wenn nicht angegeben, fordert ein Ticket mithilfe der Anmelde Sitzung des aktuellen Benutzers an.
@@ -114,7 +114,7 @@ In den Parametern werden die folgenden Informationen angezeigt:
 **Weitere Überlegungen**
 -   "Klist. exe" ist in Windows Server 2012 und Windows 8 verfügbar und erfordert keine besondere Installation.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 1. Wenn Sie die Ereignis-ID 27 bei der Verarbeitung einer TGS-Anforderung (Ticket Gewährung Service) für den Zielserver diagnostizieren, verfügt das Konto nicht über einen passenden Schlüssel zum Generieren eines Kerberos-Tickets. Sie können klist verwenden, um den Kerberos-Ticket Cache abzufragen, um zu bestimmen, ob Tickets fehlen, ob der Zielserver oder das Konto fehlerhaft ist oder ob der Verschlüsselungstyp nicht unterstützt wird.  
    ```
@@ -162,6 +162,6 @@ In den Parametern werden die folgenden Informationen angezeigt:
    klist purge_bind
    ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

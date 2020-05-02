@@ -1,6 +1,6 @@
 ---
 title: hostname
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 89020ab1767f95db4c688927f6bf066c31aadcbd
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 202f84927a2723951ad61c65e30281f1402835a5
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842303"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724888"
 ---
 # <a name="hostname"></a>hostname
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt den Host Namen Teil des vollständigen Computer namens des Computers an. 
 ## <a name="syntax"></a>Syntax
@@ -26,15 +26,15 @@ Zeigt den Host Namen Teil des vollständigen Computer namens des Computers an.
 hostname
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 Dieser Befehl ist nur verfügbar, wenn das TCP/IP-Protokoll (Internet Protocol) als Komponente in den Eigenschaften eines Netzwerkadapters im Netzwerk installiert ist.
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 Geben Sie Folgendes ein, um den Namen des Computers anzuzeigen:
 ```
 hostname
 ```
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

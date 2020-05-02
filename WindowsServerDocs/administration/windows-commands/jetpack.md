@@ -1,6 +1,6 @@
 ---
 title: jetpack
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 008e9dd4d41fe270d775b1c44d799dd16429046f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ec29a1fd48fdba72f07fe5d00de7730d93434105
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841973"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724798"
 ---
 # <a name="jetpack"></a>jetpack
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 komprimiert eine Windows Internet Name Service (WINS)-oder DHCP-Datenbank (Dynamic Host Configuration-Protokoll). Microsoft empfiehlt, dass Sie die WINS-Datenbank immer dann komprimieren, wenn Sie 30 MB erreicht. 
 
@@ -28,13 +28,13 @@ jetpack.EXE <database name> <temp database name>
 ```
 
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |<database name>|Gibt die ursprüngliche Datenbankdatei an.|
 |<temp database name>|Gibt die temporäre Datenbankdatei an.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 So komprimieren Sie die WINS-Datenbank:
 ```
 cd %SYSTEMROOT%\SYSTEM32\WINS
@@ -58,5 +58,5 @@ Jetpack. exe komprimiert die WINS-oder DHCP-Datenbank wie folgt:
 > [!NOTE]
 > Während des Compact-Prozesses erstellt Jetpack. exe eine temporäre Datei mit dem Namen, der durch den Parameter " *Temp Database Name* " angegeben wird. Die temporäre Datei wird entfernt, wenn der Compact-Prozess beendet ist. Stellen Sie sicher, dass keine Datei bereits im WINS-oder DHCP-Ordner mit dem Namen vorhanden ist, der im Parameter " *Temp Database Name* " angegeben ist.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

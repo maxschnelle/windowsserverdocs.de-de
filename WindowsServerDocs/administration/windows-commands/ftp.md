@@ -1,6 +1,6 @@
 ---
 title: ftp
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6406093be682dbd74b92f1ca11f363e5eb9babee
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8fa956124e0c227d048d4c6eec844154187d5861
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842753"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725056"
 ---
 # <a name="ftp"></a>ftp
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Überträgt Dateien an einen und von einem Computer, auf dem ein Dateiübertragungsprotokoll (FTP)-Server Dienst ausgeführt wird. **FTP** kann interaktiv oder im Batch Modus durch Verarbeitung von ASCII-Textdateien verwendet werden. 
 ## <a name="syntax"></a>Syntax
@@ -27,30 +27,30 @@ ftp [-v] [-d] [-i] [-n] [-g] [-s:<FileName>] [-a] [-A] [-x:<SendBuffer>] [-r:<Re
 ```
 #### <a name="parameters"></a>Parameter
 
-|     Parameter     |                                                                                                                                                      Beschreibung                                                                                                                                                      |
+|     Parameter     |                                                                                                                                                      BESCHREIBUNG                                                                                                                                                      |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |        -v         |                                                                                                                                    Unterdrückt die Anzeige von Remote Server Antworten.                                                                                                                                     |
 |        -d         |                                                                                                               Aktiviert das Debuggen und zeigt alle Befehle an, die zwischen dem FTP-Client und dem FTP-Server                                                                                                                |
 |        -i         |                                                                                                                            Deaktiviert die interaktive Eingabeaufforderung während mehrerer Dateiübertragungen.                                                                                                                             |
 |        -n         |                                                                                                                                    Unterdrückt die automatische Anmeldung bei der ersten Verbindung.                                                                                                                                     |
-|        -g         |                                         Deaktiviert die Dateiname-Globalisierung.  Mit **glob** können Sie das Sternchen (\*) und das Fragezeichen (?) als Platzhalter Zeichen in lokalen Datei-und Pfadnamen verwenden. Weitere Informationen finden Sie unter [Zusätzliche Verweise](ftp.md#BKMK_additionalRef).                                          |
-|   -s:<FileName>   | Gibt eine Textdatei an, die **FTP** -Befehle enthält. Diese Befehle werden nach dem Start von **FTP** automatisch ausgeführt. Dieser Parameter lässt keine Leerzeichen zu. Verwenden Sie diesen Parameter anstelle der Umleitung ( **<** ). **Hinweis:** In den Betriebssystemen Windows 8 und Windows Server 2012 oder höher muss die Textdatei in UTF-8 geschrieben werden. |
+|        -g         |                                         Deaktiviert die Dateiname-Globalisierung.  **Glob** ermöglicht die Verwendung von Sternchen (\*) und Fragezeichen (?) als Platzhalter Zeichen in lokalen Datei-und Pfadnamen. Weitere Informationen finden Sie unter [Zusätzliche Verweise](ftp.md#BKMK_additionalRef).                                          |
+|   Hymnen<FileName>   | Gibt eine Textdatei an, die **FTP** -Befehle enthält. Diese Befehle werden nach dem Start von **FTP** automatisch ausgeführt. Dieser Parameter lässt keine Leerzeichen zu. Verwenden Sie diesen Parameter anstelle der Umleitung**<**(). **Hinweis:** In den Betriebssystemen Windows 8 und Windows Server 2012 oder höher muss die Textdatei in UTF-8 geschrieben werden. |
 |        -a         |                                                                                                                 Gibt an, dass beim Binden der FTP-Datenverbindung eine beliebige lokale Schnittstelle verwendet werden kann.                                                                                                                  |
 |        -A         |                                                                                                                                        Meldet sich als anonym auf dem FTP-Server an.                                                                                                                                         |
-|  -x:<SendBuffer>  |                                                                                                                                     Überschreibt die Standard SO_SNDBUF Größe von 8192.                                                                                                                                     |
-|  -r:<RecvBuffer>  |                                                                                                                                     Überschreibt die Standard SO_RCVBUF Größe von 8192.                                                                                                                                     |
-| -b:<AsyncBuffers> |                                                                                                                                    Überschreibt die standardmäßige Async-Puffer Anzahl von 3.                                                                                                                                     |
-| -w:<WindowsSize>  |                                                                                                                   Gibt die Größe des Übertragungs Puffers an. Die Standardfenster Größe beträgt 4096 Bytes.                                                                                                                   |
+|  Stuben<SendBuffer>  |                                                                                                                                     Überschreibt die Standard SO_SNDBUF Größe von 8192.                                                                                                                                     |
+|  r<RecvBuffer>  |                                                                                                                                     Überschreibt die Standard SO_RCVBUF Größe von 8192.                                                                                                                                     |
+| b<AsyncBuffers> |                                                                                                                                    Überschreibt die standardmäßige Async-Puffer Anzahl von 3.                                                                                                                                     |
+| Löw<WindowsSize>  |                                                                                                                   Gibt die Größe des Übertragungs Puffers an. Die Standardfenster Größe beträgt 4096 Bytes.                                                                                                                   |
 |        -?         |                                                                                                                                         Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                          |
 |      <host>       |                                                                    Gibt den Computernamen, die IP-Adresse oder die IPv6-Adresse des FTP-Servers an, mit dem eine Verbindung hergestellt werden soll. Der Hostname oder die Adresse, falls angegeben, muss der letzte Parameter in der Zeile sein.                                                                    |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 - Weitere Informationen zu **FTP** -Befehlen unter Windows Server 2003 finden Sie unter [FTP](https://technet.microsoft.com/library/cc756013(v=ws.10).aspx).
 - bei **FTP** -Befehlszeilen Parametern wird die Groß-/Kleinschreibung beachtet.
 - Dieser Befehl ist nur verfügbar, wenn das **TCP/IP-Protokoll (Internet Protocol)** als Komponente in den Eigenschaften eines Netzwerkadapters in Netzwerkverbindungen installiert ist.
-- **FTP** kann interaktiv verwendet werden. Nach dem Start erstellt **FTP** eine unter Umgebung, in der Sie **FTP** -Befehle verwenden können. Sie können zur Eingabeaufforderung zurückkehren, indem Sie den Befehl **Beenden** eingeben. Wenn die **FTP** -unter Umgebung ausgeführt wird, wird Sie von der **FTP->** Eingabeaufforderung angezeigt. Weitere Informationen finden Sie in den **FTP** -Befehlen.
+- **FTP** kann interaktiv verwendet werden. Nach dem Start erstellt **FTP** eine unter Umgebung, in der Sie **FTP** -Befehle verwenden können. Sie können zur Eingabeaufforderung zurückkehren, indem Sie den Befehl **Beenden** eingeben. Wenn die **FTP** -unter Umgebung ausgeführt wird, wird Sie von der **FTP-#b0** Eingabeaufforderung angezeigt. Weitere Informationen finden Sie in den **FTP** -Befehlen.
 - **FTP** unterstützt die Verwendung von IPv6, wenn das IPv6-Protokoll installiert ist. Weitere Informationen finden Sie unter [Zusätzliche Verweise](ftp.md#BKMK_additionalRef).
-  ## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
+  ## <a name="examples"></a>Beispiele
   Um sich am FTP-Server mit dem Namen ftp.example.Microsoft.com anzumelden, geben Sie Folgendes ein:
   ```
   ftp ftp.example.microsoft.com

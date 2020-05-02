@@ -1,6 +1,6 @@
 ---
 title: 'Ksetup: ChangePassword'
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 68b14388ff3c33458873b494c8d5a770b44f7545
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 32c48e896b77043820eea42159e20c089bd69fb8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841783"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724722"
 ---
 # <a name="ksetupchangepassword"></a>Ksetup: ChangePassword
 
 
 
-Verwendet das Kennwort für den Schlüsselverteilungscenter (KDC)-Kennwort (kpasswd), um das Kennwort des angemeldeten Benutzers zu ändern. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
+Verwendet das Kennwort für den Schlüsselverteilungscenter (KDC)-Kennwort (kpasswd), um das Kennwort des angemeldeten Benutzers zu ändern.
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,12 +30,12 @@ ksetup /changepassword <OldPasswd> <NewPasswd>
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|\<oldpasswd >|Gibt das vorhandene Kennwort des angemeldeten Benutzers an.|
-|\<newpasswd >|Gibt das neue Kennwort des angemeldeten Benutzers an.|
+|\<Oldpasswd->|Gibt das vorhandene Kennwort des angemeldeten Benutzers an.|
+|\<Newpasswd->|Gibt das neue Kennwort des angemeldeten Benutzers an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Dieser Befehl verwendet den KDC Password-Wert (kpasswd), um das Kennwort des angemeldeten Benutzers zu ändern. Wenn festgelegt, wird "kpasswd" in der Ausgabe angezeigt, indem der Befehl " **Ksetup/dumpstate** " ausgeführt wird.
 
@@ -47,7 +47,7 @@ Wenn Sie bei der nächsten Anmeldung eine Kenn Wort Änderung erzwingen möchten
 
 Die Ausgabe des Befehls informiert Sie über den Status Erfolg oder Fehler.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Ändern Sie das Kennwort eines Benutzers, der zurzeit in dieser Domäne an diesem Computer angemeldet ist:
 ```
@@ -62,6 +62,6 @@ Erzwingen Sie, dass der aktuell angemeldete Benutzer das Kennwort bei der nächs
 ksetup /changepassword Pas$w0rd *
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: 'Ksetup: setrealm'
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: acdbfaabe341c8efb19c6e9d183022375f679de7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 453977ac39dd3a52b4f5a3104995f944e4a48392
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841313"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724556"
 ---
 # <a name="ksetupsetrealm"></a>Ksetup: setrealm
 
 
 
-Legt den Namen eines Kerberos-Bereichs fest. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
+Legt den Namen eines Kerberos-Bereichs fest.
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,24 +30,24 @@ ksetup /setrealm <DNSDomainName>
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|\<DNSDomainName >|Der DNS-Domänen Name kann in Form eines voll qualifizierten Domänen Namens oder eines einfachen Domänen namens vorliegen.|
+|\<DNSDomainName->|Der DNS-Domänen Name kann in Form eines voll qualifizierten Domänen Namens oder eines einfachen Domänen namens vorliegen.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Der DNS-Domänen Namen Parameter sollte in Großbuchstaben eingegeben werden. Andernfalls fordert der **Ksetup** -Befehl eine Überprüfung an, um den Vorgang fortzusetzen.
 
 Das Festlegen des Kerberos-Bereichs auf einem Domänen Controller wird nicht unterstützt. Wenn Sie versuchen, dies zu tun, wird eine Warnung und ein Befehls Fehler verursacht.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Legen Sie den Bereich für diesen Computer auf einen bestimmten Domänen Namen fest, um den Zugriff durch einen nicht-Domänen Controller direkt auf den Bereich "Domäne" von "Configuration Manager" zu beschränken:
 ```
 ksetup /setrealm CONTOSO
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Ksetup](ksetup.md)

@@ -1,6 +1,6 @@
 ---
 title: FTP-hash_1
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8ea6cdc3c93ecbba49168aedae0f93f5acc8d36e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7672bcd55cc4d96096dc484d80593dd52f507a98
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843423"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725278"
 ---
 # <a name="ftp-hash_1"></a>FTP: hash_1
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Schaltet das Nummern Zeichen (#) für jeden übertragenen Datenblock ein/aus.   
 ## <a name="syntax"></a>Syntax  
@@ -27,13 +27,13 @@ hash
 ```  
 #### <a name="parameters"></a>Parameter  
 none  
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
 - Die Größe eines Datenblocks beträgt 2048 Bytes.  
 - Standardmäßig ist der **Hash** deaktiviert.  
-  ## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele  
+  ## <a name="examples"></a>Beispiele  
   Schalten Sie das Nummern Zeichen (#) für jeden übertragenen Datenblock ein/aus.  
   ```  
   hash  
   ```  
-  ## <a name="additional-references"></a>Weitere Verweise  
+  ## <a name="additional-references"></a>Zusätzliche Referenzen  
 - - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  

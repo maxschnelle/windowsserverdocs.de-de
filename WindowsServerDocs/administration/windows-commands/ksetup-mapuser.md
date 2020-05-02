@@ -1,6 +1,6 @@
 ---
 title: 'Ksetup: mapuser'
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f61c67fa21eccb77601b78aed51791259d609c5e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: daa1b8d2c6d0ce2801191b953a533a63bcd8f4ab
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841483"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724616"
 ---
 # <a name="ksetupmapuser"></a>Ksetup: mapuser
 
 
 
-Ordnet den Namen eines Kerberos-Prinzipals einem Konto zu. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
+Ordnet den Namen eines Kerberos-Prinzipals einem Konto zu.
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,12 +30,12 @@ ksetup /mapuser <Principal> <Account>
 
 #### <a name="parameters"></a>Parameter
 
-|  Parameter   |                                                   Beschreibung                                                   |
+|  Parameter   |                                                   BESCHREIBUNG                                                   |
 |--------------|-----------------------------------------------------------------------------------------------------------------|
-| \<Prinzipal > |              Der voll qualifizierte Domänen Name eines beliebigen Prinzipals. beispielsweise mike@corp.CONTOSO.COM.              |
-|  \<Konto >  | Alle Konto-oder Sicherheitsgruppen Namen, die auf diesem Computer vorhanden sind, z. b. Gast, Domänen Benutzer oder Administrator. |
+| \<Prinzipal> |              Der voll qualifizierte Domänen Name eines beliebigen Prinzipals. Beispiel: mike@corp.CONTOSO.COM.              |
+|  \<Konto>  | Alle Konto-oder Sicherheitsgruppen Namen, die auf diesem Computer vorhanden sind, z. b. Gast, Domänen Benutzer oder Administrator. |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Ein Konto kann speziell identifiziert werden, z. b. Domänen Gäste. Oder Sie können das Platzhalter Zeichen (*) verwenden, um alle Konten einzubeziehen.
 
@@ -47,7 +47,7 @@ Verwenden Sie **Ksetup** ohne Parameter oder Argumente, um die aktuellen zugeord
 
 Wenn Änderungen an der externen Schlüsselverteilungscenter (KDC) und der Bereichs Konfiguration vorgenommen werden, ist ein Neustart des Computers erforderlich, auf dem die Einstellung geändert wurde.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Ordnen Sie das Konto von Mike Danseglio innerhalb des Kerberos-Bereichs "" mit dem Gast Konto auf diesem Computer zu, und gewähren Sie ihm alle Berechtigungen eines Mitglieds des integrierten Gastkontos, ohne sich bei diesem Computer authentifizieren zu müssen:
 ```
@@ -66,7 +66,7 @@ Ordnen Sie alle Konten innerhalb des Bereichs "" von "" von "" im Bereich "" von
 ksetup /mapuser * *
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Ksetup](ksetup.md)

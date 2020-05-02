@@ -1,6 +1,6 @@
 ---
 title: logman update
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 77eb7232bde12076903ab9da3bd379a6968cca45
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cc226d4b9044eaa966725f3bf1329ed6a1eecd62
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80840423"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724287"
 ---
 # <a name="logman-update"></a>logman update
 
@@ -30,7 +30,7 @@ logman update <counter | trace | alert | cfg | api> <[-n] <name>> [options]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |[logman update Counter](logman-update-counter.md)|Aktualisieren eines Counter-Daten Sammlers.|
 |[logman update Trace](logman-update-trace.md)|Aktualisieren eines Ablauf Verfolgungs Daten Sammlers.|
@@ -38,6 +38,6 @@ logman update <counter | trace | alert | cfg | api> <[-n] <name>> [options]
 |[logman update cfg](logman-update-cfg.md)|Aktualisieren eines Konfigurationsdaten Sammlers.|
 |[logman Update-API](logman-update-api.md)|Aktualisieren eines API-Ablauf Verfolgungs Daten Sammlers.|
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 [Logman](logman.md)

@@ -1,6 +1,6 @@
 ---
-title: Hilfe
-description: Windows-Befehle Thema ****-
+title: help
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f7b6f3a563c59a55ff92b38f0854437b96478f6c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9d3a16c2534934a7bc8126b0a775ec7aa08462b3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842343"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724915"
 ---
-# <a name="help"></a>Hilfe
+# <a name="help"></a>help
 
 
 
 Bietet Online Informationen über Systembefehle (d. h. nicht-Netzwerk Befehle). Wenn Sie ohne Parameter verwendet wird, werden die einzelnen Systembefehle in der **Hilfe** aufgeführt und kurz beschrieben.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -33,11 +33,11 @@ help [<Command>]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|\<Befehl >|Gibt den Namen des Befehls an, zu dem Sie Informationen wünschen.|
+|\<Befehls>|Gibt den Namen des Befehls an, zu dem Sie Informationen wünschen.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Zum Anzeigen von Informationen zum **Robocopy** -Befehl geben Sie eine der folgenden Optionen ein:
 ```
@@ -45,6 +45,6 @@ help robocopy
 robocopy /? 
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

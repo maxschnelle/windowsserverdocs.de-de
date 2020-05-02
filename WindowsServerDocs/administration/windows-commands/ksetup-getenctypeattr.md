@@ -1,6 +1,6 @@
 ---
 title: 'Ksetup: getenctypeattr'
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 60de138ac73140c69e9a863083e01a51c0e13ca3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f8363113d4fbb310d98b40d852b36a00f20320e6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841533"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724635"
 ---
 # <a name="ksetupgetenctypeattr"></a>Ksetup: getenctypeattr
 
 
 
-Ruft das Verschlüsselungstyp Attribut für die Domäne ab. Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
+Ruft das Verschlüsselungstyp Attribut für die Domäne ab.
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,26 +30,26 @@ ksetup /getenctypeattr <DomainName>
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|\<Domainname >|Der Name der Domäne, zu der Sie eine Verbindung herstellen möchten. Verwenden Sie den voll qualifizierten Domänen Namen oder eine einfache Form des Namens, z. b. Corp.contoso.com oder Configuration Manager.|
+|\<Domain Name>|Der Name der Domäne, zu der Sie eine Verbindung herstellen möchten. Verwenden Sie den voll qualifizierten Domänen Namen oder eine einfache Form des Namens, z. b. Corp.contoso.com oder Configuration Manager.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Um den Verschlüsselungstyp für das Kerberos-Ticket Erteilungs Ticket (TGT) und den Sitzungsschlüssel anzuzeigen, führen Sie den Befehl **klist** aus, und zeigen Sie die Ausgabe an.
 
 Wenn der Befehl erfolgreich ausgeführt wird oder fehlschlägt, wird bei erfolgreicher oder fehlgeschlagener Ausführung eine Statusmeldung angezeigt.
 
-Um die Domäne festzulegen, mit der Sie eine Verbindung herstellen und verwenden möchten, führen Sie den Befehl **Ksetup/Domain \<Domainname >** aus.
+Um die Domäne festzulegen, mit der Sie eine Verbindung herstellen und verwenden möchten, führen Sie den Befehl **Ksetup/Domain \<Domainname>** aus.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Überprüfen Sie das Attribut für den Verschlüsselungstyp für die Domäne:
 ```
 ksetup /getenctypeattr mit.contoso.com
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Klist](klist.md)
 -   [Ksetup:domain](ksetup-domain.md)

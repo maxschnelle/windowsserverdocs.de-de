@@ -1,52 +1,56 @@
 ---
 title: list
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für den List-Befehl, der eine Liste von Datenträgern, von Partitionen auf einem Datenträger, von Volumes auf einem Datenträger oder von virtuellen Festplatten (VHDs) anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
-ms.assetid: 57b6c8d0-872e-4dba-9715-1db8ab892e98
+ms.assetid: 69b105a1-9710-4a06-8102-38cc9e475ca5
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d60c42b868a1e9a26e3168e4b489573f9f87e179
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 53914468ddee4a8930fc05c677c94be700a89021
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841103"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724495"
 ---
 # <a name="list"></a>list
 
-
-
-Listet Writer, Schatten Kopien oder derzeit registrierte Schattenkopieanbieter auf, die sich auf dem System befinden. Bei Verwendung ohne Parameter zeigt **List** die Hilfe an der Eingabeaufforderung an.
-
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+Zeigt eine Liste von Datenträgern, von Partitionen auf einem Datenträger, von Volumes auf einem Datenträger oder von virtuellen Festplatten (VHDs) an.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-list writers [metadata | detailed | status]
-list shadows {all | set <SetID> | id <ShadowID>}
-list providers
+list { disk | partition | volume | vdisk }
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|Writer|Listet Writer auf. Syntax und Parameter finden Sie unter [Auflisten von Writern](list-writers.md) .|
-|schattet|Listet persistente und vorhandene nicht persistente Schatten Kopien auf. Informationen zu Syntax und Parametern finden Sie unter [list shadows](list-shadows.md) .|
-|Anbieter|Listet derzeit registrierte Schattenkopieanbieter auf. Informationen zu Syntax und Parametern finden Sie unter [List Providers](list-providers.md) .|
+|disk|Zeigt eine Liste der Datenträger und Informationen dazu an, z. b. die Größe, die Menge des verfügbaren freien Speicherplatzes, ob es sich um einen einfachen oder dynamischen Datenträger handelt und ob der Datenträger den Partitions Stil Master Boot Record (MBR) oder GUID-Partitionstabelle (GPT) verwendet.|
+|partition|Zeigt die Partitionen an, die in der Partitionstabelle des aktuellen Datenträgers aufgeführt sind.|
+|Volume|Zeigt eine Liste der Basisvolumes und dynamischen Volumes auf allen Datenträgern an.|
+|Vdisk|Zeigt eine Liste der VHDs an, die angefügt und/oder ausgewählt sind. Dieser Befehl listet getrennte VHDs auf, wenn Sie aktuell ausgewählt sind. der Datenträgertyp wird jedoch auf "unknown" festgelegt, bis die VHD angefügt ist. Die mit einem Sternchen (*) markierte VHD hat den Fokus.</br>Hinweis: Dieser Befehl ist nur für Windows 7 und Windows Server 2008 R2 verfügbar.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="remarks"></a>Bemerkungen
 
-Um alle Schatten Kopien aufzulisten, geben Sie Folgendes ein:
+-   Beim Auflisten von Partitionen auf einem dynamischen Datenträger entsprechen die Partitionen möglicherweise nicht den dynamischen Volumes auf dem Datenträger. Diese Diskrepanz tritt auf, weil dynamische Datenträger Einträge in der Partitionstabelle für das System Volume oder Start Volume (sofern auf dem Datenträger vorhanden) enthalten. Sie enthalten außerdem eine Partition, die den Rest des Datenträgers einnimmt, um den Speicherplatz zu reservieren, der von dynamischen Volumes verwendet werden soll.
+-   Das mit einem Sternchen (*) markierte Objekt hat den Fokus.
+-   Wenn beim Auflisten von Datenträgern ein Datenträger fehlt, wird die zugehörige Datenträger Nummer mit "M" vorangestellt. Beispielsweise ist der erste fehlende Datenträger mit der Nummerierung M0.
+
+## <a name="examples"></a>Beispiele
+
 ```
-list shadows all
+list disk
+list partition
+list volume
+list vdisk
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+

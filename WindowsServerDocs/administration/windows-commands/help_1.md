@@ -1,6 +1,6 @@
 ---
-title: Hilfe
-description: Windows-Befehle Thema ****-
+title: help
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 404cefe879e8f63678f2cba90516fad9c216eb23
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6887edfd41895bb151c5aaebb88d8b72198f4dbf
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842313"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724900"
 ---
-# <a name="help"></a>Hilfe
+# <a name="help"></a>help
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt eine Liste der verfügbaren Befehle oder ausführliche Hilfe Informationen zu einem angegebenen Befehl an.  
   
@@ -32,15 +32,15 @@ help [<command>]
   
 ### <a name="parameters"></a>Parameter  
   
-| Parameter |                              Beschreibung                              |
+| Parameter |                              BESCHREIBUNG                              |
 |-----------|-----------------------------------------------------------------------|
 | <command> | Gibt den Befehl an, für den ausführliche Hilfe Informationen angezeigt werden sollen. |
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
   
 -   Wenn kein Befehl angegeben wird, werden in der **Hilfe** alle möglichen Befehle angezeigt.  
   
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
+## <a name="examples"></a>Beispiele  
 Geben Sie Folgendes ein, um eine Liste aller in DiskPart verfügbaren Befehle anzuzeigen:  
   
 ```  
@@ -53,7 +53,7 @@ Geben Sie Folgendes ein, um ausführliche Hilfe Informationen zur Verwendung des
 help create partition primary  
 ```  
   
-## <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Zusätzliche Referenzen  
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 

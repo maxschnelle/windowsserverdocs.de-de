@@ -1,6 +1,6 @@
 ---
 title: ksetup
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b3c61fd81691f9db44330eddbf40d4212d1786ff
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2f3fde0ada4ab8bcbe52eccf22b959f99f91319f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841253"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724539"
 ---
 # <a name="ksetup"></a>ksetup
 
@@ -53,7 +53,7 @@ ksetup
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |[Ksetup:setrealm](ksetup-setrealm.md)|Dieser Computer ist ein Mitglied eines Kerberos-Bereichs.|
 |[Ksetup:mapuser](ksetup-mapuser.md)|Ordnet einem Konto einen Kerberos-Prinzipal zu.|
@@ -64,7 +64,7 @@ ksetup
 |[Ksetup:server](ksetup-server.md)|Ermöglicht es Ihnen, den Namen eines Windows-Computers anzugeben, auf dem die Änderungen angewendet werden sollen.|
 |[Ksetup:setcomputerpassword](ksetup-setcomputerpassword.md)|Legt das Kennwort für das Domänen Konto des Computers (oder den Host Prinzipal) fest.|
 |[Ksetup:removerealm](ksetup-removerealm.md)|Löscht alle Informationen für den angegebenen Bereich aus der Registrierung.|
-|[Ksetup:domain](ksetup-domain.md)|Ermöglicht das Angeben einer Domäne (wenn \<Domain Name > nicht mithilfe von **/Domain**festgelegt wurde).|
+|[Ksetup:domain](ksetup-domain.md)|Ermöglicht das Angeben einer Domäne (wenn \<Domain Name> nicht mithilfe von **/Domain**festgelegt wurde).|
 |[Ksetup:changepassword](ksetup-changepassword.md)|Ermöglicht die Verwendung von kpasswd zum Ändern des Kennworts des angemeldeten Benutzers.|
 |[Ksetup:listrealmflags](ksetup-listrealmflags.md)|Listet die verfügbaren bereichflags auf, die von **Ksetup** erkannt werden können.|
 |[Ksetup:setrealmflags](ksetup-setrealmflags.md)|Legt bereichflags für einen bestimmten Bereich fest.|
@@ -79,7 +79,7 @@ ksetup
 |[Ksetup:delenctypeattr](ksetup-delenctypeattr.md)|Löscht das Vertrauens Attribut der Verschlüsselungstypen für die Domäne.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Mithilfe von **Ksetup** werden die Computereinstellungen zum Suchen von Kerberos-Bereichen geändert. Bei nicht von Microsoft Kerberos – basierten Implementierungen werden diese Informationen in der Regel in der Datei krb5. conf gespeichert. In Windows Server-Betriebssystemen wird Sie in der Registrierung gespeichert. Sie können dieses Tool verwenden, um diese Einstellungen zu ändern. Diese Einstellungen werden von Arbeitsstationen zum Suchen von Kerberos-Bereichen und von Domänen Controllern verwendet, um Kerberos-Bereiche für bereichsübergreifende Vertrauens Stellungen zu finden.
 
@@ -87,6 +87,6 @@ Mithilfe von **Ksetup** werden die Computereinstellungen zum Suchen von Kerberos
 
 Das Kerberos 5-Protokoll ist die Standardeinstellung für die Netzwerk Authentifizierung auf Computern, auf denen Windows XP Professional, Windows Vista und Windows 7 ausgeführt wird. Der Kerberos-SSP durchsucht die Registrierung nach dem Domänen Namen des Bereichs des Benutzers und löst dann den Namen in eine IP-Adresse auf, indem er einen DNS-Server abfragt. Das Kerberos-Protokoll kann DNS zum Auffinden von KDCs mithilfe des Bereichs namens verwenden, muss jedoch speziell dafür konfiguriert werden.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
