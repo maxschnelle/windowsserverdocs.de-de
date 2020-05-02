@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: d44e4f8383a77582177f4d9b161210207ce46e63
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4ac424154968b4f4c55664d0d20f524345b87986
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835903"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722381"
 ---
 # <a name="replace"></a>replace
 
@@ -22,7 +22,7 @@ ms.locfileid: "80835903"
 
 Ersetzt Dateien. Bei Verwendung mit der Option **/a** fügt **Replace** neue Dateien zu einem Verzeichnis hinzu, anstatt vorhandene Dateien zu ersetzen.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -35,17 +35,17 @@ replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] 
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|[\<Drive1 >:] [\<Path1 >]\<Dateiname >|Gibt den Speicherort und den Namen der Quelldatei oder des Satzes von Dateien an. *Dateiname* ist erforderlich und kann Platzhalter Zeichen **&#42;** (und **?** ) enthalten.|
-|[\<drive2 >:] [\<Path2 >]|Gibt den Speicherort der Zieldatei an. Sie können keinen Dateinamen für die Dateien angeben, die Sie ersetzen. Wenn Sie kein Laufwerk oder einen Pfad angeben, wird durch **Replace** das aktuelle Laufwerk und Verzeichnis als Ziel verwendet.|
+|[\<Drive1>:] [\<Path1>] \<Dateiname>|Gibt den Speicherort und den Namen der Quelldatei oder des Satzes von Dateien an. *Dateiname* ist erforderlich und kann Platzhalter Zeichen (**&#42;** und **?**) enthalten.|
+|[\<Drive2>:] [\<Path2>]|Gibt den Speicherort der Zieldatei an. Sie können keinen Dateinamen für die Dateien angeben, die Sie ersetzen. Wenn Sie kein Laufwerk oder einen Pfad angeben, wird durch **Replace** das aktuelle Laufwerk und Verzeichnis als Ziel verwendet.|
 |/a|Fügt dem Zielverzeichnis neue Dateien hinzu, anstatt vorhandene Dateien zu ersetzen. Sie können diese Befehlszeilenoption nicht mit der Befehlszeilenoption **/s** oder **/u** verwenden.|
 |/p|Sie werden zur Bestätigung aufgefordert, bevor Sie eine Zieldatei ersetzen oder eine Quelldatei hinzufügen.|
 |/r|Ersetzt schreibgeschützte und ungeschützte Dateien. Wenn Sie versuchen, eine schreibgeschützte Datei zu ersetzen, aber **/r**nicht angeben, wird ein Fehler ausgegeben, und der Ersetzungs Vorgang wird beendet.|
 |/w|Wartet darauf, dass Sie vor Beginn der Suche nach Quelldateien einen Datenträger einfügen. Wenn Sie **/w**nicht angeben, ersetzt **Replace** das ersetzen oder Hinzufügen von Dateien sofort, nachdem Sie die EINGABETASTE gedrückt haben.|
 |/s|Durchsucht alle Unterverzeichnisse im Zielverzeichnis und ersetzt übereinstimmende Dateien. **/S** kann nicht mit der Befehlszeilenoption **/a** verwendet werden. Der **Replace** -Befehl durchsucht keine Unterverzeichnisse, die in *Path1*angegeben sind.|
-|/u|Ersetzt nur die Dateien im Zielverzeichnis, die älter sind als die im Quellverzeichnis. **/U** kann nicht mit der Befehlszeilenoption **/a** verwendet werden.|
+|/U|Ersetzt nur die Dateien im Zielverzeichnis, die älter sind als die im Quellverzeichnis. **/U** kann nicht mit der Befehlszeilenoption **/a** verwendet werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 - Da **Replace** Dateien hinzufügt oder ersetzt, werden die Dateinamen auf dem Bildschirm angezeigt. Nachdem die **Ersetzung** abgeschlossen ist, wird eine Zusammenfassungs Zeile in einem der folgenden Formate angezeigt:  
   ```
@@ -57,7 +57,7 @@ replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] 
 - Wenn Sie Disketten verwenden und während des **Ersetzungs** Vorgangs Datenträger wechseln müssen, können Sie die Befehlszeilenoption **/w** angeben, damit **Replace** darauf wartet, dass die Datenträger gewechselt werden.
 - Sie können nicht **ersetzen** verwenden, um ausgeblendete Dateien oder Systemdateien zu aktualisieren.
 - Die folgende Tabelle zeigt jeden Exitcode und eine kurze Beschreibung seiner Bedeutung:  
-  |Exitcode|Beschreibung|
+  |Exitcode|BESCHREIBUNG|
   |---------|-----------|
   |0|Der **Replace** -Befehl hat die Dateien erfolgreich ersetzt oder hinzugefügt.|
   |1|Beim **Replace** -Befehl ist eine falsche Version von MS-DOS aufgetreten.|
@@ -76,6 +76,6 @@ Geben Sie Folgendes ein, um alle Versionen einer Datei mit dem Namen "Phones. CL
 
 `replace a:\phones.cli c:\ /s`
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

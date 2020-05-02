@@ -1,6 +1,6 @@
 ---
 title: Vdisk auswählen
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 65e186413bebbf467cd4c2033d274badd1fbea80
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 68f60f8f43a33d498c40daa3b9994887f12037bb
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834743"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722004"
 ---
 # <a name="select-vdisk"></a>Vdisk auswählen
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-wählt die angegebene virtuelle Festplatte \(VHD-\) aus und verschiebt den Fokus darauf.  
+wählt die angegebene virtuelle Festplatten- \(VHD\) aus und verschiebt den Fokus darauf.  
   
 > [!NOTE]  
 > Dieser Befehl gilt nur für Windows 7 und Windows Server 2008 R2.  
@@ -33,23 +33,23 @@ select vdisk file=<full path> [noerr]
   
 ### <a name="parameters"></a>Parameter  
   
-|Parameter|Beschreibung|  
+|Parameter|BESCHREIBUNG|  
 |-------|--------|  
 |Datei\=<full path>|Gibt den vollständigen Pfad und den Dateinamen einer vorhandenen VHD-Datei an.|  
 |Noerr|Wird nur für die Skripterstellung verwendet. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|  
   
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
+## <a name="examples"></a>Beispiele  
 Um den Fokus auf die VHD mit dem Namen Test. VHD zu verschieben, geben Sie Folgendes ein:  
   
 ```  
 select vdisk file=c:\test\test.vhd  
 ```  
   
-## <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Zusätzliche Referenzen  
   
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
--   [Vdisk anfügen](attach-vdisk.md)  
+-   [attach vdisk](attach-vdisk.md)  
   
 -   [Compact Vdisk](compact-vdisk.md)  
   

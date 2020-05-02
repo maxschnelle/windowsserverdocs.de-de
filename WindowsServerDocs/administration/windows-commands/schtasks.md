@@ -1,6 +1,6 @@
 ---
 title: schtasks
-description: Windows-Befehls Thema für * * * *-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2b50ca62aea7a46f9246fb8d5089c0ef41aa1316
-ms.sourcegitcommit: d669d4af166b9018bcf18dc79cb621a5fee80042
+ms.openlocfilehash: a723025846a0e1725c72d5880d1ecc97579e1a69
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82037169"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722167"
 ---
 # <a name="schtasks"></a>schtasks
 
@@ -340,7 +340,7 @@ Der **/SC Daily** -Parameter ist in einem täglichen Zeitplan erforderlich. Der 
 
 #### <a name="to-schedule-a-task-that-runs-every-day"></a>So planen Sie einen täglich ausgeführten Task
 
-Im folgenden Beispiel wird das Programm "MyApp" für jeden Tag um 8:00 Uhr geplant. bis zum 31. Dezember 2002. Da der **/Monat** -Parameter ausgelassen wird, wird das Standardintervall 1 verwendet, um den Befehl jeden Tag auszuführen.
+Um das Programm "MyApp" täglich täglich um 8:00 Uhr täglich auszuführen. bis zum 31. Dezember 2002. Da der **/Monat** -Parameter ausgelassen wird, wird das Standardintervall 1 verwendet, um den Befehl jeden Tag auszuführen.
 
 Da in diesem Beispiel das lokale Computersystem auf die Option **Englisch (Großbritannien)** in den Regions **-und Sprachoptionen** in der **Systemsteuerung**festgelegt ist, ist das Format für das Enddatum dd/mm/yyyy (31/12/2002).
 ```
@@ -349,7 +349,7 @@ schtasks /create /tn My App /tr c:\apps\myapp.exe /sc daily /st 08:00 /ed 31/12/
 
 #### <a name="to-schedule-a-task-that-runs-every-12-days"></a>So planen Sie einen Task, der alle 12 Tage ausgeführt wird
 
-Im folgenden Beispiel wird geplant, dass das Programm MyApp alle zwölf Tage um 1:00 Uhr ausgeführt wird. (13:00) ab dem 31. Dezember 2002. Der Befehl verwendet den **/Monat** -Parameter, um ein Intervall von zwei (2) Tagen anzugeben, und den **/SD** -und **/St** -Parameter, um das Datum und die Uhrzeit anzugeben.
+So planen Sie, dass das Programm "MyApp" alle zwölf Tage um 1:00 Uhr ausgeführt wird (13:00) ab dem 31. Dezember 2002. Der Befehl verwendet den **/Monat** -Parameter, um ein Intervall von zwei (2) Tagen anzugeben, und den **/SD** -und **/St** -Parameter, um das Datum und die Uhrzeit anzugeben.
 
 Da das System in diesem Beispiel auf die Option **Englisch (Simbabwe)** in den Regions **-und Sprachoptionen** in der System **Steuerung**festgelegt ist, ist das Format für das Enddatum mm/dd/yyyy (12/31/2002).
 ```

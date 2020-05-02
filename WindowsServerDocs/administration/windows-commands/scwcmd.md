@@ -1,6 +1,6 @@
 ---
-title: scwcmd
-description: Windows-Befehle Thema ****-
+title: Scwcmd
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 014bb8b26f6eebaefa3a9997a71fbaaf543a75dc
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f08a8396219924ac6660828464e035c7744729b1
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835043"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722097"
 ---
-# <a name="scwcmd"></a>scwcmd
+# <a name="scwcmd"></a>Scwcmd
 
 > Gilt für: Windows Server 2012 R2, Windows Server 2012
 
@@ -38,7 +38,7 @@ scwcmd <command> [<subcommand>]
 
 ### <a name="parameters"></a>Parameter
 
-|Unterbefehl|Beschreibung|
+|Unterbefehl|BESCHREIBUNG|
 |----------|-----------|
 |/analyze|Bestimmt, ob ein Computer mit einer Richtlinie konform ist.</br>Weitere Informationen finden Sie unter [scwcmd: analysieren](scwcmd-analyze.md) für Syntax und Optionen.|
 |/configure|Wendet eine vom SCW generierte Sicherheitsrichtlinie auf einen Computer an.</br>Weitere Informationen finden Sie unter [scwcmd: Configure](scwcmd-configure.md) for Syntax and options.|
@@ -48,6 +48,6 @@ scwcmd <command> [<subcommand>]
 |/view|Rendert eine XML-Datei mithilfe einer angegebenen XSL-Transformation.</br>Informationen zur Syntax und zu Optionen finden Sie unter [scwcmd: View](scwcmd-view.md) .|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

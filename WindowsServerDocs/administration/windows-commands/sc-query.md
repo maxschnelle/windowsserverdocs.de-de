@@ -1,6 +1,6 @@
 ---
 title: SC-Abfrage
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 38d83fa07e9f85f3a5a4b86388bbed41fcf326d1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6a6b4555790a8f9bb1149531251e724189177975
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835283"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722182"
 ---
 # <a name="sc-query"></a>SC-Abfrage
 
@@ -22,7 +22,7 @@ ms.locfileid: "80835283"
 
 Ruft Informationen zum angegebenen Dienst, Treiber, Diensttyp oder Typ des Treibers ab und zeigt diese an.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,19 +32,19 @@ sc [<ServerName>] query [<ServiceName>] [type= {driver | service | all}] [type= 
 
 ### <a name="parameters"></a>Parameter
 
-|       Parameter        |                                                                                                                          Beschreibung                                                                                                                          |
+|       Parameter        |                                                                                                                          BESCHREIBUNG                                                                                                                          |
 |------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     \<Servername >      |                       Gibt den Namen des Remote Servers an, auf dem sich der Dienst befindet. Der Name muss das Universal Naming Convention Format (UNC) verwenden (z. b. \\\\MyServer). Wenn Sie "SC. exe" lokal ausführen möchten, lassen Sie diesen Parameter Weg.                        |
-|     \<ServiceName >     |                                      Gibt den Dienstnamen an, der vom **getkeyname** -Vorgang zurückgegeben wird. Dieser **Abfrage** Parameter wird nicht in Verbindung mit anderen **Abfrage** Parametern (mit Ausnahme von *Servername*) verwendet.                                      |
+|     \<Servername>      |                       Gibt den Namen des Remote Servers an, auf dem sich der Dienst befindet. Der Name muss das Universal Naming Convention (UNC)-Format (z \\ \\. b. MyServer) verwenden. Wenn Sie "SC. exe" lokal ausführen möchten, lassen Sie diesen Parameter Weg.                        |
+|     \<Dienst Name>     |                                      Gibt den Dienstnamen an, der vom **getkeyname** -Vorgang zurückgegeben wird. Dieser **Abfrage** Parameter wird nicht in Verbindung mit anderen **Abfrage** Parametern (mit Ausnahme von *Servername*) verwendet.                                      |
 |     Type = {Driver      |                                                                                                                            Dienst                                                                                                                            |
 |       Type = {Own       |                                                                                                                             Freigeben                                                                                                                             |
 |     State = {Active     |                                                                                                                           inactive                                                                                                                            |
-| buf size = \<bufferSize > |                     Gibt die Größe (in Bytes) des enumerationspuffers an. Die Standardpuffergröße beträgt 1.024 Bytes. Sie sollten die Größe des enumerationspuffers erhöhen, wenn die aus einer Abfrage resultierende Anzeige 1.024 Bytes überschreitet.                      |
-|   RI = \<resumeindex >   | Gibt die Indexnummer an, bei der die Enumeration gestartet oder fortgesetzt werden soll. Der Standardwert ist **0** (null). Verwenden Sie diesen Parameter in Verbindung mit dem Parameter " **bussize =** ", wenn mehr Informationen von einer Abfrage zurückgegeben werden, als der Standard Puffer anzeigen kann. |
-|  Group = \<GroupName >   |                                                                             Gibt die aufzuzählende Dienstgruppe an. Standardmäßig werden alle Gruppen aufgelistet (* * Group = * *).                                                                              |
+| buf size = \<bufferSize> |                     Gibt die Größe (in Bytes) des enumerationspuffers an. Die Standardpuffergröße beträgt 1.024 Bytes. Sie sollten die Größe des enumerationspuffers erhöhen, wenn die aus einer Abfrage resultierende Anzeige 1.024 Bytes überschreitet.                      |
+|   RI = \<resumeindex>   | Gibt die Indexnummer an, bei der die Enumeration gestartet oder fortgesetzt werden soll. Der Standardwert ist **0** (null). Verwenden Sie diesen Parameter in Verbindung mit dem Parameter " **bussize =** ", wenn mehr Informationen von einer Abfrage zurückgegeben werden, als der Standard Puffer anzeigen kann. |
+|  Group = \<GroupName>   |                                                                             Gibt die aufzuzählende Dienstgruppe an. Standardmäßig werden alle Gruppen aufgelistet (* * Group = * *).                                                                              |
 |           /?           |                                                                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                              |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 - Ohne Leerzeichen zwischen einem Parameter und dessen Wert (d. h. **Type = own**, nicht **Type = own**) schlägt der Vorgang fehl.
 - Der **Abfrage** Vorgang zeigt die folgenden Informationen zu einem Dienst an: SERVICE_NAME (Name des Registrierungs unter Schlüssels des dienstaners), Typ, Status (und nicht verfügbare Zustände), WIN32_EXIT_B, SERVICE_EXIT_B, Prüfpunkt und WAIT_HINT.
@@ -58,7 +58,7 @@ sc [<ServerName>] query [<ServiceName>] [type= {driver | service | all}] [type= 
   sc query bufsize= 1822 ri= 79
   ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Wenn Sie nur Informationen für aktive Dienste anzeigen möchten, geben Sie einen der folgenden Befehle ein:
 ```
@@ -94,6 +94,6 @@ Geben Sie Folgendes ein, um Informationen für Treiber in der Network Driver Int
 sc query type= driver group= ndis
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: rename
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,19 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fa88a7c1b5cc3104ae6fd772d102165794e1d673
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 96f70e0f4130b0bc2c2d85462ee0d2eabb7a7888
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80836003"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722410"
 ---
 # <a name="rename"></a>rename
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dies ist das gleiche wie der **ren** -Befehl.
 Weitere Informationen zu Syntax und Parametern finden Sie unter [ren](ren.md) .
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

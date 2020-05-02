@@ -1,6 +1,6 @@
 ---
 title: Partition auswählen
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 97145d73cbbe1bdc9b27e545b047b78fe89e4984
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 55b06f247c8e9f183a2971278a8f16ac237e9cfe
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834803"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722011"
 ---
 # <a name="select-partition"></a>Partition auswählen
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 wählt die angegebene Partition aus und verschiebt den Fokus darauf. Dieser Befehl kann auch verwendet werden, um die Partition anzuzeigen, die derzeit den Fokus auf dem ausgewählten Datenträger hat.  
   
@@ -32,11 +32,11 @@ select partition=<n>
   
 ### <a name="parameters"></a>Parameter  
   
-|   Parameter    |                                                                                    Beschreibung                                                                                    |
+|   Parameter    |                                                                                    BESCHREIBUNG                                                                                    |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Partitions\=<n> | Die Nummer der Partition, die den Fokus erhalten soll. Sie können die Zahlen für alle Partitionen auf dem aktuell ausgewählten Datenträger anzeigen, indem Sie den Befehl **Partition auflisten** in DiskPart verwenden. |
+| spaltet\=<n> | Die Nummer der Partition, die den Fokus erhalten soll. Sie können die Zahlen für alle Partitionen auf dem aktuell ausgewählten Datenträger anzeigen, indem Sie den Befehl **Partition auflisten** in DiskPart verwenden. |
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
   
 -   Bevor Sie eine Partition auswählen können, müssen Sie zunächst mithilfe des Befehls **Select Disk** (Datenträger auswählen) einen Datenträger auswählen.  
   
@@ -46,7 +46,7 @@ select partition=<n>
   
 -   Wenn eine Partition mit einem entsprechenden Volume ausgewählt wird, wird das Volume automatisch ausgewählt.  
   
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
+## <a name="examples"></a>Beispiele  
 Wenn Sie den Fokus auf Partition 3 verschieben möchten, geben Sie Folgendes ein:  
   
 ```  
@@ -59,7 +59,7 @@ Geben Sie Folgendes ein, um die Partition anzuzeigen, die derzeit den Fokus auf 
 select partition  
 ```  
   
-## <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Zusätzliche Referenzen  
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 

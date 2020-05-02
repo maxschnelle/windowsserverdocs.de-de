@@ -1,6 +1,6 @@
 ---
-title: Reparatur
-description: Windows-Befehle Thema ****-
+title: Reparieren
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 46b98938394c10e31d4999ff0e060e10f7da9bdc
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 89c09608e64b408db9c7c79269046195e005c187
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835933"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722393"
 ---
-# <a name="repair"></a>Reparatur
+# <a name="repair"></a>Reparieren
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-repariert das RAID\-5-Volume mit dem Fokus, indem der fehlerhafte Datenträger Bereich durch den angegebenen dynamischen Datenträger ersetzt wird.  
+repariert das RAID\-5-Volume mit dem Fokus, indem der fehlerhafte Datenträger Bereich durch die angegebene dynamische Festplatte ersetzt wird.  
   
   
   
@@ -32,26 +32,26 @@ repair disk=<n> [align=<n>] [noerr]
   
 ### <a name="parameters"></a>Parameter  
   
-| Parameter  |                                                                                             Beschreibung                                                                                              |
+| Parameter  |                                                                                             BESCHREIBUNG                                                                                              |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Datenträger\=<n>  |                                                                 Gibt den dynamischen Datenträger an, durch den der fehlerhafte Datenträger Bereich ersetzt wird.                                                                 |
-| \=<n> ausrichten |          Richtet alle Volumes oder Partitions Blöcke an der nächstgelegenen Ausrichtungs Grenze aus. " *n* " ist die Anzahl der Kilobyte \(KB\) vom Anfang des Datenträgers bis zur nächstgelegenen Ausrichtungs Grenze.           |
-|   Noerr    | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
+| Diskette\=<n>  |                                                                 Gibt den dynamischen Datenträger an, durch den der fehlerhafte Datenträger Bereich ersetzt wird.                                                                 |
+| abzustimmen\=<n> |          Richtet alle Volumes oder Partitions Blöcke an der nächstgelegenen Ausrichtungs Grenze aus. der *Wert für die* Anzahl der \(KB\) liegt zwischen dem Anfang des Datenträgers und der nächstgelegenen Ausrichtungs Grenze.           |
+|   Noerr    | nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
   
--   Der angegebene dynamische Datenträger muss über einen freien Speicherplatz verfügen, der größer oder gleich der Gesamtgröße des fehlerhaften Datenträger Bereichs im RAID-\-5-Volume ist.  
+-   Der angegebene dynamische Datenträger muss über einen freien Speicherplatz verfügen, der größer oder gleich der Gesamtgröße des fehlerhaften Daten\-Träger Bereichs auf dem RAID 5-Volume ist.  
   
--   Ein Volume in einem RAID-\-5-Array muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt wird. Wählen Sie mit dem Befehl **Volume auswählen** ein Volume aus, und verschieben Sie den Fokus auf das Volume.  
+-   Ein Volume in einem RAID\-5-Array muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt wird. Wählen Sie mit dem Befehl **Volume auswählen** ein Volume aus, und verschieben Sie den Fokus auf das Volume.  
   
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
+## <a name="examples"></a>Beispiele  
 Wenn Sie das Volume durch einen dynamischen Datenträger 4 ersetzen möchten, geben Sie Folgendes ein:  
   
 ```  
 repair disk=4  
 ```  
   
-## <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Zusätzliche Referenzen  
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
 

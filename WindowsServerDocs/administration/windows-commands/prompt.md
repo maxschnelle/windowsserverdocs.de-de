@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 6662cb7fb00b7d21311fef2ca127ba89591a00b2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4b3aedc341dfcee094e20f43e39f34dc6fd08109
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837133"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722793"
 ---
 # <a name="prompt"></a>prompt
 
 
 
-Ändert die Eingabeaufforderung "cmd. exe". Bei Verwendung ohne Parameter setzt **prompt die Eingabe** Aufforderung auf die Standardeinstellung zurück. Hierbei handelt es sich um den aktuellen Laufwerk Buchstaben und das Verzeichnis, gefolgt vom größer-als-Symbol ( **>** ).
+Ändert die Eingabeaufforderung "cmd. exe". Bei Verwendung ohne Parameter setzt **prompt die Eingabe** Aufforderung auf die Standardeinstellung zurück. Hierbei handelt es sich um den aktuellen Laufwerk Buchstaben und das Verzeichnis, gefolgt vom größer**>**-als-Symbol ().
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,12 +32,12 @@ prompt [<Text>]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|\<Text >|Gibt den Text und die Informationen an, die Sie in die Eingabeaufforderung einschließen möchten.|
+|\<Text>|Gibt den Text und die Informationen an, die Sie in die Eingabeaufforderung einschließen möchten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Sie können die Eingabeaufforderung anpassen, um den gewünschten Text anzuzeigen, einschließlich Informationen wie den Namen des aktuellen Verzeichnisses, das Datum und die Uhrzeit und die Microsoft Windows-Versionsnummer.
 
@@ -47,27 +47,27 @@ In der folgenden Tabelle sind die Zeichenkombinationen aufgelistet, die anstelle
 |-----------|-----------------------------------------------------------------------------|
 |    $q     |                               = (Gleichheitszeichen)                                |
 |    $$     |                               $ (Dollarzeichen)                               |
-|    $t     |                                Aktuelle Uhrzeit                                 |
+|    $t     |                                Die aktuelle Zeit                                 |
 |    $d     |                                Aktuelles Datum                                 |
 |    $p     |                           Aktuelles Laufwerk und Pfad                            |
 |    $v     |                           Windows-Versionsnummer                            |
 |    $n     |                                Aktuelles Laufwerk                                |
 |    $g     |                            > (größer als-Zeichen)                            |
 |    $l     |                             < (kleiner als Vorzeichen)                              |
-|    $b     |                              \| (Pipe-Symbol)                               |
+|    $b     |                              \|(Pipe-Symbol)                               |
 |    $_     |                               Eingabe-Zeilenvorschub                                |
 |    $e     |                         ANSI-Escapecode (Code 27)                          |
 |    $h     | Rücktaste (zum Löschen eines Zeichens, das in die Befehlszeile geschrieben wurde) |
-|    $a     |                                & (kaufmännisches und-Paar)                                |
+|    $a     |                                & (kaufmännisches Und-Zeichen)                                |
 |    $c     |                            ((linke Klammer)                             |
 |    $f     |                            ) (schließende Klammer)                            |
-|    $s     |                                    speicherplatz                                    |
+|    $s     |                                    Leerzeichen                                    |
 
 Wenn Befehls Erweiterungen aktiviert sind (d. h. der Standardwert), unterstützt der **prompt** -Befehl die folgenden Formatierungszeichen:  
 
 |Zeichen|Beschreibung|
 |---------|-----------|
-|$+|0 (null) oder mehr Pluszeichen ( **+** ), abhängig von der Tiefe des **pushd-** Verzeichnis Stapels (ein Zeichen für jede Ebene wird per Push abgelegt).|
+|$+|0 (null) oder mehr**+** Pluszeichen (), abhängig von der Tiefe des **pushd-** Verzeichnis Stapels (ein Zeichen für jede Ebene wird per Push abgelegt).|
 |$m|Der Remote Name, der dem aktuellen Laufwerk Buchstaben oder der leeren Zeichenfolge zugeordnet ist, wenn das aktuelle Laufwerk kein Netzwerklaufwerk ist.|
 
 Wenn Sie das **$p** Zeichen in den Text Parameter einschließen, wird der Datenträger gelesen, nachdem Sie jeden Befehl eingegeben haben (um das aktuelle Laufwerk und den Pfad zu bestimmen). Dies kann zusätzliche Zeit in Anspruch nehmen, insbesondere bei Diskettenlaufwerken.
@@ -83,7 +83,7 @@ Die Eingabeaufforderung wird wie folgt geändert, wobei Datum und Uhrzeit aktuel
 Fri 06/01/2007  13:53:28.91
 >
 ```
-Geben Sie Folgendes ein, um die Eingabeaufforderung als Pfeil (`-->`) anzuzeigen:
+Geben Sie Folgendes ein, um die Eingabeaufforderung als Pfeil`-->`() anzuzeigen:
 ```
 prompt --$g
 ```
@@ -92,6 +92,6 @@ Geben Sie Folgendes ein, um die Eingabeaufforderung manuell in die Standardeinst
 prompt $p$g
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

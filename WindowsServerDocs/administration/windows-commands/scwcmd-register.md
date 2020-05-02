@@ -1,6 +1,6 @@
 ---
 title: Scwcmd-Register
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5390b7d81efe8d807dd0b7d7a8c136a1d7092af3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b7328a9db29f394bde089988ab0bdbcd84f54b30
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835153"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722143"
 ---
-# <a name="scwcmd-register"></a>scwcmd: register
+# <a name="scwcmd-register"></a>Scwcmd: register
 
 > Gilt für: Windows Server 2012 R2, Windows Server 2012
 
@@ -30,29 +30,29 @@ scwcmd register /kbname:<MyApp> [/kbfile:<kb.xml>] [/kb:<path>] [/d]
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|/kbname:\<MyApp >|Gibt den Namen an, unter dem die Sicherheitskonfigurations-Daten Bank Erweiterung registriert wird. Dieser Parameter muss angegeben werden.|
+|/kbname:\<MyApp->|Gibt den Namen an, unter dem die Sicherheitskonfigurations-Daten Bank Erweiterung registriert wird. Dieser Parameter muss angegeben werden.|
 |/kbfile:\<KB. XML->|Gibt den Pfad und den Dateinamen der Sicherheitskonfigurations-Datenbankdatei an, die verwendet wird, um die Datenbank der Basis Sicherheitskonfiguration zu erweitern oder anzupassen. Um zu überprüfen, ob die Sicherheitskonfigurations-Datenbankdatei mit dem SCW-Schema kompatibel ist, verwenden Sie die Schema Definitionsdatei "%windir%\security\kbregistrationinfo.xsd". Diese Option muss angegeben werden, es sei denn, der **/d** -Parameter wird angegeben.|
-|/KB:\<Pfad >|Gibt den Pfad zu dem Verzeichnis an, das die zu aktualisierenden SCW-Sicherheits Konfigurations-Datenbankdateien enthält. Wenn diese Option nicht angegeben ist, wird%windir%\security\msscw\ksb verwendet.|
+|/KB:\<Pfad>|Gibt den Pfad zu dem Verzeichnis an, das die zu aktualisierenden SCW-Sicherheits Konfigurations-Datenbankdateien enthält. Wenn diese Option nicht angegeben ist, wird%windir%\security\msscw\ksb verwendet.|
 |/d|Hebt die Registrierung einer Sicherheitskonfigurations-Daten Bank Erweiterung aus der Sicherheitskonfigurations-Datenbank auf. Die Erweiterung, deren Registrierung aufgehoben werden soll, wird durch den/kbname-Parameter angegeben. (Der **/kbfile** -Parameter sollte nicht angegeben werden.) Die Sicherheits Konfigurations Datenbank, von der die Registrierung der Erweiterung aufgehoben werden soll, wird durch den **/KB** -Parameter angegeben.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Scwcmd. exe ist nur auf Computern verfügbar, auf denen Windows Server 2008 R2, Windows Server 2008 oder Windows Server 2003 ausgeführt wird.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um die Sicherheitskonfigurations-Datenbankdatei "scwkbformyapp. xml" unter dem Namen "MyApp" im Speicherort \\\\kbserver\kb zu registrieren:
+Geben Sie Folgendes ein, um die Sicherheitskonfigurations-Datenbankdatei "scwkbformyapp. xml" unter \\ \\dem Namen "MyApp" im Speicherort "kbserver\kb" zu registrieren:
 ```
 scwcmd register /kbfile:d:\SCWKBForMyApp.xml /kbname:MyApp /kb:\\kbserver\kb
 ```
-Um die Registrierung der Sicherheitskonfigurations-Datenbank MyApp unter \\\\kbserver\kb aufzuheben, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um die Registrierung der Sicherheitskonfigurations \\ \\-Datenbank MyApp in kbserver\kb aufzuheben:
 ```
 scwcmd register /d /kbname:MyApp /kb:\\kbserver\kb
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

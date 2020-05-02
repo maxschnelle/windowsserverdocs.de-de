@@ -1,6 +1,6 @@
 ---
 title: SC löschen
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 05b276de04d4250cc03e4b2976bf8c1330ef82ce
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dd40b5eb82def3b3c437cbdb5b60d279529d25a0
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835383"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722189"
 ---
 # <a name="sc-delete"></a>SC löschen
 
@@ -32,13 +32,13 @@ sc [<ServerName>] delete [<ServiceName>]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|\<Servername >|Gibt den Namen des Remote Servers an, auf dem sich der Dienst befindet. Der Name muss das Universal Naming Convention Format (UNC) verwenden (z. b. \\\\MyServer). Wenn Sie "SC. exe" lokal ausführen möchten, lassen Sie diesen Parameter Weg.|
-|\<ServiceName >|Gibt den Dienstnamen an, der vom **getkeyname** -Vorgang zurückgegeben wird.|
+|\<Servername>|Gibt den Namen des Remote Servers an, auf dem sich der Dienst befindet. Der Name muss das Universal Naming Convention (UNC)-Format (z \\ \\. b. MyServer) verwenden. Wenn Sie "SC. exe" lokal ausführen möchten, lassen Sie diesen Parameter Weg.|
+|\<Dienst Name>|Gibt den Dienstnamen an, der vom **getkeyname** -Vorgang zurückgegeben wird.|
 |?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Verwenden **Sie** die Option "Software" in der **Systemsteuerung** , um DHCP, DNS oder andere integrierte Betriebssystem Dienste zu löschen. Beachten Sie, dass durch **Hinzufügen oder entfernen** von Software nicht nur der Registrierungs Unterschlüssel für den Dienst entfernt, sondern auch der Dienst deinstalliert und Verknüpfungen zu diesem Dienst gelöscht werden.
 
@@ -49,6 +49,6 @@ Um den Dienst Unterschlüssel **newserv** aus der Registrierung auf dem lokalen 
 sc delete newserv
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
