@@ -1,6 +1,6 @@
 ---
-title: BI-admin-Cache und getexpirationtime
-description: Windows-Befehls Thema für den **BI-admin-Cache und getexpirationtime**, der die Cache Ablaufzeit abruft.
+title: bitsadmin cache and getexpirationtime
+description: Referenz Thema für den bizadmin-Cache und den getexpirationtime-Befehl, mit dem die Cache Ablaufzeit abgerufen wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 44e54e29865f67b2bed22d30871e8810a0b55587
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ecd20a6f35637be3d2f1cad08cf2d060c944857c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850923"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718426"
 ---
-# <a name="bitsadmin-cache-and-getexpirationtime"></a>BI-admin-Cache und getexpirationtime
+# <a name="bitsadmin-cache-and-getexpirationtime"></a>bitsadmin cache and getexpirationtime
 
 Ruft den Cache Ablauf Zeitpunkt ab.
 
@@ -26,14 +26,16 @@ Ruft den Cache Ablauf Zeitpunkt ab.
 bitsadmin /cache /getexpirationtime
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden wird die Ablaufzeit für den Cache abgerufen.
+So rufen Sie den Cache Ablauf Zeitpunkt ab:
 
 ```
-C:\>bitsadmin /cache /getexpirationtime
+bitsadmin /cache /getexpirationtime
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "biout admin Cache"](bitsadmin-cache.md)

@@ -1,6 +1,6 @@
 ---
 title: autoconv
-description: Windows-Befehls Thema für **Autov**, das Datei Zuordnungs Tabellen-und FAT32-Volumes in das NTFS-Dateisystem konvertiert.
+description: Referenz Thema für den autoenv-Befehl, mit dem Datei Zuordnungs Tabellen-und FAT32-Volumes in das NTFS-Dateisystem konvertiert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,29 +9,26 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fe0e388a1d4fd79567ef0562197e3181bbbc46f4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ea8f55270435c6632be2e527569b4a4b4ca81136
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851113"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718773"
 ---
 # <a name="autoconv"></a>autoconv
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Konvertiert Dateizuordnungs-und FAT32-Volumes in das NTFS-Dateisystem, wobei vorhandene Dateien und Verzeichnisse beim Start nach der Ausführung von **Autochk** intakt bleiben. Volumes, die in das NTFS-Dateisystem konvertiert werden, können nicht zurück in FAT oder FAT32 konvertiert werden.
 
-## <a name="remarks"></a>Hinweise
+> [!IMPORTANT]
+> **Autovs** kann nicht über die Befehlszeile ausgeführt werden. Diese kann nur beim Start ausgeführt werden, wenn Sie durch **Convert. exe**festgelegt ist.
 
-**Autov** kann nicht in der Befehlszeile ausgeführt werden. Diese wird nur beim Start ausgeführt, wenn Sie durch **Convert. exe**festgelegt wird.
-
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [autochk](autochk.md)
+- [Autochk-Befehl](autochk.md)
 
-- [convert](convert.md)
-
-- [Arbeiten mit Dateisystemen](https://go.microsoft.com/fwlink/?LinkId=4509)
+- [Convert-Befehl](convert.md)

@@ -1,6 +1,6 @@
 ---
 title: bitsadmin complete
-description: Windows-Befehls Thema für **bigsadmin abgeschlossen**, das den Auftrag abschließt.
+description: Referenz Thema für den Befehl "bizadmin Complete", mit dem der Auftrag abgeschlossen wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 847f6e298ff9701064ce4e577c785f7fc78ea22c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6b61f3475afdb0e29e5777940e6426a04fe33e78
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850823"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718230"
 ---
 # <a name="bitsadmin-complete"></a>bitsadmin complete
 
-Schließt den Auftrag ab. Die heruntergeladenen Dateien stehen Ihnen erst zur Verfügung, wenn Sie diesen Schalter verwenden. Verwenden Sie diesen Schalter, nachdem der Auftrag in den übertragenen Zustand wechselt. Andernfalls sind nur die Dateien verfügbar, die erfolgreich übertragen wurden.
+Schließt den Auftrag ab. Verwenden Sie diesen Schalter, nachdem der Auftrag in den übertragenen Zustand wechselt. Andernfalls sind nur die Dateien verfügbar, die erfolgreich übertragen wurden.
 
 ## <a name="syntax"></a>Syntax
 
@@ -28,20 +28,22 @@ bitsadmin /complete <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="example"></a>Beispiel
 
-Wenn der Status des Auftrags übertragen wird, hat Bits erfolgreich alle Dateien im Auftrag übertragen. Die Dateien sind jedoch erst verfügbar, wenn Sie den Schalter **/Complete** verwenden. 
-
-Wenn für mehrere Aufträge *mydownloadjob* als Name verwendet wird, müssen Sie *mydownloadjob* durch die GUID des Auftrags ersetzen, um den Auftrag eindeutig zu identifizieren.
+So führen Sie den Auftrag *mydownloadjob* aus, nachdem er `TRANSFERRED` den Status erreicht hat:
 
 ```
-C:\>bitsadmin /complete myDownloadJob
+bitsadmin /complete myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+Wenn für mehrere Aufträge *mydownloadjob* als Name verwendet wird, müssen Sie die GUID des Auftrags verwenden, um Sie für den Abschluss eindeutig zu identifizieren.
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

@@ -1,6 +1,6 @@
 ---
-title: detail
-description: Thema für Windows-Befehle für Details, das Informationen über den ausgewählten Datenträger, die ausgewählte Partition, das Volume oder die virtuelle Festplatte (VHD) anzeigt.
+title: Detail
+description: Referenz Thema für Details, das Informationen über den ausgewählten Datenträger, die Partition, das Volume oder die virtuelle Festplatte (VHD) anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 71f4f72b5a11e7af9c245b0491902687cb352b66
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4601e637f9e087dfa9647d633cee6a1dbc80638f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846373"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719605"
 ---
-# <a name="detail"></a>detail
+# <a name="detail"></a>Detail
 
 Zeigt Informationen zum ausgewählten Datenträger, der Partition, dem Volume oder der virtuellen Festplatte (VHD) an.
 
@@ -31,14 +31,14 @@ detail vdisk
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |[Detail Festplatte](detail-disk.md)|Zeigt die Eigenschaften des ausgewählten Datenträgers und der Volumes auf dem Datenträger an.|
 |[Detail Partition](detail-partition.md)|Zeigt die Eigenschaften der ausgewählten Partition an.|
 |[Detail Volume](detail-volume.md)|Zeigt die Datenträger an, auf denen sich das aktuelle Volume befindet.|
 |[Detail-Vdisk](detail-vdisk.md)|Zeigt die Eigenschaften der ausgewählten VHD an.|
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,21 +1,21 @@
 ---
 title: DiskPart
-description: Windows-Befehle-Thema für **DiskPart**, das Sie bei der Verwaltung der Laufwerke Ihres Computers unterstützt.
+description: Referenz Thema für **DiskPart**, das Sie bei der Verwaltung der Laufwerke Ihres Computers unterstützt.
 ms.prod: windows-server
 ms.technology: storage
 author: jasongerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: eb2921d8da4a4a29c4f700107ef5b6d7bfb41481
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: f127ff4ef1c2d143c956069d1ab3788382e70cc3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122533"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719460"
 ---
 # <a name="diskpart"></a>DiskPart
 
->Gilt für: Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 und Windows Server 2008 R2, Windows Server 2008
+> Gilt für: Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 und Windows Server 2008 R2, Windows Server 2008
 
 DiskPart-Befehle helfen Ihnen beim Verwalten der Laufwerke Ihres Computers (Datenträger, Partitionen, Volumes oder virtuelle Festplatten).
 
@@ -25,13 +25,13 @@ Bevor Sie Diskpart-Befehle verwenden können, müssen Sie zuerst auflisten und d
 
 Mithilfe der folgenden Schritte können Sie die verfügbaren Objekte auflisten und die Nummer oder den Laufwerk Buchstaben eines Objekts ermitteln:
 
-- `list disk`: zeigt alle Datenträger auf dem Computer an.
+- `list disk`-Zeigt alle Datenträger auf dem Computer an.
 
-- `list volume`: zeigt alle Volumes auf dem Computer an.
+- `list volume`-Zeigt alle Volumes auf dem Computer an.
 
-- `list partition`: zeigt die Partitionen auf dem Datenträger an, die den Fokus auf dem Computer haben.
+- `list partition`-Zeigt die Partitionen auf dem Datenträger an, die den Fokus auf dem Computer haben.
 
-- `list vdisk`: zeigt alle virtuellen Datenträger auf dem Computer an.
+- `list vdisk`-Zeigt alle virtuellen Datenträger auf dem Computer an.
 
 Wenn Sie die **List** -Befehle verwenden, wird neben dem Objekt mit dem Fokus ein Sternchen (*) angezeigt.
 
@@ -56,51 +56,51 @@ diskpart
 
 Sie können die folgenden Befehle über den DiskPart-Befehls Interpreter ausführen:
 
-| Befehl | Beschreibung |
+| Get-Help | BESCHREIBUNG |
 | ------- | ----------- |
-| [Active](active.md) | Markiert die Partition des Datenträgers mit dem Fokus als aktiv. |
-| [Hinzufügen](add.md) | Spiegelt das einfache Volume mit dem Fokus auf den angegebenen Datenträger. |
-| [Einräumen](assign.md) | Weist dem Volume mit dem Fokus einen Laufwerk Buchstaben oder einen Einfügepunkt zu. |
+| [Aktiv](active.md) | Markiert die Partition des Datenträgers mit dem Fokus als aktiv. |
+| [Add (Hinzufügen)](add.md) | Spiegelt das einfache Volume mit dem Fokus auf den angegebenen Datenträger. |
+| [Zuweisen](assign.md) | Weist dem Volume mit dem Fokus einen Laufwerk Buchstaben oder einen Einfügepunkt zu. |
 | [Vdisk anfügen](attach-vdisk.md) | Wird eine virtuelle Festplatte (auch als Bereitstellung oder Oberfläche bezeichnet) an eine virtuelle Festplatte (VHD) angefügt, sodass Sie auf dem Host Computer als lokales Festplattenlaufwerk angezeigt wird. |
-| [Legt](attributes.md) | Hiermit werden die Attribute eines Datenträgers oder Volumes angezeigt, festgelegt oder gelöscht. |
-| [Automatischen Bereitstellung](automount.md) | Aktiviert oder deaktiviert das Feature "automatischen Bereitstellung". | 
+| [Attribute](attributes.md) | Hiermit werden die Attribute eines Datenträgers oder Volumes angezeigt, festgelegt oder gelöscht. |
+| [Automatische Bereitstellung](automount.md) | Aktiviert oder deaktiviert das Feature "automatischen Bereitstellung". | 
 | [Umbruch](break.md) | Unterbricht das gespiegelte Volume mit dem Fokus auf zwei einfache Volumes. |
 | [Räumen](clean.md) | Entfernt alle Partitionen oder volumeformatierung aus dem Datenträger mit dem Fokus. |
 | [Compact Vdisk](compact-vdisk.md) | Verringert die physische Größe einer dynamisch erweiterbaren virtuellen Festplatten Datei (VHD). |
 | [Umgebaut](convert.md) | Konvertiert Dateizuordnungs-und FAT32-Volumes in das NTFS-Dateisystem, sodass vorhandene Dateien und Verzeichnisse intakt bleiben. |
-| [Stelle](create.md) | Erstellt eine Partition auf einem Datenträger, einem Volume auf einem oder mehreren Datenträgern oder einer virtuellen Festplatte (VHD). |
+| [Erstellen](create.md) | Erstellt eine Partition auf einem Datenträger, einem Volume auf einem oder mehreren Datenträgern oder einer virtuellen Festplatte (VHD). |
 | [Löschen](delete.md) | Löscht eine Partition oder ein Volume. |
 | [Vdisk trennen](detach-vdisk.md) | Verhindert, dass die ausgewählte virtuelle Festplatte (VHD) als lokales Festplattenlaufwerk auf dem Host Computer angezeigt wird. |
-| [Einzelnen](detail.md) | Zeigt Informationen zum ausgewählten Datenträger, der Partition, dem Volume oder der virtuellen Festplatte (VHD) an. |
+| [Detail](detail.md) | Zeigt Informationen zum ausgewählten Datenträger, der Partition, dem Volume oder der virtuellen Festplatte (VHD) an. |
 | [Exit](exit.md) | Beendet den DiskPart-Befehls Interpreter. |
-| [Erweitern von Vdisk](expand-vdisk.md) | erweitert eine virtuelle Festplatte (VHD) auf die Größe, die Sie angeben. |
-| [Extend](extend.md) | Erweitert das Volume oder die Partition mit dem Fokus zusammen mit dem Dateisystem in den freien (nicht zugeordneten) Speicherplatz auf einem Datenträger. |
+| [Erweitern von Vdisk](expand-vdisk.md) | Erweitert eine virtuelle Festplatte (VHD) auf die Größe, die Sie angeben. |
+| [Gewähren](extend.md) | Erweitert das Volume oder die Partition mit dem Fokus zusammen mit dem Dateisystem in den freien (nicht zugeordneten) Speicherplatz auf einem Datenträger. |
 | [Dateisysteme](filesystems.md) | Zeigt Informationen zum aktuellen Dateisystem des Volumes mit dem Fokus an und listet die Dateisysteme auf, die zum Formatieren des Volumes unterstützt werden. |
-| [Format](format.md) | Formatiert einen Datenträger zum Akzeptieren von Windows-Dateien. |
+| [Ges](format.md) | Formatiert einen Datenträger zum Akzeptieren von Windows-Dateien. |
 | [GPT](gpt.md) | Weist die GPT-Attribute der Partition zu, wobei der Fokus auf Basis Datenträgern für die GUID-Partitionstabelle (GPT) liegt. |
 | [Hilfe](help.md) | Zeigt eine Liste der verfügbaren Befehle oder ausführliche Hilfe Informationen zu einem angegebenen Befehl an. |
 | [Importieren](import.md) | Importiert eine fremde Datenträger Gruppe in die Datenträger Gruppe des lokalen Computers. |
-| [VSTE](inactive.md) | Markiert die Systempartition oder Start Partition, deren Fokus auf grundlegenden Master Boot Record-Datenträgern (MBR) liegt. |
-| [List](list.md) | Zeigt eine Liste von Datenträgern, von Partitionen auf einem Datenträger, von Volumes auf einem Datenträger oder von virtuellen Festplatten (VHDs) an. |
+| [Inaktiv](inactive.md) | Markiert die Systempartition oder Start Partition, deren Fokus auf grundlegenden Master Boot Record-Datenträgern (MBR) liegt. |
+| [Liste](list.md) | Zeigt eine Liste von Datenträgern, von Partitionen auf einem Datenträger, von Volumes auf einem Datenträger oder von virtuellen Festplatten (VHDs) an. |
 | [Vdisk zusammenführen](merge-vdisk.md) | Führt eine differenzierende virtuelle Festplatte (VHD) mit der entsprechenden übergeordneten VHD zusammen. |
-| [Aufzu](offline.md) | Nimmt einen Online Datenträger oder ein Online Volume in den Offline Zustand. |
-| [Internet](online.md) | Nimmt einen Offline Datenträger oder ein Offline Volume in den Online Zustand. |
+| [Offline](offline.md) | Nimmt einen Online Datenträger oder ein Online Volume in den Offline Zustand. |
+| [Online](online.md) | Nimmt einen Offline Datenträger oder ein Offline Volume in den Online Zustand. |
 | [Wiederherstellen](recover.md) | Aktualisiert den Status aller Datenträger in einer Datenträger Gruppe, versucht, Datenträger in einer ungültigen Datenträger Gruppe wiederherzustellen, und synchronisiert die gespiegelten Volumes und RAID-5-Volumes mit veralteten Daten erneut. |
 | [REM](rem.md) | Bietet eine Möglichkeit zum Hinzufügen von Kommentaren zu einem Skript. |
-| [Entfernen](remove.md) | Entfernt einen Laufwerk Buchstaben oder einen Einfügepunkt von einem Volume. |
+| [Remove](remove.md) | Entfernt einen Laufwerk Buchstaben oder einen Einfügepunkt von einem Volume. |
 | [Reparatur](repair.md) | Repariert das RAID-5-Volume mit dem Fokus, indem der fehlerhafte Datenträger Bereich durch die angegebene dynamische Festplatte ersetzt wird. |
 | [Neu einlesen](rescan.md) | Es werden neue Datenträger gesucht, die möglicherweise dem Computer hinzugefügt wurden. |
-| [Erhalten](retain.md) | Bereitet ein vorhandenes dynamisches einfaches Volume vor, das als Start-oder System Volume verwendet werden soll. |
+| [Beibehalten](retain.md) | Bereitet ein vorhandenes dynamisches einfaches Volume vor, das als Start-oder System Volume verwendet werden soll. |
 | [Chen](san.md) | Zeigt die Storage Area Network-Richtlinie (San) für das Betriebssystem an oder legt diese fest. |
-| [Auswahl](select.md) | Verschiebt den Fokus auf einen Datenträger, eine Partition, ein Volume oder eine virtuelle Festplatte (VHD). |
+| [Auswählen](select.md) | Verschiebt den Fokus auf einen Datenträger, eine Partition, ein Volume oder eine virtuelle Festplatte (VHD). |
 | [ID festlegen](set-id.md) | Ändert das Feld Partitionstyp für die Partition mit dem Fokus. |
 | [Verkleinern](shrink.md) | Verringert die Größe des ausgewählten Volumes um den angegebenen Betrag. |
 | [UniqueId](uniqueid.md) | Zeigt den GPT-Bezeichner (GUID-Partitionstabelle) oder die Master Boot Record (MBR)-Signatur für den Datenträger mit Fokus an oder legt ihn fest. |
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [Übersicht über Datenträgerverwaltung](https://docs.microsoft.com/windows-server/storage/disk-management/overview-of-disk-management)
+- [Datenträgerverwaltung: Übersicht](https://docs.microsoft.com/windows-server/storage/disk-management/overview-of-disk-management)
 
-- [Storage-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/storage/)
+- [Speicher-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/storage/)

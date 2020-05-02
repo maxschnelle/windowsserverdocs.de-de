@@ -1,6 +1,6 @@
 ---
 title: bdehdcfg
-description: Windows-Befehls Thema für **bdehdcfg**, das eine Festplatte mit den für BitLocker-Laufwerkverschlüsselung erforderlichen Partitionen vorbereitet.
+description: Referenz Thema für den Befehl "bdehdcfg", der eine Festplatte mit den für BitLocker-Laufwerkverschlüsselung erforderlichen Partitionen vorbereitet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c9adf8bbfb655e0820fcff6385d3663fc7abbd9a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3bcc901847bb8d687d59bc3270dab39de0af8d60
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851003"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718567"
 ---
 # <a name="bdehdcfg"></a>bdehdcfg
 
@@ -33,40 +33,24 @@ Bereitet eine Festplatte mit den für BitLocker-Laufwerkverschlüsselung erforde
 >
 >- Wenn diese Richtlinieneinstellung erzwungen wird, kann ein Festplattenlaufwerk nicht neu partitioniert werden, weil es geschützt ist. Wenn Sie ein Upgrade der Computer in ihrer Organisation von einer früheren Version von Windows durchführen und diese Computer mit einer einzelnen Partition konfiguriert waren, sollten Sie die erforderliche BitLocker-Systempartition erstellen, bevor Sie die Richtlinieneinstellung für die Computer übernehmen.
 
-Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
-
 ## <a name="syntax"></a>Syntax
 
 ```
-bdehdcfg [–driveinfo <DriveLetter>] [-target {default|unallocated|<DriveLetter> shrink|<DriveLetter> merge}] [–newdriveletter] [–size <SizeinMB>] [-quiet]
+bdehdcfg [–driveinfo <drive_letter>] [-target {default|unallocated|<drive_letter> shrink|<drive_letter> merge}] [–newdriveletter] [–size <size_in_mb>] [-quiet]
 ```
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- |----------- |
-| [Bdehdcfg: DriveInfo](bdehdcfg-driveinfo.md) | Zeigt den Laufwerk Buchstaben, die Gesamtgröße, den maximalen freien Speicherplatz und die Partitions Merkmale der Partitionen auf dem angegebenen Laufwerk an. Nur gültige Partitionen sind aufgeführt. Verfügbarer Speicher ist nicht aufgeführt, wenn bereits vier primäre oder erweiterte Partitionen vorhanden sind. |
-| [Bdehdcfg: Ziel](bdehdcfg-target.md) | Definiert, welcher Teil eines Laufwerks als Systemlaufwerk verwendet werden soll, und macht den Teil aktiv. |
-| [Bdehdcfg: newdriveletter](bdehdcfg-newdriveletter.md) | Weist dem Teil eines Laufwerks, das als Systemlaufwerk verwendet wird, einen neuen Laufwerk Buchstaben zu. |
-| [Bdehdcfg: Größe](bdehdcfg-size.md) | Bestimmt die Größe der Systempartition beim Erstellen eines neuen System Laufwerks. |
-| [Bdehdcfg: Quiet](bdehdcfg-quiet.md) | Verhindert die Anzeige aller Aktionen und Fehler in der Befehlszeilenschnittstelle und leitet bdehdcfg zur Verwendung der ja-Antwort auf alle Ja/Nein-Eingabe Aufforderungen, die während der nachfolgenden Laufwerks Vorbereitung auftreten können. |
-| [Bdehdcfg: neu starten](bdehdcfg-restart.md) | Der Computer wird nach Abschluss der Laufwerks Vorbereitung an den Neustart umgeleitet. |
+| [bdehdcfg: DriveInfo](bdehdcfg-driveinfo.md) | Zeigt den Laufwerk Buchstaben, die Gesamtgröße, den maximalen freien Speicherplatz und die Partitions Merkmale der Partitionen auf dem angegebenen Laufwerk an. Nur gültige Partitionen sind aufgeführt. Verfügbarer Speicher ist nicht aufgeführt, wenn bereits vier primäre oder erweiterte Partitionen vorhanden sind. |
+| [bdehdcfg: Ziel](bdehdcfg-target.md) | Definiert, welcher Teil eines Laufwerks als Systemlaufwerk verwendet werden soll, und macht den Teil aktiv. |
+| [bdehdcfg: newdriveletter](bdehdcfg-newdriveletter.md) | Weist dem Teil eines Laufwerks, das als Systemlaufwerk verwendet wird, einen neuen Laufwerk Buchstaben zu. |
+| [bdehdcfg: Größe](bdehdcfg-size.md) | Bestimmt die Größe der Systempartition beim Erstellen eines neuen System Laufwerks. |
+| [bdehdcfg: Quiet](bdehdcfg-quiet.md) | Verhindert die Anzeige aller Aktionen und Fehler in der Befehlszeilenschnittstelle und leitet bdehdcfg zur Verwendung der ja-Antwort auf alle Ja/Nein-Eingabe Aufforderungen, die während der nachfolgenden Laufwerks Vorbereitung auftreten können. |
+| [bdehdcfg: neu starten](bdehdcfg-restart.md) | Der Computer wird nach Abschluss der Laufwerks Vorbereitung an den Neustart umgeleitet. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
-
-Das folgende Beispiel zeigt bdehdcfg, das mit dem Standard Laufwerk verwendet wird, um eine Systempartition von 500 MB zu erstellen. Da kein Laufwerk Buchstabe angegeben wird, weist die neue Systempartition keinen Laufwerk Buchstaben auf.
-
-```
-bdehdcfg -target default -size 500
-```
-
-Das folgende Beispiel zeigt, wie bdehdcfg mit dem Standard Laufwerk verwendet wird, um eine Systempartition zu erstellen (P:) der Standardgröße von 300 MB von nicht zugewiesener Speicherplatz auf dem Laufwerk. Das Tool fordert den Benutzer nicht auf, weitere Eingaben einzugeben, und es werden keine Fehler angezeigt. Nachdem das Systemlaufwerk erstellt wurde, wird der Computer automatisch neu gestartet.
-
-```
-bdehdcfg -target unallocated –newdriveletter P: -quiet -restart
-```
-
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

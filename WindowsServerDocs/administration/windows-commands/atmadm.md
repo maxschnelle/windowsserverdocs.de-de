@@ -1,6 +1,6 @@
 ---
 title: atmadm
-description: Windows-Befehls Thema für **atmadm**, das Verbindungen und Adressen überwacht, die vom ATM-Telefon-Manager in einem Netzwerk mit einem asynchronen Übertragungsmodus (ATM) registriert werden.
+description: Referenz Thema für den atmadm-Befehl, der die Verbindungen und Adressen überwacht, die vom ATM-Telefon-Manager in einem Netzwerk mit einem asynchronen Übertragungsmodus (ATM) registriert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cbfb787c472eaad4cbef5f86e7546f7b6f1da305
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 32dad00e5a4d03c905f95c48e112f512a9dbc2e5
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851273"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718921"
 ---
 # <a name="atmadm"></a>atmadm
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Überwacht die Verbindungen und Adressen, die vom ATM-Telefon-Manager in einem Netzwerk mit einem Netzwerk im asynchronen Übertragungsmodus (ATM) registriert werden. Sie können " **atmadm** " verwenden, um Statistiken für eingehende und ausgehende Aufrufe von atM-Adaptern anzuzeigen. **Atmadm** wird ohne Parameter verwendet und zeigt Statistiken zum Überwachen des Status aktiver atM-Verbindungen an. 
+Überwacht die Verbindungen und Adressen, die vom ATM-Telefon-Manager in einem Netzwerk mit einem Netzwerk im asynchronen Übertragungsmodus (ATM) registriert werden. Sie können " **atmadm** " verwenden, um Statistiken für eingehende und ausgehende Aufrufe von atM-Adaptern anzuzeigen. **Atmadm** wird ohne Parameter verwendet und zeigt Statistiken zum Überwachen des Status aktiver atM-Verbindungen an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,14 +30,14 @@ atmadm [/c][/a][/s]
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ------- | -------- |
-| /c | Zeigt die Telefon Informationen für alle aktuellen Verbindungen mit dem auf diesem Computer installierten atM-Netzwerkadapter an. |
+| /C | Zeigt die Telefon Informationen für alle aktuellen Verbindungen mit dem auf diesem Computer installierten atM-Netzwerkadapter an. |
 | /a | Zeigt die registrierte Netzwerkdienst-Netzwerkdienst-Netzwerkadresse (Network Service Access Point, NSAP) für jeden auf diesem Computer installierten Adapter an. |
 | /s | Zeigt eine Statistik zum Überwachen des Status aktiver atM-Verbindungen an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 
 - Der Befehl **atmadm/c** erzeugt eine Ausgabe ähnlich der folgenden:
 
@@ -74,7 +74,7 @@ atmadm [/c][/a][/s]
 
     Die folgende Tabelle enthält Beschreibungen der einzelnen Elemente in der/c-Beispielausgabe von **atmadm** .
 
-    | Datentyp | Bildschirm Anzeige | Beschreibung |
+    | Datentyp | Bildschirm Anzeige | BESCHREIBUNG |
     | -------- | --------- | -------- |
     | Verbindungsinformationen | Ein/Aus | Die Richtung des Aufrufes. **In** ist der atM-Netzwerkadapter von einem anderen Gerät aus.  **Out** ist vom atM-Netzwerkadapter auf ein anderes Gerät. |
     | PMP | Punkt-zu-Multipoint-Aufrufe. |
@@ -83,8 +83,8 @@ atmadm [/c][/a][/s]
     | Angebotene | Die Verbindung befindet sich in einer permanenten virtuellen Verbindung. |
     | VPI/VCI-Informationen | VPI/VCI | Virtueller Pfad und virtueller Kanal des eingehenden oder ausgehenden Aufrufes. |
     | Remote Adresse/Medien Parameter | 47000580ffe1000000f21a2e180000c110081500 | NSAP-Adresse des aufrufenden **(in)** oder aufgerufenen **(Out)** atM-Geräts. |
-    | Llte | Der Parameter **TX** umfasst die folgenden drei Elemente:<p>-Default oder der angegebene Bitrate-Typ (UBR, CBR, VBR oder ABR)<p>-Standard oder angegebene Zeilen Geschwindigkeit<p>-Angegebene SDU-Größe (Service Data Unit). |
-    | RX | Der **RX** -Parameter umfasst die folgenden drei Elemente:<p>-Default oder der angegebene Bitrate-Typ (UBR, CBR, VBR oder ABR)<p>-Standard oder angegebene Zeilen Geschwindigkeit<p>-Angegebene SDU-Größe. |
+    | Llte | Der Parameter **TX** umfasst die folgenden drei Elemente:<ul><li>Der Standard-oder der angegebene Bitrate-Typ (UBR, CBR, VBR oder ABR)</li><li>Standard-oder angegebene Zeilen Geschwindigkeit</li><li>Die angegebene SDU-Größe (Service Data Unit).</li></ul> |
+    | Rx | Der **RX** -Parameter umfasst die folgenden drei Elemente:<ul><li>Der Standard-oder der angegebene Bitrate-Typ (UBR, CBR, VBR oder ABR)</li><li>Standard-oder angegebene Zeilen Geschwindigkeit</li><li>Die angegebene SDU-Größe.</li></ul> |
 
 - Der Befehl **atmadm/a** erzeugt eine Ausgabe ähnlich der folgenden:
 
@@ -112,7 +112,7 @@ atmadm [/c][/a][/s]
 
     Die folgende Tabelle enthält Beschreibungen der einzelnen Elemente in der/s-Beispielausgabe von **atmadm** .
 
-    | Statistik zum CallManager | Beschreibung |
+    | Statistik zum CallManager | BESCHREIBUNG |
     | ------------- | -------- |
     | Aktuelle aktive Aufrufe | Aufrufe, die zurzeit auf dem auf diesem Computer installierten atM-Adapter aktiv sind. |
     | Gesamtanzahl erfolgreicher eingehender Aufrufe | Aufrufe, die von anderen Geräten in diesem atM-Netzwerk erfolgreich empfangen wurden. |
@@ -124,7 +124,7 @@ atmadm [/c][/a][/s]
     | Signalisierung und gesendete ILMI-Pakete | Anzahl der integrierten ILMI-Pakete (Local Management Interface), die an den Switch gesendet werden, mit dem dieser Computer eine Verbindung herstellt. |
     | Signalisierungs-und ILMI-Pakete empfangen | Anzahl der vom atM-Schalter empfangenen ILMI-Pakete. |
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um die Aufrufen von Informationen für alle aktuellen Verbindungen mit dem auf diesem Computer installierten atM-Netzwerkadapter anzuzeigen:
 
@@ -144,6 +144,6 @@ Geben Sie Folgendes ein, um Statistiken zum Überwachen des Status aktiver atM-V
 atmadm /s
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: Dfsdiag testreferral
-description: Windows-Befehls Thema für Dfsdiag testreferral, das verteiltes Dateisystem (DFS)-Verweise prüft.
+description: Referenz Thema für Dfsdiag testreferral, das verteiltes Dateisystem (DFS)-Verweise prüft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d5c0a75d557d816ac9e19a1e22b3273195b93f53
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6b4c616181d367a8a95efe6484f74af0ff88cc5f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846245"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719569"
 ---
 # <a name="dfsdiag-testreferral"></a>Dfsdiag testreferral
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Prüft verteiltes Dateisystem (DFS)-Verweise durch Ausführen der folgenden Tests:
 
@@ -40,12 +40,12 @@ dfsdiag /TestReferral /DFSpath:<DFS path for getting referrals> [/Full]
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
-| /DFSpath:<path for getting referrals>|Dieser DFS-Pfad kann eine der folgenden sein:<p>-   \(leeres\): testet vertrauenswürdige Domänen.<br />-   \\\\Domäne: Domänen Controller Verweise.<br />-   \\\\Domänen\\SYSVOL: SYSVOL-Verweise.<br />-   \\\\Doma in\\Netlogon: Netlogon-Referenzen.<br />-   \\\\<Domain or server>\\<Namespace Root>: Namespace-Stamm Verweise.<br />-   \\\\<Domain or server>\\<Namespace root>\\<DFS folder>: DFS-Ordner \(Verknüpfungen\) verweisen.|
-|/Full|Wird nur auf Domänen-und Stamm Verweise angewendet. überprüft die Konsistenz der Standort Zuordnungs Informationen zwischen der Registrierung und den Active Directory-Domänen Diensten \(AD DS\).|
+| /DFSpath:<path for getting referrals>|Dieser DFS-Pfad kann eine der folgenden sein:<p>-   \(Blank\): testet vertrauenswürdige Domänen.<br />-   \\\\Domäne: Domänen Controller Verweise.<br />-   \\\\Domäne\\SYSVOL: SYSVOL referenrals.<br />-   \\\\Doma in\\Netlogon: Netlogon-Verweise.<br />-   \\\\<Domain or server>\\<Namespace Root>: Namespace-Stamm Verweise.<br />-   \\\\<Domain or server>\\<Namespace root>\\<DFS folder>: \(\) Verweise auf DFS-Ordner Verweise.|
+|/Full|Wird nur auf Domänen-und Stamm Verweise angewendet. überprüft die Konsistenz der Standort Zuordnungs Informationen zwischen der Registrierung und den Active Directory- \(Domänen Diensten AD DS\).|
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 ```
 dfsdiag /TestReferral /DFSpath:\\Contoso.com\MyNamespace
@@ -55,7 +55,7 @@ dfsdiag /TestReferral /DFSpath:\\Contoso.com\MyNamespace
 dfsdiag /TestReferral /DFSpath:
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

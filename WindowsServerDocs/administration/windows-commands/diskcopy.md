@@ -1,6 +1,6 @@
 ---
 title: diskcopy
-description: Windows-Befehls Thema für diskcopy, das den Inhalt der Diskette im Quelllaufwerk in eine formatierte oder unformatierte Diskette auf dem Ziellaufwerk kopiert.
+description: Referenz Thema für diskcopy, das den Inhalt der Diskette im Quelllaufwerk in eine formatierte oder unformatierte Diskette auf dem Ziellaufwerk kopiert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/07/2018
-ms.openlocfilehash: 675694503cab207f05fd6b48e0d17c23196f85d0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b5c9186a539a58ed0d3362ba83d7a3bcedcaabad
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845543"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719470"
 ---
 # <a name="diskcopy"></a>diskcopy
 
 Kopiert den Inhalt des Disketten Datenträgers im Quelllaufwerk in eine formatierte oder unformatierte Diskette auf dem Ziellaufwerk. Bei Verwendung ohne Parameter verwendet **diskcopy** das aktuelle Laufwerk für den Quell Datenträger und den Ziel Datenträger.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 > [!NOTE]
 > Dieser Befehl ist nicht in Windows 10 enthalten.
@@ -35,12 +35,12 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Drive1 >|Gibt das Laufwerk an, das den Quell Datenträger enthält.|
-|\<drive2 >|Gibt das Laufwerk an, das den Ziel Datenträger enthält.|
+|\<Drive1>|Gibt das Laufwerk an, das den Quell Datenträger enthält.|
+|\<Drive2>|Gibt das Laufwerk an, das den Ziel Datenträger enthält.|
 |/v|Überprüft, ob die Informationen ordnungsgemäß kopiert werden. Diese Option verlangsamt den Kopiervorgang.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Verwenden von Datenträgern
 
@@ -83,7 +83,7 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
     The following table explains each exit code.
     
-    |Exitcode|Beschreibung|
+    |Exitcode|BESCHREIBUNG|
     |---------|-----------|
     |0|Der Kopiervorgang war erfolgreich.|
     |1|Nicht schwerwiegender Lese-/Schreibfehler|
@@ -92,7 +92,7 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
     To process the exit codes that are returned by **diskcomp**, you can use the *ERRORLEVEL* environment variable on the **if** command line in a batch program.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um den Datenträger in Laufwerk B auf den Datenträger in Laufwerk a zu kopieren:
 ```
@@ -102,6 +102,6 @@ Wenn Sie Diskettenlaufwerk A verwenden möchten, um eine Diskette in eine andere
 
 DISKCOPY a: a:
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
-title: biout admin Cache und getlimit
-description: Windows-Befehls Thema für den **BI-admin-Cache und getlimit**, der das Cache Limit abruft.
+title: bitsadmin cache and getlimit
+description: Referenz Thema für den bizadmin-Cache und den getlimit-Befehl, der das Cache Limit abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: de657e9be91ab09c284760a35bd0e4f3b6b94f63
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 17ee6b792727f613d6038cdf489bc62577f2e900
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850903"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718388"
 ---
-# <a name="bitsadmin-cache-and-getlimit"></a>biout admin Cache und getlimit
+# <a name="bitsadmin-cache-and-getlimit"></a>bitsadmin cache and getlimit
 
 Ruft das Cache Limit ab.
 
@@ -26,14 +26,16 @@ Ruft das Cache Limit ab.
 bitsadmin /cache /getlimit
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird das Cache Limit abgerufen.
+So rufen Sie das Cache Limit ab:
 
 ```
-C:\>bitsadmin /cache /getlimit
+bitsadmin /cache /getlimit
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "biout admin Cache"](bitsadmin-cache.md)

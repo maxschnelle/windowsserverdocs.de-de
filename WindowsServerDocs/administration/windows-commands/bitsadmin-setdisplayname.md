@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setdisplayname
-description: Windows-Befehls Thema für **bizadmin setdisplayname**, mit dem der Anzeige Name des angegebenen Auftrags festgelegt wird.
+description: Referenz Thema für den Befehl "bitadmin setdisplayname", mit dem der Anzeige Name des angegebenen Auftrags festgelegt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0b1086903dd130392800f325c451bb4750fbf8fa
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 382cb2f20f0374c2d2787c4c3d88670b4f7260cd
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81123006"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719388"
 ---
 # <a name="bitsadmin-setdisplayname"></a>bitsadmin setdisplayname
 
@@ -28,19 +28,21 @@ bitsadmin /setdisplayname <job> <display_name>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | display_name | Text, der als angezeigter Name für den jeweiligen Auftrag verwendet wird. |
 
 ## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird der Anzeige Name für den Auftrag auf *mydownloadjob*festgelegt.
+So legen Sie den anzeigen Amen für den Auftrag auf *mydownloadjob*fest
 
 ```
-C:\>bitsadmin /setdisplayname myDownloadJob
+bitsadmin /setdisplayname myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

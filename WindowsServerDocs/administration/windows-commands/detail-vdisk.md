@@ -1,6 +1,6 @@
 ---
 title: Detail-Vdisk
-description: Windows-Befehls Thema für Detail Datenträger, der die Eigenschaften der ausgewählten virtuellen Festplatte (VHD) anzeigt.
+description: Referenz Thema für Detail Datenträger, der die Eigenschaften der ausgewählten virtuellen Festplatte (VHD) anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ba4a13762da4039459c2fa422ecf83b277fcd4d6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ed07639132fcf770036d5955a4e6cc54415b71e1
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846403"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719622"
 ---
 # <a name="detail-vdisk"></a>Detail-Vdisk
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt die Eigenschaften der ausgewählten virtuellen Festplatte (VHD) an.  
   
@@ -28,22 +28,22 @@ Zeigt die Eigenschaften der ausgewählten virtuellen Festplatte (VHD) an.
 detail vdisk  
 ```  
   
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
   
 -   Eine virtuelle Festplatte muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Vdisk auswählen** einen virtuellen Datenträger aus, und verschieben Sie den Fokus auf den Vdisk.  
   
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele  
+## <a name="examples"></a>Beispiele  
 Geben Sie Folgendes ein, um Details zur ausgewählten VHD anzuzeigen:  
   
 ```  
 detail vdisk  
 ```  
   
-## <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Zusätzliche Referenzen  
   
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
   
--   [Vdisk anfügen](attach-vdisk.md)  
+-   [attach vdisk](attach-vdisk.md)  
   
 -   [Compact Vdisk](compact-vdisk.md)
   

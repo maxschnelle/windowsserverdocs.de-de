@@ -1,6 +1,6 @@
 ---
-title: bitadmin-Cache und-Liste
-description: Windows-Befehls Thema für den **BI-admin-Cache und die Liste**mit allen Cache Einträgen.
+title: bitsadmin cache and list
+description: Referenz Thema für den bizadmin-Cache und den List-Befehl, der alle Cache Einträge auflistet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8400c0111f88f9f20a0766bbeb682db76b9d1444
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6c621e4ae85d24cbadcec009b60c68ecc4c8ac18
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850863"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718324"
 ---
-# <a name="bitsadmin-cache-and-list"></a>bitadmin-Cache und-Liste
+# <a name="bitsadmin-cache-and-list"></a>bitsadmin cache and list
 
 Listet alle Cache Einträge auf.
 
@@ -26,14 +26,16 @@ Listet alle Cache Einträge auf.
 bitsadmin /cache /list [/verbose]
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel werden alle Cache Einträge im ausführlichen Format aufgelistet.
+, Um alle Cache Einträge im ausführlichen Format aufzulisten.
 
 ```
-C:\> bitsadmin /cache /list /verbose
+bitsadmin /cache /list /verbose
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "biout admin Cache"](bitsadmin-cache.md)

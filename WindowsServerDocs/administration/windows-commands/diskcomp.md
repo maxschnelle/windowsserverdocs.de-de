@@ -1,6 +1,6 @@
 ---
 title: diskcomp
-description: Windows-Befehls Thema für diskcomp, das den Inhalt von zwei Disketten vergleicht.
+description: Referenz Thema für diskcomp, das den Inhalt von zwei Disketten vergleicht.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,17 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e36e644616e25659c1a2a5ca684e975fd06fc19f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e1b15e9b6669a22ac95693e635bae1642c307e09
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845553"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719486"
 ---
 # <a name="diskcomp"></a>diskcomp
 
 Vergleicht den Inhalt von zwei Disketten. Bei Verwendung ohne Parameter verwendet **diskcomp** das aktuelle Laufwerk, um beide Datenträger zu vergleichen.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,11 +31,11 @@ diskcomp [<Drive1>: [<Drive2>:]]
 
 |Parameter|Beschreibung|
 |---------|-----------|
-|\<Drive1 >|Gibt das Laufwerk an, das eine der Disketten enthält.|
-|\<drive2 >|Gibt das Laufwerk an, das die andere Diskette enthält.|
+|\<Drive1>|Gibt das Laufwerk an, das eine der Disketten enthält.|
+|\<Drive2>|Gibt das Laufwerk an, das die andere Diskette enthält.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 - Verwenden von Datenträgern
 
@@ -94,7 +93,7 @@ diskcomp [<Drive1>: [<Drive2>:]]
 
   In der folgenden Tabelle werden die einzelnen Exitcodes erläutert.  
 
-  |Exitcode|Beschreibung|
+  |Exitcode|BESCHREIBUNG|
   |---------|-----------|
   |0|Datenträger sind identisch.|
   |1|Unterschiede wurden gefunden.|
@@ -103,7 +102,7 @@ diskcomp [<Drive1>: [<Drive2>:]]
 
   Zum Verarbeiten von Exitcodes, die von **diskcomp**zurückgegeben werden, können Sie die ERRORLEVEL-Umgebungsvariable in der **if** -Befehlszeile in einem Batch-Programm verwenden.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Wenn Ihr Computer nur über ein Diskettenlaufwerk (z. b. Laufwerk A) verfügt und Sie zwei Datenträger vergleichen möchten, geben Sie Folgendes ein:
 ```
@@ -111,7 +110,7 @@ diskcomp a: a:
 ```
 Bei Bedarf werden Sie von **diskcomp** aufgefordert, jeden Datenträger einzufügen.
 
-Im folgenden Beispiel wird veranschaulicht, wie ein **diskcomp** -Exitcode in einem Batch-Programm verarbeitet wird, das die ERRORLEVEL-Umgebungsvariable in der **if** -Befehlszeile verwendet:
+Veranschaulicht, wie ein **diskcomp** -Exitcode in einem Batch-Programm verarbeitet wird, das die ERRORLEVEL-Umgebungsvariable in der **if** -Befehlszeile verwendet:
 ```
 rem Checkout.bat compares the disks in drive A and B 
 echo off 
@@ -138,6 +137,6 @@ goto exit
 :exit
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

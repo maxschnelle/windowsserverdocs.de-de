@@ -1,6 +1,6 @@
 ---
 title: diskraid
-description: Windows-Befehlszeilen Thema für Diskraid, ein Befehlszeilen Tool, mit dem Sie redundante Arrays unabhängiger (oder kostengünstiger) Speicher Subsysteme (oder kostengünstiger) konfigurieren und verwalten können.
+description: Referenz Thema für Diskraid, bei dem es sich um ein Befehlszeilen Tool handelt, mit dem Sie redundante Arrays unabhängiger (oder kostengünstiger) Speicher Subsysteme (oder kostengünstiger) konfigurieren und verwalten können.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ea71fc67420700527a3a14494c947aed7a2ec747
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 25a6a0315b74e948fd23ac1257072ac583f311d0
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845403"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719432"
 ---
 # <a name="diskraid"></a>diskraid
 
@@ -49,9 +49,9 @@ Um die Befehlssyntax anzuzeigen, klicken Sie auf einen der folgenden Befehle:
 -   [Photo](#BKMK_15)
 -   [INVALIDATECACHE](#BKMK_16)
 -   [lbpolicy](#BKMK_18)
--   [List](#BKMK_19)
+-   [list](#BKMK_19)
 -   [Anmel](#BKMK_20)
--   [Abmelde](#BKMK_21)
+-   [logout](#BKMK_21)
 -   [Unterhalt](#BKMK_22)
 -   [name](#BKMK_23)
 -   [aufzu](#BKMK_24)
@@ -60,10 +60,10 @@ Um die Befehlssyntax anzuzeigen, klicken Sie auf einen der folgenden Befehle:
 -   [erneut auflisten](#BKMK_27)
 -   [erneuten](#BKMK_28)
 -   [rem](#BKMK_29)
--   [aufgeh](#BKMK_30)
+-   [remove](#BKMK_30)
 -   [replace](#BKMK_31)
 -   [reset](#BKMK_32)
--   [Auswahl](#BKMK_33)
+-   [select](#BKMK_33)
 -   [setflag](#BKMK_34)
 -   [shrink](#BKMK_shrink)
 -   [Standby](#BKMK_35)
@@ -89,7 +89,7 @@ Gibt die LUN-Nummer an, die der aktuell ausgewählten LUN als Plex hinzugefügt 
 > [!CAUTION]
 > Alle Daten auf der LUN, die als Plex hinzugefügt werden, werden gelöscht.
 
-**TPGROUP TPORTAL =** <em>n</em>
+**TPGROUP TPORTAL =**<em>n</em>
 
 Gibt die iSCSI-Zielportal-Nummer an, die der aktuell ausgewählten iSCSI-Zielportal Gruppe hinzugefügt werden soll.
 
@@ -111,7 +111,7 @@ associate targets [add] <n>[,<n> [,…]]
 
 ##### <a name="parameters"></a>Parameter
 
-**kontrolliert**
+**controllers**
 
 Nur für die Verwendung mit VDS 1,0-Anbietern. Fügt der Liste der Controller, die der aktuell ausgewählten LUN zugeordnet sind, hinzu oder ersetzt Sie.
 
@@ -139,7 +139,7 @@ Zur Verwendung mit dem **Ports** -Parameter. Gibt die Controllerports an, die mi
 
 #### <a name="example"></a>Beispiel
 
-Im folgenden Beispiel wird gezeigt, wie Sie Ports einer LUN zuordnen und hinzufügen, die einen VDS 1,1-Anbieter verwendet:
+Zeigt, wie Sie Ports einer LUN zuordnen und diese hinzufügen, die einen VDS 1,1-Anbieter verwendet:
 ```
 DISKRAID> SEL LUN 5
 LUN 5 is now the selected LUN.
@@ -177,11 +177,11 @@ Löscht die angegebenen Flags. Mit dem **all** -Schlüsselwort werden alle autom
 
 Wendet die aktuellen Flags auf die ausgewählte LUN an.
 
-\<Flag >
+\<Flag>
 
 Flags werden durch aus drei Buchstaben bestehende Akronyme identifiziert.
 
-|Flag|Beschreibung|
+|Flag|BESCHREIBUNG|
 |----|-----------|
 |F|Schnelle Wiederherstellung von Abstürzen erforderlich|
 |FTL|Fehler tolerant|
@@ -221,7 +221,7 @@ Gibt die Nummer des zu entfernenden Plex an. Der Plex und die darin enthaltenen 
 
 Gibt an, dass alle Fehler, die während der Ausführung dieses Vorgangs auftreten, ignoriert werden. Dies ist im Skript Modus nützlich.
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 > [!NOTE]
 > Sie müssen zuerst eine gespiegelte LUN auswählen, bevor Sie den **break** -Befehl verwenden.
@@ -263,11 +263,11 @@ Legt den gemeinsamen geheimen Schlüssel im aktuell ausgewählten iSCSI-Ziel fü
 
 Kommuniziert das CHAP-Geheimnis eines iSCSI-Initiators mit dem aktuellen iSCSI-Ziel im Fokus, sodass das Ziel das Geheimnis verwenden kann, um sich bei der wechselseitigen CHAP-Authentifizierung beim Initiator zu authentifizieren.
 
-**geheimen**
+**secret**
 
 Gibt den zu verwendenden geheimen Schlüssel an. Wenn der Eintrag leer ist, wird der geheime Schlüssel gelöscht.
 
-**Spar**
+**Ziel**
 
 Gibt ein Ziel im aktuell ausgewählten Subsystem an, das dem geheimen Schlüssel zugeordnet werden soll. Dies ist optional, wenn Sie einen geheimen Schlüssel für den Initiator festlegen und ihn verlassen, gibt an, dass der geheime Schlüssel für alle Ziele verwendet wird, die noch nicht über ein zugeordnetes Geheimnis verfügen.
 
@@ -297,11 +297,11 @@ create tpgroup [noerr]
 
 Erstellt eine einfache LUN.
 
-**Reifen**
+**Bereichsstreifen**
 
 Erstellt eine stripesetlun.
 
-**Razzien**
+**RAID**
 
 Erstellt eine stripesetlun mit Parität.
 
@@ -313,7 +313,7 @@ Erstellt eine gespiegelte LUN.
 
 Erstellt eine LUN mithilfe der zurzeit gültigen *automagandeutungen* . Weitere Informationen finden Sie unter dem Unterbefehl **AUTOMAGIC** .
 
-**Größen**=
+**Größe**=
 
 Gibt die Gesamtgröße der LUN in Megabyte an. Wenn der **size =** -Parameter nicht angegeben wird, ist die LUN, die für alle angegebenen Laufwerke zulässig ist, die größtmögliche Größe.
 
@@ -327,11 +327,11 @@ Um die Größe mit anderen Einheiten anzugeben, verwenden Sie eines der folgende
 -   **TB** für Terabyte.
 -   **PB** für "Peer".
 
-**Laufwerke**=
+**Master**=
 
 Gibt die *drive_number* für die Laufwerke an, die zum Erstellen einer LUN verwendet werden sollen. Wenn der **size =** -Parameter nicht angegeben wird, ist die LUN, die für alle angegebenen Laufwerke zulässig ist, die größtmögliche Größe. Wenn der **size =** -Parameter angegeben wird, wählen die Anbieter Laufwerke aus der angegebenen Laufwerks Liste aus, um die LUN zu erstellen. Anbieter versuchen, die Laufwerke nach Möglichkeit in der angegebenen Reihenfolge zu verwenden.
 
-**stripesize** -=
+**stripesize**=
 
 Gibt die Größe für eine *Stripe* -oder *RAID* -LUN in Megabyte an. Die stripesize kann nicht geändert werden, nachdem die LUN erstellt wurde.
 
@@ -343,7 +343,7 @@ Um die Größe mit anderen Einheiten anzugeben, verwenden Sie eines der folgende
 -   **TB** für Terabyte.
 -   **PB** für "Peer".
 
-**Spar**
+**Ziel**
 
 Erstellt ein neues iSCSI-Ziel für das derzeit ausgewählte Subsystem.
 
@@ -363,12 +363,12 @@ Erstellt eine neue iSCSI-Zielportal Gruppe für das aktuell ausgewählte Ziel.
 
 Gibt an, dass alle Fehler, die während der Ausführung dieses Vorgangs auftreten, ignoriert werden. Dies ist im Skript Modus nützlich.
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 -   Entweder der **size**=-Parameter oder der **Drives**=-Parameter muss angegeben werden. Sie können auch gleichzeitig verwendet werden.
 -   Die Stripesetgröße für eine LUN kann nach der Erstellung nicht mehr geändert werden.
 
-### <a name="delete"></a><a name=BKMK_7></a>Lösch
+### <a name="delete"></a><a name=BKMK_7></a>delete
 
 Löscht die derzeit ausgewählte LUN, das iSCSI-Ziel (sofern keine LUNs mit dem iSCSI-Ziel verknüpft sind) oder die iSCSI-Zielportal Gruppe.
 
@@ -382,7 +382,7 @@ delete tpgroup [noerr]
 
 ##### <a name="parameters"></a>Parameter
 
-**LUN**
+**lun**
 
 Löscht die derzeit ausgewählte LUN und alle darin ausgewählten Daten.
 
@@ -390,7 +390,7 @@ Löscht die derzeit ausgewählte LUN und alle darin ausgewählten Daten.
 
 Gibt an, dass der Datenträger auf dem lokalen System, der der LUN zugeordnet ist, bereinigt wird, bevor die LUN gelöscht wird.
 
-**Spar**
+**Ziel**
 
 Löscht das aktuell ausgewählte iSCSI-Ziel, wenn dem Ziel keine LUNs zugeordnet sind.
 
@@ -438,7 +438,7 @@ Listet ausführliche Informationen über das aktuell ausgewählte Subsystem auf.
 
 Listet ausführliche Informationen über den aktuell ausgewählten Controller auf.
 
-**Port**
+**port**
 
 Listet ausführliche Informationen zum aktuell ausgewählten Controllerport auf.
 
@@ -446,7 +446,7 @@ Listet ausführliche Informationen zum aktuell ausgewählten Controllerport auf.
 
 Listet ausführliche Informationen über das aktuell ausgewählte Laufwerk, einschließlich der ersetzenden LUNs, auf.
 
-**LUN**
+**lun**
 
 Listet ausführliche Informationen über die derzeit ausgewählte LUN, einschließlich der Mitwirkenden Laufwerke. Die Ausgabe unterscheidet sich geringfügig, je nachdem, ob die LUN Teil eines Fibre Channel-oder iSCSI-Subsystems ist. Wenn die Liste der nicht maskierten Hosts nur ein Sternchen enthält, bedeutet dies, dass die LUN für alle Hosts unmaskiert ist.
 
@@ -454,7 +454,7 @@ Listet ausführliche Informationen über die derzeit ausgewählte LUN, einschlie
 
 Listet ausführliche Informationen über das aktuell ausgewählte iSCSI-Zielportal auf.
 
-**Spar**
+**Ziel**
 
 Listet ausführliche Informationen über das aktuell ausgewählte iSCSI-Ziel auf.
 
@@ -480,7 +480,7 @@ dissociate targets <n> [,<n> [,…]]
 
 #### <a name="parameter"></a>Parameter
 
-**kontrolliert**
+**controllers**
 
 Nur für die Verwendung mit VDS 1,0-Anbietern. Entfernt Controller aus der Liste der Controller, die der aktuell ausgewählten LUN zugeordnet sind.
 
@@ -555,15 +555,15 @@ Um die Größe mit anderen Einheiten anzugeben, verwenden Sie eines der folgende
 
 **Laufwerke =**
 
-Gibt die \<drive_number > für die Laufwerke an, die beim Erstellen einer LUN verwendet werden sollen. Wenn der **size =** -Parameter nicht angegeben wird, ist die LUN, die für alle angegebenen Laufwerke zulässig ist, die größtmögliche Größe. Anbieter verwenden die Laufwerke in der angegebenen Reihenfolge, wenn möglich.
+Gibt die \<drive_number> an, die beim Erstellen einer LUN für die Laufwerke verwendet werden sollen. Wenn der **size =** -Parameter nicht angegeben wird, ist die LUN, die für alle angegebenen Laufwerke zulässig ist, die größtmögliche Größe. Anbieter verwenden die Laufwerke in der angegebenen Reihenfolge, wenn möglich.
 
 **Noerr**
 
 Gibt an, dass alle Fehler, die während der Ausführung dieses Vorgangs auftreten, ignoriert werden sollen. Dies ist im Skript Modus nützlich.
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
-Es muss entweder die *Größe* oder die \<Laufwerk > Parameters angegeben werden. Sie können auch gleichzeitig verwendet werden.
+Es muss *size* entweder die Größe \<oder das Laufwerk>-Parameters angegeben werden. Sie können auch gleichzeitig verwendet werden.
 
 ### <a name="flushcache"></a><a name=BKMK_12></a>flushcache
 
@@ -636,7 +636,7 @@ lbpolicy set lun paths=<path>-{primary | <weight>}[,<path>-{primary | <weight>}[
 
 **type**
 
-Gibt die Richtlinie für den Lastenausgleich an. Wenn der Typ nicht angegeben wird, muss der **path** -Parameter angegeben werden. Der Typ kann eines der folgenden sein:
+Gibt die Richtlinie für den Lastenausgleich an. Wenn der Typ nicht angegeben wird, muss der **path** -Parameter angegeben werden. Als Type kann eines der folgenden Elemente verwendet werden:
 
 **Failover**: verwendet einen primären Pfad mit anderen Pfaden, die Sicherungs Pfade sind.
 
@@ -654,9 +654,9 @@ Gibt die Richtlinie für den Lastenausgleich an. Wenn der Typ nicht angegeben wi
 
 **Tramp**
 
-Gibt an, ob ein Pfad **primär** ist oder ob eine bestimmte \<Gewichtung >. Alle Pfade, die nicht angegeben sind, werden implizit als Sicherung festgelegt. Alle aufgelisteten Pfade müssen einer der aktuell ausgewählten Pfade der LUN sein.
+Gibt an, ob ein Pfad **primär** ist oder über \<ein bestimmtes Gewichtungs> verfügt. Alle Pfade, die nicht angegeben sind, werden implizit als Sicherung festgelegt. Alle aufgelisteten Pfade müssen einer der aktuell ausgewählten Pfade der LUN sein.
 
-### <a name="list"></a><a name=BKMK_19></a>List
+### <a name="list"></a><a name=BKMK_19></a>list
 
 Zeigt eine Liste von Objekten des angegebenen Typs an.
 
@@ -680,7 +680,7 @@ Listet Zusammenfassungs Informationen zu allen iSCSI-Initiator-Adaptern, die VDS
 
 Listet zusammenfassende Informationen zu allen iSCSI-Initiator-Portalen im aktuell ausgewählten Initiator-Adapter auf. Das aktuell ausgewählte Initiatorportal wird durch ein Sternchen (*) markiert.
 
-**Anbieter**
+**providers**
 
 Listet zusammenfassende Informationen zu den einzelnen Anbietern von VDS auf. Der aktuell ausgewählte Anbieter wird durch ein Sternchen (*) markiert.
 
@@ -688,7 +688,7 @@ Listet zusammenfassende Informationen zu den einzelnen Anbietern von VDS auf. De
 
 Listet zusammenfassende Informationen zu den einzelnen Subsystemen im System auf. Das aktuell ausgewählte Subsystem wird durch ein Sternchen (*) markiert.
 
-**kontrolliert**
+**controllers**
 
 Listet Zusammenfassungs Informationen zu jedem Controller im aktuell ausgewählten Subsystem auf. Der aktuell ausgewählte Controller wird durch ein Sternchen (*) markiert.
 
@@ -750,7 +750,7 @@ Gibt ein optionales Zielportal im aktuell ausgewählten Subsystem an, das für d
 
 Gibt ein optionales Initiatorportal im angegebenen Initiator-Adapter an, das für die Anmeldung verwendet werden soll.
 
-\<Flag >
+\<Flag>
 
 Identifiziert durch drei Buchstaben von Akronymen:
 
@@ -762,7 +762,7 @@ Identifiziert durch drei Buchstaben von Akronymen:
 
 **EDD**: Daten Digest aktivieren
 
-### <a name="logout"></a><a name=BKMK_21></a>Abmelde
+### <a name="logout"></a><a name=BKMK_21></a>logout
 
 Protokolliert den angegebenen iSCSI-Initiator-Adapter aus dem aktuell ausgewählten iSCSI-Ziel.
 
@@ -790,11 +790,11 @@ maintenance <object operation> [count=<iteration>]
 
 ##### <a name="parameters"></a>Parameter
 
-\<Objekt >
+\<Objekt>
 
 Gibt den Objekttyp an, für den der Vorgang durchgeführt werden soll. Der *Objekttyp* kann ein **Subsystem**, ein **Controller**, ein **Port, ein Laufwerk** oder eine **LUN**sein.
 
-\<Vorgang >
+\<Vorgangs>
 
 Gibt den auszuführenden Wartungs Vorgang an. Der *operation* Vorgangstyp kann **SpinUp**, **Spindown**, **Blink**, **Signal Tons** oder **Ping**sein. Es muss ein *Vorgang* angegeben werden.
 
@@ -814,7 +814,7 @@ name {subsystem | lun | target} [<name>]
 
 #### <a name="parameter"></a>Parameter
 
-\<Name >
+\<Name>
 
 Gibt einen Namen für das Subsystem, die LUN oder das Ziel an. Der Name muss eine Länge von weniger als 64 Zeichen aufweisen. Wenn kein Name angegeben wird, wird der vorhandene Name (sofern vorhanden) gelöscht.
 
@@ -830,9 +830,9 @@ offline <object>
 
 #### <a name="parameter"></a>Parameter
 
-\<Objekt >
+\<Objekt>
 
-Gibt den Objekttyp an, für den dieser Vorgang durchgeführt werden soll. Das \<Objekt >
+Gibt den Objekttyp an, für den dieser Vorgang durchgeführt werden soll. Das \<Objekt>
 
 Type kann **Subsystem**, **Controller**, **Laufwerk**, **LUN**oder **Portal – Entitäten**sein.
 
@@ -848,9 +848,9 @@ online <object>
 
 #### <a name="parameter"></a>Parameter
 
-\<Objekt >
+\<Objekt>
 
-Gibt den Objekttyp an, für den dieser Vorgang durchgeführt werden soll. Das \<Objekt >
+Gibt den Objekttyp an, für den dieser Vorgang durchgeführt werden soll. Das \<Objekt>
 
 Typ kann **HBAPORT**, **Subsystem**, **Controller**, **Laufwerk**, **LUN**oder **Portal – Entitäten**sein.
 
@@ -916,7 +916,7 @@ remove tpgroup tportal=<tportal> [noerr]
 
 #### <a name="parameter"></a>Parameter
 
-**TPGROUP TPORTAL =** \<TPORTAL >
+**TPGROUP Portal – Entitäten =** \<Portal – Entitäten>
 
 Gibt das zu entfernende iSCSI-Zielportal an.
 
@@ -924,7 +924,7 @@ Gibt das zu entfernende iSCSI-Zielportal an.
 
 Gibt an, dass alle Fehler, die während der Ausführung dieses Vorgangs auftreten, ignoriert werden sollen. Dies ist im Skript Modus nützlich.
 
-### <a name="replace"></a><a name=BKMK_31></a>Stelle
+### <a name="replace"></a><a name=BKMK_31></a>replace
 
 Ersetzt das angegebene Laufwerk durch das aktuell ausgewählte Laufwerk.
 
@@ -938,9 +938,9 @@ replace drive=<drive_number>
 
 **Laufwerk =**
 
-Gibt die \<drive_number > für das zu ersetzende Laufwerk an.
+Gibt die \<drive_number> für das zu ersetzende Laufwerk an.
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 -   Das angegebene Laufwerk ist möglicherweise nicht das aktuell ausgewählte Laufwerk.
 
@@ -960,7 +960,7 @@ Reset {controller | port}
 
 Setzt den Controller zurück.
 
-**Port**
+**port**
 
 Setzt den Port zurück.
 
@@ -976,61 +976,61 @@ Select {hbaport | iadapter | iportal | provider | subsystem | controller | port 
 
 ##### <a name="parameters"></a>Parameter
 
-**Objekt**
+**object**
 
-Gibt den Typ des ausgewählten Objekts an. Der \<Objekt > Typ kann ein **Anbieter**, **Subsystem**, **Controller**, **Laufwerk**oder **LUN**sein.
+Gibt den Typ des ausgewählten Objekts an. Beim \<Objekt> Typ kann es sich um **Anbieter**, **Subsystem**, **Controller**, **Laufwerk**oder **LUN**handeln.
 
-**HBAPORT** [\<n >]
+**HBAPORT** [\<n>]
 
 Legt den Fokus auf den angegebenen lokalen HBA-Port fest. Wenn kein HBA-Port angegeben wird, zeigt der Befehl den aktuell ausgewählten HBA-Port an (sofern vorhanden). Das Angeben eines ungültigen HBA-Port Indexes führt zu keinem in-Focus-HBA-Port. Wenn Sie einen HBA-Port auswählen, werden alle ausgewählten Initiatoradapter und Initiator-Portale deaktiviert.
 
-**IADAPTER** [\<n >]
+**IADAPTER** [\<n>]
 
 Legt den Fokus auf den angegebenen lokalen iSCSI-Initiator-Adapter fest. Wenn kein Initiator-Adapter angegeben ist, zeigt der Befehl den aktuell ausgewählten Initiatoradapter (sofern vorhanden) an. Das Angeben eines ungültigen initiatoradapteradapters führt zu keinem in-Focus-Initiator-Adapter. Wenn Sie einen Initiatoradapter auswählen, werden alle ausgewählten HBA-Ports und Initiator-Portale deaktiviert.
 
-**IPORTAL** [\<n >]
+**IPORTAL** [\<n>]
 
 Legt den Fokus auf das angegebene lokale iSCSI-Initiatorportal innerhalb des ausgewählten iSCSI-Initiator-Adapters fest. Wenn kein Initiator-Portal angegeben ist, zeigt der Befehl das aktuell ausgewählte Initiatorportal (sofern vorhanden) an. Wenn Sie einen ungültigen Initiator-Portal Index angeben, wird kein Initiatorportal ausgewählt.
 
-**Anbieter** [\<n >]
+**Anbieter** [\<n>]
 
 Legt den Fokus auf den angegebenen Anbieter fest. Wenn kein Anbieter angegeben ist, zeigt der Befehl den aktuell ausgewählten Anbieter (sofern vorhanden) an. Das Angeben eines ungültigen Anbieter Indexes führt zu keinem in-Focus-Anbieter.
 
-**Subsystem** [\<n >]
+**Subsystem** [\<n>]
 
 Legt den Fokus auf das angegebene Subsystem fest. Wenn kein Subsystem angegeben ist, zeigt der Befehl das Subsystem mit dem Fokus an (sofern vorhanden). Das Angeben eines ungültigen subsystemindexes führt zu keinem in-Focus-Subsystem. Bei Auswahl eines Subsystems wird der zugehörige Anbieter implizit ausgewählt.
 
-**Controller** [\<n >]
+**Controller** [\<n>]
 
 Legt den Fokus auf den angegebenen Controller innerhalb des derzeit ausgewählten Subsystems fest. Wenn kein Controller angegeben ist, zeigt der Befehl den aktuell ausgewählten Controller an (sofern vorhanden). Das Angeben eines ungültigen Controller Indexes führt nicht zu einem Fokus Controller. Bei Auswahl eines Controllers werden alle ausgewählten Controller Anschlüsse, Laufwerke, LUNs, Ziel Portale, Ziele und Zielportal Gruppen deaktiviert.
 
-**Port** [\<n >]
+**Port** [\<n>]
 
 Legt den Fokus auf den angegebenen Controller Anschluss innerhalb des aktuell ausgewählten Controllers fest. Wenn kein Port angegeben ist, zeigt der Befehl den aktuell ausgewählten Port (sofern vorhanden) an. Das Angeben eines ungültigen Port Indexes führt zu keinem ausgewählten Port.
 
-**Laufwerk** [\<n >]
+**Laufwerk** [\<n>]
 
 Legt den Fokus auf das angegebene Laufwerk bzw. die physische Spindel innerhalb des derzeit ausgewählten Subsystems fest. Wenn kein Laufwerk angegeben wird, zeigt der Befehl das aktuell ausgewählte Laufwerk an (sofern vorhanden). Das Angeben eines ungültigen Laufwerks Indexes führt zu keinem Fokus Laufwerk. Wenn Sie ein Laufwerk auswählen, werden ausgewählte Controller, Controller Anschlüsse, LUNs, Ziel Portale, Ziele und Zielportal Gruppen deaktiviert.
 
-**LUN** [\<n >]
+**LUN** [\<n>]
 
 Legt den Fokus auf die angegebene LUN innerhalb des derzeit ausgewählten Subsystems fest. Wenn keine LUN angegeben ist, zeigt der Befehl die aktuell ausgewählte LUN (sofern vorhanden) an. Wenn Sie einen ungültigen LUN-Index angeben, wird keine LUN ausgewählt. Wenn Sie eine LUN auswählen, werden ausgewählte Controller, Controller Anschlüsse, Laufwerke, Ziel Portale, Ziele und Zielportal Gruppen deaktiviert.
 
-**Portal – Entitäten** [\<n >]
+**Portal – Entitäten** [\<n>]
 
 Legt den Fokus auf das angegebene iSCSI-Zielportal innerhalb des derzeit ausgewählten Subsystems fest. Wenn kein Zielportal angegeben ist, zeigt der Befehl das aktuell ausgewählte Zielportal (sofern vorhanden) an. Wenn ein ungültiger Zielportal Index angegeben wird, wird kein Zielportal ausgewählt. Wenn Sie ein Zielportal auswählen, werden alle Controller, Controller Anschlüsse, Laufwerke, LUNs, Ziele und Zielportal Gruppen deaktiviert.
 
-**Ziel** [\<n >]
+**Ziel** [\<n>]
 
 Legt den Fokus auf das angegebene iSCSI-Ziel innerhalb des derzeit ausgewählten Subsystems fest. Wenn kein Ziel angegeben ist, zeigt der Befehl das aktuell ausgewählte Ziel an (sofern vorhanden). Wenn ein Ungültiger Zielindex angegeben wird, wird kein Ziel ausgewählt. Wenn Sie ein Ziel auswählen, werden alle Controller, Controller Anschlüsse, Laufwerke, LUNs, Ziel Portale und Zielportal Gruppen deaktiviert.
 
-**TPGROUP** [\<n >]
+**TPGROUP** [\<n>]
 
 Legt den Fokus auf die angegebene iSCSI-Zielportal Gruppe innerhalb des aktuell ausgewählten iSCSI-Ziels fest. Wenn keine Zielportal Gruppe angegeben ist, zeigt der Befehl die aktuell ausgewählte Zielportal Gruppe (sofern vorhanden) an. Das Angeben eines ungültigen Zielportal-Gruppen Indexes führt zu keiner Zielportal Gruppe im Fokus.
 
-[\<n >]
+[\<n>]
 
-Gibt die \<Objekt Nummer an, die > ausgewählt werden soll. Wenn die angegebene <object number> nicht gültig ist, werden alle vorhandenen Auswahlen für Objekte des angegebenen Typs gelöscht. Wenn keine <object number> angegeben wird, wird das aktuelle-Objekt angezeigt.
+Gibt die \<Objekt Nummer an, die> ausgewählt werden soll. Wenn das <object number> angegebene nicht gültig ist, werden alle vorhandenen Auswahlen für Objekte des angegebenen Typs gelöscht. Wenn kein <object number> angegeben wird, wird das aktuelle-Objekt angezeigt.
 
 ### <a name="setflag"></a><a name=BKMK_34></a>setflag
 
@@ -1052,7 +1052,7 @@ Wählt das aktuell ausgewählte Laufwerk als Hotspare aus.
 
 Hebt die Auswahl des aktuell ausgewählten Laufwerks als Hotspare auf.
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 Hot Spares können nicht für gewöhnliche LUN-Bindungs Vorgänge verwendet werden. Sie sind nur für die Fehlerbehandlung reserviert. Das Laufwerk darf zurzeit nicht an eine vorhandene LUN gebunden sein.
 
@@ -1111,7 +1111,7 @@ Gibt an, dass die LUN von allen Hosts zugänglich gemacht werden soll. Allerding
 > [!IMPORTANT]
 > Sie müssen sich vom Ziel abmelden, bevor Sie den Befehl unmask all ausführen.
 
-**gar**
+**Keine**
 
 Gibt an, dass der Zugriff auf die LUN für jeden Host nicht möglich sein soll.
 
@@ -1146,7 +1146,7 @@ Standardmäßig beendet Diskraid die Verarbeitung von Befehlen und gibt einen Fe
 
 |Fehlercode|Fehlerbeschreibung|
 |----------|-----------------|
-|0|Es ist kein Fehler aufgetreten. Das gesamte Skript wurde ohne Fehler ausgeführt.|
+|0|Kein Fehler ist aufgetreten. Das gesamte Skript wurde ohne Fehler ausgeführt.|
 |1|Es ist eine schwerwiegende Ausnahme aufgetreten.|
 |2|Die in einer Diskraid-Befehlszeile angegebenen Argumente waren falsch.|
 |3|Das angegebene Skript oder die angegebene Ausgabedatei konnte von Diskraid nicht geöffnet werden.|
@@ -1169,7 +1169,7 @@ Geben Sie Folgendes an der Diskraid-Eingabeaufforderung ein, um Subsystem 0 ausz
 ```
 select subsystem 0
 ```
-Drücken Sie die EINGABETASTE. Eine Ausgabe ähnlich der folgenden wird angezeigt:
+Drücken Sie die EINGABETASTE. Dadurch werden Informationen angezeigt, die mit denen der folgenden Ausgabe vergleichbar sind:
 ```
 Subsystem 0 is now the selected subsystem.
 

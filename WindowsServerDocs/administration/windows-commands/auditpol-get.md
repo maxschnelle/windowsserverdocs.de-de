@@ -1,6 +1,6 @@
 ---
 title: Auditpol Get
-description: Windows-Befehls Thema für **Auditpol Get**, das die System Richtlinie, die Richtlinie für benutzerspezifische Richtlinien, Überwachungs Optionen und das Überwachungs Sicherheits Deskriptor-Objekt abruft.
+description: Referenz Thema für den Befehl Auditpol Get, der die System Richtlinie, die Richtlinie für benutzerspezifische Richtlinien, Überwachungs Optionen und das Überwachungs Sicherheits Deskriptor-Objekt abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,23 +9,25 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fe2b1bd060f128e39fa1c687ec963c964798fe1b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 859ea9e2e42af0fe7f34f4e378166685f8316b9e
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851193"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719136"
 ---
 # <a name="auditpol-get"></a>Auditpol Get
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server, 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ruft die System Richtlinie, die Richtlinie pro Benutzer, die Überwachungs Optionen und das Überwachungs Sicherheits Deskriptor-Objekt ab.
+
+Zum Ausführen von *Get* *-Vorgängen für die Benutzer-* und *System* Richtlinien müssen Sie über die Berechtigung **Lesen** für das Objekt verfügen, das in der Sicherheits Beschreibung festgelegt ist. Sie können auch *Get* -Vorgänge ausführen, wenn Sie über das Benutzerrecht zum Verwalten von Überwachungs **-und Sicherheitsprotokollen** (SeSecurityPrivilege) verfügen. Dieses Recht ermöglicht jedoch zusätzlichen Zugriff, der nicht zum Ausführen der allgemeinen *Get* -Vorgänge erforderlich ist.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-auditpol /get 
+auditpol /get
 [/user[:<username>|<{sid}>]]
 [/category:*|<name>|<{guid}>[,:<name|<{guid}> ]]
 [/subcategory:*|<name>|<{guid}>[,:<name|<{guid}> ]]
@@ -36,7 +38,7 @@ auditpol /get
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /User | Zeigt den Sicherheits Prinzipal an, für den die Überwachungsrichtlinie pro Benutzer abgefragt wird. Der/Category-Parameter oder der/SubCategory-Parameter muss angegeben werden. Der Benutzer kann als Sicherheits-ID (SID) oder Name angegeben werden. Wenn kein Benutzerkonto angegeben ist, wird die System Überwachungsrichtlinie abgefragt. |
 | /category | Eine oder mehrere Überwachungs Kategorien, die durch Globally Unique Identifier (GUID) oder den Namen angegeben werden. Ein Sternchen (*) kann verwendet werden, um anzugeben, dass alle Überwachungs Kategorien abgefragt werden sollen. |
@@ -46,12 +48,11 @@ auditpol /get
 | /r | Zeigt die Ausgabe im Berichtsformat an, durch Kommas getrennte Werte (CSV). |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 
 Alle Kategorien und Unterkategorien können durch die GUID oder den Namen angegeben werden, die in Anführungszeichen (") eingeschlossen ist. Benutzer können nach SID oder Name angegeben werden.
-für alle Get-Vorgänge für die Richtlinie und die System Richtlinie pro Benutzer müssen Sie über die Berechtigung Lesen für das Objekt verfügen, das in der Sicherheits Beschreibung festgelegt ist. Sie können auch Get-Vorgänge durchführen, indem Sie das Benutzerrecht zum Verwalten von Überwachungs **-und Sicherheitsprotokollen** (SeSecurityPrivilege) besitzen. Dieses Recht ermöglicht jedoch zusätzlichen Zugriff, der zum Ausführen des Get-Vorgangs nicht erforderlich ist.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um die Überwachungsrichtlinie pro Benutzer für das Gastkonto abzurufen und die Ausgabe für die Kategorien "System", "ausführliche Nachverfolgung" und "Objektzugriff" anzuzeigen:
 
@@ -60,7 +61,7 @@ auditpol /get /user:{S-1-5-21-1443922412-3030960370-963420232-51} /category:Syst
 ```
 
 > [!NOTE]
-> Dieser Befehl ist in zwei Szenarios nützlich. Wenn Sie ein bestimmtes Benutzerkonto auf verdächtige Aktivitäten überwachen, können Sie den/get-Befehl verwenden, um die Ergebnisse in bestimmten Kategorien abzurufen, indem Sie eine Inklusions Richtlinie verwenden, um zusätzliche Überwachung zu aktivieren. Wenn die Überwachungs Einstellungen für ein Konto zahlreiche, aber überflüssige Ereignisse protokollieren, können Sie den/get-Befehl verwenden, um überflüssige Ereignisse für dieses Konto mit einer Ausschluss Richtlinie herauszufiltern. Eine Liste aller Kategorien erhalten Sie mit dem Befehl auditpol/list/Category.
+> Dieser Befehl ist in zwei Szenarios nützlich. 1) Wenn Sie ein bestimmtes Benutzerkonto auf verdächtige Aktivitäten überwachen, können Sie `/get` den Befehl verwenden, um die Ergebnisse in bestimmten Kategorien abzurufen, indem Sie eine Inklusions Richtlinie verwenden, um zusätzliche Überwachung zu aktivieren. 2) Wenn die Überwachungs Einstellungen für ein Konto zahlreiche, aber überflüssige Ereignisse protokollieren, `/get` können Sie den Befehl verwenden, um überflüssige Ereignisse für dieses Konto mit einer Ausschluss Richtlinie herauszufiltern. Eine Liste aller Kategorien erhalten Sie mit dem `auditpol /list /category` Befehl.
 
 Zum Abrufen der Überwachungsrichtlinie pro Benutzer für eine Kategorie und eine bestimmte Unterkategorie, in der die inklusiven und exklusiven Einstellungen für diese Unterkategorie in der Kategorie System für das Gastkonto gemeldet werden, geben Sie Folgendes ein:
 
@@ -104,5 +105,8 @@ Die verfügbaren Optionen sind auditbaseobjects, auditbaseoperations und FullPri
 auditpol /get /option:CrashOnAuditFail /r
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Auditpol-Befehle](auditpol.md)

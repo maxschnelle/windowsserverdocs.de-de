@@ -1,6 +1,6 @@
 ---
-title: BI-admin setmaxdownloadtime
-description: Windows-Befehls Thema für **bistiadmin setmaxdownloadtime**, das das Download Timeout in Sekunden festlegt.
+title: bitsadmin setmaxdownloadtime
+description: Referenz Thema für den bistiadmin setmaxdownloadtime-Befehl, mit dem das Download Timeout in Sekunden festgelegt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f07931dfb9fabaec272384dced6d60f1335b6a94
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 8192826570c9dae6aa9d286596336c3e589c9cbd
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122911"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719687"
 ---
-# <a name="bitsadmin-setmaxdownloadtime"></a>BI-admin setmaxdownloadtime
+# <a name="bitsadmin-setmaxdownloadtime"></a>bitsadmin setmaxdownloadtime
 
 Legt das Download Timeout in Sekunden fest.
 
@@ -28,19 +28,21 @@ bitsadmin /setmaxdownloadtime <job> <timeout>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | timeout | Die Länge des Download Timeouts (in Sekunden). |
 
 ## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird das Timeout für den Auftrag mit dem Namen *mydownloadjob* auf 10 Sekunden festgelegt.
+Um das Timeout für den Auftrag mit dem Namen *mydownloadjob* auf 10 Sekunden festzulegen.
 
 ```
-C:\>bitsadmin /setmaxdownloadtime myDownloadJob 10
+bitsadmin /setmaxdownloadtime myDownloadJob 10
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

@@ -1,6 +1,6 @@
 ---
 title: diskperf
-description: Windows-Befehls Thema für diskperf, das verwendet werden kann, um Leistungsindikatoren für physische oder logische Datenträger auf Computern mit Windows 2000 Remote zu aktivieren bzw. zu deaktivieren.
+description: Referenz Thema für diskperf, das verwendet werden kann, um Leistungsindikatoren für physische oder logische Datenträger auf Computern, auf denen Windows 2000 ausgeführt wird, Remote zu aktivieren oder zu deaktivieren.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1b07471c051d57d0279e4fd8b38afdc4acdc4069
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c8f505d924ee1de311f2f2736ff65be844c3f2ea
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845463"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719447"
 ---
 # <a name="diskperf"></a>diskperf
 
@@ -30,13 +30,13 @@ diskperf [-Y[D|V] | -N[D|V]] [\\computername]
 
 ## <a name="options"></a>Optionen
 
-|Option|Beschreibung|
+|Option|BESCHREIBUNG|
 |------|-----------|
 |-?|Zeigt kontextabhängige Hilfe an.|
-|-Y|Starten Sie alle Datenträger-Leistungsindikatoren, wenn der Computer neu gestartet wird.|
+|-y|Starten Sie alle Datenträger-Leistungsindikatoren, wenn der Computer neu gestartet wird.|
 |-Yd|Aktivieren Sie Datenträger-Leistungsindikatoren für physische Laufwerke, wenn der Computer neu gestartet wird.|
 |-YV|Aktivieren Sie Datenträger-Leistungsindikatoren für logische Laufwerke oder Speichervolumes, wenn der Computer neu gestartet wird.|
 |-N|Deaktivieren Sie alle Datenträger Leistungsindikatoren, wenn der Computer neu gestartet wird.|
 |-ND|Deaktivieren Sie die Datenträger Leistungsindikatoren für physische Laufwerke, wenn der Computer neu gestartet wird.|
 |-NV|Deaktivieren Sie die Datenträger Leistungsindikatoren für logische Laufwerke oder Speichervolumes, wenn der Computer neu gestartet wird.|
-|\\\\ *\<Computername >*|Geben Sie den Namen des Computers an, auf dem Sie die Datenträger-Leistungsindikatoren aktivieren bzw. deaktivieren möchten.|
+|\\\\*\<Computername>*|Geben Sie den Namen des Computers an, auf dem Sie die Datenträger-Leistungsindikatoren aktivieren bzw. deaktivieren möchten.|

@@ -1,6 +1,6 @@
 ---
-title: biout admin Cache und setLimit
-description: Windows-Befehls Thema für **bitadmin-Cache und setLimit**, mit dem die Cache Größenbeschränkung festgelegt wird.
+title: bitsadmin cache and setlimit
+description: Referenz Thema für den bizadmin-Cache und den setLimit-Befehl, mit dem die Cache Größenbeschränkung festgelegt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 746ee0b69da8f5bd22fec2ccbd432126cc25d94d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a4c41102bfb87ff6d48113c4e85a821b821b5b01
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850873"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718287"
 ---
-# <a name="bitsadmin-cache-and-setlimit"></a>biout admin Cache und setLimit
+# <a name="bitsadmin-cache-and-setlimit"></a>bitsadmin cache and setlimit
 
 Legt die Cache Größenbeschränkung fest.
 
@@ -28,18 +28,20 @@ bitsadmin /cache /setlimit percent
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
-| percent | Der als Prozentsatz des gesamten Festplatten Speichers definierte Cache Limit. |
+| Prozent | Der als Prozentsatz des gesamten Festplatten Speichers definierte Cache Limit. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird die Cache Größe auf 50% beschränkt.
+So legen Sie die Cache Größenbeschränkung auf 50% fest:
 
 ```
-C:\>bitsadmin /cache /setlimit 50
+bitsadmin /cache /setlimit 50
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "biout admin Cache"](bitsadmin-cache.md)

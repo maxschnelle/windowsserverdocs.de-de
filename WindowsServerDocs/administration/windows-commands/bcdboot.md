@@ -1,6 +1,6 @@
 ---
 title: bcdboot
-description: Windows-Befehls Thema für **BCDboot**, das schnell eine Systempartition einrichten oder die Start Umgebung auf der Systempartition reparieren kann.
+description: Referenz Thema für den BCDboot-Befehl, mit dem schnell eine Systempartition eingerichtet wird, oder zum Reparieren der in der Systempartition befindlichen Start Umgebung.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 637170cbd8ee4f3c11ee1dc77a0cd49b5dfa3038
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cde91738f524350f72f0278495e4bd46a3960e6f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851083"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718711"
 ---
 # <a name="bcdboot"></a>bcdboot
 
@@ -28,16 +28,16 @@ bcdboot <source> [/l] [/s]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | source | Gibt den Speicherort des Windows-Verzeichnisses an, das als Quelle zum Kopieren von Start Umgebungs Dateien verwendet werden soll. |
-| /l | Gibt das Gebietsschema an. Das Standard Gebiets Schema ist US-Englisch. |
-| /s | Gibt den Volumebuchstaben der Systempartition an. Der Standardwert ist die von der Firmware identifizierte Systempartition. |
+| /l | Gibt das Gebiets Schema an. Das Standard Gebiets Schema ist US-Englisch. |
+| /s | Gibt den volumenbuchstabe der Systempartition an. Der Standardwert ist die von der Firmware identifizierte Systempartition. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Informationen dazu, wo Sie BCDboot finden, sowie Beispiele zur Verwendung dieses Befehls finden Sie im Thema [BCDboot-Befehlszeilenoptionen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh824874(v=win.10)x) .
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

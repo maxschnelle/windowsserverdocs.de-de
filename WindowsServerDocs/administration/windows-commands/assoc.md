@@ -1,6 +1,6 @@
 ---
 title: assoc
-description: Windows-Befehls Thema für Assoc, das Dateinamen Erweiterungs Zuordnungen anzeigt oder ändert.
+description: Referenz Thema für den Befehl "Assoc", mit dem Dateinamen Erweiterungs Zuordnungen angezeigt oder geändert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 442ba244a7325425df29a1ebdcdb8bc107095ebe
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f637e1f744ec412899320cfbb368633b222da8d3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851293"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718953"
 ---
 # <a name="assoc"></a>assoc
 
@@ -23,31 +23,29 @@ Zeigt Zuordnungen für Dateinamen Erweiterungen an oder ändert diese. Bei Verwe
 > [!NOTE]
 > Dieser Befehl wird nur in cmd unterstützt. EXE und ist in PowerShell nicht verfügbar.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
-
 ## <a name="syntax"></a>Syntax
 
 ```
-assoc [<.ext>[=[<FileType>]]]
+assoc [<.ext>[=[<filetype>]]]
 ```
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<.ext>` | Gibt die Dateinamenerweiterung an. |
-| `<FileType>` | Gibt den Dateityp an, der der angegebenen Dateinamenerweiterung zugeordnet werden soll. |
-| `/?` | Zeigt die Hilfe an der Eingabeaufforderung an. |
+| `<filetype>` | Gibt den Dateityp an, der der angegebenen Dateinamenerweiterung zugeordnet werden soll. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 
 - Um die Dateityp Zuordnung für eine Dateinamenerweiterung zu entfernen, fügen Sie nach dem Gleichheitszeichen ein Leerzeichen hinzu, indem Sie die Leertaste drücken.
 
 - Verwenden Sie den **ftype** -Befehl, um aktuelle Dateitypen anzuzeigen, für die geöffnete Befehls Zeichenfolgen definiert sind.
 
-- Um die Ausgabe von **Assoc** in eine Textdatei umzuleiten, verwenden Sie den **>** -Umleitungs Operator.
+- Um die Ausgabe von **Assoc** in eine Textdatei umzuleiten, verwenden `>` Sie den Umleitungs Operator.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um die aktuelle Dateityp Zuordnung für die Dateinamenerweiterung. txt anzuzeigen:
 
@@ -62,7 +60,7 @@ assoc .bak=
 ```
 
 > [!NOTE]
-> Achten Sie darauf, nach dem Gleichheitszeichen ein Leerzeichen hinzuzufügen.
+> Stellen Sie sicher, dass Sie nach dem Gleichheitszeichen ein Leerzeichen einfügen.
 
 Geben Sie Folgendes ein, um die Ausgabe von **Assoc** auf einem Bildschirm anzuzeigen:
 
@@ -76,6 +74,8 @@ Geben Sie Folgendes ein, um die Ausgabe von **Assoc** an die Datei "Assoc. txt" 
 assoc>assoc.txt
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [FTYPE-Befehl](ftype.md)

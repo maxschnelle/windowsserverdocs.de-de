@@ -1,6 +1,6 @@
 ---
-title: bitadmin setcustomheaders
-description: Windows-Befehls Thema für **BI-admin setcustomheaders**, das einer GET-Anforderung einen benutzerdefinierten HTTP-Header hinzufügt.
+title: bitsadmin setcustomheaders
+description: Referenz Thema für den Befehl "bizadmin setcustomheaders", mit dem eine GET-Anforderung mit einem benutzerdefinierten HTTP-Header hinzugefügt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b5b1a28f03815a22a3f8d10b2c3d1d4a3a2ae635
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 92728f8d63a22cf9d13d6c02a69359583a9fc5cc
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81123025"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719325"
 ---
-# <a name="bitsadmin-setcustomheaders"></a>bitadmin setcustomheaders
+# <a name="bitsadmin-setcustomheaders"></a>bitsadmin setcustomheaders
 
-Hinzufügen eines benutzerdefinierten HTTP-Headers zu einer GET-Anforderung, die an einen HTTP-Server gesendet wird
+Hinzufügen eines benutzerdefinierten HTTP-Headers zu einer GET-Anforderung, die an einen HTTP-Server gesendet wird Weitere Informationen zu Get-Anforderungen finden Sie unter [Methoden Definitionen](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3) und [Header Feld Definitionen](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 ## <a name="syntax"></a>Syntax
 
@@ -28,19 +28,21 @@ bitsadmin /setcustomheaders <job> <header1> <header2> <...>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
-| `<header1> <header2>` usw. | Die benutzerdefinierten Header für den Auftrag. |
+| `<header1> <header2>`Und so weiter | Die benutzerdefinierten Header für den Auftrag. |
 
 ## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird ein benutzerdefinierter HTTP-Header für den Auftrag mit dem Namen *mydownloadjob*hinzugefügt. Weitere Informationen zu Get-Anforderungen finden Sie unter [Methoden Definitionen](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3) und [Header Feld Definitionen](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+So fügen Sie einen benutzerdefinierten HTTP-Header für den Auftrag *mydownloadjob*hinzu:
 
 ```
-C:\>bitsadmin /setcustomheaders myDownloadJob accept-encoding:deflate/gzip
+bitsadmin /setcustomheaders myDownloadJob accept-encoding:deflate/gzip
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

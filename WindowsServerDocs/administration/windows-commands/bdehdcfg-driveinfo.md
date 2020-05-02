@@ -1,6 +1,6 @@
 ---
 title: bdehdcfg DriveInfo
-description: Windows-Befehls Thema für **bdehdcfg DriveInfo**, das den Laufwerk Buchstaben, die Gesamtgröße, den maximalen freien Speicherplatz und die Partitions Merkmale anzeigt.
+description: Referenz Thema für den Befehl bdehdcfg DriveInfo, der den Laufwerk Buchstaben, die Gesamtgröße, den maximalen freien Speicherplatz und die Partitions Merkmale anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,46 +9,43 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9c598ea2d1d140090d623b3b48dbcc1be51ee66c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b18b4c3e128cd17353d369b418a049d0208cb654
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851063"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718687"
 ---
 # <a name="bdehdcfg-driveinfo"></a>bdehdcfg: DriveInfo
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt den Laufwerk Buchstaben, die Gesamtgröße, den maximalen freien Speicherplatz und die Partitions Merkmale an. Nur gültige Partitionen sind aufgeführt. Verfügbarer Speicher ist nicht aufgeführt, wenn bereits vier primäre oder erweiterte Partitionen vorhanden sind.
 
-Beispiele für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
+>[!NOTE]
+> Dieser Befehl dient nur zu Informationszwecken und führt keine Änderungen am Laufwerk aus.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-bdehdcfg -driveinfo <DriveLetter>
+bdehdcfg -driveinfo <drive_letter>
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
-| <DriveLetter> | Gibt einen Laufwerk Buchstaben gefolgt von einem Doppelpunkt an. |
+| <drive_letter> | Gibt einen Laufwerk Buchstaben gefolgt von einem Doppelpunkt an. |
 
-## <a name="remarks"></a>Hinweise
+## <a name="example"></a>Beispiel
 
-Der Befehl dient nur zu Informationszwecken und führt keine Änderungen am Laufwerk aus.
-
-## <a name="example"></a><a name=BKMK_Examples></a>Beispiel
-
-Im folgenden Beispiel werden die Laufwerks Informationen für Laufwerk C angezeigt.
+So zeigen Sie die Laufwerk Informationen für das Laufwerk "C:" an:
 
 ```
 bdehdcfg  driveinfo C:
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

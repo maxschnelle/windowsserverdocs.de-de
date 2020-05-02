@@ -1,6 +1,6 @@
 ---
 title: bdehdcfg newdriveletter
-description: Windows-Befehls Thema für **bdehdcfg newdriveletter**, der einen neuen Laufwerk Buchstaben zum Teil eines Laufwerks zuweist, das als Systemlaufwerk verwendet wird.
+description: Referenz Thema für den bdehdcfg newdriveletter-Befehl, der dem Teil eines Laufwerks, das als Systemlaufwerk verwendet wird, einen neuen Laufwerk Buchstaben zuweist.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,43 +9,39 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4a8757e7d0684912525817708fbe34953b049582
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: da09ae1469c6fc8370e6bd0f2f7a8f3efd8dc4f0
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851053"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718667"
 ---
 # <a name="bdehdcfg-newdriveletter"></a>bdehdcfg: newdriveletter
 
-Weist dem Teil eines Laufwerks, das als Systemlaufwerk verwendet wird, einen neuen Laufwerk Buchstaben zu. Ein Beispiel für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
+Weist dem Teil eines Laufwerks, das als Systemlaufwerk verwendet wird, einen neuen Laufwerk Buchstaben zu. Als bewährte Vorgehensweise wird empfohlen, dem Systemlaufwerk keinen Laufwerk Buchstaben zuzuweisen.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-bdehdcfg -target {default|unallocated|<DriveLetter> shrink|<DriveLetter> merge} -newdriveletter <DriveLetter>
+bdehdcfg -target {default|unallocated|<drive_letter> shrink|<drive_letter> merge} -newdriveletter <drive_letter>
 ```
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---------| ----------- |
-|`<DriveLetter>`|Definiert den Laufwerk Buchstaben, der dem angegebenen Ziellaufwerk zugewiesen wird.|
+| `<drive_letter>` | Definiert den Laufwerk Buchstaben, der dem angegebenen Ziellaufwerk zugewiesen wird. |
 
-## <a name="remarks"></a>Hinweise
+## <a name="examples"></a>Beispiele
 
-Als bewährte Vorgehensweise wird empfohlen, dem Systemlaufwerk keinen Laufwerk Buchstaben zuzuweisen.
-
-## <a name="examples"></a><a name="BKMK_Examples"></a>Beispiele
-
-Im folgenden Beispiel wird gezeigt, wie dem Standard Laufwerk der Laufwerk Buchstabe P zugewiesen wird.
+Zum Zuweisen des Standard Laufwerks wird der `P`Laufwerk Buchstabe:
 
 ```
 bdehdcfg -target default -newdriveletter P:
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [Bdehdcfg](bdehdcfg.md)
+- [bdehdcfg](bdehdcfg.md)

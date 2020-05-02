@@ -1,6 +1,6 @@
 ---
 title: Attribut Volume
-description: Windows-Befehls Artikel für **Attribute Volume**, in dem die Attribute eines Volumes angezeigt, festgelegt oder gelöscht werden.
+description: Referenz Thema für den attributvolumenbefehl, mit dem die Attribute eines Volumes angezeigt, festgelegt oder gelöscht werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 00991cdba57f0728cfa348dea2b0916ad758b34a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: bbe1d66584216875daa82a7e250f3d2f525c2280
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851233"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719184"
 ---
 # <a name="attributes-volume"></a>Attribut Volume
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Hiermit werden die Attribute eines Volumes angezeigt, festgelegt oder gelöscht.
 
@@ -30,17 +30,17 @@ attributes volume [{set | clear}] [{hidden | readonly | nodefaultdriveletter | s
   
 ### <a name="parameters"></a>Parameter  
   
-| Parameter | Beschreibung |  
+| Parameter | BESCHREIBUNG |  
 | ------- | -------- |  
 | set | Legt das angegebene Attribut des Volumes mit dem Fokus fest. |  
-| nicht aktiviert | Löscht das angegebene Attribut des Volumes mit dem Fokus. |  
+| clear | Löscht das angegebene Attribut des Volumes mit dem Fokus. |  
 | readonly | Gibt an, dass das Volume schreibgeschützt ist. |  
-| verbirgt | Gibt an, dass das Volume ausgeblendet ist. |  
+| hidden | Gibt an, dass das Volume ausgeblendet ist. |  
 | nodefaultdriveletter | Gibt an, dass das Volume standardmäßig keinen Laufwerk Buchstaben erhält. |  
 | "Shadowcopy | Gibt an, dass das Volume ein Schattenkopievolume ist. |  
 | Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |  
   
-## <a name="remarks"></a>Hinweise  
+### <a name="remarks"></a>Bemerkungen  
   
 - Auf den MBR-Datenträgern (Basic Master Boot Record) gelten die Parameter **Hidden**, Read **only**und **nodefaultdriveletter** für alle Volumes auf dem Datenträger.  
   
@@ -48,7 +48,7 @@ attributes volume [{set | clear}] [{hidden | readonly | nodefaultdriveletter | s
   
 - Es muss ein Volume ausgewählt werden, damit der **Attribut Volume** -Befehl erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Volume auswählen** ein Volume aus, und verschieben Sie den Fokus auf das Volume.  
   
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Wenn Sie die aktuellen Attribute auf dem ausgewählten Volume anzeigen möchten, geben Sie Folgendes ein:  
   
@@ -68,6 +68,8 @@ Um die ausgeblendeten und schreibgeschützten Attribute auf dem ausgewählten Vo
 attributes volume clear hidden readonly  
 ```  
   
-## <a name="additional-references"></a>Weitere Verweise  
+## <a name="additional-references"></a>Zusätzliche Referenzen  
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "Volume auswählen"](select-volume.md)

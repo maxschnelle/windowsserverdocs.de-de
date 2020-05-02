@@ -1,6 +1,6 @@
 ---
 title: Auditpol-Satz
-description: Windows-Befehls Thema für **Auditpol Set**, das die Überwachungsrichtlinie pro Benutzer, die System Überwachungsrichtlinie oder die Überwachungs Optionen festlegt.
+description: Referenz Thema für den Befehl Auditpol Set, mit dem die Überwachungsrichtlinie pro Benutzer, die System Überwachungsrichtlinie oder die Überwachungs Optionen festgelegt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0773a0a9ae9237b39293bae80001616d00630436
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 73868d6044d8742d4d9e0ce76e0668402f230f86
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851143"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718890"
 ---
 # <a name="auditpol-set"></a>Auditpol-Satz
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Legt die Überwachungsrichtlinie pro Benutzer, die System Überwachungsrichtlinie oder die Überwachungs Optionen fest.
+
+Zum Ausführen von *Set* -Vorgängen für die *Benutzer-* und *System* Richtlinien müssen Sie über die Berechtigung **Schreiben** oder **voll** Zugriff für dieses Objekt verfügen, das in der Sicherheits Beschreibung festgelegt ist. Sie können *Set* -Vorgänge auch ausführen, wenn Sie über das Benutzerrecht zum Verwalten von Überwachungs **-und Sicherheitsprotokollen** (SeSecurityPrivilege) verfügen. Dieses Recht ermöglicht jedoch zusätzlichen Zugriff, der nicht erforderlich ist, um die Gesamt *Menge* der Vorgänge auszuführen.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,7 +38,7 @@ auditpol /set
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /User | Der Sicherheits Prinzipal, für den die von der Kategorie oder Unterkategorie angegebene Überwachungsrichtlinie pro Benutzer festgelegt ist. Die Option Category oder SubCategory muss als Sicherheits-ID (SID) oder Name angegeben werden. |
 | /include | Angegeben mit/User; Gibt an, dass die Richtlinie pro Benutzer des Benutzers bewirkt, dass eine Überwachung generiert wird, auch wenn Sie nicht von der System Überwachungsrichtlinie angegeben wird. Diese Einstellung ist die Standardeinstellung und wird automatisch angewendet, wenn weder der/include-noch der/Exclude-Parameter explizit angegeben wird. |
@@ -49,11 +51,7 @@ auditpol /set
 | /sd | Legt die Sicherheits Beschreibung fest, die zum Delegieren des Zugriffs auf die Überwachungsrichtlinie verwendet wird. Die Sicherheits Beschreibung muss mithilfe der Security Deskriptor Definition Language (SDDL) angegeben werden. Die Sicherheits Beschreibung muss über eine freigegebene Zugriffs Steuerungs Liste (DACL) verfügen. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Hinweise
-
-Für alle festgelegten Vorgänge für die Richtlinie und die System Richtlinie pro Benutzer müssen Sie über die Berechtigung Schreiben oder Vollzugriff für dieses Objekt verfügen, das in der Sicherheits Beschreibung festgelegt ist. Sie können auch Set-Vorgänge durchführen, indem Sie das Benutzerrecht zum Verwalten von Überwachungs **-und Sicherheitsprotokollen** (SeSecurityPrivilege) besitzen. Dieses Recht ermöglicht jedoch zusätzlichen Zugriff, der zum Ausführen des Set-Vorgangs nicht erforderlich ist.
-
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um die Überwachungsrichtlinie pro Benutzer für alle Unterkategorien in der Kategorie detaillierte Nachverfolgung für den Benutzer Mikedan festzulegen, damit alle erfolgreichen Versuche des Benutzers überwacht werden:
 
@@ -94,6 +92,8 @@ Geben Sie Folgendes ein, um die Überwachungs Optionen auf den aktivierten Statu
 auditpol /set /option:CrashOnAuditFail /value:enable
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Auditpol-Befehle](auditpol.md)

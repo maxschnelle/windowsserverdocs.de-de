@@ -1,6 +1,6 @@
 ---
 title: bdehdcfg quiet
-description: Windows-Befehls Thema für **bdehdcfg quiet**, das bdehdcfg anweist, nicht alle Aktionen und Fehler anzuzeigen.
+description: Referenz Thema für den Befehl bdehdcfg quiet, der bdehdcfg anweist, nicht alle Aktionen und Fehler anzuzeigen.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,41 +9,37 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e9c24d8861476e6c1578af8245236d699b6ef6db
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: afb7a73899259b0f3823941ece014ea85568a4ce
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851043"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718637"
 ---
 # <a name="bdehdcfg-quiet"></a>bdehdcfg: Quiet
 
-Informiert das Befehlszeilen Tool bdehdcfg, dass alle Aktionen und Fehler nicht in der Befehlszeilenschnittstelle angezeigt werden. Ein Beispiel für die Verwendung dieses Befehls finden Sie unter [Beispiele](#BKMK_Examples).
+Informiert das Befehlszeilen Tool bdehdcfg, dass alle Aktionen und Fehler nicht in der Befehlszeilenschnittstelle angezeigt werden. Alle während der Laufwerks Vorbereitung angezeigten Eingabe Aufforderungen für Ja/Nein (Y/N) werden von der Antwort "yes" angenommen. Um einen Fehler anzuzeigen, der während der Laufwerksvorbereitung aufgetreten ist, überprüfen Sie das Systemereignisprotokoll im **Microsoft-Windows-BitLocker-DrivePreparationTool**-Ereignisanbieter.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-bdehdcfg -target {default|unallocated|<DriveLetter> shrink|<DriveLetter> merge} -quiet
+bdehdcfg -target {default|unallocated|<drive_letter> shrink|<drive_letter> merge} -quiet
 ```
 
 #### <a name="parameters"></a>Parameter
 
-Dieser Befehl erfordert keine zusätzlichen Parameter.
+Dieser Befehl weist keine zusätzlichen Parameter auf.
 
-## <a name="remarks"></a>Hinweise
+## <a name="examples"></a>Beispiele
 
-Wenn Ja/Nein (J/N)-Eingabeaufforderungen während der Laufwerksvorbereitung angezeigt wurden, wird eine „Ja“-Antwort angenommen. Um einen Fehler anzuzeigen, der während der Laufwerksvorbereitung aufgetreten ist, überprüfen Sie das Systemereignisprotokoll im **Microsoft-Windows-BitLocker-DrivePreparationTool**-Ereignisanbieter.
-
-## <a name="examples"></a><a name="BKMK_Examples"></a>Beispiele
-
-Im folgenden Beispiel wird die Verwendung des **quiet** -Befehls veranschaulicht.
+So verwenden Sie den **quiet** -Befehl:
 
 ```
 bdehdcfg -target default -quiet
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [Bdehdcfg](bdehdcfg.md)
+- [bdehdcfg](bdehdcfg.md)

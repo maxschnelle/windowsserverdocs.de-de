@@ -1,6 +1,6 @@
 ---
-title: BI-admin-Cache und ' abtexpirationtime '
-description: Windows-Befehls Thema für **bitadmin-Cache und setexpirationtime**, die die Ablaufzeit des Caches festlegen.
+title: bitsadmin cache and setexpirationtime
+description: Referenz Thema für den bizadmin-Cache und den setexpirationtime-Befehl, mit dem die Ablaufzeit für den Cache festgelegt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bf283a0a8b94fd55c591609e3dcd1d127a2be81a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 84679eadc750637fb720a458d9663219dc1492a4
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850883"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718309"
 ---
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-# <a name="bitsadmin-cache-and-setexpirationtime"></a>BI-admin-Cache und ' abtexpirationtime '
+# <a name="bitsadmin-cache-and-setexpirationtime"></a>bitsadmin cache and setexpirationtime
 
 Legt die Ablaufzeit für den Cache fest.
 
@@ -30,18 +30,20 @@ bitsadmin /cache /setexpirationtime secs
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | -------------- | -------------- |
 | Sekunden | Die Anzahl der Sekunden bis zum Ablauf des Caches. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel läuft der Cache in 60 Sekunden ab.
+So legen Sie fest, dass der Cache in 60 Sekunden abläuft:
 
 ```
-C:\>bitsadmin /cache / setexpirationtime 60
+bitsadmin /cache / setexpirationtime 60
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "biout admin Cache"](bitsadmin-cache.md)

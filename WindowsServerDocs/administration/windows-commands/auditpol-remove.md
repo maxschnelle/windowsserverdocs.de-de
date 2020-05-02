@@ -1,6 +1,6 @@
 ---
 title: Auditpol entfernen
-description: Windows-Befehls Thema für " **Auditpol Remove**", mit dem die Überwachungsrichtlinie pro Benutzer für ein angegebenes Konto oder für alle Konten entfernt wird.
+description: Referenz Thema für den Befehl Auditpol Remove, mit dem die Überwachungsrichtlinie pro Benutzer für ein bestimmtes Konto oder für alle Konten entfernt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1eda43d6708a31b2966022d2ae2c162bbfc888cb
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9aedde39d44c7640e6aa2516465e1c8ec7d022c2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851173"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719090"
 ---
 # <a name="auditpol-remove"></a>Auditpol entfernen
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Entfernt die Überwachungsrichtlinie pro Benutzer für ein angegebenes Konto oder für alle Konten.
+
+Um *Entfernungs* Vorgänge für die Richtlinie *pro Benutzer* auszuführen, müssen Sie über die Berechtigung **Schreiben** oder **voll** Zugriff für dieses Objekt verfügen, das in der Sicherheits Beschreibung festgelegt ist. Sie können auch *Entfernungs* Vorgänge ausführen, wenn Sie über das Benutzerrecht zum Verwalten von Überwachungs **-und Sicherheitsprotokollen** (SeSecurityPrivilege) verfügen. Dieses Recht ermöglicht jedoch zusätzlichen Zugriff, der zum Ausführen der allgemeinen *Entfernungs* Vorgänge nicht erforderlich ist.
 
 ## <a name="syntax"></a>Syntax
 
@@ -31,17 +33,13 @@ auditpol /remove [/user[:<username>|<{SID}>]]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ------- | -------- |
 | /User | Gibt die Sicherheits-ID (SID) oder den Benutzernamen für den Benutzer an, für den die Überwachungsrichtlinie pro Benutzer gelöscht werden soll. |
 | /ALLUSERS | Entfernt die Überwachungsrichtlinie pro Benutzer für alle Benutzer. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Hinweise
-
-Bei Entfernungs Vorgängen für die Richtlinie pro Benutzer müssen Sie über die Berechtigung Schreiben oder Vollzugriff für dieses Objekt verfügen, das in der Sicherheits Beschreibung festgelegt ist. Sie können auch Remove-Vorgänge durchführen, indem Sie das Benutzerrecht zum Verwalten von Überwachungs **-und Sicherheitsprotokollen** (SeSecurityPrivilege) besitzen. Dieses Recht ermöglicht jedoch zusätzlichen Zugriff, der zum Ausführen des Entfernungs Vorgangs nicht erforderlich ist.
-
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um die Überwachungsrichtlinie für den Benutzer Mikedan nach Name zu entfernen:
 
@@ -61,6 +59,8 @@ Um die Überwachungsrichtlinie pro Benutzer für alle Benutzer zu entfernen, geb
 auditpol /remove /allusers
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Auditpol-Befehle](auditpol.md)

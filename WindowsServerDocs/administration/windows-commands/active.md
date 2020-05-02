@@ -1,6 +1,6 @@
 ---
-title: Aktiv
-description: Das Thema Windows-Befehle für **Active**, das auf Basis Datenträgern die Partition mit dem Fokus als aktiv markiert.
+title: aktiv
+description: Referenz Thema für den aktiven Befehl, der auf Basis Datenträgern die Partition mit dem Fokus als aktiv markiert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,41 +9,36 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 42f2e0d367344355e8f9a570f37cfbdc5dfc4590
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 997c57b93434738c87396812c9b5e5b12d7a8e89
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851373"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719019"
 ---
-# <a name="active"></a>Aktiv
+# <a name="active"></a>aktiv
 
-Auf Basis Datenträgern wird die Partition mit dem Fokus als aktiv markiert.
+Auf Basis Datenträgern wird die Partition mit dem Fokus als aktiv markiert. Nur Partitionen können als aktiv gekennzeichnet werden. Eine Partition muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt wird. Wählen Sie mit dem Befehl **Partition auswählen** eine Partition aus, und verschieben Sie den Fokus auf die Partition.
 
 > [!CAUTION]
-> DiskPart überprüft nur, ob die Partition die Betriebssystem-Startdateien enthalten kann. DiskPart überprüft den Inhalt der Partition nicht. Wenn Sie versehentlich eine Partition als aktiv markieren und die Betriebssystem-Startdateien nicht enthalten, wird der Computer möglicherweise nicht gestartet.
+> DiskPart informiert das grundlegende Eingabe-/Ausgabesystem (BIOS) oder Extensible Firmware Interface (EFI) nur darüber, dass es sich bei der Partition oder dem Volume um eine gültige Systempartition oder ein System Volume handelt, und kann die Betriebssystem-Startdateien enthalten. DiskPart überprüft den Inhalt der Partition nicht. Wenn Sie versehentlich eine Partition als aktiv markieren und die Betriebssystem-Startdateien nicht enthalten, wird der Computer möglicherweise nicht gestartet.
 
 ## <a name="syntax"></a>Syntax
 
 ```
 active
-```- 
+```
 
-## Remarks
+## <a name="examples"></a>Beispiele
 
--   This informs the basic input/output system (BIOS) or Extensible Firmware Interface (EFI) that the partition or volume is a valid system partition or system volume.
-
--   Only partitions can be marked as active.
-
--   A partition must be selected for this operation to succeed. Use the **select partition** command to select a partition and shift the focus to it.
-
-## <a name=BKMK_examples></a>Examples
-
-To mark the partition with focus as the active partition, type:
+Geben Sie Folgendes ein, um die Partition mit dem Fokus als aktive Partition zu markieren:
 
 ```
-Aktiv
+active
 ```
-## Additional References
 
-- [Command-Line Syntax Key](command-line-syntax-key.md)
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Partitions Befehl auswählen](select-partition.md)

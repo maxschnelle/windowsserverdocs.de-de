@@ -1,6 +1,6 @@
 ---
-title: biout admin-Cache und-Hilfe
-description: Windows-Befehle-Thema für den **BI-admin-Cache und die-Hilfe**, in der die Befehlszeilen Verwendung für die **Cache** Switches angezeigt wird.
+title: bitsadmin cache and help
+description: Referenz Thema für den bizadmin-Cache und den Help-Befehl, der die Befehlszeilen Verwendung für die **Cache** Switches anzeigt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c636210d9c4631bd82028e681274e67d16a81931
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 79d8dd2ce5af1e1160692f13974c56842fb163cd
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850913"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718353"
 ---
-# <a name="bitsadmin-cache-and-help"></a>biout admin-Cache und-Hilfe
+# <a name="bitsadmin-cache-and-help"></a>bitsadmin cache and help
 
 Zeigt die Befehlszeilen Verwendung für die **Cache** Switches an.
 
@@ -26,14 +26,16 @@ Zeigt die Befehlszeilen Verwendung für die **Cache** Switches an.
 bitsadmin /cache /help
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
-Der folgende Befehl zeigt die Befehlszeilen Hilfe für die **Cache** Switches an.
+, Um die Befehlszeilen Hilfe für die **Cache** Switches anzuzeigen.
 
 ```
 bitsadmin /cache /help
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "biout admin Cache"](bitsadmin-cache.md)
