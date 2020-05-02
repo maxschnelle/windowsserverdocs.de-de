@@ -1,6 +1,6 @@
 ---
 title: Schatten löschen
-description: Windows-Befehls Artikel zum Löschen von Schatten Kopien.
+description: Referenz Thema für Lösch Schatten, mit dem Schatten Kopien gelöscht werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cd109f7ddc0365d03737eddba31a1a4b7f34915b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1dd367d76ad1699321af9caf47a0ddc351088a05
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846563"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720796"
 ---
 # <a name="delete-shadows"></a>Schatten löschen
 
@@ -28,15 +28,15 @@ delete shadows [all | volume <Volume> | oldest <Volume> | set <SetID> | id <Shad
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | ---- | ---- |
 | all | Löscht alle Schatten Kopien. |
-| Volume \<Volume > | Löscht alle Schatten Kopien des angegebenen Volumes. |
-| ältestes \<Volume > | Löscht die älteste Schatten Kopie des angegebenen Volumes. |
-| Legen Sie \<setID fest > | Löscht die Schatten Kopien im Schattenkopiesatz der angegebenen ID. Sie können einen Alias angeben, indem Sie das **%** Symbol verwenden, wenn der Alias in der aktuellen Umgebung vorhanden ist. |
-| ID \<shadowid > | Löscht eine Schatten Kopie der angegebenen ID. Sie können einen Alias angeben, indem Sie das **%** Symbol verwenden, wenn der Alias in der aktuellen Umgebung vorhanden ist. |
-| {\<Laufwerk > verfügbar gemacht | <MountPoint>} |
+| volumevolume \<> | Löscht alle Schatten Kopien des angegebenen Volumes. |
+| ältestes \<Volume> | Löscht die älteste Schatten Kopie des angegebenen Volumes. |
+| setID festlegen \<> | Löscht die Schatten Kopien im Schattenkopiesatz der angegebenen ID. Sie können einen Alias angeben, indem Sie **%** das Symbol verwenden, wenn der Alias in der aktuellen Umgebung vorhanden ist. |
+| ID \<shadowid> | Löscht eine Schatten Kopie der angegebenen ID. Sie können einen Alias angeben, indem Sie **%** das Symbol verwenden, wenn der Alias in der aktuellen Umgebung vorhanden ist. |
+| verfügbar gemachte\<{Drive> | <MountPoint>} |
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: vol
-description: Windows-Befehls Thema für vol, das die Datenträgervolumebezeichnung und die Seriennummer anzeigt, sofern diese vorhanden sind.
+description: Referenz Thema für vol, das die Datenträgervolumebezeichnung und die Seriennummer anzeigt, sofern diese vorhanden sind.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fbf55bad619379005d7ed8044277d3a2759dde10
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: aa900ade6f434a53ac940d097407aa90509e9141
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80830103"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720276"
 ---
 # <a name="vol"></a>vol
 
@@ -30,11 +30,11 @@ vol [<Drive>:]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|\<Laufwerk >:|Gibt das Laufwerk an, das den Datenträger enthält, für den Sie die Volumebezeichnung und Seriennummer anzeigen möchten.|
+|\<Laufwerk>:|Gibt das Laufwerk an, das den Datenträger enthält, für den Sie die Volumebezeichnung und Seriennummer anzeigen möchten.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

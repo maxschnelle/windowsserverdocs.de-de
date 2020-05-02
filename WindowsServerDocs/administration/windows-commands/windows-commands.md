@@ -1,6 +1,6 @@
 ---
 title: Windows-Befehle
-description: Windows-Befehle
+description: Referenz
 ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: c703d07c-8227-4e86-94a6-8ef390f94cdc
@@ -9,12 +9,12 @@ ms.author: jgerend
 manager: dongill
 ms.date: 06/26/2019
 ms.prod: windows-server
-ms.openlocfilehash: 9d68e2becbf9c6522be7e1ff6e6742d44f3a8247
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7baec3bbe532bbcedb8c17628fd88d2c8eac34c6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829233"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720734"
 ---
 # <a name="windows-commands"></a>Windows-Befehle
 
@@ -24,32 +24,32 @@ In diesem Dokumentations Satz werden die Windows-Befehle beschrieben, die Sie zu
 
 Wenn Sie Informationen zu einem bestimmten Befehl suchen möchten, klicken Sie im folgenden a-Z-Menü auf den Buchstaben, mit dem der Befehl beginnt, und klicken Sie dann auf den Befehlsnamen.
 
-[A](#a) |
+[a](#a) |
 [B](#b) | 
-[C](#c) | 
-[D](#d) | 
-[E](#e) | 
-[F](#f) | 
-[G](#g) | 
-[H](#h) | 
-[I](#i) |
+[M](#m)[D](#d) | 
+[V](#v)[C](#c) |
 [J](#j) | 
-[K](#k) | 
-[L](#l) | 
-[M](#m) | 
-[N](#n) | 
-[O](#o) | 
-[P](#p) | 
-[Q](#q) | 
-[R](#r) | 
-[S](#s) | 
-[t](#t) | 
-[U](#u) | 
-[V](#v) | 
-[W](#w) | 
-[X](#x) | J | Z
+[W](#w)[F](#f) | 
+[S](#s)[E](#e) | 
+[R](#r)[G](#g) | 
+[U](#u)[H](#h) | 
+[X](#x) [I](#i) | 
+[T](#t)[L](#l)[N](#n)[Q](#q)[O](#o)[P](#p)[K](#k)C D E F G H I J | 
+K L M | 
+N | 
+O | 
+P | 
+Q R S T U V W X | | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ J | Z
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 
 Die in diesem Thema enthaltenen Informationen gelten für:
 
@@ -60,8 +60,8 @@ Die in diesem Thema enthaltenen Informationen gelten für:
 -   Windows Server 2012 
 -   Windows Server 2008 R2
 -   WindowsServer 2008
--   Windows 10
--   Windows 8.1
+-   Windows 10
+-   Windows 8.1
 
 ### <a name="command-shell-overview"></a>Übersicht über Befehlsshell
 
@@ -76,7 +76,7 @@ Bei der stabilsten aktuellen Windows-Automatisierung empfiehlt es sich, PowerShe
 >Sie können auch [PowerShell Core](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6)herunterladen und installieren, die Open Source-Version von PowerShell. 
 
 > [!CAUTION]
-> Eine fehlerhafte Bearbeitung der Registrierung kann Ihr System schwer beschädigen. Bevor Sie die folgenden Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Daten auf dem Computer sichern.
+> Durch eine fehlerhafte Bearbeitung der Registrierung können schwerwiegende Schäden am System verursacht werden. Bevor Sie die folgenden Änderungen an der Registrierung vornehmen, sollten Sie alle wichtigen Daten auf dem Computer sichern.
 
 > [!NOTE]
 > Führen Sie **Regedit. exe** aus, und legen Sie den folgenden **reg_DWOrd Wert**fest, um die Vervollständigung von Datei-und Verzeichnisnamen in der Befehlsshell für eine Computer-oder Benutzer Anmelde Sitzung zu aktivieren oder deaktivieren
@@ -89,32 +89,32 @@ Bei der stabilsten aktuellen Windows-Automatisierung empfiehlt es sich, PowerShe
 
 Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klicken Sie im folgenden a-Z-Menü auf den Buchstaben, mit dem der Befehl beginnt, und klicken Sie dann auf den Befehlsnamen.
 
-[A](#a) |
+[a](#a) |
 [B](#b) | 
-[C](#c) | 
-[D](#d) | 
-[E](#e) | 
-[F](#f) | 
-[G](#g) | 
-[H](#h) | 
-[I](#i) |
+[M](#m)[D](#d) | 
+[V](#v)[C](#c) |
 [J](#j) | 
-[K](#k) | 
-[L](#l) | 
-[M](#m) | 
-[N](#n) | 
-[O](#o) | 
-[P](#p) | 
-[Q](#q) | 
-[R](#r) | 
-[S](#s) | 
-[t](#t) | 
-[U](#u) | 
-[V](#v) | 
-[W](#w) | 
-[X](#x) | J | Z
+[W](#w)[F](#f) | 
+[S](#s)[E](#e) | 
+[R](#r)[G](#g) | 
+[U](#u)[H](#h) | 
+[X](#x) [I](#i) | 
+[T](#t)[L](#l)[N](#n)[Q](#q)[O](#o)[P](#p)[K](#k)C D E F G H I J | 
+K L M | 
+N | 
+O | 
+P | 
+Q R S T U V W X | | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ J | Z
 
-### <a name="a"></a>A
+### <a name="a"></a>Ein
 -   [append](append.md)
 -   [arp](arp.md)
 -   [assoc](assoc.md)
@@ -205,7 +205,7 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
   -   [bootcfg timeout](bootcfg-timeout.md)
 - [break](break_1.md)
 
-### <a name="c"></a>A
+### <a name="c"></a>C
 - [cacls](cacls_1.md)
 - [call](call.md)
 - [cd](cd.md)
@@ -270,7 +270,7 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
 -   [expand](expand.md)
 -   [extract](extract.md)
 
-### <a name="f"></a>C
+### <a name="f"></a>F
 - [fc](fc.md)
 - [find](find.md)
 - [findstr](findstr.md)
@@ -361,10 +361,10 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
 - [logman](logman.md)
   -   [logman create](logman-create.md)
   -   [logman query](logman-query.md)
-  -   [logman Start & 124; anzuhalten](logman-start-stop.md)
+  -   [logman Start &124; anzuhalten](logman-start-stop.md)
   -   [logman delete](logman-delete.md)
   -   [logman update](logman-update.md)
-  -   [logman Import & 124; Exports](logman-import-export.md)
+  -   [logman Import &124; Exports](logman-import-export.md)
 - [logoff](logoff.md)
 - [lpq](lpq.md)
 - [lpr](lpr.md)
@@ -522,7 +522,7 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
 - [rundll32](rundll32.md)
 - [rwinsta](rwinsta.md)
 
-### <a name="s"></a>S
+### <a name="s"></a>E
 - [schtasks](schtasks.md)
 - [scwcmd](Scwcmd.md)
   -   [scwcmd: analysieren](scwcmd-analyze.md)
@@ -589,7 +589,7 @@ Wenn Sie Informationen zu einem bestimmten Windows-Befehl suchen möchten, klick
 -   [verifier](verifier.md)
 -   [verify](verify_1.md)
 -   [vol](vol.md)
--   [vssadmin](vssadmin.md) -- 
+-   [vssadmin](vssadmin.md)- 
 
 ### <a name="w"></a>W
 - [waitfor](waitfor.md)

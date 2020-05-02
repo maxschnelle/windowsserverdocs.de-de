@@ -8,16 +8,16 @@ ms.author: jgerend
 manager: lizross
 ms.technology: storage-failover-clustering
 ms.date: 01/14/2020
-ms.openlocfilehash: 5d382807adcfd771215d1f87332a47842d25eda3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: eea98579a66f1db7f7ec873bda6a2c934841736f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827383"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720506"
 ---
 # <a name="failover-clustering-system-log-events"></a>Failoverclustering-System Protokollereignisse
 
->Gilt für: Windows Server 2019, Windows Server 2016
+> Gilt für: Windows Server 2019, Windows Server 2016
 
 In diesem Thema werden die Failoverclustering-Ereignisse aus dem Windows Server-System Protokoll (sichtbar in Ereignisanzeige) aufgelistet. Diese Ereignisse verwenden alle die Ereignis Quelle von **Failoverclustering** und können bei der Problembehandlung eines Clusters hilfreich sein.
 
@@ -134,7 +134,7 @@ Der Cluster Dienst hat ein unerwartetes Problem feststellen und wird heruntergef
 
 Clusterdienst konnte nicht gestartet werden, da dieser Knoten festgestellt hat, dass er nicht über die neueste Kopie der Cluster Konfigurationsdaten verfügt. Die Änderungen am Cluster sind aufgetreten, während sich dieser Knoten nicht in der Mitgliedschaft befand und somit keine Konfigurationsdaten Aktualisierungen empfangen konnte.
 
-#### <a name="guidance"></a>Empfehlungen
+#### <a name="guidance"></a>Anleitungen
 
 Versuchen Sie, den Cluster Dienst auf allen Knoten im Cluster zu starten, damit Knoten mit der neuesten Kopie der Cluster Konfigurationsdaten zuerst den Cluster bilden können. Dieser Knoten kann dann in den Cluster eingebunden werden und erhält automatisch die aktualisierten Cluster Konfigurationsdaten. Wenn keine Knoten mit der neuesten Kopie der Cluster Konfigurationsdaten verfügbar sind, führen Sie das Windows PowerShell-Cmdlet "Start-clusternode-f" aus. Mithilfe des ForceQuorum (FQ)-Parameters wird der Cluster Dienst gestartet, und die Kopie der Cluster Konfigurationsdaten dieses Knotens wird als autorisierend gekennzeichnet. Das Erzwingen des Quorums auf einem Knoten mit einer veralteten Kopie der Cluster Datenbank führt möglicherweise zu Änderungen an der Cluster Konfiguration, die aufgetreten sind, während der Knoten nicht an dem Cluster beteiligt war.
 
@@ -498,7 +498,7 @@ Die Cluster Ressource "%1" in der Cluster Rolle "%2" hat eine Benachrichtigung �
 
 Fehler bei der Registrierung von mindestens einem zugeordneten DNS-Namen durch die Cluster-Netzwerknamen Ressource, weil die entsprechende DNS-Zone keine dynamischen Updates akzeptiert.<br><br>Cluster Netzwerkname: "%1"<br>DNS-Zone: "%2"
 
-#### <a name="guidance"></a>Empfehlungen
+#### <a name="guidance"></a>Anleitungen
 
 Stellen Sie sicher, dass das DNS als dynamische DNS-Zone konfiguriert ist. Wenn der DNS-Server keine dynamischen Updates akzeptiert, deaktivieren Sie in den Eigenschaften des Netzwerkadapters die Adressen dieser Verbindung in DNS registrieren.
 
@@ -518,7 +518,7 @@ Fehler bei der Registrierung eines oder mehrerer zugeordneter DNS-Namen durch de
 
 Die DNS-Registrierung konnte von der Cluster Netzwerk-namens Ressource nicht geändert werden.<br><br>Cluster Netzwerkname: "%1"<br>Fehlercode: "%2"
 
-#### <a name="guidance"></a>Empfehlungen
+#### <a name="guidance"></a>Anleitungen
 
 Stellen Sie sicher, dass die Netzwerkadapter, die abhängigen IP-Adress Ressourcen zugeordnet sind, mit Zugriff auf mindestens einen DNS-Server konfiguriert sind.
 
@@ -526,7 +526,7 @@ Stellen Sie sicher, dass die Netzwerkadapter, die abhängigen IP-Adress Ressourc
 
 Die DNS-Registrierung konnte von der Cluster Netzwerk-namens Ressource nicht geändert werden.<br><br>Cluster Netzwerkname: "%1"<br>Ursache: "%2"
 
-#### <a name="guidance"></a>Empfehlungen
+#### <a name="guidance"></a>Anleitungen
 
 Stellen Sie sicher, dass die Netzwerkadapter, die abhängigen IP-Adress Ressourcen zugeordnet sind, mit Zugriff auf mindestens einen DNS-Server konfiguriert sind.
 
@@ -534,7 +534,7 @@ Stellen Sie sicher, dass die Netzwerkadapter, die abhängigen IP-Adress Ressourc
 
 Die Cluster-Netzwerknamen Ressource konnte den PTR-Datensatz in der DNS-Reverse-Lookupzone nicht veröffentlichen.<br><br>Cluster Netzwerkname: "%1"<br>Fehler Code: "%2"
 
-#### <a name="guidance"></a>Empfehlungen
+#### <a name="guidance"></a>Anleitungen
 
 Stellen Sie sicher, dass die Netzwerkadapter, die abhängigen IP-Adress Ressourcen zugeordnet sind, mit Zugriff auf mindestens einen DNS-Server konfiguriert sind und dass die DNS-Reverse-Lookupzone vorhanden ist.
 
@@ -542,7 +542,7 @@ Stellen Sie sicher, dass die Netzwerkadapter, die abhängigen IP-Adress Ressourc
 
 Die Cluster-Netzwerknamen Ressource konnte den PTR-Datensatz in der DNS-Reverse-Lookupzone nicht veröffentlichen.<br><br>Cluster Netzwerkname: "%1"<br>Ursache: "%2"
 
-#### <a name="guidance"></a>Empfehlungen
+#### <a name="guidance"></a>Anleitungen
 
 Stellen Sie sicher, dass die Netzwerkadapter, die abhängigen IP-Adress Ressourcen zugeordnet sind, mit Zugriff auf mindestens einen DNS-Server konfiguriert sind und dass die DNS-Reverse-Lookupzone vorhanden ist.
 
@@ -600,7 +600,7 @@ Die Cluster Netzwerk-namens Ressource "%1" kann nicht online geschaltet werden. 
 
 ### <a name="event-1567-service_failed_to_change_log_size"></a>Ereignis 1567: SERVICE_FAILED_TO_CHANGE_LOG_SIZE
 
-Clusterdienst konnte die Größe des Ablauf Verfolgungs Protokolls nicht ändern. Überprüfen Sie die ClusterLogSize-Einstellung mit dem PowerShell-Cmdlet "Get-Cluster \| Format-List \*". Überprüfen Sie außerdem mit dem Leistungs Monitor-Snap-in die Sitzungs Einstellungen der Ereignis Ablauf Verfolgung für Failoverclustering.
+Clusterdienst konnte die Größe des Ablauf Verfolgungs Protokolls nicht ändern. Überprüfen Sie die ClusterLogSize-Einstellung mit dem PowerShell \| -Cmdlet "Get-Cluster Format-List \*". Überprüfen Sie außerdem mit dem Leistungs Monitor-Snap-in die Sitzungs Einstellungen der Ereignis Ablauf Verfolgung für Failoverclustering.
 
 ### <a name="event-1567-res_vipaddr_address_interface_failed"></a>Ereignis 1567: RES_VIPADDR_ADDRESS_INTERFACE_FAILED
 
@@ -610,7 +610,7 @@ Fehler bei der Integritäts Überprüfung für die IP-Schnittstelle "%1" (Adress
 
 Die cloudzeugen Ressource konnte Microsoft Azure Speicherdienste nicht erreichen.<br><br>Cluster Ressource: %1 <br>Cluster Knoten: %2 
 
-#### <a name="guidance"></a>Empfehlungen
+#### <a name="guidance"></a>Anleitungen
 
 Dies kann auf die Netzwerkkommunikation zwischen dem Cluster Knoten und dem Microsoft Azure zu blockierenden Dienst zurückzuführen sein. Überprüfen Sie die Internet Konnektivität des Knotens mit Microsoft Azure. Stellen Sie eine Verbindung mit dem Microsoft Azure-Portal her, und überprüfen Sie, ob das Speicherkonto
 
@@ -622,7 +622,7 @@ Das Netzwerk "%1", das für die Verwendung des Failoverclusters deaktiviert wurd
 
 Die Cloud-Zeugen Ressource konnte sich nicht bei Microsoft Azure Speicherdiensten authentifizieren. Beim Kontaktieren des Microsoft Azure Speicher Kontos wurde ein Fehler vom Typ "Zugriff verweigert" zurückgegeben. <br><br>Cluster Ressource: %1 
 
-#### <a name="guidance"></a>Empfehlungen
+#### <a name="guidance"></a>Anleitungen
 
 Der Zugriffsschlüssel des Speicher Kontos ist möglicherweise nicht mehr gültig. Verwenden Sie den Assistenten zum Konfigurieren des Cluster Quorums in den Failovercluster-Manager oder dem Windows PowerShell-Cmdlet Set-Clusterquorum, um die Cloud-Zeugen Ressource mit dem aktualisierten Zugriffsschlüssel für das Speicherkonto zu konfigurieren.
 
@@ -664,11 +664,11 @@ Der Datei Server konnte nicht gestartet werden, da die erwartete Abhängigkeit v
 
 ### <a name="event-1606-res_disk_cno_check_failed"></a>Ereignis 1606: RES_DISK_CNO_CHECK_FAILED
 
-Die Cluster Datenträger Ressource "%1" enthält ein durch BitLocker geschütztes Volume "%2". für dieses Volume ist das Active Directory Cluster Namen Konto (auch als Cluster Namen Objekt oder CNO bezeichnet) keine BitLocker-Schutzvorrichtung für das Volume. Dies ist für mit BitLocker geschützte Volumes erforderlich. Um dies zu beheben, entfernen Sie zunächst den Datenträger aus dem Cluster. Verwenden Sie als nächstes das Befehlszeilen Tool "manage-bde. exe, um den Cluster Namen als adaccountorgroup-Schutzvorrichtung hinzuzufügen, und verwenden Sie für den Cluster Namen das Format Domain\\Cluster Name\$. Fügen Sie dann den Datenträger wieder zum Cluster hinzu. Weitere Informationen finden Sie in der Dokumentation zu "manage-bde. exe.
+Die Cluster Datenträger Ressource "%1" enthält ein durch BitLocker geschütztes Volume "%2". für dieses Volume ist das Active Directory Cluster Namen Konto (auch als Cluster Namen Objekt oder CNO bezeichnet) keine BitLocker-Schutzvorrichtung für das Volume. Dies ist für mit BitLocker geschützte Volumes erforderlich. Um dies zu beheben, entfernen Sie zunächst den Datenträger aus dem Cluster. Fügen Sie als nächstes mit dem Befehlszeilen Tool "manage-bde. exe den Cluster Namen als adaccountorgroup-Schutzvorrichtung hinzu, und verwenden Sie\\dabei das Format\$ Domain Cluster Name für den Cluster Namen. Fügen Sie dann den Datenträger wieder zum Cluster hinzu. Weitere Informationen finden Sie in der Dokumentation zu "manage-bde. exe.
 
 ### <a name="event-1607-res_disk_cno_unlock_failed"></a>Ereignis 1607: RES_DISK_CNO_UNLOCK_FAILED
 
-Die Cluster Datenträger Ressource "%1" konnte das durch BitLocker geschützte Volume "%2" nicht entsperren. Das Cluster Namen Objekt (CNO) ist nicht als gültige BitLocker-Schutzvorrichtung für dieses Volume festgelegt. Um dies zu beheben, entfernen Sie den Datenträger aus dem Cluster. Fügen Sie dann mithilfe des Befehlszeilen Programms "manage-bde. exe den Cluster Namen als adaccountorgroup-Schutzvorrichtung hinzu, und verwenden Sie dabei das Format Domain\\Cluster Name\$, und fügen Sie den Datenträger wieder zum Cluster hinzu. Weitere Informationen finden Sie in der Dokumentation zu "manage-bde. exe.
+Die Cluster Datenträger Ressource "%1" konnte das durch BitLocker geschützte Volume "%2" nicht entsperren. Das Cluster Namen Objekt (CNO) ist nicht als gültige BitLocker-Schutzvorrichtung für dieses Volume festgelegt. Um dies zu beheben, entfernen Sie den Datenträger aus dem Cluster. Fügen Sie dann mit dem Befehlszeilen Tool "manage-bde. exe den Cluster Namen als adaccountorgroup-Schutzvorrichtung unter Verwendung des Formats Domain\\Cluster Name\$hinzu, und fügen Sie den Datenträger wieder zum Cluster hinzu. Weitere Informationen finden Sie in der Dokumentation zu "manage-bde. exe.
 
 ### <a name="event-1608-res_fileserver_leader_failed"></a>Ereignis 1608: RES_FILESERVER_LEADER_FAILED
 
@@ -727,7 +727,7 @@ Fehler bei Knoten Ableitung auf Cluster Knoten %1. <br><br>Verweisen Sie auf die
 
 Der Cluster Dienst konnte keinen verfügbaren Domänen Controller in der Domäne erreichen. Dies kann Auswirkungen auf die Funktionalität haben, die von der Authentifizierung des Cluster Netzwerk namens abhängig ist.<br><br>DC-Server: %1 
 
-#### <a name="guidance"></a>Empfehlungen
+#### <a name="guidance"></a>Anleitungen
 
 Vergewissern Sie sich, dass auf die Domänen Controller im Netzwerk auf die Cluster Knoten zugegriffen werden kann.
 
@@ -735,14 +735,14 @@ Vergewissern Sie sich, dass auf die Domänen Controller im Netzwerk auf die Clus
 
 Die Cluster-Netzwerknamen Ressource konnte das zugehörige Computer Objekt in Active Directory nicht finden. Dies kann Auswirkungen auf die Funktionalität haben, die von der Authentifizierung des Cluster Netzwerk namens abhängig ist.<br><br>Netzwerk Name: %1<br>Organisationseinheit: %2
 
-#### <a name="guidance"></a>Empfehlungen
+#### <a name="guidance"></a>Anleitungen
 
 Stellen Sie das Computer Objekt für den Netzwerknamen aus dem Active Directory Papierkorb wieder her. Alternativ dazu können Sie die Cluster-Netzwerknamen Ressource offline schalten und die Reparaturaktion ausführen, um das Computer Objekt in Active Directory neu zu erstellen.
 
 ### <a name="event-1685-res_netname_computer_object_cno_not_found"></a>Ereignis 1685: RES_NETNAME_COMPUTER_OBJECT_CNO_NOT_FOUND
 
 Die Cluster-Netzwerknamen Ressource konnte das zugehörige Computer Objekt in Active Directory nicht finden. Dies kann Auswirkungen auf die Funktionalität haben, die von der Authentifizierung des Cluster Netzwerk namens abhängig ist.<br><br>Netzwerk Name: %1<br>Organisationseinheit: %2
-#### <a name="guidance"></a>Empfehlungen
+#### <a name="guidance"></a>Anleitungen
 
 Stellen Sie das Computer Objekt für den Netzwerknamen aus dem Active Directory Papierkorb wieder her.
 
@@ -750,7 +750,7 @@ Stellen Sie das Computer Objekt für den Netzwerknamen aus dem Active Directory 
 
 Ressource des Cluster Netzwerk namens gefunden, dass das zugehörige Computer Objekt in Active Directory deaktiviert werden soll. Dies kann Auswirkungen auf die Funktionalität haben, die von der Authentifizierung des Cluster Netzwerk namens abhängig ist.<br><br>Netzwerk Name: %1<br>Organisationseinheit: %2
 
-#### <a name="guidance"></a>Empfehlungen
+#### <a name="guidance"></a>Anleitungen
 
 Aktivieren Sie das Computer Objekt für den Netzwerknamen in Active Directory.
 
@@ -758,7 +758,7 @@ Aktivieren Sie das Computer Objekt für den Netzwerknamen in Active Directory.
 
 Ressource des Cluster Netzwerk namens gefunden, dass das zugehörige Computer Objekt in Active Directory deaktiviert werden soll. Dies kann Auswirkungen auf die Funktionalität haben, die von der Authentifizierung des Cluster Netzwerk namens abhängig ist.<br><br>Netzwerk Name: %1<br>Organisationseinheit: %2
 
-#### <a name="guidance"></a>Empfehlungen
+#### <a name="guidance"></a>Anleitungen
 
 Aktivieren Sie das Computer Objekt für den Netzwerknamen in Active Directory. Alternativ dazu können Sie die Cluster-Netzwerknamen Ressource offline schalten und die Reparaturaktion ausführen, um das Computer Objekt in Active Directory zu aktivieren.
 
@@ -766,7 +766,7 @@ Aktivieren Sie das Computer Objekt für den Netzwerknamen in Active Directory. A
 
 Die Ressource "Cluster Netzwerkname" hat festgestellt, dass das zugeordnete Computer Objekt in Active Directory deaktiviert wurde und versucht, es zu aktivieren. Dies kann Auswirkungen auf die Funktionalität haben, die von der Authentifizierung des Cluster Netzwerk namens abhängig ist.<br><br>Netzwerk Name: %1<br>Organisationseinheit: %2
 
-#### <a name="guidance"></a>Empfehlungen
+#### <a name="guidance"></a>Anleitungen
 
 Aktivieren Sie das Computer Objekt für den Netzwerknamen in Active Directory.
 
@@ -780,7 +780,7 @@ Der gruppierte Datenträger mit der ID "%2" wurde vom Partitions-Manager nicht f
 
 ### <a name="event-4613-nodecleanup_clear_clusdisk_database_failed"></a>Ereignis 4613: NODECLEANUP_CLEAR_CLUSDISK_DATABASE_FAILED
 
-Der Cluster Dienst konnte einen gruppierten Datenträger mit der ID "%2" nicht ordnungsgemäß bereinigen, während der Cluster zerstört wurde. Fehlercode: ' %1 '. Möglicherweise ist der Zugriff auf diesen Datenträger erst möglich, wenn der Bereinigung erfolgreich abgeschlossen wurde. Löschen Sie für manuelles bereinigen den Wert "attacheddisks" des Schlüssels "HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\Clusdisk\\Parameters" in der Windows-Registrierung.
+Der Cluster Dienst konnte einen gruppierten Datenträger mit der ID "%2" nicht ordnungsgemäß bereinigen, während der Cluster zerstört wurde. Fehlercode: ' %1 '. Möglicherweise ist der Zugriff auf diesen Datenträger erst möglich, wenn der Bereinigung erfolgreich abgeschlossen wurde. Löschen Sie für manuelles Cleanup den Wert ' attacheddisks ' des Schlüssels '\\HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services Clusdisk\\Parameters ' in der Windows-Registrierung.
 
 ### <a name="event-4615-nodecleanup_disable_cluster_service_failed"></a>Ereignis 4615: NODECLEANUP_DISABLE_CLUSTER_SERVICE_FAILED
 
@@ -927,7 +927,7 @@ Von der Cluster Ressource "%1" konnte das replizierte lokale Benutzerkonto "%2" 
 
 Der Cluster konnte nicht gestartet werden. Die neueste Kopie der Cluster Konfigurationsdaten war innerhalb der Gruppe von Knoten, die versuchen, den Cluster zu starten, nicht verfügbar. Änderungen am Cluster sind aufgetreten, während die Gruppe der Knoten nicht Mitglied der Mitgliedschaft war und daher nicht in der Lage war, Konfigurationsdaten Aktualisierungen zu empfangen. .<br><br>Zum Starten des Clusters erforderliche Stimmen: %1<br>Verfügbare Stimmen: %2<br>Knoten mit Stimmen: %3
 
-#### <a name="guidance"></a>Empfehlungen
+#### <a name="guidance"></a>Anleitungen
 
 Versuchen Sie, den Cluster Dienst auf allen Knoten im Cluster zu starten, damit Knoten mit der neuesten Kopie der Cluster Konfigurationsdaten zuerst den Cluster bilden können. Der Cluster kann gestartet werden, und die Knoten erhalten automatisch die aktualisierten Cluster Konfigurationsdaten. Wenn keine Knoten mit der neuesten Kopie der Cluster Konfigurationsdaten verfügbar sind, führen Sie das Windows PowerShell-Cmdlet "Start-clusternode-f" aus. Mithilfe des ForceQuorum (FQ)-Parameters wird der Cluster Dienst gestartet, und die Kopie der Cluster Konfigurationsdaten dieses Knotens wird als autorisierend gekennzeichnet. Das Erzwingen des Quorums auf einem Knoten mit einer veralteten Kopie der Cluster Datenbank führt möglicherweise zu Änderungen an der Cluster Konfiguration, die aufgetreten sind, während der Knoten nicht an dem Cluster beteiligt war.
 
@@ -1114,7 +1114,7 @@ Der Rückgabecode war "%4". Die Ausgabe von CHKDSK wurde in der Datei "%3" proto
 
 Die physische Datenträger Ressource des Clusters kann nicht online geschaltet werden.<br><br>Name der physischen Datenträger Ressource: %1<br>Fehler Code: %2<br>Verstrichene Zeit (Sekunden): %3
 
-#### <a name="guidance"></a>Empfehlungen
+#### <a name="guidance"></a>Anleitungen
 
 Führen Sie den Konfigurationsüberprüfungs-Assistenten aus, um die Speicherkonfiguration zu überprüfen. Wenn der Fehlercode ERROR_CLUSTER_SHUTDOWN wurde, wurde der ausstehende Online Status von einem Administrator abgebrochen. Wenn es sich um ein repliziertes Volume handelt, könnte dies das Ergebnis eines Fehlers beim Festlegen der Datenträger Attribute sein. Überprüfen Sie die Speicher Replikations Ereignisse auf Weitere Informationen.
 
@@ -1251,6 +1251,6 @@ Auf Freigegebenes Clustervolume ' %1 ' (' %2 ') kann von diesem Cluster Knoten a
 Die physische Datenträger Ressource "%1" des Clusters löschte eine Software Momentaufnahme. Die Software Momentaufnahme auf Freigegebenes Clustervolume ' %2 ' wurde gelöscht, weil Sie älter als ' %3 ' Tag (e) war. Die Momentaufnahme-ID lautete "%4" und wurde aus dem Knoten "%5" auf "%6" erstellt.
 Es wird erwartet, dass Momentaufnahmen von einer Sicherungs Anwendung gelöscht werden, nachdem ein Sicherungsauftrag abgeschlossen wurde. Diese Momentaufnahme hat die Zeit überschritten, die für das vorhanden sein einer Momentaufnahme erwartet wird. Überprüfen Sie mit der Sicherungs Anwendung, ob Sicherungsaufträge erfolgreich abgeschlossen werden.
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 -   [Ausführliche Ereignis Informationen für Failoverclustering-Komponenten in Windows Server 2008](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753362(v%3dws.10))

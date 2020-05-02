@@ -1,6 +1,6 @@
 ---
 title: Wbadmin-Sicherung aktivieren
-description: Das Thema Windows-Befehle für Wbadmin enable Backup, mit dem ein täglicher Sicherungs Zeitplan erstellt und aktiviert oder ein vorhandener Sicherungs Zeitplan geändert wird.
+description: Referenz Thema für die Wbadmin-Sicherung aktivieren, mit der ein täglicher Sicherungs Zeitplan erstellt und aktiviert oder ein vorhandener Sicherungs Zeitplan geändert wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f4c5abdec29ed519a2894a26814711e32e3b8672
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a44cfca936e5349e1757d66a4b7b6a8195b44228
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829793"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720183"
 ---
 # <a name="wbadmin-enable-backup"></a>Wbadmin-Sicherung aktivieren
 
@@ -23,8 +23,6 @@ ms.locfileid: "80829793"
 Erstellt und aktiviert einen täglichen Sicherungs Zeitplan oder ändert einen vorhandenen Sicherungs Zeitplan. Wenn keine Parameter angegeben sind, werden die aktuell geplanten Sicherungs Einstellungen angezeigt.
 
 Um einen täglichen Sicherungs Zeitplan zu konfigurieren oder zu ändern, müssen Sie Mitglied der Gruppe " **Administratoren** " oder " **Sicherungs-Operatoren** " sein. Außerdem müssen Sie **Wbadmin** über eine Eingabeaufforderung mit erhöhten Rechten ausführen. (Um eine Eingabeaufforderung mit erhöhten Rechten zu öffnen, klicken Sie mit der rechten Maustaste auf **Eingabeaufforderung** und dann auf **als Administrator ausführen**.)
-
-Beispiele für die Verwendung dieses Unterbefehls finden Sie unter [Beispiele](#BKMK_examples).
 
 ## <a name="syntax"></a>Syntax
 
@@ -76,9 +74,9 @@ wbadmin enable backup
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|-addTarget|Für Windows Server 2008 gibt den Speicherort für Sicherungen an. Erfordert, dass Sie ein Ziel für Sicherungen als Datenträger Bezeichner angeben (siehe Hinweise). Der Datenträger wird vor der Verwendung formatiert, und alle vorhandenen Daten werden dauerhaft gelöscht.</br>Gibt für Windows Server 2008 R2 und höher den Speicherort für Sicherungen an. Erfordert die Angabe des Speicher Orts als Datenträger, Volume oder Universal Naming Convention (UNC-Pfad) zu einem freigegebenen Remote Ordner (\\\\\<Servername >\<Freigabe Name >\). Standardmäßig wird die Sicherung unter: \\\\<servername>\<ShareName > \WindowsImageBackup\<ComputerBackedUp > gespeichert\. Wenn Sie einen Datenträger angeben, wird der Datenträger vor der Verwendung formatiert, und alle vorhandenen Daten werden dauerhaft gelöscht. Wenn Sie einen freigegebenen Ordner angeben, können Sie keine weiteren Speicherorte hinzufügen. Sie können jeweils nur einen freigegebenen Ordner als Speicherort angeben.</br>Wichtig: Wenn Sie eine Sicherung in einem freigegebenen Remote Ordner speichern, wird diese Sicherung überschrieben, wenn Sie denselben Ordner zum erneuten sichern desselben Computers verwenden. Wenn der Sicherungs Vorgang fehlschlägt, können Sie darüber hinaus keine Sicherung erstellen, da die ältere Sicherung überschrieben wird, aber die neuere Sicherung nicht verwendbar ist. Sie können dies vermeiden, indem Sie Unterordner im freigegebenen Remote Ordner erstellen, um die Sicherungen zu organisieren. Wenn Sie dies tun, benötigen die Unterordner den doppelten Speicherplatz des übergeordneten Ordners.</br>Nur ein Speicherort kann in einem einzelnen Befehl angegeben werden. Mehrere Speicherorte für Volumes und Datenträger Sicherungen können hinzugefügt werden, indem der Befehl erneut ausgeführt wird.|
+|-addTarget|Für Windows Server 2008 gibt den Speicherort für Sicherungen an. Erfordert, dass Sie ein Ziel für Sicherungen als Datenträger Bezeichner angeben (siehe Hinweise). Der Datenträger wird vor der Verwendung formatiert, und alle vorhandenen Daten werden dauerhaft gelöscht.</br>Gibt für Windows Server 2008 R2 und höher den Speicherort für Sicherungen an. Erfordert, dass Sie den Speicherort als Datenträger, Volume oder Universal Naming Convention Pfad (UNC-Pfad) zu einem freigegebenen\\\\\<Remote Ordner (Server \<Name>ShareName>\)angeben. Standardmäßig wird die Sicherung unter: \\ \\ <servername> \<ShareName> \WindowsImageBackup\<ComputerBackedUp gespeichert>\. Wenn Sie einen Datenträger angeben, wird der Datenträger vor der Verwendung formatiert, und alle vorhandenen Daten werden dauerhaft gelöscht. Wenn Sie einen freigegebenen Ordner angeben, können Sie keine weiteren Speicherorte hinzufügen. Sie können jeweils nur einen freigegebenen Ordner als Speicherort angeben.</br>Wichtig: Wenn Sie eine Sicherung in einem freigegebenen Remote Ordner speichern, wird diese Sicherung überschrieben, wenn Sie denselben Ordner zum erneuten sichern desselben Computers verwenden. Wenn der Sicherungs Vorgang fehlschlägt, können Sie darüber hinaus keine Sicherung erstellen, da die ältere Sicherung überschrieben wird, aber die neuere Sicherung nicht verwendbar ist. Sie können dies vermeiden, indem Sie Unterordner im freigegebenen Remote Ordner erstellen, um die Sicherungen zu organisieren. Wenn Sie dies tun, benötigen die Unterordner den doppelten Speicherplatz des übergeordneten Ordners.</br>Nur ein Speicherort kann in einem einzelnen Befehl angegeben werden. Mehrere Speicherorte für Volumes und Datenträger Sicherungen können hinzugefügt werden, indem der Befehl erneut ausgeführt wird.|
 |-removetarget|Gibt den Speicherort an, den Sie aus dem vorhandenen Sicherungs Zeitplan entfernen möchten. Erfordert die Angabe des Speicher Orts als Datenträger Bezeichner (siehe Hinweise).|
 |-Zeitplan|Gibt die Tageszeiten zum Erstellen einer Sicherung an, die als hh: mm formatiert und durch Kommas getrennt formatiert sind.|
 |-include|Für Windows Server 2008 gibt die durch Trennzeichen getrennte Liste der volumelaufwerks Buchstaben, Volumebereitstellungspunkte oder GUID-basierten Volumenamen an, die in die Sicherung eingeschlossen werden sollen.</br>Für Windows Server 2008 R2and gibt später die durch Trennzeichen getrennte Liste der Elemente an, die in die Sicherung eingeschlossen werden sollen. Sie können mehrere Dateien, Ordner oder Volumes einschließen. Volumepfade können mit Volumelaufwerkbuchstaben, Volumebereitstellungspunkten oder GUID-basierten Volumenamen angegeben werden. Wenn Sie einen GUID-basierten Volumenamen verwenden, sollte er mit einem umgekehrten Schrägstrich (\)) beendet werden. Wenn Sie einen Pfad zu einer Datei angeben, können Sie im Dateinamen das Platzhalter Zeichen (*) verwenden.|
@@ -95,23 +93,23 @@ wbadmin enable backup
 |-quiet|Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus.|
 |-allowdeleteoldbackups|Überschreibt alle Sicherungen, die vor dem Upgrade des Computers durchgeführt wurden.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Um den datenträgerbezeichnerwert für Ihre Datenträger anzuzeigen, geben **Sie Wbadmin Get Disks**ein.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 In den folgenden Beispielen wird veranschaulicht, wie der Befehl **Wbadmin enable Backup** in verschiedenen sicherungsszenarien verwendet werden kann:
 
 Szenario #1
-- Planen der Sicherungen von Festplatten Laufwerken e:, d:\mountpoint und \\\\? \Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
+- Planen der Sicherungen von Festplatten Laufwerken e:, d:\mountpoint und \\ \\? \Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
 - Speichern Sie die Dateien auf dem Datenträger DiskId.
-- Täglich um 9:00 Uhr täglich Sicherungen ausführen und 6:00 Uhr
+- Täglich um 9:00 Uhr täglich Sicherungen ausführen und 18:00 Uhr
   ```
   wbadmin enable backup -addtarget:DiskID -schedule:09:00,18:00 -include:e:,d:\mountpoint,\\?\Volume{cc566d14-44a0-11d9-9d93-806e6f6e6963}\
   ```
   Szenario #2
-- Planen Sie Sicherungen des Ordners d:\Documents an der Netzwerkadresse \\\\backupshare\backup1
+- Planen Sie Sicherungen des Ordners "d:\Documents" für \\ \\den Netzwerk Speicherort "backupshare\backup1".
 - Verwenden Sie die Netzwerk Anmelde Informationen für den Sicherungs Administrator Aaren Ekelund (aekel), der Mitglied der Domäne contosoeast ist, um den Zugriff auf die Netzwerkfreigabe zu authentifizieren. Das Kennwort von Aaren ist *$3hm9 ^ 5LP*.
 - Täglich um 12:00 Uhr täglich Sicherungen ausführen und 7:00 Uhr
   ```
@@ -125,7 +123,7 @@ Szenario #1
   wbadmin enable backup –addtarget:H: –include T:,D:\documents –exclude D:\documents\~tmp –vssfull –schedule:01:00
   ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

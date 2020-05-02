@@ -1,6 +1,6 @@
 ---
 title: Remove-Namespace
-description: Windows-Befehls Thema für Remove-Namespace, wodurch ein benutzerdefinierter Namespace entfernt wird.
+description: Referenz Thema für Remove-Namespace, mit dem ein benutzerdefinierter Namespace entfernt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f8b830a5d99d13ed00a3a19f2cf246ad71d1c5f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2ef329a53a7f212c1810af2e4ced11a2abf76840
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80830233"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720326"
 ---
 # <a name="using-the-remove-namespace-command"></a>Verwenden des Remove-Namespace-Befehls
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Entfernt einen benutzerdefinierten Namespace.
 
@@ -27,12 +27,12 @@ Entfernt einen benutzerdefinierten Namespace.
 wdsutil /remove-Namespace /Namespace:<Namespace name> [/Server:<Server name>] [/force]
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
-|/Namespace:<Namespace name>|Gibt den Namen des Namespaces an. Dies ist nicht der Anzeige Name, und er muss eindeutig sein.<p>**Rollen Dienst "-   Bereitstellungs Server**": die Syntax für den Namespace Namen lautet/Namespace: WDS:<ImageGroup>/<ImageName>/<Index>. Beispiel: **WDS: ImageGroup1/install. wim/1**<br />-   **Transport Server-Rollen Dienst**: dieser Wert muss dem Namen entsprechen, der dem Namespace bei der Erstellung auf dem Server zugewiesen wurde.|
+|Namespace<Namespace name>|Gibt den Namen des Namespace an. Dies ist nicht der Anzeige Name, und er muss eindeutig sein.<p>-   **Rollen Dienst "Bereitstellungs Server**": die Syntax für den Namespace Namen lautet/Namespace<ImageGroup>/<ImageName>/<Index>: WDS:. Beispiel: **WDS: ImageGroup1/install. wim/1**<br />-   **Transport Server-Rollen Dienst**: dieser Wert muss dem Namen entsprechen, der für den Namespace angegeben wurde, als er auf dem Server erstellt wurde.|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Dabei kann es sich um den NetBIOS-Namen oder den voll qualifizierten Domänen Namen (FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
 |/Force|entfernt den Namespace sofort und beendet alle Clients. Beachten Sie, dass vorhandene Clients die Übertragung durchführen können, es sei denn, Sie geben **/Force**an. neue Clients können jedoch nicht beitreten.|
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 Geben Sie Folgendes ein, um einen Namespace zu beenden (aktuelle Clients können die Übertragung beenden, aber keine neuen Clients beitreten). Geben Sie Folgendes ein:
 ```
 wdsutil /remove-Namespace /Namespace:Custom Auto 1
@@ -41,8 +41,8 @@ Wenn Sie die Beendigung aller Clients erzwingen möchten, geben Sie Folgendes ei
 ```
 wdsutil /remove-Namespace /Server:MyWDSServer /Namespace:Custom Auto 1 /force
 ```
-## <a name="additional-references"></a>Weitere Verweise
-- Der [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[mithilfe des Befehls get-allnamespaces](using-the-get-allnamespaces-command.md)
-[mit dem Befehl New-Namespace](using-the-new-namespace-command.md)
-[Unterbefehl: Start-Namespace](subcommand-start-namespace.md)
+## <a name="additional-references"></a>Zusätzliche Referenzen
+- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
+[mithilfe des Befehls "get-allnamespaces](using-the-get-allnamespaces-command.md)
+"[mit dem Befehl "New-Namespace Command](using-the-new-namespace-command.md)
+"[: Start-Namespace](subcommand-start-namespace.md)

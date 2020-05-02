@@ -1,6 +1,6 @@
 ---
 title: xcopy
-description: Windows-Befehle Thema für xcopy, w hich kopiert Dateien und Verzeichnisse, einschließlich Unterverzeichnissen.
+description: Referenz Thema für xcopy, das Dateien und Verzeichnisse einschließlich Unterverzeichnissen kopiert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: 660ef69a5f1df99c3b959a588984719c9d4dea6b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d0ee0a9f87eacefad619e82aa28f5fcf8419ed09
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828923"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720620"
 ---
 # <a name="xcopy"></a>xcopy
 
@@ -30,20 +30,20 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|> der \<Quelle|Erforderlich Gibt den Speicherort und die Namen der Dateien an, die Sie kopieren möchten. Dieser Parameter muss entweder ein Laufwerk oder einen Pfad enthalten.|
-|[\<Ziel >]|Gibt das Ziel der Dateien an, die Sie kopieren möchten. Dieser Parameter kann einen Laufwerk Buchstaben, einen Doppelpunkt, einen Verzeichnisnamen, einen Dateinamen oder eine Kombination dieser Parameter enthalten.|
+|\<Quell>|Erforderlich. Gibt den Speicherort und die Namen der Dateien an, die Sie kopieren möchten. Dieser Parameter muss entweder ein Laufwerk oder einen Pfad enthalten.|
+|[\<Ziel>]|Gibt das Ziel der Dateien an, die Sie kopieren möchten. Dieser Parameter kann einen Laufwerk Buchstaben, einen Doppelpunkt, einen Verzeichnisnamen, einen Dateinamen oder eine Kombination dieser Parameter enthalten.|
 |/w|Zeigt die folgende Meldung an und wartet auf die Antwort, bevor mit dem Kopieren von Dateien begonnen wird:</br>**Drücken Sie eine beliebige Taste, um mit dem Kopieren von Dateien zu beginnen.**|
 |/p|Sie werden aufgefordert, zu bestätigen, ob Sie die einzelnen Zieldateien erstellen möchten.|
-|/c|Ignoriert Fehler.|
+|/C|Ignoriert Fehler.|
 |/v|Überprüft jede Datei beim Schreiben in die Zieldatei, um sicherzustellen, dass die Zieldateien mit den Quelldateien identisch sind.|
 |/q|Unterdrückt die Anzeige von **xcopy** -Meldungen.|
 |/f|Zeigt beim Kopieren Quell-und Ziel Dateinamen an.|
 |/l|Zeigt eine Liste der Dateien an, die kopiert werden sollen.|
 |/g|Erstellt entschlüsselte *Ziel* Dateien, wenn das Ziel keine Verschlüsselung unterstützt.|
 |/d [: mm-dd-yyyy]|Kopiert Quelldateien, die am oder nach dem angegebenen Datum geändert wurden. Wenn Sie keinen *mm-dd-yyyy-* Wert einschließen, kopiert **xcopy** alle *Quell* Dateien, die neuer sind als vorhandene *Ziel* Dateien. Diese Befehlszeilenoption ermöglicht es Ihnen, geänderte Dateien zu aktualisieren.|
-|/u|Kopiert Dateien aus der *Quelle* , die nur auf dem *Ziel* vorhanden sind.|
+|/U|Kopiert Dateien aus der *Quelle* , die nur auf dem *Ziel* vorhanden sind.|
 |/i|Wenn die *Quelle* ein Verzeichnis ist oder Platzhalter enthält und das *Ziel* nicht vorhanden ist, wird von **xcopy** angenommen, dass das *Ziel* einen Verzeichnisnamen angibt und ein neues Verzeichnis erstellt. Anschließend kopiert **xcopy** alle angegebenen Dateien in das neue Verzeichnis. Standardmäßig werden Sie von **xcopy** aufgefordert, anzugeben, ob es sich bei dem *Ziel* um eine Datei oder ein Verzeichnis handelt.|
 |/s|Kopiert Verzeichnisse und Unterverzeichnisse, es sei denn, Sie sind leer. Wenn Sie **/s**weglassen, funktioniert **xcopy** innerhalb eines einzelnen Verzeichnisses.|
 |/e|Kopiert alle Unterverzeichnisse, auch wenn Sie leer sind. Verwenden Sie **/e** mit den Befehlszeilenoptionen **/s** und **/t** .|
@@ -56,15 +56,15 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/n|Erstellt Kopien mithilfe der kurzen NTFS-Datei-oder Verzeichnisnamen. **/n** ist erforderlich, wenn Sie Dateien oder Verzeichnisse von einem NTFS-Volume auf ein FAT-Volume kopieren oder wenn die Benennungs Konvention für FAT-Dateisystem (8,3 Zeichen) im *Ziel* Dateisystem erforderlich ist. Das *Ziel* Dateisystem kann FAT oder NTFS sein.|
 |/o|Kopiert Dateibesitz-und freigegebene Informationen zur Zugriffs Steuerungs Liste (DACL).|
 |/x|Kopiert Datei Überwachungs Einstellungen und SACL (System Access Control List)-Informationen (impliziert **/o**).|
-|/Exclude: FileName1 [+ [FileName2] [+ [FileName3] (\)]|Gibt eine Liste von Dateien an. Es muss mindestens eine Datei angegeben werden. Jede Datei enthält Such Zeichenfolgen mit jeder Zeichenfolge in einer separaten Zeile in der Datei.</br>Wenn eine der Zeichen folgen einem beliebigen Teil des absoluten Pfads der zu kopierenden Datei entspricht, wird diese Datei nicht mehr kopiert. Wenn Sie z. b. die Zeichenfolge **obj** angeben, werden alle Dateien unter dem Verzeichnis **obj** oder alle Dateien mit der **. obj** -Erweiterung ausgeschlossen.|
+|/Exclude: FileName1 [+ [FileName2] [+ [FileName3] ( \)]|Gibt eine Liste von Dateien an. Es muss mindestens eine Datei angegeben werden. Jede Datei enthält Such Zeichenfolgen mit jeder Zeichenfolge in einer separaten Zeile in der Datei.</br>Wenn eine der Zeichen folgen einem beliebigen Teil des absoluten Pfads der zu kopierenden Datei entspricht, wird diese Datei nicht mehr kopiert. Wenn Sie z. b. die Zeichenfolge **obj** angeben, werden alle Dateien unter dem Verzeichnis **obj** oder alle Dateien mit der **. obj** -Erweiterung ausgeschlossen.|
 |/y|Unterdrückt die Eingabeaufforderung, um zu bestätigen, dass Sie eine vorhandene Zieldatei überschreiben möchten.|
 |/-y|Fordert Sie auf zu bestätigen, dass Sie eine vorhandene Zieldatei überschreiben möchten.|
-|"/z|Kopiert über ein Netzwerk im neu startbaren Modus.|
+|/z|Kopiert über ein Netzwerk im neu startbaren Modus.|
 |/b|Kopiert den symbolischen Link anstelle der Dateien. Dieser Parameter wurde in Windows Vista® eingeführt.|
 |/j|Kopiert Dateien ohne Pufferung. Empfohlen für sehr große Dateien. Dieser Parameter wurde in Windows Server 2008 R2 hinzugefügt.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 - Verwenden von **"/z**
 
@@ -109,7 +109,7 @@ Drücken Sie F, wenn Sie möchten, dass die Dateien in eine Datei kopiert werden
 
   Um die von **xcopy**zurückgegebenen Exitcodes zu verarbeiten, verwenden Sie den **ERRORLEVEL** -Parameter in der **if** -Befehlszeile in einem Batch-Programm. Ein Beispiel für ein Batch-Programm, das Exitcodes mithilfe von **if**verarbeitet, finden Sie unter [Zusätzliche Verweise](#additional-references). In der folgenden Tabelle sind die einzelnen Exitcodes und Beschreibungen aufgeführt.  
 
-  |Exitcode|Beschreibung|
+  |Exitcode|BESCHREIBUNG|
   |---------|-----------|
   |0|Dateien wurden ohne Fehler kopiert.|
   |1|Es wurden keine Dateien zum Kopieren gefunden.|
@@ -151,7 +151,7 @@ xcopy \rawdata \reports /d:12-29-1993 /l > xcopy.out
 
 Die Datei Xcopy. out listet alle Dateien auf, die kopiert werden sollen.
 
-**6.** um das Verzeichnis "\customer" und alle Unterverzeichnisse in das Verzeichnis \\\\public\address auf dem Netzwerklaufwerk H: zu kopieren, behalten Sie das Attribut "schreibgeschützt" bei, und Sie werden aufgefordert, wenn eine neue Datei auf "h:" erstellt wird. Geben Sie Folgendes ein:
+**6.** um das Verzeichnis "\customer" und alle Unterverzeichnisse in das \\ \\Verzeichnis public\address auf dem Netzwerklaufwerk H: zu kopieren, behalten Sie das Attribut "schreibgeschützt" bei, und Sie werden beim Erstellen einer neuen Datei auf "h:" aufgefordert, Folgendes einzugeben:
 
 ```
 xcopy \customer h:\public\address /s /e /k /p
@@ -204,14 +204,14 @@ rem  .\d2\toc.yml
 rem  3 File(s) copied
 ```
 
-Im vorangehenden Beispiel Kopieren dieser bestimmte Quellparameter Wert **.\\Inhalts\*. yml** dieselben drei Dateien, auch wenn die beiden Pfad Zeichen **.\\** entfernt wurden. Es werden jedoch keine Dateien kopiert, wenn der Platzhalter Platzhalter aus dem Quellparameter entfernt wurde, sodass nur **.\\** ".
+Im vorherigen Beispiel ist dieser bestimmte Quellparameter Wert **.\\ "Dec\*. yml** " kopiert dieselben drei Dateien, auch wenn die beiden **Pfad\\ Zeichen entfernt wurden.** Es werden jedoch keine Dateien kopiert, wenn der Platzhalter Platzhalter aus dem Quellparameter entfernt wurde **.\\ **"Inhaltsverzeichnis".
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Kopieren](copy.md)
--   [Verschieben](move.md)
+-   [Move](move.md)
 -   [Has](dir.md)
 -   [Attrib](attrib.md)
 -   [DISKCOPY](diskcopy.md)
--   [Sei](if.md)
+-   [If](if.md)
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

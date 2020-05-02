@@ -1,6 +1,6 @@
 ---
 title: winrs
-description: Windows-Befehls Thema für Winrs, mit dem Sie Programme remote verwalten und ausführen können.
+description: Referenz Thema für Winrs, mit dem Sie Programme remote verwalten und ausführen können.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d3b714f851c981611bbe4d4f26a7b7eed2db7903
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0c68b122082ab394424792bc5166cdfdfd14c666
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829143"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720684"
 ---
 # <a name="winrs"></a>winrs
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Mithilfe der Windows-Remote Verwaltung können Sie Programme remote verwalten und ausführen.   
 ## <a name="syntax"></a>Syntax  
@@ -27,15 +27,15 @@ winrs [/<parameter>[:<value>]] <command>
 ```  
 #### <a name="parameters"></a>Parameter  
 
-|           Parameter            |                                                                                                                                                                                    Beschreibung                                                                                                                                                                                     |
+|           Parameter            |                                                                                                                                                                                    BESCHREIBUNG                                                                                                                                                                                     |
 |--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      /Remote:\<Endpunkt >       |                                                                                          Gibt den Ziel Endpunkt mithilfe eines NetBIOS-Namens oder der Standardverbindung an:<p>-   <url>: [\<Transport >://]\<Ziel > [:\<Port >]<p>Wenn nicht angegeben, wird **/r: localhost** verwendet.                                                                                          |
+|      /Remote:\<Endpunkt>       |                                                                                          Gibt den Ziel Endpunkt mithilfe eines NetBIOS-Namens oder der Standardverbindung an:<p>-   <url>: [\<Transport>://]\<Ziel> [:\<Port>]<p>Wenn nicht angegeben, wird **/r: localhost** verwendet.                                                                                          |
 |          /unencrypted          | Gibt an, dass die Nachrichten an die Remoteshell nicht verschlüsselt werden. Dies ist nützlich für die Problembehandlung oder den Fall, dass der Netzwerk Datenverkehr bereits mit **IPSec**verschlüsselt ist oder wenn die physische Sicherheit erzwungen wird.<p>Standardmäßig werden die Nachrichten mithilfe von Kerberos-oder NTLM-Schlüsseln verschlüsselt.<p>Diese Befehlszeilenoption wird ignoriert, wenn HTTPS-Transport ausgewählt wird. |
-|     /Username:\<Benutzername >      |                                                                                Gibt den Benutzernamen in der Befehlszeile an.<p>Wenn nichts angegeben wird, verwendet das Tool die Aushandlungs Authentifizierung oder die Eingabeaufforderung für den Namen.<p>Wenn **/username** angegeben wird, muss auch **/Password** angegeben werden.                                                                                 |
-|     /Password:\<Kennwort >      |                                                                           Gibt das Kennwort in der Befehlszeile an.<p>Wenn **/Password** nicht angegeben ist, aber **/username** ist, fordert das Tool zur Eingabe des Kennworts auf.<p>Wenn **/Password** angegeben wird, muss auch **/username** angegeben werden.                                                                            |
-|      /Timeout:\<Sekunden >       |                                                                                                                                                                             Diese Option ist veraltet.                                                                                                                                                                             |
-|       /Directory:\<Pfad >       |                                                                                            Gibt das Start Verzeichnis für die Remoteshell an.<p>Wenn keine Angabe erfolgt, wird die Remoteshell im Basisverzeichnis des Benutzers gestartet, das durch die Umgebungsvariable " **% User Profile%** " definiert wird.                                                                                             |
-| /Environment:\<Zeichenfolge > =<value> |                                                                          Gibt eine einzelne Umgebungsvariable an, die beim Start der Shell festgelegt werden soll, sodass die Standardumgebung für die Shell geändert werden kann.<p>Mehrere Vorkommen dieses Schalters müssen verwendet werden, um mehrere Umgebungsvariablen anzugeben.                                                                          |
+|     /Username:\<username->      |                                                                                Gibt den Benutzernamen in der Befehlszeile an.<p>Wenn nichts angegeben wird, verwendet das Tool die Aushandlungs Authentifizierung oder die Eingabeaufforderung für den Namen.<p>Wenn **/username** angegeben wird, muss auch **/Password** angegeben werden.                                                                                 |
+|     /Password:\<Kennwort>      |                                                                           Gibt das Kennwort in der Befehlszeile an.<p>Wenn **/Password** nicht angegeben ist, aber **/username** ist, fordert das Tool zur Eingabe des Kennworts auf.<p>Wenn **/Password** angegeben wird, muss auch **/username** angegeben werden.                                                                            |
+|      /Timeout:\<Sekunden>       |                                                                                                                                                                             Diese Option ist veraltet.                                                                                                                                                                             |
+|       /Directory:\<Pfad>       |                                                                                            Gibt das Start Verzeichnis für die Remoteshell an.<p>Wenn keine Angabe erfolgt, wird die Remoteshell im Basisverzeichnis des Benutzers gestartet, das durch die Umgebungsvariable " **% User Profile%**" definiert wird.                                                                                             |
+| /Environment:\<String>=<value> |                                                                          Gibt eine einzelne Umgebungsvariable an, die beim Start der Shell festgelegt werden soll, sodass die Standardumgebung für die Shell geändert werden kann.<p>Mehrere Vorkommen dieses Schalters müssen verwendet werden, um mehrere Umgebungsvariablen anzugeben.                                                                          |
 |            /noecho             |                                                                                                    Gibt an, dass ECHO deaktiviert werden soll. Dies kann erforderlich sein, um sicherzustellen, dass die Antworten von Benutzern auf Remote Aufforderungen nicht lokal angezeigt werden.<p>Standardmäßig ist Echo on.                                                                                                    |
 |           /noprofile           |                                              Gibt an, dass das Profil des Benutzers nicht geladen werden soll.<p>Standardmäßig versucht der Server, das Benutzerprofil zu laden.<p>Wenn der Remote Benutzer kein lokaler Administrator auf dem Zielsystem ist, ist diese Option erforderlich (der Standardwert führt zu einem Fehler).                                               |
 |         /allowdelegate         |                                                                                                                  Gibt an, dass die Anmelde Informationen des Benutzers für den Zugriff auf eine Remote Freigabe verwendet werden können, z. b. auf einem anderen Computer als dem Ziel Endpunkt.                                                                                                                   |
@@ -43,12 +43,12 @@ winrs [/<parameter>[:<value>]] <command>
 |            /usessl             |                                                                                                               Verwenden Sie eine SSL-Verbindung, wenn Sie einen Remote Endpunkt verwenden.  Diese Angabe anstelle des Transport- **https:** verwendet den standardmäßigen **WinRM** -Standardport.                                                                                                                |
 |               /?               |                                                                                                                                                                        Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                        |
 
-## <a name="remarks"></a>Hinweise  
+## <a name="remarks"></a>Bemerkungen  
 -   Alle Befehlszeilenoptionen akzeptieren entweder eine Kurzform oder eine lange Form. Beispielsweise sind sowohl **/r** als auch **/Remote** gültig.  
 -   Um den **/Remote** -Befehl zu beenden, kann der Benutzer **STRG + C** oder STRG + **Pause**eingeben, das an die Remoteshell gesendet wird. Die zweite **STRG-C-Taste erzwingt** die Beendigung von " **Winrs. exe**".  
 -   Verwenden Sie das WinRM-Tool, um aktive Remoteshells oder Winrs-Konfigurationen zu verwalten.  Der URI-Alias zum Verwalten aktiver Shells ist **Shell/cmd**.  Der URI-Alias für die Winrs **-Konfiguration ist WinRM/config/Winrs**.  
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Beispiele  
+## <a name="examples"></a>Beispiele  
 ```  
 winrs /r:https://contoso.com command  
 ```  

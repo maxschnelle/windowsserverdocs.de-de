@@ -1,6 +1,6 @@
 ---
-title: Basisdatenträger konvertieren
-description: Windows-Befehle-Thema für Convert Basic, das einen leeren dynamischen Datenträger in einen Basis Datenträger konvertiert.
+title: convert basic
+description: Referenz Thema für den Befehl "grundlegend konvertieren", der einen leeren dynamischen Datenträger in einen Basis Datenträger konvertiert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e0f6f5f04373042956d83bc9136c884c268e591
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e44ecc9f5d18bbe426c63f8854e7c3347f418bb2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80847313"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720793"
 ---
-# <a name="convert-basic"></a>Basisdatenträger konvertieren
+# <a name="convert-basic"></a>convert basic
 
-Konvertiert einen leeren dynamischen Datenträger in einen Basis Datenträger.
+Konvertiert einen leeren dynamischen Datenträger in einen Basis Datenträger. Ein dynamischer Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl Datenträger [auswählen](select-disk.md) einen dynamischen Datenträger aus, und verschieben Sie den Fokus auf den Datenträger.
 
-Anweisungen zur Verwendung dieses Befehls finden Sie unter [Ändern eines dynamischen Datenträgers zurück auf einen Basis](https://go.microsoft.com/fwlink/?LinkId=207048) Datenträger (https://go.microsoft.com/fwlink/?LinkId=207048).
+> [!IMPORTANT]
+> Der Datenträger muss leer sein, um ihn in einen Basis Datenträger zu konvertieren. Sichern Sie Ihre Daten, und löschen Sie dann alle Partitionen oder Volumes, bevor Sie den Datenträger umstellen.
+
+> [!NOTE]
+> Anweisungen zur Verwendung dieses Befehls finden Sie unter [Ändern eines dynamischen Datenträgers zurück auf einen Basis](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755238(v=ws.11))Datenträger.
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,25 +34,20 @@ convert basic [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|Noerr|Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
-## <a name="remarks"></a>Hinweise
-
-> [!IMPORTANT]
-> Der Datenträger muss leer sein, um ihn in einen Basis Datenträger zu konvertieren. Sichern Sie Ihre Daten, und löschen Sie dann alle Partitionen oder Volumes, bevor Sie den Datenträger umstellen.
-
--   Ein dynamischer Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl Datenträger **auswählen** einen dynamischen Datenträger aus, und verschieben Sie den Fokus auf den Datenträger.
-
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um den ausgewählten dynamischen Datenträger in Basic zu konvertieren:
+
 ```
 convert basic
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
+- [Convert-Befehl](convert.md)

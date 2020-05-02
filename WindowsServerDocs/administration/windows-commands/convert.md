@@ -1,61 +1,43 @@
 ---
 title: convert
-description: Das Thema Windows-Befehle für Convert, das Datei Zuordnungs Tabellen-(FAT) und FAT32-Volumes in das NTFS-Dateisystem konvertiert und vorhandene Dateien und Verzeichnisse intakt bleibt.
+description: Referenz Thema für den Convert-Befehl, der einen Datenträger von einem Datenträger Datenträger in einen anderen konvertiert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
-ms.assetid: 96e437c0-1aa3-46ab-9078-a7b8cdaf3792
+ms.assetid: ae151297-af21-4701-bd69-21d775518e03
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0fb2981d6cd5a54737700b64b28f7a8a52de72b1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ab7189ea774750f8de2ceaecd9511fc8c3a71a97
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80847173"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720738"
 ---
 # <a name="convert"></a>convert
 
-Konvertiert Dateizuordnungs-und FAT32-Volumes in das NTFS-Dateisystem, sodass vorhandene Dateien und Verzeichnisse intakt bleiben. Volumes, die in das NTFS-Dateisystem konvertiert werden, können nicht zurück in FAT oder FAT32 konvertiert werden.
-
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+Konvertiert einen Datenträger von einem Datenträger in einen anderen.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-convert [<Volume>] /fs:ntfs [/v] [/cvtarea:<FileName>] [/nosecurity] [/x]
+convert basic
+convert dynamic
+convert gpt
+convert mbr
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|\<Volume >|Gibt den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt), einen Einstellungspunkt oder einen Volumenamen an, der in NTFS konvertiert werden soll.|
-|/FS: NTFS|Erforderlich Konvertiert das Volume in NTFS.|
-|/v|Führt **Convert** im ausführlichen Modus aus, in dem während des Konvertierungs Vorgangs alle Meldungen angezeigt werden.|
-|/CvtArea:\<Dateiname >|Gibt an, dass die Master Dateitabelle (MFT) und andere NTFS-Metadatendateien in eine vorhandene, zusammenhängende Platzhalter Datei geschrieben werden. Diese Datei muss sich im Stammverzeichnis des Dateisystems befinden, das konvertiert werden soll. Die Verwendung des **/Cvtarea** -Parameters kann nach der Konvertierung zu einem weniger fragmentierten Dateisystem führen. Um optimale Ergebnisse zu erzielen, sollte die Größe dieser Datei 1 KB multipliziert mit der Anzahl der Dateien und Verzeichnisse im Dateisystem betragen, obwohl das **Convert** Utility Dateien beliebiger Größe akzeptiert.</br>Wichtig: Sie müssen die Platzhalter Datei erstellen, indem Sie den Befehl " **fsutil file | atenew** " vor dem Ausführen von **Convert**verwenden. **Convert** erstellt diese Datei nicht für Sie. **Convert** überschreibt diese Datei mit NTFS-Metadaten. Nach der Konvertierung wird der nicht verwendete Speicherplatz in dieser Datei freigegeben.|
-|/nosecurity|Gibt an, dass die Sicherheitseinstellungen für die konvertierten Dateien und Verzeichnisse den Zugriff durch alle Benutzer zulassen.|
-|/x|Hebt die Bereitstellung des Volumes bei Bedarf vor der Konvertierung auf. Alle geöffneten Handles zum Volume sind nicht mehr gültig.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| [Befehl "Basic konvertieren"](convert-basic.md) | Konvertiert einen leeren dynamischen Datenträger in eine Basisfestplatte. |
+| [dynamischen Befehl konvertieren](convert-dynamic.md) | Konvertiert einen Basis Datenträger in einen dynamischen Datenträger. |
+| [GPT-Befehl konvertieren](convert-gpt.md) | Konvertiert einen leeren Basis Datenträger mit dem Partitions Stil Master Boot Record (MBR) in einen Basis Datenträger mit dem GPT-Partitions Stil (GUID-Partitionstabelle). |
+| [Befehl "MBR konvertieren"](convert-mbr.md) | Konvertiert einen leeren Basis Datenträger mit dem GPT-Partitions Stil (GUID-Partitionstabelle) in einen Basis Datenträger mit dem Partitions Stil Master Boot Record (MBR). |
 
-## <a name="remarks"></a>Hinweise
-
--   Wenn **Convert** das Laufwerk nicht sperren kann (z. b. wenn das Laufwerk das System Volume oder das aktuelle Laufwerk ist), haben Sie die Möglichkeit, das Laufwerk beim nächsten Neustart des Computers zu konvertieren. Wenn Sie den Computer nicht sofort neu starten können, um die Konvertierung abzuschließen, planen Sie einen Neustart des Computers ein, und lassen Sie zusätzliche Zeit für den Abschluss des Konvertierungs Vorgangs zu.
--   Für Volumes, die von FAT oder FAT32 in NTFS konvertiert werden:
-
-    Aufgrund der vorhandenen Datenträger Verwendung wird die MFT an einem anderen Speicherort als auf einem Volume erstellt, das ursprünglich mit NTFS formatiert wurde, sodass die Volumeleistung möglicherweise nicht so gut ist wie bei Volumes, die ursprünglich mit NTFS formatiert wurden. Um eine optimale Leistung zu erzielen, sollten Sie diese Volumes neu erstellen und mit dem NTFS-Dateisystem formatieren.
-
-    Bei der Volumekonvertierung von FAT oder FAT32 zu NTFS bleiben die Dateien intakt, aber das Volume kann im Vergleich zu den ursprünglich mit NTFS formatierten Volumes einige Leistungsvorteile mit sich bringen. Beispielsweise kann die MFT auf konvertierten Volumes fragmentiert werden. Außerdem wendet **Convert** auf konvertierten Start Volumes die gleiche Standard Sicherheit an, die während Windows Setup angewendet wird.
-
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
-
-Wenn Sie das Volume auf Laufwerk E in NTFS konvertieren und während des Konvertierungs Vorgangs alle Meldungen anzeigen möchten, geben Sie Folgendes ein:
-```
-convert e: /fs:ntfs /v
-```
-
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

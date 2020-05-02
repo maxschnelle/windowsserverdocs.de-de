@@ -1,6 +1,6 @@
 ---
-title: waitfor
-description: Windows-Befehls Thema für WAITFOR, das ein Signal an ein System sendet oder darauf wartet. **WAITFOR** wird zum Synchronisieren von Computern in einem Netzwerk verwendet.
+title: WAITFOR
+description: Referenz Thema für WAITFOR, das ein Signal an ein System sendet oder darauf wartet. **WAITFOR** wird zum Synchronisieren von Computern in einem Netzwerk verwendet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4542fc9d231b8150ab89e07e173d9671d6b7a3f3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1264fa3bffde303577bd56a0f1f68a6d7b2d98c2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829933"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720223"
 ---
-# <a name="waitfor"></a>waitfor
+# <a name="waitfor"></a>WAITFOR
 
 
 
 Sendet oder wartet auf ein Signal auf einem System. **WAITFOR** wird zum Synchronisieren von Computern in einem Netzwerk verwendet.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -33,17 +33,17 @@ waitfor [/t <Timeout>] <SignalName>
 
 ### <a name="parameters"></a>Parameter
 
-|       Parameter       |                                                                                         Beschreibung                                                                                          |
+|       Parameter       |                                                                                         BESCHREIBUNG                                                                                          |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    /s \<Computer >     | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
-| /u [\<Domänen >\]<User> |                              Führt das Skript mit den Anmelde Informationen des angegebenen Benutzerkontos aus. Standardmäßig verwendet **WAITFOR** die Anmelde Informationen des aktuellen Benutzers.                               |
-|   /p [\<Password >]    |                                                    Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                     |
+|    /s \<Computer>     | Gibt den Namen oder die IP-Adresse eines Remote Computers an (verwenden Sie keine umgekehrten Schrägstriche). Der Standardwert ist der lokale Computer. Dieser Parameter gilt für alle Dateien und Ordner, die im Befehl angegeben sind. |
+| /u [\<Domänen>\]<User> |                              Führt das Skript mit den Anmelde Informationen des angegebenen Benutzerkontos aus. Standardmäßig verwendet **WAITFOR** die Anmelde Informationen des aktuellen Benutzers.                               |
+|   /p [\<Kennwort>]    |                                                    Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist.                                                     |
 |          /Si          |                                                                        Sendet das angegebene Signal über das Netzwerk.                                                                        |
-|     /t \<Timeout >     |                                              Gibt die Anzahl der Sekunden an, die auf ein Signal gewartet werden soll. Standardmäßig wartet **WAITFOR** unbegrenzt.                                               |
-|     \<Signalname >     |                                                Gibt das Signal an, das von **WAITFOR** gewartet oder gesendet wird. Bei *Signalname* wird keine Groß-/Kleinschreibung beachtet.                                                 |
+|     /t \<Timeout>     |                                              Gibt die Anzahl der Sekunden an, die auf ein Signal gewartet werden soll. Standardmäßig wartet **WAITFOR** unbegrenzt.                                               |
+|     \<Signalname->     |                                                Gibt das Signal an, das von **WAITFOR** gewartet oder gesendet wird. Bei *Signalname* wird keine Groß-/Kleinschreibung beachtet.                                                 |
 |          /?           |                                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                                             |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Signal Namen dürfen nicht länger als 225 Zeichen sein. Gültige Zeichen sind a-z, a-z, 0-9 und der erweiterte ASCII-Zeichensatz (128-255).
 -   Wenn Sie **/s**nicht verwenden, wird das Signal an alle Systeme in einer Domäne übertragen. Wenn Sie **/s**verwenden, wird das Signal nur an das angegebene System gesendet.
@@ -53,7 +53,7 @@ waitfor [/t <Timeout>] <SignalName>
 -   Computer können nur Signale empfangen, wenn Sie sich in derselben Domäne befinden wie der Computer, der das Signal sendet.
 -   Sie können **WAITFOR** verwenden, wenn Sie softwarebuilds testen. Beispielsweise kann der kompilierenden Computer ein Signal an mehrere Computer senden, auf denen **WAITFOR** ausgeführt wird, nachdem die Kompilierung erfolgreich abgeschlossen wurde. Beim Empfang des Signals kann die Batchdatei, die **WAITFOR** enthält, die Computer anweisen, sofort mit der Installation von Software zu beginnen oder Tests für den kompilierten Build ausführen.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Um zu warten, bis das Signal espresso\build007 empfangen wurde, geben Sie Folgendes ein:
 ```
@@ -70,6 +70,6 @@ Um das espresso\build007-Signal manuell zu aktivieren, geben Sie Folgendes ein:
 waitfor /si espresso\build007
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -9,15 +9,15 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: d4a8f2c008c1a28e498edb7726a8c209e91f41af
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 12a9965515ef26e0cbccb2d20d25f66b54b23b8a
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843923"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720064"
 ---
 # <a name="fsutil-wim"></a>Wim
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows 10
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows 10
 
 Stellt Funktionen zum Ermitteln und Verwalten von Dateien mit Windows-Abbildern (WIM) bereit.
 
@@ -32,14 +32,14 @@ fsutil wim [removewim] <drive name> <data source>
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------------|---------------|
 |EnumFiles|Listet WIM-gestützte Dateien auf.|
-|Name des \<Laufwerks >|Gibt den Namen des Laufwerks an.|
-|\<Datenquelle >|Gibt die Datenquelle an.|
+|\<Laufwerks Name>|Gibt den Namen des Laufwerks an.|
+|\<Datenquellen>|Gibt die Datenquelle an.|
 |enumwims|Listet die unterstützten WIM-Dateien auf.|
 |QueryFile|Fragt ab, ob die Datei durch WIM unterstützt wird, und zeigt ggf. Details zur WIM-Datei an.|
-|\<Dateiname >|Gibt den Dateinamen an.|
+|\<Dateiname>|Gibt den Dateinamen an.|
 |removewim|Entfernt eine WIM-Datei aus Unterstützungs Dateien.|
 
 

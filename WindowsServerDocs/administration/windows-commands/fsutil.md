@@ -9,20 +9,20 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 08/21/2018
-ms.openlocfilehash: 717c287995be2ab56bd49f2f24d46001f77e0e68
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a12647908811066293772ab1e9354a0d67874d88
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843903"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720047"
 ---
 # <a name="fsutil"></a>Fsutil
 
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Führt Aufgaben im Zusammenhang mit Datei Zuordnungs Tabellen-und NTFS-Dateisystemen aus, z. b. das Verwalten von Analyse Punkten, das Verwalten von sparsesdateien oder das Aufheben der Bereitstellung eines Volumes. Wenn Sie ohne Parameter verwendet wird, zeigt " **f** " eine Liste der unterstützten Unterbefehle an. 
 
-> [!Note] 
+> [!NOTE] 
 > Sie müssen als Administrator oder Mitglied der Gruppe "Administratoren" angemeldet sein, damit Sie fsutil verwenden können. Der Befehl "f" ist sehr leistungsstark und sollte nur von fortgeschrittenen Benutzern verwendet werden, die über umfassende Kenntnisse der Windows-Betriebssysteme verfügen.
 >
 >Sie müssen das Windows-Subsystem für Linux aktivieren, bevor Sie **fsutil**ausführen können. Führen Sie den folgenden Befehl als Administrator in PowerShell aus, um dieses optionale Feature zu aktivieren:
@@ -34,7 +34,7 @@ Führt Aufgaben im Zusammenhang mit Datei Zuordnungs Tabellen-und NTFS-Dateisyst
 
 ### <a name="parameters"></a>Parameter
 
-|Unterbefehl |Beschreibung|
+|Unterbefehl |BESCHREIBUNG|
 |---|---|
 |["F", "8dot3name"](fsutil-8dot3name.md) | Abfragen oder Ändern der Einstellungen für das Kurznamen Verhalten im System, z. b. Generieren von Dateinamen mit einer Länge von 8,3 Zeichen. Entfernt Kurznamen für alle Dateien in einem Verzeichnis. Scannt ein Verzeichnis und identifiziert Registrierungsschlüssel, die möglicherweise betroffen sind, wenn Kurznamen aus den Dateien im Verzeichnis entfernt wurden.|
 |[Verhalten von "f"](fsutil-behavior.md) |Fragt das Volumen Verhalten ab oder legt es fest.|
@@ -54,5 +54,5 @@ Führt Aufgaben im Zusammenhang mit Datei Zuordnungs Tabellen-und NTFS-Dateisyst
 |[Volume "Volume"](fsutil-volume.md)|Verwaltet ein Volume. Hebt die Bereitstellung eines Volumes auf, um zu sehen, wie viel freier Speicherplatz auf einem Datenträger verfügbar ist, oder sucht eine Datei, die einen angegebenen Cluster verwendet.|
 |[Wim](fsutil-wim.md)|Stellt Funktionen zum Ermitteln und Verwalten von Wim-gestützten Dateien bereit.|
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

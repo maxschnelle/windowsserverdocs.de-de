@@ -9,15 +9,15 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 326390a5b40de46ca932043e9982f84c7758d901
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d17246b03de20d0bc327af801621a28f406edf63
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844003"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720082"
 ---
 # <a name="fsutil-usn"></a>Nicht zutreffend
->Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Verwaltet das Änderungs Journal für die Aktualisierungs Sequenznummer.
 
@@ -35,32 +35,32 @@ fsutil usn [readjournal] [c= <chunk-size> s=<file-size-threshold>] <volumepath>
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------------|---------------|
 |"kreatejournal"|Erstellt ein Aktualitäts Änderungs Journal.|
 |m =\<MaxSize->|Gibt die maximale Größe in Bytes an, die von NTFS für das Änderungs Journal zugewiesen wird.|
-|a =\<"Zuordnung" >|Gibt die Größe der Speicher Belegung (in Bytes) an, die am Ende hinzugefügt und am Anfang des Änderungs Journals entfernt wird.|
-|\<volumepath >|Gibt den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt) an.|
+|a =\<Zuordnung>|Gibt die Größe der Speicher Belegung (in Bytes) an, die am Ende hinzugefügt und am Anfang des Änderungs Journals entfernt wird.|
+|\<Volumepath->|Gibt den Laufwerk Buchstaben (gefolgt von einem Doppelpunkt) an.|
 |deletejournal|Löscht oder deaktiviert ein aktives Aktualitäts Änderungs Journal. **Vorsicht:** Das Löschen des Änderungs Journals wirkt sich auf den Datei Replikations Dienst (File Replication Service, FRS) und den Indizierungs Dienst aus, da diese Dienste eine vollständige (und zeitaufwändige) Überprüfung des Volumes benötigen. Dies wirkt sich wiederum negativ auf die SYSVOL-Replikation und Replikation zwischen DFS-Links aus, während das Volume neu berechnet wird.|
 |/d|Deaktiviert ein aktives Aktualitäts Änderungs Journal und gibt ein Eingabe-/Ausgabesteuerelement (e/a) zurück, während das Änderungs Journal deaktiviert wird.|
 |/n|Deaktiviert ein aktives Aktualitäts Änderungs Journal und gibt das e/a-Steuerelement nur zurück, nachdem das Änderungs Journal deaktiviert wurde.|
 |enablerangetracking|Aktiviert die Nachverfolgung von Schreib Bereichen für das Laufwerk für ein Volume.|
-|c =\<Blockgröße >|Gibt die Blockgröße an, die auf einem Volume nachverfolgt werden soll.|
-|s =\<Dateigrößen Schwellenwert >|Gibt den Schwellenwert für die Dateigröße für die Bereichs Überwachung an.|
+|c =\<Blockgröße>|Gibt die Blockgröße an, die auf einem Volume nachverfolgt werden soll.|
+|s =\<Dateigröße-Schwellenwert>|Gibt den Schwellenwert für die Dateigröße für die Bereichs Überwachung an.|
 |enumdaten|Listet die Änderungs Journal Einträge zwischen zwei angegebenen Grenzen auf und listet diese auf.|
-|\<fileRef >|Gibt die Ordinalposition innerhalb der Dateien auf dem Volume an, an dem die Enumeration beginnen soll.|
-|\<lowusn >|Gibt die untere Grenze des Bereichs der für die Datensätze zurückgegebenen Datensätze an, die zum Filtern der zurückgegebenen Datensätze verwendet werden. Es werden nur Datensätze zurückgegeben, deren letzte Änderungs Journal-Verwendungen zwischen dem *lowusn* -Wert und dem *highun* -Elementwert liegt.|
-|\<highus->|Gibt die obere Grenze des Bereichs von USN-Werten an, die zum Filtern der zurückgegebenen Dateien verwendet werden.|
+|\<FileRef->|Gibt die Ordinalposition innerhalb der Dateien auf dem Volume an, an dem die Enumeration beginnen soll.|
+|\<Lowusn->|Gibt die untere Grenze des Bereichs der für die Datensätze zurückgegebenen Datensätze an, die zum Filtern der zurückgegebenen Datensätze verwendet werden. Es werden nur Datensätze zurückgegeben, deren letzte Änderungs Journal-Verwendungen zwischen dem *lowusn* -Wert und dem *highun* -Elementwert liegt.|
+|\<Highus->|Gibt die obere Grenze des Bereichs von USN-Werten an, die zum Filtern der zurückgegebenen Dateien verwendet werden.|
 |queryjournal|Fragt die Daten eines volumedatentyps ab, um Informationen über das aktuelle Änderungs Journal, seine Datensätze und seine Kapazität zu erfassen.|
 |ReadData|Liest die Daten der Datenquelle für eine Datei.|
-|\<Dateiname >|Gibt den vollständigen Pfad zur Datei an, einschließlich des Datei namens und der Erweiterung, z. b.: c:\documents\dateiname.txt|
+|\<Dateiname>|Gibt den vollständigen Pfad zur Datei an, einschließlich des Datei namens und der Erweiterung, z. b.: c:\documents\dateiname.txt|
 |"lesjournal"|Liest die Datensätze der Datensätze im US-Journal.|
-|Minver =\<Anzahl >|Die minimale Haupt Version USN_RECORD, die zurückgegeben werden soll. Standardwert = 2.|
-|MaxVer =\<Anzahl >|Die maximale Haupt Version USN_RECORD, die zurückgegeben werden soll. Standardwert = 4.|
-|startusn =\<->-Nummer|Die Startseite für die ersten Lesevorgänge des Verwendungen der Startseite. Standardwert = 0.|
+|Minver =\<Anzahl>|Die minimale Haupt Version USN_RECORD, die zurückgegeben werden soll. Standardwert = 2.|
+|MaxVer =\<Anzahl>|Die maximale Haupt Version USN_RECORD, die zurückgegeben werden soll. Standardwert = 4.|
+|startusn =\<Anzahl>|Die Startseite für die ersten Lesevorgänge des Verwendungen der Startseite. Standardwert = 0.|
 
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Informationen zum Aktualitäts Änderungs Journal
 
@@ -127,7 +127,7 @@ Geben Sie Folgendes ein, um das US-Journal mit einer bestimmten Start-Start-n zu
 fsutil usn readjournal startusn=0xF00
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)

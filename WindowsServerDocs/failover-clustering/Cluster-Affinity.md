@@ -1,5 +1,5 @@
 ---
-title: Cluster Affinität
+title: Clusteraffinität
 ms.prod: windows-server
 manager: eldenc
 ms.technology: failover-clustering
@@ -8,22 +8,22 @@ author: johnmarlin-msft
 ms.author: johnmar
 ms.date: 03/07/2019
 description: In diesem Artikel werden Failovercluster-Affinität und antiaffinitäts Stufen beschrieben
-ms.openlocfilehash: c9910cac602802b753391fad1009fb7f1fa3d2f2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b0c2209680f3c34ac8376d5662620595aff92c0b
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828283"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720612"
 ---
-# <a name="cluster-affinity"></a>Cluster Affinität
+# <a name="cluster-affinity"></a>Clusteraffinität
 
 > Gilt für: Windows Server 2019, Windows Server 2016
 
-Ein Failovercluster kann zahlreiche Rollen enthalten, die zwischen Knoten wechseln und ausgeführt werden können.  Es gibt Zeiten, in denen bestimmte Rollen (z. b. virtuelle Computer, Ressourcengruppen usw.) nicht auf demselben Knoten ausgeführt werden dürfen.  Dies kann auf den Ressourcenverbrauch, die Arbeitsspeicher Auslastung usw. zurückzuführen sein.  Beispielsweise gibt es zwei virtuelle Computer, die Arbeitsspeicher und CPU-intensiv sind. wenn die beiden virtuellen Computer auf demselben Knoten ausgeführt werden, können sich auf einem oder beiden virtuellen Computern Probleme mit der Leistungs Beeinträchtigung ergeben.  In diesem Artikel werden die Cluster-antiaffinitäts Stufen und deren Verwendung erläutert.
+Ein Failovercluster kann zahlreiche Rollen enthalten, die zwischen Knoten wechseln und ausgeführt werden können. Es gibt Zeiten, in denen bestimmte Rollen (z. b. virtuelle Computer, Ressourcengruppen usw.) nicht auf demselben Knoten ausgeführt werden dürfen.  Dies kann auf den Ressourcenverbrauch, die Arbeitsspeicher Auslastung usw. zurückzuführen sein.  Beispielsweise gibt es zwei virtuelle Computer, die Arbeitsspeicher und CPU-intensiv sind. wenn die beiden virtuellen Computer auf demselben Knoten ausgeführt werden, können sich auf einem oder beiden virtuellen Computern Probleme mit der Leistungs Beeinträchtigung ergeben.  In diesem Artikel werden die Cluster-antiaffinitäts Stufen und deren Verwendung erläutert.
 
 ## <a name="what-is-affinity-and-antiaffinity"></a>Was ist Affinität und antiaffinität?
 
-Die Affinität ist eine Regel, die Sie einrichten, die eine Beziehung zwischen zwei oder mehr Rollen (i, e, Virtual Machines, Ressourcengruppen usw.) herstellt, um sie zusammenzuhalten.  Die antiaffinität ist identisch, wird jedoch verwendet, um zu versuchen, die angegebenen Rollen voneinander getrennt zu halten.  Failovercluster verwenden die antiaffinität für Ihre Rollen.  Genauer gesagt, ist der [AntiAffinityClassNames](https://docs.microsoft.com/previous-versions/windows/desktop/mscs/groups-antiaffinityclassnames) -Parameter für die Rollen definiert, sodass Sie nicht auf demselben Knoten ausgeführt werden.  
+Die Affinität ist eine Regel, die Sie einrichten, die eine Beziehung zwischen zwei oder mehr Rollen (i, e, Virtual Machines, Ressourcengruppen usw.) herstellt, um sie zusammenzuhalten.  Die antiaffinität ist identisch, wird jedoch verwendet, um zu versuchen, die angegebenen Rollen voneinander getrennt zu halten. Failovercluster verwenden die antiaffinität für Ihre Rollen.  Genauer gesagt, ist der [AntiAffinityClassNames](https://docs.microsoft.com/previous-versions/windows/desktop/mscs/groups-antiaffinityclassnames) -Parameter für die Rollen definiert, sodass Sie nicht auf demselben Knoten ausgeführt werden.  
 
 ## <a name="antiaffinityclassnames"></a>AntiAffinityClassnames
 
@@ -81,13 +81,10 @@ In einer PowerShell-Auflistung der Gruppen würden Sie Folgendes sehen:
     Group1     Offline(Anti-Affinity Conflict)
     Group2     Online
 
-## <a name="additional-comments"></a>Weitere Kommentare
+## <a name="additional-comments"></a>Zusätzliche Kommentare
 
 - Stellen Sie sicher, dass Sie die richtige antiaffinitäts Einstellung abhängig von den Anforderungen verwenden.
 - Beachten Sie, dass in einem Szenario mit zwei Knoten und clusterenforcedantiaffinität, wenn ein Knoten instand ist, beide Gruppen nicht ausgeführt werden.  
 
 - Die Verwendung bevorzugter Besitzer für Gruppen kann mit der antiaffinität in einem Cluster mit drei oder mehr Knoten kombiniert werden.
-- Die Einstellungen für "AntiAffinityClassNames" und "clusterenforcedantiaffinität" werden erst nach der Wiederverwendung der Ressourcen ausgeführt. z.b. Sie können diese festlegen, aber wenn beide Gruppen auf dem gleichen Knoten online sind, wenn Sie festgelegt sind, bleiben beide weiterhin online.
-
-
-
+- Die Einstellungen für "AntiAffinityClassNames" und "clusterenforcedantiaffinität" werden erst nach der Wiederverwendung der Ressourcen ausgeführt. Das heißt, Sie können diese festlegen, aber wenn beide Gruppen auf dem gleichen Knoten online sind, wenn Sie festgelegt sind, bleiben beide weiterhin online.

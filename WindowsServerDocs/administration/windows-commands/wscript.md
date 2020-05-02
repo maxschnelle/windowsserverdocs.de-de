@@ -1,6 +1,6 @@
 ---
 title: wscript
-description: Windows-Befehle-Thema für WScript, das eine Umgebung bereitstellt, in der Benutzer Skripts in einer Vielzahl von Sprachen ausführen können, die eine Vielzahl von Objekt Modellen zum Ausführen von Aufgaben verwenden.
+description: Referenz Thema für WScript, das eine Umgebung bereitstellt, in der Benutzer Skripts in einer Vielzahl von Sprachen ausführen können, die eine Vielzahl von Objekt Modellen zum Ausführen von Aufgaben verwenden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: 77a0087eee1287699d66c4e1e5ab2aef69551440
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cf2d23c7d5773662f679a9a20b0aaba118f35548
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828933"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720627"
 ---
 # <a name="wscript"></a>wscript
 
@@ -30,7 +30,7 @@ wscript [<scriptname>] [/b] [/d] [/e:<engine>] [{/h:cscript|/h:wscript}] [/i] [/
 
 #### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |ScriptName|Gibt den Pfad und den Dateinamen der Skriptdatei an.|
 |/b|Gibt den Batch Modus an, in dem keine Warnungen, Skript Fehler oder Eingabe Aufforderungen angezeigt werden. Dies ist das Gegenteil von **/i**.|
@@ -39,19 +39,19 @@ wscript [<scriptname>] [/b] [/d] [/e:<engine>] [{/h:cscript|/h:wscript}] [/i] [/
 |/h: cscript|Registriert " **cscript. exe** " als Standardskript Host für das Ausführen von Skripts.|
 |/h: WScript|Registriert " **WScript. exe** " als Standardskript Host für das Ausführen von Skripts. Dies ist die Standardeinstellung, wenn die Option **/h** ausgelassen wird.|
 |/i|Gibt den interaktiven Modus an, in dem Warnungen, Skript Fehler und Eingabe Aufforderungen angezeigt werden.</br>Dies ist die Standardeinstellung und das Gegenteil von **/b**.|
-|/Auftrag:\<Bezeichner >|Führt den durch den *Bezeichner* identifizierten Auftrag in einer **WSF** -Skriptdatei aus.|
+|/Auftrag:\<Bezeichner>|Führt den durch den *Bezeichner* identifizierten Auftrag in einer **WSF** -Skriptdatei aus.|
 |/logo|Gibt an, dass das Windows Script Host-Banner in der-Konsole angezeigt wird, bevor das Skript ausgeführt wird.</br>Dies ist die Standardeinstellung und das Gegenteil von **/nologo**.|
 |/nologo|Gibt an, dass das Windows Script Host-Banner vor dem Ausführen des Skripts nicht angezeigt wird. Dies ist das Gegenteil von **/Logo**.|
 |/s|Speichert die aktuellen Eingabe Aufforderungs Optionen für den aktuellen Benutzer.|
-|/t:\<Anzahl >|Gibt die maximale Zeit an, die das Skript ausgeführt werden kann (in Sekunden). Sie können bis zu 32.767 Sekunden angeben.</br>Der Standardwert ist kein Zeit Limit.|
+|/t:\<Anzahl>|Gibt die maximale Zeit an, die das Skript ausgeführt werden kann (in Sekunden). Sie können bis zu 32.767 Sekunden angeben.</br>Der Standardwert ist kein Zeit Limit.|
 |/x|Startet das Skript im Debugger.|
 |Scriptarguments|Gibt die Argumente an, die an das Skript geleitet werden. Jedem Skript Argument muss ein Schrägstrich (/) vorangestellt werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
--   Sie müssen nicht über Administratorberechtigungen verfügen, um dieses Aufgabe ausführen zu können. Daher sollten Sie als Best Practice für die Sicherheit diese Aufgabe als Benutzer ohne Administratorrechte ausführen.
--   Geben Sie zum Öffnen einer Eingabeaufforderung auf dem **Startbildschirm** **cmd** ein, und klicken Sie auf **Eingabeaufforderung**.
+-   Zum Ausführen dieser Aufgabe benötigen Sie keine Administratorrechte. Daher sollten Sie als Best Practice für die Sicherheit diese Aufgabe als Benutzer ohne Administratorrechte ausführen.
+-   Geben Sie zum Öffnen einer Eingabeaufforderung auf dem **Startbildschirm****cmd** ein, und klicken Sie auf **Eingabeaufforderung**.
 -   Jeder Parameter ist optional. Sie können jedoch keine Skript Argumente angeben, ohne ein Skript anzugeben. Wenn Sie kein Skript oder Skript Argumente angeben, wird in " **WScript. exe** " das Dialogfeld " **Windows Script Host-Einstellungen** " angezeigt, das Sie verwenden können, um globale Skript Eigenschaften für alle Skripts festzulegen, die " **WScript. exe** " auf dem lokalen Computer ausführt.
 -   Der **/t** -Parameter verhindert eine übermäßige Ausführung von Skripts durch Festlegen eines Timers. Wenn die Zeit den angegebenen Wert überschreitet, unterbricht **WScript** die Skript-Engine und beendet den Prozess.
 -   Windows-Skriptdateien haben in der Regel eine der folgenden Dateinamen Erweiterungen: **. wsf**, **. VSB**, **. js**.
@@ -59,6 +59,6 @@ wscript [<scriptname>] [/b] [/d] [/e:<engine>] [{/h:cscript|/h:wscript}] [/i] [/
 -   Sie können Eigenschaften für einzelne Skripts festlegen. Weitere Informationen finden Sie unter [Übersicht über Windows Script Host](https://technet.microsoft.com/library/cc738350(v=ws.10).aspx) .
 -   Die **WSF** -Skriptdateien können von Windows Script Host verwendet werden. Jede **WSF** -Datei kann mehrere Skript-Engines verwenden und mehrere Aufträge ausführen.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

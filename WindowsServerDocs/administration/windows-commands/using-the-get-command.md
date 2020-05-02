@@ -1,6 +1,6 @@
 ---
 title: get
-description: Windows-Befehls Thema für Get, das Eigenschaften oder Attribute für das angegebene Objekt abruft.
+description: Referenz Thema für Get, das Eigenschaften oder Attribute für das angegebene Objekt abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,21 +9,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: be532dcb57faf4ec2a86a34c3ab59c921c5b8d0c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 981ed8978df3d53505e6da5296dbb25cce38bb71
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80831143"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719973"
 ---
 # <a name="get"></a>get
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Ruft Eigenschaften oder Attribute für das angegebene Objekt ab.
 
 ## <a name="subcommands"></a>Unterbefehle
-|Unterbefehl|Beschreibung|
+|Unterbefehl|BESCHREIBUNG|
 |-------|--------|
 |[Verwenden des Befehls Get-alldevices](using-the-get-alldevices-command.md)|Hiermit werden Informationen zu allen vorab bereitgestellten Computern angezeigt.|
 |[Verwenden des Befehls Get-allimagegroups](using-the-get-allimagegroups-command.md)|Zeigt Informationen zu allen Bildgruppen an.|

@@ -1,6 +1,6 @@
 ---
-title: bitsadmin anhalten
-description: Windows-Befehls Thema für **bigsadmin Suspend**, wodurch der angegebene Auftrag angehalten wird.
+title: bitsadmin suspend
+description: Referenz Thema für den bizadmin Suspend-Befehl, der den angegebenen Auftrag anhält.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 42ed83d4dbf8c3d982c5c186b440cf17997903c9
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 8117cf9f4286994847e53dca8065da6821d47c5d
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81123152"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720450"
 ---
-# <a name="bitsadmin-suspend"></a>bitsadmin anhalten
+# <a name="bitsadmin-suspend"></a>bitsadmin suspend
 
-> Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Hält den angegebenen Auftrag an. Wenn Sie den Auftrag versehentlich angehalten haben, können Sie den Auftrag mit dem Umschalter [bigsadmin Resume](bitsadmin-resume.md) neu starten.
 
@@ -30,19 +30,23 @@ bitsadmin /suspend <job>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ---------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 
 ## <a name="example"></a>Beispiel
 
-Im folgenden Beispiel wird der Auftrag mit dem Namen *mydownloadjob*angehalten.
+So brechen Sie den Auftrag mit dem Namen *mydownloadjob*ab:
 
 
 ```
-C:\>bitsadmin /suspend myDownloadJob
+bitsadmin /suspend myDownloadJob
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "biout admin Resume"](bitsadmin-resume.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

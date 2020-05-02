@@ -7,14 +7,15 @@ ms.technology: storage-health-service
 ms.topic: article
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: 913a596a46720718a165295345cb02e3e2baa1de
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5fe2f98c89d97325c1f59dc6ba292831e0ffa5ff
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827563"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720564"
 ---
 # <a name="health-service-faults"></a>Integritätsdienst Fehler
+
 > Gilt für: Windows Server 2019, Windows Server 2016
 
 ## <a name="what-are-faults"></a>Was sind Fehler?
@@ -23,7 +24,7 @@ Der Integritätsdienst überwacht ständig ihren direkte Speicherplätze Cluster
 
 Jeder Fehler enthält fünf wichtige Felder:  
 
--   Schweregrad
+-   severity
 -   Beschreibung des Problems
 -   Empfohlene nächste Schritte zum Beheben des Problems
 -   Identifizierende Informationen zur fehlerbehafteten Entität
@@ -42,7 +43,7 @@ Location: Seattle DC, Rack B07, Node 4, Slot 11
  >[!NOTE]
  > Die physische Stelle wird von der Konfiguration der Fehlerdomäne abgeleitet. Weitere Informationen zu Fehler Domänen finden Sie unter [Fehler Domänen in Windows Server 2016](fault-domains.md). Wenn Sie diese Informationen nicht angeben, ist das Feld mit der Stelle weniger hilfreich, sodass z. B. nur die Steckplatznummer angezeigt wird.  
 
-## <a name="root-cause-analysis"></a>Fehlerursachen Analyse
+## <a name="root-cause-analysis"></a>Analyse der Grundursache
 
 Der Integritätsdienst kann die potenzielle Kausalität zwischen fehlerentitäten einschätzen, um Fehler zu identifizieren und zu kombinieren, die Folgen desselben zugrunde liegenden Problems sind. Durch erkennen von Kausalketten ergeben sich kürzere Berichte. Wenn ein Server z. b. herunterfährt, wird erwartet, dass er auch keine Konnektivität hat. Daher wird nur ein Fehler für die Grundursache ausgelöst, in diesem Fall der Server.  
 
@@ -69,14 +70,13 @@ Get-FileShare -Name <Name> | Debug-FileShare
 
 Dadurch werden alle Fehler zurückgegeben, die sich nur auf das jeweilige Volume oder die Dateifreigabe auswirken. In den meisten Fällen beziehen sich diese Fehler auf die Kapazitätsplanung, die datenresilienz oder Features wie Speicher Qualität oder Speicher Replikat. 
 
-## <a name="usage-in-net-and-c"></a>Verwendung in .net undC#
+## <a name="usage-in-net-and-c"></a>Verwendung in .net und C #
 
 ### <a name="connect"></a>Verbinden
 
 Um den Integritätsdienst abzufragen, müssen Sie eine **cimsession** mit dem Cluster einrichten. Zu diesem Zweck benötigen Sie einige Dinge, die nur in der Vollversion von .net verfügbar sind, was bedeutet, dass Sie dies nicht direkt über ein Web oder Mobile App durchführen können. Diese Codebeispiele verwenden C\#, die einfachste Wahl für diese Datenzugriffs Schicht.
 
-``` 
-...
+```
 using System.Security;
 using Microsoft.Management.Infrastructure;
 
@@ -105,7 +105,7 @@ Es wird empfohlen, dass Sie das Kennwort **SecureString** direkt aus Benutzerein
 
 Nachdem die **cimsession** eingerichtet wurde, können Sie Windows-Verwaltungsinstrumentation (WMI) im Cluster Abfragen.
 
-Bevor Sie Fehler oder Metriken erhalten können, müssen Sie Instanzen von mehreren relevanten Objekten erhalten. Zuerst ist das **MSFT-\_storagesubsystem** , das direkte Speicherplätze auf dem Cluster darstellt. Mit diesem können Sie alle **MSFT-\_storagenode** im Cluster und jedes **MSFT-\_Volume**, die Datenvolumes, erhalten. Schließlich benötigen Sie den **MSFT-\_storagehealth**, den Integritätsdienst selbst.
+Bevor Sie Fehler oder Metriken erhalten können, müssen Sie Instanzen von mehreren relevanten Objekten erhalten. Zuerst das **MSFT\_storagesubsystem** , das direkte Speicherplätze im Cluster darstellt. Mit diesem können Sie jede **\_MSFT storagenode** -Instanz im Cluster und alle **MSFT\_**-Volumes, die Datenvolumes, erhalten. Schließlich benötigen Sie auch **MSFT\_storagehealth**, den Integritätsdienst selbst.
 
 ```
 CimInstance Cluster;
@@ -138,7 +138,6 @@ Dabei handelt es sich um dieselben Objekte, die Sie in PowerShell mithilfe von C
 Sie können auf die gleichen Eigenschaften zugreifen, die unter [Klassen der Speicher Verwaltungs-API](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx)dokumentiert sind.
 
 ```
-...
 using System.Diagnostics;
 
 foreach (CimInstance Node in Nodes)
@@ -213,7 +212,7 @@ Die komplette Liste der Eigenschaften in den einzelnen Fehlern (**diagnoseresult
 
 Wenn Fehler erstellt, entfernt oder aktualisiert werden, generiert der Integritätsdienst WMI-Ereignisse. Diese sind erforderlich, um den Anwendungs Status ohne häufige Abruf Vorgänge synchron zu halten, und können dabei helfen, wie z. b. das Festlegen von e-Mail-Benachrichtigungen. Um diese Ereignisse zu abonnieren, wird in diesem Beispielcode das Observer-Entwurfsmuster erneut verwendet.
 
-Abonnieren Sie zuerst **MSFT-\_storagefaultevent** -Ereignisse.
+Abonnieren Sie zuerst **MSFT\_storagefaultevent** -Ereignisse.
 
 ```      
 public void ListenForFaultEvents()
@@ -284,13 +283,13 @@ In einigen Fällen können jedoch Fehler von der Integritätsdienst (z. b. nach 
 
 ### <a name="properties-of-faults"></a>Eigenschaften von Fehlern
 
-Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Objekts. Überprüfen Sie für das vollständige Schema die Klasse **MSFT\_storagediagnoseresult** in *storagewmi. MOF*.
+Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Objekts. Überprüfen Sie für das vollständige Schema die Klasse " **\_MSFT storagediagnoseresult** " in der Datei " *storagewmi. MOF*".
 
-| **Property**              | **Beispiel**                                                     |
+| **Eigenschaft**              | **Beispiel**                                                     |
 |---------------------------|-----------------------------------------------------------------|
 | Faultid                   | {12345-12345-12345-12345-12345}                                 |
 | FaultType                 | Microsoft. Health. faultType. Volume. Capacity                      |
-| Grund                    | "Auf dem Volume steht kein verfügbarer Speicherplatz mehr zur Verfügung."                 |
+| `Reason`                    | "Auf dem Volume steht kein verfügbarer Speicherplatz mehr zur Verfügung."                 |
 | Wahrnehmgrad         | 5                                                               |
 | Faultingobjectdescription | XYZ9000 S.N. 123456789                                  |
 | Faultingobjectlocation    | Rack A06, ru 25, Slot 11                                        |
@@ -308,16 +307,16 @@ Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Objekts. Überp
 
 ## <a name="properties-of-fault-events"></a>Eigenschaften von Fehlerereignissen
 
-Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Ereignisses. Überprüfen Sie für das vollständige Schema die **MSFT\_storagefaultevent** -Klasse in der Datei *storagewmi. MOF*.
+Diese Tabelle enthält mehrere Schlüsseleigenschaften des Fault-Ereignisses. Überprüfen Sie für das vollständige Schema die Klasse **MSFT\_storagefaultevent** in *storagewmi. MOF*.
 
 Beachten Sie den **ChangeType**, der angibt, ob ein Fehler erstellt, entfernt oder aktualisiert wird, und die **faultid**. Ein Ereignis enthält auch alle Eigenschaften des betroffenen Fehlers.
 
-| **Property**              | **Beispiel**                                                     |
+| **Eigenschaft**              | **Beispiel**                                                     |
 |---------------------------|-----------------------------------------------------------------|
 | ChangeType                | 0                                                               |
 | Faultid                   | {12345-12345-12345-12345-12345}                                 |
 | FaultType                 | Microsoft. Health. faultType. Volume. Capacity                      |
-| Grund                    | "Auf dem Volume steht kein verfügbarer Speicherplatz mehr zur Verfügung."                 |
+| `Reason`                    | "Auf dem Volume steht kein verfügbarer Speicherplatz mehr zur Verfügung."                 |
 | Wahrnehmgrad         | 5                                                               |
 | Faultingobjectdescription | XYZ9000 S.N. 123456789                                  |
 | Faultingobjectlocation    | Rack A06, ru 25, Slot 11                                        |
@@ -379,7 +378,7 @@ In Windows Server 2016 stellt die Integritätsdienst die folgende Fehlerabdeckun
 * Empfehlungs Maßnahme: *"Wiederherstellen der Resilienz der Daten."*
 
 #### <a name="faulttype-microsofthealthfaulttypevirtualdisksdetached"></a>FaultType: Microsoft. Health. faultType. virtualdisks. getrennte
-* Schweregrad: kritisch
+* Schweregrad: Kritisch
 * Grund: *"der Zugriff auf das Volume ist nicht möglich. Einige Daten können verloren gehen. "*
 * Empfehlungs Aktion: *"Überprüfen Sie die physische und/oder Netzwerk Konnektivität aller Speichergeräte. Möglicherweise müssen Sie eine Wiederherstellung aus einer Sicherung durch erstellen. "*
 
@@ -390,7 +389,7 @@ In Windows Server 2016 stellt die Integritätsdienst die folgende Fehlerabdeckun
 * Ursache: *"der Speicherpool verfügt nicht über die empfohlene Mindestreserve Kapazität. Dies kann die Fähigkeit zum Wiederherstellen von datenresilienz im Fall von Laufwerk Fehlern einschränken. "*
 * Empfehlungs Aktion: *"zusätzliche Kapazität zum Speicherpool hinzufügen oder Kapazität freigeben. Die empfohlene Mindestreserve ist abhängig von der Bereitstellung, aber es sind ungefähr 2 Laufwerke ausgelastet. "*
 
-### <a name="volume-capacity-2sup1sup"></a>**Volumekapazität (2)** <sup>1</sup>
+### <a name="volume-capacity-2sup1sup"></a>**Volumekapazität (2)**<sup>1</sup>
 
 #### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>FaultType: Microsoft. Health. faultType. Volume. Capacity
 * Schweregrad: Warnung
@@ -398,31 +397,31 @@ In Windows Server 2016 stellt die Integritätsdienst die folgende Fehlerabdeckun
 * Empfehlungs Aktion: *"erweitern Sie das Volume, oder migrieren Sie Arbeits Auslastungen zu anderen Volumes".*
 
 #### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>FaultType: Microsoft. Health. faultType. Volume. Capacity
-* Schweregrad: kritisch
+* Schweregrad: Kritisch
 * Ursache: *"der verfügbare Speicherplatz auf dem Volume steht nicht mehr zur Verfügung."*
 * Empfehlungs Aktion: *"erweitern Sie das Volume, oder migrieren Sie Arbeits Auslastungen zu anderen Volumes".*
 
 ### <a name="server-3"></a>**Server (3)**
 
 #### <a name="faulttype-microsofthealthfaulttypeserverdown"></a>FaultType: Microsoft. Health. faultType. Server. Down
-* Schweregrad: kritisch
+* Schweregrad: Kritisch
 * Ursache: *"der Server kann nicht erreicht werden."*
 * Empfehlungs Aktion: *"Server starten oder ersetzen"*
 
 #### <a name="faulttype-microsofthealthfaulttypeserverisolated"></a>FaultType: Microsoft. Health. faultType. Server. isoliert
-* Schweregrad: kritisch
+* Schweregrad: Kritisch
 * Ursache: *"der Server ist aufgrund von Konnektivitätsproblemen vom Cluster isoliert".*
 * Empfehlungs Aktion: *"Wenn die Isolation weiterhin besteht, überprüfen Sie die Netzwerk (e), oder migrieren Sie Arbeits Auslastungen zu anderen Knoten".*
 
 #### <a name="faulttype-microsofthealthfaulttypeserverquarantined"></a>FaultType: Microsoft. Health. faultType. Server. Quarantäne
-* Schweregrad: kritisch
+* Schweregrad: Kritisch
 * Ursache: *"der Server wird aufgrund von wiederkehrenden Fehlern durch den Cluster unter Quarantäne gestellt."*
 * Empfehlungs Aktion: *"Server ersetzen oder Netzwerk reparieren".*
 
 ### <a name="cluster-1"></a>**Cluster (1)**
 
 #### <a name="faulttype-microsofthealthfaulttypeclusterquorumwitnesserror"></a>FaultType: Microsoft. Health. faultType. clusterquorüberwitness. Error
-* Schweregrad: kritisch
+* Schweregrad: Kritisch
 * Ursache: *"der Cluster ist ein Server Fehler, der nicht mehr ausfällt."*
 * Empfehlungs Aktion: *"Überprüfen Sie die Zeugen Ressource, und starten Sie Sie bei Bedarf neu. Starten oder ersetzen fehlerhafter Server. "*
 
@@ -497,7 +496,7 @@ In Windows Server 2016 stellt die Integritätsdienst die folgende Fehlerabdeckun
 * Grund: *"der firmwarerollout wurde abgebrochen, weil zu viele physische* Datenträger fehlgeschlagen sind."
 * Empfehlungs Aktion: *"firmwarerollout neu starten, sobald das firmwareproblem behoben wurde".*
 
-### <a name="storage-qos-3sup2sup"></a>**Speicher-QoS (3)** <sup>2</sup>
+### <a name="storage-qos-3sup2sup"></a>**Speicher-QoS (3)**<sup>2</sup>
 
 #### <a name="faulttype-microsofthealthfaulttypestorqosinsufficientthroughput"></a>FaultType: Microsoft. Health. faultType. storqos. insuffizientdurchsatz
 * Schweregrad: Warnung
@@ -520,6 +519,6 @@ In Windows Server 2016 stellt die Integritätsdienst die folgende Fehlerabdeckun
 >[!NOTE]
 > Die Integrität von Speichergehäusekomponenten wie Lüfter, Netzteile und Sensoren wird von SES (SCSI Enclosure Services) abgeleitet. Wenn Ihr Anbieter diese Informationen nicht bereitstellt, kann der Integritätsdienst sie nicht anzeigen.  
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
-- [Integritätsdienst in Windows Server 2016](health-service-overview.md)
+- [Der Integritätsdienst in Windows Server 2016](health-service-overview.md)

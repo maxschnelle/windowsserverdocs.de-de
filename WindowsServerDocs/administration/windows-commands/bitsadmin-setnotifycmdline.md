@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setnotifycmdline
-description: Windows-Befehls Thema für **bitadmin setnotifycmdline**, das den Befehlszeilen Befehl festlegt, der ausgeführt wird, wenn der Auftrag das Übertragen von Daten abgeschlossen hat, oder wenn ein Auftrag in einen Zustand wechselt.
+description: Referenz Thema für den bitadmin setnotifycmdline-Befehl, mit dem der Befehlszeilen Befehl festgelegt wird, der ausgeführt wird, wenn der Auftrag das Übertragen von Daten abgeschlossen hat, oder wenn ein Auftrag in einen Zustand wechselt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b268b68cbd355a7fe7f993d678a98f6fcb99f0ab
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: b21d7151a5b646a4fe07d073220614f5e3c99539
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122899"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720131"
 ---
 # <a name="bitsadmin-setnotifycmdline"></a>bitsadmin setnotifycmdline
 
-Legt den Befehlszeilen Befehl fest, der ausgeführt wird, wenn die Übertragung von Daten durch den Auftrag abgeschlossen ist oder wenn ein Auftrag in einen angegebenen Zustand eintritt.
+Legt den Befehlszeilen Befehl fest, der ausgeführt wird, nachdem der Auftrag das Übertragen von Daten abgeschlossen hat oder nachdem ein Auftrag in einen angegebenen Zustand gelangt ist.
 
 > [!NOTE]
 > Dieser Befehl wird von Bits 1,2 und früheren Versionen nicht unterstützt.
@@ -31,7 +31,7 @@ bitsadmin /setnotifycmdline <job> <program_name> [program_parameters]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | program_name | Der Name des Befehls, der ausgeführt werden soll, wenn der Auftrag abgeschlossen ist. Sie können diesen Wert als Null festlegen, aber wenn Sie dies tun, müssen *program_parameters* auch auf NULL festgelegt werden. |
@@ -39,16 +39,20 @@ bitsadmin /setnotifycmdline <job> <program_name> [program_parameters]
 
 ## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird der Befehlszeilen Befehl festgelegt, der vom-Dienst verwendet wird, um Notepad. exe auszuführen, nachdem der Auftrag mit dem Namen *mydownloadjob* abgeschlossen wurde.
+So führen Sie "Notepad. exe" nach Beendigung des Auftrags mit dem Namen " *mydownloadjob*" aus:
 
 ```
-C:\>bitsadmin /setnotifycmdline myDownloadJob c:\winnt\system32\notepad.exe NULL
+bitsadmin /setnotifycmdline myDownloadJob c:\winnt\system32\notepad.exe NULL
 ```
 
+So zeigen Sie den EULA-Text in Notepad. exe an, wenn der Auftrag mit dem Namen mydownloadjob abgeschlossen ist:
+
 ```
-C:\>bitsadmin /setnotifycmdline myDownloadJob c:\winnt\system32\notepad.exe notepad c:\eula.txt
+bitsadmin /setnotifycmdline myDownloadJob c:\winnt\system32\notepad.exe notepad c:\eula.txt
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

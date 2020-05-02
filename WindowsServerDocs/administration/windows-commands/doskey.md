@@ -1,6 +1,6 @@
 ---
 title: doskey
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 72a5a362a225f57245a015de43a7538928c0937e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: fca89bd2e99b6139b13a5bd45481ae0ec2248574
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845263"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720810"
 ---
 # <a name="doskey"></a>doskey
 
@@ -22,7 +22,7 @@ ms.locfileid: "80845263"
 
 Ruft "Doskey. exe" auf (das zuvor eingegebene Befehlszeilen Befehle als Rückruf bezeichnet), bearbeitet Befehlszeilen und erstellt Makros.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -35,19 +35,19 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
 |       Parameter        |                                                                                                                          Beschreibung                                                                                                                           |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |       /REINSTALL       |                                                                                            Installiert eine neue Kopie von "Doskey. exe" und löscht den Puffer für den Befehlsverlauf.                                                                                            |
-|   /ListSize =\<Größe >    |                                                                                                Gibt die maximale Anzahl der Befehle im Verlaufs Puffer an.                                                                                                 |
-|        /macros         |                                        Zeigt eine Liste aller **doskey** -Makros an. Sie können das Umleitungs Symbol ( **>** ) mit **/Macros** verwenden, um die Liste in eine Datei umzuleiten. Sie können **/Macros** auf **/m**abkürzen.                                         |
+|   /ListSize =\<Größe>    |                                                                                                Gibt die maximale Anzahl der Befehle im Verlaufs Puffer an.                                                                                                 |
+|        /macros         |                                        Zeigt eine Liste aller **doskey** -Makros an. Sie können das Umleitungs Symbol (**>**) mit **/Macros** verwenden, um die Liste in eine Datei umzuleiten. Sie können **/Macros** auf **/m**abkürzen.                                         |
 |      /Macros: alle       |                                                                                                        Zeigt **doskey** -Makros für alle ausführbaren Dateien an.                                                                                                         |
-|   /Macros:\<EXEName >   |                                                                                             Zeigt **doskey** -Makros für die durch *EXEName*angegebene ausführbare Datei an.                                                                                              |
-|        /history        |                                    Zeigt alle Befehle an, die im Arbeitsspeicher gespeichert sind. Sie können das Umleitungs Symbol ( **>** ) mit **/History** verwenden, um die Liste in eine Datei umzuleiten. Sie können **/History** als **/h**abkürzen.                                    |
+|   /Macros:\<EXEName>   |                                                                                             Zeigt **doskey** -Makros für die durch *EXEName*angegebene ausführbare Datei an.                                                                                              |
+|        /history        |                                    Zeigt alle Befehle an, die im Arbeitsspeicher gespeichert sind. Sie können das Umleitungs Symbol (**>**) mit **/History** verwenden, um die Liste in eine Datei umzuleiten. Sie können **/History** als **/h**abkürzen.                                    |
 | /insert | Gibt an, dass neuer Text, den Sie eingeben, in den alten Text eingefügt wird. |
 | /overstrike | Gibt an, dass neuer Text alten Text überschreibt. |
-|  /EXEName =\<EXEName >   |                                                                                        Gibt das Programm an (d. h. ausführbare Datei), in dem das **doskey** -Makro ausgeführt wird.                                                                                         |
-| /MACROFILE =\<Dateiname > |                                                                                              Gibt eine Datei an, die die zu installierenden Makros enthält.                                                                                               |
-| \<macroname > = [\<Text >]  | Erstellt ein Makro, das die durch *Text*angegebenen Befehle ausführt. *Macroname* gibt den Namen an, den Sie dem Makro zuweisen möchten. *Text* gibt die Befehle an, die Sie aufzeichnen möchten. Wenn der *Text* leer bleibt, wird *macroname* von allen zugewiesenen Befehlen gelöscht. |
+|  /EXEName =\<EXEName>   |                                                                                        Gibt das Programm an (d. h. ausführbare Datei), in dem das **doskey** -Makro ausgeführt wird.                                                                                         |
+| /MACROFILE =\<Dateiname> |                                                                                              Gibt eine Datei an, die die zu installierenden Makros enthält.                                                                                               |
+| \<Macroname>= [\<Text>]  | Erstellt ein Makro, das die durch *Text*angegebenen Befehle ausführt. *Macroname* gibt den Namen an, den Sie dem Makro zuweisen möchten. *Text* gibt die Befehle an, die Sie aufzeichnen möchten. Wenn der *Text* leer bleibt, wird *macroname* von allen zugewiesenen Befehlen gelöscht. |
 |           /?           |                                                                                                              Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                              |
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 - Verwenden von "Doskey. exe"
 
@@ -56,7 +56,7 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
 
   Wenn Sie einen Befehl abrufen möchten, können Sie nach dem Starten von DOSKEY. exe einen der folgenden Schlüssel verwenden. Wenn Sie "Doskey. exe" innerhalb eines Programms verwenden, haben die schlüsselzuweisungen dieses Programms Vorrang.  
 
-  |    Key     |                              Beschreibung                              |
+  |    Schlüssel     |                              BESCHREIBUNG                              |
   |------------|-----------------------------------------------------------------------|
   |  NACH-OBEN-TASTE  |  Gibt den Befehl an, den Sie vor dem angezeigten Befehl verwendet haben.  |
   | NACH-UNTEN-TASTE |  Gibt den Befehl an, den Sie nach dem angezeigten Befehl verwendet haben.   |
@@ -70,14 +70,14 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
 
   In der folgenden Tabelle sind die **doskey** -Bearbeitungs Schlüssel und ihre Funktionen aufgeführt.  
 
-  | Schlüssel-oder Schlüssel Kombination |                                                                                                                                                       Beschreibung                                                                                                                                                       |
+  | Schlüssel-oder Schlüssel Kombination |                                                                                                                                                       BESCHREIBUNG                                                                                                                                                       |
   |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
   |       NACH-LINKS-TASTE       |                                                                                                                                      Verschiebt die Einfügemarke um ein Zeichen zurück.                                                                                                                                      |
   |      NACH-RECHTS-TASTE       |                                                                                                                                    Verschiebt die Einfügemarke um ein Zeichen vorwärts.                                                                                                                                     |
-  |    STRG + nach-links-Taste     |                                                                                                                                        Verschiebt die Einfügemarke um ein Wort zurück.                                                                                                                                         |
-  |    STRG + nach-rechts-Taste    |                                                                                                                                       Verschiebt die Einfügemarke um ein Wort vorwärts.                                                                                                                                       |
+  |    STRG+NACH-LINKS     |                                                                                                                                        Verschiebt die Einfügemarke um ein Wort zurück.                                                                                                                                         |
+  |    STRG+NACH-RECHTS    |                                                                                                                                       Verschiebt die Einfügemarke um ein Wort vorwärts.                                                                                                                                       |
   |          POS1          |                                                                                                                                 Verschiebt die Einfügemarke an den Anfang der Zeile.                                                                                                                                 |
-  |          ENDE           |                                                                                                                                    Verschiebt die Einfügemarke an das Ende der Zeile.                                                                                                                                    |
+  |          END           |                                                                                                                                    Verschiebt die Einfügemarke an das Ende der Zeile.                                                                                                                                    |
   |          ESC           |                                                                                                                                          Löscht den Befehl aus der Anzeige.                                                                                                                                           |
   |           F1           |                                                                      Kopiert ein Zeichen aus einer Spalte in der Vorlage in dieselbe Spalte im Eingabe Aufforderungs Fenster. (Die Vorlage ist ein Arbeitsspeicher Puffer, der den zuletzt eingegebenen Befehl enthält.)                                                                       |
   |           F2           |                                                                 Sucht in der Vorlage nach dem nächsten Schlüssel, den Sie nach dem Drücken von F2 eingeben. "Doskey. exe" fügt den Text aus der Vorlage ein – bis zum, jedoch nicht einschließlich, das Zeichen, das Sie angeben.                                                                  |
@@ -114,19 +114,19 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
 
   |   Zeichen   |                                                                                                                                                                               Beschreibung                                                                                                                                                                               |
   |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-  |   $G oder $g    |                                                                                   Leitet die Ausgabe um. Verwenden Sie eines dieser Sonderzeichen, um die Ausgabe an ein Gerät oder eine Datei statt an den Bildschirm zu senden. Dieses Zeichen entspricht dem Umleitungs Symbol für Output ( **>** ).                                                                                    |
-  | $G $ g oder $g $ g  |                                                         Fügt die Ausgabe an das Ende einer Datei an. Verwenden Sie eines dieser doppelten Zeichen, um die Ausgabe an eine vorhandene Datei anzufügen, anstatt die Daten in der Datei zu ersetzen. Diese doppelten Zeichen entsprechen dem anfügebweiterleitungs-Symbol für die Ausgabe ( **>>** ).                                                         |
-  |   $L oder $l    |                                                                                  Leitet Eingaben um. Verwenden Sie eines dieser Sonderzeichen, um Eingaben von einem Gerät oder einer Datei anstelle der Tastatur zu lesen. Dieses Zeichen entspricht dem Umleitungs Symbol für Input ( **<** ).                                                                                  |
+  |   $G oder $g    |                                                                                   Leitet die Ausgabe um. Verwenden Sie eines dieser Sonderzeichen, um die Ausgabe an ein Gerät oder eine Datei statt an den Bildschirm zu senden. Dieses Zeichen entspricht dem Umleitungs Symbol für Output (**>**).                                                                                    |
+  | $G $ g oder $g $ g  |                                                         Fügt die Ausgabe an das Ende einer Datei an. Verwenden Sie eines dieser doppelten Zeichen, um die Ausgabe an eine vorhandene Datei anzufügen, anstatt die Daten in der Datei zu ersetzen. Diese doppelten Zeichen sind äquivalent zum Anfügen-Umleitungs Symbol für Output**>>**().                                                         |
+  |   $L oder $l    |                                                                                  Leitet Eingaben um. Verwenden Sie eines dieser Sonderzeichen, um Eingaben von einem Gerät oder einer Datei anstelle der Tastatur zu lesen. Dieses Zeichen entspricht dem Umleitungs Symbol für Input (**<**).                                                                                  |
   |   $B oder $b    |                                                                                                                                    Sendet die Makro Ausgabe an einen Befehl. Diese Sonderzeichen entsprechen der Verwendung der Pipe (\*\*                                                                                                                                     |
-  |   $T oder $t    |                                                            Trennt Befehle. Verwenden Sie eines dieser Sonderzeichen zum Trennen von Befehlen, wenn Sie Makros erstellen oder Befehle in der **doskey** -Befehlszeile eingeben. Diese Sonderzeichen entsprechen der Verwendung des kaufmännischen und-Zeichens ( **&** ) in einer Befehlszeile.                                                            |
-  |      $$       |                                                                                                                                                              Gibt das Dollarzeichen ( **$** ) an.                                                                                                                                                               |
+  |   $T oder $t    |                                                            Trennt Befehle. Verwenden Sie eines dieser Sonderzeichen zum Trennen von Befehlen, wenn Sie Makros erstellen oder Befehle in der **doskey** -Befehlszeile eingeben. Diese Sonderzeichen entsprechen der Verwendung des kaufmännischen und-Zeichens (**&**) in einer Befehlszeile.                                                            |
+  |      $$       |                                                                                                                                                              Gibt das Dollarzeichen (**$**) an.                                                                                                                                                               |
   | $1 bis $9 |             Stellen Sie alle Befehlszeilen Informationen dar, die Sie angeben möchten, wenn Sie das Makro ausführen. Die Sonderzeichen **$1** bis **$9** sind Batch Parameter, die es Ihnen ermöglichen, bei jeder Ausführung des Makros andere Daten in der Befehlszeile zu verwenden. Das **$1** -Zeichen in einem **doskey** -Befehl ähnelt dem **%1** -Zeichen in einem Batch-Programm.             |
-  |      $\*      | Stellt alle Befehlszeilen Informationen dar, die Sie angeben möchten, wenn Sie den Makronamen eingeben. Das Sonderzeichen **$\\** \* ein ersetzbarer Parameter ist, der den Batch Parametern **$1** bis **$9**ähnelt, mit einem wichtigen Unterschied: alles, was Sie in der Befehlszeile eingeben, nachdem der Makro Name durch die **$\\** \* im Makro ersetzt wurde. |
+  |      $\*      | Stellt alle Befehlszeilen Informationen dar, die Sie angeben möchten, wenn Sie den Makronamen eingeben. Das Sonderzeichen ** $ ** \* ist ein ersetzbarer Parameter, der den Batch Parametern **$1** bis **$9**ähnelt, mit einem wichtigen Unterschied: alles, was Sie in der Befehlszeile eingeben, nachdem der Makroname ** $ ** für das \* im Makro ersetzt wurde. |
 
 
 - Ausführen eines **doskey** -Makros
 
-  Um ein Makro auszuführen, geben Sie den Namen des Makros an der Eingabeaufforderung ein, beginnend an der ersten Position. Wenn das Makro mit **$\\** * oder einem der Batch Parameter **$1** bis **$9**definiert wurde, verwenden Sie ein Leerzeichen, um die Parameter zu trennen. Ein **doskey** -Makro kann nicht aus einem Batch Programm ausgeführt werden.
+  Um ein Makro auszuführen, geben Sie den Namen des Makros an der Eingabeaufforderung ein, beginnend an der ersten Position. Wenn das Makro mit ** $ *** oder einem der Batch Parameter **$1** bis **$9**definiert wurde, verwenden Sie ein Leerzeichen, um die Parameter zu trennen. Ein **doskey** -Makro kann nicht aus einem Batch Programm ausgeführt werden.
 - Erstellen eines Makros mit dem gleichen Namen wie ein Windows Server 2003-Family-Befehl
 
   Wenn Sie immer einen bestimmten Befehl mit bestimmten Befehlszeilenoptionen verwenden, können Sie ein Makro erstellen, das denselben Namen wie der Befehl hat. Beachten Sie die folgenden Richtlinien, um anzugeben, ob Sie das Makro oder den Befehl ausführen möchten:  
@@ -139,7 +139,7 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
   doskey <MacroName> =
   ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Die Befehlszeilenoptionen **/Macros** und **/History** sind nützlich zum Erstellen von Batch Programmen zum Speichern von Makros und Befehlen. Geben Sie z. b. Folgendes ein, um alle aktuellen **doskey** -Makros zu speichern:
 ```
@@ -157,7 +157,7 @@ Zum Definieren eines Makros mit mehreren Befehlen verwenden Sie **$t** , um Befe
 ```
 doskey tx=cd temp$tdir/w $*
 ```
-Im vorherigen Beispiel ändert das TX-Makro das aktuelle Verzeichnis in Temp und zeigt dann eine Verzeichnis Auflistung im breiten Anzeige Format an. Sie können **$\\** * am Ende des Makros verwenden, um andere Befehlszeilenoptionen an **dir** anzufügen, wenn Sie TX ausführen.
+Im vorherigen Beispiel ändert das TX-Makro das aktuelle Verzeichnis in Temp und zeigt dann eine Verzeichnis Auflistung im breiten Anzeige Format an. Sie können * ** $ **am Ende des Makros verwenden, um andere Befehlszeilenoptionen an **dir** anzufügen, wenn Sie TX ausführen.
 
 Das folgende Makro verwendet einen Batch-Parameter für einen neuen Verzeichnisnamen:
 ```
@@ -192,6 +192,6 @@ Zum Löschen eines Makros namens Vlist geben Sie Folgendes ein:
 doskey vlist =
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

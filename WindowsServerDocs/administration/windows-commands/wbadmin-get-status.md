@@ -1,6 +1,6 @@
 ---
 title: Wbadmin-Status "Get"
-description: Windows-Befehls Artikel zum Abrufen des Status von Wbadmin, der den Status des aktuell laufenden Sicherungs-oder Wiederherstellungs Vorgangs meldet.
+description: Referenz Thema zum Abrufen des Status von Wbadmin, mit dem der Status des Sicherungs-oder Wiederherstellungs Vorgangs gemeldet wird, der derzeit ausgeführt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f8ebf1a078632f78dc8d58c232550345f0de78f2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1e8e5194cd49770f72ce810f4652d9bc98af75e2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829743"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720160"
 ---
 # <a name="wbadmin-get-status"></a>Wbadmin-Status "Get"
 
@@ -34,12 +34,12 @@ wbadmin get status
 
 Dieser Unterbefehl weist keine Parameter auf.
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 -   Dieser Unterbefehl wird erst beendet, wenn der aktuelle Sicherungs-oder Wiederherstellungs Vorgang abgeschlossen ist – der Unterbefehl wird weiterhin ausgeführt, auch wenn Sie das Befehlsfenster schließen.
 -   Wenn Sie den aktuellen Sicherungs-oder Wiederherstellungs Vorgang abbrechen möchten, verwenden Sie den Unterbefehl zum Abbrechen des Auftrags unter " **Wbadmin** ".
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

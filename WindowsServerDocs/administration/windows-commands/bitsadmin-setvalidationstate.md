@@ -1,6 +1,6 @@
 ---
-title: bizadmin setvalidationstate
-description: Windows-Befehls Thema für **BITSAdmin setvalidationstate**, mit dem der Inhalts Überprüfungs Zustand der angegebenen Datei innerhalb des Auftrags festgelegt wird.
+title: bitsadmin setvalidationstate
+description: Referenz Thema für den BITSAdmin setvalidationstate-Befehl, mit dem der Inhalts Überprüfungs Zustand der angegebenen Datei innerhalb des Auftrags festgelegt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6bec42ae926050cd21df594a38f1c441a40a527f
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: e3f22dc09eb1f70ce3c1ebd80fd6ba721e864377
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122712"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720465"
 ---
-# <a name="bitsadmin-setvalidationstate"></a>bizadmin setvalidationstate
+# <a name="bitsadmin-setvalidationstate"></a>bitsadmin setvalidationstate
 
 Legt den Inhalts Überprüfungs Zustand der angegebenen Datei innerhalb des Auftrags fest.
 
@@ -28,7 +28,7 @@ bitsadmin /setvalidationstate <job> <file_index> <TRUE|FALSE>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ---------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
 | file_index | Beginnt bei 0. |
@@ -36,12 +36,14 @@ bitsadmin /setvalidationstate <job> <file_index> <TRUE|FALSE>
 
 ## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel wird der Inhalts Überprüfungs Zustand von Datei 2 für den Auftrag *mydownloadjob*auf true festgelegt.
+So legen Sie den Status der Inhalts Überprüfung von Datei 2 für den Auftrag *mydownloadjob*auf true fest:
 
 ```
-C:\>bitsadmin /setvalidationstate myDownloadJob 2 TRUE
+bitsadmin /setvalidationstate myDownloadJob 2 TRUE
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

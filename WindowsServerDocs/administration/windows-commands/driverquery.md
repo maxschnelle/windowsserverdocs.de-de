@@ -1,6 +1,6 @@
 ---
 title: driverquery
-description: Windows-Befehle Thema ****-
+description: Referenz Thema für * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c3e7cc5dc84794a5cfb5ac21edb00f8dacfaa18
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 993c05a930a7702880af23fcfa7c19a43aa8b22b
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845283"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720833"
 ---
 # <a name="driverquery"></a>driverquery
 
@@ -22,7 +22,7 @@ ms.locfileid: "80845283"
 
 Ermöglicht es einem Administrator, eine Liste der installierten Gerätetreiber und deren Eigenschaften anzuzeigen. Bei Verwendung ohne Parameter wird die Ausführung von **driverquery** auf dem lokalen Computer ausgeführt.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,18 +32,18 @@ driverquery [/s <System> [/u [<Domain>\]<Username> [/p <Password>]]] [/fo {table
 
 ### <a name="parameters"></a>Parameter
 
-|         Parameter         |                                                                                                                                         Beschreibung                                                                                                                                          |
+|         Parameter         |                                                                                                                                         BESCHREIBUNG                                                                                                                                          |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|       /s \<System >        |                                                                                      Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Der Standardwert ist der lokale Computer.                                                                                       |
-| /u [\<Domänen >\]<Username> | Führt den Befehl mit den Anmelde Informationen des Benutzerkontos aus, die von *Benutzer* -oder *Domänen*\*Benutzer angegeben wurden<em>. Standardmäßig verwendet \*\*/s</em> -\* die Anmelde Informationen des Benutzers, der zurzeit auf dem Computer angemeldet ist, von dem der Befehl ausgegeben wird. **/u** kann nur verwendet werden, wenn **/s** angegeben wird. |
-|      /p \<Kennwort >       |                                                                           Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist. **/p** kann nur verwendet werden, wenn **/u** angegeben wird.                                                                            |
+|       /s \<System>        |                                                                                      Gibt den Namen oder die IP-Adresse eines Remote Computers an. Verwenden Sie keine umgekehrten Schrägstriche. Der Standardwert ist der lokale Computer.                                                                                       |
+| /u [\<Domänen>\]<Username> | Führt den Befehl mit den Anmelde Informationen des Benutzerkontos entsprechend der Angabe durch den *Benutzer* oder den *Domänen*\*Benutzer aus<em>. \* \*Standardmäßig verwendet/s</em> \* die Anmelde Informationen des Benutzers, der zurzeit auf dem Computer angemeldet ist, von dem der Befehl ausgegeben wird. **/u** kann nur verwendet werden, wenn **/s** angegeben wird. |
+|      /p \<Password>       |                                                                           Gibt das Kennwort des Benutzerkontos an, das im **/u** -Parameter angegeben ist. **/p** kann nur verwendet werden, wenn **/u** angegeben wird.                                                                            |
 |        /FO {Table         |                                                                                                                                             list                                                                                                                                             |
 |            /nh            |                                                                                      Lässt die Kopfzeile der angezeigten Treiber Informationen aus. Ungültig, wenn der **/FO** -Parameter auf **List**festgelegt ist.                                                                                      |
 |            /v             |                                                                                                               Zeigt die ausführliche Ausgabe an. **/v** ist für signierte Treiber nicht gültig.                                                                                                               |
 |            /Si            |                                                                                                                          Enthält Informationen zu signierten Treibern.                                                                                                                          |
 |            /?             |                                                                                                                             Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                             |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um eine Liste der installierten Gerätetreiber auf dem lokalen Computer anzuzeigen:
 ```
@@ -66,6 +66,6 @@ Wenn Sie den Befehl " **driverquery** " auf einem Remote Server mit dem Namen **
 driverquery /s server1 /u maindom\user1 /p p@ssw3d
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

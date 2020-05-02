@@ -1,6 +1,6 @@
 ---
 title: Get-AutoAddDevices
-description: Windows-Befehls Artikel für Get-AutoAddDevices, in dem alle Computer angezeigt werden, die sich in der Datenbank zum automatischen Hinzufügen auf einem Windows-Bereitstellungsdiensteserver befinden.
+description: Referenz Thema zu Get-AutoAddDevices, in dem alle Computer angezeigt werden, die sich in der Datenbank zum automatischen Hinzufügen auf einem Windows-Bereitstellungsdiensteserver befinden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b373fca81769ff1296d0e9a0788fe536c4fc3132
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c15836fa81c694aa9295d0a98376f4bef3125243
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80831183"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719989"
 ---
 # <a name="get-autoadddevices"></a>Get-AutoAddDevices
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt alle Computer an, die sich auf einem Windows-Bereitstellungsdiensteserver in der Datenbank automatisch hinzufügen befinden.
 
@@ -27,11 +27,11 @@ Zeigt alle Computer an, die sich auf einem Windows-Bereitstellungsdiensteserver 
 wdsutil [Options] /Get-AutoaddDevices [/Server:<Server name>] /Devicetype:{PendingDevices | RejectedDevices | ApprovedDevices}
 ```
 ### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |[/Server:<Server name>]|Gibt den Namen des Servers an. Hierbei kann es sich um den NetBIOS-Namen oder den vollqualifizierten Domänennamen (Fully Qualified Domain Name, FQDN) handeln. Wenn kein Servername angegeben ist, wird der lokale Server verwendet.|
-|/DeviceType: {pdingdevices &#124; rejecteddevices &#124; approveddevices}|Gibt den Typ des zurück zugebende Computers an.<p>-   von " **pdingdevices** " werden alle Computer in der Datenbank mit dem Status "Ausstehend" zurückgegeben.<br />-   **rejecteddevices** gibt alle Computer in der Datenbank zurück, die den Status "abgelehnt" aufweisen.<br />-   **approveddevices** werden alle Computer in der Datenbank mit dem Status "genehmigt" zurückgegeben.|
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+|/DeviceType: {pdingdevices &#124; rejecteddevices &#124; approveddevices}|Gibt den Typ des zurück zugebende Computers an.<p>-   Mit " **pdingdevices** " werden alle Computer in der Datenbank mit dem Status "Ausstehend" zurückgegeben.<br />-   **Rejecteddevices** gibt alle Computer in der Datenbank zurück, die den Status "abgelehnt" aufweisen.<br />-   **Approveddevices** gibt alle Computer in der Datenbank zurück, die den Status "genehmigt" aufweisen.|
+## <a name="examples"></a>Beispiele
 Wenn Sie alle genehmigten Computer anzeigen möchten, geben Sie Folgendes ein:
 ```
 wdsutil /Get-AutoaddDevices /Devicetype:ApprovedDevices
@@ -40,8 +40,8 @@ Wenn Sie alle abgelehnten Computer anzeigen möchten, geben Sie Folgendes ein:
 ```
 wdsutil /verbose /Get-AutoaddDevices /Devicetype:RejectedDevices /Server:MyWDSServer
 ```
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[mithilfe des Befehls "Delete-AutoAddDevices](using-the-delete-autoadddevices-command.md) "
-mithilfe des Befehls " [genehmigen-AutoAddDevices](using-the-approve-autoadddevices-command.md) "
-[mit dem Befehl "ablehnen-AutoAddDevices](using-the-reject-autoadddevices-command.md) ".
+mithilfe des Befehls "[Delete-AutoAddDevices](using-the-delete-autoadddevices-command.md)
+" mithilfe des Befehls "[genehmigen](using-the-approve-autoadddevices-command.md)
+-AutoAddDevices"[mit dem Befehl "ablehnen-AutoAddDevices](using-the-reject-autoadddevices-command.md) "

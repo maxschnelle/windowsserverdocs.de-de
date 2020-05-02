@@ -7,14 +7,15 @@ ms.technology: storage-health-service
 ms.topic: article
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: 3b47e1abf3805b7e6e3dc180d5d937ddb2723fa4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0a03dc5d646d24c9f24f979df36fb3fe1eafe631
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827543"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720553"
 ---
 # <a name="health-service-reports"></a>Integritätsdienst Berichte
+
 > Gilt für: Windows Server 2019, Windows Server 2016
 
 ## <a name="what-are-reports"></a>Was sind Berichte?  
@@ -43,14 +44,13 @@ Get-Volume -FileSystemLabel <Label> | Get-StorageHealthReport -Count <Count>
 Get-StorageNode -Name <Name> | Get-StorageHealthReport -Count <Count>
 ```
 
-## <a name="usage-in-net-and-c"></a>Verwendung in .net undC#
+## <a name="usage-in-net-and-c"></a>Verwendung in .net und C #
 
 ### <a name="connect"></a>Verbinden
 
 Um den Integritätsdienst abzufragen, müssen Sie eine **cimsession** mit dem Cluster einrichten. Zu diesem Zweck benötigen Sie einige Dinge, die nur in der Vollversion von .net verfügbar sind, was bedeutet, dass Sie dies nicht direkt über ein Web oder Mobile App durchführen können. Diese Codebeispiele verwenden C\#, die einfachste Wahl für diese Datenzugriffs Schicht.
 
-``` 
-...
+```
 using System.Security;
 using Microsoft.Management.Infrastructure;
 
@@ -79,7 +79,7 @@ Es wird empfohlen, dass Sie das Kennwort **SecureString** direkt aus Benutzerein
 
 Nachdem die **cimsession** eingerichtet wurde, können Sie Windows-Verwaltungsinstrumentation (WMI) im Cluster Abfragen.
 
-Bevor Sie Fehler oder Metriken erhalten können, müssen Sie Instanzen von mehreren relevanten Objekten erhalten. Zuerst ist das **MSFT-\_storagesubsystem** , das direkte Speicherplätze auf dem Cluster darstellt. Mit diesem können Sie alle **MSFT-\_storagenode** im Cluster und jedes **MSFT-\_Volume**, die Datenvolumes, erhalten. Schließlich benötigen Sie den **MSFT-\_storagehealth**, den Integritätsdienst selbst.
+Bevor Sie Fehler oder Metriken erhalten können, müssen Sie Instanzen von mehreren relevanten Objekten erhalten. Zuerst das **MSFT\_storagesubsystem** , das direkte Speicherplätze im Cluster darstellt. Mit diesem können Sie jede **\_MSFT storagenode** -Instanz im Cluster und alle **MSFT\_**-Volumes, die Datenvolumes, erhalten. Schließlich benötigen Sie auch **MSFT\_storagehealth**, den Integritätsdienst selbst.
 
 ```
 CimInstance Cluster;
@@ -112,7 +112,6 @@ Dabei handelt es sich um dieselben Objekte, die Sie in PowerShell mithilfe von C
 Sie können auf die gleichen Eigenschaften zugreifen, die unter [Klassen der Speicher Verwaltungs-API](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx)dokumentiert sind.
 
 ```
-...
 using System.Diagnostics;
 
 foreach (CimInstance Node in Nodes)
@@ -208,15 +207,15 @@ Natürlich können diese Metriken visualisiert, in einer Datenbank gespeichert o
 
 Jede Stichprobe von Metriken ist ein "Bericht", der viele "Datensätze" enthält, die einzelnen Metriken entsprechen.
 
-Überprüfen Sie für das vollständige Schema die Klassen **MSFT\_storagehealthreport** und **MSFT\_healthrecord** in *storagewmi. MOF*.
+Überprüfen Sie für das vollständige Schema die Klassen **\_MSFT storagehealthreport** und **MSFT\_healthrecord** in *storagewmi. MOF*.
 
 Jede Metrik hat pro dieser Tabelle nur drei Eigenschaften.
 
-| **Property** | **Beispiel**       |
+| **Eigenschaft** | **Beispiel**       |
 | -------------|-------------------|
 | Name         | Iolatencyaverage  |
 | Wert        | 0,00021           |
-| Einheiten        | 3                 |
+| Units        | 3                 |
 
 Einheiten = {0, 1, 2, 3, 4}, wobei 0 = "Bytes", 1 = "bytespersecond", 2 = "count-persecond", 3 = "seconds" oder 4 = "Prozentsatz".
 
@@ -226,7 +225,7 @@ Im folgenden finden Sie die verfügbaren Metriken für jeden Bereich in Windows 
 
 ### <a name="msft_storagesubsystem"></a>MSFT_StorageSubSystem
 
-| **Name**                        | **Einrichtungen** |
+| **Name**                        | **Units** |
 |---------------------------------|-----------|
 | CPUUsage                        | 4         |
 | Capacityphysicalpooledavailable | 0         |
@@ -250,7 +249,7 @@ Im folgenden finden Sie die verfügbaren Metriken für jeden Bereich in Windows 
 
 ### <a name="msft_storagenode"></a>MSFT_StorageNode
 
-| **Name**            | **Einrichtungen** |
+| **Name**            | **Units** |
 |---------------------|-----------|
 | CPUUsage            | 4         |
 | Iolatencyaverage    | 3         |
@@ -267,7 +266,7 @@ Im folgenden finden Sie die verfügbaren Metriken für jeden Bereich in Windows 
 
 ### <a name="msft_volume"></a>MSFT_Volume
 
-| **Name**            | **Einrichtungen** |
+| **Name**            | **Units** |
 |---------------------|-----------|
 | Verfügbare Kapazität   | 0         |
 | Capacitytotal       | 0         |
@@ -281,6 +280,6 @@ Im folgenden finden Sie die verfügbaren Metriken für jeden Bereich in Windows 
 | Iodurchlauf puttotal   | 1         |
 | Iothrough putwrite   | 1         |
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
-- [Integritätsdienst in Windows Server 2016](health-service-overview.md)
+- [Der Integritätsdienst in Windows Server 2016](health-service-overview.md)

@@ -1,6 +1,6 @@
 ---
 title: Wbadmin delete systemstatebackup
-description: Windows-Befehls Thema für Wbadmin delete systemstatebackup, mit dem die von Ihnen angegebenen Systemstatus Sicherungen gelöscht werden.
+description: Referenz Thema für Wbadmin delete systemstatebackup, mit dem die von Ihnen angegebenen Systemstatus Sicherungen gelöscht werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e184a40612024f81e1c6ab93de8cec4a63eee578
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 12d8ba6ff24e338c6afa5556d7a60e2157156acc
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829893"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720196"
 ---
 # <a name="wbadmin-delete-systemstatebackup"></a>Wbadmin delete systemstatebackup
 
@@ -27,7 +27,7 @@ Löscht die von Ihnen angegebenen Systemstatus Sicherungen. Wenn das angegebene 
 
 Zum Löschen einer Systemstatus Sicherung mit diesem Unterbefehl müssen Sie ein Mitglied der Gruppe " **Sicherungs-Operatoren** " oder der Gruppe " **Administratoren** " sein, oder die entsprechenden Berechtigungen müssen an Sie delegiert worden sein. Außerdem müssen Sie **Wbadmin** über eine Eingabeaufforderung mit erhöhten Rechten ausführen. (Klicken Sie zum Öffnen einer Eingabeaufforderung mit erhöhten Rechten mit der rechten Maustaste auf **Eingabeaufforderung**, und klicken Sie dann auf **als Administrator ausführen**.)
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -44,16 +44,16 @@ wbadmin delete systemstatebackup
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |-keepversions|Gibt die Anzahl der aktuellen Sicherungen des Systemstatus an, die aufbewahrt werden sollen. Der Wert muss eine positive ganze Zahl sein. Mit dem Parameterwert **-keepversions: 0** werden alle Systemstatus Sicherungen gelöscht.|
-|-Version|Gibt den Versions Bezeichner der Sicherung im Format mm/dd/yyyy-HH: mm an. Wenn Sie den Versions Bezeichner nicht kennen, geben Sie **Wbadmin Get Versions**ein.</br>Versionen, die ausschließlich Systemstatus Sicherungen sind, können mit diesem Befehl gelöscht werden. Verwenden Sie **Wbadmin Get Items** , um den Versionstyp anzuzeigen.|
+|-version|Gibt den Versions Bezeichner der Sicherung im Format mm/dd/yyyy-HH: mm an. Wenn Sie den Versions Bezeichner nicht kennen, geben Sie **Wbadmin Get Versions**ein.</br>Versionen, die ausschließlich Systemstatus Sicherungen sind, können mit diesem Befehl gelöscht werden. Verwenden Sie **Wbadmin Get Items** , um den Versionstyp anzuzeigen.|
 |-deleteälteste|Löscht die älteste Systemstatus Sicherung.|
 |-backupTarget|Gibt den Speicherort für die Sicherung an, die Sie löschen möchten. Der Speicherort für Sicherungen von Datenträgern kann ein Laufwerk Buchstabe, ein Einstellungspunkt oder ein GUID-basierter volumesfad sein. Dieser Wert muss nur für die Suche nach Sicherungen angegeben werden, die sich nicht auf dem lokalen Computer befinden. Informationen zu Sicherungen für den lokalen Computer werden im Sicherungs Katalog auf dem lokalen Computer verfügbar sein.|
 |-Computer|Gibt den Computer an, dessen Systemstatus Sicherung Sie löschen möchten. Nützlich, wenn mehrere Computer am gleichen Speicherort gesichert wurden. Sollte verwendet werden, wenn der **-backupTarget-** Parameter angegeben wird.|
 |-quiet|Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um die am 31. März 2013 und 10:00 Uhr erstellte Systemstatus Sicherung zu löschen:
 ```
@@ -68,7 +68,7 @@ Geben Sie Folgendes ein, um die älteste auf Laufwerk f gespeicherte Systemstatu
 wbadmin delete systemstatebackup -backupTarget:f -deleteOldest
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

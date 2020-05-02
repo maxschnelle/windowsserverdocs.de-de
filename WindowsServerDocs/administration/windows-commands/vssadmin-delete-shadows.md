@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: 9807efa2c570b8ed63c2d776327b8e3311846488
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e18823c5c030aa1a7b8f032f820e415f36fd7827
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80830113"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720266"
 ---
 # <a name="vssadmin-delete-shadows"></a>Löschen von Schatten durch vssadmin
 
->Gilt für: Windows 10, Windows 8.1, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
+> Gilt für: Windows 10, Windows 8.1, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 Löscht die Schatten Kopien eines angegebenen Volumes.
 
@@ -29,15 +29,15 @@ vssadmin delete shadows /for=<ForVolumeSpec> [/oldest | /all | /shadow=<ShadowID
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---|---|
-|/for =\<forvolumespec >|Gibt an, welche Schattenkopie des Volumes gelöscht wird.|
+|/for =\<forvolumespec>|Gibt an, welche Schattenkopie des Volumes gelöscht wird.|
 |/oldest|Löscht nur die älteste Schatten Kopie.|
 |/all|Löscht alle Schatten Kopien des angegebenen Volumes.|
-|/Shadow =\<shadowid >|Löscht die Schatten Kopie, die von shadowid angegeben wird. Verwenden Sie den Befehl " **vssadmin list shadows** ", um die Schattenkopiekennung zu erhalten. Wenn Sie eine schattenkopienkennung eingeben, verwenden Sie das folgende Format, wobei jedes *X* ein hexadezimales Zeichen darstellt:<br><br>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|/Shadow =\<shadowid>|Löscht die Schatten Kopie, die von shadowid angegeben wird. Verwenden Sie den Befehl " **vssadmin list shadows** ", um die Schattenkopiekennung zu erhalten. Wenn Sie eine schattenkopienkennung eingeben, verwenden Sie das folgende Format, wobei jedes *X* ein hexadezimales Zeichen darstellt:<br><br>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |/quiet|Gibt an, dass der Befehl keine Meldungen anzeigt, wenn er ausgeführt wird.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Schatten Kopien können nur mit dem vom Client zugänglichen Typ gelöscht werden.
 
@@ -53,4 +53,4 @@ vssadmin delete shadows /for=c: /oldest
 
 * [Befehlszeilen-Syntax Schlüssel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771080(v%3dws.11))
 * [Vssadmin](vssadmin.md)
-* [Schatten der vssadmin-Liste](vssadmin-list-shadows.md)
+* [Vssadmin list shadows](vssadmin-list-shadows.md)

@@ -7,14 +7,15 @@ ms.technology: storage-health-service
 ms.topic: article
 author: cosmosdarwin
 ms.date: 08/14/2017
-ms.openlocfilehash: 7ae78137bbd4e39291cc2e307f62697876c98135
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a8262567abdd18847e99026c43d722351a00d3f2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827523"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720540"
 ---
 # <a name="health-service-settings"></a>Integritätsdienst Einstellungen
+
 > Gilt für: Windows Server 2019, Windows Server 2016
 
 Der Integritätsdienst ist ein neues Feature in Windows Server 2016, das die tägliche Überwachung und Betriebsbereitschaft für Cluster mit direkte Speicherplätze verbessert.
@@ -98,7 +99,7 @@ Weitere Informationen finden Sie im vorherigen Abschnitt.
 "System.LogLevel" = 4
 ```
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
-- [Integritätsdienst in Windows Server 2016](health-service-overview.md)
+- [Der Integritätsdienst in Windows Server 2016](health-service-overview.md)
 - [Direkte Speicherplätze in Windows Server 2016](../storage/storage-spaces/storage-spaces-direct-overview.md)

@@ -1,6 +1,6 @@
 ---
 title: Wbadmin delete-Katalog
-description: Windows-Befehls Artikel für den Wbadmin delete-Katalog, mit dem der auf dem lokalen Computer gespeicherte Sicherungs Katalog gelöscht wird.
+description: Referenz Thema für den Wbadmin delete-Katalog, mit dem der auf dem lokalen Computer gespeicherte Sicherungs Katalog gelöscht wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5cf069163cb18c1763de2842b518f269b9fa57dd
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 73f6f44fb343d3347d18cf2c86913aea59613e07
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829903"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720215"
 ---
 # <a name="wbadmin-delete-catalog"></a>Wbadmin delete-Katalog
 
@@ -33,15 +33,15 @@ wbadmin delete catalog
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
 |-quiet|Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Wenn Sie den Sicherungs Katalog für einen Computer löschen, sind Sie nicht in der Lage, mit dem Windows Server-Sicherung-Snap-in auf die Sicherungen zuzugreifen, die von diesem Computer erstellt wurden. Wenn Sie in diesem Fall auf einen anderen Sicherungs Speicherort zugreifen können, verwenden Sie den **Wbadmin restore catalog** , um den Sicherungs Katalog von diesem Speicherort wiederherzustellen. Sie sollten eine neue Sicherung erstellen, sobald der Sicherungs Katalog gelöscht wurde.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

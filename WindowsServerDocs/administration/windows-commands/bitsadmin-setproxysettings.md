@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setproxysettings
-description: Windows-Befehls Thema für **bitadmin setproxysettings**, mit dem die Proxy Einstellungen für den angegebenen Auftrag festgelegt werden.
+description: Referenz Thema für den Befehl "bizadmin setproxysettings", mit dem die Proxy Einstellungen für den angegebenen Auftrag festgelegt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0ea92383d9bd09372d21d3c1da84db060b0a9958
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 7f7c54b3081c85756735d921fb70f726ba60d833
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122756"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720494"
 ---
 # <a name="bitsadmin-setproxysettings"></a>bitsadmin setproxysettings
 
@@ -28,19 +28,19 @@ bitsadmin /setproxysettings <job> <usage> [list] [bypass]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | Auftrag | Der Anzeige Name oder GUID des Auftrags. |
-| usage | Legt die Proxy Verwendung fest, einschließlich:<ul><li>**PRECONFIG.** Verwenden Sie die Internet Explorer-Standardeinstellungen des Besitzers.</li><li>**NO_PROXY.** Verwenden Sie keinen Proxy Server.</li><li>**Dire.** Verwenden Sie eine explizite Proxy Liste und Umgehungs Liste. Die Proxy Liste und die Proxy Umgehungs Informationen müssen befolgt werden.</li><li>**Auto Ermittlung.** Erkennt automatisch Proxy Einstellungen.</li></ul> |
+| Nutzung | Legt die Proxy Verwendung fest, einschließlich:<ul><li>**PRECONFIG.** Verwenden Sie die Internet Explorer-Standardeinstellungen des Besitzers.</li><li>**NO_PROXY.** Verwenden Sie keinen Proxy Server.</li><li>**Dire.** Verwenden Sie eine explizite Proxy Liste und Umgehungs Liste. Die Proxy Liste und die Proxy Umgehungs Informationen müssen befolgt werden.</li><li>**Auto Ermittlung.** Erkennt automatisch Proxy Einstellungen.</li></ul> |
 | list | Wird verwendet, wenn der *Usage* -Parameter auf Override festgelegt ist. Muss eine durch Trennzeichen getrennte Liste der zu verwendenden Proxy Server enthalten. |
-| Umgangen | Wird verwendet, wenn der *Usage* -Parameter auf Override festgelegt ist. Muss eine durch Leerzeichen getrennte Liste von Hostnamen oder IP-Adressen oder beides enthalten, für die Übertragungen nicht über einen Proxy weitergeleitet werden sollen. Dies kann `<local>` werden, um auf alle Server im gleichen LAN zu verweisen. Werte von NULL können für eine leere Proxy Umgehungs Liste verwendet werden. |
+| Umgehung | Wird verwendet, wenn der *Usage* -Parameter auf Override festgelegt ist. Muss eine durch Leerzeichen getrennte Liste von Hostnamen oder IP-Adressen oder beides enthalten, für die Übertragungen nicht über einen Proxy weitergeleitet werden sollen. Dies kann dazu `<local>` führen, dass auf alle Server im gleichen LAN verwiesen wird. Werte von NULL können für eine leere Proxy Umgehungs Liste verwendet werden. |
 
 ## <a name="examples"></a>Beispiele
 
-Im folgenden Beispiel werden die Proxy Einstellungen für den Auftrag mit dem Namen *mydownloadjob*festgelegt.
+So legen Sie die Proxy Einstellungen mithilfe der verschiedenen Verwendungs Optionen für den Auftrag *mydownloadjob*fest:
 
 ```
-C:\>bitsadmin /setproxysettings myDownloadJob PRECONFIG
+bitsadmin /setproxysettings myDownloadJob PRECONFIG
 ```
 
 ```
@@ -54,6 +54,8 @@ bitsadmin /setproxysettings myDownloadJob OVERRIDE proxy1:80
 bitsadmin /setproxysettings myDownloadJob OVERRIDE proxy1,proxy2,proxy3 NULL
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Bider admin-Befehl](bitsadmin.md)

@@ -1,6 +1,6 @@
 ---
 title: Get-ImageFile
-description: Windows-Befehls Artikel für Get-ImageFile, der Informationen zu den in einer Windows-Abbild Datei (WIM) enthaltenen Images abruft.
+description: Referenz Thema zu "Get-ImageFile", das Informationen zu den in einer Windows-Abbild Datei (WIM) enthaltenen Images abruft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ef1cf2b9eec6739690d286c32d26dd84b07e348c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4f60be17f13e1436a0e895991c72d5ccb7130782
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80830993"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719912"
 ---
 # <a name="get-imagefile"></a>Get-ImageFile
 
@@ -28,12 +28,12 @@ WDSUTIL [Options] /Get-ImageFile /ImageFile:<wim file path> [/Detailed]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |---------|-----------|
-|/ImageFile:\<WIM-Dateipfad >|Gibt den vollständigen Pfad und den Dateinamen der WIM-Datei an.|
+|/ImageFile:\<WIM-Dateipfad>|Gibt den vollständigen Pfad und den Dateinamen der WIM-Datei an.|
 |/Detailed|Gibt alle Bild Metadaten aus jedem Bild zurück. Wenn diese Option nicht verwendet wird, besteht das Standardverhalten darin, nur den Bildnamen, die Beschreibung und den Dateinamen zurückzugeben.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Beispiele
+## <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um Informationen zu einem Bild anzuzeigen:
 ```
@@ -44,6 +44,6 @@ Geben Sie Folgendes ein, um ausführliche Informationen anzuzeigen:
 WDSUTIL /Verbose /Get-ImageFile /ImageFile:\\Server\Share\My Folder \install.wim /Detailed
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
