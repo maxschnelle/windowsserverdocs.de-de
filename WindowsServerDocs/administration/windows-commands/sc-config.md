@@ -1,6 +1,6 @@
 ---
-title: SC-Konfiguration
-description: Referenz Thema für * * * *-
+title: "\"SC. exe\"-Konfiguration"
+description: Erfahren Sie, wie Sie Dienst Konfigurationen mit dem Hilfsprogramm "SC. exe" ändern.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,25 +9,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 06/05/2018
-ms.openlocfilehash: 45a94b3eea78552b61535542d85793bbaffd3df2
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 8f1d6b284b9bfe5a520f89c03dd0dedc263a5faf
+ms.sourcegitcommit: 95b60384b0b070263465eaffb27b8e3bb052a4de
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722218"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82850091"
 ---
-# <a name="sc-config"></a>SC-Konfiguration
-
-
+# <a name="scexe-config"></a>"SC. exe"-Konfiguration
 
 Ändert den Wert der Einträge eines dienstantrags in der Registrierung und in der Dienststeuerungs-Manager-Datenbank.
-
-
 
 ## <a name="syntax"></a>Syntax
 
 ```
-sc [<ServerName>] config [<ServiceName>] [type= {own | share | kernel | filesys | rec | adapt | interact type= {own | share}}] [start= {boot | system | auto | demand | disabled | delayed-auto}] [error= {normal | severe | critical | ignore}] [binpath= <BinaryPathName>] [group= <LoadOrderGroup>] [tag= {yes | no}] [depend= <dependencies>] [obj= {<AccountName> | <ObjectName>}] [displayname= <DisplayName>] [password= <Password>]
+sc.exe [<ServerName>] config [<ServiceName>] [type= {own | share | kernel | filesys | rec | adapt | interact type= {own | share}}] [start= {boot | system | auto | demand | disabled | delayed-auto}] [error= {normal | severe | critical | ignore}] [binpath= <BinaryPathName>] [group= <LoadOrderGroup>] [tag= {yes | no}] [depend= <dependencies>] [obj= {<AccountName> | <ObjectName>}] [displayname= <DisplayName>] [password= <Password>]
 ```
 
 ### <a name="parameters"></a>Parameter
@@ -57,7 +53,7 @@ sc [<ServerName>] config [<ServiceName>] [type= {own | share | kernel | filesys 
 
 Geben Sie Folgendes ein, um einen binären Pfad für den newservice-Dienst anzugeben:
 ```
-sc config NewService binpath= ntsd -d c:\windows\system32\NewServ.exe
+sc.exe config NewService binpath= ntsd -d c:\windows\system32\NewServ.exe
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen

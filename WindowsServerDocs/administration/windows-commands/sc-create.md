@@ -11,7 +11,7 @@ manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 0406e82afbe1f70dc27236a29c3c20489f46f44e
 ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 05/01/2020
 ms.locfileid: "82722197"

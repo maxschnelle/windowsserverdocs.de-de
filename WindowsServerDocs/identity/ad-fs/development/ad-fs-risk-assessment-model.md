@@ -3,16 +3,16 @@ title: Erstellen von Plug-Ins mit dem Risikobewertungsmodell von AD FS 2019
 author: billmath
 ms.author: billmath
 manager: mtillman
-ms.date: 04/16/2019
+ms.date: 05/05/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6433513f525572254e4aaef65e2bfc992a7c5280
-ms.sourcegitcommit: 41dc7f487d282895a242e788049285363dd19eeb
+ms.openlocfilehash: c9795ea1b945d5da773b8d257434f216d842799d
+ms.sourcegitcommit: f0f447193a0bd14d9a623aaead80329b95bf1f47
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82169175"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82842839"
 ---
 # <a name="build-plug-ins-with-ad-fs-2019-risk-assessment-model"></a>Erstellen von Plug-Ins mit dem Risikobewertungsmodell von AD FS 2019
 
@@ -313,6 +313,7 @@ Die-Methode gibt die [Risikobewertung](https://docs.microsoft.com/dotnet/api/mic
 
 **Welche anderen Plug-in-Beispiele sind verfügbar?**</br>
 **A:** Die folgenden Beispiel-Plug-ins sind verfügbar:
+
 |Name|BESCHREIBUNG| 
 |-----|-----|
 |[Riskantes Benutzer-Plug-in](https://github.com/microsoft/adfs-sample-block-user-on-adfs-marked-risky-by-AzureAD-IdentityProtection)|Beispiel-Plug-in, das die Authentifizierung blockiert oder die MFA auf Grundlage der durch Azure AD Identity Protection festgelegten Benutzer Risikostufe erzwingt.| 

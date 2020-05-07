@@ -8,14 +8,14 @@ ms.assetid: 262701a6-8a97-4c4e-bfbf-9f8007c308d6
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 29db78fdf38a6fab23d9a5ec5539c0606e2fbbaa
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b947ca49a82c18fd7a6c1da71b1e4b43ea741b41
+ms.sourcegitcommit: f247065941508b913c31828944978d3e721e2110
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80814483"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82876415"
 ---
-# <a name="azure-site-recovery-services-integration"></a>Azure Site Recovery Services-Integration
+# <a name="azure-site-recovery-services-integration"></a>Azure Site Recovery Services-Integration 
 
 >Gilt für: Windows Server 2016 Essentials
 
@@ -39,7 +39,7 @@ Nachdem Sie die Abonnement-und Regions Auswahl ausgewählt haben, wird im **Wind
 
 ### <a name="enabling-guest-virtual-machines-for-protection"></a>Aktivieren von virtuellen Gast Computern für den Schutz
 
-Wenn Sie einen virtuellen Computer im Azure-Wiederherstellungs Fenster ausgewählt haben, können Sie auf der rechten Seite des Dashboards auf **Replikation in Azure aktivieren** klicken, um das Image des virtuellen Computers &trade;s vorzubereiten und in Azure zu kopieren:
+Wenn Sie einen virtuellen Computer im Azure-Wiederherstellungs Fenster ausgewählt haben, können Sie auf der rechten Seite des Dashboards auf **Replikation in Azure aktivieren** klicken, um das Image &trade;des virtuellen Computers auf Azure vorzubereiten und zu kopieren:
 
 ![Screenshot, der das Dialogfeld "Replikation in Azure aktivieren" anzeigt. Eine Statusanzeige wird angezeigt, wenn ein Host hinzugefügt wird.](media/azure-site-recovery-5.PNG)
 
@@ -63,6 +63,6 @@ In den drei oben genannten Fällen zeigt das Windows Server Essentials-Dashboard
 
 ![Ein Screenshot, der die Azure-Wiederherstellungs Seite des Windows Server Essentials-Dashboards anzeigt. Die Replikation in Azure wurde für einen Host mit dem Namen Essentials aktiviert, und ein virtueller Computer namens Essentials-Test wird in Azure ausgeführt und zeigt an, dass für den Host ein Failover zu Azure ausgeführt wurde.](media/azure-site-recovery-8.PNG)
 
-<a name="see-also"></a>Siehe auch
+<a name="see-also"></a>Weitere Informationen:
 --------
 [Erste Schritte in Windows Server Essentials](get-started.md)
