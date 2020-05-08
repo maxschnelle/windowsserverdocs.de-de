@@ -8,12 +8,12 @@ ms.date: 08/17/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: bad6ad9a95618239825366187c8083c1fe77ae94
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cdd35ccc7800616f7803937738c942e68bf04c00
+ms.sourcegitcommit: 67116322915066b85decb4261d47cedec2cfe12f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860083"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82903438"
 ---
 # <a name="ad-fs-single-sign-on-settings"></a>AD FS Einstellungen für einmaliges Anmelden
 
@@ -102,7 +102,7 @@ Es ist wichtig zu beachten, dass bei der Bereitstellung relativ langer Zeiträum
 ## <a name="psso-revocation"></a>PSSO-Sperrung  
  Um die Sicherheit zu schützen, lehnt AD FS alle permanenten SSO-Cookies ab, die zuvor ausgegeben wurden, wenn die folgenden Bedingungen erfüllt sind. Dies erfordert, dass der Benutzer seine Anmelde Informationen bereitstellt, um sich erneut bei AD FS zu authentifizieren. 
   
-- Kennwort für Benutzer Änderungen  
+- Änderung des Kennworts durch den Benutzer  
   
 - Die Einstellung für persistentes SSO ist in AD FS deaktiviert.  
   
@@ -153,38 +153,38 @@ Zusammenfassung:
 
   <tr align="center">
     <th></th>
-    <th>NEIN</th>
+    <th>Nein</th>
     <th>Nein, aber kmsi</th>
-    <th>JA</th>
+    <th>YES</th>
     <th></th>
-    <th>NEIN</th>
+    <th>Nein</th>
     <th>Nein, aber kmsi</th>
-    <th>JA</th>
+    <th>YES</th>
   </tr>
  <tr align="center">
-    <td>SSO =&gt;Set Refresh Token =&gt;</td>
+    <td>SSO =&gt;Aktualisierungs Token festlegen =&gt;</td>
     <td>8 Std.</td>
-    <td>N/V</td>
-    <td>N/V</td>
+    <td>–</td>
+    <td>–</td>
     <th></th>
     <td>8 Std.</td>
-    <td>N/V</td>
-    <td>N/V</td>
+    <td>–</td>
+    <td>–</td>
   </tr>
 
  <tr align="center">
-    <td>PSSO =&gt;Set Refresh Token =&gt;</td>
-    <td>N/V</td>
+    <td>PSSO =&gt;Aktualisierungs Token festlegen =&gt;</td>
+    <td>–</td>
     <td>24 Stunden</td>
     <td>7 Tage</td>
     <th></th>
-    <td>N/V</td>
+    <td>–</td>
     <td>24 Stunden</td>
     <td>Max. 90 Tage mit 14 Tagen (Fenster)</td>
   </tr>
 
  <tr align="center">
-    <td>Lebensdauer von Token</td>
+    <td>Tokengültigkeitsdauer</td>
     <td>1 Std.</td>
     <td>1 Std.</td>
     <td>1 Std.</td>
@@ -201,6 +201,10 @@ Zusammenfassung:
 Sei
  - [x] Administrator hat die kmsi-Funktion aktiviert [und]
  - [x] Benutzer klickt auf der Formular Anmeldeseite auf das Kontrollkästchen "kmsi".
+ 
+  
+ADFS gibt nur dann ein neues Aktualisierungs Token aus, wenn die Gültigkeit des neueren Aktualisierungs Tokens länger ist als das vorherige Token. Die maximale Lebensdauer eines Tokens beträgt 84 Tage, AD FS jedoch das Token in einem 14-tägigen gleitenden Fenster gültig hält. Wenn das Aktualisierungs Token 8 Stunden lang gültig ist (d. h. die reguläre SSO-Zeit), wird kein neues Aktualisierungs Token ausgegeben. 
+ 
  
 **Gut zu wissen:** <br>
 Verbund Benutzer, die das Attribut " **lastpasswordchangetimestamp** " nicht synchronisiert haben, werden Sitzungs Cookies und Aktualisierungs Token mit einem **maximalen Alters Wert von 12 Stunden**ausgegeben.<br>
