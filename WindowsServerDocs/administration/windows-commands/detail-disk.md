@@ -1,6 +1,6 @@
 ---
 title: Detail Festplatte
-description: Referenz Thema für Detail Datenträger, auf dem die Eigenschaften des ausgewählten Datenträgers und die Volumes auf diesem Datenträger angezeigt werden.
+description: Referenz Thema für den Befehl "Detail Datenträger", in dem die Eigenschaften des ausgewählten Datenträgers und die Volumes auf diesem Datenträger angezeigt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a746506d6c9609e3214dbd48e5fa91f52d16ab4d
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 358d6762f382dc8461c73cbd557a906eb5189c6f
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82710520"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993068"
 ---
 # <a name="detail-disk"></a>Detail Festplatte
 
-Zeigt die Eigenschaften des ausgewählten Datenträgers und der Volumes auf dem Datenträger an.
+Zeigt die Eigenschaften des ausgewählten Datenträgers und der Volumes auf dem Datenträger an. Bevor Sie beginnen, müssen Sie einen Datenträger auswählen, damit dieser Vorgang erfolgreich ausgeführt werden kann. Wählen Sie mit dem Befehl Datenträger [auswählen](select-disk.md) einen Datenträger aus, und verschieben Sie den Fokus auf den Datenträger. Wenn Sie eine virtuelle Festplatte (VHD) auswählen, wird mit diesem Befehl der Bustyp des Datenträgers als *virtuell*angezeigt.
 
 ## <a name="syntax"></a>Syntax
 
@@ -26,14 +26,10 @@ Zeigt die Eigenschaften des ausgewählten Datenträgers und der Volumes auf dem 
 detail disk
 ```
 
-## <a name="remarks"></a>Bemerkungen
-
--   Ein Datenträger muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl Datenträger **auswählen** einen Datenträger aus, und verschieben Sie den Fokus auf den Datenträger.
--   Wenn es sich bei der ausgewählten Festplatte um eine virtuelle Festplatte (VHD) handelt, meldet der **Detail** Datenträger den Bustyp des Datenträgers als virtuell
-
 ## <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um die Eigenschaften des ausgewählten Datenträgers und Informationen zu den Volumes auf dem Datenträger anzuzeigen:
+
 ```
 detail disk
 ```
@@ -42,3 +38,4 @@ detail disk
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
+- [Detail Befehl](detail.md)

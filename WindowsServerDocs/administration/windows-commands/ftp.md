@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8fa956124e0c227d048d4c6eec844154187d5861
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 4878377225f9c58e40256a3d151d0d8f3761afca
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725056"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993337"
 ---
 # <a name="ftp"></a>ftp
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Überträgt Dateien an einen und von einem Computer, auf dem ein Dateiübertragungsprotokoll (FTP)-Server Dienst ausgeführt wird. **FTP** kann interaktiv oder im Batch Modus durch Verarbeitung von ASCII-Textdateien verwendet werden. 
+Überträgt Dateien an einen und von einem Computer, auf dem ein Dateiübertragungsprotokoll (FTP)-Server Dienst ausgeführt wird. **FTP** kann interaktiv oder im Batch Modus durch Verarbeitung von ASCII-Textdateien verwendet werden.
 ## <a name="syntax"></a>Syntax
 ```
 ftp [-v] [-d] [-i] [-n] [-g] [-s:<FileName>] [-a] [-A] [-x:<SendBuffer>] [-r:<RecvBuffer>] [-b:<AsyncBuffers>][-w:<WindowsSize>]  [-?] [<Host>]
@@ -44,7 +44,7 @@ ftp [-v] [-d] [-i] [-n] [-g] [-s:<FileName>] [-a] [-A] [-x:<SendBuffer>] [-r:<Re
 |        -?         |                                                                                                                                         Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                          |
 |      <host>       |                                                                    Gibt den Computernamen, die IP-Adresse oder die IPv6-Adresse des FTP-Servers an, mit dem eine Verbindung hergestellt werden soll. Der Hostname oder die Adresse, falls angegeben, muss der letzte Parameter in der Zeile sein.                                                                    |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 - Weitere Informationen zu **FTP** -Befehlen unter Windows Server 2003 finden Sie unter [FTP](https://technet.microsoft.com/library/cc756013(v=ws.10).aspx).
 - bei **FTP** -Befehlszeilen Parametern wird die Groß-/Kleinschreibung beachtet.
 - Dieser Befehl ist nur verfügbar, wenn das **TCP/IP-Protokoll (Internet Protocol)** als Komponente in den Eigenschaften eines Netzwerkadapters in Netzwerkverbindungen installiert ist.

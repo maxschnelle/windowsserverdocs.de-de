@@ -1,6 +1,6 @@
 ---
 title: diskperf
-description: Referenz Thema für diskperf, das verwendet werden kann, um Leistungsindikatoren für physische oder logische Datenträger auf Computern, auf denen Windows 2000 ausgeführt wird, Remote zu aktivieren oder zu deaktivieren.
+description: Referenz Thema für den diskperf-Befehl, der verwendet werden kann, um Leistungsindikatoren für physische oder logische Datenträger auf Windows-Computern Remote zu aktivieren bzw. zu deaktivieren.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,34 +9,36 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c8f505d924ee1de311f2f2736ff65be844c3f2ea
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 092518f414d6e27436c46ffd6f9f15b6e6c0407e
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719447"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82992426"
 ---
 # <a name="diskperf"></a>diskperf
 
-In Windows 2000 sind Leistungsindikatoren für physische und logische Datenträger standardmäßig nicht aktiviert.
-
-**Diskperf** ist in Windows XP, Windows Server 2003, Windows Server 2008, Windows Vista, Windows Server 2008 R2 und Windows 7 enthalten, sodass es für die Remote Aktivierung oder Deaktivierung von Leistungsindikatoren für physische oder logische Datenträger auf Computern mit Windows 2000 verwendet werden kann.
+Der **diskperf** -Befehl aktiviert oder deaktiviert die Leistungsindikatoren physischer oder logischer Datenträger auf Computern, auf denen Windows ausgeführt wird.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-diskperf [-Y[D|V] | -N[D|V]] [\\computername]
+diskperf [-y[d|v] | -n[d|v]] [\\computername]
 ```
 
 ## <a name="options"></a>Optionen
 
-|Option|BESCHREIBUNG|
-|------|-----------|
-|-?|Zeigt kontextabhängige Hilfe an.|
-|-y|Starten Sie alle Datenträger-Leistungsindikatoren, wenn der Computer neu gestartet wird.|
-|-Yd|Aktivieren Sie Datenträger-Leistungsindikatoren für physische Laufwerke, wenn der Computer neu gestartet wird.|
-|-YV|Aktivieren Sie Datenträger-Leistungsindikatoren für logische Laufwerke oder Speichervolumes, wenn der Computer neu gestartet wird.|
-|-N|Deaktivieren Sie alle Datenträger Leistungsindikatoren, wenn der Computer neu gestartet wird.|
-|-ND|Deaktivieren Sie die Datenträger Leistungsindikatoren für physische Laufwerke, wenn der Computer neu gestartet wird.|
-|-NV|Deaktivieren Sie die Datenträger Leistungsindikatoren für logische Laufwerke oder Speichervolumes, wenn der Computer neu gestartet wird.|
-|\\\\*\<Computername>*|Geben Sie den Namen des Computers an, auf dem Sie die Datenträger-Leistungsindikatoren aktivieren bzw. deaktivieren möchten.|
+| Option | BESCHREIBUNG |
+| ------ | ----------- |
+| -y | Startet alle Datenträger Leistungsindikatoren, wenn der Computer neu gestartet wird. |
+| -Yd | Aktiviert Datenträger-Leistungsindikatoren für physische Laufwerke, wenn der Computer neu gestartet wird. |
+| -YV | Aktiviert Datenträger-Leistungsindikatoren für logische Laufwerke oder Speichervolumes, wenn der Computer neu gestartet wird. |
+| -n | Deaktiviert alle Leistungsindikatoren für Datenträger, wenn der Computer neu gestartet wird. |
+| -ND | Deaktivieren Sie die Datenträger Leistungsindikatoren für physische Laufwerke, wenn der Computer neu gestartet wird. |
+| -NV | Deaktivieren Sie die Datenträger Leistungsindikatoren für logische Laufwerke oder Speichervolumes, wenn der Computer neu gestartet wird. |
+| `\\<computername>` | Gibt den Namen des Computers an, auf dem Sie die Datenträger-Leistungsindikatoren aktivieren bzw. deaktivieren möchten. |
+| -? | Zeigt kontextabhängige Hilfe an. |
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: Dfsutil
-description: Referenz Thema für Dfsutil, das DFS-Namespaces, Server und Clients verwaltet. Dfsutil-Befehle verwenden die ursprüngliche verteiltes Dateisystem Terminologie, wobei die aktualisierte Terminologie für DFS-Namespaces als Erklärung für die meisten Befehle bereitgestellt wird.
+description: Referenz Thema für den Dfsutil-Befehl, der DFS-Namespaces, Server und Clients verwaltet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 999eef79227d4531ba724c9cac40127297ea38a0
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: d6905d90ee42958e47dfed4869520000a4fd3ddf
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719514"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82992623"
 ---
 # <a name="dfsutil"></a>Dfsutil
 
@@ -22,12 +22,9 @@ ms.locfileid: "82719514"
 
 Der Dfsutil-Befehl verwaltet DFS-Namespaces,-Server und-Clients.
 
->[!NOTE]
->Das **PowerShell-Modul für DFS-Namespaces** stellt Ersetzungen für einige der Dfsutil-Parameter bereit, während andere weiterhin Dfsutil verwenden müssen. Weitere Informationen zu den aktualisierten PowerShell-Entsprechungen finden Sie unter [DFSN](https://docs.microsoft.com/powershell/module/dfsn/?view=win10-ps).
+## <a name="functionality-available-in-powershell"></a>In PowerShell verfügbare Funktionalität
 
-## <a name="parameters-available-in-powershell"></a>In PowerShell verfügbare Parameter
-
-Sie können die folgenden Parameter in PowerShell verwenden:
+Das [DFSN](https://docs.microsoft.com/powershell/module/dfsn/?view=win10-ps) -PowerShell-Modul bietet entsprechende Funktionen für die folgenden Dfsutil-Parameter.
 
 | Parameter | BESCHREIBUNG |
 | --------- | ----------- |
@@ -38,9 +35,9 @@ Sie können die folgenden Parameter in PowerShell verwenden:
 | server | Dient zum Anzeigen oder Ändern der Namespace Konfiguration. |
 | Domäne | Zeigt alle domänenbasierten Namespaces in einer Domäne an. |
 
-## <a name="parameters-only-available-in-dfsutil"></a>Parameter sind nur in Dfsutil verfügbar.
+## <a name="functionality-available-only-in-dfsutil"></a>Funktionalität nur in Dfsutil verfügbar
 
-Die folgenden Parameter können nur von DFSUtil verwendet werden.
+Die folgende Funktionalität ist nur als Dfsutil-Parameter verfügbar:
 
 | Parameter | BESCHREIBUNG |
 | --------- | ----------- |

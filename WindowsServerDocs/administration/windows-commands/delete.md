@@ -1,6 +1,6 @@
 ---
 title: delete
-description: Referenz Thema zum Löschen, mit dem eine Partition oder ein Volume gelöscht wird.
+description: Referenz Thema für den DELETE-Befehl, mit dem eine Partition oder ein Volume gelöscht wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c53d73cea0c9c248f1f7c253f37f91084d92dc40
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: d87c3696c9f459098b3b1834f46dbb76a49d5d74
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82716680"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993088"
 ---
 # <a name="delete"></a>delete
 
@@ -25,18 +25,19 @@ Löscht eine Partition oder ein Volume. Außerdem wird ein dynamischer Datenträ
 ```
 delete disk
 delete partition
+delete shadows
 delete volume
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|[Datenträger löschen](delete-disk.md)|Löscht eine fehlende dynamische Festplatte aus der Liste der Datenträger.|
-|[Partition löschen](delete-partition.md)|Löscht eine Partition.|
-|[Löschen eines Volume](delete-volume.md)|Löscht ein Volume.|
+| Parameter | BESCHREIBUNG |
+|---------- | ----------- |
+| [Datenträger löschen](delete-disk.md) | Löscht eine fehlende dynamische Festplatte aus der Liste der Datenträger. |
+| [Partition löschen](delete-partition.md) | Löscht eine Partition. |
+| [Schatten löschen](delete-shadows.md) | Löscht Schatten Kopien. |
+| [Löschen eines Volume](delete-volume.md) | Löscht ein Volume. |
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
-

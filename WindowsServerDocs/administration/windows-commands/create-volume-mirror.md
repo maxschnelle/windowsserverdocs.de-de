@@ -1,6 +1,6 @@
 ---
 title: volumespiegelung erstellen
-description: Referenz Thema zum Erstellen einer volumespiegelung, das eine volumespiegelung mithilfe der beiden angegebenen dynamischen Datenträger erstellt.
+description: Referenz Thema für den Befehl Volume-Spiegelung erstellen, mit dem eine volumespiegelung mithilfe der beiden angegebenen dynamischen Datenträger erstellt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,51 +9,44 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: eda0a6d799fc88c8382e128df1bd260b9e9426b7
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: be6e4496876636351b6e0853626a9ff9bb421f18
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82716948"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993249"
 ---
 # <a name="create-volume-mirror"></a>volumespiegelung erstellen
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Erstellt eine volumespiegelung mithilfe der beiden angegebenen dynamischen Datenträger.  
-  
-> [!NOTE]  
-> Dieser Befehl ist nur in Windows 7 und Windows Server 2008 R2 verfügbar.
+Erstellt eine volumespiegelung mithilfe der beiden angegebenen dynamischen Datenträger. Nachdem das Volume erstellt wurde, wird der Fokus automatisch auf das neue Volume verlagert.
 
-## <a name="syntax"></a>Syntax  
-  
-```  
-create volume mirror [size=<n>] disk=<n>,<n>[,<n>,...] [align=<n>] [noerr] [noerr]  
-```  
-  
-### <a name="parameters"></a>Parameter  
-  
-|         Parameter         |                                                                                                                                     BESCHREIBUNG                                                                                                                                     |
-|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         Größe\=<n>         |                 Gibt die Größe des Speicherplatzes in Megabyte ( \(MB\)) an, die das Volume auf den einzelnen Datenträgern einnimmt. Wenn keine Größe angegeben ist, nimmt das neue Volume den verbleibenden freien Speicherplatz auf dem kleinsten Datenträger und den gleichen Speicherplatz auf jedem nachfolgenden Datenträger an.                 |
-| fest\=<n>Platte<n>\[,<n>,,...\] |                       Gibt die dynamischen Datenträger an, auf denen das Spiegelungs Volume erstellt wird. Zum Erstellen eines Spiegelungs Volumes benötigen Sie zwei dynamische Datenträger. Eine Menge an Speicherplatz, die der Größe entspricht, die mit dem **size** -Parameter angegeben wird, wird auf jedem Datenträger zugeordnet.                        |
-|        abzustimmen\=<n>         | Richtet alle volumeblöcke an der nächstgelegenen Ausrichtungs Grenze aus. Dieser Parameter wird in der Regel mit der Hardware-RAID \(-LUN\) -Arrays der logischen Gerätenummer verwendet, um die Leistung der *Wert für die* Anzahl der \(KB\) liegt zwischen dem Anfang des Datenträgers und der nächstgelegenen Ausrichtungs Grenze. |
-|           Noerr           |                                        Wird nur für die Skripterstellung verwendet. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehler beendet wird.                                         |
-  
-## <a name="remarks"></a>Bemerkungen  
-  
--   Nachdem Sie das Volume erstellt haben, wird der Fokus automatisch auf das neue Volume verlagert.  
-  
-## <a name="examples"></a>Beispiele  
-Geben Sie auf den Datenträgern 1 und 2 Folgendes ein, um ein gespiegeltes Volume mit einer Größe von 1000 Megabyte zu erstellen:  
-  
-```  
-create volume mirror size=1000 disk=1,2  
-```  
-  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
-- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
-  
+## <a name="syntax"></a>Syntax
 
-  
+```
+create volume mirror [size=<n>] disk=<n>,<n>[,<n>,...] [align=<n>] [noerr]
+```
 
+### <a name="parameters"></a>Parameter
+
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| Größe =`<n>` | Gibt die Menge des Speicherplatzes in Megabyte (MB) an, die das Volume auf den einzelnen Datenträgern einnimmt. Wenn keine Größe angegeben ist, nimmt das neue Volume den verbleibenden freien Speicherplatz auf dem kleinsten Datenträger und den gleichen Speicherplatz auf jedem nachfolgenden Datenträger an. |
+| Disk =`<n>`,`<n>`[`,<n>,...`] | Gibt die dynamischen Datenträger an, auf denen das Spiegelungs Volume erstellt wird. Zum Erstellen eines Spiegelungs Volumes benötigen Sie zwei dynamische Datenträger. Eine Menge an Speicherplatz, die der Größe entspricht, die mit dem **size** -Parameter angegeben wird, wird auf jedem Datenträger zugeordnet. |
+| ausrichten =`<n>` | Richtet alle volumeblöcke an der nächstgelegenen Ausrichtungs Grenze aus. Dieser Parameter wird in der Regel mit den Hardware-RAID-Arrays der logischen Gerätenummer verwendet, um die Leistung zu verbessern. `<n>`die Anzahl der Kilobyte (KB) vom Anfang des Datenträgers bis zur nächsten Ausrichtungs Grenze. |
+| Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehler beendet wird. |
+
+## <a name="examples"></a>Beispiele
+
+Geben Sie auf den Datenträgern 1 und 2 Folgendes ein, um ein gespiegeltes Volume mit einer Größe von 1000 Megabyte zu erstellen:
+
+```
+create volume mirror size=1000 disk=1,2
+```
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Create-Befehl](create.md)

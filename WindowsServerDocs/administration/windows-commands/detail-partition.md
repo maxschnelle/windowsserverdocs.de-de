@@ -1,6 +1,6 @@
 ---
 title: Detail Partition
-description: Referenz Thema für die Detail Partition, in der die Eigenschaften der ausgewählten Partition angezeigt werden.
+description: Referenz Thema für den Detail Partitions Befehl, mit dem die Eigenschaften der ausgewählten Partition angezeigt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9ac71e27f5008d6eda0f4c67a7a8129a3bea6365
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 28a5730fc035dab86c4f0f6b28ea2fca47e37d04
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719640"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993059"
 ---
 # <a name="detail-partition"></a>Detail Partition
 
-Zeigt die Eigenschaften der ausgewählten Partition an.
+Zeigt die Eigenschaften der ausgewählten Partition an. Bevor Sie beginnen, müssen Sie eine Partition auswählen, damit dieser Vorgang erfolgreich ausgeführt werden kann. Wählen Sie mit dem Befehl [Partition auswählen](select-partition.md) eine Partition aus, und verschieben Sie den Fokus auf die Partition.
 
 ## <a name="syntax"></a>Syntax
 
@@ -26,13 +26,10 @@ Zeigt die Eigenschaften der ausgewählten Partition an.
 detail partition
 ```
 
-## <a name="remarks"></a>Bemerkungen
-
--   Eine Partition muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt wird. Wählen Sie mit dem Befehl **Partition auswählen** eine Partition aus, und verschieben Sie den Fokus auf die Partition.
-
 ## <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um die Eigenschaften der ausgewählten Partition anzuzeigen:
+
 ```
 detail partition
 ```
@@ -41,3 +38,4 @@ detail partition
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
+- [Detail Befehl](detail.md)

@@ -1,6 +1,6 @@
 ---
 title: Dfsdiag testdfsintegrity
-description: Referenz Thema für **Dfsdiag testdfsintegrity**, das die Integrität des DFS-Namespace (verteiltes Dateisystem) überprüft.
+description: Referenz Thema für den Dfsdiag testdfsintegrity-Befehl, der die Integrität des DFS-Namespace (verteiltes Dateisystem) überprüft.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 21aa6ef3d7d4a7b4a9c64fc51aec77f49f1e0a0c
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: b54c7f597926abc91bb9201dfec1a04f44e04ecb
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719578"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82992959"
 ---
 # <a name="dfsdiag-testdfsintegrity"></a>Dfsdiag testdfsintegrity
 
@@ -31,27 +31,27 @@ ms.locfileid: "82719578"
 ## <a name="syntax"></a>Syntax
 
 ```
-dfsdiag /TestDFSIntegrity /DFSRoot: <DFS root path> [/Recurse] [/Full]
+dfsdiag /testdfsintegrity /DFSroot: <DFS root path> [/recurse] [/full]
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
 | Parameter | BESCHREIBUNG |
-|-------|--------|
-| /DFSRoot:`<DFS root path>`| Der zu diagnostizieren DFS-Namespace. |
-| /Recurse | Führt die Tests einschließlich der Namespace-Interlinks aus. |
-| /Full | Überprüft die Konsistenz von Freigabe-und NTFS-ACLs und Client seitiger Konfiguration für alle Ordner Ziele. Außerdem wird überprüft, ob die Online-Eigenschaft festgelegt ist. |
+| --------- | ----------- |
+| /DFSroot:`<DFS root path>` | Der zu diagnostizieren DFS-Namespace. |
+| /recurse | Führt die Tests aus, einschließlich aller Namespace-Interlinks. |
+| /full | Überprüft die Konsistenz der Freigabe und NTFS-ACLs sowie die Client seitige Konfiguration für alle Ordner Ziele. Außerdem wird überprüft, ob die Online-Eigenschaft festgelegt ist. |
 
 ## <a name="examples"></a>Beispiele
 
+Geben Sie Folgendes ein, um die Integrität und Konsistenz verteiltes Dateisystem der DFS-Namespaces (DFS-Namespaces *) in "* Configuration Manager" (einschließlich aller Links) zu überprüfen:
+
 ```
-dfsdiag /TestDFSIntegrity /DFSRoot:\\Contoso.com\MyNamespace /Recurse /Full
+dfsdiag /testdfsintegrity /DFSRoot:\contoso.com\MyNamespace /recurse /full
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
--   [Dfsdiag](dfsdiag.md)
-
-
+- [Dfsdiag-Befehl](dfsdiag.md)

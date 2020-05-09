@@ -1,6 +1,6 @@
 ---
 title: dcgpofix
-description: Referenz Thema für Dcgpofix, das die Standard-Gruppenrichtlinie Objekte (GPOs) für eine Domäne neu erstellt.
+description: Referenz Thema zum Dcgpofix-Befehl, mit dem die Standard-Gruppenrichtlinie Objekte (GPOs) für eine Domäne neu erstellt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,48 +9,48 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7b30190f06e5e38031c8d205d8ccee9c573a8d84
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: f11b7db8110cd2d7dcf08cd250eba411e7ff21a8
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82716786"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993166"
 ---
 # <a name="dcgpofix"></a>dcgpofix
 
-Erstellt die Standard-Gruppenrichtlinie Objekte (GPOs) für eine Domäne neu.
+Erstellt die Standard-Gruppenrichtlinie Objekte (GPOs) für eine Domäne neu. Um zum Gruppenrichtlinien-Verwaltungskonsole (GPMC) zu gelangen, müssen Sie Gruppenrichtlinie Management als Feature über Server-Manager installieren.
+
+>[!IMPORTANT]
+> Als bewährte Vorgehensweise sollten Sie das Gruppenrichtlinien Objekt Standard Domänen Richtlinie nur so konfigurieren, dass die Standardeinstellungen für **Konto Richtlinien** , Kenn Wort Richtlinie, Konto Sperr Richtlinie und Kerberos-Richtlinie verwaltet werden. Außerdem sollten Sie das Gruppenrichtlinien Objekt Standard Domänen Controller-Richtlinie nur so konfigurieren, dass Benutzerrechte und Überwachungs Richtlinien festgelegt werden.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-DCGPOFix [/ignoreschema] [/target: {Domain | DC | Both}] [/?]
+dcgpofix [/ignoreschema] [/target: {domain | dc | both}] [/?]
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|    Parameter    |                                                                                                 BESCHREIBUNG                                                                                                 |
-|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  /ignoreschema  | Ignoriert die Version der Active Directory® Schema-MC.</br>Wenn Sie diesen Befehl ausführen. Andernfalls funktioniert der Befehl nur für dieselbe Schema Version wie die Windows-Version, in der der Befehl ausgeliefert wurde. |
-| /Target {Domäne |                                                                                                     DC                                                                                                      |
-|       /?        |                                                                                    Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                     |
-
-## <a name="remarks"></a>Bemerkungen
-
--   Der **Dcgpofix** -Befehl ist in Windows Server 2008 R2 und Windows Server 2008 mit Ausnahme von Server Core-Installationen verfügbar.
--   Obwohl die Gruppenrichtlinien-Verwaltungskonsole (GPMC) mit Windows Server 2008 R2 und Windows Server 2008 verteilt ist, müssen Sie Gruppenrichtlinie Management als Feature über Server-Manager installieren.
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| /ignoreschema | Ignoriert die Version des Active Directory Schemas, wenn Sie diesen Befehl ausführen. Andernfalls funktioniert der Befehl nur für dieselbe Schema Version wie die Windows-Version, in der der Befehl ausgeliefert wurde. |
+| `/target {domain | dc | both` | Gibt an, ob die Standard Domänen Richtlinie, die Standard Domänen Controller-Richtlinie oder beide Richtlinien Typen als Ziel festgelegt werden sollen. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 ## <a name="examples"></a>Beispiele
 
-Stellen Sie das Gruppenrichtlinien Objekt der Standard Domänen Richtlinie in seinem ursprünglichen Zustand wieder her. Alle Änderungen, die Sie an diesem GPO vorgenommen haben, gehen verloren. Als bewährte Vorgehensweise sollten Sie das Gruppenrichtlinien Objekt Standard Domänen Richtlinie nur so konfigurieren, dass die Standardeinstellungen für Konto Richtlinien, Kenn Wort Richtlinie, Konto Sperr Richtlinie und Kerberos-Richtlinie verwaltet werden. In diesem Beispiel ignorieren Sie die Version des Active Directory Schemas, sodass der **Dcgpofix** -Befehl nicht auf das gleiche Schema wie die Windows-Version beschränkt ist, in der der Befehl ausgeliefert wurde.
+Geben Sie Folgendes ein, um die Standardeinstellungen für **Konto Richtlinien** , die Kenn Wort Richtlinie, die Konto Sperr Richtlinie und die Kerberos-Richtlinie zu verwalten, während die Active Directory Schema Version ignoriert wird:
+
 ```
-dcgpofix /ignoreschema /target:Domain
+dcgpofix /ignoreschema /target:domain
 ```
-Stellen Sie das Gruppenrichtlinien Objekt Standard Domänen Controller in seinem ursprünglichen Zustand wieder her. Alle Änderungen, die Sie an diesem GPO vorgenommen haben, gehen verloren. Als bewährte Vorgehensweise sollten Sie das Gruppenrichtlinien Objekt Standard Domänen Controller nur so konfigurieren, dass Benutzerrechte und Überwachungs Richtlinien festgelegt werden. In diesem Beispiel ignorieren Sie die Version des Active Directory Schemas, sodass der **Dcgpofix** -Befehl nicht auf das gleiche Schema wie die Windows-Version beschränkt ist, in der der Befehl ausgeliefert wurde.
+
+Geben Sie Folgendes ein, um das Gruppenrichtlinien Objekt Standard Domänen Controller nur zum Festlegen von Benutzerrechten und Überwachungs Richtlinien zu konfigurieren, während die Active Directory Schema Version ignoriert wird:
+
 ```
-dcgpofix /ignoreschema /target:DC
+dcgpofix /ignoreschema /target:dc
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [TechCenter zu Gruppenrichtlinien](https://go.microsoft.com/fwlink/?LinkID=145531)
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

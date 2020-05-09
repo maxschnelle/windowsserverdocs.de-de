@@ -7,12 +7,12 @@ ms.technology: storage-file-systems
 ms.topic: article
 author: gawatu
 ms.date: 06/17/2019
-ms.openlocfilehash: 8d32ef6bc4ce169ff73f9ab147783ac0607617f2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: daa766b63cd99b86abb5a9fad791061c21aba766
+ms.sourcegitcommit: be4f67ae8e40a0bf1086881ba8963c69d7ea889f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857543"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82986026"
 ---
 # <a name="resilient-file-system-refs-overview"></a>Robustes Dateisystem (ReFS) : Übersicht
 
@@ -20,7 +20,7 @@ ms.locfileid: "80857543"
 
 Das ReFS (Resilient File System, Robustes Dateisystem) ist das neuste Dateisystem von Microsoft, das die Datenverfügbarkeit maximiert, große Datasets über diverse Arbeitslasten effektiv skaliert und Datenintegrität durch Resilienz gegenüber Beschädigungen von zentraler Bedeutung bereitstellt. Es versucht, die Erweiterung verschiedener Speicherszenarien zu behandeln und eine Grundlage für zukünftige Innovationen herzustellen.
 
-## <a name="key-benefits"></a>Wichtige Vorteile
+## <a name="key-benefits"></a>Hauptvorteile
 
 ### <a name="resiliency"></a>Resilienz
 
@@ -37,7 +37,7 @@ Zusätzlich zur Verbesserungen der Resilienz führt ReFS neue Features für leis
 
 - **[Spiegel-beschleunigte Parität](./mirror-accelerated-parity.md)** : bei der Spiegelungs Beschleunigung wird sowohl eine hohe Leistung als auch ein Kapazitäts effizienter Speicher für Ihre Daten bereitstellt. 
 
-    - Um eine hohe Leistung und effiziente Speicherkapazität zu übermitteln, teilt ReFS ein Volume in zwei logische Speichergruppen ein, die als Ebenen bezeichnet werden. Diese Ebenen können ihre eigenen Laufwerke und Resilienztypen haben, die jeder Ebene die Optimierung von Kapazität oder Leistung ermöglicht. Zu den Beispielkonfigurationen gehören: 
+    - Um einen hohen Leistungs-und Kapazitäts effizienten Speicher bereitzustellen, dividiert Refs ein Volume in zwei logische Speicher Gruppen, die als Ebenen bezeichnet werden. Diese Ebenen können ihre eigenen Laufwerke und Resilienztypen haben, die jeder Ebene die Optimierung von Kapazität oder Leistung ermöglicht. Zu den Beispielkonfigurationen gehören: 
     
       | Leistungsstufe | Kapazitätsebene |
       | ---------------- | ----------------- |
@@ -50,7 +50,7 @@ Zusätzlich zur Verbesserungen der Resilienz führt ReFS neue Features für leis
         - Bei Verwendung einer Hybrid Bereitstellung (mit einer Mischung aus Flash-und HDD-Laufwerken) hilft [der Cache in direkte Speicherplätze](../storage-spaces/understand-the-cache.md) bei der Beschleunigung von Lesevorgängen, wodurch die Auswirkungen der Daten Fragmentierung von virtualisierten Workloads verringert werden Andernfalls werden bei der Verwendung einer Bereitstellung mit einem beliebigen Flash-/Lesevorgänge auch in der Leistungsstufe ausgeführt.
 
 > [!NOTE]
-> Für Serverbereitstellungen wird die durch Spiegelung beschleunigte Parität nur auf [direkten Speicherplätzen](../storage-spaces/storage-spaces-direct-overview.md) unterstützt. Wir empfehlen die Verwendung der Spiegel beschleunigten Parität bei der Archivierung und bei sicherungsworkloads. Für virtualisierte und andere hochleistungsfähige zufällige Workloads empfiehlt es sich, drei-Wege-Spiegelungen zu verwenden, um die Leistung zu verbessern.
+> Bei Server Bereitstellungen wird die zwischen Spiegelung beschleunigte Parität nur auf [direkte Speicherplätze](../storage-spaces/storage-spaces-direct-overview.md)unterstützt. Wir empfehlen die Verwendung der Spiegel beschleunigten Parität bei der Archivierung und bei sicherungsworkloads. Für virtualisierte und andere hochleistungsfähige zufällige Workloads empfiehlt es sich, drei-Wege-Spiegelungen zu verwenden, um die Leistung zu verbessern.
 
 - **Beschleunigte VM-Vorgänge** - ReFS führt neue Funktionen ein, die speziell die Leistung virtualisierter Workloads verbessern:
     - [Block-Clone-Vorgänge](./block-cloning.md) - Block-Clone-Vorgänge beschleunigen Kopiervorgänge und ermöglichen schnelle und ressourcensparende VM-Prüfpunkt-Mergevorgänge.
@@ -69,18 +69,18 @@ Microsoft hat NTFS speziell für die allgemeine Verwendung mit einer Vielzahl vo
 > [!NOTE]
 > Alle von refs unterstützten Konfigurationen müssen die [Windows Server-Katalog](https://www.WindowsServerCatalog.com) zertifizierte Hardware verwenden und die Anwendungsanforderungen erfüllen.
 
-### <a name="storage-spaces-direct"></a>Direkte Speicherplätze
+### <a name="storage-spaces-direct"></a>Speicherplätze direkt
 
-Das Bereitstellen von ReFS auf direkte Speicherplätze ist für virtualisierte Workloads oder Network Attached Storage empfohlen: 
-- Durch Spiegelung beschleunigte Parität und [der Cache im direkten Speicherplatz](../storage-spaces/understand-the-cache.md) bieten eine hohe Leistung und effizient Speicherkapazität. 
+Das Bereitstellen von Refs auf direkte Speicherplätze wird für virtualisierte Workloads oder netzwerkgebundenen Speicher empfohlen: 
+- Eine Spiegel beschleunigte Parität und [der Cache in direkte Speicherplätze](../storage-spaces/understand-the-cache.md) bieten hochleistungsfähigen und Kapazitäts effizienten Speicher. 
 - Die Einführung von Block-Clone-Vorgängen und platzsparende VDLs beschleunigt .vhdx-Dateivorgänge wie das Erstellen, Zusammenführen und Erweitern ganz erheblich.
 - Mit Integritäts Datenströmen, Online Reparatur und alternativen Datenkopien können Refs und direkte Speicherplätze gemeinsam die Beschädigungen von Speicher Controllern und Speichermedien innerhalb von Metadaten und Daten erkennen und korrigieren. 
-- ReFS bietet die Funktionalität zur Skalierung und unterstützt große Datasets. 
+- Refs bietet die Funktionalität zum Skalieren und unterstützen großer Datasets. 
 
 ### <a name="storage-spaces"></a>Speicherplätze
 
 - Mit Integritäts Datenströmen, Online Reparatur und alternativen Datenkopien können Refs und [Speicherplätze](../storage-spaces/overview.md) gemeinsam zum erkennen und korrigieren von Speicher Controllern und Speichermedien in Metadaten und Daten auf die gleiche Weise erstellt werden.
-- Die Bereitstellungen von Speicherplätzen unterstützt ebenfalls Block-Clone-Vorgänge und eine in ReFS angebotene Skalierbarkeit.
+- Speicherplätze-bereit Stellungen können auch Block Klon und die in Refs angebotene Skalierbarkeit nutzen.
 - Das Bereitstellen von refs für Speicherplätze mit freigegebenen SAS-Gehäusen eignet sich zum Hosting von Archivierungs Daten und Speichern von Benutzer
 
 > [!NOTE]
@@ -89,24 +89,24 @@ Das Bereitstellen von ReFS auf direkte Speicherplätze ist für virtualisierte W
 ### <a name="basic-disks"></a>Basisfestplatten
 
 Das Bereitstellen von refs für Basis Datenträger eignet sich am besten für Anwendungen, die ihre eigenen Lösungen für Software Resilienz und Verfügbarkeit 
-- Anwendungen, die ihre eigenen Software-Resilienz- und Verfügbarkeitslösungen aufweisen, können Integrity Streams, Block-Clone-Vorgänge und die Möglichkeit, Skalierung und große Mengen von Daten nutzen. 
+- Anwendungen, die ihre eigenen Softwarelösungen für Resilienz und Verfügbarkeit einführen, können Integritäts Datenströme, Block Klonen und die Möglichkeit zum Skalieren und unterstützen großer Datasets nutzen. 
 
 > [!NOTE]
-> Zu den Basis Datenträgern gehören lokale nicht austauschbare direkt Anfügung über bustypes SATA, SAS, nvme oder RAID. 
+> Zu den Basis Datenträgern gehören lokale nicht austauschbare direkt Anfügung über bustypes SATA, SAS, nvme oder RAID. Basis Datenträger enthalten keine Speicherplätze.
 
-### <a name="backup-target"></a>Sicherungs Ziel
+### <a name="backup-target"></a>Sicherungsziel
 
 Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwendungen und Hardware, die ihre eigenen Lösungen für Resilienz und Verfügbarkeit implementieren.
-- Anwendungen, die ihre eigenen Software-Resilienz- und Verfügbarkeitslösungen aufweisen, können Integrity Streams, Block-Clone-Vorgänge und die Möglichkeit, Skalierung und große Mengen von Daten nutzen.
+- Anwendungen, die ihre eigenen Softwarelösungen für Resilienz und Verfügbarkeit einführen, können Integritäts Datenströme, Block Klonen und die Möglichkeit zum Skalieren und unterstützen großer Datasets nutzen.
 
 > [!NOTE]
 > Sicherungs Ziele enthalten die oben genannten unterstützten Konfigurationen. Wenden Sie sich an die Anbieter von Anwendungs-und Speicherarrays, um Support Details zu Fiber-Channel und iSCSI-SANs Für SANs müssen NTFS verwendet werden, wenn Features wie Thin Provisioning, Trim/unmap oder offloaded Datenübertragung (ODX) erforderlich sind.   
 
-## <a name="feature-comparison"></a>Vergleichbare Funktionen
+## <a name="feature-comparison"></a>Funktionsvergleiche
 
-### <a name="limits"></a>Limits
+### <a name="limits"></a>Einschränkungen
 
-| Feature       | ReFS                                        | NTFS |
+| Funktion       | ReFS                                        | NTFS |
 |----------------|------------------------------------------------|-----------------------|
 | Maximale Dateinamenslänge | 255 Unicode-Zeichen  | 255 Unicode-Zeichen               |
 | Maximale Pfadnamenslänge |32.000 Unicode-Zeichen | 32.000 Unicode-Zeichen                |
@@ -115,7 +115,7 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 
 ### <a name="functionality"></a>Funktionalität
 
-#### <a name="the-following-features-are-available-on-refs-and-ntfs"></a>Die folgenden Features sind in ReFS und NTFS verfügbar:
+#### <a name="the-following-features-are-available-on-refs-and-ntfs"></a>Die folgenden Features sind in Refs und NTFS verfügbar:
 
 | Funktionalität       | ReFS                                        | NTFS |
 |---------------------------|------------------|-----------------------|
@@ -128,12 +128,12 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 | USN-Journal | Ja | Ja |
 | Änderungsbenachrichtigungen | Ja | Ja |
 | Abzweigungspunkte | Ja | Ja |
-| Mount points (Bereitstellungspunkte) | Ja | Ja |
+| Bereitstellungspunkte | Ja | Ja |
 | Analysepunkte | Ja | Ja |
 | Volumesnapshots | Ja | Ja |
 | Datei-ID | Ja | Ja |
-| OPLOCKs | Ja | Ja |
-| Dateien mit geringer Datendichte | Ja | Ja |
+| Oplocks | Ja | Ja |
+| Sparsedateien | Ja | Ja |
 | Benannte Datenströme | Ja | Ja |
 | Schlanke Speicherzuweisung | Ja<sup>3</sup> | Ja |
 | Trim/unmap | Ja<sup>3</sup> | Ja |
@@ -141,34 +141,34 @@ Das Bereitstellen von refs als Sicherungs Ziel eignet sich am besten für Anwend
 2. Verfügbar unter Windows Server 2012 R2 und höher.
 3. Nur Speicherplätze
 
-#### <a name="the-following-features-are-only-available-on-refs"></a>Die folgenden Features sind nur in ReFS verfügbar:
+#### <a name="the-following-features-are-only-available-on-refs"></a>Die folgenden Features sind nur in Refs verfügbar:
 
 | Funktionalität       | ReFS                                        | NTFS |
 |---------------------------|------------------|-----------------------|
-| Block-Clone-Vorgang | Ja | Nein |
-| Platzsparende VDL | Ja | Nein |
-| Durch Spiegelung beschleunigte Parität| Ja (auf direkten Speicherplätzen) | Nein |
+| Block-Clone-Vorgang | Ja | Nein  |
+| Platzsparende VDL | Ja | Nein  |
+| Durch Spiegelung beschleunigte Parität| Ja (auf direkten Speicherplätzen) | Nein  |
 
 #### <a name="the-following-features-are-unavailable-on-refs-at-this-time"></a>Folgende Features sind im Moment nicht auf ReFS verfügbar:
 
 | Funktionalität       | ReFS                                        | NTFS |
 |---------------------------|------------------|-----------------------|
-| Komprimierung des Dateisystems | Nein | Ja |
-| Verschlüsseln des Dateisystems | Nein | Ja |
-| Transaktionen | Nein | Ja |
-| Feste Links | Nein | Ja |
-| Objekt-IDs | Nein | Ja |
-| Offloaded Datenübertragung (ODX) | Nein | Ja |
-| Kurznamen | Nein | Ja |
-| Erweiterte Attribute | Nein | Ja |
-| Datenträgerkontingente | Nein | Ja |
-| Startbar | Nein | Ja |
-| Unterstützung von Seiten Dateien | Nein | Ja |
-| Auf Wechselmedien unterstützt | Nein | Ja |
+| Komprimierung des Dateisystems | Nein  | Ja |
+| Verschlüsseln des Dateisystems | Nein  | Ja |
+| Transaktionen | Nein  | Ja |
+| Feste Links | Nein  | Ja |
+| Objekt-IDs | Nein  | Ja |
+| Offloaded Datenübertragung (ODX) | Nein  | Ja |
+| Kurze Namen | Nein  | Ja |
+| Erweiterte Attribute | Nein  | Ja |
+| Datenträgerkontingente | Nein  | Ja |
+| Startbar | Nein  | Ja |
+| Unterstützung von Seiten Dateien | Nein  | Ja |
+| Auf Wechselmedien unterstützt | Nein  | Ja |
 
-## <a name="see-also"></a>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 - [Empfehlungen für die Clustergröße für ReFS und NTFS](https://techcommunity.microsoft.com/t5/Storage-at-Microsoft/Cluster-size-recommendations-for-ReFS-and-NTFS/ba-p/425960)
 - [Übersicht über direkte Speicherplätze](../storage-spaces/storage-spaces-direct-overview.md)
-- [Neuklonen von refs-Blöcken](block-cloning.md)
-- [Refs-Integritäts Datenströme](integrity-streams.md)
+- [Block-Clone-Vorgänge auf ReFS](block-cloning.md)
+- [ReFS Integrity Streams](integrity-streams.md)
