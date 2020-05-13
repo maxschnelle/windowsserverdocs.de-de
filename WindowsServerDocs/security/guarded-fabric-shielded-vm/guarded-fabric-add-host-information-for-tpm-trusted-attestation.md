@@ -8,23 +8,23 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 06/21/2019
-ms.openlocfilehash: f9a0ee9cb78a89b20140e40a2bd3ae42da56c84f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f1c25cc88c577ccb1bc0e8cc690114471e86b6ba
+ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856933"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83203397"
 ---
->Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
-
 # <a name="add-host-information-for-tpm-trusted-attestation"></a>Hinzufügen von Hostinformationen für den TPM-vertrauenswürdigen Nachweis
+
+> Gilt für: Windows Server 2019, Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Für den TPM-Modus erfasst der Fabric-Administrator drei Arten von Hostinformationen, die jeweils der HGS-Konfiguration hinzugefügt werden müssen:
 
 - Eine TPM-Kennung (ekpub) für jeden Hyper-V-Host
-- Code Integritäts Richtlinien, eine  Liste zulässiger Binärdateien für die Hyper-V-Hosts
+- Code Integritäts Richtlinien, eine weiße Liste zulässiger Binärdateien für die Hyper-V-Hosts
 - Eine TPM-Baseline (Start Messungen), die eine Gruppe von Hyper-V-Hosts darstellt, die auf derselben Hardware Klasse ausgeführt werden
-    
+
 AF: der Fabric-Administrator erfasst die Informationen und fügt Sie der HGS-Konfiguration hinzu, wie im folgenden Verfahren beschrieben.
 
 1. Rufen Sie die XML-Dateien ab, die die ekpub-Informationen enthalten, und kopieren Sie Sie auf einen HGS-Server. Es wird eine XML-Datei pro Host vorhanden sein. Führen Sie dann in einer Windows PowerShell-Konsole mit erhöhten Rechten auf einem HGS-Server den folgenden Befehl aus. Wiederholen Sie den Befehl für jede der XML-Dateien.
@@ -46,7 +46,7 @@ AF: der Fabric-Administrator erfasst die Informationen und fügt Sie der HGS-Kon
     ```powershell
     Add-HgsAttestationCIPolicy -Path <Path> -Name '<PolicyName>'
        ```
-    
+
     > [!NOTE]
     > If you're using a signed code integrity policy, register an unsigned copy of the same policy with HGS.
     > The signature on code integrity policies is used to control updates to the policy, but is not measured into the host TPM and therefore cannot be attested to by HGS.

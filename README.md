@@ -21,18 +21,18 @@ Es gibt zwei separate Standorte, an denen wir technische Inhalte von Windows Ser
 Diese Repositorys werden aktiv verwaltet und enthalten die Quelle für Windows Server-Inhalte, die auf [docs.Microsoft.com](https://docs.microsoft.com)veröffentlicht werden:
 
 - [Windows Server-Startseite](https://docs.microsoft.com/windows-server/)
-- [Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/get-started-19)
+- [Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/get-started-19)
 - [Windows Server 2016](https://docs.microsoft.com/windows-server/get-started/server-basics)
 - [Essentials Server 2016 und Essentials Server 2019](https://docs.microsoft.com/windows-server-essentials/get-started/get-started)
 
 ## <a name="markdown-info"></a>Markdown-Informationen
 
-Informationen zur Verwendung von markdown in docs.Microsoft.com-Themen finden Sie unter [Referenz zu docs markdown](https://review.docs.microsoft.com/help/contribute/markdown-reference?branch=master). Die öffentlich zugängliche Version dieses Inhalts finden Sie hier: [Referenz zu öffentlichen docs markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown).
+Informationen zur Verwendung von markdown in docs.Microsoft.com-Themen finden Sie unter [Referenz zu docs markdown](https://review.docs.microsoft.com/help/contribute/markdown-reference?branch=master). Die öffentlich zugängliche Version dieses Inhalts finden Sie hier: [Referenz zu öffentlichen docs markdown](https://docs.microsoft.com/contribute/markdown-reference).
 
 ## <a name="license"></a>Lizenz
 
 Lizenzierungsinformationen finden Sie unter [LICENSE](https://github.com/MicrosoftDocs/windowsserverdocs-pr/blob/master/LICENSE), [LICENSE-CODE](https://github.com/MicrosoftDocs/windowsserverdocs-pr/blob/master/LICENSE-CODE) und [ThirdPartyNotices](https://github.com/MicrosoftDocs/windowsserverdocs-pr/blob/master/ThirdPartyNotices).
 
-## <a name="code-of-conduct"></a>Verhaltensregeln
+## <a name="code-of-conduct"></a>Verhaltenskodex
 
-Dieses Projekt hat den [Microsoft Open Source Code of Conduct (Open-Source-Verhaltenskodex von Microsoft)](https://opensource.microsoft.com/codeofconduct/) übernommen. Weitere Informationen finden Sie unter [Code of Conduct FAQ (Häufig gestellte Fragen zum Verhaltenskodex)](https://opensource.microsoft.com/codeofconduct/faq/), oder wenden Sie sich für zusätzliche Fragen und Kommentare an [opencode@microsoft.com](mailto:opencode@microsoft.com).
+Für dieses Projekt gelten die Microsoft-Verhaltensregeln für Open Source ([Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)). Weitere Informationen finden Sie unter [Code of Conduct FAQ (FAQ zum Verhaltenskodex)](https://opensource.microsoft.com/codeofconduct/faq/). Alternativ können Sie sich mit weiteren Fragen und Kommentaren an [opencode@microsoft.com](mailto:opencode@microsoft.com) wenden.

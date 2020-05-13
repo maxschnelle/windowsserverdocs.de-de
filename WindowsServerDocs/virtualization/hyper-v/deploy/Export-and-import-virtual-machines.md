@@ -9,16 +9,16 @@ ms.technology: compute-hyper-v
 ms.date: 12/13/2016
 ms.topic: article
 ms.assetid: 7fd996f5-1ea9-4b16-9776-85fb39a3aa34
-ms.openlocfilehash: 1e9cd8710a53c1e5d9d97e464c32dbf7f17d29a7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f1b321c04ad0b7541f21b444499b13fd2b4e4a6d
+ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860893"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83203555"
 ---
->Gilt für: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
-
 # <a name="export-and-import-virtual-machines"></a>Exportieren und Importieren virtueller Computer
+
+> Gilt für: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 In diesem Artikel erfahren Sie, wie Sie einen virtuellen Computer exportieren und importieren. Dies ist eine schnelle Möglichkeit, Sie zu verschieben oder zu kopieren. In diesem Artikel werden auch einige der Optionen erläutert, die Sie beim Exportieren oder importieren treffen müssen.
 
@@ -36,9 +36,9 @@ So erstellen Sie einen Export eines virtuellen Computers
 
 Wenn der Export abgeschlossen ist, werden alle exportierten Dateien am Export Speicherort angezeigt.
 
-### <a name="using-powershell"></a>Verwenden von PowerShell
+### <a name="using-powershell"></a>PowerShell
 
-Öffnen Sie eine Sitzung als Administrator, und führen Sie einen Befehl wie den folgenden aus, nachdem Sie \<VM-Namen\> und \<Pfad\>ersetzt haben:
+Öffnen Sie eine Sitzung als Administrator, und führen Sie einen Befehl wie den folgenden aus, nachdem Sie den \< Namen und Pfad der VM ersetzt haben \> \< \> :
 
 ```powershell
 Export-VM -Name \<vm name\> -Path \<path\>
@@ -46,7 +46,7 @@ Export-VM -Name \<vm name\> -Path \<path\>
 
 Weitere Informationen finden Sie unter [Export-VM](https://docs.microsoft.com/powershell/module/hyper-v/export-vm).
 
-## <a name="import-a-virtual-machine"></a>Importieren eines virtuellen Computers 
+## <a name="import-a-virtual-machine"></a>Importieren eines virtuellen Computers
 
 Beim Importieren wird der virtuelle Computer beim Hyper-V-Host registriert. Sie können zurück in den Host oder einen neuen Host importieren. Wenn Sie auf denselben Host importieren, müssen Sie den virtuellen Computer nicht zuerst exportieren, da Hyper-V versucht, den virtuellen Computer aus den verfügbaren Dateien neu zu erstellen. Wenn Sie einen virtuellen Computer importieren, wird er registriert, damit er auf dem Hyper-V-Host verwendet werden kann.
 
@@ -70,17 +70,17 @@ So importieren Sie einen virtuellen Computer:
 
 ### <a name="import-using-powershell"></a>Importieren mithilfe von PowerShell
 
-Verwenden Sie das Cmdlet **Import-VM** , und befolgen Sie dabei das Beispiel für den gewünschten Importtyp. Beschreibungen der Typen finden Sie unten unter [Importieren von Typen](#import-types). 
+Verwenden Sie das Cmdlet **Import-VM** , und befolgen Sie dabei das Beispiel für den gewünschten Importtyp. Beschreibungen der Typen finden Sie unten unter [Importieren von Typen](#import-types).
 
 #### <a name="register-in-place"></a>Direkt registrieren
 
 Bei dieser Art von Import werden die Dateien verwendet, in denen Sie zum Zeitpunkt des Imports gespeichert sind, und die ID der virtuellen Maschine wird beibehalten. Der folgende Befehl zeigt ein Beispiel für eine Import Datei. Führen Sie einen ähnlichen Befehl mit ihren eigenen Werten aus.
 
 ```powershell
-Import-VM -Path 'C:\<vm export path>\2B91FEB3-F1E0-4FFF-B8BE-29CED892A95A.vmcx' 
+Import-VM -Path 'C:\<vm export path>\2B91FEB3-F1E0-4FFF-B8BE-29CED892A95A.vmcx'
 ```
 
-#### <a name="restore"></a>Wiederherstellen
+#### <a name="restore"></a>Restore
 
 Um den virtuellen Computer mit einem eigenen Pfad für die Dateien des virtuellen Computers zu importieren, führen Sie einen Befehl wie diesen aus, und ersetzen Sie die Beispiele durch ihre Werte:
 

@@ -1,6 +1,6 @@
 ---
 title: exit
-description: Referenz Thema für Exit, mit dem der DiskPart-Befehls Interpreter beendet wird.
+description: Referenz Thema für Exit, mit dem der Befehls Interpreter beendet wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,36 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c36d0f7f6770ead39a6b31919fc1ae34a8af205b
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 97068232a7ffa82e59ba486b449af96638e3d8f0
+ms.sourcegitcommit: aed942d11f1a361fc1d17553a4cf190a864d1268
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725726"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83235083"
 ---
 # <a name="exit"></a>exit
 
-Beendet den DiskPart-Befehls Interpreter.
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+
+Beendet den Befehls Interpreter oder das aktuelle Batch Skript.
 
 ## <a name="syntax"></a>Syntax
+
+```
+exit [/b] [<exitcode>]
+```
+
+### <a name="parameters"></a>Parameter
+
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| /b | Beendet das aktuelle Batch Skript, anstatt "cmd. exe" zu beenden. Wenn die Ausführung von außerhalb eines Batch Skripts erfolgt, wird "cmd. exe" beendet. |
+| `<exitcode>` | Gibt eine numerische Zahl an. Wenn **/b** angegeben wird, wird die ERRORLEVEL-Umgebungsvariable auf diese Zahl festgelegt. Wenn Sie den Befehls Interpreter verlassen, wird der Prozessexitcode auf diese Zahl festgelegt. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
+
+## <a name="examples"></a>Beispiele
+
+Geben Sie Folgendes ein, um den Befehls Interpreter zu schließen:
 
 ```
 exit
@@ -29,4 +47,3 @@ exit
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
-

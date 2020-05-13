@@ -7,16 +7,16 @@ ms.topic: article
 ms.prod: windows-server
 ms.service: windows-10-hyperv
 ms.assetid: cc7bb88e-ae75-4a54-9fb4-fc7c14964d67
-ms.openlocfilehash: fcf61c22a24abb6b16baf75b4846cc188dcecd49
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ebb5f9a0ca9c50a5e5357e3dd2c755095da98d11
+ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860793"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83203540"
 ---
->Gilt für: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
-
 # <a name="virtual-machine-resource-controls"></a>Ressourcen Steuerelemente für virtuelle Maschinen
+
+> Gilt für: Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 In diesem Artikel werden die Hyper-V-Ressourcen-und Isolations Steuerelemente für virtuelle Computer beschrieben  Diese Funktionen, die wir als VM-CPU-Gruppen oder einfach "CPU-Gruppen" bezeichnen, wurden in Windows Server 2016 eingeführt.  Mit CPU-Gruppen können Hyper-V-Administratoren die CPU-Ressourcen des Hosts auf virtuellen Gast Computern besser verwalten und zuordnen.  Mithilfe von CPU-Gruppen können Hyper-V-Administratoren folgende Aktionen ausführen:
 
@@ -30,7 +30,7 @@ In diesem Artikel werden die Hyper-V-Ressourcen-und Isolations Steuerelemente f�
 
 CPU-Gruppen werden über den Hyper-V-hostcomputedienst oder HCS verwaltet. Im Blog des Microsoft-Virtualisierungsteams finden Sie eine gute Beschreibung der HCS, der dazugehörigen Informationen, Links zu den HCS-APIs und weitere Informationen zum Microsoft-virtualisierungsteamblog im Beitrag [Introducing the Host Compute Service (HCS)](https://blogs.technet.microsoft.com/virtualization/2017/01/27/introducing-the-host-compute-service-hcs/).
 
->[!NOTE] 
+>[!NOTE]
 >Nur die HCS können zum Erstellen und Verwalten von CPU-Gruppen verwendet werden. die WMI-und PowerShell-Verwaltungs Schnittstellen von Hyper-V-Manager unterstützen keine CPU-Gruppen.
 
 Microsoft stellt ein Befehlszeilen-Hilfsprogramm cpugroups. exe im [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=865968) zur Verfügung, das die HCS-Schnittstelle zum Verwalten von CPU-Gruppen verwendet.  Dieses Hilfsprogramm kann auch die CPU-Topologie eines Hosts anzeigen.
@@ -51,7 +51,7 @@ Nehmen Sie beispielsweise eine CPU-Gruppe, die mit 4 logischen Prozessoren (LPs)
     G = 4 * 50%
     G = 2 LP's worth of CPU time for the entire group
 
-In diesem Beispiel wird der CPU-Zeit von 2 LP die CPU-Zeit von 2 LP zugewiesen.  
+In diesem Beispiel wird der CPU-Zeit von 2 LP die CPU-Zeit von 2 LP zugewiesen.
 
 Beachten Sie, dass das Gruppen Limit unabhängig von der Anzahl von virtuellen Computern oder virtuellen Prozessoren, die an die Gruppe gebunden sind, und unabhängig vom Zustand (z. b. Herunterfahren oder starten) der virtuellen Computer, die der CPU-Gruppe zugewiesen sind, gilt. Daher erhält jeder an die gleiche CPU-Gruppe gebundene virtuelle Computer einen Bruchteil der Gesamt-CPU-Belegung der Gruppe. Dies ändert sich mit der Anzahl der VMS, die an die CPU-Gruppe gebunden sind. Daher muss bei virtuellen Computern, die an eine CPU-Gruppe gebunden oder ungebunden sind, das Gesamtlimit für die CPU-Gruppe umgelesen und so festgelegt werden, dass die gewünschte Obergrenze pro VM beibehalten wird. Die Software Schicht des VM-Host Administrators oder der Virtualisierungsverwaltung ist für die Verwaltung von Gruppen Limits nach Bedarf zuständig, um die gewünschte CPU-Ressourcen Zuordnung pro VM zu erzielen.
 
@@ -120,7 +120,7 @@ Weitere Informationen zur Konfiguration von "minroot" finden Sie unter [Hyper-V-
 
 Sehen wir uns nun einige Beispiele für die Verwendung des cpugroups-Tools an.
 
->[!NOTE] 
+>[!NOTE]
 >Befehlszeilenparameter für das cpugroups-Tool werden nur mithilfe von Leerzeichen als Trennzeichen übergeben. Keine Zeichen "/" oder "-" sollten den gewünschten Befehls Zeilenschalter fortsetzen.
 
 ### <a name="discovering-the-cpu-topology"></a>Ermitteln der CPU-Topologie
@@ -128,7 +128,7 @@ Sehen wir uns nun einige Beispiele für die Verwendung des cpugroups-Tools an.
 Das Ausführen von cpugroups mit der getcputopology-Funktion gibt Informationen zum aktuellen System zurück, wie unten dargestellt, einschließlich des LP-Indexes, des NUMA-Knotens, zu dem die LP gehört, der Paket-und Kern-IDs und des Stamm-VP-Index.
 
 Das folgende Beispiel zeigt ein System mit 2 CPU-Sockets und NUMA-Knoten, insgesamt 32 LPs und Multithreading aktiviert und so konfiguriert, dass minroot mit 8 Stamm-VPS und 4 von jedem NUMA-Knoten aktiviert wird.
-Die LPs mit Stamm-VPS haben einen rootvpindex > = 0; LPs mit einem rootvpindex von "-1" sind für die Stamm Partition nicht verfügbar, werden jedoch weiterhin vom Hypervisor verwaltet und führen Gast-VPS wie von anderen Konfigurationseinstellungen zugelassen aus.
+Die LPs mit Stamm-VPS haben einen rootvpindex >= 0; LPs mit einem rootvpindex von "-1" sind für die Stamm Partition nicht verfügbar, werden jedoch weiterhin vom Hypervisor verwaltet und führen Gast-VPS wie von anderen Konfigurationseinstellungen zugelassen aus.
 
 ```console
 C:\vm\tools>CpuGroups.exe GetCpuTopology

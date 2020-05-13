@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dougkim
 ms.date: 07/25/2018
-ms.openlocfilehash: 8d38833170aae5e13f9d42b726d7cb0b3c12de56
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7238d71ed35b5c9645e6b4061717011cc2a02820
+ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828453"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83203565"
 ---
->Gilt für: Windows Server 2012, Windows Server 2012 R2, Windows Server 2016
-
 # <a name="migrating-the-wsus-database-from-wid-to-sql"></a>Migrieren der WSUS-Datenbank von wid zu SQL
+
+> Gilt für: Windows Server 2012, Windows Server 2012 R2, Windows Server 2016
 
 Führen Sie die folgenden Schritte aus, um die WSUS-Datenbank (SUSDB) von einer internen Windows-Daten Bank Instanz zu einer lokalen oder Remote Instanz von SQL Server zu migrieren.
 
-## <a name="prerequisites"></a>Erforderliche Komponenten
+## <a name="prerequisites"></a>Voraussetzungen
 
 - SQL-Instanz. Hierbei kann es sich um den **MSSQLSERVER** -Standard Server oder um eine benutzerdefinierte Instanz handeln.
 - SQL Server Management Studio
@@ -44,9 +44,9 @@ Führen Sie in PowerShell (mit erhöhten Rechten) Folgendes aus:
 
 #### <a name="using-sql-management-studio"></a>Verwenden von SQL Management Studio
 
-1. Klicken Sie mit der rechten Maustaste auf **SUSDB** -&gt; **Tasks** -&gt; klicken Sie auf **trennen**: ![image1](images/image1.png)
+1. Klicken Sie mit der rechten Maustaste auf **SUSDB** - - &gt; **Tasks** , - &gt; Klicken Sie auf **trennen**: ![](images/image1.png)
 2. Aktivieren Sie **vorhandene Verbindungen löschen** , und klicken Sie auf **OK** (optional, wenn aktive Verbindungen vorhanden sind).
-    ![Image2](images/image2.png)
+    ![Abbildung 2](images/image2.png)
 
 #### <a name="using-command-prompt"></a>Verwenden der Eingabeaufforderung
 
@@ -67,7 +67,7 @@ Führen Sie in PowerShell (mit erhöhten Rechten) Folgendes aus:
 
 ### <a name="copy-the-susdb-files-to-the-sql-server"></a>Kopieren Sie die SUSDB-Dateien in die SQL Server
 
-1. Kopieren Sie die Dateien **SUSDB. mdf** und **SUSDB\_Log. ldf** aus dem Ordner wid Data ( **% System Drive%** \** windows\wid\data * *) in den Datenordner der SQL-Instanz.
+1. Kopieren Sie **SUSDB. mdf** und **SUSDB \_ Log. ldf** aus dem Ordner "wid Data" ("**% System Drive%** \* * windows\wid\data * *") in den SQL-instanzdatenordner.
 
 > [!TIP]
 > Wenn der SQL-instanzordner z. b. " **c:\Programme\Microsoft SQL server\mssql12." lautet, Mssqlserver\mssql**und der Ordner "wid Data" lautet " **c:\windows\wid\data** ". Kopieren Sie die SUSDB-Dateien aus " **c:\windows\wid\data** " in " **c:\Programme\Microsoft SQL server\mssql12.". MSSQLSERVER\MSSQL\Data**
@@ -77,7 +77,7 @@ Führen Sie in PowerShell (mit erhöhten Rechten) Folgendes aus:
 1. Klicken Sie in **SQL Server Management Studio**unter dem **Instanzknoten** mit der rechten Maustaste auf **Datenbanken**, und klicken Sie dann auf **Anfügen**.
     ![image3](images/image3.png)
 2. Klicken Sie im Feld **Datenbanken** anfügen unter anzufügende **Datenbanken auf**die Schaltfläche **Hinzufügen** , suchen Sie nach der Datei **SUSDB. mdf** (aus dem Ordner wid kopiert), und klicken Sie dann auf **OK**.
-    !["image4](images/image4.png) ![image5](images/image5.png)
+    !["image4 ](images/image4.png) ![ image5](images/image5.png)
 
 > [!TIP]
 > Dies kann auch mithilfe von Transact-SQL durchgeführt werden.  Anweisungen zum Anfügen [einer Datenbank](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) finden Sie in der SQL-Dokumentation.
@@ -108,27 +108,27 @@ Führen Sie in PowerShell (mit erhöhten Rechten) Folgendes aus:
 Das Konto **NT-Autorität \ Netzwerkdienst** sollte aufgeführt werden. Wenn dies nicht der Fall ist, müssen Sie diese hinzufügen, indem Sie einen neuen Anmelde Namen hinzufügen.
 
 > [!IMPORTANT]
-> Wenn sich die SQL-Instanz auf einem anderen Computer als WSUS befindet, muss das Computer Konto des WSUS-Servers im Format **[FQDN]\\[wsuscomputername] $** aufgeführt werden.  Wenn dies nicht der Fall ist, können Sie mit den folgenden Schritten hinzugefügt werden, indem Sie **NT-Autorität \ Netzwerkdienst** durch das Computer Konto des WSUS-Servers ( **[FQDN]\\[wsuscomputername] $** ) ersetzen. Dies gilt ***zusätzlich zum*** erteilen von Berechtigungen für **NT-Autorität \ Netzwerkdienst** .
+> Wenn sich die SQL-Instanz auf einem anderen Computer als WSUS befindet, muss das Computer Konto des WSUS-Servers im Format **[FQDN] \\ [wsuscomputername] $** aufgeführt werden.  Wenn dies nicht der Fall ist, können Sie mit den folgenden Schritten hinzugefügt werden, indem Sie **NT-Autorität \ Netzwerkdienst** durch das Computer Konto des WSUS-Servers (**[FQDN] \\ [wsuscomputername] $**) ersetzen. Dies gilt ***zusätzlich zum*** erteilen von Berechtigungen für **NT-Autorität \ Netzwerkdienst** .
 
 ##### <a name="adding-nt-authoritynetwork-service-and-granting-it-rights"></a>Hinzufügen von NT-Autorität \ Netzwerkdienst und erteilen von Berechtigungen
 
 1. Klicken Sie mit der rechten Maustaste auf **Anmeldungen** , und klicken Sie auf **neue Anmeldung.**
-    ![image6](images/image6.png)
+    ![Abbildung 6](images/image6.png)
 2. Geben Sie auf der Seite **Allgemein** den **Anmelde Namen** (**NT-Autorität \ Netzwerkdienst**) ein, und legen Sie die **Standarddatenbank** auf SUSDB fest.
-    ![image7](images/image7.png)
+    ![Bild7](images/image7.png)
 3. Vergewissern Sie sich, dass auf der Seite **Server Rollen** die Option **Public** und **sysadmin** ausgewählt ist.
-    ![image8](images/image8.png)
+    ![Bild8](images/image8.png)
 4. Auf der Seite **Benutzer Zuordnung** :
     - Unter **Benutzer, die dieser Anmeldung zugeordnet**sind: Wählen Sie **SUSDB** aus.
     - Stellen Sie sicher, dass unter **Mitgliedschaft in Daten Bank Rolle für: SUSDB**Folgendes aktiviert ist:
-        - **Publikums**
-        - **WebService** ![image9](images/image9.png)
-5. Klicken Sie auf **OK**.
+        - **public**
+        - **Webdienst** ![ image9](images/image9.png)
+5. Klicken Sie auf **OK**
 
 Nun sollte NT- **Autorität \ Netzwerkdienst** unter Anmeldungen angezeigt werden.
-![image10](images/image10.png)
+![Bild10](images/image10.png)
 
-#### <a name="database-permissions"></a>Daten Bank Berechtigungen
+#### <a name="database-permissions"></a>Datenbankberechtigungen
 
 1. Klicken Sie mit der rechten Maustaste auf die SUSDB.
 2. **Eigenschaften** auswählen
@@ -138,16 +138,16 @@ Das Konto **NT-Autorität \ Netzwerkdienst** sollte aufgeführt werden.
 
 1. Wenn dies nicht der Fall ist, fügen Sie das Konto hinzu.
 2. Geben Sie im Textfeld Anmelde Name den WSUS-Computer im folgenden Format ein:
-    > [Voll**qualifizierter Name]\\[wsuscomputername] $**
+    > [Vollständig verfügbar **] \\ [Wsuscomputername] $**
 3. Vergewissern Sie sich, dass die **Standarddatenbank** auf **SUSDB**festgelegt ist.
 
     > [!TIP]
     > Im folgenden Beispiel lautet der FQDN " **Contosto.com** ", und der WSUS-Computername lautet " **wsusmachine**":
     >
-    > ![image11](images/image11.png)
+    > ![Bild11](images/image11.png)
 
 4. Wählen Sie auf der Seite **Benutzer Zuordnung** unter Benutzer, die **dieser Anmeldung zugeordnet** sind die **SUSDB** -Datenbank aus.
-5. Überprüfen Sie den **Webdienst** unter der **Mitgliedschaft in Daten Bank Rolle für: SUSDB**: ![image12](images/image12.png)
+5. Überprüfen Sie den **Webdienst** unter der **Mitgliedschaft in Daten Bank Rolle für: SUSDB**: ![ image12](images/image12.png)
 6. Klicken Sie auf **OK** , um Einstellungen zu speichern.
     > [!NOTE]
     > Möglicherweise müssen Sie den SQL-Dienst neu starten, damit die Änderungen wirksam werden.
@@ -155,13 +155,13 @@ Das Konto **NT-Autorität \ Netzwerkdienst** sollte aufgeführt werden.
 ### <a name="edit-the-registry-to-point-wsus-to-the-sql-server-instance"></a>Bearbeiten Sie die Registrierung, um WSUS auf die SQL Server Instanz zu verweisen.
 
 > [!IMPORTANT]
-> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wenn Ihnen beim Bearbeiten der Registrierung ein Fehler unterläuft, kann dies zu schwerwiegenden Problemen führen. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/help/322756) für den Fall, dass Probleme auftreten.
+> Folgen Sie den Schritten in diesem Abschnitt sorgfältig. Wird die Registrierung falsch angepasst, können schwerwiegende Probleme auftreten. Bevor Sie sie ändern, [sichern Sie die Registrierung zwecks Wiederherstellung](https://support.microsoft.com/help/322756) für den Fall, dass Probleme auftreten.
 
-1. Klicken Sie auf **Start**, klicken Sie auf **Ausführen**, geben Sie **regedit** ein, und klicken Sie dann auf **OK**.
+1. Klicken Sie auf **Start** und dann auf **Ausführen**. Geben Sie **regedit&** ein, und klicken Sie auf **OK**.
 2. Suchen Sie den folgenden Schlüssel: **HKEY_LOCAL_MACHINE \software\microsoft\updateservices\server\setup\sqlservername**
-3. Geben Sie im Textfeld **Wert** **[Servername]\\[InstanceName]** ein, und klicken Sie dann auf **OK**. Wenn der Instanzname die Standard Instanz ist, geben Sie **[Servername]** ein.
-4. Suchen Sie den folgenden Schlüssel: **HKEY_LOCAL_MACHINE \software\microsoft\update services\server\setup\installierte Rolle services\updateservices-widdatabase** ![image13](images/image13.png)
-5. Benennen Sie den Schlüssel in **updateservices-Database** ![image41 um](images/image14.png)
+3. Geben Sie im Textfeld **Wert den Wert** **[Servername] \\ [InstanceName]** ein, und klicken Sie dann auf **OK**. Wenn der Instanzname die Standard Instanz ist, geben Sie **[Servername]** ein.
+4. Suchen Sie den folgenden Schlüssel: **HKEY_LOCAL_MACHINE \software\microsoft\update services\server\setup\installierte Rolle services\updateservices-widdatabase** ![ image13](images/image13.png)
+5. Benennen Sie den Schlüssel in " **updateservices-Database** image41" um. ![](images/image14.png)
 
     > [!NOTE]
     > Wenn Sie diesen Schlüssel nicht aktualisieren, versucht **WSUSutil** , die wid anstelle der SQL-Instanz zu bedienen, zu der Sie migriert haben.
@@ -181,7 +181,7 @@ Führen Sie in PowerShell (mit erhöhten Rechten) Folgendes aus:
 ## <a name="uninstalling-the-wid-role-not-recommended"></a>Deinstallieren der wid-Rolle (nicht empfohlen)
 
 > [!WARNING]
-> Durch das Entfernen der wid-Rolle wird auch ein Daten Bank Ordner ( **%systemdrive%\Programme\Update services\database**) entfernt, der Skripts enthält, die von "WSUSutil. exe" für Aufgaben nach der Installation benötigt werden. Wenn Sie die wid-Rolle deinstallieren möchten, stellen Sie sicher, dass Sie den Ordner **%systemdrive%\Programme\Update services\database** vorab sichern.
+> Durch das Entfernen der wid-Rolle wird auch ein Daten Bank Ordner (**%systemdrive%\Programme\Update services\database**) entfernt, der Skripts enthält, die von "WSUSutil. exe" für Aufgaben nach der Installation benötigt werden. Wenn Sie die wid-Rolle deinstallieren möchten, stellen Sie sicher, dass Sie den Ordner **%systemdrive%\Programme\Update services\database** vorab sichern.
 
 Mithilfe von PowerShell:
 
