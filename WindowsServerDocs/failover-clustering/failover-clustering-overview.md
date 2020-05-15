@@ -9,12 +9,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 06/06/2019
 ms.localizationpriority: high
-ms.openlocfilehash: b646890ebc8b8e64d84e6d448ce4acb393422009
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 5b0193f18fe94f391f1bbbc41280c16e4a1bcd0c
+ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80827713"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83203508"
 ---
 # <a name="failover-clustering-in-windows-server"></a>Failoverclustering in Windows Server
 
@@ -32,7 +32,7 @@ Für Failoverclustering gibt es viele praktische Anwendungsfälle, einschließli
 | **Grundlegende Informationen**                                                               |  **Planung**                          |  **Bereitstellung**       |
 | -------------                                                                |  --------------                        | --------------------- |
 | [Neues beim Failoverclustering](whats-new-in-failover-clustering.md)    | [Planen der Hardwareanforderungen und Speicheroptionen für Failoverclustering](clustering-requirements.md)  | [Erstellen eines Failoverclusters](create-failover-cluster.md) |
-| [Dateiserver mit horizontaler Skalierung für Anwendungsdaten](sofs-overview.md)               | [Verwenden von freigegebenen Clustervolumes (CSVs)](failover-cluster-csvs.md) | [Bereitstellen eines Dateiservers mit zwei Knoten](../storage/storage-spaces/storage-spaces-direct-in-vm.md) |
+| [Dateiserver mit horizontaler Skalierung für Anwendungsdaten](sofs-overview.md)               | [Verwenden von freigegebenen Clustervolumes (CSVs)](failover-cluster-csvs.md) | [Bereitstellen eines Dateiservers mit zwei Knoten](deploy-two-node-clustered-file-server.md) |
 |  [Cluster- und Poolquorum](../storage/storage-spaces/understand-quorum.md)   |  [Verwenden von virtuellen Gastcomputerclustern mit direkten Speicherplätzen](../storage/storage-spaces/storage-spaces-direct-in-vm.md)       | [Vorabbereitstellen von Clustercomputerobjekten in Active Directory Domain Services](prestage-cluster-adds.md) |
 | [Fehlerdomänenunterstützung](fault-domains.md)                                 |                                 | [Konfigurieren von Clusterkonten in Active Directory](configure-ad-accounts.md) |
 | [Vereinfachte SMB Multichannel- und Multi-NIC-Clusternetzwerke](smb-multichannel.md) |                       | [Verwalten des Quorums und von Zeugen](manage-cluster-quorum.md) |
