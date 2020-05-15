@@ -1,5 +1,5 @@
 ---
-title: 'Schritt 7: Ausführen von Aufgaben nach der Migration zu Windows Server Essentials'
+title: 'Schritt 7: Ausführen von Aufgaben nach der Migration zu Windows Server Essentials'
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
 ms.prod: windows-server
@@ -8,22 +8,22 @@ ms.assetid: d382e3fd-d393-4bd0-883f-db50104a969f
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 579be2c36ca01a4b8ab2a34157e13e298e34c48c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3101a7bdc42ef754e5aafa87a8758172c42824bb
+ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852323"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404501"
 ---
-# <a name="step-7-perform-post-migration-tasks-for-the-windows-server-essentials-migration"></a>Schritt 7: Ausführen von Aufgaben nach der Migration zu Windows Server Essentials
+# <a name="step-7-perform-post-migration-tasks-for-the-windows-server-essentials-migration"></a>Schritt 7: Ausführen von Aufgaben nach der Migration zu Windows Server Essentials
 
->Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials
 
 Die folgenden Aufgaben helfen Ihnen bei der Einrichtung der Zielserver mit einigen gleichen Einstellungen, die sich auf dem Quellserver befinden. Möglicherweise haben Sie einige dieser Einstellungen auf Ihrem Quellserver beim Migrieren deaktiviert, damit sie nicht auf den Zielserver migriert wurden.  
   
-1.  [Löschen von DNS-Einträgen für den Quell Server](Step-7--Perform-post-migration-tasks-for-the-Windows-Server-Essentials-migration.md#BKMK_DeleteDNSEntries)  
+1.  [Löschen von DNS-Einträgen für den Quellserver](Step-7--Perform-post-migration-tasks-for-the-Windows-Server-Essentials-migration.md#BKMK_DeleteDNSEntries)  
   
-2.  [Freigeben von Branchen-und anderen Anwendungsdaten Ordnern](Step-7--Perform-post-migration-tasks-for-the-Windows-Server-Essentials-migration.md#BKMK_ShareLineOfBusinessAndOtherApplications)  
+2.  [Freigeben von Branchen- und anderen Anwendungsordnern für Daten](Step-7--Perform-post-migration-tasks-for-the-Windows-Server-Essentials-migration.md#BKMK_ShareLineOfBusinessAndOtherApplications)  
   
 ##  <a name="delete-dns-entries-for-the-source-server"></a><a name="BKMK_DeleteDNSEntries"></a>Löschen von DNS-Einträgen für den Quell Server  
  Nachdem Sie den Quellserver außer Betrieb nehmen, kann der Domain Name Service (DNS)-Server weiterhin Einträge enthalten, die auf den Quellserver verweisen. Löschen Sie diese DNS-Einträge.  
@@ -42,11 +42,11 @@ Die folgenden Aufgaben helfen Ihnen bei der Einrichtung der Zielserver mit einig
   
 6.  Wählen Sie einen Eintrag im Textfeld **Server benennen**, der auf de Quellserver verweist, klicken Sie auf **Entfernen** und klicken Sie dann auf **OK**.  
   
-7.  Wiederholen Sie die Schritte 5 und 6, bis alle Verweise auf den Quellserver entfernt sind.  
+7.  Wiederholen Sie die Schritte 5 und 6, bis sämtliche, auf den Quellserver zeigenden Elemente entfernt sind.  
   
 8.  Klicken Sie auf **OK**, um das Dialogfeld **Eigenschaften** zu schließen.  
   
-9. Erweitern Sie im **DNS-Manager** **Reverse-Lookupzonen**.  
+9. Erweitern Sie im **DNS-Manager****Reverse-Lookupzonen**.  
   
 10. Wiederholen Sie die Schritte 6 bis 9, um alle Reverse-Lookupzonen zu entfernen, die auf den Quellserver verweisen.  
   

@@ -1,5 +1,5 @@
 ---
-title: 'Schritt 6: Tieferstufen und Entfernen des Quellservers aus dem neuen Windows Server Essentials-Netzwerk'
+title: 'Schritt 6: Tieferstufen und Entfernen des Quellservers aus dem neuen Windows Server Essentials-Netzwerk'
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
 ms.prod: windows-server
@@ -8,26 +8,26 @@ ms.assetid: 86244c66-2c5e-488d-adb8-112e1ca3e2e1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b1b7836e976ef35aec66e206ec8b1de0e2150d62
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 406010234528a094bfb36a606072f98c043c397a
+ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852333"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404513"
 ---
-# <a name="step-6-demote-and-remove-the-source-server-from-the-new-windows-server-essentials-network"></a>Schritt 6: Tieferstufen und Entfernen des Quellservers aus dem neuen Windows Server Essentials-Netzwerk
+# <a name="step-6-demote-and-remove-the-source-server-from-the-new-windows-server-essentials-network"></a>Schritt 6: Tieferstufen und Entfernen des Quellservers aus dem neuen Windows Server Essentials-Netzwerk
 
->Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials
 
 Nachdem Sie die Installation von Windows Server Essentials abgeschlossen und die Migration abgeschlossen haben, müssen Sie die folgenden Aufgaben ausführen:  
   
-1.  [Entfernen von Active Directory-Zertifikat Diensten](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_ADCS)  
+1.  [Entfernen von Active Directory-Zertifikatdiensten](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_ADCS)  
   
-2.  [Drucker trennen, die direkt mit dem Quell Server verbunden sind](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_PhysicallyDisconnect)  
+2.  [Trennen Sie die Verbindung der Drucker, die direkt mit dem Quellserver verbunden sind.](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_PhysicallyDisconnect)  
   
-3.  [Herabstufen des Quell Servers](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_DemoteTheSourceServer)  
+3.  [Den Quellserver tiefer stufen](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_DemoteTheSourceServer)  
   
-4.  [Entfernen und Wiederherstellen des Quell Servers](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_RemoveTheSourceServer)  
+4.  [Entfernen und Wiederverwenden des Quellserver .](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_RemoveTheSourceServer)  
   
 ##  <a name="remove-active-directory-certificate-services"></a><a name="BKMK_ADCS"></a>Entfernen von Active Directory-Zertifikat Diensten  
  Das Verfahren unterscheidet sich geringfügig, wenn Sie mehrere Rollendienste für Active Directory-Zertifikatdienste (AD CS) auf einem einzelnen Server installiert haben. Sie können das folgende Verfahren zum Deinstallieren eines AD CS-Rollendiensts und Beibehalten anderer AD CS-Rollendienste verwenden.  
@@ -74,11 +74,11 @@ Nachdem Sie die Installation von Windows Server Essentials abgeschlossen und die
   
 1. Melden Sie sich als Administrator beim Clientcomputer an.  
   
-2. Öffnen Sie ein Eingabeaufforderungsfenster als Administrator.  
+2. Öffnen Sie ein Eingabeaufforderungsfenster als ein Administrator.  
   
 3. Geben Sie an der Eingabeaufforderung **gpupdate /force**, und drücken Sie dann die EINGABETASTE.  
   
-4. Dafür müssen Sie sich möglicherweise ab-und wieder anmelden, um den Vorgang abzuschließen. Klicken Sie auf **Ja**, um den Vorgang zu bestätigen.  
+4. Dafür müssen Sie sich möglicherweise ab-und wieder anmelden, um den Vorgang abzuschließen. Klicken Sie zur Bestätigung auf **Ja**.  
   
    Wenn Sie von Windows Server Essentials oder den vorherigen Versionen migrieren, finden Sie unter [Entfernen von Active Directory Domain Services](https://technet.microsoft.com/library/hh472163.aspx)Informationen zum Herabstufen des Servers. Nachdem Sie den Quellserver als Mitglied einer Arbeitsgruppe hinzufügen und ihn vom Netzwerk trennen, müssen Sie es aus dem AD DS auf dem Zielserver entfernen.  
   

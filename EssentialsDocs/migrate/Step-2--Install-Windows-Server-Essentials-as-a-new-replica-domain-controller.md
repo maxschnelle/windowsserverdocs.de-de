@@ -1,5 +1,5 @@
 ---
-title: 'Schritt 2: Installieren von Windows Server Essentials als neuen Replikatsdomänencontroller'
+title: 'Schritt 2: Installieren von Windows Server Essentials als neuen Replikatsdomänencontroller'
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
 ms.prod: windows-server
@@ -8,16 +8,16 @@ ms.assetid: c7ccfc34-63fd-436b-a1cd-e05810f60bfe
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 932ff1010ebe0be3b560375ac46b0372f86e3dc2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d5d86f5ae25c67ffb9e0f00fc5d373e6a095df98
+ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852373"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404557"
 ---
-# <a name="step-2-install-windows-server-essentials-as-a-new-replica-domain-controller"></a>Schritt 2: Installieren von Windows Server Essentials als neuen Replikatsdomänencontroller
+# <a name="step-2-install-windows-server-essentials-as-a-new-replica-domain-controller"></a>Schritt 2: Installieren von Windows Server Essentials als neuen Replikatsdomänencontroller
 
->Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials
 
 In diesem Abschnitt wird beschrieben, wie Sie Windows Server Essentials und Windows Server 2012 R2 Standard (mit aktivierter Rolle "Windows Server Essentials-Rolle") als Domänen Controller installieren.  
   
@@ -75,7 +75,7 @@ In diesem Abschnitt wird beschrieben, wie Sie Windows Server Essentials und Wind
   
     3.  Geben Sie **connections** ein, und drücken Sie dann die EINGABETASTE.  
   
-    4.  Geben **Sie Connect to Server < Server** *Name\>* ein (wobei *< Servername\>* der Name des Zielservers ist), und drücken Sie dann die EINGABETASTE.  
+    4.  Geben Sie **Connect to Server<Server** *Name \> * ein (wobei *<Server \> * Name der Name des Zielservers ist), und drücken Sie dann die EINGABETASTE.  
   
     5.  Geben Sie an der Eingabeaufforderung **q** ein, und drücken Sie dann die EINGABETASTE.  
   

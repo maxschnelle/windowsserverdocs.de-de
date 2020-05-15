@@ -8,16 +8,16 @@ ms.assetid: fd7196ac-cfa6-46a5-ba77-6962b47a825e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d253a550763f34409f25223e6319607b9abcd8e6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 977922d8f2af23afc058162e7455ac5099e4325b
+ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852583"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404573"
 ---
 # <a name="install-windows-server-essentials-in-migration-mode1"></a>Installieren von Windows Server Essentials in Migration MODE1
 
->Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>Gilt für: Windows Server 2012 Essentials
 
 In Ihrem Netzwerk, auf dem Windows Server Essentials ausgeführt wird, kann nur ein Server vorhanden sein, und dieser Server muss ein Domänen Controller für das Netzwerk sein.  
   
@@ -25,7 +25,7 @@ In Ihrem Netzwerk, auf dem Windows Server Essentials ausgeführt wird, kann nur 
   
 1.  Installiert und konfiguriert die Windows Server Essentials-Server Software auf dem Ziel Server.  
   
-2.  Aktualisiert das Domänenschema auf die neueste Version.  
+2.  Die Aktualisierung des Domänenschemas auf die neueste Version.  
   
 3.  Verknüpft den Zielserver mit der vorhandenen Domäne Der Quellserver und der Zielserver können beide Mitglieder derselben Domain sein, bis der Migrationsvorgang abgeschlossen ist. Nachdem die Migration abgeschlossen wurde, müssen Sie den Quellserver innerhalb von 21 Tagen aus dem Netzwerk entfernen.  
   
@@ -71,7 +71,7 @@ In Ihrem Netzwerk, auf dem Windows Server Essentials ausgeführt wird, kann nur 
   
  Die folgende Tabelle listet die Tools auf, die Sie für die Diagnose von Problemen auf Ihrem Zielserver, im Netzwerk oder in der Domäne verwenden können:  
   
-|Tool|Beschreibung|  
+|Tool|BESCHREIBUNG|  
 |----------|-----------------|  
 |Netdiag|Unterstützt Sie bei der Isolation von Netzwerk- und Verbindungsproblemen. Unter [Netdiag](https://go.microsoft.com/fwlink/?LinkId=217388)finden Sie weitere Informationen und können auch das Tool herunterladen.|  
 |Dcdiag.exe|Analysiert den Zustand von Domänencontrollern in einer Gesamtstruktur oder einem Unternehmen und meldet Probleme, um Sie bei der Problembehandlung zu unterstützen. Unter [Dcdiag](https://go.microsoft.com/fwlink/?LinkId=217389)finden Sie weitere Informationen und können auch das Tool herunterladen.|  

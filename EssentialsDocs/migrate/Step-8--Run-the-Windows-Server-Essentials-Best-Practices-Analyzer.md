@@ -1,5 +1,5 @@
 ---
-title: 'Schritt 8: Ausführen des Best Practices Analyzer für Windows Server Essentials'
+title: 'Schritt 8: Ausführen des Best Practices Analyzer für Windows Server Essentials'
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
 ms.prod: windows-server
@@ -8,16 +8,16 @@ ms.assetid: e6ba701d-7183-4c26-960e-44cc280bf3e6
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e32033dafe48f5b5eac063af638c14267e82e62f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 43ec26b2a1ae4616363494a5e911c0464eacdab7
+ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852313"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404493"
 ---
-# <a name="step-8-run-the-windows-server-essentials-best-practices-analyzer"></a>Schritt 8: Ausführen des Best Practices Analyzer für Windows Server Essentials
+# <a name="step-8-run-the-windows-server-essentials-best-practices-analyzer"></a>Schritt 8: Ausführen des Best Practices Analyzer für Windows Server Essentials
 
->Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials
 
 Wenn Sie die Migration der Einstellungen und Daten zu Windows Server Essentials abgeschlossen haben, sollten Sie das Windows Server Essentials-Best Practices Analyzer (BPA) auf dem Ziel Server ausführen. Der BPA überprüft einen Server, auf dem Windows Server Essentials ausgeführt wird, und zeigt einen Bericht an, in dem Probleme beschrieben werden, und gibt Empfehlungen für deren Behebung an. Die Empfehlungen werden von der Produktsupport Organisation für Windows Server Essentials entwickelt.  
   

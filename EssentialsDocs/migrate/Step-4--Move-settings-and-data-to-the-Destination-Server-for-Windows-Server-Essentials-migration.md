@@ -1,5 +1,5 @@
 ---
-title: 'Schritt 4: Verschieben von Einstellungen und Daten auf den Zielserver für die Migration zu Windows Server Essentials'
+title: 'Schritt 4: Verschieben von Einstellungen und Daten auf den Zielserver für die Migration zu Windows Server Essentials'
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
 ms.prod: windows-server
@@ -8,24 +8,24 @@ ms.assetid: e143df43-e227-4629-a4ab-9f70d9bf6e84
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e19f3a8333cc08568f8d437da2e35a6c64920df1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dd3ba0b54e24a5fcafb72c970f05224c3606ff3a
+ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852353"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404524"
 ---
-# <a name="step-4-move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Schritt 4: Verschieben von Einstellungen und Daten auf den Zielserver für die Migration zu Windows Server Essentials
+# <a name="step-4-move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Schritt 4: Verschieben von Einstellungen und Daten auf den Zielserver für die Migration zu Windows Server Essentials
 
->Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials
 
 Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellungen vom Quellserver. Verschieben von Einstellungen und Daten auf den Zielserver:  
   
--   [Kopieren von Daten auf den Ziel Server](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_CopyData)  
+-   [Kopieren von Daten auf den Zielserver.](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_CopyData)  
   
--   [Netzwerk konfigurieren](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_Network)  
+-   [Konfigurieren des Netzwerks](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_Network)  
   
--   [Zuordnen zulässiger Computer zu Benutzerkonten](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_MapPermittedComputers)  
+-   [Zuordnen zugelassener Computer zu Benutzerkonten](Step-4--Move-settings-and-data-to-the-Destination-Server-for-Windows-Server-Essentials-migration.md#BKMK_MapPermittedComputers)  
   
 ##  <a name="copy-data-to-the-destination-server"></a><a name="BKMK_CopyData"></a>Kopieren von Daten auf den Ziel Server  
  Führen Sie die folgenden Aufgaben aus, bevor Sie Daten vom Quellserver zum Zielserver kopieren:  
@@ -48,17 +48,17 @@ Dieser Abschnitt enthält Informationen zum Migrieren von Daten und Einstellunge
   
    `robocopy \\<SourceServerName>\<SharedSourceFolderName> "<PathOfTheDestination>\<SharedDestinationFolderName>" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`
   
-    Speicherort:  
+    Ort:  
   
-   - \<sourceservername\> ist der Name des Quell Servers.  
+   - \<Sourceservername \> ist der Name des Quell Servers.  
   
-   - \<sharedsourcefoldername\> ist der Name des freigegebenen Ordners auf dem Quell Server.  
+   - \<Sharedsourcefoldername \> ist der Name des freigegebenen Ordners auf dem Quell Server.  
   
-   - \<pathofder Destination\> ist der absolute Pfad, in dem Sie den Ordner verschieben möchten.  
+   - \<"Pathoferdestination" \> ist der absolute Pfad, in dem Sie den Ordner verschieben möchten.  
   
-   - \<shareddestinationfoldername\> ist der Ordner auf dem Ziel Server, in den die Daten kopiert werden.  
+   - \<Shareddestinationfoldername \> ist der Ordner auf dem Ziel Server, in den die Daten kopiert werden.  
   
-     Beispiel:  `robocopy \\sourceserver\MyData "d:\ServerFolders\MyData" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`.  
+     z. B. `robocopy \\sourceserver\MyData "d:\ServerFolders\MyData" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`.  
   
 3. Wenn Sie Windows PowerShell verwenden, geben Sie den folgenden Befehl ein, und drücken Sie dann die EINGABETASTE.  
   

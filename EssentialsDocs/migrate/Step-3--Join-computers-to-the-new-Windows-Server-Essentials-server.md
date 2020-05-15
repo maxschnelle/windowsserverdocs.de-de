@@ -1,5 +1,5 @@
 ---
-title: 'Schritt 3: Hinzufügen von Computern zum neuen Windows Server Essentials-Server'
+title: 'Schritt 3: Hinzufügen von Computern zum neuen Windows Server Essentials-Server'
 description: Beschreibt die Verwendung von Windows Server Essentials
 ms.date: 10/03/2016
 ms.prod: windows-server
@@ -8,16 +8,16 @@ ms.assetid: a0e07d1a-8409-429b-87d7-0f4a7e14d668
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 3d004d89f6606c8b38360c9139f882f087b7c554
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8efb8251bd85638b8ad4b760a5292a2b6d6681fd
+ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852363"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404544"
 ---
-# <a name="step-3-join-computers-to-the-new-windows-server-essentials-server"></a>Schritt 3: Hinzufügen von Computern zum neuen Windows Server Essentials-Server
+# <a name="step-3-join-computers-to-the-new-windows-server-essentials-server"></a>Schritt 3: Hinzufügen von Computern zum neuen Windows Server Essentials-Server
 
->Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials
 
 Der nächste Schritt des Migrations Vorgangs besteht darin, Client Computer mit dem neuen Server zu verbinden, auf dem Windows Server Essentials ausgeführt wird.  
   
@@ -44,9 +44,9 @@ Der nächste Schritt des Migrations Vorgangs besteht darin, Client Computer mit 
     > [!NOTE]
     >  Wenn auf diesem Computer mehrere Benutzerkonten vorhanden sind, melden Sie sich mit dem Benutzerkonto an, dessen Dokumente, Bilder und persönliche Einstellungen Sie nach dem Verbinden mit dem Server beibehalten möchten.  
   
-2.  Öffnen Sie einen Internetbrowser, z. B. Internet Explorer.  
+2.  Öffnen Sie einen Internetbrowser, z. B. Internet Explorer.  
   
-3.  Geben Sie in der Adressleiste **http://< Servername\>/Connect**ein, und drücken Sie dann die EINGABETASTE.  
+3.  Geben Sie in der Adressleiste **http://<Servername \> /Connect**ein, und drücken Sie dann die EINGABETASTE.  
   
 4.  Befolgen Sie die Anweisungen auf dem Bildschirm, um den Client Computer mit dem neuen Windows Server Essentials-Server zu verbinden.  
   

@@ -8,16 +8,16 @@ ms.assetid: 244c8a06-04c6-4863-8b52-974786455373
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 214f25d1743cca3693907b7a7a8380fd564d4114
-ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
+ms.openlocfilehash: f5696c473a8fcb04a60b9a4b6c51ac206a6ef0de
+ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83203475"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404585"
 ---
 # <a name="step-1-prepare-your-source-server-for-windows-server-essentials-migration"></a>Schritt 1: Vorbereiten des Quellservers für die Migration zu Windows Server Essentials
 
-> Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+> Gilt für: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials
 
 In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systemintegrität des Quellservers prüfen, die aktuellen Service Packs und Fixes installieren und die Netzwerkkonfiguration überprüfen.
 
@@ -129,7 +129,7 @@ In diesem Thema wird erläutert, wie Sie den Quellserver sichern, die Systeminte
 
    Nachdem das BPA-Tool Informationen zur Serverkonfiguration gesammelt hat, überprüft es, ob die Informationen korrekt sind, und legt dann den Administratoren eine Liste der Informationen und Probleme nach Schweregrad sortiert vor. Die Liste beschreibt jedes Problem und bietet eine Empfehlung oder eine mögliche Lösung. Folgende drei Berichtstypen sind verfügbar:
 
-|Berichtstyp|BESCHREIBUNG
+|Berichtstyp|Beschreibung
 |-----------------|-----------------
 |Listenberichte|Zeigt Berichte in einer eindimensionalen Liste an.
 |Strukturberichte|Zeigt Berichte in einer hierarchischen Liste an.
