@@ -1,5 +1,5 @@
 ---
-title: Netzwerkleitfaden
+title: Netzwerkrichtlinien
 description: Bandbreitenempfehlungen für Remotedesktopbereitstellungen.
 ms.prod: windows-server
 ms.technology: remote-desktop-services
@@ -8,14 +8,14 @@ ms.date: 12/12/2019
 ms.topic: article
 author: Heidilohr
 manager: lizross
-ms.openlocfilehash: 79db56d467ae0913446faebffc5a9598aae0b767
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: ba084c58e725627e838c07b5b5b9849d131b2038
+ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80852993"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83203550"
 ---
-# <a name="network-guidance"></a>Netzwerkleitfaden
+# <a name="network-guidelines"></a>Netzwerkrichtlinien
 
 Bei Verwendung einer Windows-Remotesitzung hat die verfügbare Bandbreite des Netzwerks einen großen Einfluss auf die Qualität der Erfahrung. Unterschiedliche Anwendungen und Bildschirmauflösungen erfordern unterschiedliche Netzwerkkonfigurationen, daher ist es wichtig, sicherzustellen, dass das Netzwerk entsprechend den Anforderungen konfiguriert ist.
 

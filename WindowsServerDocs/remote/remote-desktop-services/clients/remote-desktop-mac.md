@@ -8,14 +8,14 @@ ms.assetid: 7afc65f8-3158-49c9-9d48-4dab1c69afba
 author: lizap
 manager: dongill
 ms.author: elizapo
-ms.date: 08/27/2019
+ms.date: 05/06/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 6c87c95390b4a157b7d12e303520e519a3d157ac
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 6c219a6dbc5922e9d7240b3004c1dd92eb7d057a
+ms.sourcegitcommit: 67116322915066b85decb4261d47cedec2cfe12f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80856023"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82903462"
 ---
 # <a name="get-started-with-the-macos-client"></a>Erste Schritte mit dem macOS-Client
 
@@ -29,6 +29,7 @@ Sie können den Remotedesktopclient für Mac verwenden, um mit Windows-Apps, -Re
 > - Die Informationen in diesem Artikel beziehen sich in erster Linie auf die Vollversion des Mac-Clients – die im Mac App Store verfügbare Version. Testen Sie neue Features, indem Sie unsere Vorschau-App hier herunterladen: [Beta-Client – Anmerkungen zu dieser Version](https://go.microsoft.com/fwlink/?LinkID=619698&clcid=0x409).
 
 ## <a name="get-the-remote-desktop-client"></a>Abrufen des Remotedesktopclients
+
 Führen Sie die folgenden Schritte für den Einstieg in Remotedesktop auf Ihrem Mac aus:
 
 1. Laden Sie den Microsoft-Remotedesktopclient aus dem [Mac App Store](https://itunes.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) herunter.
@@ -36,53 +37,45 @@ Führen Sie die folgenden Schritte für den Einstieg in Remotedesktop auf Ihrem 
 3. Fügen Sie eine Remotedesktopverbindung oder eine Remoteressource hinzu. Mit einer Verbindung können Sie eine direkte Verbindung mit einem Windows-PC herstellen, und mit einer Remoteressource können Sie ein RemoteApp-Programm, einen sitzungsbasierten Desktop oder einen virtuellen Desktop verwenden, das/der mithilfe von RemoteApp- und Desktopverbindungen veröffentlicht wird. Dieses Feature ist in der Regel in Unternehmensumgebungen verfügbar.
 
 ## <a name="what-about-the-mac-beta-client"></a>Informationen zum Mac-Beta-Client
-Wir testen neue Features auf unserem Vorschaukanal auf AppCenter. Möchten Sie das ausprobieren? Wechseln Sie zu [Microsoft Remote Desktop for Mac](https://aka.ms/rdmacbeta), und klicken Sie auf **Download**. Du musst kein Konto erstellen oder dich bei AppCenter anmelden, um den Beta-Client herunterladen zu können.
 
-Wenn Sie bereits über den Client verfügen, können Sie nach Updates suchen, um sicherzustellen, dass Sie die neueste Version verwenden. Klicken Sie im Beta-Client oben auf **Microsoft Remote Desktop Beta**, und klicken Sie dann auf **Nach Updates suchen**. 
+Wir testen neue Features auf unserem Vorschaukanal auf AppCenter. Möchten Sie das ausprobieren? Wechsele zu [Microsoft-Remotedesktop für Mac](https://aka.ms/rdmacbeta), und wähle **Herunterladen** aus. Du musst kein Konto erstellen oder dich bei AppCenter anmelden, um den Beta-Client herunterladen zu können.
 
-## <a name="add-a-remote-desktop-connection"></a>Hinzufügen einer Remotedesktopverbindung
-Gehen Sie wie folgt vor, um eine Remotedesktopverbindung zu erstellen:
+Wenn Sie bereits über den Client verfügen, können Sie nach Updates suchen, um sicherzustellen, dass Sie die neueste Version verwenden. Wähle im Betaclient oben **Microsoft-Remotedesktop Beta** und dann **Nach Updates suchen** aus. 
 
-1. Klicken Sie im Connection Center auf das Pluszeichen ( **+** ), und klicken Sie dann auf **Desktop**.
-2. Geben Sie die folgenden Informationen ein:
-   - **PC-Name**: Der Name des Computers.
-      - Dies kann der Name eines Windows-Computers (in den **Systemeinstellungen** zu finden), ein Domänenname oder eine IP-Adresse sein.
-      - Sie können am Ende dieses Namens auch Portinformationen hinzufügen, z. B. *MyDesktop:3389*.
-   - **Benutzerkonto**: Fügen Sie das Benutzerkonto hinzu, das Sie zum Zugreifen auf den Remote-PC verwenden.
-     - Verwenden Sie bei mit Active Directory (AD) verknüpften Computern oder lokalen Konten eines der folgenden Formate: *Benutzername*, *Domäne\Benutzername* oder <em>user_name@domain.com</em>.
-     - Verwenden Sie bei mit Azure Active Directory (AAD) verknüpften Computern eines der folgenden Formate: *AzureAD\Benutzername* oder <em>AzureAD\user_name@domain.com</em>.
-     - Sie können auch auswählen, ob ein Kennwort erforderlich ist.
-     - Wenn Sie mehrere Benutzerkonten mit demselben Benutzernamen verwalten, legen Sie einen Anzeigenamen fest, um die Konten zu unterscheiden.
-     - Verwalten Sie Ihre gespeicherten Benutzerkonten in den Einstellungen der App. 
+## <a name="add-a-workspace"></a>Hinzufügen eines Arbeitsbereichs
 
-3. Sie können auch die folgenden optionalen Einstellungen für die Verbindung festlegen:
-   - Einen Anzeigenamen festlegen 
-   - Ein Gateway hinzufügen
-   - Die Audioausgabe festlegen
-   - Maustasten tauschen
-   - Administratormodus aktivieren
-   - Lokale Ordner in Remotesitzung umleiten
-   - Lokale Drucker umleiten
-   - Smartcards weiterleiten
-4. Klicken Sie auf **Speichern**.
+Abonniere den Feed, den du vom Administrator erhalten hast, um die Liste der verwalteten Ressourcen abzurufen, die auf deinem macOS-Gerät zur Verfügung stehen.
 
-Um die Verbindung zu starten, doppelklicken Sie einfach darauf. Dies gilt auch für Remoteressourcen.
+So abonnierst du einen Feed
+
+1. Wähle auf der Hauptseite **Feed hinzufügen** aus, um eine Verbindung mit dem Dienst herzustellen und deine Ressourcen abzurufen.
+2. Gib die Feed-URL ein. Dies kann eine URL oder eine E-Mail-Adresse sein:
+   - Verwende im Fall einer URL die vom Administrator erhaltene. Normalerweise lautet die URL <https://rdweb.wvd.microsoft.com>.
+   - Um E-Mail zu verwenden, gib deine E-Mail-Adresse ein. Dies weist den Client an, nach einer URL zu suchen, die deiner E-Mail-Adresse zugeordnet ist, sofern der Administrator dies entsprechend konfiguriert hat.
+3. Wähle **Abonnieren** aus.
+4. Melde dich bei entsprechender Aufforderung mit deinem Benutzerkonto an.
+
+Nachdem du dich angemeldet hast, sollte eine Liste der verfügbaren Ressourcen angezeigt werden.
+
+Nachdem du einen Feed abonniert hast, wird der Inhalt dieses Feeds automatisch regelmäßig aktualisiert. Dabei können basierend auf Änderungen durch den Administrator Ressourcen hinzugefügt, geändert oder entfernt werden.
 
 ### <a name="export-and-import-connections"></a>Exportieren und Importieren von Verbindungen
+
 Sie können eine Remotedesktop-Verbindungsdefinition exportieren und auf einem anderen Gerät verwenden. Remotedesktops werden in separaten RDP-Dateien gespeichert.
 
 1. Klicken Sie im Connection Center mit der rechten Maustaste auf den Remotedesktop.
-2. Klicken Sie auf **Exportieren**.
+2. Wähle **Exportieren** aus.
 3. Navigieren Sie zu dem Speicherort, an dem die Remotedesktopdatei (RDP) gespeichert werden soll.
-4. Klicken Sie auf **OK**.
+4. Wählen Sie **OK** aus.
 
 Führen Sie die folgenden Schritte aus, um eine Remotedesktopdatei (RDP) zu importieren.
 
-1. Klicken Sie auf der Menüleiste auf **Datei** > **Importieren**.
+1. Wähle auf der Menüleiste **Datei** > **Importieren** aus.
 2. Navigieren Sie zur RDP-Datei.
-3. Klicken Sie auf **Öffnen**.
+3. Wähle **Öffnen** aus.
 
 ## <a name="add-a-remote-resource"></a>Hinzufügen einer Remoteressource
+
 Bei Remoteressourcen handelt es sich um RemoteApp-Programme, sitzungsbasierte Desktops und virtuelle Desktops, die mithilfe von RemoteApp- und Desktopverbindungen veröffentlicht werden.
 
 - Die URL zeigt den Link zum Server mit Web Access für Remotedesktop an, der Ihnen Zugriff auf RemoteApp- und Desktopverbindungen bietet.
@@ -90,16 +83,14 @@ Bei Remoteressourcen handelt es sich um RemoteApp-Programme, sitzungsbasierte De
 
 Gehen Sie wie folgt vor, um eine Remoteressource hinzuzufügen:
 
-1. Klicken Sie im Connection Center auf das Pluszeichen ( **+** ), und klicken Sie dann auf **Remoteressourcen hinzufügen**. 
+1. Wähle im Connection Center das Pluszeichen ( **+** ) und dann **Remoteressourcen hinzufügen** aus. 
 2. Geben Sie Informationen für die Remoteressource ein:
    - **Feed-URL**: Die URL des Servers mit Web Access für Remotedesktop. In dieses Feld können Sie auch Ihr geschäftliches E-Mail-Konto eingeben. Dies weist den Client an, nach dem Ihrer E-Mail-Adresse zugeordneten Server mit Web Access für Remotedesktop zu suchen.
    - **Benutzername**: Der Benutzername, der für den Server mit Web Access für Remotedesktop verwendet werden soll, mit dem Sie eine Verbindung herstellen.
    - **Kennwort**: Das Kennwort, das für den Server mit Web Access für Remotedesktop verwendet werden soll, mit dem Sie eine Verbindung herstellen.
-3. Klicken Sie auf **Speichern**.
-
+3. Wählen Sie **Speichern**.
 
 Die Remoteressourcen werden im Connection Center angezeigt.
-
 
 ## <a name="connect-to-an-rd-gateway-to-access-internal-assets"></a>Herstellen einer Verbindung mit einem Remotedesktopgateway zum Zugreifen auf interne Ressourcen
 
@@ -107,11 +98,10 @@ Mit einem Remotedesktopgateway (RD-Gateway) können Sie eine Verbindung mit eine
 
 Gehen Sie wie folgt vor, um ein neues Gateway in den Einstellungen einzurichten:
 
-1. Klicken Sie im Connection Center auf **Einstellungen > Gateways**. 
-2. Klicken Sie am unteren Rand der Tabelle auf die Schaltfläche **+** . Geben Sie die folgenden Informationen ein:
+1. Wähle im Connection Center **Einstellungen > Gateways** aus. 
+2. Wähle im unteren Bereich der Tabelle die Schaltfläche **+** aus. Gib die folgenden Informationen ein:
    - **Servername**: Der Name des Computers, den Sie als Gateway verwenden möchten. Dies kann der Name eines Windows-Computers, ein Internetdomänenname oder eine IP-Adresse sein. Sie können dem Servernamen auch Portinformationen hinzufügen (z. B.: **RDGateway:443** oder **10.0.0.1:443**).
    - **Benutzername**: Der Benutzername und das Kennwort für das Remotedesktopgateway, mit dem Sie eine Verbindung herstellen. Sie können auch **Anmeldeinformationen für die Verbindung verwenden** auswählen, damit derselbe Benutzername und dasselbe Kennwort wie für die Remotedesktopverbindung verwendet werden.
-
 
 ## <a name="manage-your-user-accounts"></a>Verwalten Ihrer Benutzerkonten
 
@@ -119,32 +109,33 @@ Wenn Sie eine Verbindung mit einem Desktop oder Remoteressourcen herstellen, kö
 
 Gehen Sie wie folgt vor, um ein neues Benutzerkonto zu erstellen:
 
-1. Klicken Sie im Connection Center auf **Einstellungen** > **Konten**.
-2. Klicken Sie auf **Benutzerkonto hinzufügen**.
+1. Wähle im Connection Center **Einstellungen** > **Konten** aus.
+2. Wähle **Benutzerkonto hinzufügen** aus.
 3. Geben Sie die folgenden Informationen ein:
    - **Benutzername**: Der Name des Benutzers, der zur Verwendung für eine Remoteverbindung gespeichert werden soll. Sie können den Benutzernamen in einem der folgenden Formate eingeben: Benutzername, Domäne\Benutzername oder user_name@domain.com.
    - **Kennwort**: Das Kennwort für den angegebenen Benutzer. Jedem Benutzerkonto, das Sie zur Verwendung für Remoteverbindungen speichern möchten, muss ein Kennwort zugeordnet sein.
    - **Anzeigename**: Wenn Sie das gleiche Benutzerkonto mit verschiedenen Kennwörtern verwenden, legen Sie einen Anzeigenamen fest, um diese Benutzerkonten zu unterscheiden.
-4. Tippen Sie auf **Speichern**, und tippen Sie dann auf **Einstellungen**.
+4. Wähle **Speichern** und dann **Einstellungen** aus.
 
 ## <a name="customize-your-display-resolution"></a>Anpassen der Bildschirmauflösung
+
 Sie können die Bildschirmauflösung für die Remotedesktopsitzung angeben.
 
-1. Klicken Sie im Connection Center auf **Einstellungen**.
-2. Klicken Sie auf **Auflösung**. 
-3. Klicken Sie auf das Pluszeichen ( **+** ).
-4. Geben Sie eine Auflösungshöhe und -breite ein, und klicken Sie dann auf **OK**.
+1. Wähle im Connection Center **Einstellungen** aus.
+2. Wähle **Auflösung** aus.
+3. Wähle **+** aus.
+4. Gib die Höhe und Breite für eine Auflösung ein, und wähle dann **OK** aus.
 
-Um die Auflösung zu löschen, wählen Sie die Auflösung aus, und klicken Sie dann auf das Minuszeichen ( **-** ).
+Um die Auflösung zu löschen, wähle sie aus, und wähle dann das Minuszeichen ( **-** ) aus.
 
 **Monitore verwenden verschiedene Spaces**: Wenn Sie das Betriebssystem Mac OS X 10.9 verwenden und in Mavericks die Option **Monitore verwenden verschiedene Spaces** (unter **Systemeinstellungen > Mission Control**) deaktiviert haben, müssen Sie diese Einstellung im Remotedesktopclient mit der gleichen Option konfigurieren.
 
 ### <a name="drive-redirection-for-remote-resources"></a>Laufwerkumleitung für Remoteressourcen
+
 Die Laufwerkumleitung wird für Remoteressourcen unterstützt, sodass Sie mit einer Remoteanwendung erstellte Dateien lokal auf Ihrem Mac speichern können. Der umgeleitete Ordner ist immer Ihr Basisverzeichnis, das als Netzlaufwerk in der Remotesitzung angezeigt wird.
 
 > [!NOTE]
 > Damit dieses Feature verwendet werden kann, muss der Administrator die entsprechenden Einstellungen auf dem Server festlegen.
-
 
 ## <a name="use-a-keyboard-in-a-remote-session"></a>Verwenden einer Tastatur in einer Remotesitzung
 
@@ -157,7 +148,6 @@ Mac-Tastaturlayouts unterscheiden sich von Windows-Tastaturlayouts.
 
 Die Remotesitzung verwendet standardmäßig dasselbe Tastaturgebietsschema wie das Betriebssystem, unter dem der Client ausgeführt wird. (Wird Ihr Mac unter einem englischen Betriebssystem (en-us) ausgeführt, wird dieses Betriebssystem auch für die Remotesitzungen verwendet.) Wenn das Tastaturgebietsschema des Betriebssystems nicht verwendet wird, überprüfen Sie die Tastatureinstellung auf dem Remotecomputer, und ändern Sie die Einstellung manuell. Weitere Informationen zu Tastaturen und Gebietsschemas finden Sie unter [Häufig gestellte Fragen zu den Remotedesktopclients](remote-desktop-client-faq.md).
 
-
 ## <a name="support-for-remote-desktop-gateway-pluggable-authentication-and-authorization"></a>Unterstützung für die austauschbare Remotedesktopgateway-Authentifizierung und -Autorisierung
 
 In Windows Server 2012 R2 wurde die Unterstützung für eine neue Authentifizierungsmethode, die austauschbare Remotedesktopgateway-Authentifizierung und -Autorisierung eingeführt, die mehr Flexibilität für benutzerdefinierte Authentifizierungsroutinen bietet. Sie können dieses Authentifizierungsmodell jetzt mit dem Mac-Client ausprobieren. 
@@ -166,7 +156,6 @@ In Windows Server 2012 R2 wurde die Unterstützung für eine neue Authentifizier
 > Benutzerdefinierte Authentifizierungs- und Autorisierungsmodelle vor Windows 8.1 werden nicht unterstützt, aber im obigen Artikel erläutert.
 
 Weitere Informationen zu diesem Feature finden Sie unter [https://aka.ms/paa-sample](https://aka.ms/paa-sample).
-
 
 > [!TIP]
 > Fragen und Kommentare sind immer willkommen. Verwenden Sie jedoch NICHT die Kommentarfunktion am Ende dieses Artikels, um Hilfe bei der Problembehandlung anzufordern. Verwenden Sie stattdessen das [Remotedesktopclient-Forum](https://social.technet.microsoft.com/forums/windowsserver/en-us/home?forum=winrdc), und erstellen Sie einen neuen Thread. Haben Sie einen Vorschlag für ein Feature? Teilen Sie uns dies im [UserVoice-Forum für den Client](https://remotedesktop.uservoice.com/forums/272085-remote-desktop-for-android) mit.

@@ -7,14 +7,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 03/04/2020
+ms.date: 04/28/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 2a04d6058b40d87dba7116760bbab164979435ab
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 368dc3889c5275512e345c26fcef504c6ceaa8c2
+ms.sourcegitcommit: d06650cfab2972551c3a269b3271596f55c1bd3b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80861303"
+ms.lasthandoff: 05/02/2020
+ms.locfileid: "82726705"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Erste Schritte mit dem Windows-Desktopclient
 
@@ -47,14 +47,14 @@ Du kannst außerdem manuell nach neuen Updates für den Client suchen:
 
 1. Tippe im Connection Center auf das Überlaufmenü ( **...** ) in der Befehlsleiste am oberen Rand des Clients.
 2. Wähle im Dropdownmenü **Info** aus.
-3. Tippe auf **Nach Updates suchen**.
+3. Der Client sucht automatisch nach Updates.
 4. Wenn ein Update verfügbar ist, tippe auf **Update installieren**, um ein Update des Clients auszuführen.
 
-## <a name="feeds"></a>Feeds
+## <a name="workspaces"></a>Arbeitsbereiche
 
-Rufe die Liste der verwalteten Ressourcen ab, auf die du Zugriff hast, wie etwa Apps und Desktops, indem du den Feed abonnierst, den dir dein Administrator bereitgestellt hat. Wenn du abonnierst, werden die Ressourcen auf deinem lokalen PC verfügbar. Der Windows-Desktopclient unterstützt aktuell Ressourcen, die vom virtuellen Windows-Desktop veröffentlicht wurden.
+Rufe die Liste der verwalteten Ressourcen ab, auf die du Zugriff hast, wie etwa Apps und Desktops, indem du den Arbeitsbereich abonnierst, den der Administrator für dich bereitgestellt hat. Wenn du abonnierst, werden die Ressourcen auf deinem lokalen PC verfügbar. Der Windows-Desktopclient unterstützt aktuell Ressourcen, die vom virtuellen Windows-Desktop veröffentlicht wurden.
 
-### <a name="subscribe-to-a-feed"></a>Abonnieren eines Feeds
+### <a name="subscribe-to-a-workspace"></a>Abonnieren eines Arbeitsbereichs
 
 1. Tippe auf der Hauptseite des Clients, die auch als Connection Center bezeichnet wird, auf **Abonnieren**.
 2. Melde dich bei entsprechender Aufforderung mit deinem Benutzerkonto an.
@@ -72,7 +72,7 @@ Nach dem Abonnieren kannst du weitere Informationen zu einem Arbeitsbereich im B
 - Den Namen des Arbeitsbereichs
 - Die zum Abonnieren verwendete URL und den Benutzernamen
 - Die Anzahl der Apps und Desktops
-- Datum/Uhrzeit der letzten Aktualisierung
+- Das Datum und die Uhrzeit der letzten Aktualisierung
 - Den Status der letzten Aktualisierung
 
 Zugriff auf den Bereich „Details“:
@@ -81,13 +81,17 @@ Zugriff auf den Bereich „Details“:
 2. Wähle im Dropdownmenü **Details** aus.
 3. Der Bereich „Details“ wird auf der rechten Seite des Clients angezeigt.
 
-Nachdem du abonniert hast, wird der Arbeitsbereich automatisch regelmäßig aktualisiert. Da bei können Ressourcen hinzugefügt, geändert oder entfernt werden, basierend auf Änderungen, die von deinem Administrator vorgenommen werden.
+Nach dem Abonnieren wird der Arbeitsbereich automatisch regelmäßig aktualisiert. Da bei können Ressourcen hinzugefügt, geändert oder entfernt werden, basierend auf Änderungen, die von deinem Administrator vorgenommen werden.
 
-Du kannst bei Bedarf auch manuell nach Aktualisierungen suchen, indem du im Detailbereich **Jetzt aktualisieren** auswählst.
+Du kannst bei Bedarf auch manuell nach Updates suchen, indem du im Detailbereich **Aktualisieren** auswählst.
 
-### <a name="unsubscribe-from-a-feed"></a>Kündigen des Abonnements eines Feeds
+### <a name="refreshing-a-workspace"></a>Aktualisieren eines Arbeitsbereichs
 
-In diesem Abschnitt erfährst du, wie du das Abonnement eines Feeds beendest. Du kannst das Abonnement beenden, um entweder erneut mit einem anderen Konto zu abonnieren oder um deine Ressourcen vom System zu entfernen.
+Du kannst einen Arbeitsbereich manuell aktualisieren, indem du im Überlaufmenü ( **...** ) neben dem Arbeitsbereich **Aktualisieren** auswählst.
+
+### <a name="unsubscribe-from-a-workspace"></a>Beenden des Abonnements eines Arbeitsbereichs
+
+In diesem Abschnitt erfährst du, wie du das Abonnement eines Arbeitsbereichs beendest. Du kannst das Abonnement beenden, um entweder erneut mit einem anderen Konto zu abonnieren oder um deine Ressourcen vom System zu entfernen.
 
 1. Tippe im Connection Center auf das Überlaufmenü ( **...** ) neben dem Arbeitsbereich.
 2. Wähle im Dropdownmenü **Abonnement kündigen** aus.
@@ -103,13 +107,18 @@ Du kannst einige der Einstellungen für Desktopressourcen konfigurieren, um sich
 
 Der Client verwendet die von deinem Administrator konfigurierten Einstellungen, es sei denn, du deaktivierst die Option **Standardeinstellungen verwenden**. Auf diese Weise kannst du die folgenden Optionen konfigurieren:
 
-- **Mehrere Anzeigen verwenden** schaltet die Desktopsitzung zwischen einer oder mehreren Anzeigen um.
-- **Anzeigen auswählen, die für die Sitzung verwendet werden sollen** gibt an, welche lokalen Anzeigen für die Sitzung verwendet werden sollen. Alle ausgewählten Anzeigen müssen nebeneinander liegen. Diese Einstellung wird automatisch deaktiviert, wenn eine einzelne Anzeige verwendet wird.
-- **Im Vollbildmodus starten** legt fest, ob die Sitzung im Vollbild- oder im Fenstermodus gestartet wird. Diese Einstellung wird automatisch aktiviert, wenn mehrere Anzeigen verwendet werden.
-- **Auflösung bei Größenänderung aktualisieren** bewirkt, dass die Remotedesktopauflösung automatisch aktualisiert wird, wenn die Größe der Sitzung im Fenstermodus geändert wird. Wenn diese Option deaktiviert ist, verwendet die Sitzung immer die Auflösung, die unter **Auflösung** angegeben wird. Diese Einstellung wird automatisch aktiviert, wenn mehrere Anzeigen verwendet werden.
-- In **Auflösung** kannst du die Auflösung des Remotedesktops festlegen. Die Sitzung behält diese Auflösung für ihre gesamte Dauer bei. Diese Einstellung wird automatisch deaktiviert, wenn für die Auflösung Aktualisierung beim Ändern der Größe festgelegt wird.
-- **Größe von Text und Apps ändern** gibt die Größe der Inhalte der Sitzung an. Diese Einstellung gilt nur für Verbindungen mit Windows 8.1 und höher oder Windows Server 2012 R2 und höher. Diese Einstellung wird automatisch deaktiviert, wenn für die Auflösung Aktualisierung beim Ändern der Größe festgelegt wird.
-- **Sitzung an Fenster anpassen** bestimmt, wie die Sitzung angezeigt wird, wenn die Auflösung des Remotedesktops von der Größe des lokalen Fensters abweicht. Wenn die Option aktiviert ist, wird die Größe der Sitzungsinhalte innerhalb des Fensters passend geändert, wobei das Seitenverhältnis der Sitzung beibehalten wird. Ist sie deaktiviert, werden Scrollleisten oder schwarze Bereiche angezeigt, wenn Auflösung und Fenstergröße nicht übereinstimmen.
+- **Anzeigekonfiguration** wählt aus, welche Anzeigen für die Desktopsitzung verwendet werden sollen, und beeinflusst, welche zusätzlichen Einstellungen verfügbar sind.
+  - **Alle Anzeigen** stellt sicher, dass in der Sitzung immer alle lokalen Anzeigen verwendet werden, auch wenn einige davon später hinzugefügt oder entfernt werden.
+  - **Single display** (Einzelne Anzeige) stellt sicher, dass in der Sitzung immer eine einzelne Anzeige verwendet wird, und ermöglicht, ihre Eigenschaften zu konfigurieren.
+  - **Select displays** (Anzeigen auswählen) ermöglicht dir, die für die Sitzung zu verwendenden Anzeigen auszuwählen und die Liste der Anzeigen während der Sitzung dynamisch zu ändern.
+- **Anzeigen auswählen, die für die Sitzung verwendet werden sollen** gibt an, welche lokalen Anzeigen für die Sitzung verwendet werden sollen. Alle ausgewählten Anzeigen müssen nebeneinander liegen. Diese Einstellung ist nur im Modus **Select displays** (Anzeigen auswählen) verfügbar.
+- **Maximize to current displays** (Für die aktuellen Anzeigen maximieren) legt fest, welche Anzeigen in der Sitzung im Vollbildmodus verwendet werden. Bei Aktivierung wechselt die Sitzung dynamisch auf den Anzeigen mit dem Sitzungsfenster in den Vollbildmodus. Dadurch kannst du die Anzeige während der Sitzung ändern. Wenn diese Option deaktiviert ist, wird die Sitzung im Vollbildmodus auf denselben Anzeigen angezeigt wie beim letzten Mal. Diese Einstellung ist nur im Modus **Select displays** (Anzeigen auswählen) verfügbar und andernfalls deaktiviert.
+- **Single display when windowed** (Einzelne Anzeige im Fenstermodus) legt fest, welche Anzeigen beim Beenden des Vollbildmodus in der Sitzung verfügbar sind. Wenn diese Option aktiviert ist, wechselt die Sitzung im Fenstermodus zu einer einzelnen Anzeige. Ist sie deaktiviert, behält die Sitzung im Fenstermodus dieselben Anzeigen wie im Vollbildmodus bei. Diese Einstellung ist nur in den Modi **Alle Anzeigen** und **Select displays** (Anzeigen auswählen) verfügbar und andernfalls deaktiviert.
+- **Im Vollbildmodus starten** legt fest, ob die Sitzung im Vollbild- oder im Fenstermodus gestartet wird. Diese Einstellung ist nur im Modus **Single display** (Einzelne Anzeige) verfügbar und andernfalls aktiviert.
+- **Sitzung an Fenster anpassen** bestimmt, wie die Sitzung angezeigt wird, wenn die Auflösung des Remotedesktops von der Größe des lokalen Fensters abweicht. Wenn die Option aktiviert ist, wird die Größe der Sitzungsinhalte innerhalb des Fensters passend geändert, wobei das Seitenverhältnis der Sitzung beibehalten wird. Ist sie deaktiviert, werden Scrollleisten oder schwarze Bereiche angezeigt, wenn Auflösung und Fenstergröße nicht übereinstimmen. Diese Einstellung ist in allen Modi verfügbar.
+- **Update the resolution on resize** (Auflösung bei Größenänderung aktualisieren) bewirkt, dass die Remotedesktopauflösung automatisch aktualisiert wird, wenn die Größe der Sitzung im Fenstermodus geändert wird. Wenn diese Option deaktiviert ist, verwendet die Sitzung immer die Auflösung, die unter **Auflösung** angegeben wird. Diese Einstellung ist nur im Modus **Single display** (Einzelne Anzeige) verfügbar und andernfalls aktiviert.
+- In **Auflösung** kannst du die Auflösung des Remotedesktops festlegen. Die Sitzung behält diese Auflösung für ihre gesamte Dauer bei. Diese Einstellung ist nur im Modus **Single display** (Einzelne Anzeige) und bei deaktivierter Option **Update the resolution on resize** (Auflösung bei Größenänderung aktualisieren) verfügbar.
+- **Größe von Text und Apps ändern** gibt die Größe der Inhalte der Sitzung an. Diese Einstellung gilt nur für Verbindungen mit Windows 8.1 und höher oder Windows Server 2012 R2 und höher. Diese Einstellung ist nur im Modus **Single display** (Einzelne Anzeige) und bei deaktivierter Option **Update the resolution on resize** (Auflösung bei Größenänderung aktualisieren) verfügbar.
 
 ## <a name="provide-feedback"></a>Senden von Feedback
 

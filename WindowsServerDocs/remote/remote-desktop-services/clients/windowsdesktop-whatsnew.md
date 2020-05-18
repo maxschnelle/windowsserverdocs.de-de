@@ -7,14 +7,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 04/14/2020
+ms.date: 05/12/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 016a88999b93d686faff73134a660014fd602765
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: de7c685e544fd0bb193f995aeff3a20a29bd6db5
+ms.sourcegitcommit: aed942d11f1a361fc1d17553a4cf190a864d1268
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "81279696"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83235051"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -26,14 +26,32 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 
 |Benutzergruppe |Version  |
 |-----------|---------|
-|Öffentlich     |1.2.790  |
-|Insider    |1.2.940  |
+|Öffentlich     |1.2.945  |
+|Insider    |1.2.1009 |
 
-## <a name="updates-for-version-12940"></a>Updates für Version 1.2.940
+## <a name="updates-for-version-121009"></a>Updates für Version 1.2.1009
 
-*Veröffentlicht am: 14.04.2020*
+*Veröffentlicht am: 12.05.2020*
 
-Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4txZU), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4txZV), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4tM6I)
+Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4wseE), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4wnf3), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4wCIB)
+
+- Es wurde das neue Dialogfeld **Verbindungsinformationen** hinzugefügt, das Client-, Netzwerk- und Serverdetails für Desktop- und App-Sitzungen bereitstellt. Du kannst auf das Dialogfeld im Vollbildmodus über die Verbindungsleiste und im Fenstermodus über das Menüsystem zugreifen.
+- Im Fenstermodus gestartete Desktopsitzungen werden nun immer maximiert, anstatt beim Maximieren des Fensters in den Vollbildmodus zu wechseln. Verwende die Option **Vollbild** im Systemmenü, um in den Vollbildmodus zu gelangen.
+- Die Eingabeaufforderung „Abonnement kündigen“ weist nun ein Warnsymbol auf und zeigt die Namen der Arbeitsbereiche als Aufzählung an.
+- Der Abschnitt „Details“ wurde in weiteren Fehlerdialogfeldern hinzugefügt, um bei der Diagnose von Problemen zu helfen.
+- Dem Abschnitt „Details“ in Fehlerdialogfeldern wurde ein Zeitstempel hinzugefügt.
+- Es wurde ein Problem behoben, bei dem die RDP-Dateieinstellung **desktop size id** nicht ordnungsgemäß funktionierte.
+- Es wurde ein Problem behoben, bei dem die Anzeigeeinstellung **Update the resolution on resize** (Auflösung bei Größenänderung aktualisieren) nach dem Starten der Sitzung nicht angewandt wurde.
+- Es wurden Lokalisierungsprobleme im Bereich „Desktopeinstellungen“ behoben.
+- Die Größe des Fokusfelds beim Wechseln der Steuerelemente mit der TAB-TASTE im Bereich „Desktopeinstellungen“ wurde korrigiert.
+- Es wurde ein Problem behoben, durch das die Ressourcennamen im Modus mit hohem Kontrast schwierig zu lesen waren.
+- Es wurde ein Problem behoben, durch das die Updatebenachrichtigung im Wartungscenter mehrmals täglich angezeigt wurde.
+
+## <a name="updates-for-version-12945"></a>Updates für Version 1.2.945
+
+*Veröffentlicht am: 28.04.2020*
+
+Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vhNM), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vhNO), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vuSV)
 
 - Es wurden neue Optionen für Anzeigeeinstellungen für Desktopverbindungen hinzugefügt, die beim Klicken mit der rechten Maustaste auf ein Desktopsymbol im Connection Center verfügbar sind.
   - Es gibt jetzt drei Anzeigekonfigurationsoptionen: **Alle Displays**, **Einzeldisplay** und **Displays auswählen**.
@@ -42,8 +60,11 @@ Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/b
   - Eine neue Option **Einzeldisplay bei Fenstermodus** für alle Displays und „Displays auswählen“-Modi wurde hinzugefügt. Diese Option schaltet Ihre Sitzung automatisch auf ein einziges Display um, wenn Sie den Vollbildmodus verlassen, und kehrt automatisch zu mehreren Displays zurück, wenn Sie das Fenster maximieren.
 - Dem Systemmenü, das angezeigt wird, wenn Sie mit der rechten Maustaste auf die Titelleiste einer im Fenstermodus angezeigten Desktopsitzung klicken, wurde eine neue **Anzeigeeinstellungen**-Gruppe hinzugefügt. Auf diese Weise können Sie einige Einstellungen während einer Sitzung dynamisch ändern. Sie können z. B. die neuen Einstellungen **Einzeldisplaymodus bei Fenstermodus** und **Auf aktuelle Displays maximieren** anzeigen.
 - Wenn Sie den Vollbildschirm verlassen, kehrt das Sitzungsfenster an seine ursprüngliche Position zurück, an der Sie zum ersten Mal in den Vollbildmodus gewechselt sind.
+- Die Hintergrundaktualisierung für Arbeitsbereiche wurde geändert und findet nun alle vier Stunden anstelle von stündlich statt. Beim Starten des Clients wird jetzt automatisch eine Aktualisierung durchgeführt.
 - Das Zurücksetzen Ihrer Benutzerdaten über die Seite „Info“ leitet Sie jetzt nach Abschluss des Vorgangs zum Connection Center um, anstatt den Client zu schließen.
+- Die Elemente im Systemmenü für Desktopverbindungen wurden neu angeordnet, und das Hilfethema verweist jetzt auf die Clientdokumentation.
 - Es wurden einige Barrierefreiheitsprobleme bei der Registerkartennavigation und Sprachausgabe behoben.
+- Es wurde ein Problem behoben, bei dem das Azure Active Directory-Authentifizierungsdialogfeld hinter dem Sitzungsfenster angezeigt wurde.
 - Ein Problem mit Flackern und Schrumpfen beim Ziehen eines Desktopsitzungsfensters zwischen Displays mit unterschiedlichen Skalierungsfaktoren wurde behoben.
 - Ein Fehler, der beim Umleiten von Kameras aufgetreten ist, wurde korrigiert.
 - Mehrere Ursachen für Abstürze wurden beseitigt, um die Zuverlässigkeit zu verbessern.

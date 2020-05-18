@@ -8,14 +8,14 @@ ms.assetid: 03ec5a3d-d3f2-4afd-9405-ae58b6ecc91c
 author: Heidilohr
 manager: lizross
 ms.author: helohr
-date: 02/11/2020
+date: 05/06/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 686971ac3c56402bb42064e9f5babff6128c7df9
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 972d85a9efed2142d16a8cb522bb095226b39f10
+ms.sourcegitcommit: 67116322915066b85decb4261d47cedec2cfe12f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80856033"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82903425"
 ---
 # <a name="get-started-with-the-ios-client"></a>Erste Schritte mit dem iOS-Client
 
@@ -37,47 +37,52 @@ Führen Sie die folgenden Schritte für den Einstieg in Remotedesktop auf Ihrem 
 
 1. Lade den Microsoft-Remotedesktopclient aus dem [iOS App Store](https://aka.ms/rdios) oder über [iTunes](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8) herunter.
 2. [Richten Sie Ihren PC so ein, dass Remoteverbindungen zulässig sind](remote-desktop-client-faq.md#how-do-i-set-up-a-pc-for-remote-desktop).
-3. Fügen Sie eine [Remotedesktopverbindung](#add-a-remote-desktop-connection) oder eine [Remoteressource](#add-a-remote-resource) hinzu. Mit einer Verbindung können Sie eine direkte Verbindung mit einem Windows-PC herstellen, und mit einer Remoteressource können Sie ein RemoteApp-Programm, einen sitzungsbasierten Desktop oder einen virtuellen Desktop verwenden, das/der mithilfe von RemoteApp- und Desktopverbindungen veröffentlicht wird. Dieses Feature ist in der Regel in Unternehmensumgebungen verfügbar.
+3. Füge einen [PC](#add-a-pc) oder einen [Arbeitsbereich](#add-a-workspace) hinzu. Mit einer Verbindung können Sie eine direkte Verbindung mit einem Windows-PC herstellen, und mit einer Remoteressource können Sie ein RemoteApp-Programm, einen sitzungsbasierten Desktop oder einen virtuellen Desktop verwenden, das/der mithilfe von RemoteApp- und Desktopverbindungen veröffentlicht wird. Dieses Feature ist in der Regel in Unternehmensumgebungen verfügbar.
 
-### <a name="add-a-remote-desktop-connection"></a>Hinzufügen einer Remotedesktopverbindung
+### <a name="add-a-pc"></a>Hinzufügen eines PC
 
-Gehen Sie wie folgt vor, um eine Remotedesktopverbindung zu erstellen:
+So fügst du einen PC hinzu
 
-1. Tippen Sie im Connection Center auf das Pluszeichen ( **+** ), und tippen Sie dann auf **PC oder Server hinzufügen**.
-2. Geben Sie die folgenden Informationen für die Remotedesktopverbindung ein:
+1. Tippe im Connection Center auf **+** und dann auf **PC hinzufügen**.
+2. Geben Sie die folgenden Informationen ein:
    - **PC-Name**: Der Name des Computers. Dies kann der Name eines Windows-Computers, ein Internetdomänenname oder eine IP-Adresse sein. Sie können auch Portinformationen an den PC-Namen anfügen (z. B. **MyDesktop:3389** oder **10.0.0.1:3389**).
-   - **Benutzername**: Der Benutzername, der für den Zugriff auf den Remotecomputer verwendet werden soll. Sie können die folgenden Formate verwenden: *Benutzername*, *Domäne\Benutzername* oder `user_name@domain.com`. Sie können auch angeben, ob der Benutzer zur Eingabe eines Benutzernamens und Kennworts aufgefordert werden soll.
+   - **Benutzername**: Der Benutzername, der für den Zugriff auf den Remotecomputer verwendet werden soll. Sie können die folgenden Formate verwenden: *Benutzername*, *Domäne\Benutzername* oder `user_name@domain.com`. Du kannst auch **Ask when required** (Erfragen, wenn erforderlich) auswählen, um bei Bedarf zur Eingabe eines Benutzernamens und Kennworts aufzufordern.
 3. Sie können auch die folgenden zusätzlichen Optionen festlegen:
-   - **Anzeigename (optional)** : Ein leicht zu merkender Name für den PC, mit dem Sie eine Verbindung herstellen. Sie können eine beliebige Zeichenfolge verwenden, aber wenn Sie keinen Anzeigenamen angeben, wird der PC-Name angezeigt.
+   - **Anzeigename (optional):** ein einfach zu merkender Name für den PC, mit dem du eine Verbindung herstellst. Du kannst eine beliebige Zeichenfolge verwenden, aber wenn du keinen Anzeigenamen angibst, wird stattdessen der Name des PC angezeigt.
    - **Gateway (optional)** : Das Remotedesktopgateway, das Sie zum Herstellen einer Verbindung mit virtuellen Desktops, RemoteApp-Programmen und sitzungsbasierten Desktops in einem internen Unternehmensnetzwerk verwenden möchten. Sie erhalten die Informationen über das Gateway von Ihrem Systemadministrator.
    - **Sound**: Wählen Sie das während der Remotesitzung für Audio zu verwendende Gerät aus. Sie können auswählen, ob Sound auf den lokalen Geräten, auf dem Remotegerät oder überhaupt nicht wiedergegeben werden soll.
    - **Maustasten tauschen**: Wenn eine Mausbewegung einen Befehl mit der linken Maustaste senden würde, wird derselbe Befehl stattdessen mit der rechten Maustaste gesendet. Dies ist erforderlich, wenn der Remote-PC für den Linkshänder-Mausmodus konfiguriert ist.
    - **Administratormodus**: Stellen Sie eine Verbindung mit einer Verwaltungssitzung auf einem Server unter Windows Server 2003 oder höher her.
+   - **Zwischenablage:** Wähle aus, ob Text und Bilder in der Zwischenablage an deinen PC umgeleitet werden sollen.
+   - **Speicher:** Wähle aus, ob der Speicher an deinen PC umgeleitet werden soll.
 4. Tippen Sie auf **Speichern**.
 
 Müssen Sie diese Einstellungen bearbeiten? Drücken und halten Sie den Desktop, den Sie bearbeiten möchten, und tippen Sie dann auf das Symbol „Einstellungen“.
 
-### <a name="add-a-remote-resource"></a>Hinzufügen einer Remoteressource
+### <a name="add-a-workspace"></a>Hinzufügen eines Arbeitsbereichs
 
-Bei Remoteressourcen handelt es sich um RemoteApp-Programme, sitzungsbasierte Desktops und virtuelle Desktops, die mithilfe von RemoteApp- und Desktopverbindungen veröffentlicht werden.
+Zum Abrufen einer Liste verwalteter Ressourcen, auf die du auf deinem iOS-System zugreifen kannst, füge einen Arbeitsbereich hinzu, indem du den vom Administrator bereitgestellten Feed abonnierst.
 
-- Die URL zeigt den Link zum Server mit Web Access für Remotedesktop an, der Ihnen Zugriff auf RemoteApp- und Desktopverbindungen bietet.
-- Die konfigurierten RemoteApp- und Desktopverbindungen werden aufgeführt.
+So fügst du einen Arbeitsbereich hinzu
 
-Gehen Sie wie folgt vor, um eine Remoteressource hinzuzufügen:
+1. Tippe im Connection Center auf **+** und dann auf **Arbeitsbereich hinzufügen**.
+2. Gib im Feld „Feed-URL“ die URL für den Feed ein, den du hinzufügen möchtest. Dies kann eine URL oder eine E-Mail-Adresse sein.
+   - Verwende im Fall einer URL die vom Administrator erhaltene. Diese URL lautet in der Regel <https://rdweb.wvd.microsoft.com>.
+   - Gib im Fall einer E-Mail-Adresse deine E-Mail-Adresse ein. Dies weist den Client an, nach einer URL zu suchen, die deiner E-Mail-Adresse zugeordnet ist, sofern der Administrator dies entsprechend konfiguriert hat.
+3. Tippen Sie auf **Weiter**.
+4. Gib bei einer entsprechenden Aufforderung deine Anmeldeinformationen an.
+   - Gib für **Benutzername** den Benutzernamen eines Kontos mit der Berechtigung zum Zugriff auf Ressourcen an.
+   - Gib für **Kennwort** das Kennwort für das Konto an.
+   - Abhängig von den Einstellungen, mit denen der Administrator die Authentifizierung konfiguriert hat, wirst du möglicherweise auch aufgefordert, zusätzliche Informationen anzugeben.
+5. Tippen Sie auf **Speichern**.
 
-1. Tippen Sie auf dem Bildschirm „Connection Center“ auf das Pluszeichen ( **+** ), und tippen Sie dann auf **Remoteressourcen hinzufügen**.
-2. Geben Sie Informationen für die Remoteressource ein:
-   - **Feed-URL**: Die URL des Servers mit Web Access für Remotedesktop. In dieses Feld können Sie auch Ihr geschäftliches E-Mail-Konto eingeben. Dies weist den Client an, nach dem Ihrer E-Mail-Adresse zugeordneten Server mit Web Access für Remotedesktop zu suchen.
-   - **Benutzername**: Der Benutzername, der für den Server mit Web Access für Remotedesktop verwendet werden soll, mit dem Sie eine Verbindung herstellen.
-   - **Kennwort**: Das Kennwort, das für den Server mit Web Access für Remotedesktop verwendet werden soll, mit dem Sie eine Verbindung herstellen.
-3. Tippen Sie auf **Speichern**.
+Danach sollten die Remoteressourcen im Connection Center angezeigt werden.
 
-Die Remoteressourcen werden im Connection Center angezeigt.
+Nachdem du einen Feed abonniert hast, wird der Inhalt dieses Feeds automatisch regelmäßig aktualisiert. Dabei können basierend auf Änderungen durch den Administrator Ressourcen hinzugefügt, geändert oder entfernt werden.
 
 ## <a name="manage-your-user-accounts"></a>Verwalten Ihrer Benutzerkonten
 
-Wenn Sie eine Verbindung mit einem Desktop oder Remoteressourcen herstellen, können Sie die Benutzerkonten speichern, um sie erneut auswählen zu können.
+Wenn du eine Verbindung mit einem PC oder Arbeitsbereich herstellst, kannst du die Benutzerkonten speichern, um sie erneut auswählen zu können.
 
 Gehen Sie wie folgt vor, um ein neues Benutzerkonto zu erstellen:
 
@@ -85,7 +90,7 @@ Gehen Sie wie folgt vor, um ein neues Benutzerkonto zu erstellen:
 2. Tippen Sie auf **Benutzerkonto hinzufügen**.
 3. Geben Sie die folgenden Informationen ein:
    - **Benutzername**: Der Name des Benutzers, der zur Verwendung für eine Remoteverbindung gespeichert werden soll. Sie können den Benutzernamen in einem der folgenden Formate eingeben: Benutzername, Domäne\Benutzername oder user_name@domain.com.
-   - **Kennwort**: Das Kennwort für den angegebenen Benutzer. Jedem Benutzerkonto, das Sie zur Verwendung für Remoteverbindungen speichern möchten, muss ein Kennwort zugeordnet sein.
+   - **Kennwort**: Das Kennwort für den angegebenen Benutzer.
 4. Tippen Sie auf **Speichern**.
 
 Gehen Sie wie folgt vor, um ein Benutzerkonto zu löschen:
@@ -101,10 +106,10 @@ Mit einem Remotedesktopgateway (RD-Gateway) können Sie eine Verbindung mit eine
 Gehen Sie wie folgt vor, um ein neues Gateway einzurichten:
 
 1. Tippen Sie im Connection Center auf **Einstellungen** > **Gateways**.
-2. Tippen Sie auf **Remotedesktopgateway hinzufügen**.
+2. Tippe auf **Gateway hinzufügen**.
 3. Geben Sie die folgenden Informationen ein:
-   - **Servername**: Der Name des Computers, den Sie als Gateway verwenden möchten. Dies kann der Name eines Windows-Computers, ein Internetdomänenname oder eine IP-Adresse sein. Sie können dem Servernamen auch Portinformationen hinzufügen (z. B.: **RDGateway:443** oder **10.0.0.1:443**).
-   - **Benutzername**: Der Benutzername und das Kennwort für das Remotedesktopgateway, mit dem Sie eine Verbindung herstellen. Sie können auch **Anmeldeinformationen für die Verbindung verwenden** auswählen, damit derselbe Benutzername und dasselbe Kennwort wie für die Remotedesktopverbindung verwendet werden.
+   - **Gatewayname:** der Name des Computers, den du als Gateway verwenden möchtest. Dies kann der Name eines Windows-Computers, ein Internetdomänenname oder eine IP-Adresse sein. Sie können dem Servernamen auch Portinformationen hinzufügen (z. B.: **RDGateway:443** oder **10.0.0.1:443**).
+   - **Benutzername:** der Benutzername und das Kennwort für das Remotedesktop-Gateway, mit dem du eine Verbindung herstellst. Sie können auch **Anmeldeinformationen für die Verbindung verwenden** auswählen, damit derselbe Benutzername und dasselbe Kennwort wie für die Remotedesktopverbindung verwendet werden.
 
 ## <a name="navigate-the-remote-desktop-session"></a>Navigieren in der Remotedesktopsitzung
 

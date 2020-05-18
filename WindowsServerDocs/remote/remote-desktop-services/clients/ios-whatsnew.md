@@ -7,21 +7,44 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 04/03/2020
+ms.date: 05/06/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 69e33ef5f187672d948b6734a9ae7f68b54b7608
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 0943379b8f251d1548a0aa920a95931dc39a0624
+ms.sourcegitcommit: 67116322915066b85decb4261d47cedec2cfe12f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80854653"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82903450"
 ---
 # <a name="whats-new-in-the-ios-client"></a>Neues beim iOS-Client
 
 Der [Remotedesktopclient für iOS](remote-desktop-ios.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Auf dieser Seite findest du die neuesten Updates.
 
->[!IMPORTANT]
->Wir sind bestrebt, diese App zum besten Remotedesktopclient für iOS zu machen und wissen dein Feedback zu schätzen. Du kannst Probleme unter **Hilfe** > **Problem melden** melden.
+## <a name="how-to-report-issues"></a>Melden von Problemen
+
+Wir sind bestrebt, den Remotedesktopclient für iOS bestmöglich zu gestalten, und wissen dein Feedback zu schätzen. Du kannst Probleme unter **Hilfe** > **Problem melden** melden.
+
+## <a name="updates-for-version-1007"></a>Updates für Version 10.0.7
+
+*Veröffentlicht am: 29.04.2020*
+
+In diesem Update haben wir die Möglichkeit hinzugefügt, die PC-Listenansicht (auf dem iPhone verfügbar) nach dem Namen oder der Uhrzeit der letzten Verbindung zu sortieren.
+
+## <a name="updates-for-version-1006"></a>Updates für Version 10.0.6
+
+*Veröffentlicht am: 31.03.2020*
+
+Es ist an der Zeit für ein schnelles Update mit einigen Fehlerbehebungen. Hier sind die Neuigkeiten in diesem Release:
+
+- Eine Reihe von VoiceOver-Barrierefreiheitsproblemen wurde behoben.
+- Es wurde ein Problem behoben, bei dem Benutzer mit türkischen Anmeldeinformationen keine Verbindung herstellen konnten.
+- Die in der Wechselbenutzeroberfläche angezeigten Sitzungen werden nun nach dem Startzeitpunkt geordnet.
+- Durch Auswählen der Schaltfläche „Zurück“ im Connection Center gelangst du nun zurück zur letzten aktiven Sitzung.
+- Swiftpoint-Mäuse werden jetzt freigegeben, wenn vom Client zu einer anderen App gewechselt wird.
+- Die Interoperabilität mit dem Windows Virtual Desktop-Dienst wurde verbessert.
+- Es wurden Abstürze korrigiert, die in der Fehlerberichterstattung auftraten.
+
+Wir freuen uns über alle über den App Store und das In-App-Feedback sowie per E-Mail gesendete Kommentare. Außerdem möchten wir uns besonders bei allen bedanken, die mit uns an der Diagnose von Problemen zusammengearbeitet haben.
 
 ## <a name="updates-for-version-1005"></a>Updates für Version 10.0.5
 

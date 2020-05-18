@@ -7,12 +7,12 @@ ms.date: 02/24/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 7e7a233d17d8f2e32286a0869b283e450a34bbbc
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 2f6ba34381e813247d0838853f688abf13fbd2fa
+ms.sourcegitcommit: 1d83ca198c50eef83d105151551c6be6f308ab94
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80860143"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82605540"
 ---
 # <a name="windows-time-service-tools-and-settings"></a>Windows-Zeitdienst: Tools und Einstellungen
 
@@ -307,7 +307,7 @@ In den folgenden Tabellen bezieht sich „Alle Versionen“ auf Windows-Versione
 |**LargeSampleSkew** |Alle Versionen |Gibt die große Stichprobenabweichung für die Protokollierung in Sekunden an. Um die SEC-Spezifikationen (Security and Exchange Commission) einzuhalten, sollte dieser Wert auf drei Sekunden festgelegt werden. Ereignisse werden nur dann für diese Einstellung protokolliert, wenn **EventLogFlags** explizit für „0x2-große Stichprobenabweichung“ konfiguriert ist. Der Standardwert für Domänenmitglieder ist 3. Der Standardwert für eigenständige Clients und Server ist 3. |
 |**ResolvePeerBackOffMaxTimes** |Alle Versionen |Gibt an, wie oft das Wartezeitintervall maximal verdoppelt werden soll, wenn wiederholte Versuche, einen Peer für die Synchronisierung aufzufinden, fehlschlagen. Ein Wert von 0 bedeutet, dass das Warteintervall immer das Minimum ist. Der Standardwert für Domänenmitglieder ist **7**. Der Standardwert für eigenständige Clients und Server ist **7**. |
 |**ResolvePeerBackoffMinutes** |Alle Versionen |Gibt das anfängliche Intervall in Minuten an, das gewartet werden soll, bevor versucht wird, einen Peer für die Synchronisierung aufzufinden. Der Standardwert für Domänenmitglieder ist **15**. Der Standardwert für eigenständige Clients und Server ist **15**.  |
-|**SpecialPollInterval** |Alle Versionen |Gibt das spezifische Abrufintervall in Sekunden für manuelle Peers an. Wenn das Flag **SpecialInterval** 0x1 aktiviert ist, verwendet W32Time dieses Abrufintervall anstelle eines vom Betriebssystem festgelegten Abrufintervalls. Der Standardwert für Domänenmitglieder ist **3.600**. Der Standardwert für eigenständige Clients und Server ist **604.800**.<br/><br/>Neu für Build 1702; **SpecialPollInterval** ist in den Konfigurationsregistrierungswerten **MinPollInterval** und **MaxPollInterval** enthalten.|
+|**SpecialPollInterval** |Alle Versionen |Gibt das spezifische Abrufintervall in Sekunden für manuelle Peers an. Wenn das Flag **SpecialInterval** 0x1 aktiviert ist, verwendet W32Time dieses Abrufintervall anstelle eines vom Betriebssystem festgelegten Abrufintervalls. Der Standardwert für Domänenmitglieder ist **3.600**. Der Standardwert für eigenständige Clients und Server ist **604.800**.<br/><br/>Neu für Build 1703; **SpecialPollInterval** ist in den Konfigurationsregistrierungswerten **MinPollInterval** und **MaxPollInterval** enthalten.|
 |**SpecialPollTimeRemaining** |Alle Versionen |Wird von W32Time verwaltet. Er enthält reservierte Daten, die vom Windows-Betriebssystem verwendet werden. Gibt die Zeit in Sekunden an, nach der W32Time nach einem Neustart des Computers erneut synchronisiert wird. Änderungen an dieser Einstellung können zu unvorhersehbaren Ergebnissen führen. Als Standardwert für Domänenmitglieder sowie eigenständige Clients und Server bleibt die Einstellung leer. |
 
 ### <a name="hklmsystemcurrentcontrolsetservicesw32timetimeprovidersntpserver-subkey-entries"></a><a id="ntpserver"></a>„HKLM\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpServer“ – Unterschlüsseleinträge

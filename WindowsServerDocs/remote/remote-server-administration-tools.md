@@ -8,12 +8,12 @@ ms.assetid: d54a1f5e-af68-497e-99be-97775769a7a7
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dansimp
-ms.openlocfilehash: 510ad2cb1449f161658684eeceec4dbbb7ce6699
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 307da083db2e5cc76c4eda825f0e080d7f026821
+ms.sourcegitcommit: 7288aca86fc76b9ff6177a17027118d1f21707a9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80857093"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83380693"
 ---
 # <a name="remote-server-administration-tools"></a>Remoteserver-Verwaltungstools
 
@@ -52,7 +52,7 @@ Die Windows PowerShell- und Server-Manager-Remoteverwaltung muss auf Remoteserve
         
 ## <a name="install-uninstall-and-turn-offon-rsat-tools"></a>Installieren, Deinstallieren und Aktivieren/Deaktivieren der RSAT-Tools        
 
-### <a name="use-features-on-demand-fod-to-install-specific-rsat-tools-on-windows-10-october-2018-update-----r-l----ter"></a>Verwenden von FoD (Features on Demand, Features bei Bedarf), um bestimmte RSAT-Tools unter dem Windows 10-Update vom Oktober 2018 oder höher zu installieren
+### <a name="use-features-on-demand-fod-to-install-specific-rsat-tools-on-windows-10-october-2018-update-or-later"></a>Verwenden von FoD (Features on Demand, Features bei Bedarf), um bestimmte RSAT-Tools unter dem Windows 10 October 2018 Update oder höher zu installieren
 
 Ab dem Windows 10-Update vom Oktober 2018 ist RSAT als Sammlung von **Features bei Bedarf** in Windows 10 selbst enthalten. Anstatt ein RSAT-Paket herunterzuladen, können Sie jetzt einfach zu **Optionale Features verwalten** unter **Einstellungen** navigieren und auf **Feature hinzufügen** klicken, um die Liste der verfügbaren RSAT-Tools anzuzeigen. Wählen Sie die gewünschten RSAT-Tools aus, und installieren Sie sie. Um den Installationsfortschritt anzuzeigen, klicken Sie auf die Schaltfläche **Zurück**, um den Status auf der Seite **Optionale Features verwalten** anzuzeigen.
         
@@ -91,7 +91,7 @@ Wenn Sie eine Version von Windows 10 vor dem Update vom Oktober 2018 (1809) ve
 
 5.  Es dauert einige Minuten, bis die Installation beendet ist.    
         
-##### <a name="to-uninstall-remote-server-administration-tools-for-windows-10-----aft----r-rsat-package-install"></a>So deinstallieren Sie die Remoteserver-Verwaltungstools für Windows 10 (nach der Installation des RSAT-Pakets)
+##### <a name="to-uninstall-remote-server-administration-tools-for-windows-10-after-rsat-package-install"></a>So deinstallierst du die Remoteserver-Verwaltungstools für Windows 10 (nach der Installation des RSAT-Pakets)
         
 1. Klicken Sie auf dem Desktop auf **Start**, **Alle Apps**, **Windows System**und **Systemsteuerung**.
 
@@ -103,7 +103,7 @@ Wenn Sie eine Version von Windows 10 vor dem Update vom Oktober 2018 (1809) ve
 
 5. Wenn Sie gefragt werden, ob Sie das Update wirklich deinstallieren möchten, klicken Sie auf **Ja**.
    E
-   ##### <a name="to-turn----off-specific-tools-after-rsat-package-in----tall"></a>So deaktivieren Sie bestimmte Tools (nach der Installation des RSAT-Pakets)
+   ##### <a name="to-turn-off-specific-tools-after-rsat-package-install"></a>So deaktivieren Sie bestimmte Tools (nach der Installation des RSAT-Pakets)
         
 6. Klicken Sie auf dem Desktop auf **Start**, **Alle Apps**, **Windows System**und **Systemsteuerung**.
 
@@ -131,7 +131,7 @@ Die als Teil der Remoteserver-Verwaltungstools für Windows 10 installierten To
 
 In den Remoteserver-Verwaltungstools für Windows 10 wird auf alle GUI-basierten Serververwaltungstools (z. B. MMC-Snap-Ins und Dialogfelder) über das Menü **Extras** der Server-Manager-Konsole zugegriffen. Obwohl auf dem Computer mit den Remoteserver-Verwaltungstools für Windows 10 ein clientbasiertes Betriebssystem ausgeführt wird, wird Server-Manager (in Remoteserver-Verwaltungstools für Windows 10 integriert) auf dem Clientcomputer standardmäßig automatisch geöffnet. Beachten Sie, dass in der Server-Manager-Konsole, die auf einem Clientcomputer ausgeführt wird, keine Seite **Lokaler Server** vorhanden ist.
 
-##### <a name="to-start-server-manager-on-a-clien-----co----puter"></a>So starten Sie den Server-Manager auf einem Clientcomputer
+##### <a name="to-start-server-manager-on-a-client-computer"></a>So starten Sie den Server-Manager auf einem Clientcomputer
 
 1.  Klicken Sie im Menü **Start** auf **Alle Apps**und **Verwaltungstools**.
 

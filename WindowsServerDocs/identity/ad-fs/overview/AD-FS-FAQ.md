@@ -5,16 +5,16 @@ description: Häufig gestellte Fragen zu Active Directory-Verbunddienste (AD FS
 author: billmath
 ms.author: billmath
 manager: mtillman
-ms.date: 04/17/2019
+ms.date: 04/29/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a1041bdc189238c7da32896e6f867f730e392d24
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b1b6f7d38c4474ba3f69c4eac0c4569375185eb8
+ms.sourcegitcommit: 6d3f8780b67aa7865a9372cf2c1e10c79ebea8b1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80814430"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82587665"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS – Häufig gestellte Fragen (FAQ)
 
@@ -73,6 +73,9 @@ AD FS unterstützt eine Konfiguration mit mehreren Gesamtstrukturen und basiert
 >[!NOTE]  
 >Wenn bei einer bidirektionalen Vertrauenskonfiguration optionale Authentifizierung verwendet wird, stellen Sie sicher, dass dem Aufrufer für das Zieldienstkonto die Berechtigung „allow to authenticate“ (zur Authentifizierung zulassen) erteilt wird. 
 
+### <a name="does-ad-fs-extranet-smart-lockout-support-ipv6"></a>Unterstützt die intelligente AD FS-Extranetsperre IPv6?
+Ja, IPv6-Adressen werden als vertraute/unbekannte Standorte berücksichtigt.
+
 
 ## <a name="design"></a>Entwurf
 
@@ -90,7 +93,7 @@ Nachstehend finden Sie eine Liste der uns bekannten Drittanbieter.  Es kann imme
 
 
 ### <a name="where-is-the-capacity-planning-sizing-spreadsheet-for-ad-fs-2016"></a>Wo ist das Arbeitsblatt zur Dimensionierung der Kapazitätsplanung für AD FS 2016?
-Die AD FS 2016-Version des Arbeitsblatts kann [hier](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx)heruntergeladen werden.
+Die AD FS 2016-Version der Kalkulationstabelle kann [hier](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx) heruntergeladen werden.
 Sie kann auch für AD FS in Windows Server 2012 R2 verwendet werden.
 
 ### <a name="how-can-i-ensure-my-ad-fs-and-wap-servers-support-apples-atp-requirements"></a>Wie kann ich sicherstellen, dass meine AD FS- und WAP-Server die ATP-Anforderungen von Apple unterstützen?
@@ -310,3 +313,11 @@ Nach einem Upgrade auf Windows Server 2019 wird die Konfigurationsversion des W
 
 ### <a name="can-i-estimate-the-size-of-the-adfsartifactstore-before-enabling-esl"></a>Kann ich die Größe von „ADFSArtifactStore“ vor dem Aktivieren von ESL schätzen?
 Bei aktiviertem ESL verfolgt AD FS die Kontoaktivität und die bekannten Speicherorte für Benutzer in der ADFSArtifactStore-Datenbank nach. Die Größe dieser Datenbank wird relativ zur Anzahl der nachverfolgten Benutzer und bekannten Standorte skaliert. Beim Planen der Aktivierung von ESL können Sie die Größenzunahme für die ADFSArtifactStore-Datenbank auf eine Rate von bis zu 1 GB pro 100.000 Benutzer schätzen. Wenn die AD FS-Farm die interne Windows-Datenbank (Windows Internal Database, WID) verwendet, ist der Standardspeicherort für die Datenbankdateien „C:\Windows\WID\Data“. Um das Auffüllen dieses Laufwerks zu verhindern, stellen Sie sicher, dass mindestens 5 GB freier Speicherplatz verfügbar sind, bevor Sie ESL aktivieren. Planen Sie zusätzlich zum Datenträgerspeicher, dass der gesamte Prozessspeicher nach der Aktivierung von ESL um bis zu weitere 1 GB RAM für Benutzerauffüllungen von maximal 500.000 größer wird.
+
+### <a name="i-am-seeing-event-570-active-directory-trust-enumeration-was-unable-to-enumerate-one-of-more-domains-due-to-the-following-error-enumeration-will-continue-but-the-active-directory-identifier-list-may-not-be-correct-validate-that-all-expected-active-directory-identifiers-are-present-by-running-get-adfsdirectoryproperties-on-ad-fs-2019-what-is-the-mitigation-for-this-event"></a>Ich sehe das Ereignis 570 (Active Directory-Vertrauensenumeration konnte mindestens eine Domäne aufgrund des folgenden Fehlers nicht durchlaufen. Die Enumeration wird fortgesetzt, aber die Active Directory-Bezeichnerliste ist möglicherweise nicht korrekt. Überprüfen Sie, ob alle erwarteten Active Directory-Bezeichner vorhanden sind, indem Sie Get-ADFSDirectoryProperties ausführen.) unter AD FS 2019. Welche Abhilfemaßnahmen gibt es für dieses Ereignis?
+Dieses Ereignis tritt auf, wenn Gesamtstrukturen nicht vertrauenswürdig sind und AD FS versucht, alle Gesamtstrukturen in einer Kette vertrauenswürdiger Gesamtstrukturen zu durchlaufen und Verbindungen über alle Gesamtstrukturen hinweg herzustellen. Wenn z. B. in AD FS die Gesamtstrukturen A und B vertrauenswürdig sind und darüber hinaus die Gesamtstrukturen B und C vertrauenswürdig sind, listet AD FS alle drei Gesamtstrukturen auf und versucht, eine Vertrauensstellung zwischen den Gesamtstrukturen A und C zu finden. Wenn Benutzer aus der nicht erfolgreichen Gesamtstruktur durch AD FS authentifiziert werden sollen, solltest du eine Vertrauensstellung zwischen der AD FS-Gesamtstruktur und dieser Gesamtstruktur einrichten. Wenn die Benutzer aus der fehlerhaften Gesamtstruktur nicht durch AD FS authentifiziert werden sollen, kannst du diesen Fehler ignorieren.
+
+### <a name="i-am-seeing-an-event-id-364-microsoftidentityserverauthenticationfailedexception-msis5015-authentication-of-the-presented-token-failed-token-binding-claim-in-token-must-match-the-binding-provided-by-the-channel-what-should-i-do-to-resolve-this"></a>Folgendes wird angezeigt: „Ereignis-ID 364: Microsoft.IdentityServer.AuthenticationFailedException: MSIS5015: Die Authentifizierung des bereitgestellten Tokens hat zu einem Fehler geführt. Der Tokenbindungsanspruch im Token muss mit der vom Kanal bereitgestellten Bindung übereinstimmen.“ Was soll ich tun, um dieses Problem zu beheben?
+In AD FS 2016 wird die Tokenbindung automatisch aktiviert. Das verursacht mehrere bekannte Probleme bei Proxy- und Verbundszenarien, die schließlich zu diesem Fehler führen. Führen Sie zum Beheben dieses Problems den folgenden PowerShell-Befehl aus, und entfernen Sie die Unterstützung für das Bindungstoken.
+
+`Set-AdfsProperties -IgnoreTokenBinding $true`

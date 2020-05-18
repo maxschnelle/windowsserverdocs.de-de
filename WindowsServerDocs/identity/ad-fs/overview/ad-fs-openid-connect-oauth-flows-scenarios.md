@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b0b7fef9c74ba5da1b94772cb5f6ff3d717a5359
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 3804cfdf49d97f9b889129802e0d2c51730e3c86
+ms.sourcegitcommit: 67116322915066b85decb4261d47cedec2cfe12f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80855973"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82903471"
 ---
 # <a name="ad-fs-openid-connectoauth-flows-and-application-scenarios"></a>AD FS OpenID Connect-/OAuth-Flows und Anwendungsszenarien
 Gilt für Active Directory-Verbunddienste (AD FS) 2016 und höher
@@ -224,13 +224,13 @@ Host: https://webapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q... 
  ```
 
-### <a name="refresh-the-access-token"></a>Aktualisieren des Zugriffstokens 
- 
+### <a name="refresh-token-grant-flow"></a>Gewährungsflow für Aktualisierungstoken
+ 
 Access_token sind kurzlebig und sie müssen nach Ablauf der Gültigkeitsdauer aktualisiert werden, um weiterhin auf Ressourcen zugreifen zu können. Du kannst dazu eine weitere POST-Anforderung an den `/token` -Endpunkt übermitteln, wobei dieses Mal das refresh_token anstelle des Codes bereitgestellt wird. Aktualisierungstoken sind für alle Berechtigungen gültig, für die dein Client bereits ein Zugriffstoken erhalten hat. 
  
 Aktualisierungstoken haben keine festgelegte Lebensdauer. Die Lebensdauer von Aktualisierungstoken ist in der Regel relativ lang. In einigen Fällen laufen die Aktualisierungstoken jedoch ab, werden widerrufen oder es fehlen ausreichende Berechtigungen für die gewünschte Aktion. Die Anwendung muss Fehler, die vom Tokenausstellungsendpunkt zurückgegeben werden, erwarten und ordnungsgemäß behandeln.  
  
-Obwohl Aktualisierungstoken nicht widerrufen werden, wenn sie zum Abrufen neuer Zugriffstoken verwendet werden, wird von dir erwartet, dass du das alte Aktualisierungstoken verwirfst. Die OAuth 2.0-Spezifikation besagt Folgendes: „Der Autorisierungsserver KANN ein neues Aktualisierungstoken ausgeben. In diesem Fall MUSS der Client das alte Aktualisierungstoken verwerfen und durch das neue Aktualisierungstoken ersetzen. Der Autorisierungsserver KANN das alte Aktualisierungstoken zurücknehmen, nachdem er ein neues Aktualisierungstoken an den Client ausgegeben hat.“ 
+Obwohl Aktualisierungstoken nicht widerrufen werden, wenn sie zum Abrufen neuer Zugriffstoken verwendet werden, wird von dir erwartet, dass du das alte Aktualisierungstoken verwirfst. Die OAuth 2.0-Spezifikation besagt Folgendes: „Der Autorisierungsserver KANN ein neues Aktualisierungstoken ausgeben. In diesem Fall MUSS der Client das alte Aktualisierungstoken verwerfen und durch das neue Aktualisierungstoken ersetzen. Der Autorisierungsserver KANN das alte Aktualisierungstoken zurücknehmen, nachdem er ein neues Aktualisierungstoken an den Client ausgegeben hat.“ AD FS gibt das Aktualisierungstoken aus, wenn die Lebensdauer des neuen Aktualisierungstokens länger als die des vorherigen Aktualisierungstokens ist.  Weitere Informationen zur Lebensdauer von Aktualisierungstoken in AD FS findest du unter [AD FS: Einstellungen für einmaliges Anmelden](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings).
  
 ```
 // Line breaks for legibility only 

@@ -8,14 +8,14 @@ ms.date: 12/02/2019
 ms.topic: article
 author: Heidilohr
 manager: lizross
-ms.openlocfilehash: 1d6a7daa3966488c951117b083411587d13be56b
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: beacd246639b5586c071a24bdd7b09c6aceeadab
+ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80857103"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83203388"
 ---
-# <a name="virtual-machine-sizing-guidance"></a>Leitfaden zur Größenbestimmung virtueller Computer
+# <a name="virtual-machine-sizing-guidelines"></a>Richtlinien zur Größenfestlegung virtueller Computer
 
 Unabhängig davon, ob du den virtuellen Computer auf Remotedesktopdiensten oder dem virtuellen Windows-Desktop ausführst, erfordern unterschiedliche Arten von Workloads unterschiedliche Konfigurationen für die virtuellen Sitzungshostcomputer (VM). Um die bestmögliche Erfahrung zu gewährleisten, skaliere deine Bereitstellung gemäß den Anforderungen deiner Benutzer.
 
