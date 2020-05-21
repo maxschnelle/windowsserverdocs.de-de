@@ -1,6 +1,6 @@
 ---
 title: extract
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den Extract-Befehl, mit dem Dateien aus einem Quell Speicherort extrahiert werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,39 +9,39 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1cca89a356530e49fbf2b0610ff3ced1c5733847
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: dbadcc555fc9bb0b02e568b1126a317a9d59d336
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725658"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83437185"
 ---
 # <a name="extract"></a>extract
 
-
+Extrahiert Dateien aus einer CAB-Datei oder einer Quelle.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-EXTRACT [/Y] [/A] [/D | /E] [/L dir] cabinet [filename ...]
-EXTRACT [/Y] source [newname]
-EXTRACT [/Y] /C source destination
+extract [/y] [/a] [/d | /e] [/l dir] cabinet [filename ...]
+extract [/y] source [newname]
+extract [/y] /c source destination
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|KEs|Die Datei enthält mindestens zwei Dateien.|
-|filename|Der Name der Datei, die aus der CAB-Datei extrahiert werden soll. Platzhalter und mehrere Dateinamen (durch Leerzeichen getrennt) können verwendet werden.|
-|source|Komprimierte Datei (eine CAB-Datei mit nur einer Datei).|
-|newname|Neuer Dateiname für die extrahierte Datei. Wenn kein Wert angegeben wird, wird der ursprüngliche Name verwendet.|
-|/A|Alle Schränke verarbeiten. Folgt der CAB-Kette, beginnend mit dem ersten beschriebenen CAB.|
-|/C|Kopieren Sie die Quelldatei in das Ziel (zum Kopieren von DMF-Datenträgern).|
-|/D|CAB-Verzeichnis anzeigen (mit Dateiname verwenden, um Extract zu vermeiden).|
-|/E|Extrahieren (verwenden Sie anstelle von *.* zum Extrahieren aller Dateien).|
-|/L dir|Speicherort für extrahierte Dateien (Standardwert ist Aktuelles Verzeichnis).|
-|/Y|Keine Eingabeaufforderung, bevor eine vorhandene Datei überschrieben wird.|
+| Parameter | Beschreibung |
+| --------- | ----------- |
+| KEs | Verwenden Sie, wenn Sie zwei oder mehr Dateien extrahieren möchten. |
+| filename | Der Name der Datei, die aus der CAB-Datei extrahiert werden soll. Platzhalter und mehrere Dateinamen (durch Leerzeichen getrennt) können verwendet werden. |
+| Quelle | Komprimierte Datei (eine CAB-Datei mit nur einer Datei). |
+| newname | Neuer Dateiname für die extrahierte Datei. Wenn kein Wert angegeben wird, wird der ursprüngliche Name verwendet. |
+| /a | Alle Schränke verarbeiten. Folgt der CAB-Kette, beginnend mit dem ersten beschriebenen CAB. |
+| /C | Kopieren Sie die Quelldatei in das Ziel (zum Kopieren von DMF-Datenträgern). |
+| /d | CAB-Verzeichnis anzeigen (mit Dateiname verwenden, um Extract zu vermeiden). |
+| /e | Extrahieren (verwenden Sie anstelle von *.* zum Extrahieren aller Dateien). |
+| /l dir | Speicherort für extrahierte Dateien (Standardwert ist Aktuelles Verzeichnis). |
+| /y | Vor dem Überschreiben einer vorhandenen Datei wird keine Aufforderung angezeigt. |
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 

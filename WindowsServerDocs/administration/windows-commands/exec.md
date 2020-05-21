@@ -1,6 +1,6 @@
 ---
 title: exec
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den exec-Befehl, der eine Skriptdatei auf dem lokalen Computer ausführt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,36 +9,33 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f10e28a8da96bc7228af4561fb36824899f2d7a4
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 956f3d4a7c5992980aea0fc0f5933ee7def48381
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725740"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436106"
 ---
 # <a name="exec"></a>exec
 
+Führt eine Skriptdatei auf dem lokalen Computer aus. Mit diesem Befehl werden auch Daten im Rahmen einer Sicherungs-oder Wiederherstellungs Sequenz dupliziert oder wieder hergestellt. Wenn das Skript fehlschlägt, wird ein Fehler zurückgegeben, und DiskShadow wird beendet.
 
-
-Führt eine Datei auf dem lokalen Computer aus. Bei der Datei kann es sich um ein **cmd** -Skript handeln.
+Bei der Datei kann es sich um ein **cmd** -Skript handeln.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-exec <ScriptFile.cmd>
+exec <scriptfile.cmd>
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|\<> "scriptfile. cmd"|Gibt die auszuführende Skriptdatei an.|
-
-## <a name="remarks"></a>Bemerkungen
-
--   Dieser Befehl wird verwendet, um Daten im Rahmen einer Sicherungs-oder Wiederherstellungs Sequenz zu duplizieren oder wiederherzustellen.
--   Wenn das Skript fehlschlägt, wird ein Fehler zurückgegeben, und DiskShadow wird beendet.
+| Parameter | Beschreibung |
+| --------- | ----------- |
+| `<scriptfile.cmd>` | Gibt die Skriptdatei an, die ausgeführt werden soll. |
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [DiskShadow-Befehl](diskshadow.md)

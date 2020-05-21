@@ -9,16 +9,16 @@ ms.assetid: 7f899e62-6e5b-4fca-9a59-130d4766ee2f
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/10/2018
-ms.openlocfilehash: da9164eea4ab7e2fb38864fb69c47252448b77b6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f5a7ec331c9d70214cbd0a772de6e2b2c7f4f58e
+ms.sourcegitcommit: 7116460855701eed4e09d615693efa4fffc40006
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80854423"
+ms.lasthandoff: 05/15/2020
+ms.locfileid: "83433174"
 ---
 # <a name="requirements-for-deploying-network-controller"></a>Anforderungen für die Bereitstellung des Netzwerk Controllers
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
 Bereiten Sie Ihr Daten Center auf die Bereitstellung des Netzwerk Controllers vor, für die mindestens ein Computer oder ein virtueller Computer und ein Computer oder ein virtueller Computer erforderlich ist. Bevor Sie den Netzwerk Controller bereitstellen können, müssen Sie die Sicherheitsgruppen, die Protokolldatei Speicherorte (falls erforderlich) und die dynamische DNS-Registrierung konfigurieren.
 
@@ -36,7 +36,7 @@ Die Bereitstellung des Netzwerk Controllers erfordert mindestens einen Computer 
 
 Vor der Bereitstellung des Netzwerk Controllers müssen Sie die Sicherheitsgruppen, die Protokolldatei Speicherorte (falls erforderlich) und die dynamische DNS-Registrierung konfigurieren.
 
-### <a name="step-1-configure-your-security-groups"></a>Schritt 1 Sicherheitsgruppen konfigurieren
+### <a name="step-1-configure-your-security-groups"></a>Schritt 1. Sicherheitsgruppen konfigurieren
 
 Als erstes erstellen Sie zwei Sicherheitsgruppen für die Kerberos-Authentifizierung. 
 
@@ -48,7 +48,7 @@ Sie erstellen Gruppen für Benutzer, die über die folgenden Berechtigungen verf
 >[!NOTE]
 >Alle Benutzer, die Sie hinzufügen, müssen Mitglied der Gruppe "Domänen Benutzer" in Active Directory Benutzer und Computer sein.
 
-### <a name="step-2-configure-log-file-locations-if-needed"></a>Schritt 2 Protokolldatei Speicherorte bei Bedarf konfigurieren
+### <a name="step-2-configure-log-file-locations-if-needed"></a>Schritt 2 Protokolldatei Speicherorte bei Bedarf konfigurieren
 
 Als Nächstes konfigurieren Sie die Dateispeicher Orte für die Speicherung von Netzwerk Controller-Debugprotokollen entweder auf dem Netzwerk Controller Computer, auf dem virtuellen Computer oder auf einer Remote Dateifreigabe. 
 
@@ -56,12 +56,12 @@ Als Nächstes konfigurieren Sie die Dateispeicher Orte für die Speicherung von 
 >Wenn Sie die Protokolle in einer Remote Dateifreigabe speichern, stellen Sie sicher, dass die Freigabe vom Netzwerk Controller aus zugänglich ist.
 
 
-### <a name="step-3-configure-dynamic-dns-registration-for-network-controller"></a>Schritt 3: Konfigurieren der dynamischen DNS-Registrierung für den Netzwerk Controller
+### <a name="step-3-configure-dynamic-dns-registration-for-network-controller"></a>Schritt 3: Konfigurieren der dynamischen DNS-Registrierung für den Netzwerk Controller
 
 Schließlich möchten Sie als nächstes Netzwerk Controller-Cluster Knoten im gleichen Subnetz oder in anderen Subnetzen bereitstellen. 
 
 
-|         Situation         |                                                                                                                                                         Auswirkung                                                                                                                                                         |
+|         Situation         |                                                                                                                                                         Folge                                                                                                                                                         |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  Im gleichen Subnetz:  |                                                                                                                                Sie müssen die Rest-IP-Adresse des Netzwerk Controllers angeben.                                                                                                                                 |
 | In unterschiedlichen Subnetzen | Sie müssen den Rest-DNS-Namen des Netzwerk Controllers angeben, den Sie während des Bereitstellungs Vorgangs erstellen. Sie müssen auch die folgenden Schritte ausführen:<ul><li>Konfigurieren Sie dynamische DNS-Updates für den DNS-Namen des Netzwerk Controllers auf dem DNS-Server.</li><li>Beschränken Sie die dynamischen DNS-Updates nur auf Netzwerk Controller Knoten.</li></ul> |
@@ -102,7 +102,7 @@ Schließlich möchten Sie als nächstes Netzwerk Controller-Cluster Knoten im gl
 
 3. Wiederholen Sie diesen Vorgang für alle Computer und VMS im Netzwerk Controller Cluster.
 
-### <a name="step-4-configure-service-principal-name-if-using-kerberos-based-authentication"></a>Schritt 4 Konfigurieren des Dienst Prinzipal namens bei Verwendung der Kerberos-basierten Authentifizierung
+### <a name="step-4-configure-service-principal-name-if-using-kerberos-based-authentication"></a>Schritt 4: Konfigurieren des Dienst Prinzipal namens bei Verwendung der Kerberos-basierten Authentifizierung
 
 Wenn der Netzwerk Controller die Kerberos-basierte Authentifizierung für die Kommunikation mit Verwaltungs Clients verwendet, müssen Sie einen Dienst Prinzipal Namen (SPN) für den Netzwerk Controller in Active Directory konfigurieren. Der SPN wird vom Netzwerk Controller automatisch konfiguriert. Sie müssen lediglich Berechtigungen für die Netzwerk Controller Computer bereitstellen, um den SPN zu registrieren und zu ändern. Weitere Informationen finden Sie unter [Konfigurieren von Dienst Prinzipal Namen (SPN)](https://docs.microsoft.com/windows-server/networking/sdn/security/kerberos-with-spn#configure-service-principal-names-spn).
 
@@ -126,10 +126,6 @@ Es gibt drei virtuelle Gateway-Computer: zwei sind aktiv, und eine ist redundant
 
 ![SDN-NC-Planung](../../media/Plan-a-Software-Defined-Network-Infrastructure/SDN-GW-Deployment.png)  
 
-
-
-Bei der Automatisierung der TP5-basierten Bereitstellung müssen Active Directory in diesen Subnetzen verfügbar und erreichbar sein. Weitere Informationen zu Active Directory finden Sie unter [Active Directory Domain Services Übersicht](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).  
-
 >[!IMPORTANT] 
 >Wenn Sie mithilfe von VMM bereitstellen, stellen Sie sicher, dass die virtuellen Computer der Infrastruktur (VMM-Server, AD/DNS, SQL Server usw.) nicht auf einem der vier in den Diagrammen angezeigten Hosts gehostet werden.  
 
@@ -137,7 +133,7 @@ Bei der Automatisierung der TP5-basierten Bereitstellung müssen Active Director
 ## <a name="next-steps"></a>Nächste Schritte
 [Planen Sie eine Software definierte Netzwerkinfrastruktur](https://technet.microsoft.com/windows-server-docs/networking/sdn/plan/plan-a-software-defined-network-infrastructure).
 
-## <a name="related-topics"></a>Verwandte Themen
+## <a name="related-topics"></a>Zugehörige Themen
 - [Netzwerkcontroller](../technologies/network-controller/Network-Controller.md) 
 - [Hohe Verfügbarkeit des Netzwerk Controllers](../technologies/network-controller/network-controller-high-availability.md) 
 - [Bereitstellen des Netzwerkcontrollers mithilfe von Windows PowerShell](../deploy/Deploy-Network-Controller-using-Windows-PowerShell.md)   

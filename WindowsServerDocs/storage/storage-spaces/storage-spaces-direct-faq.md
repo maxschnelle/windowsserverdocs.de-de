@@ -57,7 +57,7 @@ Verwenden Sie das integrierte Hilfsprogramm Perfmon, um die Cache Fehler zu übe
 
 ## <a name="is-there-a-calculator-that-shows-the-exact-size-of-the-disks-that-are-being-set-aside-for-cache-capacity-and-resiliency-that-would-enable-me-to-plan-better"></a>Gibt es einen Rechner, der die genaue Größe der Datenträger anzeigt, die für den Cache, die Kapazität und die Resilienz reserviert werden, sodass ich besser planen kann?
 
-Sie können den Speicherplatz Rechner verwenden, um Sie bei der Planung zu unterstützen. Es ist unter https://aka.ms/s2dcalcverfügbar.
+Sie können den Speicherplatz Rechner verwenden, um Sie bei der Planung zu unterstützen. Es ist unter verfügbar https://aka.ms/s2dcalc .
 
 ## <a name="what-is-the-best-configuration-that-you-would-recommend-when-configuring-6-servers-and-3-racks"></a>Was ist die beste Konfiguration, die Sie beim Konfigurieren von 6 Servern und 3 Racks empfehlen sollten?
 

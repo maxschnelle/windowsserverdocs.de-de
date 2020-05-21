@@ -1,6 +1,6 @@
 ---
 title: Sicherung beenden
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den End Backup-Befehl, der eine vollständige Sicherungs Sitzung beendet und ggf. ein **Backup Complete** -Ereignis mit dem entsprechenden Writer-Zustand ausgibt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,17 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 941ab648c4811facd284d49a4797e50ba5241ee6
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 6d9cb3cbf474b5306a1cac7df4516f0492740591
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720849"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436905"
 ---
 # <a name="end-backup"></a>Sicherung beenden
-
-
-
 
 Beendet eine vollständige Sicherungs Sitzung und gibt ggf. ein **BackupComplete** -Ereignis mit dem entsprechenden Writer-Status aus.
 
@@ -28,10 +25,6 @@ Beendet eine vollständige Sicherungs Sitzung und gibt ggf. ein **BackupComplete
 ```
 end backup
 ```
-
-## <a name="remarks"></a>Bemerkungen
-
--   Dieser Befehl sollte für alle vollständigen Sicherungen verwendet werden.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 

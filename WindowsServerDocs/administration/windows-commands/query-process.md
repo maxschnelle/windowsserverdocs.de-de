@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 81132ebf6b75115086ed7cc2ab9f73d9d06e65e4
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 9ac3e5a458d88d945e857cd1922783e5b0ff5cf0
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722720"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436285"
 ---
 # <a name="query-process"></a>query process
 
@@ -30,8 +30,8 @@ Mit diesem Befehl können Sie herausfinden, welche Programme von einem bestimmte
 > query process [* | <ProcessID> | <UserName> | <SessionName> | /id:<nn> | <ProgramName>] [/server:<ServerName>]
 > ```
 > ### <a name="parameters"></a>Parameter
-> 
-> |      Parameter       |                                                                 BESCHREIBUNG                                                                  |
+>
+> |      Parameter       |                                                                 Beschreibung                                                                  |
 > |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
 > |          \*          |                                                    Listet die Prozesse für alle Sitzungen auf.                                                     |
 > |     <ProcessID>      |                                   Gibt die numerische ID an, die den Prozess identifiziert, den Sie Abfragen möchten.                                   |
@@ -41,10 +41,10 @@ Mit diesem Befehl können Sie herausfinden, welche Programme von einem bestimmte
 > |    <ProgramName>     |                     Gibt den Namen des Programms an, dessen Prozesse Sie Abfragen möchten. Die Erweiterung ". exe" ist erforderlich.                     |
 > | /server:<ServerName> | Gibt den Remote Desktop-Sitzungs Host Server an, dessen Prozesse Sie auflisten möchten. Wenn keine Angabe erfolgt, wird der Server verwendet, auf dem Sie zurzeit angemeldet sind. |
 > |          /?          |                                                     Zeigt die Hilfe an der Eingabeaufforderung an.                                                     |
-> 
-> ## <a name="remarks"></a>Bemerkungen
+>
+>#### <a name="remarks"></a>Hinweise
 > - Administratoren haben Vollzugriff auf alle **Abfrageprozess** Funktionen.
-> - Wenn Sie die <*username*>, <*Sessionname*>, **/ID:**<*NN*>, <*Programmname*> oder **\\***-Parametern nicht angeben, zeigt der **Abfrageprozess** nur die Prozesse an, die zum aktuellen Benutzer gehören.
+> - Wenn Sie die <*username*>, <*Sessionname*>, **/ID:** < *NN*>, <*Programmname*> oder *-Parametern nicht angeben, **\\** zeigt der **Abfrageprozess** nur die Prozesse an, die zum aktuellen Benutzer gehören.
 > - Wenn eine Sitzung angegeben wird, muss eine aktive Sitzung identifiziert werden.
 > - der **Abfrageprozess** gibt die folgenden Informationen zurück:
 >   -   Der Benutzer, der den Prozess besitzt.
@@ -63,6 +63,6 @@ Mit diesem Befehl können Sie herausfinden, welche Programme von einem bestimmte
 >   query process /ID:2
 >   ```
 >   ## <a name="additional-references"></a>Zusätzliche Referenzen
->   - [Befehlszeilen Syntax Key](command-line-syntax-key.md)
->   [Query](query.md)
->   [Remotedesktopdienste (Terminal Dienste) Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+>   - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+>    [Abfrage](query.md) 
+>    [Befehlsreferenz für Remotedesktopdienste (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)

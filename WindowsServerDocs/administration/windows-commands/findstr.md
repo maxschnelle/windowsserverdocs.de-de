@@ -1,6 +1,6 @@
 ---
 title: findstr
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den findstr-Befehl, der in Dateien nach Textmustern sucht.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,133 +9,130 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 97cc58d2b87190c43137e8b193f0217fb98c006c
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 7f8d353b6d3aee77960b208d89372aee5dca07e3
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725599"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436116"
 ---
 # <a name="findstr"></a>findstr
 
 Sucht Textmuster in Dateien.
 
-Beispiele für das Verwenden dieses Befehls finden Sie unter [Beispiele](#examples).
-
 ## <a name="syntax"></a>Syntax
 
 ```
-findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] [/c:<String>] [/g:<File>] [/d:<DirList>] [/a:<ColorAttribute>] [/off[line]] <Strings> [<Drive>:][<Path>]<FileName>[ ...]
+findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<file>] [/c:<string>] [/g:<file>] [/d:<dirlist>] [/a:<colorattribute>] [/off[line]] <strings> [<drive>:][<path>]<filename>[ ...]
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|/b|Entspricht dem Textmuster, wenn es sich am Anfang einer Zeile befindet.|
-|/e|Entspricht dem Textmuster, wenn es sich am Ende einer Zeile befindet.|
-|/l|Verarbeitet Such Zeichenfolgen buchstäblich.|
-|/r|Verarbeitet Such Zeichenfolgen als reguläre Ausdrücke. Dies ist die Standardeinstellung.|
-|/s|Durchsucht das aktuelle Verzeichnis und alle Unterverzeichnisse.|
-|/i|Ignoriert bei der Suche nach der Zeichenfolge die Groß-/Kleinschreibung der Zeichen.|
-|/x|Druckt Zeilen, die exakt übereinstimmen.|
-|/v|Druckt nur Zeilen, die keine Entsprechung enthalten.|
-|/n|Gibt die Zeilennummer der einzelnen Zeilen aus, die mit übereinstimmen.|
-|/m|Druckt nur den Dateinamen, wenn eine Datei eine Entsprechung enthält.|
-|/o|Druckt den Zeichen Offset vor jeder übereinstimmenden Zeile.|
-|/p|Überspringt Dateien mit nicht druckbaren Zeichen.|
-|/Off [Zeile]|Überspringt keine Dateien, für die das Offline-Attribut festgelegt ist.|
-|/f:\<Datei>|Ruft eine Datei Liste aus der angegebenen Datei ab.|
-|/c:\<Zeichenfolge>|Verwendet den angegebenen Text als Literale Such Zeichenfolge.|
-|/g:\<Datei>|Ruft Such Zeichenfolgen aus der angegebenen Datei ab.|
-|/d:\<dirlist->|Durchsucht die angegebene Liste von Verzeichnissen. Jedes Verzeichnis muss durch ein Semikolon (z `dir1;dir2;dir3`. b.;) getrennt werden.|
-|/a:\<ColorAttribute->|Gibt Farb Attribute mit zwei hexadezimal Ziffern an. Geben `color /?` Sie für zusätzliche Informationen ein.|
-|\<Zeichen folgen>|Gibt den Text an, nach dem in *filename*gesucht werden soll. Erforderlich.|
-|[\<Laufwerk>:] [<Path>]<FileName>[ ...]|Gibt den Speicherort und die Datei an, die durchsucht werden sollen. Mindestens ein Dateiname ist erforderlich.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+| Parameter | Beschreibung |
+| --------- | ----------- |
+| /b | Entspricht dem Textmuster, wenn es sich am Anfang einer Zeile befindet. |
+| /e | Entspricht dem Textmuster, wenn es sich am Ende einer Zeile befindet. |
+| /l | Verarbeitet Such Zeichenfolgen buchstäblich. |
+| /r | Verarbeitet Such Zeichenfolgen als reguläre Ausdrücke. Dies ist die Standardeinstellung. |
+| /s | Durchsucht das aktuelle Verzeichnis und alle Unterverzeichnisse. |
+| /i | Ignoriert bei der Suche nach der Zeichenfolge die Groß-/Kleinschreibung der Zeichen. |
+| /x | Druckt Zeilen, die exakt übereinstimmen. |
+| /v | Druckt nur Zeilen, die keine Entsprechung enthalten. |
+| /n | Gibt die Zeilennummer der einzelnen Zeilen aus, die mit übereinstimmen. |
+| /m | Druckt nur den Dateinamen, wenn eine Datei eine Entsprechung enthält. |
+| /o | Druckt den Zeichen Offset vor jeder übereinstimmenden Zeile. |
+| /p | Überspringt Dateien mit nicht druckbaren Zeichen. |
+| /Off [Zeile] | Überspringt keine Dateien, für die das Offline-Attribut festgelegt ist. |
+| /f`<file>` | Ruft eine Datei Liste aus der angegebenen Datei ab. |
+| /c`<string>` | Verwendet den angegebenen Text als Literale Such Zeichenfolge. |
+| /g`<file>` | Ruft Such Zeichenfolgen aus der angegebenen Datei ab. |
+| /d`<dirlist>` | Durchsucht die angegebene Liste von Verzeichnissen. Jedes Verzeichnis muss durch ein Semikolon (z. b.;) getrennt werden `dir1;dir2;dir3` . |
+| /a`<colorattribute>` | Gibt Farb Attribute mit zwei hexadezimal Ziffern an. Geben Sie `color /?` für zusätzliche Informationen ein. |
+| `<strings>` | Gibt den Text an, nach dem in *filename*gesucht werden soll. Erforderlich. |
+| `[\<drive>:][<path>]<filename>[ ...]` | Gibt den Speicherort und die Datei an, die durchsucht werden sollen. Mindestens ein Dateiname ist erforderlich. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Alle **findstr** -Befehlszeilenoptionen müssen den Zeichen *folgen* und *filename* in der Befehls Zeichenfolge vorangestellt sein.
-- Reguläre Ausdrücke verwenden sowohl Literalzeichen als auch Metazeichen, um Textmuster zu suchen, anstelle von exakten Zeichen folgen. Ein Literalzeichen ist ein Zeichen, das in der Syntax für reguläre Ausdrücke keine besondere Bedeutung hat – es entspricht einem Vorkommen dieses Zeichens. Buchstaben und Ziffern sind z. b. Literalzeichen. Ein Metazeichen ist ein Symbol mit spezieller Bedeutung (Operator oder Trennzeichen) in der Syntax für reguläre Ausdrücke.
 
-  In der folgenden Tabelle werden die Metazeichen aufgelistet, die von **findstr** akzeptiert werden.  
+- Reguläre Ausdrücke verwenden sowohl Literalzeichen als auch Meta-Zeichen, um Textmuster zu suchen, anstelle von exakten Zeichen folgen.
 
-  |Metazeichen|Wert|
-  |-------------|-----|
-  |.|Platzhalter Zeichen: beliebiges Zeichen|
-  |*|Wiederholung: NULL oder mehr Vorkommen des vorherigen Zeichens oder der vorherigen Klasse|
-  |^|Zeilen Position: Zeilen Anfang|
-  |$|Zeilen Position: Ende der Zeile|
-  |klassi|Zeichenklasse: beliebiges Zeichen in einer Menge|
-  |[^-Klasse]|Inverse Klasse: ein beliebiges Zeichen, das nicht in einer Menge vorhanden ist|
-  |[x-y]|Range: beliebige Zeichen innerhalb des angegebenen Bereichs|
-  |\x|Escape: Literale Verwendung eines Metazeichens x|
-  |\\<Zeichenfolge|Word-Position: Anfang des Worts|
-  |string\>|Word-Position: Ende des Worts|
+  - Ein Literalzeichen ist ein Zeichen, das in der Syntax für reguläre Ausdrücke keine besondere Bedeutung hat. Stattdessen entspricht er einem Vorkommen dieses Zeichens. Buchstaben und Ziffern sind z. b. Literalzeichen.
 
-  Die Sonderzeichen in der Syntax regulärer Ausdrücke haben die größte Potenz, wenn Sie Sie gleichzeitig verwenden. Verwenden Sie beispielsweise die folgende Kombination aus dem Platzhalter Zeichen (.) und dem Wiederholungs Zeichen (*), um eine beliebige Zeichenfolge abzugleichen:
+  - Ein Meta-Zeichen ist ein Symbol mit spezieller Bedeutung (Operator oder Trennzeichen) in der Syntax für reguläre Ausdrücke.
 
-  ```
-  .*
-  ``` 
+    Folgende Meta-Zeichen werden akzeptiert:
 
-  Verwenden Sie den folgenden Ausdruck als Teil eines größeren Ausdrucks, um eine beliebige Zeichenfolge abzugleichen, die mit "b" beginnt und mit "" endet 
+    | Meta-Zeichen | Value |
+    | -------------- | ----- |
+    | `.` | Platz **Halter-** beliebiges Zeichen |
+    | `*` | **Wiederholen** Sie 0 (null) oder mehr Vorkommen des vorherigen Zeichens oder der vorherigen Klasse. |
+    | `^` | **Zeilen Position** -Anfang der Zeile. |
+    | `$` | **Endzeilige Position** -Ende der Zeile. |
+    | `[class]` | **Zeichenklasse** -beliebiges Zeichen in einer Menge. |
+    | `[^class]` | **Inverse Klasse** -ein beliebiges Zeichen, das nicht in einer Menge vorhanden ist. |
+    | `[x-y]` | **Range** -beliebige Zeichen innerhalb des angegebenen Bereichs. |
+    | `\x` | Escapeliterale Verwendung eines **Meta-Zeichens** . |
+    | `<string` | **Beginn der Wort Position** -Anfang des Worts. |
+    | `string>` | Ende der **Wort Position** -Ende des Worts. |
 
-  ```
-  b.*ing
-  ```
+    Die Sonderzeichen in der Syntax regulärer Ausdrücke haben die größte Potenz, wenn Sie Sie gleichzeitig verwenden. Verwenden Sie z. b. die Kombination aus dem Platzhalter Zeichen ( `.` ) und dem Wiederholungs Zeichen ( `*` ), um eine beliebige Zeichenfolge abzugleichen:`.*`
 
-## <a name="examples"></a>Beispiele
+    Verwenden Sie den folgenden Ausdruck als Teil eines größeren Ausdrucks, um eine beliebige Zeichenfolge abzugleichen, die *mit "* *b* " beginnt und mit "" endet`b.*ing`
 
-Verwenden Sie Leerzeichen, um mehrere Such Zeichenfolgen zu trennen, **/c**es sei denn, das-Argument weist das
+- Wenn Sie mehrere Zeichen folgen in einem Satz von Dateien suchen möchten, müssen Sie eine Textdatei erstellen, die jedes Suchkriterium in einer separaten Zeile enthält.
 
-Wenn Sie in der Datei x. y nach Hello oder dort suchen möchten, geben Sie Folgendes ein:
+- Verwenden Sie Leerzeichen, um mehrere Such Zeichenfolgen zu trennen, **/c**es sei denn, das-Argument weist das
 
-```
-findstr hello there x.y 
-```
+### <a name="examples"></a>Beispiele
 
-Geben Sie Folgendes ein, um in der Datei x. y nach "Hello" zu suchen:
+Wenn Sie in der Datei *x. y*nach *Hello* oder *dort* suchen möchten, geben Sie Folgendes ein:
 
 ```
-findstr /c:hello there x.y 
+findstr hello there x.y
 ```
 
-Wenn Sie alle Vorkommen des Word-Windows (mit dem ersten Großbuchstaben "W") in der Datei "" "" ". txt" suchen möchten, geben Sie
+Geben Sie Folgendes ein, um in der Datei *x. y*nach " *Hello* " zu suchen:
 
 ```
-findstr Windows proposal.txt 
+findstr /c:hello there x.y
 ```
 
-Geben Sie Folgendes ein, um jede Datei im aktuellen Verzeichnis und alle Unterverzeichnisse zu durchsuchen, die das Word-Fenster enthalten, unabhängig vom Buchstaben Fall:
+Wenn Sie alle Vorkommen des Word- *Windows* (mit dem ersten Großbuchstaben "W") in der Datei "" "" " *. txt*" suchen möchten, geben Sie
 
 ```
-findstr /s /i Windows *.* 
+findstr Windows proposal.txt
 ```
 
-Geben Sie Folgendes ein, um alle Vorkommen von Zeilen zu suchen, die mit für und mit 0 (null) oder mehr Leerzeichen (wie in einer Computerprogramm Schleife) beginnen, und um die Zeilennummer anzuzeigen, in der die einzelnen Vorkommen gefunden werden:
+Geben Sie Folgendes ein, um jede Datei im aktuellen Verzeichnis und alle Unterverzeichnisse zu durchsuchen, die das Word- *Fenster*enthalten, unabhängig vom Buchstaben Fall:
 
 ```
-findstr /b /n /r /c:^ *FOR *.bas 
+findstr /s /i Windows *.*
 ```
 
-Wenn Sie mehrere Zeichen folgen in einem Satz von Dateien suchen möchten, erstellen Sie eine Textdatei, die jedes Suchkriterium in einer separaten Zeile enthält. Sie können auch die genauen Dateien auflisten, die Sie in einer Textdatei durchsuchen möchten. Wenn Sie z. b. die Suchkriterien in der Datei "stringlist. txt" verwenden möchten, suchen Sie die in FileList. txt aufgeführten Dateien, und speichern Sie dann die Ergebnisse in den Datei Ergebnissen. out, geben Sie Folgendes ein:
+Geben Sie Folgendes ein, um alle Vorkommen von Zeilen zu suchen, die mit *für* und mit 0 (null) oder mehr Leerzeichen (wie in einer Computerprogramm Schleife) beginnen, und um die Zeilennummer anzuzeigen, in der die einzelnen Vorkommen gefunden werden:
 
 ```
-findstr /g:stringlist.txt /f:filelist.txt > results.out 
+findstr /b /n /r /c:^ *FOR *.bas
 ```
 
-Geben Sie Folgendes ein, um jede Datei mit dem Word-Computer im aktuellen Verzeichnis und allen Unterverzeichnissen aufzulisten, unabhängig von der Groß-/Kleinschreibung:
+Um die genauen Dateien aufzulisten, die Sie in einer Textdatei suchen möchten, verwenden Sie die Suchkriterien in der Datei " *stringlist. txt*", um die in " *FileList. txt*" aufgeführten Dateien zu durchsuchen und die Ergebnisse dann in den Datei Ergebnissen zu speichern *. Geben Sie*Folgendes ein:
 
 ```
-findstr /s /i /m \<computer\> *.*
+findstr /g:stringlist.txt /f:filelist.txt > results.out
+```
+
+Geben Sie Folgendes ein, um jede Datei mit dem Word- *Computer* im aktuellen Verzeichnis und allen Unterverzeichnissen aufzulisten, unabhängig von der Groß-/Kleinschreibung:
+
+```
+findstr /s /i /m <computer> *.*
 ```
 
 Geben Sie Folgendes ein, um alle Dateien mit dem Wort Computer und alle anderen Wörter aufzulisten, die mit Comp beginnen (z. b. "Kompliment" und "konkurrieren"):
 
 ```
-findstr /s /i /m \<comp.* *.*
+findstr /s /i /m <comp.* *.*
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen

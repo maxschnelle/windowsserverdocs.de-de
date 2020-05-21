@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bfba4b6a1c75183d58664e74da22bb7f8b866739
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 24d5d46a0a994ca44230076786fbd59c00cbdc57
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993161"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83437055"
 ---
 # <a name="cscript"></a>cscript
 
@@ -33,24 +33,24 @@ cscript <scriptname.extension> [/b] [/d] [/e:<engine>] [{/h:cscript | /h:wscript
 
 #### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | ScriptName. Extension | Gibt den Pfad und den Dateinamen der Skriptdatei mit der optionalen Dateinamenerweiterung an. |
 | /b | Gibt den Batch Modus an, in dem keine Warnungen, Skript Fehler oder Eingabe Aufforderungen angezeigt werden. |
 | /d | Startet den Debugger. |
 | /e:`<engine>` | Gibt die Engine an, die zum Ausführen des Skripts verwendet wird. |
 | /h: cscript | Registriert "Cscript. exe" als Standardskript Host für das Ausführen von Skripts. |
-| /h: WScript | Registriert "Wscript. exe" als Standardskript Host für das Ausführen von Skripts. Dies ist die Standardeinstellung. |
-| /i | Gibt den interaktiven Modus an, in dem Warnungen, Skript Fehler und Eingabe Aufforderungen angezeigt werden. Dies ist die Standardeinstellung und das Gegenteil `/b`von. |
+| /h: WScript | Registriert "Wscript. exe" als Standardskript Host für das Ausführen von Skripts. Dies ist der Standardwert. |
+| /i | Gibt den interaktiven Modus an, in dem Warnungen, Skript Fehler und Eingabe Aufforderungen angezeigt werden. Dies ist die Standardeinstellung und das Gegenteil von `/b` . |
 | /Auftrag<identifier> | Führt den durch den *Bezeichner* identifizierten Auftrag in einer WSF-Skriptdatei aus. |
-| /logo | Gibt an, dass das Windows Script Host-Banner in der-Konsole angezeigt wird, bevor das Skript ausgeführt wird. Dies ist die Standardeinstellung und das Gegenteil `/nologo`von. |
+| /logo | Gibt an, dass das Windows Script Host-Banner in der-Konsole angezeigt wird, bevor das Skript ausgeführt wird. Dies ist die Standardeinstellung und das Gegenteil von `/nologo` . |
 | /nologo | Gibt an, dass das Windows Script Host-Banner vor dem Ausführen des Skripts nicht angezeigt wird. |
 | /s | Speichert die aktuellen Eingabe Aufforderungs Optionen für den aktuellen Benutzer. |
 | /t:<seconds> | Gibt die maximale Zeit an, die das Skript ausgeführt werden kann (in Sekunden). Sie können bis zu 32.767 Sekunden angeben. Der Standardwert ist kein Zeit Limit. |
 | /U | Gibt Unicode für die Eingabe und die Ausgabe an, die von der Konsole umgeleitet werden. |
 | /x | Startet das Skript im Debugger. |
 | /? | Zeigt verfügbare Befehlsparameter an und bietet Hilfe zur Verwendung. Dies ist identisch mit der Eingabe von " **cscript. exe** " ohne Parameter und ohne Skript. |
-| scriptarguments | Gibt die Argumente an, die an das Skript geleitet werden. Jedem Skript Argument muss ein Schrägstrich (**/**) vorangestellt werden. |
+| scriptarguments | Gibt die Argumente an, die an das Skript geleitet werden. Jedem Skript Argument muss ein Schrägstrich () vorangestellt werden **/** . |
 
 #### <a name="remarks"></a>Hinweise
 
@@ -62,6 +62,6 @@ cscript <scriptname.extension> [/b] [/d] [/e:<engine>] [{/h:cscript | /h:wscript
 
 - Wenn Sie auf eine Skriptdatei mit einer Erweiterung ohne Zuordnung doppelklicken, wird das Dialogfeld **Öffnen mit** angezeigt. Wählen Sie Wscript oder cscript aus, und wählen Sie dann **dieses Programm immer verwenden aus, um diesen Dateityp zu öffnen**. Dadurch wird "Wscript. exe" oder "Cscript" als Standardskript Host für Dateien dieses Dateityps registriert.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

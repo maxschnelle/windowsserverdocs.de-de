@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: d0ee0a9f87eacefad619e82aa28f5fcf8419ed09
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 0145de2828c1d33cf1b82f595dd6c00812ace54e
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720620"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436785"
 ---
 # <a name="xcopy"></a>xcopy
 
@@ -30,10 +30,10 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |\<Quell>|Erforderlich. Gibt den Speicherort und die Namen der Dateien an, die Sie kopieren möchten. Dieser Parameter muss entweder ein Laufwerk oder einen Pfad enthalten.|
-|[\<Ziel>]|Gibt das Ziel der Dateien an, die Sie kopieren möchten. Dieser Parameter kann einen Laufwerk Buchstaben, einen Doppelpunkt, einen Verzeichnisnamen, einen Dateinamen oder eine Kombination dieser Parameter enthalten.|
+|[ \< Ziel>]|Gibt das Ziel der Dateien an, die Sie kopieren möchten. Dieser Parameter kann einen Laufwerk Buchstaben, einen Doppelpunkt, einen Verzeichnisnamen, einen Dateinamen oder eine Kombination dieser Parameter enthalten.|
 |/w|Zeigt die folgende Meldung an und wartet auf die Antwort, bevor mit dem Kopieren von Dateien begonnen wird:</br>**Drücken Sie eine beliebige Taste, um mit dem Kopieren von Dateien zu beginnen.**|
 |/p|Sie werden aufgefordert, zu bestätigen, ob Sie die einzelnen Zieldateien erstellen möchten.|
 |/C|Ignoriert Fehler.|
@@ -56,7 +56,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/n|Erstellt Kopien mithilfe der kurzen NTFS-Datei-oder Verzeichnisnamen. **/n** ist erforderlich, wenn Sie Dateien oder Verzeichnisse von einem NTFS-Volume auf ein FAT-Volume kopieren oder wenn die Benennungs Konvention für FAT-Dateisystem (8,3 Zeichen) im *Ziel* Dateisystem erforderlich ist. Das *Ziel* Dateisystem kann FAT oder NTFS sein.|
 |/o|Kopiert Dateibesitz-und freigegebene Informationen zur Zugriffs Steuerungs Liste (DACL).|
 |/x|Kopiert Datei Überwachungs Einstellungen und SACL (System Access Control List)-Informationen (impliziert **/o**).|
-|/Exclude: FileName1 [+ [FileName2] [+ [FileName3] ( \)]|Gibt eine Liste von Dateien an. Es muss mindestens eine Datei angegeben werden. Jede Datei enthält Such Zeichenfolgen mit jeder Zeichenfolge in einer separaten Zeile in der Datei.</br>Wenn eine der Zeichen folgen einem beliebigen Teil des absoluten Pfads der zu kopierenden Datei entspricht, wird diese Datei nicht mehr kopiert. Wenn Sie z. b. die Zeichenfolge **obj** angeben, werden alle Dateien unter dem Verzeichnis **obj** oder alle Dateien mit der **. obj** -Erweiterung ausgeschlossen.|
+|/Exclude: FileName1 [+ [FileName2] [+ [FileName3] ( \) ]|Gibt eine Liste von Dateien an. Es muss mindestens eine Datei angegeben werden. Jede Datei enthält Such Zeichenfolgen mit jeder Zeichenfolge in einer separaten Zeile in der Datei.</br>Wenn eine der Zeichen folgen einem beliebigen Teil des absoluten Pfads der zu kopierenden Datei entspricht, wird diese Datei nicht mehr kopiert. Wenn Sie z. b. die Zeichenfolge **obj** angeben, werden alle Dateien unter dem Verzeichnis **obj** oder alle Dateien mit der **. obj** -Erweiterung ausgeschlossen.|
 |/y|Unterdrückt die Eingabeaufforderung, um zu bestätigen, dass Sie eine vorhandene Zieldatei überschreiben möchten.|
 |/-y|Fordert Sie auf zu bestätigen, dass Sie eine vorhandene Zieldatei überschreiben möchten.|
 |/z|Kopiert über ein Netzwerk im neu startbaren Modus.|
@@ -64,7 +64,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/j|Kopiert Dateien ohne Pufferung. Empfohlen für sehr große Dateien. Dieser Parameter wurde in Windows Server 2008 R2 hinzugefügt.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 - Verwenden von **"/z**
 
@@ -88,12 +88,12 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 - Angeben, ob das *Ziel* eine Datei oder ein Verzeichnis ist
 
-  Wenn das *Ziel* kein vorhandenes Verzeichnis enthält und nicht mit einem umgekehrten Schrägstrich endet (\), wird die folgende Meldung angezeigt:
-  
+  Wenn das *Ziel* kein vorhandenes Verzeichnis enthält und nicht mit einem umgekehrten Schrägstrich endet ( \) , wird die folgende Meldung angezeigt:
+
   ```
   Does <Destination> specify a file name or directory name on the target(F = file, D = directory)?
-  ```  
-  
+  ```
+
 Drücken Sie F, wenn Sie möchten, dass die Dateien in eine Datei kopiert werden. Drücken Sie D, wenn Sie möchten, dass die Dateien in ein Verzeichnis kopiert werden.
 
   Sie können diese Meldung unterdrücken, indem Sie die Befehlszeilenoption **/i** verwenden. Dadurch wird von **xcopy** angenommen, dass es sich bei dem Ziel um ein Verzeichnis handelt, wenn die Quelle mehr als eine Datei oder ein Verzeichnis ist.
@@ -107,7 +107,7 @@ Drücken Sie F, wenn Sie möchten, dass die Dateien in eine Datei kopiert werden
 
 - Exitcodes für **xcopy**
 
-  Um die von **xcopy**zurückgegebenen Exitcodes zu verarbeiten, verwenden Sie den **ERRORLEVEL** -Parameter in der **if** -Befehlszeile in einem Batch-Programm. Ein Beispiel für ein Batch-Programm, das Exitcodes mithilfe von **if**verarbeitet, finden Sie unter [Zusätzliche Verweise](#additional-references). In der folgenden Tabelle sind die einzelnen Exitcodes und Beschreibungen aufgeführt.  
+  Um die von **xcopy**zurückgegebenen Exitcodes zu verarbeiten, verwenden Sie den **ERRORLEVEL** -Parameter in der **if** -Befehlszeile in einem Batch-Programm. Ein Beispiel für ein Batch-Programm, das Exitcodes mithilfe von **if**verarbeitet, finden Sie unter [Zusätzliche Verweise](#additional-references). In der folgenden Tabelle sind die einzelnen Exitcodes und Beschreibungen aufgeführt.
 
   |Exitcode|BESCHREIBUNG|
   |---------|-----------|
@@ -122,7 +122,7 @@ Drücken Sie F, wenn Sie möchten, dass die Dateien in eine Datei kopiert werden
 **1.** geben Sie Folgendes ein, um alle Dateien und Unterverzeichnisse (einschließlich aller leeren Unterverzeichnisse) von Laufwerk A auf Laufwerk B zu kopieren:
 
 ```
-xcopy a: b: /s /e 
+xcopy a: b: /s /e
 ```
 
 **2.** um im vorherigen Beispiel System-oder ausgeblendete Dateien einzuschließen, fügen Sie die Befehlszeilenoption<strong>/h</strong> wie folgt hinzu:
@@ -151,7 +151,7 @@ xcopy \rawdata \reports /d:12-29-1993 /l > xcopy.out
 
 Die Datei Xcopy. out listet alle Dateien auf, die kopiert werden sollen.
 
-**6.** um das Verzeichnis "\customer" und alle Unterverzeichnisse in das \\ \\Verzeichnis public\address auf dem Netzwerklaufwerk H: zu kopieren, behalten Sie das Attribut "schreibgeschützt" bei, und Sie werden beim Erstellen einer neuen Datei auf "h:" aufgefordert, Folgendes einzugeben:
+**6.** um das Verzeichnis "\customer" und alle Unterverzeichnisse in das Verzeichnis \\ \\ public\address auf dem Netzwerklaufwerk H: zu kopieren, behalten Sie das Attribut "schreibgeschützt" bei, und Sie werden beim Erstellen einer neuen Datei auf "h:" aufgefordert, Folgendes einzugeben:
 
 ```
 xcopy \customer h:\public\address /s /e /k /p
@@ -181,7 +181,7 @@ goto exit
 :abort
 echo You pressed CTRL+C to end the copy operation.
 goto exit
-:exit 
+:exit
 ```
 
 Wenn Sie das vorherige Batch Programm verwenden möchten, um alle Dateien im Verzeichnis "c:\Prgmcode" und seinen Unterverzeichnissen auf Laufwerk B zu kopieren, geben Sie Folgendes ein:
@@ -204,14 +204,14 @@ rem  .\d2\toc.yml
 rem  3 File(s) copied
 ```
 
-Im vorherigen Beispiel ist dieser bestimmte Quellparameter Wert **.\\ "Dec\*. yml** " kopiert dieselben drei Dateien, auch wenn die beiden **Pfad\\ Zeichen entfernt wurden.** Es werden jedoch keine Dateien kopiert, wenn der Platzhalter Platzhalter aus dem Quellparameter entfernt wurde **.\\ **"Inhaltsverzeichnis".
+Im vorherigen Beispiel ist dieser bestimmte Quellparameter Wert **. \\ "Dec \* . yml** " kopiert dieselben drei Dateien, auch wenn die beiden **Pfad \\ Zeichen entfernt wurden.** Es werden jedoch keine Dateien kopiert, wenn der Platzhalter Platzhalter aus dem Quellparameter entfernt wurde **. \\ **"Inhaltsverzeichnis".
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
 -   [Kopieren](copy.md)
--   [Move](move.md)
+-   [Verschieben](move.md)
 -   [Has](dir.md)
 -   [Attrib](attrib.md)
 -   [DISKCOPY](diskcopy.md)
--   [If](if.md)
+-   [Sei](if.md)
 -   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

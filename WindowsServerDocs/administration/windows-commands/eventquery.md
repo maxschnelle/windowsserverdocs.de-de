@@ -1,6 +1,6 @@
 ---
 title: eventquery
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den EventQuery-Befehl, der veraltet ist und in zukünftigen Versionen von Windows nicht mehr unterstützt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,13 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3f0e4294354470dcfb3a33191cc36edfa556bb02
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 5031d18311c177c7f745bc771c212727ce700ee3
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992392"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436865"
 ---
 # <a name="eventquery"></a>eventquery
 
-> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
-EventQuery ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
-Dieses Tool ist in Windows Server 2003 enthalten. Weitere Informationen finden Sie unter [EventQuery](https://technet.microsoft.com/library/cc772995(v=ws.10).aspx).
+Der EventQuery-Befehl wurde als veraltet markiert und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.

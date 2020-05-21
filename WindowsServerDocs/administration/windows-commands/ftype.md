@@ -9,19 +9,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 43108fad0e1981bffd110264809acf30c1c12ba1
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: eb4a9fa3105247695f1a50e5fc483ce608cd4816
+ms.sourcegitcommit: 7116460855701eed4e09d615693efa4fffc40006
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725014"
+ms.lasthandoff: 05/15/2020
+ms.locfileid: "83433124"
 ---
 # <a name="ftype"></a>ftype
 
 
 
-Zeigt Dateitypen an, die in Zuordnungen für Dateinamen Erweiterungen verwendet werden, oder ändert Sie. Bei Verwendung ohne Zuweisungs Operator (**=**) zeigt **ftype** die aktuelle geöffnete Befehls Zeichenfolge für den angegebenen Dateityp an. Bei Verwendung ohne Parameter zeigt **ftype** die Dateitypen an, für die geöffnete Befehls Zeichenfolgen definiert sind.
+Zeigt Dateitypen an, die in Zuordnungen für Dateinamen Erweiterungen verwendet werden, oder ändert Sie. Bei Verwendung ohne Zuweisungs Operator ( **=** ) zeigt **ftype** die aktuelle geöffnete Befehls Zeichenfolge für den angegebenen Dateityp an. Bei Verwendung ohne Parameter zeigt **ftype** die Dateitypen an, für die geöffnete Befehls Zeichenfolgen definiert sind.
 
+> [!NOTE]
+> Dieser Befehl wird nur in cmd unterstützt. EXE und ist in PowerShell nicht verfügbar.  
+> Obwohl Sie als Problem `cmd /c ftype` Umgehung verwenden können.
 
 
 ## <a name="syntax"></a>Syntax
@@ -32,13 +35,13 @@ ftype [<FileType>[=[<OpenCommandString>]]]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
 |\<Filetype->|Gibt den Dateityp an, der angezeigt oder geändert werden soll.|
 |\<Opencommandstring->|Gibt die geöffnete Befehls Zeichenfolge an, die beim Öffnen von Dateien vom angegebenen Dateityp verwendet werden soll.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 In der folgenden Tabelle wird beschrieben, wie **ftype** Variablen in einer geöffneten Befehls Zeichenfolge ersetzt:
 

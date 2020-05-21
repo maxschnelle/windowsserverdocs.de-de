@@ -1,78 +1,80 @@
 ---
-ms.assetid: b198d8ca-a5b7-430f-8911-5cbb9f50484c
-title: Ressource "f"
+title: fsutil resource
+description: Referenz Thema für den Ressourcen Befehl "f", der eine transaktionale Ressourcen-Manager und das zugehörige Verhalten verwaltet.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
 ms.technology: storage
-audience: IT Pro
+ms.assetid: b198d8ca-a5b7-430f-8911-5cbb9f50484c
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 678f3f98a96f44c146b73e9b6081884f8547373c
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: b64dab3a0d0e772f067b0d3fa548692aad38a4c5
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725442"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83435735"
 ---
-# <a name="fsutil-resource"></a>Ressource "f"
-> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
+# <a name="fsutil-resource"></a>fsutil resource
+
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8
 
 Erstellt eine sekundäre Transaktions Ressourcen-Manager, startet oder beendet eine transaktionale Ressourcen-Manager oder zeigt Informationen zu einem transaktionalen Ressourcen-Manager an und ändert das folgende Verhalten:
 
--   Gibt an, ob eine transaktionale Standard Ressourcen-Manager beim nächsten einbinden die Transaktions Metadaten bereinigen wird.
+- Gibt an, ob eine transaktionale Standard Ressourcen-Manager beim nächsten einbinden die transaktionalen Metadaten bereinigt.
 
--   Die angegebene Transaktions Ressourcen-Manager, um die Konsistenz gegenüber der Verfügbarkeit zu bevorzugen.
+- Die angegebene Transaktions Ressourcen-Manager, um die Konsistenz gegenüber der Verfügbarkeit zu bevorzugen.
 
--   Die angegebene Transaktions Ressourcen-Manager, um die Verfügbarkeit gegenüber Konsistenz zu bevorzugen.
+- Die angegebene Transaktions Ressourcen-Manager, um die Verfügbarkeit gegenüber Konsistenz zu bevorzugen.
 
--   Die Merkmale einer laufenden transaktionalen Ressourcen-Manager
+- Die Merkmale eines laufenden transaktionalen Ressourcen-Manager.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-fsutil resource [create] <RmRootPathname>
-fsutil resource [info] <RmRootPathname>
-fsutil resource [setautoreset] {true|false} <DefaultRmRootPathname>
-fsutil resource [setavailable] <RmRootPathname>
-fsutil resource [setconsistent] <RmRootPathname>
-fsutil resource [setlog] [growth {<Containers> containers|<Percent> percent} <RmRootPathname>] [maxextents <Containers> <RmRootPathname>] [minextents <Containers> <RmRootPathname>] [mode {full|undo} <RmRootPathname>] [rename <RmRootPathname>] [shrink <percent> <RmRootPathname>] [size <Containers> <RmRootPathname>]
-fsutil resource [start] <RmRootPathname> [<RmLogPathname> <TmLogPathname>
-fsutil resource [stop] <RmRootPathname>
+fsutil resource [create] <rmrootpathname>
+fsutil resource [info] <rmrootpathname>
+fsutil resource [setautoreset] {true|false} <Defaultrmrootpathname>
+fsutil resource [setavailable] <rmrootpathname>
+fsutil resource [setconsistent] <rmrootpathname>
+fsutil resource [setlog] [growth {<containers> containers|<percent> percent} <rmrootpathname>] [maxextents <containers> <rmrootpathname>] [minextents <containers> <rmrootpathname>] [mode {full|undo} <rmrootpathname>] [rename <rmrootpathname>] [shrink <percent> <rmrootpathname>] [size <containers> <rmrootpathname>]
+fsutil resource [start] <rmrootpathname> [<rmlogpathname> <tmlogpathname>
+fsutil resource [stop] <rmrootpathname>
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|        Parameter        |                                                                                                                                                                                                                                        BESCHREIBUNG                                                                                                                                                                                                                                         |
-|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         create          |                                                                                                                                                                                                                    Erstellt eine sekundäre Transaktions Ressourcen-Manager.                                                                                                                                                                                                                     |
-|    <RmRootPathname>     |                                                                                                                                                                                                        Gibt den vollständigen Pfad zu einem transaktionalen Ressourcen-Manager Stammverzeichnis an.                                                                                                                                                                                                         |
-|          info           |                                                                                                                                                                                                            Zeigt die Informationen des angegebenen Transaktions Ressourcen-Manager an.                                                                                                                                                                                                            |
-|      "abtautor"       | Gibt an, ob eine transaktionale Standard Ressourcen-Manager die Transaktions Metadaten bei der nächsten Auflistung bereinigt.<p>-Legen Sie den **Setautoreset** -Parameter auf " **true** " fest, um anzugeben, dass die Transaktions Ressourcen-Manager standardmäßig die transaktionalen Metadaten beim nächsten einbinden bereinigen werden.<br />-Legen Sie den **Setautoreset** -Parameter auf " **false** " fest, um anzugeben, dass die Transaktions Ressourcen-Manager die transaktionalen Metadaten beim nächsten einbinden standardmäßig nicht bereinigen werden. |
-| <DefaultRmRootPathname> |                                                                                                                                                                                                                       Gibt den Namen des Laufwerks gefolgt von einem Doppelpunkt an.                                                                                                                                                                                                                        |
-|      "einstellbare"       |                                                                                                                                                                                                 Gibt an, dass eine transaktionale Ressourcen-Manager die Verfügbarkeit gegenüber Konsistenz bevorzugt.                                                                                                                                                                                                 |
-|      setkonsistent      |                                                                                                                                                                                                 Gibt an, dass eine transaktionale Ressourcen-Manager die Konsistenz gegenüber der Verfügbarkeit bevorzugen.                                                                                                                                                                                                 |
-|         Setlog          |                                                                                                                                                                                                  Ändert die Eigenschaften eines transaktionalen Ressourcen-Manager, der bereits ausgeführt wird.                                                                                                                                                                                                  |
-|         growth          |                                                                                                  Gibt den Betrag an, um den die transaktionale Ressourcen-Manager Protokoll vergrößert werden kann.<p>Der Parameter "Growth" kann wie folgt angegeben werden:<p>-Anzahl der Container mit dem folgenden Format: _Container_**Container**<br />-**Prozentsatz** mit dem Format: _Prozent_Satz                                                                                                   |
-|      <containers>       |                                                                                                                                                                                                      Gibt die Datenobjekte an, die vom transaktionalen Ressourcen-Manager verwendet werden.                                                                                                                                                                                                       |
-|        maxblock        |                                                                                                                                                                                                Gibt die maximale Anzahl von Containern für die angegebene Transaktions Ressourcen-Manager an.                                                                                                                                                                                                |
-|        minblock        |                                                                                                                                                                                                Gibt die Mindestanzahl von Containern für die angegebene Transaktions Ressourcen-Manager an.                                                                                                                                                                                                |
-|  Modus {full&#124;rückgängig}  |                                                                                                                                                                                        Gibt an, ob alle Transaktionen protokolliert ( **Full**) oder nur Rollback-Ereignisse protokolliert (**Rückgängig**) werden.                                                                                                                                                                                         |
-|         rename          |                                                                                                                                                                                                                  Ändert die GUID für die transaktionale Ressourcen-Manager.                                                                                                                                                                                                                  |
-|         shrink          |                                                                                                                                                                                              Gibt den Prozentsatz an, um den sich das Transaktions Ressourcen-Manager Protokoll automatisch verringern kann.                                                                                                                                                                                              |
-|          size           |                                                                                                                                                                                              Gibt die Größe des transaktionalen Ressourcen-Manager als angegebene Anzahl von *Containern*an.                                                                                                                                                                                               |
-|          start          |                                                                                                                                                                                                                    Startet das angegebene Transaktions Ressourcen-Manager.                                                                                                                                                                                                                    |
-|          stop           |                                                                                                                                                                                                                    Beendet den angegebenen transaktionalen Ressourcen-Manager.                                                                                                                                                                                                                     |
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| create | Erstellt eine sekundäre Transaktions Ressourcen-Manager. |
+| `<rmrootpathname>` | Gibt den vollständigen Pfad zu einem transaktionalen Ressourcen-Manager Stammverzeichnis an. |
+| info | Zeigt die Informationen des angegebenen Transaktions Ressourcen-Manager an. |
+| "abtautor" | Gibt an, ob eine transaktionale Standard Ressourcen-Manager die Transaktions Metadaten bei der nächsten Auflistung bereinigt.<ul><li>**true** : gibt an, dass die Transaktions Ressourcen-Manager standardmäßig die Transaktions Metadaten beim nächsten einbinden bereinigen werden.</li><li>**false** : gibt an, dass der Transaktions Ressourcen-Manager die transaktionalen Metadaten beim nächsten einbinden standardmäßig nicht bereinigt. |
+| `<defaultrmrootpathname>` | Gibt den Namen des Laufwerks gefolgt von einem Doppelpunkt an. |
+| "einstellbare" | Gibt an, dass eine transaktionale Ressourcen-Manager die Verfügbarkeit gegenüber Konsistenz bevorzugt. |
+| setkonsistent | Gibt an, dass eine transaktionale Ressourcen-Manager die Konsistenz gegenüber der Verfügbarkeit bevorzugen. |
+| Setlog | Ändert die Eigenschaften eines transaktionalen Ressourcen-Manager, der bereits ausgeführt wird. |
+| growth | Gibt den Betrag an, um den die transaktionale Ressourcen-Manager Protokoll vergrößert werden kann.<p>Der Parameter "Growth" kann wie folgt angegeben werden:<ul><li>Anzahl von Containern unter Verwendung des folgenden Formats:`<containers> containers`</li><li>Prozentsatz mit dem folgenden Format:`<percent> percent`</li></ul> |
+| `<containers>` | Gibt die Datenobjekte an, die vom transaktionalen Ressourcen-Manager verwendet werden. |
+| maxblock | Gibt die maximale Anzahl von Containern für die angegebene Transaktions Ressourcen-Manager an. |
+| minblock | Gibt die Mindestanzahl von Containern für die angegebene Transaktions Ressourcen-Manager an. |
+| Spar`{full|undo}` | Gibt an, ob alle Transaktionen protokolliert ( **Full**) oder nur Rollback-Ereignisse protokolliert (**Rückgängig**) werden. |
+| rename | Ändert die GUID für die transaktionale Ressourcen-Manager. |
+| shrink | Gibt den Prozentsatz an, um den sich das Transaktions Ressourcen-Manager Protokoll automatisch verringern kann. |
+| size | Gibt die Größe des transaktionalen Ressourcen-Manager als angegebene Anzahl von *Containern*an. |
+| start | Startet das angegebene Transaktions Ressourcen-Manager. |
+| stop | Beendet den angegebenen transaktionalen Ressourcen-Manager. |
 
-### <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
-Geben Sie Folgendes ein, um das Protokoll für die durch c:\test angegebene Transaktions Ressourcen-Manager festzulegen, um eine automatische Vergrößerung von fünf Containern zu erhalten:
+### <a name="examples"></a>Beispiele
+
+Geben Sie Folgendes ein, um das Protokoll für die durch *c:\test*angegebene Transaktions Ressourcen-Manager festzulegen, um eine automatische Vergrößerung von fünf Containern zu erhalten:
 
 ```
 fsutil resource setlog growth 5 containers c:test
 ```
 
-Geben Sie Folgendes ein, um das Protokoll für die durch c:\test angegebene Transaktions Ressourcen-Manager festzulegen, um eine automatische Vergrößerung von zwei Prozent zu haben:
+Geben Sie Folgendes ein, um das Protokoll für die durch *c:\test*angegebene Transaktions Ressourcen-Manager festzulegen, um eine automatische Vergrößerung von zwei Prozent zu haben:
 
 ```
 fsutil resource setlog growth 2 percent c:test
@@ -81,14 +83,13 @@ fsutil resource setlog growth 2 percent c:test
 Geben Sie Folgendes ein, um anzugeben, dass die Transaktions Metadaten beim nächsten einbinden auf Laufwerk C durch die standardmäßige transaktionale Ressourcen-Manager bereinigt werden:
 
 ```
-fsutil resource setautoreset true c:\  
+fsutil resource setautoreset true c:\
 ```
 
-### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-[Fsutil](Fsutil.md)
+- [fsutil](fsutil.md)
 
-[Transaktions-NTFS](https://go.microsoft.com/fwlink/?LinkID=165402)
-
-
+- [Transaktions-NTFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730726(v=ws.10))

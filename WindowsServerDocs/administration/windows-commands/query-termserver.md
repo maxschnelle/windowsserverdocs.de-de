@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c8a0a4608a16df0336b90ea5df281278ae47a503
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 9b3ae6858a70d22b3ad928474648a3b2ee156235
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722698"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436235"
 ---
 # <a name="query-termserver"></a>termserver Abfragen
 
@@ -29,16 +29,16 @@ Zeigt eine Liste aller Remotedesktop-Sitzungshost Server (RD-Sitzungs Host Serve
 > query termserver [<ServerName>] [/domain:<Domain>] [/address] [/continue]
 > ```
 > ### <a name="parameters"></a>Parameter
-> 
-> |    Parameter     |                                                                        BESCHREIBUNG                                                                         |
+>
+> |    Parameter     |                                                                        Beschreibung                                                                         |
 > |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > |   <ServerName>   |                                               Gibt den Namen an, der den RD-Sitzungs Host Server identifiziert.                                               |
 > | /Domain<Domain> | Gibt die Domäne an, die für Terminal Server abgefragt werden soll. Sie müssen keine Domäne angeben, wenn Sie die Domäne Abfragen, in der Sie gerade arbeiten. |
 > |     /address     |                                                  Zeigt die Netzwerk-und Knoten Adressen für jeden Server an.                                                  |
 > |    /Continue     |                                              Verhindert, dass angehalten wird, nachdem jeder Bildschirm mit Informationen angezeigt wird.                                               |
 > |        /?        |                                                            Zeigt die Hilfe an der Eingabeaufforderung an.                                                            |
-> 
-> ## <a name="remarks"></a>Bemerkungen
+>
+>#### <a name="remarks"></a>Hinweise
 > - **query termserver** durchsucht das Netzwerk nach allen angeschlossenen RD-Sitzungs Host Servern und gibt die folgenden Informationen zurück:
 >   - Name des Servers
 >   - Das Netzwerk (und die Knotenadresse, wenn die/Address-Option verwendet wird)
@@ -60,6 +60,6 @@ Zeigt eine Liste aller Remotedesktop-Sitzungshost Server (RD-Sitzungs Host Serve
 >   query termserver Server3 /address
 >   ```
 >   ## <a name="additional-references"></a>Zusätzliche Referenzen
->   - [Befehlszeilen Syntax Key](command-line-syntax-key.md)
->   [Query](query.md)
->   [Remotedesktopdienste (Terminal Dienste) Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+>   - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+>    [Abfrage](query.md) 
+>    [Befehlsreferenz für Remotedesktopdienste (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)

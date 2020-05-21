@@ -1,22 +1,23 @@
 ---
-ms.assetid: 6c6ff819-f349-4aea-b0be-1f637f631736
-title: Wim
+title: fsutil wim
+description: Referenz Thema für den WIM-Befehl fsutil, der Funktionen zum Ermitteln und Verwalten von mit Windows-Images (WIM) gestützten Dateien bereitstellt.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
 ms.technology: storage
-audience: IT Pro
+ms.assetid: 6c6ff819-f349-4aea-b0be-1f637f631736
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 12a9965515ef26e0cbccb2d20d25f66b54b23b8a
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: db6a946eac59269d2bb4072c46552ac84366ed40
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720064"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436825"
 ---
-# <a name="fsutil-wim"></a>Wim
+# <a name="fsutil-wim"></a>fsutil wim
+
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows 10
 
 Stellt Funktionen zum Ermitteln und Verwalten von Dateien mit Windows-Abbildern (WIM) bereit.
@@ -30,20 +31,17 @@ fsutil wim [queryfile] <filename>
 fsutil wim [removewim] <drive name> <data source>
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|-------------|---------------|
-|EnumFiles|Listet WIM-gestützte Dateien auf.|
-|\<Laufwerks Name>|Gibt den Namen des Laufwerks an.|
-|\<Datenquellen>|Gibt die Datenquelle an.|
-|enumwims|Listet die unterstützten WIM-Dateien auf.|
-|QueryFile|Fragt ab, ob die Datei durch WIM unterstützt wird, und zeigt ggf. Details zur WIM-Datei an.|
-|\<Dateiname>|Gibt den Dateinamen an.|
-|removewim|Entfernt eine WIM-Datei aus Unterstützungs Dateien.|
-
-
-
+| Parameter | Beschreibung |
+| --------- | ----------- |
+| EnumFiles | Listet WIM-gestützte Dateien auf. |
+| `<drive name>` | Gibt den Namen des Laufwerks an. |
+| `<data source>` | Gibt die Datenquelle an. |
+| enumwims | Listet die unterstützten WIM-Dateien auf. |
+| QueryFile | Fragt ab, ob die Datei durch WIM unterstützt wird, und zeigt ggf. Details zur WIM-Datei an. |
+| `<filename>` | Gibt den Dateinamen an. |
+| removewim | Entfernt eine WIM-Datei aus Unterstützungs Dateien. |
 
 ### <a name="examples"></a>Beispiele
 
@@ -71,7 +69,8 @@ Geben Sie Folgendes ein, um die WIM-Datei aus den Unterstützungs Dateien für V
 fsutil wim removewims C: 2
 ```
 
-### <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-[Fsutil](Fsutil.md)
+- [fsutil](fsutil.md)

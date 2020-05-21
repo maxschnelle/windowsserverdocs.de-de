@@ -1,69 +1,70 @@
 ---
-ms.assetid: 77545920-2d13-4f35-a4d1-14dbec8340dc
-title: Geringe Dichte
+title: fsutil sparse
+description: Referenz Thema für den Befehl "" mit geringer Dichte, der sparsesdateien verwaltet.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
 ms.technology: storage
-audience: IT Pro
+ms.assetid: 77545920-2d13-4f35-a4d1-14dbec8340dc
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 3d0df4e8e8dc16818273393062989ef7c0455c51
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: e68ac844bb7aa7e22a9df0ddb0c982b3701231d7
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725449"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83435715"
 ---
-# <a name="fsutil-sparse"></a>Geringe Dichte
-> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+# <a name="fsutil-sparse"></a>fsutil sparse
 
-Verwaltet Dateien mit geringer Dichte.
+> Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8
 
+Verwaltet Dateien mit geringer Dichte. Eine sparsedatei ist eine Datei mit einer oder mehreren Regionen nicht zugeordneter Daten.
 
+Die nicht zugeordneten Regionen werden von einem Programm als Bytes mit einem Wert von 0 (null) angezeigt, und es ist kein Speicherplatz vorhanden, der diese Nullen darstellt. Wenn eine sparsedatei gelesen wird, werden zugeordnete Daten als gespeichert zurückgegeben, und nicht zugeordnete Daten werden standardmäßig als Nullen in Übereinstimmung mit der C2-Sicherheits Anforderungsspezifikation zurückgegeben. Unterstützung für die Unterstützung von geringer Dichte ermöglicht die Zuordnung von Daten von jedem beliebigen Speicherort in der Datei
 
 ## <a name="syntax"></a>Syntax
 
 ```
-fsutil sparse [queryflag] <FileName>
-fsutil sparse [queryrange] <FileName>
-fsutil sparse [setflag] <FileName>
-fsutil sparse [setrange] <FileName> <BeginningOffset> <Length>
+fsutil sparse [queryflag] <filename>
+fsutil sparse [queryrange] <filename>
+fsutil sparse [setflag] <filename>
+fsutil sparse [setrange] <filename> <beginningoffset> <length>
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|     Parameter     |                                                    BESCHREIBUNG                                                    |
-|-------------------|-------------------------------------------------------------------------------------------------------------------|
-|     queryflag     |                                                  Abfragen mit geringer Dichte.                                                  |
-|    queryrange     |                        Scannt eine Datei und sucht nach Bereichen, die möglicherweise Daten enthalten, die nicht NULL sind.                        |
-|      setflag      |                                        Markiert die gekennzeichnete Datei als "Sparse".                                        |
-|     SetRange      |                                   Füllt einen angegebenen Bereich einer Datei mit Nullen.                                   |
-|    <FileName>     | Gibt den vollständigen Pfad zur Datei einschließlich des Datei namens und der Erweiterung an, z. b. "c:\documents\dateiname.txt". |
-| <BeginningOffset> |                              Gibt den Offset in der Datei an, der als Sparse markiert werden soll.                              |
-|     <Length>      |                 Gibt die Länge des Bereichs in der Datei an, der als Sparse (in Bytes) gekennzeichnet werden soll.                 |
+| Parameter | Beschreibung |
+| --------- | ----------- |
+| queryflag | Abfragen mit geringer Dichte. |
+| queryrange | Scannt eine Datei und sucht nach Bereichen, die möglicherweise Daten enthalten, die nicht NULL sind. |
+| setflag | Markiert die gekennzeichnete Datei als "Sparse". |
+| SetRange | Füllt einen angegebenen Bereich einer Datei mit Nullen. |
+| `<filename>` | Gibt den vollständigen Pfad zur Datei einschließlich des Datei namens und der Erweiterung an, z. b. *c:\documents\dateiname.txt*. |
+| `<beginningoffset>` | Gibt den Offset in der Datei an, der als Sparse markiert werden soll. |
+| `<length>` | Gibt die Länge des Bereichs in der Datei an, der als Sparse (in Bytes) gekennzeichnet werden soll. |
 
-## <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
--   Eine sparsedatei ist eine Datei mit einer oder mehreren Regionen nicht zugeordneter Daten. Die nicht zugeordneten Regionen werden von einem Programm als Bytes mit dem Wert 0 (null) angezeigt, es wird jedoch kein Speicherplatz zur Darstellung dieser Nullen verwendet. Alle aussagekräftigen Daten oder Daten, die nicht NULL sind, werden zugeordnet, während alle nicht aussagekräftigen Daten (große Daten Zeichenfolgen aus Nullen) nicht zugeordnet werden. Wenn eine sparsedatei gelesen wird, werden zugeordnete Daten als gespeichert zurückgegeben, und nicht zugeordnete Daten werden standardmäßig als Nullen in Übereinstimmung mit der C2-Sicherheits Anforderungsspezifikation zurückgegeben. Unterstützung für die Unterstützung von geringer Dichte ermöglicht die Zuordnung von Daten von jedem beliebigen Speicherort in der Datei
+- Alle aussagekräftigen Daten oder Daten, die nicht NULL sind, werden zugeordnet, während alle nicht aussagekräftigen Daten (große Daten Zeichenfolgen aus Nullen) nicht zugeordnet werden.
 
--   In einer sparsedatei ist für große Bereiche von Nullen möglicherweise keine Datenträger Zuordnung erforderlich. Der Speicherplatz für Daten, die nicht NULL sind, wird nach Bedarf zugeordnet, wenn die Datei geschrieben wird.
+- In einer sparsedatei ist für große Bereiche von Nullen möglicherweise keine Datenträger Zuordnung erforderlich. Der Speicherplatz für Daten, die nicht NULL sind, wird nach Bedarf zugeordnet, wenn die Datei geschrieben wird.
 
--   Nur komprimierte Dateien oder Dateien mit geringer Dichte können über nulloverbereiche verfügen, die dem Betriebssystem bekannt sind.
+- Nur komprimierte Dateien oder Dateien mit geringer Dichte können über nulloverbereiche verfügen, die dem Betriebssystem bekannt sind.
 
--   Wenn die Datei dünn oder komprimiert ist, kann der Speicherplatz in der Datei von NTFS aufgehoben werden. Dadurch wird der Byte Bereich auf Nullen festgelegt, ohne dass die Dateigröße erweitert wird.
+- Wenn die Datei dünn oder komprimiert ist, kann NTFS die Zuordnung von Speicherplatz in der Datei aufheben. Dadurch wird der Byte Bereich auf Nullen festgelegt, ohne dass die Dateigröße erweitert wird.
 
-## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
-Geben Sie Folgendes ein, um eine Datei mit dem Namen Sample. txt im Verzeichnis c:\temp als Sparse zu markieren:
+### <a name="examples"></a>Beispiele
+
+Geben Sie Folgendes ein, um eine Datei mit dem Namen *Sample. txt* im Verzeichnis *c:\temp* als Sparse zu markieren:
 
 ```
-fsutil sparse setflag c:\temp\sample.txt 
+fsutil sparse setflag c:\temp\sample.txt
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
+
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-[Fsutil](Fsutil.md)
-
-
+- [fsutil](fsutil.md)

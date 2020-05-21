@@ -9,12 +9,12 @@ ms.prod: windows-server-hyper-v
 ms.technology: virtualization
 ms.localizationpriority: low
 ms.assetid: 6cb13f84-cb50-4e60-a685-54f67c9146be
-ms.openlocfilehash: 8ba413b831c7b11780113ee2ffd3cce598781a44
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: f82aab1b3a3af61afa08a1849392297ca5def2ab
+ms.sourcegitcommit: 9889f20270e8eb7508d06cbf844cba9159e39697
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465574"
+ms.lasthandoff: 05/18/2020
+ms.locfileid: "83551103"
 ---
 # <a name="managing-hyper-v-hypervisor-scheduler-types"></a>Verwalten von Hyper-V-Hypervisor-Scheduler-Typen
 
@@ -22,8 +22,8 @@ ms.locfileid: "77465574"
 
 In diesem Artikel werden neue Modi der Logik für die Planung virtueller Prozessoren beschrieben, die zuerst in Windows Server 2016 eingeführt wurden. Diese Modi oder Scheduler-Typen bestimmen, wie der Hyper-V-Hypervisor die Arbeit über virtuelle Gast Prozessoren hinweg ordnet und verwaltet. Ein Hyper-V-Host Administrator kann Hypervisor-planertypen auswählen, die am besten für die virtuellen Gastcomputer (Virtual Machines, VMS) geeignet sind, und die VMs so konfigurieren, dass Sie von der Planungslogik profitieren.
 
->[!NOTE]
->Updates sind erforderlich, um die in diesem Dokument beschriebenen Features für den Hypervisor-Scheduler zu verwenden. Weitere Informationen finden Sie unter [erforderliche Updates](#required-updates).
+> [!NOTE]
+> Updates sind erforderlich, um die in diesem Dokument beschriebenen Features für den Hypervisor-Scheduler zu verwenden. Weitere Informationen finden Sie unter [erforderliche Updates](#required-updates).
 
 ## <a name="background"></a>Hintergrund
 
@@ -31,7 +31,7 @@ Vor der Erörterung der Logik und der Kontrollen hinter der virtuellen Hyper-V-P
 
 ### <a name="understanding-smt"></a>Informationen zu SMT
 
-Gleichzeitiges Multithreading (oder SMT) ist ein Verfahren, das in modernen Prozessor Entwürfen genutzt wird, mit dem die Ressourcen des Prozessors von separaten, unabhängigen Ausführungsthreads gemeinsam genutzt werden können. SMT bietet im Allgemeinen eine geringfügige Leistungssteigerung für die meisten Arbeits Auslastungen, indem Berechnungen nach Möglichkeit parallelisiert werden, um den Anweisungs Durchsatz zu erhöhen, obwohl keine Leistungssteigerung oder sogar ein geringfügiger Leistungsverlust auftreten kann, wenn Konflikte zwischen Threads für freigegebene Prozessorressourcen werden verwendet.
+Gleichzeitiges Multithreading (oder SMT) ist ein Verfahren, das in modernen Prozessor Entwürfen genutzt wird, mit dem die Ressourcen des Prozessors von separaten, unabhängigen Ausführungsthreads gemeinsam genutzt werden können. SMT bietet im Allgemeinen eine geringfügige Leistungssteigerung für die meisten Arbeits Auslastungen, indem Berechnungen nach Möglichkeit parallelisiert werden, um den Anweisungs Durchsatz zu erhöhen, obwohl keine Leistungssteigerung oder sogar ein geringfügiger Leistungsverlust auftreten kann, wenn Konflikte zwischen Threads für freigegebene Prozessorressourcen auftreten.
 Prozessoren, die SMT unterstützen, sind sowohl bei Intel als auch bei AMD verfügbar Intel bezieht sich auf die SMT-Angebote als Intel Hyperthreading-Technologie oder Intel HT.
 
 Für den Zweck dieses Artikels gelten die Beschreibungen von SMT und deren Verwendung durch Hyper-V gleichermaßen für Intel-und AMD-Systeme.
@@ -48,7 +48,7 @@ Vor der Betrachtung der Hypervisor-planertypen ist es auch hilfreich, die Hyper-
 
 * Die Stamm Partition ist selbst eine virtuelle Computer Partition, obwohl Sie über eindeutige Eigenschaften und weitaus größere Berechtigungen als virtuelle Gastcomputer verfügt. Die Stamm Partition stellt die Verwaltungsdienste zur Verfügung, die alle virtuellen Gastcomputer steuern, Unterstützung für virtuelle Geräte für Gäste bereitstellen und alle Geräte-e/a für virtuelle Gast Maschinen verwalten. Microsoft empfiehlt dringend, keine anwendungsworkloads in der Stamm Partition auszuführen.
 
-* Jeder virtuelle Prozessor (VP) der Stamm Partition ist 1:1 einem zugrunde liegenden logischen Prozessor (LP) zugeordnet. Ein Host-VP wird immer auf der gleichen zugrunde liegenden LP ausgeführt – es gibt keine Migration der VPS der Stamm Partition.
+* Jeder virtuelle Prozessor (VP) der Stamm Partition ist 1:1 einem zugrunde liegenden logischen Prozessor (LP) zugeordnet. Ein Host-VP läuft immer auf der gleichen zugrunde liegenden LP – es gibt keine Migration der VPS der Stamm Partition.
 
 * Standardmäßig können die LPs, auf denen Host-VPS ausgeführt wird, auch Gast-VPS ausführen.
 
@@ -58,22 +58,18 @@ Vor der Betrachtung der Hypervisor-planertypen ist es auch hilfreich, die Hyper-
 
 Ab Windows Server 2016 unterstützt der Hyper-V-Hypervisor verschiedene Modi der planerlogik, die bestimmen, wie der Hypervisor virtuelle Prozessoren auf den zugrunde liegenden logischen Prozessoren plant. Diese Scheduler-Typen lauten wie folgt:
 
-- [Der klassische, faire Freigabe Planer](#the-classic-scheduler)
-- [Der Kern Planer](#the-core-scheduler)
-- [Der Stamm Planer](#the-root-scheduler)
-
 ### <a name="the-classic-scheduler"></a>Der klassische Scheduler
 
 Der klassische Scheduler war seit seiner Inbetriebnahme der Standardwert für alle Versionen des Windows Hyper-v-Hypervisors, einschließlich Windows Server 2016 Hyper-v. Der klassische Scheduler bietet eine faire Freigabe, präemptives Roundrobin-Planungsmodell für virtuelle Gast Prozessoren.
 
-Der klassische schedulertyp ist die am besten geeignete Option für die große Mehrheit herkömmlicher Hyper-V-Verwendungen – für Private Clouds, Hostinganbieter usw. Die Leistungsmerkmale sind gut verständlich und am besten optimiert, um eine Vielzahl von Virtualisierungsszenarien zu unterstützen, z. b. das über-Abonnement von VPS zu LPs, das gleichzeitige Ausführen von vielen heterogenen virtuellen Computern und Workloads, die größere Skalierung Leistungs-VMS, die den vollständigen Featuresatz von Hyper-V ohne Einschränkungen unterstützen, und vieles mehr.
+Der klassische schedulertyp ist die am besten geeignete Option für die große Mehrheit herkömmlicher Hyper-V-Verwendungen – für Private Clouds, Hostinganbieter usw. Die Leistungsmerkmale sind gut verständlich und am besten optimiert, um eine Vielzahl von Virtualisierungsszenarien zu unterstützen, wie z. b. das über-Abonnement von VPS zu LPs, das gleichzeitige Ausführen von vielen heterogenen virtuellen Computern und Workloads, die Ausführung größerer Hochleistungs-VMS mit hoher Leistung und die Unterstützung der gesamten Features von Hyper-V ohne Einschränkungen.
 
 ### <a name="the-core-scheduler"></a>Der Kern Planer
 
 Der Hypervisor Core Scheduler ist eine neue Alternative zur klassischen Scheduler-Logik, die in Windows Server 2016 und Windows 10, Version 1607, eingeführt wurde. Der Kern Planer bietet eine starke Sicherheitsgrenze für die workloadworkloadisolation und reduzierte Leistungsschwankungen für Workloads innerhalb von VMS, die auf einem SMT-fähigen Virtualisierungshost ausgeführt werden. Der Kern Planer ermöglicht das gleichzeitige Ausführen von virtuellen SMT-und nicht-SMT-Computern auf dem gleichen SMT-aktivierten Virtualisierungshost.
 
 Der Kern Planer nutzt die SMT-Topologie des Virtualisierungshosts und macht optional SMT-Paare für Gast-VMS verfügbar, und es werden Gruppen von virtuellen Gast Prozessoren von demselben virtuellen Computer auf Gruppen von SMT-logischen Prozessoren geplant. Dies erfolgt symmetrisch, sodass VPS in Gruppen von zwei Gruppen geplant werden, und ein Kern wird nie von virtuellen Computern gemeinsam genutzt, wenn LPs in Gruppen von zwei Gruppen verwendet werden.
-Wenn der VP für einen virtuellen Computer ohne aktivierte SMT geplant ist, wird der gesamte Kern bei der Ausführung des VP-Computers genutzt.
+Wenn der VP für einen virtuellen Computer ohne aktivierte SMT geplant ist, beansprucht dieser VP den gesamten Kern, wenn er ausgeführt wird.
 
 Das Gesamtergebnis des Kern Planers ist Folgendes:
 
@@ -91,7 +87,7 @@ Der Kern Planer wird standardmäßig ab Windows Server 2019 verwendet. Unter Win
 
 #### <a name="core-scheduler-behavior-with-host-smt-disabled"></a>Kern Planer-Verhalten mit deaktiviertem Host SMT
 
-Wenn der Hypervisor für die Verwendung des kernplanertyps konfiguriert ist, aber die SMT-Funktion auf dem Virtualisierungshost deaktiviert oder nicht vorhanden ist, verwendet der Hypervisor das klassische schedulerverhalten, unabhängig von der Einstellung für den hypervisorschedulertyp.
+Wenn der Hypervisor für die Verwendung des Core Scheduler-Typs konfiguriert ist, aber die SMT-Funktion auf dem Virtualisierungshost deaktiviert oder nicht vorhanden ist, verwendet der Hypervisor das klassische schedulerverhalten, unabhängig von der Einstellung für den hypervisorschedulertyp.
 
 ### <a name="the-root-scheduler"></a>Der Stamm Planer
 
@@ -101,11 +97,11 @@ Der Stamm Planer erfüllt die besonderen Anforderungen, die bei der Unterstützu
 
 #### <a name="root-scheduler-use-on-client-systems"></a>Verwendung von root Scheduler auf Client Systemen
 
-Ab Windows 10, Version 1803, wird der Stamm Planer standardmäßig nur auf Client Systemen verwendet, wobei der Hypervisor Unterstützung für virtualisierungsbasierte Sicherheit und WDAG-Arbeits Auslastungs Isolation aktiviert werden kann, und für den ordnungsgemäßen Betrieb zukünftiger Systeme mit heterogene Kern Architekturen. Dies ist die einzige unterstützte Konfiguration für den Hypervisor-Scheduler für Client Systeme. Administratoren sollten nicht versuchen, den standardmäßigen Hypervisor-Planertyp auf Windows 10-Client Systemen zu überschreiben.
+Ab Windows 10, Version 1803, wird der Stamm Planer standardmäßig nur auf Client Systemen verwendet, wobei der Hypervisor Unterstützung für virtualisierungsbasierte Sicherheit und WDAG-workloadisolation und für den ordnungsgemäßen Betrieb zukünftiger Systeme mit heterogenen Kern Architekturen aktiviert werden kann. Dies ist die einzige unterstützte Konfiguration für den Hypervisor-Scheduler für Client Systeme. Administratoren sollten nicht versuchen, den standardmäßigen Hypervisor-Planertyp auf Windows 10-Client Systemen zu überschreiben.
 
 #### <a name="virtual-machine-cpu-resource-controls-and-the-root-scheduler"></a>CPU-Ressourcen Steuerelemente für virtuelle Computer und der Stamm Planer
 
-Die von Hyper-V bereitgestellten Prozessorressourcen-Steuerelemente für virtuelle Computer werden nicht unterstützt, wenn der Hypervisor-Stamm Planer aktiviert ist, da die Scheduler-Logik des Stamm Betriebssystems Host Ressourcen auf globaler Basis verwaltet und keine Kenntnisse über die bestimmte Konfigurationseinstellungen. Die Hyper-V-Prozessorressourcen Kontrolle, wie z. b. Caps, Gewichtungen und Reserven, sind nur anwendbar, wenn der Hypervisor die VP-Planung direkt steuert, z. b. mit den klassischen und den wichtigsten Scheduler-Typen.
+Die von Hyper-V bereitgestellten Prozessorressourcen-Steuerelemente für virtuelle Computer werden nicht unterstützt, wenn der Hypervisor-Stamm Planer aktiviert ist, da die Scheduler-Logik des Stamm Betriebssystems Host Ressourcen auf globaler Basis verwaltet und nicht über die spezifischen Konfigurationseinstellungen eines virtuellen Computers verfügt. Die Hyper-V-Prozessorressourcen Kontrolle, wie z. b. Caps, Gewichtungen und Reserven, sind nur anwendbar, wenn der Hypervisor die VP-Planung direkt steuert, z. b. mit den klassischen und den wichtigsten Scheduler-Typen.
 
 #### <a name="root-scheduler-use-on-server-systems"></a>Verwendung von root Scheduler auf Serversystemen
 
@@ -113,7 +109,7 @@ Der Stamm Planer wird zurzeit nicht für die Verwendung mit Hyper-V auf Servern 
 
 ## <a name="enabling-smt-in-guest-virtual-machines"></a>Aktivieren von SMT auf virtuellen Gast Computern
 
-Sobald der Hypervisor des Virtualisierungshosts für die Verwendung des kernplanertyps konfiguriert ist, können virtuelle Gastcomputer für die Verwendung von SMT konfiguriert werden, wenn gewünscht. Das verfügbar machen der Tatsache, dass VPS mit einem virtuellen Gastcomputer Hyperthread werden, ermöglicht dem Planer im Gast Betriebssystem und den Arbeits Auslastungen, die auf der VM ausgeführt werden, die SMT-Topologie in ihrer eigenen Arbeitsplanung zu erkennen und zu nutzen. Auf Windows Server 2016 ist Gast SMT nicht standardmäßig konfiguriert und muss vom Hyper-V-Host Administrator explizit aktiviert werden. Ab Windows Server 2019 erben neue virtuelle Computer, die auf dem Host erstellt werden, standardmäßig die SMT-Topologie des Hosts.  Das heißt, eine VM der Version 9,0, die auf einem Host mit 2 SMT-Threads pro Kern erstellt wurde, würde ebenfalls 2 SMT-Threads pro Kern sehen.
+Sobald der Hypervisor des Virtualisierungshosts für die Verwendung des kernplanertyps konfiguriert ist, können virtuelle Gastcomputer für die Verwendung von SMT konfiguriert werden, wenn gewünscht. Das verfügbar machen der Tatsache, dass VPS mit einem virtuellen Gastcomputer Hyperthread werden, ermöglicht dem Planer im Gast Betriebssystem und den Arbeits Auslastungen, die auf der VM ausgeführt werden, die SMT-Topologie in ihrer eigenen Arbeitsplanung zu erkennen und zu nutzen. Auf Windows Server 2016 ist Gast SMT nicht standardmäßig konfiguriert und muss vom Hyper-V-Host Administrator explizit aktiviert werden. Ab Windows Server 2019 erbt neue virtuelle Computer, die auf dem Host erstellt werden, standardmäßig die SMT-Topologie des Hosts.  Das heißt, eine VM der Version 9,0, die auf einem Host mit 2 SMT-Threads pro Kern erstellt wurde, würde ebenfalls 2 SMT-Threads pro Kern sehen.
 
 PowerShell muss zum Aktivieren von SMT auf einem virtuellen Gastcomputer verwendet werden. im Hyper-V-Manager wird keine Benutzeroberfläche bereitgestellt.
 Um SMT auf einem virtuellen Gastcomputer zu aktivieren, öffnen Sie ein PowerShell-Fenster mit ausreichenden Berechtigungen, und geben Sie Folgendes ein:
@@ -122,11 +118,11 @@ Um SMT auf einem virtuellen Gastcomputer zu aktivieren, öffnen Sie ein PowerShe
 Set-VMProcessor -VMName <VMName> -HwThreadCountPerCore <n>
 ```
 
-Dabei ist <n> die Anzahl der SMT-Threads pro Kern, die der Gast-VM angezeigt wird.  
-Beachten Sie, dass <n> = 0 den Wert hwthreadzähltpercore auf den Wert des SMT-Threads des Hosts pro Kernwert festgelegt.
+Dabei <n> ist die Anzahl der SMT-Threads pro Kern, die der Gast-VM sieht.
+Beachten Sie, dass <n> = 0 den hwthreadzähltpercore-Wert so festlegt, dass er mit der SMT-Thread Anzahl des Hosts pro Kernwert identisch ist.
 
->[!NOTE] 
->Das Festlegen von hwthreadzähltpercore = 0 wird ab Windows Server 2019 unterstützt.
+> [!NOTE]
+> Das Festlegen von hwthreadzähltpercore = 0 wird ab Windows Server 2019 unterstützt.
 
 Im folgenden finden Sie ein Beispiel für System Informationen, die vom Gast Betriebssystem auf einem virtuellen Computer mit zwei virtuellen Prozessoren und SMT aktiviert wurden. Das Gast Betriebssystem erkennt zwei logische Prozessoren, die zu demselben Kern gehören.
 
@@ -136,8 +132,8 @@ Im folgenden finden Sie ein Beispiel für System Informationen, die vom Gast Bet
 
 Windows Server 2016 Hyper-V verwendet standardmäßig das klassische Hypervisor-Scheduler-Modell. Der Hypervisor kann optional für die Verwendung des Kern Planers konfiguriert werden, um die Sicherheit zu erhöhen, indem Gast-VPS für die Ausführung auf entsprechenden physischen SMT-Paaren eingeschränkt werden und die Verwendung von virtuellen Computern mit SMT-Zeitplanung für Ihre Gast-VPS unterstützt wird.
 
->[!NOTE]
->Microsoft empfiehlt, dass alle Kunden, die Windows Server 2016 Hyper-V ausführen, den Kern Planer auswählen, um sicherzustellen, dass Ihre Virtualisierungshosts optimal vor potenziell schädlichen Gast-VMS geschützt werden.
+> [!NOTE]
+> Microsoft empfiehlt, dass alle Kunden, die Windows Server 2016 Hyper-V ausführen, den Kern Planer auswählen, um sicherzustellen, dass Ihre Virtualisierungshosts optimal vor potenziell schädlichen Gast-VMS geschützt werden.
 
 ## <a name="windows-server-2019-hyper-v-defaults-to-using-the-core-scheduler"></a>Windows Server 2019 Hyper-V verwendet standardmäßig den Kern Planer
 
@@ -145,10 +141,10 @@ Um sicherzustellen, dass Hyper-v-Hosts in der optimalen Sicherheitskonfiguration
 
 ### <a name="required-updates"></a>Erforderliche Updates
 
->[!NOTE]
->Die folgenden Updates sind erforderlich, um die in diesem Dokument beschriebenen Features für den Hypervisor-Scheduler zu verwenden. Diese Updates enthalten Änderungen zur Unterstützung der neuen Option "hypervisorschedulertype" (BCD), die für die Host Konfiguration erforderlich ist.
+> [!NOTE]
+> Die folgenden Updates sind erforderlich, um die in diesem Dokument beschriebenen Features für den Hypervisor-Scheduler zu verwenden. Diese Updates enthalten Änderungen zur Unterstützung der neuen `hypervisorschedulertype` BCD-Option, die für die Host Konfiguration erforderlich ist.
 
-| Version | Version  | Update erforderlich | KB-Artikel |
+| Version | Freigabe  | Update erforderlich | KB Article |
 |--------------------|------|---------|-------------:|
 |Windows Server 2016 | 1607 | 2018,07 C | [KB4338822](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822) |
 |Windows Server 2016 | 1703 | 2018,07 C | [KB4338827](https://support.microsoft.com/help/4338827/windows-10-update-kb4338827) |
@@ -161,20 +157,20 @@ Die Konfiguration des Hypervisor-Planers wird über den BCD-Eintrag hypervisorsc
 
 Um einen Planertyp auszuwählen, öffnen Sie eine Eingabeaufforderung mit Administratorrechten:
 
-``` command
-     bcdedit /set hypervisorschedulertype type
+```
+bcdedit /set hypervisorschedulertype type
 ```
 
-Dabei ist `type` einer der folgenden:
+Dabei `type` ist einer der folgenden:
 
-* Classic
-* Kern
+* Klassisch
+* Core
 * Root
 
 Das System muss neu gestartet werden, damit Änderungen am Typ des Hypervisor-Planers wirksam werden.
 
->[!NOTE]
->Der Hypervisor-Stamm Planer wird zurzeit nicht unter Windows Server Hyper-V unterstützt. Hyper-V-Administratoren sollten nicht versuchen, den Stamm Planer für die Verwendung mit servervirtualisierungsszenarien zu konfigurieren.
+> [!NOTE]
+> Der Hypervisor-Stamm Planer wird zurzeit nicht unter Windows Server Hyper-V unterstützt. Hyper-V-Administratoren sollten nicht versuchen, den Stamm Planer für die Verwendung mit servervirtualisierungsszenarien zu konfigurieren.
 
 ## <a name="determining-the-current-scheduler-type"></a>Bestimmen des aktuellen planertyps
 
@@ -182,13 +178,13 @@ Sie können den aktuell verwendeten Hypervisor-Planertyp ermitteln, indem Sie da
 
 Die Hypervisor-Start Ereignis-ID 2 gibt den Hypervisor-Planertyp an, wobei Folgendes gilt:
 
-    1 = Classic scheduler, SMT disabled
+- 1 = klassisches Scheduler, SMT deaktiviert
 
-    2 = Classic scheduler
+- 2 = klassisches Scheduler
 
-    3 = Core scheduler
+- 3 = Core Scheduler
 
-    4 = Root scheduler
+- 4 = root Scheduler
 
 ![Screenshot der Hypervisor-Start Ereignis-ID 2 Details](media/Hyper-V-CoreScheduler-EventID2-Details.png)
 

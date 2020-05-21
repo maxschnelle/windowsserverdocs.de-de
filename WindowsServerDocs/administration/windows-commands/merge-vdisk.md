@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1bfcdde34d2c7dd6146222d04e982aa1ec8009c2
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: cec8eeaa80436dbb34eb055950169b6895efa544
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723992"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83437145"
 ---
 # <a name="merge-vdisk"></a>Vdisk zusammenführen
 
@@ -28,12 +28,12 @@ Führt eine differenzierende virtuelle Festplatte (VHD) mit der entsprechenden �
 > merge vdisk depth=<n>
 > ```
 > #### <a name="parameters"></a>Parameter
-> 
-> | Parameter |                                                                                    BESCHREIBUNG                                                                                    |
+>
+> | Parameter |                                                                                    Beschreibung                                                                                    |
 > |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | Tiefe =<n> | Gibt die Anzahl der übergeordneten VHD-Dateien an, die zusammengeführt werden sollen. " **Tiefe = 1** " gibt beispielsweise an, dass die differenzierende virtuelle Festplatte mit einer Ebene der differenzierenden Kette zusammengeführt wird. |
-> 
-> ## <a name="remarks"></a>Bemerkungen
+>
+>#### <a name="remarks"></a>Hinweise
 > - Es muss eine VHD ausgewählt und getrennt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Vdisk auswählen** eine VHD aus, und verschieben Sie den Fokus darauf.
 > - Mit diesem Parameter wird die übergeordnete VHD geändert. Folglich sind andere differenzierende VHDs, die vom übergeordneten Element abhängig sind, nicht mehr gültig.
 >   ## <a name="examples"></a>Beispiele

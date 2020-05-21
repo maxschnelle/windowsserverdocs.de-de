@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a7a119cda5fad594638211bfcdbdc269fff13d20
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 6b0d122beac43abfd826cb406adac4aa277fc72e
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722725"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436275"
 ---
 # <a name="query-session"></a>Abfrage Sitzung
 
@@ -30,8 +30,8 @@ Die Liste enthält nicht nur Informationen zu aktiven Sitzungen, sondern auch zu
 > query session [<SessionName> | <UserName> | <SessionID>] [/server:<ServerName>] [/mode] [/flow] [/connect] [/counter]
 > ```
 > ### <a name="parameters"></a>Parameter
-> 
-> |      Parameter       |                                                      BESCHREIBUNG                                                      |
+>
+> |      Parameter       |                                                      Beschreibung                                                      |
 > |----------------------|-----------------------------------------------------------------------------------------------------------------------|
 > |    <SessionName>     |                               Gibt den Namen der Sitzung an, die Sie Abfragen möchten.                               |
 > |      <UserName>      |                           Gibt den Namen des Benutzers an, dessen Sitzungen Sie Abfragen möchten.                            |
@@ -42,8 +42,8 @@ Die Liste enthält nicht nur Informationen zu aktiven Sitzungen, sondern auch zu
 > |       /Connect       |                                          Zeigt die aktuellen Verbindungseinstellungen an.                                           |
 > |       /Counter       | Zeigt aktuelle Zähler Informationen an, einschließlich der Gesamtzahl der erstellten, getrennten Sitzungen und der Wiederherstellung der Verbindung. |
 > |          /?          |                                         Zeigt die Hilfe an der Eingabeaufforderung an.                                          |
-> 
-> ## <a name="remarks"></a>Bemerkungen
+>
+>#### <a name="remarks"></a>Hinweise
 > - Ein Benutzer kann immer die Sitzung Abfragen, an der der Benutzer zurzeit angemeldet ist. Um andere Sitzungen abzufragen, muss der Benutzer über die Berechtigung "spezielle Zugriffsberechtigung für Abfrage Informationen" verfügen.
 > - Wenn Sie keine Sitzung angeben, indem Sie <*Sessionname*>, <*username*> oder <*SessionID*> verwenden, werden in der **Abfrage Sitzung** Informationen zu allen aktiven Sitzungen im System angezeigt.
 > - Wenn die **Abfrage Sitzung** Informationen zurückgibt, wird vor der aktuellen Sitzung ein größer-als-Symbol (>) angezeigt. Im folgenden finden Sie eine Beispielausgabe für die **Abfrage Sitzung**:
@@ -67,6 +67,6 @@ Die Liste enthält nicht nur Informationen zu aktiven Sitzungen, sondern auch zu
 >   query session modeM02
 >   ```
 >   ## <a name="additional-references"></a>Zusätzliche Referenzen
->   - [Befehlszeilen Syntax Key](command-line-syntax-key.md)
->   [Query](query.md)
->   [Remotedesktopdienste (Terminal Dienste) Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
+>   - [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md) 
+>    [Abfrage](query.md) 
+>    [Befehlsreferenz für Remotedesktopdienste (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)

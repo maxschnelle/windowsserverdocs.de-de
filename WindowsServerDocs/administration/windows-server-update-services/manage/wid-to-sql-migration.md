@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dougkim
 ms.date: 07/25/2018
-ms.openlocfilehash: 7238d71ed35b5c9645e6b4061717011cc2a02820
-ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
+ms.openlocfilehash: facd846dd0c20ee2e5001b0592651ce310e19097
+ms.sourcegitcommit: 29f7a4811b4d36d60b8b7c55ce57d4ee7d52e263
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83203565"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83716885"
 ---
 # <a name="migrating-the-wsus-database-from-wid-to-sql"></a>Migrieren der WSUS-Datenbank von wid zu SQL
 
@@ -67,7 +67,7 @@ Führen Sie in PowerShell (mit erhöhten Rechten) Folgendes aus:
 
 ### <a name="copy-the-susdb-files-to-the-sql-server"></a>Kopieren Sie die SUSDB-Dateien in die SQL Server
 
-1. Kopieren Sie **SUSDB. mdf** und **SUSDB \_ Log. ldf** aus dem Ordner "wid Data" ("**% System Drive%** \* * windows\wid\data * *") in den SQL-instanzdatenordner.
+1. Kopieren Sie **SUSDB. mdf** und **SUSDB \_ Log. ldf** aus dem Ordner "wid Data" (**% System Drive%** \\ **Windows \\ wid \\ Data**) in den SQL-instanzdatenordner.
 
 > [!TIP]
 > Wenn der SQL-instanzordner z. b. " **c:\Programme\Microsoft SQL server\mssql12." lautet, Mssqlserver\mssql**und der Ordner "wid Data" lautet " **c:\windows\wid\data** ". Kopieren Sie die SUSDB-Dateien aus " **c:\windows\wid\data** " in " **c:\Programme\Microsoft SQL server\mssql12.". MSSQLSERVER\MSSQL\Data**

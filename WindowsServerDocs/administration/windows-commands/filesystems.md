@@ -1,6 +1,6 @@
 ---
 title: Dateisysteme
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den File Systems-Befehl, der Informationen zum aktuellen Dateisystem des Volumes mit dem Fokus anzeigt und die Dateisysteme auflistet, die zum Formatieren des Volumes unterstützt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7e94144b4f0aa747cef560045cdf03efd130c5d0
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 8c31a8978beecda223bc75b1374ef4ac473bf1c6
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725636"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83437165"
 ---
 # <a name="filesystems"></a>Dateisysteme
 
-
-
 Zeigt Informationen zum aktuellen Dateisystem des Volumes mit dem Fokus an und listet die Dateisysteme auf, die zum Formatieren des Volumes unterstützt werden.
+
+Ein Volume muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem [Befehl Volume auswählen](select-volume.md) ein Volume aus, und verschieben Sie den Fokus auf das Volume.
 
 ## <a name="syntax"></a>Syntax
 
@@ -28,9 +28,6 @@ Zeigt Informationen zum aktuellen Dateisystem des Volumes mit dem Fokus an und l
 filesystems
 ```
 
-## <a name="remarks"></a>Bemerkungen
-
--   Ein Volume muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Volume auswählen** ein Volume aus, und verschieben Sie den Fokus auf das Volume.
-
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

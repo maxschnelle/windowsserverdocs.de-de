@@ -1,6 +1,6 @@
 ---
 title: Erweitern von Vdisk
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den Expand Vdisk-Befehl, mit dem eine virtuelle Festplatte (VHD) auf eine angegebene Größe erweitert wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,44 +9,55 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c2380045de45397888777f58e3420c75bb6915ae
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 48973178f35f792b52fa81e5ed59449ca5db2559
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725694"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436185"
 ---
 # <a name="expand-vdisk"></a>Erweitern von Vdisk
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-erweitert eine virtuelle Festplatte (VHD) auf die Größe, die Sie angeben.
-> [!NOTE]
-> Dieser Befehl gilt nur für Windows 7 und Windows Server 2008 R2.
-> ## <a name="syntax"></a>Syntax
-> ```
-> expand vdisk maximum=<n>
-> ```
-> ### <a name="parameters"></a>Parameter
-> 
-> |  Parameter  |                      BESCHREIBUNG                      |
-> |-------------|-------------------------------------------------------|
-> | Maximum =<n> | Gibt die neue Größe für die VHD in Megabyte (MB) an. |
-> 
-> ## <a name="remarks"></a>Bemerkungen
-> - Es muss eine VHD ausgewählt und getrennt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl **Vdisk auswählen** ein Volume aus, und verschieben Sie den Fokus auf das Volume.
->   ## <a name="examples"></a>Beispiele
->   Geben Sie Folgendes ein, um die ausgewählte VHD auf 20 GB zu erweitern:
->   ```
->   expand vdisk maximum=20000
->   ```
->   ## <a name="additional-references"></a>Zusätzliche Referenzen
-> - - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
-> - [attach vdisk](attach-vdisk.md)
-> - [Compact Vdisk](compact-vdisk.md)
+Erweitert eine virtuelle Festplatte (VHD) auf eine angegebene Größe.
 
--   [Vdisk trennen](detach-vdisk.md)
--   [Detail-Vdisk](detail-vdisk.md)
--   [Vdisk zusammenführen](merge-vdisk.md)
--   [Vdisk auswählen](select-vdisk.md)
--   [list_1](list_1.md)
+Es muss eine VHD ausgewählt und getrennt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem [Befehl Vdisk auswählen](select-vdisk.md) ein Volume aus, und verschieben Sie den Fokus auf das Volume.
+
+## <a name="syntax"></a>Syntax
+
+```
+expand vdisk maximum=<n>
+```
+
+### <a name="parameters"></a>Parameter
+
+ | Parameter | Beschreibung |
+ |---------- | ----------- |
+ | Maximum =`<n>` | Gibt die neue Größe für die VHD in Megabyte (MB) an. |
+
+### <a name="examples"></a>Beispiele
+
+Geben Sie Folgendes ein, um die ausgewählte VHD auf 20 GB zu erweitern:
+
+```
+expand vdisk maximum=20000
+```
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Vdisk-Befehl auswählen](select-vdisk.md)
+
+- [Befehl "Vdisk anfügen"](attach-vdisk.md)
+
+- [Compact Vdisk-Befehl](compact-vdisk.md)
+
+- [Befehl "Vdisk trennen"](detach-vdisk.md)
+
+- [Detail-Vdisk-Befehl](detail-vdisk.md)
+
+- [Befehl "Vdisk zusammenführen"](merge-vdisk.md)
+
+- [List-Befehl](list.md)

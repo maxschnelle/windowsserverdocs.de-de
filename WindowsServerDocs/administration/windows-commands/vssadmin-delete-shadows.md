@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: e18823c5c030aa1a7b8f032f820e415f36fd7827
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: b52701f831502c16487dbbaf0cd61d839c046c68
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720266"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436705"
 ---
 # <a name="vssadmin-delete-shadows"></a>Löschen von Schatten durch vssadmin
 
@@ -29,15 +29,15 @@ vssadmin delete shadows /for=<ForVolumeSpec> [/oldest | /all | /shadow=<ShadowID
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---|---|
-|/for =\<forvolumespec>|Gibt an, welche Schattenkopie des Volumes gelöscht wird.|
+|/for = \< forvolumespec>|Gibt an, welche Schattenkopie des Volumes gelöscht wird.|
 |/oldest|Löscht nur die älteste Schatten Kopie.|
 |/all|Löscht alle Schatten Kopien des angegebenen Volumes.|
-|/Shadow =\<shadowid>|Löscht die Schatten Kopie, die von shadowid angegeben wird. Verwenden Sie den Befehl " **vssadmin list shadows** ", um die Schattenkopiekennung zu erhalten. Wenn Sie eine schattenkopienkennung eingeben, verwenden Sie das folgende Format, wobei jedes *X* ein hexadezimales Zeichen darstellt:<br><br>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|/Shadow = \< shadowid>|Löscht die Schatten Kopie, die von shadowid angegeben wird. Verwenden Sie den Befehl " **vssadmin list shadows** ", um die Schattenkopiekennung zu erhalten. Wenn Sie eine schattenkopienkennung eingeben, verwenden Sie das folgende Format, wobei jedes *X* ein hexadezimales Zeichen darstellt:<br><br>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |/quiet|Gibt an, dass der Befehl keine Meldungen anzeigt, wenn er ausgeführt wird.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 Schatten Kopien können nur mit dem vom Client zugänglichen Typ gelöscht werden.
 
@@ -49,7 +49,7 @@ Um die älteste Schatten Kopie von Volume C zu löschen, geben Sie den folgenden
 vssadmin delete shadows /for=c: /oldest
 ```
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
 * [Befehlszeilen-Syntax Schlüssel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771080(v%3dws.11))
 * [Vssadmin](vssadmin.md)

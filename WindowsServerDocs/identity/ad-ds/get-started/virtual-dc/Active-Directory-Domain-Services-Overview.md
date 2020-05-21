@@ -8,23 +8,23 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 3c11e4a925eae89355da301d0b0facb62a53a942
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 13d32a4fc11611f030006ad9628d2e84a045e511
+ms.sourcegitcommit: c710fea2c0591febfc1bc9a705d59979be6f699b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80824563"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83705567"
 ---
 # <a name="active-directory-domain-services-overview"></a>Übersicht über Active Directory Domain Services
 
->Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Gilt für: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 
-Ein Verzeichnis ist eine hierarchische Struktur, in der Informationen zu Objekten im Netzwerk gespeichert werden. Ein Verzeichnisdienst, wie z. b. Active Directory Domain Services (AD DS), stellt die Methoden zum Speichern von Verzeichnis Daten und zum Bereitstellen dieser Daten für Netzwerk Benutzer und Administratoren bereit. AD DS speichert beispielsweise Informationen über Benutzerkonten, z. b. Namen, Kenn Wörter, Telefonnummern usw., und ermöglicht anderen autorisierten Benutzern im gleichen Netzwerk den Zugriff auf diese Informationen.
+Ein Verzeichnis ist eine hierarchische Struktur, in der Informationen zu Objekten im Netzwerk gespeichert werden. Ein Verzeichnisdienst, wie z. b. Active Directory Domain Services (AD DS), stellt die Methoden zum Speichern von Verzeichnis Daten und zum Bereitstellen dieser Daten für Netzwerk Benutzer und Administratoren bereit. AD DS speichert beispielsweise Informationen über Benutzerkonten wie Namen, Kennwörter, Telefonnummern usw. und ermöglicht anderen autorisierten Benutzern im gleichen Netzwerk, auf diese Informationen zuzugreifen.
 
 In Active Directory werden Informationen zu Objekten im Netzwerk gespeichert, sodass sie von Administratoren und Benutzern leicht gefunden und verwendet werden können. Für Active Directory wird ein strukturierter Datenspeicher als Basis für eine logische, hierarchische Organisation von Verzeichnisinformationen eingesetzt.
 
-Dieser Datenspeicher, auch als Verzeichnis bezeichnet, enthält Informationen über Active Directory Objekte. Diese Objekte umfassen in der Regel freigegebene Ressourcen, z. b. Server, Volumes, Drucker und Netzwerk Benutzer-und Computer Konten. Weitere Informationen zum Active Directory Datenspeicher finden Sie unter [Verzeichnis Datenspeicher](https://technet.microsoft.com/library/cc736627(v=ws.10).aspx).
+Dieser Datenspeicher, auch als Verzeichnis bezeichnet, enthält Informationen über Active Directory Objekte. Diese Objekte umfassen in der Regel freigegebene Ressourcen, z. b. Server, Volumes, Drucker und Netzwerk Benutzer-und Computer Konten. Weitere Informationen zum Active Directory Datenspeicher finden Sie unter [Verzeichnis Datenspeicher](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc736627(v=ws.10)).
 
 Die Sicherheit wird in Active Directory durch die Anmelde Authentifizierung und die Zugriffs Steuerung für Objekte im Verzeichnis integriert. Bei einer einzelnen Netzwerk Anmeldung können Administratoren Verzeichnis Daten und die Organisation im gesamten Netzwerk verwalten, und autorisierte Netzwerk Benutzer können auf Ressourcen an beliebiger Stelle im Netzwerk zugreifen. Durch die richtlinienbasierte Verwaltung wird selbst die Verwaltung der komplexesten Netzwerke erleichtert. Weitere Informationen zur Active Directory Sicherheit finden Sie unter [Sicherheitsübersicht](../../plan/security-best-practices/best-practices-for-securing-active-directory.md).
 
@@ -43,15 +43,15 @@ Active Directory umfasst auch Folgendes:
 ## <a name="understanding-active-directory"></a>Grundlegendes zu Active Directory
  Dieser Abschnitt enthält Links zu den grundlegenden Active Directory Konzepten:
  
-* [Active Directory Struktur und Speichertechnologien](https://technet.microsoft.com/library/cc759186(v=ws.10).aspx)
-* [Domänen Controller Rollen](https://technet.microsoft.com/library/cc786438(v=ws.10).aspx) 
+* [Active Directory Struktur und Speichertechnologien](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc759186(v=ws.10))
+* [Domänen Controller Rollen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786438(v=ws.10)) 
 * [Active Directory-Schema](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771796(v=ws.10))
-* [Understanding Trusts](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771568(v=ws.10)) 
-* [Active Directory Replikations Technologien](https://technet.microsoft.com/library/cc786438(v=ws.10).aspx) 
-* [Technologien für die Active Directory Suche und Veröffentlichung](https://technet.microsoft.com/library/cc775686(v=ws.10).aspx) 
+* [Grundlegendes zu Vertrauensstellungen](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771568(v=ws.10)) 
+* [Active Directory Replikations Technologien](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc776877(v=ws.10)) 
+* [Technologien für die Active Directory Suche und Veröffentlichung](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc775686(v=ws.10)) 
 * [Interoperabilität mit DNS und Gruppenrichtlinie](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd197486(v=ws.10))
-* [Grundlegendes zum Schema](https://technet.microsoft.com/library/cc759402(v=ws.10).aspx) 
+* [Grundlegendes zum Schema](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc759402(v=ws.10)) 
 
-Eine ausführliche Liste der Active Directory Konzepte finden Sie unter [Understanding Active Directory](https://technet.microsoft.com/library/cc781408(v=ws.10).aspx). 
+Eine ausführliche Liste der Active Directory Konzepte finden Sie unter [Understanding Active Directory](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc781408(v=ws.10)). 
 
 

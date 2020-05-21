@@ -8,18 +8,18 @@ ms.assetid: 1575cc7c-62a7-4add-8f78-e5d93effe93f
 manager: brianlic
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: d61287b82cd6d3b869b1120d3cb21b3c8792bd1e
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: cdfcf65f762015ceeaa20b99543ffb772e60d1a6
+ms.sourcegitcommit: 29f7a4811b4d36d60b8b7c55ce57d4ee7d52e263
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80312752"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83716865"
 ---
 # <a name="manage-data-center-bridging-dcb"></a>Verwalten von Data Center Bridging (DCB)
 
->Gilt für: Windows Server (Semi-Annual Channel), Windows Server 2016
+>Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016
 
-Dieses Thema enthält Anweisungen zur Verwendung von Windows PowerShell-Befehlen zum Konfigurieren von Data Center Bridging \(DCB-\) auf einem DCB-\-kompatiblen Netzwerkadapter, der auf einem Computer installiert ist, auf dem entweder Windows Server 2016 oder Windows 10 ausgeführt wird.
+Dieses Thema enthält Anweisungen zur Verwendung von Windows PowerShell-Befehlen zum Konfigurieren von Data Center Bridging \( DCB \) auf einem DCB- \- kompatiblen Netzwerkadapter, der auf einem Computer installiert ist, auf dem entweder Windows Server 2016 oder Windows 10 ausgeführt wird.
 
 ## <a name="install-dcb-in-windows-server-2016-or-windows-10"></a>Installieren von DCB in Windows Server 2016 oder Windows 10
 
@@ -30,7 +30,7 @@ Informationen zu den Voraussetzungen für die Verwendung von und zur Installatio
 
 Vor Windows Server 2016 wurden alle DCB-Konfigurationen universell auf alle Netzwerkadapter angewendet, von denen DCB unterstützt wurde. 
 
-In Windows Server 2016 können Sie DCB-Konfigurationen entweder auf den globalen Richtlinien Speicher oder auf einzelne Richtlinien Speicher\(s\)anwenden. Wenn einzelne Richtlinien angewendet werden, überschreiben Sie alle globalen Richtlinien Einstellungen.
+In Windows Server 2016 können Sie DCB-Konfigurationen entweder auf den globalen Richtlinien Speicher oder auf einzelne Richtlinien Speicher \( s anwenden \) . Wenn einzelne Richtlinien angewendet werden, überschreiben Sie alle globalen Richtlinien Einstellungen.
 
 Die Konfigurationen der Datenverkehrs Klasse, PFC und Anwendungs Prioritäts Zuweisung auf Systemebene werden erst auf Netzwerkadapter angewendet, wenn Sie die folgenden Schritte ausführen.
 
@@ -109,7 +109,7 @@ Sie können den Befehl **New-netqostrafficclass** verwenden, um eine Datenverkeh
     SMB  ETS   30   4Global
       
 
-Standardmäßig werden alle 802.1 p-Werte einer Standard-Datenverkehrs Klasse zugeordnet, die 100% der Bandbreite der physischen Verbindung aufweist. Der **New-netqostrafficclass-** Befehl erstellt eine neue Datenverkehrs Klasse, der jedes Paket zugeordnet ist, das mit dem 802.1 p-Prioritätswert 4 markiert ist. Der Übertragungs Auswahl Algorithmus \(TSA-\) ist ETS und hat 30% der Bandbreite.
+Standardmäßig werden alle 802.1 p-Werte einer Standard-Datenverkehrs Klasse zugeordnet, die 100% der Bandbreite der physischen Verbindung aufweist. Der **New-netqostrafficclass-** Befehl erstellt eine neue Datenverkehrs Klasse, der jedes Paket zugeordnet ist, das mit dem 802.1 p-Prioritätswert 4 markiert ist. Der Übertragungs Auswahl Algorithmus \( TSA \) ist ETS und hat 30% der Bandbreite.
 
 Sie können bis zu sieben neue Datenverkehrs Klassen erstellen. Die Standard-Datenverkehrs Klasse umfasst höchstens 8 Datenverkehrs Klassen im System. Ein DCB-fähiger Netzwerkadapter unterstützt jedoch möglicherweise nicht viele Datenverkehrs Klassen in der Hardware. Wenn Sie mehr Datenverkehrs Klassen erstellen, als auf einem Netzwerkadapter untergebracht werden können, und Sie DCB auf diesem Netzwerkadapter aktivieren, meldet der Mini Port-Treiber einen Fehler an das Betriebssystem. Der Fehler wird im Ereignisprotokoll protokolliert.
 
@@ -144,11 +144,11 @@ Sie können dann den Befehl **Get-netqostrafficclass** verwenden, um Einstellung
 
 Nachdem Sie eine Datenverkehrs Klasse erstellt haben, können Sie Ihre Einstellungen unabhängig voneinander ändern. Folgende Einstellungen können Sie ändern:
 
-1. Bandbreiten Zuordnung \(-bandwidthprozentsatz\)
+1. Bandbreiten Zuordnung \( -bandwidthprozentsatz\)
 
-2. TSA (\--Algorithmus\)
+2. TSA ( \- Algorithmus\)
 
-3. Prioritäts Zuordnung \(\) Priorität
+3. Prioritäts Zuordnung \( -Priorität\)
 
 ### <a name="remove-a-traffic-class"></a>Entfernen einer Datenverkehrs Klasse
 
@@ -175,7 +175,7 @@ Nachdem Sie eine Datenverkehrs Klasse entfernt haben, wird der 802.1 p-Wert, der
 
 Alle oben aufgeführten Beispiele legen globale Richtlinien fest. Im folgenden finden Sie Beispiele dafür, wie Sie pro-NIC-Richtlinien festlegen und erhalten können. 
 
-Das Feld "policyset" ändert sich von Global in adapterspecific. Wenn adapterspecific-Richtlinien angezeigt werden, werden der Schnittstellen Index \(ifindex\) und der Schnittstellen Name \(ifalias\) ebenfalls angezeigt.
+Das Feld "policyset" ändert sich von Global in adapterspecific. Wenn adapterspecific-Richtlinien angezeigt werden, werden der Schnittstellen Index \( ifindex \) und der Schnittstellen Name \( ifalias \) ebenfalls angezeigt.
 
 ```
 PS C:\> Get-NetQosTrafficClass
@@ -304,13 +304,13 @@ Im folgenden finden Sie Beispiele für die Prioritäts Zuweisung.
 ### <a name="create-qos-policy"></a>Erstellen einer QoS-Richtlinie
 
 ```
-PS C:\> New-NetQosPolicy -Name "SMB Policy" -PriorityValue8021Action 4
+PS C:\> New-NetQosPolicy -Name "SMB Policy" -SMB -PriorityValue8021Action 4
 
 Name           : SMB Policy
 Owner          : Group Policy (Machine)
 NetworkProfile : All
 Precedence     : 127
-JobObject      :
+Template       : SMB
 PriorityValue  : 4
 
 ```
@@ -381,6 +381,7 @@ Name           : SMB Policy
 Owner          : Group Policy (Machine)
 NetworkProfile : All
 Precedence     : 127
+Template       : SMB
 JobObject      :
 PriorityValue  : 4
 
@@ -476,12 +477,12 @@ Es gibt DCB-Windows PowerShell-Befehle für Windows Server 2016 und Windows Serv
 
 ### <a name="windows-server-2016-windows-powershell-commands-for-dcb"></a>Windows Server 2016 Windows PowerShell-Befehle für DCB
 
-Das folgende Thema für Windows Server 2016 bietet Windows PowerShell-Cmdlet-Beschreibungen und Syntax für alle Data Center Bridging-\(DCB-\) Quality of Service \(QoS\)\-bestimmte Cmdlets. Sie führt die Cmdlets in alphabetischer Reihenfolge nach dem Verb am Anfang des Cmdlets auf.
+Im folgenden Thema für Windows Server 2016 finden Sie Windows PowerShell-Cmdlet-Beschreibungen und Syntax für alle Data Center Bridging \( DCB \) Quality of Service \( QoS- \) \- spezifischen Cmdlets. Die Cmdlets werden in alphabetischer Reihenfolge (basierend auf dem Verb am Anfang des Cmdlets) aufgeführt.
 
 - [Dcbqos-Modul](https://technet.microsoft.com/itpro/powershell/windows/dcbqos/dcbqos)
 
 ### <a name="windows-server-2012-r2-windows-powershell-commands-for-dcb"></a>Windows Server 2012 R2 Windows PowerShell-Befehle für DCB
 
-Das folgende Thema für Windows Server 2012 R2 bietet Windows PowerShell-Cmdlet-Beschreibungen und Syntax für alle Data Center Bridging-\(DCB-\) Quality of Service \(QoS\)\-bestimmte Cmdlets. Sie führt die Cmdlets in alphabetischer Reihenfolge nach dem Verb am Anfang des Cmdlets auf.
+Im folgenden Thema für Windows Server 2012 R2 finden Sie Windows PowerShell-Cmdlet-Beschreibungen und Syntax für alle Data Center Bridging \( DCB \) Quality of Service \( QoS- \) \- spezifischen Cmdlets. Die Cmdlets werden in alphabetischer Reihenfolge (basierend auf dem Verb am Anfang des Cmdlets) aufgeführt.
 
-- [Cmdlets für Data Center Bridging (DCB) Quality of Service (QoS) in Windows PowerShell](https://technet.microsoft.com/library/hh967440.aspx)
+- [QoS-Cmdlets für Data Center Bridging (DCB) in der Windows PowerShell](https://technet.microsoft.com/library/hh967440.aspx)

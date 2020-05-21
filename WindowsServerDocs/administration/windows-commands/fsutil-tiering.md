@@ -1,22 +1,23 @@
 ---
-ms.assetid: e5f55f3e-8d2a-4526-8d67-36a539126c22
-title: Untergeordnetes Tiering
+title: fsutil tiering
+description: Referenz Thema für den Befehl "ssutil Tiering", der die Verwaltung von Funktionen für die Speicher Ebene ermöglicht, z. b. das Festlegen und Deaktivieren von Flags und das Auflisten von Ebenen.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
 ms.technology: storage
-audience: IT Pro
+ms.assetid: e5f55f3e-8d2a-4526-8d67-36a539126c22
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 71bf1e82222626b2808258154352aaca2b3860c6
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 6fa8646dcdf7e836ccb45f253e0c4f8691b1ea3c
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725424"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436845"
 ---
-# <a name="fsutil-tiering"></a>Untergeordnetes Tiering
+# <a name="fsutil-tiering"></a>fsutil tiering
+
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows 10
 
 Ermöglicht die Verwaltung von Funktionen für die Speicher Ebene, z. b. das Festlegen und Deaktivieren von Flags und das Auflisten von Ebenen.
@@ -31,18 +32,17 @@ fsutil tiering [setflags] <volume> <flags>
 fsutil tiering [tierlist] <volume>
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|-------------|---------------|
-|ClearFlags|Deaktiviert die Tiering-verhaltenflags eines Volumes.|
-|\<Volume>|Gibt das Volume an.|
-|/TrNH|Bei Volumes mit mehrstufigen Speicher wird die Wärme Erfassung deaktiviert.<br /><br>Gilt nur für NTFS und refs.|
-|queryflags|Fragt die Tiering-verhaltenflags eines Volumes ab.|
-|regionlist|Listet die mehrstufigen Bereiche eines Volumes und die jeweiligen Speicherebenen auf.|
-|setFlags|Aktiviert die Tiering-verhaltenflags eines Volumes.|
-|tierlist|Listet die einem Volume zugeordneten Speicherplatz.|
-
+| Parameter | Beschreibung |
+| --------- | ----------- |
+| ClearFlags | Deaktiviert die Tiering-verhaltenflags eines Volumes. |
+| `<volume>` | Gibt das Volume an. |
+| /trnh | Bei Volumes mit mehrstufigen Speicher wird die Wärme Erfassung deaktiviert.<p>Gilt nur für NTFS und refs. |
+| queryflags | Fragt die Tiering-verhaltenflags eines Volumes ab. |
+| regionlist | Listet die mehrstufigen Bereiche eines Volumes und die jeweiligen Speicherebenen auf. |
+| setFlags | Aktiviert die Tiering-verhaltenflags eines Volumes. |
+| tierlist | Listet die Speicherebenen auf, die einem Volume zugeordnet sind. |
 
 ### <a name="examples"></a>Beispiele
 
@@ -55,13 +55,13 @@ fsutil tiering clearflags C:
 Um die Flags für Volume C festzulegen, geben Sie Folgendes ein:
 
 ```
-fsutil tiering setflags C: /TrNH
+fsutil tiering setflags C: /trnh
 ```
 
 Um die Flags auf Volume C zu löschen, geben Sie Folgendes ein:
 
 ```
-fsutil tiering clearflags C: /TrNH
+fsutil tiering clearflags C: /trnh
 ```
 
 Geben Sie Folgendes ein, um die Bereiche von Volume C und ihren jeweiligen Speicherebenen aufzulisten:
@@ -76,10 +76,8 @@ Geben Sie Folgendes ein, um die Ebenen von Volume C aufzulisten:
 fsutil tiering tierlist C:
 ```
 
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-
-### <a name="additional-references"></a>Weitere Verweise
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-[Fsutil](Fsutil.md)
-
+- [fsutil](fsutil.md)

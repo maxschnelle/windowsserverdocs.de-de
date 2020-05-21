@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0ec812e9a455cc0060a3f0a6be4d0e7227821a0b
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 96e0f97e27de8933de44c437508ef59803765771
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992379"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83437125"
 ---
 # <a name="erase"></a>erase
 
@@ -32,7 +32,7 @@ del [/p] [/f] [/s] [/q] [/a[:]<attributes>] <names>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<names>` | Gibt eine Liste von mindestens einer Datei oder einem Verzeichnis an. Platzhalter können verwendet werden, um mehrere Dateien zu löschen. Wenn ein Verzeichnis angegeben wird, werden alle Dateien im Verzeichnis gelöscht. |
 | /p | Fordert vor dem Löschen der angegebenen Datei eine Bestätigung an. |
@@ -73,7 +73,7 @@ del [/p] [/f] [/s] [/q] [/a[:]<attributes>] <names>
   > [!NOTE]
   > Bevor Sie mit dem Befehl " **Erase** " Platzhalter Zeichen verwenden, verwenden Sie die gleichen Platzhalter Zeichen mit dem Befehl " **dir** ", um alle Dateien aufzulisten, die gelöscht werden.
 
-## <a name="examples"></a>Beispiele
+### <a name="examples"></a>Beispiele
 
 Wenn Sie alle Dateien in einem Ordner mit dem Namen Test auf Laufwerk C löschen möchten, geben Sie eine der folgenden Optionen ein:
 
