@@ -1,6 +1,6 @@
 ---
-title: 'Ksetup: removerealm'
-description: Referenz Thema für * * * *-
+title: Ksetup removerealm
+description: Referenz Thema für den Befehl "Ksetup removerealm", mit dem alle Informationen für den angegebenen Bereich aus der Registrierung gelöscht werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,51 +9,46 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bb7bf4663594a6c164d6495a9ba4cd81942afb79
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 5da1be77a3b585e566bfd3b051b2fb391b326f32
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724607"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83817610"
 ---
-# <a name="ksetupremoverealm"></a>Ksetup: removerealm
-
-
+# <a name="ksetup-removerealm"></a>Ksetup removerealm
 
 Löscht alle Informationen für den angegebenen Bereich aus der Registrierung.
+
+Der Bereichs Name wird in der Registrierung unter `HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001` und gespeichert `\CurrentControlSet\Control\Lsa\Kerberos` . Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Sie können den Befehl " [Ksetup adressalmflags](ksetup-addrealmflags.md) " verwenden, um die Registrierung aufzufüllen.
+
+> [!IMPORTANT]
+> Der Standard Bereichs Name kann nicht vom Domänen Controller entfernt werden, da dadurch seine DNS-Informationen zurückgesetzt werden, und durch das Entfernen kann der Domänen Controller unbrauchbar werden.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-ksetup /removerealm <RealmName>
+ksetup /removerealm <realmname>
 ```
+### <a name="parameters"></a>Parameter
 
-#### <a name="parameters"></a>Parameter
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| `<realmname>` | Gibt den Großbuchstaben-DNS-Namen an, z. b. Corp. CONTOSO.com, und wird als Standardbereich bzw. **Bereich** angezeigt, wenn **Ksetup** ausgeführt wird. |
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|\<Realmname->|Der Bereichs Name wird als Großbuchstabe (DNS-Name) angegeben, z. b. Corp. CONTOSO.com, und es wird als Standardbereich aufgeführt, wenn **Ksetup** ausgeführt wird.|
+### <a name="examples"></a>Beispiele
 
-## <a name="remarks"></a>Bemerkungen
-
-Der Bereichs Name wird an zwei Stellen in der Registrierung gespeichert: **HKEY_LOCAL_MACHINE \system\controlset001** und **\currentcontrolset\control\lsa\kerberos**.
-
-Der Standard Bereichs Name kann nicht vom Domänen Controller entfernt werden, da dadurch seine DNS-Informationen zurückgesetzt werden, und durch das Entfernen kann der Domänen Controller unbrauchbar werden.
-
-## <a name="examples"></a>Beispiele
-
-Legen Sie den Bereichs Namen versehentlich auf dem lokalen Computer auf dem lokalen Computer auf Corp fest. CONTOSO. Lexikon
-```
-ksetup /setrealm CORP.CONTOSO.CON
-```
-Entfernen Sie den fehlerhaften Bereichs Namen auf dem lokalen Computer:
+Zum Entfernen eines fehlerhaften Bereichs namens (. CON anstelle von. com) geben Sie auf dem lokalen Computer Folgendes ein:
 ```
 ksetup /removerealm CORP.CONTOSO.CON
 ```
-Überprüfen Sie das Entfernen, indem Sie **Ksetup** ausführen und die Ausgabe überprüfen.
+
+Zum Überprüfen des Entfernens können Sie den **Ksetup** -Befehl ausführen und die Ausgabe überprüfen.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [Ksetup](ksetup.md)
--   [Ksetup:setrealm](ksetup-setrealm.md)
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Ksetup-Befehl](ksetup.md)
+
+- [Ksetup setrealm-Befehl](ksetup-setrealm.md)

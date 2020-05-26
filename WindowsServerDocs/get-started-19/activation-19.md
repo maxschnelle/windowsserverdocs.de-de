@@ -1,24 +1,20 @@
 ---
 title: Windows Server 2019-Aktivierung
 description: So wird Windows Server 2019 aktiviert.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 99f7daa4-30ce-4d13-be65-0a4d55cca754
 author: coreyp-at-msft
 ms.author: coreyp
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: 5f3f9a05d02b291b4443b346a1cb2301e8a5190d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 022579edee4780446fea2780673b4611e377047d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360876"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "82786310"
 ---
 # <a name="windows-server-2019-activation"></a>Windows Server 2019-Aktivierung
 
@@ -39,10 +35,10 @@ Die folgende Tabelle fasst die Anforderungen an KMS-Hosts und Clients für Netzw
 
 |Product Key-Gruppe|KMS kann gehostet werden auf|Windows-Versionen, die von diesem KMS-Host aktiviert wurden|  
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|  
-|Volumenlizenz für Windows Server 2019|Windows Server 2012 R2<br /><br />Windows Server 2016<br /><br />Windows Server 2019<br /><br />|Windows Server (Semi-Annual Channel)<br /><br />Windows Server 2019 (alle Editionen)<br /><br />Windows Server 2016 (alle Editionen)<br /><br />Windows 10 Enterprise LTSC 2019 <br /><br />Windows 10 Enterprise LTSC N 2019<br /><br />Windows 10 LTSB (2015 und 2016)<br /><br />Windows 10 Professional<br /><br />Windows 10 Enterprise<br /><br />Windows 10 Pro for Workstations<br /><br />Windows 10 Education<br /><br />Windows Server 2012 R2 (alle Editionen)<br /><br />Windows 8.1 Professional<br /><br />Windows 8.1 Enterprise<br /><br />Windows Server 2012 (alle Editionen)<br /><br />Windows Server 2008 R2 (alle Editionen)<br /><br />Windows Server 2008 (alle Editionen)<br /><br />Windows 7 Professional<br /><br />Windows 7 Enterprise<br />| 
-|Volumenlizenz für Windows Server 2016|Windows Server 2012<br /><br />Windows Server 2012 R2<br /><br />Windows Server 2016<br /><br />|Windows Server (Semi-Annual Channel) <br><br>Windows Server 2016 (alle Editionen)<br /><br />Windows 10 LTSB (2015 und 2016)<br /><br />Windows 10 Professional<br /><br />Windows 10 Enterprise<br /><br />Windows 10 Pro for Workstations<br><br>Windows 10 Education<br><br>Windows Server 2012 R2 (alle Editionen)<br /><br />Windows 8.1 Professional<br /><br />Windows 8.1 Enterprise<br /><br />Windows Server 2012 (alle Editionen)<br /><br />Windows Server 2008 R2 (alle Editionen)<br /><br />Windows Server 2008 (alle Editionen)<br /><br />Windows 7 Professional<br /><br />Windows 7 Enterprise<br /><br />| 
-|Volumenlizenz für Windows 10|Windows 7<br /><br /> Windows 8.1<br /><br /> Windows 10|Windows 10 Professional<br /><br /> Windows 10 Professional N<br /><br /> Windows 10 Enterprise<br /><br /> Windows 10 Enterprise N<br /><br /> Windows 10 Education<br /><br /> Windows 10 Education N<br /><br /> Windows 10 Enterprise LTSB (2015)<br /><br /> Windows 10 Enterprise LTSB N (2015)<br /><br /> Windows 10 Pro for Workstations<br><br>Windows 8.1 Professional<br /><br /> Windows 8.1 Enterprise<br /><br /> Windows 7 Professional<br /><br /> Windows 7 Enterprise<br /><br />|  
-|Volumenlizenz für „WindowsServer 2012 R2 für Windows 10“|Windows Server 2008 R2<br /><br /> Windows Server2012 Standard<br /><br /> Windows Server2012 Datacenter<br /><br /> Windows Server2012R2 Standard<br /><br />Windows Server2012R2 Datacenter|Windows 10 Professional<br /><br /> Windows 10 Enterprise<br /><br />Windows 10 Enterprise LTSB (2015)<br><br>Windows 10 Pro for Workstations<br><br>Windows 10 Education<br><br> Windows Server 2012 R2 (alle Editionen)<br /><br /> Windows 8.1 Professional<br /><br /> Windows 8.1 Enterprise<br /><br /> Windows Server 2012 (alle Editionen)<br /><br /> Windows Server 2008 R2 (alle Editionen)<br /><br /> Windows Server 2008 (alle Editionen)<br /><br />Windows 7 Professional<br /><br /> Windows 7 Enterprise|
+|Volumenlizenz für Windows Server 2019|Windows Server 2012 R2<p>Windows Server 2016<p>Windows Server 2019<p>|Windows Server (Halbjährlicher Kanal)<p>Windows Server 2019 (alle Editionen)<p>Windows Server 2016 (alle Editionen)<p>Windows 10 Enterprise LTSC 2019 <p>Windows 10 Enterprise LTSC N 2019<p>Windows 10 LTSB (2015 und 2016)<p>Windows 10 Professional<p>Windows 10 Enterprise<p>Windows 10 Pro for Workstations<p>Windows 10 Education<p>Windows Server 2012 R2 (alle Editionen)<p>Windows 8.1 Professional<p>Windows 8.1 Enterprise<p>Windows Server 2012 (alle Editionen)<p>Windows Server 2008 R2 (alle Editionen)<p>Windows Server 2008 (alle Editionen)<p>Windows 7 Professional<p>Windows 7 Enterprise<br />| 
+|Volumenlizenz für Windows Server 2016|Windows Server 2012<p>Windows Server 2012 R2<p>Windows Server 2016<p>|Windows Server (Halbjährlicher Kanal) <br><br>Windows Server 2016 (alle Editionen)<p>Windows 10 LTSB (2015 und 2016)<p>Windows 10 Professional<p>Windows 10 Enterprise<p>Windows 10 Pro for Workstations<br><br>Windows 10 Education<br><br>Windows Server 2012 R2 (alle Editionen)<p>Windows 8.1 Professional<p>Windows 8.1 Enterprise<p>Windows Server 2012 (alle Editionen)<p>Windows Server 2008 R2 (alle Editionen)<p>Windows Server 2008 (alle Editionen)<p>Windows 7 Professional<p>Windows 7 Enterprise<p>| 
+|Volumenlizenz für Windows 10|Windows 7<p> Windows 8.1<p> Windows 10|Windows 10 Professional<p> Windows 10 Professional N<p> Windows 10 Enterprise<p> Windows 10 Enterprise N<p> Windows 10 Education<p> Windows 10 Education N<p> Windows 10 Enterprise LTSB (2015)<p> Windows 10 Enterprise LTSB N (2015)<p> Windows 10 Pro for Workstations<br><br>Windows 8.1 Professional<p> Windows 8.1 Enterprise<p> Windows 7 Professional<p> Windows 7 Enterprise<p>|  
+|Volumenlizenz für Windows Server 2012 R2 für Windows 10|Windows Server 2008 R2<p> Windows Server 2012 Standard<p> Windows Server 2012 Datacenter<p> Windows Server 2012 R2 Standard<p>Windows Server 2012 R2 Datacenter|Windows 10 Professional<p> Windows 10 Enterprise<p>Windows 10 Enterprise LTSB (2015)<br><br>Windows 10 Pro for Workstations<br><br>Windows 10 Education<br><br> Windows Server 2012 R2 (alle Editionen)<p> Windows 8.1 Professional<p> Windows 8.1 Enterprise<p> Windows Server 2012 (alle Editionen)<p> Windows Server 2008 R2 (alle Editionen)<p> Windows Server 2008 (alle Editionen)<p>Windows 7 Professional<p> Windows 7 Enterprise|
 
 > [!NOTE]  
 > Abhängig vom Betriebssystem Ihres KMS-Servers und abhängig davon, welches Betriebssystem Sie aktivieren möchten, müssen Sie möglicherweise eines oder mehrere der folgenden Updates installieren:
@@ -53,18 +49,18 @@ Die folgende Tabelle fasst die Anforderungen an KMS-Hosts und Clients für Netzw
 
 Ein einzelner KMS-Host kann eine unbegrenzte Anzahl von KMS-Clients unterstützen. Bei mehr als 50 Clients empfehlen wir, mindestens zwei KMS-Hosts einzusetzen, für den Fall, dass einer der KMS-Hosts nicht verfügbar ist. Für die meisten Organisationen sind nicht mehr als zwei KMS-Hosts für die gesamte Infrastruktur erforderlich.
 
-# <a name="addressing-kms-operational-requirements"></a>KMS-Betriebsanforderungen
+## <a name="addressing-kms-operational-requirements"></a>KMS-Betriebsanforderungen
 KMS kann physische und virtuelle Computer aktivieren. Zur Qualifikation für die KMS-Aktivierung muss in einem Netzwerk jedoch eine bestimmte Mindestanzahl von Computern (als Aktivierungsschwellenwert bezeichnet) vorhanden sein. KMS-Clients werden nur aktiviert, wenn der Schwellenwert nicht überschritten wird. Um sicherzustellen, dass der Aktivierungsschwellenwert nicht überschritten wird, zählt ein KMS-Host die Computer im Netzwerk, die eine Aktivierung anfordern.
 
 KMS-Hosts zählen die Anzahl der neuesten Verbindungen. Wenn ein Client oder Server den KMS-Host kontaktiert, zählt der Host die Computer-ID als weiteren Computer und gibt dann die aktuelle Anzahl als Antwort zurück. Der Client oder Server wird aktiviert, wenn die Anzahl hoch genug ist. Clients werden aktiviert, wenn die Anzahl höher als 25 ist. Server und Volumenlizenzversionen von Microsoft Office-Produkten werden aktiviert, wenn die Anzahl fünf oder mehr ist. Der KMS zählt nur eindeutige Verbindungen der letzten 30 Tage und speichert nur die letzten 50 Kontakte.
 
 KMS-Aktivierungen sind 180 Tage lang gültig – dieser Zeitraum wird als Aktivierungsgültigkeitsintervall bezeichnet. Damit sie aktiviert bleiben, müssen KMS-Clients ihre Aktivierung erneuern, indem sie mindestens einmal alle 180 Tage eine Verbindung mit dem KMS-Host herstellen. KMS-Clientcomputer versuchen standardmäßig alle sieben Tage, ihre Aktivierung zu erneuern. Sobald die Aktivierung eines Clients erneuert wurde, beginnt der Gültigkeitszeitraum der Aktivierung von vorne.
 
-# <a name="addressing-kms-functional-requirements"></a>KMS-Funktionsanforderungen
+## <a name="addressing-kms-functional-requirements"></a>KMS-Funktionsanforderungen
 
 Die KMS-Aktivierung erfordert eine TCP/IP-Verbindung. KMS-Hosts und -Clients sind standardmäßig für die Verwendung von Domain Name System (DNS) konfiguriert. KMS-Hosts verwenden standardmäßig dynamische DNS-Updates zum automatischen Veröffentlichen der erforderlichen Informationen, sodass KMS-Clients die Hosts erkennen und eine Verbindung mit ihnen herstellen können. Sie können diese Standardeinstellungen übernehmen oder KMS-Hosts und -Clients manuell konfigurieren, wenn Sie spezielle Anforderungen bezüglich der Netzwerk- und Sicherheitskonfigurationen haben.
 
-Nach dem Aktivieren des ersten KMS-Hosts, kann der dazu verwendete KMS-Schlüssel zum Aktivieren von bis zu fünf weiteren KMS-Hosts in Ihrem Netzwerk verwendet werden. Nach dem Aktivieren eines KMS-Hosts können Administratoren diesen Host bis zu neun Mal mit demselben Schlüssel erneut aktivieren.
+Nach dem Aktivieren des ersten KMS-Hosts, kann der dazu verwendete KMS-Schlüssel zum Aktivieren von bis zu fünf weiteren KMS-Hosts in Ihrem Netzwerk verwendet werden. Nach dem Aktivieren eines KMS-Hosts können Administratoren diesen Host bis zu neun Mal mit demselben Schlüssel erneut aktivieren.
 
 Wenn Ihre Organisation mehr als sechs KMS-Hosts benötigt, sollten Sie zusätzliche Aktivierungen für den KMS-Schlüssel Ihrer Organisation anfordern, z. B. wenn Sie über zehn physische Standorte und einen Volumenlizenzvertrag verfügen und möchten, dass für jeden Standort ein lokaler KMS-Host vorhanden ist.
 

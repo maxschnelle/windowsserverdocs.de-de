@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4011f04b762522c8c0d157993bad71d88758d32f
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 5d4a94fa9f776af1ae21ad9057b6f9225691b516
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721200"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821300"
 ---
 # <a name="tzutil"></a>tzutil
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt das Windows-Zeit Zonen Dienstprogramm an. 
+Zeigt das Windows-Zeit Zonen Dienstprogramm an.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -31,10 +31,10 @@ tzutil [/?] [/g] [/s <timeZoneID>[_dstoff]] [/l]
 |-------|--------|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 |/g|Zeigt die aktuelle Zeit Zonen-ID an.|
-|/s \<TimeZoneId> [_dstoff]|Legt die aktuelle Zeitzone mithilfe der angegebenen Zeit Zonen-ID fest. Mit dem **_dstoff** Suffix werden die Anpassungen der Sommerzeit für die Zeitzone deaktiviert (falls zutreffend).|
+|/s \< TimeZoneId> [_dstoff]|Legt die aktuelle Zeitzone mithilfe der angegebenen Zeit Zonen-ID fest. Mit dem **_dstoff** Suffix werden die Anpassungen der Sommerzeit für die Zeitzone deaktiviert (falls zutreffend).|
 |/l|Listet alle gültigen Zeit Zonen-IDs und anzeigen Amen auf. Ausgabe:<p>-   \<Anzeige Name><br />-   \<Zeit Zonen-ID>|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 Der Exitcode **0** gibt an, dass der Befehl erfolgreich abgeschlossen wurde.
 
 ## <a name="examples"></a>Beispiele
@@ -51,5 +51,5 @@ Geben Sie Folgendes ein, um die aktuelle Zeitzone auf Pacific Normalzeit festzul
 tzutil /s Pacific Standard time_dstoff
 ```
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

@@ -1,6 +1,6 @@
 ---
 title: gettype
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den GetType-Befehl. Dieser Befehl ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,17 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d7509878f2040a29355d913eca536a066361675c
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 1acd3747082d23f9129a766344061af2140692f9
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993332"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83818980"
 ---
 # <a name="gettype"></a>gettype
 
+Der **GetType** -Befehl ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
 
+Dieses Tool ist in Windows Server 2003 enthalten. Weitere Informationen finden Sie unter [GetType](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc773104(v=ws.10)).
 
-GetType ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-Dieses Tool ist in Windows Server 2003 enthalten. Weitere Informationen finden Sie unter [GetType](https://technet.microsoft.com/library/cc773104(v=ws.10).aspx).
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

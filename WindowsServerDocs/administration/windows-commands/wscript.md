@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: cf2d23c7d5773662f679a9a20b0aaba118f35548
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 9b4727e985070e2e76fd53038d33148003d87ebb
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720627"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820890"
 ---
 # <a name="wscript"></a>wscript
 
@@ -39,16 +39,16 @@ wscript [<scriptname>] [/b] [/d] [/e:<engine>] [{/h:cscript|/h:wscript}] [/i] [/
 |/h: cscript|Registriert " **cscript. exe** " als Standardskript Host für das Ausführen von Skripts.|
 |/h: WScript|Registriert " **WScript. exe** " als Standardskript Host für das Ausführen von Skripts. Dies ist die Standardeinstellung, wenn die Option **/h** ausgelassen wird.|
 |/i|Gibt den interaktiven Modus an, in dem Warnungen, Skript Fehler und Eingabe Aufforderungen angezeigt werden.</br>Dies ist die Standardeinstellung und das Gegenteil von **/b**.|
-|/Auftrag:\<Bezeichner>|Führt den durch den *Bezeichner* identifizierten Auftrag in einer **WSF** -Skriptdatei aus.|
+|/Auftrag: \< Bezeichner>|Führt den durch den *Bezeichner* identifizierten Auftrag in einer **WSF** -Skriptdatei aus.|
 |/logo|Gibt an, dass das Windows Script Host-Banner in der-Konsole angezeigt wird, bevor das Skript ausgeführt wird.</br>Dies ist die Standardeinstellung und das Gegenteil von **/nologo**.|
 |/nologo|Gibt an, dass das Windows Script Host-Banner vor dem Ausführen des Skripts nicht angezeigt wird. Dies ist das Gegenteil von **/Logo**.|
 |/s|Speichert die aktuellen Eingabe Aufforderungs Optionen für den aktuellen Benutzer.|
-|/t:\<Anzahl>|Gibt die maximale Zeit an, die das Skript ausgeführt werden kann (in Sekunden). Sie können bis zu 32.767 Sekunden angeben.</br>Der Standardwert ist kein Zeit Limit.|
+|/t: \< Anzahl>|Gibt die maximale Zeit an, die das Skript ausgeführt werden kann (in Sekunden). Sie können bis zu 32.767 Sekunden angeben.</br>Der Standardwert ist kein Zeit Limit.|
 |/x|Startet das Skript im Debugger.|
 |Scriptarguments|Gibt die Argumente an, die an das Skript geleitet werden. Jedem Skript Argument muss ein Schrägstrich (/) vorangestellt werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   Zum Ausführen dieser Aufgabe benötigen Sie keine Administratorrechte. Daher sollten Sie als Best Practice für die Sicherheit diese Aufgabe als Benutzer ohne Administratorrechte ausführen.
 -   Geben Sie zum Öffnen einer Eingabeaufforderung auf dem **Startbildschirm****cmd** ein, und klicken Sie auf **Eingabeaufforderung**.
@@ -61,4 +61,4 @@ wscript [<scriptname>] [/b] [/d] [/e:<engine>] [{/h:cscript|/h:wscript}] [/i] [/
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
-title: Net print
-description: Referenz Thema für * * * *-
+title: NET Print
+description: Referenz Thema für den Befehl net Print, in dem Informationen zu einer angegebenen Drucker Warteschlange oder einem Druckauftrag angezeigt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,28 +9,30 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f2febdb79f4d0429cfb1cd423188ed9fafc198c
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 44b781cb0c3b9fb7def5ee72bcc1242ac83ba4b2
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437255"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820880"
 ---
-# <a name="net-print"></a>Net print
+# <a name="net-print"></a>NET Print
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Zeigt Informationen zu einer angegebenen Drucker Warteschlange oder einem angegebenen Druckauftrag an oder steuert einen angegebenen Druckauftrag.
+
 > [!NOTE]
 > Dieser Befehl wurde in Windows 7 und Windows Server 2008 R2 als veraltet markiert. Sie können jedoch viele der gleichen Aufgaben mit prnjobs, Windows-Verwaltungsinstrumentation (WMI) oder Windows PowerShell-Cmdlets ausführen. Weitere Informationen finden Sie unter [prnjobs](prnjobs.md), [Windows-Verwaltungsinstrumentation](https://go.microsoft.com/fwlink/?LinkID=29991) ( https://go.microsoft.com/fwlink/?LinkID=29991) , [Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=128426) () https://go.microsoft.com/fwlink/?LinkID=128426) und im [TechNet Script Center Gallery](https://go.microsoft.com/fwlink/?LinkId=164635) ( https://go.microsoft.com/fwlink/?LinkId=164635) .
-> ## <a name="syntax"></a>Syntax
+
+## <a name="syntax"></a>Syntax
 > ```
 > Net print {\\<computerName>\<Sharename> |
 > \\<computerName> <JobNumber> [/hold | /release | /delete]} [help]
 > ```
 > ### <a name="parameters"></a>Parameter
 >
-> |               Parameter               |                                                                                                                                                                                                                     Beschreibung                                                                                                                                                                                                                      |
+> |               Parameter               |                                                                                                                                                                                                                     BESCHREIBUNG                                                                                                                                                                                                                      |
 > |----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > |    \\\\<computerName>\\<Sharename>     |                                                                                                                                                                            Gibt (nach Name) den Computer und die Druck Warteschlange an, über die Sie Informationen anzeigen möchten.                                                                                                                                                                             |
 > |           \\\\<computerName>           |                                                                                                                                 Gibt (nach Name) den Computer an, der den Druckauftrag hostet, den Sie steuern möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer angenommen. Erfordert den- <JobNumber> Parameter.                                                                                                                                  |

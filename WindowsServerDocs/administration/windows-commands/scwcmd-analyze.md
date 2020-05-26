@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 017363ff2a60f9348290813c357560fe9fe3ba2a
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 13e33329c399a77c1dd9b2e6ff63de6196c30420
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722158"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820990"
 ---
 # <a name="scwcmd-analyze"></a>Scwcmd: analyze
 
@@ -33,19 +33,19 @@ scwcmd analyze [[[/m:<ComputerName> | /ou:<Ou>] /p:<Policy>] | /i:<ComputerList>
 
 |Parameter|BESCHREIBUNG|
 |---------|-----------|
-|/m:\<Computername>|Gibt den NetBIOS-Namen, den DNS-Namen oder die IP-Adresse des zu analysierenden Computers an. Wenn der **/m** -Parameter angegeben wird, muss auch der **/p** -Parameter angegeben werden.|
-|/OU:\<OUNAME>|Gibt den voll qualifizierten Domänen Namen (Fully Qualified Domain Name, FQDN) einer Organisationseinheit (OE) in Active Directory Domain Services an. Wenn der **/OU** -Parameter angegeben wird, muss auch der **/p** -Parameter angegeben werden. Alle Computer in der Organisationseinheit werden anhand der angegebenen Richtlinie analysiert.|
-|/p:\<Richtlinien>|Gibt den Pfad und den Dateinamen der XML-Richtlinien Datei an, die zum Durchführen der Analyse verwendet werden soll.|
-|/i:\<Computer List>|Gibt den Pfad und den Dateinamen einer XML-Datei an, die eine Liste von Computern sowie die erwarteten Richtlinien Dateien enthält. Alle Computer in der XML-Datei werden anhand ihrer entsprechenden Richtlinien Dateien analysiert. Eine XML-Beispieldatei ist%windir%\Security\SampleMachineList.Xml.|
-|/o:\<resultdir->|Gibt den Pfad und das Verzeichnis an, in dem die Analyseergebnis Dateien gespeichert werden sollen. Der Standardwert ist das aktuelle Verzeichnis.|
-|/u:\<username->|Gibt alternative Benutzer Anmelde Informationen an, die beim Ausführen der Analyse auf einem Remote Computer verwendet werden sollen. Der Standardwert ist der angemeldete Benutzer.|
-|/PW:\<Kennwort>|Gibt alternative Benutzer Anmelde Informationen an, die beim Ausführen der Analyse auf einem Remote Computer verwendet werden sollen. Der Standardwert ist das Kennwort des angemeldeten Benutzers.|
-|/t:\<Threads>|Gibt die Anzahl von gleichzeitigen ausstehenden Analyse Vorgängen an, die während der Analyse gewartet werden sollen (DefaultValue = 40, MinValue = 1, MaxValue = 1000).|
+|/m: \< Computername>|Gibt den NetBIOS-Namen, den DNS-Namen oder die IP-Adresse des zu analysierenden Computers an. Wenn der **/m** -Parameter angegeben wird, muss auch der **/p** -Parameter angegeben werden.|
+|/OU: \< OUNAME>|Gibt den voll qualifizierten Domänen Namen (Fully Qualified Domain Name, FQDN) einer Organisationseinheit (OE) in Active Directory Domain Services an. Wenn der **/OU** -Parameter angegeben wird, muss auch der **/p** -Parameter angegeben werden. Alle Computer in der Organisationseinheit werden anhand der angegebenen Richtlinie analysiert.|
+|/p: \< Richtlinien>|Gibt den Pfad und den Dateinamen der XML-Richtlinien Datei an, die zum Durchführen der Analyse verwendet werden soll.|
+|/i: \< Computer List>|Gibt den Pfad und den Dateinamen einer XML-Datei an, die eine Liste von Computern sowie die erwarteten Richtlinien Dateien enthält. Alle Computer in der XML-Datei werden anhand ihrer entsprechenden Richtlinien Dateien analysiert. Eine XML-Beispieldatei ist%windir%\Security\SampleMachineList.Xml.|
+|/o: \< resultdir->|Gibt den Pfad und das Verzeichnis an, in dem die Analyseergebnis Dateien gespeichert werden sollen. Der Standardwert ist das aktuelle Verzeichnis.|
+|/u: \< username->|Gibt alternative Benutzer Anmelde Informationen an, die beim Ausführen der Analyse auf einem Remote Computer verwendet werden sollen. Der Standardwert ist der angemeldete Benutzer.|
+|/PW: \< Kennwort>|Gibt alternative Benutzer Anmelde Informationen an, die beim Ausführen der Analyse auf einem Remote Computer verwendet werden sollen. Der Standardwert ist das Kennwort des angemeldeten Benutzers.|
+|/t: \< Threads>|Gibt die Anzahl von gleichzeitigen ausstehenden Analyse Vorgängen an, die während der Analyse gewartet werden sollen (DefaultValue = 40, MinValue = 1, MaxValue = 1000).|
 |/l|Bewirkt, dass der Analyseprozess protokolliert wird. Für jeden Computer, der analysiert wird, wird eine Protokolldatei generiert. Die Protokolldateien werden im selben Verzeichnis wie die Ergebnisdateien gespeichert. Verwenden Sie die Option **/o** , um das Verzeichnis für die Ergebnisdateien anzugeben.|
 |/e|Protokolliert ein Ereignis im Anwendungs Ereignisprotokoll, wenn keine Übereinstimmung gefunden wird.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 Scwcmd. exe ist nur auf Computern verfügbar, auf denen Windows Server 2008 R2, Windows Server 2008 oder Windows Server 2003 ausgeführt wird.
 
@@ -73,4 +73,4 @@ scwcmd analyze /ou:OU=WebServers,DC=Marketing,DC=ABCCompany,DC=com /p:webpolicy.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -9,24 +9,24 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f523c55f5974599c152f4fbae7d8143d5362af62
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 0a63c74e3d25e11ccc8129a6ce28fd505e9227eb
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724244"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820530"
 ---
 # <a name="lpr"></a>lpr
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Sendet eine Datei an einen Computer oder ein Druckerfreigabe Gerät, auf dem der LPD-Dienst (Line Printer Daemon) ausgeführt wird, um den Druck vorzubereiten.  
+Sendet eine Datei an einen Computer oder ein Druckerfreigabe Gerät, auf dem der LPD-Dienst (Line Printer Daemon) ausgeführt wird, um den Druck vorzubereiten.
 
-## <a name="syntax"></a>Syntax  
-```  
-lpr [-S <ServerName>] -P <printerName> [-C <BannerContent>] [-J <JobName>] [-o | -o l] [-x] [-d] <filename>  
-```  
-### <a name="parameters"></a>Parameter  
+## <a name="syntax"></a>Syntax
+```
+lpr [-S <ServerName>] -P <printerName> [-C <BannerContent>] [-J <JobName>] [-o | -o l] [-x] [-d] <filename>
+```
+### <a name="parameters"></a>Parameter
 
 |     Parameter      |                                                                                                           BESCHREIBUNG                                                                                                           |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -40,19 +40,19 @@ lpr [-S <ServerName>] -P <printerName> [-C <BannerContent>] [-J <JobName>] [-o |
 |     <FileName>     |                                                                                      Gibt (nach Name) die Datei an, die gedruckt werden soll. Erforderlich.                                                                                      |
 |         /?         |                                                                                              Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                               |
 
-## <a name="remarks"></a>Bemerkungen  
-- Um den Namen des Druckers zu ermitteln, öffnen Sie den Ordner Drucker.  
-- Bei den Parametern **-S**, **-P**, **-C**und **-J** wird die Groß-/Kleinschreibung beachtet, und Sie müssen in Großbuchstaben eingegeben werden.  
-  ## <a name="examples"></a>Beispiele  
-  Dieses Beispiel zeigt, wie Sie die Textdatei "Document. txt" in der Laserprinter1-Drucker Warteschlange auf einem LPD-Host unter 10.0.0.45 ausdrucken:  
-  ```  
-  lpr -S 10.0.0.45 -P Laserprinter1 -o Document.txt  
-  ```  
-  Dieses Beispiel zeigt, wie Sie die Adobe PostScript-Datei PostScript_file. PS in der Laserprinter1-Drucker Warteschlange auf einem LPD-Host unter 10.0.0.45 ausdrucken:  
-  ```  
-  lpr -S 10.0.0.45 -P Laserprinter1 -o l PostScript_file.ps  
-  ```  
+## <a name="remarks"></a>Hinweise
+- Um den Namen des Druckers zu ermitteln, öffnen Sie den Ordner Drucker.
+- Bei den Parametern **-S**, **-P**, **-C**und **-J** wird die Groß-/Kleinschreibung beachtet, und Sie müssen in Großbuchstaben eingegeben werden.
+  ## <a name="examples"></a>Beispiele
+  Dieses Beispiel zeigt, wie Sie die Textdatei "Document. txt" in der Laserprinter1-Drucker Warteschlange auf einem LPD-Host unter 10.0.0.45 ausdrucken:
+  ```
+  lpr -S 10.0.0.45 -P Laserprinter1 -o Document.txt
+  ```
+  Dieses Beispiel zeigt, wie Sie die Adobe PostScript-Datei PostScript_file. PS in der Laserprinter1-Drucker Warteschlange auf einem LPD-Host unter 10.0.0.45 ausdrucken:
+  ```
+  lpr -S 10.0.0.45 -P Laserprinter1 -o l PostScript_file.ps
+  ```
 
-## <a name="additional-references"></a>Zusätzliche Referenzen  
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
--   [Befehls Verweis drucken](print-command-reference.md)  
+## <a name="additional-references"></a>Zusätzliche Referenzen
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+-   [Befehls Verweis drucken](print-command-reference.md)

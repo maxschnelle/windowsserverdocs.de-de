@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 86acf174bfdebdeab6db7476713dd2d91f21b1a0
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 3daecbc2f4034070a5b805c75a6b647ba168e2c5
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724265"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820540"
 ---
 # <a name="logoff"></a>Abmelden
 
@@ -40,7 +40,7 @@ logoff [<SessionName> | <SessionID>] [/server:<ServerName>] [/v]
 |          /v          |                                                       Zeigt Informationen zu den Aktionen an, die ausgeführt werden.                                                        |
 |          /?          |                                                                 Zeigt die Hilfe an der Eingabeaufforderung an.                                                                 |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 - Sie können sich jederzeit von der Sitzung abmelden, an der Sie gerade angemeldet sind. Sie müssen jedoch über die Berechtigung "Vollzugriff" verfügen, um Benutzer von anderen Sitzungen abzumelden.
 - Wenn Sie einen Benutzer ohne Warnung aus einer Sitzung abmelden, kann dies zu Datenverlusten in der Sitzung des Benutzers führen. Sie sollten eine Nachricht an den Benutzer senden, indem Sie den Befehl " **msg** " verwenden, um den Benutzer vor der Durchführung dieser Aktion zu warnen.
 - Wenn <*SessionID*> oder <*Sessionname*> nicht angegeben **ist, protokolliert** die Abmeldung den Benutzer aus der aktuellen Sitzung. Wenn Sie <*Sessionname*> angeben, muss es sich um einen aktiven Wert handeln.
@@ -61,5 +61,5 @@ logoff [<SessionName> | <SessionID>] [/server:<ServerName>] [/v]
   ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Remotedesktopdienste (Terminaldienste): Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

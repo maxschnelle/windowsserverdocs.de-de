@@ -1,24 +1,20 @@
 ---
 title: Entfernte oder zur Entfernung vorgesehene Features in Windows Server 2019
 description: Erfahren Sie mehr über die entfernten oder zur Entfernung vorgesehenen Features ab Windows Server 2019.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 author: jasongerend
 ms.author: jgerend
 manager: jasgro
 ms.date: 10/22/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: a2d3a871165812ac3a27e65b5f52cc56a05c9efe
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: e991aeab7fe8f678d644881bee7fee827622e248
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812292"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "82786301"
 ---
 # <a name="features-removed-or-planned-for-replacement-starting-windows-server-2019"></a>Entfernte oder zur Ersetzung vorgesehene Features in Windows Server 2019
 
@@ -36,7 +32,7 @@ In jeder Version von Windows Server kommen neue Features und Funktionen hinzu; g
 
 Wir haben die folgenden Features und Funktionen aus dem installierten Produktimage von Windows Server 2019 entfernt. Anwendungen oder Code, die von diesen Features abhängen, funktionieren in dieser Version nicht, es sei denn, Sie verwenden eine alternative Methode.
 
-| Feature   | Alternativ verwendbar |
+| Feature    | Alternativ verwendbar |
 | --------- | -------------------- |
 | Business Scanning, auch als Verwaltung verteilter Scanvorgänge (Distributed Scan Management, DSM) bezeichnet|Wir entfernen diese Funktion zur Verwaltung sicherer Scanvorgänge und Scanner – sie wird von keinem Gerät unterstützt. |
 | Druckkomponenten: jetzt eine optionale Komponente für Server Core-Installationen|In früheren Versionen von Windows Server waren die Druckkomponenten standardmäßig in der Server Core-Installationsoption *deaktiviert*. Wir haben das in Windows Server 2016 geändert, sie sind jetzt standardmäßig aktiviert. In Windows Server 2019 sind diese Druckkomponenten für Server Core standardmäßig wieder deaktiviert. Wenn Sie die Druckkomponenten aktivieren müssen, können Sie dazu das Cmdlet **Install-WindowsFeature Print-Server** ausführen. |
@@ -49,7 +45,7 @@ Wir entwickeln diese Features nicht mehr aktiv weiter und werden sie möglicherw
 
 Wenn Sie Feedback zur vorgeschlagenen Ersetzung eines dieser Features haben, können Sie die [Feedback-Hub-App](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) verwenden. 
 
-| Feature     | Alternativ verwendbar |
+| Feature      | Alternativ verwendbar |
 | ----------- | --------------------- |
 | Schlüsselspeicher-Laufwerk in Hyper-V|Wir arbeiten nicht mehr am Schlüsselspeicher-Laufwerkfeature in Hyper-V. Wenn Sie VMs der ersten Generation verwenden, lesen Sie [Generation 1 VM Virtualization Security](../virtualization/hyper-v/learn-more/generation-1-virtual-machine-security-settings-for-hyper-v.md) (Virtualisierungssicherheit bei VMs der ersten Generation), um Informationen zu den zukünftigen Optionen zu erhalten. Wenn Sie neue VMs erstellen, verwenden Sie virtuelle Computer der zweiten Generation mit TPM-Geräten, die eine sicherere Lösung darstellen. |
 | TPM-Verwaltungskonsole (Trusted Platform Module)|Die bisher in der TPM-Verwaltungskonsole verfügbaren Informationen stehen jetzt auf der Seite [**Gerätesicherheit**](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-security-center/wdsc-device-security) im [Windows Defender Security Center](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-security-center/windows-defender-security-center) zur Verfügung. |

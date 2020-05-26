@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: a40a8cbc3c8b13c99cc440b8de797898a5a6249b
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 002098ba64e97c243d1cb53813b9fa858d32c752
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722842"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821240"
 ---
 # <a name="prnjobs"></a>prnjobs
 
@@ -24,7 +24,7 @@ Hält Druckaufträge an, setzt Sie fort, bricht Sie ab und listet Sie auf.
 
 ## <a name="syntax"></a>Syntax
 ```
-cscript Prnjobs {-z | -m | -x | -l | -?} [-s <ServerName>] 
+cscript Prnjobs {-z | -m | -x | -l | -?} [-s <ServerName>]
 [-p <printerName>] [-j <JobID>] [-u <UserName>] [-w <Password>]
 ```
 
@@ -36,18 +36,18 @@ cscript Prnjobs {-z | -m | -x | -l | -?} [-s <ServerName>]
 |              -M              |                                                                                                                                                                Setzt den mit dem **-j-** Parameter angegebenen Druckauftrag fort.                                                                                                                                                                 |
 |              -X              |                                                                                                                                                                Bricht den mit dem **-j-** Parameter angegebenen Druckauftrag ab.                                                                                                                                                                 |
 |              -l              |                                                                                                                                                                        Listet alle Druckaufträge in einer Druck Warteschlange auf.                                                                                                                                                                         |
-|       -s \<Servername>       |                                                                                                                  Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet.                                                                                                                  |
-|      -p \<PrinterName>       |                                                                                                                                                           Gibt den Namen des Druckers an, den Sie verwalten möchten. Erforderlich.                                                                                                                                                            |
-|         -j \<JobID>          |                                                                                                                                                                Gibt (nach ID-Nummer) den Druckauftrag an, den Sie abbrechen möchten.                                                                                                                                                                 |
-| -u \<Benutzername>-w<Password> | Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert. |
+|       -s \< Servername>       |                                                                                                                  Gibt den Namen des Remote Computers an, der den Drucker hostet, den Sie verwalten möchten. Wenn Sie keinen Computer angeben, wird der lokale Computer verwendet.                                                                                                                  |
+|      -p \< PrinterName>       |                                                                                                                                                           Gibt den Namen des Druckers an, den Sie verwalten möchten. Erforderlich.                                                                                                                                                            |
+|         -j \< JobID>          |                                                                                                                                                                Gibt (nach ID-Nummer) den Druckauftrag an, den Sie abbrechen möchten.                                                                                                                                                                 |
+| -u \< Benutzername>-w<Password> | Gibt ein Konto mit Berechtigungen zum Herstellen einer Verbindung mit dem Computer an, der den zu verwaltenden Drucker hostet. Alle Mitglieder der lokalen Administratoren Gruppe des Ziel Computers verfügen über diese Berechtigungen, die Berechtigungen können jedoch auch anderen Benutzern erteilt werden. Wenn Sie kein Konto angeben, müssen Sie unter einem Konto mit diesen Berechtigungen angemeldet sein, damit der Befehl funktioniert. |
 |              /?              |                                                                                                                                                                           Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                                            |
 
-## <a name="remarks"></a>Bemerkungen
--   Der **prnjobs** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis "%windir%\SYSTEM32\ printing_Admin_Scripts\\ <language> " befindet. Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** gefolgt vom vollständigen Pfad zur Datei prnjobs ein, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Beispiel:
+## <a name="remarks"></a>Hinweise
+-   Der **prnjobs** -Befehl ist ein Visual Basic Skript, das sich im Verzeichnis "%windir%\SYSTEM32\ printing_Admin_Scripts" befindet \\ <language> . Wenn Sie diesen Befehl verwenden möchten, geben Sie an einer Eingabeaufforderung **cscript** gefolgt vom vollständigen Pfad zur Datei prnjobs ein, oder ändern Sie die Verzeichnisse in den entsprechenden Ordner. Beispiel:
     ```
     cscript %WINdir%\System32\printing_Admin_Scripts\en-US\prnjobs.vbs
     ```
--   Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen `"computer Name"`(z. b.).
+-   Wenn die Informationen, die Sie angeben, Leerzeichen enthalten, verwenden Sie den Text in Anführungszeichen (z `"computer Name"` . b.).
 
 ## <a name="examples"></a><a name="BKMK_examples"></a>Beispiele
 Geben Sie Folgendes ein, um einen Druckauftrag mit der Auftrags-ID 27 anzuhalten, die auf dem Remote Computer mit dem Namen HRServer zum Drucken auf dem Drucker mit dem Namen COLORPRINTER gesendet wurde:
@@ -61,5 +61,5 @@ cscript prnjobs.vbs -l -p colorprinter_2
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Druckbefehlsreferenz](print-command-reference.md)

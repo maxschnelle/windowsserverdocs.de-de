@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e3355aa310bb9919b5218052878d94416f577381
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: bee9dabe0e9344c7870e53ed34e4c9dd057cfc42
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723833"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820840"
 ---
 # <a name="mstsc"></a>mstsc
 
@@ -37,7 +37,7 @@ mstsc.exe /migrate
 |        Parameter        |                                                         BESCHREIBUNG                                                         |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 |    <Connection File>    |                                   Gibt den Namen einer RDP-Datei für die Verbindung an.                                    |
-|  /v: <Server\>[: <Port\>] |                Gibt den Remote Computer und optional die Portnummer an, mit der Sie eine Verbindung herstellen möchten.                 |
+|  /v: <Server \> [: <Port \> ] |                Gibt den Remote Computer und optional die Portnummer an, mit der Sie eine Verbindung herstellen möchten.                 |
 |         /admin          |                                   Stellt eine Verbindung mit einer-Sitzung zur Verwaltung des-Servers her.                                   |
 |           /f            |                                    startet Remotedesktopverbindung im Vollbildmodus.                                    |
 |       /w<Width>        |                                      Gibt die Breite des Remotedesktop Fensters an.                                      |
@@ -48,7 +48,7 @@ mstsc.exe /migrate
 |        /migrate         |       Migriert Legacy-Verbindungs Dateien, die mit dem Clientverbindungs-Manager erstellt wurden, in neue RDP-Verbindungs Dateien.       |
 |           /?            |                                            Zeigt die Hilfe an der Eingabeaufforderung an.                                             |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 -   "Default. RDP" wird für jeden Benutzer als versteckte Datei im Ordner "Dokumente" des Benutzers gespeichert. Vom Benutzer erstellte RDP-Dateien werden standardmäßig im Ordner "Dokumente" des Benutzers gespeichert, können aber an einem beliebigen Speicherort gespeichert werden.
 -   Für Monitore muss die gleiche Auflösung verwendet werden, und Sie müssen horizontal ausgerichtet werden (d. h. nebeneinander). Es ist derzeit nicht unterstützt, mehrere Monitore vertikal auf dem Client System zu überspannen.
 
@@ -63,5 +63,5 @@ mstsc.exe /migrate
     ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Remotedesktopdienste (Terminaldienste): Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

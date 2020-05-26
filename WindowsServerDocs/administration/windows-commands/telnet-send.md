@@ -9,24 +9,24 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 432401bbe2050a7954967a73b5ba8abeee5bb1d3
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 5dd4bf9828c4b71e7b2291dfd5d453c43679e059
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721490"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821070"
 ---
 # <a name="telnet-send"></a>Telnet: senden
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Sendet Telnet-Befehle an den Telnet-Server.   
+Sendet Telnet-Befehle an den Telnet-Server.
 
-## <a name="syntax"></a>Syntax  
-```  
-sen[d] {ao | ayt | brk | esc | ip | synch | <string>} [?]  
-```  
-#### <a name="parameters"></a>Parameter  
+## <a name="syntax"></a>Syntax
+```
+sen[d] {ao | ayt | brk | esc | ip | synch | <string>} [?]
+```
+#### <a name="parameters"></a>Parameter
 
 | Parameter |                     BESCHREIBUNG                      |
 |-----------|------------------------------------------------------|
@@ -39,10 +39,10 @@ sen[d] {ao | ayt | brk | esc | ip | synch | <string>} [?]
 | <string>  | Sendet jede Zeichenfolge, die Sie an den Telnet-Server eingeben. |
 |     ?     |     Zeigt die diesem Befehl zugeordnete Hilfe an.      |
 
-## <a name="examples"></a>Beispiele  
-Senden Sie an den Telnet-Server.  
-```  
-sen ayt  
-```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
+## <a name="examples"></a>Beispiele
+Senden Sie an den Telnet-Server.
+```
+sen ayt
+```
+## <a name="additional-references"></a>Zusätzliche Referenzen
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

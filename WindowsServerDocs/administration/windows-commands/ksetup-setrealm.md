@@ -1,6 +1,6 @@
 ---
-title: 'Ksetup: setrealm'
-description: Referenz Thema für * * * *-
+title: Ksetup setrealm
+description: Referenz Thema für den Ksetup setrealm-Befehl, mit dem der Name eines Kerberos-Bereichs festgelegt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,46 +9,44 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 453977ac39dd3a52b4f5a3104995f944e4a48392
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 03b33977f57e187a8bea69be78c1e9c094b9a73e
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724556"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83817280"
 ---
-# <a name="ksetupsetrealm"></a>Ksetup: setrealm
-
-
+# <a name="ksetup-setrealm"></a>Ksetup setrealm
 
 Legt den Namen eines Kerberos-Bereichs fest.
+
+> [!IMPORTANT]
+> Das Festlegen des Kerberos-Bereichs auf einem Domänen Controller wird nicht unterstützt. Der Versuch, dies zu tun, verursacht eine Warnung und einen Befehls Fehler.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-ksetup /setrealm <DNSDomainName>
+ksetup /setrealm <DNSdomainname>
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|\<DNSDomainName->|Der DNS-Domänen Name kann in Form eines voll qualifizierten Domänen Namens oder eines einfachen Domänen namens vorliegen.|
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| `<DNSdomainname>` | Gibt den Großbuchstaben-DNS-Namen an, z. b. Corp. CONTOSO.com. Sie können den voll qualifizierten Domänen Namen oder eine einfache Form des Namens verwenden. Wenn Sie den DNS-Namen nicht in Großbuchstaben verwenden, werden Sie zur Überprüfung aufgefordert, um den Vorgang fortzusetzen. |
 
-## <a name="remarks"></a>Bemerkungen
+### <a name="examples"></a>Beispiele
 
-Der DNS-Domänen Namen Parameter sollte in Großbuchstaben eingegeben werden. Andernfalls fordert der **Ksetup** -Befehl eine Überprüfung an, um den Vorgang fortzusetzen.
+Geben Sie Folgendes ein, um den Bereich dieses Computers auf einen bestimmten Domänen Namen festzulegen und den Zugriff durch einen nicht-Domänen Controller direkt auf den Bereich von "Configuration Manager" (Kerberos) zu beschränken:
 
-Das Festlegen des Kerberos-Bereichs auf einem Domänen Controller wird nicht unterstützt. Wenn Sie versuchen, dies zu tun, wird eine Warnung und ein Befehls Fehler verursacht.
-
-## <a name="examples"></a>Beispiele
-
-Legen Sie den Bereich für diesen Computer auf einen bestimmten Domänen Namen fest, um den Zugriff durch einen nicht-Domänen Controller direkt auf den Bereich "Domäne" von "Configuration Manager" zu beschränken:
 ```
 ksetup /setrealm CONTOSO
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
--   [Ksetup](ksetup.md)
--   [Ksetup:removerealm](ksetup-removerealm.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Ksetup-Befehl](ksetup.md)
+
+- [Ksetup removerealm](ksetup-removerealm.md)

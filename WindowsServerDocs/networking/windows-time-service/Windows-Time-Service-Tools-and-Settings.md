@@ -7,12 +7,12 @@ ms.date: 02/24/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 2f6ba34381e813247d0838853f688abf13fbd2fa
-ms.sourcegitcommit: 1d83ca198c50eef83d105151551c6be6f308ab94
+ms.openlocfilehash: 76ec8a817f0c500380c9bef6fc1ee7eb8dddc105
+ms.sourcegitcommit: 319796ec327530c9656ac103b89bd48cc8d373f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82605540"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83790562"
 ---
 # <a name="windows-time-service-tools-and-settings"></a>Windows-Zeitdienst: Tools und Einstellungen
 
@@ -87,6 +87,15 @@ W32tm /query /computer:contosoW1 /configuration
 ```
 
 Die Ausgabe dieses Befehls ist eine Liste von Konfigurationsparametern, die für den Windows-Zeitclient eingestellt werden.
+
+> [!IMPORTANT]  
+> [Die Zeitsynchronisierungsalgorithmen in Windows Server 2016 wurden verbessert](https://aka.ms/WS2016Time), um sie an die RFC-Spezifikationen anzupassen. Wenn du also festlegen möchtest, dass der lokale Windows-Zeitclient auf mehrere Peers verweist, wird dringend empfohlen, drei oder mehr unterschiedliche Zeitserver vorzubereiten.
+>  
+> Wenn du nur über zwei Zeitserver verfügst, solltest du das Flag **UseAsFallbackOnly** (0x2) angeben, um einem der beiden Server eine niedrigere Priorität einzuräumen. Wenn du beispielsweise „ntpserver.contoso.com“ über „clock.adatum.com“ priorisieren möchtest, führe den folgenden Befehl aus.
+> ```cmd
+> w32tm /config /manualpeerlist:"ntpserver.contoso.com,0x8 clock.adatum.com,0xa" /syncfromflags:manual /update
+> ```
+> Die Bedeutung des angegebenen Flags findest du unter [„HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters“ – Unterschlüsseleinträge](#parameters).
 
 ## <a name="using-group-policy-to-configure-the-windows-time-service"></a>Verwenden von Gruppenrichtlinien zur Konfiguration des Windows-Zeitdiensts
 

@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 8be1897b241871bcb65126b39f201769f82f50bf
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 6943a9762aed0a6c2ac71c73565ab49811a8e307
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436815"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821170"
 ---
 # <a name="pathping"></a>pathping
 
@@ -29,7 +29,7 @@ Bietet Informationen zu Netzwerk Latenz und Netzwerk Verlust bei zwischen Hops z
 pathping [/n] [/h] [/g <Hostlist>] [/p <Period>] [/q <NumQueries> [/w <timeout>] [/i <IPaddress>] [/4 <IPv4>] [/6 <IPv6>][<TargetName>]
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |/n|Verhindert, dass der **pfadping** versucht, die IP-Adressen der zwischen Router in ihre Namen aufzulösen. Dadurch wird möglicherweise die Anzeige von **pathping** -Ergebnissen beschleunigt.|
 |/h \< maximumhops>|Gibt die maximale Anzahl von Hops in dem Pfad an, der nach dem Ziel (Ziel) gesucht werden soll. Der Standardwert ist 30 Hops.|
@@ -88,4 +88,4 @@ Im obigen Beispiel Bericht zeigt die Spalten **This Node/Link**, **Lost/Sent = P
 Die für die Verknüpfungen angezeigten Verlustraten, die als senkrechter Strich ( **|** ) in der **Adress** Spalte identifiziert werden, geben eine Link Überlastung an, die den Verlust von Paketen verursacht, die an den Pfad weitergeleitet werden. Die für Router angezeigten Verlustraten (identifiziert durch Ihre IP-Adressen) geben an, dass diese Router überladen werden können.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

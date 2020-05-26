@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 7a4dacd611741942e874e831fd9598aeda5e97b3
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 7b42db8c0be5e1a447ad0a3b794b07672c164514
+ms.sourcegitcommit: 7116460855701eed4e09d615693efa4fffc40006
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "81269277"
+ms.lasthandoff: 05/15/2020
+ms.locfileid: "83433144"
 ---
 # <a name="prepare-your-environment-for-windows-admin-center"></a>Vorbereiten der Umgebung für Windows Admin Center
 
@@ -35,7 +35,7 @@ Windows Admin Center erfordert PowerShell-Features, die nicht standardmäßig in
 
 Gebe `$PSVersiontable` in PowerShell ein, um zu prüfen, ob WMF 5.1 oder höher installiert ist.
 
-Wenn dies nicht der Fall ist, kannst du [herunterladen und WMF 5.1 installieren](https://docs.microsoft.com/powershell/wmf/setup/install-configure).
+Wenn dies nicht der Fall ist, kannst du [herunterladen und WMF 5.1 installieren](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure).
 
 ## <a name="prepare-microsoft-hyper-v-server-2016"></a>Vorbereiten von Microsoft Hyper-V Server 2016
 
@@ -91,9 +91,9 @@ Zum Verwalten von Microsoft Hyper-V Server 2012 R2 mit Windows Admin Center mu
 
 Windows Admin Center erfordert PowerShell-Features, die in Microsoft Hyper-V Server 2012 R2 nicht standardmäßig enthalten sind. Zum Verwalten von Microsoft Hyper-V Server 2012 R2 mit Windows Admin Center musst du WMF Version 5.1 oder höher installieren.
 
-Gebe `$PSVersiontable` in PowerShell ein, um zu prüfen, ob WMF 5.1 oder höher installiert ist. 
+Gebe `$PSVersiontable` in PowerShell ein, um zu prüfen, ob WMF 5.1 oder höher installiert ist.
 
-Wenn es nicht installiert ist, kannst du [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) herunterladen.
+Wenn es nicht installiert ist, kannst du [WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) herunterladen.
 
 ### <a name="step-2-enable-remote-management"></a>Schritt 2: Aktivieren der Remoteverwaltung
 

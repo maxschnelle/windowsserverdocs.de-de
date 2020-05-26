@@ -9,19 +9,19 @@ author: jasongerend
 ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: e10d4cff4b45d1c0d3b447c63104b97ded1cd0d5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0e9a38ca0113ce30bdca1b7fe300d89d9614e3c2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360873"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "82786305"
 ---
 # <a name="install-upgrade-or-migrate-to-windows-server"></a>Windows Server: Installation, Upgrade oder Migration
 
 > Gilt für: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
 > [!IMPORTANT]
-> Der erweiterte Support für Windows Server 2008 R2 und Windows Server 2008 endet im Januar 2020. Informationen zu den verfügbaren Upgradeoptionen findest du [hier](http://aka.ms/upgradecenter). Du kannst Windows Server 2019 auf der Seite mit den [Windows Server-Evaluierungsversionen](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019) herunterladen.
+> Der erweiterte Support für Windows Server 2008 R2 und Windows Server 2008 endet im Januar 2020. Informationen zu den verfügbaren Upgradeoptionen findest du [hier](https://aka.ms/upgradecenter). Du kannst Windows Server 2019 auf der Seite mit den [Windows Server-Evaluierungsversionen](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019) herunterladen.
 
 Ist es Zeit für eine neuere Version von Windows Server? Je nachdem, was du momentan verwendest, gibt es verschiedene Möglichkeiten.
 
@@ -29,7 +29,7 @@ Ist es Zeit für eine neuere Version von Windows Server? Je nachdem, was du mome
 
 Die einfachste Methode zum Installieren von Windows Server ist eine Neuinstallation – dabei führst du die Installation auf einem leeren Server aus oder überschreibst ein vorhandenes Betriebssystem. Das ist die einfachste Möglichkeit. Allerdings musst du zuerst deine Daten sichern und die erneute Installation deiner Anwendungen planen. Es gibt einige Dinge, die du beachten musst, z.B. die Systemanforderungen. Sieh dir daher die Details zu [Windows Server 2019](https://go.microsoft.com/fwlink/?linkid=2006124), [Windows Server 2016](https://go.microsoft.com/fwlink/?LinkID=825558), [Windows Server 2012 R2](https://technet.microsoft.com/library/dn303418) und [Windows Server 2012](https://technet.microsoft.com/library/jj134246.aspx) an.
 
-## <a name="in-place-upgrade"></a>Direkte Upgrades
+## <a name="in-place-upgrade"></a>Direkte Aktualisierung
 
 Wenn du die Hardware und alle eingerichteten Serverrollen behalten möchtest, solltest du ein **direktes Upgrade** durchführen. Dabei wechselst du von einem älteren Betriebssystem zu einem neueren und behältst Einstellungen, Serverrollen und Daten bei. Wenn auf einem Server beispielsweise Windows Server 2012 R2 ausgeführt wird, kannst du ein Upgrade auf Windows Server 2016 oder Windows Server 2019 durchführen. Es gibt aber nicht für alle ältere Betriebssysteme einen Pfad zu einem neueren Betriebssystem. 
 

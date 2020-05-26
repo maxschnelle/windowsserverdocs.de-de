@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 632573f317eafa254f6c434f959a06f2c24f7353
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 33e0dcaa59be3c1748763cce5c9979fe318b271a
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80836243"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820150"
 ---
 # <a name="regini"></a>regini
 
@@ -32,11 +32,11 @@ regini [-m \\machinename | -h hivefile hiveroot][-i n] [-o outputWidth][-b] text
 
 | Parameter | Beschreibung |
 
-|-m \<\\\\Computername >|Gibt den Namen des Remote Computers mit einer Registrierung an, die geändert werden soll. Verwenden Sie das Format **\\\\Computername**.|
+|-m \< \\ \\ Computername>|Gibt den Namen des Remote Computers mit einer Registrierung an, die geändert werden soll. Verwenden Sie das Format ** \\ \\ Computername**.|
 |---------------------|-|
-|-h \<hivefile hiveroot >|Gibt die zu ändernde lokale Registrierungs Struktur an. Sie müssen den Namen der Hive-Datei und den Stamm der Struktur im Format **hivefile hiveroot**angeben.|
-|-i \<n >|Gibt die Ebene des Einzugs an, der verwendet wird, um die Struktur der Registrierungsschlüssel in der Befehlsausgabe anzugeben. Das Tool **Regdmp. exe** (das die aktuellen Berechtigungen eines Registrierungsschlüssels im Binärformat abruft) verwendet den Einzug in Vielfachen von vier, sodass der Standardwert **4**ist.|
-|-o \<OutputWidth >|Gibt die Breite der Befehlsausgabe in Zeichen an. Wenn die Ausgabe im Befehlsfenster angezeigt wird, ist der Standardwert die Breite des Fensters. Wenn die Ausgabe an eine Datei weitergeleitet wird, ist der Standardwert **240** Zeichen.|
+|-h \< hivefile hiveroot>|Gibt die zu ändernde lokale Registrierungs Struktur an. Sie müssen den Namen der Hive-Datei und den Stamm der Struktur im Format **hivefile hiveroot**angeben.|
+|-i \< n>|Gibt die Ebene des Einzugs an, der verwendet wird, um die Struktur der Registrierungsschlüssel in der Befehlsausgabe anzugeben. Das Tool **Regdmp. exe** (das die aktuellen Berechtigungen eines Registrierungsschlüssels im Binärformat abruft) verwendet den Einzug in Vielfachen von vier, sodass der Standardwert **4**ist.|
+|-o \< OutputWidth>|Gibt die Breite der Befehlsausgabe in Zeichen an. Wenn die Ausgabe im Befehlsfenster angezeigt wird, ist der Standardwert die Breite des Fensters. Wenn die Ausgabe an eine Datei weitergeleitet wird, ist der Standardwert **240** Zeichen.|
 |-b|Gibt an, dass die **Regini. exe** -Ausgabe mit früheren Versionen von **Regini. exe**abwärts kompatibel ist. Weitere Informationen finden Sie im Abschnitt Hinweise.|
 |TextFiles|Gibt den Namen einer oder mehrerer Textdateien an, die Registrierungsdaten enthalten. Eine beliebige Anzahl von ANSI-oder Unicode-Textdateien kann aufgelistet werden.|
 
@@ -47,6 +47,6 @@ Die folgenden Richtlinien gelten in erster Linie für den Inhalt der Textdateien
 -   Verwenden Sie den umgekehrten Schrägstrich, um die Fortsetzung einer Zeile anzugeben. Der Befehl ignoriert alle Zeichen des umgekehrten Schrägstrichs bis zu (aber nicht einschließlich) des ersten nicht leeren Zeichens der nächsten Zeile. Wenn Sie mehr als ein Leerzeichen vor dem umgekehrten Schrägstrich einschließen, wird es durch ein einzelnes Leerzeichen ersetzt.
 -   Verwenden Sie hart Tabstopps, um den Einzug zu steuern. Dieser Einzug gibt die Struktur der Registrierungsschlüssel an. Diese Zeichen werden jedoch unabhängig von ihrer Position in ein einzelnes Leerzeichen konvertiert.
 
-## <a name="additional-references"></a>Weitere Verweise
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

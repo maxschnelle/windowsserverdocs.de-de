@@ -1,6 +1,6 @@
 ---
-title: 'Ksetup: Delta Controller'
-description: Referenz Thema für * * * *-
+title: Ksetup-Delta Controller
+description: Referenz Thema für den Befehl "Ksetup Delta DC", mit dem Instanzen von Schlüsselverteilungscenter Namen (KDC) für den Kerberos-Bereich gelöscht werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,52 +9,53 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 19ebe322d414d1ae9007275772ccd747f6f0ff8d
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: bd3901558f1cda0d2e1d4e7c12b0d2b151870fa8
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724658"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83817850"
 ---
-# <a name="ksetupdelkdc"></a>Ksetup: Delta Controller
-
-
+# <a name="ksetup-delkdc"></a>Ksetup-Delta Controller
 
 Löscht Instanzen von Schlüsselverteilungscenter Namen (KDC) für den Kerberos-Bereich.
+
+Die Zuordnung wird in der Registrierung unter gespeichert `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\LSA\Kerberos\Domains` . Nachdem Sie diesen Befehl ausgeführt haben, sollten Sie sicherstellen, dass der KDC entfernt wurde und nicht mehr in der Liste angezeigt wird.
+
+> [!NOTE]
+> Um Bereichs Konfigurationsdaten von mehreren Computern zu entfernen, verwenden Sie das Snap-in " **Sicherheits Konfigurations Vorlage** " mit der Richtlinien Verteilung, anstatt den **Ksetup** -Befehl explizit auf einzelnen Computern zu verwenden.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-ksetup /delkdc <RealmName> <KDCName>
+ksetup /delkdc <realmname> <KDCname>
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|\<Realmname->|Der Bereichs Name wird als Großbuchstabe (DNS-Name) angegeben, z. b. Corp. CONTOSO.com, und es wird als Standardbereich aufgeführt, wenn **Ksetup** ausgeführt wird. In diesem Bereich versuchen Sie, den anderen KDC zu löschen.|
-|\<Kdcname->|Der KDC-Name wird als voll qualifizierter Domänen Name, wie z. b. mitkdc.contoso.com, als voll qualifizierter Domänen Name angegeben.|
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| `<realmname>` | Gibt den Großbuchstaben-DNS-Namen an, z. b. Corp. CONTOSO.com. Dies ist der Standardbereich, der angezeigt wird, wenn Sie den Befehl " **Ksetup** " ausführen, und es handelt sich um den Bereich, aus dem Sie den KDC löschen möchten. |
+| `<KDCname>` | Gibt den voll qualifizierten Domänen Namen für die Groß-und Kleinschreibung an, z. b. mitkdc.contoso.com. |
 
-## <a name="remarks"></a>Bemerkungen
+### <a name="examples"></a>Beispiele
 
-Diese Zuordnungen werden in der Registrierung in **HKEY_LOCAL_MACHINE \system\currentcontrolset\control\lsa\kerberos\domains**gespeichert. Um Bereichs Konfigurationsdaten von mehreren Computern zu entfernen, verwenden Sie das Snap-in "Sicherheits Konfigurations Vorlage" und die Richtlinien Verteilung, anstatt **Ksetup** explizit auf einzelnen Computern zu verwenden.
+Um alle Zuordnungen zwischen dem Windows-Bereich und dem nicht-Windows-Bereich anzuzeigen und zu bestimmen, welche entfernt werden sollen, geben Sie Folgendes ein:
 
-Auf Computern, auf denen Windows 2000 Server mit Service Pack 1 (SP1) und früher ausgeführt wird, muss der Computer neu gestartet werden, bevor die geänderte Bereichs Einstellungs Konfiguration verwendet wird.
-
-Um den Standard Bereichs Namen für den Computer zu überprüfen oder um zu überprüfen, ob dieser Befehl wie beabsichtigt funktioniert, führen Sie **Ksetup** an der Eingabeaufforderung aus, und vergewissern Sie sich, dass der entfernte KDC nicht in der Liste vorhanden ist.
-
-## <a name="examples"></a>Beispiele
-
-Die Sicherheitsanforderungen für diesen Computer wurden geändert, sodass die Verknüpfung zwischen dem Windows-Bereich und dem nicht-Windows-Bereich entfernt werden muss. Legen Sie zunächst fest, welche Zuordnung entfernt werden soll, und führen Sie die Ausgabe vorhandener Zuordnungen aus:
 ```
 ksetup
 ```
-Entfernen Sie die Zuordnung, indem Sie den folgenden Befehl verwenden:
+
+Um die Zuordnung zu entfernen, geben Sie Folgendes ein:
+
 ```
-Ksetup /delkdc CORP.CONTOSO.COM mitkdc.contoso.com
+ksetup /delkdc CORP.CONTOSO.COM mitkdc.contoso.com
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [Ksetup](ksetup.md)
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Ksetup-Befehl](ksetup.md)
+
+- [Befehl "Ksetup addkdc"](ksetup-addkdc.md)

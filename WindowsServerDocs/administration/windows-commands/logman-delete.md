@@ -1,6 +1,6 @@
 ---
 title: logman delete
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den logman delete-Befehl, mit dem ein vorhandener Datensammler gelöscht wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,38 +9,46 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8b30fd6eb7915d3d0296988a98968dcde58bdbc2
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: af13e802a1b11636a3cbfe7c908f6d26497cf506
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724375"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820580"
 ---
 # <a name="logman-delete"></a>logman delete
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Löschen eines vorhandenen Daten Sammlers.  
+Löscht einen vorhandenen Datensammler.
 
-## <a name="syntax"></a>Syntax  
-```  
-logman delete <[-n] <name>> [options]  
-```  
-### <a name="parameters"></a>Parameter  
+## <a name="syntax"></a>Syntax
 
-|        Parameter        |                                                                               BESCHREIBUNG                                                                               |
-|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|           /?            |                                                                    Zeigt die kontextbezogene Hilfe an.                                                                     |
-|   -s<computer name>    |                                                          Führen Sie den Befehl auf dem angegebenen Remote Computer aus.                                                          |
-|     -config <value>     |                                                         Gibt die Einstellungsdatei an, die Befehlsoptionen enthält.                                                         |
-|       [-n]<name>       |                                                                   Der Name des Ziel Daten Sammlers.                                                                    |
-|          -ETS           |                                              Direktes Senden von Befehlen an Ereignis Ablauf Verfolgungs Sitzungen, ohne zu speichern oder zu planen.                                               |
-| -[-] u <Benutzer [Kennwort] > | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie \* einen als Kennwort eingeben, wird eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, wenn Sie es an der Eingabeaufforderung eingeben. |
+```
+logman delete <[-n] <name>> [options]
+```
 
-## <a name="examples"></a>Beispiele  
-Der folgende Befehl löscht den perf_log des Daten Sammlers.  
-```  
-logman delete perf_log  
-```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
-[logman](logman.md)  
+### <a name="parameters"></a>Parameter
+
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| -s`<computer name>` | Führt den Befehl auf dem angegebenen Remote Computer aus. |
+| -config`<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
+| [-n]`<name>` | Name des Zielobjekts |
+| -ETS | Sendet Befehle direkt an Ereignis Ablauf Verfolgungs Sitzungen, ohne zu speichern oder zu planen. |
+| -[-] u`<user [password]>` | Gibt den Benutzer an, der als ausgeführt werden soll. Wenn Sie einen als Kennwort eingeben, wird \* eine Eingabeaufforderung für das Kennwort ausgegeben. Das Kennwort wird nicht angezeigt, während Sie es an der Eingabeaufforderung eingeben. |
+| /? | Zeigt die kontextbezogene Hilfe an. |
+
+### <a name="examples"></a>Beispiele
+
+Um den Datensammler *perf_log*zu löschen, geben Sie Folgendes ein:
+
+```
+logman delete perf_log
+```
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [logman](logman.md)

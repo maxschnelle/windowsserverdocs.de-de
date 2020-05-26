@@ -1,6 +1,6 @@
 ---
 title: ktpass
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den Befehl "ktpass", mit dem der Server Prinzipal Name für den Host oder Dienst in AD DS konfiguriert wird und eine keytab-Datei generiert wird, die den gemeinsamen geheimen Schlüssel des Diensts enthält.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,81 +9,91 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 09f0a715c8addf8694eb75d17f9b8089cad72e56
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 432918343ccee70f0c30d294a349fb721f18f705
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724534"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83817230"
 ---
 # <a name="ktpass"></a>ktpass
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Konfiguriert den Server Prinzipal Namen für den Host oder Dienst in den Active Directory-Domänen Diensten (AD DS) und generiert eine keytab-Datei, die den gemeinsamen geheimen Schlüssel des Diensts enthält. Die KEYTAB-Datei basiert auf der Massachusetts Institute of Technology (MIT)-Implementierung des Kerberos-Authentifizierungsprotokolls. Mit dem Befehlszeilenprogramm "ktpass" können nicht-Windows-Dienste, die die Kerberos-Authentifizierung unterstützen, die vom Kerberos-Schlüsselverteilungscenter (KDC) bereitgestellten Interoperabilitäts Funktionen verwenden. Dieses Thema gilt für die Betriebssystemversionen, die in der Liste **gilt für** am Anfang des Themas angegeben sind.  
+Konfiguriert den Server Prinzipal Namen für den Host oder Dienst in Active Directory Domain Services (AD DS) und generiert eine keytab-Datei, die den gemeinsamen geheimen Schlüssel des Diensts enthält. Die KEYTAB-Datei basiert auf der Massachusetts Institute of Technology (MIT)-Implementierung des Kerberos-Authentifizierungsprotokolls. Mit dem Befehlszeilenprogramm "ktpass" können nicht-Windows-Dienste, die die Kerberos-Authentifizierung unterstützen, die vom Kerberos-Schlüsselverteilungscenter (KDC) bereitgestellten Interoperabilitäts Funktionen verwenden.
 
-## <a name="syntax"></a>Syntax  
-```  
-ktpass  
-[/out <FileName>]   
-[/princ <PrincipalName>]   
-[/mapuser <UserAccount>]   
-[/mapop {add|set}] [{-|+}desonly] [/in <FileName>]  
-[/pass {Password|*|{-|+}rndpass}]  
-[/minpass]  
-[/maxpass]  
-[/crypto {DES-CBC-CRC|DES-CBC-MD5|RC4-HMAC-NT|AES256-SHA1|AES128-SHA1|All}]  
-[/itercount]  
-[/ptype {KRB5_NT_PRINCIPAL|KRB5_NT_SRV_INST|KRB5_NT_SRV_HST}]  
-[/kvno <KeyversionNum>]  
-[/answer {-|+}]  
-[/target]  
-[/rawsalt] [{-|+}dumpsalt] [{-|+}setupn] [{-|+}setpass <Password>]  [/?|/h|/help]  
-```  
-### <a name="parameters"></a>Parameter  
+## <a name="syntax"></a>Syntax
 
-|                                             Parameter                                              |                                                                                                                                                                                                                                                                                                      BESCHREIBUNG                                                                                                                                                                                                                                                                                                       |
-|----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                                          /Out<FileName>                                           |                                                                                                                                                                        Gibt den Namen der zu generierenden Datei "Kerberos 5. keytab" an. **Hinweis:** Dies ist die Datei ". keytab", die Sie auf einen Computer übertragen, auf dem das Windows-Betriebssystem nicht ausgeführt wird, und dann ersetzen oder Zusammenführen mit der vorhandenen Keytab-Datei,/etc/krb5.keytab.                                                                                                                                                                        |
-|                                       /princ<PrincipalName>                                       |                                                                                                                                                                                                                   Gibt den Prinzipal Namen im Formular host/computer.contoso.com@CONTOSO.COMan. **Warnung:** Bei diesem Parameter wird Groß-/Kleinschreibung beachtet Weitere Informationen finden Sie unter " [Hinweise](#BKMK_remarks) ".                                                                                                                                                                                                                    |
-|                                       /mapuser<UserAccount>                                       |                                                                                                                                                                                                                                                Ordnet den Namen des Kerberos-Prinzipals, der vom **princ** -Parameter angegeben wird, dem angegebenen Domänen Konto zu.                                                                                                                                                                                                                                                |
-|                                       /mapop {&#124;Gruppe hinzufügen}                                        |                                                                                                                                                                             Gibt an, wie das Mapping-Attribut festgelegt wird.<p>-   **Hinzufügen** fügt den Wert des angegebenen lokalen Benutzernamens hinzu. Dies ist die Standardeinstellung.<br />-   **Set** legt den Wert für die reine Daten Verschlüsselungs Standard-Verschlüsselung für den angegebenen lokalen Benutzernamen fest.                                                                                                                                                                             |
-|                                         {-&#124;+} nicht ordnungsgemäß                                          |                                                                                                                                                            Die nur-der-Verschlüsselung wird standardmäßig festgelegt.<p>-   **+** Legt ein Konto für die reine des-Verschlüsselung fest.<br />-   **-** Gibt die Einschränkung für ein Konto für die reine des-Verschlüsselung frei. **Wichtig:** Ab Windows 7 und Windows Server 2008 R2 unterstützt Windows nicht standardmäßig.                                                                                                                                                            |
-|                                           /in<FileName>                                           |                                                                                                                                                                                                                                                       Gibt die Keytab-Datei an, die von einem Host Computer gelesen werden soll, auf dem das Windows-Betriebssystem nicht ausgeführt wird.                                                                                                                                                                                                                                                        |
-|                          /Pass {Password&#124;\*&#124; {-&#124;+} rndpass}                           |                                                                                                                                                                                                                                           Gibt ein Kennwort für den Prinzipal Benutzernamen an, der durch den **princ** -Parameter angegeben wird. Verwenden \* Sie, um ein Kennwort einzugeben.                                                                                                                                                                                                                                            |
-|                                              /minpass                                              |                                                                                                                                                                                                                                                                            Legt die minimale Länge des Zufalls Kennworts auf 15 Zeichen fest.                                                                                                                                                                                                                                                                            |
-|                                              /maxpass                                              |                                                                                                                                                                                                                                                                           Legt die maximale Länge des Zufalls Kennworts auf 256 Zeichen fest.                                                                                                                                                                                                                                                                            |
-| /Crypto {des-CBC-CRC&#124;des-CBC-MD5&#124;RC4-HMAC-NT&#124;AES256-SHA1&#124;AES128-SHA1&#124;all} | Gibt die Schlüssel an, die in der Schlüssel Tabellendatei-Datei generiert werden:<p>-   " **Des-CBC-CRC** " wird für die Kompatibilität verwendet.<br />-   **Des-CBC-md5-MD5** hält die mit-Implementierung genauer an und wird aus Kompatibilitätsgründen verwendet.<br />-   **RC4-HMAC-NT** verwendet 128-Bit-Verschlüsselung.<br />-   **AES256-SHA1** verwendet die Verschlüsselung AES256-CTS-HMAC-SHA1-96.<br />-   **AES128-SHA1** verwendet die Verschlüsselung AES128-CTS-HMAC-SHA1-96.<br />-   **Alle** Zustände, die alle unterstützten kryptografietypen verwenden können. **Hinweis:** Die Standardeinstellungen basieren auf älteren mit-Versionen. Daher `/crypto` sollte immer angegeben werden. |
-|                                             /itercount                                             |                                                                                                                                                                                                                        Gibt die Anzahl der Iterationen an, die für die AES-Verschlüsselung verwendet wird. Der Standardwert ist, dass **itercount** bei der nicht-AES-Verschlüsselung ignoriert und bei der AES-Verschlüsselung bei 4.096 festgelegt wird.                                                                                                                                                                                                                         |
-|               /pType {KRB5_NT_PRINCIPAL&#124;KRB5_NT_SRV_INST&#124;KRB5_NT_SRV_HST}                |                                                                                                                                                                                         Gibt den Prinzipaltyp an.<p>-   **KRB5_NT_PRINCIPAL** ist der allgemeine Prinzipaltyp (empfohlen).<br />-   **KRB5_NT_SRV_INST** ist die Instanz des Benutzer Dienstanbieter.<br />-   **KRB5_NT_SRV_HST** ist die Host Dienst Instanz.                                                                                                                                                                                         |
-|                                       /kvno<KeyversionNum>                                        |                                                                                                                                                                                                                                                                               Gibt die Versionsnummer des Schlüssels an. Der Standardwert lautet 1.                                                                                                                                                                                                                                                                                |
-|                                         /Answer {-&#124;+}                                         |                                                                                                                                                                                                                    Legt den Hintergrund Antwortmodus fest:<p>**-** Antworten auf Kenn Wort Zurücksetzungen automatisch zurücksetzen, ohne.<p>**+** Antworten Zurücksetzen von Kenn Wort Eingabe Aufforderungen mit Ja.                                                                                                                                                                                                                     |
-|                                              /target                                               |                                                                                                                                                                                           Legt fest, welcher Domänen Controller verwendet werden soll. Standardmäßig wird der Domänen Controller basierend auf dem Prinzipal Namen erkannt. Wenn der Domänen Controller Name nicht aufgelöst wird, werden Sie in einem Dialogfeld zur Eingabe eines gültigen Domänen Controllers aufgefordert.                                                                                                                                                                                           |
-|                                              /rawsalt                                              |                                                                                                                                                                                                                                                           erzwingt, dass "ktpass" den rawsalt-Algorithmus beim Erzeugen des Schlüssels verwendet. Dieser Parameter ist nicht erforderlich.                                                                                                                                                                                                                                                            |
-|                                         {-&#124;+} dumpsalt                                         |                                                                                                                                                                                                                                                           Die Ausgabe dieses Parameters zeigt den mit Salt-Algorithmus, der verwendet wird, um den Schlüssel zu generieren.                                                                                                                                                                                                                                                            |
-|                                          {-&#124;+} setupn                                          |                                                                                                                                                                                                                                          Legt den Benutzer Prinzipal Namen (User Principal Name, UPN) zusätzlich zum Dienst Prinzipal Namen (SPN) fest. Standardmäßig wird beide in der Keytab-Datei festgelegt.                                                                                                                                                                                                                                           |
-|                                    {-&#124;+} setpass<Password>                                    |                                                                                                                                                                                                                                                          Legt das Kennwort des Benutzers fest, wenn angegeben. Wenn rndpass verwendet wird, wird stattdessen ein zufälliges Kennwort generiert.                                                                                                                                                                                                                                                           |
-|                                       /? &#124;/h&#124;/Help                                        |                                                                                                                                                                                                                                                                                         Zeigt die Befehlszeilen Hilfe für "ktpass" an.                                                                                                                                                                                                                                                                                         |
+```
+ktpass
+[/out <filename>]
+[/princ <principalname>]
+[/mapuser <useraccount>]
+[/mapop {add|set}] [{-|+}desonly] [/in <filename>]
+[/pass {password|*|{-|+}rndpass}]
+[/minpass]
+[/maxpass]
+[/crypto {DES-CBC-CRC|DES-CBC-MD5|RC4-HMAC-NT|AES256-SHA1|AES128-SHA1|All}]
+[/itercount]
+[/ptype {KRB5_NT_PRINCIPAL|KRB5_NT_SRV_INST|KRB5_NT_SRV_HST}]
+[/kvno <keyversionnum>]
+[/answer {-|+}]
+[/target]
+[/rawsalt] [{-|+}dumpsalt] [{-|+}setupn] [{-|+}setpass <password>]  [/?|/h|/help]
+```
 
-## <a name="remarks"></a><a name=BKMK_remarks></a>Rede  
-Dienste, die auf Systemen ausgeführt werden, auf denen das Windows-Betriebssystem nicht ausgeführt wird, können mit Dienst Instanzen Konten in den Active Directory-Domänen Diensten konfiguriert werden Dadurch kann sich jeder Kerberos-Client bei Diensten authentifizieren, auf denen das Windows-Betriebssystem nicht mithilfe von Windows-KDCs ausgeführt wird.  
-Der/princ-Parameter wird nicht von "ktpass" ausgewertet und wie angegeben verwendet. Es wird nicht überprüft, ob der Parameter mit dem Wert des **userPrincipalName** -Attributs bei der Erstellung der Keytab-Datei übereinstimmt. Die Groß-/Kleinschreibung von Kerberos-Distributionen, die diese Keytab-Datei verwenden, treten möglicherweise Probleme auf, wenn keine exakte Groß-/Kleinschreibung vorliegt und bei der Überprüfen Sie den korrekten **userPrincipalName** -Attribut Wert aus einer LDIFDE-Exportdatei, und rufen Sie ihn ab. Beispiel:  
-```  
-ldifde /f keytab_user.ldf /d CN=Keytab User,OU=UserAccounts,DC=contoso,DC=corp,DC=microsoft,DC=com /p base /l samaccountname,userprincipalname  
-```  
-## <a name="examples"></a>Beispiele  
-Veranschaulicht, wie eine Kerberos. keytab-Datei (Machine. keytab) im aktuellen Verzeichnis für den Benutzer sample1 erstellt wird. (Sie werden diese Datei mit der Datei krb5. keytab auf einem Host Computer zusammenführen, auf dem das Windows-Betriebssystem nicht ausgeführt wird.) Die Datei "Kerberos. keytab" wird für alle unterstützten Verschlüsselungstypen für den Typ "allgemeiner Prinzipal" erstellt.  
-Um eine keytab-Datei für einen Host Computer zu generieren, auf dem das Windows-Betriebssystem nicht ausgeführt wird, führen Sie die folgenden Schritte aus, um den Prinzipal dem Konto zuzuordnen und das Host Prinzipal Kennwort festzulegen:  
-1.  Verwenden Sie das Snap-in Active Directory-Benutzer und-Computer, um ein Benutzerkonto für einen Dienst auf einem Computer zu erstellen, auf dem das Windows-Betriebssystem nicht ausgeführt wird. Erstellen Sie z. b. ein Konto mit dem Namen sample1.  
-2.  Richten Sie mithilfe von "ktpass" eine Identitäts Zuordnung für das Benutzerkonto ein, indem Sie Folgendes an einer Eingabeaufforderung eingeben:  
-    ```  
-    ktpass /princ host/Sample1.contoso.com@CONTOSO.COM /mapuser Sample1 /pass MyPas$w0rd /out Sample1.keytab /crypto all /ptype KRB5_NT_PRINCIPAL /mapop set   
-    ```  
+### <a name="parameters"></a>Parameter
 
-    > [!NOTE]  
-    > Sie können nicht mehrere Dienst Instanzen demselben Benutzerkonto zuordnen.  
+| Parameter | BESCHREIBUNG |
+| --------- | ------------|
+| /Out`<filename>` | Gibt den Namen der zu generierenden Datei "Kerberos 5. keytab" an. **Hinweis:** Dies ist die Datei ". keytab", die Sie auf einen Computer übertragen, auf dem das Windows-Betriebssystem nicht ausgeführt wird, und dann ersetzen oder Zusammenführen mit der vorhandenen Keytab-Datei, */etc/krb5.keytab*. |
+| /princ`<principalname>` | Gibt den Prinzipal Namen im Formular an host/computer.contoso.com@CONTOSO.COM . **Warnung:** Bei diesem Parameter wird die Groß-/Kleinschreibung beachtet. |
+| /mapuser`<useraccount>` | Ordnet den Namen des Kerberos-Prinzipals, der vom **princ** -Parameter angegeben wird, dem angegebenen Domänen Konto zu. |
+| /mapop`{add|set}` | Gibt an, wie das Mapping-Attribut festgelegt wird.<ul><li>**Add** -addiert den Wert des angegebenen lokalen Benutzernamens. Dies ist der Standardwert.</li><li>**Set** : legt den Wert für die reine Daten Verschlüsselungs Standard-Verschlüsselung für den angegebenen lokalen Benutzernamen fest.</li></ul> |
+| `{-|+}`nicht ordnungsgemäß | Die nur-der-Verschlüsselung wird standardmäßig festgelegt.<ul><li>**+** Legt ein Konto für die reine des-Verschlüsselung fest.</li><li>**-** Gibt die Einschränkung für ein Konto für die reine des-Verschlüsselung frei. **Wichtig:** Der Standardwert von Windows wird von Windows nicht unterstützt.</li></ul> |
+| /in`<filename>` | Gibt die Keytab-Datei an, die von einem Host Computer gelesen werden soll, auf dem das Windows-Betriebssystem nicht ausgeführt wird. |
+| /pass`{password|*|{-|+}rndpass}` | Gibt ein Kennwort für den Prinzipal Benutzernamen an, der durch den **princ** -Parameter angegeben wird. Verwenden `*` Sie, um ein Kennwort einzugeben. |
+| /minpass | Legt die minimale Länge des Zufalls Kennworts auf 15 Zeichen fest. |
+| /maxpass | Legt die maximale Länge des Zufalls Kennworts auf 256 Zeichen fest. |
+| /crypto`{DES-CBC-CRC|DES-CBC-MD5|RC4-HMAC-NT|AES256-SHA1|AES128-SHA1|All}` | Gibt die Schlüssel an, die in der Schlüssel Tabellendatei-Datei generiert werden:<ul><li>**Des-CBC-CRC** -verwendet aus Kompatibilitätsgründen.</li><li>**Des-CBC-MD5** -hält die mit-Implementierung genauer an und wird aus Kompatibilitätsgründen verwendet.</li><li>**RC4-HMAC-NT** : verwendet die 128-Bit-Verschlüsselung.</li><li>**AES256-SHA1** : verwendet AES256-CTS-HMAC-SHA1-96-Verschlüsselung.</li><li>   **AES128-SHA1** : verwendet AES128-CTS-HMAC-SHA1-96-Verschlüsselung.</li><li>**Alle** -Zustände, die alle unterstützten kryptografietypen verwenden können.</li></ul><p>**Hinweis:** Da die Standardeinstellungen auf älteren mit-Versionen basieren, sollten Sie immer den- `/crypto` Parameter verwenden. |
+| /itercount | Gibt die Anzahl der Iterationen an, die für die AES-Verschlüsselung verwendet wird. Der Standardwert ignoriert **itercount** für die nicht-AES-Verschlüsselung und legt die AES-Verschlüsselung auf 4.096 fest. |
+| /ptype`{KRB5_NT_PRINCIPAL|KRB5_NT_SRV_INST|KRB5_NT_SRV_HST}` | Gibt den Prinzipaltyp an.<ul><li>**KRB5_NT_PRINCIPAL** : der allgemeine Prinzipaltyp (empfohlen).</li><li>**KRB5_NT_SRV_INST** : die Instanz des Benutzer Dienstanbieter</li><li>  **KRB5_NT_SRV_HST** -die Host Dienst Instanz</li></ul> |
+| /kvno`<keyversionnum>` | Gibt die Versionsnummer des Schlüssels an. Der Standardwert ist 1. |
+| /Answer`{-|+}` | Legt den Hintergrund Antwortmodus fest:<ul><li>**-** Antworten auf Kenn Wort Zurücksetzungen automatisch zurücksetzen, **ohne**.</li><li>**+** Antworten Zurücksetzen von Kenn Wort Eingabe Aufforderungen mit **Ja**.</li></ul> |
+| /target | Legt fest, welcher Domänen Controller verwendet werden soll. Standardmäßig wird der Domänen Controller basierend auf dem Prinzipal Namen erkannt. Wenn der Domänen Controller Name nicht aufgelöst wird, werden Sie in einem Dialogfeld zur Eingabe eines gültigen Domänen Controllers aufgefordert. |
+| /rawsalt | erzwingt, dass "ktpass" den rawsalt-Algorithmus beim Erzeugen des Schlüssels verwendet. Dieser Parameter ist optional. |
+| `{-|+}dumpsalt` | Die Ausgabe dieses Parameters zeigt den mit Salt-Algorithmus, der verwendet wird, um den Schlüssel zu generieren. |
+| `{-|+}setupn` | Legt den Benutzer Prinzipal Namen (User Principal Name, UPN) zusätzlich zum Dienst Prinzipal Namen (SPN) fest. Standardmäßig wird beide in der Keytab-Datei festgelegt. |
+| `{-|+}setpass <password>` | Legt das Kennwort des Benutzers fest, wenn angegeben. Wenn rndpass verwendet wird, wird stattdessen ein zufälliges Kennwort generiert. |
+| /? | Zeigt die Hilfe für diesen Befehl an. |
 
-3.  Führen Sie die Datei ". keytab" mit der Datei "/etc/krb5.keytab" auf einem Host Computer zusammen, auf dem das Windows-Betriebssystem nicht ausgeführt wird. 
+#### <a name="remarks"></a>Hinweise
 
-## <a name="additional-references"></a>Zusätzliche Referenzen  
-- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
+- Dienste, die auf Systemen ausgeführt werden, auf denen das Windows-Betriebssystem nicht ausgeführt wird, können in AD DS mit Dienst Instanzen Konten konfiguriert werden. Dadurch kann sich jeder Kerberos-Client bei Diensten authentifizieren, auf denen das Windows-Betriebssystem nicht mithilfe von Windows-KDCs ausgeführt wird.
+
+- Der **/princ** -Parameter wird nicht von "ktpass" ausgewertet und wie angegeben verwendet. Es wird nicht überprüft, ob der Parameter dem Wert des **userPrincipalName** -Attributs beim Erzeugen der Keytab-Datei entspricht. Die Unterscheidung nach Groß-/Kleinschreibung Unterscheidung bei Kerberos-Distributionen, die diese Keytab-Datei verwenden, treten möglicherweise Probleme auf, wenn keine genaue groß-und Kleinschreibung vorliegt , Um den korrekten **userPrincipalName** -Attribut Wert aus einer LDIFDE-Exportdatei zu überprüfen und abzurufen. Beispiel:
+
+    ```
+    ldifde /f keytab_user.ldf /d CN=Keytab User,OU=UserAccounts,DC=contoso,DC=corp,DC=microsoft,DC=com /p base /l samaccountname,userprincipalname
+    ````
+
+### <a name="examples"></a>Beispiele
+
+Wenn Sie eine Kerberos. keytab-Datei für einen Host Computer erstellen möchten, auf dem das Windows-Betriebssystem nicht ausgeführt wird, müssen Sie den Prinzipal dem Konto zuordnen und das Host Prinzipal Kennwort festlegen.
+
+1. Verwenden Sie das Snap-in Active Directory **-Benutzer und-Computer** , um ein Benutzerkonto für einen Dienst auf einem Computer zu erstellen, auf dem das Windows-Betriebssystem nicht ausgeführt wird. Erstellen Sie z. b. ein Konto mit dem Namen *User1*.
+
+2. Verwenden Sie den Befehl " **ktpass** ", um eine Identitäts Zuordnung für das Benutzerkonto einzurichten, indem Sie Folgendes eingeben:
+
+    ```
+    ktpass /princ host/User1.contoso.com@CONTOSO.COM /mapuser User1 /pass MyPas$w0rd /out machine.keytab /crypto all /ptype KRB5_NT_PRINCIPAL /mapop set
+    ```
+
+    > [!NOTE]
+    > Sie können nicht mehrere Dienst Instanzen demselben Benutzerkonto zuordnen.
+
+3. Führen Sie die Datei ". keytab" mit der Datei */etc/krb5.keytab* auf einem Host Computer zusammen, auf dem das Windows-Betriebssystem nicht ausgeführt wird.
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

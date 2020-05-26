@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a25507b83c17100c579f00d10c94e20c6be2aa4e
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 1204f3db338f835b47db03eab3d178544a6acc85
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437215"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83819120"
 ---
 # <a name="expand"></a>Erweitern
 
@@ -36,7 +36,7 @@ expand <source>.cab /f:<files> <destination>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | /r | Benennt Erweiterte Dateien um. |
 | Quelle | Gibt die Dateien an, die erweitert werden sollen. Die *Quelle* kann aus einem Laufwerk Buchstaben und einem Doppelpunkt, einem Verzeichnisnamen, einem Dateinamen oder einer Kombination aus diesen bestehen. Sie können Platzhalter (**&#42;** oder **?**) verwenden. |
@@ -49,4 +49,3 @@ expand <source>.cab /f:<files> <destination>
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
-

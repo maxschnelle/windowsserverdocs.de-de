@@ -10,12 +10,12 @@ ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
 ms.date: 06/07/2019
-ms.openlocfilehash: 9ba0303d1eebc2138db7c5f1428ce920b0cb8af0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ebb32579f072a333895c4fce8f379398bedda8a4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360821"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "82786307"
 ---
 # <a name="server-core-app-compatibility-feature-on-demand-fod"></a>App-Kompatibilität von Server Core-Feature on Demand (FOD)
 
@@ -59,7 +59,7 @@ Zu den Betriebssystemkomponenten, die im Rahmen des Server Core-App-Kompatibilit
         -   In einer PowerShell-Sitzung mit erhöhten Rechten: 
 
             ```PowerShell
-            Install-WindowsFeature -NameFailover-Clustering -IncludeManagementTools
+            Install-WindowsFeature -Name Failover-Clustering -IncludeManagementTools
             ```
 
         -   Geben Sie **cluadmin** an der Eingabeaufforderung an, um den Failovercluster-Manager zu öffnen.
@@ -124,7 +124,7 @@ Das App-Kompatibilitäts-FOD kann nur unter Server Core installiert werden. Vers
 4. Führen Sie den folgenden Befehl aus, und verwenden Sie die `$package_path`-Variable, um den Pfad zur CAB-Datei von Internet Explorer anzugeben:
 
     ```PowerShell
-    $package_path = "D:\Microsoft-Windows-InternetExplorer-Optional-Package~31bf3856ad364e35~amd64~~.cab"
+    $package_path = D:\Microsoft-Windows-InternetExplorer-Optional-Package~31bf3856ad364e35~amd64~~.cab
 
     Add-WindowsPackage -Online -PackagePath $package_path
     ```
@@ -151,7 +151,7 @@ Das App-Kompatibilitäts-FOD kann nur unter Server Core installiert werden. Vers
   - Beispielsweise kann SQL Server Management Studio für SQL Server 2016 und SQL Server 2017 unter Server Core installiert werden und weist den vollen Funktionsumfang auf, wenn das App-Kompatibilitäts-FOD vorhanden ist.  Weitere Informationen finden Sie unter [Installieren von SQL Server von der Eingabeaufforderung](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-from-the-command-prompt?view=sql-server-2017).
   - Wenn SQL Server Management Studio nicht gewünscht ist, ist es nicht erforderlich, das Server Core-App-Kompatibilitäts-FOD zu installieren.  Mehr dazu erfahren Sie unter [Installieren von SQL Server unter Server Core](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-on-server-core?view=sql-server-2017).
 
-## <a name="a-idadd-capabilities-adding-capabilities-and-optional-packages-to-an-offline-wim-server-core-image"></a><a id="add-capabilities"> Hinzufügen von Funktionen und optionalen Paketen zu einem WIM Server Core-Offlineimage
+## <a name="a-idadd-capabilities-adding-capabilities-and-optional-packages-to-an-offline-wim-server-core-image"></a><a id=add-capabilities> Hinzufügen von Funktionen und optionalen Paketen zu einem WIM Server Core-Offlineimage
 
 1. Laden Sie die ISO-Imagedateien für Windows Server und das Server-FOD ISO in einen lokalen Ordner auf einem Windows-Computer herunter.
 
@@ -171,7 +171,7 @@ Das App-Kompatibilitäts-FOD kann nur unter Server Core installiert werden. Vers
 Verwenden Sie die `$install_wim_path`-Variable, um den Pfad zur Install.wim-Datei einzugeben, die sich innerhalb des Ordners „\Sources“ der ISO-Datei befindet.
 
    ```PowerShell
-   $install_wim_path = "C:\SetupFiles\WindowsServer\sources\install.wim"
+   $install_wim_path = C:\SetupFiles\WindowsServer\sources\install.wim
 
    Get-WindowsImage -ImagePath $install_wim_path
    ```
@@ -182,8 +182,8 @@ Verwenden Sie die `$install_wim_path`-Variable, um den Pfad zur Install.wim-Date
    - `$mount_folder variable`: Geben Sie den Ordner an, der für den Zugriff auf den Inhalt der Install.wim-Datei verwendet werden soll.
 
    ```PowerShell
-   $image_name = "Windows Server Datacenter"
-   $mount_folder = "c:\test\offline"
+   $image_name = Windows Server Datacenter
+   $mount_folder = c:\test\offline
 
    Mount-WindowsImage -ImagePath $install_wim_path -Name $image_name -path $mount_folder
    ```
@@ -195,9 +195,9 @@ Verwenden Sie die `$install_wim_path`-Variable, um den Pfad zur Install.wim-Date
    - `$fod_drive`: Geben Sie den Laufwerksbuchstaben des eingebundenen Server-FOD-Images an.
 
    ```PowerShell
-   $capability_name = "ServerCore.AppCompatibility~~~~0.0.1.0"
-   $package_path = "D:\Microsoft-Windows-InternetExplorer-Optional-Package~31bf3856ad364e35~amd64~~.cab"
-   $fod_drive = "d:\"
+   $capability_name = ServerCore.AppCompatibility~~~~0.0.1.0
+   $package_path = D:\Microsoft-Windows-InternetExplorer-Optional-Package~31bf3856ad364e35~amd64~~.cab
+   $fod_drive = d:\
 
    Add-WindowsCapability -Path $mount_folder -Name $capability_name -Source $fod_drive -LimitAccess
    Add-WindowsPackage -Path $mount_folder -PackagePath $package_path

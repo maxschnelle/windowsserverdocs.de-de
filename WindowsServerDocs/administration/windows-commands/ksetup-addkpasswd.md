@@ -1,6 +1,6 @@
 ---
-title: 'Ksetup: addkpasswd'
-description: Referenz Thema für * * * *-
+title: Ksetup addkpasswd
+description: Referenz Thema für den Befehl "Ksetup addkpasswd", mit dem ein Kerberos-Kennwort (kpasswd)-Server Adresse für einen Bereich hinzugefügt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,52 +9,50 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c260c711ae87f88be8b9466e73afaf3fe1c83a1e
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: e0cff2f3d74e6d862bbdd000602a1d03312373d2
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724734"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83818070"
 ---
-# <a name="ksetupaddkpasswd"></a>Ksetup: addkpasswd
-
-
+# <a name="ksetup-addkpasswd"></a>Ksetup addkpasswd
 
 Fügt ein Kerberos-Kennwort (kpasswd)-Server Adresse für einen Bereich hinzu.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-ksetup /addkpasswd <RealmName> [<KpasswdName>]
+ksetup /addkpasswd <realmname> [<kpasswdname>]
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-Wenn der Kerberos-Bereich, bei dem die Arbeitsstation authentifiziert wird, das Kerberos-Änderungs Kennwort-Protokoll unterstützt, können Sie einen Client Computer mit dem Windows-Betriebssystem für die Verwendung eines Kerberos-Kenn Wort Servers konfigurieren. Diese Einstellung wird auf der Bereichs Seite konfiguriert.
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| `<realmname>` | Gibt den Großbuchstaben-DNS-Namen an, z. b. Corp. CONTOSO.com, und wird als Standardbereich bzw. **Bereich** angezeigt, wenn **Ksetup** ausgeführt wird. |
+| `<kpasswdname>` | Gibt den Kerberos-Kenn Wort Server an. Sie wird als voll qualifizierter Domänen Name, wie z. b. mitkdc.contoso.com, als Nichtbeachtung der Groß-/Kleinschreibung angegeben. Wenn der KDC-Name weggelassen wird, kann DNS verwendet werden, um nach KDCs zu suchen. |
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|\<Realmname->|Der Bereichs Name wird als Großbuchstabe (DNS-Name) angegeben, z. b. Corp. CONTOSO.com, und wird als Standardbereich bzw. Bereich angezeigt, wenn **Ksetup** ausgeführt wird.|
-|\<Kpasswdname->|Der KDC-Name, der als Kerberos-Kenn Wort Server verwendet werden soll, wird als voll qualifizierter Domänen Name angegeben, z. b. mitkdc.Microsoft.com. Wenn der KDC-Name weggelassen wird, kann DNS verwendet werden, um nach KDCs zu suchen.|
+#### <a name="remarks"></a>Hinweise
 
-## <a name="remarks"></a>Bemerkungen
+- Wenn der Kerberos-Bereich, bei dem die Arbeitsstation authentifiziert wird, das Kerberos-Änderungs Kennwort-Protokoll unterstützt, können Sie einen Client Computer mit dem Windows-Betriebssystem für die Verwendung eines Kerberos-Kenn Wort Servers konfigurieren.
 
-Wenn der Kerberos-Bereich, bei dem die Arbeitsstation authentifiziert wird, das Kerberos-Änderungs Kennwort-Protokoll unterstützt, können Sie einen Client Computer mit dem Windows-Betriebssystem für die Verwendung eines Kerberos-Kenn Wort Servers konfigurieren.
+- Sie können weitere KDC-Namen einzeln hinzufügen.
 
-Führen Sie den Befehl **Ksetup** aus, um den KDC-Namen zu überprüfen. Wenn **kpasswd =** nicht in der Ausgabe angezeigt wird, wurde die Zuordnung nicht konfiguriert.
+### <a name="examples"></a>Beispiele
 
-Sie können weitere KDC-Namen einzeln hinzufügen.
+Zum Konfigurieren des Corp. CONTOSO.com Bereich zum Verwenden des nicht-Windows-KDC-Servers, mitkdc.contoso.com, als Kennwort-Server, geben Sie Folgendes ein:
 
-## <a name="examples"></a>Beispiele
-
-Konfigurieren Sie den Bereich Corp. CONTOSO.com, damit der nicht-Windows-KDC-Server, mitkdc.contoso.com, als Kenn Wort Server verwendet wird:
 ```
 ksetup /addkpasswd CORP.CONTOSO.COM mitkdc.contoso.com
 ```
-Dies führt zu einem nicht-Windows-Kerberos-Kenn Wort Server, der alle Kenn Wörter für die Authentifizierung zwischen ihm und dem Bereich steuert.
+
+Um sicherzustellen, dass der KDC-Name festgelegt ist, geben Sie ein, und zeigen Sie `ksetup` die Ausgabe an, und suchen Sie nach dem Text **kpasswd =** Wenn der Text nicht angezeigt wird, bedeutet dies, dass die Zuordnung nicht konfiguriert wurde.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [Ksetup](ksetup.md)
--   [Ksetup:delkpasswd](ksetup-delkpasswd.md)
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Ksetup-Befehl](ksetup.md)
+
+- [Ksetup-Befehl "Delta passwd"](ksetup-delkpasswd.md)

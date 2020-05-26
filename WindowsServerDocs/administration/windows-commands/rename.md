@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 96f70e0f4130b0bc2c2d85462ee0d2eabb7a7888
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 8cc81d813f1e7d0474337adc1afa22a0cf1040c5
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722410"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820120"
 ---
 # <a name="rename"></a>rename
 
@@ -23,5 +23,5 @@ ms.locfileid: "82722410"
 Dies ist das gleiche wie der **ren** -Befehl.
 Weitere Informationen zu Syntax und Parametern finden Sie unter [ren](ren.md) .
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

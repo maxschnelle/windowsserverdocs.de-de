@@ -1,6 +1,6 @@
 ---
-title: 'Ksetup: listrealmflags'
-description: Referenz Thema für * * * *-
+title: Ksetup listrealmflags
+description: Referenz Thema für den Ksetup listrealmflags-Befehl, der die verfügbaren bereichsflags auflistet, die von Ksetup gemeldet werden können.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f0646be8daaad4bc3303389cfca1f3a09136fe1a
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 5c5ebbee7f937733286e0354eca1cf5524459e86
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724625"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83817720"
 ---
-# <a name="ksetuplistrealmflags"></a>Ksetup: listrealmflags
-
-
+# <a name="ksetup-listrealmflags"></a>Ksetup listrealmflags
 
 Listet die verfügbaren bereichflags auf, die von **Ksetup**gemeldet werden können.
 
@@ -28,44 +26,50 @@ Listet die verfügbaren bereichflags auf, die von **Ksetup**gemeldet werden kön
 ksetup /listrealmflags
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="remarks"></a>Hinweise
 
-Keine
+- Die bereichsflags geben zusätzliche Features eines Kerberos-Bereichs an, die nicht auf dem Windows Server-Betriebssystem basieren. Computer, auf denen Windows Server ausgeführt wird, können einen Kerberos-Server verwenden, um die Authentifizierung im Kerberos-Bereich zu verwalten, anstatt eine Domäne zu verwenden, die ein Windows Server-Betriebssystem ausgeführt wird. Mit diesem Eintrag werden die Funktionen des Bereichs festgelegt, und es gibt folgende Möglichkeiten:
 
-## <a name="remarks"></a>Bemerkungen
+| Wert | Bereichsflag | BESCHREIBUNG |
+| ----- | ---------- | ----------- |
+| 0xF | All | Alle bereichflags werden festgelegt. |
+| 0x00 | Keine | Es wurden keine bereichflags festgelegt, und es sind keine weiteren Funktionen aktiviert. |
+| 0x01 | Element sendaddress | Die IP-Adresse wird in den Tickets für Ticket Gewährung enthalten sein. |
+| 0x02 | tcpsupported | In diesem Bereich werden sowohl das Transmission Control Protocol (TCP) als auch das User Datagram-Protokoll (UDP) unterstützt. |
+| 0x04 | delegate | Jeder in diesem Bereich ist für die Delegierung vertrauenswürdig. |
+| 0x08 | ncsupported | Dieser Bereich unterstützt die namens Kanonisierung, die DNS-und Bereichs Benennungs Standards ermöglicht. |
+| 0x80 | RC4 | Dieser Bereich unterstützt die RC4-Verschlüsselung, um eine bereichsübergreifende Vertrauensstellung zu ermöglichen, die die Verwendung von TLS ermöglicht. |
 
-Die bereichsflags geben zusätzliche Funktionen eines nicht Windows-basierten Kerberos-Bereichs an. Computer, auf denen Windows Server 2003, Windows Server 2008 oder Windows Server 2008 R2 ausgeführt wird, können einen nicht-Windows-basierten Kerberos-Server verwenden, um die Authentifizierung zu verwalten, anstatt eine Domäne zu verwenden, die ein Windows Server-Betriebssystem ausgeführt wird. Diese Systeme nehmen an einem Kerberos-Bereich statt in einer Windows-Domäne Teil. Mit diesem Eintrag werden die Funktionen des Bereichs festgelegt. In der folgenden Tabelle werden die einzelnen beschrieben.
-
-|Wert|Bereichsflag|BESCHREIBUNG|
-|-----|----------|-----------|
-|0xF|All|Alle bereichflags werden festgelegt.|
-|0x00|Keine|Es wurden keine bereichflags festgelegt, und es sind keine weiteren Funktionen aktiviert.|
-|0x01|Element sendaddress|Die IP-Adresse wird in den Tickets für Ticket Gewährung enthalten sein.|
-|0x02|Tcpsupported|Das Transmission Control-Protokoll (TCP) und das User Datagram-Protokoll (UDP) werden in diesem Bereich unterstützt.|
-|0x04|Delegieren|Jeder in diesem Bereich ist für die Delegierung vertrauenswürdig.|
-|0x08|Ncsupported|Dieser Bereich unterstützt die namens Kanonisierung, die DNS-und Bereichs Benennungs Standards ermöglicht.|
-|0x80|RC4|Dieser Bereich unterstützt die RC4-Verschlüsselung, um eine bereichsübergreifende Vertrauensstellung zu ermöglichen, die die Verwendung von TLS ermöglicht.|
-
-Bereichsflags werden in der Registrierung in **HKEY_LOCAL_MACHINE \system\currentcontrolset\control\lsa\kerberos\domains\\**<em>Bereichs Name</em>gespeichert. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Sie können den Befehl " [Ksetup: adressalmflags](ksetup-addrealmflags.md) " verwenden, um die Registrierung aufzufüllen.
+- Bereichflags werden in der Registrierung unter gespeichert `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Domains\<realmname>` . Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Sie können den [Befehl "Ksetup adressalmflags](ksetup-addrealmflags.md) " verwenden, um die Registrierung aufzufüllen.
 
 ## <a name="examples"></a>Beispiele
 
-Listet die bekannten bereichflags auf diesem Computer auf:
+Geben Sie Folgendes ein, um die bekannten bereichflags auf diesem Computer aufzulisten:
+
 ```
 ksetup /listrealmflags
 ```
-Legen Sie die verfügbaren bereichsflags fest, die **Ksetup** nicht kennt, indem Sie einen der folgenden Befehle in der Befehlszeile eingeben:
+
+Geben Sie Folgendes ein, um die verfügbaren bereichflags festzulegen, die **Ksetup** nicht kennt:
+
 ```
 ksetup /setrealmflags CORP.CONTOSO.COM sendaddress tcpsupported delete ncsupported
 ```
+
+**Noch**
+
 ```
 ksetup /setrealmflags CORP.CONTOSO.COM 0xF
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [Ksetup:setrealmflags](ksetup-setrealmflags.md)
--   [Ksetup:addrealmflags](ksetup-addrealmflags.md)
--   [Ksetup:delrealmflags](ksetup-delrealmflags.md)
--   [Ksetup](ksetup.md)
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Ksetup-Befehl](ksetup.md)
+
+- [Ksetup-Befehl "adressalmflags"](ksetup-addrealmflags.md)
+
+- [ksetup setrealmflags-Befehl](ksetup-setrealmflags.md)
+
+- [Ksetup-Befehl "Delta-Flags"](ksetup-delrealmflags.md)

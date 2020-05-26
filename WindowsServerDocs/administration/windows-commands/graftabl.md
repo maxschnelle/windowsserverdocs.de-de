@@ -1,6 +1,6 @@
 ---
 title: graftabl
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den graftabl-Befehl, mit dem Windows-Betriebssysteme einen erweiterten Zeichensatz im Grafikmodus anzeigen können.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,58 +9,62 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b3815b85da163c03dea7bd2619d4647454d3ebd7
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 149ae92db534cef66c966462e51906304588b042
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724924"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83818690"
 ---
 # <a name="graftabl"></a>graftabl
 
-
-
 Ermöglicht Windows-Betriebssystemen das Anzeigen eines erweiterten Zeichensatzes im Grafikmodus. Bei Verwendung ohne Parameter zeigt **graftabl** die vorherige und die aktuelle Codepage an.
-
-
 
 ## <a name="syntax"></a>Syntax
 
 ```
-graftabl <CodePage>
+graftabl <codepage>
 graftabl /status
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|\<Codepage->|Gibt eine Codepage an, um die Darstellung erweiterter Zeichen im Grafikmodus zu definieren.</br>Gültige Codepage-Identifikationsnummern sind:</br>437: USA</br>850: mehrsprachig (lateinisch I)</br>852: slawisch (Lateinisch II)</br>855: Kyrillisch (Russisch)</br>857: Türkisch</br>860: Portugiesisch</br>861: Isländisch</br>863: Französisch (Kanada)</br>865: Nordisch</br>866: Russisch</br>869: modernes Griechisch|
-|/status|Zeigt die aktuelle Codepage an, die von **graftabl** verwendet wird.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+| Parameter | Beschreibung |
+| --------- | ----------- |
+| `<codepage>` | Gibt eine Codepage an, um die Darstellung erweiterter Zeichen im Grafikmodus zu definieren. Gültige Codepage-Identifikationsnummern sind:<ul><li>**437** -USA</li><li>**850** -mehrsprachig (lateinisch I)</li><li>**852** -slawisch (Lateinisch II)</li><li>**855** -Kyrillisch (Russisch)</li><li>**857** -Türkisch</li><li>**860** -Portugiesisch</li><li>**861** -Isländisch</li><li>**863** -Französisch (Kanada)</li><li>**865** -Nordisch</li><li>**866** -Russisch</li><li>**869** -modern Griechisch</li></ul> |
+| /status | Zeigt die aktuelle Codepage an, die von diesem Befehl verwendet wird. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
--   **Graftabl** wirkt sich nur auf die Monitor Anzeige erweiterter Zeichen der von Ihnen angegebenen Codepage aus. Die tatsächliche Konsolen Eingabe Codepage wird nicht geändert. Zum Ändern der Konsolen Eingabe Codepage verwenden Sie den Befehl **Mode** oder **chcp** .
--   In der folgenden Tabelle sind die einzelnen Exitcodes und eine kurze Beschreibung aufgeführt.  
-    |Exitcode|BESCHREIBUNG|
-    |---------|-----------|
-    |0|Der Zeichensatz wurde erfolgreich geladen. Es wurde keine vorherige Codepage geladen.|
-    |1|Es wurde ein falscher Parameter angegeben. Es wurde keine Aktion ausgeführt.|
-    |2|Ein Datei Fehler ist aufgetreten.|
--   Mit der ERRORLEVEL-Umgebungsvariablen in einem Batch-Programm können Sie Exitcodes verarbeiten, die von **graftabl**zurückgegeben werden.
+- Der **graftabl** -Befehl wirkt sich nur auf die Anzeige von erweiterten Zeichen der von Ihnen angegebenen Codepage aus. Die tatsächliche Konsolen Eingabe Codepage wird nicht geändert. Zum Ändern der Konsolen Eingabe Codepage verwenden Sie den Befehl [Mode](mode.md) oder [chcp](chcp.md) .
 
-## <a name="examples"></a>Beispiele
+- Jeder Exitcode und eine kurze Beschreibung:
+
+    | Exitcode | BESCHREIBUNG |
+    | --------- | ----------- |
+    | 0 | Der Zeichensatz wurde erfolgreich geladen. Es wurde keine vorherige Codepage geladen. |
+    | 1 | Es wurde ein falscher Parameter angegeben. Es wurde keine Aktion ausgeführt. |
+    | 2 | Ein Datei Fehler ist aufgetreten. |
+
+- Mit der ERRORLEVEL-Umgebungsvariablen in einem Batch-Programm können Sie Exitcodes verarbeiten, die von **graftabl**zurückgegeben werden.
+
+### <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um die von **graftabl**verwendete aktuelle Codepage anzuzeigen:
+
 ```
 graftabl /status
 ```
+
 Geben Sie Folgendes ein, um den Grafikzeichen Satz für die Codepage 437 (USA) in den Arbeitsspeicher zu laden:
+
 ```
 graftabl 437
 ```
+
 Geben Sie Folgendes ein, um den Grafikzeichen Satz für Codepage 850 (mehrsprachig) in den Arbeitsspeicher zu laden:
+
 ```
 graftabl 850
 ```
@@ -69,6 +73,8 @@ graftabl 850
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-[Freiplatte](freedisk.md)
+- [Befehl "freiplatte"](freedisk.md)
 
-[CHCP](chcp.md)
+- [Mode-Befehl](mode.md)
+
+- [CHCP-Befehl](chcp.md)

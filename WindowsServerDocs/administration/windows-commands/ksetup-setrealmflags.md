@@ -1,6 +1,6 @@
 ---
-title: 'Ksetup: setrealmflags'
-description: Referenz Thema für * * * *-
+title: ksetup setrealmflags
+description: Referenz Thema für den Ksetup-Befehl setrealmflags, mit dem bereichsflags für den angegebenen Bereich festgelegt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,65 +9,73 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7a32ea03f4f0e76f03c7a0b505563e6bcf972b80
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 2de568ae3df522f43d7a84e22d76ee3975d8e209
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724570"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83817320"
 ---
-# <a name="ksetupsetrealmflags"></a>Ksetup: setrealmflags
-
-
+# <a name="ksetup-setrealmflags"></a>ksetup setrealmflags
 
 Legt bereichflags für den angegebenen Bereich fest.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-ksetup /setrealmflags <RealmName> [sendaddress] [tcpsupported] [delegate] [ncsupported] [rc4]
+ksetup /setrealmflags <realmname> [sendaddress] [tcpsupported] [delegate] [ncsupported] [rc4]
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|\<Realmname->|Der Bereichs Name wird als Großbuchstabe (DNS-Name) angegeben, z. b. Corp. CONTOSO.com.|
-|Bereichsflag|Gibt eines der folgenden Flags an:</br>-Sendaddress</br>-Tcpsupported</br>-Delegat</br>-Ncsupported</br>-RC4|
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| `<realmname>` | Gibt den Großbuchstaben-DNS-Namen an, z. b. Corp. CONTOSO.com. |
 
-## <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
-Die bereichsflags geben zusätzliche Features eines Kerberos-Bereichs an, der nicht auf dem Windows Server-Betriebssystem basiert. Computer, auf denen Windows Server 2003, Windows Server 2008 oder Windows Server 2008 R2 ausgeführt wird, können einen Kerberos-Server verwenden, um die Authentifizierung zu verwalten, anstatt eine Domäne zu verwenden, in der ein Windows Server-Betriebssystem ausgeführt wird, und diese Systeme an einem Kerberos-Bereich teilnehmen. Mit diesem Eintrag werden die Funktionen des Bereichs festgelegt. In der folgenden Tabelle werden die einzelnen beschrieben.
+- Die bereichsflags geben zusätzliche Features eines Kerberos-Bereichs an, die nicht auf dem Windows Server-Betriebssystem basieren. Computer, auf denen Windows Server ausgeführt wird, können einen Kerberos-Server verwenden, um die Authentifizierung im Kerberos-Bereich zu verwalten, anstatt eine Domäne zu verwenden, die ein Windows Server-Betriebssystem ausgeführt wird. Mit diesem Eintrag werden die Funktionen des Bereichs festgelegt, und es gibt folgende Möglichkeiten:
 
-|Wert|Bereichsflag|BESCHREIBUNG|
-|-----|----------|-----------|
-|0xF|All|Alle bereichflags werden festgelegt.|
-|0x00|Keine|Es wurden keine bereichflags festgelegt, und es sind keine weiteren Funktionen aktiviert.|
-|0x01|Element sendaddress|Die IP-Adresse wird in den Tickets für Ticket Gewährung enthalten sein.|
-|0x02|Tcpsupported|In diesem Bereich werden sowohl das Transmission Control Protocol (TCP) als auch das User Datagram-Protokoll (UDP) unterstützt.|
-|0x04|Delegieren|Jeder in diesem Bereich ist für die Delegierung vertrauenswürdig.|
-|0x08|Ncsupported|Dieser Bereich unterstützt die namens Kanonisierung, die DNS-und Bereichs Benennungs Standards ermöglicht.|
-|0x80|RC4|Dieser Bereich unterstützt die RC4-Verschlüsselung, um eine bereichsübergreifende Vertrauensstellung zu ermöglichen, die die Verwendung von TLS ermöglicht.|
+| Wert | Bereichsflag | BESCHREIBUNG |
+| ----- | ---------- | ----------- |
+| 0xF | All | Alle bereichflags werden festgelegt. |
+| 0x00 | Keine | Es wurden keine bereichflags festgelegt, und es sind keine weiteren Funktionen aktiviert. |
+| 0x01 | Element sendaddress | Die IP-Adresse wird in den Tickets für Ticket Gewährung enthalten sein. |
+| 0x02 | tcpsupported | In diesem Bereich werden sowohl das Transmission Control Protocol (TCP) als auch das User Datagram-Protokoll (UDP) unterstützt. |
+| 0x04 | delegate | Jeder in diesem Bereich ist für die Delegierung vertrauenswürdig. |
+| 0x08 | ncsupported | Dieser Bereich unterstützt die namens Kanonisierung, die DNS-und Bereichs Benennungs Standards ermöglicht. |
+| 0x80 | RC4 | Dieser Bereich unterstützt die RC4-Verschlüsselung, um eine bereichsübergreifende Vertrauensstellung zu ermöglichen, die die Verwendung von TLS ermöglicht. |
 
-Bereichsflags werden in der Registrierung unter **HKEY_LOCAL_MACHINE \system\currentcontrolset\control\lsa\kerberos\domains\\**<em>Realmname</em>gespeichert. Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Sie können den Befehl " [Ksetup: adressalmflags](ksetup-addrealmflags.md) " verwenden, um die Registrierung aufzufüllen.
+- Bereichflags werden in der Registrierung unter gespeichert `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Domains\<realmname>` . Dieser Eintrag ist nicht standardmäßig in der Registrierung vorhanden. Sie können den Befehl " [Ksetup adressalmflags](ksetup-addrealmflags.md) " verwenden, um die Registrierung aufzufüllen.
 
-Sie können sehen, welche bereichflags verfügbar sind und wie Sie festgelegt werden, indem Sie die Ausgabe von **Ksetup**anzeigen.
+- Sie können die verfügbaren bereichflags und festlegen, indem Sie die Ausgabe von **Ksetup** oder anzeigen `ksetup /dumpstate` .
 
-## <a name="examples"></a>Beispiele
+### <a name="examples"></a>Beispiele
 
-Listet die verfügbaren und Set-bereichflags für den Bereich "" auf.
+Zum Auflisten der verfügbaren und zum Festlegen von bereichflags für den Bereich "", geben Sie Folgendes ein:
+
 ```
 ksetup
 ```
-Legen Sie zwei Flags fest, die derzeit nicht festgelegt sind:
+
+Um zwei Flags festzulegen, die zurzeit nicht festgelegt sind, geben Sie
+
 ```
 ksetup /setrealmflags CONTOSO ncsupported delegate
 ```
-Führen Sie den **Ksetup** -Befehl aus, um zu überprüfen, ob das bereichsflag festgelegt ist, indem Sie die Ausgabe anzeigen und nach **bereichsflags**
+
+Wenn Sie überprüfen möchten, ob das bereichsflag festgelegt ist, geben Sie ein, `ksetup` und **Realm flags =** zeigen Sie dann die Ausgabe an, und suchen Sie nach dem Text Wenn der Text nicht angezeigt wird, bedeutet dies, dass das Flag nicht festgelegt wurde.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [Ksetup:listrealmflags](ksetup-listrealmflags.md)
--   [Ksetup:addrealmflags](ksetup-addrealmflags.md)
--   [Ksetup:delrealmflags](ksetup-delrealmflags.md)
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Ksetup-Befehl](ksetup.md)
+
+- [Ksetup listrealmflags-Befehl](ksetup-listrealmflags.md)
+
+- [Ksetup-Befehl "adressalmflags"](ksetup-addrealmflags.md)
+
+- [Ksetup-Befehl "Delta-Flags"](ksetup-delrealmflags.md)
+
+- [Ksetup (dumpstate-Befehl)](ksetup-dumpstate.md)

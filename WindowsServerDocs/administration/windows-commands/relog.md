@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 8cff76e1897c5e5791107bbaf5b7a254a6cd4bb4
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 0b958cbceff8657a35f080c704bb13b29ef55d78
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437105"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820140"
 ---
 # <a name="relog"></a>erneut aufzuzeichnen
 
@@ -29,7 +29,7 @@ relog [<FileName> [<FileName> ...]] [/a] [/c <path> [<path> ...]] [/cf <FileName
 
 #### <a name="parameters"></a>Parameter
 
-|                                         Parameter                                          |                                                                                                                                                                  Beschreibung                                                                                                                                                                   |
+|                                         Parameter                                          |                                                                                                                                                                  BESCHREIBUNG                                                                                                                                                                   |
 |--------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                                *Dateiname* [*filename...*]                                 |                                                                                                                      Gibt den Pfadnamen eines vorhandenen Leistungs Protokoll Protokolls an. Sie können mehrere Eingabedateien angeben.                                                                                                                      |
 |                                             -a                                             |                                                                                                          Fügt die Ausgabedatei an, anstatt überschrieben zu werden. Diese Option gilt nicht für das SQL-Format, bei dem standardmäßig immer angefügt wird.                                                                                                           |
@@ -85,4 +85,4 @@ relog "c:\perflogs\daily_trace_log.blg" -f sql -o "SQL:sql2016x64odbc!counter_lo
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

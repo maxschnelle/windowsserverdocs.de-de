@@ -1,5 +1,5 @@
 ---
-title: Alias hinzufügen
+title: add alias
 description: Referenz Thema für den Befehl Alias hinzufügen, mit dem Aliase zur Alias Umgebung hinzugefügt werden.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
@@ -9,30 +9,30 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 807981c3581eea328291f2389e08065edbd280d3
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 66301a39a1e969e270b42b5ce92a73392a134357
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719030"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83819660"
 ---
-# <a name="add-alias"></a>Alias hinzufügen
+# <a name="add-alias"></a>add alias
 
 Fügt Aliase zur Alias Umgebung hinzu. Bei Verwendung ohne Parameter zeigt **Add Alias** die Hilfe an der Eingabeaufforderung an. Aliase werden in der Metadatendatei gespeichert und mit dem Befehl " **Metadaten laden** " geladen.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-add alias <AliasName> <AliasValue>
+add alias <aliasname> <aliasvalue>
 ```
 
 ### <a name="parameters"></a>Parameter
 
 | Parameter | BESCHREIBUNG |
 | --------- | ----------- |
-| `<AliasName>` | Gibt den Namen des Alias an. |
-| `<AliasValue>` | Gibt den Wert des Alias an. |
-| `/?` | Zeigt die Hilfe an der Eingabeaufforderung an. |
+| `<aliasname>` | Gibt den Namen des Alias an. |
+| `<aliasvalue>` | Gibt den Wert des Alias an. |
+| `? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 ## <a name="examples"></a>Beispiele
 
@@ -42,14 +42,14 @@ Um alle Schatten, einschließlich der Aliase, aufzulisten, geben Sie Folgendes e
 list shadows all
 ```
 
-Der folgende Auszug zeigt eine Schatten Kopie, der der Standardalias (VSS_SHADOW_x) zugewiesen wurde:
+Der folgende Auszug zeigt eine Schatten Kopie, der der Standardalias ( *VSS_SHADOW_x*) zugewiesen wurde:
 
 ```
 * Shadow Copy ID = {ff47165a-1946-4a0c-b7f4-80f46a309278}
 %VSS_SHADOW_1%
 ```
 
-Wenn Sie dieser Schatten Kopie einen neuen Alias mit dem Namen system1 zuweisen möchten, geben Sie Folgendes ein:
+Wenn Sie dieser Schatten Kopie einen neuen Alias mit dem Namen *system1* zuweisen möchten, geben Sie Folgendes ein:
 
 ```
 add alias System1 %VSS_SHADOW_1%

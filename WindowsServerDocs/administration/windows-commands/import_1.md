@@ -1,6 +1,6 @@
 ---
-title: Import
-description: Referenz Thema für * * * *-
+title: Importieren von DiskPart
+description: Referenz Thema für den Import-Befehl, mit dem eine fremde Datenträger Gruppe in die Datenträger Gruppe des lokalen Computers importiert wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 569d986c57ae8b3d7253c050146ac0583c7c92df
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 6912aa9698d484501cad5f3cdfb5b19955bb4931
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724846"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83818450"
 ---
-# <a name="import"></a>Import
+# <a name="import-diskpart"></a>Importieren (DiskPart)
 
+Importiert eine fremde Datenträger Gruppe in die Datenträger Gruppe des lokalen Computers. Mit diesem Befehl wird jeder Datenträger importiert, der sich in derselben Gruppe wie der Datenträger mit dem Fokus befindet.
 
-
-Importiert eine fremde Datenträger Gruppe in die Datenträger Gruppe des lokalen Computers.
+> Wichtig Bevor Sie diesen Befehl verwenden können, müssen Sie den Befehl "Datenträger [auswählen](select-disk.md) " verwenden, um einen dynamischen Datenträger in einer fremden Datenträger Gruppe auszuwählen und den Fokus darauf zu verschieben.
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,18 +30,14 @@ import [noerr]
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|Noerr|Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird.|
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| Noerr | Nur für Skripterstellung. Wenn ein Fehler auftritt, verarbeitet DiskPart weiterhin Befehle so, als ob der Fehler nicht aufgetreten ist. Ohne diesen Parameter bewirkt ein Fehler, dass DiskPart mit einem Fehlercode beendet wird. |
 
-## <a name="remarks"></a>Bemerkungen
-
--   Der Import-Befehl importiert jeden Datenträger, der sich in derselben Gruppe wie der Datenträger mit dem Fokus befindet.
--   Ein dynamischer Datenträger in einer Gruppe von fremden Datenträgern muss ausgewählt werden, damit dieser Vorgang erfolgreich ausgeführt werden konnte. Wählen Sie mit dem Befehl Datenträger **auswählen** einen Datenträger aus, und verschieben Sie den Fokus auf den Datenträger.
-
-## <a name="examples"></a>Beispiele
+### <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um alle Datenträger zu importieren, die sich in der gleichen Datenträger Gruppe wie der Datenträger mit dem Fokus auf die Datenträger Gruppe des lokalen Computers befinden
+
 ```
 import
 ```
@@ -50,3 +46,4 @@ import
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
+- [Diskpart-Befehl](diskpart.md)

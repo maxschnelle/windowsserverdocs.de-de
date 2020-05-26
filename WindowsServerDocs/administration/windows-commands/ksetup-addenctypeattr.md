@@ -1,6 +1,6 @@
 ---
-title: 'Ksetup: addenctypeattr'
-description: Referenz Thema für * * * *-
+title: Ksetup addenctypeattr
+description: Referenz Thema für den Befehl "Ksetup addenctypeattr", mit dem das Attribut "Verschlüsselungstyp" der Liste der möglichen Typen für die Domäne hinzugefügt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,70 +9,78 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 26441f739979cde31715e5fb06b5f3ab59845d97
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: b7162e35c88cea0cfa2828e12cc4af59eaed66c9
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724747"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83818150"
 ---
-# <a name="ksetupaddenctypeattr"></a>Ksetup: addenctypeattr
+# <a name="ksetup-addenctypeattr"></a>Ksetup addenctypeattr
 
-
-
-Fügt der Liste der möglichen Typen für die Domäne das Attribut Verschlüsselungstyp hinzu.
+Fügt der Liste der möglichen Typen für die Domäne das Attribut Verschlüsselungstyp hinzu. Bei erfolgreicher oder fehlgeschlagener Ausführung wird eine Statusmeldung angezeigt.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-ksetup /addenctypeattr <DomainName> {DES-CBC-CRC | DES-CBC-MD5 | RC4-HMAC-MD5 | AES128-CTS-HMAC-SHA1-96 | AES256-CTS-HMAC-SHA1-96}
+ksetup /addenctypeattr <domainname> {DES-CBC-CRC | DES-CBC-MD5 | RC4-HMAC-MD5 | AES128-CTS-HMAC-SHA1-96 | AES256-CTS-HMAC-SHA1-96}
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|\<Domain Name>|Der Name der Domäne, zu der Sie eine Verbindung herstellen möchten. Verwenden Sie den voll qualifizierten Domänen Namen oder eine einfache Form des Namens, z. b. Corp.contoso.com oder Configuration Manager.|
-|Verschlüsselungstyp|Muss einer der folgenden unterstützten Verschlüsselungstypen sein:</br>-DES-CBC-CRC</br>-DES-CBC-MD5</br>-RC4-HMAC-MD5</br>-AES128-CTS-HMAC-SHA1-96</br>-AES256-CTS-HMAC-SHA1-96|
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| `<domainname>` | Der Name der Domäne, zu der Sie eine Verbindung herstellen möchten. Verwenden Sie den voll qualifizierten Domänen Namen oder eine einfache Form des Namens, z. b. Corp.contoso.com oder Configuration Manager. |
+| Verschlüsselungstyp | Muss einer der folgenden unterstützten Verschlüsselungstypen sein:<ul><li>DES-CBC-CRC</li><li>DES-CBC-MD5</li><li>RC4-HMAC-MD5</li><li>AES128-CTS-HMAC-SHA1-96</li><li>AES256-CTS-HMAC-SHA1-96</li></ul> |
 
-## <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
-Um den Verschlüsselungstyp für das Kerberos-Ticket Erteilungs Ticket (TGT) und den Sitzungsschlüssel anzuzeigen, führen Sie den Befehl **klist** aus, und zeigen Sie die Ausgabe an.
+- Sie können mehrere Verschlüsselungstypen festlegen oder hinzufügen, indem Sie die Verschlüsselungstypen im Befehl durch ein Leerzeichen trennen. Dies ist jedoch nur für eine Domäne gleichzeitig möglich.
 
-Sie können mehrere Verschlüsselungstypen festlegen oder hinzufügen, indem Sie die Verschlüsselungstypen im Befehl durch ein Leerzeichen trennen. Dies ist jedoch nur für eine Domäne gleichzeitig möglich.
+### <a name="examples"></a>Beispiele
 
-Wenn der Befehl erfolgreich ausgeführt wird oder fehlschlägt, wird eine Statusmeldung angezeigt.
+Geben Sie Folgendes ein, um den Verschlüsselungstyp für das Kerberos-Ticket Erteilungs Ticket (TGT) und den Sitzungsschlüssel anzuzeigen:
 
-Um die Domäne festzulegen, mit der Sie eine Verbindung herstellen und verwenden möchten, führen Sie den Befehl **Ksetup/Domain \<Domainname>** aus.
-
-## <a name="examples"></a>Beispiele
-
-Bestimmen Sie die aktuellen Verschlüsselungstypen, die auf diesem Computer festgelegt sind:
 ```
 klist
 ```
-Legen Sie die Domäne auf Corp.contoso.com fest:
+
+Um die Domäne auf Corp.contoso.com festzulegen, geben Sie Folgendes ein:
+
 ```
 ksetup /domain corp.contoso.com
 ```
-Fügen Sie den Verschlüsselungstyp AES-256-CTS-HMAC-SHA1-96 der Liste der möglichen Typen für die Domäne hinzu Corp.contoso.com:
+
+Geben Sie Folgendes ein, um den Verschlüsselungstyp *AES-256-CTS-HMAC-SHA1-96* der Liste der möglichen Typen für die Domäne *Corp.contoso.com*hinzuzufügen:
+
 ```
 ksetup /addenctypeattr corp.contoso.com AES-256-CTS-HMAC-SHA1-96
 ```
-Legen Sie für die Domäne corp.contoso.com das Attribut Verschlüsselungstyp auf AES-256-CTS-HMAC-SHA1-96 fest:
+
+Geben Sie Folgendes ein, um das Verschlüsselungstyp Attribut für die Domäne *Corp.contoso.com*auf *AES-256-CTS-HMAC-SHA1-96* festzulegen:
+
 ```
 ksetup /setenctypeattr corp.contoso.com AES-256-CTS-HMAC-SHA1-96
 ```
-Vergewissern Sie sich, dass das Verschlüsselungstyp Attribut für die Domäne festgelegt wurde:
+
+Geben Sie Folgendes ein, um zu überprüfen, ob das Verschlüsselungstyp Attribut für die Domäne festgelegt wurde:
+
 ```
 ksetup /getenctypeattr corp.contoso.com
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [Klist](klist.md)
--   [Ksetup:domain](ksetup-domain.md)
--   [Ksetup:setenctypeattr](ksetup-setenctypeattr.md)
--   [Ksetup:getenctypeattr](ksetup-getenctypeattr.md)
--   [Ksetup:delenctypeattr](ksetup-delenctypeattr.md)
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [klist-Befehl](klist.md)
+
+- [Ksetup-Befehl](ksetup.md)
+
+- [Ksetup-Domänen Befehl](ksetup-domain.md)
+
+- [Ksetup setenctypeattr-Befehl](ksetup-setenctypeattr.md)
+
+- [Ksetup getenctypeattr-Befehl](ksetup-getenctypeattr.md)
+
+- [Ksetup-Befehl "Delta TYPEATTR"](ksetup-delenctypeattr.md)

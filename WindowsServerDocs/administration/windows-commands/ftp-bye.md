@@ -1,39 +1,48 @@
 ---
 title: FTP-Bye
-description: Referenz Thema für FTP-Bye
+description: Referenz Thema für den Befehl FTP Bye, der die FTP-Sitzung auf dem Remote Computer beendet und dann beendet wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
-ms.assetid: f20e2bf2-7d12-4606-942a-8ed555eb8e90 vhorne
+ms.assetid: f20e2bf2-7d12-4606-942a-8ed555eb8e90
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6271b7f60c27f9ba42b9744e8f2023f14eed4a99
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: a2e7f45cca68a34de521dbd94cdf6122af31363d
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725365"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820030"
 ---
-# <a name="ftp-bye"></a>FTP: Bye
+# <a name="ftp-bye"></a>FTP-Bye
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Beendet die FTP-Sitzung mit dem Remote Computer und wird beendet.   
-## <a name="syntax"></a>Syntax  
-```  
-bye  
-```  
-#### <a name="parameters"></a>Parameter  
-none  
-## <a name="remarks"></a>Bemerkungen  
-Sie beenden und **Beenden** beide die **FTP-Sitzung** mit dem Remote Computer und werden beendet.  
-## <a name="examples"></a>Beispiele  
-Beenden Sie die FTP-Sitzung mit dem Remote Computer, und beenden Sie.  
-```  
-bye  
-```  
-## <a name="additional-references"></a>Zusätzliche Referenzen  
--   [FTP: beenden](ftp-quit.md)  
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)  
+Beendet die FTP-Sitzung auf dem Remote Computer und wird dann beendet.
+
+> [!NOTE]
+> Dieser Befehl ist mit dem [Befehl FTP Quit](ftp-quit.md)identisch.
+
+## <a name="syntax"></a>Syntax
+
+```
+bye
+```
+
+### <a name="examples"></a>Beispiele
+
+Um die FTP-Sitzung mit dem Remote Computer zu beenden und zu beenden, geben Sie Folgendes ein:
+
+```
+bye
+```
+
+## <a name="additional-references"></a>Zusätzliche Referenzen
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [FTP-Befehl zum Beenden](ftp-quit.md)
+
+- [Zusätzlicher FTP-Leitfaden](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc756013(v=ws.10))

@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ba3d826b0312091f00ef01d2efe9ee63572fade1
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: a7c32818461c46a7d582029ec127c574d6a8f3e3
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725895"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83819110"
 ---
 # <a name="wbadmin-start-sysrecovery"></a>WBADMIN-START SYSRECOVERY
 
@@ -60,13 +60,13 @@ Geben Sie Folgendes ein, um mit der Wiederherstellung der Informationen aus der 
 ```
 wbadmin start sysrecovery -version:03/31/2013-09:00 -backupTarget:d:
 ```
-Geben Sie Folgendes ein, um mit der Wiederherstellung der Informationen aus der Sicherung zu beginnen, die am 2013 30. April um \\ \\9:00 Uhr ausgeführt wurde, und geben Sie im freigegebenen Ordner servername\shared: für Server01 Folgendes ein:
+Geben Sie Folgendes ein, um mit der Wiederherstellung der Informationen aus der Sicherung zu beginnen, die am 2013 30. April um 9:00 Uhr ausgeführt wurde, und geben Sie im freigegebenen Ordner \\ \\ servername\shared: für Server01 Folgendes ein:
 ```
 wbadmin start sysrecovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   Cmdlet " [Get-wbbaremetalrecovery](https://technet.microsoft.com/library/jj902461.aspx) "

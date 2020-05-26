@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0db8a4549ac26ef61d4aa8f435a01d3224501a77
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 09767502585754bec690b40dd71fabd78540ab50
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723847"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820820"
 ---
 # <a name="msinfo32"></a>msinfo32
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Öffnet das System Informationstool, um eine umfassende Ansicht der Hardware, der System Komponenten und der Softwareumgebung auf dem lokalen Computer anzuzeigen. 
+Öffnet das System Informationstool, um eine umfassende Ansicht der Hardware, der System Komponenten und der Softwareumgebung auf dem lokalen Computer anzuzeigen.
 ## <a name="syntax"></a>Syntax
 ```
 msinfo32 [/pch] [/nfo <path>] [/report <path>] [/computer <computerName>] [/showcategories] [/category <CategoryID>] [/categories {+<CategoryID>(+<CategoryID>)|+all(-<CategoryID>)}]
@@ -41,7 +41,7 @@ msinfo32 [/pch] [/nfo <path>] [/report <path>] [/computer <computerName>] [/show
 |   /categories   |                          startet System Informationen, wobei nur die angegebene Kategorie oder die angegebenen Kategorien angezeigt werden. Außerdem wird die Ausgabe auf die ausgewählte Kategorie oder die ausgewählten Kategorien beschränkt. Verwenden Sie **/showcategories** , um eine Liste der verfügbaren kategorieids anzuzeigen.                          |
 |       /?        |                                                                                                                     Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                     |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 Einige System Informationskategorien enthalten große Datenmengen. Sie können den Befehl **Start/Wait** verwenden, um die Bericht Erstellungs Leistung für diese Kategorien zu optimieren. Weitere Informationen finden Sie unter [System Informationen](https://technet.microsoft.com/library/cc783305(v=ws.10).aspx).
 ## <a name="examples"></a>Beispiele
 Geben Sie Folgendes ein, um die verfügbaren Kategorie-IDs aufzulisten:
@@ -61,5 +61,5 @@ Geben Sie Folgendes ein, um Ressourcen Konflikt Informationen anzuzeigen und ein
 msinfo32 /nfo conflicts.nfo /categories    +componentsproblemdevices+resourcesconflicts+resourcesforcedhardware
 ```
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

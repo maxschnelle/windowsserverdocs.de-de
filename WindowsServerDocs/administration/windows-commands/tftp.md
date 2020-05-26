@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 30655cae3ef737b10d266a894b0bfb6d76ffe87e
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: fb9977d0bc4f45b610d8bf3409c6beeadfaf7ee5
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436672"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821020"
 ---
 # <a name="tftp"></a>Booten
 
@@ -28,7 +28,7 @@ tftp [-i] [<Host>] [{get | put}] <Source> [<Destination>]
 ```
 
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |-i|Gibt den binären Bild Übertragungsmodus (auch als Octett-Modus bezeichnet) an. Im binären Bild Modus wird die Datei in 1-Byte-Einheiten übertragen. Verwenden Sie diesen Modus beim Übertragen von Binärdateien. Wenn **-i** weggelassen wird, wird die Datei im ASCII-Modus übertragen. Dies ist der Standard Übertragungsmodus. In diesem Modus werden die Zeilenende (EOL)-Zeichen in ein entsprechendes Format für den angegebenen Computer konvertiert. Verwenden Sie diesen Modus beim Übertragen von Textdateien. Wenn eine Dateiübertragung erfolgreich ist, wird die Datenübertragungsrate angezeigt.|
 |\<Host\>|Gibt den lokalen oder Remote Computer an.|
@@ -49,4 +49,4 @@ tftp  -i Host1 get boot.img
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

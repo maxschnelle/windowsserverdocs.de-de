@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 70b40b6fe16ce37f6fe7cb64c09463db8db4b47c
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: fdbb9fe636bb30be90164d9a2163c495a9c2e704
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718977"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83819650"
 ---
 # <a name="arp"></a>arp
 
@@ -38,7 +38,7 @@ arp [/a [<inetaddr>] [/n <ifaceaddr>]] [/g [<inetaddr>] [-n <ifaceaddr>]] [/d <i
 | `[/s <inetaddr> <etheraddr> [<ifaceaddr>]` | Fügt dem ARP-Cache einen statischen Eintrag hinzu, der die IP-Adresse **inetaddr** in die physische Adresse **etheraddr**auflöst. Wenn Sie der Tabelle einen statischen ARP-Cache Eintrag für eine bestimmte Schnittstelle hinzufügen möchten, verwenden Sie den **ifaceaddr** -Parameter, wobei **ifaceaddr** eine der Schnittstelle zugewiesene IP-Adresse ist. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 
 - Die IP-Adressen für **inetaddr** und **ifaceaddr** werden in punktierter Dezimal Schreibweise ausgedrückt.
 
@@ -54,13 +54,13 @@ Geben Sie Folgendes ein, um die ARP-Cache Tabellen für alle Schnittstellen anzu
 arp /a
 ```
 
-Zum Anzeigen der ARP-Cache Tabelle für die Schnittstelle, der die IP-Adresse 10.0.0.99 zugewiesen ist, geben Sie Folgendes ein:
+Zum Anzeigen der ARP-Cache Tabelle für die Schnittstelle, der die IP-Adresse *10.0.0.99*zugewiesen ist, geben Sie Folgendes ein:
 
 ```
 arp /a /n 10.0.0.99
 ```
 
-Um einen statischen ARP-Cache Eintrag hinzuzufügen, der die IP-Adresse 10.0.0.80 in die physische Adresse 00-AA-00-4f-2a-9c auflöst, geben Sie Folgendes ein:
+Um einen statischen ARP-Cache Eintrag hinzuzufügen, der die IP-Adresse *10.0.0.80* in die physische Adresse *00-AA-00-4f-2a-9c*auflöst, geben Sie Folgendes ein:
 
 ```
 arp /s 10.0.0.80 00-AA-00-4F-2A-9C

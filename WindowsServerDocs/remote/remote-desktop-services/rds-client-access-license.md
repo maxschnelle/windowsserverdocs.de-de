@@ -9,12 +9,12 @@ author: lizap
 ms.author: elizapo
 ms.date: 02/12/2020
 manager: dongill
-ms.openlocfilehash: 295536afc77d0559fd7d2d4a22f555231a1aab75
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: a11820b9c75bbcb928da562f3f74e4130e9c8096
+ms.sourcegitcommit: 599162b515c50106fd910f5c180e1a30bbc389b9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80858073"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83775313"
 ---
 # <a name="license-your-rds-deployment-with-client-access-licenses-cals"></a>Lizenzieren deiner RDS-Bereitstellung mit Clientzugriffslizenzen (CALs)
 
@@ -24,7 +24,7 @@ Jeder Benutzer und jedes Gerät, der bzw. das eine Verbindung mit einem Remotede
 
 Wenn ein Benutzer oder ein Gerät eine Verbindung mit einem RD-Sitzungshostserver herstellt, bestimmt der RD-Sitzungshostserver, ob eine RDS-CAL benötigt wird. Der RD-Sitzungshostserver fordert dann eine RDS-CAL vom Remotedesktop-Lizenzserver an. Wenn eine geeignete RDS-CAL auf einem Lizenzserver verfügbar ist, wird die RDS-CAL für den Client ausgestellt, und der Client kann eine Verbindung mit dem RD-Sitzungshostserver und von dort aus mit den Desktops oder Apps herstellen, die verwendet werden sollen.
 
-Es gibt zwar eine Lizenzierungskarenzzeit, in der kein Lizenzserver erforderlich ist, nach Ablauf dieses Zeitraums müssen die Clients aber eine gültige RDS-CAL von einem Lizenzserver erhalten, bevor sie sich bei einem RD-Sitzungshostserver anmelden können.
+Es gibt eine Lizenzierungskarenzzeit von 180 Tagen, in der kein Lizenzserver erforderlich ist. Nach Ablauf dieses Zeitraums müssen die Clients eine gültige RDS-CAL von einem Lizenzserver erhalten, bevor sie sich bei einem RD-Sitzungshostserver anmelden können.
 
 Verwende die folgenden Informationen, um zu erfahren, wie die Clientzugriffslizenzierung in den Remotedesktopdiensten funktioniert, und um deine Lizenzen bereitzustellen und zu verwalten:
 
@@ -53,6 +53,8 @@ Die folgende Tabelle zeigt die Unterschiede zwischen den beiden CAL-Typen:
 Bei Verwendung des Pro-Gerät-Modells wird eine temporäre Lizenz ausgestellt, wenn ein Gerät zum ersten Mal eine Verbindung mit dem Remotedesktop-Sitzungshost herstellt. Bei der zweiten Verbindungsherstellung stellt der Lizenzserver eine permanente RDS-CAL pro Gerät aus, sofern der Server aktiviert ist und RDS-CALs verfügbar sind.
 
 Wenn du das Pro-Benutzer-Modell verwendest, wird die Lizenzierung nicht erzwungen, und jedem Benutzer wird eine Lizenz erteilt, mit der er von einer beliebigen Anzahl von Geräten aus eine Verbindung mit einem Remotedesktop-Sitzungshost herstellen kann. Der Lizenzserver stellt Lizenzen aus dem verfügbaren RDS-CAL-Pool oder dem RDS-CAL-Pool „Überbeansprucht“ aus. Du musst sicherstellen, dass all deine Benutzer eine gültige Lizenz und keine CALs aus dem Pool „Überbeansprucht“ besitzen– andernfalls liegt ein Verstoß gegen die Lizenzbedingungen der Remotedesktopdienste vor.
+
+Ein Beispiel für die Verwendung des „Pro Gerät“-Modells wäre eine Umgebung, in der zwei oder mehr Schichten die gleichen Computer für den Zugriff auf die RD-Sitzungshosts verwenden. Das „Pro Benutzer“-Modell eignet sich am besten für Umgebungen, in denen Benutzer über ein eigenes dediziertes Windows-Gerät für den Zugriff auf die RD-Sitzungshosts verfügen.
 
 Um die Einhaltung der Lizenzbedingungen der Remotedesktopdienste gewährleisten, verfolge die Anzahl von RDS-CALs pro Benutzer nach, die in deiner Organisation verwendet werden. Stelle außerdem sicher, dass auf dem Lizenzserver genügend Pro-Benutzer-RDS-CALs für all deine Benutzer installiert sind.
 
