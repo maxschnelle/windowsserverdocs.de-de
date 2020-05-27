@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3043a4af6c2ac4a6c58b973cca5abd066109eac5
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: b93ad6ceadb08f6df8390edc3fc454d951519aad
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722040"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821097"
 ---
 # <a name="seceditvalidate"></a>secedit: Validate
 
@@ -25,7 +25,7 @@ ms.locfileid: "82722040"
 ## <a name="syntax"></a>Syntax
 
 ```
-Secedit /validate <configuration file name>  
+Secedit /validate <configuration file name>
 
 ```
 
@@ -35,7 +35,7 @@ Secedit /validate <configuration file name>
 |---------|-----------|
 |Konfigurationsdateiname|Erforderlich.</br>Gibt den Pfad und den Dateinamen für die Sicherheits Vorlage an, die überprüft wird.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 Das Überprüfen von Sicherheits Vorlagen kann Ihnen helfen, wenn eine beschädigte oder nicht ordnungsgemäß festgelegt ist.
 
@@ -43,7 +43,7 @@ Eine ungültige Sicherheits Vorlage wird nicht angewendet.
 
 Die Protokolldatei wird nicht aktualisiert.
 
-In Windows Server 2008 `Secedit /refreshpolicy` wurde durch ersetzt. `gpupdate` Weitere Informationen zum Aktualisieren von Sicherheitseinstellungen finden Sie unter [gpupdate](gpupdate.md).
+In Windows Server 2008 wurde durch `Secedit /refreshpolicy` ersetzt `gpupdate` . Weitere Informationen zum Aktualisieren von Sicherheitseinstellungen finden Sie unter [gpupdate](gpupdate.md).
 
 ## <a name="examples"></a>Beispiele
 
@@ -56,4 +56,4 @@ Secedit /validate secRBKcontoso.inf
 
 -   [Secedit:generaterollback](secedit-generaterollback.md)
 -   [Secedit](secedit.md)
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c3405818d3ed11d14dee6c2fc8796c024ef253e
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: f0589fcd094d60fd5c3d9bc8798d273c49fb042b
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723828"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820900"
 ---
 # <a name="nbtstat"></a>nbtstat
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt NetBT-Protokoll Statistiken (NetBIOS over TCP/IP), NetBIOS-Namens Tabellen sowohl für den lokalen Computer als auch für die Remote Computer und für den NetBIOS-Namen Cache an. **nbtstat** ermöglicht das Aktualisieren des NetBIOS-Namens Caches und der Namen, die mit WINS (Windows Internet Name Service) registriert sind. Wird ohne Parameter verwendet, zeigt **nbtstat** Hilfe an. 
+Zeigt NetBT-Protokoll Statistiken (NetBIOS over TCP/IP), NetBIOS-Namens Tabellen sowohl für den lokalen Computer als auch für die Remote Computer und für den NetBIOS-Namen Cache an. **nbtstat** ermöglicht das Aktualisieren des NetBIOS-Namens Caches und der Namen, die mit WINS (Windows Internet Name Service) registriert sind. Wird ohne Parameter verwendet, zeigt **nbtstat** Hilfe an.
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,7 +30,7 @@ nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
 
 #### <a name="parameters"></a>Parameter
 
-|    Parameter    |                                                                                                                         Beschreibung                                                                                                                         |
+|    Parameter    |                                                                                                                         BESCHREIBUNG                                                                                                                         |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | /a<remoteName> |    Zeigt die NetBIOS-Namen Tabelle eines Remote Computers an, wobei *Remotename* der NetBIOS-Computername des Remote Computers ist. Die NetBIOS-Namens Tabelle ist die Liste der NetBIOS-Namen, die NetBIOS-Anwendungen entsprechen, die auf diesem Computer ausgeführt werden.     |
 | /A<IPaddress>  |                                                           Zeigt die NetBIOS-Namen Tabelle eines Remote Computers an, der durch die IP-Adresse (in punktierter Dezimal Schreibweise) des Remote Computers angegeben wird.                                                            |
@@ -44,7 +44,7 @@ nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
 |   <Interval>    | Zeigt die ausgewählte Statistik erneut an und hält die Anzahl der Sekunden an, die im *Intervall* zwischen den einzelnen anzeigen angegeben sind. Drücken Sie STRG + C, um die erneute Anzeige der Statistiken zu verhindern. Wenn dieser Parameter ausgelassen wird, druckt **nbtstat** die aktuellen Konfigurationsinformationen nur einmal. |
 |       /?        |                                                                                                            Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                             |
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 -   bei **nbtstat** -Befehlszeilen Parametern wird die Groß-/Kleinschreibung beachtet.
 
@@ -59,7 +59,7 @@ nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
     |Lokaler Name|Der lokale NetBIOS-Name, der der Verbindung zugeordnet ist.|
     |Remote Host|Der Name oder die IP-Adresse, die dem Remote Computer zugeordnet ist.|
     |<03>|Das letzte Byte eines NetBIOS-Namens, das in Hexadezimal konvertiert wurde. Jeder NetBIOS-Name hat eine Länge von 16 Zeichen. Das letzte Byte hat häufig eine besondere Bedeutung, da derselbe Name mehrmals auf einem Computer vorhanden sein kann, der sich nur im letzten Byte unterscheidet. Beispielsweise ist <20> ein Leerzeichen im ASCII-Text.|
-    |type|Der Typ des Namens. Ein Name kann entweder ein eindeutiger Name oder ein Gruppenname sein.|
+    |Typ|Der Typ des Namens. Ein Name kann entweder ein eindeutiger Name oder ein Gruppenname sein.|
     |Status|Gibt an, ob der NetBIOS-Dienst auf dem Remote Computer ausgeführt wird (registriert ist) oder ob ein doppelter Computername denselben Dienst registriert hat (Konflikt).|
     |State|Der Status von NetBIOS-Verbindungen.|
 
@@ -75,7 +75,7 @@ nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
     |Verantwortung|Eine eingehende Sitzung wird derzeit akzeptiert und wird in Kürze verbunden.|
     |Verbindung|Eine Sitzung versucht, erneut eine Verbindung herzustellen (beim ersten Versuch konnte keine Verbindung hergestellt werden).|
     |Ausgehend|Eine Sitzung befindet sich in der Verbindungs Phase, und die TCP-Verbindung wird gerade erstellt.|
-    |Eingehend|Eine eingehende Sitzung befindet sich in der Verbindungs Phase.|
+    |Eingehende Verbindungen|Eine eingehende Sitzung befindet sich in der Verbindungs Phase.|
     |Verbindung wird getrennt|Eine Sitzung wird gerade getrennt.|
     |Getrennt|Der lokale Computer hat eine Verbindung getrennt und wartet auf eine Bestätigung vom Remote System.|
 
@@ -126,6 +126,6 @@ nbtstat /S 5
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
 

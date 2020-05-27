@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7b1dbe232ce297e987118616681b82332e81e930
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 4daea8d096e6063b984a4657536c8a2b043b5025
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723782"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820860"
 ---
 # <a name="netstat"></a>netstat
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Zeigt aktive TCP-Verbindungen, Ports an, die der Computer überwacht, Ethernet-Statistiken, die IP-Routing Tabelle, IPv4-Statistiken (für die IP-, ICMP-, TCP-und UDP-Protokolle) und IPv6-Statistiken (für IPv6, ICMPv6, TCP über IPv6 und UDP über IPv6-Protokolle). Wird ohne Parameter verwendet, zeigt **netstat** aktive TCP-Verbindungen an. 
+Zeigt aktive TCP-Verbindungen, Ports an, die der Computer überwacht, Ethernet-Statistiken, die IP-Routing Tabelle, IPv4-Statistiken (für die IP-, ICMP-, TCP-und UDP-Protokolle) und IPv6-Statistiken (für IPv6, ICMPv6, TCP über IPv6 und UDP über IPv6-Protokolle). Wird ohne Parameter verwendet, zeigt **netstat** aktive TCP-Verbindungen an.
 
 ## <a name="syntax"></a>Syntax
 ```
@@ -41,8 +41,8 @@ netstat [-a] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<Interval>]
 |  <Interval>   |                                                        Zeigt die ausgewählten Informationen jedes *Intervall* in Sekunden neu an. Drücken Sie STRG + C, um die erneute Anzeige zu verhindern. Wenn dieser Parameter ausgelassen wird, druckt **netstat** die ausgewählten Informationen nur einmal.                                                         |
 |      /?       |                                                                                                                                 Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                  |
 
-## <a name="remarks"></a>Bemerkungen
--   Den mit diesem Befehl verwendeten Parametern muss ein Bindestrich (**-**) anstelle eines Schrägstrichs (**/**) vorangestellt werden.
+## <a name="remarks"></a>Hinweise
+-   Den mit diesem Befehl verwendeten Parametern muss ein Bindestrich ( **-** ) anstelle eines Schrägstrichs () vorangestellt werden **/** .
 -   **netstat** bietet Statistiken für Folgendes:
     -   Proto der Name des Protokolls (TCP oder UDP).
     -   Lokale Adresse die IP-Adresse des lokalen Computers und die verwendete Portnummer. Der Name des lokalen Computers, der der IP-Adresse und dem Namen des Ports entspricht, wird angezeigt, es sei denn, der Parameter " **-n** " wird angegeben. Wenn der Port noch nicht festgelegt ist, wird die Portnummer als Sternchen (*) angezeigt.
@@ -69,4 +69,4 @@ netstat -n -o
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

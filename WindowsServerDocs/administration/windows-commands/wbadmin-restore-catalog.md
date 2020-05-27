@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: de9ce6b64f996e50fb85a8c612104bc6851ebdfd
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 82a399284862ef59f417efa0b6f17ab6e8c4cb71
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720140"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820490"
 ---
 # <a name="wbadmin-restore-catalog"></a>Wbadmin-Wiederherstellungs Katalog
 
@@ -39,7 +39,7 @@ wbadmin restore catalog
 |-Computer|Gibt den Namen des Computers an, für den Sie den Sicherungs Katalog wiederherstellen möchten. Verwenden Sie, wenn Sicherungen für mehrere Computer am gleichen Speicherort gespeichert wurden. Sollte verwendet werden, wenn " **-backupTarget** " angegeben wird.|
 |-quiet|Führt den Unterbefehl ohne Aufforderungen an den Benutzer aus.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 Wenn der Speicherort (Datenträger, DVD oder frei gegebener Remote Ordner), in dem Sie die Sicherungen speichern, beschädigt ist oder verloren geht und nicht zum Wiederherstellen des Sicherungs Katalogs verwendet werden kann, verwenden Sie **Wbadmin delete catalog** , um den beschädigten Katalog zu löschen. In diesem Fall sollten Sie eine neue Sicherung erstellen, sobald der Sicherungs Katalog gelöscht wurde.
 
@@ -49,13 +49,13 @@ Um einen Katalog aus einer auf Datenträger d: gespeicherten Sicherung wiederher
 ```
 wbadmin restore catalog -backupTarget:d
 ```
-Um einen Katalog aus einer Sicherung wiederherzustellen, die im frei \\ \\gegebenen Ordner servername\share von Server01 gespeichert ist, geben Sie Folgendes ein:
+Um einen Katalog aus einer Sicherung wiederherzustellen, die im freigegebenen Ordner \\ \\ servername\share von Server01 gespeichert ist, geben Sie Folgendes ein:
 ```
 wbadmin restore catalog -backupTarget:\\servername\share -machine:server01
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Restore-wbcatalog-](https://technet.microsoft.com/library/jj902437.aspx) Cmdlet

@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6b62558b1a2959fd441c246159c14daf0a1e9ca5
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 25dafb691513eae38dd99aef6288ee1bfb2d80be
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437245"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821400"
 ---
 # <a name="tracert"></a>tracert
 
@@ -27,7 +27,7 @@ Bestimmt den Pfad zu einem Ziel, indem ICMP-Echo Anforderungen (Internet Control
 tracert [/d] [/h <MaximumHops>] [/j <Hostlist>] [/w <timeout>] [/R] [/S <Srcaddr>] [/4][/6] <TargetName>
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |/d|Verhindert, dass **tracert** versucht, die IP-Adressen der zwischen Router in ihre Namen aufzulösen. Dadurch kann die Anzeige von **tracert** -Ergebnissen beschleunigt werden.|
 |/h \< maximumhops>|Gibt die maximale Anzahl von Hops in dem Pfad an, der nach dem Ziel (Ziel) gesucht werden soll. Der Standardwert ist 30 Hops.|
@@ -59,4 +59,4 @@ Geben Sie Folgendes ein, um den Pfad zum Host mit dem Namen corp7.Microsoft.com 
 tracert /j 10.12.0.1 10.29.3.1 10.1.44.1 corp7.microsoft.com
 ```
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

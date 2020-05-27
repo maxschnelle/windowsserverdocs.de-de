@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/31/2018
-ms.openlocfilehash: 2fcf7d3716ae45c24510b433ab125551a6d04c85
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1db9dd387d7b9cc39c582ce79e5163c83579b613
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718207"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83819630"
 ---
 # <a name="bitsadmin-examples"></a>bitsadmin examples
 
-In den folgenden Beispielen wird gezeigt, wie `bitsadmin` Sie das Tool verwenden, um die gängigsten Aufgaben auszuführen.
+In den folgenden Beispielen wird gezeigt, wie Sie das `bitsadmin` Tool verwenden, um die gängigsten Aufgaben auszuführen.
 
 ## <a name="transfer-a-file"></a>Übertragen einer Datei
 
@@ -64,7 +64,7 @@ Wenn für mehrere Aufträge *mydownloadjob* als Name verwendet wird, müssen Sie
 
 ## <a name="determine-the-progress-of-the-download-job"></a>Bestimmen des Fortschritts des Download Auftrags
 
-Der Schalter **/Info** gibt den Status des Auftrags und die Anzahl der übertragenen Dateien und Bytes zurück. Wenn der Zustand als `TRANSFERRED`angezeigt wird, bedeutet dies, dass Bits alle Dateien im Auftrag erfolgreich übertragen hat. Sie können auch das **/verbose** -Argument hinzufügen, um vollständige Details zum Auftrag zu erhalten, und **/List** oder **/Monitor** , um alle Aufträge in der Übertragungs Warteschlange zu erhalten.
+Der Schalter **/Info** gibt den Status des Auftrags und die Anzahl der übertragenen Dateien und Bytes zurück. Wenn der Zustand als angezeigt wird `TRANSFERRED` , bedeutet dies, dass Bits alle Dateien im Auftrag erfolgreich übertragen hat. Sie können auch das **/verbose** -Argument hinzufügen, um vollständige Details zum Auftrag zu erhalten, und **/List** oder **/Monitor** , um alle Aufträge in der Übertragungs Warteschlange zu erhalten.
 
 So geben Sie den Status des Auftrags zurück
 
@@ -76,13 +76,13 @@ Wenn für mehrere Aufträge *mydownloadjob* als Name verwendet wird, müssen Sie
 
 ## <a name="complete-the-download-job"></a>Download Auftrag ausführen
 
-So schließen Sie den Auftrag ab, nachdem sich der `TRANSFERRED`Status geändert hat in:
+So schließen Sie den Auftrag ab, nachdem sich der Status geändert hat in `TRANSFERRED` :
 
 ```
 bitsadmin /complete myDownloadJob
 ```
 
-Sie müssen den `/complete` Schalter ausführen, bevor die Dateien im Auftrag verfügbar werden. Wenn für mehrere Aufträge *mydownloadjob* als Name verwendet wird, müssen Sie die GUID des Auftrags verwenden, um Sie für den Abschluss eindeutig zu identifizieren.
+Sie müssen den Schalter ausführen, `/complete` bevor die Dateien im Auftrag verfügbar werden. Wenn für mehrere Aufträge *mydownloadjob* als Name verwendet wird, müssen Sie die GUID des Auftrags verwenden, um Sie für den Abschluss eindeutig zu identifizieren.
 
 ## <a name="monitor-jobs-in-the-transfer-queue-using-the-list-switch"></a>Überwachen von Aufträgen in der Übertragungs Warteschlange mit dem Schalter/List
 
@@ -142,7 +142,7 @@ RETRY DELAY: 600 NO PROGRESS TIMEOUT: 1209600 ERROR COUNT: 0
 PROXY USAGE: PRECONFIG PROXY LIST: NULL PROXY BYPASS LIST: NULL
 ERROR FILE:    https://downloadsrv/10mb.zip -> c:\10mb.zip
 ERROR CODE:    0x80072ee7 - The server name or address could not be resolved
-ERROR CONTEXT: 0x00000005 - The error occurred while the remote file was being 
+ERROR CONTEXT: 0x00000005 - The error occurred while the remote file was being
 processed.
 DESCRIPTION:
 JOB FILES:

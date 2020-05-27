@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a5945da45ee01fd5bf5f89a7835c4bae0b5534c4
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 2c636b9a14d9dcee6f37409557ed2bcb87b1087d
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723806"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820870"
 ---
 # <a name="netcfg"></a>netcfg
 
@@ -69,4 +69,4 @@ So zeigen Sie Bindungs Pfade mit *MS_TCPIP*an:
 netcfg /b ms_tcpip
 ```
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
