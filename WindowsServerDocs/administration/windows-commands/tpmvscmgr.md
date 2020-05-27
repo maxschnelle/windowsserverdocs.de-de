@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ab0419060121033571eeba643cc0e2d42b45c743
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 60c824de891917a2652776ee86b389f04d8eada8
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721296"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821370"
 ---
 # <a name="tpmvscmgr"></a>tpmvscmgr
 
@@ -55,7 +55,7 @@ Mit dem Befehl zerstören wird eine virtuelle Smartcard auf sichere Weise auf de
 |/instance|Gibt die Instanz-ID der virtuellen Smartcard an, die entfernt werden soll. Die InstanceId wurde als Ausgabe von tpmvscmgr. exe generiert, als die Karte erstellt wurde. Der/instance-Parameter ist ein erforderliches Feld für den Befehl zerstören.|
 |/?|Zeigt die Hilfe für diesen Befehl an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 Sie müssen mindestens Mitglied der Gruppe " **Administratoren** " (oder einer entsprechenden Gruppe) auf dem Zielcomputer sein, um alle Parameter dieses Befehls ausführen zu können.
 
@@ -77,10 +77,10 @@ tpmvscmgr.exe create /name VirtualSmartCardForCorpAccess /AdminKey RANDOM /PIN P
 ```
 Mit dem folgenden Befehl wird eine virtuelle Smartcard mit einem zufälligen Administrator Schlüssel erstellt. Der Schlüssel wird nach dem Erstellen der Cardis automatisch verworfen. Dies bedeutet Folgendes: Wenn der Benutzer die PIN vergisst oder die PIN ändern möchte, muss der Benutzer die Karte löschen und erneut erstellen. Der Benutzer kann den folgenden Befehl ausführen, um die Karte zu löschen.
 ```
-tpmvscmgr.exe destroy /instance <instance ID> 
+tpmvscmgr.exe destroy /instance <instance ID>
 ```
-dabei \<ist die Instanz-ID> der auf dem Bildschirm gedruckte Wert, wenn der Benutzer die Karte erstellt hat. Insbesondere bei der ersten erstellten Karte ist die Instanz-ID root\smartcardreader\0000.
+dabei \< ist die Instanz-ID> der auf dem Bildschirm gedruckte Wert, wenn der Benutzer die Karte erstellt hat. Insbesondere bei der ersten erstellten Karte ist die Instanz-ID root\smartcardreader\0000.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

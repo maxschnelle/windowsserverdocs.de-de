@@ -2,22 +2,18 @@
 title: Automatische Aktivierung virtueller Computer
 TOCTitle: Automatic VM Activation
 description: Aktivieren virtueller Computer unter Windows Server 2019, Windows Server 2016 und Windows Server 2012 R2
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.localizationpriority: medium
-ms.openlocfilehash: 43c0ce500058bd4115d58b68dc79068a52c0bb3e
-ms.sourcegitcommit: b9ec35416a06854c1bc875a2b731d42a436fe313
+ms.openlocfilehash: 1612d9169a3f3b33ec2f05cc8374833b5a24721a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73956092"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "82786299"
 ---
 # <a name="automatic-virtual-machine-activation"></a>Automatische Aktivierung virtueller Computer
 
@@ -25,9 +21,9 @@ ms.locfileid: "73956092"
 
 Die automatische Aktivierung virtueller Maschinen (Automatic Virtual Machine Activation, AVMA) dient als Kaufnachweisverfahren, damit Sie sicherstellen können, dass Windows-Produkte gemäß den Produktnutzungsrechten und den Microsoft-Software-Lizenzbedingungen verwendet werden.
 
-Mithilfe der automatischen Aktivierung virtueller Maschinen können Sie virtuelle Computer auf einem ordnungsgemäß aktivierten Windows-Server installieren, ohne dabei die Product Keys für die einzelnen virtuellen Computer verwalten zu müssen. Dies gilt auch für nicht verbundene Umgebungen. AVMA bindet die Aktivierung der virtuellen Computer an den lizenzierten Virtualisierungsserver und aktiviert den virtuellen Computer, wenn er gestartet wird. AVMA bietet darüber hinaus Echtzeitberichte zur Verwendung sowie Verlaufsdaten zum Lizenzstatus des virtuellen Computers. Auf dem Virtualisierungsserver stehen Berichterstellung und Nachverfolgungsdaten zur Verfügung.
+Mithilfe der automatischen Aktivierung virtueller Maschinen können Sie virtuelle Computer auf einem ordnungsgemäß aktivierten Windows-Server installieren, ohne dabei die Product Keys für die einzelnen virtuellen Computer verwalten zu müssen. Dies gilt auch für nicht verbundene Umgebungen. AVMA stellt eine Bindung zwischen der Aktivierung des virtuellen Computers und dem lizenzierten Virtualisierungsserver her und aktiviert den virtuellen Computer beim Start. AVMA bietet darüber hinaus Echtzeitberichte zur Verwendung sowie Verlaufsdaten zum Lizenzstatus des virtuellen Computers. Auf dem Virtualisierungsserver stehen Berichterstellung und Nachverfolgungsdaten zur Verfügung.
 
-## <a name="practical-applications"></a>Praktische Anwendungsfälle
+## <a name="practical-applications"></a>Praktische Anwendung
 
 Für Virtualisierungsserver, die per Volumenlizenzierung oder OEM-Lizenzierung aktiviert werden, bietet AVMA mehrere Vorteile.
 
@@ -49,11 +45,11 @@ Für AVMA ist ein Microsoft-Virtualisierungsserver unter Windows Server 2019 Dat
 
 Hier sind die Gäste aufgeführt, die von den verschiedenen Versionshosts aktiviert werden können:
 
-|Serverhostversion|Windows Server 2019|Windows Server 2016|Windows Server 2012 R2|
+|Serverhostversion|Windows Server 2019|Windows Server 2016|Windows Server 2012 R2|
 |-|-|-|-|
 |Windows Server 2019|X|X|X|
 |Windows Server 2016| |X|X|
-|Windows Server 2012 R2| ||X|
+|Windows Server 2012 R2| ||X|
 
 Beachte, dass diese alle Editionen (Datacenter, Standard oder Essentials) aktivieren.
 
@@ -82,18 +78,18 @@ Vom virtuellen Computer wird die Lizenz für den Virtualisierungsserver automati
 
 Die folgenden AVMA-Schlüssel können für Windows Server 2019 verwendet werden:
 
-|Edition|   AVMA-Schüssel|
+|Edition|    AVMA-Schüssel|
 |-|-|
 |Datacenter|    H3RNG-8C32Q-Q8FRX-6TDXV-WMBMW|
-|Standard|  TNK62-RXVTB-4P47B-2D623-4GF74|
+|Standard|    TNK62-RXVTB-4P47B-2D623-4GF74|
 |Essentials|    2CTP7-NHT64-BP62M-FV6GG-HFV28|
  
 Die folgenden AVMA-Schlüssel können für Windows Server, Version 1909, 1903 und 1809, verwendet werden.
 
-|Edition|   AVMA-Schüssel|
+|Edition|    AVMA-Schüssel|
 |-|-|
 |Datacenter|    H3RNG-8C32Q-Q8FRX-6TDXV-WMBMW|
-|Standard|  TNK62-RXVTB-4P47B-2D623-4GF74|
+|Standard|    TNK62-RXVTB-4P47B-2D623-4GF74|
 
 Die folgenden AVMA-Schlüssel können für Windows Server, Version 1803 und 1709, verwendet werden:
 

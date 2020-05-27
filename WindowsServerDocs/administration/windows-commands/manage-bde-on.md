@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 55f9dc446b17b8e61655686b9f4b6259b12dafc9
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 471bea3946aff39689ad219585d10c2d43f99a93
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724137"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820650"
 ---
 # <a name="manage-bde-on"></a>manage-bde: on
 
@@ -27,7 +27,7 @@ Verschlüsselt das Laufwerk und schaltet BitLocker ein.
 ```
 manage-bde –on <Drive> {[-recoveryPassword <NumericalPassword>]|[-recoverykey <PathToExternalDirectory>]|[-startupkey <PathToExternalKeyDirectory>]|[-certificate]|
 [-tpmandpin]|[-tpmandpinandstartupkey <PathToExternalKeyDirectory>]|[-tpmandstartupkey <PathToExternalKeyDirectory>]|[-password]|[-ADAccountOrGroup <Domain\Account>]}
-[-UsedSpaceOnly][-encryptionmethod {aes128_diffuser|aes256_diffuser|aes128|aes256}] [-skiphardwaretest] [-discoveryvolumetype <FileSystemType>] [-ForceEncryptionType <type>] [-RemoveVolumeShadowCopies][-computername <Name>] 
+[-UsedSpaceOnly][-encryptionmethod {aes128_diffuser|aes256_diffuser|aes128|aes256}] [-skiphardwaretest] [-discoveryvolumetype <FileSystemType>] [-ForceEncryptionType <type>] [-RemoveVolumeShadowCopies][-computername <Name>]
 [{-?|/?}] [{-help|-h}]
 ```
 
@@ -47,7 +47,7 @@ manage-bde –on <Drive> {[-recoveryPassword <NumericalPassword>]|[-recoverykey 
 |-TPMAndStartupKey|Fügt ein TPM und eine Systemstart Schlüssel-Schutzvorrichtung für das Betriebssystem Laufwerk hinzu. Sie können auch **-TSK** als abgekürzte Version dieses Befehls verwenden.|
 |-tpmandpinandstartupkey|Fügt ein TPM, eine PIN und eine Start Schlüsselschutzvorrichtung für das Betriebssystem Laufwerk hinzu. Sie können auch **-tpsk** als abgekürzte Version dieses Befehls verwenden.|
 |-password|Fügt eine Kenn Wort Schlüssel-Schutzvorrichtung für das Daten Laufwerk hinzu. Sie können auch **-PW** als abgekürzte Version dieses Befehls verwenden.|
-|-ADAccountOrGroup|Fügt eine SID-basierte Identitäts Schutzvorrichtung für das Volume hinzu. Das Volume wird automatisch entsperrt, wenn der Benutzer oder der Computer über die richtigen Anmelde Informationen verfügt. Wenn Sie ein Computer Konto angeben, fügen Sie **$** einen an den Computernamen an, und geben Sie den **–-Dienst** an, um anzugeben, dass die Sperre im Inhalt des BitLocker-Servers anstelle des Benutzers stattfinden soll. Sie können auch **-sid** als abgekürzte Version dieses Befehls verwenden.|
+|-ADAccountOrGroup|Fügt eine SID-basierte Identitäts Schutzvorrichtung für das Volume hinzu. Das Volume wird automatisch entsperrt, wenn der Benutzer oder der Computer über die richtigen Anmelde Informationen verfügt. Wenn Sie ein Computer Konto angeben, fügen **$** Sie einen an den Computernamen an, und geben Sie den **–-Dienst** an, um anzugeben, dass die Sperre im Inhalt des BitLocker-Servers anstelle des Benutzers stattfinden soll. Sie können auch **-sid** als abgekürzte Version dieses Befehls verwenden.|
 |-UsedSpaceOnly|Legt den Verschlüsselungs Modus auf "nur verwendeten Speicherplatz verschlüsseln" fest. Die Abschnitte des Volumes, die den verwendeten Speicherplatz enthalten, werden verschlüsselt, aber der freie Speicherplatz wird nicht verwendet. Wenn diese Option nicht angegeben wird, werden der gesamte verwendete Speicherplatz und der freie Speicherplatz auf dem Volume verschlüsselt. Sie können auch **-used** als abgekürzte Version dieses Befehls verwenden.|
 |-verschlüsselungsmethod|Konfiguriert den Verschlüsselungsalgorithmus und die Schlüsselgröße. Sie können auch **-EM** als abgekürzte Version dieses Befehls verwenden.|
 |-skiphardwaretest|Startet die Verschlüsselung ohne einen Hardware Test. Sie können auch **-s** als abgekürzte Version dieses Befehls verwenden.|
@@ -85,5 +85,5 @@ manage-bde –on C: -fet Hardware
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 -   [Manage-bde](manage-bde.md)

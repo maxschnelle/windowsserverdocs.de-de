@@ -9,19 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f637e1f744ec412899320cfbb368633b222da8d3
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 58735201a1a0711db4d0cee9c292363acf5121f3
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718953"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83819640"
 ---
 # <a name="assoc"></a>assoc
 
 Zeigt Zuordnungen für Dateinamen Erweiterungen an oder ändert diese. Bei Verwendung ohne Parameter zeigt **Assoc** eine Liste aller aktuellen Zuordnungen für Dateinamen Erweiterungen an.
 
 > [!NOTE]
-> Dieser Befehl wird nur in cmd unterstützt. EXE und ist in PowerShell nicht verfügbar.
+> Dieser Befehl wird nur in "cmd. exe" unterstützt und ist in PowerShell nicht verfügbar.
 
 ## <a name="syntax"></a>Syntax
 
@@ -37,13 +37,13 @@ assoc [<.ext>[=[<filetype>]]]
 | `<filetype>` | Gibt den Dateityp an, der der angegebenen Dateinamenerweiterung zugeordnet werden soll. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 
 - Um die Dateityp Zuordnung für eine Dateinamenerweiterung zu entfernen, fügen Sie nach dem Gleichheitszeichen ein Leerzeichen hinzu, indem Sie die Leertaste drücken.
 
 - Verwenden Sie den **ftype** -Befehl, um aktuelle Dateitypen anzuzeigen, für die geöffnete Befehls Zeichenfolgen definiert sind.
 
-- Um die Ausgabe von **Assoc** in eine Textdatei umzuleiten, verwenden `>` Sie den Umleitungs Operator.
+- Um die Ausgabe von **Assoc** in eine Textdatei umzuleiten, verwenden Sie den `>` Umleitungs Operator.
 
 ## <a name="examples"></a>Beispiele
 
@@ -56,7 +56,7 @@ assoc .txt
 Um die Dateityp Zuordnung für die Dateinamenerweiterung. bak zu entfernen, geben Sie Folgendes ein:
 
 ```
-assoc .bak= 
+assoc .bak=
 ```
 
 > [!NOTE]

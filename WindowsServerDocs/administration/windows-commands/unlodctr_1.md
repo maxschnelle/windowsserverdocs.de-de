@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d4d81acd98a280ce110c5677f627fee8a9394e1a
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 8551b6fc76984b06f28bdda92dcd63791721ec90
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436955"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821290"
 ---
 # <a name="unlodctr"></a>unlodctr
 
@@ -27,7 +27,7 @@ Entfernt die Namen von **Leistungs Zählern** und **erläutert** den Text für e
 Unlodctr <DriverName>
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |\<DriverName>|entfernt die Namen Einstellungen des Leistungs Zählers und den erläuternden Text für Treiber oder Dienst <DriverName> aus der Windows Server 2003-Registrierung.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
@@ -44,5 +44,5 @@ So entfernen Sie die aktuellen Registrierungs Einstellungen für die Leistung un
 unlodctr SMTPSVC
 ```
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

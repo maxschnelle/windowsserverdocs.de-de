@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a4384ce8d4f23966aea278e90b9ddddc42da6e77
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: bf914e4e7da4f00c547353da4fc8d04ad6828646
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724234"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820520"
 ---
 # <a name="macfile"></a>macfile
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Verwaltet den Datei Server für Macintosh-Server, Volumes, Verzeichnisse und Dateien. Sie können administrative Aufgaben automatisieren, indem Sie eine Reihe von Befehlen in Batch Dateien einschließen und manuell oder zu vordefinierten Zeiten starten. 
+Verwaltet den Datei Server für Macintosh-Server, Volumes, Verzeichnisse und Dateien. Sie können administrative Aufgaben automatisieren, indem Sie eine Reihe von Befehlen in Batch Dateien einschließen und manuell oder zu vordefinierten Zeiten starten.
 -   [So ändern Sie Verzeichnisse in auf Macintosh zugänglichen Volumes](#BKMK_Moddirs)
 -   [So verknüpfen Sie die Daten und Ressourcen Verzweigungen einer Macintosh-Datei](#BKMK_Joinforks)
 -   [So ändern Sie die Anmelde Nachricht und schränken Sitzungen ein](#BKMK_LogonLimit)
@@ -34,11 +34,11 @@ macfile directory[/server:\\<computerName>] /path:<directory> [/owner:<OwnerName
 ```
 
 #### <a name="parameters"></a>Parameter
--   /Server:\\ \\ <computerName> gibt den Server an, auf dem ein Verzeichnis geändert werden soll. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt.
--   /Path:<directory> erforderlich. Gibt den Pfad zu dem Verzeichnis an, das Sie ändern möchten. Das Verzeichnis muss vorhanden sein. im **MacFile-Verzeichnis** werden keine Verzeichnisse erstellt.
--   /Owner:<OwnerName> ändert den Besitzer des Verzeichnisses. Wenn die Angabe ausgelassen wird, bleibt der Besitzer unverändert.
--   /Group:<GroupName> gibt die primäre Macintosh-Gruppe an, die dem Verzeichnis zugeordnet ist, oder ändert Sie. Wenn diese Angabe ausgelassen wird, bleibt die primäre Gruppe unverändert.
--   /Permissions:<Permissions> legt Berechtigungen für das Verzeichnis für den Besitzer, die primäre Gruppe und die Welt (alle) fest. Zum Festlegen von Berechtigungen wird eine elf stellige Zahl verwendet. Die Zahl 1 erteilt die Berechtigung und die Berechtigung "0 widerruft" (z. b. 11111011000). Wenn die Angabe weggelassen wird, bleiben die Berechtigungen unverändert.
+-   /Server: \\ \\ <computerName> gibt den Server an, auf dem ein Verzeichnis geändert werden soll. Wenn der Vorgang nicht weggelassen wird, wird der Vorgang auf dem lokalen Computer ausgeführt.
+-   /Path: <directory> erforderlich. Gibt den Pfad zu dem Verzeichnis an, das Sie ändern möchten. Das Verzeichnis muss vorhanden sein. im **MacFile-Verzeichnis** werden keine Verzeichnisse erstellt.
+-   /Owner: <OwnerName> ändert den Besitzer des Verzeichnisses. Wenn die Angabe ausgelassen wird, bleibt der Besitzer unverändert.
+-   /Group: <GroupName> gibt die primäre Macintosh-Gruppe an, die dem Verzeichnis zugeordnet ist, oder ändert Sie. Wenn diese Angabe ausgelassen wird, bleibt die primäre Gruppe unverändert.
+-   /Permissions: <Permissions> legt Berechtigungen für das Verzeichnis für den Besitzer, die primäre Gruppe und die Welt (alle) fest. Zum Festlegen von Berechtigungen wird eine elf stellige Zahl verwendet. Die Zahl 1 erteilt die Berechtigung und die Berechtigung "0 widerruft" (z. b. 11111011000). Wenn die Angabe weggelassen wird, bleiben die Berechtigungen unverändert.
     Die Position der Ziffer bestimmt, welche Berechtigung festgelegt wird, wie in der folgenden Tabelle beschrieben.
 
     |Position|Legt die Berechtigung für|
@@ -58,7 +58,7 @@ macfile directory[/server:\\<computerName>] /path:<directory> [/owner:<OwnerName
 -   /?
     Zeigt die Hilfe an der Eingabeaufforderung an.
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 - Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z. b. * * * *<em>Computer Name</em>* * * *).
 - Verwenden Sie **macfiledirectory** , um ein vorhandenes Verzeichnis auf einem auf Macintosh zugänglichen Volume für Macintosh-Benutzer verfügbar zu machen. Mit dem Befehl " **macfiledirectory** " werden keine Verzeichnisse erstellt. Erstellen Sie mit dem Datei-Manager, der Eingabeaufforderung oder dem **Macintosh New Folder** -Befehl ein Verzeichnis auf einem auf Macintosh zugänglichen Volume, bevor Sie den Befehl " **Macfile Directory** " verwenden.
   ### <a name="examples"></a>Beispiele
@@ -86,7 +86,7 @@ macfile forkize[/server:\\<computerName>] [/creator:<CreatorName>] [/type:<typeN
 |   targetfile<Filepath>   | Erforderlich. Gibt den Speicherort der Datei an, die durch den Beitritt zu einer Daten Verzweigung und einer Ressourcen Verzweigung erstellt wird, oder gibt den Speicherort der Datei an, deren Typ oder Ersteller Sie ändern. Die Datei muss sich auf dem angegebenen Server befinden. |
 |             /?             |                                                                                               Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                               |
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 - Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z. b. * * * *<em>Computer Name</em>* * * *).
 
 ### <a name="examples"></a>Beispiele
@@ -94,7 +94,7 @@ Zum Erstellen der Datei treeapp auf dem Macintosh-zugänglichen Volume d:\Releas
 ```
 macfile forkize /resourcefork:c:\cross\mac\appcode /type:APPL /creator:MAGNOLIA /targetfile:D:\Release\treeapp
 ```
-Um den Datei Ersteller in Microsoft Word 5,1 zu ändern, geben Sie für die Datei "Word. txt" im Verzeichnis "d:\Word documents\group Files" auf dem Server \\"\servera" Folgendes ein:
+Um den Datei Ersteller in Microsoft Word 5,1 zu ändern, geben Sie für die Datei "Word. txt" im Verzeichnis "d:\Word documents\group Files" auf dem Server " \\ \servera" Folgendes ein:
 ```
 macfile forkize /server:\\servera /creator:MSWD /type:TEXT /targetfile:d:\Word documents\Group files\Word.txt
 ```
@@ -114,7 +114,7 @@ macfile server [/server:\\<computerName>] [/maxsessions:{Number | unlimited}] [/
 |        /loginmessage:<Message>         | ändert die Nachricht, die Macintosh-Benutzer bei der Anmeldung beim Datei Server für Macintosh-Server sehen. Die maximale Anzahl von Zeichen für die Anmelde Nachricht beträgt 199. Wenn der Wert nicht ausgelassen wird, bleibt die **loginmessage** -Nachricht für den Server unverändert. Wenn Sie eine vorhandene Anmelde Nachricht entfernen möchten, schließen Sie den **/loginmessage** -Parameter ein, lassen Sie die *Nachrichten* Variable jedoch leer. |
 |                   /?                   |                                                                                                                                                               Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                               |
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 - Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z. b. * * * *<em>Computer Name</em>* * * *).
 
 ### <a name="examples"></a>Beispiele
@@ -141,11 +141,11 @@ macfile volume /remove[/server:\\<computerName>] /name:<volumeName>
 |    /ReadOnly: {true &#124; false}     | Gibt an, ob Benutzer Dateien im Volume ändern können. Geben Sie true ein, um anzugeben, dass Benutzer die Dateien im Volume nicht ändern können. Geben Sie false ein, um anzugeben, dass Benutzer Dateien im Volume ändern können. Wenn beim Hinzufügen eines Volumes weggelassen wird, sind Änderungen an Dateien zulässig. Wenn beim Ändern eines Volumes ausgelassen wird, bleibt die Schreib **geschützte Einstellung für** das Volume unverändert. |
 |  /guestsallowed: {true &#124; false}  |      Gibt an, ob Benutzer, die sich als Gäste anmelden, das Volume verwenden können. Geben Sie true ein, um anzugeben, dass Gäste das Volume verwenden können. Geben Sie false ein, um anzugeben, dass Gäste das Volume nicht verwenden können. Wenn Sie beim Hinzufügen eines Volumes ausgelassen werden, können Gäste das Volume verwenden. Wenn beim Ändern eines Volumes ausgelassen wird, bleibt die Einstellung **GUESTSALLOWED** für das Volume unverändert.       |
 |         /Password<Password>         |                                                                               Gibt ein Kennwort an, das für den Zugriff auf das Volume erforderlich ist. Wenn beim Hinzufügen eines Volumes kein Kennwort angegeben wird, wird kein Kennwort erstellt. Wenn beim Ändern eines Volumes kein Kennwort angegeben wird, bleibt das Kennwort unverändert.                                                                               |
-| /maxUsers: {<Number>>&#124;unbegrenzt} |                                                 Gibt die maximale Anzahl von Benutzern an, die die Dateien auf dem Volume gleichzeitig verwenden können. Wenn der Wert beim Hinzufügen eines Volumes weggelassen wird, kann das Volume von einer unbegrenzten Anzahl von Benutzern verwendet werden. Wenn beim Ändern eines Volumes ausgelassen wird, bleibt der Wert **maxUsers** unverändert.                                                 |
+| /maxUsers: { <Number>>&#124;unbegrenzt} |                                                 Gibt die maximale Anzahl von Benutzern an, die die Dateien auf dem Volume gleichzeitig verwenden können. Wenn der Wert beim Hinzufügen eines Volumes weggelassen wird, kann das Volume von einer unbegrenzten Anzahl von Benutzern verwendet werden. Wenn beim Ändern eines Volumes ausgelassen wird, bleibt der Wert **maxUsers** unverändert.                                                 |
 |               /remove                |                                                                                                                                Erforderlich, wenn Sie ein Macintosh-accesible-Volume entfernen. entfernt das angegebene Volume.                                                                                                                                |
 |                  /?                  |                                                                                                                                                           Zeigt die Hilfe an der Eingabeaufforderung an.                                                                                                                                                           |
 
-### <a name="remarks"></a>Bemerkungen
+### <a name="remarks"></a>Hinweise
 - Wenn die Informationen, die Sie angeben, Leerzeichen oder Sonderzeichen enthalten, verwenden Sie Anführungszeichen um den Text (z. b. * * * *<em>Computer Name</em>* * * *).
 
 ### <a name="examples"></a>Beispiele
@@ -157,7 +157,7 @@ Geben Sie Folgendes ein, um das oben erstellte Volume so zu ändern, dass es sch
 ```
 macfile volume /set /name:US Marketing Statistics /readonly:true /password:saturn /maxusers:5
 ```
-Geben Sie Folgendes ein, um ein Volume Namens Landscape Design \\auf dem Server \magnolia zu verwenden, indem Sie das Verzeichnis Trees im Laufwerk E verwenden und angeben, dass auf das Volume von Gästen zugegriffen werden kann:
+Geben Sie Folgendes ein, um ein Volume Namens Landscape Design auf dem Server \\ \magnolia zu verwenden, indem Sie das Verzeichnis Trees im Laufwerk E verwenden und angeben, dass auf das Volume von Gästen zugegriffen werden kann:
 ```
 macfile volume /add /server:\\Magnolia /name:Landscape Design /path:e:\trees
 ```
@@ -167,4 +167,4 @@ macfile volume /remove /name:Sales Reports
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

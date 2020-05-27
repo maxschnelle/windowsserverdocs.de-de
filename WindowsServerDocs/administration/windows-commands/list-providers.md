@@ -1,6 +1,6 @@
 ---
 title: Anbieter auflisten
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den Befehl list Providers, der Schattenkopieanbieter auflistet, die derzeit auf dem System registriert sind.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 761099e3b399aeb9e6a3fe1ddd53ed1a667a4ccb
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 98615dfa92c24b91babb55ae3545065834887e5d
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724503"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83817240"
 ---
 # <a name="list-providers"></a>Anbieter auflisten
 
-
-
 Listet Schattenkopieanbieter auf, die derzeit auf dem System registriert sind.
-
-
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,13 +26,16 @@ Listet Schattenkopieanbieter auf, die derzeit auf dem System registriert sind.
 list providers
 ```
 
-## <a name="examples"></a>Beispiele
+### <a name="examples"></a>Beispiele
 
 Geben Sie Folgendes ein, um die derzeit registrierten Schattenkopieanbieter aufzulisten:
+
 ```
 list providers
 ```
+
 Ausgabe, die den folgenden anzeigen ähnelt:
+
 ```
 * ProviderID: {b5946137-7b9f-4925-af80-51abd60b20d5}
         Type: [1] VSS_PROV_SYSTEM

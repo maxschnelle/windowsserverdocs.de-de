@@ -4,17 +4,16 @@ description: Detaillierte Informationen zu Windows Server 2019 und zur Vorbereit
 ms.prod: windows-server
 manager: jasgroce
 ms.technology: get-started
-layout: LandingPage
 ms.topic: landing-page
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
-ms.openlocfilehash: acc18e9b960473098f59d8980b4b85e63f209b82
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4614bfe9a31279fff35c0e6f72e29acad2e3c8e9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360797"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "82786306"
 ---
 # <a name="get-started-with-windows-server-2019"></a>Erste Schritte mit Windows Server 2019
 

@@ -9,12 +9,12 @@ author: jasongerend
 ms.author: jgerend
 manager: jasgroce
 ms.localizationpriority: medium
-ms.openlocfilehash: eb328b9a80eb9d73b7230e0eaa7f820307baf294
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 87978fb92e6371ad7bfb157895ef1e21e3e9e4c6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391929"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "82786300"
 ---
 # <a name="system-requirements"></a>Systemanforderungen
 
@@ -24,12 +24,12 @@ Dieses Thema erläutert die Mindestsystemanforderungen zum Ausführen von Window
 
 ## <a name="review-system-requirements"></a>Überprüfen der Systemanforderungen  
 
-Nachfolgend sind die geschätzten Systemanforderungen für Windows Server 2019 aufgeführt. Erfüllt der Computer diese Mindestanforderungen nicht, kann das Produkt nicht ordnungsgemäß installiert werden. Die tatsächlichen Anforderungen sind von der Systemkonfiguration und den installierten Anwendungen und Features abhängig.
+Nachfolgend sind die geschätzten Systemanforderungen für Windows Server 2019 aufgeführt. Wenn der Computer die Mindestanforderungen nicht erfüllt, kann das Produkt nicht ordnungsgemäß installiert werden. Die tatsächlichen Anforderungen sind von der Systemkonfiguration und den installierten Anwendungen und Features abhängig.
 
 Sofern nicht anders angegeben gelten diese Mindestanforderungen für alle Installationsoptionen (Server Core, Server mit Desktopdarstellung und Nano Server) auf jeweils der Standard- und der Datacenter Edition.  
 
 > [!IMPORTANT]  
-> Aufgrund des beachtlichen Ausmaßes an potenziellen Bereitstellungen ist es unrealistisch, „empfohlene“ Systemanforderungen anzugeben, die allgemein gültig sind. Ziehen Sie für jede Serverrolle, die Sie bereitstellen möchten, die Dokumentation zu Rate, um weitere Informationen über die Ressourcenanforderungen bestimmter Serverrollen zu erhalten. Die besten Ergebnisse erzielen Sie, indem Sie Testbereitstellungen durchführen, um die entsprechenden Systemanforderungen für bestimme Bereitstellungsszenarien zu ermitteln.  
+> Aufgrund des beachtlichen Ausmaßes an potenziellen Bereitstellungen ist es unrealistisch, empfohlene Systemanforderungen anzugeben, die allgemein gültig sind. Ziehen Sie für jede Serverrolle, die Sie bereitstellen möchten, die Dokumentation zu Rate, um weitere Informationen über die Ressourcenanforderungen bestimmter Serverrollen zu erhalten. Die besten Ergebnisse erzielen Sie, indem Sie Testbereitstellungen durchführen, um die entsprechenden Systemanforderungen für bestimme Bereitstellungsszenarien zu ermitteln.  
 
 ## <a name="processor"></a>Prozessor  
 
@@ -58,7 +58,7 @@ Nachfolgend sind die geschätzten RAM-Anforderungen für dieses Produkt aufgefü
 > Führen Sie zur Vermeidung dieses Problems eine der folgenden Aktionen aus:  
 >   
 > -   Ordnen Sie dem virtuellen Computer, auf dem diese Version installiert werden soll, mehr als 800 MB RAM zu. Nach dem Setup können Sie die Zuordnung abhängig von der tatsächlichen Serverkonfiguration in 512 MB RAM ändern. Wenn Sie das Startimage (Startabbild) mit zusätzlichen Sprachen und Updates geändert haben, müssen Sie möglicherweise mehr als 800 MB RAM zuordnen, um die Installation abzuschließen.  
-> -   Unterbrechen Sie den Startprozess dieser Version auf dem virtuellen Computer mit SHIFT+F10. Erstellen Sie in der geöffneten Eingabeaufforderung mithilfe von %%amp;quot;Diskpart.exe%%amp;quot; eine Installationspartition, und formatieren Sie sie. Führen Sie **Wpeutil createpagefile /path=C:\pf.sys** aus (vorausgesetzt, Sie haben die Installationspartition %%amp;quot;C:%%amp;quot; erstellt). Schließen Sie die Eingabeaufforderung, und setzen Sie das Setup fort.  
+> -   Unterbrechen Sie den Startprozess dieser Version auf dem virtuellen Computer mit UMSCHALTTASTE+F10. Erstellen Sie in der geöffneten Eingabeaufforderung mithilfe von %%amp;quot;Diskpart.exe%%amp;quot; eine Installationspartition, und formatieren Sie sie. Führen Sie **Wpeutil createpagefile /path=C:\pf.sys** aus (vorausgesetzt, Sie haben die Installationspartition %%amp;quot;C:%%amp;quot; erstellt). Schließen Sie die Eingabeaufforderung, und setzen Sie das Setup fort.  
 
 ## <a name="storage-controller-and-disk-space-requirements"></a>Speichercontroller- und Speicherplatzanforderungen  
 Computer mit Windows Server 2019 müssen über einen Speicheradapter verfügen, der mit der PCI Express-Architekturspezifikation konform ist. Bei beständigen Speichergeräten auf Servern, die als Festplattenlaufwerke klassifiziert sind, darf es sich nicht um PATA handeln. Bei Windows Server 2019 ist ATA/PATA/IDE/EIDE nicht für Start-, Auslagerungs- oder Datenlaufwerke zulässig.  

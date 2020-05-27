@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ee6caac0002cecb9eaecd00f6d3d4a2d23456d72
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 273381fa62f42e9cf084c2b7dbf30ed7211295fb
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436965"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821010"
 ---
 # <a name="tlntadmn"></a>tlntadmn
 
@@ -28,7 +28,7 @@ tlntadmn [<computerName>] [-u <UserName>] [-p <Password>] [{start | stop | pause
 ```
 #### <a name="parameters"></a>Parameter
 
-|                   Parameter                    |                                                                                                                                                       Beschreibung                                                                                                                                                        |
+|                   Parameter                    |                                                                                                                                                       BESCHREIBUNG                                                                                                                                                        |
 |------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                \<Computername>                 |                                                                                                                    Gibt den Namen des Servers an, mit dem eine Verbindung hergestellt werden soll. Der Standardwert ist der lokale Computer.                                                                                                                    |
 |         -u \< Benutzername>-p- \< Kennwort>          |                                                Gibt administrative Anmelde Informationen für einen Remote Server an, den Sie verwalten möchten. Dieser Parameter ist erforderlich, wenn Sie einen Remote Server verwalten möchten, für den Sie nicht mit administrativen Anmelde Informationen angemeldet sind.                                                |
@@ -66,4 +66,4 @@ tlntadmn -s
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 -   [Telnet-Betriebshandbuch](https://technet.microsoft.com/library/cc753164(v=ws.10).aspx)
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

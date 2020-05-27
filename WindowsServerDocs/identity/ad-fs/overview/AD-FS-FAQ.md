@@ -9,12 +9,12 @@ ms.date: 04/29/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b1b6f7d38c4474ba3f69c4eac0c4569375185eb8
-ms.sourcegitcommit: 6d3f8780b67aa7865a9372cf2c1e10c79ebea8b1
+ms.openlocfilehash: 947c34e6c3a3b9a26a225221bbf29e46343b25df
+ms.sourcegitcommit: f22e4d67dd2a153816acf8355e50319dbffc5acf
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82587665"
+ms.lasthandoff: 05/18/2020
+ms.locfileid: "83546560"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>AD FS – Häufig gestellte Fragen (FAQ)
 
@@ -85,7 +85,7 @@ AD FS bietet einen erweiterbaren Mechanismus zum Integrieren der MFA-Anbieter v
 Die Liste der Anbieter, die Microsoft benachrichtigt haben, wird unter [MFA-Anbieter für AD FS](../operations/Configure-Additional-Authentication-Methods-for-AD-FS.md) veröffentlicht.  Es kann immer Anbieter geben, von denen wir nichts wissen, und wir werden die Liste aktualisieren, sobald wir etwas über diese Anbieter erfahren.
 
 ### <a name="are-third-party-proxies-supported-with-ad-fs"></a>Werden Drittanbieter-Proxys mit AD FS unterstützt?
-Ja, Proxys von Drittanbietern können vor dem Webanwendungsproxy eingefügt werden, aber jeder Drittanbieter-Proxy muss das [MS-ADFSPIP-Protokoll](https://msdn.microsoft.com/library/dn392811.aspx) unterstützen, das anstelle des Webanwendungsproxys zu verwenden ist.
+Ja, Proxys von Drittanbietern können vor AD FS eingefügt werden, aber jeder Drittanbieter-Proxy muss das [MS-ADFSPIP-Protokoll](https://msdn.microsoft.com/library/dn392811.aspx) unterstützen, das anstelle des Webanwendungsproxys zu verwenden ist.
 
 Nachstehend finden Sie eine Liste der uns bekannten Drittanbieter.  Es kann immer Anbieter geben, von denen wir nichts wissen, und wir werden die Liste aktualisieren, sobald wir etwas über diese Anbieter erfahren.
 

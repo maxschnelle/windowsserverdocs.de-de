@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d98ebf3f6de9a5fbac33d983ebda581b0c6c385b
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 679681593ba8c94db8462f54cdccf976700debce
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437075"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821410"
 ---
 # <a name="verifier"></a>verifier
 
@@ -38,7 +38,7 @@ verifier /query
 verifier /log <LogFileName> [/interval <seconds>]
 ```
 #### <a name="parameters"></a>Parameter
-|Parameter|Beschreibung|
+|Parameter|BESCHREIBUNG|
 |-------|--------|
 |\<Flags>|Muss eine Zahl im Dezimal-oder Hexadezimal Format sein, eine Kombination aus Bits:<p>-   **Wert: Beschreibung**<br />-   **Bit 0:** Überprüfung des speziellen Pools<br />-   **Bit 1:** erzwingen der unql-Überprüfung<br />-   **Bit 2:** Simulation mit geringer Ressourcen<br />-   **Bit 3:** Pool Überwachung<br />-   **Bit 4:** E/a-Überprüfung<br />-   **Bit 5:** Deadlockerkennung<br />-   **Bit 6:** nicht verwendet<br />-   **Bit 7:** DMA-Überprüfung<br />-   **Bit 8:** Sicherheitsüberprüfungen<br />-   **Bit 9:** Erzwingen von ausstehenden e/a-Anforderungen<br />-   **Bit 10:** Unp-Protokollierung<br />-   **Bit 11:** sonstige Überprüfungen<p>Beispielsweise entspricht **/Flags 27** **/Flags 0x1B** .|
 |/volatile|Wird verwendet, um die verifizierereinstellungen dynamisch zu ändern, ohne das System neu zu starten. Alle neuen Einstellungen gehen verloren, wenn das System neu gestartet wird.|
@@ -49,4 +49,4 @@ verifier /log <LogFileName> [/interval <seconds>]
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c1361cded9ebf26eeaea7abcaba1b1f3ca1428ac
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 1d3be185c49ce9f20964005cd9074e4f51fee3d4
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436795"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820910"
 ---
 # <a name="winrs"></a>winrs
 
@@ -27,7 +27,7 @@ winrs [/<parameter>[:<value>]] <command>
 ```
 #### <a name="parameters"></a>Parameter
 
-|           Parameter            |                                                                                                                                                                                    Beschreibung                                                                                                                                                                                     |
+|           Parameter            |                                                                                                                                                                                    BESCHREIBUNG                                                                                                                                                                                     |
 |--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |      /Remote: \< Endpunkt>       |                                                                                          Gibt den Ziel Endpunkt mithilfe eines NetBIOS-Namens oder der Standardverbindung an:<p>-   <url>: [ \< Transport>://] \< Ziel> [: \< Port>]<p>Wenn nicht angegeben, wird **/r: localhost** verwendet.                                                                                          |
 |          /unencrypted          | Gibt an, dass die Nachrichten an die Remoteshell nicht verschlüsselt werden. Dies ist nützlich für die Problembehandlung oder den Fall, dass der Netzwerk Datenverkehr bereits mit **IPSec**verschlüsselt ist oder wenn die physische Sicherheit erzwungen wird.<p>Standardmäßig werden die Nachrichten mithilfe von Kerberos-oder NTLM-Schlüsseln verschlüsselt.<p>Diese Befehlszeilenoption wird ignoriert, wenn HTTPS-Transport ausgewählt wird. |
@@ -84,5 +84,5 @@ winrs /r:myserver /ad /u:administrator /p:$%fgh7 dir \\anotherserver\share
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 

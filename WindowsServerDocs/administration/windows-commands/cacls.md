@@ -1,6 +1,6 @@
 ---
 title: cacls
-description: Referenz Thema für den cacls-Befehl, der freigegebene Zugriffs Steuerungs Listen (DACL) für angegebene Dateien anzeigt oder ändert.
+description: Referenz Thema für den cacls-Befehl. Dieser Befehl ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,29 +9,29 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d827199ea319bd41511f9abadfde8c6e8949976e
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 8602157bf87e523d6d842d5636031c61b52e8ef4
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82726022"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83819250"
 ---
 # <a name="cacls"></a>cacls
 
 >[!IMPORTANT]
-> Dieser Befehl ist veraltet. Verwenden Sie stattdessen [icacls](icacls.md) .  
+> Dieser Befehl ist veraltet. Verwenden Sie stattdessen [icacls](icacls.md) .
 
-Hiermit werden freigegebene Zugriffs Steuerungs Listen (DACL) für angegebene Dateien angezeigt oder geändert.  
+Hiermit werden freigegebene Zugriffs Steuerungs Listen (DACL) für angegebene Dateien angezeigt oder geändert.
 
 ## <a name="syntax"></a>Syntax
 
-```  
-cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user [...]] [/p user:<perm> [...]] [/d user [...]]  
+```
+cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user [...]] [/p user:<perm> [...]] [/d user [...]]
 ```
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `<filename>` | Erforderlich. Zeigt ACLs der angegebenen Dateien an. |
 | /t | Ändert ACLs der angegebenen Dateien im aktuellen Verzeichnis und allen Unterverzeichnissen. |
@@ -59,11 +59,11 @@ cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user 
 | RKI Brasilianer | Nur Unterordner. |
 | Zählen Brasilianer | Nur Dateien. |
 
-#### <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
 - Sie können Platzhalter verwenden (**?** und **&#42;**), um mehrere Dateien anzugeben.
 
-- Sie können mehr als einen Benutzer angeben.  
+- Sie können mehr als einen Benutzer angeben.
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 

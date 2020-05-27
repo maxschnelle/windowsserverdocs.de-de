@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 501ab801e76980f7e94e88213dd3aa42ee04d4d7
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 235640cacc6c0cca5ee9e820606082afe5d39d41
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722399"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820110"
 ---
 # <a name="repair-bde"></a>repair-bde
 
@@ -51,7 +51,7 @@ repair-bde <InputVolume> <OutputVolumeorImage> [-rk] [–rp] [-pw] [–kp] [–l
 |-f|Erzwingt das Aufheben der Bereitstellung eines Volumes, auch wenn es nicht gesperrt werden kann. Dieser Befehl kann auch als **-Force**angegeben werden.|
 |-? oder /?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 Wenn der Pfad zu einem Schlüssel Paket nicht angegeben wird, durchsucht **Repair-bde** das Laufwerk nach einem Schlüssel Paket. Wenn die Festplatte jedoch beschädigt wurde, ist **Repair-bde** möglicherweise nicht in der Lage, das Paket zu finden, und Sie werden aufgefordert, den Pfad anzugeben.
 
@@ -76,4 +76,4 @@ repair-bde C: D: -pw
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

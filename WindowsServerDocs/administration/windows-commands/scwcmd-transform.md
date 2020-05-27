@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f1116b42d356cc36f478089cdf487a38e792e87
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 86c88f0207a53da813f5d4eaed399375bfc5bc02
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722123"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820950"
 ---
 # <a name="scwcmd-transform"></a>Scwcmd: transform
 
@@ -39,11 +39,11 @@ scwcmd transform /p:<Policyfile.xml> /g:<GPODisplayName>
 
 |Parameter|BESCHREIBUNG|
 |---------|-----------|
-|/p:\<policyFile. XML>|Gibt den Pfad und den Dateinamen der XML-Richtlinien Datei an, die angewendet werden soll. Dieser Parameter muss angegeben werden.|
-|/g:\<gpodisplayname>|Gibt den anzeigen amen des Gruppenrichtlinien Objekts an. Dieser Parameter muss angegeben werden.|
+|/p: \< policyFile. XML>|Gibt den Pfad und den Dateinamen der XML-Richtlinien Datei an, die angewendet werden soll. Dieser Parameter muss angegeben werden.|
+|/g: \< gpodisplayname>|Gibt den anzeigen amen des Gruppenrichtlinien Objekts an. Dieser Parameter muss angegeben werden.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 Scwcmd. exe ist nur auf Computern verfügbar, auf denen Windows Server 2008 R2, Windows Server 2008 oder Windows Server 2003 ausgeführt wird.
 
@@ -56,4 +56,4 @@ scwcmd transform /p:FileServerPolicy.xml /g:FileServerSecurity
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

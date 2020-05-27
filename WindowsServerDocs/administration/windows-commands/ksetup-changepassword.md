@@ -1,6 +1,6 @@
 ---
-title: 'Ksetup: ChangePassword'
-description: Referenz Thema für * * * *-
+title: Kennwort für Ksetup
+description: Referenz Thema für den Befehl "Ksetup ChangePassword", bei dem das Kennwort für den Schlüsselverteilungscenter (KDC)-Kennwort (kpasswd) verwendet wird, um das Kennwort des angemeldeten Benutzers zu ändern.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,59 +9,71 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 32c48e896b77043820eea42159e20c089bd69fb8
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 5c1ed9d9b611a7911c4a22c7ca803b480f52f323
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724722"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83817980"
 ---
-# <a name="ksetupchangepassword"></a>Ksetup: ChangePassword
+# <a name="ksetup-changepassword"></a>Kennwort für Ksetup
 
+Verwendet das Kennwort für den Schlüsselverteilungscenter (KDC)-Kennwort (kpasswd), um das Kennwort des angemeldeten Benutzers zu ändern. Die Ausgabe des Befehls informiert Sie über den Status Erfolg oder Fehler.
 
+Sie können überprüfen, ob **kpasswd** festgelegt ist, indem Sie den `ksetup /dumpstate` Befehl ausführen und die Ausgabe anzeigen.
 
-Verwendet das Kennwort für den Schlüsselverteilungscenter (KDC)-Kennwort (kpasswd), um das Kennwort des angemeldeten Benutzers zu ändern.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-ksetup /changepassword <OldPasswd> <NewPasswd>
+ksetup /changepassword <oldpassword> <newpassword>
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|\<Oldpasswd->|Gibt das vorhandene Kennwort des angemeldeten Benutzers an.|
-|\<Newpasswd->|Gibt das neue Kennwort des angemeldeten Benutzers an.|
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| `<oldpassword>` | Gibt das vorhandene Kennwort des angemeldeten Benutzers an. |
+| `<newpassword>` | Gibt das neue Kennwort des angemeldeten Benutzers an. Dieses Kennwort muss alle Kenn Wort Anforderungen erfüllen, die auf diesem Computer festgelegt sind. |
 
-## <a name="remarks"></a>Bemerkungen
+#### <a name="remarks"></a>Hinweise
 
-Dieser Befehl verwendet den KDC Password-Wert (kpasswd), um das Kennwort des angemeldeten Benutzers zu ändern. Wenn festgelegt, wird "kpasswd" in der Ausgabe angezeigt, indem der Befehl " **Ksetup/dumpstate** " ausgeführt wird.
+- Wenn das Benutzerkonto in der aktuellen Domäne nicht gefunden wird, werden Sie vom System aufgefordert, den Domänen Namen anzugeben, in dem sich das Benutzerkonto befindet.
 
-Das neue Kennwort des Benutzers muss alle Kenn Wort Anforderungen erfüllen, die auf diesem Computer festgelegt sind.
+- Wenn Sie bei der nächsten Anmeldung eine Kenn Wort Änderung erzwingen möchten, kann mit diesem Befehl das Sternchen (*) verwendet werden, damit der Benutzer zur Eingabe eines neuen Kennworts aufgefordert wird.
 
-Wenn das Benutzerkonto in der aktuellen Domäne nicht gefunden wird, werden Sie vom System aufgefordert, den Domänen Namen anzugeben, in dem sich das Benutzerkonto befindet.
+-
 
-Wenn Sie bei der nächsten Anmeldung eine Kenn Wort Änderung erzwingen möchten, kann mit diesem Befehl das Sternchen (*) verwendet werden, damit der Benutzer zur Eingabe eines neuen Kennworts aufgefordert wird.
+### <a name="examples"></a>Beispiele
 
-Die Ausgabe des Befehls informiert Sie über den Status Erfolg oder Fehler.
+Geben Sie Folgendes ein, um das Kennwort eines Benutzers zu ändern, der derzeit in dieser Domäne an diesem Computer angemeldet ist:
 
-## <a name="examples"></a>Beispiele
-
-Ändern Sie das Kennwort eines Benutzers, der zurzeit in dieser Domäne an diesem Computer angemeldet ist:
 ```
 ksetup /changepassword Pas$w0rd Pa$$w0rd
 ```
-Ändern Sie das Kennwort eines Benutzers, der zurzeit in der Domäne "Domäne" angemeldet ist:
+
+Geben Sie Folgendes ein, um das Kennwort eines Benutzers zu ändern, der zurzeit in der Domäne "Domäne" angemeldet ist:
+
 ```
 ksetup /domain CONTOSO /changepassword Pas$w0rd Pa$$w0rd
 ```
-Erzwingen Sie, dass der aktuell angemeldete Benutzer das Kennwort bei der nächsten Anmeldung ändert:
+
+Geben Sie Folgendes ein, um zu erzwingen, dass der aktuell angemeldete Benutzer das Kennwort bei der nächsten Anmeldung ändert:
+
 ```
 ksetup /changepassword Pas$w0rd *
 ```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Ksetup-Befehl](ksetup.md)
+
+- [Ksetup (dumpstate-Befehl)](ksetup-dumpstate.md)
+
+- [Ksetup-Befehl "addkpasswd"](ksetup-addkpasswd.md)
+
+- [Ksetup-Befehl "Delta passwd"](ksetup-delkpasswd.md)
+
+- [Ksetup (dumpstate-Befehl)](ksetup-dumpstate.md)

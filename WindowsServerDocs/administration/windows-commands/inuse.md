@@ -1,6 +1,6 @@
 ---
 title: inuse
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den derzeit verwendeten-Befehl. Dieser Befehl ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,17 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6413fe21f4b7da464347e49910fbf6cd649b319d
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: b25750c8ad57c3b1a795830b743f679e7fce88b5
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993309"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83818430"
 ---
 # <a name="inuse"></a>inuse
 
+Der derzeit verwendeten-Befehl wurde als veraltet markiert und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
 
+Dieses Tool ist in Windows Server 2003 enthalten. Weitere Informationen finden Sie unter [InUse](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/dd996699(v=ws.10)).
 
-"InUse" ist veraltet und wird in zukünftigen Versionen von Windows nicht mehr unterstützt.
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-Dieses Tool ist in Windows Server 2003 enthalten. Weitere Informationen finden Sie unter [InUse](https://technet.microsoft.com/library/dd996699(v=ws.10).aspx).
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
