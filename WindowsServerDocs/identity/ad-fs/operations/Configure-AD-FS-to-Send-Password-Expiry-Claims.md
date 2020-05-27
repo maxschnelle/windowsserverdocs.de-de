@@ -1,6 +1,6 @@
 ---
 ms.assetid: 03c82f43-ae2d-4038-b286-ae3858aed35a
-title: Konfigurieren von AD FS zum Senden von Ansprüchen beim Kennwortablauf
+title: Konfigurieren von AD FS Kennwort Ablauf Ansprüche senden
 author: billmath
 ms.author: billmath
 manager: femila
@@ -8,14 +8,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a0c04f42cbe29b1ea36d09f1f148fb28280d7fec
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 84014df358726cd3d2d90bb68c18f9a051bc6308
+ms.sourcegitcommit: c857cb5eb487a0050352af86c96bbbacfe66962e
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859893"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83865461"
 ---
-# <a name="configure-ad-fs-to-send-password-expiry-claims"></a>Konfigurieren von AD FS zum Senden von Ansprüchen beim Kennwortablauf
+# <a name="configure-ad-fs-to-send-password-expiry-claims"></a>Konfigurieren von AD FS Kennwort Ablauf Ansprüche senden
 
 
 Sie können Active Directory-Verbunddienste (AD FS) (AD FS) konfigurieren, um Kenn Wort Ablauf Ansprüche an die Vertrauens Stellungen der vertrauenden Seite (Anwendungen) zu senden, die durch AD FS geschützt werden. Wie diese Ansprüche verwendet werden, hängt von der jeweiligen Anwendung ab. Beispiel: Bei Office 365 als vertrauende Seite werden Updates in Exchange und Outlook implementiert, damit Verbundbenutzer über ihre bald ablaufenden Kennwörter benachrichtigt werden.
@@ -24,8 +24,8 @@ Um AD FS zum Senden von Kenn Wort Ablauf Ansprüchen an eine Vertrauensstellung 
 
 ```
 @RuleName = "Issue Password Expiry Claims"
-c1:[Type == "https://schemas.microsoft.com/ws/2012/01/passwordexpirationtime"]
- => issue(store = "_PasswordExpiryStore", types = ("https://schemas.microsoft.com/ws/2012/01/passwordexpirationtime", "https://schemas.microsoft.com/ws/2012/01/passwordexpirationdays", "https://schemas.microsoft.com/ws/2012/01/passwordchangeurl"), query = "{0};", param = c1.Value);
+c1:[Type == "http://schemas.microsoft.com/ws/2012/01/passwordexpirationtime"]
+ => issue(store = "_PasswordExpiryStore", types = ("http://schemas.microsoft.com/ws/2012/01/passwordexpirationtime", "http://schemas.microsoft.com/ws/2012/01/passwordexpirationdays", "http://schemas.microsoft.com/ws/2012/01/passwordchangeurl"), query = "{0};", param = c1.Value);
 ```
 
 > [!NOTE]

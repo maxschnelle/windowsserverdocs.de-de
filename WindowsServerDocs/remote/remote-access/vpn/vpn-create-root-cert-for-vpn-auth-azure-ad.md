@@ -1,6 +1,6 @@
 ---
-title: Erstellen von Stammzertifikaten für VPN-Authentifizierung mit Azure AD
-description: Azure AD verwendet das VPN-Zertifikat zum Signieren von Zertifikaten, die für Windows 10-Clients bei der Authentifizierung bei Azure AD für VPN-Konnektivität ausgestellt wurden. Das als primär gekennzeichnete Zertifikat ist der Aussteller, der von Azure AD verwendet wird.
+title: Erstellen von Stammzertifikaten für die VPN-Authentifizierung mit Azure AD
+description: In Azure AD wird das VPN-Zertifikat zum Signieren von Zertifikaten verwendet, die für Windows 10-Clients ausgestellt werden, wenn die Authentifizierung bei Azure AD für VPN-Verbindungen erfolgt. Das als primär gekennzeichnete Zertifikat ist der Aussteller, der von Azure AD verwendet wird.
 ms.prod: windows-server
 ms.technology: networking-ras
 ms.topic: article
@@ -9,24 +9,24 @@ ms.author: v-tea
 author: Teresa-MOTIV
 ms.localizationpriority: medium
 ms.reviewer: deverette
-ms.openlocfilehash: f4501c244726ee9b23a6d517c4b835f0c9418302
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5058095fa4bd6f7ba769fd274f46bc8b96878158
+ms.sourcegitcommit: 430c6564c18f89eecb5bbc39cfee1a6f1d8ff85b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80818803"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83855674"
 ---
-# <a name="step-72-create-conditional-access-root-certificates-for-vpn-authentication-with-azure-ad"></a>Schritt 7.2. Erstellen von Stamm Zertifikaten für den bedingten Zugriff für die VPN-Authentifizierung mit Azure AD
+# <a name="step-72-create-conditional-access-root-certificates-for-vpn-authentication-with-azure-ad"></a>Schritt 7.2: Erstellen von Stamm Zertifikaten für den bedingten Zugriff für die VPN-Authentifizierung mit Azure AD
 
 >Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2016, Windows Server 2012 R2, Windows 10
 
 - [**Vorheriges:** Schritt 7,1. Konfigurieren von EAP-TLS zum Ignorieren der CRL-Überprüfung (Zertifikat Sperr Liste)](vpn-config-eap-tls-to-ignore-crl-checking.md)
 - [**Weiter:** Schritt 7,3. Konfigurieren der Richtlinie für bedingten Zugriff](vpn-config-conditional-access-policy.md)
 
-In diesem Schritt konfigurieren Sie die Stamm Zertifikate für den bedingten Zugriff für die VPN-Authentifizierung mit Azure AD, wodurch automatisch eine Cloud-App mit dem Namen VPN-Server im Mandanten erstellt wird. Zum Konfigurieren des bedingten Zugriffs für VPN-Konnektivität müssen Sie folgende Schritte ausführen:
+In diesem Schritt konfigurieren Sie die Stamm Zertifikate für den bedingten Zugriff für die VPN-Authentifizierung mit Azure AD, wodurch automatisch eine Cloud-App mit dem Namen VPN-Server im Mandanten erstellt wird. Erforderliche Schritte zum Konfigurieren des bedingten Zugriffs für VPN-Verbindungen:
 
-1. Erstellen Sie ein VPN-Zertifikat in der Azure-Portal.
-2. Laden Sie das VPN-Zertifikat herunter.
+1. Erstellen eines VPN-Zertifikats über das Azure-Portal
+2. Herunterladen des VPN-Zertifikats
 3. Stellen Sie das Zertifikat für Ihre VPN-und NPS-Server bereit.
 
 > [!IMPORTANT]
@@ -41,13 +41,14 @@ Der VPN-Client sendet die Zertifikat Probleme dann an das VPN, um die Überprüf
 
 **Dringlichkeit**
 
-1. Melden Sie sich bei Ihrem [Azure-Portal](https://portal.azure.com) als globaler Administrator an.
-2. Klicken Sie im Menü auf der linken Seite auf **Azure Active Directory**.
-3. Klicken Sie auf der Seite **Azure Active Directory** im Abschnitt **Verwalten** auf **bedingter Zugriff**.
-4. Klicken Sie auf der Seite **bedingter Zugriff** im Abschnitt **Verwalten** auf **VPN-Konnektivität (Vorschau)** .
+1. Melden Sie sich als globaler Administrator beim [Azure-Portal](https://portal.azure.com) an.
+2. Klicken Sie im linken Menü auf **Azure Active Directory**.
+3. Klicken Sie auf der Seite **Azure Active Directory** im Abschnitt **Verwalten** auf **Sicherheit**.
+4. Klicken Sie auf der Seite **Sicherheit** im Abschnitt **Schutz** auf **bedingter Zugriff**.
+5. Bei **bedingtem Zugriff | **Auf der Seite Richtlinien im Abschnitt **Verwalten** auf **VPN-Konnektivität**.
 5. Klicken Sie auf der Seite **VPN-Konnektivität** auf **Neues Zertifikat**.
 6. Führen Sie auf der Seite **neu** die folgenden Schritte aus: a. Wählen Sie für **Select Duration**entweder 1, 2 oder 3 Jahre aus.
-   b. Wählen Sie **Erstellen** aus.
+   b. Klicken Sie auf **Erstellen**.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
