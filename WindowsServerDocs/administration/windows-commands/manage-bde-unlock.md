@@ -1,6 +1,6 @@
 ---
 title: "\"manage-bde Unlock\""
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den Befehl manage-bde Unlock, mit dem ein durch BitLocker geschütztes Laufwerk mithilfe eines Wiederherstellungs Kennworts oder eines Wiederherstellungs Schlüssels entsperrt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,46 +9,45 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cb1fc1c14a29b8fed515adb0f74ae99ff5d76cf4
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 67d4c0ec78870af45f0b98f2ab04d85b19e92af9
+ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820740"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84222156"
 ---
-# <a name="manage-bde-unlock"></a>manage-bde: entsperren
-
-
+# <a name="manage-bde-unlock"></a>"manage-bde Unlock"
 
 Entsperrt ein durch BitLocker geschütztes Laufwerk mit einem Wiederherstellungs Kennwort oder einem Wiederherstellungs Schlüssel.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-manage-bde -unlock {-recoverypassword <Password>|-recoverykey <PathToExternalKeyFile>} <Drive> [-certificate {-cf PathToCertificateFile | -ct CertificateThumbprint} {-pin}] [-password] [-computername <Name>] [{-?|/?}] [{-help|-h}]
+manage-bde -unlock {-recoverypassword <password>|-recoverykey <pathtoexternalkeyfile>} <drive> [-certificate {-cf pathtocertificatefile | -ct certificatethumbprint} {-pin}] [-password] [-computername <name>] [{-?|/?}] [{-help|-h}]
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|Wert|BESCHREIBUNG|
-|---------|-----|-----------|
-|-wiederherstellungkennwort||Gibt an, dass ein Wiederherstellungs Kennwort verwendet wird, um das Laufwerk zu entsperren. Abkürzung:-RP|
-||\<Kennwort>|Stellt das Wiederherstellungs Kennwort dar, das verwendet werden kann, um das Laufwerk zu entsperren.|
-|-Wiederherstellungsschlüssel||Gibt an, dass eine externe Wiederherstellungs Schlüsseldatei verwendet wird, um das Laufwerk zu entsperren. Abkürzung:-RK|
-||\<"Pathdeexternalkeyfile"->|Stellt die externe Wiederherstellungs Schlüsseldatei dar, die zum Entsperren des Laufwerks verwendet werden kann.|
-||\<Laufwerk>|Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.|
-|-Zertifikat||Das lokale Benutzerzertifikat für ein BitLocker-Zertifikat zum deinstalcken des Volumes befindet sich im Speiche-Benutzerzertifikat Speicher. Abkürzung:-CERT|
-||<-CF pathycertificatefile>|Pfad zur Zertifikatsdatei|
-||< CT certifipaethumschlag-Druck>|Der Zertifikat Fingerabdruck, der optional die PIN (-PIN) enthalten kann.|
-|-password||Zeigt eine Eingabeaufforderung für das Kennwort zum Entsperren des Volumes an. Abkürzung:-PW|
-|-Computername||Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Abkürzung:-CN|
-||\<Name>|Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers.|
-|-? oder /?||Zeigt eine kurze Hilfe an der Eingabeaufforderung an.|
-|-Help oder-h||Zeigt die gesamte Hilfe an der Eingabeaufforderung an.|
+| Parameter | Beschreibung |
+| --------- | ----------- |
+| -wiederherstellungkennwort | Gibt an, dass ein Wiederherstellungs Kennwort verwendet wird, um das Laufwerk zu entsperren. Sie können auch **-RP** als abgekürzte Version dieses Befehls verwenden. |
+| `<password>` | Stellt das Wiederherstellungs Kennwort dar, das verwendet werden kann, um das Laufwerk zu entsperren. |
+| -Wiederherstellungsschlüssel | Gibt an, dass eine externe Wiederherstellungs Schlüsseldatei verwendet wird, um das Laufwerk zu entsperren. Sie können " **-RK** " auch als abgekürzte Version dieses Befehls verwenden. |
+| `<pathtoexternalkeyfile>` | Stellt die externe Wiederherstellungs Schlüsseldatei dar, die zum Entsperren des Laufwerks verwendet werden kann. |
+| `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
+| -Zertifikat | Das lokale Benutzerzertifikat für ein BitLocker-Zertifikat zum Entsperren des Volumes befindet sich im lokalen Zertifikat Speicher des Benutzers. Sie können auch **-CERT** als abgekürzte Version dieses Befehls verwenden. |
+| -CF`<pathtocertificatefile>` | Pfad zur Zertifikatsdatei |
+| -CT`<certificatethumbprint>` | Der Zertifikat Fingerabdruck, der optional die PIN (-PIN) enthalten kann. |
+| -password | Zeigt eine Eingabeaufforderung für das Kennwort zum Entsperren des Volumes an. Sie können auch **-PW** als abgekürzte Version dieses Befehls verwenden. |
+| -Computername | Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
+| `<name>` | Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers. |
+| -? oder /? | Zeigt eine kurze Hilfe an der Eingabeaufforderung an. |
+| -Help oder-h | Zeigt die gesamte Hilfe an der Eingabeaufforderung an. |
 
-## <a name="examples"></a>Beispiele
+### <a name="examples"></a>Beispiele
 
-Veranschaulicht die Verwendung des Befehls " **-Unlock** " zum Entsperren von Laufwerk E mit einer Wiederherstellungs Schlüsseldatei, die in einem Sicherungsordner auf einem anderen Laufwerk gespeichert wurde.
+Zum Entsperren von Laufwerk E mit einer Wiederherstellungs Schlüsseldatei, die in einem Sicherungsordner auf einem anderen Laufwerk gespeichert wurde, geben Sie Folgendes ein:
+
 ```
 manage-bde –unlock E: -recoverykey F:\Backupkeys\recoverykey.bek
 ```
@@ -56,4 +55,5 @@ manage-bde –unlock E: -recoverykey F:\Backupkeys\recoverykey.bek
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
--   [Manage-bde](manage-bde.md)
+
+- [Befehl "Manage-BDE"](manage-bde.md)

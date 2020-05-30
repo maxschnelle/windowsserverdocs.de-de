@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 08a9b0a74c6da894eeadef8aef86f25761d6616e
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 015fb7842146e372b36c71fe95a3598bdfa48676
+ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820450"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84222988"
 ---
 # <a name="logman-create-trace"></a>logman Create Trace
 
@@ -30,7 +30,7 @@ logman create trace <[-n] <name>> [options]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | -s`<computer name>` | Führt den Befehl auf dem angegebenen Remote Computer aus. |
 | -config`<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
@@ -69,7 +69,7 @@ logman create trace <[-n] <name>> [options]
 
 ### <a name="examples"></a>Beispiele
 
-Zum Erstellen eines Ereignis-Ablauf Verfolgungs Daten Sammlers mit dem Namen trace_log mit einer Größe von weniger als 16 und nicht mehr als 256 Puffern, bei denen jeder Puffer 64 KB groß ist und die Ergebnisse in "c:\logfile" lautet, geben Sie Folgendes ein:
+Zum Erstellen eines Ereignis-Ablauf Verfolgungs Daten Sammlers mit dem Namen *trace_log*mit einer Größe von weniger als 16 und nicht mehr als 256 Puffern, bei denen jeder Puffer 64 KB groß ist und die Ergebnisse in "c:\logfile" lautet, geben Sie Folgendes ein:
 
 ```
 logman create trace trace_log -nb 16 256 -bs 64 -o c:\logfile
@@ -79,4 +79,6 @@ logman create trace trace_log -nb 16 256 -bs 64 -o c:\logfile
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [logman](logman.md)
+- [logman update Trace-Befehl](logman-update-trace.md)
+
+- [logman-Befehl](logman.md)

@@ -4,17 +4,17 @@ description: Referenz Thema für den Telnet-Status, in dem Statusinformationen a
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
-ms.assetid: 4e819f11-3dc4-44d1-957b-1bcecf9fc1fc vhorne
+ms.assetid: 4e819f11-3dc4-44d1-957b-1bcecf9fc1fc
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4e27e3c2654833c3eb7cc4b346b1e54a59913115
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 9d5960396846534cc65f0b2d5c6e8c9afb5dd3c5
+ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821050"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84222670"
 ---
 # <a name="telnet-status"></a>Telnet: Status
 
@@ -27,7 +27,7 @@ Zeigt Statusinformationen an.
 st[atus]
 ```
 #### <a name="parameters"></a>Parameter
-none
+Keine
 ## <a name="examples"></a>Beispiele
 Anzeigen von Statusinformationen.
 ```

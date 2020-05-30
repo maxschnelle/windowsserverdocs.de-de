@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bf9154d2d81f9524e3a168770cd2ed0703703884
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: f479fcdf3db4bb5a61b0cd0724220d27c934872f
+ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820470"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84222808"
 ---
 # <a name="logman-create-api"></a>logman Create-API
 
@@ -30,7 +30,7 @@ logman create api <[-n] <name>> [options]
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | -s`<computer name>` | Führt den Befehl auf dem angegebenen Remote Computer aus. |
 | -config`<value>` | Gibt die Einstellungsdatei an, die Befehlsoptionen enthält. |
@@ -86,4 +86,6 @@ logman create api trace_notepad -exe c:\windows\notepad.exe -exapis kernel32.dll
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [logman](logman.md)
+- [logman Update-API-Befehl](logman-update-api.md)
+
+- [logman-Befehl](logman.md)

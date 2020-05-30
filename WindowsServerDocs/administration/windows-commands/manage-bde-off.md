@@ -1,6 +1,6 @@
 ---
 title: manage-bde Off
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den Befehl manage-bde off, mit dem das Laufwerk entschlüsselt und BitLocker ausgeschaltet wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,38 +9,37 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2ebbe8e0985c08ba4f156de9b87bce143184f80a
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: cbcec0cadba870a5f416af50f12e0b2c5eed6d95
+ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820660"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84222866"
 ---
-# <a name="manage-bde-off"></a>manage-bde: Off
-
-
+# <a name="manage-bde-off"></a>manage-bde Off
 
 Entschlüsselt das Laufwerk und deaktiviert BitLocker. Alle Schlüssel Schutzvorrichtungen werden entfernt, wenn die Entschlüsselung vollständig ist.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-manage-bde -off [<Volume>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
+manage-bde -off [<volume>] [-computername <name>] [{-?|/?}] [{-help|-h}]
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|\<Volume>|Einen Laufwerk Buchstaben, gefolgt von einem Doppelpunkt, einem Volume-GUID-Pfad oder einem bereitgestellten Volume.|
-|-Computername|Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden.|
-|\<Name>|Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers.|
-|-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung an.|
-|-Help oder-h|Zeigt die gesamte Hilfe an der Eingabeaufforderung an.|
+| Parameter | Beschreibung |
+| --------- | ----------- |
+| `<volume>` | Gibt einen Laufwerk Buchstaben an, gefolgt von einem Doppelpunkt, einem Volume-GUID-Pfad oder einem bereitgestellten Volume. |
+| -Computername | Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
+| `<name>` | Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers. |
+| -? oder /? | Zeigt eine kurze Hilfe an der Eingabeaufforderung an. |
+| -Help oder-h | Zeigt die gesamte Hilfe an der Eingabeaufforderung an. |
 
-## <a name="examples"></a>Beispiele
+### <a name="examples"></a>Beispiele
 
-Um die Verwendung des **-Off-** Befehls zum Deaktivieren von BitLocker auf Laufwerk C zu veranschaulichen.
+Geben Sie Folgendes ein, um BitLocker auf Laufwerk C zu deaktivieren:
+
 ```
 manage-bde –off C:
 ```
@@ -48,4 +47,11 @@ manage-bde –off C:
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
--   [Manage-bde](manage-bde.md)
+
+- [Befehl "manage-bde on"](manage-bde-on.md)
+
+- [Befehl "manage-bde Pause"](manage-bde-pause.md)
+
+- [Befehl "manage-bde Resume"](manage-bde-resume.md)
+
+- [Befehl "Manage-BDE"](manage-bde.md)

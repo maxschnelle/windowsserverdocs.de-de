@@ -1,6 +1,6 @@
 ---
 title: manage-bde Resume
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den Befehl "manage-bde Resume", mit dem die BitLocker-Verschlüsselung oder-Entschlüsselung fortgesetzt wird, nachdem Sie angehalten wurde.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,38 +9,37 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4559cfb429a4ad36feda94fcfcc1adc965562512
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 17a41a0a5c97bb20c1010c968e495ffbc81649cf
+ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820620"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84222118"
 ---
-# <a name="manage-bde-resume"></a>manage-bde: Resume
-
-
+# <a name="manage-bde-resume"></a>manage-bde Resume
 
 Setzt die BitLocker-Verschlüsselung oder-Entschlüsselung fort, nachdem Sie angehalten wurde.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-manage-bde -resume [<Drive>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
+manage-bde -resume [<drive>] [-computername <name>] [{-?|/?}] [{-help|-h}]
 ```
 
-#### <a name="parameters"></a>Parameter
+### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
-|---------|-----------|
-|\<Laufwerk>|Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar.|
-|-Computername|Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden.|
-|\<Name>|Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers.|
-|-? oder /?|Zeigt eine kurze Hilfe an der Eingabeaufforderung an.|
-|-Help oder-h|Zeigt die gesamte Hilfe an der Eingabeaufforderung an.|
+| Parameter | Beschreibung |
+| --------- | ----------- |
+| `<drive>` | Stellt einen von einem Doppelpunkt gefolgten Laufwerkbuchstaben dar. |
+| -Computername | Gibt an, dass "manage-bde. exe verwendet wird, um den BitLocker-Schutz auf einem anderen Computer zu ändern. Sie können auch **-CN** als abgekürzte Version dieses Befehls verwenden. |
+| `<name>` | Stellt den Namen des Computers dar, auf dem der BitLocker-Schutz geändert werden soll. Akzeptierte Werte sind der NetBIOS-Name des Computers und die IP-Adresse des Computers. |
+| -? oder /? | Zeigt eine kurze Hilfe an der Eingabeaufforderung an. |
+| -Help oder-h | Zeigt die gesamte Hilfe an der Eingabeaufforderung an. |
 
-## <a name="examples"></a>Beispiele
+### <a name="examples"></a>Beispiele
 
-Veranschaulicht die Verwendung des Befehls " **-Resume** " zum Fortsetzen der BitLocker-Verschlüsselung auf Laufwerk "C".
+Zum Fortsetzen der BitLocker-Verschlüsselung auf Laufwerk C geben Sie Folgendes ein:
+
 ```
 manage-bde –resume C:
 ```
@@ -48,4 +47,11 @@ manage-bde –resume C:
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
--   [Manage-bde](manage-bde.md)
+
+- [Befehl "manage-bde on"](manage-bde-on.md)
+
+- [Befehl "manage-bde Off"](manage-bde-off.md)
+
+- [Befehl "manage-bde Pause"](manage-bde-pause.md)
+
+- [Befehl "Manage-BDE"](manage-bde.md)

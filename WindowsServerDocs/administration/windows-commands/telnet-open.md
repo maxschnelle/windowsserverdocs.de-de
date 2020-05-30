@@ -4,17 +4,17 @@ description: Referenz Thema für Telnet Open, das eine Verbindung mit einem Teln
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 s.topic: article
-ms.assetid: e30ad68c-2366-4754-ac36-311a2392902a vhorne
+ms.assetid: e30ad68c-2366-4754-ac36-311a2392902a
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ed2c00b44143942ba1ccb77eec17ca975f23b498
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 0be8aca4cb061df55674a405eb1cf2a5e643cb4f
+ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821320"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84222716"
 ---
 # <a name="telnet-open"></a>Telnet: offen
 
@@ -28,7 +28,7 @@ o[pen] <hostname> [<Port>]
 ```
 #### <a name="parameters"></a>Parameter
 
-| Parameter  |                                        BESCHREIBUNG                                         |
+| Parameter  |                                        Beschreibung                                         |
 |------------|--------------------------------------------------------------------------------------------|
 | <hostname> |                         Gibt den Computernamen oder die IP-Adresse an.                         |
 |  [<Port>]  | Gibt den TCP-Port an, an dem der Telnet-Server lauscht. Der Standardwert ist TCP-Port 23. |
