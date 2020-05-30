@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 4a53f28867904c163346fb7943790ff0659ab006
-ms.sourcegitcommit: 29f7a4811b4d36d60b8b7c55ce57d4ee7d52e263
+ms.openlocfilehash: fbdef69f62a76fcc8d01aa0319b2b0859fc4f7cd
+ms.sourcegitcommit: 6973690a8705b24d09eb98f1713743d5e6079161
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83716875"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84211909"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Bereitstellen von Ordnerumleitung mit Offlinedateien
 
->Gilt für: Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Vista, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2, Windows Server (halbjährlicher Kanal)
+> Gilt für: Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Vista, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2, Windows Server (halbjährlicher Kanal)
 
 In diesem Thema wird die Verwendung von Windows Server zum Bereitstellen von Ordnerumleitung mit Offlinedateien auf Windows-Clientcomputern beschrieben.
 
@@ -83,9 +83,9 @@ So wird eine Dateifreigabe unter Windows Server 2019, Windows Server 2016 und 
 7. Wählen Sie auf der Seite **Berechtigungen** die Option **Berechtigungen anpassen…** aus. Das Dialogfeld "Erweiterte Sicherheitseinstellungen" wird angezeigt.
 8. Wählen Sie **Vererbung deaktivieren** aus, und wählen Sie dann **Vererbte Berechtigungen in explizite Berechtigungen im Objekt konvertieren** aus.
 9. Legen Sie die Berechtigungen wie in Tabelle 1 beschrieben und in Abbildung 1 dargestellt fest. Entfernen Sie dabei die Berechtigungen für nicht aufgeführte Gruppen, und fügen Sie den Benutzergruppen für Ordnerumleitung, die Sie in Schritt 1 erstellt haben, besondere Berechtigungen hinzu.
-    
+
     ![Festlegen der Berechtigungen für die Freigabe mit den umgeleiteten Ordnern](media/deploy-folder-redirection/setting-the-permissions-for-the-redirected-folders-share.png)
-    
+
     **Abbildung 1** Festlegen der Berechtigungen für die Freigabe mit den umgeleiteten Ordnern
 10. Wenn Sie das Profil **SMB-Freigabe – Erweitert** auswählen, müssen Sie auf der Seite **Verwaltungseigenschaften** unter **Benutzerdateien** den Wert "Ordnerverwendung" auswählen.
 11. Wenn Sie das Profil **SMB-Freigabe – Erweitert** auswählen, können Sie auf der Seite **Kontingent** optional ein Kontingent auswählen, das für die Benutzer der Freigabe gelten soll.
@@ -95,7 +95,6 @@ So wird eine Dateifreigabe unter Windows Server 2019, Windows Server 2016 und 
 
 | Benutzerkonto  | Access  | Gilt für  |
 | --------- | --------- | --------- |
-| Benutzerkonto | Access | Gilt für |
 | System     | Vollzugriff        |    Dieser Ordner, die Unterordner und Dateien     |
 | Administratoren     | Vollzugriff       | Nur dieser Ordner        |
 | Ersteller/Besitzer     |   Vollzugriff      |   Nur Unterordner und Dateien      |
@@ -117,11 +116,11 @@ So erstellen Sie ein Gruppenrichtlinienobjekt für die Ordnerumleitung:
 7. Wählen Sie im Abschnitt **Sicherheitsfilterung** die Option **Hinzufügen** aus.
 8. Geben Sie im Dialogfeld **Benutzer, Computer oder Gruppe auswählen** den Namen der Sicherheitsgruppe ein, die Sie in Schritt 1 erstellt haben (z. B. **Benutzer der Ordnerumleitung**), und klicken Sie dann auf **OK**.
 9. Wählen Sie die Registerkarte **Delegierung** aus, klicken Sie auf **Hinzufügen**, geben Sie **Authentifizierte Benutzer** ein, wählen Sie **OK** und dann erneut **OK** aus, um die Standardleseberechtigungen zu akzeptieren.
-    
+
     Dieser Schritt ist aufgrund von Sicherheitsänderungen erforderlich, die in [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016) vorgenommen wurden.
 
 > [!IMPORTANT]
-> Aufgrund der in [MS16-072a](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016) vorgenommenen Sicherheitsänderungen müssen Sie der Gruppe „Authentifizierte Benutzer“ nun delegierte Leseberechtigungen für das Gruppenrichtlinienobjekt der Ordnerumleitung erteilen. Andernfalls wird das Gruppenrichtlinienobjekt nicht auf Benutzer angewendet. Wenn es bereits angewendet wurde, wird das Gruppenrichtlinienobjekt entfernt, und Ordner werden zurück an den lokalen PC umgeleitet. Weitere Informationen finden Sie unter [Bereitstellen des Gruppenrichtlinien-Sicherheitsupdates MS16-072](https://blogs.technet.microsoft.com/askds/2016/06/22/deploying-group-policy-security-update-ms16-072-kb3163622/).
+> Aufgrund der in [MS16-072a](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016) vorgenommenen Sicherheitsänderungen müssen Sie der Gruppe „Authentifizierte Benutzer“ nun delegierte Leseberechtigungen für das Gruppenrichtlinienobjekt der Ordnerumleitung erteilen. Andernfalls wird das Gruppenrichtlinienobjekt nicht auf Benutzer angewendet. Wenn es bereits angewendet wurde, wird das Gruppenrichtlinienobjekt entfernt, und Ordner werden zurück an den lokalen PC umgeleitet. Weitere Informationen finden Sie unter [Bereitstellen des Gruppenrichtlinien-Sicherheitsupdates MS16-072](https://techcommunity.microsoft.com/t5/ask-the-directory-services-team/deploying-group-policy-security-update-ms16-072-kb3163622/ba-p/400434).
 
 ## <a name="step-4-configure-folder-redirection-with-offline-files"></a>Schritt 4: Konfigurieren von Ordnerumleitung mit Offlinedateien
 
@@ -165,7 +164,7 @@ So testen Sie die Ordnerumleitung:
 
 1. Melden Sie sich mit einem Benutzerkonto an einem primären Computer an (bei aktivierter Unterstützung primärer Computer), für das Ordnerumleitung aktiviert ist.
 2. Wenn sich der Benutzer zuletzt an dem Computer angemeldet hat, öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten und geben Sie folgenden Befehl ein, um sicherzustellen, dass die aktuellsten Gruppenrichtlinieneinstellungen auf dem Clientcomputer angewendet werden.
-    
+
     ```PowerShell
     gpupdate /force
     ```
@@ -201,4 +200,4 @@ In der folgenden Tabelle sind die wichtigsten Änderungen zu diesem Thema zusamm
 * [Erweiterte Funktionen für Offlinedateien aktivieren](enable-always-offline.md)
 * [Anweisung des Microsoft-Supports zu replizierten Benutzerprofildaten](https://docs.microsoft.com/archive/blogs/askds/microsofts-support-statement-around-replicated-user-profile-data)
 * [Querladen von Apps mit DISM](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh852635(v=win.10)>)
-* [Problembehandlung beim Packen, Bereitstellen und Abfragen von Windows Runtime-basierten Apps](https://msdn.microsoft.com/library/windows/desktop/hh973484.aspx)
+* [Problembehandlung beim Packen, Bereitstellen und Abfragen von Windows Runtime-basierten Apps](https://docs.microsoft.com/windows/win32/appxpkg/troubleshooting)
