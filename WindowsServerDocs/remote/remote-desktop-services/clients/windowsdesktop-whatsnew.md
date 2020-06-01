@@ -7,14 +7,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 05/12/2020
+ms.date: 05/27/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: de7c685e544fd0bb193f995aeff3a20a29bd6db5
-ms.sourcegitcommit: aed942d11f1a361fc1d17553a4cf190a864d1268
+ms.openlocfilehash: 0d49c49def8b110f42a6d56354c73e5a75b04b7e
+ms.sourcegitcommit: 4fec7d82f0772d03a9e8cac20092a4309b0f796e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83235051"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84025511"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Neuigkeiten im Windows-Desktopclient
 
@@ -26,15 +26,18 @@ Der Client kann für verschiedene [Benutzergruppen](windowsdesktop-admin.md#conf
 
 |Benutzergruppe |Version  |
 |-----------|---------|
-|Öffentlich     |1.2.945  |
-|Insider    |1.2.1009 |
+|Öffentlich     |1.2.1026 |
+|Insider    |1.2.1026 |
 
-## <a name="updates-for-version-121009"></a>Updates für Version 1.2.1009
+## <a name="updates-for-version-121026"></a>Updates für Version 1.2.1026
 
-*Veröffentlicht am: 12.05.2020*
+*Veröffentlicht am: 27.05.2020*
 
-Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4wseE), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4wnf3), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4wCIB)
+Download: [Windows 64-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xsGB), [Windows 32-Bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xd8P), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xq7m)
 
+- Beim Abonnieren kannst du nun dein Konto auswählen, anstatt deine E-Mail-Adresse einzugeben.
+- Es wurde eine neue Option **Mit URL abonnieren** hinzugefügt, die es dir ermöglicht, die URL des Arbeitsbereichs anzugeben, den du abonnierst, oder in Fällen, in denen deine Ressourcen nicht automatisch gefunden werden, die [E-Mail-Ermittlung](../rds-email-discovery.md) zu nutzen. Dieses Verfahren ähnelt dem Abonnementprozess auf den anderen Remotedesktopclients. Es kann verwendet werden, um die Arbeitsbereiche des WVD Spring 2020-Updates direkt zu abonnieren.
+- Es wurde Unterstützung für das Abonnieren eines Arbeitsbereichs mit einem neuen [URI-Schema](remote-desktop-uri.md) hinzugefügt, das in einer E-Mail an Benutzer gesendet oder zu einer Supportwebsite hinzugefügt werden kann.
 - Es wurde das neue Dialogfeld **Verbindungsinformationen** hinzugefügt, das Client-, Netzwerk- und Serverdetails für Desktop- und App-Sitzungen bereitstellt. Du kannst auf das Dialogfeld im Vollbildmodus über die Verbindungsleiste und im Fenstermodus über das Menüsystem zugreifen.
 - Im Fenstermodus gestartete Desktopsitzungen werden nun immer maximiert, anstatt beim Maximieren des Fensters in den Vollbildmodus zu wechseln. Verwende die Option **Vollbild** im Systemmenü, um in den Vollbildmodus zu gelangen.
 - Die Eingabeaufforderung „Abonnement kündigen“ weist nun ein Warnsymbol auf und zeigt die Namen der Arbeitsbereiche als Aufzählung an.

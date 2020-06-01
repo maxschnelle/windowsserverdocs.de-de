@@ -7,14 +7,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 04/28/2020
+ms.date: 05/26/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 368dc3889c5275512e345c26fcef504c6ceaa8c2
-ms.sourcegitcommit: d06650cfab2972551c3a269b3271596f55c1bd3b
+ms.openlocfilehash: c229eefbc0cc00ed1af940cd986c89e979873d29
+ms.sourcegitcommit: 4fec7d82f0772d03a9e8cac20092a4309b0f796e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/02/2020
-ms.locfileid: "82726705"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84025501"
 ---
 # <a name="get-started-with-the-windows-desktop-client"></a>Erste Schritte mit dem Windows-Desktopclient
 
@@ -56,14 +56,28 @@ Rufe die Liste der verwalteten Ressourcen ab, auf die du Zugriff hast, wie etwa 
 
 ### <a name="subscribe-to-a-workspace"></a>Abonnieren eines Arbeitsbereichs
 
-1. Tippe auf der Hauptseite des Clients, die auch als Connection Center bezeichnet wird, auf **Abonnieren**.
-2. Melde dich bei entsprechender Aufforderung mit deinem Benutzerkonto an.
-3. Die Ressourcen werden im Connection Center nach Arbeitsbereich gruppiert angezeigt.
-
-Du kannst Ressourcen mit einer der folgenden Methoden starten:
+Es gibt zwei Möglichkeiten zum Abonnieren eines Arbeitsbereichs. Der Client kann versuchen, die Ressourcen, die dir über dein Geschäfts- oder Schul-/Unikonto zur Verfügung stehen, zu ermitteln, oder du kannst die URL, unter der deine Ressourcen zu finden sind, direkt angeben, falls der Client sie nicht finden kann. Sobald du einen Arbeitsbereich abonniert hast, kannst du Ressourcen mit einer der folgenden Methoden starten:
 
 - Wechsle zum Connection Center, und doppelklicke auf eine Ressource, um sie zu starten.
 - Alternativ kannst du zum Startmenü navigieren und nach einem Ordner mit dem Namen des Arbeitsbereichs suchen oder den Namen der Ressource in die Suchleiste eingeben.
+
+#### <a name="subscribe-with-a-user-account"></a>Abonnieren eines Benutzerkontos
+
+1. Tippe auf der Hauptseite des Clients auf **Abonnieren**.
+2. Melde dich bei entsprechender Aufforderung mit deinem Benutzerkonto an.
+3. Die Ressourcen werden im Connection Center nach Arbeitsbereich gruppiert angezeigt.
+
+#### <a name="subscribe-with-url"></a>Abonnieren mit URL
+
+1. Tippe auf der Hauptseite des Clients auf **Mit URL abonnieren**.
+2. Gib die Arbeitsbereichs-URL oder deine E-Mail-Adresse ein:
+   - Verwende im Fall einer **Arbeitsbereichs-URL** diejenige, die du vom Administrator erhalten hast. Wenn du auf Ressourcen von Windows Virtual Desktop zugreifst, kannst du eine der folgenden URLs verwenden:
+     - Windows Virtual Desktop Fall 2019: `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Windows Virtual Desktop Spring 2020: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+   - Um **E-Mail** zu verwenden, gib deine E-Mail-Adresse ein. Dies weist den Client an, nach einer URL zu suchen, die deiner E-Mail-Adresse zugeordnet ist, sofern der Administrator die [E-Mail-Ermittlung](../rds-email-discovery.md) eingerichtet hat.
+3. Tippen Sie auf **Weiter**.
+4. Melde dich bei entsprechender Aufforderung mit deinem Benutzerkonto an.
+5. Die Ressourcen werden im Connection Center nach Arbeitsbereich gruppiert angezeigt.
 
 ### <a name="workspace-details"></a>Arbeitsbereichsdetails
 
