@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: eba7092a9a26b25b1fe77b39b8098d117b38981a
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: c55d6ae5ff701555eb9bfb7135ffa28692bd4391
+ms.sourcegitcommit: 4894649cc47dfa535306cc334871f81155198f76
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821000"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84254723"
 ---
 # <a name="xcopy"></a>xcopy
 
@@ -30,10 +30,10 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|BESCHREIBUNG|
+|Parameter|Beschreibung|
 |---------|-----------|
-|\<Quell>|Erforderlich. Gibt den Speicherort und die Namen der Dateien an, die Sie kopieren möchten. Dieser Parameter muss entweder ein Laufwerk oder einen Pfad enthalten.|
-|[ \< Ziel>]|Gibt das Ziel der Dateien an, die Sie kopieren möchten. Dieser Parameter kann einen Laufwerk Buchstaben, einen Doppelpunkt, einen Verzeichnisnamen, einen Dateinamen oder eine Kombination dieser Parameter enthalten.|
+|\<Source>|Erforderlich. Gibt den Speicherort und die Namen der Dateien an, die Sie kopieren möchten. Dieser Parameter muss entweder ein Laufwerk oder einen Pfad enthalten.|
+|[\<Destination>]|Gibt das Ziel der Dateien an, die Sie kopieren möchten. Dieser Parameter kann einen Laufwerk Buchstaben, einen Doppelpunkt, einen Verzeichnisnamen, einen Dateinamen oder eine Kombination dieser Parameter enthalten.|
 |/w|Zeigt die folgende Meldung an und wartet auf die Antwort, bevor mit dem Kopieren von Dateien begonnen wird:</br>**Drücken Sie eine beliebige Taste, um mit dem Kopieren von Dateien zu beginnen.**|
 |/p|Sie werden aufgefordert, zu bestätigen, ob Sie die einzelnen Zieldateien erstellen möchten.|
 |/C|Ignoriert Fehler.|
@@ -64,7 +64,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/j|Kopiert Dateien ohne Pufferung. Empfohlen für sehr große Dateien. Dieser Parameter wurde in Windows Server 2008 R2 hinzugefügt.|
 |/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 - Verwenden von **"/z**
 
@@ -192,7 +192,7 @@ copyit c:\prgmcode b:
 
 Der Befehls Interpreter ersetzt " **c:\Prgmcode** " für " *%1* " und " **B":** für " *%2*" verwendet " **xcopy** " mit den Befehlszeilenoptionen " **/e** " und " **/s** ". Wenn **xcopy** einen Fehler feststellt, liest das Batch Programm den Exitcode und wechselt zu der Bezeichnung, die in der entsprechenden **IF ERRORLEVEL** -Anweisung angegeben wird. Anschließend wird die entsprechende Meldung angezeigt, und das Batch Programm wird beendet.
 
-**9.** in diesem Beispiel werden alle nicht leeren Verzeichnisse sowie Dateien, deren Name dem mit dem Sternchen-Symbol angegebenen Muster entspricht.
+**9.** in diesem Beispiel werden alle nicht leeren Verzeichnisse sowie die Dateien kopiert, deren Name dem Muster entspricht, das mit dem Sternchen-Symbol angegeben wurde.
 
 ```
 xcopy .\toc*.yml ..\..\Copy-To\ /S /Y
@@ -208,10 +208,10 @@ Im vorherigen Beispiel ist dieser bestimmte Quellparameter Wert **. \\ "Dec \* .
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
--   [Kopieren](copy.md)
--   [Verschieben](move.md)
--   [Has](dir.md)
--   [Attrib](attrib.md)
--   [DISKCOPY](diskcopy.md)
--   [Sei](if.md)
+- [Kopieren](copy.md)
+- [Verschieben](move.md)
+- [Has](dir.md)
+- [Attrib](attrib.md)
+- [DISKCOPY](diskcopy.md)
+- [Sei](if.md)
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

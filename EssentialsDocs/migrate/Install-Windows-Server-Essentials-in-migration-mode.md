@@ -1,23 +1,26 @@
 ---
-title: Installieren von Windows Server Essentials in Migration MODE1
+title: Installieren von Windows Server Essentials im Migrationsmodus
 description: Beschreibt die Verwendung von Windows Server Essentials
-ms.date: 10/03/2016
+ms.date: 04/29/2020
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: fd7196ac-cfa6-46a5-ba77-6962b47a825e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 977922d8f2af23afc058162e7455ac5099e4325b
-ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
+ms.custom:
+- CI ID 117135
+- CSSTroubleshoot
+ms.openlocfilehash: e1a5efc373b884051b538f3f6cd09fecd34c7e09
+ms.sourcegitcommit: 4894649cc47dfa535306cc334871f81155198f76
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83404573"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84254703"
 ---
-# <a name="install-windows-server-essentials-in-migration-mode1"></a>Installieren von Windows Server Essentials in Migration MODE1
+# <a name="install-windows-server-essentials-in-migration-mode"></a>Installieren von Windows Server Essentials im Migrationsmodus
 
->Gilt für: Windows Server 2012 Essentials
+> Gilt für: Windows Server 2012 Essentials
 
 In Ihrem Netzwerk, auf dem Windows Server Essentials ausgeführt wird, kann nur ein Server vorhanden sein, und dieser Server muss ein Domänen Controller für das Netzwerk sein.  
   

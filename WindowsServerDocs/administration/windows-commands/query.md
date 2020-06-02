@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 90ef2cc14ef0131978956de8df029eaf04baabd3
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1dcea0fa4ea91de56e81c51bf9fe87ec7e3a49fa
+ms.sourcegitcommit: 4894649cc47dfa535306cc334871f81155198f76
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722677"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84254713"
 ---
 # <a name="query"></a>Abfrage
 
@@ -23,9 +23,10 @@ ms.locfileid: "82722677"
 Zeigt Informationen zu Prozessen, Sitzungen und Remotedesktop-Sitzungshost (RD-Sitzungshost)-Servern an.
 
 > [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
+> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn283323(v=ws.11)) in the Microsoft-Dokumentation Windows Server Library.
 
 ## <a name="syntax"></a>Syntax
+
 ```
 query process
 query session
@@ -34,6 +35,7 @@ query user
 ```
 
 ### <a name="parameters"></a>Parameter
+
 |Parameter|BESCHREIBUNG|
 |-------|--------|
 |[query process](query-process.md)|Zeigt Informationen zu Prozessen an, die auf einem Remote Desktop-Sitzungs Host Server ausgeführt werden.|
@@ -42,5 +44,6 @@ query user
 |[Benutzer Abfragen](query-user.md)|Zeigt Informationen zu Benutzersitzungen auf einem Remote Desktop-Sitzungs Host Server an.|
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
-- [Befehlszeilen-Syntax Schlüssel](command-line-syntax-key.md)
-[Remotedesktopdienste Befehls Verweis (Terminal Dienste)](remote-desktop-services-terminal-services-command-reference.md)
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+- [Remotedesktopdienste (Terminaldienste): Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)
