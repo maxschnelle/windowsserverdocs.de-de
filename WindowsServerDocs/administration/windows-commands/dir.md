@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 067b4961aecc6149d6ff68872123acb2cfe99305
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: b6d5b99e905d70d81962f96a303e0bcaae0bd9e9
+ms.sourcegitcommit: 5e10afbd128befb7400a6bcf576f0239cf2ed47f
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992544"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84302825"
 ---
 # <a name="dir"></a>dir
 
@@ -25,12 +25,12 @@ Der Befehl **dir** kann auch in der Windows-Wiederherstellungskonsole mithilfe v
 ## <a name="syntax"></a>Syntax
 
 ```
-dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>]][/o[[:]<sortorder>]] [/t[[:]<timefield>]] [/s] [/b] [/l] [/n] [/x] [/c] [/4]
+dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>]][/o[[:]<sortorder>]] [/t[[:]<timefield>]] [/s] [/b] [/l] [/n] [/x] [/c] [/4] [/r]
 ```
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | BESCHREIBUNG |
+| Parameter | Beschreibung |
 | --------- | ----------- |
 | `[<drive>:][<path>]` | Gibt das Laufwerk und das Verzeichnis an, für die eine Auflistung angezeigt werden soll. |
 | `[<filename>]` | Gibt eine bestimmte Datei oder Gruppe von Dateien an, für die eine Auflistung angezeigt werden soll. |
@@ -38,9 +38,9 @@ dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>
 | /q | Zeigt Dateibesitz Informationen an. |
 | /w | Zeigt die Auflistung im breiten Format an, mit bis zu fünf Dateinamen oder Verzeichnisnamen in jeder Zeile. |
 | /d | Zeigt die Auflistung im gleichen Format wie **/w**an, aber die Dateien sind nach Spalte sortiert. |
-| /a [[:]`<attributes>`] | Zeigt nur die Namen dieser Verzeichnisse und Dateien mit den angegebenen Attributen an. Wenn Sie diesen Parameter nicht verwenden, zeigt der Befehl die Namen aller Dateien mit Ausnahme von ausgeblendeten und Systemdateien an. Wenn Sie diesen Parameter ohne Angabe von *Attributen*verwenden, zeigt der Befehl die Namen aller Dateien an, einschließlich ausgeblendeter Dateien und Systemdateien. Die Liste der möglichen *Attribut* Werte lautet:<ul><li>**d** -Verzeichnisse</li><li>**h** -ausgeblendete Dateien</li><li>**s** -System Dateien</li><li>**l** -Analyse Punkte</li><li>**r** -schreibgeschützte Dateien</li><li>**a** -Dateien, die für die Archivierung bereit sind</li><li>**i** nicht mit Inhalt indizierte Dateien</li></ul>Sie können eine beliebige Kombination dieser Werte verwenden, die Werte jedoch nicht mithilfe von Leerzeichen trennen. Optional können Sie einen Doppelpunkt (:) Trennzeichen, oder Sie können einen Bindestrich (-) als Präfix verwenden, um "Not" zu verwenden. Wenn Sie z. b. das **-s-** Attribut verwenden, werden die Systemdateien nicht angezeigt. |
-| /o [[:]`<sortorder>`] | Sortiert die Ausgabe nach *sortor*, wobei es sich um eine beliebige Kombination der folgenden Werte handeln kann:<ul><li>**n** -alphabetisch nach Name</li><li>**e** -alphabetisch durch Erweiterung</li><li>**g** -Gruppen Verzeichnisse zuerst</li><li>**s** -nach-Größe, kleinste erste</li><li>**d** -nach Datum/Uhrzeit, älteste erste</li><li>Verwenden des **-** Präfixes zum Umkehren der Sortierreihenfolge</li></ul>Mehrere Werte werden in der Reihenfolge verarbeitet, in der Sie Sie auflisten. Trennen Sie mehrere Werte nicht mit Leerzeichen, Sie können jedoch optional einen Doppelpunkt (:) verwenden.<p>Wenn *SortOrder* nicht angegeben wird, listet **dir/o** die Verzeichnisse alphabetisch auf, gefolgt von den Dateien, die ebenfalls alphabetisch sortiert sind. |
-| /t [[:]`<timefield>`] | Gibt an, welches Zeit Feld angezeigt oder für die Sortierung verwendet werden soll. Folgende *TimeField* -Werte sind verfügbar:<ul><li>**c** -Erstellung</li><li>**a** -Letzter Zugriff</li><li>**w** -zuletzt geschrieben</li></ul> |
+| /a [[:] `<attributes>` ] | Zeigt nur die Namen dieser Verzeichnisse und Dateien mit den angegebenen Attributen an. Wenn Sie diesen Parameter nicht verwenden, zeigt der Befehl die Namen aller Dateien mit Ausnahme von ausgeblendeten und Systemdateien an. Wenn Sie diesen Parameter ohne Angabe von *Attributen*verwenden, zeigt der Befehl die Namen aller Dateien an, einschließlich ausgeblendeter Dateien und Systemdateien. Die Liste der möglichen *Attribut* Werte lautet:<ul><li>**d** -Verzeichnisse</li><li>**h** -ausgeblendete Dateien</li><li>**s** -System Dateien</li><li>**l** -Analyse Punkte</li><li>**r** -schreibgeschützte Dateien</li><li>**a** -Dateien, die für die Archivierung bereit sind</li><li>**i** nicht mit Inhalt indizierte Dateien</li></ul>Sie können eine beliebige Kombination dieser Werte verwenden, die Werte jedoch nicht mithilfe von Leerzeichen trennen. Optional können Sie einen Doppelpunkt (:) Trennzeichen, oder Sie können einen Bindestrich (-) als Präfix verwenden, um "Not" zu verwenden. Wenn Sie z. b. das **-s-** Attribut verwenden, werden die Systemdateien nicht angezeigt. |
+| /o [[:] `<sortorder>` ] | Sortiert die Ausgabe nach *sortor*, wobei es sich um eine beliebige Kombination der folgenden Werte handeln kann:<ul><li>**n** -alphabetisch nach Name</li><li>**e** -alphabetisch durch Erweiterung</li><li>**g** -Gruppen Verzeichnisse zuerst</li><li>**s** -nach-Größe, kleinste erste</li><li>**d** -nach Datum/Uhrzeit, älteste erste</li><li>Verwenden des **-** Präfixes zum Umkehren der Sortierreihenfolge</li></ul>Mehrere Werte werden in der Reihenfolge verarbeitet, in der Sie Sie auflisten. Trennen Sie mehrere Werte nicht mit Leerzeichen, Sie können jedoch optional einen Doppelpunkt (:) verwenden.<p>Wenn *SortOrder* nicht angegeben wird, listet **dir/o** die Verzeichnisse alphabetisch auf, gefolgt von den Dateien, die ebenfalls alphabetisch sortiert sind. |
+| /t [[:] `<timefield>` ] | Gibt an, welches Zeit Feld angezeigt oder für die Sortierung verwendet werden soll. Folgende *TimeField* -Werte sind verfügbar:<ul><li>**c** -Erstellung</li><li>**a** -Letzter Zugriff</li><li>**w** -zuletzt geschrieben</li></ul> |
 | /s | Listet jedes Vorkommen des angegebenen Datei namens innerhalb des angegebenen Verzeichnisses und aller Unterverzeichnisse auf. |
 | /b | Zeigt eine leere Liste von Verzeichnissen und Dateien ohne zusätzliche Informationen an. Der **/b** -Parameter überschreibt **/w**. |
 | /l | Zeigt unsortierte Verzeichnisnamen und Dateinamen unter Verwendung von Kleinbuchstaben an. |
@@ -48,6 +48,7 @@ dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>
 | /x | Zeigt die Kurznamen an, die für nicht-8dot3-Dateinamen generiert wurden. Die Anzeige ist identisch mit der Anzeige für **/n**, aber der Kurzname wird vor dem langen Namen eingefügt. |
 | /C | Zeigt das Tausender Trennzeichen in Dateigrößen an. Dies ist das Standardverhalten. Verwenden Sie **/c** , um Trennzeichen auszublenden. |
 | /4 | Zeigt Jahre im vierstelligen Format an. |
+| /r | Zeigt Alternative Datenströme der Datei an. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 #### <a name="remarks"></a>Hinweise
@@ -79,15 +80,15 @@ dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>
   11/30/2004  01:16 PM 0 t97.txt
   ```
 
-  Sie erwarten möglicherweise, `dir t97\*` dass die Eingabe die Datei T97. txt zurückgibt. Bei der Eingabe `dir t97\*` von werden jedoch beide Dateien zurückgegeben, da das Sternchen-Platzhalter Zeichen mit der Kurznamen Zuordnung *T97B4 ~ 1. txt*mit der Datei t. txt2 und T97. txt übereinstimmt. Ebenso werden bei `del t97\*` der Eingabe beide Dateien gelöscht.
+  Sie erwarten möglicherweise, dass `dir t97\*` die Eingabe die Datei T97. txt zurückgibt. `dir t97\*`Bei der Eingabe von werden jedoch beide Dateien zurückgegeben, da das Sternchen-Platzhalter Zeichen mit der Kurznamen Zuordnung *T97B4 ~ 1. txt*mit der Datei t. txt2 und T97. txt übereinstimmt. Ebenso werden bei der Eingabe `del t97\*` beide Dateien gelöscht.
 
-- Sie können das Fragezeichen (?) als Ersatz für ein einzelnes Zeichen in einem Namen verwenden. Wenn Sie z. `dir read???.txt` b. eingeben, werden alle Dateien im aktuellen Verzeichnis mit der Erweiterung ". txt" aufgelistet, die mit "Read" beginnen und von bis zu drei Zeichen gefolgt sind. Hierzu gehören Read. txt, Read1. txt, Read12. txt, Read123. txt und Readme1. txt, jedoch nicht Readme12. txt.
+- Sie können das Fragezeichen (?) als Ersatz für ein einzelnes Zeichen in einem Namen verwenden. Wenn Sie z. b. eingeben, `dir read???.txt` werden alle Dateien im aktuellen Verzeichnis mit der Erweiterung ". txt" aufgelistet, die mit "Read" beginnen und von bis zu drei Zeichen gefolgt sind. Hierzu gehören Read. txt, Read1. txt, Read12. txt, Read123. txt und Readme1. txt, jedoch nicht Readme12. txt.
 
-- Wenn Sie **/a** mit mehr als einem Wert in *Attributen*verwenden, werden mit diesem Befehl nur die Namen der Dateien mit allen angegebenen Attributen angezeigt. Wenn Sie z. b. **/a** mit **r** und **-h** als Attribute verwenden (mit `/a:r-h` oder `/ar-h`), werden mit diesem Befehl nur die Namen der schreibgeschützten Dateien angezeigt, die nicht ausgeblendet sind.
+- Wenn Sie **/a** mit mehr als einem Wert in *Attributen*verwenden, werden mit diesem Befehl nur die Namen der Dateien mit allen angegebenen Attributen angezeigt. Wenn Sie z. b. **/a** mit **r** und **-h** als Attribute verwenden (mit `/a:r-h` oder `/ar-h` ), werden mit diesem Befehl nur die Namen der schreibgeschützten Dateien angezeigt, die nicht ausgeblendet sind.
 
-- Wenn Sie mehr als einen *sortor* -Wert angeben, sortiert dieser Befehl die Dateinamen nach dem ersten Kriterium, dann nach dem zweiten Kriterium usw. Wenn Sie z. b. **/o** mit den **e** **-und-s-** Parametern für *SortOrder* ( `/o:e-s` mithilfe `/oe-s`von oder) verwenden, sortiert dieser Befehl die Namen von Verzeichnissen und Dateien nach Erweiterung mit dem größten ersten und zeigt dann das Endergebnis an. Die alphabetische Sortierung nach Erweiterung bewirkt, dass Dateinamen ohne Erweiterungen zuerst angezeigt werden, dann Verzeichnisnamen und dann Dateinamen mit Erweiterungen.
+- Wenn Sie mehr als einen *sortor* -Wert angeben, sortiert dieser Befehl die Dateinamen nach dem ersten Kriterium, dann nach dem zweiten Kriterium usw. Wenn Sie z. b. **/o** mit den **e** **-und-s-** Parametern für *SortOrder* (mithilfe von `/o:e-s` oder) verwenden `/oe-s` , sortiert dieser Befehl die Namen von Verzeichnissen und Dateien nach Erweiterung mit dem größten ersten und zeigt dann das Endergebnis an. Die alphabetische Sortierung nach Erweiterung bewirkt, dass Dateinamen ohne Erweiterungen zuerst angezeigt werden, dann Verzeichnisnamen und dann Dateinamen mit Erweiterungen.
 
-- Wenn Sie das Umleitungs Symbol (`>`) verwenden, um die Ausgabe dieses Befehls an eine Datei zu senden, oder wenn Sie eine`|`Pipe () verwenden, um die Ausgabe dieses Befehls an einen anderen Befehl `/a:-d` zu senden, müssen Sie und **/b** verwenden, um nur die Dateinamen aufzulisten. Sie können *filename* mit **/b** und **/s** verwenden, um anzugeben, dass dieser Befehl das aktuelle Verzeichnis und die zugehörigen Unterverzeichnisse nach allen Dateinamen durchsuchen soll, die dem *Datei*Namen entsprechen. Mit diesem Befehl werden nur der Laufwerk Buchstabe, der Verzeichnisname, der Dateiname und die Dateinamenerweiterung (ein Pfad pro Zeile) für jeden gefundenen Dateinamen aufgelistet. Bevor Sie eine Pipe verwenden, um die Ausgabe dieses Befehls an einen anderen Befehl zu senden, sollten Sie die *Temp* -Umgebungsvariable in der Datei "Autoexec. NT" festlegen.
+- Wenn Sie das Umleitungs Symbol ( `>` ) verwenden, um die Ausgabe dieses Befehls an eine Datei zu senden, oder wenn Sie eine Pipe () verwenden, `|` um die Ausgabe dieses Befehls an einen anderen Befehl zu senden, müssen Sie `/a:-d` und **/b** verwenden, um nur die Dateinamen aufzulisten. Sie können *filename* mit **/b** und **/s** verwenden, um anzugeben, dass dieser Befehl das aktuelle Verzeichnis und die zugehörigen Unterverzeichnisse nach allen Dateinamen durchsuchen soll, die dem *Datei*Namen entsprechen. Mit diesem Befehl werden nur der Laufwerk Buchstabe, der Verzeichnisname, der Dateiname und die Dateinamenerweiterung (ein Pfad pro Zeile) für jeden gefundenen Dateinamen aufgelistet. Bevor Sie eine Pipe verwenden, um die Ausgabe dieses Befehls an einen anderen Befehl zu senden, sollten Sie die *Temp* -Umgebungsvariable in der Datei "Autoexec. NT" festlegen.
 
 ## <a name="examples"></a>Beispiele
 

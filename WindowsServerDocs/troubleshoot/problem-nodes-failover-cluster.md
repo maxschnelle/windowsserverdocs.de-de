@@ -6,16 +6,16 @@ ms.technology: server-general
 ms.date: 05/28/2020
 author: Deland-Han
 ms.author: delhan
-ms.openlocfilehash: 30714e8a9c5ca4ad13ed6757c6ce1da211b279ac
-ms.sourcegitcommit: ef089864980a1d4793a35cbf4cbdd02ce1962054
+ms.openlocfilehash: 08f5e7ef2ddd0f11abee7d0f21b56c3d5a601d3d
+ms.sourcegitcommit: 5fac756c2c9920757e33ef0a68528cda0c85dd04
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84150228"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84306519"
 ---
 # <a name="having-a-problem-with-nodes-being-removed-from-active-failover-cluster-membership"></a>Probleme mit Knoten, die aus der Mitgliedschaft des aktiven Failoverclusters entfernt wurden
 
-In diesem Artikel wird beschrieben, wie Sie Probleme beheben, bei denen Knoten zufällig aus der aktiven failoverclustermitgliedschaft entfernt werden.
+In diesem Artikel wird erläutert, wie Sie die Probleme beheben, bei denen Knoten zufällig aus der aktiven failoverclustermitgliedschaft entfernt werden.
 
 ## <a name="symptoms"></a>Symptome
 
@@ -66,7 +66,7 @@ Weitere Informationen zur Handhabung bestimmter Routen mit drei oder mehr Knoten
 
 Dies sind die häufigsten Gründe, aus denen diese Ereignisse protokolliert werden, aber es kann auch andere Gründe geben. Der Punkt dieses Blogs war, Ihnen einen Einblick in den Prozess zu vermitteln und außerdem Ideen dazu zu vermitteln, was Sie suchen sollten. Von einigen werden die folgenden Werte auf die maximalen Werte angehoben, um zu versuchen, dieses Problem zu verhindern.
 
-|Parameter|Standard|Bereich|
+|Parameter|Standard|Range|
 |---|---|---|
 |**SameSubnetDelay**|1000 Millisekunden|250-2000 Millisekunden|
 |**CrossSubnetDelay**|1000 Millisekunden|250-4000 Millisekunden|

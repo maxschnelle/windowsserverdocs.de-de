@@ -4,16 +4,16 @@ description: Häufig gestellte Fragen zum Speicher Migrationsdienst, z. b. welch
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 08/19/2019
+ms.date: 06/02/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: a28b25c55b9ad66cd16f3d9e370fec22ec0f2a5d
-ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
+ms.openlocfilehash: 19f114dc663351f1b5d071340acf9c8a3de41617
+ms.sourcegitcommit: 5fac756c2c9920757e33ef0a68528cda0c85dd04
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77125141"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84306509"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Häufig gestellte Fragen (FAQ) zu Storage Migration Service
 
@@ -38,7 +38,7 @@ Der Speicher Migrationsdienst lässt keine Migration zwischen Active Directory D
 
 ## <a name="are-clusters-supported-as-sources-or-destinations"></a>Werden Cluster als Quellen oder Ziele unterstützt?
 
-Der Storage Migration Service unterstützt die Migration von und zu Clustern nach der Installation des kumulativen Updates [KB4513534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) oder nachfolgende Updates. Dies umfasst auch das Migrieren von einem Quell Cluster zu einem Ziel Cluster sowie das Migrieren von einem eigenständigen Quell Server zu einem Ziel Cluster für die Geräte Konsolidierung. 
+Der Storage Migration Service unterstützt die Migration von und zu Clustern nach der Installation des kumulativen Updates [KB4513534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) oder nachfolgende Updates. Dies umfasst auch das Migrieren von einem Quell Cluster zu einem Ziel Cluster sowie das Migrieren von einem eigenständigen Quell Server zu einem Ziel Cluster für die Geräte Konsolidierung. Es ist jedoch nicht möglich, einen Cluster zu einem eigenständigen Server zu migrieren. 
 
 ## <a name="do-local-groups-and-local-users-migrate"></a>Werden lokale Gruppen und lokale Benutzer migriert?
 
@@ -63,21 +63,21 @@ Der Speicher Migrationsdienst migriert alle Flags, Einstellungen und die Sicherh
     - Limit für gleichzeitige Benutzer
     - Fortlaufend verfügbar
     - Beschreibung           
-    - Verschlüsseln von Daten
+    - Daten verschlüsseln
     - Identitäts-Remoting
     - Infrastruktur
     - Name
-    - Path
-    - Bereich
+    - Pfad
+    - Bereichsbezogen
     - Bereichsname
     - Sicherheitsbeschreibung
     - Schatten Kopie
-    - Sonderformat
-    - Temporär
+    - Speziell
+    - Temporäre Prozeduren
 
 ## <a name="can-i-consolidate-multiple-servers-into-one-server"></a>Kann ich mehrere Server auf einem Server konsolidieren?
 
-Die in Windows Server 2019 enthaltene Version des Speicher Migrations Dienstanbieter unterstützt nicht das Konsolidieren mehrerer Server zu einem Server. Ein Beispiel für eine Konsolidierung wäre die Migration von drei separaten Quell Servern, die die gleichen Freigabe Namen und lokalen Dateipfade aufweisen können, auf einem einzelnen neuen Server, der diese Pfade und Freigaben virtualisiert, um Überschneidungen oder Kollisionen zu vermeiden und dann alle drei vorherige Servernamen und IP-Adresse. Es ist jedoch möglich, eigenständige Server auf mehrere Dateiserver Ressourcen in einem einzelnen Cluster zu migrieren. 
+Die in Windows Server 2019 enthaltene Version des Speicher Migrations Dienstanbieter unterstützt nicht das Konsolidieren mehrerer Server zu einem Server. Ein Beispiel für eine Konsolidierung wäre die Migration von drei separaten Quell Servern, die die gleichen Freigabe Namen und lokalen Dateipfade aufweisen können: auf einem einzelnen neuen Server, der diese Pfade und Freigaben virtualisiert, um Überschneidungen oder Kollisionen zu vermeiden, und dann alle drei früheren Servernamen und die IP-Adresse beantwortet. Es ist jedoch möglich, eigenständige Server auf mehrere Dateiserver Ressourcen in einem einzelnen Cluster zu migrieren. 
 
 ## <a name="can-i-migrate-from-sources-other-than-windows-server"></a>Kann ich aus anderen Quellen als Windows Server migrieren?
 
@@ -99,11 +99,21 @@ Der Speicher Migrationsdienst enthält eine Multithread-Lese-und-Kopier-Engine, 
     
     Filetransferthreadcount
 
-   Der gültige Bereich liegt zwischen 1 und 128 in Windows Server 2019. Nachdem Sie geändert haben, müssen Sie den Speicher Migrationsdienst-Proxy Dienst auf allen Computern, die Teil einer Migration sind, neu starten. Verwenden Sie diese Einstellung mit Bedacht. Wenn Sie einen höheren Wert festlegen, benötigen Sie möglicherweise zusätzliche Kerne, Speicherleistung und Netzwerkbandbreite. Wenn die Einstellung zu hoch ist, kann dies im Vergleich zu den Standardeinstellungen zu Leistungseinbußen führen.
+   Der gültige Bereich liegt zwischen 1 und 512 in Windows Server 2019. Sie müssen den Dienst nicht neu starten, um diese Einstellung zu verwenden, solange Sie einen neuen Auftrag erstellen. Verwenden Sie diese Einstellung mit Bedacht. Wenn Sie einen höheren Wert festlegen, benötigen Sie möglicherweise zusätzliche Kerne, Speicherleistung und Netzwerkbandbreite. Wenn die Einstellung zu hoch ist, kann dies im Vergleich zu den Standardeinstellungen zu Leistungseinbußen führen.
+
+- **Ändern Sie die standardmäßigen parallelen Freigabe Threads.** Der Speicher Migrationsdienst-Proxy Dienst kopiert von 8 Freigaben gleichzeitig in einem bestimmten Auftrag. Sie können die Anzahl der gleichzeitigen Freigabe Threads erhöhen, indem Sie den folgenden Registrierungs REG_DWORD Wert Name in Decimal auf dem Orchestrator-Server des Speicher Migrations Dienstanbieter anpassen:
+
+    HKEY_LOCAL_MACHINE \software\microsoft\sms
+    
+    Endpointfiletransfertaskcount 
+
+   Der gültige Bereich liegt zwischen 1 und 512 in Windows Server 2019. Sie müssen den Dienst nicht neu starten, um diese Einstellung zu verwenden, solange Sie einen neuen Auftrag erstellen. Verwenden Sie diese Einstellung mit Bedacht. Wenn Sie einen höheren Wert festlegen, benötigen Sie möglicherweise zusätzliche Kerne, Speicherleistung und Netzwerkbandbreite. Wenn die Einstellung zu hoch ist, kann dies im Vergleich zu den Standardeinstellungen zu Leistungseinbußen führen. 
+   
+    Die Summe von filetransferthreadcount und endpointfiletransfertaskcount ist die Anzahl der Dateien, die vom Speicher Migrationsdienst gleichzeitig von einem Quellknoten in einem Auftrag kopiert werden können. Zum Hinzufügen paralleler Quellknoten erstellen und führen Sie mehr gleichzeitige Aufträge aus.
 
 - **Fügen Sie Kerne und Arbeitsspeicher hinzu.**  Es wird dringend empfohlen, dass auf den Quell-, Orchestrator-und Ziel Computern mindestens zwei Prozessorkerne oder zwei vCPUs vorhanden sind und mehr Inventur-und Übertragungsleistung erheblich unterstützen, insbesondere in Kombination mit filetransferthreadcount (oben). Beim Übertragen von Dateien, die größer sind als die üblichen Office-Formate (Gigabyte oder höher), profitiert die Übertragungsleistung von mehr Arbeitsspeicher als der Standardwert von 2 GB.
 
-- **Erstellen Sie mehrere Aufträge.** Wenn Sie einen Auftrag mit mehreren Server Quellen erstellen, werden die einzelnen Server seriell für Inventur-, Übertragungs-und umerstellungsart kontaktiert. Dies bedeutet, dass jeder Server seine Phase beenden muss, bevor ein anderer Server gestartet wird. Um gleichzeitig weitere Server auszuführen, erstellen Sie einfach mehrere Aufträge, wobei jeder Auftrag nur einen Server enthält. SMS unterstützt bis zu 100 gleichzeitig laufende Aufträge. Dies bedeutet, dass ein einzelner Orchestrator viele Windows Server 2019-Zielcomputer parallelisieren kann. Es wird nicht empfohlen, mehrere parallele Aufträge auszuführen, wenn es sich bei den Ziel Computern um Windows Server 2016 oder Windows Server 2012 R2 handelt, ohne dass der SMS-Proxy Dienst auf dem Ziel ausgeführt wird. der Orchestrator muss alle Übertragungen selbst ausführen und kann zu einem eng. Die Möglichkeit, Server parallel innerhalb eines einzelnen Auftrags auszuführen, ist eine Funktion, die in einer späteren Version von SMS hinzugefügt werden soll.
+- **Erstellen Sie mehrere Aufträge.** Wenn Sie einen Auftrag mit mehreren Server Quellen erstellen, werden die einzelnen Server seriell für Inventur-, Übertragungs-und umerstellungsart kontaktiert. Dies bedeutet, dass jeder Server seine Phase beenden muss, bevor ein anderer Server gestartet wird. Um gleichzeitig weitere Server auszuführen, erstellen Sie einfach mehrere Aufträge, wobei jeder Auftrag nur einen Server enthält. SMS unterstützt bis zu 100 gleichzeitig laufende Aufträge. Dies bedeutet, dass ein einzelner Orchestrator viele Windows Server 2019-Zielcomputer parallelisieren kann. Es wird nicht empfohlen, mehrere parallele Aufträge auszuführen, wenn die Zielcomputer Windows Server 2016 oder Windows Server 2012 R2 sind, ohne dass der SMS-Proxy Dienst auf dem Ziel ausgeführt wird. der Orchestrator muss alle Übertragungen selbst ausführen und könnte zu einem Engpass werden. Die Möglichkeit, Server parallel innerhalb eines einzelnen Auftrags auszuführen, ist eine Funktion, die in einer späteren Version von SMS hinzugefügt werden soll.
 
 - **Verwenden Sie SMB 3 mit RDMA-Netzwerken.** Bei der Übertragung von einem Quellcomputer mit Windows Server 2012 oder höher unterstützt SMB 3. x den SMB Direct-Modus und RDMA-Netzwerk. RDMA verschiebt die meisten CPU-Kosten für die Übertragung von den CPUs CPUs zu den NIC-Prozessoren, wodurch die Latenz und die CPU-Auslastung des Servers reduziert Außerdem haben RDMA-Netzwerke wie ROCE und IWarp in der Regel eine wesentlich höhere Bandbreite als typische TCP/Ethernet-Verbindungen, einschließlich der Geschwindigkeit von 25, 50 und 100 GB pro Schnittstelle. Durch die Verwendung von SMB Direct wird die Übertragungsgeschwindigkeit in der Regel vom Netzwerk in den Speicher selbst verlagert.   
 
@@ -116,7 +126,7 @@ Der Speicher Migrationsdienst enthält eine Multithread-Lese-und-Kopier-Engine, 
 
 - **Aktualisieren von Treibern.** Installieren Sie ggf. den aktuellen Hersteller Speicher und die Gehäuse Firmware und-Treiber, die neuesten Hersteller-HBA-Treiber, die neueste BIOS-/UEP-Firmwareversion, die neuesten Netzwerktreiber des Anbieters und die neuesten Server für die Hauptschlüssel-Chipsätze auf den Quell-, Ziel Starten Sie die Knoten gegebenenfalls neu. Konfigurieren Sie die Hardware für freigegebenen Speicher und Netzwerk gemäß der Dokumentation des jeweiligen Herstellers.
 
-- **Aktivieren Sie die Verarbeitung mit hoher Leistung.** Stellen Sie sicher, dass die BIOS/UEFI-Einstellungen für Server eine hohe Leistung ermöglichen (z. B. Deaktivieren des C-Status, Festlegen der QPI-Geschwindigkeit, Aktivieren von NUMA und Festlegen der höchsten Speicherfrequenz). Stellen Sie sicher, dass die Energie Verwaltung in Windows Server auf hohe Leistung festgelegt ist. Führen Sie gegebenenfalls einen Neustart aus. Vergessen Sie nicht, diese nach Abschluss der Migration an die entsprechenden Zustände zurückzugeben. 
+- **Aktivieren Sie die Verarbeitung mit hoher Leistung.** Stellen Sie sicher, dass die BIOS/UEFI-Einstellungen für Server eine hohe Leistung ermöglichen (z.B. Deaktivieren des C-Status, Festlegen der QPI-Geschwindigkeit, Aktivieren von NUMA und Festlegen der höchsten Speicherfrequenz). Stellen Sie sicher, dass die Energie Verwaltung in Windows Server auf hohe Leistung festgelegt ist. Führen Sie gegebenenfalls einen Neustart aus. Vergessen Sie nicht, diese nach Abschluss der Migration an die entsprechenden Zustände zurückzugeben. 
 
 - **Optimieren der Hardware** Lesen Sie die [Richtlinien zur Leistungsoptimierung für Windows Server 2016](https://docs.microsoft.com/windows-server/administration/performance-tuning/) zur Optimierung von Orchestrator und Ziel Computern unter Windows Server 2019 und Windows Server 2016. Der Abschnitt zur Optimierung der [Leistung des Netzwerk Subsystems](https://docs.microsoft.com/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics) enthält besonders wertvolle Informationen.
 
@@ -138,7 +148,8 @@ Der Speicher Migrationsdienst verwendet eine ESE (Extensible Storage Engine)-Dat
 4. Verschieben Sie den Ordner auf ein anderes Laufwerk auf dem Orchestrator-Computer.
 5. Legen Sie den folgenden Registrierungs REG_SZ Wert fest:
 
-    HKEY_LOCAL_MACHINE \software\microsoft\sms DatabasePath = *Pfad zum neuen Daten Bank Ordner auf einem anderen Volume* . 
+    HKEY_LOCAL_MACHINE \software\microsoft\sms DatabasePath = *Pfad zum neuen Daten Bank Ordner auf einem anderen Volume*
+    
 6. Stellen Sie sicher, dass das System über Vollzugriff auf alle Dateien und Unterordner des Ordners verfügt.
 7. Entfernen Sie Ihre eigenen Konten Berechtigungen.
 8. Starten Sie den Dienst "Storage Migration Service".
@@ -155,13 +166,13 @@ Beim Durchführen einer Übertragung wird vom Speicher Migrationsdienst versucht
 
 Die meisten Fehler in der CSV-Übertragungs Datei sind Windows-System Fehler Codes. Informationen zu den einzelnen Fehlern finden Sie in der Dokumentation zu [Win32-Fehlercodes](https://docs.microsoft.com/windows/win32/debug/system-error-codes). 
 
-## <a name="give-feedback"></a>Welche Optionen gibt es, um Feedback zu geben, Fehler zu melden oder Support zu erhalten?
+## <a name="what-are-my-options-to-give-feedback-file-bugs-or-get-support"></a><a name="give-feedback"></a>Welche Optionen gibt es, um Feedback zu geben, Fehler zu melden oder Support zu erhalten?
 
 So geben Sie Feedback zum Speicher Migrationsdienst an:
 
 - Verwenden Sie das in Windows 10 enthaltene Feedback-Hub-Tool, klicken Sie auf "Feature vorschlagen", und geben Sie die Kategorie "Windows Server" und die Unterkategorie "Speicher Migration" an.
 - Verwenden der [Windows Server UserVoice](https://windowsserver.uservoice.com) -Website
-- E-Mail smsfeed@microsoft.com
+- E-Mail an smsfeed@microsoft.com
 
 So melden Sie Fehler:
 

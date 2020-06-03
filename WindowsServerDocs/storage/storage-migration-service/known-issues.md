@@ -4,16 +4,16 @@ description: Bekannte Probleme und Problembehandlung für den Speicher Migration
 author: nedpyle
 ms.author: nedpyle
 manager: tiaascs
-ms.date: 02/10/2020
+ms.date: 06/02/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: f8a1e70bba740875e19660d5a729a952c9fae8f2
-ms.sourcegitcommit: d56c042c58833bdaa9a6fe54dd68f540af12fc6e
+ms.openlocfilehash: 5a4a99434d67c08551d97589f8f2638e1024754d
+ms.sourcegitcommit: 5fac756c2c9920757e33ef0a68528cda0c85dd04
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/04/2020
-ms.locfileid: "80661071"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84306499"
 ---
 # <a name="storage-migration-service-known-issues"></a>Bekannte Probleme bei Storage Migration Service
 
@@ -64,7 +64,7 @@ Dieses Problem wurde in einem späteren Release von Windows Server behoben.
 
 Wenn Sie das Windows Admin Center oder PowerShell verwenden, um das CSV-Protokoll mit ausführlichen Fehlern bei der Übertragungs Operation herunterzuladen, erhalten Sie folgende Fehlermeldung:
 
- >   Übertragungsprotokoll: Überprüfen Sie, ob die Dateifreigabe in der Firewall zulässig ist. : Dieser Anforderungs Vorgang, der an net. TCP://localhost: 28940/SMS/Service/1/Transfer gesendet wurde, hat innerhalb des konfigurierten Timeouts (00:01:00) keine Antwort empfangen. Die für diesen Vorgang vorgesehene Zeit war möglicherweise Teil eines längeren Timeouts. Die Ursache dafür könnte sein, dass der Dienst den Vorgang immer noch verarbeitet oder dass der Dienst keine Antwortmeldung senden konnte. Erhöhen Sie das Timeout für den Vorgang (indem Sie den Kanal/Proxy in IContextChannel umwandeln und die Eigenschaft OperationTimeout festlegen), und stellen Sie sicher, dass der Dienst eine Verbindung mit dem Client herstellen kann.
+ >   Übertragungsprotokoll: Überprüfen Sie, ob die Dateifreigabe in der Firewall zulässig ist. : Dieser Anforderungs Vorgang, der an net. TCP://localhost: 28940/SMS/Service/1/Transfer gesendet wurde, hat innerhalb des konfigurierten Timeouts (00:01:00) keine Antwort empfangen. Die für diesen Vorgang zugewiesene Zeit war möglicherweise ein Teil eines längeren Timeouts. Möglicherweise wird der Vorgang noch vom Dienst verarbeitet, oder es konnte keine Antwortnachricht vom Dienst gesendet werden. Erhöhen Sie das Timeout für den Vorgang (indem Sie den Kanal/Proxy in IContextChannel umwandeln und die Eigenschaft OperationTimeout festlegen), und stellen Sie sicher, dass der Dienst eine Verbindung mit dem Client herstellen kann.
 
 Dieses Problem wird durch eine extrem große Anzahl übertragener Dateien verursacht, die nicht in dem vom Speicher Migrationsdienst zulässigen Standard Timeout von einer Minute gefiltert werden können. 
 
@@ -136,7 +136,7 @@ Um dieses Problem zu beheben, installieren Sie [Windows Update 2. April 2019 –
 
 ## <a name="dfsr-hashes-mismatch-when-using-storage-migration-service-to-preseed-data"></a>Nicht übereinstimmende DFSR-Hashes bei der Verwendung von Storage Migration Service zum vorab Seed von Daten
 
-Wenn Sie den Speicher Migrationsdienst zum Übertragen von Dateien an ein neues Ziel verwenden, können Sie die DFS-Replikation (DFSR) zum Replizieren dieser Daten mit einem vorhandenen DFSR-Server über die vorab bereitgestellte Replikation oder das Klonen von DFSR-Datenbanken konfigurieren. nicht übereinstimmende und werden erneut repliziert. Die Datenströme, Sicherheitsdaten Ströme, Größen und Attribute werden nach der Verwendung von SMS für die Übertragung der Datenströme angezeigt. Wenn Sie die Dateien mit icacls oder dem Klon Debugprotokoll der DFSR-Datenbank untersuchen, werden folgende
+Wenn Sie den Speicher Migrationsdienst zum Übertragen von Dateien an ein neues Ziel verwenden, können Sie DFS-Replikation für die Replikation dieser Daten mit einem vorhandenen Server durch die vorab bereitgestellte Replikation oder das Klonen von DFS-Replikation-Datenbank verwenden, dass alle Dateien einen Hash Konflikt haben und erneut repliziert werden. Die Datenströme, Sicherheitsdaten Ströme, Größen und Attribute werden nach der Verwendung von Storage Migration Service für die Übertragung von vollständig abgeglichen. Wenn Sie die Dateien mit icacls oder dem DFS-Replikation-Daten Bank Klon-Debugprotokoll untersuchen, werden
 
 Quelldatei:
 
@@ -260,7 +260,7 @@ Nach der Installation von [KB4512534](https://support.microsoft.com/help/4512534
     Description:
     02/14/2020-13:18:21.097 [Erro] Failed device discovery stage SystemInfo with error: (0x80005000) Unknown error (0x80005000)   
   
-Dieser Fehler wird durch einen Code Fehler im Speicher Migrationsdienst verursacht, wenn Sie Migrations Anmelde Informationen in Form eines Benutzer Prinzipal namens (User Principal Name, UPN) bereitstellen, z. b. "meghan@contoso.com". Der Orchestrator-Dienst des Speicher Migrations Dienstanbieter kann dieses Format nicht ordnungsgemäß analysieren, was zu einem Fehler bei einer Domänen Suche führt, die zur Unterstützung der Cluster Migration in KB4512534 und 19h1 hinzugefügt wurde.
+Dieser Fehler wird durch einen Code Fehler im Speicher Migrationsdienst verursacht, wenn Sie Migrations Anmelde Informationen in Form eines Benutzer Prinzipal namens (User Principal Name, UPN) bereitstellen, z meghan@contoso.com . b. "". Der Orchestrator-Dienst des Speicher Migrations Dienstanbieter kann dieses Format nicht ordnungsgemäß analysieren, was zu einem Fehler bei einer Domänen Suche führt, die zur Unterstützung der Cluster Migration in KB4512534 und 19h1 hinzugefügt wurde.
 
 Um dieses Problem zu umgehen, geben Sie Anmelde Informationen im Format "Domäne \ Benutzer" an, z. b. "contoso\meghan".
 
@@ -301,7 +301,7 @@ Wenn Sie versuchen, eine Inventur mit dem Speicher Migrationsdienst-Orchestrator
 
 Dieses Problem wird durch das [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818) -Update behoben.
 
-## <a name="uninstalling-a-cumulutative-update-prevents-storage-migration-service-from-starting"></a>Das Deinstallieren eines cumulutative-Updates verhindert, dass der Speicher Migrationsdienst gestartet wird.
+## <a name="uninstalling-a-cumulative-update-prevents-storage-migration-service-from-starting"></a>Beim Deinstallieren eines kumulativen Updates wird der Speicher Migrationsdienst nicht gestartet.
 
 Durch das Deinstallieren von kumulativen Windows Server-Updates kann der Speicher Migrationsdienst nicht mehr gestartet werden. Um dieses Problem zu beheben, können Sie die Speicher Migrationsdienst-Datenbank sichern und löschen:
 
@@ -345,9 +345,9 @@ Bei dem Versuch, einen Ausschneiden einer Windows Server 2008 R2-Cluster Quelle 
 
 Dieses Problem wird durch eine fehlende API in älteren Versionen von Windows Server verursacht. Zurzeit gibt es keine Möglichkeit, Windows Server 2008-und Windows Server 2003-Cluster zu migrieren. Sie können eine Inventur und Übertragung ohne Probleme auf Windows Server 2008 R2-Clustern durchführen und dann die Umstellung manuell durchführen, indem Sie die Ressource NetName und IP-Adresse des Cluster Quelldatei Servers manuell ändern und dann den NetName und die IP-Adresse des Ziel Clusters entsprechend der ursprünglichen Quelle ändern. 
 
-## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer-when-using-dhcp"></a>Die Umstellung hängt von "38% Mapping Network Interfaces on the Source Computer..." ab. bei Verwendung von DHCP 
+## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer-when-using-static-ips"></a>Die Umstellung hängt von "38% Mapping Network Interfaces on the Source Computer..." ab. bei Verwendung statischer IPS 
 
-Wenn Sie versuchen, einen Ausschneide eines Quell Computers auszuführen, wenn der Quellcomputer für die Verwendung einer neuen statischen (nicht DHCP-) IP-Adresse auf einer oder mehreren Netzwerkschnittstellen festgelegt wurde, bleibt der Ausschneide Schritt in der Phase "38% Mapping Network Interfaces on the Source comnputer..." und Sie erhalten die folgende Fehlermeldung im SMS-Ereignisprotokoll:
+Wenn Sie versuchen, einen Ausschneide Bereich eines Quell Computers auszuführen, wenn der Quellcomputer für die Verwendung einer neuen statischen (nicht DHCP-) IP-Adresse auf einer oder mehreren Netzwerkschnittstellen festgelegt wurde, bleibt die Ausschneide in der Phase "38% Mapping Netzwerkschnittstellen auf dem Quellcomputer..." hängen. und Sie erhalten den folgenden Fehler im Ereignisprotokoll für den Speicher Migrationsdienst:
 
     Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Admin
     Source:        Microsoft-Windows-StorageMigrationService-Proxy
@@ -372,9 +372,13 @@ Wenn Sie versuchen, einen Ausschneide eines Quell Computers auszuführen, wenn d
 
 Die Untersuchung des Quell Computers zeigt, dass die ursprüngliche IP-Adresse nicht geändert werden kann. 
 
-Dieses Problem tritt nicht auf, wenn Sie auf dem Windows Admin Center-Bildschirm "Konfiguration konfigurieren" die Option "DHCP verwenden" ausgewählt haben, nur wenn Sie eine neue statische IP-Adresse, ein Subnetz und ein Gateway angeben. 
+Dieses Problem tritt nicht auf, wenn Sie auf dem Windows Admin Center-Bildschirm "Konfigurieren des Windows Admin Centers" die Option "DHCP verwenden" ausgewählt haben, nur wenn Sie eine neue statische IP-Adresse angeben. 
 
-Dieses Problem wird durch das [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818) -Update behoben.
+Für dieses Problem gibt es zwei Lösungen: 
+
+1. Dieses Problem wurde zuerst durch das [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818) -Update gelöst. Der vorherige Code Fehler verhinderte die Verwendung statischer IP-Adressen.
+
+2. Wenn Sie auf den Netzwerkschnittstellen des Quell Computers keine Standard-Gateway-IP-Adresse angegeben haben, tritt dieses Problem auch mit dem KB4537818-Update auf. Um dieses Problem zu umgehen, legen Sie eine gültige Standard-IP-Adresse auf den Netzwerkschnittstellen fest, indem Sie das Applet Network Connections (NCPA) verwenden. CPL) oder das PowerShell-Cmdlet Set-nettroute.   
 
 ## <a name="slower-than-expected-re-transfer-performance"></a>Langsamer als erwartete erneute Übertragungsleistung
 
@@ -389,7 +393,7 @@ Nach dem Starten der Übertragung von oder zu einem Domänen Controller:
  1. Es werden keine Daten migriert, und auf dem Ziel werden keine Freigaben erstellt.
  2. Im Windows Admin Center wird ein rotes Fehler Symbol ohne Fehlermeldung angezeigt.
  3. Mindestens ein AD-Benutzer und eine lokale Domänen Gruppe haben den Namen und/oder das Anmelde Attribut vor Windows 2000 geändert.
- 4. Das Ereignis 3509 wird im SMS-Orchestrator angezeigt:
+ 4. Das Ereignis 3509 wird im Orchestrator für den Speicher Migrationsdienst angezeigt:
  
         Log Name:      Microsoft-Windows-StorageMigrationService/Admin
         Source:        Microsoft-Windows-StorageMigrationService
@@ -415,13 +419,13 @@ Dies ist das erwartete Verhalten, wenn Sie versucht haben, von oder zu einem Dom
 
 Wenn Sie die Übertragung bereits einmal ausgeführt haben, gehen Sie wie folgt vor:
 
- 1. Verwenden Sie den folgenden AD PowerShell-Befehl für einen Domänen Controller, um geänderte Benutzer oder Gruppen zu suchen (Ändern von searchbase entsprechend dem Domänen Namen Ihres Domänen Namens): 
+ 1. Verwenden Sie den folgenden AD PowerShell-Befehl für einen Domänen Controller, um geänderte Benutzer oder Gruppen zu suchen (Ändern von searchbase entsprechend dem definierten Domänen Namen): 
 
     ```PowerShell
     Get-ADObject -Filter 'Description -like "*storage migration service renamed*"' -SearchBase 'DC=<domain>,DC=<TLD>' | ft name,distinguishedname
     ```
    
- 2. Bearbeiten Sie für alle Benutzer, die mit Ihrem ursprünglichen Namen zurückgegeben werden, ihren "Benutzer Anmelde Namen (Pre-Windows 2000)", um das zufällige Zeichen Suffix zu entfernen, das von Storage Migration Service hinzugefügt wurde, damit dieser Benutzer sich anmelden kann.
+ 2. Bearbeiten Sie für alle Benutzer, die mit Ihrem ursprünglichen Namen zurückgegeben werden, ihren "Benutzer Anmelde Namen (Pre-Windows 2000)", um das zufällige Zeichen Suffix zu entfernen, das von Storage Migration Service hinzugefügt wurde, sodass sich dieser Benutzer anmelden kann.
  3. Bearbeiten Sie für alle Gruppen, die mit Ihrem ursprünglichen Namen zurückgegeben werden, ihren "Gruppennamen (Pre-Windows 2000)", um das zufällige Zeichen Suffix zu entfernen, das von Storage Migration Service hinzugefügt wurde.
  4. Für alle deaktivierten Benutzer oder Gruppen, deren Namen jetzt ein durch Storage Migration Service hinzugefügtes Suffix enthalten, können Sie diese Konten löschen. Sie können überprüfen, ob Benutzerkonten zu einem späteren Zeitpunkt hinzugefügt wurden, da Sie nur die Gruppe "Domänen Benutzer" enthalten und ein erstelltes Datum/Uhrzeit-Wert für die Übertragungs Start Zeit des Speicher Migrations dienstan
  
@@ -479,7 +483,7 @@ Wenn Sie versuchen, die Inventur auszuführen, erhalten Sie Folgendes:
        at Microsoft.Win32.RegistryKey.Win32ErrorStatic(Int32 errorCode, String str)
        at Microsoft.Win32.RegistryKey.OpenRemoteBaseKey(RegistryHive hKey, String machineName, RegistryView view)
 
-Zu diesem Zeitpunkt versucht der Speicher Migrationsdienst-Orchestrator, die Quellcomputer Konfiguration zu ermitteln, um die Konfiguration des Quell Computers zu bestimmen, wird jedoch vom Quell Server abgelehnt, was besagt, dass der Registrierungs Pfad nicht vorhanden ist. Folgende Ursachen sind möglich:
+Zu diesem Zeitpunkt versucht der Speicher Migrationsdienst-Orchestrator, die Quellcomputer Konfiguration zu ermitteln, um die Konfiguration des Quell Computers zu bestimmen, wird jedoch vom Quell Server abgelehnt, was besagt, dass der Registrierungs Pfad nicht vorhanden ist. Mögliche Ursachen:
 
  - Der Remote Registrierungsdienst wird auf dem Quellcomputer nicht ausgeführt.
  - die Firewall lässt keine Remote Registrierungs Verbindungen mit dem Quell Server vom Orchestrator zu.
@@ -488,7 +492,7 @@ Zu diesem Zeitpunkt versucht der Speicher Migrationsdienst-Orchestrator, die Que
  
  ## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer"></a>Die Umstellung hängt von "38% Mapping Network Interfaces on the Source Computer..." ab. 
 
-Wenn Sie versuchen, das Ausschneiden eines Quell Computers auszuführen, bleibt das Ausschneiden in der Phase "38% Mapping Network Interfaces on the Source comnputer..." hängen. und Sie erhalten die folgende Fehlermeldung im SMS-Ereignisprotokoll:
+Bei dem Versuch, einen Ausschneide Versuch eines Quell Computers auszuführen, bleibt die Ausschneide in der Phase "38% Mapping Netzwerkschnittstellen auf dem Quellcomputer..." hängen. und Sie erhalten den folgenden Fehler im Ereignisprotokoll für den Speicher Migrationsdienst:
 
     Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Admin
     Source:        Microsoft-Windows-StorageMigrationService-Proxy
