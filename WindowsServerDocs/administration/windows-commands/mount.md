@@ -1,6 +1,6 @@
 ---
 title: mount
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den Mount-Befehl, der NFS-Netzwerkfreigaben (Network File System) bereitstellt.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,47 +9,46 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2e7ef55f5e5b66a0501c62767968a4192880040f
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 823b88b8ab1168776c25e05e3dbf5ec08d784724
+ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723930"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84354560"
 ---
 # <a name="mount"></a>mount
 
+Ein Befehlszeilen-Hilfsprogramm, das NFS-Netzwerkfreigaben (Network File System) bereitstellt. Bei Verwendung ohne Optionen oder Argumente zeigt **Mount** Informationen zu allen bereitgestellten NFS-Dateisystemen an.
 
-
-Zum Einbinden von Network File System (NFS)-Netzwerkfreigaben können Sie **einbinden** verwenden.
+> [!NOTE]
+> Dieses Hilfsprogramm ist nur verfügbar, wenn der **Client für NFS** installiert ist.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-mount [-o <Option>[...]] [-u:<UserName>] [-p:{<Password> | *}] {\\<ComputerName>\<ShareName> | <ComputerName>:/<ShareName>} {<DeviceName> | *}
+mount [-o <option>[...]] [-u:<username>] [-p:{<password> | *}] {\\<computername>\<sharename> | <computername>:/<sharename>} {<devicename> | *}
 ```
 
-## <a name="description"></a>BESCHREIBUNG
+### <a name="parameters"></a>Parameter
 
-Das Bereitstellungs Befehlszeilen-Hilfsprogramm **bindet das durch** *ShareName* identifizierte Dateisystem ein, das von dem durch den *Computernamen* identifizierten NFS-Server exportiert wurde, und ordnet *das durch den* ersten verfügbaren Treiber Buchstaben **&#42;** angegebene Laufwerk Buchstaben zu. Benutzer können dann auf das exportierte Dateisystem zugreifen, als handele es sich um ein Laufwerk auf dem lokalen Computer. Bei Verwendung ohne Optionen oder Argumente zeigt **Mount** Informationen zu allen bereitgestellten NFS-Dateisystemen an.
+| Parameter  | BESCHREIBUNG |
+| ---------- | ----------- |
+| -o rsize =`<buffersize>` | Legt die Größe des Lese Puffers in Kilobyte fest. Zulässige Werte sind 1, 2, 4, 8, 16 und 32; der Standardwert ist 32 KB. |
+| -o wsize =`<buffersize>` | Legt die Größe des Schreib Puffers in Kilobyte fest. Zulässige Werte sind 1, 2, 4, 8, 16 und 32; der Standardwert ist 32 KB. |
+| -o Timeout =`<seconds>` | Legt den Timeout Wert für einen Remote Prozedur Aufruf (RPC) in Sekunden fest. Zulässige Werte sind 0,8, 0,9 und jede beliebige ganze Zahl im Bereich 1-60; der Standardwert ist 0,8. |
+| -o Retry =`<number>` | Legt die Anzahl der Wiederholungs Versuche für eine weiche Bereitstellung fest. Zulässige Werte sind ganze Zahlen im Bereich 1-10; der Standardwert ist 1. |
+| -o mtype =`{soft|hard}` | Legt den Einstellungstyp für die NFS-Freigabe fest. Standardmäßig wird von Windows eine weiche einreihe verwendet. Bei Verbindungsproblemen ist das Timeout bei der Soft-Bereitstellung leichter. um die e/a-Unterbrechung bei NFS-Serverneustarts zu reduzieren, empfiehlt es sich jedoch, eine harte Bereitstellung zu verwenden.|
+| -o anon | Wird als anonymer Benutzer bereitgestellt. |
+| -o NOLOCK | Deaktiviert das Sperren (standardmäßig **aktiviert**). |
+| -o CaseSensitive | Erzwingt bei Datei Suchvorgängen auf dem Server die Groß-/Kleinschreibung. |
+| -o FileAccess =`<mode>` | Gibt den Standard Berechtigungs Modus von neuen Dateien an, die auf der NFS-Freigabe erstellt werden. Geben Sie den *Modus* als dreistellige Zahl in der Form *OGW*an, wobei *o*, *g*und *w* jede Ziffer sind, die den Zugriff auf den Besitzer, die Gruppe und die Welt der Datei darstellt. Die Ziffern müssen im Bereich 0-7 liegen, einschließlich:<ul><li>**0:** Kein Zugriff</li><li>**1:** x (Zugriff ausführen)</li><li>**2:** w (Schreibzugriff)</li><li>**3:** WX (Schreib-und Ausführungs Zugriff)</li><li>**4:** r (Lesezugriff)</li><li>**5:** RX (Lese-und Ausführungs Zugriff)</li><li>**6:** RW (Lese-und Schreibzugriff)</li><li>**7:** rwx (Lese-, Schreib-und Ausführungs Zugriff)</li></ul> |
+| -o lang =`{euc-jp|euc-tw|euc-kr|shift-jis|Big5|Ksc5601|Gb2312-80|Ansi)` | Gibt die sprach Codierung an, die auf einer NFS-Freigabe konfiguriert werden soll. Sie können nur eine Sprache auf der Freigabe verwenden. Dieser Wert kann einen der folgenden Werte enthalten:<ul><li>**EUC-JP:** Japanisch</li><li>**EUC-TW:** Chinesisch</li><li>**EUC-KR:** Koreanisch</li><li>**Shift-JIS:** Japanisch</li><li>**Big5:** Chinesisch</li><li>**Ksc5601:** Koreanisch</li><li>**GB2312-80:** Vereinfachtes Chinesisch</li><li>**ANSI:** ANSI-codiert</li></ul> |
+| u`<username>` | Gibt den Benutzernamen an, der zum Einbinden der Freigabe verwendet werden soll. Wenn einem *Benutzer* Namen kein umgekehrter Schrägstrich (* *\** ) vorangestellt ist, wird er als Unix-Benutzername behandelt. |
+| cker`<password>` | Das Kennwort, das zum Einbinden der Freigabe verwendet werden soll. Wenn Sie ein Sternchen (**&#42;**) verwenden, werden Sie zur Eingabe des Kennworts aufgefordert. |
+| `<computername>` | Gibt den Namen des NFS-Servers an. |
+| `<sharename>` | Gibt den Namen des Dateisystems an. |
+| `<devicename>` | Gibt den Laufwerk Buchstaben und den Namen des Geräts an. Wenn Sie ein Sternchen (**&#42;**) verwenden, stellt dieser Wert den ersten verfügbaren Treiber Buchstaben dar. |
 
-Das Hilfsprogramm " **Mount** " ist nur verfügbar, wenn der Client für NFS installiert ist.
+## <a name="additional-references"></a>Zusätzliche Referenzen
 
-Die folgenden Optionen und Argumente können mit dem Hilfsprogramm " **Mount** " verwendet werden.
-
-
-|          Begriff          |                                                                                                                                                                                                                                                Definition                                                                                                                                                                                                                                                |
-|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| -o rsize =\<bufferSize> |                                                                                                                                                                                            Legt die Größe des Lese Puffers in Kilobyte fest. Zulässige Werte sind 1, 2, 4, 8, 16 und 32; der Standardwert ist 32 KB.                                                                                                                                                                                            |
-| -o wsize =\<bufferSize> |                                                                                                                                                                                           Legt die Größe des Schreib Puffers in Kilobyte fest. Zulässige Werte sind 1, 2, 4, 8, 16 und 32; der Standardwert ist 32 KB.                                                                                                                                                                                            |
-| -o Timeout =\<Sekunden>  |                                                                                                                                                                       Legt den Timeout Wert für einen Remote Prozedur Aufruf (RPC) in Sekunden fest. Zulässige Werte sind 0,8, 0,9 und jede beliebige ganze Zahl im Bereich 1-60; der Standardwert ist 0,8.                                                                                                                                                                       |
-|   -o Retry =\<Anzahl>   |                                                                                                                                                                                             Legt die Anzahl der Wiederholungs Versuche für eine weiche Bereitstellung fest. Zulässige Werte sind ganze Zahlen im Bereich 1-10; der Standardwert ist 1.                                                                                                                                                                                             |
-|     -o mtype = {Soft     |                                                                                                                                                                                                                                                  stark                                                                                                                                                                                                                                                   |
-|        -o anon         |                                                                                                                                                                                                                                       Wird als anonymer Benutzer bereitgestellt.                                                                                                                                                                                                                                       |
-|       -o NOLOCK        |                                                                                                                                                                                                                                Deaktiviert das Sperren (standardmäßig **aktiviert**).                                                                                                                                                                                                                                |
-|    -o CaseSensitive    |                                                                                                                                                                                                                         Erzwingt bei Datei Suchvorgängen auf dem Server die Groß-/Kleinschreibung.                                                                                                                                                                                                                          |
-| -o FileAccess =\<Mode>  | Gibt den Standard Berechtigungs Modus von neuen Dateien an, die auf der NFS-Freigabe erstellt werden. Geben Sie den *Modus* als dreistellige Zahl in der Form *OGW*an, wobei *o*, *g*und *w* jede Ziffer sind, die den Zugriff auf den Besitzer, die Gruppe und die Welt der Datei darstellt. Die Ziffern müssen zwischen 0-7 und der folgenden Bedeutung liegen:</br>-0: kein Zugriff</br>-1: x (Zugriff ausführen)</br>-2: w (Schreibzugriff)</br>-3: WX</br>-4: r (Lesezugriff)</br>-5: RX</br>-6: RW</br>-7: rwx |
-|    -o lang = {EUC-JP     |                                                                                                                                                                                                                                                  EUC-TW                                                                                                                                                                                                                                                  |
-|     -u:\<username>     |                                                                                                                                                                             Gibt den Benutzernamen an, der zum Einbinden der Freigabe verwendet werden soll. Wenn einem *Benutzer* Namen kein umgekehrter Schrägstrich (**\\**) vorangestellt ist, wird er als Unix-Benutzername behandelt.                                                                                                                                                                             |
-|     -p:\<Kennwort>     |                                                                                                                                                                                          Das Kennwort, das zum Einbinden der Freigabe verwendet werden soll. Wenn Sie ein Sternchen (**&#42;**) verwenden, werden Sie zur Eingabe des Kennworts aufgefordert.                                                                                                                                                                                          |
-
-> [!NOTE]
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: mstsc
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den mstsc-Befehl, der Verbindungen mit Remotedesktop-Sitzungshost Servern oder anderen Remote Computern erstellt, eine vorhandene Remotedesktopverbindung (RDP-Konfigurationsdatei) bearbeitet und ältere Verbindungs Dateien, die mit dem Clientverbindungs-Manager erstellt wurden, in neue RDP-Verbindungs Dateien migriert.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,59 +9,65 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bee9dabe0e9344c7870e53ed34e4c9dd057cfc42
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: a6620cc2f954e43a6e68369f9b1f3480c1fc508c
+ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820840"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84354350"
 ---
 # <a name="mstsc"></a>mstsc
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-von werden Verbindungen mit Remotedesktop-Sitzungshost-Servern (RD-Sitzungs Host) oder anderen Remote Computern hergestellt, eine vorhandene Remotedesktopverbindung (RDP-Konfigurationsdatei) bearbeitet und ältere Verbindungs Dateien, die mit dem Clientverbindungs-Manager erstellt wurden, in neue RDP-Verbindungs Dateien migriert.
-
-> [!NOTE]
-> In Windows Server 2008 R2 heißen die Terminaldienste nun Remotedesktopdienste. Weitere Informationen zu den Neuerungen in der neuesten Version finden Sie unter [What es New in Remotedesktopdienste in Windows Server 2012](https://technet.microsoft.com/library/hh831527) in der TechNet-Bibliothek für Windows Server.
+Erstellt Verbindungen mit Remotedesktop-Sitzungshost Servern oder anderen Remote Computern, bearbeitet eine vorhandene Remotedesktopverbindung (. RDP)-Konfigurationsdatei und migriert ältere Verbindungs Dateien, die mit dem Clientverbindungs-Manager erstellt wurden, in neue RDP-Verbindungs Dateien.
 
 ## <a name="syntax"></a>Syntax
+
 ```
-mstsc.exe [<Connection File>] [/v:<Server>[:<Port>]] [/admin] [/f] [/w:<Width> /h:<Height>] [/public] [/span]
-mstsc.exe /edit <Connection File>
+mstsc.exe [<connectionfile>] [/v:<server>[:<port>]] [/admin] [/f] [/w:<width> /h:<height>] [/public] [/span]
+mstsc.exe /edit <connectionfile>
 mstsc.exe /migrate
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|        Parameter        |                                                         BESCHREIBUNG                                                         |
-|-------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-|    <Connection File>    |                                   Gibt den Namen einer RDP-Datei für die Verbindung an.                                    |
-|  /v: <Server \> [: <Port \> ] |                Gibt den Remote Computer und optional die Portnummer an, mit der Sie eine Verbindung herstellen möchten.                 |
-|         /admin          |                                   Stellt eine Verbindung mit einer-Sitzung zur Verwaltung des-Servers her.                                   |
-|           /f            |                                    startet Remotedesktopverbindung im Vollbildmodus.                                    |
-|       /w<Width>        |                                      Gibt die Breite des Remotedesktop Fensters an.                                      |
-|       /h<Height>       |                                     Gibt die Höhe des Remotedesktop Fensters an.                                      |
-|         /Public         |                  Führt Remotedesktop im öffentlichen Modus aus. Im öffentlichen Modus werden Kenn Wörter und Bitmaps nicht zwischengespeichert.                  |
-|          /Span          | Entspricht der Remotedesktop Breite und-Höhe mit dem lokalen virtuellen Desktop, bei Bedarf über mehrere Monitore hinweg. |
-| /Edit<Connection File> |                                         Öffnet die angegebene RDP-Datei zum Bearbeiten.                                          |
-|        /migrate         |       Migriert Legacy-Verbindungs Dateien, die mit dem Clientverbindungs-Manager erstellt wurden, in neue RDP-Verbindungs Dateien.       |
-|           /?            |                                            Zeigt die Hilfe an der Eingabeaufforderung an.                                             |
+| Parameter | BESCHREIBUNG |
+| --------- | ------------|
+| `<connectionfile>` | Gibt den Namen einer RDP-Datei für die Verbindung an. |
+| /v:`<server>[:<port>]` | Gibt den Remote Computer und optional die Portnummer an, mit der Sie eine Verbindung herstellen möchten. |
+| /admin | Stellt eine Verbindung mit einer-Sitzung zur Verwaltung des-Servers her. |
+| /f | Startet Remotedesktopverbindung im Vollbildmodus. |
+| /w`<width>` | Gibt die Breite des Remotedesktop Fensters an. |
+| /h`<height>` | Gibt die Höhe des Remotedesktop Fensters an. |
+| /Public | Führt Remotedesktop im öffentlichen Modus aus. Im öffentlichen Modus werden Kenn Wörter und Bitmaps nicht zwischengespeichert. |
+| /Span | Entspricht der Remotedesktop Breite und-Höhe mit dem lokalen virtuellen Desktop, bei Bedarf über mehrere Monitore hinweg. |
+| /Edit`<connectionfile>` | Öffnet die angegebene RDP-Datei zum Bearbeiten. |
+| /migrate | Migriert Legacy-Verbindungs Dateien, die mit dem Clientverbindungs-Manager erstellt wurden, in neue RDP-Verbindungs Dateien. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="remarks"></a>Hinweise
--   "Default. RDP" wird für jeden Benutzer als versteckte Datei im Ordner "Dokumente" des Benutzers gespeichert. Vom Benutzer erstellte RDP-Dateien werden standardmäßig im Ordner "Dokumente" des Benutzers gespeichert, können aber an einem beliebigen Speicherort gespeichert werden.
--   Für Monitore muss die gleiche Auflösung verwendet werden, und Sie müssen horizontal ausgerichtet werden (d. h. nebeneinander). Es ist derzeit nicht unterstützt, mehrere Monitore vertikal auf dem Client System zu überspannen.
+#### <a name="remarks"></a>Bemerkungen
 
-## <a name="examples"></a>Beispiele
--   Zum Herstellen einer Verbindung mit einer Sitzung im Vollbildmodus geben Sie Folgendes ein:
-    ```
-    mstsc /f
-    ```
--   Um eine Datei namens filename. RDP zum Bearbeiten zu öffnen, geben Sie Folgendes ein:
-    ```
-    mstsc /edit filename.rdp
-    ```
+- "Default. RDP" wird für jeden Benutzer als versteckte Datei im Ordner " **Dokumente** " des Benutzers gespeichert.
+
+- Vom Benutzer erstellte RDP-Dateien werden standardmäßig im Ordner " **Dokumente** " des Benutzers gespeichert, können aber an einem beliebigen Speicherort gespeichert werden.
+
+- Für Monitore muss die gleiche Auflösung verwendet werden, und Sie müssen horizontal ausgerichtet werden (d. h. nebeneinander). Es ist derzeit nicht unterstützt, mehrere Monitore vertikal auf dem Client System zu überspannen.
+
+### <a name="examples"></a>Beispiele
+
+Zum Herstellen einer Verbindung mit einer Sitzung im Vollbildmodus geben Sie Folgendes ein:
+
+```
+mstsc /f
+```
+
+Um eine Datei namens *filename. RDP* zum Bearbeiten zu öffnen, geben Sie Folgendes ein:
+
+```
+mstsc /edit filename.rdp
+```
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
+
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
--   [Remotedesktopdienste (Terminaldienste): Befehlsreferenz](remote-desktop-services-terminal-services-command-reference.md)

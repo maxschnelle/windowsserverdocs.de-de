@@ -9,18 +9,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f3d5e778ee78d812a3ec8c3683b01e0b304a127e
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 192471e6045a530e9deedec70cc957b9362b3ae7
+ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992338"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84354660"
 ---
 # <a name="makecab"></a>makecab
 
 > Gilt für: Windows Server (halbjährlicher Kanal), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Verpacken vorhandener Dateien in eine CAB-Datei. Dieser Befehl führt dieselben Aktionen aus wie der **diantz** -Befehl.
+Verpacken vorhandener Dateien in eine CAB-Datei.
+
+
+> [!NOTE]
+> Dieser Befehl ist mit dem Befehl " [diantz](diantz.md)" identisch.
 
 ## <a name="syntax"></a>Syntax
 
@@ -38,11 +42,13 @@ makecab [/v[<n>]] [/d var=<value> ...] /f <directives_file> [...]
 | /f `<directives_file>` | Eine Datei mit **makecab** -Direktiven (kann wiederholt werden). |
 | /d var =`<value>` | Definiert die Variable mit dem angegebenen Wert. |
 | /l`<dir>` | Speicherort für das Ziel (Standard ist Aktuelles Verzeichnis). |
-| /v [`<n>`] | Ausführlichkeits Grad für das Debuggen festlegen (0 = keine,..., 3 = vollständig). |
+| /v [ `<n>` ] | Ausführlichkeits Grad für das Debuggen festlegen (0 = keine,..., 3 = vollständig). |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [diantz-Befehl](diantz.md)
 
 - [Microsoft-CAB-Format](https://docs.microsoft.com/previous-versions/bb417343(v=msdn.10))

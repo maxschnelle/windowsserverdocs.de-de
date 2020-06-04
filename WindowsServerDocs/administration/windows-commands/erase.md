@@ -9,19 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 96e0f97e27de8933de44c437508ef59803765771
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 1525f20549b6571975cb622534f8504eb4fa1f79
+ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437125"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84354680"
 ---
 # <a name="erase"></a>erase
 
-Löscht eine oder mehrere Dateien. Mit diesem Befehl werden dieselben Aktionen wie der Befehl " **del** " durchführt.
+Löscht eine oder mehrere Dateien. Wenn Sie **Erase** zum Löschen einer Datei auf dem Datenträger verwenden, können Sie Sie nicht abrufen.
 
-> [!WARNING]
-> Wenn Sie **Erase** zum Löschen einer Datei auf dem Datenträger verwenden, können Sie Sie nicht abrufen.
+> [!NOTE]
+> Dieser Befehl ist mit dem Befehl " [del](del.md)" identisch.
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -32,7 +33,7 @@ del [/p] [/f] [/s] [/q] [/a[:]<attributes>] <names>
 
 ### <a name="parameters"></a>Parameter
 
-| Parameter | Beschreibung |
+| Parameter | BESCHREIBUNG |
 | --------- | ----------- |
 | `<names>` | Gibt eine Liste von mindestens einer Datei oder einem Verzeichnis an. Platzhalter können verwendet werden, um mehrere Dateien zu löschen. Wenn ein Verzeichnis angegeben wird, werden alle Dateien im Verzeichnis gelöscht. |
 | /p | Fordert vor dem Löschen der angegebenen Datei eine Bestätigung an. |
@@ -42,7 +43,7 @@ del [/p] [/f] [/s] [/q] [/a[:]<attributes>] <names>
 | /a [:]`<attributes>` | Löscht Dateien basierend auf den folgenden Dateiattributen:<ul><li>schreibgeschützte **r** -Dateien</li><li>**h** ausgeblendete Dateien</li><li>indizierte Dateien **sind nicht Inhalts**</li><li>**s** -System Dateien</li><li>**Dateien,** die für die Archivierung bereit sind</li><li>**l** -Analyse Punkte</li><li>**-** Wird als Präfix mit der Bedeutung "Not" verwendet.</li></ul>. |
 | /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-#### <a name="remarks"></a>Hinweise
+#### <a name="remarks"></a>Bemerkungen
 
 - Wenn Sie den `erase /p` Befehl verwenden, wird die folgende Meldung angezeigt:
 
@@ -97,3 +98,5 @@ erase /a:r *.*
 ## <a name="additional-references"></a>Zusätzliche Referenzen
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "del"](del.md)

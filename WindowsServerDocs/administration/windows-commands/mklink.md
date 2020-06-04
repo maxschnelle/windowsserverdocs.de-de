@@ -1,6 +1,6 @@
 ---
 title: mklink
-description: Referenz Thema für * * * *-
+description: Referenz Thema für den mklink-Befehl, mit dem ein Verzeichnis oder eine Datei als symbolischer oder fester Link erstellt wird.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,45 +9,51 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e4bfa1c928b5bc5f4c5a885378f0f1d1c9b99cf5
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 2f998533ce3184213786a341c2413e7323496e96
+ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437135"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84354610"
 ---
 # <a name="mklink"></a>mklink
-Erstellt eine symbolische Verknüpfung.
 
-
+Erstellt einen symbolischen oder festen Link für ein Verzeichnis oder eine Datei.
 
 ## <a name="syntax"></a>Syntax
 
 ```
-mklink [[/d] | [/h] | [/j]] <Link> <Target>
+mklink [[/d] | [/h] | [/j]] <link> <target>
 ```
 
 ### <a name="parameters"></a>Parameter
 
-|Parameter|Beschreibung|
-|---------|-----------|
-|/d|Erstellt einen symbolischen Verzeichnis Link. Standardmäßig erstellt **mklink** einen symbolischen Datei Link.|
-|/h|Erstellt einen festen Link anstelle eines symbolischen Links.|
-|/j|Erstellt eine Verzeichnis Verknüpfung.|
-|\<Link>|Gibt den Namen der symbolischen Verknüpfung an, die erstellt wird.|
-|\<Target>|Gibt den Pfad (relative oder absolute) an, auf den die neue symbolische Verknüpfung verweist.|
-|/?|Zeigt die Hilfe an der Eingabeaufforderung an.|
+| Parameter | BESCHREIBUNG |
+| --------- | ----------- |
+| /d | Erstellt einen symbolischen Verzeichnis Link. Standardmäßig erstellt dieser Befehl einen symbolischen Datei Link. |
+| /h | Erstellt einen festen Link anstelle eines symbolischen Links. |
+| /j | Erstellt eine Verzeichnis Verknüpfung. |
+| `<link>` | Gibt den Namen der symbolischen Verknüpfung an, die erstellt wird. |
+| `<target>` | Gibt den Pfad (relative oder absolute) an, auf den die neue symbolische Verknüpfung verweist. |
+| /? | Zeigt die Hilfe an der Eingabeaufforderung an. |
 
-## <a name="examples"></a>Beispiele
+### <a name="examples"></a>Beispiele
 
-Veranschaulicht das Erstellen und Entfernen einer symbolischen Verknüpfung mit dem Namen "MyFolder" und "MyFile. File" aus dem Stammverzeichnis in das Verzeichnis "\Users\User1\Documents" und eine Beispieldatei im Verzeichnis:
+Zum Erstellen und Entfernen einer symbolischen Verknüpfung mit dem Namen "MyFolder" und "MyFile. File" aus dem Stammverzeichnis in das Verzeichnis "\Users\User1\Documents" und eine Datei im Verzeichnis "example." geben Sie Folgendes ein:
+
 ```
 mklink /d \MyFolder \Users\User1\Documents
 mklink /h \MyFile.file \User1\Documents\example.file
 rd \MyFolder
 del \MyFile.file
 ```
+
 ## <a name="additional-references"></a>Zusätzliche Referenzen
--   [New-Item](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/new-item?view=powershell-6)
--   [del](https://docs.microsoft.com/windows-server/administration/windows-commands/del)
--   [rmdir](https://docs.microsoft.com/windows-server/administration/windows-commands/rd)
+
+- [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
+
+- [Befehl "del"](del.md)
+
+- [RD-Befehl](rd.md)
+
+- [New-Item in Windows PowerShell](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/new-item?view=powershell-6)

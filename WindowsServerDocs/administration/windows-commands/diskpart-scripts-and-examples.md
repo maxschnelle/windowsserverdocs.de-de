@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f3e781e49aa978288de45da90224a3f1c2b247b1
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 546f867b2cde199f54975a127b0faf11130996d2
+ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992490"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84354670"
 ---
 # <a name="diskpart-scripts-and-examples"></a>DiskPart-Skripts und-Beispiele
 
@@ -22,7 +22,7 @@ ms.locfileid: "82992490"
 
 Verwenden `diskpart /s` Sie zum Ausführen von Skripts zum Automatisieren von Datenträger bezogenen Aufgaben, z. b. zum Erstellen von Volumes oder zum wandeln von Datenträgern in Das Erstellen von Skripts für diese Aufgaben ist hilfreich, wenn Sie Windows mithilfe der unbeaufsichtigten Installation oder des sytinp-Tools bereitstellen, das das Erstellen von Volumes außer dem Start Volume nicht unterstützt.
 
-Erstellen Sie zum Erstellen eines DiskPart-Skripts eine Textdatei, die die Diskpart-Befehle enthält, die Sie ausführen möchten, mit einem Befehl pro Zeile und ohne leere Zeilen. Sie können eine Zeile mit `rem` starten, um die Zeile zu einem Kommentar zu machen. Hier ist beispielsweise ein Skript, das einen Datenträger zurücksetzt und dann eine 300 MB-Partition für die Windows-Wiederherstellungs Umgebung erstellt:
+Erstellen Sie zum Erstellen eines DiskPart-Skripts eine Textdatei, die die Diskpart-Befehle enthält, die Sie ausführen möchten, mit einem Befehl pro Zeile und ohne leere Zeilen. Sie können eine Zeile mit starten `rem` , um die Zeile zu einem Kommentar zu machen. Hier ist beispielsweise ein Skript, das einen Datenträger zurücksetzt und dann eine 300 MB-Partition für die Windows-Wiederherstellungs Umgebung erstellt:
 
     ```
     select disk 0
@@ -47,9 +47,9 @@ Erstellen Sie zum Erstellen eines DiskPart-Skripts eine Textdatei, die die Diskp
     diskpart /s scriptname.txt > logfile.txt
     ```
 
-### <a name="remarks"></a>Hinweise
+### <a name="remarks"></a>Bemerkungen
 
-- Wenn Sie den **DiskPart** -Befehl als Teil eines Skripts verwenden, empfiehlt es sich, alle DiskPart-Vorgänge zusammen als Teil eines einzelnen DiskPart-Skripts abzuschließen. Sie können aufeinander folgende DiskPart-Skripts ausführen. Sie müssen jedoch mindestens 15 Sekunden zwischen den einzelnen Skripts für das vollständige Herunterfahren der vorherigen Ausführung zulassen, bevor Sie den **DiskPart** -Befehl erneut in aufeinander folgenden Skripts ausführen. Andernfalls können die nachfolgenden Skripts fehlschlagen. Sie können eine Pause zwischen aufeinander folgenden DiskPart-Skripts hinzu `timeout /t 15` fügen, indem Sie den Befehl der Batchdatei zusammen mit den DiskPart-Skripts hinzufügen.
+- Wenn Sie den **DiskPart** -Befehl als Teil eines Skripts verwenden, empfiehlt es sich, alle DiskPart-Vorgänge zusammen als Teil eines einzelnen DiskPart-Skripts abzuschließen. Sie können aufeinander folgende DiskPart-Skripts ausführen. Sie müssen jedoch mindestens 15 Sekunden zwischen den einzelnen Skripts für das vollständige Herunterfahren der vorherigen Ausführung zulassen, bevor Sie den **DiskPart** -Befehl erneut in aufeinander folgenden Skripts ausführen. Andernfalls können die nachfolgenden Skripts fehlschlagen. Sie können eine Pause zwischen aufeinander folgenden DiskPart-Skripts hinzufügen, indem Sie den `timeout /t 15` Befehl der Batchdatei zusammen mit den DiskPart-Skripts hinzufügen.
 
 - Wenn Diskpart gestartet wird, werden die Diskpart-Version und der Computername an der Eingabeaufforderung angezeigt. Wenn Diskpart beim Versuch, eine Skript gesteuerte Aufgabe auszuführen, einen Fehler feststellt, beendet DiskPart standardmäßig die Verarbeitung des Skripts und zeigt einen Fehlercode an (es sei denn, Sie haben den **Noerr** -Parameter angegeben). DiskPart gibt jedoch immer Fehler zurück, wenn Syntax Fehler auftreten, unabhängig davon, ob Sie den **Noerr** -Parameter verwendet haben. Mit dem **Noerr** -Parameter können Sie nützliche Aufgaben ausführen, z. b. die Verwendung eines einzelnen Skripts, um alle Partitionen auf allen Datenträgern unabhängig von der Gesamtzahl der Datenträger zu löschen.
 
@@ -57,8 +57,8 @@ Erstellen Sie zum Erstellen eines DiskPart-Skripts eine Textdatei, die die Diskp
 
 - [Erläuterung zur Befehlszeilensyntax](command-line-syntax-key.md)
 
-- [Beispiel: Konfigurieren von UEFI\/GPT\--basierten Festplattenpartitionen mit Windows PE und DiskPart](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825686(v=win.10))
+- [Beispiel: Konfigurieren von UEFI/GPT-basierten Festplattenpartitionen mit Windows PE und DiskPart](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825686(v=win.10))
 
-- [Beispiel: Konfigurieren von\/BIOS\--MBR-basierten Festplattenpartitionen mit Windows PE und DiskPart](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825677(v=win.10))
+- [Beispiel: Konfigurieren von BIOS/MBR-basierten Festplattenpartitionen mit Windows PE und DiskPart](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825677(v=win.10))
 
 - [Speicher-Cmdlets in Windows PowerShell](https://docs.microsoft.com/powershell/module/storage/?view=win10-ps)
