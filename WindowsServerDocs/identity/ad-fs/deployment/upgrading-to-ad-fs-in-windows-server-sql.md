@@ -8,12 +8,12 @@ ms.prod: windows-server
 ms.assetid: 70f279bf-aea1-4f4f-9ab3-e9157233e267
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: e9488357eecb4a2093d6989e4ebfcc195ce68567
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 090e5c9ffbbaaa6720eb8e938019c08baff681cf
+ms.sourcegitcommit: 2cc251eb5bc3069bf09bc08e06c3478fcbe1f321
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80854003"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84333931"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-with-sql-server"></a>Aktualisieren auf AD FS in Windows Server 2016 mit SQL Server
 
@@ -45,7 +45,7 @@ Der Rest des Dokuments ist die Schritte zum Hinzufügen eines Windows Server 201
 
 Das folgende Architektur Diagramm zeigt das Setup, das zum Überprüfen und Aufzeichnen der nachfolgenden Schritte verwendet wurde.
 
-![Architektur](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/arch.png)
+![Aufbau](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/arch.png)
 
 
 #### <a name="join-the-windows-2016-ad-fs-server-to-the-ad-fs-farm"></a>Fügen Sie den Windows 2016 AD FS Server der AD FS Farm hinzu.
@@ -53,12 +53,12 @@ Das folgende Architektur Diagramm zeigt das Setup, das zum Überprüfen und Aufz
 1.  Installieren Sie mithilfe Server-Manager die Active Directory-Verbunddienste (AD FS) Rolle auf Windows Server 2016.  
 
 2.  Fügen Sie mit dem Konfigurations-Assistenten für AD FS den neuen Windows Server 2016-Server der vorhandenen AD FS Farm hinzu.  Klicken Sie auf der **Willkommens** Seite auf **weiter**.
- ![beitreten zu einer Farm](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure1.png)  
+ ![Farm beitreten](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure1.png)  
 3.  Auf dem Bildschirm **mit Active Directory Domain Services verbinden** wird**ein Administrator Konto** mit Berechtigungen zum Durchführen der Verbund Dienst Konfiguration angezeigt, und klicken Sie auf **weiter**.
 4.  Geben Sie auf dem Bildschirm **Farm angeben** den Namen des SQL-Servers und der Instanz ein, und klicken Sie dann auf **weiter**.
-![beitreten zu einer Farm](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure3.png)
+![Farm beitreten](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure3.png)
 5.  Geben Sie auf dem Bildschirm **SSL-Zertifikat angeben** das Zertifikat an, und klicken Sie auf **weiter**.
-![beitreten zu einer Farm](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure4.png)
+![Farm beitreten](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/configure4.png)
 6.  Geben Sie auf dem Bildschirm **Dienst Konto angeben** das Dienst Konto an, und klicken Sie auf **weiter**.
 7.  Überprüfen Sie auf dem Bildschirm **Überprüfungs Optionen** die Optionen, und klicken Sie auf **weiter**.
 8.  Vergewissern Sie sich, dass auf dem Bildschirm **Voraussetzungs Prüfungen** alle erforderlichen Überprüfungen erfolgreich waren, und klicken Sie dann auf **Konfigurieren**.
@@ -84,13 +84,13 @@ Das folgende Architektur Diagramm zeigt das Setup, das zum Überprüfen und Aufz
 Vor diesem Schritt müssen Sie sicherstellen, dass ForestPrep und DomainPrep in Ihrer Active Directory Umgebung ausgeführt wurden und dass Active Directory über das Schema Windows Server 2016 verfügt.  Dieses Dokument wurde mit einem Windows 2016-Domänen Controller gestartet und erforderte diese Ausführung nicht, da Sie bei der Installation von AD ausgeführt wurden.
 
 >[!NOTE]
->Vergewissern Sie sich vor dem Starten des nachfolgenden Prozesses, dass Windows Server 2016 aktuell ist, indem Sie Windows Update von Einstellungen ausführen.  Setzen Sie diesen Prozess fort, bis keine weiteren Updates benötigt werden.
+>Vergewissern Sie sich vor dem Starten des nachfolgenden Prozesses, dass Windows Server 2016 aktuell ist, indem Sie Windows Update von Einstellungen ausführen.  Setzen Sie diesen Prozess fort, bis keine weiteren Updates erforderlich sind. Stellen Sie außerdem sicher, dass das Konto des AD FS-Dienst Kontos über die Administrator Berechtigungen für den SQL-Server und jeden Server in der AD FS-Farm verfügt.
 
 1. Öffnen Sie nun auf dem Windows Server 2016-Server PowerShell, und führen Sie den folgenden Befehl aus: **$cred = Get-Credential** und drücken Sie die EINGABETASTE.
 2. Geben Sie Anmelde Informationen ein, die auf dem SQL Server über Administratorrechte verfügen.
 3. Geben Sie nun in PowerShell Folgendes ein: **aufrufen-adfsfarmverhalorlevelraise-Credential $cred**
 2. Geben Sie bei entsprechender Aufforderung **Y**ein.  Dadurch wird die Ebene erhöht.  Nachdem dieser Vorgang abgeschlossen ist, haben Sie die voll qualifizierte vollständig ausgelöst.  
-![Update beenden](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/finish1.png)
+![Update abschließen](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/finish1.png)
 3. Wenn Sie nun AD FS Verwaltung wechseln, werden die neuen Knoten angezeigt, die für AD FS in Windows Server 2016 hinzugefügt wurden.  
 4. Ebenso können Sie das PowerShell-Cmdlet "Get-adfsfarminformation" verwenden, um den aktuellen FBL anzuzeigen.  
 ![Update abschließen](media/Upgrading-to-AD-FS-in-Windows-Server-2016-SQL/finish2.png)

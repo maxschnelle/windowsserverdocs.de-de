@@ -8,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: cb5fd0ff432e441900e379d3fe798dbe6aef855f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f43b3052d64c7a5766e014aa47063c7e17a7d2ab
+ms.sourcegitcommit: 2cc251eb5bc3069bf09bc08e06c3478fcbe1f321
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80816103"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84333941"
 ---
 # <a name="update-password-customization"></a>Aktualisieren der Kenn Wort Anpassung 
 
@@ -22,9 +22,9 @@ In einigen Fällen können Benutzer möglicherweise keine Verbindung mit dem Unt
   
 Sie können die Seite zum Aktualisieren des Kennworts anpassen, indem Sie eine eigene Beschreibung für die Seite bereitstellen.  
   
-> Navigieren Sie zum Aktivieren der Seite zum Aktualisieren des Kennworts zur AD FS-Verwaltungs unter Endpunkte. Der Endpunkt für das Aktualisieren des Kennworts befindet sich im unteren Bereich unter „Andere – /adfs/portal/updatepassword/“. Nachdem Sie den Endpunkt aktiviert haben, müssen Sie den AD FS-Dienst neu starten. Dies muss manuell durchgeführt werden. Sie können dann auf einem mit dem Arbeitsplatz verbundenen Gerät zu https://<fqdn>/adfs/portal/updatepassword/ navigieren, wo die Seite zum Aktualisieren des Kennworts angezeigt werden sollte.  
+> Navigieren Sie zum Aktivieren der Seite zum Aktualisieren des Kennworts zur AD FS-Verwaltungs unter Endpunkte. Der Endpunkt für das Aktualisieren des Kennworts befindet sich im unteren Bereich unter „Andere – /adfs/portal/updatepassword/“. Nachdem Sie den Endpunkt aktiviert haben, müssen Sie den AD FS-Dienst neu starten. Dies muss manuell durchgeführt werden. Wenn Sie davon ausgehen, dass Sie die Webseite zum Aktualisieren von Kenn Wörtern extern verwenden und den webanwendungsproxy verwenden, müssen Sie diese Option auf dem Proxy aktivieren (auf dem Proxy aktivieren). Sie können dann auf einem mit dem Arbeitsplatz verbundenen Gerät zu https://<fqdn>/adfs/portal/updatepassword/ navigieren, wo die Seite zum Aktualisieren des Kennworts angezeigt werden sollte.  
   
-![update](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom5.png)  
+![Update](media/AD-FS-user-sign-in-customization/ADFS_Blue_Custom5.png)  
   
 ## <a name="customize-the-update-password-page-description"></a>Anpassen der Beschreibung für die Seite zum Aktualisieren des Kennworts  
 Verwenden Sie zum Anpassen der Beschreibung der Seite zum Aktualisieren des Kennworts das folgende Windows PowerShell-Cmdlet und die folgende Syntax.  

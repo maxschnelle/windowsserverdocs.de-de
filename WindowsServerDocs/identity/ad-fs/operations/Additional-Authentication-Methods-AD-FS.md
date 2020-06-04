@@ -8,12 +8,12 @@ ms.date: 09/19/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 8a53a4cfca4f34459102b8edc8e6af82f36be70d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ff129f2b049d3e17e6b39d653cc3962eba75090b
+ms.sourcegitcommit: 2cc251eb5bc3069bf09bc08e06c3478fcbe1f321
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358370"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84333901"
 ---
 # <a name="configure-3rd-party-authentication-providers-as-primary-authentication-in-ad-fs-2019"></a>Konfigurieren von Drittanbieter-Authentifizierungs Anbietern als primäre Authentifizierung in AD FS 2019
 
@@ -31,7 +31,7 @@ Es gibt zwei wichtige Szenarien, die dies ermöglichen:
 Schützen Sie die Kenn Wort basierte Anmeldung vor Brute-Force-Angriffen und-sperren, indem Sie zuerst einen zusätzlichen, externen Faktor anfordern.  Nur wenn die externe Authentifizierung erfolgreich abgeschlossen wurde, wird dem Benutzer eine Kenn Wort Eingabeaufforderung angezeigt.  Dadurch wird verhindert, dass Angreifer versuchen, Konten zu kompromittieren oder zu deaktivieren.
 
 Dieses Szenario besteht aus zwei Komponenten:
-- Eingabeaufforderung für Azure MFA oder einen externen Authentifizierungs Faktor als primäre Authentifizierung
+- Anfordern von Azure MFA (verfügbar ab AD FS 2016) oder eines externen Authentifizierungs Faktors als primäre Authentifizierung
 - Benutzername und Kennwort als zusätzliche Authentifizierung in AD FS
 
 ## <a name="scenario-2-password-free"></a>Szenario 2: Kennwort kostenlos!
@@ -39,14 +39,14 @@ Kenn Wörter vollständig ausschließen, aber eine starke Multi-Factor Authentic
 - Azure MFA mit Authenticator-App
 - Windows 10 Hello for Business
 - Zertifikatauthentifizierung
-- Externe Authentifizierungs Anbieter
+- Externe Authentifizierungsanbieter
 
 ## <a name="concepts"></a>Konzepte
 Die **primäre Authentifizierung** bedeutet, dass es sich um die Methode handelt, nach der der Benutzer vor weiteren Faktoren zur Eingabe aufgefordert wird.  Zuvor waren die einzigen primären Methoden, die in AD FS verfügbar waren, in Methoden für Active Directory oder Azure MFA oder andere LDAP-Authentifizierungs Speicher integriert.  Externe Methoden können als "zusätzliche" Authentifizierung konfiguriert werden, die nach erfolgreichem Abschluss der primären Authentifizierung erfolgt.
 
-In AD FS 2019 bedeutet die externe Authentifizierung als primäre Funktion, dass alle externen Authentifizierungs Anbieter, die in der AD FS Farm registriert sind (mithilfe von Register-adfsauthenticationprovider), für die primäre Authentifizierung und "Weitere" verfügbar sind. Genehmigung. Sie können auf die gleiche Weise wie die integrierten Anbieter wie Formular Authentifizierung und Zertifikat Authentifizierung für die Intranet-und/oder Extranetverwendung aktiviert werden.
+In AD FS 2019 bedeutet die externe Authentifizierung als primäre Funktion, dass externe Authentifizierungs Anbieter, die in der AD FS Farm registriert sind (mit Register-adfsauthenticationprovider), für die primäre Authentifizierung und die "zusätzliche" Authentifizierung verfügbar sind. Sie können auf die gleiche Weise wie die integrierten Anbieter wie Formular Authentifizierung und Zertifikat Authentifizierung für die Intranet-und/oder Extranetverwendung aktiviert werden.
 
-![Authentifizierung](media/Additional-Authentication-Methods-AD-FS/auth1.png)
+![authentication](media/Additional-Authentication-Methods-AD-FS/auth1.png)
 
 Sobald ein externer Anbieter für das Extranet, das Intranet oder beides aktiviert ist, kann er von Benutzern verwendet werden.  Wenn mehr als eine Methode aktiviert ist, wird Benutzern eine Auswahl Seite angezeigt, und Sie können eine primäre Methode auswählen, genauso wie bei der zusätzlichen Authentifizierung.
 
@@ -63,7 +63,7 @@ Bevor Sie externe Authentifizierungs Anbieter als primär konfigurieren, stellen
 ## <a name="enable-external-authentication-methods-as-primary"></a>Externe Authentifizierungsmethoden als primär aktivieren
 Nachdem Sie die Voraussetzungen überprüft haben, gibt es zwei Möglichkeiten, um AD FS zusätzlichen Authentifizierungs Anbietern als primär zu konfigurieren:
 
-### <a name="using-powershell"></a>Mithilfe der PowerShell
+### <a name="using-powershell"></a>Verwenden von PowerShell
 
 
 ```powershell
@@ -74,7 +74,7 @@ PS C:\> Set-AdfsGlobalAuthenticationPolicy -AllowAdditionalAuthenticationAsPrima
 Der AD FS-Dienst muss nach dem Aktivieren oder Deaktivieren der zusätzlichen Authentifizierung als primär neu gestartet werden.
 
 ### <a name="using-the-ad-fs-management-console"></a>Verwenden der AD FS-Verwaltungskonsole
-Klicken Sie in der AD FS-Verwaltungskonsole unter **Dienst** -> **Authentifizierungsmethoden**unter **primäre Authentifizierungsmethoden**auf Bearbeiten.
+Klicken Sie in der AD FS-Verwaltungskonsole unter **Dienst**  ->  **Authentifizierungsmethoden**unter **primäre Authentifizierungsmethoden**auf Bearbeiten.
 
 Aktivieren Sie das Kontrollkästchen **zusätzliche Authentifizierungs Anbieter als Primäranbieter zulassen**.
 
@@ -82,7 +82,7 @@ Der AD FS-Dienst muss nach dem Aktivieren oder Deaktivieren der zusätzlichen Au
 
 ## <a name="enable-username-and-password-as-additional-authentication"></a>Benutzernamen und Kennwort als zusätzliche Authentifizierung aktivieren
 Aktivieren Sie den Benutzernamen und das Kennwort mithilfe von PowerShell oder der AD FS Management Console als zusätzliche Authentifizierung, um das Szenario "Schützen des Kennworts" abzuschließen.
-### <a name="using-powershell"></a>Mithilfe der PowerShell
+### <a name="using-powershell"></a>Verwenden von PowerShell
 
 
 
@@ -95,6 +95,6 @@ PS C:\>Set-AdfsGlobalAuthenticationPolicy -AdditionalAuthenticationProvider $pro
 ``` 
 
 ### <a name="using-the-ad-fs-management-console"></a>Verwenden der AD FS-Verwaltungskonsole
-Klicken Sie in der AD FS-Verwaltungskonsole unter " **Dienst** -> **Authentifizierungsmethoden**" unter **zusätzliche Authentifizierungsmethoden**auf **Bearbeiten** .
+Klicken Sie in der AD FS-Verwaltungskonsole unter " **Dienst**  ->  **Authentifizierungsmethoden**" unter **zusätzliche Authentifizierungsmethoden**auf **Bearbeiten** .
 
 Aktivieren Sie das Kontrollkästchen für die **Formular Authentifizierung** , um Benutzername und Kennwort als zusätzliche Authentifizierung zu aktivieren.

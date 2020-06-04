@@ -8,12 +8,12 @@ ms.date: 05/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 843ed0b3ebf25d662d0b90c17f8fe23548829a7e
-ms.sourcegitcommit: 371e59315db0cca5bdb713264a62b215ab43fd0f
+ms.openlocfilehash: 13f25252d60cb0bde67cca1e1aa5106435c3f361
+ms.sourcegitcommit: 2cc251eb5bc3069bf09bc08e06c3478fcbe1f321
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192600"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84333914"
 ---
 # <a name="ad-fs-extranet-lockout-and-extranet-smart-lockout"></a>AD FS Extranet Lockout und Extranet Smart Lockout
 
@@ -144,14 +144,14 @@ Die Tabelle accountactivity wird im Modus "nur Protokoll" und im Modus "erzwinge
 Diese Funktion nutzt Sicherheits Überwachungs Protokolle, sodass die Überwachung sowohl in AD FS als auch in der lokalen Richtlinie auf allen AD FS Servern aktiviert werden muss.
 
 ### <a name="configuration-instructions"></a>Konfigurationsanweisungen
-Extranet Smart Lockout verwendet die ADFS-Eigenschaft **extranetlockoutenabled**. Diese Eigenschaft wurde zuvor zum Steuern der "Extranet Soft Lockout" in Server 2012r2 verwendet. Wenn Extranet Soft Lockout aktiviert war, führen ` Get-AdfsProperties` Sie aus, um die aktuelle Eigenschaften Konfiguration anzuzeigen.
+Extranet Smart Lockout verwendet die ADFS-Eigenschaft **extranetlockoutenabled**. Diese Eigenschaft wurde zuvor zum Steuern der "Extranet Soft Lockout" in Server 2012r2 verwendet. Wenn Extranet Soft Lockout aktiviert war, führen Sie aus, um die aktuelle Eigenschaften Konfiguration anzuzeigen ` Get-AdfsProperties` .
 
 ### <a name="configuration-recommendations"></a>Konfigurationsempfehlungen
 Wenn Sie die Smart Lockout-Extranet konfigurieren, befolgen Sie die bewährten Methoden zum Festlegen von Schwellenwerten:  
 
 `ExtranetObservationWindow (new-timespan -Minutes 30)`
 
-`ExtranetLockoutThreshold: – 2x AD Threshold Value`
+`ExtranetLockoutThreshold: Half of AD Threshold Value`
 
 AD-Wert: 20, extranetlockoutthreshold: 10
 
@@ -287,7 +287,7 @@ Extranet Smart Lockout überprüft Netzwerk-IP-Adressen, weitergeleitete IPS, de
 
 * * F: kann ich die Größe von adfsartifactstore vor dem Aktivieren von ESL schätzen?
 
-A: bei aktiviertem ESL werden AD FS die Kontoaktivität und die bekannten Speicherorte für Benutzer in der adfsartifactstore-Datenbank nachverfolgt. Die Größe dieser Datenbank wird relativ zur Anzahl der Benutzer und bekannten Standorte skaliert. Wenn Sie die Aktivierung von ESL planen, können Sie die Größe der adfsartifactstore-Datenbank mit einer Rate von bis zu 1 GB pro 100.000 Benutzer schätzen. Wenn die AD FS-Farm die interne Windows-Datenbank (WID) verwendet, lautet der Standard Speicherort für die Datenbankdateien c:\windows\wid\data\. Um das Auffüllen dieses Laufwerks zu verhindern, stellen Sie sicher, dass mindestens 5 GB freier Speicherplatz verfügbar sind, bevor Sie die ESL aktivieren. Planen Sie zusätzlich zum Datenträger Speicher den gesamten Prozess Arbeitsspeicher, der nach dem Aktivieren von ESL erweitert werden soll, um bis zu 1 GB RAM für die Benutzer Population von 500.000 oder weniger.
+A: bei aktiviertem ESL werden AD FS die Kontoaktivität und die bekannten Speicherorte für Benutzer in der adfsartifactstore-Datenbank nachverfolgt. Die Größe dieser Datenbank wird relativ zur Anzahl der nachverfolgten Benutzer und bekannten Standorte skaliert. Beim Planen der Aktivierung von ESL können Sie die Größenzunahme für die ADFSArtifactStore-Datenbank auf eine Rate von bis zu 1 GB pro 100.000 Benutzer schätzen. Wenn die AD FS-Farm die interne Windows-Datenbank (WID) verwendet, lautet der Standard Speicherort für die Datenbankdateien c:\windows\wid\data\. Um das Auffüllen dieses Laufwerks zu verhindern, stellen Sie sicher, dass mindestens 5 GB freier Speicherplatz verfügbar sind, bevor Sie ESL aktivieren. Planen Sie zusätzlich zum Datenträgerspeicher, dass der gesamte Prozessspeicher nach der Aktivierung von ESL um bis zu weitere 1 GB RAM für Benutzerauffüllungen von maximal 500.000 größer wird.
 
 
 ## <a name="additional-references"></a>Weitere Verweise  
