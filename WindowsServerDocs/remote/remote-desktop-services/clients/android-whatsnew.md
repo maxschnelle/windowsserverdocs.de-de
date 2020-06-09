@@ -7,18 +7,63 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 09/11/2019
+ms.date: 06/04/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 3c0c5be0c4cf274224d25b62f7553ae49f8219b2
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 176c601d98ebc743e455c5f83efe2c10267a38ba
+ms.sourcegitcommit: 5fac756c2c9920757e33ef0a68528cda0c85dd04
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80854673"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84306449"
 ---
 # <a name="whats-new-in-the-android-client"></a>Neues beim Android-Client
 
 Der [Remotedesktopclient für Android](remote-desktop-android.md) wird regelmäßig mit neuen Features und Problembehebungen aktualisiert. Hier findest du die neuesten Updates.
+
+## <a name="updates-for-version-8180"></a>Updates für Version 8.1.80
+
+*Veröffentlicht am: 26.05.2020*
+
+- Das Clientsymbol wurde geändert, um es vom neuen Client zu unterscheiden, der sich gerade in der Vorschau befindet.
+- Der Client wurde für die Unterstützung der Übertragung von Einstellungen und Verbindungen zum neuen Client vorbereitet.
+
+## <a name="updates-for-version-8179"></a>Updates für Version 8.1.79
+
+*Veröffentlicht am: 24.03.2020*
+
+- Es wurde ein Problem behoben, durch das Barcodescanner nicht funktionierten.
+
+## <a name="updates-for-version-8177"></a>Updates für Version 8.1.77
+
+*Veröffentlicht am: 11.02.2020*
+
+- Verbesserte Barrierefreiheit für Benutzer der reinen Tastaturnavigation.
+
+## <a name="updates-for-version-8176"></a>Updates für Version 8.1.76
+
+*Veröffentlicht am: 09.01.2020*
+
+- Kleinere Fehlerbehebungen und Verbesserungen
+
+## <a name="updates-for-version-8175"></a>Updates für Version 8.1.75
+
+*Veröffentlicht am: 31.10.2019*
+
+- Problem behoben, aufgrund dessen manche Feed-URLs für Remoteressourcen nicht geladen wurden
+- Verbesserte Barrierefreiheit für Benutzer mit reiner Tastaturnavigation und Talkback.
+
+## <a name="updates-for-version-8174"></a>Updates für Version 8.1.74
+
+*Veröffentlicht am: 17.8.2019*
+
+- Die Ursache für einen Absturz beim Verbinden mit Servern, die proprietäre Zertifikate senden, wurde behoben.
+
+## <a name="updates-for-version-8173"></a>Updates für Version 8.1.73
+
+*Veröffentlicht am: 14.6.2019*
+
+- 64-Bit-Unterstützung wurde hinzugefügt.
+- Die in CVE-2019-1108 beschriebenen Sicherheitsprobleme wurden behoben.
 
 ## <a name="updates-for-version-8171"></a>Updates für Version 8.1.71
 
