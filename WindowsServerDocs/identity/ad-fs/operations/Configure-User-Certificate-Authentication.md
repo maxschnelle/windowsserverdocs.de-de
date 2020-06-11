@@ -8,12 +8,12 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4aa2f219852dc97833365645e7455f8141a0988e
-ms.sourcegitcommit: d23f880e144acf0912831557c70f777d48e3152b
+ms.openlocfilehash: c443d596e8e35f7ccf4aa23b622323122a2778e9
+ms.sourcegitcommit: 76a3b5f66e47e08e8235e2d152185b304d03b68b
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84632784"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84663183"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Konfigurieren von AD FS für die Benutzerzertifikat Authentifizierung
 
@@ -29,7 +29,7 @@ Die Benutzerzertifikat Authentifizierung wird hauptsächlich in zwei Anwendungsf
 4) Wenn Sie AD FS im alternativen Zertifikat Authentifizierungsmodus verwenden, stellen Sie sicher, dass Ihre AD FS-und WAP-Server über SSL-Zertifikate verfügen, die den AD FS Hostnamen enthalten, dem das Präfix "certauth" vorangestellt ist, z. b. "certauth.fs.contoso.com"
 5) Wenn Sie die Zertifikat Authentifizierung über das Extranet verwenden, stellen Sie sicher, dass mindestens eine AIA und mindestens ein CDP-oder OCSP-Speicherort aus der Liste, die in ihren Zertifikaten angegeben ist, über das Internet zugänglich sind.
 6) Außerdem muss für die Azure AD Zertifikat Authentifizierung für Exchange ActiveSync-Clients das Client Zertifikat über die Routing fähige e-Mail-Adresse des Benutzers in Exchange Online verfügen, entweder mit dem Prinzipal Namen oder dem Wert des RFC822-namens im Feld "alternativer Antragsteller Name". (Azure Active Directory ordnet den RFC822-Wert dem Proxy Adress Attribut im Verzeichnis zu.)
-7) Bei Verwendung einer Smartcard-/zertifikatbasierten Authentifizierung stimmt der Betreff des Zertifikats möglicherweise nicht mit dem userpricipalname im AD-Konto identisch. In diesem Fall schlägt die Anmeldung mit "Benutzer nicht gefunden" fehl.
+7) Der AD FS unterstützt keine Benutzernamen Hinweise bei der Smartcard-/zertifikatbasierten Authentifizierung. 
 
 
 ## <a name="configure-ad-fs-for-user-certificate-authentication"></a>Konfigurieren von AD FS für die Benutzerzertifikatauthentifizierung  
