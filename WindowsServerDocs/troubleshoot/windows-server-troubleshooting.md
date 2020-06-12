@@ -6,12 +6,12 @@ ms.technology: server-general
 ms.date: 1/24/2020
 author: kaushika-msft
 ms.author: kaushika
-ms.openlocfilehash: e5fdae6e005adf6ea221fb3c2bf3ea09bfbfb03a
-ms.sourcegitcommit: 5c93c685dca3cafeea916cedcc0f915c528484ca
+ms.openlocfilehash: f3012f499e67f73ec9e8ab20b24df122492ea0ea
+ms.sourcegitcommit: fa9a8badf4eb366aeeca7d2905e2cad711ee8dae
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81119259"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84714902"
 ---
 # <a name="troubleshooting-windows-server-components"></a>Problembehandlung bei Windows Server-Komponenten
 
@@ -20,7 +20,7 @@ ms.locfileid: "81119259"
 >   
 > Sie können auch nach bestimmten Informationen [auf dieser Website suchen](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
 
-Microsoft veröffentlicht regelmäßig beide Updates für Windows Server. Um sicherzustellen, dass Ihre Server zukünftige Updates einschließlich der Sicherheitsupdates erhalten können, ist es wichtig, sie auf dem neuesten Stand zu halten. Eine komplette Liste der veröffentlichten Updates finden Sie unter [Updateverlauf für Windows 10 und Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history).
+Microsoft veröffentlicht regelmäßig beide Updates für Windows Server. Um sicherzustellen, dass Ihre Server zukünftige Updates empfangen können (einschließlich Sicherheitsupdates), ist es wichtig, dass die Server aktualisiert werden. Eine komplette Liste der veröffentlichten Updates finden Sie im [Windows 10-und Windows Server 2016-Update Verlauf](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history) .
 
 Dieser Abschnitt enthält erweiterte Themen zur Problembehandlung und Links, die Ihnen helfen, Probleme mit Windows Server zu beheben. Weitere Themen werden hinzugefügt, sobald Sie verfügbar werden.
 
@@ -34,12 +34,12 @@ Dieser Abschnitt enthält erweiterte Themen zur Problembehandlung und Links, die
 - [Bekannte Probleme bei der MAK-Aktivierung](https://docs.microsoft.com/windows-server/get-started/activation-troubleshoot-mak-issues)
 - [Richtlinien für die Problembehandlung von Aktivierungsproblemen im Zusammenhang mit DNS](https://docs.microsoft.com/windows-server/get-started/common-troubleshooting-procedures-kms-dns)
 - [Neuerstellen der Tokens.dat-Datei](https://docs.microsoft.com/windows-server/get-started/activation-rebuild-tokens-dat-file)
-- [Problembehandlung bei ADba-Clients](https://docs.microsoft.com/windows-server/get-started/activation-troubleshoot-adba-clients)
+- [Problembehandlung bei ADBA-Clients](https://docs.microsoft.com/windows-server/get-started/activation-troubleshoot-adba-clients)
 
 ## <a name="troubleshoot-startup-and-restart"></a>Problembehandlung beim Starten und Neustarten
 
 - [Erweiterte Problembehandlung für den Windows-Start](https://docs.microsoft.com/windows/client-management/troubleshoot-windows-startup)
-- [Bestimmen der geeigneten Auslagerungs Dateigröße für 64-Bit-Versionen von Windows](https://docs.microsoft.com/windows/client-management/determine-appropriate-page-file-size)
+- [Vorgehensweise: Bestimmen der geeigneten Auslagerungsdateigröße für 64-Bit-Versionen von Windows](https://docs.microsoft.com/windows/client-management/determine-appropriate-page-file-size)
 - [Generieren eines Kernels oder vervollständigen eines Absturz Abbilds](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump)
 - [Einführung in die Auslagerungs Datei](https://docs.microsoft.com/windows/client-management/introduction-page-file)
 - [Konfigurieren von Systemfehler-und Wiederherstellungsoptionen in Windows](https://docs.microsoft.com/windows/client-management/system-failure-recovery-options)
@@ -63,7 +63,7 @@ Dieser Abschnitt enthält erweiterte Themen zur Problembehandlung und Links, die
 
 ## <a name="troubleshoot-ad-fs"></a>Problembehandlung AD FS
 
-- [Problembehandlung AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-overview)
+- [Problembehandlung für AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-overview)
 - [AD FS Problembehandlung: Überwachungs Ereignisse und Protokollierung](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging)
 - [AD FS Problembehandlung: SQL-Konnektivität](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-sql)
 - [AD FS Problembehandlung: Anspruchs Ausstellung](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-claims-issuance)
@@ -74,7 +74,7 @@ Dieser Abschnitt enthält erweiterte Themen zur Problembehandlung und Links, die
 - [AD FS Problembehandlung: Anspruchs Regeln](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-claims-rules)
 - [AD FS Problembehandlung: integrierte Windows-Authentifizierung](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-iwa)
 - [AD FS Problembehandlung-Azure AD](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-azure)
-- [FAQ zu AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-faq)
+- [AD FS – FAQ](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-faq)
 - [AD FS-Hilfe: Diagnostics Analyzer](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-diagnostics-analyzer)
 
 ## <a name="troubleshoot-aovpn"></a>Problembehandlung bei aovpn
@@ -87,7 +87,7 @@ Dieser Abschnitt enthält erweiterte Themen zur Problembehandlung und Links, die
 
 ## <a name="troubleshoot-dfsr"></a>Problembehandlung bei DFSR
 
-- [DFS-Replikation: häufig gestellte Fragen (FAQ)](https://docs.microsoft.com/windows-server/storage/dfs-replication/dfsr-faq)
+- [DFS-Replikation: Häufig gestellte Fragen](https://docs.microsoft.com/windows-server/storage/dfs-replication/dfsr-faq)
 
 ## <a name="troubleshoot-directaccess"></a>Problembehandlung für DirectAccess
 
@@ -108,6 +108,19 @@ Dieser Abschnitt enthält erweiterte Themen zur Problembehandlung und Links, die
 
 - [Problembehandlung bei einem Failovercluster mit Windows-Fehlerberichterstattung](https://docs.microsoft.com/windows-server/failover-clustering/troubleshooting-using-wer-reports)
 - [Cluster fähiges aktualisieren: häufig gestellte Fragen](https://docs.microsoft.com/windows-server/failover-clustering/cluster-aware-updating-faq)
+- [Problembehandlung bei einem Cluster Problem mit der Ereignis-ID 1135](https://docs.microsoft.com/windows-server/troubleshoot/troubleshooting-cluster-event-id-1135)
+- [Probleme mit Knoten, die aus der Mitgliedschaft des aktiven Failoverclusters entfernt wurden](https://docs.microsoft.com/windows-server/troubleshoot/problem-nodes-failover-cluster)
+- [Knoten, die aus der failoverclustermitgliedschaft in VMware ESX entfernt werden](https://docs.microsoft.com/windows-server/troubleshoot/nodes-failover-cluster-vmware)
+- [IaaS mit SQL Always On: Optimieren der Failovercluster-Netzwerkschwellenwerte](https://docs.microsoft.com/windows-server/troubleshoot/iaas-sql-failover-cluster)
+
+## <a name="troubleshoot-dhcp"></a>Behandeln von Problemen mit DHCP
+
+- [Handbuch zur Problembehandlung für das Dynamic Host Configuration-Protokoll (DHCP)](https://docs.microsoft.com/windows-server/troubleshoot/troubleshoot-dhcp-issue)
+- [Grundlagen von DHCP (Dynamic Host Configuration-Protokoll)](https://docs.microsoft.com/windows-server/troubleshoot/dynamic-host-configuration-protocol-basics)
+- [Allgemeine Richtlinien zur Problembehandlung bei DHCP](https://docs.microsoft.com/windows-server/troubleshoot/general-guidance-to-troubleshoot-dhcp)
+- [Verwenden der automatischen TCP/IP-Adressierung ohne DHCP-Server](https://docs.microsoft.com/windows-server/troubleshoot/how-to-use-automatic-tcpip-addressing-without-a-dh)
+- [Beheben von Problemen auf dem DHCP-Client](https://docs.microsoft.com/windows-server/troubleshoot/troubleshoot-problems-on-dhcp-client)
+- [Beheben von Problemen auf dem DHCP-Server](https://docs.microsoft.com/windows-server/troubleshoot/troubleshoot-problems-on-dhcp-server)
 
 ## <a name="troubleshoot-fsrm"></a>Problembehandlung bei der Fehlerbehebung
 
@@ -149,7 +162,7 @@ Dieser Abschnitt enthält erweiterte Themen zur Problembehandlung und Links, die
 - [Direkte Speicherplätze: häufig gestellte Fragen](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-faq)
 - [Integritäts-und Betriebsstatus direkte Speicherplätze](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-states)
 - [Sammeln von Diagnosedaten mit direkte Speicherplätze](https://docs.microsoft.com/windows-server/storage/storage-spaces/data-collection)
-- [Integritäts Verwaltung für Speicher Klassen Speicher (nvdimm-N) in Windows](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-class-memory-health)
+- [Integritätsverwaltung für Speicherklassenspeicher (NVDIMM-N) in Windows](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-class-memory-health)
 
 ## <a name="troubleshoot-sdn"></a>Problembehandlung für SDN
 
@@ -182,12 +195,12 @@ Dieser Abschnitt enthält erweiterte Themen zur Problembehandlung und Links, die
 
 ## <a name="troubleshoot-storage-replica"></a>Problembehandlung beim Speicher Replikat
 
-- [Bekannte Probleme mit dem Speicher Replikat](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-known-issues)
-- [Häufig gestellte Fragen zum Speicher Replikat](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-frequently-asked-questions)
+- [Bekannte Probleme mit Speicherreplikaten](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-known-issues)
+- [Häufig gestellte Fragen zu Speicherreplikaten](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-frequently-asked-questions)
 
 ## <a name="troubleshoot-user-profiles"></a>Problembehandlung für Benutzerprofile
 
-- [Problembehandlung bei Benutzerprofilen mit Ereignissen](https://docs.microsoft.com/windows-server/storage/folder-redirection/troubleshoot-user-profiles-events)
+- [Problembehandlung von Benutzerprofilen mit Ereignissen](https://docs.microsoft.com/windows-server/storage/folder-redirection/troubleshoot-user-profiles-events)
 
 ## <a name="troubleshoot-vrss"></a>Problembehandlung bei vrss
 
@@ -201,4 +214,4 @@ Dieser Abschnitt enthält erweiterte Themen zur Problembehandlung und Links, die
 
 - [Allgemeine Schritte zur Problembehandlung in Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/support/troubleshooting)
 - [Bekannte Probleme im Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/support/known-issues)
-- [Häufig gestellte Fragen zum Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/faq)
+- [Häufig gestellte Fragen zu Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/understand/faq)
